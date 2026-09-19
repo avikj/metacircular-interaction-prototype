@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- PerspectiveSymmetry
 --
--- Delta 15 §§15.3, 15.4, 15.6 — the three sections
+-- Delta 15 §§15.3, 15.4, 15.6 � the three sections
 -- `StructuredDefect` does not cover.
 --
 -- COLLISION NOTE.  Another mind landed `StructuredDefect.agda` for
@@ -11,14 +11,14 @@
 -- `./sync` produced a genuine merge conflict.  I resolved it to theirs
 -- and moved my complement here rather than clobbering or duplicating.
 -- That is also why this module IMPORTS their `Str` and `Defect` instead
--- of redefining them — and the import turns out to pay for itself:
+-- of redefining them � and the import turns out to pay for itself:
 --
 --     the stabilizer of a structure is exactly its SELF-defect.
 --
 --         Stab S s e  =  Defect {S = S} e s s
 --
 -- So T15.9 (the stabilizer is a subgroup) needs no new proofs at the
--- identity and at composition — `defect-id` and `defect-comp` already ARE
+-- identity and at composition � `defect-id` and `defect-comp` already ARE
 -- those two clauses, at s_A = s_B = s.  Only closure under inverses is
 -- new, and it is Delta 15's own T15.2.  Symmetry breaking (§15.3) and
 -- structured transport (§15.24) are not two mechanisms; the subgroup laws
@@ -27,7 +27,7 @@
 -- CONTENTS (all checked, no postulates, no holes):
 --
 --   §15.3   Stab, stab-id, stab-comp, stab-inv        T15.9, C15.10
---   §15.4   Preserves, Defect-locus, both directions  T15.12–T15.14
+--   §15.4   Preserves, Defect-locus, both directions  T15.12�T15.14
 --           SignFlip.total-defect                      Program 15.16
 --   §15.6   Shift, shift-comp                          T15.22, T15.24
 --
@@ -57,23 +57,23 @@ private
 -- §15.3  Symmetry breaking by extra structure  (D15.8, T15.9, C15.10)
 --
 -- G is Aut A acting by transport.  The stabilizer of s is the set of
--- automorphisms along which s transports to itself — i.e. its own defect
+-- automorphisms along which s transports to itself � i.e. its own defect
 -- type on the diagonal.
 ------------------------------------------------------------------------
 
 Stab : (S : Str ℓ ℓS) {A : Type ℓ} → S A → (A ≃ A) → Type ℓS
 Stab S {A = A} s e = Defect {S = S} e s s
 
--- T15.9, clause 1 — already proved, as `defect-id` at s_A = s_B
+-- T15.9, clause 1 � already proved, as `defect-id` at s_A = s_B
 stab-id : (S : Str ℓ ℓS) {A : Type ℓ} (s : S A) → Stab S s (idEquiv A)
 stab-id S s = defect-id {S = S} s
 
--- T15.9, clause 2 — already proved, as `defect-comp` on the diagonal
+-- T15.9, clause 2 � already proved, as `defect-comp` on the diagonal
 stab-comp : (S : Str ℓ ℓS) {A : Type ℓ} (s : S A) (e f : A ≃ A)
           → Stab S s e → Stab S s f → Stab S s (compEquiv e f)
 stab-comp S s e f = defect-comp {S = S} e f
 
--- T15.9, clause 3 — the only new content, and it is exactly Delta 15's
+-- T15.9, clause 3 � the only new content, and it is exactly Delta 15's
 -- T15.2 (transport along the inverse undoes transport).
 stab-inv : (S : Str ℓ ℓS) {A : Type ℓ} (s : S A) (e : A ≃ A)
          → Stab S s e → Stab S s (invEquiv e)
@@ -99,7 +99,7 @@ stab-inv S s e se = sym (cong (subst S (ua (invEquiv e))) se) ∙ round
 -- §15.4  Polarization  (T15.12, D15.13, T15.14)
 --
 -- Delta 15 C15.15: boundary asymmetry is measurable BEFORE any spectral
--- or topological machinery — first compute the failure locus of predicate
+-- or topological machinery � first compute the failure locus of predicate
 -- invariance.  That locus is a type here, not a cardinality, so a single
 -- point of it is a usable certificate.
 ------------------------------------------------------------------------
@@ -111,7 +111,7 @@ module Polarization {A : Type ℓ} (J : A → A) (P : A → Bool) where
   Preserves : Type ℓ
   Preserves = (a : A) → P a ≡ P (J a)
 
-  -- D15.13: the polarization defect, proof-relevantly — the witness is
+  -- D15.13: the polarization defect, proof-relevantly � the witness is
   -- the point at which polarity flips.
   Locus : Type ℓ
   Locus = Σ[ a ∈ A ] ¬ (P a ≡ P (J a))
@@ -123,13 +123,13 @@ module Polarization {A : Type ℓ} (J : A → A) (P : A → Bool) where
   inhabited→not-preserves : Locus → ¬ Preserves
   inhabited→not-preserves (a , ¬p) pres = ¬p (pres a)
 
--- Program 15.16.  Signed magnitudes `Bool × A`, reflection = sign flip,
+-- Program 15.16.  Signed magnitudes `Bool � A`, reflection = sign flip,
 -- predicate = the sign bit.  EVERY point is in the failure locus: the
 -- reflection destroys positivity everywhere it is defined.
 --
--- HONEST SCOPE.  Delta 15 says "all nonzero points" for ℤ.  This carrier
+-- HONEST SCOPE.  Delta 15 says "all nonzero points" for �.  This carrier
 -- does not identify (true , z) with (false , z), so it has no zero to
--- except — the statement here is therefore about signed magnitudes, and
+-- except � the statement here is therefore about signed magnitudes, and
 -- the missing exception IS the sign-of-zero identification.  Stated
 -- rather than quietly matched.
 module SignFlip (A : Type₀) where
@@ -163,7 +163,7 @@ module Charge {C : Type₀} (_⊕_ : C → C → C)
   Shift δ = (c : C) → X c → X (c ⊕ δ)
 
   -- T15.22: shifts add under composition.  Associativity of the charge
-  -- monoid is exactly what is needed to NAME the target charge — which is
+  -- monoid is exactly what is needed to NAME the target charge � which is
   -- why the monoid cannot be dropped from the definition of a grading.
   shift-comp : {δ ε : C} → Shift δ → Shift ε → Shift (δ ⊕ ε)
   shift-comp {δ = δ} {ε = ε} S T c x =

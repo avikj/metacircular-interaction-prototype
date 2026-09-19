@@ -1,38 +1,38 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Vi≈õrƒÅnti ‚Äî coming to rest.
+-- Virnti ‚î coming to rest.
 --
--- TERM.  ‡§µ‡§ø‡§∂‡•ç‡§∞‡§æ‡§®‡•ç‡§§‡§ø, rest / cessation of effort.  The compound is chosen
+-- TERM.  ‡µ‡ø‡‡‡∞‡æ‡®‡‡‡ø, rest / cessation of effort.  The compound is chosen
 -- here for the normal form and NO source is claimed for it: it is an
--- ordinary Sanskrit word, not a technical term of any school, and nothing
--- below is anyone's theorem.  (Naming it `ni·π£·π≠hƒÅ` would have been the
--- fabrication this corpus forbids: ni·π£·π≠hƒÅ is A 1.1.26, the sa·πÉj√±ƒÅ for the
+-- ordinary  word, not a technical term of any school, and nothing
+-- below is anyone's theorem.  (Naming it `nih` would have been the
+-- fabrication this corpus forbids: nih is A 1.1.26, the saj for the
 -- kta / ktavatu suffixes, and has nothing to do with rewriting.)
 --
 -- WHAT THIS SETTLES, AND WHY IT WAS AVAILABLE ALL ALONG.
 --
--- Earlier today three conservation laws were proved for this calculus ‚Äî
--- the variable word (`Anupurvi_‚Ä¶`), the successor count (`Samkhyana_‚Ä¶`),
--- and the trapped-successor count (`Baddha_‚Ä¶`, which refuted the
+-- Earlier today three conservation laws were proved for this calculus ‚î
+-- the variable word (`Anupurvi_‚¶`), the successor count (`Samkhyana_‚¶`),
+-- and the trapped-successor count (`Baddha_‚¶`, which refuted the
 -- conjecture that the first two suffice).  Each was found by asking what a
 -- rule cannot change.  That was the wrong question, or rather the shallow
 -- form of the right one.  The right question is what the rules DO, and the
 -- answer is embarrassingly small:
 --
---     ¬∑ `add-zero` deletes an `add` whose right child is `zero`;
---     ¬∑ `add-suc` lifts a successor out of a right child to the front;
---     ¬∑ the three congruences descend; `reverse` undoes.
+--     ¬ `add-zero` deletes an `add` whose right child is `zero`;
+--     ¬ `add-suc` lifts a successor out of a right child to the front;
+--     ¬ the three congruences descend; `reverse` undoes.
 --
 -- Read forwards, those two real rules are left-linear and have NO critical
--- pair ‚Äî the redex `add x zero` and the redex `add x (suc y)` cannot
+-- pair ‚î the redex `add x zero` and the redex `add x (suc y)` cannot
 -- overlap at a position, because `zero` is not `suc y`, and every other
 -- overlap is at disjoint positions.  An orthogonal system, and the forward
 -- direction terminates (each `add-suc` strictly lowers the total depth of
 -- the successors; each `add-zero` strictly shrinks the term).  So unique
 -- normal forms exist, and for a terminating confluent system the
--- EQUIVALENCE closure ‚Äî which is exactly `Derivation`, since `reverse` is a
--- constructor ‚Äî identifies precisely the terms with equal normal forms.
+-- EQUIVALENCE closure ‚î which is exactly `Derivation`, since `reverse` is a
+-- constructor ‚î identifies precisely the terms with equal normal forms.
 --
 -- ¬ß1 gives the normal form as a structurally recursive function.  ¬ß2 is the
 -- invariance proof and it is FOUR LINES, because on the two real rules the
@@ -44,24 +44,24 @@
 --
 -- WHAT THIS DOES TO THE THREE LAWS.  It subsumes them.  Each was a
 -- function that `nf` also respects, and each separated fewer pairs.  They
--- are not wasted: `Baddha_‚Ä¶`'s trapped count is what a reader can compute
+-- are not wasted: `Baddha_‚¶`'s trapped count is what a reader can compute
 -- by eye to see WHY a pair is unjoinable, and the header there names the
 -- structural reason (no associativity) that this module's `combine` makes
--- operational ‚Äî a successor stops rising exactly when its parent's right
+-- operational ‚î a successor stops rising exactly when its parent's right
 -- child is neither `zero` nor a successor.
 --
 -- WHAT IT DOES TO THE KERNEL'S PICTURE.  Three levels, now all computed:
 --
 --     extensional   `eval` sees the multiset of variables and a constant
---                   (`Samkhyana_‚Ä¶`), so the ‚Ñï-theory is trivial and
+--                   (`Samkhyana_‚¶`), so the ‚ï-theory is trivial and
 --                   identifies terms the calculus cannot join;
 --     derivational  `Derivation a b` holds exactly when `nf a ‚â° nf b`, so
 --                   THE EXISTENCE QUESTION IS DECIDABLE (given
 --                   discreteness of `Tm`, which is routine and not proved
 --                   here);
---     intensional   and everything that remains ‚Äî which route, how long,
+--     intensional   and everything that remains ‚î which route, how long,
 --                   which of the many derivations between two joinable
---                   terms ‚Äî is what `Sesa_‚Ä¶` proves no semantic criterion
+--                   terms ‚î is what `Sesa_‚¶` proves no semantic criterion
 --                   can select.
 --
 -- That is the sharp form of the corpus's standing claim.  It is not that
@@ -71,12 +71,12 @@
 --
 -- WHAT IS **NOT** CLAIMED.  Confluence and termination are the ARGUMENT for
 -- why this works and are NOT formalised below; what is formalised is the
--- consequence, directly ‚Äî ¬ß2 and ¬ß3 together give both directions without
+-- consequence, directly ‚î ¬ß2 and ¬ß3 together give both directions without
 -- a diamond lemma, because `nf` is defined so that the two real rules hold
 -- by `refl`.  So no critical-pair analysis appears as a term and none is
 -- claimed as checked.  Discreteness of `Tm` is not proved, so the word
 -- "decidable" above is a corollary stated in prose, not a term.  Nothing
--- here concerns `Step‚Å∫`; `add-comm` breaks the orthogonality by design.
+-- here concerns `Step‚∫`; `add-comm` breaks the orthogonality by design.
 -- `nf` is one normalising function; no claim that it is canonical among
 -- such, nor any statement about its cost.
 --
@@ -100,9 +100,9 @@ open import NaturalMachine.RewriteCertificate
 -- is the whole of the termination story: a successor rises one level per
 -- call and there are finitely many.
 --
---   right child `zero`      ‚Üí the `add` disappears           (add-zero)
---   right child `suc r`     ‚Üí the successor rises to the front (add-suc)
---   anything else           ‚Üí the successor, if any, is trapped, and the
+--   right child `zero`      ‚í the `add` disappears           (add-zero)
+--   right child `suc r`     ‚í the successor rises to the front (add-suc)
+--   anything else           ‚í the successor, if any, is trapped, and the
 --                             `add` stands
 ------------------------------------------------------------------------
 
@@ -123,7 +123,7 @@ nf (suc t)   = suc (nf t)
 nf (add l r) = combine (nf l) (nf r)
 
 ------------------------------------------------------------------------
--- ¬ß2.  EVERY STEP PRESERVES IT ‚Äî AND THE TWO REAL RULES HOLD BY `refl`.
+-- ¬ß2.  EVERY STEP PRESERVES IT ‚î AND THE TWO REAL RULES HOLD BY `refl`.
 --
 -- This is the whole content of the module in six lines.  `nf` was defined
 -- by exactly the clauses `add-zero` and `add-suc` perform, so those cases
@@ -218,7 +218,7 @@ joinability-is-normal-form-equality a b =
   derivable‚Üísame-nf , same-nf‚Üíderivable a b
 
 ------------------------------------------------------------------------
--- ¬ß5.  THE PAIR `Baddha_‚Ä¶` SEPARATED, RE-SEPARATED BY ONE `refl`, AND A
+-- ¬ß5.  THE PAIR `Baddha_‚¶` SEPARATED, RE-SEPARATED BY ONE `refl`, AND A
 --      PAIR JOINED THAT THE EARLIER INVARIANTS COULD ONLY FAIL TO SEPARATE.
 ------------------------------------------------------------------------
 
@@ -252,11 +252,11 @@ synthesis-reproduces-the-hand-written-proof = refl
 --
 -- The line above works only because the two normal forms are DEFINITIONALLY
 -- equal, so the composite is formed directly.  Routing it through ¬ß4's
--- `same-nf‚Üíderivable` instead does NOT let `refl` compare the result to
+-- `same-nf‚íderivable` instead does NOT let `refl` compare the result to
 -- `accepted`: `subst (Derivation (nf a)) p` leaves a `transp` that does not
 -- reduce, and the error prints the whole stuck term.  That is precisely the
--- phenomenon `Anuvrtti_TheGlueIsTransparent‚Ä¶` analyses ‚Äî the residual is in
--- the codomain, not in the `Glue` ‚Äî and comparing a synthesised derivation
+-- phenomenon `Anuvrtti_TheGlueIsTransparent‚¶` analyses ‚î the residual is in
+-- the codomain, not in the `Glue` ‚î and comparing a synthesised derivation
 -- to a hand-written one in the general case needs that module's path
 -- lemmas.  Not done here, and named so the next reader does not rediscover
 -- it by the same route.

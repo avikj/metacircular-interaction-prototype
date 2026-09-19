@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 --
--- ‚ö† DEMOTED TO VERIFICATION (2026-08-23, same day, owner correction:
--- the protocol is DERIVE FIRST ‚Äî "write the proof. Do not run the
+-- ‚† DEMOTED TO VERIFICATION (2026-08-23, same day, owner correction:
+-- the protocol is DERIVE FIRST ‚î "write the proof. Do not run the
 -- experiment").  Every number below is forced a priori in three lines:
--- each observable lies in exactly two contexts ‚üπ the six parity
--- functionals sum to zero (the only dependency) ‚üπ the violation map
--- is affine with image the even-weight code E‚ÇÜ shifted by the sign
--- vector and kernel 2‚Å¥ ‚üπ stratum(j) = 16¬∑C(6,j) over j of the sign
--- vector¬∑parity, and the 5/6 bound is the odd coset¬∑leader weight 1.
--- General law: landscape = |kernel| ¬∑ coset weight enumerator;
+-- each observable lies in exactly two contexts ‚ü the six parity
+-- functionals sum to zero (the only dependency) ‚ü the violation map
+-- is affine with image the even-weight code E‚ shifted by the sign
+-- vector and kernel 2‚¥ ‚ü stratum(j) = 16¬C(6,j) over j of the sign
+-- vector¬parity, and the 5/6 bound is the odd coset¬leader weight 1.
+-- General law: landscape = |kernel| ¬ coset weight enumerator;
 -- contextuality degree = coset leader weight.  The refl-pins below are
 -- what a verification is: downstream of the proof, never in its place.
--- (Journal: cf-sesa checkpoint 33.)
+-- (Journal: cf-residue checkpoint 33.)
 ------------------------------------------------------------------------
--- ‡§∏‡§®‡•ç‡§¶‡§∞‡•ç‡§≠-‡§ó‡§£‡§®‡§æ ‚Äî counting by context.  A real question asked of the
+-- ‡‡®‡‡¶‡∞‡‡-‡ó‡‡®‡æ ‚î counting by context.  A real question asked of the
 -- machine (the asker did not know the answer): over all 512 classical
--- assignments to the Peres‚ÄìMermin square, how many satisfy exactly k of
+-- assignments to the Peres‚ìMermin square, how many satisfy exactly k of
 -- the six contexts?  The machine's answer, each line a 512-sweep
--- performed by the typechecker (the PMNoSection stance ‚Äî a proof that
+-- performed by the typechecker (the PMNoSection stance ‚î a proof that
 -- runs):
 --
 --     k : 0    1    2    3    4    5    6
@@ -31,14 +31,14 @@
 --    contexts.  Reason (stated, provable from the cocycle, pinned here
 --    by computation): each observable occurs in exactly two contexts,
 --    so the product of all six context-parities is forced to +1, while
---    the required signs multiply to ‚àí1 ‚Äî the violated-count is always
---    odd.  The H¬π obstruction is visible in the classical landscape as
+--    the required signs multiply to ‚àí1 ‚î the violated-count is always
+--    odd.  The H¬ obstruction is visible in the classical landscape as
 --    a superselection rule on satisfaction parity.
 --
 -- 2. THE NEAR-MISS STRATUM HAS SIZE 96: the classical bound 5/6 is
 --    attained by exactly 96 of 512 assignments (18.75%), mirrored by
 --    the 96 maximally-frustrated ones at k = 1; the bulk, 320, sits at
---    k = 3.  The landscape is symmetric about 3 ‚Äî satisfaction and
+--    k = 3.  The landscape is symmetric about 3 ‚î satisfaction and
 --    frustration are exchanged by the obstruction.
 --
 ------------------------------------------------------------------------

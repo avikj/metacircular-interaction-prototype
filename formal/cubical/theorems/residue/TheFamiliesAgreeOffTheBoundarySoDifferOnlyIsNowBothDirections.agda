@@ -5,50 +5,50 @@
 --
 -- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- invented.**  This is threshold arithmetic over â„• on this corpus's own
+-- invented.**  This is threshold arithmetic over â• on this corpus's own
 -- claim-families.  Jaina enumerative mathematics is combinatorially
--- adjacent and is explicitly NOT claimed as a source â€” the third time
+-- adjacent and is explicitly NOT claimed as a source â” the third time
 -- this run that it is declined for the same reason (083dfbd2, d3963e51).
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE AUDIT.  Target:
 -- `TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary`.  Two
 -- claim-words, so both were asked.
 --
--- **`THE SAME CHAIN` IS EARNED, AND FOR THE REASON IT GIVES.**  `âŠ‘` is
+-- **`THE SAME CHAIN` IS EARNED, AND FOR THE REASON IT GIVES.**  `âŠ` is
 -- stated on thresholds alone with no population in it, so a second
 -- claim-family over the same thresholds inherits the order and its
 -- totality with nothing re-proved; `aboveAntitone` is that inheritance.
 -- The module says this itself and is right.
 --
 -- **`DIFFER ONLY AT THE BOUNDARY` WAS ONE INCLUSION AND ONE INSTANCE.**
--- Proved there: `aboveGivesAtLeast` (strict â‡’ non-strict), and
--- `atLeastWithoutAbove`, a SINGLE population â€” one true, one false â€” where
+-- Proved there: `aboveGivesAtLeast` (strict â’ non-strict), and
+-- `atLeastWithoutAbove`, a SINGLE population â” one true, one false â” where
 -- the non-strict claim holds and the strict one fails. A single witness shows
 -- the families differ SOMEWHERE.
 --
--- **AND IT IS TWO LINES, BECAUSE â„•'S ORDER SPLITS.**  `â‰¤-split` gives
--- `m â‰¤ n â†’ (m < n) âŠŽ (m â‰¡ n)`, so `AtLeast` is exactly `Above` or
+-- **AND IT IS TWO LINES, BECAUSE â•'S ORDER SPLITS.**  `â‰-split` gives
+-- `m â‰ n â’ (m < n) âŠ (m â‰¡ n)`, so `AtLeast` is exactly `Above` or
 -- on-the-boundary, and the two alternatives exclude each other.
 -- Diagnostic (1) called it in advance: what joins the two families is a
 -- TRICHOTOMY ALREADY IN THE LIBRARY, so neither direction is a search.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   OnTheBoundary        `p Â· length bs â‰¡ suc q Â· count bs`, the
+--   OnTheBoundary        `p Â length bs â‰¡ suc q Â count bs`, the
 --                        equality case named
---   atLeastSplits        `AtLeast p q bs â†’ Above p q bs âŠŽ OnTheBoundary p q bs`
+--   atLeastSplits        `AtLeast p q bs â’ Above p q bs âŠ OnTheBoundary p q bs`
 --   aboveIsOffTheBoundary
 --                        the disjuncts exclude each other
 --   differOnlyAtTheBoundary
---                        off the boundary, non-strict â‡’ strict â€” the
+--                        off the boundary, non-strict â’ strict â” the
 --                        missing direction, which is what `ONLY` asserts
 --   theFamiliesAgreeOffTheBoundary
 --                        hence `AtLeast âŸº Above` at every population
 --                        that does not meet the threshold exactly
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

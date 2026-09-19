@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- AnEquivalenceIdentifiesTheCarriersSoProvenanceIsExactlyWhatDoesNotTravel
 --
--- TERM.  संक्रमण · saṃkramaṇa -- a crossing over, a passing from one place
--- to another.  Ordinary Sanskrit; no technical sūtra is claimed and the
+-- TERM.  �������� � sakramaa -- a crossing over, a passing from one place
+-- to another.  Ordinary ; no technical stra is claimed and the
 -- provenance ledger has no row for it.  It is used here because it is the
 -- word `interactive/`'s running machine already uses for this exact act,
--- and the second word below, व्यय · vyaya (expenditure, what is spent), is
+-- and the second word below, ���� � vyaya (expenditure, what is spent), is
 -- that machine's word for the other half.
 --
 ------------------------------------------------------------------------
@@ -15,7 +15,7 @@
 --
 -- The task text asked for `transport (ua e)` between two peers holding one
 -- object in different representations, retaining the triple (a , e , b).
--- Written from that alone this file would have had ONE relation, `A ≃ B`,
+-- Written from that alone this file would have had ONE relation, `A � B`,
 -- and would have been wrong in a way that is invisible from inside it.
 --
 -- Turning the machine instead -- `sh interactive/run-yantra.sh --wire` --
@@ -35,29 +35,29 @@
 --
 --   2. IDENTIFICATION IS GRADED, IN THREE, AND THE COARSEST IS NEARLY
 --      EMPTY.  `interactive/StandpointStore.hs` lines 36-42:
---          सत्य  satya  -- inhabited or not.  Coarsest.
---          अर्थ  artha  -- the set of witness labels.
---          मूल   mūla   -- the same labels FROM THE SAME SOURCES.
+--          ����  satya  -- inhabited or not.  Coarsest.
+--          ����  artha  -- the set of witness labels.
+--          ���   mla   -- the same labels FROM THE SAME SOURCES.
 --      and the store, asked to relate two representations, answered
 --      `satyaikya` and said why it reports that as a COUNT and not as an
 --      index: "truth-value agreement is nearly universal and therefore
 --      nearly contentless."
 --
 --   3. THERE IS NO THIRD ROAD.  Every answer that machine gives is a
---      saṃkramaṇa or a doṣa-lekha naming its losses one by one, and asked
+--      sakramaa or a doa-lekha naming its losses one by one, and asked
 --      whether the two representations may be identified it returned a
---      doṣa-lekha, twice, differently -- `syad-avaktavyam` under saha and
+--      doa-lekha, twice, differently -- `syad-avaktavyam` under saha and
 --      `syan-nasti` under krama.  Not a boolean either time.
 --
 -- SO THE CONTENT OF THIS FILE IS THE MIDDLE FACT, AND IT IS EXACT IN TYPE
 -- THEORY.  The three grades are three strengths of identification:
 --
---     Satya A B   =  ∥ A ∥₁ ≃ ∥ B ∥₁        both inhabited, or neither
---     Artha A B   =  A ≃ B                   the carriers identified
---     Mula  pA pB e = (a : A) → pB (e a) ≡ pA a    and the SOURCES agree
+--     Satya A B   =  � A �� � � B ��        both inhabited, or neither
+--     Artha A B   =  A � B                   the carriers identified
+--     Mula  pA pB e = (a : A) � pB (e a) ≡ pA a    and the SOURCES agree
 --
 -- `ua` and `transport` deliver ARTHA.  §3 proves satya is strictly weaker
--- than artha, and §4 proves ARTHA IS STRICTLY WEAKER THAN MŪLA -- one
+-- than artha, and §4 proves ARTHA IS STRICTLY WEAKER THAN MLA -- one
 -- equivalence, two provenance maps that disagree.  That gap is `vyaya`, and
 -- it is the machine's finding turned into a term:
 --
@@ -72,14 +72,14 @@
 --   §2  transport COMPUTES -- `uaβ` -- and the round trip is exhibited in
 --       both directions, so the identification is held and not cited.
 --   §3  SATYA ⊊ ARTHA.  Unit and Bool: both inhabited, not equivalent.
---   §4  ARTHA ⊊ MŪLA.  The theorem.  One equivalence, two sources.
+--   §4  ARTHA ⊊ MLA.  The theorem.  One equivalence, two sources.
 --   §5  THE RETAINED TRIPLE, and that its middle component is not
 --       recoverable from its ends -- so a peer that stores only the value
 --       has not stored the transport.
 --   §6  NO THIRD ROAD.  `Uttara` has two constructors and the interaction
 --       is total; there is no `Maybe`, no error, and no silent case.
 --   §7  the fixed-representation encounter is the identity instance, so
---       `TheEncounterOfTwoPeers…` is this file at `e = idEquiv`.
+--       `TheEncounterOfTwoPeers�` is this file at `e = idEquiv`.
 --
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0.
 ------------------------------------------------------------------------
@@ -128,7 +128,7 @@ Mula : {A : Type ℓ} {B : Type ℓ'} {G : Type ℓ''}
   → (A → G) → (B → G) → Artha A B → Type (ℓ-max ℓ ℓ'')
 Mula {A = A} pA pB e = (a : A) → pB (equivFun e a) ≡ pA a
 
--- MŪLA ⇒ ARTHA is by construction: `Mula` is a field OVER an `Artha`, and
+-- MLA � ARTHA is by construction: `Mula` is a field OVER an `Artha`, and
 -- that is not an accident of the encoding -- there is nothing for sources
 -- to correspond along until the carriers are identified.
 mula-carries-its-artha :
@@ -136,7 +136,7 @@ mula-carries-its-artha :
   (pA : A → G) (pB : B → G) (e : Artha A B) → Mula pA pB e → Artha A B
 mula-carries-its-artha pA pB e _ = e
 
--- ARTHA ⇒ SATYA, and it costs nothing: an equivalence descends to the
+-- ARTHA � SATYA, and it costs nothing: an equivalence descends to the
 -- truncations because both sides are propositions.
 artha-gives-satya : {A : Type ℓ} {B : Type ℓ'} → Artha A B → Satya A B
 artha-gives-satya e =
@@ -204,7 +204,7 @@ satya-does-not-give-artha :
 satya-does-not-give-artha f = artha-unit-bool-fails (f satya-unit-bool)
 
 ------------------------------------------------------------------------
--- §4.  ARTHA IS STRICTLY WEAKER THAN MŪLA.  THE THEOREM.
+-- §4.  ARTHA IS STRICTLY WEAKER THAN MLA.  THE THEOREM.
 --
 -- One equivalence -- the identity, the least contentious one there is --
 -- and two peers recording different sources for the same element.  The
@@ -278,10 +278,10 @@ carrying-is-faithful :
 carrying-is-faithful e a = refl
 
 -- THE ENDS DO NOT DETERMINE THE MIDDLE, and the sharp form is that even
--- KNOWING a route exists does not give you one.  `HidingAndHardness…` §6:
+-- KNOWING a route exists does not give you one.  `HidingAndHardness�` §6:
 -- extraction from an existence forces the witness to be unique.  Routes
 -- between two representations are not unique -- `Bool` has two -- so the
--- extraction fails, and a peer holding `∥ Artha A B ∥₁` holds strictly less
+-- extraction fails, and a peer holding `� Artha A B ��` holds strictly less
 -- than a peer holding the equivalence.
 routes-are-not-unique : (idEquiv Bool ≡ notEquiv) → ⊥
 routes-are-not-unique p = true≢false (cong (λ q → equivFun q true) p)
@@ -339,7 +339,7 @@ no-third-road (dosalekha d)  = inr (d , refl)
 ------------------------------------------------------------------------
 -- §7.  THE FIXED-REPRESENTATION CASE IS THE IDENTITY INSTANCE.
 --
--- `TheEncounterOfTwoPeers…` has both peers holding `Tm`.  That is this file
+-- `TheEncounterOfTwoPeers�` has both peers holding `Tm`.  That is this file
 -- at `e = idEquiv`, which is why nothing there mentions transport: the
 -- transport was there, and it was trivial, and a trivial transport is
 -- exactly the one whose `vyaya` is invisible.

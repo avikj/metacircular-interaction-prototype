@@ -1,65 +1,65 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤®à¤¾à¤°à¥à¤— à¥¨ â€” the first tolled crossing of a one-way edge.
+-- à®à¾à°àà— à¨ â” the first tolled crossing of a one-way edge.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS IS.  The corpus's road network has, until now, carried
 -- theorems only along two-way edges: equivalences, isomorphisms, and the
 -- grade-three "two independent proofs that agree" channel of
--- `YugmaPurana_â€¦agda` Â§à¥«.  This module executes, by hand, the ROUTER'S
--- TOLL PROTOCOL for a genuinely ONE-WAY edge â€” a lossy map, along which
--- nothing travels for free â€” and carries one theorem across it.  The
+-- `YugmaPurana_â¦agda` Â§à.  This module executes, by hand, the ROUTER'S
+-- TOLL PROTOCOL for a genuinely ONE-WAY edge â” a lossy map, along which
+-- nothing travels for free â” and carries one theorem across it.  The
 -- protocol, in the order it is executed below:
 --
---   Â§à¥§  THE EDGE.     `par : Valli â†’ Bool`, the length-parity of the
---       vallÄ«.  One-way and irreversibly so: infinitely many vallÄ«s per
+--   Â§à§  THE EDGE.     `par : Valli â’ Bool`, the length-parity of the
+--       vall.  One-way and irreversibly so: infinitely many valls per
 --       parity bit, no section chosen, none needed.
 --
---   Â§à¥¨  THE TOLL.     A theorem crosses a lossy edge only on presenting
---       a descent witness: `FiberConstant par t` â€” the toll-gate
+--   Â§à¨  THE TOLL.     A theorem crosses a lossy edge only on presenting
+--       a descent witness: `FiberConstant par t` â” the toll-gate
 --       predicate of `NaturalMachine.FiniteInformation`, IMPORTED, not
 --       restated.  The traveller is  t = det âˆ˜ replay,  and the toll is
---       paid at `à¤¶à¥à¤²à¥à¤•à¤®à¥` from `KuttakaValli.detReplay` plus one
+--       paid at `ààà²àà•à®à` from `KuttakaValli.detReplay` plus one
 --       induction (`sgnPar`) showing the sign is a function of the
 --       parity bit alone.
 --
---   Â§à¥©  THE RECEIPT.  What the edge retains is priced: the fibre
---       quotient is EXACTLY â„¤/2, by `YugmaPurana_TheValliRecoversIts-
---       LengthModuloTwoAndNoFurther.agda` â€” its à¤šà¤¿à¤¹à¥à¤¨à¤‚-à¤¦à¥ˆà¤°à¥à¤˜à¥à¤¯à¤¾à¤¤à¥ is the
+--   Â§à©  THE RECEIPT.  What the edge retains is priced: the fibre
+--       quotient is EXACTLY â/2, by `YugmaPurana_TheValliRecoversIts-
+--       LengthModuloTwoAndNoFurther.agda` â” its àà¿ààà¨à-à¦àˆà°àà˜àà¯à¾àà is the
 --       coarse form (length determines sign) which the toll here refines
---       (parity already determines it, `à¤¶à¥à¤²à¥à¤•à¤®à¥-à¤šà¤¿à¤¹à¥à¤¨à¤‚-à¤¦à¥ˆà¤°à¥à¤˜à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¨à¥à¤¸à¤¾à¤°à¤¿`),
---       and its à¤µà¤¿à¤·à¤®-à¤ªà¥‚à¤°à¤£à¤®à¥ is why no coarser edge than parity can carry
---       this traveller (`à¤…à¤¶à¥‚à¤¨à¥à¤¯-à¤¶à¥à¤²à¥à¤•à¤®à¥` below: the edge to the point
+--       (parity already determines it, `ààà²àà•à®à-àà¿ààà¨à-à¦àˆà°àà˜àà¯à¾àà-àà¨ààà¾à°à¿`),
+--       and its àµà¿àà®-ààà°àà®à is why no coarser edge than parity can carry
+--       this traveller (`àààà¨àà¯-ààà²àà•à®à` below: the edge to the point
 --       refuses it).
 --
---   Â§à¥ª  THE CROSSING. The decoder is CONSTRUCTED twice.  Directly:
---       `à¤…à¤µà¤¤à¤°à¤£à¤®à¥ = sgnOf : Bool â†’ R` with `à¤…à¤µà¤¤à¤°à¤£-à¤¨à¤¿à¤¯à¤®à¤ƒ : sgnOf (par v) â‰¡
+--   Â§à  THE CROSSING. The decoder is CONSTRUCTED twice.  Directly:
+--       `ààµàà°àà®à = sgnOf : Bool â’ R` with `ààµàà°à-à¨à¿à¯à®à : sgnOf (par v) â‰¡
 --       det (replay v)`.  And through the toll gate itself:
---       `à¤‰à¤¤à¥à¤¤à¥€à¤°à¥à¤£à¤®à¥ : FactorsThrough par (det âˆ˜ replay)` via
---       `fiberConstantâ†’factorsThrough` (isSet â„¤ paid, choice not), whose
---       computation rule `à¤‰à¤¤à¥à¤¤à¥€à¤°à¥à¤£-à¤—à¤£à¤¨à¤¾` on states is REFL â€” the decoder
+--       `à‰ààààà°ààà®à : FactorsThrough par (det âˆ˜ replay)` via
+--       `fiberConstantâ’factorsThrough` (isSet â paid, choice not), whose
+--       computation rule `à‰ààààà°àà-à—àà¨à¾` on states is REFL â” the decoder
 --       computes, it is not merely asserted to exist.
 --
---   Â§à¥«  THE NEGATIVE CONTROL.  The corpus's discipline: a gate that
---       admits everything certifies nothing.  `length : Valli â†’ â„•` is
---       refused at the same gate â€” `à¤¨à¤¿à¤·à¥‡à¤§à¤ƒ` exhibits the two-point
---       witness ([] against a two-step vallÄ«, same parity, lengths 0
+--   Â§à  THE NEGATIVE CONTROL.  The corpus's discipline: a gate that
+--       admits everything certifies nothing.  `length : Valli â’ â•` is
+--       refused at the same gate â” `à¨à¿ààà§à` exhibits the two-point
+--       witness ([] against a two-step vall, same parity, lengths 0
 --       and 2) on which FiberConstant fails, and with it FactorsThrough.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
---   Â· This is ONE edge, crossed BY HAND.  The mechanized road-two
---     router â€” the machine that finds the edge, computes the toll, and
---     schedules the crossing â€” remains owed; this module is its
+--   Â This is ONE edge, crossed BY HAND.  The mechanized road-two
+--     router â” the machine that finds the edge, computes the toll, and
+--     schedules the crossing â” remains owed; this module is its
 --     specification-by-example, not its implementation.
 --
---   Â· Nothing here is about the fibre of `replay` itself.  As
---     `YugmaPurana_â€¦agda` Â§à¥« already insists, `replay` forgets far more
+--   Â Nothing here is about the fibre of `replay` itself.  As
+--     `YugmaPurana_â¦agda` Â§à already insists, `replay` forgets far more
 --     than length; the edge crossed is `par`, and the only traveller
 --     ticketed is the determinant of the endpoint.
 --
---   Â· The toll-gate predicate is quoted from
+--   Â The toll-gate predicate is quoted from
 --     `NaturalMachine.FiniteInformation` by import.  No definition of
 --     FactorsThrough/FiberConstant is restated here; if that module's
 --     meaning shifts, this crossing re-prices automatically.
@@ -96,10 +96,10 @@ open import NaturalMachine.FiniteInformation
 open CommRingStr (â„¤CommRing .snd)
 
 ------------------------------------------------------------------------
--- Â§à¥§ Â· THE EDGE â€” par, the length-parity, and why it is one-way.
+-- Â§à§ Â THE EDGE â” par, the length-parity, and why it is one-way.
 --
 -- `par` never inspects a quotient; it counts steps mod 2.  It is lossy
--- twice over: it forgets every entry of the vallÄ«, and then all of the
+-- twice over: it forgets every entry of the vall, and then all of the
 -- length except its last bit.  Both fibres are infinite.
 ------------------------------------------------------------------------
 
@@ -107,7 +107,7 @@ par : Valli â†’ Bool
 par []      = false
 par (q âˆ· v) = not (par v)
 
--- the parity is a function of the length (needed for the receipt in Â§à¥©)
+-- the parity is a function of the length (needed for the receipt in Â§à©)
 parOfLen : â„• â†’ Bool
 parOfLen zero    = false
 parOfLen (suc n) = not (parOfLen n)
@@ -117,10 +117,10 @@ par-length []      = refl
 par-length (q âˆ· v) = cong not (par-length v)
 
 ------------------------------------------------------------------------
--- Â§à¥¨ Â· THE TOLL â€” the descent witness for det âˆ˜ replay along par.
+-- Â§à¨ Â THE TOLL â” the descent witness for det âˆ˜ replay along par.
 --
 -- The traveller: t v = det (replay v).  The fare: prove t is constant
--- on the fibres of par.  Paid in two coins â€” `detReplay` (the endpoint's
+-- on the fibres of par.  Paid in two coins â” `detReplay` (the endpoint's
 -- determinant IS the sign) and `sgnPar` (the sign is a function of the
 -- parity bit; one induction, one ring identity per branch).
 ------------------------------------------------------------------------
@@ -134,8 +134,8 @@ private
   sgnOf-not : (b : Bool) â†’ sgnOf (not b) â‰¡ (- 1r) Â· sgnOf b
   -- `solve!` is passed a goal with NO variables here, and the solver
   -- builds its environment as a Vec whose length must match: it reports
-  -- `0 != 1 of type â„•`, which is a fact about the tactic and not about
-  -- the ring.  Over â„¤ both sides are closed terms, so they compute, and
+  -- `0 != 1 of type â•`, which is a fact about the tactic and not about
+  -- the ring.  Over â both sides are closed terms, so they compute, and
   -- `refl` is both shorter and honest about why.
   sgnOf-not false = refl
   sgnOf-not true  = refl
@@ -153,18 +153,18 @@ sgnPar (q âˆ· v) = cong ((- 1r) Â·_) (sgnPar v) âˆ™ sym (sgnOf-not (par v))
     âˆ™âˆ™ sym (detReplay w)
 
 ------------------------------------------------------------------------
--- Â§à¥© Â· THE RECEIPT â€” the fibre priced at exactly â„¤/2.
+-- Â§à© Â THE RECEIPT â” the fibre priced at exactly â/2.
 --
--- Coarse bound, already on file: à¤šà¤¿à¤¹à¥à¤¨à¤‚-à¤¦à¥ˆà¤°à¥à¤˜à¥à¤¯à¤¾à¤¤à¥ (YugmaPurana Â§à¥§) says
+-- Coarse bound, already on file: àà¿ààà¨à-à¦àˆà°àà˜àà¯à¾àà (YugmaPurana Â§à§) says
 -- the sign is determined by the LENGTH.  The toll refines it: the sign
 -- is determined by the length's PARITY, and the refinement recovers the
--- filed statement through par-length â€” so the receipt is consistent
--- with the ledger it sharpens.  That the price cannot drop below â„¤/2 â€”
--- that no coarser edge carries this traveller â€” is Â§à¥«'s à¤…à¤¶à¥‚à¤¨à¥à¤¯-à¤¶à¥à¤²à¥à¤•à¤®à¥,
--- YugmaPurana's à¤µà¤¿à¤·à¤®-à¤ªà¥‚à¤°à¤£à¤®à¥ read as a refusal.
+-- filed statement through par-length â” so the receipt is consistent
+-- with the ledger it sharpens.  That the price cannot drop below â/2 â”
+-- that no coarser edge carries this traveller â” is Â§à's àààà¨àà¯-ààà²àà•à®à,
+-- YugmaPurana's àµà¿àà®-ààà°àà®à read as a refusal.
 ------------------------------------------------------------------------
 
--- the toll implies the filed length-form of the law (à¤¯à¤¤à¥-à¤¤à¤¿à¤·à¥à¤ à¤¤à¤¿,
+-- the toll implies the filed length-form of the law (à¯àà-àà¿ààà àà¿,
 -- re-derived through the tolled edge rather than re-proved)
 à¤¶à¥à¤²à¥à¤•à¤®à¥-à¤šà¤¿à¤¹à¥à¤¨à¤‚-à¤¦à¥ˆà¤°à¥à¤˜à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¨à¥à¤¸à¤¾à¤°à¤¿ :
   (v w : Valli) â†’ length v â‰¡ length w â†’ det (replay v) â‰¡ det (replay w)
@@ -179,7 +179,7 @@ receipts-agree :
 receipts-agree v w p = isSetâ„¤ (sgn v) (sgn w) _ _
 
 ------------------------------------------------------------------------
--- Â§à¥ª Â· THE CROSSING â€” the decoder, constructed.
+-- Â§à Â THE CROSSING â” the decoder, constructed.
 --
 -- Twice.  First bare-handed: sgnOf itself is total on Bool, and the
 -- decode law is a path computed from the two coins directly.  Then
@@ -195,23 +195,23 @@ receipts-agree v w p = isSetâ„¤ (sgn v) (sgn w) _ _
 à¤…à¤µà¤¤à¤°à¤£-à¤¨à¤¿à¤¯à¤®à¤ƒ v = sym (detReplay v âˆ™ sgnPar v)
 
 -- (b) the certified crossing: the FactorsThrough witness, minted by the
--- toll office from the toll.  Fee: isSet â„¤.  Not charged: choice.
+-- toll office from the toll.  Fee: isSet â.  Not charged: choice.
 à¤‰à¤¤à¥à¤¤à¥€à¤°à¥à¤£à¤®à¥ : FactorsThrough par (Î» v â†’ det (replay v))
 à¤‰à¤¤à¥à¤¤à¥€à¤°à¥à¤£à¤®à¥ = fiberConstantâ†’factorsThrough isSetâ„¤ par (Î» v â†’ det (replay v)) à¤¶à¥à¤²à¥à¤•à¤®à¥
 
--- its computation rule on states is definitional â€” the crossing
+-- its computation rule on states is definitional â” the crossing
 -- COMPUTES; this line is `refl`, not a lemma.
 à¤‰à¤¤à¥à¤¤à¥€à¤°à¥à¤£-à¤—à¤£à¤¨à¤¾ :
   (v : Valli) â†’ fst à¤‰à¤¤à¥à¤¤à¥€à¤°à¥à¤£à¤®à¥ (restrictToImage par v) â‰¡ det (replay v)
 à¤‰à¤¤à¥à¤¤à¥€à¤°à¥à¤£-à¤—à¤£à¤¨à¤¾ v = refl
 
 ------------------------------------------------------------------------
--- Â§à¥« Â· THE NEGATIVE CONTROL â€” a traveller refused, as it must be.
+-- Â§à Â THE NEGATIVE CONTROL â” a traveller refused, as it must be.
 --
 -- `length` itself walks up to the same gate and is turned away: [] and
--- a two-step vallÄ« sit in ONE fibre of par (both even) with lengths 0
+-- a two-step vall sit in ONE fibre of par (both even) with lengths 0
 -- and 2.  FiberConstant fails on that two-point witness, so
--- FactorsThrough fails with it â€” the gate is a gate, not a doorway.
+-- FactorsThrough fails with it â” the gate is a gate, not a doorway.
 ------------------------------------------------------------------------
 
 à¤¨à¤¿à¤·à¥‡à¤§à¤ƒ : Â¬ FiberConstant par length
@@ -221,10 +221,10 @@ receipts-agree v w p = isSetâ„¤ (sgn v) (sgn w) _ _
 à¤¨à¤¿à¤·à¥‡à¤§à¤ƒ-à¤‰à¤¤à¥à¤¤à¥€à¤°à¥à¤£à¥‡ ft = à¤¨à¤¿à¤·à¥‡à¤§à¤ƒ (factorsThroughâ†’fiberConstant par length ft)
 
 -- and the dual control, pricing the toll from below: the EDGE TO THE
--- POINT (forget even the parity) refuses det âˆ˜ replay â€” [] and a
--- one-step vallÄ« land on determinants 1 and âˆ’1.  So the parity bit is
+-- POINT (forget even the parity) refuses det âˆ˜ replay â” [] and a
+-- one-step vall land on determinants 1 and âˆ’1.  So the parity bit is
 -- not decorative: coarsen the edge once more and the crossing dies.
--- This is à¤µà¤¿à¤·à¤®-à¤ªà¥‚à¤°à¤£à¤®à¥ read as a refusal at a gate.
+-- This is àµà¿àà®-ààà°àà®à read as a refusal at a gate.
 à¤…à¤¶à¥‚à¤¨à¥à¤¯-à¤¶à¥à¤²à¥à¤•à¤®à¥ : Â¬ FiberConstant (Î» (_ : Valli) â†’ tt) (Î» v â†’ det (replay v))
 à¤…à¤¶à¥‚à¤¨à¥à¤¯-à¤¶à¥à¤²à¥à¤•à¤®à¥ fc = oneâ‰¢-one (fc [] (0r âˆ· []) refl âˆ™ detReplay (0r âˆ· []) âˆ™ eq)
   where

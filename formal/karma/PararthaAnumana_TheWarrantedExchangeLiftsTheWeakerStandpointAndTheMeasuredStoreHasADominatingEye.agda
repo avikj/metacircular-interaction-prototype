@@ -1,49 +1,49 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§™‡§∞‡§æ‡§∞‡•ç‡§•‡§æ‡§®‡•Å‡§Æ‡§æ‡§®‡§Æ‡•ç ‚Äî inference for another.  Siddhasena DivƒÅkara,
--- *NyƒÅyƒÅvatƒÅra* (c. 5th‚Äì7th c. CE), the classical division: svƒÅrtha,
--- inference for oneself, against parƒÅrtha, inference set out for
+-- ‡‡∞‡æ‡∞‡‡‡æ‡®‡‡Æ‡æ‡®‡Æ‡ ‚î inference for another.  Siddhasena Divkara,
+-- *Nyyvatra* (c. 5th‚ì7th c. CE), the classical division: svrtha,
+-- inference for oneself, against parrtha, inference set out for
 -- another.  School named: Jaina.  The corpus already carries the
--- svƒÅrtha half (SvarthaAnumana: the machine infers for itself, the
+-- svrtha half (SvarthaAnumana: the machine infers for itself, the
 -- pervasion grasped within); this module is the other half, and it is
 -- the NET: what one standpoint proves for itself crosses to another
--- AS a parƒÅrtha utterance ‚Äî the rule with its certificate ‚Äî and the
+-- AS a parrtha utterance ‚î the rule with its certificate ‚î and the
 -- receiver extends its record without re-proving, because the type
 -- carries the warrant.  Transport instead of trust (IndraJala).
 -- Claimed of the source: the division and its names, nothing else.
 --
 -- WHAT IS SET UP.  Two standpoints of the one knowing:
 --
---   ‡§Ö ‚Äî the norm eye with the syntactic exchange (‡§∏‡•Ç‡§ï‡•ç‡§∑‡•ç‡§Æ-‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç)
---   ‡§¨ ‚Äî the factoring heap eye with the surgical exchange (‡§∞‡§æ‡§∂‡§ø-‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç)
+--   ‡ ‚î the norm eye with the syntactic exchange (‡‡‡ï‡‡‡‡Æ-‡Ø‡®‡‡‡‡∞‡Æ‡)
+--   ‡ ‚î the factoring heap eye with the surgical exchange (‡∞‡æ‡‡ø-‡Ø‡®‡‡‡‡∞‡Æ‡)
 --
 -- Each can breathe the elder's store alone; and they can HOLD COUNCIL
--- (‡§∏‡§Ç‡§µ‡§æ‡§¶‡§É): breathe in turn on one shared record, each pass re-offering
+-- (‡‡‡µ‡æ‡¶‡): breathe in turn on one shared record, each pass re-offering
 -- only the residue the other could not close.  Every rule that crosses
--- between them carries its ‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä by construction, so the exchange
+-- between them carries its ‡‡æ‡ï‡‡‡ by construction, so the exchange
 -- verifies nothing and loses nothing.
 --
 -- WHAT THE COMPILED RUN MEASURED (2026-08-24, this container, the
 -- elder's 102), kept because the first title of this module claimed
 -- more than the measurement allows.  Alone, standpoints reach:
 --
---   norm+‡§∏‡•Ç‡§ï‡•ç‡§∑‡•ç‡§Æ 93   norm+‡§∞‡§æ‡§∂‡§ø 94   norm+‡§∏‡§Ç‡§Ø‡•Å‡§ï‡•ç‡§§ 94
---   ‡§ó‡•Ç‡§¢+‡§∏‡•Ç‡§ï‡•ç‡§∑‡•ç‡§Æ 101   ‡§ó‡•Ç‡§¢+‡§∞‡§æ‡§∂‡§ø 102   ‡§ó‡•Ç‡§¢+‡§∏‡§Ç‡§Ø‡•Å‡§ï‡•ç‡§§ 102
+--   norm+‡‡‡ï‡‡‡‡Æ 93   norm+‡∞‡æ‡‡ø 94   norm+‡‡‡Ø‡‡ï‡‡ 94
+--   ‡ó‡‡+‡‡‡ï‡‡‡‡Æ 101   ‡ó‡‡+‡∞‡æ‡‡ø 102   ‡ó‡‡+‡‡‡Ø‡‡ï‡‡ 102
 --
 -- so on THIS store the factoring heap eye with the surgical exchange
--- DOMINATES ‚Äî ‡§∞‡§æ‡§∂‡§ø alone suffices for all 102, the composite
+-- DOMINATES ‚î ‡∞‡æ‡‡ø alone suffices for all 102, the composite
 -- instrument buys nothing here (the kernel census had only ever been
--- run with ‡§∏‡§Ç‡§Ø‡•Å‡§ï‡•ç‡§§; this is new).  The council of ‡§Ö and ‡§¨ reaches 102,
--- which is ‡§¨'s own reach: the exchange lifts the weaker standpoint
+-- run with ‡‡‡Ø‡‡ï‡‡; this is new).  The council of ‡ and ‡ reaches 102,
+-- which is ‡'s own reach: the exchange lifts the weaker standpoint
 -- (+9) and costs the stronger nothing.  And the near-miss pair was
--- probed: ‡§ó‡•Ç‡§¢+‡§∏‡•Ç‡§ï‡•ç‡§∑‡•ç‡§Æ (101) in council with norm+‡§∞‡§æ‡§∂‡§ø (94) reaches
--- 101, NOT 102 ‚Äî the one rule ‡§ó‡•Ç‡§¢+‡§∏‡•Ç‡§ï‡•ç‡§∑‡•ç‡§Æ misses needs the surgery
+-- probed: ‡ó‡‡+‡‡‡ï‡‡‡‡Æ (101) in council with norm+‡∞‡æ‡‡ø (94) reaches
+-- 101, NOT 102 ‚î the one rule ‡ó‡‡+‡‡‡ï‡‡‡‡Æ misses needs the surgery
 -- itself, no current standpoint's testimony substitutes for it.  So
 -- "the net reaches what neither alone can" is REFUTED at n=2 with
 -- these organs on this store; what survives, measured, is the lift of
 -- the weaker and the price-free-ness of the exchange.  A strict-gain
--- pair, if one exists, needs organs with incomparable blindness ‚Äî
+-- pair, if one exists, needs organs with incomparable blindness ‚î
 -- that is the open item this module leaves.
 ------------------------------------------------------------------------
 
@@ -85,7 +85,7 @@ open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAll
 ------------------------------------------------------------------------
 -- ¬ß3  The council: the two breathe in turn on ONE shared record.
 --     Every rule either mints carries its certificate, so the record
---     each hands the other is received whole ‚Äî parƒÅrtha, warranted,
+--     each hands the other is received whole ‚î parrtha, warranted,
 --     nothing re-proven, nothing taken on authority.
 ------------------------------------------------------------------------
 

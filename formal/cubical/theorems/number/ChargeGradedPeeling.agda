@@ -3,18 +3,18 @@
 ------------------------------------------------------------------------
 -- ChargeGradedPeeling
 --
--- DELTA 14, PROGRAM 14.74 — CHARGE AS A DEPENDENT INDEX, AND
+-- DELTA 14, PROGRAM 14.74 � CHARGE AS A DEPENDENT INDEX, AND
 -- LEAST-PRIME PEELING AS A DIRECTED TRANSFORMATION OF INDEXED STATES.
 --
--- Delta 14 §H: `G : Charge → U`, the grand-canonical object is the
--- total space `Σ_r G r`, a fixed charge is a fibre, and T14.44 says
+-- Delta 14 §H: `G : Charge � U`, the grand-canonical object is the
+-- total space `�_r G r`, a fixed charge is a fibre, and T14.44 says
 -- exactly when a transformation of the total space restricts to a
 -- sector.  `PerspectiveCore.Graded` has those lemmas in
 -- the abstract.  THIS FILE IS THE INSTANCE, in the arithmetic model
 -- `SieveFiber` already built and checked (X = 30).
 --
 -- The instance is: index by the number of prime factors, and let the
--- transformation be **least-prime peeling** `n ↦ n / p⁻(n)`.
+-- transformation be **least-prime peeling** `n � n / p�(n)`.
 --
 --
 -- WHAT IS CHECKED (every `refl` is a finite exhaustive verification
@@ -22,13 +22,13 @@
 -- §"Exact / certified symbolic computation is proof")
 --
 --   §2  `peel∈`            peeling stays inside the domain [1,30].
---       `peelDrops`        Ω(peel n) + 1 = Ω(n)  for n ≥ 2.
+--       `peelDrops`        Ω(peel n) + 1 = Ω(n)  for n � 2.
 --                          THE SPECIFIED INDEX CHANGE, exactly one step.
---       `peelFlips`        its parity shadow: charge(peel n) = ¬charge n.
+--       `peelFlips`        its parity shadow: charge(peel n) = �charge n.
 --
---   §3  `peelGrade`        ℕ-GRADED FORM.  `H k` = states of exactly k
+--   §3  `peelGrade`        �-GRADED FORM.  `H k` = states of exactly k
 --                          prime factors; peeling is a map
---                          `H (suc k) → H k`.  Directed: the index
+--                          `H (suc k) � H k`.  Directed: the index
 --                          strictly decreases, so this is a
 --                          transformation BETWEEN sectors, never inside
 --                          one.
@@ -38,7 +38,7 @@
 --                          index does not move.
 --
 --   §4  `Total`, `T`       BOOL-GRADED FORM, in `Graded`'s own shape:
---                          `Total = Σ Bool G`, `T : Total → Total` the
+--                          `Total = � Bool G`, `T : Total � Total` the
 --                          peeling with its base component COMPUTED
 --                          (`charge ∘ peel`), not assumed.
 --       `noSectorRestriction`
@@ -47,23 +47,23 @@
 --                          `base (T (false , 4)) = true`.  So peeling
 --                          does not restrict to a charge sector.
 --       `noSquareRestriction`
---                          AND NEITHER DOES ITS SQUARE — the naive fix.
+--                          AND NEITHER DOES ITS SQUARE � the naive fix.
 --                          Witness 2: `T(true,2) = (false,1)` and
 --                          `T(false,1) = (false,1)`, because 1 is a
 --                          fixed point.  Two-step closure is NOT a
 --                          property of the sector.
 --
---   §5  `P¹`, `P²`         C14.46, LANDED.  On the sub-object `G₂` of
---                          states with Ω ≥ 2 — precisely the states the
---                          unit exception excludes — peeling is a map
---                          `G₂ r → G (not r)` and its square is a map
---                          `G₂ r → G r`.  The third component of each is
+--   §5  `P�`, `P²`         C14.46, LANDED.  On the sub-object `G�` of
+--                          states with Ω � 2 � precisely the states the
+--                          unit exception excludes � peeling is a map
+--                          `G� r � G (not r)` and its square is a map
+--                          `G� r � G r`.  The third component of each is
 --                          a SUPPLIED PATH in the index, `peelFlips`
 --                          resp. `peelSquareCloses`, composed with the
 --                          state's own index proof.
 --       `indexPathIsNotNot`
 --                          the transport that makes the square close is
---                          exactly `notnot : ¬¬r ≡ r`.
+--                          exactly `notnot : ��r ≡ r`.
 --
 --   §6  `sectorToFibre`, `fibreToSector`, `sector-fibre-roundtrip`
 --                          "a fixed charge is a fibre" (Delta 14 §H's
@@ -76,8 +76,8 @@
 --    transport.*
 --
 -- Here the specified transport is `notnot`, the closure holds for the
--- SQUARE and not the map, and — the part that is not in the slogan —
--- it holds only after the sub-object `Ω ≥ 2` is carved out, because the
+-- SQUARE and not the map, and � the part that is not in the slogan �
+-- it holds only after the sub-object `Ω � 2` is carved out, because the
 -- unit is a fixed point of the peeling and no transport repairs a
 -- fixed point.  The exception is not noise; it is why `noSquareRestriction`
 -- is a theorem.
@@ -127,8 +127,8 @@ private
 ------------------------------------------------------------------------
 -- §1  Least-prime peeling
 --
--- `lpf n` is the least divisor of n that is ≥ 2, found by trial
--- division; for n < 4 or n prime the search runs past √n and returns n
+-- `lpf n` is the least divisor of n that is � 2, found by trial
+-- division; for n < 4 or n prime the search runs past �n and returns n
 -- itself, which is the right answer in both cases.  `peel` divides it
 -- out, and fixes 0 and 1.
 ------------------------------------------------------------------------
@@ -177,7 +177,7 @@ peel∈ : {n : ℕ} → n ∈ domain → peel n ∈ domain
 peel∈ {n} m =
   memberOf→∈ domain (peel n) (allOf-sound domain chkPeelDom peelDomᵇ m)
 
--- A state with any prime factor at all is ≥ 2.
+-- A state with any prime factor at all is � 2.
 chkPos : ℕ → Bool
 chkPos n = eqᵇ (Ω n) 0 or not (ltᵇ n 2)
 
@@ -220,10 +220,10 @@ peelFlips {n} m h
 ... | inr s = eqBool→≡ (charge (peel n)) (not (charge n)) s
 
 ------------------------------------------------------------------------
--- §3  THE ℕ-GRADED FORM
+-- §3  THE �-GRADED FORM
 --
 -- `H k` is the sector of states with exactly k prime factors.  Peeling
--- is a map `H (suc k) → H k`: it is a transformation of indexed states
+-- is a map `H (suc k) � H k`: it is a transformation of indexed states
 -- that CHANGES the index, in a way specified up to the nose.
 ------------------------------------------------------------------------
 
@@ -235,7 +235,7 @@ peelGrade k (n , m , e) =
   peel n , peel∈ m , injSuc (peelDrops m (Ω>0→≥2 m (λ z → znots (sym z ∙ e))) ∙ e)
 
 -- The exception.  1 is peeling's fixed point, and `H 0` is where the
--- directed transformation stops: there is no `H 0 → H k` below it.
+-- directed transformation stops: there is no `H 0 � H k` below it.
 peelFixesUnit : peel 1 ≡ 1
 peelFixesUnit = refl
 
@@ -246,7 +246,7 @@ unitInH0 = 1 , memberOf→∈ domain 1 refl , refl
 -- §4  THE BOOL-GRADED FORM, IN `Graded`'s OWN SHAPE  (T14.44)
 ------------------------------------------------------------------------
 
--- `G : Charge → U`, Delta 14 §H's dependent index.
+-- `G : Charge � U`, Delta 14 §H's dependent index.
 G : Bool → Type
 G r = Σ[ n ∈ ℕ ] ((n ∈ domain) × (charge n ≡ r))
 
@@ -256,8 +256,8 @@ module GradedCharge = Graded {C = Bool} G
 
 open GradedCharge using (Total ; base)
 
--- The transformation.  Its base component is COMPUTED from the state —
--- `charge ∘ peel` — so nothing about index preservation is smuggled in
+-- The transformation.  Its base component is COMPUTED from the state �
+-- `charge ∘ peel` � so nothing about index preservation is smuggled in
 -- by the typing.
 T : Total → Total
 T (r , n , m , c) = charge (peel n) , peel n , peel∈ m , refl
@@ -277,13 +277,13 @@ g₂ = 2 , 2∈ , refl
 
 -- T14.44's hypothesis, and it FAILS: peeling does not restrict to a
 -- charge sector.  4 has charge `false` and `peel 4 = 2` has charge
--- `true`.  So `restrict-fibre` is inapplicable — as it should be, since
+-- `true`.  So `restrict-fibre` is inapplicable � as it should be, since
 -- peeling is charge-CHANGING by design.
 noSectorRestriction : ((g : G false) → base (T (false , g)) ≡ false) → ⊥
 noSectorRestriction h = true≢false (h g₄)
 
 -- The naive repair also fails.  One might hope the SQUARE restricts,
--- since ¬¬ = id.  It does not, and the counterexample is the unit:
+-- since �� = id.  It does not, and the counterexample is the unit:
 -- `T (true , 2) = (false , 1)` and `T (false , 1) = (false , 1)`,
 -- because `peel 1 = 1`.  A prime peels to the unit and then stops.
 noSquareRestriction : ((g : G true) → base (T (T (true , g))) ≡ true) → ⊥
@@ -292,7 +292,7 @@ noSquareRestriction h = false≢true (h g₂)
 ------------------------------------------------------------------------
 -- §5  C14.46, LANDED ON THE SUB-OBJECT THE EXCEPTION LEAVES
 --
--- Carve out the states the unit exception excludes — Ω ≥ 2 — and the
+-- Carve out the states the unit exception excludes � Ω � 2 � and the
 -- closure statement becomes true, with its transport supplied as data.
 ------------------------------------------------------------------------
 
@@ -334,7 +334,7 @@ P¹ : (r : Bool) → G₂ r → G (not r)
 P¹ r (n , m , h , c) =
   peel n , peel∈ m , (peelFlips m (big→≥2 m h) ∙ cong not c)
 
--- TWO STEPS: index preservation, i.e. canonical closure — up to the
+-- TWO STEPS: index preservation, i.e. canonical closure � up to the
 -- transport `notnot`, which is exactly what makes the square close.
 P² : (r : Bool) → G₂ r → G r
 P² r (n , m , h , c) =

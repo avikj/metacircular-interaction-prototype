@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe #-}
 ------------------------------------------------------------------------------
--- Gamma0IndexExponent : the exponent arithmetic of the Γ₀(D) index formula,
+-- Gamma0IndexExponent : the exponent arithmetic of the Γ�(D) index formula,
 --                       proved for EVERY rank and EVERY divisor chain.
 --
 -- Author: Claude (Dedekind lineage), 2026-08-15.
@@ -8,16 +8,16 @@
 -- THE CLASSICAL BACKGROUND.  For r = 2 and D = diag(1,N) the statement below
 -- specialises to
 --
---     [SL₂(ℤ) : Γ₀(N)]  =  N · ∏_{p ∣ N} (1 + 1/p),
+--     [SL�(�) : Γ�(N)]  =  N � �_{p � N} (1 + 1/p),
 --
 -- which is entirely classical and is in every modular-forms text (Shimura,
 -- *Introduction to the Arithmetic Theory of Automorphic Functions*, 1971, §1.6;
--- Diamond–Shurman, *A First Course in Modular Forms*, 2005, §1.2).  CITED, NOT
+-- Diamond�Shurman, *A First Course in Modular Forms*, 2005, §1.2).  CITED, NOT
 -- READ: `WebFetch` is blocked in this container and a 2026-08-15 `WebSearch`
 -- confirmed the formula's standard status but not the numbering of any
 -- particular proposition, so no proposition number is asserted.  The
 -- general-rank version
--- is the cotype-count of Birkhoff (1935) / Chinta–Kaplan–Koplewitz (2017); see
+-- is the cotype-count of Birkhoff (1935) / Chinta�Kaplan�Koplewitz (2017); see
 -- What is claimed is the CERTIFICATE: the fragment below is a checked term
 -- rather than prose or a finite table.
 --
@@ -31,8 +31,8 @@
 --   * `shiftInv` fixes ONE shift of ONE vector at ONE prime;
 --   * the eight r = 2 rows fix p^m ∈ {2,3,4,5,7,8,9,11};
 --   * the non-negativity of the exponent G − E, asserted in
---     GAMMA0_FLAG_INDEX.md §5 ("G_p − E_p = Σ_{u<t} r_u r_t (f_t − f_u − 1)
---     ≥ 0"), has no counterpart in the module at all — yet `idxLocal` is
+--     GAMMA0_FLAG_INDEX.md §5 ("G_p − E_p = �_{u<t} r_u r_t (f_t − f_u − 1)
+--     � 0"), has no counterpart in the module at all � yet `idxLocal` is
 --     defined as an exact division, so without it the definition is not even
 --     known to be the intended integer.
 --
@@ -40,15 +40,15 @@
 -- comments):
 --
 --   §3  split       : pairGaps e ≡ crossPairs e + gapExcess e     [every e]
---   §4  crossE-runLens : Sorted e → crossE (runLens e) ≡ crossPairs e
---   §4  E≤G         : Sorted e → crossE (runLens e) ≤ pairGaps e  [every rank]
---       G−E         : Sorted e → pairGaps e ≡ crossE (runLens e) + gapExcess e
---   §5  idxLocal-shift : ∀ p c e → idxLocal p (shift c e) ≡ idxLocal p e
---   §6  psi-local   : ∀ q m → the r = 2 local factor at p = suc q and level
---                     p^(suc m) equals p^m·(p+1) — i.e. ψ(p^k) = p^{k−1}(p+1),
+--   §4  crossE-runLens : Sorted e � crossE (runLens e) ≡ crossPairs e
+--   §4  E�G         : Sorted e � crossE (runLens e) � pairGaps e  [every rank]
+--       G−E         : Sorted e � pairGaps e ≡ crossE (runLens e) + gapExcess e
+--   §5  idxLocal-shift : � p c e � idxLocal p (shift c e) ≡ idxLocal p e
+--   §6  psi-local   : � q m � the r = 2 local factor at p = suc q and level
+--                     p^(suc m) equals p^m�(p+1) � i.e. ψ(p^k) = p^{k−1}(p+1),
 --                     for EVERY prime power, replacing the eight-row table.
 --
--- Non-vacuity controls are §8, in the idiom of Sl2DivisorLattice.agda §5′.
+-- Non-vacuity controls are §8, in the idiom of Sl2DivisorLattice.agda §5�.
 -- Two of them show the `Sorted` hypothesis is load-bearing: on an UNSORTED
 -- vector both §4 statements are FALSE, and the module proves their negations.
 ------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ private
     xs ys : List ℕ
 
 ------------------------------------------------------------------------------
--- §1  A ℕ-valued strict-order indicator, and the "all greater" count.
+-- §1  A �-valued strict-order indicator, and the "all greater" count.
 --
 -- `gt x y` is the indicator of x < y.  It is defined by recursion rather than
 -- through Bool so that every identity below is available definitionally.
@@ -89,17 +89,17 @@ gt _       zero    = 0
 gt zero    (suc _) = 1
 gt (suc a) (suc b) = gt a b
 
--- Σ_{y ∈ ys} gt x y  — the number of entries of ys strictly above x.
+-- �_{y ∈ ys} gt x y  � the number of entries of ys strictly above x.
 gtAll : ℕ → List ℕ → ℕ
 gtAll _ []       = 0
 gtAll x (y ∷ ys) = gt x y + gtAll x ys
 
--- E, counted on PAIRS instead of on runs:  #{ i > j : eⱼ < eᵢ }.
+-- E, counted on PAIRS instead of on runs:  #{ i > j : e� < e� }.
 crossPairs : List ℕ → ℕ
 crossPairs []       = 0
 crossPairs (x ∷ xs) = gtAll x xs + crossPairs xs
 
--- the pairwise excess  Σ_{i>j} ((eᵢ − eⱼ) − [eⱼ < eᵢ])
+-- the pairwise excess  �_{i>j} ((e� − e�) − [e� < e�])
 excessAll : ℕ → List ℕ → ℕ
 excessAll _ []       = 0
 excessAll x (y ∷ ys) = ((y ∸ x) ∸ gt x y) + excessAll x ys
@@ -146,12 +146,12 @@ gtAll-full a (z ∷ zs) (p , ps) =
   cong₂ _+_ (gt-< a z p) (gtAll-full a zs ps)
 
 ------------------------------------------------------------------------------
--- §3  THE PAIRWISE SPLIT.  G = E + (excess), for EVERY vector — no hypothesis.
+-- §3  THE PAIRWISE SPLIT.  G = E + (excess), for EVERY vector � no hypothesis.
 --
---   pairGaps e = Σ_{i>j} (eᵢ − eⱼ)      is the note's G,
---   crossPairs e = #{ i>j : eⱼ < eᵢ }   is the note's E on pairs (§4 below
---                                        identifies it with Σ_{u<t} r_u r_t),
---   gapExcess e = Σ_{i>j} ((eᵢ−eⱼ) − 1) over the pairs that contribute.
+--   pairGaps e = �_{i>j} (e� − e�)      is the note's G,
+--   crossPairs e = #{ i>j : e� < e� }   is the note's E on pairs (§4 below
+--                                        identifies it with �_{u<t} r_u r_t),
+--   gapExcess e = �_{i>j} ((e�−e�) − 1) over the pairs that contribute.
 ------------------------------------------------------------------------------
 
 gt-split : (a b : ℕ) → (b ∸ a) ≡ gt a b + ((b ∸ a) ∸ gt a b)
@@ -187,7 +187,7 @@ split (x ∷ xs) =
       ∙ +-assoc p s (q + t)
 
 ------------------------------------------------------------------------------
--- §4  THE RUN IDENTIFICATION.  Σ_{u<t} r_u r_t (over the run-length list of a
+-- §4  THE RUN IDENTIFICATION.  �_{u<t} r_u r_t (over the run-length list of a
 --     SORTED vector) equals the pair count of §1.  This is the step where
 --     sortedness is genuinely used, and §8 exhibits a vector where dropping it
 --     makes the statement false.
@@ -272,7 +272,7 @@ runsGo-crossE a k (z ∷ zs) (le , as) (bs , ss) with discreteℕ a z
              (sym (·-identityˡ (gtAll z zs)))
 
 -- THEOREM (every rank).  On a sorted valuation vector the run-length cross
--- term Σ_{u<t} r_u r_t is exactly the number of strictly increasing pairs.
+-- term �_{u<t} r_u r_t is exactly the number of strictly increasing pairs.
 crossE-runLens : (e : List ℕ) → Sorted e → crossE (runLens e) ≡ crossPairs e
 crossE-runLens []       _        = refl
 crossE-runLens (x ∷ xs) (bs , ss) =
@@ -280,7 +280,7 @@ crossE-runLens (x ∷ xs) (bs , ss) =
   ∙ cong (_+ crossPairs xs) (·-identityˡ (gtAll x xs))
 
 -- THEOREM (every rank).  The exact form of GAMMA0_FLAG_INDEX.md §5:
---     G  =  E + Σ_{u<t} r_u r_t (f_t − f_u − 1).
+--     G  =  E + �_{u<t} r_u r_t (f_t − f_u − 1).
 G≡E+excess : (e : List ℕ) → Sorted e
            → pairGaps e ≡ crossE (runLens e) + gapExcess e
 G≡E+excess e s = split e ∙ cong (_+ gapExcess e) (sym (crossE-runLens e s))
@@ -295,8 +295,8 @@ E≤G e s = gapExcess e , +-comm (gapExcess e) (crossE (runLens e))
 ------------------------------------------------------------------------------
 -- §5  SHIFT INVARIANCE, for every shift, every vector, every p.
 --
--- Γ₀(D) depends only on the ratios dᵢ/dⱼ (note §1); the closed form must
--- therefore be invariant under eᵢ ↦ eᵢ + c.  `Gamma0Index.shiftInv` checks
+-- Γ�(D) depends only on the ratios d�/d� (note §1); the closed form must
+-- therefore be invariant under e� � e� + c.  `Gamma0Index.shiftInv` checks
 -- ONE instance by `refl`.  Here it is a theorem.
 ------------------------------------------------------------------------------
 
@@ -350,14 +350,14 @@ idxLocal-shift p c e i =
 ------------------------------------------------------------------------------
 -- §6  THE r = 2 LOCAL FACTOR, for EVERY prime p and EVERY exponent.
 --
--- This is the classical [SL₂(ℤ):Γ₀(N)] local factor ψ(p^k) = p^{k−1}(p+1)
--- (Shimura Prop. 1.43; Diamond–Shurman Ex. 1.2.11).  `Gamma0Index` checks
+-- This is the classical [SL�(�):Γ�(N)] local factor ψ(p^k) = p^{k−1}(p+1)
+-- (Shimura Prop. 1.43; Diamond�Shurman Ex. 1.2.11).  `Gamma0Index` checks
 -- eight instances by `refl`; here it is proved for all of them at once.
 --
 -- The statement is MULTIPLICATIVE, not a division: it says
 --
---     p^G · [numerator of the Gaussian binomial]
---        ≡ (p^{k−1}(p+1)) · p^E · [denominator],
+--     p^G � [numerator of the Gaussian binomial]
+--        ≡ (p^{k−1}(p+1)) � p^E � [denominator],
 --
 -- which is strictly stronger than the quotient form because it does not
 -- presuppose that the division is exact.
@@ -369,7 +369,7 @@ numer p e = pow p (pairGaps e) · qfac p (lenL e)
 denom : ℕ → List ℕ → ℕ
 denom p e = pow p (crossE (runLens e)) · qfacProd p (runLens e)
 
--- (p² − 1) = q(p+1) when p = suc q — the only ∸ fact needed.
+-- (p² − 1) = q(p+1) when p = suc q � the only � fact needed.
 sq∸1 : (q : ℕ) → (suc q · (suc q · 1)) ∸ 1 ≡ q · suc (suc q)
 sq∸1 q =
     cong (λ t → (suc q · t) ∸ 1) (·-identityʳ (suc q))
@@ -393,14 +393,14 @@ numer-r2 : (q m : ℕ)
 numer-r2 q m =
   cong₂ _·_ (cong (pow (suc q)) (pairGaps-r2 m)) (qfac-2 q)
 
--- E = 1 and the run lengths are (1,1), so the denominator is p·(p−1)².
+-- E = 1 and the run lengths are (1,1), so the denominator is p�(p−1)².
 denom-r2 : (q m : ℕ) → denom (suc q) (0 ∷ suc m ∷ []) ≡ suc q · (q · q)
 denom-r2 q m =
   cong₂ _·_ (·-identityʳ (suc q))
             (cong₂ _·_ (qfac-1 q)
                        (cong (_· 1) (qfac-1 q) ∙ ·-identityʳ q))
 
--- THEOREM.  For every p = suc q ≥ 1 and every k = suc m ≥ 1, the r = 2 local
+-- THEOREM.  For every p = suc q � 1 and every k = suc m � 1, the r = 2 local
 -- factor of the divisor chain diag(1, p^k) is p^{k−1}(p + 1).
 psi-local : (q m : ℕ)
           → numer (suc q) (0 ∷ suc m ∷ [])
@@ -410,7 +410,7 @@ psi-local q m =
   ∙ norm (suc q) (pow (suc q) m) q (suc (suc q))
   ∙ cong ((pow (suc q) m · suc (suc q)) ·_) (sym (denom-r2 q m))
   where
-        -- (p·P)·((q·S)·q) ≡ (P·S)·(p·(q·q)) : pure commutative-monoid algebra
+        -- (p�P)�((q�S)�q) ≡ (P�S)�(p�(q�q)) : pure commutative-monoid algebra
         norm : (a b d s : ℕ) → (a · b) · ((d · s) · d) ≡ (b · s) · (a · (d · d))
         norm a b d s =
           (a · b) · ((d · s) · d)
@@ -441,17 +441,17 @@ psi-local q m =
 --      counting functions.  Cubical v0.9 has `Cubical.Data.Nat.GCD` (Euclid,
 --      `isGCD`), `Divisibility` and `Coprime`, but NO Chinese remainder
 --      statement of any form: `grep -ril chinese Cubical/` is empty.  A CRT
---      count needs the bijection ℤ/mn ≃ ℤ/m × ℤ/n for coprime m,n, plus a
+--      count needs the bijection �/mn � �/m � �/n for coprime m,n, plus a
 --      cardinality argument transporting counts along it; neither exists.
 --
---  (b) §4 Steps 1–4 need |GLᵣ(ℤ/p^m)| = p^{r²m} ∏_{s≤r}(1 − p^{−s}) as a
+--  (b) §4 Steps 1�4 need |GL�(�/p^m)| = p^{r²m} �_{s�r}(1 − p^{−s}) as a
 --      statement about a FINITE GROUP'S ORDER, general in m.  Nothing in
---      `formal/` types the cardinality of a matrix group over ℤ/n; the whole
+--      `formal/` types the cardinality of a matrix group over �/n; the whole
 --      corpus's evidence for it is `Gamma0Index`'s enumerations at fixed
 --      small n, which are exactly what a general theorem would replace.
 --
---  (c) Lemma 3.1's ± correction (the image of GLᵣ(ℤ) → GLᵣ(ℤ/M) is the
---      determinant-±1 subgroup, not everything) is a statement about a group
+--  (c) Lemma 3.1's � correction (the image of GL�(�) � GL�(�/M) is the
+--      determinant-�1 subgroup, not everything) is a statement about a group
 --      homomorphism's image and an index, and there is no index of a subgroup
 --      anywhere in `formal/`.
 --
@@ -459,14 +459,14 @@ psi-local q m =
 -- about ANALYSIS ("no zero, no explicit formula and no Dirichlet series
 -- appears in a type anywhere in formal/").  The obstruction here is different
 -- in kind and worth naming separately: what is missing is FINITE GROUP THEORY
--- — orders, indices, and the transport of counts along bijections.  The
+-- � orders, indices, and the transport of counts along bijections.  The
 -- arithmetic skeleton of a classical index formula is reachable; the counting
 -- that makes it an index is not, and it is not blocked on analysis.
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
 -- §8  CONTROLS.  Six `refl`/negation controls, in the idiom of
---     Sl2DivisorLattice.agda §5′: the theorems above must not be satisfiable
+--     Sl2DivisorLattice.agda §5�: the theorems above must not be satisfiable
 --     by degenerate data.
 ------------------------------------------------------------------------------
 
@@ -484,8 +484,8 @@ module Controls where
   control-excess : gapExcess (0 ∷ 1 ∷ 3 ∷ []) ≡ 3
   control-excess = refl
 
-  -- (3)  … and it IS zero when no two distinct valuations are further than a
-  --      single step apart, which is the equality case E = G of `E≤G`.
+  -- (3)  � and it IS zero when no two distinct valuations are further than a
+  --      single step apart, which is the equality case E = G of `E�G`.
   control-excess-tight : gapExcess (0 ∷ 0 ∷ 1 ∷ []) ≡ 0
   control-excess-tight = refl
 
@@ -500,7 +500,7 @@ module Controls where
     : ¬ (crossE (runLens (1 ∷ 0 ∷ [])) ≡ crossPairs (1 ∷ 0 ∷ []))
   control-sorted-needed h = snotz h
 
-  -- (5)  … and so is `E≤G`: on (1,0) the exponent G − E would be negative.
+  -- (5)  � and so is `E�G`: on (1,0) the exponent G − E would be negative.
   control-E≤G-needs-sorted
     : ¬ (crossE (runLens (1 ∷ 0 ∷ [])) ≡ pairGaps (1 ∷ 0 ∷ []))
   control-E≤G-needs-sorted h = snotz h

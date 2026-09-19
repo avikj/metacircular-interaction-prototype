@@ -22,34 +22,34 @@
 --          H²(Q;A) := Z²(Q;A) / B²(Q;A)
 --
 --      is the library quotient group `Cubical.Algebra.Group.QuotientGroup`.
---      `class-zero→coboundary` is the effectivity statement: a class is
+--      `class-zero�coboundary` is the effectivity statement: a class is
 --      zero *exactly* when its representative is a coboundary.  This uses
 --      `SetQuotients.effective`, so an equivalence-relation proof for the
 --      subgroup relation is supplied.
 --
---  (2) `CarryClass`:  for any extension π : G ↠ Q with G abelian and any
+--  (2) `CarryClass`:  for any extension � : G � Q with G abelian and any
 --      set-theoretic section s, the carry with coefficients in the group
---      K = ker π is an element `carryK : Z²(Q; K)`, whose cocycle identity
+--      K = ker � is an element `carryK : Z²(Q; K)`, whose cocycle identity
 --      is **imported**, not reproved: it is `Carry.carry-cocycle` of
---      `CarryObstruction` transported along the injection ker π ↪ G.  The
---      theorem is `class-zero→hom-section`: if [carryK] = 0 in H²(Q; ker π)
---      then π admits a *homomorphic* section.  (The converse direction,
---      splitting ⇒ class zero, is `hom-section→class-zero`.)
+--      `CarryObstruction` transported along the injection ker � � G.  The
+--      theorem is `class-zero�hom-section`: if [carryK] = 0 in H²(Q; ker �)
+--      then � admits a *homomorphic* section.  (The converse direction,
+--      splitting � class zero, is `hom-section�class-zero`.)
 --
--- The arithmetic instance — b ≥ 2, n ≥ 1, the truncation ℤ/bⁿ⁺¹ ↠ ℤ/bⁿ,
--- and hence Proposition 2.11's `[c_n] ≠ 0` — is the sibling module
+-- The arithmetic instance � b � 2, n � 1, the truncation �/b��� � �/b�,
+-- and hence Proposition 2.11's `[c_n] ≠ 0` � is the sibling module
 -- `CarryClassNonzero`, which combines (2) with
 -- `CarryObstruction.BasePower.extension-does-not-split`.  It is split off
 -- so that the general construction and the instance check separately (and
 -- because instantiating a `public`-opened chain of parametrized modules at
--- `Fin bⁿ⁺¹` is what made the combined file take >15 min; the two files
+-- `Fin b���` is what made the combined file take >15 min; the two files
 -- take 6 s and 3 s).
 --
---  * H²(ℤ/m; A) ≅ A/mA.  The coefficient group here is `ker π` as a
---    subgroup of ℤ/bⁿ⁺¹, not `ℤ/b`; neither the isomorphism
---    bⁿℤ/bⁿ⁺¹ ≅ ℤ/b nor the computation of H² as A/mA is constructed.
+--  * H²(�/m; A) � A/mA.  The coefficient group here is `ker �` as a
+--    subgroup of �/b���, not `�/b`; neither the isomorphism
+--    b��/b��� � �/b nor the computation of H² as A/mA is constructed.
 --    Nonvanishing of the class does not need either.
---  * Any *exhibited* carrying pair: the theorem remains a ¬∀.
+--  * Any *exhibited* carrying pair: the theorem remains a ��.
 --
 -- Toolchain: Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes.
 ------------------------------------------------------------------------
@@ -97,7 +97,7 @@ module AbTools (A : Group ℓ)
     module A = GroupStr (snd A)
   open GroupTheory A using (invDistr ; invInv ; inv1g) public
 
-  -- (x·y)·(a·c) ≡ (x·a)·(y·c)
+  -- (x�y)�(a�c) ≡ (x�a)�(y�c)
   middle4 : (x y a c : ⟨ A ⟩) → (x A.· y) A.· (a A.· c) ≡ (x A.· a) A.· (y A.· c)
   middle4 x y a c =
       sym (A.·Assoc x y (a A.· c))
@@ -109,7 +109,7 @@ module AbTools (A : Group ℓ)
   invDistr' : (x y : ⟨ A ⟩) → A.inv (x A.· y) ≡ A.inv x A.· A.inv y
   invDistr' x y = invDistr x y ∙ comm (A.inv y) (A.inv x)
 
-  -- (P · D⁻¹) · (D · X) ≡ P · X
+  -- (P � D��) � (D � X) ≡ P � X
   slide : (P D X : ⟨ A ⟩) → (P A.· A.inv D) A.· (D A.· X) ≡ P A.· X
   slide P D X =
       sym (A.·Assoc P (A.inv D) (D A.· X))
@@ -117,7 +117,7 @@ module AbTools (A : Group ℓ)
     ∙ cong (λ z → P A.· (z A.· X)) (A.·InvL D)
     ∙ cong (P A.·_) (A.·IdL X)
 
-  -- X·P⁻¹ ≡ Y·R⁻¹  ⟹  X·Y⁻¹ ≡ P·R⁻¹.   (Cross-multiplication.)
+  -- X�P�� ≡ Y�R��  �  X�Y�� ≡ P�R��.   (Cross-multiplication.)
   cross : (X P Y R : ⟨ A ⟩)
         → (X A.· A.inv P) ≡ (Y A.· A.inv R)
         → (X A.· A.inv Y) ≡ (P A.· A.inv R)
@@ -358,7 +358,7 @@ module Cochain (Q : Group ℓ) (A : Group ℓ')
       tidy = cong (c ZG.·_) (GroupTheory.inv1g Z₂Group) ∙ ZG.·IdR c
 
 ------------------------------------------------------------------------
--- 2.  The carry class of an extension, with coefficients in ker π
+-- 2.  The carry class of an extension, with coefficients in ker �
 ------------------------------------------------------------------------
 
 -- (Both groups at one universe level: the library's `kerSubgroup` is stated
@@ -377,7 +377,7 @@ module CarryClass
     module Q = GroupStr (snd Q)
   open AbTools G Gcomm
 
-  -- The coefficient group: ker π, as a group in its own right.
+  -- The coefficient group: ker �, as a group in its own right.
   K : Group ℓ
   K = Subgroup→Group G (kerSubgroup π)
 
@@ -406,7 +406,7 @@ module CarryClass
   carryK = (λ u v → CarryG.carry u v , CarryG.carry-inKer u v)
          , λ u v w → ι-inj (CarryG.carry-cocycle Gcomm u v w)
 
-  -- ι of the carry is the carry.
+  -- � of the carry is the carry.
   ι-carryK : (u v : ⟨ Q ⟩) → ι (carryK .fst u v) ≡ CarryG.carry u v
   ι-carryK u v = refl
 
@@ -414,7 +414,7 @@ module CarryClass
   -- vanishing of the class  ⟺  the extension splits
   ----------------------------------------------------------------
 
-  -- If [carryK] = 0 then π has a homomorphic section.  The conclusion is
+  -- If [carryK] = 0 then � has a homomorphic section.  The conclusion is
   -- taken as a hypothesis-consumer so that the propositional truncation
   -- in `isCoboundary` may be eliminated.
   class-zero→hom-section :
@@ -445,7 +445,7 @@ module CarryClass
                  ∙ GroupTheory.inv1g Q)
             ∙ Q.·IdR q
 
-          -- ι of the coboundary equation, in G
+          -- � of the coboundary equation, in G
           pfG : (u v : ⟨ Q ⟩)
               → ((F u G.· F v) G.· G.inv (F (u Q.· v)))
               ≡ ((s u G.· s v) G.· G.inv (s (u Q.· v)))

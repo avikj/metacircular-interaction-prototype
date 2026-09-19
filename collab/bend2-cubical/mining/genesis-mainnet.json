@@ -1,0 +1,14 @@
+{
+  "format": "bitcoin-native-job-v1",
+  "job_id": "mainnet-genesis-full-nonce",
+  "network": "mainnet",
+  "headers": [
+    "0100000000000000000000000000000000000000000000000000000000000000000000003ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a29ab5f49ffff001d1dac2b7c"
+  ],
+  "nonce": {
+    "base": "00000000",
+    "mask": "ffffffff"
+  },
+  "max_solutions": 1,
+  "provenance": "Historical Bitcoin mainnet genesis header, Bitcoin Core src/kernel/chainparams.cpp. This job varies every nonce bit; it is not a current mining template."
+}

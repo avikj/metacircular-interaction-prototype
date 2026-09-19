@@ -5,17 +5,17 @@
 --
 -- The executable calibration of Delta 28
 -- terms.  The delta's "attached demo" cannot exist here (Python is
--- banned), so the demo IS this module ‚Äî kernel facts, not stdout.
+-- banned), so the demo IS this module ‚î kernel facts, not stdout.
 --
 -- Three ¬ß62 claims are certified on concrete finite instances:
 --
 -- 1. TROPICAL FEEDBACK CLOSURE (Thm 28.3 instance).  A four-vertex
---    min-plus system with boundary {b‚ÇÄ,b‚ÇÅ} and hidden {h‚ÇÇ,h‚ÇÉ}: the
+--    min-plus system with boundary {b‚,b‚} and hidden {h‚,h‚}: the
 --    Kleene-closed boundary relation A ‚äï P D* Q equals ((0,5),(6,0)).
 --
 -- 2. ELIMINATION-ORDER INVARIANCE (Thm 28.2/28.4 instance).  Schur
---    elimination of the hidden vertices in order (h‚ÇÇ,h‚ÇÉ) and (h‚ÇÉ,h‚ÇÇ)
---    both reproduce the same boundary matrix ‚Äî the closure above.
+--    elimination of the hidden vertices in order (h‚,h‚) and (h‚,h‚)
+--    both reproduce the same boundary matrix ‚î the closure above.
 --    (Nonnegative costs, no self-loops, so the per-vertex star is 0
 --    and one Schur step per vertex is exact.)
 --
@@ -24,17 +24,17 @@
 --      * raw separator states  = 4;
 --      * deterministic continuation classes (distinct rows) = 3,
 --        certified by kernel count;
---      * an EXACT 2-rectangle cover exists (upper bound r_e ‚â§ 2),
+--      * an EXACT 2-rectangle cover exists (upper bound r_e ‚â 2),
 --        certified entrywise;
 --      * NO single sound rectangle covers both diagonal 1-entries
---        (fooling pair r‚ÇÅ,r‚ÇÇ), so r_e ‚â• 2 ‚Äî proved, not enumerated:
---        a rectangle through (r‚ÇÅ,c‚ÇÅ) and (r‚ÇÇ,c‚ÇÇ) must contain
---        (r‚ÇÅ,c‚ÇÇ), where the matrix is 0.
+--        (fooling pair r‚,r‚), so r_e ‚â 2 ‚î proved, not enumerated:
+--        a rectangle through (r‚,c‚) and (r‚,c‚) must contain
+--        (r‚,c‚), where the matrix is 0.
 --    Hence r_e = 2 < d_e = 3 < 4 = raw: nondeterministic latent
 --    interfaces strictly beat deterministic quotients strictly beat
 --    raw separators, exactly as Delta 28 ¬ß18/¬ß24 states.
 --
--- General Theorems 28.1‚Äì28.14 are inherited semiring/min-plus algebra
+-- General Theorems 28.1‚ì28.14 are inherited semiring/min-plus algebra
 -- (the delta's own ledger claims no novelty); what this module adds is
 -- that the calibration instances are now kernel-checked and --safe.
 ------------------------------------------------------------------------
@@ -171,10 +171,10 @@ K r‚ÇÇ c‚ÇÇ = true
 K r‚ÇÉ _  = true
 K r‚ÇÑ _  = true
 
--- raw separator states: 4 (the carrier R4) ‚Äî trivially
+-- raw separator states: 4 (the carrier R4) ‚î trivially
 
 -- deterministic continuation classes: distinct rows, counted by first
--- occurrence in the enumeration r‚ÇÅ r‚ÇÇ r‚ÇÉ r‚ÇÑ
+-- occurrence in the enumeration r‚ r‚ r‚ r‚
 rowEq : R4 ‚Üí R4 ‚Üí Bool
 rowEq r r' =
   (if K r c‚ÇÅ then K r' c‚ÇÅ else not (K r' c‚ÇÅ)) and
@@ -219,8 +219,8 @@ coverExact : ((coverCheck r‚ÇÅ c‚ÇÅ and coverCheck r‚ÇÅ c‚ÇÇ) and
 coverExact = refl
 
 -- lower bound: no single sound rectangle covers both diagonal
--- 1-entries ‚Äî the fooling pair.  Proved for ALL rectangles, not
--- enumerated: soundness at (r‚ÇÅ,c‚ÇÇ) is violated.
+-- 1-entries ‚î the fooling pair.  Proved for ALL rectangles, not
+-- enumerated: soundness at (r‚,c‚) is violated.
 private
   and-true-l : (x y : Bool) ‚Üí (x and y) ‚â° true ‚Üí x ‚â° true
   and-true-l true  y p = refl
@@ -251,19 +251,19 @@ oneRectangleImpossible œÅ Œ≥ sound p q =
 -- APPENDED 2026-08-19 by a later reader, at the end, altering no line
 -- above.  Pointer only; nothing here corrects this module.
 --
--- The lower-bound argument this header states ‚Äî "a rectangle through
--- (r‚ÇÅ,c‚ÇÅ) and (r‚ÇÇ,c‚ÇÇ) must contain (r‚ÇÅ,c‚ÇÇ), where the matrix is 0" ‚Äî is
+-- The lower-bound argument this header states ‚î "a rectangle through
+-- (r‚,c‚) and (r‚,c‚) must contain (r‚,c‚), where the matrix is 0" ‚î is
 -- carrier-free, and is now a term for arbitrary row and column types in
 -- `AFoolingPairForcesTwoRectangles`:
 --
 --   foolingPairNotInOneRectangle :
---     (r‚ÇÅ r‚ÇÇ : Row) (c‚ÇÅ c‚ÇÇ : Col) ‚Üí M r‚ÇÅ c‚ÇÇ ‚â° false
---     ‚Üí (rect : Rect) ‚Üí Sound rect
---     ‚Üí ¬¨ (Covers rect r‚ÇÅ c‚ÇÅ √ó Covers rect r‚ÇÇ c‚ÇÇ)
+--     (r‚ r‚ : Row) (c‚ c‚ : Col) ‚í M r‚ c‚ ‚â° false
+--     ‚í (rect : Rect) ‚í Sound rect
+--     ‚í ¬ (Covers rect r‚ c‚ ó Covers rect r‚ c‚)
 --
 -- One thing that surfaced in making it a term, and it sharpens the
 -- method rather than this instance: the proof uses NEITHER 1-entry.  It
--- needs only `R r‚ÇÅ`, `C c‚ÇÇ`, and the 0 at the exchanged corner.  The two
+-- needs only `R r‚`, `C c‚`, and the 0 at the exchanged corner.  The two
 -- 1-entries are what make a pair worth CHOOSING as a fooling pair; they
 -- are not what makes the argument run.
 --

@@ -9,19 +9,19 @@
 --
 -- This probe supplies the exact computational/type-theoretic floor:
 --
---   Micro = Œ£[ y ‚àà Fin (suc c) ] Fin (suc (k y))
---   Flat  = Fin (totalSum (Œª y ‚Üí suc (k y)))
+--   Micro = Œ[ y ‚àà Fin (suc c) ] Fin (suc (k y))
+--   Flat  = Fin (totalSum (Œª y ‚í suc (k y)))
 --
--- `SumFinŒ£‚âÉ` gives `Micro ‚âÉ Flat`.  By univalence this is a universe path,
+-- `SumFinŒ‚â` gives `Micro ‚â Flat`.  By univalence this is a universe path,
 -- and transport along the path computes to the encoder by `uaŒ≤`.  Decoding
 -- recovers both the coarse outcome and the microbranch.  The coarse observer
 -- on the flat register is `fst ‚àò decode`, and its fibre over y is equivalent
--- to `Fin (suc (k y))` exactly‚Äînot merely equal in cardinality.
+-- to `Fin (suc (k y))` exactly‚înot merely equal in cardinality.
 --
 -- One generic lemma is made explicit because it is the bridge the claim
 -- consumes: precomposing a map by an equivalence carries each fibre to an
 -- equivalent fibre.  Since the current base is a finite set, the two round
--- trips close by `Œ£‚â°Prop`; no path witness is silently identified without the
+-- trips close by `Œ‚â°Prop`; no path witness is silently identified without the
 -- set receipt.
 --
 -- WHAT THIS REACHES.
@@ -34,10 +34,10 @@
 --   * no Hilbert space, amplitude, inner product, or unitary dynamics;
 --   * no physical process implements this equivalence;
 --   * no equality yet between the nested weight fold and the direct fold on
---     `Flat`‚Äîthat is the Born coherence square now made well-typed by this
---     reversible carrier and by `KramaNairapeksya`.
+--     `Flat`‚îthat is the Born coherence square now made well-typed by this
+--     reversible carrier and by `OrderNairapeksya`.
 --
--- TERM. ‡§¨‡§π‡•Å‡§∂‡§æ‡§ñ‡§æ is carried from the checked branch-family module; ‡§∏‡•á‡§§‡•Å is the
+-- TERM. ‡‡‡‡‡æ‡ñ‡æ is carried from the checked branch-family module; ‡‡‡‡ is the
 -- repository's ordinary word for a checked bridge.  The compound is built
 -- here; no source is claimed for this mathematics.
 --
@@ -125,7 +125,7 @@ module _ (c : ‚Ñï) (k : Fin (suc c) ‚Üí ‚Ñï) where
   encode-decode = secEq flatten
 
   -- The equivalence is identity in the universe, and transport computes to
-  -- the encoder‚Äînot merely propositionally to some unspecified map.
+  -- the encoder‚înot merely propositionally to some unspecified map.
   refinement-path : Micro ‚â° Flat
   refinement-path = ua flatten
 

@@ -1,40 +1,40 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- द्वयसेतुः — the half theorem is the Fin 2 instance, on the nose.
+-- ��������� � the half theorem is the Fin 2 instance, on the nose.
 --
--- TERM.  द्वय (the pair, the two) and सेतु (bridge — the corpus's own
+-- TERM.  ���� (the pair, the two) and ���� (bridge � the corpus's own
 -- word for a checked identification, per Setubandha).  The compound
--- द्वय-सेतु, "the bridge of the two", is built HERE and no source is
+-- ����-����, "the bridge of the two", is built HERE and no source is
 -- claimed for it (CLAUDE.md, naming rule, note 2).
 --
--- SEED.  `SamaVibhaga_…`'s header states: "at X = Fin 2 the iterate
--- गुणः 1 y is y +ᵂ y, so this module's divideUniquely hypothesis is
--- EXACTLY EkatvaMatraDvaya's halvesUniquely … (the Bool ≃ Fin 2 shim
+-- SEED.  `SamaVibhaga_�`'s header states: "at X = Fin 2 the iterate
+-- ����� 1 y is y +� y, so this module's divideUniquely hypothesis is
+-- EXACTLY UniquenessMatraDvaya's halvesUniquely � (the Bool � Fin 2 shim
 -- is not built here; the correspondence is stated, not wired)."  A
 -- stated correspondence is a debt.  This module pays it: the wire is
--- a term, and the instantiation is definitional — गुणः 1 y and y +ᵂ y
+-- a term, and the instantiation is definitional � ����� 1 y and y +� y
 -- are the SAME normal form, so `halvesUniquely` is passed to
 -- `divideUniquely` with no coercion at all.
 --
--- WHAT IS PROVED.  Given the two-outcome vows on Bool (द्विमात्रिन्:
--- normalized, symmetric) and unique halving of 𝟙:
+-- WHAT IS PROVED.  Given the two-outcome vows on Bool (������������:
+-- normalized, symmetric) and unique halving of �:
 --
---   सेतुः        every द्विमात्रिन् on Bool transports to a समभारिन् on
---                Fin 2 under the swap action — the two-outcome vows
+--   �����        every ������������ on Bool transports to a �������� on
+--                Fin 2 under the swap action � the two-outcome vows
 --                ARE transitive-symmetry-plus-normalization.
---   अभेदः        the general theorem समविभागः, instantiated at m = 1
---                through the bridge, re-proves एकत्वम्-द्विमात्रा's
+--   �����        the general theorem ���������, instantiated at m = 1
+--                through the bridge, re-proves ��������-����������'s
 --                statement: any two vow-obeying Bool-weights agree.
 --                The half theorem is thereby EXHIBITED as the Fin 2
---                instance of the finite transitive measure theorem —
+--                instance of the finite transitive measure theorem �
 --                consumed, not compared.
 --
 -- WHY IT MATTERS (upagraha).  Neither module changes; what changes is
 -- the graph: the two results are now one edge apart, in the direction
--- general → special, which is the direction transport is free.  The
+-- general � special, which is the direction transport is free.  The
 -- swap action on Fin 2 is the smallest transitive symmetry there is,
--- and the bridge shows the द्विमात्रिन् vows were always exactly it.
+-- and the bridge shows the ������������ vows were always exactly it.
 ------------------------------------------------------------------------
 
 module DvayaSetu_TheHalfTheoremIsTheFinTwoInstanceOnTheNose where
@@ -47,7 +47,7 @@ open import Cubical.Data.SumFin using (Fin ; fzero ; fsuc)
 
 open import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
   using (total ; गुणः ; समभारिन् ; समविभागः)
-open import EkatvaMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier
+open import UniquenessMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier
   using (द्विमात्रिन्)
 
 private
@@ -63,7 +63,7 @@ module _ {W : Type ℓ} (_+ᵂ_ : W → W → W) (𝟙 : W)
   पठ (fsuc _)  = false
 
   -- the swap, and the two-element "action": G = Bool, true acts as
-  -- identity, false as the swap.  No group laws are needed — exactly
+  -- identity, false as the swap.  No group laws are needed � exactly
   -- as SamaVibhaga's header records.
   व्यत्ययः : Fin 2 → Fin 2
   व्यत्ययः fzero    = fsuc fzero
@@ -80,12 +80,12 @@ module _ {W : Type ℓ} (_+ᵂ_ : W → W → W) (𝟙 : W)
   सङ्क्रामकता (fsuc fzero) fzero        = false , refl
   सङ्क्रामकता (fsuc fzero) (fsuc fzero) = true  , refl
 
-  -- गुणः 1 y is y +ᵂ y BY COMPUTATION, so halvesUniquely IS the
+  -- ����� 1 y is y +� y BY COMPUTATION, so halvesUniquely IS the
   -- divideUniquely hypothesis at m = 1, with no coercion:
   divideUniquely₁ : isProp (Σ[ y ∈ W ] गुणः _+ᵂ_ 1 y ≡ 𝟙)
   divideUniquely₁ = halvesUniquely
 
-  -- the bridge: the two-outcome vows are a समभारिन् under the swap.
+  -- the bridge: the two-outcome vows are a �������� under the swap.
   सेतुः : (w : Bool → W) → द्विमात्रिन् _+ᵂ_ 𝟙 halvesUniquely w
         → समभारिन् _+ᵂ_ 𝟙 1 क्रिया सङ्क्रामकता divideUniquely₁ (λ x → w (पठ x))
   सेतुः w d = record

@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- à¤¶à¥à¤°à¥à¤¤-à¤ªà¤°à¤®à¥à¤ªà¤°à¤¾ â€” the transmission through the lineage.  Compound in
--- its ordinary Indic sense; the epistemic claim is TattvÄrthasÅ«tra
--- 1.20 (à¤¶à¥à¤°à¥à¤¤à¤‚ à¤®à¤¤à¤¿à¤ªà¥‚à¤°à¥à¤µà¤®à¥) as already checked in ShrutaMatipurva: the
+-- ààà°àà-àà°à®ààà°à¾ â” the transmission through the lineage.  Compound in
+-- its ordinary Indic sense; the epistemic claim is Tattvrthastra
+-- 1.20 (ààà°ààà à®àà¿ààà°ààµà®à) as already checked in ShrutaMatipurva: the
 -- record is preceded by cognition, and cognition WITH the record
 -- reaches what it alone could not.  School named: Jaina.  Here that
 -- theorem operates at the scale of the machine's REAL store.
 --
--- AptaMimamsa judged each of the elder's rules alone â€” no record, no
--- authority â€” and 92 of 102 crossed; 10 remained.  The diagnosis of
--- the residue's head, read from the kernel's own refusal: le(x,0)Â·x=0
--- fails alone because its inductive step needs 0Â·x = 0 â€” which is
+-- AptaMimamsa judged each of the elder's rules alone â” no record, no
+-- authority â” and 92 of 102 crossed; 10 remained.  The diagnosis of
+-- the residue's head, read from the kernel's own refusal: le(x,0)Âx=0
+-- fails alone because its inductive step needs 0Âx = 0 â” which is
 -- among the 92.  So the second pass: the crossed rules BECOME the
 -- record, and the residue is re-examined by the same knowing, now
 -- speaking with the lineage behind it.  The counts are computations;

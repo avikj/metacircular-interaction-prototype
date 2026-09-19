@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Trivar·πáa ‚Äî the two three-letter alphabets are one type
+-- Trivara ‚î the two three-letter alphabets are one type
 --
--- Source term.  ‡§§‡•ç‡§∞‡§ø‡§µ‡§∞‡•ç‡§£ (tri-var·πáa), "three-lettered / three-syllabled":
--- Pi·πÖgala's *Chanda·∏•≈õƒÅstra* (~300 BCE) enumerates metres by the var·πáas of
--- a foot, and the ga·πáa of three syllables ‚Äî the eight trikas ‚Äî is exactly
+-- Source term.  ‡‡‡∞‡ø‡µ‡∞‡‡ (tri-vara), "three-lettered / three-syllabled":
+-- Pigala's *Chandastra* (~300 BCE) enumerates metres by the varas of
+-- a foot, and the gaa of three syllables ‚î the eight trikas ‚î is exactly
 -- an alphabet of three distinct letters read as one object.  The term is
 -- used here for the object "a bare set of three distinguishable points",
--- which is what Pi·πÖgala's combinatorics ranges over; no claim is made that
--- Pi·πÖgala proved the equivalence below.
+-- which is what Pigala's combinatorics ranges over; no claim is made that
+-- Pigala proved the equivalence below.
 --
---   * DisclosureDimension.Three  (constructors a b c) ‚Äî the three-letter
+--   * DisclosureDimension.Three  (constructors a b c) ‚î the three-letter
 --     alphabet witnessing that set-level disclosure has no dimension.
---   * StagewiseComposite.Three   (constructors t0 t1 t2) ‚Äî the three
+--   * StagewiseComposite.Three   (constructors t0 t1 t2) ‚î the three
 --     response values witnessing that the stagewise family fails to
 --     determine the composite defect.
 --
 -- The machine's reader (Setubandha) lists both as ISOLATED NODES: types
 -- the corpus defines that nothing identifies with anything.  They are, in
--- fact, the SAME type ‚Äî each is a bare enumeration of three distinct
--- points ‚Äî so the identification is real, not forced.  We build the
+-- fact, the SAME type ‚î each is a bare enumeration of three distinct
+-- points ‚î so the identification is real, not forced.  We build the
 -- explicit isomorphism, hence an equivalence and (by univalence) a path.
 --
 -- Nothing else is assumed: no Discrete, no ordering, no field.  The only
--- content is that a‚Üít0, b‚Üít1, c‚Üít2 is a bijection, checked by the kernel
+-- content is that a‚ít0, b‚ít1, c‚ít2 is a bijection, checked by the kernel
 -- on all six round-trip cases by refl.
 ------------------------------------------------------------------------
 

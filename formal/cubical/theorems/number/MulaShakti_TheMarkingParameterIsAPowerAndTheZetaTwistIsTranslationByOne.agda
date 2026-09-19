@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --safe #-}
 --
--- मूल-शक्तिः — the root is a power, and ζ is a translation.
+-- ���-������� � the root is a power, and � is a translation.
 --
 -- Six questions, asked at once of the same object, because they are one
--- question wearing six faces.  The object is `घातः t bs` from
--- `EkaGhataVivrtti_...`: one rank-one product over the places, ∏ᵢ (χ(bᵢ) +
--- σ(bᵢ)·t), whose k-th coefficient is the k-marked squarefree charge.
+-- question wearing six faces.  The object is `����� t bs` from
+-- `EkaGhataVivrtti_...`: one rank-one product over the places, ∵ (�(b�) +
+-- �(b�)�t), whose k-th coefficient is the k-marked squarefree charge.
 --
---   1.  घातः t bs        ≡ (t − 1) ^ ω        — the product has a closed form
---   2.  ज्योति-घातः t bs   ≡ t ^ ω             — so does its ζ twist
---   3.  ज्योति-घातः t bs   ≡ घातः (t + 1) bs    — hence THE ζ TWIST IS t ↦ t+1
---   4.  विवृत्तिः bs k      ≡ बिन्दुः ω k         — every level factors through ω
---   5.  बिन्दुः is Piṅgala's array with the Möbius sign: (−1)^{ω−k}·C(ω,k)
---   6.  बिन्दुः m k        ≡ 0 for k > m        — the tower is finite
+--   1.  ����� t bs        ≡ (t − 1) ^ ω        � the product has a closed form
+--   2.  �������-����� t bs   ≡ t ^ ω             � so does its � twist
+--   3.  �������-����� t bs   ≡ ����� (t + 1) bs    � hence THE � TWIST IS t � t+1
+--   4.  ��������� bs k      ≡ ������� ω k         � every level factors through ω
+--   5.  ������� is Pigala's array with the Mbius sign: (−1)^{ω−k}�C(ω,k)
+--   6.  ������� m k        ≡ 0 for k > m        � the tower is finite
 --
 -- (3) is the one worth naming.  Dirichlet convolution with the constant
 -- function, applied at every place at once, is EXACTLY a unit translation of
--- the marking parameter; Möbius inversion is t ↦ t − 1.  The μ/ζ duality
+-- the marking parameter; Mbius inversion is t � t − 1.  The μ/� duality
 -- that the sieve lane spends its life managing is, in this coordinate, a
 -- shift by one.
 --
 -- (4) is the one that bites.  `NaturalMachine/QuotientFiberLaw.agda`: an
 -- observation class sees exactly a quotient.  The whole hierarchy of marked
--- charges is blind to WHICH places are active and sees only HOW MANY — the
+-- charges is blind to WHICH places are active and sees only HOW MANY � the
 -- quotient is ω, on the nose, and the fibre is everything the tower cannot
 -- distinguish.  Which is why no amount of work with these tensors can see
 -- an individual prime.
@@ -57,7 +57,7 @@ open import JyotiVivrtti_TheZetaTwistSendsTheMarkedChargeTowerToTheOmegaStratifi
 घात-शक्तिः t (true ∷ bs) = cong (((- एकम्) + t) ·_) (घात-शक्तिः t bs)
 
 -- ------------------------------------------- 2. the twisted product too
--- the same product with the ζ-twisted factors: 1 at an inactive place,
+-- the same product with the �-twisted factors: 1 at an inactive place,
 -- t at an active one.
 ज्योति-घातः : ℤ → List Bool → ℤ
 ज्योति-घातः t [] = एकम्
@@ -69,7 +69,7 @@ open import JyotiVivrtti_TheZetaTwistSendsTheMarkedChargeTowerToTheOmegaStratifi
 ज्योति-शक्तिः t (false ∷ bs) = ज्योति-शक्तिः t bs
 ज्योति-शक्तिः t (true ∷ bs) = cong₂ _·_ (sym (pos0+ t)) (ज्योति-शक्तिः t bs)
 
--- ------------------------------------- 3. so the ζ twist is t ↦ t + 1
+-- ------------------------------------- 3. so the � twist is t � t + 1
 -- Dirichlet convolution with the constant function, at every place at once,
 -- is a unit translation of the marking parameter.  Nothing is approximated.
 ज्योतिः-अनुवादः : (t : ℤ) (bs : List Bool)
@@ -80,7 +80,7 @@ open import JyotiVivrtti_TheZetaTwistSendsTheMarkedChargeTowerToTheOmegaStratifi
   ∙ sym (घात-शक्तिः (एकम् + t) bs)
 
 -- ------------------------------------ 4-5. every level factors through ω
--- Piṅgala's array carrying the Möbius sign: बिन्दुः m k = (−1)^{m−k} C(m,k),
+-- Pigala's array carrying the Mbius sign: ������� m k = (−1)^{m−k} C(m,k),
 -- written as the recursion rather than as a formula.
 बिन्दुः : ℕ → ℕ → ℤ
 बिन्दुः zero zero = एकम्

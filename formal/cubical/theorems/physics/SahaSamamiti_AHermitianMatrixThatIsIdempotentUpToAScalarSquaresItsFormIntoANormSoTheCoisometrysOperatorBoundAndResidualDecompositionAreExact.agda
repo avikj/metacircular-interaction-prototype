@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- सह-सममिति — the co-isometry.
+-- ��-������ � the co-isometry.
 --
 -- Theorem 2 of the note gives T T* = 2 P_K; PurnaDhruvana checks the
--- scaled Gram matrix Π̃ = T̃*T̃ is Hermitian with Π̃² = 576·Π̃.  The
--- consequences (2.2)–(2.3) — the operator bound |T x|² ≤ 2|x|² and the
--- source/output/residual decomposition — rest on one algebraic fact
--- about any Hermitian M with M² = m·M over a *-ring:
+-- scaled Gram matrix Π� = T�*T� is Hermitian with Π�² = 576�Π�.  The
+-- consequences (2.2)�(2.3) � the operator bound |T x|² � 2|x|² and the
+-- source/output/residual decomposition � rest on one algebraic fact
+-- about any Hermitian M with M² = m�M over a *-ring:
 --
---     m · (c* M c) = (M c)* (M c)          for every vector c,
+--     m � (c* M c) = (M c)* (M c)          for every vector c,
 --
--- so c*Mc is m⁻¹ times a norm, nonnegative for any positivity that
+-- so c*Mc is m�� times a norm, nonnegative for any positivity that
 -- contains norms; and with M = T*T, m = 2 (unscaled) this is
--- |Tc|² = c*(T*T)c and 2|c|² − |Tc|² = |(I − T*T/2)c|²·2 ≥ 0.  Proved here
+-- |Tc|² = c*(T*T)c and 2|c|² − |Tc|² = |(I − T*T/2)c|²�2 � 0.  Proved here
 -- over any StarRing with finite sums, by the double-sum interchange.
 ------------------------------------------------------------------------
 
@@ -117,7 +117,7 @@ module _ (S : StarRing ℓ) where
                         ∙ cong ((c j) ✶ ·_) (Σ-scaleʳ n (λ i → M j i · M i k) (c k)))
       step₂ : Σ⟨ n ⟩ B₁ ≡ Σ⟨ n ⟩ B₃
       step₂ = Σ-swap n n (λ i j → Σ⟨ n ⟩ (λ k → A₁ i j k)) ∙ Σ-ext n B₂ B₃ e₂
-      -- step 3: the inner sum is m · M_jk
+      -- step 3: the inner sum is m � M_jk
       e₃ : (j : ℕ) → B₃ j ≡ F₁ j
       e₃ j = Σ-ext n (λ k → (c j) ✶ · (Σ⟨ n ⟩ (λ i → M j i · M i k) · c k)) (λ k → m · ((c j) ✶ · (M j k · c k)))
                      (λ k → cong (λ z → (c j) ✶ · (z · c k)) (idem j k) ∙ punar′ ((c j) ✶) m (M j k) (c k))

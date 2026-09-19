@@ -10,7 +10,7 @@
 --
 -- Given
 --
---   e e' : A ‚âÉ Fin (suc n)
+--   e e' : A ‚â Fin (suc n)
 --
 -- their change of presentation is the register automorphism
 --
@@ -22,12 +22,12 @@
 -- selected.
 --
 -- Consequence for the finite Born/refinement lane: once nested-versus-flat
--- coherence is checked for the canonical `SumFinŒ£‚âÉ` encoder, it holds for
+-- coherence is checked for the canonical `SumFinŒ‚â` encoder, it holds for
 -- every reversible flat presentation.  The remaining proof burden is one
 -- canonical coherence square, not one square per representation.
 --
--- TERM. ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡•Å‡§§‡§ø (presentation) and ‡§®‡•à‡§∞‡§™‡•á‡§ï‡•ç‡§∑‡•ç‡§Ø (independence) are ordinary
--- Sanskrit; the compound is built here. No source is claimed for the theorem.
+-- TERM. ‡‡‡∞‡‡‡‡‡‡ø (presentation) and ‡®‡à‡∞‡‡‡ï‡‡‡‡Ø (independence) are ordinary
+-- ; the compound is built here. No source is claimed for the theorem.
 --
 -- STATUS. Complete no-hole daemon-facing candidate outside `Everything.agda`.
 -- Not called checked until a route-bearing warm Nadi load answers.

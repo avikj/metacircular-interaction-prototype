@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- भार-गण — the weight calculus.
+-- ���-��� � the weight calculus.
 --
 -- THE WEIGHTED SECOND LAW, PRE-LOGARITHM.  The counting second law
 -- tracked distinctions; weights refine counts, and their algebra is
 -- the second law's multiplicative face:
 --
 --   §1  MASS IS CONSERVED BY MERGING: pushing a weight forward along
---       the erasing map sums it — nothing of the measure is lost when
+--       the erasing map sums it � nothing of the measure is lost when
 --       the support collapses; the support shrinks, the mass arrives
 --       intact.  (Conservation, weighted.)
 --
@@ -19,7 +19,7 @@
 --   §3  MASS MULTIPLIES UNDER INDEPENDENCE: the product weight's
 --       total is the product of the totals, by the two
 --       distributivities proved from scratch.  This is exactly the
---       identity the logarithm will read additively — entropies add
+--       identity the logarithm will read additively � entropies add
 --       BECAUSE masses multiply, and the multiplication is the
 --       theorem while the logarithm is a change of notation for it.
 --
@@ -36,7 +36,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; not)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 
 ------------------------------------------------------------------------
--- १ · Weights, mass, and conservation under merging.
+-- � � Weights, mass, and conservation under merging.
 ------------------------------------------------------------------------
 
 Bhāra : Type₀
@@ -53,14 +53,14 @@ saṃkoca-māna : (w : Bhāra) → saṃkoca w ≡ māna w
 saṃkoca-māna w = refl
 
 ------------------------------------------------------------------------
--- २ · Reversible reindexing permutes the mass.
+-- � � Reversible reindexing permutes the mass.
 ------------------------------------------------------------------------
 
 viparyaya-māna : (w : Bhāra) → māna (λ b → w (not b)) ≡ māna w
 viparyaya-māna w = +-comm (w false) (w true)
 
 ------------------------------------------------------------------------
--- ३ · Independence multiplies the mass.
+-- � � Independence multiplies the mass.
 ------------------------------------------------------------------------
 
 guṇa-viṣama : (a b m : ℕ) → (a + b) · m ≡ a · m + b · m

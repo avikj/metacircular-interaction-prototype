@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§≤‡•á‡§ñ‡§æ ‚Äî the ledger's fold.  (lekhƒÅ, "account/ledger": the term is the
--- repository's own ‚Äî ‡§ú‡•Ä‡§µ‡•ã ‡§≤‡•á‡§ñ‡§æ-‡§ß‡§∞‡§É, sa·πÉrak·π£a·πáa-s≈´tra ‡•®‡•ß ‚Äî chosen over a
--- NyƒÅya attribution DELIBERATELY, see the provenance fence below.)
+-- ‡≤‡‡ñ‡æ ‚î the ledger's fold.  (lekh, "account/ledger": the term is the
+-- repository's own ‚î ‡‡‡µ‡ã ‡≤‡‡ñ‡æ-‡ß‡∞‡, sarakaa-stra ‡®‡ß ‚î chosen over a
+-- Nyya attribution DELIBERATELY, see the provenance fence below.)
 --
--- organism and mapped it onto the Vai≈õe·π£ika fourfold of absence.  A
--- later audit STRUCK that mapping ‚Äî "these four struck equations were
--- modern constructions, not consequences of the fourfold ‚Ä¶ the four
+-- organism and mapped it onto the Vaieika fourfold of absence.  A
+-- later audit STRUCK that mapping ‚î "these four struck equations were
+-- modern constructions, not consequences of the fourfold ‚¶ the four
 -- operational behaviours remain potentially useful as an independently
 -- specified event algebra, but their names no longer provide evidence
 -- for it.  Proof, refutation, scoped no-go, and separation must be
@@ -15,7 +15,7 @@
 --
 -- This module is that independently specified event algebra, checked.
 -- It proves the operational claims the strike left standing, and it
--- claims NOTHING about prƒÅgabhƒÅva or pradhva·πÉsƒÅbhƒÅva ‚Äî the struck
+-- claims NOTHING about prgabhva or pradhvasbhva ‚î the struck
 -- reading is quoted in ABHAVA.md where it lives, with its strike.
 --
 -- The theorems, in the repository's own vocabulary:
@@ -25,21 +25,21 @@
 --      there is before any event, and one proof ends it.
 --   2. REFUTATION ABSORBS: once the fold reads refuted, no later
 --      event changes the reading.  A refutation cannot be outvoted
---      by enthusiasm ‚Äî the absorbing law the organism's design
+--      by enthusiasm ‚î the absorbing law the organism's design
 --      ("genuinely proven conclusions flood; refutations are
 --      permanent") requires of its fold.
 --   3. A BOOLEAN CANNOT CARRY IT: merge pending and refuted into one
 --      "not proved" bit and no transition function on the bit can
---      simulate the fold ‚Äî [] and [refute] read equal and diverge
+--      simulate the fold ‚î [] and [refute] read equal and diverge
 --      under prove.  The two-valued verdict on the three-valued
 --      question cannot compute the future; refuted claims would come
 --      back to life.  This is the typed zero's founding defect
---      (machinery/crystal's UNDECIDED split; Saptabhangi's ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É),
---      here as a ‚ä• about the ledger itself.
+--      (machinery/crystal's UNDECIDED split; Saptabhangi's ‡¶‡‡∞‡‡®‡Ø‡),
+--      here as a ‚ä about the ledger itself.
 --
--- Provenance fence: whether this algebra matches the Vai≈õe·π£ika
--- temporal characterisations (anƒÅdi/sƒÅnta for prior absence,
--- sƒÅdi/ananta for posterior) is exactly the struck question, and this
+-- Provenance fence: whether this algebra matches the Vaieika
+-- temporal characterisations (andi/snta for prior absence,
+-- sdi/ananta for posterior) is exactly the struck question, and this
 -- module supplies no evidence either way.  If someone reopens it, the
 -- study to check is named in ABHAVA.md A1 (Matilal 1968).
 ------------------------------------------------------------------------
@@ -60,7 +60,7 @@ data Event : Type‚ÇÄ where
 Log : Type‚ÇÄ
 Log = List Event
 
--- The three-valued status ‚Äî the typed zero's smallest honest form.
+-- The three-valued status ‚î the typed zero's smallest honest form.
 data Status : Type‚ÇÄ where
   pending     : Status   -- no event yet
   established : Status   -- proved, not refuted
@@ -85,11 +85,11 @@ isRefuted refuted = true
 isRefuted _       = false
 
 ------------------------------------------------------------------------
--- 1 ¬∑ pending is madeless: it holds on the empty log ‚Ä¶
+-- 1 ¬ pending is madeless: it holds on the empty log ‚¶
 pending-unbegun : status [] ‚â° pending
 pending-unbegun = refl
 
--- ‚Ä¶ and nowhere else.  No event sustains it.
+-- ‚¶ and nowhere else.  No event sustains it.
 pending-forces-empty : (log : Log) ‚Üí status log ‚â° pending ‚Üí log ‚â° []
 pending-forces-empty []             _ = refl
 pending-forces-empty (refute ‚à∑ _)   p = Empty.rec (true‚â¢false (cong isRefuted p))
@@ -105,22 +105,22 @@ pending-ends : status (prove ‚à∑ []) ‚â° established
 pending-ends = refl
 
 ------------------------------------------------------------------------
--- 2 ¬∑ refutation absorbs.  It never holds unbegun ‚Ä¶
+-- 2 ¬ refutation absorbs.  It never holds unbegun ‚¶
 refuted-not-unbegun : status [] ‚â° refuted ‚Üí ‚ä•
 refuted-not-unbegun p = true‚â¢false (cong isPending p)
 
--- ‚Ä¶ it begins exactly at a refute ‚Ä¶
+-- ‚¶ it begins exactly at a refute ‚¶
 refuted-begins : (log : Log) ‚Üí status (refute ‚à∑ log) ‚â° refuted
 refuted-begins _ = refl
 
--- ‚Ä¶ and whatever arrives later, it stays.  One case split.
+-- ‚¶ and whatever arrives later, it stays.  One case split.
 refuted-absorbs : (log : Log) (e : Event)
   ‚Üí status log ‚â° refuted ‚Üí status (e ‚à∑ log) ‚â° refuted
 refuted-absorbs log refute _ = refl
 refuted-absorbs log prove  p = cong step p
 
 ------------------------------------------------------------------------
--- 3 ¬∑ a boolean cannot carry it.  Merge pending and refuted into one
+-- 3 ¬ a boolean cannot carry it.  Merge pending and refuted into one
 -- "not proved" bit; no transition function on the bit simulates the
 -- fold, because [] and [refute] read equal and diverge under prove.
 
@@ -136,9 +136,9 @@ no-boolean-fold :
   ‚Üí ‚ä•
 no-boolean-fold (f , h) = true‚â¢false (sym on-dead ‚àô on-fresh)
   where
-  -- on the fresh claim, prove must send the bit true ‚Ü¶ false ‚Ä¶
+  -- on the fresh claim, prove must send the bit true ‚¶ false ‚¶
   on-fresh : f true prove ‚â° false
   on-fresh = sym (h [] prove)
-  -- ‚Ä¶ and on the refuted claim, prove must send true ‚Ü¶ true.
+  -- ‚¶ and on the refuted claim, prove must send true ‚¶ true.
   on-dead : f true prove ‚â° true
   on-dead = sym (h (refute ‚à∑ []) prove)

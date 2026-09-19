@@ -1,9 +1,9 @@
-# Coinduction in Bend2 ‚Äî what "no coinduction" meant, what is true, what was fixed
+# Coinduction in Bend2 ‚î what "no coinduction" meant, what is true, what was fixed
 
 ## The corpus's need
 
 The calculus is coinductive at its core: `IExec`, `Answers`, `ISC`, `Exec`,
-`DhƒÅrƒÅ` are coinductive records; histories are infinite; determinism is
+`Dhr` are coinductive records; histories are infinite; determinism is
 contractibility *of the whole unfolding*; bisimulations are paths of streams
 built field by field (copatterns); productivity (`--guardedness`) is what
 makes an unbounded interaction representable without ever being executed.
@@ -28,9 +28,9 @@ prints its first 400 constructors. **The language is coinductive by
 default.** What it lacked, and what was fixed:
 
 1. **A corecursive path proof looped the checker.** `repOnes : Path(Stream,
-   rep(1n), ones()) := <i> @Cons{1n, repOnes() @ i}` ‚Äî a bisimulation stated
+   rep(1n), ones()) := <i> @Cons{1n, repOnes() @ i}` ‚î a bisimulation stated
    as a corecursive path, exactly the corpus's `exec-unique`/`replay-forget`
-   shape ‚Äî hung. Cause: `epNormCtx` (my Ref-unfolding for typed endpoints)
+   shape ‚î hung. Cause: `epNormCtx` (my Ref-unfolding for typed endpoints)
    re-unfolded a productive definition inside its own unfolding forever.
    Fixed: unfolding is one level deep. `repOnes` is now
    `[productive] theorem(path) definitional`.
@@ -39,13 +39,13 @@ default.** What it lacked, and what was fixed:
    `main` printer use a depth-capped normaliser (`normalCap`).
 3. **The totality classifier was unsound for records.** It counted a
    `match` on a record field as structural descent, so
-   `loop(s) = match s { Cons h t -> loop t }` was `[total]` ‚Äî and diverges
+   `loop(s) = match s { Cons h t -> loop t }` was `[total]` ‚î and diverges
    on `ones()`. Since *every* declared `type` admits infinite inhabitants in
    this semantics, a record field is never a descent position. Fixed: only
    `Nat`/`List` eliminators give descent; a recursion through a record is
    `[productive]` when constructor-guarded and `[unchecked]` otherwise.
    Consequence, stated: structural recursion on user-declared inductive
-   types (e.g. `VecInd` in Bend2's own examples) is now `[unchecked]` ‚Äî that
+   types (e.g. `VecInd` in Bend2's own examples) is now `[unchecked]` ‚î that
    is correct for this language, whose `type`s are not inductive; a genuine
    inductive type would need a declaration form the language does not have.
 
@@ -55,12 +55,12 @@ the file; `viaTail` (corecursion through a destructor) is `[unchecked]`; the
 false bisimulation `wrong : Path(ones, twos) := <i> Cons{1n, wrong()@i}`
 **fails** (heads differ) with a finite message.
 
-## The machine, coinductively (`coinduction.bend`, 13 ‚úì)
+## The machine, coinductively (`coinduction.bend`, 13 ‚ì)
 
 `Answers x` and `IExec x` are declared as the coinductive records themselves
 (indexed `type`s whose tails are `Answers(step(x, ans))`), `replay` and
 `forgetStates` are corecursive, and **both round trips of `run-is-answers`
-are corecursive paths** ‚Äî `replayForget` collapses the receipt with the
+are corecursive paths** ‚î `replayForget` collapses the receipt with the
 ‚à®-square field by field, exactly Prasna's copattern proof:
 
     def replayForget(x, e) -> Path(IExec(x), replay(x, forgetStates(x, e)), e):
@@ -74,8 +74,8 @@ was an accident of the earlier encoding, not a limitation of the language.
 
 4. **Self-referential `type` declarations were `[unchecked]`.** `Answers`
    and `IExec` (`more: Answers(step(x, ans))`) were classified like
-   definitions, so `--total coinduction.bend` refused the file. Fixed: Œ£
-   fields and Œ† codomains are guarded positions ‚Äî a declared type is the
+   definitions, so `--total coinduction.bend` refused the file. Fixed: Œ
+   fields and Œ† codomains are guarded positions ‚î a declared type is the
    productive fixed point of its type operator, as a corecursive value is of
    its constructor (Œ† domains stay unguarded: negative position).
    `bend coinduction.bend --total`, `interaction.bend --total`,
@@ -90,16 +90,16 @@ was an accident of the earlier encoding, not a limitation of the language.
 - No copattern syntax: a corecursive record value is written with its
   constructor, which is equivalent for these records.
 - Conversion between corecursive values is one-step unfolding + structural
-  comparison (as in Agda without Œ∑); bisimilarity is proved, not decided.
+  comparison (as in Agda without Œ); bisimilarity is proved, not decided.
 
-## The general silence-is-determinism (`silence.bend`, 25 ‚úì, `--total` passes)
+## The general silence-is-determinism (`silence.bend`, 25 ‚ì, `--total` passes)
 
 For ANY interaction `(X, Q, Œ¥)` with every `Q x` contractible: `Answers`
 and `IExec` are the parametric coinductive records; `mute` is corecursive;
 `answersUnique` is the corecursive **dependent** path
 `PathP(Œªi. Answers(X,Q,Œ¥, p @ i), a0, a1)` over a path of states, its answer
 field collapsed by `isPropToPathP`, its tail following the line
-`<j> Œ¥(p @ j, ansLine @ j)` the answers draw ‚Äî exactly Prasna's copattern
+`<j> Œ¥(p @ j, ansLine @ j)` the answers draw ‚î exactly Prasna's copattern
 proof. `oneAnswerStream` is the contraction at the constant path;
 `silenceIsDeterminism : isContr(IExec x)` transports it across
 `run-is-answers` (centre `replay(mute)`, contraction `replay` of the

@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§∏‡•á‡§§‡•Å-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç ‚Äî the second seam ford: ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ ‚â° ‚Ñï.
+-- ‡‡‡‡-‡‡‡∞‡Æ‡æ‡‡Æ‡ ‚î the second seam ford: ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ ‚â° ‚ï.
 --
--- `‚ü®ambig‚ü©.‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£` heads a 7-bank component (the ‡§∞‡§æ‡§§‡•ç‡§∞‡§ø census bases)
--- SEPARATE from the 13-bank component holding ‚Ñï, ‡§µ‡§ø‡§µ‡•á‡§ï, ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç ‚Äî even though
--- `VivekaPramana‚Ä¶‚Ñï√ó‚Ñï‚â°‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£` was already landed.  The split is partly
+-- `‚ü®ambig‚ü©.‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡` heads a 7-bank component (the ‡∞‡æ‡‡‡∞‡ø census bases)
+-- SEPARATE from the 13-bank component holding ‚ï, ‡µ‡ø‡µ‡‡ï, ‡‡®‡‡¶‡‡ ‚î even though
+-- `VivekaPramana‚¶‚ïó‚ï‚â°‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡` was already landed.  The split is partly
 -- an artifact of ambiguous naming in the snapshot, and partly real: no
--- checked term joined ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ to ‚Ñï itself.  This file supplies that
+-- checked term joined ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ to ‚ï itself.  This file supplies that
 -- term, so the join no longer rests on name-resolution.  Joining 7 to 13
--- is +91 free crossings ‚Äî the largest merge available on the board.
+-- is +91 free crossings ‚î the largest merge available on the board.
 --
--- The content is one composition.  VivekaPramana pays ‚Ñï√ó‚Ñï ‚âÉ ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£;
--- SetuYugma pays (‚Ñï√ó‚Ñï) ‚âÉ ‚Ñï; the composite is free ‚Äî ‡§≠‡§æ‡§µ‡§®‡§æ, again: two
+-- The content is one composition.  VivekaPramana pays ‚ïó‚ï ‚â ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡;
+-- SetuYugma pays (‚ïó‚ï) ‚â ‚ï; the composite is free ‚î ‡‡æ‡µ‡®‡æ, again: two
 -- landed solutions meet, the third arises, all three survive.
 --
--- No source claimed; the compound ‡§∏‡•á‡§§‡•Å-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ is built here, 2026-08-23.
+-- No source claimed; the compound ‡‡‡‡-‡‡‡∞‡Æ‡æ‡ is built here, 2026-08-23.
 ------------------------------------------------------------------------
 
 module SetuPramana_TheAmbiguousNameHidTheFordAndTheRemainderLawIsAlsoTheNaturals where

@@ -6,41 +6,41 @@
 -- CORRECTION TO `TwoProfilesSuffice`, one commit old.
 --
 -- That module concluded: "the invariant is the NUMBER OF WITNESSES:
--- 1 for à¤²à¤¾à¤˜à¤µ, à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿, carry/borrow and the fuel obstructions; 2 for
--- à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯."  That counts in two different units.  A collision is ONE
+-- 1 for à²à¾à˜àµ, àà¨ààµààààà¿, carry/borrow and the fuel obstructions; 2 for
+-- ààµà•àààµàà¯."  That counts in two different units.  A collision is ONE
 -- PAIR, and a pair is TWO POINTS.  Under a single measure the two sites
 -- do not differ at all.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- ONE MEASURE
 --
--- An absence of the form `Â¬ Î£[ d âˆˆ D ] ((x : X) â†’ law d x)` is refuted
+-- An absence of the form `Â Î[ d âˆˆ D ] ((x : X) â’ law d x)` is refuted
 -- by a finite list of X-points when no decoder survives all of them:
 --
 --     AllHold law d xs   every point in xs is answered correctly by d
---     Refutes law xs  =  (d : D) â†’ Â¬ AllHold law d xs
+--     Refutes law xs  =  (d : D) â’ Â AllHold law d xs
 --
 -- `Refutes` on any list gives the absence (Â§2).  The question is the
 -- least length that does, and it is the same everywhere in this corpus:
 --
 --   Â§3  ONE IS NEVER ENOUGH, for any `FactorsThrough` obstruction, with
---       no hypotheses at all.  The constant decoder `Î» _ â†’ t x` answers
+--       no hypotheses at all.  The constant decoder `Î» _ â’ t x` answers
 --       x correctly, so `{x}` never refutes.  One line.
 --
 --   Â§4  A COLLISION IS EXACTLY A REFUTING PAIR.  So every collision site
 --       has witness number exactly 2.
 --
---   Â§5  AND SO DOES THE à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯ SITE, whose decoder space is six atoms
+--   Â§5  AND SO DOES THE ààµà•àààµàà¯ SITE, whose decoder space is six atoms
 --       rather than a function space: `every-profile-is-said` gives the
 --       lower bound and `pair-separates` the upper.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS SETTLES
 --
 -- The collision/exhaustion distinction dissolves, but not the way the
 -- last two commits said in either direction.  It is not "1 versus 2";
--- it is 2 versus 2.  What actually differed was the ROUTE to the pair â€”
--- construct it from a collision, or find it by looking â€” and that is a
+-- it is 2 versus 2.  What actually differed was the ROUTE to the pair â”
+-- construct it from a collision, or find it by looking â” and that is a
 -- fact about how the witness is obtained, not about the absence.
 --
 -- Six was never a measurement of anything.  Nor, it turns out, was the
@@ -48,7 +48,7 @@
 -- why the floor cannot be 1: a single point is always fittable, because
 -- a decoder is only constrained where you constrain it.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- FOR THE DEFLATIONARY THREAD
 --
 -- Every absence in this corpus that has been made exact is exact by two
@@ -57,7 +57,7 @@
 -- are not merely decidable, they are uniformly CHEAP, and the cost is
 -- the same at a function space as at a six-atom language.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -111,9 +111,9 @@ refutesâ†’absent : {D : Type â„“d} {X : Type â„“x} (law : D â†’ X â†’ Type â„“)
 refutesâ†’absent law xs ref (d , full) = ref d (everywhere law d full xs)
 
 ------------------------------------------------------------------------
--- 3.  ONE POINT IS NEVER ENOUGH â€” for any factorisation obstruction
+-- 3.  ONE POINT IS NEVER ENOUGH â” for any factorisation obstruction
 --
--- `FactorsThrough q t` is exactly `Î£[ d ] ((x : X) â†’ factorLaw q t d x)`,
+-- `FactorsThrough q t` is exactly `Î[ d ] ((x : X) â’ factorLaw q t d x)`,
 -- so this measure applies to it verbatim.  And the constant decoder
 -- answers any single point, with no hypotheses on q, t, X, Y or T.
 ------------------------------------------------------------------------
@@ -158,7 +158,7 @@ collision-witness-number-2 q t same differ =
   collisionâ†’refutes q t same differ , singleton-never-refutes q t
 
 ------------------------------------------------------------------------
--- 5.  THE à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯ SITE IS ALSO 2 â€” with a six-atom decoder space
+-- 5.  THE ààµà•àààµàà¯ SITE IS ALSO 2 â” with a six-atom decoder space
 --
 -- Its decoders are not a function space, so Â§3 does not apply to it and
 -- the lower bound has to come from `every-profile-is-said`.  It does,
@@ -193,8 +193,8 @@ avaktavya-witness-number-2 = avaktavya-two-suffice , avaktavya-one-never
 --                        with a count of POINTS and reported 1 versus 2.
 --
 -- Both errors are the same error: a quantity was named before a measure
--- was fixed.  Once the measure is fixed â€” least refuting list, one
--- definition for every site â€” there is nothing left to compare, because
+-- was fixed.  Once the measure is fixed â” least refuting list, one
+-- definition for every site â” there is nothing left to compare, because
 -- the answer is 2 everywhere and Â§3 explains the floor.
 --
 -- OPEN, named and not estimated: whether any absence in this corpus has
@@ -217,33 +217,33 @@ avaktavya-witness-number-2 = avaktavya-two-suffice , avaktavya-one-never
 -- could not be said before one was fixed.
 --
 -- Still open there, and narrower: whether any absence arising from the
--- MATHEMATICS here â€” rather than constructed to order â€” exceeds 2.
+-- MATHEMATICS here â” rather than constructed to order â” exceeds 2.
 -- Nothing found so far does.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 -- 8.  CORRECTION to Â§3's description, appended 2026-08-18.
 --
--- Â§3 is headed "ONE POINT IS NEVER ENOUGH â€” for any factorisation
+-- Â§3 is headed "ONE POINT IS NEVER ENOUGH â” for any factorisation
 -- obstruction" and says the constant decoder answers a single point
 -- "with no hypotheses on q, t, X, Y or T".  The theorem is right and the
 -- description hides a hypothesis.
 --
 -- `TheFloorIsAnswerability` names it:
 --
---     Answerable law = (x : X) â†’ Î£[ d âˆˆ D ] law d x
+--     Answerable law = (x : X) â’ Î[ d âˆˆ D ] law d x
 --
 -- The floor is answerability, not constancy.  A function space into an
--- inhabited type is answerable â€” `factorLaw-answerable` is the one line
--- that four modules were each re-deriving by hand â€” but answerability
+-- inhabited type is answerable â” `factorLaw-answerable` is the one line
+-- that four modules were each re-deriving by hand â” but answerability
 -- can fail, and where it fails the floor drops to 1
 -- (`lonely-witness-number-1`).
 --
 -- So the thread's two bounds are both properties of the DECODER SPACE
 -- and neither is a property of the mathematics obstructed:
 --
---     floor   â‰¥ 2   the decoders ANSWER every point
---     ceiling â‰¤ 2   the decoders READ a discrete probe
+--     floor   â‰ 2   the decoders ANSWER every point
+--     ceiling â‰ 2   the decoders READ a discrete probe
 --
 -- and the capacities are independent: the three-standpoint system of
 -- `WitnessNumberIsUnbounded` answers but does not read, which is why its

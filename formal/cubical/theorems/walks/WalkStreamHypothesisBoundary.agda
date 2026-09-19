@@ -113,7 +113,7 @@ installedLCM≃frontierLCM S L q M 2≤q lcmS lnd inRange =
     (frontier→installedLCM S L q M 2≤q lcmS lnd inRange)
 
 ------------------------------------------------------------------------
--- 2. Dropping 2 ≤ q: every other premise holds at q=0, but the new-state
+-- 2. Dropping 2 � q: every other premise holds at q=0, but the new-state
 --    LCM 0 is not the LCM of the empty frontier.
 ------------------------------------------------------------------------
 

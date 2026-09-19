@@ -3,37 +3,37 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.ThreeChannels
 --
--- The Chen envelope's three channels and the primitive projector —
+-- The Chen envelope's three channels and the primitive projector �
 -- the multiset skeleton of Factories VIII and IX, reconstructed from
 -- the EGB V3 index summaries (full texts not yet exported; msg 0489).
 -- Index item 128: "exact projectors onto prime, square, and
--- distinct-semiprime channels."  Index item 132: "π₁(N) = ω(N)−1;
--- 1_ℙ = μ² − π₁ on P₂."
+-- distinct-semiprime channels."  Index item 132: "��(N) = ω(N)−1;
+-- 1_� = μ² − �� on P�."
 --
 -- WHAT THIS MODULE PROVES (no holes, no postulates, --safe):
 --
 --   SquareChannel, DistinctSemiprime   the two charge-two channels, as types
 --   three-channels              every envelope number is prime, a
---                               square, or a distinct semiprime —
+--                               square, or a distinct semiprime �
 --                               the trichotomy CONSTRUCTED by recursion
 --   prime-not-square,           the three channels are pairwise
 --   prime-not-semiprime,        disjoint, so the trichotomy is a
 --   square-not-semiprime        partition, not a covering
 --   sqfreeBit  (μ²)             squarefreeness of the multiset
---   π₁bit      (π₁ > 0)         "a second distinct prime exists"
+--   ��bit      (�� > 0)         "a second distinct prime exists"
 --   sqfree-square,              each charge-two channel is annihilated
---   π₁-semiprime                by EXACTLY ONE of the two factors —
+--   ��-semiprime                by EXACTLY ONE of the two factors �
 --                               the square by μ², the distinct
---                               semiprime by π₁: which factor kills
+--                               semiprime by ��: which factor kills
 --                               which channel is the projector's
 --                               anatomy, invisible to parity alone
---   primitive-projector         Factory IX's 1_ℙ = μ² − π₁ on P₂,
+--   primitive-projector         Factory IX's 1_� = μ² − �� on P�,
 --                               subtraction-free: on the envelope,
---                               (μ² ∧ ¬π₁) ⟺ charge 1, both directions
+--                               (μ² ∧ ���) ⟺ charge 1, both directions
 --
 -- RELATION TO ChenProjector: parity (1−λ)/2 reads the CHARGE and is
 -- complete on the envelope; the primitive projector reads the CHANNEL
--- STRUCTURE (which of μ², π₁ fails) and so distinguishes p² from pq —
+-- STRUCTURE (which of μ², �� fails) and so distinguishes p² from pq �
 -- information parity cannot see (both have λ = +1).  Factory VIII's
 -- analytic claim (square branch negligible at Chen scale) is exactly
 -- the statement that this extra resolution costs nothing
@@ -142,7 +142,7 @@ square-not-semiprime n (p , h) (p' , q' , h' , d) =
   p'≡q' = cong fst pair ∙ sym (cong snd pair)
 
 ------------------------------------------------------------------------
--- §3  The primitive projector: μ² and π₁ as Booleans.
+-- §3  The primitive projector: μ² and �� as Booleans.
 ------------------------------------------------------------------------
 
 member : ℕ → List ℕ → Bool
@@ -154,7 +154,7 @@ sqfreeBit : Number → Bool
 sqfreeBit []       = true
 sqfreeBit (p ∷ ns) = andB (not (member p ns)) (sqfreeBit ns)
 
--- π₁ > 0 on the envelope: a second prime distinct from the head exists.
+-- �� > 0 on the envelope: a second prime distinct from the head exists.
 π₁bit : Number → Bool
 π₁bit []          = false
 π₁bit (p ∷ [])    = false
@@ -169,7 +169,7 @@ sqfree-square p =
 π₁-semiprime : (p q : ℕ) → eqℕ p q ≡ false → π₁bit (p ∷ q ∷ []) ≡ true
 π₁-semiprime p q d = cong not d
 
--- …and the complementary passes: the square passes π₁ (both its primes
+-- �and the complementary passes: the square passes �� (both its primes
 -- are one prime), the distinct semiprime passes μ².
 π₁-square : (p : ℕ) → π₁bit (p ∷ p ∷ []) ≡ false
 π₁-square p = cong not (eqℕ-refl p)
@@ -182,8 +182,8 @@ sqfree-semiprime p q d =
 ------------------------------------------------------------------------
 -- §4  Factory IX's identity, subtraction-free and both directions.
 --
--- 1_ℙ = μ² − π₁ on P₂ becomes: on the envelope, charge 1 holds iff
--- μ² holds and π₁ fails.  Forward is computation at the prime channel;
+-- 1_� = μ² − �� on P� becomes: on the envelope, charge 1 holds iff
+-- μ² holds and �� fails.  Forward is computation at the prime channel;
 -- backward is the trichotomy with one channel killed per factor.
 ------------------------------------------------------------------------
 

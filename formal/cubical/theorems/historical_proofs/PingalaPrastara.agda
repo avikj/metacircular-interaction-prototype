@@ -3,59 +3,59 @@
 ------------------------------------------------------------------------
 -- Pingala
 --
--- The combinatorics of the Chandaḥśāstra, as checked types.
+-- The combinatorics of the Chandastra, as checked types.
 --
 -- SOURCES, with dates.  These are stated as ORIGIN; the European
 -- results named at the end are the later restatements.
 --
---   Piṅgala, *Chandaḥśāstra* (c. 300–200 BCE), ch. 8: the *pratyaya*,
---   the six procedures on the laghu(light)–guru(heavy) patterns of a
---   metre — prastāra (lay the whole table out), naṣṭa ("the lost one":
---   given a row number, recover its pattern), uddiṣṭa ("the pointed-at
---   one": given a pattern, recover its row number), saṅkhyā (how many
---   rows), and the *meru-prastāra*, the staircase array.
+--   Pigala, *Chandastra* (c. 300�200 BCE), ch. 8: the *pratyaya*,
+--   the six procedures on the laghu(light)�guru(heavy) patterns of a
+--   metre � prastra (lay the whole table out), naa ("the lost one":
+--   given a row number, recover its pattern), uddia ("the pointed-at
+--   one": given a pattern, recover its row number), sakhy (how many
+--   rows), and the *meru-prastra*, the staircase array.
 --
---   Virahāṅka, *Vṛttajātisamuccaya* (c. 600–800 CE), ch. 6: states the
---   addition rule for the number of mātrā-vṛtta — metres of fixed
---   DURATION rather than fixed syllable count — explicitly.  This is
---   the *mātrāmeru*.
+--   Virahka, *Vttajtisamuccaya* (c. 600�800 CE), ch. 6: states the
+--   addition rule for the number of mtr-vtta � metres of fixed
+--   DURATION rather than fixed syllable count � explicitly.  This is
+--   the *mtrmeru*.
 --
---   Halāyudha, *Mṛtasañjīvanī* (10th c.), commentary on Chandaḥśāstra
---   8.34–8.35: writes the meru-prastāra out as the triangular array in
+--   Halyudha, *Mtasajvan* (10th c.), commentary on Chandastra
+--   8.34�8.35: writes the meru-prastra out as the triangular array in
 --   which each interior entry is the sum of the two entries above it.
 --
 --   Later restatements: Fibonacci, *Liber Abaci* (1202) for the
---   additive sequence; Pascal, *Traité du triangle arithmétique* (1654)
---   for the array; Leibniz, "Explication de l'arithmétique binaire"
+--   additive sequence; Pascal, *Trait� du triangle arithm�tique* (1654)
+--   for the array; Leibniz, "Explication de l'arithm�tique binaire"
 --   (1703) for positional binary and the index/pattern conversion.
 --
 -- WHAT IS PROVED HERE.  No postulates, no holes, no `--safe` escape.
 --
---   matrameruIso   Metre (2+n) ≃ Metre (1+n) ⊎ Metre n
---                  Virahāṅka's argument itself — delete the first
+--   matrameruIso   Metre (2+n) � Metre (1+n) � Metre n
+--                  Virahka's argument itself � delete the first
 --                  syllable.  A bijection of pattern SETS; nothing
 --                  numerical has happened yet.
 --
---   matrameru      ANY f : ℕ → ℕ with Metre n ≃ Fin (f n) for every n
+--   matrameru      ANY f : � � � with Metre n � Fin (f n) for every n
 --                  satisfies f (2+n) ≡ f (1+n) + f n.  The recurrence
---                  is forced by the counting problem — `f` is
---                  arbitrary — so it is not read off a definition.
+--                  is forced by the counting problem � `f` is
+--                  arbitrary � so it is not read off a definition.
 --
---   uddistaIso     Vak n ≃ Fin (saṅkhyā n), where the forward map is
---                  the explicit uddiṣṭa algorithm and the inverse is
---                  the explicit naṣṭa halving algorithm.  Both round
+--   uddistaIso     Vak n � Fin (sakhy n), where the forward map is
+--                  the explicit uddia algorithm and the inverse is
+--                  the explicit naa halving algorithm.  Both round
 --                  trips are proved; neither map is defined by
 --                  transport along the other.
 --
---   pascal         ANY f with Chosen n k ≃ Fin (f n k) satisfies
---                  f (1+n) (1+k) ≡ f n (1+k) + f n k — Halāyudha's
---                  rule for the meru-prastāra, forced the same way.
+--   pascal         ANY f with Chosen n k � Fin (f n k) satisfies
+--                  f (1+n) (1+k) ≡ f n (1+k) + f n k � Halyudha's
+--                  rule for the meru-prastra, forced the same way.
 --
 -- ONE `Pattern` TYPE, THREE GRADINGS.  A pattern is a plain list of
 -- syllables.  `Vak n`, `Metre n` and `Chosen n k` are its fibres over
--- three different statistics — syllable count, mātrā count, and the
+-- three different statistics � syllable count, mtr count, and the
 -- pair (syllable count, guru count).  That is why the same object
--- carries Piṅgala's 2ⁿ, Virahāṅka's additive sequence and Halāyudha's
+-- carries Pigala's 2�, Virahka's additive sequence and Halyudha's
 -- triangle at once, and it is why no indexed inductive family appears
 -- below: matching on one would need injectivity of `suc`, which
 -- Cubical Agda flags as not computing under transport.
@@ -63,7 +63,7 @@
 -- PRIOR ART IN THIS REPOSITORY, searched before writing:
 -- abstract indexed enumeration, its Lemma 1.1 asserted in prose) and
 -- binomial sum, prose plus a legacy `.py`).  Neither is formalised and
--- `formal/cubical/` contained no Piṅgala material before this file.
+-- `formal/cubical/` contained no Pigala material before this file.
 ------------------------------------------------------------------------
 
 module PingalaPrastara where
@@ -89,10 +89,10 @@ open import Cubical.Data.Fin.Properties using (Unit≃Fin1 ; Fin+≅Fin⊎Fin ; 
 open Iso
 
 ------------------------------------------------------------------------
--- §1  The alphabet: laghu (light, 1 mātrā) and guru (heavy, 2 mātrā),
+-- §1  The alphabet: laghu (light, 1 mtr) and guru (heavy, 2 mtr),
 --     and the patterns built from it.
 --
--- Chandaḥśāstra 1.9–1.10.  Everything below is a word in this
+-- Chandastra 1.9�1.10.  Everything below is a word in this
 -- two-letter alphabet, weighed in one of three ways.
 ------------------------------------------------------------------------
 
@@ -133,7 +133,7 @@ Vak n = Σ[ p ∈ Pattern ] (varna p ≡ n)
 Chosen : ℕ → ℕ → Type         -- n syllables of which exactly k guru
 Chosen n k = Σ[ p ∈ Pattern ] ((varna p ≡ n) × (guruOf p ≡ k))
 
--- the fibre conditions are propositions, because ℕ is a set
+-- the fibre conditions are propositions, because � is a set
 isPropFib : {f : Pattern → ℕ} {n : ℕ} (p : Pattern) → isProp (f p ≡ n)
 isPropFib _ = isSetℕ _ _
 
@@ -141,9 +141,9 @@ isPropFib2 : {n k : ℕ} (p : Pattern) → isProp ((varna p ≡ n) × (guruOf p 
 isPropFib2 _ = isProp× (isSetℕ _ _) (isSetℕ _ _)
 
 ------------------------------------------------------------------------
--- §2  The mātrāmeru.
+-- §2  The mtrmeru.
 --
--- Virahāṅka's argument, verbatim: look only at the FIRST syllable of a
+-- Virahka's argument, verbatim: look only at the FIRST syllable of a
 -- pattern of duration n+2.  If it is laghu, deleting it leaves an
 -- arbitrary pattern of duration n+1; if guru, an arbitrary pattern of
 -- duration n.  Both deletions are bijections; the two cases are
@@ -164,7 +164,7 @@ leftInv (matrameruIso n) ([] , e)         = ⊥rec (znots e)
 leftInv (matrameruIso n) (laghu ∷ p , e)  = Σ≡Prop isPropFib refl
 leftInv (matrameruIso n) (guru ∷ p , e)   = Σ≡Prop isPropFib refl
 
--- the mātrāmeru numbers themselves: 1, 1, 2, 3, 5, 8, 13, …
+-- the mtrmeru numbers themselves: 1, 1, 2, 3, 5, 8, 13, �
 matra : ℕ → ℕ
 matra zero          = 1
 matra (suc zero)    = 1
@@ -203,7 +203,7 @@ matraCount (suc (suc n)) =
     (compIso (⊎Iso (matraCount (suc n)) (matraCount n))
              (invIso (Fin+≅Fin⊎Fin (matra (suc n)) (matra n))))
 
--- THE THEOREM.  Any function that counts Metre satisfies the mātrāmeru
+-- THE THEOREM.  Any function that counts Metre satisfies the mtrmeru
 -- recurrence.  `f` is arbitrary and the only hypothesis is that it
 -- counts the patterns, so this is a statement about the combinatorics
 -- and not about how `matra` happens to be written.
@@ -223,12 +223,12 @@ matraRecurrence : (n : ℕ) → matra (suc (suc n)) ≡ matra (suc n) + matra n
 matraRecurrence = matrameru matra matraCount
 
 ------------------------------------------------------------------------
--- §3  Prastāra, saṅkhyā, uddiṣṭa, naṣṭa.
+-- §3  Prastra, sakhy, uddia, naa.
 --
--- Chandaḥśāstra 8.24–8.28.  A metre of n syllables has saṅkhyā 2ⁿ
--- patterns.  Piṅgala's naṣṭa is a halving algorithm — halve the row
+-- Chandastra 8.24�8.28.  A metre of n syllables has sakhy 2�
+-- patterns.  Pigala's naa is a halving algorithm � halve the row
 -- number; if it halves evenly write laghu, otherwise add one, halve,
--- and write guru — and his uddiṣṭa runs it backwards.  Both are
+-- and write guru � and his uddia runs it backwards.  Both are
 -- written out here as ordinary recursive functions, and both round
 -- trips are proved.  Neither is defined by transporting the other.
 ------------------------------------------------------------------------
@@ -242,13 +242,13 @@ aksara : Syllable → ℕ
 aksara laghu = 0
 aksara guru  = 1
 
--- uddiṣṭa: pattern ↦ row number.  The first syllable is the least
+-- uddia: pattern � row number.  The first syllable is the least
 -- significant place, which is the direction the halving runs.
 uddista : Pattern → ℕ
 uddista []      = 0
 uddista (s ∷ p) = aksara s + (uddista p + uddista p)
 
--- the two halves of Piṅgala's step, each structurally recursive
+-- the two halves of Pigala's step, each structurally recursive
 half : ℕ → ℕ
 half zero          = zero
 half (suc zero)    = zero
@@ -259,7 +259,7 @@ parity zero          = laghu
 parity (suc zero)    = guru
 parity (suc (suc k)) = parity k
 
--- naṣṭa: row number ↦ pattern of n syllables
+-- naa: row number � pattern of n syllables
 nasta : ℕ → ℕ → Pattern
 nasta zero    k = []
 nasta (suc n) k = parity k ∷ nasta n (half k)
@@ -289,7 +289,7 @@ paritySucDouble zero    = refl
 paritySucDouble (suc u) =
   cong (λ z → parity (suc (suc z))) (+-suc u u) ∙ paritySucDouble u
 
--- ---- naṣṭa ∘ uddiṣṭa ≡ id --------------------------------------------
+-- ---- naa ∘ uddia ≡ id --------------------------------------------
 
 nasta-uddista : (p : Pattern) → nasta (varna p) (uddista p) ≡ p
 nasta-uddista []          = refl
@@ -300,13 +300,13 @@ nasta-uddista (guru ∷ p)  =
   cong₂ _∷_ (paritySucDouble (uddista p))
             (cong (nasta (varna p)) (halfSucDouble (uddista p)) ∙ nasta-uddista p)
 
--- ---- uddiṣṭa ∘ naṣṭa ≡ id on the table -------------------------------
+-- ---- uddia ∘ naa ≡ id on the table -------------------------------
 --
--- This direction needs the bound.  `nasta n` is total on ℕ, but the
--- prastāra of an n-syllable metre has only saṅkhyā n rows, and outside
--- them naṣṭa reads the row number modulo 2ⁿ.
+-- This direction needs the bound.  `nasta n` is total on �, but the
+-- prastra of an n-syllable metre has only sakhy n rows, and outside
+-- them naa reads the row number modulo 2�.
 
--- the division algorithm for 2, which is exactly what Piṅgala's step is
+-- the division algorithm for 2, which is exactly what Pigala's step is
 splitTwo : (k : ℕ) → aksara (parity k) + (half k + half k) ≡ k
 splitTwo zero       = refl
 splitTwo (suc zero) = refl
@@ -341,8 +341,8 @@ uddistaBound (guru ∷ p)  =
         (+-suc (uddista p) (uddista p))
         (≤-+-≤ (uddistaBound p) (uddistaBound p))
 
--- THE THEOREM.  uddiṣṭa and naṣṭa are mutually inverse, and the
--- prastāra of an n-syllable metre has exactly saṅkhyā n = 2ⁿ rows.
+-- THE THEOREM.  uddia and naa are mutually inverse, and the
+-- prastra of an n-syllable metre has exactly sakhy n = 2� rows.
 uddistaIso : (n : ℕ) → Iso (Vak n) (Fin (sankhya n))
 fun (uddistaIso n) (p , e) =
   uddista p , subst (λ m → uddista p < sankhya m) e (uddistaBound p)
@@ -352,14 +352,14 @@ leftInv (uddistaIso n) (p , e) =
   Σ≡Prop isPropFib (cong (λ m → nasta m (uddista p)) (sym e) ∙ nasta-uddista p)
 
 ------------------------------------------------------------------------
--- §4  The meru-prastāra.
+-- §4  The meru-prastra.
 --
--- Chandaḥśāstra 8.34–8.35 with Halāyudha's commentary: the staircase
+-- Chandastra 8.34�8.35 with Halyudha's commentary: the staircase
 -- array whose (n,k) entry counts the patterns of n syllables carrying
 -- exactly k guru, and in which each interior entry is the sum of the
 -- two entries above it.
 --
--- Halāyudha's rule is again a bijection first and an addition second:
+-- Halyudha's rule is again a bijection first and an addition second:
 -- split an (n+1, k+1) pattern on its first syllable.
 ------------------------------------------------------------------------
 
@@ -431,7 +431,7 @@ meruCount (suc n) (suc k) =
     (compIso (⊎Iso (meruCount n (suc k)) (meruCount n k))
              (invIso (Fin+≅Fin⊎Fin (meru n (suc k)) (meru n k))))
 
--- THE THEOREM.  Any function that counts Chosen obeys Halāyudha's rule.
+-- THE THEOREM.  Any function that counts Chosen obeys Halyudha's rule.
 pascal : (f : ℕ → ℕ → ℕ)
        → ((n k : ℕ) → Iso (Chosen n k) (Fin (f n k)))
        → (n k : ℕ) → f (suc n) (suc k) ≡ f n (suc k) + f n k
@@ -455,18 +455,18 @@ meruRecurrence = pascal meru meruCount
 -- are exact symbolic computation, not measurement.
 ------------------------------------------------------------------------
 
--- Piṅgala's saṅkhyā: 2⁵ = 32 patterns in a five-syllable metre.
+-- Pigala's sakhy: 2� = 32 patterns in a five-syllable metre.
 _ : sankhya 5 ≡ 32
 _ = refl
 
--- Virahāṅka's list, and the duration-12 count that
+-- Virahka's list, and the duration-12 count that
 _ : matra 6 ≡ 13
 _ = refl
 
 _ : matra 12 ≡ 233
 _ = refl
 
--- Halāyudha's array: row 4 of the meru-prastāra is 1 4 6 4 1.
+-- Halyudha's array: row 4 of the meru-prastra is 1 4 6 4 1.
 _ : meru 4 0 ≡ 1
 _ = refl
 
@@ -485,14 +485,14 @@ _ = refl
 _ : meru 4 5 ≡ 0
 _ = refl
 
--- naṣṭa on row 11 of the four-syllable prastāra, and uddiṣṭa back.
+-- naa on row 11 of the four-syllable prastra, and uddia back.
 _ : nasta 4 11 ≡ guru ∷ guru ∷ laghu ∷ guru ∷ []
 _ = refl
 
 _ : uddista (guru ∷ guru ∷ laghu ∷ guru ∷ []) ≡ 11
 _ = refl
 
--- that pattern lasts 2+2+1+2 = 7 mātrā
+-- that pattern lasts 2+2+1+2 = 7 mtr
 _ : matraOf (guru ∷ guru ∷ laghu ∷ guru ∷ []) ≡ 7
 _ = refl
 
@@ -503,22 +503,22 @@ _ = refl
 -- e2772cca, recovered verbatim except for the module name.
 --
 -- Commit 684a2857 replaced that file with a different development
--- (छन्दस् ≃ ℕ, completed in c8ae6eaf) — 464 lines deleted, 69 added.  The
+-- (������ � �, completed in c8ae6eaf) � 464 lines deleted, 69 added.  The
 -- new file is good work and stands untouched; but six modules depended
--- on the API it removed —
+-- on the API it removed �
 --
 --     UnivalenceErasesTheAlgorithm, OptimalObservation, Sankalita,
 --     PingalaIsOptimal, DurationIsSyllablesPlusGuru, DiagonalIsMatra
 --
--- — and `RootsThreadLatch` went red.  The repository's
+-- � and `RootsThreadLatch` went red.  The repository's
 -- norm is not to revert or overwrite another identity's visible work, so
 -- the removed definitions are restored HERE, under a name that does not
 -- collide, and the six importers repointed.  Nothing of the new
 -- `Pingala` is changed and nothing of it is duplicated: it develops
--- छन्दस् ≃ ℕ, which this file never had.
+-- ������ � �, which this file never had.
 --
--- The two are not rivals.  `Pingala` now carries the प्रस्तार→ℕ
--- equivalence; this carries वाक्, सङ्ख्या, नष्ट/उद्दिष्ट, मात्रा and the
+-- The two are not rivals.  `Pingala` now carries the ����������
+-- equivalence; this carries �����, ���������, �����/����������, ������ and the
 -- meru with their counts.  If someone wants them merged, the merge is a
 -- deliberate act and should be one, not a side effect of a rewrite.
 ------------------------------------------------------------------------

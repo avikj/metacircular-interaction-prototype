@@ -10,10 +10,10 @@
 --   an existentially quantified group separates nothing.
 --
 --   Theorem R (§4).  Pin the group to the chart the compressed object lives in
---   — the multiplicative chart, whose automorphism group is the permutation
+--   � the multiplicative chart, whose automorphism group is the permutation
 --   and the totient's stabilizer is TRIVIAL.  Not "not transitive": trivial.
 --
--- unit is a fixed point of every chart automorphism, while φ(1) = φ(2), so the
+-- unit is a fixed point of every chart automorphism, while �(1) = �(2), so the
 -- fiber {1,2} is not contained in any chart orbit.
 --
 -- This module only *imports* SymmetryArithmeticAction (author:
@@ -124,7 +124,7 @@ fiber-is-an-orbit dis observation a b h =
 ------------------------------------------------------------------------------
 -- §4.  THEOREM R (rigidity).  Pin the group.  In the multiplicative chart an
 -- automorphism is exactly a permutation of the prime generators, and the
--- totient observation on generators is p ↦ p − 1.  Its stabilizer is trivial.
+-- totient observation on generators is p � p − 1.  Its stabilizer is trivial.
 ------------------------------------------------------------------------------
 
 IsSuc : ℕ → Type₀
@@ -194,7 +194,7 @@ swap-in-blind-stabilizer = refl
 -- In the multiplicative chart a divisor of a squarefree modulus is a subset of
 -- the generator set, and a chart automorphism acts by relabelling generators.
 -- The unit is the empty subset, hence a fixed point of the whole group -- while
--- φ(1) = φ(2) = 1 puts 1 and 2 in one totient fiber.  So that fiber is not
+-- �(1) = �(2) = 1 puts 1 and 2 in one totient fiber.  So that fiber is not
 -- contained in a chart orbit, let alone equal to one.
 ------------------------------------------------------------------------------
 
@@ -211,7 +211,7 @@ unit-is-fixed : {X : Type₀} (e : X ≃ X)
               → chartAct e unitDivisor ≡ unitDivisor
 unit-is-fixed e = refl
 
--- Divisors of 6 = 2 · 3, with the generator `false` carrying 2.
+-- Divisors of 6 = 2 � 3, with the generator `false` carrying 2.
 divisor2 : Divisor Bool
 divisor2 false = true
 divisor2 true  = false
@@ -224,7 +224,7 @@ no-chart-symmetry-links-1-and-2
 no-chart-symmetry-links-1-and-2 e h =
   unit≢divisor2 (sym (unit-is-fixed e) ∙ h)
 
--- φ on divisors of 6, as the product of (p − 1) over the chosen generators.
+-- � on divisors of 6, as the product of (p − 1) over the chosen generators.
 factorPart : Bool → ℕ → ℕ
 factorPart false _ = 1
 factorPart true  k = k
@@ -245,7 +245,7 @@ discreteDivisor d e with (d false ≟ e false) | (d true ≟ e true)
 ... | no ¬p | _     = no (λ h → ¬p (funExt⁻ h false))
 
 -- Theorem T applied to the very fiber the open item names: a group acts
--- transitively on {1,2} …
+-- transitively on {1,2} �
 one-two-fiber-has-a-transitive-group
   : Σ[ e ∈ (Divisor Bool ≃ Divisor Bool) ]
       (Stabilizes phi6 e) × (equivFun e unitDivisor ≡ divisor2)
@@ -253,7 +253,7 @@ one-two-fiber-has-a-transitive-group =
   fiber-is-an-orbit discreteDivisor phi6 unitDivisor divisor2
                     (phi6-unit ∙ sym phi6-divisor2)
 
--- … and by §6 no element of the chart's automorphism group is such a symmetry.
+-- � and by §6 no element of the chart's automorphism group is such a symmetry.
 -- Both facts are checked; the pair of them is the answer to B4.  The group
 -- exists and is worthless; the group that would have meant something is
 -- trivial.

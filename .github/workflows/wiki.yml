@@ -1,0 +1,45 @@
+name: Mathematical wiki
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+      - name: Fetch pinned cubical library
+        run: git clone --depth 1 --branch v0.9 https://github.com/agda/cubical.git "$RUNNER_TEMP/cubical-v0.9"
+      - name: Build and validate site
+        run: |
+          python3 site/1lab/build.py --cubical "$RUNNER_TEMP/cubical-v0.9"
+          python3 site/1lab/validate.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/1lab/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-24.04
+    needs: build
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

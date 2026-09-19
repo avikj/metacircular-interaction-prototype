@@ -25,7 +25,7 @@ def fstE(A: Set, B: Set, e: Equiv(A, B)) -> (A -> B):
 def uaG(A: Set, B: Set, e: Equiv(A, B)) -> Path(Set, A, B):
   <i> Glue(B, [(inot(i), A, e), (i, B, idEquiv(B))])
 
-# transport along it IS e's function â€” definitionally, for an ABSTRACT e
+# transport along it IS e's function â” definitionally, for an ABSTRACT e
 def uaG_beta(A: Set, B: Set, e: Equiv(A, B), x: A) -> Path(B, coe(lambda i. uaG(A, B, e) @ i, i0, i1, x), fstE(A, B, e)(x)):
   <_> fstE(A, B, e)(x)
 

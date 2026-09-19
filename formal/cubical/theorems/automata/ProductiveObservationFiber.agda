@@ -9,7 +9,7 @@
 -- equipped with a coinductive bisimulation to the centre.
 --
 -- This is a fibre-level composition of the already checked
--- `ProductiveObservabilityBridge.bisim≃forever` and function
+-- `ProductiveObservabilityBridge.bisim�forever` and function
 -- extensionality.  It does not transfer to the indexed branching Net of
 -- `IndraNet.Coinductive`, and it supplies neither finality nor an explicit
 -- later/clock modality.
@@ -40,7 +40,7 @@ futureView net depth =
   OQ.obsAt PIN.Net.next PIN.Net.view depth net
 
 -- Bisimulation is exactly equality under the complete future-view encoder.
--- `bisim≃forever` provides the coinductive content; `funExtEquiv` changes
+-- `bisim�forever` provides the coinductive content; `funExtEquiv` changes
 -- pointwise future equality into one path between complete codes.
 bisim≃futureViewPath : {left right : PIN.Net Root Jewel}
   → PIN.Bisim left right ≃ (futureView left ≡ futureView right)

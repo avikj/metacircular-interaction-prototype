@@ -3,13 +3,13 @@
 ------------------------------------------------------------------------
 -- RnaDhana_TheMixedStrataArePairwiseDisjointAndOrdered
 --
--- à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana â€” Brahmagupta, *BrÄhmasphuá¹­asiddhÄnta* (628): one
--- magnitude read as *dhana* (asset) or *á¹›á¹‡a* (debt).  The sign rules
+-- à‹àà§à¨ Â a-dhana â” Brahmagupta, *Brhmasphuasiddhnta* (628): one
+-- magnitude read as *dhana* (asset) or *a* (debt).  The sign rules
 -- are his; nothing else here is.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- The one-step mixed output properties were proved last cycle.  Here
--- they are iterated over the whole mixed stratification â€” two of the
+-- they are iterated over the whole mixed stratification â” two of the
 -- three.
 --
 -- WHAT IS PROVED
@@ -23,7 +23,7 @@
 --   theMixedStrataAreOrdered
 --                           every member of a later mixed stratum is
 --                           strictly beaten, in the MIXED order, by a
---                           member of an earlier one â€” for every fuel,
+--                           member of an earlier one â” for every fuel,
 --                           given caps bounding the archive
 --
 -- **DISJOINTNESS NEEDS NO CAPS AND NO FLIP AT ALL**, exactly as at one
@@ -32,14 +32,14 @@
 -- inside the remainder.  ORDER needs both, and only through
 -- `mixedRemainderIsBeaten`, whose cap requirement survives peeling by
 -- `allBoundedFilterOut`.  The asymmetry first seen in the unflipped
--- stratification â€” coverage needs the measure, disjointness does not â€”
+-- stratification â” coverage needs the measure, disjointness does not â”
 -- reappears here in a sharper form: **disjointness and order differ not
 -- only in what they need but in WHOSE machinery they need. One is
--- generic list surgery; the other is the whole á¹›á¹‡a-dhana transport.**
+-- generic list surgery; the other is the whole a-dhana transport.**
 --
--- COVERAGE IS DELIBERATELY ABSENT.  It needs the mixed measure â€”
--- non-empty archive â‡’ non-empty mixed stratum â‡’ strictly shorter mixed
--- remainder â‡’ fuel suffices â€” and the first link is
+-- COVERAGE IS DELIBERATELY ABSENT.  It needs the mixed measure â”
+-- non-empty archive â’ non-empty mixed stratum â’ strictly shorter mixed
+-- remainder â’ fuel suffices â” and the first link is
 -- `mixedMaximalExists`, which is available, while the length argument
 -- is not yet transported.  That is the next cycle on this line and it
 -- is named rather than guessed at.
@@ -47,7 +47,7 @@
 -- NO NOVELTY.  Standard properties of iterated non-dominated sorting
 -- (Goldberg 1989; Deb et al. 2002).
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -62,7 +62,7 @@ open import Cubical.Data.Sigma using (Î£-syntax ; _Ã—_ ; _,_)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty as âŠ¥ using (âŠ¥)
 
-open import KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any)
 open import OneStepCoverageAndDisjointnessOfTheLayer using (Mem)
 open import TheStratificationCoversAndItsStrataArePairwiseDisjoint
@@ -101,7 +101,7 @@ mixedStrataSound (suc n) ds (v âˆ· vs) u (inr k) =
     (mixedStrataSound n ds (mixedRemainder ds (v âˆ· vs)) u k)
 
 ------------------------------------------------------------------------
--- 2.  Pairwise disjointness â€” generic list surgery, no caps
+-- 2.  Pairwise disjointness â” generic list surgery, no caps
 ------------------------------------------------------------------------
 
 DisjointM : {ds : List Bool} â†’ List (Vec ds) â†’ List (Vec ds) â†’ Type
@@ -139,7 +139,7 @@ theMixedStrataArePairwiseDisjoint (suc n) ds (v âˆ· vs) =
   , theMixedStrataArePairwiseDisjoint n ds (mixedRemainder ds (v âˆ· vs))
 
 ------------------------------------------------------------------------
--- 3.  Order â€” the caps enter, through the one-step theorem
+-- 3.  Order â” the caps enter, through the one-step theorem
 ------------------------------------------------------------------------
 
 BeatsM : {ds : List Bool} â†’ List (Vec ds) â†’ List (Vec ds) â†’ Type

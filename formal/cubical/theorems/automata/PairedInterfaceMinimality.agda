@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- PairedInterfaceMinimality
 --
--- Minimality of the finite paired past√ófuture experiment interface.  Its
+-- Minimality of the finite paired pastófuture experiment interface.  Its
 -- kernel is the coarsest deterministic identification through which every
 -- declared paired response can factor.  The immediate-readout interface is
 -- concretely too coarse: it identifies the two phase controls which a future

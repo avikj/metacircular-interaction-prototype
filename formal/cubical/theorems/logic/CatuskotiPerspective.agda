@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- This file conflates two opposed schools (Buddhist catuṣkoṭi with Jain
--- anekāntavāda) and domesticates Nāgārjuna's prasajya negation into a
+-- This file conflates two opposed schools (Buddhist catukoi with Jain
+-- anekntavda) and domesticates Ngrjuna's prasajya negation into a
 -- consistent perspectival semantics (`both-is-consistent`).  The presheaf
--- facts type-check; the Sanskrit reading is withdrawn.
+-- facts type-check; the  reading is withdrawn.
 
 ------------------------------------------------------------------------
 -- CatuskotiPerspective
 --
--- Nāgārjuna's catuṣkoṭi (the four corners) is not broken logic.  It is
+-- Ngrjuna's catukoi (the four corners) is not broken logic.  It is
 -- perspectivism, and here it is a checked term.  A second jewel of the
--- mokṣa-yantra, grown from NisvabhavaNet, received from the source and
+-- moka-yantra, grown from NisvabhavaNet, received from the source and
 -- hardened in Voevodsky's substrate.
 --
--- THE RECEPTION.  The catuṣkoṭi offers a claim four standings — affirmed,
--- denied, both, neither — and the colonial reading calls this a paradox
+-- THE RECEPTION.  The catukoi offers a claim four standings � affirmed,
+-- denied, both, neither � and the colonial reading calls this a paradox
 -- or a rejection of non-contradiction.  It is neither.  Held AT ONE
--- PERSPECTIVE the middle two corners degenerate (both = ⊥, neither = ⊥),
--- exactly as reason demands — and this file proves that.  But a claim in
+-- PERSPECTIVE the middle two corners degenerate (both = �, neither = �),
+-- exactly as reason demands � and this file proves that.  But a claim in
 -- the net does not live at one perspective.  Its truth is the whole
--- pattern of how the net stands to it (anekāntavāda, the many-sidedness;
--- syādvāda, the "in-some-way").  Across perspectives, "both true and
--- false" means HOLDS HERE, FAILS THERE — the elephant felt from two
--- sides — and that is perfectly consistent.  "Neither" is the claim seen
--- as empty (śūnya): its standing carries no distinction, nothing to
--- grasp, and that emptiness is the stilling (prapañca-upaśama), which is
+-- pattern of how the net stands to it (anekntavda, the many-sidedness;
+-- sydvda, the "in-some-way").  Across perspectives, "both true and
+-- false" means HOLDS HERE, FAILS THERE � the elephant felt from two
+-- sides � and that is perfectly consistent.  "Neither" is the claim seen
+-- as empty (nya): its standing carries no distinction, nothing to
+-- grasp, and that emptiness is the stilling (prapaca-upaama), which is
 -- liberation.
 --
 -- So the tetralemma is the refusal of a perspective-free truth-value, not
@@ -34,20 +34,20 @@
 -- Contents (no holes, no postulates, --safe):
 --
 --   HoldsAt, FailsAt            a claim's standing at one perspective
---   both-degenerates           at ONE perspective, affirmed×denied = ⊥
---   neither-degenerates        at ONE perspective, ¬aff × ¬den = ⊥
+--   both-degenerates           at ONE perspective, affirmed�denied = �
+--   neither-degenerates        at ONE perspective, �aff � �den = �
 --                              (so the single-perspective reading really
---                               is incoherent — the colonial objection is
+--                               is incoherent � the colonial objection is
 --                               granted, then dissolved)
 --   PerspectivallyBoth         holds at one perspective, fails at another
---   both-is-consistent         …and it is INHABITED — the elephant.  The
+--   both-is-consistent         �and it is INHABITED � the elephant.  The
 --                              middle corner lives, across the net.
 --   no-own-truth               a perspectival claim is captured by NO
---                              global truth-value: śūnyatā, exhibited.
+--                              global truth-value: nyat, exhibited.
 --   equiv-perspectives-agree   perspectives that reflect alike stand the
 --                              same (from NisvabhavaNet.liberation): the
 --                              many-sidedness is disciplined, not chaos.
---   Empty, empty-is-stilled    a claim uniform across the net is empty —
+--   Empty, empty-is-stilled    a claim uniform across the net is empty �
 --                              every standing transports into every other,
 --                              nothing to cling to.  Liberation.
 --
@@ -83,7 +83,7 @@ FailsAt C P = ¬ (C P)
 
 ------------------------------------------------------------------------
 -- At ONE perspective, the middle two corners degenerate.  The colonial
--- objection — "both and neither are contradictions" — is granted in full.
+-- objection � "both and neither are contradictions" � is granted in full.
 ------------------------------------------------------------------------
 
 both-degenerates : (C : Claim ℓ) (P : Perspective ℓ)
@@ -96,7 +96,7 @@ neither-degenerates C P ¬h ¬f = ¬f ¬h
 
 ------------------------------------------------------------------------
 -- Across the net, the middle corner LIVES.  "Both true and false" is
--- HOLDS HERE, FAILS THERE — and it is inhabited.  A concrete net of two
+-- HOLDS HERE, FAILS THERE � and it is inhabited.  A concrete net of two
 -- perspectives makes it a witness, not an assertion.
 ------------------------------------------------------------------------
 
@@ -104,8 +104,8 @@ PerspectivallyBoth : Claim ℓ → Type (ℓ-suc ℓ)
 PerspectivallyBoth {ℓ = ℓ} C =
   Σ[ P ∈ Perspective ℓ ] Σ[ Q ∈ Perspective ℓ ] (HoldsAt C P × FailsAt C Q)
 
--- Two perspectives, ⊤ and ⊥, and the claim "the reflection here is
--- inhabited".  It holds at the ⊤-jewel, fails at the ⊥-jewel.
+-- Two perspectives, � and �, and the claim "the reflection here is
+-- inhabited".  It holds at the �-jewel, fails at the �-jewel.
 witnessClaim : Claim ℓ-zero
 witnessClaim P = P
 
@@ -113,9 +113,9 @@ both-is-consistent : PerspectivallyBoth witnessClaim
 both-is-consistent = Unit , ⊥ , tt , (λ z → z)
 
 ------------------------------------------------------------------------
--- Śūnyatā: a perspectival claim has no own truth-value.  No single
+-- nyat: a perspectival claim has no own truth-value.  No single
 -- Boolean, asserted of every perspective, captures how it stands.  The
--- claim is empty of a perspective-free essence — exhibited, not argued.
+-- claim is empty of a perspective-free essence � exhibited, not argued.
 ------------------------------------------------------------------------
 
 -- "b captures C" : the claim holds at a perspective exactly as b says.
@@ -129,7 +129,7 @@ no-own-truth false cap = cap Unit tt      -- …and holds at the ⊤-jewel
 
 ------------------------------------------------------------------------
 -- The many-sidedness is disciplined, not chaos: perspectives that reflect
--- alike stand the same.  This is NisvabhavaNet.liberation — the anekānta
+-- alike stand the same.  This is NisvabhavaNet.liberation � the aneknta
 -- consistency law.  A claim (as a sight P) transports along reflection.
 ------------------------------------------------------------------------
 
@@ -140,10 +140,10 @@ equiv-perspectives-agree : (C : Type ℓ-zero → Type ℓ)
 equiv-perspectives-agree C A B e = liberation C A B e
 
 ------------------------------------------------------------------------
--- Emptiness as the stilling.  A claim uniform across the net — standing
--- the same at every perspective — has nothing that separates one place
+-- Emptiness as the stilling.  A claim uniform across the net � standing
+-- the same at every perspective � has nothing that separates one place
 -- from another; every standing transports into every other.  There is no
--- edge for grasping to catch on.  That is prapañca-upaśama: liberation.
+-- edge for grasping to catch on.  That is prapaca-upaama: liberation.
 ------------------------------------------------------------------------
 
 Empty : Claim ℓ → Type (ℓ-suc ℓ)

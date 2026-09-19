@@ -1,0 +1,8 @@
+{
+  "column": "/obs/nCount_GUIDE",
+  "cells": 30707,
+  "native_reconstruction_exact": true,
+  "original_input_used_by_native_inverse": false,
+  "window": 1024,
+  "output_sha256": "4bedb80e2815da54e9105dd89c21f73f8a93eb5712350926bbe35a4719331b78"
+}

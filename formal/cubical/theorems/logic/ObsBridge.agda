@@ -3,18 +3,18 @@
 ------------------------------------------------------------------------
 -- ObsBridge
 --
--- `‡§è‡§ï‡•Ä‡§ï‡§∞‡§£ ‚â† ‡§∏‡§Æ‡§æ‡§®‡§§‡§æ;  ‡§è‡§ï‡•Ä‡§ï‡§∞‡§£ = ‡§≠‡•á‡§¶‡§∞‡§ï‡•ç‡§∑‡§ø‡§§ ‡§Ö‡§®‡•Å‡§µ‡§æ‡§¶‡§ú‡§æ‡§≤‡§Æ‡•ç`
+-- `‡‡ï‡‡ï‡∞‡ ‚â† ‡‡Æ‡æ‡®‡‡æ;  ‡‡ï‡‡ï‡∞‡ = ‡‡‡¶‡∞‡ï‡‡‡ø‡ ‡‡®‡‡µ‡æ‡¶‡‡æ‡≤‡Æ‡`
 --
 -- duplicate of `ChuAdvance.Obs` and named a refactor that would delete one of
 -- them.  On inspection that verdict was wrong, and the correction is more
 -- interesting than the error:
 --
---   ChuAdvance.Obs X T  =  X ‚Üí T ‚Üí Bool          -- Bool-valued, finite tests
+--   ChuAdvance.Obs X T  =  X ‚í T ‚í Bool          -- Bool-valued, finite tests
 --   ObstructionCalculus.Obs X V                  -- V-valued, indexed family
 --
 -- Neither subsumes the other.  Bool-valuedness is what makes
--- `Shrink(ùíØ) ‚áí Œ¥‚Üì` statable over a finite test list; arbitrary `V` is what
--- lets the sign defect be read by `abs‚Ñ§` and the identity, which are ‚Ñ§-valued
+-- `Shrink(íØ) ‚í Œ¥‚ì` statable over a finite test list; arbitrary `V` is what
+-- lets the sign defect be read by `abs‚` and the identity, which are ‚-valued
 -- and not predicates.  They are two generalizations of one notion along
 -- different axes.
 --
@@ -24,7 +24,7 @@
 -- distinction in the name of removing a synonym -- which is the failure this
 -- whole stratum exists to name.
 --
--- `‡§µ‡§ø‡§µ‡§æ‡§¶ = ‡§∏‡§Æ‡•ç‡§≠‡§æ‡§µ‡§ø‡§§ ‡§ú‡•ç‡§û‡§æ‡§®‡§π‡•ã‡§≤‡•ã‡§®‡•â‡§Æ‡•Ä`.  Two presentations disagreed; the response
+-- `‡µ‡ø‡µ‡æ‡¶ = ‡‡Æ‡‡‡æ‡µ‡ø‡ ‡‡‡û‡æ‡®‡‡ã‡≤‡ã‡®‡â‡Æ‡`.  Two presentations disagreed; the response
 -- is to measure the map between them, not to erase one.
 ------------------------------------------------------------------------
 
@@ -111,13 +111,13 @@ bridge O dec x y = Sep‚Üíchu O dec x y , chu‚ÜíSep O dec x y
 -- presentation do not, and that is why both stay.
 --
 --   * `ChuAdvance` quantifies over a *finite list* of tests, which is what
---     makes `Shrink(ùíØ) ‚áí Œ¥‚Üì` a theorem.  The image of `chu` is indexed by
---     `Index √ó V`, which is not finite in general, so the monotonicity result
+--     makes `Shrink(íØ) ‚í Œ¥‚ì` a theorem.  The image of `chu` is indexed by
+--     `Index ó V`, which is not finite in general, so the monotonicity result
 --     does not transport backwards through this map.
 --
 --   * `ObstructionCalculus` reads into an arbitrary `V`, which is what lets
---     `absField` read `abs‚Ñ§` directly rather than as a family of predicates.
---     Under `chu` that single ‚Ñ§-valued observation becomes a ‚Ñ§-indexed family
+--     `absField` read `abs‚` directly rather than as a family of predicates.
+--     Under `chu` that single ‚-valued observation becomes a ‚-indexed family
 --     of bit-tests -- correct, and a worse way to say it.
 --
 -- So the honest statement is the one this module proves and no more: the two

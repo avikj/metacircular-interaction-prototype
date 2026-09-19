@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe #-}
 --
--- एक-घात-विवृत्तिः — one product, expanded to first order.
+-- ���-����-��������� � one product, expanded to first order.
 --
 -- THE QUESTION THIS ASKS, and it is asked because nobody in this corpus has:
 -- every rank statement about the squarefree prime charge is about EXACT
@@ -11,7 +11,7 @@
 --
 -- Analysis never needs that.  An estimate needs an approximation with
 -- controlled constants, and the gap between exact realization and
--- approximation is where a whole class of constructions lives — for tensors
+-- approximation is where a whole class of constructions lives � for tensors
 -- it is the gap between rank and border rank, and the phrase "border rank"
 -- appears nowhere in this corpus.
 --
@@ -53,7 +53,7 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
 
 -- ---------------------------------------------------------- the statement
 --
---     घातः t bs  ≡  पर्यायः bs  +  आवेशः bs · t  +  शेषः t bs · t²
+--     ����� t bs  ≡  ������� bs  +  ����� bs � t  +  ���� t bs � t²
 --
 -- ONE rank-one product carries the parity character as its constant term and
 -- THE ENTIRE n-place charge as its first-order term.  No limit is taken and
@@ -65,7 +65,7 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
   cong ((चिह्नम् b + सक्रियम् b · t) ·_) (घात-विवृत्तिः t bs)
   ∙ पद-विस्तारः (चिह्नम् b) (सक्रियम् b) t (पर्यायः bs) (आवेशः bs) (शेषः t bs)
 
--- ---------------------------------------------------------------- मर्यादा
+-- ---------------------------------------------------------------- �������
 --
 -- WHAT THIS DOES AND DOES NOT SAY, because the two are easy to run together.
 --
@@ -76,34 +76,34 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
 -- stand exactly as stated and say nothing about this.
 --
 -- What it says is that the class was the limitor.  One product, one
--- parameter, one derivative, and the whole n-place charge is there — with an
+-- parameter, one derivative, and the whole n-place charge is there � with an
 -- explicit remainder rather than a limit, so nothing blows up and no
 -- constant is hidden.  This is the border-rank phenomenon (the `W` tensor
 -- has rank n and border rank 2) written as an identity instead of a
 -- degeneration.
 --
--- And the parameter carries more than the charge.  घातः t bs is a polynomial
+-- And the parameter carries more than the charge.  ����� t bs is a polynomial
 -- in t whose k-th coefficient is the sum over k-marked places; the charge is
--- k = 1 and पर्यायः is k = 0.  A rank obstruction applies to each coefficient
+-- k = 1 and ������� is k = 0.  A rank obstruction applies to each coefficient
 -- separately.  None of them applies to the product that generates all of
 -- them at once.
 --
 -- NOT here: any analytic claim.  Whether a Kuznetsov-type kernel admits the
--- corresponding parameter — a derivative in a spectral variable of a single
--- separable kernel — is a question about that kernel and not about this
+-- corresponding parameter � a derivative in a spectral variable of a single
+-- separable kernel � is a question about that kernel and not about this
 -- identity.  What this removes is the belief that the rank theorems already
 -- forbid it.
 
 -- ------------------------------------------------------------- the tower
--- The machine's own reading of this residue, asked of `garbha.dhara` with
--- the two standpoints — "n constant-coefficient products are needed" and
--- "one product carries it at first order" — was a stream in which every born
+-- The machine's own reading of this residue, asked of `kernel.dhara` with
+-- the two standpoints � "n constant-coefficient products are needed" and
+-- "one product carries it at first order" � was a stream in which every born
 -- position keeps the second standpoint as its base and adds ONE MORE Arpita,
 -- forking asserted/withheld at the tip.  The rank standpoint drops out of
 -- the born pair after the first birth.
 --
 -- Arpita^k is reading to order k.  The stream is the expansion, and it says
--- the object to define next is the k-marked charge — which is what follows.
+-- the object to define next is the k-marked charge � which is what follows.
 
 -- the k-marked charge: choose k places to be active-marked, sign the rest.
 -- k = 0 is the parity character; k = 1 is the squarefree charge.
@@ -127,7 +127,7 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
             (cong (सक्रियम् b ·_) (विवृत्ति-शून्यम् bs))
   ∙ +Comm (चिह्नम् b · आवेशः bs) (सक्रियम् b · पर्यायः bs)
 
--- and the remainder of घातः, read at t = 0, is level 2 — so the parameter is
+-- and the remainder of �����, read at t = 0, is level 2 � so the parameter is
 -- generating the tower and not merely its first two rungs.
 विवृत्ति-द्वयम् : (bs : List Bool)
   → शेषः (pos zero) bs ≡ विवृत्तिः bs (suc (suc zero))

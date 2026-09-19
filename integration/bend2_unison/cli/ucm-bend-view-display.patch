@@ -1,0 +1,153 @@
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput/ShowDefinition.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/ShowDefinition.hs
+@@ -7,6 +7,7 @@
+ 
+ import Control.Lens
+ import Control.Monad.Reader (ask)
++import Data.ByteString qualified as Bytes
+ import Control.Monad.State qualified as State
+ import Data.Foldable qualified as Foldable
+ import Data.List qualified as List
+@@ -16,6 +17,9 @@
+ import Data.Map qualified as Map
+ import Data.Set qualified as Set
+ import Data.Text qualified as Text
++import Data.Text.Encoding qualified as Text
++import U.Codebase.Reference (Id' (Id))
++import U.Codebase.Sqlite.Queries qualified as Q
+ import Unison.Builtin.Decls qualified as DD
+ import Unison.Cli.Monad (Cli)
+ import Unison.Cli.Monad qualified as Cli
+@@ -63,6 +67,44 @@
+ -- | Handle a @ShowDefinitionI@ input command, i.e. `view` or `edit`.
+ handleShowDefinition :: OutputLocation -> ShowDefinitionScope -> List.NonEmpty (HQ.HashQualified Name) -> Cli ()
+ handleShowDefinition outputLoc showDefinitionScope originalQuery = do
++  case outputLoc of
++    ConsoleLocation -> do
++      remaining <- filterM (fmap not . showBendDefinition showDefinitionScope) (List.NonEmpty.toList originalQuery)
++      for_ (List.NonEmpty.nonEmpty remaining) (handleShowDefinitionUnison outputLoc showDefinitionScope)
++    _ -> handleShowDefinitionUnison outputLoc showDefinitionScope originalQuery
++
++-- Bend members have native component objects and authored Bend source. They
++-- cannot be hydrated as Unison term/type objects by definitionsByName.
++showBendDefinition :: ShowDefinitionScope -> HQ.HashQualified Name -> Cli Bool
++showBendDefinition scope query = do
++  names <- case scope of
++    ShowDefinitionLocal -> Cli.currentNames
++    ShowDefinitionGlobal -> Names.makeAbsolute . Branch.toNames . Branch.head <$> Cli.getCurrentProjectRoot
++  let termRefs = mapMaybe Referent.toTermReferenceId (Set.toList (Names.lookupHQTerm Names.IncludeSuffixes query names))
++      typeRefs = mapMaybe Reference.toId (Set.toList (Names.lookupHQType Names.IncludeSuffixes query names))
++      refs = Set.toList (Set.fromList (termRefs ++ typeRefs))
++  presentations <- for refs \(Id digest member) -> Cli.runTransaction do
++    maybeObjectId <- Q.loadObjectIdForPrimaryHash digest
++    case maybeObjectId of
++      Nothing -> pure Nothing
++      Just objectId -> do
++        maybeBend <- Q.loadBendBytes objectId
++        case maybeBend of
++          Nothing -> pure Nothing
++          Just _ -> do
++            forms <- Q.loadBendPresentations objectId member
++            pure (Just forms)
++  if null refs || any isNothing presentations
++    then pure False
++    else do
++      for_ (concat (catMaybes presentations)) \(_, source, start, end, authoredName, path) -> do
++        let bytes = Bytes.take (fromIntegral end - fromIntegral start) (Bytes.drop (fromIntegral start) source)
++            body = either (const "<invalid UTF-8 in stored Bend source>") Text.unpack (Text.decodeUtf8' bytes)
++        Cli.respond (Literal (fromString ("Bend2 " ++ Text.unpack authoredName ++ " (" ++ Text.unpack path ++ "):\n" ++ body)))
++      pure True
++
++handleShowDefinitionUnison :: OutputLocation -> ShowDefinitionScope -> List.NonEmpty (HQ.HashQualified Name) -> Cli ()
++handleShowDefinitionUnison outputLoc showDefinitionScope originalQuery = do
+   env <- ask
+ 
+   let originalQuerySet :: Set (HQ.HashQualified Name)
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput.hs
+@@ -46,6 +46,7 @@
+ import Unison.Codebase.Editor.AuthorInfo qualified as AuthorInfo
+ import Unison.Codebase.Editor.HandleInput.AddRun (handleAddRun)
+ import Unison.Codebase.Editor.HandleInput.BendLoad qualified as BendLoad
++import Bend.UCM.Storage qualified as BendStorage
+ import Unison.Codebase.Editor.HandleInput.AliasType (handleAliasType)
+ import Unison.Codebase.Editor.HandleInput.AuthLogin (authLogin)
+ import Unison.Codebase.Editor.HandleInput.Branch (handleBranch)
+@@ -1156,6 +1157,19 @@
+   HQ.HashQualified Name ->
+   Cli ()
+ displayI outputLoc hq = do
++  names <- if any Name.isAbsolute hq
++    then Names.makeAbsolute . Branch.toNames . Branch.head <$> Cli.getCurrentProjectRoot
++    else Cli.currentNames
++  let ref = Set.asSingleton (Names.lookupHQTerm Names.IncludeSuffixes hq names)
++        >>= Referent.toTermReferenceId
++  native <- for ref (Cli.runTransaction . BendStorage.loadBendDefinitionTypeTextByHashRef)
++  case (ref, native) of
++    (Just selected, Just (Right (Just _))) -> BendLoad.handleBendDisplay outputLoc selected
++    (_, Just (Left err)) -> Cli.respond (Output.Literal (fromString ("Bend2: " ++ err)))
++    _ -> displayIUnison outputLoc hq
++
++displayIUnison :: OutputLocation -> HQ.HashQualified Name -> Cli ()
++displayIUnison outputLoc hq = do
+   let useRoot = any Name.isAbsolute hq
+   (names, pped) <-
+     if useRoot
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput/BendLoad.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/BendLoad.hs
+@@ -2,6 +2,7 @@
+   ( handleBendFileChanged,
+     handleBendLoad,
+     handleBendRun,
++    handleBendDisplay,
+   )
+ where
+ 
+@@ -14,7 +15,7 @@
+ import Core.Admission qualified as BendAdmission
+ import Core.Provenance qualified as BendProvenance
+ import Core.CLI qualified as Bend
+-import Core.Type (Book)
++import Core.Type (Book (..), Term (..))
+ import Data.ByteString qualified as Bytes
+ import Data.Map.Strict qualified as Map
+ import Data.Set qualified as Set
+@@ -30,6 +31,7 @@
+ import Unison.Codebase.Branch qualified as Branch
+ import Unison.Codebase.BranchUtil qualified as BranchUtil
+ import Unison.Codebase.Editor.Output qualified as Output
++import Unison.Codebase.Editor.Input (OutputLocation (..))
+ import Unison.Codebase.Path qualified as Path
+ import Unison.Prelude
+ import Unison.Names qualified as Names
+@@ -122,6 +124,30 @@
+       case loaded of
+         Left err -> Cli.respond (Output.Literal (fromString ("Bend2 codebase: " ++ err)))
+         Right (entry, book) -> either reportEntry runChecked (BendExecution.selectEntryAsMain entry book)
++
++-- `display` on a native Bend term executes the same stored checked closure
++-- through HVM4 as `bend.run`; Unison's evaluator cannot hydrate this object.
++handleBendDisplay :: OutputLocation -> Ref.Id -> Cli ()
++handleBendDisplay location ref = do
++  env <- ask
++  loaded <- liftIO $ Codebase.runTransaction env.codebase (BendStorage.loadDependencyClosedEntryBookByHashRef ref)
++  case loaded of
++    Left err -> reportEntry err
++    Right (entry, book) -> case BendExecution.selectEntryAsMain entry book of
++      Left err -> reportEntry err
++      Right (Book definitions _) | Just (_, _, All _ _) <- Map.lookup "main" definitions ->
++        Cli.respond (Output.Literal "Bend2: display needs an applied value; use view for this function definition")
++      Right selected -> do
++        hvm <- liftIO $ fromMaybe "hvm" <$> lookupEnv "HVM4"
++        outcome <- liftIO $ BendExecution.runCachedCheckedBook hvm selected
++        case outcome of
++          Left err -> Cli.respond (Output.Literal (fromString ("HVM4: " ++ show err)))
++          Right result -> case location of
++            ConsoleLocation -> Cli.respond (Output.Literal (fromString (BendExecution.output result ++ BendExecution.diagnostics result)))
++            FileLocation path _ -> do
++              liftIO (writeFile path (BendExecution.output result))
++              Cli.respond (Output.Literal (fromString ("Bend2: wrote HVM4 result to " ++ path)))
++            LatestFileLocation _ -> Cli.respond (Output.Literal (fromString (BendExecution.output result ++ BendExecution.diagnostics result)))
+ 
+ reportEntry :: String -> Cli ()
+ reportEntry err = Cli.respond (Output.Literal (fromString ("Bend2: " ++ err)))

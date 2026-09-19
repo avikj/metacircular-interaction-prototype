@@ -5,7 +5,7 @@
 --
 -- A global coordinate chart on a Smith kernel is an isomorphism from one
 -- common kernel type into a chart type.  The transition from chart i to chart
--- j is therefore c_j ∘ c_i⁻¹.  Such transitions obey the cocycle law by
+-- j is therefore c_j ∘ c_i��.  Such transitions obey the cocycle law by
 -- inverse cancellation, and every closed triangle is the identity.
 --
 -- This closes the holonomy seed of SMITH_KERNEL_QUANTUM_BOUNDARY negatively:

@@ -2,26 +2,26 @@
 
 -- Bhitti_TheThreeInductionObligationsAreRefutedRoundTripsAndTheLedgerMisdiagnosedThem
 --
--- à¤­à¤¿à¤¤à¥à¤¤à¤¿à¤ƒ â€” a WALL: a proved Â¬(round trip), which retires a candidate
+-- àà¿àààà¿à â” a WALL: a proved Â(round trip), which retires a candidate
 -- permanently (the term and the economy are BhittiSnapshot.tsv's, this
 -- corpus, 2026-08-22; no external source claimed).
 --
 -- 2026-08-23T15:37Z) lists 12 real obligations, THREE of them grouped
 -- under the move "induction on List":
 --
---     OptionSpread      : ones â‡„ sum
---     IntegerHullMultiplicity    : Xs  â‡„ hull
---     IntegerHullMultiplicity    : Qs  â‡„ hull
+--     OptionSpread      : ones â sum
+--     IntegerHullMultiplicity    : Xs  â hull
+--     IntegerHullMultiplicity    : Qs  â hull
 --
--- with à¤°à¤¾à¤¤à¥à¤°à¤¿à¤ƒ stuck at rung à¥« (induction) on each.  The ledger's
+-- with à°à¾ààà°à¿à stuck at rung à (induction) on each.  The ledger's
 -- diagnosis is wrong, and this module proves it wrong: the reverse
 -- round trips are FALSE, so no induction can ever close them.  ones
 -- returns only all-ones lists (its two clauses build nothing else);
--- hull returns only its own five-beat pattern 0âˆ·0âˆ·0âˆ·0âˆ·1âˆ·â€¦; a single
--- list outside the image refutes each âˆ€-statement.  The failing goals
--- quoted in the ledger â€” `wâ‚€ âˆ· ones (sum wâ‚) != ones (wâ‚€ + sum wâ‚)` â€”
+-- hull returns only its own five-beat pattern 0âˆ0âˆ0âˆ0âˆ1âˆâ¦; a single
+-- list outside the image refutes each âˆ-statement.  The failing goals
+-- quoted in the ledger â” `wâ âˆ ones (sum wâ) != ones (wâ + sum wâ)` â”
 -- are the counterexample shape ITSELF, met mid-induction and read as
--- an obstacle instead of an answer.  à¤°à¤¾à¤¤à¥à¤°à¤¿à¤ƒ proposes and the kernel
+-- an obstacle instead of an answer.  à°à¾ààà°à¿à proposes and the kernel
 -- decides; neither asks whether the statement is true.  That asking
 -- is a third organ, and today it was a reader.
 --
@@ -29,7 +29,7 @@
 -- modules DO prove) are untouched and unclaimed here.  The honest
 -- close of each obligation is this wall, filed in the ledger's own
 -- economy: a ford creates crossings, a wall retires a merge, both are
--- receipts.  à¤®à¥Œà¤¨à¤‚ à¤¨ à¤¨à¤¿à¤·à¥‡à¤§à¤ƒ â€” and a stuck induction is not a à¤¨à¤¿à¤·à¥‡à¤§
+-- receipts.  à®àà¨à à¨ à¨à¿ààà§à â” and a stuck induction is not a à¨à¿ààà§
 -- either; only a counterexample is.
 
 module Bhitti_TheThreeInductionObligationsAreRefutedRoundTripsAndTheLedgerMisdiagnosedThem where
@@ -43,12 +43,12 @@ open import Cubical.Relation.Nullary using (Â¬_)
 import OptionSpread as S13
 
 -- IntegerHullMultiplicity does not import under this container's cubical
--- v0.5 (it uses solveâ„•!, a later library's tactic â€” the version-skew
+-- v0.5 (it uses solveâ•!, a later library's tactic â” the version-skew
 -- fault interactive/dosa.lekha's newest entries measure).  So its three
 -- functions are REDEFINED here verbatim, each duplicate named, per the
 -- corpus's self-contained-by-redefinition discipline: Config, Xs, Qs
--- from IntegerHullMultiplicity.agda lines 87â€“104 and hull from lines
--- 260â€“262, copied character for character.  The walls below are about
+-- from IntegerHullMultiplicity.agda lines 87â“104 and hull from lines
+-- 260â“262, copied character for character.  The walls below are about
 -- these definitions; when that module reads again, the identification
 -- of these copies with its originals is one refl each.
 open import Cubical.Data.Nat using (_+_ ; _Â·_)
@@ -73,30 +73,30 @@ hull (suc t) = 0 âˆ· 0 âˆ· 0 âˆ· 0 âˆ· 1 âˆ· hull t
 à¤®à¥à¤–à¤®à¥ []      = zero
 à¤®à¥à¤–à¤®à¥ (a âˆ· _) = a
 
--- â”€â”€ wall 1 Â· ones âˆ˜ sum is not the identity â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- ones (sum (2 âˆ· [])) = ones 2 = 1 âˆ· 1 âˆ· [], whose head is 1, not 2.
+-- â”â” wall 1 Â ones âˆ˜ sum is not the identity â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- ones (sum (2 âˆ [])) = ones 2 = 1 âˆ 1 âˆ [], whose head is 1, not 2.
 
 à¤à¤•-à¤­à¤¿à¤¤à¥à¤¤à¤¿à¤ƒ : Â¬ ((w : List â„•) â†’ S13.ones (S13.sum w) â‰¡ w)
 à¤à¤•-à¤­à¤¿à¤¤à¥à¤¤à¤¿à¤ƒ h = znots (cong predâ‚‚ (cong à¤®à¥à¤–à¤®à¥ (h (2 âˆ· []))))
   where
-    -- 1 â‰¡ 2 â†’ 0 â‰¡ 1, then znots
+    -- 1 â‰¡ 2 â’ 0 â‰¡ 1, then znots
     predâ‚‚ : â„• â†’ â„•
     predâ‚‚ zero    = zero
     predâ‚‚ (suc m) = m
 
--- â”€â”€ the hull's mouth is always zero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â” the hull's mouth is always zero â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 
 à¤¶à¥‚à¤¨à¥à¤¯-à¤®à¥à¤–à¤®à¥ : (t : â„•) â†’ à¤®à¥à¤–à¤®à¥ (hull t) â‰¡ zero
 à¤¶à¥‚à¤¨à¥à¤¯-à¤®à¥à¤–à¤®à¥ zero    = refl
 à¤¶à¥‚à¤¨à¥à¤¯-à¤®à¥à¤–à¤®à¥ (suc t) = refl
 
--- â”€â”€ wall 2 Â· hull âˆ˜ Xs is not the identity â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â” wall 2 Â hull âˆ˜ Xs is not the identity â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 
 à¤—à¥‚à¤¢-à¤­à¤¿à¤¤à¥à¤¤à¤¿à¤ƒ-X : Â¬ ((w : Config) â†’ hull (Xs w) â‰¡ w)
 à¤—à¥‚à¤¢-à¤­à¤¿à¤¤à¥à¤¤à¤¿à¤ƒ-X h =
   znots (sym (à¤¶à¥‚à¤¨à¥à¤¯-à¤®à¥à¤–à¤®à¥ (Xs (1 âˆ· []))) âˆ™ cong à¤®à¥à¤–à¤®à¥ (h (1 âˆ· [])))
 
--- â”€â”€ wall 3 Â· hull âˆ˜ Qs is not the identity â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â” wall 3 Â hull âˆ˜ Qs is not the identity â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 
 à¤—à¥‚à¤¢-à¤­à¤¿à¤¤à¥à¤¤à¤¿à¤ƒ-Q : Â¬ ((w : Config) â†’ hull (Qs w) â‰¡ w)
 à¤—à¥‚à¤¢-à¤­à¤¿à¤¤à¥à¤¤à¤¿à¤ƒ-Q h =

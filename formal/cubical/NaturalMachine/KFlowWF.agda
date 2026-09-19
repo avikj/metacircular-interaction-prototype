@@ -7,10 +7,10 @@
 --
 -- `KFlow.decay` and `QuestionMachine.halts` both prove that a
 -- contracting obstruction flow reaches 0, and both do it with a FUEL
--- argument: `decay-fuel` / `halts-fuel` recurse on an extra ℕ and carry
--- the invariant `∂ q ≤ fuel`, with the top-level wrapper supplying
--- `fuel := ∂ q`.  That is the weaker statement in two ways.  The fuel
--- has to be produced, so the measure must be ℕ-valued (there is nothing
+-- argument: `decay-fuel` / `halts-fuel` recurse on an extra � and carry
+-- the invariant `� q � fuel`, with the top-level wrapper supplying
+-- `fuel := � q`.  That is the weaker statement in two ways.  The fuel
+-- has to be produced, so the measure must be �-valued (there is nothing
 -- to count down otherwise), and the recursion is on the fuel rather
 -- than on the thing that actually decreases.
 --
@@ -18,23 +18,23 @@
 --
 --   `decay-wf`          same conclusion as `QuestionMachine.halts`,
 --                       no fuel parameter, recursion on the
---                       accessibility of `∂ M q` under `_<_`.
+--                       accessibility of `� M q` under `_<_`.
 --
---   `decay-wf-general`  the same theorem for a measure `μ : 𝒬 → B`
+--   `decay-wf-general`  the same theorem for a measure `μ : � � B`
 --                       into ANY type carrying a well-founded relation
---                       `_⊏_`, with an arbitrary resolution predicate
+--                       `_�_`, with an arbitrary resolution predicate
 --                       `Done`.  Termination of the flow does not
---                       depend on ℕ; it depends only on `WellFounded _⊏_`.
+--                       depend on �; it depends only on `WellFounded _�_`.
 --
---   `decay-wf-𝒦`        `KFlow.decay` recovered as the instance
---                       `M = machine (λ n → n) f`, again without fuel.
+--   `decay-wf-�`        `KFlow.decay` recovered as the instance
+--                       `M = machine (λ n � n) f`, again without fuel.
 --
 -- NO CLAIM OF DEPTH IS MADE.  This is textbook well-founded recursion:
 -- `acc-invImage` is the standard fact that the inverse image of a
 -- well-founded relation along any function is well-founded, and
 -- `wf-go` is the standard `Acc`-eliminator specialised to the flow.
 -- The mathematical content is entirely in the hypothesis
--- `WellFounded _⊏_`; everything below it is bookkeeping.  The point of
+-- `WellFounded _�_`; everything below it is bookkeeping.  The point of
 -- the file is that the bookkeeping is now done once, in the general
 -- form, instead of being re-derived with a counter in each concrete
 -- setting.
@@ -42,12 +42,12 @@
 -- THE CONVERSE.  The naive converse is false: an orbit can reach 0 in k
 -- steps while the machine is not `Contracting` (it need only contract
 -- along the one orbit, and only somewhere).  The sharp true statement
--- is `reaches-zero→drops`: if `∂` is positive at `q` and vanishes at
+-- is `reaches-zero�drops`: if `�` is positive at `q` and vanishes at
 -- `orbit M k q`, then SOME step `j < k` of that orbit strictly
--- decreases `∂`.  Contrapositive (`reaches-zero→¬-expanding`): no
+-- decreases `�`.  Contrapositive (`reaches-zero��-expanding`): no
 -- orbit that is non-decreasing throughout its first k steps can carry a
 -- positive obstruction to 0 in k steps.  This is the exact converse
--- direction — a statement about the one orbit, not about the machine.
+-- direction � a statement about the one orbit, not about the machine.
 --
 -- Definitions of `Machine`, `orbit`, `Resolves`, `Contracting` are
 -- imported from `NaturalMachine.QuestionMachine`, not repeated.
@@ -78,8 +78,8 @@ private
 ------------------------------------------------------------------------
 -- 1.  Inverse images of well-founded relations
 --
---     Standard.  If `μ : A → B` and `_⊏_` is well-founded on B, then
---     `μ x ⊏ μ y` is well-founded on A.  This is the whole mechanism by
+--     Standard.  If `μ : A � B` and `_�_` is well-founded on B, then
+--     `μ x � μ y` is well-founded on A.  This is the whole mechanism by
 --     which a measure justifies a recursion, and it is why no fuel is
 --     needed: the recursion is on the accessibility proof itself.
 ------------------------------------------------------------------------
@@ -103,11 +103,11 @@ wf-invImage _⊏_ μ wf x = acc-invImage _⊏_ μ x (wf (μ x))
 -- 2.  The flow with an arbitrary measure
 --
 --     `iter` is `orbit` for a bare endomap (`orbit` is tied to a
---     `Machine`, hence to a ℕ-valued `∂`; the bridge is `orbit≡iter`).
+--     `Machine`, hence to a �-valued `�`; the bridge is `orbit≡iter`).
 --
 --     `GContracting` is the honest generalisation of `Contracting`:
 --     at every question, EITHER we are already done, OR the measure
---     strictly drops.  In the ℕ case this dichotomy is exactly
+--     strictly drops.  In the � case this dichotomy is exactly
 --     `zeroOrPos` combined with `Contracting`; in general there is no
 --     "0" to compare against, so the disjunction is the hypothesis.
 ------------------------------------------------------------------------
@@ -138,7 +138,7 @@ private
         let rest = wf-go _⊏_ step μ Done c (step q) (r (step q) drop)
         in suc (fst rest) , snd rest
 
--- The general termination theorem.  No fuel, no ℕ-valued measure, no
+-- The general termination theorem.  No fuel, no �-valued measure, no
 -- ordering on the "resolved" side.
 decay-wf-general :
     {𝒬 : Type ℓ} {B : Type ℓ'} (_⊏_ : B → B → Type ℓ'')
@@ -150,7 +150,7 @@ decay-wf-general _⊏_ step μ Done wf c q =
   wf-go _⊏_ step μ Done c q (wf-invImage _⊏_ μ wf q)
 
 ------------------------------------------------------------------------
--- 3.  The ℕ-valued case: `QuestionMachine.halts` without fuel
+-- 3.  The �-valued case: `QuestionMachine.halts` without fuel
 ------------------------------------------------------------------------
 
 orbit≡iter : {𝒬 : Type₀} (M : Machine 𝒬) (k : ℕ) (q : 𝒬)
@@ -170,7 +170,7 @@ private
   ... | inl z   = inl z
   ... | inr pos = inr (c q pos)
 
--- विघ्नक्षयः, by well-founded recursion on ∂ M q.
+-- ������������, by well-founded recursion on � M q.
 decay-wf : {𝒬 : Type₀} (M : Machine 𝒬) → Contracting M → (q : 𝒬) → Resolves M q
 decay-wf M c q = fst r , cong (∂ M) (orbit≡iter M (fst r) q) ∙ snd r
   where
@@ -179,13 +179,13 @@ decay-wf M c q = fst r , cong (∂ M) (orbit≡iter M (fst r) q) ∙ snd r
           <-wellfounded (dichotomy M c) q
 
 ------------------------------------------------------------------------
--- 3'.  `KFlow.decay` is the instance ∂ = id, and needs no fuel either
+-- 3'.  `KFlow.decay` is the instance � = id, and needs no fuel either
 ------------------------------------------------------------------------
 
 𝒦-machine : K.𝒦 → Machine ℕ
 𝒦-machine f = machine (λ n → n) f
 
--- `KFlow.Contracting f` and `Contracting (𝒦-machine f)` are the same type.
+-- `KFlow.Contracting f` and `Contracting (�-machine f)` are the same type.
 𝒦-contracting : (f : K.𝒦) → K.Contracting f → Contracting (𝒦-machine f)
 𝒦-contracting f c = c
 
@@ -205,9 +205,9 @@ decay-wf-𝒦 f c n = fst r , iterate≡orbit f (fst r) n ∙ snd r
 --     From `Resolves` one cannot recover `Contracting`: the machine is
 --     unconstrained off the orbit of q, and even on it need only drop
 --     once.  What IS forced is a strict decrease somewhere in the first
---     k steps.  That is sharp: `reaches-zero→drops` produces exactly one
+--     k steps.  That is sharp: `reaches-zero�drops` produces exactly one
 --     index, and no more can be produced, since a machine may sit still
---     for k−1 steps and then send ∂ to 0 in one.
+--     for k−1 steps and then send � to 0 in one.
 ------------------------------------------------------------------------
 
 reaches-zero→drops :

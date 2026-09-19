@@ -1,5 +1,5 @@
 {-# OPTIONS --erased-cubical --erasure --guardedness --no-import-sorts #-}
--- ‡§ó‡§£‡§ø‡§§‡§Æ‡•ç ‚Äî the cost ledger: the machine reads its own clock over its
+-- ‡ó‡‡ø‡‡Æ‡ ‚î the cost ledger: the machine reads its own clock over its
 -- whole inheritance, raw against eye-optimized, at a fixed input.
 module Ganita_run where
 open import Agda.Builtin.IO using (IO)

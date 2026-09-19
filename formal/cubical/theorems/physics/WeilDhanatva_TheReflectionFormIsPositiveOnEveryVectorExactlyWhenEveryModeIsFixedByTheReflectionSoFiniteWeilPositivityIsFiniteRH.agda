@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- वेइल-धनत्व — Weil positivity.
+-- ����-����� � Weil positivity.
 --
--- Weil's criterion: RH holds iff the explicit-formula form W(g ⋆ g̃) is
+-- Weil's criterion: RH holds iff the explicit-formula form W(g � g�) is
 -- nonnegative for every test function g.  TauRupa put the form's finite
 -- algebra as a term: on a configuration of n modes with the critical-
--- line reflection τ, the form is the τ-twisted ℓ² form, and a τ-2-cycle
+-- line reflection �, the form is the �-twisted �² form, and a �-2-cycle
 -- carries one positive and one negative square (dvi-cakra).  This file
 -- proves the criterion itself at the finite level:
 --
---   the τ-form is positive on every vector
---     ⇔  every mode of the configuration is fixed by τ.
+--   the �-form is positive on every vector
+--     �  every mode of the configuration is fixed by �.
 --
--- "Fixed by τ" is ρ = 1 − ρ̄, i.e. Re ρ = ½: the mode is on the line.
+-- "Fixed by �" is � = 1 − ��, i.e. Re � = ½: the mode is on the line.
 --
 --   §1  TWO-POINT SUPPORT.  A summand supported at two distinct indices
---       sums to the two values (Σᵣ-dvi); 0* = 0 in any *-ring.
---   §2  FIXED CONFIGURATIONS.  If τ fixes every mode below n, the τ-form
---       IS the plain form, and the plain form c ↦ ⟨c,c⟩ is a sum of
---       squares — positive for any notion of positivity closed under
+--       sums to the two values (ε-dvi); 0* = 0 in any *-ring.
+--   §2  FIXED CONFIGURATIONS.  If � fixes every mode below n, the �-form
+--       IS the plain form, and the plain form c � ⟨c,c⟩ is a sum of
+--       squares � positive for any notion of positivity closed under
 --       squares, sums, and containing 0.
 --   §3  A MOVED MODE IS A NEGATIVE VECTOR.  If some mode i < n is moved
---       by the involution τ (τ i ≠ i, τ i < n, τ τ i = i), the vector
---       c = δ_i − δ_{τ i} has τ-form  [c,c] = −(1 + 1).
+--       by the involution � (� i ≠ i, � i < n, � � i = i), the vector
+--       c = δ_i − δ_{� i} has �-form  [c,c] = −(1 + 1).
 --   §4  THE CRITERION.  For any positivity predicate that excludes −2:
---       (∀ c → Dhana [c,c])  ⇔  (∀ i < n → τ i ≡ i).
+--       (� c � Dhana [c,c])  �  (� i < n � � i ≡ i).
 --
--- धनत्व (dhanatva, positivity) is ordinary Sanskrit.
+-- ����� (dhanatva, positivity) is ordinary .
 ------------------------------------------------------------------------
 
 module WeilDhanatva_TheReflectionFormIsPositiveOnEveryVectorExactlyWhenEveryModeIsFixedByTheReflectionSoFiniteWeilPositivityIsFiniteRH where
@@ -64,7 +64,7 @@ module _ (S : StarRing ℓ) where
   τ-rūpa = T.τ-rūpa S
 
   ----------------------------------------------------------------------
-  -- १ · 0* = 0, and the two-point support sum.
+  -- � � 0* = 0, and the two-point support sum.
   ----------------------------------------------------------------------
 
   ✶-zero : 0r ✶ ≡ 0r
@@ -121,7 +121,7 @@ module _ (S : StarRing ℓ) where
                              (suc-le s j lej ¬q) (subst (j <_) (+-suc s m) ltj) ne off
 
   ----------------------------------------------------------------------
-  -- २ · On a fixed configuration the τ-form is the plain form, a sum of squares.
+  -- � � On a fixed configuration the �-form is the plain form, a sum of squares.
   ----------------------------------------------------------------------
 
   module _ (n : ℕ) (τ : ℕ → ℕ) where
@@ -161,10 +161,10 @@ module _ (S : StarRing ℓ) where
       sthira→dhana fix c = subst Dhana (sym (sthira-sama fix c c)) (plain-dhana c)
 
     --------------------------------------------------------------------
-    -- ३ · A moved mode gives a vector of τ-form −(1 + 1).
+    -- � � A moved mode gives a vector of �-form −(1 + 1).
     --------------------------------------------------------------------
 
-    -- the vector δ_i − δ_{τ i}, written with its values decided
+    -- the vector δ_i − δ_{� i}, written with its values decided
     bheda : ℕ → Vec
     bheda i k with discreteℕ k i | discreteℕ k (τ i)
     ... | yes _ | _     = 1r
@@ -196,15 +196,15 @@ module _ (S : StarRing ℓ) where
       ∙ dvi
       where
       c = bheda i
-      -- at i: 1* · (−1) = −1
+      -- at i: 1* � (−1) = −1
       pada-i : (c i) ✶ · c (τ i) ≡ - 1r
       pada-i = cong₂ (λ u v → u ✶ · v) (bheda-i i) (bheda-τi i ne)
              ∙ cong (_· (- 1r)) ✶-one ∙ ·IdL (- 1r)
-      -- at τ i: (−1)* · c (τ τ i) = (−1)* · 1 = −1
+      -- at � i: (−1)* � c (� � i) = (−1)* � 1 = −1
       pada-τi : (c (τ i)) ✶ · c (τ (τ i)) ≡ - 1r
       pada-τi = cong₂ (λ u v → u ✶ · v) (bheda-τi i ne) (cong c inv ∙ bheda-i i)
               ∙ cong (_· 1r) (✶-neg 1r ∙ cong -_ ✶-one) ∙ ·IdR (- 1r)
-      -- elsewhere: 0* · _ = 0
+      -- elsewhere: 0* � _ = 0
       off : (k : ℕ) → ¬ (k ≡ i) → ¬ (k ≡ τ i) → (c k) ✶ · c (τ k) ≡ 0r
       off k ki kτ = cong (λ u → u ✶ · c (τ k)) (bheda-anya i k ki kτ)
                   ∙ cong (_· c (τ k)) ✶-zero ∙ śūnya (c (τ k))
@@ -215,7 +215,7 @@ module _ (S : StarRing ℓ) where
       dvi = solve! R
 
     --------------------------------------------------------------------
-    -- ४ · The criterion: positivity of the τ-form ⇔ every mode is fixed.
+    -- � � The criterion: positivity of the �-form � every mode is fixed.
     --------------------------------------------------------------------
 
     Antaḥ : Type

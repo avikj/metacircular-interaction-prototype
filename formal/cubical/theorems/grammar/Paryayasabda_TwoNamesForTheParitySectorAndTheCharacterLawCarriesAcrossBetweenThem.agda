@@ -1,55 +1,55 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤¶à¤¬à¥à¤¦à¥Œ â€” TWO NAMES FOR ONE PARITY SECTOR, AND THE CARRY.
+-- àà°àà¯à¾à¯àààà¦à â” TWO NAMES FOR ONE PARITY SECTOR, AND THE CARRY.
 --
--- THE TERM, ITS TEXT AND ITS DATE.  à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤¶à¤¬à¥à¤¦ (paryÄya-Å›abda) is the
+-- THE TERM, ITS TEXT AND ITS DATE.  àà°àà¯à¾à¯àààà¦ (paryya-abda) is the
 -- ordinary grammatical/lexicographical term for words that denote ONE
--- and the same object â€” synonyms with a common referent.  The whole of
--- Amarasiá¹ƒha's *NÄmaliá¹…gÄnuÅ›Äsana* (the AmarakoÅ›a, ~6th c. CE) is built
--- as a thesaurus of paryÄya, grouping co-referential names; the NyÄya
--- and VyÄkaraá¹‡a traditions use the term in the same plain sense.
+-- and the same object â” synonyms with a common referent.  The whole of
+-- Amarasiha's *Nmalignusana* (the Amarakoa, ~6th c. CE) is built
+-- as a thesaurus of paryya, grouping co-referential names; the Nyya
+-- and Vykaraa traditions use the term in the same plain sense.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- WHAT WAS OPEN.  This corpus encodes the â„¤/2 PARITY SUPERSELECTION
--- SECTOR â€” the "charge mod 2" whose neutral half is the parity barrier â€”
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- WHAT WAS OPEN.  This corpus encodes the â/2 PARITY SUPERSELECTION
+-- SECTOR â” the "charge mod 2" whose neutral half is the parity barrier â”
 -- TWICE, in two modules that never meet:
 --
---   ParitySeparator.sgn  : â„• â†’ Bool   (the sieve barrier)
+--   ParitySeparator.sgn  : â• â’ Bool   (the sieve barrier)
 --       sgn zero = true ; sgn (suc n) = not (sgn n)
---       group operation `_Â·_` : true Â· b = b ; false Â· b = not b
+--       group operation `_Â_` : true Â b = b ; false Â b = not b
 --
---   ChargeGrading.parity : â„• â†’ Bool   (the charge grading)
+--   ChargeGrading.parity : â• â’ Bool   (the charge grading)
 --       parity zero = true ; parity 1 = false ; parity (2+n) = parity n
 --       group operation `xor` : xor true b = b ; xor false b = not b
 --
--- These are à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤¶à¤¬à¥à¤¦à¥Œ: two names, one object â€” the parity character
--- (-1)^n and the group {Â±1} = â„¤/2 it lands in.  But they are two
+-- These are àà°àà¯à¾à¯àààà¦à: two names, one object â” the parity character
+-- (-1)^n and the group {Â1} = â/2 it lands in.  But they are two
 -- DISTINCT terms: the recursions differ (one-step vs two-step), so
 -- `sgn m` and `parity m` do not reduce to a common form at a variable
--- m, and the two `_Â·_`/`xor` are two functions.  Nothing in the
--- repository joined them, and â€” exactly as in
--- `Bhedanirnaya_â€¦` â€” the two modules do NOT hold the same theorems:
+-- m, and the two `_Â_`/`xor` are two functions.  Nothing in the
+-- repository joined them, and â” exactly as in
+-- `Bhedanirnaya_â¦` â” the two modules do NOT hold the same theorems:
 --
 --   * ChargeGrading proved the CHARACTER LAW (T15.27, `parity-shift`):
 --         parity (m + n) â‰¡ xor (parity m) (parity n).
---   * ParitySeparator names its `sgn` a "completely multiplicative Â±1
+--   * ParitySeparator names its `sgn` a "completely multiplicative Â1
 --     function" in prose (its header, Â§THE STATEMENT) but never proved
---     the additive form  sgn (m + n) â‰¡ sgn m Â· sgn n  about `sgn`
+--     the additive form  sgn (m + n) â‰¡ sgn m Â sgn n  about `sgn`
 --     itself; it proves only `flip-law` about the gauge ACTION.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED HERE.
 --
--- Â§à¥§  the two names are one function:  sgn â‰¡ parity  (a path, `A â‰¡ B`).
--- Â§à¥¨  the two group operations are one:  _Â·_ â‰¡ xor.
--- Â§à¥©  à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤ƒ â€” the CARRY.  Packaging the character law as a predicate
+-- Â§à§  the two names are one function:  sgn â‰¡ parity  (a path, `A â‰¡ B`).
+-- Â§à¨  the two group operations are one:  _Â_ â‰¡ xor.
+-- Â§à©  àà™àà•àà°à®à â” the CARRY.  Packaging the character law as a predicate
 --     `char-law f op`, ChargeGrading's `parity-shift` IS `char-law
---     parity xor`, and `subst2` transports it along Â§à¥§ and Â§à¥¨ to give
---         char-law sgn _Â·_ ,  i.e.  sgn (m + n) â‰¡ sgn m Â· sgn n
---     â€” the multiplicativity ParitySeparator asserted in prose and never
---     proved, obtained with NO new induction.  The carry pays (Ahiá¹ƒsÄ
---     Â§à¥¬: an identification is a channel; theorems flow along it).
+--     parity xor`, and `subst2` transports it along Â§à§ and Â§à¨ to give
+--         char-law sgn _Â_ ,  i.e.  sgn (m + n) â‰¡ sgn m Â sgn n
+--     â” the multiplicativity ParitySeparator asserted in prose and never
+--     proved, obtained with NO new induction.  The carry pays (Ahis
+--     Â§à: an identification is a channel; theorems flow along it).
 --
 -- CHECKED: Agda 2.6.3+ / agda/cubical, --cubical --safe, no postulates,
 -- no holes, no sorry.  Written 2026-08-22.
@@ -65,7 +65,7 @@ import ParitySeparator as PS
 import ChargeGrading   as CG
 
 ------------------------------------------------------------------------
--- à¥¦ â”€â”€ notnot, the one library fact used pointwise.
+-- à¦ â”â” notnot, the one library fact used pointwise.
 ------------------------------------------------------------------------
 
 notnot : (b : Bool) â†’ not (not b) â‰¡ b
@@ -73,7 +73,7 @@ notnot true  = refl
 notnot false = refl
 
 ------------------------------------------------------------------------
--- à¥§ â”€â”€ à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤¶à¤¬à¥à¤¦à¥Œ â€” THE TWO NAMES ARE ONE FUNCTION.
+-- à§ â”â” àà°àà¯à¾à¯àààà¦à â” THE TWO NAMES ARE ONE FUNCTION.
 --
 -- `parity` steps by two, `sgn` by one; joining them needs the one-step
 -- law of `parity`, which ChargeGrading uses internally but never states.
@@ -95,7 +95,7 @@ sgnâ‰¡parity-pt (suc n) =
 à¤¨à¤¾à¤®à¥ˆà¤•à¥à¤¯à¤®à¥ = funExt sgnâ‰¡parity-pt
 
 ------------------------------------------------------------------------
--- à¥¨ â”€â”€ THE TWO GROUP OPERATIONS ARE ONE.
+-- à¨ â”â” THE TWO GROUP OPERATIONS ARE ONE.
 --
 -- Both case on the first argument with identical clauses, so equality is
 -- by two `refl`s under funext.
@@ -109,7 +109,7 @@ sgnâ‰¡parity-pt (suc n) =
 à¤•à¥à¤°à¤¿à¤¯à¥ˆà¤•à¥à¤¯à¤®à¥ = funExt (Î» a â†’ funExt (Î» b â†’ Â·â‰¡xor-pt a b))
 
 ------------------------------------------------------------------------
--- à¥© â”€â”€ à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤ƒ â€” THE CARRY.
+-- à© â”â” àà™àà•àà°à®à â” THE CARRY.
 --
 -- The character law as a predicate on a name and its group operation.
 ------------------------------------------------------------------------
@@ -121,11 +121,11 @@ char-law f op = (m n : â„•) â†’ f (m + n) â‰¡ op (f m) (f n)
 parity-is-char : char-law CG.parity CG.xor
 parity-is-char = CG.parity-shift
 
--- transport it along Â§à¥§ and Â§à¥¨ onto `sgn` and `_Â·_`.  No new induction.
+-- transport it along Â§à§ and Â§à¨ onto `sgn` and `_Â_`.  No new induction.
 sgn-is-char : char-law PS.sgn PS._Â·_
 sgn-is-char = subst2 char-law (sym à¤¨à¤¾à¤®à¥ˆà¤•à¥à¤¯à¤®à¥) (sym à¤•à¥à¤°à¤¿à¤¯à¥ˆà¤•à¥à¤¯à¤®à¥) parity-is-char
 
 -- the theorem ParitySeparator asserted in prose and never proved, now
--- standing about its own `sgn` and its own `_Â·_`:
+-- standing about its own `sgn` and its own `_Â_`:
 à¤¸à¤®à¥à¤ªà¥‚à¤°à¥à¤£-à¤—à¥à¤£à¤¨à¤®à¥ : (m n : â„•) â†’ PS.sgn (m + n) â‰¡ PS._Â·_ (PS.sgn m) (PS.sgn n)
 à¤¸à¤®à¥à¤ªà¥‚à¤°à¥à¤£-à¤—à¥à¤£à¤¨à¤®à¥ = sgn-is-char

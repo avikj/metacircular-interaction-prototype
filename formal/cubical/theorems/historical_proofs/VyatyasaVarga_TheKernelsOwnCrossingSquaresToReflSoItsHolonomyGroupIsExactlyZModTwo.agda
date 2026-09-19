@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤µà¥à¤¯à¤¤à¥à¤¯à¤¾à¤¸-à¤µà¤°à¥à¤— â€” the crossing's square.
+-- àµàà¯ààà¯à¾à-àµà°àà— â” the crossing's square.
 --
--- TERMS.  à¤µà¥à¤¯à¤¤à¥à¤¯à¤¾à¤¸ Â· vyatyÄsa â€” interchange, transposition; carried from
--- `Vyatyasa_â€¦`, which states its own limits.  à¤µà¤°à¥à¤— Â· varga â€” square.
--- à¤µà¤°à¥à¤— is a technical term throughout Indian mathematics; Brahmagupta's
--- *BrÄhmasphuá¹­asiddhÄnta* (628) uses à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ (varga-praká¹›ti,
--- "square-nature") for xÂ² âˆ’ DÂ·yÂ² = 1.  IT IS USED HERE ONLY IN ITS
--- ORDINARY ARITHMETICAL SENSE â€” the square of one element under its own
--- composition â€” and NOT for à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿.  No text is claimed for the
+-- TERMS.  àµàà¯ààà¯à¾à Â vyatysa â” interchange, transposition; carried from
+-- `Vyatyasa_â¦`, which states its own limits.  àµà°àà— Â varga â” square.
+-- àµà°àà— is a technical term throughout Indian mathematics; Brahmagupta's
+-- *Brhmasphuasiddhnta* (628) uses àµà°àà—ààà°à•ààà¿ (varga-prakti,
+-- "square-nature") for xÂ² âˆ’ DÂyÂ² = 1.  IT IS USED HERE ONLY IN ITS
+-- ORDINARY ARITHMETICAL SENSE â” the square of one element under its own
+-- composition â” and NOT for àµà°àà—ààà°à•ààà¿.  No text is claimed for the
 -- application below and no author is credited with anything proved here.
 --
 ------------------------------------------------------------------------
@@ -18,21 +18,21 @@
 -- Three files in this corpus stand around this question and none of them
 -- answers it.  All three check at the pin (Agda 2.8.0 / agda-cubical v0.9).
 --
---   `Ankapasa_â€¦` Â§4 gives the kernel a univalent semantics and
---     proves that its ONE commutation at `add var var` â€”
---     `comm-loop : Derivationâº (add var var) (add var var)`, a genuine
---     kernel derivation â€” is a NONTRIVIAL loop in the universe, invisible
---     to `eval` because `isSetâ„•`.  It never asks the loop's ORDER.
+--   `Ankapasa_â¦` Â§4 gives the kernel a univalent semantics and
+--     proves that its ONE commutation at `add var var` â”
+--     `comm-loop : Derivationâº (add var var) (add var var)`, a genuine
+--     kernel derivation â” is a NONTRIVIAL loop in the universe, invisible
+--     to `eval` because `isSetâ•`.  It never asks the loop's ORDER.
 --
---   `Vyatyasa_â€¦` Â§4 proves ÏƒÂ² = id and `ua`-triviality of the doubled
---     crossing â€” but for TWO CROSSINGS IT BUILDS BY HAND in the semantics,
---     on `Tri A = A âŠ (A âŠ A)`, and it says so: "the two crossings below
---     are built directly in the SEMANTICS â€¦ the syntax that would express
+--   `Vyatyasa_â¦` Â§4 proves ÏÂ² = id and `ua`-triviality of the doubled
+--     crossing â” but for TWO CROSSINGS IT BUILDS BY HAND in the semantics,
+--     on `Tri A = A âŠ (A âŠ A)`, and it says so: "the two crossings below
+--     are built directly in the SEMANTICS â¦ the syntax that would express
 --     them is a congruence rule and an associator the kernel DOES NOT
---     HAVE."  So its negative is about ITS OWN Ïƒâ‚, Ïƒâ‚‚, not about the
+--     HAVE."  So its negative is about ITS OWN Ïâ, Ïâ, not about the
 --     kernel's derivation.
 --
---   `Paryaya_â€¦` Â§3 proves EXACTLY the â„¤/2 statement â€” for `swap01` on â„•,
+--   `Paryaya_â¦` Â§3 proves EXACTLY the â/2 statement â” for `swap01` on â•,
 --     "the corpus's own checked loop at its hub node".  `swap01-Equiv` is
 --     an equivalence someone wrote down; it is not the image of a
 --     derivation.  The proof shape below (`equivEq âˆ˜ funExt`, then
@@ -44,20 +44,20 @@
 -- Â§3 compute it, and Â§4 states it:
 --
 --   THE KERNEL'S OWN CROSSING HAS ORDER EXACTLY TWO IN Î©(Type, âŸ¦add var
---   varâŸ§ Ïƒâ‚).  Not one â€” that is Ankapasa's negative, imported.  And
---   dividing two â€” that is Â§3.
+--   varâŸ§ Ïâ).  Not one â” that is Ankapasa's negative, imported.  And
+--   dividing two â” that is Â§3.
 --
--- CONSEQUENCE, and it is a denial.  In the braid group Bâ‚™ the generators
--- have INFINITE order; ÏƒÂ² = 1 is precisely the relation collapsing Bâ‚™ onto
--- Sâ‚™, and non-abelian anyonic statistics live in the monodromy ÏƒÂ².  Â§5
+-- CONSEQUENCE, and it is a denial.  In the braid group Bâ™ the generators
+-- have INFINITE order; ÏÂ² = 1 is precisely the relation collapsing Bâ™ onto
+-- Sâ™, and non-abelian anyonic statistics live in the monodromy ÏÂ².  Â§5
 -- discharges the hypothesis of infinite order against Â§3 directly: the
 -- kernel's crossing CANNOT be a braid generator.  Vyatyasa named the
--- obstruction â€” `âŠ` is symmetric monoidal and its symmetry is an
--- involution by construction, so any interpretation of `add` by `âŠ`
--- inherits ÏƒÂ² = 1 â€” and that diagnosis now attaches to the kernel's actual
+-- obstruction â” `âŠ` is symmetric monoidal and its symmetry is an
+-- involution by construction, so any interpretation of `add` by `âŠ`
+-- inherits ÏÂ² = 1 â” and that diagnosis now attaches to the kernel's actual
 -- derivation and not only to hand-built crossings.
 --
--- The open horn is unchanged and is Vyatyasa's: a braiding with ÏƒÂ² â‰  1
+-- The open horn is unchanged and is Vyatyasa's: a braiding with ÏÂ² â‰  1
 -- must come from a DIFFERENT INTERPRETATION OF `add`.  Nothing below
 -- narrows it.
 --
@@ -113,7 +113,7 @@ Ubhaya = âŸ¦ add var var âŸ§ Ïƒâ‚          -- = Unit âŠ Unit
 
 -- the same fact stated on the composite of the loop with ITSELF, which is
 -- what Â§3's `uaCompEquiv` needs and is a different term from the above
--- (`derivationâº-equiv` of a two-step derivation associates the other way).
+-- (`derivationâº-equiv` of a two-step derivation associates the other way).
 à¤¸à¤®à¥à¤šà¥à¤šà¤¯à¤ƒ : compEquiv à¤µà¥à¤¯à¤¤à¥à¤¯à¤¾à¤¸à¤ƒ à¤µà¥à¤¯à¤¤à¥à¤¯à¤¾à¤¸à¤ƒ â‰¡ idEquiv Ubhaya
 à¤¸à¤®à¥à¤šà¥à¤šà¤¯à¤ƒ = equivEq (funExt lemma)
   where
@@ -123,7 +123,7 @@ Ubhaya = âŸ¦ add var var âŸ§ Ïƒâ‚          -- = Unit âŠ Unit
 
 ------------------------------------------------------------------------
 -- Â§3  Therefore the doubled crossing is `refl` AS A PATH.  Proof shape
---     taken from `Paryaya_â€¦` Â§3 (à¤†à¤µà¤°à¥à¤¤à¤ƒ-à¤µà¤°à¥à¤—à¤ƒ); subject is the kernel's
+--     taken from `Paryaya_â¦` Â§3 (ààµà°ààà-àµà°àà—à); subject is the kernel's
 --     derivation rather than `swap01`.
 ------------------------------------------------------------------------
 

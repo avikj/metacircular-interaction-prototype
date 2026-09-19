@@ -3,13 +3,13 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.PraciSadhana_OneShadowUnderdeterminesAndTheOrbitQuotientCoincidesWithThePresentExactlyOnACongruence
 --
--- THE NAME.  à¤ªà¥à¤°à¤¾à¤šà¥€à¤¸à¤¾à¤§à¤¨ (prÄcÄ«-sÄdhana), "establishing the east line".
--- The *SÅ«rya SiddhÄnta*, chapter 3 â€” à¤¤à¥à¤°à¤¿à¤ªà¥à¤°à¤¶à¥à¤¨à¤¾à¤§à¤¿à¤•à¤¾à¤°, the chapter of the
--- three questions (à¤¦à¤¿à¤¶à¥ direction, à¤¦à¥‡à¤¶ place, à¤•à¤¾à¤² time) â€” obtains all
--- three from the à¤¶à¤™à¥à¤•à¥ (Å›aá¹…ku, gnomon) and its à¤›à¤¾à¤¯à¤¾ (chÄyÄ, shadow).  The
--- direction procedure: draw a circle about the foot of the Å›aá¹…ku, mark
+-- THE NAME.  ààà°à¾àààà¾à§à¨ (prc-sdhana), "establishing the east line".
+-- The *Srya Siddhnta*, chapter 3 â” ààà°à¿ààà°ààà¨à¾à§à¿à•à¾à°, the chapter of the
+-- three questions (à¦à¿àà direction, à¦àà place, à•à¾à² time) â” obtains all
+-- three from the àà™àà•à (aku, gnomon) and its àà¾à¯à¾ (chy, shadow).  The
+-- direction procedure: draw a circle about the foot of the aku, mark
 -- where the shadow-tip crosses it in the forenoon, mark where it crosses
--- again in the afternoon, join the two marks.  That line is eastâ€“west.
+-- again in the afternoon, join the two marks.  That line is eastâ“west.
 --
 -- ONE shadow does not give the direction.  TWO shadow-tips, taken at two
 -- points of the sun's daily course, do.  The instrument is unchanged
@@ -17,82 +17,82 @@
 -- motion.
 --
 -- Dates and texts, as facts:
---   * Ä€ryabhaá¹­a, *Ä€ryabhaá¹­Ä«ya*, 499 â€” Å›aá¹…ku and chÄyÄ computations; the
---     gnomon is 12 aá¹…gulas.
---   * *SÅ«rya SiddhÄnta*, ch. 3 (TriprashnÄdhikÄra) â€” the three questions
+--   * ryabhaa, *ryabhaya*, 499 â” aku and chy computations; the
+--     gnomon is 12 agulas.
+--   * *Srya Siddhnta*, ch. 3 (Triprashndhikra) â” the three questions
 --     from gnomon shadows.  The surviving recension's date is disputed;
---     a *SÅ«rya SiddhÄnta* is one of the five summarised by VarÄhamihira,
---     *PaÃ±casiddhÄntikÄ*, c. 550, which is earlier than that recension.
---   * al-BÄ«rÅ«nÄ«, 11th c., writes on the astrolabe.
---   * Sawai Jai Singh II builds the Jantar Mantar instruments, 1724â€“34,
---     in masonry: the SamrÄá¹­ Yantra's precision comes from its size.
+--     a *Srya Siddhnta* is one of the five summarised by Varhamihira,
+--     *Pacasiddhntik*, c. 550, which is earlier than that recension.
+--   * al-Brn, 11th c., writes on the astrolabe.
+--   * Sawai Jai Singh II builds the Jantar Mantar instruments, 1724â“34,
+--     in masonry: the Samr Yantra's precision comes from its size.
 --
 -- Repository greps run before writing (text name, not author name):
---   *SÅ«rya SiddhÄnta* 0, *PaÃ±casiddhÄntikÄ* 0, Å›aá¹…ku 0, chÄyÄ 0,
---   prÄcÄ« 0, "Jantar Mantar" 0 files repository-wide.
---   *Ä€ryabhaá¹­Ä«ya* 58 files, Ä€ryabhaá¹­a 98 â€” the one text of this lane
+--   *Srya Siddhnta* 0, *Pacasiddhntik* 0, aku 0, chy 0,
+--   prc 0, "Jantar Mantar" 0 files repository-wide.
+--   *ryabhaya* 58 files, ryabhaa 98 â” the one text of this lane
 --   already attended to, and not for its gnomon work.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE SCHOOLS, NAMED BEFORE THEIR TERMS ARE USED.
 --
--- NyÄya-VaiÅ›eá¹£ika.  Â§3's `two-shadows-determine` is an à¤…à¤­à¤¾à¤µ (abhÄva,
--- absence), and Navya-NyÄya forbids asserting one bare: it must carry its
--- à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ (pratiyogin, counterpositive) and its à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤• (avacchedaka,
+-- Nyya-Vaieika.  Â§3's `two-shadows-determine` is an ààà¾àµ (abhva,
+-- absence), and Navya-Nyya forbids asserting one bare: it must carry its
+-- ààà°àà¿à¯à‹à—à¿à¨à (pratiyogin, counterpositive) and its ààµààààà¦à• (avacchedaka,
 -- delimitor).  Named here: what is absent is orbit-agreement between the
 -- states (false , true) and (false , false); the delimitor is the pair
 -- (`turn` , `shadow`).  `NaturalMachine.Abhava` supplies the record that
 -- forces this; nothing of its tower is re-landed here, and the standing
--- correction there â€” that the tower is two-tall unconditionally and that
--- decidability is a fact about the pratiyogin, not the absence â€” is taken
+-- correction there â” that the tower is two-tall unconditionally and that
+-- decidability is a fact about the pratiyogin, not the absence â” is taken
 -- as read and not restated.
 --
 -- Jaina.  A Jaina logician answers that `Present` and `Orbit` are two
--- à¤¨à¤¯ (naya, standpoints), that neither is false, and that a naya
--- asserting itself by denying the other is a à¤¦à¥à¤°à¥à¤¨à¤¯ (durnaya).  Their
--- objection to the NaiyÄyika above is specific: the pratiyogin was named
--- FROM a standpoint â€” the reading `shadow` â€” so a different reading names
+-- à¨à¯ (naya, standpoints), that neither is false, and that a naya
+-- asserting itself by denying the other is a à¦àà°àà¨à¯ (durnaya).  Their
+-- objection to the Naiyyika above is specific: the pratiyogin was named
+-- FROM a standpoint â” the reading `shadow` â” so a different reading names
 -- a different counterpositive and the absence is a family, not one
--- entity.  The NaiyÄyika answers that once the avacchedaka is exhibited
+-- entity.  The Naiyyika answers that once the avacchedaka is exhibited
 -- the absence is determinate and needs no further relativisation, which
--- is exactly what the record in `AbhÄva` encodes.
+-- is exactly what the record in `Abhva` encodes.
 --
 -- THIS MODULE TAKES NEITHER SIDE, and can afford not to: every relation
 -- below is explicitly indexed by (step , read), and Â§2's result is a
 -- BICONDITIONAL, so no statement here requires the dispute settled.  Where
 -- a verdict would be needed, there is a criterion instead.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED.
 --
 --  Â§1  For a state space with a step and a present reading, two quotients:
 --      `Present` (this reading now) and `Orbit` (this reading at every
---      depth).  `orbit-refines-present`: Orbit â‡’ Present, unconditional,
+--      depth).  `orbit-refines-present`: Orbit â’ Present, unconditional,
 --      by evaluation at depth 0.
 --
---  Â§2  THE CRITERION, both directions.  Present â‡’ Orbit  âŸº  the present
+--  Â§2  THE CRITERION, both directions.  Present â’ Orbit  âŸº  the present
 --      fibre is a CONGRUENCE for the step.  The forward direction is
 --      induction on depth; the reverse is evaluation at depth 1.
---      `invariantâ†’congruence`: an invariant reading is a congruence.
+--      `invariantâ’congruence`: an invariant reading is a congruence.
 --
---  Â§3  THE WITNESS, prÄcÄ«-sÄdhana in two bits.  `Dial = Bool Ã— Bool`,
+--  Â§3  THE WITNESS, prc-sdhana in two bits.  `Dial = Bool — Bool`,
 --      `turn` swaps, `shadow` reads the first coordinate.  Two states
 --      share a shadow now (`one-shadow-underdetermines`) and are
 --      separated at depth 1 (`two-shadows-determine`); the present
 --      quotient is first-coordinate equality and the ORBIT QUOTIENT IS
---      EQUALITY (`orbit-quotient-is-discrete`) â€” two present blocks, four
+--      EQUALITY (`orbit-quotient-is-discrete`) â” two present blocks, four
 --      orbit blocks, both exhibited.
 --
 --  Â§4  The two ports of `NaturalMachine.PhysicalLearningCore` are the two
 --      sides of Â§2, checked as instances: the population port is
 --      invariant hence a congruence, so its one-state quotient is already
---      predictive AT EVERY DEPTH â€” which that module proves only one step
+--      predictive AT EVERY DEPTH â” which that module proves only one step
 --      at a time; the coherent port is NOT invariant and is a congruence
 --      anyway.
 --
 --  Â§5  `NaturalMachine.GaugeOrbitClasses` Â§7 proves size buys no
 --      separating power.  Here: neither does DEPTH.  A gauge element in
---      qs^âŠ¥ makes the transcript reading invariant, hence a congruence,
+--      qs^âŠ makes the transcript reading invariant, hence a congruence,
 --      hence iterating it splits no observable class at any depth
 --      (`neutral-gauge-adds-no-depth`), instantiated on the total flip
 --      and probe-6.
@@ -100,7 +100,7 @@
 --  Â§6  THE REFUTATION OF THIS AUTHOR'S OWN CLAIM, kept because it was
 --      wrong.  Stated and killed below.
 --
--- CHECKED: Agda 2.6.3 + cubical v0.5 â€” the container, NOT the repository
+-- CHECKED: Agda 2.6.3 + cubical v0.5 â” the container, NOT the repository
 -- pin (2.8.0 + v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -128,7 +128,7 @@ private
     â„“ â„“' : Level
 
 ------------------------------------------------------------------------
--- Â§1  A Å›aá¹…ku reading: a state space, a step, and one shadow.
+-- Â§1  A aku reading: a state space, a step, and one shadow.
 --
 -- `step` is the motion between readings; `read` is what the instrument
 -- returns.  `Present` is the fibre of one reading.  `Orbit` is the fibre
@@ -210,11 +210,11 @@ present-quotient-is-the-first-coordinate :
   (s s' : Dial) â†’ Dialâ„›.Present s s' â‰¡ (fst s â‰¡ fst s')
 present-quotient-is-the-first-coordinate s s' = refl
 
--- The forenoon marks coincide â€¦
+-- The forenoon marks coincide â¦
 one-shadow-underdetermines : Dialâ„›.Present (false , true) (false , false)
 one-shadow-underdetermines = refl
 
--- â€¦ and the afternoon marks do not.
+-- â¦ and the afternoon marks do not.
 two-shadows-determine : Â¬ (Dialâ„›.Orbit (false , true) (false , false))
 two-shadows-determine h = trueâ‰¢false (h 1)
 
@@ -235,7 +235,7 @@ orbit-quotient-is-discrete (a , b) (a' , b') h = Î£PathP (h 0 , h 1)
 -- That module proves `population-collapses-phase` action by action and
 -- `compile-step` one step at a time.  Neither is a statement about depth.
 -- Below, both ports are handed to Â§2 with the flip action as the motion,
--- and the depth statement follows for each â€” from invariance at the
+-- and the depth statement follows for each â” from invariance at the
 -- population port, and from congruence WITHOUT invariance at the coherent
 -- port, which is Â§6's point in situ.
 ------------------------------------------------------------------------
@@ -255,7 +255,7 @@ population-quotient-is-already-predictive =
 coherent-is-not-invariant : Â¬ Cohâ„›.Invariant
 coherent-is-not-invariant inv = trueâ‰¢false (inv false)
 
--- â€¦and it is a congruence all the same.
+-- â¦and it is a congruence all the same.
 coherent-is-a-congruence : Cohâ„›.Congruence
 coherent-is-a-congruence s s' p = cong not p
 
@@ -267,13 +267,13 @@ coherent-quotient-is-already-predictive =
 -- Â§5  Depth buys no separating power either.
 --
 -- `GaugeOrbitClasses` Â§7: appending arbitrarily large square queries
--- splits no observable class â€” size is not partial charge.  The same
+-- splits no observable class â” size is not partial charge.  The same
 -- statement one axis over: translating repeatedly by a gauge element of
--- qs^âŠ¥ splits no observable class, at any depth.  `obs-agreeâ‹†` makes the
+-- qs^âŠ splits no observable class, at any depth.  `obs-agreeâ‹` makes the
 -- transcript reading invariant under that step, and Â§2 does the rest.
 --
 -- This is not a new fact about the gauge group; it is Â§2 applied to it,
--- and the reason it is short is that `obs-agreeâ‹†` was already there.
+-- and the reason it is short is that `obs-agreeâ‹` was already there.
 ------------------------------------------------------------------------
 
 neutral-gauge-adds-no-depth :
@@ -300,7 +300,7 @@ total-flip-adds-no-depth-on-probe-6 =
 -- observation's two.  Reading those two together, I claimed:
 --
 --     a reading that is NOT invariant under the step is refined by the
---     orbit â€” i.e. Â¬ Invariant gives a pair related by `Present` and not
+--     orbit â” i.e. Â Invariant gives a pair related by `Present` and not
 --     by `Orbit`.
 --
 -- THE KILL.  False, and the cheapest possible counterexample is already
@@ -323,13 +323,13 @@ non-invariance-does-not-imply-orbit-refinement =
 -- Invariance is sufficient for the quotients to coincide and is not
 -- necessary.  What is necessary and sufficient is congruence (Â§2), which
 -- is strictly weaker: `coherent-is-a-congruence` holds where
--- `Cohâ„›.Invariant` is refuted.  The .py file's lemma is therefore sound
+-- `Cohâ.Invariant` is refuted.  The .py file's lemma is therefore sound
 -- and its hypothesis is not the boundary; the boundary is one step over,
 -- and the "false control" there is a case, not the criterion.
 --
 -- In the instrument: a reading can move with the sun and still lose
--- nothing to a second reading â€” that is a reading whose motion is
--- determined by the reading itself.  The prÄcÄ«-sÄdhana needs its second
+-- nothing to a second reading â” that is a reading whose motion is
+-- determined by the reading itself.  The prc-sdhana needs its second
 -- mark precisely because the shadow's direction is NOT determined by the
 -- shadow's length; Â§3 is that failure in two bits.
 ------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- स्मृति-बीज — the seed of memory.
+-- ������-��� � the seed of memory.
 --
 -- THE TWO-SCALE MEMORY KERNEL IS STRICTLY POSITIVE, ITS RATIO BOUND IS
 -- EXACT, AND THE TRUNCATED DOUBLE SUM THAT SUMS IT CLOSES AGAINST ANY
@@ -10,55 +10,55 @@
 -- The kernel that pairs two source radii is, after clearing the tenth
 -- and the fourth power of the larger radius,
 --
---     numerator(s,t)  =  min · ( 3·max³  -  2·min³ ) .
+--     numerator(s,t)  =  min � ( 3�max³  -  2�min³ ) .
 --
--- Its strict positivity — the whole reason a nonnegative shell profile
--- has strictly positive memory — is one inequality between two cubes,
--- and it holds over ℕ with no analysis whatsoever:
+-- Its strict positivity � the whole reason a nonnegative shell profile
+-- has strictly positive memory � is one inequality between two cubes,
+-- and it holds over � with no analysis whatsoever:
 --
---   §1  0 < t  and  s ≤ t   ⟹   2·s³ < 3·t³ .
+--   §1  0 < t  and  s � t   �   2�s³ < 3�t³ .
 --
 --       So the bracket never vanishes and never turns: at the extreme
 --       s ≡ t it is still t³ > 0, and it only grows as the radii
---       separate.  No integral, no limit, no ordered field — the
+--       separate.  No integral, no limit, no ordered field � the
 --       positivity claimed for the kernel is a statement about two
 --       natural numbers.
 --
 --   §2  AND THE RATIO BOUND IS EXACT, in the subtraction-free form:
---       writing the bracket as `d` with `2·s³ + d ≡ 3·t³`, the numerator
---       obeys  s·d ≤ s·(3·t³).  This is the bound the geometric shell
+--       writing the bracket as `d` with `2�s³ + d ≡ 3�t³`, the numerator
+--       obeys  s�d � s�(3�t³).  This is the bound the geometric shell
 --       tower is summed against, and it is an equality up to exactly the
---       `2·s³` that was moved to the other side — nothing is discarded.
+--       `2�s³` that was moved to the other side � nothing is discarded.
 --
---   §3  THE TRUNCATED DOUBLE SUM CLOSES.  `SesaDvaya` proves
+--   §3  THE TRUNCATED DOUBLE SUM CLOSES.  `ResidueDvaya` proves
 --
---         (1-x)² · Σ_{j≤N}(j+1)xʲ  ≡  1 - (N+2)x^{N+1} + (N+1)x^{N+2}
+--         (1-x)² � �_{j�N}(j+1)xʲ  ≡  1 - (N+2)x^{N+1} + (N+1)x^{N+2}
 --
 --       exactly, at every depth.  Whenever `(1-x)²` has an inverse `c`,
 --       that identity IS the closed form:
 --
---         Σ_{j≤N}(j+1)xʲ  ≡  c · ( 1 - (N+2)x^{N+1} + (N+1)x^{N+2} ) ,
+--         �_{j�N}(j+1)xʲ  ≡  c � ( 1 - (N+2)x^{N+1} + (N+1)x^{N+2} ) ,
 --
 --       with no numerals, no division, and no convergence.  The
 --       geometric ratio and the resulting constant are then a
 --       substitution the reader performs in whatever ring has them; the
 --       theorem does not need them and does not name them.
 --
--- WHAT THESE TWO HALVES ARE DOING TOGETHER.  §§1–2 say the memory
+-- WHAT THESE TWO HALVES ARE DOING TOGETHER.  §§1�2 say the memory
 -- kernel is positive and controlled by the radius ratio; §3 says the
 -- sum of a geometric tower against such a control has an exact closed
 -- form at every truncation depth.  The finiteness conclusion drawn from
 -- them is a bound on a limit and needs an ordered complete field; it is
 -- not asserted here.  What is asserted is that neither the positivity
--- nor the closed form is where that analysis is needed — both are
+-- nor the closed form is where that analysis is needed � both are
 -- algebra, and both are checked.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–2 in ℕ, for every pair of radii.  §3
+-- SYT � THE CLAIM, EXACTLY.  §§1�2 in �, for every pair of radii.  §3
 -- in any commutative ring, for every element, every inverse of its
 -- squared defect, and every depth.  NOT claimed: that the kernel IS the
--- pairing of two radial profiles — that identification is an integral
+-- pairing of two radial profiles � that identification is an integral
 -- and is taken as given; the polarised value of the kernel, likewise;
--- convergence or the value of any infinite sum — §3 is at finite N and
+-- convergence or the value of any infinite sum � §3 is at finite N and
 -- no limit is taken; that `(1-x)²` HAS an inverse, which is a hypothesis
 -- carried in the open; and nothing about the sign or magnitude of any
 -- strain, which needs the integrals this file does not have.
@@ -78,14 +78,14 @@ open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.NatSolver using (solveℕ!)
 
-import SesaDvaya_TheTruncatedInverseOfTheSquaredShiftDefectHasAResidualOfExactlyTwoTermsAtEveryDepth as SD
+import ResidueDvaya_TheTruncatedInverseOfTheSquaredShiftDefectHasAResidualOfExactlyTwoTermsAtEveryDepth as SD
 
 private
   variable
     ℓ : Level
 
 ------------------------------------------------------------------------
--- PART ONE · The kernel, in ℕ.
+-- PART ONE � The kernel, in �.
 ------------------------------------------------------------------------
 
 private
@@ -116,7 +116,7 @@ cube-positive : (t : ℕ) → 0 < t → 0 < cube t
 cube-positive t p = ·-positive t (t ·ℕ t) p (·-positive t t p p)
 
 ------------------------------------------------------------------------
--- १ · THE KERNEL BRACKET IS STRICTLY POSITIVE.
+-- � � THE KERNEL BRACKET IS STRICTLY POSITIVE.
 ------------------------------------------------------------------------
 
 kernel-bracket-positive : (s t : ℕ) → 0 < t → s ≤ t
@@ -126,7 +126,7 @@ kernel-bracket-positive s t pt h =
            (two<three (cube t) (cube-positive t pt))
 
 ------------------------------------------------------------------------
--- २ · AND THE RATIO BOUND IS EXACT, WITHOUT SUBTRACTION.
+-- � � AND THE RATIO BOUND IS EXACT, WITHOUT SUBTRACTION.
 ------------------------------------------------------------------------
 
 kernel-ratio-bound : (s t d : ℕ)
@@ -136,7 +136,7 @@ kernel-ratio-bound s t d e =
   mul-mono s s d (3 ·ℕ cube t) ≤-refl ((2 ·ℕ cube s) , e)
 
 ------------------------------------------------------------------------
--- PART TWO · The truncated double sum closes.
+-- PART TWO � The truncated double sum closes.
 ------------------------------------------------------------------------
 
 module _ (R : CommRing ℓ) where
@@ -147,7 +147,7 @@ module _ (R : CommRing ℓ) where
     A = ⟨ R ⟩
 
   ------------------------------------------------------------------
-  -- ३ · AGAINST ANY INVERSE OF THE SQUARED DEFECT.
+  -- � � AGAINST ANY INVERSE OF THE SQUARED DEFECT.
   ------------------------------------------------------------------
 
   closed-form : (c x : A) (N : ℕ)

@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- त्रिकोण — the triangle.
+-- ��������� � the triangle.
 --
 -- The all-orders family of exact NS solutions of handoff §14 ([S02]):
---     u = (0, a, ±v),   a = a(x₁,t),   v = v(x₁,x₂,t),   p = 0.
+--     u = (0, a, �v),   a = a(x�,t),   v = v(x�,x�,t),   p = 0.
 -- Over a commutative ring with three derivations and the ansatz
--- hypotheses  ∂₂a = ∂₃a = 0,  ∂₃v = 0,  the checked facts are
+-- hypotheses  ��a = ��a = 0,  ��v = 0,  the checked facts are
 --
---   १  the convective term collapses:  (u·∇)u = (0, 0, a ∂₂v);
---   २  it is divergence-free, so p = 0 is consistent:  div((u·∇)u) = 0;
---   ३  u is divergence-free:  div u = 0;
---   ४  the velocity gradient is strictly lower triangular, so
---      (∇u)³ = 0,  tr(∇u)² = 0,  tr(∇u)³ = 0:  the invariants
---      Q_inv = −½tr(∇u)² and R_inv = −⅓tr(∇u)³ vanish identically;
---   ५  the component equations:  a_t = νΔa  and  v_t + a∂₂v = νΔv  are
+--   �  the convective term collapses:  (u��)u = (0, 0, a ��v);
+--   �  it is divergence-free, so p = 0 is consistent:  div((u��)u) = 0;
+--   �  u is divergence-free:  div u = 0;
+--   �  the velocity gradient is strictly lower triangular, so
+--      (�u)³ = 0,  tr(�u)² = 0,  tr(�u)³ = 0:  the invariants
+--      Q_inv = −½tr(�u)² and R_inv = −�tr(�u)³ vanish identically;
+--   �  the component equations:  a_t = νΔa  and  v_t + a��v = νΔv  are
 --      exactly the second and third components of NS with p = 0.
 -- The linear coefficient system, its path counting and the I_m bound
 -- are the analytic continuation of this algebra.
@@ -41,7 +41,7 @@ module _ (R : CommRing ℓ) where
   V3 : Type ℓ
   V3 = A × A × A
 
-  -- a derivation kills 0:  ∂0 = ∂(0·0) = ∂0·0 + 0·∂0 = 0
+  -- a derivation kills 0:  �0 = �(0�0) = �0�0 + 0��0 = 0
   private
     leib-zero : (∂ : A → A) → ((x y : A) → ∂ (x · y) ≡ ∂ x · y + x · ∂ y) → ∂ 0r ≡ 0r
     leib-zero ∂ leib = cong ∂ (sym (zero· 0r)) ∙ leib 0r 0r ∙ shape (∂ 0r)
@@ -70,16 +70,16 @@ module _ (R : CommRing ℓ) where
     u : V3
     u = (0r , a , v)
 
-    -- (u·∇) applied to a scalar
+    -- (u��) applied to a scalar
     advect : A → A
     advect f = (0r · ∂₁ f + a · ∂₂ f) + v · ∂₃ f
 
-    -- (u·∇)u componentwise
+    -- (u��)u componentwise
     convective : V3
     convective = advect 0r , advect a , advect v
 
     ----------------------------------------------------------------
-    -- १ · the convective term collapses to (0, 0, a ∂₂v)
+    -- � � the convective term collapses to (0, 0, a ��v)
     ----------------------------------------------------------------
     private
       c₁ : advect 0r ≡ 0r
@@ -99,7 +99,7 @@ module _ (R : CommRing ℓ) where
     convective-collapses = λ t → (c₁ t , c₂ t , c₃ t)
 
     ----------------------------------------------------------------
-    -- २ · the convective term is divergence-free, so p = 0 is consistent
+    -- � � the convective term is divergence-free, so p = 0 is consistent
     ----------------------------------------------------------------
     div : V3 → A
     div (f₁ , f₂ , f₃) = (∂₁ f₁ + ∂₂ f₂) + ∂₃ f₃
@@ -113,7 +113,7 @@ module _ (R : CommRing ℓ) where
             shape q = solve! R
 
     ----------------------------------------------------------------
-    -- ३ · u itself is divergence-free
+    -- � � u itself is divergence-free
     ----------------------------------------------------------------
     u-is-divergence-free : div u ≡ 0r
     u-is-divergence-free = cong₂ _+_ (cong₂ _+_ ∂₁0 ∂₂a) ∂₃v ∙ shape
@@ -121,12 +121,12 @@ module _ (R : CommRing ℓ) where
             shape = solve! R
 
     ----------------------------------------------------------------
-    -- ५ · the component equations with p = 0
+    -- � � the component equations with p = 0
     ----------------------------------------------------------------
     Δ : A → A
     Δ f = (∂₁ (∂₁ f) + ∂₂ (∂₂ f)) + ∂₃ (∂₃ f)
 
-    -- NS residual, componentwise:  ∂ₜuᵢ + (u·∇)uᵢ − νΔuᵢ  (pressure 0)
+    -- NS residual, componentwise:  ��u� + (u��)u� − νΔu�  (pressure 0)
     NS₁ NS₂ NS₃ : A
     NS₁ = (D 0r + advect 0r) + (- (ν · Δ 0r))
     NS₂ = (D a + advect a) + (- (ν · Δ a))
@@ -150,10 +150,10 @@ module _ (R : CommRing ℓ) where
     third-component-is-advected-heat = cong (λ w → (D v + w) + (- (ν · Δ v))) c₃
 
   ----------------------------------------------------------------
-  -- ४ · a strictly lower-triangular 3×3 gradient is nilpotent and
+  -- � � a strictly lower-triangular 3�3 gradient is nilpotent and
   --     both velocity-gradient invariants vanish
   ----------------------------------------------------------------
-  -- ∇u = [[0,0,0],[p,0,0],[q,r,0]]  with  p = ∂₁a, q = ∂₁v, r = ∂₂v
+  -- �u = [[0,0,0],[p,0,0],[q,r,0]]  with  p = ��a, q = ��v, r = ��v
   module _ (p q r : A) where
     -- entries of M² and M³, computed
     M² : A × A × A × A × A × A × A × A × A
@@ -165,7 +165,7 @@ module _ (R : CommRing ℓ) where
     Q-invariant-vanishes : (0r · 0r + 0r · p + 0r · q) + (p · 0r + 0r · 0r + 0r · r) + (q · 0r + r · 0r + 0r · 0r) ≡ 0r
     Q-invariant-vanishes = solve! R
 
-    -- the only nonzero entry of M² is (3,1) = r·p
+    -- the only nonzero entry of M² is (3,1) = r�p
     square-is-one-corner : M² ≡ (0r , 0r , 0r , 0r , 0r , 0r , r · p , 0r , 0r)
     square-is-one-corner = λ t → (e₁ t , e₂ t , e₃ t , e₄ t , e₅ t , e₆ t , e₇ t , e₈ t , e₉ t)
       where
@@ -188,7 +188,7 @@ module _ (R : CommRing ℓ) where
         e₉ : q · 0r + r · 0r + 0r · 0r ≡ 0r
         e₉ = solve! R
 
-    -- M³ = M · M²:  every entry is a product with a zero row of M² except through (3,1),
+    -- M³ = M � M²:  every entry is a product with a zero row of M² except through (3,1),
     -- which M's third column (all zero) kills:  tr M³ = 0 and M³ = 0
     R-invariant-vanishes : (0r · 0r + 0r · 0r + 0r · (r · p)) + (p · 0r + 0r · 0r + 0r · 0r) + (q · 0r + r · 0r + 0r · 0r) ≡ 0r
     R-invariant-vanishes = solve! R

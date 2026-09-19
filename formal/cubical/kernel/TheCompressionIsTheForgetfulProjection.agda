@@ -6,8 +6,8 @@
 -- The bridge between WindingCostIsUnarySize, ForgetfulCompressionPricesTheDrop
 -- and the fibre law. `eval` at a fixed environment is the compression from a
 -- term (a derivation-carrying, structured object) down to its value. It is a
--- forgetful map, and its INPUT-side fibre — the terms that reach a given
--- value — is exhibited non-contractible: over `a + b` the compression
+-- forgetful map, and its INPUT-side fibre � the terms that reach a given
+-- value � is exhibited non-contractible: over `a + b` the compression
 -- identifies the structured sum `a + b` with the bare value `unary (a+b)`,
 -- two provably distinct terms. That collapsed structure is exactly what the
 -- forgetful projection drops. The winding (unary) value agrees with the
@@ -73,7 +73,7 @@ compression-forgets-structure : (a b : ℕ)
 compression-forgets-structure a b =
   sum-in-fibre a b , value-in-fibre a b , structured≢value a b
 
--- THE CARRIED SIDE IS FREE : bind the OUTPUT and the fibre Σ[n] (compress t ≡ n)
+-- THE CARRIED SIDE IS FREE : bind the OUTPUT and the fibre �[n] (compress t ≡ n)
 -- = singl (compress t) is contractible, so carrying the value costs nothing.
 -- With compression-forgets-structure (the costly input binding) this is the
 -- full fibre law on the kernel's own compression: free to carry the value,

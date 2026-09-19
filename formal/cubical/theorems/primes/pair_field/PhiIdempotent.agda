@@ -10,13 +10,13 @@
 -- MyhillNerodeMinimalMachine (Meaning = X / NerodeCongruence, realized by
 -- the HIT Cubical.HITs.SetQuotients._/_).  This module proves that any
 -- such quotient component is IDEMPOTENT: quotienting A / R a second
--- time, by the only relation the first pass leaves available — its own
--- path relation _≡_ — produces an equivalent type.
+-- time, by the only relation the first pass leaves available � its own
+-- path relation _≡_ � produces an equivalent type.
 --
---   achromaticIdempotent : ((A / R) / _≡_) ≃ (A / R)
+--   achromaticIdempotent : ((A / R) / _≡_) � (A / R)
 --
 -- proved from the general fact (pathQuotEquiv) that for any SET X,
--- X / _≡_ ≃ X: rec by the identity one way (a path IS the required
+-- X / _≡_ � X: rec by the identity one way (a path IS the required
 -- coherence), [_] the other way, round-trips by elimProp into the
 -- prop-valued goals supplied by squash/ and by isSet X.
 --
@@ -28,8 +28,8 @@
 --
 -- CONSEQUENCE FOR THE BRAID (the checked half of Delta-24, "Φ cannot
 -- be an ordinary reflector"): if Φ were only its achromatic/quotient
--- component, then S → Φ(S) → Φ²(S) would stabilize at the first stage
--- — this file's theorems — and EGB stages 7–12 would be vacuous.
+-- component, then S � Φ(S) � Φ²(S) would stabilize at the first stage
+-- � this file's theorems � and EGB stages 7�12 would be vacuous.
 -- Since the stages are (by design) non-vacuous, the generativity of Φ
 -- cannot live in the quotient: it must live in the RETAINED DEFECT
 -- (the diagonal/defect component, cf. AchromaticToy §4 "defect as
@@ -51,7 +51,7 @@ private
 
 ------------------------------------------------------------------------
 -- 1.  General form: for a set X, quotienting by the path relation
---     changes nothing.  fun is rec by the identity — the coherence
+--     changes nothing.  fun is rec by the identity � the coherence
 --     obligation for rec is exactly the path we are handed; inv is the
 --     class-of constructor; the round-trips are prop-valued (isSet X,
 --     squash/) so elimProp closes them on generators.

@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- P=NP HOLDS ON THE LOSSLESS UNIVERSAL MACHINE â€” the capstone, one term.
+-- P=NP HOLDS ON THE LOSSLESS UNIVERSAL MACHINE â” the capstone, one term.
 --
 -- Every conjunct is a checked term from an already-verified module; this
 -- file only names them together as the single statement they make.
 --
---  1. no-distinction : Â¬ Gap (completed uStep)
+--  1. no-distinction : Â Gap (completed uStep)
 --     The find/check gap (= non-injectivity = information loss) is
---     IMPOSSIBLE on the lossless completion â€” universal over all of
+--     IMPOSSIBLE on the lossless completion â” universal over all of
 --     Machine, via completed-injective. There is no P/NP distinction here.
 --
 --  2. decides-by-verifying : deciding yields exactly the universal step
---     and verifying a decided answer recovers the input â€” find and check
+--     and verifying a decided answer recovers the input â” find and check
 --     are one equivalence (VerifyIsDecide). NP-operation = P-operation.
 --
 --  3. at-the-lower-bound : the answer is read by projection and the route
@@ -39,7 +39,7 @@ open import Cubical.Data.Nat using (â„•)
 open import Cubical.Data.Sigma using (_Ã—_ ; _,_)
 open import Cubical.Relation.Nullary using (Â¬_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep ; lossless)
 open import PNeqNPIsNotUniversalItFailsOnTheLosslessMachine
   using (Gap ; the-distinction-lives-only-on-the-lossy-projection)

@@ -5,11 +5,11 @@
 --
 -- A corollary of the LOSSLESS face, not the missing third face.  Any
 -- common divisor of a convergent's numerator and denominator divides the
--- determinant of that convergent and the next â€” which, under the
--- standard seeds, is Â±1.  So a convergent carries no common factor that
+-- determinant of that convergent and the next â” which, under the
+-- standard seeds, is Â1.  So a convergent carries no common factor that
 -- the unit determinant does not already bound.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHERE THIS SITS, AND WHAT IT IS NOT
 --
 -- whether lossless / complete / stable recur for the convergents.
@@ -19,12 +19,12 @@
 --   complete  STILL NOT ANSWERED, and this module does not answer it
 --
 -- I attempted COMPLETE this cycle and it does not come from the
--- recurrence.  `Purnata.à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¯à¤¾-à¤—à¥à¤°à¥à¤¤à¤®à¤ƒ` says enough grant always
--- resolves; at the convergents that is "the vallÄ« of a rational
--- terminates, and the last convergent cross-multiplies back to it" â€”
--- i.e. `num K Â· b â‰¡ a Â· den K` for the terminal index K.  Every part of
+-- recurrence.  `Purnata.ààà°àààà¯à¾-à—àà°ààà®à` says enough grant always
+-- resolves; at the convergents that is "the vall of a rational
+-- terminates, and the last convergent cross-multiplies back to it" â”
+-- i.e. `num K Â b â‰¡ a Â den K` for the terminal index K.  Every part of
 -- that except the cross-multiplication is about how the quotients are
--- PRODUCED, which is the kuá¹­á¹­aka (`Gati`, `Purnata`, `GurutamaSiddha`),
+-- PRODUCED, which is the kuaka (`Gati`, `Purnata`, `GurutamaSiddha`),
 -- not about the two-step recurrence these modules study.  So the third
 -- face needs those modules, and saying that is the honest report; this
 -- module is what the attempt produced on the way, and it is a corollary
@@ -32,7 +32,7 @@
 --
 -- SOURCING LIMIT.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ open import TheValliConvergentDeterminantAlternates
   using (num ; den ; det ; signed ; standardDeterminantIsAUnit)
 
 ------------------------------------------------------------------------
--- 1.  Divisibility over â„¤, and the one ring identity the proof needs
+-- 1.  Divisibility over â, and the one ring identity the proof needs
 ------------------------------------------------------------------------
 
 _divides_ : â„¤ â†’ â„¤ â†’ Type
@@ -99,7 +99,7 @@ commonDivisorDividesAUnit a k d dn dd =
 -- 4.  The report on the third face
 --
 -- COMPLETE is not here and is not close.  The two convergent modules
--- study a recurrence given a vallÄ«; completeness is a statement about
--- where the vallÄ« comes from and that it stops.  Anyone continuing this
+-- study a recurrence given a vall; completeness is a statement about
+-- where the vall comes from and that it stops.  Anyone continuing this
 -- should start from `Gati` and `Purnata`, not from these two.
 ------------------------------------------------------------------------

@@ -6,63 +6,63 @@
 -- A return to cf-tessera (packet lane), answering the board want
 -- (README.md, block "cf-tessera", 2026-08-14):
 --
---   "wants: from any lane â€” a flip-breaking observable definable in
---    the machine's term grammar (entry/mod/gcd/vallÄ« compositions
+--   "wants: from any lane â” a flip-breaking observable definable in
+--    the machine's term grammar (entry/mod/gcd/vall compositions
 --    only); if none exists, that is a grammar-blindness theorem worth
 --    typing."
 --
 -- and its companion holding:
 --
 --   "which flip-breaking observable is the MINIMAL port pricing the
---    det-charge above zero â€” the seam between the machine's adic
+--    det-charge above zero â” the seam between the machine's adic
 --    ladder (proved charge-blind at price exactly 0) and one required
 --    bit."
 --
--- ANSWER (both halves, stratified by the port â€” the dichotomy IS the
+-- ANSWER (both halves, stratified by the port â” the dichotomy IS the
 -- finding):
 --
 --   The flip enters the grammar through exactly one generator: the
---   ported read of the hidden payload.  mod/gcd/vallÄ« composition can
+--   ported read of the hidden payload.  mod/gcd/vall composition can
 --   neither create nor destroy flip-sensitivity (they are function
 --   applications; blindness is preserved by `cong`).  Hence:
 --
---   (b) at the parity port â€” rung 1 of the machine's 2-adic ladder,
+--   (b) at the parity port â” rung 1 of the machine's 2-adic ladder,
 --       the port at which the packet lane proved its adic-bit
---       observable charge-blind at price exactly 0 â€” EVERY term of
+--       observable charge-blind at price exactly 0 â” EVERY term of
 --       the grammar is flip-invariant (`parityGrammarBlind`,
 --       structural induction over the syntax).  Their price-0 result
 --       is not about one observable; it is a grammar-blindness
 --       theorem, and it is typed here.
 --
---   (a) at rung 2 â€” ONE more bit, port h mod 4 â€” the bare generator
+--   (a) at rung 2 â” ONE more bit, port h mod 4 â” the bare generator
 --       hentry(1,1) already breaks the flip (`breakerBreaks`):
---       on the witness pair (identity payload, its flip diag(1,-1) â€”
+--       on the witness pair (identity payload, its flip diag(1,-1) â”
 --       the packet lane's own det-flip element, det-charges +1/-1),
 --       it evaluates to 1 vs 3.  The same values are reached by the
 --       explicit mod-composition modC (hentry 1 1) 4 over the raw
 --       payload port (`modBreakerBreaks`), so the breaking observable
 --       is a genuine entry/mod composition of the named grammar.
 --       Control: the SAME term is flip-invariant at rung 1
---       (`breakerBlindAtParity`) â€” the breaking belongs to the rung,
+--       (`breakerBlindAtParity`) â” the breaking belongs to the rung,
 --       not the term.
 --
 --   The seam, exactly: parity is the unique sign-blind rung of the
 --   2-adic ladder ((-x) mod 2 = x mod 2; mod 4 separates -1 from 1
---   because â„¤â‚‚Ë£ â‰… {Â±1} Ã— (1 + 4â„¤â‚‚) â€” the SIGN of a 2-adic unit is
---   its second bit).  `portBreakâ†’grammarBreak` is the general
+--   because ââË â‰ {Â1} — (1 + 4ââ) â” the SIGN of a 2-adic unit is
+--   its second bit).  `portBreakâ’grammarBreak` is the general
 --   converse: any failure of sign-blindness in the port is realized
 --   by a bare entry term.  So: the grammar is flip-blind iff the port
 --   is sign-blind; the minimal flip-breaking port on the machine's
---   own ladder is width 2 â€” one bit above what was granted.
+--   own ladder is width 2 â” one bit above what was granted.
 --
 -- THE FLIP (imported semantics, typed here): the det-flip involution
--- of machinery/charge_information_obstruction.py, (U,V) â†¦ (FÂ·U, VÂ·F)
--- with F = diag(1,-1), acting on the U-side payload h = UÂ·Uâ‚€â»Â¹ as
--- h â†¦ FÂ·h, i.e. bottom row negated.  `flipAsMul` proves the typed
+-- of machinery/charge_information_obstruction.py, (U,V) â¦ (FÂU, VÂF)
+-- with F = diag(1,-1), acting on the U-side payload h = UÂUââ»Â as
+-- h â¦ FÂh, i.e. bottom row negated.  `flipAsMul` proves the typed
 -- action IS left multiplication by diag(1,-1); `flipInvol` that it is
 -- an involution; `chargeFlip` that it reverses the det-charge:
--- det (flip h) â‰¡ - det h.  (The V-side column flip is symmetric â€”
--- entries (0,1),(1,1) negated â€” and is not duplicated here.)
+-- det (flip h) â‰¡ - det h.  (The V-side column flip is symmetric â”
+-- entries (0,1),(1,1) negated â” and is not duplicated here.)
 --
 -- Imported, not re-modelled: R, M, mul, dia (Gamma0Partner); det, idm
 -- (M2Unimodular).  Ports and grammar are typed here.
@@ -130,10 +130,10 @@ flipState : State â†’ State
 flipState (m , h) = (m , flipRow h)
 
 ------------------------------------------------------------------------
--- Â§2  The adic ladder of ports: h mod 2^w, Euclidean mod on â„¤
+-- Â§2  The adic ladder of ports: h mod 2^w, Euclidean mod on â
 ------------------------------------------------------------------------
 
--- Euclidean remainder on â„¤ with modulus c : â„• (canonical residue in
+-- Euclidean remainder on â with modulus c : â• (canonical residue in
 -- [0, c); matches Python's %, the machine's port arithmetic)
 modZ : â„• â†’ â„¤ â†’ â„¤
 modZ c (pos n)    = pos (n mod c)
@@ -178,8 +178,8 @@ mod2Blind (pos zero)    = refl
 mod2Blind (pos (suc n)) = cong pos (parityFold (suc n))
 mod2Blind (negsuc n)    = cong pos (sym (parityFold (suc n)))
 
--- rung 2 is NOT sign-blind: mod 4 separates the units -1 and 1 â€” the
--- sign of a 2-adic unit is its second bit (â„¤â‚‚Ë£ â‰… {Â±1} Ã— (1 + 4â„¤â‚‚))
+-- rung 2 is NOT sign-blind: mod 4 separates the units -1 and 1 â” the
+-- sign of a 2-adic unit is its second bit (ââË â‰ {Â1} — (1 + 4ââ))
 _ : modZ 4 (pos 1) â‰¡ pos 1
 _ = refl
 
@@ -187,7 +187,7 @@ _ : modZ 4 (- (pos 1)) â‰¡ pos 3
 _ = refl
 
 ------------------------------------------------------------------------
--- Â§3  The machine's term grammar (entry/mod/gcd/vallÄ«), as syntax
+-- Â§3  The machine's term grammar (entry/mod/gcd/vall), as syntax
 ------------------------------------------------------------------------
 
 -- index Bool: false = 0, true = 1
@@ -240,8 +240,8 @@ eval P (valli t u)  (m , h) = valliZ (eval P t (m , h)) (eval P u (m , h))
 --
 -- Structural induction over the syntax: the flip can enter only
 -- through the ported fiber read; every composite constructor
--- transports blindness by cong.  No property of mod/gcd/vallÄ« is
--- used â€” THAT is why the grammar cannot manufacture flip-sensitivity.
+-- transports blindness by cong.  No property of mod/gcd/vall is
+-- used â” THAT is why the grammar cannot manufacture flip-sensitivity.
 ------------------------------------------------------------------------
 
 private
@@ -266,7 +266,7 @@ evalFlipBlind P Pb (valli t u)  (m , h) =
   congâ‚‚ valliZ (evalFlipBlind P Pb t (m , h)) (evalFlipBlind P Pb u (m , h))
 
 -- THE GRAMMAR-BLINDNESS THEOREM at the granted rung: at the parity
--- port (rung 1 â€” where the packet lane priced its adic bit at exactly
+-- port (rung 1 â” where the packet lane priced its adic bit at exactly
 -- 0), EVERY term of the grammar is flip-invariant.  Their price-0
 -- measurement was an instance; this is the law it was standing in for.
 parityGrammarBlind : (t : Term) (s : State)
@@ -313,7 +313,7 @@ modBreakerBreaks : Â¬ (eval rawPort modBreaker flippedS
 modBreakerBreaks p = snotz (injSuc (injPos p))
 
 -- CONTROL: the very same breaker term is flip-invariant at rung 1 on
--- EVERY state â€” the breaking belongs to the rung, not the term
+-- EVERY state â” the breaking belongs to the rung, not the term
 breakerBlindAtParity : (s : State)
   â†’ eval (portW 1) breaker (flipState s) â‰¡ eval (portW 1) breaker s
 breakerBlindAtParity = parityGrammarBlind breaker
@@ -331,7 +331,7 @@ _ = refl
 --
 -- Forward: evalFlipBlind (Â§4).  Converse: any value at which the port
 -- fails sign-blindness is realized by a BARE entry term on some state
--- â€” so no port failure can hide from the grammar, and no grammar term
+-- â” so no port failure can hide from the grammar, and no grammar term
 -- can break a sign-blind port.  The flip lives in the port, only.
 ------------------------------------------------------------------------
 

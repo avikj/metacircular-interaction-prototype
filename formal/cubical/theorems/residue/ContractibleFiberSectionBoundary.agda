@@ -5,11 +5,11 @@
 --
 -- A section of the dependent path-fibre bundle
 --
---     a ↦ Σ[ x ∈ A ] (a ≡ x)
+--     a � �[ x ∈ A ] (a ≡ x)
 --
--- is not a retraction of the set-truncation unit A → ∥ A ∥₂.  The former
+-- is not a retraction of the set-truncation unit A � � A ��.  The former
 -- section space is contractible for every A; the latter exists exactly when
--- A is a set.  S¹ separates the two types.
+-- A is a set.  S� separates the two types.
 ------------------------------------------------------------------------
 
 module ContractibleFiberSectionBoundary where
@@ -55,7 +55,7 @@ insideSectionsS¹Contr : isContr (InsideSections S¹)
 insideSectionsS¹Contr = insideSectionsContr
 
 -- Put the two facts side by side.  The right component is the existing
--- checked no-go for a retraction of S¹ → ∥ S¹ ∥₂.
+-- checked no-go for a retraction of S� � � S� ��.
 inside-section-versus-truncation-retraction-S¹ :
   InsideSections S¹ × (¬ Descent.Retracts₀ S¹)
 inside-section-versus-truncation-retraction-S¹ =

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- घूर्ण-पाठ — the twist reading.
+-- ������-��� � the twist reading.
 --
 -- The converse ingredient of the kernel theorem.  The normal form
 -- reduced every braid word to (permutation, twist word); deciding
@@ -13,7 +13,7 @@
 --
 --       read_j (twists(w) s) = turn^{count_j(w)} (read_j s)
 --
---   for every word, depth, and rope — by one list induction whose
+--   for every word, depth, and rope � by one list induction whose
 --   split aligns with the count's own decision, using two locality
 --   lemmas (a twist at one's own depth turns the reading once, by
 --   induction; a twist elsewhere leaves it, by double induction with
@@ -23,7 +23,7 @@
 -- coordinate of the braid is not merely presented but computed at
 -- every observation point.  With turn of order exactly four, the
 -- twist word is trivial on readings iff every count vanishes mod
--- four — the kernel theorem's abelian half, reduced to arithmetic.
+-- four � the kernel theorem's abelian half, reduced to arithmetic.
 --
 ------------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ open import AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPo
 open Dhārā
 
 ------------------------------------------------------------------------
--- १ · The iterated turn, and the two locality lemmas.
+-- � � The iterated turn, and the two locality lemmas.
 ------------------------------------------------------------------------
 
 cakrāvartana : ℕ → Sūtra → Sūtra
@@ -82,7 +82,7 @@ anya-pāṭha (suc j) (suc k) bheda s =
   anya-pāṭha j k (λ p → bheda (cong suc p)) (śeṣam s)
 
 ------------------------------------------------------------------------
--- २ · The count, and the reading theorem.
+-- � � The count, and the reading theorem.
 ------------------------------------------------------------------------
 
 gaṇanā : ℕ → List ℕ → ℕ

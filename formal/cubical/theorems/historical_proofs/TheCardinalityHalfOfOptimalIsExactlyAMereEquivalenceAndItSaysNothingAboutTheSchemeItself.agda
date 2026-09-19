@@ -6,15 +6,15 @@
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
 -- The object audited here is `OptimalObservation`'s
 -- DEFINITION of `Optimal`, which is that module's own construction.
--- Its three INSTANCES are Piá¹…gala's *Chandaá¸¥Å›Ästra* uddiá¹£á¹­a (c. 300
--- BCE), VirahÄá¹…ka's mÄtrÄmeru (c. 600â€“800), and a CRT residue decode;
+-- Its three INSTANCES are Pigala's *Chandastra* uddia (c. 300
+-- BCE), Virahka's mtrmeru (c. 600â“800), and a CRT residue decode;
 -- those sources are named here in that order, before any later name,
--- and **nothing below is a claim about them** â€” the instances are
+-- and **nothing below is a claim about them** â” the instances are
 -- untouched.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/`
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- 0.  HOW THIS WAS FOUND â€” the standing proxy heuristic
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- 0.  HOW THIS WAS FOUND â” the standing proxy heuristic
 --
 -- Three cycles in a row turned up a hypothesis stated as a NUMBER whose
 -- real content was structural: coverage needs the fuel to EXHAUST, not
@@ -23,32 +23,32 @@
 -- TOTAL, not by being large (35d8ab9a).  So this cycle grepped the
 -- corpus for hypotheses phrased as a size or a count.  `Optimal` is one:
 --
---     Optimal X Y obs  =  Lossless X Y obs  Ã—  (card Y â‰¡ card X)
+--     Optimal X Y obs  =  Lossless X Y obs  —  (card Y â‰¡ card X)
 --
 -- **and here the answer is the opposite of the previous three, which is
 -- why it is worth a module.**  The count is NOT a lossy proxy.  v0.5's
 -- `Cubical.Data.FinSet.Cardinality` carries
 --
---     cardâ‰¡MereEquiv : (card X â‰¡ card Y) â‰¡ âˆ¥ X .fst â‰ƒ Y .fst âˆ¥â‚
+--     cardâ‰¡MereEquiv : (card X â‰¡ card Y) â‰¡ âˆ X .fst â‰ Y .fst âˆâ
 --
 -- so on `FinSet` the numeral equation IS the structural statement,
--- exactly â€” merely, i.e. propositionally truncated.  Â§2 states that in
+-- exactly â” merely, i.e. propositionally truncated.  Â§2 states that in
 -- the form the audited definition needs.
 --
 -- **WHAT THAT MAKES VISIBLE, AND IT IS THE FINDING.**  Unfolded,
 -- `Optimal X Y obs` is
 --
---     `obs` is injective   AND   SOME equivalence `X â‰ƒ Y` exists,
+--     `obs` is injective   AND   SOME equivalence `X â‰ Y` exists,
 --
 -- and the second conjunct is **not about `obs`**.  A reader of "loses
 -- nothing and wastes nothing" will take the definition to say that
 -- `obs` is a bijection.  It does not say that.  Whether the two
--- conjuncts together force it is a pigeonhole theorem â€” an injection
--- between finite sets of equal cardinality is surjective â€” which is
+-- conjuncts together force it is a pigeonhole theorem â” an injection
+-- between finite sets of equal cardinality is surjective â” which is
 -- **not proved in the audited module and is not proved here**; Â§4 says
 -- so and leaves it open rather than asserting either way.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- 1.  AND SECTION 3'S HEADING NAMES A THEOREM SECTION 3 DOES NOT HAVE
 --
 -- `OptimalObservation` Â§3 is headed *"An isomorphism gives an optimal
@@ -61,17 +61,17 @@
 --
 -- WHAT IS PROVED
 --
---   optimalGivesAMereEquivalence   `Optimal X Y obs â†’ âˆ¥ X .fst â‰ƒ Y .fst âˆ¥â‚`
+--   optimalGivesAMereEquivalence   `Optimal X Y obs â’ âˆ X .fst â‰ Y .fst âˆâ`
 --   mereEquivalenceGivesTheCount   the converse half, so the `card`
 --                                  conjunct and the mere equivalence are
---                                  interderivable â€” not merely related
+--                                  interderivable â” not merely related
 --   isoGivesOptimal                Â§3's heading, discharged: an `Iso`
 --                                  between the carriers gives BOTH
 --                                  conjuncts, so the three instances'
 --                                  `refl` was an accident of how their
 --                                  `FinSet`s were written, not the reason
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -103,7 +103,7 @@ mereEquivalenceGivesTheCount :
   â†’ âˆ¥ X .fst â‰ƒ Y .fst âˆ¥â‚ â†’ card Y â‰¡ card X
 mereEquivalenceGivesTheCount X Y e = sym (cardEquiv X Y e)
 
--- so a lossless scheme plus ANY equivalence of the carriers is optimal â€”
+-- so a lossless scheme plus ANY equivalence of the carriers is optimal â”
 -- and the equivalence supplied need not be the scheme
 losslessPlusAnyEquivalenceIsOptimal :
     (X Y : FinSet â„“-zero) (obs : X .fst â†’ Y .fst)
@@ -112,7 +112,7 @@ losslessPlusAnyEquivalenceIsOptimal X Y obs inj e =
   inj , mereEquivalenceGivesTheCount X Y e
 
 ------------------------------------------------------------------------
--- 3.  "An isomorphism gives an optimal scheme" â€” the audited Â§3's
+-- 3.  "An isomorphism gives an optimal scheme" â” the audited Â§3's
 --     heading, now with the theorem under it
 ------------------------------------------------------------------------
 
@@ -134,8 +134,8 @@ isoGivesOptimalBackwards X Y i =
 ------------------------------------------------------------------------
 -- 4.  What is left open, stated as a type and not as a hope
 --
--- The pigeonhole direction â€” that the two conjuncts of `Optimal` force
--- `obs` ITSELF to be an equivalence â€” is exactly the statement below.
+-- The pigeonhole direction â” that the two conjuncts of `Optimal` force
+-- `obs` ITSELF to be an equivalence â” is exactly the statement below.
 -- It is NOT proved here and NOT refuted; on `FinSet` it should hold, and
 -- the point of writing the type is that nothing in the audited module
 -- or in this one supplies it, so no theorem may quietly assume it.

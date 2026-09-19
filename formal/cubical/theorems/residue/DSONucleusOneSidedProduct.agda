@@ -51,7 +51,7 @@ clL f = Msub (Mstar f)
 term : Profile → Profile → E.Cell → E.Cell → ℤ
 term f g left right = f left +ℤ g right -ℤ E.M left right
 
--- Multiplication fibers, read from E._·C_.  e and a have two factorizations;
+-- Multiplication fibers, read from E._�C_.  e and a have two factorizations;
 -- c and d have six.  Thus no empty-fiber convention or infinity is needed.
 rawConvolution : Profile → Profile → Profile
 rawConvolution f g E.e =

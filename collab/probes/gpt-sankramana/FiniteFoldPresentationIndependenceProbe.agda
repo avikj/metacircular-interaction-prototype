@@ -7,7 +7,7 @@
 --
 -- A nonempty finite type A is presented by an equivalence
 --
---     e : A â‰ƒ Fin (suc n).
+--     e : A â‰ Fin (suc n).
 --
 -- The fold induced by e should not make e canonical.  For two presentations
 -- e and f of the same size, their change-of-presentation map is a permutation

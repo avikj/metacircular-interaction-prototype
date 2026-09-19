@@ -4,41 +4,41 @@
 -- TransportMul
 --
 -- MULTIPLICATION SURVIVES THE TRANSPORT.  `Transport`
--- proves that ℕ's addition, transported along `ua ℕ≃CanWord`, IS
+-- proves that �'s addition, transported along `ua ��CanWord`, IS
 -- schoolbook ripple-carry addition on digit words.  That is the
 -- repository's central exhibit for "place value is a chart".  It stops
 -- at `+`, and until now nothing said whether the phenomenon was special
 -- to addition.
 --
--- It is not.  The same statement holds for `·`:
+-- It is not.  The same statement holds for `�`:
 --
---     transport (λ i → ℕ≡CanWord i → ℕ≡CanWord i → ℕ≡CanWord i) _·_ ≡ _⊗_
+--     transport (λ i � �≡CanWord i � �≡CanWord i � �≡CanWord i) _�_ ≡ _⊗_
 --
 -- where `_⊗_` is defined natively on canonical digit words by
--- shift-and-add and never mentions ℕ.  So the chart carries the whole
+-- shift-and-add and never mentions �.  So the chart carries the whole
 -- semiring, not just the monoid.
 --
 -- WHY THIS WAS WORTH DOING, beyond symmetry.  The walk
 -- (`WalkBridge`) executes in the kernel and stops at
 -- frontier m ≈ 8, and the reason is derived rather than measured: a walk
--- step costs Θ(cap m · (next m − m)) because a UNARY divisibility test
+-- step costs Θ(cap m � (next m − m)) because a UNARY divisibility test
 -- on cap m costs Θ(cap m), and cap m = e^{ψ(m)}.  The walk's storage law
 -- is its naive runtime law.  So the question "how far can the natural
 -- machine run" is a question about the chart, and answering it needs the
--- arithmetic the walk actually uses — `·`, then division — carried
+-- arithmetic the walk actually uses � `�`, then division � carried
 -- across.  This module is the first of those, and it establishes that
 -- the route is `valueC-inj` plus a value law, exactly as for `⊕`: no new
 -- idea is needed per operation.
 --
--- DESIGN NOTE (why digit×digit multiplication does not appear).  A
+-- DESIGN NOTE (why digit�digit multiplication does not appear).  A
 -- schoolbook multiplier normally needs a digit-product-with-carry
 -- primitive, which is where the work usually goes.  It is avoidable:
 -- the base b is fixed, so scaling a word by a single digit d < b is d
 -- repeated additions (`repAdd`), which reuses the already-certified
 -- `addw` and costs a constant factor.  The whole multiplier is then
 -- three lines and its value law is one application of the semiring
--- solver.  Canonicity of the MULTIPLIER is never needed — only of the
--- multiplicand — which is visible in `canonical-mulw`'s signature.
+-- solver.  Canonicity of the MULTIPLIER is never needed � only of the
+-- multiplicand � which is visible in `canonical-mulw`'s signature.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
 -- No postulates, no holes.
@@ -148,8 +148,8 @@ valueC-oneC : valueC oneC ≡ 1
 valueC-oneC = cong (1 +_) (sym (0≡m·0 b))
 
 ------------------------------------------------------------------------
--- 5.  The semiring laws, inherited from ℕ by transport of proof.
---     Every one is `valueC-inj` applied to the corresponding ℕ law:
+-- 5.  The semiring laws, inherited from � by transport of proof.
+--     Every one is `valueC-inj` applied to the corresponding � law:
 --     the digit algorithms need no separate verification.
 ------------------------------------------------------------------------
 

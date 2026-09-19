@@ -1,5 +1,5 @@
 # Lossless recovery of a REAL WTC fugue voice (Fugue 2 in C minor, 267 notes) ON THE SUBSTRATE.
-# voice â‰ƒ (start, interval-shape); shape is transposition-invariant, start is the fibre; recon = prefix-sum.
+# voice â‰ (start, interval-shape); shape is transposition-invariant, start is the fibre; recon = prefix-sum.
 def fromShapeGo(cur: I64, s: I64[]) -> I64[]:
   ~ s { []: [] ; <>: lambda d. lambda ds. (cur + d) <> fromShapeGo(cur + d, ds) ; }
 def recon(start: I64, s: I64[]) -> I64[]:

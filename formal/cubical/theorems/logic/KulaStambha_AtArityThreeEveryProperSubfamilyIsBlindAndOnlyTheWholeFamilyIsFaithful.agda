@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- कुल-स्तम्भ — the tower, at arity three.
+-- ����-������ � the tower, at arity three.
 --
 -- The family record's full-strength shape, inhabited at the smallest
 -- arity where "pair" and "whole" come apart:
@@ -12,13 +12,13 @@
 --
 --   §2  EVERY PROPER SUBFAMILY IS BLIND: for each member, the OTHER
 --       TWO jointly confuse a named pair (the two states differing
---       only in that member's coordinate) — so not just single
+--       only in that member's coordinate) � so not just single
 --       members but every pair of members fails faithfulness.  Only
 --       the whole family reconstructs.
 --
 -- This is the CRT shape at full strength in miniature: the property
 -- (faithfulness) lives at the top of the subset lattice and provably
--- nowhere below it — interdependence that no proper part carries,
+-- nowhere below it � interdependence that no proper part carries,
 -- which is the n-ary form of "neither has the property but together
 -- they do."  Each blindness is a distinct named pair; each is seen
 -- by exactly the member the subfamily dropped; and the tower of
@@ -37,7 +37,7 @@ open import KulaParasparasraya_TheFamilyRecordEveryBlindnessIsJointlySeenAndNoMe
   using (Kula)
 
 ------------------------------------------------------------------------
--- १ · The three-sense family.
+-- � � The three-sense family.
 ------------------------------------------------------------------------
 
 data Tri : Type₀ where
@@ -66,25 +66,25 @@ Kula.yugma tri-kula x y h i =
   h i₀ i , (h i₁ i , h i₂ i)
 
 ------------------------------------------------------------------------
--- २ · Every proper subfamily is blind, at a named pair.
+-- � � Every proper subfamily is blind, at a named pair.
 ------------------------------------------------------------------------
 
--- Dropping i₀: the remaining pair confuses the first coordinate.
+-- Dropping i�: the remaining pair confuses the first coordinate.
 andha-vinā₀ : (dṛṣṭi i₁ (true , (true , true)) ≡ dṛṣṭi i₁ (false , (true , true)))
             × (dṛṣṭi i₂ (true , (true , true)) ≡ dṛṣṭi i₂ (false , (true , true)))
 andha-vinā₀ = refl , refl
 
--- Dropping i₁: the remaining pair confuses the second.
+-- Dropping i�: the remaining pair confuses the second.
 andha-vinā₁ : (dṛṣṭi i₀ (true , (true , true)) ≡ dṛṣṭi i₀ (true , (false , true)))
             × (dṛṣṭi i₂ (true , (true , true)) ≡ dṛṣṭi i₂ (true , (false , true)))
 andha-vinā₁ = refl , refl
 
--- Dropping i₂: the remaining pair confuses the third.
+-- Dropping i�: the remaining pair confuses the third.
 andha-vinā₂ : (dṛṣṭi i₀ (true , (true , true)) ≡ dṛṣṭi i₀ (true , (true , false)))
             × (dṛṣṭi i₁ (true , (true , true)) ≡ dṛṣṭi i₁ (true , (true , false)))
 andha-vinā₂ = refl , refl
 
--- And each dropped pair's states are genuinely distinct — so no pair
+-- And each dropped pair's states are genuinely distinct � so no pair
 -- of members reconstructs: faithfulness lives only at the top.
 na-yugala₀ : ((x y : Tala) → dṛṣṭi i₁ x ≡ dṛṣṭi i₁ y → dṛṣṭi i₂ x ≡ dṛṣṭi i₂ y → x ≡ y) → ⊥
 na-yugala₀ h =

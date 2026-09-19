@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 module Candidate where
 open import Cubical.Foundations.Prelude
-open import Cubical.Foundations.Equiv using (_‚âÉ_)
-open import Cubical.Data.Sigma using (_√ó_ ; _,_ ; fst ; snd)
-open import Cubical.Data.Sum using (_‚äé_ ; inl ; inr)
+open import Cubical.Foundations.Equiv using (_‚â_)
+open import Cubical.Data.Sigma using (_ó_ ; _,_ ; fst ; snd)
+open import Cubical.Data.Sum using (_‚ä_ ; inl ; inr)
 import Sima_TheOpenFrontierIsOnePropositionUpToTheReceivedConditionalTheoremsSoEveryRouteReadsTheSameUnknownResolvingAnyResolvesAllAndEveryReadingTransportsAlongUnivalence as Frontier
 -- the frontier applied to itself: with the received conditional theorems as hypotheses,
 -- one bounded dyadic residual order yields the every-Œµ Goldbach rate, by transport through RH
-corollary : ‚àÄ {‚Ñì} (RH Bounded OneSided Lower Lift Dyadic Goldbach : Type ‚Ñì)
-  (p‚ÇÄ : isProp RH) (p‚ÇÅ : isProp Bounded) (p‚ÇÇ : isProp OneSided) (p‚ÇÉ : isProp Lower) (p‚ÇÑ : isProp Lift) (p‚ÇÖ : isProp Dyadic) (p‚ÇÜ : isProp Goldbach)
-  (h‚ÇÅ : Bounded ‚Üí RH) (h‚ÇÇ : RH ‚Üí Bounded) (h‚ÇÉ : OneSided ‚Üí RH) (h‚ÇÑ : Bounded ‚Üí OneSided) (h‚ÇÖ : Lower ‚Üí RH) (h‚ÇÜ : RH ‚Üí Lower)
-  (h‚Çá : Lift ‚Üí RH) (h‚Çà : RH ‚Üí Lift) (h‚ÇÅ‚ÇÄ : Bounded ‚Üí Dyadic) (h‚ÇÅ‚ÇÅ : Goldbach ‚Üí RH) (h‚ÇÅ‚ÇÇ : RH ‚Üí Goldbach)
-  ‚Üí Dyadic ‚Üí Goldbach
-corollary RH Bounded OneSided Lower Lift Dyadic Goldbach p‚ÇÄ p‚ÇÅ p‚ÇÇ p‚ÇÉ p‚ÇÑ p‚ÇÖ p‚ÇÜ h‚ÇÅ h‚ÇÇ h‚ÇÉ h‚ÇÑ h‚ÇÖ h‚ÇÜ h‚Çá h‚Çà h‚ÇÅ‚ÇÄ h‚ÇÅ‚ÇÅ h‚ÇÅ‚ÇÇ d =
-  snd (snd (snd (Frontier.RH-Frontier.resolving-any-resolves-all RH Bounded OneSided Lower Lift Dyadic Goldbach p‚ÇÄ p‚ÇÅ p‚ÇÇ p‚ÇÉ p‚ÇÑ p‚ÇÖ p‚ÇÜ h‚ÇÅ h‚ÇÇ h‚ÇÉ h‚ÇÑ h‚ÇÖ h‚ÇÜ h‚Çá h‚Çà h‚ÇÅ‚ÇÄ h‚ÇÅ‚ÇÅ h‚ÇÅ‚ÇÇ (inr (inr (inl d))))))
+corollary : ‚à {‚ì} (RH Bounded OneSided Lower Lift Dyadic Goldbach : Type ‚ì)
+  (p‚ : isProp RH) (p‚ : isProp Bounded) (p‚ : isProp OneSided) (p‚ : isProp Lower) (p‚ : isProp Lift) (p‚ : isProp Dyadic) (p‚ : isProp Goldbach)
+  (h‚ : Bounded ‚í RH) (h‚ : RH ‚í Bounded) (h‚ : OneSided ‚í RH) (h‚ : Bounded ‚í OneSided) (h‚ : Lower ‚í RH) (h‚ : RH ‚í Lower)
+  (h‚ : Lift ‚í RH) (h‚à : RH ‚í Lift) (h‚‚ : Bounded ‚í Dyadic) (h‚‚ : Goldbach ‚í RH) (h‚‚ : RH ‚í Goldbach)
+  ‚í Dyadic ‚í Goldbach
+corollary RH Bounded OneSided Lower Lift Dyadic Goldbach p‚ p‚ p‚ p‚ p‚ p‚ p‚ h‚ h‚ h‚ h‚ h‚ h‚ h‚ h‚à h‚‚ h‚‚ h‚‚ d =
+  snd (snd (snd (Frontier.RH-Frontier.resolving-any-resolves-all RH Bounded OneSided Lower Lift Dyadic Goldbach p‚ p‚ p‚ p‚ p‚ p‚ p‚ h‚ h‚ h‚ h‚ h‚ h‚ h‚ h‚à h‚‚ h‚‚ h‚‚ (inr (inr (inl d))))))

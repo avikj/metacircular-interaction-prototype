@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- Sha256N — SHA-256 as a compact native-arithmetic object: ℕ → ℕ, words
--- as naturals mod 2³², every bit operation built from builtin div/mod/+/·
+-- Sha256N � SHA-256 as a compact native-arithmetic object: � � �, words
+-- as naturals mod 2³², every bit operation built from builtin div/mod/+/�
 -- so the kernel evaluates it on GMP integers.  No List Bool, no unrolled
--- gate DAG: this is the passable form — a small recursive definition the
+-- gate DAG: this is the passable form � a small recursive definition the
 -- kernel holds and computes.  NIST vectors checked by refl at the bottom.
 
 module Sha256N where
@@ -35,7 +35,7 @@ m32 = pow2 32
 mask32 : ℕ → ℕ
 mask32 x = x mod m32
 
--- combine two words bitwise, 32 bits, with a per-bit op f : ℕ → ℕ → ℕ
+-- combine two words bitwise, 32 bits, with a per-bit op f : � � � � �
 combine : ℕ → (ℕ → ℕ → ℕ) → ℕ → ℕ → ℕ → ℕ
 combine zero    f w a b = 0
 combine (suc n) f w a b = f (a mod 2) (b mod 2) * w + combine n f (w * 2) (a div 2) (b div 2)
@@ -89,7 +89,7 @@ nth _       []       = 0
 nth zero    (x ∷ _)  = x
 nth (suc n) (_ ∷ xs) = nth n xs
 
--- message schedule: 16 words → 64, built newest-first then reversed by index access
+-- message schedule: 16 words � 64, built newest-first then reversed by index access
 extend : ℕ → List ℕ → List ℕ
 extend zero    acc = acc
 extend (suc f) acc =
@@ -117,8 +117,8 @@ takeN (suc n) (x ∷ xs) = x ∷ takeN n xs
 lastN : ℕ → List ℕ → List ℕ
 lastN n xs = revL (takeN n (revL xs))
 
--- one backward schedule step: from a window [Wₜ .. Wₜ₊₁₅] recover Wₜ₋₁,
--- inverting W_s = σ1(W_{s-2}) + W_{s-7} + σ0(W_{s-15}) + W_{s-16} at s = t+15
+-- one backward schedule step: from a window [W� .. W����] recover W���,
+-- inverting W_s = �1(W_{s-2}) + W_{s-7} + �0(W_{s-15}) + W_{s-16} at s = t+15
 schedBack1 : List ℕ → ℕ
 schedBack1 (w0 ∷ _ ∷ _ ∷ _ ∷ _ ∷ _ ∷ _ ∷ _ ∷ w8 ∷ _ ∷ _ ∷ _ ∷ _ ∷ w13 ∷ _ ∷ w15 ∷ _) =
   subN (subN (subN w15 (σ1 w13)) w8) (σ0 w0)
@@ -167,7 +167,7 @@ sha256block ws = compress H0 ws
 abcBlock : List ℕ
 abcBlock = 0x61626380 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 24 ∷ []
 
--- ℕ → ℕ face: message packed as one natural (16 words, low word first),
+-- � � � face: message packed as one natural (16 words, low word first),
 -- digest packed as one natural (8 words, low word first).  This is the
 -- shape the yantra's equation language speaks: sha256nat y ≡ X.
 splitWords : ℕ → ℕ → List ℕ
@@ -197,7 +197,7 @@ test-abc : sha256block abcBlock ≡
   ∷ 0xb00361a3 ∷ 0x96177a9c ∷ 0xb410ff61 ∷ 0xf20015ad ∷ [] )
 test-abc = refl
 
--- the ℕ→ℕ face agrees: sha256nat of the packed abc block is the packed digest
+-- the ��� face agrees: sha256nat of the packed abc block is the packed digest
 test-abc-nat : sha256nat (packWords abcBlock) ≡
   packWords ( 0xba7816bf ∷ 0x8f01cfea ∷ 0x414140de ∷ 0x5dae2223
             ∷ 0xb00361a3 ∷ 0x96177a9c ∷ 0xb410ff61 ∷ 0xf20015ad ∷ [] )
@@ -210,9 +210,9 @@ test-schedule-inverse = refl
 
 ------------------------------------------------------------------------
 -- PREIMAGE, 1 round.  One-round compression (feed-forward included) as a
--- function of the single message word W₀; and its INVERSE, solving the
--- round equation for W₀ from the digest.  Given a 1-round digest, we
--- recover a message word that regenerates it — a genuine preimage,
+-- function of the single message word W�; and its INVERSE, solving the
+-- round equation for W� from the digest.  Given a 1-round digest, we
+-- recover a message word that regenerates it � a genuine preimage,
 -- constructed by the round algebra and checked by the kernel.
 ------------------------------------------------------------------------
 
@@ -224,8 +224,8 @@ zipSub (x ∷ xs) (y ∷ ys) = subN x y ∷ zipSub xs ys
 compress1 : ℕ → List ℕ
 compress1 w = zipAdd H0 (round H0 (nth 0 K) w)
 
--- invert one round for the message word: from digest D, T = D ⊟ H0 = S₁,
--- T1 = S₁.a ⊟ T2  (T2 computed from H0), then peel the additive chain
+-- invert one round for the message word: from digest D, T = D ⊟ H0 = S�,
+-- T1 = S�.a ⊟ T2  (T2 computed from H0), then peel the additive chain
 solveW1 : List ℕ → ℕ
 solveW1 D =
   let a0 = nth 0 H0 ; b0 = nth 1 H0 ; c0 = nth 2 H0
@@ -248,11 +248,11 @@ test-recovered-word : recovered1 ≡ 0x61626380
 test-recovered-word = refl
 
 ------------------------------------------------------------------------
--- PREIMAGE, 4 rounds — closed form.  After t rounds the state is
--- [aₜ,aₜ₋₁,aₜ₋₂,aₜ₋₃, eₜ,eₜ₋₁,eₜ₋₂,eₜ₋₃].  So T = digest ⊟ H0 pins the
+-- PREIMAGE, 4 rounds � closed form.  After t rounds the state is
+-- [a�,a���,a���,a���, e�,e���,e���,e���].  So T = digest ⊟ H0 pins the
 -- last four a's and e's, and H0 pins the first four; for r = 4 the WHOLE
 -- a/e trajectory is known, and each message word solves in closed form:
---   T1ₜ = eₜ₊₁ ⊟ aₜ₋₃ ,  Wₜ = T1ₜ ⊟ eₜ₋₃ ⊟ Σ1(eₜ) ⊟ ch(eₜ,eₜ₋₁,eₜ₋₂) ⊟ Kₜ
+--   T1� = e��� ⊟ a��� ,  W� = T1� ⊟ e��� ⊟ �1(e�) ⊟ ch(e�,e���,e���) ⊟ K�
 ------------------------------------------------------------------------
 
 takePairs : ℕ → List (ℕ × ℕ) → List (ℕ × ℕ)
@@ -291,10 +291,10 @@ test-preimage-4round : compressR 4 preimage4 ≡ Xtarget4
 test-preimage-4round = refl
 
 ------------------------------------------------------------------------
--- PREIMAGE, 8 rounds — still closed form, by cascading the middle a's.
--- e_{t+1} = a_{t+1} ⊟ T2ₜ ⊞ a_{t-3}, so a_{t-3} = e_{t+1} ⊟ (a_{t+1} ⊟ T2ₜ).
--- The four pinned e's (e₅..e₈) solve a₄,a₃,a₂,a₁ in turn, each from
--- already-known a's — no search.
+-- PREIMAGE, 8 rounds � still closed form, by cascading the middle a's.
+-- e_{t+1} = a_{t+1} ⊟ T2� ⊞ a_{t-3}, so a_{t-3} = e_{t+1} ⊟ (a_{t+1} ⊟ T2�).
+-- The four pinned e's (e�..e�) solve a�,a�,a�,a� in turn, each from
+-- already-known a's � no search.
 ------------------------------------------------------------------------
 
 invert8 : List ℕ → List ℕ
@@ -328,9 +328,9 @@ test-preimage-8round : compressR 8 preimage8 ≡ Xtarget8
 test-preimage-8round = refl
 
 ------------------------------------------------------------------------
--- PREIMAGE, 16 rounds — the full message-injection regime (no schedule
--- expansion yet).  Same cascade: pinned a₁₃..a₁₆ / e₁₃..e₁₆ solve
--- a₁₂,a₁₁,a₁₀,a₉ in turn; the interior words a₁..a₈ are free (set 0),
+-- PREIMAGE, 16 rounds � the full message-injection regime (no schedule
+-- expansion yet).  Same cascade: pinned a��..a�� / e��..e�� solve
+-- a��,a��,a��,a� in turn; the interior words a�..a� are free (set 0),
 -- e's follow from (*), and all 16 message words solve.  Closed form.
 ------------------------------------------------------------------------
 
@@ -350,7 +350,7 @@ invert16 D =
       a9  = subN e13 (subN a13 (addN (Σ0 a12) (maj a12 a11 a10)))
       aS  = am3 ∷ am2 ∷ am1 ∷ a0 ∷ a1 ∷ a2 ∷ a3 ∷ a4 ∷ a5 ∷ a6 ∷ a7 ∷ a8
           ∷ a9 ∷ a10 ∷ a11 ∷ a12 ∷ a13 ∷ a14 ∷ a15 ∷ a16 ∷ []
-      -- e_{t+1} = a_{t+1} ⊟ T2ₜ ⊞ a_{t-3}, for t=0..15 giving e₁..e₁₆
+      -- e_{t+1} = a_{t+1} ⊟ T2� ⊞ a_{t-3}, for t=0..15 giving e�..e��
       eAt : ℕ → ℕ
       eAt t = addN (subN (nth (t + 4) aS)
                           (addN (Σ0 (nth (t + 3) aS)) (maj (nth (t + 3) aS) (nth (t + 2) aS) (nth (t + 1) aS))))
@@ -373,7 +373,7 @@ test-preimage-16round = refl
 
 ------------------------------------------------------------------------
 -- The propositions AS PROPOSITIONS: existential preimage and existential
--- collision, with inequality — the kernel holds and verifies these
+-- collision, with inequality � the kernel holds and verifies these
 -- directly (the sadhana wire verb cannot form them; the kernel can).
 ------------------------------------------------------------------------
 
@@ -386,7 +386,7 @@ preimage-exists-16 = preimage16 , test-preimage-16round
 
 -- a 4-round collision, as a real existential with the inequality: two
 -- DISTINCT messages with the same 4-round digest (they differ in a word
--- the 4-round compression does not read — a genuine, if elementary,
+-- the 4-round compression does not read � a genuine, if elementary,
 -- collision of reduced-round SHA-256, kernel-checked)
 collA collB : List ℕ
 collA = 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ []

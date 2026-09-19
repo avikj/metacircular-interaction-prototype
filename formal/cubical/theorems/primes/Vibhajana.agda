@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Vibhajana where
--- विभाजन: every positive number is a product of primes, with certificates.
+-- ������: every positive number is a product of primes, with certificates.
 -- The existence half of the fundamental theorem, as a running machine.
 
 open import Prakriti
@@ -19,7 +19,7 @@ product : List Prati → ℕ
 product [] = 1
 product ((p , _) ∷ l) = p · product l
 
--- c with c·p ≡ n, n ≥ 1: c is positive and, when p ≥ 2, strictly below n
+-- c with c�p ≡ n, n � 1: c is positive and, when p � 2, strictly below n
 cPos : (c p n : ℕ) → c · p ≡ n → 1 ≤ n → 1 ≤ c
 cPos zero p n e 1≤n = Empty.rec (¬-<-zero (subst (0 <_) (sym e) 1≤n))
 cPos (suc k) _ _ _ _ = suc-≤-suc zero-≤
@@ -55,7 +55,7 @@ module _ where
   factor : (n : ℕ) → 1 ≤ n → Σ[ l ∈ List Prati ] product l ≡ n
   factor = induction fstep
 
--- pressed: 60 factors as 2·2·3·5, each factor carrying IsPrime
+-- pressed: 60 factors as 2�2�3�5, each factor carrying IsPrime
 _ : map fst (fst (factor 60 (suc-≤-suc zero-≤))) ≡ 2 ∷ 2 ∷ 3 ∷ 5 ∷ []
 _ = refl
 

@@ -1,34 +1,34 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§™‡•Ç‡§∞‡•ç‡§£‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚Äî the map-level sevenfold, completed on the nose.
+-- ‡‡‡∞‡‡‡‡‡‡‡‡ô‡‡ó‡ ‚î the map-level sevenfold, completed on the nose.
 --
--- WHAT THIS CLOSES.  `GananaSaptabhangi_‚Ä¶agda` ¬ß6 (‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É) shows the
--- map-level classification IS the sevenfold ‚Äî the non-empty selections of
--- three fibre seeds, 2¬≥ ‚àí 1 = 7 ‚Äî and supplies canonical witnesses for
+-- WHAT THIS CLOSES.  `GananaSaptabhangi_‚¶agda` ¬ß6 (‡¶‡ã‡‡≤‡‡ñ‡) shows the
+-- map-level classification IS the sevenfold ‚î the non-empty selections of
+-- three fibre seeds, 2¬≥ ‚àí 1 = 7 ‚î and supplies canonical witnesses for
 -- THREE positions:
 --
---   id    : Bool ‚Üí Bool   every fibre contractible          ‚Üí pure ‡§Ö‡§∏‡•ç‡§§‡§ø
---   ‡§è‡§ï‡§Æ‡•ç   : Bool ‚Üí Unit    every fibre crowded               ‚Üí pure ‡§®‡§æ‡§∏‡•ç‡§§‡§ø
---   asNat : Bool ‚Üí ‚Ñï      contractible then empty, never
---                         crowded (injective into a set)     ‚Üí ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø
+--   id    : Bool ‚í Bool   every fibre contractible          ‚í pure ‡‡‡‡‡ø
+--   ‡‡ï‡Æ‡   : Bool ‚í Unit    every fibre crowded               ‚í pure ‡®‡æ‡‡‡‡ø
+--   asNat : Bool ‚í ‚ï      contractible then empty, never
+--                         crowded (injective into a set)     ‚í ‡‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø
 --
 -- and leaves the remaining FOUR "as the open frame, stated not smuggled":
--- ‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø, ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø, pure ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø, and the full triple.  This
--- module supplies canonical witnesses for those four, so all seven bha·πÖgas
+-- ‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø, ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, pure ‡‡µ‡ï‡‡‡µ‡‡Ø, and the full triple.  This
+-- module supplies canonical witnesses for those four, so all seven bhagas
 -- occupy the classification with a term.  A count with witnesses for only
 -- three of its seven cells is a claim standing on an unbuilt frame; the
 -- sevenfold is a theorem only once every selection is inhabited.
 --
 -- The seeds, following the neighbour's readings:
---   ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ (contractible fibre) ‚Üî ‡§Ö‡§∏‡•ç‡§§‡§ø    ‚Äî something carried whole
---   ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ (crowded fibre)     ‚Üî ‡§®‡§æ‡§∏‡•ç‡§§‡§ø   ‚Äî something lost, exhibited
---   ‡§∞‡§ø‡§ï‡•ç‡§§    (empty fibre)        ‚Üî ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø  ‚Äî something the source cannot utter
+--   ‡‡ï‡≤‡æ‡¶‡‡ (contractible fibre) ‚î ‡‡‡‡‡ø    ‚î something carried whole
+--   ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ (crowded fibre)     ‚î ‡®‡æ‡‡‡‡ø   ‚î something lost, exhibited
+--   ‡∞‡ø‡ï‡‡    (empty fibre)        ‚î ‡‡µ‡ï‡‡‡µ‡‡Ø  ‚î something the source cannot utter
 --
 -- Each position is stated cleanly: the seeds that occur are witnessed
--- existentially (‡§ï‡•ç‡§µ‡§ö‡§ø‡§§‡•ç, with the b that witnesses), and the seeds that do
--- NOT occur are REFUTED (¬¨ their ‡§ï‡•ç‡§µ‡§ö‡§ø‡§§‡•ç), never merely left unexhibited ‚Äî
--- the standard `asNat` set for the third position with its ‡§®-‡§®‡§æ‡§∏‡•ç‡§§‡§ø.
+-- existentially (‡ï‡‡µ‡‡ø‡‡, with the b that witnesses), and the seeds that do
+-- NOT occur are REFUTED (¬ their ‡ï‡‡µ‡‡ø‡‡), never merely left unexhibited ‚î
+-- the standard `asNat` set for the third position with its ‡®-‡®‡æ‡‡‡‡ø.
 --
 -- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
 -- no holes, no native_decide.  Verified 2026-08-23.
@@ -52,7 +52,7 @@ private
     A B : Type
 
 ------------------------------------------------------------------------
--- ‡•¶ ¬∑ discriminators ‚Äî the only impurity two Bools or a sum ever needs.
+-- ‡¶ ¬ discriminators ‚î the only impurity two Bools or a sum ever needs.
 ------------------------------------------------------------------------
 
 true‚â¢false : ¬¨ (true ‚â° false)
@@ -64,7 +64,7 @@ true‚â¢false p = subst ‡§ï‡•ã‡§° p tt
 false‚â¢true : ¬¨ (false ‚â° true)
 false‚â¢true p = true‚â¢false (sym p)
 
--- inl x vs inr y, in any Bool ‚äé Unit-shaped codomain we use
+-- inl x vs inr y, in any Bool ‚ä Unit-shaped codomain we use
 inl‚â¢inr : {x : Bool} {y : Unit} ‚Üí ¬¨ (inl x ‚â° inr y)
 inl‚â¢inr p = true‚â¢false (cong ‡§ü‡•à‡§ó p)
   where ‡§ü‡•à‡§ó : Bool ‚äé Unit ‚Üí Bool
@@ -85,11 +85,11 @@ isSetBU : isSet (Bool ‚äé Unit)
 isSetBU = isSet‚äé isSetBool isSetUnit
 
 ------------------------------------------------------------------------
--- ‡•ß ¬∑ ‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø ‚Äî the constant map Bool ‚Üí Bool ‚äé Unit at inl true.
+-- ‡ß ¬ ‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø ‚î the constant map Bool ‚í Bool ‚ä Unit at inl true.
 --
--- inl true is hit twice (‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ ‚Üí ‡§®‡§æ‡§∏‡•ç‡§§‡§ø), everything else empty
--- (‡§∞‡§ø‡§ï‡•ç‡§§ ‚Üí ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø), and NO fibre is contractible (the one inhabited
--- fibre is crowded), so ‡§Ö‡§∏‡•ç‡§§‡§ø is refuted.
+-- inl true is hit twice (‡µ‡ø‡ï‡≤‡æ‡¶‡‡ ‚í ‡®‡æ‡‡‡‡ø), everything else empty
+-- (‡∞‡ø‡ï‡‡ ‚í ‡‡µ‡ï‡‡‡µ‡‡Ø), and NO fibre is contractible (the one inhabited
+-- fibre is crowded), so ‡‡‡‡‡ø is refuted.
 ------------------------------------------------------------------------
 
 ‡§®‡§ø‡§§‡•ç‡§Ø : Bool ‚Üí Bool ‚äé Unit
@@ -113,9 +113,9 @@ isSetBU = isSet‚äé isSetBool isSetUnit
 ‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø-‡§™‡§¶‡§Æ‡•ç = ‡§®‡§ø‡§§‡•ç‡§Ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø , ‡§®‡§ø‡§§‡•ç‡§Ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø , ‡§®‡§ø‡§§‡•ç‡§Ø-‡§®-‡§Ö‡§∏‡•ç‡§§‡§ø
 
 ------------------------------------------------------------------------
--- ‡•® ¬∑ ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø ‚Äî the krama both-position (third bha·πÖga): a surjection
--- (Bool ‚äé Unit) ‚Üí Bool, contractible at false, crowded at true, and NO
--- empty fibre, so ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø is refuted.
+-- ‡® ¬ ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø ‚î the krama both-position (third bhaga): a surjection
+-- (Bool ‚ä Unit) ‚í Bool, contractible at false, crowded at true, and NO
+-- empty fibre, so ‡‡µ‡ï‡‡‡µ‡‡Ø is refuted.
 ------------------------------------------------------------------------
 
 ‡§ï‡•ç‡§∞‡§Æ‡§¶‡•ç‡§µ‡§ø : Bool ‚äé Unit ‚Üí Bool
@@ -146,8 +146,8 @@ isSetBU = isSet‚äé isSetBool isSetUnit
 ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§™‡§¶‡§Æ‡•ç = ‡§ï‡•ç‡§∞‡§Æ‡§¶‡•ç‡§µ‡§ø-‡§Ö‡§∏‡•ç‡§§‡§ø , ‡§ï‡•ç‡§∞‡§Æ‡§¶‡•ç‡§µ‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø , ‡§ï‡•ç‡§∞‡§Æ‡§¶‡•ç‡§µ‡§ø-‡§®-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø
 
 ------------------------------------------------------------------------
--- ‡•© ¬∑ pure ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø ‚Äî the empty source against an inhabited codomain.
--- Every fibre over the inhabited Unit is empty; ‡§Ö‡§∏‡•ç‡§§‡§ø and ‡§®‡§æ‡§∏‡•ç‡§§‡§ø are both
+-- ‡© ¬ pure ‡‡µ‡ï‡‡‡µ‡‡Ø ‚î the empty source against an inhabited codomain.
+-- Every fibre over the inhabited Unit is empty; ‡‡‡‡‡ø and ‡®‡æ‡‡‡‡ø are both
 -- refuted because their witnesses would require a domain element and there
 -- are none.  This is the position ¬ß6 said "needs an EMPTY source".
 ------------------------------------------------------------------------
@@ -171,9 +171,9 @@ isSetBU = isSet‚äé isSetBool isSetUnit
 ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø-‡§™‡§¶‡§Æ‡•ç = ‡§∞‡§ø‡§ï‡•ç‡§§-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø , ‡§∞‡§ø‡§ï‡•ç‡§§-‡§®-‡§Ö‡§∏‡•ç‡§§‡§ø , ‡§∞‡§ø‡§ï‡•ç‡§§-‡§®-‡§®‡§æ‡§∏‡•ç‡§§‡§ø
 
 ------------------------------------------------------------------------
--- ‡•™ ¬∑ the full triple ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø ‚Äî the seventh bha·πÖga, all three
--- seeds at once.  (Unit ‚äé Bool) ‚Üí (Bool ‚äé Unit): inl false hit once
--- (‡§Ö‡§∏‡•ç‡§§‡§ø), inl true hit twice (‡§®‡§æ‡§∏‡•ç‡§§‡§ø), inr tt hit never (‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø).
+-- ‡ ¬ the full triple ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø ‚î the seventh bhaga, all three
+-- seeds at once.  (Unit ‚ä Bool) ‚í (Bool ‚ä Unit): inl false hit once
+-- (‡‡‡‡‡ø), inl true hit twice (‡®‡æ‡‡‡‡ø), inr tt hit never (‡‡µ‡ï‡‡‡µ‡‡Ø).
 ------------------------------------------------------------------------
 
 ‡§§‡•ç‡§∞‡§ø‡§™‡§¶ : Unit ‚äé Bool ‚Üí Bool ‚äé Unit

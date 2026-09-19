@@ -7,17 +7,17 @@
 -- holes, `--safe`.
 --
 -- WHAT THIS DISCHARGES.  `notes/PM_SECTION_VS_COCYCLE.md` ends with:
--- "The natural checked target: `coker(δ) ≅ F₂` and the exactness step —
--- pure finite linear algebra over F₂, no matrices over ℤ[i] needed."
+-- "The natural checked target: `coker(δ) � F�` and the exactness step �
+-- pure finite linear algebra over F�, no matrices over �[i] needed."
 -- This module is that target, carried out on the PHYSICAL index sets
 -- (the nine observables, the six contexts) and against the derived sign
 -- vector `s = (+,+,+ | +,+,−)`, i.e. `s = (0,0,0,0,0,1)` additively:
 --
 --   (i)   `parity-δ` : the all-ones functional on contexts,
---         `total : F₂⁶ → F₂`, vanishes identically on im δ.  Every
+--         `total : F�� � F�`, vanishes identically on im δ.  Every
 --         element of the image has even total weight, because each
 --         observable lies in exactly TWO contexts.
---   (ii)  `total-s : total s ≡ true` — the Peres–Mermin sign vector has
+--   (ii)  `total-s : total s ≡ true` � the Peres�Mermin sign vector has
 --         ODD total weight; hence `s-not-in-image`, hence
 --         `no-global-section`.
 --
@@ -25,7 +25,7 @@
 -- separates s from the image, so `[s] = 1` in coker δ, and section
 -- failure and nonzero class are the same fact seen through exactness.
 -- Nothing here is a search: (ii) is one `refl` on a six-term sum, and
--- (i) is an algebraic identity (transposing a 3 × 3 array preserves its
+-- (i) is an algebraic identity (transposing a 3 � 3 array preserves its
 -- total sum) valid for ALL 512 assignments at once.  Contrast
 -- `formal/cubical/PMNoSection.agda`, which establishes the same
 -- non-existence by a typechecker-run 512-fold exhaustion: same
@@ -34,57 +34,57 @@
 --
 -- ALSO PROVED (all finite, all as terms):
 --
---   * `each-obs-twice : (o : Obs) → occurrences o ≡ 2` — the hypothesis
+--   * `each-obs-twice : (o : Obs) � occurrences o ≡ 2` � the hypothesis
 --     of (i), CHECKED rather than transcribed: membership is computed
 --     from `PMTorus.pmContexts` through a certified equality test on
 --     contexts (`eqCtx-refl`, `eqCtx-sound`, `inCtx-sound`), so the
 --     count counts genuine memberships.
---   * `column-is-incidence : (o : Obs) (c : Ctx) → δ (eqObs o) c ≡
---     inCtx c o` — δ's columns ARE the incidence data, so (i) and
+--   * `column-is-incidence : (o : Obs) (c : Ctx) � δ (eqObs o) c ≡
+--     inCtx c o` � δ's columns ARE the incidence data, so (i) and
 --     `each-obs-twice` are about one map and not two.
---   * `even-total-is-image` / `image-is-even-total` — EXACTNESS, both
+--   * `even-total-is-image` / `image-is-even-total` � EXACTNESS, both
 --     inclusions: im δ is EXACTLY ker(total).  With `total-onto` this
---     is coker δ ≅ F₂ with `total` as the class evaluator (the quotient
+--     is coker δ � F� with `total` as the class evaluator (the quotient
 --     type itself is not constructed; see the honest caveat below).
---   * `local-section` — each context separately admits an assignment
+--   * `local-section` � each context separately admits an assignment
 --     with the prescribed parity (the obstruction is global, not local).
---   * `rows-only-section` — the rows-only cover admits a global
+--   * `rows-only-section` � the rows-only cover admits a global
 --     section, so the class is a property of the COVER (note, claim 2).
 --     Trivial for this s, and flagged as such: all three row signs are
 --     +, so the zero assignment works.
---   * `twisted-sections≃F₂⁴` — flipping the identification of ZZ
+--   * `twisted-sections�F��` � flipping the identification of ZZ
 --     between its row and its column occurrence (a one-edge
 --     local-system twist, `twist`) makes the twisted section set
---     equivalent to `Fin 4 → Bool`: exactly 2⁴ = 16 twisted sections,
+--     equivalent to `Fin 4 � Bool`: exactly 2� = 16 twisted sections,
 --     the note's claim 3, with the count derived from
 --     `PMTorus.cycleEquiv` rather than measured.  `kernelIso` is the
---     bridge: ker δ ≃ PMTorus.Cycle.
+--     bridge: ker δ � PMTorus.Cycle.
 --
--- WHAT IS *NOT* PROVED.  The quotient type F₂⁶/im δ is not constructed
--- (no SetQuotient), exactly as in `PMTorus`; "coker δ ≅ F₂" is
--- delivered in its usable form — im δ = ker total (both inclusions)
+-- WHAT IS *NOT* PROVED.  The quotient type F��/im δ is not constructed
+-- (no SetQuotient), exactly as in `PMTorus`; "coker δ � F�" is
+-- delivered in its usable form � im δ = ker total (both inclusions)
 -- together with total onto.  The upstream operator data (the Weyl
--- 2-cocycle μ and the gauge 1-cochain φ of the note) is NOT formalized:
+-- 2-cocycle μ and the gauge 1-cochain � of the note) is NOT formalized:
 -- the sign vector s enters here as a DATUM, transcribed from the note,
 -- not derived from Gaussian-integer Pauli matrices.  What is proved is
 -- everything downstream of s.
 --
--- Reuses `NaturalMachine.PMTorus` (same square, same F₂ toolkit, same
+-- Reuses `NaturalMachine.PMTorus` (same square, same F� toolkit, same
 -- conventions) and duplicates none of it: PMTorus works on the
--- anonymous graph (Edge = Fin 3 × Fin 3, Vertex = Fin 3 ⊎ Fin 3) and
+-- anonymous graph (Edge = Fin 3 � Fin 3, Vertex = Fin 3 � Fin 3) and
 -- has no sign vector; this module works on Obs/Ctx with the physical
 -- signs, and imports the algebra.
 --
 -- NOT VACUOUS, and the reader can check it in one edit: replacing
 -- `s C2 = true` by `s C2 = false` makes `total-s` fail to typecheck
 -- (`false != true of type Bool`).  Nothing here would prove an
--- obstruction for an even sign vector — for that s the zero assignment
+-- obstruction for an even sign vector � for that s the zero assignment
 -- is a global section, by `even-total-is-image`.
 --
 -- TOOLCHAIN CAVEAT (Agda 2.6.3 / cubical v0.5), the same one PMTorus
 -- records: case-splitting an indexed `FinData.Fin` at a LITERAL index
 -- raises `UnsupportedIndexedMatch` ("relies on injectivity of suc").
--- Only `∂-δ` below does this, and only to compare two definitionally
+-- Only `�-δ` below does this, and only to compare two definitionally
 -- equal six-clause functions; nothing in this module transports along a
 -- path in `Fin n`, so no proof depends on those clauses computing under
 -- transport.  The build is exit 0 with no errors and no unsolved
@@ -108,7 +108,7 @@ import Cubical.Data.Empty as ⊥
 open import NaturalMachine.PMTorus
 
 ------------------------------------------------------------------------
--- 1.  The incidence map δ : 𝔽₂⁹ → 𝔽₂⁶.
+-- 1.  The incidence map δ : ��� � ���.
 --
 -- Nine observables, six contexts; a vector on observables goes to the
 -- vector of its six context-sums.  Read off the same grid as PMTorus,
@@ -124,7 +124,7 @@ open import NaturalMachine.PMTorus
 δ x C1 = sum3 (x IX) (x YI) (x YX)
 δ x C2 = sum3 (x XX) (x YY) (x ZZ)
 
--- δ is 𝔽₂-linear (additive; over 𝔽₂ that is linearity).
+-- δ is ��-linear (additive; over �� that is linearity).
 _⊕ᵒ_ : (Obs → Bool) → (Obs → Bool) → (Obs → Bool)
 (x ⊕ᵒ y) o = x o ⊕ y o
 
@@ -176,7 +176,7 @@ eqCtx-sound c d h =
   ∙ Iso.leftInv ctxIso d
 
 -- Likewise on observables, through PMTorus's certified `eq3` and the
--- bijection Obs ≃ Edge.
+-- bijection Obs � Edge.
 eqObs : Obs → Obs → Bool
 eqObs o p =
       eq3 (fst (obsToEdge o)) (fst (obsToEdge p))
@@ -299,12 +299,12 @@ column-is-incidence ZZ C2 = refl
 ------------------------------------------------------------------------
 -- 3.  The parity functional on contexts, and CLAIM (i).
 --
--- `total` is the all-ones functional on 𝔽₂⁶: the sum of all six
+-- `total` is the all-ones functional on ���: the sum of all six
 -- context-sums.  Since each observable lies in exactly two contexts it
 -- contributes 0 to that sum, so `total` kills the whole image.  In
 -- coordinates this is the identity "the row sums and the column sums of
--- a 3 × 3 array have the same total", `PMTorus.sum9-transpose`, which
--- holds for every one of the 512 assignments at once — an identity, not
+-- a 3 � 3 array have the same total", `PMTorus.sum9-transpose`, which
+-- holds for every one of the 512 assignments at once � an identity, not
 -- an enumeration.
 ------------------------------------------------------------------------
 
@@ -338,11 +338,11 @@ image-is-even-total : (y : Ctx → Bool) → Image y → total y ≡ false
 image-is-even-total y (x , q) = subst (λ z → total z ≡ false) q (parity-δ x)
 
 ------------------------------------------------------------------------
--- 4.  The Peres–Mermin sign vector, and CLAIM (ii).
+-- 4.  The Peres�Mermin sign vector, and CLAIM (ii).
 --
 -- s = (+,+,+ | +,+,−): the three rows and the first two columns
--- multiply to +1, the third column to −1.  Additively over 𝔽₂ that is
--- (0,0,0,0,0,1) — transcribed from notes/PM_SECTION_VS_COCYCLE.md,
+-- multiply to +1, the third column to −1.  Additively over �� that is
+-- (0,0,0,0,0,1) � transcribed from notes/PM_SECTION_VS_COCYCLE.md,
 -- where it is derived from the exact Weyl cocycle.  It is the only
 -- physical input to this module.
 ------------------------------------------------------------------------
@@ -360,7 +360,7 @@ total-s : total s ≡ true
 total-s = refl
 
 -- ... hence s is not in the image: the parity functional separates
--- them.  This is `[s] = 1` in coker δ ≅ 𝔽₂.
+-- them.  This is `[s] = 1` in coker δ � ��.
 s-not-in-image : ¬ (Image s)
 s-not-in-image (x , q) =
   false≢true (sym (image-is-even-total s (x , q)) ∙ total-s)
@@ -368,7 +368,7 @@ s-not-in-image (x , q) =
 ------------------------------------------------------------------------
 -- 5.  Sections.
 --
--- A global section is an 𝔽₂-valued assignment to the nine observables
+-- A global section is an ��-valued assignment to the nine observables
 -- whose six context-sums are the prescribed signs.  Because each
 -- observable lies in exactly two contexts, a compatible family of local
 -- assignments IS such a global one (note, claim 1), so this type being
@@ -395,7 +395,7 @@ local-section C2 = eqObs XX , refl
 
 -- The rows-only cover admits a global section (note, claim 2: the class
 -- is a property of the COVER, not of the operator set).  Trivial for
--- this s — all three row signs are + — and recorded as such.
+-- this s � all three row signs are + � and recorded as such.
 rows-only-section :
   Σ[ v ∈ (Obs → Bool) ]
     ((δ v R0 ≡ s R0) × ((δ v R1 ≡ s R1) × (δ v R2 ≡ s R2)))
@@ -404,15 +404,15 @@ rows-only-section = zeroObs , refl , refl , refl
 ------------------------------------------------------------------------
 -- 6.  EXACTNESS: im δ is exactly ker(total), and total is onto.
 --
--- Together: coker δ ≅ 𝔽₂ with `total` as the class evaluator.  The
+-- Together: coker δ � �� with `total` as the class evaluator.  The
 -- quotient type is not constructed (see the header); what is proved is
 -- the pair of statements that a cokernel computation consumes.  The
 -- hard inclusion is imported from `PMTorus.even-kernel-is-image` along
--- the graph identification of §7 — no second preimage construction.
+-- the graph identification of §7 � no second preimage construction.
 ------------------------------------------------------------------------
 
--- δ and PMTorus's ∂ are the same map, read through Obs ≃ Edge and
--- Ctx ≃ Vertex.  Two six-clause checks.
+-- δ and PMTorus's � are the same map, read through Obs � Edge and
+-- Ctx � Vertex.  Two six-clause checks.
 ∂-δ : (x : Obs → Bool) (v : Vertex)
     → ∂ (λ e → x (edgeToObs e)) v ≡ δ x (vertexToCtx v)
 ∂-δ x (inl k0) = refl
@@ -435,7 +435,7 @@ rows-only-section = zeroObs , refl , refl , refl
 total-parity : (y : Ctx → Bool) → total y ≡ parity (λ v → y (vertexToCtx v))
 total-parity y = refl
 
--- ker total ⊆ im δ.
+-- ker total � im δ.
 even-total-is-image : (y : Ctx → Bool) → total y ≡ false → Image y
 even-total-is-image y h = pre , funExt lemma
   where
@@ -454,7 +454,7 @@ even-total-is-image y h = pre , funExt lemma
     ∙ funExt⁻ (snd pull) (ctxToVertex c)
     ∙ cong y (Iso.leftInv ctxIso c)
 
--- total is onto, so the quotient it computes is 𝔽₂ and not 0.
+-- total is onto, so the quotient it computes is �� and not 0.
 total-onto : (b : Bool) → Σ[ y ∈ (Ctx → Bool) ] (total y ≡ b)
 total-onto false = (λ _ → false) , refl
 total-onto true  = s , total-s
@@ -463,11 +463,11 @@ total-onto true  = s , total-s
 -- 7.  The kernel, and the local-system twist (note, claim 3).
 --
 -- Twisting the identification of ZZ between its row and its column
--- occurrence adds 1 to exactly one of the two context-sums ZZ enters —
+-- occurrence adds 1 to exactly one of the two context-sums ZZ enters �
 -- here the column C2.  The twisted section condition is then
 -- δ v c ⊕ twist c ≡ s c, and since twist = s pointwise this says
 -- v ∈ ker δ.  So the twisted sections are the cycle space of the
--- graph: `Fin 4 → Bool`, i.e. 2⁴ = 16 of them, against 0 untwisted.
+-- graph: `Fin 4 � Bool`, i.e. 2� = 16 of them, against 0 untwisted.
 -- The dimension 4 is imported from `PMTorus.cycleEquiv`.
 ------------------------------------------------------------------------
 

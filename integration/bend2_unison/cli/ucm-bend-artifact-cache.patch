@@ -1,0 +1,10 @@
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput/BendLoad.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/BendLoad.hs
+@@ -189,7 +189,7 @@
+ runChecked book = do
+   hvm <- liftIO $ fromMaybe "hvm" <$> lookupEnv "HVM4"
+-  outcome <- liftIO $ BendExecution.runCheckedBook hvm book
++  outcome <- liftIO $ BendExecution.runCachedCheckedBook hvm book
+   Cli.respond . Output.Literal . fromString $ case outcome of
+     Left err -> "HVM4: " ++ show err
+     Right result -> BendExecution.output result ++ BendExecution.diagnostics result

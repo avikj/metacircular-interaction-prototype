@@ -21,7 +21,7 @@ def sq(j: Interval) -> Path(Set, hcompN(Set, [(j, <k> negPath() @ k)], Bool), Bo
 # (coherent: the face's equivalence is transport back along negPath = neg)
 def viaSq(j: Interval) -> Bool:
   coe(lambda i. sq(j) @ i, i0, i1, glue(Bool, True, [(j, False)]))
-# transport along the i-line at symbolic j: the true face at i1 wins â€” neg
+# transport along the i-line at symbolic j: the true face at i1 wins â” neg
 def viaSq_T(j: Interval) -> Path(Bool, viaSq(j), False):
   <_> False
 # a single-face composition whose base line is itself non-constant

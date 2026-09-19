@@ -5,28 +5,28 @@
 --
 -- THE JOIN.  `TransportDiv` built the Horner residue automaton `modw`
 -- and proved one direction of its specification: a zero final state
--- implies divisibility (`modw-zero→∣`).  One direction is not a decision
+-- implies divisibility (`modw-zero��`).  One direction is not a decision
 -- procedure -- with only that half, a nonzero final state means nothing,
 -- and the automaton stays adjacent to the walk (`WalkBridge`) rather
--- than usable by it, which still decides `s ∣ cap m` with `dec∣`, i.e.
+-- than usable by it, which still decides `s � cap m` with `dec�`, i.e.
 -- by `_mod_` on a unary numeral of size cap m = e^{ψ(m)}.
 --
 -- WHAT IS DELIVERED.
 --
---   1. `∣→modw-zero` -- the missing converse.  `_∣_` is a propositional
+--   1. `��modw-zero` -- the missing converse.  `_�_` is a propositional
 --      truncation and the target `modw (suc n) w ≡ 0` is a proposition
---      (ℕ is a set), so the truncation is eliminated honestly, not by a
+--      (� is a set), so the truncation is eliminated honestly, not by a
 --      choice principle.
 --
---   2. `decDivides : (n : ℕ) (w : Word) → Dec ((suc n) ∣ value w)` --
+--   2. `decDivides : (n : �) (w : Word) � Dec ((suc n) � value w)` --
 --      divisibility of the NUMBER decided by inspecting the automaton's
 --      final STATE, a numeral < suc n.  `value w` occurs in the
 --      statement and nowhere in the computation.
 --
---   3. `decDividesℕ : (n m : ℕ) → Dec ((suc n) ∣ m)` -- the same test
+--   3. `decDivides� : (n m : �) � Dec ((suc n) � m)` -- the same test
 --      for the walk's own numbers, by charting m to `digits m` and
---      rewriting along `value-digits`.  And `decDividesℕ-agrees`: this
---      decision is EQUAL to `CoprimeSplitting.dec∣`'s, not merely also
+--      rewriting along `value-digits`.  And `decDivides�-agrees`: this
+--      decision is EQUAL to `CoprimeSplitting.dec�`'s, not merely also
 --      correct (`Dec` of a proposition is a proposition).
 --
 --   4. The cost gap, as a theorem rather than a timing.  `modu` is the
@@ -40,7 +40,7 @@
 -- WHAT IS *NOT* DELIVERED.  The walk is not fast now, and nothing here
 -- should be read as saying so.
 --
---   * CHARTING IS THE EXPENSIVE STEP.  `decDividesℕ n m` runs `digits m`,
+--   * CHARTING IS THE EXPENSIVE STEP.  `decDivides� n m` runs `digits m`,
 --      and `digits` is defined by iterating the odometer m times, so it
 --      costs Θ(m) on a unary m -- exactly what the automaton saves.  The
 --      point of (3) is NOT that it is cheap on a unary input; it is that
@@ -49,7 +49,7 @@
 --      Θ(value).  Charting is paid once, testing is paid Θ(next m − m)
 --      times per step and Θ(m) times over the run.
 --
---   * `cap` is still a ℕ.  Nothing here builds lcm's in the chart, so
+--   * `cap` is still a �.  Nothing here builds lcm's in the chart, so
 --      `WalkBridge.next` is unchanged and `next 8` still exhausts the
 --      heap.  What is closed is the gap TransportDiv left open: the
 --      automaton now DECIDES, so it is eligible to be the test inside a
@@ -89,13 +89,13 @@ open import CoprimeSplitting using (dec∣)
 ------------------------------------------------------------------------
 -- 1.  THE MISSING CONVERSE.
 --
--- TransportDiv proves `modw-zero→∣`.  Without this direction the
+-- TransportDiv proves `modw-zero��`.  Without this direction the
 -- automaton is a semi-decision procedure: a zero state certifies
 -- divisibility, a nonzero state certifies nothing.  Both directions are
 -- needed before `Dec` can be produced, and only one of them was there.
 --
--- `_∣_` is `∃[ c ] c · d ≡ n`, a propositional truncation.  The target is
--- an equality of naturals, hence a proposition by `isSetℕ`, so
+-- `_�_` is `�[ c ] c � d ≡ n`, a propositional truncation.  The target is
+-- an equality of naturals, hence a proposition by `isSet�`, so
 -- `PropTrunc.rec` applies with no further hypotheses: no choice, no
 -- decidability of the fibre, no untruncation lemma.
 ------------------------------------------------------------------------
@@ -111,7 +111,7 @@ open import CoprimeSplitting using (dec∣)
 
 -- Both directions, packaged: the automaton's final state being zero is
 -- LOGICALLY EQUIVALENT to divisibility of the value.  (Not an
--- equivalence of types: `_∣_` is truncated and `modw … ≡ 0` is an
+-- equivalence of types: `_�_` is truncated and `modw � ≡ 0` is an
 -- equality, and both are propositions, so the biimplication is all
 -- there is to say.)
 modw-zero↔∣ : (n : ℕ) (w : Word)
@@ -122,9 +122,9 @@ modw-zero↔∣ n w = modw-zero→∣ n w , ∣→modw-zero n w
 ------------------------------------------------------------------------
 -- 2.  THE DECISION PROCEDURE THAT NEVER TOUCHES THE VALUE.
 --
--- `discreteℕ` is applied to `modw (suc n) w`, which `mod<` bounds by
+-- `discrete�` is applied to `modw (suc n) w`, which `mod<` bounds by
 -- suc n; `value w` appears in the TYPE and in neither branch's
--- computation.  This is the whole difference from `dec∣`, which reduces
+-- computation.  This is the whole difference from `dec�`, which reduces
 -- `n mod (suc d)` with n the number itself.
 ------------------------------------------------------------------------
 
@@ -138,7 +138,7 @@ decDivides n w with discreteℕ (modw (suc n) w) 0
 --
 -- READ THE HEADER BEFORE USING THIS.  `digits m` is the odometer
 -- iterated m times: if m is handed over in unary, CHARTING IT IS THE
--- Θ(m) STEP, and `decDividesℕ` is then no cheaper than `dec∣`.  The
+-- Θ(m) STEP, and `decDivides�` is then no cheaper than `dec�`.  The
 -- content is not this function but what it licenses: once a number
 -- lives in the chart, every divisibility test against it costs
 -- Θ(length) forever after, and the walk's `cap m` is tested Θ(next m − m)
@@ -160,10 +160,10 @@ modℕ-correct n m =
   ∙ cong (_mod (suc n)) (value-digits m)
 
 -- The join, stated as an equality rather than as two correctness
--- proofs: the walk's existing test (`dec∣`, used by `WalkBridge.findND`)
--- and the charted test are THE SAME DECISION, because `_∣_` is a
+-- proofs: the walk's existing test (`dec�`, used by `WalkBridge.findND`)
+-- and the charted test are THE SAME DECISION, because `_�_` is a
 -- proposition and `Dec` of a proposition is a proposition.  So the
--- automaton may be substituted for `dec∣` anywhere in the walk lane
+-- automaton may be substituted for `dec�` anywhere in the walk lane
 -- without disturbing a single downstream proof.
 decDividesℕ-agrees :
   (n m : ℕ) → decDividesℕ n m ≡ dec∣ (suc n) m (suc-≤-suc zero-≤)
@@ -177,7 +177,7 @@ decDividesℕ-agrees n m = isPropDec isProp∣ _ _
 -- presentations, with step counts equal to the two sizes.
 --
 -- `modu` is the residue automaton in the home presentation: state in
--- {0,…,n−1}, one transition per SUCCESSOR.  It is the recursion `dec∣`
+-- {0,�,n−1}, one transition per SUCCESSOR.  It is the recursion `dec�`
 -- is doing, exhibited so that its step count can be stated.
 ------------------------------------------------------------------------
 
@@ -192,7 +192,7 @@ value-modu n (suc m) =
     cong (λ z → (suc z) mod n) (value-modu n m)
   ∙ sym (mod-rCancel n 1 m)
 
--- …hence the two automata agree on every word.  Same function, two
+-- �hence the two automata agree on every word.  Same function, two
 -- presentations; the residual is entirely in the step count.
 modu-modw : (n : ℕ) (w : Word) → modu n (value w) ≡ modw n w
 modu-modw n w = value-modu n (value w) ∙ sym (value-modw n w)
@@ -238,6 +238,6 @@ gap-1000-same-number = W10.value-thousand
 -- entry, `/root/agda-libs/cubical/cubical.agda-lib`, and that tree's HEAD
 -- (132a2a3) carries the tag `v0.5`.
 -- `WalkChartedCap.agda`, an adjacent module of this lane added 18 minutes
--- later, says cubical v0.7 at `/tmp/cubical` — and is ALSO correct, of a
+-- later, says cubical v0.7 at `/tmp/cubical` � and is ALSO correct, of a
 -- different, concurrently running container (evidence: a commit-hash match,
 -- see the note).  Neither header is wrong; the word "the container" is.

@@ -4,11 +4,11 @@
 -- NumberIsExponentialInDerivation
 --
 -- `TheTrajectoryIsAChain` removed one class of answers to "where does the
--- walk's e^Ïˆ(k) come from?" â€” it is not the width of the lattice, since
+-- walk's e^Ïˆ(k) come from?" â” it is not the width of the lattice, since
 -- the walk never visits an incomparable pair.  This module supplies the
 -- mechanism that is left, and supplies it without a single asymptotic.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE MECHANISM
 --
 -- The walk's state, honestly described, is a DERIVATION: the exponent
@@ -16,36 +16,36 @@
 -- number is what `val` produces from it, and `val` EXPONENTIATES.  So at
 -- every single coordinate:
 --
---     sucâ‰¤^ :  suc e  â‰¤  b ^ e        for every base b â‰¥ 2
+--     sucâ‰^ :  suc e  â‰  b ^ e        for every base b â‰ 2
 --
 -- The exponent the walk actually needs to record is e.  The numeric
 -- factor it records instead is b^e, which exceeds e.  Coordinatewise,
 -- **the number is exponential in the derivation**, and this is a bound
--- with no Ïˆ, no Ï€, and no Chebyshev in it â€” an induction on e.
+-- with no Ïˆ, no Ï, and no Chebyshev in it â” an induction on e.
 --
 -- That is where the size goes.  Not the lattice's width; the encoding.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY THIS IS THE SAME SENTENCE `SumProductTorus` ALREADY WROTE
 --
 -- That module says: "Factorisation is hard only for someone who threw the
 -- derivation away and is trying to invert `val` from the outside."  This
 -- one says the state SIZE is inflated by exactly the same act.  The walk
--- holds its derivation by construction â€” it installs its prime powers â€”
+-- holds its derivation by construction â” it installs its prime powers â”
 -- and then stores their product.  The product is not more informative
 -- (`val` is injective on a prime basis); it is only bigger, and bigger by
 -- an exponential at every coordinate.
 --
--- PÄá¹‡ini's architecture, quoted in that module, is the same point: a form
+-- Pini's architecture, quoted in that module, is the same point: a form
 -- is not stored, it is derived, and the derivation carries the context
 -- that produced it.  The walk derives and then discards, and the discard
 -- is the bill.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
 -- Ïˆ(k) â‰ˆ k is NOT proved here and is not used.  Turning
 -- "coordinatewise exponential" into "Ïˆ(k) versus its derivation's size"
--- requires summing over primes p â‰¤ k with exponents âŒŠlog_p kâŒ‹, which is
+-- requires summing over primes p â‰ k with exponents âŠlog_p kâ‹, which is
 -- Chebyshev's estimate and belongs to the analytic lane (`formal/
 -- pairfield/`), not to this one.  CLAUDE.md's HOLOGRAM Â§7 lesson applies
 -- directly: a constant measured at one scale hides its scaling, so the
@@ -55,7 +55,7 @@
 -- that the walk could store exponents without changing what it computes.
 -- The bound is on the encoding, and only on the encoding.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -70,10 +70,10 @@ open import Cubical.Data.Unit using (tt)
 open import SumProductTorus using (Exp ; val ; primes4)
 
 ------------------------------------------------------------------------
--- 1.  Any base â‰¥ 2 raised to e is at least 1, and exceeds e
+-- 1.  Any base â‰ 2 raised to e is at least 1, and exceeds e
 --
 -- Bases are written `suc (suc b)` so that `b ^ suc e` reduces to a sum
--- with `b ^ e` as its head â€” the shape the two inductions need.
+-- with `b ^ e` as its head â” the shape the two inductions need.
 ------------------------------------------------------------------------
 
 1â‰¤^ : (b e : â„•) â†’ 1 â‰¤ (suc (suc b)) ^ e
@@ -81,7 +81,7 @@ open import SumProductTorus using (Exp ; val ; primes4)
 1â‰¤^ b (suc e) = â‰¤-trans (1â‰¤^ b e) â‰¤SumLeft
 
 -- THE BOUND.  The numeric factor is strictly larger than the exponent it
--- encodes, at every coordinate, for every base â‰¥ 2.
+-- encodes, at every coordinate, for every base â‰ 2.
 sucâ‰¤^ : (b e : â„•) â†’ suc e â‰¤ (suc (suc b)) ^ e
 sucâ‰¤^ b zero    = â‰¤-refl
 sucâ‰¤^ b (suc e) = subst (_â‰¤ ((suc (suc b)) ^ suc e)) shape
@@ -100,7 +100,7 @@ exponent-is-dwarfed = sucâ‰¤^
 ------------------------------------------------------------------------
 -- 2.  On the walk's own state.
 --
--- cap 8 = 840 = 2Â³Â·3Â·5Â·7.  Its 2-coordinate is the number 3; the numeric
+-- cap 8 = 840 = 2Â³Â3Â5Â7.  Its 2-coordinate is the number 3; the numeric
 -- factor storing that 3 is 8.  Every coordinate is like this and the
 -- ratio grows with the coordinate.
 ------------------------------------------------------------------------
@@ -125,17 +125,17 @@ ten-coordinate = exponent-is-dwarfed 0 10
 -- The walk's number is exponential in the walk's derivation, coordinate
 -- by coordinate, provably and without asymptotics.  Whether that
 -- coordinatewise fact sums to the Ïˆ(k)-versus-log-k gap is a question
--- about âˆ‘_{p â‰¤ k} âŒŠlog_p kâŒ‹, i.e. about Chebyshev, and this module does
+-- about âˆ_{p â‰ k} âŠlog_p kâ‹, i.e. about Chebyshev, and this module does
 -- not touch it.
 --
 -- What it does settle: the class of answer.  The walk's size is an
 -- ENCODING cost, not a lattice cost (`TheTrajectoryIsAChain`) and not an
--- overlap cost (`JoinSavesTheMeet` â€” overlap is a saving).  Three classes
+-- overlap cost (`JoinSavesTheMeet` â” overlap is a saving).  Three classes
 -- eliminated, one identified, the magnitude still open.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 4.  CORRECTION, same session â€” Â§3's table over-reaches.
+-- 4.  CORRECTION, same session â” Â§3's table over-reaches.
 --
 -- Â§3 files the walk's size under "IDENTIFIED: the numeric encoding".
 -- "Identified" says the encoding ACCOUNTS for the gap, and that does not
@@ -143,13 +143,13 @@ ten-coordinate = exponent-is-dwarfed 0 10
 -- coordinates there are.
 --
 -- There are many.  `TheDerivationIsDenseToo` checks that
--- the walk's derivation is DENSE â€” cap(k) is divisible by every prime
--- p â‰¤ k, so there is a nonzero entry at each, support 4 out of 4 at
--- frontier 8.  The exponential saving `suc e â‰¤ b ^ e` is a saving WITHIN
+-- the walk's derivation is DENSE â” cap(k) is divisible by every prime
+-- p â‰ k, so there is a nonzero entry at each, support 4 out of 4 at
+-- frontier 8.  The exponential saving `suc e â‰ b ^ e` is a saving WITHIN
 -- a coordinate; density is a cost ACROSS them; and which dominates is a
--- question about âˆ‘_{pâ‰¤k} versus Ï€(k) that this file explicitly declines
+-- question about âˆ_{pâ‰k} versus Ï(k) that this file explicitly declines
 -- to touch, two paragraphs above the table that assumed the answer.
 --
--- Â§Â§1â€“2 are unaffected.  The word "IDENTIFIED" is withdrawn; that row is
+-- Â§Â§1â“2 are unaffected.  The word "IDENTIFIED" is withdrawn; that row is
 -- OPEN, for the reason the boundary paragraph already gave.
 ------------------------------------------------------------------------

@@ -1,68 +1,68 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤†à¤µà¤°à¥à¤¤à¤ƒ â€” à¤œà¤¨à¤•à¤¸à¥à¤¯ à¤†à¤µà¤°à¥à¤¤à¤ƒ à¤¸à¤°à¥à¤µà¤¾à¤‚ à¤˜à¤¾à¤¤à¤‚ à¤¨à¤¾à¤¶à¤¯à¤¤à¤¿ à¥¤
+-- ààµà°ààà â” àà¨à•ààà¯ ààµà°ààà àà°ààµà¾à à˜à¾àà à¨à¾àà¯àà¿ à
 --
 -- (the turning: the generator's own order annihilates every power of it,
 --  so RSA's single hypothesis is discharged where RSA actually lives.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE SUCCESSOR THIS FILE PAYS, NAMED BY THE MODULE THAT OWED IT.
 --
 -- `Bijamula_TheRSAPrivateKeyIsThePulverizersWitnessAndDecryptionIs
 -- PingalasExponentiation.agda` isolates RSA to one fact and says so
 -- exactly:
 --
---     "SO THE ONLY NUMBER THEORY IN RSA IS `pow x Ï† â‰¡ Îµ`.  Everything
---      else is Piá¹…gala's fold and Ä€ryabhaá¹­a's witness, both already
+--     "SO THE ONLY NUMBER THEORY IN RSA IS `pow x Ï â‰¡ Îµ`.  Everything
+--      else is Pigala's fold and ryabhaa's witness, both already
 --      checked."
 --
--- It is the hypothesis, not a lemma â€” deliberately, because the point is that
+-- It is the hypothesis, not a lemma â” deliberately, because the point is that
 -- RSA's correctness isolates to exactly this one fact. Proving it (order
--- divides Ï†, Lagrange) is a clean owed successor."*
+-- divides Ï, Lagrange) is a clean owed successor."*
 --
--- Â§à¥¨ is that successor, in the one case where it is one line â€” and that
--- case is not a toy.  `BijamulaKrida_â€¦agda` establishes the ground:
--- (â„¤/n)Ë£ for a semiprime is a product of two CYCLIC groups, so a cyclic
+-- Â§à¨ is that successor, in the one case where it is one line â” and that
+-- case is not a toy.  `BijamulaKrida_â¦agda` establishes the ground:
+-- (â/n)Ë for a semiprime is a product of two CYCLIC groups, so a cyclic
 -- factor is one CRT component of a real decryption, and it is where the
 -- exponentiation computes at all.  So discharging the hypothesis on a
 -- cyclic group discharges it exactly where that lane says RSA lives.
 --
 -- WHY IT IS ONE LINE.  In a cyclic group every element is a power of the
--- generator, and Piá¹…gala's two exponent laws are already proved in the
--- sibling module.  `à¤˜à¤¾à¤¤ (à¤˜à¤¾à¤¤ g k) n` reassociates to `à¤˜à¤¾à¤¤ (à¤˜à¤¾à¤¤ g n) k`
--- through commutativity of â„•-multiplication, the hypothesis collapses the
--- inner term to Îµ, and `à¤˜à¤¾à¤¤-Îµ` finishes.  Lagrange is not needed here
+-- generator, and Pigala's two exponent laws are already proved in the
+-- sibling module.  `à˜à¾à (à˜à¾à g k) n` reassociates to `à˜à¾à (à˜à¾à g n) k`
+-- through commutativity of â•-multiplication, the hypothesis collapses the
+-- inner term to Îµ, and `à˜à¾à-Îµ` finishes.  Lagrange is not needed here
 -- because a cyclic group's element orders divide the generator's order by
--- the arithmetic of exponents rather than by counting cosets â€” which is
+-- the arithmetic of exponents rather than by counting cosets â” which is
 -- the whole reason this case is separable from the general one.
 --
 --   * LAGRANGE, or Euler's theorem for a general finite group.  Not
 --     proved, not approached.  The general case needs cosets and
---     cardinality; nothing below counts anything.  Â§à¥¨ is the cyclic case
+--     cardinality; nothing below counts anything.  Â§à¨ is the cyclic case
 --     and is stated as the cyclic case.
---   * THAT (â„¤/n)Ë£ IS CYCLIC-BY-CRT.  Cited in `BijamulaKrida`'s header as
---     a classical fact and not proved in either file.  Â§à¥© therefore
+--   * THAT (â/n)Ë IS CYCLIC-BY-CRT.  Cited in `BijamulaKrida`'s header as
+--     a classical fact and not proved in either file.  Â§à© therefore
 --     discharges RSA's hypothesis for a group GIVEN as cyclic; it does not
 --     establish that any particular RSA modulus supplies one.
 --   * ANYTHING ABOUT ORDER-FINDING OR SHOR.  The sibling states that this
---     same fact is where Shor drives the wedge â€” security rests on Ï†(n)
+--     same fact is where Shor drives the wedge â” security rests on Ï(n)
 --     being hard without the factorisation, and order-finding gets the
 --     order directly, after which the factor falls out by a gcd, which is
---     the kuá¹­á¹­aka again.  Nothing here bears on that, in either
+--     the kuaka again.  Nothing here bears on that, in either
 --     direction: discharging the hypothesis makes RSA's CORRECTNESS
 --     unconditional on a cyclic group and says nothing whatever about its
 --     SECURITY.  Correctness and hardness are different statements and
 --     conflating them here would be the graver error.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- ON THE NAME.  à¤†à¤µà¤°à¥à¤¤ â€” a turning, a revolution, a whirl; ordinary
--- Sanskrit, used here in its plain sense for a group that comes back to
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- ON THE NAME.  ààµà°àà â” a turning, a revolution, a whirl; ordinary
+-- , used here in its plain sense for a group that comes back to
 -- where it started.  **NO SOURCE IS CLAIMED FOR IT AS A TECHNICAL TERM**,
--- and the compound in the title is built here.  à¤˜à¤¾à¤¤ (exponentiation as a
--- fold) is Piá¹…gala's procedure, à¤›à¤¨à¥à¤¦à¤ƒà¤¶à¤¾à¤¸à¥à¤¤à¥à¤°à¤®à¥ à¥® (~300 BCE), and the
--- kuá¹­á¹­aka whose witness supplies eÂ·d â‰¡ Ï†Â·k+1 is Ä€ryabhaá¹­a's,
--- à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥ à¤—à¤£à¤¿à¤¤à¤ªà¤¾à¤¦à¤ƒ à¥©à¥¨â€“à¥©à¥© (499) â€” both cited from the sibling module and
+-- and the compound in the title is built here.  à˜à¾à (exponentiation as a
+-- fold) is Pigala's procedure, àà¨àà¦ààà¾ààààà°à®à à® (~300 BCE), and the
+-- kuaka whose witness supplies eÂd â‰¡ ÏÂk+1 is ryabhaa's,
+-- àà°àà¯ààŸàà¯à®à à—àà¿ààà¾à¦à à©à¨â“à©à© (499) â” both cited from the sibling module and
 -- from this repository's own MulaVakya ledger, second-hand, owed at verse
 -- level.  The group theory is not Indian and is not dressed as Indian:
 -- CLAUDE.md's naming note 2 says to state that rather than invent a label,
@@ -90,10 +90,10 @@ module _ {M : Type â„“} (CM : CMonoid M) where
   open CMonoid CM
 
   ------------------------------------------------------------------------
-  -- à¥§ Â· à¤†à¤µà¤°à¥à¤¤à¤ƒ â€” a cyclic group, as the data that makes it one: a
+  -- à§ Â ààµà°ààà â” a cyclic group, as the data that makes it one: a
   --     generator, its order, and the fact that every element is a power
   --     of it.  Stated as a record of hypotheses rather than assumed of
-  --     the ambient monoid, so Â§à¥¨ says exactly what it needs.
+  --     the ambient monoid, so Â§à¨ says exactly what it needs.
   ------------------------------------------------------------------------
 
   à¤†à¤µà¤°à¥à¤¤à¤ƒ : M â†’ â„• â†’ Type â„“
@@ -101,12 +101,12 @@ module _ {M : Type â„“} (CM : CMonoid M) where
     where open import Cubical.Data.Sigma using (_Ã—_)
 
   ------------------------------------------------------------------------
-  -- à¥¨ Â· à¤¯à¥‚à¤²à¤°-à¤¸à¤¿à¤¦à¥à¤§à¤¿à¤ƒ â€” THE HYPOTHESIS, DISCHARGED.
+  -- à¨ Â à¯àà²à°-àà¿à¦àà§à¿à â” THE HYPOTHESIS, DISCHARGED.
   --
   --     Every element of a cyclic group is annihilated by the generator's
-  --     own order.  No counting, no cosets: the element is `à¤˜à¤¾à¤¤ g k`, and
-  --     `à¤˜à¤¾à¤¤ (à¤˜à¤¾à¤¤ g k) n â‰¡ à¤˜à¤¾à¤¤ (à¤˜à¤¾à¤¤ g n) k` by the commutativity of
-  --     â„•-multiplication inside Piá¹…gala's second exponent law.
+  --     own order.  No counting, no cosets: the element is `à˜à¾à g k`, and
+  --     `à˜à¾à (à˜à¾à g k) n â‰¡ à˜à¾à (à˜à¾à g n) k` by the commutativity of
+  --     â•-multiplication inside Pigala's second exponent law.
   ------------------------------------------------------------------------
 
   à¤œà¤¨à¤•-à¤†à¤µà¤°à¥à¤¤à¤ƒ : (g : M) (n : â„•) â†’ à¤˜à¤¾à¤¤ CM g n â‰¡ Îµ
@@ -126,15 +126,15 @@ module _ {M : Type â„“} (CM : CMonoid M) where
     âˆ™ à¤œà¤¨à¤•-à¤†à¤µà¤°à¥à¤¤à¤ƒ g n gnâ‰¡Îµ (fst (surj x))
 
   ------------------------------------------------------------------------
-  -- à¥© Â· à¤¬à¥€à¤œà¤®à¥‚à¤²-à¤¸à¤¿à¤¦à¥à¤§à¤¿à¤ƒ-à¤¨à¤¿à¤°à¥à¤ªà¤¾à¤§à¤¿à¤•à¤¾ â€” RSA correctness with NO Euler
+  -- à© Â àààà®àà²-àà¿à¦àà§à¿à-à¨à¿à°ààà¾à§à¿à•à¾ â” RSA correctness with NO Euler
   --     hypothesis, on a cyclic group.
   --
-  --     The sibling's theorem takes `à¤˜à¤¾à¤¤ x Ï† â‰¡ Îµ` as an argument.  Here
-  --     it is supplied by Â§à¥¨, so what remains to be given is exactly
-  --     Ä€ryabhaá¹­a's witness â€” eÂ·d â‰¡ Ï†Â·k+1 â€” and nothing else.  That is the
-  --     sentence "the only number theory in RSA is pow x Ï† â‰¡ Îµ" turned
+  --     The sibling's theorem takes `à˜à¾à x Ï â‰¡ Îµ` as an argument.  Here
+  --     it is supplied by Â§à¨, so what remains to be given is exactly
+  --     ryabhaa's witness â” eÂd â‰¡ ÏÂk+1 â” and nothing else.  That is the
+  --     sentence "the only number theory in RSA is pow x Ï â‰¡ Îµ" turned
   --     around: on this ground there is none left, and the whole of RSA is
-  --     Piá¹…gala's fold plus the pulverizer's witness.
+  --     Pigala's fold plus the pulverizer's witness.
   ------------------------------------------------------------------------
 
   à¤¬à¥€à¤œà¤®à¥‚à¤²-à¤¸à¤¿à¤¦à¥à¤§à¤¿à¤ƒ-à¤¨à¤¿à¤°à¥à¤ªà¤¾à¤§à¤¿à¤•à¤¾

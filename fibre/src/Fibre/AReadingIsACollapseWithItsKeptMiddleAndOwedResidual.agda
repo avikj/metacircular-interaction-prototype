@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- AReadingIsACollapseWithItsKeptMiddleAndOwedResidual
 --
--- The kernel overview names "six readings of the same object â€” memory,
+-- The kernel overview names "six readings of the same object â” memory,
 -- charge, symmetry, price, distance, verdict" and points OUTWARD to
 -- separate theorem files. This module does NOT pretend those six domain
 -- theorems are one term (they are not, and forcing them would be the hollow
@@ -11,19 +11,19 @@
 -- SHAPE every reading instantiates, so a reading stops being prose and
 -- becomes a structure a domain file can inhabit.
 --
--- A READING is a collapse `f : Source â†’ Target` whose readout lands in a
--- set (a reading decategorifies â€” the recurring fact of this corpus). From
+-- A READING is a collapse `f : Source â’ Target` whose readout lands in a
+-- set (a reading decategorifies â” the recurring fact of this corpus). From
 -- it the Carrier/Sesa law derives, at the record level:
 --
 --   middle          = Carrier f          -- the universal lossless middle
---   residual b      = à¤¶à¥‡à¤· f b            -- what the collapse forgets over b
---   middleâ‰ƒsource   : middle â‰ƒ Source    -- the source reading NEVER loses
---   lossless-iff    : (every residual contractible) â†’ middle â‰ƒ Target
+--   residual b      = ààà f b            -- what the collapse forgets over b
+--   middleâ‰source   : middle â‰ Source    -- the source reading NEVER loses
+--   lossless-iff    : (every residual contractible) â’ middle â‰ Target
 --
 -- So "reading" = a collapse together with its kept middle and owed
 -- residual, and the two halves of the design law are its two derived
 -- theorems. A typed family of readings is then just a function into
--- `Reading`; Â§3 gives the `verdict` reading (Bool â†’ Unit) as a checked
+-- `Reading`; Â§3 gives the `verdict` reading (Bool â’ Unit) as a checked
 -- instance whose residual is exactly one bit.
 ------------------------------------------------------------------------
 
@@ -71,9 +71,9 @@ record Reading (â„“ : Level) : Type (â„“-suc â„“) where
 open Reading
 
 ------------------------------------------------------------------------
--- Â§2  The verdict reading : Bool â†’ Unit, a checked instance whose residual
+-- Â§2  The verdict reading : Bool â’ Unit, a checked instance whose residual
 --     over the single target point is exactly one bit. A typed family of
---     readings is then just a function `I â†’ Reading`.
+--     readings is then just a function `I â’ Reading`.
 ------------------------------------------------------------------------
 
 verdict : Reading â„“-zero

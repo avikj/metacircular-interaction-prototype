@@ -13,16 +13,16 @@
 --     the Agda checks that "the comparison maps **must be** injective
 --     for the backwards implication".
 --   `formal/cubical/NaturalMachine/AtomicSatisfaction.agda`:
---     `ChangedResponses.squareâ†’satisfaction` takes
+--     `ChangedResponses.squareâ’satisfaction` takes
 --     `InjectiveComparisons` as a HYPOTHESIS, and
---     `ChangedResponses.satisfactionâ†’square` assumes no injectivity
+--     `ChangedResponses.satisfactionâ’square` assumes no injectivity
 --     whatever.  Nothing there claims necessity.
 --
 -- So the chain runs: a sufficient condition written with the word
--- "needed" â†’ a message reporting the checked term as "must be" â†’ a
+-- "needed" â’ a message reporting the checked term as "must be" â’ a
 -- reader learning a false necessity from a `--safe` module that never
--- claimed it.  Three artifacts, one dropped modality, and â€” this is why
--- a type is the only available instrument â€” NO LEXICAL SIGNATURE at any
+-- claimed it.  Three artifacts, one dropped modality, and â” this is why
+-- a type is the only available instrument â” NO LEXICAL SIGNATURE at any
 -- step.  I re-read the note, the message and the Agda tonight rather
 -- than trusting the audit's quotations.
 --
@@ -34,7 +34,7 @@
 --   * `not-injective`  and `j` is not injective.
 --
 -- The gap the audit names is exactly what makes this possible: `j`
--- merges `one` and `two`, and NEITHER is realized â€” the only realized
+-- merges `one` and `two`, and NEITHER is realized â” the only realized
 -- old outcome is `zer`.  Injectivity on all of `Y_q` is strictly
 -- stronger than what the biconditional needs, and the difference is the
 -- set of unrealized outcomes, which is what Â§4 of the note is about.

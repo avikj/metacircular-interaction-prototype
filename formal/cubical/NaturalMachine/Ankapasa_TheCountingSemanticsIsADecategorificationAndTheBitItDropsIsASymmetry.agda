@@ -4,10 +4,10 @@
 -- NaturalMachine.Ankapasa_TheCountingSemanticsIsADecategorification
 --                        AndTheBitItDropsIsASymmetry
 --
--- TERM.  ‡§Ö‡§ô‡•ç‡§ï‡§™‡§æ‡§∂ ¬∑ a·πÖkapƒÅ≈õa -- "the net of digits", the traditional name for
+-- TERM.  ‡‡ô‡‡ï‡‡æ‡ ¬ akapa -- "the net of digits", the traditional name for
 -- the combinatorics of PERMUTATIONS: how many arrangements a given multiset
--- of digits admits, and how to enumerate them in order.  BhƒÅskara II,
--- *Lƒ´lƒÅvatƒ´*, the a·πÖkapƒÅ≈õa section (~1150).
+-- of digits admits, and how to enumerate them in order.  Bhskara II,
+-- *Llvat*, the akapa section (~1150).
 --
 -- LIMIT ON THIS CITATION, stated rather than glossed.  I have NOT opened the
 -- verses and do not give verse numbers; editions differ in their numbering
@@ -16,7 +16,7 @@
 -- is standard and named; the verse range is not claimed.
 --
 -- SCOPE OF THE CLAIM ON THE SOURCE.  None of the theorems below are
--- BhƒÅskara's, and this is not a formalisation of the a·πÖkapƒÅ≈õa rules.  What
+-- Bhskara's, and this is not a formalisation of the akapa rules.  What
 -- is borrowed is the section's OBJECT: an arrangement, as distinct from the
 -- count of arrangements.  ¬ß4 shows the kernel's semantics keeps the count
 -- and provably cannot keep the arrangement, and that the missing datum is
@@ -25,36 +25,36 @@
 ------------------------------------------------------------------------
 -- THE THIRD READING OF THE SAME LINE, AND THE ONE THAT BUILDS.
 --
--- `Vyapti_‚Ä¶` read `NativeOperation.control-sound`: the kernel memorises.
--- `Sesa_‚Ä¶`   read `RewriteCertificate.derivation-sound`: the derivation
+-- `Vyapti_‚¶` read `NativeOperation.control-sound`: the kernel memorises.
+-- `Residue_‚¶`   read `RewriteCertificate.derivation-sound`: the derivation
 --            carries no meaning, so all of it is remainder.
 --
 -- Both are one fact.  Each soundness field lands in an identity type of a
--- SET (`Tm` for control, `‚Ñï` for meaning), hence in a proposition, hence
+-- SET (`Tm` for control, `‚ï` for meaning), hence in a proposition, hence
 -- carries zero bits.  So the diagnosis is not "the proofs are weak" but:
 --
 --     THE KERNEL'S SEMANTICS IS DECATEGORIFIED.
---     `eval : Tm ‚Üí Env ‚Üí ‚Ñï` keeps a cardinality and drops the bijection.
+--     `eval : Tm ‚í Env ‚í ‚ï` keeps a cardinality and drops the bijection.
 --
 -- This module builds the categorified semantics and measures the gap.
 --
---   ¬ß1  ‚ü¶_‚üß : Tm ‚Üí TEnv ‚Üí Type‚ÇÄ.  zero ‚Ü¶ ‚ä•, suc ‚Ü¶ Unit ‚äé ‚àí, add ‚Ü¶ ‚äé.
+--   ¬ß1  ‚ü¶_‚üß : Tm ‚í TEnv ‚í Type‚.  zero ‚¶ ‚ä, suc ‚¶ Unit ‚ä ‚àí, add ‚¶ ‚ä.
 --       The six variable coordinates stay distinct, as in `Env`.
 --   ¬ß2  step-equiv, derivation-equiv.  EVERY constructor of `Step` becomes
 --       an EQUIVALENCE and every `Derivation` a composite of them --
 --       `add-zero` the right unitor, `add-suc` a shuffle, the congruences
---       `‚äé-equiv`, and `reverse` `invEquiv`.  So the kernel's existing
+--       `‚ä-equiv`, and `reverse` `invEquiv`.  So the kernel's existing
 --       calculus already had a univalent semantics; nobody had written it.
---   ¬ß3  Step‚Å∫ / Derivation‚Å∫: the calculus extended by ONE constructor,
+--   ¬ß3  Step‚∫ / Derivation‚∫: the calculus extended by ONE constructor,
 --       `add-comm`.  It is sound for the counting semantics (`+-comm`), so
 --       this is a legitimate extension of the kernel and not a rigged one.
---   ¬ß4  THE SEPARATION.  Let œÉ interpret `var` by `Unit`, and let
---       `comm-loop : Derivation‚Å∫ (add var var) (add var var)` be the single
+--   ¬ß4  THE SEPARATION.  Let œ interpret `var` by `Unit`, and let
+--       `comm-loop : Derivation‚∫ (add var var) (add var var)` be the single
 --       commutation.  Then:
 --
 --         counting-semantics-cannot-see-it
---           its ‚Ñï-meaning is equal to `refl`, forced, and by `Sesa_‚Ä¶` ¬ß4 NO
---           function of that meaning distinguishes it from `done‚Å∫`;
+--           its ‚ï-meaning is equal to `refl`, forced, and by `Residue_‚¶` ¬ß4 NO
+--           function of that meaning distinguishes it from `done‚∫`;
 --         univalent-semantics-does-see-it
 --           its interpretation sends `inl tt` to `inr tt`, so it is not the
 --           identity map;
@@ -65,8 +65,8 @@
 --
 --       The bit the counting semantics provably cannot hold is a
 --       transposition of a two element type.  Commutativity of addition is
---       not free information: it is a ‚Ñ§/2 of holonomy, and every readout
---       valued in a set annihilates it (‡§®‡§Ø-‡§®‡§ø‡§∞‡•ã‡§ß‡§É).
+--       not free information: it is a ‚/2 of holonomy, and every readout
+--       valued in a set annihilates it (‡®‡Ø-‡®‡ø‡∞‡ã‡ß‡).
 --
 -- WHY THIS IS THE LANGUAGE-MODEL STATEMENT.  `install` makes a proved
 -- theorem a next-move, so the operation library is a learned policy.  A
@@ -129,7 +129,7 @@ open TEnv
 -- This is the semantics the kernel's calculus always admitted.  `add-zero`
 -- is the right unitor; `add-suc` is the shuffle that moves a successor out
 -- of the right summand and to the front; the three congruence constructors
--- are `‚äé-equiv`; and `reverse`, which in the counting semantics was `sym`,
+-- are `‚ä-equiv`; and `reverse`, which in the counting semantics was `sym`,
 -- is `invEquiv` -- the constructor that makes the derivation space a
 -- groupoid rather than a rewriting order.
 ------------------------------------------------------------------------
@@ -212,7 +212,7 @@ counting-semantics-cannot-see-it :
 counting-semantics-cannot-see-it œÅ =
   isSet‚Ñï (eval (add var var) œÅ) (eval (add var var) œÅ) _ _
 
--- and therefore, by the general no-go of `Sesa_‚Ä¶` ¬ß4 restated here at Step‚Å∫,
+-- and therefore, by the general no-go of `Residue_‚¶` ¬ß4 restated here at Step‚∫,
 -- no function whatsoever of the counting meaning separates them.
 no-counting-criterion-separates :
   {C : Type ‚Ñì} (œÜ : ((œÅ : Env) ‚Üí eval (add var var) œÅ ‚â° eval (add var var) œÅ) ‚Üí C)

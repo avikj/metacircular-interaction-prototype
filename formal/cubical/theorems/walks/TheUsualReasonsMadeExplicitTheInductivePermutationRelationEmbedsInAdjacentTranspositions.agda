@@ -6,18 +6,18 @@
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
 -- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT
 -- header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- permutation work â€” NÄrÄyaá¹‡a Paá¹‡á¸ita, *Gaá¹‡itakaumudÄ«* (1356) â€” is for
+-- permutation work â” Nryaa Paita, *Gaitakaumud* (1356) â” is for
 -- the ENUMERATION line, which is another identity's and is NOT what
 -- this module does: nothing here counts arrangements or generates them
 -- in order.  Claiming that source for a containment of two inductively
 -- defined relations would assert a provenance nobody checked, so it is
 -- not claimed.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE PHRASE UNDER AUDIT
 --
 -- `PairwiseCommutationGivesEveryOrder` defines `_~_` by four
--- constructors â€” `~nil`, `~cons`, `~swap`, `~trans` â€” and says in its
+-- constructors â” `~nil`, `~cons`, `~swap`, `~trans` â” and says in its
 -- NOT-CLAIMED section:
 --
 --   "`_~_` is a DEFINITION, not a characterisation: nothing here proves
@@ -27,10 +27,10 @@
 --    reasons and is not proved to be**."
 --
 -- The flag is honest and the phrase inside it is an appeal.  **"The
--- usual reasons" is a proof, and it fits in a page**; Â§Â§1â€“3 are that
+-- usual reasons" is a proof, and it fits in a page**; Â§Â§1â“3 are that
 -- page, and Â§4 lands it on the corpus's own relation.
 --
--- WHAT IS PROVED, over an ARBITRARY element type â€” no decidable
+-- WHAT IS PROVED, over an ARBITRARY element type â” no decidable
 -- equality, no h-level, no finiteness:
 --
 --   Insert x xs ys      `ys` is `xs` with one `x` put in at some place
@@ -38,15 +38,15 @@
 --                       permute the tail, then insert the head anywhere
 --   _â‰ˆ_                 the adjacent-transposition closure, the same
 --                       four constructors as the corpus's `_~_`
---   â‰ˆ-refl              reflexivity, by induction on the list â€” NOT a
+--   â‰ˆ-refl              reflexivity, by induction on the list â” NOT a
 --                       constructor, and needed before anything else
 --   insertIsAnAdjacentChain
---                       `Insert x xs ys â†’ (x âˆ· xs) â‰ˆ ys`.  **This is
+--                       `Insert x xs ys â’ (x âˆ xs) â‰ˆ ys`.  **This is
 --                       the whole content**: sliding one element past
 --                       `k` others is `k` adjacent swaps, and the
 --                       induction is exactly that slide
 --   permIsAnAdjacentChain
---                       `Perm xs ys â†’ xs â‰ˆ ys`
+--                       `Perm xs ys â’ xs â‰ˆ ys`
 --   permGivesTheCorpusRelation
 --                       and at `A := Step C` the same proof lands in
 --                       `PairwiseCommutationGivesEveryOrder._~_`, via a
@@ -59,7 +59,7 @@
 -- bridge between the two is the one induction that has to walk down the
 -- list.  Everything else is plumbing.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -74,7 +74,7 @@ open import PairwiseCommutationGivesEveryOrder
   using (_~_ ; ~nil ; ~cons ; ~swap ; ~trans)
 
 ------------------------------------------------------------------------
--- 1.  Insertion, permutation, and adjacency â€” over any element type
+-- 1.  Insertion, permutation, and adjacency â” over any element type
 ------------------------------------------------------------------------
 
 module _ {A : Type} where
@@ -125,9 +125,9 @@ module _ {A : Type} where
     â‰ˆtrans (â‰ˆcons (permIsAnAdjacentChain p)) (insertIsAnAdjacentChain ins)
 
 ------------------------------------------------------------------------
--- 4.  â€¦and it lands on the corpus's own relation
+-- 4.  â¦and it lands on the corpus's own relation
 --
--- `_~_` is declared inside `module _ {S T : Type} (C : S â†’ T)` over
+-- `_~_` is declared inside `module _ {S T : Type} (C : S â’ T)` over
 -- `List (Step C)`, with exactly the four constructors of `_â‰ˆ_`.  The
 -- translation is therefore constructor-for-constructor, and the point
 -- of writing it out is that it is: no side condition appears, so the

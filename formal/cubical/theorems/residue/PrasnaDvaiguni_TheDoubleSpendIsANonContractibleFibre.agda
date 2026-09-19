@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe #-}
 
--- ‡§™‡•ç‡§∞‡§∂‡•ç‡§®-‡§¶‡•ç‡§µ‡•à‡§ó‡•Å‡§£‡•ç‡§Ø ‚Äî a question put to the kernel, not narrated.
--- The exclusive-resource design (docs/build/ExclusiveResourceOrdering_‚Ä¶)
+-- ‡‡‡∞‡‡‡®-‡¶‡‡µ‡à‡ó‡‡‡‡Ø ‚î a question put to the kernel, not narrated.
+-- The exclusive-resource design (docs/build/ExclusiveResourceOrdering_‚¶)
 -- rests on ONE load-bearing claim: a valid spend keeps the source
 -- fibre contractible, and a DOUBLE spend forces it non-contractible.
 -- Here that claim is stated so the kernel answers, not the carrier.
 --
 -- Model, minimal and honest: a coin source is a point `src : A`.
 -- A spend of it is a point of its fibre under the ledger map
--- `f : A ‚Üí B` at the source's image ‚Äî i.e. a point of `singl (f src)`,
--- which is `Œ£[ b ] (f src ‚â° b)`.  A SINGLE valid spend is the canonical
+-- `f : A ‚í B` at the source's image ‚î i.e. a point of `singl (f src)`,
+-- which is `Œ[ b ] (f src ‚â° b)`.  A SINGLE valid spend is the canonical
 -- inhabitant `(f src , refl)`.  The claim: the type of spends is
--- contractible, so any two spends are ALREADY EQUAL ‚Äî there is no room
+-- contractible, so any two spends are ALREADY EQUAL ‚î there is no room
 -- for a second, distinct spend.  A "double spend" would be two spends
--- p q with p ‚â¢ q; the kernel is asked whether that can coexist with
+-- p q with p ‚â q; the kernel is asked whether that can coexist with
 -- contractibility.
 
 module PrasnaDvaiguni_TheDoubleSpendIsANonContractibleFibre where
@@ -33,7 +33,7 @@ module _ {‚Ñì} {A B : Type ‚Ñì} (f : A ‚Üí B) (src : A) where
 
   -- THE ANSWER, kernel-said: any two spends of one source are equal.
   -- So a "double spend" (two distinct spends) is impossible AT the fibre
-  -- ‚Äî the impossibility is contractibility itself, not an ordering rule.
+  -- ‚î the impossibility is contractibility itself, not an ordering rule.
   no-double-spend : (p q : Spend) ‚Üí p ‚â° q
   no-double-spend = isContr‚ÜíisProp spend-isContr
 

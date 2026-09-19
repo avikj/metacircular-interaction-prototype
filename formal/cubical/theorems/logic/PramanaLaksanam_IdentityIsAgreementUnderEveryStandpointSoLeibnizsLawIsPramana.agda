@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§≤‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç ‚Äî identity is agreement under EVERY standpoint: Leibniz's
--- law is pramƒÅ·πáa.  The foundation of sameness itself, as anekƒÅnta.
+-- ‡‡‡∞‡Æ‡æ‡‡≤‡ï‡‡‡‡Æ‡ ‚î identity is agreement under EVERY standpoint: Leibniz's
+-- law is prama.  The foundation of sameness itself, as aneknta.
 --
 -- THE ASCENT (continuing `SarvavibhagaH`, `SamgrahaNaya`, `Anubandha`).
--- `NayaVada.‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç` proved, for a specific object, that agreement on ALL
+-- `NayaVada.‡‡‡∞‡Æ‡æ‡‡Æ‡` proved, for a specific object, that agreement on ALL
 -- seven nayas is identity.  Its general form is the foundation of identity
 -- in all of mathematics: two things are the SAME exactly when EVERY
 -- standpoint (every predicate P) carries the one to the other.
 --
---     x ‚â° y    ‚ü∫    (‚àÄ P, P x ‚Üí P y).
+--     x ‚â° y    ‚ü∫    (‚à P, P x ‚í P y).
 --
--- Forward is transport (`subst` ‚Äî the free road, `PramanaSankramana`): a
--- proven identity carries every property.  Backward is pramƒÅ·πáa: if every
+-- Forward is transport (`subst` ‚î the free road, `PramanaSankramana`): a
+-- proven identity carries every property.  Backward is prama: if every
 -- standpoint agrees, apply the standpoint P := (x ‚â°_) to its own reflexive
 -- witness and identity falls out.  So identity is NOT a primitive datum
 -- read off one privileged standpoint; it is what ALL standpoints, taken
--- together (pramƒÅ·πáa), certify ‚Äî and no single naya is enough (a durnaya
--- claims one predicate settles it; `NayaVada.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` refutes that).
+-- together (prama), certify ‚î and no single naya is enough (a durnaya
+-- claims one predicate settles it; `NayaVada.‡¶‡‡∞‡‡®‡Ø‡` refutes that).
 --
 -- WHAT IS PROVED:
---   ¬ß1  ‡§®‡§Ø‡•á‡§®-‡§Ü‡§∞‡•ã‡§π‡§É : x ‚â° y ‚Üí (‚àÄ P, P x ‚Üí P y).  Identicals are
---       indiscernible ‚Äî every standpoint transports (subst).
---   ¬ß2  ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡•á‡§®-‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç : (‚àÄ P, P x ‚Üí P y) ‚Üí x ‚â° y.  Indiscernibles
---       are identical ‚Äî total agreement IS identity (apply at P = x ‚â°_).
---   ¬ß3  ‡§≤‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç : the two package to the biconditional ‚Äî identity ‚â°
---       agreement-under-every-standpoint.  PramƒÅ·πáa is the totality of
+--   ¬ß1  ‡®‡Ø‡‡®-‡‡∞‡ã‡‡ : x ‚â° y ‚í (‚à P, P x ‚í P y).  Identicals are
+--       indiscernible ‚î every standpoint transports (subst).
+--   ¬ß2  ‡‡‡∞‡Æ‡æ‡‡‡®-‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡Æ‡ : (‚à P, P x ‚í P y) ‚í x ‚â° y.  Indiscernibles
+--       are identical ‚î total agreement IS identity (apply at P = x ‚â°_).
+--   ¬ß3  ‡≤‡ï‡‡‡‡Æ‡ : the two package to the biconditional ‚î identity ‚â°
+--       agreement-under-every-standpoint.  Prama is the totality of
 --       nayas, and it is faithful.
 --
 -- No postulates, no holes, --safe.
@@ -46,14 +46,14 @@ private
 ‡§∏‡§∞‡•ç‡§µ‡§®‡§Ø‡•à‡§É-‡§∏‡§Æ‡•ç‡§Æ‡§§‡§ø‡§É {‚Ñì' = ‚Ñì'} {A = A} x y = (P : A ‚Üí Type ‚Ñì') ‚Üí P x ‚Üí P y
 
 ------------------------------------------------------------------------
--- ¬ß1  ‡§®‡§Ø‡•á‡§®-‡§Ü‡§∞‡•ã‡§π‡§É ‚Äî identicals are indiscernible: every standpoint transports.
+-- ¬ß1  ‡®‡Ø‡‡®-‡‡∞‡ã‡‡ ‚î identicals are indiscernible: every standpoint transports.
 ------------------------------------------------------------------------
 
 ‡§®‡§Ø‡•á‡§®-‡§Ü‡§∞‡•ã‡§π‡§É : {A : Type ‚Ñì} {x y : A} ‚Üí x ‚â° y ‚Üí ‡§∏‡§∞‡•ç‡§µ‡§®‡§Ø‡•à‡§É-‡§∏‡§Æ‡•ç‡§Æ‡§§‡§ø‡§É {‚Ñì' = ‚Ñì} x y
 ‡§®‡§Ø‡•á‡§®-‡§Ü‡§∞‡•ã‡§π‡§É p P = subst P p
 
 ------------------------------------------------------------------------
--- ¬ß2  ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡•á‡§®-‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç ‚Äî indiscernibles are identical: total agreement
+-- ¬ß2  ‡‡‡∞‡Æ‡æ‡‡‡®-‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡Æ‡ ‚î indiscernibles are identical: total agreement
 --     IS identity (apply the standpoint P := (x ‚â°_) to refl).
 ------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ private
 ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡•á‡§®-‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç {x = x} agree = agree (Œª z ‚Üí x ‚â° z) refl
 
 ------------------------------------------------------------------------
--- ¬ß3  ‡§≤‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç ‚Äî identity is agreement under every standpoint (both ways).
+-- ¬ß3  ‡≤‡ï‡‡‡‡Æ‡ ‚î identity is agreement under every standpoint (both ways).
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Sigma using (_√ó_ ; _,_)

@@ -8,14 +8,14 @@
 -- The mathematics in this module originates with Eudoxus of Cnidus, as
 -- transmitted in Euclid, *Elements* Book V, definition 4:
 --
---   λόγον ἔχειν πρὸς ἄλληλα μεγέθη λέγεται, ἃ δύναται
---   πολλαπλασιαζόμενα ἀλλήλων ὑπερέχειν.
+--   λ�γον ���ε�ν �Ͻ� �λλ�λ� μεγ��� λ�γε���, � δ�ν����
+--   �ολλ��λ������μεν� �λλήλων ��ε���ε�ν.
 --   "Magnitudes are said to have a ratio to one another which are
 --    capable, when multiplied, of exceeding one another."
 --
 -- The file therefore leads with the source's own term for the object,
--- λόγον ἔχειν / *logon echein*, "to have a ratio", transliterated.  Greek,
--- not Sanskrit, because Greek is the source language here.  **No Sanskrit
+-- λ�γον ���ε�ν / *logon echein*, "to have a ratio", transliterated.  Greek,
+-- not , because Greek is the source language here.  **No 
 -- label is invented for this**, and no Indian text is claimed as its
 -- origin; note 2 of the file-naming rule forbids exactly that, and the
 -- section "THE OTHER DIRECTION" below runs the provenance search in the
@@ -29,60 +29,60 @@
 ------------------------------------------------------------------------
 -- THE TRANSMISSION, NAMED.
 --
--- Archimedes' *Ἔφοδος* / *Method of Mechanical Theorems*, addressed to
+-- Archimedes' *��οδο�* / *Method of Mechanical Theorems*, addressed to
 -- Eratosthenes, survives in one witness.  A 10th-century Byzantine
 -- parchment copy was scraped, cut, refolded and overwritten as a Greek
 -- Orthodox euchologion; the overwriting scribe signs and dates the new
 -- book 14 April 1229.  Johan Ludvig Heiberg identified the undertext in
 -- the Metochion of the Holy Sepulchre, Constantinople, in 1906, read what
 -- he could with a magnifying glass and photographs, and published the
--- *Method* in 1906–1913.  The book then left the record; four pages
+-- *Method* in 1906�1913.  The book then left the record; four pages
 -- acquired forged Byzantine-style evangelist portraits at some point in
 -- the 20th century.  It reappeared at Christie's New York, sold 29 October
 -- 1998, and was deposited at the Walters Art Museum, Baltimore, where
--- multispectral and synchrotron X-ray fluorescence imaging, 1999–2008,
+-- multispectral and synchrotron X-ray fluorescence imaging, 1999�2008,
 -- recovered text Heiberg could not read, including the part of Method
 -- prop. 14 in which Archimedes compares collections that are both
 -- infinite.
 --
 -- The *Method*'s own preface states the division this module depends on:
 -- the mechanical procedure supplies the result, and *does not demonstrate
--- it* (οὐκ ἀποδεδειγμένον); the demonstration is the separate
+-- it* (ο��κ ��οδεδε�γμ�νον); the demonstration is the separate
 -- double-reduction argument.  Two stages, not one, and the second is where
 -- definition V.4 is consumed.
 --
 ------------------------------------------------------------------------
 -- THE OTHER DIRECTION, RUN, WITH A NEGATIVE RESULT REPORTED PLAINLY.
 --
--- Baudhāyana *Śulbasūtra*, c. 800 BCE.  1.9 (the square on the diagonal:
--- *dīrghacaturaśrasyākṣṇayā rajjuḥ pārśvamānī tiryagmānī ca yatpṛthagbhūte
--- kurutastadubhayaṃ karoti*) is an exact statement about areas.  2.12 gives
--- the *dvikaraṇī*, the side of the square of twice the area: *pramāṇaṃ
--- tṛtīyena vardhayet tacca caturthenātmacatustriṃśonena* — increase the
+-- Baudhyana *ulbastra*, c. 800 BCE.  1.9 (the square on the diagonal:
+-- *drghacaturarasykay rajju prvamn tiryagmn ca yatpthagbhte
+-- kurutastadubhaya karoti*) is an exact statement about areas.  2.12 gives
+-- the *dvikara*, the side of the square of twice the area: *prama
+-- ttyena vardhayet tacca caturthentmacatustrionena* � increase the
 -- measure by its third, and that third by its own fourth less the
--- thirty-fourth part of that, i.e. 1 + 1/3 + 1/(3·4) − 1/(3·4·34) =
--- 577/408.  The circle-squaring rules (*caturaśrāt parimaṇḍalam*, 2.9–2.10)
+-- thirty-fourth part of that, i.e. 1 + 1/3 + 1/(3�4) − 1/(3�4�34) =
+-- 577/408.  The circle-squaring rules (*caturart parimaalam*, 2.9�2.10)
 -- are of the same form: a construction and a stated numerical rule.
 --
--- Plainly: **the Śulbasūtras as transmitted do not state an exhaustion
+-- Plainly: **the ulbastras as transmitted do not state an exhaustion
 -- argument.**  There is no sequence indexed by a step count, no bound on a
 -- residual, and no reductio.  A one-shot rational rule with no error term
 -- is not a double reduction, and reading one into it would be the
 -- invented lineage note 2 forbids.  (This corpus already carries
 -- `Dvikarani.agda` on 2.12 and does not claim otherwise there.)
 --
--- Jyeṣṭhadeva, *Gaṇita-yukti-bhāṣā*, Malayalam, c. 1530, giving *yukti* for
--- results of Nīlakaṇṭha's *Tantrasaṅgraha* (1501).  Here the answer changes
--- and it changes on one specific point.  The *saṅkalita* derivations obtain
+-- Jyehadeva, *Gaita-yukti-bh*, Malayalam, c. 1530, giving *yukti* for
+-- results of Nlakaha's *Tantrasagraha* (1501).  Here the answer changes
+-- and it changes on one specific point.  The *sakalita* derivations obtain
 -- the sums of like powers with the residual explicitly identified as of
 -- lower order for large index, and the *paridhi* series is given together
--- with the *antya-saṃskāra*, the end-correction, in successive refinements
+-- with the *antya-saskra*, the end-correction, in successive refinements
 -- whose comparison is itself argued.  That is an **error term with a
 -- stated criterion**, which the Greek exhaustion arguments do not produce:
 -- a double reduction returns equality and returns no bound on the residual
 -- of the n-th inscribed figure.
 --
--- Plainly, and both halves are facts: the *Yuktibhāṣā* does not run the
+-- Plainly, and both halves are facts: the *Yuktibh* does not run the
 -- double-reduction schema and does not state definition V.4's admission
 -- condition; and it does state, quantitatively, what a double reduction
 -- discards.  Neither text is scored against the other here.
@@ -93,12 +93,12 @@
 -- Definition V.4 read as a rule of a system:
 --
 --   R1  comparison is total (trichotomy);
---   R2  double reduction: ¬(x ⊏ y) → ¬(y ⊏ x) → x ≡ y;
---   R3  λόγον ἔχειν: for 𝟘 ⊏ x, some n ⊙ x exceeds y;
+--   R2  double reduction: �(x � y) � �(y � x) � x ≡ y;
+--   R3  λ�γον ���ε�ν: for � � x, some n ⊙ x exceeds y;
 --   R4  addition is strictly monotone and cancellative;
 --   R5  a least positive magnitude exists.
 --
--- The lexicographically ordered pair monoid ℕ × ℕ satisfies R1, R2, R4, R5
+-- The lexicographically ordered pair monoid � � � satisfies R1, R2, R4, R5
 -- and refutes R3.  Hence R3 is independent of the rest, and no ordering,
 -- restriction, or precedence relation among R1, R2, R4, R5 can produce it.
 --
@@ -110,11 +110,11 @@
 --
 -- SCOPE, NARROWED BY A CHECK IN §9 AND NOT BY A CAVEAT.  Euclid's magnitudes
 -- admit taking a lesser from a greater (common notion 3, used throughout
--- Book V).  §9 checks that **this witness does not**: ε ⊏ Ω, and yet no z
+-- Book V).  §9 checks that **this witness does not**: ε � Ω, and yet no z
 -- satisfies ε ⊕ z ≡ Ω.  So `logon-echein-is-independent` is independence
 -- over ordered commutative *monoids*, and that is all it is.  Independence
 -- over ordered abelian *groups* is not settled here; the candidate witness
--- is ℤ × ℤ lex, and cubical v0.5 carries no order on `Cubical.Data.Int`
+-- is � � � lex, and cubical v0.5 carries no order on `Cubical.Data.Int`
 -- (a fact `NaturalMachine/OrderedSectorBreak.agda` records independently),
 -- so it is not formalized in this module.
 --
@@ -158,18 +158,18 @@ x ⊏ y = (fst x < fst y) ⊎ ((fst x ≡ fst y) × (snd x < snd y))
 _⊕_ : Mag → Mag → Mag
 x ⊕ y = (fst x + fst y) , (snd x + snd y)
 
--- Repeated addition, which is the "multiplied" (πολλαπλασιαζόμενα) of
+-- Repeated addition, which is the "multiplied" (�ολλ��λ������μεν�) of
 -- definition V.4.
 _⊙_ : ℕ → Mag → Mag
 zero  ⊙ x = 𝟘
 suc n ⊙ x = x ⊕ (n ⊙ x)
 
 ------------------------------------------------------------------------
--- 2.  R2 — double reduction holds
+-- 2.  R2 � double reduction holds
 --
 -- This is the schema Archimedes closes with: the magnitude is neither
 -- greater nor less, therefore equal.  It is checked here, in full, in the
--- structure that refutes R3 — which is the content of the module.
+-- structure that refutes R3 � which is the content of the module.
 ------------------------------------------------------------------------
 
 double-reduction : (x y : Mag) → ¬ (x ⊏ y) → ¬ (y ⊏ x) → x ≡ y
@@ -182,7 +182,7 @@ double-reduction x y nxy nyx with fst x ≟ fst y
 ...   | eq q = ΣPathP (p , q)
 
 ------------------------------------------------------------------------
--- 3.  R4 — addition is strictly monotone and cancellative
+-- 3.  R4 � addition is strictly monotone and cancellative
 ------------------------------------------------------------------------
 
 ⊕-strict-mono : (x y z : Mag) → x ⊏ y → (x ⊕ z) ⊏ (y ⊕ z)
@@ -194,7 +194,7 @@ double-reduction x y nxy nyx with fst x ≟ fst y
   ΣPathP ( inj-+m (cong fst p) , inj-+m (cong snd p) )
 
 ------------------------------------------------------------------------
--- 4.  R5 — ε is the least positive magnitude
+-- 4.  R5 � ε is the least positive magnitude
 ------------------------------------------------------------------------
 
 -- Both members of the exotic pair are genuine positive magnitudes, and
@@ -217,7 +217,7 @@ double-reduction x y nxy nyx with fst x ≟ fst y
 ... | gt p = ⊥-rec (¬m<m (≤<-trans r p))
 
 ------------------------------------------------------------------------
--- 5.  R3 fails — the exotic pair
+-- 5.  R3 fails � the exotic pair
 --
 -- Every multiple of ε stays at level 0.  Ω sits at level 1.  Nothing at
 -- level 0 exceeds it, whatever its offset.
@@ -240,7 +240,7 @@ logon-echein-fails (n , h) =
   level0-never-exceeds-Ω (n · 1) (subst (Ω ⊏_) (scale-level0 n 1) h)
 
 ------------------------------------------------------------------------
--- 6.  Positive control — R3 holds within one level
+-- 6.  Positive control � R3 holds within one level
 --
 -- The failure is exactly the passage between levels, not a defect of the
 -- construction.  Restricted to level 0, definition V.4 is satisfied.
@@ -286,10 +286,10 @@ logon-echein-is-independent =
 --
 -- CLAIM A, which is what I set out to prove when I opened this file:
 --   "A totally ordered, cancellative magnitude system with a least
---    positive element is Archimedean — repeated addition of the least
+--    positive element is Archimedean � repeated addition of the least
 --    positive element eventually passes any magnitude."
 --
--- It is true in ℕ, which is why it is tempting.  It is false, and the two
+-- It is true in �, which is why it is tempting.  It is false, and the two
 -- terms that kill it are `ε-least-positive` (ε *is* the least positive
 -- magnitude) and `logon-echein-fails` (no multiple of ε reaches Ω), which
 -- hold simultaneously in the same structure.  Packaged:
@@ -309,7 +309,7 @@ claim-A-refuted = ε-least-positive , logon-echein-fails
 -- checked term here, and `logon-echein-fails` holds beside it.  Double
 -- reduction returns equality whenever both strict comparisons are refuted;
 -- it supplies nothing that refutes them.  In this structure the two
--- comparisons Ω ⊏ n ⊙ ε are never refuted-and-refuted, they are simply
+-- comparisons Ω � n ⊙ ε are never refuted-and-refuted, they are simply
 -- never established, and the proof does not start.
 ------------------------------------------------------------------------
 
@@ -321,11 +321,11 @@ claim-B-refuted = double-reduction , logon-echein-fails
 ------------------------------------------------------------------------
 -- 9.  CLAIM C, the one that cost something, killed here
 --
---   "ℕ × ℕ lex is a magnitude system in Euclid's sense, so §7 refutes the
+--   "� � � lex is a magnitude system in Euclid's sense, so §7 refutes the
 --    classification for magnitudes."
 --
 -- Euclid takes a lesser magnitude from a greater throughout Book V
--- (common notion 3).  This witness does not admit that operation: ε ⊏ Ω
+-- (common notion 3).  This witness does not admit that operation: ε � Ω
 -- is checked above, and there is no z with ε ⊕ z ≡ Ω, because ε already
 -- carries an offset that addition can never remove.
 ------------------------------------------------------------------------
@@ -333,7 +333,7 @@ claim-B-refuted = double-reduction , logon-echein-fails
 no-difference-of-ε-from-Ω : ¬ (Σ Mag (λ z → (ε ⊕ z) ≡ Ω))
 no-difference-of-ε-from-Ω (z , p) = snotz (cong snd p)
 
--- Together with ε-⊏-Ω this is the refutation: a lesser magnitude, a
+-- Together with ε-�-Ω this is the refutation: a lesser magnitude, a
 -- greater magnitude, and no difference between them.
 claim-C-refuted : (ε ⊏ Ω) × (¬ (Σ Mag (λ z → (ε ⊕ z) ≡ Ω)))
 claim-C-refuted = ε-⊏-Ω , no-difference-of-ε-from-Ω

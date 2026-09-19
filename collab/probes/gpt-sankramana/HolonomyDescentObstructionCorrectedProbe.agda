@@ -5,7 +5,7 @@
 --
 -- The higher obstruction to dependent descent.  This corrected copy differs
 -- from the first probe only at one universe annotation: `HolonomyWitness`
--- lives in the fibre universe ℓ'', because x and p are parameters rather than
+-- lives in the fibre universe �'', because x and p are parameters rather than
 -- stored data.  The first probe remains as provenance for that pre-kernel
 -- correction.
 ------------------------------------------------------------------------
@@ -17,7 +17,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 open import Cubical.Data.Unit using (tt ; isSetUnit)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough)
 
 private
@@ -35,15 +35,15 @@ transport-roundtrip {A = A} r a =
 -- 2026-08-24, repair from outside this lane (see the STATUS note at the head
 -- of the file).  `q`, `F` and `D` were IMPLICIT here, and they are not
 -- inferable from `comparison` at any Agda version: its type mentions
--- `D (q x)`, so solving it means solving `_D (_q x) ≡ D (q x)` — a
+-- `D (q x)`, so solving it means solving `_D (_q x) ≡ D (q x)` � a
 -- metavariable applied to another metavariable's output, outside Miller's
 -- pattern fragment, which Agda leaves as an unsolved constraint rather than
 -- guessing.  The kernel said so verbatim:
 --
---     _D_246 (_q_244 x) = D (q x) : Type ℓ'' (blocked on _D_246)
+--     _D_246 (_q_244 x) = D (q x) : Type �'' (blocked on _D_246)
 --
 -- Made explicit and passed at the one call site.  Nothing about the
--- mathematics changes — the J-elimination below is untouched.
+-- mathematics changes � the J-elimination below is untouched.
 transport-naturality :
   {X : Type ℓ} {O : Type ℓ'}
   (q : X → O) (F : X → Type ℓ'') (D : O → Type ℓ'')

@@ -1,34 +1,34 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤µà¤°à¥à¤¤à¤¨ â€” the turning.
+-- àµà°ààà¨ â” the turning.
 --
 -- THE FIRST-RETURN RADIAL OPERATOR IS THREE BOUNDARY FORMS PLUS AN EXACT
 -- DERIVATIVE; AND THE INDICIAL POLYNOMIAL OF EVERY TOROIDAL DEGREE
 -- FACTORS, SO DEGREE TWO IS THE ONLY CHANNEL WITH INWARD EXPONENT ZERO.
 --
 -- Two identities from the toroidal return calculation [S15 Â§5, S20
--- Â§Â§6â€“8], both algebra about a derivation, both exact.
+-- Â§Â§6â“8], both algebra about a derivation, both exact.
 --
---   Â§1  THE RETURN OPERATOR'S INTEGRATION BY PARTS.  With `gâ€² = d g`
+--   Â§1  THE RETURN OPERATOR'S INTEGRATION BY PARTS.  With `gâ² = d g`
 --       and so on, and
 --
---         ğ’ = 15 g h + 6 r gâ€² h + 3 r g hâ€² + p f âˆ’ r pâ€² f âˆ’ 4 r p fâ€² ,
+--         ğ’ = 15 g h + 6 r gâ² h + 3 r g hâ² + p f âˆ’ r pâ² f âˆ’ 4 r p fâ² ,
 --
 --       the identity
 --
---         r ğ’  â‰¡  3 [ (3 r g + rÂ² gâ€²) h + (3 r p + rÂ² pâ€²) f ]
+--         r ğ’  â‰¡  3 [ (3 r g + rÂ² gâ²) h + (3 r p + rÂ² pâ²) f ]
 --                 +  d ( 3 rÂ² g h âˆ’ 4 rÂ² p f )
 --
 --       holds in any commutative ring with a derivation `d` and `d r â‰¡ 1`.
 --       The two bracketed forms are exactly the unit Green responses
---       `3 t g_s(t) + tÂ² g_sâ€²(t)` and `3 s p_t(s) + sÂ² p_tâ€²(s)` that
---       become the two-radius kernel Lâ‚‚â‚„; the derivative term is what a
+--       `3 t g_s(t) + tÂ² g_sâ²(t)` and `3 s p_t(s) + sÂ² p_tâ²(s)` that
+--       become the two-radius kernel Lââ; the derivative term is what a
 --       compactly supported source integrates to zero.  So the return
 --       kernel is those two boundary forms and nothing else.
 --
 --   Â§2  THE INDICIAL POLYNOMIAL FACTORS.  The radial equation for the
---       degree-l toroidal vector potential, qâ€³ + (6/r) qâ€² âˆ’ (lâˆ’2)(l+3)
+--       degree-l toroidal vector potential, qâ³ + (6/r) qâ² âˆ’ (lâˆ’2)(l+3)
 --       q/rÂ² = âˆ’f/rÂ², has indicial polynomial
 --
 --         k (k âˆ’ 1) + 6 k âˆ’ (l âˆ’ 2)(l + 3)  â‰¡  (k âˆ’ (l âˆ’ 2)) (k + (l + 3)) ,
@@ -36,33 +36,33 @@
 --       an identity in any commutative ring.  Its roots are the two
 --       radial exponents, inward `l âˆ’ 2` and outward `âˆ’(l + 3)`.
 --
---   Â§3  AND `r^{lâˆ’2}` IS THE INWARD SOLUTION, for every l â‰¥ 2: with
+--   Â§3  AND `r^{lâˆ’2}` IS THE INWARD SOLUTION, for every l â‰ 2: with
 --       k = l âˆ’ 2,
 --
---         rÂ² Â· d(d(r^k)) + 6 r Â· d(r^k)  â‰¡  k (k + 5) Â· r^k ,
+--         rÂ² Â d(d(r^k)) + 6 r Â d(r^k)  â‰¡  k (k + 5) Â r^k ,
 --
 --       and k (k + 5) = (l âˆ’ 2)(l + 3).  For l = 2 the right side is
 --       zero: the interior potential is constant, the interior velocity
---       is linear, and a remote shell contributes a constant strain â€”
---       the marginal channel.  For every l â‰¥ 3 the exponent is
+--       is linear, and a remote shell contributes a constant strain â”
+--       the marginal channel.  For every l â‰ 3 the exponent is
 --       positive and a remote shell's contribution is attenuated by the
 --       radius ratio to that power.  Degree one has exponent âˆ’1, the
 --       translation gauge.
 --
--- WHY Â§3 IS STATED WITH k AND NOT l âˆ’ 2.  Subtraction in â„• is a
+-- WHY Â§3 IS STATED WITH k AND NOT l âˆ’ 2.  Subtraction in â• is a
 -- truncation; the honest statement is over the exponent k with l = k+2,
 -- which is every toroidal degree from two upward.  The degree-one case
 -- has a negative exponent and is the gauge channel the commentary
 -- names; it is not in Â§3 because `r^{-1}` is not a polynomial.
 --
--- SYÄ€T â€” THE CLAIM, EXACTLY.  Â§1 in any commutative ring with an
+-- SYT â” THE CLAIM, EXACTLY.  Â§1 in any commutative ring with an
 -- additive Leibniz `d` and any `r` with `d r â‰¡ 1`, for all g, h, p, f.
 -- Â§2 in any commutative ring.  Â§3 in any such ring with derivation, for
--- every exponent.  NOT claimed: that ğ’ IS the projected return (that is
+-- every exponent.  NOT claimed: that ğ’ IS the projected return (that is
 -- the spherical-moment computation, an integral, taken as given); the
 -- value 7/45 or any kernel value, which need division; the outward
 -- solution r^{âˆ’(l+3)}, which needs negative powers; anything about
--- attenuation as an inequality â€” no order relation occurs here; and
+-- attenuation as an inequality â” no order relation occurs here; and
 -- nothing about degree one beyond the reading above.
 ------------------------------------------------------------------------
 
@@ -70,56 +70,56 @@ module M2 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â„• ; zero ; suc) renaming (_+_ to _+â„•_ ; _Â·_ to _Â·â„•_)
+open import Cubical.Data.Nat using (â• ; zero ; suc) renaming (_+_ to _+â•_ ; _Â_ to _Ââ•_)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
-open import Cubical.Tactics.NatSolver using (solveâ„•!)
+open import Cubical.Tactics.NatSolver using (solveâ•!)
 
 private
   variable
-    â„“ : Level
+    â“ : Level
 
-module _ (R : CommRing â„“) where
+module _ (R : CommRing â“) where
   open CommRingStr (snd R)
 
   private
-    A : Type â„“
+    A : Type â“
     A = âŸ¨ R âŸ©
 
-  scale : â„• â†’ A â†’ A
+  scale : â• â’ A â’ A
   scale zero    a = 0r
   scale (suc n) a = a + scale n a
 
-  pow : A â†’ â„• â†’ A
+  pow : A â’ â• â’ A
   pow x zero    = 1r
-  pow x (suc n) = x Â· pow x n
+  pow x (suc n) = x Â pow x n
 
   private
-    scale-+ : (m n : â„•) (a : A) â†’ scale (m +â„• n) a â‰¡ scale m a + scale n a
+    scale-+ : (m n : â•) (a : A) â’ scale (m +â• n) a â‰¡ scale m a + scale n a
     scale-+ zero    n a = sym (+IdL (scale n a))
     scale-+ (suc m) n a = cong (a +_) (scale-+ m n a) âˆ™ +Assoc a (scale m a) (scale n a)
 
-    scale-Â· : (m n : â„•) (a : A) â†’ scale (m Â·â„• n) a â‰¡ scale m (scale n a)
-    scale-Â· zero    n a = refl
-    scale-Â· (suc m) n a = scale-+ n (m Â·â„• n) a âˆ™ cong (scale n a +_) (scale-Â· m n a)
+    scale-Â : (m n : â•) (a : A) â’ scale (m Ââ• n) a â‰¡ scale m (scale n a)
+    scale-Â zero    n a = refl
+    scale-Â (suc m) n a = scale-+ n (m Ââ• n) a âˆ™ cong (scale n a +_) (scale-Â m n a)
 
-    scale-mulR : (n : â„•) (a b : A) â†’ scale n a Â· b â‰¡ scale n (a Â· b)
+    scale-mulR : (n : â•) (a b : A) â’ scale n a Â b â‰¡ scale n (a Â b)
     scale-mulR zero    a b = zeroL b
       where
-        zeroL : (x : A) â†’ 0r Â· x â‰¡ 0r
+        zeroL : (x : A) â’ 0r Â x â‰¡ 0r
         zeroL x = solve! R
-    scale-mulR (suc n) a b = Â·DistL+ a (scale n a) b âˆ™ cong ((a Â· b) +_) (scale-mulR n a b)
+    scale-mulR (suc n) a b = ÂDistL+ a (scale n a) b âˆ™ cong ((a Â b) +_) (scale-mulR n a b)
 
-    scale-mulL : (n : â„•) (a b : A) â†’ b Â· scale n a â‰¡ scale n (b Â· a)
-    scale-mulL n a b = Â·Comm b (scale n a) âˆ™ scale-mulR n a b âˆ™ cong (scale n) (Â·Comm a b)
+    scale-mulL : (n : â•) (a b : A) â’ b Â scale n a â‰¡ scale n (b Â a)
+    scale-mulL n a b = ÂComm b (scale n a) âˆ™ scale-mulR n a b âˆ™ cong (scale n) (ÂComm a b)
 
   ------------------------------------------------------------------
-  -- à¥¦ Â· A derivation, and the facts about it the identities use.
+  -- à¦ Â A derivation, and the facts about it the identities use.
   ------------------------------------------------------------------
 
-  module _ (d : A â†’ A)
-           (d-add  : (x y : A) â†’ d (x + y) â‰¡ d x + d y)
-           (d-leib : (x y : A) â†’ d (x Â· y) â‰¡ d x Â· y + x Â· d y)
+  module _ (d : A â’ A)
+           (d-add  : (x y : A) â’ d (x + y) â‰¡ d x + d y)
+           (d-leib : (x y : A) â’ d (x Â y) â‰¡ d x Â y + x Â d y)
            where
 
     private
@@ -128,16 +128,16 @@ module _ (R : CommRing â„“) where
         where
           h : d 0r â‰¡ d 0r + d 0r
           h = cong d (sym (+IdR 0r)) âˆ™ d-add 0r 0r
-          cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
+          cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
           cancelR x y = solve! R
 
-      d-neg : (x : A) â†’ d (- x) â‰¡ - d x
+      d-neg : (x : A) â’ d (- x) â‰¡ - d x
       d-neg x = negOf (d x) (d (- x)) (sym (d-add x (- x)) âˆ™ cong d (+InvR x) âˆ™ d-zero)
         where
-          negOf : (a b : A) â†’ a + b â‰¡ 0r â†’ b â‰¡ - a
+          negOf : (a b : A) â’ a + b â‰¡ 0r â’ b â‰¡ - a
           negOf a b h = sym (+IdL b) âˆ™ cong (_+ b) (sym (+InvL a)) âˆ™ sym (+Assoc (- a) a b) âˆ™ cong ((- a) +_) h âˆ™ +IdR (- a)
 
-      d-scale : (n : â„•) (x : A) â†’ d (scale n x) â‰¡ scale n (d x)
+      d-scale : (n : â•) (x : A) â’ d (scale n x) â‰¡ scale n (d x)
       d-scale zero    x = d-zero
       d-scale (suc n) x = d-add x (scale n x) âˆ™ cong (d x +_) (d-scale n x)
 
@@ -148,139 +148,139 @@ module _ (R : CommRing â„“) where
     module _ (r : A) (dr : d r â‰¡ 1r) where
 
       private
-        d-rr : d (r Â· r) â‰¡ r + r
-        d-rr = d-leib r r âˆ™ congâ‚‚ _+_ (cong (_Â· r) dr âˆ™ Â·IdL r) (cong (r Â·_) dr âˆ™ Â·IdR r)
+        d-rr : d (r Â r) â‰¡ r + r
+        d-rr = d-leib r r âˆ™ congâ _+_ (cong (_Â r) dr âˆ™ ÂIdL r) (cong (r Â_) dr âˆ™ ÂIdR r)
 
         -- d of a product of the radius squared with two profiles
         d-rÂ²xy : (x y : A)
-          â†’ d ((r Â· r) Â· x Â· y)
-            â‰¡ (((r + r) Â· x + (r Â· r) Â· d x) Â· y) + ((r Â· r) Â· x Â· d y)
+          â’ d ((r Â r) Â x Â y)
+            â‰¡ (((r + r) Â x + (r Â r) Â d x) Â y) + ((r Â r) Â x Â d y)
         d-rÂ²xy x y =
-            d-leib ((r Â· r) Â· x) y
-          âˆ™ cong (Î» z â†’ (z Â· y) + ((r Â· r) Â· x Â· d y))
-                 (d-leib (r Â· r) x âˆ™ cong (_+ (r Â· r) Â· d x) (cong (_Â· x) d-rr))
+            d-leib ((r Â r) Â x) y
+          âˆ™ cong (Î» z â’ (z Â y) + ((r Â r) Â x Â d y))
+                 (d-leib (r Â r) x âˆ™ cong (_+ (r Â r) Â d x) (cong (_Â x) d-rr))
 
       ----------------------------------------------------------------
-      -- à¥§ Â· THE RETURN OPERATOR IS BOUNDARY FORMS PLUS A DERIVATIVE.
+      -- à§ Â THE RETURN OPERATOR IS BOUNDARY FORMS PLUS A DERIVATIVE.
       ----------------------------------------------------------------
 
-      ğ’ : A â†’ A â†’ A â†’ A â†’ A
-      ğ’ g h p f =
-          scale 15 (g Â· h) + (scale 6 (r Â· d g Â· h) + scale 3 (r Â· g Â· d h))
-        + ((p Â· f + (- (r Â· d p Â· f))) + (- (scale 4 (r Â· p Â· d f))))
+      ğ’ : A â’ A â’ A â’ A â’ A
+      ğ’ g h p f =
+          scale 15 (g Â h) + (scale 6 (r Â d g Â h) + scale 3 (r Â g Â d h))
+        + ((p Â f + (- (r Â d p Â f))) + (- (scale 4 (r Â p Â d f))))
 
-      boundary-forms : A â†’ A â†’ A â†’ A â†’ A
+      boundary-forms : A â’ A â’ A â’ A â’ A
       boundary-forms g h p f =
-        scale 3 ( (scale 3 (r Â· g) + (r Â· r) Â· d g) Â· h
-                + (scale 3 (r Â· p) + (r Â· r) Â· d p) Â· f )
+        scale 3 ( (scale 3 (r Â g) + (r Â r) Â d g) Â h
+                + (scale 3 (r Â p) + (r Â r) Â d p) Â f )
 
-      antiderivative : A â†’ A â†’ A â†’ A â†’ A
+      antiderivative : A â’ A â’ A â’ A â’ A
       antiderivative g h p f =
-        scale 3 ((r Â· r) Â· g Â· h) + (- (scale 4 ((r Â· r) Â· p Â· f)))
+        scale 3 ((r Â r) Â g Â h) + (- (scale 4 ((r Â r) Â p Â f)))
 
       return-integrates-by-parts : (g h p f : A)
-        â†’ r Â· ğ’ g h p f â‰¡ boundary-forms g h p f + d (antiderivative g h p f)
+        â’ r Â ğ’ g h p f â‰¡ boundary-forms g h p f + d (antiderivative g h p f)
       return-integrates-by-parts g h p f =
         sym ( cong (boundary-forms g h p f +_)
-                   ( d-add (scale 3 ((r Â· r) Â· g Â· h)) (- (scale 4 ((r Â· r) Â· p Â· f)))
-                   âˆ™ congâ‚‚ _+_
-                       (d-scale 3 ((r Â· r) Â· g Â· h) âˆ™ cong (scale 3) (d-rÂ²xy g h))
-                       ( d-neg (scale 4 ((r Â· r) Â· p Â· f))
-                       âˆ™ cong -_ (d-scale 4 ((r Â· r) Â· p Â· f) âˆ™ cong (scale 4) (d-rÂ²xy p f)) ) )
+                   ( d-add (scale 3 ((r Â r) Â g Â h)) (- (scale 4 ((r Â r) Â p Â f)))
+                   âˆ™ congâ _+_
+                       (d-scale 3 ((r Â r) Â g Â h) âˆ™ cong (scale 3) (d-rÂ²xy g h))
+                       ( d-neg (scale 4 ((r Â r) Â p Â f))
+                       âˆ™ cong -_ (d-scale 4 ((r Â r) Â p Â f) âˆ™ cong (scale 4) (d-rÂ²xy p f)) ) )
             âˆ™ shape r g (d g) h (d h) p (d p) f (d f) )
         where
           shape : (r g g' h h' p p' f f' : A)
-            â†’ scale 3 ( (scale 3 (r Â· g) + (r Â· r) Â· g') Â· h
-                      + (scale 3 (r Â· p) + (r Â· r) Â· p') Â· f )
-              + ( scale 3 ((((r + r) Â· g + (r Â· r) Â· g') Â· h) + ((r Â· r) Â· g Â· h'))
-                + (- scale 4 ((((r + r) Â· p + (r Â· r) Â· p') Â· f) + ((r Â· r) Â· p Â· f'))) )
-              â‰¡ r Â· ( scale 15 (g Â· h) + (scale 6 (r Â· g' Â· h) + scale 3 (r Â· g Â· h'))
-                    + ((p Â· f + (- (r Â· p' Â· f))) + (- (scale 4 (r Â· p Â· f')))) )
+            â’ scale 3 ( (scale 3 (r Â g) + (r Â r) Â g') Â h
+                      + (scale 3 (r Â p) + (r Â r) Â p') Â f )
+              + ( scale 3 ((((r + r) Â g + (r Â r) Â g') Â h) + ((r Â r) Â g Â h'))
+                + (- scale 4 ((((r + r) Â p + (r Â r) Â p') Â f) + ((r Â r) Â p Â f'))) )
+              â‰¡ r Â ( scale 15 (g Â h) + (scale 6 (r Â g' Â h) + scale 3 (r Â g Â h'))
+                    + ((p Â f + (- (r Â p' Â f))) + (- (scale 4 (r Â p Â f')))) )
           shape r g g' h h' p p' f f' = solve! R
 
       ----------------------------------------------------------------
-      -- à¥© Â· ráµ IS THE INWARD SOLUTION OF THE DEGREE-(k+2) EQUATION.
+      -- à© Â rµ IS THE INWARD SOLUTION OF THE DEGREE-(k+2) EQUATION.
       ----------------------------------------------------------------
 
       private
-        predâ„• : â„• â†’ â„•
-        predâ„• zero    = zero
-        predâ„• (suc n) = n
+        predâ• : â• â’ â•
+        predâ• zero    = zero
+        predâ• (suc n) = n
 
-        d-pow : (n : â„•) â†’ d (pow r n) â‰¡ scale n (pow r (predâ„• n))
+        d-pow : (n : â•) â’ d (pow r n) â‰¡ scale n (pow r (predâ• n))
         d-pow zero    = d-zero'
           where
             d-zero' : d 1r â‰¡ 0r
             d-zero' = sym ( sym (+InvR (d 1r)) âˆ™ cong (_+ (- (d 1r))) h âˆ™ cancelR (d 1r) (d 1r) )
               where
                 h : d 1r â‰¡ d 1r + d 1r
-                h = cong d (sym (Â·IdR 1r)) âˆ™ d-leib 1r 1r âˆ™ congâ‚‚ _+_ (Â·IdR (d 1r)) (Â·IdL (d 1r))
-                cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
+                h = cong d (sym (ÂIdR 1r)) âˆ™ d-leib 1r 1r âˆ™ congâ _+_ (ÂIdR (d 1r)) (ÂIdL (d 1r))
+                cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
                 cancelR x y = solve! R
         d-pow (suc n) =
             d-leib r (pow r n)
-          âˆ™ congâ‚‚ _+_ (cong (_Â· pow r n) dr âˆ™ Â·IdL (pow r n))
-                      (cong (r Â·_) (d-pow n) âˆ™ scale-mulL n (pow r (predâ„• n)) r âˆ™ rÂ·pred n)
+          âˆ™ congâ _+_ (cong (_Â pow r n) dr âˆ™ ÂIdL (pow r n))
+                      (cong (r Â_) (d-pow n) âˆ™ scale-mulL n (pow r (predâ• n)) r âˆ™ rÂpred n)
           where
-            -- at m = 0 both sides are 0r; at m = suc k, r Â· pow r k is pow r (suc k) on the nose
-            rÂ·pred : (m : â„•) â†’ scale m (r Â· pow r (predâ„• m)) â‰¡ scale m (pow r m)
-            rÂ·pred zero    = refl
-            rÂ·pred (suc m) = refl
+            -- at m = 0 both sides are 0r; at m = suc k, r Â pow r k is pow r (suc k) on the nose
+            rÂpred : (m : â•) â’ scale m (r Â pow r (predâ• m)) â‰¡ scale m (pow r m)
+            rÂpred zero    = refl
+            rÂpred (suc m) = refl
 
-      -- the radial operator on a power, with the â„• coefficient exposed
-      radial-power : (k : â„•)
-        â†’ (r Â· r) Â· d (d (pow r k)) + scale 6 (r Â· d (pow r k))
-          â‰¡ scale (k Â·â„• (k +â„• 5)) (pow r k)
+      -- the radial operator on a power, with the â• coefficient exposed
+      radial-power : (k : â•)
+        â’ (r Â r) Â d (d (pow r k)) + scale 6 (r Â d (pow r k))
+          â‰¡ scale (k Ââ• (k +â• 5)) (pow r k)
       radial-power zero =
-          congâ‚‚ _+_ (cong (Î» z â†’ (r Â· r) Â· d z) d-pow0 âˆ™ cong ((r Â· r) Â·_) d-zero âˆ™ 0RightAnnihilates' (r Â· r))
-                    (cong (Î» z â†’ scale 6 (r Â· z)) d-pow0 âˆ™ cong (scale 6) (0RightAnnihilates' r) âˆ™ scale-zero 6)
+          congâ _+_ (cong (Î» z â’ (r Â r) Â d z) d-pow0 âˆ™ cong ((r Â r) Â_) d-zero âˆ™ 0RightAnnihilates' (r Â r))
+                    (cong (Î» z â’ scale 6 (r Â z)) d-pow0 âˆ™ cong (scale 6) (0RightAnnihilates' r) âˆ™ scale-zero 6)
         âˆ™ +IdR 0r
         where
           d-pow0 : d (pow r zero) â‰¡ 0r
           d-pow0 = d-pow zero
-          0RightAnnihilates' : (x : A) â†’ x Â· 0r â‰¡ 0r
+          0RightAnnihilates' : (x : A) â’ x Â 0r â‰¡ 0r
           0RightAnnihilates' x = solve! R
-          scale-zero : (n : â„•) â†’ scale n 0r â‰¡ 0r
+          scale-zero : (n : â•) â’ scale n 0r â‰¡ 0r
           scale-zero zero    = refl
           scale-zero (suc n) = +IdL (scale n 0r) âˆ™ scale-zero n
       radial-power (suc zero) =
-          congâ‚‚ _+_ (cong (Î» z â†’ (r Â· r) Â· d z) (d-pow 1 âˆ™ +IdR 1r) âˆ™ cong ((r Â· r) Â·_) d-one âˆ™ zeroR (r Â· r))
-                    (cong (Î» z â†’ scale 6 (r Â· z)) (d-pow 1 âˆ™ +IdR 1r))
-        âˆ™ +IdL (scale 6 (r Â· 1r))
+          congâ _+_ (cong (Î» z â’ (r Â r) Â d z) (d-pow 1 âˆ™ +IdR 1r) âˆ™ cong ((r Â r) Â_) d-one âˆ™ zeroR (r Â r))
+                    (cong (Î» z â’ scale 6 (r Â z)) (d-pow 1 âˆ™ +IdR 1r))
+        âˆ™ +IdL (scale 6 (r Â 1r))
         where
           d-one : d 1r â‰¡ 0r
           d-one = d-pow zero
-          zeroR : (x : A) â†’ x Â· 0r â‰¡ 0r
+          zeroR : (x : A) â’ x Â 0r â‰¡ 0r
           zeroR x = solve! R
       radial-power (suc (suc m)) =
-          congâ‚‚ _+_ second first
-        âˆ™ sym (scale-+ ((suc (suc m)) Â·â„• (suc m)) (6 Â·â„• (suc (suc m))) (pow r (suc (suc m))))
-        âˆ™ cong (Î» n â†’ scale n (pow r (suc (suc m)))) (coef m)
+          congâ _+_ second first
+        âˆ™ sym (scale-+ ((suc (suc m)) Ââ• (suc m)) (6 Ââ• (suc (suc m))) (pow r (suc (suc m))))
+        âˆ™ cong (Î» n â’ scale n (pow r (suc (suc m)))) (coef m)
         where
-          second : (r Â· r) Â· d (d (pow r (suc (suc m))))
-                 â‰¡ scale ((suc (suc m)) Â·â„• (suc m)) (pow r (suc (suc m)))
+          second : (r Â r) Â d (d (pow r (suc (suc m))))
+                 â‰¡ scale ((suc (suc m)) Ââ• (suc m)) (pow r (suc (suc m)))
           second =
-              cong (Î» z â†’ (r Â· r) Â· d z) (d-pow (suc (suc m)))
-            âˆ™ cong ((r Â· r) Â·_) (d-scale (suc (suc m)) (pow r (suc m)) âˆ™ cong (scale (suc (suc m))) (d-pow (suc m)))
-            âˆ™ scale-mulL (suc (suc m)) (scale (suc m) (pow r m)) (r Â· r)
-            âˆ™ cong (scale (suc (suc m))) (scale-mulL (suc m) (pow r m) (r Â· r))
-            âˆ™ sym (scale-Â· (suc (suc m)) (suc m) ((r Â· r) Â· pow r m))
-            âˆ™ cong (scale ((suc (suc m)) Â·â„• (suc m))) (sym (Â·Assoc r r (pow r m)))
+              cong (Î» z â’ (r Â r) Â d z) (d-pow (suc (suc m)))
+            âˆ™ cong ((r Â r) Â_) (d-scale (suc (suc m)) (pow r (suc m)) âˆ™ cong (scale (suc (suc m))) (d-pow (suc m)))
+            âˆ™ scale-mulL (suc (suc m)) (scale (suc m) (pow r m)) (r Â r)
+            âˆ™ cong (scale (suc (suc m))) (scale-mulL (suc m) (pow r m) (r Â r))
+            âˆ™ sym (scale-Â (suc (suc m)) (suc m) ((r Â r) Â pow r m))
+            âˆ™ cong (scale ((suc (suc m)) Ââ• (suc m))) (sym (ÂAssoc r r (pow r m)))
 
-          first : scale 6 (r Â· d (pow r (suc (suc m))))
-                â‰¡ scale (6 Â·â„• (suc (suc m))) (pow r (suc (suc m)))
+          first : scale 6 (r Â d (pow r (suc (suc m))))
+                â‰¡ scale (6 Ââ• (suc (suc m))) (pow r (suc (suc m)))
           first =
-              cong (Î» z â†’ scale 6 (r Â· z)) (d-pow (suc (suc m)))
+              cong (Î» z â’ scale 6 (r Â z)) (d-pow (suc (suc m)))
             âˆ™ cong (scale 6) (scale-mulL (suc (suc m)) (pow r (suc m)) r)
-            âˆ™ sym (scale-Â· 6 (suc (suc m)) (r Â· pow r (suc m)))
+            âˆ™ sym (scale-Â 6 (suc (suc m)) (r Â pow r (suc m)))
 
-          coef : (n : â„•)
-            â†’ ((suc (suc n)) Â·â„• (suc n)) +â„• (6 Â·â„• (suc (suc n)))
-              â‰¡ (suc (suc n)) Â·â„• ((suc (suc n)) +â„• 5)
-          coef n = solveâ„•!
+          coef : (n : â•)
+            â’ ((suc (suc n)) Ââ• (suc n)) +â• (6 Ââ• (suc (suc n)))
+              â‰¡ (suc (suc n)) Ââ• ((suc (suc n)) +â• 5)
+          coef n = solveâ•!
 
   ------------------------------------------------------------------
-  -- à¥¨ Â· THE INDICIAL POLYNOMIAL FACTORS.
+  -- à¨ Â THE INDICIAL POLYNOMIAL FACTORS.
   ------------------------------------------------------------------
 
   private
@@ -290,11 +290,11 @@ module _ (R : CommRing â„“) where
     six   = three + three
 
   indicial-factors : (k l : A)
-    â†’ (k Â· (k + (- 1r))) + ((six Â· k) + (- ((l + (- two)) Â· (l + three))))
-      â‰¡ (k + (- (l + (- two)))) Â· (k + (l + two))
+    â’ (k Â (k + (- 1r))) + ((six Â k) + (- ((l + (- two)) Â (l + three))))
+      â‰¡ (k + (- (l + (- two)))) Â (k + (l + two))
   indicial-factors k l = solve! R
 
   -- and at the inward root the coefficient is k(k+5), as Â§3 exposes
   inward-root-coefficient : (k : A)
-    â†’ (k + two + (- two)) Â· (k + two + three) â‰¡ k Â· (k + (three + two))
+    â’ (k + two + (- two)) Â (k + two + three) â‰¡ k Â (k + (three + two))
   inward-root-coefficient k = solve! R

@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- अवक्तव्य-गर्भः — चतुर्थं स्थानं जिह्वाभेदस्य बहु-तन्तुः, तस्य शेषः च
--- यत् सह उक्तम् आसीत् तदेव ।
+-- ���������-������ � ������� ������ ������������ ���-������, ���� ���� �
+-- ��� �� �������� ����� ���� �
 --
 -- (the fourth position is the crowded fibre of the tongue-break, and its
 --  residual is exactly what was said at once.)
 --
--- ON THE NAME.  गर्भ is taken from AvaktavyaPrasava's own quotation of
--- `notes/AHIMSA_SUTRA_VISTARA.md` §३ — अवक्तव्ये शेषो वसति । शेषो गर्भः, न
--- विफलता — "in the avaktavya the residue dwells; the residue is a WOMB,
+-- ON THE NAME.  ����� is taken from AvaktavyaPrasava's own quotation of
+-- `notes/AHIMSA_SUTRA_VISTARA.md` §� � ���������� ����� ���� � ����� ������, �
+-- ������ � "in the avaktavya the residue dwells; the residue is a WOMB,
 -- not a failure."  This module is that sentence read as a fibre, which is
 -- what it already was.  No source is claimed for the compound.
 --
@@ -17,37 +17,37 @@
 -- WHAT IS SEEN HERE, AND IT IS ONE THING SAID THREE WAYS.
 --
 -- `SaptabhangiSamyoga` gives the sevenfold two composition laws: krama
--- (profile join — associative, commutative, idempotent, a semilattice)
--- and saha (join, then `जिह्वाभेदः`, which on a profile carrying BOTH asti
--- and nāsti destroys the two seed markings and writes avaktavya alone).
+-- (profile join � associative, commutative, idempotent, a semilattice)
+-- and saha (join, then `����������`, which on a profile carrying BOTH asti
+-- and nsti destroys the two seed markings and writes avaktavya alone).
 -- It proves saha non-associative by exhibiting two groupings, and its
--- header says why: *"जिह्वाभेदः destroys the two seed markings, so the
+-- header says why: *"���������� destroys the two seed markings, so the
 -- fourth position does not record which pair produced it."*
 --
--- That sentence is a fibre census on जिह्वाभेदः, and nobody had taken it as
+-- That sentence is a fibre census on ����������, and nobody had taken it as
 -- one.  Doing so collapses three things that were three:
 --
---   §1  THE FOURTH POSITION IS A CROWDED FIBRE.  `जिह्वाभेदः` is a map
---       समावेश → समावेश.  Over the fourth profile (न , न , आम्) its fibre has
+--   §1  THE FOURTH POSITION IS A CROWDED FIBRE.  `����������` is a map
+--       ������ � ������.  Over the fourth profile (� , � , ���) its fibre has
 --       THREE points and is computed exactly (§1.4): it is
 --
---           शेष-जिह्वा  ≃  Unit ⊎ उपस्थिति
+--           ���-������  �  Unit � ���������
 --
---       — the fixed point (न,न,आम्) itself, plus ONE BIT, and that bit is
+--       � the fixed point (�,�,���) itself, plus ONE BIT, and that bit is
 --       the third slot of the profile that broke: whether avaktavya was
---       already present when the tongue broke.  So `विकलादेश` at (न,न,आम्),
---       and by `Sesa`/`देश` this is the second cell, नष्टि, exhibited —
+--       already present when the tongue broke.  So `���������` at (�,�,���),
+--       and by `Sesa`/`���` this is the second cell, ������, exhibited �
 --       the loss is a TYPE and it is holdable.
 --
 --   §2  THE NON-ASSOCIATIVITY IS THAT CROWDING, DERIVED.  §2.1 proves the
---       implication nobody had stated: IF `जिह्वाभेदः` were the identity —
---       i.e. if the tongue-break destroyed nothing — THEN saha would be
+--       implication nobody had stated: IF `����������` were the identity �
+--       i.e. if the tongue-break destroyed nothing � THEN saha would be
 --       associative, because it would BE krama.  So the corpus's existing
 --       counterexample stops being a curiosity and becomes a proof:
---       `सङ्क्षेपः-अस्ति` (§2.2) derives ¬((t : समावेश) → जिह्वाभेदः t ≡ t)
---       FROM `सह-असङ्गतिः`.  Collapse is not observed; it is entailed.
+--       `�����������-�����` (§2.2) derives �((t : ������) � ���������� t ≡ t)
+--       FROM `��-����������`.  Collapse is not observed; it is entailed.
 --
---       Stated without Sanskrit: **associativity is path-independence, and
+--       Stated without : **associativity is path-independence, and
 --       path-independence of a collapsing operation is exactly the
 --       contractibility of the fibre it collapses along.**  A non-associative
 --       merge and a crowded fibre are one fact.
@@ -55,31 +55,31 @@
 --   §3  AND THE RESIDUAL IS WHAT WAS SAID AT ONCE.  §3.1 characterises the
 --       fibre without the equivalence: a profile lands on the fourth
 --       position iff it IS the fourth position, or it carries both asti and
---       nāsti.  Which is the doctrine's own content of अवक्तव्यम् — not the
+--       nsti.  Which is the doctrine's own content of ����������� � not the
 --       unknown, not the undetermined, not the empty, but the positive
 --       fourth position holding what two simultaneous assertions were.
---       Umāsvāti's arpita/anarpita (Tattvārthasūtra 5.31, c. 2nd–5th c.):
+--       Umsvti's arpita/anarpita (Tattvrthastra 5.31, c. 2nd�5th c.):
 --       the pair is UNASSERTED in the utterance and PRESENT in the residual.
 --
 -- WHAT THIS BUYS DOWNSTREAM, and it is why the module is worth its lines.
 -- `AvaktavyaPrasava` (machine/) can only exist because `Vipratisedha`'s
--- Avaktavya carries a `Sesa` as a VALUE rather than a rendering — and it
+-- Avaktavya carries a `Sesa` as a VALUE rather than a rendering � and it
 -- calls what it does from that residue a BIRTH.  §1.4 says what a birth is:
 -- choosing a point of a non-contractible fibre, i.e. a SECTION.  Which is
 -- exactly why prasava cannot be automatic (a canonical choice is what
 -- contractibility WOULD have given, and §1.3 refutes it) and why the
--- operation must be supplied and then gated.  `Vivada`'s refusal — no rule
--- born where the contenders do not join — is the same non-contractibility
+-- operation must be supplied and then gated.  `Vivada`'s refusal � no rule
+-- born where the contenders do not join � is the same non-contractibility
 -- one level up.
 --
 -- AND WHY THE FOURTH POSITION IS NOT A PRIMITIVE OF THE SCHEME.  It is the
--- image of a crowded fibre.  `Saptabhangi.क्रम-सह-भेदः` proves it is not
--- reachable by succession, and `SaptabhangiSamyoga.अवक्तव्यम्-न-क्रमजम्`
+-- image of a crowded fibre.  `Saptabhangi.�����-��-����` proves it is not
+-- reachable by succession, and `SaptabhangiSamyoga.�����������-�-��������`
 -- proves the krama-closure of the first three never touches it.  §1 says
--- what it IS instead: where जिह्वाभेदः is not injective.  The two facts are
--- the same fact — a point with a crowded fibre is a point no injection
+-- what it IS instead: where ���������� is not injective.  The two facts are
+-- the same fact � a point with a crowded fibre is a point no injection
 -- reaches from its preimages, and the seed-free fragment is precisely the
--- part of समावेश on which जिह्वाभेदः IS the identity (§2.3).
+-- part of ������ on which ���������� IS the identity (§2.3).
 --
 -- CHECKED: Agda 2.6.3, agda/cubical v0.5, --cubical --safe, no postulates,
 -- no holes, checked against this lane's own `.agda-lib`.
@@ -105,7 +105,7 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
         ; संयोग ; आम्≢न ; नास्त्यंशः )
 
 ------------------------------------------------------------------------
--- ०ः  समावेशः समुच्चयः — the profiles are a set.
+-- ��  ������� �������� � the profiles are a set.
 --
 -- Needed only for §1.4's leftInv: two proofs that a profile lands on the
 -- fourth position are equal, so the fibre has no path structure beyond
@@ -133,7 +133,7 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
 समुच्चय-समावेश = Discrete→isSet विवेक-समावेश
 
 ------------------------------------------------------------------------
--- १ · चतुर्थ-तन्तुः — THE FIBRE OF THE TONGUE-BREAK OVER THE FOURTH
+-- � � ������-������ � THE FIBRE OF THE TONGUE-BREAK OVER THE FOURTH
 --     POSITION.
 ------------------------------------------------------------------------
 
@@ -144,13 +144,13 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
 चतुर्थम्-अन्तर्भावः : अन्तर्भाव स्यात्-अवक्तव्यम् ≡ चतुर्थम्
 चतुर्थम्-अन्तर्भावः = refl
 
--- शेष, at this map and this point.  Punaragamana.Sesa's `शेष f b` is
--- Σ[ a ] (f a ≡ b); that library cannot be imported from this lane (two
--- .agda-libs, two pins), so the Σ is written out.  It is the same Σ.
+-- ���, at this map and this point.  Punaragamana.Sesa's `��� f b` is
+-- �[ a ] (f a ≡ b); that library cannot be imported from this lane (two
+-- .agda-libs, two pins), so the � is written out.  It is the same �.
 शेष-जिह्वा : Type
 शेष-जिह्वा = Σ[ t ∈ समावेश ] (जिह्वाभेदः t ≡ चतुर्थम्)
 
--- १.१  three points of it, each a term.
+-- �.�  three points of it, each a term.
 स्वयम्-बिन्दुः : शेष-जिह्वा                -- the fixed point
 स्वयम्-बिन्दुः = (न , न , आम्) , refl
 
@@ -160,19 +160,19 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
 उभय-सहितः : शेष-जिह्वा                     -- both seeds, avaktavya present
 उभय-सहितः = (आम् , आम् , आम्) , refl
 
--- १.२  they are pairwise distinct — विकलादेश, exhibited, not asserted.
+-- �.�  they are pairwise distinct � ���������, exhibited, not asserted.
 अभेद-प्रथमः : ¬ (स्वयम्-बिन्दुः ≡ उभय-रिक्तः)
 अभेद-प्रथमः e = आम्≢न (sym (cong (λ u → fst (fst u)) e))
 
 अभेद-द्वितीयः : ¬ (उभय-रिक्तः ≡ उभय-सहितः)
 अभेद-द्वितीयः e = आम्≢न (sym (cong (λ u → snd (snd (fst u))) e))
 
--- १.३  hence the fibre is NOT contractible.  This is the whole of §2's
+-- �.�  hence the fibre is NOT contractible.  This is the whole of §2's
 --      reason, standing on its own before §2 uses it.
 चतुर्थः-न-सकलः : ¬ (isContr शेष-जिह्वा)
 चतुर्थः-न-सकलः c = अभेद-प्रथमः (isContr→isProp c स्वयम्-बिन्दुः उभय-रिक्तः)
 
--- १.४  and the fibre COMPUTED: a fixed point plus exactly one bit, and the
+-- �.�  and the fibre COMPUTED: a fixed point plus exactly one bit, and the
 --      bit is the third slot of the profile that broke.
 चतुर्थ-तन्तु-गणना : Iso शेष-जिह्वा (Unit ⊎ उपस्थिति)
 चतुर्थ-तन्तु-गणना = iso आगमः प्रत्यागमः दक्षिणम् वामम्
@@ -205,16 +205,16 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
     वामम् ((न   , न   , न)  , p) = ⊥-rec (आम्≢न (sym (cong (λ t → snd (snd t)) p)))
 
 ------------------------------------------------------------------------
--- २ · असङ्गतिः सङ्क्षेपः एव — NON-ASSOCIATIVITY IS THE COLLAPSE, DERIVED.
+-- � � ���������� ����������� �� � NON-ASSOCIATIVITY IS THE COLLAPSE, DERIVED.
 ------------------------------------------------------------------------
 
--- २.१  IF the tongue-break destroyed nothing, saha WOULD be krama…
+-- �.�  IF the tongue-break destroyed nothing, saha WOULD be krama�
 अलोपे-सह-क्रमः : ((t : समावेश) → जिह्वाभेदः t ≡ t)
                → (x y : सप्तभङ्गी) → सह-योग x y ≡ क्रम-योग x y
 अलोपे-सह-क्रमः h x y =
   cong प्रत्यन्तर्भाव (h (संयोग (अन्तर्भाव x) (अन्तर्भाव y)))
 
--- …and therefore associative, since krama is.
+-- �and therefore associative, since krama is.
 अलोपे-सङ्गतिः : ((t : समावेश) → जिह्वाभेदः t ≡ t)
               → (x y z : सप्तभङ्गी)
               → सह-योग (सह-योग x y) z ≡ सह-योग x (सह-योग y z)
@@ -225,15 +225,15 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
   ∙ cong (क्रम-योग x) (sym (अलोपे-सह-क्रमः h y z))
   ∙ sym (अलोपे-सह-क्रमः h x (सह-योग y z))
 
--- २.२  THE DERIVATION.  The corpus's counterexample now proves that the
---      tongue-break genuinely destroys — collapse is entailed by the
+-- �.�  THE DERIVATION.  The corpus's counterexample now proves that the
+--      tongue-break genuinely destroys � collapse is entailed by the
 --      failure of the law, not separately observed.
 सङ्क्षेपः-अस्ति : ¬ ((t : समावेश) → जिह्वाभेदः t ≡ t)
 सङ्क्षेपः-अस्ति h =
   सह-असङ्गतिः (अलोपे-सङ्गतिः h स्यात्-अस्ति-नास्ति स्यात्-अस्ति स्यात्-नास्ति)
 
--- २.३  and WHERE it destroys is exactly §1's fibre: off the both-seeds
---      profiles जिह्वाभेदः is the identity, and on them it is not.
+-- �.�  and WHERE it destroys is exactly §1's fibre: off the both-seeds
+--      profiles ���������� is the identity, and on them it is not.
 अन्यत्र-अलोपः : (a n₀ v : उपस्थिति)
               → ¬ ((a ≡ आम्) × (n₀ ≡ आम्))
               → जिह्वाभेदः (a , n₀ , v) ≡ (a , n₀ , v)
@@ -246,12 +246,12 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
 उभयत्र-लोपः e = आम्≢न (sym (cong fst e))
 
 ------------------------------------------------------------------------
--- ३ · गर्भः — THE RESIDUAL IS WHAT WAS SAID AT ONCE.
+-- � � ������ � THE RESIDUAL IS WHAT WAS SAID AT ONCE.
 ------------------------------------------------------------------------
 
--- ३.१  the census without the equivalence: a profile reaches the fourth
+-- �.�  the census without the equivalence: a profile reaches the fourth
 --      position iff it IS the fourth position, or it carries BOTH seeds.
---      That disjunction is the content of अवक्तव्यम्.
+--      That disjunction is the content of �����������.
 गर्भ-लक्षणम् : (t : समावेश) → जिह्वाभेदः t ≡ चतुर्थम्
              → (t ≡ चतुर्थम्) ⊎ ((fst t ≡ आम्) × (fst (snd t) ≡ आम्))
 गर्भ-लक्षणम् (आम् , आम् , _)  _ = inr (refl , refl)
@@ -260,10 +260,10 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
 गर्भ-लक्षणम् (न   , आम् , _)  p = ⊥-rec (आम्≢न (cong (λ t → fst (snd t)) p))
 गर्भ-लक्षणम् (न   , न   , न)  p = ⊥-rec (आम्≢न (sym (cong (λ t → snd (snd t)) p)))
 
--- ३.२  the two seeds are recoverable FROM THE RESIDUAL and from nothing
---      else: the utterance स्यात्-अवक्तव्यम् has नास्त्यंशः न, while the profile
---      that produced it had आम्.  So the pair is not in the word and is in
---      the womb — arpita/anarpita, as a pair of terms.
+-- �.�  the two seeds are recoverable FROM THE RESIDUAL and from nothing
+--      else: the utterance ������-����������� has ���������� �, while the profile
+--      that produced it had ���.  So the pair is not in the word and is in
+--      the womb � arpita/anarpita, as a pair of terms.
 वाचि-न-विद्यते : नास्त्यंशः स्यात्-अवक्तव्यम् ≡ न
 वाचि-न-विद्यते = refl
 

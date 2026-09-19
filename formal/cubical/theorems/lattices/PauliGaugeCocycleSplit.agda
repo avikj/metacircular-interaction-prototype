@@ -6,7 +6,7 @@
 -- the observable-phase correction changes the sign representative but is
 -- killed by the checked cokernel parity.
 --
--- Scope: this is a theorem about `PauliWeyl._·P_`.  In particular it does
+-- Scope: this is a theorem about `PauliWeyl._�P_`.  In particular it does
 -- NOT prove identity or composition laws for
 -- `ExactTwoStateAmplitudes.phaseAction`; those remain separate obligations.
 ------------------------------------------------------------------------
@@ -45,7 +45,7 @@ erasePhase (Weyl.pauli _ a₁ b₁ a₂ b₂) =
   open import Cubical.Data.Bool using (_and_)
 
 -- Every Pauli datum is its central phase times its phase-zero
--- representative.  The order is load-bearing because `_·P_` is defined in
+-- representative.  The order is load-bearing because `_�P_` is defined in
 -- Weyl order, even though a central element contributes no twist.
 central-times-erased : (p : Weyl.Pauli)
   → central (phase p) Weyl.·P erasePhase p ≡ p
@@ -59,7 +59,7 @@ central-times-erased (Weyl.pauli Weyl.ph3 a₁ b₁ a₂ b₂) = refl
 μ-erasure-invariant (Weyl.pauli e a₁ b₁ a₂ b₂)
                     (Weyl.pauli f c₁ d₁ c₂ d₂) = refl
 
--- This is the generic φ/μ split for one multiplication.
+-- This is the generic �/μ split for one multiplication.
 phase-product : (p q : Weyl.Pauli)
   → phase (p Weyl.·P q)
   ≡ (phase p Weyl.+₄ phase q) Weyl.+₄ μ p q
@@ -68,7 +68,7 @@ phase-product (Weyl.pauli e a₁ b₁ a₂ b₂)
 
 -- For a closed triple, move the second observable phase before the two
 -- cocycle contributions.  This is the note's execution-order formula
--- φ(p)+φ(q)+φ(r)+μ(p,q)+μ(pq,r).
+-- �(p)+�(q)+�(r)+μ(p,q)+μ(pq,r).
 phase-triple : (p q r : Weyl.Pauli)
   → phase ((p Weyl.·P q) Weyl.·P r)
   ≡ ((((phase p Weyl.+₄ phase q) Weyl.+₄ phase r)

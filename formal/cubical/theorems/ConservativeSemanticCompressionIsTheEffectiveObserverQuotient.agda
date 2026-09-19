@@ -9,18 +9,18 @@
 --   "find a smaller representation, prove every protected observation
 --    factors through it, and make reconstruction executable."
 --
--- Fix a state space X and a family of PROTECTED OBSERVERS O i : X → V i
+-- Fix a state space X and a family of PROTECTED OBSERVERS O i : X � V i
 -- into sets.  Two states are indistinguishable when every observer
--- agrees:  x ≈ y  :=  (i : I) → O i x ≡ O i y.
+-- agrees:  x ≈ y  :=  (i : I) � O i x ≡ O i y.
 --
--- THE OBJECT.  compress : X → X / ≈  is the coarsest representation that
+-- THE OBJECT.  compress : X � X / ≈  is the coarsest representation that
 -- keeps every observer.  This file proves the four properties that make
 -- it a lossless, executable, universal compression:
 --
 --   readout      -- each observer is recovered FROM the compressed form
 --                   (reconstruction is executable: readout i ∘ compress ≡ O i,
 --                    definitionally, by refl).
---   lossless     -- compress x ≡ compress y  ≃  x ≈ y.  The compressed
+--   lossless     -- compress x ≡ compress y  �  x ≈ y.  The compressed
 --                   forms coincide EXACTLY when no observer separates the
 --                   states: nothing detectable is lost, nothing is merged
 --                   that an observer could tell apart.  This is
@@ -31,7 +31,7 @@
 --                   compressed object.
 --   minimal      -- compress is the COARSEST observer-preserving encoder:
 --                   any encoder E that still keeps every observer factors
---                   compress — i.e. compress merges at least as much as E.
+--                   compress � i.e. compress merges at least as much as E.
 --
 -- The observer class is a PARAMETER, made explicit exactly as the theory
 -- demands: "the dangerous operation is quotienting before declaring the
@@ -102,7 +102,7 @@ module _
   readout-β i x = refl
 
   --------------------------------------------------------------------
-  -- LOSSLESS, EXACTLY.  compress x ≡ compress y  ≃  x ≈ y.
+  -- LOSSLESS, EXACTLY.  compress x ≡ compress y  �  x ≈ y.
   --------------------------------------------------------------------
 
   lossless-fwd : (x y : X) → compress x ≡ compress y → x ≈ y
@@ -144,8 +144,8 @@ module _
 
   --------------------------------------------------------------------
   -- MINIMAL.  compress is the COARSEST observer-preserving encoder: if
-  -- an encoder E : X → Z keeps every observer (E x ≡ E y ⇒ x ≈ y), then
-  -- compress factors through E on E's image — compress merges at least
+  -- an encoder E : X � Z keeps every observer (E x ≡ E y � x ≈ y), then
+  -- compress factors through E on E's image � compress merges at least
   -- as much as E does.  Stated as: the fibres of E refine the fibres of
   -- compress.
   --------------------------------------------------------------------

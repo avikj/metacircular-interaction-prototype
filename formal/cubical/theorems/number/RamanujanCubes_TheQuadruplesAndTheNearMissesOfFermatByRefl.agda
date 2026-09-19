@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤°à¤¾à¤®à¤¾à¤¨à¥à¤œà¤¨à¥, à¤˜à¤¨ â€” THE QUADRUPLES, AND THE NEAR-MISSES OF FERMAT,
+-- à°à¾à®à¾à¨ààà¨à, à˜à¨ â” THE QUADRUPLES, AND THE NEAR-MISSES OF FERMAT,
 -- BY REFL.
 --
 -- From the notebooks: cube quadruples aÂ³ + bÂ³ + cÂ³ = dÂ³ and the
--- taxicab's shadow, xÂ³ + yÂ³ = zÂ³ Â± 1 â€” Fermat missed by one, which
+-- taxicab's shadow, xÂ³ + yÂ³ = zÂ³ Â 1 â” Fermat missed by one, which
 -- Ramanujan parameterized completely.  Every statement below is a
 -- closed computation the kernel performs; the largest sums five
 -- million units in unary and does not blink.

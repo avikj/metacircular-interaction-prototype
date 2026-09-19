@@ -5,14 +5,14 @@
 --
 -- A LATCH, not a narrative.  `agda` is the curated root
 -- and `Everything.agda` is the whole-directory latch; neither reaches the
--- modules below, so by `Everything.agda`'s own header they are orphans ‚Äî
+-- modules below, so by `Everything.agda`'s own header they are orphans ‚î
 -- *"checked once, by its author, on the day it landed, and then never
 -- again by anything."*
 --
 -- The proper fix is to add them to `Everything.agda`.  That cannot be
 -- done from this container: `Everything.agda` imports `NaturalMachine` at
 -- line 85, and `NaturalMachine` fails here at
--- `NaturalMachine/PathIsSymmetry.agda:98` ‚Äî `SymGroup` is the cubical
+-- `NaturalMachine/PathIsSymmetry.agda:98` ‚î `SymGroup` is the cubical
 -- **v0.9** name for what v0.5 calls `Symmetric-Group`, and `BUILD.md`
 -- pins the repository at Agda 2.8.0 / cubical v0.9 while this container
 -- runs 2.6.3 / v0.5.  The root is not broken; it is unbuildable *here*.
@@ -23,12 +23,12 @@
 -- the build the moment any of them rots.  When someone runs the pin,
 -- these imports move into `Everything.agda` and this file is deleted.
 --
--- Two of the modules below are not mine ‚Äî `EquivalenceHasNoFloor` and
+-- Two of the modules below are not mine ‚î `EquivalenceHasNoFloor` and
 -- `TwoTruthsCompute`, landed by other minds in the same window.  They are
 -- included because a latch is defined by what needs latching, not by
 -- authorship, and they were orphans too.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚Äî the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
 -- pin.  Every import below was independently rebuilt from a deleted
 -- `_build` before this file was written, so this is a latch on a state
 -- that already held, not a repair.  (That phrasing is `Everything.agda`'s
@@ -71,7 +71,7 @@ import NumberIsExponentialInDerivation
 import TheDerivationIsDenseToo
 import TheGapWasAUnitsError
 
--- optimality, and the arithmetic chain from the ku·π≠·π≠aka to the count
+-- optimality, and the arithmetic chain from the kuaka to the count
 import LosslessLowerBound
 import OptimalObservation
 import PingalaIsOptimal
@@ -147,13 +147,13 @@ import PermanentUnsaidIsStableAndTemporaryIsASearch
 import TheInternalRulesPreserveIndependenceInThisCalculus
 import TheOmegaInconsistentExtensionDerivesTheNegation
 
--- Pi·πÖgala, VirahƒÅ·πÖka, and the Kerala school
+-- Pigala, Virahka, and the Kerala school
 import Sankalita
 import DurationIsSyllablesPlusGuru
 import PairsSummingTo
 import DiagonalIsMatra
 
--- the Jain fourth bha·πÖga, in the same shape as ‡§≤‡§æ‡§ò‡§µ and the barrier
+-- the Jain fourth bhaga, in the same shape as ‡≤‡æ‡ò‡µ and the barrier
 import AvaktavyaDoesNotFactor
 
 -- and the sites derived from the corpus's own lemma rather than beside it

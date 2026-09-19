@@ -9,8 +9,8 @@
 -- §16:  a separator "becomes a new object/cell in the theory graph".
 -- §18:  "a failed gluing condition is exactly the tear that the next
 --        Braid stage must repair."
--- D0016 §C:  Γ_α : 𝒪_α → Cell(𝒞_{α+1}), attached along ∂𝒪_α, with
---        ∂Γ⟨δ⁽ⁿ⁾⟩ = δ⁽ⁿ⁺¹⁾, and §I: "the boundary is the womb of the
+-- D0016 §C:  Γ_� : �_� � Cell(�_{�+1}), attached along ��_�, with
+--        �Γ⟨δ���⟩ = δ�����, and §I: "the boundary is the womb of the
 --        successor form".
 --
 -- This is the operation whose absence is the whole complaint in §27,
@@ -73,7 +73,7 @@ radiusThreadCarries _ _ p = p
 --   m = (2,2)   true centre 4, radius 2     -- shares i's centre
 --   k = (5,2)   true centre 7, radius 2     -- shares m's radius
 --
--- so i → m → k is a legitimate two-step weave, every step of it exact.
+-- so i � m � k is a legitimate two-step weave, every step of it exact.
 ------------------------------------------------------------------------
 
 i₀ m₀ k₀ : Jewel
@@ -107,7 +107,7 @@ mixed = step₁ ◃ step₂ ◃ idPath
 -- jewels, a weave that really connects them, an observable that really
 -- disagrees, and the size of the disagreement.  That last field is what
 -- makes it generative rather than merely a complaint -- D0016 §B's
--- defect δ_σ = 𝔥_σ ⊖ 1 is a difference, and a difference has a size.
+-- defect δ_� = �_� ⊖ 1 is a difference, and a difference has a size.
 --
 -- The gap is written additively (`gapWitness`) so that no truncated
 -- subtraction enters, the discipline `PairConic` fixed for this net.
@@ -134,7 +134,7 @@ centreTear = tear i₀ k₀ mixed 3 4≢7 refl
 ------------------------------------------------------------------------
 -- §5  Γ: the successor form, born from the boundary
 --
--- "सीमा = उत्तररूपस्य योनिः."  Γ sends a tear to a jewel of the next
+-- "���� = ������������ ������."  Γ sends a tear to a jewel of the next
 -- stage: the one centred where the weave started, with the DEFECT as
 -- its radius.  So the new material is a function of the failure and of
 -- nothing else -- no menu, no list of symbols to widen to.
@@ -142,7 +142,7 @@ centreTear = tear i₀ k₀ mixed 3 4≢7 refl
 -- The equation below is `refl`.  It is stated anyway because it is the
 -- one thing that has to be true of Γ for the construction to mean what
 -- §C says: the generated cell REMEMBERS the defect it came from
--- (∂Γ⟨δ⟩ = δ).  Its proof is nothing; its content is the definition.
+-- (�Γ⟨δ⟩ = δ).  Its proof is nothing; its content is the definition.
 ------------------------------------------------------------------------
 
 Γ : Tear → Jewel
@@ -171,8 +171,8 @@ centreTear = tear i₀ k₀ mixed 3 4≢7 refl
 --   answer is not bookkeeping.
 --
 -- * Nothing iterates.  Γ produces a jewel; a stage is a whole net; the
---   step from one to the other is D0016 §E's 𝔉, and the thing that
---   makes 𝔉 a Braid rather than a loop is 𝔉_{α+1} ≢ 𝔉_α.  Nothing here
+--   step from one to the other is D0016 §E's �, and the thing that
+--   makes � a Braid rather than a loop is �_{�+1} � �_�.  Nothing here
 --   changes its own law yet, and until it does this is still a notation
 --   that tears rather than a machine that weaves.
 ------------------------------------------------------------------------

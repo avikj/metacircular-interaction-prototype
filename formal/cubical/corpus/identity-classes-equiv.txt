@@ -1,20 +1,20 @@
-‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê EQUIVALENCE-CLASS MAP ‚Äî PROVABLE identity (definitional ‚à™ ‚âÉ/Iso witnesses) ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê EQUIVALENCE-CLASS MAP ‚î PROVABLE identity (definitional ‚à ‚â/Iso witnesses) ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
 declarations (objects)        : 12393
 definitional keys (nodes)     : 7374
-equivalence-witness edges     : 173   (A ‚âÉ B / Iso A B in the corpus)
+equivalence-witness edges     : 173   (A ‚â B / Iso A B in the corpus)
 identity classes              : 7364
 non-trivial classes (>1 decl) : 1027
 classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distinct;
-                                 a checked ‚âÉ/Iso proved them the same)
+                                 a checked ‚â/Iso proved them the same)
 
-‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ classes fused by an equivalence witness (the coinductive resolution), largest first ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+‚î‚î‚î‚î‚î‚î‚î‚î classes fused by an equivalence witness (the coinductive resolution), largest first ‚î‚î‚î‚î‚î‚î‚î‚î
 
 [76 decls / 3 distinct types fused]
     AnuvrttiIsTheSameTrade.underFirst
     AnuvrttiIsTheSameTrade.underSecond
-    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡§¶‡•ç‡§µ‡§æ‡§¶‡§∂
-    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡§¶‡•ç‡§µ‡§ø
-    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡§∑‡§ü‡•ç
+    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡¶‡‡µ‡æ‡¶‡
+    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡¶‡‡µ‡ø
+    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡‡ü‡
     CakravalaWitness.D
     CakravalaWitness.a
     CakravalaWitness.a¬≤
@@ -52,9 +52,9 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d0
     Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d1
     Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.dm1
-    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.Œµ·µ£
-    SelfImprovement.g‚ÇÄ
-    SelfImprovement.g‚ÇÅ
+    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.Œµµ
+    SelfImprovement.g‚
+    SelfImprovement.g‚
     Sha256N.Mabc
     Sha256N.Xabc
     Sha256N.m32
@@ -101,10 +101,10 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     EndogenousHorizon.thresh3
     EndogenousHorizon.thresh5
     HeadDepthMergeBreaker.primesB
-    OptionSpread.Œº‚ÇÖ
-    OptionSpread.Œº‚ÇÜ
-    OptionSpread.œÉ‚ÇÖ
-    OptionSpread.œÉ‚ÇÜ
+    OptionSpread.Œº‚
+    OptionSpread.Œº‚
+    OptionSpread.œ‚
+    OptionSpread.œ‚
     OracleQueries.p
     SelfImprovement.declaredTests
     Sha256N.H0
@@ -123,23 +123,23 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     SieveFiber.fibre100
     SieveFiber.fibre111
     SieveFiber.jointFibreOf1
-    SieveScaleTower.fibre‚ÇÅList
-    SieveScaleTower.fibre‚ÇÇList
-    SieveScaleTower.fibre‚ÇÉList
+    SieveScaleTower.fibre‚List
+    SieveScaleTower.fibre‚List
+    SieveScaleTower.fibre‚List
     SumProductTorus.primes4
     TheSecondUpadhiConditionDoesAllTheWork.probe
 
 [29 decls / 4 distinct types fused]
-    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡§Ö‡§®‡•ç‡§Ø‡§É
-    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡§¶‡•ç‡§µ‡§ø‡§™‡§¶‡§É
+    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡‡®‡‡Ø‡
+    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡¶‡‡µ‡ø‡‡¶‡
     AchromaticToy.cInl
     AchromaticToy.cInr
-    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡§¶‡§ï‡•ç‡§∑‡§ø‡§£
-    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡§µ‡§æ‡§Æ
-    Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡§¨‡§π‡•Å-‡§â‡§¶‡§æ‡§π‡§∞‡§£‡§Æ‡•ç
-    Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡§¨‡§π‡•Å-‡§â‡§¶‡§æ‡§π‡§∞‡§£‡§Æ‡•ç'
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡§¨‡§π‡§ø‡§É-‡§¶‡§ï‡•ç‡§∑‡§ø‡§£
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡§¨‡§π‡§ø‡§É-‡§µ‡§æ‡§Æ
+    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡¶‡ï‡‡‡ø‡
+    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡µ‡æ‡Æ
+    Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡‡‡-‡â‡¶‡æ‡‡∞‡‡Æ‡
+    Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡‡‡-‡â‡¶‡æ‡‡∞‡‡Æ‡'
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡¶‡ï‡‡‡ø‡
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡µ‡æ‡Æ
     HeadDepthMergeBreaker.collisionB
     HeadDepthMergeBreaker.q2B
     HeadDepthMergeBreaker.strongB
@@ -149,14 +149,14 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     HeadDepthTwo.strongCollapseCertificate
     HeadDepthTwo.w3TwoCertificate
     HeadDepthTwo.w4TwoCertificate
-    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡§è‡§ï‡§Æ‡•ç-‡§¶‡§ï‡•ç‡§∑‡§ø‡§£
-    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡§è‡§ï‡§Æ‡•ç-‡§µ‡§æ‡§Æ
-    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡§∏‡§∞‡•ç‡§µ‡•à‡§ï‡§Æ‡•ç-‡§¶‡§ï‡•ç‡§∑‡§ø‡§£
-    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡§∏‡§∞‡•ç‡§µ‡•à‡§ï‡§Æ‡•ç-‡§µ‡§æ‡§Æ
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡-‡¶‡ï‡‡‡ø‡
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡-‡µ‡æ‡Æ
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡¶‡ï‡‡‡ø‡
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡µ‡æ‡Æ
     SpanWeave.throughFalse
     SpanWeave.throughTrue
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡§Ö‡§∏‡§§‡•ç
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡§∏‡§§‡•ç
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡‡
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡
     UnivalentTensorInteraction.minus
     UnivalentTensorInteraction.plus
 
@@ -174,21 +174,21 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     SmithPathCountedExecution.matA0
     SmithPathCountedExecution.matD126
     SmithPathCountedExecution.matH
-    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e‚ÇÅ
-    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e‚ÇÇ'
-    YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering.one‚ÇÇ
+    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e‚
+    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e‚'
+    YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering.one‚
 
 [11 decls / 2 distinct types fused]
-    BhavanaKrida.‡§¶‡•ç‡§µ‡§ø
+    BhavanaKrida.‡¶‡‡µ‡ø
     ChargeTwoHistories.one
-    Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.‡§Ü‡§µ‡§∞‡•ç‡§§‡§É
+    Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.‡‡µ‡∞‡‡‡
     GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.ŒΩ
-    GrahaYuti.‡§∏‡§Æ‡§æ‡§ß‡§æ‡§®‡§Æ‡•ç
-    MulaShakti_TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne.‡§è‡§ï‡§Æ‡•ç
-    RepairGrading.repair‚ÇÄ
-    RepairGrading.repair‚ÇÅ
+    GrahaYuti.‡‡Æ‡æ‡ß‡æ‡®‡Æ‡
+    MulaShakti_TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne.‡‡ï‡Æ‡
+    RepairGrading.repair‚
+    RepairGrading.repair‚
     S3IntegerPermutationModule.one
-    S3IntegerPermutationModule.zero‚Ñ§
+    S3IntegerPermutationModule.zero‚
     SignIsNotAccumulable.minusOne
 
 [7 decls / 2 distinct types fused]

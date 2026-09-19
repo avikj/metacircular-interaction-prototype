@@ -3,12 +3,12 @@
 ------------------------------------------------------------------------
 -- TheMeetIsMaxAndTheProfileCutIsAGaloisConnection
 --
--- `MinPlusResiduationIsAGaloisConnectionAtOneCut` paid Î” 28 Â§31â€“32's
+-- `MinPlusResiduationIsAGaloisConnectionAtOneCut` paid Î” 28 Â§31â“32's
 -- residuation obligation for a single burden and single residual, and
 -- said exactly what was left:
 --
---   "ONE CUT is one burden and one residual â€¦ Î” 28's cut carries a
---    PROFILE on each side and its `â†‘` takes a meet over all burdens â€”
+--   "ONE CUT is one burden and one residual â¦ Î” 28's cut carries a
+--    PROFILE on each side and its `â` takes a meet over all burdens â”
 --    that needs `min` over a finite index and its universal property,
 --    not built.  So what this settles is that the obstruction is NOT
 --    the residuation law; it is the meet."
@@ -16,48 +16,48 @@
 -- The meet is built and the profile cut is done.  And the meet is NOT
 -- `min`.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE MEET IS MAX, AND THAT IS THE FINDING.  The previous module had to
 -- reverse the order because in min-plus lower cost is better.  A meet
--- in a reversed order is a JOIN in the original, so `â‹€` over burdens is
--- `max` in â„•, not `min`.  My own sentence above said "needs `min` over
--- a finite index" and was wrong about which operation â€” the reversal
+-- in a reversed order is a JOIN in the original, so `â‹` over burdens is
+-- `max` in â•, not `min`.  My own sentence above said "needs `min` over
+-- a finite index" and was wrong about which operation â” the reversal
 -- that was load-bearing for the one-cut adjunction is load-bearing
 -- again here, one level up, and naming the operation by its role in the
 -- semiring ("min-plus, so take a min") is exactly the error the
 -- reversal was supposed to have taught.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   max / max-â‰¤Ë¡ / max-â‰¤Ê³ / max-least
+--   max / max-â‰Ë¡ / max-â‰Ê³ / max-least
 --                    the meet of the min-plus order, with its universal
---                    property â€” upper bounds and least among them
+--                    property â” upper bounds and least among them
 --   up / dn          the profile-level polarities at a cut with a
---                    LIST of burdens: `up ks Ï† = â‹€áµ¢ (káµ¢ âˆ¸ Ï†áµ¢)` and
---                    `dn ks Ïˆ = (káµ¢ âˆ¸ Ïˆ)áµ¢`
+--                    LIST of burdens: `up ks Ï = â‹µ (kµ âˆ Ïµ)` and
+--                    `dn ks Ïˆ = (kµ âˆ Ïˆ)µ`
 --   Profile          profiles as a RECURSIVE FAMILY over the kernel, so
---                    a length mismatch is not even representable â€” no
+--                    a length mismatch is not even representable â” no
 --                    `Fin`, no index, the standing idiom here
---   _âŠ‘p_             the profile order: pointwise and reversed
+--   _âŠp_             the profile order: pointwise and reversed
 --   galFwd / galBwd  both directions of the contravariant adjunction
 --   ProfileCut       `module Galois` instantiated, so antitonicity,
 --                    unit, counit, the triangles, idempotence of
---                    `dn ks (up ks Ï†)` and the fixed-point
+--                    `dn ks (up ks Ï)` and the fixed-point
 --                    characterisation follow with NOTHING re-proved
 --
--- So Î” 28 Â§31â€“32's "re-saturate" is now a checked closure over min-plus
+-- So Î” 28 Â§31â“32's "re-saturate" is now a checked closure over min-plus
 -- profiles at a finite cut: saturate once and stop.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- NO NOVELTY.  Residuation in â„•, and Isbell conjugation over a quantale
--- being a Galois connection, are standard â€” Lawvere, `Metric spaces,
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- NO NOVELTY.  Residuation in â•, and Isbell conjugation over a quantale
+-- being a Galois connection, are standard â” Lawvere, `Metric spaces,
 -- generalized logic, and closed categories` (1973), is where min-plus
 -- becomes the value object.  What is contributed is that this
 -- repository's own obligation is discharged at the profile level, and
 -- that the operation it names is corrected.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -107,7 +107,7 @@ max-least (suc m) (suc n) (suc c) h1 h2 =
 -- 2.  Profiles, as a recursive family over the kernel
 --
 -- A burden profile has one entry per kernel entry BY CONSTRUCTION, so
--- the mismatched-length case that a `List â„•` encoding would force is
+-- the mismatched-length case that a `List â•` encoding would force is
 -- not representable.  No `Fin` and no length index: the standing
 -- cubical idiom in this repository.
 ------------------------------------------------------------------------
@@ -183,8 +183,8 @@ module ProfileCut (ks : List â„•) where
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The item named above â€” "a cut with profiles on BOTH
--- sides needs `up` to produce a residual profile â€¦ and is not built" â€”
+-- line above.  The item named above â” "a cut with profiles on BOTH
+-- sides needs `up` to produce a residual profile â¦ and is not built" â”
 -- has its enabling step built in
 -- `TheTwoSidedProfileCutNeedsTheBurdensAsAProfile`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
@@ -194,18 +194,18 @@ module ProfileCut (ks : List â„•) where
 -- PROFILE instead of read off the index list.  That is what frees the
 -- index list to be pure shape, so a matrix of burdens is a profile of
 -- profiles (`Rows`) and `UpP` produces a residual PROFILE.  The Galois
--- connection survives verbatim â€” same two monus adjunctions.
+-- connection survives verbatim â” same two monus adjunctions.
 --
 -- **AND THE OBSTRUCTION TO THE REST IS THE EMPTY ROW SET.**  The right
 -- adjoint must send a residual profile to the largest burden profile
--- below it, componentwise `maxáµ¢ (báµ¢â±¼ âˆ¸ Ïˆáµ¢)`; with no rows the
--- constraint is vacuous and that maximum is unbounded â€” the empty meet
--- is `âˆž`, which â„• does not have.  The paragraph above recorded this
--- from the LEFT adjoint's side as a convention about `up ks Ï† = 0` on
+-- below it, componentwise `maxµ (bµâ¼ âˆ Ïˆµ)`; with no rows the
+-- constraint is vacuous and that maximum is unbounded â” the empty meet
+-- is `âˆž`, which â• does not have.  The paragraph above recorded this
+-- from the LEFT adjoint's side as a convention about `up ks Ï = 0` on
 -- the empty burden list; it is the same fact, and on the right it is
 -- not a convention but an obstruction.  A two-sided cut therefore
--- exists over a non-empty residual index set, or over `â„• âŠŽ âˆž`, and not
--- over â„• with an arbitrary index set.
+-- exists over a non-empty residual index set, or over `â• âŠ âˆž`, and not
+-- over â• with an arbitrary index set.
 --
 -- Still absent, as before: CONVOLUTION, hence nothing about Î” 28's
 -- COMPOSITION step.
@@ -213,23 +213,23 @@ module ProfileCut (ks : List â„•) where
 
 ------------------------------------------------------------------------
 -- CORRECTION APPENDED 2026-08-19, by the same identity, at the end,
--- altering no line above â€” including the 2026-08-19 append above it,
+-- altering no line above â” including the 2026-08-19 append above it,
 -- which is what is being corrected.  Recording site: commit 8f3acebb,
 -- `TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero`.
 --
--- **"the empty meet is `âˆž`, which â„• does not have" IS WRONG**, and with
+-- **"the empty meet is `âˆž`, which â• does not have" IS WRONG**, and with
 -- it "a two-sided cut therefore exists over a non-empty residual index
--- set, or over `â„• âŠŽ âˆž`, and not over â„• with an arbitrary index set".
--- The burden side is ordered by `_âŠ‘p_` = REVERSE pointwise `â‰¤`, so the
--- `âŠ‘p`-greatest profile under a vacuous constraint is the `â‰¤`-LEAST:
--- all zeros.  â„• has it.  The unrestricted adjunction is at the
+-- set, or over `â• âŠ âˆž`, and not over â• with an arbitrary index set".
+-- The burden side is ordered by `_âŠp_` = REVERSE pointwise `â‰`, so the
+-- `âŠp`-greatest profile under a vacuous constraint is the `â‰`-LEAST:
+-- all zeros.  â• has it.  The unrestricted adjunction is at the
 -- recording site.
 --
--- WAS RIGHT.**  It says `up ks Ï† = 0` on the empty burden list "is the
--- reversed order's top only because `0` is â„•'s bottom". That is the correct
+-- WAS RIGHT.**  It says `up ks Ï = 0` on the empty burden list "is the
+-- reversed order's top only because `0` is â•'s bottom". That is the correct
 -- reading, made here first, on the LEFT adjoint's side. The append then
 -- claimed the right adjoint's empty case was a different fact and an
--- obstruction. It is the same fact, and it is not an obstruction â€” the
+-- obstruction. It is the same fact, and it is not an obstruction â” the
 -- reversal was already recorded three lines up from where it was then
 -- forgotten.
 --

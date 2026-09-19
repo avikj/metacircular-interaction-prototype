@@ -1,8 +1,8 @@
 # Standpoints Compute
 
-### Jaina, Bauddha and NaiyÄyika logic in cubical type theory
+### Jaina, Bauddha and Naiyyika logic in cubical type theory
 
-**à¤¨à¤¯à¤µà¤¾à¤¦ Â· à¤¸à¥à¤¯à¤¾à¤¦à¥à¤µà¤¾à¤¦ Â· à¤šà¤¤à¥à¤·à¥à¤•à¥‹à¤Ÿà¤¿ Â· à¤µà¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿**
+**à¨à¯àµà¾à¦ Â ààà¯à¾à¦ààµà¾à¦ Â àààààà•à‹àŸà¿ Â àµàà¯à¾àààà¿**
 
 *Draft, 2026-08-25.*
 
@@ -19,23 +19,23 @@ to any historical author. Where two schools disagree, both readings are stated.
 Three files, 156 + 63 + 77 = 296 lines, written for other purposes.
 
 ```agda
-data Tm : Typeâ‚€ where
+data Tm : Typeâ where
   var yvar zvar uvar vvar wvar : Tm
   zero : Tm
-  suc  : Tm â†’ Tm
-  add  : Tm â†’ Tm â†’ Tm
+  suc  : Tm â’ Tm
+  add  : Tm â’ Tm â’ Tm
 
-data Step : Tm â†’ Tm â†’ Typeâ‚€ where
-  add-zero  : (x : Tm) â†’ Step (add x zero) x
-  add-suc   : (x y : Tm) â†’ Step (add x (suc y)) (suc (add x y))
-  suc-step  : {x y : Tm} â†’ Step x y â†’ Step (suc x) (suc y)
-  add-left  : {x y : Tm} â†’ Step x y â†’ (z : Tm) â†’ Step (add x z) (add y z)
-  add-right : (z : Tm) â†’ {x y : Tm} â†’ Step x y â†’ Step (add z x) (add z y)
-  reverse   : {x y : Tm} â†’ Step x y â†’ Step y x
+data Step : Tm â’ Tm â’ Typeâ where
+  add-zero  : (x : Tm) â’ Step (add x zero) x
+  add-suc   : (x y : Tm) â’ Step (add x (suc y)) (suc (add x y))
+  suc-step  : {x y : Tm} â’ Step x y â’ Step (suc x) (suc y)
+  add-left  : {x y : Tm} â’ Step x y â’ (z : Tm) â’ Step (add x z) (add y z)
+  add-right : (z : Tm) â’ {x y : Tm} â’ Step x y â’ Step (add z x) (add z y)
+  reverse   : {x y : Tm} â’ Step x y â’ Step y x
 
-data Derivation : Tm â†’ Tm â†’ Typeâ‚€ where
-  done      : (x : Tm) â†’ Derivation x x
-  then-step : {x y z : Tm} â†’ Step x y â†’ Derivation y z â†’ Derivation x z
+data Derivation : Tm â’ Tm â’ Typeâ where
+  done      : (x : Tm) â’ Derivation x x
+  then-step : {x y z : Tm} â’ Step x y â’ Derivation y z â’ Derivation x z
 ```
 
 `done` is reflexivity, `then-step` transitivity, `reverse` symmetry, the three
@@ -43,15 +43,15 @@ congruence rules congruence, `add-zero` and `add-suc` the two axioms. Symmetry
 lifts from steps to chains. `Derivation a b` is a proof in equational logic over
 `{x + 0 = x, x + suc y = suc (x + y)}`.
 
-One interpretation: `eval : Tm â†’ Env â†’ â„•`, `Env` holding six independent
+One interpretation: `eval : Tm â’ Env â’ â•`, `Env` holding six independent
 natural-number coordinates, `derivation-sound` carrying every derivation to a path
-in â„• at every environment. A comment in the source says the six coordinates are
+in â• at every environment. A comment in the source says the six coordinates are
 kept distinct because "identifying them would prove only equality on the diagonal."
 Â§5 gives the term.
 
-Already in the kernel's corpus: it is strictly a category and weakly a groupoid â€”
+Already in the kernel's corpus: it is strictly a category and weakly a groupoid â”
 concatenation associative and unital on the nose, `reverse (reverse p)` a different
-constructor application from `p`. Its soundness lands in an identity type of â„•,
+constructor application from `p`. Its soundness lands in an identity type of â•,
 hence in a proposition, so two derivations with the same endpoints have equal
 soundness proofs.
 
@@ -68,34 +68,34 @@ mirror does not.
 
 | cited | status | source |
 |---|---|---|
-| `Ä kaá¸ÄrÄdekÄ saÃ±jÃ±Ä â€– PS_1,4.1 â€–` | verified | `6_sastra/1_gram/sa_pANini-aSTAdhyAyI.txt:422` |
-| `vipratiá¹£edhe paraá¹ƒ kÄryam â€– PS_1,4.2 â€–` | verified | same file, line 425 |
-| `1.2.4: savyabhicÄra-viruddha-prakaraá¹‡asama-sÄdhyasama-kÄlÄtÄ«tÄá¸¥ hetvÄbhÄsÄá¸¥` | verified | `6_sastra/3_phil/sa_gautama-nyAyasUtra.txt:200` |
-| `1.2.5: anaikÄntikaá¸¥ savyabhicÄraá¸¥` | verified | same file, line 204 |
-| *TattvÄrthasÅ«tra* 5.29, `utpÄdavyayadhrauvyayuktaá¹ƒ sat` | verified **as a quotation in another school's text** | `6_sastra/3_phil/sa_arcaTa-hetubinduTIkA-edsanghavi.txt:1671` |
-| *TattvÄrthasÅ«tra* 5.31, `arpitÄnarpitasiddheá¸¥` | **not verified** â€” absent from this corpus | â€” |
-| the seven-naya list | **not verified** â€” absent from this corpus | â€” |
-| *AnuyogadvÄrasÅ«tra*, *SthÄnÄá¹…ga*, *BhagavatÄ«* on the three orders | **not verified** â€” not consulted | â€” |
+| ` kardek saj â– PS_1,4.1 â–` | verified | `6_sastra/1_gram/sa_pANini-aSTAdhyAyI.txt:422` |
+| `vipratiedhe para kryam â– PS_1,4.2 â–` | verified | same file, line 425 |
+| `1.2.4: savyabhicra-viruddha-prakaraasama-sdhyasama-kltt hetvbhs` | verified | `6_sastra/3_phil/sa_gautama-nyAyasUtra.txt:200` |
+| `1.2.5: anaikntika savyabhicra` | verified | same file, line 204 |
+| *Tattvrthastra* 5.29, `utpdavyayadhrauvyayukta sat` | verified **as a quotation in another school's text** | `6_sastra/3_phil/sa_arcaTa-hetubinduTIkA-edsanghavi.txt:1671` |
+| *Tattvrthastra* 5.31, `arpitnarpitasiddhe` | **not verified** â” absent from this corpus | â” |
+| the seven-naya list | **not verified** â” absent from this corpus | â” |
+| *Anuyogadvrastra*, *Sthnga*, *Bhagavat* on the three orders | **not verified** â” not consulted | â” |
 
 Two things the e-texts carry that secondary accounts do not.
 
-**A 1.4.1 was taught two ways, and PataÃ±jali says so.** The *VyÄkaraá¹‡amahÄbhÄá¹£ya*
-on that sÅ«tra: `kim Ä kaá¸ÄrÄt ekÄ saÃ±jÃ±Ä iti Ähosvit prÄk kaá¸ÄrÄt param kÄryam
-iti`, and then `ubhayathÄ hi ÄcÄryeá¹‡a Å›iá¹£yÄá¸¥ sÅ«tram pratipÄditÄá¸¥ : kecit Ä
-kaá¸ÄrÄt ekÄ saÃ±jÃ±Ä iti , kecit prÄk kaá¸ÄrÄt param kÄryam iti` â€” the teacher taught
+**A 1.4.1 was taught two ways, and Patajali says so.** The *Vykaraamahbhya*
+on that stra: `kim  kart ek saj iti hosvit prk kart param kryam
+iti`, and then `ubhayath hi cryea iy stram pratipdit : kecit 
+kart ek saj iti , kecit prk kart param kryam iti` â” the teacher taught
 it both ways; some hold one, some the other
 (`6_sastra/1_gram/sa_pataJjali-vyAkaraNamahAbhASya.txt:11642, 11644`).
 
 **The Jaina definition of *sat* survives in this corpus inside a Buddhist refutation
-of it.** Arcaá¹­a, *Hetubinduá¹­Ä«kÄ* (8th c.), quotes it with its number and rejects it:
-`utpÄdavyayadhrauvyayuktaá¹ƒsat [TattvÄrtha- 5.29.] ity etad apy ayuktam,
-dhrauvyeá¹‡otpÄdavyayayor virodhÄt ekasmin dharmiá¹‡y ayogÄt` â€” origination and
+of it.** Arcaa, *Hetubinduk* (8th c.), quotes it with its number and rejects it:
+`utpdavyayadhrauvyayuktasat [Tattvrtha- 5.29.] ity etad apy ayuktam,
+dhrauvyeotpdavyayayor virodht ekasmin dharmiy ayogt` â” origination and
 cessation contradict persistence, and the three do not hold in one substrate. The
-Jaina answer he then reports is `kathaÃ±cid utpÄdavyayau kathaÃ±cit dhrauvyam` â€” in
+Jaina answer he then reports is `kathacid utpdavyayau kathacit dhrauvyam` â” in
 some respect origination and cessation, in some respect persistence.
 
-Spelling, recorded because it governs any search: the Aá¹£á¹­ÄdhyÄyÄ« e-text writes
-`saÃ±jÃ±Ä`, not `saá¹ƒjÃ±Ä`. A search on one spelling returns nothing on the other.
+Spelling, recorded because it governs any search: the Adhyy e-text writes
+`saj`, not `saj`. A search on one spelling returns nothing on the other.
 
 ---
 
@@ -106,7 +106,7 @@ with `derivation-sound` is one: terms to functions, derivations to paths,
 `then-step` to composition, `reverse` to `sym`.
 
 The two axioms constrain `add a b` only where `b` is literally `zero` or `suc _`.
-At an opaque `b` they do not constrain it. â„• interprets it commutatively. â„• is a
+At an opaque `b` they do not constrain it. â• interprets it commutatively. â• is a
 set, so all parallel derivations get equal soundness proofs.
 
 ### 3.1 A second model
@@ -114,31 +114,31 @@ set, so all parallel derivations get equal soundness proofs.
 Both axioms hold by `refl`.
 
 ```agda
-data Atom : Typeâ‚€ where
+data Atom : Typeâ where
   aX aY aZ aU aV aW aS aM : Atom
 
-p : W â†’ W â†’ W                       -- right-unital, successor-compatible
+p : W â’ W â’ W                       -- right-unital, successor-compatible
 p a []       = a
-p a (aS âˆ· b) = aS âˆ· p a b
-p a (c âˆ· b)  = a ++ (aM âˆ· c âˆ· b)
+p a (aS âˆ b) = aS âˆ p a b
+p a (c âˆ b)  = a ++ (aM âˆ c âˆ b)
 
-âŸ¦_âŸ§ : Tm â†’ W
+âŸ¦_âŸ§ : Tm â’ W
 âŸ¦ zero âŸ§    = []
-âŸ¦ suc t âŸ§   = aS âˆ· âŸ¦ t âŸ§
+âŸ¦ suc t âŸ§   = aS âˆ âŸ¦ t âŸ§
 âŸ¦ add l r âŸ§ = p âŸ¦ l âŸ§ âŸ¦ r âŸ§
-âŸ¦ var âŸ§     = aX âˆ· []               -- and the other five coordinates
+âŸ¦ var âŸ§     = aX âˆ []               -- and the other five coordinates
 
-step-model : {a b : Tm} â†’ Step a b â†’ âŸ¦ a âŸ§ â‰¡ âŸ¦ b âŸ§
+step-model : {a b : Tm} â’ Step a b â’ âŸ¦ a âŸ§ â‰¡ âŸ¦ b âŸ§
 step-model (add-zero x)  = refl
 step-model (add-suc x y) = refl
 ```
 
 ```agda
-not-commutative : Derivation (add var yvar) (add yvar var) â†’ âŠ¥
-not-left-unital : Derivation (add zero var) var â†’ âŠ¥
+not-commutative : Derivation (add var yvar) (add yvar var) â’ âŠ
+not-left-unital : Derivation (add zero var) var â’ âŠ
 ```
 
-Both statements are true in â„• at every environment.
+Both statements are true in â• at every environment.
 
 ### 3.2 The induction apparatus
 
@@ -150,8 +150,8 @@ InductionCertificate.step leftZero-cert =
     (hyp-then (hyp-suc hypothesis) (hyp-done (suc var)))
 
 induction-is-strictly-stronger :
-  ((Ï : Env) â†’ eval (add zero var) Ï â‰¡ eval var Ï)
-  Ã— (Derivation (add zero var) var â†’ âŠ¥)
+  ((Ï : Env) â’ eval (add zero var) Ï â‰¡ eval var Ï)
+  — (Derivation (add zero var) var â’ âŠ)
 ```
 
 The kernel's operation record requires a `Derivation` as its certificate.
@@ -159,34 +159,34 @@ The kernel's operation record requires a `Derivation` as its certificate.
 
 ### 3.3 A universe-valued model already in the corpus
 
-`âŸ¦_âŸ§ : Tm â†’ TEnv â†’ Typeâ‚€`, with `zero â†¦ âŠ¥`, `suc â†¦ Unit âŠ âˆ’`, `add â†¦ âŠ`. Every
+`âŸ¦_âŸ§ : Tm â’ TEnv â’ Typeâ`, with `zero â¦ âŠ`, `suc â¦ Unit âŠ âˆ’`, `add â¦ âŠ`. Every
 `Step` constructor becomes an equivalence; `reverse` becomes `invEquiv`. It proves
 `counting-semantics-cannot-see-it` against `univalent-semantics-does-see-it`, and
 that the corresponding path in the universe is not `refl`, via the univalence
-Î²-rule computing. It names the diagnosis **à¤¨à¤¯-à¤¨à¤¿à¤°à¥‹à¤§à¤ƒ**.
+Î²-rule computing. It names the diagnosis **à¨à¯-à¨à¿à°à‹à§à**.
 
-That model validates commutativity â€” `add â†¦ âŠ`, `âŠ-swap-â‰ƒ` â€” and separates it from
-the identity. The model in Â§3.1 refutes it. `add â†¦ âŠ` and `p` differ in what they
+That model validates commutativity â” `add â¦ âŠ`, `âŠ-swap-â‰` â” and separates it from
+the identity. The model in Â§3.1 refutes it. `add â¦ âŠ` and `p` differ in what they
 supply where the axioms are silent.
 
 ---
 
 ## 4. What the blindness proof consumes
 
-The corpus states that no semantic criterion â€” "none, at any h-level, of any
-complexity" â€” selects a short derivation over a long one. Abstracted over the
+The corpus states that no semantic criterion â” "none, at any h-level, of any
+complexity" â” selects a short derivation over a long one. Abstracted over the
 codomain:
 
 ```agda
 blindness-is-a-property-of-the-codomain :
-  {X : Type â„“} â†’ isSet X
-  â†’ (âŸ¦_âŸ§ : Tm â†’ Env â†’ X)
-  â†’ (sound : {a b : Tm} â†’ Derivation a b â†’ (Ï : Env) â†’ âŸ¦ a âŸ§ Ï â‰¡ âŸ¦ b âŸ§ Ï)
-  â†’ (Ï† : ((Ï : Env) â†’ âŸ¦ a âŸ§ Ï â‰¡ âŸ¦ b âŸ§ Ï) â†’ C)
-  â†’ (d e : Derivation a b) â†’ Ï† (sound d) â‰¡ Ï† (sound e)
+  {X : Type â“} â’ isSet X
+  â’ (âŸ¦_âŸ§ : Tm â’ Env â’ X)
+  â’ (sound : {a b : Tm} â’ Derivation a b â’ (Ï : Env) â’ âŸ¦ a âŸ§ Ï â‰¡ âŸ¦ b âŸ§ Ï)
+  â’ (Ï : ((Ï : Env) â’ âŸ¦ a âŸ§ Ï â‰¡ âŸ¦ b âŸ§ Ï) â’ C)
+  â’ (d e : Derivation a b) â’ Ï (sound d) â‰¡ Ï (sound e)
 ```
 
-The hypotheses consumed are `isSet X`. â„•, `eval` and the six constructors do not
+The hypotheses consumed are `isSet X`. â•, `eval` and the six constructors do not
 appear.
 
 ```agda
@@ -198,9 +198,9 @@ A measure sending `rev d` to the inverse of `d` sends a round trip to the identi
 `len` sends it to `len d + len d`.
 
 ```agda
-module _ {X : Type â„“} (P : Tm â†’ X)
-         (st  : {a b : Tm} â†’ Step a b â†’ P a â‰¡ P b)
-         (st-rev : (p : Step a b) â†’ st (reverse p) â‰¡ sym (st p)) where
+module _ {X : Type â“} (P : Tm â’ X)
+         (st  : {a b : Tm} â’ Step a b â’ P a â‰¡ P b)
+         (st-rev : (p : Step a b) â’ st (reverse p) â‰¡ sym (st p)) where
   no-semantics-separates-them : D detour-history â‰¡ D direct-history
 ```
 
@@ -211,16 +211,16 @@ obtains a separable pair only after adding a constructor.
 
 ---
 
-## 5. VyabhicÄra
+## 5. Vyabhicra
 
-*NyÄyasÅ«tra* 1.2.4 lists the hetvÄbhÄsas; 1.2.5 reads **`anaikÄntikaá¸¥
-savyabhicÄraá¸¥`**. The apparatus for *vyÄpti* and its defeat by an *upÄdhi* is
-Gaá¹…geÅ›a's, *TattvacintÄmaá¹‡i*, ~1325, and is not claimed for anything below.
+*Nyyastra* 1.2.4 lists the hetvbhsas; 1.2.5 reads **`anaikntika
+savyabhicra`**. The apparatus for *vypti* and its defeat by an *updhi* is
+Gagea's, *Tattvacintmai*, ~1325, and is not claimed for anything below.
 
 ```agda
-vyabhicara : {a b : Tm} (Ï : Env)
-           â†’ (eval a Ï â‰¡ eval b Ï â†’ âŠ¥) â†’ Derivation a b â†’ âŠ¥
-vyabhicara Ï ne d = ne (derivation-sound d Ï)
+vyabhicara : {a b : Tm} (Ï : Env)
+           â’ (eval a Ï â‰¡ eval b Ï â’ âŠ) â’ Derivation a b â’ âŠ
+vyabhicara Ï ne d = ne (derivation-sound d Ï)
 ```
 
 One environment at which the meanings differ forbids the derivation at every
@@ -228,39 +228,39 @@ environment. `var` is derivably identified with none of the other five
 coordinates; `yvar` with `zvar`. These are the first uninhabited `Derivation`s in
 the corpus.
 
-Gautama's word for the fault is **à¤…à¤¨à¥ˆà¤•à¤¾à¤¨à¥à¤¤à¤¿à¤•** Â· *anaikÄntika*. The Jaina word for
-their doctrine is **à¤…à¤¨à¥‡à¤•à¤¾à¤¨à¥à¤¤** Â· *anekÄnta*. The Jaina answer to the charge that
-anekÄnta is anaikÄntika is in Akalaá¹…ka and VidyÄnanda. Arcaá¹­a's objection quoted in
+Gautama's word for the fault is **àà¨àˆà•à¾à¨ààà¿à•** Â *anaikntika*. The Jaina word for
+their doctrine is **àà¨àà•à¾à¨àà** Â *aneknta*. The Jaina answer to the charge that
+aneknta is anaikntika is in Akalaka and Vidynanda. Arcaa's objection quoted in
 Â§2 is the same charge made against the Jaina definition of *sat*, and the Jaina
-answer he reports is *kathaÃ±cid* â€” in some respect.
+answer he reports is *kathacid* â” in some respect.
 
 ---
 
 ## 6. Ananta
 
-The Jaina counting apparatus distinguishes à¤¸à¤‚à¤–à¥à¤¯à¤¾à¤¤ / à¤…à¤¸à¤‚à¤–à¥à¤¯à¤¾à¤¤ / à¤…à¤¨à¤¨à¥à¤¤. *Asaá¹ƒkhyÄta*
+The Jaina counting apparatus distinguishes ààà–àà¯à¾à / àààà–àà¯à¾à / àà¨à¨àà. *Asakhyta*
 is bounded above within the scheme; *ananta* is not. The texts naming this
-(*AnuyogadvÄrasÅ«tra*, *SthÄnÄá¹…ga*, *BhagavatÄ«*) were **not consulted for this
+(*Anuyogadvrastra*, *Sthnga*, *Bhagavat*) were **not consulted for this
 paper**; the account is from secondary sources.
 
 ```agda
-inflate : (k : â„•) {a b : Tm} â†’ Derivation a b â†’ Derivation a b
+inflate : (k : â•) {a b : Tm} â’ Derivation a b â’ Derivation a b
 inflate zero        d = d
 inflate (suc k) {a} d =
   then-step (reverse (add-zero a)) (then-step (add-zero a) (inflate k d))
 
-inflate-len : (k : â„•) (d : Derivation a b) â†’ len (inflate k d) â‰¡ (k + k) + len d
-inflate-inj : (d : Derivation a b) (k k' : â„•) â†’ inflate k d â‰¡ inflate k' d â†’ k â‰¡ k'
+inflate-len : (k : â•) (d : Derivation a b) â’ len (inflate k d) â‰¡ (k + k) + len d
+inflate-inj : (d : Derivation a b) (k k' : â•) â’ inflate k d â‰¡ inflate k' d â’ k â‰¡ k'
 ```
 
 `reverse (add-zero a) : Step a (add a zero)` fires at every term with no hypothesis
-on `a`. The index is recoverable from the derivation, so â„• injects into
+on `a`. The index is recoverable from the derivation, so â• injects into
 `Derivation a b` whenever it is inhabited.
 
 The kernel's offering is a `List`, counted by `length`, and its one conservation law
 preserves that count. `Derivation a b` is not finite.
 
-No identification with any cardinal is made. *Asaá¹ƒkhyÄta* has no counterpart in
+No identification with any cardinal is made. *Asakhyta* has no counterpart in
 this file.
 
 ---
@@ -269,54 +269,54 @@ this file.
 
 ### 7.1 Jaina
 
-An assertion made with no *upÄdhi* is à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤·; with one, à¤¸à¤¾à¤ªà¥‡à¤•à¥à¤·. Siddhasena
-DivÄkara, *Sanmatitarka*; Akalaá¹…ka. Not verified against a primary e-text.
+An assertion made with no *updhi* is à¨à¿à°ààà•àà; with one, àà¾ààà•àà. Siddhasena
+Divkara, *Sanmatitarka*; Akalaka. Not verified against a primary e-text.
 
 ```agda
 asti  : eval var  diagonal     â‰¡ eval yvar  diagonal        -- refl
-nasti : Â¬ (eval var off-diagonal â‰¡ eval yvar off-diagonal)  -- znots
+nasti : Â (eval var off-diagonal â‰¡ eval yvar off-diagonal)  -- znots
 
-no-unqualified-assertion : Â¬ ((Ï : Env) â†’ P Ï)
-no-unqualified-denial    : Â¬ ((Ï : Env) â†’ Â¬ P Ï)
+no-unqualified-assertion : Â ((Ï : Env) â’ P Ï)
+no-unqualified-denial    : Â ((Ï : Env) â’ Â P Ï)
 ```
 
 Both unqualified forms are refuted. The two qualified ones hold. `P` is a family
 over `Env` whose fibres disagree. For a pair the calculus derives, the two
 refutations fail.
 
-This exhibits bhaá¹…gas one and two, and the *krama* reading of the third. It does
-not exhibit the fourth, which arises from à¤¯à¥à¤—à¤ªà¤¤à¥.
+This exhibits bhagas one and two, and the *krama* reading of the third. It does
+not exhibit the fourth, which arises from à¯àà—ààà.
 
 ### 7.2 Bauddha
 
-The à¤šà¤¤à¥à¤·à¥à¤•à¥‹à¤Ÿà¤¿ is in NÄgÄrjuna's *MÅ«lamadhyamakakÄrikÄ*. Its fourth corner with
-à¤ªà¥à¤°à¤¸à¤œà¥à¤¯à¤ªà¥à¤°à¤¤à¤¿à¤·à¥‡à¤§ â€” the negation that asserts nothing positive, `A â†’ âŠ¥`; the
-distinction from à¤ªà¤°à¥à¤¯à¥à¤¦à¤¾à¤¸ is Westerhoff's:
+The àààààà•à‹àŸà¿ is in Ngrjuna's *Mlamadhyamakakrik*. Its fourth corner with
+ààà°àààà¯ààà°àà¿ààà§ â” the negation that asserts nothing positive, `A â’ âŠ`; the
+distinction from àà°àà¯àà¦à¾à is Westerhoff's:
 
 ```agda
-no-fourth-corner : {A : Type â„“} â†’ Â¬ (Â¬ (A âŠ (Â¬ A)))
-no-fourth-corner k = k (inr (Î» a â†’ k (inl a)))
+no-fourth-corner : {A : Type â“} â’ Â (Â (A âŠ (Â A)))
+no-fourth-corner k = k (inr (Î» a â’ k (inl a)))
 ```
 
-For every `A`, at every level, on no hypothesis. Under *paryudÄsa* the fourth
+For every `A`, at every level, on no hypothesis. Under *paryudsa* the fourth
 corner is a different formula and this term does not apply to it. Priest and
-Garfield read the catuá¹£koá¹­i paraconsistently and hold the fourth corner
+Garfield read the catukoi paraconsistently and hold the fourth corner
 assertable; this term is constructive and theirs is not.
 
 ### 7.3 Side by side
 
 |  | Â§7.1 | Â§7.2 |
 |---|---|---|
-| shape | `Â¬ ((Ï : Env) â†’ P Ï)` and `Â¬ ((Ï : Env) â†’ Â¬ P Ï)` | `Â¬ (Â¬ (A âŠ Â¬ A))` |
+| shape | `Â ((Ï : Env) â’ P Ï)` and `Â ((Ï : Env) â’ Â P Ï)` | `Â (Â (A âŠ Â A))` |
 | quantifies over | an index | nothing |
 | depends on | the particular pair | no hypothesis |
 | holds | contingently | universally |
 
-*Krama* â€” sequential joint assertion â€” is composition, and is throughout the
-kernel. *Yugapat* â€” two derivations with the same endpoints asserted at once â€”
+*Krama* â” sequential joint assertion â” is composition, and is throughout the
+kernel. *Yugapat* â” two derivations with the same endpoints asserted at once â”
 would be a square over them. `Derivation` has no constructor producing one.
 
-Schang treats the saptabhaá¹…gÄ« and the catuá¹£koá¹­i in one framework. The two shapes
+Schang treats the saptabhag and the catukoi in one framework. The two shapes
 above are a Î  over an index and a formula in one variable.
 
 ---
@@ -325,27 +325,27 @@ above are a Î  over an index and a formula in one variable.
 
 Measured in this repository.
 
-**2026-08-24.** `1.4.2` in 42 files. `1.4.1` in 11 files. `ekÄ saá¹ƒjÃ±Ä`, in either
+**2026-08-24.** `1.4.2` in 42 files. `1.4.1` in 11 files. `ek saj`, in either
 script, in 0 files.
 
 **2026-08-25**, after a correction landed and after unrelated deletions: 16, 6, and
 3. The three occurrences of the words are the correction.
 
-`Ä kaá¸ÄrÄdekÄ saÃ±jÃ±Ä` says that where several *saá¹ƒjÃ±Ä*s offer, one applies.
-`vipratiá¹£edhe paraá¹ƒ kÄryam` says which. PataÃ±jali records both readings of the
+` kardek saj` says that where several *saj*s offer, one applies.
+`vipratiedhe para kryam` says which. Patajali records both readings of the
 first (Â§2).
 
-**à¤ªà¥‚à¤°à¥à¤µà¤ªà¤°à¤¨à¤¿à¤¤à¥à¤¯à¤¾à¤¨à¥à¤¤à¤°à¤™à¥à¤—à¤¾à¤ªà¤µà¤¾à¤¦à¤¾à¤¨à¤¾à¤®à¥ à¤‰à¤¤à¥à¤¤à¤°à¥‹à¤¤à¥à¤¤à¤°à¤‚ à¤¬à¤²à¥€à¤¯à¤ƒ** is not a sÅ«tra of the
-Aá¹£á¹­ÄdhyÄyÄ«. It is a *paribhÄá¹£Ä* reaching modern readers through NÄgeÅ›a's
-*ParibhÄá¹£enduÅ›ekhara*, 18th century. In this repository it stood filed under
-"PÄá¹‡ini, ~500 BCE" for five days, in the file whose subject is misattribution.
+**ààà°ààµàà°à¨à¿ààà¯à¾à¨ààà°à™àà—à¾ààµà¾à¦à¾à¨à¾à®à à‰àààà°à‹àààà°à àà²àà¯à** is not a stra of the
+Adhyy. It is a *paribh* reaching modern readers through Ngea's
+*Paribhenduekhara*, 18th century. In this repository it stood filed under
+"Pini, ~500 BCE" for five days, in the file whose subject is misattribution.
 
-Euler attributed to Pell a method in Jayadeva and BhÄskara II. The array in
-Piá¹…gala's *Chandaá¸¥Å›Ästra* is called Pascal's. VirahÄá¹…ka's recurrence is called
+Euler attributed to Pell a method in Jayadeva and Bhskara II. The array in
+Pigala's *Chandastra* is called Pascal's. Virahka's recurrence is called
 Fibonacci's.
 
-*SyÄt* is the optative of âˆšà¤…à¤¸à¥ used as an indeclinable. The Jaina texts call each
-qualified predication *niÅ›caya*. It is glossed "maybe" in the many-valued
+*Syt* is the optative of âˆààà used as an indeclinable. The Jaina texts call each
+qualified predication *nicaya*. It is glossed "maybe" in the many-valued
 literature.
 
 ---
@@ -354,28 +354,28 @@ literature.
 
 Recorded here, and struck in place in the module headers.
 
-- "Every model in this corpus is â„•; every soundness theorem in the kernel is stated
-  against â„• alone." â€” false when written. `grep -rlE ': *Tm *â†’' formal/cubical`
+- "Every model in this corpus is â•; every soundness theorem in the kernel is stated
+  against â• alone." â” false when written. `grep -rlE ': *Tm *â’' formal/cubical`
   returns twenty files, and Â§3.3 is one of them.
 - "Whether a non-set codomain separates the kernel's two exhibited histories is
-  open." â€” not open. The term in Â§4 was in the same file's next section.
-- `savyabhicÄro 'naikÄntikaá¸¥` â€” the words in reverse order. The e-text reads
-  `anaikÄntikaá¸¥ savyabhicÄraá¸¥`.
-- `ekÄ saá¹ƒjÃ±Ä` â€” the Aá¹£á¹­ÄdhyÄyÄ« e-text reads `saÃ±jÃ±Ä`.
-- *TattvÄrthasÅ«tra* 5.31 and the seven-naya list were cited without being opened,
+  open." â” not open. The term in Â§4 was in the same file's next section.
+- `savyabhicro 'naikntika` â” the words in reverse order. The e-text reads
+  `anaikntika savyabhicra`.
+- `ek saj` â” the Adhyy e-text reads `saj`.
+- *Tattvrthastra* 5.31 and the seven-naya list were cited without being opened,
   and are marked unverified in Â§2.
 
 ---
 
 ## 10. Not claimed
 
-- No theorem is attributed to UmÄsvÄti, Siddhasena, Akalaá¹…ka, Gautama, Gaá¹…geÅ›a,
-  NÄgÄrjuna, PataÃ±jali, Arcaá¹­a or BhÄskara.
+- No theorem is attributed to Umsvti, Siddhasena, Akalaka, Gautama, Gagea,
+  Ngrjuna, Patajali, Arcaa or Bhskara.
 - No claim that any formalisation here is the correct reading of its tradition.
 - No completeness, characterisation, or decision procedure. Â§3 refutes two
   statements and does not describe what is derivable.
-- The Jaina fourth bhaá¹…ga is not formalised.
-- *Asaá¹ƒkhyÄta* has no counterpart in Â§6.
+- The Jaina fourth bhaga is not formalised.
+- *Asakhyta* has no counterpart in Â§6.
 - No repair of the gap in Â§3.2. Making an induction certificate installable
   requires a `Step` constructor for induction or a weakening of the operation
   record's certificate field.
@@ -389,21 +389,21 @@ Recorded here, and struck in place in the module headers.
 
 ## 11. Prior art
 
-Priest and Ganeri read the saptabhaá¹…gÄ« as supporting a non-classical â€” many-valued
-or modal â€” system. Balcerowicz contests that reading. Recent formalisations take
-VÄdidevasÅ«ri (12th c.) and YaÅ›ovijaya (17th c.); Rahlwes, *Silence and
-Contradiction in the Jaina Saptabhaá¹…gÄ«*, Journal of Indian Philosophy, 2023.
+Priest and Ganeri read the saptabhag as supporting a non-classical â” many-valued
+or modal â” system. Balcerowicz contests that reading. Recent formalisations take
+Vdidevasri (12th c.) and Yaovijaya (17th c.); Rahlwes, *Silence and
+Contradiction in the Jaina Saptabhag*, Journal of Indian Philosophy, 2023.
 
-Priest and Garfield read the catuá¹£koá¹­i through First-Degree Entailment with a
-plurivalent extension. Westerhoff distinguishes *paryudÄsa* from
-*prasajya-pratiá¹£edha*. Criticism of the Priestâ€“Garfield reading appears in *Asian
-Philosophy*, 2024. Schang treats saptabhaá¹…gÄ« and catuá¹£koá¹­i in one framework.
+Priest and Garfield read the catukoi through First-Degree Entailment with a
+plurivalent extension. Westerhoff distinguishes *paryudsa* from
+*prasajya-pratiedha*. Criticism of the Priestâ“Garfield reading appears in *Asian
+Philosophy*, 2024. Schang treats saptabhag and catukoi in one framework.
 
 A search from this environment did not locate work formalising either doctrine in a
 proof assistant or in dependent type theory. That is the result of a search, not a
 statement about what exists.
 
-The substrate is cubical type theory (Cohen, Coquand, Huber, MÃ¶rtberg) on
+The substrate is cubical type theory (Cohen, Coquand, Huber, Mrtberg) on
 Voevodsky's univalent foundations, with the `agda/cubical` library.
 
 ---
@@ -412,14 +412,14 @@ Voevodsky's univalent foundations, with the `agda/cubical` library.
 
 | Â§ | Module | Identifier |
 |---|---|---|
-| 3.1 | `Naya_â€¦` | `not-commutative`, `not-left-unital` |
-| 3.2 | `Naya_â€¦` | `leftZero-cert`, `induction-is-strictly-stronger` |
-| 3.3 | `Ankapasa_â€¦` *(corpus)* | `counting-semantics-cannot-see-it`, `univalent-semantics-does-see-it` |
-| 4 | `Syat_â€¦` | `blindness-is-a-property-of-the-codomain`, `rev-len`, `round-trip`, `no-semantics-separates-them` |
-| 5 | `Vyabhicara_â€¦` | `vyabhicara`, `varâ‰¢yvar` â€¦ `yvarâ‰¢zvar` |
-| 6 | `Ananta_â€¦` | `inflate-len`, `inflate-inj`, `ananta` |
-| 7.1 | `Nirapeksa_â€¦` | `asti`, `nasti`, `no-unqualified-assertion`, `no-unqualified-denial` |
-| 7.2 | `Nirapeksa_â€¦` | `no-fourth-corner` |
+| 3.1 | `Naya_â¦` | `not-commutative`, `not-left-unital` |
+| 3.2 | `Naya_â¦` | `leftZero-cert`, `induction-is-strictly-stronger` |
+| 3.3 | `Ankapasa_â¦` *(corpus)* | `counting-semantics-cannot-see-it`, `univalent-semantics-does-see-it` |
+| 4 | `Syat_â¦` | `blindness-is-a-property-of-the-codomain`, `rev-len`, `round-trip`, `no-semantics-separates-them` |
+| 5 | `Vyabhicara_â¦` | `vyabhicara`, `varâ‰yvar` â¦ `yvarâ‰zvar` |
+| 6 | `Ananta_â¦` | `inflate-len`, `inflate-inj`, `ananta` |
+| 7.1 | `Nirapeksa_â¦` | `asti`, `nasti`, `no-unqualified-assertion`, `no-unqualified-denial` |
+| 7.2 | `Nirapeksa_â¦` | `no-fourth-corner` |
 
 All under `formal/cubical/Kernel/`, alongside `RewriteCertificate`,
 `ControlledGrammar`, `GenerativeKernel` and the corpus modules they cite. Each

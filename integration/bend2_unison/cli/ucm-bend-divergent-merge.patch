@@ -1,0 +1,87 @@
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput/Merge2.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/Merge2.hs
+@@ -34,6 +34,7 @@
+ import U.Codebase.Causal qualified as V2.Causal
+ import U.Codebase.HashTags (CausalHash, unCausalHash)
+ import U.Codebase.Reference (TermReferenceId, TypeReference, TypeReferenceId)
++import U.Codebase.Reference qualified as Ref
+ import U.Codebase.Sqlite.DbId (ProjectId)
+ import U.Codebase.Sqlite.Operations qualified as Operations
+ import U.Codebase.Sqlite.Project (Project (..))
+@@ -50,6 +51,7 @@
+ import Unison.Codebase qualified as Codebase
+ import Unison.Codebase.Branch (Branch, Branch0)
+ import Unison.Codebase.Branch qualified as Branch
++import Unison.Codebase.Branch.Merge qualified as BranchMerge
+ import Unison.Codebase.Branch.Names qualified as Branch
+ import Unison.Codebase.BranchUtil qualified as BranchUtil
+ import Unison.Codebase.Editor.HandleInput.Branch qualified as HandleInput.Branch
+@@ -465,25 +467,49 @@
+       lcaCausalHash <- Operations.lca aliceCausalHash bobCausalHash
+       pure (aliceCausalHash, bobCausalHash, lcaCausalHash)
+ 
+-  -- Do the merge!
+-  doMerge
+-    MergeInfo
+-      { alice =
+-          AliceMergeInfo
+-            { causalHash = aliceCausalHash,
+-              projectAndBranch = branches.alice
+-            },
+-        bob =
+-          BobMergeInfo
+-            { causalHash = bobCausalHash,
+-              source = MergeSource'LocalProjectBranch branches.bob
+-            },
+-        lca =
+-          LcaMergeInfo
+-            { causalHash = lcaCausalHash
+-            },
+-        description = "merge " <> into @Text (ProjectUtils.justTheNames branches.bob)
+-      }
++  -- Native Bend components have their own checked declaration format.  The
++  -- Unison synthesis merge hydrates every changed type as a Unison decl, so
++  -- merge their names and causal histories directly instead.
++  env <- ask
++  hasBend <- Cli.runTransaction do
++    aliceBranch <- Codebase.expectBranchForHashTx env.codebase aliceCausalHash
++    bobBranch <- Codebase.expectBranchForHashTx env.codebase bobCausalHash
++    or <$> traverse branchHasBend [aliceBranch, bobBranch]
++  if hasBend && lcaCausalHash /= Just aliceCausalHash && lcaCausalHash /= Just bobCausalHash
++    then do
++      bobBranch <- liftIO (Codebase.expectBranchForHash env.codebase bobCausalHash)
++      _ <- Cli.updateAtM
++        ("merge " <> into @Text (ProjectUtils.justTheNames branches.bob))
++        (PP.projectBranchRoot branches.alice)
++        (\aliceBranch -> liftIO (BranchMerge.merge'' (Codebase.lca env.codebase) BranchMerge.RegularMerge bobBranch aliceBranch))
++      Cli.respond (Output.Literal "Bend2: merged branch histories; conflicting names retain both references")
++    else doMerge
++      MergeInfo
++        { alice =
++            AliceMergeInfo
++              { causalHash = aliceCausalHash,
++                projectAndBranch = branches.alice
++              },
++          bob =
++            BobMergeInfo
++              { causalHash = bobCausalHash,
++                source = MergeSource'LocalProjectBranch branches.bob
++              },
++          lca =
++            LcaMergeInfo
++              { causalHash = lcaCausalHash
++              },
++          description = "merge " <> into @Text (ProjectUtils.justTheNames branches.bob)
++        }
++
++branchHasBend :: Branch Transaction -> Transaction Bool
++branchHasBend branch = do
++  let refs = Names.referenceIds (Branch.toNames (Branch.head branch))
++  or <$> traverse isBendRef (Set.toList (refs.terms <> refs.types))
++  where
++    isBendRef (Ref.Id hash _) = do
++      maybeOid <- Queries.loadObjectIdForPrimaryHash hash
++      maybe (pure False) (fmap isJust . Queries.loadBendBytes) maybeOid
+ 
+ ------------------------------------------------------------------------------------------------------------------------
+ -- Merge precondition violation checks

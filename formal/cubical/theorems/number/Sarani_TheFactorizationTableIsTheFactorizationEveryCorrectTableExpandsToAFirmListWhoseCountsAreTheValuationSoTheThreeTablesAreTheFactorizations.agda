@@ -1,72 +1,72 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- सारणी — the factorization TABLE is the factorization.
+-- ����� � the factorization TABLE is the factorization.
 --
 -- `ChargePolynomialFinite` presents 12, 30 and 360 by factorization
--- tables `Fact = List (ℕ × ℕ)`, an entry `(p , e)` standing for p^(1+e),
+-- tables `Fact = List (� � �)`, an entry `(p , e)` standing for p^(1+e),
 -- and discharges each table four ways ((i) `value f ≡ n`, (ii) every base
--- prime by `isPrimeᵇ`, (iii) bases distinct by `distinctᵇ`, (iv) Ω
+-- prime by `isPrime�`, (iii) bases distinct by `distinct�`, (iv) Ω
 -- against SieveFiber's trial division).  Its header then says, exactly:
 --
---     What (i)–(iv) do NOT give is that the table is *the* factorization:
+--     What (i)�(iv) do NOT give is that the table is *the* factorization:
 --     that step is unique factorization, which is not proved here and
 --     not available in the imported library at the shape needed.  So the
 --     precise reading of everything below is: **these are theorems about
 --     factorization tables, together with a four-way check that the
 --     three tables used are correct tables for 12, 30 and 360.**  Under
---     unique factorization — and only under it — they are the note's
+--     unique factorization � and only under it � they are the note's
 --     theorems at those n.
 --
--- and its rigor boundary repeats: "unique factorization … the bridge from
+-- and its rigor boundary repeats: "unique factorization � the bridge from
 -- a table to the integer it names is checked four ways and is still a
 -- bridge."
 --
 -- The corpus now has unique factorisation, in
---   `Drdha_…`  — दृढम् (prime), वधः (product of a list), विभाजनम्
---                (existence of a prime list for every n ≥ 1), and
---   `Ekatva_…` — एकत्वम् (two prime lists with one product are a `Perm`),
---                एकत्व-गणना (hence equal counts of every p), मानम् p n
---                (the valuation), मान-निश्चयः (every prime list with
---                product n has count मानम् p n of p).
+--   `Drdha_�`  � ����� (prime), ��� (product of a list), ��������
+--                (existence of a prime list for every n � 1), and
+--   `Uniqueness_�` � �������� (two prime lists with one product are a `Perm`),
+--                ������-����� (hence equal counts of every p), ����� p n
+--                (the valuation), ���-������� (every prime list with
+--                product n has count ����� p n of p).
 --
 -- This module builds the bridge.
 --
 -- WHAT IS PROVED.
 --
---   §1  Boolean projections and the reflection of SieveFiber's `ltᵇ`
---       into `_<_` / `_≤_`, and `eqᵇ m m ≡ true`.
---   §2  `rem-divides`: for d > 0, d ∣ n gives `n rem d ≡ 0` — SieveFiber's
+--   §1  Boolean projections and the reflection of SieveFiber's `lt�`
+--       into `_<_` / `_�_`, and `eq� m m ≡ true`.
+--   §2  `rem-divides`: for d > 0, d � n gives `n rem d ≡ 0` � SieveFiber's
 --       fuel-bounded remainder is sound against library divisibility.
---   §3  `isPrimeᵇ-sound`: the table's OWN primality check is sound:
---       `isPrimeᵇ n ≡ true → दृढम् n`.  Nothing else is used for
+--   §3  `isPrime�-sound`: the table's OWN primality check is sound:
+--       `isPrime� n ≡ true � ����� n`.  Nothing else is used for
 --       primality; the flags `wf-12`, `wf-30`, `wf-360` already in
 --       ChargePolynomialFinite become firmness proofs.
 --   §4  `expand`: a table expanded to its list of primes WITH
 --       multiplicity, `(p , e)` contributing 1+e copies of p.
---         expand-value : वधः (expand f) ≡ value f
---         expand-firm  : all bases pass isPrimeᵇ → सर्वे दृढम् (expand f)
+--         expand-value : ��� (expand f) ≡ value f
+--         expand-firm  : all bases pass isPrime� � ����� ����� (expand f)
 --   §5  `expOf p f`: the exponent of p in a table (0 if p is not a base).
---         count-expOf  : bases distinct → गणना p (expand f) ≡ expOf p f
---   §6  `Correct n f` := wellFormedᵇ f ≡ true × value f ≡ n — exactly the
---       checks (i)–(iii) that ChargePolynomialFinite performs.  Then, for
+--         count-expOf  : bases distinct � ����� p (expand f) ≡ expOf p f
+--   §6  `Correct n f` := wellFormed� f ≡ true � value f ≡ n � exactly the
+--       checks (i)�(iii) that ChargePolynomialFinite performs.  Then, for
 --       ANY two correct tables f, g of the same n:
 --         tables-perm     : Perm (expand f) (expand g)
---         tables-count    : ∀ p → गणना p (expand f) ≡ गणना p (expand g)
---         tables-exponent : ∀ p → expOf p f ≡ expOf p g
+--         tables-count    : � p � ����� p (expand f) ≡ ����� p (expand g)
+--         tables-exponent : � p � expOf p f ≡ expOf p g
 --       and for any correct table of n:
---         table-valuation : ∀ p → expOf p f ≡ मानम् p n pos
---         table-perm-drdha: Perm (expand f) (fst (विभाजनम् n pos))
+--         table-valuation : � p � expOf p f ≡ ����� p n pos
+--         table-perm-drdha: Perm (expand f) (fst (�������� n pos))
 --       i.e. a correct table is *the* factorization: its exponent at
 --       every p (every p, not only the bases) is the valuation.
 --   §7  The three tables: `Correct 12 f12`, `Correct 30 f30`,
 --       `Correct 360 f360` are the existing flags; hence
---         exponent-12  : ∀ p → expOf p f12  ≡ मानम् p 12  _
---         exponent-30  : ∀ p → expOf p f30  ≡ मानम् p 30  _
---         exponent-360 : ∀ p → expOf p f360 ≡ मानम् p 360 _
+--         exponent-12  : � p � expOf p f12  ≡ ����� p 12  _
+--         exponent-30  : � p � expOf p f30  ≡ ����� p 30  _
+--         exponent-360 : � p � expOf p f360 ≡ ����� p 360 _
 --       for EVERY p, by the general theorem, not by enumeration; and the
 --       kernel additionally confirms by refl that each expansion is
---       literally Drdha's list (2∷2∷3, 2∷3∷5, 2∷2∷2∷3∷3∷5) and that the
+--       literally Drdha's list (2�2�3, 2�3�5, 2�2�2�3�3�5) and that the
 --       valuations at the bases of 12 and 30 are the table's exponents.
 --       At 360 the Drdha list is NOT normalised by refl (unary `_mod_`
 --       via `+induction` does not finish in budget); there the link to
@@ -97,7 +97,7 @@ open import ChargePolynomialFinite
         ; f12 ; f30 ; f360 ; value-12 ; value-30 ; value-360 ; wf-12 ; wf-30 ; wf-360 )
 open import Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision
   using (दृढम् ; वधः ; सर्वे ; वध-++ ; सर्वे-++ ; दृढत्वम् ; विभाजनम्)
-open import Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount
+open import Uniqueness_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount
   using (module Bahulya ; एकत्वम् ; एकत्व-गणना ; मानम् ; मान-निश्चयः)
 open import TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAdjacentTranspositions
   using (Perm)
@@ -150,7 +150,7 @@ ltᵇ-false→≤ (suc m) zero    _ = zero-≤
 ltᵇ-false→≤ (suc m) (suc n) p = suc-≤-suc (ltᵇ-false→≤ m n p)
 
 ------------------------------------------------------------------------
--- §2  SieveFiber's fuel-bounded remainder is sound: d ∣ n ⇒ n rem d ≡ 0
+-- §2  SieveFiber's fuel-bounded remainder is sound: d � n � n rem d ≡ 0
 ------------------------------------------------------------------------
 
 -- With enough fuel, the remainder of a multiple of d is 0.
@@ -285,7 +285,7 @@ count-rep : (p q k : ℕ) → गणना p (rep k q) ≡ (if eqᵇ p q then k 
 count-rep p q zero    = if-zero (eqᵇ p q)
 count-rep p q (suc k) = cong₂ _+_ (एकः-eqᵇ p q) (count-rep p q k) ∙ if-sum (eqᵇ p q) k
 
--- p absent from the bases ⇒ p absent from the expansion
+-- p absent from the bases � p absent from the expansion
 count-absent : (p : ℕ) (f : Fact) → memberᵇ p (bases f) ≡ false → गणना p (expand f) ≡ 0
 count-absent p []            _ = refl
 count-absent p ((q , e) ∷ f) m =
@@ -321,8 +321,8 @@ count-expOf p ((q , e) ∷ f) dis =
 -- §6  Correct tables, and the theorem: any two are the same factorization
 ------------------------------------------------------------------------
 
--- Exactly ChargePolynomialFinite's checks (i)–(iii): the table multiplies
--- out to n, its bases are distinct, and each base passes `isPrimeᵇ`.
+-- Exactly ChargePolynomialFinite's checks (i)�(iii): the table multiplies
+-- out to n, its bases are distinct, and each base passes `isPrime�`.
 Correct : ℕ → Fact → Type₀
 Correct n f = (wellFormedᵇ f ≡ true) × (value f ≡ n)
 
@@ -338,21 +338,21 @@ correct-firm f c = expand-firm f (correct-primes f c)
 correct-product : {n : ℕ} (f : Fact) → Correct n f → वधः (expand f) ≡ n
 correct-product f (_ , v) = expand-value f ∙ v
 
--- Two correct tables for one n expand to permutations of each other …
+-- Two correct tables for one n expand to permutations of each other �
 tables-perm : (n : ℕ) (f g : Fact) → Correct n f → Correct n g
             → Perm (expand f) (expand g)
 tables-perm n f g cf cg =
   एकत्वम् (expand f) (expand g) (correct-firm f cf) (correct-firm g cg)
          (correct-product f cf ∙ sym (correct-product g cg))
 
--- … so carry the same count of every p …
+-- � so carry the same count of every p �
 tables-count : (n : ℕ) (f g : Fact) → Correct n f → Correct n g
              → (p : ℕ) → गणना p (expand f) ≡ गणना p (expand g)
 tables-count n f g cf cg =
   एकत्व-गणना (expand f) (expand g) (correct-firm f cf) (correct-firm g cg)
              (correct-product f cf ∙ sym (correct-product g cg))
 
--- … hence the same exponent at every p.
+-- � hence the same exponent at every p.
 tables-exponent : (n : ℕ) (f g : Fact) → Correct n f → Correct n g
                 → (p : ℕ) → expOf p f ≡ expOf p g
 tables-exponent n f g cf cg p =
@@ -361,7 +361,7 @@ tables-exponent n f g cf cg p =
   ∙ count-expOf p g (correct-distinct g cg)
 
 -- A correct table IS the factorization: its exponent at every p is the
--- valuation मानम् p n of Ekatva.
+-- valuation ����� p n of Uniqueness.
 table-valuation : (n : ℕ) (f : Fact) → Correct n f → (pos : 0 < n)
                 → (p : ℕ) → expOf p f ≡ मानम् p n pos
 table-valuation n f cf pos p =
@@ -436,11 +436,11 @@ expand-12-drdha = refl
 expand-30-drdha : expand f30 ≡ fst (विभाजनम् 30 ०<३०)
 expand-30-drdha = refl
 
--- NOT by refl: `fst (विभाजनम् 360 _)` is not normalised here.  Drdha's
+-- NOT by refl: `fst (�������� 360 _)` is not normalised here.  Drdha's
 -- search runs the library `_mod_` (via `+induction`) and `<-wellfounded`
 -- in unary, and at 360 the kernel does not finish in the budget.  The
--- statement is not lost: `table-perm-drdha 360 f360 correct-360 ०<३६०`
--- proves `Perm (expand f360) (fst (विभाजनम् 360 ०<३६०))`, and
+-- statement is not lost: `table-perm-drdha 360 f360 correct-360 �<���`
+-- proves `Perm (expand f360) (fst (�������� 360 �<���))`, and
 -- `exponent-360` gives every valuation at 360, both by proof.
 perm-360-drdha : Perm (expand f360) (fst (विभाजनम् 360 ०<३६०))
 perm-360-drdha = table-perm-drdha 360 f360 correct-360 ०<३६०

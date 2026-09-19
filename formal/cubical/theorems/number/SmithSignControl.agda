@@ -49,7 +49,7 @@ open import SmithSignNormal using (absℤ)
 
 open Coefficient ℤCommRing
 
--- A 2×2 matrix.  Built with the library eliminator `FinData.rec`, which is
+-- A 2�2 matrix.  Built with the library eliminator `FinData.rec`, which is
 -- parametric in the bound and so never unifies `suc` with an index: this file
 -- raises no `UnsupportedIndexedMatch` warning, unlike the `mk3` of
 -- the warning is a property of the presentation, not of the mathematics.
@@ -77,7 +77,7 @@ d23-off : normalMatrix d23 zero (suc zero) ≡ pos 0
 d23-off = refl
 
 -- S2 as a refutation: the native second invariant is not `6`, so the native
--- output does not satisfy `0 ≤ d₂`.
+-- output does not satisfy `0 � d�`.
 d23-not-nonneg : ¬ (normalMatrix d23 (suc zero) (suc zero) ≡ pos 6)
 d23-not-nonneg p = negsucNotpos 5 6 (sym d23-second ∙ p)
 

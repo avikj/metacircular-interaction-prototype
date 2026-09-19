@@ -8,9 +8,9 @@
 -- SmithCapability (the library's certified normalizer)
 -- produces, for any integer matrix, ONE normalization event: the
 -- normal form N with invertible L, R and the replay path
--- N â‰¡ L â‹† M â‹† R.  The Gamma0 modules (Partner/Converse/Freeness/
+-- N â‰¡ L â‹ M â‹ R.  The Gamma0 modules (Partner/Converse/Freeness/
 -- Transitivity/TransporterMembership) prove that the SET of all such
--- events at a 2Ã—2 nonzero-determinant endpoint is a Î“â‚€(q)-torsor,
+-- events at a 2—2 nonzero-determinant endpoint is a Î“â(q)-torsor,
 -- every clause a program.
 --
 -- This module joins them: `toTuple` is a multiplication-preserving
@@ -20,7 +20,7 @@
 -- (by Gamma0Transitivity/TransporterMembership, no new proof needed):
 -- the certified normalizer computes a SECTION of the event torsor,
 -- and any other presentation of the same matrix differs from it by
--- the explicit transporter Îµáµ¤Â·Uâ€²Â·adj U, whose congruence membership
+-- the explicit transporter ÎµµÂUâ²Âadj U, whose congruence membership
 -- carries a computed divisibility witness.
 ------------------------------------------------------------------------
 

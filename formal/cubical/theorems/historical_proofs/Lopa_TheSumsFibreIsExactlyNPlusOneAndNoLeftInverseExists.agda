@@ -1,66 +1,66 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤²à¥‹à¤ªà¤ƒ â€” à¤…à¤¦à¤°à¥à¤¶à¤¨à¤‚ à¤²à¥‹à¤ªà¤ƒ à¥¤  à¤¯à¤¤à¥ à¤¤à¤¿à¤·à¥à¤ à¤¤à¤¿ à¤¯à¥‹à¤—à¤ƒ, à¤•à¤ƒ à¤¨à¤¶à¥à¤¯à¤¤à¤¿ à¤­à¥‡à¤¦à¤ƒ à¥¤
+-- à²à‹àà â” àà¦à°ààà¨à à²à‹àà à  à¯àà àà¿ààà àà¿ à¯à‹à—à, à•à à¨ààà¯àà¿ ààà¦à à
 --
 -- (what survives is the sum; what is destroyed is the split.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE TERM, ITS TEXT AND ITS DATE.
 --
--- **à¤²à¥‹à¤ª** Â· lopa, elision.  PÄá¹‡ini, *Aá¹£á¹­ÄdhyÄyÄ«* **1.1.60**, à¤…à¤¦à¤°à¥à¤¶à¤¨à¤‚ à¤²à¥‹à¤ªà¤ƒ â€”
+-- **à²à‹à** Â lopa, elision.  Pini, *Adhyy* **1.1.60**, àà¦à°ààà¨à à²à‹àà â”
 -- "lopa is non-appearance" (~500 BCE).  The grammar's own name for a
 -- licensed step after which something that was in the form is not in the
--- form.  Its companion **1.1.62**, à¤ªà¥à¤°à¤¤à¥à¤¯à¤¯à¤²à¥‹à¤ªà¥‡ à¤ªà¥à¤°à¤¤à¥à¤¯à¤¯à¤²à¤•à¥à¤·à¤£à¤®à¥ â€” "when an
+-- form.  Its companion **1.1.62**, ààà°ààà¯à¯à²à‹àà ààà°ààà¯à¯à²à•àààà®à â” "when an
 -- affix has been elided, the operations conditioned by the affix still
--- apply" â€” is why the term fits this module rather than merely decorating
--- it: PÄá¹‡ini's system does not merely delete, it RECORDS what the deleted
--- element conditioned.  Â§à¥© below is that recording, as a fibre.
+-- apply" â” is why the term fits this module rather than merely decorating
+-- it: Pini's system does not merely delete, it RECORDS what the deleted
+-- element conditioned.  Â§à© below is that recording, as a fibre.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY THIS EDGE AND NOT ANOTHER.
 --
--- `machine/Setubandha_â€¦hs` built the graph of the corpus's checked
+-- `machine/Setubandha_â¦hs` built the graph of the corpus's checked
 -- identifications; every edge in it is invertible, so its gluing defect is
 -- `machine/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs`
--- built the other graph â€” 1054 one-way edges over 474 nodes, against 88
--- invertible edges over 120 â€” and 1036 of those 1054 came back UNDECIDED
+-- built the other graph â” 1054 one-way edges over 474 nodes, against 88
+-- invertible edges over 120 â” and 1036 of those 1054 came back UNDECIDED
 -- because no syntactic rule can name a fibre.
 --
 -- This is one of the ones that can be named, and it is the sharpest,
 -- because the naming was ALREADY IN THE CORPUS TWICE and nothing had put
 -- the two together:
 --
---   `LosslessReturn_â€¦TransportGivesIt.à¤¯à¥‹à¤— : â„• Ã— â„• â†’ â„•`, à¤¯à¥‹à¤— x = fst x + snd x
---   `PairsSummingTo.Pairs n = Î£[ ab âˆˆ â„• Ã— â„• ] (fst ab + snd ab â‰¡ n)`
---   `PairsSummingTo.pairsFin : (n : â„•) â†’ Pairs n â‰ƒ SumFin (suc n)`
+--   `LosslessReturn_â¦TransportGivesIt.à¯à‹à— : â• — â• â’ â•`, à¯à‹à— x = fst x + snd x
+--   `PairsSummingTo.Pairs n = Î[ ab âˆˆ â• — â• ] (fst ab + snd ab â‰¡ n)`
+--   `PairsSummingTo.pairsFin : (n : â•) â’ Pairs n â‰ SumFin (suc n)`
 --
--- `Pairs n` IS `fiber à¤¯à¥‹à¤— n`, on the nose (Â§à¥§, and it is `refl`).  So the
+-- `Pairs n` IS `fiber à¯à‹à— n`, on the nose (Â§à§, and it is `refl`).  So the
 -- elision performed by addition already had its fibre counted, exactly, in
--- a module written for the metrical antidiagonal of Piá¹…gala's prastÄra and
+-- a module written for the metrical antidiagonal of Pigala's prastra and
 -- never connected to the map whose loss it measures.  No module in this
 -- corpus imports both files.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED.
 --
---  Â§à¥§  fiber à¤¯à¥‹à¤— n â‰¡ Pairs n.  Definitional; the identification is refl.
---  Â§à¥¨  fiber à¤¯à¥‹à¤— n â‰ƒ SumFin (suc n).  The loss at n is EXACTLY n+1-fold.
---      Not "at least", not measured â€” the equivalence is `pairsFin`.
---  Â§à¥©  The three verdicts of `Avaccheda_â€¦` / `Tantujala_â€¦`, all three
+--  Â§à§  fiber à¯à‹à— n â‰¡ Pairs n.  Definitional; the identification is refl.
+--  Â§à¨  fiber à¯à‹à— n â‰ SumFin (suc n).  The loss at n is EXACTLY n+1-fold.
+--      Not "at least", not measured â” the equivalence is `pairsFin`.
+--  Â§à©  The three verdicts of `Avaccheda_â¦` / `Tantujala_â¦`, all three
 --      decided at this one edge, which is what makes it worth writing:
---        à¤°à¤¿à¤•à¥à¤¤à¤®à¥  NEVER â€” à¤¯à¥‹à¤— is surjective, witness given.
---        à¤à¤•à¤®à¥    at n = 0 and nowhere else.
---        à¤¬à¤¹à¥     at every n = suc k, with two named histories exhibited
+--        à°à¿à•ààà®à  NEVER â” à¯à‹à— is surjective, witness given.
+--        àà•à®à    at n = 0 and nowhere else.
+--        ààà     at every n = suc k, with two named histories exhibited
 --                and their non-identity proved.
 --      A two-valued verdict cannot say this; it would report "not
---      contractible" at every suc k and at âŠ¥ alike.
---  Â§à¥ª  THERE IS NO TRANSPORT IN THE LOSSY DIRECTION, and this is the
+--      contractible" at every suc k and at âŠ alike.
+--  Â§à  THERE IS NO TRANSPORT IN THE LOSSY DIRECTION, and this is the
 --      content of road two rather than a gap in the module: no
---      `g : â„• â†’ â„• Ã— â„•` is a left inverse of à¤¯à¥‹à¤—.  Proved, not asserted.
---  Â§à¥«  The à¤…à¤µà¤šà¥à¤›à¥‡à¤¦ decomposition at this edge: (Î£ n) fiber à¤¯à¥‹à¤— n â‰ƒ â„• Ã— â„•.
---      The pair IS (its sum, which pair of that sum) â€” à¤¯à¤¤à¥ à¤¤à¤¿à¤·à¥à¤ à¤¤à¤¿ /
---      à¤•à¤ƒ à¤¨à¤¶à¥à¤¯à¤¤à¤¿, as one equivalence.
+--      `g : â• â’ â• — â•` is a left inverse of à¯à‹à—.  Proved, not asserted.
+--  Â§à  The ààµààààà¦ decomposition at this edge: (Î n) fiber à¯à‹à— n â‰ â• — â•.
+--      The pair IS (its sum, which pair of that sum) â” à¯àà àà¿ààà àà¿ /
+--      à•à à¨ààà¯àà¿, as one equivalence.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
 -- no holes.
@@ -84,10 +84,10 @@ open import LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt using (
 import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible as à¤…à¤µ
 
 ------------------------------------------------------------------------
--- à¥§ Â· à¤¤à¤¾à¤¦à¤¾à¤¤à¥à¤®à¥à¤¯à¤®à¥ â€” the fibre of the sum IS the antidiagonal.
+-- à§ Â àà¾à¦à¾ààà®àà¯à®à â” the fibre of the sum IS the antidiagonal.
 --
--- `à¤¯à¥‹à¤— x = fst x + snd x` and `Pairs n = Î£[ ab âˆˆ â„• Ã— â„• ] (fst ab + snd ab
--- â‰¡ n)`, so `fiber à¤¯à¥‹à¤— n` unfolds to `Pairs n` with no work at all.  That
+-- `à¯à‹à— x = fst x + snd x` and `Pairs n = Î[ ab âˆˆ â• — â• ] (fst ab + snd ab
+-- â‰¡ n)`, so `fiber à¯à‹à— n` unfolds to `Pairs n` with no work at all.  That
 -- the identification is `refl` is the finding, not a weakness of it: two
 -- modules written for unrelated purposes had already defined the same
 -- type, one as a loss and one as a count, and neither imported the other.
@@ -97,7 +97,7 @@ import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContracti
 à¤²à¥‹à¤ªà¤¸à¥à¤¯-à¤¤à¤¨à¥à¤¤à¥à¤ƒ n = refl
 
 ------------------------------------------------------------------------
--- à¥¨ Â· à¤—à¤£à¤¨à¤¾ â€” and it is counted exactly.
+-- à¨ Â à—àà¨à¾ â” and it is counted exactly.
 --
 -- This is `pairsFin`, which is NOT proved here.  It is a structural
 -- induction with no truncated subtraction, in
@@ -114,21 +114,21 @@ import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContracti
 à¤¤à¤¨à¥à¤¤à¥-à¤—à¤£à¤¨à¤¾ n = pairsFin n
 
 ------------------------------------------------------------------------
--- à¥© Â· à¤¤à¥à¤°à¤¯à¥‹ à¤­à¤™à¥à¤—à¤¾à¤ƒ â€” all three verdicts, at one edge.
+-- à© Â ààà°à¯à‹ àà™àà—à¾à â” all three verdicts, at one edge.
 ------------------------------------------------------------------------
 
--- à¤°à¤¿à¤•à¥à¤¤à¤®à¥ NEVER.  à¤¯à¥‹à¤— is surjective: (n , 0) lands on n.
+-- à°à¿à•ààà®à NEVER.  à¯à‹à— is surjective: (n , 0) lands on n.
 à¤¨-à¤°à¤¿à¤•à¥à¤¤à¤®à¥ : (n : â„•) â†’ fiber à¤¯à¥‹à¤— n
 à¤¨-à¤°à¤¿à¤•à¥à¤¤à¤®à¥ n = (n , 0) , +-zero n
 
--- à¤à¤•à¤®à¥ at n = 0, and the witness is transported along Â§à¥¨.
+-- àà•à®à at n = 0, and the witness is transported along Â§à¨.
 isContrSumFin1 : isContr (SumFin 1)
 isContrSumFin1 = inl tt , Î» { (inl tt) â†’ refl ; (inr ()) }
 
 à¤à¤•à¤®à¥-à¤¶à¥‚à¤¨à¥à¤¯à¥‡ : isContr (fiber à¤¯à¥‹à¤— 0)
 à¤à¤•à¤®à¥-à¤¶à¥‚à¤¨à¥à¤¯à¥‡ = isOfHLevelRespectEquiv 0 (invEquiv (à¤¤à¤¨à¥à¤¤à¥-à¤—à¤£à¤¨à¤¾ 0)) isContrSumFin1
 
--- à¤¬à¤¹à¥ at every successor.  Two histories with the same sum, named.
+-- ààà at every successor.  Two histories with the same sum, named.
 à¤µà¤¾à¤®à¤®à¥ : (n : â„•) â†’ fiber à¤¯à¥‹à¤— (suc n)
 à¤µà¤¾à¤®à¤®à¥ n = (0 , suc n) , refl
 
@@ -142,25 +142,25 @@ isContrSumFin1 = inl tt , Î» { (inl tt) â†’ refl ; (inr ()) }
 à¤¬à¤¹à¥-à¤¸à¤°à¥à¤µà¤¤à¥à¤° : (n : â„•) â†’ Â¬ isContr (fiber à¤¯à¥‹à¤— (suc n))
 à¤¬à¤¹à¥-à¤¸à¤°à¥à¤µà¤¤à¥à¤° n c = à¤µà¤¾à¤®â‰¢à¤¦à¤•à¥à¤·à¤¿à¤£ n (isContrâ†’isProp c (à¤µà¤¾à¤®à¤®à¥ n) (à¤¦à¤•à¥à¤·à¤¿à¤£à¤®à¥ n))
 
--- THE à¤¦à¥à¤°à¥à¤¨à¤¯, made concrete.  A two-valued verdict returns the same
--- answer at `fiber à¤¯à¥‹à¤— (suc n)` â€” many histories, memory required â€” as it
--- would at a profile nothing reaches.  Â§à¥© of `Avaccheda_â€¦` says this in
+-- THE à¦àà°àà¨à¯, made concrete.  A two-valued verdict returns the same
+-- answer at `fiber à¯à‹à— (suc n)` â” many histories, memory required â” as it
+-- would at a profile nothing reaches.  Â§à© of `Avaccheda_â¦` says this in
 -- general; here it is at a map the corpus actually uses.
 
 ------------------------------------------------------------------------
--- à¥ª Â· à¤¨ à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥ â€” and there is no road back.
+-- à Â à¨ ààà°ààà¯à¾à¨à¯à¨à®à â” and there is no road back.
 --
--- à¤…à¤¹à¤¿à¤‚à¤¸à¤¾-à¤¸à¥‚à¤¤à¥à¤°-à¤µà¤¿à¤¸à¥à¤¤à¤¾à¤°à¤ƒ Â§à¥¬: à¤¦à¥à¤µà¥Œ à¤®à¤¾à¤°à¥à¤—à¥Œ, à¤¤à¥ƒà¤¤à¥€à¤¯à¥‹ à¤¨ à¤µà¤¿à¤¦à¥à¤¯à¤¤à¥‡ â€” transport, or a
+-- ààà¿ààà¾-ààààà°-àµà¿àààà¾à°à Â§à: à¦ààµà à®à¾à°àà—à, ààààà¯à‹ à¨ àµà¿à¦àà¯àà â” transport, or a
 -- written defect.  The instruction for this module was: transport
 -- something across the lossy edge if a transport exists in the lossy
 -- direction, and if none does, SAY SO.  None does, and saying so is a
 -- theorem rather than a report.
 --
--- No `g : â„• â†’ â„• Ã— â„•` is a left inverse of à¤¯à¥‹à¤—.  The proof is Â§à¥©'s two
+-- No `g : â• â’ â• — â•` is a left inverse of à¯à‹à—.  The proof is Â§à©'s two
 -- histories: they have the same sum, so any left inverse would identify
--- them, and Â§à¥© proved they are not identical.  Note that `à¤¯à¥‹à¤— (0 , 1)`
--- and `à¤¯à¥‹à¤— (1 , 0)` are both `1` DEFINITIONALLY â€” `_+_` recurses on its
--- first argument â€” so `s (0 , 1)` and `s (1 , 0)` are two paths out of
+-- them, and Â§à© proved they are not identical.  Note that `à¯à‹à— (0 , 1)`
+-- and `à¯à‹à— (1 , 0)` are both `1` DEFINITIONALLY â” `_+_` recurses on its
+-- first argument â” so `s (0 , 1)` and `s (1 , 0)` are two paths out of
 -- the same `g 1` and compose with no coercion.
 ------------------------------------------------------------------------
 
@@ -169,16 +169,16 @@ isContrSumFin1 = inl tt , Î» { (inl tt) â†’ refl ; (inr ()) }
 à¤¨-à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥ g s = znots (cong fst (sym (s (0 , 1)) âˆ™ s (1 , 0)))
 
 ------------------------------------------------------------------------
--- à¥« Â· à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤ƒ â€” à¤¯à¤¤à¥ à¤¤à¤¿à¤·à¥à¤ à¤¤à¤¿, à¤•à¤ƒ à¤¨à¤¶à¥à¤¯à¤¤à¤¿, as one equivalence.
+-- à Â ààµààààà¦à â” à¯àà àà¿ààà àà¿, à•à à¨ààà¯àà¿, as one equivalence.
 --
--- `Avaccheda_â€¦Â§à¥§` proves `(Î£[ b âˆˆ B ] fiber f b) â‰ƒ A` for every `f`.  At
--- à¤¯à¥‹à¤— that reads: a pair of naturals IS (its sum, together with which
+-- `Avaccheda_â¦Â§à§` proves `(Î[ b âˆˆ B ] fiber f b) â‰ A` for every `f`.  At
+-- à¯à‹à— that reads: a pair of naturals IS (its sum, together with which
 -- pair of that sum it was).  The first coordinate is what the boundary
--- retains â€” à¤¯à¤¤à¥ à¤¤à¤¿à¤·à¥à¤ à¤¤à¤¿; the second is what it does not â€” à¤•à¤ƒ à¤¨à¤¶à¥à¤¯à¤¤à¤¿; and
--- Â§à¥¨ says the second has exactly `sum + 1` possible values.
+-- retains â” à¯àà àà¿ààà àà¿; the second is what it does not â” à•à à¨ààà¯àà¿; and
+-- Â§à¨ says the second has exactly `sum + 1` possible values.
 --
 -- The elision is therefore not a defect of the pair type.  Nothing is
--- missing from `â„• Ã— â„•`; what is lost is lost by the MAP, and Â§à¥¨ says
+-- missing from `â• — â•`; what is lost is lost by the MAP, and Â§à¨ says
 -- exactly how much, at every boundary datum separately.
 ------------------------------------------------------------------------
 
@@ -187,18 +187,18 @@ isContrSumFin1 = inl tt , Î» { (inl tt) â†’ refl ; (inr ()) }
   where module à¤… = à¤…à¤µ
 
 ------------------------------------------------------------------------
--- à¥¬ Â· à¤¶à¥‡à¤·à¤ƒ â€” what this leaves open, stated so it is not mistaken for done.
+-- à Â àààà â” what this leaves open, stated so it is not mistaken for done.
 --
 -- 1036 of the 1054 one-way edges the extractor found are still UNDECIDED,
 -- and the reason is structural: deciding a fibre needs somebody to open
--- the module, exactly as Â§à¥§ here needed somebody to notice that two files
+-- the module, exactly as Â§à§ here needed somebody to notice that two files
 -- had defined one type.  The extractor can rank the candidates; it cannot
 -- close them.
 --
--- The honest next piece is the same move at a target that is NOT â„•: a
+-- The honest next piece is the same move at a target that is NOT â•: a
 -- truncation or a quotient, where the fibre is not a set and `pairsFin`
 -- has no analogue.  `YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNo
--- Further` is the nearest existing instance â€” a replay that loses its
--- trace and recovers the length exactly mod 2 â€” and it names its quotient
+-- Further` is the nearest existing instance â” a replay that loses its
+-- trace and recovers the length exactly mod 2 â” and it names its quotient
 -- without counting its fibre.
 ------------------------------------------------------------------------

@@ -11,11 +11,11 @@
 --    same way, and applying them needs the costs negated first."
 --
 -- Two cycles on the min-plus line then showed that reversing an order
--- is load-bearing rather than cosmetic â€” once in the residuation, once
+-- is load-bearing rather than cosmetic â” once in the residuation, once
 -- in mistaking the meet for a `min`.  So the flip deserves its own
 -- theorem instead of a promise, and it does not come free.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   Vec ds            a fitness vector as a RECURSIVE FAMILY over a
@@ -23,15 +23,15 @@
 --                     `Bool` per objective saying benefit or cost.  No
 --                     `Fin`, and mismatched arities are not
 --                     representable
---   Dom ds v w        MIXED dominance: `â‰¤` at a benefit coordinate,
---                     `â‰¥` at a cost coordinate â€” what Â§5.2 actually
+--   Dom ds v w        MIXED dominance: `â‰` at a benefit coordinate,
+--                     `â‰` at a cost coordinate â” what Â§5.2 actually
 --                     means by Pareto
---   âˆ¸-antitone        `b âˆ¸ _` reverses `â‰¤`, derived from the monus
+--   âˆ-antitone        `b âˆ _` reverses `â‰`, derived from the monus
 --                     adjunction already proved on the min-plus line
---   flipWith          cap the costs and subtract: `cap âˆ¸ x` at a cost
+--   flipWith          cap the costs and subtract: `cap âˆ x` at a cost
 --                     coordinate, `x` at a benefit one
 --   flipIsSound       mixed dominance IMPLIES ordinary product
---                     dominance of the flipped vectors â€” so every
+--                     dominance of the flipped vectors â” so every
 --                     theorem on the Pareto line transfers
 --   flipIsNotFaithful and the converse FAILS: at `cap = 3`, the costs
 --                     `5` and `7` both flip to `0`, so the flipped
@@ -39,19 +39,19 @@
 --                     do not
 --
 -- **So the promise those modules made is half true.**  Flipping is
--- enough to APPLY the results â€” soundness is all that direction needs.
+-- enough to APPLY the results â” soundness is all that direction needs.
 -- It is not enough to TRANSPORT them back: a conclusion about flipped
 -- vectors does not return, because the cap identifies every cost above
 -- it.  The admission should have said "negate the costs, and pick a cap
 -- above every cost you will ever compare", which is a real modelling
 -- obligation and not a rewriting step.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- NO NOVELTY.  That maximising `C âˆ¸ x` is minimising `x` under a cap,
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- NO NOVELTY.  That maximising `C âˆ x` is minimising `x` under a cap,
 -- and that truncation loses the order above the cap, is elementary; it
 -- is proved here because five modules deferred it in a sentence.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -139,18 +139,18 @@ flipIsNotFaithful = bothFlipToZero , dearDoesNotDominate
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The item left open above â€” "no RESTRICTED converse is
+-- line above.  The item left open above â” "no RESTRICTED converse is
 -- proved: presumably `flipIsSound`'s converse holds once every cost is
--- `â‰¤ cap`" â€” is closed in
+-- `â‰ cap`" â” is closed in
 -- `RnaDhana_TheCostFlipIsFaithfulBelowTheCap` (--safe,
 -- no postulates, no holes; container green under Agda 2.6.3 + cubical
--- v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
+-- v0.5, NOT the declared pin â” check.sh returns 1 and says so).
 --
 -- **The guess above was stronger than the truth.**  Not every cost
 -- needs the bound: only the costs of `w`, the vector claimed to
 -- dominate.  `v`'s costs may exceed the cap arbitrarily.  So the
 -- modelling obligation this line has been carrying is smaller than it
--- was written â€” a cap above the costs of the candidates one wants to
+-- was written â” a cap above the costs of the candidates one wants to
 -- conclude are BETTER, not above every cost in the archive.
 --
 -- The refutation above is untouched and consistent with it: its
@@ -158,7 +158,7 @@ flipIsNotFaithful = bothFlipToZero , dearDoesNotDominate
 --
 -- That module also carries the owner's naming directive of 2026-08-19
 -- (CLAUDE.md, "File naming"): the Indian term first, the English
--- title after an underscore.  à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana, Brahmagupta's asset
--- and debt â€” one magnitude under two readings, which is what a benefit
+-- title after an underscore.  à‹àà§à¨ Â a-dhana, Brahmagupta's asset
+-- and debt â” one magnitude under two readings, which is what a benefit
 -- coordinate and a cost coordinate are.
 ------------------------------------------------------------------------

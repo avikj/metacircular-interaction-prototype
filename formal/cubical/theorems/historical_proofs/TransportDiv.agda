@@ -4,23 +4,23 @@
 -- TransportDiv
 --
 -- DIVISION ON THE CHART.  `Transport` carries `+`, `TransportMul` carries
--- `·`, and both end with the same open remark: the walk
+-- `�`, and both end with the same open remark: the walk
 -- (`WalkBridge`) stalls at frontier m ≈ 8 because its
 -- divisibility test is UNARY, costing Θ(cap m) with cap m = e^{ψ(m)}.
 -- The test is the blocker, not the arithmetic around it.
 --
 -- This module carries the test across.  `modw n` is the Horner automaton
--- on digit words: one state in {0,…,n−1}, one step per digit, no mention
+-- on digit words: one state in {0,�,n−1}, one step per digit, no mention
 -- of the value it is testing.  `value-modw` proves it computes
 -- `value w mod n`, so the automaton is the residue, not an estimate of
--- it, and `modw-zero→∣` turns a zero final state into divisibility of
+-- it, and `modw-zero��` turns a zero final state into divisibility of
 -- the number itself.
 --
 -- COST.  `steps w ≡ suc (length w)`: the automaton visits each digit
 -- once.  The unary test walks the value.  That gap is the whole content
--- of the frontier — and it is the third branch of
+-- of the frontier � and it is the third branch of
 -- `Residual`: the two presentations are bridged (δ ≡ 0,
--- by `Digits`' equivalence) and the residual ϱ is nonzero, so no
+-- by `Digits`' equivalence) and the residual � is nonzero, so no
 -- equivalence-invariant response could have found it.
 --
 -- The chart map itself is NOT free, and nothing here pretends it is: the
@@ -30,8 +30,8 @@
 -- and not discovered by the author, which is the failure this repository's
 -- protocol names first.  The object is classical and has a name: Sutner,
 -- "Divisibility and State Complexity", Mathematica Journal 11:3 (2010),
--- calls r ↦ (b·r + d) mod m the HORNER AUTOMATON and states
--- δ(0,w) = val(w) mod m — which is `value-modw` verbatim.  Alexeev, JCSS
+-- calls r � (b�r + d) mod m the HORNER AUTOMATON and states
+-- δ(0,w) = val(w) mod m � which is `value-modw` verbatim.  Alexeev, JCSS
 -- 69:2 (2004), gives the MINIMAL state counts, so "one state below the
 -- modulus" is an upper bound and not the minimum.  mathlib's `Nat.ofDigits`
 -- is definitionally this file's `value` and carries the surrounding API
@@ -46,17 +46,17 @@
 --   the reduction step   Euclidean descent, older than Euclid as
 --                        anthyphairesis.  Correctly attributed to nobody
 --                        in particular, which is fine.
---   the digit word       Piṅgala, Chandaḥśāstra, c. 300 BCE: prastāra,
---                        with naṣṭa and uddiṣṭa as the two directions of
+--   the digit word       Pigala, Chandastra, c. 300 BCE: prastra,
+--                        with naa and uddia as the two directions of
 --                        the addressing map.  This repository has eight
 --                        checked modules on it (BOOK_INDEX chapter 2).
---   the chart `value`    place value with śūnya as a number carrying its
---                        own arithmetic: Brahmagupta, Brāhmasphuṭasiddhānta,
+--   the chart `value`    place value with nya as a number carrying its
+--                        own arithmetic: Brahmagupta, Brhmasphuasiddhnta,
 --                        628 (chapter 7).
 --
 -- And the harder problem this file's residue is a shadow of -- solve the
--- linear indeterminate congruence, not merely reduce it -- is Āryabhaṭa's
--- KUṬṬAKA, Āryabhaṭīya, Gaṇitapāda 32-33, 499 CE, which is a CHECKED
+-- linear indeterminate congruence, not merely reduce it -- is ryabhaa's
+-- KUAKA, ryabhaya, Gaitapda 32-33, 499 CE, which is a CHECKED
 -- THEOREM in this repository at `formal/cubical/Kuttaka.agda` (`bezout`,
 -- `inhomogeneous`), with `NaturalMachine/CakravalaNeedsKuttaka.agda` in
 -- this very directory.  The audit searched the web and found a 2010 paper;
@@ -96,7 +96,7 @@ modw : ℕ → Word → ℕ
 modw n []      = 0 mod n
 modw n (d ∷ w) = (toℕ d + b · modw n w) mod n
 
--- b · (x mod n) and b · x have the same residue: the state may be
+-- b � (x mod n) and b � x have the same residue: the state may be
 -- reduced at every digit, which is what keeps the automaton bounded.
 scale-mod : (n x : ℕ) → (b · x) mod n ≡ (b · (x mod n)) mod n
 scale-mod n x =

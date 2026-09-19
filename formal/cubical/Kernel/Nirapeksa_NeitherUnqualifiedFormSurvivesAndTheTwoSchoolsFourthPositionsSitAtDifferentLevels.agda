@@ -9,40 +9,40 @@
 -- and Â§3 states a claim ABOUT THE TWO FORMALISATIONS -- not about what
 -- either tradition really means.
 --
--- TERM (JAINA).  à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤· Â· nirapeká¹£a -- without reference, absolute, said
--- of an assertion made with no upÄdhi; against à¤¸à¤¾à¤ªà¥‡à¤•à¥à¤· Â· sÄpeká¹£a, made with
--- one.  The Jaina rule is that a à¤¨à¤¯ Â· naya asserted nirapeká¹£a becomes a
--- à¤¦à¥à¤°à¥à¤¨à¤¯ Â· durnaya.  Siddhasena DivÄkara, *Sanmatitarka*; developed by
--- Akalaá¹…ka (~8th c.).  No first use of the pair is established here.
+-- TERM (JAINA).  à¨à¿à°ààà•àà Â nirapeka -- without reference, absolute, said
+-- of an assertion made with no updhi; against àà¾ààà•àà Â speka, made with
+-- one.  The Jaina rule is that a à¨à¯ Â naya asserted nirapeka becomes a
+-- à¦àà°àà¨à¯ Â durnaya.  Siddhasena Divkara, *Sanmatitarka*; developed by
+-- Akalaka (~8th c.).  No first use of the pair is established here.
 --
 -- AND A WARNING THIS REPOSITORY'S OWN LEDGER RECORDS, HEEDED: three
--- separate corrections have landed on the word à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯ Â· avaktavya in this
+-- separate corrections have landed on the word ààµà•àààµàà¯ Â avaktavya in this
 -- corpus, one of them because a line named for it actually sat at the
--- THIRD bhaá¹…ga.  So, said plainly: Â§1 exhibits bhaá¹…gas ONE and TWO
--- (syÄd-asti, syÄd-nÄsti) and the KRAMA reading of the THIRD -- both, in
+-- THIRD bhaga.  So, said plainly: Â§1 exhibits bhagas ONE and TWO
+-- (syd-asti, syd-nsti) and the KRAMA reading of the THIRD -- both, in
 -- succession.  IT DOES NOT EXHIBIT THE FOURTH.  The fourth arises from
--- à¤¯à¥à¤—à¤ªà¤¤à¥ Â· yugapat, simultaneous assertion, and is not what is proved here.
+-- à¯àà—ààà Â yugapat, simultaneous assertion, and is not what is proved here.
 --
--- TERM (BAUDDHA).  à¤šà¤¤à¥à¤·à¥à¤•à¥‹à¤Ÿà¤¿ Â· catuá¹£koá¹­i -- the four corners, standard in
--- NÄgÄrjuna's *MÅ«lamadhyamakakÄrikÄ* (~2nd c. CE).  Â§2 formalises the
--- FOURTH corner as Â¬ (A âŠ Â¬ A) with à¤ªà¥à¤°à¤¸à¤œà¥à¤¯à¤ªà¥à¤°à¤¤à¤¿à¤·à¥‡à¤§ Â· prasajya-pratiá¹£edha,
+-- TERM (BAUDDHA).  àààààà•à‹àŸà¿ Â catukoi -- the four corners, standard in
+-- Ngrjuna's *Mlamadhyamakakrik* (~2nd c. CE).  Â§2 formalises the
+-- FOURTH corner as Â (A âŠ Â A) with ààà°àààà¯ààà°àà¿ààà§ Â prasajya-pratiedha,
 -- the non-implicative negation -- the reading on which the negation
--- asserts nothing positive, which is `A â†’ âŠ¥`.  The distinction from
--- à¤ªà¤°à¥à¤¯à¥à¤¦à¤¾à¤¸ Â· paryudÄsa, the implicative negation, is drawn by Westerhoff in
+-- asserts nothing positive, which is `A â’ âŠ`.  The distinction from
+-- àà°àà¯àà¦à¾à Â paryudsa, the implicative negation, is drawn by Westerhoff in
 -- the modern literature; it is a reading and I mark it as one.  UNDER
--- PARYUDÄ€SA THE FOURTH CORNER IS A DIFFERENT FORMULA AND Â§2 DOES NOT
+-- PARYUDSA THE FOURTH CORNER IS A DIFFERENT FORMULA AND Â§2 DOES NOT
 -- APPLY TO IT.
 --
 ------------------------------------------------------------------------
 -- PRIOR ART, SEARCHED BEFORE WRITING RATHER THAN AFTER.
 --
 -- Formal treatments of both exist and are contested.  Priest and Ganeri
--- read the saptabhaá¹…gÄ« as supporting a non-classical (many-valued/modal)
+-- read the saptabhag as supporting a non-classical (many-valued/modal)
 -- system; Balcerowicz contests that reading.  Priest and Garfield read the
--- catuá¹£koá¹­i paraconsistently, via FDE and a plurivalent extension, and
+-- catukoi paraconsistently, via FDE and a plurivalent extension, and
 -- WOULD NOT ACCEPT Â§2's flat refutation of the fourth corner -- on their
--- reading it is assertable.  Schang treats the saptabhaá¹…gÄ« and the
--- catuá¹£koá¹­i within ONE common framework.
+-- reading it is assertable.  Schang treats the saptabhag and the
+-- catukoi within ONE common framework.
 --
 -- Â§3 DISAGREES WITH SCHANG, and the disagreement is the file's point: the
 -- two fourth positions are not two settings of one dial.  What would
@@ -65,7 +65,7 @@
 --       a family over `Env` whose fibres disagree.  Contingent on the
 --       pair, and false for pairs the calculus does derive.
 --
---   Â§2  no-fourth-corner : Â¬ (Â¬ (A âŠ Â¬ A)), for EVERY A, at every level,
+--   Â§2  no-fourth-corner : Â (Â (A âŠ Â A)), for EVERY A, at every level,
 --       depending on nothing.  A theorem of logic, not a fact about an
 --       object.
 --
@@ -108,11 +108,11 @@ diagonal off-diagonal : Env
 diagonal     = env 0 0 0 0 0 0
 off-diagonal = env 0 1 0 0 0 0
 
--- syÄd-asti: in the respect where the coordinates agree, it is.
+-- syd-asti: in the respect where the coordinates agree, it is.
 asti : eval var diagonal â‰¡ eval yvar diagonal
 asti = refl
 
--- syÄd-nÄsti: in the respect where they differ, it is not.
+-- syd-nsti: in the respect where they differ, it is not.
 nasti : Â¬ (eval var off-diagonal â‰¡ eval yvar off-diagonal)
 nasti = znots
 
@@ -135,12 +135,12 @@ no-fourth-corner k = k (inr (Î» a â†’ k (inl a)))
 ------------------------------------------------------------------------
 -- Â§3.  THE CONTRAST, STATED AS THE TYPES SHOW IT.
 --
---   Â§1  Â¬ ((Ï : Env) â†’ P Ï)   and   Â¬ ((Ï : Env) â†’ Â¬ P Ï)
+--   Â§1  Â ((Ï : Env) â’ P Ï)   and   Â ((Ï : Env) â’ Â P Ï)
 --       A Î  over an index is refuted in both directions.  The content is
 --       that P is NOT CONSTANT.  Contingent, consistent, and about a
 --       family.  For a pair the calculus derives, both statements fail.
 --
---   Â§2  Â¬ (Â¬ (A âŠ Â¬ A))
+--   Â§2  Â (Â (A âŠ Â A))
 --       No index, no family, no hypothesis.  The content is the
 --       propositional structure of negation itself.
 --

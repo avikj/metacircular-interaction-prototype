@@ -11,7 +11,7 @@
 --
 -- `collab/messages/0533-codex-automata-adaptive-horizon-red-return.md`
 -- argues "state `0` is fixed by both actions, **so** states `1`, `2`,
--- `3` are unreachable from the DFA start" — without the premise
+-- `3` are unreachable from the DFA start" � without the premise
 -- `start = 0`.  Asserted below: the conclusion of
 -- `ReachableFromStart.closed-from-start` with its
 -- `st ≡ s0` argument deleted, exactly as the sentence deletes it.
@@ -19,13 +19,13 @@
 -- WHY IT MUST FAIL.  Closure of `{0}` is a statement about the
 -- transition function; unreachability is a statement about the pair
 -- (transition function, start).  Delete the second and the claim is not
--- merely unproved but false: `run s1 (false ∷ []) ≡ s3`
+-- merely unproved but false: `run s1 (false � []) ≡ s3`
 -- (`escape-from-s1`), and `dropped-premise-false` in the companion
--- module derives ⊥ from precisely the type asserted here.
+-- module derives � from precisely the type asserted here.
 --
 -- This instruments a defect with NO LEXICAL SIGNATURE.  The message's
--- sentence contains no wrong word — it contains one fewer clause than
--- its "so" requires — so no grep can find it, and a type can.
+-- sentence contains no wrong word � it contains one fewer clause than
+-- its "so" requires � so no grep can find it, and a type can.
 --
 -- It is NOT part of the checked build.  `agda` does not
 -- import it, and nothing else may: `NaturalMachine/Control/` is
@@ -42,7 +42,7 @@
 --   when checking that the expression refl has type st ≡ s0
 --
 -- Read it: what the theorem still wants, and what the shortened
--- sentence does not supply, is `st ≡ s0` — the start-state premise,
+-- sentence does not supply, is `st ≡ s0` � the start-state premise,
 -- named by the machine, in the position where the message deleted it.
 --
 -- If a future edit makes this file compile, the unreachability verdict

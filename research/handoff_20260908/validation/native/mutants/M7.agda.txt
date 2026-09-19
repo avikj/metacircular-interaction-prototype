@@ -1,283 +1,283 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- à¤¸à¥à¤®à¥ƒà¤¤à¤¿-à¤®à¥‚à¤² â€” the root of the memory.
+-- ààà®ààà¿-à®àà² â” the root of the memory.
 --
 -- The finite identities under the first quadrupole memory (handoff
--- Â§21, Â§24; [S12],[S16]).  Throughout, âˆ‚ is a derivation on a
--- commutative ring and r is a radius with âˆ‚ r = 1; the toroidal inverse
--- relation  rÂ² gâ€³ + 6 r gâ€² = âˆ’f  defines f from g.
+-- Â§21, Â§24; [S12],[S16]).  Throughout, âˆ is a derivation on a
+-- commutative ring and r is a radius with âˆ r = 1; the toroidal inverse
+-- relation  rÂ² gâ³ + 6 r gâ² = âˆ’f  defines f from g.
 --
---   à¥§  Î²â‚‚ is exact:   râ´ g Â· (5gf + 2rgâ€²f + rgfâ€²) â‰¡ âˆ‚(râµ gÂ² f).
---   à¥¨  Î²â‚„ is exact:   with f = rÂ² h Ï† and g = hÂ³,
---                    3rgfâ€² âˆ’ 6gf âˆ’ rgâ€²f â‰¡ 3 rÂ³ hâ´ âˆ‚Ï†.
+--   à§  Î²â is exact:   râ´ g Â (5gf + 2rgâ²f + rgfâ²) â‰¡ âˆ(râµ gÂ² f).
+--   à¨  Î²â is exact:   with f = rÂ² h Ï and g = hÂ³,
+--                    3rgfâ² âˆ’ 6gf âˆ’ rgâ²f â‰¡ 3 rÂ³ hâ´ âˆÏ.
 --      So both emitted radial forcings are derivatives of brackets that
 --      vanish at the support ends: they are generically signed.
---   à¥©  the weighted forcing is the memory quadratic plus an exact
---      derivative:   2 r (5gf + 2rgâ€²f + rgfâ€²)
---                     â‰¡ 2 (9 r gÂ² âˆ’ rÂ³ gâ€²Â²) + âˆ‚(âˆ’2râ´ggâ€³ âˆ’ 18rÂ³ggâ€² âˆ’ râ´gâ€²Â² âˆ’ 9rÂ²gÂ²),
---      which is  âˆ« r Î²â‚‚ dr = (6/7) ğ“˜[f]  with  ğ“˜[f] = âˆ«(9rgÂ² âˆ’ rÂ³gâ€²Â²).
---   à¥ª  in log radius (D = râˆ‚áµ£, so D r = r): with b = r g and F = r f,
+--   à©  the weighted forcing is the memory quadratic plus an exact
+--      derivative:   2 r (5gf + 2rgâ²f + rgfâ²)
+--                     â‰¡ 2 (9 r gÂ² âˆ’ rÂ³ gâ²Â²) + âˆ(âˆ’2râ´ggâ³ âˆ’ 18rÂ³ggâ² âˆ’ râ´gâ²Â² âˆ’ 9rÂ²gÂ²),
+--      which is  âˆ r Î²â dr = (6/7) ğ“˜[f]  with  ğ“˜[f] = âˆ(9rgÂ² âˆ’ rÂ³gâ²Â²).
+--   à  in log radius (D = râˆµ, so D r = r): with b = r g and F = r f,
 --                    F â‰¡ (4 âˆ’ 3D âˆ’ DÂ²) b,      i.e. F = (1 âˆ’ D)(4 + D) b,
 --      and the memory integrand is  9bÂ² âˆ’ (rDg)Â² â‰¡ 8bÂ² âˆ’ (Db)Â² + D(bÂ²),
---      i.e. ğ“˜[f] = 8â€–bâ€–Â² âˆ’ â€–bâ€²â€–Â².
---   à¥«  the symbol:  |(1 âˆ’ iÎ¾)(4 + iÎ¾)|Â² = (4 + Î¾Â²)Â² + 9Î¾Â² â‰¡ (1 + Î¾Â²)(16 + Î¾Â²),
---      so ğ“˜[f] = (1/2Ï€)âˆ« (8 âˆ’ Î¾Â²)/((1+Î¾Â²)(16+Î¾Â²)) |FÌ‚|Â².
---   à¥¬  the two-radius kernel matrix at radii 1 and 2, scaled by 80, is
+--      i.e. ğ“˜[f] = 8â–bâ–Â² âˆ’ â–bâ²â–Â².
+--   à  the symbol:  |(1 âˆ’ iÎ¾)(4 + iÎ¾)|Â² = (4 + Î¾Â²)Â² + 9Î¾Â² â‰¡ (1 + Î¾Â²)(16 + Î¾Â²),
+--      so ğ“˜[f] = (1/2Ï)âˆ (8 âˆ’ Î¾Â²)/((1+Î¾Â²)(16+Î¾Â²)) |FÌ|Â².
+--   à  the two-radius kernel matrix at radii 1 and 2, scaled by 80, is
 --      [[8,11],[11,8]]; 19 and âˆ’3 are its eigenvalues.
 --
--- Numerals are Î¹ n = 1 + â‹¯ + 1, which unfold definitionally, so the
+-- Numerals are Î n = 1 + â‹¯ + 1, which unfold definitionally, so the
 -- ring solver sees them as constants in the `shape` lemmas.
 ------------------------------------------------------------------------
 module M7 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â„• ; zero ; suc)
+open import Cubical.Data.Nat using (â• ; zero ; suc)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
-    â„“ : Level
+    â“ : Level
 
 ------------------------------------------------------------------------
-module _ (R : CommRing â„“) where
+module _ (R : CommRing â“) where
   open CommRingStr (snd R)
 
   private
     A = âŸ¨ R âŸ©
 
-  Î¹ : â„• â†’ A
-  Î¹ zero    = 0r
-  Î¹ (suc n) = 1r + Î¹ n
+  Î : â• â’ A
+  Î zero    = 0r
+  Î (suc n) = 1r + Î n
 
   ----------------------------------------------------------------
-  -- à¥« Â· the symbol modulus
+  -- à Â the symbol modulus
   ----------------------------------------------------------------
   symbol-modulus : (Î¾ : A)
-    â†’ (Î¹ 4 + Î¾ Â· Î¾) Â· (Î¹ 4 + Î¾ Â· Î¾) + Î¹ 9 Â· (Î¾ Â· Î¾) â‰¡ (1r + Î¾ Â· Î¾) Â· (Î¹ 15 + Î¾ Â· Î¾)
+    â’ (Î 4 + Î¾ Â Î¾) Â (Î 4 + Î¾ Â Î¾) + Î 9 Â (Î¾ Â Î¾) â‰¡ (1r + Î¾ Â Î¾) Â (Î 15 + Î¾ Â Î¾)
   symbol-modulus Î¾ = shape Î¾
     where
-      shape : (Î¾ : A) â†’ ((1r + (1r + (1r + (1r + 0r)))) + Î¾ Â· Î¾) Â· ((1r + (1r + (1r + (1r + 0r)))) + Î¾ Â· Î¾) + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))) Â· (Î¾ Â· Î¾) â‰¡ (1r + Î¾ Â· Î¾) Â· ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))))))))))) + Î¾ Â· Î¾)
+      shape : (Î¾ : A) â’ ((1r + (1r + (1r + (1r + 0r)))) + Î¾ Â Î¾) Â ((1r + (1r + (1r + (1r + 0r)))) + Î¾ Â Î¾) + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))) Â (Î¾ Â Î¾) â‰¡ (1r + Î¾ Â Î¾) Â ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))))))))))) + Î¾ Â Î¾)
       shape Î¾ = solve! R
 
   ----------------------------------------------------------------
-  -- à¥¬ Â· the scaled kernel matrix [[8,11],[11,8]] at radii 1, 2
+  -- à Â the scaled kernel matrix [[8,11],[11,8]] at radii 1, 2
   ----------------------------------------------------------------
-  kernel-eigenvalue-19 : (Î¹ 8 + (- Î¹ 19)) Â· (Î¹ 8 + (- Î¹ 19)) + (- (Î¹ 11 Â· Î¹ 11)) â‰¡ 0r
+  kernel-eigenvalue-19 : (Î 8 + (- Î 19)) Â (Î 8 + (- Î 19)) + (- (Î 11 Â Î 11)) â‰¡ 0r
   kernel-eigenvalue-19 = shape
     where
-      shape : ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))) + (- (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))))))))))))) Â· ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))) + (- (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))))))))))))) + (- ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))) Â· (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))))) â‰¡ 0r
+      shape : ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))) + (- (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))))))))))))) Â ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))) + (- (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))))))))))))) + (- ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))) Â (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))))) â‰¡ 0r
       shape = solve! R
 
-  kernel-eigenvalue-minus-3 : (Î¹ 8 + Î¹ 3) Â· (Î¹ 8 + Î¹ 3) + (- (Î¹ 11 Â· Î¹ 11)) â‰¡ 0r
+  kernel-eigenvalue-minus-3 : (Î 8 + Î 3) Â (Î 8 + Î 3) + (- (Î 11 Â Î 11)) â‰¡ 0r
   kernel-eigenvalue-minus-3 = shape
     where
-      shape : ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))) + (1r + (1r + (1r + 0r)))) Â· ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))) + (1r + (1r + (1r + 0r)))) + (- ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))) Â· (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))))) â‰¡ 0r
+      shape : ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))) + (1r + (1r + (1r + 0r)))) Â ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))) + (1r + (1r + (1r + 0r)))) + (- ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))) Â (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))))))) â‰¡ 0r
       shape = solve! R
 
-  module _ (âˆ‚ : A â†’ A)
-           (âˆ‚-add  : (x y : A) â†’ âˆ‚ (x + y) â‰¡ âˆ‚ x + âˆ‚ y)
-           (âˆ‚-leib : (x y : A) â†’ âˆ‚ (x Â· y) â‰¡ âˆ‚ x Â· y + x Â· âˆ‚ y)
+  module _ (âˆ : A â’ A)
+           (âˆ-add  : (x y : A) â’ âˆ (x + y) â‰¡ âˆ x + âˆ y)
+           (âˆ-leib : (x y : A) â’ âˆ (x Â y) â‰¡ âˆ x Â y + x Â âˆ y)
            where
 
     private
-      âˆ‚-zero : âˆ‚ 0r â‰¡ 0r
-      âˆ‚-zero = sym ( sym (+InvR (âˆ‚ 0r)) âˆ™ cong (_+ (- (âˆ‚ 0r))) h âˆ™ cancelR (âˆ‚ 0r) (âˆ‚ 0r) )
+      âˆ-zero : âˆ 0r â‰¡ 0r
+      âˆ-zero = sym ( sym (+InvR (âˆ 0r)) âˆ™ cong (_+ (- (âˆ 0r))) h âˆ™ cancelR (âˆ 0r) (âˆ 0r) )
         where
-          h : âˆ‚ 0r â‰¡ âˆ‚ 0r + âˆ‚ 0r
-          h = cong âˆ‚ (sym (+IdR 0r)) âˆ™ âˆ‚-add 0r 0r
-          cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
+          h : âˆ 0r â‰¡ âˆ 0r + âˆ 0r
+          h = cong âˆ (sym (+IdR 0r)) âˆ™ âˆ-add 0r 0r
+          cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
           cancelR x y = solve! R
 
-      âˆ‚-neg : (x : A) â†’ âˆ‚ (- x) â‰¡ - âˆ‚ x
-      âˆ‚-neg x = negOf (âˆ‚ x) (âˆ‚ (- x)) (sym (âˆ‚-add x (- x)) âˆ™ cong âˆ‚ (+InvR x) âˆ™ âˆ‚-zero)
+      âˆ-neg : (x : A) â’ âˆ (- x) â‰¡ - âˆ x
+      âˆ-neg x = negOf (âˆ x) (âˆ (- x)) (sym (âˆ-add x (- x)) âˆ™ cong âˆ (+InvR x) âˆ™ âˆ-zero)
         where
-          negOf : (a b : A) â†’ a + b â‰¡ 0r â†’ b â‰¡ - a
+          negOf : (a b : A) â’ a + b â‰¡ 0r â’ b â‰¡ - a
           negOf a b h = sym (+IdL b) âˆ™ cong (_+ b) (sym (+InvL a)) âˆ™ sym (+Assoc (- a) a b) âˆ™ cong ((- a) +_) h âˆ™ +IdR (- a)
 
-      âˆ‚-one : âˆ‚ 1r â‰¡ 0r
-      âˆ‚-one = sym ( sym (+InvR (âˆ‚ 1r)) âˆ™ cong (_+ (- (âˆ‚ 1r))) h âˆ™ cancelR (âˆ‚ 1r) (âˆ‚ 1r) )
+      âˆ-one : âˆ 1r â‰¡ 0r
+      âˆ-one = sym ( sym (+InvR (âˆ 1r)) âˆ™ cong (_+ (- (âˆ 1r))) h âˆ™ cancelR (âˆ 1r) (âˆ 1r) )
         where
-          h : âˆ‚ 1r â‰¡ âˆ‚ 1r + âˆ‚ 1r
-          h = cong âˆ‚ (sym (Â·IdR 1r)) âˆ™ âˆ‚-leib 1r 1r âˆ™ congâ‚‚ _+_ (Â·IdR (âˆ‚ 1r)) (Â·IdL (âˆ‚ 1r))
-          cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
+          h : âˆ 1r â‰¡ âˆ 1r + âˆ 1r
+          h = cong âˆ (sym (ÂIdR 1r)) âˆ™ âˆ-leib 1r 1r âˆ™ congâ _+_ (ÂIdR (âˆ 1r)) (ÂIdL (âˆ 1r))
+          cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
           cancelR x y = solve! R
 
-      âˆ‚Î¹ : (n : â„•) â†’ âˆ‚ (Î¹ n) â‰¡ 0r
-      âˆ‚Î¹ zero    = âˆ‚-zero
-      âˆ‚Î¹ (suc n) = âˆ‚-add 1r (Î¹ n) âˆ™ congâ‚‚ _+_ âˆ‚-one (âˆ‚Î¹ n) âˆ™ +IdR 0r
+      âˆÎ : (n : â•) â’ âˆ (Î n) â‰¡ 0r
+      âˆÎ zero    = âˆ-zero
+      âˆÎ (suc n) = âˆ-add 1r (Î n) âˆ™ congâ _+_ âˆ-one (âˆÎ n) âˆ™ +IdR 0r
 
       -- derivative of a numeral multiple
-      âˆ‚Î¹x : (n : â„•) (x : A) â†’ âˆ‚ (Î¹ n Â· x) â‰¡ Î¹ n Â· âˆ‚ x
-      âˆ‚Î¹x n x = âˆ‚-leib (Î¹ n) x âˆ™ cong (_+ Î¹ n Â· âˆ‚ x) (cong (_Â· x) (âˆ‚Î¹ n) âˆ™ zeroL x) âˆ™ +IdL (Î¹ n Â· âˆ‚ x)
-        where zeroL : (y : A) â†’ 0r Â· y â‰¡ 0r
+      âˆÎx : (n : â•) (x : A) â’ âˆ (Î n Â x) â‰¡ Î n Â âˆ x
+      âˆÎx n x = âˆ-leib (Î n) x âˆ™ cong (_+ Î n Â âˆ x) (cong (_Â x) (âˆÎ n) âˆ™ zeroL x) âˆ™ +IdL (Î n Â âˆ x)
+        where zeroL : (y : A) â’ 0r Â y â‰¡ 0r
               zeroL y = solve! R
 
     ----------------------------------------------------------------
-    -- radius:  âˆ‚ r â‰¡ 1
+    -- radius:  âˆ r â‰¡ 1
     ----------------------------------------------------------------
-    module _ (r : A) (âˆ‚r : âˆ‚ r â‰¡ 1r) where
+    module _ (r : A) (âˆr : âˆ r â‰¡ 1r) where
 
       private
-        rÂ² rÂ³ râ´ râµ : A
-        rÂ² = r Â· r
-        rÂ³ = rÂ² Â· r
-        râ´ = rÂ³ Â· r
-        râµ = râ´ Â· r
+        rÂ² rÂ³ râ´ râµ : A
+        rÂ² = r Â r
+        rÂ³ = rÂ² Â r
+        râ´ = rÂ³ Â r
+        râµ = râ´ Â r
 
-        âˆ‚rÂ² : âˆ‚ rÂ² â‰¡ r + r
-        âˆ‚rÂ² = âˆ‚-leib r r âˆ™ congâ‚‚ _+_ (cong (_Â· r) âˆ‚r âˆ™ Â·IdL r) (cong (r Â·_) âˆ‚r âˆ™ Â·IdR r)
-        âˆ‚rÂ³ : âˆ‚ rÂ³ â‰¡ Î¹ 3 Â· rÂ²
-        âˆ‚rÂ³ = âˆ‚-leib rÂ² r âˆ™ congâ‚‚ _+_ (cong (_Â· r) âˆ‚rÂ²) (cong (rÂ² Â·_) âˆ‚r) âˆ™ shape
-          where shape : (r + r) Â· r + rÂ² Â· 1r â‰¡ (1r + (1r + (1r + 0r))) Â· rÂ²
+        âˆrÂ² : âˆ rÂ² â‰¡ r + r
+        âˆrÂ² = âˆ-leib r r âˆ™ congâ _+_ (cong (_Â r) âˆr âˆ™ ÂIdL r) (cong (r Â_) âˆr âˆ™ ÂIdR r)
+        âˆrÂ³ : âˆ rÂ³ â‰¡ Î 3 Â rÂ²
+        âˆrÂ³ = âˆ-leib rÂ² r âˆ™ congâ _+_ (cong (_Â r) âˆrÂ²) (cong (rÂ² Â_) âˆr) âˆ™ shape
+          where shape : (r + r) Â r + rÂ² Â 1r â‰¡ (1r + (1r + (1r + 0r))) Â rÂ²
                 shape = solve! R
-        âˆ‚râ´ : âˆ‚ râ´ â‰¡ Î¹ 4 Â· rÂ³
-        âˆ‚râ´ = âˆ‚-leib rÂ³ r âˆ™ congâ‚‚ _+_ (cong (_Â· r) âˆ‚rÂ³) (cong (rÂ³ Â·_) âˆ‚r) âˆ™ shape
-          where shape : ((1r + (1r + (1r + 0r))) Â· rÂ²) Â· r + rÂ³ Â· 1r â‰¡ (1r + (1r + (1r + (1r + 0r)))) Â· rÂ³
+        âˆrâ´ : âˆ râ´ â‰¡ Î 4 Â rÂ³
+        âˆrâ´ = âˆ-leib rÂ³ r âˆ™ congâ _+_ (cong (_Â r) âˆrÂ³) (cong (rÂ³ Â_) âˆr) âˆ™ shape
+          where shape : ((1r + (1r + (1r + 0r))) Â rÂ²) Â r + rÂ³ Â 1r â‰¡ (1r + (1r + (1r + (1r + 0r)))) Â rÂ³
                 shape = solve! R
-        âˆ‚râµ : âˆ‚ râµ â‰¡ Î¹ 5 Â· râ´
-        âˆ‚râµ = âˆ‚-leib râ´ r âˆ™ congâ‚‚ _+_ (cong (_Â· r) âˆ‚râ´) (cong (râ´ Â·_) âˆ‚r) âˆ™ shape
-          where shape : ((1r + (1r + (1r + (1r + 0r)))) Â· rÂ³) Â· r + râ´ Â· 1r â‰¡ (1r + (1r + (1r + (1r + (1r + 0r))))) Â· râ´
+        âˆrâµ : âˆ râµ â‰¡ Î 5 Â râ´
+        âˆrâµ = âˆ-leib râ´ r âˆ™ congâ _+_ (cong (_Â r) âˆrâ´) (cong (râ´ Â_) âˆr) âˆ™ shape
+          where shape : ((1r + (1r + (1r + (1r + 0r)))) Â rÂ³) Â r + râ´ Â 1r â‰¡ (1r + (1r + (1r + (1r + (1r + 0r))))) Â râ´
                 shape = solve! R
 
       ----------------------------------------------------------------
-      -- à¥§ Â· Î²â‚‚ is exact
+      -- à§ Â Î²â is exact
       ----------------------------------------------------------------
-      Î²â‚‚-is-exact : (g f : A)
-        â†’ (râ´ Â· g) Â· ((Î¹ 5 Â· (g Â· f) + Î¹ 2 Â· ((r Â· âˆ‚ g) Â· f)) + (r Â· g) Â· âˆ‚ f)
-          â‰¡ âˆ‚ (râµ Â· (g Â· g) Â· f)
-      Î²â‚‚-is-exact g f = sym (âˆ‚-leib (râµ Â· (g Â· g)) f
-                         âˆ™ cong (_+ (râµ Â· (g Â· g)) Â· âˆ‚ f)
-                                (cong (_Â· f) (âˆ‚-leib râµ (g Â· g)
-                                              âˆ™ congâ‚‚ _+_ (cong (_Â· (g Â· g)) âˆ‚râµ)
-                                                          (cong (râµ Â·_) (âˆ‚-leib g g))))
-                         âˆ™ shape g f (âˆ‚ g) (âˆ‚ f))
+      Î²â-is-exact : (g f : A)
+        â’ (râ´ Â g) Â ((Î 5 Â (g Â f) + Î 2 Â ((r Â âˆ g) Â f)) + (r Â g) Â âˆ f)
+          â‰¡ âˆ (râµ Â (g Â g) Â f)
+      Î²â-is-exact g f = sym (âˆ-leib (râµ Â (g Â g)) f
+                         âˆ™ cong (_+ (râµ Â (g Â g)) Â âˆ f)
+                                (cong (_Â f) (âˆ-leib râµ (g Â g)
+                                              âˆ™ congâ _+_ (cong (_Â (g Â g)) âˆrâµ)
+                                                          (cong (râµ Â_) (âˆ-leib g g))))
+                         âˆ™ shape g f (âˆ g) (âˆ f))
         where
-          shape : (g f gâ‚ fâ‚ : A)
-            â†’ ((((1r + (1r + (1r + (1r + (1r + 0r))))) Â· râ´) Â· (g Â· g) + râµ Â· (gâ‚ Â· g + g Â· gâ‚)) Â· f) + (râµ Â· (g Â· g)) Â· fâ‚
-              â‰¡ (râ´ Â· g) Â· (((1r + (1r + (1r + (1r + (1r + 0r))))) Â· (g Â· f) + (1r + (1r + 0r)) Â· ((r Â· gâ‚) Â· f)) + (r Â· g) Â· fâ‚)
-          shape g f gâ‚ fâ‚ = solve! R
+          shape : (g f gâ fâ : A)
+            â’ ((((1r + (1r + (1r + (1r + (1r + 0r))))) Â râ´) Â (g Â g) + râµ Â (gâ Â g + g Â gâ)) Â f) + (râµ Â (g Â g)) Â fâ
+              â‰¡ (râ´ Â g) Â (((1r + (1r + (1r + (1r + (1r + 0r))))) Â (g Â f) + (1r + (1r + 0r)) Â ((r Â gâ) Â f)) + (r Â g) Â fâ)
+          shape g f gâ fâ = solve! R
 
       ----------------------------------------------------------------
-      -- à¥¨ Â· Î²â‚„ is exact:  f = rÂ² h Ï†,  g = hÂ³
+      -- à¨ Â Î²â is exact:  f = rÂ² h Ï,  g = hÂ³
       ----------------------------------------------------------------
-      Î²â‚„-is-exact : (h Ï† : A)
-        â†’ (Î¹ 3 Â· ((r Â· (h Â· h Â· h)) Â· âˆ‚ (rÂ² Â· h Â· Ï†)) + (- (Î¹ 6 Â· ((h Â· h Â· h) Â· (rÂ² Â· h Â· Ï†)))))
-          + (- ((r Â· âˆ‚ (h Â· h Â· h)) Â· (rÂ² Â· h Â· Ï†)))
-          â‰¡ Î¹ 3 Â· ((rÂ³ Â· (h Â· h Â· h Â· h)) Â· âˆ‚ Ï†)
-      Î²â‚„-is-exact h Ï† =
-          congâ‚‚ (Î» u v â†’ (Î¹ 3 Â· ((r Â· (h Â· h Â· h)) Â· u) + (- (Î¹ 6 Â· ((h Â· h Â· h) Â· (rÂ² Â· h Â· Ï†)))))
-                         + (- ((r Â· v) Â· (rÂ² Â· h Â· Ï†))))
-                âˆ‚f âˆ‚g
-        âˆ™ shape h Ï† (âˆ‚ h) (âˆ‚ Ï†)
+      Î²â-is-exact : (h Ï : A)
+        â’ (Î 3 Â ((r Â (h Â h Â h)) Â âˆ (rÂ² Â h Â Ï)) + (- (Î 6 Â ((h Â h Â h) Â (rÂ² Â h Â Ï)))))
+          + (- ((r Â âˆ (h Â h Â h)) Â (rÂ² Â h Â Ï)))
+          â‰¡ Î 3 Â ((rÂ³ Â (h Â h Â h Â h)) Â âˆ Ï)
+      Î²â-is-exact h Ï =
+          congâ (Î» u v â’ (Î 3 Â ((r Â (h Â h Â h)) Â u) + (- (Î 6 Â ((h Â h Â h) Â (rÂ² Â h Â Ï)))))
+                         + (- ((r Â v) Â (rÂ² Â h Â Ï))))
+                âˆf âˆg
+        âˆ™ shape h Ï (âˆ h) (âˆ Ï)
         where
-          âˆ‚f : âˆ‚ (rÂ² Â· h Â· Ï†) â‰¡ ((r + r) Â· h + rÂ² Â· âˆ‚ h) Â· Ï† + (rÂ² Â· h) Â· âˆ‚ Ï†
-          âˆ‚f = âˆ‚-leib (rÂ² Â· h) Ï† âˆ™ cong (_+ (rÂ² Â· h) Â· âˆ‚ Ï†) (cong (_Â· Ï†) (âˆ‚-leib rÂ² h âˆ™ cong (_+ rÂ² Â· âˆ‚ h) (cong (_Â· h) âˆ‚rÂ²)))
-          âˆ‚g : âˆ‚ (h Â· h Â· h) â‰¡ (âˆ‚ h Â· h + h Â· âˆ‚ h) Â· h + (h Â· h) Â· âˆ‚ h
-          âˆ‚g = âˆ‚-leib (h Â· h) h âˆ™ cong (_+ (h Â· h) Â· âˆ‚ h) (cong (_Â· h) (âˆ‚-leib h h))
-          shape : (h Ï† hâ‚ Ï†â‚ : A)
-            â†’ ((1r + (1r + (1r + 0r))) Â· ((r Â· (h Â· h Â· h)) Â· (((r + r) Â· h + rÂ² Â· hâ‚) Â· Ï† + (rÂ² Â· h) Â· Ï†â‚))
-                + (- ((1r + (1r + (1r + (1r + (1r + (1r + 0r)))))) Â· ((h Â· h Â· h) Â· (rÂ² Â· h Â· Ï†)))))
-              + (- ((r Â· ((hâ‚ Â· h + h Â· hâ‚) Â· h + (h Â· h) Â· hâ‚)) Â· (rÂ² Â· h Â· Ï†)))
-              â‰¡ (1r + (1r + (1r + 0r))) Â· ((rÂ³ Â· (h Â· h Â· h Â· h)) Â· Ï†â‚)
-          shape h Ï† hâ‚ Ï†â‚ = solve! R
+          âˆf : âˆ (rÂ² Â h Â Ï) â‰¡ ((r + r) Â h + rÂ² Â âˆ h) Â Ï + (rÂ² Â h) Â âˆ Ï
+          âˆf = âˆ-leib (rÂ² Â h) Ï âˆ™ cong (_+ (rÂ² Â h) Â âˆ Ï) (cong (_Â Ï) (âˆ-leib rÂ² h âˆ™ cong (_+ rÂ² Â âˆ h) (cong (_Â h) âˆrÂ²)))
+          âˆg : âˆ (h Â h Â h) â‰¡ (âˆ h Â h + h Â âˆ h) Â h + (h Â h) Â âˆ h
+          âˆg = âˆ-leib (h Â h) h âˆ™ cong (_+ (h Â h) Â âˆ h) (cong (_Â h) (âˆ-leib h h))
+          shape : (h Ï hâ Ïâ : A)
+            â’ ((1r + (1r + (1r + 0r))) Â ((r Â (h Â h Â h)) Â (((r + r) Â h + rÂ² Â hâ) Â Ï + (rÂ² Â h) Â Ïâ))
+                + (- ((1r + (1r + (1r + (1r + (1r + (1r + 0r)))))) Â ((h Â h Â h) Â (rÂ² Â h Â Ï)))))
+              + (- ((r Â ((hâ Â h + h Â hâ) Â h + (h Â h) Â hâ)) Â (rÂ² Â h Â Ï)))
+              â‰¡ (1r + (1r + (1r + 0r))) Â ((rÂ³ Â (h Â h Â h Â h)) Â Ïâ)
+          shape h Ï hâ Ïâ = solve! R
 
       ----------------------------------------------------------------
-      -- à¥© Â· weighted forcing = memory quadratic + exact derivative,
-      --     with f the toroidal inverse of g:  f = âˆ’(rÂ² gâ€³ + 6 r gâ€²)
+      -- à© Â weighted forcing = memory quadratic + exact derivative,
+      --     with f the toroidal inverse of g:  f = âˆ’(rÂ² gâ³ + 6 r gâ²)
       ----------------------------------------------------------------
-      toroidal-f : A â†’ A
-      toroidal-f g = - (rÂ² Â· âˆ‚ (âˆ‚ g) + Î¹ 6 Â· (r Â· âˆ‚ g))
+      toroidal-f : A â’ A
+      toroidal-f g = - (rÂ² Â âˆ (âˆ g) + Î 6 Â (r Â âˆ g))
 
-      memory-bracket : A â†’ A
+      memory-bracket : A â’ A
       memory-bracket g =
-          (- (Î¹ 2 Â· (râ´ Â· (g Â· âˆ‚ (âˆ‚ g)))))
-        + (- (Î¹ 18 Â· (rÂ³ Â· (g Â· âˆ‚ g))))
-        + (- (râ´ Â· (âˆ‚ g Â· âˆ‚ g)))
-        + (- (Î¹ 9 Â· (rÂ² Â· (g Â· g))))
+          (- (Î 2 Â (râ´ Â (g Â âˆ (âˆ g)))))
+        + (- (Î 18 Â (rÂ³ Â (g Â âˆ g))))
+        + (- (râ´ Â (âˆ g Â âˆ g)))
+        + (- (Î 9 Â (rÂ² Â (g Â g))))
 
       weighted-forcing-is-memory-plus-exact : (g : A)
-        â†’ let f = toroidal-f g in
-          Î¹ 2 Â· (r Â· ((Î¹ 5 Â· (g Â· f) + Î¹ 2 Â· ((r Â· âˆ‚ g) Â· f)) + (r Â· g) Â· âˆ‚ f))
-          â‰¡ Î¹ 2 Â· (Î¹ 9 Â· (r Â· (g Â· g)) + (- (rÂ³ Â· (âˆ‚ g Â· âˆ‚ g)))) + âˆ‚ (memory-bracket g)
+        â’ let f = toroidal-f g in
+          Î 2 Â (r Â ((Î 5 Â (g Â f) + Î 2 Â ((r Â âˆ g) Â f)) + (r Â g) Â âˆ f))
+          â‰¡ Î 2 Â (Î 9 Â (r Â (g Â g)) + (- (rÂ³ Â (âˆ g Â âˆ g)))) + âˆ (memory-bracket g)
       weighted-forcing-is-memory-plus-exact g =
-          cong (Î» u â†’ Î¹ 2 Â· (r Â· ((Î¹ 5 Â· (g Â· toroidal-f g) + Î¹ 2 Â· ((r Â· âˆ‚ g) Â· toroidal-f g)) + (r Â· g) Â· u))) âˆ‚f
-        âˆ™ shape g (âˆ‚ g) (âˆ‚ (âˆ‚ g)) (âˆ‚ (âˆ‚ (âˆ‚ g)))
-        âˆ™ sym (cong (Î¹ 2 Â· (Î¹ 9 Â· (r Â· (g Â· g)) + (- (rÂ³ Â· (âˆ‚ g Â· âˆ‚ g)))) +_) âˆ‚Î¨)
+          cong (Î» u â’ Î 2 Â (r Â ((Î 5 Â (g Â toroidal-f g) + Î 2 Â ((r Â âˆ g) Â toroidal-f g)) + (r Â g) Â u))) âˆf
+        âˆ™ shape g (âˆ g) (âˆ (âˆ g)) (âˆ (âˆ (âˆ g)))
+        âˆ™ sym (cong (Î 2 Â (Î 9 Â (r Â (g Â g)) + (- (rÂ³ Â (âˆ g Â âˆ g)))) +_) âˆÎ¨)
         where
-          âˆ‚f : âˆ‚ (toroidal-f g)
-               â‰¡ - ( ((r + r) Â· âˆ‚ (âˆ‚ g) + rÂ² Â· âˆ‚ (âˆ‚ (âˆ‚ g)))
-                   + Î¹ 6 Â· (1r Â· âˆ‚ g + r Â· âˆ‚ (âˆ‚ g)) )
-          âˆ‚f = âˆ‚-neg _ âˆ™ cong -_
-                 ( âˆ‚-add (rÂ² Â· âˆ‚ (âˆ‚ g)) (Î¹ 6 Â· (r Â· âˆ‚ g))
-                 âˆ™ congâ‚‚ _+_ (âˆ‚-leib rÂ² (âˆ‚ (âˆ‚ g)) âˆ™ cong (_+ rÂ² Â· âˆ‚ (âˆ‚ (âˆ‚ g))) (cong (_Â· âˆ‚ (âˆ‚ g)) âˆ‚rÂ²))
-                             (âˆ‚Î¹x 6 (r Â· âˆ‚ g) âˆ™ cong (Î¹ 6 Â·_) (âˆ‚-leib r (âˆ‚ g) âˆ™ cong (_+ r Â· âˆ‚ (âˆ‚ g)) (cong (_Â· âˆ‚ g) âˆ‚r))) )
-          t1 : âˆ‚ (- (Î¹ 2 Â· (râ´ Â· (g Â· âˆ‚ (âˆ‚ g)))))
-               â‰¡ - (Î¹ 2 Â· ((Î¹ 4 Â· rÂ³) Â· (g Â· âˆ‚ (âˆ‚ g)) + râ´ Â· (âˆ‚ g Â· âˆ‚ (âˆ‚ g) + g Â· âˆ‚ (âˆ‚ (âˆ‚ g)))))
-          t1 = âˆ‚-neg _ âˆ™ cong -_ (âˆ‚Î¹x 2 _ âˆ™ cong (Î¹ 2 Â·_) (âˆ‚-leib râ´ _ âˆ™ congâ‚‚ _+_ (cong (_Â· (g Â· âˆ‚ (âˆ‚ g))) âˆ‚râ´) (cong (râ´ Â·_) (âˆ‚-leib g (âˆ‚ (âˆ‚ g))))))
-          t2 : âˆ‚ (- (Î¹ 18 Â· (rÂ³ Â· (g Â· âˆ‚ g))))
-               â‰¡ - (Î¹ 18 Â· ((Î¹ 3 Â· rÂ²) Â· (g Â· âˆ‚ g) + rÂ³ Â· (âˆ‚ g Â· âˆ‚ g + g Â· âˆ‚ (âˆ‚ g))))
-          t2 = âˆ‚-neg _ âˆ™ cong -_ (âˆ‚Î¹x 18 _ âˆ™ cong (Î¹ 18 Â·_) (âˆ‚-leib rÂ³ _ âˆ™ congâ‚‚ _+_ (cong (_Â· (g Â· âˆ‚ g)) âˆ‚rÂ³) (cong (rÂ³ Â·_) (âˆ‚-leib g (âˆ‚ g)))))
-          t3 : âˆ‚ (- (râ´ Â· (âˆ‚ g Â· âˆ‚ g)))
-               â‰¡ - ((Î¹ 4 Â· rÂ³) Â· (âˆ‚ g Â· âˆ‚ g) + râ´ Â· (âˆ‚ (âˆ‚ g) Â· âˆ‚ g + âˆ‚ g Â· âˆ‚ (âˆ‚ g)))
-          t3 = âˆ‚-neg _ âˆ™ cong -_ (âˆ‚-leib râ´ _ âˆ™ congâ‚‚ _+_ (cong (_Â· (âˆ‚ g Â· âˆ‚ g)) âˆ‚râ´) (cong (râ´ Â·_) (âˆ‚-leib (âˆ‚ g) (âˆ‚ g))))
-          t4 : âˆ‚ (- (Î¹ 9 Â· (rÂ² Â· (g Â· g))))
-               â‰¡ - (Î¹ 9 Â· ((r + r) Â· (g Â· g) + rÂ² Â· (âˆ‚ g Â· g + g Â· âˆ‚ g)))
-          t4 = âˆ‚-neg _ âˆ™ cong -_ (âˆ‚Î¹x 9 _ âˆ™ cong (Î¹ 9 Â·_) (âˆ‚-leib rÂ² _ âˆ™ congâ‚‚ _+_ (cong (_Â· (g Â· g)) âˆ‚rÂ²) (cong (rÂ² Â·_) (âˆ‚-leib g g))))
-          âˆ‚Î¨ : âˆ‚ (memory-bracket g)
-               â‰¡ ((- (Î¹ 2 Â· ((Î¹ 4 Â· rÂ³) Â· (g Â· âˆ‚ (âˆ‚ g)) + râ´ Â· (âˆ‚ g Â· âˆ‚ (âˆ‚ g) + g Â· âˆ‚ (âˆ‚ (âˆ‚ g))))))
-                  + (- (Î¹ 18 Â· ((Î¹ 3 Â· rÂ²) Â· (g Â· âˆ‚ g) + rÂ³ Â· (âˆ‚ g Â· âˆ‚ g + g Â· âˆ‚ (âˆ‚ g))))))
-                 + (- ((Î¹ 4 Â· rÂ³) Â· (âˆ‚ g Â· âˆ‚ g) + râ´ Â· (âˆ‚ (âˆ‚ g) Â· âˆ‚ g + âˆ‚ g Â· âˆ‚ (âˆ‚ g))))
-                 + (- (Î¹ 9 Â· ((r + r) Â· (g Â· g) + rÂ² Â· (âˆ‚ g Â· g + g Â· âˆ‚ g))))
-          âˆ‚Î¨ = âˆ‚-add _ _ âˆ™ congâ‚‚ _+_ (âˆ‚-add _ _ âˆ™ congâ‚‚ _+_ (âˆ‚-add _ _ âˆ™ congâ‚‚ _+_ t1 t2) t3) t4
-          shape : (g gâ‚ gâ‚‚ gâ‚ƒ : A)
-            â†’ (1r + (1r + 0r)) Â· (r Â· (((1r + (1r + (1r + (1r + (1r + 0r))))) Â· (g Â· (- (rÂ² Â· gâ‚‚ + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))) Â· (r Â· gâ‚)))) + (1r + (1r + 0r)) Â· ((r Â· gâ‚) Â· (- (rÂ² Â· gâ‚‚ + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))) Â· (r Â· gâ‚)))))
-                          + (r Â· g) Â· (- (((r + r) Â· gâ‚‚ + rÂ² Â· gâ‚ƒ) + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))) Â· (1r Â· gâ‚ + r Â· gâ‚‚)))))
-              â‰¡ (1r + (1r + 0r)) Â· ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))) Â· (r Â· (g Â· g)) + (- (rÂ³ Â· (gâ‚ Â· gâ‚))))
-                + ( ((- ((1r + (1r + 0r)) Â· (((1r + (1r + (1r + (1r + 0r)))) Â· rÂ³) Â· (g Â· gâ‚‚) + râ´ Â· (gâ‚ Â· gâ‚‚ + g Â· gâ‚ƒ))))
-                     + (- ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))))))))))))) Â· (((1r + (1r + (1r + 0r))) Â· rÂ²) Â· (g Â· gâ‚) + rÂ³ Â· (gâ‚ Â· gâ‚ + g Â· gâ‚‚)))))
-                    + (- (((1r + (1r + (1r + (1r + 0r)))) Â· rÂ³) Â· (gâ‚ Â· gâ‚) + râ´ Â· (gâ‚‚ Â· gâ‚ + gâ‚ Â· gâ‚‚)))
-                    + (- ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))) Â· ((r + r) Â· (g Â· g) + rÂ² Â· (gâ‚ Â· g + g Â· gâ‚)))) )
-          shape g gâ‚ gâ‚‚ gâ‚ƒ = solve! R
+          âˆf : âˆ (toroidal-f g)
+               â‰¡ - ( ((r + r) Â âˆ (âˆ g) + rÂ² Â âˆ (âˆ (âˆ g)))
+                   + Î 6 Â (1r Â âˆ g + r Â âˆ (âˆ g)) )
+          âˆf = âˆ-neg _ âˆ™ cong -_
+                 ( âˆ-add (rÂ² Â âˆ (âˆ g)) (Î 6 Â (r Â âˆ g))
+                 âˆ™ congâ _+_ (âˆ-leib rÂ² (âˆ (âˆ g)) âˆ™ cong (_+ rÂ² Â âˆ (âˆ (âˆ g))) (cong (_Â âˆ (âˆ g)) âˆrÂ²))
+                             (âˆÎx 6 (r Â âˆ g) âˆ™ cong (Î 6 Â_) (âˆ-leib r (âˆ g) âˆ™ cong (_+ r Â âˆ (âˆ g)) (cong (_Â âˆ g) âˆr))) )
+          t1 : âˆ (- (Î 2 Â (râ´ Â (g Â âˆ (âˆ g)))))
+               â‰¡ - (Î 2 Â ((Î 4 Â rÂ³) Â (g Â âˆ (âˆ g)) + râ´ Â (âˆ g Â âˆ (âˆ g) + g Â âˆ (âˆ (âˆ g)))))
+          t1 = âˆ-neg _ âˆ™ cong -_ (âˆÎx 2 _ âˆ™ cong (Î 2 Â_) (âˆ-leib râ´ _ âˆ™ congâ _+_ (cong (_Â (g Â âˆ (âˆ g))) âˆrâ´) (cong (râ´ Â_) (âˆ-leib g (âˆ (âˆ g))))))
+          t2 : âˆ (- (Î 18 Â (rÂ³ Â (g Â âˆ g))))
+               â‰¡ - (Î 18 Â ((Î 3 Â rÂ²) Â (g Â âˆ g) + rÂ³ Â (âˆ g Â âˆ g + g Â âˆ (âˆ g))))
+          t2 = âˆ-neg _ âˆ™ cong -_ (âˆÎx 18 _ âˆ™ cong (Î 18 Â_) (âˆ-leib rÂ³ _ âˆ™ congâ _+_ (cong (_Â (g Â âˆ g)) âˆrÂ³) (cong (rÂ³ Â_) (âˆ-leib g (âˆ g)))))
+          t3 : âˆ (- (râ´ Â (âˆ g Â âˆ g)))
+               â‰¡ - ((Î 4 Â rÂ³) Â (âˆ g Â âˆ g) + râ´ Â (âˆ (âˆ g) Â âˆ g + âˆ g Â âˆ (âˆ g)))
+          t3 = âˆ-neg _ âˆ™ cong -_ (âˆ-leib râ´ _ âˆ™ congâ _+_ (cong (_Â (âˆ g Â âˆ g)) âˆrâ´) (cong (râ´ Â_) (âˆ-leib (âˆ g) (âˆ g))))
+          t4 : âˆ (- (Î 9 Â (rÂ² Â (g Â g))))
+               â‰¡ - (Î 9 Â ((r + r) Â (g Â g) + rÂ² Â (âˆ g Â g + g Â âˆ g)))
+          t4 = âˆ-neg _ âˆ™ cong -_ (âˆÎx 9 _ âˆ™ cong (Î 9 Â_) (âˆ-leib rÂ² _ âˆ™ congâ _+_ (cong (_Â (g Â g)) âˆrÂ²) (cong (rÂ² Â_) (âˆ-leib g g))))
+          âˆÎ¨ : âˆ (memory-bracket g)
+               â‰¡ ((- (Î 2 Â ((Î 4 Â rÂ³) Â (g Â âˆ (âˆ g)) + râ´ Â (âˆ g Â âˆ (âˆ g) + g Â âˆ (âˆ (âˆ g))))))
+                  + (- (Î 18 Â ((Î 3 Â rÂ²) Â (g Â âˆ g) + rÂ³ Â (âˆ g Â âˆ g + g Â âˆ (âˆ g))))))
+                 + (- ((Î 4 Â rÂ³) Â (âˆ g Â âˆ g) + râ´ Â (âˆ (âˆ g) Â âˆ g + âˆ g Â âˆ (âˆ g))))
+                 + (- (Î 9 Â ((r + r) Â (g Â g) + rÂ² Â (âˆ g Â g + g Â âˆ g))))
+          âˆÎ¨ = âˆ-add _ _ âˆ™ congâ _+_ (âˆ-add _ _ âˆ™ congâ _+_ (âˆ-add _ _ âˆ™ congâ _+_ t1 t2) t3) t4
+          shape : (g gâ gâ gâ : A)
+            â’ (1r + (1r + 0r)) Â (r Â (((1r + (1r + (1r + (1r + (1r + 0r))))) Â (g Â (- (rÂ² Â gâ + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))) Â (r Â gâ)))) + (1r + (1r + 0r)) Â ((r Â gâ) Â (- (rÂ² Â gâ + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))) Â (r Â gâ)))))
+                          + (r Â g) Â (- (((r + r) Â gâ + rÂ² Â gâ) + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))) Â (1r Â gâ + r Â gâ)))))
+              â‰¡ (1r + (1r + 0r)) Â ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))) Â (r Â (g Â g)) + (- (rÂ³ Â (gâ Â gâ))))
+                + ( ((- ((1r + (1r + 0r)) Â (((1r + (1r + (1r + (1r + 0r)))) Â rÂ³) Â (g Â gâ) + râ´ Â (gâ Â gâ + g Â gâ))))
+                     + (- ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))))))))))))) Â (((1r + (1r + (1r + 0r))) Â rÂ²) Â (g Â gâ) + rÂ³ Â (gâ Â gâ + g Â gâ)))))
+                    + (- (((1r + (1r + (1r + (1r + 0r)))) Â rÂ³) Â (gâ Â gâ) + râ´ Â (gâ Â gâ + gâ Â gâ)))
+                    + (- ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))) Â ((r + r) Â (g Â g) + rÂ² Â (gâ Â g + g Â gâ)))) )
+          shape g gâ gâ gâ = solve! R
 
     ----------------------------------------------------------------
-    -- à¥ª Â· log radius:  D r â‰¡ r  (D = r âˆ‚áµ£)
+    -- à Â log radius:  D r â‰¡ r  (D = r âˆµ)
     ----------------------------------------------------------------
-    module _ (r : A) (Dr : âˆ‚ r â‰¡ r) where
+    module _ (r : A) (Dr : âˆ r â‰¡ r) where
 
       -- F = (4 âˆ’ 3D âˆ’ DÂ²) b  with  b = r g,  F = r f,  f = âˆ’(DÂ²g + 5 Dg)
       factored-operator : (g : A)
-        â†’ (Î¹ 4 Â· (r Â· g) + (- (Î¹ 3 Â· âˆ‚ (r Â· g)))) + (- (âˆ‚ (âˆ‚ (r Â· g))))
-          â‰¡ r Â· (- (âˆ‚ (âˆ‚ g) + Î¹ 5 Â· âˆ‚ g))
+        â’ (Î 4 Â (r Â g) + (- (Î 3 Â âˆ (r Â g)))) + (- (âˆ (âˆ (r Â g))))
+          â‰¡ r Â (- (âˆ (âˆ g) + Î 5 Â âˆ g))
       factored-operator g =
-          congâ‚‚ (Î» u v â†’ (Î¹ 4 Â· (r Â· g) + (- (Î¹ 3 Â· u))) + (- v)) D1 D2 âˆ™ shape g (âˆ‚ g) (âˆ‚ (âˆ‚ g))
+          congâ (Î» u v â’ (Î 4 Â (r Â g) + (- (Î 3 Â u))) + (- v)) D1 D2 âˆ™ shape g (âˆ g) (âˆ (âˆ g))
         where
-          D1 : âˆ‚ (r Â· g) â‰¡ r Â· g + r Â· âˆ‚ g
-          D1 = âˆ‚-leib r g âˆ™ cong (_+ r Â· âˆ‚ g) (cong (_Â· g) Dr)
-          D2 : âˆ‚ (âˆ‚ (r Â· g)) â‰¡ (r Â· g + r Â· âˆ‚ g) + (r Â· âˆ‚ g + r Â· âˆ‚ (âˆ‚ g))
-          D2 = cong âˆ‚ D1 âˆ™ âˆ‚-add (r Â· g) (r Â· âˆ‚ g)
-             âˆ™ congâ‚‚ _+_ (âˆ‚-leib r g âˆ™ cong (_+ r Â· âˆ‚ g) (cong (_Â· g) Dr))
-                         (âˆ‚-leib r (âˆ‚ g) âˆ™ cong (_+ r Â· âˆ‚ (âˆ‚ g)) (cong (_Â· âˆ‚ g) Dr))
-          shape : (g gâ‚ gâ‚‚ : A)
-            â†’ ((1r + (1r + (1r + (1r + 0r)))) Â· (r Â· g) + (- ((1r + (1r + (1r + 0r))) Â· (r Â· g + r Â· gâ‚)))) + (- ((r Â· g + r Â· gâ‚) + (r Â· gâ‚ + r Â· gâ‚‚)))
-              â‰¡ r Â· (- (gâ‚‚ + (1r + (1r + (1r + (1r + (1r + 0r))))) Â· gâ‚))
-          shape g gâ‚ gâ‚‚ = solve! R
+          D1 : âˆ (r Â g) â‰¡ r Â g + r Â âˆ g
+          D1 = âˆ-leib r g âˆ™ cong (_+ r Â âˆ g) (cong (_Â g) Dr)
+          D2 : âˆ (âˆ (r Â g)) â‰¡ (r Â g + r Â âˆ g) + (r Â âˆ g + r Â âˆ (âˆ g))
+          D2 = cong âˆ D1 âˆ™ âˆ-add (r Â g) (r Â âˆ g)
+             âˆ™ congâ _+_ (âˆ-leib r g âˆ™ cong (_+ r Â âˆ g) (cong (_Â g) Dr))
+                         (âˆ-leib r (âˆ g) âˆ™ cong (_+ r Â âˆ (âˆ g)) (cong (_Â âˆ g) Dr))
+          shape : (g gâ gâ : A)
+            â’ ((1r + (1r + (1r + (1r + 0r)))) Â (r Â g) + (- ((1r + (1r + (1r + 0r))) Â (r Â g + r Â gâ)))) + (- ((r Â g + r Â gâ) + (r Â gâ + r Â gâ)))
+              â‰¡ r Â (- (gâ + (1r + (1r + (1r + (1r + (1r + 0r))))) Â gâ))
+          shape g gâ gâ = solve! R
 
       -- 9 bÂ² âˆ’ (r Dg)Â²  â‰¡  8 bÂ² âˆ’ (Db)Â² + D(bÂ²)
       memory-integrand : (g : A)
-        â†’ Î¹ 9 Â· ((r Â· g) Â· (r Â· g)) + (- ((r Â· âˆ‚ g) Â· (r Â· âˆ‚ g)))
-          â‰¡ (Î¹ 8 Â· ((r Â· g) Â· (r Â· g)) + (- (âˆ‚ (r Â· g) Â· âˆ‚ (r Â· g)))) + âˆ‚ ((r Â· g) Â· (r Â· g))
+        â’ Î 9 Â ((r Â g) Â (r Â g)) + (- ((r Â âˆ g) Â (r Â âˆ g)))
+          â‰¡ (Î 8 Â ((r Â g) Â (r Â g)) + (- (âˆ (r Â g) Â âˆ (r Â g)))) + âˆ ((r Â g) Â (r Â g))
       memory-integrand g =
-          sym ( congâ‚‚ (Î» u v â†’ (Î¹ 8 Â· ((r Â· g) Â· (r Â· g)) + (- (u Â· u))) + v) D1 D3
-              âˆ™ shape g (âˆ‚ g) )
+          sym ( congâ (Î» u v â’ (Î 8 Â ((r Â g) Â (r Â g)) + (- (u Â u))) + v) D1 D3
+              âˆ™ shape g (âˆ g) )
         where
-          D1 : âˆ‚ (r Â· g) â‰¡ r Â· g + r Â· âˆ‚ g
-          D1 = âˆ‚-leib r g âˆ™ cong (_+ r Â· âˆ‚ g) (cong (_Â· g) Dr)
-          D3 : âˆ‚ ((r Â· g) Â· (r Â· g)) â‰¡ (r Â· g + r Â· âˆ‚ g) Â· (r Â· g) + (r Â· g) Â· (r Â· g + r Â· âˆ‚ g)
-          D3 = âˆ‚-leib (r Â· g) (r Â· g) âˆ™ congâ‚‚ _+_ (cong (_Â· (r Â· g)) D1) (cong ((r Â· g) Â·_) D1)
-          shape : (g gâ‚ : A)
-            â†’ ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))) Â· ((r Â· g) Â· (r Â· g)) + (- ((r Â· g + r Â· gâ‚) Â· (r Â· g + r Â· gâ‚))))
-                + ((r Â· g + r Â· gâ‚) Â· (r Â· g) + (r Â· g) Â· (r Â· g + r Â· gâ‚))
-              â‰¡ (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))) Â· ((r Â· g) Â· (r Â· g)) + (- ((r Â· gâ‚) Â· (r Â· gâ‚)))
-          shape g gâ‚ = solve! R
+          D1 : âˆ (r Â g) â‰¡ r Â g + r Â âˆ g
+          D1 = âˆ-leib r g âˆ™ cong (_+ r Â âˆ g) (cong (_Â g) Dr)
+          D3 : âˆ ((r Â g) Â (r Â g)) â‰¡ (r Â g + r Â âˆ g) Â (r Â g) + (r Â g) Â (r Â g + r Â âˆ g)
+          D3 = âˆ-leib (r Â g) (r Â g) âˆ™ congâ _+_ (cong (_Â (r Â g)) D1) (cong ((r Â g) Â_) D1)
+          shape : (g gâ : A)
+            â’ ((1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))) Â ((r Â g) Â (r Â g)) + (- ((r Â g + r Â gâ) Â (r Â g + r Â gâ))))
+                + ((r Â g + r Â gâ) Â (r Â g) + (r Â g) Â (r Â g + r Â gâ))
+              â‰¡ (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r))))))))) Â ((r Â g) Â (r Â g)) + (- ((r Â gâ) Â (r Â gâ)))
+          shape g gâ = solve! R

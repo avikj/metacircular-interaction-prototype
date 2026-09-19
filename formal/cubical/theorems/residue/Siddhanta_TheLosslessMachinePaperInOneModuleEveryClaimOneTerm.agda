@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§∏‡§ø‡§¶‡•ç‡§ß‡§æ‡§®‡•ç‡§§ ‚Äî the settled conclusion.  THE LOSSLESS-MACHINE PAPER IN
+-- ‡‡ø‡¶‡‡ß‡æ‡®‡‡ ‚î the settled conclusion.  THE LOSSLESS-MACHINE PAPER IN
 -- ONE MODULE: EVERY CLAIM, ONE TERM.
 --
 -- Abstract 25 makes claims; this module binds each to its checked
@@ -23,19 +23,19 @@ open import Cubical.Relation.Nullary using (¬¨_)
 open import Cubical.HITs.SetQuotients using (_/_ ; [_])
 open import Cubical.HITs.PropositionalTruncation using (‚à•_‚à•‚ÇÅ)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open import AnulomaViloma_TheTraceComposesTheCompletedRunRunsBackwardsByReflAndWhenTheMachineHaltsIsAProposition
-open import Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique
+open import Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique
 open import Vrddhi_AVerifiedProgramTheSuccessorMachineAddsOneStrokeAndItsCertificateIsAFibrePoint
 open import Vistara_ThePaddingLemmaABehaviorHasUnboundedlyManyProgramsSoTheCodeIsNotDeterminedByTheRun
 open import Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction
 open import Samasa_ProgramsComposeTheSequencedTableRunsItsFirstPhaseThenHandsTheTapeToTheSecondAtTheRetireState
 open import DviVrddhi_TheComposedSuccessorAddsTwoTheCertificatesConcatenateAndTheStepCountsAdd
 open import Niyati_TheMachineHasExactlyOneExecutionDeterminismIsContractibilityOfTheStream
-open import Pratibimba_TheBehaviorIsASetQuotientOfTheCodeItsFibreIsInfiniteAndTheLosslessTraceIsAPoint
+open import Reflection_TheBehaviorIsASetQuotientOfTheCodeItsFibreIsInfiniteAndTheLosslessTraceIsAPoint
 open import Vikarna_TheDiagonalConfigurationMapThatNoProgramStepsSoUniversalityDemandsAChangeOfRepresentation
 open import Avinimaya_TheMachinesStepsAreAllUnitaryWhenCompletedAndStillDoNotExchange
-open import Sankramana_TheMachineIsItsCompletedSelfAsAnIdentificationInTheUniverseAndTheIdentificationComputes
+open import Transport_TheMachineIsItsCompletedSelfAsAnIdentificationInTheUniverseAndTheIdentificationComputes
 open import TrtiyoMargoNaVidyate_EachStepIsATransportOrASilenceWithItsWitnessAndTheLimitIsNoThirdRoad
 open import Pratyanayana_TheFirstHaltingTimeComesBackFromTheTruncationBecauseMinimalityMakesItCanonical
 open import Sambandha_TheRelationalProgramWithUniqueAnswersIsTheMapSoAllThreePresentationsCollapseOntoOneFunction

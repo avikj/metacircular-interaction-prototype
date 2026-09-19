@@ -8,27 +8,27 @@
 -- file removes it, by deriving the instances FROM
 -- `TranscriptDescent.collisionObstructsDecoder` instead of beside it.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- AND A DISTINCTION THE "ONE LEMMA" STORY WAS HIDING
 --
 -- Not all five sites are collisions.  Two routes reach the same
 -- conclusion, and which one is available depends on the DECODER SPACE:
 --
---   COLLISION   â€” when the decoders are unconstrained, exhibit two points
+--   COLLISION   â” when the decoders are unconstrained, exhibit two points
 --                 the coarse map identifies and the fine map separates.
 --                 One pair kills every decoder at once.  `Laghava`,
 --                 `Anuvrtti`, `CarryBorrowObservation`.
 --
---   EXHAUSTION  â€” when the decoders form a small finite set, refute each
+--   EXHAUSTION  â” when the decoders form a small finite set, refute each
 --                 in turn.  `Saptabhangi.no-single-vacana` does this over
 --                 six utterances, and it must: no single pair of profiles
 --                 separates the joint content from every utterance,
 --                 because different utterances fail on different profiles.
 --
--- The conclusion `Â¬ FactorsThrough` is shared; the route is not, and
+-- The conclusion `Â FactorsThrough` is shared; the route is not, and
 -- reading five sites as "one lemma" would have flattened that.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ open import Laghava using (eval ; size ; laghava-collision)
 open import Anuvrtti using (asSet ; cost ; anuvrtti-collision)
 
 ------------------------------------------------------------------------
--- 1.  à¤²à¤¾à¤˜à¤µ, derived from the general lemma
+-- 1.  à²à¾à˜àµ, derived from the general lemma
 ------------------------------------------------------------------------
 
 laghava-noFactor : Â¬ FactorsThrough eval size
@@ -56,7 +56,7 @@ laghava-noFactor =
     (laghava-collision .snd .snd .snd)
 
 ------------------------------------------------------------------------
--- 2.  à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿, likewise
+-- 2.  àà¨ààµààààà¿, likewise
 ------------------------------------------------------------------------
 
 anuvrtti-noFactor : Â¬ FactorsThrough asSet cost
@@ -92,22 +92,22 @@ anuvrtti-noFactor =
 -- The DISTINCTION is real.  The REASON is false.
 -- `TwoProfilesSuffice` exhibits the pair:
 --
---     Ï†â‚ = (âŠ¤,âŠ¤,âŠ¥)   Ï†â‚‚ = (âŠ¥,âŠ¥,âŠ¤)
+--     Ïâ = (âŠ,âŠ,âŠ)   Ïâ = (âŠ,âŠ,âŠ)
 --
 -- The joint content is false on both, and the six utterances split
--- three-three by which profile they overshoot on â€” agreement sets
--- disjoint and together exhaustive â€” so the pair refutes every
+-- three-three by which profile they overshoot on â” agreement sets
+-- disjoint and together exhaustive â” so the pair refutes every
 -- utterance and avaktavya follows from two witnesses, not six cases.
 --
 -- What survives, now as theorems rather than as a reading:
 --
 --   * ONE profile never suffices (`every-profile-is-said`,
---     `no-single-separator`) â€” that half of the prose was right;
+--     `no-single-separator`) â” that half of the prose was right;
 --   * TWO do (`pair-separates`).
 --
 -- So the invariant is not collision-versus-exhaustion.  It is the
--- NUMBER OF WITNESSES: 1 for à¤²à¤¾à¤˜à¤µ, à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿, carry/borrow and the fuel
--- obstructions; 2 for à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯.  Six was the size of the decoder space,
+-- NUMBER OF WITNESSES: 1 for à²à¾à˜àµ, àà¨ààµààààà¿, carry/borrow and the fuel
+-- obstructions; 2 for ààµà•àààµàà¯.  Six was the size of the decoder space,
 -- which is an upper bound anyone can read off a finite type, not a
 -- measure of the absence.
 --

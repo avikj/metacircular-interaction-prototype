@@ -3,19 +3,19 @@
 ------------------------------------------------------------------------
 -- TheWholeDerivationTypeIsOneFiberSoSoundnessIsNeverAnEquivalence
 --
--- TERM.  अशेष · aśeṣa -- "without remainder", hence entire, complete, the
--- whole of it.  ORDINARY SANSKRIT, NOT A TECHNICAL TERM, and the compound in
+-- TERM.  ���� � aea -- "without remainder", hence entire, complete, the
+-- whole of it.  ORDINARY , NOT A TECHNICAL TERM, and the compound in
 -- this file name IS BUILT HERE: no source is claimed for it as a term of art
 -- and the ledger has no row for it.  It is chosen for the pun the module
 -- proves, which is exact rather than decorative -- the kernel's derivation is
--- *aśeṣa śeṣa*, ENTIRELY remainder, without remainder left over as anything
--- else.  `TheDerivationCarriesNoMeaning…` proved the second word; this file proves the first.
+-- *aea ea*, ENTIRELY remainder, without remainder left over as anything
+-- else.  `TheDerivationCarriesNoMeaning�` proved the second word; this file proves the first.
 --
 ------------------------------------------------------------------------
 -- THE SYNTHESIS OF THE THREE READINGS, AS ONE LEMMA.
 --
---   TheInstalledOperationHasNoPervasion    NativeOperation.control-sound : Control t → t ≡ source
---   TheDerivationCarriesNoMeaning      RewriteCertificate.derivation-sound : D a b → eval a ρ ≡ eval b ρ
+--   TheInstalledOperationHasNoPervasion    NativeOperation.control-sound : Control t � t ≡ source
+--   TheDerivationCarriesNoMeaning      RewriteCertificate.derivation-sound : D a b � eval a � ≡ eval b �
 --   TheCountingSemanticsIsADecategorification  and the repair is to categorify the codomain.
 --
 -- Every soundness field of this kernel is a map into an identity type of a
@@ -24,17 +24,17 @@
 -- §1 rather than three times by hand:
 --
 --   §1  fiber-is-everything.  If M is a proposition, then for EVERY m : M,
---       `fiber f m ≃ A`.  The fiber is not a part of the domain; it is the
+--       `fiber f m � A`.  The fiber is not a part of the domain; it is the
 --       domain.  Nothing at all sits underneath it.
 --
---   §2  Instantiated: `Derivation a b ≃ fiber derivation-sound m`, for any
+--   §2  Instantiated: `Derivation a b � fiber derivation-sound m`, for any
 --       meaning m whatsoever.  The kernel's derivation type IS one fiber of
 --       its own soundness.
 --
 --   §3  THE CONTRAST WITH THE ONE PRIMITIVE, which is the point of doing
 --       this in this repository.  `fiber/src/Fiber/Carrier.agda`
---       is the fiber law: for f : A → B, BIND THE OUTPUT and the fiber is
---       `singl (f a)`, always contractible, so `A ≃ Carrier f` and the datum
+--       is the fiber law: for f : A � B, BIND THE OUTPUT and the fiber is
+--       `singl (f a)`, always contractible, so `A � Carrier f` and the datum
 --       rides free; BIND THE INPUT and it is `fiber f b`, the exact loss.
 --       Two bindings, two prices.  §1-§2 say that for this kernel THE TWO
 --       BINDINGS COINCIDE -- both give back the whole domain -- and that is
@@ -44,12 +44,12 @@
 --       output side has no room to hold anything.
 --
 --   §4  isEquiv IS THE MEASURE, and the kernel fails it on its own seed.
---       `machine/AtmaJnana…` reads `isEquiv f` as perfect self-knowledge:
+--       `machine/AtmaJnana�` reads `isEquiv f` as perfect self-knowledge:
 --       every fiber contractible, nothing lost either way.  Here:
 --       soundness-is-an-equivalence-only-if-the-route-was-unique -- if
 --       `derivation-sound` were an equivalence, any two derivations with the
---       same endpoints would be EQUAL.  `TheDerivationCarriesNoMeaning…` §2 exhibits two that are
---       not, at the kernel's own `seed`/`target₀`.  So
+--       same endpoints would be EQUAL.  `TheDerivationCarriesNoMeaning�` §2 exhibits two that are
+--       not, at the kernel's own `seed`/`target�`.  So
 --       soundness-is-not-an-equivalence-at-the-kernels-own-seed, and the
 --       exact defect is the fiber of §2: the machine cannot recover its route
 --       from its meaning, and the amount it cannot recover is all of it.
@@ -155,7 +155,7 @@ soundness-is-an-equivalence-only-if-the-route-was-unique a b isEq =
   isOfHLevelRespectEquiv 1 (invEquiv (sound a b , isEq)) (isPropMeaning a b)
 
 -- And it is not one, at the kernel's own seed: `GenerativeKernel` ships two
--- derivations there and `TheDerivationCarriesNoMeaning…` separates them by step count.
+-- derivations there and `TheDerivationCarriesNoMeaning�` separates them by step count.
 soundness-is-not-an-equivalence-at-the-kernels-own-seed :
   isEquiv (sound seed target₀) → ⊥
 soundness-is-not-an-equivalence-at-the-kernels-own-seed isEq =

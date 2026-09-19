@@ -3,15 +3,15 @@
 ------------------------------------------------------------------------
 -- RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum
 --
--- à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana â€” Brahmagupta, *BrÄhmasphuá¹­asiddhÄnta* (628): one
--- magnitude read as *dhana* (asset) or *á¹›á¹‡a* (debt).  His are the sign
+-- à‹àà§à¨ Â a-dhana â” Brahmagupta, *Brhmasphuasiddhnta* (628): one
+-- magnitude read as *dhana* (asset) or *a* (debt).  His are the sign
 -- rules; the caps, the filters and the transfer below are not.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- `RnaDhana_TheParetoMaximumTransfersToCostCoordinates` transferred
 -- maximal EXISTENCE and named what it could not:
 --
---   "the stratification is NOT transferred here â€” that needs the whole
+--   "the stratification is NOT transferred here â” that needs the whole
 --    peeling to be run on flipped vectors and pulled back layer by
 --    layer, and it is a separate cycle."
 --
@@ -19,7 +19,7 @@
 -- the membership correspondence I expected to have to settle for: the
 -- two layers are the SAME LIST.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   decDom              mixed dominance is decidable
@@ -29,7 +29,7 @@
 --   filterMapCommutes   filtering a mapped list is mapping a filtered
 --                       one, for the pulled-back predicate
 --   filterRespectsOn    two decidable predicates agreeing ON THE
---                       MEMBERS of a list filter it identically â€” the
+--                       MEMBERS of a list filter it identically â” the
 --                       restriction to members is what makes it usable
 --                       here, since the bound only holds for members
 --   mixedMaximalIff     under the caps, `MixedMaximal ds vs u` and
@@ -42,7 +42,7 @@
 -- **WHY LIST EQUALITY AND NOT JUST MEMBERSHIP.**  The flip is not
 -- injective, so nothing about individual elements would give the lists.
 -- What gives them is that both sides are FILTERS OF THE SAME LIST in
--- the same order â€” `filterMapCommutes` moves the map across the
+-- the same order â” `filterMapCommutes` moves the map across the
 -- filter, and `filterRespectsOn` then only needs the two predicates to
 -- agree at members.  Order and multiplicity are preserved for free
 -- because neither side reorders; a `Mem`-level statement would have
@@ -55,12 +55,12 @@
 -- in the other it is u itself (supplied by the caller).  Soundness
 -- needs nothing.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NO NOVELTY.  Filter/map commutation and "equal filters from
 -- pointwise-equivalent predicates" are standard list lemmas; the
 -- Pareto layer is Goldberg/Deb non-dominated sorting.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -194,7 +194,7 @@ mixedMaximalIff ds cs vs ab u ub = fwd , bwd
            , (Î» le â†’ Â¬dzu (flipCapsReflect ds cs z u ub le))))
 
 ------------------------------------------------------------------------
--- 4.  â€¦so the layers are the same list
+-- 4.  â¦so the layers are the same list
 ------------------------------------------------------------------------
 
 theMixedStratumIsTheFlippedStratum :

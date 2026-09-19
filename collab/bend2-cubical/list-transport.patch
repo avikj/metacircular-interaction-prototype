@@ -1,0 +1,23 @@
+diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
+--- a/src/Target/HVM4Full.hs
++++ b/src/Target/HVM4Full.hs
+@@ -200,8 +200,18 @@
+   , "@ptA = λ{#Path: λA. λu. λv. A; λt. #StuckPathTy{t}}"
+   , "@ptU = λ{#Path: λA. λu. λv. u; λt. #StuckPathTy{t}}"
+   , "@ptV = λ{#Path: λA. λu. λv. v; λt. #StuckPathTy{t}}"
++  , "// List is parameterized: coerce its heads, not just its container."
++  , "// Keep the element type selected by the dispatch at #IMark: resampling"
++  , "// a superposed line for each element can reopen an already selected branch."
++  , "// Match before binding L/r/s/E, so exclusive arms introduce no dups."
++  , "@listA = λ{#List: λlcaElem. lcaElem; λlcaOther. #StuckListElement{lcaOther}}"
++  , "@coeList = λlcL. λlcR. λlcS. λlcE. λlcXs. (λ{"
++  , "  #Nil: λlcnL. λlcnR. λlcnS. λlcnE. #Nil;"
++  , "  #Con: λlccH. λlccT. λ&lccL. λ&lccR. λ&lccS. λ&lccE. #Con{@coeT(λlci. @listA(lccL(lci)), lccR, lccS, lccH, lccE), @coeList(lccL, lccR, lccS, lccE, lccT)};"
++  , "  λlcuXs. λlcuL. λlcuR. λlcuS. λlcuE. #StuckListCoe{lcuL, lcuR, lcuS, lcuE, lcuXs}})(lcXs)(lcL)(lcR)(lcS)(lcE)"
+   , "@coeT = λ&L. λ&r. λ&s. λ&x. λ{"
+-  , "  #Bool: x; #Nat: x; #Set: x; #Unit: x; #Empty: x; #List: λe. x; #Enum: x; #Num: x; #Itv: x; #Eql: x;"
++  , "  #Bool: x; #Nat: x; #Set: x; #Unit: x; #Empty: x; #Enum: x; #Num: x; #Itv: x; #Eql: x;"
++  , "  #List: λe. @coeList(L, r, s, e, x);"
+   , "  #Pi: λA0. λB0. λ&y. @coe(λ&i. @piB(L(i), @coe(λj. @piA(L(j)), s, i, y)), r, s, x(@coe(λj. @piA(L(j)), s, r, y)));"
+   , "  #Sig: λA0. λB0. (λ{#Pair: λ&a. λb. #Pair{@coe(λj. @sgA(L(j)), r, s, a), @coe(λ&i. @sgB(L(i), @coe(λj. @sgA(L(j)), r, i, a)), r, s, b)}})(x);"
+   , "  #Path: λA0. λu0. λv0. #PLm{λj. @hcomp(@ptA(L(s)), #Cons{#Face{@inot(s), #PLm{λ&k. @coe(λi. @ptA(L(i)), k, s, @ptU(L(k)))}}, #Cons{#Face{s, #PLm{λ&k. @coe(λi. @ptA(L(i)), k, s, @ptV(L(k)))}}, #Nil}}, @coe(λi. @ptA(L(i)), r, s, @pathAt(x, j)))};"

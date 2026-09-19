@@ -15,7 +15,7 @@
 -- "**must be** injective for the backwards implication".  Two
 -- assertions, the two ways this modality-drop shows up in prose:
 --
---   (a) the sufficiency theorem WITHOUT its injectivity hypothesis â€”
+--   (a) the sufficiency theorem WITHOUT its injectivity hypothesis â”
 --       "the square gives the biconditional", full stop, which is what
 --       a reader takes away once "needed" is heard as "the condition";
 --   (b) the necessity claim's CONSEQUENCE in the checked instance of
@@ -23,11 +23,11 @@
 --       `j` merges `one` and `two`, so if the invariant forced
 --       injectivity we would have `one â‰¡ two`.
 --
--- WHY IT MUST FAIL.  (a) `ChangedResponses.squareâ†’satisfaction` wants
+-- WHY IT MUST FAIL.  (a) `ChangedResponses.squareâ’satisfaction` wants
 -- `InjectiveComparisons` and the general statement without it is false
--- â€” merge a REALIZED outcome with another and the forward direction
+-- â” merge a REALIZED outcome with another and the forward direction
 -- breaks.  (b) `one` and `two` are distinct constructors
--- (`oneâ‰¢two`), so the necessity claim's consequence is refuted by the
+-- (`oneâ‰two`), so the necessity claim's consequence is refuted by the
 -- machine directly.
 --
 -- NO LEXICAL SIGNATURE.  "Needed" and "must be" are ordinary words in
@@ -48,20 +48,20 @@
 --   when checking that the expression refl has type one â‰¡ two
 --
 -- Read it: the machine refutes the necessity claim's consequence by
--- naming the two unrealized outcomes the comparison merges â€” the exact
+-- naming the two unrealized outcomes the comparison merges â” the exact
 -- pair whose merging the note's "needed" and the message's "must be"
 -- declare impossible.
 --
 -- (Agda stops at the first error, so assertion (a) is not reached.
--- Checked separately by commenting out (b) â€” same file, its two lines
--- commented out, then restored â€” it fails at 96.33-52 with
+-- Checked separately by commenting out (b) â” same file, its two lines
+-- commented out, then restored â” it fails at 96.33-52 with
 --   error: [UnequalHiding]
---   (xâ€² : Xâ€²) â†’ râ€² q xâ€² â‰¡ j q (r q (s xâ€²)) !=
---   {y z : Y q} â†’ j q y â‰¡ j q z â†’ y â‰¡ z because one is an implicit
+--   (xâ² : Xâ²) â’ râ² q xâ² â‰¡ j q (r q (s xâ²)) !=
+--   {y z : Y q} â’ j q y â‰¡ j q z â’ y â‰¡ z because one is an implicit
 --   function type and the other is an explicit function type
---   when checking that the expression squareâ†’satisfaction has type
---   ResponseSquare â†’ SatisfactionInvariant
--- â€” i.e. what the sufficiency theorem still wants in first position is
+--   when checking that the expression squareâ’satisfaction has type
+--   ResponseSquare â’ SatisfactionInvariant
+-- â” i.e. what the sufficiency theorem still wants in first position is
 -- the injectivity statement, printed in full; the error names the
 -- dropped hypothesis by its content rather than by its identifier,
 -- which is weaker than the (b) failure and is why (b) is first.)

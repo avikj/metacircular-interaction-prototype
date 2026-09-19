@@ -9,35 +9,35 @@ Quantum statistics / braid groups / the coherence ladder
 A single observable carries at most an involution: on the
 two-quadrature plane the quarter turn has exact order four, its
 square descends definitionally to each projection, and it descends to
-neither ‚Äî refuted at named states for every candidate reading.  What
+neither ‚î refuted at named states for every candidate reading.  What
 one strand cannot hold, the interdependent pair holds; and the ladder
 built on that fact is now a tower of theorems, every rung checked and
 most of them by refl.
 
 The crossing.  The swap twisted by the quarter turn satisfies
-Yang‚ÄìBaxter on the nose; it is not order two, not order four, and
-exactly order eight ‚Äî braid statistics with a non-involutive phase.
+Yang‚ìBaxter on the nose; it is not order two, not order four, and
+exactly order eight ‚î braid statistics with a non-involutive phase.
 Three strands: the crossing inverts via the four-cycle and the
-generators provably do not commute ‚Äî a genuinely non-abelian action,
+generators provably do not commute ‚î a genuinely non-abelian action,
 statistics carried by the order of exchanges.  Four strands: both
 adjacent braid relations and the distant commutation, all by refl.
 And the limit: the INFINITE braid group acts on the coinductive rope
-of interdependent-pair strands ‚Äî the crossing at every position, the
+of interdependent-pair strands ‚î the crossing at every position, the
 braid relation at every position, the distant commutation at every
 gap, each by one induction whose base is a two-level path of streams
 with definitional leaves.  Every finite braid group embeds; the
 finite files are corollaries.  The carrier is the mutual stream type
-built to answer the parasparƒÅ≈õraya objection: the first construction
+built to answer the parasparraya objection: the first construction
 of the campaign is the only total carrier of its deepest structure,
 since on any finite rope the relations are conditional and on the
 infinite one every generator is total and every relation
 unconditional.
 
-The measure.  Every crossing is local ‚Äî readers below it and above
-its pair are unmoved, by refl-leaf inductions ‚Äî and has order exactly
+The measure.  Every crossing is local ‚î readers below it and above
+its pair are unmoved, by refl-leaf inductions ‚î and has order exactly
 eight at every position.  The center of the three-strand action is
 computed: the full twist is the global half-wave, central by refl, of
-order two ‚Äî so THE DESCENDABLE PART OF THE COHERENCE IS THE CENTRAL
+order two ‚î so THE DESCENDABLE PART OF THE COHERENCE IS THE CENTRAL
 PART: what every strand carries alone commutes with every crossing,
 and what only the pair carries is exactly what braids.
 
@@ -45,18 +45,18 @@ The factorization.  Every crossing factors as pure swap after pure
 twist AND as pure twist after pure swap, so the swap transports the
 residue: coherence is base motion, the phase is cargo, the crossing
 is the act of carrying.  The square of every crossing is the twist
-pair ‚Äî no base motion, one quarter turn deposited on each strand
-crossed ‚Äî so the pure braid generators act vertically, inside the
+pair ‚î no base motion, one quarter turn deposited on each strand
+crossed ‚î so the pure braid generators act vertically, inside the
 assembled-residue level; twists at distinct depths commute; and each
 twist has order exactly four at every depth.  Base motion and twist
 vector are independent coordinates separated by theorems: the
-symmetric group and a per-strand ‚Ñ§/4.
+symmetric group and a per-strand ‚/4.
 
-SYƒÄT ‚Äî THE CLAIM, EXACTLY.  The relations, orders, locality,
+SYT ‚î THE CLAIM, EXACTLY.  The relations, orders, locality,
 factorizations and pure-braid structure are theorems on the stated
 carriers; the full kernel of the B‚àû action (trivial symmetric image
 and vanishing twist vector jointly characterising trivial action) is
-the standing construction, held by the verdict organs as ≈õe·π£a; no
+the standing construction, held by the verdict organs as ea; no
 Hilbert space and no anyon model appear, and the statistical reading
 is asserted under that standpoint.
 

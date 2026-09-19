@@ -1,45 +1,45 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- वहित — the carried.  (Compound built here from √vah, "to carry"; no
--- source text is claimed for the term — the mathematics below is the
+-- ���� � the carried.  (Compound built here from �vah, "to carry"; no
+-- source text is claimed for the term � the mathematics below is the
 -- atlas's, the name is this module's.)  The complement of Sthana: that
 -- module built the positional word whose addition arrives WITH NO CARRY
 -- RULE; this one proves the carry cannot be dispensed with.  It is
 -- runtime/atlas/residual.py's splitting_exponent_argument (ATLAS_OF_N
 -- Prop. 2.11: the carry class vanishes iff the extension splits iff the
--- exponents agree), at its minimal instance b = 2, one digit — checked.
+-- exponents agree), at its minimal instance b = 2, one digit � checked.
 --
 -- THE TWO ADDITIONS on a two-bit counter (low , high):
---   • WITH carry  (+c) : low bits xor; their AND carries into the high
---     bit — Āryabhaṭa's sthānāt sthānaṃ, the tenfold at base two.  This
---     is ℤ/4 in its positional presentation.
---   • WITHOUT carry (⊕) : componentwise xor — ℤ/2 ⊕ ℤ/2, the digits kept
+--   � WITH carry  (+c) : low bits xor; their AND carries into the high
+--     bit � ryabhaa's sthnt sthna, the tenfold at base two.  This
+--     is �/4 in its positional presentation.
+--   � WITHOUT carry (⊕) : componentwise xor � �/2 ⊕ �/2, the digits kept
 --     apart, exponent 2: everything doubles to zero.
 --
 -- CHECKED:
 --   §1  the exponents disagree: under ⊕ every x has x ⊕ x ≡ 0, while
---       under +c the unit doubles to the CARRIED UNIT (0,1) ≢ 0.
+--       under +c the unit doubles to the CARRIED UNIT (0,1) � 0.
 --   §2  THE KERNEL OF FORGETTING: every homomorphism h from (+c) to (⊕)
---       sends the carried unit to zero — h (0,1) ≡ h (0,0) ≡ (0,0).  The
+--       sends the carried unit to zero � h (0,1) ≡ h (0,0) ≡ (0,0).  The
 --       carry is exactly what any carry-free reading kills: h cannot be
 --       injective, no isomorphism exists, the extension
---       ℤ/2 → ℤ/4 → ℤ/2 never splits.  Positional notation's cocycle is
---       essential — the receipt of the tenfold is the carry, and reading
+--       �/2 � �/4 � �/2 never splits.  Positional notation's cocycle is
+--       essential � the receipt of the tenfold is the carry, and reading
 --       the digits separately is the unreceipted compression that loses it.
 --
 -- Sources for the mathematics: runtime/atlas/residual.py
--- Prop. 2.11; Āryabhaṭa, Āryabhaṭīya Gaṇitapāda 2 (499) for sthāna.
+-- Prop. 2.11; ryabhaa, ryabhaya Gaitapda 2 (499) for sthna.
 --
 -- 2026-08-23: "truth of a term does not license every job the
 -- surrounding prose assigns to that term").  The title says "the
 -- positional extension never splits"; what the term CHECKS is the
--- minimal instance b = 2, one digit — ℤ/4 against ℤ/2 ⊕ ℤ/2.  The
+-- minimal instance b = 2, one digit � �/4 against �/2 ⊕ �/2.  The
 -- general statement for every (b, m) with gcd(b, m) > 1 is the
 -- runtime's prose (Prop 2.11) and is NOT proved by this module.  The
 -- general exponent argument is landed by a lineage-sibling,
--- Sankhya_TheBaseAryCountGrowsAFullFactorEachPlace… (8dee7a13): the
--- exponent certificate for every b ≥ 2, n ≥ 1 — lcm(bⁿ, b) = bⁿ < bⁿ⁺¹.
+-- Count_TheBaseAryCountGrowsAFullFactorEachPlace� (8dee7a13): the
+-- exponent certificate for every b � 2, n � 1 � lcm(b�, b) = b� < b���.
 -- This module is the GROUP-level witness at the minimal instance; the
 -- general group statement (no iso for any (b,n)) is the remaining open
 -- piece.
@@ -78,7 +78,7 @@ one²    = true  , false     -- the unit, low place
 carried = false , true      -- the carried unit, high place
 
 ------------------------------------------------------------------------
--- §1 · THE EXPONENTS DISAGREE (lcm 2 2 = 2 < 4 = 2·2).
+-- §1 � THE EXPONENTS DISAGREE (lcm 2 2 = 2 < 4 = 2�2).
 xor-self : (b : Bool) → b ⊕ b ≡ false
 xor-self true  = refl
 xor-self false = refl
@@ -94,8 +94,8 @@ carried≢zero : ¬ (carried ≡ zero²)
 carried≢zero p = true≢false (cong snd p)
 
 ------------------------------------------------------------------------
--- §2 · THE KERNEL OF FORGETTING.  Any homomorphism from (+c) to (⊕²)
--- sends the carried unit AND zero to zero — so it conflates them: the
+-- §2 � THE KERNEL OF FORGETTING.  Any homomorphism from (+c) to (⊕²)
+-- sends the carried unit AND zero to zero � so it conflates them: the
 -- carry is exactly what the carry-free reading kills.
 module _ (h : B² → B²)
          (hom : (x y : B²) → h (x +c y) ≡ (h x ⊕² h y)) where
@@ -116,6 +116,6 @@ module _ (h : B² → B²)
   conflates : h carried ≡ h zero²
   conflates = kills-carry ∙ sym kills-zero
 
-  -- hence h is not injective — no embedding, no isomorphism, no splitting.
+  -- hence h is not injective � no embedding, no isomorphism, no splitting.
   not-injective : ¬ ((x y : B²) → h x ≡ h y → x ≡ y)
   not-injective inj = carried≢zero (inj carried zero² conflates)

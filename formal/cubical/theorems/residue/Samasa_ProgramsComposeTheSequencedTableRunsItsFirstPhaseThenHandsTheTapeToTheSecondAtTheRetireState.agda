@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- समास — compounding.  PROGRAMS COMPOSE: THE SEQUENCED TABLE RUNS ITS
+-- ���� � compounding.  PROGRAMS COMPOSE: THE SEQUENCED TABLE RUNS ITS
 -- FIRST PHASE, THEN HANDS THE TAPE TO THE SECOND AT THE RETIRE STATE.
 --
 -- Sequential composition of Turing tables, mechanized on the universal
--- machine of Vishvayantra.  Given M₁ with source states below H and
--- M₂ arbitrary, the compound is
+-- machine of Vishvayantra.  Given M� with source states below H and
+-- M� arbitrary, the compound is
 --
---     M₁ ⨟ M₂  =  M₁ ++ shift H M₂
+--     M� ⨟ M�  =  M� ++ shift H M�
 --
--- where shift H renames every state of M₂ upward by H.  The two
--- phases cannot interfere: below H the shifted M₂ is silent (its
--- sources all lie at or above H), and at or above H the original M₁
+-- where shift H renames every state of M� upward by H.  The two
+-- phases cannot interfere: below H the shifted M� is silent (its
+-- sources all lie at or above H), and at or above H the original M�
 -- is silent (its sources all lie below H).  The handover is the
--- retire state H itself: M₁ retiring INTO state H is, without any
--- glue, the shifted M₂ starting in its own state 0.
+-- retire state H itself: M� retiring INTO state H is, without any
+-- glue, the shifted M� starting in its own state 0.
 --
--- THE THEOREM (`compose-runs`): if M₁ runs n₁ steps from c to the
+-- THE THEOREM (`compose-runs`): if M� runs n� steps from c to the
 -- retire configuration (H , t), staying below H at every proper
--- prefix, then for every n₂ the compound's (n₁ + n₂)-step run from c
--- is exactly M₂'s n₂-step run from (0 , t), transported up by H.  In
+-- prefix, then for every n� the compound's (n� + n�)-step run from c
+-- is exactly M�'s n�-step run from (0 , t), transported up by H.  In
 -- particular certificates compose: Vrddhi-style correctness proofs
--- for M₁ and M₂ concatenate into one for M₁ ⨟ M₂, with the step
--- counts adding — as AnulomaViloma's trace-composes says the kept
+-- for M� and M� concatenate into one for M� ⨟ M�, with the step
+-- counts adding � as AnulomaViloma's trace-composes says the kept
 -- fibres must.
 --
 -- The state-shift is proof-relevant all the way down: the shifted
@@ -145,7 +145,7 @@ look-miss-under H q s (r ∷ rs) (hr , hrs) Hq =
   ∙ look-miss-under H q s rs hrs Hq
 
 ------------------------------------------------------------------------
--- §3  Phase two: above the shift, the compound IS the shifted M₂.
+-- §3  Phase two: above the shift, the compound IS the shifted M�.
 ------------------------------------------------------------------------
 
 addConf : ℕ → Conf → Conf
@@ -194,7 +194,7 @@ module _ (H : ℕ) (M₁ M₂ : Code) (SB₁ : SourcesBelow H M₁) where
     ∙ phase-two n (snd (uStep (M₂ , c)))
 
 ------------------------------------------------------------------------
--- §4  Phase one: below the retire state, the compound IS M₁.
+-- §4  Phase one: below the retire state, the compound IS M�.
 ------------------------------------------------------------------------
 
   phase-one : (n : ℕ) (c : Conf) →
@@ -212,9 +212,9 @@ module _ (H : ℕ) (M₁ M₂ : Code) (SB₁ : SourcesBelow H M₁) where
 -- §5  THE COMPOSITION THEOREM.
 ------------------------------------------------------------------------
 
-  -- If M₁ runs n₁ steps from c to the retire configuration (H , t),
+  -- If M� runs n� steps from c to the retire configuration (H , t),
   -- staying below H on every proper prefix, then the compound's
-  -- (n₁ + n₂)-step run from c is M₂'s n₂-step run from (0 , t),
+  -- (n� + n�)-step run from c is M�'s n�-step run from (0 , t),
   -- lifted by H.  Step counts add; tapes hand over; nothing is glued.
   compose-runs : (n₁ : ℕ) (c : Conf) (t : Tape) →
     ((k : ℕ) → k < n₁ → fst (snd (run k (M₁ , c))) < H) →

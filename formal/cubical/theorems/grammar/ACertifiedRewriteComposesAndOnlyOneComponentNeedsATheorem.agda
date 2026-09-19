@@ -10,12 +10,12 @@
 --
 -- Four components, listed.  A compiler applies rewrites in sequence, so
 -- the question the list does not answer is whether the certificate
--- COMPOSES â€” and if it does, which component costs anything.
+-- COMPOSES â” and if it does, which component costs anything.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   Certified d e     the four components as one Î£: the boundary
+--   Certified d e     the four components as one Î: the boundary
 --                     semantics agree, the cost vector strictly
 --                     improves, the state migrates, provenance is
 --                     carried
@@ -26,21 +26,21 @@
 -- **THREE OF THE FOUR COMPOSE FOR FREE.**  Boundary preservation is a
 -- path and paths compose; migration is a function and functions
 -- compose; provenance is a list and lists append.  Only COMPLEXITY
--- IMPROVEMENT needs a theorem â€” transitivity of strict Pareto
--- domination â€” and that theorem already exists in this corpus, proved
+-- IMPROVEMENT needs a theorem â” transitivity of strict Pareto
+-- domination â” and that theorem already exists in this corpus, proved
 -- on the DARWIN Â§5.2 stratum line for an unrelated purpose
--- (`âŠ-trans` in `ANonEmptyArchiveHasANonEmptyStratum`, where it was
+-- (`âŠ-trans` in `ANonEmptyArchiveHasANonEmptyStratum`, where it was
 -- needed because a maximal element of the tail might be beaten by the
--- head).  `noSelfRewrite` is likewise `âŠ-irrefl` from that module.
+-- head).  `noSelfRewrite` is likewise `âŠ-irrefl` from that module.
 --
 -- So the two notes are joined by a lemma neither asked for: Â§5.2's
--- parent selection and Â§39â€“47's compiler need the SAME fact about the
+-- parent selection and Â§39â“47's compiler need the SAME fact about the
 -- Pareto order, and it was proved once.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- ON THE COST CONVENTION, because it is a live hazard on this line.
 -- The cost vector is compared with `StrictlyDominates`, which is the
--- BENEFIT reading â€” higher is better.  Â§39â€“47's "complexity" is a cost,
+-- BENEFIT reading â” higher is better.  Â§39â“47's "complexity" is a cost,
 -- lower is better, so applying this to it requires the flip, and the
 -- flip is SOUND BUT NOT FAITHFUL: it needs a cap above every cost ever
 -- compared, and identifies costs above that cap
@@ -48,10 +48,10 @@
 -- inherited here and not discharged.
 --
 -- NO NOVELTY.  Composing certificates componentwise is what
--- certificates are for; the content is only the count â€” three free,
+-- certificates are for; the content is only the count â” three free,
 -- one earned.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -86,7 +86,7 @@ module _ {Sys B Prov : Type}
     Ã— List Prov                                    -- provenance
 
   ------------------------------------------------------------------
-  -- 2.  They compose â€” three for free, one by âŠ-trans
+  -- 2.  They compose â” three for free, one by âŠ-trans
   ------------------------------------------------------------------
 
   composeCertified :
@@ -107,9 +107,9 @@ module _ {Sys B Prov : Type}
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  Â§"SYÄ€T â€” THE CLAIM, EXACTLY" says:
+-- line above.  Â§"SYT â” THE CLAIM, EXACTLY" says:
 --
---   "MIGRATION is a bare function with no law â€” nothing says it
+--   "MIGRATION is a bare function with no law â” nothing says it
 --    preserves the boundary semantics, and a compiler would need
 --    exactly that, so the composite's migration is only as meaningful
 --    as its components'."
@@ -117,14 +117,14 @@ module _ {Sys B Prov : Type}
 -- The law is stated and tested in
 -- `MigrationNeedsALawAndTheLawIsNotFree`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so):
+-- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
 --
 --   Lawful obs mig   `obs e (mig m) â‰¡ obs d m`
---   composeLawful    lawful migrations compose â€” as free as the three
+--   composeLawful    lawful migrations compose â” as free as the three
 --                    components that were already free
 --   lawTransportsEveryInvariant
 --                    ANY function of the observation is preserved, by
---                    one `cong` â€” so a lawful migration moves no
+--                    one `cong` â” so a lawful migration moves no
 --                    derived quantity, which is what state migration
 --                    must mean for provenance and caches to survive it
 --   unlawfulMigrationExists
@@ -134,12 +134,12 @@ module _ {Sys B Prov : Type}
 -- **THE LAST ONE IS WHY THE COUNT CHANGES.**  Everything else here
 -- composed for free and it would be easy to read migration the same
 -- way.  A bare function is exactly a migration with no guarantee, and
--- the witness is one line.  So Â§39â€“47's four components are better
--- counted as THREE FREE, ONE EARNED (complexity, by `âŠ-trans`), AND
--- ONE UNDER-SPECIFIED â€” migration, which needs the law added before it
+-- the witness is one line.  So Â§39â“47's four components are better
+-- counted as THREE FREE, ONE EARNED (complexity, by `âŠ-trans`), AND
+-- ONE UNDER-SPECIFIED â” migration, which needs the law added before it
 -- means anything.
 --
--- THIS MODULE IS NOT AMENDED.  The four-component Î£ above is unchanged
+-- THIS MODULE IS NOT AMENDED.  The four-component Î above is unchanged
 -- and `composeCertified` still composes a bare function; adding the law
 -- to the record is this module's own next step and is deliberately not
 -- taken in the same cycle that discovered the gap.  Also unstated
@@ -149,26 +149,26 @@ module _ {Sys B Prov : Type}
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The next step named in the block above â€” "adding the law
--- to the record is this module's own next step" â€” is taken in
+-- line above.  The next step named in the block above â” "adding the law
+-- to the record is this module's own next step" â” is taken in
 -- `TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
--- The Î£ above is STILL unchanged: the five-component `LCertified` is a
+-- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- The Î above is STILL unchanged: the five-component `LCertified` is a
 -- separate definition there, and this record continues to admit
 -- certificates with a lawless migration.
 --
 -- That module also settles the question this one could not ask, since
 -- it had no `obs`: the law is INDEPENDENT of the other four components.
 -- `anUnlawfulFourComponentCertificate` is an element of THIS `Certified`
--- â€” `refl` semantics, strictly improving cost, a migration, provenance â€”
+-- â” `refl` semantics, strictly improving cost, a migration, provenance â”
 -- whose migration is `not` and therefore destroys every observation.
 -- So requiring the law removes certificates; it does not merely name
 -- what four components already forced.
 --
 -- Still not done anywhere on this line: any relation between `obs` and
 -- `sem`, the reachable-states version of the law, associativity of
--- composition (certified rewrites are a semicategory â€” strict cost
+-- composition (certified rewrites are a semicategory â” strict cost
 -- improvement removes the identities), and any relation between the
 -- length of a chain and the length of its provenance.
 ------------------------------------------------------------------------
@@ -178,7 +178,7 @@ module _ {Sys B Prov : Type}
 -- line above.  **Short on purpose: this file's appends have outgrown
 -- its code (â‰ˆ40 lines of Agda, â‰ˆ55 of record before this), and the
 -- standing rule is that the next substantial thing goes in a NEW
--- module.  It did â€” 28e9a0a4.  This is a pointer, not a fourth essay.**
+-- module.  It did â” 28e9a0a4.  This is a pointer, not a fourth essay.**
 -- Skipping it entirely was the alternative and was rejected: a reader
 -- here would otherwise see the count above with two appends that never
 -- mention what is wrong with it, which is the incomplete-propagation
@@ -186,16 +186,16 @@ module _ {Sys B Prov : Type}
 --
 -- **`FREE`, IN THE COUNT ABOVE, MEANS TWO INCOMPARABLE THINGS.**
 -- DERIVABLE-FREE: boundary preservation composes by `âˆ™`, migration by
--- function composition â€” a real obligation with a one-symbol proof.
+-- function composition â” a real obligation with a one-symbol proof.
 -- VACUOUSLY FREE: provenance has NO condition anywhere, so `++`
 -- composes it because nothing constrains it.  At 28e9a0a4,
--- `provenanceMayBeDiscarded` proves the sharp form â€” `(s , i , m , _)`
--- â†¦ `(s , i , m , [])` is a certificate for the SAME pair â€” so no
+-- `provenanceMayBeDiscarded` proves the sharp form â” `(s , i , m , _)`
+-- â¦ `(s , i , m , [])` is a certificate for the SAME pair â” so no
 -- downstream theorem can recover a step from provenance.
 --
 -- So "three free, one earned" is better read as: two discharged, one
--- earned (`âŠ-trans`), one under-specified (migration), one inert
--- (provenance) â€” four components, four verdicts.  The first append
+-- earned (`âŠ-trans`), one under-specified (migration), one inert
+-- (provenance) â” four components, four verdicts.  The first append
 -- above says "three free, one earned, AND ONE UNDER-SPECIFIED", which
 -- is five slots for four components; that arithmetic not closing is
 -- what exposed the conflated word.

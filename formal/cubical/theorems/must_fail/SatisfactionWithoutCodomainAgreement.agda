@@ -9,7 +9,7 @@
 -- hypothesis-carrying module `AtomicSatisfaction`
 -- (module `SameResponses`, which exits 0 under the pin).
 --
--- the standing hypothesis `Y'_{Ï„(q)} = Y_q`, which appears once in Â§1
+-- the standing hypothesis `Y'_{Ï(q)} = Y_q`, which appears once in Â§1
 -- prose (line 29) and in neither the Theorem (line 59), the title, nor
 -- the Status line.  Â§2 of the draw traces the drop one artifact
 -- downstream: `collab/messages/0410-codex-skein-atomic-satisfaction-
@@ -18,16 +18,16 @@
 -- hypothesis at all.  I re-read both files tonight rather than trusting
 -- the audit's quotation of them.
 --
--- Asserted below: the invariant of `SameResponses` â€” the version whose
--- atoms `(q,y)` are drawn from the OLD response family `Y` â€” for a
--- revised observer whose responses land in an INDEPENDENT family `Yâ€²`,
--- which is what the sentence says once `Yâ€² âˆ˜ Ï„ = Y` is gone.
+-- Asserted below: the invariant of `SameResponses` â” the version whose
+-- atoms `(q,y)` are drawn from the OLD response family `Y` â” for a
+-- revised observer whose responses land in an INDEPENDENT family `Yâ²`,
+-- which is what the sentence says once `Yâ² âˆ˜ Ï = Y` is gone.
 --
 -- WHY IT MUST FAIL.  This drop is not of the "false as stated" kind
 -- (contrast `Control/ReachabilityWithoutStart.agda`); the audit's words
--- are that without it "the atom `(Ï„(q),y)` is not even well-typed on
+-- are that without it "the atom `(Ï(q),y)` is not even well-typed on
 -- the revised side".  A type checker is the exact instrument for that:
--- `râ€² q xâ€² : Yâ€² q` and `y : Y q`, and with `Yâ€²` unconstrained there is
+-- `râ² q xâ² : Yâ² q` and `y : Y q`, and with `Yâ²` unconstrained there is
 -- no path type to write down.  The failure is a TYPE failure at the
 -- equation, not a failed proof.
 --
@@ -46,11 +46,11 @@
 --
 --   NaturalMachine/Control/SatisfactionWithoutCodomainAgreement.agda:81.18-19:
 --   error: [UnequalTerms]
---   Y q !=< Yâ€² q
---   when checking that the expression y has type Yâ€² q
+--   Y q !=< Yâ² q
+--   when checking that the expression y has type Yâ² q
 --
 -- Read it: the machine names the dropped hypothesis as an equation
--- between the two response families, `Y q !=< Yâ€² q`, in exactly the
+-- between the two response families, `Y q !=< Yâ² q`, in exactly the
 -- position where the Theorem and message 0410 omit it.
 --
 -- If a future edit makes this file compile, the atomic-satisfaction

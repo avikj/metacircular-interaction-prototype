@@ -114,4 +114,4 @@ Yet K(s,t)<=3min(s,t)/(10max(s,t)), so all self and cross-shell pairs satisfy
 
 Thus instantaneous strain grows like N, instantaneous quadratic feedback like N^2, but the complete future freely propagated memory of that snapshot nonlinear injection stays bounded independently of N. This is a genuine static-source calculation, not a conclusion about full future nonlinear regeneration.
 
-The next actual first-return source is `P2 DN(a)[P4 N(a)]`. Its computed formula and all-time free response are in [S15]; the full source-coherent evaluator and midpoint storage identities are in [S17â€“S19].
+The next actual first-return source is `P2 DN(a)[P4 N(a)]`. Its computed formula and all-time free response are in [S15]; the full source-coherent evaluator and midpoint storage identities are in [S17â“S19].

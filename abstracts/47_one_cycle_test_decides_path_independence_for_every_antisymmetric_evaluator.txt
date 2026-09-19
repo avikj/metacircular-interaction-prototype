@@ -8,29 +8,29 @@ Test-suite compression / the basis cycle as the test suite / the
 boundary of what one loop can certify
 
 The synthesis claims: to prove an additive edge effect
-path-independent, verify zero integral on basis cycles ‚Äî homology
+path-independent, verify zero integral on basis cycles ‚î homology
 gives the minimum family of irreducible global path tests.  The
 pairwise instance is now a theorem of the kernel.
 
 Integration is additive over concatenation, and against reversal an
 orientation-respecting evaluator cancels step by step:
-‚à´(revD d) + ‚à´ d ‚â° 0, proved without ever distributing negation.
+‚à(revD d) + ‚à d ‚â° 0, proved without ever distributing negation.
 Therefore THE ONE-CYCLE TEST: for any two coterminal derivations p, q
-and any antisymmetric evaluator, ‚à´(p ++ revD q) ‚â° 0 forces
-‚à´ p ‚â° ‚à´ q.  One loop tested, every pair of schedules certified.
+and any antisymmetric evaluator, ‚à(p ++ revD q) ‚â° 0 forces
+‚à p ‚â° ‚à q.  One loop tested, every pair of schedules certified.
 
 Every exact evaluator is antisymmetric (a potential's coboundary
-reverses sign with the step ‚Äî negSwap, from the pinned ‚Ñ§ lemmas), so
+reverses sign with the step ‚î negSwap, from the pinned ‚ lemmas), so
 the entire protected class of the compression theorems passes the
-hypothesis for free.  And the depth evaluator does NOT ‚Äî it counts
-wrappers through reverse positively ‚Äî which is exactly why its
+hypothesis for free.  And the depth evaluator does NOT ‚î it counts
+wrappers through reverse positively ‚î which is exactly why its
 nonzero loop integral escapes the test and lives as a class.  The
 hypothesis is not a convenience; it is the boundary between value one
 cycle can certify and value no cycle can kill.
 
-SYƒÄT ‚Äî THE CLAIM, EXACTLY.  Additivity, the cancellation, the test,
+SYT ‚î THE CLAIM, EXACTLY.  Additivity, the cancellation, the test,
 the antisymmetry of every coboundary, at one fundamental cycle
 uniformly in the pair it spans.  NOT claimed: a spanning tree or full
-H‚ÇÅ basis for the whole step graph.
+H‚ basis for the whole step graph.
 
 Machine-checked in cubical type theory, --safe, at the pin.

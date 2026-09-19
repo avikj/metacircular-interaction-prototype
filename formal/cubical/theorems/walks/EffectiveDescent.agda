@@ -12,28 +12,28 @@
 -- matters only for a SPLIT surjection, and names its own gap verbatim:
 --
 --     "a genuine surjection needs the image quotient (a set-truncation)
---      to build `g`, so what is proved here is the split case … for the
+--      to build `g`, so what is proved here is the split case � for the
 --      general surjection this needs `Cubical.HITs.SetQuotients` and a
 --      set hypothesis on `C`."
 --
 -- Half of that sentence is right and half is wrong, and the wrong half
 -- is the interesting one:
 --
---   * a set hypothesis on `C` is genuinely USED — `rec→Set` demands it,
---     and it is not shown necessary here (see SYĀT — THE CLAIM, EXACTLY);
+--   * a set hypothesis on `C` is genuinely USED � `rec�Set` demands it,
+--     and it is not shown necessary here (see SYT � THE CLAIM, EXACTLY);
 --   * **`SetQuotients` is not needed at all.**  No quotient is
 --     constructed anywhere in this file.  The universal property of the
---     propositional truncation into a set — Kraus–Escardó–Coquand–
---     Altenkirch's factorisation of a 2-Constant map, `PT.rec→Set` —
+--     propositional truncation into a set � Kraus�Escard��Coquand�
+--     Altenkirch's factorisation of a 2-Constant map, `PT.rec�Set` �
 --     supplies `g` directly.  This is the third or fourth time in this
 --     corpus that a missing construction turned out to be a universal
 --     and the fourth instance is worth recording because the corpus
 --     ALREADY OWNED the tool: `FiniteInformation`
---     (`fiberConstant→factorsThrough`) does exactly this
+--     (`fiberConstant�factorsThrough`) does exactly this
 --     truncation-into-a-set argument, choice-free, for factorisation
 --     through `Image q`.  The only step it was missing is that for a
 --     surjection `Image q` is `B`.  DefectCalculus §7 re-derived a
---     weaker statement, in the same tree, four files away — which is the
+--     weaker statement, in the same tree, four files away � which is the
 --     lesson DefectCalculus §4 narrates about itself ("grep before you
 --     prove, including for four-line lemmas") arriving one section
 --     later.  Nothing here is a criticism of that file; it is what the
@@ -42,8 +42,8 @@
 -- WHAT IS PROVED
 --
 --   §1  `isPropCoequalizes`      the descent datum is a proposition when
---                                the target is a set — so it can be
---                                carried by `Σ≡Prop` and never has to be
+--                                the target is a set � so it can be
+--                                carried by `�≡Prop` and never has to be
 --                                compared.
 --
 --   §2  `descend` / `descend-β`  T15.40 substantive direction for an
@@ -58,7 +58,7 @@
 --                                would survive weaker hypotheses.
 --
 --   §4  `restrictAlong`          THE STATEMENT THIS FILE EXISTS FOR.
---       `descentEquiv`           `(B → C) ≃ Σ[ f ∈ (A → C) ] Coequalizes q f`
+--       `descentEquiv`           `(B � C) � �[ f ∈ (A � C) ] Coequalizes q f`
 --                                for `q` surjective and `C` a set: the
 --                                descent problem is REPRESENTABLE, and
 --                                `B` represents it.  Descent data along
@@ -67,19 +67,19 @@
 --                                cocycle to satisfy and no obstruction
 --                                to vanish.
 --
---   §5  `split→descends`         DefectCalculus's `descends-split` as a
+--   §5  `split�descends`         DefectCalculus's `descends-split` as a
 --       `split-descent-agrees`   corollary (a split map is surjective),
 --                                plus the sharper statement: the
 --                                section-chosen factorisation `f ∘ s`
 --                                EQUALS the choice-free one.  So a proof
 --                                that picks a representative computes
---                                the right answer — it just assumes more
+--                                the right answer � it just assumes more
 --                                than it needs.
 --
---   §6  `hProp-descent→surjection`  the CONVERSE.  If the descent map is
---       `descentEquiv→surjection`   injective at the single set `hProp`
---                                — in particular if §4's `restrictAlong`
---                                is an equivalence there — then `q` is
+--   §6  `hProp-descent�surjection`  the CONVERSE.  If the descent map is
+--       `descentEquiv�surjection`   injective at the single set `hProp`
+--                                � in particular if §4's `restrictAlong`
+--                                is an equivalence there � then `q` is
 --                                surjective.  With §4 this makes
 --                                surjectivity EQUIVALENT to effective
 --                                descent, so §2's hypothesis is not a
@@ -91,32 +91,32 @@
 --                                `g`, both checked, and a checked proof
 --                                that they differ), so §3 is not
 --                                vacuously true.  POSITIVE: on a concrete
---                                surjection `descend` REDUCES —
---                                `descend-computes` is `refl` — so §2 is
+--                                surjection `descend` REDUCES �
+--                                `descend-computes` is `refl` � so §2 is
 --                                not an inert term either.
 --
 --   §8  `MinimalMachine.R`       the corollary that made this worth
 --       `MinimalMachine.R-unique`
 --                                landing: `collab/messages/madhavi/
 --                                future_quotient_linear_rank.md`
---                                Theorem (2) — "there is a unique matrix
---                                `R : Q × W → K` with `T = C R`" — is
---                                §2 + §3 at `C := W → K`.  Its published
+--                                Theorem (2) � "there is a unique matrix
+--                                `R : Q � W � K` with `T = C R`" � is
+--                                §2 + §3 at `C := W � K`.  Its published
 --                                proof reads "Define `R(c,w) = T(x,w)`
 --                                for any `x` with `q(x) = c`", i.e. it
 --                                picks a representative.  Here no
 --                                representative is picked.
 --
 --  * **No novelty.**  "Surjections of sets are effective epimorphisms"
---    is standard; the converse is Mac Lane–Moerdijk p. 143 corollary 5,
+--    is standard; the converse is Mac Lane�Moerdijk p. 143 corollary 5,
 --    which the pinned library already has as
---    `Cubical.Functions.Surjection.epi⇒surjective`.  §6 is a
+--    `Cubical.Functions.Surjection.epi�surjective`.  §6 is a
 --    repackaging of it at the subobject classifier.  The exact
 --    difference, stated after a first draft of this comment got it
 --    wrong: the library's `rightCancellable` quantifies over EVERY type
---    of `Type (ℓ-suc (ℓ ⊔ ℓ'))`, and §6 needs the SINGLE object
---    `hProp (ℓ ⊔ ℓ')` of that same universe.  `hProp` is not one level
---    lower — the subobject classifier never is — so the sharpening is
+--    of `Type (�-suc (� ⊔ �'))`, and §6 needs the SINGLE object
+--    `hProp (� ⊔ �')` of that same universe.  `hProp` is not one level
+--    lower � the subobject classifier never is � so the sharpening is
 --    "one test object, and it is a set", not "a smaller universe".  It
 --    is what makes §6 the literal converse of §4, whose hypothesis is
 --    exactly "`C` is a set".  A hypothesis sharpening, not a theorem.
@@ -127,15 +127,15 @@
 --    needs `isSet C`.  The two are INCOMPARABLE in hypotheses.  What §5
 --    proves is only that once `C` is a set the split statement is
 --    subsumed, and that the two produce the same function.  Exhibiting a
---    non-set `C` at which §4 fails would need `π₁(S¹)` and is not done.
+--    non-set `C` at which §4 fails would need `��(S�)` and is not done.
 --
---    §2 locates the Peres–Mermin obstruction as "a property of the
---    *cover*, i.e. genuinely cohomological — of the nerve, not of the
+--    §2 locates the Peres�Mermin obstruction as "a property of the
+--    *cover*, i.e. genuinely cohomological � of the nerve, not of the
 --    operator set", each observable lying in exactly two contexts.  §4
 --    is the exact statement of why that is the only place such an
 --    obstruction can live: along a single surjection onto a set there is
 --    nothing to obstruct.  That is a boundary remark about scope, and
---    NOT a claim about the Peres–Mermin computation, which is not
+--    NOT a claim about the Peres�Mermin computation, which is not
 --    touched here.
 --
 --  * **Nothing here is about primes, or about defects.**  §2 is one
@@ -173,9 +173,9 @@ private
 ------------------------------------------------------------------------
 -- 1.  THE DESCENT DATUM IS A PROPOSITION
 --
--- `Coequalizes q f = (x y : A) → q x ≡ q y → f x ≡ f y`.  When `C` is a
+-- `Coequalizes q f = (x y : A) � q x ≡ q y � f x ≡ f y`.  When `C` is a
 -- set this is a proposition, so it never has to be compared and can be
--- carried through `Σ≡Prop`.  Everything downstream leans on this.
+-- carried through `�≡Prop`.  Everything downstream leans on this.
 ------------------------------------------------------------------------
 
 isPropCoequalizes :
@@ -186,8 +186,8 @@ isPropCoequalizes setC q f = isPropΠ3 (λ _ _ _ → setC _ _)
 ------------------------------------------------------------------------
 -- 2.  DESCENT ALONG AN ARBITRARY SURJECTION  (T15.40, general case)
 --
--- The whole construction.  `coeq` says the map `fiber q b → C` picking
--- out `f` of the witness is 2-Constant; `rec→Set` turns a 2-Constant map
+-- The whole construction.  `coeq` says the map `fiber q b � C` picking
+-- out `f` of the witness is 2-Constant; `rec�Set` turns a 2-Constant map
 -- into a set into a map out of the truncation.  No quotient is built.
 ------------------------------------------------------------------------
 
@@ -203,10 +203,10 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
     descend : B → C
     descend b = rec→Set setC (λ u → f (fst u)) (constOnFibre b) (surj b)
 
-    -- The computation rule.  Definitional on `∣_∣₁`; the one step that
+    -- The computation rule.  Definitional on `�_��`; the one step that
     -- is not definitional is replacing the anonymous surjectivity
     -- witness by the canonical one, which costs exactly the
-    -- propositionality of `∥_∥₁`.
+    -- propositionality of `�_��`.
     descend-β : (a : A) → descend (q a) ≡ f a
     descend-β a =
       cong (rec→Set setC (λ u → f (fst u)) (constOnFibre (q a)))
@@ -220,7 +220,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
 --
 -- Surjectivity is what makes the factorisation unique; existence alone
 -- would survive weaker hypotheses (a non-surjective `q` still admits
--- factorisations — §7 exhibits two).
+-- factorisations � §7 exhibits two).
 ------------------------------------------------------------------------
 
   module _ (surj : isSurjection q) where
@@ -235,7 +235,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
                                          ∙∙ cong h (snd u))
              (surj b)
 
-    -- `((a : A) → g (q a) ≡ f a)` is a Π into a path type in a set,
+    -- `((a : A) � g (q a) ≡ f a)` is a Π into a path type in a set,
     -- hence a proposition; so the whole factorisation type is one.
     isPropFactorisation :
       isProp (Σ[ g ∈ (B → C) ] ((a : A) → g (q a) ≡ f a))
@@ -303,17 +303,17 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
 ------------------------------------------------------------------------
 -- 6.  CONVERSE: EFFECTIVE DESCENT FORCES SURJECTIVITY
 --
--- Tested against a single set — `hProp`, the subobject classifier.  The
+-- Tested against a single set � `hProp`, the subobject classifier.  The
 -- two subobjects of `B` that agree after restriction along `q` are "the
 -- image of q" and "everything"; injectivity of `restrictAlong` at
 -- `hProp` identifies them, which says exactly that every fibre is
 -- inhabited.
 --
--- PRIOR ART, cited not reproved: this is Mac Lane–Moerdijk p. 143
+-- PRIOR ART, cited not reproved: this is Mac Lane�Moerdijk p. 143
 -- corollary 5, present in the pinned library as
--- `Cubical.Functions.Surjection.epi⇒surjective`.  That version demands
--- cancellation against EVERY type of `Type (ℓ-suc (ℓ ⊔ ℓ'))`; §6 demands
--- it against the SINGLE object `hProp (ℓ ⊔ ℓ')` of that same universe —
+-- `Cubical.Functions.Surjection.epi�surjective`.  That version demands
+-- cancellation against EVERY type of `Type (�-suc (� ⊔ �'))`; §6 demands
+-- it against the SINGLE object `hProp (� ⊔ �')` of that same universe �
 -- `hProp` is not one level lower, and the library's warning that "f must
 -- cancel functions from a higher universe" applies here verbatim.  What
 -- is bought is not a smaller universe but a smaller hypothesis: one test
@@ -327,11 +327,11 @@ module _ {A : Type ℓ} {B : Type ℓ'} (q : A → B) where
     ℓq : Level
     ℓq = ℓ-max ℓ ℓ'
 
-    -- b ↦ "b is in the image of q"
+    -- b � "b is in the image of q"
     Im : B → hProp ℓq
     Im b = ∥ fiber q b ∥₁ , isPropPropTrunc
 
-    -- b ↦ "true"
+    -- b � "true"
     Top : B → hProp ℓq
     Top _ = Unit* , isPropUnit*
 
@@ -358,7 +358,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} (q : A → B) where
   --
   --     `q` surjective   ⟺   descent along `q` is effective,
   --
-  -- and the ⇐ direction needs only one test object.
+  -- and the � direction needs only one test object.
   descentEquiv→surjection :
     isEquiv (restrictAlong {C = hProp ℓq} isSetHProp q) → isSurjection q
   descentEquiv→surjection eq =
@@ -371,7 +371,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} (q : A → B) where
 ------------------------------------------------------------------------
 -- 7.  CONTROLS: SURJECTIVITY IS LOAD-BEARING IN §3
 --
--- `q : ⊥ → Bool` coequalises vacuously and is not surjective; both
+-- `q : � � Bool` coequalises vacuously and is not surjective; both
 -- constant maps factor it, and they differ.  Without this, §3 could be
 -- true because factorisations are never plural.
 ------------------------------------------------------------------------
@@ -396,7 +396,7 @@ two-factorisations p = true≢false (funExt⁻ p true)
 
 -- And the positive control the file would be suspect without: `descend`
 -- is not an inert term.  On a surjection whose witness is literally
--- `∣ _ ∣₁`, `rec→Set` reduces, so the descended map COMPUTES — the
+-- `� _ ��`, `rec�Set` reduces, so the descended map COMPUTES � the
 -- equation below is `refl`, not a proof.
 private
   toUnit : Bool → Unit
@@ -424,17 +424,17 @@ descend-computes-not p = true≢false (sym descend-computes ∙ p)
 --
 -- `collab/messages/madhavi/future_quotient_linear_rank.md`, Theorem (2):
 --
---     "There is a unique matrix `R : Q × W → K` such that `T = C R`,
+--     "There is a unique matrix `R : Q � W � K` such that `T = C R`,
 --      `C(x,c) = 1` if `q(x) = c` and `0` otherwise."
 --
 -- `C` is the incidence matrix of the future-behaviour quotient map
--- `q : X → Q`, and `C R` is exactly `R ∘ q`.  Clause (1) of that theorem
+-- `q : X � Q`, and `C R` is exactly `R ∘ q`.  Clause (1) of that theorem
 -- ("`q x ≡ q y` iff row `T x` equals row `T y`") supplies, in its easy
 -- direction, precisely `Coequalizes q T`.  So clause (2) is §2 + §3 at
--- the set `W → K`.
+-- the set `W � K`.
 --
 -- The published proof begins "Define `R(c,w) = T(x,w)` for ANY `x` with
--- `q(x) = c`" — a representative is chosen and well-definedness is then
+-- `q(x) = c`" � a representative is chosen and well-definedness is then
 -- argued.  Below, no representative is chosen: `q` is surjective ("every
 -- quotient class is inhabited", the note's own hypothesis) and `K` is a
 -- set, and that is the whole input.

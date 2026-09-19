@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- वेणी-त्रय — three strands.
+-- ����-���� � three strands.
 --
 -- THE QUESTION.  VeniBandha supplied the braid coherence: the
--- quarter-turn-twisted swap satisfies Yang–Baxter by refl.  A braid
+-- quarter-turn-twisted swap satisfies Yang�Baxter by refl.  A braid
 -- RELATION is not yet a braid GROUP action, and an abelian action is
 -- not yet anyonic.  Two theorems close the gap:
 --
 --   §1  THE CROSSING INVERTS: the reverse crossing (swap back,
 --       untwist by three quarter turns) composes with the crossing to
 --       the identity in both orders, via the four-cycle.  So each
---       generator acts by a genuine self-inverse-able map — the braid
+--       generator acts by a genuine self-inverse-able map � the braid
 --       group acts, it does not merely relate.
 --
---   §2  THE GENERATORS DO NOT COMMUTE: σ₁σ₂ and σ₂σ₁ differ at a
+--   §2  THE GENERATORS DO NOT COMMUTE: ���� and ���� differ at a
 --       named three-strand state, read off by a head projection.
---       With Yang–Baxter (σ₁σ₂σ₁ = σ₂σ₁σ₂, by refl, from VeniBandha)
---       this is exactly the shape of the braid group B₃: the braid
---       relation holds, commutativity fails — a genuinely NON-ABELIAN
+--       With Yang�Baxter (������ = ������, by refl, from VeniBandha)
+--       this is exactly the shape of the braid group B�: the braid
+--       relation holds, commutativity fails � a genuinely NON-ABELIAN
 --       representation, which is the anyonic distinction: statistics
 --       richer than any phase, carried by the order of exchanges.
 --
@@ -43,7 +43,7 @@ open import VeniBandha_TheSuppliedCoherenceIsTheQuarterTurnTheTwistedSwapBraidsB
   using (Sūtra ; veṇī ; veṇī₁₂ ; veṇī₂₃ ; yamala-veṇī)
 
 ------------------------------------------------------------------------
--- १ · The inverse crossing.
+-- � � The inverse crossing.
 ------------------------------------------------------------------------
 
 tri-caturaṃśa : Sūtra → Sūtra
@@ -60,14 +60,14 @@ veṇī-dakṣiṇa : (p : Sūtra × Sūtra) → veṇī (pratīpa-veṇī p) �
 veṇī-dakṣiṇa (u , v) i = catur-cakra u i , v
 
 ------------------------------------------------------------------------
--- २ · Non-commutation at a named state.
+-- � � Non-commutation at a named state.
 ------------------------------------------------------------------------
 
 -- The witness state and the head projection that separates the orders.
 sākṣin : Sūtra × (Sūtra × Sūtra)
 sākṣin = (true , true) , ((true , true) , (true , true))
 
--- σ₁σ₂ lands the doubly-turned third strand at the head; σ₂σ₁ lands
+-- ���� lands the doubly-turned third strand at the head; ���� lands
 -- the singly-turned second strand there.  The head strand's second
 -- coordinate separates the two orders.
 na-vinimaya : veṇī₁₂ (veṇī₂₃ sākṣin) ≡ veṇī₂₃ (veṇī₁₂ sākṣin) → ⊥

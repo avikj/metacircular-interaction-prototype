@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рдПрдХрд╡рд┐рдзрд┐-рдореБрдЦрд╛рдирд┐ тАФ one law, six faces, and the faces are refl.
+-- ррХр╡р┐рзр┐-роррЦр╛рир┐ тФ one law, six faces, and the faces are refl.
 --
--- Modelled on `EkaBhara_тАж`, whose header is the instruction this answers:
+-- Modelled on `EkaBhara_тж`, whose header is the instruction this answers:
 -- five lanes struck one charge, and the module that says so lets each face
 -- be `refl` because the terms already coincide.  This is the same act on a
 -- smaller and more embarrassing object: six modules written in one session
@@ -11,19 +11,19 @@
 -- corpus had already checked over an arbitrary state space
 -- (`QuotientFiberLaw`, twelve costumes catalogued).
 --
--- `SetuApurva_тАж` identified ONE of the six with the Law.  This is the rest,
--- and the point is not the identification тАФ it is that every face below is
+-- `SetuApurva_тж` identified ONE of the six with the Law.  This is the rest,
+-- and the point is not the identification тФ it is that every face below is
 -- `refl`.  Not "follows from".  The same term.  A note claiming these were
 -- one law would be worth nothing; `refl` is the claim the kernel checks.
 --
--- WHAT EACH FACE SAYS.  `рддрдиреНрддреМ-рдЕрдиреНрдзрдГ S q` is: a reading derived from S is
--- constant on S's fibres.  `рдЕрдкреВрд░реНрд╡рдореН` is its contrapositive with a witness.
+-- WHAT EACH FACE SAYS.  `рриррр-рриррзр S q` is: a reading derived from S is
+-- constant on S's fibres.  `рррр░рр╡рор` is its contrapositive with a witness.
 -- Then:
 --
---   ParimanaAndha    |┬╖| cannot see the M├╢bius sign      = рдЕрдкреВрд░реНрд╡рдореН at рдЪрд┐рд╣реНрдирдореН
---   TiryakTantu      residue and factorisation transverse = рдЕрдкреВрд░реНрд╡рдореН, twice
---   EkaVidhih        descent тЯ╣ blind on fibres           = рддрдиреНрддреМ-рдЕрдиреНрдзрдГ
---   SamacaranaNityam a transitive symmetry flattens       = рддрдиреНрддреМ-рдЕрдиреНрдзрдГ at Unit
+--   ParimanaAndha    |┬| cannot see the Mbius sign      = рррр░рр╡рор at рр┐рррирор
+--   TiryakTantu      residue and factorisation transverse = рррр░рр╡рор, twice
+--   EkaVidhih        descent тЯ blind on fibres           = рриррр-рриррзр
+--   SamacaranaNityam a transitive symmetry flattens       = рриррр-рриррзр at Unit
 --
 -- The fifth costume, `SamuhaDrstih`, is NOT a face and is not forced into
 -- one: a reconstruction is a left inverse, which is a different structure
@@ -48,7 +48,7 @@ open import EkaVidhih_TheOneLawIsDescentTheFreeDirectionIsBindBAndTheCostlyOneNe
   as EV using (рдЕрд╡рддрд░рдгрд╛рддреН-рдЕрдиреНрдзрдГ)
 
 ------------------------------------------------------------------------
--- рдореБрдЦрдореН рез ┬╖ рдкрд░рд┐рдорд╛рдг тАФ the modulus standpoint
+-- роррЦрор рз ┬ рр░р┐рор╛р тФ the modulus standpoint
 ------------------------------------------------------------------------
 
 рдореБрдЦрдореН-рдкрд░рд┐рдорд╛рдгрдореН : рдкреНрд░рд╡рд╣рддрд┐ рдкрд░рд┐рдорд╛рдгрдореН рдпреЛрдЧрдГ тЖТ тКе
@@ -58,7 +58,7 @@ _ : рдореБрдЦрдореН-рдкрд░рд┐рдорд╛рдгрдореН тЙб PA.рдкрд░рд┐рдорд╛рдгрд╛рддреН-
 _ = refl
 
 ------------------------------------------------------------------------
--- рдореБрдЦрдореН реи,рей ┬╖ рддрд┐рд░реНрдпрдХреН тАФ the two transverse readings
+-- роррЦрор ри,рй ┬ рр┐р░ррпрХр тФ the two transverse readings
 ------------------------------------------------------------------------
 
 рдореБрдЦрдореН-рдореНрдпреВ : рдкреНрд░рд╡рд╣рддрд┐ рд╢реЗрд╖рдГ рдореНрдпреВ тЖТ тКе
@@ -74,7 +74,7 @@ _ : рдореБрдЦрдореН-рд╢реЗрд╖рдГ тЙб TT.рд╢реЗрд╖рдГ-рди-рдореНрдпреВрддрдГ
 _ = refl
 
 ------------------------------------------------------------------------
--- рдореБрдЦрдореН рек ┬╖ рдЕрд╡рддрд░рдгрдореН тАФ descent is the blindness, verbatim
+-- роррЦрор р ┬ рр╡рр░ррор тФ descent is the blindness, verbatim
 ------------------------------------------------------------------------
 
 рдореБрдЦрдореН-рдЕрд╡рддрд░рдгрдореН : {X O Q : Type} (S : X тЖТ O) (q : X тЖТ Q)
@@ -83,7 +83,7 @@ _ = refl
 
 
 ------------------------------------------------------------------------
--- рдПрдХрд╡рд┐рдзрд┐рдГ тАФ the sentence.  Every face above is the same term as the
+-- ррХр╡р┐рзр┐р тФ the sentence.  Every face above is the same term as the
 -- module that announced it, so the six were never six.
 ------------------------------------------------------------------------
 

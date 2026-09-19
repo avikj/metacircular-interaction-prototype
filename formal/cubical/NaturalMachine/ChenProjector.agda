@@ -4,14 +4,14 @@
 -- NaturalMachine.ChenProjector
 --
 -- Factory IV's Theorem 58 and the saturation dichotomy, in the
--- ParitySeparator vocabulary — and their composition with the checked
+-- ParitySeparator vocabulary � and their composition with the checked
 -- parity barrier, which is the part that is new to the corpus.
 --
 -- WHERE THIS COMES FROM.  The owner's delta
 -- `collab/upstream/library/raw/ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_IV_2026-08-14.md`
 -- grades the prime-pair field by factorization charge and observes that on
--- the Chen envelope — second leg of charge Ω ∈ {1,2}, the sieve-inhabited
--- field — the Liouville sign (1−λ)/2 is EXACTLY the charge-one projector:
+-- the Chen envelope � second leg of charge Ω ∈ {1,2}, the sieve-inhabited
+-- field � the Liouville sign (1−λ)/2 is EXACTLY the charge-one projector:
 -- parity, which forgets almost everything on unrestricted integers, is
 -- informationally complete once the charge support has two points.
 -- Receiving audit: `notes/FACTORY_IV_CHEN_CORNER_AUDIT.md`.
@@ -25,19 +25,19 @@
 --                           `projector-complete`), with `projector-null`
 --                           the charge-two evaluation and
 --                           `charges-exclusive` ruling out overlap
---   count-split             oddCount + evenCount ≡ length — the exact
+--   count-split             oddCount + evenCount ≡ length � the exact
 --                           content of Factory IV's G = (C−L)/2 in
 --                           two-counter form: C = O+E and L = E−O are
 --                           bookkeeping on top of this identity, and the
 --                           subtraction-free form is the one that lives
---                           in ℕ
---   saturated→allEven       charge saturation (oddCount ≡ 0) makes the
+--                           in �
+--   saturated�allEven       charge saturation (oddCount ≡ 0) makes the
 --                           witness list parity-neutral in exactly
 --                           ParitySeparator's sense
---   saturation-blinds       …hence, by `obs-agree`, a saturated witness
---                           list produces IDENTICAL transcripts on σ and
---                           flip σ
---   saturation-no-decision  …hence, by `no-decision`, no post-processing
+--   saturation-blinds       �hence, by `obs-agree`, a saturated witness
+--                           list produces IDENTICAL transcripts on � and
+--                           flip �
+--   saturation-no-decision  �hence, by `no-decision`, no post-processing
 --                           of a saturated transcript separates them
 --   twin-witness-separates  the constructive converse: one odd-charge
 --                           witness yields a separating query
@@ -51,7 +51,7 @@
 -- statement, and this module is the identification.
 --
 -- NOT claimed: Chen's theorem, Maynard's theorem, or any inhabitation of
--- the envelope — those are cited analytic inputs and the envelope here is
+-- the envelope � those are cited analytic inputs and the envelope here is
 -- a HYPOTHESIS on a query, not a theorem about integers.  Not claimed
 -- either: any quantitative anti-saturation.  The audit note records that
 -- Factory IV's δ-target must be posed on the factor-truncated Chen set
@@ -94,9 +94,9 @@ Envelope n = (Ω n ≡ 1) ⊎ (Ω n ≡ 2)
 -- envelope.
 --
 -- `sgn (Ω n)` is λ(n) with true = +1, so `not (sgn (Ω n))` is the
--- Boolean (1−λ(n))/2.  On unrestricted numbers it detects odd charge —
+-- Boolean (1−λ(n))/2.  On unrestricted numbers it detects odd charge �
 -- any odd charge.  Theorem 58 is the statement that on the envelope it
--- detects charge EXACTLY one, because {1,2} → {−1,+1} is a bijection.
+-- detects charge EXACTLY one, because {1,2} � {−1,+1} is a bijection.
 ------------------------------------------------------------------------
 
 projector : Number → Bool
@@ -133,8 +133,8 @@ theorem-58 n env = projector-sound n env , projector-complete n
 --
 -- Factory IV §IV writes G = (C − L)/2 and T = (C_T − L_T)/2.  With
 -- O = #odd-charge witnesses and E = #even-charge witnesses these are
--- C = O + E, L = E − O, C − L = 2O: the signed identities are ℤ-side
--- bookkeeping on ONE ℕ-side fact, which is the one proved here.
+-- C = O + E, L = E − O, C − L = 2O: the signed identities are �-side
+-- bookkeeping on ONE �-side fact, which is the one proved here.
 ------------------------------------------------------------------------
 
 bit : Bool → ℕ
@@ -198,14 +198,14 @@ saturation-blinds : (σ : Signs) (qs : List Number) → Saturated qs
                   → obs σ qs ≡ obs (flip σ) qs
 saturation-blinds σ qs h = obs-agree σ qs (saturated→allEven qs h)
 
--- …so no decision procedure on that transcript separates the two.
+-- �so no decision procedure on that transcript separates the two.
 saturation-no-decision : (σ : Signs) (qs : List Number) → Saturated qs
   → (decide : List Bool → Bool)
   → ¬ ((decide (obs σ qs) ≡ true) × (decide (obs (flip σ) qs) ≡ false))
 saturation-no-decision σ qs h = no-decision σ qs (saturated→allEven qs h)
 
--- The constructive converse: one odd-charge witness — one twin, in the
--- radius-one reading — yields a query that separates σ from flip σ.
+-- The constructive converse: one odd-charge witness � one twin, in the
+-- radius-one reading � yields a query that separates � from flip �.
 -- Anti-saturation is not merely compatible with breaking the blindness;
 -- each witness breaks it individually.
 twin-witness-separates : (σ : Signs) (n : Number) → projector n ≡ true
@@ -217,7 +217,7 @@ twin-witness-separates σ n h =
 -- §5  Worked instances: the two points of the envelope.
 --
 -- A prime (charge one) and a semiprime (charge two), with the projector
--- evaluated by the kernel.  The semiprime is the LARGER multiset — the
+-- evaluated by the kernel.  The semiprime is the LARGER multiset � the
 -- `ChargeCriterion.probe-6` lesson again: what matters is charge, never
 -- size.
 ------------------------------------------------------------------------

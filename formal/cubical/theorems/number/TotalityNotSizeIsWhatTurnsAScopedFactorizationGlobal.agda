@@ -6,14 +6,14 @@
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
 -- Scoped descent and factorization through a quotient are this corpus's
 -- own construction; there is no source to cite, and a fabricated
--- Sanskrit label would assert a provenance nobody checked.  Checked
+--  label would assert a provenance nobody checked.  Checked
 -- before naming: `.claude/hooks/priority-ledger.txt` (CURRENT header)
 -- and `.claude/hooks/european-frame.txt`; no row applies, and the frame
 -- check's scope requires Indian material, of which this module has
 -- carried because `VacuityVerdict` declares it and the option is
 -- infective.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE CLAIM, AND MY OWN WRONG GUESS ABOUT IT
 --
 -- `VacuityVerdict`'s header ends:
@@ -22,9 +22,9 @@
 --    `GlobalFactorization`.**  It remains `undecided` until an ambient
 --    theorem is supplied."
 --
--- At a430ec41 I logged this as possibly unformalisable â€” *"a statement
+-- At a430ec41 I logged this as possibly unformalisable â” *"a statement
 -- about a SAMPLING PROCEDURE, and no sampling procedure exists in
--- either module"* â€” and said to retire it if so.  **That guess was
+-- either module"* â” and said to retire it if so.  **That guess was
 -- wrong, and it was wrong in a way this line keeps repeating: I took
 -- the sentence's own noun ("larger") for its content.**  Size is not
 -- the operative property.  TOTALITY is, and totality is expressible
@@ -33,10 +33,10 @@
 -- WHAT IS PROVED
 --
 --   totalScopeGivesGlobal
---        `((x : X) â†’ S x) â†’ ScopedFactorization S q f
---         â†’ GlobalFactorization q f`.
+--        `((x : X) â’ S x) â’ ScopedFactorization S q f
+--         â’ GlobalFactorization q f`.
 --        The scope's INHABITEDNESS EVERYWHERE is exactly what the
---        global agreement needs â€” the descent map is carried over
+--        global agreement needs â” the descent map is carried over
 --        unchanged, and only the agreement obligation moves.  So a
 --        sample does construct a global factorization the moment it
 --        stops being a sample.
@@ -50,7 +50,7 @@
 --        `identityAmbientCollision` refutes every one.
 --   enlargingDestroysTheFactorization
 --        and enlarging that scope to `AllBool` does not approach a
---        global factorization â€” it **destroys the local one**, since
+--        global factorization â” it **destroys the local one**, since
 --        `identity-forms-globally` is a collision inside the larger
 --        scope.
 --
@@ -72,7 +72,7 @@
 -- the easy direction and is not equivalent to it.  **The proxy is
 -- always the one that can be counted.**
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -113,7 +113,7 @@ allBoolIsTotal : (b : Bool) â†’ AllBool b
 allBoolIsTotal _ = tt
 
 ------------------------------------------------------------------------
--- 2.  â€¦and short of totality, enlargement does not approach it
+-- 2.  â¦and short of totality, enlargement does not approach it
 ------------------------------------------------------------------------
 
 noGlobalForTheIdentity :

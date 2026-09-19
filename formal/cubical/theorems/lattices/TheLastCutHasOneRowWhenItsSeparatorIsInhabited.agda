@@ -9,7 +9,7 @@
 --   "every topological order ends at a module with no dependents, and at
 --    the cut just before that final module m the separator is exactly
 --    m's direct import set while EVERY row of the cut matrix equals {m}
---    â€” raw width |imports(m)|, deterministic semantic width 1 â€¦ no
+--    â” raw width |imports(m)|, deterministic semantic width 1 â¦ no
 --    choice of order avoids paying |imports(m)| raw for a cut whose
 --    semantic content is a single mode."
 --
@@ -18,18 +18,18 @@
 -- it for an arbitrary import relation: the last cut has a single column,
 -- so every separator row is the same row.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- AND ONE EDGE CASE THE SENTENCE GLOSSES
 --
 -- "deterministic semantic width 1" holds when the separator is
 -- INHABITED.  If the final module imports nothing, the separator is
--- empty and there are no rows at all â€” width 0, not 1.  Â§3 states the
+-- empty and there are no rows at all â” width 0, not 1.  Â§3 states the
 -- hypothesis explicitly rather than leaving it to the instance, where it
 -- happens to hold.  That is not a defect of the program, which computes
 -- on a graph where the final module has imports; it is the difference
 -- between a computed instance and a quantified statement.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -77,7 +77,7 @@ module _
     everySeparatorRowIsTrue m s hs âˆ™ sym (everySeparatorRowIsTrue m t ht)
 
   --------------------------------------------------------------------
-  -- 3.  Hence exactly one distinct row â€” under the hypothesis the
+  -- 3.  Hence exactly one distinct row â” under the hypothesis the
   --     sentence leaves implicit
   --------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ module _
 --
 -- The shelf calls Â§4 order-independent and verifies it by computation on
 -- one 385-vertex graph.  Â§2 shows it is also GRAPH-independent, and that
--- the whole argument uses exactly one property of the cut matrix â€” that
+-- the whole argument uses exactly one property of the cut matrix â” that
 -- a direct import is reached.  Acyclicity, the topological order, and
 -- the rest of the width hierarchy are not needed for this cut and are
 -- not assumed.
@@ -109,7 +109,7 @@ module _
 -- something.  On that graph it does; as a quantified statement it must
 -- be said.  A computed instance and a quantified claim differ exactly
 -- here, and this is the second time that difference has been the whole
--- content of a finding this session â€” the first being that no finite
+-- content of a finding this session â” the first being that no finite
 -- prefix decides decay.  They are separate results about separate
 -- objects and neither derives the other.
 ------------------------------------------------------------------------

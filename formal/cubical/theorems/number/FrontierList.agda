@@ -8,17 +8,17 @@
 -- caller.  Here the list is COMPUTED from the frontier, and its two
 -- hypotheses are DECIDED, so a frontier costs one `refl` each.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE CONSTRUCTION
 --
---     frontierList k  =  [ (p , âŒŠlog_p kâŒ‹) | p prime, p â‰¤ k ]
+--     frontierList k  =  [ (p , âŠlog_p kâ‹) | p prime, p â‰ k ]
 --
--- computed by filtering `PrimalityDecision.decIsPrime` over `1 â€¦ k` and
--- pairing each prime with the largest exponent whose power stays â‰¤ k.
--- At k = 8 it is `(2,3) âˆ· (3,1) âˆ· (5,1) âˆ· (7,1) âˆ· []`, by `refl`, and its
+-- computed by filtering `PrimalityDecision.decIsPrime` over `1 â¦ k` and
+-- pairing each prime with the largest exponent whose power stays â‰ k.
+-- At k = 8 it is `(2,3) âˆ (3,1) âˆ (5,1) âˆ (7,1) âˆ []`, by `refl`, and its
 -- product is 840.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- AND THE HYPOTHESES ARE DECIDABLE
 --
 -- `AllPrime` is a conjunction of decidable primalities and `Distinct` a
@@ -29,23 +29,23 @@
 --       (fromDec (decAllPrime _) refl)
 --       (fromDec (decDistinct _) refl)
 --
--- â€” three `refl`s and no proof obligations.  That is what
+-- â” three `refl`s and no proof obligations.  That is what
 -- `WalkObservationCount`'s hand-composed three CRT steps have become.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
 -- That `prodOf (frontierList k) â‰¡ lcm(1..k)`, i.e. that this list is the
--- walk's actual capacity.  It is â€” the standard formula
--- `lcm(1..n) = âˆ_{p â‰¤ n} p^âŒŠlog_p nâŒ‹` â€” and proving it needs existence of
+-- walk's actual capacity.  It is â” the standard formula
+-- `lcm(1..n) = âˆ_{p â‰ n} p^âŠlog_p nâ‹` â” and proving it needs existence of
 -- prime factorisation, which this lane does not carry.  Per CLAUDE.md the
 -- right form is the universal property: that `prodOf (frontierList k)` is
--- divisible by every `m â‰¤ k` and divides every common multiple.  Neither
+-- divisible by every `m â‰ k` and divides every common multiple.  Neither
 -- half is proved here.
 --
 -- What IS available at every concrete frontier is the equality by
 -- computation, and `frontier8-is-840` / `frontier12-is-27720` check two.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -85,7 +85,7 @@ fromDec (no  _) p = E.rec (falseâ‰¢true p)
 -- 2.  The frontier's list
 ------------------------------------------------------------------------
 
--- largest i with p ^ i â‰¤ k, searched over a bound that always suffices
+-- largest i with p ^ i â‰ k, searched over a bound that always suffices
 expOf : â„• â†’ â„• â†’ â„• â†’ â„•
 expOf p k zero      = 0
 expOf p k (suc gas) with â‰¤Dec (p ^ (suc (expOf p k gas))) k
@@ -95,7 +95,7 @@ expOf p k (suc gas) with â‰¤Dec (p ^ (suc (expOf p k gas))) k
 logOf : â„• â†’ â„• â†’ â„•
 logOf p k = expOf p k k
 
--- 1 â€¦ k, descending, then filtered
+-- 1 â¦ k, descending, then filtered
 downFrom : â„• â†’ List â„•
 downFrom zero    = []
 downFrom (suc n) = suc n âˆ· downFrom n
@@ -182,6 +182,6 @@ count8 = countAt 8 refl refl
 --
 -- The one thing left is not a computation: that this product IS
 -- `lcm(1..k)`.  Stated as a universal property per CLAUDE.md, that is two
--- halves â€” divisible by every `m â‰¤ k`, and dividing every common multiple
--- â€” and it needs existence of prime factorisation.  Named, not waved at.
+-- halves â” divisible by every `m â‰ k`, and dividing every common multiple
+-- â” and it needs existence of prime factorisation.  Named, not waved at.
 ------------------------------------------------------------------------

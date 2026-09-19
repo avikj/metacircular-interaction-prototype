@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- पूर्ण-अभेद — the complete identification.
+-- �����-���� � the complete identification.
 --
 -- From triviality to identity.  The kernel theorem said which words
 -- act trivially; this file upgrades it to which words act THE SAME:
 --
 --   §1  TWIST WORDS WITH EQUAL COUNTS MOD FOUR ACT IDENTICALLY, on
---       every rope — the reading theorem routes both through their
+--       every rope � the reading theorem routes both through their
 --       residues, and reader extensionality closes the streams.
 --
 --   §2  BRAID WORDS WITH EQUAL PERMUTATION ACTIONS AND EQUAL DEPOSITED
---       COUNTS MOD FOUR ACT IDENTICALLY — the normal form on each
+--       COUNTS MOD FOUR ACT IDENTICALLY � the normal form on each
 --       side, the swap hypothesis in the middle, §1 to finish.
 --
 -- The memory account is thereby COMPLETE as an upper bound: the pair
 -- (permutation action, twist counts mod four) determines the braid's
--- action outright.  With the kernel theorem giving the lower bound —
--- distinct invariants are detected by the two ropes — the braid's
+-- action outright.  With the kernel theorem giving the lower bound �
+-- distinct invariants are detected by the two ropes � the braid's
 -- observational identity IS the pair of invariants: what a braid is,
 -- to every possible observer, is where it sends the strands and what
 -- it deposited on them, to the fourth turn.
@@ -38,13 +38,13 @@ open import NirupaSutra_EveryBraidWordIsItsBarePermutationFollowedByAComputedTwi
   using (vēṇī-gaṇa ; svap-gaṇa ; T ; nirūpa)
 open import GhurnaPatha_EachStrandReadsExactlyItsOwnTwistCountSoTheTwistWordActsByItsCountVector
   using (cakrāvartana ; gaṇanā ; pāṭha-gaṇanā)
-open import CatuhSesaSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanishesModFour
+open import CatuhResidueSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanishesModFour
   using (catuḥśeṣa ; śeṣa-cakra ; pāṭha-sāmya)
 open import AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid
   using (gāḍha)
 
 ------------------------------------------------------------------------
--- १ · Equal counts mod four, equal twist actions.
+-- � � Equal counts mod four, equal twist actions.
 ------------------------------------------------------------------------
 
 samāna-gaṇa : (t t' : List ℕ)
@@ -58,7 +58,7 @@ samāna-gaṇa t t' h x = pāṭha-sāmya λ j →
   ∙ sym (pāṭha-gaṇanā t' j x)
 
 ------------------------------------------------------------------------
--- २ · Equal invariants, equal braid actions.
+-- � � Equal invariants, equal braid actions.
 ------------------------------------------------------------------------
 
 pūrṇa-abheda : (w v : List ℕ)

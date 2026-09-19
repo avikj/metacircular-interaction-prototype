@@ -1,0 +1,69 @@
+@use "../mixins.scss" as *;
+@use "../vars.scss"   as *;
+@use "../theme.scss"  as *;
+
+span.sidenote-baseline-mark {
+  width: 0px;
+  vertical-align: baseline;
+  display: inline-block;
+}
+
+// To correctly align the sidenotes we need a pair of elements, one the
+// height of a line, and one aligned to its baseline. Previously we used
+// the sidenote number as the reference for line top, but this is only
+// correct when the sidenote number font size matches the sidenote text
+// font size.
+//
+// Instead we append this extra span which inherits the sidenote text
+// font size so the measurement is always correct.
+span.sidenote-ascender-mark {
+  position:  absolute;
+  font-size: var(--font-size);
+}
+
+div.sidenote {
+  @include shrink;
+
+  position: absolute;
+  width:    100%;
+  right:    0;
+
+  > *:nth-child(3) { margin-block-start: 0 !important; }
+  > *:last-child   { margin-block-end:   0 !important; }
+
+  // Always justify sidenote content
+  text-align:  justify;
+  hyphens:     auto;
+
+  --font-size:      #{$footnote-font};
+  --code-font-size: #{0.9 * $footnote-font};
+
+  // Pack block-level elements slightly closer together.
+
+  > span.sidenote-number {
+    position: absolute;
+    width:    100%;
+    top:      -1.5em;
+
+    text-align: right;
+
+    border-bottom: #{$ruler-size} dotted theme(--text-fg);
+  }
+
+  a.footnote-back { display: none; }
+}
+
+section.footnotes {
+  display: block;
+  @include widescreen { display: none; }
+}
+
+aside#sidenote-container {
+  display:  none;
+
+  position: relative;
+
+  grid-column: gutter;
+  margin-left: $sidenote-separation;
+  @include widescreen { display: block; }
+}

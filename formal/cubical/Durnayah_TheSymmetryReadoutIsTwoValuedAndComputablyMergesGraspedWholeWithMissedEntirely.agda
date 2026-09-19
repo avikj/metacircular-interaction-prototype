@@ -1,46 +1,46 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É ‡§∏‡§æ‡§Æ‡§∞‡•ç‡§•‡•ç‡§Ø‡•á ‚Äî the symmetry readout is two-valued, therefore a
+-- ‡¶‡‡∞‡‡®‡Ø‡ ‡‡æ‡Æ‡∞‡‡‡‡Ø‡ ‚î the symmetry readout is two-valued, therefore a
 -- durnaya, and WHICH two seeds it identifies is computed, not argued.
 --
--- ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø: a naya that asserts itself by denying the others ‚Äî Siddhasena
--- DivƒÅkara, *Sanmatitarka* 1.21, c. 5th c. CE.  Carried at ‡§ó‡•ç‡§∞‡•á‡§°¬∑‡§∂‡§¨‡•ç‡§¶ from
+-- ‡¶‡‡∞‡‡®‡Ø: a naya that asserts itself by denying the others ‚î Siddhasena
+-- Divkara, *Sanmatitarka* 1.21, c. 5th c. CE.  Carried at ‡ó‡‡∞‡‡°¬‡‡‡‡¶ from
 -- `SaptabhangiSamyoga`'s source list; no edition opened by me.  Nothing
 -- below is claimed to be Siddhasena's.
 --
 ------------------------------------------------------------------------
--- `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` proves that ANY `f : ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚Üí ‡§¶‡•ç‡§µ‡§ø‡§™‡§¶` identifies two
+-- `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` proves that ANY `f : ‡‡‡‡‡‡ô‡‡ó‡ ‚í ‡¶‡‡µ‡ø‡‡¶` identifies two
 -- of the three seeds.  It has been read here as a fact about boolean
 -- verdicts inside this machine.  It is a fact about every two-valued
 -- instrument applied to a threefold situation, and the SYMMETRY GROUP is
 -- one of those.
 --
 -- THE READING, stated first because the checked part is small and the
--- reading is what makes it worth writing.  For `f : A ‚Üí B`, an automorphism
+-- reading is what makes it worth writing.  For `f : A ‚í B`, an automorphism
 -- of A over B restricts to a self-equivalence of each fibre.  A fibre that
--- is a PROPOSITION ‚Äî empty or contractible ‚Äî has exactly one.  So the
+-- is a PROPOSITION ‚î empty or contractible ‚î has exactly one.  So the
 -- conserving group is a product over the CROWDED points only, and it is
 -- trivial for every embedding, no matter how much of B that embedding
 -- misses.  `Aut_B(A)` therefore reads exactly ONE of the three census
--- coordinates: whether ‡§®‡§æ‡§∏‡•ç‡§§‡§ø occurs anywhere.
+-- coordinates: whether ‡®‡æ‡‡‡‡ø occurs anywhere.
 --
 -- NOT CHECKED HERE, and named so it is not mistaken for checked: the
--- equivalence `Aut_B(A) ‚âÉ Œ†_b Aut(‡§∂‡•á‡§∑ f b)` and its corollary that the group
+-- equivalence `Aut_B(A) ‚â Œ†_b Aut(‡‡‡ f b)` and its corollary that the group
 -- is trivial exactly on embeddings.  That is the term this module is
--- waiting for.  `AtmasamataUpari_‚Ä¶` already carries the two poles (trivial
+-- waiting for.  `AtmaequalityUpari_‚¶` already carries the two poles (trivial
 -- at `isEquiv`, all of `Aut(A)` at total collapse) and the interior is what
--- is missing.  Until it lands, ¬ß1 is a MODEL of the readout ‚Äî a map
--- ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚Üí ‡§¶‡•ç‡§µ‡§ø‡§™‡§¶ defined by the ‡§®‡§æ‡§∏‡•ç‡§§‡§ø slot ‚Äî and every theorem here is a
+-- is missing.  Until it lands, ¬ß1 is a MODEL of the readout ‚î a map
+-- ‡‡‡‡‡‡ô‡‡ó‡ ‚í ‡¶‡‡µ‡ø‡‡¶ defined by the ‡®‡æ‡‡‡‡ø slot ‚î and every theorem here is a
 -- theorem about the model.
 --
 -- WHAT IS CHECKED:
 --
---   ¬ß2  the model merges ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø with ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç (refl) and separates
---       ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø from ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø.  The identification is that pair and no
+--   ¬ß2  the model merges ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø with ‡‡‡Ø‡æ‡‡-‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ (refl) and separates
+--       ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø from ‡‡‡Ø‡æ‡‡-‡®‡æ‡‡‡‡ø.  The identification is that pair and no
 --       other.
---   ¬ß3  `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` RUN ON THIS READOUT reduces to `inr (inl refl)`
---       ‚Äî the middle disjunct ‚Äî by `refl`.  The corpus's theorem does not
+--   ¬ß3  `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` RUN ON THIS READOUT reduces to `inr (inl refl)`
+--       ‚î the middle disjunct ‚î by `refl`.  The corpus's theorem does not
 --       merely apply; it COMPUTES the diagnosis.
 --
 -- WHAT IT SAYS.  A two-valued readout of the threefold must identify two,
@@ -53,8 +53,8 @@
 -- denotation computes the size), so compression measures crowding.  A
 -- scalar gain is two-valued at any threshold.  A test list samples the
 -- SOURCE, so it can witness confusion and never absence.
--- `YantraTantu_‚Ä¶¬ß5` proves the engine has a meaning no term of its
--- vocabulary reaches (`‡§Ö‡§™‡•ç‡§∞‡§æ‡§™‡•ç‡§Ø‡§Æ‡•ç`), and ¬ß6 records that the invention
+-- `MachineFiber_‚¶¬ß5` proves the engine has a meaning no term of its
+-- vocabulary reaches (`‡‡‡‡∞‡æ‡‡‡Ø‡Æ‡`), and ¬ß6 records that the invention
 -- trigger fires on a crowding quantity.  This module says why that is not
 -- a tuning error: the coordinate such a trigger would need is the one every
 -- instrument of this shape merges away.
@@ -78,8 +78,8 @@ open import Cubical.Relation.Nullary using (¬¨_)
 open import Saptabhangi
 
 ------------------------------------------------------------------------
--- ‡•ß ¬∑ the readout.  ‡§∏‡§§‡•ç = the conserving group is trivial (no crowded fibre
---     anywhere); ‡§Ö‡§∏‡§§‡•ç = it is not.  One coordinate out of three.
+-- ‡ß ¬ the readout.  ‡‡‡ = the conserving group is trivial (no crowded fibre
+--     anywhere); ‡‡‡‡ = it is not.  One coordinate out of three.
 ------------------------------------------------------------------------
 
 ‡§∏‡§§‡•ç‚â¢‡§Ö‡§∏‡§§‡•ç : ¬¨ (‡§∏‡§§‡•ç ‚â° ‡§Ö‡§∏‡§§‡•ç)
@@ -94,7 +94,7 @@ open import Saptabhangi
 ... | ‡§®   = ‡§∏‡§§‡•ç
 
 ------------------------------------------------------------------------
--- ‡•® ¬∑ which pair it identifies, and that it is exactly that pair.
+-- ‡® ¬ which pair it identifies, and that it is exactly that pair.
 ------------------------------------------------------------------------
 
 ‡§∏‡§æ‡§Æ‡§∞‡•ç‡§•‡•ç‡§Ø‡§Ç-‡§Æ‡•á‡§≤‡§Ø‡§§‡§ø : ‡§∏‡§æ‡§Æ‡§∞‡•ç‡§•‡•ç‡§Ø-‡§™‡§æ‡§†‡§É ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø ‚â° ‡§∏‡§æ‡§Æ‡§∞‡•ç‡§•‡•ç‡§Ø-‡§™‡§æ‡§†‡§É ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç
@@ -104,7 +104,7 @@ open import Saptabhangi
 ‡§∏‡§æ‡§Æ‡§∞‡•ç‡§•‡•ç‡§Ø‡§Ç-‡§µ‡§ø‡§µ‡•á‡§ö‡§Ø‡§§‡§ø = ‡§∏‡§§‡•ç‚â¢‡§Ö‡§∏‡§§‡•ç
 
 ------------------------------------------------------------------------
--- ‡•© ¬∑ ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É, run on it, COMPUTES the middle disjunct.
+-- ‡© ¬ ‡¶‡‡∞‡‡®‡Ø‡, run on it, COMPUTES the middle disjunct.
 ------------------------------------------------------------------------
 
 ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø-‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É : (‡§∏‡§æ‡§Æ‡§∞‡•ç‡§•‡•ç‡§Ø-‡§™‡§æ‡§†‡§É ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø ‚â° ‡§∏‡§æ‡§Æ‡§∞‡•ç‡§•‡•ç‡§Ø-‡§™‡§æ‡§†‡§É ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø)

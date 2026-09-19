@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤®à¥‚à¤²à¤µà¤¾à¤•à¥à¤¯à¤®à¥ Â· PROVENANCE OF THE NAME.
+-- à®àà²àµà¾à•àà¯à®à Â PROVENANCE OF THE NAME.
 --
--- à¤¦à¥à¤°à¥à¤¨à¤¯ Â· durnaya â€” a à¤¨à¤¯ that asserts itself by DENYING the others.  The
+-- à¦àà°àà¨à¯ Â durnaya â” a à¨à¯ that asserts itself by DENYING the others.  The
 -- point of the term, and the reason it is not just "a wrong view": a
 -- falsehood can be contradicted, and a concealed standpoint cannot, so the
--- durnaya is the worse case.  **Siddhasena DivÄkara, *Sanmatitarka* 1.21-25
--- (~5th c. CE); UmÄsvÄti, *TattvÄrthasÅ«tra* 1.34-35 (~2nd-5th c.) for à¤¨à¤¯
--- itself; argued at length in Akalaá¹…ka and in YaÅ›ovijaya, *NayopadeÅ›a*
+-- durnaya is the worse case.  **Siddhasena Divkara, *Sanmatitarka* 1.21-25
+-- (~5th c. CE); Umsvti, *Tattvrthastra* 1.34-35 (~2nd-5th c.) for à¨à¯
+-- itself; argued at length in Akalaka and in Yaovijaya, *Nayopadea*
 -- (~17th c.).**
 --
 -- **No claim is made that Siddhasena proved anything below.**  The doctrine
@@ -27,41 +27,41 @@
 --     collapse-characterisation :  a collapse exists  iff  AllNayasAgree P
 --
 -- and its author then recorded, in `collab/journals/claude_ananta.md`
--- (Landing 27, 2026-08-19), the sharpest thing left over â€” declining to
+-- (Landing 27, 2026-08-19), the sharpest thing left over â” declining to
 -- take it, so that someone else could:
 --
 --     "if every fibre is an hProp, AllNayasAgree degenerates to logical
 --      equivalence and the collapse prohibition may say far less than the
---      README asks it to â€” and the README asks it to govern real
+--      README asks it to â” and the README asks it to govern real
 --      disagreements between agents."
 --
 -- This module answers that.  The worry is CORRECT, and it is exact:
 --
 --   Â§2  over proposition-valued nayas the prohibition is nothing more than
---       mutual entailment â€” `AllNayasAgree` and `MutuallyEntail` coincide;
---   Â§4  off them it is strictly more â€” `Mixed` (the very witness that
+--       mutual entailment â” `AllNayasAgree` and `MutuallyEntail` coincide;
+--   Â§4  off them it is strictly more â” `Mixed` (the very witness that
 --       refuted the old dichotomy) mutually entails and does not agree;
 --   Â§5  and the reason is exactly non-propositionality: `Mixed`'s second
 --       fibre is `Bool`, which is not an hProp.
 --
--- So the content of à¤…à¤¨à¥‡à¤•à¤¾à¤¨à¥à¤¤ here is precisely the content a standpoint
+-- So the content of àà¨àà•à¾à¨àà here is precisely the content a standpoint
 -- carries BEYOND its truth value.  If a naya is only a proposition, the
--- ahiá¹ƒsÄ rule reduces to "they imply each other" and governs nothing an
+-- ahis rule reduces to "they imply each other" and governs nothing an
 -- ordinary biconditional would not.  That is the answer to the README
 -- question: the rule governs real disagreements only because a naya is a
--- TYPE, not a truth value.  Unit and Bool are both inhabited â€” they
--- agree in every proposition-valued respect â€” and still cannot be identified.
+-- TYPE, not a truth value.  Unit and Bool are both inhabited â” they
+-- agree in every proposition-valued respect â” and still cannot be identified.
 --
 -- Â§6 then restores the struck gloss exactly where it is true.  Over fibres
 -- that are propositions AND stable, there IS no third option: absence of
--- the third bhaá¹…ga forces collapse.  Â§7 records what the stability
+-- the third bhaga forces collapse.  Â§7 records what the stability
 -- hypothesis is buying, because without it the argument delivers only a
--- double negation â€” the same boundary `Abhava`/`Yogya-anupalabdhi` keep
+-- double negation â” the same boundary `Abhava`/`Yogya-anupalabdhi` keep
 -- reaching, from the other side.
 --
 -- WHAT IS CLAIMED OF THE SOURCE.  Nothing new.  `durnaya`, and the defect
--- of a naya asserted to the exclusion of others, are Siddhasena DivÄkara
--- (*Sanmatitarka*) and Akalaá¹…ka's.  The hProp boundary below is this
+-- of a naya asserted to the exclusion of others, are Siddhasena Divkara
+-- (*Sanmatitarka*) and Akalaka's.  The hProp boundary below is this
 -- corpus's mathematics, named for the act the tradition named, exactly as
 -- the module it corrects argues.
 --
@@ -87,7 +87,7 @@ private
     â„“ â„“' : Level
 
 ------------------------------------------------------------------------
--- 1.  Mutual entailment â€” what "these standpoints agree" means when a
+-- 1.  Mutual entailment â” what "these standpoints agree" means when a
 --     standpoint is only a truth value.  One quantifier covers both
 --     directions: swap s and t.
 ------------------------------------------------------------------------
@@ -128,7 +128,7 @@ collapse-iff-entail-onProps P sâ‚€ pr =
 ------------------------------------------------------------------------
 -- 4.  Off the propositional world the two come apart, and the witness is
 --     already in the corpus: `Mixed`, which refuted the old dichotomy.
---     Unit and Bool imply each other â€” both are inhabited â€” and are not
+--     Unit and Bool imply each other â” both are inhabited â” and are not
 --     equivalent.  So the prohibition is STRICTLY stronger than mutual
 --     entailment in general.
 ------------------------------------------------------------------------
@@ -144,7 +144,7 @@ entail-does-not-imply-agree = Mixed , Mixed-entails , Mixed-not-agree
 ------------------------------------------------------------------------
 -- 5.  And the separation is caused by exactly one thing: a fibre that is
 --     not a proposition.  By Â§2 no proposition-valued family can witness
---     this, so `Mixed`'s second fibre must fail isProp â€” it does.
+--     this, so `Mixed`'s second fibre must fail isProp â” it does.
 ------------------------------------------------------------------------
 
 Â¬isPropBool : Â¬ (isProp Bool)
@@ -154,7 +154,7 @@ Mixed-is-not-proposition-valued : Â¬ ((b : Bool) â†’ isProp (Mixed b))
 Mixed-is-not-proposition-valued pr = Â¬isPropBool (pr false)
 
 -- The general statement of Â§4+Â§5 together: any separating family is
--- non-propositional.  (Contrapositive of Â§2 â€” recorded because it is the
+-- non-propositional.  (Contrapositive of Â§2 â” recorded because it is the
 -- sentence the README needs, not the instance.)
 separator-is-not-proposition-valued :
   {S : Type â„“} (P : S â†’ Type â„“') â†’
@@ -182,9 +182,9 @@ no-third-option-onStableProps P sâ‚€ pr st Â¬astinÄsti =
 ------------------------------------------------------------------------
 -- 7.  What stability is buying, stated rather than hidden.
 --
---     Without it the same argument delivers only Â¬Â¬(P t).  So the
+--     Without it the same argument delivers only ÂÂ(P t).  So the
 --     restored dichotomy of Â§6 is exact on DECIDED absences and holds
---     only up to double negation otherwise â€” which is where
+--     only up to double negation otherwise â” which is where
 --     `Abhava` (decidability of the counterpositive sets the level) and
 --     `Yogya-anupalabdhi` (fitness is necessary only up to double
 --     negation) already are.  Three lines of this corpus meet at the

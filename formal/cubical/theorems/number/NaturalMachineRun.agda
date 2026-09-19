@@ -9,19 +9,19 @@
 -- checked theorem says the machine is correct; this module says it
 -- computes, and shows what it computes to.
 --
---   §1  positional arithmetic runs — schoolbook carrying, base 10 and
+--   §1  positional arithmetic runs � schoolbook carrying, base 10 and
 --       base 2, by the constructions of Digits/Transport
---   §2  UNIVALENCE RUNS — the addition transported along the path
---       ℕ ≡ CanWord is applied to actual digit words and the answer
+--   §2  UNIVALENCE RUNS � the addition transported along the path
+--       � ≡ CanWord is applied to actual digit words and the answer
 --       comes back correct; the equivalence is a program, not a
 --       label
---   §3  the kuṭṭaka pulverizer runs — Āryabhaṭa's vallī replayed by
+--   §3  the kuaka pulverizer runs � ryabhaa's vall replayed by
 --       the kernel, reproducing the matrix codex-vajra's lane computed
 --       independently for (153,112)
---   §4  macro compression runs — a compiled repeated block evaluates
+--   §4  macro compression runs � a compiled repeated block evaluates
 --       to the identical matrix as its expansion (KuttakaValli.macroSound,
 --       executed rather than merely proved)
---   §5  the rank-one chart runs — a chart point multiplies the R0027
+--   §5  the rank-one chart runs � a chart point multiplies the R0027
 --       cell to the endpoint on the nose
 --
 -- Nothing here is a test in the software sense: a test compares two
@@ -60,16 +60,16 @@ run-decimal = refl
 run-decimal-cascade : valueC (digitsC 99 ⊕ digitsC 1) ≡ 100
 run-decimal-cascade = refl
 
--- base 2, same machine at a different base: 101₂ + 11₂ = 1000₂.
+-- base 2, same machine at a different base: 101� + 11� = 1000�.
 run-binary : Base2.valueC (Base2.digitsC 5 Base2.⊕ Base2.digitsC 3) ≡ 8
 run-binary = refl
 
 ------------------------------------------------------------------------
 -- §2  Univalence runs
 --
--- `ℕ≡CanWord` is a path between two types.  Transporting `+` along it
+-- `�≡CanWord` is a path between two types.  Transporting `+` along it
 -- produces a function on digit words.  In cubical type theory that
--- transport is not an assertion of correspondence — it is a program,
+-- transport is not an assertion of correspondence � it is a program,
 -- and here it is applied to real inputs.  The kernel evaluates the
 -- transported addition of the words for 47 and 68 and returns 115.
 ------------------------------------------------------------------------
@@ -86,9 +86,9 @@ run-univalence = refl
 ------------------------------------------------------------------------
 -- §3  The pulverizer runs
 --
--- The vallī (1,2,1,2,1,2,1,2) is the canonical Euclidean quotient
--- trace of the pair (153,112).  Replaying it — one matrix step per
--- row of the vallī, KuttakaValli.replay — must rebuild the pair.  The
+-- The vall (1,2,1,2,1,2,1,2) is the canonical Euclidean quotient
+-- trace of the pair (153,112).  Replaying it � one matrix step per
+-- row of the vall, KuttakaValli.replay � must rebuild the pair.  The
 -- value below was computed independently in the trace-macro lane
 -- now reproduces it from the typed definition.
 ------------------------------------------------------------------------

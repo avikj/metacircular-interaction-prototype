@@ -1,0 +1,166 @@
+// Styling for source code, both Agda-specific and generic
+
+@use "vars.scss"   as *;
+@use "mixins.scss" as *;
+@use "theme.scss"  as *;
+
+@font-face {
+  font-family: 'Julia Mono';
+  font-display: swap;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  src: url('../static/ttf/julia-mono.ttf') format('truetype');
+}
+
+code, pre, .sourceCode { @include monospaced; }
+
+code, pre { max-width: 100%; }
+
+div.sourceCode {
+  overflow-x: auto;
+
+  > pre {
+    background-color: theme(--code-bg);
+    color:            theme(--code-fg);
+
+    flex-grow: 0;
+
+    overflow-x: auto;
+    line-height: #{1 + $body-line-height};
+
+    code {
+      display: block;
+    }
+
+    > pre {
+      padding: unset;
+      margin-top: unset;
+      margin-bottom: unset;
+      box-shadow: unset;
+
+      margin: 0;
+
+      overflow-y: clip;
+    }
+  }
+
+  @include material(theme(--code-bg));
+}
+
+pre.Agda, div.sourceCode > pre {
+  box-shadow: none;
+  overflow-x: auto;
+  overflow-y: clip;
+
+  // The horizontal margin should be 1rem (the width of the padding for paragraphs
+  // with borders) *plus* 5px. This was measured empirically.
+  margin: var(--parskip) 0 var(--parskip) 1ch;
+
+  background-color: theme(--text-bg);
+  color:            theme(--text-fg);
+}
+
+@keyframes highlight {
+  0% {
+    background-color: theme(--code-highlight);
+  }
+  100% {
+    background-color: theme(--code-bg);
+  }
+}
+
+a[href].hover-highlight {
+  background-color: theme(--code-highlight);
+  isolation: isolate;
+}
+
+/* Aspects. */
+.Agda {
+  .Background    { background-color: theme(--code-bg); }
+
+  .Comment       { color: theme(--code-comment); font-style: italic; }
+  .Markup        { color: theme(--code-comment); }
+  .Keyword       { color: theme(--code-keyword); }
+  .String        { color: theme(--code-string); }
+  .Number        { color: theme(--code-number); }
+  .Symbol        { color: theme(--code-fg); }
+  .PrimitiveType { color: theme(--code-identifier); }
+  .Pragma        { color: theme(--code-comment); }
+
+/* NameKinds. */
+  .Bound                  { color: theme(--code-fg)          !important; }
+  .Generalizable          { color: theme(--code-fg)          !important; }
+  .InductiveConstructor   { color: theme(--code-constructor) !important; }
+  .CoinductiveConstructor { color: theme(--code-constructor) !important; }
+  .Field                  { color: theme(--code-field)       !important; }
+  .Module                 { color: theme(--code-module)      !important; }
+
+  .Datatype               { color: theme(--code-identifier) !important; }
+  .Function               { color: theme(--code-identifier) !important; }
+  .Macro                  { color: theme(--code-macro)      !important; }
+  .Postulate              { color: theme(--code-identifier) !important; }
+  .Primitive              { color: theme(--code-identifier) !important; }
+  .Record                 { color: theme(--code-identifier) !important; }
+
+/* OtherAspects. */
+  .UnsolvedMeta         { color: theme(--code-fg); background: #806b00   }
+  .UnsolvedConstraint   { color: theme(--code-fg); background: #806b00   }
+  .TerminationProblem   { color: theme(--code-fg); background: #FFA07A  }
+  .IncompletePattern    { color: theme(--code-fg); background: #F5DEB3  }
+  .Error                { color: red;   text-decoration: underline }
+  .TypeChecks           { color: theme(--code-fg); background: #ADD8E6  }
+  .ShadowingInTelescope { color: theme(--code-fg); background: #808080  }
+
+  .Deadcode {
+    color: theme(--code-keyword);
+    font-weight: bold;
+  }
+
+  /* Standard attributes. */
+  a { text-decoration: none }
+  a[href]:hover {
+    text-decoration: 2px theme(--primary) underline;
+  }
+  a[href]:target {
+    animation: highlight 2.5s;
+  }
+
+  @include monospaced;
+
+  font-size: initial;
+  body.text-page &, .reveal & {
+    font-size: var(--code-font-size);
+  }
+}
+
+h1 + .Agda, h2 + .Agda, h3 + .Agda, h4 + .Agda, h5 + .Agda, h6 + .Agda {
+  margin-block-start: 1em;
+}
+
+// Styles for code
+code.kw, span.kw { color: theme(--code-keyword); } /* Keyword */
+code.dt, span.dt { color: theme(--primary); } /* DataType */
+code.dv, span.dv { color: theme(--code-number); } /* DecVal */
+code.bn, span.bn { color: theme(--code-number); } /* BaseN */
+code.fl, span.fl { color: theme(--code-number); } /* Float */
+code.ch, span.ch { color: theme(--code-string); } /* Char */
+code.st, span.st { color: theme(--code-string); } /* String */
+code.co, span.co { color: theme(--code-fg); font-style: italic; } /* Comment */
+code.ot, span.ot { color: theme(--code-constructor); } /* Other */
+code.al, span.al { color: #ff0000; } /* Alert */
+code.fu, span.fu { color: theme(--code-fg); } /* Function */
+code.er, span.er { color: #ff0000; } /* Error */
+code.wa, span.wa { color: #60a0b0; } /* Warning */
+code.cn, span.cn { color: theme(--code-keyword); } /* Constant */
+code.sc, span.sc { color: theme(--code-keyword); } /* SpecialChar */
+code.vs, span.vs { color: theme(--primary); } /* VerbatimString */
+code.ss, span.ss { color: theme(--code-string); } /* SpecialString */
+code.va, span.va { color: theme(--code-fg); } /* Variable */
+code.cf, span.cf { color: theme(--code-keyword); } /* ControlFlow */
+code.op, span.op { color: theme(--code-constructor); } /* Operator */
+code.pp, span.pp { color: theme(--code-constructor); } /* Preprocessor */
+code.at, span.at { color: theme(--code-constructor); } /* Attribute */
+code.do, span.do { color: theme(--code-string); } /* Documentation */
+code.an, span.an { color: theme(--code-string); } /* Annotation */
+code.cv, span.cv { color: theme(--code-string); } /* CommentVar */

@@ -4,9 +4,9 @@
 
 ## Scope
 
-This note develops two extensions of the preceding prime-receiver and Navierâ€“Stokes observer calculations. The first is an exact arbitrary-depth continuation-separation theorem inside a globally smooth, unforced Navierâ€“Stokes class, together with quantitative bounds and a passive memory realization. The second is a fixed two-packet specialization of the Weil positivity criterion, with a nonvanishing multiplier and an unconditionally positive, prime-free diagonal.
+This note develops two extensions of the preceding prime-receiver and Navierâ“Stokes observer calculations. The first is an exact arbitrary-depth continuation-separation theorem inside a globally smooth, unforced Navierâ“Stokes class, together with quantitative bounds and a passive memory realization. The second is a fixed two-packet specialization of the Weil positivity criterion, with a nonvanishing multiplier and an unconditionally positive, prime-free diagonal.
 
-The arguments are mathematical derivations. They are not newly compiled Agda/Lean modules, and no originality-priority assertion is made. The accompanying executable verifies finite algebraic identities. Neither general three-dimensional Navierâ€“Stokes regularity nor the Riemann hypothesis is established.
+The arguments are mathematical derivations. They are not newly compiled Agda/Lean modules, and no originality-priority assertion is made. The accompanying executable verifies finite algebraic identities. Neither general three-dimensional Navierâ“Stokes regularity nor the Riemann hypothesis is established.
 
 Repository reads are pinned to `64effa62411bad3c12d513b2df5a1e5e55946afb`. The relevant verified-source constructions are `MergingASeparatedPairBreaksAtTheSeparatingContinuation.agda` and `FutureSeparation.agda`. The former takes a separating continuation as input and rules out a decoder on a compression that merges its two source states. The latter distinguishes a witnessed finite separator from merely negated future equivalence. The present PDE construction supplies actual separating witnesses, not an inference from abstract non-equivalence alone.
 
@@ -31,7 +31,7 @@ Then, for \(\sigma\in\{+1,-1\}\),
 u^\sigma=(0,a,\sigma v),\qquad p^\sigma=0
 \]
 
-solves unforced three-dimensional incompressible Navierâ€“Stokes. Indeed, the divergence is zero; the second component solves the heat equation; the only nonzero convective term is \(\sigma a v_{x_2}\) in the third component; and that component has no \(x_3\) dependence, so its divergence is zero and pressure may be identically zero.
+solves unforced three-dimensional incompressible Navierâ“Stokes. Indeed, the divergence is zero; the second component solves the heat equation; the only nonzero convective term is \(\sigma a v_{x_2}\) in the third component; and that component has no \(x_3\) dependence, so its divergence is zero and pressure may be identically zero.
 
 These solutions are smooth for all finite times. The coefficient \(a\) is smooth and bounded with all derivatives on each finite time interval. Differentiating the linear scalar equation, integrating by parts, and inducting in Sobolev order gives finite bounds at every order. This is a direct global existence argument for this triangular class, not an appeal to general 3D regularity.
 
@@ -91,7 +91,7 @@ c_k^{(r+1)}(0)=-\nu(1+N^2k^2)c_k^{(r)}(0)
 \bigl(c_{k-1}^{(r-\ell)}(0)+c_{k+1}^{(r-\ell)}(0)\bigr).
 \]
 
-This proves (2.2). Since the solutions are smooth through time zero, the nonzero leading derivative also proves that their resolved futures differ for all sufficiently small positive times. âˆŽ
+This proves (2.2). Since the solutions are smooth through time zero, the nonzero leading derivative also proves that their resolved futures differ for all sufficiently small positive times. âˆ
 
 ### Resolved stress jets also agree to arbitrary prescribed order
 
@@ -135,7 +135,7 @@ Q_{\rm inv}=-\tfrac12\operatorname{tr}((\nabla u)^2)=0,
 \qquad R_{\rm inv}=-\det(\nabla u)=0
 \]
 
-for both solutions, at every spaceâ€“time point. These equalities do not prevent the explicit continuation separation in (2.3).
+for both solutions, at every spaceâ“time point. These equalities do not prevent the explicit continuation separation in (2.3).
 
 ## 3. Quantitative suppression of the hidden continuation
 
@@ -199,7 +199,7 @@ A path from \(-m\) to zero has length \(m+2r\), with \(r\) left moves and \(m+r\
 
 The initial norm is \(C\), proving (3.2).
 
-Finally, \((m+r)!\ge m!(m+1)^r\) in the series for \(I_m\), giving (3.3). âˆŽ
+Finally, \((m+r)!\ge m!(m+1)^r\) in the series for \(I_m\), giving (3.3). âˆ
 
 The asymptotic at zero is
 
@@ -211,7 +211,7 @@ so the order of the path bound agrees with the exact first visible derivative.
 
 **Consequence.** Arbitrarily many invisible derivatives do not imply an arbitrarily long physical memory. In this class, the relevant interaction amplitude is bounded by \(A/(\nu N^2)\), and distant hidden modes have factorially small influence on the fixed resolved mode. This is an actual stability estimate, not merely a statement that an inverse is unavailable.
 
-For an arbitrary initial coefficient vector supported on \(|k|\ge m\), the same entrywise path bounds and Cauchyâ€“Schwarz give the further estimate
+For an arbitrary initial coefficient vector supported on \(|k|\ge m\), the same entrywise path bounds and Cauchyâ“Schwarz give the further estimate
 
 \[
 |c_0(t)|\le e^{-\nu t}\|c(0)\|_{\ell^2}
@@ -327,11 +327,11 @@ Then
 \Re\langle y_x,Cx\rangle.
 \]
 
-Since \(C=-B^*\), the last term equals \(-\Re(\bar x By_x)\). Substitute the variation-of-constants expression for \(y_x\) and integrate. âˆŽ
+Since \(C=-B^*\), the last term equals \(-\Re(\bar x By_x)\). Substitute the variation-of-constants expression for \(y_x\) and integrate. âˆ
 
 The memory can produce instantaneous backscatter. Formula (4.8) does not assert a pointwise sign of \(K(t,s)\). It proves the required sign for the accumulated quadratic work when the induced fine response starts from zero. Nonzero initial fine energy appears separately in \(\eta\).
 
-This is the exact linear nonautonomous memory-elimination construction used in Moriâ€“Zwanzig and generalized Langevin methods. The present additional information is the explicit PDE realization, the delay hierarchy, the path bound, and the quantified fine propagator for this class.
+This is the exact linear nonautonomous memory-elimination construction used in Moriâ“Zwanzig and generalized Langevin methods. The present additional information is the explicit PDE realization, the delay hierarchy, the path bound, and the quantified fine propagator for this class.
 
 ## 5. The precise term obstructing transfer to general NS secants
 
@@ -373,7 +373,7 @@ For a fixed high-frequency orthogonal projection whose range has spatial frequen
 \tag{5.2}
 \]
 
-where \(S^-\) is the positive semidefinite negative part of the symmetric matrix. This follows directly from (5.1), PoincarÃ© on the high-frequency range, and GrÃ¶nwall. It is an estimate for a specified projected secant equation along already smooth trajectories, not an a priori bound on the strain integral.
+where \(S^-\) is the positive semidefinite negative part of the symmetric matrix. This follows directly from (5.1), Poincar© on the high-frequency range, and Grnwall. It is an estimate for a specified projected secant equation along already smooth trajectories, not an a priori bound on the strain integral.
 
 Thus lifting the passive-memory proof to arbitrary NS requires controlling the signed strain interaction, or a stronger structure that implies such control. Neither equality of \(Q_{\rm inv},R_{\rm inv}\) nor positive energy readings supplies that estimate.
 
@@ -481,7 +481,7 @@ Therefore
 |\arg G(z)|<2(6/25+13/100)=37/50<\pi/2.
 \]
 
-The series bounds used above are elementary: \(\sum_{j=0}^4 1/j!>100/37\); the tail-ratio bounds for the hyperbolic series give \(\cosh(1/8)-1<(1/128)/(1-1/768)<1/125\) and \(\sinh(1/8)<(1/8)/(1-1/384)<63/500\). âˆŽ
+The series bounds used above are elementary: \(\sum_{j=0}^4 1/j!>100/37\); the tail-ratio bounds for the hyperbolic series give \(\cosh(1/8)-1<(1/128)/(1-1/768)<1/125\) and \(\sinh(1/8)<(1/8)/(1-1/384)<63/500\). âˆ
 
 ## 7. The complete two-packet criterion
 
@@ -588,7 +588,7 @@ For \(\Re w>1/2\),
 \tag{7.6}
 \]
 
-All translates \(g(t-\log n)\) are supported in positive \(t\), so no endpoint truncation appears. If \(\mathcal Z\) is bounded, (7.4)â€“(7.5) make the left integrand in (7.6) bounded on the positive half-line. Its Laplace transform is therefore holomorphic for \(\Re w>0\). A zero with \(\Re\rho>1/2\) would give a pole at \(w=z_\rho\) with nonzero residue \(-m_\rho G(z_\rho)\), contradicting (6.3). Functional-equation symmetry excludes left-of-line zeros as well.
+All translates \(g(t-\log n)\) are supported in positive \(t\), so no endpoint truncation appears. If \(\mathcal Z\) is bounded, (7.4)â“(7.5) make the left integrand in (7.6) bounded on the positive half-line. Its Laplace transform is therefore holomorphic for \(\Re w>0\). A zero with \(\Re\rho>1/2\) would give a pole at \(w=z_\rho\) with nonzero residue \(-m_\rho G(z_\rho)\), contradicting (6.3). Functional-equation symmetry excludes left-of-line zeros as well.
 
 The matrix equivalence is elementary. Expanding (7.3d) gives
 
@@ -596,7 +596,7 @@ The matrix equivalence is elementary. Expanding (7.3d) gives
 M(1+|c|^2)+2\Re(c)\mathcal Z(t),
 \]
 
-which is nonnegative for every \(c\) exactly when \(|\mathcal Z(t)|\le M\). âˆŽ
+which is nonnegative for every \(c\) exactly when \(|\mathcal Z(t)|\le M\). âˆ
 
 In particular, if RH fails, some test of the form \(f+T_tf\) or \(f-T_tf\) has negative Weil value. This is a completeness statement for one packet shape and its translates, not a proof that those values are nonnegative.
 
@@ -690,8 +690,8 @@ M. Suzuki, *Aspects of the screw function corresponding to the Riemann zeta-func
 
 M. Suzuki, *Weil's quadratic form via the screw function*, arXiv:2606.09096v2, Theorems 1.3 and 1.4.
 
-A. Gouasmi, E. J. Parish, and K. Duraisamy, *A priori estimation of memory effects in reduced-order models of nonlinear systems using the Moriâ€“Zwanzig formalism*, Proceedings of the Royal Society A (2017), DOI 10.1098/rspa.2017.0385; arXiv:1611.06277.
+A. Gouasmi, E. J. Parish, and K. Duraisamy, *A priori estimation of memory effects in reduced-order models of nonlinear systems using the Moriâ“Zwanzig formalism*, Proceedings of the Royal Society A (2017), DOI 10.1098/rspa.2017.0385; arXiv:1611.06277.
 
-E. J. Parish and K. Duraisamy, *Non-Markovian Closure Models for Large Eddy Simulations using the Moriâ€“Zwanzig Formalism*, arXiv:1611.03311.
+E. J. Parish and K. Duraisamy, *Non-Markovian Closure Models for Large Eddy Simulations using the Moriâ“Zwanzig Formalism*, arXiv:1611.03311.
 
 The script `check_algebra.py` verifies exact leading jets and matching stress jets for m=1,...,8, the path-count/Bessel coefficient identity, the nilpotent gradient invariants, finite Fourier cross-block adjoint and dissipativity identities, the response factorization, and the rational sector bounds. These finite checks support but do not replace the all-order analytic proofs above.

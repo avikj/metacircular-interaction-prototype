@@ -1,0 +1,26 @@
+diff --git a/src/HVM/Runtime.h b/src/HVM/Runtime.h
+index a06a023..58101e3 100644
+--- a/src/HVM/Runtime.h
++++ b/src/HVM/Runtime.h
+@@ -213,7 +213,7 @@ void hvm_init();
+ void hvm_free();
+ State* hvm_get_state();
+ void hvm_set_state(State* hvm);
+-void hvm_define(u16 fid, Term (*func)());
++void hvm_define(u16 fid, Term (*func)(Term));
+ void hvm_set_cari(u16 cid, u16 arity);
+ void hvm_set_fari(u16 fid, u16 arity);
+ void hvm_set_clen(u16 cid, u16 cases);
+diff --git a/src/HVM/runtime/state.c b/src/HVM/runtime/state.c
+index edbcbdb..5cd9d77 100644
+--- a/src/HVM/runtime/state.c
++++ b/src/HVM/runtime/state.c
+@@ -34,7 +34,7 @@ void hvm_set_state(State* hvm) {
+   }
+ }
+ 
+-void hvm_define(u16 fid, Term (*func)()) {
++void hvm_define(u16 fid, Term (*func)(Term)) {
+   HVM.book[fid] = func;
+ }
+ 

@@ -8,7 +8,7 @@
 -- This module asks AGDA ITSELF for each elaborated type and definition.
 --
 -- Initial finite observation q:
---   declaration ↦ (Π-arity , head of elaborated conclusion)
+--   declaration � (Π-arity , head of elaborated conclusion)
 --
 -- The fibre of q is printed explicitly as the declarations at that locus.
 -- This is deliberately coarse: a demanded continuation can refine a locus;

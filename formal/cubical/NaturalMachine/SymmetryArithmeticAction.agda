@@ -93,7 +93,7 @@ pointwiseProduct-covariant : {n : ℕ} (e : Fin n ≃ Fin n)
 pointwiseProduct-covariant e weights registers = refl
 
 -- The action law is not inherently finite.  This generic form lets the
--- already-checked swap of 0 and 1 on ℕ supply a fully internal executable
+-- already-checked swap of 0 and 1 on � supply a fully internal executable
 -- witness without a second implementation language.
 actObservation : {X : Type₀} → (X ≃ X) → (X → ℕ) → X → ℕ
 actObservation e observation x = observation (equivFun e x)

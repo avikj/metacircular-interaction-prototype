@@ -1,116 +1,116 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- CakravalaBound — why the wheel does not run away: |k| stays below 2√D.
+-- CakravalaBound � why the wheel does not run away: |k| stays below 2�D.
 --
--- SOURCE AND PRIORITY.  The cakravāla ("cycle", "wheel") is stated by
--- JAYADEVA (~950 CE, surviving only through Udayadivākara's Sundarī,
--- 1073) and given in full by BHĀSKARA II, Bījagaṇita, 1150 CE.  Its
--- choice rule — among the m satisfying k | (a + bm), take one minimising
--- |m² − D| — is not a heuristic for speed.  It is what keeps the interim
+-- SOURCE AND PRIORITY.  The cakravla ("cycle", "wheel") is stated by
+-- JAYADEVA (~950 CE, surviving only through Udayadivkara's Sundar,
+-- 1073) and given in full by BHSKARA II, Bjagaita, 1150 CE.  Its
+-- choice rule � among the m satisfying k | (a + bm), take one minimising
+-- |m² − D| � is not a heuristic for speed.  It is what keeps the interim
 -- k's inside a fixed window, and a window is what turns an unbounded
 -- search into a wheel that must come round.  Lagrange proves an analogous
 -- termination for continued fractions in 1768, six hundred years later
 -- and for a different algorithm.
 --
 -- WHAT `CakravalaDescent.agda` LEAVES OPEN, verbatim: "Termination of the
--- cycle.  Minimality of Bhāskara's choice."  This file takes one bite out
+-- cycle.  Minimality of Bhskara's choice."  This file takes one bite out
 -- of the first, and it is the bite the classical argument takes: the
--- BOUND.  Everything below is exact — no measurement, no fitting, no
+-- BOUND.  Everything below is exact � no measurement, no fitting, no
 -- floating point, no appeal to a run.
 --
 -- THE CLASSICAL STATEMENT, and the one proved here.  Write K = |k|,
--- K' = |k'|, so that the descent's k' = (m² − D)/k has K·K' = |m² − D|.
--- Then Bhāskara's choice preserves
+-- K' = |k'|, so that the descent's k' = (m² − D)/k has K�K' = |m² − D|.
+-- Then Bhskara's choice preserves
 --
---                          k² ≤ 4D,          i.e.  |k| ≤ 2√D,
+--                          k² � 4D,          i.e.  |k| � 2�D,
 --
--- and preserves it STRICTLY: from k² ≤ 4D one gets k'² < 4D.  The
+-- and preserves it STRICTLY: from k² � 4D one gets k'² < 4D.  The
 -- quantitative form actually proved is sharper,
 --
---                        16·k'²  ≤  36·D          (i.e. |k'| ≤ (3/2)√D),
+--                        16�k'²  �  36�D          (i.e. |k'| � (3/2)�D),
 --
--- which is the classical |k'| ≤ √D + |k|/4 evaluated at |k| ≤ 2√D.
+-- which is the classical |k'| � �D + |k|/4 evaluated at |k| � 2�D.
 --
--- NO SQUARE ROOTS ANYWHERE.  "√D" never appears.  Every inequality is
--- between naturals, and the two halves of "m is within |k|/2 of √D" are
+-- NO SQUARE ROOTS ANYWHERE.  "�D" never appears.  Every inequality is
+-- between naturals, and the two halves of "m is within |k|/2 of �D" are
 -- written as the pair of integer inequalities
 --
---        (2m − K)² ≤ 4D          4D ≤ (2m + K)²
+--        (2m − K)² � 4D          4D � (2m + K)²
 --
--- with the first stated subtraction-free as A·A ≤ 4D together with
+-- with the first stated subtraction-free as A�A � 4D together with
 -- A + K ≡ 2m  or  A + 2m ≡ K  (i.e. A = |2m − K|), which is the same
 -- clearing of monus that `BhavanaSemiring` and `CakravalaNat` perform for
--- the composition law.  Nothing here needs ℤ, and cubical's ℤ product is
--- unary, so ℕ is also the only substrate on which this computes.
+-- the composition law.  Nothing here needs �, and cubical's � product is
+-- unary, so � is also the only substrate on which this computes.
 --
 -- WHAT IS PROVED.  --safe, no postulates, no holes.
 --
---   amgm            2xy ≤ x² + y², the one analytic fact used.
---   straddleBound   THE INEQUALITY.  If A = |2m − K| with A² ≤ 4D and
---                   4D ≤ (2m + K)², and K² ≤ 4D, and E = |m² − D|, then
---                        16·E²  ≤  36·D·K².
+--   amgm            2xy � x² + y², the one analytic fact used.
+--   straddleBound   THE INEQUALITY.  If A = |2m − K| with A² � 4D and
+--                   4D � (2m + K)², and K² � 4D, and E = |m² − D|, then
+--                        16�E²  �  36�D�K².
 --                   Four cases (sign of m² − D, orientation of 2m − K);
---                   each produces  4E ≤ K·S  with  S² ≤ 36D, and the
+--                   each produces  4E � K�S  with  S² � 36D, and the
 --                   squaring is then one lemma.
---   straddleExists  THE CANDIDATE EXISTS, in the congruence class Bhāskara
---                   is handed.  For 1 ≤ r ≤ K there is j with
+--   straddleExists  THE CANDIDATE EXISTS, in the congruence class Bhskara
+--                   is handed.  For 1 � r � K there is j with
 --                   m = r + jK straddling: this is a least-witness search,
---                   `firstHit`, and is constructive — it computes the j.
---   kBoundSharp     THE SHARP FORM, K² cancelled off:  16·K'² ≤ 36·D.
---   cakravalaKBound THE INVARIANT.  Assuming only Bhāskara's rule as
+--                   `firstHit`, and is constructive � it computes the j.
+--   kBoundSharp     THE SHARP FORM, K² cancelled off:  16�K'² � 36�D.
+--   cakravalaKBound THE INVARIANT.  Assuming only Bhskara's rule as
 --                   stated (E_s = |m*² − D| is minimal over the class) and
---                   K·K' = E_s, one gets K'² < 4D from K² ≤ 4D.
---   seedBound       THE SEED IS INSIDE THE WINDOW.  For n = ⌊√D⌋ and
---                   E = D − n², E² ≤ 4D.  So the invariant holds at turn 0
+--                   K�K' = E_s, one gets K'² < 4D from K² � 4D.
+--   seedBound       THE SEED IS INSIDE THE WINDOW.  For n = ��D� and
+--                   E = D − n², E² � 4D.  So the invariant holds at turn 0
 --                   and `cakravalaKBound` carries it forever.
---   ZBridge.stepAbs THE BRIDGE to `CakravalaDescent`'s ℤ statement.  The
---                   hypothesis `Es ≡ K·K'` is not an assumption about the
---                   world: it is m² − D = k·k' read through | · |, i.e.
---                   `abs·`, and it is discharged here rather than asserted
---                   in a comment.  `ZBridge.cakravalaKBoundℤ` then states
+--   ZBridge.stepAbs THE BRIDGE to `CakravalaDescent`'s � statement.  The
+--                   hypothesis `Es ≡ K�K'` is not an assumption about the
+--                   world: it is m² − D = k�k' read through | � |, i.e.
+--                   `abs�`, and it is discharged here rather than asserted
+--                   in a comment.  `ZBridge.cakravalaKBound�` then states
 --                   the invariant in the descent's own variables.
---   seed61          D = 61, Bhāskara's own example, instantiated.
+--   seed61          D = 61, Bhskara's own example, instantiated.
 --
 -- AND ONE REFUTATION, §7.  The bound is sharp enough to catch a false
 -- claim already in this repository.  `CakravalaWitness.agda` and
 -- `machine/NalandaEmit.hs` both state that every m in the D = 61 run is
--- the one Bhāskara's rule selects.  At turn 7 (|k| = 1, m = 7) it is not:
+-- the one Bhskara's rule selects.  At turn 7 (|k| = 1, m = 7) it is not:
 -- |8² − 61| = 3 beats |7² − 61| = 12, and `machine/Nalanda.hs` line 167
--- special-cases |k| = 1 to return ⌊√D⌋ instead of minimising.  §7 checks
--- both candidates in the kernel and proves 16·12² > 36·61, so no
+-- special-cases |k| = 1 to return ��D� instead of minimising.  §7 checks
+-- both candidates in the kernel and proves 16�12² > 36�61, so no
 -- rule-obeying m could have produced that turn's |k'|.  The run is still
--- sound — any m satisfying the congruence descends — but the attribution
+-- sound � any m satisfying the congruence descends � but the attribution
 -- is wrong, and nothing here edits those files.
 --
 --   * TERMINATION IS STILL OPEN.  A bound on |k| is not termination.  What
---     the bound buys is that the state (a mod ·, b mod ·, k) ranges over a
+--     the bound buys is that the state (a mod �, b mod �, k) ranges over a
 --     FINITE set, so some state must recur; turning that into "the wheel
---     returns to k = ±1" needs, in addition: that the triples with a fixed
+--     returns to k = �1" needs, in addition: that the triples with a fixed
 --     k and bounded a, b are finite (a reduction theory), and that the
 --     cycle cannot stall.  None of that is here.
---   * MINIMALITY OF BHĀSKARA'S CHOICE is not proved — it is a HYPOTHESIS of
+--   * MINIMALITY OF BHSKARA'S CHOICE is not proved � it is a HYPOTHESIS of
 --     `cakravalaKBound`, discharged by whoever runs the algorithm.  What is
 --     proved is that minimality suffices; that some other rule would also
 --     suffice, or that this rule is optimal, is not claimed.
---   * The choice rule is used only through the inequality E_s ≤ E for the
+--   * The choice rule is used only through the inequality E_s � E for the
 --     one straddling candidate `straddleExists` builds.  So the theorem is
---     really about ANY rule that beats that candidate, and Bhāskara's is
+--     really about ANY rule that beats that candidate, and Bhskara's is
 --     the simplest such.  That is a weakening of his rule, not a
 --     strengthening, and the reader should not read more into it.
 --   * Nothing here says a solution to x² − Dy² = 1 exists.
---   * The bridge to ℤ takes the step's equation m² − D = k·k' as a
+--   * The bridge to � takes the step's equation m² − D = k�k' as a
 --     HYPOTHESIS.  It is NOT wired into `CakravalaDescent.cakravalaStep`,
---     which is stated over an arbitrary CommRing and so has no |·|;
---     specialising that theorem to ℤCommRing and feeding its conclusion in
+--     which is stated over an arbitrary CommRing and so has no |�|;
+--     specialising that theorem to �CommRing and feeding its conclusion in
 --     is a further piece of work and is not done.
---   * The constant 36 is not claimed optimal.  It is 4·(1 + 1/2)², the
---     value of the classical |k'| ≤ √D + K/4 at K = 2√D; iterating the
---     same estimate drives it toward 4·(4/3)² = 64/9, and none of that is
+--   * The constant 36 is not claimed optimal.  It is 4�(1 + 1/2)², the
+--     value of the classical |k'| � �D + K/4 at K = 2�D; iterating the
+--     same estimate drives it toward 4�(4/3)² = 64/9, and none of that is
 --     proved here.  All §4 needs is 36 < 64.
---   * `1 ≤ r ≤ K` is a normalisation of the congruence class, not a
+--   * `1 � r � K` is a normalisation of the congruence class, not a
 --     restriction: every class mod K has such a representative.  That
---     normalisation is assumed, not constructed — `Cubical.Data.Nat.Mod`
+--     normalisation is assumed, not constructed � `Cubical.Data.Nat.Mod`
 --     would supply it and is not used.
 ------------------------------------------------------------------------
 
@@ -150,12 +150,12 @@ private
   idFinal : (K D : ℕ) → (K · K) · (36 · D) ≡ 36 · (D · (K · K))
   idFinal K D = solveℕ!
 
-  -- (2m + K)² + 4E ≡ (4m² + 4E) + K·(4m + K)
+  -- (2m + K)² + 4E ≡ (4m² + 4E) + K�(4m + K)
   idHi : (m K E : ℕ) → (2 · m + K) · (2 · m + K) + 4 · E
                      ≡ (4 · (m · m) + 4 · E) + K · (4 · m + K)
   idHi m K E = solveℕ!
 
-  -- (A + K)² ≡ A² + K·(2A + K)
+  -- (A + K)² ≡ A² + K�(2A + K)
   idLo : (A K : ℕ) → (A + K) · (A + K) ≡ A · A + K · (2 · A + K)
   idLo A K = solveℕ!
 
@@ -220,7 +220,7 @@ private
   idTwoN n = solveℕ!
 
 ------------------------------------------------------------------------
--- 1.  Order toolkit.  Cubical ships ≤-·k but not its mirror, the square
+-- 1.  Order toolkit.  Cubical ships �-�k but not its mirror, the square
 -- monotonicity, or cancellation, so they are built here.
 ------------------------------------------------------------------------
 
@@ -231,7 +231,7 @@ private
   sq≤ : {m n : ℕ} → m ≤ n → m · m ≤ n · n
   sq≤ {m} {n} h = ≤-trans (≤-·k {k = m} h) (≤-k·' n h)
 
-  -- 2xy ≤ x² + y².  The single inequality with any content in this file;
+  -- 2xy � x² + y².  The single inequality with any content in this file;
   -- everything else is bookkeeping around it.
   amgm : (x y : ℕ) → 2 · (x · y) ≤ x · x + y · y
   amgm x y with splitℕ-≤ x y
@@ -243,7 +243,7 @@ private
         in subst (λ w → 2 · (w · y) ≤ w · w + y · y) hd
                  (subst (2 · ((d + y) · y) ≤_) (sym (idAmGmR y d)) ≤SumLeft)
 
-  -- from  P ≤ Q  and  Q + X ≡ P + Y  conclude  X ≤ Y
+  -- from  P � Q  and  Q + X ≡ P + Y  conclude  X � Y
   shiftLe : (P Q X Y : ℕ) → P ≤ Q → Q + X ≡ P + Y → X ≤ Y
   shiftLe P Q X Y (c , hc) e = c , inj-m+ {m = P} step
     where
@@ -253,7 +253,7 @@ private
     step : P + (c + X) ≡ P + Y
     step = assoc1 ∙ e
 
-  -- 1 ≤ c gives a predecessor, which is what the strict-monotone lemmas want
+  -- 1 � c gives a predecessor, which is what the strict-monotone lemmas want
   posPred : (c : ℕ) → 1 ≤ c → Σ[ c' ∈ ℕ ] c ≡ suc c'
   posPred c (k , hk) = k , sym hk ∙ +-comm k 1
 
@@ -279,15 +279,15 @@ private
 ------------------------------------------------------------------------
 -- 2.  THE INEQUALITY.
 --
--- Given a candidate m that STRADDLES √D at scale K — meaning
--- (2m − K)² ≤ 4D ≤ (2m + K)², the integer form of |m − √D| ≤ K/2 — and
--- given that the previous k already satisfies K² ≤ 4D, the discriminant
--- E = |m² − D| obeys  16E² ≤ 36·D·K².  Dividing by K² (done in §4) this
--- is |m² − D| / K ≤ (3/2)√D, the classical bound.
+-- Given a candidate m that STRADDLES �D at scale K � meaning
+-- (2m − K)² � 4D � (2m + K)², the integer form of |m − �D| � K/2 � and
+-- given that the previous k already satisfies K² � 4D, the discriminant
+-- E = |m² − D| obeys  16E² � 36�D�K².  Dividing by K² (done in §4) this
+-- is |m² − D| / K � (3/2)�D, the classical bound.
 --
 -- Four cases, and they are the four cells of a genuinely two-dimensional
 -- split: the sign of m² − D, and the orientation of 2m − K.  Each cell
--- produces the SAME shape, 4E ≤ K·S with S² ≤ 36D, and `coreBound`
+-- produces the SAME shape, 4E � K�S with S² � 36D, and `coreBound`
 -- squares it once for all four.
 ------------------------------------------------------------------------
 
@@ -307,7 +307,7 @@ straddleBound : (D K m A E : ℕ)
   → (m · m ≡ D + E) ⊎ (D ≡ m · m + E)                -- E = |m² − D|
   → 16 · (E · E) ≤ 36 · (D · (K · K))
 
--- CASE m² ≤ D.  Only the upper straddle is used; A plays no part.
+-- CASE m² � D.  Only the upper straddle is used; A plays no part.
 straddleBound D K m A E hK hA hAK hHi (inr hD) =
   coreBound D K (4 · m + K) E h4E hS
   where
@@ -324,7 +324,7 @@ straddleBound D K m A E hK hA hAK hHi (inr hD) =
   b1 : 16 · (m · m) ≤ 16 · D
   b1 = ≤-k·' 16 mmD
 
-  -- 2·(2m)·K ≤ (2m)² + K², rewritten with the squares expanded
+  -- 2�(2m)�K � (2m)² + K², rewritten with the squares expanded
   b0 : 4 · (m · K) ≤ 4 · (m · m) + K · K
   b0 = subst2 _≤_ (id2·2m m K) (cong (_+ K · K) (idTwoM m)) (amgm (2 · m) K)
 
@@ -339,8 +339,8 @@ straddleBound D K m A E hK hA hAK hHi (inr hD) =
   hS = subst2 _≤_ (sym (idSsqB m K)) (id36 D)
                   (≤-+-≤ b1 (≤-+-≤ b2 hK))
 
--- CASE m² ≥ D, with 2m ≥ K.  This is the cell where the sharp bound
--- |k'| ≤ √D + K/4 lives, and A = 2m − K is exactly the quantity the
+-- CASE m² � D, with 2m � K.  This is the cell where the sharp bound
+-- |k'| � �D + K/4 lives, and A = 2m − K is exactly the quantity the
 -- straddle hypothesis controls.
 straddleBound D K m A E hK hA (inl hAK) hHi (inl hD) =
   coreBound D K (2 · A + K) E h4E hS
@@ -366,8 +366,8 @@ straddleBound D K m A E hK hA (inl hAK) hHi (inl hD) =
   hS = subst2 _≤_ (sym (idSsqA A K)) (id36 D)
                   (≤-+-≤ b1 (≤-+-≤ b2 hK))
 
--- CASE m² ≥ D, with 2m ≤ K.  Here the straddle collapses: the candidate
--- is so close to the origin that 4E ≤ K² outright, and S = K.
+-- CASE m² � D, with 2m � K.  Here the straddle collapses: the candidate
+-- is so close to the origin that 4E � K² outright, and S = K.
 straddleBound D K m A E hK hA (inr hAK) hHi (inl hD) =
   coreBound D K K E h4E hS
   where
@@ -383,16 +383,16 @@ straddleBound D K m A E hK hA (inr hAK) hHi (inl hD) =
   hS = ≤-trans hK (32 · D , id4to36 D)
 
 ------------------------------------------------------------------------
--- 3.  THE CANDIDATE EXISTS — and is computed, not assumed.
+-- 3.  THE CANDIDATE EXISTS � and is computed, not assumed.
 --
--- Bhāskara is handed a congruence class mod |k| (the solutions m of
--- k | (a + bm), which ĀRYABHAṬA's kuṭṭaka produces, Āryabhaṭīya
--- Gaṇitapāda 32–33, 499 CE) and told to minimise |m² − D| over it.  For
+-- Bhskara is handed a congruence class mod |k| (the solutions m of
+-- k | (a + bm), which RYABHAA's kuaka produces, ryabhaya
+-- Gaitapda 32�33, 499 CE) and told to minimise |m² − D| over it.  For
 -- the bound of §2 to bite, the class must CONTAIN a straddling member.
 -- It does, and the proof is a search that terminates by construction:
--- walk j = 0, 1, 2, … until 4D ≤ (2(r + jK) + K)²; the first j that
--- succeeds either is 0 — and then |2r − K| ≤ K does the job, because
--- 1 ≤ r ≤ K — or has a predecessor that failed, and the failure IS the
+-- walk j = 0, 1, 2, � until 4D � (2(r + jK) + K)²; the first j that
+-- succeeds either is 0 � and then |2r − K| � K does the job, because
+-- 1 � r � K � or has a predecessor that failed, and the failure IS the
 -- lower straddle.
 --
 -- `firstHit` is the whole search.  It recurses on the KNOWN upper bound
@@ -418,7 +418,7 @@ private
   ... | yes q = firstHit P dec J q
   ... | no ¬q = hitSuc J p ¬q
 
-  -- ¬ (x ≤ y) is a bad thing to reason with; this turns it into y ≤ x.
+  -- � (x � y) is a bad thing to reason with; this turns it into y � x.
   ¬≤→≤ : (x y : ℕ) → ¬ (x ≤ y) → y ≤ x
   ¬≤→≤ x y h with splitℕ-≤ y x
   ... | inl p    = p
@@ -442,7 +442,7 @@ straddleExists D K r hD1 hK1 hr1 hrK hKK = go (firstHit P decP D PD)
   decP : (j : ℕ) → Dec (P j)
   decP j = ≤Dec (4 · D) ((2 · M j + K) · (2 · M j + K))
 
-  -- D ≤ D·K ≤ r + D·K = M D, so 2D ≤ 2·M D + K, so 4D ≤ 4D² ≤ (2·M D+K)².
+  -- D � D�K � r + D�K = M D, so 2D � 2�M D + K, so 4D � 4D² � (2�M D+K)².
   D≤DK : D ≤ D · K
   D≤DK = subst (_≤ D · K) (idMul1 D) (≤-k·' D hK1)
 
@@ -488,18 +488,18 @@ straddleExists D K r hD1 hK1 hr1 hrK hKK = go (firstHit P decP D PD)
               , p
 
 ------------------------------------------------------------------------
--- 4.  THE INVARIANT — |k| ≤ 2√D is preserved, and strictly.
+-- 4.  THE INVARIANT � |k| � 2�D is preserved, and strictly.
 --
 -- This is the theorem the file exists for.  Read K = |k|, K' = |k'|,
--- E_s = |m*² − D| where m* is the m Bhāskara's rule actually selects.
--- The descent's own equation k·k' = m*² − D says E_s = K·K'; that is the
--- hypothesis `Es ≡ K · K'`, and §5 shows it is exactly `abs·` applied to
+-- E_s = |m*² − D| where m* is the m Bhskara's rule actually selects.
+-- The descent's own equation k�k' = m*² − D says E_s = K�K'; that is the
+-- hypothesis `Es ≡ K � K'`, and §5 shows it is exactly `abs�` applied to
 -- `CakravalaDescent`'s conclusion.
 --
--- The choice rule enters ONLY as `Es ≤ E` for the straddling candidate.
+-- The choice rule enters ONLY as `Es � E` for the straddling candidate.
 -- That is weaker than minimality over the class, and deliberately so:
 -- the theorem is then true of any rule that beats the straddler, and
--- Bhāskara's is the simplest such rule.
+-- Bhskara's is the simplest such rule.
 ------------------------------------------------------------------------
 
 -- |a − b| as a natural, with the case distinction that names its sign.
@@ -509,7 +509,7 @@ diffNat a b with splitℕ-≤ b a
 ... | inr a<b = let (d , hd) = <-weaken a<b in d , inr (sym hd ∙ +-comm d a)
 
 -- THE SHARP FORM.  Cancelling K² off the inequality of §2 leaves
---   16·k'² ≤ 36·D,   i.e.   |k'| ≤ (3/2)√D.
+--   16�k'² � 36�D,   i.e.   |k'| � (3/2)�D.
 -- This is what is actually proved; the window k'² < 4D below is its
 -- consequence, and the one the induction wants because it is the same
 -- shape as its own hypothesis.
@@ -553,8 +553,8 @@ kBound D K K' Es E hD1 hK1 hEs hmin hbig =
   final : 16 · (K' · K') < 16 · (4 · D)
   final = subst (16 · (K' · K') <_) (sym (id64 D)) (≤<-trans s4 36<64)
 
--- THE STEP OF THE WHEEL, BOUNDED.  Congruence class r mod K; Bhāskara's
--- rule as `minim`; conclusion |k'| < 2√D.
+-- THE STEP OF THE WHEEL, BOUNDED.  Congruence class r mod K; Bhskara's
+-- rule as `minim`; conclusion |k'| < 2�D.
 cakravalaKBound :
     (D K r K' Es : ℕ)
   → 1 ≤ D → 1 ≤ K → 1 ≤ r → r ≤ K
@@ -584,10 +584,10 @@ cakravalaKBound D K r K' Es hD1 hK1 hr1 hrK hKK hEs minim =
 ------------------------------------------------------------------------
 -- 4b.  THE SEED IS ALREADY INSIDE THE WINDOW.
 --
--- Every cakravāla starts from the trivial triple (n, 1, n² − D) with
--- n = ⌊√D⌋ — `CakravalaWitness` starts at (7, 1, −12) for D = 61, and
--- 12² = 144 ≤ 244 = 4·61.  That is not luck: D − n² ≤ 2n always, because
--- (n+1)² > D.  So k² ≤ 4D holds at turn 0 with no work, and
+-- Every cakravla starts from the trivial triple (n, 1, n² − D) with
+-- n = ��D� � `CakravalaWitness` starts at (7, 1, −12) for D = 61, and
+-- 12² = 144 � 244 = 4�61.  That is not luck: D − n² � 2n always, because
+-- (n+1)² > D.  So k² � 4D holds at turn 0 with no work, and
 -- `cakravalaKBound` then carries it round the wheel forever.
 ------------------------------------------------------------------------
 
@@ -610,19 +610,19 @@ seedBound D n E hlo hhi hE =
   E≤2n = pred-≤-pred (<-k+-cancel {k = n · n} shifted')
 
 ------------------------------------------------------------------------
--- 5.  THE BRIDGE TO ℤ, which is where `CakravalaDescent` lives.
+-- 5.  THE BRIDGE TO �, which is where `CakravalaDescent` lives.
 --
--- The whole file above is over ℕ because that is where the ORDER is
--- (cubical ships no order on ℤ) and because cubical's ℤ product is unary.
--- The one place ℤ is genuinely needed is the hypothesis `Es ≡ K · K'`:
--- it is the descent's own equation m² − D = k·k', read through | · |.
--- That reading is `abs·`, one line, and it is done here rather than
+-- The whole file above is over � because that is where the ORDER is
+-- (cubical ships no order on �) and because cubical's � product is unary.
+-- The one place � is genuinely needed is the hypothesis `Es ≡ K � K'`:
+-- it is the descent's own equation m² − D = k�k', read through | � |.
+-- That reading is `abs�`, one line, and it is done here rather than
 -- asserted in a comment.
 --
 -- Note what is NOT done: `CakravalaDescent.cakravalaStep` is stated over
 -- an arbitrary CommRing, which has no absolute value, so nothing here is
--- plugged into it.  `stepAbs` below takes the ℤ equation as a hypothesis;
--- specialising the descent to ℤCommRing and producing that equation is a
+-- plugged into it.  `stepAbs` below takes the � equation as a hypothesis;
+-- specialising the descent to �CommRing and producing that equation is a
 -- separate piece of work and is not claimed.
 ------------------------------------------------------------------------
 
@@ -638,7 +638,7 @@ module ZBridge where
   open RingTheory (CommRing→Ring ℤCommRing) using (-Dist ; -Idempotent)
   open CommRingStr (snd ℤCommRing) using () renaming (+Comm to +Commℤ)
 
-  -- |k·k'| = |k|·|k'|: the descent's product read through the norm's sign.
+  -- |k�k'| = |k|�|k'|: the descent's product read through the norm's sign.
   absStep : (x k k' : ℤ) → x ≡ k ·ℤ k' → abs x ≡ abs k · abs k'
   absStep x k k' p = cong abs p ∙ abs· k k'
 
@@ -658,13 +658,13 @@ module ZBridge where
     ∙ cong abs (negSub (pos a) (pos (a + E)))
     ∙ posSubAbs a E
 
-  -- the ℕ discriminant of §2 IS the ℤ absolute value
+  -- the � discriminant of §2 IS the � absolute value
   absDiff : (a b E : ℕ) → ((a ≡ b + E) ⊎ (b ≡ a + E))
           → abs (pos a -ℤ pos b) ≡ E
   absDiff a b E (inl p) = cong (λ w → abs (pos w -ℤ pos b)) p ∙ posSubAbs b E
   absDiff a b E (inr p) = cong (λ w → abs (pos a -ℤ pos w)) p ∙ posSubAbs' a E
 
-  -- THE HYPOTHESIS `Es ≡ K · K'`, DISCHARGED.
+  -- THE HYPOTHESIS `Es ≡ K � K'`, DISCHARGED.
   stepAbs : (m D : ℕ) (k k' : ℤ) (E : ℕ)
           → ((m · m ≡ D + E) ⊎ (D ≡ m · m + E))
           → pos (m · m) -ℤ pos D ≡ k ·ℤ k'
@@ -673,7 +673,7 @@ module ZBridge where
     sym (absDiff (m · m) D E hE) ∙ absStep (pos (m · m) -ℤ pos D) k k' p
 
   -- THE INVARIANT, stated in the descent's own variables.  k is the
-  -- current interim value, k' the next; m is the m Bhāskara's rule picks
+  -- current interim value, k' the next; m is the m Bhskara's rule picks
   -- out of the class r mod |k|, and `minim` is that rule.
   cakravalaKBoundℤ :
       (D r : ℕ) (k k' : ℤ) (m E : ℕ)
@@ -691,11 +691,11 @@ module ZBridge where
                     (stepAbs m D k k' E hE hstep) minim
 
 ------------------------------------------------------------------------
--- 6.  D = 61, COMPUTED — and the bound catching a false claim.
+-- 6.  D = 61, COMPUTED � and the bound catching a false claim.
 --
--- `CakravalaWitness` runs Bhāskara's own hardest example.  Its turn 0 is
--- (7, 1, −12): n = ⌊√61⌋ = 7, k = 7² − 61 = −12.  The window is
--- k² ≤ 4·61 = 244, and 12² = 144.  `seedBound` says that is forced, not
+-- `CakravalaWitness` runs Bhskara's own hardest example.  Its turn 0 is
+-- (7, 1, −12): n = ��61� = 7, k = 7² − 61 = −12.  The window is
+-- k² � 4�61 = 244, and 12² = 144.  `seedBound` says that is forced, not
 -- fortunate; here it is instantiated, so the kernel does the arithmetic.
 ------------------------------------------------------------------------
 
@@ -706,7 +706,7 @@ seed61 = seedBound 61 7 12 (12 , refl) (2 , refl) refl
 -- 7.  A CLAIM IN THIS REPOSITORY THAT THE BOUND REFUTES.
 --
 -- `CakravalaWitness.agda` says, of every turn it certifies: "The m on
--- each line is the one BHĀSKARA'S CHOICE RULE selects: among the m with
+-- each line is the one BHSKARA'S CHOICE RULE selects: among the m with
 -- k | (a + bm), the one minimising |m² − D|."  `machine/NalandaEmit.hs`
 -- prints the same sentence into the file it generates.
 --
@@ -719,18 +719,18 @@ seed61 = seedBound 61 7 12 (12 , refl) (2 , refl) refl
 --
 -- So the rule selects m = 8, not m = 7.  Both are checked below by the
 -- kernel.  The generator's source says why: `machine/Nalanda.hs`,
--- `chooseM`, line 167 — `if n == 1 then Just (isqrt d)` — special-cases
--- |k| = 1 to return ⌊√D⌋ = 7 instead of minimising.  That is a different
+-- `chooseM`, line 167 � `if n == 1 then Just (isqrt d)` � special-cases
+-- |k| = 1 to return ��D� = 7 instead of minimising.  That is a different
 -- rule, and for D = 61 the two differ.
 --
 -- The step is still SOUND: any m satisfying the congruence gives a valid
 -- descent, so nothing `CakravalaWitness` proves is wrong.  What is wrong
--- is the sentence attributing the choice to Bhāskara, and the cost is
--- real — m = 7 sends |k'| to 12 where m = 8 sends it to 3.
+-- is the sentence attributing the choice to Bhskara, and the cost is
+-- real � m = 7 sends |k'| to 12 where m = 8 sends it to 3.
 --
--- And the bound is exactly what detects it: §2–4 give 16·k'² ≤ 36·D for
--- any step obeying the rule, and 16·12² = 2304 > 2196 = 36·61.  So no m
--- obeying Bhāskara's rule can produce |k'| = 12 here — a proof, not an
+-- And the bound is exactly what detects it: §2�4 give 16�k'² � 36�D for
+-- any step obeying the rule, and 16�12² = 2304 > 2196 = 36�61.  So no m
+-- obeying Bhskara's rule can produce |k'| = 12 here � a proof, not an
 -- observation, that the rule was not obeyed.
 --
 -- (This file changes nothing in `CakravalaWitness.agda` or in `machine/`;
@@ -744,7 +744,7 @@ cand8 = refl
 cand7 : 7 · 7 + 12 ≡ 61
 cand7 = refl
 
--- 3 < 12, so Bhāskara's rule selects 8 and the generator selected 7
+-- 3 < 12, so Bhskara's rule selects 8 and the generator selected 7
 minimalIs8 : 3 < 12
 minimalIs8 = 8 , refl
 

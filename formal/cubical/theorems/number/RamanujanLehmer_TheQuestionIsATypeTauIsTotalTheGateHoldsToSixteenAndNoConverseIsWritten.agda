@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§∞‡§æ‡§Æ‡§æ‡§®‡•Å‡§ú‡§®‡•ç‚Äì‡§≤‡•á‡§π‡•ç‡§Æ‡§∞‡•ç ‚Äî THE QUESTION IS A TYPE, œÑ IS TOTAL, THE GATE
+-- ‡∞‡æ‡Æ‡æ‡®‡‡‡®‡‚ì‡≤‡‡‡‡Æ‡∞‡ ‚î THE QUESTION IS A TYPE, œ IS TOTAL, THE GATE
 -- HOLDS TO SIXTEEN, AND NO CONVERSE IS WRITTEN.
 --
--- Lehmer's question (1947), still open: is œÑ(n) ever zero?  Nobody
+-- Lehmer's question (1947), still open: is œ(n) ever zero?  Nobody
 -- knows; the vanishing has been excluded to astronomical bounds by
 -- other instruments.  This file gives the question the corpus's
 -- two-layer treatment:
 --
---   œÑ IS TOTAL HERE.  œÑAt n reads the n-th coefficient of the Œî
---   product truncated at degree n+1 ‚Äî a complete definition for
+--   œ IS TOTAL HERE.  œAt n reads the n-th coefficient of the Œî
+--   product truncated at degree n+1 ‚î a complete definition for
 --   EVERY n, no infinite object pretended, each value the finite
 --   computation Ramanujan performed.  Coefficients ride as formal
---   differences (a , b) standing for a ‚àí b; œÑ(n) = 0 is exactly the
+--   differences (a , b) standing for a ‚àí b; œ(n) = 0 is exactly the
 --   balance fst ‚â° snd of the computed pair.
 --
---   `LehmerQuestion` ‚Äî the universal statement as a type: for every
+--   `LehmerQuestion` ‚î the universal statement as a type: for every
 --   positive n the pair never balances.  Open; a type, not a claim.
 --
---   `lehmer-gate` ‚Äî the kernel's signature on the window 1..16: no
+--   `lehmer-gate` ‚î the kernel's signature on the window 1..16: no
 --   balance, by one scan and its soundness.  The window includes the
 --   first sign changes and the collisions of magnitude that make
 --   the question interesting at small n.
 --
---   `restrict : LehmerQuestion ‚Üí gate` ‚Äî one direction, by
+--   `restrict : LehmerQuestion ‚í gate` ‚î one direction, by
 --   specialization.  No term runs backwards; sixteen instances
 --   license nothing universal, and the type system now says so.
 --
@@ -55,7 +55,7 @@ open import Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProduc
   using (D ; dadd ; dmul ; to‚Ñ§ ; d0 ; d1 ; dm1)
 
 ------------------------------------------------------------------------
--- ¬ß1  The Œî product at every truncation: œÑ total.
+-- ¬ß1  The Œî product at every truncation: œ total.
 ------------------------------------------------------------------------
 
 Poly : Type
@@ -103,7 +103,7 @@ coeffN _       []       = d0
 coeffN zero    (x ‚à∑ _)  = x
 coeffN (suc n) (_ ‚à∑ xs) = coeffN n xs
 
--- œÑ at n, from the product truncated exactly where n lives: total.
+-- œ at n, from the product truncated exactly where n lives: total.
 œÑAt : ‚Ñï ‚Üí D
 œÑAt n = coeffN n (d0 ‚à∑ etaProdN n n)
 
@@ -119,7 +119,7 @@ coeffN (suc n) (_ ‚à∑ xs) = coeffN n xs
 -- ¬ß2  The question, as a type.
 ------------------------------------------------------------------------
 
--- œÑ(n) = 0 is exactly the balance of the computed difference pair.
+-- œ(n) = 0 is exactly the balance of the computed difference pair.
 Balances : ‚Ñï ‚Üí Type
 Balances n = fst (œÑAt n) ‚â° snd (œÑAt n)
 

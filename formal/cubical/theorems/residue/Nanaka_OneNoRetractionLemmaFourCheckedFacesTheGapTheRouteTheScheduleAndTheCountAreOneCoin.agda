@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§®‡§æ‡§£‡§ï ‚Äî the coin.
+-- ‡®‡æ‡‡ï ‚î the coin.
 --
 -- THE CLAIM (2026-09-03): the hard distinctions this corpus has been
--- circling are not a family of analogies ‚Äî they are inhabitants of ONE
+-- circling are not a family of analogies ‚î they are inhabitants of ONE
 -- type.  A face of the coin is: a projection, two carried points,
 -- apartness upstairs, identification downstairs.
 --
 --     record Paksa: Carried, Forgotten, q, x, y,
---                   apart : ¬¨ x ‚â° y,  together : q x ‚â° q y.
+--                   apart : ¬ x ‚â° y,  together : q x ‚â° q y.
 --
 -- The point of minting the type is threefold.
 --
@@ -19,15 +19,15 @@
 --       "the information is not recoverable downstairs" argument in
 --       the corpus is this one proof.
 --
---   ¬ß2  FOUR FACES, FOUR INDEPENDENT LANES, ONE TYPE ‚Äî each face built
+--   ¬ß2  FOUR FACES, FOUR INDEPENDENT LANES, ONE TYPE ‚î each face built
 --       from another module's checked terms, none re-proved here:
 --
 --       gapFace       the P/NP lane: the visible Turing step carries a
---                     collision (Nasha's the-step-forgets) ‚Äî find/check
+--                     collision (Nasha's the-step-forgets) ‚î find/check
 --                     asymmetry as non-injectivity of the projection.
 --       routeFace     the semantics lane: direct and detour histories
 --                     are distinct data (lengths 2 and 4) with equal
---                     forgetful meaning ‚Äî classical cost lives in the
+--                     forgetful meaning ‚î classical cost lives in the
 --                     drop.
 --       scheduleFace  the compression lane: the diamond's two
 --                     schedules are distinct (depths 2 and 1) and the
@@ -40,16 +40,16 @@
 --
 --   ¬ß3  THE COIN IS NONBINARY, as a term.  For every face, apart and
 --       together are BOTH theorems: "are x and y the same?" has no
---       boolean answer ‚Äî it has a position indexed by which side of
+--       boolean answer ‚î it has a position indexed by which side of
 --       the projection is asked.  bothTheorems packages the pair, and
---       it is syƒÅd-asti-nƒÅsti at the level of identity itself: same
---       downstairs (asti), distinct upstairs (nƒÅsti), no collapse
+--       it is syd-asti-nsti at the level of identity itself: same
+--       downstairs (asti), distinct upstairs (nsti), no collapse
 --       available (¬ß1).  Where the corpus's other lanes each proved a
 --       distinction "lives only on the lossy projection", this module
 --       is the statement that they were all holding the same coin.
 --
 -- Companion law, proved elsewhere and cited, not restated: the reason
--- the carried side cannot be discarded is AvarohaNisedha ‚Äî no additive
+-- the carried side cannot be discarded is AvarohaNisedha ‚î no additive
 -- cost survives any receiver that inverts arrows, and the carried side
 -- is invertible (EveryDerivationIsInvertible).  Cost, route, schedule,
 -- count: each lives exactly in what its projection drops.
@@ -68,7 +68,7 @@ open import Cubical.HITs.SetQuotients using ([_])
 
 open import RewriteCertificate using (Tm ; Derivation ; Env ; eval ; derivation-sound)
 open import GenerativeKernel using (seed ; target‚ÇÄ ; direct-history ; detour-history)
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep)
 open import Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction
   using (the-step-forgets)
@@ -81,7 +81,7 @@ open import GananaAndhata_TheMobiusCountIsSwapBlindWhileTheInteractionCarrierHol
   using (P ; p ; q ; p‚â¢q)
 
 ------------------------------------------------------------------------
--- ‡•¶ ¬∑ One face of the coin.
+-- ‡¶ ¬ One face of the coin.
 ------------------------------------------------------------------------
 
 record Paksa : Type‚ÇÅ where
@@ -100,7 +100,7 @@ record Paksa : Type‚ÇÅ where
 open Paksa
 
 ------------------------------------------------------------------------
--- ‡•ß ¬∑ One lemma serves every face: no retraction recovers both points.
+-- ‡ß ¬ One lemma serves every face: no retraction recovers both points.
 ------------------------------------------------------------------------
 
 noRetraction : (f : Paksa) (r : Forgotten f ‚Üí Carried f)
@@ -111,7 +111,7 @@ noRetraction f r rx ry =
   apart f (sym rx ‚àô cong r (cong (proj f) refl ‚àô together f) ‚àô ry)
 
 ------------------------------------------------------------------------
--- ‡•® ¬∑ The four faces, each minted from another lane's checked terms.
+-- ‡® ¬ The four faces, each minted from another lane's checked terms.
 ------------------------------------------------------------------------
 
 -- P/NP: the visible Turing step's collision (Nasha).  Find/check
@@ -166,8 +166,8 @@ countFace .apart     = p‚â¢q
 countFace .together  = refl
 
 ------------------------------------------------------------------------
--- ‡•© ¬∑ The coin, held: four faces, one type, and on each the general
---     lemma applies ‚Äî no observer downstairs reads both points back.
+-- ‡© ¬ The coin, held: four faces, one type, and on each the general
+--     lemma applies ‚î no observer downstairs reads both points back.
 ------------------------------------------------------------------------
 
 theCoin :

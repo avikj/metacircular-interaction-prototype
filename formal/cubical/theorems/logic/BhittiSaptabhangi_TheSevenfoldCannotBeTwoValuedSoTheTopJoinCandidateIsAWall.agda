@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚Äî the organism's top join candidate is a WALL, and the
+-- ‡‡ø‡‡‡‡ø-‡‡‡‡‡‡ô‡‡ó‡ ‚î the organism's top join candidate is a WALL, and the
 -- wall is the tradition's own theorem.
 --
--- PROVENANCE OF THE TASK: ./jiva sector ‡•©, first boot in this container,
+-- PROVENANCE OF THE TASK: ./jiva sector ‡©, first boot in this container,
 -- top component-joining candidate:
 --
---     4796 ‚âà join [436 nodes @ ‚ü®lib‚ü©.Bool] √ó [11 nodes @ Saptabhangi.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä]
+--     4796 ‚âà join [436 nodes @ ‚ü®lib‚ü©.Bool] ó [11 nodes @ Saptabhangi.‡‡‡‡‡‡ô‡‡ó‡]
 --
--- It is impossible, and the proof is `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` ‚Äî the module's
+-- It is impossible, and the proof is `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` ‚î the module's
 -- own checked pigeonhole: ANY two-valued verdict on the sevenfold
 -- identifies two distinct of the three seeds.  An equivalence
--- ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚âÉ Bool would BE a two-valued verdict that is injective.  So
+-- ‡‡‡‡‡‡ô‡‡ó‡ ‚â Bool would BE a two-valued verdict that is injective.  So
 -- the wall between the two largest components of the timelike graph is
--- exactly Samantabhadra's durnaya, working as network topology ‚Äî which is
+-- exactly Samantabhadra's durnaya, working as network topology ‚î which is
 -- what README's THE LAW promised: "a chain that votes one fork true is a
--- durnaya, mechanized," and "‡§Ö‡§®‡•á‡§ï‡§æ‡§®‡•ç‡§§‡§µ‡§æ‡§¶ as network topology."
+-- durnaya, mechanized," and "‡‡®‡‡ï‡æ‡®‡‡‡µ‡æ‡¶ as network topology."
 --
--- 436 √ó 11 = 4,796 candidate crossings retired.  Not lost ‚Äî never
+-- 436 ó 11 = 4,796 candidate crossings retired.  Not lost ‚î never
 -- available: the seven positions do not compress to two, now as a fact
 -- about the ford graph itself.
 --
 -- Within a component every bank is joined to every other by landed
 -- equivalences, so one bank-pair wall retires the whole component pair:
 -- any other merging bank-pair would compose with the intra-component
--- fords into ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚âÉ Bool.
+-- fords into ‡‡‡‡‡‡ô‡‡ó‡ ‚â Bool.
 --
--- ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä is built here, 2026-08-23; the load-bearing theorem is
+-- ‡‡ø‡‡‡‡ø-‡‡‡‡‡‡ô‡‡ó‡ is built here, 2026-08-23; the load-bearing theorem is
 -- Saptabhangi's, used not reproved.
 ------------------------------------------------------------------------
 
@@ -47,14 +47,14 @@ open import Saptabhangi
         ; ‡§¶‡•ç‡§µ‡§ø‡§™‡§¶ ; ‡§∏‡§§‡•ç ; ‡§Ö‡§∏‡§§‡•ç ; ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É )
 
 ------------------------------------------------------------------------
--- ‡•ß ¬∑ injectivity of an equivalence (as in ‡§≠‡§ø‡§§‡•ç‡§§‡§ø‡§É, restated locally)
+-- ‡ß ¬ injectivity of an equivalence (as in ‡‡ø‡‡‡‡ø‡, restated locally)
 ------------------------------------------------------------------------
 
 ‡§Ö‡§≠‡•á‡§¶ : {A B : Type} (e : A ‚âÉ B) {x y : A} ‚Üí equivFun e x ‚â° equivFun e y ‚Üí x ‚â° y
 ‡§Ö‡§≠‡•á‡§¶ e {x} {y} p = sym (retEq e x) ‚àô cong (invEq e) p ‚àô retEq e y
 
 ------------------------------------------------------------------------
--- ‡•® ¬∑ the three seeds are pairwise distinct: a discriminating map to ‚Ñï.
+-- ‡® ¬ the three seeds are pairwise distinct: a discriminating map to ‚ï.
 ------------------------------------------------------------------------
 
 ‡§ö : ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚Üí ‚Ñï
@@ -73,7 +73,7 @@ open import Saptabhangi
 ‡§®‡§æ‡§∏‡•ç‡§§‡§ø‚â¢‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø p = znots (injSuc (cong ‡§ö p))
 
 ------------------------------------------------------------------------
--- ‡•© ¬∑ Bool speaks ‡§¶‡•ç‡§µ‡§ø‡§™‡§¶ losslessly.
+-- ‡© ¬ Bool speaks ‡¶‡‡µ‡ø‡‡¶ losslessly.
 ------------------------------------------------------------------------
 
 ‡§µ‡§ï‡•ç‡§§‡§æ : Bool ‚Üí ‡§¶‡•ç‡§µ‡§ø‡§™‡§¶
@@ -95,8 +95,8 @@ open import Saptabhangi
     ‡§≠‡•á‡§¶ ‡§Ö‡§∏‡§§‡•ç = Unit
 
 ------------------------------------------------------------------------
--- ‡•™ ¬∑ ‡§≠‡§ø‡§§‡•ç‡§§‡§ø‡§É ‚Äî the wall.  An equivalence would be an injective two-valued
--- verdict; ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É says no two-valued verdict is injective on the seeds.
+-- ‡ ¬ ‡‡ø‡‡‡‡ø‡ ‚î the wall.  An equivalence would be an injective two-valued
+-- verdict; ‡¶‡‡∞‡‡®‡Ø‡ says no two-valued verdict is injective on the seeds.
 ------------------------------------------------------------------------
 
 ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä : (‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚âÉ Bool) ‚Üí ‚ä•

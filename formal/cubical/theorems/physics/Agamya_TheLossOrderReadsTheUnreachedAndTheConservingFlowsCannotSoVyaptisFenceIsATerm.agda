@@ -1,56 +1,56 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤…à¤—à¤®à¥à¤¯ â€” à¤…à¤—à¤®à¥à¤¯à¤‚ à¤ªà¤¦à¤‚ à¤¸à¤‚à¤°à¤•à¥à¤·à¤•à¤¾à¤ƒ à¤¨ à¤ªà¤¶à¥à¤¯à¤¨à¥à¤¤à¤¿, à¤µà¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿à¤ƒ à¤ªà¤¶à¥à¤¯à¤¤à¤¿ à¥¤
+-- àà—à®àà¯ â” àà—à®àà¯à àà¦à ààà°à•ààà•à¾à à¨ àààà¯à¨ààà¿, àµàà¯à¾àààà¿à àààà¯àà¿ à
 --
 -- (the unreached point: the conserving flows cannot see it; the loss
 --  order can.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- WHAT THIS FILLS.  `Vyapti_TheLossOrderIsCoarseningâ€¦agda`'s fence says,
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- WHAT THIS FILLS.  `Vyapti_TheLossOrderIsCoarseningâ¦agda`'s fence says,
 -- verbatim:
 --
---     "**Â§à¥© and Â§à¥« are one direction only.**  That `à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f âŠ†
---      à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ g` implies `f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ g` is FALSE in general and no
+--     "**Â§à© and Â§à are one direction only.**  That `ààà°à•àààà®à f âŠ
+--      ààà°à•àààà®à g` implies `f àµàà¯à¾ààà¨à‹àà¿ g` is FALSE in general and no
 --      weakened converse is offered."
 --
 -- The sentence stands in that file with no witness.  Per the corpus's own
 -- discipline (an absence without a command is a rumor; a fence without a
--- counterexample is an estimate), this module makes it a term â€” and the
+-- counterexample is an estimate), this module makes it a term â” and the
 -- witness turns out to say more than the fence asked for.
 --
 -- THE THEOREM.  There are observables f, g on one domain whose entire
--- conserving apparatus is IDENTICAL â€” each conserving-flow space
--- `Î£[ Î¦ ] à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥` is contractible, so no invariant of the symmetry
--- data whatsoever separates them â€” while the loss order still does:
--- `g à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ f` holds and `f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ g` is refutable.  So à¤µà¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿ is
+-- conserving apparatus is IDENTICAL â” each conserving-flow space
+-- `Î[ Î¦ ] ààà°à•àààà®à` is contractible, so no invariant of the symmetry
+-- data whatsoever separates them â” while the loss order still does:
+-- `g àµàà¯à¾ààà¨à‹àà¿ f` holds and `f àµàà¯à¾ààà¨à‹àà¿ g` is refutable.  So àµàà¯à¾àààà¿ is
 -- NOT a function of the conserving flows: the order carries strictly
--- more than the symmetries, and Â§à¥© of Vyapti (order âŸ¹ flows) cannot be
+-- more than the symmetries, and Â§à© of Vyapti (order âŸ flows) cannot be
 -- reversed even up to any weakening that factors through the flow space.
 --
 -- WHY, in the census's own vocabulary, which is the point of writing it:
 -- a conserving flow is a section of the fibre family AT REACHED POINTS
--- (`SvaTantuVasa`: flows â‰ƒ (a : A) â†’ fiber f (f a) â€” every index is an
--- f a).  The mediator h of `f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ g` is typed on the WHOLE
--- codomain.  A point of B outside f's image â€” a à¤°à¤¿à¤•à¥à¤¤à¤®à¥ fibre, the
--- census's à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥ â€” is invisible to every flow and every conservation
+-- (`SvaFiberVasa`: flows â‰ (a : A) â’ fiber f (f a) â” every index is an
+-- f a).  The mediator h of `f àµàà¯à¾ààà¨à‹àà¿ g` is typed on the WHOLE
+-- codomain.  A point of B outside f's image â” a à°à¿à•ààà®à fibre, the
+-- census's ààµà•àààµàà¯à®à â” is invisible to every flow and every conservation
 -- witness, and it is exactly where h can die.  Here it does: B = Bool
--- with the whole codomain unreached, C = âŠ¥, and the mediator would be a
--- map Bool â†’ âŠ¥.  The symmetry standpoint reads motion; the order reads
--- the map's whole codomain, silence included.  à¤®à¥Œà¤¨à¤‚ à¤¨ à¤¨à¤¿à¤·à¥‡à¤§à¤ƒ cuts both
+-- with the whole codomain unreached, C = âŠ, and the mediator would be a
+-- map Bool â’ âŠ.  The symmetry standpoint reads motion; the order reads
+-- the map's whole codomain, silence included.  à®àà¨à à¨ à¨à¿ààà§à cuts both
 -- ways: the flows' silence about the unreached sector is not evidence
 -- there is nothing there to owe.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
--- TERM.  à¤…à¤—à¤®à¥à¤¯ â€” "not to be gone to", unreachable; ordinary Sanskrit
--- (à¤—à¤®à¥ with negative prefix, gerundive).  The compound and its use here
+-- TERM.  àà—à®àà¯ â” "not to be gone to", unreachable; ordinary 
+-- (à—à®à with negative prefix, gerundive).  The compound and its use here
 -- for a codomain point outside the image are THIS FILE's; no text is
 -- claimed for the term or for any statement below, per CLAUDE.md's
 -- naming rule note 2.  The mathematics is cubical type theory
 -- (Voevodsky), this repository's one admitted non-Indian frame.
 --
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 â€” the container, NOT the
+-- CHECKED: Agda 2.6.3 + agda/cubical v0.5 â” the container, NOT the
 -- repository pin (2.8.0 + v0.9); the same standing `Vyapti` itself
 -- declares.  --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
@@ -71,8 +71,8 @@ open import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicall
   using (_à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_)
 
 ------------------------------------------------------------------------
--- à¥§ Â· The pair.  One domain (âŠ¥), two codomains: g reaches everything it
---     names (âŠ¥ â€” nothing), f names two points and reaches neither.
+-- à§ Â The pair.  One domain (âŠ), two codomains: g reaches everything it
+--     names (âŠ â” nothing), f names two points and reaches neither.
 ------------------------------------------------------------------------
 
 f : âŠ¥ â†’ Bool
@@ -82,13 +82,13 @@ g : âŠ¥ â†’ âŠ¥
 g = idfun âŠ¥
 
 ------------------------------------------------------------------------
--- à¥¨ Â· The conserving apparatus is identical: both flow spaces are
+-- à¨ Â The conserving apparatus is identical: both flow spaces are
 --     contractible, so NO invariant of the symmetries separates f from g.
---     (Everything out of âŠ¥ is a proposition; the identity flow inhabits.)
+--     (Everything out of âŠ is a proposition; the identity flow inhabits.)
 ------------------------------------------------------------------------
 
 private
-  -- any two functions out of âŠ¥ are equal
+  -- any two functions out of âŠ are equal
   à¤¶à¥‚à¤¨à¥à¤¯-Î -prop : {â„“ : Level} {P : âŠ¥ â†’ Type â„“} â†’ isProp ((x : âŠ¥) â†’ P x)
   à¤¶à¥‚à¤¨à¥à¤¯-Î -prop u v = funExt (Î» x â†’ âŠ¥-rec x)
 
@@ -105,7 +105,7 @@ g-à¤ªà¥à¤°à¤µà¤¾à¤¹-à¤¸à¤‚à¤•à¥‹à¤šà¤ƒ =
   inhPropâ†’isContr (idfun âŠ¥ , Î» a â†’ âŠ¥-rec a)
     (isPropÎ£ à¤¶à¥‚à¤¨à¥à¤¯-Î -prop (Î» Î¦ â†’ à¤¶à¥‚à¤¨à¥à¤¯-Î -prop))
 
--- and conservation-inclusion holds in BOTH directions, vacuously â€”
+-- and conservation-inclusion holds in BOTH directions, vacuously â”
 -- the hypothesis of the hoped-for converse is as strong as it can be.
 à¤¸à¤‚à¤°à¤•à¥à¤·à¤£-à¤…à¤¨à¥à¤¤à¤°à¥à¤­à¤¾à¤µà¤ƒ : (Î¦ : âŠ¥ â†’ âŠ¥) â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f Î¦ â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ g Î¦
 à¤¸à¤‚à¤°à¤•à¥à¤·à¤£-à¤…à¤¨à¥à¤¤à¤°à¥à¤­à¤¾à¤µà¤ƒ Î¦ _ a = âŠ¥-rec a
@@ -114,8 +114,8 @@ g-à¤ªà¥à¤°à¤µà¤¾à¤¹-à¤¸à¤‚à¤•à¥‹à¤šà¤ƒ =
 à¤¸à¤‚à¤°à¤•à¥à¤·à¤£-à¤ªà¥à¤°à¤¤à¥à¤¯à¤¨à¥à¤¤à¤°à¥à¤­à¤¾à¤µà¤ƒ Î¦ _ a = âŠ¥-rec a
 
 ------------------------------------------------------------------------
--- à¥© Â· The order still separates them â€” asymmetrically.
---     g à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ f holds; f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ g is refutable, and the refuting
+-- à© Â The order still separates them â” asymmetrically.
+--     g àµàà¯à¾ààà¨à‹àà¿ f holds; f àµàà¯à¾ààà¨à‹àà¿ g is refutable, and the refuting
 --     move is exactly an unreached point of f's codomain meeting a
 --     mediator with nowhere to send it.
 ------------------------------------------------------------------------
@@ -127,7 +127,7 @@ g-à¤ªà¥à¤°à¤µà¤¾à¤¹-à¤¸à¤‚à¤•à¥‹à¤šà¤ƒ =
 à¤…à¤—à¤®à¥à¤¯à¤®à¥ (h , _) = h true
 
 ------------------------------------------------------------------------
--- à¥ª Â· THE FENCE, AS A TERM.  Vyapti's "no weakened converse" holds
+-- à Â THE FENCE, AS A TERM.  Vyapti's "no weakened converse" holds
 --     against the strongest possible hypothesis: even full two-way
 --     conservation-inclusion PLUS equivalence of the entire conserving-
 --     flow data (both contractible) does not yield the order.

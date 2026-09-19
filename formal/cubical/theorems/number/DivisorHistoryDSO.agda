@@ -47,7 +47,7 @@ full-counts = refl , refl
 
 -- Splitting a block transfers a binomial factor from the hidden history
 -- fiber to the visible flag count.  These two steps are the m=3 checked
--- instance: 3 ↦ 2+1 has factor 3, then 2 ↦ 1+1 has factor 2.
+-- instance: 3 � 2+1 has factor 3, then 2 � 1+1 has factor 2.
 endpoint→snapshot-visible : visible snapshot ≡ 3 · visible endpoint
 endpoint→snapshot-visible = refl
 
@@ -61,7 +61,7 @@ snapshot→full-residual : residual snapshot ≡ 2 · residual full
 snapshot→full-residual = refl
 
 -- Refinement never destroys an already visible option.  This is the finite
--- observation preorder endpoint ≤ snapshot ≤ full.
+-- observation preorder endpoint � snapshot � full.
 data Architecture : Type₀ where
   end snap hist : Architecture
 

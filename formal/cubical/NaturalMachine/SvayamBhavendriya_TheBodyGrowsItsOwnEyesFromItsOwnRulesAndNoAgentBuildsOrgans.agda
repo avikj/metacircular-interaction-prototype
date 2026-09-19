@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- स्वयं-भावेन्द्रियम् — TS 2.17-18 completed: BhavaIndriya showed an
+-- �����-������������� � TS 2.17-18 completed: BhavaIndriya showed an
 -- eye BUILT FROM the body's attainment, but an agent still did the
 -- building.  Here the attainment builds the organ: the machine reads
 -- its own store, detects the algebraic shapes (commutativity,
--- associativity, unit — pure pattern-matching on its own नियमः
+-- associativity, unit � pure pattern-matching on its own �����
 -- values), extracts the value-level laws FROM THE RULES' OWN
 -- WITNESSES at point environments, and instantiates one generic
 -- canonicalizer proven sound once over an abstract commutative
@@ -461,7 +461,7 @@ module जनकः (o : कर्ता) (u : Tm)
 निष्पत्तिः nothing  = (λ t → t) , (λ t ρ → refl)
 
 ------------------------------------------------------------------------
--- §6  The organ is born from the store, and it sees — no agent in the
+-- §6  The organ is born from the store, and it sees � no agent in the
 --     path from rule to eye to theorem.
 ------------------------------------------------------------------------
 

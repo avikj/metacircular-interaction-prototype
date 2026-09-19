@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§®‡§æ‡§Æ‡§æ‡§®‡•ç‡§§‡§∞‡§Æ‡•ç ‚Äî ‡§è‡§ï‡§∏‡•ç‡§Ø ‡§µ‡§∏‡•ç‡§§‡•Å‡§®‡§É ‡§®‡§æ‡§Æ‡§≠‡•á‡§¶‡§É, ‡§® ‡§µ‡§∏‡•ç‡§§‡•Å‡§≠‡•á‡§¶‡§É ‡•§
--- (nƒÅmƒÅntara: another NAME for one thing, not another thing.)
+-- ‡®‡æ‡Æ‡æ‡®‡‡‡∞‡Æ‡ ‚î ‡‡ï‡‡‡Ø ‡µ‡‡‡‡‡®‡ ‡®‡æ‡Æ‡‡‡¶‡, ‡® ‡µ‡‡‡‡‡‡‡¶‡ ‡
+-- (nmntara: another NAME for one thing, not another thing.)
 --
--- THE TERM, ITS SENSE, AND SYƒÄT ‚Äî THE CLAIM, EXACTLY.  ‡§®‡§æ‡§Æ‡§æ‡§®‡•ç‡§§‡§∞ is used in its
--- plain grammatical sense ‚Äî "a second name" ‚Äî and no text is claimed for
+-- THE TERM, ITS SENSE, AND SYT ‚î THE CLAIM, EXACTLY.  ‡®‡æ‡Æ‡æ‡®‡‡‡∞ is used in its
+-- plain grammatical sense ‚î "a second name" ‚î and no text is claimed for
 -- the compound or for the reading below; it is this file's naming of what
--- it does.  The ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä vocabulary IS Jaina and is the origin of the
--- structure, not a gloss on it: UmƒÅsvƒÅti, *TattvƒÅrthas≈´tra* (c. 2nd‚Äì5th
--- c. CE), the arpita/anarpita index at 5.31; Samantabhadra, *ƒÄptamƒ´mƒÅ·πÉsƒÅ*
--- (c. 6th c. CE), the fixed seven-membered `syƒÅt`-prefixed scheme; and
--- Akala·πÖka, *Laghƒ´yastraya* (c. 720‚Äì780 CE), the argument that the count
--- is EXACTLY seven ‚Äî three primary predicates (asti, nƒÅsti, avaktavya)
--- and their non-empty combinations, 3 + 3 + 1.  `_‚âÉ_`, `ua`, `subst`,
+-- it does.  The ‡‡‡‡‡‡ô‡‡ó‡ vocabulary IS Jaina and is the origin of the
+-- structure, not a gloss on it: Umsvti, *Tattvrthastra* (c. 2nd‚ì5th
+-- c. CE), the arpita/anarpita index at 5.31; Samantabhadra, *ptamms*
+-- (c. 6th c. CE), the fixed seven-membered `syt`-prefixed scheme; and
+-- Akalaka, *Laghyastraya* (c. 720‚ì780 CE), the argument that the count
+-- is EXACTLY seven ‚î three primary predicates (asti, nsti, avaktavya)
+-- and their non-empty combinations, 3 + 3 + 1.  `_‚â_`, `ua`, `subst`,
 -- `compEquiv`, `invEquiv` are cubical type theory's (Voevodsky) and are
 -- claimed for no Indian source.
 --
@@ -21,34 +21,34 @@
 -- WHAT THIS MODULE IS, AND THE GAP IT CLOSES.
 --
 -- The corpus carries FOUR encodings of the sevenfold predication.  Three
--- are named `‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä`, and `Punarukti_TwoOfTheThreeSevenfolds‚Ä¶` settled
--- all three: `Anekanta.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä` ‚â° `Saptabhangi.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä` (a causeway),
--- and `SaptabhangiGarbha.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä P` is a DIFFERENT question (a witness
+-- are named `‡‡‡‡‡‡ô‡‡ó‡`, and `Punarukti_TwoOfTheThreeSevenfolds‚¶` settled
+-- all three: `Anekanta.‡‡‡‡‡‡ô‡‡ó‡` ‚â° `Saptabhangi.‡‡‡‡‡‡ô‡‡ó‡` (a causeway),
+-- and `SaptabhangiKernel.‡‡‡‡‡‡ô‡‡ó‡ P` is a DIFFERENT question (a witness
 -- family, proved NOT one type).
 --
 -- The FOURTH escaped that reckoning because it does not carry the name.
--- `SaptabhangiNaya.Bhanga` is a seven-constructor enumeration ‚Äî
--- `b1-asti ‚Ä¶ b7-asti-nasti-avaktavya` ‚Äî of the very same seven bha·πÖgas,
+-- `SaptabhangiNaya.Bhanga` is a seven-constructor enumeration ‚î
+-- `b1-asti ‚¶ b7-asti-nasti-avaktavya` ‚î of the very same seven bhagas,
 -- written in Latin labels rather than Devanagari.  `Setubandha`'s node
--- census looks for types named `‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä`, so `Bhanga` was never listed
--- as a ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä node and never identified with one.  Nothing in the
--- corpus states that `Bhanga` and `Saptabhangi.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä` are one type.
+-- census looks for types named `‡‡‡‡‡‡ô‡‡ó‡`, so `Bhanga` was never listed
+-- as a ‡‡‡‡‡‡ô‡‡ó‡ node and never identified with one.  Nothing in the
+-- corpus states that `Bhanga` and `Saptabhangi.‡‡‡‡‡‡ô‡‡ó‡` are one type.
 --
 -- They are, and this is a POSITIVE identification (not a separation): both
--- are seven-element labellings of Akala·πÖka's scheme, and their labels
--- match name-for-name.  ¬ß‡•ß builds the causeway ‚Äî the one hand-built thing,
+-- are seven-element labellings of Akalaka's scheme, and their labels
+-- match name-for-name.  ¬ß‡ß builds the causeway ‚î the one hand-built thing,
 -- because a causeway between two INDEPENDENT declarations cannot be routed
--- along a prior edge (`Punarukti` ¬ß‡•ß, same reason).  ¬ß‡•®‚Äì¬ß‡•™ build nothing:
+-- along a prior edge (`Punarukti` ¬ß‡ß, same reason).  ¬ß‡®‚ì¬ß‡ build nothing:
 -- they COMPOSE the corpus's own equivalences across the new edge.
 --
---   ¬ß‡•®  Akala·πÖka's count, `SaptabhangiNaya.saptabhangi-equiv : Bhanga ‚âÉ
+--   ¬ß‡®  Akalaka's count, `SaptabhangiNaya.saptabhangi-equiv : Bhanga ‚â
 --       NEBasis` (seven = non-empty subsets of three), now reaches
---       `Saptabhangi.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä` for free ‚Äî a second, independently proved
---       "why seven" (`Saptabhangi.‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂-‡§≠‡•á‡§¶‡§É`, the 2¬≥ = 7 + 1 split)
+--       `Saptabhangi.‡‡‡‡‡‡ô‡‡ó‡` for free ‚î a second, independently proved
+--       "why seven" (`Saptabhangi.‡‡Æ‡æ‡µ‡‡-‡‡‡¶‡`, the 2¬≥ = 7 + 1 split)
 --       thereby stands beside it, routed, not reproved.
---   ¬ß‡•©  `Saptabhangi.‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂-‡§≠‡•á‡§¶‡§É` transports onto `Bhanga`: `subst` along
+--   ¬ß‡©  `Saptabhangi.‡‡Æ‡æ‡µ‡‡-‡‡‡¶‡` transports onto `Bhanga`: `subst` along
 --       the path, the profile machinery untouched.
---   ¬ß‡•™  `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` transfers onto `Bhanga`: any two-valued
+--   ¬ß‡  `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` transfers onto `Bhanga`: any two-valued
 --       verdict on `Bhanga` merges two of its three seeds
 --       (b1-asti / b2-nasti / b4-avaktavya).  Precomposition with the
 --       crossing map; nothing re-cased.
@@ -69,10 +69,10 @@ import Saptabhangi as S
 import SaptabhangiNaya as N
 
 ------------------------------------------------------------------------
--- ‡•ß ¬∑ THE CAUSEWAY.  Two independent declarations, one type.
+-- ‡ß ¬ THE CAUSEWAY.  Two independent declarations, one type.
 --
 --     Seven labels each, matched by meaning: the Latin `b1-asti` names the
---     same bha·πÖga the Devanagari `‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø` names, and so through all
+--     same bhaga the Devanagari `‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø` names, and so through all
 --     seven.  This is the only hand-built content in the file, and it is
 --     what a causeway is.
 ------------------------------------------------------------------------
@@ -123,12 +123,12 @@ Bhanga‚â°‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä : N.Bhanga ‚â° S.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•
 Bhanga‚â°‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä = ua Bhanga‚âÉ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä
 
 ------------------------------------------------------------------------
--- ‡•® ¬∑ AKALA·πÑKA'S COUNT ROUTES ACROSS.
+-- ‡® ¬ AKALAKA'S COUNT ROUTES ACROSS.
 --
---     `SaptabhangiNaya.saptabhangi-equiv : Bhanga ‚âÉ NEBasis` is Akala·πÖka's
+--     `SaptabhangiNaya.saptabhangi-equiv : Bhanga ‚â NEBasis` is Akalaka's
 --     argument checked: the seven are the non-empty subsets of the three
 --     primary predicates.  Composed across the causeway it becomes a
---     characterisation of `Saptabhangi.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä` ‚Äî proved once, on the
+--     characterisation of `Saptabhangi.‡‡‡‡‡‡ô‡‡ó‡` ‚î proved once, on the
 --     Latin copy, now standing on the Devanagari one with no re-proof.
 ------------------------------------------------------------------------
 
@@ -136,10 +136,10 @@ Bhanga‚â°‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä = ua Bhanga‚âÉ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä
 ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä‚âÉNEBasis = compEquiv (invEquiv Bhanga‚âÉ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä) N.saptabhangi-equiv
 
 ------------------------------------------------------------------------
--- ‡•© ¬∑ THE 2¬≥ = 7 + 1 SPLIT, ON THE OTHER COPY.
+-- ‡© ¬ THE 2¬≥ = 7 + 1 SPLIT, ON THE OTHER COPY.
 --
---     `Saptabhangi.‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂-‡§≠‡•á‡§¶‡§É : ‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂ ‚âÉ (‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚äé Unit)` ‚Äî the eight
---     presence-profiles are the seven bha·πÖgas plus the one void profile.
+--     `Saptabhangi.‡‡Æ‡æ‡µ‡‡-‡‡‡¶‡ : ‡‡Æ‡æ‡µ‡‡ ‚â (‡‡‡‡‡‡ô‡‡ó‡ ‚ä Unit)` ‚î the eight
+--     presence-profiles are the seven bhagas plus the one void profile.
 --     `subst` along the causeway carries it verbatim onto `Bhanga`.
 ------------------------------------------------------------------------
 
@@ -148,12 +148,12 @@ Bhanga‚â°‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä = ua Bhanga‚âÉ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä
   subst (Œª X ‚Üí S.‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂ ‚âÉ (X ‚äé Unit)) (sym Bhanga‚â°‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä) S.‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂-‡§≠‡•á‡§¶‡§É
 
 ------------------------------------------------------------------------
--- ‡•™ ¬∑ ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É, ON THE OTHER COPY.
+-- ‡ ¬ ‡¶‡‡∞‡‡®‡Ø‡, ON THE OTHER COPY.
 --
---     `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` says: ANY two-valued verdict on the sevenfold
---     identifies two of its three seeds.  `‡§µ‡§æ‡§£‡•Ä‚Üí‡§≠‡§ô‡•ç‡§ó` sends S's three
+--     `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` says: ANY two-valued verdict on the sevenfold
+--     identifies two of its three seeds.  `‡µ‡æ‡‡‚í‡‡ô‡‡ó` sends S's three
 --     seeds to `Bhanga`'s (b1-asti, b2-nasti, b4-avaktavya) on the nose,
---     so the statement transports by precomposition ‚Äî no case is redone.
+--     so the statement transports by precomposition ‚î no case is redone.
 ------------------------------------------------------------------------
 
 ‡§≠‡§ô‡•ç‡§ó‡•á-‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É :

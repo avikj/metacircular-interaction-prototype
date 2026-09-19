@@ -7,31 +7,31 @@
 --
 -- the linear-algebra form
 --
---     rank ((I - P) A P)  =  (1/2) · rank [P , A]
+--     rank ((I - P) A P)  =  (1/2) � rank [P , A]
 --
 -- for an orthogonal projection P and a self-adjoint A.  Rank is a
 -- model-dependent notion; the ALGEBRA underneath it is not, and the
 -- algebra is what is checked here.  In any ring with involution, writing
 --
---     L  =  (1 - p) · a · p                      (the leakage)
+--     L  =  (1 - p) � a � p                      (the leakage)
 --
 -- for self-adjoint p and a,
 --
---     p · a - a · p  =  L† - L .
+--     p � a - a � p  =  L� - L .
 --
 -- Three things formalization exposed that the prose had wrong or hidden:
 --
 --  1. IDEMPOTENCE OF p IS NEVER USED.  The note assumes p is a projection
---     throughout.  The identity needs only p† ≡ p.  Idempotence is what
+--     throughout.  The identity needs only p� ≡ p.  Idempotence is what
 --     makes L *mean* "what escapes an installed projector", and it is
 --     needed for the rank corollary -- it is not needed for the identity.
 --
---  2. † 1r ≡ 1r IS NOT AN AXIOM.  It was a hypothesis in the first draft.
+--  2. � 1r ≡ 1r IS NOT AN AXIOM.  It was a hypothesis in the first draft.
 --     It follows from antimultiplicativity and involutivity alone
---     (`†-pres-1` below), because an involution is its own inverse and
+--     (`�-pres-1` below), because an involution is its own inverse and
 --     therefore surjective.
 --
---  3. The rank statement = this identity + the model fact rank X = rank X†.
+--  3. The rank statement = this identity + the model fact rank X = rank X�.
 --     The identity is the transportable half; the halving is exactly where
 --     the concrete model enters, and it does not live at this level of
 --     generality.
@@ -76,7 +76,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
   ----------------------------------------------------------------------
 
   -- The unit is self-adjoint.  NOT assumed: an involution is surjective
-  -- because it is its own inverse, so †1 acts as an identity on all of R.
+  -- because it is its own inverse, so �1 acts as an identity on all of R.
   †-pres-1 : † 1r ≡ 1r
   †-pres-1 =
       † 1r
@@ -122,7 +122,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
   leak : A → A → A
   leak p a = ((1r ⊖ p) · a) · p
 
-  -- L = a·p - (p·a)·p .  No involution, no idempotence.
+  -- L = a�p - (p�a)�p .  No involution, no idempotence.
   leak-expand : (p a : A) → leak p a ≡ (a · p) ⊖ ((p · a) · p)
   leak-expand p a =
       ((1r ⊖ p) · a) · p
@@ -137,7 +137,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
     ≡⟨ cong ((a · p) +_) (-DistL· (p · a) p) ⟩
       (a · p) ⊖ ((p · a) · p) ∎
 
-  -- L† = p·a - (p·a)·p , for self-adjoint p and a.
+  -- L� = p�a - (p�a)�p , for self-adjoint p and a.
   leak-adjoint : (p a : A) → († p ≡ p) → († a ≡ a)
                → † (leak p a) ≡ (p · a) ⊖ ((p · a) · p)
   leak-adjoint p a hp ha =
@@ -202,7 +202,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
   ----------------------------------------------------------------------
   -- THE THEOREM.
   --
-  --     p · a - a · p  ≡  L† - L
+  --     p � a - a � p  ≡  L� - L
   --
   -- Hypotheses: p and a self-adjoint.  That is all.
   ----------------------------------------------------------------------

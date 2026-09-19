@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤‰à¤ªà¤•à¤°à¤£-à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ â€” instrument-growth.  Two theorems that close the gap
--- between ApurvaIndriyam's admission gate and the ParasparÄÅ›raya record.
+-- à‰àà•à°à-àµàà¦àà§à¿à â” instrument-growth.  Two theorems that close the gap
+-- between ApurvaIndriyam's admission gate and the Parasparraya record.
 --
 -- Â§1  A DERIVED SENSE ADDS NO SEPARATION, AS AN EQUALITY OF TYPES.
---     For a sensorium S : X â†’ O and a dashboard q = h âˆ˜ S landing in a
+--     For a sensorium S : X â’ O and a dashboard q = h âˆ˜ S landing in a
 --     set, the agreement type of the extended family {S, q} at any pair
---     is EQUAL â€” by univalence, not merely equivalent â€” to the agreement
+--     is EQUAL â” by univalence, not merely equivalent â” to the agreement
 --     type of S alone:
 --
---         (S x â‰¡ S y)  â‰¡  (S x â‰¡ S y) Ã— (q x â‰¡ q y).
+--         (S x â‰¡ S y)  â‰¡  (S x â‰¡ S y) — (q x â‰¡ q y).
 --
 --     The Nerode relation of the family with the dashboard adjoined is
 --     the same type as without it (the abstract-15 idiom, "computed, not
@@ -18,23 +18,23 @@
 --     reading buys no vision, and this is a path in the universe.
 --
 -- Â§2  AN INTERDEPENDENT PAIR IS NEVER SOURCE-AND-DASHBOARD.
---     A ParasparÄÅ›raya whose second sense factors through its first is
+--     A Parasparraya whose second sense factors through its first is
 --     refuted outright.  Joint faithfulness plus a named blind pair for
 --     the first sense forces the second to separate that pair
---     (dvitÄ«ya-paÅ›yati), while factoring forces it blind there
---     (à¤¤à¤¨à¥à¤¤à¥Œ-à¤…à¤¨à¥à¤§à¤ƒ) â€” so the record and the derivation cannot coexist.
+--     (dvitya-payati), while factoring forces it blind there
+--     (àà¨ààà-àà¨àà§à) â” so the record and the derivation cannot coexist.
 --     Contrapositively: EVERY interdependent pair's second member passes
 --     ApurvaIndriyam's admission gate.  The second sense of an
 --     interdependent type is necessarily a new sense; interdependence
 --     certifies independence.
 --
 -- THE MOTIVIC SENTENCE, stated as the reading it is.  A comparison map
--- derived from realizations already held adds no conservativity â€” the
+-- derived from realizations already held adds no conservativity â” the
 -- indistinguishability of motives under the extended family is the same
 -- type (Â§1).  And a jointly faithful family in which each member has a
 -- named blind pair is thereby proved to contain no derived member: each
 -- realization is a genuinely new sense of the motive (Â§2).  Crystalline
--- is not a function of the â„“-adic readings â€” that instance is a reading
+-- is not a function of the â“-adic readings â” that instance is a reading
 -- and is not proved; the shape of it is Â§2 and is.
 --
 -- Â§2 is generic in all three types.
@@ -59,7 +59,7 @@ private
     â„“ â„“' â„“'' : Level
 
 ------------------------------------------------------------------------
--- à¥§ Â· The dashboard adjoined: the same agreement type, as a path.
+-- à§ Â The dashboard adjoined: the same agreement type, as a path.
 ------------------------------------------------------------------------
 
 module _ {X : Type â„“} {O Q : Type â„“'}
@@ -88,7 +88,7 @@ module _ {X : Type â„“} {O Q : Type â„“'}
   vá¹›ddhi-abheda x y = ua (vá¹›ddhi x y)
 
 ------------------------------------------------------------------------
--- à¥¨ Â· The collision: interdependence refuses derivation.
+-- à¨ Â The collision: interdependence refuses derivation.
 ------------------------------------------------------------------------
 
 open ParasparÄÅ›raya
@@ -117,6 +117,6 @@ na-praá¹‡ÄlÄ«' P der =
                (snd (snd (snd (andhaâ‚‚ P)))))
 
 -- Read together: an interdependent pair is irreducible in BOTH
--- directions â€” neither member is a post-processing of the other, and
+-- directions â” neither member is a post-processing of the other, and
 -- the record itself is the certificate.  Interdependence is proved
 -- mutual novelty, not shared redundancy.

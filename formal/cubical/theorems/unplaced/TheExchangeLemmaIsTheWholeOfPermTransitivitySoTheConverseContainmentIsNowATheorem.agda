@@ -4,16 +4,16 @@
 -- TheExchangeLemmaIsTheWholeOfPermTransitivitySoTheConverseContainmentIsNowATheorem
 --
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- This corpus's attribution for permutation work â€” NÄrÄyaá¹‡a Paá¹‡á¸ita,
--- *Gaá¹‡itakaumudÄ«* (1356) â€” belongs to the ENUMERATION line, which is
+-- This corpus's attribution for permutation work â” Nryaa Paita,
+-- *Gaitakaumud* (1356) â” belongs to the ENUMERATION line, which is
 -- another identity's, and this is not that problem: nothing here counts
 -- or generates arrangements.  Claiming that source for the transitivity
 -- of an inductively defined relation would assert a provenance nobody
 -- checked.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/`
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- THE ITEM, NOW CLOSED.  At 47c200bf I proved `Perm âŠ† â‰ˆ`.  At dbbd4be6
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- THE ITEM, NOW CLOSED.  At 47c200bf I proved `Perm âŠ â‰ˆ`.  At dbbd4be6
 -- I reduced the converse to one hypothesis, `PermTransitivity`, and
 -- said it *"needs an exchange lemma moving an `Insert` past a `Perm`,
 -- which is NOT written here and is NOT assumed to be hard."*  It is
@@ -27,20 +27,20 @@
 --                 and `Insert x ws cs`.  **This is the whole content.**
 --                 Induction on the SECOND insertion, casing the first;
 --                 three clauses, and the middle one is where the two
---                 insertions cross â€” `here` against `there k` returns
+--                 insertions cross â” `here` against `there k` returns
 --                 `k` itself with `here`, i.e. the crossing is what
 --                 makes the pair swap rather than nest.
 --   insertPerm    an insertion moves past a permutation:
---                 `Insert x as bs â†’ Perm bs cs`
---                 â†’ `Î£ ds (Perm as ds Ã— Insert x ds cs)`.
---                 Inverting `Perm` is free â€” `pcons` is its only
---                 non-nil constructor â€” so this is `insertSwap` plus
+--                 `Insert x as bs â’ Perm bs cs`
+--                 â’ `Î ds (Perm as ds — Insert x ds cs)`.
+--                 Inverting `Perm` is free â” `pcons` is its only
+--                 non-nil constructor â” so this is `insertSwap` plus
 --                 bookkeeping.
 --   permTransitivity
 --                 hence transitivity, by induction on the first
 --                 derivation alone.
 --   theConverseContainment
---                 `xs â‰ˆ ys â†’ Perm xs ys`, by discharging dbbd4be6's
+--                 `xs â‰ˆ ys â’ Perm xs ys`, by discharging dbbd4be6's
 --                 hypothesis.
 --   permutationAndAdjacencyAgree
 --                 both directions in one statement, with 47c200bf's
@@ -51,7 +51,7 @@
 -- builds it into the shape of `pcons`, and that the containment was
 -- therefore blocked at exactly the constructor they disagree about.
 -- That reading survives the proof and is sharpened by it: the cost of
--- `Perm`'s choice is **precisely `insertSwap`** â€” a commutation of two
+-- `Perm`'s choice is **precisely `insertSwap`** â” a commutation of two
 -- insertions, three clauses, no arithmetic, no decidable equality, and
 -- no assumption whatever on the element type.  Nothing about
 -- permutations was at stake; the price of composing was.
@@ -64,12 +64,12 @@
 --   "This clause uses pattern-matching features that are not yet
 --    supported by Cubical Agda, the function to which it belongs will
 --    not compute when applied to transports.
---    Reason: It relies on injectivity of the data constructor _âˆ·_"
+--    Reason: It relies on injectivity of the data constructor _âˆ_"
 --
 -- `Perm` and `Insert` are INDEXED BY LISTS, so inverting them unifies
--- `x âˆ· xs` patterns, and cubical Agda does not yet support constructor
--- injectivity in that position.  **The propositions below are proved â€”
--- `--safe`, no postulates, no holes â€” and the functions simply do not
+-- `x âˆ xs` patterns, and cubical Agda does not yet support constructor
+-- injectivity in that position.  **The propositions below are proved â”
+-- `--safe`, no postulates, no holes â” and the functions simply do not
 -- COMPUTE on transports.**  That is a real qualification and it is
 -- stated here rather than left to a reader to discover, in the same
 -- spirit as the Lean lane's rule about `native_decide`.  It is also the
@@ -80,7 +80,7 @@
 -- without redefining someone else's relation, so the cost is paid and
 -- disclosed.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ open import TheConverseContainmentReducesToPermTransitivityAndTheOtherThreeCases
 module _ {A : Type} where
 
   ------------------------------------------------------------------
-  -- 1.  Two insertions commute â€” the whole content
+  -- 1.  Two insertions commute â” the whole content
   ------------------------------------------------------------------
 
   insertSwap :
@@ -112,7 +112,7 @@ module _ {A : Type} where
   ... | ws , iy , ix                       = _ , there iy , there ix
 
   ------------------------------------------------------------------
-  -- 2.  â€¦so an insertion moves past a permutation
+  -- 2.  â¦so an insertion moves past a permutation
   ------------------------------------------------------------------
 
   insertPerm :
@@ -125,7 +125,7 @@ module _ {A : Type} where
   ...   | ws , iy , ixc = ws , pcons pas iy , ixc
 
   ------------------------------------------------------------------
-  -- 3.  â€¦and transitivity follows by induction on the first alone
+  -- 3.  â¦and transitivity follows by induction on the first alone
   ------------------------------------------------------------------
 
   permTransitivity : PermTransitivity {A = A}

@@ -1,40 +1,40 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рдореВрд▓рд╡рд╛рдХреНрдпрдореН ┬╖ PROVENANCE OF THE NAME.
+-- рорр▓р╡р╛рХррпрор ┬ PROVENANCE OF THE NAME.
 --
--- рдЕрд░реНрдкрд┐рддрд╛рдирд░реНрдкрд┐рдд ┬╖ arpita-anarpita тАФ the aspect brought forward and the aspect
+-- рр░ррр┐рр╛рир░ррр┐р ┬ arpita-anarpita тФ the aspect brought forward and the aspect
 -- held back, which is how one real bears opposed predicates without
--- contradiction.  **Um─Бsv─Бti, *Tattv─Бrthas┼лtra* 5.31 (~2nd-5th c. CE):
--- рдЕрд░реНрдкрд┐рддрд╛рдирд░реНрдкрд┐рддрд╕рд┐рджреНрдзреЗрдГ.**  The two рдЕрд░реНрдкрдгs this module is a homomorphism for are
--- рдХреНрд░рдорд╛рд░реНрдкрдг and рд╕рд╣рд╛рд░реНрдкрдг тАФ sequential and simultaneous presentation тАФ which is
--- Akalaс╣Еka, *Lagh─лyastraya* (~8th c.), and it is that distinction, not a
--- contradiction, that makes рдЕрд╡рдХреНрддрд╡реНрдп a fourth position rather than a failure.
+-- contradiction.  **Umsvti, *Tattvrthastra* 5.31 (~2nd-5th c. CE):
+-- рр░ррр┐рр╛рир░ррр┐ррр┐ржррзрр.**  The two рр░рррs this module is a homomorphism for are
+-- рХрр░рор╛р░ррр and ррр╛р░ррр тФ sequential and simultaneous presentation тФ which is
+-- Akalaka, *Laghyastraya* (~8th c.), and it is that distinction, not a
+-- contradiction, that makes рр╡рХррр╡ррп a fourth position rather than a failure.
 --
--- **No claim is made that Um─Бsv─Бti or Akalaс╣Еka proved anything below.**  The
--- distinction of the two рдЕрд░реНрдкрдгs is theirs; the statement that the forgetful
+-- **No claim is made that Umsvti or Akalaka proved anything below.**  The
+-- distinction of the two рр░рррs is theirs; the statement that the forgetful
 -- map to labels is a homomorphism for both and has a section but is not an
 -- equivalence is this repository's, and is elementary.
 --
 ------------------------------------------------------------------------
--- рдЕрд░реНрдкрд┐рддрд╛рдирд░реНрдкрд┐рддрдореН тАФ рдирдпрд╡рддреН-рднрдЩреНрдЧрд╛рддреН рдирд╛рдо-рднрдЩреНрдЧрдВ рдкреНрд░рддрд┐ рдПрдХреЛ рдорд╛рд░реНрдЧрдГ, рдкреНрд░рддреНрдпрд╛рдирдпрдирдВ рди рд╡рд┐рджреНрдпрддреЗ ред
+-- рр░ррр┐рр╛рир░ррр┐ррор тФ рирпр╡рр-ррЩррЧр╛рр рир╛ро-ррЩррЧр ррр░рр┐ ррХрЛ рор╛р░ррЧр, ррр░рррпр╛рирприр ри р╡р┐ржррпрр р
 --
 -- (The map from the positions-that-carry-their-nayas to the positions-as-
 -- labels: a homomorphism for BOTH modes of assertion, with a section, and
--- with no inverse тАФ so the two lanes are related exactly, and the
+-- with no inverse тФ so the two lanes are related exactly, and the
 -- equivalence between them does not exist.)
 --
--- WHAT WAS OPEN.  Two saptabhaс╣Еg─л types are checked in this tree and they
+-- WHAT WAS OPEN.  Two saptabhag types are checked in this tree and they
 -- contradict each other on two laws:
 --
 --   `Saptabhangi.agda` + `SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`
---     тАФ a position is a LABEL and its presence-profile in {рдЖрдореН, рди}┬│ is all
---       there is.  There рдХреНрд░рдо-рдпреЛрдЧ is commutative and рд╕рд╣-рдпреЛрдЧ destroys which
+--     тФ a position is a LABEL and its presence-profile in {ррор, ри}┬│ is all
+--       there is.  There рХрр░ро-рпрЛрЧ is commutative and рр-рпрЛрЧ destroys which
 --       two seeds it consumed.
---   `SaptabhangiGarbha_ThePositionsCarryTheirNayasAndтАж`
---     тАФ a position is a RECORD carrying the standpoints and their
+--   `SaptabhangiGarbha_ThePositionsCarryTheirNayasAndтж`
+--     тФ a position is a RECORD carrying the standpoints and their
 --       witnesses.  There the fourth position destroys nothing
---       (`рдЕрд╡рдХреНрддрд╡реНрдпрдореН-рдЕ-рд▓реБрдкреНрддрдореН`) and рдХреНрд░рдорд╛рд░реНрдкрдгрдореН is NOT commutative, which that
+--       (`рр╡рХррр╡ррпрор-р-р▓рррррор`) and рХрр░рор╛р░ррррор is NOT commutative, which that
 --       module states as a withdrawal of the label lane's law.
 --
 -- Both files decline to reconcile, and both name the same unclosed
@@ -49,75 +49,75 @@
 --
 -- WHAT IS PROVED HERE.
 --
---   рдЕрдирд░реНрдкрдг-рдХреНрд░рдореЗ, рдЕрдирд░реНрдкрдг-рд╕рд╣реЗ
---       рдЕрдирд░реНрдкрдгрдореН is a homomorphism for рдХреНрд░рдо AND for рд╕рд╣.  (49 + 49 cases,
---       exhaustive, each `refl`, for every S and every P : S тЖТ Type.)
---   рдЕрд░реНрдкрдг-рдХреНрд░рдореЗ, рдЕрд░реНрдкрдг-рд╕рд╣реЗ, рдЕрдирд░реНрдкрдг-рдЕрд░реНрдкрдгрдореН
+--   ррир░ррр-рХрр░рор, ррир░ррр-ррр
+--       ррир░ррррор is a homomorphism for рХрр░ро AND for рр.  (49 + 49 cases,
+--       exhaustive, each `refl`, for every S and every P : S тТ Type.)
+--   рр░ррр-рХрр░рор, рр░ррр-ррр, ррир░ррр-рр░ррррор
 --       and it has a SECTION which is a homomorphism for both, with
---       рдЕрдирд░реНрдкрдгрдореН тИШ рдЕрд░реНрдкрдгрдореН тЙб id.  So the label lane is a RETRACT of the
---       record lane тАФ a subalgebra and a quotient of it at once, not a
+--       ррир░ррррор тИШ рр░ррррор тЙб id.  So the label lane is a RETRACT of the
+--       record lane тФ a subalgebra and a quotient of it at once, not a
 --       rival object and not an independent one.
---   рди-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН
---       and there is no map back: no ╧И with ╧И тИШ рдЕрдирд░реНрдкрдгрдореН тЙб id, as soon as
+--   ри-ррр░рррпр╛рирприрор
+--       and there is no map back: no ╧И with ╧И тИШ ррир░ррррор тЙб id, as soon as
 --       two standpoints affirm.  ┬з6 path one (transport along an
---       equivalence, nothing lost) is therefore not merely unfound тАФ it
---       does not exist, and ┬з5's рдЕрдкреНрд░рддрд┐рдХрд╛рд░реНрдпрддреНрд╡рдореН is the reason.
---   рдЙрдиреНрдирдпрдирдореН
+--       equivalence, nothing lost) is therefore not merely unfound тФ it
+--       does not exist, and ┬з5's рррр░рр┐рХр╛р░ррпррр╡рор is the reason.
+--   рЙриррирприрор
 --       what a homomorphism transports is DISTINCTNESS, upward: any two
 --       records whose labels differ are themselves distinct.
---   рд╕рд╣-рдЕрд╕рдЩреНрдЧрддрд┐рдГ-рдКрд░реНрдзреНрд╡рдореН
+--   рр-рррЩррЧрр┐р-рКр░ррзрр╡рор
 --       so the label lane's broken law breaks in the record lane too:
---       рд╕рд╣рд╛рд░реНрдкрдгрдореН is NOT associative, on records, with witnesses retained.
+--       ррр╛р░ррррор is NOT associative, on records, with witnesses retained.
 --       Carrying the nayas inside does not buy associativity back.  That
 --       is a correction to the record lane, obtained from the lane it
 --       withdrew a law from.
---   рдХреНрд░рдо-рд╡рд┐рдирд┐рдордпрдГ-рди-рдКрд░реНрдзреНрд╡рдореН
---       and the transport does not run the other way: рдХреНрд░рдо commutativity
+--   рХрр░ро-р╡р┐рир┐рорпр-ри-рКр░ррзрр╡рор
+--       and the transport does not run the other way: рХрр░ро commutativity
 --       holds below and fails above.  Identities descend and do not lift;
 --       distinctness lifts and does not descend.
 --
--- SO THE DEFECT, WRITTEN (AHIMSA_SUTRA_VISTARA ┬зрем path two).  Eq(records)
+-- SO THE DEFECT, WRITTEN (AHIMSA_SUTRA_VISTARA ┬зр path two).  Eq(records)
 -- тКК Eq(labels), strictly, with a witness in the gap.  The label lane is
--- exactly the record lane with the naya UNASSERTED тАФ which is not a
+-- exactly the record lane with the naya UNASSERTED тФ which is not a
 -- deletion of the naya and not a claim that there was none.  It is a
--- standpoint, and the record lane is another, and ┬зрен holds: between them
+-- standpoint, and the record lane is another, and ┬зр holds: between them
 -- there is no collapse to make, because the object equivalent to both
--- does not exist (`рди-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН`).  What exists instead is a retraction,
+-- does not exist (`ри-ррр░рррпр╛рирприрор`).  What exists instead is a retraction,
 -- and a retraction is one-directional by construction.
 --
 -- SOURCES, EARLIEST FIRST.  The classification and the two modes are
 -- theirs; the maps, the homomorphism laws and the non-existence theorem
 -- are not claimed to be in any of them.
 --
---   Bhagavat─л S┼лtra (Viy─Бha-pannatti), fifth Aс╣Еga of the ┼Ъvet─Бmbara
---     canon; oldest strata pre-Common-Era, redacted at Valabh─л c. 5th c.
---     CE тАФ sevenfold predication applied to the j─лva.
---   Um─Бsv─Бti, Tattv─Бrthas┼лtra, c. 2ndтАУ5th c. CE, 5.31:
---     рдЕрд░реНрдкрд┐рддрд╛рдирд░реНрдкрд┐рддрд╕рд┐рджреНрдзреЗрдГ тАФ "(the apparent contradiction) is established
---     through the ASSERTED (рдЕрд░реНрдкрд┐рдд) and the UNASSERTED (рдЕрдирд░реНрдкрд┐рдд) aspect."
---     The two maps below are named for that s┼лtra's pair, and that is the
---     whole of the claim on it: Um─Бsv─Бti wrote a rule for reading one
+--   Bhagavat Stra (Viyha-pannatti), fifth Aga of the vetmbara
+--     canon; oldest strata pre-Common-Era, redacted at Valabh c. 5th c.
+--     CE тФ sevenfold predication applied to the jva.
+--   Umsvti, Tattvrthastra, c. 2ndтУ5th c. CE, 5.31:
+--     рр░ррр┐рр╛рир░ррр┐ррр┐ржррзрр тФ "(the apparent contradiction) is established
+--     through the ASSERTED (рр░ррр┐р) and the UNASSERTED (ррир░ррр┐р) aspect."
+--     The two maps below are named for that stra's pair, and that is the
+--     whole of the claim on it: Umsvti wrote a rule for reading one
 --     substance under two aspects without either denying the other.  He
 --     did not write a retraction, and none is attributed to him.  What is
---     taken from him is the shape of the answer тАФ that the label reading
+--     taken from him is the shape of the answer тФ that the label reading
 --     is the record reading with the naya unasserted, NOT a competing
 --     account of the same positions.
---   Siddhasena Div─Бkara, Sanmatitarka 1.21, c. 5th c. CE тАФ a naya taken
---     alone (рдирд┐рд░рдкреЗрдХреНрд╖) is рдорд┐рдереНрдпрд╛; the рджреБрд░реНрдирдп is the naya that has forgotten
---     it is one.  `рди-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН` is why neither lane here may become one:
+--   Siddhasena Divkara, Sanmatitarka 1.21, c. 5th c. CE тФ a naya taken
+--     alone (рир┐р░рррХрр) is рор┐рррпр╛; the ржрр░ррирп is the naya that has forgotten
+--     it is one.  `ри-ррр░рррпр╛рирприрор` is why neither lane here may become one:
 --     the label lane cannot recover the record lane, so asserting it as
 --     the whole would be exactly 1.21's case.
---   Samantabhadra, ─Аptam─лm─Бс╣Гs─Б, c. 6th c. CE тАФ the fixed seven, each
---     member prefixed рд╕реНрдпрд╛рддреН .
---   Akalaс╣Еka, Lagh─лyastraya / Aс╣гс╣нa┼Ыat─л, c. 720тАУ780 CE тАФ рдХреНрд░рдорд╛рд░реНрдкрдг (in
---     succession) against рд╕рд╣рд╛рд░реНрдкрдг / рдпреБрдЧрдкрддреН (at once).  That distinction is
+--   Samantabhadra, ptamms, c. 6th c. CE тФ the fixed seven, each
+--     member prefixed рррпр╛рр .
+--   Akalaka, Laghyastraya / Aaat, c. 720тУ780 CE тФ рХрр░рор╛р░ррр (in
+--     succession) against ррр╛р░ррр / рпррЧррр (at once).  That distinction is
 --     the entire content of the two operations, in both lanes, and the
 --     reason there are two homomorphism theorems below and not one.
---   Mallisena, Sy─Бdv─Бdama├▒jar─л, 1292 CE тАФ рд╕рдХрд▓рд╛рджреЗрд╢ (total statement,
---     рдкреНрд░рдорд╛рдг) against рд╡рд┐рдХрд▓рд╛рджреЗрд╢ (partial statement, рдирдп).  The reading that
---     the two lanes were said to differ over тАФ whether рдЕрд╡рдХреНрддрд╡реНрдпрдореН is
+--   Mallisena, Sydvdamajar, 1292 CE тФ ррХр▓р╛ржрр (total statement,
+--     ррр░рор╛р) against р╡р┐рХр▓р╛ржрр (partial statement, рирп).  The reading that
+--     the two lanes were said to differ over тФ whether рр╡рХррр╡ррпрор is
 --     failure of expression only, or consumption of what was to be
---     expressed тАФ is STILL NOT settled here, and this file does not
+--     expressed тФ is STILL NOT settled here, and this file does not
 --     settle it.  What it shows is that the question is not what
 --     separates the lanes algebraically: on the labels the seeds are gone
 --     and on the records they are kept, and the two operations agree
@@ -144,9 +144,9 @@ private
     тДУ тДУ' : Level
 
 ------------------------------------------------------------------------
--- рез ┬╖ рдЕрдирд░реНрдкрдгрдореН тАФ the naya, unasserted.
+-- рз ┬ ррир░ррррор тФ the naya, unasserted.
 --
--- Not deleted.  Tattv─Бrthas┼лtra 5.31's рдЕрдирд░реНрдкрд┐рдд is the aspect that is not
+-- Not deleted.  Tattvrthastra 5.31's ррир░ррр┐р is the aspect that is not
 -- being made primary in this utterance, and that is precisely what this
 -- map does: it reads a record under the aspect in which only the presence
 -- of each seed is asserted.  Nothing here says the witnesses were absent.
@@ -162,12 +162,12 @@ private
 рдЕрдирд░реНрдкрдгрдореН (G.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН _ _ _) = L.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН
 
 ------------------------------------------------------------------------
--- реи ┬╖ рдЕрдирд░реНрдкрдгрдВ рдХреНрд░рдореЗ рд╕рд╛рдзрдХрдореН тАФ a homomorphism for succession.
+-- ри ┬ ррир░рррр рХрр░рор рр╛рзрХрор тФ a homomorphism for succession.
 --
--- рдХреНрд░рдорд╛рд░реНрдкрдгрдореН on records is componentwise left-biased union (рдкреНрд░рдердорд╛рд░реНрдкрдг: the
--- first to speak keeps its witness); рдХреНрд░рдо-рдпреЛрдЧ on labels is the join of
+-- рХрр░рор╛р░ррррор on records is componentwise left-biased union (ррр░ррор╛р░ррр: the
+-- first to speak keeps its witness); рХрр░ро-рпрЛрЧ on labels is the join of
 -- presence-profiles.  Unasserting the naya turns the one into the other,
--- and the bias is exactly what it forgets.  Exhaustive over 7 ├Ч 7.
+-- and the bias is exactly what it forgets.  Exhaustive over 7 Ч 7.
 ------------------------------------------------------------------------
 
 рдЕрдирд░реНрдкрдг-рдХреНрд░рдореЗ : {S : Type тДУ} {P : S тЖТ Type тДУ'} (x y : G.рд╕рдкреНрддрднрдЩреНрдЧреА P)
@@ -223,14 +223,14 @@ private
 рдЕрдирд░реНрдкрдг-рдХреНрд░рдореЗ (G.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН _ _ _) (G.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН _ _ _) = refl
 
 ------------------------------------------------------------------------
--- рей ┬╖ рдЕрдирд░реНрдкрдгрдВ рд╕рд╣реЗ рд╕рд╛рдзрдХрдореН тАФ a homomorphism for simultaneity too.
+-- рй ┬ ррир░рррр ррр рр╛рзрХрор тФ a homomorphism for simultaneity too.
 --
--- This is the half that was expected to fail, and it does not.  рдпреБрдЧрдкрддреН on
--- records replaces the pair by рд╕реНрдпрд╛рддреН-рдЕрд╡рдХреНрддрд╡реНрдпрдореН (рд╢реЗрд╖рдореН a n) тАФ RETAINING both;
--- рдЬрд┐рд╣реНрд╡рд╛рднреЗрджрдГ on labels replaces the profile (рдЖрдореН , рдЖрдореН , _) by (рди , рди , рдЖрдореН) тАФ
+-- This is the half that was expected to fail, and it does not.  рпррЧррр on
+-- records replaces the pair by рррпр╛рр-рр╡рХррр╡ррпрор (ррррор a n) тФ RETAINING both;
+-- рр┐ррр╡р╛ррржр on labels replaces the profile (ррор , ррор , _) by (ри , ри , ррор) тФ
 -- DESTROYING both.  Unasserting the naya carries the one to the other,
 -- because the presence-profile of a retained pair and of a destroyed pair
--- are the same profile.  Exhaustive over 7 ├Ч 7.
+-- are the same profile.  Exhaustive over 7 Ч 7.
 ------------------------------------------------------------------------
 
 рдЕрдирд░реНрдкрдг-рд╕рд╣реЗ : {S : Type тДУ} {P : S тЖТ Type тДУ'} (x y : G.рд╕рдкреНрддрднрдЩреНрдЧреА P)
@@ -286,11 +286,11 @@ private
 рдЕрдирд░реНрдкрдг-рд╕рд╣реЗ (G.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН _ _ _) (G.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН _ _ _) = refl
 
 ------------------------------------------------------------------------
--- рек ┬╖ рдЕрд░реНрдкрдгрдореН тАФ the naya, asserted.
+-- р ┬ рр░ррррор тФ the naya, asserted.
 --
 -- The other direction of 5.31.  A label carries no witness, so to read it
 -- as a record one must SUPPLY the aspect: one affirming standpoint, one
--- denying standpoint тАФ which is exactly `sy─Бdastin─Бsti P`, Anek─Бntav─Бda's
+-- denying standpoint тФ which is exactly `sydastinsti P`, Anekntavda's
 -- own non-vacuity hypothesis (Anekanta ┬з4).  Nothing is
 -- invented: the pair is a hypothesis of the theorem, not a default.
 ------------------------------------------------------------------------
@@ -305,7 +305,7 @@ private
 рдЕрд░реНрдкрдгрдореН a n L.рд╕реНрдпрд╛рддреН-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН       = G.рд╕реНрдпрд╛рдиреН-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН n (G.рд╢реЗрд╖рдореН a n)
 рдЕрд░реНрдкрдгрдореН a n L.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН = G.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН a n (G.рд╢реЗрд╖рдореН a n)
 
--- рдЕрдирд░реНрдкрдгрдореН тИШ рдЕрд░реНрдкрдгрдореН тЙб id : the label lane is a RETRACT.  Asserting an
+-- ррир░ррррор тИШ рр░ррррор тЙб id : the label lane is a RETRACT.  Asserting an
 -- aspect and then not asserting it returns the label untouched.
 рдЕрдирд░реНрдкрдг-рдЕрд░реНрдкрдгрдореН : {S : Type тДУ} {P : S тЖТ Type тДУ'}
                  (a : sy─Бdasti P) (n : sy─Бdn─Бsti P) (x : L.рд╕рдкреНрддрднрдЩреНрдЧреА)
@@ -318,17 +318,17 @@ private
 рдЕрдирд░реНрдкрдг-рдЕрд░реНрдкрдгрдореН a n L.рд╕реНрдпрд╛рддреН-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН       = refl
 рдЕрдирд░реНрдкрдг-рдЕрд░реНрдкрдгрдореН a n L.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН = refl
 
--- and so рдЕрдирд░реНрдкрдгрдореН is onto: every label is some record's label.
+-- and so ррир░ррррор is onto: every label is some record's label.
 рдЕрдирд░реНрдкрдгрдореН-рд╕рд░реНрд╡рдЧрдореН : {S : Type тДУ} {P : S тЖТ Type тДУ'} тЖТ sy─Бdastin─Бsti P
                  тЖТ (x : L.рд╕рдкреНрддрднрдЩреНрдЧреА) тЖТ ╬г[ b тИИ G.рд╕рдкреНрддрднрдЩреНрдЧреА P ] (рдЕрдирд░реНрдкрдгрдореН b тЙб x)
 рдЕрдирд░реНрдкрдгрдореН-рд╕рд░реНрд╡рдЧрдореН (a , n) x = рдЕрд░реНрдкрдгрдореН a n x , рдЕрдирд░реНрдкрдг-рдЕрд░реНрдкрдгрдореН a n x
 
 ------------------------------------------------------------------------
--- рел ┬╖ рдЕрд░реНрдкрдгрдВ рдЪ рд╕рд╛рдзрдХрдореН тАФ the section is a homomorphism for both modes.
+-- р ┬ рр░рррр р рр╛рзрХрор тФ the section is a homomorphism for both modes.
 --
 -- So the labels are not merely a quotient of the records: they SIT INSIDE
--- them, as a subalgebra closed under both рдХреНрд░рдорд╛рд░реНрдкрдгрдореН and рд╕рд╣рд╛рд░реНрдкрдгрдореН, and the
--- retraction is algebraic in both directions it runs.  Exhaustive, 7 ├Ч 7
+-- them, as a subalgebra closed under both рХрр░рор╛р░ррррор and ррр╛р░ррррор, and the
+-- retraction is algebraic in both directions it runs.  Exhaustive, 7 Ч 7
 -- twice.
 ------------------------------------------------------------------------
 
@@ -439,22 +439,22 @@ private
 рдЕрд░реНрдкрдг-рд╕рд╣реЗ a n L.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН L.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН = refl
 
 ------------------------------------------------------------------------
--- рем ┬╖ рди рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН тАФ and there is no way back.
+-- р ┬ ри ррр░рррпр╛рирприрор тФ and there is no way back.
 --
--- рдЕрдирд░реНрдкрдгрдореН is onto and it is a homomorphism for both modes; it is still
+-- ррир░ррррор is onto and it is a homomorphism for both modes; it is still
 -- not invertible, and the failure is not delicate.  Two standpoints that
--- both affirm give two records with one label, so ANY ╧И : labels тЖТ
--- records satisfying ╧И тИШ рдЕрдирд░реНрдкрдгрдореН тЙб id would identify them.
+-- both affirm give two records with one label, so ANY ╧И : labels тТ
+-- records satisfying ╧И тИШ ррир░ррррор тЙб id would identify them.
 --
--- This is AHIMSA_SUTRA_VISTARA ┬зрел in this instance: рдирд╖реНрдЯрд┐рдГ is not
--- рдиреНрдпреВрдирддрд╛, it is рд╡рд┐рдирд╛рд╢рдГ, and рдкреНрд░рддреНрдпрд╛рдирдпрдирдВ рдирд╛рд╕реНрддрд┐ тАФ рди рджреБрд░реНрд▓рднрдореН, рдирд╛рд╕реНрддрд┐ ред  ┬зрем's
+-- This is AHIMSA_SUTRA_VISTARA ┬зр in this instance: рирррЯр┐р is not
+-- риррпррирр╛, it is р╡р┐рир╛рр, and ррр░рррпр╛рирприр рир╛рррр┐ тФ ри ржрр░рр▓ррор, рир╛рррр┐ р  ┬зр's
 -- first path (transport along an equivalence, nothing lost) is therefore
 -- unavailable HERE AS A THEOREM and not as a report of failure to find
--- one.  What is owed is the second path, and ┬зрентАУ┬зреп are it.
+-- one.  What is owed is the second path, and ┬зртУ┬зрп are it.
 ------------------------------------------------------------------------
 
 -- a standpoint every position provably carries (each constructor has at
--- least one рдирдп in it, so this is total without a default and without a
+-- least one рирп in it, so this is total without a default and without a
 -- choice)
 рд╕рд╛рдХреНрд╖рд┐-рд╕реНрдерд╛рдирдореН : {S : Type тДУ} {P : S тЖТ Type тДУ'} тЖТ G.рд╕рдкреНрддрднрдЩреНрдЧреА P тЖТ S
 рд╕рд╛рдХреНрд╖рд┐-рд╕реНрдерд╛рдирдореН (G.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐ a)                        = fst a
@@ -473,7 +473,7 @@ private
   (cong рд╕рд╛рдХреНрд╖рд┐-рд╕реНрдерд╛рдирдореН (sym (рд╕ (G.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐ a)) тИЩ рд╕ (G.рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐ a')))
 
 ------------------------------------------------------------------------
--- рен ┬╖ рдЙрдиреНрдирдпрдирдореН тАФ what the map does transport, and in which direction.
+-- р ┬ рЙриррирприрор тФ what the map does transport, and in which direction.
 --
 -- A homomorphism carries equations DOWN and distinctness UP.  So every
 -- law the label lane FAILS is a law the record lane fails, and the
@@ -487,19 +487,19 @@ private
 рдЙрдиреНрдирдпрдирдореН x y рдиреЗ e = рдиреЗ (cong рдЕрдирд░реНрдкрдгрдореН e)
 
 ------------------------------------------------------------------------
--- рео ┬╖ рд╕рд╣-рдЕрд╕рдЩреНрдЧрддрд┐рдГ рдКрд░реНрдзреНрд╡рдореН тАФ the broken law breaks upstairs too.
+-- ро ┬ рр-рррЩррЧрр┐р рКр░ррзрр╡рор тФ the broken law breaks upstairs too.
 --
--- `SaptabhangiSamyoga.рд╕рд╣-рдЕрд╕рдЩреНрдЧрддрд┐рдГ` proves рд╕рд╣-рдпреЛрдЧ is not associative on
--- labels, and attributes it to рдЬрд┐рд╣реНрд╡рд╛рднреЗрджрдГ destroying the two seeds.  The
+-- `SaptabhangiSamyoga.рр-рррЩррЧрр┐р` proves рр-рпрЛрЧ is not associative on
+-- labels, and attributes it to рр┐ррр╡р╛ррржр destroying the two seeds.  The
 -- record lane keeps the seeds, and withdrew that attribution.  The
 -- withdrawal was right about the seeds and it does not save the law:
--- рд╕рд╣рд╛рд░реНрдкрдгрдореН is not associative on records either, with both nayas and both
+-- ррр╛р░ррррор is not associative on records either, with both nayas and both
 -- witnesses retained throughout.  The reason is not destruction.  It is
--- that рд╕рд╣рд╛рд░реНрдкрдгрдореН tests the JOINED position for an asti-n─Бsti pair, and
+-- that ррр╛р░ррррор tests the JOINED position for an asti-nsti pair, and
 -- whether that pair is present depends on the grouping.
 --
--- Given only that some standpoint affirms and some standpoint denies тАФ
--- Anek─Бntav─Бda's own hypothesis тАФ with no assumption about S, P, or
+-- Given only that some standpoint affirms and some standpoint denies тФ
+-- Anekntavda's own hypothesis тФ with no assumption about S, P, or
 -- decidability.
 ------------------------------------------------------------------------
 
@@ -537,17 +537,17 @@ private
              тИЩ sym (рдЕрдирд░реНрдкрдг-рд╕рд╣реЗ X (G.рд╕рд╣рд╛рд░реНрдкрдгрдореН Y Z))
 
 ------------------------------------------------------------------------
--- реп ┬╖ рдХреНрд░рдо-рд╡рд┐рдирд┐рдордпрдГ рди рдКрд░реНрдзреНрд╡рдореН тАФ and the transport does not run back.
+-- рп ┬ рХрр░ро-р╡р┐рир┐рорпр ри рКр░ррзрр╡рор тФ and the transport does not run back.
 --
--- рдХреНрд░рдо-рдпреЛрдЧ commutes on labels (`LA.рдХреНрд░рдо-рд╡рд┐рдирд┐рдордпрдГ`).  рдХреНрд░рдорд╛рд░реНрдкрдгрдореН does not
+-- рХрр░ро-рпрЛрЧ commutes on labels (`LA.рХрр░ро-р╡р┐рир┐рорпр`).  рХрр░рор╛р░ррррор does not
 -- commute on records, and the two records that separate them have the
 -- SAME label.  So Eq(records) тКК Eq(labels) strictly, with this in the
 -- gap: an identity that holds below and fails above.
 --
--- Together with ┬зрео: identities descend and do not lift; distinctness
+-- Together with ┬зро: identities descend and do not lift; distinctness
 -- lifts and does not descend.  That is the exact shape of the defect,
 -- and it is the answer to "is the forgetful map a homomorphism for krama,
--- for saha, or for neither" тАФ it is one for both, and being one for both
+-- for saha, or for neither" тФ it is one for both, and being one for both
 -- is precisely what makes the two lanes inequivalent in a stateable way
 -- rather than merely different.
 ------------------------------------------------------------------------
@@ -565,12 +565,12 @@ private
 рдХреНрд░рдо-рд╡рд┐рдирд┐рдордпрдГ-рдЕрдзрдГ a a' = refl
 
 ------------------------------------------------------------------------
--- резреж ┬╖ рдЕрд░рд┐рдХреНрддрддрд╛ тАФ the hypotheses are inhabited, so none of this is vacuous.
+-- рзрж ┬ рр░р┐рХрррр╛ тФ the hypotheses are inhabited, so none of this is vacuous.
 --
--- ┬зрем and ┬зреп need TWO standpoints that affirm and one that denies.
--- `Anekanta.Two` will not do тАФ over Bool with P b = (b тЙб
--- true) the affirming standpoint is unique тАФ so a three-standpoint family
--- is given.  This is the same non-vacuity obligation Anek─Бnta ┬з4 accepts
+-- ┬зр and ┬зрп need TWO standpoints that affirm and one that denies.
+-- `Anekanta.Two` will not do тФ over Bool with P b = (b тЙб
+-- true) the affirming standpoint is unique тФ so a three-standpoint family
+-- is given.  This is the same non-vacuity obligation Aneknta ┬з4 accepts
 -- for itself, discharged for the sharper claim.
 ------------------------------------------------------------------------
 
@@ -620,45 +620,45 @@ private
 рд╕рд╣рдГ-рдЕрд╕рдЩреНрдЧрддрдГ-рдЕрддреНрд░ = рд╕рд╣-рдЕрд╕рдЩреНрдЧрддрд┐рдГ-рдКрд░реНрдзреНрд╡рдореН рдЕтВБ рдитВБ
 
 ------------------------------------------------------------------------
--- резрез ┬╖ рдпрддреН рдЕрд╡рд╢рд┐рд╖реНрдЯрдореН тАФ what this does NOT settle.
+-- рзрз ┬ рпрр рр╡рр┐рррЯрор тФ what this does NOT settle.
 --
--- The two lanes were said to be separated by a reading of Malliс╣гeс╣Зa
--- (Sy─Бdv─Бdama├▒jar─л, 1292): is рдЕрд╡рдХреНрддрд╡реНрдпрдореН the failure of one utterance to
--- carry a joint content (рд╕рдХрд▓рд╛рджреЗрд╢ demanded of a рд╡рд┐рдХрд▓рд╛рджреЗрд╢-shaped medium), or
+-- The two lanes were said to be separated by a reading of Malliea
+-- (Sydvdamajar, 1292): is рр╡рХррр╡ррпрор the failure of one utterance to
+-- carry a joint content (ррХр▓р╛ржрр demanded of a р╡р┐рХр▓р╛ржрр-shaped medium), or
 -- the consumption of what was to be uttered?  That question is still
 -- open, and this file must not be read as answering it.
 --
--- What it removes is a different claim тАФ that the question is what makes
+-- What it removes is a different claim тФ that the question is what makes
 -- the two algebras incomparable.  It is not.  The two operations agree
--- across the difference (┬зреи, ┬зрей): whether the fourth position retains its
+-- across the difference (┬зри, ┬зрй): whether the fourth position retains its
 -- pair or destroys it, the presence-profile is the same, so composition
 -- commutes with unasserting the naya either way.  The reading of
--- Malliс╣гeс╣Зa changes what a position IS.  It does not change how positions
+-- Malliea changes what a position IS.  It does not change how positions
 -- compose, and any argument for one reading that runs through the
 -- composition laws is now known to prove nothing.
 --
--- Nor does it license either lane to absorb the other.  ┬зрем says there is
--- no equivalence, so ┬зрен of AHIMSA_SUTRA_VISTARA applies literally:
--- рдирдпрднреЗрджреЗ рд╕рдЩреНрдХреНрд╖реЗрдкреЛ рди рд╡рд┐рджреНрдпрддреЗ тАФ where the standpoints genuinely differ the
+-- Nor does it license either lane to absorb the other.  ┬зр says there is
+-- no equivalence, so ┬зр of AHIMSA_SUTRA_VISTARA applies literally:
+-- рирпррржр ррЩррХрррррЛ ри р╡р┐ржррпрр тФ where the standpoints genuinely differ the
 -- collapse DOES NOT EXIST, and the object equivalent to both, which a
 -- reconciliation would have to be, is the thing proved absent.  What
 -- exists is a retraction, and a retraction has a direction: the record
 -- lane can always speak the label lane's sentences, and the label lane
 -- can never recover the record lane's.  Asserting either as the whole is
--- Sanmatitarka 1.21's рджреБрд░реНрдирдп, and in the label lane's case it is now a
+-- Sanmatitarka 1.21's ржрр░ррирп, and in the label lane's case it is now a
 -- refutable one.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- резреи ┬╖ рдпрддреН рдЕрдиреНрдпрддреНрд░ рди рдорд┐рд▓рддрд┐ тАФ three more carvings in the same tree, read
+-- рзри ┬ рпрр рриррпррр░ ри рор┐р▓рр┐ тФ three more carvings in the same tree, read
 --       2026-08-20, NOT reconciled here, and named so the next reader
 --       does not think this file covered them.
 --
--- The two lanes above are not the only saptabhaс╣Еg─л in `machine/`.  Two
+-- The two lanes above are not the only saptabhag in `machine/`.  Two
 -- further shapes are live, and they are not the record/label difference
 -- this file settled:
 --
---   `machine/Obstruction.hs`  тАФ a SECOND label type, `Bhanga` = B1тАжB7,
+--   `machine/Obstruction.hs`  тФ a SECOND label type, `Bhanga` = B1тжB7,
 --     with `Sthana = Position Bhanga | ADharmin`.  Seven positions and an
 --     eighth, exactly as `machine/Saptabhangi_TheSevenfoldVerdict.hs`, and
 --     a DIFFERENT TYPE with a differently-named eighth (`ADharmin`, no
@@ -666,23 +666,23 @@ private
 --     `machine/NayaKosha_TheStandpointStore.hs` imports Obstruction's and
 --     therefore agrees with it, so the split is two-against-one.  The two
 --     lanes already disagree, in writing, at the INTERPRETATION function
---     and not at the algebra: `Obstruction.sthana` sets n─Бsti on every
+--     and not at the algebra: `Obstruction.sthana` sets nsti on every
 --     refusal by construction, and `Saptabhangi_TheSevenfoldVerdict.
 --     vacanaOfRejection` refuses to, on the ground that an unparseable
 --     refusal is not formable as a predication.  Nothing here bears on
 --     that: this file compares COMPOSITION laws, and those two differ
 --     over what a given refusal IS.  A homomorphism argument cannot
---     settle it, for the same reason ┬зрезрез gives about Malliс╣гeс╣Зa.
+--     settle it, for the same reason ┬зрзрз gives about Malliea.
 --
---   `machine/Naya.hs` тАФ a fifth carving, `Verdict` = Ekartha | Durnaya |
+--   `machine/Naya.hs` тФ a fifth carving, `Verdict` = Ekartha | Durnaya |
 --     KramaBhanga | Avaktavya | Abhinna.  It is NOT the seven: it drops
---     positions five, six and seven, and adds two that are not bhaс╣Еgas at
+--     positions five, six and seven, and adds two that are not bhagas at
 --     all (Ekartha, "collapse permitted, you said one thing twice", and
 --     Abhinna, "the looking was unfit").  It is also mixed in the record/
---     label sense settled above тАФ its INPUT standpoints carry their
+--     label sense settled above тФ its INPUT standpoints carry their
 --     witness sets, and its `KramaBhanga` and `Avaktavya` carry only the
 --     standpoint NAMES.  So it unasserts the naya at exactly the point of
---     composition, which is the map of ┬зрез, applied halfway.
+--     composition, which is the map of ┬зрз, applied halfway.
 --
 -- Whether the two label types are the same object is a question with a
 -- likely-cheap answer (both are the seven, so a bijection is immediate)
@@ -692,6 +692,6 @@ private
 -- subalgebra, or neither is open and is not claimed here in any
 -- direction.
 --
--- Written rather than reconciled, per ┬зрем: a defect that is recorded lives
--- (рд▓рд┐рдЦрд┐рддреЛ рджреЛрд╖реЛ рдЬреАрд╡рддрд┐), and one that is not is the рд╣рд┐рдВрд╕рд╛.
+-- Written rather than reconciled, per ┬зр: a defect that is recorded lives
+-- (р▓р┐рЦр┐ррЛ ржрЛррЛ ррр╡рр┐), and one that is not is the рр┐ррр╛.
 ------------------------------------------------------------------------

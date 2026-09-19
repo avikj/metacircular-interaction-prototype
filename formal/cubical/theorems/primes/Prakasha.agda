@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Prakasha where
--- ‡§™‡•ç‡§∞‡§ï‡§æ‡§∂: the problems as instruments.  One conjecture, its strata as
+-- ‡‡‡∞‡ï‡æ‡: the problems as instruments.  One conjecture, its strata as
 -- types, the maps that exist, and the map that provably does not.
 
 open import Prakriti

@@ -3,67 +3,67 @@
 ------------------------------------------------------------------------
 -- AnuvrttiIsTheSameTrade
 --
--- à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿, and the four devices of the Aá¹£á¹­ÄdhyÄyÄ« split two and two.
+-- àà¨ààµààààà¿, and the four devices of the Adhyy split two and two.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHERE THIS COMES FROM
 --
--- `AsiddhatvaBreaksFactoring` found that à¤ªà¥‚à¤°à¥à¤µà¤¤à¥à¤°à¤¾à¤¸à¤¿à¤¦à¥à¤§à¤®à¥ (8.2.1) is not
+-- `AsiddhatvaBreaksFactoring` found that ààà°ààµààà°à¾àà¿à¦àà§à®à (8.2.1) is not
 -- rule-ordering bookkeeping but an information-retention device: it buys
 -- access to a distinction an earlier rule destroyed, and pays with the
 -- statelessness of the later rules.  8.2.1 buys back what 8.2.30 spends.
 --
--- If that is what à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ is, the other three devices become a
--- question.  They answer it, and the answer is a clean twoâ€“two split
+-- If that is what ààà¿à¦àà§àààµ is, the other three devices become a
+-- question.  They answer it, and the answer is a clean twoâ“two split
 -- visible in the TYPES, before any theorem is proved:
 --
---   à¤…à¤ªà¤µà¤¾à¤¦      the verdict has type  A â†’ B.               LOCAL
---   à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤°   the denotation has type  Name â†’ Set.       LOCAL
---   à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿    the content needs  (text , adhikÄra) â†’ â€¦   NON-LOCAL
---   à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ    the verdict needs  (original , current) â†’ â€¦ NON-LOCAL
+--   àààµà¾à¦      the verdict has type  A â’ B.               LOCAL
+--   ààà°ààà¯à¾àà¾à°   the denotation has type  Name â’ Set.       LOCAL
+--   àà¨ààµààààà¿    the content needs  (text , adhikra) â’ â¦   NON-LOCAL
+--   ààà¿à¦àà§àààµ    the verdict needs  (original , current) â’ â¦ NON-LOCAL
 --
 -- For the two local devices there is nothing to prove: no extra argument
 -- appears, so none has to be eliminated.  `Apavada.RulePair` resolves at
--- `a` from `a` alone once à¤µà¤¿à¤·à¤¯ is decided, and `Pratyahara` already
+-- `a` from `a` alone once àµà¿àà¯ is decided, and `Pratyahara` already
 -- studies exactly when a two-letter name determines its set
 -- (`no-order-makes-all-intervals` is the obstruction, and the repeated
--- à¤£à¥ in the à¤¶à¤¿à¤µà¤¸à¥‚à¤¤à¥à¤°à¤¾à¤£à¤¿ is the response).
+-- àà in the àà¿àµààààà°à¾àà¿ is the response).
 --
 -- For the two non-local ones the extra argument must be shown NECESSARY,
--- or the device is idle.  à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ's necessity is proved in that module.
--- This one proves à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿'s, and adds the half à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ's account was
+-- or the device is idle.  ààà¿à¦àà§àààµ's necessity is proved in that module.
+-- This one proves àà¨ààµààààà¿'s, and adds the half ààà¿à¦àà§àààµ's account was
 -- missing: what the device BUYS, with a number.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE TRADE, BOTH HALVES
 --
---   Â§2  à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿ SAVES.  Three sÅ«tras under one governing word cost
---       four words with à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿ and six without.  That is à¤²à¤¾à¤˜à¤µ, and it
+--   Â§2  àà¨ààµààààà¿ SAVES.  Three stras under one governing word cost
+--       four words with àà¨ààµààààà¿ and six without.  That is à²à¾à˜àµ, and it
 --       is why the device exists.
 --
---   Â§3  à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿ COSTS.  A sÅ«tra's operative content provably does not
---       factor through its own text: two sÅ«tras with identical text
---       under different à¤…à¤§à¤¿à¤•à¤¾à¤° have the same reading and different
+--   Â§3  àà¨ààµààààà¿ COSTS.  A stra's operative content provably does not
+--       factor through its own text: two stras with identical text
+--       under different àà§à¿à•à¾à° have the same reading and different
 --       content.
 --
--- So the same trade as 8.2.1, in the other direction.  à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ pays
--- non-locality to RECOVER a distinction; à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿ pays non-locality to
+-- So the same trade as 8.2.1, in the other direction.  ààà¿à¦àà§àààµ pays
+-- non-locality to RECOVER a distinction; àà¨ààµààààà¿ pays non-locality to
 -- SHORTEN the text.  Both are non-local, both provably, and neither is
 -- an ordering convention.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- WHAT THIS SAYS TO THE STANDING à¤²à¤¾à¤˜à¤µ THREAD
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- WHAT THIS SAYS TO THE STANDING à²à¾à˜àµ THREAD
 --
--- That thread asks for a measure on presentations stable under à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿
--- / à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° / à¤…à¤ªà¤µà¤¾à¤¦.  The twoâ€“two split answers it and the answer is
+-- That thread asks for a measure on presentations stable under àà¨ààµààààà¿
+-- / ààà°ààà¯à¾àà¾à° / àààµà¾à¦.  The twoâ“two split answers it and the answer is
 -- not the one the question expects:
 --
---   stable under the LOCAL devices â€” à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° and à¤…à¤ªà¤µà¤¾à¤¦ change what is
+--   stable under the LOCAL devices â” ààà°ààà¯à¾àà¾à° and àààµà¾à¦ change what is
 --   written without changing what any rule may read, so any measure
 --   defined on what is read survives them;
 --
---   NOT stable under à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿ â€” because à¤²à¤¾à¤˜à¤µ is not something à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿
---   preserves, it is what à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿ PRODUCES.  Asking for a measure
+--   NOT stable under àà¨ààµààààà¿ â” because à²à¾à˜àµ is not something àà¨ààµààààà¿
+--   preserves, it is what àà¨ààµààààà¿ PRODUCES.  Asking for a measure
 --   invariant under it is asking the saving to be invisible.
 --
 -- `Laghava.laghava-is-not-semantic` already showed size is not a
@@ -71,7 +71,7 @@
 -- under the one device that exists to change it, and it IS invariant
 -- under the two that do not.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -89,25 +89,25 @@ open import AnyonyaAbhava using (Anyonya ; anyonyaâ†’samsarga)
 open import AsiddhatvaBreaksFactoring using (asiddha-does-not-factor)
 
 ------------------------------------------------------------------------
--- 1.  A section: sÅ«tras under one governing word
+-- 1.  A section: stras under one governing word
 --
--- Each sÅ«tra contributes its own word.  The à¤…à¤§à¤¿à¤•à¤¾à¤° contributes one word
+-- Each stra contributes its own word.  The àà§à¿à•à¾à° contributes one word
 -- that all of them inherit.
 ------------------------------------------------------------------------
 
 Section : Typeâ‚€
 Section = List â„•                    -- one own-word per sÅ«tra, as a code
 
--- written out in full: every sÅ«tra repeats the governing word
+-- written out in full: every stra repeats the governing word
 withoutAnuvrtti : Section â†’ â„•
 withoutAnuvrtti s = 2 Â· length s
 
--- written with à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿: the governing word once, then the own-words
+-- written with àà¨ààµààààà¿: the governing word once, then the own-words
 withAnuvrtti : Section â†’ â„•
 withAnuvrtti s = suc (length s)
 
 ------------------------------------------------------------------------
--- 2.  IT SAVES â€” and here is the number
+-- 2.  IT SAVES â” and here is the number
 ------------------------------------------------------------------------
 
 threeSutras : Section
@@ -122,14 +122,14 @@ anuvrtti-cost = refl
 anuvrtti-saves : withAnuvrtti threeSutras < withoutAnuvrtti threeSutras
 anuvrtti-saves = 1 , refl
 
--- the saving grows: it is one word per sÅ«tra beyond the first
+-- the saving grows: it is one word per stra beyond the first
 saves-at-four : withAnuvrtti (7 âˆ· 8 âˆ· 9 âˆ· 10 âˆ· []) < withoutAnuvrtti (7 âˆ· 8 âˆ· 9 âˆ· 10 âˆ· [])
 saves-at-four = 2 , refl
 
 ------------------------------------------------------------------------
--- 3.  IT COSTS â€” the content does not factor through the text
+-- 3.  IT COSTS â” the content does not factor through the text
 --
--- A site is a sÅ«tra's own text together with the à¤…à¤§à¤¿à¤•à¤¾à¤° in force there.
+-- A site is a stra's own text together with the àà§à¿à•à¾à° in force there.
 -- What can be READ is the text.  What OPERATES is the pair.
 ------------------------------------------------------------------------
 
@@ -142,7 +142,7 @@ reading = fst
 operative : Site â†’ â„• Ã— â„•            -- what it actually does
 operative s = s
 
--- two sÅ«tras written identically, governed differently
+-- two stras written identically, governed differently
 underFirst : Site
 underFirst = 5 , 0
 
@@ -181,25 +181,25 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 ------------------------------------------------------------------------
 -- 5.  What is claimed, and what is not.
 --
--- CLAIMED.  à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿ and à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ are non-local in the same exact
--- sense, each provably; à¤…à¤ªà¤µà¤¾à¤¦ and à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° are local, which needs no
--- proof because no extra argument appears in their types.  And à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿
+-- CLAIMED.  àà¨ààµààààà¿ and ààà¿à¦àà§àààµ are non-local in the same exact
+-- sense, each provably; àààµà¾à¦ and ààà°ààà¯à¾àà¾à° are local, which needs no
+-- proof because no extra argument appears in their types.  And àà¨ààµààààà¿
 -- pays that non-locality for a saving that can be counted.
 --
 -- OPEN, named and not estimated.  Whether the two local devices are
--- local UNCONDITIONALLY.  à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° is local only when the needed sets
--- are intervals of the à¤¶à¤¿à¤µà¤¸à¥‚à¤¤à¥à¤° order, which `Pratyahara
--- .no-order-makes-all-intervals` shows fails in general â€” so the
--- repeated à¤£à¥ is buying locality, and whether that purchase is minimal
+-- local UNCONDITIONALLY.  ààà°ààà¯à¾àà¾à° is local only when the needed sets
+-- are intervals of the àà¿àµààààà° order, which `Pratyahara
+-- .no-order-makes-all-intervals` shows fails in general â” so the
+-- repeated àà is buying locality, and whether that purchase is minimal
 -- is exactly the question that module leaves open.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  CORRECTION to Â§5's open item, and to the column à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° is in.
+-- 6.  CORRECTION to Â§5's open item, and to the column ààà°ààà¯à¾àà¾à° is in.
 --
 -- Â§5 names as open "whether the two local devices are local
--- UNCONDITIONALLY", guessing that à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤°'s difficulty would be
--- locality.  It is not, and à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° is not local.
+-- UNCONDITIONALLY", guessing that ààà°ààà¯à¾àà¾à°'s difficulty would be
+-- locality.  It is not, and ààà°ààà¯à¾àà¾à° is not local.
 --
 -- `PratyaharaBuysTotalityWithLocality` separates two
 -- costs the header above ran together:
@@ -207,21 +207,21 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 --   TOTALITY  some needed set has no name at all;
 --   LOCALITY  some name denotes more than one set.
 --
--- `Pratyahara` studies totality only.  Its repair â€” repeating a letter,
--- `x y z x` â€” buys totality and destroys locality, because the repeated
+-- `Pratyahara` studies totality only.  Its repair â” repeating a letter,
+-- `x y z x` â” buys totality and destroys locality, because the repeated
 -- letter makes `(x , x)` the name of both the run [x] and the run
--- [x,y,z,x].  That is the smallest instance of the ambiguity at à¤…à¤£à¥,
--- whose à¤£à¥ is an à¤…à¤¨à¥à¤¬à¤¨à¥à¤§ in both the first à¤¶à¤¿à¤µà¤¸à¥‚à¤¤à¥à¤° and the sixth.
+-- [x,y,z,x].  That is the smallest instance of the ambiguity at ààà,
+-- whose àà is an àà¨ààà¨àà§ in both the first àà¿àµààààà° and the sixth.
 --
--- So the split is THREEâ€“ONE, not twoâ€“two:
+-- So the split is THREEâ“ONE, not twoâ“two:
 --
---     à¤…à¤ªà¤µà¤¾à¤¦       local, total                    buys nothing
---     à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤°    total at the cost of locality
---     à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿     non-local, buys brevity
---     à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ     non-local, buys a distinction
+--     àààµà¾à¦       local, total                    buys nothing
+--     ààà°ààà¯à¾àà¾à°    total at the cost of locality
+--     àà¨ààµààààà¿     non-local, buys brevity
+--     ààà¿à¦àà§àààµ     non-local, buys a distinction
 --
 -- and Â§5's conclusion shrinks with it: the only device a measure on
--- presentations is stable under is à¤…à¤ªà¤µà¤¾à¤¦, which is the only one of the
+-- presentations is stable under is àààµà¾à¦, which is the only one of the
 -- four that adds no expressive power.  A measure stable under every
 -- device that changes the presentation is one that cannot see what the
 -- devices are for.
@@ -239,12 +239,12 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 --
 -- `Anuvrtti.agda` Â§, which this module builds on, states:
 --
---   > `vipratiá¹£edhe paraá¹ kÄryam` â€” "of two conflicting rules, the later
+--   > `vipratiedhe para kryam` â” "of two conflicting rules, the later
 --   > prevails"
 --
--- as settled fact.  The map's entry says, in bold: **DISPUTED â€” do not
+-- as settled fact.  The map's entry says, in bold: **DISPUTED â” do not
 -- cite "later rule wins" as settled.**  Rajpopat (Cambridge PhD,
--- published 2022-12-15, *In PÄá¹‡ini We Trust*) argues 1.4.2 means the rule
+-- published 2022-12-15, *In Pini We Trust*) argues 1.4.2 means the rule
 -- applicable to the RIGHT-HAND-SIDE OPERAND wins, and that the serial
 -- reading is a 2,500-year misreading.  The map further records that the
 -- brief which produced an earlier note asserted the serial reading as
@@ -253,17 +253,17 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 -- I repeated it.  It is also in the standing state I have been handed
 -- each cycle.  Neither is a reason to have asserted it.
 --
--- Nothing in this module's THEOREMS depends on the reading â€” Â§2 and Â§3
--- are about à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿, not about conflict resolution.  What is corrected
+-- Nothing in this module's THEOREMS depends on the reading â” Â§2 and Â§3
+-- are about àà¨ààµààààà¿, not about conflict resolution.  What is corrected
 -- is a claim in the surrounding prose of a file I depend on, and my
 -- having propagated it.
 --
 -- SECOND, AND IT IS PRIOR ART I SHOULD HAVE CITED.
 --
--- `Pratyahara.agda` explicitly declines to claim that PÄá¹‡ini's ordering
+-- `Pratyahara.agda` explicitly declines to claim that Pini's ordering
 -- is optimal, saying that would need "the family enumerated".  That hedge
 -- is honest.  But the theorem EXISTS: Petersen 2004, *A Mathematical
--- Analysis of PÄá¹‡ini's ÅšivasÅ«tras*, JoLLI 13:471â€“489, proves optimality
+-- Analysis of Pini's ivastras*, JoLLI 13:471â“489, proves optimality
 -- of the ordering from the Hasse diagram of the intersection-closure
 -- alone, with no phonological input.  The map calls it "the one item on
 -- this page that is already a proved statement of the kind this repo
@@ -272,8 +272,8 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 -- `PratyaharaBuysTotalityWithLocality` names as open "whether some order
 -- and naming convention achieves totality and locality together at three
 -- letters".  That is adjacent to Petersen's result and I did not check
--- whether it is settled by it.  I still have not â€” the paper is not
--- reachable from this container â€” but the open item should have carried
+-- whether it is settled by it.  I still have not â” the paper is not
+-- reachable from this container â” but the open item should have carried
 -- the citation from the start instead of standing as though nothing were
 -- known.
 --

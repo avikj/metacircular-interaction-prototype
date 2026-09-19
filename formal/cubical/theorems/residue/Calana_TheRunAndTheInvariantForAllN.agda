@@ -27,7 +27,7 @@ open import LosslessReturn_TheStepIsAConjugationAndNothingIsTouchedByIt
 पद२० : क्रम 20 (बुन आदि) ≡ गभीर 20 20 7
 पद२० = refl
 
--- शेषः is invariant under the whole run, at every n, by structure
+-- ���� is invariant under the whole run, at every n, by structure
 शेषः : विवेक → ℕ
 शेषः (गभीर _ _ d) = d
 

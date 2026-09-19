@@ -1,26 +1,26 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- सर्वपदम् — every word.
+-- �������� � every word.
 --
--- Morse–Hedlund, in its finite form: a sequence that is eventually
+-- Morse�Hedlund, in its finite form: a sequence that is eventually
 -- periodic with preperiod N and period p has at most N + p distinct
--- windows of any length, because every window at a position ≥ N equals
+-- windows of any length, because every window at a position � N equals
 -- the window at a position in [N, N+p) (§4, `Red`: the representative is
--- reached by stepping back one period at a time, with the ≤-witness
--- doing the arithmetic).  So if all 2^n₀ words of length n₀ occur among
--- the windows of a prefix, every (N, p) with N + p < 2^n₀ is refuted at
--- once (§6, `Exclude`: the map word ↦ representative position is
+-- reached by stepping back one period at a time, with the �-witness
+-- doing the arithmetic).  So if all 2^n� words of length n� occur among
+-- the windows of a prefix, every (N, p) with N + p < 2^n� is refuted at
+-- once (§6, `Exclude`: the map word � representative position is
 -- injective, and the library pigeonhole collides it).
 --
 -- Rule 30's middle column, computed to depth D in one pass (§2), has
--- every n₀-bit word among its windows at (D, n₀) = (1024, 6), (2048, 8)
+-- every n�-bit word among its windows at (D, n�) = (1024, 6), (2048, 8)
 -- and (4096, 9) (§5: the windows are computed in one pass over the
 -- list, each word's first occurrence found by scan, the whole
 -- certificate one boolean by refl).  Hence no rational with N + p < 512,
--- i.e. no denominator ≤ 256 (§1: N + p ≤ 2b + 1), has this column.  The
--- certificate scales as 2^n₀ · D where the shift search of Apunaravrtti
--- scales as P² · D, which is why it reaches four times further.
+-- i.e. no denominator � 256 (§1: N + p � 2b + 1), has this column.  The
+-- certificate scales as 2^n� � D where the shift search of Apunaravrtti
+-- scales as P² � D, which is why it reaches four times further.
 --
 -- All three instances were submitted to the yantra (sadhana.patra) and
 -- accepted by its kernel, 2026-09-11; transcript in research/rule30/.
@@ -41,7 +41,7 @@ open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 ------------------------------------------------------------------------
--- §1  the binary column of a rational is periodic with N + p ≤ 2b + 1
+-- §1  the binary column of a rational is periodic with N + p � 2b + 1
 ------------------------------------------------------------------------
 
 śeṣa : (a b : ℕ) → ℕ → ℕ
@@ -93,7 +93,7 @@ rational→periodic a b =
   where
   samīkaraṇa : (d u l : ℕ) → (l + u) + suc d ≡ (d + suc u) + l
   samīkaraṇa d u l = solveℕ!
-  -- u + suc d ≤ u + v  (as d + suc u ≡ v)  ≤ b + suc b  (u ≤ b, v ≤ suc b)
+  -- u + suc d � u + v  (as d + suc u ≡ v)  � b + suc b  (u � b, v � suc b)
   N+p≤ : (d u v : ℕ) → d + suc u ≡ v → v < suc (suc b) → u + suc d ≤ b + suc b
   N+p≤ d u v du v< =
     ≤-trans (u , eq1 d u ∙ cong (u +_) du)
@@ -194,7 +194,7 @@ module Red (s : ℕ → Bool) (N d : ℕ) (per : Periodic s N (suc d)) where
     eq3 k N d = solveℕ!
 
 ------------------------------------------------------------------------
--- §5  the finite certificate: every n₀-bit word occurs in the first D bits
+-- §5  the finite certificate: every n�-bit word occurs in the first D bits
 ------------------------------------------------------------------------
 
 and-true : (x y : Bool) → (x and y) ≡ true → (x ≡ true) × (y ≡ true)
@@ -204,8 +204,8 @@ and-true false y     e = E.rec (false≢true e)
 
 -- comparisons through builtin monus: one match on the result instead of
 -- a unary descent through the literal (a descent costs the VALUE of the
--- number, and here the values are windows up to 2^n₀ and positions up
--- to D, compared 2^n₀ · D times)
+-- number, and here the values are windows up to 2^n� and positions up
+-- to D, compared 2^n� � D times)
 -- (isZero is the library's, Cubical.Data.Nat.Base)
 
 eqℕ : ℕ → ℕ → Bool
@@ -307,8 +307,8 @@ columnList-length : (D : ℕ) → length (columnList D) ≡ D
 columnList-length D = colGo-length D D (seed D)
 
 ------------------------------------------------------------------------
--- §6  Morse–Hedlund, the finite form: 2^n₀ distinct windows in a prefix
---     refute every (N, p) with N + p < 2^n₀
+-- §6  Morse�Hedlund, the finite form: 2^n� distinct windows in a prefix
+--     refute every (N, p) with N + p < 2^n�
 ------------------------------------------------------------------------
 
 module Exclude (D n₀ : ℕ) (0<n₀ : 0 < n₀) (colL : List Bool) (lenD : length colL ≡ D) (all : allWords colL n₀ ≡ true) where
@@ -348,8 +348,8 @@ D₆ n₆ : ℕ
 D₆ = 1024
 n₆ = 6
 
--- (D, n₀) = (1024, 6): every 6-bit word occurs; a denominator b+1 has
--- N + p ≤ 2b + 1 < 2^6, so every denominator ≤ 32 is excluded
+-- (D, n�) = (1024, 6): every 6-bit word occurs; a denominator b+1 has
+-- N + p � 2b + 1 < 2^6, so every denominator � 32 is excluded
 nirṇaya₆ : allWords (columnList D₆) n₆ ≡ true
 nirṇaya₆ = refl
 
@@ -363,8 +363,8 @@ D₈ n₈ : ℕ
 D₈ = 2048
 n₈ = 8
 
--- (D, n₀) = (2048, 8): every 8-bit word occurs; a denominator b+1 has
--- N + p ≤ 2b + 1 < 2^8, so every denominator ≤ 128 is excluded
+-- (D, n�) = (2048, 8): every 8-bit word occurs; a denominator b+1 has
+-- N + p � 2b + 1 < 2^8, so every denominator � 128 is excluded
 nirṇaya₈ : allWords (columnList D₈) n₈ ≡ true
 nirṇaya₈ = refl
 

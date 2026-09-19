@@ -4,46 +4,46 @@
 -- Kernel.Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivation
 --                   EntirelySoTheSixCoordinatesAreNeverIdentified
 --
--- TERM, AND THE SCHOOL IS NYÄ€YA, NAMED BEFORE THE TERM IS USED.
+-- TERM, AND THE SCHOOL IS NYYA, NAMED BEFORE THE TERM IS USED.
 --
--- à¤µà¥à¤¯à¤­à¤¿à¤šà¤¾à¤° Â· vyabhicÄra -- straying, deviation.  A hetu that is found where
--- the sÄdhya is absent is à¤¸à¤µà¥à¤¯à¤­à¤¿à¤šà¤¾à¤°, and Gautama's *NyÄyasÅ«tra* (~2nd c. CE)
--- lists it first among the hetvÄbhÄsas and defines it in three words:
+-- àµàà¯àà¿àà¾à° Â vyabhicra -- straying, deviation.  A hetu that is found where
+-- the sdhya is absent is ààµàà¯àà¿àà¾à°, and Gautama's *Nyyastra* (~2nd c. CE)
+-- lists it first among the hetvbhsas and defines it in three words:
 --
---     à¤…à¤¨à¥ˆà¤•à¤¾à¤¨à¥à¤¤à¤¿à¤•à¤ƒ à¤¸à¤µà¥à¤¯à¤­à¤¿à¤šà¤¾à¤°à¤ƒ     anaikÄntikaá¸¥ savyabhicÄraá¸¥
+--     àà¨àˆà•à¾à¨ààà¿à•à ààµàà¯àà¿àà¾à°à     anaikntika savyabhicra
 --
 -- CORRECTED 2026-08-25 against the e-text.  I first wrote this as
--- ~~savyabhicÄro 'naikÄntikaá¸¥~~, THE WORDS IN REVERSE ORDER, from memory.
+-- ~~savyabhicro 'naikntika~~, THE WORDS IN REVERSE ORDER, from memory.
 -- GRETIL's `sa_gautama-nyAyasUtra.txt` line 204 reads `1.2.5:
--- anaikÄntikaá¸¥ savyabhicÄraá¸¥`, and line 200 is 1.2.4, the hetvÄbhÄsa
+-- anaikntika savyabhicra`, and line 200 is 1.2.4, the hetvbhsa
 -- list.  Cloned from the INDOLOGY/tokushige-koyasan GitHub mirror, since
 -- GRETIL's own host answers 403 here.  This file's own thesis is that a
 -- number propagates where words do not; I had the number right and the
 -- words wrong, which is the same defect one level in.
 --
 -- I give the words rather than lean on the number, per this repository's
--- own finding that a sÅ«tra's number propagates through citation while its
+-- own finding that a stra's number propagates through citation while its
 -- words appear only where someone opened the text.  The received placement
--- is in the hetvÄbhÄsa passage of adhyÄya 1, pÄda 2; I do not pin it.  The
--- definitional apparatus for vyÄpti and its defeat is much later --
--- Gaá¹…geÅ›a, *TattvacintÄmaá¹‡i*, vyÄptivÄda (~1325) -- and none of it is
--- claimed for anything proved below.  `Vyapti_â€¦` in this directory is the
+-- is in the hetvbhsa passage of adhyya 1, pda 2; I do not pin it.  The
+-- definitional apparatus for vypti and its defeat is much later --
+-- Gagea, *Tattvacintmai*, vyptivda (~1325) -- and none of it is
+-- claimed for anything proved below.  `Vyapti_â¦` in this directory is the
 -- sibling module and uses the same school's vocabulary.
 --
 -- AND THE DISPUTE, WHICH IS THE POINT AND MUST NOT BE FLATTENED.
 --
--- Gautama's name for the fault is à¤…à¤¨à¥ˆà¤•à¤¾à¤¨à¥à¤¤à¤¿à¤• Â· anaikÄntika -- literally
+-- Gautama's name for the fault is àà¨àˆà•à¾à¨ààà¿à• Â anaikntika -- literally
 -- not-one-endedness.  The Jainas' name for their central doctrine is
--- à¤…à¤¨à¥‡à¤•à¤¾à¤¨à¥à¤¤ Â· anekÄnta, the same root, and they mean it as the structure of
+-- àà¨àà•à¾à¨àà Â aneknta, the same root, and they mean it as the structure of
 -- the real.  So the SAME CONFIGURATION -- a claim that holds under one
--- upÄdhi and fails under another -- is for the NaiyÄyika a defect that
--- destroys the inference, and for the Jaina the first two bhaá¹…gas of the
--- saptabhaá¹…gÄ«, both determinate, both retained.  The Jaina logicians were
--- answering the charge that anekÄnta is merely anaikÄntika, at length, for
--- centuries; Akalaá¹…ka and VidyÄnanda are where that argument lives.
+-- updhi and fails under another -- is for the Naiyyika a defect that
+-- destroys the inference, and for the Jaina the first two bhagas of the
+-- saptabhag, both determinate, both retained.  The Jaina logicians were
+-- answering the charge that aneknta is merely anaikntika, at length, for
+-- centuries; Akalaka and Vidynanda are where that argument lives.
 --
--- Â§2 BELOW IS THE NAIYÄ€YIKA READING AND IT IS A THEOREM.  Â§3 exhibits the
--- same pair under both upÄdhis, which is what the Jaina reading keeps.
+-- Â§2 BELOW IS THE NAIYYIKA READING AND IT IS A THEOREM.  Â§3 exhibits the
+-- same pair under both updhis, which is what the Jaina reading keeps.
 -- NOTHING HERE ADJUDICATES BETWEEN THEM.  The two schools reject each
 -- other's categories and this file does not blend them into one toolkit;
 -- it states which reading each section is, and stops.
@@ -69,10 +69,10 @@
 --   Â§1  vyabhicara -- ONE environment at which the meanings differ forbids
 --       a derivation entirely.  It is `derivation-sound` read backwards,
 --       and it is one line, which is the whole reason the kernel's
---       soundness quantifies over every Ï instead of holding at one.
+--       soundness quantifies over every Ï instead of holding at one.
 --   Â§2  var is derivably identified with none of the other five
 --       coordinates; and yvar with zvar, so the fact is not about `var`.
---   Â§3  the same pair, asti at one upÄdhi and nÄsti at another, both
+--   Â§3  the same pair, asti at one updhi and nsti at another, both
 --       checked -- the configuration Â§2 reads as a fault.
 --
 -- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
@@ -128,7 +128,7 @@ yvarâ‰¢zvar : Derivation yvar zvar â†’ E.âŠ¥
 yvarâ‰¢zvar = vyabhicara (env 0 0 1 0 0 0) znots
 
 ------------------------------------------------------------------------
--- Â§3.  THE SAME PAIR UNDER BOTH UPÄ€DHIS.  Â§2 is the NaiyÄyika reading --
+-- Â§3.  THE SAME PAIR UNDER BOTH UPDHIS.  Â§2 is the Naiyyika reading --
 --      deviation, therefore no inference.  What the configuration itself
 --      contains is this: a determinate holding, and a determinate failing,
 --      of one claim about one pair, at two conditions.  Both are checked.

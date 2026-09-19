@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sha256 â€” the compression is bit-level, and the kernel replays the
+-- Sha256 â” the compression is bit-level, and the kernel replays the
 -- NIST vectors by computation.
 --
 -- WHAT THIS IS.  FIPS 180-4 SHA-256, whole: padding, message schedule,
--- the sixty-four rounds, the digest â€” as total functions on bit lists,
+-- the sixty-four rounds, the digest â” as total functions on bit lists,
 -- under --cubical --safe, no postulates, no holes.  A hash is this
--- repository's own word made literal: à¤…à¤­à¤¿à¤œà¥à¤žà¤¾à¤¨, the recognition-token
--- by which the lost is known again â€” a receipt that identifies without
+-- repository's own word made literal: ààà¿àààžà¾à¨, the recognition-token
+-- by which the lost is known again â” a receipt that identifies without
 -- being the thing.  And it is the receipt at its most extreme: the map
 -- is maximally lossy by design (every fibre over a digest is infinite),
 -- yet the identification it performs is exact.
 --
 -- REPRESENTATION.  A Word is a List Bool, least-significant bit first,
--- length 32 by construction (stated, not typed â€” the price of lists
+-- length 32 by construction (stated, not typed â” the price of lists
 -- over vectors is that the invariant is carried by the builders, and
 -- the theorems below are what make that price visible: the kernel
 -- computes both NIST vectors through every builder at once).
--- Numeric constants enter through `fromâ„•`, which divides by the
--- BUILTIN div/mod helpers â€” Agda evaluates those on machine integers,
+-- Numeric constants enter through `fromâ•`, which divides by the
+-- BUILTIN div/mod helpers â” Agda evaluates those on machine integers,
 -- so 2Â³Â²-sized constants cost 32 steps, not 2Â³Â².
 --
 -- WHAT IS PROVED, all by the kernel computing, none by citation:
---   * à¤ªà¤°à¥€à¤•à¥à¤·à¤¾-à¤°à¤¿à¤•à¥à¤¤à¤¾  â€” SHA-256 of the empty message is
---     e3b0c442â€¦7852b855, the NIST vector, by refl: the kernel pads,
+--   * àà°àà•ààà¾-à°à¿à•ààà¾  â” SHA-256 of the empty message is
+--     e3b0c442â¦7852b855, the NIST vector, by refl: the kernel pads,
 --     schedules, runs 64 rounds, and compares 256 bits.
---   * à¤ªà¤°à¥€à¤•à¥à¤·à¤¾-abc    â€” SHA-256 of "abc" likewise (ba7816bfâ€¦f20015ad).
---   * à¤µà¥à¤¯à¥à¤¤à¥à¤•à¥à¤°à¤®-à¤¦à¥à¤µà¤¯à¤®à¥ â€” notW is an involution (a small structural fact
+--   * àà°àà•ààà¾-abc    â” SHA-256 of "abc" likewise (ba7816bfâ¦f20015ad).
+--   * àµàà¯àààà•àà°à®-à¦ààµà¯à®à â” notW is an involution (a small structural fact
 --     proved for every length, not only 32).
 --
 -- CHECKED: Agda 2.8.0, --cubical --safe, through scripts/oracle with
@@ -95,7 +95,7 @@ applyN (suc n) f a = f (applyN n f a)
 --
 -- Under --cubical the checker evaluates on its slow, substitution-based
 -- path, so a lazily-built 64-round dependency chain recomputes its
--- history once per occurrence â€” measured here as a schedule word whose
+-- history once per occurrence â” measured here as a schedule word whose
 -- bits alone cost >10 minutes, and a whole-module check that was killed
 -- at 992 s.  F56's yield is the repair: WRITE THE VALUE ONCE and let
 -- every later occurrence be a variable.  `sW` is that yield as a term:
@@ -221,7 +221,7 @@ H0 = map word
   âˆ· 0x510e527f âˆ· 0x9b05688c âˆ· 0x1f83d9ab âˆ· 0x5be0cd19 âˆ· [])
 
 ------------------------------------------------------------------------
--- Â§5  Padding.  msg ++ 1 ++ 0^k ++ lenâ‚†â‚„, with k the least count
+-- Â§5  Padding.  msg ++ 1 ++ 0^k ++ lenââ, with k the least count
 --     making the total a multiple of 512.  The message is a bit
 --     stream, MSB-first; the 64-bit length is big-endian, so it is
 --     the reversal of an LSB-first numeral.

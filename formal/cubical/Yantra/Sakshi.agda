@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Sakshi where
--- ‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä: the witnessed census.  Every step of the count is a Dec object ‚Äî
--- each twin carries its Œ£-certificate, each non-twin its refutation.
+-- ‡‡æ‡ï‡‡‡: the witnessed census.  Every step of the count is a Dec object ‚î
+-- each twin carries its Œ-certificate, each non-twin its refutation.
 -- No boolean is trusted anywhere in this count.
 
 open import Yantra.Prakriti

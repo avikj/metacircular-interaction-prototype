@@ -1,0 +1,54 @@
+--- a/src/Core/Parse/Book.hs
++++ b/src/Core/Parse/Book.hs
+@@ -3,6 +3,7 @@
+ module Core.Parse.Book 
+   ( parseBook
+   , doParseBook
++  , doParseBookWithSpans
+   , doReadBook
+   ) where
+ 
+@@ -107,6 +108,21 @@
+       hits = [ h | (_, _, Just h) <- entries ]
+   return $ Book (M.fromList defs) (M.fromList hits)
+ 
++-- | Parse the same Book while retaining the parser's exact character offsets
++-- for each authored top-level declaration. A type declaration contributes
++-- the same span to its generated definition and optional HIT declaration.
++parseBookWithSpans :: Parser (Book, [(Name, (Int, Int))])
++parseBookWithSpans = do
++  _ <- many (try parseImport)
++  entries <- many $ do
++    start <- getOffset
++    entry@(name, _, _) <- parseDefinition
++    end <- getOffset
++    return (entry, (name, (start, end)))
++  let defs = [(name, defn) | ((name, defn, _), _) <- entries]
++      hits = [hit | ((_, _, Just hit), _) <- entries]
++  return (Book (M.fromList defs) (M.fromList hits), map snd entries)
++
+ -- | Syntax: type Name<T, U>(i: Nat) -> Type: case @Tag1: field1: T1 case @Tag2: field2: T2
+ parseType :: Parser (Name, Defn, Maybe (Name, HitDecl))
+ parseType = label "datatype declaration" $ do
+@@ -184,6 +200,21 @@
+       eof
+       return book
+ 
++-- | Like 'doParseBook', with declaration offsets in the supplied source
++-- string. Callers can convert them to UTF-8 byte offsets for persistence.
++doParseBookWithSpans :: FilePath -> String -> Either String (Book, [(Name, (Int, Int))])
++doParseBookWithSpans file input =
++  case evalState (runParserT p file input) (ParserState True input [] M.empty) of
++    Left err -> Left (formatError input err)
++    Right (book, spans) -> Right (adjustBook book, spans)
++  where
++    p = do
++      skip
++      result <- parseBookWithSpans
++      skip
++      eof
++      return result
++
+ -- | Parse a book from a string, crashing on failure
+ doReadBook :: String -> Book
+ doReadBook input =

@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤®à¥‚à¤²à¤µà¤¾à¤•à¥à¤¯à¤®à¥ Â· PROVENANCE OF THE NAME.
+-- à®àà²àµà¾à•àà¯à®à Â PROVENANCE OF THE NAME.
 --
--- à¤¸à¤‚à¤–à¥à¤¯à¤¾à¤¤ Â· à¤…à¤¨à¤¨à¥à¤¤ â€” the Jaina enumerative tradition graded quantity into
--- three à¤•à¥‹à¤Ÿà¤¿ (kinds): à¤¸à¤‚à¤–à¥à¤¯à¤¾à¤¤ (saá¹ƒkhyÄta, "numerable" â€” the finite counts),
--- à¤…à¤¸à¤‚à¤–à¥à¤¯à¤¾à¤¤ (asaá¹ƒkhyÄta, "innumerable"), and à¤…à¤¨à¤¨à¥à¤¤ (ananta, "endless").  The
--- taxonomy is set out in the **AnuyogadvÄra-sÅ«tra** (à¤¶à¥à¤µà¥‡à¤¤à¤¾à¤®à¥à¤¬à¤° canon,
--- redaction c. 1stâ€“5th c. CE) and the **SthÄnÄá¹…ga-sÅ«tra**; the three-fold
--- kind-division underlies UmÄsvÄti's **TattvÄrtha-sÅ«tra** (c. 2ndâ€“5th c. CE).
--- In this repository the grading is carried in `JainSankhya.agda`
--- (Kind = saá¹ƒkhyÄta / asaá¹ƒkhyÄta / ananta).
+-- ààà–àà¯à¾à Â àà¨à¨àà â” the Jaina enumerative tradition graded quantity into
+-- three à•à‹àŸà¿ (kinds): ààà–àà¯à¾à (sakhyta, "numerable" â” the finite counts),
+-- àààà–àà¯à¾à (asakhyta, "innumerable"), and àà¨à¨àà (ananta, "endless").  The
+-- taxonomy is set out in the **Anuyogadvra-stra** (àààµààà¾à®ààà° canon,
+-- redaction c. 1stâ“5th c. CE) and the **Sthnga-stra**; the three-fold
+-- kind-division underlies Umsvti's **Tattvrtha-stra** (c. 2ndâ“5th c. CE).
+-- In this repository the grading is carried in `JainCount.agda`
+-- (Kind = sakhyta / asakhyta / ananta).
 --
 -- CHECKED: Agda 2.8.0 + cubical, --safe, no postulate/axiom/hole, exit 0.
 ------------------------------------------------------------------------
@@ -26,8 +26,8 @@ open import Cubical.Data.Sum using (_âŠ_ ; inl ; inr)
 open import Cubical.Data.Sum.Properties using (âŠIso)
 
 ------------------------------------------------------------------------
--- Â§à¥§  à¤à¤•-à¤…à¤§à¥à¤¯à¤¾à¤°à¥‹à¤ªà¤ƒ â€” the one absorption step: a single unit adjoined to
--- the countably-infinite â„• returns â„•.  à¥¦â†¦(the adjoined unit), (n+1)â†¦n.
+-- Â§à§  àà•-àà§àà¯à¾à°à‹àà â” the one absorption step: a single unit adjoined to
+-- the countably-infinite â• returns â•.  à¦â¦(the adjoined unit), (n+1)â¦n.
 -- Every leg is refl on constructors, so the step carries no coherence
 -- debt: this is the whole engine, iterated below.
 ------------------------------------------------------------------------
@@ -52,8 +52,8 @@ open import Cubical.Data.Sum.Properties using (âŠIso)
     à¤µà¤¿à¤­à¤¾à¤—-à¤¸à¤‚à¤—à¥à¤°à¤¹ (inr n)  = refl
 
 ------------------------------------------------------------------------
--- Â§à¥¨  à¤¸à¤‚à¤–à¥à¤¯à¤¾à¤¤-à¤¯à¥‹à¤—à¤ƒ â€” k numerable units prepended to a type.  `à¤¯à¥à¤¤ k â„•`
--- is exactly `Fin k âŠ â„•` written without importing Fin: the finite,
+-- Â§à¨  ààà–àà¯à¾à-à¯à‹à—à â” k numerable units prepended to a type.  `à¯àà k â•`
+-- is exactly `Fin k âŠ â•` written without importing Fin: the finite,
 -- numerable part sits on the left, the countable ananta on the right.
 ------------------------------------------------------------------------
 
@@ -62,9 +62,9 @@ open import Cubical.Data.Sum.Properties using (âŠIso)
 à¤¯à¥à¤¤ (suc k) X = Unit âŠ à¤¯à¥à¤¤ k X
 
 ------------------------------------------------------------------------
--- Â§à¥©  à¤…à¤¨à¤¨à¥à¤¤-à¤…à¤µà¥à¤¯à¤¯à¤ƒ â€” ananta is undiminished: adjoining ANY numerable k
--- to the countably-infinite â„• returns â„•.  Induction on k, base = idIso,
--- step = (âŠIso on the tail) then the one absorption step of Â§à¥§.
+-- Â§à©  àà¨à¨àà-ààµàà¯à¯à â” ananta is undiminished: adjoining ANY numerable k
+-- to the countably-infinite â• returns â•.  Induction on k, base = idIso,
+-- step = (âŠIso on the tail) then the one absorption step of Â§à§.
 ------------------------------------------------------------------------
 
 à¤…à¤¨à¤¨à¥à¤¤-à¤…à¤µà¥à¤¯à¤¯-Iso : (k : â„•) â†’ Iso (à¤¯à¥à¤¤ k â„•) â„•
@@ -80,7 +80,7 @@ open import Cubical.Data.Sum.Properties using (âŠIso)
 à¤…à¤¨à¤¨à¥à¤¤-à¤…à¤µà¥à¤¯à¤¯-à¤ªà¤¥à¤ƒ k = isoToPath (à¤…à¤¨à¤¨à¥à¤¤-à¤…à¤µà¥à¤¯à¤¯-Iso k)
 
 ------------------------------------------------------------------------
--- Â§à¥ª  the single-unit instance is the special case k = 1, so Â§à¥§ is not a
+-- Â§à  the single-unit instance is the special case k = 1, so Â§à§ is not a
 -- separate fact but the seed the whole family grows from.
 ------------------------------------------------------------------------
 

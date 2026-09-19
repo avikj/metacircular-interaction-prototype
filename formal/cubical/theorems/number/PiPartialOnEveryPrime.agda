@@ -4,45 +4,45 @@
 -- PiPartialOnEveryPrime
 --
 -- ONE theorem, and it is the one `TransmissionRefutations`
--- declines to claim: D0020 §8's Π_∂ identity fails on EVERY prime, by
+-- declines to claim: D0020 §8's Π_� identity fails on EVERY prime, by
 -- exactly 1, as a closed universally quantified Agda theorem.
 --
 -- WHY THIS MODULE EXISTS.  `TransmissionRefutations.agda` (in HEAD, 682
--- lines, green under the pin — re-checked before this module was written)
+-- lines, green under the pin � re-checked before this module was written)
 -- is the second reader on ledger rows 8.5, 1.5 and 0.3.  Its scope note
 -- A.4 is scrupulous about one gap:
 --
---     "* 'the display fails by 1 at ν, given the prime values' — THEOREM.
---      * 'every prime has those values' — checked here only at
---        ν = 2, 3, 5, 7, 11, 13, 17, 19, 23 (A.5), by computation …
+--     "* 'the display fails by 1 at ν, given the prime values' � THEOREM.
+--      * 'every prime has those values' � checked here only at
+--        ν = 2, 3, 5, 7, 11, 13, 17, 19, 23 (A.5), by computation �
 --      The universal claim of ledger row 8.5 is therefore established
 --      modulo that standard evaluation, and is NOT claimed as a closed
 --      Agda theorem over all primes."
 --
 -- That gap is real: nine witnesses are not "every prime".  It is closed
 -- here by changing the representation rather than the argument.  Instead
--- of computing μ, ω, Ω, λ, 𝟙_℘ from a numeral by trial division (where
+-- of computing μ, ω, Ω, λ, �_� from a numeral by trial division (where
 -- the passage from "ν is prime" to their values is a theorem about the
 -- algorithms), each ν is represented by its multiset of prime exponents,
--- on which all five functions are *defined* — and then "ν is prime"
+-- on which all five functions are *defined* � and then "ν is prime"
 -- becomes Ω(ν) = 1, and the shape of every such ν is DERIVED, not
--- assumed (`Ω≡1→shape`).  The result quantifies over all primes.
+-- assumed (`Ω≡1�shape`).  The result quantifies over all primes.
 --
 -- THE TWO MODULES ARE COMPLEMENTARY, and neither subsumes the other:
---   * `TransmissionRefutations` computes on ℕ itself, so its witnesses
+--   * `TransmissionRefutations` computes on � itself, so its witnesses
 --     are witnesses about actual numbers and need no model;
 --   * this module proves the universal statement, at the price of the
---     model — see SCOPE at the foot of the file for exactly what the
+--     model � see SCOPE at the foot of the file for exactly what the
 --     model assumes (unique factorisation, and nothing else).
 --
 -- Archive re-read at source before writing (lines 390, 393 of
 -- `collab/upstream/raw/D0020-owner-fifth-transmission-2026-08-15.md`):
 --
---     Π_∂(ν) := μ(ν)² − π₁(ν),      π₁(ν) := ω(ν) − 1
---     ⎡ 1 ≤ Ω(ν) ≤ 2 ⇒ Π_∂(ν) = (1 − λ(ν))/2 − 𝟙_℘(ν) ⎤
+--     Π_�(ν) := μ(ν)² − ��(ν),      ��(ν) := ω(ν) − 1
+--     � 1 � Ω(ν) � 2 � Π_�(ν) = (1 − λ(ν))/2 − �_�(ν) �
 --
 -- Both displays are present verbatim; the ledger's transcription of them
--- is accurate, and ℘ is fixed as primality at archive line 81.
+-- is accurate, and � is fixed as primality at archive line 81.
 ------------------------------------------------------------------------
 
 module PiPartialOnEveryPrime where
@@ -97,7 +97,7 @@ sumL (x ∷ xs) = x +ℕ sumL xs
 ωS : Shape → ℕ
 ωS = length
 
--- Ω(ν): prime factors with multiplicity, Σ (kᵢ + 1) = length + Σ kᵢ.
+-- Ω(ν): prime factors with multiplicity, � (k� + 1) = length + � k�.
 ΩS : Shape → ℕ
 ΩS e = length e +ℕ sumL e
 
@@ -107,13 +107,13 @@ sumL (x ∷ xs) = x +ℕ sumL xs
 μ²S (zero ∷ e)  = μ²S e
 μ²S (suc _ ∷ _) = pos 0
 
--- 𝟙_℘(ν): the indicator of the primes.  ν is prime exactly when its
+-- �_�(ν): the indicator of the primes.  ν is prime exactly when its
 -- exponent multiset is the single exponent 1, i.e. the list [ 0 ].
 𝟙℘ : Shape → ℤ
 𝟙℘ (zero ∷ []) = pos 1
 𝟙℘ _           = pos 0
 
--- π₁(ν) := ω(ν) − 1  and  Π_∂(ν) := μ(ν)² − π₁(ν), exactly as displayed.
+-- ��(ν) := ω(ν) − 1  and  Π_�(ν) := μ(ν)² − ��(ν), exactly as displayed.
 π₁S : Shape → ℤ
 π₁S e = pos (ωS e) -ℤ pos 1
 
@@ -125,13 +125,13 @@ lam : ℕ → ℤ
 lam zero    = pos 1
 lam (suc n) = - lam n
 
--- (1 − λ(ν))/2, written without division: `par` alternates 0,1,0,1,…
+-- (1 − λ(ν))/2, written without division: `par` alternates 0,1,0,1,�
 par : ℕ → ℤ
 par zero    = pos 0
 par (suc n) = pos 1 -ℤ par n
 
 -- The name is discharged, not assumed: par takes only the values 0,1,
--- and 2·par n = 1 − lam n on the nose.
+-- and 2�par n = 1 − lam n on the nose.
 parity : (n : ℕ) → ((lam n ≡ pos 1) × (par n ≡ pos 0))
                  ⊎ ((lam n ≡ negsuc 0) × (par n ≡ pos 1))
 parity zero = inl (refl , refl)
@@ -148,13 +148,13 @@ halfLemma n with parity n
 RHSdisplay : Shape → ℤ
 RHSdisplay e = par (ΩS e) -ℤ 𝟙℘ e
 
--- the ledger's repair: the same display with 𝟙_℘ deleted
+-- the ledger's repair: the same display with �_� deleted
 RHSrepair : Shape → ℤ
 RHSrepair e = par (ΩS e)
 
 ------------------------------------------------------------------------
 -- 2.  Classification.  The ledger's §5.3 table asserts "the three shapes
---     with 1 ≤ Ω ≤ 2".  That there are exactly three is itself a claim,
+--     with 1 � Ω � 2".  That there are exactly three is itself a claim,
 --     and it is proved here rather than read off.
 ------------------------------------------------------------------------
 
@@ -214,7 +214,7 @@ holds-on-every-Ω2 e p with Ω≡2→shape e p
 ... | inr q = subst (λ f → Π∂ f ≡ RHSdisplay f) (sym q) refl
 
 ------------------------------------------------------------------------
--- 4.  THE LEDGER'S REPAIR, proved on the whole range 1 ≤ Ω ≤ 2 — not
+-- 4.  THE LEDGER'S REPAIR, proved on the whole range 1 � Ω � 2 � not
 --     checked on a range of numerals, but proved for every ν in scope.
 ------------------------------------------------------------------------
 
@@ -226,7 +226,7 @@ repair-on-whole-range e (inr p) with Ω≡2→shape e p
 ... | inl q = subst (λ f → Π∂ f ≡ RHSrepair f) (sym q) refl
 ... | inr q = subst (λ f → Π∂ f ≡ RHSrepair f) (sym q) refl
 
--- Equivalently, as the ledger's §5.3 puts it: on Ω ≤ 2, Π_∂ = 𝟙_{Ω=1}.
+-- Equivalently, as the ledger's §5.3 puts it: on Ω � 2, Π_� = �_{Ω=1}.
 Π∂-is-Ω1-indicator : (e : Shape) → (ΩS e ≡ 1) ⊎ (ΩS e ≡ 2)
                    → (Π∂ e ≡ 𝟙℘ e) ⊎ (Π∂ e ≡ pos zero)
 Π∂-is-Ω1-indicator e (inl p) =
@@ -238,7 +238,7 @@ repair-on-whole-range e (inr p) with Ω≡2→shape e p
 ------------------------------------------------------------------------
 -- 5.  The ledger's SECOND reading, also refuted, and now universally.
 --
--- §5.3: "Under the alternative reading that 𝟙_℘ indicates *prime powers*
+-- §5.3: "Under the alternative reading that �_� indicates *prime powers*
 -- the same table refutes it identically (p and p² both indicated:
 -- RHS 0,−1 against 1,0)."  Under that reading a shape is indicated iff it
 -- has exactly one distinct prime, i.e. iff it is a one-element list.
@@ -269,24 +269,24 @@ fails-pp-on-every-prime-square e q =
 -- 6.  SCOPE.
 --
 -- WHAT IS A THEOREM HERE.  `fails-on-every-prime` and
--- `off-by-exactly-one` quantify over every shape with Ω = 1 — that is,
--- over every prime, with no bound and no enumeration — and the
--- classification `Ω≡1→shape` that makes them bite is proved, not
+-- `off-by-exactly-one` quantify over every shape with Ω = 1 � that is,
+-- over every prime, with no bound and no enumeration � and the
+-- classification `Ω≡1�shape` that makes them bite is proved, not
 -- assumed.  Likewise `holds-on-every-Ω2` and `repair-on-whole-range`
--- cover the whole hypothesis 1 ≤ Ω ≤ 2 rather than a range of numerals.
+-- cover the whole hypothesis 1 � Ω � 2 rather than a range of numerals.
 -- This closes the gap that `TransmissionRefutations.agda` A.4 correctly
 -- declines to claim.
 --
 -- WHAT IS ASSUMED, and it is one thing.  The faithfulness of the model:
--- that ν ↦ its multiset of prime exponents is a bijection from the
--- integers ≥ 1 onto finite multisets of positive integers, and that the
+-- that ν � its multiset of prime exponents is a bijection from the
+-- integers � 1 onto finite multisets of positive integers, and that the
 -- five functions of the display are, on that datum, exactly ω = length,
--- Ω = Σ exponents, μ² = [all exponents are 1], λ = (−1)^Ω, and
--- 𝟙_℘ = [Ω = 1].  Each of the five is the *definition* of the arithmetic
+-- Ω = � exponents, μ² = [all exponents are 1], λ = (−1)^Ω, and
+-- �_� = [Ω = 1].  Each of the five is the *definition* of the arithmetic
 -- function on factorisation data; the bijection is unique factorisation
 -- (Euclid IX.14; Gauss, D.A. art. 16), which is classical and is NOT
 -- re-proved here.  No other input is used: no ordering, no primality
--- algorithm, no arithmetic beyond ℕ and ℤ.
+-- algorithm, no arithmetic beyond � and �.
 --
 -- NOTHING is claimed here about ledger rows 1.5 and 0.3; they are settled
 -- in `TransmissionRefutations.agda` Sections B and C, which this pass

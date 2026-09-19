@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨ ‚Äî the reflected image.  THE BEHAVIOR IS A SET-QUOTIENT OF
+-- ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡ ‚î the reflected image.  THE BEHAVIOR IS A SET-QUOTIENT OF
 -- THE CODE; ITS FIBRE IS INFINITE, AND THE LOSSLESS TRACE IS A POINT.
 --
 -- The machine is a quotient computer, and this file makes the
@@ -14,16 +14,16 @@
 -- Running descends to the quotient (`visible`), because the target of
 -- running is a set.  And the quotient genuinely collapses: a rule
 -- APPENDED BEHIND a table it duplicates is shadowed by first-match
--- lookup ‚Äî unconditionally, at every configuration, with no
--- boundedness hypothesis at all ‚Äî so duplicating a table any number
+-- lookup ‚î unconditionally, at every configuration, with no
+-- boundedness hypothesis at all ‚î so duplicating a table any number
 -- of times never changes a run (`shadow-run`), while it changes the
 -- code every time.  For any non-empty table this yields an injection
--- ‚Ñï ‚Üí Code whose image is one single point of Beh
+-- ‚ï ‚í Code whose image is one single point of Beh
 -- (`one-point-many-codes`).
 --
 -- Against Ekatva the picture closes: the lossless completion of the
--- step is contractible ‚Äî a point of structure, forced; the behavioral
--- quotient of the code is infinite-to-one ‚Äî a fibre of programs,
+-- step is contractible ‚î a point of structure, forced; the behavioral
+-- quotient of the code is infinite-to-one ‚î a fibre of programs,
 -- free.  What is unique is the trace; what is multiple is the
 -- expression; the machine computes in the quotient and the fibre
 -- carries what the quotient forgot.

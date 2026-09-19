@@ -5,25 +5,25 @@
 --
 -- Subset-sum encoded over the ACTUAL kernel (RewriteCertificate): the
 -- selected weights are built into a `Tm`, and the sum is obtained through
--- the kernel's own projection `eval` and its derivations — not stdlib
+-- the kernel's own projection `eval` and its derivations � not stdlib
 -- recursion. This is the honest redo: the arithmetic lives in the kernel.
 --
 -- What compiles, --safe:
 --
---  · `sumTerm xs sel` is the kernel term adding the selected unary
+--  � `sumTerm xs sel` is the kernel term adding the selected unary
 --    weights. `eval-sumTerm` proves the kernel's projection computes the
---    subset sum: `eval (sumTerm xs sel) ρ ≡ selSum xs sel`. Verification of
---    a handed selection is the kernel reading off a value — a projection.
+--    subset sum: `eval (sumTerm xs sel) � ≡ selSum xs sel`. Verification of
+--    a handed selection is the kernel reading off a value � a projection.
 --
---  · `verify-over-kernel` decides, through the kernel's `eval`, whether a
+--  � `verify-over-kernel` decides, through the kernel's `eval`, whether a
 --    given selection hits the target. One pass over the term.
 --
 -- What is NOT here, stated plainly: a term that PRODUCES the selecting
 -- `sel` from `(xs , t)`. The kernel's `eval`/derivations reduce a GIVEN
--- term; they do not range over selections. `Solvable` below is a Σ over
+-- term; they do not range over selections. `Solvable` below is a � over
 -- `List Bool`, and nothing in the kernel projects its witness. Over the
--- UNARY kernel a decision procedure exists at cost O(n · t) — the
--- textbook pseudo-polynomial dynamic program — which is polynomial in the
+-- UNARY kernel a decision procedure exists at cost O(n � t) � the
+-- textbook pseudo-polynomial dynamic program � which is polynomial in the
 -- unary input and exponential in the standard binary input; that is weak
 -- NP-completeness, not P=NP, and it does not touch strongly NP-complete
 -- problems. This file encodes the arithmetic in the kernel and marks that
@@ -46,7 +46,7 @@ open import WindingCostIsUnarySize using (unary)
 -- §1  The instance's arithmetic, built as a kernel term.
 ------------------------------------------------------------------------
 
--- the sum of the selected weights, as a stdlib ℕ (the specification)
+-- the sum of the selected weights, as a stdlib � (the specification)
 selSum : List ℕ → List Bool → ℕ
 selSum []       _            = 0
 selSum (x ∷ xs) (true  ∷ bs) = x + selSum xs bs
@@ -69,7 +69,7 @@ private
   eval-unary zero    ρ = refl
   eval-unary (suc n) ρ = cong suc (eval-unary n ρ)
 
--- eval — the kernel's forgetful projection — reads the subset sum off the
+-- eval � the kernel's forgetful projection � reads the subset sum off the
 -- term. Verifying a handed selection is a projection, one pass.
 eval-sumTerm : (xs : List ℕ) (sel : List Bool) (ρ : Env)
   → eval (sumTerm xs sel) ρ ≡ selSum xs sel
@@ -85,7 +85,7 @@ verify-over-kernel : (xs : List ℕ) (t : ℕ) (sel : List Bool) (ρ : Env)
 verify-over-kernel xs t sel ρ = discreteℕ (eval (sumTerm xs sel) ρ) t
 
 ------------------------------------------------------------------------
--- §3  Solvability is a Σ over selections — no kernel term projects it.
+-- §3  Solvability is a � over selections � no kernel term projects it.
 ------------------------------------------------------------------------
 
 Solvable : List ℕ → ℕ → (ρ : Env) → Type

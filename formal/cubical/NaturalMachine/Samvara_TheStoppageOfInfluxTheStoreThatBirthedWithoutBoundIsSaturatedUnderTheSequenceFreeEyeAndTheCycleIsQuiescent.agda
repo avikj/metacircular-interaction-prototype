@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡§Ü‡§∏‡•ç‡§∞‡§µ‡§®‡§ø‡§∞‡•ã‡§ß‡§É ‡§∏‡§Ç‡§µ‡§∞‡§É ‚Äî UmƒÅsvƒÅti, TattvƒÅrthas≈´tra 9.1 (c. 2nd‚Äì5th c.
--- CE): sa·πÉvara is the stoppage of influx.  The classification is his;
+-- ‡‡‡‡∞‡µ‡®‡ø‡∞‡ã‡ß‡ ‡‡‡µ‡∞‡ ‚î Umsvti, Tattvrthastra 9.1 (c. 2nd‚ì5th c.
+-- CE): savara is the stoppage of influx.  The classification is his;
 -- the mathematics is not claimed for the source.  School named: Jaina.
 --
 -- THE GENERATIVE DISEASE, CURED WHERE IT AROSE.  Plain completion on
--- an AC theory generates: ‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø measured it outside (the naive
--- install going 387‚Üí411), and the internal store's first turn showed
--- it inside ‚Äî the two-rule store birthed mirror pairs that a further
+-- an AC theory generates: ‡‡ø‡¶‡‡ß‡ø measured it outside (the naive
+-- install going 387‚í411), and the internal store's first turn showed
+-- it inside ‚î the two-rule store birthed mirror pairs that a further
 -- turn would multiply without bound.  The repair licensed there was
 -- descent (install only what shrinks the gap); the repair HERE is
 -- prior and cleaner: an arising whose content the body already
--- reaches is not knowledge arriving ‚Äî it is influx, and it is
+-- reaches is not knowledge arriving ‚î it is influx, and it is
 -- stopped at the door.  The door's eye is the sequence-free form:
--- ‡§∏‡§Æ-‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç (ArpitaAnarpita) decides reachability, so a mirror of a
+-- ‡‡Æ-‡‡æ‡ß‡®‡Æ‡ (ArpitaAnarpita) decides reachability, so a mirror of a
 -- known aggregate cannot enter dressed as news.
 --
 -- Exhibited on the exact store that birthed without bound: under the
 -- norm-only eye, the turn on {su-left, commutativity} birthed two
--- rules (UtpadaVyayaDhrauvya, ‡§™‡§∞‡§ø‡§£‡§æ‡§Æ-‡§¶‡•É‡§∑‡•ç‡§ü‡§Æ‡•ç); under the anarpita
--- eye, the same turn admits NOTHING ‚Äî both births were the body's
--- own knowledge in another arpita ‚Äî and the iterated cycle is
+-- rules (UtpadaVyayaDhrauvya, ‡‡∞‡ø‡‡æ‡Æ-‡¶‡‡‡‡ü‡Æ‡); under the anarpita
+-- eye, the same turn admits NOTHING ‚î both births were the body's
+-- own knowledge in another arpita ‚î and the iterated cycle is
 -- provably quiescent: the store is saturated, by refl.  Stoppage is
 -- not blindness: a genuinely new arising still enters, because the
 -- gate refuses only what it can itself re-derive.
@@ -60,7 +60,7 @@ open import NaturalMachine.ArpitaAnarpita_EveryOrderedPresentationOfOneAggregate
               (‡§Ø‡•Å‡§ó‡•ç‡§Æ‡§æ‡§®‡§ø Œì))
 
 -- the perpetual cycle: turn, admit what survives the stoppage, turn
--- again.  On a saturated body it is quiescent ‚Äî provably, not by
+-- again.  On a saturated body it is quiescent ‚î provably, not by
 -- watching it idle.
 ‡§ö‡§ï‡•ç‡§∞‡§Æ‡•ç : ‚Ñï ‚Üí List ‡§®‡§ø‡§Ø‡§Æ‡§É ‚Üí List ‡§®‡§ø‡§Ø‡§Æ‡§É
 ‡§ö‡§ï‡•ç‡§∞‡§Æ‡•ç zero    Œì = Œì
@@ -69,7 +69,7 @@ open import NaturalMachine.ArpitaAnarpita_EveryOrderedPresentationOfOneAggregate
 ------------------------------------------------------------------------
 -- ¬ß2  The store that birthed without bound, saturated.  The same turn
 --     that admitted two mirrors under the norm-only eye admits
---     nothing under the anarpita eye ‚Äî and iterating the cycle
+--     nothing under the anarpita eye ‚î and iterating the cycle
 --     changes nothing, by refl.
 ------------------------------------------------------------------------
 

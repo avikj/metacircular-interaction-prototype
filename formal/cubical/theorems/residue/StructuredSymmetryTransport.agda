@@ -105,7 +105,7 @@ conjugate-stabilizer-back {S = S} e d b sb =
 ------------------------------------------------------------------------
 
 -- A bare equivalence alone is insufficient.  The sampled module's `notEquiv`
--- is an equivalence Bool â‰ƒ Bool but does not preserve the distinguished point
+-- is an equivalence Bool â‰ Bool but does not preserve the distinguished point
 -- `true`.  Any theorem omitting the `Defect e sA sB` premise would already
 -- fail here.
 bare-equivalence-insufficient :

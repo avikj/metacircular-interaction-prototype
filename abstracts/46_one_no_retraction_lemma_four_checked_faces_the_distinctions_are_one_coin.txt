@@ -9,11 +9,11 @@ holding one object
 
 A face of the coin is a record: a projection, two carried points,
 apartness upstairs, identification downstairs.  This night the type is
-minted and the corpus's distinctions are found to inhabit it ‚Äî each
+minted and the corpus's distinctions are found to inhabit it ‚î each
 face built from another lane's checked terms, none re-proved:
 
   the gap       the visible Turing step's collision (Nasha): find/check
-                asymmetry as non-injectivity of the projection ‚Äî the
+                asymmetry as non-injectivity of the projection ‚î the
                 P/NP distinction's carrier.
   the route     direct and detour histories, lengths 2 and 4, equal
                 forgetful meaning: classical cost lives in the drop.
@@ -23,14 +23,14 @@ face built from another lane's checked terms, none re-proved:
                 one reading to every symmetric observable.
 
 ONE LEMMA SERVES EVERY FACE.  No face's projection admits a retraction
-recovering both carried points ‚Äî proved once, generically, and applied
+recovering both carried points ‚î proved once, generically, and applied
 four times.  Every "not recoverable downstairs" argument in the corpus
 is this proof.
 
 THE COIN IS NONBINARY, AS A TERM.  On every face, apart and together
 are both theorems: the question "are the two the same?" has no boolean
 answer, only a position indexed by which side of the projection asks.
-SyƒÅd-asti-nƒÅsti at the level of identity itself, with the no-retraction
+Syd-asti-nsti at the level of identity itself, with the no-retraction
 lemma as the reason no collapse is available.
 
 Companion law, cited not restated: the carried side cannot be
@@ -39,10 +39,10 @@ arrows (AvarohaNisedha) and the carried side is invertible
 (EveryDerivationIsInvertible).  Cost, route, schedule, count: each
 lives exactly in what its projection drops.
 
-SYƒÄT ‚Äî THE CLAIM, EXACTLY.  The record, the lemma, the four
+SYT ‚î THE CLAIM, EXACTLY.  The record, the lemma, the four
 inhabitants, bothTheorems on each.  NOT claimed: that any open problem
 is decided.  What is proved is that four checked distinctions share
-one shape and the shape forbids recovery ‚Äî a theorem about the
+one shape and the shape forbids recovery ‚î a theorem about the
 projections, not a conjecture about the problems.
 
 Machine-checked in cubical type theory, --safe, at the pin.

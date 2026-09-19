@@ -8,7 +8,7 @@
 -- if every defining rewrite agrees with the computation semantics.  Its old
 -- positive-positive gcd rule did not:
 --
---   gcd (suc x) (suc y) = gcd ((suc x) ∸ (suc y)) (suc y)
+--   gcd (suc x) (suc y) = gcd ((suc x) � (suc y)) (suc y)
 --
 -- At x = 1 and y = 2 the left side is 1 and the right side is 3.  This
 -- module puts that counterexample in the kernel and proves the two gcd base
@@ -68,8 +68,8 @@ haskell-add-suc = +-suc
 haskell-mul-zero : (x : ℕ) → x · zero ≡ zero
 haskell-mul-zero x = sym (0≡m·0 x)
 
--- Cubical's library states the successor law as x + x·y.  Haskell's rule
--- writes x·y + x, so the final commutation is part of the checked bridge.
+-- Cubical's library states the successor law as x + x�y.  Haskell's rule
+-- writes x�y + x, so the final commutation is part of the checked bridge.
 haskell-mul-suc : (x y : ℕ) → x · suc y ≡ x · y + x
 haskell-mul-suc x y = ·-suc x y ∙ +-comm x (x · y)
 

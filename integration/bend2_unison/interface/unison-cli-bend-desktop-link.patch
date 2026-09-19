@@ -1,0 +1,100 @@
+--- a/unison-share-api/src/Unison/Server/CodebaseServer.hs
++++ b/unison-share-api/src/Unison/Server/CodebaseServer.hs
+@@ -18,6 +18,7 @@
+ import Data.OpenApi (Info (..), License (..), OpenApi, URL (..))
+ import Data.OpenApi.Lens qualified as OpenApi
+ import Data.Proxy (Proxy (..))
++import Data.Set qualified as Set
+ import Data.Text qualified as Text
+ import Data.Text.Encoding qualified as Text
+ import Data.Text.IO qualified as Text
+@@ -28,6 +29,7 @@
+ import Network.MCP.Transport.Types qualified as MCP
+ import Network.URI.Encode as UriEncode
+ import Network.URI.Encode qualified as URI
++import Numeric (showHex)
+ import Network.Wai (Middleware, responseLBS)
+ import Network.Wai.Handler.Warp
+   ( Port,
+@@ -92,6 +94,7 @@
+ import Unison.HashQualified
+ import Unison.HashQualified qualified as HQ
+ import Unison.Name as Name (Name, segments)
++import Unison.Names qualified as Names
+ import Unison.Parser.Ann (Ann)
+ import Unison.Prelude
+ import Unison.PrettyPrintEnv.Names qualified as PPE
+@@ -99,6 +102,8 @@
+ import Unison.PrettyPrintEnvDecl qualified as PPED
+ import Unison.Project (ProjectAndBranch (..), ProjectBranchName, ProjectName)
+ import Unison.Runtime (Runtime)
++import Unison.Referent qualified as Referent
++import Unison.Reference qualified as Reference
+ import Unison.Server.Backend (Backend, BackendEnv, runBackend)
+ import Unison.Server.Backend qualified as Backend
+ import Unison.Server.Backend.DefinitionDiff qualified as DefinitionDiff
+@@ -118,6 +123,9 @@
+ import Unison.ShortHash qualified as ShortHash
+ import Unison.Sqlite qualified as Sqlite
+ import Unison.Symbol (Symbol)
++import Unison.Hash qualified as Hash
++import U.Codebase.Reference (Id'(Id))
++import U.Codebase.Sqlite.Queries qualified as Q
+ import Unison.Syntax.NameSegment qualified as NameSegment
+ import Unison.Util.Pretty qualified as Pretty
+ import UnliftIO qualified
+@@ -156,7 +164,14 @@
+     :<|> FuzzyFindAPI
+     :<|> TermSummaryAPI
+     :<|> TypeSummaryAPI
++    :<|> ("bend" :> "member-link" :> Servant.QueryParam "name" Name :> Servant.QueryParam "kind" Text.Text :> Get '[JSON] (Maybe Text.Text))
++
++instance ToParam (Servant.QueryParam "kind" Text.Text) where
++  toParam _ = Servant.DocQueryParam "kind" ["term", "type"] "Definition kind to resolve in this project branch." Servant.Normal
+ 
++instance ToSample Text.Text where
++  toSamples _ = []
++
+ type ProjectsAPI =
+   ListProjectsEndpoint
+     :<|> ( Capture "project-name" ProjectName
+@@ -625,6 +640,7 @@
+     :<|> serveFuzzyFindEndpoint
+     :<|> serveTermSummaryEndpoint
+     :<|> serveTypeSummaryEndpoint
++    :<|> serveBendMemberLinkEndpoint
+   where
+     projectAndBranchName = ProjectAndBranch projectName branchName
+     namespaceListingEndpoint rel name = do
+@@ -647,7 +663,31 @@
+     serveTypeSummaryEndpoint shortHash mayName relativeTo renderWidth = do
+       root <- Backend.resolveProjectRootHash codebase projectAndBranchName
+       setCacheControl <$> serveTypeSummary codebase shortHash mayName (Right root) relativeTo renderWidth
++
++    serveBendMemberLinkEndpoint mayName mayKind = case mayName of
++      Nothing -> pure Nothing
++      Just name -> do
++        root <- Backend.resolveProjectRootHash codebase projectAndBranchName
++        branch <- liftIO $ Codebase.expectBranchForHash codebase root
++        let names = Branch.toNames (Branch.head branch)
++            candidates = case mayKind of
++              Just "term" -> mapMaybe Referent.toTermReferenceId (Set.toList (Names.termsNamed names name))
++              Just "type" -> mapMaybe Reference.toId (Set.toList (Names.typesNamed names name))
++              _ -> []
++        case candidates of
++          [Id digest member] -> do
++            isBend <- liftIO $ Codebase.runTransaction codebase do
++              maybeOid <- Q.loadObjectIdForPrimaryHash digest
++              maybe (pure False) (fmap isJust . Q.loadBendBytes) maybeOid
++            pure $ if isBend
++              then Just ("/codebase/ui/bend/component/" <> hexDigest (Hash.toByteString digest) <> "/" <> Text.pack (show member)
++                <> if mayKind == Just "type" then "?root=hit" else "")
++              else Nothing
++          _ -> pure Nothing
+ 
++    hexDigest = Text.pack . concatMap (padHex . fromIntegral) . Strict.unpack
++    padHex n = let digits = showHex (n :: Int) "" in if length digits == 1 then '0' : digits else digits
++
+ serveProjectDiffTermsEndpoint :: Codebase IO Symbol Ann -> Runtime Symbol -> ProjectName -> ProjectBranchName -> ProjectBranchName -> Name -> Name -> Backend IO TermDiffResponse
+ serveProjectDiffTermsEndpoint codebase rt projectName oldBranchRef newBranchRef oldTerm newTerm = do
+   (oldPPED, oldNameSearch) <- contextForProjectBranch codebase projectName oldBranchRef

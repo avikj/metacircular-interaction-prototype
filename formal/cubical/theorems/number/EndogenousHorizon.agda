@@ -140,8 +140,8 @@ thresh3 : List â„•
 thresh3 = 2 âˆ· 3 âˆ· []
 
 -- Delta 22's own witness: a prime and a semiprime built from two primes
--- above the threshold.  5 is prime; 35 = 5Â·7 is not; neither is divisible
--- by 2 or 3, so the observer sees `false âˆ· false âˆ· []` for both.
+-- above the threshold.  5 is prime; 35 = 5Â7 is not; neither is divisible
+-- by 2 or 3, so the observer sees `false âˆ false âˆ []` for both.
 sep-5-35 : Separator
 sep-5-35 = record
   { below = thresh3
@@ -181,7 +181,7 @@ obs-25 = refl
 --
 -- A separator at threshold z is destroyed only by admitting a modulus
 -- that actually splits the pair.  Here 5 does, and nothing below it does.
--- So certifying 25 or 35 requires testing up to 5 = âˆš25, and the required
+-- So certifying 25 or 35 requires testing up to 5 = âˆ25, and the required
 -- observer therefore grows with the value being certified: T22.3's
 -- converse, in the only form that has content.
 ------------------------------------------------------------------------
@@ -210,7 +210,7 @@ horizon-grows-35 p = trueâ‰¢false (sym (cong headOfTail p))
 --
 -- No definition of primality, no infinitude of primes, no claim that the
 -- square root is the *least* sufficient threshold in general.  T22.3
--- (testing all primes â‰¤ âˆšX suffices on [1,X]) is a standard fact and
+-- (testing all primes â‰ âˆX suffices on [1,X]) is a standard fact and
 -- re-encoding it here would be exactly the gratuitous formalisation
 -- Delta 22 direction 6 warns against.
 --

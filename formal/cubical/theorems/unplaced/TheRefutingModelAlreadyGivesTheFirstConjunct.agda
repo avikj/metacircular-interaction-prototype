@@ -11,11 +11,11 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 ------------------------------------------------------------------------
 -- TheRefutingModelAlreadyGivesTheFirstConjunct
 --
--- The syntax-indexed semantics, attempted â€” and the second route to a
--- model-theoretic GÃ¶del closes too, for a different reason from the
+-- The syntax-indexed semantics, attempted â” and the second route to a
+-- model-theoretic Gdel closes too, for a different reason from the
 -- first.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT WAS TO BE TRIED
 --
 -- `ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence` closes the
@@ -25,36 +25,36 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- has nothing to work with.
 --
 -- The repair suggested there was a semantics indexed by SYNTAX: let a
--- model carry a predicate `P : S â†’ Bool` on sentences and interpret
+-- model carry a predicate `P : S â’ Bool` on sentences and interpret
 -- `prov a` as `P a`, consulting the syntax of `a` rather than its
 -- value.  That is what a real theory does.  It is built below as a
--- parameter block, and the criterion still yields nothing â€” but the
+-- parameter block, and the criterion still yields nothing â” but the
 -- obstruction is completely different, and is worth having.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 -- In such a model the two soundness conditions read
 --
---   HBL1:            `Der a â†’ P a â‰¡ true`
+--   HBL1:            `Der a â’ P a â‰¡ true`
 --   forward diagonal: `impB w (not (P gs)) â‰¡ true`, `w` the value of g
 --
 -- (the backward half is recorded but unused).  Â§1: if the model REFUTES
--- `Â¬ g` â€” that is, if `w â‰¡ true` â€” then `P gs â‰¡ false`, and therefore
--- `Â¬ Der gs` outright.
+-- `Â g` â” that is, if `w â‰¡ true` â” then `P gs â‰¡ false`, and therefore
+-- `Â Der gs` outright.
 --
 -- Four lines, and it is the whole result: the second model that the
--- criterion needs already contains the first conjunct of GÃ¶del I.
--- Producing it is at least as hard as proving `T âŠ¬ G`, so the criterion
--- does not supply that conjunct â€” it presupposes it.
+-- criterion needs already contains the first conjunct of Gdel I.
+-- Producing it is at least as hard as proving `T âŠ G`, so the criterion
+-- does not supply that conjunct â” it presupposes it.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE TWO ROUTES, AND THAT THEY CLOSE DIFFERENTLY
 --
--- à¤¸à¥à¤¯à¤¾à¤¤à¥ â€” in the respect of truth-functional interpretations, the
+-- ààà¯à¾àà â” in the respect of truth-functional interpretations, the
 --          criterion fails because the needed model does not EXIST: the
 --          diagonal sentence is false everywhere.
--- à¤¸à¥à¤¯à¤¾à¤¤à¥ â€” in the respect of syntax-indexed interpretations, the
+-- ààà¯à¾àà â” in the respect of syntax-indexed interpretations, the
 --          criterion fails because the needed model is not INFORMATIVE:
 --          it exists exactly when the conjunct it was meant to prove
 --          already holds.
@@ -70,11 +70,11 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- (`noHalfTwo`) and needs Ï‰-consistency.  Neither half is
 -- model-theoretic, and Â§1 is the reason the first one cannot be.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
 -- That no model-theoretic proof of independence exists anywhere.  The
 -- statement is about this class of models, and specifically about
--- models in which HBL1 holds in the form `Der a â†’ P a â‰¡ true`.  A model
+-- models in which HBL1 holds in the form `Der a â’ P a â‰¡ true`.  A model
 -- validating HBL1 some other way would evade Â§1.
 --
 -- That a full syntax-indexed model is constructed here.  Â§1 is a
@@ -84,9 +84,9 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 --
 -- PRIOR ART, by the conclusion type, grep run and quoted: searching
 -- `formal/cubical` for `hblSound`, `syntax-indexed`, `refutingModel`
--- and `â†’ Â¬ Der` returns nothing at all.  A version phrased with `P` as
+-- and `â’ Â Der` returns nothing at all.  A version phrased with `P` as
 -- a `Type`-valued predicate rather than `Bool`-valued would evade that
--- grep, and would also change Â§1, whose proof uses `falseâ‰¢true`.
+-- grep, and would also change Â§1, whose proof uses `falseâ‰true`.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -101,7 +101,7 @@ module _ (S : Typeâ‚€) (Der : S â†’ Typeâ‚€) (gs : S)
          (dfwdSound : impB w (not (P gs)) â‰¡ true)
          where
 
-  -- `w â‰¡ true` says the model does NOT satisfy `Â¬ g`, which is exactly
+  -- `w â‰¡ true` says the model does NOT satisfy `Â g`, which is exactly
   -- what the criterion's second premise asks for.
   refutingModelForcesUnmarked : w â‰¡ true â†’ P gs â‰¡ false
   refutingModelForcesUnmarked p =

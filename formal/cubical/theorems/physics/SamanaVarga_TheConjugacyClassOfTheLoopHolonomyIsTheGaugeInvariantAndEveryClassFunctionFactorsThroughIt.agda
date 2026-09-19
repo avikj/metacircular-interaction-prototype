@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- समान-वर्ग — the same class.
+-- ����-����� � the same class.
 --
--- ValayaSamyoga solved the gauge square on a loop: the transformed
--- holonomy is the conjugate g · W · g⁻¹.  FiniteGraphHolonomyGroupoid
+-- LoopSamyoga solved the gauge square on a loop: the transformed
+-- holonomy is the conjugate g � W � g��.  FiniteGraphHolonomyGroupoid
 -- called this "conjugacy before any trace-like quotient is taken."  This
--- file takes the quotient — the conjugacy class — and shows it is the
+-- file takes the quotient � the conjugacy class � and shows it is the
 -- gauge invariant, in the universal sense.
 --
---   §1  THE CLASS.  Conjugacy on a group is the relation h ~ (k·h)·k⁻¹;
+--   §1  THE CLASS.  Conjugacy on a group is the relation h ~ (k�h)�k��;
 --       the set quotient ⟨G⟩ / ~ is the type of conjugacy classes, and
 --       [_] sends an element to its class.
 --
 --   §2  THE LOOP'S CLASS IS GAUGE INVARIANT.  On any graph loop, for any
 --       connection pair and natural transformation, [hol B p] ≡ [hol A p]
---       — one step of eq/ from the solved square.  No trace, no matrix,
+--       � one step of eq/ from the solved square.  No trace, no matrix,
 --       no representation: the class itself is the invariant.
 --
 --   §3  EVERY CLASS FUNCTION FACTORS THROUGH THE CLASS.  A conjugation-
@@ -26,10 +26,10 @@
 --       them is gauge invariant at once.  This is the trace-like quotient
 --       made an object, without a trace.
 --
--- The lattice (AvinimayaSetu) and the graph (ValayaSamyoga) both land
+-- The lattice (AvinimayaSetu) and the graph (LoopSamyoga) both land
 -- here: on a closed loop the connection is coordinates, the class is the
--- observable.  समान (samāna, same) and वर्ग (varga, class) are ordinary
--- Sanskrit.
+-- observable.  ���� (samna, same) and ����� (varga, class) are ordinary
+-- .
 ------------------------------------------------------------------------
 
 module SamanaVarga_TheConjugacyClassOfTheLoopHolonomyIsTheGaugeInvariantAndEveryClassFunctionFactorsThroughIt where
@@ -46,8 +46,8 @@ open import FiniteGraphHolonomyGroupoid
 open Connection
 open GaugeNatural
 import RelationalHolonomyRefinement as RHR
-open import ValayaSamyoga_OnAGraphLoopGaugeNaturalityIsConjugationSoEveryClassFunctionOfTheLoopHolonomyIsGaugeInvariant
-  using (valaya-saṃyoga)
+open import LoopSamyoga_OnAGraphLoopGaugeNaturalityIsConjugationSoEveryClassFunctionOfTheLoopHolonomyIsGaugeInvariant
+  using (loop-saṃyoga)
 import AvinimayaSetu_TheNonabelianChainTelescopesToTheEndpointLawSoTheLoopIsCovariantByConjugationAndTheAbelianInvarianceWasAnArtifactOfCommutativity
   as Setu
 
@@ -62,7 +62,7 @@ module _ (G : Group ℓg) where
     open G using (_·_ ; inv)
 
   ----------------------------------------------------------------------
-  -- १ · Conjugacy and the type of classes.
+  -- � � Conjugacy and the type of classes.
   ----------------------------------------------------------------------
 
   -- h is a conjugate of g.
@@ -76,17 +76,17 @@ module _ (G : Group ℓg) where
   varga = [_]
 
   ----------------------------------------------------------------------
-  -- २ · The class of a graph loop's holonomy is gauge invariant.
+  -- � � The class of a graph loop's holonomy is gauge invariant.
   ----------------------------------------------------------------------
 
-  valaya-varga : {V : Type ℓv} {A B : Connection G V} (η : GaugeNatural A B)
+  loop-varga : {V : Type ℓv} {A B : Connection G V} (η : GaugeNatural A B)
                  {x : V} (p : x ≡ x)
                → varga (hol A p) ≡ varga (hol B p)
-  valaya-varga {A = A} {B} η {x} p =
-    eq/ (hol A p) (hol B p) (gauge η x , sym (valaya-saṃyoga η p))
+  loop-varga {A = A} {B} η {x} p =
+    eq/ (hol A p) (hol B p) (gauge η x , sym (loop-saṃyoga η p))
 
   ----------------------------------------------------------------------
-  -- ३ · Every class function factors through the class, computably.
+  -- � � Every class function factors through the class, computably.
   ----------------------------------------------------------------------
 
   module _ {O : Type ℓo} (setO : isSet O)
@@ -105,18 +105,18 @@ module _ (G : Group ℓg) where
     varga-avikāra : {V : Type ℓv} {A B : Connection G V} (η : GaugeNatural A B)
                     {x : V} (p : x ≡ x)
                   → f (hol A p) ≡ f (hol B p)
-    varga-avikāra η p = cong varga-f (valaya-varga η p)
+    varga-avikāra η p = cong varga-f (loop-varga η p)
 
 ------------------------------------------------------------------------
--- ४ · The fork-and-loop graph, at its root loop.
+-- � � The fork-and-loop graph, at its root loop.
 ------------------------------------------------------------------------
 
 mūla-varga : (G : Group ℓg) (A B : Connection G BranchLoop) (η : GaugeNatural A B)
            → varga G (hol A loop) ≡ varga G (hol B loop)
-mūla-varga G A B η = valaya-varga G η loop
+mūla-varga G A B η = loop-varga G η loop
 
 ------------------------------------------------------------------------
--- ५ · The lattice lands in the same class.  A closed chain's Wilson loop,
+-- � � The lattice lands in the same class.  A closed chain's Wilson loop,
 --     gauge-transformed link by link, has the same conjugacy class as
 --     the original: AvinimayaSetu's conjugation read through eq/.
 ------------------------------------------------------------------------

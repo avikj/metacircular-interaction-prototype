@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤¬à¤¹à¥-à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥ â€” à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤¸à¥à¤¯ à¤ªà¥à¤°à¤¤à¤¿à¤¬à¤¨à¥à¤§à¥‹ à¤¦à¥à¤µà¥Œ à¤­à¤¿à¤¨à¥à¤¨à¥Œ à¤®à¥‚à¤²à¥Œ, à¤¨ à¤¤à¥ à¤¦à¥à¤µà¥Œ à¤¤à¤¨à¥à¤¤à¥-à¤¬à¤¿à¤¨à¥à¤¦à¥‚ à¥¤
+-- ààà-ààà°ààà¯à¾à¨à¯à¨à®à â” ààà°ààà¯à¾à¨à¯à¨ààà¯ ààà°àà¿àà¨àà§à‹ à¦ààµà àà¿à¨àà¨à à®àà²à, à¨ àà à¦ààµà àà¨ààà-àà¿à¨àà¦à à
 --
 -- (the obstruction to undoing a map is two distinct SOURCES over one
---  target â€” not two points of the fiber; and the circle is not an
+--  target â” not two points of the fiber; and the circle is not an
 --  instance of it.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- sector, found exactly ONE theorem of the form "this loss cannot be
--- undone" â€” `SetTruncationDescentBoundary.noDescentSÂ¹` â€” and closed with
+-- undone" â” `SetTruncationDescentBoundary.noDescentSÂ` â” and closed with
 -- the instruction that the next build should not be a better extractor
 -- but *more theorems of that kind*, because "the bottleneck is the
 -- mathematics, not the extraction."
@@ -17,60 +17,60 @@
 -- This file is the GENERATOR of that kind, at the level of points, plus
 -- the exact statement of what it cannot reach.
 --
---   Â§à¥¨  the law   : two points of one fiber WITH DISTINCT SOURCES kill
+--   Â§à¨  the law   : two points of one fiber WITH DISTINCT SOURCES kill
 --                   every retraction.  Four lines, no h-level, no
 --                   decidability, no finiteness, arbitrary A and B.
 --                   Positive form: a retraction makes every fiber
 --                   source-thin.
---   Â§à¥©  instance  : the discrete log has NO LEFT INVERSE.  0 and 3 both
---                   land on Îµ, so no `r : Câ‚ƒ â†’ â„•` undoes `powg`.  This is
+--   Â§à©  instance  : the discrete log has NO LEFT INVERSE.  0 and 3 both
+--                   land on Îµ, so no `r : Câ â’ â•` undoes `powg`.  This is
 --                   the corpus's second irreversibility theorem and its
 --                   first outside homotopy.
---   Â§à¥ª  instance  : `à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥ : Bool â†’ Unit`, the standing archetype.
---   Â§à¥«  THE BOUNDARY, and it is the point of the file: `Tantujala`'s
---       à¤¬à¤¹à¥ â€” two distinct points of a fiber â€” IS NOT ENOUGH.  Exhibited:
---       `à¤à¤•à¤µà¥ƒà¤¤à¥à¤¤à¤®à¥ : Unit â†’ SÂ¹`, `tt â†¦ base`, HAS a retraction, and its
---       fiber over `base` is `Î©SÂ¹ â‰ƒ â„¤`, so à¤¬à¤¹à¥ holds of it.  Its two
+--   Â§à  instance  : `àà°ààµàˆà•à®à : Bool â’ Unit`, the standing archetype.
+--   Â§à  THE BOUNDARY, and it is the point of the file: `Fiberjala`'s
+--       ààà â” two distinct points of a fiber â” IS NOT ENOUGH.  Exhibited:
+--       `àà•àµààààà®à : Unit â’ SÂ`, `tt â¦ base`, HAS a retraction, and its
+--       fiber over `base` is `Î©SÂ â‰ â`, so ààà holds of it.  Its two
 --       fiber points differ only in their WITNESS; their sources are
---       equal.  So à¤¬à¤¹à¥ does not obstruct undoing, and Â§à¥¨'s hypothesis is
---       strictly stronger than à¤¬à¤¹à¥ â€” which no module in this corpus had
+--       equal.  So ààà does not obstruct undoing, and Â§à¨'s hypothesis is
+--       strictly stronger than ààà â” which no module in this corpus had
 --       said.
---   Â§à¥¬  therefore `noDescentSÂ¹` is NOT an instance of Â§à¥¨ and cannot be
---       made one: SÂ¹ is connected, so it has no two distinct points to
---       feed the law.  Its obstruction is Ï€â‚ â€” one level up.  **The
+--   Â§à  therefore `noDescentSÂ` is NOT an instance of Â§à¨ and cannot be
+--       made one: SÂ is connected, so it has no two distinct points to
+--       feed the law.  Its obstruction is Ïâ â” one level up.  **The
 --       corpus has two kinds of irreversibility and neither reduces to
---       the other**, and Â§à¥« is the witness that the reduction fails.
+--       the other**, and Â§à is the witness that the reduction fails.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- RELATION TO WHAT IS ALREADY HERE, so nothing is silently re-proved.
 --
---   `Tantujala_â€¦`            à¤¬à¤¹à¥ as one of three fiber verdicts.  Â§à¥«
---                            sharpens it: à¤¬à¤¹à¥ is not the obstruction to
+--   `Fiberjala_â¦`            ààà as one of three fiber verdicts.  Â§à
+--                            sharpens it: ààà is not the obstruction to
 --                            undoing.  The three-verdict codomain is
 --                            untouched and remains correct for what it
 --                            classifies.
---   `Sesa_â€¦` Â§5              prices `à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥`'s loss at one bit and proves
---                            `Â¬ isEquiv`.  Â§à¥ª here is the RETRACTION
+--   `Residue_â¦` Â§5              prices `àà°ààµàˆà•à®à`'s loss at one bit and proves
+--                            `Â isEquiv`.  Â§à here is the RETRACTION
 --                            statement, which is different and weaker
---                            than `Â¬ isEquiv` in general.
---   `GhataTantu_â€¦`           exhibits the two exponents.  Â§à¥© consumes
+--                            than `Â isEquiv` in general.
+--   `GhataFiber_â¦`           exhibits the two exponents.  Â§à© consumes
 --                            them; the fiber analysis is not re-done.
---   `Nirdharana_TheReturnLocusâ€¦`  the SECTION side: with `q âˆ˜ s â‰¡ id` the
+--   `Nirdharana_TheReturnLocusâ¦`  the SECTION side: with `q âˆ˜ s â‰¡ id` the
 --                            return locus is `im s`.  This file is the
 --                            other side: when no RETRACTION exists at
 --                            all.  The two are not the same direction and
 --                            neither implies the other.
---   `Arpitanarpita_â€¦.à¤¨-à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥` and `AHIMSA_SUTRA`'s
---   `à¤¨à¤¾à¤¸à¥à¤¤à¤¿-à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥`      are two hand-proved instances of the same
---                            shape.  Â§à¥¨ is the law they are instances of;
+--   `Arpitanarpita_â¦.à¨-ààà°ààà¯à¾à¨à¯à¨à®à` and `AHIMSA_SUTRA`'s
+--   `à¨à¾àààà¿-ààà°ààà¯à¾à¨à¯à¨à®à`      are two hand-proved instances of the same
+--                            shape.  Â§à¨ is the law they are instances of;
 --                            both are left standing and neither is
 --                            rewritten (ROUTES KEPT).
 --
--- Â§à¥© is a checked no-return theorem the corpus did not have, and that Â§à¥«
--- is a counterexample separating it from `Tantujala`'s à¤¬à¤¹à¥.  No physics.
--- No computational hardness: Â§à¥© is about a three-element group and says
--- nothing about difficulty.  à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨ is the corpus's existing word
--- (AHIMSA_SUTRA Â§à¥«); no text is claimed for the compound or for any
+-- Â§à© is a checked no-return theorem the corpus did not have, and that Â§à
+-- is a counterexample separating it from `Fiberjala`'s ààà.  No physics.
+-- No computational hardness: Â§à© is about a three-element group and says
+-- nothing about difficulty.  ààà°ààà¯à¾à¨à¯à¨ is the corpus's existing word
+-- (AHIMSA_SUTRA Â§à); no text is claimed for the compound or for any
 -- statement below.
 --
 -- CHECKED: exit code in the session log; --cubical --safe, no postulates,
@@ -91,7 +91,7 @@ open import Cubical.Data.Int using (â„¤ ; pos)
 open import Cubical.Relation.Nullary using (Â¬_)
 open import Cubical.HITs.S1 using (SÂ¹ ; base ; loop ; winding)
 
-open import GhataTantu_TheDiscreteLogIsTheFiberOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+open import GhataFiber_TheDiscreteLogIsTheFiberOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg ; ÎµC ; à¤¶à¥‚à¤¨à¥à¤¯à¤ƒ ; à¤¤à¥à¤°à¤¯à¤ƒ)
 open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTheHeapIsNotNeeded
   using (Câ‚ƒ)
@@ -99,16 +99,16 @@ open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhau
 private variable â„“ â„“' : Level
 
 ------------------------------------------------------------------------
--- à¥§ Â· à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥ â€” the undo.  A left inverse: run f, then r, and be
---     back where you started.  (Not a section â€” that is the other
---     direction, and `Nirdharana_TheReturnLocusâ€¦` treats it.)
+-- à§ Â ààà°ààà¯à¾à¨à¯à¨à®à â” the undo.  A left inverse: run f, then r, and be
+--     back where you started.  (Not a section â” that is the other
+--     direction, and `Nirdharana_TheReturnLocusâ¦` treats it.)
 ------------------------------------------------------------------------
 
 à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥ : {A : Type â„“} {B : Type â„“'} â†’ (A â†’ B) â†’ Type (â„“-max â„“ â„“')
 à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥ {A = A} f = Î£[ r âˆˆ (_ â†’ A) ] ((a : A) â†’ r (f a) â‰¡ a)
 
 ------------------------------------------------------------------------
--- à¥¨ Â· THE LAW.  Two distinct SOURCES over one target kill every undo.
+-- à¨ Â THE LAW.  Two distinct SOURCES over one target kill every undo.
 --
 -- No hypothesis on A or B: no h-level, no decidability, no finiteness.
 -- The proof is the retraction used twice with the two witnesses glued
@@ -130,12 +130,12 @@ module _ {A : Type â„“} {B : Type â„“'} (f : A â†’ B) where
     ne (à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥-à¤¤à¤¨à¥à¤ƒ ret b x y)
 
 ------------------------------------------------------------------------
--- à¥© Â· THE DISCRETE LOG HAS NO LEFT INVERSE.
+-- à© Â THE DISCRETE LOG HAS NO LEFT INVERSE.
 --
--- `GhataTantu` exhibits 0 and 3 over Îµ.  Their sources are 0 and 3, and
--- `znots` separates them.  So no `r : Câ‚ƒ â†’ â„•` undoes `powg` â€” checked,
+-- `GhataFiber` exhibits 0 and 3 over Îµ.  Their sources are 0 and 3, and
+-- `znots` separates them.  So no `r : Câ â’ â•` undoes `powg` â” checked,
 -- and it is not a hardness statement: it is that the undo DOES NOT
--- EXIST, for the same reason `Bool â†’ Unit`'s does not.
+-- EXIST, for the same reason `Bool â’ Unit`'s does not.
 ------------------------------------------------------------------------
 
 à¤˜à¤¾à¤¤à¤ƒ-à¤¨-à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¥€à¤¯à¤ƒ : Â¬ (à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥ powg)
@@ -143,7 +143,7 @@ module _ {A : Type â„“} {B : Type â„“'} (f : A â†’ B) where
   à¤¬à¤¹à¥-à¤®à¥‚à¤²à¤®à¥-à¤¨-à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥ powg ÎµC à¤¶à¥‚à¤¨à¥à¤¯à¤ƒ à¤¤à¥à¤°à¤¯à¤ƒ znots
 
 ------------------------------------------------------------------------
--- à¥ª Â· The standing archetype, for free from the same law.
+-- à Â The standing archetype, for free from the same law.
 ------------------------------------------------------------------------
 
 à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥ : Bool â†’ Unit
@@ -154,16 +154,16 @@ module _ {A : Type â„“} {B : Type â„“'} (f : A â†’ B) where
   à¤¬à¤¹à¥-à¤®à¥‚à¤²à¤®à¥-à¤¨-à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥ à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥ tt (false , refl) (true , refl) falseâ‰¢true
 
 ------------------------------------------------------------------------
--- à¥« Â· THE BOUNDARY.  à¤¬à¤¹à¥ IS NOT THE OBSTRUCTION.
+-- à Â THE BOUNDARY.  ààà IS NOT THE OBSTRUCTION.
 --
--- `à¤à¤•à¤µà¥ƒà¤¤à¥à¤¤à¤®à¥ : Unit â†’ SÂ¹` sending tt to base HAS an undo (`r _ = tt`,
--- and `r (f tt) â‰¡ tt` is refl).  Its fiber over `base` is `Î£[Unit] Î©SÂ¹`,
--- which has two distinct points â€” `(tt , refl)` and `(tt , loop)`,
--- distinct because `winding` separates them in â„¤.  So `Tantujala`'s à¤¬à¤¹à¥
+-- `àà•àµààààà®à : Unit â’ SÂ` sending tt to base HAS an undo (`r _ = tt`,
+-- and `r (f tt) â‰¡ tt` is refl).  Its fiber over `base` is `Î[Unit] Î©SÂ`,
+-- which has two distinct points â” `(tt , refl)` and `(tt , loop)`,
+-- distinct because `winding` separates them in â.  So `Fiberjala`'s ààà
 -- holds of a map that is perfectly undoable.
 --
 -- The two fiber points differ only in their WITNESS; their sources are
--- both `tt`.  Â§à¥¨'s hypothesis is therefore STRICTLY STRONGER than à¤¬à¤¹à¥,
+-- both `tt`.  Â§à¨'s hypothesis is therefore STRICTLY STRONGER than ààà,
 -- and the strengthening is exactly the difference between a path in the
 -- base and a point of the source.
 ------------------------------------------------------------------------
@@ -187,26 +187,26 @@ private
 à¤µà¥ƒà¤¤à¥à¤¤-à¤¬à¤¹à¥ : Â¬ (à¤µà¥ƒà¤¤à¥à¤¤-à¤µà¤¾à¤® â‰¡ à¤µà¥ƒà¤¤à¥à¤¤-à¤¦à¤•à¥à¤·à¤¿à¤£)
 à¤µà¥ƒà¤¤à¥à¤¤-à¤¬à¤¹à¥ p = subst à¤¶à¥‚à¤¨à¥à¤¯à¤®à¥? (cong (Î» z â†’ winding (snd z)) p) tt
 
--- â€¦and yet the sources agree, which is why the undo survives.
+-- â¦and yet the sources agree, which is why the undo survives.
 à¤µà¥ƒà¤¤à¥à¤¤-à¤®à¥‚à¤²-à¤…à¤­à¥‡à¤¦à¤ƒ : fst à¤µà¥ƒà¤¤à¥à¤¤-à¤µà¤¾à¤® â‰¡ fst à¤µà¥ƒà¤¤à¥à¤¤-à¤¦à¤•à¥à¤·à¤¿à¤£
 à¤µà¥ƒà¤¤à¥à¤¤-à¤®à¥‚à¤²-à¤…à¤­à¥‡à¤¦à¤ƒ = refl
 
 ------------------------------------------------------------------------
--- à¥¬ Â· à¤¶à¥‡à¤·à¤ƒ â€” why `noDescentSÂ¹` is a different theorem, stated and not
+-- à Â àààà â” why `noDescentSÂ` is a different theorem, stated and not
 --     proved here.
 --
--- Â§à¥¨ needs two points of A that are provably distinct.  SÂ¹ is connected,
+-- Â§à¨ needs two points of A that are provably distinct.  SÂ is connected,
 -- so it has none: `base â‰¡ base` is inhabited by `refl`, and the law
--- cannot fire anywhere on it.  `SetTruncationDescentBoundary.noDescentSÂ¹`
+-- cannot fire anywhere on it.  `SetTruncationDescentBoundary.noDescentSÂ`
 -- obstructs the truncation's retraction all the same, and the reason is
--- Ï€â‚ â€” the loop, not the points.  Â§à¥« is the witness that the reduction
+-- Ïâ â” the loop, not the points.  Â§à is the witness that the reduction
 -- genuinely fails rather than merely being unfound: there the loop-level
 -- distinctness is present, the point-level distinctness is absent, and
 -- the retraction EXISTS.  So the corpus's two no-return theorems live at
 -- two levels and neither implies the other.
 --
--- NOT PROVED HERE: that SÂ¹ has no two distinct points (that is
+-- NOT PROVED HERE: that SÂ has no two distinct points (that is
 -- connectedness, in the library, and is not invoked); and nothing about
--- higher levels â€” whether the pattern continues at Ï€â‚‚ and above is not
+-- higher levels â” whether the pattern continues at Ïâ and above is not
 -- addressed and no conjecture is offered.
 ------------------------------------------------------------------------

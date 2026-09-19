@@ -7,14 +7,14 @@
 -- Checked over an ARBITRARY commutative ring, which is the whole point.
 --
 -- Delta 17 observes that the centre-relative decomposition "reappears" at
--- three levels — values, local valuations, Mellin exponents — and calls
+-- three levels � values, local valuations, Mellin exponents � and calls
 -- this "striking".  Delta 22 T22.5 observes that centre, product and gap
 -- are coefficient/discriminant coordinates of the quadratic with the pair
 -- as roots, and calls it "a major compression of the atlas".
 --
 -- Both observations are the same algebra, and once it is proved over an
 -- arbitrary commutative ring the repetition stops being striking and
--- becomes a triviality — which is the correct outcome.  The self-
+-- becomes a triviality � which is the correct outcome.  The self-
 -- similarity of Delta 17 C17.12/C17.14 is then not an observed
 -- coincidence across levels; it is ONE theorem instantiated twice, and
 -- §3 does exactly that.
@@ -57,8 +57,8 @@ private
 module Pair (R : CommRing ℓ) where
   open CommRingStr (snd R)
 
-  -- The two legs, from centre w and half-gap r.  (Delta 18's x₁, x₂;
-  -- Delta 22's L₁, L₂; Delta 17's p, q.)
+  -- The two legs, from centre w and half-gap r.  (Delta 18's x�, x�;
+  -- Delta 22's L�, L�; Delta 17's p, q.)
   leg₁ leg₂ : fst R → fst R → fst R
   leg₁ w r = w - r
   leg₂ w r = w + r
@@ -74,7 +74,7 @@ module Pair (R : CommRing ℓ) where
   e₂≡splitNorm : (w r : fst R) → leg₁ w r · leg₂ w r ≡ w · w - r · r
   e₂≡splitNorm w r = solve! R
 
-  -- T22.5, discriminant: e₁² − 4e₂ = 4r².  The gap is the discriminant
+  -- T22.5, discriminant: e�² − 4e� = 4r².  The gap is the discriminant
   -- coordinate, up to the square.
   disc≡4r² : (w r : fst R)
            → (leg₁ w r + leg₂ w r) · (leg₁ w r + leg₂ w r)
@@ -93,10 +93,10 @@ module Pair (R : CommRing ℓ) where
   ----------------------------------------------------------------------
   -- The parity obstruction, stated where it belongs.
   --
-  -- The map (w,r) ↦ (w−r, w+r) is NOT invertible over a general ring:
+  -- The map (w,r) � (w−r, w+r) is NOT invertible over a general ring:
   -- recovering w needs a halving.  The obstruction is exactly that the
   -- sum of the legs is always a double, which is Delta 17 T17.13's
-  -- congruence s ≡ d (mod 2) — the cone condition is not decoration, it
+  -- congruence s ≡ d (mod 2) � the cone condition is not decoration, it
   -- is the image of this map.
   ----------------------------------------------------------------------
 
@@ -127,7 +127,7 @@ module Wedge (R : CommRing ℓ) where
   wedge : fst R → fst R → fst R → fst R → fst R
   wedge B t A s = B · s - A · t
 
-  -- The 2×2 determinant, written independently.
+  -- The 2�2 determinant, written independently.
   det2 : fst R → fst R → fst R → fst R → fst R
   det2 a b c d = a · d - b · c
 
@@ -144,7 +144,7 @@ module Wedge (R : CommRing ℓ) where
   wedge-antisym B t A s = solve! R
 
   -- Peeling preserves the invariant: this is Delta 18's det M' = det M,
-  -- in the form that does not need the matrix product spelled out —
+  -- in the form that does not need the matrix product spelled out �
   -- scaling one row and shearing does not move the wedge.
   wedge-shear : (B t A s c : fst R)
               → wedge B (t + c · B) A (s + c · A) ≡ wedge B t A s
@@ -155,13 +155,13 @@ module Wedge (R : CommRing ℓ) where
 --
 -- Delta 17 notes that the centre-relative split appears at the level of
 -- VALUES (W = p+q, R = q−p) and again at the level of LOCAL VALUATIONS
--- (s_ℓ = v_ℓ(p)+v_ℓ(q), d_ℓ = v_ℓ(q)−v_ℓ(p)), and calls the repetition
+-- (s_� = v_�(p)+v_�(q), d_� = v_�(q)−v_�(p)), and calls the repetition
 -- striking.
 --
 -- Because §1 is proved over an arbitrary commutative ring, the two are
--- the same theorem at the same instance ℤ, applied to different data.
+-- the same theorem at the same instance �, applied to different data.
 -- Instantiating twice is the whole proof, and the "striking" repetition
--- is thereby explained away rather than admired — which is the outcome
+-- is thereby explained away rather than admired � which is the outcome
 -- the corpus's own standard asks for.
 ------------------------------------------------------------------------
 
@@ -171,11 +171,11 @@ module ValueLevel where
 
 module ValuationLevel where
   open Pair ℤCommRing public
-  -- legs are v_ℓ(p), v_ℓ(q); the centre-relative pair is (s_ℓ, d_ℓ).
+  -- legs are v_�(p), v_�(q); the centre-relative pair is (s_�, d_�).
 
 -- The two modules are definitionally the same theorem.  Stating the
 -- shared instance explicitly, so that nobody re-proves it a third time
--- when the Mellin-exponent level (Delta 18's (ρ,ρ′) ↔ (s,ν)) is reached.
+-- when the Mellin-exponent level (Delta 18's (�,��) � (s,ν)) is reached.
 same-theorem : (w r : fst ℤCommRing)
              → ValueLevel.leg₁ w r ≡ ValuationLevel.leg₁ w r
 same-theorem w r = refl

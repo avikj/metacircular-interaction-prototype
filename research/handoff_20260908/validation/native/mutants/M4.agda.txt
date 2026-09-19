@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- à¤¦à¥à¤µà¤¿à¤ªà¤¦-à¤—à¥à¤£ â€” the binomial product.
+-- à¦ààµà¿àà¦-à—àà â” the binomial product.
 --
--- On observables of the source the lift ğ“› h = Dh[F] is a derivation.
+-- On observables of the source the lift ğ“ h = Dh[F] is a derivation.
 -- Its iterates on a product are the binomial sum of iterates
 --
---     ğ“›â¿ (h Â· k)  â‰¡  Î£_{a+b=n} C(a+b, a) Â· ğ“›áµƒ h Â· ğ“›áµ‡ k ,
+--     ğ“â¿ (h Â k)  â‰¡  Î_{a+b=n} C(a+b, a) Â ğ“µ h Â ğ“µ k ,
 --
--- so the formal exponential of ğ“› preserves products coefficientwise
+-- so the formal exponential of ğ“ preserves products coefficientwise
 -- and evaluation at the actual source remains a multiplicative
 -- character at every order.  (Handoff Â§37, [S17].)
 --
 -- The sum over a + b = n is written by recursion on n, with the
 -- binomial as a function of the pair (a, b), so no truncated
--- subtraction and no side condition j â‰¤ n ever enters: the Pascal
+-- subtraction and no side condition j â‰ n ever enters: the Pascal
 -- step is an exact re-indexing lemma proved for every "row function"
 -- that satisfies Pascal's rule, and the binomial is just one of them.
 ------------------------------------------------------------------------
@@ -21,22 +21,22 @@ module M4 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â„• ; zero ; suc) renaming (_+_ to _+â„•_)
+open import Cubical.Data.Nat using (â• ; zero ; suc) renaming (_+_ to _+â•_)
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.Ring using (module RingTheory)
 
 private
   variable
-    â„“ : Level
+    â“ : Level
 
 ------------------------------------------------------------------------
 -- The binomial as a function of the pair:  Cb a b = C(a+b, a).
 ------------------------------------------------------------------------
 
-Cb : â„• â†’ â„• â†’ â„•
+Cb : â• â’ â• â’ â•
 Cb zero    b       = 1
 Cb (suc a) zero    = 1
-Cb (suc a) (suc b) = Cb a (suc b) +â„• Cb a b
+Cb (suc a) (suc b) = Cb a (suc b) +â• Cb a b
 
 -- sanity: C(4,2) = 6, C(5,2) = 10, C(3,1) = 3
 _ : Cb 2 2 â‰¡ 6
@@ -47,176 +47,176 @@ _ : Cb 1 2 â‰¡ 3
 _ = refl
 
 ------------------------------------------------------------------------
-module _ (R : CommRing â„“) where
+module _ (R : CommRing â“) where
   open CommRingStr (snd R)
-  open RingTheory (CommRingâ†’Ring R)
+  open RingTheory (CommRingâ’Ring R)
 
   private
     A = âŸ¨ R âŸ©
 
-  scale : â„• â†’ A â†’ A
+  scale : â• â’ A â’ A
   scale zero    x = 0r
   scale (suc n) x = x + scale n x
 
   -- the sum over all pairs (a, b) with a + b = n
-  D : (n : â„•) â†’ (â„• â†’ â„• â†’ A) â†’ A
+  D : (n : â•) â’ (â• â’ â• â’ A) â’ A
   D zero    f = f zero zero
-  D (suc n) f = f zero (suc n) + D n (Î» a b â†’ f (suc a) b)
+  D (suc n) f = f zero (suc n) + D n (Î» a b â’ f (suc a) b)
 
   private
-    scale-add : (n : â„•) (x y : A) â†’ scale n (x + y) â‰¡ scale n x + scale n y
+    scale-add : (n : â•) (x y : A) â’ scale n (x + y) â‰¡ scale n x + scale n y
     scale-add zero    x y = sym (+IdR 0r)
     scale-add (suc n) x y =
         cong ((x + y) +_) (scale-add n x y)
       âˆ™ +ShufflePairs x y (scale n x) (scale n y)
 
-    scale-+ : (m n : â„•) (x : A) â†’ scale (m +â„• n) x â‰¡ scale m x + scale n x
+    scale-+ : (m n : â•) (x : A) â’ scale (m +â• n) x â‰¡ scale m x + scale n x
     scale-+ zero    n x = sym (+IdL (scale n x))
     scale-+ (suc m) n x = cong (x +_) (scale-+ m n x) âˆ™ +Assoc x (scale m x) (scale n x)
 
-    D-add : (n : â„•) (f g : â„• â†’ â„• â†’ A)
-      â†’ D n (Î» a b â†’ f a b + g a b) â‰¡ D n f + D n g
+    D-add : (n : â•) (f g : â• â’ â• â’ A)
+      â’ D n (Î» a b â’ f a b + g a b) â‰¡ D n f + D n g
     D-add zero    f g = refl
     D-add (suc n) f g =
-        cong ((f zero (suc n) + g zero (suc n)) +_) (D-add n (Î» a b â†’ f (suc a) b) (Î» a b â†’ g (suc a) b))
+        cong ((f zero (suc n) + g zero (suc n)) +_) (D-add n (Î» a b â’ f (suc a) b) (Î» a b â’ g (suc a) b))
       âˆ™ +ShufflePairs (f zero (suc n)) (g zero (suc n)) _ _
 
-    D-ext : (n : â„•) {f g : â„• â†’ â„• â†’ A} â†’ ((a b : â„•) â†’ f a b â‰¡ g a b) â†’ D n f â‰¡ D n g
+    D-ext : (n : â•) {f g : â• â’ â• â’ A} â’ ((a b : â•) â’ f a b â‰¡ g a b) â’ D n f â‰¡ D n g
     D-ext zero    h = h zero zero
-    D-ext (suc n) h = congâ‚‚ _+_ (h zero (suc n)) (D-ext n (Î» a b â†’ h (suc a) b))
+    D-ext (suc n) h = congâ _+_ (h zero (suc n)) (D-ext n (Î» a b â’ h (suc a) b))
 
   ----------------------------------------------------------------
-  -- à¥§ Â· THE PASCAL RE-INDEXING, for every row function.
+  -- à§ Â THE PASCAL RE-INDEXING, for every row function.
   --
-  -- c is any â„•-valued function of the pair with
+  -- c is any â•-valued function of the pair with
   --   c (suc a) (suc b) â‰¡ c a (suc b) + c (suc a) b   (Pascal)
   --   c (suc a) zero    â‰¡ c a zero                    (left edge)
   --   c zero (suc b)    â‰¡ c zero b                    (top edge)
-  -- Both edges and Pascal survive the shift c â†¦ c âˆ˜ suc, which is
+  -- Both edges and Pascal survive the shift c â¦ c âˆ˜ suc, which is
   -- what the induction needs.
   ----------------------------------------------------------------
 
   private
-    Rest : (n : â„•) (c : â„• â†’ â„• â†’ â„•) (g : â„• â†’ â„• â†’ A) â†’ A
+    Rest : (n : â•) (c : â• â’ â• â’ â•) (g : â• â’ â• â’ A) â’ A
     Rest zero    c g = 0r
-    Rest (suc m) c g = D m (Î» a b â†’ scale (c (suc a) b) (g a (suc b)))
+    Rest (suc m) c g = D m (Î» a b â’ scale (c (suc a) b) (g a (suc b)))
 
     -- the row shifted by one in the first slot equals the row itself
     -- plus the same sum with the second slot shifted
-    shift-row : (n : â„•) (c : â„• â†’ â„• â†’ â„•)
-      â†’ (pascal : (a b : â„•) â†’ c (suc a) (suc b) â‰¡ c a (suc b) +â„• c (suc a) b)
-      â†’ (left : (a : â„•) â†’ c (suc a) zero â‰¡ c a zero)
-      â†’ (g : â„• â†’ â„• â†’ A)
-      â†’ D n (Î» a b â†’ scale (c (suc a) b) (g a b))
-        â‰¡ D n (Î» a b â†’ scale (c a b) (g a b)) + Rest n c g
+    shift-row : (n : â•) (c : â• â’ â• â’ â•)
+      â’ (pascal : (a b : â•) â’ c (suc a) (suc b) â‰¡ c a (suc b) +â• c (suc a) b)
+      â’ (left : (a : â•) â’ c (suc a) zero â‰¡ c a zero)
+      â’ (g : â• â’ â• â’ A)
+      â’ D n (Î» a b â’ scale (c (suc a) b) (g a b))
+        â‰¡ D n (Î» a b â’ scale (c a b) (g a b)) + Rest n c g
     shift-row zero c pascal left g =
-        cong (Î» z â†’ scale z (g zero zero)) (left zero) âˆ™ sym (+IdR _)
+        cong (Î» z â’ scale z (g zero zero)) (left zero) âˆ™ sym (+IdR _)
     shift-row (suc m) c pascal left g =
-        congâ‚‚ _+_ (cong (Î» z â†’ scale z (g zero (suc m))) (pascal zero m)
+        congâ _+_ (cong (Î» z â’ scale z (g zero (suc m))) (pascal zero m)
                    âˆ™ scale-+ (c zero (suc m)) (c (suc zero) m) (g zero (suc m)))
-                  (shift-row m (Î» a b â†’ c (suc a) b)
-                             (Î» a b â†’ pascal (suc a) b) (Î» a â†’ left (suc a))
-                             (Î» a b â†’ g (suc a) b))
+                  (shift-row m (Î» a b â’ c (suc a) b)
+                             (Î» a b â’ pascal (suc a) b) (Î» a â’ left (suc a))
+                             (Î» a b â’ g (suc a) b))
       âˆ™ +ShufflePairs (scale (c zero (suc m)) (g zero (suc m)))
                       (scale (c (suc zero) m) (g zero (suc m)))
-                      (D m (Î» a b â†’ scale (c (suc a) b) (g (suc a) b)))
-                      (Rest m (Î» a b â†’ c (suc a) b) (Î» a b â†’ g (suc a) b))
-      âˆ™ cong ((scale (c zero (suc m)) (g zero (suc m)) + D m (Î» a b â†’ scale (c (suc a) b) (g (suc a) b))) +_) (tail m)
+                      (D m (Î» a b â’ scale (c (suc a) b) (g (suc a) b)))
+                      (Rest m (Î» a b â’ c (suc a) b) (Î» a b â’ g (suc a) b))
+      âˆ™ cong ((scale (c zero (suc m)) (g zero (suc m)) + D m (Î» a b â’ scale (c (suc a) b) (g (suc a) b))) +_) (tail m)
       where
         -- scale (c 1 m) (g 0 (suc m)) + Rest m (câˆ˜suc) (gâˆ˜suc)
-        --   â‰¡ D m (Î» a b â†’ scale (c (suc a) b) (g a (suc b)))
-        tail : (m : â„•)
-          â†’ scale (c (suc zero) m) (g zero (suc m))
-              + Rest m (Î» a b â†’ c (suc a) b) (Î» a b â†’ g (suc a) b)
-            â‰¡ D m (Î» a b â†’ scale (c (suc a) b) (g a (suc b)))
+        --   â‰¡ D m (Î» a b â’ scale (c (suc a) b) (g a (suc b)))
+        tail : (m : â•)
+          â’ scale (c (suc zero) m) (g zero (suc m))
+              + Rest m (Î» a b â’ c (suc a) b) (Î» a b â’ g (suc a) b)
+            â‰¡ D m (Î» a b â’ scale (c (suc a) b) (g a (suc b)))
         tail zero    = +IdR _
         tail (suc k) = refl
 
-    pascal-D : (n : â„•) (c : â„• â†’ â„• â†’ â„•)
-      â†’ (pascal : (a b : â„•) â†’ c (suc a) (suc b) â‰¡ c a (suc b) +â„• c (suc a) b)
-      â†’ (left : (a : â„•) â†’ c (suc a) zero â‰¡ c a zero)
-      â†’ (top : (b : â„•) â†’ c zero (suc b) â‰¡ c zero b)
-      â†’ (g : â„• â†’ â„• â†’ A)
-      â†’ D (suc n) (Î» a b â†’ scale (c a b) (g a b))
-        â‰¡ D n (Î» a b â†’ scale (c a b) (g (suc a) b)) + D n (Î» a b â†’ scale (c a b) (g a (suc b)))
+    pascal-D : (n : â•) (c : â• â’ â• â’ â•)
+      â’ (pascal : (a b : â•) â’ c (suc a) (suc b) â‰¡ c a (suc b) +â• c (suc a) b)
+      â’ (left : (a : â•) â’ c (suc a) zero â‰¡ c a zero)
+      â’ (top : (b : â•) â’ c zero (suc b) â‰¡ c zero b)
+      â’ (g : â• â’ â• â’ A)
+      â’ D (suc n) (Î» a b â’ scale (c a b) (g a b))
+        â‰¡ D n (Î» a b â’ scale (c a b) (g (suc a) b)) + D n (Î» a b â’ scale (c a b) (g a (suc b)))
     pascal-D n c pascal left top g =
         cong (scale (c zero (suc n)) (g zero (suc n)) +_)
-             (shift-row n c pascal left (Î» a b â†’ g (suc a) b))
+             (shift-row n c pascal left (Î» a b â’ g (suc a) b))
       âˆ™ +Assoc _ _ _
-      âˆ™ cong (_+ Rest n c (Î» a b â†’ g (suc a) b))
-             (+Comm (scale (c zero (suc n)) (g zero (suc n))) (D n (Î» a b â†’ scale (c a b) (g (suc a) b))))
+      âˆ™ cong (_+ Rest n c (Î» a b â’ g (suc a) b))
+             (+Comm (scale (c zero (suc n)) (g zero (suc n))) (D n (Î» a b â’ scale (c a b) (g (suc a) b))))
       âˆ™ sym (+Assoc _ _ _)
-      âˆ™ cong (D n (Î» a b â†’ scale (c a b) (g (suc a) b)) +_) (edge n)
+      âˆ™ cong (D n (Î» a b â’ scale (c a b) (g (suc a) b)) +_) (edge n)
       where
-        edge : (n : â„•)
-          â†’ scale (c zero (suc n)) (g zero (suc n)) + Rest n c (Î» a b â†’ g (suc a) b)
-            â‰¡ D n (Î» a b â†’ scale (c a b) (g a (suc b)))
-        edge zero    = +IdR _ âˆ™ cong (Î» z â†’ scale z (g zero (suc zero))) (top zero)
-        edge (suc m) = cong (Î» z â†’ scale z (g zero (suc (suc m))) + Rest (suc m) c (Î» a b â†’ g (suc a) b)) (top (suc m))
+        edge : (n : â•)
+          â’ scale (c zero (suc n)) (g zero (suc n)) + Rest n c (Î» a b â’ g (suc a) b)
+            â‰¡ D n (Î» a b â’ scale (c a b) (g a (suc b)))
+        edge zero    = +IdR _ âˆ™ cong (Î» z â’ scale z (g zero (suc zero))) (top zero)
+        edge (suc m) = cong (Î» z â’ scale z (g zero (suc (suc m))) + Rest (suc m) c (Î» a b â’ g (suc a) b)) (top (suc m))
 
   -- the binomial satisfies all three rules
   private
-    Cb-pascal : (a b : â„•) â†’ Cb (suc a) (suc b) â‰¡ Cb a (suc b) +â„• Cb (suc a) b
+    Cb-pascal : (a b : â•) â’ Cb (suc a) (suc b) â‰¡ Cb a (suc b) +â• Cb (suc a) b
     Cb-pascal a b = refl
-    Cb-left : (a : â„•) â†’ Cb (suc a) zero â‰¡ Cb a zero
+    Cb-left : (a : â•) â’ Cb (suc a) zero â‰¡ Cb a zero
     Cb-left zero    = refl
     Cb-left (suc a) = refl
-    Cb-top : (b : â„•) â†’ Cb zero (suc b) â‰¡ Cb zero b
+    Cb-top : (b : â•) â’ Cb zero (suc b) â‰¡ Cb zero b
     Cb-top b = refl
 
   ----------------------------------------------------------------
-  -- à¥¨ Â· THE ITERATED LEIBNIZ LAW.
+  -- à¨ Â THE ITERATED LEIBNIZ LAW.
   ----------------------------------------------------------------
 
-  module _ (ğ“› : A â†’ A)
-           (ğ“›-add  : (x y : A) â†’ ğ“› (x + y) â‰¡ ğ“› x + ğ“› y)
-           (ğ“›-leib : (x y : A) â†’ ğ“› (x Â· y) â‰¡ ğ“› x Â· y + x Â· ğ“› y)
+  module _ (ğ“ : A â’ A)
+           (ğ“-add  : (x y : A) â’ ğ“ (x + y) â‰¡ ğ“ x + ğ“ y)
+           (ğ“-leib : (x y : A) â’ ğ“ (x Â y) â‰¡ ğ“ x Â y + x Â ğ“ y)
            where
 
     -- iterates
-    ğ“›^ : â„• â†’ A â†’ A
-    ğ“›^ zero    x = x
-    ğ“›^ (suc n) x = ğ“› (ğ“›^ n x)
+    ğ“^ : â• â’ A â’ A
+    ğ“^ zero    x = x
+    ğ“^ (suc n) x = ğ“ (ğ“^ n x)
 
     -- the binomial sum of iterates
-    binomial-sum : (n : â„•) (h k : A) â†’ A
-    binomial-sum n h k = D n (Î» a b â†’ scale (Cb a b) (ğ“›^ a h Â· ğ“›^ b k))
+    binomial-sum : (n : â•) (h k : A) â’ A
+    binomial-sum n h k = D n (Î» a b â’ scale (Cb a b) (ğ“^ a h Â ğ“^ b k))
 
     private
-      ğ“›-zero : ğ“› 0r â‰¡ 0r
-      ğ“›-zero = sym ( sym (+InvR (ğ“› 0r)) âˆ™ cong (_+ (- (ğ“› 0r))) h âˆ™ cancelR (ğ“› 0r) (ğ“› 0r) )
+      ğ“-zero : ğ“ 0r â‰¡ 0r
+      ğ“-zero = sym ( sym (+InvR (ğ“ 0r)) âˆ™ cong (_+ (- (ğ“ 0r))) h âˆ™ cancelR (ğ“ 0r) (ğ“ 0r) )
         where
-          h : ğ“› 0r â‰¡ ğ“› 0r + ğ“› 0r
-          h = cong ğ“› (sym (+IdR 0r)) âˆ™ ğ“›-add 0r 0r
-          cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
+          h : ğ“ 0r â‰¡ ğ“ 0r + ğ“ 0r
+          h = cong ğ“ (sym (+IdR 0r)) âˆ™ ğ“-add 0r 0r
+          cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
           cancelR x y = sym (+Assoc x y (- y)) âˆ™ cong (x +_) (+InvR y) âˆ™ +IdR x
 
-      ğ“›-scale : (n : â„•) (x : A) â†’ ğ“› (scale n x) â‰¡ scale n (ğ“› x)
-      ğ“›-scale zero    x = ğ“›-zero
-      ğ“›-scale (suc n) x = ğ“›-add x (scale n x) âˆ™ cong (ğ“› x +_) (ğ“›-scale n x)
+      ğ“-scale : (n : â•) (x : A) â’ ğ“ (scale n x) â‰¡ scale n (ğ“ x)
+      ğ“-scale zero    x = ğ“-zero
+      ğ“-scale (suc n) x = ğ“-add x (scale n x) âˆ™ cong (ğ“ x +_) (ğ“-scale n x)
 
-      ğ“›-D : (n : â„•) (f : â„• â†’ â„• â†’ A) â†’ ğ“› (D n f) â‰¡ D n (Î» a b â†’ ğ“› (f a b))
-      ğ“›-D zero    f = refl
-      ğ“›-D (suc n) f = ğ“›-add _ _ âˆ™ cong (ğ“› (f zero (suc n)) +_) (ğ“›-D n (Î» a b â†’ f (suc a) b))
+      ğ“-D : (n : â•) (f : â• â’ â• â’ A) â’ ğ“ (D n f) â‰¡ D n (Î» a b â’ ğ“ (f a b))
+      ğ“-D zero    f = refl
+      ğ“-D (suc n) f = ğ“-add _ _ âˆ™ cong (ğ“ (f zero (suc n)) +_) (ğ“-D n (Î» a b â’ f (suc a) b))
 
     -- one derivative of the binomial sum is the next binomial sum
-    step : (n : â„•) (h k : A) â†’ ğ“› (binomial-sum n h k) â‰¡ binomial-sum (suc n) h k
+    step : (n : â•) (h k : A) â’ ğ“ (binomial-sum n h k) â‰¡ binomial-sum (suc n) h k
     step n h k =
-        ğ“›-D n _
-      âˆ™ D-ext n (Î» a b â†’ ğ“›-scale (Cb a b) _
-                       âˆ™ cong (scale (Cb a b)) (ğ“›-leib (ğ“›^ a h) (ğ“›^ b k))
+        ğ“-D n _
+      âˆ™ D-ext n (Î» a b â’ ğ“-scale (Cb a b) _
+                       âˆ™ cong (scale (Cb a b)) (ğ“-leib (ğ“^ a h) (ğ“^ b k))
                        âˆ™ scale-add (Cb a b) _ _)
       âˆ™ D-add n _ _
-      âˆ™ sym (pascal-D n Cb Cb-pascal Cb-left Cb-top (Î» a b â†’ ğ“›^ a h Â· ğ“›^ b k))
+      âˆ™ sym (pascal-D n Cb Cb-pascal Cb-left Cb-top (Î» a b â’ ğ“^ a h Â ğ“^ b k))
 
-    -- THE THEOREM:  ğ“›â¿ (h Â· k) â‰¡ Î£_{a+b=n} C(a+b,a) ğ“›áµƒ h Â· ğ“›áµ‡ k
-    iterated-leibniz : (n : â„•) (h k : A) â†’ ğ“›^ n (h Â· k) â‰¡ binomial-sum n h k
-    iterated-leibniz zero    h k = sym (+IdR (h Â· k))
-    iterated-leibniz (suc n) h k = cong ğ“› (iterated-leibniz n h k) âˆ™ step n h k
+    -- THE THEOREM:  ğ“â¿ (h Â k) â‰¡ Î_{a+b=n} C(a+b,a) ğ“µ h Â ğ“µ k
+    iterated-leibniz : (n : â•) (h k : A) â’ ğ“^ n (h Â k) â‰¡ binomial-sum n h k
+    iterated-leibniz zero    h k = sym (+IdR (h Â k))
+    iterated-leibniz (suc n) h k = cong ğ“ (iterated-leibniz n h k) âˆ™ step n h k
 
     -- the second order, unfolded (in the sum's own order, a = 0, 1, 2):
-    --   ğ“›Â²(hk) = hÂ·ğ“›Â²k + 2 ğ“›hÂ·ğ“›k + ğ“›Â²hÂ·k
+    --   ğ“Â²(hk) = hÂğ“Â²k + 2 ğ“hÂğ“k + ğ“Â²hÂk
     second-order : (h k : A)
-      â†’ ğ“› (ğ“› (h Â· k))
-        â‰¡ (h Â· ğ“› (ğ“› k) + 0r) + (((ğ“› h Â· ğ“› k) + ((ğ“› h Â· ğ“› k) + 0r)) + (ğ“› (ğ“› h) Â· k + 0r))
+      â’ ğ“ (ğ“ (h Â k))
+        â‰¡ (h Â ğ“ (ğ“ k) + 0r) + (((ğ“ h Â ğ“ k) + ((ğ“ h Â ğ“ k) + 0r)) + (ğ“ (ğ“ h) Â k + 0r))
     second-order h k = iterated-leibniz 2 h k

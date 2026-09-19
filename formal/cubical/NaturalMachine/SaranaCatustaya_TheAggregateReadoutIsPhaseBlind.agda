@@ -1,40 +1,40 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- सारणाचतुष्टय — the aggregate readout is phase-blind; the labelled one is not
+-- ������������� � the aggregate readout is phase-blind; the labelled one is not
 --
 -- Handle: cf-tessera-e-0.  Draw: `seed cf-tessera-e --swarm 2`, draw 0.
 -- Date: 2026-08-20.
 --
 -- SOURCE, WITH TEXT AND DATE.
 --
---   Bharata, *Nāṭyaśāstra* ch. 28 (c. 200 BCE – 200 CE).  The 22 śrutis of
---   the octave are established by the *sāraṇā* procedure: two vīṇās tuned
---   identically, one of them (the *calā*, moving) displaced by one śruti at
---   a time while the other (the *dhruvā*, fixed) is held, and the
+--   Bharata, *Nyastra* ch. 28 (c. 200 BCE � 200 CE).  The 22 rutis of
+--   the octave are established by the *sra* procedure: two vs tuned
+--   identically, one of them (the *cal*, moving) displaced by one ruti at
+--   a time while the other (the *dhruv*, fixed) is held, and the
 --   coincidences between the two instruments observed.  The fourfold form,
---   *sāraṇā-catuṣṭaya*, is set out in Abhinavagupta's *Abhinavabhāratī*
---   (c. 1000 CE) at NŚ 28.26.  Śārṅgadeva, *Saṅgītaratnākara* I
---   (c. 1210–1247 CE), tabulates the resulting 4-3-2-4-4-3-2 division of
---   the 22.  Matanga, *Bṛhaddeśī* (c. 6th–8th c. CE), carries the same
---   gamut into the deśī repertoire.
+--   *sra-catuaya*, is set out in Abhinavagupta's *Abhinavabhrat*
+--   (c. 1000 CE) at N 28.26.  rgadeva, *Sagtaratnkara* I
+--   (c. 1210�1247 CE), tabulates the resulting 4-3-2-4-4-3-2 division of
+--   the 22.  Matanga, *Bhadde* (c. 6th�8th c. CE), carries the same
+--   gamut into the de repertoire.
 --
 --   The technical fact this file takes from the procedure, and only this:
---   the experiment is run with TWO instruments.  A single vīṇā, however
+--   the experiment is run with TWO instruments.  A single v, however
 --   long it is played, cannot report its own displacement; what reports it
 --   is a second instrument holding the un-displaced state, read position
 --   by position.  The theorems below are that statement, made exact.
 --
 -- WHAT IS CLAIMED OF THE SOURCE.
---   That the *Nāṭyaśāstra*'s procedure requires a second, held instrument
+--   That the *Nyastra*'s procedure requires a second, held instrument
 --   and a per-position comparison, and that the text records the counts of
 --   coincidences rather than an aggregate.
 --
 -- PRIOR ART IN THIS REPOSITORY, checked before writing (grep on TEXT names,
 -- not author names, per CLAUDE.md):
 --   `NaturalMachine.ApavadaVisaya_TheLineWorldCorollaryPinsItsObservableUpToScalar`
---   and collab/messages/2041 (cf-tessera-2) already carry the *Nāṭyaśāstra*,
---   the *Saṅgītaratnākara* and the sāraṇā under the **gcd law**: which
+--   and collab/messages/2041 (cf-tessera-2) already carry the *Nyastra*,
+--   the *Sagtaratnkara* and the sra under the **gcd law**: which
 --   chains of a fixed interval close early and which exhaust the cycle.
 --   That is the ORBIT question.  This file is the VISIT-COUNT question,
 --   which is disjoint from it: how often each position is struck in `n`
@@ -50,7 +50,7 @@
 --   (312254 bytes, 7242 lines, 450 numbered diamonds):
 --
 --       template_cycle_length : 24
---       template_counts       : 1..18 ↦ 19,  19..24 ↦ 18
+--       template_counts       : 1..18 � 19,  19..24 � 18
 --
 --   with the note "Every byte reparsed in V3".  `readout-phase-0` below is
 --   that count vector, obtained by walking a 24-position cycle 450 times.
@@ -59,8 +59,8 @@
 --
 -- THE TWO METHOD LENSES, AND WHICH ONE THIS FILE DECIDES FOR.
 --
---   Darwin — variation plus selection plus time explains the appearance of
---   design.  Ashby — a regulator must have at least as much variety as
+--   Darwin � variation plus selection plus time explains the appearance of
+--   design.  Ashby � a regulator must have at least as much variety as
 --   what it regulates.  On the drawn material the two disagree, and the
 --   disagreement is sharp on `machine/race-variants.sh`, whose own footer
 --   prints "PRIMARY METRIC DID NOT SEPARATE THE VARIANTS" and, separately,
@@ -70,9 +70,9 @@
 --   the prescription cannot work: the SELECTOR's output has variety one
 --   (every arm scores known=0), and a one-valued readout regulates nothing
 --   however rich the thing being read.  `sarana-total` is that objection
---   made into a theorem — the aggregate is invariant under the
+--   made into a theorem � the aggregate is invariant under the
 --   displacement FOR EVERY `n`, so no budget of steps makes it informative
---   — and `readout-separates` is the matching positive half: the labelled,
+--   � and `readout-separates` is the matching positive half: the labelled,
 --   per-position readout does see the displacement.  Ashby wins here.
 ------------------------------------------------------------------------
 
@@ -90,7 +90,7 @@ open import Cubical.Relation.Nullary using (¬_)
 --
 -- A gamut is a nonempty cyclic list of counters.  The HEAD is the position
 -- currently under the hand; the tail runs upward through the cycle and
--- wraps.  Nonemptiness is structural — `ℕ × List ℕ`, not `List ℕ` — so
+-- wraps.  Nonemptiness is structural � `� � List �`, not `List �` � so
 -- that striking the current position can never silently miss, which is the
 -- side condition an index-plus-vector encoding would have to carry.
 ------------------------------------------------------------------------
@@ -111,7 +111,7 @@ total (x , xs) = fst (x , xs) + tally (snd (x , xs))
 prahara : Gamut → Gamut
 prahara (x , xs) = suc x , xs
 
--- Move on by one position (the sāraṇā displacement).
+-- Move on by one position (the sra displacement).
 sarana-step : Gamut → Gamut
 sarana-step (x , []) = x , []
 sarana-step (x , y ∷ ys) = y , (ys ++ (x ∷ []))
@@ -179,11 +179,11 @@ aggregate-phase-blind n a b g =
 -- 3.  THE LABELLED READOUT IS NOT BLIND.
 --
 -- The concrete instance is the EGB field book: p = 24 template positions,
--- n = 450 numbered diamonds.  450 = 18·24 + 18.
+-- n = 450 numbered diamonds.  450 = 18�24 + 18.
 --
 -- To read a finished walk at position 0 the gamut must be realigned so the
 -- head is position 0 again.  Total displacements must be a multiple of 24:
--- phase 0 walk uses 0 + 450 + 30 = 480 = 20·24, phase 1 uses
+-- phase 0 walk uses 0 + 450 + 30 = 480 = 20�24, phase 1 uses
 -- 1 + 450 + 29 = 480.  Realignment is `calana`, which strikes nothing.
 ------------------------------------------------------------------------
 
@@ -201,7 +201,7 @@ readout-phase-1 = calana 29 (sarana 450 (calana 1 zeros24))
 -- THEOREM (the JSON's `template_counts`, derived rather than reverified).
 -- Positions 0..17 are struck 19 times, positions 18..23 are struck 18
 -- times.  In the artifact's 1-based template numbering that is
--- templates 1..18 ↦ 19 and templates 19..24 ↦ 18, which is exactly the
+-- templates 1..18 � 19 and templates 19..24 � 18, which is exactly the
 -- `template_counts` table of EGB_REPETITION_STRUCTURE_REVERIFY_V3.json.
 -- Finite exhaustive computation, hence proof (CLAUDE.md, "The rule" §3).
 egb-template-counts :
@@ -228,7 +228,7 @@ both-total-450 = refl , refl
 19≢18 p = snotz (inj-m+ {m = 18} {l = 1} {n = 0} p)
 
 -- THEOREM (the labelled readout separates the phases).  Reading ONE
--- labelled position — the head — already distinguishes the two walks that
+-- labelled position � the head � already distinguishes the two walks that
 -- `aggregate-phase-blind` proved indistinguishable in aggregate.
 readout-separates : ¬ (readout-phase-0 ≡ readout-phase-1)
 readout-separates p = 19≢18 (cong fst p)
@@ -243,17 +243,17 @@ readout-separates p = 19≢18 (cong fst p)
 --
 -- REFUTATION.  False, and `readout-separates` is the check that kills it.
 -- The count vector is determined by (n, p, PHASE), not by (n, p).  The
--- MULTISET of counts is phase-invariant — it is {19 eighteen times,
--- 18 six times} for both walks above — but the count vector as a labelled
+-- MULTISET of counts is phase-invariant � it is {19 eighteen times,
+-- 18 six times} for both walks above � but the count vector as a labelled
 -- function of position is not: at position 0 it reads 19 at phase 0 and 18
 -- at phase 1.  Since 0 < 450 mod 24 < 24, the vector pins the phase
--- exactly.  So the field carries log₂ 24 bits that (450, 24) does not.
+-- exactly.  So the field carries log� 24 bits that (450, 24) does not.
 --
 -- What survives of the claim, restated so it is true: the reverification
--- returns log₂ 24 ≈ 4.58 bits about the artifact's phase, out of the
--- 450 · log₂ 24 ≈ 2064 bits its 450 template choices could in principle
+-- returns log� 24 ≈ 4.58 bits about the artifact's phase, out of the
+-- 450 � log� 24 ≈ 2064 bits its 450 template choices could in principle
 -- have carried.  Nearly vacuous is not vacuous, and the difference is the
--- whole of what a labelled readout buys over an aggregate one — which is
+-- whole of what a labelled readout buys over an aggregate one � which is
 -- the theorem, not an aside.
 --
 -- The generalisation is left OPEN and is not claimed here: that for every

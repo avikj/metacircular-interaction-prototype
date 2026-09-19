@@ -1,90 +1,90 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤¸à¤®à¤˜à¤¾à¤¤-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ â€” à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤¸à¥à¤¯ à¤…à¤µà¤°à¥‹à¤¹à¤ƒ à¤¸à¤¾à¤¨à¥à¤¤à¤ƒ, à¤¨ à¤¸à¥€à¤®à¤¾-à¤¸à¤¾à¤ªà¥‡à¤•à¥à¤·à¤ƒ à¥¤
+-- àà®à˜à¾à-àà™àà•à²à¿àà®à â” àà™àà•à²à¿àààà¯ ààµà°à‹àà àà¾à¨ààà, à¨ ààà®à¾-àà¾ààà•ààà à
 --
 -- (the summation of like powers: the descent from one power to the next
 --  is a finite identity, not a limit.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- SOURCES, AND THEY ARE SECOND-HAND.
 --
---   Jyeá¹£á¹­hadeva, à¤¯à¥à¤•à¥à¤¤à¤¿à¤­à¤¾à¤·à¤¾ / *Gaá¹‡ita-yukti-bhÄá¹£Ä* (Malayalam, c. 1530),
---   mathematics part, the à¤ªà¤°à¤¿à¤§à¤¿â€“à¤µà¥à¤¯à¤¾à¤¸ chapter â€” the **à¤¸à¤®à¤˜à¤¾à¤¤-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤**,
+--   Jyehadeva, à¯àà•ààà¿àà¾àà¾ / *Gaita-yukti-bh* (Malayalam, c. 1530),
+--   mathematics part, the àà°à¿à§à¿â“àµàà¯à¾à chapter â” the **àà®à˜à¾à-àà™àà•à²à¿à**,
 --   the summation of like powers, argued for a general power by
 --   obtaining each power-sum by means of the one below it.
 --
---   NÄ«lakaá¹‡á¹­ha SomayÄji, à¤¤à¤¨à¥à¤¤à¥à¤°à¤¸à¤™à¥à¤—à¥à¤°à¤¹à¤ƒ (1501), which the à¤¯à¥à¤•à¥à¤¤à¤¿à¤­à¤¾à¤·à¤¾
---   derives; MÄdhava of Saá¹…gamagrÄma (c. 1340â€“1425), to whom the
+--   Nlakaha Somayji, àà¨àààà°àà™àà—àà°àà (1501), which the à¯àà•ààà¿àà¾àà¾
+--   derives; Mdhava of Sagamagrma (c. 1340â“1425), to whom the
 --   material is attributed there.
 --
---   Earlier, and the two results Â§à¥« and Â§à¥¬ recover: Ä€ryabhaá¹­a,
---   à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥, à¤—à¤£à¤¿à¤¤à¤ªà¤¾à¤¦à¤ƒ à¥¨à¥§â€“à¥¨à¥¨ (499) â€” the à¤šà¤¿à¤¤à¤¿à¤˜à¤¨ (the saá¹…kalita of
---   saá¹…kalitas) and the doubling rule 2Â·âˆ‘ = n(n+1).  Those verse numbers
+--   Earlier, and the two results Â§à and Â§à recover: ryabhaa,
+--   àà°àà¯ààŸàà¯à®à, à—àà¿ààà¾à¦à à¨à§â“à¨à¨ (499) â” the àà¿àà¿à˜à¨ (the sakalita of
+--   sakalitas) and the doubling rule 2Ââˆ = n(n+1).  Those verse numbers
 --   are carried from `Citighana.agda` and `Sankalita.agda` in this lane.
 --
--- Nothing here is claimed about Ï€, and there is no series in this file.
+-- Nothing here is claimed about Ï, and there is no series in this file.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- WHAT IS EXACT, AND WHAT IS NOT (Â§à¥®, and it is declared, not filled).
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- WHAT IS EXACT, AND WHAT IS NOT (Â§à®, and it is declared, not filled).
 --
--- The à¤¯à¥à¤•à¥à¤¤à¤¿à¤­à¤¾à¤·à¤¾'s use of the à¤¸à¤®à¤˜à¤¾à¤¤-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤ is asymptotic: for a fine
--- enough division, the sum of the p-th powers of 1â€¦n is n^(p+1)/(p+1),
+-- The à¯àà•ààà¿àà¾àà¾'s use of the àà®à˜à¾à-àà™àà•à²à¿à is asymptotic: for a fine
+-- enough division, the sum of the p-th powers of 1â¦n is n^(p+1)/(p+1),
 -- the deficit becoming negligible.  **That statement is not available in
--- this lane and is not approximated here.**  It needs â„š or â„, a notion
--- of "negligible", and a limit; â„• has none of the three.  This is the
--- same declaration `Madhava.agda` makes about the geometric remainder â€”
--- à¤…à¤¨à¥à¤•à¥à¤¤à¤®à¥, à¤¨ à¤®à¤¿à¤¥à¥à¤¯à¤¾-à¤¸à¤¿à¤¦à¥à¤§à¤®à¥, un-said, not falsely proved â€” and the same
+-- this lane and is not approximated here.**  It needs â or â, a notion
+-- of "negligible", and a limit; â• has none of the three.  This is the
+-- same declaration `Madhava.agda` makes about the geometric remainder â”
+-- àà¨àà•ààà®à, à¨ à®à¿ààà¯à¾-àà¿à¦àà§à®à, un-said, not falsely proved â” and the same
 -- wall `SthaulyaIsTheOmittedTerm` records at its foot,
 -- where an order statement about degree is unavailable in a lane whose
 -- objects are ring elements.
 --
 -- What survives the scoping is the STEP, and it is an identity:
 --
---     (n+1) Â· Î£_{kâ‰¤n} f(k)  =  Î£_{kâ‰¤n} kÂ·f(k)  +  Î£_{jâ‰¤n} Î£_{kâ‰¤j} f(k)
+--     (n+1) Â Î_{kâ‰n} f(k)  =  Î_{kâ‰n} kÂf(k)  +  Î_{jâ‰n} Î_{kâ‰j} f(k)
 --
--- â€” Â§à¥¨, `à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤-à¤…à¤µà¤°à¥‹à¤¹à¤ƒ`.  Read right to left it is the à¤¯à¥à¤•à¥à¤¤à¤¿à¤­à¤¾à¤·à¤¾'s own
+-- â” Â§à¨, `àà™àà•à²à¿à-ààµà°à‹àà`.  Read right to left it is the à¯àà•ààà¿àà¾àà¾'s own
 -- move: the (p+1)-th power-sum is what is left of (n+1) times the p-th
--- once the repeated summation (à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥) has been taken out.
--- The deficit of Î£k^(p+1) from nÂ·Î£k^p is EXACTLY a saá¹…kalita one order
--- down, at every finite n, with nothing thrown away.  Â§à¥© is that form
+-- once the repeated summation (àà™àà•à²à¿à-àà™àà•à²à¿àà®à) has been taken out.
+-- The deficit of Îk^(p+1) from nÂÎk^p is EXACTLY a sakalita one order
+-- down, at every finite n, with nothing thrown away.  Â§à© is that form
 -- with the n rather than the n+1, which is how the text states it.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE FINDING, and it is what makes this more than a restatement.
 --
--- The descent has nothing to do with powers.  Â§à¥¨ is proved for an
--- ARBITRARY sequence f : â„• â†’ â„•; the powers enter only in Â§à¥ª, and only to
--- make kÂ·f(k) be the next power, which is a definitional unfolding and
+-- The descent has nothing to do with powers.  Â§à¨ is proved for an
+-- ARBITRARY sequence f : â• â’ â•; the powers enter only in Â§à, and only to
+-- make kÂf(k) be the next power, which is a definitional unfolding and
 -- not a step of the proof.  So "summation of like powers" names the
 -- instance the text needed, and the mechanism is bilinear bookkeeping on
 -- any sequence whatever.
 --
--- Two consequences, both checked below, and both of them are Ä€ryabhaá¹­a's
--- rules falling out of the à¤¯à¥à¤•à¥à¤¤à¤¿à¤­à¤¾à¤·à¤¾'s law as its first two instances:
+-- Two consequences, both checked below, and both of them are ryabhaa's
+-- rules falling out of the à¯àà•ààà¿àà¾àà¾'s law as its first two instances:
 --
---   Â§à¥«  at the CONSTANT sequence f â‰¡ 1, the descent reads
---         (n+1)Â·n = âˆ‘n + âˆ‘n,
---       which is à¤—à¤£à¤¿à¤¤à¤ªà¤¾à¤¦à¤ƒ' doubling rule.  `à¤¦à¥à¤µà¤¿à¤—à¥à¤£-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥-à¤ªà¥à¤¨à¤ƒ` is
---       `Sankalita.à¤¦à¥à¤µà¤¿à¤—à¥à¤£-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥` re-derived from the general law
+--   Â§à  at the CONSTANT sequence f â‰¡ 1, the descent reads
+--         (n+1)Ân = âˆn + âˆn,
+--       which is à—àà¿ààà¾à¦à' doubling rule.  `à¦ààµà¿à—àà-àà™àà•à²à¿àà®à-ààà¨à` is
+--       `Sankalita.à¦ààµà¿à—àà-àà™àà•à²à¿àà®à` re-derived from the general law
 --       rather than by its own induction.
 --
---   Â§à¥¬  at f = k, the descent reads (n+1)Â·âˆ‘n = âˆ‘Â²n + à¤šà¤¿à¤¤à¤¿ n, and
---       together with `Vargacitighana.à¤¯à¥‹à¤—à¤¦à¥à¤µà¤¯à¤®à¥` it gives
---       3Â·à¤šà¤¿à¤¤à¤¿ n = (n+2)Â·âˆ‘n and hence 6Â·à¤šà¤¿à¤¤à¤¿ n = n(n+1)(n+2) â€”
---       `à¤šà¤¿à¤¤à¤¿à¤˜à¤¨à¤ƒ-à¤ªà¥à¤¨à¤ƒ`, which is `Citighana.à¤šà¤¿à¤¤à¤¿à¤˜à¤¨à¤ƒ` obtained from the
+--   Â§à  at f = k, the descent reads (n+1)Ââˆn = âˆÂ²n + àà¿àà¿ n, and
+--       together with `Vargacitighana.à¯à‹à—à¦ààµà¯à®à` it gives
+--       3Âàà¿àà¿ n = (n+2)Ââˆn and hence 6Âàà¿àà¿ n = n(n+1)(n+2) â”
+--       `àà¿àà¿à˜à¨à-ààà¨à`, which is `Citighana.àà¿àà¿à˜à¨à` obtained from the
 --       descent instead of from the hand-derived cubic step there.
 --
 -- Neither re-derivation replaces the module it re-proves.  What they
--- establish is that the two Ä€ryabhaá¹­a results and the à¤¯à¥à¤•à¥à¤¤à¤¿à¤­à¤¾à¤·à¤¾'s
+-- establish is that the two ryabhaa results and the à¯àà•ààà¿àà¾àà¾'s
 -- general descent are one law and two instances, which is a claim about
 -- the lane's own files and is checked rather than asserted.
 --
--- Â§à¥­ is the p = 2 instance, which does not close on a corpus theorem:
--- (n+1)Â·âˆ‘Â²n = âˆ‘Â³n + Î£_{jâ‰¤n} âˆ‘Â²j, linking `Sankalita.âˆ‘Â³` to
--- `Vargacitighana.âˆ‘Â²` through the same law.
+-- Â§à is the p = 2 instance, which does not close on a corpus theorem:
+-- (n+1)ÂâˆÂ²n = âˆÂ³n + Î_{jâ‰n} âˆÂ²j, linking `Sankalita.âˆÂ³` to
+-- `Vargacitighana.âˆÂ²` through the same law.
 --
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â€” the container, not the
+-- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the container, not the
 -- repository pin (BUILD.md).  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -101,9 +101,9 @@ open import Citighana      using (à¤šà¤¿à¤¤à¤¿ ; à¤¦à¥à¤µà¤¿Â·)
 open import Vargacitighana using (âˆ‘Â² ; à¤¯à¥‹à¤—à¤¦à¥à¤µà¤¯à¤®à¥)
 
 ------------------------------------------------------------------------
--- à¥§.  à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ â€” the summation of a sequence from 1 to n.
+-- à§.  àà™àà•à²à¿àà®à â” the summation of a sequence from 1 to n.
 --
--- The shape is `Sankalita.âˆ‘`'s, so that âˆ‘, âˆ‘Â², âˆ‘Â³ and à¤šà¤¿à¤¤à¤¿ are all
+-- The shape is `Sankalita.âˆ`'s, so that âˆ, âˆÂ², âˆÂ³ and àà¿àà¿ are all
 -- literally instances and no re-indexing lemma is needed anywhere below.
 ------------------------------------------------------------------------
 
@@ -131,11 +131,11 @@ private
     âˆ™ sym (+-assoc b a c)
 
 ------------------------------------------------------------------------
--- à¥¨.  THE DESCENT, for an arbitrary sequence.
+-- à¨.  THE DESCENT, for an arbitrary sequence.
 --
---     (n+1) Â· Î£_{kâ‰¤n} f(k)  â‰¡  Î£_{kâ‰¤n} kÂ·f(k)  +  Î£_{jâ‰¤n} Î£_{kâ‰¤j} f(k)
+--     (n+1) Â Î_{kâ‰n} f(k)  â‰¡  Î_{kâ‰n} kÂf(k)  +  Î_{jâ‰n} Î_{kâ‰j} f(k)
 --
--- Finite, exact, in â„•, for every f.  No division, no limit, no order.
+-- Finite, exact, in â•, for every f.  No division, no limit, no order.
 ------------------------------------------------------------------------
 
 à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤-à¤…à¤µà¤°à¥‹à¤¹à¤ƒ : (f : â„• â†’ â„•) (n : â„•)
@@ -150,12 +150,12 @@ private
              (à¤¯à¥‹à¤—à¤ƒ (Î» k â†’ k Â· f k) n) (à¤¯à¥‹à¤—à¤ƒ (à¤¯à¥‹à¤—à¤ƒ f) n)
 
 ------------------------------------------------------------------------
--- à¥©.  THE SAME, IN THE FORM THE TEXT STATES.
+-- à©.  THE SAME, IN THE FORM THE TEXT STATES.
 --
 -- n times the sum, not (n+1) times, with the repeated summation running
--- one short â€” "the excess of nÂ·Î£f over Î£kÂ·f is the saá¹…kalita of the
--- saá¹…kalitas up to nâˆ’1".  Obtained from Â§à¥¨ by cancelling one copy of the
--- sum on both sides, which is `inj-m+`, addition in â„• being injective.
+-- one short â” "the excess of nÂÎf over ÎkÂf is the sakalita of the
+-- sakalitas up to nâˆ’1".  Obtained from Â§à¨ by cancelling one copy of the
+-- sum on both sides, which is `inj-m+`, addition in â• being injective.
 ------------------------------------------------------------------------
 
 à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤-à¤…à¤µà¤°à¥‹à¤¹à¤ƒ-à¤¨à¥à¤¯à¥‚à¤¨à¤ƒ : (f : â„• â†’ â„•) (m : â„•)
@@ -171,10 +171,10 @@ private
                 (à¤¯à¥‹à¤—à¤ƒ f (suc m)) (à¤¯à¥‹à¤—à¤ƒ (à¤¯à¥‹à¤—à¤ƒ f) m)
 
 ------------------------------------------------------------------------
--- à¥ª.  à¤¸à¤®à¤˜à¤¾à¤¤-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ â€” the like-power instance.
+-- à.  àà®à˜à¾à-àà™àà•à²à¿àà®à â” the like-power instance.
 --
--- The only thing the powers contribute is that kÂ·k^p is k^(p+1), which
--- is how `à¤˜à¤¾à¤¤à¤ƒ` is defined; so Â§à¥ª is Â§à¥¨ with nothing added.
+-- The only thing the powers contribute is that kÂk^p is k^(p+1), which
+-- is how `à˜à¾àà` is defined; so Â§à is Â§à¨ with nothing added.
 ------------------------------------------------------------------------
 
 à¤˜à¤¾à¤¤à¤ƒ : â„• â†’ â„• â†’ â„•
@@ -190,7 +190,7 @@ private
 à¤¸à¤®à¤˜à¤¾à¤¤-à¤…à¤µà¤°à¥‹à¤¹à¤ƒ p n = à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤-à¤…à¤µà¤°à¥‹à¤¹à¤ƒ (Î» k â†’ à¤˜à¤¾à¤¤à¤ƒ k p) n
 
 ------------------------------------------------------------------------
--- à¥ªa.  The low powers, identified with the lane's existing summations.
+-- àa.  The low powers, identified with the lane's existing summations.
 ------------------------------------------------------------------------
 
 à¤®à¥‚à¤²-à¤¯à¥‹à¤—à¤ƒ : (n : â„•) â†’ à¤¯à¥‹à¤—à¤ƒ (Î» k â†’ k) n â‰¡ âˆ‘ n
@@ -223,13 +223,13 @@ private
   congâ‚‚ _+_ (à¤à¤•-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ (suc n)) (à¤ªà¥à¤¨à¤ƒ-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ n)
 
 ------------------------------------------------------------------------
--- à¥«.  FIRST INSTANCE â€” p = 0, the constant sequence.
+-- à.  FIRST INSTANCE â” p = 0, the constant sequence.
 --
--- Î£_{kâ‰¤n} 1 = n, Î£_{kâ‰¤n} kÂ·1 = âˆ‘n, Î£_{jâ‰¤n} j = âˆ‘n, so the descent is
+-- Î_{kâ‰n} 1 = n, Î_{kâ‰n} kÂ1 = âˆn, Î_{jâ‰n} j = âˆn, so the descent is
 --
---     (n+1)Â·n = âˆ‘n + âˆ‘n,
+--     (n+1)Ân = âˆn + âˆn,
 --
--- which is à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥ à¤—à¤£à¤¿à¤¤à¤ªà¤¾à¤¦à¤ƒ' doubling rule.  `Sankalita` proves it by
+-- which is àà°àà¯ààŸàà¯à®à à—àà¿ààà¾à¦à' doubling rule.  `Sankalita` proves it by
 -- its own induction; here it is a consequence.
 ------------------------------------------------------------------------
 
@@ -245,11 +245,11 @@ private
 à¤¦à¥à¤µà¤¿à¤—à¥à¤£-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥-à¤ªà¥à¤¨à¤ƒ n = sym (à¤†à¤°à¥à¤¯à¤­à¤Ÿ-à¤¦à¥à¤µà¤¿à¤—à¥à¤£à¤®à¥ n) âˆ™ Â·-comm (suc n) n
 
 ------------------------------------------------------------------------
--- à¥¬.  SECOND INSTANCE â€” p = 1, and it recovers the à¤šà¤¿à¤¤à¤¿à¤˜à¤¨.
+-- à.  SECOND INSTANCE â” p = 1, and it recovers the àà¿àà¿à˜à¨.
 --
--- The descent at f = k reads (n+1)Â·âˆ‘n = âˆ‘Â²n + à¤šà¤¿à¤¤à¤¿ n.  With
--- `Vargacitighana.à¤¯à¥‹à¤—à¤¦à¥à¤µà¤¯à¤®à¥` (âˆ‘Â²n + âˆ‘n = 2Â·à¤šà¤¿à¤¤à¤¿ n) that gives
--- (n+2)Â·âˆ‘n = 3Â·à¤šà¤¿à¤¤à¤¿ n, and doubling gives 6Â·à¤šà¤¿à¤¤à¤¿ n = n(n+1)(n+2).
+-- The descent at f = k reads (n+1)Ââˆn = âˆÂ²n + àà¿àà¿ n.  With
+-- `Vargacitighana.à¯à‹à—à¦ààµà¯à®à` (âˆÂ²n + âˆn = 2Âàà¿àà¿ n) that gives
+-- (n+2)Ââˆn = 3Âàà¿àà¿ n, and doubling gives 6Âàà¿àà¿ n = n(n+1)(n+2).
 ------------------------------------------------------------------------
 
 à¤à¤•-à¤…à¤µà¤°à¥‹à¤¹à¤ƒ : (n : â„•) â†’ suc n Â· âˆ‘ n â‰¡ âˆ‘Â² n + à¤šà¤¿à¤¤à¤¿ n
@@ -281,10 +281,10 @@ private
   âˆ™ Â·-comm (suc (suc n)) (n Â· suc n)
 
 ------------------------------------------------------------------------
--- à¥­.  THIRD INSTANCE â€” p = 2, which closes on no corpus theorem.
+-- à.  THIRD INSTANCE â” p = 2, which closes on no corpus theorem.
 --
--- (n+1)Â·âˆ‘Â²n = âˆ‘Â³n + Î£_{jâ‰¤n} âˆ‘Â²j.  `Sankalita.âˆ‘Â³` and
--- `Vargacitighana.âˆ‘Â²` were proved in this lane with no relation between
+-- (n+1)ÂâˆÂ²n = âˆÂ³n + Î_{jâ‰n} âˆÂ²j.  `Sankalita.âˆÂ³` and
+-- `Vargacitighana.âˆÂ²` were proved in this lane with no relation between
 -- them; the descent supplies one, and the second summand is a repeated
 -- summation that the lane does not otherwise name.
 ------------------------------------------------------------------------
@@ -297,14 +297,14 @@ private
               (à¤¯à¥‹à¤—à¤ƒ-à¤¸à¤¦à¥ƒà¤¶à¤®à¥ (à¤¸à¤®à¤˜à¤¾à¤¤-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ 2) âˆ‘Â² à¤¦à¥à¤µà¤¿-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ n)
 
 ------------------------------------------------------------------------
--- à¥®.  IT RUNS.
+-- à®.  IT RUNS.
 --
 -- The descent is an identity, so its instances hold by `refl` once both
 -- sides are closed numerals; these check that the definitions are the
 -- ones the sections above are about, and not something else with the
 -- same names.
 --
---   p = 2, n = 3:  4 Â· (1+4+9)   = 56 = (1+8+27) + (1 + 5 + 14)
+--   p = 2, n = 3:  4 Â (1+4+9)   = 56 = (1+8+27) + (1 + 5 + 14)
 --   p = 4, n = 3:  1 + 16 + 81   = 98
 ------------------------------------------------------------------------
 

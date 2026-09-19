@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Bhaga where
--- भाग: proven euclidean division, then the SHAPE of every twin pair:
+-- ����: proven euclidean division, then the SHAPE of every twin pair:
 -- beyond (3,5), twins are (6k+5, 6k+7).  Universal theorem, not census.
 
 open import Yantra.Prakriti
@@ -12,7 +12,7 @@ open import Cubical.Data.Sum
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Induction.WellFounded
 
--- n ∸ d < n when 0 < d ≤ n
+-- n � d < n when 0 < d � n
 ∸-< : (n d : ℕ) → 0 < d → d ≤ n → n ∸ d < n
 ∸-< n d 0<d d≤n =
   subst (_≤ n) (+-comm (n ∸ d) 1)

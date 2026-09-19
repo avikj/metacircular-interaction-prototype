@@ -1,82 +1,82 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рдЖрддреНрдорд╕рдорддрд╛ рдЙрдкрд░рд┐ тАФ рд╡реНрдпреБрддреНрдХреНрд░рдо-рд╕рддреНрддреНрд╡рдВ рд╕рдорддрд╛-рд╕рддреНрддреНрд╡рдореЗрд╡, рд╕рдВрд░рдХреНрд╖рдХ-рд╕рдореВрд╣рд╢реНрдЪ
--- рдЙрдкрд░рд┐-рдЖрддреНрдорд╕рдорддрд╛-рд╕рдореВрд╣рдГ ред
+-- рррроррорр╛ рЙрр░р┐ тФ р╡ррпррррХрр░ро-рррррр╡р ррорр╛-рррррр╡рорр╡, ррр░рХрррХ-рроррррр
+-- рЙрр░р┐-рррроррорр╛-рроррр р
 --
 -- (the stored two-sided conserving inverse of a flow is EXACTLY the
---  invertibility of its map component тАФ no extra datum тАФ and therefore
+--  invertibility of its map component тФ no extra datum тФ and therefore
 --  the observable's symmetry group is Aut_B(A), the automorphisms of A
 --  that commute with f.)
 --
--- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
 -- WHAT THIS IS.  A SIMPLIFICATION of an existing theorem, not a
 -- correction of one.  Everything it leans on is checked and stands:
 --
---   ┬╖ `SamraksakaSamuha_тАж.agda` ┬зрезтАУ┬зрек builds the symmetry group over the
---     carrier `╬г[ ╧Г тИИ рдкреНрд░рд╡рд╛рд╣рдГ f ] рд╡реНрдпреБрддреНрдХреНрд░рдо-рд╕рддреН ╧Г` тАФ a flow bundled with
---     STORED two-sided conserving-inverse evidence тАФ and proves that
---     evidence is a proposition (рд╡реНрдпреБрддреНрдХреНрд░рдо-рдПрдХрддреНрд╡рдореН), so the carrier is a
+--   ┬ `SamraksakaSamuha_тж.agda` ┬зрзтУ┬зр builds the symmetry group over the
+--     carrier `╬[ ╧ тИИ ррр░р╡р╛рр f ] р╡ррпррррХрр░ро-ррр ╧` тФ a flow bundled with
+--     STORED two-sided conserving-inverse evidence тФ and proves that
+--     evidence is a proposition (р╡ррпррррХрр░ро-ррХррр╡рор), so the carrier is a
 --     subtype.  That is all correct.
---   ┬╖ `SamanaKaksya_тАж.agda` ┬зрел proves, separately, that when the map is
+--   ┬ `SamanaKaksya_тж.agda` ┬зр proves, separately, that when the map is
 --     an equivalence its inverse conserves automatically
---     (рд╡реНрдпреБрддреНрдХреНрд░рдо-рд╕рдВрд░рдХреНрд╖рдгрдореН тАФ one `sym`, one `cong`).
+--     (р╡ррпррррХрр░ро-ррр░рХррррор тФ one `sym`, one `cong`).
 --
--- The two were never joined.  Joining them (┬зрез) collapses the stored
--- datum: рд╡реНрдпреБрддреНрдХреНрд░рдо-рд╕рддреН ╧Г тЙГ isEquiv (╧Г .fst).  Left to right is the
--- isoтЖТequiv the group's own `рдкреНрд░рддрд┐` already performs; right to left is
+-- The two were never joined.  Joining them (┬зрз) collapses the stored
+-- datum: р╡ррпррррХрр░ро-ррр ╧ тЙ isEquiv (╧ .fst).  Left to right is the
+-- isoтТequiv the group's own `ррр░рр┐` already performs; right to left is
 -- SamanaKaksya's backward conservation, which supplies the one thing the
--- bare `isEquiv` does not carry тАФ that the INVERSE map is itself a flow.
+-- bare `isEquiv` does not carry тФ that the INVERSE map is itself a flow.
 -- Both sides are propositions, so it is an equivalence and not merely a
 -- biimplication.
 --
--- Consequently the group's carrier is `╬г[ ╧Г тИИ рдкреНрд░рд╡рд╛рд╣рдГ f ] isEquiv (╧Г .fst)`
--- тАФ the conserving flows that HAPPEN to be invertible, with no attached
--- data тАФ and, reassociated (┬зреи), it is
+-- Consequently the group's carrier is `╬[ ╧ тИИ ррр░р╡р╛рр f ] isEquiv (╧ .fst)`
+-- тФ the conserving flows that HAPPEN to be invertible, with no attached
+-- data тФ and, reassociated (┬зри), it is
 --
---     рдЖрддреНрдорд╕рдорддрд╛-рдЙрдкрд░рд┐  =  ╬г[ ╬╡ тИИ (A тЙГ A) ] рд╕рдВрд░рдХреНрд╖рдгрдореН f (equivFun ╬╡),
+--     рррроррорр╛-рЙрр░р┐  =  ╬[ ╬╡ тИИ (A тЙ A) ] ррр░рХррррор f (equivFun ╬╡),
 --
 -- Aut_B(A): the automorphisms of A lying OVER B, i.e. commuting with f.
--- ┬зрей makes that a `Group` in its own right and exhibits a `GroupEquiv`
--- from `рд╕рдВрд░рдХреНрд╖рдХ-рд╕рдореВрд╣рдГ` onto it whose hom law is `рдЙрдкрд░рд┐-рд╕рдорддрд╛ refl`.  So the
+-- ┬зрй makes that a `Group` in its own right and exhibits a `GroupEquiv`
+-- from `ррр░рХрррХ-рроррр` onto it whose hom law is `рЙрр░р┐-ррорр╛ refl`.  So the
 -- Dhruva/Khahara scale reads, intrinsically:
 --
---     near pole (isEquiv f)   Aut_B(A) is trivial                (┬зрекa)
---     far pole  (рд╕рд░реНрд╡-рдирд╛рд╢рдГ f)  Aut_B(A) тЙГ Aut(A), the witness free (┬зрекc)
+--     near pole (isEquiv f)   Aut_B(A) is trivial                (┬зрa)
+--     far pole  (рр░рр╡-рир╛рр f)  Aut_B(A) тЙ Aut(A), the witness free (┬зрc)
 --     in between              Aut_B(A) exactly, nothing else.
 --
--- ┬зрекb prices `Apratiloma`'s witness intrinsically: рдЪреВрд░реНрдг is outside the
--- unit subgroup for exactly one reason тАФ it is not an equivalence
--- (рдЪреВрд░реНрдг 0 тЙб рдЪреВрд░реНрдг 1 while 0 тЙв 1) тАФ and by ┬зрез that reason is the ONLY one
--- available.  `Apratiloma`'s fence does not move: `рдкреНрд░рд╡рд╛рд╣рдГ f` is still a
+-- ┬зрb prices `Apratiloma`'s witness intrinsically: ррр░рр is outside the
+-- unit subgroup for exactly one reason тФ it is not an equivalence
+-- (ррр░рр 0 тЙб ррр░рр 1 while 0 тЙ 1) тФ and by ┬зрз that reason is the ONLY one
+-- available.  `Apratiloma`'s fence does not move: `ррр░р╡р╛рр f` is still a
 -- monoid and not a group, `crush` is still in it and still has no
--- inverse.  What ┬зрез adds is that non-invertibility of the underlying map
+-- inverse.  What ┬зрз adds is that non-invertibility of the underlying map
 -- is not merely sufficient for falling outside the group, it is
 -- necessary and sufficient, so "which flows are the units" has an answer
 -- with no reference to the monoid at all.
 --
--- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
--- TERMS.  рдЖрддреНрдо-рд╕рдорддрд╛ тАФ "self-sameness"; the compound рдЖрддреНрдо-рд╕рдорддрд╛-рд╕рдореВрд╣рдГ is
--- already this corpus's own name for Aut(A) (`SamraksakaSamuha` ┬зрекb),
--- and it is MODERN mathematical Sanskrit: no classical text is claimed
--- for it, there and not here either.  рдЙрдкрд░рд┐ тАФ "above, over", ordinary
--- Sanskrit, used here for the slice: "over B".  рд╕рдВрд░рдХреНрд╖рдХ, рдкреНрд░рд╡рд╛рд╣, рдЧрдг, рд╕рдореВрд╣,
--- рд╡реНрдпреБрддреНрдХреНрд░рдо as in `SamraksakaGana`/`SamraksakaSamuha`, with their limits
--- unchanged (рдЧрдг attested as the gaс╣Зap─Бс╣нha's device, P─Бс╣Зini,
--- рдЕрд╖реНрдЯрд╛рдзреНрдпрд╛рдпреА, ~500 BCE; the application to flows is this corpus's).
--- The compound рдЖрддреНрдорд╕рдорддрд╛-рдЙрдкрд░рд┐ is BUILT HERE, 2026-08-23; no source states
+-- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- TERMS.  рррро-ррорр╛ тФ "self-sameness"; the compound рррро-ррорр╛-рроррр is
+-- already this corpus's own name for Aut(A) (`SamraksakaSamuha` ┬зрb),
+-- and it is MODERN mathematical : no classical text is claimed
+-- for it, there and not here either.  рЙрр░р┐ тФ "above, over", ordinary
+-- , used here for the slice: "over B".  ррр░рХрррХ, ррр░р╡р╛р, рЧр, ррорр,
+-- р╡ррпррррХрр░ро as in `SamraksakaGana`/`SamraksakaSamuha`, with their limits
+-- unchanged (рЧр attested as the gaapha's device, Pini,
+-- ррррЯр╛рзррпр╛рпр, ~500 BCE; the application to flows is this corpus's).
+-- The compound рррроррорр╛-рЙрр░р┐ is BUILT HERE, 2026-08-23; no source states
 -- anything below.
 --
--- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
 --
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 тАФ the CONTAINER, not the
+-- CHECKED: Agda 2.6.3 + agda/cubical v0.5 тФ the CONTAINER, not the
 -- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
 -- holes, exit 0.  One caveat stated in full because it is load-bearing:
 -- the import chain passes through `SvaTantuVasa`, which imports
--- `YogaKsetra`, whose ring-solver calls are written `solve! R'` тАФ a name
+-- `YogaKsetra`, whose ring-solver calls are written `solve! R'` тФ a name
 -- cubical v0.9 has and v0.5 does not (v0.5 calls the macro `solve`).
 -- That is container skew and not a verdict on any file.  This module was
--- checked with `YogaKsetra`'s import and the `рдпреЛрдЧреЗ` section of
+-- checked with `YogaKsetra`'s import and the `рпрЛрЧр` section of
 -- `SvaTantuVasa` (neither of which anything below touches) locally
 -- commented out; that local edit is NOT committed and no file other than
 -- this one is changed by this landing.
@@ -123,12 +123,12 @@ module рдЙрдкрд░рд┐ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A тЖ
     using (рд╡реНрдпреБрддреНрдХреНрд░рдо-рд╕рддреН ; рд╡реНрдпреБрддреНрдХреНрд░рдо-рдПрдХрддреНрд╡рдореН ; рд╕рдореВрд╣-рд╡рд╛рд╣рдГ ; рд╕рдореВрд╣-рд╕рдорддрд╛ ; рд╕рдВрд░рдХреНрд╖рдХ-рд╕рдореВрд╣рдГ)
 
   ------------------------------------------------------------------
-  -- ┬зрез ┬╖ THE STORED INVERSE IS EXACTLY INVERTIBILITY.
+  -- ┬зрз ┬ THE STORED INVERSE IS EXACTLY INVERTIBILITY.
   --
   -- Forward: the two flow-inverse laws, read on the map component, are
   -- the two homotopies of an isomorphism.  Backward: the map's inverse
   -- is a flow because conservation propagates backwards (SamanaKaksya
-  -- ┬зрел), and the two laws are then secEq / retEq under рдкреНрд░рд╡рд╛рд╣-рд╕рдорддрд╛.
+  -- ┬зр), and the two laws are then secEq / retEq under ррр░р╡р╛р-ррорр╛.
   ------------------------------------------------------------------
 
   рд╕рддреН-рддрдГ-рд╕рдорддрд╛ : (╧Г : рдкреНрд░рд╡рд╛рд╣рдГ f) тЖТ рд╡реНрдпреБрддреНрдХреНрд░рдо-рд╕рддреН ╧Г тЖТ isEquiv (╧Г .fst)
@@ -154,7 +154,7 @@ module рдЙрдкрд░рд┐ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A тЖ
                     (╬╗ v тЖТ рд╡реНрдпреБрддреНрдХреНрд░рдо-рдПрдХрддреНрд╡рдореН ╧Г _ v))
 
   ------------------------------------------------------------------
-  -- ┬зреи ┬╖ THE CARRIER, WITH THE STORED DATUM REMOVED, AND THEN
+  -- ┬зри ┬ THE CARRIER, WITH THE STORED DATUM REMOVED, AND THEN
   -- REASSOCIATED INTO Aut_B(A).
   ------------------------------------------------------------------
 
@@ -166,7 +166,7 @@ module рдЙрдкрд░рд┐ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A тЖ
   рдЖрддреНрдорд╕рдорддрд╛-рдЙрдкрд░рд┐ = ╬г[ ╬╡ тИИ (A тЙГ A) ] рд╕рдВрд░рдХреНрд╖рдгрдореН f (equivFun ╬╡)
 
   -- equality of such is determined by the underlying FUNCTION alone:
-  -- one ╬гтЙбProp for the conservation witness (setB), one equivEq for the
+  -- one ╬тЙбProp for the conservation witness (setB), one equivEq for the
   -- isEquiv field.
   рдЙрдкрд░рд┐-рд╕рдорддрд╛ : {u v : рдЖрддреНрдорд╕рдорддрд╛-рдЙрдкрд░рд┐} тЖТ equivFun (u .fst) тЙб equivFun (v .fst) тЖТ u тЙб v
   рдЙрдкрд░рд┐-рд╕рдорддрд╛ p = ╬гтЙбProp (╬╗ _ тЖТ isProp╬а (╬╗ a тЖТ setB _ _)) (equivEq p)
@@ -176,11 +176,11 @@ module рдЙрдкрд░рд┐ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A тЖ
                      (╬╗ _ тЖТ isPropтЖТisSet (isProp╬а (╬╗ a тЖТ setB _ _)))
 
   ------------------------------------------------------------------
-  -- ┬зрей ┬╖ Aut_B(A) IS THE SYMMETRY GROUP, BY A GroupEquiv WHOSE HOM LAW
-  -- IS `рдЙрдкрд░рд┐-рд╕рдорддрд╛ refl`.
+  -- ┬зрй ┬ Aut_B(A) IS THE SYMMETRY GROUP, BY A GroupEquiv WHOSE HOM LAW
+  -- IS `рЙрр░р┐-ррорр╛ refl`.
   --
-  -- Composition is in application order (u ┬╖рдЙ v applies v first), to
-  -- match `_┬╖рд╕_`'s order, so that the comparison never has to commute
+  -- Composition is in application order (u ┬рЙ v applies v first), to
+  -- match `_┬р_`'s order, so that the comparison never has to commute
   -- anything.
   ------------------------------------------------------------------
 
@@ -221,8 +221,8 @@ module рдЙрдкрд░рд┐ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A тЖ
     , makeIsGroupHom (╬╗ u v тЖТ рдЙрдкрд░рд┐-рд╕рдорддрд╛ refl)
 
   ------------------------------------------------------------------
-  -- ┬зрекa ┬╖ NEAR POLE, intrinsically.  Zero loss тЯ╣ Aut_B(A) is trivial.
-  -- The flow space is already contractible (рдзреНрд░реБрд╡-рдмрд┐рдиреНрджреБрдГ), so no
+  -- ┬зрa ┬ NEAR POLE, intrinsically.  Zero loss тЯ Aut_B(A) is trivial.
+  -- The flow space is already contractible (рзрр░рр╡-рр┐рирржрр), so no
   -- inverse-side argument is needed at all.
   ------------------------------------------------------------------
 
@@ -232,10 +232,10 @@ module рдЙрдкрд░рд┐ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A тЖ
                                           (equivFun (u .fst) , u .snd) (рдПрдХрдГ f)))
 
 ------------------------------------------------------------------------
--- ┬зрекb ┬╖ THE UNIT SUBGROUP, PRICED AT `Apratiloma`'s OWN WITNESS.
+-- ┬зрb ┬ THE UNIT SUBGROUP, PRICED AT `Apratiloma`'s OWN WITNESS.
 --
--- рдЪреВрд░реНрдг conserves рдЕрдиреНрдз and is not a unit.  ┬зрез says the reason can only be
--- one thing, and here it is that thing: рдЪреВрд░реНрдг is not an equivalence,
+-- ррр░рр conserves рриррз and is not a unit.  ┬зрз says the reason can only be
+-- one thing, and here it is that thing: ррр░рр is not an equivalence,
 -- because a retraction of it would identify 0 with 1.
 ------------------------------------------------------------------------
 
@@ -248,15 +248,15 @@ module рдЙрдкрд░рд┐ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A тЖ
 рдЪреВрд░реНрдг-рдкреНрд░рд╡рд╛рд╣рдГ : рдкреНрд░рд╡рд╛рд╣рдГ рдЕрдиреНрдз
 рдЪреВрд░реНрдг-рдкреНрд░рд╡рд╛рд╣рдГ = рдЪреВрд░реНрдг , (╬╗ _ тЖТ refl)
 
--- and therefore no stored inverse exists тАФ by ┬зрез, not by inspection of
+-- and therefore no stored inverse exists тФ by ┬зрз, not by inspection of
 -- the monoid.  `Apratiloma`'s fence is unmoved and now has a reason.
 рдЪреВрд░реНрдг-рди-рд╡реНрдпреБрддреНрдХреНрд░рдордГ : ┬м (рд╕рдореВрд╣реЗ.рд╡реНрдпреБрддреНрдХреНрд░рдо-рд╕рддреН isSetтДХ isSetUnit рдЕрдиреНрдз рдЪреВрд░реНрдг-рдкреНрд░рд╡рд╛рд╣рдГ)
 рдЪреВрд░реНрдг-рди-рд╡реНрдпреБрддреНрдХреНрд░рдордГ v = рдЪреВрд░реНрдг-рди-рд╕рдорддрд╛ (рдЙрдкрд░рд┐.рд╕рддреН-рддрдГ-рд╕рдорддрд╛ isSetтДХ isSetUnit рдЕрдиреНрдз рдЪреВрд░реНрдг-рдкреНрд░рд╡рд╛рд╣рдГ v)
 
 ------------------------------------------------------------------------
--- ┬зрекc ┬╖ FAR POLE, intrinsically.  At total loss the conservation
--- witness is free, so Aut_B(A) тЙГ Aut(A) by the bare projection тАФ
--- which is `SamraksakaSamuha` ┬зрекb's GroupEquiv seen without the stored
+-- ┬зрc ┬ FAR POLE, intrinsically.  At total loss the conservation
+-- witness is free, so Aut_B(A) тЙ Aut(A) by the bare projection тФ
+-- which is `SamraksakaSamuha` ┬зрb's GroupEquiv seen without the stored
 -- inverse in the way.
 ------------------------------------------------------------------------
 
@@ -271,22 +271,22 @@ module рдЕрдиреНрдзреЗ-рдЙрдкрд░рд┐ {A B : Type тДУ} (setA : isSet A) (setB : is
          (╬╗ _ тЖТ refl) (╬╗ u тЖТ рдЙрдкрд░рд┐-рд╕рдорддрд╛ refl))
 
 ------------------------------------------------------------------------
--- ┬зрел ┬╖ рд╢реЗрд╖рдГ.
+-- ┬зр ┬ рррр.
 --
--- (a) The section-side units as a packaged `Group`, with рд╡рд╛рд╕рдГ a
---     `GroupEquiv` onto it тАФ `SamraksakaSamuha` ┬зрел's remainder, still
---     open, and now cheaper: by ┬зрез the section-side unit predicate can
+-- (a) The section-side units as a packaged `Group`, with р╡р╛рр a
+--     `GroupEquiv` onto it тФ `SamraksakaSamuha` ┬зр's remainder, still
+--     open, and now cheaper: by ┬зрз the section-side unit predicate can
 --     be stated as invertibility of the section's point component
 --     instead of as stored data.
 -- (b) The group leg of `TantuVibhaga`'s decomposition: is
---     рдЖрддреНрдорд╕рдорддрд╛-рдЙрдкрд░рд┐ тЙГ ╬а over the codomain of Aut(fibre f b)?  ┬зреи's
+--     рррроррорр╛-рЙрр░р┐ тЙ ╬а over the codomain of Aut(fibre f b)?  ┬зри's
 --     reassociation is what makes this a question about equivalences of
---     ╬г-types rather than about the monoid, but it is NOT proved here.
+--     ╬-types rather than about the monoid, but it is NOT proved here.
 -- (c) The тИЮ-version.  Over arbitrary types isEquiv is still a
---     proposition, so ┬зрез has a chance of surviving verbatim while
---     рд╡реНрдпреБрддреНрдХреНрд░рдо-рдПрдХрддреНрд╡рдореН does not (its uniqueness argument used
---     рдкреНрд░рд╡рд╛рд╣-рд╕рдорддрд╛, hence setB).  Untried.
--- (d) Whether `рдЙрдкрд░рд┐-рд╕рдореВрд╣рдГ` and `рд╕рдВрд░рдХреНрд╖рдХ-рд╕рдореВрд╣рдГ` being GroupEquiv upgrades
---     to a path of `Group`s by univalence for groups тАФ the library has
+--     proposition, so ┬зрз has a chance of surviving verbatim while
+--     р╡ррпррррХрр░ро-ррХррр╡рор does not (its uniqueness argument used
+--     ррр░р╡р╛р-ррорр╛, hence setB).  Untried.
+-- (d) Whether `рЙрр░р┐-рроррр` and `ррр░рХрррХ-рроррр` being GroupEquiv upgrades
+--     to a path of `Group`s by univalence for groups тФ the library has
 --     it; nothing below consumes it, so it is not invoked.
 ------------------------------------------------------------------------

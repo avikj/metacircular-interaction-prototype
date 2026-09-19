@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
--- Punarāgamana · Nucleus
+-- Punargamana � Nucleus
 --
 -- Where Carrier and Orbit meet: the carrier construction commutes with taking
 -- the whole infinite trajectory, not merely with one step.
@@ -9,7 +9,7 @@
 -- Φ.  That does not by itself say anything about the orbit, because an orbit
 -- is a coinductive object and equality of coinductive objects is not implied
 -- by agreement of any finite prefix.  So each statement here is proved as a
--- bisimulation — corecursively, one head at a time — and then turned into a
+-- bisimulation � corecursively, one head at a time � and then turned into a
 -- path by `bisim`.
 --
 -- The transport version is where uaβ earns its place: transport along ua does
@@ -41,7 +41,7 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
                 → mapO (descend f) (unfold Φ a) ≡ unfold (Φ-carrier f Φ) (descend f a)
   descend-orbit a = bisim (descend-orbit≈ a)
 
-  -- …and ascending pointwise brings it back.
+  -- �and ascending pointwise brings it back.
   ascend-orbit≈ : (a : A)
                 → mapO (ascend f) (unfold (Φ-carrier f Φ) (descend f a)) ≈ unfold Φ a
   ≈here (ascend-orbit≈ a) = refl

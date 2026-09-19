@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§Æ‡•Ç‡§≤‡§µ‡§æ‡§ï‡•ç‡§Ø‡§Æ‡•ç ¬∑ PROVENANCE OF THE NAME.
+-- ‡Æ‡‡≤‡µ‡æ‡ï‡‡Ø‡Æ‡ ¬ PROVENANCE OF THE NAME.
 --
 -- **This module's name leads with English, deliberately, because the
--- mathematics originates elsewhere and inventing a Sanskrit label for it
+-- mathematics originates elsewhere and inventing a  label for it
 -- would assert a provenance nobody checked** (CLAUDE.md, file naming, note
 -- 2).  Transport, and the fact that agreement on endpoints does not
--- determine the path, is cubical type theory ‚Äî Voevodsky's univalence, the
+-- determine the path, is cubical type theory ‚î Voevodsky's univalence, the
 -- substrate, and the one exception the repository's source rule grants.
 -- **No claim of an Indian source is made for anything below.**
 --
--- The QUESTION the module answers came from ‡§Ö‡§®‡•á‡§ï‡§æ‡§®‡•ç‡§§ (UmƒÅsvƒÅti,
--- *TattvƒÅrthas≈´tra* 5.31-32, ~2nd-5th c. CE): once non-one-sidedness has
+-- The QUESTION the module answers came from ‡‡®‡‡ï‡æ‡®‡‡ (Umsvti,
+-- *Tattvrthastra* 5.31-32, ~2nd-5th c. CE): once non-one-sidedness has
 -- removed collapse as the thing to look for, what is left to ask about two
 -- standpoints is the PRICE of moving between them, not the possibility.
 -- That framing is Jaina and is named here as such; the theorem is not.

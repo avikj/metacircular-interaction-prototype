@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤…à¤µà¤¿à¤¨à¤¿à¤®à¤¯ â€” no exchange.  THE MACHINE'S STEPS ARE ALL UNITARY WHEN
--- COMPLETED â€” AND STILL DO NOT EXCHANGE.
+-- ààµà¿à¨à¿à®à¯ â” no exchange.  THE MACHINE'S STEPS ARE ALL UNITARY WHEN
+-- COMPLETED â” AND STILL DO NOT EXCHANGE.
 --
 -- Abstract 01 (unitarity does not give braiding) proved on three
 -- Boolean strands that invertibility of the local operators buys no
@@ -11,8 +11,8 @@
 -- the two halves are both computations.
 --
 -- UNITARITY, uniformly: for any table M, the visible step
--- stepOf M = Ï€â‚‚ âˆ˜ uStep (M , _) admits a lossless completion that is
--- an equivalence â€” and by Ekatva it admits exactly one, so "certified
+-- stepOf M = Ïâ âˆ˜ uStep (M , _) admits a lossless completion that is
+-- an equivalence â” and by Uniqueness it admits exactly one, so "certified
 -- unitary" is not even a certificate here, it is a property every
 -- step already has (`every-step-is-unitary`).
 --
@@ -26,7 +26,7 @@
 --
 -- An architecture whose steps are certified reversible-at-the-
 -- completed-level has certified nothing about the order of its
--- operations.  Reversibility is free (Ekatva); coherence of exchange
+-- operations.  Reversibility is free (Uniqueness); coherence of exchange
 -- is data; the machine exhibits the gap in four rules.
 ------------------------------------------------------------------------
 
@@ -39,7 +39,7 @@ open import Cubical.Data.Nat using (â„• ; znots)
 open import Cubical.Data.List using (List ; [] ; _âˆ·_)
 open import Cubical.Relation.Nullary using (Â¬_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open import Vrddhi_AVerifiedProgramTheSuccessorMachineAddsOneStrokeAndItsCertificateIsAFibrePoint
   using (incr)
 open import Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction
@@ -67,12 +67,12 @@ câ‚€ : Conf
 câ‚€ = 0 , [] , 1 , []
 
 -- Erase then increment: the stroke is gone, the increment writes into
--- the blank and retires â€” control reaches state 1.
+-- the blank and retires â” control reaches state 1.
 erase-then-incr : stepOf incr (stepOf eraser câ‚€) â‰¡ (1 , [] , 1 , [])
 erase-then-incr = refl
 
 -- Increment then erase: the increment walks past the stroke, the
--- eraser finds a blank and stands still â€” control stays in state 0.
+-- eraser finds a blank and stands still â” control stays in state 0.
 incr-then-erase : stepOf eraser (stepOf incr câ‚€) â‰¡ (0 , 1 âˆ· [] , 0 , [])
 incr-then-erase = refl
 

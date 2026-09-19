@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- सीमा-सूत्र — the limit thread.
+-- ����-����� � the limit thread.
 --
 -- KendraAtireka proved the uniform quarter turn central and finitely
 -- unrealizable.  This file proves the other half of its strangeness:
 -- it is the POINTWISE LIMIT of finite braiding, with the approximants
--- named —
+-- named �
 --
---   §2  THE COUNT LEMMAS: the descending word [n, n−1, …, 0] twists
---       each depth ≤ its top exactly once (hit) and each depth beyond
+--   §2  THE COUNT LEMMAS: the descending word [n, n−1, �, 0] twists
+--       each depth � its top exactly once (hit) and each depth beyond
 --       exactly never (miss), by double inductions with no order
---       relation imported — the inequalities ride inside the
+--       relation imported � the inequalities ride inside the
 --       induction shapes.
 --
 --   §3  CONVERGENCE: for every depth n and every margin d, the word
---       [d+n, …, 0] agrees with the uniform turn at reader n, on
+--       [d+n, �, 0] agrees with the uniform turn at reader n, on
 --       every rope.  Not "some word exists": THE word is written
 --       down, and deeper readers are reached by longer words.
 --
--- With na-sākṣāt this completes the picture: the uniform turn is
+-- With na-skt this completes the picture: the uniform turn is
 -- approximated by finite words at every single reader and attained
--- at none — a strict pointwise limit outside the image.  The braid
+-- at none � a strict pointwise limit outside the image.  The braid
 -- group is not closed in its own action; the rope carries the
 -- completion, and the completion's new points are exactly the
 -- uniform coherences.  Finiteness converges; only infinity arrives.
@@ -55,7 +55,7 @@ open import KendraAtireka_TheCentralizerExceedsTheGroupTheUniformQuarterTurnIsCe
 open Dhārā
 
 ------------------------------------------------------------------------
--- १ · The descending words, and the two arithmetic refutations.
+-- � � The descending words, and the two arithmetic refutations.
 ------------------------------------------------------------------------
 
 avaroha : ℕ → List ℕ
@@ -68,7 +68,7 @@ adhika-vāma d (suc m) p =
   adhika-vāma d m (sym (+-suc d m) ∙ injSuc p)
 
 ------------------------------------------------------------------------
--- २ · The count lemmas: miss beyond the top, hit up to it.
+-- � � The count lemmas: miss beyond the top, hit up to it.
 ------------------------------------------------------------------------
 
 miss : (d m : ℕ) → gaṇanā (suc (d + m)) (avaroha m) ≡ 0
@@ -94,7 +94,7 @@ hit (suc d) n with discreteℕ n (suc (d + n))
 ... | no ¬p = hit d n
 
 ------------------------------------------------------------------------
--- ३ · Convergence at every reader, with the approximant named.
+-- � � Convergence at every reader, with the approximant named.
 ------------------------------------------------------------------------
 
 catur-gāḍha : (n : ℕ) (s : Rajju)

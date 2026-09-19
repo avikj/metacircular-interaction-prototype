@@ -6,21 +6,21 @@
 -- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
 -- invented.**  Counting how many members of a finite collection satisfy
--- a predicate is Jaina enumerative territory (*AnuyogadvÄra*,
--- *SthÄnÄá¹…ga*) and I have NOT established that as the source of
+-- a predicate is Jaina enumerative territory (*Anuyogadvra*,
+-- *Sthnga*) and I have NOT established that as the source of
 -- anything here; the h-level argument is Voevodsky's substrate, which
--- this repository declares as a tool and not a frame.  A Sanskrit label
+-- this repository declares as a tool and not a frame.  A  label
 -- would assert a provenance nobody checked.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE AUDIT.  Target: `RateOneIsExactlyTheUniversalClaim`, an
--- `Exactly` â€” a biconditional claim.
+-- `Exactly` â” a biconditional claim.
 --
 -- **THE TITLE IS EARNED, IN THE WEAK SENSE, AND THAT WAS THE QUESTION
 -- ASKED.**  Both directions are there: `allGivesFullCount` and
 -- `fullCountGivesAll`, each a plain induction on the list.  Nothing is
 -- assumed, nothing is smuggled, and neither direction is more expensive
--- than the other â€” which is what diagnostic (1) predicts when the two
+-- than the other â” which is what diagnostic (1) predicts when the two
 -- sides are joined by an INDUCTION rather than by an implication
 -- assumed or a path given.  Recorded plainly: three of this sweep's
 -- findings were faults and two were not, and a sweep that only finds
@@ -30,36 +30,36 @@
 -- TRUE, AND IT IS FREE.**  Its Â§2 heading is *"The universal claim and
 -- rate one are the same claim"*, and its prose says `count bs â‰¡ length
 -- bs` and `All bs` "are the same claim".  Two implications are not
--- sameness â€” they are logical equivalence, and for general types that
+-- sameness â” they are logical equivalence, and for general types that
 -- is strictly weaker than identity of the propositions.  Â§"WHAT IS
 --
 -- **HERE THE STRONGER READING HOLDS, AND THE REASON IS AN H-LEVEL, NOT
--- AN INDUCTION.**  `count bs â‰¡ length bs` is a path in â„• and â„• is a
+-- AN INDUCTION.**  `count bs â‰¡ length bs` is a path in â• and â• is a
 -- set, so it is a proposition.  `All bs` is an iterated product of
 -- paths in `Bool` and `Bool` is a set, so it is a proposition too.  Two
--- propositions that imply each other are EQUIVALENT â€” `propBiimplâ†’Equiv`
--- â€” so Â§2's two functions do assemble into `All bs â‰ƒ (count bs â‰¡ length
+-- propositions that imply each other are EQUIVALENT â” `propBiimplâ’Equiv`
+-- â” so Â§2's two functions do assemble into `All bs â‰ (count bs â‰¡ length
 -- bs)`, and the module's own prose was right by an argument it did not
 -- give.
 --
 -- **THE POINT IS NOT THAT IT WAS WRONG.**  It is that "the same claim"
 -- has two readings that read identically in prose, exactly like `free`
--- did at 28e9a0a4, and the one that holds here holds for a reason â€”
--- both sides being propositions â€” that fails as soon as the population
+-- did at 28e9a0a4, and the one that holds here holds for a reason â”
+-- both sides being propositions â” that fails as soon as the population
 -- carries data rather than Booleans.  Over `List A` with `A` a general
 -- type, `All` need not be a proposition and the upgrade is unavailable.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   isPropAll        `All bs` is a proposition, by induction with
---                    `isPropÃ—` and `isSetBool`
---   isPropRateOne    so is `count bs â‰¡ length bs`, by `isSetâ„•`
---   allIsRateOne     hence `All bs â‰ƒ (count bs â‰¡ length bs)`, with the
+--                    `isProp—` and `isSetBool`
+--   isPropRateOne    so is `count bs â‰¡ length bs`, by `isSetâ•`
+--   allIsRateOne     hence `All bs â‰ (count bs â‰¡ length bs)`, with the
 --                    audited module's two functions REUSED, not
 --                    restated
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

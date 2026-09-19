@@ -14,13 +14,13 @@
 --
 -- Until now that law existed as: Theorem F (operator algebra), the
 -- PMTorus cokernel (finite cohomology), Cl_S closure (algebra), the
--- affine-g criterion (decision theory, upstream), Benzécri equivalence
+-- affine-g criterion (decision theory, upstream), Benz�cri equivalence
 -- (partitions), BAND's C<3 (analytic), collisionObstructsDecoder
 -- (kernel pairs), ker B circulation (flow), three unmerged cubical
 -- descent lemmas, the Lean strict-refinement iff, the reversibility
 -- price, and the weighted-functional repair.  Twelve proofs, no shared
 -- statement.  This module is the shared statement, checked, over an
--- ARBITRARY state space and an ARBITRARY family of Boolean queries —
+-- ARBITRARY state space and an ARBITRARY family of Boolean queries �
 -- and then ParitySeparator's barrier is derived as an instance, so the
 -- claim "these are one theorem" is itself a type that checks rather
 -- than a synthesis a reader must trust.
@@ -31,26 +31,26 @@
 --     obs                      the transcript of a query list
 --     AllBlind / HasCharged    the two sides: every query agrees on the
 --                              pair / some query separates it
---     obs-agree                blind queries ⇒ EQUAL transcripts
---     no-decision              ⇒ no post-processing separates.  This is
+--     obs-agree                blind queries � EQUAL transcripts
+--     no-decision              � no post-processing separates.  This is
 --                              the fiber-invisibility half, proof: cong
---     charged⇒separator        one charged query ⇒ a CONSTRUCTED
+--     charged�separator        one charged query � a CONSTRUCTED
 --                              separator (drop k answers, look)
 --     law                      the iff, packaged
 --     not-both                 the sides are exclusive: no vacuity
 --     collision-obstructs      Ishango's lemma in general form: a target
 --                              that separates a blind pair factors
 --                              through no post-processing of the
---                              transcript — the side record is NECESSARY
+--                              transcript � the side record is NECESSARY
 --
 --   §2 the parity barrier as an instance:
 --     queryOf                  a Number becomes a Query on Signs
---     evenBlind                even-Ω numbers are blind on (σ₊, flip σ₊)
+--     evenBlind                even-Ω numbers are blind on (��, flip ��)
 --     parity-instance          ParitySeparator.no-decision, re-derived
---                              from §1's `no-decision` — the old theorem
+--                              from §1's `no-decision` � the old theorem
 --                              is literally `law` applied to one pair
---     parity-charged           …and one odd query flips it, via
---                              `charged⇒separator`
+--     parity-charged           �and one odd query flips it, via
+--                              `charged�separator`
 --
 -- What this buys, concretely: TARGET.md's W2 stops being a program.  For
 -- ANY proposed method, formalize what it reads as a query list; `law`
@@ -102,7 +102,7 @@ module Law (X : Type ℓ) where
   Blind   o x y = o x ≡ o y
   Charged o x y = o x ≡ not (o y)
 
-  -- List versions, by recursion (never as indexed families — a
+  -- List versions, by recursion (never as indexed families � a
   -- criterion that does not compute under transport is not a test).
   AllBlind HasCharged : List Query → X → X → Type
   AllBlind   []       x y = Unit
@@ -111,7 +111,7 @@ module Law (X : Type ℓ) where
   HasCharged (o ∷ os) x y = Charged o x y ⊎ HasCharged os x y
 
   -- A separator: some post-processing of the transcript that tells the
-  -- pair apart.  `decide` is arbitrary — this quantifies over EVERY
+  -- pair apart.  `decide` is arbitrary � this quantifies over EVERY
   -- possible analysis, computable or not, of everything the method read.
   Separates : List Query → X → X → Type
   Separates os x y =
@@ -119,8 +119,8 @@ module Law (X : Type ℓ) where
       (decide (obs os x) ≡ not (decide (obs os y)))
 
   ----------------------------------------------------------------------
-  -- Fiber invisibility.  Blind queries give EQUAL transcripts — not
-  -- close, equal — so nothing downstream can differ.  The proof of the
+  -- Fiber invisibility.  Blind queries give EQUAL transcripts � not
+  -- close, equal � so nothing downstream can differ.  The proof of the
   -- law's negative half is `cong`, because there is nothing to separate.
   ----------------------------------------------------------------------
 
@@ -141,7 +141,7 @@ module Law (X : Type ℓ) where
   ----------------------------------------------------------------------
   -- Charge suffices, constructively: drop everything before the charged
   -- query and look.  Nothing clever is needed once a read carries
-  -- charge — which is the whole point: power lives in WHAT IS READ.
+  -- charge � which is the whole point: power lives in WHAT IS READ.
   ----------------------------------------------------------------------
 
   hd : List Bool → Bool
@@ -179,14 +179,14 @@ module Law (X : Type ℓ) where
   ----------------------------------------------------------------------
   -- The side record is necessary (Ishango's lemma, general form): a
   -- target that separates a blind pair factors through NO analysis of
-  -- the transcript.  Repair requires reading something new — a record —
+  -- the transcript.  Repair requires reading something new � a record �
   -- and by `law` the record works exactly when it is charged on the
-  -- collision.  Absence type, per NEGATIVE_KNOWLEDGE_IS_TYPED: T2 — the
+  -- collision.  Absence type, per NEGATIVE_KNOWLEDGE_IS_TYPED: T2 � the
   -- certificate is this pair of halves, and either half alone misleads.
   ----------------------------------------------------------------------
 
   FactorsThrough : (os : List Query) → (X → Bool) → Type ℓ
-  -- (lives in Type ℓ because the factoring condition quantifies over X)
+  -- (lives in Type � because the factoring condition quantifies over X)
   FactorsThrough os t =
     Σ[ g ∈ (List Bool → Bool) ] ((x : X) → g (obs os x) ≡ t x)
 
@@ -202,7 +202,7 @@ module Law (X : Type ℓ) where
 -- The state space is the sign assignments; a Number is a query by
 -- evaluation; even-Ω numbers are blind on the gauge pair and odd-Ω
 -- numbers are charged on it.  ParitySeparator's theorems become two
--- applications of `law` — which is the checked form of the sixteen
+-- applications of `law` � which is the checked form of the sixteen
 -- minds' claim that the costumes are one theorem.
 ------------------------------------------------------------------------
 
@@ -215,7 +215,7 @@ queries : List Number → List Query
 queries []       = []
 queries (n ∷ ns) = queryOf n ∷ queries ns
 
--- Even-Ω query lists are blind on the gauge pair (σ₊ , flip σ₊)…
+-- Even-Ω query lists are blind on the gauge pair (�� , flip ��)�
 EvenΩ : List Number → Type
 EvenΩ []       = Unit
 EvenΩ (n ∷ ns) = (sgn (Ω n) ≡ true) × EvenΩ ns
@@ -225,12 +225,12 @@ evenBlind : (ns : List Number) → EvenΩ ns
 evenBlind []       tt        = tt
 evenBlind (n ∷ ns) (e , es) = neutral-blind σ₊ n e , evenBlind ns es
 
--- …so the barrier is one application of the general law:
+-- �so the barrier is one application of the general law:
 parity-instance : (ns : List Number) → EvenΩ ns
                 → ¬ Separates (queries ns) (flip σ₊) σ₊
 parity-instance ns es = gen-no-decision (queries ns) (flip σ₊) σ₊ (evenBlind ns es)
 
--- And one odd-Ω read flips it — the repair, also one application:
+-- And one odd-Ω read flips it � the repair, also one application:
 oddCharged : (n : Number) → sgn (Ω n) ≡ false
            → Charged (queryOf n) (flip σ₊) σ₊
 oddCharged n o = charged-separates σ₊ n o

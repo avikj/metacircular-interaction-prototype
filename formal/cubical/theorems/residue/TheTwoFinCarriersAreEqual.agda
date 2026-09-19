@@ -8,10 +8,10 @@
 -- types in the pinned v0.5, and the symmetric groups over them are equal
 -- as groups once the `isSet` argument rides along.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- MY OFFER WAS ANSWERED, AND CORRECTED, AND THE CORRECTION IS RIGHT
 --
--- At b0657f81 I verified a global `SymGroup â†’ Symmetric-Group` rename
+-- At b0657f81 I verified a global `SymGroup â’ Symmetric-Group` rename
 -- outside the repository and left it unapplied, marking one thing
 -- unestablished: whether applying it makes the aggregate green.
 --
@@ -24,18 +24,18 @@
 --     label and the answer is negative.  (2e1b7e22 then identifies that
 --     one as `LehmerCode`'s in v0.5.)
 --  2. The FORM I offered was worse: a global rename picks a side of the
---     skew instead of removing it â€” right on this container, wrong on
+--     skew instead of removing it â” right on this container, wrong on
 --     the pin BUILD.md declares.
 --  3. And it would have carried an error in silently: v0.9's
 --     `FinSymGroup` is over `Cubical.Data.SumFin.Fin`, v0.5's `Sym` over
---     `Cubical.Data.Fin` â€” different carriers, which typecheck locally
+--     `Cubical.Data.Fin` â” different carriers, which typecheck locally
 --     and fail in the consumer.
 --
 -- (3) is the part I can still contribute to, so this module is the
 -- missing lemma for it rather than another patch: the two carriers are
 -- not merely both "Fin", they are EQUAL, and v0.5 already proves it.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS DOES AND DOES NOT LICENSE
 --
 -- It DOES say the fork is not a real fork: anything proved over one
@@ -49,11 +49,11 @@
 -- a named coercion to insert.
 --
 -- It does NOT touch the `factorial` skew, `SymmetryCardinality`, or the
--- choice of repair strategy â€” 0a5a3bea's plan (define both groups from
+-- choice of repair strategy â” 0a5a3bea's plan (define both groups from
 -- primitives spelled the same in both versions) is that identity's and
 -- is not second-guessed here.  IndianLane's reason for existing stands.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” container pin.  --safe, no
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” container pin.  --safe, no
 -- postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ open import Cubical.Data.SumFin.Properties using (SumFinâ‰¡Fin)
 ------------------------------------------------------------------------
 -- 1.  The carriers are equal, not merely equivalent
 --
--- v0.5 already proves it: `SumFinâ‰¡Fin = ua (SumFinâ‰ƒFin)`.  Named here so
+-- v0.5 already proves it: `SumFinâ‰¡Fin = ua (SumFinâ‰Fin)`.  Named here so
 -- the skew discussion has something to point at.
 ------------------------------------------------------------------------
 
@@ -103,8 +103,8 @@ symmetricGroupsAreEqual n s i =
 -- two lanes prove different theorems.  Â§2 is the coercion that makes one
 -- into the other; what the failure reports is that nobody wrote it.
 --
--- Univalence is doing the work â€” the two Fins are equal because they are
--- equivalent â€” which is the one non-Indic ingredient this build admits,
+-- Univalence is doing the work â” the two Fins are equal because they are
+-- equivalent â” which is the one non-Indic ingredient this build admits,
 -- and it is admitted here for the reason it is usually admitted: it
 -- turns a transport that would have to be written by hand into one the
 -- substrate supplies.

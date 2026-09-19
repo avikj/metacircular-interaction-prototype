@@ -4,8 +4,8 @@
 -- FailClosedForgetsOnlyTheReasonForDistrust
 --
 -- `interactive/KernelProbe.hs` collapses two distinct situations into one
--- verdict on purpose â€” "absence and failure share the same grade,
--- fail-closed" â€” and grades CAPABILITY, not soundness.  The collapse is
+-- verdict on purpose â” "absence and failure share the same grade,
+-- fail-closed" â” and grades CAPABILITY, not soundness.  The collapse is
 -- exactly one-sided, and this says in which direction:
 --
 --   * the TRUSTING verdict determines the state completely;
@@ -15,12 +15,12 @@
 -- on the side you do not.  That is what makes it the right shape for a
 -- guard and the wrong shape for a diagnosis.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THE SHELF SAYS, READ BEFORE WRITING
 --
--- It probes with two modules â€” a builtin-only `2 + 2 â‰¡ 4` under
--- `--no-libraries`, and the same under `--cubical` â€” and prints
--- `KERNEL-PROBE agda=â€¦ refl=â€¦ cubical=â€¦`, exiting 0 iff refl-capable and
+-- It probes with two modules â” a builtin-only `2 + 2 â‰¡ 4` under
+-- `--no-libraries`, and the same under `--cubical` â” and prints
+-- `KERNEL-PROBE agda=â¦ refl=â¦ cubical=â¦`, exiting 0 iff refl-capable and
 -- 2 otherwise, "absence and failure share the same grade".  Its own
 -- limit, in its own words: *"it grades capability, not soundness.  A
 -- passing probe says 'this kernel checks this class of module'; it
@@ -28,23 +28,23 @@
 --
 -- NOT PROVED HERE, and it is the shelf's own limit rather than a gap in
 -- it: that capability implies soundness.  It does not, the shelf says so
--- first, and Â§3 does not try to bridge it â€” a kernel accepting one true
+-- first, and Â§3 does not try to bridge it â” a kernel accepting one true
 -- statement is compatible with a library that proves a false one, and
 -- nothing below models libraries or axioms at all.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- HOW THIS DIFFERS FROM THE PREVIOUS CYCLE, kept apart deliberately
 --
 -- `AFigureWithoutItsInputDecidesNothing` also ends in a one-sided test:
 -- a mismatch refutes, a match establishes nothing.  The two are NOT the
--- same finding.  There the loss was accidental â€” an INPUT the reader
--- happens not to have.  Here the loss is DELIBERATE and in the OUTPUT â€”
+-- same finding.  There the loss was accidental â” an INPUT the reader
+-- happens not to have.  Here the loss is DELIBERATE and in the OUTPUT â”
 -- the verdict is coarsened on purpose so that an ungraded kernel cannot
 -- be trusted.  Same shape of one-sidedness, different cause, and the
 -- design consequences are opposite: the first wants the input published,
 -- the second wants the collapse kept.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

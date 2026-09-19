@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Muqābala — the antidiagonal sector pairing is supported on conjugates
+-- Muqbala � the antidiagonal sector pairing is supported on conjugates
 --
 -- SOURCE AND PRIORITY, stated before anything is claimed.
 --
--- The operation this file performs on every line is *al-muqābala*:
--- confrontation — cancelling like terms standing on the two sides — and
+-- The operation this file performs on every line is *al-muqbala*:
+-- confrontation � cancelling like terms standing on the two sides � and
 -- its partner *al-jabr*, restoration, putting back what a sign removed.
 -- Both are named in the title of the book that names algebra:
--- MUḤAMMAD IBN MŪSĀ AL-KHWĀRIZMĪ, *al-Kitāb al-mukhtaṣar fī ḥisāb
--- al-jabr wa'l-muqābala*, Baghdad, c. 820 CE.  The whole content of
+-- MUAMMAD IBN MS AL-KHWRIZM, *al-Kitb al-mukhtaar f isb
+-- al-jabr wa'l-muqbala*, Baghdad, c. 820 CE.  The whole content of
 -- `sgnSq` and `muqabala` below is that (+1)(+1) and (−1)(−1) confront
 -- the unit and cancel, and that +x and −x confront each other and cancel.
 --
--- The rule of signs used pointwise here — a product of two signed
--- quantities determined by the four-case table — is stated in general
--- form by AL-SAMAWʾAL AL-MAGHRIBĪ, *al-Bāhir fī'l-jabr*, c. 1150 CE,
--- which reports it from AL-KARAJĪ, *al-Fakhrī*, c. 1010 CE, together with
+-- The rule of signs used pointwise here � a product of two signed
+-- quantities determined by the four-case table � is stated in general
+-- form by AL-SAMAWʾAL AL-MAGHRIB, *al-Bhir f'l-jabr*, c. 1150 CE,
+-- which reports it from AL-KARAJ, *al-Fakhr*, c. 1010 CE, together with
 -- the law of indices extended to negative exponents and the regressive
 -- inductive argument for the binomial array.
 --
 -- PROVENANCE CAP, per this repository's standing rule: none of
--- al-Bāhir, al-Fakhrī, or al-Khwārizmī's text was opened in the session
+-- al-Bhir, al-Fakhr, or al-Khwrizm's text was opened in the session
 -- that wrote this file.  Each is cited from its standard statement, and
 -- the attributions above are of the OPERATION and of the SIGN RULE,
 -- dated, and of nothing else.
 --
--- ────────────────────────────────────────────────────────────────────
+-- ��������������������������������������������������������������������
 -- WHAT THIS IS ABOUT, and where it comes from in this repository.
 --
 -- `collab/messages/goldbach-machine/direct-minor-shadow.md` (2026-08-14,
@@ -35,38 +35,38 @@
 -- prime r ≡ 3 (mod 4) dividing an even N with N > 2r, the two
 -- nonnegative prime-supported weights
 --
---     ϑ_{r,±}(n) = ϑ(n)·(1 ± χ_r(n))·[r ∤ n]
+--     �_{r,�}(n) = �(n)�(1 � �_r(n))�[r � n]
 --
 -- and prove that BOTH self-convolutions vanish at N while
--- R_ϑ(N) = ½ (ϑ_{r,+} * ϑ_{r,−})(N).   The engine is χ_r(−1) = −1: the
--- complementation n ↦ N − n reverses the character's sign.
+-- R_�(N) = ½ (�_{r,+} * �_{r,−})(N).   The engine is �_r(−1) = −1: the
+-- complementation n � N − n reverses the character's sign.
 -- `mixed-sector-prescribed-center.md` Theorem 5.1 runs the same move with
 -- two characters, one visible and one hidden.
 --
 -- This module isolates the algebra of that engine at k characters
 -- instead of one or two, and states it as what it is: a statement about
--- which pairs of (ℤ/2)^k-isotypic sectors can pair at all.
+-- which pairs of (�/2)^k-isotypic sectors can pair at all.
 --
---   * `muqabala`   — the pointwise cancellation, k = 1, no hypotheses.
---   * `vanish`     — THE THEOREM.  If two sign vectors AGREE in even one
+--   * `muqabala`   � the pointwise cancellation, k = 1, no hypotheses.
+--   * `vanish`     � THE THEOREM.  If two sign vectors AGREE in even one
 --                    coordinate, their antidiagonal sector product is
 --                    identically zero.  So the pairing is supported on
---                    the 2^k conjugate pairs (s , ¬s) out of the 4^k
+--                    the 2^k conjugate pairs (s , �s) out of the 4^k
 --                    ordered pairs.
---   * `conjugate`  — on a conjugate pair the product is not merely
+--   * `conjugate`  � on a conjugate pair the product is not merely
 --                    nonzero: it is 2^k times the LEFT sector's own
 --                    weight, pointwise.  That is where the factor ½ in
 --                    Proposition 4.2 comes from, and it is where the k
---                    ≥ 2 case stops being a restatement of k = 1.
---   * `pairingIsProduct` — the bridge: `paired` is genuinely the product
+--                    � 2 case stops being a restatement of k = 1.
+--   * `pairingIsProduct` � the bridge: `paired` is genuinely the product
 --                    of the two sector weights, the left one read at a
---                    and the right one read at σ a.  This is the only
+--                    and the right one read at � a.  This is the only
 --                    place `odd` is used.
 --
 -- What `vanish` says about the shadow: the self-annihilating weights of
 -- direct-minor-shadow.md are not k separate accidents.  They are the
 -- diagonal s = t of one pairing law, and the law also kills every partly
--- agreeing pair — 4^k − 2^k of the 4^k ordered pairs.
+-- agreeing pair � 4^k − 2^k of the 4^k ordered pairs.
 --
 ------------------------------------------------------------------------
 
@@ -105,7 +105,7 @@ sgnSq false true  = refl
 sgnSq false false = refl
 
 ------------------------------------------------------------------------
--- 1.  al-muqābala: the two confrontations, k = 1.
+-- 1.  al-muqbala: the two confrontations, k = 1.
 ------------------------------------------------------------------------
 
 -- (1 + x)(1 − x) = 1 − x² = 1 − 1 = 0, for x a product of two signs.
@@ -129,7 +129,7 @@ conjugateSquare false true  = refl
 conjugateSquare false false = refl
 
 -- al-jabr, restoration: the two sectors of a conjugate pair sum back to
--- twice the original weight.  This is ϑ = ½(ϑ₊ + ϑ₋).
+-- twice the original weight.  This is � = ½(�� + ��).
 jabr : (b c : Bool)
      → (pos 1 + sgn b · sgn c) + (pos 1 - sgn b · sgn c) ≡ pos 2
 jabr true  true  = refl
@@ -138,7 +138,7 @@ jabr false true  = refl
 jabr false false = refl
 
 -- Flipping the character's value negates the term it contributes.  This
--- is χ_r(N − n) = −χ_r(n), and it is the only arithmetic input.
+-- is �_r(N − n) = −�_r(n), and it is the only arithmetic input.
 flipRight : (b e : Bool)
   → pos 1 + sgn b · sgn (not e) ≡ pos 1 - sgn b · sgn e
 flipRight true  true  = refl
@@ -147,7 +147,7 @@ flipRight false true  = refl
 flipRight false false = refl
 
 -- The same identity read the other way: negating the SIGN undoes the
--- subtraction.  Used for the conjugate case, where t = ¬s.
+-- subtraction.  Used for the conjugate case, where t = �s.
 flipSign : (b e : Bool)
   → pos 1 - sgn (not b) · sgn e ≡ pos 1 + sgn b · sgn e
 flipSign true  true  = refl
@@ -160,9 +160,9 @@ flipSign false false = refl
 ------------------------------------------------------------------------
 
 -- A is the domain the weight lives on (think: integers below N).
--- σ is the complementation a ↦ N − a.
--- An `OddChar` is a two-valued character whose value σ reverses: this is
--- exactly χ_r(−1) = −1 together with r | N, and it is the whole
+-- � is the complementation a � N − a.
+-- An `OddChar` is a two-valued character whose value � reverses: this is
+-- exactly �_r(−1) = −1 together with r | N, and it is the whole
 -- arithmetic input of direct-minor-shadow.md Theorem 4.1.
 record OddChar {A : Type ℓ} (σ : A → A) : Type ℓ where
   constructor oddChar
@@ -177,31 +177,31 @@ open OddChar public
 --     and a sign on the right factor.
 ------------------------------------------------------------------------
 
--- `Cell σ` is the pairing datum for two sectors s , t over the SAME k
+-- `Cell �` is the pairing datum for two sectors s , t over the SAME k
 -- characters.  Carrying the two signs together is what makes alignment
 -- of the two sectors a fact of the type rather than a side condition in
 -- prose.
 Cell : {A : Type ℓ} → (A → A) → Type ℓ
 Cell σ = List (OddChar σ × Bool × Bool)
 
--- ∏ᵢ (1 + sᵢ·χᵢ(a)) — the left sector's weight at a, up to the common
+-- ∵ (1 + s��ϵ(a)) � the left sector's weight at a, up to the common
 -- factor f(a), which never participates and is therefore absent.
 left : {A : Type ℓ} {σ : A → A} → Cell σ → A → ℤ
 left []                 a = pos 1
 left ((c , s , _) ∷ xs) a = (pos 1 + sgn s · sgn (χ c a)) · left xs a
 
--- ∏ᵢ (1 + tᵢ·χᵢ(σ a)) — the right sector's weight at the complementary
--- point σ a.  This is the factor the convolution actually multiplies by.
+-- ∵ (1 + t��ϵ(� a)) � the right sector's weight at the complementary
+-- point � a.  This is the factor the convolution actually multiplies by.
 right : {A : Type ℓ} {σ : A → A} → Cell σ → A → ℤ
 right []                            a = pos 1
 right {σ = σ} ((c , _ , t) ∷ xs) a = (pos 1 + sgn t · sgn (χ c (σ a))) · right xs a
 
--- The same product with oddness already applied: ∏ᵢ (1 − tᵢ·χᵢ(a)).
+-- The same product with oddness already applied: ∵ (1 − t��ϵ(a)).
 rightAt : {A : Type ℓ} {σ : A → A} → Cell σ → A → ℤ
 rightAt []                 a = pos 1
 rightAt ((c , _ , t) ∷ xs) a = (pos 1 - sgn t · sgn (χ c a)) · rightAt xs a
 
--- The interleaved product ∏ᵢ (1 + sᵢεᵢ)(1 − tᵢεᵢ), εᵢ = χᵢ(a).
+-- The interleaved product ∵ (1 + s�ε�)(1 − t�ε�), ε� = ϵ(a).
 paired : {A : Type ℓ} {σ : A → A} → Cell σ → A → ℤ
 paired []                 a = pos 1
 paired ((c , s , t) ∷ xs) a =
@@ -215,7 +215,7 @@ paired ((c , s , t) ∷ xs) a =
 -- `Agree E` : somewhere in the cell, the left sign and the right sign
 -- are the same Boolean.  Defined by recursion on the list rather than as
 -- an indexed family, so that no proof below matches on a constructor of
--- an indexed datatype — cubical Agda warns on that, and a green carrying
+-- an indexed datatype � cubical Agda warns on that, and a green carrying
 -- warnings is a worse report than a green without them.
 Agree : {A : Type ℓ} {σ : A → A} → Cell σ → Type ℓ
 Agree []                 = ⊥*
@@ -228,11 +228,11 @@ Agree ((_ , s , t) ∷ xs) = (s ≡ t) ⊎ Agree xs
 ·Zeroʳ x = ·Comm x (pos 0)
 
 -- If the two sign vectors agree in ANY ONE coordinate, the product of
--- the two sectors at the antidiagonal point is zero — pointwise, at
+-- the two sectors at the antidiagonal point is zero � pointwise, at
 -- every a, with no hypothesis on the other coordinates and none on f.
 --
 -- Consequence, and it is the reason this file exists: of the 4^k ordered
--- pairs of sectors, only the 2^k conjugate pairs (s , ¬s) can pair.  The
+-- pairs of sectors, only the 2^k conjugate pairs (s , �s) can pair.  The
 -- vanishing self-convolutions of direct-minor-shadow.md are the case
 -- s = t at k = 1, which is `here refl`.
 vanish : {A : Type ℓ} {σ : A → A} (E : Cell σ) (a : A)
@@ -254,14 +254,14 @@ vanish ((c , s , t) ∷ xs) a (inr h) =
 -- 5.  The bridge: `paired` really is the product of the two sectors.
 ------------------------------------------------------------------------
 
--- (p · x) · (q · y) ≡ (p · q) · (x · y), in ℤ.
+-- (p � x) � (q � y) ≡ (p � q) � (x � y), in �.
 shuffle : (p q x y : ℤ) → (p · x) · (q · y) ≡ (p · q) · (x · y)
 shuffle p q x y =
     sym (·Assoc p x (q · y))
   ∙ cong (p ·_) (·Assoc x q y ∙ cong (_· y) (·Comm x q) ∙ sym (·Assoc q x y))
   ∙ ·Assoc p q (x · y)
 
--- The right sector read at σ a is the right sector with every character
+-- The right sector read at � a is the right sector with every character
 -- sign reversed.  ONLY here is `odd` used.
 rightIsFlipped : {A : Type ℓ} {σ : A → A} (E : Cell σ) (a : A)
                → right E a ≡ rightAt E a
@@ -283,7 +283,7 @@ bridge ((c , s , t) ∷ xs) a =
          (bridge xs a)
 
 -- `paired` is the honest object: the left sector at a times the right
--- sector at σ a.  Everything proved about `paired` is therefore a
+-- sector at � a.  Everything proved about `paired` is therefore a
 -- statement about the antidiagonal term of a convolution.
 pairingIsProduct : {A : Type ℓ} {σ : A → A} (E : Cell σ) (a : A)
                  → left E a · right E a ≡ paired E a
@@ -295,7 +295,7 @@ pairingIsProduct E a =
 ------------------------------------------------------------------------
 
 -- `Conj E` : in every coordinate the right sign is the negation of the
--- left sign.  This is t = ¬s, the σ-conjugate sector.
+-- left sign.  This is t = �s, the �-conjugate sector.
 Conj : {A : Type ℓ} {σ : A → A} → Cell σ → Type ℓ
 Conj []                 = Unit*
 Conj ((_ , s , t) ∷ xs) = (t ≡ not s) × Conj xs
@@ -305,11 +305,11 @@ twoPow zero    = pos 1
 twoPow (suc n) = pos 2 · twoPow n
 
 -- On a conjugate pair the antidiagonal product is 2^k times the left
--- sector's own weight — pointwise, at every a.
+-- sector's own weight � pointwise, at every a.
 --
 -- At k = 1 this is the factor ½ of direct-minor-shadow.md (32):
--- summing over the antidiagonal, (ϑ₊ * ϑ₋)(N) = 2·(ϑ * ϑ)(N).
--- At k ≥ 2 the right-hand side still carries the left sector's own sign
+-- summing over the antidiagonal, (�� * ��)(N) = 2�(� * �)(N).
+-- At k � 2 the right-hand side still carries the left sector's own sign
 -- vector s, which is what the k = 1 statement cannot see, and which is
 -- where the conductors stop being interchangeable.
 conjugate : {A : Type ℓ} {σ : A → A} (E : Cell σ) (a : A)
@@ -335,8 +335,8 @@ conjugate ((c , s , t) ∷ xs) a (q , hs) =
 --     (1+ε)(1+ε) + (1−ε)(1−ε) = 2(1+ε) + 2(1−ε) = 4.
 --
 -- Summing this over the antidiagonal gives
--- (ϑ₊ * ϑ₋)(N) + (ϑ₋ * ϑ₊)(N) = 4·(ϑ * ϑ)(N), i.e. the ½ of
--- direct-minor-shadow.md (32) — and it is pinned here BEFORE any
+-- (�� * ��)(N) + (�� * ��)(N) = 4�(� * �)(N), i.e. the ½ of
+-- direct-minor-shadow.md (32) � and it is pinned here BEFORE any
 -- summation, so the factor cannot be a bookkeeping slip in the sum.
 oneCharSum : {A : Type ℓ} {σ : A → A} (c : OddChar σ) (a : A)
   →   paired ((c , true  , false) ∷ []) a

@@ -6,39 +6,39 @@
 -- `TheStratificationTerminatesOnItsOwnLength` reduced the Pareto line's
 -- whole remainder to three properties of the OUTPUT:
 --
---   "(1) COVERAGE â€¦ (2) DISJOINTNESS â€¦ (3) ORDER: nothing says a member
+--   "(1) COVERAGE â¦ (2) DISJOINTNESS â¦ (3) ORDER: nothing says a member
 --    of an earlier layer relates by domination to a member of a later
---    one â€” which is the property that would make 'stratification' mean
+--    one â” which is the property that would make 'stratification' mean
 --    what Â§5.2 wants."
 --
 -- (3) is the one that matters, and this is its first half.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   filterOutOnlyKeepsNonSatisfiers
 --                the complement of the filter keeps exactly what fails
---                the predicate â€” the mirror of the soundness lemma the
+--                the predicate â” the mirror of the soundness lemma the
 --                measure module already had
 --   anyToMember  an `Any` yields a witness TOGETHER WITH its membership,
---                which plain `anyToÎ£` discards
+--                which plain `anyToÎ` discards
 --   everyRemainderMemberIsStrictlyDominated
 --                every member of `remainder xs` is strictly dominated
 --                by a member OF `xs`
 --
 -- **The double negation is the whole difficulty and it is decidable
--- away.**  `IsParetoMaximal v xs` is `Â¬ Any (StrictlyDominates v) xs`,
--- so failing it gives `Â¬ Â¬ Any â€¦`, not `Any â€¦`.  The dominator is
+-- away.**  `IsParetoMaximal v xs` is `Â Any (StrictlyDominates v) xs`,
+-- so failing it gives `Â Â Any â¦`, not `Any â¦`.  The dominator is
 -- recovered only because `decAny decStrictlyDominates` makes that `Any`
 -- DECIDABLE, hence stable.  This is the fourth cycle on this line to
 -- turn on the same decision, and it is the reason the decision was
 -- worth proving first.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NO NOVELTY.  A filter's complement keeps the non-satisfiers, and a
 -- decidable proposition is stable; both elementary.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

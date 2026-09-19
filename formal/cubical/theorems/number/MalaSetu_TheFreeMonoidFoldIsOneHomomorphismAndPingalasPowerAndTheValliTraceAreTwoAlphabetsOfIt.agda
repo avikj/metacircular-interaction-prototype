@@ -1,56 +1,56 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- मालासेतु — the garland-fold is one homomorphism, and Piṅgala's घात and
--- the vallī's trace are two alphabets of it.
+-- �������� � the garland-fold is one homomorphism, and Pigala's ���� and
+-- the vall's trace are two alphabets of it.
 --
--- माला is a garland — the standard Sanskrit image for a list/sequence
--- (akṣara-mālā, the garland of syllables).  The free monoid on an
+-- ���� is a garland � the standard  image for a list/sequence
+-- (akara-ml, the garland of syllables).  The free monoid on an
 -- alphabet A is the garland of its letters, `List A`, with concatenation.
--- सेतु, the bridge, because this file earns a bridge-claim its author
--- offered in `collab/messages/0915…` and had NOT checked: that Piṅgala's
--- exponentiation and Āryabhaṭa's vallī-trace are the SAME map.  No sūtra
+-- ����, the bridge, because this file earns a bridge-claim its author
+-- offered in `collab/messages/0915�` and had NOT checked: that Pigala's
+-- exponentiation and ryabhaa's vall-trace are the SAME map.  No stra
 -- is claimed for the compound; both words are ordinary.
 --
 -- THE CLAIM, now built.  Over any monoid M and any alphabet map
--- f : A → M, the fold
+-- f : A � M, the fold
 --
 --     foldMap f []       = ε
---     foldMap f (x ∷ xs) = f x ⋆ foldMap f xs
+--     foldMap f (x � xs) = f x � foldMap f xs
 --
--- is a monoid homomorphism from (List A, ++, []) to (M, ⋆, ε):
+-- is a monoid homomorphism from (List A, ++, []) to (M, �, ε):
 --
---   §2  मालायोगः : foldMap f (xs ++ ys) ≡ foldMap f xs ⋆ foldMap f ys
---   §2  माला-रिक्ता : foldMap f [] ≡ ε
+--   §2  ���������� : foldMap f (xs ++ ys) ≡ foldMap f xs � foldMap f ys
+--   §2  ����-������� : foldMap f [] ≡ ε
 --
--- Commutativity is NOT assumed — deliberately, because one of the two
--- instances lives in a NON-commutative monoid (2×2 integer matrices).
+-- Commutativity is NOT assumed � deliberately, because one of the two
+-- instances lives in a NON-commutative monoid (2�2 integer matrices).
 --
 -- THE TWO ALPHABETS, and this is the whole point:
 --
---   (I) THE VALLĪ TRACE, alphabet A = R (the quotient digits).
+--   (I) THE VALL TRACE, alphabet A = R (the quotient digits).
 --       `KuttakaValli.agda` (another identity's file, untouched) defines,
---       for its 2×2-matrix monoid (mul, idm) and its column map L : R → M,
+--       for its 2�2-matrix monoid (mul, idm) and its column map L : R � M,
 --           replay []      = idm
---           replay (q ∷ v) = mul (L q) (replay v)
+--           replay (q � v) = mul (L q) (replay v)
 --       which is `foldMap L` clause-for-clause, and its
 --           replayHom : replay (xs ++ ys) ≡ mul (replay xs) (replay ys)
---       is `मालायोगः` at f = L.  So Brahmagupta's/Āryabhaṭa's convergent
+--       is `����������` at f = L.  So Brahmagupta's/ryabhaa's convergent
 --       trace is the garland-fold on the digit alphabet.  (Checked there,
 --       in its own monoid; subsumed here as the general law's R-instance.)
 --
---   (II) PIṄGALA'S POWER, alphabet A = Unit (one letter).
---       घात x n = x ⋆ (x ⋆ (… ⋆ ε)) is the fold over the one-letter
---       garland `unlen n` (= `replicate n tt`), because `List Unit` IS ℕ
---       — proved as monoids in `FreeMonoid` (len/unlen,
---       unlen-+).  §3 checks घात x n ≡ foldMap (const x) (unlen n), and
---       §4 derives Piṅgala's law घात x (m+n) ≡ घात x m ⋆ घात x n as a
---       COROLLARY of मालायोगः + unlen-+ — the same घात-योगः that
+--   (II) PIGALA'S POWER, alphabet A = Unit (one letter).
+--       ���� x n = x � (x � (� � ε)) is the fold over the one-letter
+--       garland `unlen n` (= `replicate n tt`), because `List Unit` IS �
+--       � proved as monoids in `FreeMonoid` (len/unlen,
+--       unlen-+).  §3 checks ���� x n ≡ foldMap (const x) (unlen n), and
+--       §4 derives Pigala's law ���� x (m+n) ≡ ���� x m � ���� x n as a
+--       COROLLARY of ���������� + unlen-+ � the same ����-������ that
 --       `Bijamula` proved directly and that drives RSA.
 --
 -- READ TOGETHER: the exponentiation that decrypts RSA and the trace that
--- runs the cakravāla/kuṭṭaka are one homomorphism out of a free monoid,
--- differing only in the alphabet — Unit for Piṅgala, R for the vallī.
+-- runs the cakravla/kuaka are one homomorphism out of a free monoid,
+-- differing only in the alphabet � Unit for Pigala, R for the vall.
 -- The corpus's scale-free design law, here as a checked term rather than
 -- a resemblance.
 --
@@ -103,7 +103,7 @@ module _ {A : Type ℓ'} {M : Type ℓ} (Mon : Monoid M) where
     ∙ sym (assoc⋆ (f x) (foldMap f xs) (foldMap f ys))
 
 ------------------------------------------------------------------------
--- §3  ALPHABET Unit — Piṅgala's घात is the fold over a one-letter garland.
+-- §3  ALPHABET Unit � Pigala's ���� is the fold over a one-letter garland.
 ------------------------------------------------------------------------
 
 module _ {M : Type ℓ} (Mon : Monoid M) where
@@ -122,14 +122,14 @@ module _ {M : Type ℓ} (Mon : Monoid M) where
   unlen-+ zero    n = refl
   unlen-+ (suc m) n = cong (tt ∷_) (unlen-+ m n)
 
-  -- Piṅgala's power IS the garland-fold with the constant alphabet map
+  -- Pigala's power IS the garland-fold with the constant alphabet map
   घात-मालया : (x : M) (n : ℕ) → घात x n ≡ foldMap Mon (λ _ → x) (unlen n)
   घात-मालया x zero    = refl
   घात-मालया x (suc n) = cong (x ⋆_) (घात-मालया x n)
 
   ------------------------------------------------------------------------
-  -- §4  Piṅगala's exponent law, as a COROLLARY of §2 (not re-proved).
-  --     This is Bijamula's घात-योगः, obtained through the free monoid.
+  -- §4  Pi��ala's exponent law, as a COROLLARY of §2 (not re-proved).
+  --     This is Bijamula's ����-������, obtained through the free monoid.
   ------------------------------------------------------------------------
 
   घात-योगः-सेतुना : (x : M) (m n : ℕ) → घात x (m + n) ≡ घात x m ⋆ घात x n
@@ -140,16 +140,16 @@ module _ {M : Type ℓ} (Mon : Monoid M) where
     ∙ cong₂ _⋆_ (sym (घात-मालया x m)) (sym (घात-मालया x n))
 
 ------------------------------------------------------------------------
--- §5  ALPHABET R — the vallī trace, exhibited concretely on one small
+-- §5  ALPHABET R � the vall trace, exhibited concretely on one small
 --     NON-commutative monoid, so instance (I) is a checked term and not
 --     only the clause-level remark in the header.  M = endomorphisms of a
 --     2-state set under composition (the smallest non-commutative monoid
 --     that carries a faithful "replay"); L sends two digits to two
---     non-commuting maps; foldMap L is a replay and मालायोगः is its
+--     non-commuting maps; foldMap L is a replay and ���������� is its
 --     replayHom.
 ------------------------------------------------------------------------
 
--- the transformation monoid on {0,1}: functions Bool → Bool under ∘
+-- the transformation monoid on {0,1}: functions Bool � Bool under ∘
 data Two : Type where t0 t1 : Two
 
 record End : Type where
@@ -203,7 +203,7 @@ replayE = foldMap End-Mon Lend
   disc t0 = Unit
   disc t1 = ⊥
 
--- replayHom for THIS instance is exactly मालायोगः at f = Lend
+-- replayHom for THIS instance is exactly ���������� at f = Lend
 वल्ली-योगः : (xs ys : List Two)
            → replayE (xs ++ ys) ≡ replayE xs ∙E replayE ys
 वल्ली-योगः = मालायोगः End-Mon Lend

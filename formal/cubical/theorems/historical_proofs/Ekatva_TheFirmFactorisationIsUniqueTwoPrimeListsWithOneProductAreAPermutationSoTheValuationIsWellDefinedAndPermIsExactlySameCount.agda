@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- एकत्वम् — the uniqueness half that `Drdha` said was absent.
+-- �������� � the uniqueness half that `Drdha` said was absent.
 --
 -- `Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIs
--- DecidedByDivision` proved existence (every n ≥ 1 is SOME product of
+-- DecidedByDivision` proved existence (every n � 1 is SOME product of
 -- firm numbers), Euclid's lemma, and that the SUPPORT is determined by n.
 -- Its own ledger said, at the same grain:
 --
---     · UNIQUENESS IS NOT PROVED. … nothing here says two such lists are
---       permutations of each other. … HOW MANY times each occurs is not
+--     � UNIQUENESS IS NOT PROVED. � nothing here says two such lists are
+--       permutations of each other. � HOW MANY times each occurs is not
 --       settled.
---     · v_p IS NOT DEFINED HERE at all.
+--     � v_p IS NOT DEFINED HERE at all.
 --
--- and `TheUsualReasonsMadeExplicit…` said of the walks module's `Perm`:
+-- and `TheUsualReasonsMadeExplicit�` said of the walks module's `Perm`:
 --
---     · it is not proved to coincide with "same multiset";
---       the CONVERSE containment `≈ → Perm` is also not proved.
+--     � it is not proved to coincide with "same multiset";
+--       the CONVERSE containment `≈ � Perm` is also not proved.
 --
 -- Both absences are the same absence, and it is a composition of what is
 -- already there.  Nothing new is assumed; the only tools are Euclid's
 -- lemma from Drdha, the `Insert`/`Perm` relation from the walks module,
--- and cancellation in ℕ from the library.
+-- and cancellation in � from the library.
 --
---   १  Over any discrete type: `Perm xs ys` and `xs ≈ ys` (the corpus's
+--   �  Over any discrete type: `Perm xs ys` and `xs ≈ ys` (the corpus's
 --      four-constructor relation) each give "same count of every element",
 --      and same-count gives `Perm` back.  So Perm, ≈ and same-multiset are
---      one relation — the equivalence `TheUsualReasons` left open.
---   २  Two lists of firm numbers with the same product are a `Perm` of
---      each other (एकत्वम्).  Proof: the head of one divides the product
---      of the other, so it OCCURS there (Drdha §७); remove it with an
+--      one relation � the equivalence `TheUsualReasons` left open.
+--   �  Two lists of firm numbers with the same product are a `Perm` of
+--      each other (��������).  Proof: the head of one divides the product
+--      of the other, so it OCCURS there (Drdha §�); remove it with an
 --      `Insert`; cancel it from the product; recurse.
---   ३  Hence the valuation मानम् p n := count of p in Drdha's list is
+--   �  Hence the valuation ����� p n := count of p in Drdha's list is
 --      WELL DEFINED: every factorisation of n has that count of p.
---   ४  The fibre of वधः over n on firm lists is Perm-connected: that is the
---      exact sense in which Drdha's §९ fibre is "unique".  On raw lists it
+--   �  The fibre of ��� over n on firm lists is Perm-connected: that is the
+--      exact sense in which Drdha's §� fibre is "unique".  On raw lists it
 --      is not contractible (order), and this module does not say it is.
 --
--- The kernel runs the valuation: मानम् 2 12 ≡ 2, मानम् 3 12 ≡ 1,
--- मानम् 5 12 ≡ 0 are refl.
+-- The kernel runs the valuation: ����� 2 12 ≡ 2, ����� 3 12 ≡ 1,
+-- ����� 5 12 ≡ 0 are refl.
 ------------------------------------------------------------------------
 module Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount where
 
@@ -57,7 +57,7 @@ open import TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAd
   using (Insert ; here ; there ; Perm ; pnil ; pcons ; _≈_ ; ≈nil ; ≈cons ; ≈swap ; ≈trans ; permIsAnAdjacentChain)
 
 ------------------------------------------------------------------------
--- १ · गणना — counting over a discrete type, and the three relations
+-- � � ����� � counting over a discrete type, and the three relations
 ------------------------------------------------------------------------
 
 module Bahulya {A : Type} (_≟_ : Discrete A) where
@@ -127,7 +127,7 @@ module Bahulya {A : Type} (_≟_ : Discrete A) where
     h' : (z : A) → गणना z xs ≡ गणना z (fst rem)
     h' z = inj-m+ {m = एकः z x} (h z ∙ insert-count (snd rem) z)
 
-  -- the three relations are one:  Perm ⇒ ≈ ⇒ same-count ⇒ Perm
+  -- the three relations are one:  Perm � ≈ � same-count � Perm
   ≈→Perm : {xs ys : List A} → xs ≈ ys → Perm xs ys
   ≈→Perm {xs} {ys} h = count-perm xs ys (≈-count h)
 
@@ -137,7 +137,7 @@ module Bahulya {A : Type} (_≟_ : Discrete A) where
 open Bahulya discreteℕ
 
 ------------------------------------------------------------------------
--- २ · एकत्वम् — two firm lists with one product are a Perm
+-- � � �������� � two firm lists with one product are a Perm
 ------------------------------------------------------------------------
 
 -- a firm list has positive product
@@ -154,7 +154,7 @@ open Bahulya discreteℕ
   y≤1 : y ≤ 1
   y≤1 = subst (y ≤_) (·-comm (वधः ys) y ∙ e)
           (subst (_≤ वधः ys · y) (·-identityˡ y) (≤-·k {k = y} (वध-धनः ys hs)))
-  -- 1 ≤ वधः ys gives 1·y ≤ वधः ys · y, i.e. y ≤ y · वधः ys, and that product is 1.
+  -- 1 � ��� ys gives 1�y � ��� ys � y, i.e. y � y � ��� ys, and that product is 1.
 
 -- membership locates an insertion
 सदस्य-निष्कासनम् : (x : ℕ) (M : List ℕ) → x सदस्यः M → Σ[ M' ∈ List ℕ ] Insert x M' M
@@ -205,7 +205,7 @@ Insert-सर्वे (there ins) (h , hs) = h , Insert-सर्वे ins hs
 एकत्व-गणना L M दृL दृM e = perm-count (एकत्वम् L M दृL दृM e)
 
 ------------------------------------------------------------------------
--- ३ · मानम् — the valuation, well defined
+-- � � ����� � the valuation, well defined
 ------------------------------------------------------------------------
 
 मानम् : ℕ → (n : ℕ) → 0 < n → ℕ
@@ -224,7 +224,7 @@ Insert-सर्वे (there ins) (h , hs) = h , Insert-सर्वे ins hs
   मान-निश्चयः p n pos' (fst (विभाजनम् n pos)) (fst (snd (विभाजनम् n pos))) (snd (snd (विभाजनम् n pos)))
 
 ------------------------------------------------------------------------
--- ४ · परीक्षा — the kernel runs the valuation
+-- � � �������� � the kernel runs the valuation
 ------------------------------------------------------------------------
 
 private

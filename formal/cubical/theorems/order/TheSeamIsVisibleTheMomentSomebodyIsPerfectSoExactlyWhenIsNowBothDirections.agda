@@ -8,20 +8,20 @@
 -- invented.**  The subject is a seam recorded in this corpus's own
 --
 -- **GRADE, INHERITED AND UNCHANGED: I DID NOT READ THE DGM CODE.**  The
--- audited module says so and this says so again â€” no request to
+-- audited module says so and this says so again â” no request to
 -- github.com was made, here or there.  What is checked is the
 -- order-theoretic content of Â§2's sentence, on the assumption that the
 -- sentence describes the released function correctly.  If Â§2 misread
 -- it, nothing here is affected and nothing here defends Â§2.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE AUDIT.  Target: `ExcludingPerfectScorersRemovesOnlyGainlessCandidates`.
 --
 -- **THE MODULE TITLE IS EARNED, AND THE DANGEROUS CONVERSE IS ALREADY
--- DISCLAIMED.**  `Only` here is the direction REMOVED âŸ¹ GAINLESS, which
--- is exactly `noStrictImprovementAtTheCap`.  The reverse reading â€”
--- every gainless candidate is removed â€” is false in general, and that
--- module's Â§"SYÄ€T â€” THE CLAIM, EXACTLY" says so in its own words: the cap
+-- DISCLAIMED.**  `Only` here is the direction REMOVED âŸ GAINLESS, which
+-- is exactly `noStrictImprovementAtTheCap`.  The reverse reading â”
+-- every gainless candidate is removed â” is false in general, and that
+-- module's Â§"SYT â” THE CLAIM, EXACTLY" says so in its own words: the cap
 -- bounds the score, it does not populate it.  **This is the first
 -- target in the sweep whose `Only` was already guarded against its own
 -- second reading**, and it is worth recording as such.
@@ -29,21 +29,21 @@
 -- **THE FAULT IS ONE LEVEL DOWN, IN A THEOREM NAME.**  Â§3 is called
 -- `theSeamIsInvisibleExactlyWhenNobodyIsPerfect` and proves ONE
 -- direction: if no agent attains the cap, eligibility keeps every
--- member.  The converse â€” if eligibility keeps every member of every
--- list, then no agent attains the cap â€” is not there, and the module's
+-- member.  The converse â” if eligibility keeps every member of every
+-- list, then no agent attains the cap â” is not there, and the module's
 --
 -- **AND THE CONVERSE IS SHORT, WITH A ONE-ELEMENT LIST.**  If `a`
--- attains the cap, feed the invisibility statement `a âˆ· []`.  It
--- returns `a` as a member of `eligible (a âˆ· [])`; every member of a
+-- attains the cap, feed the invisibility statement `a âˆ []`.  It
+-- returns `a` as a member of `eligible (a âˆ [])`; every member of a
 -- filtered list satisfies the predicate (`filterDecOnlyKeepsSatisfiers`);
 -- so `Imperfect a`, which contradicts `AtCap a`.  Diagnostic (1) placed
 -- it before it was written: the two sides are joined by a FILTER whose
 -- exactness lemmas both already exist, so neither direction is a search.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   memberOfAnAllList   `All P ys` and membership give `P a` â€” the
+--   memberOfAnAllList   `All P ys` and membership give `P a` â” the
 --                       bridge between the two recursive families, by
 --                       induction, since the filter kit ships `All`-
 --                       and `Any`-shaped lemmas that never meet
@@ -51,7 +51,7 @@
 --                       the missing direction, refuting invisibility
 --                       from a single at-cap agent
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

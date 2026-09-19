@@ -6,7 +6,7 @@
 -- Exact adapter for the finite compositional-crystal theorem.  For one
 -- binary operation, the elementary one-hole translations
 --
---     x ↦ x ∙ fixed          x ↦ fixed ∙ x
+--     x � x ∙ fixed          x � fixed ∙ x
 --
 -- are actions.  Their finite words are precisely the generated unary
 -- contexts.  Equality under every such context is therefore an instance of
@@ -16,8 +16,8 @@
 -- congruences.  Consequently the operation descends to the behavioral
 -- quotient.
 --
--- The final four-state control kills the unsound shortcut “quotient by the
--- current observation kernel”.  Equal observations need not survive even
+-- The final four-state control kills the unsound shortcut �quotient by the
+-- current observation kernel�.  Equal observations need not survive even
 -- one elementary context; contextual closure is load-bearing.
 ------------------------------------------------------------------------
 

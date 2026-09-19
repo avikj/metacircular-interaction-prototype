@@ -12,7 +12,7 @@ this environment; see the file list at the end for the exact test programs.
 ### 1. Faithful native lowering of cubical transport (was: erased)
 
 The prior emitter lowered a stuck `coe` to its argument (`Coe _ _ _ x -> x`),
-which is sound for proofs but **wrong for data transport** â€” a transport that
+which is sound for proofs but **wrong for data transport** â” a transport that
 moves a value cannot vanish because its type mentions equality. The reviewer's
 decisive example confirmed the bug: `applyPath` compiled to `Î»A B p x. x`.
 
@@ -20,12 +20,12 @@ Fixed. Universe paths are now represented at runtime by their **forward
 transport function**, and `coe` along a path-application lowers to *applying*
 that function:
 
-- `ua(A,B,f,g,â€¦)`  âŸ¶  `f`   (its runtime content is the forward transport)
-- `coe(Î»i. p @ i, i0, i1, x)`  âŸ¶  `p(x)`   (apply the path's function)
-- constant/rigid line  âŸ¶  `x`   (identity, via regularity)
+- `ua(A,B,f,g,â¦)`  âŸ  `f`   (its runtime content is the forward transport)
+- `coe(Î»i. p @ i, i0, i1, x)`  âŸ  `p(x)`   (apply the path's function)
+- constant/rigid line  âŸ  `x`   (identity, via regularity)
 
 `applyPath` now compiles to `Î»A B p x. p(x)`. **Verified executing on the HVM4
-C runtime** (`applypath.bend` â†’ `--to-hvm4` â†’ `hvm`):
+C runtime** (`applypath.bend` â’ `--to-hvm4` â’ `hvm`):
 
     @applyPath(_)(_)(@negPath)(1)  =>  0     -- transport a Bool across the
                                              -- negation univalence path
@@ -33,12 +33,12 @@ C runtime** (`applypath.bend` â†’ `--to-hvm4` â†’ `hvm`):
     @transNeg(1) => 0 ,  @transNeg(0) => 1   -- through a wrapper function
 
 This is a cubical program's transport reaching and running on the interaction
-net â€” the connection the review named as the main missing boundary.
+net â” the connection the review named as the main missing boundary.
 
 A second real bug surfaced and was fixed while doing this: the HVM4 printer did
 not parenthesize a lambda in function position, so `(Î»x.M)(N)` mis-parsed. Now
 `appFun` parenthesizes non-atomic heads, and binders are emitted with unique
-depth-indexed names (`b0,b1,â€¦`) to remove HOAS name capture.
+depth-indexed names (`b0,b1,â¦`) to remove HOAS name capture.
 
 ### 2. Transport through nonconstant Path families (was: stuck)
 
@@ -52,10 +52,10 @@ identity by regularity (`pthtransport.bend`).
 
 ### 3. Totality classifier: real descending-column analysis (was: false-positive)
 
-The prior classifier tagged `loop(n,m) = match n { 1n+p â†’ loop(n,p) }` as
-`[total]` â€” a false positive, since `n` never decreases. Two bugs:
+The prior classifier tagged `loop(n,m) = match n { 1n+p â’ loop(n,p) }` as
+`[total]` â” a false positive, since `n` never decreases. Two bugs:
 - it ran on the **unflattened `Pat`** term (match sugar), which `collect` had no
-  case for, so it saw *no recursive calls at all* â€” every `match`-using
+  case for, so it saw *no recursive calls at all* â” every `match`-using
   definition was vacuously `[total]`;
 - it counted a call as decreasing if *some* argument was smaller than *some*
   parameter, rather than requiring a fixed column to shrink.
@@ -65,25 +65,25 @@ variable is tracked to the **parameter index it descends from**; a call
 decreases in column *i* only if argument *i* descends from parameter *i*; and
 `Total` requires a single fixed column that shrinks in **every** call. Now
 `loop` is `[unchecked]`, `mul2`/`div2` remain `[total]`, and the coinductive
-`run3` is `[productive]`. It remains an **analysis, not a gate** â€” Bend2's logic
+`run3` is `[productive]`. It remains an **analysis, not a gate** â” Bend2's logic
 is non-total by design; the tag marks the trust boundary per definition.
 
 ## Corrected in claims
 
-### "Univalence complete" â†’ iso-univalence with the path-side round trip
+### "Univalence complete" â’ iso-univalence with the path-side round trip
 
 `cubical_test5.bend` proves `uaÎ²` (transport along `ua e` computes to `e`, both
-directions), `uaIdEquiv` (`ua(idIso) = refl`), and `uaÎ·` (`ua(pathToIso p) = p`,
+directions), `uaIdEquiv` (`ua(idIso) = refl`), and `uaÎ` (`ua(pathToIso p) = p`,
 by J). It does **not** prove the other round trip `pathToIso(ua e) = e` at the
-`Iso5` record level â€” and that is not an oversight: `uaroundtrip.bend` shows it
+`Iso5` record level â” and that is not an oversight: `uaroundtrip.bend` shows it
 fails by `refl`. Raw isomorphism data (two functions + two homotopies) is not
 the same type as a **coherent** equivalence (contractible fibres / half-adjoint
 / bi-invertible); it can carry extra higher information, so the round trip is
 not on the nose. The honest statement is: **`isoToPath` with `uaÎ²`, `uaIdEquiv`,
-and `uaÎ·`** â€” which is exactly the interface `Fibre.Carrier` uses â€” **not** a
-full `Iso â‰ƒ Path` equivalence. Coherent-equivalence univalence (with both round
-trips) requires an `isEquiv`/`isContr`-fibre formulation â€” since done:
-`uaequiv.bend` proves `uaEquivRoundTrip : pathToEquiv(uaE e) = e` (17âœ“ 0âœ—),
+and `uaÎ`** â” which is exactly the interface `Fibre.Carrier` uses â” **not** a
+full `Iso â‰ Path` equivalence. Coherent-equivalence univalence (with both round
+trips) requires an `isEquiv`/`isContr`-fibre formulation â” since done:
+`uaequiv.bend` proves `uaEquivRoundTrip : pathToEquiv(uaE e) = e` (17â“ 0â—),
 with `uaE` built from the contractible-fibre data and the second component
 closed by `isPropIsEquiv` (general `hcompN`). See GENERAL_HCOMP.md.
 
@@ -117,11 +117,11 @@ proposed next step, not a produced artifact.
 
 ## Accurate one-line status
 
-A cubical Bend2 front-end + evaluator prototype â€” interval, Path/PathP,
+A cubical Bend2 front-end + evaluator prototype â” interval, Path/PathP,
 boundary-checked path lambdas, `coe` (with a `Pth` case and regularity), J with
-definitional refl, binary `hcomp`, iso-univalence (`isoToPath` + `uaÎ²`/`uaIdEquiv`/`uaÎ·`),
-the label-correlated `Sup Ã— Path` transport rule, a sound descending-column
-totality analysis, and a Bend2â†’HVM4 emitter that lowers cubical **transport
+definitional refl, binary `hcomp`, iso-univalence (`isoToPath` + `uaÎ²`/`uaIdEquiv`/`uaÎ`),
+the label-correlated `Sup — Path` transport rule, a sound descending-column
+totality analysis, and a Bend2â’HVM4 emitter that lowers cubical **transport
 faithfully** so a cubical program's transport runs on the interaction-net
 runtime. Corpus constructions (lossless `rightInv`, `CorpusCalculus`, the ISC
 coalgebra) are transported into this language and check.

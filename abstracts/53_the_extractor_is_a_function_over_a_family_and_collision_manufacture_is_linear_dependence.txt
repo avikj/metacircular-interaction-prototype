@@ -2,7 +2,7 @@ THE SQUARE-COLLISION EXTRACTOR IS A FUNCTION RUN OVER A FAMILY, AND
 COLLISION MANUFACTURE IS LINEAR DEPENDENCE
 The congruence-of-squares realization as a plain map factoring a table
 of moduli, and the exponent-parity signature turning collision
-manufacture into an ğ”½â‚‚ null-space â€” both computed by the analyzer
+manufacture into an ğ”½â null-space â” both computed by the analyzer
 
 Collision semantics, generalized / factoring as a fold / manufacture as
 linear algebra
@@ -11,29 +11,29 @@ SanghattaKarya ran the extraction chain on one modulus.  This gives the
 collision-semantics document its next asks at once, both computed and
 read back through the analyzer.
 
-THE EXTRACTOR IS A FUNCTION.  extract N a b = (gcd(aâˆ¸b,N), gcd(a+b,N))
+THE EXTRACTOR IS A FUNCTION.  extract N a b = (gcd(aâˆb,N), gcd(a+b,N))
 is congruence-of-squares as a plain map; run over a table of given
 square collisions it factors each modulus and every factorization
-recomposes â€” 15â†’(3,5), 21â†’(7,3), 33â†’(3,11), 35â†’(5,7), checked
-uniformly, and the analyzer computed 143â†’(11,13) live from 12Â²â‰¡1, a
+recomposes â” 15â’(3,5), 21â’(7,3), 33â’(3,11), 35â’(5,7), checked
+uniformly, and the analyzer computed 143â’(11,13) live from 12Â²â‰¡1, a
 modulus not in the module.
 
 MANUFACTURE IS LINEAR DEPENDENCE.  Over a factor base [2,3,5] a smooth
-relation's square-class signature is its exponent-parity vector in ğ”½â‚‚Â³.
-The relation matrix is a boundary operator; a null-space element â€” a
-selection whose parity sum is zero â€” is a product that is a SQUARE, a
-manufactured square collision.  The three relations 2Â·3, 2Â·5, 3Â·5 have
+relation's square-class signature is its exponent-parity vector in ğ”½âÂ³.
+The relation matrix is a boundary operator; a null-space element â” a
+selection whose parity sum is zero â” is a product that is a SQUARE, a
+manufactured square collision.  The three relations 2Â3, 2Â5, 3Â5 have
 parities (1,1,0),(1,0,1),(0,1,1); their sum is (0,0,0), read back from
-the analyzer as all-false, so their product is (2Â·3Â·5)Â² = 900 â€” the
+the analyzer as all-false, so their product is (2Â3Â5)Â² = 900 â” the
 dependency IS the collision, computed.
 
 Manufacture produces the collision the extractor turns into a factor.
-The frontier the document names â€” cheaply ENTERING the smooth chart â€”
+The frontier the document names â” cheaply ENTERING the smooth chart â”
 is untouched and unclaimed; once inside, the whole pipeline is
 arithmetic and linear algebra the kernel computes and hands back as
 data.
 
-SYÄ€T â€” THE CLAIM, EXACTLY.  The extractor over the tabulated moduli
+SYT â” THE CLAIM, EXACTLY.  The extractor over the tabulated moduli
 with their given collisions, and the exhibited parity dependency with
 its square product.  NOT claimed: that the collisions or the smooth
 relations were found rather than supplied.

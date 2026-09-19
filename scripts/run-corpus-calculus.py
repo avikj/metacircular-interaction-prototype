@@ -73,7 +73,7 @@ def public_names(src: str) -> list[str]:
         for token in left.split():
             add(token)
     # Two names in one module whose underscore-stripped spellings agree
-    # (a prefix operator next to its infix sibling, e.g. 竓溂ｵ神 and _竓溂ｵ神)
+    # (a prefix operator next to its infix sibling, e.g. 竓涎神 and _竓涎神)
     # make `quote` irreducibly ambiguous between name and section; drop
     # every member of such a collision class.
     stripped: dict[str, int] = {}

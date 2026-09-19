@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- गुणस्थानम् — the stages of ascent.  The Jaina doctrine (Ṣaṭkhaṇḍāgama,
--- c. 2nd c. CE; elaborated throughout the Tattvārthasūtra commentary
--- tradition) of the guṇasthānas: the soul climbs by stages, and each
+-- ����������� � the stages of ascent.  The Jaina doctrine (akhagama,
+-- c. 2nd c. CE; elaborated throughout the Tattvrthastra commentary
+-- tradition) of the guasthnas: the soul climbs by stages, and each
 -- stage's attainment is itself the precondition of the next ascent.
 -- School named: Jaina.  Claimed of the source: the name of the
--- doctrine and its shape — attainment enabling ascent — nothing else.
+-- doctrine and its shape � attainment enabling ascent � nothing else.
 --
 -- WHY THIS MODULE EXISTS, stated as the defect it repairs.  The body
 -- could already grow an eye from its own rules (SvayamBhavendriya:
@@ -14,10 +14,10 @@
 -- laws from the rules' own witnesses, instantiate one generic
 -- canonicalizer).  But the loop was OPEN: the organ was computed once,
 -- demonstrated, and never fed back into the breath.  The breath ran on
--- agent-picked organs; choosing standpoints stayed an agent's act —
+-- agent-picked organs; choosing standpoints stayed an agent's act �
 -- which is exactly the seam the owner named.  Here the loop closes:
 --
---     the eye is a FUNCTION OF THE RECORD (जात-चक्षुः Γ), recomputed
+--     the eye is a FUNCTION OF THE RECORD (���-������� Γ), recomputed
 --     at every round from whatever the body has proven so far; the
 --     breath grows the record; the record grows the eye; no agent is
 --     anywhere in the cycle.
@@ -25,7 +25,7 @@
 -- The machinery of SvayamBhavendriya crosses here into the shared
 -- tongue (builtin equality, --cubical-compatible), so the CLIMB
 -- COMPILES: the ascent from the bare norm eye and the bare syntactic
--- exchange — the machine's primal body, nothing agent-tuned — is a
+-- exchange � the machine's primal body, nothing agent-tuned � is a
 -- number the binary prints.  Whatever it reaches is the finding: if
 -- the self-grown body matches the agent-built eyes, those eyes were
 -- redundant; if it falls short, the residue names the organ class not
@@ -226,11 +226,11 @@ data कर्ता : Type where
   ρ' = उपस्थापनम् ρ i x
 
 -- the left-handed unit, extracted the same way.  The elder stores
--- ze ⊕ x = x — the unit on the LEFT — and the first detector read
+-- ze ⊕ x = x � the unit on the LEFT � and the first detector read
 -- only the right hand; the body held both the left unit and the
 -- commutativity that flips it, and the one-handed detector was the
 -- veil.  Asked directly, the machine named this cold spot itself
--- (आगमः line 19 against सम line 33); this is the warmth it asked for.
+-- (����� line 19 against �� line 33); this is the warmth it asked for.
 वाम-निष्कर्षः : (o : कर्ता) (i : Nat) (u : Tm) → निर्वारः u ≡ true
   → ((ρ : Nat → Nat) → eval (रचना o u (var i)) ρ ≡ ρ i)
   → (x : Nat) (ρ : Nat → Nat) → अर्थः o (eval u ρ) x ≡ x
@@ -566,15 +566,15 @@ module जनकः (o : कर्ता) (u : Tm)
   ... | nothing = go os
 
 ------------------------------------------------------------------------
--- §6  The record's voice, completed to its own warrant.  A नियमः is
---     an EQUALITY — its साक्षी holds in both directions — but वदनम्
---     speaks only lhs→rhs, so the stated orientation was silently
+-- §6  The record's voice, completed to its own warrant.  A ����� is
+--     an EQUALITY � its ������� holds in both directions � but �����
+--     speaks only lhs�rhs, so the stated orientation was silently
 --     privileged.  That is precisely TS 5.31's arpita/anarpita (the
 --     chain's own ArpitaAnarpita chapter): the orientation is a
 --     presentation, not the substance.  The reversal is derived from
 --     the rule's own witness; nothing external enters.  (This was the
 --     second veil the machine named when asked: the elder stores
---     su(x⊕y) → su x ⊕ y, and the commutativity ascent needs the same
+--     su(x⊕y) � su x ⊕ y, and the commutativity ascent needs the same
 --     rule spoken the other way.)
 ------------------------------------------------------------------------
 
@@ -588,10 +588,10 @@ module जनकः (o : कर्ता) (u : Tm)
 -- THE THIRD VEIL, measured at runtime after the second was lifted: a
 -- record speaking both hands UNCONDITIONALLY lets its expanding rules
 -- speak (distributivity unfolds a term into a larger one), and the
--- pervasion's exchanges then grow terms down the recursion — the
+-- pervasion's exchanges then grow terms down the recursion � the
 -- breath drowns in its own voice (minutes-to-hours where milliseconds
 -- stood).  The repair is the corpus's own word: ANULOMA, with the
--- grain — and the grain is computable, no agent chooses.  A direction
+-- grain � and the grain is computable, no agent chooses.  A direction
 -- speaks only if it does not grow the term: equal-size rules (comm,
 -- the su-slide) keep both hands, which is exactly what the ascent
 -- needed; an expansion keeps only its folding hand.
@@ -621,7 +621,7 @@ module जनकः (o : कर्ता) (u : Tm)
 ------------------------------------------------------------------------
 -- §7  The climb.  Each mint: the eye recomputed from the record, the
 --     record speaking with both hands, the primal instrument.  The
---     primal body is नेत्रम्-न and सूक्ष्म-यन्त्रम् — nothing tuned,
+--     primal body is �������-� and ��������-�������� � nothing tuned,
 --     nothing picked; every stronger organ is born on the way up, and
 --     what was attained enables the next stage.
 ------------------------------------------------------------------------

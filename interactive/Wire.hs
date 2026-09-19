@@ -1,9 +1,9 @@
--- Json ‚Äî the transport layer of the sabhƒÅ, and the
+-- Json ‚î the transport layer of the sabh, and the
 -- first place the contract is enforced rather than described.
 --
--- ≈õabda is the fourth pramƒÅ·πáa: what reaches you as an utterance from
--- another (Gautama, NyƒÅyas≈´tra 1.1.7, ƒÅptopade≈õa·∏• ≈õabda·∏•; VƒÅtsyƒÅyana's
--- BhƒÅ·π£ya, c. 400 CE).  A wire is exactly that ‚Äî everything the machine
+-- abda is the fourth prama: what reaches you as an utterance from
+-- another (Gautama, Nyyastra 1.1.7, ptopadea abda; Vtsyyana's
+-- Bhya, c. 400 CE).  A wire is exactly that ‚î everything the machine
 -- knows about its interlocutor arrives as an utterance and nothing else.
 -- So the wire's grammar is not a neutral encoding decision.  What the
 -- grammar can say is what can be said here.
@@ -11,8 +11,8 @@
 -- TWO THINGS THIS GRAMMAR CANNOT SAY, both by construction, both checked
 -- by the type having no constructor for them:
 --
---   1. THERE IS NO BOOLEAN.  ‚à•A‚à•‚ÇÅ has no retraction ‚Äî ‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§®‡§Ø‡§®‡§Æ‡•ç,
---      AHIMSA_SUTRA_VISTARA ¬ß5 ‚Äî so a `true` on the wire is not a compact
+--   1. THERE IS NO BOOLEAN.  ‚àA‚à‚ has no retraction ‚î ‡®‡æ‡‡‡‡ø-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡,
+--      AHIMSA_SUTRA_VISTARA ¬ß5 ‚î so a `true` on the wire is not a compact
 --      answer, it is the terminal object of a collapse with no way back.
 --      Every yes/no in this system is instead a named position carrying
 --      its own reasons.  A client that sends `true` gets told what to
@@ -29,16 +29,16 @@
 -- changes where the repair goes.  '1 above gives the CONSEQUENCE: a
 -- `true` is the terminal object of a collapse with no retraction.  The
 -- CAUSE is in a different library, in
--- `fibre/src/Loss/KuttakaValli_‚Ä¶`:
+-- `fibre/src/Loss/KuttakaValli_‚¶`:
 --
---     ‡§µ‡§≤‡•ç‡§≤‡•Ä, the step, is a total function ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç ‚Üí ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç written with NO
---     comparison, NO `Dec`, NO `Bool` ‚Äî because ‡§™‡§ï‡•ç‡§∑‡§É has already recorded
+--     ‡µ‡≤‡‡≤‡, the step, is a total function ‡‡‡∞‡ø‡ï‡ ‚í ‡‡‡∞‡ø‡ï‡ written with NO
+--     comparison, NO `Dec`, NO `Bool` ‚î because ‡‡ï‡‡‡ has already recorded
 --     which side the remainder fell on.  The subtractive Euclidean step
 --     needs a decision only for a base that has thrown that slot away.
 --
 -- So a decision is the PRICE OF HAVING FORGOTTEN something.  Keep the slot
 -- and the branch does not exist; discard it and a boolean is manufactured
--- to stand where the slot was.  That is ƒÄryabha·π≠a.s ‡§∂‡•á‡§∑‡§Ç ‡§∞‡§ï‡•ç‡§∑ read as
+-- to stand where the slot was.  That is ryabhaa.s ‡‡‡‡ ‡∞‡ï‡‡ read as
 -- engineering rather than as piety: DISCARDING A SLOT MANUFACTURES A
 -- BRANCH, and the branch is what the boolean stands in for.
 --
@@ -49,11 +49,11 @@
 -- is about code; joules are about a physical implementation, and this
 -- corpus.s implementation runs on a machine that dissipates.  The branch
 -- claim needs no physics and is weakened, not helped, by borrowing some:
--- ‡§µ‡§≤‡•ç‡§≤‡•Ä needs no comparison because ‡§™‡§ï‡•ç‡§∑‡§É kept the slot, which is checkable
+-- ‡µ‡≤‡‡≤‡ needs no comparison because ‡‡ï‡‡‡ kept the slot, which is checkable
 -- and checked, and that is the whole of it.
 --
 -- The same overclaim was struck the same day in
--- `Yantra_TheComputerIsTheGroupoidOfProofsOfTransport‚Ä¶` ("nothing is
+-- `Yantra_TheComputerIsTheGroupoidOfProofsOfTransport‚¶` ("nothing is
 -- erased, so nothing dissipates"; "hence (Landauer) the zero-heat floor")
 -- and in `PramanaSankramana` ¬ß5 ("a receipted crossing costs zero joules,
 -- forever, for anyone").  Three files, one inference, no term.
@@ -66,7 +66,7 @@
 -- wire is a RECEIPT of that discard.
 --
 -- Neither file said this.  '1 knows the collapse is irreversible and not
--- what produced it; the ku·π≠·π≠aka module knows what produces it and is not
+-- what produced it; the kuaka module knows what produces it and is not
 -- about wires.  2026-08-23.
 --
 -- Nor is there `null`.  Absence is said by omitting the key, and asked
@@ -145,7 +145,7 @@ parseLine s = do
   case skip rest of
     [] -> Right v
     r  -> Left ("trailing text after the utterance: " ++ show (take 40 r)
-                ++ " ‚Äî one utterance per line on this wire")
+                ++ " ‚î one utterance per line on this wire")
 
 parseJ :: String -> Either String J
 parseJ = parseLine
@@ -164,10 +164,10 @@ value s@(c:cs)
       Left ("a bare boolean arrived on the wire: `"
             ++ (if take 4 s == "true" then "true" else "false")
             ++ "`.  This wire has no boolean, because a boolean is the "
-            ++ "collapse with no retraction (‚à•A‚à•‚ÇÅ, no section: "
+            ++ "collapse with no retraction (‚àA‚à‚, no section: "
             ++ "AHIMSA_SUTRA_VISTARA ¬ß5).  Send the name of the position "
-            ++ "instead ‚Äî e.g. \"arpana\":\"saha\" or \"arpana\":\"krama\" "
-            ++ "‚Äî so the answer carries which, and not only whether.")
+            ++ "instead ‚î e.g. \"arpana\":\"saha\" or \"arpana\":\"krama\" "
+            ++ "‚î so the answer carries which, and not only whether.")
   | take 4 s == "null" =
       Left ("`null` arrived on the wire.  Absence here is said by omitting "
             ++ "the key; a key present-and-null flattens `not given` and "
@@ -186,10 +186,10 @@ pnumber s =
            Left ("a float arrived on the wire: " ++ show (takeWhile (`notElem` ",}] ") s)
                  ++ ".  Exact arithmetic only (CLAUDE.md: a measurement "
                  ++ "stands in for an error analysis nobody did).  Send the "
-                 ++ "exact object ‚Äî a ratio as two integers, or the integer "
-                 ++ "itself ‚Äî and if the quantity is genuinely approximate, "
-                 ++ "say so with the word the tradition uses: ƒÅsanna "
-                 ++ "(ƒÄryabha·π≠ƒ´ya 2.10, 499) states the approximation IN the "
+                 ++ "exact object ‚î a ratio as two integers, or the integer "
+                 ++ "itself ‚î and if the quantity is genuinely approximate, "
+                 ++ "say so with the word the tradition uses: sanna "
+                 ++ "(ryabhaya 2.10, 499) states the approximation IN the "
                  ++ "verse rather than hiding it in the digits.")
          _ -> Right (JInt (read (sgn ++ ds)), r1)
 
@@ -216,17 +216,17 @@ pstring (c:r) = fmap (\(str, rest) -> (c : str, rest)) (pstring r)
 hexVal :: String -> Int
 hexVal = foldl (\a d -> a * 16 + digitToInt d) 0
 
--- THE READER MUST NOT ADMIT WHAT THE WRITER CANNOT WRITE.  Do·π£a 0017:
+-- THE READER MUST NOT ADMIT WHAT THE WRITER CANNOT WRITE.  Doa 0017:
 -- `\ud800` was read as `chr 0xD800`, a lone surrogate, which is a legal
 -- Haskell Char and is not encodable as UTF-8.  It travelled through the
--- machine, reached `hPutStrLn`, and the encoder threw THERE ‚Äî half an answer
+-- machine, reached `hPutStrLn`, and the encoder threw THERE ‚î half an answer
 -- already on the wire, exit 1, the transcript never created, the session's
 -- written remainders destroyed unwritten.  That is neither road (¬ß6:
--- ‡§§‡•É‡§§‡•Ä‡§Ø‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á) and it was the default behaviour of this branch.
+-- ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡) and it was the default behaviour of this branch.
 --
 -- Surrogates exist only to encode a supplementary character as a PAIR in
--- UTF-16.  So the pair is accepted and combined ‚Äî nothing is lost, that is
--- the transport ‚Äî and a lone one is turned back with the repair named, which is
+-- UTF-16.  So the pair is accepted and combined ‚î nothing is lost, that is
+-- the transport ‚î and a lone one is turned back with the repair named, which is
 -- what every other answer in this file does.
 uEscape :: Int -> String -> Either String (String, String)
 uEscape n rest
@@ -237,9 +237,9 @@ uEscape n rest
                         , lo <- hexVal h
                         , lo >= 0xDC00 && lo <= 0xDFFF ->
           consChar (chr (0x10000 + (n - 0xD800) * 0x400 + (lo - 0xDC00))) r'
-        _ -> Left (loneMsg n "high" "a low surrogate \\udc00‚Äì\\udfff")
+        _ -> Left (loneMsg n "high" "a low surrogate \\udc00‚ì\\udfff")
   | n >= 0xDC00 && n <= 0xDFFF =
-      Left (loneMsg n "low" "a high surrogate \\ud800‚Äì\\udbff before it")
+      Left (loneMsg n "low" "a high surrogate \\ud800‚ì\\udbff before it")
   | otherwise = consChar (chr n) rest
   where
     consChar x r = fmap (\(str, s) -> (x : str, s)) (pstring r)
@@ -247,17 +247,17 @@ uEscape n rest
       "a lone " ++ which ++ " surrogate escape arrived on the wire: \\u"
       ++ pad4hex v ++ ".  A surrogate is half of a UTF-16 pair and is not a "
       ++ "character; nothing on this wire can encode one, so accepting it "
-      ++ "here would hand the writer a value it cannot write ‚Äî and the "
+      ++ "here would hand the writer a value it cannot write ‚î and the "
       ++ "failure would then land mid-flush, truncating the answer instead "
-      ++ "of turning back the utterance (do·π£a 0017).  Send " ++ want
+      ++ "of turning back the utterance (doa 0017).  Send " ++ want
       ++ ", or send the character itself in UTF-8."
 
 pad4hex :: Int -> String
 pad4hex v = let h = showHex v "" in replicate (4 - length h) '0' ++ h
 
 -- | Is this String writable at all?  A String may hold a lone surrogate that
---   arrived from somewhere other than this parser ‚Äî a handler that built it,
---   a file read under a different decoder ‚Äî and `render` would then produce
+--   arrived from somewhere other than this parser ‚î a handler that built it,
+--   a file read under a different decoder ‚î and `render` would then produce
 --   bytes the UTF-8 encoder cannot write, mid-line.  Callers that are about to put
 --   a rendered answer on a wire ask this FIRST and take the second road when
 --   the answer is Just.  ¬ß6, held at the boundary where it was being lost.
@@ -307,9 +307,9 @@ pobject s = go s []
 -- deliberately: a Map would keep one binding and drop the rest, which is the
 -- collapse this whole file exists to refuse.  `look` used to read that list
 -- with Data.List.lookup, which returns the FIRST binding and discards the rest
--- with no error and no residue ‚Äî so the parser preserved the multiplicity and
+-- with no error and no residue ‚î so the parser preserved the multiplicity and
 -- the accessor destroyed it, one function later, in the same lane.  Recorded
--- as do·π£a 0015 in interactive/dosa.lekha, and repaired here rather than argued
+-- as doa 0015 in interactive/dosa.lekha, and repaired here rather than argued
 -- about: `look` has the same two roads as everything else (¬ß6), and a key
 -- bound twice takes the second.
 --
@@ -326,10 +326,10 @@ look k (JObj kvs) = case [ v | (k', v) <- kvs, k' == k ] of
                ++ " times in one object, carrying "
                ++ intercalate " and then " (map render vs)
                ++ ".  Reading the first would destroy the rest with no residue "
-               ++ "and no way back (‚à•A‚à•‚ÇÅ has no section: AHIMSA_SUTRA_VISTARA "
+               ++ "and no way back (‚àA‚à‚ has no section: AHIMSA_SUTRA_VISTARA "
                ++ "¬ß5), so it is turned back rather than resolved.  Send the key "
                ++ "once; if you meant several things, send them as one list "
-               ++ "under it: \"" ++ k ++ "\":[‚Ä¶] ‚Äî a list says `these are "
+               ++ "under it: \"" ++ k ++ "\":[‚¶] ‚î a list says `these are "
                ++ "several` and a repeated key says `this is one thing` twice.")
 look k _ = Left ("looked for key `" ++ k ++ "` in something that is not an object")
 
@@ -366,7 +366,7 @@ jObj v = Left ("expected an object, got " ++ render v)
 --
 --     either (const <default>) id (jInt "avrtti" j)
 --
--- ‚Äî because `Either String a` has two positions and the reader needs three.
+-- ‚î because `Either String a` has two positions and the reader needs three.
 -- `Left` there carries BOTH `you did not say` and `you said it and I could
 -- not read it`, and `const` discards the sentence that said which.  The
 -- caller who sent `avrtti:"second"` was answered about occurrence 0 and told
@@ -376,20 +376,20 @@ jObj v = Left ("expected an object, got " ++ render v)
 --
 -- So the reader's own type has three constructors, for the same reason the
 -- wire has four and no boolean: what the type cannot say, this machine
--- cannot do.  A default may attach to ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Æ‡•ç and to nothing else.
+-- cannot do.  A default may attach to ‡‡®‡‡ï‡‡‡Æ‡ and to nothing else.
 --
--- The correct pattern was already in the kernel twice ‚Äî ku·π≠·π≠aka's `c` and
--- vargaprak·πõti's `n` are read with `case look k j of Left _ -> ‚Ä¶; Right
--- (JInt n) -> ‚Ä¶; Right other -> turned back` ‚Äî and was written out longhand each
--- time, which is why the other four sites did not get it.  ¬ß35: ‡§Ø‡§§‡•ç ‡§π‡•á‡§§‡•Å‡§®‡§æ
--- ‡§ú‡§®‡•ç‡§Ø‡§§‡•á ‡§§‡§§‡•ç ‡§® ‡§∏‡•ç‡§•‡§æ‡§™‡•ç‡§Ø‡§§‡•á ‚Äî what a rule generates is not stored in six copies.
+-- The correct pattern was already in the kernel twice ‚î kuaka's `c` and
+-- vargaprakti's `n` are read with `case look k j of Left _ -> ‚¶; Right
+-- (JInt n) -> ‚¶; Right other -> turned back` ‚î and was written out longhand each
+-- time, which is why the other four sites did not get it.  ¬ß35: ‡Ø‡‡ ‡‡‡‡‡®‡æ
+-- ‡‡®‡‡Ø‡‡ ‡‡‡ ‡® ‡‡‡‡æ‡‡‡Ø‡‡ ‚î what a rule generates is not stored in six copies.
 --
 
 -- | What a key on the wire is, from the reader's side.  Three, not two.
 data Vacana a
-  = Anuktam            -- ^ ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Æ‡•ç ‚Äî not uttered.  The key is absent.
-  | Uktam a            -- ^ ‡§â‡§ï‡•ç‡§§‡§Æ‡•ç ‚Äî uttered, and readable in the shape asked for.
-  | Durvacam String    -- ^ ‡§¶‡•Å‡§∞‡•ç‡§µ‡§ö‡§Æ‡•ç ‚Äî uttered and NOT readable.  Carries the
+  = Anuktam            -- ^ ‡‡®‡‡ï‡‡‡Æ‡ ‚î not uttered.  The key is absent.
+  | Uktam a            -- ^ ‡â‡ï‡‡‡Æ‡ ‚î uttered, and readable in the shape asked for.
+  | Durvacam String    -- ^ ‡¶‡‡∞‡‡µ‡‡Æ‡ ‚î uttered and NOT readable.  Carries the
                        --   sentence the accessor had already composed and
                        --   which `const` used to throw away.
   deriving (Eq, Show)
@@ -415,44 +415,44 @@ vStrs = vacana jStrs
 
 -- | The key must be present AS AN OBJECT.  Used for the argument bundle,
 --   where `absent` and `present and not an object` were byte-identical
---   (do·π£a 0016).
+--   (doa 0016).
 vObjAt :: String -> J -> Vacana J
 vObjAt = vacana (\k o -> look k o >>= \v -> case v of
                    JObj _ -> Right v
                    _      -> Left ("key `" ++ k ++ "` is not an object: " ++ render v))
 
--- | ‡§Ö‡§•‡§µ‡§æ ‚Äî "or else".  The ONLY sanctioned way to give a key a default, and
+-- | ‡‡‡µ‡æ ‚î "or else".  The ONLY sanctioned way to give a key a default, and
 --   the whole of its discipline is in which constructor it may touch: the
---   default applies to ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Æ‡•ç and never to ‡§¶‡•Å‡§∞‡•ç‡§µ‡§ö‡§Æ‡•ç.  A `Left` out of this is
---   a sentence to be written as a do·π£a-lekha, not a value to fall back from.
+--   default applies to ‡‡®‡‡ï‡‡‡Æ‡ and never to ‡¶‡‡∞‡‡µ‡‡Æ‡.  A `Left` out of this is
+--   a sentence to be written as a doa-lekha, not a value to fall back from.
 athava :: a -> Vacana a -> Either String a
 athava d Anuktam      = Right d
 athava _ (Uktam a)    = Right a
 athava _ (Durvacam e) = Left e
 
--- | ‡§Ö‡§®‡§ß‡§ø‡§ï‡•É‡§§‡§Æ‡•ç ‚Äî given the names an operation declares, the keys in an
+-- | ‡‡®‡ß‡ø‡ï‡‡‡Æ‡ ‚î given the names an operation declares, the keys in an
 --   argument object that nothing reads.  Each is returned WITH its own
 --   reason, in the caller's own order.
 --
 -- THE SECOND WAY TO BE READ BY NOTHING IS NOT CHECKED HERE, and that is a
 -- decision rather than an omission.  A key uttered twice is also read by
--- nothing ‚Äî the reader took the first and the rest went with no trace ‚Äî and
+-- nothing ‚î the reader took the first and the rest went with no trace ‚î and
 -- this function carried a branch for it.  The branch is gone because `look`,
--- above, was repaired for do·π£a 0015 in this same file while this was being
+-- above, was repaired for doa 0015 in this same file while this was being
 -- written, and it turns back a doubled key AT THE ACCESSOR, naming both values
 -- and giving the repair (send a list, which says `these are several`, rather
 -- than the key twice, which says `this is one thing` twice).  A check here
 -- runs first and would shadow that with a worse sentence: one lane's rule
 -- displacing another lane's better one by being earlier in the pipeline,
--- which is viprati·π£edha settled by list position and is exactly what
--- A·π£·π≠ƒÅdhyƒÅyƒ´ 1.4.2 exists to rule out.  An undeclared doubled key still lands
+-- which is vipratiedha settled by list position and is exactly what
+-- Adhyy 1.4.2 exists to rule out.  An undeclared doubled key still lands
 -- here, by the extent branch below; a declared one reaches `look`.
 --
 -- THIS IS WHAT THIS WIRE SAYS INSTEAD OF `additionalProperties:false`,
 -- WHICH IT CANNOT EMIT.  A schema rendered by this module cannot carry that
 -- keyword: its value is literally `false` and `J` has four constructors and
 -- no boolean.  The tool-schema lane says so in its own vyaya rather than
--- smuggling a fifth constructor in, and the hole it names was real ‚Äî the
+-- smuggling a fifth constructor in, and the hole it names was real ‚î the
 -- kernels read the keys they name and ignored the rest, so a misspelt param
 -- was executed as an omission and reported as a success.
 --
@@ -460,9 +460,9 @@ athava _ (Durvacam e) = Left e
 -- buys one keyword in one emitted document at the price of this module's
 -- whole claim: the moment `J` can carry `false`, every operation on this
 -- machine CAN answer with a bare boolean, and the argument that stops it
--- drops from `the type has no constructor for it` ‚Äî mechanical, at the
--- moment of the act ‚Äî to `nobody has done it yet`.  ¬ß5: ‡§®‡§∑‡•ç‡§ü‡§ø‡§∞‡•ç‡§µ‡§ø‡§®‡§æ‡§∂‡§É ‡•§ ‡§Ø‡§§‡•ç
--- ‡§®‡§∑‡•ç‡§ü‡§Ç ‡§§‡§§‡•ç ‡§Ö‡§ó‡•ç‡§∞‡•á ‡§® ‡§≤‡§≠‡•ç‡§Ø‡§Æ‡•ç ‚Äî that is not a trade.
+-- drops from `the type has no constructor for it` ‚î mechanical, at the
+-- moment of the act ‚î to `nobody has done it yet`.  ¬ß5: ‡®‡‡‡ü‡ø‡∞‡‡µ‡ø‡®‡æ‡‡ ‡ ‡Ø‡‡
+-- ‡®‡‡‡ü‡ ‡‡‡ ‡‡ó‡‡∞‡ ‡® ‡≤‡‡‡Ø‡Æ‡ ‚î that is not a trade.
 --
 -- SILENCE IS ALSO WRONG, for the reason above: the hole is real.
 --
@@ -470,16 +470,16 @@ athava _ (Durvacam e) = Left e
 -- `additionalProperties:false` asks the CALLER's validator to turn it back; the
 -- ignoring happens in the kernel.  So it is turned back in the kernel, and what
 -- comes back is strictly more than the keyword could have said: WHICH key,
--- WHY it is unread, and the operation's whole adhikƒÅra beside it.  A
+-- WHY it is unread, and the operation's whole adhikra beside it.  A
 -- validator would have answered `does not match schema`.  The keyword stays
 -- unsayable and stays unsaid; the hole it named is closed at the machine
--- rather than at the description of the machine ‚Äî ¬ß36, ‡§Ø‡•ã ‡§ï‡§∞‡§£‡§Ç ‡§® ‡§ú‡§æ‡§®‡§æ‡§§‡§ø ‡§∏
--- ‡§§‡§∏‡•ç‡§Æ‡•à ‡§® ‡§∞‡§ö‡§Ø‡§§‡§ø: design for the carrier, and the carrier misspells keys.
+-- rather than at the description of the machine ‚î ¬ß36, ‡Ø‡ã ‡ï‡∞‡‡ ‡® ‡‡æ‡®‡æ‡‡ø ‡
+-- ‡‡‡‡Æ‡à ‡® ‡∞‡‡Ø‡‡ø: design for the carrier, and the carrier misspells keys.
 --
 -- WHAT IS NOT CLOSED, stated so the next reader does not infer it: the
 -- callers of this guard it at the ARGUMENT object only.  The top level of a
--- request stays open ‚Äî `prasna-id` rides there and is read by the transport,
--- not by any operation ‚Äî so an unnamed key beside `kriya` is still ignored
+-- request stays open ‚î `prasna-id` rides there and is read by the transport,
+-- not by any operation ‚î so an unnamed key beside `kriya` is still ignored
 -- in silence.  Closing that needs the set of keys the transport itself
 -- claims, which is not written down anywhere yet.
 --

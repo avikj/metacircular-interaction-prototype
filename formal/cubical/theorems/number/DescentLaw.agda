@@ -15,7 +15,7 @@
 --   COARSEST  the carrier quotient is universal: any factorization
 --             agrees with `descend` pointwise (`descend-unique`).
 --   FORMS     a splitting witness (x, y related, observable differs)
---             is a proof that NO factorization exists (`forms`) — the
+--             is a proof that NO factorization exists (`forms`) � the
 --             machine's split fiber, as an obstruction, over ALL
 --             instances at once rather than an enumerated window.
 --
@@ -49,7 +49,7 @@ module _ {A : Type ℓA} {R : A → A → Type ℓR} {B : Type ℓB}
   descend-β f resp x = refl
 
   -- COARSEST: any map out of the carrier agreeing with f on points
-  -- agrees with `descend` everywhere — the carrier is the universal
+  -- agrees with `descend` everywhere � the carrier is the universal
   -- (coarsest) object through which f factors.
   descend-unique : (f : A → B) (resp : ∀ x y → R x y → f x ≡ f y)
                  → (g : A / R → B)
