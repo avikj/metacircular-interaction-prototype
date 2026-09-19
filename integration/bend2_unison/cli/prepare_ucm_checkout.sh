@@ -70,6 +70,7 @@ if [ ! -f "$checkout/.bend-ucm-overlays-applied" ]; then
   apply_overlay cli/ucm-bend-type-display.patch
   apply_overlay interface/unison-cli-bend-browser-link.patch
   apply_overlay interface/unison-cli-bend-desktop-link.patch
+  apply_overlay interface/ucm-desktop-bend.patch
   apply_overlay cli/ucm-bend-authored-types.patch
   apply_overlay cli/ucm-bend-names.patch
   apply_overlay cli/ucm-bend-divergent-merge.patch
