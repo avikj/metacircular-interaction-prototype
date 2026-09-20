@@ -1,0 +1,1185 @@
+--- a/bend2/bend.ts	2026-09-20 16:43:18.850854191 +0000
++++ b/bend2/bend.ts	2026-09-20 17:10:20.284209742 +0000
+@@ -293,8 +293,16 @@
+   | { $: "Rwt"; e: TermOf<B>; p: TermOf<B>; f: TermOf<B> }                         // %e@E : P; f (p = _ => e => P)
+   | { $: "Hol"; k: Name }                                                          // ?name
+   | { $: "Ann"; x: TermOf<B>; T: TermOf<B> }                                       // {x : T}
++  | { $: "Itv" }                                                                   // Interval
++  | { $: "Dim"; d: 0 | 1 }                                                         // i0, i1
++  | { $: "Ineg"; a: TermOf<B> }                                                    // -r
++  | { $: "Imin"; a: TermOf<B>; b: TermOf<B> }                                      // r /\ s
++  | { $: "Imax"; a: TermOf<B>; b: TermOf<B> }                                      // r \/ s
++  | { $: "Coe"; A: TermOf<B>; r: TermOf<B>; e: TermOf<B>; x: TermOf<B> }          // coe(A, r, s, x)
++  | { $: "Hcm"; A: TermOf<B>; x: TermOf<B>; sys: Array<Face<TermOf<B>>> }          // hcomp(A, x, [(r == i0) i => u, ..])
+ ) & { s?: Span };
+ 
++export type Face<T> = { f: Array<[T, 0 | 1]>; u: T };
+ export type LTerm = TermOf<[LTerm]>;
+ export type HBody = (x: HTerm) => HTerm;
+ export type HTerm = TermOf<HBody>;
+@@ -306,7 +314,7 @@
+ export type Ctr  = { k: Name; n: number; T: HTerm }
+ export type Ctrs = Array<Ctr>;
+ export type ADT  = { $: "ADT"; n: number; g: number; T: HTerm; c: Ctrs; b?: Bool; };
+-export type Def  = { $: "Def"; n: number; x: number; T: HTerm; v: HTerm | null; e?: LTerm; b?: Bool; u?: Bool; i?: string[]; };
++export type Def  = { $: "Def"; n: number; x: number; T: HTerm; v: HTerm | null; e?: LTerm; w?: HTerm; b?: Bool; u?: Bool; i?: string[]; };
+ export type TLD  = ADT | Def;
+ export type Book = { tlds: Record<Name, TLD>; ctrs: Record<Name, Ctr>; order: Name[]; hols: number; open: number; tmps: Record<Name, Record<string, Name>>; };
+ 
+@@ -435,6 +443,38 @@
+   return { $: "Ann", x, T, s };
+ }
+ 
++export function Itv<X>(s?: Span): TermOf<X> {
++  return { $: "Itv", s };
++}
++
++export function Dim<X>(d: 0 | 1, s?: Span): TermOf<X> {
++  return { $: "Dim", d, s };
++}
++
++export function Ineg<X>(a: TermOf<X>, s?: Span): TermOf<X> {
++  return { $: "Ineg", a, s };
++}
++
++export function Imin<X>(a: TermOf<X>, b: TermOf<X>, s?: Span): TermOf<X> {
++  return { $: "Imin", a, b, s };
++}
++
++export function Imax<X>(a: TermOf<X>, b: TermOf<X>, s?: Span): TermOf<X> {
++  return { $: "Imax", a, b, s };
++}
++
++export function Coe<X>(A: TermOf<X>, r: TermOf<X>, e: TermOf<X>, x: TermOf<X>, s?: Span): TermOf<X> {
++  return { $: "Coe", A, r, e, x, s };
++}
++
++export function Hcm<X>(A: TermOf<X>, x: TermOf<X>, sys: Array<Face<TermOf<X>>>, s?: Span): TermOf<X> {
++  return { $: "Hcm", A, x, sys, s };
++}
++
++function face_map<X, Y>(sys: Array<Face<X>>, f: (t: X) => Y): Array<Face<Y>> {
++  return sys.map((e) => ({ f: e.f.map(([r, d]): [Y, 0 | 1] => [f(r), d]), u: f(e.u) }));
++}
++
+ // PMap
+ // ----
+ 
+@@ -806,6 +846,25 @@
+     case "Ann": {
+       return Ann(term_higher(tm.x, env), term_higher(tm.T, env), tm.s);
+     }
++    case "Itv":
++    case "Dim": {
++      return tm;
++    }
++    case "Ineg": {
++      return Ineg(term_higher(tm.a, env), tm.s);
++    }
++    case "Imin": {
++      return Imin(term_higher(tm.a, env), term_higher(tm.b, env), tm.s);
++    }
++    case "Imax": {
++      return Imax(term_higher(tm.a, env), term_higher(tm.b, env), tm.s);
++    }
++    case "Coe": {
++      return Coe(term_higher(tm.A, env), term_higher(tm.r, env), term_higher(tm.e, env), term_higher(tm.x, env), tm.s);
++    }
++    case "Hcm": {
++      return Hcm(term_higher(tm.A, env), term_higher(tm.x, env), face_map(tm.sys, (t) => term_higher(t, env)), tm.s);
++    }
+   }
+ }
+ 
+@@ -874,6 +933,25 @@
+     case "Ann": {
+       return Ann(term_lower(tm.x, d), term_lower(tm.T, d), tm.s);
+     }
++    case "Itv":
++    case "Dim": {
++      return tm;
++    }
++    case "Ineg": {
++      return Ineg(term_lower(tm.a, d), tm.s);
++    }
++    case "Imin": {
++      return Imin(term_lower(tm.a, d), term_lower(tm.b, d), tm.s);
++    }
++    case "Imax": {
++      return Imax(term_lower(tm.a, d), term_lower(tm.b, d), tm.s);
++    }
++    case "Coe": {
++      return Coe(term_lower(tm.A, d), term_lower(tm.r, d), term_lower(tm.e, d), term_lower(tm.x, d), tm.s);
++    }
++    case "Hcm": {
++      return Hcm(term_lower(tm.A, d), term_lower(tm.x, d), face_map(tm.sys, (t) => term_lower(t, d)), tm.s);
++    }
+   }
+ }
+ 
+@@ -1480,6 +1558,30 @@
+       case "Ann": {
+         return "{" + go(tm.x, 1) + " : " + go(tm.T, 1) + "}";
+       }
++      case "Itv": {
++        return "Interval";
++      }
++      case "Dim": {
++        return tm.d === 0 ? "i0" : "i1";
++      }
++      case "Ineg": {
++        return "-" + go(tm.a, 12);
++      }
++      case "Imin": {
++        const s = go(tm.a, 11) + " /\\ " + go(tm.b, 12);
++        return prc > 11 ? "(" + s + ")" : s;
++      }
++      case "Imax": {
++        const s = go(tm.a, 10) + " \\/ " + go(tm.b, 11);
++        return prc > 10 ? "(" + s + ")" : s;
++      }
++      case "Coe": {
++        return "coe(" + go(tm.A, 0) + ", " + go(tm.r, 0) + ", " + go(tm.e, 0) + ", " + go(tm.x, 0) + ")";
++      }
++      case "Hcm": {
++        const sys = tm.sys.map((e) => "(" + e.f.map(([r, d]) => go(r, 0) + " == i" + String(d)).join(", ") + ") " + go(e.u, 0));
++        return "hcomp(" + go(tm.A, 0) + ", " + go(tm.x, 0) + ", [" + sys.join(", ") + "])";
++      }
+     }
+   }
+   return go(term, top);
+@@ -1532,6 +1634,7 @@
+   "def", "type", "law", "match", "case", "do", "return",
+   "for", "exs", "where", "is", "import",
+   "Type", "Data", "Kind", "Quant",
++  "Interval", "i0", "i1", "coe", "hcomp",
+ ]);
+ 
+ const QUAS: Record<string, Quant> = { "0": None(), "1": Lone(), "2": Many() };
+@@ -1799,6 +1902,64 @@
+       parse_eat(p, ")");
+       return Typ(g, parse_span(p, beg));
+     }
++    if (k === "Interval") {
++      return Itv(parse_span(p, beg));
++    }
++    if (k === "i0") {
++      return Dim(0, parse_span(p, beg));
++    }
++    if (k === "i1") {
++      return Dim(1, parse_span(p, beg));
++    }
++    if (k === "coe") {
++      parse_eat(p, "(");
++      const xs = parse_term_args(p, ")");
++      if (xs.length !== 4) {
++        parse_fail(p, "coe(A, r, s, x) with four arguments (a line i => T, two endpoints and a value)");
++      }
++      return Coe(xs[0], xs[1], xs[2], xs[3], parse_span(p, beg));
++    }
++    if (k === "hcomp") {
++      parse_eat(p, "(");
++      const A = parse_term(p);
++      parse_eat(p, ",");
++      const x = parse_term(p);
++      parse_eat(p, ",");
++      parse_eat(p, "[");
++      const sys: Array<Face<LTerm>> = [];
++      while (true) {
++        parse_skip(p);
++        if (parse_take(p, "]")) {
++          break;
++        }
++        parse_eat(p, "(");
++        const f: Array<[LTerm, 0 | 1]> = [];
++        while (true) {
++          parse_skip(p);
++          if (parse_take(p, ")")) {
++            break;
++          }
++          const l = parse_term(p, 5);
++          parse_eat(p, "==");
++          const r = parse_term(p, 5);
++          if (r.$ === "Dim") {
++            f.push([l, r.d]);
++          } else if (l.$ === "Dim") {
++            f.push([r, l.d]);
++          } else {
++            parse_fail(p, "a face (r == i0 or r == i1)");
++          }
++          parse_skip(p);
++          parse_take(p, ",");
++        }
++        const u = parse_term(p);
++        sys.push({ f, u });
++        parse_skip(p);
++        parse_take(p, ",");
++      }
++      parse_eat(p, ")");
++      return Hcm(A, x, sys, parse_span(p, beg));
++    }
+     if (k === "do") {
+       const m = parse_name(p);
+       parse_eat(p, "<");
+@@ -1857,6 +2018,13 @@
+       const xs = t.$ === "ADT" ? t.x : Array.from({ length: tld.n }, (): LTerm => Qua(Lone(), s));
+       return ADT(k, xs.map((x, i) => i < tld.g ? Qua(Many(), s) : x), s);
+     }
++    case "-": {
++      // -r: the interval's negation (a glued - heads a binder in a
++      // telescope or a let; here, in a term, it heads a dimension)
++      parse_bump(p);
++      const a = parse_term(p, 12);
++      return Ineg(a, parse_span(p, beg));
++    }
+     case "\\": {
+       parse_bump(p);
+       parse_eat(p, "{");
+@@ -2158,6 +2326,16 @@
+       out = Min(out, b, parse_grow(p, out));
+       continue;
+     }
++    if (lvl <= 11 && parse_take(p, "/\\")) {
++      const b = parse_term(p, 12);
++      out = Imin(out, b, parse_grow(p, out));
++      continue;
++    }
++    if (lvl <= 10 && parse_take(p, "\\/")) {
++      const b = parse_term(p, 11);
++      out = Imax(out, b, parse_grow(p, out));
++      continue;
++    }
+     const op = INFIX_OPS.find((op) => {
+       const nx = p.str[p.pos + op[0].length] ?? "";
+       return parse_at(p, op[0])
+@@ -2875,9 +3053,82 @@
+         }
+       }
+       case "Ann": {
++        // a path applied to an endpoint is that endpoint: the elaborated
++        // tree annotates every node, so a stuck path (a variable, a stuck
++        // rewrite, a stuck coe) reads its endpoints off its own type
++        if (frs.length > 0) {
++          const fr = frs[frs.length - 1];
++          if (fr.$ === "APP") {
++            let x = term_strip(fr.x);
++            if (itv_is(x)) {
++              x = term_wnf(book, x);
++            }
++            if (x.$ === "Dim") {
++              const T = term_wnf(book, tm.T);
++              if (T.$ === "Eql") {
++                frs.pop();
++                lhs = null;
++                tm = x.d === 0 ? T.a : T.b;
++                continue main;
++              }
++            }
++          }
++        }
+         tm = tm.x;
+         continue main;
+       }
++      case "Ineg": {
++        const a = term_wnf(book, tm.a);
++        if (a.$ === "Dim") {
++          tm = Dim(a.d === 0 ? 1 : 0, tm.s);
++        } else if (a.$ === "Ineg") {
++          tm = a.a;
++          continue main;
++        } else {
++          tm = Ineg(a, tm.s);
++        }
++        break focus;
++      }
++      case "Imin": {
++        const a = term_wnf(book, tm.a);
++        const b = term_wnf(book, tm.b);
++        if ((a.$ === "Dim" && a.d === 0) || (b.$ === "Dim" && b.d === 1)) {
++          tm = a;
++        } else if ((b.$ === "Dim" && b.d === 0) || (a.$ === "Dim" && a.d === 1)) {
++          tm = b;
++        } else {
++          tm = Imin(a, b, tm.s);
++        }
++        break focus;
++      }
++      case "Imax": {
++        const a = term_wnf(book, tm.a);
++        const b = term_wnf(book, tm.b);
++        if ((a.$ === "Dim" && a.d === 1) || (b.$ === "Dim" && b.d === 0)) {
++          tm = a;
++        } else if ((b.$ === "Dim" && b.d === 1) || (a.$ === "Dim" && a.d === 0)) {
++          tm = b;
++        } else {
++          tm = Imax(a, b, tm.s);
++        }
++        break focus;
++      }
++      case "Coe": {
++        const step = coe_step(book, tm);
++        if (step === null) {
++          break focus;
++        }
++        tm = step;
++        continue main;
++      }
++      case "Hcm": {
++        const step = hcm_step(book, tm);
++        if (step === null) {
++          break focus;
++        }
++        tm = step;
++        continue main;
++      }
+       case "Min": {
+         frs.push({ $: "MNA", b: tm.b, s: tm.s });
+         tm = tm.a;
+@@ -2929,10 +3180,17 @@
+       }
+       case "Rwt": {
+         const e = term_wnf(book, tm.e);
+-        if (e.$ === "Rfl") {
++        if (e.$ === "Rfl" || (e.$ === "Lam" && !term_mentions(term_wnf(book, e.f(SENT))))) {
+           tm = tm.f;
+           continue main;
+         }
++        if (e.$ === "Lam") {
++          // J on a path is transport along the connection square:
++          // %e : P; f  =  coe(i => P(e(i), j => e(i /\ j)), i0, i1, f)
++          const P = tm.p;
++          tm = Coe(Lam("i", 0, (i: HTerm) => term_apply(term_apply(P, App(e, i)), Lam("j", 0, (j: HTerm) => App(e, Imin(i, j))))), Dim(0), Dim(1), tm.f, tm.s);
++          continue main;
++        }
+         break focus;
+       }
+       case "Ref": {
+@@ -2955,7 +3213,10 @@
+         }
+         const rf: HTerm = tm;
+         lhs = { t: () => rf, n: tld.n };
+-        tm = tld.v;
++        // the term it checked is the term it runs: a checked def unfolds
++        // to its elaborated tree (every node annotated, so a path read
++        // off a stuck term finds its endpoints); a template unfolds raw
++        tm = tld.e !== undefined && tld.x === 0 ? (tld.w ??= def_body(tld.e)) : tld.v;
+         continue main;
+       }
+       default: {
+@@ -3122,9 +3383,390 @@
+     case "Hol": {
+       return Hol(tm.k, tm.s);
+     }
++    case "Itv":
++    case "Dim": {
++      return tm;
++    }
++    case "Ineg": {
++      return Ineg(term_snf(book, tm.a), tm.s);
++    }
++    case "Imin": {
++      return Imin(term_snf(book, tm.a), term_snf(book, tm.b), tm.s);
++    }
++    case "Imax": {
++      return Imax(term_snf(book, tm.a), term_snf(book, tm.b), tm.s);
++    }
++    case "Coe": {
++      return Coe(term_snf(book, tm.A), term_snf(book, tm.r), term_snf(book, tm.e), term_snf(book, tm.x), tm.s);
++    }
++    case "Hcm": {
++      return Hcm(term_snf(book, tm.A), term_snf(book, tm.x), face_map(tm.sys, (t) => term_snf(book, t)), tm.s);
++    }
+   }
+ }
+ 
++// Body
++// ====
++// a checked def's running body: its elaborated tree, closed (the cells'
++// types, built over the check's index variables, are lowered at their
++// depth and re-bound with the tree), keeping the annotations a path may
++// read its endpoints from and dropping the rest
++
++export function term_prune(tm: LTerm): LTerm {
++  switch (tm.$) {
++    case "Ann": {
++      const T = tm.T;
++      const keep = T.$ === "Eql" || T.$ === "App" || T.$ === "Var" || T.$ === "Ref" || T.$ === "Let";
++      return keep ? Ann(term_prune(tm.x), term_prune(T), tm.s) : term_prune(tm.x);
++    }
++    case "Sub": return Sub(tm.i, tm.v.$ === "PVar" || tm.v.$ === "PCtr" ? tm.v : term_prune(tm.v), term_prune(tm.f), tm.s);
++    case "Let": return Let(tm.k, tm.i, tm.v.map(term_prune), term_prune(tm.f), tm.s, tm.q);
++    case "Typ": return Typ(term_prune(tm.g), tm.s);
++    case "Min": return Min(term_prune(tm.a), term_prune(tm.b), tm.s);
++    case "All": return All(tm.q, tm.k, tm.i, term_prune(tm.A), term_prune(tm.B), tm.s);
++    case "Lam": return Lam(tm.k, tm.i, term_prune(tm.f), tm.s, tm.q);
++    case "App": return App(term_prune(tm.f), term_prune(tm.x), tm.s);
++    case "ADT": return ADT(tm.k, tm.x.map(term_prune), tm.s, tm.r);
++    case "Ctr": return Ctr(tm.k, tm.x.map(term_prune), tm.s);
++    case "Mat": return Mat(tm.k, term_prune(tm.h), term_prune(tm.m), tm.s);
++    case "Eql": return Eql(term_prune(tm.a), term_prune(tm.b), term_prune(tm.T), tm.s);
++    case "Rwt": return Rwt(term_prune(tm.e), term_prune(tm.p), term_prune(tm.f), tm.s);
++    case "Ineg": return Ineg(term_prune(tm.a), tm.s);
++    case "Imin": return Imin(term_prune(tm.a), term_prune(tm.b), tm.s);
++    case "Imax": return Imax(term_prune(tm.a), term_prune(tm.b), tm.s);
++    case "Coe": return Coe(term_prune(tm.A), term_prune(tm.r), term_prune(tm.e), term_prune(tm.x), tm.s);
++    case "Hcm": return Hcm(term_prune(tm.A), term_prune(tm.x), face_map(tm.sys, term_prune), tm.s);
++    default: return tm;
++  }
++}
++
++export function def_body(e: LTerm): HTerm {
++  return term_higher(term_prune(term_lower(term_higher(e))));
++}
++
++// a checked tree for the compiler: a path has no runtime, so a path
++// lambda (a Lam annotated at a path type) is the erased evidence {==}, and
++// a path applied to a literal endpoint is that endpoint, read off the
++// path's annotation at the tree's depth. a path applied to a dimension
++// variable, a coe and an hcomp stay, for the compiler to refuse until the
++// runtime carries transport.
++
++export function term_unpath(book: Book, tm: LTerm, d: number = 0): LTerm {
++  function go(t: LTerm, d: number): LTerm {
++    switch (t.$) {
++      case "Ann": {
++        const T = t.T.$ === "Var" && t.T.i < 0 && t.T.v !== undefined ? t.T.v : null;
++        if (T !== null && t.x.$ === "Lam") {
++          const w = term_wnf(book, T);
++          if (w.$ === "Eql") {
++            return Ann(Rfl(t.s), t.T, t.s);
++          }
++        }
++        return Ann(go(t.x, d), t.T, t.s);
++      }
++      case "App": {
++        const x = go(t.x, d);
++        let f = go(t.f, d);
++        if (f.$ === "Ann" && f.x.$ === "Lam") {
++          f = f.x;
++        }
++        const xs = x.$ === "Ann" ? x.x : x;
++        if (xs.$ === "Dim" && f.$ === "Ann" && f.T.$ === "Var" && f.T.i < 0 && f.T.v !== undefined) {
++          const w = term_wnf(book, f.T.v);
++          if (w.$ === "Eql") {
++            const Tw = term_wnf(book, w.T);
++            const ty: HTerm = Tw.$ === "Lam" ? term_apply(Tw, Dim(xs.d)) : w.T;
++            const end = go(term_lower(xs.d === 0 ? w.a : w.b, d), d);
++            return end.$ === "Lam" ? end : Ann(end, Var("_", -1, undefined, ty), t.s);
++          }
++        }
++        return App(f, x, t.s);
++      }
++      case "Sub": return Sub(t.i, t.v.$ === "PVar" || t.v.$ === "PCtr" ? t.v : go(t.v, d), go(t.f, d), t.s);
++      case "Let": return Let(t.k, t.i, t.v.map((v) => go(v, d)), go(t.f, d + t.k.length), t.s, t.q);
++      case "Typ": return Typ(go(t.g, d), t.s);
++      case "Min": return Min(go(t.a, d), go(t.b, d), t.s);
++      case "All": return All(t.q, t.k, t.i, go(t.A, d), go(t.B, d + 1), t.s);
++      case "Lam": return Lam(t.k, t.i, go(t.f, d + 1), t.s, t.q);
++      case "ADT": return ADT(t.k, t.x.map((x) => go(x, d)), t.s, t.r);
++      case "Ctr": return Ctr(t.k, t.x.map((x) => go(x, d)), t.s);
++      case "Mat": return Mat(t.k, go(t.h, d), go(t.m, d), t.s);
++      case "Eql": return Eql(go(t.a, d), go(t.b, d), go(t.T, d), t.s);
++      case "Rwt": return Rwt(go(t.e, d), go(t.p, d), go(t.f, d), t.s);
++      case "Ineg": return Ineg(go(t.a, d), t.s);
++      case "Imin": return Imin(go(t.a, d), go(t.b, d), t.s);
++      case "Imax": return Imax(go(t.a, d), go(t.b, d), t.s);
++      case "Coe": return Coe(go(t.A, d), go(t.r, d), go(t.e, d), go(t.x, d), t.s);
++      case "Hcm": return Hcm(go(t.A, d), go(t.x, d), face_map(t.sys, (u) => go(u, d)), t.s);
++      default: return t;
++    }
++  }
++  return go(tm, d);
++}
++
++// Interval
++// ========
++// the interval is De Morgan: i0, i1, -r, r /\ s, r \/ s over interval
++// atoms (a bound variable, or any stuck term of type Interval). term_wnf
++// folds the constants; two interval terms are equal when they agree on
++// every assignment of their atoms (a truth table, the atoms keyed by
++// their syntax), which decides the free De Morgan algebra exactly.
++// SENT is the sentinel dimension a line is opened at: coe_step and the
++// rewrite rule apply a line to it and ask whether the body mentions it.
++
++export const SENT: HTerm = Var("i", -3);
++
++export function term_mentions(t: HTerm, i: number = -3): boolean {
++  function go(x: LTerm): boolean {
++    switch (x.$) {
++      case "Var": return x.i === i;
++      case "Ref": case "Qnt": case "Qua": case "Efq": case "Rfl": case "Hol": case "Itv": case "Dim": return false;
++      case "Sub": return (x.v.$ !== "PVar" && x.v.$ !== "PCtr" && go(x.v)) || go(x.f);
++      case "Let": return x.v.some(go) || go(x.f);
++      case "Typ": return go(x.g);
++      case "Min": case "Imin": case "Imax": return go(x.a) || go(x.b);
++      case "Ineg": return go(x.a);
++      case "All": return go(x.A) || go(x.B);
++      case "Lam": return go(x.f);
++      case "App": return go(x.f) || go(x.x);
++      case "ADT": case "Ctr": return x.x.some(go);
++      case "Mat": return go(x.h) || go(x.m);
++      case "Eql": return go(x.a) || go(x.b) || go(x.T);
++      case "Rwt": return go(x.e) || go(x.p) || go(x.f);
++      case "Ann": return go(x.x) || go(x.T);
++      case "Coe": return go(x.A) || go(x.r) || go(x.e) || go(x.x);
++      case "Hcm": return go(x.A) || go(x.x) || x.sys.some((e) => go(e.u) || e.f.some(([r]) => go(r)));
++    }
++  }
++  return go(term_lower(t));
++}
++
++export function itv_is(t: HTerm): boolean {
++  return t.$ === "Dim" || t.$ === "Ineg" || t.$ === "Imin" || t.$ === "Imax";
++}
++
++function itv_key(x: HTerm): string {
++  return x.$ === "Var" ? "v" + String(x.i) : term_key(term_lower(x));
++}
++
++function itv_atoms(book: Book, t: HTerm, atoms: Set<string>): void {
++  const x = term_wnf(book, t);
++  switch (x.$) {
++    case "Dim": return;
++    case "Ineg": return itv_atoms(book, x.a, atoms);
++    case "Imin": case "Imax": {
++      itv_atoms(book, x.a, atoms);
++      itv_atoms(book, x.b, atoms);
++      return;
++    }
++    default: {
++      atoms.add(itv_key(x));
++    }
++  }
++}
++
++function itv_eval(book: Book, t: HTerm, env: Map<string, number>): number {
++  const x = term_wnf(book, t);
++  switch (x.$) {
++    case "Dim": return x.d;
++    case "Ineg": return 1 - itv_eval(book, x.a, env);
++    case "Imin": return Math.min(itv_eval(book, x.a, env), itv_eval(book, x.b, env));
++    case "Imax": return Math.max(itv_eval(book, x.a, env), itv_eval(book, x.b, env));
++    default: return env.get(itv_key(x)) ?? 0;
++  }
++}
++
++export function itv_eq(book: Book, a: HTerm, b: HTerm): boolean {
++  const atoms = new Set<string>();
++  itv_atoms(book, a, atoms);
++  itv_atoms(book, b, atoms);
++  const ks = [...atoms];
++  if (ks.length > 16) {
++    return false;
++  }
++  for (let m = 0; m < (1 << ks.length); m++) {
++    const env = new Map<string, number>();
++    ks.forEach((k, j) => env.set(k, (m >> j) & 1));
++    if (itv_eval(book, a, env) !== itv_eval(book, b, env)) {
++      return false;
++    }
++  }
++  return true;
++}
++
++// Coe
++// ===
++// coe(A, r, s, x) transports x : A(r) to A(s) along the line A, by the
++// shape of the line's body at a fresh dimension:
++//   r = s, or a line that does not mention its dimension  ->  x
++//   a kind, Quant, Interval                                ->  x
++//   @y:D -> C   ->  y => coe(i => C(i)[coe(D, s, i, y)], r, s, x(coe(D, s, r, y)))
++//   K<p(i)..>   ->  a constructor coerces fieldwise, each field's line the
++//                   constructor's telescope at the parameters of i, opened
++//                   on the earlier fields carried to i
++//   else stuck (a path type and Glue wait on composition)
++
++function coe_line(A: HTerm, f: (T: HTerm, i: HTerm) => HTerm): HTerm {
++  return Lam("i", 0, (i: HTerm) => f(term_apply(A, i), i));
++}
++
++export function coe_step(book: Book, tm: Extract<HTerm, { $: "Coe" }>): HTerm | null {
++  const r = term_wnf(book, tm.r);
++  const s = term_wnf(book, tm.e);
++  if (itv_eq(book, r, s)) {
++    return tm.x;
++  }
++  const body = term_wnf(book, term_apply(tm.A, SENT));
++  if (!term_mentions(body)) {
++    return tm.x;
++  }
++  switch (body.$) {
++    case "Typ": case "Qnt": case "Qua": case "Itv": {
++      return tm.x;
++    }
++    case "All": {
++      const A = tm.A;
++      const dom = coe_line(A, (T) => (term_wnf(book, T) as Extract<HTerm, { $: "All" }>).A);
++      return Lam(body.k, 0, (y: HTerm) => {
++        const cod = coe_line(A, (T, i) => (term_wnf(book, T) as Extract<HTerm, { $: "All" }>).B(Coe(dom, s, i, y)));
++        return Coe(cod, r, s, App(tm.x, Coe(dom, s, r, y)));
++      }, tm.s);
++    }
++    case "Eql": {
++      // along a line of path types: reparametrize the line from r to s
++      // onto i0 to i1, transport the path pointwise, and compose with the
++      // endpoints' own transports on the faces of the new path
++      const L = Lam("i", 0, (i: HTerm) => term_apply(tm.A, Imax(Imin(Ineg(i), r), Imin(i, s))));
++      const eq = (i: HTerm) => term_wnf(book, term_apply(L, i)) as Extract<HTerm, { $: "Eql" }>;
++      return Lam("j", 0, (j: HTerm) => {
++        const T = coe_line(L, (E) => {
++          const e = term_wnf(book, E) as Extract<HTerm, { $: "Eql" }>;
++          const Tw = term_wnf(book, e.T);
++          return Tw.$ === "Lam" ? term_apply(Tw, j) : e.T;
++        });
++        return Hcm(term_apply(T, Dim(1)), Coe(T, Dim(0), Dim(1), App(tm.x, j)), [
++          { f: [[j, 0]], u: Lam("i", 0, (i: HTerm) => Coe(T, i, Dim(1), eq(i).a)) },
++          { f: [[j, 1]], u: Lam("i", 0, (i: HTerm) => Coe(T, i, Dim(1), eq(i).b)) },
++        ], tm.s);
++      }, tm.s);
++    }
++    case "ADT": {
++      const x = term_wnf(book, tm.x);
++      if (x.$ !== "Ctr") {
++        return null;
++      }
++      const ctr = book_ctr(book, x.k);
++      if (ctr === null || ctr.n !== x.x.length) {
++        return null;
++      }
++      const A = tm.A;
++      const lines: HTerm[] = [];
++      for (let j = 0; j < ctr.n; j++) {
++        lines.push(coe_line(A, (T, i) => {
++          const adt = term_wnf(book, T) as Extract<HTerm, { $: "ADT" }>;
++          let tel = tele_fill(book, ctr.T, adt.x, ctx_nil());
++          for (let m = 0; m < j; m++) {
++            tel = tele_head(book, tel, ctx_nil()).B(Coe(lines[m], r, i, x.x[m]));
++          }
++          return tele_head(book, tel, ctx_nil()).A;
++        }));
++      }
++      return Ctr(x.k, x.x.map((f, j) => Coe(lines[j], r, s, f)), x.s);
++    }
++    default: {
++      return null;
++    }
++  }
++}
++
++// Hcomp
++// =====
++// hcomp(A, x, [(r == d, ..) i => u, ..]) composes x : A with the tubes u,
++// each a line in A over the face its constraints cut, agreeing with x at
++// i0; it is the tubes' value at i1 on a face that holds, and pushes into
++// the type otherwise: a function composes pointwise, a path composes in
++// its carrier with its endpoints as new faces, a constructor of a data
++// type composes fieldwise when every tube is that constructor
++
++function face_holds(book: Book, f: Array<[HTerm, 0 | 1]>): boolean {
++  return f.every(([r, d]) => {
++    const w = term_wnf(book, r);
++    return w.$ === "Dim" && w.d === d;
++  });
++}
++
++function face_dead(book: Book, f: Array<[HTerm, 0 | 1]>): boolean {
++  return f.some(([r, d]) => {
++    const w = term_wnf(book, r);
++    return w.$ === "Dim" && w.d !== d;
++  });
++}
++
++export function hcm_step(book: Book, tm: Extract<HTerm, { $: "Hcm" }>): HTerm | null {
++  for (const e of tm.sys) {
++    if (face_holds(book, e.f)) {
++      return term_apply(e.u, Dim(1));
++    }
++  }
++  const sys = tm.sys.filter((e) => !face_dead(book, e.f));
++  const A = term_wnf(book, tm.A);
++  switch (A.$) {
++    case "All": {
++      return Lam(A.k, 0, (y: HTerm) => Hcm(A.B(y), App(tm.x, y),
++        sys.map((e) => ({ f: e.f, u: Lam("i", 0, (i: HTerm) => App(App(e.u, i), y)) })), tm.s), tm.s);
++    }
++    case "Eql": {
++      const Tw = term_wnf(book, A.T);
++      return Lam("j", 0, (j: HTerm) => Hcm(Tw.$ === "Lam" ? term_apply(Tw, j) : A.T, App(tm.x, j), [
++        ...sys.map((e) => ({ f: e.f, u: Lam("i", 0, (i: HTerm) => App(App(e.u, i), j)) })),
++        { f: [[j, 0]], u: Lam("i", 0, () => A.a) },
++        { f: [[j, 1]], u: Lam("i", 0, () => A.b) },
++      ], tm.s), tm.s);
++    }
++    case "ADT": {
++      const x = term_wnf(book, tm.x);
++      if (x.$ !== "Ctr") {
++        return null;
++      }
++      const ctr = book_ctr(book, x.k);
++      if (ctr === null || ctr.n !== x.x.length) {
++        return null;
++      }
++      const tubes = sys.map((e) => term_wnf(book, term_apply(e.u, SENT)));
++      if (!tubes.every((t) => t.$ === "Ctr" && t.k === x.k && t.x.length === x.x.length)) {
++        return null;
++      }
++      let tel = tele_fill(book, ctr.T, A.x, ctx_nil());
++      const out: HTerm[] = [];
++      for (let j = 0; j < ctr.n; j++) {
++        const h = tele_head(book, tel, ctx_nil());
++        out.push(Hcm(h.A, x.x[j], sys.map((e) => ({ f: e.f, u: Lam("i", 0, (i: HTerm) =>
++          (term_wnf(book, term_apply(e.u, i)) as Extract<HTerm, { $: "Ctr" }>).x[j]) })), tm.s));
++        tel = h.B(out[j]);
++      }
++      return Ctr(x.k, out, x.s);
++    }
++    default: {
++      return null;
++    }
++  }
++}
++
++// Subst
++// =====
++// a term under a substitution of some of the context's variables: the
++// term is lowered at the depth and re-bound, every other variable to
++// itself
++
++export function term_subst(ctx: Ctx, t: HTerm, d: number, sub: Map<number, HTerm>): HTerm {
++  let env: Env = null;
++  const ks = ctx_scope(ctx);
++  for (let k = 0; k < d; k++) {
++    env = list_set(env, k, sub.get(k) ?? Var(ks[k] ?? "_", k));
++  }
++  return term_higher(term_lower(t, d), env);
++}
++
+ // Compare
+ // =======
+ // term_compare(mode, a, b): a fits b. the relation is a preorder, not an
+@@ -3139,19 +3781,65 @@
+ // same walk, kinds exact, no swap (a swap under EQ is harmless, so
+ // the All case swaps unconditionally).
+ 
+-export function term_compare(mode: "EQ" | "LE", book: Book, lhs: HTerm, rhs: HTerm, dep: number = 0): boolean {
++// a stuck spine headed by a variable or a reference and applied to an
++// endpoint reads the endpoint off the head's type (inferred dead in ctx):
++// f(x)(i0) is the left endpoint of the path f(x). the elaborated tree
++// needs no oracle (term_wnf reads the Ann); a raw goal does.
++export function term_pend(book: Book, ctx: Ctx, t: HTerm, dep: number): HTerm {
++  const [h, xs] = term_unapply(t);
++  if ((h.$ !== "Var" && h.$ !== "Ref") || !xs.some((x) => itv_is(term_strip(x)))) {
++    return t;
++  }
++  let ty: HTerm;
++  try {
++    ty = term_infer(book, { t: h, n: 0, def: "", qs: [] }, h, None(), ctx, dep).ty;
++  } catch {
++    return t;
++  }
++  let cur: HTerm = h;
++  for (let j = 0; j < xs.length; j++) {
++    const T = term_wnf(book, ty);
++    let x = term_strip(xs[j]);
++    if (itv_is(x)) {
++      x = term_wnf(book, x);
++    }
++    if (T.$ === "Eql") {
++      if (x.$ === "Dim") {
++        let rest: HTerm = x.d === 0 ? T.a : T.b;
++        for (const y of xs.slice(j + 1)) {
++          rest = App(rest, y);
++        }
++        return term_pend(book, ctx, term_wnf(book, rest), dep);
++      }
++      const Tw = term_wnf(book, T.T);
++      cur = App(cur, x);
++      ty  = Tw.$ === "Lam" ? term_apply(Tw, x) : T.T;
++    } else if (T.$ === "All") {
++      cur = App(cur, x);
++      ty  = T.B(x);
++    } else {
++      return t;
++    }
++  }
++  return t;
++}
++
++export function term_compare(mode: "EQ" | "LE", book: Book, lhs: HTerm, rhs: HTerm, dep: number = 0, ctx: Ctx = ctx_nil()): boolean {
+   if (lhs === rhs) {
+     return true;
+   }
+-  const a = term_wnf(book, lhs);
+-  const b = term_wnf(book, rhs);
++  const a = term_pend(book, ctx, term_wnf(book, lhs), dep);
++  const b = term_pend(book, ctx, term_wnf(book, rhs), dep);
+   if (a === b) {
+     return true;
+   }
++  if (itv_is(a) || itv_is(b)) {
++    return itv_eq(book, a, b);
++  }
+   if (a.$ === "Lam" || b.$ === "Lam") {
+     const k = a.$ === "Lam" ? a.k : (b as Extract<HTerm, { $: "Lam" }>).k;
+     const x: HTerm = Var(k, dep);
+-    return term_compare(mode, book, term_apply(a, x), term_apply(b, x), dep + 1);
++    return term_compare(mode, book, term_apply(a, x), term_apply(b, x), dep + 1, ctx);
+   }
+   switch (a.$) {
+     case "Var": {
+@@ -3173,16 +3861,16 @@
+         return true;
+       }
+       if (g.$ === "Min") {
+-        const fa = term_compare("LE", book, Typ(g.a), b, dep);
+-        const fb = term_compare("LE", book, Typ(g.b), b, dep);
++        const fa = term_compare("LE", book, Typ(g.a), b, dep, ctx);
++        const fb = term_compare("LE", book, Typ(g.b), b, dep, ctx);
+         return fa && fb;
+       }
+       if (h.$ === "Min") {
+-        const fa = term_compare("LE", book, a, Typ(h.a), dep);
+-        const fb = term_compare("LE", book, a, Typ(h.b), dep);
++        const fa = term_compare("LE", book, a, Typ(h.a), dep, ctx);
++        const fb = term_compare("LE", book, a, Typ(h.b), dep, ctx);
+         return fa || fb;
+       }
+-      return term_compare("LE", book, g, h, dep);
++      return term_compare("LE", book, g, h, dep, ctx);
+     }
+     case "Qnt": {
+       return b.$ === "Qnt";
+@@ -3192,19 +3880,37 @@
+     }
+     case "Min": {
+       return b.$ === "Min"
+-          && term_compare("EQ", book, a.a, b.a, dep)
+-          && term_compare("EQ", book, a.b, b.b, dep);
++          && term_compare("EQ", book, a.a, b.a, dep, ctx)
++          && term_compare("EQ", book, a.b, b.b, dep, ctx);
+     }
+     case "All": {
+       const x: HTerm = Var(a.k, dep);
+       return b.$ === "All" && a.q.$ === b.q.$
+-          && term_compare(mode, book, b.A, a.A, dep)
+-          && term_compare(mode, book, a.B(x), b.B(x), dep + 1);
++          && term_compare(mode, book, b.A, a.A, dep, ctx)
++          && term_compare(mode, book, a.B(x), b.B(x), dep + 1, ctx_bind(ctx, dep, a.q, a.k, a.A));
+     }
+     case "App": {
+       return b.$ === "App"
+-          && term_compare("EQ", book, a.f, b.f, dep)
+-          && term_compare("EQ", book, a.x, b.x, dep);
++          && term_compare("EQ", book, a.f, b.f, dep, ctx)
++          && term_compare("EQ", book, a.x, b.x, dep, ctx);
++    }
++    case "Itv": {
++      return b.$ === "Itv";
++    }
++    case "Hcm": {
++      return b.$ === "Hcm" && a.sys.length === b.sys.length
++          && term_compare("EQ", book, a.A, b.A, dep, ctx)
++          && term_compare("EQ", book, a.x, b.x, dep, ctx)
++          && a.sys.every((e, j) => e.f.length === b.sys[j].f.length
++            && e.f.every(([r, d], m) => d === b.sys[j].f[m][1] && term_compare("EQ", book, r, b.sys[j].f[m][0], dep, ctx))
++            && term_compare("EQ", book, e.u, b.sys[j].u, dep, ctx));
++    }
++    case "Coe": {
++      return b.$ === "Coe"
++          && term_compare("EQ", book, a.A, b.A, dep, ctx)
++          && term_compare("EQ", book, a.r, b.r, dep, ctx)
++          && term_compare("EQ", book, a.e, b.e, dep, ctx)
++          && term_compare("EQ", book, a.x, b.x, dep, ctx);
+     }
+     case "ADT": {
+       if (b.$ !== "ADT" || a.k !== b.k || a.x.length !== b.x.length) {
+@@ -3214,25 +3920,25 @@
+         return false;
+       }
+       return b.r.every((c) => a.r.includes(c))
+-          && a.x.every((x, j) => term_compare("EQ", book, x, b.x[j], dep));
++          && a.x.every((x, j) => term_compare("EQ", book, x, b.x[j], dep, ctx));
+     }
+     case "Ctr": {
+       return b.$ === "Ctr" && a.k === b.k && a.x.length === b.x.length
+-          && a.x.every((x, j) => term_compare("EQ", book, x, b.x[j], dep));
++          && a.x.every((x, j) => term_compare("EQ", book, x, b.x[j], dep, ctx));
+     }
+     case "Mat": {
+       return b.$ === "Mat" && a.k === b.k
+-          && term_compare("EQ", book, a.h, b.h, dep)
+-          && term_compare("EQ", book, a.m, b.m, dep);
++          && term_compare("EQ", book, a.h, b.h, dep, ctx)
++          && term_compare("EQ", book, a.m, b.m, dep, ctx);
+     }
+     case "Efq": {
+       return b.$ === "Efq";
+     }
+     case "Eql": {
+       return b.$ === "Eql"
+-          && term_compare("EQ", book, a.a, b.a, dep)
+-          && term_compare("EQ", book, a.b, b.b, dep)
+-          && term_compare("EQ", book, a.T, b.T, dep);
++          && term_compare("EQ", book, a.a, b.a, dep, ctx)
++          && term_compare("EQ", book, a.b, b.b, dep, ctx)
++          && term_compare("EQ", book, a.T, b.T, dep, ctx);
+     }
+     case "Rfl": {
+       return b.$ === "Rfl";
+@@ -3242,9 +3948,9 @@
+     }
+     case "Rwt": {
+       return b.$ === "Rwt"
+-          && term_compare("EQ", book, a.e, b.e, dep)
+-          && term_compare("EQ", book, a.p, b.p, dep)
+-          && term_compare("EQ", book, a.f, b.f, dep);
++          && term_compare("EQ", book, a.e, b.e, dep, ctx)
++          && term_compare("EQ", book, a.p, b.p, dep, ctx)
++          && term_compare("EQ", book, a.f, b.f, dep, ctx);
+     }
+     default: {
+       return false;
+@@ -3384,6 +4090,108 @@
+       const B_chk = term_check(book, lhs, tm.B(Var(tm.k, d)), None(), Typ(Qua(Lone()), tm.s), B_ctx, d+1);
+       return Infer(All(tm.q, tm.k, d, A_chk.tm, B_chk.tm, tm.s), Typ(Qua(Lone()), tm.s), uses_nil());
+     }
++    // ∅
++    // ------------------------------------------------ infer-itv
++    // Γ ⊢ Interval : Data    Γ ⊢ i0, i1 : Interval
++    case "Itv": {
++      return Infer(Itv(tm.s), Typ(Qua(Many()), tm.s), uses_nil());
++    }
++    case "Dim": {
++      return Infer(Dim(tm.d, tm.s), Itv(tm.s), uses_nil());
++    }
++    // Γ ⊢ r : Interval    Γ ⊢ s : Interval
++    // where r and s are dead: a dimension never runs
++    // ------------------------------------------------ infer-dim
++    // Γ ⊢ -r, r /\ s, r \/ s : Interval ~ {}
++    case "Ineg": {
++      const a_chk = term_check(book, lhs, tm.a, None(), Itv(tm.s), ctx, d);
++      return Infer(Ineg(a_chk.tm, tm.s), Itv(tm.s), uses_nil());
++    }
++    case "Imin":
++    case "Imax": {
++      const a_chk = term_check(book, lhs, tm.a, None(), Itv(tm.s), ctx, d);
++      const b_chk = term_check(book, lhs, tm.b, None(), Itv(tm.s), ctx, d);
++      const out = tm.$ === "Imin" ? Imin(a_chk.tm, b_chk.tm, tm.s) : Imax(a_chk.tm, b_chk.tm, tm.s);
++      return Infer(out, Itv(tm.s), uses_nil());
++    }
++    // Γ ⊢ A : @i:Interval -> Type    Γ ⊢ r, s : Interval
++    // Γ ⊢ x : A(r) ~ u
++    // where A, r and s are dead
++    // ------------------------------------------------ infer-coe
++    // Γ ⊢ coe(A, r, s, x) : A(s) ~ u
++    case "Coe": {
++      // the line is evidence: it checks at the ambient demand, as a
++      // rewrite's equation does, so no dead claim transports a live
++      // value. written i => T it is a line checked at Interval -> Type;
++      // otherwise it is a path inferred at {A == B : Type}
++      let A_chk: Check;
++      let at: (r: HTerm) => HTerm;
++      if (term_strip(tm.A).$ === "Lam") {
++        const line = All<HBody>(Many(), "i", 0, Itv(tm.s), () => Typ(Qua(Lone()), tm.s), tm.s);
++        A_chk = term_check(book, lhs, tm.A, qt, line, ctx, d);
++        at = (r) => term_apply(tm.A, r);
++      } else {
++        const A_inf = term_infer(book, lhs, tm.A, qt, ctx, d);
++        const A_wnf = term_wnf(book, A_inf.ty);
++        if (A_wnf.$ !== "Eql") {
++          throw Err(book, ctx, "a path between types {A == B : Type} (or a line i => T)", A_inf.ty, tm.A.s ?? tm.s, lhs.def);
++        }
++        A_chk = { tm: A_inf.tm, us: A_inf.us };
++        at = (r) => App(tm.A, r);
++      }
++      const r_chk = term_check(book, lhs, tm.r, None(), Itv(tm.s), ctx, d);
++      const e_chk = term_check(book, lhs, tm.e, None(), Itv(tm.s), ctx, d);
++      const x_chk = term_check(book, lhs, tm.x, qt, at(tm.r), ctx, d);
++      return Infer(Coe(A_chk.tm, r_chk.tm, e_chk.tm, x_chk.tm, tm.s), at(tm.e), uses_add(A_chk.us, x_chk.us));
++    }
++    // Γ ⊢ A : Type    Γ ⊢ x : A ~ xu
++    // Γ[σk] ⊢ uk : @i:Interval -> A[σk] ~ uk   (σk: the face's variables at their values)
++    // where uk(i0) == x on the face, and uj == uk where two faces meet
++    // ---------------------------------------------------------------- infer-hcomp
++    // Γ ⊢ hcomp(A, x, [(fk) uk, ..]) : A ~ xu + (u1 | .. | un)
++    case "Hcm": {
++      const A_chk = term_check(book, lhs, tm.A, None(), Typ(Qua(Lone()), tm.s), ctx, d);
++      const x_chk = term_check(book, lhs, tm.x, qt, tm.A, ctx, d);
++      const subs: Array<Map<number, HTerm>> = [];
++      const sys: Array<Face<LTerm>> = [];
++      let us = uses_nil();
++      for (const e of tm.sys) {
++        const sub = new Map<number, HTerm>();
++        const f: Array<[LTerm, 0 | 1]> = [];
++        for (const [r, dm] of e.f) {
++          const r_chk = term_check(book, lhs, r, None(), Itv(tm.s), ctx, d);
++          const rv = term_strip(r);
++          if (rv.$ === "Var" && rv.i >= 0 && rv.i < d) {
++            sub.set(rv.i, Dim(dm, tm.s));
++          }
++          f.push([r_chk.tm, dm]);
++        }
++        const A_at = term_subst(ctx, tm.A, d, sub);
++        const line = All<HBody>(Many(), "i", 0, Itv(tm.s), () => A_at, tm.s);
++        const u_chk = term_check(book, lhs, e.u, qt, line, ctx, d);
++        const u0 = term_apply(e.u, Dim(0, tm.s));
++        const x0 = term_subst(ctx, tm.x, d, sub);
++        if (!term_compare("EQ", book, u0, x0, d, ctx)) {
++          throw Err(book, ctx, x0, u0, e.u.s ?? tm.s, lhs.def, "Note: a tube must agree with the base at i0 on its face.");
++        }
++        for (let j = 0; j < subs.length; j++) {
++          const both = new Map([...subs[j], ...sub]);
++          if ([...subs[j]].some(([k, v]) => sub.has(k) && (sub.get(k) as Extract<HTerm, { $: "Dim" }>).d !== (v as Extract<HTerm, { $: "Dim" }>).d)) {
++            continue;
++          }
++          const i: HTerm = Var("i", d);
++          const l = term_subst(ctx, term_apply(tm.sys[j].u, i), d + 1, both);
++          const rr = term_subst(ctx, term_apply(e.u, i), d + 1, both);
++          if (!term_compare("EQ", book, l, rr, d + 1, ctx_bind(ctx, d, Many(), "i", Itv(tm.s)))) {
++            throw Err(book, ctx, l, rr, e.u.s ?? tm.s, lhs.def, "Note: two tubes must agree where their faces meet.");
++          }
++        }
++        subs.push(sub);
++        sys.push({ f, u: u_chk.tm });
++        us = pmap_union(us, u_chk.us, quant_join);
++      }
++      return Infer(Hcm(A_chk.tm, x_chk.tm, sys, tm.s), tm.A, uses_add(x_chk.us, us));
++    }
+     // Γ ⊢ f : @q x:A -> B ~ fu
+     // Γ ⊢ a : A ~ au
+     // where a is dead if q is -, and consumed once otherwise: its
+@@ -3403,6 +4211,16 @@
+         return { ...f_inf, x: f_inf.x - 1 };
+       }
+       const f_wnf = term_wnf(book, f_inf.ty);
++      // Γ ⊢ p : {a == b : T} ~ pu    Γ ⊢ r : Interval
++      // where r is dead; T a line i => T(i) gives T(r), else T
++      // ------------------------------------------------ infer-papp
++      // Γ ⊢ p(r) : T(r) ~ pu
++      if (f_wnf.$ === "Eql") {
++        const r_chk = term_check(book, lhs, tm.x, None(), Itv(tm.s), ctx, d);
++        const T_wnf = term_wnf(book, f_wnf.T);
++        const T_at  = T_wnf.$ === "Lam" ? term_apply(T_wnf, tm.x) : f_wnf.T;
++        return Infer(App(f_inf.tm, r_chk.tm, tm.s), T_at, f_inf.us);
++      }
+       if (f_wnf.$ !== "All") {
+         throw Err(book, ctx, "a function type", f_inf.ty, tm.s, lhs.def);
+       }
+@@ -3426,10 +4244,14 @@
+     // where A, a and b are dead; evidence is erased, so Data
+     // ------------------------------------------------------ infer-eql
+     // Γ ⊢ {a == b : A} : Data ~ {}
++    // a path type: {a == b : T} over a type T, or {a == b : i => T(i)}
++    // over a line, a at T(i0) and b at T(i1)
+     case "Eql": {
+-      const T_chk = term_check(book, lhs, tm.T, None(), Typ(Qua(Lone()), tm.s), ctx, d);
+-      const a_chk = term_check(book, lhs, tm.a, None(), tm.T, ctx, d);
+-      const b_chk = term_check(book, lhs, tm.b, None(), tm.T, ctx, d);
++      const dep = term_strip(tm.T).$ === "Lam";
++      const line = All<HBody>(Many(), "i", 0, Itv(tm.s), () => Typ(Qua(Lone()), tm.s), tm.s);
++      const T_chk = term_check(book, lhs, tm.T, None(), dep ? line : Typ(Qua(Lone()), tm.s), ctx, d);
++      const a_chk = term_check(book, lhs, tm.a, None(), dep ? term_apply(tm.T, Dim(0, tm.s)) : tm.T, ctx, d);
++      const b_chk = term_check(book, lhs, tm.b, None(), dep ? term_apply(tm.T, Dim(1, tm.s)) : tm.T, ctx, d);
+       return Infer(Eql(a_chk.tm, b_chk.tm, T_chk.tm, tm.s), Typ(Qua(Many()), tm.s), uses_nil());
+     }
+     // Γ ⊢ T : Type
+@@ -3481,8 +4303,27 @@
+     //       lhs steps by x while a parameter remains
+     // ---------------------------------------------- check-lam
+     // Γ ⊢ x => f : T ~ u - x
++    // T == {a == b : L}
++    // Γ , i : +Interval ⊢ f(i) : L(i) ~ u
++    // where f(i0) == a and f(i1) == b
++    // ---------------------------------------------- check-path
++    // Γ ⊢ i => f : T ~ u - i
+     case "Lam": {
+       const t_wnf = term_wnf(book, ty);
++      if (t_wnf.$ === "Eql") {
++        const x: HTerm = Var(tm.k, d);
++        const T_wnf = term_wnf(book, t_wnf.T);
++        const f_ctx = ctx_bind(ctx, d, Many(), tm.k, Itv(tm.s));
++        const f_chk = term_check(book, lhs, tm.f(x), qt, T_wnf.$ === "Lam" ? term_apply(T_wnf, x) : t_wnf.T, f_ctx, d + 1);
++        const ends: Array<[0 | 1, HTerm]> = [[0, t_wnf.a], [1, t_wnf.b]];
++        for (const [e, end] of ends) {
++          const got = tm.f(Dim(e, tm.s));
++          if (!term_compare("EQ", book, got, end, d, ctx)) {
++            throw Err(book, ctx, end, got, tm.s, lhs.def, "Note: the path's face at i" + String(e) + " must be that endpoint.");
++          }
++        }
++        return Check(Lam(tm.k, d, f_chk.tm, tm.s, Many()), ty, uses_del(f_chk.us, d));
++      }
+       if (t_wnf.$ !== "All") {
+         throw Err(book, ctx, ty, typeless_show(book, ctx, tm), tm.s, lhs.def);
+       }
+@@ -3633,7 +4474,7 @@
+       if (t_wnf.$ !== "Eql") {
+         throw Err(book, ctx, ty, typeless_show(book, ctx, tm), tm.s, lhs.def);
+       }
+-      if (!term_compare("EQ", book, t_wnf.a, t_wnf.b, d)) {
++      if (!term_compare("EQ", book, t_wnf.a, t_wnf.b, d, ctx)) {
+         throw Err(book, ctx, t_wnf.a, t_wnf.b, tm.s, lhs.def);
+       }
+       return Check(Rfl(tm.s), ty, uses_nil());
+@@ -3663,7 +4504,7 @@
+       const p_typ = All<HBody>(Lone(), "_", 0, e_wnf.T, (x: HTerm) => All<HBody>(Lone(), "e", 0, Eql(e_wnf.a, x, e_wnf.T), () => Typ(Qua(Lone())), tm.s), tm.s);
+       const p_chk = term_check(book, lhs, tm.p, None(), p_typ, ctx, d);
+       const b_gol = term_apply(term_apply(tm.p, e_wnf.b), tm.e);
+-      if (!term_compare("LE", book, b_gol, ty, d)) {
++      if (!term_compare("LE", book, b_gol, ty, d, ctx)) {
+         throw Err(book, ctx, ty, b_gol, tm.s, lhs.def);
+       }
+       const a_gol = term_apply(term_apply(tm.p, e_wnf.a), Rfl<HBody>(tm.s));
+@@ -3678,7 +4519,7 @@
+     }
+   }
+   const x_inf = term_infer(book, lhs, tm, qt, ctx, d);
+-  if (term_compare("LE", book, x_inf.ty, ty, d)) {
++  if (term_compare("LE", book, x_inf.ty, ty, d, ctx)) {
+     return { tm: x_inf.tm, us: x_inf.us };
+   }
+   throw Err(book, ctx, ty, x_inf.ty, tm.s, lhs.def);
+--- a/bend2/comp.ts	2026-09-20 16:43:18.850854191 +0000
++++ b/bend2/comp.ts	2026-09-20 17:07:35.807970280 +0000
+@@ -793,6 +793,8 @@
+     case "Ctr": return term_const(t) ? [] : ctr_flds(cf.book, t.k, t.x);
+     case "Mat": return [t.h, t.m];
+     case "Rwt": return [t.f];
++    case "Coe": return [t.x];
++    case "Hcm": return [t.x, ...t.sys.map((e) => e.u)];
+     default: return [];
+   }
+ }
+@@ -945,7 +947,7 @@
+         && seen.add(t.k) && tld.c.some((c) =>
+         ctr_doms(book, c, t.x).some((f) => ty_clo(book, f, seen)))));
+     }
+-    case "Typ": case "Qua": case "Min": case "Eql": return false;
++    case "Typ": case "Qua": case "Min": case "Eql": case "Itv": return false;
+     default: return true;
+   }
+ }
+@@ -1409,7 +1411,7 @@
+ function def_body(cb: Carb, k: Bend.Name): TLD | undefined {
+   const tld = cb.book.tlds[k];
+   if (tld?.$ === "Def" && tld.e !== undefined && tld.h === undefined) {
+-    const h = Bend.term_higher(tld.e);
++    const h = Bend.term_higher(Bend.term_unpath(cb.book, tld.e));
+     const n = tld.n + Math.min(def_raise(cb.book, h, tld.n),
+       tele_unbind(cb.book, tld.T).doms.length - tld.n);
+     cb.book.tlds[k] = { ...tld, n, h };
+@@ -2461,6 +2463,7 @@
+       ? emit_clo(fl, x, ty) : emit_expr(fl, (x as Of<"Lam">).f(DUMMY),
+         (ty_all(fl.book, ty) as HAll).B(DUMMY), at);
+     case "Hol": die("a hole value");
++    case "Coe": case "Hcm": die("a live coe or hcomp (transport is checked and interpreted, not compiled yet)");
+     default: return emit_zero(fl, ty);
+   }
+ }
+@@ -3130,6 +3133,7 @@
+       return `run_clo((${arg}) => {\n${lines.join("\n")}\n})`;
+     }
+     case "Hol": die("cannot compile a hole");
++    case "Coe": case "Hcm": die("a live coe or hcomp (transport is checked and interpreted, not compiled yet)");
+     default: return "null";
+   }
+ }
