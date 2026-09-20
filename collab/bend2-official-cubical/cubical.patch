@@ -1,9 +1,11 @@
 --- a/bend2/bend.ts	2026-09-20 16:43:18.850854191 +0000
-+++ b/bend2/bend.ts	2026-09-20 17:10:20.284209742 +0000
-@@ -293,8 +293,16 @@
++++ b/bend2/bend.ts	2026-09-20 21:20:58.795069553 +0000
+@@ -292,9 +292,21 @@
+   | { $: "Rfl" }                                                                   // {==}
    | { $: "Rwt"; e: TermOf<B>; p: TermOf<B>; f: TermOf<B> }                         // %e@E : P; f (p = _ => e => P)
    | { $: "Hol"; k: Name }                                                          // ?name
-   | { $: "Ann"; x: TermOf<B>; T: TermOf<B> }                                       // {x : T}
+-  | { $: "Ann"; x: TermOf<B>; T: TermOf<B> }                                       // {x : T}
++  | { $: "Ann"; x: TermOf<B>; T: TermOf<B>; a?: Bool }                             // {x : T} (a: by the checker)
 +  | { $: "Itv" }                                                                   // Interval
 +  | { $: "Dim"; d: 0 | 1 }                                                         // i0, i1
 +  | { $: "Ineg"; a: TermOf<B> }                                                    // -r
@@ -11,25 +13,48 @@
 +  | { $: "Imax"; a: TermOf<B>; b: TermOf<B> }                                      // r \/ s
 +  | { $: "Coe"; A: TermOf<B>; r: TermOf<B>; e: TermOf<B>; x: TermOf<B> }          // coe(A, r, s, x)
 +  | { $: "Hcm"; A: TermOf<B>; x: TermOf<B>; sys: Array<Face<TermOf<B>>> }          // hcomp(A, x, [(r == i0) i => u, ..])
++  | { $: "Glu"; A: TermOf<B>; sys: Array<GFace<TermOf<B>>> }                         // Glue(A, [(r == i0) (T, e), ..])
++  | { $: "Gle"; x: TermOf<B>; sys: Array<Face<TermOf<B>>> }                          // glue(x, [(r == i0) t, ..])
++  | { $: "Ung"; g: TermOf<B> }                                                       // unglue(g)
  ) & { s?: Span };
  
 +export type Face<T> = { f: Array<[T, 0 | 1]>; u: T };
++export type GFace<T> = { f: Array<[T, 0 | 1]>; T: T; e: T };
  export type LTerm = TermOf<[LTerm]>;
  export type HBody = (x: HTerm) => HTerm;
  export type HTerm = TermOf<HBody>;
-@@ -306,7 +314,7 @@
- export type Ctr  = { k: Name; n: number; T: HTerm }
+@@ -303,10 +315,10 @@
+ export type Env = List<HTerm | ((s?: Span) => HTerm)>;
+ 
+ // Definitions & Book
+-export type Ctr  = { k: Name; n: number; T: HTerm }
++export type Ctr  = { k: Name; n: number; T: HTerm; p?: number }
  export type Ctrs = Array<Ctr>;
  export type ADT  = { $: "ADT"; n: number; g: number; T: HTerm; c: Ctrs; b?: Bool; };
 -export type Def  = { $: "Def"; n: number; x: number; T: HTerm; v: HTerm | null; e?: LTerm; b?: Bool; u?: Bool; i?: string[]; };
-+export type Def  = { $: "Def"; n: number; x: number; T: HTerm; v: HTerm | null; e?: LTerm; w?: HTerm; b?: Bool; u?: Bool; i?: string[]; };
++export type Def  = { $: "Def"; n: number; x: number; T: HTerm; v: HTerm | null; e?: LTerm; w?: HTerm; o?: Array<[Name, Name]>; b?: Bool; u?: Bool; i?: string[]; };
  export type TLD  = ADT | Def;
  export type Book = { tlds: Record<Name, TLD>; ctrs: Record<Name, Ctr>; order: Name[]; hols: number; open: number; tmps: Record<Name, Record<string, Name>>; };
  
-@@ -435,6 +443,38 @@
-   return { $: "Ann", x, T, s };
+@@ -336,7 +348,7 @@
+ export type LHS   = { t: HTerm; n: number; def: Name; qs: Quant[]; u?: Bool; z?: number };
+ export type Frame =
+   | { $: "APP"; x: HTerm; s?: Span } // _(x)
+-  | { $: "MAT"; t: Extract<HTerm, { $: "Mat" }>; e: HTerm; lhs: { t: () => HTerm; n: number } | null; s?: Span } // \{c:h;m}(_)
++  | { $: "MAT"; t: Extract<HTerm, { $: "Mat" }>; e: HTerm; lhs: { t: () => HTerm; n: number } | null; s?: Span; T?: HTerm } // \{c:h;m}(_)
+   | { $: "VAR"; l: Extract<HTerm, { $: "Var" }>; a?: Extract<HTerm, { $: "Ann" }> } // a share cell being filled
+   | { $: "MNA"; b: HTerm; s?: Span } // _ <&> b
+   | { $: "MNB"; a: HTerm; s?: Span } // a <&> _
+@@ -431,8 +443,56 @@
+   return { $: "Hol", k, s };
  }
  
+-export function Ann<X>(x: TermOf<X>, T: TermOf<X>, s?: Span): TermOf<X> {
+-  return { $: "Ann", x, T, s };
++export function Ann<X>(x: TermOf<X>, T: TermOf<X>, s?: Span, a?: Bool): TermOf<X> {
++  return { $: "Ann", x, T, s, a };
++}
++
 +export function Itv<X>(s?: Span): TermOf<X> {
 +  return { $: "Itv", s };
 +}
@@ -62,39 +87,198 @@
 +  return sys.map((e) => ({ f: e.f.map(([r, d]): [Y, 0 | 1] => [f(r), d]), u: f(e.u) }));
 +}
 +
- // PMap
- // ----
++function gface_map<X, Y>(sys: Array<GFace<X>>, f: (t: X) => Y): Array<GFace<Y>> {
++  return sys.map((e) => ({ f: e.f.map(([r, d]): [Y, 0 | 1] => [f(r), d]), T: f(e.T), e: f(e.e) }));
++}
++
++export function Glu<X>(A: TermOf<X>, sys: Array<GFace<TermOf<X>>>, s?: Span): TermOf<X> {
++  return { $: "Glu", A, sys, s };
++}
++
++export function Gle<X>(x: TermOf<X>, sys: Array<Face<TermOf<X>>>, s?: Span): TermOf<X> {
++  return { $: "Gle", x, sys, s };
++}
++
++export function Ung<X>(g: TermOf<X>, s?: Span): TermOf<X> {
++  return { $: "Ung", g, s };
+ }
  
-@@ -806,6 +846,25 @@
-     case "Ann": {
-       return Ann(term_higher(tm.x, env), term_higher(tm.T, env), tm.s);
+ // PMap
+@@ -465,11 +525,11 @@
+ // -----
+ 
+ export function Infer(tm: LTerm, ty: HTerm, us: Uses, x?: number): Infer {
+-  return { tm: Ann(tm, Var("_", -1, undefined, ty)), ty, us, x };
++  return { tm: Ann(tm, Var("_", -1, undefined, ty), undefined, true), ty, us, x };
+ }
+ 
+ export function Check(tm: LTerm, ty: HTerm, us: Uses): Check {
+-  return { tm: Ann(tm, Var("_", -1, undefined, ty)), us };
++  return { tm: Ann(tm, Var("_", -1, undefined, ty), undefined, true), us };
+ }
+ 
+ // Err
+@@ -706,7 +766,7 @@
+   return t;
+ }
+ 
+-export function term_higher(tm: LTerm, env: Env = null): HTerm {
++export function term_higher(tm: LTerm, env: Env = null, keep: boolean = false): HTerm {
+   switch (tm.$) {
+     case "Var": {
+       if (tm.i < 0) {
+@@ -714,7 +774,7 @@
+       }
+       const v = list_get(env, tm.i);
+       if (v === null) {
+-        return Ref(tm.k, tm.s);
++        return keep ? Var(tm.k, tm.i, tm.s) : Ref(tm.k, tm.s);
+       } else if (typeof v === "function") {
+         return v(tm.s);
+       } else {
+@@ -733,78 +793,115 @@
+     case "Sub": {
+       const x = tm.v;
+       const v = x.$ === "PVar" || x.$ === "PCtr"
+-        ? (s?: Span) => term_higher(patt_term(x, s), env)
+-        : term_higher(x, env);
+-      return term_higher(tm.f, list_set(env, tm.i, v));
++        ? (s?: Span) => term_higher(patt_term(x, s), env, keep)
++        : term_higher(x, env, keep);
++      return term_higher(tm.f, list_set(env, tm.i, v), keep);
      }
+     case "Let": {
+       const b = tm;
+-      const v = b.v.map((x) => term_higher(x, env));
++      const v = b.v.map((x) => term_higher(x, env, keep));
+       return Let(b.k, b.i, v, (xs: HTerm[]) => {
+         let e = env;
+         for (let j = 0; j < xs.length; j++) {
+           e = list_set(e, b.i[j], xs[j]);
+         }
+-        return term_higher(b.f, e);
++        return term_higher(b.f, e, keep);
+       }, b.s, b.q);
+     }
+     case "All": {
+       const b = tm;
+-      const A = term_higher(b.A, env);
++      const A = term_higher(b.A, env, keep);
+       return All(b.q, b.k, b.i, A, (x: HTerm) => {
+-        return term_higher(b.B, list_set(env, b.i, x));
++        return term_higher(b.B, list_set(env, b.i, x), keep);
+       }, b.s);
+     }
+     case "Lam": {
+       const b = tm;
+       return Lam(b.k, b.i, (x: HTerm) => {
+-        return term_higher(b.f, list_set(env, b.i, x));
++        return term_higher(b.f, list_set(env, b.i, x), keep);
+       }, b.s, b.q);
+     }
+     case "Typ": {
+-      return Typ(term_higher(tm.g, env), tm.s);
++      return Typ(term_higher(tm.g, env, keep), tm.s);
+     }
+     case "Qnt":
+     case "Qua": {
+       return tm;
+     }
+     case "Min": {
+-      return Min(term_higher(tm.a, env), term_higher(tm.b, env), tm.s);
++      return Min(term_higher(tm.a, env, keep), term_higher(tm.b, env, keep), tm.s);
+     }
+     case "App": {
+-      const f = term_higher(tm.f, env);
+-      const x = term_higher(tm.x, env);
+-      if (f.$ === "Lam") {
+-        return f.f(x);
++      const f = term_higher(tm.f, env, keep);
++      const x = term_higher(tm.x, env, keep);
++      // the beta step reads through an annotation and a share cell (an
++      // argument's), never through a let's name (a bound cell: each
++      // application of it is a use)
++      // (a source annotation is kept: an annotated lambda applied is
++      // checked at its annotation)
++      let g = f;
++      while ((g.$ === "Ann" && g.a === true) || (g.$ === "Var" && g.i < 0 && g.v !== undefined)) {
++        g = g.$ === "Ann" ? g.x : (g.v as HTerm);
++      }
++      if (g.$ === "Lam") {
++        return g.f(x);
+       }
+       return App(f, x, tm.s);
+     }
+     case "ADT": {
+-      return ADT(tm.k, tm.x.map((x) => term_higher(x, env)), tm.s, tm.r);
++      return ADT(tm.k, tm.x.map((x) => term_higher(x, env, keep)), tm.s, tm.r);
+     }
+     case "Ctr": {
+-      return Ctr(tm.k, tm.x.map((x) => term_higher(x, env)), tm.s);
++      return Ctr(tm.k, tm.x.map((x) => term_higher(x, env, keep)), tm.s);
+     }
+     case "Mat": {
+-      return Mat(tm.k, term_higher(tm.h, env), term_higher(tm.m, env), tm.s);
++      return Mat(tm.k, term_higher(tm.h, env, keep), term_higher(tm.m, env, keep), tm.s);
+     }
+     case "Efq": {
+       return Efq(tm.s);
+     }
+     case "Eql": {
+-      return Eql(term_higher(tm.a, env), term_higher(tm.b, env), term_higher(tm.T, env), tm.s);
++      return Eql(term_higher(tm.a, env, keep), term_higher(tm.b, env, keep), term_higher(tm.T, env, keep), tm.s);
+     }
+     case "Rfl": {
+       return Rfl(tm.s);
+     }
+     case "Rwt": {
+-      return Rwt(term_higher(tm.e, env), term_higher(tm.p, env), term_higher(tm.f, env), tm.s);
++      return Rwt(term_higher(tm.e, env, keep), term_higher(tm.p, env, keep), term_higher(tm.f, env, keep), tm.s);
+     }
+     case "Hol": {
+       return Hol(tm.k, tm.s);
+     }
+     case "Ann": {
+-      return Ann(term_higher(tm.x, env), term_higher(tm.T, env), tm.s);
++      return Ann(term_higher(tm.x, env, keep), term_higher(tm.T, env, keep), tm.s, tm.a);
++    }
 +    case "Itv":
 +    case "Dim": {
 +      return tm;
 +    }
 +    case "Ineg": {
-+      return Ineg(term_higher(tm.a, env), tm.s);
++      return Ineg(term_higher(tm.a, env, keep), tm.s);
 +    }
 +    case "Imin": {
-+      return Imin(term_higher(tm.a, env), term_higher(tm.b, env), tm.s);
++      return Imin(term_higher(tm.a, env, keep), term_higher(tm.b, env, keep), tm.s);
 +    }
 +    case "Imax": {
-+      return Imax(term_higher(tm.a, env), term_higher(tm.b, env), tm.s);
++      return Imax(term_higher(tm.a, env, keep), term_higher(tm.b, env, keep), tm.s);
 +    }
 +    case "Coe": {
-+      return Coe(term_higher(tm.A, env), term_higher(tm.r, env), term_higher(tm.e, env), term_higher(tm.x, env), tm.s);
++      return Coe(term_higher(tm.A, env, keep), term_higher(tm.r, env, keep), term_higher(tm.e, env, keep), term_higher(tm.x, env, keep), tm.s);
 +    }
 +    case "Hcm": {
-+      return Hcm(term_higher(tm.A, env), term_higher(tm.x, env), face_map(tm.sys, (t) => term_higher(t, env)), tm.s);
++      return Hcm(term_higher(tm.A, env, keep), term_higher(tm.x, env, keep), face_map(tm.sys, (t) => term_higher(t, env, keep)), tm.s);
 +    }
++    case "Glu": {
++      return Glu(term_higher(tm.A, env, keep), gface_map(tm.sys, (t) => term_higher(t, env, keep)), tm.s);
++    }
++    case "Gle": {
++      return Gle(term_higher(tm.x, env, keep), face_map(tm.sys, (t) => term_higher(t, env, keep)), tm.s);
++    }
++    case "Ung": {
++      return Ung(term_higher(tm.g, env, keep), tm.s);
+     }
    }
  }
- 
-@@ -874,6 +933,25 @@
-     case "Ann": {
-       return Ann(term_lower(tm.x, d), term_lower(tm.T, d), tm.s);
+@@ -872,7 +969,35 @@
+       return Hol(tm.k, tm.s);
      }
+     case "Ann": {
+-      return Ann(term_lower(tm.x, d), term_lower(tm.T, d), tm.s);
++      return Ann(term_lower(tm.x, d), term_lower(tm.T, d), tm.s, tm.a);
++    }
 +    case "Itv":
 +    case "Dim": {
 +      return tm;
@@ -114,10 +298,93 @@
 +    case "Hcm": {
 +      return Hcm(term_lower(tm.A, d), term_lower(tm.x, d), face_map(tm.sys, (t) => term_lower(t, d)), tm.s);
 +    }
++    case "Glu": {
++      return Glu(term_lower(tm.A, d), gface_map(tm.sys, (t) => term_lower(t, d)), tm.s);
++    }
++    case "Gle": {
++      return Gle(term_lower(tm.x, d), face_map(tm.sys, (t) => term_lower(t, d)), tm.s);
++    }
++    case "Ung": {
++      return Ung(term_lower(tm.g, d), tm.s);
+     }
    }
  }
+@@ -972,13 +1097,72 @@
+ }
  
-@@ -1480,6 +1558,30 @@
+ export function book_fam(book: Book, k: Name): Name {
+-  let t = term_strip((book_ctr(book, k) as Ctr).T);
++  let t = term_wnf(book, (book_ctr(book, k) as Ctr).T);
+   for (let d = 0; t.$ === "All"; d++) {
+-    t = term_strip(t.B(Var(t.k, d)));
++    t = term_wnf(book, t.B(Var(t.k, d)));
++  }
++  while (t.$ === "Eql") {
++    t = term_wnf(book, t.T);
++    if (t.$ === "Lam") {
++      t = term_wnf(book, t.f(SENT));
++    }
+   }
+   return t.$ === "ADT" ? t.k : k;
+ }
+ 
++// a path type's carrier family, through its lines
++export function eql_carrier(book: Book, t: HTerm): Extract<HTerm, { $: "ADT" }> | null {
++  let c = term_wnf(book, t);
++  while (c.$ === "Eql") {
++    c = term_wnf(book, c.T);
++    if (c.$ === "Lam") {
++      c = term_wnf(book, term_apply(c, SENT));
++    }
++  }
++  return c.$ === "ADT" ? c : null;
++}
++
++// a path constructor's tip at fields xs, its parameters unknown (they
++// are erased from a constructor): null when the tip depends on them
++const DUMMY_I = -9;
++export function ctr_tip(book: Book, ctr: Ctr, xs: HTerm[]): HTerm | null {
++  const fam = book.tlds[book_fam(book, ctr.k)];
++  if (fam === undefined || fam.$ !== "ADT") {
++    return null;
++  }
++  const ps = Array.from({ length: fam.n }, (): HTerm => Var("?", DUMMY_I));
++  return term_wnf(book, tele_fill(book, ctr.T, ps.concat(xs), ctx_nil()));
++}
++
++// a path constructor applied to dimensions rs: its face at a literal one
++export function ctr_face(book: Book, ctr: Ctr, xs: HTerm[], rs: HTerm[]): HTerm | null {
++  let tip = ctr_tip(book, ctr, xs);
++  let out: HTerm | null = null;
++  for (let j = 0; j < rs.length && tip !== null; j++) {
++    const t = term_wnf(book, tip);
++    if (t.$ !== "Eql") {
++      return null;
++    }
++    let r = term_strip(rs[j]);
++    if (itv_is(r)) {
++      r = term_wnf(book, r);
++    }
++    if (r.$ === "Dim" && out === null) {
++      out = r.d === 0 ? t.a : t.b;
++      if (term_mentions(out, DUMMY_I)) {
++        return null;
++      }
++      for (const q of rs.slice(j + 1)) {
++        out = App(out, q);
++      }
++      return out;
++    }
++    const Tw = term_wnf(book, t.T);
++    tip = Tw.$ === "Lam" ? term_apply(Tw, r) : t.T;
++  }
++  return null;
++}
++
+ export function book_adt(book: Book, tm: Extract<HTerm, { $: "ADT" }>, ctx: Ctx, def?: Name): ADT {
+   const tld = book.tlds[tm.k];
+   if (tld === undefined || tld.$ !== "ADT") {
+@@ -1480,6 +1664,41 @@
        case "Ann": {
          return "{" + go(tm.x, 1) + " : " + go(tm.T, 1) + "}";
        }
@@ -145,18 +412,29 @@
 +        const sys = tm.sys.map((e) => "(" + e.f.map(([r, d]) => go(r, 0) + " == i" + String(d)).join(", ") + ") " + go(e.u, 0));
 +        return "hcomp(" + go(tm.A, 0) + ", " + go(tm.x, 0) + ", [" + sys.join(", ") + "])";
 +      }
++      case "Glu": {
++        const sys = tm.sys.map((e) => "(" + e.f.map(([r, d]) => go(r, 0) + " == i" + String(d)).join(", ") + ") (" + go(e.T, 0) + ", " + go(e.e, 0) + ")");
++        return "Glue(" + go(tm.A, 0) + ", [" + sys.join(", ") + "])";
++      }
++      case "Gle": {
++        const sys = tm.sys.map((e) => "(" + e.f.map(([r, d]) => go(r, 0) + " == i" + String(d)).join(", ") + ") " + go(e.u, 0));
++        return "glue(" + go(tm.x, 0) + ", [" + sys.join(", ") + "])";
++      }
++      case "Ung": {
++        return "unglue(" + go(tm.g, 0) + ")";
++      }
      }
    }
    return go(term, top);
-@@ -1532,6 +1634,7 @@
+@@ -1532,6 +1751,7 @@
    "def", "type", "law", "match", "case", "do", "return",
    "for", "exs", "where", "is", "import",
    "Type", "Data", "Kind", "Quant",
-+  "Interval", "i0", "i1", "coe", "hcomp",
++  "Interval", "i0", "i1", "coe", "hcomp", "Glue", "glue", "unglue",
  ]);
  
  const QUAS: Record<string, Quant> = { "0": None(), "1": Lone(), "2": Many() };
-@@ -1799,6 +1902,64 @@
+@@ -1799,6 +2019,62 @@
        parse_eat(p, ")");
        return Typ(g, parse_span(p, beg));
      }
@@ -183,45 +461,43 @@
 +      parse_eat(p, ",");
 +      const x = parse_term(p);
 +      parse_eat(p, ",");
-+      parse_eat(p, "[");
-+      const sys: Array<Face<LTerm>> = [];
-+      while (true) {
-+        parse_skip(p);
-+        if (parse_take(p, "]")) {
-+          break;
-+        }
-+        parse_eat(p, "(");
-+        const f: Array<[LTerm, 0 | 1]> = [];
-+        while (true) {
-+          parse_skip(p);
-+          if (parse_take(p, ")")) {
-+            break;
-+          }
-+          const l = parse_term(p, 5);
-+          parse_eat(p, "==");
-+          const r = parse_term(p, 5);
-+          if (r.$ === "Dim") {
-+            f.push([l, r.d]);
-+          } else if (l.$ === "Dim") {
-+            f.push([r, l.d]);
-+          } else {
-+            parse_fail(p, "a face (r == i0 or r == i1)");
-+          }
-+          parse_skip(p);
-+          parse_take(p, ",");
-+        }
-+        const u = parse_term(p);
-+        sys.push({ f, u });
-+        parse_skip(p);
-+        parse_take(p, ",");
-+      }
++      const sys = parse_faces(p, () => parse_term(p));
 +      parse_eat(p, ")");
 +      return Hcm(A, x, sys, parse_span(p, beg));
++    }
++    if (k === "Glue") {
++      parse_eat(p, "(");
++      const A = parse_term(p);
++      parse_eat(p, ",");
++      const sys = parse_faces(p, (): [LTerm, LTerm] => {
++        parse_eat(p, "(");
++        const T = parse_term(p);
++        parse_eat(p, ",");
++        const e = parse_term(p);
++        parse_eat(p, ")");
++        return [T, e];
++      });
++      parse_eat(p, ")");
++      return Glu(A, sys.map((e) => ({ f: e.f, T: e.u[0], e: e.u[1] })), parse_span(p, beg));
++    }
++    if (k === "glue") {
++      parse_eat(p, "(");
++      const x = parse_term(p);
++      parse_eat(p, ",");
++      const sys = parse_faces(p, () => parse_term(p));
++      parse_eat(p, ")");
++      return Gle(x, sys, parse_span(p, beg));
++    }
++    if (k === "unglue") {
++      parse_eat(p, "(");
++      const g = parse_term(p);
++      parse_eat(p, ")");
++      return Ung(g, parse_span(p, beg));
 +    }
      if (k === "do") {
        const m = parse_name(p);
        parse_eat(p, "<");
-@@ -1857,6 +2018,13 @@
+@@ -1857,6 +2133,13 @@
        const xs = t.$ === "ADT" ? t.x : Array.from({ length: tld.n }, (): LTerm => Qua(Lone(), s));
        return ADT(k, xs.map((x, i) => i < tld.g ? Qua(Many(), s) : x), s);
      }
@@ -235,7 +511,7 @@
      case "\\": {
        parse_bump(p);
        parse_eat(p, "{");
-@@ -2158,6 +2326,16 @@
+@@ -2158,6 +2441,16 @@
        out = Min(out, b, parse_grow(p, out));
        continue;
      }
@@ -252,7 +528,127 @@
      const op = INFIX_OPS.find((op) => {
        const nx = p.str[p.pos + op[0].length] ?? "";
        return parse_at(p, op[0])
-@@ -2875,9 +3053,82 @@
+@@ -2184,6 +2477,43 @@
+   }
+ }
+ 
++// [(r == i0, ..) u, ..]: a system of faces, each a conjunction of
++// constraints and the term it cuts
++export function parse_faces<U>(p: Parse, body: () => U): Array<{ f: Array<[LTerm, 0 | 1]>; u: U }> {
++  parse_eat(p, "[");
++  const sys: Array<{ f: Array<[LTerm, 0 | 1]>; u: U }> = [];
++  while (true) {
++    parse_skip(p);
++    if (parse_take(p, "]")) {
++      return sys;
++    }
++    parse_eat(p, "(");
++    const f: Array<[LTerm, 0 | 1]> = [];
++    while (true) {
++      parse_skip(p);
++      if (parse_take(p, ")")) {
++        break;
++      }
++      const l = parse_term(p, 5);
++      parse_eat(p, "==");
++      const r = parse_term(p, 5);
++      if (r.$ === "Dim") {
++        f.push([l, r.d]);
++      } else if (l.$ === "Dim") {
++        f.push([r, l.d]);
++      } else {
++        parse_fail(p, "a face (r == i0 or r == i1)");
++      }
++      parse_skip(p);
++      parse_take(p, ",");
++    }
++    const u = body();
++    sys.push({ f, u });
++    parse_skip(p);
++    parse_take(p, ",");
++  }
++}
++
+ export function parse_term_ns(p: Parse, tm: LTerm, T: LTerm): void {
+   // ": T" names the operators reached through operator applications, none
+   // nested; a let's body is the expression
+@@ -2589,6 +2919,12 @@
+         if (!char_is_head(parse_peek(p)) || ["def", "type", "law"].some((w) => parse_at_word(p, w))) {
+           break;
+         }
++        // `path c{fields}: {a == b : K<..>}` is a path constructor: its
++        // telescope tips at a path type into the family, of any dimension
++        const pth = parse_at_word(p, "path") && /^path\s+[A-Za-z_]/.test(p.str.slice(p.pos, p.pos + 40));
++        if (pth) {
++          parse_word(p, "path");
++        }
+         const c = parse_qual(p, parse_name(p));
+         if (book_ctr(book, c) !== null) {
+           parse_fail(p, "a fresh constructor name (duplicate declaration: " + c + ")");
+@@ -2596,8 +2932,20 @@
+         parse_eat(p, "{");
+         const n1 = p.sc.stk.length;
+         const fs = parse_tele(p, "}");
+-        const tip: LTerm = ADT(k, params.map((cell) => Var(cell[1], cell[2])));
+-        const ctr = { k: c, n: fs.length, T: term_higher(tele_bind(params.concat(fs), tip)) };
++        parse_skip(p);
++        let tip: LTerm = ADT(k, params.map((cell) => Var(cell[1], cell[2])));
++        let dim = 0;
++        if (pth) {
++          parse_eat(p, ":");
++          tip = parse_term(p);
++          for (let t: LTerm = tip; t.$ === "Eql"; dim++) {
++            t = t.T.$ === "Lam" ? t.T.f : t.T;
++          }
++          if (dim === 0) {
++            parse_fail(p, "a path type {a == b : " + k + "<..>} (a constructor's tip)");
++          }
++        }
++        const ctr = { k: c, n: fs.length, T: term_higher(tele_bind(params.concat(fs), tip)), p: dim };
+         parse_close(p, n1);
+         cs.push(ctr);
+         book.ctrs[c] = ctr;
+@@ -2856,14 +3204,39 @@
+ // a rewrite demands its evidence and steps to its body on {==}, else
+ // sticks as a value.
+ 
++// the context of the check in progress: a bound path applied to an
++// endpoint reads that endpoint off its type here, so a raw goal computes
++// as the elaborated tree does
++export let WNF_CTX: Ctx | null = null;
++
+ export function term_wnf(book: Book, term: HTerm): HTerm {
+   const frs: Frame[] = [];
+   let tm: HTerm = term;
+   let lhs: { t: () => HTerm; n: number } | null = null;
++  let matT: HTerm | undefined = undefined;
+   main: while (true) {
+     focus: switch (tm.$) {
+       case "Var": {
+         if (tm.v === undefined) {
++          if (tm.i >= 0 && WNF_CTX !== null && frs.length > 0) {
++            const fr = frs[frs.length - 1];
++            if (fr.$ === "APP") {
++              let x = term_strip(fr.x);
++              if (itv_is(x)) {
++                x = term_wnf(book, x);
++              }
++              if (x.$ === "Dim") {
++                const ann = pmap_get(WNF_CTX, tm.i);
++                const T = ann === null ? null : term_wnf(book, ann.T);
++                if (T !== null && T.$ === "Eql") {
++                  frs.pop();
++                  lhs = null;
++                  tm = x.d === 0 ? T.a : T.b;
++                  continue main;
++                }
++              }
++            }
++          }
+           break focus;
+         } else {
+           if (tm.i === -1) {
+@@ -2875,9 +3248,156 @@
          }
        }
        case "Ann": {
@@ -275,11 +671,29 @@
 +                continue main;
 +              }
 +            }
++            if (term_strip(tm.x).$ === "Mat") {
++              matT = tm.T;
++            }
 +          }
 +        }
          tm = tm.x;
          continue main;
        }
++      case "Ctr": {
++        // a path constructor applied to a literal endpoint is its face
++        const c = book_ctr(book, tm.k);
++        if (c !== null && (c.p ?? 0) > 0 && frs.length >= (c.p as number) && frs.slice(frs.length - (c.p as number)).every((f) => f.$ === "APP")) {
++          const rs = frs.slice(frs.length - (c.p as number)).reverse().map((f) => (f as Extract<Frame, { $: "APP" }>).x);
++          const face = ctr_face(book, c, tm.x, rs);
++          if (face !== null) {
++            frs.length -= c.p as number;
++            lhs = null;
++            tm = face;
++            continue main;
++          }
++        }
++        break focus;
++      }
 +      case "Ineg": {
 +        const a = term_wnf(book, tm.a);
 +        if (a.$ === "Dim") {
@@ -332,10 +746,80 @@
 +        tm = step;
 +        continue main;
 +      }
++      case "Glu": {
++        // a true face is its partial type; false faces drop; no face is A
++        for (const e of tm.sys) {
++          if (face_holds(book, e.f)) {
++            tm = e.T;
++            continue main;
++          }
++        }
++        const sys = tm.sys.filter((e) => !face_dead(book, e.f));
++        if (sys.length === 0) {
++          tm = tm.A;
++          continue main;
++        }
++        tm = Glu(tm.A, sys, tm.s);
++        break focus;
++      }
++      case "Gle": {
++        for (const e of tm.sys) {
++          if (face_holds(book, e.f)) {
++            tm = e.u;
++            continue main;
++          }
++        }
++        const sys = tm.sys.filter((e) => !face_dead(book, e.f));
++        if (sys.length === 0) {
++          tm = tm.x;
++          continue main;
++        }
++        tm = Gle(tm.x, sys, tm.s);
++        break focus;
++      }
++      case "Ung": {
++        // unglue of a glue is its base; on a true face of its Glue type
++        // (read off the annotation) it is the equivalence's function
++        const g = term_wnf(book, tm.g);
++        if (g.$ === "Gle") {
++          tm = g.x;
++          continue main;
++        }
++        const a = term_force(tm.g);
++        if (a.$ === "Ann") {
++          const T = term_wnf(book, a.T);
++          if (T.$ === "Glu") {
++            const t = T.sys.find((e) => face_holds(book, e.f));
++            if (t !== undefined) {
++              tm = App(equiv_fun(t.e, t.T, T.A), g);
++              continue main;
++            }
++          } else {
++            tm = g;
++            continue main;
++          }
++        }
++        tm = Ung(g, tm.s);
++        break focus;
++      }
        case "Min": {
          frs.push({ $: "MNA", b: tm.b, s: tm.s });
          tm = tm.a;
-@@ -2929,10 +3180,17 @@
+@@ -2912,10 +3432,12 @@
+       }
+       case "Mat": {
+         if (frs.length === 0 || frs[frs.length - 1].$ !== "APP") {
++          matT = undefined;
+           break focus;
+         } else {
+           const fr = frs.pop() as Extract<Frame, { $: "APP" }>;
+-          frs.push({ $: "MAT", t: tm, e: fr.x, lhs, s: fr.s });
++          frs.push({ $: "MAT", t: tm, e: fr.x, lhs, s: fr.s, T: matT });
++          matT = undefined;
+           tm = fr.x;
+           lhs = null;
+           continue main;
+@@ -2929,10 +3451,17 @@
        }
        case "Rwt": {
          const e = term_wnf(book, tm.e);
@@ -354,7 +838,7 @@
          break focus;
        }
        case "Ref": {
-@@ -2955,7 +3213,10 @@
+@@ -2955,7 +3484,10 @@
          }
          const rf: HTerm = tm;
          lhs = { t: () => rf, n: tld.n };
@@ -362,11 +846,67 @@
 +        // the term it checked is the term it runs: a checked def unfolds
 +        // to its elaborated tree (every node annotated, so a path read
 +        // off a stuck term finds its endpoints); a template unfolds raw
-+        tm = tld.e !== undefined && tld.x === 0 ? (tld.w ??= def_body(tld.e)) : tld.v;
++        tm = tld.e !== undefined ? (tld.w ??= def_body(tld.e, tld.x, tld.o)) : tld.v;
          continue main;
        }
        default: {
-@@ -3122,9 +3383,390 @@
+@@ -3010,6 +3542,55 @@
+             continue back;
+           }
+           case "MAT": {
++            // a path constructor applied to dimensions: the arm at the
++            // fields, then at the dimensions
++            const [ph, pxs] = tm.$ === "App" ? term_unapply(tm) : [tm, []];
++            const pc = ph.$ === "Ctr" && pxs.length > 0 ? book_ctr(book, ph.k) : null;
++            if (ph.$ === "Ctr" && pc !== null && (pc.p ?? 0) === pxs.length) {
++              let t: HTerm = fr.t;
++              walk2: while (true) {
++                switch (t.$) {
++                  case "Ann": {
++                    t = t.x;
++                    continue walk2;
++                  }
++                  case "Mat": {
++                    if (t.k === ph.k) {
++                      lhs = null;
++                      for (let j = pxs.length - 1; j >= 0; j--) {
++                        frs.push({ $: "APP", x: term_cell(pxs[j]) });
++                      }
++                      for (let j = ph.x.length - 1; j >= 0; j--) {
++                        frs.push({ $: "APP", x: term_cell(ph.x[j]) });
++                      }
++                      tm = t.h;
++                      continue main;
++                    }
++                    t = t.m;
++                    continue walk2;
++                  }
++                  default: {
++                    break walk2;
++                  }
++                }
++              }
++              tm = term_apply(fr.lhs === null ? fr.t : fr.lhs.t(), fr.e, fr.s);
++              continue back;
++            }
++            // an hcomp cell of the family: the eliminator composes along
++            // its motive over the filler (comp), the tubes eliminated
++            if (tm.$ === "Hcm" && fr.T !== undefined) {
++              const P = term_wnf(book, fr.T);
++              if (P.$ === "All") {
++                const cell = tm;
++                const E = (y: HTerm) => term_apply(fr.t, y);
++                const line = Lam("i", 0, (i: HTerm) => P.B(hfill_at(cell.A, cell.sys, cell.x, i)));
++                tm = Hcm(P.B(cell), Coe(line, Dim(0), Dim(1), E(cell.x)),
++                  cell.sys.map((e) => ({ f: e.f, u: Lam("i", 0, (i: HTerm) => Coe(line, i, Dim(1), E(term_apply(e.u, i)))) })), fr.s);
++                lhs = null;
++                continue main;
++              }
++            }
+             if (tm.$ === "Ctr") {
+               const ctr = tm;
+               let t: HTerm = fr.t;
+@@ -3122,7 +3703,712 @@
      case "Hol": {
        return Hol(tm.k, tm.s);
      }
@@ -389,9 +929,18 @@
 +    case "Hcm": {
 +      return Hcm(term_snf(book, tm.A), term_snf(book, tm.x), face_map(tm.sys, (t) => term_snf(book, t)), tm.s);
 +    }
-   }
- }
- 
++    case "Glu": {
++      return Glu(term_snf(book, tm.A), gface_map(tm.sys, (t) => term_snf(book, t)), tm.s);
++    }
++    case "Gle": {
++      return Gle(term_snf(book, tm.x), face_map(tm.sys, (t) => term_snf(book, t)), tm.s);
++    }
++    case "Ung": {
++      return Ung(term_snf(book, tm.g), tm.s);
++    }
++  }
++}
++
 +// Body
 +// ====
 +// a checked def's running body: its elaborated tree, closed (the cells'
@@ -403,8 +952,11 @@
 +  switch (tm.$) {
 +    case "Ann": {
 +      const T = tm.T;
-+      const keep = T.$ === "Eql" || T.$ === "App" || T.$ === "Var" || T.$ === "Ref" || T.$ === "Let";
-+      return keep ? Ann(term_prune(tm.x), term_prune(T), tm.s) : term_prune(tm.x);
++      // an annotation at a kind is dropped: it would weaken a type's own
++      // kind (U32 : Data, annotated Type); every other one is kept, for a
++      // path's endpoints and the compiler's layouts
++      const keep = T.$ !== "Typ" && T.$ !== "Qnt";
++      return keep ? Ann(term_prune(tm.x), term_prune(T), tm.s, tm.a) : term_prune(tm.x);
 +    }
 +    case "Sub": return Sub(tm.i, tm.v.$ === "PVar" || tm.v.$ === "PCtr" ? tm.v : term_prune(tm.v), term_prune(tm.f), tm.s);
 +    case "Let": return Let(tm.k, tm.i, tm.v.map(term_prune), term_prune(tm.f), tm.s, tm.q);
@@ -423,12 +975,22 @@
 +    case "Imax": return Imax(term_prune(tm.a), term_prune(tm.b), tm.s);
 +    case "Coe": return Coe(term_prune(tm.A), term_prune(tm.r), term_prune(tm.e), term_prune(tm.x), tm.s);
 +    case "Hcm": return Hcm(term_prune(tm.A), term_prune(tm.x), face_map(tm.sys, term_prune), tm.s);
++    case "Glu": return Glu(term_prune(tm.A), gface_map(tm.sys, term_prune), tm.s);
++    case "Gle": return Gle(term_prune(tm.x), face_map(tm.sys, term_prune), tm.s);
++    case "Ung": return Ung(term_prune(tm.g), tm.s);
 +    default: return tm;
 +  }
 +}
 +
-+export function def_body(e: LTerm): HTerm {
-+  return term_higher(term_prune(term_lower(term_higher(e))));
++export function def_body(e: LTerm, x: number = 0, os: Array<[Name, Name]> = []): HTerm {
++  let l = term_prune(term_lower(term_higher(e), x));
++  if (x > 0) {
++    l = term_refsub(l, os);
++    for (let j = x - 1; j >= 0; j--) {
++      l = Lam(os[j][1], j, l);
++    }
++  }
++  return term_higher(l);
 +}
 +
 +// a checked tree for the compiler: a path has no runtime, so a path
@@ -443,13 +1005,13 @@
 +    switch (t.$) {
 +      case "Ann": {
 +        const T = t.T.$ === "Var" && t.T.i < 0 && t.T.v !== undefined ? t.T.v : null;
-+        if (T !== null && t.x.$ === "Lam") {
++        if (T !== null && (t.x.$ === "Lam" || t.x.$ === "Ctr")) {
 +          const w = term_wnf(book, T);
 +          if (w.$ === "Eql") {
 +            return Ann(Rfl(t.s), t.T, t.s);
 +          }
 +        }
-+        return Ann(go(t.x, d), t.T, t.s);
++        return Ann(go(t.x, d), t.T, t.s, t.a);
 +      }
 +      case "App": {
 +        const x = go(t.x, d);
@@ -464,7 +1026,7 @@
 +            const Tw = term_wnf(book, w.T);
 +            const ty: HTerm = Tw.$ === "Lam" ? term_apply(Tw, Dim(xs.d)) : w.T;
 +            const end = go(term_lower(xs.d === 0 ? w.a : w.b, d), d);
-+            return end.$ === "Lam" ? end : Ann(end, Var("_", -1, undefined, ty), t.s);
++            return end.$ === "Lam" ? end : Ann(end, Var("_", -1, undefined, ty), t.s, true);
 +          }
 +        }
 +        return App(f, x, t.s);
@@ -485,10 +1047,203 @@
 +      case "Imax": return Imax(go(t.a, d), go(t.b, d), t.s);
 +      case "Coe": return Coe(go(t.A, d), go(t.r, d), go(t.e, d), go(t.x, d), t.s);
 +      case "Hcm": return Hcm(go(t.A, d), go(t.x, d), face_map(t.sys, (u) => go(u, d)), t.s);
++      case "Glu": return Glu(go(t.A, d), gface_map(t.sys, (u) => go(u, d)), t.s);
++      case "Gle": return Gle(go(t.x, d), face_map(t.sys, (u) => go(u, d)), t.s);
++      case "Ung": return Ung(go(t.g, d), t.s);
 +      default: return t;
 +    }
 +  }
 +  return go(tm, d);
++}
++
++// Runtime transport
++// =================
++// the compiler erases types, so a live Kan operation is elaborated into
++// ordinary code before emission: a coe along a line whose body (at a fresh
++// dimension) is a function, a datatype, a Glue or a kind steps by the
++// checker's own rules with the value symbolic; a datatype line with a
++// symbolic value becomes a minted transport def, a lambda-match pushing
++// the transport into every constructor's fields (recursive lines reach
++// the def itself); an hcomp, glue or unglue with decided faces is its
++// value there; a rewrite along a path is J as transport. What is left is
++// a transport along a variable path in Type, which no runtime value
++// carries, and the compiler refuses it by name.
++
++export type Mint = { book: Book; memo: Map<string, Name>; local: Map<string, Name>; n: number };
++
++export function mint_new(book: Book): Mint {
++  return { book, memo: new Map(), local: new Map(), n: 0 };
++}
++
++function term_open(t: HTerm): boolean {
++  function go(x: LTerm): boolean {
++    switch (x.$) {
++      case "Var": return x.i >= 0 && x.i < SENT_I;
++      case "Ref": case "Qnt": case "Qua": case "Efq": case "Rfl": case "Hol": case "Itv": case "Dim": return false;
++      case "Sub": return (x.v.$ !== "PVar" && x.v.$ !== "PCtr" && go(x.v)) || go(x.f);
++      case "Let": return x.v.some(go) || go(x.f);
++      case "Typ": return go(x.g);
++      case "Min": case "Imin": case "Imax": return go(x.a) || go(x.b);
++      case "Ineg": return go(x.a);
++      case "All": return go(x.A) || go(x.B);
++      case "Lam": return go(x.f);
++      case "App": return go(x.f) || go(x.x);
++      case "ADT": case "Ctr": return x.x.some(go);
++      case "Mat": return go(x.h) || go(x.m);
++      case "Eql": return go(x.a) || go(x.b) || go(x.T);
++      case "Rwt": return go(x.e) || go(x.p) || go(x.f);
++      case "Ann": return go(x.x) || go(x.T);
++      case "Coe": return go(x.A) || go(x.r) || go(x.e) || go(x.x);
++      case "Hcm": return go(x.A) || go(x.x) || x.sys.some((e) => go(e.u) || e.f.some(([r]) => go(r)));
++      case "Glu": return go(x.A) || x.sys.some((e) => go(e.T) || go(e.e) || e.f.some(([r]) => go(r)));
++      case "Gle": return go(x.x) || x.sys.some((e) => go(e.u) || e.f.some(([r]) => go(r)));
++      case "Ung": return go(x.g);
++    }
++  }
++  return go(term_lower(t, 1 << 24));
++}
++
++function kan_die(book: Book, what: string, t: HTerm): never {
++  throw Err(book, ctx_nil(), "a transport the runtime carries (" + what + ")", t, t.s, undefined,
++    "Note: a path in Type has no runtime value; transport along ua(e), a line of\n"
++    + "datatypes, functions or paths compiles, a variable path in Type does not.");
++}
++
++// a structural transport def for a datatype line, minted once per line
++function mint_adt(m: Mint, L: HTerm, r: HTerm, s: HTerm, adt: Extract<HTerm, { $: "ADT" }>): Name {
++  const key = term_key(term_lower(term_snf(m.book, term_apply(L, SENT)), 1 << 24)) + "|" + term_key(term_lower(r, 1 << 24)) + "|" + term_key(term_lower(s, 1 << 24));
++  const memo = term_open(L) || term_open(r) || term_open(s) ? m.local : m.memo;
++  const got = memo.get(key);
++  if (got !== undefined) {
++    return got;
++  }
++  const name = "coe~" + String(m.n++);
++  memo.set(key, name);
++  const fam = m.book.tlds[adt.k] as ADT;
++  const T: HTerm = All(Lone(), "x", 0, term_apply(L, r), () => term_apply(L, s));
++  m.book.tlds[name] = { $: "Def", n: 1, x: 0, T, v: Efq() };
++  let body: HTerm = Efq();
++  for (const c of fam.c.slice().reverse()) {
++    if ((c.p ?? 0) > 0) {
++      continue;
++    }
++    const lines: HTerm[] = [];
++    const fields = (xs: HTerm[]): HTerm => {
++      const j = xs.length;
++      if (j === c.n) {
++        return Ann(Ctr(c.k, xs.map((f, j) => kan_run(m, Coe(lines[j], r, s, f)))), term_cell(term_apply(L, s)), undefined, true);
++      }
++      lines.push(coe_line(L, (Tj, i) => {
++        const a = term_wnf(m.book, Tj) as Extract<HTerm, { $: "ADT" }>;
++        let tel = tele_fill(m.book, c.T, a.x, ctx_nil());
++            for (let q = 0; q < j; q++) {
++          tel = tele_head(m.book, tel, ctx_nil()).B(Coe(lines[q], r, i, xs[q]));
++        }
++        return tele_head(m.book, tel, ctx_nil()).A;
++      }));
++      return Lam("f" + String(j), 0, (x: HTerm) => fields(xs.concat([x])));
++    };
++    // the arm annotated at its type: the fields' telescope at the
++    // parameters of L(r), tipped at L(s)
++    const arm_ty = (tel: HTerm, n: number): HTerm => {
++      if (n === 0) {
++        return term_apply(L, s);
++      }
++      const h = tele_head(m.book, tel, ctx_nil());
++      return All(h.q, h.k, 0, h.A, (x: HTerm) => arm_ty(h.B(x), n - 1));
++    };
++    const arm = c.n === 0 ? fields([]) : Ann(fields([]), term_cell(arm_ty(tele_fill(m.book, c.T, adt.x, ctx_nil()), c.n)), undefined, true);
++    body = Mat(c.k, arm, body);
++  }
++  const e = term_lower(body, 1);
++  m.book.tlds[name] = { $: "Def", n: 1, x: 0, T, v: body, e };
++  return name;
++}
++
++// a Kan node with the value symbolic, run to code with no Kan node left
++export function kan_run(m: Mint, t: HTerm): HTerm {
++  // the node's own type annotates its code (a generated lambda or
++  // constructor needs it for its layout)
++  const f = term_force(t);
++  const ty: HTerm | null = f.$ === "Coe" ? term_apply(f.A, f.e) : f.$ === "Hcm" ? f.A : null;
++  const out = kan_run_go(m, t);
++  return ty === null || out.$ === "Ann" ? out : Ann(out, term_cell(ty), undefined, true);
++}
++
++function kan_run_go(m: Mint, t: HTerm): HTerm {
++  const book = m.book;
++  const w = term_wnf(book, t);
++  switch (w.$) {
++    case "Coe": {
++      const body = term_wnf(book, term_apply(w.A, SENT));
++      if (body.$ === "ADT") {
++        return App(Ref(mint_adt(m, w.A, w.r, w.e, body)), kan_walk(m, w.x));
++      }
++      return kan_die(book, "coe along " + expr_show(book, body), t);
++    }
++    case "Hcm": {
++      if (w.sys.every((e) => face_dead(book, e.f))) {
++        return kan_walk(m, w.x);
++      }
++      return kan_die(book, "hcomp with an undecided face", t);
++    }
++    case "Gle": {
++      if (w.sys.every((e) => face_dead(book, e.f))) {
++        return kan_walk(m, w.x);
++      }
++      return kan_die(book, "glue with an undecided face", t);
++    }
++    case "Ung": {
++      return kan_die(book, "unglue of a value whose Glue type is undecided", t);
++    }
++    case "Rwt": {
++      // J as transport along the connection square, its equation a live
++      // path variable: the line's body decides
++      const P = w.p;
++      const e = w.e;
++      return kan_run(m, Coe(Lam("i", 0, (i: HTerm) => term_apply(term_apply(P, App(e, i)), Lam("j", 0, (j: HTerm) => App(e, Imin(i, j))))), Dim(0), Dim(1), w.f));
++    }
++    default: {
++      return kan_walk(m, w);
++    }
++  }
++}
++
++// a term's Kan nodes run, its other nodes kept (through the HOAS tree)
++export function kan_walk(m: Mint, t: HTerm): HTerm {
++  const x = term_force(t);
++  switch (x.$) {
++    case "Coe": case "Hcm": case "Gle": case "Ung": case "Rwt": return kan_run(m, x);
++    case "Ann": return Ann(kan_walk(m, x.x), x.T, x.s, x.a);
++    case "Let": return Let(x.k, x.i, x.v.map((v) => kan_walk(m, v)), (xs: HTerm[]) => kan_walk(m, x.f(xs)), x.s, x.q);
++    case "All": return All(x.q, x.k, x.i, x.A, (y: HTerm) => kan_walk(m, x.B(y)), x.s);
++    case "Lam": return Lam(x.k, x.i, (y: HTerm) => kan_walk(m, x.f(y)), x.s, x.q);
++    case "App": return App(kan_walk(m, x.f), kan_walk(m, x.x), x.s);
++    case "Ctr": return Ctr(x.k, x.x.map((y) => kan_walk(m, y)), x.s);
++    case "Mat": return Mat(x.k, kan_walk(m, x.h), kan_walk(m, x.m), x.s);
++    default: return x;
++  }
++}
++
++// the compiler-facing pass over a checked tree: every Kan node run
++export function term_uncoe(m: Mint, e: LTerm): LTerm {
++  function has(x: LTerm): boolean {
++    switch (x.$) {
++      case "Coe": case "Hcm": case "Gle": case "Ung": case "Rwt": return true;
++      case "Ann": return has(x.x);
++      case "Sub": return (x.v.$ !== "PVar" && x.v.$ !== "PCtr" && has(x.v)) || has(x.f);
++      case "Let": return x.v.some(has) || has(x.f);
++      case "Lam": return has(x.f);
++      case "App": return has(x.f) || has(x.x);
++      case "Ctr": return x.x.some(has);
++      case "Mat": return has(x.h) || has(x.m);
++      default: return false;
++    }
++  }
++  if (!has(e)) {
++    return e;
++  }
++  return term_lower(kan_walk(m, term_higher(e, null, true)));
 +}
 +
 +// Interval
@@ -501,9 +1256,16 @@
 +// SENT is the sentinel dimension a line is opened at: coe_step and the
 +// rewrite rule apply a line to it and ask whether the body mentions it.
 +
-+export const SENT: HTerm = Var("i", -3);
++export const SENT_I = 1 << 30;
++export const SENT: HTerm = Var("i", SENT_I);
 +
-+export function term_mentions(t: HTerm, i: number = -3): boolean {
++// t with the sentinel dimension replaced by v: lowered above every index
++// in use, re-bound with the other variables kept
++export function term_sent(t: HTerm, v: HTerm): HTerm {
++  return term_higher(term_lower(t, 1 << 24), list_set(null, SENT_I, v), true);
++}
++
++export function term_mentions(t: HTerm, i: number = SENT_I): boolean {
 +  function go(x: LTerm): boolean {
 +    switch (x.$) {
 +      case "Var": return x.i === i;
@@ -523,6 +1285,9 @@
 +      case "Ann": return go(x.x) || go(x.T);
 +      case "Coe": return go(x.A) || go(x.r) || go(x.e) || go(x.x);
 +      case "Hcm": return go(x.A) || go(x.x) || x.sys.some((e) => go(e.u) || e.f.some(([r]) => go(r)));
++      case "Glu": return go(x.A) || x.sys.some((e) => go(e.T) || go(x.$ === "Glu" ? e.e : e.e) || e.f.some(([r]) => go(r)));
++      case "Gle": return go(x.x) || x.sys.some((e) => go(e.u) || e.f.some(([r]) => go(r)));
++      case "Ung": return go(x.g);
 +    }
 +  }
 +  return go(term_lower(t));
@@ -577,7 +1342,7 @@
 +    if (itv_eval(book, a, env) !== itv_eval(book, b, env)) {
 +      return false;
 +    }
-+  }
+   }
 +  return true;
 +}
 +
@@ -637,13 +1402,44 @@
 +        ], tm.s);
 +      }, tm.s);
 +    }
++    case "Glu": {
++      // CCHM transport through Glue: unglue at r (the equivalence's
++      // function on a true face), transport the base along the A-line, and
++      // on each face live at s take t1 = e^-1(a1') from the fibre's centre,
++      // correcting a1' along the centre's path so that fst(e)(t1) = a1
++      // there; glue [faces at s -> t1] a1
++      const at = (i: HTerm): [HTerm, Array<GFace<HTerm>>] => {
++        const g = term_sent(body, i);
++        return g.$ === "Glu" ? [g.A, g.sys] : [term_apply(tm.A, i), []];
++      };
++      const live = (fs: Array<GFace<HTerm>>) => fs.filter((e) => !face_dead(book, e.f));
++      const [aR, fsR] = at(r);
++      const [aS, fsS] = at(s);
++      const aLn = Lam("i", 0, (i: HTerm) => at(i)[0]);
++      const lr = live(fsR);
++      const tr = lr.find((e) => face_holds(book, e.f));
++      const aR0: HTerm = lr.length === 0 ? tm.x : tr !== undefined ? App(equiv_fun(tr.e, tr.T, aR), tm.x) : Ung(tm.x);
++      const a1p = term_wnf(book, Coe(aLn, r, s, aR0));
++      const faces = live(fsS).map((e) => ({ f: e.f, e: e.e, T: e.T, t1: App(equiv_inv(e.e, e.T, aS), a1p) }));
++      const a1 = Hcm(aS, a1p, faces.map((fc) => ({ f: fc.f, u: Lam("j", 0, (j: HTerm) => App(App(equiv_sec(fc.e, fc.T, aS), fc.t1), Ineg(j))) })), tm.s);
++      return Gle(a1, faces.map((fc) => ({ f: fc.f, u: fc.t1 })), tm.s);
++    }
 +    case "ADT": {
-+      const x = term_wnf(book, tm.x);
++      const x0 = term_wnf(book, tm.x);
++      // transport commutes with an hcomp cell of the family
++      if (x0.$ === "Hcm") {
++        return Hcm(term_apply(tm.A, s), Coe(tm.A, r, s, x0.x),
++          x0.sys.map((e) => ({ f: e.f, u: Lam("j", 0, (j: HTerm) => Coe(tm.A, r, s, term_apply(e.u, j))) })), tm.s);
++      }
++      // a path constructor applied to dimensions: its fields transport,
++      // the dimensions stay
++      const [xh, xrs] = x0.$ === "App" ? term_unapply(x0) : [x0, []];
++      const x = xh.$ === "Ctr" ? xh : x0;
 +      if (x.$ !== "Ctr") {
 +        return null;
 +      }
 +      const ctr = book_ctr(book, x.k);
-+      if (ctr === null || ctr.n !== x.x.length) {
++      if (ctr === null || ctr.n !== x.x.length || (xrs.length > 0 && (ctr.p ?? 0) !== xrs.length)) {
 +        return null;
 +      }
 +      const A = tm.A;
@@ -658,7 +1454,11 @@
 +          return tele_head(book, tel, ctx_nil()).A;
 +        }));
 +      }
-+      return Ctr(x.k, x.x.map((f, j) => Coe(lines[j], r, s, f)), x.s);
++      let out: HTerm = Ctr(x.k, x.x.map((f, j) => Coe(lines[j], r, s, f)), x.s);
++      for (const q of xrs) {
++        out = App(out, q);
++      }
++      return out;
 +    }
 +    default: {
 +      return null;
@@ -689,6 +1489,53 @@
 +  });
 +}
 +
++// hfill: the filler of a composite, at j
++function hfill_at(A: HTerm, sys: Array<Face<HTerm>>, x: HTerm, j: HTerm): HTerm {
++  return Hcm(A, x, [
++    ...sys.map((e) => ({ f: e.f, u: Lam("k", 0, (k: HTerm) => term_apply(e.u, Imin(j, k))) })),
++    { f: [[j, 0]], u: Lam("k", 0, () => x) },
++  ]);
++}
++
++// Equiv
++// =====
++// the coherent equivalences of Base: Equiv(T, A) = &f:(T -> A) ->
++// isEquiv(T, A, f), isEquiv = @y:A -> isContr(fiber(T, A, f, y)),
++// isContr(C) = &c:C -> @w:C -> {c == w : C}, fiber = &x:T -> {f(x) == y : A}.
++// the projections eliminate the pairs with Base's Tuple, so they compute
++// on a constructed equivalence and stay stuck on a variable
++
++// the projections are Base's own defs (Equiv.fun, Equiv.inv, Equiv.sec),
++// so a stuck projection of a variable equivalence is the same term the
++// user writes
++
++export function equiv_ty(T: HTerm, A: HTerm): HTerm {
++  return App(App(Ref("Equiv"), T), A);
++}
++
++function equiv_proj(k: Name, e: HTerm, T: HTerm, A: HTerm): HTerm {
++  return App(App(App(Ref(k), T), A), e);
++}
++
++export function equiv_fun(e: HTerm, T: HTerm, A: HTerm): HTerm {
++  return equiv_proj("Equiv.fun", e, T, A);
++}
++
++export function equiv_inv(e: HTerm, T: HTerm, A: HTerm): HTerm {
++  return equiv_proj("Equiv.inv", e, T, A);
++}
++
++export function equiv_sec(e: HTerm, T: HTerm, A: HTerm): HTerm {
++  return equiv_proj("Equiv.sec", e, T, A);
++}
++
++// the equivalence u(i1) ~ u(i0) by transport backwards along a line of
++// types u: the identity equivalence carried through k => Equiv(u(i1), u(-k))
++function transp_equiv(u: HTerm): HTerm {
++  const top = term_apply(u, Dim(1));
++  return Coe(Lam("k", 0, (k: HTerm) => equiv_ty(top, term_apply(u, Ineg(k)))), Dim(0), Dim(1), App(Ref("Equiv.id"), top));
++}
++
 +export function hcm_step(book: Book, tm: Extract<HTerm, { $: "Hcm" }>): HTerm | null {
 +  for (const e of tm.sys) {
 +    if (face_holds(book, e.f)) {
@@ -698,6 +1545,23 @@
 +  const sys = tm.sys.filter((e) => !face_dead(book, e.f));
 +  const A = term_wnf(book, tm.A);
 +  switch (A.$) {
++    case "Typ": {
++      // composition in the universe is a Glue type: on each face the
++      // tube's top, glued to the base along transport back down the tube
++      if (sys.length === 0) {
++        return null;
++      }
++      return Glu(tm.x, sys.map((e) => ({ f: e.f, T: term_apply(e.u, Dim(1)), e: transp_equiv(e.u) })), tm.s);
++    }
++    case "Glu": {
++      // compose inside each partial type (there Glue is that type), and in
++      // the base compose the unglued tubes with one face per partial type
++      // forcing the filler's image, then glue
++      const gl = A.sys.filter((e) => !face_dead(book, e.f));
++      const aFaces = gl.map((e) => ({ f: e.f, u: Lam("k", 0, (k: HTerm) => App(equiv_fun(e.e, e.T, A.A), hfill_at(e.T, sys, tm.x, k))) }));
++      const a1 = Hcm(A.A, Ung(tm.x), [...sys.map((e) => ({ f: e.f, u: Lam("j", 0, (j: HTerm) => Ung(term_apply(e.u, j))) })), ...aFaces], tm.s);
++      return Gle(a1, gl.map((e) => ({ f: e.f, u: Hcm(e.T, tm.x, sys, tm.s) })), tm.s);
++    }
 +    case "All": {
 +      return Lam(A.k, 0, (y: HTerm) => Hcm(A.B(y), App(tm.x, y),
 +        sys.map((e) => ({ f: e.f, u: Lam("i", 0, (i: HTerm) => App(App(e.u, i), y)) })), tm.s), tm.s);
@@ -752,12 +1616,10 @@
 +    env = list_set(env, k, sub.get(k) ?? Var(ks[k] ?? "_", k));
 +  }
 +  return term_higher(term_lower(t, d), env);
-+}
-+
+ }
+ 
  // Compare
- // =======
- // term_compare(mode, a, b): a fits b. the relation is a preorder, not an
-@@ -3139,19 +3781,65 @@
+@@ -3139,19 +4425,71 @@
  // same walk, kinds exact, no swap (a swap under EQ is harmless, so
  // the All case swaps unconditionally).
  
@@ -819,6 +1681,12 @@
 +  if (itv_is(a) || itv_is(b)) {
 +    return itv_eq(book, a, b);
 +  }
++  if ((a.$ === "Lam" && b.$ === "Rfl") || (a.$ === "Rfl" && b.$ === "Lam")) {
++    // {==} against a path lambda: the lambda must be a constant path (its
++    // faces are the goal's, which the type already fixes)
++    const l = (a.$ === "Lam" ? a : b) as Extract<HTerm, { $: "Lam" }>;
++    return !term_mentions(term_pend(book, ctx, term_wnf(book, l.f(SENT)), dep));
++  }
    if (a.$ === "Lam" || b.$ === "Lam") {
      const k = a.$ === "Lam" ? a.k : (b as Extract<HTerm, { $: "Lam" }>).k;
      const x: HTerm = Var(k, dep);
@@ -827,7 +1695,7 @@
    }
    switch (a.$) {
      case "Var": {
-@@ -3173,16 +3861,16 @@
+@@ -3173,16 +4511,16 @@
          return true;
        }
        if (g.$ === "Min") {
@@ -849,7 +1717,7 @@
      }
      case "Qnt": {
        return b.$ === "Qnt";
-@@ -3192,19 +3880,37 @@
+@@ -3192,19 +4530,55 @@
      }
      case "Min": {
        return b.$ === "Min"
@@ -876,6 +1744,24 @@
 +    case "Itv": {
 +      return b.$ === "Itv";
 +    }
++    case "Glu": {
++      return b.$ === "Glu" && a.sys.length === b.sys.length
++          && term_compare("EQ", book, a.A, b.A, dep, ctx)
++          && a.sys.every((e, j) => e.f.length === b.sys[j].f.length
++            && e.f.every(([r, d], m) => d === b.sys[j].f[m][1] && term_compare("EQ", book, r, b.sys[j].f[m][0], dep, ctx))
++            && term_compare("EQ", book, e.T, b.sys[j].T, dep, ctx)
++            && term_compare("EQ", book, e.e, b.sys[j].e, dep, ctx));
++    }
++    case "Gle": {
++      return b.$ === "Gle" && a.sys.length === b.sys.length
++          && term_compare("EQ", book, a.x, b.x, dep, ctx)
++          && a.sys.every((e, j) => e.f.length === b.sys[j].f.length
++            && e.f.every(([r, d], m) => d === b.sys[j].f[m][1] && term_compare("EQ", book, r, b.sys[j].f[m][0], dep, ctx))
++            && term_compare("EQ", book, e.u, b.sys[j].u, dep, ctx));
++    }
++    case "Ung": {
++      return b.$ === "Ung" && term_compare("EQ", book, a.g, b.g, dep, ctx);
++    }
 +    case "Hcm": {
 +      return b.$ === "Hcm" && a.sys.length === b.sys.length
 +          && term_compare("EQ", book, a.A, b.A, dep, ctx)
@@ -893,7 +1779,7 @@
      }
      case "ADT": {
        if (b.$ !== "ADT" || a.k !== b.k || a.x.length !== b.x.length) {
-@@ -3214,25 +3920,25 @@
+@@ -3214,25 +4588,25 @@
          return false;
        }
        return b.r.every((c) => a.r.includes(c))
@@ -926,7 +1812,7 @@
      }
      case "Rfl": {
        return b.$ === "Rfl";
-@@ -3242,9 +3948,9 @@
+@@ -3242,9 +4616,9 @@
      }
      case "Rwt": {
        return b.$ === "Rwt"
@@ -939,7 +1825,24 @@
      }
      default: {
        return false;
-@@ -3384,6 +4090,108 @@
+@@ -3274,6 +4648,16 @@
+ // so its type's quantity is at least q under term_compare's order.
+ 
+ export function term_infer(book: Book, lhs: LHS, tm: HTerm, qt: Quant, ctx: Ctx, d: number, sp: HTerm[] = []): Infer {
++  const saved = WNF_CTX;
++  WNF_CTX = ctx;
++  try {
++    return term_infer_go(book, lhs, tm, qt, ctx, d, sp);
++  } finally {
++    WNF_CTX = saved;
++  }
++}
++
++function term_infer_go(book: Book, lhs: LHS, tm: HTerm, qt: Quant, ctx: Ctx, d: number, sp: HTerm[] = []): Infer {
+   switch (tm.$) {
+     // Γ[x] = q A
+     // where x is bound in Γ (a ~ argument checks in the empty context,
+@@ -3384,6 +4768,126 @@
        const B_chk = term_check(book, lhs, tm.B(Var(tm.k, d)), None(), Typ(Qua(Lone()), tm.s), B_ctx, d+1);
        return Infer(All(tm.q, tm.k, d, A_chk.tm, B_chk.tm, tm.s), Typ(Qua(Lone()), tm.s), uses_nil());
      }
@@ -1009,16 +1912,7 @@
 +      const sys: Array<Face<LTerm>> = [];
 +      let us = uses_nil();
 +      for (const e of tm.sys) {
-+        const sub = new Map<number, HTerm>();
-+        const f: Array<[LTerm, 0 | 1]> = [];
-+        for (const [r, dm] of e.f) {
-+          const r_chk = term_check(book, lhs, r, None(), Itv(tm.s), ctx, d);
-+          const rv = term_strip(r);
-+          if (rv.$ === "Var" && rv.i >= 0 && rv.i < d) {
-+            sub.set(rv.i, Dim(dm, tm.s));
-+          }
-+          f.push([r_chk.tm, dm]);
-+        }
++        const [f, sub] = face_check(book, lhs, e.f, ctx, d, tm.s);
 +        const A_at = term_subst(ctx, tm.A, d, sub);
 +        const line = All<HBody>(Many(), "i", 0, Itv(tm.s), () => A_at, tm.s);
 +        const u_chk = term_check(book, lhs, e.u, qt, line, ctx, d);
@@ -1045,10 +1939,37 @@
 +      }
 +      return Infer(Hcm(A_chk.tm, x_chk.tm, sys, tm.s), tm.A, uses_add(x_chk.us, us));
 +    }
++    // Γ ⊢ A : Type    Γ[σk] ⊢ Tk : Type    Γ[σk] ⊢ ek : Equiv(Tk, A[σk]) ~ uk
++    // where A, the faces and the Tk are dead and the ek live: a path in
++    //       Type built from Glue carries its equivalences as evidence
++    // ------------------------------------------------------------------- infer-glue
++    // Γ ⊢ Glue(A, [(fk) (Tk, ek), ..]) : Type ~ u1 | .. | un
++    case "Glu": {
++      const A_chk = term_check(book, lhs, tm.A, None(), Typ(Qua(Lone()), tm.s), ctx, d);
++      const sys: Array<GFace<LTerm>> = [];
++      let us = uses_nil();
++      for (const e of tm.sys) {
++        const [f, sub] = face_check(book, lhs, e.f, ctx, d, tm.s);
++        const A_at = term_subst(ctx, tm.A, d, sub);
++        const T_chk = term_check(book, lhs, e.T, None(), Typ(Qua(Lone()), tm.s), ctx, d);
++        const e_chk = term_check(book, lhs, e.e, qt, equiv_ty(e.T, A_at), ctx, d);
++        sys.push({ f, T: T_chk.tm, e: e_chk.tm });
++        us = pmap_union(us, e_chk.us, quant_join);
++      }
++      return Infer(Glu(A_chk.tm, sys, tm.s), Typ(Qua(Lone()), tm.s), us);
++    }
++    // Γ ⊢ g : Glue(A, ..) ~ u
++    // ---------------------------- infer-unglue
++    // Γ ⊢ unglue(g) : A ~ u
++    case "Ung": {
++      const g_inf = term_infer(book, lhs, tm.g, qt, ctx, d);
++      const g_wnf = term_wnf(book, g_inf.ty);
++      return Infer(Ung(g_inf.tm, tm.s), g_wnf.$ === "Glu" ? g_wnf.A : g_inf.ty, g_inf.us);
++    }
      // Γ ⊢ f : @q x:A -> B ~ fu
      // Γ ⊢ a : A ~ au
      // where a is dead if q is -, and consumed once otherwise: its
-@@ -3403,6 +4211,16 @@
+@@ -3403,6 +4907,16 @@
          return { ...f_inf, x: f_inf.x - 1 };
        }
        const f_wnf = term_wnf(book, f_inf.ty);
@@ -1065,7 +1986,7 @@
        if (f_wnf.$ !== "All") {
          throw Err(book, ctx, "a function type", f_inf.ty, tm.s, lhs.def);
        }
-@@ -3426,10 +4244,14 @@
+@@ -3426,10 +4940,14 @@
      // where A, a and b are dead; evidence is erased, so Data
      // ------------------------------------------------------ infer-eql
      // Γ ⊢ {a == b : A} : Data ~ {}
@@ -1083,10 +2004,143 @@
        return Infer(Eql(a_chk.tm, b_chk.tm, T_chk.tm, tm.s), Typ(Qua(Many()), tm.s), uses_nil());
      }
      // Γ ⊢ T : Type
-@@ -3481,8 +4303,27 @@
+@@ -3449,12 +4967,42 @@
+       if (tm.$ === "Ctr" && book_ctr(book, tm.k) === null) {
+         throw Err(book, ctx, "a declared constructor", tm, tm.s, lhs.def);
+       }
++      // a constructor of a family without parameters infers its type
++      if (tm.$ === "Ctr") {
++        const ic = book_ctr(book, tm.k) as Ctr;
++        const fam = book.tlds[book_fam(book, tm.k)];
++        if (fam !== undefined && fam.$ === "ADT" && fam.n === 0 && (ic.p ?? 0) > 0 && tm.x.length === ic.n) {
++          const { xs, us, tel } = tele_check(book, lhs, ic.T, tm.x, qt, ctx, d, tm.s);
++          return Infer(Ctr(tm.k, xs, tm.s), tel, us);
++        }
++      }
+       throw Err(book, ctx, "an annotated term (cannot infer)", tm, tm.s, lhs.def);
+     }
+   }
+ }
+ 
+ // T fits Kind(q); a miss is reported at s, the binder
++// a face's constraints, checked dead at Interval; the substitution of the
++// variables they fix
++export function face_check(book: Book, lhs: LHS, f: Array<[HTerm, 0 | 1]>, ctx: Ctx, d: number, s?: Span): [Array<[LTerm, 0 | 1]>, Map<number, HTerm>] {
++  const sub = new Map<number, HTerm>();
++  const out: Array<[LTerm, 0 | 1]> = [];
++  for (const [r, dm] of f) {
++    const r_chk = term_check(book, lhs, r, None(), Itv(s), ctx, d);
++    const rv = term_strip(r);
++    if (rv.$ === "Var" && rv.i >= 0 && rv.i < d) {
++      sub.set(rv.i, Dim(dm, s));
++    }
++    out.push([r_chk.tm, dm]);
++  }
++  return [out, sub];
++}
++
++// the eliminator a residual match belongs to: a path constructor's arm
++// lands in the path over the motive between the eliminator's values at
++// the constructor's endpoints, so the residual chain reads the full match
++let MAT_TOP: HTerm | null = null;
++
+ export function term_check_kind(book: Book, lhs: LHS, T: HTerm, q: Quant, ctx: Ctx, d: number, s?: Span): void {
+   const kind = Typ<HBody>(Qua(lhs_kind(lhs, q)), s);
+   try {
+@@ -3466,6 +5014,16 @@
+ }
+ 
+ export function term_check(book: Book, lhs: LHS, tm: HTerm, qt: Quant, ty: HTerm, ctx: Ctx, d: number): Check {
++  const saved = WNF_CTX;
++  WNF_CTX = ctx;
++  try {
++    return term_check_go(book, lhs, tm, qt, ty, ctx, d);
++  } finally {
++    WNF_CTX = saved;
++  }
++}
++
++function term_check_go(book: Book, lhs: LHS, tm: HTerm, qt: Quant, ty: HTerm, ctx: Ctx, d: number): Check {
+   switch (tm.$) {
+     // a share cell in a goal-checked position: open it, no evaluation
+     case "Var": {
+@@ -3481,8 +5039,100 @@
      //       lhs steps by x while a parameter remains
      // ---------------------------------------------- check-lam
      // Γ ⊢ x => f : T ~ u - x
++    // T == Glue(A, [(fk) (Tk, ek), ..])
++    // Γ ⊢ x : A ~ xu    Γ[σk] ⊢ tk : Tk ~ uk    fst(ek)(tk) == x[σk]
++    // where every face of the Glue has its section
++    // ------------------------------------------------------------ check-glue
++    // Γ ⊢ glue(x, [(fk) tk, ..]) : T ~ xu + (u1 | .. | un)
++    case "Gle": {
++      const t_wnf = term_wnf(book, ty);
++      if (t_wnf.$ !== "Glu") {
++        throw Err(book, ctx, ty, typeless_show(book, ctx, tm), tm.s, lhs.def);
++      }
++      const x_chk = term_check(book, lhs, tm.x, qt, t_wnf.A, ctx, d);
++      const sys: Array<Face<LTerm>> = [];
++      let us = uses_nil();
++      const done: boolean[] = t_wnf.sys.map(() => false);
++      for (const e of tm.sys) {
++        const [f, sub] = face_check(book, lhs, e.f, ctx, d, tm.s);
++        const j = t_wnf.sys.findIndex((g) => g.f.length === e.f.length && g.f.every(([r, dm], m) => dm === e.f[m][1] && itv_eq(book, r, e.f[m][0])));
++        if (j < 0) {
++          throw Err(book, ctx, "a face of the Glue type", e.u, e.u.s ?? tm.s, lhs.def);
++        }
++        done[j] = true;
++        const g = t_wnf.sys[j];
++        const u_chk = term_check(book, lhs, e.u, qt, term_subst(ctx, g.T, d, sub), ctx, d);
++        const l = term_subst(ctx, App(equiv_fun(g.e, g.T, t_wnf.A), e.u), d, sub);
++        const r = term_subst(ctx, tm.x, d, sub);
++        if (!term_compare("EQ", book, l, r, d, ctx)) {
++          throw Err(book, ctx, r, l, e.u.s ?? tm.s, lhs.def, "Note: a section must map to the base under its face's equivalence.");
++        }
++        sys.push({ f, u: u_chk.tm });
++        us = pmap_union(us, u_chk.us, quant_join);
++      }
++      if (done.some((b) => !b)) {
++        throw Err(book, ctx, "a section on every face of the Glue type", tm, tm.s, lhs.def);
++      }
++      return Check(Gle(x_chk.tm, sys, tm.s), ty, uses_add(x_chk.us, us));
++    }
++    // a path constructor applied to its dimensions, at a goal in the
++    // family: the constructor at its tip (read off the goal's carrier),
++    // the dimensions dead, the result the tip's line at them
++    case "App": {
++      const [h, rs] = term_unapply(tm);
++      const hs = term_strip(h);
++      const pc = hs.$ === "Ctr" ? book_ctr(book, hs.k) : null;
++      if (hs.$ === "Ctr" && pc !== null && (pc.p ?? 0) > 0 && rs.length <= (pc.p as number)) {
++        const t_wnf = term_wnf(book, ty);
++        const car = t_wnf.$ === "ADT" ? t_wnf : eql_carrier(book, t_wnf);
++        if (car === null || car.k !== book_fam(book, hs.k)) {
++          throw Err(book, ctx, ty, typeless_show(book, ctx, tm), tm.s, lhs.def);
++        }
++        if (hs.x.length !== pc.n) {
++          throw Err(book, ctx, hs.k + " with " + String(pc.n) + (pc.n === 1 ? " field" : " fields"), hs, tm.s, lhs.def);
++        }
++        const ptel = tele_fill(book, pc.T, car.x, ctx, lhs.def, tm.s);
++        const { xs, us, tel } = tele_check(book, lhs, ptel, hs.x, qt, ctx, d, tm.s);
++        let out: LTerm = Check(Ctr(hs.k, xs, hs.s), tel, us).tm;
++        let cur: HTerm = tel;
++        for (const r of rs) {
++          const w = term_wnf(book, cur);
++          if (w.$ !== "Eql") {
++            throw Err(book, ctx, "a path constructor applied to at most its dimensions", tm, tm.s, lhs.def);
++          }
++          const r_chk = term_check(book, lhs, r, None(), Itv(tm.s), ctx, d);
++          const Tw = term_wnf(book, w.T);
++          cur = Tw.$ === "Lam" ? term_apply(Tw, r) : w.T;
++          out = Ann(App(out, r_chk.tm, tm.s), Var("_", -1, undefined, cur), tm.s, true);
++        }
++        if (!term_compare("LE", book, cur, ty, d, ctx)) {
++          throw Err(book, ctx, ty, cur, tm.s, lhs.def);
++        }
++        return { tm: out, us };
++      }
++      break;
++    }
 +    // T == {a == b : L}
 +    // Γ , i : +Interval ⊢ f(i) : L(i) ~ u
 +    // where f(i0) == a and f(i1) == b
@@ -1111,7 +2165,98 @@
        if (t_wnf.$ !== "All") {
          throw Err(book, ctx, ty, typeless_show(book, ctx, tm), tm.s, lhs.def);
        }
-@@ -3633,7 +4474,7 @@
+@@ -3538,6 +5188,24 @@
+     // Γ ⊢ k{x1, .., xn} : T ~ u1 + .. + un
+     case "Ctr": {
+       const t_wnf = term_wnf(book, ty);
++      // a path constructor at its path type: the fields against the
++      // telescope at the carrier's parameters, and the tip is the goal
++      if (t_wnf.$ === "Eql") {
++        const pc = book_ctr(book, tm.k);
++        const car = eql_carrier(book, t_wnf);
++        if (pc === null || (pc.p ?? 0) === 0 || car === null || car.k !== book_fam(book, tm.k)) {
++          throw Err(book, ctx, ty, typeless_show(book, ctx, tm), tm.s, lhs.def);
++        }
++        if (tm.x.length !== pc.n) {
++          throw Err(book, ctx, tm.k + " with " + String(pc.n) + (pc.n === 1 ? " field" : " fields"), tm, tm.s, lhs.def);
++        }
++        const ptel = tele_fill(book, pc.T, car.x, ctx, lhs.def, tm.s);
++        const { xs, us, tel } = tele_check(book, lhs, ptel, tm.x, qt, ctx, d, tm.s);
++        if (!term_compare("LE", book, tel, ty, d, ctx)) {
++          throw Err(book, ctx, ty, tel, tm.s, lhs.def);
++        }
++        return Check(Ctr(tm.k, xs, tm.s), ty, us);
++      }
+       if (t_wnf.$ !== "ADT") {
+         const fam = book_ctr(book, tm.k) === null ? null : book_fam(book, tm.k);
+         throw Err(book, ctx, ty, fam === null ? typeless_show(book, ctx, tm) : Ref(fam, tm.s), tm.s, lhs.def);
+@@ -3603,9 +5271,42 @@
+             throw Err(book, ctx, "a constructor of " + a_wnf.k + " (missing, or already matched)", tm, tm.s, lhs.def);
+           }
+           const tel = tele_fill(book, ctr.T, a_wnf.x, ctx, lhs.def, tm.s);
++          const top = a_wnf.r.length === 0 ? tm : (MAT_TOP ?? tm);
++          // a path constructor's arm: for a tip {a == b : L} at the fields,
++          // the path over i => P(c{xs}(i)) between E(a) and E(b), nested
++          // by dimension, E the full eliminator
++          // the eliminator's value at an endpoint: through the match when
++          // it computes, else the definition's own application (a stuck
++          // self-call, as the arm's recursive calls are)
++          function elim(a: HTerm): HTerm {
++            const v = term_wnf(book, term_apply(top, a));
++            const h = term_unapply(v)[0];
++            return (h.$ === "Mat" || h.$ === "Efq") && lhs.n > 0 ? App(lhs.t, a) : v;
++          }
++          function lift(a: HTerm, T: HTerm): HTerm {
++            const w = term_wnf(book, T);
++            if (w.$ !== "Eql") {
++              return elim(a);
++            }
++            return Lam("j", 0, (j: HTerm) => {
++              const Tw = term_wnf(book, w.T);
++              return lift(App(a, j), Tw.$ === "Lam" ? term_apply(Tw, j) : w.T);
++            });
++          }
++          function path_goal(tip: HTerm, c: HTerm): HTerm {
++            const w = term_wnf(book, tip);
++            if (w.$ !== "Eql") {
++              return t_all.B(c);
++            }
++            const at = (i: HTerm) => {
++              const Tw = term_wnf(book, w.T);
++              return Tw.$ === "Lam" ? term_apply(Tw, i) : w.T;
++            };
++            return Eql(lift(w.a, at(Dim(0))), lift(w.b, at(Dim(1))), Lam("i", 0, (i: HTerm) => path_goal(at(i), App(c, i))), b.s);
++          }
+           function term_check_mat_goal(cur: HTerm, n: number, xs: HTerm[]): HTerm {
+             if (n === 0) {
+-              return t_all.B(Ctr(b.k, xs, b.s));
++              return (ctr.p ?? 0) > 0 ? path_goal(cur, Ctr(b.k, xs, b.s)) : t_all.B(Ctr(b.k, xs, b.s));
+             } else {
+               const c_all = tele_head(book, cur, ctx, lhs.def, b.s);
+               const c_dem = c_all.q.$ === "None" ? None() : c_all.q.$ === "Lone" ? t_all.q : quant_add(t_all.q, t_all.q);
+@@ -3618,9 +5319,18 @@
+           if (lhs.n > 0) {
+             h_lhs = { ...lhs, t: lhs_ext(lhs.t, tm.k, ctr.n), n: lhs.n - 1 + ctr.n };
+           }
+-          const h_chk = term_check(book, h_lhs, tm.h, qt, term_check_mat_goal(tel, ctr.n, []), ctx, d);
+-          const m_gol = All(t_wnf.q, t_wnf.k, t_wnf.i, ADT(a_wnf.k, a_wnf.x, tm.s, a_wnf.r.concat([ctr.k])), t_wnf.B, tm.s);
+-          const m_chk = term_check(book, lhs, tm.m, qt, m_gol, ctx, d);
++          const savedTop = MAT_TOP;
++          MAT_TOP = null;
++          let h_chk: Check;
++          let m_chk: Check;
++          try {
++            h_chk = term_check(book, h_lhs, tm.h, qt, term_check_mat_goal(tel, ctr.n, []), ctx, d);
++            const m_gol = All(t_wnf.q, t_wnf.k, t_wnf.i, ADT(a_wnf.k, a_wnf.x, tm.s, a_wnf.r.concat([ctr.k])), t_wnf.B, tm.s);
++            MAT_TOP = top;
++            m_chk = term_check(book, lhs, tm.m, qt, m_gol, ctx, d);
++          } finally {
++            MAT_TOP = savedTop;
++          }
+           return Check(Mat(tm.k, h_chk.tm, m_chk.tm, tm.s), ty, pmap_union(h_chk.us, m_chk.us, quant_join));
+         }
+       }
+@@ -3633,7 +5343,7 @@
        if (t_wnf.$ !== "Eql") {
          throw Err(book, ctx, ty, typeless_show(book, ctx, tm), tm.s, lhs.def);
        }
@@ -1120,7 +2265,7 @@
          throw Err(book, ctx, t_wnf.a, t_wnf.b, tm.s, lhs.def);
        }
        return Check(Rfl(tm.s), ty, uses_nil());
-@@ -3663,7 +4504,7 @@
+@@ -3663,7 +5373,7 @@
        const p_typ = All<HBody>(Lone(), "_", 0, e_wnf.T, (x: HTerm) => All<HBody>(Lone(), "e", 0, Eql(e_wnf.a, x, e_wnf.T), () => Typ(Qua(Lone())), tm.s), tm.s);
        const p_chk = term_check(book, lhs, tm.p, None(), p_typ, ctx, d);
        const b_gol = term_apply(term_apply(tm.p, e_wnf.b), tm.e);
@@ -1129,7 +2274,7 @@
          throw Err(book, ctx, ty, b_gol, tm.s, lhs.def);
        }
        const a_gol = term_apply(term_apply(tm.p, e_wnf.a), Rfl<HBody>(tm.s));
-@@ -3678,7 +4519,7 @@
+@@ -3678,7 +5388,7 @@
      }
    }
    const x_inf = term_infer(book, lhs, tm, qt, ctx, d);
@@ -1138,48 +2283,242 @@
      return { tm: x_inf.tm, us: x_inf.us };
    }
    throw Err(book, ctx, ty, x_inf.ty, tm.s, lhs.def);
+@@ -3696,15 +5406,57 @@
+   }
+   const gen = def.x === 0 ? book : { ...book, tlds: Object.create(book.tlds) as Record<Name, TLD> };
+   let [t, v, T]: HTerm[] = [Ref(k), def.v as HTerm, def.T];
++  const os: Array<[Name, Name]> = [];
+   for (let j = 0; j < def.x; j++) {
+     const h = tele_head(gen, T, ctx_nil(), k);
+     const o = k + "~" + h.k;
+     gen.tlds[o] = { $: "Def", n: 0, x: 0, T: h.A, v: null, b: true };
++    os.push([o, h.k]);
+     t = App(t, Ref(o));
+     v = term_apply(v, Ref(o));
+     T = h.B(Ref(o));
+   }
+-  return term_check(gen, { t, n: def.n - def.x, def: k, qs, u: def.u, z }, v, Lone(), T, ctx_nil(), 0).tm;
++  // the tree is checked past the ~ binders' depth, and closed over them:
++  // each opaque constant becomes its leading lambda, so a template too
++  // unfolds to the tree it checked
++  def.o = os;
++  return term_check(gen, { t, n: def.n - def.x, def: k, qs, u: def.u, z }, v, Lone(), T, ctx_nil(), def.x).tm;
++}
++
++// the opaque constants of a template's check, as the variables of its
++// leading binders
++export function term_refsub(tm: LTerm, os: Array<[Name, Name]>): LTerm {
++  function go(t: LTerm): LTerm {
++    switch (t.$) {
++      case "Ref": {
++        const j = os.findIndex(([o]) => o === t.k);
++        return j < 0 ? t : Var(os[j][1], j, t.s);
++      }
++      case "Ann": return Ann(go(t.x), go(t.T), t.s, t.a);
++      case "Sub": return Sub(t.i, t.v.$ === "PVar" || t.v.$ === "PCtr" ? t.v : go(t.v), go(t.f), t.s);
++      case "Let": return Let(t.k, t.i, t.v.map(go), go(t.f), t.s, t.q);
++      case "Typ": return Typ(go(t.g), t.s);
++      case "Min": return Min(go(t.a), go(t.b), t.s);
++      case "All": return All(t.q, t.k, t.i, go(t.A), go(t.B), t.s);
++      case "Lam": return Lam(t.k, t.i, go(t.f), t.s, t.q);
++      case "App": return App(go(t.f), go(t.x), t.s);
++      case "ADT": return ADT(t.k, t.x.map(go), t.s, t.r);
++      case "Ctr": return Ctr(t.k, t.x.map(go), t.s);
++      case "Mat": return Mat(t.k, go(t.h), go(t.m), t.s);
++      case "Eql": return Eql(go(t.a), go(t.b), go(t.T), t.s);
++      case "Rwt": return Rwt(go(t.e), go(t.p), go(t.f), t.s);
++      case "Ineg": return Ineg(go(t.a), t.s);
++      case "Imin": return Imin(go(t.a), go(t.b), t.s);
++      case "Imax": return Imax(go(t.a), go(t.b), t.s);
++      case "Coe": return Coe(go(t.A), go(t.r), go(t.e), go(t.x), t.s);
++      case "Hcm": return Hcm(go(t.A), go(t.x), face_map(t.sys, go), t.s);
++      case "Glu": return Glu(go(t.A), gface_map(t.sys, go), t.s);
++      case "Gle": return Gle(go(t.x), face_map(t.sys, go), t.s);
++      case "Ung": return Ung(go(t.g), t.s);
++      default: return t;
++    }
++  }
++  return go(tm);
+ }
+ 
+ // the name of a template def's instance at the spine's leading ~
+@@ -3825,8 +5577,17 @@
+             ctx = ctx_bind(ctx, d, t_all.q, t_all.k, t_all.A);
+             tel = t_all.B(Var(t_all.k, d));
+           }
+-          const exp = "a telescope tipped at " + k + " applied to its own parameters";
+-          const tip = term_wnf(book, tel);
++          const exp = "a telescope tipped at " + k + " applied to its own parameters (or a path type into it)";
++          let tip = term_wnf(book, tel);
++          if (tip.$ === "Eql") {
++            // a path constructor: its tip is a type whose carrier is the family
++            term_check(book, { t: Ref(ctr.k), n: 0, def: ctr.k, qs: [] }, tel, None(), Typ(Qua(Lone())), ctx, tld.n + ctr.n);
++            const car = eql_carrier(book, tip);
++            if (car === null) {
++              throw Err(book, ctx, exp, tip, undefined, ctr.k);
++            }
++            tip = car;
++          }
+           if (tip.$ !== "ADT" || tip.k !== k || tip.x.length !== tld.n || tip.r.length !== 0) {
+             throw Err(book, ctx, exp, tip, undefined, ctr.k);
+           }
 --- a/bend2/comp.ts	2026-09-20 16:43:18.850854191 +0000
-+++ b/bend2/comp.ts	2026-09-20 17:07:35.807970280 +0000
-@@ -793,6 +793,8 @@
++++ b/bend2/comp.ts	2026-09-20 21:20:11.840870470 +0000
+@@ -793,6 +793,10 @@
      case "Ctr": return term_const(t) ? [] : ctr_flds(cf.book, t.k, t.x);
      case "Mat": return [t.h, t.m];
      case "Rwt": return [t.f];
 +    case "Coe": return [t.x];
 +    case "Hcm": return [t.x, ...t.sys.map((e) => e.u)];
++    case "Gle": return [t.x, ...t.sys.map((e) => e.u)];
++    case "Ung": return [t.g];
      default: return [];
    }
  }
-@@ -945,7 +947,7 @@
+@@ -945,7 +949,7 @@
          && seen.add(t.k) && tld.c.some((c) =>
          ctr_doms(book, c, t.x).some((f) => ty_clo(book, f, seen)))));
      }
 -    case "Typ": case "Qua": case "Min": case "Eql": return false;
-+    case "Typ": case "Qua": case "Min": case "Eql": case "Itv": return false;
++    case "Typ": case "Qua": case "Min": case "Eql": case "Itv": case "Glu": return false;
      default: return true;
    }
  }
-@@ -1409,7 +1411,7 @@
+@@ -1055,7 +1059,7 @@
+   const T = ty ?? (ctr ? tele_unbind(fl.book, ctr.T).ret : null);
+   const adt = ty_adt(fl.book, T);
+   if (adt === null || (ty === null && adt.x.length > 0)) {
+-    die("a constructor outside a datatype");
++    die("a constructor outside a datatype (" + x.k + " at " + (T === null ? "no type" : Bend.term_show(Bend.term_lower(Bend.term_snf(fl.book, T)))) + ")");
+   }
+   const word = adt.k === "U32" || adt.k === "F32";
+   return [arr_open(fl.book, adt), word ? Bend.u32_from_term(x, adt.k) : null];
+@@ -1406,10 +1410,14 @@
+ // Carb
+ // ====
+ 
++const MINT: Bend.Mint = Bend.mint_new(Bend.book_nil());
++
  function def_body(cb: Carb, k: Bend.Name): TLD | undefined {
    const tld = cb.book.tlds[k];
    if (tld?.$ === "Def" && tld.e !== undefined && tld.h === undefined) {
 -    const h = Bend.term_higher(tld.e);
-+    const h = Bend.term_higher(Bend.term_unpath(cb.book, tld.e));
++    MINT.book = cb.book;
++    MINT.local = new Map();
++    const h = Bend.term_higher(Bend.term_unpath(cb.book, Bend.term_uncoe(MINT, tld.e)));
      const n = tld.n + Math.min(def_raise(cb.book, h, tld.n),
        tele_unbind(cb.book, tld.T).doms.length - tld.n);
      cb.book.tlds[k] = { ...tld, n, h };
-@@ -2461,6 +2463,7 @@
+@@ -2461,6 +2469,7 @@
        ? emit_clo(fl, x, ty) : emit_expr(fl, (x as Of<"Lam">).f(DUMMY),
          (ty_all(fl.book, ty) as HAll).B(DUMMY), at);
      case "Hol": die("a hole value");
-+    case "Coe": case "Hcm": die("a live coe or hcomp (transport is checked and interpreted, not compiled yet)");
++    case "Coe": case "Hcm": case "Gle": case "Ung": die("a live coe, hcomp or glue (transport is checked and interpreted, not compiled yet)");
      default: return emit_zero(fl, ty);
    }
  }
-@@ -3130,6 +3133,7 @@
+@@ -3130,6 +3139,7 @@
        return `run_clo((${arg}) => {\n${lines.join("\n")}\n})`;
      }
      case "Hol": die("cannot compile a hole");
-+    case "Coe": case "Hcm": die("a live coe or hcomp (transport is checked and interpreted, not compiled yet)");
++    case "Coe": case "Hcm": case "Gle": case "Ung": die("a live coe, hcomp or glue (transport is checked and interpreted, not compiled yet)");
      default: return "null";
    }
  }
+@@ -3141,7 +3151,7 @@
+     return file_push(fl, "return " + js_expr(fl, x, ty) + ";");
+   }
+   if (x.$ === "Lam") {
+-    const all = ty_all(fl.book, ty) ?? die("an untyped lambda");
++    const all = ty_all(fl.book, ty) ?? die("an untyped lambda: " + Bend.term_show(Bend.term_lower(x)).slice(0, 200));
+     const v: HTerm = Bend.Var(!quant_live(all.q) ? "null"
+       : emit_alias(fl, args[0], x.k), 0);
+     return js_func(fl, x.f(v), all.B(v),
+--- a/bend2/base.bend	2026-09-20 16:43:18.844783636 +0000
++++ b/bend2/base.bend	2026-09-20 21:16:43.520735103 +0000
+@@ -419,6 +419,85 @@
+   %bc : {a == _ : A}
+   ab
+ 
++# Cubical
++# -------
++# the coherent equivalences: contractible fibres. Glue reads Equiv, Equiv.id
++# and Base's Tuple; ua is a path in Type between the types an equivalence
++# joins, and transport along it is the equivalence's function.
++
++def isContr(-A: Type) -> Type:
++  &c: A -> (@w: A -> {c == w : A})
++
++def fiber(-A: Type, -B: Type, f: A -> B, y: B) -> Type:
++  &x: A -> {f(x) == y : B}
++
++def isEquiv(-A: Type, -B: Type, f: A -> B) -> Type:
++  @y: B -> isContr(fiber(A, B, f, y))
++
++def Equiv(-A: Type, -B: Type) -> Type:
++  &f: (A -> B) -> isEquiv(A, B, f)
++
++def Equiv.id.contr(-A: Type, -y: A, w: fiber(A, A, x => x, y)) -> {(y, {==}) == w : fiber(A, A, x => x, y)}:
++  match w:
++    case Tuple{x, +p}:
++      i => (p(-i), j => p(-i \/ j))
++
++def Equiv.id(-A: Type) -> Equiv(A, A):
++  (x => x, y => ((y, {==}), w => Equiv.id.contr(A, y, w)))
++
++def Equiv.fun(-A: Type, -B: Type, e: Equiv(A, B)) -> A -> B:
++  (f, h) = e
++  f
++
++def Equiv.inv.at(-A: Type, -B: Type, -f: A -> B, -y: B, c: isContr(fiber(A, B, f, y))) -> A:
++  (cen, contr) = c
++  (x, p) = cen
++  x
++
++def Equiv.inv(-A: Type, -B: Type, e: Equiv(A, B)) -> B -> A:
++  (f, h) = e
++  y => Equiv.inv.at(A, B, f, y, h(y))
++
++def Equiv.sec.at(-A: Type, -B: Type, -f: A -> B, -y: B, c: isContr(fiber(A, B, f, y))) -> {f(Equiv.inv.at(A, B, f, y, c)) == y : B}:
++  (cen, contr) = c
++  (x, p) = cen
++  p
++
++def Equiv.sec(-A: Type, -B: Type, e: Equiv(A, B)) -> @y: B -> {Equiv.fun(A, B, e)(Equiv.inv(A, B, e)(y)) == y : B}:
++  (f, h) = e
++  y => Equiv.sec.at(A, B, f, y, h(y))
++
++# an isomorphism has contractible fibres (Cubical.Foundations.Isomorphism,
++# lemIso, transcribed; hfill inlined as hcomp with the extra face): a
++# coherent equivalence from (f, g, s, t) over Data carriers. The functions
++# are template parameters: a template is a theorem, and a closure is
++# affine.
++def Equiv.iso.fill0(~A: Data, ~B: Data, ~f: A -> B, ~g: B -> A, ~t: @x: A -> {g(f(x)) == x : A}, +y: B, +x0: A, +p0: {f(x0) == y : B}, -i: Interval, -j: Interval) -> A:
++  hcomp(A, g(p0(-i)), [(i == i1) k => t(x0)(j /\ k), (i == i0) k => g(y), (j == i0) k => g(p0(-i))])
++
++def Equiv.iso.fill2(~A: Data, ~B: Data, ~f: A -> B, ~g: B -> A, ~t: @x: A -> {g(f(x)) == x : A}, +y: B, +x0: A, +p0: {f(x0) == y : B}, +x1: A, +p1: {f(x1) == y : B}, -i: Interval, -j: Interval) -> A:
++  hcomp(A, g(y), [(i == i1) k => Equiv.iso.fill0(~A, ~B, ~f, ~g, ~t, y, x1, p1, j /\ k, i1), (i == i0) k => Equiv.iso.fill0(~A, ~B, ~f, ~g, ~t, y, x0, p0, j /\ k, i1), (j == i0) k => g(y)])
++
++def Equiv.iso.sq(~A: Data, ~B: Data, ~f: A -> B, ~g: B -> A, ~t: @x: A -> {g(f(x)) == x : A}, +y: B, +x0: A, +p0: {f(x0) == y : B}, +x1: A, +p1: {f(x1) == y : B}, -i: Interval, -j: Interval) -> A:
++  hcomp(A, Equiv.iso.fill2(~A, ~B, ~f, ~g, ~t, y, x0, p0, x1, p1, i, j), [(i == i1) k => Equiv.iso.fill0(~A, ~B, ~f, ~g, ~t, y, x1, p1, j, -k), (i == i0) k => Equiv.iso.fill0(~A, ~B, ~f, ~g, ~t, y, x0, p0, j, -k), (j == i1) k => t(Equiv.iso.fill2(~A, ~B, ~f, ~g, ~t, y, x0, p0, x1, p1, i, i1))(-k), (j == i0) k => g(y)])
++
++def Equiv.iso.sq1(~A: Data, ~B: Data, ~f: A -> B, ~g: B -> A, ~s: @y: B -> {f(g(y)) == y : B}, ~t: @x: A -> {g(f(x)) == x : A}, +y: B, +x0: A, +p0: {f(x0) == y : B}, +x1: A, +p1: {f(x1) == y : B}, -i: Interval, -j: Interval) -> B:
++  hcomp(B, f(Equiv.iso.sq(~A, ~B, ~f, ~g, ~t, y, x0, p0, x1, p1, i, j)), [(i == i1) k => s(p1(-j))(k), (i == i0) k => s(p0(-j))(k), (j == i1) k => s(f(Equiv.iso.fill2(~A, ~B, ~f, ~g, ~t, y, x0, p0, x1, p1, i, i1)))(k), (j == i0) k => s(y)(k)])
++
++def Equiv.iso.lem(~A: Data, ~B: Data, ~f: A -> B, ~g: B -> A, ~s: @y: B -> {f(g(y)) == y : B}, ~t: @x: A -> {g(f(x)) == x : A}, +y: B, +x0: A, +p0: {f(x0) == y : B}, +x1: A, +p1: {f(x1) == y : B}) -> {(x0, p0) == (x1, p1) : fiber(A, B, f, y)}:
++  i => (Equiv.iso.fill2(~A, ~B, ~f, ~g, ~t, y, x0, p0, x1, p1, i, i1), j => Equiv.iso.sq1(~A, ~B, ~f, ~g, ~s, ~t, y, x0, p0, x1, p1, i, -j))
++
++def Equiv.iso.contr(~A: Data, ~B: Data, ~f: A -> B, ~g: B -> A, ~s: @y: B -> {f(g(y)) == y : B}, ~t: @x: A -> {g(f(x)) == x : A}, +y: B, w: fiber(A, B, f, y)) -> {(g(y), s(y)) == w : fiber(A, B, f, y)}:
++  match w:
++    case Tuple{+x, +p}:
++      Equiv.iso.lem(~A, ~B, ~f, ~g, ~s, ~t, y, g(y), s(y), x, p)
++
++def Equiv.from_iso(~A: Data, ~B: Data, ~f: A -> B, ~g: B -> A, ~s: @y: B -> {f(g(y)) == y : B}, ~t: @x: A -> {g(f(x)) == x : A}) -> Equiv(A, B):
++  (x => f(x), +y => ((g(y), s(y)), w => Equiv.iso.contr(~A, ~B, ~f, ~g, ~s, ~t, y, w)))
++
++def ua(-A: Type, -B: Type, e: Equiv(A, B)) -> {A == B : Type}:
++  i => Glue(B, [(i == i0) (A, e), (i == i1) (B, Equiv.id(B))])
++
+ # Empty
+ # -----
+ 
