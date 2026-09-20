@@ -148,18 +148,65 @@ refuses it by name.
   which is why negation is `-r` and a path constructor is introduced by
   `path`.
 
+- `hit_susp_torus`: transport along `Susp<ua(not)(i)>` pushes into
+  `merid`'s field definitionally (`merid{True}` becomes `merid{False}` as
+  a path); the torus has a two-dimensional path constructor whose corners
+  and edges compute and an eliminator with a two-dimensional arm.
+
+## Against the two documents this port answers to
+
+`README.md` (the interactive symbolic computer) and
+`collab/bend2-cubical/BEND_HVM_COMPUTATIONAL_UNIVALENCE.md` ask for five
+things of a runtime. Where each stands on the official Bend:
+
+1. **Proof is executable transport; `coe(ua(e), x) ↝ e(x)`.** Held, at the
+   checker (definitionally, for an abstract `e`) and on the C and JS lanes.
+2. **Every map is visible value plus fibre; lossless completion is forced,
+   not chosen.** Held: `A ≃ Σ b. fib_f(b)` as a coherent equivalence for
+   every `f` over `Data`, `ua` of it, `present` the factoring by
+   computation, and it runs. This is the corpus's "lossless inference", and
+   it is the most primitive object here too: everything else is transport
+   along it.
+3. **Partial compositions retained as runtime terms, reduced when interval
+   information arrives; paths as runtime data (the trace `(a, e, b)`).**
+   *Not* held, by the official language's own design: a dimension is dead
+   and a path is erased, so a runtime value never carries a symbolic
+   interval and a composition with an undecided face cannot be a value.
+   The trace the README stores is therefore the *equivalence* `e` (live
+   data: closures and their contraction) rather than the path `ua(e)`. To
+   hold it as the interaction-net fork does, a path in a live position would
+   have to compile to a closure over a runtime dimension bit, giving up
+   erasure of evidence; that is a change to the wall and a decision for the
+   language's owners, not a patch.
+4. **Sharing versus independence (SUP/DUP labels, diagonal versus product);
+   transport along a superposed line routing each universe.** No
+   counterpart: the official Bend has no superposition; correlation is a
+   `+` reference count. The type-level fibre law stands; its runtime form
+   as label routing is specific to interaction nets.
+5. **Coinduction and intrinsic rewrite.** The official Bend is strict and
+   demands descent, so a coinductive record (`Answers`, `IExec`) needs
+   guarded corecursion and lazy fields: a runtime change. Its `LAWS.bend`
+   and `PROOF.bend` are, however, exactly the README's "self-rewriting
+   becomes proof-carrying rewriting" at the level of the toolchain: a
+   program may be rewritten only with the proof that the laws still hold.
+
+One more finding, from the affine wall rather than the runtime: the
+coherent **reverse** univalence round trip (`pathToEquiv(ua e) = e`, which
+the fork proves through `isPropIsContr`) needs a *contraction*, a function
+`@w:A -> {c == w : A}` drawn from a variable equivalence, six times in one
+filler. A closure is affine and no function type is `Data`, so that proof
+is not writable here for a variable `e` (a template cannot take a field of
+a variable). The forward direction, `Equiv.from_iso` and the fibre law's
+two equations do not need it. A principled way out is to let a function
+whose codomain is erased evidence be `Data` (it has no runtime), which is
+an amendment to the wall for the Lean spec to carry.
+
 ## What is left
 
-- **Runtime**: a transport along a variable path in `Type` (the path's
-  runtime content would be its transport pair); an `hcomp`/`glue` whose
-  face is a dimension variable in live code (they arise only under erased
-  binders, so this is a diagnostic today).
-- **HITs**: two-dimensional path constructors typecheck by the same rule
-  but have no test yet; `coe` along a HIT line whose parameters move is the
-  fieldwise rule (tested through `Quot`'s shapes only indirectly).
-- **Coinduction**: the official Bend is strict and demands descent, so a
-  coinductive record (the corpus's `Answers`, `IExec`) needs guarded
-  corecursion and lazy fields, which are a runtime change, not a checker
-  rule; the fibre law that is the corpus's "lossless inference" is here,
-  and applies to those records once they exist.
+- **Runtime**: a transport along a variable path in `Type`; an
+  `hcomp`/`glue` whose face is a dimension variable in live code (they
+  arise only under erased binders, so this is a diagnostic today); paths as
+  runtime data, per item 3 above.
+- The reverse univalence round trip, per the finding above.
+- Coinduction, per item 5 above.
 - The Lean spec (`bend.lean`) does not model the new forms.
