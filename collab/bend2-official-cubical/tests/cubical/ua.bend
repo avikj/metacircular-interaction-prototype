@@ -5,7 +5,7 @@ import Base
 # transport along ua of the identity is the identity
 law ua_id:
   for x: Nat
-  {coe(ua(Nat, Nat, Equiv.id(Nat)), i0, i1, x) == x : Nat}
+  {coe(ua(&2, Nat, Nat, Equiv.id(&2, Nat)), i0, i1, x) == x : Nat}
 
 def ua_id(x): {==}
 
@@ -13,8 +13,8 @@ def ua_id(x): {==}
 law ua_faces:
   for -A: Type
   for -B: Type
-  for e: Equiv(A, B)
-  {ua(A, B, e)(i0) == A : Type} & {ua(A, B, e)(i1) == B : Type}
+  for e: Equiv(&1, &1, A, B)
+  {ua(&1, A, B, e)(i0) == A : Type} & {ua(&1, A, B, e)(i1) == B : Type}
 
 def ua_faces(A, B, e): ({==}, {==})
 
@@ -22,13 +22,13 @@ def ua_faces(A, B, e): ({==}, {==})
 law ua_beta:
   for -A: Type
   for -B: Type
-  for e: Equiv(A, B)
+  for e: Equiv(&1, &1, A, B)
   for x: A
-  {coe(ua(A, B, e), i0, i1, x) == Equiv.fun(A, B, e)(x) : B}
+  {coe(ua(&1, A, B, e), i0, i1, x) == Equiv.fun(&1, &1, A, B, e)(x) : B}
 
 def ua_beta(A, B, e, x): {==}
 
 def main() -> Nat:
-  coe(ua(Nat, Nat, Equiv.id(Nat)), i1, i0, 3n)
+  coe(ua(&2, Nat, Nat, Equiv.id(&2, Nat)), i1, i0, 3n)
 
 #|3n

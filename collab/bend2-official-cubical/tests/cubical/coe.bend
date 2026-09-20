@@ -27,7 +27,7 @@ def tr_refl(x): {==}
 law tr_list:
   for -A: Type
   for -B: Type
-  for +p: {A == B : Type}
+  for p: {A == B : Type}
   for x: A
   for y: A
   List<B>
@@ -38,7 +38,7 @@ def tr_list(A, B, p, x, y): coe(i => List<p(i)>, i0, i1, [x, y])
 law dep:
   for -A: Type
   for -B: Type
-  for +p: {A == B : Type}
+  for p: {A == B : Type}
   for x: A
   {x == coe(p, i0, i1, x) : i => p(i)}
 

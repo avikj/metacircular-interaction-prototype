@@ -10,14 +10,14 @@ def Bool.not.not(b: Bool) -> {Bool.not(Bool.not(b)) == b : Bool}:
     case False{}:
       {==}
 
-def notEquiv() -> Equiv(Bool, Bool):
+def notEquiv() -> Equiv(&2, &2, Bool, Bool):
   Equiv.from_iso(~Bool, ~Bool, ~Bool.not, ~Bool.not, ~Bool.not.not, ~Bool.not.not)
 
 def flipAll(xs: List<Bool>) -> List<Bool>:
-  coe(i => List<ua(Bool, Bool, notEquiv())(i)>, i0, i1, xs)
+  coe(i => List<ua(&2, Bool, Bool, notEquiv())(i)>, i0, i1, xs)
 
 def flipFun(f: Bool -> Bool) -> Bool -> Bool:
-  coe(i => ua(Bool, Bool, notEquiv())(i) -> ua(Bool, Bool, notEquiv())(i), i0, i1, f)
+  coe(i => ua(&2, Bool, Bool, notEquiv())(i) -> ua(&2, Bool, Bool, notEquiv())(i), i0, i1, f)
 
 def main() -> IO(Unit):
   do IO<Unit>:

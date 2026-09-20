@@ -27,7 +27,7 @@ the C lane when clang is present), then upstream's interpreter-lane suite.
 | --- | --- | --- |
 | `Interval`, `i0`, `i1` | the interval and its ends | `Interval : Data`; a dimension is always dead (never runs) |
 | `-r`, `r /\ s`, `r \/ s` | De Morgan negation, meet, join | constants fold; two interval terms are convertible iff they agree on every assignment of their atoms |
-| `{a == b : T}` | a path type | unchanged syntax, `Data` kind (evidence is erased) |
+| `{a == b : T}` | a path type | unchanged syntax, `Data` kind (evidence is erased); a path in a universe is `Type` (its runtime is an equivalence, affine) |
 | `{a == b : i => T(i)}` | a dependent path (PathP) | the carrier is a line `Interval -> Type`; `a : T(i0)`, `b : T(i1)` |
 | `i => t` at a path type | path abstraction | `t : T(i)` with `i : +Interval`; the faces `t[i0] ≡ a`, `t[i1] ≡ b` by conversion |
 | `p(r)` | path application | `p : {a == b : T}`, `r : Interval` dead, result `T(r)`; `p(i0) ≡ a`, `p(i1) ≡ b` |
@@ -35,17 +35,19 @@ the C lane when clang is present), then upstream's interpreter-lane suite.
 | `%e : P; f` | J | unchanged typing; **computes on every path**: `%e : P; f ↦ coe(i => P(e(i), j => e(i /\ j)), i0, i1, f)` when `e` is a non-constant path |
 | `coe(L, r, s, x)` | transport | `L` a line `i => T` at `Interval -> Type`, or a path inferred at `{A == B : Type}`; `x : L(r)`; result `L(s)` |
 | `hcomp(A, x, [(r == i0, ..) i => u, ..])` | homogeneous composition | tubes on faces, agreeing with `x` at `i0` and with each other where faces meet |
-| `Glue(A, [(r == i0, ..) (T, e), ..])` | the Glue type | `e : Equiv(T, A)` on its face, checked live |
+| `Glue(A, [(r == i0, ..) (T, e), ..])` | the Glue type | `e : Equiv(q, q, T, A)` on its face, checked live; the Glue has its base's kind `Kind(q)` |
 | `glue(x, [(f) t, ..])`, `unglue(g)` | its constructor and destructor | `Equiv.fun(e)(t) ≡ x` on each face |
-| `ua(A, B, e)` | univalence (Base) | `i => Glue(B, [(i == i0) (A, e), (i == i1) (B, Equiv.id(B))])` |
+| `ua(q, A, B, e)` | univalence (Base) | `i => Glue(B, [(i == i0) (A, e), (i == i1) (B, Equiv.id(q, B))])`, a path in `Kind(q)` |
 | `type K .. : c{..}; path c'{fields}: {a == b : K<..>}` | a higher inductive type | a constructor whose tip is a path type into the family, of any dimension |
 
 ### Base additions
 
 `isContr`, `fiber`, `isEquiv`, `Equiv` (contractible fibres, the coherent
-formulation), `Equiv.id`, `Equiv.fun`, `Equiv.inv`, `Equiv.sec`,
-`Equiv.from_iso` (Cubical Agda's `isoToIsEquiv`, `lemIso` transcribed with
-`hfill` inlined as `hcomp` with the extra face) and `ua`. The Kan rules
+formulation; a quantity leads each, the kind of the carriers), `Equiv.id`,
+`Equiv.fun`, `Equiv.inv`, `Equiv.sec`, `Equiv.from_iso` (Cubical Agda's
+`isoToIsEquiv`, `lemIso` transcribed with `hfill` inlined as `hcomp` with
+the extra face), `isContr.prop`, `isEquiv.prop`, `ua` and `Equiv.of_path`
+(a path between types as an equivalence). The Kan rules
 project an equivalence through Base's own `Equiv.fun`/`inv`/`sec`, so a
 stuck projection of a variable equivalence is the term the user writes.
 
@@ -96,10 +98,12 @@ official checker draws it for `%e : P; f` (its equation is live):
 - dimensions, faces, the carrier types and the Glue base are dead.
 
 Consequences: a value of an abstract type used twice in a filler needs its
-type to be `Data` (`+y`), a path used twice is `+p` (paths are `Data`), and
-a function used twice is a template parameter (`~f`: a template is a
-theorem, a closure is affine). `Equiv.from_iso` and the fibre law are
-written that way.
+type to be `Data` (`+y`), a path used twice is `+p` (paths are `Data`,
+except a path in a universe, which is an equivalence and affine), a
+proof-valued function copies as its domain does, and any other function
+used twice is a template parameter (`~f`: a template is a theorem, a
+closure is affine). `Equiv.from_iso` and the fibre law are written that
+way.
 
 ### Runtime
 
@@ -113,9 +117,9 @@ fields, recursive lines reaching the def itself (a `List<ua(e)(i)>` line
 mints exactly `List.map` of `e`); an `hcomp`, `glue` or `unglue` with
 decided faces is its value there; a rewrite along a path is J as transport.
 `term_unpath` then erases path lambdas and path constructors at path types
-and resolves path applications at literal endpoints. What no runtime value
-carries is a transport along a *variable* path in `Type`, and the compiler
-refuses it by name.
+(evidence), turns a path lambda in a universe into its equivalence, and
+resolves path applications at literal endpoints; a transport along a
+variable path in a universe is that path's function or inverse.
 
 ## Verification
 
@@ -153,6 +157,38 @@ refuses it by name.
   a path); the torus has a two-dimensional path constructor whose corners
   and edges compute and an eliminator with a two-dimensional arm.
 
+### Three rules the documents forced, answered by the mathematics
+
+- **A proof-valued function has its domain's kind.** A function into an
+  equation type has no runtime, so the only reason it was not copyable was
+  the omega attack through a negative datatype; that needs the function's
+  domain to contain the function, so a `Data` datatype may not have a
+  copyable proof-function field with a negative occurrence of itself
+  (`positivity_mustfail`). With it, `isContr` over `Data` is `Data`, the
+  contraction is `+p0`, `isContr.prop` is Cubical Agda's four-face
+  composite, `isEquiv.prop` is pointwise, and the coherent **reverse
+  univalence round trip** `Equiv.of_path(ua(e)) == e` holds for every
+  equivalence (`ua_round`). Quantities lead the equivalence defs
+  (`Equiv(a, b, A, B)`, `ua(a, A, B, e)`), the kind of the carriers.
+- **A path in a universe is, at runtime, its equivalence.** `Equiv.of_path`
+  carries the identity equivalence along it, which the elaboration pass
+  computes; so a path lambda in `Type` compiles to an `Equiv` value, `{==}`
+  to `Equiv.id`, a path-typed variable is that value, and `coe(p, i0, i1,
+  x)` along a variable path is `Equiv.fun(p)(x)` (backwards, `Equiv.inv`).
+  Such a path is affine, as a closure is (its kind is `Type`); a line that
+  spends it once per element, `i => List<p(i)>`, takes it as a `~`
+  template, as `List.map` takes its function (`compiled_path`, both
+  lanes). The README's trace `(a, p)` is stored and replayed.
+- **A guarded self-call is productive.** A self-call under a constructor's
+  delayed field (a lambda), saturated and eliminated by nothing there
+  (applied at most to dimensions), unfolds one constructor per
+  observation, so the descent check admits it and marks the def
+  corecursive. Normalisation for printing and conversion under a lambda
+  keep such a def folded, and conversion takes the same-definition
+  shortcut before unfolding, so a corecursive value prints one unfolding
+  and a bisimulation is a corecursive path checked face by face
+  (`stream`, `stream_mustfail`: an eliminated self-call is refused).
+
 ## Against the two documents this port answers to
 
 `README.md` (the interactive symbolic computer) and
@@ -167,46 +203,32 @@ things of a runtime. Where each stands on the official Bend:
    computation, and it runs. This is the corpus's "lossless inference", and
    it is the most primitive object here too: everything else is transport
    along it.
-3. **Partial compositions retained as runtime terms, reduced when interval
-   information arrives; paths as runtime data (the trace `(a, e, b)`).**
-   *Not* held, by the official language's own design: a dimension is dead
-   and a path is erased, so a runtime value never carries a symbolic
-   interval and a composition with an undecided face cannot be a value.
-   The trace the README stores is therefore the *equivalence* `e` (live
-   data: closures and their contraction) rather than the path `ua(e)`. To
-   hold it as the interaction-net fork does, a path in a live position would
-   have to compile to a closure over a runtime dimension bit, giving up
-   erasure of evidence; that is a change to the wall and a decision for the
-   language's owners, not a patch.
+3. **Partial compositions retained as runtime terms; paths as runtime
+   data (the trace `(a, e, b)`).** Paths in a universe are runtime data
+   now: their equivalences, affine, transported along at runtime and
+   stored in a trace and replayed (`compiled_path`). A composition with an
+   undecided face is still not a runtime value: a dimension is dead in
+   this language, so every face is decided by the time code runs; the
+   composite's value is computed then, and that is exact.
 4. **Sharing versus independence (SUP/DUP labels, diagonal versus product);
    transport along a superposed line routing each universe.** No
    counterpart: the official Bend has no superposition; correlation is a
    `+` reference count. The type-level fibre law stands; its runtime form
    as label routing is specific to interaction nets.
-5. **Coinduction and intrinsic rewrite.** The official Bend is strict and
-   demands descent, so a coinductive record (`Answers`, `IExec`) needs
-   guarded corecursion and lazy fields: a runtime change. Its `LAWS.bend`
-   and `PROOF.bend` are, however, exactly the README's "self-rewriting
-   becomes proof-carrying rewriting" at the level of the toolchain: a
-   program may be rewritten only with the proof that the laws still hold.
+5. **Coinduction and intrinsic rewrite.** Coinduction is in: a record with
+   a delayed field is a coinductive type, a guarded self-call is
+   productive, a bisimulation is a corecursive path (`stream`). The
+   README's "self-rewriting becomes proof-carrying rewriting" is
+   `LAWS.bend` and `PROOF.bend` at the level of the toolchain.
 
-One more finding, from the affine wall rather than the runtime: the
-coherent **reverse** univalence round trip (`pathToEquiv(ua e) = e`, which
-the fork proves through `isPropIsContr`) needs a *contraction*, a function
-`@w:A -> {c == w : A}` drawn from a variable equivalence, six times in one
-filler. A closure is affine and no function type is `Data`, so that proof
-is not writable here for a variable `e` (a template cannot take a field of
-a variable). The forward direction, `Equiv.from_iso` and the fibre law's
-two equations do not need it. A principled way out is to let a function
-whose codomain is erased evidence be `Data` (it has no runtime), which is
-an amendment to the wall for the Lean spec to carry.
+The finding that used to sit here (the coherent reverse round trip needing
+a contraction copied, which the affine wall forbade) is resolved by the
+kind rule above: a proof-valued function copies as its domain does.
 
 ## What is left
 
-- **Runtime**: a transport along a variable path in `Type`; an
-  `hcomp`/`glue` whose face is a dimension variable in live code (they
-  arise only under erased binders, so this is a diagnostic today); paths as
-  runtime data, per item 3 above.
-- The reverse univalence round trip, per the finding above.
-- Coinduction, per item 5 above.
-- The Lean spec (`bend.lean`) does not model the new forms.
+- A composition or glue whose face is a dimension *variable* in live code
+  (it cannot arise: dimensions are dead, so this is a diagnostic).
+- The Lean spec (`bend.lean`) does not model the new forms: the kind rule
+  for proof-valued functions with its positivity condition, the guarded
+  self-call, and the Kan operations all need their metatheory carried.

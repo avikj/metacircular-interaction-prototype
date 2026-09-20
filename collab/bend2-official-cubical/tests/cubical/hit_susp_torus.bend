@@ -10,7 +10,7 @@ def Bool.not.not(b: Bool) -> {Bool.not(Bool.not(b)) == b : Bool}:
     case False{}:
       {==}
 
-def notEquiv() -> Equiv(Bool, Bool):
+def notEquiv() -> Equiv(&2, &2, Bool, Bool):
   Equiv.from_iso(~Bool, ~Bool, ~Bool.not, ~Bool.not, ~Bool.not.not, ~Bool.not.not)
 
 type Susp<-A: Type> is Type:
@@ -19,7 +19,7 @@ type Susp<-A: Type> is Type:
   path merid{a: A}: {north{} == south{} : Susp<A>}
 
 law susp_tr:
-  {(j => coe(i => Susp<ua(Bool, Bool, notEquiv())(i)>, i0, i1, merid{True{}}(j))) == merid{False{}} : {north{} == south{} : Susp<Bool>}}
+  {(j => coe(i => Susp<ua(&2, Bool, Bool, notEquiv())(i)>, i0, i1, merid{True{}}(j))) == merid{False{}} : {north{} == south{} : Susp<Bool>}}
 
 def susp_tr(): {==}
 

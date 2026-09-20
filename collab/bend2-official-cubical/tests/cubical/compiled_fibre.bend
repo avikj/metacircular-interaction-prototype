@@ -28,11 +28,11 @@ def tot_sec(~A: Data, ~B: Data, ~f: A -> B, w: Total(A, B, f)) -> {tot(~A, ~B, ~
 def tot_ret(~A: Data, ~B: Data, ~f: A -> B, a: A) -> {untot(~A, ~B, ~f, tot(~A, ~B, ~f, a)) == a : A}:
   {==}
 
-def totalEquiv(~A: Data, ~B: Data, ~f: A -> B) -> Equiv(A, Total(A, B, f)):
+def totalEquiv(~A: Data, ~B: Data, ~f: A -> B) -> Equiv(&2, &2, A, Total(A, B, f)):
   Equiv.from_iso(~A, ~Total(A, B, f), ~tot(~A, ~B, ~f), ~untot(~A, ~B, ~f), ~tot_sec(~A, ~B, ~f), ~tot_ret(~A, ~B, ~f))
 
-def losslessPath(~A: Data, ~B: Data, ~f: A -> B) -> {A == Total(A, B, f) : Type}:
-  ua(A, Total(A, B, f), totalEquiv(~A, ~B, ~f))
+def losslessPath(~A: Data, ~B: Data, ~f: A -> B) -> {A == Total(A, B, f) : Data}:
+  ua(&2, A, Total(A, B, f), totalEquiv(~A, ~B, ~f))
 
 def present(~A: Data, ~B: Data, ~f: A -> B, a: A) -> Total(A, B, f):
   coe(losslessPath(~A, ~B, ~f), i0, i1, a)
