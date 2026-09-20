@@ -155,14 +155,22 @@ variable path in a universe is that path's function or inverse.
   instead of by descent; `grade/reject_leak` is refused one step earlier,
   because a universe path is not `Data` (it carries a runtime transport).
   Upstream's io suite (139 files, the JS lane through the interpreter)
-  prints exactly what upstream prints. Upstream's pinned parse errors
+  prints exactly what upstream prints. Upstream's compiled lanes (JS and C,
+  every Base program with a `main` in `run`, `compile`, `io`, `check`,
+  `eval`, `base`, `spec`) print what upstream prints, with one refusal
+  added: `check/type_erased_runtime` has `main : {U32 == U32 : Type}`, a
+  universe path, which is an equivalence at runtime here and so, like a
+  function, cannot be printed by the compiled lanes (the interpreter still
+  prints `{==}`). Upstream's pinned parse errors
   (`~`, `!`, a `:` after a constructor) are untouched, which is why
   negation is `-r` and a path constructor is introduced by `path`.
 
 - `hit_susp_torus`: transport along `Susp<ua(not)(i)>` pushes into
   `merid`'s field definitionally (`merid{True}` becomes `merid{False}` as
   a path); the torus has a two-dimensional path constructor whose corners
-  and edges compute and an eliminator with a two-dimensional arm.
+  and edges compute and an eliminator with a two-dimensional arm. A
+  path constructor at literal dimensions is its boundary on the compiled
+  lanes too (`surf{}(i1)(i0)` is `pt{}` on C and JS).
 
 ### Three rules the documents forced, answered by the mathematics
 

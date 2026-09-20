@@ -1,5 +1,5 @@
 --- a/bend2/bend.ts	2026-09-20 16:43:18.850854191 +0000
-+++ b/bend2/bend.ts	2026-09-20 22:17:22.707762232 +0000
++++ b/bend2/bend.ts	2026-09-20 22:27:30.216997037 +0000
 @@ -292,9 +292,21 @@
    | { $: "Rfl" }                                                                   // {==}
    | { $: "Rwt"; e: TermOf<B>; p: TermOf<B>; f: TermOf<B> }                         // %e@E : P; f (p = _ => e => P)
@@ -944,7 +944,7 @@
        }, tm.s);
      }
      case "App": {
-@@ -3122,9 +3722,937 @@
+@@ -3122,7 +3722,948 @@
      case "Hol": {
        return Hol(tm.k, tm.s);
      }
@@ -1077,6 +1077,19 @@
 +            return end.$ === "Lam" ? end : Ann(end, Var("_", -1, undefined, ty), t.s, true);
 +          }
 +        }
++        // a path constructor at a literal dimension is its boundary,
++        // which the checker computes (an endpoint read off a path type
++        // above arrives unannotated, so it is asked here again)
++        if (xs.$ === "Dim") {
++          const fh = f.$ === "Ann" ? f.x : f;
++          const [hd] = term_unapply(term_higher(fh, null, true));
++          if (hd.$ === "Ctr") {
++            const r = term_wnf(book, App(term_higher(fh, null, true), Dim(xs.d)));
++            if (r.$ !== "App") {
++              return go(term_lower(r, d), d);
++            }
++          }
++        }
 +        return App(f, x, t.s);
 +      }
 +      case "Sub": return Sub(t.i, t.v.$ === "PVar" || t.v.$ === "PCtr" ? t.v : go(t.v, d), go(t.f, d), t.s);
@@ -1163,9 +1176,9 @@
 +      continue;
 +    }
 +    return null;
-   }
- }
- 
++  }
++}
++
 +// a path type in a universe {A == B : Kind(q)}: its ends and the kind's
 +// quantity, or null
 +export function path_in_type(book: Book, T: HTerm): { A: HTerm; B: HTerm; q: HTerm } | null {
@@ -1875,14 +1888,12 @@
 +  const ks = ctx_scope(ctx);
 +  for (let k = 0; k < d; k++) {
 +    env = list_set(env, k, sub.get(k) ?? Var(ks[k] ?? "_", k));
-+  }
+   }
 +  return term_higher(term_lower(t, d), env);
-+}
-+
+ }
+ 
  // Compare
- // =======
- // term_compare(mode, a, b): a fits b. the relation is a preorder, not an
-@@ -3139,19 +4667,85 @@
+@@ -3139,19 +4680,85 @@
  // same walk, kinds exact, no swap (a swap under EQ is harmless, so
  // the All case swaps unconditionally).
  
@@ -1972,7 +1983,7 @@
    }
    switch (a.$) {
      case "Var": {
-@@ -3173,16 +4767,16 @@
+@@ -3173,16 +4780,16 @@
          return true;
        }
        if (g.$ === "Min") {
@@ -1994,7 +2005,7 @@
      }
      case "Qnt": {
        return b.$ === "Qnt";
-@@ -3192,19 +4786,55 @@
+@@ -3192,19 +4799,55 @@
      }
      case "Min": {
        return b.$ === "Min"
@@ -2056,7 +2067,7 @@
      }
      case "ADT": {
        if (b.$ !== "ADT" || a.k !== b.k || a.x.length !== b.x.length) {
-@@ -3214,25 +4844,25 @@
+@@ -3214,25 +4857,25 @@
          return false;
        }
        return b.r.every((c) => a.r.includes(c))
@@ -2089,7 +2100,7 @@
      }
      case "Rfl": {
        return b.$ === "Rfl";
-@@ -3242,9 +4872,9 @@
+@@ -3242,9 +4885,9 @@
      }
      case "Rwt": {
        return b.$ === "Rwt"
@@ -2102,7 +2113,7 @@
      }
      default: {
        return false;
-@@ -3274,6 +4904,16 @@
+@@ -3274,6 +4917,16 @@
  // so its type's quantity is at least q under term_compare's order.
  
  export function term_infer(book: Book, lhs: LHS, tm: HTerm, qt: Quant, ctx: Ctx, d: number, sp: HTerm[] = []): Infer {
@@ -2119,7 +2130,7 @@
    switch (tm.$) {
      // Γ[x] = q A
      // where x is bound in Γ (a ~ argument checks in the empty context,
-@@ -3331,15 +4971,40 @@
+@@ -3331,15 +4984,40 @@
              x   = gen.x;
              sp  = sp.slice(x);
            }
@@ -2161,7 +2172,7 @@
            }
            break;
          }
-@@ -3382,7 +5047,144 @@
+@@ -3382,7 +5060,144 @@
        const B_ctx = ctx_bind(ctx, d, tm.q, tm.k, tm.A);
        const A_chk = term_check(book, lhs, tm.A, None(), Typ(Qua(lhs_kind(lhs, tm.q)), tm.s), ctx, d);
        const B_chk = term_check(book, lhs, tm.B(Var(tm.k, d)), None(), Typ(Qua(Lone()), tm.s), B_ctx, d+1);
@@ -2307,7 +2318,7 @@
      }
      // Γ ⊢ f : @q x:A -> B ~ fu
      // Γ ⊢ a : A ~ au
-@@ -3403,10 +5205,20 @@
+@@ -3403,10 +5218,20 @@
          return { ...f_inf, x: f_inf.x - 1 };
        }
        const f_wnf = term_wnf(book, f_inf.ty);
@@ -2329,7 +2340,7 @@
        return Infer(App(f_inf.tm, x_chk.tm, tm.s), f_wnf.B(tm.x), uses_add(f_inf.us, x_chk.us));
      }
      // book[k].T = @q1 p1:K1 -> .. -> Kind(G)
-@@ -3426,11 +5238,19 @@
+@@ -3426,11 +5251,19 @@
      // where A, a and b are dead; evidence is erased, so Data
      // ------------------------------------------------------ infer-eql
      // Γ ⊢ {a == b : A} : Data ~ {}
@@ -2353,7 +2364,7 @@
      }
      // Γ ⊢ T : Type
      // Γ ⊢ x : T ~ u
-@@ -3449,12 +5269,42 @@
+@@ -3449,12 +5282,42 @@
        if (tm.$ === "Ctr" && book_ctr(book, tm.k) === null) {
          throw Err(book, ctx, "a declared constructor", tm, tm.s, lhs.def);
        }
@@ -2396,7 +2407,7 @@
  export function term_check_kind(book: Book, lhs: LHS, T: HTerm, q: Quant, ctx: Ctx, d: number, s?: Span): void {
    const kind = Typ<HBody>(Qua(lhs_kind(lhs, q)), s);
    try {
-@@ -3466,6 +5316,16 @@
+@@ -3466,6 +5329,16 @@
  }
  
  export function term_check(book: Book, lhs: LHS, tm: HTerm, qt: Quant, ty: HTerm, ctx: Ctx, d: number): Check {
@@ -2413,7 +2424,7 @@
    switch (tm.$) {
      // a share cell in a goal-checked position: open it, no evaluation
      case "Var": {
-@@ -3481,13 +5341,105 @@
+@@ -3481,13 +5354,105 @@
      //       lhs steps by x while a parameter remains
      // ---------------------------------------------- check-lam
      // Γ ⊢ x => f : T ~ u - x
@@ -2520,7 +2531,7 @@
        if (lhs.n > 0) {
          f_lhs = { ...lhs, t: term_apply(lhs.t, x), n: lhs.n - 1 };
        }
-@@ -3515,7 +5467,7 @@
+@@ -3515,7 +5480,7 @@
        let f_ctx = ctx;
        for (let j = 0; j < n; j++) {
          const v_dem = quant_dem(tm.q[j], qt);
@@ -2529,7 +2540,7 @@
          term_check_kind(book, lhs, v_inf.ty, tm.q[j], ctx, d, tm.s);
          vx.push(v_inf.tm);
          us = uses_add(us, v_inf.us);
-@@ -3538,6 +5490,24 @@
+@@ -3538,6 +5503,24 @@
      // Γ ⊢ k{x1, .., xn} : T ~ u1 + .. + un
      case "Ctr": {
        const t_wnf = term_wnf(book, ty);
@@ -2554,7 +2565,7 @@
        if (t_wnf.$ !== "ADT") {
          const fam = book_ctr(book, tm.k) === null ? null : book_fam(book, tm.k);
          throw Err(book, ctx, ty, fam === null ? typeless_show(book, ctx, tm) : Ref(fam, tm.s), tm.s, lhs.def);
-@@ -3554,7 +5524,7 @@
+@@ -3554,7 +5537,7 @@
          throw Err(book, ctx, tm.k + " with " + String(ctr.n) + (ctr.n === 1 ? " field" : " fields"), tm, tm.s, lhs.def);
        }
        const tel = tele_fill(book, ctr.T, t_wnf.x, ctx, lhs.def, tm.s);
@@ -2563,7 +2574,7 @@
        return Check(Ctr(tm.k, xs, tm.s), ty, us);
      }
      // T == @q s:D<p..> -> P
-@@ -3603,9 +5573,42 @@
+@@ -3603,9 +5586,42 @@
              throw Err(book, ctx, "a constructor of " + a_wnf.k + " (missing, or already matched)", tm, tm.s, lhs.def);
            }
            const tel = tele_fill(book, ctr.T, a_wnf.x, ctx, lhs.def, tm.s);
@@ -2607,7 +2618,7 @@
              } else {
                const c_all = tele_head(book, cur, ctx, lhs.def, b.s);
                const c_dem = c_all.q.$ === "None" ? None() : c_all.q.$ === "Lone" ? t_all.q : quant_add(t_all.q, t_all.q);
-@@ -3618,9 +5621,18 @@
+@@ -3618,9 +5634,18 @@
            if (lhs.n > 0) {
              h_lhs = { ...lhs, t: lhs_ext(lhs.t, tm.k, ctr.n), n: lhs.n - 1 + ctr.n };
            }
@@ -2629,7 +2640,7 @@
            return Check(Mat(tm.k, h_chk.tm, m_chk.tm, tm.s), ty, pmap_union(h_chk.us, m_chk.us, quant_join));
          }
        }
-@@ -3633,7 +5645,7 @@
+@@ -3633,7 +5658,7 @@
        if (t_wnf.$ !== "Eql") {
          throw Err(book, ctx, ty, typeless_show(book, ctx, tm), tm.s, lhs.def);
        }
@@ -2638,7 +2649,7 @@
          throw Err(book, ctx, t_wnf.a, t_wnf.b, tm.s, lhs.def);
        }
        return Check(Rfl(tm.s), ty, uses_nil());
-@@ -3663,7 +5675,7 @@
+@@ -3663,7 +5688,7 @@
        const p_typ = All<HBody>(Lone(), "_", 0, e_wnf.T, (x: HTerm) => All<HBody>(Lone(), "e", 0, Eql(e_wnf.a, x, e_wnf.T), () => Typ(Qua(Lone())), tm.s), tm.s);
        const p_chk = term_check(book, lhs, tm.p, None(), p_typ, ctx, d);
        const b_gol = term_apply(term_apply(tm.p, e_wnf.b), tm.e);
@@ -2647,7 +2658,7 @@
          throw Err(book, ctx, ty, b_gol, tm.s, lhs.def);
        }
        const a_gol = term_apply(term_apply(tm.p, e_wnf.a), Rfl<HBody>(tm.s));
-@@ -3678,7 +5690,7 @@
+@@ -3678,7 +5703,7 @@
      }
    }
    const x_inf = term_infer(book, lhs, tm, qt, ctx, d);
@@ -2656,7 +2667,7 @@
      return { tm: x_inf.tm, us: x_inf.us };
    }
    throw Err(book, ctx, ty, x_inf.ty, tm.s, lhs.def);
-@@ -3696,15 +5708,60 @@
+@@ -3696,15 +5721,60 @@
    }
    const gen = def.x === 0 ? book : { ...book, tlds: Object.create(book.tlds) as Record<Name, TLD> };
    let [t, v, T]: HTerm[] = [Ref(k), def.v as HTerm, def.T];
@@ -2719,7 +2730,7 @@
  }
  
  // the name of a template def's instance at the spine's leading ~
-@@ -3780,6 +5837,73 @@
+@@ -3780,6 +5850,73 @@
  // (infer-ref) while the caller is declared; it stays outside the order
  // (a seeded book keeps it), so it is no claim.
  
@@ -2793,7 +2804,7 @@
  export function book_valid(book: Book, done: number = 0): void {
    const tlds = book.tlds;
    const last = new Map<Name, number>();
-@@ -3822,11 +5946,29 @@
+@@ -3822,11 +5959,29 @@
                goal = kind;
              }
              term_check(book, { t: Ref(ctr.k), n: 0, def: ctr.k, qs: [] }, t_all.A, None(), goal, ctx, d);
@@ -2825,7 +2836,7 @@
            if (tip.$ !== "ADT" || tip.k !== k || tip.x.length !== tld.n || tip.r.length !== 0) {
              throw Err(book, ctx, exp, tip, undefined, ctr.k);
            }
-@@ -3856,14 +5998,24 @@
+@@ -3856,14 +6011,24 @@
        for (let d = 0; tel.$ === "All"; d++) {
          tel = term_strip(tel.B(Var(tel.k, d)));
        }
@@ -2852,7 +2863,7 @@
      book.tlds[k] = def;
    }
 --- a/bend2/comp.ts	2026-09-20 16:43:18.850854191 +0000
-+++ b/bend2/comp.ts	2026-09-20 22:19:19.598013400 +0000
++++ b/bend2/comp.ts	2026-09-20 22:27:30.222622820 +0000
 @@ -793,6 +793,10 @@
      case "Ctr": return term_const(t) ? [] : ctr_flds(cf.book, t.k, t.x);
      case "Mat": return [t.h, t.m];

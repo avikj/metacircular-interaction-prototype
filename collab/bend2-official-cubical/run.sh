@@ -21,7 +21,7 @@ pass=0; fail=0
 for f in tests/cubical/*.bend; do
   want=$(grep '^#|' "$f" | sed 's/^#|//; s/^exit [0-9]$//' | tidy)
   case "$f" in
-    *compiled*.bend|*issue_901.bend|*issue_853.bend)
+    *compiled*.bend|*issue_901.bend|*issue_853.bend|*hit_susp_torus.bend)
       bun bend2/main.ts "$f" -o /tmp/cubical_compiled.js >/dev/null 2>&1; got=$(bun /tmp/cubical_compiled.js 2>&1 | tidy)
       if command -v clang >/dev/null; then
         rm -f /tmp/cubical_compiled; bun bend2/main.ts "$f" -o /tmp/cubical_compiled >/dev/null 2>&1; gotc=$(/tmp/cubical_compiled 2>&1 | tidy)
