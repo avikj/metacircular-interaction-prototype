@@ -8,29 +8,29 @@
 -- classification of the base-`b` divisibility automaton by a signature
 -- with `K + 1` coordinates,
 --
---     Σ(r) = (e₀ r , … , e_{K-1} r , r mod (m / gcd(m , b^K))),
+--     �(r) = (e� r , � , e_{K-1} r , r mod (m / gcd(m , b^K))),
 --
--- where `K` is least with `b^K ≥ m` and `e_k r` is the unique accepting
--- suffix of length `k`, or `⊥`.  This module checks a strictly shorter
+-- where `K` is least with `b^K � m` and `e_k r` is the unique accepting
+-- suffix of length `k`, or `�`.  This module checks a strictly shorter
 -- invariant, in two coordinates and with no reference to `K`, to the
 -- interval `[0 , b^k)`, or even to the digit alphabet being complete:
 --
---     σ(r) = (κ r , (b^{κ r} · r) mod m)
+--     �(r) = (κ r , (b^{κ r} � r) mod m)
 --
--- where `κ r` — the SYMPTOMA — is the least length at which some digit
+-- where `κ r` � the SYMPTOMA � is the least length at which some digit
 -- word carries `r` to a multiple of `m`.  Read arithmetically,
--- `(b^{κ r} · r) mod m` names exactly the set of shortest completions of
+-- `(b^{κ r} � r) mod m` names exactly the set of shortest completions of
 -- `r`, so the theorem is:
 --
 --     two states of the divisibility automaton are behaviourally equal
 --     iff they have the SAME SET OF SHORTEST COMPLETIONS.
 --
 -- WHAT IS GENERALISED, AND WHY IT MATTERS.  The note's proof turns on
--- "a word of length k represents a unique integer n with 0 ≤ n < b^k",
--- which is a statement about the FULL digit alphabet {0,…,b-1}.  The
+-- "a word of length k represents a unique integer n with 0 � n < b^k",
+-- which is a statement about the FULL digit alphabet {0,�,b-1}.  The
 -- proof below never counts words and never compares `b^k` with `m`, so
 -- the alphabet here is an arbitrary type `D` with an arbitrary weight
--- map `dig : D → ℕ`.  The classification is the same for digits
+-- map `dig : D � �`.  The classification is the same for digits
 -- {0,2,4,6,8} in base ten, for the two-letter alphabet {0,1} in base
 -- ten, and for the complete alphabet.  That independence is the content
 -- the (K+1)-coordinate signature hides, because every one of its
@@ -39,27 +39,27 @@
 --
 -- Contents (all proved, no holes, no postulates, --safe):
 --
---   §1  mod-+congˡ, mod-·congʳ   congruence of `_mod_` under + and ·
+--   §1  mod-+congˡ, mod-�congʳ   congruence of `_mod_` under + and �
 --       mod-+cancel              additive cancellation mod n, proved
---                                WITHOUT subtraction or ℤ, by summing
+--                                WITHOUT subtraction or �, by summing
 --                                the two hypotheses in the two orders
---       ^-+, scale-mod           b^(j+k) = b^j·b^k, and its use: a
+--       ^-+, scale-mod           b^(j+k) = b^j�b^k, and its use: a
 --                                congruence at depth k survives every
 --                                deeper depth
 --
---   §2  Radix                    the machine: step r d = b·r + dig d,
+--   §2  Radix                    the machine: step r d = b�r + dig d,
 --                                observation "is the state ≡ 0 mod m"
---       run≡                     run step r w ≡ b^|w| · r + val w
+--       run≡                     run step r w ≡ b^|w| � r + val w
 --       Reach, Escape, NoEscape  the symptoma, as a RELATION (κ need
 --                                not be computable: `D` may be infinite)
 --
---   §3  symptoma→≈               SUFFICIENCY: equal symptoma ⇒ equal
+--   §3  symptoma�≈               SUFFICIENCY: equal symptoma � equal
 --                                behaviour
---       ≈→sameDepth, ≈→symptoma  NECESSITY, in its two coordinates
---       noEscape→≈, ≈→noEscape   the degenerate class: states with no
+--       ≈�sameDepth, ≈�symptoma  NECESSITY, in its two coordinates
+--       noEscape�≈, ≈�noEscape   the degenerate class: states with no
 --                                completion at all are all equivalent
 --
--- The behavioural equality is `FutureBehavior.FutureEq`
+-- The behavioural equality is `MyhillNerodeMinimalMachine.NerodeCongruence`
 -- verbatim, so everything that module proves about the quotient (full
 -- abstraction, terminality, effectivity) applies to these classes
 -- without restatement.
@@ -78,18 +78,18 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
-open import FutureBehavior using (run ; behavior ; FutureEq)
+open import MyhillNerodeMinimalMachine using (run ; behavior ; NerodeCongruence)
 
 private
   variable
     ℓ : Level
 
 ------------------------------------------------------------------------
--- 1.  Modular arithmetic on ℕ
+-- 1.  Modular arithmetic on �
 --
 -- Every lemma holds for EVERY modulus, `0` included, because cubical's
--- `_mod_` is defined with `x mod 0 = 0`.  Nothing below needs `ℕ₊₁`,
--- subtraction, or ℤ.
+-- `_mod_` is defined with `x mod 0 = 0`.  Nothing below needs `���`,
+-- subtraction, or �.
 ------------------------------------------------------------------------
 
 mod-+congˡ : (n c x y : ℕ) → x mod n ≡ y mod n → (x + c) mod n ≡ (y + c) mod n
@@ -161,9 +161,9 @@ module Radix {D : Type ℓ} (b M : ℕ) (dig : D → ℕ) where
   obs : ℕ → Bool
   obs x = isZero (x mod M)
 
-  -- behavioural equality, taken verbatim from FutureBehavior
+  -- behavioural equality, taken verbatim from MyhillNerodeMinimalMachine
   _≈_ : ℕ → ℕ → Type ℓ
-  r ≈ s = FutureEq step obs r s
+  r ≈ s = NerodeCongruence step obs r s
 
   -- the numeral value of a word, alphabet-relative
   val : List D → ℕ
@@ -197,11 +197,11 @@ module Radix {D : Type ℓ} (b M : ℕ) (dig : D → ℕ) where
   ¬acc→obs : (r : ℕ) (w : List D) → ¬ Accepts r w → obs (run step r w) ≡ false
   ¬acc→obs r w na = ≢0→isZero≡false _ na
 
-  -- `r` has SOME completion of length k …
+  -- `r` has SOME completion of length k �
   Reach : ℕ → ℕ → Type ℓ
   Reach r k = Σ[ w ∈ List D ] ((length w ≡ k) × Accepts r w)
 
-  -- … and k is the least such length.  This is the symptoma, stated as
+  -- � and k is the least such length.  This is the symptoma, stated as
   -- a relation rather than a function: `D` may be infinite, so the least
   -- such k need not be computable, and the theorem does not need it.
   Escape : ℕ → ℕ → Type ℓ

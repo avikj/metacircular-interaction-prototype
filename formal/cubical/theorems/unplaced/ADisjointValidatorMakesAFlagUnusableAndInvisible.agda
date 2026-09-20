@@ -11,13 +11,13 @@
 --    `score_child_prop` or `best` is rejected, while the accidental
 --    `score_child_propbest` value falls through to random selection."
 --
--- The previous cycle observed that seams 1 and 3 have the SAME SHAPE â€”
--- a defect undetectable exactly where it is harmless â€” and said that
+-- The previous cycle observed that seams 1 and 3 have the SAME SHAPE â”
+-- a defect undetectable exactly where it is harmless â” and said that
 -- shape is a property of the SECTION, so the remaining seams should be
 -- checked against it FIRST.  Doing that here: seam 2 has the same
 -- shape, and this is its statement rather than its restatement.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED, for tokens with decidable equality
 --
 --   Accepted / Intended       membership in the validator's list and in
@@ -37,20 +37,20 @@
 --
 -- **Third instance of the section's shape, and it was predicted.**  The
 -- defect is invisible exactly to runs using the default, which is every
--- run until someone passes the flag explicitly â€” at which point the
+-- run until someone passes the flag explicitly â” at which point the
 -- flag is not merely wrong but UNUSABLE, since no intended spelling is
 -- accepted and the only accepted spelling is one nobody would write.
 -- Seams 1, 2 and 3 are now three instances of "undetectable exactly
 -- where harmless", and that is a fact about Â§2 rather than three
 -- coincidences.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- GRADE, unchanged: **I DID NOT READ THE CODE, and this seam is about
 -- PYTHON'S SEMANTICS.**  No request to github.com was made, and no
 -- claim is made here about what `argparse` does, what Python's
 -- adjacent-literal concatenation does, or what the pinned file
--- contains.  What is modelled is the SITUATION Â§2 describes â€” a
--- validator whose accepted set is disjoint from the intended set â€” and
+-- contains.  What is modelled is the SITUATION Â§2 describes â” a
+-- validator whose accepted set is disjoint from the intended set â” and
 -- the theorems are about that situation.  If Â§2 misread the code, the
 -- situation simply does not arise and nothing here is affected.
 --
@@ -62,13 +62,13 @@
 -- SEAM 4 IS NOT TOUCHED, AND HERE IS WHY.  It reports that the prose
 -- says the selected parent analyses its own logs while the appendix and
 -- code say a separate diagnostic call reads them.  That is a
--- discrepancy about WHICH AGENT PERFORMS A STEP â€” an attribution of an
--- action, not a relation between values â€” and nothing in Â§2 turns it
+-- discrepancy about WHICH AGENT PERFORMS A STEP â” an attribution of an
+-- action, not a relation between values â” and nothing in Â§2 turns it
 -- into a claim with a truth condition this substrate can carry.  Saying
 -- so with a reason is the honest closure; inventing a formalisation
 -- would be the dishonest one.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

@@ -1,0 +1,2 @@
+def importedMain() -> Bool:
+  main()

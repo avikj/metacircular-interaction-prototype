@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- शुद्ध-वेणी — the pure braid.
+-- �����-���� � the pure braid.
 --
 -- THE KERNEL QUESTION, opened by the factorization.  The pure braid
--- subgroup is what maps trivially to the symmetric group — the words
+-- subgroup is what maps trivially to the symmetric group � the words
 -- with no net base motion.  Its generators are the squares of the
 -- crossings (and their conjugates).  Two theorems locate it:
 --
 --   §2  THE SQUARE OF EVERY CROSSING IS PURE RESIDUE:
---       σᵢ² = twistᵢ ∘ twistᵢ₊₁, at every position — the double
+--       ϵ² = twist� ∘ twist���, at every position � the double
 --       crossing swaps twice (no base motion) and deposits one
 --       quarter turn on EACH of the two strands it crossed.  By
---       SesaSamavaya, this is an assembled residue family: the pure
+--       ResidueSamavaya, this is an assembled residue family: the pure
 --       braid generators act vertically, inside the fibre level.
 --
 --   §3  THE TWISTS COMMUTE ACROSS STRANDS, at every pair of distinct
---       depths — so the vertical image of the pure braid generators
+--       depths � so the vertical image of the pure braid generators
 --       is abelian: a TWIST VECTOR, one quarter-turn count per
 --       strand.  With every single twist of order four
---       (CaturamsaBhramana), the vector lives in a per-strand ℤ/4.
+--       (CaturamsaBhramana), the vector lives in a per-strand �/4.
 --
 -- The kernel conjecture now has its exact shape, and the machine
--- holds it as śeṣa: a word acts trivially iff its symmetric image is
+-- holds it as ea: a word acts trivially iff its symmetric image is
 -- trivial and its twist vector vanishes mod four per strand.  §2 and
 -- §3 are the two lemmas that make the conjecture well-posed: base
 -- motion and twist vector are independent coordinates, the first in
--- the symmetric group, the second in the abelian residue level —
+-- the symmetric group, the second in the abelian residue level �
 -- coherence and cargo, separated by theorems.
 --
 ------------------------------------------------------------------------
@@ -48,7 +48,7 @@ open import VibhagaSutra_EveryCrossingFactorsAsPureSwapAfterPureTwistAndTheSwapT
 open Dhārā
 
 ------------------------------------------------------------------------
--- २ · The square of the crossing is the twist pair.
+-- � � The square of the crossing is the twist pair.
 ------------------------------------------------------------------------
 
 śuddha : (i : ℕ) (s : Rajju)
@@ -60,7 +60,7 @@ open Dhārā
 śeṣam (śuddha (suc i) s j) = śuddha i (śeṣam s) j
 
 ------------------------------------------------------------------------
--- ३ · Twists at distinct depths commute.
+-- � � Twists at distinct depths commute.
 ------------------------------------------------------------------------
 
 ghūrṇa-vinimaya : (d : ℕ) (s : Rajju)
@@ -78,8 +78,8 @@ ghūrṇa-sarva-vinimaya zero    d s = ghūrṇa-vinimaya d s
   ghūrṇa-sarva-vinimaya j d (śeṣam s) k
 
 ------------------------------------------------------------------------
--- ४ · Each twist has order exactly four at every depth: the twist
--- vector lives in a per-strand ℤ/4, exactly.
+-- � � Each twist has order exactly four at every depth: the twist
+-- vector lives in a per-strand �/4, exactly.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Bool using (true ; false ; true≢false)

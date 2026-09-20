@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- A finite, falsifiable nonabelian instance of the holonomy/refinement seam.
--- The group is Sym(Fin 3) ≅ S₃.  This is a precursor test only: it is not
+-- The group is Sym(Fin 3) � S�.  This is a precursor test only: it is not
 -- SU(2), a Hilbert representation, or a continuum LQG construction.
 
 module NaturalMachine.FiniteNonabelianHolonomy where
@@ -90,7 +90,7 @@ loopObserved-gauge : (h g : ⟨ S₃ ⟩)
 loopObserved-gauge =
   closedLoopGaugeInvariant S₃ loopObserved loopObserved-conjugation
 
--- Concrete signed target on S₃: parallel combination is group composition,
+-- Concrete signed target on S�: parallel combination is group composition,
 -- orientation negation is inversion, and the positive insertion is identity.
 s₃SignedFlux : SignedFluxTarget ℓ-zero
 SignedFluxTarget.Carrier s₃SignedFlux = ⟨ S₃ ⟩
@@ -103,7 +103,7 @@ SignedFluxTarget.right-neutral s₃SignedFlux = S.·IdR
 SignedFluxTarget.negate-neutral s₃SignedFlux = ST.inv1g
 SignedFluxTarget.negate-involutive s₃SignedFlux = ST.invInv
 
--- The generic theorem now specializes to an executable S₃ refinement square.
+-- The generic theorem now specializes to an executable S� refinement square.
 s₃-refinement-square =
   surface-flux-cylindrical S₃ s₃SignedFlux (λ g → g)
 

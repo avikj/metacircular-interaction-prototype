@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- PunarƒÅgamana ¬∑ ‡§Ö‡§µ‡§ö‡•ç‡§õ‡•á‡§¶‡§É ‚Äî the seam, closed.
+-- Punargamana ¬ ‡‡µ‡‡‡‡‡¶‡ ‚î the seam, closed.
 --
--- `SakalaVikalaDesa_‚Ä¶` wrote, of the distinction between levels ‡•© and ‡•™
+-- `WholePartialDesa_‚¶` wrote, of the distinction between levels ‡© and ‡
 -- of its five-level scale: its candidate criterion "rests on an
--- unchecked conjecture, `(x : ‚à• A ‚à•‚ÇÅ) ‚Üí fibre ‚à£_‚à£‚ÇÅ x ‚âÉ A`."  It is not a
+-- unchecked conjecture, `(x : ‚à A ‚à‚) ‚í fibre ‚à_‚à‚ x ‚â A`."  It is not a
 -- conjecture.  The fibre of the truncation map over any point is the
 -- whole source: a point of the fibre is a source element together with
 -- a path in a proposition, and paths in a proposition are contractible.
 --
---   ‡§Ö‡§µ‡§ö‡•ç‡§õ‡•á‡§¶‡§É : (x : ‚à• A ‚à•‚ÇÅ) ‚Üí fiber ‚à£_‚à£‚ÇÅ x ‚âÉ A
+--   ‡‡µ‡‡‡‡‡¶‡ : (x : ‚à A ‚à‚) ‚í fiber ‚à_‚à‚ x ‚â A
 --
--- So at level ‡•™ the fibre is the WHOLE of the source, on the nose, and
--- the census's `‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂` (two distinct points of the fibre) is inhabited
--- at every point as soon as A has two distinct points ‚Äî which is the
+-- So at level ‡ the fibre is the WHOLE of the source, on the nose, and
+-- the census's `‡µ‡ø‡ï‡≤‡æ‡¶‡‡` (two distinct points of the fibre) is inhabited
+-- at every point as soon as A has two distinct points ‚î which is the
 -- "crowded" reading of the truncation, not a coarse one.
 --
 -- The parent corpus holds the same fact as
--- `theorems/residue/Avacchedaka_TheTruncationsFibreIsTheWholeSource‚Ä¶`;
+-- `theorems/residue/Avacchedaka_TheTruncationsFibreIsTheWholeSource‚¶`;
 -- it is restated here because this library takes no dependency outside
 -- itself, and a seam should not be closed by prose.
 ------------------------------------------------------------------------

@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤µà¥à¤¯à¤¤à¥à¤¯à¤¾à¤¸ â€” the crossing, and the fact that it undoes itself.
+-- àµàà¯ààà¯à¾à â” the crossing, and the fact that it undoes itself.
 --
--- TERM.  à¤µà¥à¤¯à¤¤à¥à¤¯à¤¾à¤¸ Â· vyatyÄsa â€” interchange, transposition, reversal of
--- order.  Ordinary Sanskrit, used in the mathematical literature for an
+-- TERM.  àµàà¯ààà¯à¾à Â vyatysa â” interchange, transposition, reversal of
+-- order.  Ordinary , used in the mathematical literature for an
 -- exchange of two things.  NO TEXT IS CLAIMED for this application and no
 -- author is credited with anything below.  The one source-borrowing in the
--- neighbourhood is BhÄskara II's aá¹…kapÄÅ›a section of the *LÄ«lÄvatÄ«*
+-- neighbourhood is Bhskara II's akapa section of the *Llvat*
 -- (~1150), and that borrowing is already made, with its own limits stated,
--- in `Ankapasa_â€¦`, which this file continues.
+-- in `Ankapasa_â¦`, which this file continues.
 --
 ------------------------------------------------------------------------
 -- WHAT THIS ANSWERS, AND WHOSE QUESTION IT IS.
@@ -18,75 +18,75 @@
 -- other.  Both check at the pin (Agda 2.8.0 / agda-cubical v0.9, exit 0,
 -- run 2026-08-24):
 --
---   `Ankapasa_â€¦` gives the kernel a UNIVALENT semantics.
+--   `Ankapasa_â¦` gives the kernel a UNIVALENT semantics.
 --     Every constructor of `Step` becomes an equivalence; `reverse` becomes
---     `invEquiv`; `add` becomes `âŠ`.  It then extends the calculus by one
---     constructor, `add-comm : Stepâº (add x y) (add y x)`, interprets it as
---     `âŠ-swap-â‰ƒ`, and proves that the single commutation at `add var var`
+--     `invEquiv`; `add` becomes `âŠ`.  It then extends the calculus by one
+--     constructor, `add-comm : Stepâº (add x y) (add y x)`, interprets it as
+--     `âŠ-swap-â‰`, and proves that the single commutation at `add var var`
 --     is a NONTRIVIAL LOOP IN THE UNIVERSE which the counting semantics
---     `eval : Tm â†’ Env â†’ â„•` provably cannot see â€” its â„•-meaning is `refl`,
---     forced, because `isSetâ„•`.  Holonomy with no set-valued observable.
+--     `eval : Tm â’ Env â’ â•` provably cannot see â” its â•-meaning is `refl`,
+--     forced, because `isSetâ•`.  Holonomy with no set-valued observable.
 --
 --   `BraidCoherenceBoundary` proves that this is not yet a
---     braid: it exhibits two self-EQUIVALENCES of `Bool Ã— Bool Ã— Bool`,
+--     braid: it exhibits two self-EQUIVALENCES of `Bool — Bool — Bool`,
 --     both involutive, that fail
---       Ïƒâ‚ (Ïƒâ‚‚ (Ïƒâ‚ x)) â‰¡ Ïƒâ‚‚ (Ïƒâ‚ (Ïƒâ‚‚ x))
+--       Ïâ (Ïâ (Ïâ x)) â‰¡ Ïâ (Ïâ (Ïâ x))
 --     at `(false , false , false)`.  Invertibility does not supply
---     Yangâ€“Baxter; Yangâ€“Baxter is additional coherence data that must be
+--     Yangâ“Baxter; Yangâ“Baxter is additional coherence data that must be
 --     proved of the actual crossings.
 --
--- Nobody has asked Yangâ€“Baxter OF THE KERNEL'S OWN CROSSING.  This file
+-- Nobody has asked Yangâ“Baxter OF THE KERNEL'S OWN CROSSING.  This file
 -- asks it, and answers it, and the answer is not the one the pairing
 -- suggests.  Two facts, and the second is the one that decides the
 -- physics reading:
 --
---   Â§3  YANGâ€“BAXTER HOLDS.  The kernel's crossing, taken at two adjacent
+--   Â§3  YANGâ“BAXTER HOLDS.  The kernel's crossing, taken at two adjacent
 --       sites of a three-summand term, satisfies the braid relation on the
---       nose, for an ARBITRARY interpretation type â€” three cases, each
+--       nose, for an ARBITRARY interpretation type â” three cases, each
 --       `refl`.  So the calculus does braid.
 --
---   Â§4  AND THE CROSSING IS AN INVOLUTION.  Ïƒâ‚ âˆ˜ Ïƒâ‚ and Ïƒâ‚‚ âˆ˜ Ïƒâ‚‚ are the
---       identity, again on the nose, and therefore â€” Â§5 â€” `ua` of the
+--   Â§4  AND THE CROSSING IS AN INVOLUTION.  Ïâ âˆ˜ Ïâ and Ïâ âˆ˜ Ïâ are the
+--       identity, again on the nose, and therefore â” Â§5 â” `ua` of the
 --       doubled crossing is `refl`.  THE DOUBLED CROSSING IS TRIVIAL IN
 --       THE UNIVERSE.
 --
 -- Â§4 IS THE NEGATIVE RESULT AND IT IS WORTH MORE THAN Â§3.  In the braid
--- group Bâ‚™ the generators have INFINITE order; ÏƒÂ² = 1 is exactly the extra
--- relation that collapses Bâ‚™ onto the symmetric group Sâ‚™.  Non-abelian
--- anyonic statistics live in the monodromy ÏƒÂ² â€” that is the whole content
+-- group Bâ™ the generators have INFINITE order; ÏÂ² = 1 is exactly the extra
+-- relation that collapses Bâ™ onto the symmetric group Sâ™.  Non-abelian
+-- anyonic statistics live in the monodromy ÏÂ² â” that is the whole content
 -- of "topological": a doubled exchange is not the identity, so the
 -- computation is stored in the braid and cannot be read off the state.
--- Here ÏƒÂ² IS the identity, provably, at the level of paths in the
+-- Here ÏÂ² IS the identity, provably, at the level of paths in the
 -- universe.  So:
 --
 --   THE KERNEL IS REVERSIBLE, LOSSLESS, AND CARRIES GENUINE HOLONOMY THAT
---   NO SET-VALUED READOUT CAN SEE (`Ankapasa_` Â§4, `Sesa_` Â§4) â€” AND THAT
+--   NO SET-VALUED READOUT CAN SEE (`Ankapasa_` Â§4, `Residue_` Â§4) â” AND THAT
 --   HOLONOMY IS SYMMETRIC.  IT IS A PERMUTATION, NOT A BRAID.  THIS
 --   SEMANTICS CANNOT CARRY AN ANYON.
 --
 -- The obstruction is named exactly and it is not a defect of the kernel:
--- `âŠ` on `Type` is a SYMMETRIC monoidal structure, and its symmetry is an
--- involution by construction (`âŠ-swap-Iso` is its own inverse).  Any
--- interpretation of `add` by `âŠ` inherits ÏƒÂ² = 1 and can do no better.  A
--- braiding with ÏƒÂ² â‰  1 would have to come from a different interpretation
--- of `add` â€” that is the open horn this file leaves, stated rather than
+-- `âŠ` on `Type` is a SYMMETRIC monoidal structure, and its symmetry is an
+-- involution by construction (`âŠ-swap-Iso` is its own inverse).  Any
+-- interpretation of `add` by `âŠ` inherits ÏÂ² = 1 and can do no better.  A
+-- braiding with ÏÂ² â‰  1 would have to come from a different interpretation
+-- of `add` â” that is the open horn this file leaves, stated rather than
 -- gestured at.
 --
 -- A SECOND, SMALLER FINDING, RECORDED BECAUSE IT BLOCKS THE OBVIOUS
--- ATTEMPT.  `Stepâº` in `Ankapasa_` has exactly two constructors, `base`
+-- ATTEMPT.  `Stepâº` in `Ankapasa_` has exactly two constructors, `base`
 -- (which lifts a `Step`) and `add-comm`.  `Step`'s congruences `add-left`
--- and `add-right` lift a `Step`, NOT a `Stepâº`.  So `add-comm` CANNOT FIRE
--- UNDER A CONTEXT: a `Derivationâº` admits a crossing only at the root, and
+-- and `add-right` lift a `Step`, NOT a `Stepâº`.  So `add-comm` CANNOT FIRE
+-- UNDER A CONTEXT: a `Derivationâº` admits a crossing only at the root, and
 -- there is exactly one crossing site per term.  A second, adjacent
--- generator is therefore not expressible in `Stepâº` as it stands, and
+-- generator is therefore not expressible in `Stepâº` as it stands, and
 -- `Step` has no associativity constructor either, so the two ends of
--- `(A âŠ A) âŠ A` and `A âŠ (A âŠ A)` are not related by any step.  The two
+-- `(A âŠ A) âŠ A` and `A âŠ (A âŠ A)` are not related by any step.  The two
 -- crossings below are built directly in the SEMANTICS, from the same two
--- equivalences the kernel's interpretation already uses â€” `âŠ-swap-â‰ƒ` for
--- `add-comm` and `âŠ-assoc-â‰ƒ` for the reassociation â€” so Â§3 and Â§4 are
+-- equivalences the kernel's interpretation already uses â” `âŠ-swap-â‰` for
+-- `add-comm` and `âŠ-assoc-â‰` for the reassociation â” so Â§3 and Â§4 are
 -- statements about the semantics the kernel HAS, and the syntax that
 -- would express them is a congruence rule and an associator the kernel
--- DOES NOT HAVE.  That gap is a fact about `Stepâº`, stated here, not
+-- DOES NOT HAVE.  That gap is a fact about `Stepâº`, stated here, not
 -- repaired here.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9 (THE PIN), --cubical --safe,
@@ -109,7 +109,7 @@ private
 ------------------------------------------------------------------------
 -- Â§1.  The three-summand term, interpreted.
 --
--- `âŸ¦ add var (add var var) âŸ§ Ïƒ` with every coordinate read by the same
+-- `âŸ¦ add var (add var var) âŸ§ Ï` with every coordinate read by the same
 -- type `A`.  Writing it out rather than importing `Ankapasa_`'s `âŸ¦_âŸ§`
 -- keeps this module independent of the six-coordinate `TEnv`; the type is
 -- literally what that interpretation computes to.
@@ -121,9 +121,9 @@ Tri A = A âŠ (A âŠ A)
 ------------------------------------------------------------------------
 -- Â§2.  The two crossings, built from the kernel's own two equivalences.
 --
---   à¤•à¥à¤°à¤®-à¤ªà¥à¤°à¤¥à¤®à¤ƒ  fires `add-comm` on the INNER pair: `âŠ-equiv id âŠ-swap-â‰ƒ`.
---   à¤•à¥à¤°à¤®-à¤¦à¥à¤µà¤¿à¤¤à¥€à¤¯à¤ƒ fires it on the OUTER pair, which needs the reassociation
---                on both sides â€” this is the derivation the kernel cannot
+--   à•àà°à®-ààà°àà®à  fires `add-comm` on the INNER pair: `âŠ-equiv id âŠ-swap-â‰`.
+--   à•àà°à®-à¦ààµà¿ààà¯à fires it on the OUTER pair, which needs the reassociation
+--                on both sides â” this is the derivation the kernel cannot
 --                spell (see the header's second finding), written in the
 --                semantics where every piece is already present.
 ------------------------------------------------------------------------
@@ -143,7 +143,7 @@ Tri A = A âŠ (A âŠ A)
 Ïƒâ‚‚ = equivFun à¤µà¥à¤¯à¤¤à¥à¤¯à¤¾à¤¸à¤ƒâ‚‚
 
 ------------------------------------------------------------------------
--- Â§3.  YANGâ€“BAXTER HOLDS.  Same statement as
+-- Â§3.  YANGâ“BAXTER HOLDS.  Same statement as
 -- `BraidCoherenceBoundary.YangBaxter`, composition written
 -- out so no diagram-order convention is in play.  Three cases, each by
 -- computation, for an arbitrary `A`.
@@ -177,7 +177,7 @@ YangBaxter {A = A} f g = (x : Tri A) â†’ f (g (f x)) â‰¡ g (f (g x))
 -- Â§5.  THEREFORE THE DOUBLED CROSSING IS TRIVIAL IN THE UNIVERSE.
 --
 -- `Ankapasa_` Â§4 proves the SINGLE crossing gives a path `ua e` that is
--- not `refl` â€” real holonomy, invisible to `eval`.  Here the DOUBLE
+-- not `refl` â” real holonomy, invisible to `eval`.  Here the DOUBLE
 -- crossing gives `refl` on the nose.  In a braided (non-symmetric)
 -- setting the doubled crossing is precisely the monodromy and is exactly
 -- where non-abelian statistics would live; this one is empty.

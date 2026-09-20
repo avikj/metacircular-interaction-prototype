@@ -10,7 +10,7 @@
 -- annihilate the charged sector".  That claim is FALSE as stated, and
 -- `AdaptiveResidualAdapter` (this same directory) already
 -- proves the collapse in the Moore-machine register
--- (`futureEq-adaptiveIso`), and ~22 `formal/lean/Pairfield/Adaptive*`
+-- (`nerodeCongruence-adaptiveIso`), and ~22 `formal/lean/Pairfield/Adaptive*`
 -- modules already carry the cost side, including two checked strict gaps
 -- (`AdaptiveObservableHorizon.uniform_one_adaptive_two`,
 --  `LinearAdaptiveGap.exact_linear_gap`).
@@ -26,7 +26,7 @@
 -- §1  (general, no finiteness anywhere)
 --     `collapse`      -- every adaptive strategy's transcript is constant on
 --                        the static full-pool indistinguishability class.
---     `indist→adaptive` / `adaptive→indist`
+--     `indist�adaptive` / `adaptive�indist`
 --                     -- the two kernels are EQUAL, not merely nested: the
 --                        adaptive observer's kernel is the static full-pool
 --                        kernel.  The hard direction is `collapse`; the easy
@@ -92,11 +92,11 @@ module Pool
   where
 
   -- The closed observation class is the pool `O`.  What it sees is exactly
-  -- this quotient: GTER §7.1's `E(𝒪) = ⋂_{o} kerpair(o)`.
+  -- this quotient: GTER §7.1's `E(�) = �_{o} kerpair(o)`.
   Indist : X → X → Type (ℓ-max ℓO ℓY)
   Indist x x' = (o : O) → out o x ≡ out o x'
 
-  -- An adaptive strategy of depth n.  The point of the `Y →` is that the
+  -- An adaptive strategy of depth n.  The point of the `Y �` is that the
   -- NEXT probe is chosen from the LAST OUTCOME: `ask o k` fires `o`, reads
   -- `y`, and continues with the strategy `k y`.  A static observer is the
   -- special case where every `k` is constant.
@@ -150,7 +150,7 @@ module Pool
   collapse-seeded σ e s = collapse (σ s) e
 
   ----------------------------------------------------------------
-  -- Theorem A′ (the charged sector).  This is the statement the law of
+  -- Theorem A� (the charged sector).  This is the statement the law of
   -- `SIXTEEN_MINDS_ONE_THEOREM` §1 makes, with "closed observation class"
   -- read as "adaptive strategies over the pool".
   ----------------------------------------------------------------
@@ -317,8 +317,8 @@ pool-separates x x' e =
 ------------------------------------------------------------------------
 
 -- Adaptivity is free in visibility and strictly not free in budget.
--- (The first conjunct is stated at `Type₀` only because a `Level`-quantified
--- component has no fixed sort and so cannot sit inside a `_×_`; the general
+-- (The first conjunct is stated at `Type�` only because a `Level`-quantified
+-- component has no fixed sort and so cannot sit inside a `_�_`; the general
 -- statement is `Pool.noAdaptiveDescent` above, and that is the theorem.)
 adaptivity-is-budget-not-visibility :
     ( {A : Type₀} (f : St → A) (x x' : St)

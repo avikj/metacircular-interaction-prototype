@@ -5,19 +5,19 @@
 --
 -- ON THE NAME.  CLAUDE.md's naming rule (owner, 2026-08-19) says lead
 -- with the tradition's term, and its guard says do not attach one where
--- the material is not from that tradition.  **This file is plumbing** â€”
--- `Any`, `Mem`, filters over lists â€” with no source in any tradition
+-- the material is not from that tradition.  **This file is plumbing** â”
+-- `Any`, `Mem`, filters over lists â” with no source in any tradition
 -- and no mathematical content of its own, so it takes an English name
 -- and says why.  Checked `.claude/hooks/priority-ledger.txt` and
 -- `.claude/hooks/european-frame.txt` before naming; neither applies.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS IS, AND WHAT IT DELIBERATELY IS NOT.
 --
 -- Renaming the fourth-corner base module two cycles ago exposed a
 -- factoring fact: eleven modules import a file named for a position in
--- the saptabhaá¹…gÄ«, and most of them want only `Any`, `decAny` and
--- `memberToAny` â€” list plumbing that landed there because that is where
+-- the saptabhag, and most of them want only `Any`, `decAny` and
+-- `memberToAny` â” list plumbing that landed there because that is where
 -- it was first needed.  The corpus also carries **`All` three times and
 -- `Mem` four times**, in modules named for unrelated theorems.
 --
@@ -26,18 +26,18 @@
 -- already lives, so importing it cannot create a fourth copy of
 -- anything, and deleting it would break nothing but convenience.
 --
--- **`All` IS DELIBERATELY ABSENT.**  There are three definitions â€”
+-- **`All` IS DELIBERATELY ABSENT.**  There are three definitions â”
 -- `TheParetoStratumIsDecidableAndTheFilterIsExact.All`,
 -- `KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner.All`
 -- (identical), `EveryRemainderMemberIsStrictlyDominated.AllL` (same
 -- again, different name), and `RateOneIsExactlyTheUniversalClaim.All`
 -- (a different, `Bool`-specific thing).  Re-exporting one would pick a
 -- winner, and the real consolidation edits files whose authorship I
--- cannot establish â€” every commit in this repository is authored
+-- cannot establish â” every commit in this repository is authored
 -- "Claude".  So the consolidation is an OFFER, posted to
 -- `collab/messages`, not an edit.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

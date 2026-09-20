@@ -1,9 +1,9 @@
--- Server ‚Äî the assembly.
+-- Server ‚î the assembly.
 --
--- ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç ‚Äî an instrument. BhƒÅskara II gives the SiddhƒÅnta≈õiroma·πái a
--- YantrƒÅdhyƒÅya (1150): a chapter of instruments, each described by what it
+-- ‡Ø‡®‡‡‡‡∞‡Æ‡ ‚î an instrument. Bhskara II gives the Siddhntairomai a
+-- Yantrdhyya (1150): a chapter of instruments, each described by what it
 -- does when it is turned, not by what it is made of. What is taken is the
--- word and the standard ‚Äî an instrument is judged by being turned.
+-- word and the standard ‚î an instrument is judged by being turned.
 --
 -- WHAT THIS FILE IS.  Fifteen lanes built organs.  Each one compiles, each
 -- one runs, and until this file they were fifteen processes.  A store that
@@ -15,13 +15,13 @@
 --
 --   Json       the grammar: four constructors, no
 --                                   boolean, no float, no null.
---   Uttara_Samkramana‚Ä¶              the answer type: two constructors, no
---                                   third.  ¬ß6, ‡§§‡•É‡§§‡•Ä‡§Ø‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‡•§
+--   Uttara_Samkramana‚¶              the answer type: two constructors, no
+--                                   third.  ¬ß6, ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡
 --
 -- WHAT IT SUPERSEDES.  Sabha_TheSessionKernelAnLLMTalksTo runs the same
--- wire against a placeholder store ‚Äî `sNaya :: [(String, [String])]` ‚Äî and
--- says so in its own header: *a real naya store ‚Üí replace `sNaya` and the
--- two ops touching it*.  This is that replacement.  The sabhƒÅ's twelve
+-- wire against a placeholder store ‚î `sNaya :: [(String, [String])]` ‚î and
+-- says so in its own header: *a real naya store ‚í replace `sNaya` and the
+-- two ops touching it*.  This is that replacement.  The sabh's twelve
 -- operations all survive here, and the store under `naya.*` is
 -- StandpointStore: journalled, replayable, with every witness
 -- carrying its source and every entry carrying the fitness of the looking
@@ -38,41 +38,41 @@
 --                                   chain is verified from inside the
 --                                   session by `dosa.pramanya`.
 --   SevenfoldVerdict   verdict organ A: presence profiles.
---   SaptabhangiGarbha_‚Ä¶               verdict organ B: proof-relevant.
+--   SaptabhangiGarbha_‚¶               verdict organ B: proof-relevant.
 --   Obstruction                       verdict organ C: B1..B7 + ADharmin.
---   Vipratisedha_‚Ä¶                    the PƒÅ·πáinian scheduler.  Its live use
+--   Vipratisedha_‚¶                    the Pinian scheduler.  Its live use
 --                                   here is the three-organ collision.
 --   Certificate                       the Agda kernel, with its two controls.
 --   QuadraticForms  the reactor, law as a value.
---   Phonology                        the ≈õivas≈´tra interval procedure.
+--   Phonology                        the ivastra interval procedure.
 --
--- THE ADDED CONTRACT, over and above the sabhƒÅ's.  Every answer on this
+-- THE ADDED CONTRACT, over and above the sabh's.  Every answer on this
 -- wire carries, at the top level of the object, two more fields:
 --
---   "nirnaya"   the saptabha·πÖgƒ´ position of THE ANSWER ITSELF ‚Äî not of the
+--   "nirnaya"   the saptabhag position of THE ANSWER ITSELF ‚î not of the
 --               object asked about.  An answer is an utterance and an
 --               utterance has a position.
---   "pramanya"  the route by which this answer is a pramƒÅ·πáa, with its
+--   "pramanya"  the route by which this answer is a prama, with its
 --               witness.  Five routes and no sixth (see `Pramanya`).  One
 --               of them, `ayogya`, says there is NO route; and a transport
 --               claiming ayogya is downgraded, by `mudra` below, into a
---               written defect about itself.  ¬ß19: ‡§Ø‡§§‡•ç ‡§Ö‡§®‡§ô‡•ç‡§ó‡•Ä‡§ï‡•É‡§§‡§Æ‡§æ‡§∞‡•ç‡§ó‡•á‡§£
---               ‡§Ü‡§ó‡§ö‡•ç‡§õ‡§§‡§ø ‡§§‡§§‡•ç ‡§® ‡§¶‡•Å‡§∞‡•ç‡§¨‡§≤‡§Ç ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç ‡•§ ‡§§‡§§‡•ç ‡§Ö‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç ‚Äî what arrives by an
+--               written defect about itself.  ¬ß19: ‡Ø‡‡ ‡‡®‡ô‡‡ó‡‡ï‡‡‡Æ‡æ‡∞‡‡ó‡‡
+--               ‡‡ó‡‡‡‡‡ø ‡‡‡ ‡® ‡¶‡‡∞‡‡‡≤‡ ‡‡‡∞‡Æ‡æ‡‡Æ‡ ‡ ‡‡‡ ‡‡‡‡∞‡Æ‡æ‡‡Æ‡ ‚î what arrives by an
 --               unaccepted route is not weak evidence, it is not evidence.
 --
 -- WHAT DOES NOT EXIST HERE, and this absence is load-bearing for the whole
--- assembly.  There are three saptabha·πÖgƒ´ types in this machine and they do
+-- assembly.  There are three saptabhag types in this machine and they do
 -- not agree.  Two of them (Saptabhangi's and Obstruction's) ARE equivalent,
 -- and the equivalence is exhibited and checked exhaustively over all
--- sixteen round trips ‚Äî that is `saptabhangi.samkramana`, and it is a
+-- sixteen round trips ‚î that is `saptabhangi.samkramana`, and it is a
 -- transport.  The third (SaptabhangiGarbha) is NOT equivalent to either,
 -- in both directions, and the failure is exhibited by computation rather
--- than asserted ‚Äî that is `saptabhangi.nasti`, and it is a written defect.
+-- than asserted ‚î that is `saptabhangi.nasti`, and it is a written defect.
 -- The machine does not pick.  `nirnaya.saptabhangi` asks all three about
--- one claim, hands the three answers to the PƒÅ·πáinian scheduler as three
+-- one claim, hands the three answers to the Pinian scheduler as three
 -- rules contending for one site, and the scheduler declines: no metarule
--- decides, and it says which abstained and why.  ¬ß7: ‡§®‡§Ø‡§≠‡•á‡§¶‡•á ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡•ã ‡§®
--- ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‡•§ ‡§® ‡§µ‡§∞‡•ç‡§ú‡§ø‡§§‡§É ‡•§ ‡§® ‡§Ö‡§®‡•Å‡§ö‡§ø‡§§‡§É ‡•§ ‡§® ‡§Ö‡§∂‡§ø‡§∑‡•ç‡§ü‡§É ‡•§ ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‚Äî where the standpoints
+-- decides, and it says which abstained and why.  ¬ß7: ‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡®
+-- ‡µ‡ø‡¶‡‡Ø‡‡ ‡ ‡® ‡µ‡∞‡‡‡ø‡‡ ‡ ‡® ‡‡®‡‡‡ø‡‡ ‡ ‡® ‡‡‡ø‡‡‡ü‡ ‡ ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‚î where the standpoints
 -- genuinely differ the collapse is not forbidden, it does not exist.
 --
 -- RUN IT:
@@ -92,7 +92,7 @@ module Server
   , Pramanya(..)
   , Mudra(..)
   , answer
-  , mudritaJ            -- render an answer to J (‡§®‡§æ‡§°‡•Ä routes organ-verbs through this)
+  , mudritaJ            -- render an answer to J (‡®‡æ‡°‡ routes organ-verbs through this)
   , serve
   , yantraMain
   ) where
@@ -110,13 +110,13 @@ import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding)
 import Wire
 -- `hiding (Ganita)` is a live seam and not a preference.  While this lane was
 -- repairing the readers below, the Uttara lane gave `Saksin` a constructor
--- `Ganita` ‚Äî a COMPUTED witness, as against `Likhita`, a written one ‚Äî and
+-- `Ganita` ‚î a COMPUTED witness, as against `Likhita`, a written one ‚î and
 -- this file has had a `Pramanya` constructor of the same name since it was
 -- written, meaning the same thing one layer up: the route by which an answer
--- is a pramƒÅ·πáa is arithmetic done here.  Two lanes reached the same word for
+-- is a prama is arithmetic done here.  Two lanes reached the same word for
 -- the same distinction, which is evidence the word is right, and neither of
 -- them is wrong.  Hiding disambiguates HERE without renaming EITHER; ¬ß12,
--- ‡§®‡§æ‡§Æ‡•ç‡§®‡§ø ‡§ú‡•Ä‡§µ‡§®‡§Æ‡•ç ‚Äî a name taken away from a lane that chose it is a loss in one
+-- ‡®‡æ‡Æ‡‡®‡ø ‡‡‡µ‡®‡Æ‡ ‚î a name taken away from a lane that chose it is a loss in one
 -- word.  Nothing of theirs is used through this import that the hiding
 -- removes: this file reads their witnesses through `tuWitness`.
 import Answer hiding (Ganita)
@@ -129,7 +129,7 @@ import qualified ProofGate as C
 import qualified CompositionLaw as VP
 import qualified RewriteEngine as P
 
--- ============================================================ ‡§™‡•ç‡§∞‡§æ‡§Æ‡§æ‡§£‡•ç‡§Ø
+-- ============================================================ ‡‡‡∞‡æ‡Æ‡æ‡‡‡Ø
 --
 -- Moved to Evidence, 2026-08-23, so that
 -- Aisthesis and the runghc organs (./jiva) can speak the route vocabulary
@@ -145,7 +145,7 @@ data Mudra = Mudra { mSthana :: S.Sthana, mPramanya :: Pramanya }
 
 -- | The downgrade.  A transport that cannot name its route is an assertion,
 --   and an assertion presented as transport is the collapse this machine
---   exists to refuse ‚Äî committed by the machine itself, which is the only
+--   exists to refuse ‚î committed by the machine itself, which is the only
 --   place it would go unnoticed.
 mudra :: Mudra -> Uttara -> (Mudra, Uttara)
 mudra m u@Samkramana{} = case mPramanya m of
@@ -155,12 +155,12 @@ mudra m u@Samkramana{} = case mPramanya m of
         ("a transport was claimed for `" ++ uKriya u ++ "` by no accepted route: " ++ why)
         ( [ "the transport itself, which is withdrawn: what it would have carried is listed below rather than delivered" ]
           ++ [ "withheld: " ++ k ++ " = " ++ take 300 (render v) | (k, v) <- uVahita u ] )
-        [ "name the route ‚Äî pratyaksa, nihsesa, ganita or kernel ‚Äî and exhibit its witness, then ask again" ]
-        ( uPramana u ++ [ "Gautama, NyƒÅyas≈´tra 1.1.3, c. 2nd c. CE; AHIMSA_SUTRA_VISTARA ¬ß19 ‚Äî ‡§Ö‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Ç ‡§® ‡§∏‡§û‡•ç‡§ö‡•Ä‡§Ø‡§§‡•á" ] ) )
+        [ "name the route ‚î pratyaksa, nihsesa, ganita or kernel ‚î and exhibit its witness, then ask again" ]
+        ( uPramana u ++ [ "Gautama, Nyyastra 1.1.3, c. 2nd c. CE; AHIMSA_SUTRA_VISTARA ¬ß19 ‚î ‡‡‡‡∞‡Æ‡æ‡‡ ‡® ‡‡û‡‡‡‡Ø‡‡" ] ) )
   _ -> (m, u)
 mudra m u = (m, u)
 
--- | The answer as it goes onto the wire: the sabhƒÅ's own object, with the
+-- | The answer as it goes onto the wire: the sabh's own object, with the
 --   two added fields spliced in after `kriya` so a reader meets the
 --   position and the route before the content.
 mudritaJ :: Mudra -> Uttara -> J
@@ -176,13 +176,13 @@ mudritaJ m u = case uttaraJ u of
 
 mudraLines :: Mudra -> [String]
 mudraLines m =
-  [ "  nirnaya: " ++ S.sanskritOf (mSthana m) ++ " ‚Äî " ++ S.glossOf (mSthana m)
-  , "  pramanya: " ++ margaName (mPramanya m) ++ " ‚Äî " ++ pramanyaWitness (mPramanya m) ]
+  [ "  nirnaya: " ++ S.sanskritOf (mSthana m) ++ " ‚î " ++ S.glossOf (mSthana m)
+  , "  pramanya: " ++ margaName (mPramanya m) ++ " ‚î " ++ pramanyaWitness (mPramanya m) ]
   where
     margaName p = case p of
       Pratyaksa _ -> "pratyaksa (the object is in the answer)"
       Nihsesa n _ -> "nihsesa (exhaustive over " ++ show n ++ " cases, all run)"
-      Ganita _    -> "ganita (an exact identity in ‚Ñ§)"
+      Ganita _    -> "ganita (an exact identity in ‚)"
       Kernel _    -> "kernel (agda typechecked it, controls watched first)"
       Ayogya _    -> "ayogya (NO accepted route)"
 
@@ -191,11 +191,11 @@ mudraLines m =
 data Yantra = Yantra
   { yKosha :: K.Kosha                 -- the real store
   , yDosa  :: [(Int, Uttara)]         -- in memory, newest first
-  , yFiled :: [(Int, Either String String)]  -- and what the do·π£a-lekha said back
+  , yFiled :: [(Int, Either String String)]  -- and what the doa-lekha said back
   , ySesa  :: [(Int, String)]
   , yTurn  :: Int
   , yRoot  :: FilePath                -- repository root, for the agda kernel
-  , yDosaBin :: Maybe FilePath        -- the do·π£a-lekha binary, if built
+  , yDosaBin :: Maybe FilePath        -- the doa-lekha binary, if built
   }
 
 emptyYantra :: FilePath -> Maybe FilePath -> Yantra
@@ -210,13 +210,13 @@ data Kriya = Kriya
   , kRun    :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
   }
 
--- The sabhƒÅ recorded a defect against its own dispatch: *this table is
+-- The sabh recorded a defect against its own dispatch: *this table is
 -- first-match, which is the weakest possible discipline*.  The repair is
 -- not a scheduler.  It is that dispatch here is by EXACT NAME and the names
--- are unique, so dispatch is a function and no conflict arises ‚Äî and that
+-- are unique, so dispatch is a function and no conflict arises ‚î and that
 -- uniqueness is CHECKED (`nameCollisions`, exhaustive over the table) rather
 -- than assumed.  Should two handlers ever share a name, that is a genuine
--- viprati·π£edha and `kSarvaKriyah` reports it as one instead of quietly
+-- vipratiedha and `kSarvaKriyah` reports it as one instead of quietly
 -- serving whichever `lookup` reached first.  The scheduler's live use in
 -- this machine is elsewhere: `nirnaya.saptabhangi`.
 nameCollisions :: [String]
@@ -229,13 +229,13 @@ kriyah =
       "What this machine can be asked.  Emitted from the table the server dispatches on, so it cannot drift from what runs."
       [] kKriyah
   , Kriya "yantra.sthiti"
-      "The whole session: the store in full, the defect log, what the do·π£a-lekha said back when each defect was filed, the remainder queue."
+      "The whole session: the store in full, the defect log, what the doa-lekha said back when each defect was filed, the remainder queue."
       [] kSthiti
   , Kriya "naya.sthapana"
-      "Install a standpoint into the ‡§®‡§Ø‡§ï‡•ã‡§∂.  Every witness carries the document it comes from; the entry carries the fitness of the looking that produced it."
-      [ ("naya", "the standpoint's name; NOT an index ‚Äî the store returns a list")
-      , ("saksin", "list of {\"vacana\":..., \"mula\":...} ‚Äî what it says, and the document it says it from")
-      , ("yogyata", "\"yogya\" or \"ayogya\" ‚Äî was the looking fit to have found what it looked for")
+      "Install a standpoint into the ‡®‡Ø‡ï‡ã‡.  Every witness carries the document it comes from; the entry carries the fitness of the looking that produced it."
+      [ ("naya", "the standpoint's name; NOT an index ‚î the store returns a list")
+      , ("saksin", "list of {\"vacana\":..., \"mula\":...} ‚î what it says, and the document it says it from")
+      , ("yogyata", "\"yogya\" or \"ayogya\" ‚î was the looking fit to have found what it looked for")
       , ("yogyata-hetu", "the account of the search; a fitness claim with no account of the search is itself unfit")
       , ("karta", "who recorded it"), ("kala", "when") ]
       kSthapana
@@ -243,15 +243,15 @@ kriyah =
       "Every entry held, with its id, its witnesses, their sources, and its fitness.  The listing is the store."
       [] kSuchi
   , Kriya "naya.samasa"
-      "May these be identified?  Runs NayaKosha.decide, which reports the sevenfold position, the highest level of agreement, the maximal collapsible sub-families, and ‚Äî item by item ‚Äî what a single verdict would destroy."
+      "May these be identified?  Runs NayaKosha.decide, which reports the sevenfold position, the highest level of agreement, the maximal collapsible sub-families, and ‚î item by item ‚î what a single verdict would destroy."
       [ ("nayah", "list of installed standpoint names")
-      , ("arpana", "\"saha\" (asserted at once) or \"krama\" (in succession) ‚Äî Akala·πÖka's distinction; not a boolean") ]
+      , ("arpana", "\"saha\" (asserted at once) or \"krama\" (in succession) ‚î Akalaka's distinction; not a boolean") ]
       kSamasa
   , Kriya "kosha.punaravrtti"
       "Journal the live store and replay the journal.  The round trip is the whole persistence claim, so it is run, on the store as it stands, rather than cited."
       [] kPunaravrtti
   , Kriya "nirnaya.saptabhangi"
-      "Ask ALL THREE verdict organs about one claim and hand the three answers to the PƒÅ·πáinian scheduler as three rules contending for one site.  The scheduler does not pick."
+      "Ask ALL THREE verdict organs about one claim and hand the three answers to the Pinian scheduler as three rules contending for one site.  The scheduler does not pick."
       [ ("nayah", "list of installed standpoint names")
       , ("arpana", "\"saha\" or \"krama\"") ]
       kTrayaNirnaya
@@ -262,7 +262,7 @@ kriyah =
       "The equivalence that does NOT exist between the third and the other two, with the collision computed and both colliding objects exhibited."
       [] kSaptaNasti
   , Kriya "garbha.dhara"
-      "The fourth position is positive: from a residue, the stream of positions born from it.  TattvƒÅrthas≈´tra 5.31 as an operation."
+      "The fourth position is positive: from a residue, the stream of positions born from it.  Tattvrthastra 5.31 as an operation."
       [ ("sadhaka", "the affirming standpoint's name"), ("sadhaka-saksin", "its witness")
       , ("badhaka", "the denying standpoint's name"), ("badhaka-saksin", "its witness")
       , ("stara", "optional: how many births to run out (default 3)") ]
@@ -274,41 +274,41 @@ kriyah =
       , ("sadhya", "optional: a note naming the induction variable, e.g. \"induction on x\"") ]
       kSadhana
   , Kriya "sadhana.patra"
-      "Give the kernel a WHOLE Agda module, verbatim, and carry back its verdict.  This is the wire's door to what the lanes always did by hand ‚Äî write a full problem statement as a module and run agda on it.  The corpus at formal/cubical and the pinned cubical library are importable; the two controls are watched FIRST, exactly as for `sadhana`."
+      "Give the kernel a WHOLE Agda module, verbatim, and carry back its verdict.  This is the wire's door to what the lanes always did by hand ‚î write a full problem statement as a module and run agda on it.  The corpus at formal/cubical and the pinned cubical library are importable; the two controls are watched FIRST, exactly as for `sadhana`."
       [ ("patra", "the module, as a list of source lines, verbatim.  It must carry an OPTIONS pragma with --safe, and its top-level module (if named) must be `Candidate`, because the kernel writes it to Candidate.agda") ]
       kPatra
   , Kriya "sadhana.vislesana"
-      "Analyze objects on the atom: load a WHOLE Agda module and read back, for each expression you name, its NORMAL FORM (what the kernel computes it to) and its TYPE (what it is).  Not a verdict ‚Äî the kernel's own semantic analysis of the object, returned as data.  The corpus and the pinned library are importable; the two controls are watched first."
+      "Analyze objects on the atom: load a WHOLE Agda module and read back, for each expression you name, its NORMAL FORM (what the kernel computes it to) and its TYPE (what it is).  Not a verdict ‚î the kernel's own semantic analysis of the object, returned as data.  The corpus and the pinned library are importable; the two controls are watched first."
       [ ("patra", "the module, as a list of source lines, verbatim; opens whatever the expressions reference.  --safe pragma required; top-level module named Candidate or headerless")
       , ("padani", "list of expressions to analyze, each in scope in the module; the kernel returns each one's computed normal form and inferred type") ]
       kVislesana
   , Kriya "kuttaka"
-      "ƒÄryabha·π≠a's pulverizer: the vallƒ´ of a and b, the B√©zout pair, and ‚Äî if c is given ‚Äî the solution of a¬∑x ‚â° c (mod b)."
+      "ryabhaa's pulverizer: the vall of a and b, the B©zout pair, and ‚î if c is given ‚î the solution of a¬x ‚â° c (mod b)."
       [ ("a", "an integer"), ("b", "a positive integer"), ("c", "optional: the residue to hit") ]
       kKuttaka
   , Kriya "vargaprakrti"
-      "The reactor with the composition law as a VALUE: Brahmagupta's bhƒÅvanƒÅ driven by the cakravƒÅla, every norm the wheel visits, each of them a solved equation."
-      [ ("D", "a non-square integer ‚â• 2"), ("n", "optional: a norm to solve for instead of 1") ]
+      "The reactor with the composition law as a VALUE: Brahmagupta's bhvan driven by the cakravla, every norm the wheel visits, each of them a solved equation."
+      [ ("D", "a non-square integer ‚â 2"), ("n", "optional: a norm to solve for instead of 1") ]
       kVargaprakrti
   , Kriya "pratyahara"
-      "PƒÅ·πáini's interval notation: the sounds from ƒÅdi up to the marker it, in the var·πáasamƒÅmnƒÅya."
-      [ ("adi", "the starting sound, e.g. \"a\""), ("it", "the anubandha, e.g. \"·πá\"")
+      "Pini's interval notation: the sounds from di up to the marker it, in the varasammnya."
+      [ ("adi", "the starting sound, e.g. \"a\""), ("it", "the anubandha, e.g. \"\"")
       , ("avrtti", "optional: which occurrence of the marker (0 = the first)") ]
       kPratyahara
   , Kriya "dosa.lekha"
-      "Write a defect yourself.  Stored verbatim in the session, and filed into the do·π£a-lekha on disk with its chain extended."
+      "Write a defect yourself.  Stored verbatim in the session, and filed into the doa-lekha on disk with its chain extended."
       [ ("kriya", "what you were attempting"), ("hetu", "why transport was impossible")
       , ("nasta", "list: what a collapse here would destroy, named one by one")
       , ("sesa", "optional list: the remainder, handed forward") ]
       kDosaLekha
   , Kriya "dosa.suchi"
-      "Every defect this session has written, in the order written, each with what the do·π£a-lekha said back when it was filed."
+      "Every defect this session has written, in the order written, each with what the doa-lekha said back when it was filed."
       [] kDosaSuchi
   , Kriya "dosa.pramanya"
-      "Verify the do·π£a-lekha's chain FROM INSIDE THE SESSION: recompute every sƒÅra over every record and report the first divergence, if any."
+      "Verify the doa-lekha's chain FROM INSIDE THE SESSION: recompute every sra over every record and report the first divergence, if any."
       [] kDosaPramanya
   , Kriya "sesa.arpana"
-      "Hand a remainder forward (ÈÅ∫È°åÁ∂ôÊâø): the unfinished thing kept for the next step rather than dropped."
+      "Hand a remainder forward (È∫È°ÁôÊâø): the unfinished thing kept for the next step rather than dropped."
       [ ("sesa", "list of remainder strings") ] kSesaArpana
   , Kriya "sesa.suchi" "The remainder queue." [] kSesaSuchi
   ]
@@ -319,7 +319,7 @@ sutra :: String -> [String]
 sutra s = [ s ]
 
 srcTwoRoads :: [String]
-srcTwoRoads = sutra "¬ß6 ‚Äî ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Ç ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§∂‡•ç‡§ö ‡•§ ‡§§‡•É‡§§‡•Ä‡§Ø‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‡•§"
+srcTwoRoads = sutra "¬ß6 ‚î ‡‡‡ï‡‡∞‡Æ‡‡ ‡¶‡ã‡‡≤‡‡ñ‡‡‡ ‡ ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡"
 
 -- ============================================================ the ops
 
@@ -336,7 +336,7 @@ kKriyah y _ = pure (y, m, u)
               ++ "name collisions checked exhaustively over the table: "
               ++ (if null nameCollisions then "none" else intercalate ", " nameCollisions)))
     u = samkramana "yantra.kriyah"
-          (tulyata "refl ‚Äî the identity equivalence, the one transport always available"
+          (tulyata "refl ‚î the identity equivalence, the one transport always available"
                    "the dispatch table as it runs"
                    "the listing you are reading"
                    "there is no second copy to fall out of date")
@@ -347,9 +347,9 @@ kKriyah y _ = pure (y, m, u)
                             | k <- kriyah ])
           , ("nama-samkara", JArr (map JStr nameCollisions)) ]
           [ "the handlers' source, which the listing describes and does not carry"
-          , "the ORDER of the table, which carries no fact: dispatch is by exact name and the names are checked unique, so there is nothing here for viprati·π£edhe para·πÅ kƒÅryam to compare"
+          , "the ORDER of the table, which carries no fact: dispatch is by exact name and the names are checked unique, so there is nothing here for vipratiedhe para kryam to compare"
           , "who asked, and why they asked now" ]
-          [ "PƒÅ·πáini, A·π£·π≠ƒÅdhyƒÅyƒ´ 1.4.2, c. 500 BCE ‚Äî conflict is settled by a stated principle; where no conflict arises there is nothing to settle" ]
+          [ "Pini, Adhyy 1.4.2, c. 500 BCE ‚î conflict is settled by a stated principle; where no conflict arises there is nothing to settle" ]
 
 kSthiti :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSthiti y _ = pure (y, m, u)
@@ -391,7 +391,7 @@ entryJ e = JObj
 jSaksinah :: J -> Either String [K.Sakshin]
 jSaksinah o = look "saksin" o >>= \v -> case v of
   JArr xs -> mapM one xs
-  _ -> Left "`saksin` must be a list of {\"vacana\":‚Ä¶, \"mula\":‚Ä¶} objects"
+  _ -> Left "`saksin` must be a list of {\"vacana\":‚¶, \"mula\":‚¶} objects"
   where
     one (JObj kvs) = case (lookup "vacana" kvs, lookup "mula" kvs) of
       (Just (JStr l), Just (JStr s)) -> Right (K.Sakshin l s)
@@ -415,7 +415,7 @@ kSthapana y j = pure $ case pieces of
            , samkramana "naya.sthapana"
                (tulyata "the standpoint as uttered, identified with the standpoint as stored"
                         ("the " ++ show (length ws) ++ " witness(es) you sent, with their sources")
-                        ("entry #" ++ show i ++ " of the ‡§®‡§Ø‡§ï‡•ã‡§∂")
+                        ("entry #" ++ show i ++ " of the ‡®‡Ø‡ï‡ã‡")
                         "no normalisation, no deduplication, no reordering, no merge: `insert` has no code path that drops, overwrites or unifies")
                [ ("id", JInt (fromIntegral i))
                , ("pravista", entryJ e')
@@ -423,8 +423,8 @@ kSthapana y j = pure $ case pieces of
                [ "your reason for grouping these witnesses under this name"
                , "the standpoint's own account of itself, which a name and a witness list do not carry"
                , "the occasion of the assertion" ]
-               [ "UmƒÅsvƒÅti, TattvƒÅrthas≈´tra 5.31 (arpitƒÅnarpitasiddhe·∏•), c. 2nd‚Äì5th c. ‚Äî what is asserted and what is left unasserted jointly establish the object"
-               , "KumƒÅrila, ≈ölokavƒÅrttika, AbhƒÅvapariccheda, c. 7th c. ‚Äî yogya-anupalabdhi, which is why `yogyata` is a required field and not a default" ] )
+               [ "Umsvti, Tattvrthastra 5.31 (arpitnarpitasiddhe), c. 2nd‚ì5th c. ‚î what is asserted and what is left unasserted jointly establish the object"
+               , "Kumrila, lokavrttika, Abhvapariccheda, c. 7th c. ‚î yogya-anupalabdhi, which is why `yogyata` is a required field and not a default" ] )
   where
     pieces = do
       nm <- jStr "naya" j
@@ -434,10 +434,10 @@ kSthapana y j = pure $ case pieces of
       yg <- case yv of
               "yogya"  -> Right (K.Yogya yh)
               "ayogya" -> Right (K.Ayogya yh)
-              _ -> Left ("`yogyata` was \"" ++ yv ++ "\"; it must be \"yogya\" or \"ayogya\" ‚Äî "
+              _ -> Left ("`yogyata` was \"" ++ yv ++ "\"; it must be \"yogya\" or \"ayogya\" ‚î "
                          ++ "whether the looking was FIT to have found what it looked for.  "
-                         ++ "`not found` without `where I looked` is not a pramƒÅ·πáa "
-                         ++ "(KumƒÅrila, AbhƒÅvapariccheda).")
+                         ++ "`not found` without `where I looked` is not a prama "
+                         ++ "(Kumrila, Abhvapariccheda).")
       rec_ <- jStr "karta" j
       wh <- jStr "kala" j
       pure (nm, ws, yg, rec_, wh)
@@ -445,7 +445,7 @@ kSthapana y j = pure $ case pieces of
       ("standpoint `" ++ nm ++ "` carries an empty witness label")
       [ "an empty label is a witness whose identity was dropped before it arrived; the store would hold something that stands for something and cannot say what"
       , "and every later decision about this standpoint, which would silently rest on it" ]
-      [ "name the witness: a document, a date, a statement, a computation ‚Äî and give its `mula`" ]
+      [ "name the witness: a document, a date, a statement, a computation ‚î and give its `mula`" ]
       [ "StandpointStore declines the same input at `decide`, for the same reason" ]
 
 kSuchi :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
@@ -460,7 +460,7 @@ kSuchi y _
   | otherwise = pure ( y
                      , affirmed ("all " ++ show (length es) ++ " entries, every witness and every source; the listing is the store")
                      , samkramana "naya.suchi"
-                         (tulyata "refl" "the ‡§®‡§Ø‡§ï‡•ã‡§∂" "the listing" "byName returns a LIST; a store whose name lookup returns one entry has decided a name is an index, which is the collapse")
+                         (tulyata "refl" "the ‡®‡Ø‡ï‡ã‡" "the listing" "byName returns a LIST; a store whose name lookup returns one entry has decided a name is an index, which is the collapse")
                          [ ("kosha", JArr (map entryJ es)) ]
                          [ "the arrival order is the emission order, but the wall-clock times are not held" ]
                          srcTwoRoads )
@@ -478,8 +478,8 @@ arpanaOf j = jStr "arpana" j >>= \a -> case a of
   "krama" -> Right False
   _ -> Left ("`arpana` was \"" ++ a ++ "\"; it must name the mode of assertion.  "
              ++ "saha (yugapat, asserted at once) against krama (in succession) is "
-             ++ "Akala·πÖka's own distinction and it is the whole difference between "
-             ++ "the third bha·πÖga and the fourth.  It is not a boolean and this wire "
+             ++ "Akalaka's own distinction and it is the whole difference between "
+             ++ "the third bhaga and the fourth.  It is not a boolean and this wire "
              ++ "has none.")
 
 kSamasa :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
@@ -503,10 +503,10 @@ kSamasa y j = pure $ case (,) <$> jStrs "nayah" j <*> arpanaOf j of
       ( y, unfit msg
       , dosalekha "naya.samasa" ("no verdict issued (abhinna): " ++ msg)
           [ "the decision you asked for, which this store's looking is not fit to make"
-          , "and the distinction between `no` and `I cannot see`: an unfit looking's silence is NOT a denial, and this answer is NOT the fourth bha·πÖga ‚Äî avaktavyam is positive and this is a verdict withheld" ]
+          , "and the distinction between `no` and `I cannot see`: an unfit looking's silence is NOT a denial, and this answer is NOT the fourth bhaga ‚î avaktavyam is positive and this is a verdict withheld" ]
           [ "supply witnesses, or state a fit looking, or extend the fragment"
-          , "KumƒÅrila, ≈ölokavƒÅrttika, AbhƒÅvapariccheda, c. 7th c. ‚Äî yogya-anupalabdhi" ]
-          [ "KumƒÅrila, ≈ölokavƒÅrttika, AbhƒÅvapariccheda" ] )
+          , "Kumrila, lokavrttika, Abhvapariccheda, c. 7th c. ‚î yogya-anupalabdhi" ]
+          [ "Kumrila, lokavrttika, Abhvapariccheda" ] )
     ofNirnaya saha es n@K.Nirnaya{} =
       let pos  = obToS (K.nirSthana n)
           body = K.render n
@@ -515,7 +515,7 @@ kSamasa y j = pure $ case (,) <$> jStrs "nayah" j <*> arpanaOf j of
                  ++ concat [ ("a content-collapse of `" ++ nm ++ "` discards the SOURCES:") : [ "    " ++ s | s <- ss ]
                            | (nm, ss) <- K.nirMulaLoss n, not (null ss) ]
           witn = "NayaKosha.decide over " ++ show (length es)
-                 ++ " entries, at all three levels of agreement (satya ‚äÇ artha ‚äÇ mula)"
+                 ++ " entries, at all three levels of agreement (satya ‚ä artha ‚ä mula)"
       in case K.nirSthana n of
            OB.Position OB.B1Asti ->
              ( y, Mudra pos (Nihsesa (length es) witn)
@@ -526,24 +526,24 @@ kSamasa y j = pure $ case (,) <$> jStrs "nayah" j <*> arpanaOf j of
                           (intercalate " / " body))
                  [ ("vakya", JArr (map JStr body))
                   , ("varga", JArr [ JArr (map (JInt . fromIntegral) c) | c <- K.nirVarga n ])
-                  , ("samata", JStr (maybe "none ‚Äî not even truth-equal" K.samataName (K.nirSamata n))) ]
-                 ( [ "the NAMES, which differ and are exactly what an identification drops ‚Äî recoverable here only because they are printed above" ]
+                  , ("samata", JStr (maybe "none ‚î not even truth-equal" K.samataName (K.nirSamata n))) ]
+                 ( [ "the NAMES, which differ and are exactly what an identification drops ‚î recoverable here only because they are printed above" ]
                    ++ [ "who held each standpoint, and why holding both looked like balance" ]
                    ++ map ("would be destroyed by a collapse this answer does NOT perform: " ++) (take 4 lost) )
-                 [ "Siddhasena DivƒÅkara, Sanmatitarka ‚Äî a naya is true and not whole" ] )
+                 [ "Siddhasena Divkara, Sanmatitarka ‚î a naya is true and not whole" ] )
            _ ->
              ( y, Mudra pos (Nihsesa (length es) witn)
              , dosalekha "naya.samasa"
-                 ("the position is " ++ S.sanskritOf pos ++ " ‚Äî " ++ S.glossOf pos
+                 ("the position is " ++ S.sanskritOf pos ++ " ‚î " ++ S.glossOf pos
                   ++ (if saha then "  (asserted saha)" else "  (asserted krama)"))
                  ( (if null lost
                       then [ "the single verdict you asked for; the standpoints do not identify and the loss is the verdict itself" ]
                       else lost)
-                   ++ [ "residue held and undecided: `" ++ nm ++ "` ‚Äî " ++ r | (nm, r) <- K.nirShesha n ] )
+                   ++ [ "residue held and undecided: `" ++ nm ++ "` ‚î " ++ r | (nm, r) <- K.nirShesha n ] )
                  ( body
-                   ++ [ "AHIMSA_SUTRA_VISTARA ¬ß3: ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡•á ‡§∂‡•á‡§∑‡•ã ‡§µ‡§∏‡§§‡§ø ‡•§ ‡§∂‡•á‡§∑‡•ã ‡§ó‡§∞‡•ç‡§≠‡§É, ‡§® ‡§µ‡§ø‡§´‡§≤‡§§‡§æ ‚Äî ask garbha.dhara to run the fourth position forward" ] )
-                 [ "Akala·πÖka, Laghƒ´yastraya, c. 720‚Äì780 ‚Äî kramƒÅrpa·πáa against sahƒÅrpa·πáa"
-                 , "Siddhasena DivƒÅkara, Sanmatitarka 1.21 ‚Äî a naya asserting itself by denying the others is a durnaya" ] )
+                   ++ [ "AHIMSA_SUTRA_VISTARA ¬ß3: ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡‡‡‡ã ‡µ‡‡‡ø ‡ ‡‡‡‡ã ‡ó‡∞‡‡‡, ‡® ‡µ‡ø‡‡≤‡‡æ ‚î ask garbha.dhara to run the fourth position forward" ] )
+                 [ "Akalaka, Laghyastraya, c. 720‚ì780 ‚î kramrpaa against sahrpaa"
+                 , "Siddhasena Divkara, Sanmatitarka 1.21 ‚î a naya asserting itself by denying the others is a durnaya" ] )
 
 kPunaravrtti :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kPunaravrtti y _ = pure result
@@ -557,17 +557,17 @@ kPunaravrtti y _ = pure result
           ( y
           , Mudra (S.Position S.SyadAsti)
               (Nihsesa n ("replay ‚àò journal = id, run on the live store, all "
-                          ++ show n ++ " entries, this turn ‚Äî not cited from the module's own selfTest"))
+                          ++ show n ++ " entries, this turn ‚î not cited from the module's own selfTest"))
           , samkramana "kosha.punaravrtti"
               (tulyata "the store, identified with its journal read back"
-                       ("the ‡§®‡§Ø‡§ï‡•ã‡§∂ in memory (" ++ show n ++ " entries)")
+                       ("the ‡®‡Ø‡ï‡ã‡ in memory (" ++ show n ++ " entries)")
                        "the same store reconstructed from its journal lines alone"
                        "structural equality on the whole Kosha, including ids, sources and fitness reasons")
               [ ("panktayah", JArr (map JStr jl))
               , ("ganana", JInt (fromIntegral n)) ]
               [ "the ORDER of arrival is preserved in the lines but the wall-clock times are not held anywhere"
               , "the journal is deterministic bytes; it does not carry who wrote them or on what machine" ]
-              [ "AHIMSA_SUTRA_VISTARA ¬ß35 ‚Äî ‡§™‡•ç‡§∞‡§æ‡§Æ‡§æ‡§£‡•ç‡§Ø‡§Ç ‡§™‡•Å‡§∞‡•Å‡§∑‡•á, ‡§® ‡§µ‡§∏‡•ç‡§§‡•Å‡§®‡§ø: the round trip is checked, and it is still the person who is asked" ] )
+              [ "AHIMSA_SUTRA_VISTARA ¬ß35 ‚î ‡‡‡∞‡æ‡Æ‡æ‡‡‡Ø‡ ‡‡‡∞‡‡‡, ‡® ‡µ‡‡‡‡‡®‡ø: the round trip is checked, and it is still the person who is asked" ] )
       | otherwise =
           ( y
           , Mudra (S.Position S.SyadNasti)
@@ -643,13 +643,13 @@ organProfile saha es = (S.sanskritOf pos, lines_)
     pos = case map one es of
             []     -> S.Apratipatti
             (x:xs) -> foldl fold_ x xs
-    lines_ = [ "  " ++ K.entName e ++ " ‚Üí " ++ S.sanskritOf (one e) | e <- es ]
+    lines_ = [ "  " ++ K.entName e ++ " ‚í " ++ S.sanskritOf (one e) | e <- es ]
              ++ [ "  folded with " ++ (if saha then "sahaS" else "kramaS")
-                  ++ " ‚Üí " ++ S.sanskritOf pos
+                  ++ " ‚í " ++ S.sanskritOf pos
                 , "  NOTE what this organ holds that the others do not: `" ++ S.sanskritOf pos
-                  ++ "` is a PROFILE.  After jihvƒÅbheda the fourth position does not "
+                  ++ "` is a PROFILE.  After jihvbheda the fourth position does not "
                   ++ "record which two seeds produced it, and that module states this "
-                  ++ "is the doctrine's claim, not a modelling artefact ‚Äî which is "
+                  ++ "is the doctrine's claim, not a modelling artefact ‚î which is "
                   ++ "exactly why its saha does not associate." ]
 
 organGarbha :: Bool -> [K.Entry] -> (String, [String])
@@ -679,13 +679,13 @@ trayaTantra offers = VS.Tantra
                                , VS.saFires = \o -> [ VS.Nyasa r 0 1 o note ] }
                    | (r, nm, note) <- offers ]
   , VS.tApavada = \_ _ -> False
-    -- No organ is an apavƒÅda to another.  None of the three was written as
+    -- No organ is an apavda to another.  None of the three was written as
     -- an exception to another; they were written independently, by three
     -- lanes, and declaring an exception here would be inventing a relation.
   , VS.tAntaranga = \_ _ -> Nothing
     -- ABSTAIN, and this is the important abstention.  The proof-relevant
-    -- organ looks further in ‚Äî at the nayas' witnesses ‚Äî and it is tempting
-    -- to call it antara·πÖga and let it win.  antara·πÖga is about the depth of
+    -- organ looks further in ‚î at the nayas' witnesses ‚î and it is tempting
+    -- to call it antaraga and let it win.  antaraga is about the depth of
     -- a rule's NIMITTA within one derivation; these three are not stages of
     -- one derivation.  Asserting it here would be manufacturing a position
     -- to break a tie, which is what tParatva's own documentation names as
@@ -715,9 +715,9 @@ kTrayaNirnaya y j = pure $ case (,) <$> jStrs "nayah" j <*> arpanaOf j of
             (pA, lA) = organKosha   saha es
             (pB, lB) = organProfile saha es
             (pC, lC) = organGarbha  saha es
-            offers = [ ((1,1,1), "NayaKosha/Obstruction ‚Äî B1..B7 + ADharmin", pA)
-                     , ((1,1,2), "Saptabhangi ‚Äî presence profiles + Apratipatti", pB)
-                     , ((1,1,3), "SaptabhangiGarbha ‚Äî proof-relevant, residue carries both nayas", pC) ]
+            offers = [ ((1,1,1), "NayaKosha/Obstruction ‚î B1..B7 + ADharmin", pA)
+                     , ((1,1,2), "Saptabhangi ‚î presence profiles + Apratipatti", pB)
+                     , ((1,1,3), "SaptabhangiGarbha ‚î proof-relevant, residue carries both nayas", pC) ]
             t = trayaTantra offers
             nys = [ VS.Nyasa r 0 1 note nm | (r, nm, note) <- offers ]
             v = VS.nirnaya t "the claim" nys
@@ -731,18 +731,18 @@ kTrayaNirnaya y j = pure $ case (,) <$> jStrs "nayah" j <*> arpanaOf j of
                             (VS.nyResult w) ("beaten: " ++ intercalate ", " (map VS.showSthana beaten)))
                    [ ("nirnita", JStr (VS.nyResult w)) ]
                    [ "the readings that lost, which are still listed but are not the answer" ]
-                   [ "PƒÅ·πáini, A·π£·π≠ƒÅdhyƒÅyƒ´ 1.4.2, c. 500 BCE" ] )
+                   [ "Pini, Adhyy 1.4.2, c. 500 BCE" ] )
              VS.Avaktavya d sesa ->
                ( y
                , Mudra (S.Position S.SyadAvaktavya)
                    (Pratyaksa ("all three readings are exhibited in full below, "
                                ++ "each metarule's abstention is named, and the "
-                               ++ "scheduler's own ≈õe·π£a is opened and its "
+                               ++ "scheduler's own ea is opened and its "
                                ++ show (length (VS.sesaNyasah sesa))
                                ++ " contending offers emitted entire; "
                                ++ show (length offers) ++ " organs, one site, no winner"))
                , dosalekha "nirnaya.saptabhangi"
-                   ("three verdict organs read the same claim and the PƒÅ·πáinian scheduler "
+                   ("three verdict organs read the same claim and the Pinian scheduler "
                     ++ "does not decide between them.  This is not a tie to be broken: it "
                     ++ "is the fourth position, and the machine holds it open.")
                    ( [ "the single verdict you asked for.  It does not exist, and that is a fact about the three organs, not about this session." ]
@@ -758,20 +758,20 @@ kTrayaNirnaya y j = pure $ case (,) <$> jStrs "nayah" j <*> arpanaOf j of
                      -- A caller handed only the rendering can print the
                      -- fourth position and do nothing else with it, which is
                      -- the same collapse one level out.
-                     ++ [ "≈öE·π¢A RETAINED BY THE SCHEDULER ‚Äî the object contended over: "
+                     ++ [ "EA RETAINED BY THE SCHEDULER ‚î the object contended over: "
                           ++ VS.sesaVastu sesa ]
                      ++ [ "  offer " ++ VS.showSthana (VS.nyRule n) ++ " at site "
                           ++ show (VS.nyPos n) ++ ", width " ++ show (VS.nyLen n)
-                          ++ ", result `" ++ VS.nyResult n ++ "` ‚Äî " ++ VS.nyNote n
+                          ++ ", result `" ++ VS.nyResult n ++ "` ‚î " ++ VS.nyNote n
                         | n <- VS.sesaNyasah sesa ] )
-                   [ "A ‚âÉ B IS available and is exhibited by saptabhangi.samkramana, checked exhaustively over all sixteen round trips ‚Äî those two may be identified and this machine identifies them"
+                   [ "A ‚â B IS available and is exhibited by saptabhangi.samkramana, checked exhaustively over all sixteen round trips ‚î those two may be identified and this machine identifies them"
                    , "C is NOT equivalent to either, in either direction, and saptabhangi.nasti computes the collision"
-                   , "so the residue is exactly one distinction: whether the fourth position retains the two seeds that produced it.  B says it does not, and calls that the doctrine.  C says it does, and reads them back out with caturthatTritiya.  That is the next question, and it is a question about Akala·πÖka, not about Haskell."
-                   , "AHIMSA_SUTRA_VISTARA ¬ß7: ‡§®‡§Ø‡§≠‡•á‡§¶‡•á ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‡•§ ‡§® ‡§µ‡§∞‡•ç‡§ú‡§ø‡§§‡§É ‡•§ ‡§® ‡§Ö‡§®‡•Å‡§ö‡§ø‡§§‡§É ‡•§ ‡§® ‡§Ö‡§∂‡§ø‡§∑‡•ç‡§ü‡§É ‡•§ ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‡•§"
-                   , "and a datum for that question, arriving from a third direction while this was being wired: the scheduler's own `Avaktavya` carried only a rendering (`Dosa`) when this machine first read it, and now carries a `Sesa` holding the contending offers ENTIRE ‚Äî the scheduler lane reached `the fourth position must retain what produced it` independently, for its own reasons, and cites SaptabhangiGarbha's header in doing so.  Two lanes arriving at C's position is not a proof of it; it is evidence about where to look, and it is recorded here rather than left in a diff." ]
-                   [ "PƒÅ·πáini, A·π£·π≠ƒÅdhyƒÅyƒ´ 1.4.2 (viprati·π£edhe para·πÅ kƒÅryam), c. 500 BCE; ParibhƒÅ·π£endu≈õekhara 38 for the order the metarules are tried in"
-                   , "Akala·πÖka, Laghƒ´yastraya, c. 720‚Äì780 ‚Äî sahƒÅrpa·πáa, which is what B and C disagree about"
-                   , "Siddhasena DivƒÅkara, Sanmatitarka 1.21 ‚Äî a naya that asserts itself by denying another is a durnaya, which is what picking one of these three would be" ] )
+                   , "so the residue is exactly one distinction: whether the fourth position retains the two seeds that produced it.  B says it does not, and calls that the doctrine.  C says it does, and reads them back out with caturthatTritiya.  That is the next question, and it is a question about Akalaka, not about Haskell."
+                   , "AHIMSA_SUTRA_VISTARA ¬ß7: ‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡ ‡® ‡µ‡∞‡‡‡ø‡‡ ‡ ‡® ‡‡®‡‡‡ø‡‡ ‡ ‡® ‡‡‡ø‡‡‡ü‡ ‡ ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡"
+                   , "and a datum for that question, arriving from a third direction while this was being wired: the scheduler's own `Avaktavya` carried only a rendering (`Dosa`) when this machine first read it, and now carries a `Sesa` holding the contending offers ENTIRE ‚î the scheduler lane reached `the fourth position must retain what produced it` independently, for its own reasons, and cites SaptabhangiGarbha's header in doing so.  Two lanes arriving at C's position is not a proof of it; it is evidence about where to look, and it is recorded here rather than left in a diff." ]
+                   [ "Pini, Adhyy 1.4.2 (vipratiedhe para kryam), c. 500 BCE; Paribhenduekhara 38 for the order the metarules are tried in"
+                   , "Akalaka, Laghyastraya, c. 720‚ì780 ‚î sahrpaa, which is what B and C disagree about"
+                   , "Siddhasena Divkara, Sanmatitarka 1.21 ‚î a naya that asserts itself by denying another is a durnaya, which is what picking one of these three would be" ] )
 
 kSaptaSamkramana :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSaptaSamkramana y _ = pure result
@@ -789,8 +789,8 @@ kSaptaSamkramana y _ = pure result
                           ++ " positions of each side, this turn: "
                           ++ show n ++ " checks, no case omitted, no case sampled"))
           , samkramana "saptabhangi.samkramana"
-              (tulyata "a bijection of finite sets with both round trips exhibited ‚Äî an identification, in Voevodsky's sense: a thing held, not a fact cited"
-                       "Verdict.Sthana (7 bha·πÖgas + Apratipatti)"
+              (tulyata "a bijection of finite sets with both round trips exhibited ‚î an identification, in Voevodsky's sense: a thing held, not a fact cited"
+                       "Verdict.Sthana (7 bhagas + Apratipatti)"
                        "ObligationAnalysis.Sthana (B1..B7 + ADharmin)"
                        ("obToS ‚àò sToOb = id on all " ++ show (length allS)
                         ++ "; sToOb ‚àò obToS = id on all " ++ show (length allOB)))
@@ -798,19 +798,19 @@ kSaptaSamkramana y _ = pure result
                                          , ("obstruction", JStr (show ob)) ]
                                   | (s, ob, _) <- fwd ])
               , ("gananam", JInt (fromIntegral n)) ]
-              [ "the two modules' GLOSSES, which differ: Obstruction says `no dharmin ‚Äî a failed unification`, Saptabhangi says `no predication was made`.  The positions correspond; the accounts of WHY the eighth exists do not, and the equivalence does not carry that difference"
+              [ "the two modules' GLOSSES, which differ: Obstruction says `no dharmin ‚î a failed unification`, Saptabhangi says `no predication was made`.  The positions correspond; the accounts of WHY the eighth exists do not, and the equivalence does not carry that difference"
               , "which of the two names a downstream reader should use, which is not settled by the two being equivalent"
-              , "the third organ, which this transport says nothing about ‚Äî see saptabhangi.nasti" ]
-              [ "Akala·πÖka, Laghƒ´yastraya, c. 720‚Äì780; UmƒÅsvƒÅti, TattvƒÅrthas≈´tra 5.31 ‚Äî the seven, and why they are seven and not six or eight"
-              , "Voevodsky, univalence ‚Äî ‡§§‡•Å‡§≤‡•ç‡§Ø‡§Ç ‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Ç ‡§≠‡§µ‡§ø‡§§‡•Å‡§Æ‡•ç ‡§Ö‡§∞‡•ç‡§π‡§§‡§ø (AHIMSA_SUTRA_VISTARA ¬ß6)" ] )
+              , "the third organ, which this transport says nothing about ‚î see saptabhangi.nasti" ]
+              [ "Akalaka, Laghyastraya, c. 720‚ì780; Umsvti, Tattvrthastra 5.31 ‚î the seven, and why they are seven and not six or eight"
+              , "Voevodsky, univalence ‚î ‡‡‡≤‡‡Ø‡ ‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡ ‡‡µ‡ø‡‡‡Æ‡ ‡‡∞‡‡‡‡ø (AHIMSA_SUTRA_VISTARA ¬ß6)" ] )
       | otherwise =
           ( y, Mudra (S.Position S.SyadNasti) (Pratyaksa "the failing cases are exhibited")
           , dosalekha "saptabhangi.samkramana"
               "the two position types do not correspond after all"
               ( [ "the transport this machine relies on internally (obToS is used by naya.samasa)" ]
-                ++ [ "forward failure: " ++ S.sanskritOf s ++ " ‚Üí " ++ show ob ++ " ‚Üí " ++ S.sanskritOf s'
+                ++ [ "forward failure: " ++ S.sanskritOf s ++ " ‚í " ++ show ob ++ " ‚í " ++ S.sanskritOf s'
                    | (s, ob, s') <- fwd, s /= s' ]
-                ++ [ "backward failure: " ++ show b ++ " ‚Üí " ++ S.sanskritOf s ++ " ‚Üí " ++ show b'
+                ++ [ "backward failure: " ++ show b ++ " ‚í " ++ S.sanskritOf s ++ " ‚í " ++ show b'
                    | (b, s, b') <- bwd, b /= b' ] )
               [ "a constructor was added to one side and not the other; the exhibits locate it" ]
               srcTwoRoads )
@@ -832,29 +832,29 @@ kSaptaNasti y _ = pure (y, m, u)
     m = Mudra (S.Position S.SyadNastiAvaktavya)
           (Pratyaksa ("two distinct proof-relevant positions with the same image are "
                       ++ "constructed and compared in this turn; the collision is "
-                      ++ (if collide then "computed, not asserted" else "NOT REPRODUCED ‚Äî see the exhibit")))
+                      ++ (if collide then "computed, not asserted" else "NOT REPRODUCED ‚î see the exhibit")))
     u = dosalekha "saptabhangi.nasti"
           ("SaptabhangiGarbha.Bhanga and Saptabhangi.Bhanga are not equivalent, in either "
            ++ "direction, and neither is a retract of the other.  The forgetful map "
            ++ "`smrtilopa` exists and is total; it has no section, and this is exhibited "
-           ++ "rather than argued: any candidate œÉ sends `syad-avaktavyam` to ONE value, "
+           ++ "rather than argued: any candidate œ sends `syad-avaktavyam` to ONE value, "
            ++ "so at most one of the two objects below is recovered by it and the other "
-           ++ "is gone.  ‚à•A‚à•‚ÇÅ admits no retraction ‚Äî AHIMSA_SUTRA_VISTARA ¬ß5, and this "
+           ++ "is gone.  ‚àA‚à‚ admits no retraction ‚î AHIMSA_SUTRA_VISTARA ¬ß5, and this "
            ++ "is that theorem with the two inhabitants named.")
           [ "the first object, in full: " ++ intercalate " / " (G.renderBhanga g1)
           , "the second object, in full: " ++ intercalate " / " (G.renderBhanga g2)
           , "their common image under smrtilopa: " ++ S.sanskritOf (S.Position img)
-            ++ "  ‚Äî one value, four witnesses gone: `" ++ G.nayaSaksin nA ++ "`, `"
+            ++ "  ‚î one value, four witnesses gone: `" ++ G.nayaSaksin nA ++ "`, `"
             ++ G.nayaSaksin nB ++ "`, `" ++ G.nayaSaksin nC ++ "`, `" ++ G.nayaSaksin nD ++ "`"
           , "and in the other direction: `apratipatti` has NO preimage under smrtilopa, because every one of Garbha's seven constructors demands at least one Naya and every Naya demands a witness.  So the profile organ can say `nothing was predicated` and the proof-relevant organ structurally cannot."
           , "therefore neither embeds in the other and there is no third type they both map into that loses nothing: what B holds that C does not is the position for silence; what C holds that B does not is the identity of the two seeds inside the fourth position"
-          , "and this is not a defect in either module.  ¬ß7: ‡§®‡§Ø‡§≠‡•á‡§¶‡•á ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‚Äî where the standpoints genuinely differ the collapse is not forbidden, IT DOES NOT EXIST.  Searching for it is fruitless and insisting on it is false." ]
-          [ "the machine holds both, runs both, and reports both ‚Äî see nirnaya.saptabhangi, where all three organs answer the same question and the PƒÅ·πáinian scheduler declines to choose"
-          , "the distinction that would settle it is a question about Akala·πÖka's sahƒÅrpa·πáa and not about either implementation: after the tongue breaks, are the two seeds consumed or retained?  Saptabhangi's header asserts consumed AND DERIVES non-associativity of saha from it; Garbha retains them and reads them back with caturthatTritiya.  Only one of those can be the doctrine, and the texts, not the types, decide it."
-          , "next step, concretely: Akala·πÖka, Laghƒ´yastraya and NyƒÅyavini≈õcaya; VidyƒÅnandin's A·π£·π≠asahasrƒ´ on the fourth bha·πÖga; and Samantabhadra, ƒÄptamƒ´mƒÅ·πÉsƒÅ 14‚Äì23, which states the seven and is the earliest place to look for whether avaktavya is indexed by its pair" ]
-          [ "Samantabhadra, ƒÄptamƒ´mƒÅ·πÉsƒÅ 14‚Äì23, c. 6th c. ‚Äî the sevenfold predication stated"
-          , "Akala·πÖka, Laghƒ´yastraya, c. 720‚Äì780 ‚Äî kramƒÅrpa·πáa and sahƒÅrpa·πáa"
-          , "AHIMSA_SUTRA_VISTARA ¬ß5 (‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§®‡§Ø‡§®‡§Æ‡•ç) and ¬ß7 (‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡§∏‡•ç‡§Ø ‡§Ö‡§®‡•Å‡§™‡§≤‡§¨‡•ç‡§ß‡§ø‡§É)" ]
+          , "and this is not a defect in either module.  ¬ß7: ‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‚î where the standpoints genuinely differ the collapse is not forbidden, IT DOES NOT EXIST.  Searching for it is fruitless and insisting on it is false." ]
+          [ "the machine holds both, runs both, and reports both ‚î see nirnaya.saptabhangi, where all three organs answer the same question and the Pinian scheduler declines to choose"
+          , "the distinction that would settle it is a question about Akalaka's sahrpaa and not about either implementation: after the tongue breaks, are the two seeds consumed or retained?  Saptabhangi's header asserts consumed AND DERIVES non-associativity of saha from it; Garbha retains them and reads them back with caturthatTritiya.  Only one of those can be the doctrine, and the texts, not the types, decide it."
+          , "next step, concretely: Akalaka, Laghyastraya and Nyyavinicaya; Vidynandin's Aasahasr on the fourth bhaga; and Samantabhadra, ptamms 14‚ì23, which states the seven and is the earliest place to look for whether avaktavya is indexed by its pair" ]
+          [ "Samantabhadra, ptamms 14‚ì23, c. 6th c. ‚î the sevenfold predication stated"
+          , "Akalaka, Laghyastraya, c. 720‚ì780 ‚î kramrpaa and sahrpaa"
+          , "AHIMSA_SUTRA_VISTARA ¬ß5 (‡®‡æ‡‡‡‡ø-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡) and ¬ß7 (‡‡ô‡‡ï‡‡‡‡‡‡‡Ø ‡‡®‡‡‡≤‡‡‡ß‡ø‡)" ]
 
 kGarbhaDhara :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kGarbhaDhara y j = pure $ case pieces of
@@ -862,10 +862,10 @@ kGarbhaDhara y j = pure $ case pieces of
   Right (sn, sw, bn, bw, k)
     | sn == bn ->
         ( y, Mudra (S.Position S.SyadNasti)
-               (Pratyaksa "the two standpoints are compared by adhi·π£·π≠hƒÅna in this turn and they are equal")
+               (Pratyaksa "the two standpoints are compared by adhihna in this turn and they are equal")
         , dosalekha "garbha.dhara"
-            ("both standpoints have the same adhi·π£·π≠hƒÅna `" ++ sn ++ "`, so there is no residue")
-            [ "the residue you asked to run forward.  A Sesa whose two nayas are one fails viveka ‚Äî in the Agda that is a THEOREM (vivekah): if the two standpoints were one, the residue's own proof would refute it.  Here it is checked, and named for the theorem it stands in for." ]
+            ("both standpoints have the same adhihna `" ++ sn ++ "`, so there is no residue")
+            [ "the residue you asked to run forward.  A Sesa whose two nayas are one fails viveka ‚î in the Agda that is a THEOREM (vivekah): if the two standpoints were one, the residue's own proof would refute it.  Here it is checked, and named for the theorem it stands in for." ]
             [ "give two distinct standpoints; the fourth position is what arises when two DIFFERENT nayas are asserted at once" ]
             [ "ResidueStream, `viveka`" ] )
     | otherwise ->
@@ -874,19 +874,19 @@ kGarbhaDhara y j = pure $ case pieces of
         in ( y
            , Mudra (S.Position S.SyadAvaktavya)
                (Pratyaksa ("the first " ++ show k ++ " born positions are generated and emitted in full, "
-                           ++ "each with its nayas and witnesses; nothing is stored ‚Äî ¬ß43, ‡§Ø‡§§‡•ç ‡§π‡•á‡§§‡•Å‡§®‡§æ ‡§ú‡§®‡•ç‡§Ø‡§§‡•á ‡§§‡§§‡•ç ‡§® ‡§∏‡•ç‡§•‡§æ‡§™‡•ç‡§Ø‡§§‡•á"))
+                           ++ "each with its nayas and witnesses; nothing is stored ‚î ¬ß43, ‡Ø‡‡ ‡‡‡‡‡®‡æ ‡‡®‡‡Ø‡‡ ‡‡‡ ‡® ‡‡‡‡æ‡‡‡Ø‡‡"))
            , samkramana "garbha.dhara"
-               (tulyata "TattvƒÅrthas≈´tra 5.31 (arpitƒÅnarpitasiddhe·∏•) as an operation: the affirming naya under the ASSERTED aspect, and the same naya under the UNASSERTED aspect"
-                        ("the residue { " ++ sn ++ " ‚à• " ++ bn ++ " }")
+               (tulyata "Tattvrthastra 5.31 (arpitnarpitasiddhe) as an operation: the affirming naya under the ASSERTED aspect, and the same naya under the UNASSERTED aspect"
+                        ("the residue { " ++ sn ++ " ‚à " ++ bn ++ " }")
                         ("a stream of " ++ show k ++ " positions, each born from the one before")
                         ("the born pair has ONE base standpoint `" ++ sn
                          ++ "` where the root pair provably had two; viveka holds at the root and the birth is what changes it"))
                [ ("dhara", JArr [ JArr (map JStr (G.renderBhanga b)) | b <- stream ])
                , ("stara", JInt (fromIntegral k)) ]
                [ "the stream is infinite and only the first " ++ show k ++ " terms are emitted; the rest are generated, not stored, and are not lost by not being here"
-               , "why THIS residue arose ‚Äî the occasion of the two assertions ‚Äî which the Sesa does not carry" ]
-               [ "UmƒÅsvƒÅti, TattvƒÅrthas≈´tra 5.31, c. 2nd‚Äì5th c. ‚Äî arpita/anarpita"
-               , "AHIMSA_SUTRA_VISTARA ¬ß3 ‚Äî ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡•á ‡§∂‡•á‡§∑‡•ã ‡§µ‡§∏‡§§‡§ø ‡•§ ‡§∂‡•á‡§∑‡•ã ‡§ó‡§∞‡•ç‡§≠‡§É, ‡§® ‡§µ‡§ø‡§´‡§≤‡§§‡§æ ‡•§" ] )
+               , "why THIS residue arose ‚î the occasion of the two assertions ‚î which the Sesa does not carry" ]
+               [ "Umsvti, Tattvrthastra 5.31, c. 2nd‚ì5th c. ‚î arpita/anarpita"
+               , "AHIMSA_SUTRA_VISTARA ¬ß3 ‚î ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡‡‡‡ã ‡µ‡‡‡ø ‡ ‡‡‡‡ã ‡ó‡∞‡‡‡, ‡® ‡µ‡ø‡‡≤‡‡æ ‡" ] )
   where
     pieces = do
       sn <- jStr "sadhaka" j; sw <- jStr "sadhaka-saksin" j
@@ -916,7 +916,7 @@ parseTerm s0 = case dropWhile isSpace s0 of
           else case lookup tok (zip ["x","y","z","u","v","w"] [0 ..]) of
                  Just i -> Right (C.V i, r1)
                  Nothing | all isDigit tok && tok /= "0" ->
-                             Left ("numeral `" ++ tok ++ "` ‚Äî this fragment has zero and suc only; write "
+                             Left ("numeral `" ++ tok ++ "` ‚î this fragment has zero and suc only; write "
                                    ++ concat (replicate (read tok :: Int) "(s ") ++ "0"
                                    ++ concat (replicate (read tok :: Int) ")"))
                          | otherwise -> Right (C.F tok [], r1)
@@ -946,7 +946,7 @@ kSadhana y j = case pieces of
             , Mudra (S.Position S.SyadAsti)
                 (Kernel ("agda typechecked the module below; shape = " ++ shape
                          ++ "; fresh agda processes spent = " ++ show n
-                         ++ "; the two controls were watched first ‚Äî (zero + x) ‚â° x checked "
+                         ++ "; the two controls were watched first ‚î (zero + x) ‚â° x checked "
                          ++ "and (suc x) ‚â° x produced a located type error"))
             , samkramana "sadhana"
                 (tulyata "the equation, identified with a term the kernel accepts"
@@ -957,17 +957,17 @@ kSadhana y j = case pieces of
                   ++ [ ("samidha", JStr src) | reflShape shape ] )
                 ( [ "WHY the equation holds: a checked term closes a step, it does not choose one and it does not explain one"
                   , "the search that found this shape; only the shape that worked is reported"
-                  , "whether the kernel is honest in general ‚Äî what was watched is that it rejected ONE falsehood, today, in this container" ]
+                  , "whether the kernel is honest in general ‚î what was watched is that it rejected ONE falsehood, today, in this container" ]
                   ++ [ "THE MODULE ITSELF.  The accepted shape is `" ++ shape
                        ++ "`, and the module agda accepted is the INDUCTION module, "
                        ++ "which ProofGate.hs builds inside `certifyWith` from an "
                        ++ "induction hypothesis it does not export.  Carrying the refl "
                        ++ "module here would exhibit a module agda REJECTED as the "
-                       ++ "witness for a verdict it did not produce ‚Äî the collapse this "
+                       ++ "witness for a verdict it did not produce ‚î the collapse this "
                        ++ "machine exists to refuse, committed by its own certificate "
                        ++ "field.  So it is withheld and the withholding is written."
                      | not (reflShape shape) ] )
-                [ "Voevodsky ‚Äî an identification is a thing you hold; CLAUDE.md: exact/certified symbolic computation is proof" ] )
+                [ "Voevodsky ‚î an identification is a thing you hold; CLAUDE.md: exact/certified symbolic computation is proof" ] )
           C.Rejected err n ->
             ( y, Mudra (S.Position S.SyadNasti)
                    (Kernel ("agda examined an emitted module and rejected it after "
@@ -976,16 +976,16 @@ kSadhana y j = case pieces of
                 ("the kernel rejected every shape tried for " ++ showT l ++ " ‚â° " ++ showT r)
                 [ "agda's first error line, which is the content of the rejection and is not paraphrased: " ++ err
                 , "the module that was rejected, which is the object the error is about: " ++ take 400 src
-                , "the distinction between `false` and `not provable in the shapes this emitter can write` ‚Äî the emitter tries refl and then a fixed list of induction step shapes, and exhausting them is not a refutation" ]
+                , "the distinction between `false` and `not provable in the shapes this emitter can write` ‚î the emitter tries refl and then a fixed list of induction step shapes, and exhausting them is not a refutation" ]
                 [ "if the statement needs a different induction, say which variable with `sadhya`"
                 , "a rejection here is a fact about agda and this emitter; it is not a claim that the equation is false" ]
-                [ "ProofGate.hs ‚Äî `Rejected` after n>0 agda calls means agda examined a module; `Untranslatable` with 0 means none was emitted" ] )
+                [ "ProofGate.hs ‚î `Rejected` after n>0 agda calls means agda examined a module; `Untranslatable` with 0 means none was emitted" ] )
           C.Untranslatable why ->
             ( y, Mudra S.Apratipatti
                    (Pratyaksa ("no module was emitted and no agda process ran; the fragment is listed in the answer"))
             , dosalekha "sadhana"
                 ("this equation is outside the emitter's fragment, so NO module was emitted and agda was not asked: " ++ why)
-                [ "the module, which does not exist ‚Äî and this is a fact about the emitter, not about agda and not about the equation.  A `no` here and a kernel rejection are different facts and merging them is exactly what this machine refuses."
+                [ "the module, which does not exist ‚î and this is a fact about the emitter, not about agda and not about the equation.  A `no` here and a kernel rejection are different facts and merging them is exactly what this machine refuses."
                 , "the equation itself, which may be perfectly true and simply unsayable in this fragment" ]
                 ( [ "the fragment, in full, so the next attempt can stay inside it:" ]
                   ++ [ "  " ++ f ++ "/" ++ show a | (f, a) <- fragment ]
@@ -998,9 +998,9 @@ kSadhana y j = case pieces of
                  ("no verdict from the kernel, because the kernel has not been seen to work: " ++ show other)
                  [ "the certificate you asked for.  A kernel that has not been watched rejecting a falsehood certifies nothing, and a green from it would be a fact about this container reported as a fact about mathematics."
                  , "and the distinction between `agda says no` and `agda is not usable here`, which a single red merges" ]
-                 [ "repair the environment ‚Äî the cubical library, the include root " ++ C.kIncludeRoot ++ ", the locale ‚Äî and ask again"
-                 , "this is jƒÅti kara·πáa-do·π£a: the instrument or its environment is defective, not the mathematics" ]
-                 [ "ProofGate.hs ‚Äî the two controls: canaryTrue must check and canaryFalse must fail with a located type error" ] )
+                 [ "repair the environment ‚î the cubical library, the include root " ++ C.kIncludeRoot ++ ", the locale ‚î and ask again"
+                 , "this is jti karaa-doa: the instrument or its environment is defective, not the mathematics" ]
+                 [ "ProofGate.hs ‚î the two controls: canaryTrue must check and canaryFalse must fail with a located type error" ] )
   where
     pieces = do
       ls <- jStr "vama" j; rs <- jStr "daksina" j
@@ -1021,9 +1021,9 @@ kSadhana y j = case pieces of
 -- this repository is an agent writing a COMPLETE module and running agda on
 -- it; `sadhana` reaches none of that, because its emitter speaks an
 -- eight-symbol fragment.  ProofGate's own seam has accepted an arbitrary
--- module string since it was written ‚Äî `runAgda root source` writes it to a
+-- module string since it was written ‚î `runAgda root source` writes it to a
 -- temp Candidate.agda, runs agda with the corpus and the pinned library on
--- the include path, under the watched launch (`vetSuccess`) ‚Äî and nothing on
+-- the include path, under the watched launch (`vetSuccess`) ‚î and nothing on
 -- the wire could hand it one.  This operation is that handing, and nothing
 -- more: no emitter, no shapes, no search.  The caller writes the module; the
 -- kernel answers about exactly it.
@@ -1063,14 +1063,14 @@ kPatra y j = case jStrs "patra" j of
                  [ "the meaning of a green: without --safe a postulate typechecks, and an acceptance would then be a fact about agda's parser, not about mathematics"
                  , "and the distinction between `this module is unproved` and `this module was never held to proof`, which running it unsafe would merge" ]
                  [ "open the module with the kernel's own pragma, or any OPTIONS pragma carrying --safe: " ++ C.kOptionsPragma ]
-                 [ "ProofGate.hs, kOptionsPragma ‚Äî one string, shared with the two controls, so a candidate is compiled the way the controls are" ] )
+                 [ "ProofGate.hs, kOptionsPragma ‚î one string, shared with the two controls, so a candidate is compiled the way the controls are" ] )
     | Just nm <- wrongName lns ->
         pure ( y, Mudra S.Apratipatti (Pratyaksa "the module is carried back unexecuted; agda was not asked")
              , dosalekha "sadhana.patra"
                  ("the top-level module is named `" ++ nm ++ "`, and the kernel writes to Candidate.agda; agda would reject the mismatch before reading a single type")
                  [ "an agda invocation, which would be spent reporting a fact this door already knows" ]
                  [ "rename the header to `module Candidate where`, or drop the header and let agda infer the name" ]
-                 [ "ProofGate.hs, runAgdaRaw ‚Äî the file is Candidate.agda, as for every candidate and both controls" ] )
+                 [ "ProofGate.hs, runAgdaRaw ‚î the file is Candidate.agda, as for every candidate and both controls" ] )
     | otherwise -> do
         st <- C.kernelStatus (yRoot y)
         case st of
@@ -1092,17 +1092,17 @@ kPatra y j = case jStrs "patra" j of
                     [ ("patra", JArr (map JStr lns))
                     , ("pankti-ganana", JInt (fromIntegral (length lns))) ]
                     [ "WHY anything in the module holds: a checked term closes a claim, it does not explain one"
-                    , "whether the TYPES say what their NAMES claim ‚Äî agda checked inhabitation of the types as written, and nothing here read the names against them; the module is carried back so a reader can"
+                    , "whether the TYPES say what their NAMES claim ‚î agda checked inhabitation of the types as written, and nothing here read the names against them; the module is carried back so a reader can"
                     , "any module the sent one imports: the corpus and the library are trusted at the pin, not re-checked by this answer"
-                    , "whether the kernel is honest in general ‚Äî what was watched is that it rejected ONE falsehood, today, in this container" ]
-                    [ "Voevodsky ‚Äî an identification is a thing you hold; CLAUDE.md: exact/certified symbolic computation is proof" ] )
+                    , "whether the kernel is honest in general ‚î what was watched is that it rejected ONE falsehood, today, in this container" ]
+                    [ "Voevodsky ‚î an identification is a thing you hold; CLAUDE.md: exact/certified symbolic computation is proof" ] )
               ExitFailure _
                 -- A nonzero exit is a rejection only when agda plainly reports a
                 -- located type error (`cacheableFailure`, the same test the cache
                 -- applies).  A process killed by the machine's memory limit exits
                 -- nonzero with `Checking Candidate` as its whole output, and
                 -- reporting THAT as the kernel's rejection merges `agda says no`
-                -- with `agda could not finish` ‚Äî the distinction the record below
+                -- with `agda could not finish` ‚î the distinction the record below
                 -- names.  Filed over this wire 2026-09-11 (research/rule30) after
                 -- the depth-4096 certificate was reported rejected twice and
                 -- accepted once the runtime had a heap cap.
@@ -1110,20 +1110,20 @@ kPatra y j = case jStrs "patra" j of
                     ( y, Mudra S.Apratipatti
                            (Ayogya ("the kernel could not be asked: " ++ firstLine out))
                     , dosalekha "sadhana.patra"
-                        ("no verdict: the invocation failed in the environment, not in the module (no located type error in agda's output ‚Äî a killed process, a missing root, a locale fault) ‚Äî " ++ firstLine out)
+                        ("no verdict: the invocation failed in the environment, not in the module (no located type error in agda's output ‚î a killed process, a missing root, a locale fault) ‚î " ++ firstLine out)
                         [ "the verdict you asked for, and with it the distinction between `agda says no` and `agda could not be run`, which a single red merges" ]
                         [ "repair the environment and ask again; the module itself was not examined and is not diminished" ]
-                        [ "ProofGate.hs, kEnvironmentFault ‚Äî the marker means exactly `about the environment, not the mathematics`" ] )
+                        [ "ProofGate.hs, kEnvironmentFault ‚î the marker means exactly `about the environment, not the mathematics`" ] )
               ExitFailure _ ->
                 ( y, Mudra (S.Position S.SyadNasti)
                        (Kernel "agda examined the module as sent and rejected it; its own first error line is carried, and the fuller report beside it")
                 , dosalekha "sadhana.patra"
                     ("the kernel rejected the module: " ++ firstLine out)
                     [ "agda's report, which is the content of the rejection and is not paraphrased: " ++ take 1200 out
-                    , "and the distinction between `the claim is false` and `this module does not prove it` ‚Äî a rejection is a fact about this module, and the claim may be provable by another" ]
+                    , "and the distinction between `the claim is false` and `this module does not prove it` ‚î a rejection is a fact about this module, and the claim may be provable by another" ]
                     [ "repair the module at the line agda names and send it again"
                     , "for a bare equation over 0, s, +, *, -, max, le, gcd, `sadhana` runs the emitter's own shape search instead" ]
-                    [ "ProofGate.hs ‚Äî the watched launch; the module ran with the corpus at " ++ C.kIncludeRoot ++ " importable" ] )
+                    [ "ProofGate.hs ‚î the watched launch; the module ran with the corpus at " ++ C.kIncludeRoot ++ " importable" ] )
           other ->
             pure ( y, Mudra S.Apratipatti
                         (Ayogya ("the kernel did not pass its own controls: " ++ show other))
@@ -1131,15 +1131,15 @@ kPatra y j = case jStrs "patra" j of
                      ("no verdict from the kernel, because the kernel has not been seen to work: " ++ show other)
                      [ "the certificate you asked for.  A kernel that has not been watched rejecting a falsehood certifies nothing, and a green from it would be a fact about this container reported as a fact about mathematics."
                      , "and the distinction between `agda says no` and `agda is not usable here`, which a single red merges" ]
-                     [ "repair the environment ‚Äî the cubical library, the include root " ++ C.kIncludeRoot ++ ", the locale ‚Äî and ask again" ]
-                     [ "ProofGate.hs ‚Äî the two controls: canaryTrue must check and canaryFalse must fail with a located type error" ] )
+                     [ "repair the environment ‚î the cubical library, the include root " ++ C.kIncludeRoot ++ ", the locale ‚î and ask again" ]
+                     [ "ProofGate.hs ‚î the two controls: canaryTrue must check and canaryFalse must fail with a located type error" ] )
   where
     -- Every OPTIONS pragma line, as written.  --safe may sit on any of them.
     pragmaLines = filter (("{-# OPTIONS" `isPrefixOf`) . dropWhile isSpace)
     safeDeclared = any ("--safe" `isInfixOf`) . pragmaLines
     -- The declared top-level module name, when a header names one other
-    -- than Candidate.  Only a COLUMN-0 header is the file's module ‚Äî an
-    -- indented `module ‚Ä¶ where` is a nested module and is the caller's own
+    -- than Candidate.  Only a COLUMN-0 header is the file's module ‚î an
+    -- indented `module ‚¶ where` is a nested module and is the caller's own
     -- business.  A headerless module is fine (agda infers the name), and so
     -- is the anonymous `module _ where`.
     wrongName ls = case [ w | l <- ls
@@ -1147,7 +1147,7 @@ kPatra y j = case jStrs "patra" j of
                             , ("module" : w : _) <- [words l] ] of
       (n : _) | n /= "Candidate", n /= "_" -> Just n
       _ -> Nothing
-    -- Agda's report opens with `Checking Candidate (‚Ä¶)`, which locates
+    -- Agda's report opens with `Checking Candidate (‚¶)`, which locates
     -- nothing; the content is the first line carrying `error`.  Prefer it,
     -- and fall back to the first non-blank line where the report has none.
     firstLine s = case [ l | l <- ls, "error" `isInfixOf` l ] ++ ls of
@@ -1160,9 +1160,9 @@ kPatra y j = case jStrs "patra" j of
 -- sadhana.patra returns a verdict about a module.  This returns the
 -- ANALYSIS of objects inside it: for each named expression, the normal form
 -- the kernel computes it to and the type it inhabits.  The kernel's output
--- is not pass/fail here ‚Äî it is every bit it derives about the object,
+-- is not pass/fail here ‚î it is every bit it derives about the object,
 -- carried onto the wire as data a reader consumes.  The same door checks as
--- kPatra guard it (‚îÄsafe, module name), because agda is asked the same way.
+-- kPatra guard it (‚îsafe, module name), because agda is asked the same way.
 kVislesana :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kVislesana y j = case pieces of
   Left e -> pure (turnedBack y "sadhana.vislesana" e)
@@ -1227,7 +1227,7 @@ kVislesana y j = case pieces of
                               ++ "the answers below are agda's, not paraphrased"))
                     [ ("vislesana", JArr (map anJ results)) ]
                     [ "WHY each normal form is what it is: the kernel computes it, it does not narrate the reduction"
-                    , "whether the expression's NAME matches its meaning ‚Äî the type and value are agda's; reading them against the name is the reader's"
+                    , "whether the expression's NAME matches its meaning ‚î the type and value are agda's; reading them against the name is the reader's"
                     , "any module the loaded one imports: trusted at the pin, not re-analyzed here" ]
                     [ "Agda --interaction: Cmd_compute_toplevel (normal form), Cmd_infer_toplevel (type)"
                     , "CLAUDE.md: exact/certified symbolic computation is proof" ] )
@@ -1237,9 +1237,9 @@ kVislesana y j = case pieces of
                 , dosalekha "sadhana.vislesana"
                     "the module loaded but an expression could not be analyzed; agda's answers are carried verbatim below"
                     ( [ "the clean analysis you asked for; what agda actually said is carried instead, per expression, unparaphrased:" ]
-                      ++ [ "  " ++ C.anExpr a ++ "  ‚áí  normal form: " ++ oneLn (C.anNormal a)
+                      ++ [ "  " ++ C.anExpr a ++ "  ‚í  normal form: " ++ oneLn (C.anNormal a)
                            ++ "  |  type: " ++ oneLn (C.anType a) | a <- results ] )
-                    [ "correct the failing expression ‚Äî it may be out of scope, ill-typed, or misspelt ‚Äî and ask again" ]
+                    [ "correct the failing expression ‚î it may be out of scope, ill-typed, or misspelt ‚î and ask again" ]
                     [ "ProofGate.hs, runAgdaAnalyze" ] )
           other ->
             pure ( y, Mudra S.Apratipatti
@@ -1247,8 +1247,8 @@ kVislesana y j = case pieces of
                  , dosalekha "sadhana.vislesana"
                      ("no analysis, because the kernel has not been seen to work: " ++ show other)
                      [ "the analysis you asked for; a kernel not watched rejecting a falsehood analyzes nothing trustworthy" ]
-                     [ "repair the environment ‚Äî the cubical library, the include root " ++ C.kIncludeRoot ++ " ‚Äî and ask again" ]
-                     [ "ProofGate.hs ‚Äî the two controls" ] )
+                     [ "repair the environment ‚î the cubical library, the include root " ++ C.kIncludeRoot ++ " ‚î and ask again" ]
+                     [ "ProofGate.hs ‚î the two controls" ] )
   where
     pieces = do
       lns <- jStrs "patra" j
@@ -1272,39 +1272,39 @@ kKuttaka y j = pure $ case (,) <$> jInt "a" j <*> jInt "b" j of
     | b <= 0 ->
         ( y, Mudra (S.Position S.SyadNasti) (Pratyaksa ("b = " ++ show b ++ ", exhibited"))
         , dosalekha "kuttaka"
-            ("b = " ++ show b ++ "; the vallƒ´ descends on a positive modulus")
-            [ "the descent itself: with b ‚â§ 0 there is no chain of remainders to climb back up, and any answer would be an assertion with no vallƒ´ under it" ]
-            [ "send b ‚â• 1; for a negative modulus ask about |b| and record the sign as a separate fact" ]
-            [ "ƒÄryabha·π≠a, ƒÄryabha·π≠ƒ´ya, Ga·πáitapƒÅda 32‚Äì33, 499" ] )
+            ("b = " ++ show b ++ "; the vall descends on a positive modulus")
+            [ "the descent itself: with b ‚â 0 there is no chain of remainders to climb back up, and any answer would be an assertion with no vall under it" ]
+            [ "send b ‚â 1; for a negative modulus ask about |b| and record the sign as a separate fact" ]
+            [ "ryabhaa, ryabhaya, Gaitapda 32‚ì33, 499" ] )
     | otherwise ->
         let vl = VP.valli a b
             (x, yy, g) = VP.bezout a b
-            wit = show a ++ "¬∑(" ++ show x ++ ") + " ++ show b ++ "¬∑(" ++ show yy
+            wit = show a ++ "¬(" ++ show x ++ ") + " ++ show b ++ "¬(" ++ show yy
                   ++ ") = " ++ show (a * x + b * yy) ++ " = gcd = " ++ show g
             base = [ ("valli", JArr (map JInt vl))
                    , ("bezout", JObj [("x", JInt x), ("y", JInt yy), ("gcd", JInt g)]) ]
-            src = [ "ƒÄryabha·π≠a, ƒÄryabha·π≠ƒ´ya, Ga·πáitapƒÅda 32‚Äì33, 499 ‚Äî ku·π≠·π≠aka/vallƒ´, the procedure step by step in BhƒÅskara I's bhƒÅ·π£ya, 629.  The restatement usually cited instead is the 'extended Euclidean algorithm'." ]
+            src = [ "ryabhaa, ryabhaya, Gaitapda 32‚ì33, 499 ‚î kuaka/vall, the procedure step by step in Bhskara I's bhya, 629.  The restatement usually cited instead is the 'extended Euclidean algorithm'." ]
         in case look "c" j of
              Left _ ->
                ( y, Mudra (S.Position S.SyadAsti) (Ganita wit)
                , samkramana "kuttaka"
-                   (tulyata "the vallƒ´, read upward, identified with the B√©zout pair"
+                   (tulyata "the vall, read upward, identified with the B©zout pair"
                             ("the quotient chain of " ++ show a ++ " by " ++ show b)
-                            ("a pair (x, y) with a¬∑x + b¬∑y = " ++ show g) wit)
+                            ("a pair (x, y) with a¬x + b¬y = " ++ show g) wit)
                    base
                    [ "the remainders are implicit in the quotients: recoverable, not carried"
-                   , "the reason the descent terminates ‚Äî ‡§Ø‡§§‡•ç ‡§® ‡§µ‡§ø‡§≠‡§ú‡§§‡•á ‡§§‡§§‡•ç ‡§∞‡§ï‡•ç‡§∑‡•ç‡§Ø‡§§‡•á, proved elsewhere and not re-proved by this answer" ]
+                   , "the reason the descent terminates ‚î ‡Ø‡‡ ‡® ‡µ‡ø‡‡‡‡ ‡‡‡ ‡∞‡ï‡‡‡‡Ø‡‡, proved elsewhere and not re-proved by this answer" ]
                    src )
              Right (JInt c)
                | c `mod` g /= 0 ->
                    ( y, Mudra (S.Position S.SyadNasti)
                           (Ganita ("gcd(" ++ show a ++ ", " ++ show b ++ ") = " ++ show g
-                                   ++ " and " ++ show g ++ " ‚à§ " ++ show c ++ ", in ‚Ñ§"))
+                                   ++ " and " ++ show g ++ " ‚à " ++ show c ++ ", in ‚"))
                    , dosalekha "kuttaka"
-                       ("a¬∑x ‚â° " ++ show c ++ " (mod " ++ show b ++ ") has no solution: gcd = "
+                       ("a¬x ‚â° " ++ show c ++ " (mod " ++ show b ++ ") has no solution: gcd = "
                         ++ show g ++ " does not divide " ++ show c)
                        [ "the residue class you asked to hit; there is none, and the impossibility is exact rather than a search that gave up"
-                       , "what a bare `no` would destroy: WHICH classes are reachable ‚Äî exactly the multiples of " ++ show g ]
+                       , "what a bare `no` would destroy: WHICH classes are reachable ‚î exactly the multiples of " ++ show g ]
                        [ "the nearest reachable residues are " ++ show (g * (c `div` g))
                          ++ " and " ++ show (g * (c `div` g) + g)
                        , "or divide the congruence through by a common factor of a, b and c" ]
@@ -1314,18 +1314,18 @@ kKuttaka y j = pure $ case (,) <$> jInt "a" j <*> jInt "b" j of
                        x0 = (x * m) `mod` (b `div` g)
                        chk = (a * x0 - c) `mod` b
                    in ( y, Mudra (S.Position S.SyadAsti)
-                              (Ganita (show a ++ "¬∑" ++ show x0 ++ " ‚àí " ++ show c ++ " ‚â° "
-                                       ++ show chk ++ " (mod " ++ show b ++ "), computed in ‚Ñ§"))
+                              (Ganita (show a ++ "¬" ++ show x0 ++ " ‚àí " ++ show c ++ " ‚â° "
+                                       ++ show chk ++ " (mod " ++ show b ++ "), computed in ‚"))
                       , samkramana "kuttaka"
-                          (tulyata "the B√©zout pair, scaled, identified with the solution of the congruence"
-                                   ("a¬∑x + b¬∑y = " ++ show g)
-                                   ("a¬∑x ‚â° " ++ show c ++ " (mod " ++ show b ++ ")")
-                                   (show a ++ "¬∑" ++ show x0 ++ " ‚àí " ++ show c ++ " ‚â° " ++ show chk
+                          (tulyata "the B©zout pair, scaled, identified with the solution of the congruence"
+                                   ("a¬x + b¬y = " ++ show g)
+                                   ("a¬x ‚â° " ++ show c ++ " (mod " ++ show b ++ ")")
+                                   (show a ++ "¬" ++ show x0 ++ " ‚àí " ++ show c ++ " ‚â° " ++ show chk
                                     ++ " (mod " ++ show b ++ "), checked exactly"))
                           (base ++ [ ("x", JInt x0), ("modulus", JInt (b `div` g))
                                    , ("sarve", JStr ("x ‚â° " ++ show x0 ++ " (mod " ++ show (b `div` g) ++ ")")) ])
                           [ "the other solutions are given as a class, not enumerated"
-                          , "the vallƒ´'s intermediate remainders" ]
+                          , "the vall's intermediate remainders" ]
                           src )
              Right other -> turnedBack y "kuttaka" ("`c` must be an integer, got " ++ render other)
 
@@ -1339,7 +1339,7 @@ kVargaprakrti y j = pure $ case jInt "D" j of
       (_, Left df) -> (y, Mudra (S.Position S.SyadNasti) (Pratyaksa (VP.renderDefect df)), lawDefect d df)
       (Right unit, Right spec) ->
         let VP.Quad a b = unit
-            wit = show a ++ "¬≤ ‚àí " ++ show d ++ "¬∑" ++ show b ++ "¬≤ = "
+            wit = show a ++ "¬≤ ‚àí " ++ show d ++ "¬" ++ show b ++ "¬≤ = "
                   ++ show (a * a - d * b * b) ++ ", exact integer arithmetic; "
                   ++ "and the invariant was CHECKED multiplicative at every composition "
                   ++ "(composeChecked), not assumed"
@@ -1348,14 +1348,14 @@ kVargaprakrti y j = pure $ case jInt "D" j of
                       , ("mula", JObj [("a", JInt a), ("b", JInt b)])
                       , ("spectrum", JArr [ JObj [("n", JInt n), ("v", JStr (VP.lawShow law v))]
                                           | (n, v) <- spec ]) ]
-            src = [ "Brahmagupta, BrƒÅhmasphu·π≠asiddhƒÅnta 18, 628 ‚Äî bhƒÅvanƒÅ, the composition law, stated for ARBITRARY norms and not the N = 1 special case"
-                  , "Jayadeva c. 950; BhƒÅskara II, Bƒ´jaga·πáita, 1150 ‚Äî cakravƒÅla.  The name usually cited instead is 'Pell's equation'; Pell did not solve it and Euler misattributed it." ]
+            src = [ "Brahmagupta, Brhmasphuasiddhnta 18, 628 ‚î bhvan, the composition law, stated for ARBITRARY norms and not the N = 1 special case"
+                  , "Jayadeva c. 950; Bhskara II, Bjagaita, 1150 ‚î cakravla.  The name usually cited instead is 'Pell's equation'; Pell did not solve it and Euler misattributed it." ]
         in case look "n" j of
              Left _ ->
                ( y, Mudra (S.Position S.SyadAsti) (Ganita wit)
                , samkramana "vargaprakrti"
                    (tulyata "the composition law as a VALUE, turned by the reactor, identified with a solution of the form"
-                            ("x¬≤ ‚àí " ++ show d ++ "¬∑y¬≤ = 1")
+                            ("x¬≤ ‚àí " ++ show d ++ "¬y¬≤ = 1")
                             ("(a, b) = (" ++ show a ++ ", " ++ show b ++ ")") wit)
                    carried
                    [ "the CHOICE made at each turn travels only through its consequences in the spectrum, not as a recorded reason"
@@ -1365,10 +1365,10 @@ kVargaprakrti y j = pure $ case jInt "D" j of
              Right (JInt n) -> case [ v | (k, v) <- spec, k == n ] of
                (v:_) ->
                  ( y, Mudra (S.Position S.SyadAsti)
-                        (Ganita ("N" ++ VP.lawShow law v ++ " = " ++ show n ++ ", computed in ‚Ñ§"))
+                        (Ganita ("N" ++ VP.lawShow law v ++ " = " ++ show n ++ ", computed in ‚"))
                  , samkramana "vargaprakrti"
                      (tulyata "a norm the wheel visits, identified with a solved equation"
-                              ("x¬≤ ‚àí " ++ show d ++ "¬∑y¬≤ = " ++ show n)
+                              ("x¬≤ ‚àí " ++ show d ++ "¬y¬≤ = " ++ show n)
                               (VP.lawShow law v)
                               ("norm computed by the law's own lawNorm and compared to " ++ show n))
                      (carried ++ [("n", JInt n), ("uttara", JStr (VP.lawShow law v))])
@@ -1381,11 +1381,11 @@ kVargaprakrti y j = pure $ case jInt "D" j of
                                                 ++ show n ++ " is not among the " ++ show (length spec)))
                  , dosalekha "vargaprakrti"
                      ("norm " ++ show n ++ " is not on the cycle for D = " ++ show d)
-                     [ "a solution of x¬≤ ‚àí " ++ show d ++ "¬∑y¬≤ = " ++ show n ++ " ‚Äî NOT shown absent, merely not reachable BY THIS CYCLE.  Those are two facts and a bare `no` merges them."
+                     [ "a solution of x¬≤ ‚àí " ++ show d ++ "¬y¬≤ = " ++ show n ++ " ‚î NOT shown absent, merely not reachable BY THIS CYCLE.  Those are two facts and a bare `no` merges them."
                      , "the general problem for arbitrary N needs more than this cycle's trace and is not claimed here" ]
                      [ "the norms this cycle does visit, each of them a solved equation: "
                        ++ intercalate ", " [ show k | (k, _) <- spec ]
-                     , "compose a visited norm with the norm-one unit to move within a norm class (bhƒÅvanƒÅ: k‚ÇÅ¬∑k‚ÇÇ)" ]
+                     , "compose a visited norm with the norm-one unit to move within a norm class (bhvan: k‚¬k‚)" ]
                      src )
              Right other -> turnedBack y "vargaprakrti" ("`n` must be an integer, got " ++ render other)
   where
@@ -1393,8 +1393,8 @@ kVargaprakrti y j = pure $ case jInt "D" j of
       ("the law for D = " ++ show d ++ " does not close: " ++ VP.defWhy df)
       [ "the fundamental solution you asked for"
       , "the failing leg, verbatim, so the answer names its own site: " ++ VP.renderDefect df ]
-      [ "ask with a non-square D ‚â• 2" ]
-      [ "Brahmagupta, BrƒÅhmasphu·π≠asiddhƒÅnta 18, 628" ]
+      [ "ask with a non-square D ‚â 2" ]
+      [ "Brahmagupta, Brhmasphuasiddhnta 18, 628" ]
 
 kPratyahara :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kPratyahara y j = pure $ case (,,) <$> jStr "adi" j <*> jStr "it" j
@@ -1404,17 +1404,17 @@ kPratyahara y j = pure $ case (,,) <$> jStr "adi" j <*> jStr "it" j
     let occ = occ0 :: Int
         sounds = P.pratyaharaOcc adi it occ
         raw = P.rawSpan adi it
-        src = [ "PƒÅ·πáini, A·π£·π≠ƒÅdhyƒÅyƒ´, the ≈õivas≈´tras, c. 500 BCE.  The names usually cited instead are 'Backus‚ÄìNaur' and 'Chomsky'; neither had the machinery." ]
+        src = [ "Pini, Adhyy, the ivastras, c. 500 BCE.  The names usually cited instead are 'Backus‚ìNaur' and 'Chomsky'; neither had the machinery." ]
     in if null sounds
          then ( y, Mudra S.Apratipatti
-                     (Pratyaksa "the whole var·πáasamƒÅmnƒÅya is emitted below, so the next name can be formed from it")
+                     (Pratyaksa "the whole varasammnya is emitted below, so the next name can be formed from it")
               , dosalekha "pratyahara"
                   ("`" ++ adi ++ it ++ "` denotes no interval: either the sound `" ++ adi
                    ++ "` or the marker `" ++ it ++ "` is not where the name needs it")
-                  [ "the class you meant, which this name does not denote in the var·πáasamƒÅmnƒÅya as it stands"
+                  [ "the class you meant, which this name does not denote in the varasammnya as it stands"
                   , "and the difference between `the name is wrong` and `the class is empty`, which a bare no merges" ]
                   ( [ "the sequence, in full:" ]
-                    ++ [ "  s≈´tra " ++ show i ++ ": " ++ unwords ss ++ " | " ++ mk
+                    ++ [ "  stra " ++ show i ++ ": " ++ unwords ss ++ " | " ++ mk
                        | (i, ss, mk) <- P.sivasutraTable ] )
                   src )
          else ( y, Mudra (S.Position S.SyadAsti)
@@ -1422,16 +1422,16 @@ kPratyahara y j = pure $ case (,,) <$> jStr "adi" j <*> jStr "it" j
                                             ++ " slot(s) covered, " ++ show (length sounds)
                                             ++ " sound(s) denoted, markers skipped because a marker is a boundary and never a member"))
               , samkramana "pratyahara"
-                  (tulyata "the two-syllable name, identified with an interval of the var·πáasamƒÅmnƒÅya"
+                  (tulyata "the two-syllable name, identified with an interval of the varasammnya"
                            (adi ++ it) (unwords sounds)
                            ("the span from the first `" ++ adi ++ "` to occurrence " ++ show occ
                             ++ " of the marker `" ++ it ++ "`"))
                   [ ("nama", JStr (adi ++ it))
                   , ("varnah", JArr (map JStr sounds))
                   , ("avrtti", JInt (fromIntegral occ)) ]
-                  [ "the phonetic reason the ORDER admits this class as an interval at all ‚Äî a property of the whole sequence, not of this answer"
-                  , "the repetition of `h` in s≈´tras 5 and 14, which makes some spans cover a sound twice; the slot count is the only trace of it here"
-                  , "which s≈´tras of the A·π£·π≠ƒÅdhyƒÅyƒ´ actually use this pratyƒÅhƒÅra" ]
+                  [ "the phonetic reason the ORDER admits this class as an interval at all ‚î a property of the whole sequence, not of this answer"
+                  , "the repetition of `h` in stras 5 and 14, which makes some spans cover a sound twice; the slot count is the only trace of it here"
+                  , "which stras of the Adhyy actually use this pratyhra" ]
                   src )
 
 -- ---- the log and the queue
@@ -1452,19 +1452,19 @@ kDosaSuchi y _ = pure ( y
   , affirmed ("all " ++ show (length (yDosa y)) ++ " entries emitted in full and in the order written; nothing pruned")
   , samkramana "dosa.suchi"
       (tulyata "refl" "the session's defect log" "the listing"
-               ("append-only; each entry is paired with what the do·π£a-lekha on disk said back when it was filed"))
+               ("append-only; each entry is paired with what the doa-lekha on disk said back when it was filed"))
       [ ("dosah", JArr [ JObj [ ("kramanka", JInt (fromIntegral i)), ("lekha", uttaraJ d)
                               , ("nyasa", JStr (maybe "(not filed)" (either ("REFUSED: " ++) id)
                                                   (lookup i (yFiled y)))) ]
                        | (i, d) <- reverse (yDosa y) ]) ]
       [ "what else was in flight in this repository at the time each was written" ]
-      (sutra "¬ß6 ‚Äî ‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§ú‡•Ä‡§µ‡§§‡§ø ‡•§ ‡§Ö‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§π‡§ø‡§Ç‡§∏‡§æ ‡•§") )
+      (sutra "¬ß6 ‚î ‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø ‡ ‡‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡ø‡‡‡æ ‡") )
 
 kDosaPramanya :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kDosaPramanya y _ = case yDosaBin y of
-  Nothing -> pure ( y, Mudra S.Apratipatti (Ayogya "the do·π£a-lekha binary was not built for this session")
+  Nothing -> pure ( y, Mudra S.Apratipatti (Ayogya "the doa-lekha binary was not built for this session")
                   , dosalekha "dosa.pramanya"
-                      "the chain cannot be verified: this session has no do·π£a-lekha binary"
+                      "the chain cannot be verified: this session has no doa-lekha binary"
                       [ "the verification you asked for, and with it the guarantee that this session's filed defects are still the bytes that were filed" ]
                       [ "run this machine through interactive/run-yantra.sh, which builds the binary and passes it in DOSA_BIN" ]
                       [ "interactive/DefectRecord.hs" ] )
@@ -1477,7 +1477,7 @@ kDosaPramanya y _ = case yDosaBin y of
                (case countRecords txt of
                   Just n ->
                     Nihsesa n
-                      ("every sƒÅra recomputed over every preceding record, from `genesis:dosa-lekha` forward; "
+                      ("every sra recomputed over every preceding record, from `genesis:dosa-lekha` forward; "
                        ++ "the chain organ's own `checkChain`, run in this turn")
                   Nothing ->
                     Pratyaksa
@@ -1492,14 +1492,14 @@ kDosaPramanya y _ = case yDosaBin y of
             [ ("phala", JStr (trimS txt)) ]
             [ "the chain is FNV-1a and is not cryptographic and is not claimed to be: the adversary is an accidental edit, a lost rebase, a truncating write.  An adversary with the filesystem also has this file."
             , "who wrote each record, beyond what each record says of itself" ]
-            [ "interactive/DefectRecord.hs ¬ß3 ‚Äî the chain" ] )
+            [ "interactive/DefectRecord.hs ¬ß3 ‚î the chain" ] )
       _ ->
         ( y, Mudra (S.Position S.SyadNasti) (Pratyaksa "the divergence is located by record and by line, and is carried verbatim")
         , dosalekha "dosa.pramanya"
-            "the do·π£a-lekha's chain does not verify"
+            "the doa-lekha's chain does not verify"
             [ "the guarantee that this session's filed defects are the bytes that were filed"
             , "the organ's own report, verbatim, which names the record and the line: " ++ trimS txt ]
-            [ "do NOT edit the diverging record.  Append one whose `uttara:` names it ‚Äî that is the only correction an append-only log has." ]
+            [ "do NOT edit the diverging record.  Append one whose `uttara:` names it ‚î that is the only correction an append-only log has." ]
             [ "interactive/DefectRecord.hs" ] )
   where
     -- The n in `Nihsesa n` is the DOMAIN of the exhaustive claim, and it is
@@ -1507,12 +1507,12 @@ kDosaPramanya y _ = case yDosaBin y of
     --     dosalekha: <path>: 15 records, chain intact, nothing edited or deleted.
     -- This used to scan for lines beginning `dosa `, which that line does not
     -- begin with, so every `dosa.pramanya` in this machine's history reported
-    -- `"ganana": 0` ‚Äî an exhaustive route publishing a domain of zero while
+    -- `"ganana": 0` ‚î an exhaustive route publishing a domain of zero while
     -- fifteen records had in fact been rechecked.  A stated domain that is
     -- always zero is worse than no number, because it looks like knowledge
     -- (CLAUDE.md).  Where the organ's wording changes, this returns Nothing
     -- and the route says so rather than inventing a count.
-    -- `words` on that line yields ... "12" "records," ... ‚Äî the comma is
+    -- `words` on that line yields ... "12" "records," ... ‚î the comma is
     -- part of the token, so the noun is compared with its punctuation
     -- stripped.  Matching "records" exactly is what a first attempt did and
     -- it silently found nothing, which is the same failure one layer in.
@@ -1533,8 +1533,8 @@ kSesaArpana y j = pure $ case jStrs "sesa" j of
     , dosalekha "sesa.arpana"
         "an empty remainder was handed forward"
         [ "whatever you were about to hand on; an empty hand-off and no hand-off are different acts and this records which" ]
-        [ "name the unfinished thing, however partial: ÈÅ∫È°åÁ∂ôÊâø posts the PROBLEM, not a note that there was one" ]
-        [ "Sawaguchi Kazuyuki 1670, answered by Seki Takakazu 1674 ‚Äî idai keish≈ç" ] )
+        [ "name the unfinished thing, however partial: È∫È°ÁôÊâø posts the PROBLEM, not a note that there was one" ]
+        [ "Sawaguchi Kazuyuki 1670, answered by Seki Takakazu 1674 ‚î idai keish" ] )
   Right ts ->
     let y' = y { ySesa = [ (yTurn y, t) | t <- ts ] ++ ySesa y }
     in ( y'
@@ -1542,12 +1542,12 @@ kSesaArpana y j = pure $ case jStrs "sesa" j of
        , samkramana "sesa.arpana"
            (tulyata "the remainder as uttered, identified with the remainder as queued"
                     ("the " ++ show (length ts) ++ " item(s) you sent") "the queue below"
-                    "the ku·π≠·π≠aka's rule: what does not divide is KEPT and is the material of the next step")
+                    "the kuaka's rule: what does not divide is KEPT and is the material of the next step")
            [ ("sesah", JArr [ JObj [("kramanka", JInt (fromIntegral i)), ("vastu", JStr t)]
                             | (i, t) <- reverse (ySesa y') ]) ]
            [ "the reason each item is unfinished, unless you wrote it into the item"
            , "who is expected to pick it up" ]
-           [ "ƒÄryabha·π≠a, ƒÄryabha·π≠ƒ´ya, Ga·πáitapƒÅda 32‚Äì33, 499 ‚Äî ‡§Ø‡§§‡•ç ‡§® ‡§µ‡§ø‡§≠‡§ú‡§§‡•á ‡§§‡§§‡•ç ‡§∞‡§ï‡•ç‡§∑‡•ç‡§Ø‡§§‡•á" ] )
+           [ "ryabhaa, ryabhaya, Gaitapda 32‚ì33, 499 ‚î ‡Ø‡‡ ‡® ‡µ‡ø‡‡‡‡ ‡‡‡ ‡∞‡ï‡‡‡‡Ø‡‡" ] )
 
 kSesaSuchi :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSesaSuchi y _
@@ -1557,7 +1557,7 @@ kSesaSuchi y _
           "the remainder queue is empty"
           [ "nothing is being handed forward, which for a session that has done work is itself worth seeing: either the work finished exactly, or a remainder was dropped rather than queued" ]
           [ "hand one forward with sesa.arpana" ]
-          (sutra "¬ß17 ‚Äî ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï‡§É") )
+          (sutra "¬ß17 ‚î ‡ï‡‡ü‡‡ü‡ï‡") )
   | otherwise = pure
       ( y, affirmed "every item, in the order handed forward"
       , samkramana "sesa.suchi"
@@ -1584,7 +1584,7 @@ malformed k e =
   ( Mudra S.Apratipatti (Pratyaksa "the request as sent is carried back unexecuted")
   , dosalekha k
       ("the request could not be read: " ++ e)
-      [ "the request itself, which is NOT executed and NOT guessed at ‚Äî a guessed request collapses what you meant into what I assumed" ]
+      [ "the request itself, which is NOT executed and NOT guessed at ‚î a guessed request collapses what you meant into what I assumed" ]
       [ "ask yantra.kriyah for the parameters this operation requires" ]
       srcTwoRoads )
 
@@ -1595,7 +1595,7 @@ logIf _ u y = case u of
   Dosalekha{} -> y { yDosa = (yTurn y, u) : yDosa y }
   Samkramana{} -> y
 
--- | File a written defect into the do·π£a-lekha on disk, over its own
+-- | File a written defect into the doa-lekha on disk, over its own
 --   published `write`-on-stdin interface.  NOT by importing its internals:
 --   that module exports `main` and nothing else, and reaching past a
 --   lane's published surface to get at its functions is how two lanes come
@@ -1607,7 +1607,7 @@ logIf _ u y = case u of
 --   not know a thing it says so IN the field rather than guessing.
 fileDosa :: Yantra -> String -> Uttara -> IO (Either String String)
 fileDosa y kala u@Dosalekha{} = case yDosaBin y of
-  Nothing -> pure (Left "no do·π£a-lekha binary was passed to this session (DOSA_BIN unset)")
+  Nothing -> pure (Left "no doa-lekha binary was passed to this session (DOSA_BIN unset)")
   Just bin -> do
     let ent = unlines
           ( [ "  kala: " ++ kala
@@ -1617,15 +1617,15 @@ fileDosa y kala u@Dosalekha{} = case yDosaBin y of
             , "  yatna: turn " ++ show (yTurn y) ++ " of the session; operation `"
               ++ oneLine (uKriya u) ++ "` was asked and transport was not available"
             , "  hetu: " ++ oneLine (uHetu u) ]
-          -- EVERY na·π£·π≠a reaches the record.  This line used to read
-          -- `length (oneLine n) >= 12`, silently DELETING any na·π£·π≠a under
+          -- EVERY naa reaches the record.  This line used to read
+          -- `length (oneLine n) >= 12`, silently DELETING any naa under
           -- twelve characters so that the record would clear the organ's
           -- validator, which requires each witness to exhibit rather than
           -- describe.  Turning the machine with the filter removed shows
           -- what it was covering, and it is not small: the assembly's
-          -- flagship defect ‚Äî `nirnaya.saptabhangi`, the three-organ
+          -- flagship defect ‚î `nirnaya.saptabhangi`, the three-organ
           -- collision this file's header names as its load-bearing refusal
-          -- ‚Äî carries a RENDERED BLOCK as its na·π£·π≠a, one na·π£·π≠a per rendered
+          -- ‚î carries a RENDERED BLOCK as its naa, one naa per rendered
           -- line, and five of those lines are short (`{ #0 }`, `{ #1 }`,
           -- `syad-asti`, `decision.`, `candidates:`).  So for every run in
           -- this machine's history that record went to disk with five lines
@@ -1634,9 +1634,9 @@ fileDosa y kala u@Dosalekha{} = case yDosaBin y of
           --
           -- The site of the fault is the flattening, not the length.  A
           -- rendered block is ONE exhibit whose lines are continuations, and
-          -- `saptabhangi.nasti` one function away already does it right ‚Äî
-          -- `intercalate " / "` ‚Äî and its record files without complaint.
-          -- So: rejoin.  A na·π£·π≠a under twelve characters is appended to the
+          -- `saptabhangi.nasti` one function away already does it right ‚î
+          -- `intercalate " / "` ‚î and its record files without complaint.
+          -- So: rejoin.  A naa under twelve characters is appended to the
           -- one before it instead of being dropped, and a leading short line
           -- opens a group the next line completes.  Nothing is destroyed.
           --
@@ -1652,9 +1652,9 @@ fileDosa y kala u@Dosalekha{} = case yDosaBin y of
           ++ [ "  sesa: " ++ oneLine s | s <- uSesa u, not (null (oneLine s)) ]
           ++ [ "  pramana: " ++ oneLine p | p <- uPramana u, not (null (oneLine p)) ]
           ++ [ "  yogyata-drsta: the handler for `" ++ oneLine (uKriya u)
-               ++ "` ran to completion in this turn and produced this refusal; the na·π£·π≠a above are its own output, not a later reconstruction"
+               ++ "` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction"
              , "  yogyata-ksetra: the session state as of turn " ++ show (yTurn y)
-               ++ " ‚Äî " ++ show (length (K.koshaEntries (yKosha y))) ++ " store entries, "
+               ++ " ‚î " ++ show (length (K.koshaEntries (yKosha y))) ++ " store entries, "
                ++ show (length (ySesa y)) ++ " remainders; and nothing outside this process"
              , "  yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments"
              , "  punarabhinaya: sh interactive/run-yantra.sh" ] )
@@ -1672,8 +1672,8 @@ fileDosa _ _ _ = pure (Right "(not a defect)")
 --   each branch below points at a phrase the handler itself wrote.
 -- | Rejoin a rendered block into the exhibits it is made of.  A line of
 --   twelve characters or more opens a group; anything shorter is a
---   continuation and joins the group before it.  Empty lines are dropped ‚Äî
---   an empty na·π£·π≠a exhibits nothing in any grouping.  Total; order preserved.
+--   continuation and joins the group before it.  Empty lines are dropped ‚î
+--   an empty naa exhibits nothing in any grouping.  Total; order preserved.
 rejoinNasta :: [String] -> [String]
 rejoinNasta = go . filter (not . null)
   where
@@ -1686,14 +1686,14 @@ jatiOf :: Uttara -> String
 jatiOf u
   | "avaktavya" `isInfixOf` h || "syad-avaktavyam" `isInfixOf` h
     || "does not decide between them" `isInfixOf` h = "avaktavya"
-  -- kara·πáa-do·π£a BEFORE ayogya-dar≈õana, and the order is the whole content of
+  -- karaa-doa BEFORE ayogya-darana, and the order is the whole content of
   -- this repair.  The one hetu in this machine that carries both `kernel` and
   -- `environment` is kSadhana's kernel-not-usable branch, and its fixed
-  -- prefix also carries "has not been seen to work" ‚Äî so while
-  -- ayogya-dar≈õana was tested first it swallowed every instrument fault and
+  -- prefix also carries "has not been seen to work" ‚î so while
+  -- ayogya-darana was tested first it swallowed every instrument fault and
   -- `karana-dosa` was unreachable, printing 0 in every census.  Turned with
   -- agda off the PATH, the record filed as `ayogya-darsana` while the same
-  -- handler's own ≈õe·π£a said, in prose, "this is jƒÅti kara·πáa-do·π£a".  The
+  -- handler's own ea said, in prose, "this is jti karaa-doa".  The
   -- looking was unfit and the instrument is broken are two facts, and the
   -- census by kind is exactly where a later reader would have them merged.
   | "kernel" `isInfixOf` h && "environment" `isInfixOf` h = "karana-dosa"
@@ -1714,10 +1714,10 @@ answer y0 kala line = do
     Right j -> case jStr "kriya" j of
       Left e -> pure (y, fst (noOp e), snd (noOp e))
       Right k -> case [ kr | kr <- kriyah, kName kr == k ] of
-        -- ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Æ‡•ç / ‡§â‡§ï‡•ç‡§§‡§Æ‡•ç / ‡§¶‡•Å‡§∞‡•ç‡§µ‡§ö‡§Æ‡•ç, at the door.  `angani` absent is a
+        -- ‡‡®‡‡ï‡‡‡Æ‡ / ‡â‡ï‡‡‡Æ‡ / ‡¶‡‡∞‡‡µ‡‡Æ‡, at the door.  `angani` absent is a
         -- request with no arguments and is legal; `angani` present and not
         -- an object is a request that cannot be dispatched, and until now
-        -- the two produced byte-identical answers (do·π£a 0016).  The Left
+        -- the two produced byte-identical answers (doa 0016).  The Left
         -- `look`/`jObj` had already composed is now the hetu, instead of
         -- being constructed and thrown away by `const`.
         (kr:_) -> case athava (JObj []) (vObjAt "angani" j) of
@@ -1746,20 +1746,20 @@ answer y0 kala line = do
           ([ "operations available:" ] ++ [ "  " ++ kName kr | kr <- kriyah ])
           srcTwoRoads )
     unnamed kr ns =
-      ( Mudra S.Apratipatti (Pratyaksa "every unread key is named back with its own reason, and the operation's whole adhikƒÅra beside it")
+      ( Mudra S.Apratipatti (Pratyaksa "every unread key is named back with its own reason, and the operation's whole adhikra beside it")
       , dosalekha (kName kr)
           ("`" ++ kName kr ++ "` was sent "
            ++ show (length ns) ++ " key(s) that nothing in it reads: "
-           ++ intercalate "; " [ "`" ++ n ++ "` ‚Äî " ++ w | (n, w) <- ns ])
-          ([ "the value you sent under `" ++ n ++ "`, which WAS uttered and would otherwise have been ignored in silence ‚Äî and with it the difference between `I did not send that` and `I sent it and you dropped it`"
+           ++ intercalate "; " [ "`" ++ n ++ "` ‚î " ++ w | (n, w) <- ns ])
+          ([ "the value you sent under `" ++ n ++ "`, which WAS uttered and would otherwise have been ignored in silence ‚î and with it the difference between `I did not send that` and `I sent it and you dropped it`"
            | (n, _) <- ns ]
-           ++ [ "the parameter you meant by it; it is NOT guessed at by nearest name, for the same reason an operation name is not ‚Äî a near miss executed silently is the collapse this machine exists to refuse" ])
+           ++ [ "the parameter you meant by it; it is NOT guessed at by nearest name, for the same reason an operation name is not ‚î a near miss executed silently is the collapse this machine exists to refuse" ])
           ([ "`" ++ kName kr ++ "` reads exactly these keys under `angani`, and no others:" ]
-           ++ (if null (kParams kr) then [ "  (none ‚Äî send `angani` empty or omit it)" ]
-                                    else [ "  " ++ p ++ " ‚Äî " ++ d | (p, d) <- kParams kr ])
-           ++ [ "if the key names something this machine should read and does not, that is a do·π£a and dosa.lekha takes it" ])
-          [ "PƒÅ·πáini, A·π£·π≠ƒÅdhyƒÅyƒ´ 1.4.1‚Äì2, c. 500 BCE ‚Äî adhikƒÅra: a heading governs a stated extent and nothing outside it, and viprati·π£edhe para·πÅ kƒÅryam decides inside it.  The extent is stated; a key outside it is not a weaker match, it is outside."
-          , "AHIMSA_SUTRA_VISTARA ¬ß19 ‚Äî ‡§Ø‡§§‡•ç ‡§Ö‡§®‡§ô‡•ç‡§ó‡•Ä‡§ï‡•É‡§§‡§Æ‡§æ‡§∞‡•ç‡§ó‡•á‡§£ ‡§Ü‡§ó‡§ö‡•ç‡§õ‡§§‡§ø ‡§§‡§§‡•ç ‡§® ‡§¶‡•Å‡§∞‡•ç‡§¨‡§≤‡§Ç ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç ‡•§ ‡§§‡§§‡•ç ‡§Ö‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç ‡•§" ] )
+           ++ (if null (kParams kr) then [ "  (none ‚î send `angani` empty or omit it)" ]
+                                    else [ "  " ++ p ++ " ‚î " ++ d | (p, d) <- kParams kr ])
+           ++ [ "if the key names something this machine should read and does not, that is a doa and dosa.lekha takes it" ])
+          [ "Pini, Adhyy 1.4.1‚ì2, c. 500 BCE ‚î adhikra: a heading governs a stated extent and nothing outside it, and vipratiedhe para kryam decides inside it.  The extent is stated; a key outside it is not a weaker match, it is outside."
+          , "AHIMSA_SUTRA_VISTARA ¬ß19 ‚î ‡Ø‡‡ ‡‡®‡ô‡‡ó‡‡ï‡‡‡Æ‡æ‡∞‡‡ó‡‡ ‡‡ó‡‡‡‡‡ø ‡‡‡ ‡® ‡¶‡‡∞‡‡‡≤‡ ‡‡‡∞‡Æ‡æ‡‡Æ‡ ‡ ‡‡‡ ‡‡‡‡∞‡Æ‡æ‡‡Æ‡ ‡" ] )
 
 appendLekha :: FilePath -> Int -> String -> Mudra -> Uttara -> IO ()
 appendLekha fp n line m u =
@@ -1798,23 +1798,23 @@ yantraMain = do
   -- SUPERSEDES, AND NOT INTO THIS ONE.
   --
   -- Uttara's header says the check runs "once per process, before any answer
-  -- is served": satya (137¬∑(‚àí7) + 60¬∑16 = 1, ƒÄryabha·π≠a's own worked ku·π≠·π≠aka,
-  -- Ga·πáitapƒÅda 32‚Äì33) MUST transport, asatya ‚Äî the same identity with one
-  -- side moved by one ‚Äî MUST NOT.  Both go through the very `samkramana`
+  -- is served": satya (137¬(‚àí7) + 60¬16 = 1, ryabhaa's own worked kuaka,
+  -- Gaitapda 32‚ì33) MUST transport, asatya ‚î the same identity with one
+  -- side moved by one ‚î MUST NOT.  Both go through the very `samkramana`
   -- every handler goes through.  `saksiPariksaOrRefuse` is called by
   -- Sabha_TheSessionKernelAnLLMTalksTo, twice, and this file's own header
   -- opens by declaring that it SUPERSEDES that module.  The supersession
   -- carried the twelve operations and left the falsifier behind.
   --
   -- So until this line, every answer this assembly served came from a
-  -- process that had never watched its own constructor reject a falsehood ‚Äî
+  -- process that had never watched its own constructor reject a falsehood ‚î
   -- which is exactly GATE_AUDIT_DISPOSITION.md ¬ß2's finding arriving one
   -- level up: there, 1753 systematically false equations produced zero
   -- certificates while three shell wrappers certified `s(x) = x`; a checker
   -- sound against mathematics and unsound against its environment.  Here the
   -- environment was the successor server.
   --
-  -- By ¬ß19 that is not a weak pramƒÅ·πáa, it is none ‚Äî ‡§Ö‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Ç ‡§® ‡§∏‡§û‡•ç‡§ö‡•Ä‡§Ø‡§§‡•á.
+  -- By ¬ß19 that is not a weak prama, it is none ‚î ‡‡‡‡∞‡Æ‡æ‡‡ ‡® ‡‡û‡‡‡‡Ø‡‡.
   -- The lines are printed so the watching is visible and not merely done,
   -- and the verdict is honoured in the same breath, because Uttara keeps
   -- report and verdict in two calls precisely so that ignoring one has to be
@@ -1829,8 +1829,8 @@ yantraMain = do
   let y0 = emptyYantra root bin
   if "--wire" `elem` args
     then do
-      hPutStrLn stderr "yantra ‚Äî one JSON object per line on stdin; one answer per line on stdout."
-      hPutStrLn stderr "every answer is a sa·πÉkrama·πáa or a do·π£a-lekha, and carries its nir·πáaya and its pramƒÅ·πáya."
+      hPutStrLn stderr "yantra ‚î one JSON object per line on stdin; one answer per line on stdout."
+      hPutStrLn stderr "every answer is a sakramaa or a doa-lekha, and carries its niraya and its pramya."
       hPutStrLn stderr ("transcript: " ++ fp)
       _ <- serve fp kala stdin stdout y0
       pure ()
@@ -1858,7 +1858,7 @@ script =
   , "{\"kriya\":\"naya.samasa\",\"angani\":{\"nayah\":[\"finding-A\",\"finding-B\"],\"arpana\":\"saha\"}}"
   , "{\"kriya\":\"naya.samasa\",\"angani\":{\"nayah\":[\"harm-is-real\",\"no-third-factor\"],\"arpana\":\"saha\"}}"
 
-  -- THE COLLISION: three organs, one site, the PƒÅ·πáinian scheduler
+  -- THE COLLISION: three organs, one site, the Pinian scheduler
   , "{\"kriya\":\"nirnaya.saptabhangi\",\"angani\":{\"nayah\":[\"harm-is-real\",\"episode-is-real\"],\"arpana\":\"saha\"}}"
   , "{\"kriya\":\"saptabhangi.samkramana\"}"
   , "{\"kriya\":\"saptabhangi.nasti\"}"
@@ -1881,7 +1881,7 @@ script =
   , "{\"kriya\":\"kuttaka\",\"angani\":{\"a\":12,\"b\":8,\"c\":5}}"
   , "{\"kriya\":\"vargaprakrti\",\"angani\":{\"D\":61}}"
   , "{\"kriya\":\"vargaprakrti\",\"angani\":{\"D\":61,\"n\":7}}"
-  , "{\"kriya\":\"pratyahara\",\"angani\":{\"adi\":\"a\",\"it\":\"·πá\"}}"
+  , "{\"kriya\":\"pratyahara\",\"angani\":{\"adi\":\"a\",\"it\":\"\"}}"
 
   -- what the wire turns back, and what it hands back instead
   , "{\"kriya\":\"naya.samasa\",\"angani\":{\"nayah\":[\"harm-is-real\"],\"arpana\":true}}"
@@ -1890,7 +1890,7 @@ script =
   , "not json at all"
 
   -- the log, and its chain, verified from inside
-  , "{\"kriya\":\"dosa.lekha\",\"angani\":{\"kriya\":\"translating avaktavya\",\"hetu\":\"no English word carries the fourth bhanga; `inexpressible` reads as a failure and it is a womb\",\"nasta\":[\"the positive sense: the remainder lives here and the next naya is born from it\",\"the saha/krama distinction that produces it, which English collapses into one adverb\"],\"sesa\":[\"keep the Sanskrit and gloss it in the same sentence\"]}}"
+  , "{\"kriya\":\"dosa.lekha\",\"angani\":{\"kriya\":\"translating avaktavya\",\"hetu\":\"no English word carries the fourth bhanga; `inexpressible` reads as a failure and it is a womb\",\"nasta\":[\"the positive sense: the remainder lives here and the next naya is born from it\",\"the saha/krama distinction that produces it, which English collapses into one adverb\"],\"sesa\":[\"keep the  and gloss it in the same sentence\"]}}"
   , "{\"kriya\":\"sesa.arpana\",\"angani\":{\"sesa\":[\"the three saptabhangi types are still three; the texts, not the types, settle whether avaktavya retains its pair\"]}}"
   , "{\"kriya\":\"dosa.pramanya\"}"
   , "{\"kriya\":\"dosa.suchi\"}"
@@ -1904,7 +1904,7 @@ selftest fp kala y0 = do
       step y line = do
         (y', m, u) <- answer y kala line
         putStrLn ""
-        putStrLn ("‚Üí " ++ line)
+        putStrLn ("‚í " ++ line)
         mapM_ (putStrLn . ("  " ++)) (uttaraLines u)
         mapM_ putStrLn (mudraLines m)
         -- THE CONTRACT, checked structurally rather than grepped for.
@@ -1941,12 +1941,12 @@ selftest fp kala y0 = do
 
   -- Exact identities, so this is not merely a shape test.
   putStrLn ""
-  putStrLn "‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ the exact checks"
+  putStrLn "‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î the exact checks"
   let pell = case VP.pellLaw 61 >>= VP.normOneSolution of
                Right (VP.Quad a b) -> (a, b)
                Left _ -> (0, 0)
       pellOK = pell == (1766319049, 226153980)
-      aN = P.pratyahara "a" "·πá"
+      aN = P.pratyahara "a" ""
       aNOK = aN == ["a", "i", "u"]
       isoOK = all (\s -> obToS (sToOb s) == s) allS
               && all (\b -> sToOb (obToS b) == b) allOB
@@ -1955,27 +1955,27 @@ selftest fp kala y0 = do
       g2 = G.SyadAvaktavyam (G.Sesa (G.Naya "c" [] "wc") (G.Naya "d" [] "wd"))
       collideOK = g1 /= g2 && smrtilopa g1 == smrtilopa g2
       uniqOK = null nameCollisions
-  putStrLn ("  cakravƒÅla D=61, law as a value ‚Üí " ++ show pell
-            ++ (if pellOK then "   (BhƒÅskara II's own value, Bƒ´jaga·πáita 1150)" else "   !! WRONG"))
-  putStrLn ("  a·πÜ ‚Üí " ++ unwords aN ++ (if aNOK then "   (the traditional value)" else "   !! WRONG"))
-  putStrLn ("  Saptabhangi.Sthana ‚âÉ ObligationAnalysis.Sthana, both round trips, "
-            ++ show (length allS + length allOB) ++ " cases ‚Üí "
+  putStrLn ("  cakravla D=61, law as a value ‚í " ++ show pell
+            ++ (if pellOK then "   (Bhskara II's own value, Bjagaita 1150)" else "   !! WRONG"))
+  putStrLn ("  a ‚í " ++ unwords aN ++ (if aNOK then "   (the traditional value)" else "   !! WRONG"))
+  putStrLn ("  Saptabhangi.Sthana ‚â ObligationAnalysis.Sthana, both round trips, "
+            ++ show (length allS + length allOB) ++ " cases ‚í "
             ++ (if isoOK then "holds" else "!! FAILS"))
-  putStrLn ("  Garbha ‚Üí Saptabhangi has no section (two distinct objects, one image) ‚Üí "
+  putStrLn ("  Garbha ‚í Saptabhangi has no section (two distinct objects, one image) ‚í "
             ++ (if collideOK then "collision exhibited" else "!! NOT REPRODUCED"))
-  putStrLn ("  replay ‚àò journal = id on the session's live store ‚Üí "
+  putStrLn ("  replay ‚àò journal = id on the session's live store ‚í "
             ++ (if roundOK then "holds" else "!! FAILS"))
-  putStrLn ("  dispatch names unique over the whole table ‚Üí "
+  putStrLn ("  dispatch names unique over the whole table ‚í "
             ++ (if uniqOK then "holds" else "!! " ++ intercalate ", " nameCollisions))
 
   putStrLn ""
-  putStrLn "‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ the session"
+  putStrLn "‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î the session"
   putStrLn ("  turns:              " ++ show (yTurn final))
   putStrLn ("  store entries:      " ++ show (length (K.koshaEntries (yKosha final))))
   putStrLn ("  defects written:    " ++ show (length (yDosa final)))
   putStrLn ("  defects filed:      "
             ++ show (length [ () | (_, Right _) <- yFiled final ])
-            ++ " accepted by the do·π£a-lekha, "
+            ++ " accepted by the doa-lekha, "
             ++ show (length [ () | (_, Left _) <- yFiled final ]) ++ " refused")
   forM_ (reverse (yFiled final)) $ \(i, r) -> case r of
     Left e -> putStrLn ("      turn " ++ show i ++ " REFUSED: " ++ e)

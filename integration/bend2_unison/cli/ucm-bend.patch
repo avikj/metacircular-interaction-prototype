@@ -1,0 +1,462 @@
+--- a/stack.yaml
++++ b/stack.yaml
+@@ -13,6 +13,10 @@
+   interleaved-output: false
+ 
+ packages:
++  - integration/bend2_unison
++  - vendor/Bend2
++  - vendor/HVM3
++  - vendor/hs-highlight
+   - codebase2/codebase
+   - codebase2/codebase-sqlite
+   - codebase2/codebase-sqlite-hashing-v2
+@@ -81,6 +85,9 @@
+   - numerals
+ 
+ ghc-options:
++  HVM: -Wwarn
++  bend: -Wwarn
++  hs-highlight: -Wwarn
+   # All packages
+   "$locals": -Wall -Werror -Wwarn=x-partial -Wno-missing-pattern-synonym-signatures -Wno-name-shadowing -Wunused-packages -fprint-expanded-synonyms -funbox-strict-fields -fwrite-ide-info # -freverse-errors
+ 
+--- a/unison-cli/package.yaml
++++ b/unison-cli/package.yaml
+@@ -21,6 +21,8 @@
+     - ansi-terminal
+     - attoparsec
+     - base
++    - bend
++    - bend-ucm
+     - bytestring
+     - cmark
+     - co-log-core
+--- a/unison-cli/unison-cli.cabal
++++ b/unison-cli/unison-cli.cabal
+@@ -1,6 +1,6 @@
+ cabal-version: 1.12
+ 
+--- This file has been generated from package.yaml by hpack version 0.39.1.
++-- This file has been generated from package.yaml by hpack version 0.39.6.
+ --
+ -- see: https://github.com/sol/hpack
+ 
+@@ -47,6 +47,7 @@
+       Unison.Codebase.Editor.HandleInput.AddRun
+       Unison.Codebase.Editor.HandleInput.AliasType
+       Unison.Codebase.Editor.HandleInput.AuthLogin
++      Unison.Codebase.Editor.HandleInput.BendLoad
+       Unison.Codebase.Editor.HandleInput.Branch
+       Unison.Codebase.Editor.HandleInput.Branches
+       Unison.Codebase.Editor.HandleInput.BranchRename
+@@ -134,6 +135,7 @@
+       Unison.CommandLine.Types
+       Unison.CommandLine.Welcome
+       Unison.LSP
++      Unison.LSP.Bend
+       Unison.LSP.CancelRequest
+       Unison.LSP.CodeAction
+       Unison.LSP.CodeLens
+@@ -231,6 +233,8 @@
+     , ansi-terminal
+     , attoparsec
+     , base
++    , bend
++    , bend-ucm
+     , bytestring
+     , cmark
+     , co-log-core
+--- a/unison-cli/src/Unison/CommandLine.hs
++++ b/unison-cli/src/Unison/CommandLine.hs
+@@ -7,6 +7,7 @@
+     ExpansionFailure (..),
+     FZFResolveFailure (..),
+     allow,
++    allowWatched,
+     parseInput,
+     prompt,
+     reportParseFailure,
+@@ -57,6 +58,11 @@
+   -- ignore Emacs .# prefixed files, see https://github.com/unisonweb/unison/issues/457
+   not (".#" `isPrefixOf` takeFileName p)
+     && (isSuffixOf ".u" p || isSuffixOf ".uu" p)
++
++-- Keep `load`'s Unison-source predicate separate from file watching: Bend2
++-- source is dispatched to its own checker when a watched file changes.
++allowWatched :: FilePath -> Bool
++allowWatched p = allow p || (not (".#" `isPrefixOf` takeFileName p) && isSuffixOf ".bend" p)
+ 
+ defaultWriteSourceFile :: Text -> Text -> Bool -> IO ()
+ defaultWriteSourceFile fp contents addFold = do
+--- a/unison-cli/src/Unison/CommandLine/Main.hs
++++ b/unison-cli/src/Unison/CommandLine/Main.hs
+@@ -33,7 +33,7 @@
+ import Unison.Codebase qualified as Codebase
+ import Unison.Codebase.Branch (Branch)
+ import Unison.Codebase.Editor.HandleInput qualified as HandleInput
+-import Unison.Codebase.Editor.Input (Event (UnisonFileChanged), Input (..))
++import Unison.Codebase.Editor.Input (Event (..), Input (..))
+ import Unison.Codebase.Editor.Output (NumberedArgs, Output, outputShouldUsePager)
+ import Unison.Codebase.Editor.UCMVersion (UCMVersion)
+ import Unison.Codebase.ProjectPath qualified as PP
+@@ -207,7 +207,7 @@
+       watchState <- case shouldWatchFiles of
+         ShouldNotWatchFiles -> pure Nothing
+         ShouldWatchFiles -> do
+-          ws <- Watch.newWatchState mgr allow
++          ws <- Watch.newWatchState mgr allowWatched
+           -- Add the working directory as the first watched path
+           _ <- Watch.watchPath ws dir
+           pure (Just ws)
+@@ -219,7 +219,10 @@
+             Nothing -> forever (threadDelay maxBound)
+             Just ws -> do
+               (file, contents) <- Watch.awaitEvent ws
+-              pure (UnisonFileChanged (Text.pack file) contents)
++              pure $
++                if List.isSuffixOf ".bend" file
++                  then BendFileChanged (Text.pack file) contents
++                  else UnisonFileChanged (Text.pack file) contents
+ 
+       -- On startup, we tell the user about any existing project names that don't pass the new project name regex,
+       -- which isn't enforced yet.
+@@ -353,7 +356,8 @@
+               -- typechecking, they are not likely to be trying to input things into the prompt nor trying to typecheck
+               -- a different file.
+               let stepEvent :: Event -> IO (Cli.ReturnType (), Cli.LoopState)
+-                  stepEvent event@(UnisonFileChanged file contents) = do
++                  stepEvent event = do
++                    let (file, contents) = eventSource event
+                     action <-
+                       Ki.scoped \scope -> do
+                         handleEventThread <- Ki.fork scope (stepInput (Left event))
+@@ -361,9 +365,9 @@
+                           Ki.fork scope do
+                             let loop =
+                                   awaitFileEvent >>= \case
+-                                    event2@(UnisonFileChanged file2 contents2)
+-                                      | file2 == file && contents /= contents2 -> pure event2
+-                                    _ -> loop
++                                    event2 ->
++                                      let (file2, contents2) = eventSource event2
++                                       in if file2 == file && contents /= contents2 then pure event2 else loop
+                             loop
+                         (atomically . asum)
+                           [ do
+@@ -374,6 +378,11 @@
+                               pure (stepEvent event2)
+                           ]
+                     action
++
++                  eventSource :: Event -> (Text, Text)
++                  eventSource = \case
++                    UnisonFileChanged file contents -> (file, contents)
++                    BendFileChanged file contents -> (file, contents)
+ 
+               let step :: IO (Cli.ReturnType (), Cli.LoopState)
+                   step = do
+--- a/unison-cli/src/Unison/CommandLine/InputPatterns.hs
++++ b/unison-cli/src/Unison/CommandLine/InputPatterns.hs
+@@ -7,6 +7,7 @@
+     api,
+     authLogin,
+     back,
++    bendRun,
+     branchEmptyInputPattern,
+     branchInputPattern,
+     branchRenameInputPattern,
+@@ -855,7 +856,7 @@
+             "parses, typechecks, and evaluates the most recent scratch file."
+           ),
+           ( makeExample load ["<scratch file>"],
+-            "parses, typechecks, and evaluates the given scratch file."
++            "parses, typechecks, and evaluates a Unison scratch file; a .bend file is checked and stored as native Bend2 components."
+           )
+         ]
+     )
+@@ -3294,6 +3295,18 @@
+           <*> traverse (unsupportedStructuredArgument execute "a command-line argument") args
+       [] -> wrongArgsLength "at least one argument" []
+ 
++bendRun :: InputPattern
++bendRun =
++  InputPattern
++    "bend.run"
++    []
++    I.Visible
++    (Parameters [("Bend2 source file or stored declaration name", filePathArg)] $ Optional [] Nothing)
++    (P.wrap "Execute a Bend2 file or a uniquely named stored Bend2 declaration on the full HVM4 runtime.")
++    \case
++      [file] -> Input.BendRunI <$> unsupportedStructuredArgument bendRun "a Bend2 file or stored name" file
++      args -> wrongArgsLength "exactly one file or name" args
++
+ execProfiled :: InputPattern
+ execProfiled =
+   InputPattern
+@@ -3847,7 +3860,7 @@
+       help =
+         P.wrapColumn2
+           [ ( makeExample watchInputPattern ["<file or directory>"],
+-              "Watch an external file or directory for changes. Changes to `.u` files in watched locations will be automatically loaded."
++              "Watch an external file or directory for changes. Changes to `.u`, `.uu`, and `.bend` files in watched locations will be automatically loaded."
+             )
+           ],
+       parse = \case
+@@ -3908,6 +3921,7 @@
+       api,
+       authLogin,
+       back,
++      bendRun,
+       branchEmptyInputPattern,
+       branchInputPattern,
+       branchRenameInputPattern,
+--- a/unison-cli/src/Unison/Codebase/Editor/Input.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/Input.hs
+@@ -55,6 +55,7 @@
+ 
+ data Event
+   = UnisonFileChanged SourceName Source
++  | BendFileChanged SourceName Source
+   deriving stock (Show)
+ 
+ type Source = Text -- "id x = x\nconst a b = a"
+@@ -162,6 +163,7 @@
+   | EditDependentsI !(HQ.HashQualified Name)
+   | EditNamespaceI [Path.Path']
+   | ExecuteI ProfileSpec (HQ.HashQualified Name) [String]
++  | BendRunI FilePath
+   | FindI Bool FindScope [String] -- isVerbose, findScope, query
+   | FindShallowI Path'
+   | ForkLocalBranchI (Either ShortCausalHash BranchRelativePath) BranchRelativePath
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput.hs
+@@ -45,6 +45,7 @@
+ import Unison.Codebase.Editor.AuthorInfo (AuthorInfo (..))
+ import Unison.Codebase.Editor.AuthorInfo qualified as AuthorInfo
+ import Unison.Codebase.Editor.HandleInput.AddRun (handleAddRun)
++import Unison.Codebase.Editor.HandleInput.BendLoad qualified as BendLoad
+ import Unison.Codebase.Editor.HandleInput.AliasType (handleAliasType)
+ import Unison.Codebase.Editor.HandleInput.AuthLogin (authLogin)
+ import Unison.Codebase.Editor.HandleInput.Branch (handleBranch)
+@@ -198,6 +199,8 @@
+       Cli.getLatestFile >>= \case
+         Just (_, True) | not env.isTranscriptTest -> (#latestFile . _Just . _2) .= False
+         _ -> loadUnisonFile sourceName text
++    Left (BendFileChanged sourceName text) ->
++      Cli.time "BendFileChanged" (BendLoad.handleBendFileChanged sourceName text)
+     Right input ->
+       Cli.time "InputPattern" case input of
+         -- this implementation will happily produce name conflicts,
+@@ -508,6 +511,7 @@
+         EditDependentsI name -> handleEditDependents name
+         EditNamespaceI paths -> handleEditNamespace (LatestFileLocation AboveFold) paths
+         ExecuteI prof main args -> handleRun prof main args
++        BendRunI path -> BendLoad.handleBendRun path
+         FindShallowI pathArg -> handleLs pathArg
+         FindI isVerbose fscope ws -> handleFindI isVerbose fscope ws input
+         ForkLocalBranchI src0 dest0 -> do
+@@ -535,6 +539,7 @@
+         LibInstallLocalI src destLibName -> handleInstallLocalLib src destLibName
+         ListDependenciesI hq -> handleDependencies hq
+         ListDependentsI hq -> handleDependents hq
++        LoadI (Just path) | List.isSuffixOf ".bend" path -> BendLoad.handleBendLoad path
+         LoadI maybePath -> handleLoad maybePath
+         MakeStandaloneI output main -> doCompile False output main
+         MergeBuiltinsI opath -> do
+@@ -752,6 +757,7 @@
+     DocToMarkdownI {} -> wat
+     EditNamespaceI {} -> wat
+     ExecuteI {} -> wat
++    BendRunI {} -> wat
+     ForkLocalBranchI src0 dest0 -> do
+       src <- either (pure . Text.pack . show) brp src0
+       dest <- brp dest0
+--- /dev/null
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/BendLoad.hs
+@@ -0,0 +1,185 @@
++module Unison.Codebase.Editor.HandleInput.BendLoad
++  ( handleBendFileChanged,
++    handleBendLoad,
++    handleBendRun,
++  )
++where
++
++import Bend.UCM.Execution qualified as BendExecution
++import Bend.UCM.Storage qualified as BendStorage
++import Control.Exception (evaluate)
++import Control.Exception qualified as Exception
++import Control.Monad.Reader (ask)
++import Core.Admission qualified as BendAdmission
++import Core.Provenance qualified as BendProvenance
++import Core.CLI qualified as Bend
++import Core.Type (Book)
++import Data.Map.Strict qualified as Map
++import Data.Set qualified as Set
++import Data.Text qualified as Text
++import System.Directory (makeAbsolute)
++import System.Environment (lookupEnv)
++import System.Exit (ExitCode)
++import Unison.Cli.Monad (Cli)
++import Unison.Cli.Monad qualified as Cli
++import Unison.Cli.MonadUtils qualified as Cli
++import Unison.Cli.NamesUtils qualified as Cli
++import Unison.Codebase qualified as Codebase
++import Unison.Codebase.Branch qualified as Branch
++import Unison.Codebase.BranchUtil qualified as BranchUtil
++import Unison.Codebase.Editor.Output qualified as Output
++import Unison.Codebase.Path qualified as Path
++import Unison.Prelude
++import Unison.Names qualified as Names
++import Unison.Referent qualified as Referent
++import Unison.Syntax.Name qualified as Name
++import U.Codebase.Sqlite.Reference qualified as S
++
++-- | A watched .bend file goes through Bend2 import resolution and checking,
++-- then its checked components enter UCM's native object store.
++handleBendFileChanged :: Text -> Text -> Cli ()
++handleBendFileChanged path source = do
++  admitted <- liftIO (checkBendFile (Text.unpack path) (Text.unpack source))
++  case admitted of
++    Left err -> Cli.respond (Output.Literal (fromString ("Bend2: " ++ err)))
++    Right checked -> do
++      saved <- saveAndLink path checked
++      Cli.respond . Output.Literal . fromString $ case saved of
++        Left err -> "Bend2 codebase: " ++ err
++        Right refs ->
++          "Bend2: checked and stored "
++            ++ show (length (BendAdmission.checkedMembers checked))
++            ++ " declarations ("
++            ++ show (length refs)
++            ++ " addressed names) from "
++            ++ Text.unpack path
++
++handleBendLoad :: FilePath -> Cli ()
++handleBendLoad path = do
++  sourceResult <- liftIO $ Exception.try (readFile path >>= \s -> evaluate (length s) >> pure s)
++  case sourceResult of
++    Left (err :: IOException) -> Cli.respond (Output.Literal (fromString (show err)))
++    Right source -> handleBendFileChanged (Text.pack path) (Text.pack source)
++
++-- | A native UCM command: the file is checked by Bend2, then its full
++-- cubical HVM4 net runs. It never enters Unison's term evaluator.
++handleBendRun :: FilePath -> Cli ()
++handleBendRun path
++  | not (Text.isSuffixOf ".bend" (Text.pack path)) = runStoredName path
++  | otherwise = runSourceFile path
++
++runSourceFile :: FilePath -> Cli ()
++runSourceFile path = do
++  sourceResult <- liftIO $ Exception.try (readFile path >>= \s -> evaluate (length s) >> pure s)
++  case sourceResult of
++    Left (err :: IOException) -> Cli.respond (Output.Literal (fromString (show err)))
++    Right source -> do
++      admitted <- liftIO (checkBendFile path source)
++      case admitted of
++        Left err -> Cli.respond (Output.Literal (fromString ("Bend2: " ++ err)))
++        Right checked -> do
++          saved <- saveAndLink (Text.pack path) checked
++          case saved of
++            Left err -> Cli.respond (Output.Literal (fromString ("Bend2 codebase: " ++ err)))
++            Right refs -> case Map.lookup "main" refs of
++              Nothing -> Cli.respond (Output.Literal "Bend2: no main definition")
++              Just mainRef -> do
++                env <- ask
++                loaded <- liftIO $ Codebase.runTransaction env.codebase (BendStorage.loadDependencyClosedEntryBook mainRef)
++                case loaded of
++                  Left err -> Cli.respond (Output.Literal (fromString ("Bend2 codebase: " ++ err)))
++                  Right (entry, book) -> either reportEntry runChecked (BendExecution.selectEntryAsMain entry book)
++
++-- | Resolve an already admitted member in the current project branch. The
++-- branch's hash/member reference selects a precise version, so old source
++-- presentations with the same authored name cannot hijack this run.
++runStoredName :: String -> Cli ()
++runStoredName name = do
++  names <- Cli.currentNames
++  let found = do
++        parsed <- maybe (Left ("invalid UCM name: " ++ name)) Right (Name.parseText (Text.pack name))
++        case Set.toList (Names.termsNamed names parsed) of
++          [referent] -> maybe
++            (Left ("name is not an executable term: " ++ name))
++            Right
++            (Referent.toTermReferenceId referent)
++          [] -> Left ("no term named " ++ name ++ " in the current branch")
++          _ -> Left ("ambiguous term name in the current branch: " ++ name)
++  case found of
++    Left err -> Cli.respond (Output.Literal (fromString ("Bend2 codebase: " ++ err)))
++    Right ref -> do
++      env <- ask
++      loaded <- liftIO $ Codebase.runTransaction env.codebase (BendStorage.loadDependencyClosedEntryBookByHashRef ref)
++      case loaded of
++        Left err -> Cli.respond (Output.Literal (fromString ("Bend2 codebase: " ++ err)))
++        Right (entry, book) -> either reportEntry runChecked (BendExecution.selectEntryAsMain entry book)
++
++reportEntry :: String -> Cli ()
++reportEntry err = Cli.respond (Output.Literal (fromString ("Bend2: " ++ err)))
++
++-- | Add checked addresses to both the native object store and the current
++-- project's causal branch. A branch step contains refs to the same canonical
++-- component members that were just persisted.
++saveAndLink :: Text -> BendAdmission.CheckedSource -> Cli (Either String (Map.Map String S.Id))
++saveAndLink path checked =
++  case BendStorage.branchBindings checked of
++    Left err -> pure (Left err)
++    Right (terms, types) -> do
++      current <- Cli.currentNames
++      case (traverse (termActions current) terms, traverse (typeActions current) types) of
++        (Right termEdits, Right typeEdits) -> do
++          env <- ask
++          saved <- liftIO $ Codebase.runTransaction env.codebase (BendStorage.saveCheckedSource checked)
++          case saved of
++            Left err -> pure (Left err)
++            Right _ -> do
++              pp <- Cli.getCurrentProjectPath
++              Cli.stepAt ("bend.load " <> path) (pp, Branch.batchUpdates (concat termEdits <> concat typeEdits))
++              pure saved
++        (Left err, _) -> pure (Left err)
++        (_, Left err) -> pure (Left err)
++  where
++    parsed name = maybe
++      (Left ("Bend2 name cannot enter UCM branch: " ++ name))
++      Right
++      (Name.parseText (Text.pack name))
++    termActions current (name, referent) = do
++      unisonName <- parsed name
++      let split = Path.splitFromName unisonName
++          old = Set.toList (Names.termsNamed current unisonName)
++      pure (map (BranchUtil.makeDeleteTermName split) old <> [BranchUtil.makeAddTermName split referent])
++    typeActions current (name, reference) = do
++      unisonName <- parsed name
++      let split = Path.splitFromName unisonName
++          old = Set.toList (Names.typesNamed current unisonName)
++      pure (map (BranchUtil.makeDeleteTypeName split) old <> [BranchUtil.makeAddTypeName split reference])
++
++runChecked :: Book -> Cli ()
++runChecked book = do
++  hvm <- liftIO $ fromMaybe "hvm" <$> lookupEnv "HVM4"
++  outcome <- liftIO $ BendExecution.runCheckedBook hvm book
++  Cli.respond . Output.Literal . fromString $ case outcome of
++    Left err -> "HVM4: " ++ show err
++    Right result -> BendExecution.output result ++ BendExecution.diagnostics result
++
++checkBendFile :: FilePath -> String -> IO (Either String BendAdmission.CheckedSource)
++checkBendFile path source = do
++  absolutePath <- makeAbsolute path
++  parsed <- Exception.try (Bend.parseFile absolutePath) :: IO (Either ExitCode Book)
++  case parsed of
++    Left err -> pure (Left ("import or parse failed: " ++ show err))
++    Right book -> do
++      origins <- BendProvenance.collectFileOrigins absolutePath book
++      pure $ case origins of
++        Left err -> Left err
++        Right found -> either (Left . renderAdmission) Right
++          (BendAdmission.admitBookWithOrigins absolutePath source book found)
++
++renderAdmission :: BendAdmission.AdmissionError -> String
++renderAdmission = \case
++  BendAdmission.ParseFailure err -> "parse: " ++ err
++  BendAdmission.DefinitionTypeFailure name err -> "type of " ++ name ++ ": " ++ show err
++  BendAdmission.DefinitionTermFailure name err -> "definition " ++ name ++ ": " ++ show err
++  BendAdmission.HitTypeFailure name err -> "HIT " ++ name ++ ": " ++ show err
++  BendAdmission.HitConstructorFailure hit ctor err -> "HIT " ++ hit ++ "." ++ ctor ++ ": " ++ show err
++  BendAdmission.OriginFailure err -> "source: " ++ err

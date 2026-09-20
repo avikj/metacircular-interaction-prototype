@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§Ö‡§®‡•Å‡§≤‡•ã‡§Æ-‡§µ‡§ø‡§≤‡•ã‡§Æ ‚Äî with the grain and against it.
+-- ‡‡®‡‡≤‡ã‡Æ-‡µ‡ø‡≤‡ã‡Æ ‚î with the grain and against it.
 --
--- Three theorems about the lossless universal machine of Vishvayantra,
+-- Three theorems about the lossless universal machine of Vishvamachine,
 -- each an answer the completed step gives that the visible step cannot.
 --
 --  1. THE TRACE COMPOSES.  For any maps g, f and any target c,
 --
---       fiber (g ‚àò f) c  ‚âÉ  Œ£ (w : fiber g c). fiber f (œÄ‚ÇÅ w)
+--       fiber (g ‚àò f) c  ‚â  Œ (w : fiber g c). fiber f (œ‚ w)
 --
---     ‚Äî the kept fibre of a composite is the composite of kept fibres.
+--     ‚î the kept fibre of a composite is the composite of kept fibres.
 --     Instantiated at the machine: fiber (run (m + n)) factors through
 --     the n-fibre and then the m-fibre (`trace-composes`), so the
 --     ledger of a long run is assembled from the ledgers of its legs,
@@ -46,7 +46,7 @@ open import Cubical.Data.List using (List ; [])
 open import Cubical.Data.List.Properties using (isOfHLevelList)
 open import Cubical.Data.Maybe using (Maybe ; nothing ; rec ; isOfHLevelMaybe)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 
 private
   variable
@@ -149,6 +149,6 @@ halting-time-is-a-proposition mc (n , h , least) (n' , h' , least') =
          (‚â§-antisym (least n' h') (least' n h))
 
 -- The empty table's first halt is computed: depth zero, silence by
--- refl, minimality by zero-‚â§.
+-- refl, minimality by zero-‚â.
 empty-first-halt : (c : Conf) ‚Üí FirstHalt ([] , c) zero
 empty-first-halt c = refl , Œª m _ ‚Üí zero-‚â§

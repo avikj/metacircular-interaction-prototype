@@ -1,34 +1,34 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤…à¤­à¥‡à¤¦-à¤­à¥‡à¤¦à¤ƒ â€” à¤¦à¥ƒà¤·à¥à¤Ÿà¥à¤¯à¤¾ à¤…à¤­à¤¿à¤¨à¥à¤¨à¤‚ à¤µà¤¸à¥à¤¤à¥à¤¤à¥‹ à¤­à¤¿à¤¨à¥à¤¨à¤®à¥ à¥¤
+-- àààà¦-ààà¦à â” à¦ààààŸàà¯à¾ ààà¿à¨àà¨à àµàààààà‹ àà¿à¨àà¨à®à à
 --
 -- (indistinguishable to the view, distinct in fact.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- LEIBNIZ, BOTH WAYS, IN ONE FILE â€” and the fibre is the gap between them.
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- LEIBNIZ, BOTH WAYS, IN ONE FILE â” and the fibre is the gap between them.
 --
--- Â§à¥§ Â· `cong` is the indiscernibility of identicals and it is FREE: apply
+-- Â§à§ Â `cong` is the indiscernibility of identicals and it is FREE: apply
 -- any function to equal things and get equal results.  It carries no
--- hypothesis because it is not a theorem about anything â€” it is
+-- hypothesis because it is not a theorem about anything â” it is
 -- constitutive of what equality is.  That is why the fibre law transports
 -- everywhere and why it is the SHALLOWEST available statement rather than
 -- a deep one.
 --
--- Â§à¥¨ Â· Its contrapositive is every barrier in every science, exhibited
+-- Â§à¨ Â Its contrapositive is every barrier in every science, exhibited
 -- here at the minimum: an observation under which two distinct things
--- agree.  `à¤¬à¤¹à¥à¤¦à¤°à¥à¤¶à¤¨à¤®à¥` cannot separate `true` from `false`, and they are
+-- agree.  `àààà¦à°ààà¨à®à` cannot separate `true` from `false`, and they are
 -- not equal.  Nothing about the observation is weak, small, or
 -- improvable: no post-processing of `tt` recovers the bit.
 --
--- Â§à¥© Â· And univalence is Leibniz's OTHER law â€” identity of indiscernibles
--- â€” which does not fail: when the class is everything, indistinguishable
+-- Â§à© Â And univalence is Leibniz's OTHER law â” identity of indiscernibles
+-- â” which does not fail: when the class is everything, indistinguishable
 -- IS identical, and in cubical it computes.
 --
 -- SO THE FIBRE IS EXACTLY THE GAP between "indistinguishable by THIS
--- observation" (Â§à¥¨, and it is a real gap) and "indistinguishable by ALL
--- structure" (Â§à¥©, and there the gap is zero).  A barrier is the report
--- that one is not at the limit â€” misfiled, in every field that has one,
+-- observation" (Â§à¨, and it is a real gap) and "indistinguishable by ALL
+-- structure" (Â§à©, and there the gap is zero).  A barrier is the report
+-- that one is not at the limit â” misfiled, in every field that has one,
 -- as a report about the terrain.
 --
 -- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
@@ -48,14 +48,14 @@ open import Cubical.Data.Sigma using (_Ã—_ ; _,_)
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à¥§ Â· à¤¤à¤¾à¤¦à¤¾à¤¤à¥à¤®à¥à¤¯à¤¸à¥à¤¯ à¤…à¤­à¥‡à¤¦à¤ƒ â€” indiscernibility of identicals, free.
+-- à§ Â àà¾à¦à¾ààà®àà¯ààà¯ àààà¦à â” indiscernibility of identicals, free.
 ------------------------------------------------------------------------
 
 à¤…à¤­à¥‡à¤¦à¤ƒ : {A B : Type â„“} (F : A â†’ B) {x y : A} â†’ x â‰¡ y â†’ F x â‰¡ F y
 à¤…à¤­à¥‡à¤¦à¤ƒ F = cong F
 
 ------------------------------------------------------------------------
--- à¥¨ Â· à¤¦à¥ƒà¤·à¥à¤Ÿà¤¿-à¤¸à¥€à¤®à¤¾ â€” an observation under which two distinct things agree.
+-- à¨ Â à¦ààààŸà¿-ààà®à¾ â” an observation under which two distinct things agree.
 --
 -- The witness is minimal on purpose: nothing about this observation is
 -- weak or small, and no amount of work on its output recovers the bit.
@@ -78,7 +78,7 @@ private variable â„“ : Level
 à¤…à¤­à¥‡à¤¦-à¤­à¥‡à¤¦à¤ƒ = à¤…à¤­à¤¿à¤¨à¥à¤¨à¤‚-à¤¦à¤°à¥à¤¶à¤¨à¥‡ , à¤­à¤¿à¤¨à¥à¤¨à¤‚-à¤µà¤¸à¥à¤¤à¥à¤¤à¤ƒ
 
 ------------------------------------------------------------------------
--- à¥© Â· à¤ªà¥‚à¤°à¥à¤£-à¤¦à¥ƒà¤·à¥à¤Ÿà¥Œ à¤¨ à¤­à¥‡à¤¦à¤ƒ â€” and when the class is everything, it does not
+-- à© Â ààà°àà-à¦ààààŸà à¨ ààà¦à â” and when the class is everything, it does not
 --     fail: an exhibited equivalence IS an identity, and it computes.
 ------------------------------------------------------------------------
 

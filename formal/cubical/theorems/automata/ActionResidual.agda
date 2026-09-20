@@ -387,7 +387,7 @@ module IntegerFormationEvent where
   two≢zero : ¬ (pos 2 ≡ pos 0)
   two≢zero h = snotz (injPos h)
 
-  -- The changed frontier is stronger than splitting one sign orbit: over ℤ
+  -- The changed frontier is stronger than splitting one sign orbit: over �
   -- the formed residual alone is faithful.  The proof uses torsion-freeness
   -- exactly once, as cancellation of multiplication by 2.
   residual-injective :

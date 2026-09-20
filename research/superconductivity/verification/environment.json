@@ -1,0 +1,9 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "sympy": "1.14.0",
+  "script_sha256": "4bd738a20d7373e18f4746c80f29639f8a66fd6e1bf0aa667d8fed0b314bc06b",
+  "script_git_blob_sha1": "7a07c8b7a9e48610672f4d9a81a1a99c487e80e1",
+  "assertions": 56,
+  "status": "passed",
+  "scope": "Exact finite rational controls for written general proofs. No finite-temperature or proof-assistant claim."
+}

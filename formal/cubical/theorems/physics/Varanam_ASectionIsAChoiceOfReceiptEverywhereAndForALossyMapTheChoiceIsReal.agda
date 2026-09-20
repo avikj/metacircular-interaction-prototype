@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤µà¤°à¤£à¤®à¥ â€” à¤¯à¤¤à¥à¤° à¤¨ à¤•à¤¿à¤à¥à¤šà¤¿à¤¤à¥ à¤—à¥‚à¤¢à¤‚ à¤¤à¤¤à¥à¤° à¤µà¤°à¤£à¤‚ à¤¨ à¤…à¤¸à¥à¤¤à¤¿ à¥¤
+-- àµà°àà®à â” à¯ààà° à¨ à•à¿àààà¿àà à—ààà àààà° àµà°àà à¨ ààààà¿ à
 --
 -- (where nothing is hidden there is no choosing.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- A SECTION IS A CHOICE OF RECEIPT AT EVERY POINT.  Given `f : A â†’ B`, a
--- section picks, for each `b`, an inhabitant of the fibre over it â€” a
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- A SECTION IS A CHOICE OF RECEIPT AT EVERY POINT.  Given `f : A â’ B`, a
+-- section picks, for each `b`, an inhabitant of the fibre over it â” a
 -- preimage together with the witness that it IS one.  That is exactly
 -- "choose a receipt everywhere", and this file prices the space of such
 -- choices.
 --
--- Â§à¥¨ Â· WHEN NOTHING IS HIDDEN, THERE IS NOTHING TO CHOOSE.  If `f` is an
+-- Â§à¨ Â WHEN NOTHING IS HIDDEN, THERE IS NOTHING TO CHOOSE.  If `f` is an
 -- equivalence, every fibre is contractible, so the space of sections is
 -- contractible: the choice exists and is unique, which is to say it is
 -- not a choice.
 --
--- Â§à¥© Â· WHEN SOMETHING IS HIDDEN, THE CHOICE IS REAL.  `Bool â†’ Unit` has
+-- Â§à© Â WHEN SOMETHING IS HIDDEN, THE CHOICE IS REAL.  `Bool â’ Unit` has
 -- two sections and they are distinct.  Nothing decides between them and
 -- nothing in the codomain can see which was taken.
 --
 -- READ AT MOVEMENT 22.  Spontaneous symmetry breaking is the vacuum
 -- choosing a point in a formerly free fibre, and mass is the coupling to
--- that paid receipt.  Â§à¥© is that at the smallest scale: a two-point
+-- that paid receipt.  Â§à© is that at the smallest scale: a two-point
 -- vacuum manifold, two sections, no ground for preferring either, and the
--- observable blind to the choice.  Â§à¥¨ is the other half and it is
--- `Dhruva`'s sentence from the section side â€” a lossless world has
+-- observable blind to the choice.  Â§à¨ is the other half and it is
+-- `Dhruva`'s sentence from the section side â” a lossless world has
 -- nothing to choose, exactly as it has nothing to conserve and nowhere to
 -- move.
 --
@@ -47,14 +47,14 @@ open import Cubical.Relation.Nullary using (Â¬_)
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à¥§ Â· à¤µà¤°à¤£à¤®à¥ â€” a choice of receipt at every point of the codomain.
+-- à§ Â àµà°àà®à â” a choice of receipt at every point of the codomain.
 ------------------------------------------------------------------------
 
 à¤µà¤°à¤£à¤®à¥ : {A B : Type â„“} â†’ (A â†’ B) â†’ Type â„“
 à¤µà¤°à¤£à¤®à¥ {B = B} f = (b : B) â†’ fiber f b
 
 ------------------------------------------------------------------------
--- à¥¨ Â· à¤…à¤•à¥à¤·à¤¯à¥‡ à¤µà¤°à¤£à¤‚ à¤¨ â€” no loss, no choosing.
+-- à¨ Â àà•ààà¯à àµà°àà à¨ â” no loss, no choosing.
 --
 -- Every fibre contractible makes the whole space of sections
 -- contractible: there is a choice, it is unique, and therefore it is not
@@ -65,9 +65,9 @@ private variable â„“ : Level
 à¤…à¤•à¥à¤·à¤¯à¥‡-à¤µà¤°à¤£à¤‚-à¤¨ f e = isContrÎ  (Î» b â†’ equiv-proof e b)
 
 ------------------------------------------------------------------------
--- à¥© Â· à¤•à¥à¤·à¤¯à¥‡ à¤µà¤°à¤£à¤‚ à¤¸à¤¤à¥ â€” where a bit is hidden, the choice is real.
+-- à© Â à•ààà¯à àµà°àà ààà â” where a bit is hidden, the choice is real.
 --
--- Two sections of `Bool â†’ Unit`, distinct, with nothing to decide between
+-- Two sections of `Bool â’ Unit`, distinct, with nothing to decide between
 -- them and nothing downstream able to see which was taken.
 ------------------------------------------------------------------------
 

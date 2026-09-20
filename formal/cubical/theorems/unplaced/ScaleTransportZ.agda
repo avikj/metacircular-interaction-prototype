@@ -4,26 +4,26 @@
 -- ScaleTransportZ
 --
 -- Discharging the abstract order/analytic fields of ScaleTransportCriticality
--- over the concrete ordered group ℤ.  This turns obligations B and C from the
+-- over the concrete ordered group �.  This turns obligations B and C from the
 -- ledger into checked terms:
 --
 --   B  (functional equation, dual-exp)  : the exponent pairing exp(dual m) =
---        −exp m is supplied by ± pairing; here it is a hypothesis of
+--        −exp m is supplied by � pairing; here it is a hypothesis of
 --        `all-critical` discharged trivially by any concrete symmetric mode set.
---   C  (grows-unbounds)                 : PROVED — a positive integer exponent
+--   C  (grows-unbounds)                 : PROVED � a positive integer exponent
 --        makes the additive scale orbit unbounded (`grows`), by an Archimedean
 --        bound `orbit-lb`.  No longer a field.
---   the order layer (¬<0→≤0, antisymmetry, neg≤0→0≤) : PROVED from ℤ's order.
+--   the order layer (�<0��0, antisymmetry, neg�0�0�) : PROVED from �'s order.
 --
 -- Obligation A (the explicit formula bridging the arithmetic B(t) to these
--- exponent modes) is the classical analytic input — Prop 2/3 of the derivation,
--- Bombieri §V — and needs ζ's continuation, so it lives outside this arithmetic
+-- exponent modes) is the classical analytic input � Prop 2/3 of the derivation,
+-- Bombieri §V � and needs �'s continuation, so it lives outside this arithmetic
 -- kernel; it is not a --safe term and is cited, not faked.
 --
 -- Obligation D, held in view: in this model `Bounded (exp m)` is exactly
--- `exp m ≤ 0` (`boundedOrbit→≤0` / `≤0→boundedOrbit`), so D — proving every
--- orbit bounded from the arithmetic side — is exactly "every exponent ≤ 0",
--- i.e. Θ ≤ ½; with the ± pairing (B) `all-critical` then gives exp ≡ 0,
+-- `exp m � 0` (`boundedOrbit��0` / `�0�boundedOrbit`), so D � proving every
+-- orbit bounded from the arithmetic side � is exactly "every exponent � 0",
+-- i.e. Θ � ½; with the � pairing (B) `all-critical` then gives exp ≡ 0,
 -- i.e. Θ = ½.  D is the sole remaining mountain.
 ------------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import ScaleTransportCriticality
 
 ------------------------------------------------------------------------
--- §1  ℤ is an OrderedExponents (the order fields, proved).
+-- §1  � is an OrderedExponents (the order fields, proved).
 ------------------------------------------------------------------------
 
 z-¬<0→≤0 : {a : ℤ} → ¬ (pos 0 < a) → a ≤ pos 0
@@ -79,7 +79,7 @@ orbit e (suc n) = orbit e n + e
 BoundedOrbit : ℤ → Type₀
 BoundedOrbit e = Σ[ B ∈ ℤ ] ((n : ℕ) → orbit e n ≤ B)
 
--- pos(suc n) = pos n + pos 1, in ℤ.
+-- pos(suc n) = pos n + pos 1, in �.
 sucpos : (n : ℕ) → pos (suc n) ≡ pos n + pos 1
 sucpos n = sym (cong pos (+-comm n 1)) ∙ pos+ n 1
 
@@ -112,7 +112,7 @@ boundedOrbit→≤0 : (e : ℤ) → BoundedOrbit e → e ≤ pos 0
 boundedOrbit→≤0 e bo = z-¬<0→≤0 (λ 0<e → grows e 0<e bo)
 
 ------------------------------------------------------------------------
--- §3  A concrete transport over ℤ, with B and C discharged, and the
+-- §3  A concrete transport over �, with B and C discharged, and the
 --     criticality corollary specialised.
 ------------------------------------------------------------------------
 
@@ -129,7 +129,7 @@ mkTransport Mode exp dual de = record
   ; dual-exp       = de
   }
 
--- The concrete criticality theorem: over ℤ, functional-equation pairing plus
+-- The concrete criticality theorem: over �, functional-equation pairing plus
 -- all orbits bounded forces every exponent to 0 (every zero on the line).
 all-critical :
     (Mode : Type₀) (exp : Mode → ℤ) (dual : Mode → Mode)
@@ -139,10 +139,10 @@ all-critical :
 all-critical Mode exp dual de bdd =
   criticality ℤexp (mkTransport Mode exp dual de) bdd
 
--- D's sufficiency, stated exactly: if every exponent is nonpositive (Θ ≤ ½)
+-- D's sufficiency, stated exactly: if every exponent is nonpositive (Θ � ½)
 -- and the functional equation pairs exponents (B), then every exponent is 0
 -- (Θ = ½).  This is the whole RH-shaped conclusion, resting solely on the
--- nonpositivity estimate D = "(m) → exp m ≤ 0".
+-- nonpositivity estimate D = "(m) � exp m � 0".
 criticality-from-≤0 :
     (Mode : Type₀) (exp : Mode → ℤ) (dual : Mode → Mode)
   → (de : (m : Mode) → exp (dual m) ≡ (- exp m))

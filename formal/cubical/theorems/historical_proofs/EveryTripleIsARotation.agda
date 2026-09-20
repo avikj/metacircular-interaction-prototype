@@ -5,40 +5,40 @@
 --
 -- The capstone of the conic thread, and a repair of something Â§5 of
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE OVERSELL
 --
 -- Â§5 says norm-one rotations give "a family of structured identifications
--- of the circle", contrasting with the line, which has none.  True â€” but
--- over â„¤ the norm-one elements are the four units, so "family" meant
+-- of the circle", contrasting with the line, which has none.  True â” but
+-- over â the norm-one elements are the four units, so "family" meant
 -- four, and four is a thin thing to set against the line's zero.
 --
 -- The family is infinite, and it is indexed by the Pythagorean triples.
--- That is what this module proves, and it needs no â„š machinery: one ring
+-- That is what this module proves, and it needs no â machinery: one ring
 -- identity does it.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE STATEMENT
 --
---     tripleâ†’rotation :  IsTriple u z  â†’  (c Â· z) Â· (c Â· z) â‰¡ 1r
---                     â†’  N (c âŠ™ u) â‰¡ 1r
+--     tripleâ’rotation :  IsTriple u z  â’  (c Â z) Â (c Â z) â‰¡ 1r
+--                     â’  N (c âŠ™ u) â‰¡ 1r
 --
 -- A Pythagorean triple, scaled by the inverse of its hypotenuse, is a
 -- point of norm one.  So over any ring in which hypotenuses are
--- invertible â€” â„š, for one â€” **every triple is a rotation of the circle**,
+-- invertible â” â, for one â” **every triple is a rotation of the circle**,
 -- and by `PythagoreanTransition.rotEquiv` and `ua`, an identification of
 -- the circle with itself carrying the norm.
 --
 -- Composed with `euclid` (every pair squares to a triple) this reads:
 --
---     pairâ†’rotation :  (c Â· N t) Â· (c Â· N t) â‰¡ 1r
---                   â†’  N (c âŠ™ gen t) â‰¡ 1r
+--     pairâ’rotation :  (c Â N t) Â (c Â N t) â‰¡ 1r
+--                   â’  N (c âŠ™ gen t) â‰¡ 1r
 --
--- â€” every pair t whatsoever, once its norm is invertible, names a
+-- â” every pair t whatsoever, once its norm is invertible, names a
 -- rotation.  The parametrisation that produces triples produces the
 -- identifications.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- AND IT IS A HOMOMORPHISM ALL THE WAY DOWN
 --
 --     gen-hom  :  gen (s âŠ— t) â‰¡ gen s âŠ— gen t     (PythagoreanTransition)
@@ -46,14 +46,14 @@
 --
 -- So the chain
 --
---     pairs  â”€â”€genâ”€â”€â–¶  triples  â”€â”€rotâ”€â”€â–¶  rotations  â”€â”€uaâ”€â”€â–¶  paths
+--     pairs  â”â”genâ”â”â–  triples  â”â”rotâ”â”â–  rotations  â”â”uaâ”â”â–  paths
 --
 -- is a chain of monoid maps.  Composition of pairs by Brahmagupta's
 -- 628 CE law becomes composition of identifications of the circle.  That
 -- is what the conic has and the line does not, said at full strength and
 -- with the right cardinality this time.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -125,11 +125,11 @@ module Rotations (R : CommRing â„“) where
 ------------------------------------------------------------------------
 -- 4.  The sentence, at full strength.
 --
---     pairs â”€â”€genâ”€â”€â–¶ triples â”€â”€rotâ”€â”€â–¶ rotations â”€â”€uaâ”€â”€â–¶ paths,
+--     pairs â”â”genâ”â”â– triples â”â”rotâ”â”â– rotations â”â”uaâ”â”â– paths,
 --
 -- every arrow a monoid map, every rotation an identification of the
 -- circle carrying its norm (`PythagoreanTransition.defect-vanishes`), and
--- the family indexed by every pair whose norm inverts.  Over â„¤ that is
+-- the family indexed by every pair whose norm inverts.  Over â that is
 -- four; over a ring with ratios it is all of them.
 --
 -- The line has none of this, and `SuccessorIsNotTropical.disjoint-support`

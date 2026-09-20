@@ -10,7 +10,7 @@ The memorising form is a record containing its endpoints, the full execution tra
 
 The generalising form is a record containing its endpoints, an applicability family that is a substitution witness, and a family of outcome equalities.  It fires at every instance of its pattern, and its soundness costs nothing: the substitution lemma already present in the calculus moves the substitution into the environment, the skill's own outcome family holds there because it holds everywhere, and the lemma moves it back.  Generalisation is free; memorisation is what costs.
 
-The separation.  The library, the merge, the frontier expansion, the session and the retirement step all range over the memorising record.  The generalising record is a different type in a lower universe, and it holds an outcome family where the other holds a trace.  An outcome family is a map into a subsingleton and carries no route; a library entry must carry its route, because that is what makes the entry unforgeable.  Therefore the form that generalises is exactly the form that cannot be installed, merged, offered by the frontier, or retired into a new skill.  ~~This is not an engineering gap we intend to close by a refactor~~ â€” **STRUCK, see REFUTED below; it was closed by exactly that**; it is the statement that transmissible authority and pattern coverage are supported by different fields, and we give both records so the trade is inspectable.
+The separation.  The library, the merge, the frontier expansion, the session and the retirement step all range over the memorising record.  The generalising record is a different type in a lower universe, and it holds an outcome family where the other holds a trace.  An outcome family is a map into a subsingleton and carries no route; a library entry must carry its route, because that is what makes the entry unforgeable.  Therefore the form that generalises is exactly the form that cannot be installed, merged, offered by the frontier, or retired into a new skill.  ~~This is not an engineering gap we intend to close by a refactor~~ â” **STRUCK, see REFUTED below; it was closed by exactly that**; it is the statement that transmissible authority and pattern coverage are supported by different fields, and we give both records so the trade is inspectable.
 
 Two further measurements.  Where a generalising skill's pattern contains no free register, the substitutions enabled at its one state form an entire copy of the term algebra and every member emits the same output, so the fibre over an emission is unbounded and no deduplication heuristic collapses a redundant pair - it collapses that fibre.  And emission does not determine the witness: we prove the discarded substitution is not recoverable from what the skill produced.
 
@@ -22,16 +22,16 @@ reading and is not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
 
-## REFUTED, 2026-09-09 â€” and the means were already in the corpus
+## REFUTED, 2026-09-09 â” and the means were already in the corpus
 
 The headline separation does not hold. It was a property of **which field** the
 generalising record carried, not of generalisation. Each step of the abstract's
-chain is correct â€” the memorising record holds a trace, the generalising record
+chain is correct â” the memorising record holds a trace, the generalising record
 was written holding an outcome family, an outcome family carries no route,
-hence it cannot be installed â€” and the conclusion still does not follow,
+hence it cannot be installed â” and the conclusion still does not follow,
 because the generalising record does not have to hold an outcome family.
 
-`Kernel/Adesa_â€¦` proves `subDeriv`: substitution is admissible on derivations,
+`Kernel/Adesa_â¦` proves `subDeriv`: substitution is admissible on derivations,
 so a substitution witness pushes through a whole trace and yields a trace of
 the substituted endpoints. That lemma was in the repository **before this
 abstract was last revised**, and the revision kept the struck sentence.
@@ -40,7 +40,7 @@ kernel/TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass (634 lines,
 2026-08-26) drops `source`, `target` and `control-sound` and keeps the obligation
 they discharged as a field:
 
-    certify : (t : Tm) (c : Control t) â†’ Derivation t (apply t c)
+    certify : (t : Tm) (c : Control t) â’ Derivation t (apply t c)
 
 Both forms are constructors of one record. `ground` recovers the memorising
 skill with nothing lost; `schema` is installable and carries a real derivation

@@ -1,0 +1,26 @@
+--- a/HVM.cabal
++++ b/HVM.cabal
+@@ -17,12 +17,12 @@
+ 
+ library
+     default-language: GHC2024
+-    build-depends:    base ^>=4.21.0.0,
++    build-depends:    base >=4.20 && <4.22,
+                       mtl ^>=2.3.1,
+                       containers ^>=0.7,
+                       parsec ^>=3.1.17.0,
+                       hs-highlight ^>= 1.0.5,
+-                      ansi-terminal == 1.1.1,
++                      ansi-terminal >=1.1.1 && <1.2,
+                       file-embed,
+                       process,
+                       libffi,
+@@ -50,7 +50,7 @@
+ 
+ executable hvm
+     default-language: GHC2024
+-    build-depends:    base ^>=4.21.0.0,
++    build-depends:    base >=4.20 && <4.22,
+                       containers ^>=0.7,
+                       network
+     main-is:          Main.hs

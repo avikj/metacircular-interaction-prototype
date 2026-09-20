@@ -45,7 +45,7 @@ ContextGauge = Torus.Ctx → Bool
 _⋆_ : EdgeSign → ContextGauge → EdgeSign
 (signs ⋆ gauge) observable = signs observable ⊕ δ₀ gauge observable
 
--- We group the six terms in two triples.  This is the same F₂ cycle parity
+-- We group the six terms in two triples.  This is the same F� cycle parity
 -- as any other parenthesization.
 cycleParity : EdgeSign → Bool
 cycleParity signs =

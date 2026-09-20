@@ -7,19 +7,19 @@
 -- a bigger point.
 --
 -- `machinery/situated_constructor_port.py` (legacy, read not run) claims
--- to be "a three-point executable theorem": a live *port* — a supplied
--- relation `g ▸ c ≡ r` on top of the endpoint relation `g ▸ s ≡ t` —
+-- to be "a three-point executable theorem": a live *port* � a supplied
+-- relation `g � c ≡ r` on top of the endpoint relation `g � s ≡ t` �
 -- "trivializes a constructor torsor without canonizing it", certified by
--- enumerating `S₃`.  This module states and checks what that enumeration
+-- enumerating `S�`.  This module states and checks what that enumeration
 -- was standing in for, and it needs no enumeration, because it needs no
 -- new theorem: the ported transporter of an action `A` is *literally the
--- unported transporter of the product action* `A × B` at the pair point
--- `(s , c)`.  Restore and balance — the unfamiliar operation is reduced
+-- unported transporter of the product action* `A � B` at the pair point
+-- `(s , c)`.  Restore and balance � the unfamiliar operation is reduced
 -- to the one already justified.
 --
 -- Everything torsor-theoretic is then cited, not reproved, from
 -- `StabilizerTorsor` (R0027; `isTorsorT`,
--- `uniqueCertificate→contrStab`, `contrStab→uniqueCertificate`).  The
+-- `uniqueCertificate�contrStab`, `contrStab�uniqueCertificate`).  The
 -- new content of this file is exactly four things:
 --
 --   §1  `prodAction`         the diagonal action on pairs, so that
@@ -45,7 +45,7 @@
 --                            group, once.
 --   §4  two controls,        `unitPortRedundant`: a port into a set the
 --       opposite verdicts    group cannot move is redundant for every
---                            action — so "the port fired" is not a
+--                            action � so "the port fired" is not a
 --                            consequence of a port being *declared*.
 --                            `regularPortTrivializes`: a port into the
 --                            regular action at `1g` forces the joint
@@ -85,7 +85,7 @@ private
 -- §1  The diagonal action on pairs.
 --
 -- This is the whole reduction.  Once it exists, "port" is a defined
--- word: a port on a transporter of `A` is a transporter of `A × B`.
+-- word: a port on a transporter of `A` is a transporter of `A � B`.
 ------------------------------------------------------------------------
 
 prodAction : (G : Group ℓ) {X : Type ℓ'} {Y : Type ℓ''}
@@ -135,7 +135,7 @@ module Port (G : Group ℓ) {X : Type ℓ'} {Y : Type ℓ''}
   fromPort (g , e) = g , cong fst e , cong snd e
 
   -- (2.2) Forgetting the port.  The Python module's last line, "port
-  -- withdrawn: lawful transporter = …", is this map.
+  -- withdrawn: lawful transporter = �", is this map.
   forgetPort : {s t : X} {c r : Y} → P.T (s , c) (t , r) → TX.T s t
   forgetPort (g , e) = g , cong fst e
 
@@ -177,7 +177,7 @@ module Port (G : Group ℓ) {X : Type ℓ'} {Y : Type ℓ''}
   -- The theorem.  If a REDUNDANT port makes the ported selection unique,
   -- then the unported selection was already unique: the port bought
   -- nothing.  (`isContr (TX.Stab s)` is R0027's exact trivialization
-  -- criterion for the unported transporter, `TX.contrStab→
+  -- criterion for the unported transporter, `TX.contrStab�
   -- uniqueCertificate`.)
   redundantPortCertifiesNothing : {s t : X} {c r : Y}
     → RedundantPort s c
@@ -214,7 +214,7 @@ module Port (G : Group ℓ) {X : Type ℓ'} {Y : Type ℓ''}
     → isContr (P.Stab (s , c)) → isProp (P.T (s , c) (t , r))
   trivialJointStab→portDecides = P.contrStab→uniqueCertificate
 
-  -- …and the non-canonicity, also cited: even when the port decides,
+  -- �and the non-canonicity, also cited: even when the port decides,
   -- any two ported certificates differ by a UNIQUE joint-stabilizer
   -- element.  Trivialized, not canonized.
   portedTorsor : {s t : X} {c r : Y} (t₁ t₂ : P.T (s , c) (t , r))
@@ -232,7 +232,7 @@ module Port (G : Group ℓ) {X : Type ℓ'} {Y : Type ℓ''}
 --
 -- The tuple of points whose joint stabilizer is contractible is a BASE
 -- of the action in the sense of computational group theory (Sims 1970;
--- Schreier–Sims); this iteration is its stabilizer chain.  Cited.
+-- Schreier�Sims); this iteration is its stabilizer chain.  Cited.
 ------------------------------------------------------------------------
 
 twoPortAction : (G : Group ℓ) {X : Type ℓ'} {Y : Type ℓ''} {Z : Type ℓ'''}
@@ -261,7 +261,7 @@ unitPortRedundant : (G : Group ℓ) {X : Type ℓ'} (A : Action G X) (s : X)
 unitPortRedundant G A s g p = refl
 
 -- (6.2) A port into the regular action at the identity.  The joint
--- stabilizer is contractible for EVERY group and EVERY base action —
+-- stabilizer is contractible for EVERY group and EVERY base action �
 -- including bases whose own stabilizer is all of G.
 regularAction : (G : Group ℓ) → Action G ⟨ G ⟩
 Action.isSetX (regularAction G)    = GroupStr.is-set (snd G)
@@ -286,7 +286,7 @@ module _ (G : Group ℓ) where
     , λ u → Torsor.transporterPath G (prodAction G A (regularAction G))
               (sym (sym (·IdR (fst u)) ∙ cong snd (snd u))) )
 
-  -- …hence every ported certificate against the regular port is unique,
+  -- �hence every ported certificate against the regular port is unique,
   -- however big the unported stabilizer `Stab s` was.
   regularPortDecides : {X : Type ℓ'} (A : Action G X) (s : X) {t : X} {r : ⟨ G ⟩}
     → isProp (Torsor.T G (prodAction G A (regularAction G)) (s , 1g) (t , r))

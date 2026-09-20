@@ -14,7 +14,7 @@
 --      canonical iff that group is trivial"
 --
 -- stated for an abstract category S of repairs (objects: pairs
--- (Y , Œπ : X ‚Üí Y) solving the defect; morphisms: maps under X ‚Äî the
+-- (Y , Œ : X ‚í Y) solving the defect; morphisms: maps under X ‚î the
 -- slice is NOT constructed here, because the schema never uses it: it
 -- holds verbatim in any category, and the note states it that way).
 --
@@ -24,31 +24,31 @@
 --     actR                It acts on the repairs Iso S x y on the right,
 --     isTorsor            and the action is FREE and TRANSITIVE:
 --                         for f g : CatIso S x y the type
---                         Œ£[a ‚àà Aut y] (f ‚ãÜ a ‚â° g) is CONTRACTIBLE.
+--                         Œ[a ‚àà Aut y] (f ‚ã a ‚â° g) is CONTRACTIBLE.
 --                         The centre is the explicit transporter
---                         `transporter f g = f‚Åª¬π ‚ãÜ g`.
---     actFree             Freeness, separately: f ‚ãÜ a ‚â° f ‚ãÜ b ‚Üí a ‚â° b.
+--                         `transporter f g = f‚ª¬ ‚ã g`.
+--     actFree             Freeness, separately: f ‚ã a ‚â° f ‚ã b ‚í a ‚â° b.
 --
---  2. trivializeAut       A CHOSEN repair f‚ÇÄ trivialises the torsor:
---                         Aut y ‚âÉ CatIso S x y, a ‚Ü¶ f‚ÇÄ ‚ãÜ a.  This is
+--  2. trivializeAut       A CHOSEN repair f‚ trivialises the torsor:
+--                         Aut y ‚â CatIso S x y, a ‚¶ f‚ ‚ã a.  This is
 --                         FOUR_REPAIR_MODES.md Thm 3 ("the set of
 --                         completions is empty or a V^Œì-torsor; a lift
 --                         must be chosen") as the special case where the
---                         group is Aut of the repaired object ‚Äî the
+--                         group is Aut of the repaired object ‚î the
 --                         specialisation the task asked for, obtained by
 --                         instantiating S, not by a second proof.
 --
---  3. rigid‚ÜíisoUnique     RIGIDITY: if Aut_S(y) is trivial then any two
---     rigid‚ÜíisContrIso    isomorphisms x ‚âÖ y are EQUAL, so x is
---     nonRigid‚ÜítwoIsos    "unique up to UNIQUE isomorphism"; and
+--  3. rigid‚íisoUnique     RIGIDITY: if Aut_S(y) is trivial then any two
+--     rigid‚íisContrIso    isomorphisms x ‚â y are EQUAL, so x is
+--     nonRigid‚ítwoIsos    "unique up to UNIQUE isomorphism"; and
 --                         conversely a nonidentity automorphism produces
 --                         two distinct isomorphisms.  This is the
 --                         rigid/non-rigid separation the note uses to
---                         distinguish tower steps 1‚Äì3 from step 4.
+--                         distinguish tower steps 1‚ì3 from step 4.
 --
---  4. initial‚ÜíAutTrivial  PROPOSITION 9 itself: an initial object of S
---     initial‚ÜíisContrIso  has trivial automorphism group and is unique
---     nonRigid‚ÜínotInitial up to unique isomorphism; contrapositively an
+--  4. initial‚íAutTrivial  PROPOSITION 9 itself: an initial object of S
+--     initial‚íisContrIso  has trivial automorphism group and is unique
+--     nonRigid‚ínotInitial up to unique isomorphism; contrapositively an
 --                         object with Aut ‚â† 1 is not initial.
 --
 --  5. Z2Repair            A finite instance, computed: the one-object
@@ -59,18 +59,18 @@
 --                         is checked BY COMPUTATION (`refl`).
 --
 -- Inputs quoted from the note, NOT formalised here and deliberately so:
--- Aut(‚Ñ§) = Aut(‚Ñö) = Aut(‚Ñù) = 1 and Aut(‚ÑÇ/‚Ñù) ‚âÖ ‚Ñ§/2 (note Thm 6) need
+-- Aut(‚) = Aut(‚) = Aut(‚) = 1 and Aut(‚/‚) ‚â ‚/2 (note Thm 6) need
 -- real and complex analysis and are out of reach of this lane.  They are
--- the note's cited inputs; the general lemma they feed ‚Äî item 3 ‚Äî is
+-- the note's cited inputs; the general lemma they feed ‚î item 3 ‚î is
 -- what is proved here.  Item 5 is the abstract shape of Thm 6(iv): two
 -- square roots of ‚àí1 interchanged by a group of order two, with no
--- claim that it IS ‚ÑÇ/‚Ñù.
+-- claim that it IS ‚/‚.
 --
 -- Delta against PathIsSymmetry, which already proves a
--- rigidity result (‚Ñï-algebra-Aut-trivial, swap01-‚â¢-id): that module
+-- rigidity result (‚ï-algebra-Aut-trivial, swap01-‚â-id): that module
 -- shows ONE object is rigid and one is not, in the category of types.
--- This module proves what rigidity BUYS ‚Äî uniqueness of the comparison
--- isomorphism ‚Äî for an arbitrary category, and is disjoint from it; it
+-- This module proves what rigidity BUYS ‚î uniqueness of the comparison
+-- isomorphism ‚î for an arbitrary category, and is disjoint from it; it
 -- is the general lemma of which that pair is an instance.
 ------------------------------------------------------------------------
 
@@ -184,7 +184,7 @@ module _ (S : Category ‚Ñì ‚Ñì') where
 -- 2.  A chosen repair trivialises the torsor.
 --
 --     This is FOUR_REPAIR_MODES.md Thm 3's "chosen lift" as a special
---     case: with a lift f‚ÇÄ chosen, the repairs are IN BIJECTION with the
+--     case: with a lift f‚ chosen, the repairs are IN BIJECTION with the
 --     group; without one there is a torsor and no distinguished point.
 ------------------------------------------------------------------------
 
@@ -199,7 +199,7 @@ module _ (S : Category ‚Ñì ‚Ñì') where
   trivializeAut f‚ÇÄ = isoToEquiv (trivializeIso f‚ÇÄ)
 
 ------------------------------------------------------------------------
--- 3.  Rigidity: trivial Aut ‚áí unique isomorphism, and the converse.
+-- 3.  Rigidity: trivial Aut ‚í unique isomorphism, and the converse.
 ------------------------------------------------------------------------
 
   AutTrivial : ob ‚Üí Type ‚Ñì'
@@ -219,7 +219,7 @@ module _ (S : Category ‚Ñì ‚Ñì') where
   rigid‚ÜíisContrIso triv f = f , rigid‚ÜíisoUnique triv f
 
   -- Conversely, a nonidentity automorphism gives two distinct
-  -- comparisons ‚Äî the repair is then not canonical.
+  -- comparisons ‚î the repair is then not canonical.
   nonRigid‚ÜítwoIsos : {x y : ob} (f : Repairs x y) (a : Aut y)
                    ‚Üí ¬¨ (a ‚â° idCatIso) ‚Üí ¬¨ (actR f a ‚â° f)
   nonRigid‚ÜítwoIsos f a a‚â¢id p =
@@ -257,9 +257,9 @@ module _ (S : Category ‚Ñì ‚Ñì') where
 --
 --     The one-object groupoid on Bool: identity `false`, composition
 --     `xor`.  Every morphism is invertible and is its own inverse, so
---     Aut of the unique object is ‚Ñ§/2.  This is the abstract shape of
---     the note's Thm 6(iv) ‚Äî two square roots of ‚àí1, interchanged by a
---     group of order two ‚Äî WITHOUT any claim to be ‚ÑÇ/‚Ñù.
+--     Aut of the unique object is ‚/2.  This is the abstract shape of
+--     the note's Thm 6(iv) ‚î two square roots of ‚àí1, interchanged by a
+--     group of order two ‚î WITHOUT any claim to be ‚/‚.
 ------------------------------------------------------------------------
 
 xorAssoc : (a b c : Bool) ‚Üí (a ‚äï b) ‚äï c ‚â° a ‚äï (b ‚äï c)
@@ -314,7 +314,7 @@ transporter-carries = actR-transporter Z2Repair (boolIso false) (boolIso true)
 Z2-not-rigid : ¬¨ (AutTrivial Z2Repair tt)
 Z2-not-rigid triv = true‚â¢false (cong fst (triv (boolIso true)))
 
--- Hence, by Proposition 9, it is not initial ‚Äî the finite mirror of the
+-- Hence, by Proposition 9, it is not initial ‚î the finite mirror of the
 -- note's step 4.
 Z2-not-initial : ¬¨ (isInitial Z2Repair tt)
 Z2-not-initial =

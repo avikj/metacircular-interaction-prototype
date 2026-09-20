@@ -1,52 +1,52 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Saptabhangi — the sevenfold conditional predication, as a checked type
+-- Saptabhangi � the sevenfold conditional predication, as a checked type
 --
 -- SOURCES, EARLIEST FIRST.  These are the origin of the doctrine, not a
 -- gloss on it, and this file cites them because the structure below is
 -- theirs and not mine.
 --
---   Bhagavatī Sūtra (Viyāha-pannatti / Vyākhyāprajñapti), the fifth
---     Aṅga of the Śvetāmbara canon; oldest strata pre-Common-Era, redacted
---     at the Valabhī council c. 5th c. CE.  Contains the tri-padī —
---     `uppannei vā, vigamei vā, dhuvei vā` ("it arises, it perishes, it
---     endures") — and applies a sevenfold predication to the jīva.
+--   Bhagavat Stra (Viyha-pannatti / Vykhyprajapti), the fifth
+--     Aga of the vetmbara canon; oldest strata pre-Common-Era, redacted
+--     at the Valabh council c. 5th c. CE.  Contains the tri-pad �
+--     `uppannei v, vigamei v, dhuvei v` ("it arises, it perishes, it
+--     endures") � and applies a sevenfold predication to the jva.
 --
---   Umāsvāti, Tattvārthasūtra, c. 2nd–5th c. CE.
---     1.6   pramāṇanayair adhigamaḥ
---             — the categories are known by pramāṇas AND by nayas.
---     1.33  naigama-saṃgraha-vyavahārarjusūtra-śabda-samabhirūḍhaivaṃbhūtā
---           nayāḥ
---             — the seven standpoints.  (Sarvārthasiddhi/Digambara
---               numbering; the Śvetāmbara Bhāṣya recension splits the same
---               list across 1.34–1.35.)
---     5.29  utpāda-vyaya-dhrauvya-yuktaṃ sat
---             — what exists is endowed with origination, cessation and
+--   Umsvti, Tattvrthastra, c. 2nd�5th c. CE.
+--     1.6   pramanayair adhigama
+--             � the categories are known by pramas AND by nayas.
+--     1.33  naigama-sagraha-vyavahrarjustra-abda-samabhirhaivabht
+--           nay
+--             � the seven standpoints.  (Sarvrthasiddhi/Digambara
+--               numbering; the vetmbara Bhya recension splits the same
+--               list across 1.34�1.35.)
+--     5.29  utpda-vyaya-dhrauvya-yukta sat
+--             � what exists is endowed with origination, cessation and
 --               persistence, all three at once.
---     5.31  arpitānarpitasiddheḥ
---             — apparently contradictory attributes are established
+--     5.31  arpitnarpitasiddhe
+--             � apparently contradictory attributes are established
 --               through the distinction of the ASSERTED (arpita) and the
---               UNASSERTED (anarpita) aspect.  This sūtra is the standpoint
---               index, stated as such, in the 2nd–5th century.
+--               UNASSERTED (anarpita) aspect.  This stra is the standpoint
+--               index, stated as such, in the 2nd�5th century.
 --
---   Siddhasena Divākara, Sanmatitarka (Prakrit Sammai-suttaṃ), c. 5th c. CE.
---     1.21  a naya taken alone (nirapekṣa) is mithyā; taken with regard to
---           the others (sāpekṣa) it is samyak.  The DURNAYA is exactly the
+--   Siddhasena Divkara, Sanmatitarka (Prakrit Sammai-sutta), c. 5th c. CE.
+--     1.21  a naya taken alone (nirapeka) is mithy; taken with regard to
+--           the others (speka) it is samyak.  The DURNAYA is exactly the
 --           naya that has forgotten it is one.
---     1.28  jāvaiyā vayaṇapahā tāvaiyā ceva hoṃti ṇayavāyā — there are as
+--     1.28  jvaiy vayaapah tvaiy ceva hoti ayavy � there are as
 --           many nayas as there are ways of speaking.
 --
---   Samantabhadra, Āptamīmāṃsā, c. 6th c. CE — the saptabhaṅgī as a fixed
---     seven-membered scheme, each member prefixed `syāt`.
---   Akalaṅka, Laghīyastraya / Aṣṭaśatī, c. 720–780 CE — the argument that
---     the number is EXACTLY seven: three primary (mūla) predicates and
+--   Samantabhadra, ptamms, c. 6th c. CE � the saptabhag as a fixed
+--     seven-membered scheme, each member prefixed `syt`.
+--   Akalaka, Laghyastraya / Aaat, c. 720�780 CE � the argument that
+--     the number is EXACTLY seven: three primary (mla) predicates and
 --     their combinations, 3 + 3 + 1.  That argument is `saptabhangi-iso`
 --     below, and it is the only reason this file has an Iso in it.
---   Mallisena, Syādvādamañjarī, 1292 CE — sakalādeśa (the total statement,
---     which is pramāṇa) versus vikalādeśa (the partial statement, which is
---     naya).  Avaktavya is what happens when sakalādeśa is demanded of a
---     vikalādeśa-shaped medium.  That is the reading formalised in §5.
+--   Mallisena, Sydvdamajar, 1292 CE � sakaldea (the total statement,
+--     which is prama) versus vikaldea (the partial statement, which is
+--     naya).  Avaktavya is what happens when sakaldea is demanded of a
+--     vikaldea-shaped medium.  That is the reading formalised in §5.
 --
 -- WHY IT IS IN THIS REPOSITORY.
 --
@@ -54,7 +54,7 @@
 -- a Bool collapsing at least three distinct things, and replaces it with a
 -- three-valued type.  The doctrine says the collapse goes further than
 -- that, and says by how much.  Two facts from `machine/machine.log`, both
--- at round 0, QUOTED VERBATIM AND NOT POINTED AT — that file is gitignored
+-- at round 0, QUOTED VERBATIM AND NOT POINTED AT � that file is gitignored
 -- and is rewritten by every engine run, so no commit fixes its bytes and no
 -- position in it names anything.  The quotations below ARE the object:
 --
@@ -62,15 +62,15 @@
 --     KERNEL-REJECT  x = (xmaxx)  ... refl has type x ≡ max x x
 --     KERNEL-ACCEPT  x = (xmaxx)  (induction on x, step = cong suc)
 --
---   as the log stands 2026-08-20 — the same claim, still both ways:
+--   as the log stands 2026-08-20 � the same claim, still both ways:
 --     KERNEL-ACCEPT round=0 x = (xmaxx)  (induction on x, step = cong suc, 4 agda calls)
 --     KERNEL-REJECT round=0 x = (xmaxx)  (4 agda calls) [naya=induction on x] kernel gate environment fault
 --
 -- The SAME claim, in the SAME round, denied and affirmed.  Nothing about
 -- the claim changed.  What changed is the standpoint: `refl` and
 -- `induction on x` are two nayas, and the verdict was never a property of
--- the claim alone.  `syād asti`; `syād nāsti`; and the pair of them is the
--- third bhaṅga, taken KRAMA (successively) — which is why both lines can
+-- the claim alone.  `syd asti`; `syd nsti`; and the pair of them is the
+-- third bhaga, taken KRAMA (successively) � which is why both lines can
 -- stand in one log without contradiction.
 --
 -- §5 is the part that is not decoration.  It proves that the joint content
@@ -97,9 +97,9 @@ private
     ℓ : Level
 
 ------------------------------------------------------------------------
--- §1  NAYA — the standpoints
+-- §1  NAYA � the standpoints
 --
--- Not the seven nayas of Tattvārthasūtra 1.33.  Those classify ways of
+-- Not the seven nayas of Tattvrthastra 1.33.  Those classify ways of
 -- REFERRING; these are the three provers the machine actually runs, read
 -- off `machine/machine.log`'s own tactic vocabulary.
 --
@@ -113,37 +113,37 @@ private
 --     333  induction on x, step = cong suc
 --      53  refl                  (`(refl, N agda calls)`)
 --
--- READ THE AS-OF LINE, NOT THE NUMBERS — and prefer not to quote them at
+-- READ THE AS-OF LINE, NOT THE NUMBERS � and prefer not to quote them at
 -- all.  Three things make every figure above perishable, and all three
 -- were observed, not assumed:
 --
 --   * `machine/machine.log` is gitignored (`.gitignore`:16).  It is absent
 --     from a fresh clone, so NOTHING here is reproducible from one.
---   * It is append-only across runs — 61 `DISPATCH` blocks are in it at
---     this size — so `round=N` is not a unique event and every count is a
+--   * It is append-only across runs � 61 `DISPATCH` blocks are in it at
+--     this size � so `round=N` is not a unique event and every count is a
 --     monotone function of a file that keeps growing.
 --   * It is LIVE.  While this block was being re-measured on 2026-08-18
 --     the log went from 10475 to 10700 lines, and the first four counts
---     moved 820→837, 626→637, 520→529, 327→333 in that interval.  The
+--     moved 820�837, 626�637, 520�529, 327�333 in that interval.  The
 --     numbers above were stale before this comment was saved.
 --
 -- That is the whole reason the earlier text rotted: until 2026-08-18 this
 -- block read 663 / 480 / 420 / 255 / 43 in the present tense with no log
 -- size attached, and `notes/INDIAN_LANE_CITATION_AUDIT.md` F2 read
--- 778 / 566 / 490 / 305 off the same named file at audit time — a third
+-- 778 / 566 / 490 / 305 off the same named file at audit time � a third
 -- set of figures for the same "fact".  Substituting today's would only
 -- re-arm the trap, so what is recorded is the pair (count, log size), and
 -- if you re-measure you must replace both or delete the block.
 --
 -- The numbers are ILLUSTRATIVE ONLY.  Nothing below depends on them:
 -- §1's content is that the three standpoints are pairwise distinct
--- (`rewriter≢refl` and its two siblings, proved below), not that any one
+-- (`rewriter�refl` and its two siblings, proved below), not that any one
 -- of them is popular.  This file's own header quotes two individual log
 -- LINES verbatim instead of an aggregate.
 --
 -- CORRECTED 2026-08-20.  This paragraph used to name the POSITIONS (146 and
 -- 174) and argued that an append-only log makes a position durable.  It
--- does not, and the log is not append-only across runs — it is regenerated,
+-- does not, and the log is not append-only across runs � it is regenerated,
 -- and it is gitignored, so nothing can pin it at all.  Both numbers have
 -- since rotted: position 146 today is a KERNEL-SKIP of a different claim,
 -- and the refl-typed refusal that was quoted is no longer anywhere in the
@@ -195,17 +195,17 @@ refl≢ind p = nayaEncode p
 ------------------------------------------------------------------------
 -- §2  KRAMA versus YUGAPAT, at the level of types
 --
--- The third bhaṅga (`syād asti nāsti ca`) and the fourth (`syād
+-- The third bhaga (`syd asti nsti ca`) and the fourth (`syd
 -- avaktavyam`) are built from the same two ingredients and differ ONLY in
 -- the mode of assertion: krama, in succession, versus yugapat, at once.
 -- The classical texts insist this is a real difference and not a verbal
 -- one.  Here it is, as two types.
 --
 -- P n is the type of evidence that the claim holds FROM naya n.  `asti` is
--- inhabitation of P at some naya; `nāsti` is refutation of P at some naya.
--- Note that `nāsti` is denial relative to a standpoint (para-dravya,
--- para-kṣetra, para-kāla, para-bhāva — the classical fourfold ground), NOT
--- absolute falsity.  `x · 0 ≡ 0` is nāsti for kernel-refl and true.
+-- inhabitation of P at some naya; `nsti` is refutation of P at some naya.
+-- Note that `nsti` is denial relative to a standpoint (para-dravya,
+-- para-ketra, para-kla, para-bhva � the classical fourfold ground), NOT
+-- absolute falsity.  `x � 0 ≡ 0` is nsti for kernel-refl and true.
 ------------------------------------------------------------------------
 
 module Modes (P : Naya → Type ℓ) where
@@ -225,7 +225,7 @@ module Modes (P : Naya → Type ℓ) where
   Yugapat = Σ[ n ∈ Naya ] (P n × (¬ P n))
 
   -- The simultaneous demand is unsatisfiable.  This is NOT the definition
-  -- of avaktavyam — see §5 — it is the reason avaktavyam is needed.
+  -- of avaktavyam � see §5 � it is the reason avaktavyam is needed.
   yugapat-empty : ¬ Yugapat
   yugapat-empty (_ , p , ¬p) = ¬p p
 
@@ -233,7 +233,7 @@ module Modes (P : Naya → Type ℓ) where
   yugapat→krama : Yugapat → Krama
   yugapat→krama (n , p , ¬p) = (n , p) , (n , ¬p)
 
--- Given a genuine disagreement between two standpoints, the third bhaṅga
+-- Given a genuine disagreement between two standpoints, the third bhaga
 -- is inhabited and the fourth is not, so they are not the same type.
 module _ (P : Naya → Type ℓ) (n m : Naya) (p : P n) (¬p : ¬ P m) where
 
@@ -253,13 +253,13 @@ module _ (P : Naya → Type ℓ) (n m : Naya) (p : P n) (¬p : ¬ P m) where
 ------------------------------------------------------------------------
 -- §3  THE LANGUAGE OF STANDPOINTED PREDICATION
 --
--- Mallisena's vikalādeśa: a single utterance carries ONE aspect asserted
--- (arpita) and leaves the rest unasserted (anarpita) — Tattvārthasūtra
+-- Mallisena's vikaldea: a single utterance carries ONE aspect asserted
+-- (arpita) and leaves the rest unasserted (anarpita) � Tattvrthastra
 -- 5.31.  So the atoms of the language are exactly (standpoint, polarity).
 --
 -- A PROFILE is what a claim actually is, prior to any utterance: the
--- verdict of every standpoint at once.  That is the pramāṇa-level object
--- (sakalādeśa).  An utterance is a partial view of it.
+-- verdict of every standpoint at once.  That is the prama-level object
+-- (sakaldea).  An utterance is a partial view of it.
 ------------------------------------------------------------------------
 
 Profile : Type₀
@@ -280,10 +280,10 @@ denotes (asti-from  n) φ = φ n
 denotes (nasti-from n) φ = not (φ n)
 
 ------------------------------------------------------------------------
--- §4  PRAMĀṆA IS NOT NAYA  (Tattvārthasūtra 1.6)
+-- §4  PRAMA IS NOT NAYA  (Tattvrthastra 1.6)
 --
 -- A naya is a projection of the profile.  No projection recovers the
--- profile, so a naya is never a pramāṇa — which is why 1.6 names both and
+-- profile, so a naya is never a prama � which is why 1.6 names both and
 -- does not reduce either to the other.
 ------------------------------------------------------------------------
 
@@ -300,14 +300,14 @@ naya-not-pramana kernel-ind =
   , λ e → true≢false (cong (λ f → f rewriter) e)
 
 ------------------------------------------------------------------------
--- §5  AVAKTAVYAM — the load-bearing section
+-- §5  AVAKTAVYAM � the load-bearing section
 --
--- THE CLAIM BEING MODELLED is the one the log carries twice — affirmed by
+-- THE CLAIM BEING MODELLED is the one the log carries twice � affirmed by
 -- the rewriter, denied by kernel-refl; both quotations are in the header.  Its joint content
--- — the thing both lines are jointly about — is this predicate on
+-- � the thing both lines are jointly about � is this predicate on
 -- profiles:
 --
---       joint φ  =  φ affirms at rewriter  AND  φ denies at kernel-refl
+--       joint �  =  � affirms at rewriter  AND  � denies at kernel-refl
 --
 -- Everything avaktavyam is NOT:
 --
@@ -315,7 +315,7 @@ naya-not-pramana kernel-ind =
 --   NOT UNKNOWN.    Both of its values are realised by explicit profiles
 --                   (`joint-realised`, `joint-refuted`); nothing is
 --                   awaiting information.
---   NOT "NEITHER".  At the profile that realises it, asti holds AND nāsti
+--   NOT "NEITHER".  At the profile that realises it, asti holds AND nsti
 --                   holds (`joint-is-both`).  It is the assertion of both,
 --                   not the withholding of both.
 --   NOT EMPTY.      It is inhabited.
@@ -323,8 +323,8 @@ naya-not-pramana kernel-ind =
 -- What it IS: no single Vacana denotes it (`no-single-vacana`), while the
 -- ordered PAIR of two Vacanas does (`krama-expresses`).  Inexpressible in
 -- one utterance; expressible in two taken in succession.  That is exactly
--- the classical contrast between the fourth bhaṅga and the third, and it
--- is the sense in which `syād avaktavyam` is a POSITIVE predication: it
+-- the classical contrast between the fourth bhaga and the third, and it
+-- is the sense in which `syd avaktavyam` is a POSITIVE predication: it
 -- asserts of the object that its joint aspect outruns the one-aspect-at-a-
 -- time medium in which alone predication happens.
 ------------------------------------------------------------------------
@@ -340,7 +340,7 @@ joint-realised = mk true false true , refl
 joint-refuted : Σ[ φ ∈ Profile ] (joint φ ≡ false)
 joint-refuted = mk true true true , refl
 
--- Not "neither": where it holds, BOTH asti (at rewriter) and nāsti (at
+-- Not "neither": where it holds, BOTH asti (at rewriter) and nsti (at
 -- kernel-refl) hold.
 joint-is-both : (a b c : Bool) → joint (mk a b c) ≡ true
               → (a ≡ true) × (b ≡ false)
@@ -349,7 +349,7 @@ joint-is-both true  true  _ h = ⊥.rec (false≢true h)
 joint-is-both false _     _ h = ⊥.rec (false≢true h)
 
 -- KRAMA EXPRESSES IT.  Two utterances in succession denote the joint
--- content exactly, by definition — the point is that this holds and the
+-- content exactly, by definition � the point is that this holds and the
 -- next theorem's does not.
 krama-expresses : (φ : Profile)
   → joint φ ≡ (denotes (asti-from rewriter) φ and denotes (nasti-from kernel-refl) φ)
@@ -376,15 +376,15 @@ no-single-vacana (nasti-from kernel-ind) =
 ------------------------------------------------------------------------
 -- §6  EXACTLY SEVEN
 --
--- Akalaṅka's argument (Laghīyastraya, c. 720–780 CE) for why the scheme
--- has seven members and not six or eight: there are three primary (mūla)
--- predicates — asti, nāsti, avaktavya — and the bhaṅgas are their
+-- Akalaka's argument (Laghyastraya, c. 720�780 CE) for why the scheme
+-- has seven members and not six or eight: there are three primary (mla)
+-- predicates � asti, nsti, avaktavya � and the bhagas are their
 -- non-empty combinations, 3 + 3 + 1 = 7.
 --
 -- That is a mathematical claim and this is its proof: an isomorphism
 -- between the seven-constructor datatype and the non-empty subsets of a
 -- three-element set.  Nothing here is a metaphor; the combinatorics is
--- the Jain combinatorics of the Bhagavatī Sūtra and the Sthānāṅga Sūtra,
+-- the Jain combinatorics of the Bhagavat Stra and the Sthnga Stra,
 -- applied to its own predicate scheme.
 ------------------------------------------------------------------------
 
@@ -397,7 +397,7 @@ data Bhanga : Type₀ where
   b6-nasti-avaktavya      : Bhanga   -- syād nāsti ca avaktavyaṃ ca
   b7-asti-nasti-avaktavya : Bhanga   -- syād asti nāsti ca avaktavyaṃ ca
 
--- A subset of {asti, nāsti, avaktavya}.
+-- A subset of {asti, nsti, avaktavya}.
 Basis : Type₀
 Basis = Bool × (Bool × Bool)
 
@@ -460,7 +460,7 @@ code-decode ((false , true  , true)  , _)  = Σ≡Prop isPropNonEmpty refl
 code-decode ((true  , true  , true)  , _)  = Σ≡Prop isPropNonEmpty refl
 code-decode ((false , false , false) , ne) = ⊥.rec (ne refl)
 
--- Akalaṅka's count, checked.
+-- Akalaka's count, checked.
 saptabhangi-iso : Iso Bhanga NEBasis
 Iso.fun      saptabhangi-iso = code'
 Iso.inv      saptabhangi-iso = decode
@@ -473,18 +473,18 @@ saptabhangi-equiv = isoToEquiv saptabhangi-iso
 ------------------------------------------------------------------------
 -- §7  DURNAYA
 --
--- Siddhasena, Sanmatitarka 1.21.  A naya is samyak when held sāpekṣa —
--- with regard to the others — and mithyā when held nirapekṣa.  The formal
--- marker is `syāt` versus `eva`: a durnaya is a naya that has dropped the
+-- Siddhasena, Sanmatitarka 1.21.  A naya is samyak when held speka �
+-- with regard to the others � and mithy when held nirapeka.  The formal
+-- marker is `syt` versus `eva`: a durnaya is a naya that has dropped the
 -- index and claims its own verdict is the verdict.
 --
 -- Formally: the durnaya at n asserts that every standpoint agrees with n.
 -- Against the profile the machine actually exhibits, every durnaya is
--- false — including the one this repository most often takes, which is
+-- false � including the one this repository most often takes, which is
 -- kernel-refl's (`0 agda calls`, cached, and treated as the verdict).
 --
 -- `machine-profile` is `x = max x x` as the log has it: affirmed by the
--- rewriter, denied by refl, affirmed by induction on x — the two
+-- rewriter, denied by refl, affirmed by induction on x � the two
 -- quotations carried in this file's header.
 ------------------------------------------------------------------------
 
@@ -499,46 +499,46 @@ durnaya-false rewriter    d = false≢true (d kernel-refl)
 durnaya-false kernel-refl d = true≢false (d rewriter)
 durnaya-false kernel-ind  d = false≢true (d kernel-refl)
 
--- The corresponding sāpekṣa statement is simply the profile itself, which
--- is consistent: no standpoint is denied, each is indexed.  Anekāntavāda
+-- The corresponding speka statement is simply the profile itself, which
+-- is consistent: no standpoint is denied, each is indexed.  Anekntavda
 -- is not the claim that the standpoints agree; it is the refusal to let
 -- any one of them speak unindexed.
 sapeksa : Σ[ φ ∈ Profile ] ((φ rewriter ≡ true) × (φ kernel-refl ≡ false))
 sapeksa = machine-profile , refl , refl
 
 ------------------------------------------------------------------------
--- §8  WHAT THIS FILE DOES NOT MODEL — stated, not implied
+-- §8  WHAT THIS FILE DOES NOT MODEL � stated, not implied
 --
--- 1. The seven NAYAS of Tattvārthasūtra 1.33 (naigama … evaṃbhūta) are not
+-- 1. The seven NAYAS of Tattvrthastra 1.33 (naigama � evabhta) are not
 --    formalised.  §1's `Naya` has three constructors taken from the
 --    machine's tactic log; it is a different partition (of provers, not of
 --    modes of reference) and no claim is made that they correspond.  The
---    śabda-nayas in particular — which turn on grammatical form and
---    etymology — have no analogue here.
+--    abda-nayas in particular � which turn on grammatical form and
+--    etymology � have no analogue here.
 --
--- 2. `syāt` has no independent formal content in this file.  It is carried
+-- 2. `syt` has no independent formal content in this file.  It is carried
 --    entirely by the standpoint index on `P`, `denotes`, and `Profile`.
 --    Whether the particle does more than index is a question this file
 --    does not answer.
 --
--- 3. Bhaṅgas 5 and 7 are DEFINABLE (they are in `saptabhangi-iso`) but no
+-- 3. Bhagas 5 and 7 are DEFINABLE (they are in `saptabhangi-iso`) but no
 --    instance of either is constructed here, and none was found in the
---    machine's data — see the census in `machine/Obstruction.hs`.  They
+--    machine's data � see the census in `machine/Obstruction.hs`.  They
 --    would need a claim simultaneously affirmed, denied, and inexpressible.
 --    Their emptiness in the data is reported there as a measured fact and
 --    is not evidence that they are incoherent.
 --
 -- 4. Avaktavya is modelled as non-denotability by a single atom of a fixed
---    finite language (Mallisena's vikalādeśa reading).  The stronger
+--    finite language (Mallisena's vikaldea reading).  The stronger
 --    reading on which avaktavya is a distinct ONTOLOGICAL mode of the
 --    object, independent of any language, is not modelled, and this file
 --    should not be cited as formalising it.
 --
--- 5. Utpāda-vyaya-dhrauvya (TS 5.29) is NOT formalised here.  A type-level
---    statement of it would be a function ℕ → Profile that is non-constant,
+-- 5. Utpda-vyaya-dhrauvya (TS 5.29) is NOT formalised here.  A type-level
+--    statement of it would be a function � � Profile that is non-constant,
 --    which is trivially inhabited and would prove nothing.  Its content in
---    this repository is empirical — some claims in `machine/machine.log`
---    appear in BOTH the accept and the reject stream — and it is recorded
+--    this repository is empirical � some claims in `machine/machine.log`
+--    appear in BOTH the accept and the reject stream � and it is recorded
 --    where empirical facts belong, in the census and in
 --    `notes/ANEKANTA_THE_MACHINE_HAS_THREE_STANDPOINTS.md`.
 --
@@ -552,7 +552,7 @@ sapeksa = machine-profile , refl , refl
 --    no as-of and no log size; `notes/INDIAN_LANE_CITATION_AUDIT.md` F15
 --    measured 40 by the same extraction at a smaller log.  The number is a
 --    monotone reading of a gitignored (`.gitignore`:16), append-only, and
---    currently LIVE file — absent from a fresh clone, hence NOT
+--    currently LIVE file � absent from a fresh clone, hence NOT
 --    reproducible from one, and growing while it is read.  Re-measure the
 --    line count together with the number, or quote neither.  The claim
 --    §5 actually rests on is only that the overlap is NON-EMPTY: the same
@@ -564,19 +564,19 @@ sapeksa = machine-profile , refl , refl
 --
 -- This is `formal/cubical/Saptabhangi.agda` as of commit 1e2b841b,
 -- recovered verbatim except for the module name.  Commit 2c7908ed
--- replaced that file with a different development (आर्पण / द्विमूल /
--- सप्तभङ्गी, क्रम-सह-भेदः, दुर्नयः), which stands untouched.
+-- replaced that file with a different development (����� / ������� /
+-- �����������, �����-��-����, �������), which stands untouched.
 --
--- Three modules depended on the API the rewrite removed —
--- `WitnessNumberIsTwo`, `AvaktavyaDoesNotFactor`, `TwoProfilesSuffice` —
+-- Three modules depended on the API the rewrite removed �
+-- `WitnessNumberIsTwo`, `AvaktavyaDoesNotFactor`, `TwoProfilesSuffice` �
 -- so the removed definitions live here under a non-colliding name and
 -- those three are repointed.  Same handling as `PingalaPrastara`, and
 -- for the same reason: the norm is not to revert another identity's
 -- visible work.
 --
 -- The two files are complementary rather than rival.  `Saptabhangi` now
--- proves क्रम ≠ सह directly on the seven भङ्ग and identifies the
--- boolean collapse as दुर्नय; this one carries the नय-profile semantics,
+-- proves ����� ≠ �� directly on the seven ������ and identifies the
+-- boolean collapse as ������; this one carries the ��-profile semantics,
 -- `denotes`, `joint`, and `no-single-vacana`, which the witness thread
 -- prices at two profiles.  Merging them is a deliberate act and should
 -- be one.

@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- घूर्ण-गण — the twist calculus.
+-- ������-��� � the twist calculus.
 --
 -- The kernel conjecture's toolkit.  SuddhaVeni separated every braid
 -- word into base motion and twist cargo; deciding triviality of the
 -- cargo needs exactly two rewriting moves on twist words, and both
 -- are proved here at every position:
 --
---   §1  TOTAL COMMUTATION: twists at ANY two depths commute — equal,
---       adjacent, or distant — by one double induction with copattern
+--   §1  TOTAL COMMUTATION: twists at ANY two depths commute � equal,
+--       adjacent, or distant � by one double induction with copattern
 --       peel and no comparison function anywhere.  A twist word's
 --       action is invariant under adjacent transposition, hence under
 --       reordering.
@@ -18,11 +18,11 @@
 --       vanish from any word, by the four-cycle.
 --
 -- Together: every twist word reduces, move by checked move, toward
--- the normal form its count vector names — sort by commutation,
--- cancel by fours — so the conjecture "trivial iff counts vanish mod
+-- the normal form its count vector names � sort by commutation,
+-- cancel by fours � so the conjecture "trivial iff counts vanish mod
 -- four" has its rewriting system, with soundness of each rewrite a
 -- theorem.  What remains is termination bookkeeping and the converse
--- (a nonvanishing count acts nontrivially — the per-strand witness of
+-- (a nonvanishing count acts nontrivially � the per-strand witness of
 -- SuddhaVeni §4 is its seed).
 --
 ------------------------------------------------------------------------
@@ -47,7 +47,7 @@ open import SuddhaVeni_TheSquareOfEveryCrossingIsPureResidueSoThePureBraidsActVe
 open Dhārā
 
 ------------------------------------------------------------------------
--- १ · Total commutation, by double induction.
+-- � � Total commutation, by double induction.
 ------------------------------------------------------------------------
 
 pūrṇa-vinimaya : (j k : ℕ) (s : Rajju)
@@ -61,7 +61,7 @@ pūrṇa-vinimaya zero zero s = refl
 śeṣam (pūrṇa-vinimaya (suc j) (suc k) s i) = pūrṇa-vinimaya j k (śeṣam s) i
 
 ------------------------------------------------------------------------
--- २ · Twist words, and the two sound rewrites.
+-- � � Twist words, and the two sound rewrites.
 ------------------------------------------------------------------------
 
 gaṇa : List ℕ → Rajju → Rajju

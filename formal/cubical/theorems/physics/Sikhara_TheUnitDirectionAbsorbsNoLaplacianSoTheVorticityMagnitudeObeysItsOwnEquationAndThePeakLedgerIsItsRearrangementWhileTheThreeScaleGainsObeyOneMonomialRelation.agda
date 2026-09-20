@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- शिखर — the peak.
+-- ����� � the peak.
 --
 -- The exact peak ledger of handoff §27 ([S13]) and the scaling
 -- identities of §28.  Write ω = m ξ with |ξ| = 1.  Then
 --
---     ξ·Δω = Δm − m|∇ξ|²          (the unit direction absorbs no Laplacian)
---     ξ·D_t ω = D_t m
+--     ξ�Δω = Δm − m|�ξ|²          (the unit direction absorbs no Laplacian)
+--     ξ�D_t ω = D_t m
 --
 -- and the vorticity equation D_tω = Sω + νΔω, dotted with ξ, gives
 --
---     D_t m = α m + ν(Δm − m|∇ξ|²),   α = ξᵀSξ,
+--     D_t m = � m + ν(Δm − m|�ξ|²),   � = ξ�Sξ,
 --
--- which at an increasing maximum (m = M, D_t m = M′) is the ledger
---     α = M′/M + ν|∇ξ|² + ν(−Δm)/M.
+-- which at an increasing maximum (m = M, D_t m = M�) is the ledger
+--     � = M�/M + ν|�ξ|² + ν(−Δm)/M.
 --
 -- Everything is checked over a commutative ring with derivations, in
--- the DOUBLED form  2·(…) ≡ 2·(…): differentiating |ξ|² = 1 gives
--- 2 ξ·∂ξ = 0, and no division by 2 is available in a general ring.
+-- the DOUBLED form  2�(�) ≡ 2�(�): differentiating |ξ|² = 1 gives
+-- 2 ξ��ξ = 0, and no division by 2 is available in a general ring.
 --
--- Scaling (§28, d = 3): the gains g_ω = Aℓ, g_E = A²ℓ⁻³, g_C = A²ℓ⁻²
--- satisfy g_C⁵ = g_ω² g_E⁴, and the energy chart ℓ = M^{−2/5},
--- A = M^{−3/5} (with M = μ⁵) normalizes vorticity and retains energy.
+-- Scaling (§28, d = 3): the gains g_ω = A�, g_E = A²��³, g_C = A²��²
+-- satisfy g_C� = g_ω² g_E�, and the energy chart � = M^{−2/5},
+-- A = M^{−3/5} (with M = μ�) normalizes vorticity and retains energy.
 ------------------------------------------------------------------------
 module Sikhara_TheUnitDirectionAbsorbsNoLaplacianSoTheVorticityMagnitudeObeysItsOwnEquationAndThePeakLedgerIsItsRearrangementWhileTheThreeScaleGainsObeyOneMonomialRelation where
 
@@ -74,7 +74,7 @@ module _ (R : CommRing ℓ) where
           cancelR : (x y : A) → (x + y) + (- y) ≡ x
           cancelR x y = solve! R
 
-      -- X = ξ·∂ξ,  Y = ξ·∂∂ξ + |∂ξ|²
+      -- X = ξ��ξ,  Y = ξ���ξ + |�ξ|²
       X Y Q : A
       X = (ξ₁ · ∂ ξ₁ + ξ₂ · ∂ ξ₂) + ξ₃ · ∂ ξ₃
       Y = ((ξ₁ · ∂ (∂ ξ₁) + ∂ ξ₁ · ∂ ξ₁) + (ξ₂ · ∂ (∂ ξ₂) + ∂ ξ₂ · ∂ ξ₂)) + (ξ₃ · ∂ (∂ ξ₃) + ∂ ξ₃ · ∂ ξ₃)
@@ -105,7 +105,7 @@ module _ (R : CommRing ℓ) where
       ∂∂mξ ξ = cong ∂ (∂-leib m ξ) ∙ ∂-add _ _ ∙ cong₂ _+_ (∂-leib (∂ m) ξ) (∂-leib m (∂ ξ))
 
     -- the unit direction absorbs no second derivative:
-    --   2 ξ·∂∂(mξ) ≡ 2 (∂∂m − m |∂ξ|²)
+    --   2 ξ���(mξ) ≡ 2 (��m − m |�ξ|²)
     direction-absorbs-nothing :
         ι 2 · ((ξ₁ · ∂ (∂ (m · ξ₁)) + ξ₂ · ∂ (∂ (m · ξ₂))) + ξ₃ · ∂ (∂ (m · ξ₃)))
         ≡ ι 2 · (∂ (∂ m) + (- (m · Q)))
@@ -125,7 +125,7 @@ module _ (R : CommRing ℓ) where
         finish = solve! R
 
     -- the unit direction absorbs no first derivative either:
-    --   2 ξ·∂(mξ) ≡ 2 ∂m
+    --   2 ξ��(mξ) ≡ 2 �m
     direction-absorbs-no-rate :
         ι 2 · ((ξ₁ · ∂ (m · ξ₁) + ξ₂ · ∂ (m · ξ₂)) + ξ₃ · ∂ (m · ξ₃)) ≡ ι 2 · ∂ m
     direction-absorbs-no-rate =
@@ -140,7 +140,7 @@ module _ (R : CommRing ℓ) where
         finish : (1r + (1r + 0r)) · (∂ m · 1r) + m · 0r ≡ (1r + (1r + 0r)) · ∂ m
         finish = solve! R
 
-    -- exported name for |∂ξ|²
+    -- exported name for |�ξ|²
     grad² : A
     grad² = Q
 
@@ -156,7 +156,7 @@ module _ (R : CommRing ℓ) where
     (D-add  : (x y : A) → D (x + y) ≡ D x + D y)    (D-leib  : (x y : A) → D (x · y) ≡ D x · y + x · D y)
     (ξ₁ ξ₂ ξ₃ m ν α S₁ S₂ S₃ : A)
     (unit : (ξ₁ · ξ₁ + ξ₂ · ξ₂) + ξ₃ · ξ₃ ≡ 1r)
-    -- the vorticity equation componentwise:  D(mξᵢ) = Sᵢ + ν Δ(mξᵢ)
+    -- the vorticity equation componentwise:  D(mξ�) = S� + ν Δ(mξ�)
     (vorticity : (ξ : A) (S : A) → D (m · ξ) ≡ S + ν · ((∂₁ (∂₁ (m · ξ)) + ∂₂ (∂₂ (m · ξ))) + ∂₃ (∂₃ (m · ξ))))
     (stretch : (ξ₁ · S₁ + ξ₂ · S₂) + ξ₃ · S₃ ≡ α · m)
     where
@@ -170,11 +170,11 @@ module _ (R : CommRing ℓ) where
     Δ : A → A
     Δ x = (∂₁ (∂₁ x) + ∂₂ (∂₂ x)) + ∂₃ (∂₃ x)
 
-    -- |∇ξ|²
+    -- |�ξ|²
     ∇ξ² : A
     ∇ξ² = (O₁.grad² + O₂.grad²) + O₃.grad²
 
-    -- 2 D_t m = 2 (α m + ν (Δm − m |∇ξ|²))
+    -- 2 D_t m = 2 (� m + ν (Δm − m |�ξ|²))
     magnitude-equation : ι 2 · D m ≡ ι 2 · (α · m + ν · (Δ m + (- (m · ∇ξ²))))
     magnitude-equation =
         sym OD.direction-absorbs-no-rate
@@ -215,7 +215,7 @@ module _ (R : CommRing ℓ) where
                 ≡ (1r + (1r + 0r)) · (p + ν · (((a + b) + c) + (- (m · ((q₁ + q₂) + q₃)))))
             shape' p ν a b c m q₁ q₂ q₃ = solve! R
 
-    -- the ledger: at m = M with D m = M′ this is  α M = M′ + ν M|∇ξ|² − νΔm
+    -- the ledger: at m = M with D m = M� this is  � M = M� + ν M|�ξ|² − νΔm
     peak-ledger : ι 2 · (α · m) ≡ ι 2 · D m + ι 2 · (ν · (m · ∇ξ²) + (- (ν · Δ m)))
     peak-ledger =
         shape (α · m) ν (m · ∇ξ²) (Δ m)
@@ -227,7 +227,7 @@ module _ (R : CommRing ℓ) where
   ----------------------------------------------------------------
   -- §28 scaling identities, d = 3
   ----------------------------------------------------------------
-  -- g_C⁵ = g_ω² g_E⁴  with  g_ω = Aℓ,  g_E = A²λ³,  g_C = A²λ²,  ℓλ = 1  (λ written il)
+  -- g_C� = g_ω² g_E�  with  g_ω = A�,  g_E = A²λ³,  g_C = A²λ²,  �λ = 1  (λ written il)
   gain-relation : (Am l il : A) → l · il ≡ 1r
     → let gω = Am · l ; gE = (Am · Am) · ((il · il) · il) ; gC = (Am · Am) · (il · il)
       in  (((gC · gC) · gC) · gC) · gC ≡ (gω · gω) · (((gE · gE) · gE) · gE)
@@ -244,8 +244,8 @@ module _ (R : CommRing ℓ) where
                (gω · gω) · (((gE · gE) · gE) · gE) ≡ P · ((l · il) · (l · il))
       shape' = solve! R
 
-  -- the energy chart:  ℓ = μ⁻², A = μ⁻³, M = μ⁵  normalizes vorticity (AℓM = 1)
-  -- and retains energy (A²ℓ⁻³ = 1)
+  -- the energy chart:  � = μ�², A = μ�³, M = μ�  normalizes vorticity (A�M = 1)
+  -- and retains energy (A²��³ = 1)
   energy-chart : (μ μ⁻¹ : A) → μ · μ⁻¹ ≡ 1r
     → let l = μ⁻¹ · μ⁻¹ ; Am = (μ⁻¹ · μ⁻¹) · μ⁻¹ ; M = (((μ · μ) · μ) · μ) · μ
       in  ((Am · l) · M ≡ 1r) × ((Am · Am) · ((μ · μ) · μ) · ((μ · μ) · μ) ≡ 1r)

@@ -4,33 +4,33 @@
 -- Bandha_TheEntanglingGateIsLosslessButDoesNotFactor
 --        IntoSingleQubitGates
 --
--- TERM.  ‡§¨‡§®‡•ç‡§ß ¬∑ bandha ‚Äî a bond, a binding, a tie.  In the Jaina frame this
--- corpus is built on, bandha is the binding of karman to the jƒ´va ‚Äî two things
+-- TERM.  ‡‡®‡‡ß ¬ bandha ‚î a bond, a binding, a tie.  In the Jaina frame this
+-- corpus is built on, bandha is the binding of karman to the jva ‚î two things
 -- made one, not separable by acting on either alone.  That is exactly
 -- entanglement, and the word is used for it here; the physics (CNOT, Bell
 -- state, two-qubit gate) is modern and no source is claimed for it.  Compound
 -- and identification built here, 2026-08-24.
 --
--- THE READING (checked terms below).  ‡§Æ‡§£‡§ø gives one orb = a single-qubit gate;
--- ‡§§‡•ç‡§∞‡§ø‡§ï gives the non-abelian single-qubit group.  Single-qubit gates are NOT
--- universal ‚Äî universal quantum computation needs one ENTANGLING two-qubit
+-- THE READING (checked terms below).  ‡Æ‡‡ø gives one orb = a single-qubit gate;
+-- ‡‡‡∞‡ø‡ï gives the non-abelian single-qubit group.  Single-qubit gates are NOT
+-- universal ‚î universal quantum computation needs one ENTANGLING two-qubit
 -- gate (then CNOT + single-qubit gates suffice).  The mathematical signature
 -- of "entangling" is non-factorizability: the gate is not any product of gates
 -- acting on the two qubits independently.  `entangling` proves CNOT has it.
 -- This is precisely the door an optical Indra's-net must cross that single
 -- orbs cannot: a product of local (per-photon) operations can never entangle,
--- so the two qubits must INTERACT ‚Äî which, for photons, means a nonlinearity
+-- so the two qubits must INTERACT ‚î which, for photons, means a nonlinearity
 -- or a measurement (linear passive optics alone gives only local + probabil-
 -- istic interaction).  The non-factorizability theorem IS the statement of
 -- why that door is hard, and what must lie beyond it.
 --
 -- WHAT IS CHECKED, exactly.
---   `cnot¬≤` : CNOT is its own inverse, so `cnotEq` is an EQUIVALENCE ‚Äî
---       reversible, lossless (ahi·πÉsƒÅ): an entangler need not dissipate.
---   `entangling` : a hard ¬¨ ‚Äî CNOT is not `(a,b) ‚Ü¶ (u a , v b)` for any
+--   `cnot¬≤` : CNOT is its own inverse, so `cnotEq` is an EQUIVALENCE ‚î
+--       reversible, lossless (ahis): an entangler need not dissipate.
+--   `entangling` : a hard ¬ ‚î CNOT is not `(a,b) ‚¶ (u a , v b)` for any
 --       single-qubit u, v.  (If it were, the target output would be a function
 --       of the target input alone; but CNOT's target depends on the control.)
---   `bell-diagonal` : `cnot (a , false) ‚â° (a , a)` ‚Äî CNOT copies the control
+--   `bell-diagonal` : `cnot (a , false) ‚â° (a , a)` ‚î CNOT copies the control
 --       into the target, the perfectly-correlated diagonal.  Under a superposed
 --       control this diagonal IS the Bell state; here is its basis skeleton.
 --
@@ -69,7 +69,7 @@ entangling (u , v , factors) = true‚â¢false (sym v0‚â°1 ‚àô v0‚â°0)
         v0‚â°1 : v false ‚â° true       -- cnot(true ,false) = (true , v false) = (true ,true)
         v0‚â°1 = sym (cong snd (factors true false))
 
--- THE BOND IT MAKES: CNOT copies the control into a target at 0 ‚Äî the
+-- THE BOND IT MAKES: CNOT copies the control into a target at 0 ‚î the
 -- perfectly-correlated diagonal, the basis skeleton of the Bell state.
 bell-diagonal : (a : Bool) ‚Üí cnot (a , false) ‚â° (a , a)
 bell-diagonal false = refl

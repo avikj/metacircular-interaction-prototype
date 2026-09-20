@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- पूर्ण-अवकलन — the complete differential.
+-- �����-������ � the complete differential.
 --
 -- THE QUADRATIC SOURCE INTEGRAND IS EXACTLY A DERIVATIVE.  So the whole
 -- coefficient it produces is a boundary term, and the value comes from
--- the ends alone — no interior contribution survives, and nothing is
+-- the ends alone � no interior contribution survives, and nothing is
 -- estimated.
 --
 -- A degree-two source projection with matrix-valued radial profile emits
@@ -13,20 +13,20 @@
 -- coefficient.  The claim that this coefficient is a pure number rests
 -- entirely on the integrand being an exact derivative of an explicit
 -- primitive.  That is an algebraic fact about a derivation, it holds in
--- ANY ring — in particular a NONCOMMUTATIVE one, so the radial profile
+-- ANY ring � in particular a NONCOMMUTATIVE one, so the radial profile
 -- may change eigenframe freely and no two of `G`, `G'`, `G''` need
--- commute — and it is what this module proves.
+-- commute � and it is what this module proves.
 --
--- Writing `anti x y = x·y + y·x` for the unhalved symmetric product,
+-- Writing `anti x y = x�y + y�x` for the unhalved symmetric product,
 -- `B = d G`, `C = d B`, and taking `r` with `d r ≡ 1`:
 --
---   §4  d ( 15·G²  +  3·(r · anti G B)  -  (r·r)·B² )
---         ≡  18·anti G B  +  4·(r · B²)  +  3·(r · anti G C)
---                          -  (r·r)·anti C B .
+--   §4  d ( 15�G²  +  3�(r � anti G B)  -  (r�r)�B² )
+--         ≡  18�anti G B  +  4�(r � B²)  +  3�(r � anti G C)
+--                          -  (r�r)�anti C B .
 --
 -- The right-hand side is the integrand; the left is a derivative; the
 -- primitive is displayed rather than asserted to exist.  Halves have
--- been cleared throughout — `anti` is twice the Jordan product — so the
+-- been cleared throughout � `anti` is twice the Jordan product � so the
 -- identity holds with no division by two and hence in every
 -- characteristic.
 --
@@ -36,27 +36,27 @@
 --   §2  THE FOUR FACTS ABOUT THE DERIVATION that the computation needs:
 --       it kills zero, it commutes with negation, it commutes with
 --       iterated addition, and it acts on `anti` and on a square by the
---       Leibniz rule.  Each follows from additivity and Leibniz alone —
+--       Leibniz rule.  Each follows from additivity and Leibniz alone �
 --       `d 0 ≡ 0` and `d (- x) ≡ - d x` are DERIVED, not assumed.
 --
---   §3  d (r · x) ≡ x + r · (d x)  and  d (r·r) ≡ r + r, from `d r ≡ 1`.
+--   §3  d (r � x) ≡ x + r � (d x)  and  d (r�r) ≡ r + r, from `d r ≡ 1`.
 --
 -- WHAT IS NOT NEEDED, and it is worth saying because it is what makes
 -- the identity transportable: `r` is NOT assumed central.  Centrality is
--- needed only to rewrite the integrand into the `V = r·B`, `W = r·r·C`
+-- needed only to rewrite the integrand into the `V = r�B`, `W = r�r�C`
 -- variables in which it is usually displayed; the identity itself, in
 -- the form above, never moves `r` past anything.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–4 in any ring, for any additive `d`
+-- SYT � THE CLAIM, EXACTLY.  §§1�4 in any ring, for any additive `d`
 -- obeying the Leibniz rule, any `r` with `d r ≡ 1r`, and any `G`.  NOT
--- claimed: that the integrand IS the angular average of anything — the
+-- claimed: that the integrand IS the angular average of anything � the
 -- spherical moment computation producing it is an integral over the
 -- sphere and has no carrier in this corpus, so the expression is taken
 -- as given and only its exactness is proved; the value of the boundary
 -- term, which needs decay hypotheses and a limit; the coefficient -2/7,
 -- which is that boundary value divided by seven and is therefore NOT
 -- stated here; anything about pressure, strain, symmetry, or
--- trace-freeness — `G` is an arbitrary ring element; and nothing about
+-- trace-freeness � `G` is an arbitrary ring element; and nothing about
 -- integration, which does not occur below.
 ------------------------------------------------------------------------
 
@@ -80,7 +80,7 @@ module _ (R : Ring ℓ) where
     A = ⟨ R ⟩
 
   ------------------------------------------------------------------
-  -- १ · Iterated addition, its two laws, and one cancellation.
+  -- � � Iterated addition, its two laws, and one cancellation.
   ------------------------------------------------------------------
 
   scale : ℕ → A → A
@@ -122,7 +122,7 @@ module _ (R : Ring ℓ) where
   anti-sym x y = +Comm (x · y) (y · x)
 
   ------------------------------------------------------------------
-  -- २ · The derivation, and the four facts the computation needs.
+  -- � � The derivation, and the four facts the computation needs.
   ------------------------------------------------------------------
 
   module _ (d : A → A)
@@ -159,7 +159,7 @@ module _ (R : Ring ℓ) where
       ∙ +ShufflePairs (d x · y) (x · d y) (y · d x) (d y · x)
 
     ----------------------------------------------------------------
-    -- ३ · The radius: everything the hypothesis `d r ≡ 1` gives.
+    -- � � The radius: everything the hypothesis `d r ≡ 1` gives.
     ----------------------------------------------------------------
 
     module _ (r : A) (dr : d r ≡ 1r) where
@@ -173,7 +173,7 @@ module _ (R : Ring ℓ) where
         ∙ cong₂ _+_ (cong (_· r) dr ∙ ·IdL r) (cong (r ·_) dr ∙ ·IdR r)
 
       --------------------------------------------------------------
-      -- ४ · THE INTEGRAND IS EXACTLY A DERIVATIVE.
+      -- � � THE INTEGRAND IS EXACTLY A DERIVATIVE.
       --------------------------------------------------------------
 
       module _ (G : A) where

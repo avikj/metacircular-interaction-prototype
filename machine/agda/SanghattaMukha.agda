@@ -1,22 +1,22 @@
--- ‡•• ‡§¨‡•Ä‡§ú‡§Æ‡•ç ‡••  One machine, one law: which side of `f a ‚â° b` is bound is everything.
--- Output bound: singl (f a), contractible ‚Äî the datum rides free.  Input bound:
--- fiber f b ‚Äî the loss, and the subject.  Univalence computes here: an
+-- ‡ ‡‡‡‡Æ‡ ‡  One machine, one law: which side of `f a ‚â° b` is bound is everything.
+-- Output bound: singl (f a), contractible ‚î the datum rides free.  Input bound:
+-- fiber f b ‚î the loss, and the subject.  Univalence computes here: an
 -- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect ‚Äî there is no third path (ahi·πÉsƒÅ).
+-- cannot cross is written as a defect ‚î there is no third path (ahis).
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
--- fibre; the verdict type is the saptabha·πÖgƒ´, and the sources are the origin
--- (UmƒÅsvƒÅti, Samantabhadra, Akala·πÖka ‚Äî restatements are named as such).  The
+-- fibre; the verdict type is the saptabhag, and the sources are the origin
+-- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate.  This file is one naya, true
 -- and not whole.
 
 {-# OPTIONS --guardedness #-}
 
 ------------------------------------------------------------------------
--- ‡§Æ‡•Å‡§ñ ‚Äî the mouth: the ONLY unchecked part of the ‡§∏‡§ô‡•ç‡§ò‡§ü‡•ç‡§ü-‡§Ø‡§®‡•ç‡§§‡•ç‡§∞ organ.
+-- ‡Æ‡‡ñ ‚î the mouth: the ONLY unchecked part of the ‡‡ô‡‡ò‡ü‡‡ü-‡Ø‡®‡‡‡‡∞ organ.
 -- The typed world-leaf.  The whole computation is the --safe checked core
--- (SanghattaYantra_‚Ä¶); this module is the ~dozen-line IO membrane that
+-- (SanghattaYantra_‚¶); this module is the ~dozen-line IO membrane that
 -- reads the file and prints the report.  It is NOT --safe, because
--- reading the world and printing to it cannot be a checked term ‚Äî and
+-- reading the world and printing to it cannot be a checked term ‚î and
 -- that boundary is exactly where code stops and the world begins.
 ------------------------------------------------------------------------
 

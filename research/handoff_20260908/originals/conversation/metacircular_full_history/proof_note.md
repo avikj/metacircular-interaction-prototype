@@ -5,7 +5,7 @@ Repository read pin: `avikj/metacircular-interaction-prototype`, `168ea8e240524f
 
 ## Scope
 
-This note gives the full recursive mechanism rather than another separately computed angular interaction. It distinguishes: (i) formal identities of generators; (ii) convergent local mild-solution identities; (iii) the repository's actual proof-installation language. No global Navier‚ÄìStokes regularity or RH proof is asserted, no repository files were changed, and no Agda/Lean build was run. The executed Python controls use exact symbolic arithmetic, not time-stepping simulations.
+This note gives the full recursive mechanism rather than another separately computed angular interaction. It distinguishes: (i) formal identities of generators; (ii) convergent local mild-solution identities; (iii) the repository's actual proof-installation language. No global Navier‚ìStokes regularity or RH proof is asserted, no repository files were changed, and no Agda/Lean build was run. The executed Python controls use exact symbolic arithmetic, not time-stepping simulations.
 
 Repository sources read:
 
@@ -15,7 +15,7 @@ Repository sources read:
 - Previously read `ExcursionReturn.agda`, `ObservabilityQuotient.agda`, and saved Prime-Pair Delta 19: the compression/memory algebra and its precise scope.
 - Saved `/mnt/data/toroidal_first_return/proof_note.md`: the actual toroidal 2->4->2 coefficient, retained without rederivation.
 
-Classical analytic context: Gouasmi‚ÄìParish‚ÄìDuraisamy, arXiv:1611.06277, makes the distinction between true orthogonal dynamics and a substituted composition operator explicit. Infinite Carleman realizations have their own functional-analytic hypotheses; see Heinzelreiter‚ÄìPearson, arXiv:2510.00722. The proofs below do not rely on an unproved global Carleman convergence assertion.
+Classical analytic context: Gouasmi‚ìParish‚ìDuraisamy, arXiv:1611.06277, makes the distinction between true orthogonal dynamics and a substituted composition operator explicit. Infinite Carleman realizations have their own functional-analytic hypotheses; see Heinzelreiter‚ìPearson, arXiv:2510.00722. The proofs below do not rely on an unproved global Carleman convergence assertion.
 
 ## 1. Fix the common source and the exact quadratic interaction
 
@@ -82,7 +82,7 @@ Consequently the formal exponential preserves products. Where the classical flow
  =\operatorname{ev}_{\omega_0}(h)\operatorname{ev}_{\omega_0}(k).
 \]
 
-The formal exponential identity does not assert that the Taylor series of an arbitrary smooth PDE solution converges in t. Actual local analytic summation is supplied separately in Sections 5‚Äì6.
+The formal exponential identity does not assert that the Taylor series of an arbitrary smooth PDE solution converges in t. Actual local analytic summation is supplied separately in Sections 5‚ì6.
 
 A coordinate/tensor version has X_n=omega^{odot n}. The linear lift obeys
 
@@ -417,4 +417,4 @@ It checks the ordered renewal rule through K_7 for two observables, source-produ
 
 An initial slower execution timed out; after replacing expensive unsimplified rational expressions by exact expanded Gaussian-rational forms, the revised script completed. Final result: see `check_results.txt` and `.json`.
 
-The exact recursive mechanism is now explicit at both formal and locally analytic levels. The remaining global analytic and arithmetic conclusions cannot be asserted without the needed uniform continuation or positivity statement on the actual source. No such statement is inferred merely from the word ‚Äúmetacircular.‚Äù
+The exact recursive mechanism is now explicit at both formal and locally analytic levels. The remaining global analytic and arithmetic conclusions cannot be asserted without the needed uniform continuation or positivity statement on the actual source. No such statement is inferred merely from the word ‚metacircular.‚

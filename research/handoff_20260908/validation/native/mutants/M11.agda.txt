@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- à¤¦à¥à¤µà¤¿-à¤®à¤¾à¤¨ â€” the two measures.
+-- à¦ààµà¿-à®à¾à¨ â” the two measures.
 --
 -- The general two-metric algebra of handoff Â§12 ([S14]):  JÂ² = 1 and a
 -- transfer T conserving the indefinite metric,  T* J T = J.  Nothing
 -- about the star is used beyond that one equation, so it is stated for
 -- an arbitrary element S in the place of T*:
 --
---   à¥§  S = J Tâ»Â¹ J,  hence the metric  C = S T  is the reflected
---      inverse loop  J Tâ»Â¹ J T;
---   à¥¨  the conservation law reverses:  T J S = J;
---   à¥©  J-conjugation inverts the metric:  (J C J) C = 1 = C (J C J),
---      so  J C J = Câ»Â¹  â€” the anti-commutation of  A = Â½ log C  with J;
---   à¥ª  for a normal transfer (S T = T S) the reciprocal cycle
---      J T J Tâ»Â¹  is  Câ»Â¹.
+--   à§  S = J Tâ»Â J,  hence the metric  C = S T  is the reflected
+--      inverse loop  J Tâ»Â J T;
+--   à¨  the conservation law reverses:  T J S = J;
+--   à©  J-conjugation inverts the metric:  (J C J) C = 1 = C (J C J),
+--      so  J C J = Câ»Â  â” the anti-commutation of  A = Â½ log C  with J;
+--   à  for a normal transfer (S T = T S) the reciprocal cycle
+--      J T J Tâ»Â  is  Câ»Â.
 -- The research alternated the two loop orientations; both are here
 -- with their exact hypotheses.
 ------------------------------------------------------------------------
@@ -25,75 +25,75 @@ open import Cubical.Algebra.Ring
 
 private
   variable
-    â„“ : Level
+    â“ : Level
 
 ------------------------------------------------------------------------
-module _ (R : Ring â„“) where
+module _ (R : Ring â“) where
   open RingStr (snd R)
 
   private
     A = âŸ¨ R âŸ©
 
   module _ (J T S Tinv : A)
-           (JJ       : J Â· J â‰¡ 1r)
-           (conserve : (S Â· J) Â· T â‰¡ J)
-           (TTinv    : T Â· Tinv â‰¡ 1r)
-           (TinvT    : Tinv Â· T â‰¡ 1r)
+           (JJ       : J Â J â‰¡ 1r)
+           (conserve : (S Â J) Â T â‰¡ J)
+           (TTinv    : T Â Tinv â‰¡ 1r)
+           (TinvT    : Tinv Â T â‰¡ 1r)
            where
 
     private
-      SJ : S Â· J â‰¡ J Â· Tinv
-      SJ = sym (Â·IdR (S Â· J)) âˆ™ cong ((S Â· J) Â·_) (sym TTinv) âˆ™ Â·Assoc (S Â· J) T Tinv âˆ™ cong (_Â· Tinv) conserve
+      SJ : S Â J â‰¡ J Â Tinv
+      SJ = sym (ÂIdR (S Â J)) âˆ™ cong ((S Â J) Â_) (sym TTinv) âˆ™ ÂAssoc (S Â J) T Tinv âˆ™ cong (_Â Tinv) conserve
 
-    -- à¥§ Â· the star is the reflected inverse
-    star-is-reflected-inverse : S â‰¡ (J Â· Tinv) Â· J
-    star-is-reflected-inverse = sym (Â·IdR S) âˆ™ cong (S Â·_) (sym JJ) âˆ™ Â·Assoc S J J âˆ™ cong (_Â· J) SJ
+    -- à§ Â the star is the reflected inverse
+    star-is-reflected-inverse : S â‰¡ (J Â Tinv) Â J
+    star-is-reflected-inverse = sym (ÂIdR S) âˆ™ cong (S Â_) (sym JJ) âˆ™ ÂAssoc S J J âˆ™ cong (_Â J) SJ
 
     C : A
-    C = S Â· T
+    C = S Â T
 
-    metric-is-reflected-loop : C â‰¡ ((J Â· Tinv) Â· J) Â· T
-    metric-is-reflected-loop = cong (_Â· T) star-is-reflected-inverse
+    metric-is-reflected-loop : C â‰¡ ((J Â Tinv) Â J) Â T
+    metric-is-reflected-loop = cong (_Â T) star-is-reflected-inverse
 
-    -- à¥¨ Â· the conservation law reverses
-    reverse-conservation : (T Â· J) Â· S â‰¡ 1r
+    -- à¨ Â the conservation law reverses
+    reverse-conservation : (T Â J) Â S â‰¡ 1r
     reverse-conservation =
-        cong ((T Â· J) Â·_) star-is-reflected-inverse
-      âˆ™ Â·Assoc (T Â· J) (J Â· Tinv) J
-      âˆ™ cong (_Â· J) lem
-      âˆ™ Â·IdL J
+        cong ((T Â J) Â_) star-is-reflected-inverse
+      âˆ™ ÂAssoc (T Â J) (J Â Tinv) J
+      âˆ™ cong (_Â J) lem
+      âˆ™ ÂIdL J
       where
-        lem : (T Â· J) Â· (J Â· Tinv) â‰¡ 1r
-        lem = Â·Assoc (T Â· J) J Tinv
-            âˆ™ cong (_Â· Tinv) (sym (Â·Assoc T J J) âˆ™ cong (T Â·_) JJ âˆ™ Â·IdR T)
+        lem : (T Â J) Â (J Â Tinv) â‰¡ 1r
+        lem = ÂAssoc (T Â J) J Tinv
+            âˆ™ cong (_Â Tinv) (sym (ÂAssoc T J J) âˆ™ cong (T Â_) JJ âˆ™ ÂIdR T)
             âˆ™ TTinv
 
-    -- à¥© Â· J-conjugation inverts the metric on both sides
-    J-conjugation-inverts : ((J Â· C) Â· J) Â· C â‰¡ 1r
+    -- à© Â J-conjugation inverts the metric on both sides
+    J-conjugation-inverts : ((J Â C) Â J) Â C â‰¡ 1r
     J-conjugation-inverts =
-        sym (Â·Assoc (J Â· C) J C)
-      âˆ™ sym (Â·Assoc J C (J Â· C))
-      âˆ™ cong (J Â·_) ( sym (Â·Assoc S T (J Â· C))
-                    âˆ™ cong (S Â·_) (Â·Assoc T J C âˆ™ Â·Assoc (T Â· J) S T âˆ™ cong (_Â· T) reverse-conservation)
-                    âˆ™ Â·Assoc S J T
+        sym (ÂAssoc (J Â C) J C)
+      âˆ™ sym (ÂAssoc J C (J Â C))
+      âˆ™ cong (J Â_) ( sym (ÂAssoc S T (J Â C))
+                    âˆ™ cong (S Â_) (ÂAssoc T J C âˆ™ ÂAssoc (T Â J) S T âˆ™ cong (_Â T) reverse-conservation)
+                    âˆ™ ÂAssoc S J T
                     âˆ™ conserve )
       âˆ™ JJ
 
-    C-inverts-J-conjugation : C Â· ((J Â· C) Â· J) â‰¡ 1r
+    C-inverts-J-conjugation : C Â ((J Â C) Â J) â‰¡ 1r
     C-inverts-J-conjugation =
-        sym (Â·Assoc S T ((J Â· C) Â· J))
-      âˆ™ cong (S Â·_) (Â·Assoc T (J Â· C) J
-                     âˆ™ cong (_Â· J) (Â·Assoc T J C âˆ™ Â·Assoc (T Â· J) S T âˆ™ cong (_Â· T) reverse-conservation))
-      âˆ™ Â·Assoc S (J Â· T) J
-      âˆ™ cong (_Â· J) (Â·Assoc S J T âˆ™ conserve)
+        sym (ÂAssoc S T ((J Â C) Â J))
+      âˆ™ cong (S Â_) (ÂAssoc T (J Â C) J
+                     âˆ™ cong (_Â J) (ÂAssoc T J C âˆ™ ÂAssoc (T Â J) S T âˆ™ cong (_Â T) reverse-conservation))
+      âˆ™ ÂAssoc S (J Â T) J
+      âˆ™ cong (_Â J) (ÂAssoc S J T âˆ™ conserve)
       âˆ™ JJ
 
-    -- à¥ª Â· for a normal transfer the reciprocal cycle is the inverse metric
-    reciprocal-loop-is-inverse : S Â· T â‰¡ T Â· S â†’ (((J Â· T) Â· J) Â· Tinv) Â· C â‰¡ 1r
+    -- à Â for a normal transfer the reciprocal cycle is the inverse metric
+    reciprocal-loop-is-inverse : S Â T â‰¡ T Â S â’ (((J Â T) Â J) Â Tinv) Â C â‰¡ 1r
     reciprocal-loop-is-inverse normal =
-        sym (Â·Assoc ((J Â· T) Â· J) Tinv C)
-      âˆ™ cong (((J Â· T) Â· J) Â·_) (cong (Tinv Â·_) normal âˆ™ Â·Assoc Tinv T S âˆ™ cong (_Â· S) TinvT âˆ™ Â·IdL S)
-      âˆ™ sym (Â·Assoc (J Â· T) J S)
-      âˆ™ sym (Â·Assoc J T (J Â· S))
-      âˆ™ cong (J Â·_) (Â·Assoc T J S âˆ™ reverse-conservation)
+        sym (ÂAssoc ((J Â T) Â J) Tinv C)
+      âˆ™ cong (((J Â T) Â J) Â_) (cong (Tinv Â_) normal âˆ™ ÂAssoc Tinv T S âˆ™ cong (_Â S) TinvT âˆ™ ÂIdL S)
+      âˆ™ sym (ÂAssoc (J Â T) J S)
+      âˆ™ sym (ÂAssoc J T (J Â S))
+      âˆ™ cong (J Â_) (ÂAssoc T J S âˆ™ reverse-conservation)
       âˆ™ JJ

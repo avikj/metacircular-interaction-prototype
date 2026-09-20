@@ -1,0 +1,496 @@
+@use "theme.scss" as *;
+@use "vars.scss" as *;
+@use "mixins.scss";
+
+@use "components/sidenotes.scss";
+@use "components/comments.scss";
+@use "components/controls.scss";
+@use "components/commit.scss";
+@use "components/search.scss";
+@use "components/modal.scss";
+@use "components/popup.scss";
+@use "components/toc.scss";
+
+@use "code.scss";
+
+html {
+  height: 100%;
+  margin: 0;
+
+  background-color: theme(--text-bg);
+  color:            theme(--text-fg);
+}
+
+html, body, main, div#post-toc-container {
+  min-height: 100vh;
+  max-width: 100vw;
+}
+
+body, p, li, summary, figcaption {
+  font-family: var(--serif), var(--sans-serif);
+  font-size:   var(--font-size);
+}
+
+body {
+  width: 100%;
+
+  &.text-page {
+    @include mixins.centered-contents;
+    margin: 0;
+  }
+
+  span.reasoning-step {
+    .as-written {
+      display: none;
+    }
+    .alternate {
+      display: inline;
+    }
+  }
+
+  .footnote-back {
+    padding-left: 0.5em;
+  }
+}
+
+main {
+  max-width: 80rem;
+  width: 100%;
+  margin: 0px auto 0px auto;
+  flex: 1 0 auto;
+
+  padding-inline: 0.75em;
+  box-sizing: border-box;
+
+  @include mixins.widescreen { padding: 0; }
+}
+
+@include mixins.highlight(warning,     theme(--warning-bg),     theme(--warning-icon));
+@include mixins.highlight(note,        theme(--note-bg),        theme(--note-icon));
+@include mixins.highlight(terminology, theme(--terminology-bg), theme(--terminology-icon));
+@include mixins.highlight(source,      theme(--source-bg),      theme(--source-icon));
+
+figure {
+  overflow-x: auto;
+  overflow-y: clip;
+
+  @include mixins.centered-contents;
+
+  figcaption {
+    margin-top: 0.3em;
+    display: inline-block;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+ol, ul {
+  padding-left: 1.2em;
+  --li-skip: calc(0.66 * var(--parskip));
+  li {
+    --parskip: var(--li-skip);
+  }
+}
+
+span.katex {
+  font-size: inherit;
+  line-height: inherit;
+
+  span.mord.text > span.mord.textrm {
+    font-family: var(--serif), var(--sans-serif);
+  }
+
+  strong & span.mord.text > span.mord.textrm {
+    font-weight: bold;
+  }
+
+  .cjk_fallback {
+    font-size: 87.5%; // magic number obtained by staring
+  }
+}
+
+span.abbrev {
+  text-decoration: 2px dotted underline;
+}
+
+span.katex-display {
+  overflow-x: auto;
+  overflow-y: clip;
+
+  margin-block: var(--parskip);
+
+  // KaTeX is really bad at coming up with a bounding box for the entire
+  // span which includes all the superscripts. For example, try rendering
+  //
+  //    \mathcal{C} \xrightarrow{X} \mathrm{PSh}(\mathcal{C})
+  //
+  // in the demo on katex.org, then inspect the enclosing
+  // span.katex-display and add overflow-x: auto; to the element styles
+  // At the time of writing (2024-02-17), the top serifs of the X get
+  // basically entirely clipped.
+  //
+  // The solution is to position display maths closer to the elements
+  // around it on the block axis, and to make up with *padding* instead.
+  // Padding the bounding box by $katex-margin in each direction is
+  // slightly absurd, but it does guarantee that we won't have clipping
+  // issues unless KaTeX well and truly screws up the character metrics.
+
+  // 2025-07-31: Only do this trick for inline maths that appears inside
+  // a paragraph since the margin between paragraphs is already big to
+  // avoid clipping enough and we don't want to make it 1/4em bigger.
+  p > &, summary > & {
+    margin-block: #{-0.5 * $katex-margin};
+
+    > span.katex {
+      white-space:   normal;
+      padding-block: $katex-margin;
+    }
+
+    // In Chrome the spacing fix will result in display maths that's at
+    // the start/end of a paragraph giving the paragraph an extra-tall
+    // forehead/chin. In Firefox we can disable the spacing fix in that
+    // direction to fix it.
+    //
+    // We could fix this everywhere by marking these in Pandoc.
+    // I do not care about Chrome users that much.
+    &:-moz-first-node > span.katex { padding-block-start: 0; }
+    &:-moz-last-node  > span.katex { padding-block-end:   0; }
+  }
+}
+
+div.mathpar {
+  display:         flex;
+  flex-flow:       row wrap;
+  justify-content: center;
+  align-items:     center;
+
+  column-gap:   1em;
+
+  margin-block: var(--parskip);
+  > * { --parskip: 0 };
+
+  // KaTeX once again just fucking brilliant at coming up with bounding
+  // boxes so we have to add some padding on the block axis so
+  // vertically-aligned katex spans don't end up inside eachother when
+  // in separate rows
+  > span.katex-display {
+    padding-block: 0.5em;
+  }
+
+  > figure {
+    max-width: 33%;
+    padding: 0.75em;
+    width: auto !important;
+  }
+
+  .diagram-container {
+    width: unset;
+  }
+}
+
+div.columns {
+  blockquote, details.blockquote {
+    padding-inline: 1em;
+    padding-block:  0.2em;
+
+    border: 0;
+  }
+}
+
+p > code, summary > code {
+  white-space: nowrap;
+  font-size: calc(0.9 * var(--code-font-size));
+}
+
+blockquote, details.blockquote {
+  margin-left: 0;
+  margin-right: 0;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  @include mixins.material(theme(--blockquote-bg));
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-block-start: var(--parskip);
+  margin-block-end:   calc(-2/3 * var(--parskip));
+}
+
+p, table, details, ol, ul, div.diagram-container {
+  margin-block: var(--parskip);
+}
+
+table {
+  border-collapse: collapse;
+
+  article > & {
+    width: 100%;
+  }
+
+  td, th {
+    text-align: center;
+    padding-inline: 1em;
+  }
+}
+
+details {
+  > summary {
+    list-style-type: none;
+
+    cursor: pointer;
+
+    &:hover::after {
+      text-decoration: underline;
+    }
+
+    &::after {
+      content: 'read\A0more';
+      font-style: italic;
+      margin-left: 0.223em;
+      color: theme(--text-fg);
+    }
+
+    > :nth-child(1) {
+      margin-top: 0;
+    }
+  }
+
+  &[open] summary {
+    &::after {
+      content: 'read\A0less';
+    }
+    margin-bottom: calc(0.75 * var(--parskip));
+  }
+
+  > :nth-child(2) { margin-block-start: 0; }
+  > :last-child   { margin-block-end:   0; }
+
+  @include mixins.left-bordered(theme(--note-bg));
+}
+
+.smallcaps {
+  font-variant: small-caps;
+}
+
+div.diagram-container {
+  width: 100%;
+  overflow-x: auto;
+
+  img.diagram {
+    margin: auto;
+    display: block;
+    height: var(--height);
+
+    overflow-x: auto;
+  }
+
+  // Instead of trying to write out every possible situation where a
+  // block-level element surrounded by the container of a diagram that
+  // should be attached (above/below/around), we just calculate the
+  // right offset in terms of the body text line-height (times 1em to
+  // make it a length) and give the diagram negative margin.
+  //
+  // The margin can't just be -1em otherwise the diagrams' backgrounds
+  // cut into descenders/ascenders in paragraphs above/below.
+  $attach: calc((1lh - 1em)/2 - var(--parskip));
+  &:has(.attach-around) { margin-block:       $attach; }
+  &:has(.attach-above)  { margin-block-start: $attach; }
+  &:has(.attach-below)  { margin-block-end:   $attach; }
+}
+
+main a[href],
+div#return > a[href],
+div#top > a[href],
+aside#toc > div#toc-container ul a[href],
+div.hover-popup a[href] {
+  color: theme(--primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: 2px currentColor underline !important;
+  }
+
+  &:visited { color: theme(--secondary); }
+}
+
+div#return {
+  text-align: center;
+}
+
+article {
+  padding-top:    $page-padding;
+  padding-bottom: calc($page-padding / 2);
+  margin-top: 0 !important;
+  max-width: 100%;
+  line-height: #{1 + $body-line-height};
+
+  counter-reset: footnote-counter;
+
+  > :nth-child(1), > pre.Agda:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  #article-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--parskip);
+
+    #article-nav-left {
+      display: flex;
+      gap: 16px;
+
+      #narrow-search-btn {
+        background-color: transparent;
+        border: none;
+        font-size: 24px;
+      }
+    }
+  }
+
+  > p {
+    width: 100%;
+  }
+
+  > figure > figcaption {
+    text-align: center;
+    font-style: italic;
+  }
+
+  a[href].header-link {
+    color: theme(--text-strong);
+    cursor: default;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    &:hover {
+      text-decoration: none !important;
+      background-color: theme(--text-bg) !important;
+      span.header-link-emoji {
+        display: inline-block;
+      }
+    }
+
+    &.hover-highlight {
+      background-color: theme(--text-bg) !important;
+    }
+
+    span.header-link-emoji {
+      display: none;
+      font-size:   0.625em;
+      margin-left: 0.625em;
+
+      // Stupid incantation to align the emoji vertically with the
+      // *perceived* bounding box of the text.
+      margin-block: calc((1lh - 1cap) / 2);
+
+      cursor: pointer;
+    }
+  }
+}
+
+hr {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  border: none;
+
+  content: ' ';
+  width: 100%;
+
+  height: $ruler-size;
+  background-color: theme(--ruler);
+}
+
+span.qed {
+  float: right;
+}
+
+span.shaded {
+  background-color: theme(--diagram-shaded-bg);
+}
+
+/* The \liesover{} macro: It's awful and I hate it. The \liesover{} arrow
+ * is just hspace --- KaTeX needs to know the actual size of the thing,
+ * so we let *it* control the sizing --- and here, we draw an arrow over
+ * it; An arrow with #000 stroke in light theme and #ABB2BF stroke in
+ * dark theme. */
+span.enclosing.liesover {
+  background: url('../static/lies-over-light.svg') no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+strong, h1, h2, h3, h4, h5, h6 {
+  color: var(--text-strong);
+}
+
+
+input {
+  background-color: theme(--input-bg);
+  border: 1px solid theme(--input-border);
+  color:  theme(--text-fg);
+  border-radius: 3px;
+}
+
+kbd {
+  border:  1px solid theme(--input-border);
+  padding: 2px;
+  border-radius: 5px;
+
+  background-color: theme(--input-bg);
+  font-size: calc(0.75 * var(--code-font-size));
+
+  vertical-align: middle;
+}
+
+#post-toc-container { min-height: 90vh; }
+
+@media only screen and (max-width: 450px) {
+  body > header {
+    div#logo {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+}
+
+
+@include mixins.widescreen {
+  .narrow-only {
+    display: none !important;
+  }
+
+  main {
+    max-width: 100%;
+
+    div#post-toc-container {
+      display: grid;
+
+      grid-template-areas: ". sidebar . content gutter .";
+
+      // The 0 minimum is required to avoid overflow, see
+      // https://css-tricks.com/preventing-a-grid-blowout/
+      grid-template-columns: 0.1fr 1fr 0.1fr minmax(0, 3fr) 1fr 0.1fr;
+
+      article {
+        grid-column: content;
+      }
+    }
+
+    div.columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+    }
+  }
+}

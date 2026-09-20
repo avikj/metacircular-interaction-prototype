@@ -1,34 +1,34 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ƒÄnup≈´rvƒ´ ‚Äî the order of the series, and the fact that no rewrite in this
+-- nuprv ‚î the order of the series, and the fact that no rewrite in this
 -- kernel disturbs it.
 --
--- TERM.  ‡§Ü‡§®‡•Å‡§™‡•Ç‡§∞‡•ç‡§µ‡•Ä, succession / regular order.  The Jain canonical
--- literature treats it as a topic in its own right: the *AnuyogadvƒÅra*
--- distinguishes p≈´rvƒÅnup≈´rvƒ´ (the forward order of a series),
--- pa≈õcƒÅdƒÅnup≈´rvƒ´ (the reverse) and anƒÅnup≈´rvƒ´ (every other arrangement),
--- and counts them ‚Äî which is combinatorics of permutations arising from
+-- TERM.  ‡‡®‡‡‡‡∞‡‡µ‡, succession / regular order.  The Jain canonical
+-- literature treats it as a topic in its own right: the *Anuyogadvra*
+-- distinguishes prvnuprv (the forward order of a series),
+-- pacdnuprv (the reverse) and annuprv (every other arrangement),
+-- and counts them ‚î which is combinatorics of permutations arising from
 -- the classification of a sequence, not from mathematics as a separate
 -- subject.  GRADE OF THE CITATION: I have the text and the doctrine; I
--- have NOT verified a s≈´tra number against an edition, so none is given.
+-- have NOT verified a stra number against an edition, so none is given.
 -- Nothing below is a theorem of that tradition.  The word names what is
 -- proved invariant here: the arrangement of the variables, as against
 -- their multiplicity.
 --
 -- THE QUESTION THIS ANSWERS, AND WHY IT IS THE NEXT ONE.
 --
--- `Sesa_‚Ä¶` proves the kernel's soundness map is not injective: many
+-- `Residue_‚¶` proves the kernel's soundness map is not injective: many
 -- derivations, one meaning, and no semantic criterion recovers which.
--- `Asesa_‚Ä¶` proves it is therefore not an equivalence ‚Äî by exhibiting the
+-- `Aresidue_‚¶` proves it is therefore not an equivalence ‚î by exhibiting the
 -- failure of INJECTIVITY at the kernel's own seed.  The other half was
 -- never asked.  Is it SURJECTIVE?  That is: does the calculus derive
 -- everything its semantics identifies?
 --
 -- It does not, and the obstruction is exact.
 --
---   ¬ß2  Every `Step` ‚Äî `add-zero`, `add-suc`, the three congruences, and
---       `reverse` ‚Äî preserves the LEFT-TO-RIGHT WORD OF VARIABLE
+--   ¬ß2  Every `Step` ‚î `add-zero`, `add-suc`, the three congruences, and
+--       `reverse` ‚î preserves the LEFT-TO-RIGHT WORD OF VARIABLE
 --       OCCURRENCES.  Every rule of the calculus manipulates `zero` and
 --       `suc`; none permutes two variable subterms.
 --
@@ -40,8 +40,8 @@
 --       symmetric group acting on the variable positions.
 --
 -- WHAT THIS PUTS TOGETHER, and it is the reason the module is worth its
--- lines.  `Ankapasa_‚Ä¶` shows that the COUNTING semantics cannot see a
--- transposition: commutativity at `add var var` is a loop that ‚Ñï is forced
+-- lines.  `Ankapasa_‚¶` shows that the COUNTING semantics cannot see a
+-- transposition: commutativity at `add var var` is a loop that ‚ï is forced
 -- to call `refl`, while the univalent semantics calls it the swap and `ua`
 -- of it is non-trivial.  This module shows the DERIVATIONS cannot perform
 -- one.  The two are the same datum from the two sides:
@@ -49,19 +49,19 @@
 --     the arrangement is what the calculus preserves
 --     and what the count discards.
 --
--- So adding `add-comm` ‚Äî the extension `Ankapasa_‚Ä¶` makes, and shows to be
--- sound ‚Äî does two things at once, and they are one thing.  It completes
--- the calculus towards its ‚Ñï-semantics, and it introduces the ‚Ñ§/2 of
+-- So adding `add-comm` ‚î the extension `Ankapasa_‚¶` makes, and shows to be
+-- sound ‚î does two things at once, and they are one thing.  It completes
+-- the calculus towards its ‚ï-semantics, and it introduces the ‚/2 of
 -- holonomy that the counting readout annihilates.  The completion and the
 -- holonomy arrive together, because they are the same generator.
 --
 -- WHAT IS **NOT** CLAIMED.  Not that the word is a COMPLETE invariant.
--- ¬ß5 states the normalisation conjecture ‚Äî derivable iff same word and
--- same constant ‚Äî as a type, unproved, and says what proving it needs
+-- ¬ß5 states the normalisation conjecture ‚î derivable iff same word and
+-- same constant ‚î as a type, unproved, and says what proving it needs
 -- (a normal form and a terminating strategy, neither of which exists in
--- this corpus).  Nothing here concerns the extended calculus `Step‚Å∫`;
--- `Ankapasa_‚Ä¶` is not imported, and its `add-comm` would break ¬ß2 by
--- design, which is the point.  Nothing here says the ‚Ñï-theory of the
+-- this corpus).  Nothing here concerns the extended calculus `Step‚∫`;
+-- `Ankapasa_‚¶` is not imported, and its `add-comm` would break ¬ß2 by
+-- design, which is the point.  Nothing here says the ‚ï-theory of the
 -- calculus is decidable, though ¬ß4's argument suggests where to look.
 -- `word` is defined on the six coordinates only, ignoring `zero` and
 -- `suc`, because those are exactly what the rules move.
@@ -160,18 +160,18 @@ soundness-is-not-completeness =
   the-semantics-identifies-them , no-derivation-transposes-two-variables
 
 ------------------------------------------------------------------------
--- ¬ß5.  ~~THE NORMALISATION CONJECTURE~~ ‚Äî STRUCK THE SAME DAY, BY ME.
---      It is FALSE.  `Baddha_‚Ä¶` exhibits a third conservation law (a
+-- ¬ß5.  ~~THE NORMALISATION CONJECTURE~~ ‚î STRUCK THE SAME DAY, BY ME.
+--      It is FALSE.  `Baddha_‚¶` exhibits a third conservation law (a
 --      successor trapped in a left operand whose sibling carries a
 --      variable can never reach the front, because the calculus has no
 --      associativity) and separates `add (suc var) yvar` from
---      `suc (add var yvar)` ‚Äî same word, same constant, no derivation.
+--      `suc (add var yvar)` ‚î same word, same constant, no derivation.
 --      The type is kept below so the refutation has something to name.
 --      ORIGINAL WORDING, for the record: the conjecture, as a type.  Unproved, and stated so
 --      that what is missing is visible: a normal form for `Tm` under the
 --      calculus, and a terminating strategy reaching it.  Neither exists
---      in this corpus, and `Asiddhatva.agda`'s result ‚Äî that a rewrite
---      system can admit NO strict order in which every step decreases ‚Äî
+--      in this corpus, and `Asiddhatva.agda`'s result ‚î that a rewrite
+--      system can admit NO strict order in which every step decreases ‚î
 --      is the standing warning that the second is not routine.
 ------------------------------------------------------------------------
 

@@ -9,8 +9,8 @@
 -- source I have established; the h-level machinery is Voevodsky's
 -- substrate, which this repository declares a tool and not a frame.
 --
--- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
--- WHY THIS, AND WHY NOW โ€” the rest on this line was LIFTED, with a
+-- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- WHY THIS, AND WHY NOW โ” the rest on this line was LIFTED, with a
 -- criterion, at `e52b933e`.  Associativity is named as not-done in
 -- THREE modules written in THREE separate cycles
 -- (`ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem`,
@@ -21,12 +21,12 @@
 -- If that distinction is a rationalisation, say so and put the rest
 -- back on.
 --
--- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
+-- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
 -- WHAT IS PROVED
 --
 --   isPropโผ                 the product order on fitness vectors is
---                           proposition-valued, by induction โ€” `Unit`,
---                           `โฅ`, and `isPropโค` at the leaves
+--                           proposition-valued, by induction โ” `Unit`,
+--                           `โ`, and `isPropโ` at the leaves
 --   isPropStrictlyDominates hence so is strict domination
 --   composeIsAssociative    `composeCertified` is associative
 --
@@ -34,32 +34,32 @@
 -- CONTENT.**  Diagnostic (1) placed each before it was written and each
 -- came out where predicted:
 --
---   semantics   a PATH, so associativity is `assoc` โ€” it holds UP TO A
+--   semantics   a PATH, so associativity is `assoc` โ” it holds UP TO A
 --               PATH and not definitionally
 --   cost        an H-LEVEL, and **this is the only component that could
---               have failed**: two bracketings of `โ-trans` are two
+--               have failed**: two bracketings of `โ-trans` are two
 --               different proof terms, and nothing makes them equal
 --               except `StrictlyDominates` being a proposition.  It is
 --               one, and ยง1 proves it rather than assuming it
---   migration   DEFINITIONAL โ€” `ฮป m โ’ migโ (migโ (migโ m))` either way,
+--   migration   DEFINITIONAL โ” `ฮป m โ’ migโ (migโ (migโ m))` either way,
 --               so `refl`
 --   provenance  a LIBRARY LEMMA, `++-assoc`
 --
 -- So the answer to "does the composition associate" is yes, and the
 -- interesting part is that the obstruction lives in exactly the
 -- component that already needed a theorem for composition
--- (`โ-trans`).  **The component that costs a theorem is the component
+-- (`โ-trans`).  **The component that costs a theorem is the component
 -- that costs an h-level.**  Nothing else on the record has proof
 -- content to disagree about.
 --
--- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
+-- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
 -- **IT IS A SEMICATEGORY AND NOT A CATEGORY, AND THAT IS NOT A GAP.**
--- `noSelfRewrite` in the audited module proves `ยฌ Certified d d`: strict
+-- `noSelfRewrite` in the audited module proves `ย Certified d d`: strict
 -- cost improvement removes every identity.  So there is no unit law to
 -- prove and none is missing; associativity is the whole of the
 -- algebraic structure available here.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 โ€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 โ” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

@@ -1,0 +1,50 @@
+@use "../vars.scss"  as *;
+@use "../theme.scss" as *;
+
+div#recent-additions {
+  margin-block: var(--parskip);
+
+  :first-child { padding-block-start: 0; }
+  :last-child  {
+    border-block-end: 0;
+    padding-block-end: 0;
+  }
+}
+
+div.commit {
+  border-inline-start:  $left-border-width solid theme(--commit-bg);
+  padding-inline-start: $left-border-distance;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5ex;
+
+  margin-block: calc(0.75 * var(--parskip));
+
+  .commit-subject {
+    font-weight: bold;
+    width: fit-content;
+
+    &, &:visited, &.hover-highlight {
+      color: theme(--text-fg);
+      background-color: theme(--text-bg);
+    }
+  }
+
+  .commit-author-date {
+    font-style: italic;
+    font-size: 0.8em;
+    margin-block-start: -0.75ex;
+
+    span {
+      font-weight: bold;
+      font-style: normal;
+    }
+  }
+
+  .commit-changes {
+    font-size: 0.8em;
+    --code-font-size: 0.9em;
+    hyphenate-character: '';
+  }
+}

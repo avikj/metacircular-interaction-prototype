@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- गेर्शगोरिन — the row bound.
+-- ������������� � the row bound.
 --
--- An exact LDLᵀ of a 64×64 rational matrix has pivots with thousands of
+-- An exact LDL� of a 64�64 rational matrix has pivots with thousands of
 -- digits; a machine-checkable certificate carries instead a DYADIC L, D
--- and an exact slack E = A − LDLᵀ that is small and diagonally dominant.
--- This file supplies the theorem the slack needs, over ℚ:
+-- and an exact slack E = A − LDL� that is small and diagonally dominant.
+-- This file supplies the theorem the slack needs, over �:
 --
---     if 4·E_ii ≥ Σ_j |E_ij| + Σ_j |E_ji| for every i < n   (full sums)
---     then vᵀ E v ≥ 0 for every v.
+--     if 4�E_ii � �_j |E_ij| + �_j |E_ji| for every i < n   (full sums)
+--     then v� E v � 0 for every v.
 --
--- (For symmetric E this is E_ii ≥ Σ_{j≠i} |E_ij|.)  The proof:
--- 2 vᵀEv = Σ_{i,j} T_ij − Σ_{i,j} |E_ij| (v_i² + v_j²), where
--- T_ij = |E_ij|(v_i² + v_j²) + 2 v_i E_ij v_j is |E_ij| (v_i ± v_j)² ≥ 0,
+-- (For symmetric E this is E_ii � �_{j≠i} |E_ij|.)  The proof:
+-- 2 v�Ev = �_{i,j} T_ij − �_{i,j} |E_ij| (v_i² + v_j²), where
+-- T_ij = |E_ij|(v_i² + v_j²) + 2 v_i E_ij v_j is |E_ij| (v_i � v_j)² � 0,
 -- and T_ii = 4 E_ii v_i².  No i ≠ j bookkeeping is needed.
 --
 --   §1  THE TERM T_ij IS A SQUARE, by the sign of E_ij.
---   §2  THE DECOMPOSITION of 2 vᵀEv.
+--   §2  THE DECOMPOSITION of 2 v�Ev.
 --   §3  THE THEOREM.
 ------------------------------------------------------------------------
 
@@ -74,7 +74,7 @@ import Pramanika_AnExactRationalLDLTFactorisationCertifiesThatAQuadraticFormIsNo
   as P
 
 ------------------------------------------------------------------------
--- १ · T_ij = |e|(a² + b²) + 2 a e b is nonnegative.
+-- � � T_ij = |e|(a² + b²) + 2 a e b is nonnegative.
 ------------------------------------------------------------------------
 
 T : ℚ → ℚ → ℚ → ℚ
@@ -90,10 +90,10 @@ T-anṛṇa e a b with e ≟ 0
                  (anṛṇa-guṇa e ((a + b) · (a + b)) (<Weaken≤ 0 e 0<e) (anṛṇa-varga (a + b)))
 
 ------------------------------------------------------------------------
--- २ · The decomposition of 2 vᵀEv, and the diagonal below the double sum.
+-- � � The decomposition of 2 v�Ev, and the diagonal below the double sum.
 ------------------------------------------------------------------------
 
--- term ≤ sum, for nonnegative terms (range form)
+-- term � sum, for nonnegative terms (range form)
 pada-≤ : (f : ℕ → ℚ) → ((j : ℕ) → 0 ≤ f j) → (i n : ℕ) → i <ℕ n → f i ≤ Σ⟨ n ⟩ f
 pada-≤ f 0≤f i zero    i<0 = ⊥-elim (¬-<-zero i<0)
 pada-≤ f 0≤f i (suc n) i<sn with discreteℕ i n
@@ -122,7 +122,7 @@ module _ (n : ℕ) (E : ℕ → ℕ → ℚ) where
   R i = Σ⟨ n ⟩ (λ j → ∣ E i j ∣)
   C j = Σ⟨ n ⟩ (λ i → ∣ E i j ∣)
 
-  -- 2 vᵀEv = Σ_i Σ_j T_ij − ( Σ_i v_i² R_i + Σ_j v_j² C_j )
+  -- 2 v�Ev = �_i �_j T_ij − ( �_i v_i² R_i + �_j v_j² C_j )
   vibhāga : (v : ℕ → ℚ)
           → (1 + 1) · Q v ≡ Σ⟨ n ⟩ (λ i → Σ⟨ n ⟩ (λ j → T (E i j) (v i) (v j)))
                               - (Σ⟨ n ⟩ (λ i → (v i · v i) · R i) + Σ⟨ n ⟩ (λ j → (v j · v j) · C j))
@@ -155,7 +155,7 @@ module _ (n : ℕ) (E : ℕ → ℕ → ℚ) where
           (pada-≤ (λ j → T (E k j) (v k) (v j)) (λ j → T-anṛṇa (E k j) (v k) (v j)) k n le))
 
   ----------------------------------------------------------------------
-  -- ३ · The theorem: 4 E_ii ≥ R_i + C_i for all i < n ⇒ vᵀEv ≥ 0.
+  -- � � The theorem: 4 E_ii � R_i + C_i for all i < n � v�Ev � 0.
   ----------------------------------------------------------------------
 
   Prabhutva : Type₀
@@ -194,7 +194,7 @@ module _ (n : ℕ) (E : ℕ → ℕ → ℚ) where
         lemma = Sama′.lemma′ ℚRing ((1 + 1 + 1 + 1) · E i i) (v i · v i) (R i + C i)
         gap : 0 ≤ ((1 + 1 + 1 + 1) · E i i) - (R i + C i)
         gap = subst (_≤ ((1 + 1 + 1 + 1) · E i i) - (R i + C i)) (+InvR (R i + C i)) (≤-+o (R i + C i) ((1 + 1 + 1 + 1) · E i i) (- (R i + C i)) (dom i i<n))
-    -- 2Q = ΣΣT − S ≥ ΣT_ii − S ≥ 0
+    -- 2Q = ��T − S � �T_ii − S � 0
     dvi-anṛṇa : 0 ≤ (1 + 1) · Q v
     dvi-anṛṇa = subst (0 ≤_) (sym (vibhāga v))
       (isTrans≤ 0 (Σ⟨ n ⟩ (λ i → T (E i i) (v i) (v i)) - S) (Σ⟨ n ⟩ (λ i → Σ⟨ n ⟩ (λ j → T (E i j) (v i) (v j))) - S)

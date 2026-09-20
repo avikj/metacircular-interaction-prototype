@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡§∏‡§Æ-‡§¶‡•É‡§∑‡•ç‡§ü‡§ø‡§É ‚Äî equal seeing.  Compound built here, 2026-08-24; no
+-- ‡‡Æ-‡¶‡‡‡‡ü‡ø‡ ‚î equal seeing.  Compound built here, 2026-08-24; no
 -- source is claimed for the mathematics.
 --
 -- A BUG-CLASS, FOUND BY THE RESIDUE.  In every prior step-pervasion
--- the GOAL was processed by the record (‡§∂‡•ç‡§∞‡•Å‡§§-‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É) but the
--- HYPOTHESIS's faces were not ‚Äî so when the record helpfully
+-- the GOAL was processed by the record (‡‡‡∞‡‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡) but the
+-- HYPOTHESIS's faces were not ‚î so when the record helpfully
 -- simplified the goal, it destroyed the exact match the hypothesis
 -- was about to make: the record's assistance sabotaged the exchange.
 -- x ‚àí s(x+y) = 0 exhibits it precisely: under the deep eye the step
--- form IS the hypothesis, syntactically ‚Äî until the record rewrites
+-- form IS the hypothesis, syntactically ‚î until the record rewrites
 -- one and not the other.  The repair is symmetry of vision: the
 -- hypothesis's two faces pass through the SAME record as the goal,
--- and the conditional witness threads through ‡§∂‡•ç‡§∞‡•Å‡§§-‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä on both
+-- and the conditional witness threads through ‡‡‡∞‡‡-‡‡æ‡ï‡‡‡ on both
 -- sides.  The sixth examination runs with the symmetrized exchange
 -- over the factoring eye.
 ------------------------------------------------------------------------

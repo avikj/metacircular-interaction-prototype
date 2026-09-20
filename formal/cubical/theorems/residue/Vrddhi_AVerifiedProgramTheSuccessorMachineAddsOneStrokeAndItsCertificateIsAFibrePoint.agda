@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§µ‡•É‡§¶‡•ç‡§ß‡§ø ‚Äî increment.  A VERIFIED PROGRAM, AND ITS CERTIFICATE IS A
+-- ‡µ‡‡¶‡‡ß‡ø ‚î increment.  A VERIFIED PROGRAM, AND ITS CERTIFICATE IS A
 -- FIBRE POINT.
 --
--- A two-rule table for the universal machine of Vishvayantra:
+-- A two-rule table for the universal machine of Vishvamachine:
 --
 --   state 0, reading 1 : write 1, move right, stay in state 0
 --   state 0, reading 0 : write 1, stay put,  go to state 1
@@ -16,14 +16,14 @@
 --
 -- THE THEOREM (`increment-correct`): for every n, exactly n+1 steps
 -- run the machine from unary n to a halted configuration carrying
--- unary (n+1) ‚Äî the walked strokes on the left, the new stroke under
+-- unary (n+1) ‚î the walked strokes on the left, the new stroke under
 -- the head, nothing on the right.  The proof is an induction whose
 -- every step the kernel COMPUTES: the invariant is a configuration
 -- shape, the step lemma is refl in both of its cases, and the
 -- arithmetic is +-zero and +-suc.
 --
 -- THE POINT (`increment-certificate`): the correctness proof is not
--- beside the run, it IS a point of the kept fibre ‚Äî the pair
+-- beside the run, it IS a point of the kept fibre ‚î the pair
 -- (source, proof) inhabits fiber (run (suc n)) (end configuration).
 -- A verified program is a program whose fibre point is written down.
 ------------------------------------------------------------------------
@@ -36,7 +36,7 @@ open import Cubical.Data.List using (List ; [] ; _‚à∑_)
 open import Cubical.Data.Sigma
 open import Cubical.Foundations.Equiv using (invEq ; fiber)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 
 ------------------------------------------------------------------------
 -- ¬ß1  The program and the tape shapes.

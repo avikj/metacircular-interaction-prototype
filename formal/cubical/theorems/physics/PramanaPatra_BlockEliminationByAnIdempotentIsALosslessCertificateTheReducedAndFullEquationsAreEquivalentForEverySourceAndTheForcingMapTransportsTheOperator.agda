@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- प्रमाण-पत्र — the certificate.
+-- ������-���� � the certificate.
 --
 -- ELIMINATING THE HIDDEN BLOCK OF A LINEAR EQUATION THROUGH AN
 -- IDEMPOTENT IS A LOSSLESS CERTIFICATE: the reduced equation on the
@@ -35,27 +35,27 @@
 --       not state; here it is a theorem.
 --
 --   §3  REDUCED SOLUTIONS SOLVE THE FULL EQUATION:
---         S y ≡ T b   ⟹   M (R y + Z b) ≡ b .
+--         S y ≡ T b   �   M (R y + Z b) ≡ b .
 --
 --   §4  FULL SOLUTIONS REDUCE, AND RECONSTRUCT:
---         M x ≡ b   ⟹   S (P x) ≡ T b   and   x ≡ R (P x) + Z b .
+--         M x ≡ b   �   S (P x) ≡ T b   and   x ≡ R (P x) + Z b .
 --
---       So the two equations have the same solutions for EVERY b — not
+--       So the two equations have the same solutions for EVERY b � not
 --       a selected numerical source.  Keeping only `S` would not be
 --       lossless: `T` and `Z` are what carry the source through.
 --
 --   §5  and with a left inverse of M, the solution is unique, so a
 --       retired (composed) operation and a direct one must agree.
 --
--- ON THE HYPOTHESES.  `P · P ≡ P` is the only thing asked of `P`.
+-- ON THE HYPOTHESES.  `P � P ≡ P` is the only thing asked of `P`.
 -- `H` is asked to live on the hidden block, `H ≡ Q H Q`, and to invert
 -- the hidden block there, `Q M H ≡ Q` and `H M Q ≡ Q`.  Nothing about
--- `M` — it need not be invertible, symmetric, or bounded; the ring is
+-- `M` � it need not be invertible, symmetric, or bounded; the ring is
 -- arbitrary and noncommutative, so `M`, `P`, `H` may be operators.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–5 in any ring, for every `M`, every
+-- SYT � THE CLAIM, EXACTLY.  §§1�5 in any ring, for every `M`, every
 -- idempotent `P`, and every `H` satisfying the three block conditions.
--- NOT claimed: that `H` exists — its existence is the invertibility of
+-- NOT claimed: that `H` exists � its existence is the invertibility of
 -- the hidden block, which is the analytic content in every application
 -- and is carried here as a hypothesis; composition of two eliminations
 -- (a separate theorem, with its own intermediate-equation matching
@@ -89,7 +89,7 @@ module _ (R : Ring ℓ) where
     cancelR x y = sym (+Assoc x y (- y)) ∙ cong (x +_) (+InvR y) ∙ +IdR x
 
   ------------------------------------------------------------------
-  -- ० · The idempotent, its complement, and the hidden inverse.
+  -- � � The idempotent, its complement, and the hidden inverse.
   ------------------------------------------------------------------
 
   module _ (M P H : A)
@@ -154,7 +154,7 @@ module _ (R : Ring ℓ) where
     Z = H
 
     ------------------------------------------------------------------
-    -- १ · THE FIVE CERTIFICATE IDENTITIES.
+    -- � � THE FIVE CERTIFICATE IDENTITIES.
     ------------------------------------------------------------------
 
     visible-round-trip : P · Rec ≡ P
@@ -231,7 +231,7 @@ module _ (R : Ring ℓ) where
           ∙ cong₂ _+_ PP (-DistL· (H · M · P) P ∙ cong -_ (sym (·Assoc (H · M) P P) ∙ cong (H · M ·_) PP))
 
     ------------------------------------------------------------------
-    -- २ · THE TRANSPORT LAW:  T M ≡ S.
+    -- � � THE TRANSPORT LAW:  T M ≡ S.
     ------------------------------------------------------------------
 
     private
@@ -256,7 +256,7 @@ module _ (R : Ring ℓ) where
       ∙ +IdR S
 
     ------------------------------------------------------------------
-    -- ३ · A REDUCED SOLUTION SOLVES THE FULL EQUATION.
+    -- � � A REDUCED SOLUTION SOLVES THE FULL EQUATION.
     ------------------------------------------------------------------
 
     reduced-solves-full : (y b : A) → S · y ≡ T · b → M · (Rec · y + Z · b) ≡ b
@@ -273,7 +273,7 @@ module _ (R : Ring ℓ) where
       ∙ sym (splitL b)
 
     ------------------------------------------------------------------
-    -- ४ · A FULL SOLUTION REDUCES, AND IS RECONSTRUCTED.
+    -- � � A FULL SOLUTION REDUCES, AND IS RECONSTRUCTED.
     ------------------------------------------------------------------
 
     full-reduces : (x b : A) → M · x ≡ b → S · (P · x) ≡ T · b
@@ -291,7 +291,7 @@ module _ (R : Ring ℓ) where
       ∙ cong₂ _+_ (sym (·Assoc Rec P x)) (sym (·Assoc Z M x) ∙ cong (Z ·_) h)
 
     ------------------------------------------------------------------
-    -- ५ · WITH A LEFT INVERSE OF M THE SOLUTION IS UNIQUE, so a retired
+    -- � � WITH A LEFT INVERSE OF M THE SOLUTION IS UNIQUE, so a retired
     --     operation and a direct one agree on every source.
     ------------------------------------------------------------------
 

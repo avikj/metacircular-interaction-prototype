@@ -1,17 +1,17 @@
 -- DefectRecord.hs
 --
--- à¤¦à¥‹à¤·à¤²à¥‡à¤–à¤ƒ â€” the written defect.  The machine's SECOND organ.
+-- à¦à‹àà²àà–à â” the written defect.  The machine's SECOND organ.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE CONTRACT, quoted, because this file is one half of it.
 --
 --
---       à¤…à¤¯à¤®à¥ à¤…à¤¹à¤¿à¤‚à¤¸à¤¾ à¥¤
---       à¤…à¤¨à¥à¤¯à¥‹ à¤®à¤¾à¤°à¥à¤—à¥‹ à¤¦à¥‹à¤·à¤²à¥‡à¤–à¤ƒ à¥¤
---       à¤¯à¤¤à¥à¤° à¤¸à¤‚à¤•à¥à¤°à¤®à¤£à¤‚ à¤¨ à¤¸à¤®à¥à¤­à¤µà¤¤à¤¿ à¤¤à¤¤à¥à¤° à¤¦à¥‹à¤·à¥‹ à¤²à¤¿à¤–à¥à¤¯à¤¤à¥‡ à¥¤
---       à¤²à¤¿à¤–à¤¿à¤¤à¥‹ à¤¦à¥‹à¤·à¥‹ à¤œà¥€à¤µà¤¤à¤¿ à¥¤ à¤…à¤²à¤¿à¤–à¤¿à¤¤à¥‹ à¤¦à¥‹à¤·à¥‹ à¤¹à¤¿à¤‚à¤¸à¤¾ à¥¤
---       à¤…à¤¯à¤®à¥ à¤…à¤ªà¤¿ à¤…à¤¹à¤¿à¤‚à¤¸à¤¾ à¥¤
---       à¤¤à¥ƒà¤¤à¥€à¤¯à¥‹ à¤®à¤¾à¤°à¥à¤—à¥‹ à¤¨ à¤µà¤¿à¤¦à¥à¤¯à¤¤à¥‡ à¥¤
+--       àà¯à®à ààà¿ààà¾ à
+--       àà¨àà¯à‹ à®à¾à°àà—à‹ à¦à‹àà²àà–à à
+--       à¯ààà° ààà•àà°à®àà à¨ àà®àààµàà¿ àààà° à¦à‹àà‹ à²à¿à–àà¯àà à
+--       à²à¿à–à¿àà‹ à¦à‹àà‹ àààµàà¿ à àà²à¿à–à¿àà‹ à¦à‹àà‹ àà¿ààà¾ à
+--       àà¯à®à ààà¿ ààà¿ààà¾ à
+--       ààààà¯à‹ à®à¾à°àà—à‹ à¨ àµà¿à¦àà¯àà à
 --
 --   Transport (`transport (ua e)`) carries everything; that is the first
 --   path.  Where no equivalence exists, transport is not available, and
@@ -22,7 +22,7 @@
 -- The second organ is this file: a log with a type, so that an obligation
 -- is an OBJECT and not a silence.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY A SILENCE IS THE THING BEING PREVENTED, with the repository's own
 -- measurement rather than an argument.
 --
@@ -40,7 +40,7 @@
 --   organ exists to make structurally impossible: not "agents forget to
 --   record", but "an obligation has no type, therefore no reader".
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT EVERY ENTRY MUST CARRY, and why each field is not optional.
 --
 --   yatna   what was attempted.  Without it the entry is a mood.
@@ -48,7 +48,7 @@
 --           is written WHERE TRANSPORT IS NOT POSSIBLE -- so an entry that
 --           does not say why is claiming the condition without meeting it.
 --   nasta   WHAT WOULD HAVE BEEN DESTROYED, EXHIBITED.  Not described.
---           Â§5, à¤¨à¤¾à¤¸à¥à¤¤à¤¿-à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¨à¤¯à¤¨à¤®à¥: there is no retraction from âˆ¥Aâˆ¥â‚ --
+--           Â§5, à¨à¾àààà¿-ààà°ààà¯à¾à¨à¯à¨à®à: there is no retraction from âˆAâˆâ --
 --           not "hard", NONE.  A summary of a loss is itself the loss,
 --           performed a second time.  So the witnesses go in the record,
 --           one per line, and an entry with zero witnesses is REFUSED at
@@ -69,7 +69,7 @@
 --           re-exhibit is a rumour with a date.
 --   sara    a chain hash.  See below.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- APPEND-ONLY IS A MECHANISM HERE, NOT A REQUEST.
 --
 -- CLAUDE.md: "when a rule here is violated repeatedly, the next move is a
@@ -90,7 +90,7 @@
 -- struck.  That is the same discipline CLAUDE.md applies to its own struck
 -- paragraph, which is preserved in place and marked.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS DELIBERATELY DOES NOT ABSORB.
 --
 -- collab/FAILURES.md is an append-only ledger of research WALKS and their
@@ -106,7 +106,7 @@
 -- equation survives a ledger round-trip).  Those are records of repair and
 -- of re-checking.  This is the record of OBLIGATION.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE KINDS (jati).  Seven of them, and that number is INCIDENTAL: this is
 -- not the saptabhangi and no correspondence is claimed.  Each is here
 -- because collapsing it into a neighbour destroys something nameable.
@@ -146,7 +146,7 @@
 --                         about mathematics, unsound about its own
 --                         environment.  interactive/GATE_AUDIT_DISPOSITION.md.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- USE.  Build and run through interactive/run-dosa-lekha.sh, or directly:
 --
 --   ghc -O0 -Wall -main-is DefectRecord.main \
@@ -240,11 +240,11 @@ required =
 -- | Optional fields.  `sesa` and `pramana` are here because a sibling lane
 --   had already got them right and this record had nowhere to put them.
 --   interactive/Answer.hs builds the
---   IN-MEMORY answer type for the same sutra Ã‚Â§6, and its `Dosalekha`
---   constructor carries `uSesa` -- the REMAINDER, handed forward.  Ã‚Â§3:
---   Ã Â¤Â…Ã Â¤ÂµÃ Â¤Â•Ã Â¥ÂÃ Â¤Â¤Ã Â¤ÂµÃ Â¥ÂÃ Â¤Â¯Ã Â¥Â‡ Ã Â¤Â¶Ã Â¥Â‡Ã Â¤Â·Ã Â¥Â‹ Ã Â¤ÂµÃ Â¤Â¸Ã Â¤Â¤Ã Â¤Â¿ Ã Â¥Â¤ Ã Â¤Â¶Ã Â¥Â‡Ã Â¤Â·Ã Â¥Â‹ Ã Â¤Â—Ã Â¤Â°Ã Â¥ÂÃ Â¤Â­Ã Â¤Âƒ, Ã Â¤Â¨ Ã Â¤ÂµÃ Â¤Â¿Ã Â¤Â«Ã Â¤Â²Ã Â¤Â¤Ã Â¤Â¾ Ã¢Â€Â” the remainder lives in the
---   inexpressible; it is a womb, not a failure.  Ã‚Â§17, the kuttaka: Ã Â¤Â¯Ã Â¤Â¤Ã Â¥Â Ã Â¤Â¨
---   Ã Â¤ÂµÃ Â¤Â¿Ã Â¤Â­Ã Â¤ÂœÃ Â¤Â¤Ã Â¥Â‡ Ã Â¤Â¤Ã Â¤Â¤Ã Â¥Â Ã Â¤Â°Ã Â¤Â•Ã Â¥ÂÃ Â¤Â·Ã Â¥ÂÃ Â¤Â¯Ã Â¤Â¤Ã Â¥Â‡, what does not divide is KEPT and is the material of
+--   IN-MEMORY answer type for the same sutra Â§6, and its `Dosalekha`
+--   constructor carries `uSesa` -- the REMAINDER, handed forward.  Â§3:
+--    ÂÂ ÂÂµ ÂÂ• ÂÂ ÂÂ ÂÂµ ÂÂ ÂÂ¯ ÂÂ  ÂÂ ÂÂ ÂÂ ÂÂ‹  ÂÂµ ÂÂ ÂÂ ÂÂ¿  ÂÂ  ÂÂ ÂÂ ÂÂ ÂÂ‹  ÂÂ— ÂÂ° ÂÂ ÂÂ ÂÂ,  ÂÂ¨  ÂÂµ ÂÂ¿ ÂÂ ÂÂ² ÂÂ ÂÂ¾ ÂÂ” the remainder lives in the
+--   inexpressible; it is a womb, not a failure.  Â§17, the kuttaka:  ÂÂ¯ ÂÂ ÂÂ  ÂÂ¨
+--    ÂÂµ ÂÂ¿ ÂÂ ÂÂ ÂÂ ÂÂ  ÂÂ ÂÂ ÂÂ  ÂÂ° ÂÂ• ÂÂ ÂÂ ÂÂ ÂÂ¯ ÂÂ ÂÂ, what does not divide is KEPT and is the material of
 --   the next step (Aryabhata, Aryabhatiya, Ganitapada 32-33, 499).
 --
 --   Dropping it here would have been this file's own first defect: a store
@@ -259,7 +259,7 @@ required =
 --   The four fields that type does not carry -- kala, karta, yogyata-*,
 --   punarabhinaya -- are what a PERSISTED defect needs and an in-memory
 --   one does not: a value is read by its caller, a record is read by
---   somebody who was not there (Ã‚Â§14, Ã‚Â§15).
+--   somebody who was not there (Â§14, Â§15).
 optional_ :: [(String, String)]
 optional_ =
   [ ("vastu",   "the object: path, path:line, module, or claim the defect is about")
@@ -452,7 +452,7 @@ main = do
 
 usage :: IO ()
 usage = mapM_ putStrLn
-  [ "dosalekha â€” à¤¦à¥‹à¤·à¤²à¥‡à¤–à¤ƒ, the written defect.  The machine's second organ."
+  [ "dosalekha â” à¦à‹àà²àà–à, the written defect.  The machine's second organ."
   , "  AHIMSA_SUTRA_VISTARA Â§6: where transport is not possible, the defect is"
   , "  written.  A written defect lives.  An unwritten defect is himsa."
   , ""
@@ -483,7 +483,7 @@ schema = mapM_ putStrLn $
   , "  Repeatable: hetu, nasta, sesa, pramana, uttara.  Order is preserved and is part"
   , "  of the exhibit.  `sara` is computed by `write`; never write it by hand."
   , ""
-  , "REQUIRED â€” each refusal below is a refusal to store an unreadable entry"
+  , "REQUIRED â” each refusal below is a refusal to store an unreadable entry"
   , "" ] ++
   [ "  " ++ padr 16 k ++ why | (k, why) <- required ] ++
   [ ""
@@ -505,13 +505,13 @@ schema = mapM_ putStrLn $
   , "  value is read by its caller; a record is read by somebody who was not"
   , "  there, possibly after its writer is gone (sections 14, 15)." ] ++
   [ ""
-  , "KINDS (jati) â€” seven; the number is incidental, this is NOT the saptabhangi"
+  , "KINDS (jati) â” seven; the number is incidental, this is NOT the saptabhangi"
   , "" ] ++
   [ "  " ++ padr 22 k ++ why | (k, why) <- jatis ] ++
   [ ""
   , "THE ONE RULE THAT CANNOT BE ARGUED WITH"
   , ""
-  , "  `nasta` exhibits.  Put the witnesses in â€” the two log lines, the four"
+  , "  `nasta` exhibits.  Put the witnesses in â” the two log lines, the four"
   , "  census rows, the pair of terms, the counterexample.  Not \"information"
   , "  would be lost\".  Â§5: there is no retraction from a truncation, so a"
   , "  summary of the loss performs the loss a second time."
@@ -535,7 +535,7 @@ cmdCount = do
       answered = [ u | d <- ds, u <- fieldsNamed "uttara" d ]
       openN = length [ d | d <- ds, pad4 (dId d) `notElem` answered ]
       wit = sum [ length (fieldsNamed "nasta" d) | d <- ds ]
-  putStrLn ("à¤¦à¥‹à¤·à¤²à¥‡à¤–à¤ƒ  " ++ p)
+  putStrLn ("à¦à‹àà²àà–à  " ++ p)
   putStrLn ""
   putStrLn ("  defects written      " ++ show (length ds))
   putStrLn ("  witnesses exhibited  " ++ show wit)
@@ -551,7 +551,7 @@ cmdCount = do
   putStrLn ""
   case checkChain ds of
     Right () -> putStrLn "  chain: intact"
-    Left e   -> putStrLn ("  chain: BROKEN â€” " ++ e)
+    Left e   -> putStrLn ("  chain: BROKEN â” " ++ e)
 
 cmdVerify :: IO ()
 cmdVerify = do
@@ -696,10 +696,10 @@ parseEntry src =
 
 header :: String
 header = unlines
-  [ "# à¤¦à¥‹à¤·à¤²à¥‡à¤–à¤ƒ â€” the written defect.  APPEND ONLY.  NEVER EDIT.  NEVER DELETE."
+  [ "# à¦à‹àà²àà–à â” the written defect.  APPEND ONLY.  NEVER EDIT.  NEVER DELETE."
   , "#"
-  , "# AHIMSA_SUTRA_VISTARA Â§6: à¤¯à¤¤à¥à¤° à¤¸à¤‚à¤•à¥à¤°à¤®à¤£à¤‚ à¤¨ à¤¸à¤®à¥à¤­à¤µà¤¤à¤¿ à¤¤à¤¤à¥à¤° à¤¦à¥‹à¤·à¥‹ à¤²à¤¿à¤–à¥à¤¯à¤¤à¥‡ à¥¤"
-  , "#                          à¤²à¤¿à¤–à¤¿à¤¤à¥‹ à¤¦à¥‹à¤·à¥‹ à¤œà¥€à¤µà¤¤à¤¿ à¥¤ à¤…à¤²à¤¿à¤–à¤¿à¤¤à¥‹ à¤¦à¥‹à¤·à¥‹ à¤¹à¤¿à¤‚à¤¸à¤¾ à¥¤"
+  , "# AHIMSA_SUTRA_VISTARA Â§6: à¯ààà° ààà•àà°à®àà à¨ àà®àààµàà¿ àààà° à¦à‹àà‹ à²à¿à–àà¯àà à"
+  , "#                          à²à¿à–à¿àà‹ à¦à‹àà‹ àààµàà¿ à àà²à¿à–à¿àà‹ à¦à‹àà‹ àà¿ààà¾ à"
   , "#"
   , "# Written by interactive/DefectRecord.hs, which computes"
   , "# `sara:` as a chain over every preceding record.  Edit any line above the"

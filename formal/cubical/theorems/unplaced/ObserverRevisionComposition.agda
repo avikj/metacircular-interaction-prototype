@@ -107,7 +107,7 @@ DecidableEquality V =
 
 -- Pointwise form of
 --
---   D(composite) âŠ† pullback D(first) âˆª D(second).
+--   D(composite) âŠ pullback D(first) âˆ D(second).
 --
 -- The prose theorem concerns finite response tables, hence decidable
 -- equality.  The assumption is exposed here rather than silently importing

@@ -8,15 +8,15 @@
 -- A singular continuation is a renormalized orbit that SURVIVES the joint
 -- observer tests (pressure, flux, energy, trace, Reynolds-positivity,
 -- recurrence).  Every such orbit is either Type-I (critical-norm bounded) or
--- Type-II (critical-norm inflating).  Then regularity through the quotient â€”
--- emptiness of the bad-orbit fibre â€” reduces to two exclusions:
+-- Type-II (critical-norm inflating).  Then regularity through the quotient â”
+-- emptiness of the bad-orbit fibre â” reduces to two exclusions:
 --
---   excludeI  : no surviving Type-I orbit    â€” ESS + LÂ³ scale-invariance,
---               classical (Escauriazaâ€“Sereginâ€“Å verÃ¡k), the cited input;
---   excludeII : no surviving Type-II orbit   â€” the scale-critical depletion /
+--   excludeI  : no surviving Type-I orbit    â” ESS + LÂ³ scale-invariance,
+--               classical (Escauriazaâ“Sereginâ“ ver¡k), the cited input;
+--   excludeII : no surviving Type-II orbit   â” the scale-critical depletion /
 --               rigidity estimate, the NS mountain (D_NS).
 --
---     no-bad-orbit : dichotomy â†’ excludeI â†’ excludeII â†’ Â¬ BadOrbit.
+--     no-bad-orbit : dichotomy â’ excludeI â’ excludeII â’ Â BadOrbit.
 --
 -- `GeometricBudgetZeno` already shows finiteness of the dissipation budget is
 -- NOT itself an exclusion, so excludeII must be a genuine depletion input, not

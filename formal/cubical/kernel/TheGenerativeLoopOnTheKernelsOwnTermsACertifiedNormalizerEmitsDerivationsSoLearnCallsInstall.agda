@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- TheGenerativeLoopOnTheKernelsOwnTerms ‚Äî the corpus's largest structural
+-- TheGenerativeLoopOnTheKernelsOwnTerms ‚î the corpus's largest structural
 -- gap (descent doc ¬ß7: the proved-terminating generative learner runs on
 -- `ObstructionSubstrate.Tm`, a DIFFERENT datatype from the metacircular
 -- kernel's `RewriteCertificate.Tm`, with no `Tm`-morphism sending
--- `propose ‚Ü¶ install`) is closed here in the only way the types allow.
+-- `propose ‚¶ install`) is closed here in the only way the types allow.
 --
 -- WHY NOT A MORPHISM.  A total faithful `Tm`-morphism is blocked twice:
---   (arity)   Obstruction's `node : Shape(=‚Ñï) ‚Üí Tm ‚Üí Tm` is one unary
+--   (arity)   Obstruction's `node : Shape(=‚ï) ‚í Tm ‚í Tm` is one unary
 --             constructor over a countably-infinite head alphabet; the
 --             kernel's `Tm` is a CLOSED signature with one unary symbol
---             (`suc`), so ‚Ñï-many heads have no arity-faithful image.
+--             (`suc`), so ‚ï-many heads have no arity-faithful image.
 --   (witness) `propose` outputs a purely SYNTACTIC proposal (a fresh head
 --             + body, no rewrite witness), while `install` consumes a
 --             CHECKED `Derivation`.  The object that strictly decreases the
@@ -20,31 +20,31 @@
 -- RE-EXPRESSED on the kernel's own terms: a certified normalizer whose
 -- every step is a real `Step`, so the discovered reduction IS a checked
 -- `Derivation`, and `install` is called on it literally.  That makes
--- "learning = discovery becoming native capability" ‚Äî
+-- "learning = discovery becoming native capability" ‚î
 -- one checked pipeline `learn = install ‚àò normalize`.
 --
 -- WHAT IS PROVEN, --safe, no postulates, structurally terminating:
---   addNorm       for all l r, a term and a Derivation (add l r) ‚áù it,
+--   addNorm       for all l r, a term and a Derivation (add l r) ‚ it,
 --                 eliminating additions against a numeral right argument
---                 (add x zero ‚áù x; add x (suc y) ‚áù suc (add x y)),
+--                 (add x zero ‚ x; add x (suc y) ‚ suc (add x y)),
 --                 structural on r.
---   normalize     for every term t, a Derivation t ‚áù normalForm t, built
---                 from real Step constructors under congruence ‚Äî the
+--   normalize     for every term t, a Derivation t ‚ normalForm t, built
+--                 from real Step constructors under congruence ‚î the
 --                 discovery, as a checked object.
 --   normalize-sound
---                 normalization preserves ‚Ñï-meaning at every environment
+--                 normalization preserves ‚ï-meaning at every environment
 --                 (free, from derivation-sound): the discovered move is
 --                 SOUND, so nothing false can be learned.
---   learn         learn t = install (normalize t) : NativeOperation ‚Äî the
+--   learn         learn t = install (normalize t) : NativeOperation ‚î the
 --                 discovered derivation becomes an installed, executable
---                 kernel move.  `propose ‚Ü¶ install`, literal, on one Tm.
---   run-example   normalForm (add var (suc zero)) ‚â° suc var, by refl ‚Äî the
+--                 kernel move.  `propose ‚¶ install`, literal, on one Tm.
+--   run-example   normalForm (add var (suc zero)) ‚â° suc var, by refl ‚î the
 --                 normalizer COMPUTES; the derivation it emits is the
 --                 kernel's own `accepted`.
 --
 -- This does not grow the kernel's REACH beyond what it can already derive
--- (Siddhasadhana: self-installation is a plateau) ‚Äî it closes the
--- DISCOVERY‚ÜíINSTALLATION loop on one language, which the corpus did not
+-- (Siddhasadhana: self-installation is a plateau) ‚î it closes the
+-- DISCOVERY‚íINSTALLATION loop on one language, which the corpus did not
 -- have.  Item ¬ß8(a) of the descent doc, discharged in the buildable form.
 ------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ open import RewriteCertificate
 open import ControlledGrammar using (NativeOperation ; install)
 
 ------------------------------------------------------------------------
--- Derivation transitivity and the three congruences ‚Äî each structural on
+-- Derivation transitivity and the three congruences ‚î each structural on
 -- its Derivation argument, so every step below is a real `Step`.
 ------------------------------------------------------------------------
 
@@ -80,8 +80,8 @@ addRD z (done a)        = done (add z a)
 addRD z (then-step s d) = then-step (add-right z s) (addRD z d)
 
 ------------------------------------------------------------------------
--- addNorm ‚Äî eliminate an addition against its right argument, structural
--- on that argument.  add x zero ‚áù x; add x (suc y) ‚áù suc (add x y),
+-- addNorm ‚î eliminate an addition against its right argument, structural
+-- on that argument.  add x zero ‚ x; add x (suc y) ‚ suc (add x y),
 -- recursing on y; otherwise (variable / nested add on the right) it is
 -- irreducible and left as-is (a `done`).
 ------------------------------------------------------------------------
@@ -95,7 +95,7 @@ addNorm l (suc y) =
 addNorm l r       = add l r , done (add l r)
 
 ------------------------------------------------------------------------
--- normalize ‚Äî normalize any term, structural on the term.  Under an add,
+-- normalize ‚î normalize any term, structural on the term.  Under an add,
 -- normalize both arguments (congruence), then eliminate the addition.
 ------------------------------------------------------------------------
 
@@ -121,7 +121,7 @@ normalize : (t : Tm) ‚Üí Derivation t (normalForm t)
 normalize t = snd (norm t)
 
 ------------------------------------------------------------------------
--- Soundness is free: the discovered move preserves ‚Ñï-meaning everywhere,
+-- Soundness is free: the discovered move preserves ‚ï-meaning everywhere,
 -- so nothing false can be learned.
 ------------------------------------------------------------------------
 
@@ -138,7 +138,7 @@ learn t = install (normalize t)
 
 ------------------------------------------------------------------------
 -- The normalizer COMPUTES, and on the kernel's canonical seed it emits the
--- kernel's own `accepted` derivation add var (suc zero) ‚áù suc var.
+-- kernel's own `accepted` derivation add var (suc zero) ‚ suc var.
 ------------------------------------------------------------------------
 
 run-example : normalForm (add var (suc zero)) ‚â° suc var

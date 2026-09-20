@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Ananyata where
--- अनन्यता: uniqueness.  The multiplicity of every prime in every
--- certified factorization equals the p-adic valuation — so any two
+-- �������: uniqueness.  The multiplicity of every prime in every
+-- certified factorization equals the p-adic valuation � so any two
 -- factorizations of n agree at every prime.  FTA, whole.
 
 open import Yantra.Prakriti
@@ -27,7 +27,7 @@ countP p ((q , _) ∷ l) with discreteℕ p q
 ... | yes _ = suc (countP p l)
 ... | no  _ = countP p l
 
--- p ∤ 1 for a prime
+-- p � 1 for a prime
 p∤1 : (p : ℕ) → IsPrime p → ¬ divides p 1
 p∤1 p prP dv = <-asym (fst prP) (divLe p 1 ≤-refl dv)
 

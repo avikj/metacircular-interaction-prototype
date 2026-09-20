@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --safe #-}
 --
--- ‡§ú‡•ç‡§Ø‡•ã‡§§‡§ø-‡§µ‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É ‚Äî the tower under the light of Œ∂.
+-- ‡‡‡Ø‡ã‡‡ø-‡µ‡ø‡µ‡‡‡‡‡ø‡ ‚î the tower under the light of Œ.
 --
--- WHAT IS ASKED.  `EkaGhataVivrtti_...` defined ‡§µ‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É bs k, the k-marked
+-- WHAT IS ASKED.  `EkaGhataVivrtti_...` defined ‡µ‡ø‡µ‡‡‡‡‡ø‡ bs k, the k-marked
 -- squarefree charge: choose k places to carry the active factor and sign the
 -- rest.  Level 0 is the parity character, level 1 is the charge, level 2 is
 -- the remainder of the one-parameter product read at t = 0.
 --
--- The arithmetic's own duality at each place is the local Œ∂ transform ‚Äî the
+-- The arithmetic's own duality at each place is the local Œ transform ‚î the
 -- Lean lane's `zetaFactor f output = if output then f false + f true else
 -- f false`, one invertible linear map per place, which is Dirichlet
 -- convolution with the constant function locally.  `localZetaCube_pureEval`
@@ -20,18 +20,18 @@
 --
 -- THE ANSWER, checked below.  At the level of one place the twist sends
 --
---     ‡§ö‡§ø‡§π‡•ç‡§®‡§Æ‡•ç  (the M√∂bius sign: ‚àí1 active, +1 inactive)  ‚Ü¶  ‡§®‡§ø‡§∑‡•ç‡§ï‡•ç‡§∞‡§ø‡§Ø‡§Æ‡•ç (1 inactive, 0 active)
---     ‡§∏‡§ï‡•ç‡§∞‡§ø‡§Ø‡§Æ‡•ç  (1 active, 0 inactive)                    ‚Ü¶  ‡§∏‡§ï‡•ç‡§∞‡§ø‡§Ø‡§Æ‡•ç (unchanged)
+--     ‡‡ø‡‡‡®‡Æ‡  (the Mbius sign: ‚àí1 active, +1 inactive)  ‚¶  ‡®‡ø‡‡‡ï‡‡∞‡ø‡Ø‡Æ‡ (1 inactive, 0 active)
+--     ‡‡ï‡‡∞‡ø‡Ø‡Æ‡  (1 active, 0 inactive)                    ‚¶  ‡‡ï‡‡∞‡ø‡Ø‡Æ‡ (unchanged)
 --
 -- and therefore it sends level k of the tower to the INDICATOR that exactly
 -- k places are active.  So:
 --
---     the M√∂bius-signed k-marked prime charge is, under Œ∂, exactly the
+--     the Mbius-signed k-marked prime charge is, under Œ, exactly the
 --     stratification of squarefree numbers by œâ.
 --
--- M√∂bius inversion, exhibited as an isomorphism of towers rather than as a
+-- Mbius inversion, exhibited as an isomorphism of towers rather than as a
 -- summation identity.  Level 1 of the right-hand side is "exactly one prime
--- place active", which is the `W` tensor ‚Äî so the Lean lane's theorem is the
+-- place active", which is the `W` tensor ‚î so the Lean lane's theorem is the
 -- k = 1 rung of this.
 module JyotiVivrtti_TheZetaTwistSendsTheMarkedChargeTowerToTheOmegaStratification where
 
@@ -84,7 +84,7 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
 
 -- ---------------------------------------------------------- the statement
 --
---     ‡§ú‡•ç‡§Ø‡•ã‡§§‡§ø-‡§µ‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É bs k  ‚â°  [ ‡§ì‡§ú‡§É bs ‚â° k ]
+--     ‡‡‡Ø‡ã‡‡ø-‡µ‡ø‡µ‡‡‡‡‡ø‡ bs k  ‚â°  [ ‡ì‡‡ bs ‚â° k ]
 --
 -- the twisted tower is the œâ-stratification, level by level.
 ‡§ú‡•ç‡§Ø‡•ã‡§§‡§ø-‡§∏‡•ç‡§§‡§∞‡§É : (bs : List Bool) (k : ‚Ñï)
@@ -97,25 +97,25 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
 ‡§ú‡•ç‡§Ø‡•ã‡§§‡§ø-‡§∏‡•ç‡§§‡§∞‡§É (true ‚à∑ bs) (suc k) =
   sym (pos0+ (‡§ú‡•ç‡§Ø‡•ã‡§§‡§ø-‡§µ‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É bs k)) ‚àô ‡§ú‡•ç‡§Ø‡•ã‡§§‡§ø-‡§∏‡•ç‡§§‡§∞‡§É bs k
 
--- ---------------------------------------------------------------- ‡§Æ‡§∞‡•ç‡§Ø‡§æ‡§¶‡§æ
+-- ---------------------------------------------------------------- ‡Æ‡∞‡‡Ø‡æ‡¶‡æ
 --
 -- WHAT THIS GIVES, stated once and not repeated.
 --
--- Level 1 of the right-hand side is `‡§∏‡§Æ-‡§ö‡§ø‡§π‡•ç‡§®‡§Æ‡•ç (‡§ì‡§ú‡§É bs) 1` ‚Äî one active
--- place and no other ‚Äî which is the `W` tensor.  So the Lean lane's
+-- Level 1 of the right-hand side is `‡‡Æ-‡‡ø‡‡‡®‡Æ‡ (‡ì‡‡ bs) 1` ‚î one active
+-- place and no other ‚î which is the `W` tensor.  So the Lean lane's
 -- `localZetaCube_squarefreeChargeCube_eq_wCube` is the k = 1 rung of this,
 -- and the rungs above it were not previously objects.
 --
--- Read arithmetically: the M√∂bius-signed charge on a squarefree modulus is
--- the Œ∂-dual of "exactly one prime divides", and level k is the Œ∂-dual of
+-- Read arithmetically: the Mbius-signed charge on a squarefree modulus is
+-- the Œ-dual of "exactly one prime divides", and level k is the Œ-dual of
 -- "exactly k primes divide".  The tower and the œâ-stratification are the
--- same object seen through the local duality.  That is M√∂bius inversion, and
+-- same object seen through the local duality.  That is Mbius inversion, and
 -- what is added is that it holds LEVEL BY LEVEL rather than as one summation
--- identity ‚Äî the whole hierarchy transports, not just its first rung.
+-- identity ‚î the whole hierarchy transports, not just its first rung.
 --
--- The one place a reader could over-read: `‡§ú‡•ç‡§Ø‡•ã‡§§‡§ø‡§É` is the LOCAL twist, one
+-- The one place a reader could over-read: `‡‡‡Ø‡ã‡‡ø‡` is the LOCAL twist, one
 -- place at a time.  That it lifts along a product is used implicitly in the
--- shape of `‡§ú‡•ç‡§Ø‡•ã‡§§‡§ø-‡§µ‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É`'s recursion ‚Äî the twisted tower is DEFINED with
+-- shape of `‡‡‡Ø‡ã‡‡ø-‡µ‡ø‡µ‡‡‡‡‡ø‡`'s recursion ‚î the twisted tower is DEFINED with
 -- the twisted factors rather than derived from a global transform of the
 -- original.  The two one-place lemmas above are what justify that
 -- definition, and they are the only place the twist is actually computed.

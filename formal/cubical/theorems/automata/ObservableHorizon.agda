@@ -6,7 +6,7 @@
 -- Exact Cubical adapter for the semantic half of the concurrent Lean
 -- `Pairfield.ObservableHorizon` result.  A bounded response kernel can enter
 -- the existing future-behavior quotient exactly when every installed action
--- preserves it.  At that point it is a `FutureBehavior`
+-- preserves it.  At that point it is a `MyhillNerodeMinimalMachine`
 -- `isBehavioralCongruence`, so the already-checked greatest-congruence
 -- theorem upgrades bounded equality to equality under every future word.
 --
@@ -32,7 +32,7 @@ open import Cubical.Functions.Image
 open import Cubical.HITs.SetQuotients as SQ using ([_] ; eq/)
 open import Cubical.Relation.Nullary using (¬_)
 
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 import FiniteInformation as FI
 
 private
@@ -46,13 +46,13 @@ private
 -- Bounded equality and its action-closure obligation
 ------------------------------------------------------------------------
 
-BoundedFutureEq : (X → A → X) → (X → O) → ℕ → X → X → Type _
-BoundedFutureEq {A = A} step observe fuel x y =
+BoundedNerodeCongruence : (X → A → X) → (X → O) → ℕ → X → X → Type _
+BoundedNerodeCongruence {A = A} step observe fuel x y =
   (word : List A) → length word ≤ fuel
   → FB.behavior step observe x word ≡ FB.behavior step observe y word
 
 -- Package the bounded experiment and its length certificate as one input.
--- Equality of the resulting response functions is exactly BoundedFutureEq;
+-- Equality of the resulting response functions is exactly BoundedNerodeCongruence;
 -- the two directions below make that interface conversion explicit.
 WindowAt : {A : Type ℓA} → ℕ → Type ℓA
 WindowAt {A = A} fuel = Σ[ word ∈ List A ] length word ≤ fuel
@@ -68,7 +68,7 @@ responseWindow step observe fuel x (word , _) =
 
 bounded→responseWindow≡ :
     (step : X → A → X) (observe : X → O) (fuel : ℕ) {x y : X}
-  → BoundedFutureEq step observe fuel x y
+  → BoundedNerodeCongruence step observe fuel x y
   → responseWindow step observe fuel x
     ≡ responseWindow step observe fuel y
 bounded→responseWindow≡ step observe fuel bounded =
@@ -78,23 +78,23 @@ responseWindow≡→bounded :
     (step : X → A → X) (observe : X → O) (fuel : ℕ) {x y : X}
   → responseWindow step observe fuel x
     ≡ responseWindow step observe fuel y
-  → BoundedFutureEq step observe fuel x y
+  → BoundedNerodeCongruence step observe fuel x y
 responseWindow≡→bounded step observe fuel p word bound =
   funExt⁻ p (word , bound)
 
 ObservableClosesAt : (X → A → X) → (X → O) → ℕ → Type _
 ObservableClosesAt {X = X} {A = A} step observe fuel =
-  (x y : X) → BoundedFutureEq step observe fuel x y → (action : A)
-  → BoundedFutureEq step observe fuel (step x action) (step y action)
+  (x y : X) → BoundedNerodeCongruence step observe fuel x y → (action : A)
+  → BoundedNerodeCongruence step observe fuel (step x action) (step y action)
 
 -- The empty word is always inside the bounded carrier.  Therefore action
--- closure supplies exactly the two fields demanded by FutureBehavior's
+-- closure supplies exactly the two fields demanded by MyhillNerodeMinimalMachine's
 -- native congruence record; no quotient or decoder is constructed twice.
 boundedClosure→congruence :
     (step : X → A → X) (observe : X → O) (fuel : ℕ)
   → ObservableClosesAt step observe fuel
   → FB.isBehavioralCongruence step observe
-      (BoundedFutureEq step observe fuel)
+      (BoundedNerodeCongruence step observe fuel)
 boundedClosure→congruence step observe fuel closes = record
   { respects-observe = λ bounded → bounded [] zero-≤
   ; respects-step = λ action bounded → closes _ _ bounded action
@@ -105,7 +105,7 @@ boundedClosure→congruence step observe fuel closes = record
 boundedCongruence→closure :
     (step : X → A → X) (observe : X → O) (fuel : ℕ)
   → FB.isBehavioralCongruence step observe
-      (BoundedFutureEq step observe fuel)
+      (BoundedNerodeCongruence step observe fuel)
   → ObservableClosesAt step observe fuel
 boundedCongruence→closure step observe fuel congruence x y bounded action =
   FB.isBehavioralCongruence.respects-step congruence action bounded
@@ -114,9 +114,9 @@ closure-iff-bounded-congruence :
     (step : X → A → X) (observe : X → O) (fuel : ℕ)
   → (ObservableClosesAt step observe fuel
       → FB.isBehavioralCongruence step observe
-          (BoundedFutureEq step observe fuel))
+          (BoundedNerodeCongruence step observe fuel))
     × (FB.isBehavioralCongruence step observe
-          (BoundedFutureEq step observe fuel)
+          (BoundedNerodeCongruence step observe fuel)
       → ObservableClosesAt step observe fuel)
 closure-iff-bounded-congruence step observe fuel =
   boundedClosure→congruence step observe fuel ,
@@ -126,56 +126,56 @@ closure-iff-bounded-congruence step observe fuel =
 -- Stabilization: the bounded kernel equals the complete future kernel
 ------------------------------------------------------------------------
 
-boundedClosure→futureEq :
+boundedClosure→nerodeCongruence :
     (step : X → A → X) (observe : X → O) (fuel : ℕ)
   → ObservableClosesAt step observe fuel
-  → {x y : X} → BoundedFutureEq step observe fuel x y
-  → FB.FutureEq step observe x y
-boundedClosure→futureEq step observe fuel closes =
-  FB.congruence→futureEq
+  → {x y : X} → BoundedNerodeCongruence step observe fuel x y
+  → FB.NerodeCongruence step observe x y
+boundedClosure→nerodeCongruence step observe fuel closes =
+  FB.congruence→nerodeCongruence
     (boundedClosure→congruence step observe fuel closes)
 
 boundedFuture→closure :
     (step : X → A → X) (observe : X → O) (fuel : ℕ)
-  → ((x y : X) → BoundedFutureEq step observe fuel x y
-      → FB.FutureEq step observe x y)
+  → ((x y : X) → BoundedNerodeCongruence step observe fuel x y
+      → FB.NerodeCongruence step observe x y)
   → ObservableClosesAt step observe fuel
 boundedFuture→closure step observe fuel future x y bounded action word _ =
-  FB.futureEq-step step observe (future x y bounded) action word
+  FB.nerodeCongruence-step step observe (future x y bounded) action word
 
 observableClosesAt-iff-bounded-implies-future :
     (step : X → A → X) (observe : X → O) (fuel : ℕ)
   → (ObservableClosesAt step observe fuel
-      → (x y : X) → BoundedFutureEq step observe fuel x y
-        → FB.FutureEq step observe x y)
-    × (((x y : X) → BoundedFutureEq step observe fuel x y
-          → FB.FutureEq step observe x y)
+      → (x y : X) → BoundedNerodeCongruence step observe fuel x y
+        → FB.NerodeCongruence step observe x y)
+    × (((x y : X) → BoundedNerodeCongruence step observe fuel x y
+          → FB.NerodeCongruence step observe x y)
       → ObservableClosesAt step observe fuel)
 observableClosesAt-iff-bounded-implies-future step observe fuel =
   (λ closes x y bounded →
-    boundedClosure→futureEq step observe fuel closes {x} {y} bounded) ,
+    boundedClosure→nerodeCongruence step observe fuel closes {x} {y} bounded) ,
   boundedFuture→closure step observe fuel
 
 -- Complete future equality always restricts to a bounded window.  Under
 -- closure, the preceding theorem is its converse, so the two kernels agree
 -- pointwise without any finite-state or decidable-equality hypothesis.
-futureEq→bounded :
+nerodeCongruence→bounded :
     (step : X → A → X) (observe : X → O) (fuel : ℕ) {x y : X}
-  → FB.FutureEq step observe x y
-  → BoundedFutureEq step observe fuel x y
-futureEq→bounded step observe fuel future word _ = future word
+  → FB.NerodeCongruence step observe x y
+  → BoundedNerodeCongruence step observe fuel x y
+nerodeCongruence→bounded step observe fuel future word _ = future word
 
 stabilized-kernel :
     (step : X → A → X) (observe : X → O) (fuel : ℕ)
   → ObservableClosesAt step observe fuel
   → {x y : X}
-  → (BoundedFutureEq step observe fuel x y
-      → FB.FutureEq step observe x y)
-    × (FB.FutureEq step observe x y
-      → BoundedFutureEq step observe fuel x y)
+  → (BoundedNerodeCongruence step observe fuel x y
+      → FB.NerodeCongruence step observe x y)
+    × (FB.NerodeCongruence step observe x y
+      → BoundedNerodeCongruence step observe fuel x y)
 stabilized-kernel step observe fuel closes =
-  boundedClosure→futureEq step observe fuel closes ,
-  futureEq→bounded step observe fuel
+  boundedClosure→nerodeCongruence step observe fuel closes ,
+  nerodeCongruence→bounded step observe fuel
 
 ------------------------------------------------------------------------
 -- The induced action exists constructively on the realized image
@@ -241,7 +241,7 @@ module RealizedWindow
   -- below are constructed independently from the universal properties of
   -- Image and SetQuotient, and their inverse laws are proved before an
   -- equivalence is exposed.
-  module FQ = FB.FutureQuotient step setO observe
+  module FQ = FB.MinimalMachine step setO observe
 
   meaningOf : X → FQ.Meaning
   meaningOf x = [ x ]
@@ -252,7 +252,7 @@ module RealizedWindow
   meaning-fiber-constant : FI.FiberConstant window meaningOf
   meaning-fiber-constant x y same-window =
     eq/ x y
-      (boundedClosure→futureEq step observe fuel closes
+      (boundedClosure→nerodeCongruence step observe fuel closes
         (responseWindow≡→bounded step observe fuel same-window))
 
   meaningFactors : FI.FactorsThrough window meaningOf
@@ -272,11 +272,11 @@ module RealizedWindow
   imageOf = restrictToImage window
 
   image-future-constant :
-    {x y : X} → FB.FutureEq step observe x y → imageOf x ≡ imageOf y
+    {x y : X} → FB.NerodeCongruence step observe x y → imageOf x ≡ imageOf y
   image-future-constant future =
     FI.sameObservation→samePoint window
       (bounded→responseWindow≡ step observe fuel
-        (futureEq→bounded step observe fuel future))
+        (nerodeCongruence→bounded step observe fuel future))
 
   fromMeaning : FQ.Meaning → Carrier
   fromMeaning =
@@ -287,7 +287,7 @@ module RealizedWindow
     FQ.factor-[] isSetCarrier imageOf image-future-constant x
 
   meaning-future-constant :
-    {x y : X} → FB.FutureEq step observe x y → meaningOf x ≡ meaningOf y
+    {x y : X} → FB.NerodeCongruence step observe x y → meaningOf x ≡ meaningOf y
   meaning-future-constant {x} {y} future = eq/ x y future
 
   to-from : (meaning : FQ.Meaning)
@@ -401,10 +401,10 @@ module RealizedWindow
 
 bounded-collision-obstructs-closure :
     (step : X → A → X) (observe : X → O) {fuel : ℕ} {x y : X}
-  → BoundedFutureEq step observe fuel x y
+  → BoundedNerodeCongruence step observe fuel x y
   → (word : List A)
   → ¬ (FB.behavior step observe x word
       ≡ FB.behavior step observe y word)
   → ¬ ObservableClosesAt step observe fuel
 bounded-collision-obstructs-closure step observe bounded word separates closes =
-  separates (boundedClosure→futureEq step observe _ closes bounded word)
+  separates (boundedClosure→nerodeCongruence step observe _ closes bounded word)

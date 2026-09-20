@@ -19,24 +19,24 @@
 -- incompatibility as a checked object WITHOUT resolving it.  Prose has to
 -- pick a side or blend.  A type theory does not.
 --
--- ────────────────────────────────────────────────────────────────────
+-- ��������������������������������������������������������������������
 -- SOURCES, WITH THE GRADE OF EACH STATED.
 --
--- Bauddha side.  Dignāga, *Pramāṇasamuccaya* (c. 480-540), for apoha:
+-- Bauddha side.  Dignga, *Pramasamuccaya* (c. 480-540), for apoha:
 -- conceptual content as *anya-apoha*, exclusion-of-the-other -- a general
 -- term does not pick out a shared positive feature, it excludes what the
--- term is not.  Dharmakīrti, *Pramāṇavārttika* (c. 600-660), develops it
--- and attacks the Jaina position.  Śāntarakṣita, *Tattvasaṅgraha*
--- (c. 750), with Kamalaśīla's *Pañjikā*, carries an examination of the
+-- term is not.  Dharmakrti, *Pramavrttika* (c. 600-660), develops it
+-- and attacks the Jaina position.  ntarakita, *Tattvasagraha*
+-- (c. 750), with Kamalala's *Pajik*, carries an examination of the
 -- Jaina doctrine of many-sidedness.
 --
--- Jaina side.  Umāsvāti, *Tattvārthasūtra* 5.29
--- (*utpādavyayadhrauvyayuktaṁ sat* -- what is, is joined with
+-- Jaina side.  Umsvti, *Tattvrthastra* 5.29
+-- (*utpdavyayadhrauvyayukta sat* -- what is, is joined with
 -- origination, cessation and persistence) and 5.31
--- (*arpitānarpitasiddheḥ* -- established through the emphasised and the
--- unemphasised), for dravya persisting through paryāya.  Akalaṅka
--- (c. 720-780); Vidyānanda, *Aṣṭasahasrī* (c. 850); Prabhācandra,
--- *Prameyakamalamārtaṇḍa* (c. 1000), for the replies to the Bauddha
+-- (*arpitnarpitasiddhe* -- established through the emphasised and the
+-- unemphasised), for dravya persisting through paryya.  Akalaka
+-- (c. 720-780); Vidynanda, *Aasahasr* (c. 850); Prabhcandra,
+-- *Prameyakamalamrtaa* (c. 1000), for the replies to the Bauddha
 -- charge.
 --
 -- GRADE, stated because a provenance you did not check is the same class
@@ -58,14 +58,14 @@
 --
 -- What makes the step defensible rather than convenient: a naya is
 -- articulated, and on the Bauddha's own division the articulated is
--- conceptual -- pratyakṣa grasps the svalakṣaṇa non-conceptually, and
+-- conceptual -- pratyaka grasps the svalakaa non-conceptually, and
 -- everything a standpoint can SAY has already passed through
 -- conceptualisation.  So on the Bauddha's own account a naya falls under
 -- apoha.  That is why the step is available to him.  It is not thereby
 -- available to his opponent, and §6 does not pretend otherwise.
 --
 -- `Durnaya_TheProhibitionHasContentOnlyOffThePropositional-
--- World` (cf-archivist, 2026-08-20) proves that the anekānta prohibition
+-- World` (cf-archivist, 2026-08-20) proves that the aneknta prohibition
 -- has content only where the fibres are not propositions, and that any
 -- separating family must be non-propositional.  Every theorem there takes
 -- `isProp (P s)` AS A HYPOTHESIS.  Nothing in this corpus asks where
@@ -76,10 +76,10 @@
 -- apoha.  §3: therefore a family of Bauddha standpoints satisfies that
 -- hypothesis automatically, and the deflation is not an assumption the
 -- Bauddha smuggles in -- it is forced by his own theory of concepts.
--- §4: and so no apoha-family can EVER separate, which is Dharmakīrti's
+-- §4: and so no apoha-family can EVER separate, which is Dharmakrti's
 -- charge made exact and made structural rather than polemical.
 --
--- §5 is the Jaina reply, and it is not a refutation: a paryāya is a
+-- §5 is the Jaina reply, and it is not a refutation: a paryya is a
 -- positive determination of a persisting dravya, not an exclusion, and a
 -- positive family CAN separate -- the corpus's own `Mixed` does it.
 --
@@ -137,8 +137,8 @@ DviApoha A s = ¬ (¬ (A s))
 -- 2.  AN EXCLUSION IS PROPOSITION-VALUED.  Necessarily, on either
 --     reading, with no hypothesis whatsoever.
 --
--- This is the whole engine and it is three lines.  `¬ A` is `A → ⊥`; a
--- Π into a proposition is a proposition; ⊥ is a proposition.
+-- This is the whole engine and it is three lines.  `� A` is `A � �`; a
+-- Π into a proposition is a proposition; � is a proposition.
 ------------------------------------------------------------------------
 
 apoha-isProp : {S : Type ℓ} (A : S → Type ℓ') (s : S) → isProp (Apoha A s)
@@ -150,13 +150,13 @@ dviApoha-isProp A s = isProp¬ (¬ (A s))
 ------------------------------------------------------------------------
 -- 3.  SO THE BAUDDHA DOES NOT ASSUME THE DEFLATION.  HE DERIVES IT.
 --
--- cf-archivist's `entail→agree-onProps` needs `(s : S) → isProp (P s)`.
+-- cf-archivist's `entail�agree-onProps` needs `(s : S) � isProp (P s)`.
 -- For an apoha-family that hypothesis is discharged by §2, from nothing.
 -- Hence: among Bauddha standpoints, mutual entailment already IS full
--- agreement, and the anekānta prohibition says nothing a biconditional
+-- agreement, and the aneknta prohibition says nothing a biconditional
 -- would not.
 --
--- That is Dharmakīrti's trivialisation charge, and the finding is that it
+-- That is Dharmakrti's trivialisation charge, and the finding is that it
 -- is not question-begging.  It follows from apoha.
 ------------------------------------------------------------------------
 
@@ -179,7 +179,7 @@ dviApoha-entail→agree A = entail→agree-onProps (DviApoha A) (dviApoha-isProp
 -- Bauddha's vocabulary a separating standpoint is not unattested, it is
 -- unconstructible.
 --
--- Which is stronger than "anekānta is incoherent" and also kinder to the
+-- Which is stronger than "aneknta is incoherent" and also kinder to the
 -- Jaina than the polemic was: the doctrine is INEXPRESSIBLE in apoha.
 -- That is why, from inside that vocabulary, the Jaina looks like a man
 -- asserting a contradiction.  He is not.  He is speaking a vocabulary in
@@ -210,8 +210,8 @@ no-dviApoha-family-separates (A , e , ¬a) = ¬a (dviApoha-entail→agree A e)
 ------------------------------------------------------------------------
 -- 5.  THE JAINA REPLY, WHICH IS NOT A REFUTATION.
 --
--- Umāsvāti 5.29: what IS, is joined with origination, cessation and
--- persistence -- simultaneously.  A paryāya is a positive determination
+-- Umsvti 5.29: what IS, is joined with origination, cessation and
+-- persistence -- simultaneously.  A paryya is a positive determination
 -- of a dravya that persists through it, not an exclusion of something
 -- else.  Modelled: the fibres are free to be any type.
 --
@@ -232,8 +232,8 @@ paryaya-can-separate = Mixed , Mixed-entails , Mixed-not-agree
 ------------------------------------------------------------------------
 -- 6.  WHERE THE DISPUTE ACTUALLY IS, AND THAT NOTHING ABOVE SETTLES IT.
 --
--- §3/§4:  IF content is exclusion, anekānta is inexpressible.
--- §5:     IF content can be positive, anekānta has a witness.
+-- §3/§4:  IF content is exclusion, aneknta is inexpressible.
+-- §5:     IF content can be positive, aneknta has a witness.
 --
 -- Both are theorems.  Neither contradicts the other, because their
 -- hypotheses are different, and the hypotheses are the two ontologies.
@@ -248,7 +248,7 @@ paryaya-can-separate = Mixed , Mixed-entails , Mixed-not-agree
 -- dispute took historically rather than merely restating it: the Bauddha
 -- CANNOT SEE HIS OWN COMMITMENT, because propositionality reaches him as
 -- a consequence of apoha and never as an axiom about standpoints.  From
--- inside, the Jaina is asserting P and ¬P of one thing.  From the Jaina
+-- inside, the Jaina is asserting P and �P of one thing.  From the Jaina
 -- side the Bauddha has assumed the answer in his semantics.  Both
 -- experiences are accurate given the commitments, which is why centuries
 -- of the exchange produced no concession from either.

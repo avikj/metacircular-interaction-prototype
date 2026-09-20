@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- अन्वय — the lineage, the connected sequence.
+-- ����� � the lineage, the connected sequence.
 --
 -- WHY THIS FILE EXISTS.  The abstract "THE ANSWER DOES NOT DETERMINE THE
 -- DERIVATION" proves that evaluation into a discrete domain factors
@@ -9,40 +9,40 @@
 --
 -- All four are built here, and the reading becomes the theorem of the
 -- subject: query evaluation commutes with semiring homomorphisms
--- (§६), and the how ⊐ bag ⊐ set hierarchy is STRICT with a witness at
--- each collapse (§५).
+-- (§�), and the how ⊐ bag ⊐ set hierarchy is STRICT with a witness at
+-- each collapse (§�).
 --
 -- ON EXHIBITING DISTINCTNESS IN A FREE COMMUTATIVE SEMIRING WITHOUT
--- BUILDING THE QUOTIENT.  How-provenance lives in ℕ[X], the free
+-- BUILDING THE QUOTIENT.  How-provenance lives in �[X], the free
 -- commutative semiring on the tuple identifiers, which is the term
 -- algebra modulo the semiring laws.  Constructing that quotient is not
 -- needed to prove two elements DIFFERENT: two terms are equal in the
 -- quotient exactly when every evaluation into every commutative
 -- semiring agrees on them, so ONE evaluation that disagrees is a proof
--- of distinctness in ℕ[X] itself.  §५ uses exactly that, and it is why
+-- of distinctness in �[X] itself.  §� uses exactly that, and it is why
 -- no set-quotient appears below.
 --
 -- WHAT IS CHECKED
 --
---   §१  `CommSemiring`, `Hom`     the structures.
---   §२  `Prov`, `eval`            provenance terms and the universal map.
---   §३  `hom-eval`                a homomorphism commutes with `eval`:
+--   §�  `CommSemiring`, `Hom`     the structures.
+--   §�  `Prov`, `eval`            provenance terms and the universal map.
+--   §�  `hom-eval`                a homomorphism commutes with `eval`:
 --                                  the universal property, as a term.
---   §४  `ℕ-semiring`              bag semantics (count the derivations),
+--   §�  `�-semiring`              bag semantics (count the derivations),
 --       `Bool-semiring`           set semantics (was there one),
---       `⌈_⌉`, `⌈⌉-hom`           THE FORGETFUL HOMOMORPHISM ℕ → 𝔹,
+--       `�_�`, `��-hom`           THE FORGETFUL HOMOMORPHISM � � �,
 --       `set-factors-through-bag` and the factorisation it induces.
---   §५  `bag-does-not-determine-how`     STRICTNESS, twice, each with
+--   §�  `bag-does-not-determine-how`     STRICTNESS, twice, each with
 --       `set-does-not-determine-bag`     an exhibited pair, plus the
 --       `no-bag-from-set`                stronger "no function of the
 --       `no-how-from-bag`                coarser annotation recovers
 --                                        the finer one" in both places.
---   §६  the relational algebra and `query-hom`:
+--   §�  the relational algebra and `query-hom`:
 --                                 QUERY EVALUATION COMMUTES WITH
 --                                 SEMIRING HOMOMORPHISMS, by induction
 --                                 over the query language.
 --
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 — the repository pin.
+-- CHECKED: Agda 2.8.0, agda/cubical v0.9 � the repository pin.
 -- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -66,7 +66,7 @@ private
   absurd ()
 
 ------------------------------------------------------------------------
--- १ · commutative semirings, and their homomorphisms.
+-- � � commutative semirings, and their homomorphisms.
 ------------------------------------------------------------------------
 
 record CommSemiring (R : Type) : Type where
@@ -95,11 +95,11 @@ record Hom {R S : Type} (𝕣 : CommSemiring R) (𝕤 : CommSemiring S)
 open Hom public
 
 ------------------------------------------------------------------------
--- २ · provenance terms, and the universal map out of them.
+-- � � provenance terms, and the universal map out of them.
 --
 -- `Prov X` is the term algebra of the semiring signature over the tuple
 -- identifiers X.  `eval` is the unique semiring map out of it once the
--- identifiers are given values — the universal property of ℕ[X], with
+-- identifiers are given values � the universal property of �[X], with
 -- the quotient left implicit as explained in the header.
 ------------------------------------------------------------------------
 
@@ -123,9 +123,9 @@ _≐_ {X = X} p q =
   (R : Type) (𝕣 : CommSemiring R) (ν : X → R) → eval 𝕣 ν p ≡ eval 𝕣 ν q
 
 ------------------------------------------------------------------------
--- ३ · a homomorphism commutes with evaluation.
+-- � � a homomorphism commutes with evaluation.
 --
--- Five lines, one per constructor.  Everything in §४ and §६ is a
+-- Five lines, one per constructor.  Everything in §� and §� is a
 -- corollary of this and of the query induction.
 ------------------------------------------------------------------------
 
@@ -144,7 +144,7 @@ hom-eval {𝕣 = 𝕣} {𝕤 = 𝕤} hm ν (p ⊠ q) =
   ∙ cong₂ (_⊗_ 𝕤) (hom-eval hm ν p) (hom-eval hm ν q)
 
 ------------------------------------------------------------------------
--- ४ · the two coarse semantics, and the forgetful homomorphism.
+-- � � the two coarse semantics, and the forgetful homomorphism.
 ------------------------------------------------------------------------
 
 ℕ-semiring : CommSemiring ℕ
@@ -176,7 +176,7 @@ _⊗_      Bool-semiring = _and_
 ⊗distrib Bool-semiring false y z = refl
 ⊗distrib Bool-semiring true  y z = refl
 
--- THE FORGETFUL HOMOMORPHISM.  "How many derivations" ↦ "was there one".
+-- THE FORGETFUL HOMOMORPHISM.  "How many derivations" � "was there one".
 ⌈_⌉ : ℕ → Bool
 ⌈ zero  ⌉ = false
 ⌈ suc _ ⌉ = true
@@ -196,23 +196,23 @@ h𝟙 ⌈⌉-hom = refl
 h⊕ ⌈⌉-hom = ⌈⌉-or
 h⊗ ⌈⌉-hom = ⌈⌉-and
 
--- the two coarse readings of a provenance term …
+-- the two coarse readings of a provenance term �
 bag : {X : Type} → Prov X → ℕ
 bag = eval ℕ-semiring (λ _ → 1)
 
 setb : {X : Type} → Prov X → Bool
 setb = eval Bool-semiring (λ _ → true)
 
--- … and set semantics is bag semantics with the multiplicity forgotten.
+-- � and set semantics is bag semantics with the multiplicity forgotten.
 set-factors-through-bag : {X : Type} (p : Prov X) → ⌈ bag p ⌉ ≡ setb p
 set-factors-through-bag = hom-eval ⌈⌉-hom (λ _ → 1)
 
 ------------------------------------------------------------------------
--- ५ · THE HIERARCHY IS STRICT, twice, with witnesses.
+-- � � THE HIERARCHY IS STRICT, twice, with witnesses.
 --
 -- how ⊐ bag ⊐ set.  At each step the coarser annotation identifies two
--- things the finer one separates, and — the sharper form, which is the
--- one that kills reconstruction — NO function of the coarser annotation
+-- things the finer one separates, and � the sharper form, which is the
+-- one that kills reconstruction � NO function of the coarser annotation
 -- recovers the finer, for any function whatsoever.
 ------------------------------------------------------------------------
 
@@ -244,7 +244,7 @@ set-agrees = refl
 set-does-not-determine-bag : ¬ (bag bagA ≡ bag bagB)
 set-does-not-determine-bag p = snotz (cong predℕ p)
 
--- the sharper forms.  Not "the obvious reconstruction fails" — NO
+-- the sharper forms.  Not "the obvious reconstruction fails" � NO
 -- function of the coarser annotation agrees with the finer one.
 no-bag-from-set : ¬ (Σ[ f ∈ (Bool → ℕ) ] ((p : Prov Id) → f (setb p) ≡ bag p))
 no-bag-from-set (f , q) =
@@ -258,17 +258,17 @@ no-how-from-bag (f , q) =
              ∙ q howB R 𝕣 ν)
 
 ------------------------------------------------------------------------
--- ६ · THE RELATIONAL ALGEBRA, AND THE THEOREM OF THE SUBJECT.
+-- � � THE RELATIONAL ALGEBRA, AND THE THEOREM OF THE SUBJECT.
 --
 -- An annotated relation sends each tuple to its provenance.  Union adds,
 -- join multiplies, selection keeps or annihilates, projection sums over
 -- the fibre.  That is the positive relational algebra, annotated.
 --
 -- `query-hom` is the theorem the whole apparatus exists for: query
--- evaluation COMMUTES WITH SEMIRING HOMOMORPHISMS.  Applied to `⌈_⌉` it
+-- evaluation COMMUTES WITH SEMIRING HOMOMORPHISMS.  Applied to `�_�` it
 -- says the set-semantics answer to a query can be computed either by
--- running the query and forgetting, or by forgetting and then running —
--- and applied to §५ it says forgetting FIRST is the step that cannot be
+-- running the query and forgetting, or by forgetting and then running �
+-- and applied to §� it says forgetting FIRST is the step that cannot be
 -- undone.
 ------------------------------------------------------------------------
 

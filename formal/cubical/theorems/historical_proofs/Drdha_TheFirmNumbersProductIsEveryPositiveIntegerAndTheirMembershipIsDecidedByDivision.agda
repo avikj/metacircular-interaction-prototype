@@ -1,100 +1,100 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤¦à¥ƒà¤¢à¤®à¥ â€” à¤¦à¥ƒà¤¢à¤¾à¤¨à¤¾à¤‚ à¤µà¤§à¤ƒ à¤¸à¤°à¥à¤µà¤‚ à¤§à¤¨à¤‚ à¤œà¤¨à¤¯à¤¤à¤¿ ; à¤¤à¥‡à¤·à¤¾à¤‚ à¤¸à¤¦à¤¸à¥à¤¯à¤¤à¤¾ à¤­à¤¾à¤—à¥‡à¤¨ à¤¨à¤¿à¤°à¥à¤£à¥€à¤¯à¤¤à¥‡ à¥¤
+-- à¦ààà®à â” à¦ààà¾à¨à¾à àµà§à àà°ààµà à§à¨à àà¨à¯àà¿ ; àààà¾à àà¦ààà¯àà¾ àà¾à—àà¨ à¨à¿à°àààà¯àà à
 --
 -- (the firm ones: the product of the firm numbers makes every positive
 --  quantity, and which of them occur is decided by division.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS IS, AND WHAT IT IS FOR.
 --
--- `Sarvasthana_â€¦agda` proves the ACCOUNTING half of âˆ‘_v log|x|_v = 0: for
+-- `Sarvasthana_â¦agda` proves the ACCOUNTING half of âˆ_v log|x|_v = 0: for
 -- any assignment of exponents to places and any weights, the finite
 -- entries and the archimedean entry cancel.  Its header says, in as many
--- words, what it does NOT do â€” it does not say the places are the primes,
+-- words, what it does NOT do â” it does not say the places are the primes,
 -- nor that a divisor determines a number, "that last needs unique
 -- factorisation, which is exactly the work this module does not do."
 --
 -- This is that work, as far as it goes, and NO further.  It is the
--- ARITHMETIC half, and it is carried out multiplicatively over â„•: no
+-- ARITHMETIC half, and it is carried out multiplicatively over â•: no
 -- reals, no logarithms, no absolute values.  In that form the target is
 --
---     for every n â‰¥ 1 there is a list of firm numbers whose product is n
+--     for every n â‰ 1 there is a list of firm numbers whose product is n
 --
 -- and the places that see n are exactly the entries of that list.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED HERE.
 --
---   Â§à¥©  à¤­à¤¾à¤—? â€” divisibility by a positive number is DECIDABLE (via mod).
---   Â§à¥ª  à¤…à¤¨à¥à¤µà¥‡à¤·à¤£à¤®à¥ â€” bounded search: either a nontrivial divisor below a
+--   Â§à©  àà¾à—? â” divisibility by a positive number is DECIDABLE (via mod).
+--   Â§à  àà¨ààµàààà®à â” bounded search: either a nontrivial divisor below a
 --       bound, or the proof that there is none below it.
---   Â§à¥«  à¤µà¤¿à¤­à¤¾à¤œà¤¨à¤®à¥ â€” EXISTENCE.  Every n â‰¥ 1 is the product of a finite
+--   Â§à  àµà¿àà¾àà¨à®à â” EXISTENCE.  Every n â‰ 1 is the product of a finite
 --       list of firm numbers.  By well-founded recursion on n.
---   Â§à¥¬  à¤¯à¥à¤•à¥à¤²à¤¿à¤¡-à¤µà¤¾à¤•à¥à¤¯à¤®à¥ â€” a firm number dividing a product divides one of
+--   Â§à  à¯àà•àà²à¿à¡-àµà¾à•àà¯à®à â” a firm number dividing a product divides one of
 --       the factors.  Proved from the library's `gcd`, not assumed.
---   Â§à¥­  à¤…à¤¨à¥à¤¤à¤°à¥à¤­à¤¾à¤µà¤ƒ â€” a firm p divides the product of a list of firm
+--   Â§à  àà¨ààà°ààà¾àµà â” a firm p divides the product of a list of firm
 --       numbers exactly when p is IN the list.  Hence:
---   Â§à¥®  à¤¸à¥à¤¥à¤¾à¤¨-à¤¨à¤¿à¤°à¥à¤£à¤¯à¤ƒ â€” the SUPPORT of the factorisation is determined by
---       n alone: for firm p, p âˆ£ n â†” p occurs in the list Â§à¥« produced.
---   Â§à¥¯  à¤®à¥‚à¤²à¥à¤¯à¤®à¥ â€” the bridge to `Sarvasthana`'s à¤µà¤¿à¤­à¤¾à¤—à¤ƒ: the map
---       D â†¦ âˆ p^e from exponent-lists to â„• has an INHABITED fibre over
---       every n â‰¥ 1.
+--   Â§à®  àààà¾à¨-à¨à¿à°ààà¯à â” the SUPPORT of the factorisation is determined by
+--       n alone: for firm p, p âˆ n â” p occurs in the list Â§à produced.
+--   Â§à¯  à®àà²àà¯à®à â” the bridge to `Sarvasthana`'s àµà¿àà¾à—à: the map
+--       D â¦ âˆ p^e from exponent-lists to â• has an INHABITED fibre over
+--       every n â‰ 1.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
---   Â· UNIQUENESS IS NOT PROVED.  Â§à¥« produces *a* list; nothing here says
---     two such lists are permutations of each other.  Â§à¥® proves the
---     support is canonical â€” WHICH primes occur is fixed by n â€” and says
+--   Â UNIQUENESS IS NOT PROVED.  Â§à produces *a* list; nothing here says
+--     two such lists are permutations of each other.  Â§à® proves the
+--     support is canonical â” WHICH primes occur is fixed by n â” and says
 --     nothing about HOW MANY times each occurs.  So the multiplicities
 --     are not shown well defined, and consequently
---   Â· v_p IS NOT DEFINED HERE at all, and `âˆ_p p^(v_p n) â‰¡ n` is NOT the
---     statement proved.  What is proved is the surjection: every n â‰¥ 1 is
+--   Â v_p IS NOT DEFINED HERE at all, and `âˆ_p p^(v_p n) â‰¡ n` is NOT the
+--     statement proved.  What is proved is the surjection: every n â‰ 1 is
 --     SOME product of primes, and the prime support is determined.  The
 --     step from "some" to "the" is the uniqueness half, and it is absent.
---   Â· Â§à¥¯'s fibre is shown INHABITED, not contractible.  Contractibility
+--   Â Â§à¯'s fibre is shown INHABITED, not contractible.  Contractibility
 --     of that fibre IS unique factorisation, and it is exactly what is
 --     missing; the module is careful to state only the inhabitation.
---     (Contrast `Sarvasthana` Â§à¥«, where the fibre of the conservation
---     observable over zero is *everything* â€” proved there, and a fact of
+--     (Contrast `Sarvasthana` Â§à, where the fibre of the conservation
+--     observable over zero is *everything* â” proved there, and a fact of
 --     a different kind: blindness, not rigidity.)
---   Â· NOTHING about â„šË£, negatives, valuations on a field, or the product
---     formula.  This module never leaves â„•.
---   Â· The finite places of `Sarvasthana` are still not identified with
---     the firm numbers here; that module's â„• index remains an index.
+--   Â NOTHING about âË, negatives, valuations on a field, or the product
+--     formula.  This module never leaves â•.
+--   Â The finite places of `Sarvasthana` are still not identified with
+--     the firm numbers here; that module's â• index remains an index.
 --     What this module supplies is the fact that WOULD justify such an
---     identification for the finite half â€” nothing more.
+--     identification for the finite half â” nothing more.
 --
 --
--- à¤¦à¥ƒà¤¢ Â· dá¹›á¸ha â€” "firm, solid, that which stands after abrasion".  In the
--- kuá¹­á¹­aka the dividend (à¤­à¤¾à¤œà¥à¤¯) and divisor (à¤­à¤¾à¤œà¤•) are first divided by
--- their common measure â€” the à¤…à¤ªà¤µà¤°à¥à¤¤à¤¨ â€” and the pair that remains is
--- called à¤¦à¥ƒà¤¢, because no further reduction is possible on it.
---   Ä€ryabhaá¹­a, *Ä€ryabhaá¹­Ä«ya*, Gaá¹‡itapÄda 2.32â€“33 (499) for the kuá¹­á¹­aka
---   the reduction serves; the vallÄ« and the reduction step worked out in
---   BhÄskara I, *Ä€ryabhaá¹­Ä«yabhÄá¹£ya* (629); à¤…à¤ªà¤µà¤°à¥à¤¤à¤¨ stated in Brahmagupta,
---   *BrÄhmasphuá¹­asiddhÄnta* 18 (628) and in BhÄskara II, *BÄ«jagaá¹‡ita*
---   (1150), whose kuá¹­á¹­aka rule directs the reduction to à¤¦à¥ƒà¤¢ before the
---   vallÄ« is begun.
+-- à¦àà Â dha â” "firm, solid, that which stands after abrasion".  In the
+-- kuaka the dividend (àà¾ààà¯) and divisor (àà¾àà•) are first divided by
+-- their common measure â” the àààµà°ààà¨ â” and the pair that remains is
+-- called à¦àà, because no further reduction is possible on it.
+--   ryabhaa, *ryabhaya*, Gaitapda 2.32â“33 (499) for the kuaka
+--   the reduction serves; the vall and the reduction step worked out in
+--   Bhskara I, *ryabhayabhya* (629); àààµà°ààà¨ stated in Brahmagupta,
+--   *Brhmasphuasiddhnta* 18 (628) and in Bhskara II, *Bjagaita*
+--   (1150), whose kuaka rule directs the reduction to à¦àà before the
+--   vall is begun.
 --
--- **SyÄt â€” the claim, exactly of à¤¦à¥ƒà¤¢.**  In those texts à¤¦à¥ƒà¤¢ is a property of a
--- PAIR â€” two magnitudes with no common measure left â€” and it is a step in
+-- **Syt â” the claim, exactly of à¦àà.**  In those texts à¦àà is a property of a
+-- PAIR â” two magnitudes with no common measure left â” and it is a step in
 -- a solving procedure, not a classification of numbers.  Using it here
 -- for a SINGLE number that admits no nontrivial factorisation is an
 -- extension, and it is ours, not theirs.  None of these authors states
--- the theorem in Â§à¥«, and no claim is made that they did.  The choice of
--- the word is because it names the right thing â€” what remains when
--- reduction can do no more â€” not because the theorem is in the source.
+-- the theorem in Â§à, and no claim is made that they did.  The choice of
+-- the word is because it names the right thing â” what remains when
+-- reduction can do no more â” not because the theorem is in the source.
 --
--- **Â§à¥¬ is Greek and is named so.**  The lemma "a prime dividing a product
+-- **Â§à is Greek and is named so.**  The lemma "a prime dividing a product
 -- divides a factor" is Euclid, *Elements* VII.30 (c. 300 BCE).  It is not
--- in the Indian sources cited above, and inventing a Sanskrit label for
+-- in the Indian sources cited above, and inventing a  label for
 -- it would be the mirror of the scrubbing the naming rule corrects, so it
 -- carries its own name transliterated.  The PROOF used here is not
 -- Euclid's: it runs through the library's `gcd` and `gcd-factorÊ³`, and
 -- the gcd it uses is computed by the mutual-subtraction descent that the
--- kuá¹­á¹­aka is â€” which is a remark about the substrate, not a priority
+-- kuaka is â” which is a remark about the substrate, not a priority
 -- claim about VII.30.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
@@ -123,7 +123,7 @@ private
     A : Typeâ‚€
 
 ------------------------------------------------------------------------
--- à¥§ Â· à¤¦à¥ƒà¤¢à¤®à¥ â€” the firm number: bigger than one, and no reduction on it
+-- à§ Â à¦ààà®à â” the firm number: bigger than one, and no reduction on it
 --     is possible except the two that always are.
 ------------------------------------------------------------------------
 
@@ -131,7 +131,7 @@ private
 à¤¦à¥ƒà¤¢à¤®à¥ p = (1 < p) Ã— ((d : â„•) â†’ d âˆ£ p â†’ (d â‰¡ 1) âŠ (d â‰¡ p))
 
 ------------------------------------------------------------------------
--- à¥¨ Â· à¤µà¤§à¤ƒ, à¤¸à¤°à¥à¤µà¥‡, à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ â€” the product of a list, "every entry has", and
+-- à¨ Â àµà§à, àà°ààµà, àà¦ààà¯à â” the product of a list, "every entry has", and
 --     membership.  All three by recursion; nothing here is a HIT.
 ------------------------------------------------------------------------
 
@@ -157,10 +157,10 @@ x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ (y âˆ· ys) = (x â‰¡ y) âŠ (x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ ys)
 à¤¸à¤°à¥à¤µà¥‡-++ (x âˆ· L) M (h , hL) hM = h , à¤¸à¤°à¥à¤µà¥‡-++ L M hL hM
 
 ------------------------------------------------------------------------
--- à¥© Â· à¤­à¤¾à¤—? â€” division by a POSITIVE number is decidable.
+-- à© Â àà¾à—? â” division by a POSITIVE number is decidable.
 --
 --     The decision is `n mod d â‰Ÿ 0`, and both directions come out of the
---     library's remainder-quotient identity.  This is what makes Â§à¥ª's
+--     library's remainder-quotient identity.  This is what makes Â§à's
 --     search a program rather than a classical case split.
 ------------------------------------------------------------------------
 
@@ -179,7 +179,7 @@ x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ (y âˆ· ys) = (x â‰¡ y) âŠ (x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ ys)
   à¤¸à¤¿à¤¦à¥à¤§à¤¿à¤ƒ (c , e) = cong (_mod suc d) (sym e) âˆ™ zero-charac-gen (suc d) c
 
 ------------------------------------------------------------------------
--- à¥ª Â· à¤…à¤¨à¥à¤µà¥‡à¤·à¤£à¤®à¥ â€” bounded search for a nontrivial divisor.
+-- à Â àà¨ààµàààà®à â” bounded search for a nontrivial divisor.
 --
 --     Either a witness d with 1 < d < b dividing n, or the statement that
 --     NO such d exists below b.  The second disjunct is what makes n firm
@@ -206,9 +206,9 @@ x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ (y âˆ· ys) = (x â‰¡ y) âŠ (x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ ys)
                   (<-split lt)
 
 ------------------------------------------------------------------------
--- à¥« Â· à¤µà¤¿à¤­à¤¾à¤œà¤¨à¤®à¥ â€” EXISTENCE OF A FIRM FACTORISATION.
+-- à Â àµà¿àà¾àà¨à®à â” EXISTENCE OF A FIRM FACTORISATION.
 --
---     à¤¦à¥ƒà¤¢à¤¤à¥à¤µà¤®à¥ first: a number above one with no nontrivial divisor below
+--     à¦àààààµà®à first: a number above one with no nontrivial divisor below
 --     itself IS firm.  Then the recursion: search; if nothing is found
 --     the number is firm and stands alone; if a divisor is found, both
 --     sides are strictly smaller and the lists concatenate.
@@ -266,11 +266,11 @@ x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ (y âˆ· ys) = (x â‰¡ y) âŠ (x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ ys)
 à¤µà¤¿à¤­à¤¾à¤œà¤¨à¤®à¥ n = à¤µà¤¿à¤­à¤¾à¤œà¤¨à¤®à¥' n (<-wellfounded n)
 
 ------------------------------------------------------------------------
--- à¥¬ Â· à¤¯à¥à¤•à¥à¤²à¤¿à¤¡-à¤µà¤¾à¤•à¥à¤¯à¤®à¥ â€” Euclid, *Elements* VII.30 (c. 300 BCE).  Named for
---     its source, not dressed in a Sanskrit label it has no claim to.
+-- à Â à¯àà•àà²à¿à¡-àµà¾à•àà¯à®à â” Euclid, *Elements* VII.30 (c. 300 BCE).  Named for
+--     its source, not dressed in a  label it has no claim to.
 --
 --     The proof is by gcd: gcd p a divides p, so by firmness it is 1 or
---     p.  If p, then p divides a.  If 1, then gcd (pÂ·b) (aÂ·b) = b, and p
+--     p.  If p, then p divides a.  If 1, then gcd (pÂb) (aÂb) = b, and p
 --     divides both arguments, hence divides b.
 ------------------------------------------------------------------------
 
@@ -287,7 +287,7 @@ x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ (y âˆ· ys) = (x â‰¡ y) âŠ (x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ ys)
   à¤¸à¤®à¤¤à¤¾ = gcd-factorÊ³ p a b âˆ™ cong (_Â· b) gâ‰¡1 âˆ™ Â·-identityË¡ b
 
 ------------------------------------------------------------------------
--- à¥­ Â· à¤…à¤¨à¥à¤¤à¤°à¥à¤­à¤¾à¤µà¤ƒ â€” a firm number divides the product of a list of firm
+-- à Â àà¨ààà°ààà¾àµà â” a firm number divides the product of a list of firm
 --     numbers exactly when it OCCURS in the list.  Both directions.
 ------------------------------------------------------------------------
 
@@ -308,10 +308,10 @@ x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ (y âˆ· ys) = (x â‰¡ y) âŠ (x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ ys)
                     (snd à¤¦à¥ƒx p pâˆ£x)
 
 ------------------------------------------------------------------------
--- à¥® Â· à¤¸à¥à¤¥à¤¾à¤¨-à¤¨à¤¿à¤°à¥à¤£à¤¯à¤ƒ â€” THE SUPPORT IS DETERMINED BY n.
+-- à® Â àààà¾à¨-à¨à¿à°ààà¯à â” THE SUPPORT IS DETERMINED BY n.
 --
---     For the list Â§à¥« produced from n, and for any firm p:
---         p divides n   â†”   p occurs in that list.
+--     For the list Â§à produced from n, and for any firm p:
+--         p divides n   â”   p occurs in that list.
 --     So WHICH firm numbers see n is fixed by n and not by the run of the
 --     search.  HOW MANY TIMES each occurs is NOT settled here, and that
 --     gap is exactly unique factorisation.
@@ -329,18 +329,18 @@ x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ (y âˆ· ys) = (x â‰¡ y) âŠ (x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ ys)
   prodL = snd (snd (à¤µà¤¿à¤­à¤¾à¤œà¤¨à¤®à¥ n pos))
 
 ------------------------------------------------------------------------
--- à¥¯ Â· à¤®à¥‚à¤²à¥à¤¯à¤®à¥ â€” THE BRIDGE TO `Sarvasthana`'s à¤µà¤¿à¤­à¤¾à¤—à¤ƒ.
+-- à¯ Â à®àà²àà¯à®à â” THE BRIDGE TO `Sarvasthana`'s àµà¿àà¾à—à.
 --
 --     There a divisor is a list of (place, exponent) and the module's
 --     whole point is that it never has to say what the places are.  Here
---     the value map D â†¦ âˆ p^e is written down, and the theorem is that
---     its fibre over every n â‰¥ 1 is INHABITED by a divisor all of whose
+--     the value map D â¦ âˆ p^e is written down, and the theorem is that
+--     its fibre over every n â‰ 1 is INHABITED by a divisor all of whose
 --     places are firm.
 --
 --     INHABITED, not contractible.  Contractibility of this fibre is
 --     unique factorisation and is not proved anywhere in this module; the
 --     statement below is deliberately the weaker one, and the difference
---     between it and `Sarvasthana` Â§à¥« â€” where the fibre is *everything* â€”
+--     between it and `Sarvasthana` Â§à â” where the fibre is *everything* â”
 --     is the difference between an arithmetic fact and a bookkeeping one.
 ------------------------------------------------------------------------
 
@@ -370,9 +370,9 @@ x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ (y âˆ· ys) = (x â‰¡ y) âŠ (x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ ys)
   prodL = snd (snd (à¤µà¤¿à¤­à¤¾à¤œà¤¨à¤®à¥ n pos))
 
 ------------------------------------------------------------------------
--- à¥§à¥¦ Â· à¤ªà¤°à¥€à¤•à¥à¤·à¤¾ â€” the search is a PROGRAM, and these are its runs.
+-- à§à¦ Â àà°àà•ààà¾ â” the search is a PROGRAM, and these are its runs.
 --
---     Not evidence for the theorem â€” Â§à¥« is the evidence for the theorem.
+--     Not evidence for the theorem â” Â§à is the evidence for the theorem.
 --     These are here because a decidable search can typecheck and still
 --     be vacuous, and `refl` at these three values shows it is not: the
 --     recursion terminates, the bound is right, and the list it returns

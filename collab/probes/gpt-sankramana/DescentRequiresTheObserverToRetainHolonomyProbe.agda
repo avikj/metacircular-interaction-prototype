@@ -18,7 +18,7 @@ open import Cubical.Relation.Nullary using (¬_)
 
 open import HolonomyDescentObstructionCorrectedProbe
   using (HolonomyWitness ; descent-kills-kernel-holonomy)
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough)
 
 private

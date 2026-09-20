@@ -4,32 +4,32 @@
 -- Trika_TheAxisQuarterWavesAreQuaternionsNonAbelian
 --       AndTheQubitIsASpinor
 --
--- TERM.  à¤¤à¥à¤°à¤¿à¤• Â· trika â€” a triad; here the three axis quarter-waves i, j, k.
--- A common Sanskrit word, no technical-source claim.  The physics (quaternion
--- gates, SU(2)/SO(3), spinor, PoincarÃ© sphere) is modern; the compound and
+-- TERM.  ààà°à¿à• Â trika â” a triad; here the three axis quarter-waves i, j, k.
+-- A common  word, no technical-source claim.  The physics (quaternion
+-- gates, SU(2)/SO(3), spinor, Poincar© sphere) is modern; the compound and
 -- the identification are built here, 2026-08-24.
 --
--- THE READING (checked terms below).  Companion to `Mani_â€¦`: one orb is a
--- single âˆšNOT quarter-wave.  Waveplates on DIFFERENT axes are the three
+-- THE READING (checked terms below).  Companion to `Mani_â¦`: one orb is a
+-- single âˆNOT quarter-wave.  Waveplates on DIFFERENT axes are the three
 -- generators i, j, k of the single-qubit gate group; together they generate
 -- all of SU(2) (two non-parallel rotations suffice).  Their finite skeleton
 -- is the QUATERNION GROUP Q8, and its two facts are the two facts of the
 -- device's gate layer:
---   (1) NON-ABELIAN â€” `ijâ‰¢ji`.  The order in which a photon threads the orbs
+--   (1) NON-ABELIAN â” `ijâ‰ji`.  The order in which a photon threads the orbs
 --       is physical; that order-dependence is where computational power lives
---       (cf. `VeniYangBaxtara_â€¦`, the braid).  This is what makes a network of
---       orbs â€” an à¤‡à¤¨à¥à¤¦à¥à¤°à¤œà¤¾à¤², Indra's net â€” universal rather than a single phase.
---   (2) SPINOR / DOUBLE COVER â€” `full-turn-is-minus-one`, `double-turn-returns`,
+--       (cf. `VeniYangBaxtara_â¦`, the braid).  This is what makes a network of
+--       orbs â” an àà¨àà¦àà°àà¾à², Indra's net â” universal rather than a single phase.
+--   (2) SPINOR / DOUBLE COVER â” `full-turn-is-minus-one`, `double-turn-returns`,
 --       `minus-one-is-not-one`.  A full turn about an axis is âˆ’1, not 1; a
---       second full turn returns.  SU(2) double-covers SO(3): the PoincarÃ©
+--       second full turn returns.  SU(2) double-covers SO(3): the Poincar©
 --       sphere (physical polarizations) is SO(3)=SÂ², but the qubit STATE that
---       carries the phase is the spinor above it â€” SÂ³, the Hopf total space.
+--       carries the phase is the spinor above it â” SÂ³, the Hopf total space.
 --       The orb remembers a single rotation as a sign.
 --
--- WHAT IS CHECKED, exactly.  Q8 = Bool Ã— B (sign Ã— {e,i,j,k}) with the
--- quaternion product; then `iÂ² â‰¡ jÂ² â‰¡ kÂ² â‰¡ -ğŸ™` (three axis quarter-waves each
--- squaring to the NOT/Ï€ element), `ij â‰¡ k`, `ji â‰¡ -k`, `ijâ‰¢ji` (a hard Â¬), and
--- the spinor relations.  All by computation / `trueâ‰¢false`.
+-- WHAT IS CHECKED, exactly.  Q8 = Bool — B (sign — {e,i,j,k}) with the
+-- quaternion product; then `iÂ² â‰¡ jÂ² â‰¡ kÂ² â‰¡ -ğŸ™` (three axis quarter-waves each
+-- squaring to the NOT/Ï element), `ij â‰¡ k`, `ji â‰¡ -k`, `ijâ‰ji` (a hard Â), and
+-- the spinor relations.  All by computation / `trueâ‰false`.
 --
 -- Checked: --cubical --safe; loads clean on the wire.
 ------------------------------------------------------------------------
@@ -70,7 +70,7 @@ _Â·_ : Q â†’ Q â†’ Q
 ğŸ™  = (true  , be) ; -ğŸ™ = (false , be)
 i  = (true  , bi) ; j  = (true  , bj) ; k  = (true , bk)
 
--- three axis quarter-waves, each squaring to the NOT/Ï€ element âˆ’1
+-- three axis quarter-waves, each squaring to the NOT/Ï element âˆ’1
 iÂ² : i Â· i â‰¡ -ğŸ™
 iÂ² = refl
 jÂ² : j Â· j â‰¡ -ğŸ™

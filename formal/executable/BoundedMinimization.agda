@@ -54,7 +54,7 @@ shiftLeast {P} {zero} L = least (hit L) (λ m ())
 shiftLeast {P} {suc n} L = least (hit L)
   (λ m m<n → earlier L (suc m) (s<s m<n))
 
--- Independent B plus coverage `μ P ≤ B` compiles the partial operator to
+-- Independent B plus coverage `μ P � B` compiles the partial operator to
 -- the bounded total search, with exact result equality.
 bounded-finds : (P : Nat → Bool) (B n : Nat) → Least P n → Le n B
   → boundedSearch P B ≡ just n

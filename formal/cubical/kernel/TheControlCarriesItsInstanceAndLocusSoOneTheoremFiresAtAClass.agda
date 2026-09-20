@@ -3,44 +3,44 @@
 ------------------------------------------------------------------------
 -- TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass
 --
--- TERM.  व्याप्ति · vyāpti — pervasion, the invariable concomitance that
+-- TERM.  �������� � vypti � pervasion, the invariable concomitance that
 -- makes an inference carry from the case at hand to every case of the same
--- mark.  Root notion in Gautama, *Nyāyasūtra* (~2nd c. CE) under अनुमान;
--- the vyāptivāda and the उपाधि that defeats a proposed pervasion are
--- Navya-Nyāya, Gaṅgeśa, *Tattvacintāmaṇi* (~1325).  The gap is stated
--- because filing the later apparatus under the sūtrakāra is the error this
--- corpus struck in its own Pāṇini row.  Carried second-hand from
+-- mark.  Root notion in Gautama, *Nyyastra* (~2nd c. CE) under ������;
+-- the vyptivda and the ������ that defeats a proposed pervasion are
+-- Navya-Nyya, Gagea, *Tattvacintmai* (~1325).  The gap is stated
+-- because filing the later apparatus under the strakra is the error this
+-- corpus struck in its own Pini row.  Carried second-hand from
 -- `TheInstalledOperationHasNoPervasionSoTheKernelMemorises`; no text is
--- opened here and no Naiyāyika is credited with anything proved below.
+-- opened here and no Naiyyika is credited with anything proved below.
 --
 ------------------------------------------------------------------------
 -- WHAT THIS FILE DOES, in one sentence.
 --
 -- It gives the kernel's unit of learned behaviour a control that carries
 -- its own INSTANCE and its own LOCUS, so one installed theorem fires at a
--- `Tm × Locus`-indexed family of contexts instead of at one term — and it
+-- `Tm � Locus`-indexed family of contexts instead of at one term � and it
 -- does so with NO new soundness obligation, because the two lemmas that
 -- discharge it are structural recursions the calculus already admitted.
 --
 -- THE SITUATION IT ANSWERS.  Two records stood side by side and only one
 -- of them was wired to anything:
 --
---   `ControlledGrammar.NativeOperation` — what `install` produces, what
+--   `ControlledGrammar.NativeOperation` � what `install` produces, what
 --     `EnabledFuture` / `advance` / `Branch` / `merge` / `retire` are all
---     typed against.  `TheInstalledTheoremHasExactlyOneLocus…` proves it
---     can never pervade: `control-sound : Control t → t ≡ source` forces
+--     typed against.  `TheInstalledTheoremHasExactlyOneLocus�` proves it
+--     can never pervade: `control-sound : Control t � t ≡ source` forces
 --     `eka-adhikarana` for EVERY control a caller can supply, so capability
 --     grows by one TERM per theorem and never by a class.
 --
---   `TheInstalledOperationHasNoPervasion….SchematicOperation` — control
+--   `TheInstalledOperationHasNoPervasion�.SchematicOperation` � control
 --     carrying a substitution witness, proved STRICTLY more expressive
 --     (`no-native-operation-does-this`).  It produces no NativeOperation,
 --     so it cannot enter `EnabledFuture`, cannot be stepped by `advance`,
 --     cannot be merged, cannot be retired.  A proof of expressiveness
 --     standing BESIDE the executable kernel rather than inside it.
 --
--- So `learn = install ∘ CheckedFuture.derivation` — the metacircular step,
--- "the transcript of a session is the machine's stock of moves" — closed
+-- So `learn = install ∘ CheckedFuture.derivation` � the metacircular step,
+-- "the transcript of a session is the machine's stock of moves" � closed
 -- only over GROUND facts.  Every session taught the machine exactly one
 -- key/value pair, and `kernel-cannot-reach-a-tower` exhibits that on the
 -- kernel's own library.
@@ -52,11 +52,11 @@
 --     every `Step` constructor commutes with `subVar` on the nose, by
 --     structural recursion, six clauses.  This is the DERIVATION-level
 --     companion of `eval-subVar`, which was already in RewriteCertificate
---     and which `TheInstalledOperationHasNoPervasion…` used to make
+--     and which `TheInstalledOperationHasNoPervasion�` used to make
 --     SchematicOperation sound at the level of MEANING.  Doing it at the
 --     level of the CERTIFICATE is what lets the schema keep the kernel's
---     defining property — that `apply-checked` transports a proof to the
---     site, so every firing arrives carrying a proof about that firing —
+--     defining property � that `apply-checked` transports a proof to the
+--     site, so every firing arrives carrying a proof about that firing �
 --     instead of degrading to a meaning-only operation.
 --
 -- §2  CONTEXT ACTS ON THE REWRITE CALCULUS.  `weaveDer`, lifting
@@ -68,7 +68,7 @@
 -- Substitution and locus are orthogonal and pervasion needs both: a rule
 -- should fire at `subVar u lhs` PLUGGED ANYWHERE.  §4's control is exactly
 -- that pair, and §3's `apply-checked` is `subst` of `weaveDer l (subDer u
--- checked)` — the certificate travelling through both.
+-- checked)` � the certificate travelling through both.
 --
 ------------------------------------------------------------------------
 -- WHAT IS PROVED
@@ -77,11 +77,11 @@
 --   §3  Operation, apply-checked,      the unified record; soundness by
 --       operation-is-sound             the transported certificate alone
 --   §4  ground / schematic / pervading three instances of ONE record;
---       native→operation               and every NativeOperation is one
+--       native�operation               and every NativeOperation is one
 --   §5  fires-at-two-contexts,         a pervading operation fires at two
 --       no-native-operation-does-this  contexts differing in BOTH the
 --                                      instance and the locus, which §1 of
---                                      TheInstalledTheoremHasExactlyOne…
+--                                      TheInstalledTheoremHasExactlyOne�
 --                                      forbids to every NativeOperation
 --   §6  Future, advance, advance-      the wiring: the same no-premature-
 --       preserves-branch-count         collapse law, over Operation
@@ -138,9 +138,9 @@ subVar-var (add l r) = cong₂ add (subVar-var l) (subVar-var r)
 ------------------------------------------------------------------------
 -- §1.  SUBSTITUTION ACTS ON THE REWRITE CALCULUS.
 --
--- Every constructor of `Step` commutes with `subVar` definitionally —
+-- Every constructor of `Step` commutes with `subVar` definitionally �
 -- `subVar u zero` is `zero`, `subVar u (add x (suc y))` is
--- `add (subVar u x) (suc (subVar u y))` — so each clause is the same
+-- `add (subVar u x) (suc (subVar u y))` � so each clause is the same
 -- constructor at substituted arguments and nothing is proved by hand.
 -- `reverse` comes along, so the substituted calculus is still reversible.
 ------------------------------------------------------------------------
@@ -186,8 +186,8 @@ weave-derivation l (then-step p d) =
 -- the soundness surface is still exactly one equation.
 --
 -- `apply` now CONSUMES the control, where `NativeOperation.apply` was
--- constant.  That is forced — the output depends on the instance — and it
--- is the change §4 of `TheInstalledOperationHasNoPervasion…` priced in
+-- constant.  That is forced � the output depends on the instance � and it
+-- is the change §4 of `TheInstalledOperationHasNoPervasion�` priced in
 -- advance: the enabled set maps many-to-one onto emissions, so the witness
 -- must be kept.  `advance` already keeps whole futures and is forbidden to
 -- dedupe, so the kernel was built for this.
@@ -219,14 +219,14 @@ open Operation using (lhs ; rhs ; Control ; apply ; apply-checked)
 
 -- Soundness is not a field and is not re-proved: it is `derivation-sound`
 -- of the transported certificate.  Nothing can be installed that is false,
--- for the same reason as before — an `Operation` cannot be constructed
+-- for the same reason as before � an `Operation` cannot be constructed
 -- without a `Derivation` between its declared endpoints.
 operation-is-sound : (op : Operation) (t : Tm) (c : Control op t) (ρ : Env)
                    → eval t ρ ≡ eval (apply op t c) ρ
 operation-is-sound op t c ρ = derivation-sound (apply-checked op t c) ρ
 
 ------------------------------------------------------------------------
--- §4.  THREE INSTANCES OF ONE RECORD — and the embedding.
+-- §4.  THREE INSTANCES OF ONE RECORD � and the embedding.
 ------------------------------------------------------------------------
 
 -- GROUND.  Instance `var`, locus `root`: exactly `ControlledGrammar.install`.
@@ -249,7 +249,7 @@ Operation.instance-of   (schematic d) c = fst c
 Operation.locus-of      (schematic d) _ = root
 Operation.control-sound (schematic d) c = snd c
 
--- PERVADING.  Both are carried.  One theorem, a `Tm × Locus`-indexed
+-- PERVADING.  Both are carried.  One theorem, a `Tm � Locus`-indexed
 -- family of contexts.
 pervading : {a b : Tm} → Derivation a b → Operation
 Operation.lhs           (pervading {a} d) = a
@@ -280,8 +280,8 @@ native→operation op =
 -- RewriteCertificate's own theorem, unchanged.  As a pervading operation
 -- it fires at
 --
---     ctx₀ = add zero (suc zero)                    u = zero,     l = root
---     ctx₂ = add var (add (suc zero) (suc zero))    u = suc zero, l = under-right
+--     ctx� = add zero (suc zero)                    u = zero,     l = root
+--     ctx� = add var (add (suc zero) (suc zero))    u = suc zero, l = under-right
 --
 -- and no `NativeOperation` whatsoever fires at both, for any control its
 -- caller can invent.
@@ -315,7 +315,7 @@ ctx₀≢ctx₂ : ¬ (ctx₀ ≡ ctx₂)
 ctx₀≢ctx₂ p = true≢false (sym (cong leftIsVar p))
 
 -- THE POINT.  One theorem, two contexts that differ in instance and in
--- locus at once — and `eka-adhikarana` converts any NativeOperation that
+-- locus at once � and `eka-adhikarana` converts any NativeOperation that
 -- managed the same into a path between the two contexts, which is empty.
 no-native-operation-does-this :
   (op : NativeOperation)
@@ -334,7 +334,7 @@ no-native-operation-does-this op c₀ c₂ =
 -- multiplicity is exactly conserved.
 --
 -- NOT DONE, named: `Session`, `retire`, `learn` and `merge` are still
--- typed over `NativeOperation` in their own modules.  `native→operation`
+-- typed over `NativeOperation` in their own modules.  `native�operation`
 -- makes the embedding available to them; re-typing them is the next step
 -- and is not taken here.
 ------------------------------------------------------------------------
@@ -372,13 +372,13 @@ advance-preserves-branch-count (f ∷ fs) =
 -- §7.  THE LOOP CLOSES OVER A CLASS.
 --
 -- `learn` installs what a session did.  Over `NativeOperation` that was a
--- ground fact — one key, one value — which is `TheInstalledOperationHas
--- NoPervasion…`'s whole diagnosis.  Here it is `pervading`, and the point
+-- ground fact � one key, one value � which is `TheInstalledOperationHas
+-- NoPervasion�`'s whole diagnosis.  Here it is `pervading`, and the point
 -- is that this costs NOTHING: `pervading` places no condition whatever on
 -- the derivation it is given, because §1 and §2 act on every derivation.
 --
 -- So the generalisation of a transcript is FREE, and it is free exactly
--- when the transcript mentions `var` — a derivation over a term containing
+-- when the transcript mentions `var` � a derivation over a term containing
 -- `var` already IS a schema, and `sub-derivation` hands you its instance
 -- at any `u` without a search and without a new proof.  That is the
 -- sentence `Vyapti`'s header wrote at the level of MEANING
@@ -403,13 +403,13 @@ learn-generalises : {s : Tm} (f : Checked s) (u : Tm) (l : Locus)
 learn-generalises f u l = pervades (Checked.derivation f) u l
 
 ------------------------------------------------------------------------
--- §8.  A SESSION RETIRES INTO ONE OPERATION — a pervading one.
+-- §8.  A SESSION RETIRES INTO ONE OPERATION � a pervading one.
 --
 -- `Session` is imported, not re-declared: it is the same object
--- `TheKernelIsAnInteractiveSystem…` built, and `session-sound` is
+-- `TheKernelIsAnInteractiveSystem�` built, and `session-sound` is
 -- unchanged.  Only the retirement differs, and it differs in exactly one
 -- word.  A whole dialogue is one `Derivation`, hence one theorem, hence
--- one installable operation — and now that operation covers a class.
+-- one installable operation � and now that operation covers a class.
 ------------------------------------------------------------------------
 
 retire : Session → Operation
@@ -422,7 +422,7 @@ retire-spans-the-whole-session :
 retire-spans-the-whole-session S = refl , refl
 
 -- the retired move means what the conversation meant, at every site it
--- now fires at — soundness is the transported certificate, not a new proof
+-- now fires at � soundness is the transported certificate, not a new proof
 retire-is-sound :
   (S : Session) (t : Tm) (c : Control (retire S) t) (ρ : Env)
   → eval t ρ ≡ eval (apply (retire S) t c) ρ
@@ -436,16 +436,16 @@ retire-generalises S u l = pervades (Session.trace S) u l
 
 ------------------------------------------------------------------------
 -- §9.  THE LIBRARY.  The same grow-only, commutative, idempotent join as
--- `TheKernelIsAReversibleGroupoid…`'s, over `Operation` — the proofs do
+-- `TheKernelIsAReversibleGroupoid�`'s, over `Operation` � the proofs do
 -- not depend on which record the list holds, and they are repeated here
 -- rather than transported because `SomeEnabled` is a recursive family over
 -- the list and the two families are at two different element types.
 --
 -- WHAT CHANGES IS THE COVERAGE, NOT THE ALGEBRA.  `TheInstalledOperation
--- HasNoPervasion…` §2 proves a NativeOperation library's coverage is the
+-- HasNoPervasion�` §2 proves a NativeOperation library's coverage is the
 -- finitely many heights of its sources, and exhibits a term the kernel's
 -- own two-operation library cannot see.  §9's last theorem is the
--- contrast: ONE operation covers a `Tm × Locus`-indexed family.
+-- contrast: ONE operation covers a `Tm � Locus`-indexed family.
 ------------------------------------------------------------------------
 
 Library : Type₁
@@ -493,7 +493,7 @@ merge-is-idempotent L t e = ⊎rec (λ x → x) (λ x → x) (join-splits L L t 
 -- `RewriteCertificate.accepted` is the kernel's own theorem, unchanged.
 -- Installed as a pervading operation it is a ONE-ELEMENT library that is
 -- enabled at `plug l (subVar u (add var (suc zero)))` for every `u` and
--- every `l` — an infinite family, from one theorem, with the certificate
+-- every `l` � an infinite family, from one theorem, with the certificate
 -- arriving at each site.
 ------------------------------------------------------------------------
 
@@ -536,12 +536,12 @@ substitution-is-trivial-without-var = refl
 ------------------------------------------------------------------------
 -- §11.  CATEGORIFIED SOUNDNESS, AND IT IS FREE.
 --
--- `TheCountingSemanticsIsADecategorification…` proves the ℕ-semantics keeps
+-- `TheCountingSemanticsIsADecategorification�` proves the �-semantics keeps
 -- a cardinality and drops the bijection, and builds the categorified
 -- semantics in which every `Step` is an equivalence and every `Derivation`
 -- a composite of them.  `apply-checked` hands back a `Derivation`.  So a
 -- pervading operation carries the ARRANGEMENT to each site it fires at,
--- not merely the count — the bit that module proves a counting readout
+-- not merely the count � the bit that module proves a counting readout
 -- provably cannot hold.  Nothing is added for it: this is `derivation-equiv`
 -- of the certificate that already travelled.
 ------------------------------------------------------------------------
@@ -556,7 +556,7 @@ operation-is-an-equivalence op t c σ = derivation-equiv (apply-checked op t c) 
 --
 -- `eka-adhikarana` gave every NativeOperation at most one locus, so the
 -- futures at a seed all emitted the same term: `GenerativeKernel.run-
--- targets` is `target₀ ∷ target₀ ∷ []` — two proof-relevant HISTORIES, one
+-- targets` is `target� � target� � []` � two proof-relevant HISTORIES, one
 -- output.  `advance-preserves-branch-count` conserved a multiplicity whose
 -- members were indistinguishable downstream.
 --
@@ -565,13 +565,13 @@ operation-is-an-equivalence op t c σ = derivation-equiv (apply-checked op t c) 
 -- the outer `add` and at the inner one of the same seed:
 --
 --     add (add var (suc zero)) (suc zero)
---       ↦ suc (add var (suc zero))     instance = add var (suc zero), root
---       ↦ add (suc var) (suc zero)     instance = var, under-left
+--       � suc (add var (suc zero))     instance = add var (suc zero), root
+--       � add (suc var) (suc zero)     instance = var, under-left
 --
 -- Both sound, by `operation-is-sound`, from the one certificate.  This is
 -- the first place in the kernel where `advance`'s refusal to dedupe is
--- carrying a genuine choice rather than a duplicated one — and it is
--- exactly the choice `TheDerivationCarriesNoMeaning…`'s no-go says no
+-- carrying a genuine choice rather than a duplicated one � and it is
+-- exactly the choice `TheDerivationCarriesNoMeaning�`'s no-go says no
 -- semantic criterion may make for the caller.  The machine presents both.
 ------------------------------------------------------------------------
 

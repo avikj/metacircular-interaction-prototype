@@ -13,30 +13,30 @@
 -- statement about WHEN the two selections agree, and that is the thing
 -- worth knowing, because it says when the seam is observable at all.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   lowerAndUpperForcesConstant
 --       a score that is both a lower and an upper bound of the archive
---       forces EVERY score to equal it â€” so "first of ascending" and
+--       forces EVERY score to equal it â” so "first of ascending" and
 --       "best" coincide only on a constant archive
 --   nonConstantMakesTheLowestStrictlyWorse
 --       and as soon as one score differs from the lower bound, the
---       selection has passed over an element that is â‰¥ it and unequal
+--       selection has passed over an element that is â‰ it and unequal
 --   twoScoresAlreadySeparateThem
---       1 âˆ· 2 âˆ· [] : lower bound 1, upper bound 2, and Â¬ (1 â‰¡ 2)
+--       1 âˆ 2 âˆ [] : lower bound 1, upper bound 2, and Â (1 â‰¡ 2)
 --   theSeamIsInvisibleExactlyWhereSelectionIsVacuous
 --       the two halves packaged as the dichotomy they are
 --
 -- **The seam is invisible exactly where the selection is vacuous.**  On
--- a constant archive ascending-first and best return the same score â€”
+-- a constant archive ascending-first and best return the same score â”
 -- and on a constant archive, choosing a parent BY score carries no
 -- information.  So there is no regime in which the branch is both
 -- correct and doing work: it agrees with its comment only when the
 -- comment describes nothing.  That is sharper than "the sort is
 -- backwards", and it is why the seam is not cosmetic.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- GRADE, and it is the whole caveat.  **I DID NOT READ THE CODE.**
 -- Â§2's own header restricts its observations to one pinned commit of an
 -- external repository, and this repository's egress rules mean I did
@@ -44,14 +44,14 @@
 -- below is the ORDER-THEORETIC CONTENT OF Â§2'S SENTENCE, on the
 -- assumption that the sentence describes the branch correctly.  If Â§2
 -- has misread the code, nothing here is affected and nothing here
--- defends Â§2 â€” the theorem is about ascending selection versus maximal
+-- defends Â§2 â” the theorem is about ascending selection versus maximal
 -- selection and would stand if the branch did not exist.
 --
 -- NO NOVELTY.  That a minimum and a maximum coincide only on a constant
 -- list is elementary order theory; it is here to be ATTACHED to Â§2, not
 -- because it is new.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

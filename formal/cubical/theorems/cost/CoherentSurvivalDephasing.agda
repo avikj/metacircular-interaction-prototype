@@ -64,7 +64,7 @@ module DiagonalHistoryCost {ℓ : Level} (R : Ring ℓ) where
 ------------------------------------------------------------------------
 
 -- These are twice the normalized pure-state density matrices for
--- (|0⟩ + |1⟩)/√2 and (|0⟩ - |1⟩)/√2.  The common positive scalar is
+-- (|0⟩ + |1⟩)/�2 and (|0⟩ - |1⟩)/�2.  The common positive scalar is
 -- irrelevant to both equality and separation, so the checked carrier stays
 -- in the exact integer ring.
 phasePlus phaseMinus : Matrix₂ ℤ

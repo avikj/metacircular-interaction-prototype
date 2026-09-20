@@ -1,88 +1,88 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- KuttakaIsta — the इष्ट section of the pulverizer: the solution family
+-- KuttakaIsta � the ����� section of the pulverizer: the solution family
 -- has a LEAST NON-NEGATIVE representative, and it is unique.
 --
--- SOURCE.  ĀRYABHAṬA, Āryabhaṭīya, Gaṇitapāda 32–33 (499 CE); BHĀSKARA I,
--- Āryabhaṭīyabhāṣya (629 CE).  Once the vallī has been run back up and a
--- pair (x₀ , y₀) with a·x₀ + b·y₀ = g is in hand, the rule's last step is to
--- reduce it: the multiplier is taken modulo the divisor — "divide by the
--- divisor, the remainder is the multiplier" — so that the answer reported
+-- SOURCE.  RYABHAA, ryabhaya, Gaitapda 32�33 (499 CE); BHSKARA I,
+-- ryabhayabhya (629 CE).  Once the vall has been run back up and a
+-- pair (x� , y�) with a�x� + b�y� = g is in hand, the rule's last step is to
+-- reduce it: the multiplier is taken modulo the divisor � "divide by the
+-- divisor, the remainder is the multiplier" � so that the answer reported
 -- is the least one.  That reduction is what this file supplies.
 --
 -- THE ABSENCE THIS FILE CLOSES.  `Kuttaka.agda` says, in its header:
 --
---     "NOT done (named honestly, per §5.2): the iṣṭa section — the reduction
---      of the solution family to the LEAST non-negative representative —
+--     "NOT done (named honestly, per §5.2): the ia section � the reduction
+--      of the solution family to the LEAST non-negative representative �
 --      which needs a mod/section convention and is not supplied here."
 --
 -- and `KuttakaSamapti_TheValliIsFiniteForEveryPair.agda` repeats it:
 --
---     "The इष्ट section — reduction of the solution family to its least
---      non-negative representative — is open in `Kuttaka.agda` and stays
+--     "The ����� section � reduction of the solution family to its least
+--      non-negative representative � is open in `Kuttaka.agda` and stays
 --      open."
 --
 -- Neither module is modified.  The family is taken in EXACTLY the form
 -- `Kuttaka.solutionFamily` presents it,
 --
---     a · (x₀ + t · b) + b · (y₀ + (- (t · a))) ≡ g ,
+--     a � (x� + t � b) + b � (y� + (- (t � a))) ≡ g ,
 --
 -- with modulus b (Kuttaka's own header calls this the coarser b, a family;
 -- the b/g, a/g refinement is not what `solutionFamily` states, and is not
--- what is reduced here — see THE SCOPE below).  The modulus is written
+-- what is reduced here � see THE SCOPE below).  The modulus is written
 -- `pos (suc m)`, which is the convention "b > 0" chosen once and for all;
 -- a `0 < m` phrasing is supplied alongside.
 --
 -- WHAT IS PROVED.  No postulates, no holes, --safe, no TERMINATING pragmas.
 --
---   divℤ / divℤ'  EUCLIDEAN DIVISION ON ℤ BY A POSITIVE MODULUS.  For every
---                 z : ℤ and modulus suc m (equivalently m with 0 < m) there
---                 are q : ℤ and r : ℕ with r < suc m and
---                 z ≡ q · pos (suc m) + pos r.  Built from the library's ℕ
+--   div� / div�'  EUCLIDEAN DIVISION ON � BY A POSITIVE MODULUS.  For every
+--                 z : � and modulus suc m (equivalently m with 0 < m) there
+--                 are q : � and r : � with r < suc m and
+--                 z ≡ q � pos (suc m) + pos r.  Built from the library's �
 --                 division (`Cubical.Data.Nat.Mod`: `≡remainder+quotient`,
 --                 `mod<`); a negative z is reflected: −(suc n) is divided
---                 as suc n = q'·M + r' and then folded to (−q'−1)·M + (M−r')
---                 when r' ≠ 0, and to (−q')·M + 0 when r' = 0.  (The
+--                 as suc n = q'�M + r' and then folded to (−q'−1)�M + (M−r')
+--                 when r' ≠ 0, and to (−q')�M + 0 when r' = 0.  (The
 --                 library's `Cubical.Data.Int.Divisibility.quotRem` gives a
 --                 remainder of the dividend's SIGN, so it is not the least
 --                 non-negative one and is not used.)
 --   divUnique     the quotient and remainder are UNIQUE: two divisions of
 --                 the same integer by suc m with remainders below suc m
 --                 agree in both coordinates.
---   iṣṭa          THE LEAST NON-NEGATIVE REPRESENTATIVE.  From any solution
---                 a·x₀ + pos (suc m)·y₀ ≡ g, a member of Kuttaka's family
---                 (parameter t, here t = −q where x₀ = q·M + r) whose x is
---                 pos r with r < suc m, still solving the equation — by
+--   ia          THE LEAST NON-NEGATIVE REPRESENTATIVE.  From any solution
+--                 a�x� + pos (suc m)�y� ≡ g, a member of Kuttaka's family
+--                 (parameter t, here t = −q where x� = q�M + r) whose x is
+--                 pos r with r < suc m, still solving the equation � by
 --                 `Kuttaka.solutionFamily`.
---   iṣṭaUnique    UNIQUENESS WITHIN THE FAMILY: two members of the family
+--   iaUnique    UNIQUENESS WITHIN THE FAMILY: two members of the family
 --                 whose x lies in [0 , suc m) have the same t and the same
 --                 x (and hence the same y): by `divUnique`.
---   complete₁     COMPLETENESS AT g = 1, via `Kuttaka.solutionsDiffer`:
---                 when a·x₀ + M·y₀ ≡ 1, EVERY solution of a·x + M·y ≡ 1 is
---                 a member of the family through (x₀ , y₀).  The difference
+--   complete�     COMPLETENESS AT g = 1, via `Kuttaka.solutionsDiffer`:
+--                 when a�x� + M�y� ≡ 1, EVERY solution of a�x + M�y ≡ 1 is
+--                 a member of the family through (x� , y�).  The difference
 --                 of two solutions is a homogeneous solution (that is what
---                 `solutionsDiffer` gives), and the Bézout relation at 1 is
---                 exactly what turns "M divides a·c" into "M divides c".
---   iṣṭaUnique₁   hence at g = 1 the iṣṭa is unique among ALL solutions,
+--                 `solutionsDiffer` gives), and the B�zout relation at 1 is
+--                 exactly what turns "M divides a�c" into "M divides c".
+--   iaUnique�   hence at g = 1 the ia is unique among ALL solutions,
 --                 not only within the family: any solution with
---                 0 ≤ x < M is the iṣṭa, x and y both.
---   example…      the classical answer for `Kuttaka.example`, 7x + 5y = 1:
---                 `bezout` gives (x₀ , y₀) = (−2 , 3); dividing −2 by 5 gives
---                 −2 = (−1)·5 + 3, so t = 1 and the iṣṭa is (x , y) = (3 , −4)
---                 — all by refl, and its uniqueness among all solutions with
---                 0 ≤ x < 5 by `iṣṭaUnique₁`.
+--                 0 � x < M is the ia, x and y both.
+--   example�      the classical answer for `Kuttaka.example`, 7x + 5y = 1:
+--                 `bezout` gives (x� , y�) = (−2 , 3); dividing −2 by 5 gives
+--                 −2 = (−1)�5 + 3, so t = 1 and the ia is (x , y) = (3 , −4)
+--                 � all by refl, and its uniqueness among all solutions with
+--                 0 � x < 5 by `iaUnique�`.
 --
 -- THE SCOPE, EXACTLY.
 --   * Reduction is modulo b, the modulus `solutionFamily` actually uses.
 --     For g ≠ 1 the full solution set is parametrised by b/g, not by b, so
---     for g ≠ 1 `iṣṭaUnique` is uniqueness WITHIN the coarse family only;
+--     for g ≠ 1 `iaUnique` is uniqueness WITHIN the coarse family only;
 --     completeness (every solution is a family member) is proved here only
---     at g = 1 (`complete₁`).  For general g the missing step is the one
+--     at g = 1 (`complete�`).  For general g the missing step is the one
 --     `Kuttaka.agda` itself names after `solutionsDiffer`: the fine family
 --     with modulus b/g and the coprimality of a/g and b/g.  It is NOT
 --     proved here.
---   * Nothing about the length of the vallī, or the cakravāla, is touched.
+--   * Nothing about the length of the vall, or the cakravla, is touched.
 ------------------------------------------------------------------------
 
 module KuttakaIsta_TheSolutionFamilyHasALeastNonNegativeRepresentativeAndItIsUnique where
@@ -115,11 +115,11 @@ open import Kuttaka
   using (solutionFamily ; solutionsDiffer ; exampleSolves)
 
 ------------------------------------------------------------------------
--- १ · Euclidean division on ℤ by a positive modulus.
+-- � � Euclidean division on � by a positive modulus.
 --
--- The convention: the modulus is pos (suc m) — positive by its shape — and
+-- The convention: the modulus is pos (suc m) � positive by its shape � and
 -- the remainder is a NATURAL below suc m.  That is the "mod/section
--- convention" Kuttaka's header asked for: the section of ℤ → ℤ/(suc m)
+-- convention" Kuttaka's header asked for: the section of � � �/(suc m)
 -- picking the least non-negative representative.
 ------------------------------------------------------------------------
 
@@ -128,18 +128,18 @@ DivRep : ℤ → ℕ → Type
 DivRep z m = Σ[ q ∈ ℤ ] Σ[ r ∈ ℕ ] (r < suc m) × (z ≡ q · pos (suc m) + pos r)
 
 private
-  -- the library's ℕ division, in the shape a ≡ q·b + r.
+  -- the library's � division, in the shape a ≡ q�b + r.
   ℕdiv : (m n : ℕ) → n ≡ (quotient n / suc m) ·ℕ suc m +ℕ (remainder n / suc m)
   ℕdiv m n =
       sym (≡remainder+quotient (suc m) n)
     ∙ +-comm (remainder n / suc m) (suc m ·ℕ (quotient n / suc m))
     ∙ cong (_+ℕ (remainder n / suc m)) (·-comm (suc m) (quotient n / suc m))
 
-  -- an ℕ division IS a ℤ division, under pos.
+  -- an � division IS a � division, under pos.
   liftEq : (a b q r : ℕ) → a ≡ q ·ℕ b +ℕ r → pos a ≡ pos q · pos b + pos r
   liftEq a b q r eq = cong pos eq ∙ pos+ (q ·ℕ b) r ∙ cong (_+ pos r) (pos·pos q b)
 
-  -- pure ring identities (the solver, on ∀-quantified statements only —
+  -- pure ring identities (the solver, on �-quantified statements only �
   -- it does not read the literal 1, so −1 is kept out of them).
   negDist : (Q R : ℤ) → - (Q · R) ≡ (- Q) · R
   negDist Q R = solve! ℤCommRing
@@ -148,7 +148,7 @@ private
         → - (Q · (K + R) + R) ≡ ((- Q) · (K + R) + (- (K + R))) + K
   negId Q K R = solve! ℤCommRing
 
-  -- reflecting: with M ≡ K + R,  −(Q·M + R) ≡ (−Q)·M − M + K.
+  -- reflecting: with M ≡ K + R,  −(Q�M + R) ≡ (−Q)�M − M + K.
   negStep : (Q Mz K R : ℤ) → Mz ≡ K + R
           → - (Q · Mz + R) ≡ ((- Q) · Mz + (- Mz)) + K
   negStep Q Mz K R p =
@@ -156,14 +156,14 @@ private
     ∙ negId Q K R
     ∙ cong (λ z → ((- Q) · z + (- z)) + K) (sym p)
 
-  -- the negative dividend, given the ℕ division of suc n by suc m.
+  -- the negative dividend, given the � division of suc n by suc m.
   negCase : (n m q' r' : ℕ) → r' < suc m → suc n ≡ q' ·ℕ suc m +ℕ r'
           → DivRep (negsuc n) m
-  -- exact: −(suc n) = (−q')·M + 0.
+  -- exact: −(suc n) = (−q')�M + 0.
   negCase n m q' zero _ eq =
     (- pos q') , 0 , suc-≤-suc zero-≤
     , (cong -_ (liftEq (suc n) (suc m) q' 0 eq) ∙ negDist (pos q') (pos (suc m)))
-  -- inexact: −(suc n) = (−q'−1)·M + (M − r'), and M − r' = suc k where
+  -- inexact: −(suc n) = (−q'−1)�M + (M − r'), and M − r' = suc k where
   -- k + suc r' ≡ m, i.e. k + suc (suc r'') ≡ suc m is the witness of r' < M.
   negCase n m q' (suc r'') (k , kEq) eq =
     negsuc q' , suc k , (r'' , bound) , path
@@ -233,10 +233,10 @@ divUnique m q q' r r' r<M r'<M hyp = go (q ℤO.≟ q')
       p , injPos (inj-z+ (cong (λ z → z · pos (suc m) + pos r) (sym p) ∙ hyp))
 
 ------------------------------------------------------------------------
--- २ · The iṣṭa: the least non-negative representative of the family.
+-- � � The ia: the least non-negative representative of the family.
 --
 -- The family is `Kuttaka.solutionFamily`'s, verbatim: member t through
--- (x₀ , y₀) is (x₀ + t · b , y₀ + (- (t · a))), with b = pos (suc m).
+-- (x� , y�) is (x� + t � b , y� + (- (t � a))), with b = pos (suc m).
 ------------------------------------------------------------------------
 
 -- a member of the family whose x is a natural below the modulus.
@@ -251,7 +251,7 @@ private
   cancelId : (q Mz R : ℤ) → (q · Mz + R) + (- q) · Mz ≡ R
   cancelId q Mz R = solve! ℤCommRing
 
--- EXISTENCE: divide x₀ by the modulus and take t = −q.
+-- EXISTENCE: divide x� by the modulus and take t = −q.
 iṣṭa : (a x₀ y₀ g : ℤ) (m : ℕ) → a · x₀ + pos (suc m) · y₀ ≡ g
      → Iṣṭa a x₀ y₀ g m
 iṣṭa a x₀ y₀ g m sol = (- q) , r , r<M , xEq , yEq
@@ -272,7 +272,7 @@ private
   backId t x Mz = solve! ℤCommRing
 
 -- UNIQUENESS WITHIN THE FAMILY: two members with x in [0 , suc m) are the
--- same member — same t, same x — by uniqueness of division.
+-- same member � same t, same x � by uniqueness of division.
 iṣṭaUnique : (x₀ : ℤ) (m : ℕ) (t t' : ℤ) (r r' : ℕ) → r < suc m → r' < suc m
            → x₀ + t · pos (suc m) ≡ pos r → x₀ + t' · pos (suc m) ≡ pos r'
            → (t ≡ t') × (r ≡ r')
@@ -296,12 +296,12 @@ iṣṭaUniqueMember a x₀ y₀ m t t' r r' r<M r'<M e e' =
     u = iṣṭaUnique x₀ m t t' r r' r<M r'<M e e'
 
 ------------------------------------------------------------------------
--- ३ · Completeness at g = 1, from `Kuttaka.solutionsDiffer`.
+-- � � Completeness at g = 1, from `Kuttaka.solutionsDiffer`.
 --
 -- `solutionsDiffer` says two solutions differ by a homogeneous solution:
--- a·c + M·e ≡ 0 with c = x − x₀, e = y − y₀.  At g = 1 the Bézout relation
--- a·x₀ + M·y₀ ≡ 1 lets c be written as c·(a·x₀ + M·y₀) = M·(c·y₀ − e·x₀)
--- + (a·c + M·e)·x₀, so M divides c: t = c·y₀ − e·x₀ is the parameter.
+-- a�c + M�e ≡ 0 with c = x − x�, e = y − y�.  At g = 1 the B�zout relation
+-- a�x� + M�y� ≡ 1 lets c be written as c�(a�x� + M�y�) = M�(c�y� − e�x�)
+-- + (a�c + M�e)�x�, so M divides c: t = c�y� − e�x� is the parameter.
 ------------------------------------------------------------------------
 
 private
@@ -324,8 +324,8 @@ private
   M≠0 : (m : ℕ) → ¬ pos (suc m) ≡ pos 0
   M≠0 m p = snotz (injPos p)
 
--- every solution of a·x + M·y ≡ 1 is a member of the family through a
--- solution (x₀ , y₀) of the same equation.
+-- every solution of a�x + M�y ≡ 1 is a member of the family through a
+-- solution (x� , y�) of the same equation.
 complete₁ : (a x₀ y₀ x y : ℤ) (m : ℕ)
           → a · x₀ + pos (suc m) · y₀ ≡ pos 1
           → a · x  + pos (suc m) · y  ≡ pos 1
@@ -355,7 +355,7 @@ complete₁ a x₀ y₀ x y m P Q = t , xEq , yEq
     yEq : y ≡ y₀ + (- (t · a))
     yEq = compY' a t y ∙ cong (_+ (- (t · a))) aty≡y₀
 
--- hence at g = 1 the iṣṭa is unique among ALL solutions: any two solutions
+-- hence at g = 1 the ia is unique among ALL solutions: any two solutions
 -- with x in [0 , suc m) agree in x and in y.
 iṣṭaUnique₁ : (a x₀ y₀ : ℤ) (m : ℕ) → a · x₀ + pos (suc m) · y₀ ≡ pos 1
             → (r r' : ℕ) (y y' : ℤ) → r < suc m → r' < suc m
@@ -372,31 +372,31 @@ iṣṭaUnique₁ a x₀ y₀ m P r r' y y' r<M r'<M S S' =
                    (sym (fst (snd w))) (sym (fst (snd w')))
 
 ------------------------------------------------------------------------
--- ४ · Non-vacuity, on Kuttaka's own example: 7x + 5y = 1.
+-- � � Non-vacuity, on Kuttaka's own example: 7x + 5y = 1.
 --
--- `Kuttaka.bezout` on the vallī 1, 2, 2 gives (x₀ , y₀) = (−2 , 3).  The
--- iṣṭa reduces x₀ modulo 5: −2 = (−1)·5 + 3, so t = 1 and the least
+-- `Kuttaka.bezout` on the vall 1, 2, 2 gives (x� , y�) = (−2 , 3).  The
+-- ia reduces x� modulo 5: −2 = (−1)�5 + 3, so t = 1 and the least
 -- non-negative solution is (x , y) = (3 , −4): 21 − 20 = 1.  This is the
 -- answer the classical procedure reports.  Everything below is by refl,
--- so it checks that `divℤ` and `iṣṭa` COMPUTE, and compute this.
+-- so it checks that `div�` and `ia` COMPUTE, and compute this.
 ------------------------------------------------------------------------
 
 exampleIṣṭa : Iṣṭa (pos 7) (fst exampleSolves) (fst (snd exampleSolves)) (pos 1) 4
 exampleIṣṭa = iṣṭa (pos 7) (fst exampleSolves) (fst (snd exampleSolves)) (pos 1) 4
                    (snd (snd exampleSolves))
 
--- bezout's pair, read off: x₀ = −2, y₀ = 3.
+-- bezout's pair, read off: x� = −2, y� = 3.
 exampleX₀ : fst exampleSolves ≡ negsuc 1
 exampleX₀ = refl
 
 exampleY₀ : fst (snd exampleSolves) ≡ pos 3
 exampleY₀ = refl
 
--- the division of x₀ = −2 by 5: quotient −1, remainder 3.
+-- the division of x� = −2 by 5: quotient −1, remainder 3.
 exampleDiv : (fst (divℤ (negsuc 1) 4) ≡ negsuc 0) × (fst (snd (divℤ (negsuc 1) 4)) ≡ 3)
 exampleDiv = refl , refl
 
--- the iṣṭa: t = 1, x = 3, y = 3 − 1·7 = −4.
+-- the ia: t = 1, x = 3, y = 3 − 1�7 = −4.
 exampleT : fst exampleIṣṭa ≡ pos 1
 exampleT = refl
 
@@ -406,11 +406,11 @@ exampleX = refl
 exampleY : fst (snd exampleSolves) + (- (fst exampleIṣṭa · pos 7)) ≡ negsuc 3
 exampleY = refl
 
--- and it solves: 7·3 + 5·(−4) ≡ 1.
+-- and it solves: 7�3 + 5�(−4) ≡ 1.
 exampleSolvesLeast : pos 7 · pos 3 + pos 5 · negsuc 3 ≡ pos 1
 exampleSolvesLeast = refl
 
--- uniqueness among all solutions: whoever solves 7x + 5y = 1 with 0 ≤ x < 5
+-- uniqueness among all solutions: whoever solves 7x + 5y = 1 with 0 � x < 5
 -- has x = 3 and y = −4.
 exampleUnique : (r : ℕ) (y : ℤ) → r < 5 → pos 7 · pos r + pos 5 · y ≡ pos 1
               → (r ≡ 3) × (y ≡ negsuc 3)

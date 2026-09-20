@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤°à¤¾à¤®à¤¾à¤¨à¥à¤œà¤¨à¥, à¤¸à¤¿à¤—à¥à¤®à¤¾ â€” THE EISENSTEIN CONVOLUTION IDENTITY,
+-- à°à¾à®à¾à¨ààà¨à, àà¿à—àà®à¾ â” THE EISENSTEIN CONVOLUTION IDENTITY,
 -- INSTANCES BY REFL.
 --
 -- Ramanujan, "On certain arithmetical functions" (1916), proved by
--- elementary means what Eâ‚„Â² = Eâ‚ˆ says in the modular language:
+-- elementary means what EâÂ² = Eâˆ says in the modular language:
 --
---     Ïƒâ‚‡(n)  =  Ïƒâ‚ƒ(n) + 120 Â· Î£_{k=1}^{nâˆ’1} Ïƒâ‚ƒ(k) Â· Ïƒâ‚ƒ(nâˆ’k).
+--     Ïâ(n)  =  Ïâ(n) + 120 Â Î_{k=1}^{nâˆ’1} Ïâ(k) Â Ïâ(nâˆ’k).
 --
 -- Every quantity is a finite sum of divisor powers; the identity is
 -- exact arithmetic through and through.  This file computes both
--- sides for n = 1..8 â€” divisor sums by the witness-typed cofactor
--- scan, the convolution by a countdown fold â€” and the kernel closes
+-- sides for n = 1..8 â” divisor sums by the witness-typed cofactor
+-- scan, the convolution by a countdown fold â” and the kernel closes
 -- each instance by refl.  At n = 8 the two sides agree at 2113665.
 --
 -- The statement for every n at once is the one-dimensionality of the
@@ -65,7 +65,7 @@ contrib f k m = rec 0 (Î» _ â†’ f k) (find m)
 -- Â§2  The convolution.
 ------------------------------------------------------------------------
 
--- Î£_{k=1}^{j} Ïƒâ‚ƒ(k) Â· Ïƒâ‚ƒ(nâˆ’k), counted down.
+-- Î_{k=1}^{j} Ïâ(k) Â Ïâ(nâˆ’k), counted down.
 conv : â„• â†’ â„• â†’ â„•
 conv n zero    = 0
 conv n (suc j) = Ïƒâ‚ƒ (suc j) Â· Ïƒâ‚ƒ (n âˆ¸ suc j) + conv n j

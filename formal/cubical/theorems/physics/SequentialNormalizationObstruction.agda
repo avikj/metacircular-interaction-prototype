@@ -9,7 +9,7 @@
 -- states carry positive-total witnesses, identical retained histories can
 -- require different normalized distributions.
 --
--- Therefore no exact projection to BornDistribution‚ÇÇ can be defined from
+-- Therefore no exact projection to BornDistribution‚ can be defined from
 -- this history carrier alone, and an X-commutation law for such a projection
 -- would be vacuous.  A future repair must retain the complete branch table.
 --
@@ -18,9 +18,9 @@
 -- note says who paid it).  `FullSequentialTableNormalization`
 -- retains exactly that: both outcome branches, each with its first
 -- weighted posterior and its exact repeated basis posterior.  From that
--- carrier `normalizeFullTable` produces a `BornDistribution‚ÇÇ`,
+-- carrier `normalizeFullTable` produces a `BornDistribution‚`,
 -- `normalize-generated-table-correct` shows its denominator and two
--- numerators are the state's own `norm¬≤`, `weight‚ÇÄ`, `weight‚ÇÅ`, and
+-- numerators are the state's own `norm¬≤`, `weight‚`, `weight‚`, and
 -- `normalize-table-X-data` supplies the X-covariance law that was
 -- vacuous here.
 --

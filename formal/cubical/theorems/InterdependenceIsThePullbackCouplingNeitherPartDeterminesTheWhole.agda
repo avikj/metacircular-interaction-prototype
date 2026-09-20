@@ -6,23 +6,23 @@
 -- The exact-sequence / dependent form of "value unfolds in pairwise
 -- interaction": for two parts over a common context,
 --
---     f : A â†’ C,   g : B â†’ C,
+--     f : A â’ C,   g : B â’ C,
 --
 -- the interdependent whole is the pullback
 --
---     A Ã—_C B  =  Î£[ a âˆˆ A ] Î£[ b âˆˆ B ] (f a â‰¡ g b).
+--     A —_C B  =  Î[ a âˆˆ A ] Î[ b âˆˆ B ] (f a â‰¡ g b).
 --
 -- This file proves, as checked terms:
 --
---   wholeâ‰ƒparts+coupling : the whole IS the two parts together with a
+--   wholeâ‰parts+coupling : the whole IS the two parts together with a
 --       COUPLING proof f a â‰¡ g b.  The coupling is first-class data,
---       not recoverable from A and B alone â€” "neither a nor b is
+--       not recoverable from A and B alone â” "neither a nor b is
 --       sufficient; the joint object exists only with the compatibility
 --       equation over C."  parts + extension class = whole.
 --
 --   splits-when-coupling-trivial : the whole degenerates to the plain
---       product A Ã— B EXACTLY when the coupling is contractible at every
---       pair â€” i.e. when the extension is trivial.  Otherwise the
+--       product A — B EXACTLY when the coupling is contractible at every
+--       pair â” i.e. when the extension is trivial.  Otherwise the
 --       coupling carries the irreducible interaction information, located
 --       in neither component.
 --

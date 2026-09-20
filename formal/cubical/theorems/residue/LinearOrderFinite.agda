@@ -4,65 +4,65 @@
 -- LinearOrderFinite
 --
 -- SOURCE OF THE TARGET.  `AtlasResiduals` §4 checks
--- `LinOrd n X` DEFINED to be `X ≃ Fin n`.  Its "WHAT IS DELIBERATELY
+-- `LinOrd n X` DEFINED to be `X � Fin n`.  Its "WHAT IS DELIBERATELY
 --
 --
 -- ====================================================================
--- THE AXIOMS OF `LinOrd′`, AND WHICH WAY THEY ERR
+-- THE AXIOMS OF `LinOrd�`, AND WHICH WAY THEY ERR
 -- ====================================================================
 --
--- `LinOrd′ X = Σ[ _≤_ ∈ (X → X → Type₀) ] IsLinOrd _≤_`, and the five
+-- `LinOrd� X = �[ _�_ ∈ (X � X � Type�) ] IsLinOrd _�_`, and the five
 -- fields of `IsLinOrd` are
 --
---     propValued  (x y : X) → isProp (x ≤ y)
---     reflexive   (x : X) → x ≤ x
---     antisym     (x y : X) → x ≤ y → y ≤ x → x ≡ y
---     transitive  (x y z : X) → x ≤ y → y ≤ z → x ≤ z
---     total       (x y : X) → ∥ (x ≤ y) ⊎ (y ≤ x) ∥₁
+--     propValued  (x y : X) � isProp (x � y)
+--     reflexive   (x : X) � x � x
+--     antisym     (x y : X) � x � y � y � x � x ≡ y
+--     transitive  (x y z : X) � x � y � y � z � x � z
+--     total       (x y : X) � � (x � y) � (y � x) ��
 --
 -- Totality is MERE (propositionally truncated), and DECIDABILITY IS NOT
 -- AN AXIOM.  The obligation as recorded in AtlasResiduals offered a
 -- decidable total order; taking that licence was the cheap route and is
--- declined here.  Untruncated `(x ≤ y) ⊎ (y ≤ x)` is *structure*, not a
+-- declined here.  Untruncated `(x � y) � (y � x)` is *structure*, not a
 -- property: it is not a proposition (both disjuncts hold on the
 -- diagonal), so a "linear order" carrying it would remember a choice
--- and `LinOrd′ X` would not be the set of orders.  Instead
--- `Order.dec⊑` DERIVES `(x y : X) → Dec (x ≤ y)` from mere totality
--- plus decidable equality — which merely-finiteness supplies — because
+-- and `LinOrd� X` would not be the set of orders.  Instead
+-- `Order.dec�` DERIVES `(x y : X) � Dec (x � y)` from mere totality
+-- plus decidable equality � which merely-finiteness supplies � because
 -- off the diagonal antisymmetry makes the two disjuncts mutually
 -- exclusive, so the truncation may be eliminated into the proposition
--- `Dec (x ≤ y)`.  Consequently:
+-- `Dec (x � y)`.  Consequently:
 --
 --   * NO axiom here is stronger than the classical linear-order axioms;
 --     the one place a constructive strengthening could have been
 --     smuggled in (decidable totality) is proved, not assumed.
---   * Every axiom is a proposition once X is a set, so `LinOrd′ X` is a
---     Σ over relations with propositional structure (`isPropIsLinOrd`),
+--   * Every axiom is a proposition once X is a set, so `LinOrd� X` is a
+--     � over relations with propositional structure (`isPropIsLinOrd`),
 --     and a path of orders is exactly a pointwise logical equivalence
---     (`LinOrd′≡` together with `hPropExt`).
+--     (`LinOrd�≡` together with `hPropExt`).
 --
 --
 -- WHAT IS CHECKED
 --
---   §1 `IsLinOrd`, `LinOrd′`, `isPropIsLinOrd`, `LinOrd′≡`.
+--   §1 `IsLinOrd`, `LinOrd�`, `isPropIsLinOrd`, `LinOrd�≡`.
 --
---   §2 `decSplit≃`   a type splits along a decidable predicate.
+--   §2 `decSplit�`   a type splits along a decidable predicate.
 --      `embSurj`     AN EMBEDDING BETWEEN FINITE SETS OF EQUAL
---                    CARDINALITY IS SURJECTIVE — the finite pigeonhole
+--                    CARDINALITY IS SURJECTIVE � the finite pigeonhole
 --                    principle, in the only form used below.  Proved by
 --                    counting fibres, not assumed.
 --
 --   §3 (module `Order`, over X with `isFinSet X` and an order)
---      `dec⊑`        decidability of the order, DERIVED (above).
+--      `dec�`        decidability of the order, DERIVED (above).
 --      `rk`          the rank: rk x = card { z | z < x }, with the
 --                    down-set finite because `_<_` is decidable.
---      `rk<card`     rk x < |X|, from Unit ⊎ Down x ↪ X.
---      `rk-mono`     x < y → rk x < rk y, from Unit ⊎ Down x ↪ Down y.
---      `rk-≤`,`rk-≥` rank both preserves and REFLECTS the order.
---      `rank`        x ↦ (rk x , rk<card x) : X → Fin |X|.
+--      `rk<card`     rk x < |X|, from Unit � Down x � X.
+--      `rk-mono`     x < y � rk x < rk y, from Unit � Down x � Down y.
+--      `rk-�`,`rk-�` rank both preserves and REFLECTS the order.
+--      `rank`        x � (rk x , rk<card x) : X � Fin |X|.
 --      `isEquivRank` ... is an equivalence: injective by antisymmetry
 --                    via reflection, surjective by `embSurj`.
---      `rank-order`  (rk x ≤ rk y) ≡ (x ≤ y), as a path of props.
+--      `rank-order`  (rk x � rk y) ≡ (x � y), as a path of props.
 --
 --   §4 `pull`        the backward map: transport Fin n's standard order
 --                    along an equivalence.
@@ -70,11 +70,11 @@
 --                    itself: counting { k : Fin n | k < j } gives j.
 --      `rank-pull`,`pull-rank`
 --                    the two round trips, as paths.
---      `linOrd′≃`    LinOrd′ X ≃ (X ≃ Fin n) for X with ∥ X ≃ Fin n ∥₁.
+--      `linOrd��`    LinOrd� X � (X � Fin n) for X with � X � Fin n ��.
 --                    THE RESIDUE OF AtlasResiduals §4, DISCHARGED.
 --
---   §5 `isContrOrdTotal′`
---                    Σ[ X ∈ BSₙ ] LinOrd′(X) is CONTRACTIBLE: Theorem
+--   §5 `isContrOrdTotal�`
+--                    �[ X ∈ BS� ] LinOrd�(X) is CONTRACTIBLE: Theorem
 --                    3.2 with orders, not rank listings, in the fibre.
 --                    Obtained by transporting AtlasResiduals'
 --                    `isContrOrdTotal` along §4 fibrewise.
@@ -82,26 +82,26 @@
 --
 -- ====================================================================
 --
---  * `LinOrd′` takes the relation valued in `Type₀` with
+--  * `LinOrd�` takes the relation valued in `Type�` with
 --    prop-valuedness as an AXIOM, rather than valued in `hProp`.  The
 --    two packagings are equivalent, and that equivalence is not proved
 --    here; `isPropIsLinOrd` is what the development actually needs.
 --
---  * Everything is at `Type₀` with `Cubical.Data.Fin.Fin`, matching
+--  * Everything is at `Type�` with `Cubical.Data.Fin.Fin`, matching
 --    AtlasResiduals.  `isFinSet` from the library is stated with
---    `SumFin`; `finFinℕ` bridges, and no claim is made about the two
+--    `SumFin`; `finFin�` bridges, and no claim is made about the two
 --    presentations beyond that bridge.
 --
---  * `embSurj` is proved only for `FinSet ℓ-zero`, and only in the
---    direction needed (embedding + equal cardinality ⇒ surjection).
+--  * `embSurj` is proved only for `FinSet �-zero`, and only in the
+--    direction needed (embedding + equal cardinality � surjection).
 --    The converse, the level-polymorphic version, and any general
 --    counting library are absent.
 --
 --  * Two definitions are written in a deliberately awkward style for
 --    ELABORATION-COST reasons, and the comments at those points say so:
---    `rk-≤`/`rk-≥` take an explicit `Dec` argument instead of using
+--    `rk-�`/`rk-�` take an explicit `Dec` argument instead of using
 --    `with` (with-abstraction normalises the goal, and the goal mentions
---    `rk`, whose unfolding contains `isFinSetΣ`), and `linOrd′Iso` uses
+--    `rk`, whose unfolding contains `isFinSet�`), and `linOrd�Iso` uses
 --    the record constructor instead of copatterns.  Both alternatives
 --    are mathematically identical and neither typechecks in practical
 --    time; this is a fact about Agda, not about the mathematics.
@@ -326,7 +326,7 @@ module Order (X : Type₀) (finX : isFinSet X) (L : LinOrd′ X) where
     UD : (x : X) → FinSet ℓ-zero
     UD x = (Unit ⊎ Down x) , isFinSet⊎ (Unit , isFinSetUnit) (Down x , finDown x)
 
-  -- Unit ⊎ Down x ↪ X : the elements below x, together with x itself.
+  -- Unit � Down x � X : the elements below x, together with x itself.
   rk<card : (x : X) → rk x < finX .fst
   rk<card x = card↪Inequality' (UD x) (X , finX) f (injEmbedding isSetX inj)
     where
@@ -340,7 +340,7 @@ module Order (X : Type₀) (finX : isFinSet X) (L : LinOrd′ X) where
       inj {inr (z , z⊏x)}  {inl _}          p = Empty.rec (z⊏x .snd p)
       inj {inr (z , _)}    {inr (w , _)}    p = cong inr (Σ≡Prop (λ v → isProp⊏ v x) p)
 
-  -- Unit ⊎ Down x ↪ Down y when x ⊏ y : rank is strictly monotone.
+  -- Unit � Down x � Down y when x � y : rank is strictly monotone.
   rk-mono : (x y : X) → x ⊏ y → rk x < rk y
   rk-mono x y x⊏y =
     card↪Inequality' (UD x) (Down y , finDown y) f (injEmbedding (isSetDown y) inj)
@@ -364,7 +364,7 @@ module Order (X : Type₀) (finX : isFinSet X) (L : LinOrd′ X) where
   -- NB: these two are written with an explicit `Dec` argument rather
   -- than `with discX x y`.  With-abstraction normalises the goal to
   -- find occurrences of the scrutinee, and the goal here mentions `rk`,
-  -- whose unfolding contains `discX` under `isFinSetΣ`; that normal
+  -- whose unfolding contains `discX` under `isFinSet�`; that normal
   -- form is enormous and typechecking does not terminate in practice.
   rk-≤ : (x y : X) → x ⊑ y → rk x ≤ rk y
   rk-≤ x y le = go (discX x y)
@@ -412,11 +412,11 @@ module Order (X : Type₀) (finX : isFinSet X) (L : LinOrd′ X) where
   rank-order x y = hPropExt isProp≤ (ax .propValued x y) (rk-≥ x y) (rk-≤ x y)
 
 ------------------------------------------------------------------------
--- 4.  The rigidification equivalence:  LinOrd′ X ≃ (X ≃ Fin n).
+-- 4.  The rigidification equivalence:  LinOrd� X � (X � Fin n).
 ------------------------------------------------------------------------
 
 -- The elements of Fin n weakly below j and distinct from it are the
--- elements of Fin (toℕ j); this is the one arithmetic input.
+-- elements of Fin (to� j); this is the one arithmetic input.
 belowIso : (n : ℕ) (j : Fin n)
          → Iso (Σ[ k ∈ Fin n ] ((toℕ k ≤ toℕ j) × (¬ k ≡ j))) (Fin (toℕ j))
 Iso.fun (belowIso n j) (k , le , ne) = toℕ k , ≤→< le (λ q → ne (toℕ-injective q))
@@ -457,7 +457,7 @@ module _ (n : ℕ) (X : Type₀) (t : ∥ X ≃ Fin n ∥₁) where
       open Order X finX (pull e)
 
       -- Along e, the down-set of x is the set of k : Fin n strictly
-      -- below e x, which has exactly toℕ (e x) elements.
+      -- below e x, which has exactly to� (e x) elements.
       downEquiv : (x : X) → Down x ≃ Fin (toℕ (equivFun e x))
       downEquiv x =
         compEquiv
@@ -494,7 +494,7 @@ module _ (n : ℕ) (X : Type₀) (t : ∥ X ≃ Fin n ∥₁) where
   -- copattern form of this same definition does not typecheck in
   -- practical time (each clause is checked against a field type in
   -- which the earlier fields have been unfolded, and `rankEquiv`
-  -- unfolds to the whole of `isFinSetΣ`).
+  -- unfolds to the whole of `isFinSet�`).
   linOrd′Iso : Iso (LinOrd′ X) (X ≃ Fin n)
   linOrd′Iso = iso (λ L → Order.rankEquiv X finX L) pull rank-pull pull-rank
 
@@ -505,8 +505,8 @@ module _ (n : ℕ) (X : Type₀) (t : ∥ X ≃ Fin n ∥₁) where
 -- 5.  Theorem 3.2, whole.
 ------------------------------------------------------------------------
 
--- The library's Σ-congruence is level-homogeneous in the fibres, and
--- LinOrd′ X lives one universe above X ≃ Fin n.
+-- The library's �-congruence is level-homogeneous in the fibres, and
+-- LinOrd� X lives one universe above X � Fin n.
 Σ-cong-iso-snd′ : {ℓ ℓ' ℓ'' : Level} {A : Type ℓ} {B : A → Type ℓ'} {B' : A → Type ℓ''}
                 → ((a : A) → Iso (B a) (B' a)) → Iso (Σ A B) (Σ A B')
 Σ-cong-iso-snd′ is =
@@ -515,7 +515,7 @@ module _ (n : ℕ) (X : Type₀) (t : ∥ X ≃ Fin n ∥₁) where
       (λ (a , b) → ΣPathP (refl , Iso.rightInv (is a) b))
       (λ (a , b) → ΣPathP (refl , Iso.leftInv (is a) b))
 
--- Σ[ X ∈ BSₙ ] LinOrd′(X), with LinOrd′ the honest order structure.
+-- �[ X ∈ BS� ] LinOrd�(X), with LinOrd� the honest order structure.
 OrdTotal′ : ℕ → Type₁
 OrdTotal′ n = Σ[ X ∈ BS n ] LinOrd′ (X .fst)
 

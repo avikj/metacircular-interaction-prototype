@@ -1,4 +1,4 @@
-# Higher metacircular prime residuals and a dynamic matching barrier for record-normalized Navier‚ÄìStokes
+# Higher metacircular prime residuals and a dynamic matching barrier for record-normalized Navier‚ìStokes
 
 Repository snapshot: `avikj/metacircular-interaction-prototype@168ea8e240524f898af4b0e9cf70297c38422f08`.
 
@@ -12,11 +12,11 @@ New results:
 
 2. In the record-normalized NS ancestry, the inherited bounds `||Omega||_infinity <= 1`, `||V||_2 <= E` imply a paradifferential equation for each high vorticity annulus. Once `epsilon 4^k >> E+k`, diffusion acts faster than the local log-Lipschitz deformation. The dyadic vorticity block is then forced down to size `O((E+k)/(epsilon 4^k))`. The threshold `epsilon 4^k ~ k` is exactly the previously derived physical matching scale `r^2 log(1/r) ~ epsilon`. Frequencies a fixed number of octaves finer than this matching band have a geometrically summable strain tail, uniformly on bounded normalized-time intervals. Hence a bad ancestry cannot hide in arbitrarily fine static frequency texture: it must remain in the matching/coarse band or continuously re-inject high frequency on its own parabolic lifetime.
 
-No proof of RH or unrestricted three-dimensional Navier‚ÄìStokes regularity is claimed.
+No proof of RH or unrestricted three-dimensional Navier‚ìStokes regularity is claimed.
 
 ---
 
-# I. RH ‚Äî an arbitrary-order residual hierarchy over the same actual prime source
+# I. RH ‚î an arbitrary-order residual hierarchy over the same actual prime source
 
 ## 1. The first residual and normalized orbit
 
@@ -175,7 +175,7 @@ The arithmetic proof target is therefore flexible rather than unique: one may ch
 
 ---
 
-# II. NS ‚Äî the dynamic high-frequency barrier occurs at the same matching scale
+# II. NS ‚î the dynamic high-frequency barrier occurs at the same matching scale
 
 ## 5. Record-normalized equation and inherited dyadic bounds
 
@@ -383,7 +383,7 @@ Thus arbitrarily fine frequencies cannot carry an independent nonintegrable stre
 
 ## 10. Corrected continuation fibre
 
-The previous run reduced a bad ancestry to a generic ‚Äúfine-frequency residual.‚Äù Equations (20)‚Äì(28) sharpen that considerably.
+The previous run reduced a bad ancestry to a generic ‚fine-frequency residual.‚ Equations (20)‚ì(28) sharpen that considerably.
 
 The fine sector splits into:
 
@@ -444,7 +444,7 @@ r^2\log(1/r)\asymp\epsilon.
 
 Below that scale the continuation fibre is contractive. Above it the earlier universal `Sym_0(3)` marginal strain channel and finite-return calculations remain the correct source description.
 
-The current NS endpoint is therefore no longer ‚Äúcontrol all fine frequencies.‚Äù It is
+The current NS endpoint is therefore no longer ‚control all fine frequencies.‚ It is
 \[
 \boxed{
 \text{control repeated nonlinear repopulation of the finite matching band.}

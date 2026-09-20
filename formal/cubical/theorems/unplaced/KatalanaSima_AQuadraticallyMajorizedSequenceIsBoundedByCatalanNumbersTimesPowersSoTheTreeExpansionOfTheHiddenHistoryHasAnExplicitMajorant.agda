@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- कातलान-सीमा — the Catalan bound.
+-- �������-���� � the Catalan bound.
 --
 -- Handoff §40 ([S18]): the hidden-history equation  q = g + C(q,q)
--- expands in causal trees, q = Σ qₙ with  qₙ₊₁ = Σ_{a+c=n} C(qₐ, q_c),
+-- expands in causal trees, q = � q� with  q��� = �_{a+c=n} C(q�, q_c),
 -- and the Catalan majorant controls it.  The exact finite control:
 --
---   for any ℕ-valued sequence x with  x₀ ≤ g  and
---       x_{n+1} ≤ b · Σ_{a+c=n} xₐ x_c,
---   one has   xₙ ≤ bⁿ · Catₙ · gⁿ⁺¹   for every n,
+--   for any �-valued sequence x with  x� � g  and
+--       x_{n+1} � b � �_{a+c=n} x� x_c,
+--   one has   x� � b� � Cat� � g���   for every n,
 --
--- where Cat₀ = 1, Catₙ₊₁ = Σ_{a+c=n} Catₐ Cat_c  (1, 1, 2, 5, 14, 42, …).
+-- where Cat� = 1, Cat��� = �_{a+c=n} Cat� Cat_c  (1, 1, 2, 5, 14, 42, �).
 -- The convergence when 4bg < 1 is the analytic statement; the majorant
 -- itself is this theorem, proved by strong induction over the pair sum.
 ------------------------------------------------------------------------
@@ -45,7 +45,7 @@ private
   pow-+ b zero    n = sym (+-zero (pow b n))
   pow-+ b (suc m) n = cong (b ·_) (pow-+ b m n) ∙ ·-assoc b (pow b m) (pow b n)
 
-  -- D respects pointwise ≤ on the pairs it sums
+  -- D respects pointwise � on the pairs it sums
   D-mono : (n : ℕ) {f g : ℕ → ℕ → ℕ} → ((a c : ℕ) → a + c ≡ n → f a c ≤ g a c) → D n f ≤ D n g
   D-mono zero    h = h zero zero refl
   D-mono (suc n) h = ≤-+-≤ (h zero (suc n) refl) (D-mono n (λ a c p → h (suc a) c (cong suc p)))
@@ -55,7 +55,7 @@ private
   D-scale zero    k f = refl
   D-scale (suc n) k f = cong (k · f zero (suc n) +_) (D-scale n k (λ a c → f (suc a) c)) ∙ ·-distribˡ k (f zero (suc n)) (D n (λ a c → f (suc a) c))
 
-  -- k ≤ suc n splits
+  -- k � suc n splits
   ≤-split′ : (k n : ℕ) → k ≤ suc n → (k ≤ n) ⊎ (k ≡ suc n)
   ≤-split′ k n (zero  , p) = inr p
   ≤-split′ k n (suc d , p) = inl (d , injSuc p)
@@ -64,7 +64,7 @@ private
   ≤-·-≤ {m} {n} {l} {k} p q = ≤-trans (≤-·k p) (subst2 _≤_ (·-comm l n) (·-comm k n) (≤-·k q))
 
 -- the Catalan numbers through a memo table (structural in the table size):
--- catTab n k = Cat k for k ≤ n
+-- catTab n k = Cat k for k � n
 catTab : ℕ → ℕ → ℕ
 catTab zero    k = 1
 catTab (suc n) k = decRec (λ _ → D n (λ a c → catTab n a · catTab n c)) (λ _ → catTab n k) (discreteℕ k (suc n))
@@ -110,7 +110,7 @@ module Majorant (x : ℕ → ℕ) (b g : ℕ)
   bound n = pow b n · (cat n · pow g (suc n))
 
   private
-    -- the product of two bounds at a + c = n is the common scalar times cat a · cat c
+    -- the product of two bounds at a + c = n is the common scalar times cat a � cat c
     product-of-bounds : (n a c : ℕ) → a + c ≡ n
       → bound a · bound c ≡ (pow b n · pow g (suc (suc n))) · (cat a · cat c)
     product-of-bounds n a c h =
@@ -148,6 +148,6 @@ module Majorant (x : ℕ → ℕ) (b g : ℕ)
                 shape : (P G C : ℕ) → b · ((P · G) · C) ≡ (b · P) · (C · G)
                 shape P G C = solveℕ!
 
-  -- THE MAJORANT:  xₙ ≤ bⁿ · Catₙ · gⁿ⁺¹
+  -- THE MAJORANT:  x� � b� � Cat� � g���
   catalan-majorant : (n : ℕ) → x n ≤ pow b n · (cat n · pow g (suc n))
   catalan-majorant n = below n n ≤-refl

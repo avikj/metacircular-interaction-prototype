@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- RnaDhana_TheWholeMixedStratificationIsTheFlippedOne
 --
--- à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana â€” Brahmagupta, *BrÄhmasphuá¹­asiddhÄnta* (628): one
--- magnitude read as *dhana* (asset) or *á¹›á¹‡a* (debt).  The sign rules
+-- à‹àà§à¨ Â a-dhana â” Brahmagupta, *Brhmasphuasiddhnta* (628): one
+-- magnitude read as *dhana* (asset) or *a* (debt).  The sign rules
 -- are his; the caps, the filters and the induction below are not.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- `RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum` transferred ONE
 -- layer and named the rest:
 --
@@ -19,13 +19,13 @@
 -- `allBoundedFilterOut` is four lines, because a filtered list is a
 -- sublist and `AllBounded` is pointwise.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   mixedRemainder      the mixed complement of the mixed layer
 --   filterOutMapCommutes / filterOutRespectsOn
 --                       the two list lemmas again, negated branch
---   allBoundedFilterOut a filtered archive is still bounded â€” for an
+--   allBoundedFilterOut a filtered archive is still bounded â” for an
 --                       ARBITRARY decidable predicate, so it covers
 --                       the layer as well as the remainder
 --   theMixedRemainderIsTheFlippedRemainder
@@ -41,23 +41,23 @@
 -- READING.**  Coverage, disjointness and order were proved for
 -- `strata`; the equation above says the mixed stratification IS that
 -- stratification, flipped, so each of those statements transports by
--- rewriting along one path â€” no re-proof, and no new hypothesis beyond
+-- rewriting along one path â” no re-proof, and no new hypothesis beyond
 -- `AllBounded` on the initial archive.  The obligation every module on
 -- the Pareto line has carried in its header since the line began is
 -- discharged.
 --
 -- **WHAT THE INDUCTION ACTUALLY NEEDED**, since I predicted otherwise:
--- not injectivity, not a rank, not a measure â€” only that the caps
+-- not injectivity, not a rank, not a measure â” only that the caps
 -- survive peeling, and they do trivially.  The recursion then goes
--- through because `map flip (v âˆ· vs)` reduces to `flip v âˆ· map flip vs`
+-- through because `map flip (v âˆ vs)` reduces to `flip v âˆ map flip vs`
 -- definitionally, so the flipped archive is already in the cons form
 -- `strata` matches on.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NO NOVELTY.  Everything here is filter/map bookkeeping over
 -- Goldberg/Deb non-dominated sorting.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -163,7 +163,7 @@ theMixedRemainderIsTheFlippedRemainder ds cs vs ab =
           vs)
 
 ------------------------------------------------------------------------
--- 4.  â€¦and so does the whole stratification
+-- 4.  â¦and so does the whole stratification
 ------------------------------------------------------------------------
 
 mixedStrata : â„• â†’ (ds : List Bool) â†’ List (Vec ds) â†’ List (List (Vec ds))

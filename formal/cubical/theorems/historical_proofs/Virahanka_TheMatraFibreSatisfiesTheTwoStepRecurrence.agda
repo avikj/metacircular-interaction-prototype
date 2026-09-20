@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- विरहाङ्क — मात्रा-तन्तुः द्वि-पद-आवृत्तिं पालयति ।
+-- ���������� � ������-������ ����-��-�������� ������ �
 --
--- Virahāṅka (c. 600-800 CE, Vṛttajātisamuccaya) on Piṅgala's
--- Chandaḥśāstra: mātrā-sequences of total n number those at n-1 plus
+-- Virahka (c. 600-800 CE, Vttajtisamuccaya) on Pigala's
+-- Chandastra: mtr-sequences of total n number those at n-1 plus
 -- those at n-2.  Here as an EQUIVALENCE OF FIBRES, not a count -- the
--- fibre splits and the numbers are its shadow.  Weight is Piṅgala's,
+-- fibre splits and the numbers are its shadow.  Weight is Pigala's,
 -- laghu 1 guru 2.  No count and no closed form is proved here.
 --
 -- CHECKED: Agda 2.6.3 + cubical v0.5, --safe, exit 0.
@@ -31,7 +31,7 @@ open import Cubical.Relation.Nullary using (¬_)
 छन्दः []       = 0
 छन्दः (x ∷ xs) = मात्रा x + छन्दः xs
 
--- the fibre's witness is a proposition, because ℕ is a set
+-- the fibre's witness is a proposition, because � is a set
 तन्तु-साक्षी : {n : ℕ} (l : List Bool) → isProp (छन्दः l ≡ n)
 तन्तु-साक्षी _ = isSetℕ _ _
 
@@ -58,7 +58,7 @@ open import Cubical.Relation.Nullary using (¬_)
     प्रत्यावृत्तिः (false ∷ xs , p) = Σ≡Prop तन्तु-साक्षी refl
 
 -- the two base cases, so the recurrence is anchored: exactly one
--- mātrā-sequence of total 0 (the empty one) and exactly one of total 1
+-- mtr-sequence of total 0 (the empty one) and exactly one of total 1
 -- (a single laghu).
 शून्य-रिक्तम् : (l : List Bool) → छन्दः l ≡ 0 → l ≡ []
 शून्य-रिक्तम् []            _ = refl
@@ -93,7 +93,7 @@ snd आदि-एकम् (false ∷ xs , p) = Empty.rec (snotz (injSuc p))
 द्वि-लघु n = (true ∷ true ∷ लघु-माला n) , cong (λ k → suc (suc k)) (लघु-माला-भारः n)
 द्वि-गुरु n = (false ∷ लघु-माला n)       , cong (λ k → suc (suc k)) (लघु-माला-भारः n)
 
--- two mātrā-sequences of the same total that are not the same sequence
+-- two mtr-sequences of the same total that are not the same sequence
 मात्रा-क्षयः : (n : ℕ) → ¬ (द्वि-लघु n ≡ द्वि-गुरु n)
 मात्रा-क्षयः n p = true≢false (cong शिरः (cong fst p))
   where
@@ -108,8 +108,8 @@ snd आदि-एकम् (false ∷ xs , p) = Empty.rec (snotz (injSuc p))
 तन्तुः-न-एकः : (n : ℕ) → ¬ (isContr (fiber छन्दः (suc (suc n))))
 तन्तुः-न-एकः n c = मात्रा-क्षयः n (sym (c .snd (द्वि-लघु n)) ∙ c .snd (द्वि-गुरु n))
 
--- and the instance is the shadow of the law: छन्दः IS the general weighted
--- counting map at Piṅgala's weight, on the nose.
+-- and the instance is the shadow of the law: ����� IS the general weighted
+-- counting map at Pigala's weight, on the nose.
 open import Bharavrtti_TheWeightedCountingMapsFibreDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand
   using (भारः)
 

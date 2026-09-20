@@ -5,33 +5,33 @@
 --
 -- The criticality core of the boundedness criterion:
 --
---     RH  ⟺  B_h(t) = O_h(1)   (t → ∞),
+--     RH  ⟺  B_h(t) = O_h(1)   (t � ∞),
 --
--- where B_h(t) = Σ_n Λ(n)/√n · h(t−log n) − e^{t/2}H_h(½) is the
+-- where B_h(t) = �_n �(n)/�n � h(t−log n) − e^{t/2}H_h(½) is the
 -- renormalized boundary transport, with explicit-formula modal expansion
 --
---     B_h(t) = − Σ_ρ m_ρ e^{(ρ−½)t} H_h(ρ−½) + T_h(t).
+--     B_h(t) = − �_� m_� e^{(�−½)t} H_h(�−½) + T_h(t).
 --
--- Each nontrivial zero ρ contributes a scale mode with growth exponent
--- exp(ρ) = Re(ρ−½).  Two facts drive the criterion, and they are exactly
+-- Each nontrivial zero � contributes a scale mode with growth exponent
+-- exp(�) = Re(�−½).  Two facts drive the criterion, and they are exactly
 -- the analytic inputs, taken here as the interface the explicit formula
 -- and the functional equation supply:
 --
 --   grows-unbounds : a mode with exp > 0 makes B_h unbounded
---                    (the Laplace-transform pole at w = ρ−½, Re > 0);
---   dual-exp       : the functional equation ρ ↦ 1−ρ sends the exponent
---                    to its negation, exp(1−ρ) = −exp(ρ).
+--                    (the Laplace-transform pole at w = �−½, Re > 0);
+--   dual-exp       : the functional equation � � 1−� sends the exponent
+--                    to its negation, exp(1−�) = −exp(�).
 --
 -- Given those, the critical line is forced by the elementary step: bounded
--- transport ⟹ no mode grows ⟹ (via the FE partner) no mode decays ⟹ every
+-- transport � no mode grows � (via the FE partner) no mode decays � every
 -- exponent is 0, i.e. every nontrivial zero has Re = ½.
 --
---     criticality : (transport power-bounded) → (m : Mode) → exp m ≡ 𝟎.
+--     criticality : (transport power-bounded) � (m : Mode) � exp m ≡ �.
 --
 -- This is an inhabited --safe theorem: the criticality half of the
 -- criterion, over an abstract ordered exponent group so no real analysis
--- is smuggled in.  What remains, to inhabit `(m) → Bounded m`, is the
--- forward analytic estimate (rapid decay of H_h + zero density) — the
+-- is smuggled in.  What remains, to inhabit `(m) � Bounded m`, is the
+-- forward analytic estimate (rapid decay of H_h + zero density) � the
 -- boundedness itself; that is the RH content this theorem reduces to
 -- exactly the two named facts plus power-boundedness.
 ------------------------------------------------------------------------
@@ -46,7 +46,7 @@ private
     ℓ : Level
 
 ------------------------------------------------------------------------
--- §1  The abstract ordered exponent group (the real part of ρ−½ lives
+-- §1  The abstract ordered exponent group (the real part of �−½ lives
 --     here).  Only the order facts the argument uses are assumed.
 ------------------------------------------------------------------------
 
@@ -91,11 +91,11 @@ module _ (E : OrderedExponents ℓ) where
     → (m : Mode T) → exp T m ≡ 𝟎                -- every zero on the line
   criticality T bounded m = ≤0∧0≤→≡0 le ge
     where
-      -- no mode grows: bounded ⟹ exp ≤ 0.
+      -- no mode grows: bounded � exp � 0.
       le : exp T m ≤ 𝟎
       le = ¬<0→≤0 (λ pos → grows-unbounds T m pos (bounded m))
 
-      -- its functional-equation partner also does not grow, so exp ≥ 0.
+      -- its functional-equation partner also does not grow, so exp � 0.
       partner-≤0 : neg (exp T m) ≤ 𝟎
       partner-≤0 =
         subst (_≤ 𝟎) (dual-exp T m)

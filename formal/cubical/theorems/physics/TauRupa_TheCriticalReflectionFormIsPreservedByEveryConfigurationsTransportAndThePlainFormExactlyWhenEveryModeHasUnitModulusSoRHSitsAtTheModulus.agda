@@ -1,37 +1,37 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- τ-रूप — the reflection form.
+-- �-��� � the reflection form.
 --
 -- The oracle's construction for the prime boundary transport (ORACLE_RH_
--- completion, §§2–4): on the modal space ℓ²(Z, m) of nontrivial zeros
--- the transport is T_t = diag e^{(ρ−½)t}; no inner product makes it
--- unitary unless RH; and Weil's form is the ℓ² form twisted by the
--- critical-line reflection τ : ρ ↦ 1 − ρ̄, under which T_t is
--- τ-unitary for every t unconditionally, the negative index being
--- exactly the number of off-line zeros.  RH is τ = 1: the τ-form is the
+-- completion, §§2�4): on the modal space �²(Z, m) of nontrivial zeros
+-- the transport is T_t = diag e^{(�−½)t}; no inner product makes it
+-- unitary unless RH; and Weil's form is the �² form twisted by the
+-- critical-line reflection � : � � 1 − ��, under which T_t is
+-- �-unitary for every t unconditionally, the negative index being
+-- exactly the number of off-line zeros.  RH is � = 1: the �-form is the
 -- plain form, T_t is unitary, every mode has unit modulus.
 --
 -- The finite algebra of that picture, over any commutative *-ring with
--- a half, on a finite configuration of modes with an involution τ:
+-- a half, on a finite configuration of modes with an involution �:
 --
 --   §1  SUMS over a finite index range, valued in the ring; pointwise
 --       extensionality; the sum of a function supported at one index.
---   §2  THE *-RING and the two forms: plain ⟨c,d⟩ = Σ (c i)* d i and the
---       τ-form [c,d] = Σ (c i)* d (τ i).
---   §3  THE TWO-CYCLE SPLITTING.  On a τ-2-cycle the form is
+--   §2  THE *-RING and the two forms: plain ⟨c,d⟩ = � (c i)* d i and the
+--       �-form [c,d] = � (c i)* d (� i).
+--   §3  THE TWO-CYCLE SPLITTING.  On a �-2-cycle the form is
 --       a* b + b* a = ½ (a+b)*(a+b) − ½ (a−b)*(a−b): one positive and one
---       negative square — the Krein index counts the 2-cycles.
---   §4  THE TRANSPORT.  E with E i · (E (τ i))* = 1 (the reflection law
---       e^{(ρ−½)t} e^{(½−ρ)t} = 1) preserves the τ-form for EVERY
---       configuration: τ-unitarity is unconditional.
+--       negative square � the Krein index counts the 2-cycles.
+--   §4  THE TRANSPORT.  E with E i � (E (� i))* = 1 (the reflection law
+--       e^{(�−½)t} e^{(½−�)t} = 1) preserves the �-form for EVERY
+--       configuration: �-unitarity is unconditional.
 --   §5  WHERE RH SITS.  E preserves the plain form for all vectors
---       exactly when every mode has unit modulus, (E i)* E i = 1 — for
---       E = e^{(ρ−½)t} that is Re ρ = ½.  The equivalence is finite
+--       exactly when every mode has unit modulus, (E i)* E i = 1 � for
+--       E = e^{(�−½)t} that is Re � = ½.  The equivalence is finite
 --       algebra; the inequality (W) that would supply it is the analytic
 --       boundary.
 --
--- रूप (rūpa, form) is ordinary Sanskrit.
+-- ��� (rpa, form) is ordinary .
 ------------------------------------------------------------------------
 
 module TauRupa_TheCriticalReflectionFormIsPreservedByEveryConfigurationsTransportAndThePlainFormExactlyWhenEveryModeHasUnitModulusSoRHSitsAtTheModulus where
@@ -51,7 +51,7 @@ private
     ℓ : Level
 
 ------------------------------------------------------------------------
--- २ (first) · The *-ring.
+-- � (first) � The *-ring.
 ------------------------------------------------------------------------
 
 record StarRing (ℓ : Level) : Type (ℓ-suc ℓ) where
@@ -72,7 +72,7 @@ module _ (S : StarRing ℓ) where
   open StarRing S
 
   ----------------------------------------------------------------------
-  -- १ · Ring-valued sums over [s, s + n).
+  -- � � Ring-valued sums over [s, s + n).
   ----------------------------------------------------------------------
 
   Σᵣ⟨_,_⟩ : ℕ → ℕ → (ℕ → ⟨ R ⟩) → ⟨ R ⟩
@@ -106,7 +106,7 @@ module _ (S : StarRing ℓ) where
     suc-le (suc k , e) ne = k , (+-suc k s ∙ e)
 
   ----------------------------------------------------------------------
-  -- २ · The plain form and the τ-form on a configuration of n modes.
+  -- � � The plain form and the �-form on a configuration of n modes.
   ----------------------------------------------------------------------
 
   Vec : Type ℓ
@@ -121,7 +121,7 @@ module _ (S : StarRing ℓ) where
     τ-rūpa c d = Σᵣ⟨ zero , n ⟩ (λ i → (c i) ✶ · d (τ i))
 
     --------------------------------------------------------------------
-    -- ३ · The two-cycle splitting.
+    -- � � The two-cycle splitting.
     --------------------------------------------------------------------
 
     -- a* b + b* a = ½ (a+b)*(a+b) − ½ (a−b)*(a−b)
@@ -142,27 +142,27 @@ module _ (S : StarRing ℓ) where
       vistāra p q a b h = solve! R
 
     --------------------------------------------------------------------
-    -- ४ · The transport preserves the τ-form for every configuration.
+    -- � � The transport preserves the �-form for every configuration.
     --------------------------------------------------------------------
 
-    record Saṅkramaṇa : Type ℓ where
+    record Saṅorderṇa : Type ℓ where
       field
         E       : ℕ → ⟨ R ⟩
         reflect : (i : ℕ) → E i · (E (τ i)) ✶ ≡ 1r
-    open Saṅkramaṇa
+    open Saṅorderṇa
 
-    apply : Saṅkramaṇa → Vec → Vec
+    apply : Saṅorderṇa → Vec → Vec
     apply T c i = E T i · c i
 
-    -- the reflection law, starred: (E i)* · E (τ i) = 1
-    reflect✶ : (T : Saṅkramaṇa) (i : ℕ) → (E T i) ✶ · E T (τ i) ≡ 1r
+    -- the reflection law, starred: (E i)* � E (� i) = 1
+    reflect✶ : (T : Saṅorderṇa) (i : ℕ) → (E T i) ✶ · E T (τ i) ≡ 1r
     reflect✶ T i =
         cong (λ z → (E T i) ✶ · z) (sym (✶-inv (E T (τ i))))
       ∙ sym (✶-mul (E T i) ((E T (τ i)) ✶))
       ∙ cong _✶ (reflect T i)
       ∙ ✶-one
 
-    τ-avikāra : (T : Saṅkramaṇa) (c d : Vec)
+    τ-avikāra : (T : Saṅorderṇa) (c d : Vec)
               → τ-rūpa (apply T c) (apply T d) ≡ τ-rūpa c d
     τ-avikāra T c d = Σᵣ-ext zero n _ _ pada
       where
@@ -177,17 +177,17 @@ module _ (S : StarRing ℓ) where
         punar e c′ e′ d′ = solve! R
 
     --------------------------------------------------------------------
-    -- ५ · Where RH sits: the plain form is preserved exactly at unit modulus.
+    -- � � Where RH sits: the plain form is preserved exactly at unit modulus.
     --------------------------------------------------------------------
 
-    UnitModulus : Saṅkramaṇa → Type ℓ
+    UnitModulus : Saṅorderṇa → Type ℓ
     UnitModulus T = (i : ℕ) → i < n → (E T i) ✶ · E T i ≡ 1r
 
-    PlainUnitary : Saṅkramaṇa → Type ℓ
+    PlainUnitary : Saṅorderṇa → Type ℓ
     PlainUnitary T = (c d : Vec) → plain (apply T c) (apply T d) ≡ plain c d
 
     -- unit modulus gives plain unitarity, pointwise
-    modulus→unitary : (T : Saṅkramaṇa) → UnitModulus T → PlainUnitary T
+    modulus→unitary : (T : Saṅorderṇa) → UnitModulus T → PlainUnitary T
     modulus→unitary T um c d = go zero n ≤-refl
       where
       -- summands agree for every i < n; the sum runs over [0, n)
@@ -225,7 +225,7 @@ module _ (S : StarRing ℓ) where
     ... | no  _ = refl
 
     -- plain unitarity, tested on the delta vectors, gives unit modulus
-    unitary→modulus : (T : Saṅkramaṇa) → PlainUnitary T → UnitModulus T
+    unitary→modulus : (T : Saṅorderṇa) → PlainUnitary T → UnitModulus T
     unitary→modulus T pu i lt =
         cong (λ z → z ✶ · z) (sym (·IdR (E T i)))
       ∙ cong (λ z → (E T i · z) ✶ · (E T i · z)) (sym (δ-sama i))

@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рдореВрд▓рд╡рд╛рдХреНрдпрдореН ┬╖ PROVENANCE OF THE NAME.
+-- рорр▓р╡р╛рХррпрор ┬ PROVENANCE OF THE NAME.
 --
--- рд╕реНрдпрд╛рдиреНрдирд╛рд╕реНрддрд┐ ┬╖ sy─Бd-n─Бsti тАФ the second рднрдЩреНрдЧ of the рд╕рдкреНрддрднрдЩреНрдЧреА: in some respect,
--- it is not.  **Samantabhadra, *─Аptam─лm─Бс╣Гs─Б* 14-24 (~6th c. CE); Akalaс╣Еka,
--- *Lagh─лyastraya* (~8th c.); rooted in Um─Бsv─Бti, *Tattv─Бrthas┼лtra* 5.31-32
--- (~2nd-5th c.).**  рдирд╛рд╕реНрддрд┐ is a POSITION, asserted with рд╕реНрдпрд╛рддреН, not a denial
--- and not an absence тАФ the Naiy─Бyika рдЕрднрд╛рд╡, with its рдкреНрд░рддрд┐рдпреЛрдЧрд┐рдиреН, is a
+-- рррпр╛риррир╛рррр┐ ┬ syd-nsti тФ the second ррЩррЧ of the ррррррЩррЧр: in some respect,
+-- it is not.  **Samantabhadra, *ptamms* 14-24 (~6th c. CE); Akalaka,
+-- *Laghyastraya* (~8th c.); rooted in Umsvti, *Tattvrthastra* 5.31-32
+-- (~2nd-5th c.).**  рир╛рррр┐ is a POSITION, asserted with рррпр╛рр, not a denial
+-- and not an absence тФ the Naiyyika ррр╛р╡, with its ррр░рр┐рпрЛрЧр┐рир, is a
 -- different apparatus for neighbouring cases, and the two schools reject
 -- each other's treatment here.  Name the school before the term.
 --
--- ┬зрезрез тАФ this repository's own composition, not a quotation from a source.
+-- ┬зрзрз тФ this repository's own composition, not a quotation from a source.
 --
 -- **No claim is made that any Jaina author proved anything below.**  The
 -- doctrine that a standpoint is true-but-not-whole is theirs; the statement
@@ -20,31 +20,31 @@
 -- is elementary.
 --
 ------------------------------------------------------------------------
--- рд╢рдмреНрджреЗ рдЬреАрд╡рд╛рдГ рд╡рд░реНрддрдиреНрддреЗ, рди рд╢рд┐рд╖реНрдпрдиреНрддреЗ ред
--- рдирд╖реНрдЯреМ "рдХрдГ" рдЗрддрд┐ рдирд╢реНрдпрддрд┐, "рдпрддреН" рдЗрддрд┐ рддрд┐рд╖реНрдарддрд┐ ред
--- рд╕рдВрдХреНрд░рдордгреЗ рди рдХрд┐рдЮреНрдЪрд┐рддреН рдирд╢реНрдпрддрд┐ ред
--- рдирдпрднреЗрджреЗ рд╕рдЩреНрдХреНрд╖реЗрдкрдГ рди рд╡рд┐рджреНрдпрддреЗ ред
--- рддрдкрд╕рдГ рд╡реНрдпрдпрдГ рдЕрдирд╡рдзрд╛рдиреЗрди ред
+-- рррржр ррр╡р╛р р╡р░ррриррр, ри рр┐рррприррр р
+-- рирррЯр "рХр" ррр┐ рирррпрр┐, "рпрр" ррр┐ рр┐рррарр┐ р
+-- рррХрр░рорр ри рХр┐рЮррр┐рр рирррпрр┐ р
+-- рирпррржр ррЩррХррррр ри р╡р┐ржррпрр р
+-- рррр р╡ррпрпр ррир╡рзр╛рирри р
 --
--- ╬┐с╜Р ╬║╬▒╧Д╬м╬╗╬╡╬╣╬╝╬╝╬▒ с╝А╬╗╬╗' с╝Р╬╜╬н╧Б╬│╬╡╬╣╬▒ ┬╖ ╬╢╧Йс╜┤ с╝Р╬╜ ╧Дс┐╖ с╜А╬╜╧М╬╝╬▒╧Д╬╣ с╝Р╬╜╬╡╧Б╬│╬╡с┐Ц ┬╖
--- ╧Дс╜╕ с╜Е╧Д╬╣ ╬╝╬н╬╜╬╡╬╣, ╧Дс╜╕ ╧Д╬п с╝А╧А╧М╬╗╬╗╧Е╧Д╬▒╬╣ ┬╖ с╝б ╧А╬▒╧Б╬м╬┤╬┐╧Г╬╣╧В ╧Г╧Е╬╜╬┐╧Е╧Г╬пс╛│, ╬┐с╜Р ╬│╧Б╬▒╧Жс┐З ┬╖
--- ╬┤╧Н╬╜╬▒╬╝╬╣╧В ╬┐с╜Р╬║ с╝Ф╧Г╧Д╬╣╬╜ с╝Р╬╜╧Д╬╡╬╗╬н╧З╬╡╬╣╬▒.
+-- ╬┐╜Р ╬║╬╧╬╬╗╬╡╬╬╝╬╝╬ ╝╬╗╬╗' ╝Р╬╜╬╧╬│╬╡╬╬ ┬ ╬╧Й╜┤ ╝Р╬╜ ╧┐ ╜╬╜╧╬╝╬╧╬ ╝Р╬╜╬╡╧╬│╬╡┐Ц ┬
+-- ╧╜ ╜╧╬ ╬╝╬╬╜╬╡╬, ╧╜ ╧╬п ╝╧╧╬╗╬╗╧╧╬╬ ┬ ╝б ╧╬╧╬╬┤╬┐╧╬╧ ╧╧╬╜╬┐╧╧╬п╛│, ╬┐╜Р ╬│╧╬╧┐ ┬
+-- ╬┤╧╬╜╬╬╝╬╧ ╬┐╜Р╬║ ╝Ф╧╧╬╬╜ ╝Р╬╜╧╬╡╬╗╬╧╬╡╬╬.
 --
--- рд╕реНрд░реЛрддрд╛рдВрд╕рд┐ : рдЙрдорд╛рд╕реНрд╡рд╛рддрд┐ рддрддреНрддреНрд╡рд╛рд░реНрдерд╕реВрддреНрд░ рел.реиреп (рдЙрддреНрдкрд╛рдж-рд╡реНрдпрдп-рдзреНрд░реМрд╡реНрдп-рдпреБрдХреНрддрдВ рд╕рддреН) ;
---            рдЬреИрдорд┐рдирд┐-рдореАрдорд╛рдВрд╕рд╛ (рдЕрдкреВрд░реНрд╡рдореН) ; рдЖрд░реНрдпрднрдЯреАрдп рдЧрдгрд┐рддрдкрд╛рдж рейреитАУрейрей (рдХреБрдЯреНрдЯрдХрдГ) ;
---            с╝И╧Б╬╣╧Г╧Д╬┐╧Д╬н╬╗╬╖╧В ╬Ь╬╡╧Д. ╬Ш (╬┤╧Н╬╜╬▒╬╝╬╣╧В / с╝Р╬╜╬н╧Б╬│╬╡╬╣╬▒) ; ╬а╬╗╬м╧Д╧Й╬╜ с╝Ш╧А. ╬Ц (╧Г╧Е╬╜╬┐╧Е╧Г╬п╬▒) ;
---            Voevodsky (ua) ; Anekanta.agda (plurality-blocks-collapse) ред
+-- ррр░рЛрр╛ррр┐ : рЙрор╛ррр╡р╛рр┐ рррррр╡р╛р░ррррррр░ р.рирп (рЙрррр╛рж-р╡ррпрп-рзрр░рр╡ррп-рпррХррр ррр) ;
+--            ррИрор┐рир┐-роррор╛ррр╛ (рррр░рр╡рор) ; рр░ррпррЯррп рЧрр┐ррр╛рж рйритУрйрй (рХррЯррЯрХр) ;
+--            ╝И╧╬╧╧╬┐╧╬╬╗╬╧ ╬╬╡╧. ╬Ш (╬┤╧╬╜╬╬╝╬╧ / ╝Р╬╜╬╧╬│╬╡╬╬) ; ╬а╬╗╬╧╧Й╬╜ ╝Ш╧. ╬Ц (╧╧╬╜╬┐╧╧╬п╬) ;
+--            Voevodsky (ua) ; Anekanta.agda (plurality-blocks-collapse) р
 --
 -- CORRECTION BY ADDITION, 2026-08-20 (transport lane).  As committed, this
--- module DID NOT TYPECHECK.  `ua╬▓` was used at рд╕рдВрдХреНрд░рдордгрдореН-рдЕрд▓реЛрдкрдГ and never
+-- module DID NOT TYPECHECK.  `ua╬▓` was used at рррХрр░роррор-рр▓рЛрр and never
 -- imported: the import line named only `ua`.  Agda 2.8.0 / cubical v0.9:
 --     error: [NotInScope] ua╬▓ ... when scope checking ua╬▓      EXIT 42
 -- One word.  It stood because NOTHING IMPORTED THIS MODULE -- `grep -rn
 -- Nasti_ShabdeJivahVartante --include='*.agda' .` returned exactly one hit,
 -- its own `module` line.  It is not in Everything.agda, not in
 -- agda, not in IndianLane.agda.  So the section of the
--- s┼лtra that the machine's whole identification discipline rests on
--- (AHIMSA_SUTRA_VISTARA ┬з6, рджреНрд╡реМ рдорд╛рд░реНрдЧреМ) was, in the corpus's own words, built
+-- stra that the machine's whole identification discipline rests on
+-- (AHIMSA_SUTRA_VISTARA ┬з6, ржрр╡р рор╛р░ррЧр) was, in the corpus's own words, built
 -- by nothing.  BUILD.md and Everything.agda both name this exact failure
 -- mode; it happened anyway, to the module that says nothing perishes.
 -- Fixed here (import ua ; ua╬▓), and the module is now imported by
@@ -65,16 +65,16 @@ open import Cubical.Relation.Nullary using (┬м_)
 private variable тДУ : Level
 
 ------------------------------------------------------------------------
--- рдкрд░рдореНрдкрд░рд╛ тАФ a tradition : the type of its carriers, its paths the
--- transmissions.  рд╢рдмреНрджрдГ = the type itself, not its truncation.
+-- рр░роррр░р╛ тФ a tradition : the type of its carriers, its paths the
+-- transmissions.  рррржр = the type itself, not its truncation.
 ------------------------------------------------------------------------
 
 рдкрд░рдореНрдкрд░рд╛ : Type (тДУ-suc тДУ)
 рдкрд░рдореНрдкрд░рд╛ {тДУ} = Type тДУ
 
 ------------------------------------------------------------------------
--- рдирд╖реНрдЯрд┐рдГ тАФ truncation.  Every map out of тИе A тИетВБ is blind to which
--- inhabitant: "рдпрддреН" рддрд┐рд╖реНрдарддрд┐, "рдХрдГ" рдирд╢реНрдпрддрд┐ ред
+-- рирррЯр┐р тФ truncation.  Every map out of тИ A тИт is blind to which
+-- inhabitant: "рпрр" рр┐рррарр┐, "рХр" рирррпрр┐ р
 ------------------------------------------------------------------------
 
 рдЕрд╡рд┐рд╢реЗрд╖рдГ : {A : Type тДУ} {B : Type тДУ} (f : тИе A тИетВБ тЖТ B) (x y : A)
@@ -82,8 +82,8 @@ private variable тДУ : Level
 рдЕрд╡рд┐рд╢реЗрд╖рдГ f x y = cong f (squashтВБ тИг x тИгтВБ тИг y тИгтВБ)
 
 ------------------------------------------------------------------------
--- рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН тАФ no section.  A retraction of тИг_тИгтВБ on Bool would
--- identify true and false.  с╝б ╧Д╬┐с┐ж ╧Д╬п с╝А╧А╧О╬╗╬╡╬╣╬▒ с╝А╬╜╬╡╧А╬▒╬╜╧М╧Б╬╕╧Й╧Д╬┐╧В.
+-- рир╛рррр┐-ррр░рррпр╛рирприрор тФ no section.  A retraction of тИ_тИт on Bool would
+-- identify true and false.  ╝б ╧╬┐┐ж ╧╬п ╝╧╧╬╗╬╡╬╬ ╝╬╜╬╡╧╬╬╜╧╧╬╧Й╧╬┐╧.
 ------------------------------------------------------------------------
 
 рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН
@@ -92,8 +92,8 @@ private variable тДУ : Level
   trueтЙвfalse (sym (sec true) тИЩ рдЕрд╡рд┐рд╢реЗрд╖рдГ f true false тИЩ sec false)
 
 ------------------------------------------------------------------------
--- рд╕рдВрдХреНрд░рдордгрдореН тАФ transport.  Along an identification nothing is lost:
--- the structure is carried, not re-described.  рдкреБрдирд░рд╛рдЧрдордирдореН / с╝А╬╗╧М╧А╧Й╧В ред
+-- рррХрр░роррор тФ transport.  Along an identification nothing is lost:
+-- the structure is carried, not re-described.  рррир░р╛рЧрорирор / ╝╬╗╧╧╧Й╧ р
 ------------------------------------------------------------------------
 
 рд╕рдВрдХреНрд░рдордгрдореН : {A B : Type тДУ} тЖТ A тЙГ B тЖТ A тЖТ B
@@ -104,8 +104,8 @@ private variable тДУ : Level
 рд╕рдВрдХреНрд░рдордгрдореН-рдЕрд▓реЛрдкрдГ e a = ua╬▓ e a
 
 ------------------------------------------------------------------------
--- рджреНрд╡реМ рдорд╛рд░реНрдЧреМ тАФ the two available moves, and only these two:
---   рд╕рдВрдХреНрд░рдордгрдореН  transport along an identification, losing nothing ;
---   рдирд╖реНрдЯрд┐рдГ     truncate, after which "рдХрдГ" is unrecoverable.
--- рддреГрддреАрдпрдГ рдорд╛рд░реНрдЧрдГ рди рд╡рд┐рджреНрдпрддреЗ ред  ╧Д╧Б╬п╧Д╬╖ с╜Б╬┤с╜╕╧В ╬┐с╜Р╬║ с╝Ф╧Г╧Д╬╣╬╜.
+-- ржрр╡р рор╛р░ррЧр тФ the two available moves, and only these two:
+--   рррХрр░роррор  transport along an identification, losing nothing ;
+--   рирррЯр┐р     truncate, after which "рХр" is unrecoverable.
+-- рррррпр рор╛р░ррЧр ри р╡р┐ржррпрр р  ╧╧╬п╧╬ ╜╬┤╜╧ ╬┐╜Р╬║ ╝Ф╧╧╬╬╜.
 ------------------------------------------------------------------------

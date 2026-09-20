@@ -1,0 +1,971 @@
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/Queries.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/Queries.hs
+@@ -78,6 +78,7 @@
+     saveBendPresentation,
+     loadBendPresentations,
+     findBendMembersByAuthoredName,
++    getBendMemberDependencyIds,
+ 
+     -- * namespace_statistics table
+     saveNamespaceStats,
+@@ -343,6 +344,7 @@
+ import Data.Aeson.Text qualified as Aeson
+ import Data.Bitraversable (bitraverse)
+ import Data.ByteString.Lazy (LazyByteString)
++import Data.ByteString qualified as BS
+ import Data.Bytes.Put (runPutS)
+ import Data.Foldable qualified as Foldable
+ import Data.List qualified as List
+@@ -357,10 +359,14 @@
+ import Data.Set qualified as Set
+ import Data.Text qualified as Text
+ import Data.Text.Encoding qualified as Text
++import Crypto.Hash (Digest, SHA3_512)
++import Crypto.Hash qualified as Crypto
++import Data.ByteArray qualified as ByteArray
+ import Data.Text.Lazy qualified as Text.Lazy
+ import Data.Time qualified as Time
+ import Data.Time.Clock.POSIX qualified as POSIX
+ import Data.Vector qualified as Vector
++import U.Codebase.Sqlite.Bend.Format qualified as BendFormat
+ import Network.URI (URI)
+ import U.Codebase.Branch.Type (NamespaceStats (..))
+ import U.Codebase.Config (AuthorName, ConfigKey)
+@@ -912,7 +918,7 @@
+   hashId <- saveHashHash h
+   objectId <- saveObject hh hashId ObjectType.BendComponent bytes
+   for_ memberDependencies \(memberIndex, dependencies) ->
+-    addToDependentsIndex dependencies (S.Reference.Id objectId memberIndex)
++    addToDependentsIndex dependencies (C.Reference.Id objectId memberIndex)
+   pure objectId
+ 
+ -- | Record an identity only when established by a named version of the
+@@ -941,24 +947,24 @@
+     |]
+ 
+ -- | Keep exact authored bytes apart from the checked component object.
+-saveBendPresentation :: ObjectId -> C.Reference.Pos -> ByteString -> ByteString -> C.Reference.Pos -> C.Reference.Pos -> Text -> Transaction ()
+-saveBendPresentation componentObjectId componentIndex sourceDigest sourceUtf8 sourceStartByte sourceEndByte authoredName =
++saveBendPresentation :: ObjectId -> C.Reference.Pos -> ByteString -> ByteString -> C.Reference.Pos -> C.Reference.Pos -> Text -> Text -> Transaction ()
++saveBendPresentation componentObjectId componentIndex sourceDigest sourceUtf8 sourceStartByte sourceEndByte authoredName sourcePath =
+   execute
+     [sql|
+       INSERT INTO bend_presentation
+         (component_object_id, component_index, source_digest, source_utf8,
+-         source_start_byte, source_end_byte, authored_name)
++         source_start_byte, source_end_byte, authored_name, source_path)
+       VALUES
+         (:componentObjectId, :componentIndex, :sourceDigest, :sourceUtf8,
+-         :sourceStartByte, :sourceEndByte, :authoredName)
++         :sourceStartByte, :sourceEndByte, :authoredName, :sourcePath)
+       ON CONFLICT DO NOTHING
+     |]
+ 
+-loadBendPresentations :: ObjectId -> C.Reference.Pos -> Transaction [(ByteString, ByteString, C.Reference.Pos, C.Reference.Pos, Text)]
++loadBendPresentations :: ObjectId -> C.Reference.Pos -> Transaction [(ByteString, ByteString, C.Reference.Pos, C.Reference.Pos, Text, Text)]
+ loadBendPresentations componentObjectId componentIndex =
+   queryListRow
+     [sql|
+-      SELECT source_digest, source_utf8, source_start_byte, source_end_byte, authored_name
++      SELECT source_digest, source_utf8, source_start_byte, source_end_byte, authored_name, source_path
+       FROM bend_presentation
+       WHERE component_object_id = :componentObjectId
+         AND component_index = :componentIndex
+@@ -1254,15 +1260,48 @@
+   -- We don't know if this is an object or a causal, so just try one, then the other.
+   loadObjectIdForPrimaryHashId hashId >>= \case
+     Nothing -> Entity.C <$> expectCausal (CausalHashId hashId)
+-    Just objectId ->
+-      expectObjectWithType objectId \typ bytes ->
+-        case typ of
+-          TermComponent -> Entity.TC <$> decodeSyncTermFormat bytes
+-          DeclComponent -> Entity.DC <$> decodeSyncDeclFormat bytes
+-          Namespace -> Entity.N <$> decodeSyncNamespaceFormat bytes
+-          Patch -> Entity.P <$> decodeSyncPatchFormat bytes
+-          ObjectType.BendComponent -> Left (DecodeError "expectEntity" "Bend2 sync entity is not supported")
++    Just objectId -> do
++      objectType <- loadObjectType objectId
++      case objectType of
++        Just ObjectType.BendComponent -> Entity.B <$> expectBendSyncFormat objectId
++        _ -> expectObjectWithType objectId \typ bytes ->
++          case typ of
++            TermComponent -> Entity.TC <$> decodeSyncTermFormat bytes
++            DeclComponent -> Entity.DC <$> decodeSyncDeclFormat bytes
++            Namespace -> Entity.N <$> decodeSyncNamespaceFormat bytes
++            Patch -> Entity.P <$> decodeSyncPatchFormat bytes
++            ObjectType.BendComponent -> Left (DecodeError "expectEntity" "unexpected Bend2 object dispatch")
+ 
++expectBendSyncFormat :: ObjectId -> Transaction (BendFormat.SyncBendFormat' HashId)
++expectBendSyncFormat objectId = do
++  componentBytes <- expectBendObject objectId (\bytes -> Right bytes :: Either DecodeError ByteString)
++  dependencyRows <- queryListRow
++    [sql|
++      SELECT dependent_component_index, dependency_object_id, dependency_component_index
++      FROM dependents_index
++      WHERE dependent_object_id = :objectId AND dependency_builtin IS NULL
++      ORDER BY dependent_component_index, dependency_object_id, dependency_component_index
++    |]
++  let localMemberDependencies = Vector.fromList
++        [(member,depMember) | (member,depObject,depMember) <- dependencyRows, depObject == objectId]
++      externalRows = [(member,depObject,depMember) | (member,depObject,depMember) <- dependencyRows, depObject /= objectId]
++  memberDependencies <- for externalRows \(member, depObject, depMember) -> do
++    hashId <- expectPrimaryHashIdForObject depObject
++    pure (member, hashId, depMember)
++  authoredPresentations <- queryListRow
++    [sql|
++      SELECT component_index, source_digest, source_utf8, source_start_byte, source_end_byte, authored_name, source_path
++      FROM bend_presentation
++      WHERE component_object_id = :objectId
++      ORDER BY component_index, id
++    |]
++  pure BendFormat.SyncBendFormat
++    { componentBytes,
++      memberDependencies = Vector.fromList memberDependencies,
++      localMemberDependencies,
++      authoredPresentations = Vector.fromList authoredPresentations
++    }
++
+ -- | Read an entity out of temp storage.
+ expectTempEntity :: Hash32 -> Transaction TempEntity
+ expectTempEntity hash = do
+@@ -1279,6 +1318,7 @@
+         TempEntityType.NamespaceType -> Entity.N <$> decodeTempNamespaceFormat blob
+         TempEntityType.PatchType -> Entity.P <$> decodeTempPatchFormat blob
+         TempEntityType.CausalType -> Entity.C <$> decodeTempCausalFormat blob
++        TempEntityType.BendComponentType -> Entity.B <$> decodeTempBendFormat blob
+ 
+ -- | look up all of the input entity's dependencies in the main table, to convert it to a sync entity
+ tempToSyncEntity :: TempEntity -> Transaction SyncEntity
+@@ -1288,6 +1328,16 @@
+   Entity.N namespace -> Entity.N <$> tempToSyncNamespace namespace
+   Entity.P patch -> Entity.P <$> tempToSyncPatch patch
+   Entity.C causal -> Entity.C <$> tempToSyncCausal causal
++  Entity.B BendFormat.SyncBendFormat {componentBytes, localMemberDependencies, memberDependencies, authoredPresentations} -> do
++    memberDependencies' <- for memberDependencies \(member, dependency, dependencyMember) -> do
++      hashId <- saveHash dependency
++      pure (member, hashId, dependencyMember)
++    pure (Entity.B BendFormat.SyncBendFormat
++      { componentBytes,
++        localMemberDependencies,
++        memberDependencies = memberDependencies',
++        authoredPresentations
++      })
+   where
+     tempToSyncCausal :: TempEntity.TempCausalFormat -> Transaction Causal.SyncCausalFormat
+     tempToSyncCausal Causal.SyncCausalFormat {valueHash, parents} =
+@@ -1369,6 +1419,16 @@
+   Entity.N namespace -> Entity.N <$> syncToTempNamespace namespace
+   Entity.P patch -> Entity.P <$> syncToTempPatch patch
+   Entity.C causal -> Entity.C <$> syncToTempCausal causal
++  Entity.B BendFormat.SyncBendFormat {componentBytes, localMemberDependencies, memberDependencies, authoredPresentations} -> do
++    memberDependencies' <- for memberDependencies \(member, dependency, dependencyMember) -> do
++      hash32 <- expectHash32 dependency
++      pure (member, hash32, dependencyMember)
++    pure (Entity.B BendFormat.SyncBendFormat
++      { componentBytes,
++        localMemberDependencies,
++        memberDependencies = memberDependencies',
++        authoredPresentations
++      })
+   where
+     syncToTempCausal :: Causal.SyncCausalFormat -> Transaction TempEntity.TempCausalFormat
+     syncToTempCausal Causal.SyncCausalFormat {valueHash, parents} =
+@@ -1932,6 +1992,19 @@
+     isNotSelfReference :: S.Reference.Id -> Bool
+     isNotSelfReference (C.Reference.Id oid1 _) =
+       oid0 /= oid1
++
++-- | Sync must retain member-to-member edges inside a Bend SCC as well as
++-- edges to other objects; the general query above drops same-object edges.
++getBendMemberDependencyIds :: S.Reference.Id -> Transaction [S.Reference.Id]
++getBendMemberDependencyIds dependent =
++  queryListRow
++    [sql|
++      SELECT dependency_object_id, dependency_component_index
++      FROM dependents_index
++      WHERE dependency_builtin IS NULL
++        AND dependent_object_id = @dependent
++        AND dependent_component_index = @
++    |]
+ 
+ -- | Given two term (components) A and B, return the set of all terms that are along any "dependency path" from A to B,
+ -- not including A nor B; i.e., the transitive dependencies of A that are transitive dependents of B.
+@@ -2641,6 +2714,32 @@
+   Transaction (Either CausalHashId ObjectId)
+ saveSyncEntity hh hash entity = do
+   case entity of
++    Entity.B BendFormat.SyncBendFormat {componentBytes, localMemberDependencies, memberDependencies, authoredPresentations} -> do
++      let actualDigest = ByteArray.convert (Crypto.hash componentBytes :: Digest SHA3_512) :: ByteString
++      when (actualDigest /= Hash.toByteString (Hash32.toHash hash)) $
++        unsafeIO (UnliftIO.throwIO (DecodeError "saveSyncEntity" "Bend2 component hash mismatch"))
++      hashId <- saveHash hash
++      externalRefs <- for memberDependencies \(member, dependencyHashId, dependencyMember) -> do
++        depObjectId <- expectObjectIdForPrimaryHashId dependencyHashId
++        depType <- loadObjectType depObjectId
++        unless (depType == Just ObjectType.BendComponent) $
++          unsafeIO (UnliftIO.throwIO (DecodeError "saveSyncEntity" "non-Bend2 sync dependency"))
++        pure (member, C.Reference.Id depObjectId dependencyMember)
++      for_ authoredPresentations \(_,sourceDigest,sourceBytes,start,end,_,_) -> do
++        let actualSourceDigest = ByteArray.convert (Crypto.hash sourceBytes :: Digest SHA3_512) :: ByteString
++        when (sourceDigest /= actualSourceDigest || end < start || end > fromIntegral (BS.length sourceBytes)) $
++          unsafeIO (UnliftIO.throwIO (DecodeError "saveSyncEntity" "invalid Bend2 authored source"))
++      objectId <- saveObject hh hashId ObjectType.BendComponent componentBytes
++      for_ localMemberDependencies \(member, localMember) ->
++        addToDependentsIndex
++          [C.Reference.ReferenceDerived (C.Reference.Id objectId localMember)]
++          (C.Reference.Id objectId member)
++      for_ externalRefs \(member, ref) ->
++        addToDependentsIndex [C.Reference.ReferenceDerived ref]
++          (C.Reference.Id objectId member)
++      for_ authoredPresentations \(member,sourceDigest,sourceBytes,start,end,name,path) ->
++        saveBendPresentation objectId member sourceDigest sourceBytes start end name path
++      pure (Right objectId)
+     Entity.TC stf -> do
+       lic :: TermFormat.LocallyIndexedComponent <- do
+         let TermFormat.SyncTerm x = stf
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/Serialization.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/Serialization.hs
+@@ -18,6 +18,7 @@
+     getTempNamespaceFormat,
+     getTempPatchFormat,
+     getTempTermFormat,
++    getTempBendFormat,
+     getTermAndType,
+     getTypeFromTermAndType,
+     getTermFormat,
+@@ -69,6 +70,7 @@
+ import U.Codebase.Referent (Referent')
+ import U.Codebase.Referent qualified as Referent
+ import U.Codebase.Sqlite.Branch.Diff qualified as BranchDiff
++import U.Codebase.Sqlite.Bend.Format qualified as BendFormat
+ import U.Codebase.Sqlite.Branch.Format qualified as BranchFormat
+ import U.Codebase.Sqlite.Branch.Full qualified as BranchFull
+ import U.Codebase.Sqlite.Causal qualified as Causal
+@@ -879,6 +881,15 @@
+       putWord8 1 *> putSyncDiffNamespace parent lids bytes
+   Entity.C gdc ->
+     putSyncCausal gdc
++  Entity.B BendFormat.SyncBendFormat {componentBytes, localMemberDependencies, memberDependencies, authoredPresentations} -> do
++    putWord8 0
++    putFramedByteString componentBytes
++    putFoldable (\(member, dependencyMember) -> putVarInt member *> putVarInt dependencyMember) localMemberDependencies
++    putFoldable (\(member, dependency, dependencyMember) ->
++      putVarInt member *> putHash32 dependency *> putVarInt dependencyMember) memberDependencies
++    putFoldable (\(member, digest, source, start, end, name, path) ->
++      putVarInt member *> putFramedByteString digest *> putFramedByteString source *>
++      putVarInt start *> putVarInt end *> putText name *> putText path) authoredPresentations
+   where
+     putHash32 = putText . Hash32.toText
+     putPatchLocalIds PatchFormat.LocalIds {patchTextLookup, patchHashLookup, patchDefnLookup} = do
+@@ -979,6 +990,17 @@
+     <$> getHash32
+     <*> getVector getHash32
+ 
++getTempBendFormat :: (MonadGet m) => m TempEntity.TempBendFormat
++getTempBendFormat =
++  getWord8 >>= \case
++    0 -> BendFormat.SyncBendFormat
++      <$> getFramedByteString
++      <*> getVector ((,) <$> getVarInt <*> getVarInt)
++      <*> getVector ((,,) <$> getVarInt <*> getHash32 <*> getVarInt)
++      <*> getVector ((,,,,,,) <$> getVarInt <*> getFramedByteString <*>
++        getFramedByteString <*> getVarInt <*> getVarInt <*> getText <*> getText)
++    tag -> unknownTag "getTempBendFormat" tag
++
+ getSymbol :: (MonadGet m) => m Symbol
+ getSymbol = Symbol <$> getVarInt <*> getText
+ 
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/Decode.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/Decode.hs
+@@ -25,6 +25,7 @@
+     decodeTempNamespaceFormat,
+     decodeTempPatchFormat,
+     decodeTempTermFormat,
++    decodeTempBendFormat,
+ 
+     -- * @watch_result.result@
+     decodeWatchResultFormat,
+@@ -163,6 +164,10 @@
+ decodeTempTermFormat =
+   getFromBytesOr "getTempTermFormat" Serialization.getTempTermFormat
+ 
++decodeTempBendFormat :: ByteString -> Either DecodeError TempEntity.TempBendFormat
++decodeTempBendFormat =
++  getFromBytesOr "getTempBendFormat" Serialization.getTempBendFormat
++
+ ------------------------------------------------------------------------------------------------------------------------
+ -- watch_result.result
+ 
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/Entity.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/Entity.hs
+@@ -1,6 +1,7 @@
+ module U.Codebase.Sqlite.Entity where
+ 
+ import U.Codebase.Sqlite.Branch.Format qualified as Namespace
++import U.Codebase.Sqlite.Bend.Format qualified as Bend
+ import U.Codebase.Sqlite.Causal qualified as Causal
+ import U.Codebase.Sqlite.DbId (BranchHashId, BranchObjectId, CausalHashId, HashId, ObjectId, PatchObjectId, TextId)
+ import U.Codebase.Sqlite.Decl.Format qualified as Decl
+@@ -24,6 +25,7 @@
+   | N (Namespace.SyncBranchFormat' branch text defn patch (branch, causal))
+   | P (Patch.SyncPatchFormat' patch text hash defn)
+   | C (Causal.SyncCausalFormat' causal branchh)
++  | B (Bend.SyncBendFormat' hash)
+   deriving stock (Eq, Show)
+ 
+ entityType :: SyncEntity' text hash defn patch branchh branch causal -> TempEntityType
+@@ -33,3 +35,4 @@
+   N _ -> NamespaceType
+   P _ -> PatchType
+   C _ -> CausalType
++  B _ -> BendComponentType
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/TempEntity.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/TempEntity.hs
+@@ -1,6 +1,7 @@
+ module U.Codebase.Sqlite.TempEntity where
+ 
+ import U.Codebase.Sqlite.Branch.Format qualified as Namespace
++import U.Codebase.Sqlite.Bend.Format qualified as Bend
+ import U.Codebase.Sqlite.Causal qualified as Causal
+ import U.Codebase.Sqlite.Decl.Format qualified as Decl
+ import U.Codebase.Sqlite.Entity qualified as Entity
+@@ -35,3 +36,5 @@
+ type TempNamespaceLocalIds = Namespace.BranchLocalIds' Text Hash32 Hash32 (Hash32, Hash32)
+ 
+ type TempCausalFormat = Causal.SyncCausalFormat' Hash32 Hash32
++
++type TempBendFormat = Bend.SyncBendFormat' Hash32
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/TempEntityType.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/TempEntityType.hs
+@@ -11,6 +11,7 @@
+   | NamespaceType -- 2
+   | PatchType -- 3
+   | CausalType -- 4
++  | BendComponentType -- 5
+   deriving (Eq, Ord, Show, Enum)
+ 
+ instance ToField TempEntityType where
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/Bend/Format.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/Bend/Format.hs
+@@ -0,0 +1,100 @@
++module U.Codebase.Sqlite.Bend.Format where
++
++import Control.Monad (replicateM, unless, when)
++import Data.ByteString (ByteString)
++import Data.Bytes.Get (MonadGet, getByteString, getWord8, runGetS)
++import Data.Vector (Vector)
++import qualified Data.Vector as Vector
++import Data.Word (Word8, Word64)
++import Data.Text (Text)
++
++data SyncBendFormat' hash = SyncBendFormat
++  { componentBytes :: !ByteString,
++    localMemberDependencies :: !(Vector (Word64, Word64)),
++    memberDependencies :: !(Vector (Word64, hash, Word64)),
++    authoredPresentations :: !(Vector (Word64, ByteString, ByteString, Word64, Word64, Text, Text))
++  }
++  deriving stock (Eq, Show)
++
++-- A canonical slot may carry a definition, a HIT, or both. This small reader
++-- lets codebase2 classify dependency graph edges without depending on Bend's
++-- compiler (which itself depends on codebase2). The complete payload is
++-- validated by Bend's canonical decoder at the Share ingestion boundary.
++data MemberRoles = MemberRoles
++  { hasTerm :: !Bool,
++    hasType :: !Bool
++  }
++  deriving stock (Eq, Show)
++
++memberRoles :: ByteString -> Either String (Vector MemberRoles)
++memberRoles = runGetS getRoles
++
++getRoles :: (MonadGet m) => m (Vector MemberRoles)
++getRoles = do
++  magic <- getByteString 4
++  unless (magic == "B2CF") (fail "invalid Bend component magic")
++  version <- getWord8
++  unless (version == 2) (fail "unsupported Bend component version")
++  expectNode "CanonicalBendComponentV2" >>= \count ->
++    Vector.fromList <$> replicateM count getMember
++
++getMember :: (MonadGet m) => m MemberRoles
++getMember = do
++  count <- expectNode "Member"
++  unless (count == 2) (fail "invalid Bend member arity")
++  hasTerm <- getPresence
++  hasType <- getPresence
++  when (not hasTerm && not hasType) (fail "empty Bend member")
++  pure MemberRoles {hasTerm, hasType}
++
++getPresence :: (MonadGet m) => m Bool
++getPresence = do
++  tag <- getWord8
++  case tag of
++    3 -> do
++      name <- getString
++      count <- getCount
++      if name == "Absent"
++        then unless (count == 0) (fail "invalid absent Bend member") >> pure False
++        else replicateM count skipFlat >> pure True
++    _ -> skipTagged tag >> pure True
++
++expectNode :: (MonadGet m) => ByteString -> m Int
++expectNode expected = do
++  tag <- getWord8
++  unless (tag == 3) (fail "expected Bend node")
++  name <- getString
++  unless (name == expected) (fail "unexpected Bend node")
++  getCount
++
++skipFlat :: (MonadGet m) => m ()
++skipFlat = getWord8 >>= skipTagged
++
++skipTagged :: (MonadGet m) => Word8 -> m ()
++skipTagged tag = case tag of
++  0 -> skipBytes 8
++  1 -> getString >> skipBytes 8
++  2 -> getString >> pure ()
++  3 -> do
++    _ <- getString
++    count <- getCount
++    replicateM count skipFlat >> pure ()
++  4 -> getString >> pure ()
++  5 -> skipBytes 8
++  6 -> skipBytes 8
++  7 -> skipBytes 8
++  8 -> skipBytes 8
++  9 -> skipBytes 4
++  10 -> skipBytes 1
++  _ -> fail "invalid Bend flat tag"
++
++getString :: (MonadGet m) => m ByteString
++getString = getCount >>= getByteString
++
++getCount :: (MonadGet m) => m Int
++getCount = do
++  octets <- replicateM 4 getWord8
++  pure (foldl' (\n octet -> n * 256 + fromIntegral octet) 0 octets)
++
++skipBytes :: (MonadGet m) => Int -> m ()
++skipBytes n = getByteString n >> pure ()
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/Operations.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/Operations.hs
+@@ -129,6 +129,7 @@
+ import Data.Map.Merge.Lazy qualified as Map
+ import Data.Set qualified as Set
+ import Data.Text qualified as Text
++import Data.Vector qualified as Vector
+ import Data.Tuple.Extra (uncurry3)
+ import U.Codebase.Branch.Type (NamespaceStats (..))
+ import U.Codebase.Branch.Type qualified as C.Branch
+@@ -152,6 +153,7 @@
+ import U.Codebase.Sqlite.Branch.Full qualified as S
+ import U.Codebase.Sqlite.Branch.Full qualified as S.Branch.Full
+ import U.Codebase.Sqlite.Branch.Full qualified as S.MetadataSet (DbMetadataSet, MetadataSetFormat' (..))
++import U.Codebase.Sqlite.Bend.Format qualified as BendFormat
+ import U.Codebase.Sqlite.DbId qualified as Db
+ import U.Codebase.Sqlite.Decl.Format qualified as S.Decl
+ import U.Codebase.Sqlite.Decode
+@@ -1144,6 +1146,7 @@
+ data DependencyEdge
+   = TermDependsOnTerm C.TermReferenceId C.TermReference
+   | TermDependsOnType C.TermReferenceId C.TypeReference
++  | TypeDependsOnTerm C.TypeReferenceId C.TermReference
+   | TypeDependsOnType C.TypeReferenceId C.TypeReference
+ 
+ transitiveDependentsGraphWithinScope ::
+@@ -1162,22 +1165,37 @@
+       adjacency <- Q.getTransitiveDependentsGraphWithinScope scope1 query1
+ 
+       -- Convert S -> C and classify dependency edge (term depends on term, etc)
+-      for adjacency \(dependent0 :. Only dependentType :. dependency0 :. Only dependencyType) -> do
++      fmap concat $ for adjacency \(dependent0 :. Only dependentType :. dependency0 :. Only dependencyType) -> do
+         dependent <- s2cReferenceId dependent0
+         dependency <- s2cReference dependency0
+-        let edge =
+-              case (dependentType, dependencyType) of
+-                (ObjectType.TermComponent, Just ObjectType.TermComponent) -> TermDependsOnTerm
+-                (ObjectType.TermComponent, Just ObjectType.DeclComponent) -> TermDependsOnType
+-                (ObjectType.TermComponent, Nothing) | isBuiltinType dependency -> TermDependsOnType
+-                (ObjectType.TermComponent, Nothing) -> TermDependsOnTerm
+-                (ObjectType.DeclComponent, Just ObjectType.DeclComponent) -> TypeDependsOnType
+-                (ObjectType.DeclComponent, Nothing) | isBuiltinType dependency -> TypeDependsOnType
+-                (ObjectType.TermComponent, Just _) -> error ("term depends on " ++ show dependency)
+-                (ObjectType.DeclComponent, Just _) -> error ("type depends on " ++ show dependency)
+-                (ty, _) -> error ("dependent is " ++ show ty)
+-        pure (edge dependent dependency)
++        dependentRoles <- rolesForId dependent0 dependentType
++        dependencyRoles <- case (dependency0, dependencyType) of
++          (C.Reference.ReferenceDerived ref, Just objectType) -> rolesForId ref objectType
++          (C.Reference.ReferenceBuiltin _, Nothing)
++            | isBuiltinType dependency -> pure [TypeRole]
++            | otherwise -> pure [TermRole]
++          _ -> error ("invalid dependency object type for " ++ show dependency)
++        pure [case (dependentRole, dependencyRole) of
++                (TermRole, TermRole) -> TermDependsOnTerm dependent dependency
++                (TermRole, TypeRole) -> TermDependsOnType dependent dependency
++                (TypeRole, TermRole) -> TypeDependsOnTerm dependent dependency
++                (TypeRole, TypeRole) -> TypeDependsOnType dependent dependency
++             | dependentRole <- dependentRoles, dependencyRole <- dependencyRoles]
++  where
++    rolesForId :: S.Reference.Id -> ObjectType.ObjectType -> Transaction [MemberRole]
++    rolesForId (C.Reference.Id oid index) = \case
++      ObjectType.TermComponent -> pure [TermRole]
++      ObjectType.DeclComponent -> pure [TypeRole]
++      ObjectType.BendComponent -> do
++        slots <- Q.expectBendObject oid (either (Left . DecodeError "Bend member roles") Right . BendFormat.memberRoles)
++        case slots Vector.!? fromIntegral index of
++          Nothing -> error ("Bend member index out of range: " ++ show index)
++          Just BendFormat.MemberRoles {hasTerm, hasType} ->
++            pure ([TermRole | hasTerm] ++ [TypeRole | hasType])
++      other -> error ("dependent is " ++ show other)
+ 
++data MemberRole = TermRole | TypeRole
++
+ -- | returns a list of known definitions referencing `h`
+ dependentsOfComponent :: H.Hash -> Transaction (Set C.Reference.Id)
+ dependentsOfComponent h = do
+--- a/codebase2/codebase-sqlite/package.yaml
++++ b/codebase2/codebase-sqlite/package.yaml
+@@ -15,6 +15,8 @@
+   - base
+   - bytes
+   - bytestring
++  - crypton
++  - memory
+   - containers
+   - extra
+   - generic-lens
+--- a/codebase2/codebase-sqlite/unison-codebase-sqlite.cabal
++++ b/codebase2/codebase-sqlite/unison-codebase-sqlite.cabal
+@@ -1,6 +1,6 @@
+ cabal-version: 1.12
+ 
+--- This file has been generated from package.yaml by hpack version 0.36.0.
++-- This file has been generated from package.yaml by hpack version 0.39.6.
+ --
+ -- see: https://github.com/sol/hpack
+ 
+@@ -44,6 +44,7 @@
+       U.Codebase.Branch
+       U.Codebase.Causal.Squash
+       U.Codebase.Config
++      U.Codebase.Sqlite.Bend.Format
+       U.Codebase.Sqlite.Branch.Diff
+       U.Codebase.Sqlite.Branch.Format
+       U.Codebase.Sqlite.Branch.Full
+@@ -121,9 +122,11 @@
+     , bytes
+     , bytestring
+     , containers
++    , crypton
+     , extra
+     , generic-lens
+     , lens
++    , memory
+     , mtl
+     , network-uri
+     , network-uri-orphans-sqlite
+--- a/codebase2/codebase-sqlite/sql/023-bend-components.sql
++++ b/codebase2/codebase-sqlite/sql/023-bend-components.sql
+@@ -37,8 +37,9 @@
+   source_start_byte INTEGER NOT NULL CHECK (source_start_byte >= 0),
+   source_end_byte INTEGER NOT NULL CHECK (source_end_byte >= source_start_byte),
+   authored_name TEXT NOT NULL,
++  source_path TEXT NOT NULL,
+   UNIQUE (component_object_id, component_index, source_digest,
+-          source_start_byte, source_end_byte, authored_name)
++          source_start_byte, source_end_byte, authored_name, source_path)
+ );
+ 
+ CREATE INDEX bend_presentation_by_member
+--- a/unison-share-api/src/Unison/Sync/Types.hs
++++ b/unison-share-api/src/Unison/Sync/Types.hs
+@@ -15,6 +15,7 @@
+     Entity (..),
+     TermComponent (..),
+     DeclComponent (..),
++    BendComponent (..),
+     Patch (..),
+     PatchDiff (..),
+     Namespace (..),
+@@ -140,6 +141,7 @@
+   | N (Namespace text hash)
+   | ND (NamespaceDiff text hash)
+   | C (Causal hash)
++  | B (BendComponent hash)
+   deriving stock (Show, Eq, Ord)
+ 
+ instance (ToJSON text, ToJSON noSyncHash, ToJSON hash) => ToJSON (Entity text noSyncHash hash) where
+@@ -151,6 +153,7 @@
+     N ns -> go NamespaceType ns
+     ND ns -> go NamespaceDiffType ns
+     C causal -> go CausalType causal
++    B bend -> go BendComponentType bend
+     where
+       go :: (ToJSON a) => EntityType -> a -> Aeson.Value
+       go typ obj = object ["type" .= typ, "object" .= obj]
+@@ -165,6 +168,7 @@
+       NamespaceType -> N <$> obj .: "object"
+       NamespaceDiffType -> ND <$> obj .: "object"
+       CausalType -> C <$> obj .: "object"
++      BendComponentType -> B <$> obj .: "object"
+ 
+ entityHashes_ :: (Applicative m, Ord hash') => (hash -> m hash') -> Entity text noSyncHash hash -> m (Entity text noSyncHash hash')
+ entityHashes_ f = \case
+@@ -175,10 +179,55 @@
+   N ns -> N <$> bitraverse pure f ns
+   ND ns -> ND <$> namespaceDiffHashes_ f ns
+   C causal -> C <$> causalHashes_ f causal
++  B BendComponent {bendBytes, bendLocalDependencies, bendDependencies, bendPresentations} -> do
++    bendDependencies <- traverse (\(member, dependency, dependencyMember) ->
++      (\resolved -> (member,resolved,dependencyMember)) <$> f dependency) bendDependencies
++    pure (B BendComponent {bendBytes, bendLocalDependencies, bendDependencies, bendPresentations})
+ 
+ -- | Get the direct dependencies of an entity (which are actually sync'd).
+ entityDependencies :: (Ord hash) => Entity text noSyncHash hash -> Set hash
+ entityDependencies = foldMapOf entityHashes_ Set.singleton
++
++data BendComponent hash = BendComponent
++  { bendBytes :: ByteString,
++    bendLocalDependencies :: [(Word64, Word64)],
++    bendDependencies :: [(Word64, hash, Word64)],
++    bendPresentations :: [(Word64, ByteString, ByteString, Word64, Word64, Text, Text)]
++  }
++  deriving stock (Eq, Ord, Show)
++
++instance (ToJSON hash) => ToJSON (BendComponent hash) where
++  toJSON BendComponent {bendBytes, bendLocalDependencies, bendDependencies, bendPresentations} =
++    object
++      [ "component_bytes" .= Base64Bytes bendBytes,
++        "member_dependencies" .= bendDependencies,
++        "local_member_dependencies" .= bendLocalDependencies,
++        "presentations" .= map encodePresentation bendPresentations
++      ]
++    where
++      encodePresentation (member,digest,source,start,end,name,path) =
++        object ["member" .= member, "source_digest" .= Base64Bytes digest,
++          "source_bytes" .= Base64Bytes source, "start" .= start,
++          "end" .= end, "name" .= name, "path" .= path]
++
++instance (FromJSON hash) => FromJSON (BendComponent hash) where
++  parseJSON = Aeson.withObject "BendComponent" \obj -> do
++    Base64Bytes bendBytes <- obj .: "component_bytes"
++    bendDependencies <- obj .: "member_dependencies"
++    bendLocalDependencies <- obj .: "local_member_dependencies"
++    rawPresentations <- obj .: "presentations"
++    bendPresentations <- traverse decodePresentation rawPresentations
++    pure BendComponent {bendBytes, bendLocalDependencies, bendDependencies, bendPresentations}
++    where
++      decodePresentation = Aeson.withObject "BendPresentation" \obj -> do
++        member <- obj .: "member"
++        Base64Bytes digest <- obj .: "source_digest"
++        Base64Bytes source <- obj .: "source_bytes"
++        start <- obj .: "start"
++        end <- obj .: "end"
++        name <- obj .: "name"
++        path <- obj .: "path"
++        pure (member,digest,source,start,end,name,path)
+ 
+ data TermComponent text hash = TermComponent [(LocalIds text hash, ByteString)]
+   deriving stock (Show, Eq, Functor, Ord)
+@@ -469,6 +518,7 @@
+   | NamespaceType
+   | NamespaceDiffType
+   | CausalType
++  | BendComponentType
+   deriving stock (Eq, Ord, Show)
+ 
+ instance Serialise EntityType where
+@@ -480,6 +530,7 @@
+     NamespaceType -> CBOR.encodeWord8 4
+     NamespaceDiffType -> CBOR.encodeWord8 5
+     CausalType -> CBOR.encodeWord8 6
++    BendComponentType -> CBOR.encodeWord8 7
+   decode = do
+     tag <- CBOR.decodeWord8
+     case tag of
+@@ -490,6 +541,7 @@
+       4 -> pure NamespaceType
+       5 -> pure NamespaceDiffType
+       6 -> pure CausalType
++      7 -> pure BendComponentType
+       _ -> fail "invalid tag"
+ 
+ instance ToJSON EntityType where
+@@ -502,6 +554,7 @@
+       NamespaceType -> "namespace"
+       NamespaceDiffType -> "namespace_diff"
+       CausalType -> "causal"
++      BendComponentType -> "bend_component"
+ 
+ instance FromJSON EntityType where
+   parseJSON = Aeson.withText "EntityType" \case
+@@ -512,6 +565,7 @@
+     "namespace" -> pure NamespaceType
+     "namespace_diff" -> pure NamespaceDiffType
+     "causal" -> pure CausalType
++    "bend_component" -> pure BendComponentType
+     t -> failText $ "Unexpected entity type: " <> t
+ 
+ ------------------------------------------------------------------------------------------------------------------------
+--- a/unison-share-api/src/Unison/Sync/Common.hs
++++ b/unison-share-api/src/Unison/Sync/Common.hs
+@@ -15,6 +15,7 @@
+ import Data.Vector qualified as Vector
+ import U.Codebase.HashTags (CausalHash (..))
+ import U.Codebase.Sqlite.Branch.Format qualified as NamespaceFormat
++import U.Codebase.Sqlite.Bend.Format qualified as BendFormat
+ import U.Codebase.Sqlite.Causal qualified as Causal
+ import U.Codebase.Sqlite.Decl.Format qualified as DeclFormat
+ import U.Codebase.Sqlite.Entity qualified as Entity
+@@ -90,6 +91,14 @@
+         { valueHash = toHash32 namespaceHash,
+           parents = Vector.fromList (map toHash32 (Set.toList parents))
+         }
++  Share.B Share.BendComponent {bendBytes, bendLocalDependencies, bendDependencies, bendPresentations} ->
++    Entity.B BendFormat.SyncBendFormat
++      { componentBytes = bendBytes,
++        localMemberDependencies = Vector.fromList bendLocalDependencies,
++        memberDependencies = Vector.fromList
++          [(member,toHash32 dependency,dependencyMember) | (member,dependency,dependencyMember) <- bendDependencies],
++        authoredPresentations = Vector.fromList bendPresentations
++      }
+   where
+     mungeLocalIds :: Share.LocalIds Text hash -> TempEntity.TempLocalIds
+     mungeLocalIds Share.LocalIds {texts, hashes} =
+@@ -122,6 +131,13 @@
+ 
+ tempEntityToEntity :: Sqlite.TempEntity -> Share.Entity Text Hash32 Hash32
+ tempEntityToEntity = \case
++  Entity.B BendFormat.SyncBendFormat {componentBytes, localMemberDependencies, memberDependencies, authoredPresentations} ->
++    Share.B Share.BendComponent
++      { bendBytes = componentBytes,
++        bendLocalDependencies = Vector.toList localMemberDependencies,
++        bendDependencies = Vector.toList memberDependencies,
++        bendPresentations = Vector.toList authoredPresentations
++      }
+   Entity.TC (TermFormat.SyncTerm (TermFormat.SyncLocallyIndexedComponent terms)) ->
+     terms
+       & Vector.map (Lens.over Lens._1 mungeLocalIds)
+--- a/unison-share-api/src/Unison/Sync/EntityValidation.hs
++++ b/unison-share-api/src/Unison/Sync/EntityValidation.hs
+@@ -9,11 +9,18 @@
+ where
+ 
+ import Data.ByteString qualified as BS
++import Data.ByteString.Lazy qualified as LazyBytes
++import Core.ComponentPlan (decodeStoredComponent)
++import Crypto.Hash (Digest, SHA3_512)
++import Crypto.Hash qualified as Crypto
++import Data.ByteArray qualified as ByteArray
+ import Data.Bytes.Get (runGetS)
+ import Data.Set qualified as Set
+ import Data.Text qualified as Text
++import Data.Text.Encoding qualified as TextEncoding
+ import U.Codebase.HashTags
+ import U.Codebase.Sqlite.Branch.Format qualified as BranchFormat
++import U.Codebase.Sqlite.Bend.Format qualified as BendFormat
+ import U.Codebase.Sqlite.Causal qualified as CausalFormat
+ import U.Codebase.Sqlite.Decl.Format qualified as DeclFormat
+ import U.Codebase.Sqlite.Decode qualified as Decode
+@@ -26,6 +33,7 @@
+ import U.Codebase.Sqlite.Term.Format qualified as TermFormat
+ import U.Codebase.Sqlite.V2.HashHandle (v2HashHandle)
+ import Unison.Hash (Hash)
++import Unison.Hash qualified as Hash
+ import Unison.Hash32 (Hash32)
+ import Unison.Hash32 qualified as Hash32
+ import Unison.Hashing.V2 qualified as H
+@@ -58,10 +66,29 @@
+       Just . Right $ Share.UnsupportedEntityType expectedHash32 Share.PatchDiffType
+     Entity.P (PatchFormat.SyncFull localIds bytes) -> do
+       Right <$> validatePatchFull expectedHash32 localIds bytes
++    Entity.B bend -> Right <$> validateBend expectedHash32 bend
+   where
+     expectedHash :: Hash
+     expectedHash = Hash32.toHash expectedHash32
+ 
++validateBend :: Hash32 -> BendFormat.SyncBendFormat' Hash32 -> Maybe Share.EntityValidationError
++validateBend expectedHash32 BendFormat.SyncBendFormat {componentBytes, authoredPresentations} =
++  let digest bytes = ByteArray.convert (Crypto.hash bytes :: Digest SHA3_512) :: BS.ByteString
++      expected = Hash.toByteString (Hash32.toHash expectedHash32)
++      badSources =
++        [ ()
++        | (_,sourceDigest,sourceBytes,start,end,_,_) <- toList authoredPresentations,
++          sourceDigest /= digest sourceBytes || end < start || end > fromIntegral (BS.length sourceBytes)
++            || case TextEncoding.decodeUtf8' sourceBytes of Left _ -> True; Right _ -> False
++        ]
++   in if digest componentBytes /= expected
++        then Just (Share.EntityHashMismatch Share.BendComponentType (mismatch (Hash32.toHash expectedHash32) (Hash.fromByteString (digest componentBytes))))
++        else case decodeStoredComponent expected (LazyBytes.fromStrict componentBytes) of
++          Left err -> Just (Share.InvalidByteEncoding expectedHash32 Share.BendComponentType (Text.pack err))
++          Right _ -> case badSources of
++            [] -> Nothing
++            _ -> Just (Share.InvalidByteEncoding expectedHash32 Share.BendComponentType "invalid Bend2 authored presentation")
++
+ validatePatchFull :: Hash32 -> PatchFormat.PatchLocalIds' Text Hash32 Hash32 -> BS.ByteString -> Maybe Share.EntityValidationError
+ validatePatchFull expectedHash32 localIds bytes = do
+   let expectedHash = Hash32.toHash expectedHash32
+--- a/unison-share-api/src/Unison/Server/Orphans.hs
++++ b/unison-share-api/src/Unison/Server/Orphans.hs
+@@ -24,6 +24,7 @@
+ import Servant.Docs (DocCapture (DocCapture), DocQueryParam (..), ParamKind (..), ToCapture (..), ToParam (..))
+ import U.Codebase.HashTags
+ import U.Codebase.Sqlite.Branch.Format qualified as BranchFormat
++import U.Codebase.Sqlite.Bend.Format qualified as BendFormat
+ import U.Codebase.Sqlite.Causal qualified as SqliteCausal
+ import U.Codebase.Sqlite.Decl.Format qualified as DeclFormat
+ import U.Codebase.Sqlite.Entity qualified as Entity
+@@ -506,6 +507,7 @@
+   | PatchTag
+   | NamespaceTag
+   | CausalTag
++  | BendComponentTag
+   deriving (Eq, Show)
+ 
+ instance Serialise SyncTag where
+@@ -515,6 +517,7 @@
+     PatchTag -> CBOR.encodeWord 2
+     NamespaceTag -> CBOR.encodeWord 3
+     CausalTag -> CBOR.encodeWord 4
++    BendComponentTag -> CBOR.encodeWord 5
+ 
+   decode = do
+     tag <- CBOR.decodeWord
+@@ -524,6 +527,7 @@
+       2 -> pure PatchTag
+       3 -> pure NamespaceTag
+       4 -> pure CausalTag
++      5 -> pure BendComponentTag
+       _ -> fail $ "Unknown tag: " <> show tag
+ 
+ newtype ComponentBody t d = ComponentBody {unComponentBody :: (LocalIds.LocalIds' t d, ByteString)}
+@@ -567,6 +571,12 @@
+       CBOR.encode CausalTag
+         <> CBOR.encode valueHash
+         <> CBOR.encodeVector parents
++    Entity.B BendFormat.SyncBendFormat {componentBytes, localMemberDependencies, memberDependencies, authoredPresentations} ->
++      CBOR.encode BendComponentTag
++        <> CBOR.encodeBytes componentBytes
++        <> CBOR.encodeVector localMemberDependencies
++        <> CBOR.encodeVector memberDependencies
++        <> CBOR.encodeVector authoredPresentations
+ 
+   decode = do
+     CBOR.decode >>= \case
+@@ -593,6 +603,12 @@
+         valueHash <- CBOR.decode
+         parents <- CBOR.decodeVector
+         pure $ Entity.C (SqliteCausal.SyncCausalFormat {valueHash, parents})
++      BendComponentTag -> do
++        componentBytes <- CBOR.decodeBytes
++        localMemberDependencies <- CBOR.decodeVector
++        memberDependencies <- CBOR.decodeVector
++        authoredPresentations <- CBOR.decodeVector
++        pure $ Entity.B BendFormat.SyncBendFormat {componentBytes, localMemberDependencies, memberDependencies, authoredPresentations}
+ 
+ encodeVectorWith :: (a -> CBOR.Encoding) -> Vector.Vector a -> CBOR.Encoding
+ encodeVectorWith f xs =
+--- a/unison-share-api/package.yaml
++++ b/unison-share-api/package.yaml
+@@ -11,8 +11,11 @@
+ 
+   dependencies:
+     - aeson >= 2.0.0.0
++    - bend
++    - bend-ucm
+     - base
+     - binary
++    - crypton
+     - bytes
+     - bytestring
+     - cborg
+--- a/unison-share-api/unison-share-api.cabal
++++ b/unison-share-api/unison-share-api.cabal
+@@ -1,6 +1,6 @@
+ cabal-version: 1.12
+ 
+--- This file has been generated from package.yaml by hpack version 0.36.0.
++-- This file has been generated from package.yaml by hpack version 0.39.6.
+ --
+ -- see: https://github.com/sol/hpack
+ 
+@@ -29,6 +29,7 @@
+       Unison.Server.HistoryComments.Types
+       Unison.Server.Local
+       Unison.Server.Local.Definitions
++      Unison.Server.Local.Endpoints.BendSubterm
+       Unison.Server.Local.Endpoints.Current
+       Unison.Server.Local.Endpoints.Definitions
+       Unison.Server.Local.Endpoints.DefinitionSummary
+@@ -95,12 +96,15 @@
+       Diff
+     , aeson >=2.0.0.0
+     , base
++    , bend
++    , bend-ucm
+     , binary
+     , bytes
+     , bytestring
+     , cborg
+     , conduit
+     , containers
++    , crypton
+     , directory
+     , errors
+     , extra
+--- a/unison-cli/src/Unison/CommandLine/OutputMessages.hs
++++ b/unison-cli/src/Unison/CommandLine/OutputMessages.hs
+@@ -977,7 +977,12 @@
+       formatEntry ppe = \case
+         ShallowTermEntry termEntry ->
+           ( P.syntaxToColor . prettyHashQualified' . Backend.termEntryHQName $ termEntry,
+-            P.lit "(" <> maybe "type missing" (TypePrinter.pretty ppe) (Backend.termEntryType termEntry) <> P.lit ")"
++            P.lit "("
++              <> maybe
++                (maybe "type missing" (TypePrinter.pretty ppe) (Backend.termEntryType termEntry))
++                P.text
++                (Backend.termEntryBendType termEntry)
++              <> P.lit ")"
+           )
+         ShallowTypeEntry typeEntry ->
+           ( P.syntaxToColor . prettyHashQualified' . Backend.typeEntryHQName $ typeEntry,
+@@ -3148,6 +3153,7 @@
+       Share.NamespaceType -> "namespace"
+       Share.NamespaceDiffType -> "namespace diff"
+       Share.CausalType -> "causal"
++      Share.BendComponentType -> "Bend2 component"
+ 
+ prettyTransportError :: Share.CodeserverTransportError -> Pretty
+ prettyTransportError = \case
+@@ -3204,6 +3210,7 @@
+   Share.NamespaceType -> "namespace"
+   Share.NamespaceDiffType -> "namespace diff"
+   Share.CausalType -> "causal"
++  Share.BendComponentType -> "Bend2 component"
+ 
+ invalidRepoInfo :: Text -> Share.RepoInfo -> Pretty
+ invalidRepoInfo err repoInfo =
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput/Run.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/Run.hs
+@@ -263,6 +263,8 @@
+                         Graph.edge (TermDefn (Reference.fromId dependent)) (TermDefn dependency)
+                       Operations.TermDependsOnType dependent dependency ->
+                         Graph.edge (TermDefn (Reference.fromId dependent)) (TypeDefn dependency)
++                      Operations.TypeDependsOnTerm dependent dependency ->
++                        Graph.edge (TypeDefn (Reference.fromId dependent)) (TermDefn dependency)
+                       Operations.TypeDependsOnType dependent dependency ->
+                         Graph.edge (TypeDefn (Reference.fromId dependent)) (TypeDefn dependency)
+                 )
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput/DebugDependentsGraph.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/DebugDependentsGraph.hs
+@@ -55,6 +55,8 @@
+                   Graph.edge (TermDefn (Reference.fromId dependent)) (TermDefn dependency)
+                 Operations.TermDependsOnType dependent dependency ->
+                   Graph.edge (TermDefn (Reference.fromId dependent)) (TypeDefn dependency)
++                Operations.TypeDependsOnTerm dependent dependency ->
++                  Graph.edge (TypeDefn (Reference.fromId dependent)) (TermDefn dependency)
+                 Operations.TypeDependsOnType dependent dependency ->
+                   Graph.edge (TypeDefn (Reference.fromId dependent)) (TypeDefn dependency)
+           )

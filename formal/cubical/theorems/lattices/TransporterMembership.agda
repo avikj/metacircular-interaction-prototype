@@ -4,17 +4,17 @@
 -- TransporterMembership
 --
 -- The torsor, closed: when two events normalize the same matrix to the
--- Smith endpoint D = dia dâ‚ (qÂ·dâ‚) (dâ‚ â‰  0), the explicit transporter
--- H = Îµáµ¤Â·Uâ€²Â·adj U â€” which MOVES one event to the other
--- (Gamma0Transitivity.moves) â€” has lower-left entry divisible by q,
--- with the witness computed:  Î£ k. Hâ‚‚â‚ â‰¡ kÂ·q.
+-- Smith endpoint D = dia dâ (qÂdâ) (dâ â‰  0), the explicit transporter
+-- H = ÎµµÂUâ²Âadj U â” which MOVES one event to the other
+-- (Gamma0Transitivity.moves) â” has lower-left entry divisible by q,
+-- with the witness computed:  Î k. Hââ â‰¡ kÂq.
 --
--- Nothing new is proved here by hand: the module is pure composition â€”
+-- Nothing new is proved here by hand: the module is pure composition â”
 -- `stabilizes` transported to the endpoint, `det` bookkeeping
 -- (multiplicativity, adjugate, scaling), and Gamma0Converse.membership
 -- consuming the result.  The tower measured on finite windows in
 -- August stands as one typed statement: the event set of a Smith
--- normalization is a Î“â‚€(q)-torsor, and every clause is a program.
+-- normalization is a Î“â(q)-torsor, and every clause is a program.
 ------------------------------------------------------------------------
 
 module TransporterMembership where

@@ -4,18 +4,18 @@
 -- NaturalMachine.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorises
 --                       AndTheSchemaIsWhatMakesItGeneralise
 --
--- TERM.  à¤µà¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿ Â· vyÄpti -- pervasion: the invariable concomitance that
+-- TERM.  àµàà¯à¾àààà¿ Â vypti -- pervasion: the invariable concomitance that
 -- makes an inference carry from the case at hand to every case of the same
--- mark.  Root notion in Gautama, *NyÄyasÅ«tra* (~2nd c. CE), under à¤…à¤¨à¥à¤®à¤¾à¤¨;
--- the definitional apparatus (the vyÄptivÄda, and the à¤‰à¤ªà¤¾à¤§à¤¿ that defeats a
--- proposed pervasion) is Navya-NyÄya, Gaá¹…geÅ›a, *TattvacintÄmaá¹‡i* (~1325).
+-- mark.  Root notion in Gautama, *Nyyastra* (~2nd c. CE), under àà¨àà®à¾à¨;
+-- the definitional apparatus (the vyptivda, and the à‰àà¾à§à¿ that defeats a
+-- proposed pervasion) is Navya-Nyya, Gagea, *Tattvacintmai* (~1325).
 -- The 12-century gap is stated because filing the later apparatus under the
--- sÅ«trakÄra is the error this corpus struck in its own PÄá¹‡ini row.
+-- strakra is the error this corpus struck in its own Pini row.
 --
--- SCOPE OF THE CLAIM ON THE SOURCE.  Naming this module for vyÄpti does NOT
--- say the NaiyÄyikas proved anything below.  What is borrowed is one
+-- SCOPE OF THE CLAIM ON THE SOURCE.  Naming this module for vypti does NOT
+-- say the Naiyyikas proved anything below.  What is borrowed is one
 -- distinction they drew sharply and that this kernel's types do not: a
--- à¤®à¤¾à¤°à¥à¤• that licenses an inference ONLY in the instance where it was
+-- à®à¾à°àà• that licenses an inference ONLY in the instance where it was
 -- observed is not a pervasion at all.  Â§1 shows the kernel's installed
 -- operation is exactly such a mark, and the type forces it.
 --
@@ -23,7 +23,7 @@
 -- WHAT THIS IS ABOUT
 --
 -- `ControlledGrammar.NativeOperation` is the kernel's unit of learned
--- behaviour, and `install : Derivation lhs rhs â†’ NativeOperation` is how a
+-- behaviour, and `install : Derivation lhs rhs â’ NativeOperation` is how a
 -- theorem the machine proved becomes a move the machine can make.  That is
 -- the metacircular step: proofs become the generative library, so the
 -- library at a context is a next-move distribution, kept without quotient
@@ -108,7 +108,7 @@ height _         = â„•.zero
 ------------------------------------------------------------------------
 -- Â§1.  THE MEMORISATION LAW.
 --
--- `control-sound : {t : Tm} â†’ Control t â†’ t â‰¡ source` is the whole of it.
+-- `control-sound : {t : Tm} â’ Control t â’ t â‰¡ source` is the whole of it.
 -- An operation's enabling evidence at t IS an identification of t with the
 -- one term the operation was installed at, so the enabled set is a
 -- subsingleton and the emission is a constant.  No library can be more

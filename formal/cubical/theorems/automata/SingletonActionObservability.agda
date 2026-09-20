@@ -5,11 +5,11 @@
 --
 -- Equality under every word in a one-action machine is exactly equality
 -- along every iterate of its underlying endomap.  The index change is the
--- checked equivalence ℕ ≃ List Unit from FreeMonoid, rather than an informal
+-- checked equivalence � � List Unit from FreeMonoid, rather than an informal
 -- identification of words with their lengths.
 --
 -- Composing this equivalence with ProductiveObservabilityBridge identifies
--- productive-Net bisimulation with unary FutureBehavior.  ObservableHorizon
+-- productive-Net bisimulation with unary MyhillNerodeMinimalMachine.  ObservableHorizon
 -- then supplies the bounded-to-coinductive implication precisely when its
 -- action-closure premise is present.
 ------------------------------------------------------------------------
@@ -26,7 +26,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 
 import FreeMonoid as FM
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 import ObservabilityQuotient as OQ
 import ObservableHorizon as OH
 import ProductiveIndraNet as PIN
@@ -81,11 +81,11 @@ wordPath≃depthPath transition observe left right word =
       (cong observe (run-len transition observe left word))
       (cong observe (run-len transition observe right word)))
 
--- The full dependent products are equivalent.  `invEquiv FM.ℕ≃Tally`
+-- The full dependent products are equivalent.  `invEquiv FM.��Tally`
 -- reindexes a Unit-word by its length; equivΠ supplies both inverse laws.
 singletonFuture≃forever :
     (transition : X → X) (observe : X → O) {left right : X}
-  → FB.FutureEq (unitStep transition) observe left right
+  → FB.NerodeCongruence (unitStep transition) observe left right
     ≃ OQ.ForeverEq transition observe left right
 singletonFuture≃forever transition observe {left} {right} =
   equivΠ (invEquiv FM.ℕ≃Tally)
@@ -98,24 +98,24 @@ singletonFuture≃forever transition observe {left} {right} =
 productiveBisim≃singletonFuture :
     {left right : PIN.Net Root Jewel}
   → PIN.Bisim left right
-    ≃ FB.FutureEq (unitStep PIN.Net.next) PIN.Net.view left right
+    ≃ FB.NerodeCongruence (unitStep PIN.Net.next) PIN.Net.view left right
 productiveBisim≃singletonFuture =
   compEquiv POB.bisim≃forever
     (invEquiv (singletonFuture≃forever PIN.Net.next PIN.Net.view))
 
 -- If a bounded unary observation kernel is closed under the unique action,
--- ObservableHorizon upgrades it to full FutureEq and therefore to Bisim.
+-- ObservableHorizon upgrades it to full NerodeCongruence and therefore to Bisim.
 productiveBounded→bisim :
     (fuel : ℕ)
   → OH.ObservableClosesAt
       (unitStep (PIN.Net.next {Root} {Jewel})) PIN.Net.view fuel
   → {left right : PIN.Net Root Jewel}
-  → OH.BoundedFutureEq
+  → OH.BoundedNerodeCongruence
       (unitStep PIN.Net.next) PIN.Net.view fuel left right
   → PIN.Bisim left right
 productiveBounded→bisim fuel closes bounded =
   invEq productiveBisim≃singletonFuture
-    (OH.boundedClosure→futureEq
+    (OH.boundedClosure→nerodeCongruence
       (unitStep PIN.Net.next) PIN.Net.view fuel closes bounded)
 
 -- Bisimilarity always restricts to the bounded word window; no closure
@@ -123,10 +123,10 @@ productiveBounded→bisim fuel closes bounded =
 bisim→productiveBounded :
     (fuel : ℕ) {left right : PIN.Net Root Jewel}
   → PIN.Bisim left right
-  → OH.BoundedFutureEq
+  → OH.BoundedNerodeCongruence
       (unitStep PIN.Net.next) PIN.Net.view fuel left right
 bisim→productiveBounded fuel related =
-  OH.futureEq→bounded (unitStep PIN.Net.next) PIN.Net.view fuel
+  OH.nerodeCongruence→bounded (unitStep PIN.Net.next) PIN.Net.view fuel
     (equivFun productiveBisim≃singletonFuture related)
 
 -- Under action closure the bounded kernel and productive bisimulation have
@@ -137,11 +137,11 @@ productive-stabilized-kernel :
   → OH.ObservableClosesAt
       (unitStep (PIN.Net.next {Root} {Jewel})) PIN.Net.view fuel
   → {left right : PIN.Net Root Jewel}
-  → (OH.BoundedFutureEq
+  → (OH.BoundedNerodeCongruence
         (unitStep PIN.Net.next) PIN.Net.view fuel left right
       → PIN.Bisim left right)
     × (PIN.Bisim left right
-      → OH.BoundedFutureEq
+      → OH.BoundedNerodeCongruence
           (unitStep PIN.Net.next) PIN.Net.view fuel left right)
 productive-stabilized-kernel fuel closes =
   productiveBounded→bisim fuel closes ,

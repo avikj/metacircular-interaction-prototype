@@ -6,39 +6,39 @@
 -- Ingredient (i) of `DurationIsSyllablesPlusGuru` Â§7, built rather than
 -- described.
 --
---     pairsFin : (n : â„•) â†’ Pairs n â‰ƒ SumFin (suc n)
+--     pairsFin : (n : â•) â’ Pairs n â‰ SumFin (suc n)
 --
--- where `Pairs n = Î£[ (a,b) âˆˆ â„• Ã— â„• ] (a + b â‰¡ n)`.  The antidiagonal
+-- where `Pairs n = Î[ (a,b) âˆˆ â• — â• ] (a + b â‰¡ n)`.  The antidiagonal
 -- index set is finite, with `n + 1` elements, by a structural induction
--- and **no truncated subtraction** â€” which is what every other encoding in
+-- and **no truncated subtraction** â” which is what every other encoding in
 -- this thread died of.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE INDUCTION
 --
---     Pairs 0        â‰ƒ  âŠ¤
---     Pairs (suc n)  â‰ƒ  âŠ¤ âŠŽ Pairs n
+--     Pairs 0        â‰  âŠ
+--     Pairs (suc n)  â‰  âŠ âŠ Pairs n
 --
 -- the first summand being the pair `(0 , suc n)` and the rest having `a`
 -- a successor, dropping to the previous level.  `Cubical.Data.SumFin`
--- defines `Fin (suc n) = âŠ¤ âŠŽ Fin n` **definitionally**, so the second
+-- defines `Fin (suc n) = âŠ âŠ Fin n` **definitionally**, so the second
 -- line composes into the result with no arithmetic at all.
 --
 -- Every round-trip obligation beyond the pair itself is an equation in
--- â„•, hence a proposition, hence `isSetâ„•`.  Same observation that made
--- `DurationIsSyllablesPlusGuru`'s Î£-contraction go through.
+-- â•, hence a proposition, hence `isSetâ•`.  Same observation that made
+-- `DurationIsSyllablesPlusGuru`'s Î-contraction go through.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT REMAINS OF THE DIAGONAL IDENTITY
 --
 -- `Sankalita` Â§13 refuted three encodings; `DurationIsSyllablesPlusGuru`
 -- carried the fourth to an equivalence and then Â§7 named two remaining
--- ingredients.  This is the first.  The second â€” that the library's `sum`
--- over this FinSet is the recursive `Sankalita.AD` â€” is a reindexing, and
+-- ingredients.  This is the first.  The second â” that the library's `sum`
+-- over this FinSet is the recursive `Sankalita.AD` â” is a reindexing, and
 -- reindexing is precisely what the third refuted encoding got wrong, so
 -- it is not being called routine here.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ Iso.leftInv (pairsSuc-Iso n) ((suc a , b) , p) =
   Î£PathP (refl , isPropâ†’PathP (Î» _ â†’ isSetâ„• _ _) _ _)
 
 ------------------------------------------------------------------------
--- 4.  THE STATEMENT.  `SumFin (suc n) = âŠ¤ âŠŽ SumFin n` definitionally, so
+-- 4.  THE STATEMENT.  `SumFin (suc n) = âŠ âŠ SumFin n` definitionally, so
 --     the induction composes with no arithmetic.
 ------------------------------------------------------------------------
 
@@ -136,8 +136,8 @@ pairsFin (suc n) =
 ------------------------------------------------------------------------
 -- 5.  So the antidiagonal index set has n+1 elements, structurally.
 --
--- That is ingredient (i).  Ingredient (ii) â€” that the library's sum over
--- this FinSet is `Sankalita.AD` â€” is a reindexing, and this thread's
+-- That is ingredient (i).  Ingredient (ii) â” that the library's sum over
+-- this FinSet is `Sankalita.AD` â” is a reindexing, and this thread's
 -- record on reindexings is one for one against.
 ------------------------------------------------------------------------
 
@@ -146,24 +146,24 @@ pairsFin (suc n) =
 --
 -- PROVED, all checked in this repository:
 --
---   `Sankalita.sankalita-column`      Î£_{m<n} meru m r â‰¡ meru n (suc r)
---   `Sankalita.varasankalita`         Î£^r 1 at n â‰¡ meru n r
+--   `Sankalita.sankalita-column`      Î_{m<n} meru m r â‰¡ meru n (suc r)
+--   `Sankalita.varasankalita`         Î^r 1 at n â‰¡ meru n r
 --   `Sankalita.AD2-breaks-the-recurrence`
 --                                     the row-2 antidiagonal sums are not
 --                                     Fibonacci-recurrent
 --   `DurationIsSyllablesPlusGuru.matra-split`
---                                     matrÄOf p â‰¡ vará¹‡a p + guruOf p
+--                                     matrOf p â‰¡ vara p + guruOf p
 --   `DurationIsSyllablesPlusGuru.metre-sorts`
---                                     Metre n â‰ƒ Î£_{a+b=n} Chosen a b
---   here `pairsFin`                   Pairs n â‰ƒ SumFin (suc n)
+--                                     Metre n â‰ Î_{a+b=n} Chosen a b
+--   here `pairsFin`                   Pairs n â‰ SumFin (suc n)
 --
 -- AND NOW ALSO PROVED, in `NaturalMachine.DiagonalIsMatra`:
 --
---   `diagonal-is-matra : (n : â„•) â†’ matra n â‰¡ antidiag n`
+--   `diagonal-is-matra : (n : â•) â’ matra n â‰¡ antidiag n`
 --
 -- The cardinality computation this section declined to estimate turned
--- out to need the SHIFTED family `SortedC c n` â€” the unshifted one does
--- not close the induction â€” plus `Î£-contractFst`, `Î£âŠŽâ‰ƒ`, `SumFinâŠŽâ‰ƒ` and
+-- out to need the SHIFTED family `SortedC c n` â” the unshifted one does
+-- not close the induction â” plus `Î-contractFst`, `ÎâŠâ‰`, `SumFinâŠâ‰` and
 -- `Fin-inj`.  Declining to estimate was right: the shift was the content,
 -- and no sentence written before doing it would have named it.
 ------------------------------------------------------------------------

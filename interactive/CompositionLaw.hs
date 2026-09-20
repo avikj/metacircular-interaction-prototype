@@ -1,46 +1,46 @@
--- वर्गप्रकृतिः — VargaPrakrti: the composition law as a PARAMETER.
+-- �������������� � VargaPrakrti: the composition law as a PARAMETER.
 --
--- वर्ग-प्रकृति ("square-nature") is BRAHMAGUPTA's own name, in the
--- Brāhmasphuṭasiddhānta (628), ch. 18, for the object he composes: a
--- quantity x, a quantity y, a multiplier (prakṛti) and an additive
--- (kṣepa).  He states the composition for ARBITRARY kṣepa.  x² − D y² = 1
+-- �����-�������� ("square-nature") is BRAHMAGUPTA's own name, in the
+-- Brhmasphuasiddhnta (628), ch. 18, for the object he composes: a
+-- quantity x, a quantity y, a multiplier (prakti) and an additive
+-- (kepa).  He states the composition for ARBITRARY kepa.  x² − D y² = 1
 -- is one row of his table.
 --
 -- WHAT THIS FILE IS, AND WHAT `Nalanda.hs` IS NOT.  `Nalanda.hs` is a
--- reactor whose law is welded in: `bhavana` hard-codes N(x,y) = x² − D y²,
+-- reactor whose law is welded in: `composition` hard-codes N(x,y) = x² − D y²,
 -- `chooseM` hard-codes the interpolator (m, 1, m² − D), and every path
 -- through it assumes the norm is even in each variable separately, which is
 -- true only when the middle coefficient is zero.  That weld is not
 -- Brahmagupta's; it is x² − D y² = 1 read back onto him.
 --
 -- Here the law is a value.  A `Law v` is exactly the three legs the
--- cakravāla stands on:
+-- cakravla stands on:
 --
---   1. lawCompose  — two results to a third.               (bhāvanā, 628)
---   2. lawNorm     — an invariant that MULTIPLIES.         (bhāvanā, 628)
---   3. lawDescend  — a step made exact by a congruence.    (kuṭṭaka, 499;
---                                                            cakravāla ~950)
+--   1. lawCompose  � two results to a third.               (bhvan, 628)
+--   2. lawNorm     � an invariant that MULTIPLIES.         (bhvan, 628)
+--   3. lawDescend  � a step made exact by a congruence.    (kuaka, 499;
+--                                                            cakravla ~950)
 --
 -- `reactor` consumes those three and nothing else.  It does not know what
 -- a quadratic form is.
 --
 -- WHAT THE GENERALISATION BUYS, CONCRETELY.  The quadratic instance is now
--- ℤ[ω] with ω² = T·ω + C for ANY integers T, C with Δ = T² + 4C positive
+-- �[ω] with ω² = T�ω + C for ANY integers T, C with Δ = T² + 4C positive
 -- and non-square:
 --
---     N(x, y) = x² + T·x·y − C·y²
+--     N(x, y) = x² + T�x�y − C�y²
 --
--- T = 0, C = D is Nalanda's case, ℤ[√D].  T = 1, C = (Δ−1)/4 is the
--- MAXIMAL order of a discriminant Δ ≡ 1 (mod 4) — which ℤ[√D] sits inside
+-- T = 0, C = D is Nalanda's case, �[�D].  T = 1, C = (Δ−1)/4 is the
+-- MAXIMAL order of a discriminant Δ ≡ 1 (mod 4) � which �[�D] sits inside
 -- with index 2, and which Pell's equation cannot see.  The consequence is
 -- not cosmetic.  At Δ = 61 the wheel reaches a unit in TWO turns, at
--- (x, y) = (17, 5), i.e. ε = (39 + 5√61)/2 with N(ε) = −1; Bhāskara's
--- (1766319049, 226153980) is ε⁶.  The famous answer is the sixth power of
+-- (x, y) = (17, 5), i.e. ε = (39 + 5�61)/2 with N(ε) = −1; Bhskara's
+-- (1766319049, 226153980) is ε�.  The famous answer is the sixth power of
 -- the one the general law finds, and finding the general one is cheaper.
 --
 -- TWO PATHS, NO THIRD.  Every partial operation returns `Either Defect`.
 -- Where the congruence is unsolvable, where a division is not exact, where
--- the descent does not terminate inside its stated bound — a `Defect`
+-- the descent does not terminate inside its stated bound � a `Defect`
 -- carries the failing instance out.  Nothing here retries silently and
 --
 -- EXACT ARITHMETIC ONLY.  Integer throughout; the square root is Newton
@@ -52,7 +52,7 @@
 -- generalisation breaks.  `Nalanda.step` ends with
 -- `Triple (abs a') (abs b') k'`.  That is sound at T = 0, where
 -- N(x,y) = x² − D y² depends on x and y only through their squares.  At
--- T ≠ 0 the cross term T·x·y changes sign with either coordinate alone, so
+-- T ≠ 0 the cross term T�x�y changes sign with either coordinate alone, so
 -- `abs` on the coordinates silently changes the norm.  Below, coordinates
 -- are never abs'd; the pair is normalised only by negating BOTH, which the
 -- norm is invariant under because it is homogeneous of degree two.
@@ -89,7 +89,7 @@ import Data.Ord (comparing)
 
 ------------------------------------------------------------------ defect
 --
--- §6 of the sūtra: संक्रमणं दोषलेखश्च । तृतीयो मार्गो न विद्यते ।
+-- §6 of the stra: ��������� ����������� � ������� �������� � ������� �
 -- Transport, or a written defect.  A written defect lives; an unwritten
 -- one is the violence.  So a Defect is not an error string: it carries the
 -- instance that failed, so a reader can rerun exactly it.
@@ -121,7 +121,7 @@ data Law v = Law
   }
 
 -- LEG 2, CHECKED AT EVERY USE.  The general theorem is in
--- formal/cubical/VargaPrakrti_TraceBhavanaOverN.agda; this is the run
+-- formal/cubical/VargaPrakrti_TraceCompositionOverN.agda; this is the run
 -- refusing to trust it silently.  If multiplicativity ever failed the
 -- composition would be a different operation than the one proved, and the
 -- whole certificate would be about something else.
@@ -130,9 +130,9 @@ composeChecked law u v
   | lawNorm law w == lawNorm law u * lawNorm law v = Right w
   | otherwise = Left (Defect
       ("leg 2 (multiplicative invariant), law = " ++ lawName law)
-      ("N(u·v) = " ++ show (lawNorm law w) ++ " but N(u)·N(v) = "
+      ("N(u�v) = " ++ show (lawNorm law w) ++ " but N(u)�N(v) = "
         ++ show (lawNorm law u * lawNorm law v))
-      (lawShow law u ++ "  ·  " ++ lawShow law v ++ "  =  " ++ lawShow law w))
+      (lawShow law u ++ "  �  " ++ lawShow law v ++ "  =  " ++ lawShow law w))
   where w = lawCompose law u v
 
 ---------------------------------------------------------------- reactor
@@ -154,9 +154,9 @@ reactor = reactorWithin defaultCap
 
 -- THE TURN BOUND IS A PARAMETER AND IT IS NAMED, because what it stands in
 -- for is a theorem this repository does not have.  Termination of the cycle
--- is Lagrange (1768) for the T = 0 case and is open here — `CakravalaDescent
+-- is Lagrange (1768) for the T = 0 case and is open here � `CakravalaDescent
 -- .agda` says so verbatim and `CakravalaBound.agda` proves only the window
--- |k| ≤ 2√D, not that the wheel closes.  So a run that reaches the bound
+-- |k| � 2�D, not that the wheel closes.  So a run that reaches the bound
 -- has NOT found a mathematical obstruction; it has hit a stated limit, and
 -- the defect it returns says which, with the norm it stopped at, so the two
 -- are never confused.  A scan of the 49762 discriminants Δ ≡ 1 (mod 4) below
@@ -175,7 +175,7 @@ reactorWithin cap law = lawSeed law >>= \s -> go s (0 :: Int) []
       | n > cap = Left (Defect
           ("leg 3 (descent), law = " ++ lawName law)
           ("no unit reached inside the STATED TURN BOUND of " ++ show cap
-            ++ "; this is the bound being reached, not an obstruction — "
+            ++ "; this is the bound being reached, not an obstruction � "
             ++ "termination of the cycle is Lagrange (1768) for T = 0 and is "
             ++ "open in this repository, so the bound stands in for a theorem "
             ++ "that is not here.  The norm below is where it stopped.")
@@ -189,7 +189,7 @@ fundamentalUnit :: Eq v => Law v -> Either Defect v
 fundamentalUnit law = last <$> reactor law
 
 -- and the norm-+1 element, which is ε when N(ε) = 1 and ε² when N(ε) = −1.
--- This is BRAHMAGUPTA's own bridge (Brāhmasphuṭasiddhānta 18): a norm −1
+-- This is BRAHMAGUPTA's own bridge (Brhmasphuasiddhnta 18): a norm −1
 -- solution composed with itself has norm (−1)(−1) = 1.  It is checked, not
 -- asserted: `composeChecked`.
 normOneSolution :: Eq v => Law v -> Either Defect v
@@ -198,22 +198,22 @@ normOneSolution law = do
   if lawNorm law e == 1 then Right e else composeChecked law e e
 
 -- Every invariant value the wheel visits is a SOLVED equation, which is
--- Brahmagupta's arbitrary-kṣepa claim rather than the N = 1 special case.
+-- Brahmagupta's arbitrary-kepa claim rather than the N = 1 special case.
 spectrum :: Eq v => Law v -> Either Defect [(Integer, v)]
 spectrum law = map (\v -> (lawNorm law v, v)) <$> reactor law
 
 -- LEG 1 AS PRODUCTION.  One solution of N = n, composed with the norm-one
--- unit, is another solution of N = n, since n·1 = n.  No search anywhere.
+-- unit, is another solution of N = n, since n�1 = n.  No search anywhere.
 familyFor :: Eq v => Law v -> v -> Either Defect [v]
 familyFor law v = do
   u <- normOneSolution law
   Right (iterate (lawCompose law u) v)
 
------------------------------------------------- kuṭṭaka (Āryabhaṭa, 499)
+------------------------------------------------ kuaka (ryabhaa, 499)
 --
--- ĀRYABHAṬA, Āryabhaṭīya, Gaṇitapāda 32–33 (499); the procedure step by
--- step in Bhāskara I's bhāṣya (629).  Divide, KEEP THE REMAINDER AND
--- RECURSE ON IT, and write each quotient into the vallī — the column.
+-- RYABHAA, ryabhaya, Gaitapda 32�33 (499); the procedure step by
+-- step in Bhskara I's bhya (629).  Divide, KEEP THE REMAINDER AND
+-- RECURSE ON IT, and write each quotient into the vall � the column.
 -- The remainder is not error to be discarded; it is the next problem.
 -- That is leg 3's exactness device, and it is the same code as in
 -- `Nalanda.hs` because it is the same procedure.
@@ -249,7 +249,7 @@ isSquare n = n >= 0 && isqrt n * isqrt n == n
 
 -- exact division, or a defect.  `div` on a non-exact pair returns a number,
 -- and a returned number is indistinguishable from an answer.  This is the
--- silent collapse the sūtra names, so it is made impossible here.
+-- silent collapse the stra names, so it is made impossible here.
 divExact :: String -> Integer -> Integer -> Either Defect Integer
 divExact ctx x k
   | k == 0 = Left (Defect "leg 3 (descent)" "division by zero norm" ctx)
@@ -259,34 +259,34 @@ divExact ctx x k
   | otherwise = Right q
   where (q, r) = x `divMod` k
 
-------------------------------------------------- INSTANCE 1: वर्गप्रकृतिः
+------------------------------------------------- INSTANCE 1: ��������������
 --
--- ℤ[ω] with ω² = T·ω + C, i.e. ω = (T + √Δ)/2 with Δ = T² + 4C.
+-- �[ω] with ω² = T�ω + C, i.e. ω = (T + �Δ)/2 with Δ = T² + 4C.
 --
---     N(x, y) = (x + yω)(x + yω̄) = x² + T·x·y − C·y²
+--     N(x, y) = (x + yω)(x + yω�) = x² + T�x�y − C�y²
 --
--- BHĀVANĀ, generalised.  (x₁ + y₁ω)(x₂ + y₂ω) expands using ω² = Tω + C:
+-- BHVAN, generalised.  (x� + y�ω)(x� + y�ω) expands using ω² = Tω + C:
 --
---     X = x₁x₂ + C·y₁y₂
---     Y = x₁y₂ + x₂y₁ + T·y₁y₂
+--     X = x�x� + C�y�y�
+--     Y = x�y� + x�y� + T�y�y�
 --
--- and N(X, Y) = N(x₁,y₁)·N(x₂,y₂).  At T = 0 this IS Brahmagupta's rule
--- verbatim, coordinate for coordinate, with C = D.  The T·y₁y₂ term is the
+-- and N(X, Y) = N(x�,y�)�N(x�,y�).  At T = 0 this IS Brahmagupta's rule
+-- verbatim, coordinate for coordinate, with C = D.  The T�y�y� term is the
 -- whole difference, and it is what `Nalanda` cannot represent.
 --
 -- THE CYCLE, generalised.  Compose with the interpolator (m, 1), whose
--- norm is m² + T·m − C, then divide both coordinates by k:
+-- norm is m² + T�m − C, then divide both coordinates by k:
 --
---     a' = (a·m + C·b)/k     b' = (a + b·(m + T))/k     k' = (m² + Tm − C)/k
+--     a' = (a�m + C�b)/k     b' = (a + b�(m + T))/k     k' = (m² + Tm − C)/k
 --
 -- Division is by the SIGNED k, not by |k|.  At T = 0 the two differ only
 -- by an overall sign of the pair and `Nalanda` absorbs it into `abs`; at
 -- T ≠ 0 absorbing it into `abs` per-coordinate would change the norm.
 --
--- BHĀSKARA'S CHOICE RULE (Bījagaṇita, 1150), generalised: among the m with
--- k | (a + b(m+T)) — one congruence, solved by the kuṭṭaka — take the one
+-- BHSKARA'S CHOICE RULE (Bjagaita, 1150), generalised: among the m with
+-- k | (a + b(m+T)) � one congruence, solved by the kuaka � take the one
 -- minimising |m² + Tm − C|, i.e. |N(m,1)|.  The minimiser sits next to
--- (−T + √Δ)/2, so a short window about it is exhaustive rather than
+-- (−T + �Δ)/2, so a short window about it is exhaustive rather than
 -- sampled; `selfTest` re-runs every case with a window three times as wide
 -- and demands the same answers.
 
@@ -295,7 +295,7 @@ data Quad = Quad !Integer !Integer deriving (Eq)
 instance Show Quad where
   show (Quad a b) = "(" ++ show a ++ ", " ++ show b ++ ")"
 
--- normalise by negating BOTH coordinates — the only sign move the norm is
+-- normalise by negating BOTH coordinates � the only sign move the norm is
 -- invariant under when T ≠ 0.
 posify :: Quad -> Quad
 posify q@(Quad a b)
@@ -309,7 +309,7 @@ vargaPrakrti t c
       \group is finite, so there is nothing to descend to"
       inst)
   | isSquare disc = Left (Defect "leg 3 (descent)"
-      "Δ is a perfect square: the form factors over ℤ and ℤ[ω] is not a domain"
+      "Δ is a perfect square: the form factors over � and �[ω] is not a domain"
       inst)
   | otherwise = Right law
   where
@@ -321,19 +321,19 @@ vargaPrakrti t c
     cmp (Quad x1 y1) (Quad x2 y2) =
       Quad (x1 * x2 + c * y1 * y2) (x1 * y2 + x2 * y1 + t * y1 * y2)
 
-    -- ⌊(−T + √Δ)/2⌋, the interpolator nearest the root of m² + Tm − C.
+    -- �(−T + �Δ)/2�, the interpolator nearest the root of m² + Tm − C.
     -- `div` floors, which is what is wanted for negative arguments too.
     mStar = (isqrt disc - t) `div` 2
 
     seed = let m = mStar in Right (Quad m 1)
 
     law = Law
-      { lawName = "varga-prakṛti  ω² = " ++ show t ++ "ω + " ++ show c
+      { lawName = "varga-prakti  ω² = " ++ show t ++ "ω + " ++ show c
                   ++ "   (Δ = " ++ show disc ++ ")"
-      , lawSource = "Brahmagupta, Brāhmasphuṭasiddhānta 18 (628) for the \
-                    \composition; Jayadeva (~950) / Bhāskara II, Bījagaṇita \
-                    \(1150) for the cycle; Āryabhaṭa, Āryabhaṭīya, \
-                    \Gaṇitapāda 32–33 (499) for the congruence"
+      , lawSource = "Brahmagupta, Brhmasphuasiddhnta 18 (628) for the \
+                    \composition; Jayadeva (~950) / Bhskara II, Bjagaita \
+                    \(1150) for the cycle; ryabhaa, ryabhaya, \
+                    \Gaitapda 32�33 (499) for the congruence"
       , lawUnit = Quad 1 0
       , lawCompose = cmp
       , lawNorm = nrm
@@ -350,21 +350,21 @@ vargaPrakrti t c
       mt <- case inverseMod b n of
         Nothing -> Left (Defect
           ("leg 3 (descent), Δ = " ++ show disc)
-          ("kuṭṭaka: gcd(b, |k|) = " ++ show (gcd b n)
+          ("kuaka: gcd(b, |k|) = " ++ show (gcd b n)
             ++ " ≠ 1, so the congruence k | (a + b(m+T)) has no solution class")
           (show q ++ "   k = " ++ show k))
         Just bi -> Right (((- a) * bi) `mod` n)
       -- m ranges over the class mt − T (mod n), ON THE PRINCIPAL SIDE.
       --
       -- THE SIDE CONDITION IS NOT A DETAIL; WITHOUT IT THE WHEEL DOES NOT
-      -- TURN.  |m² + Tm − C| = |m − ρ|·|m − ρ̄| with ρ = (−T + √Δ)/2 and
-      -- ρ̄ = (−T − √Δ)/2, so it is small near EITHER root.  The candidate
-      -- near ρ̄ is the previous turn run backwards: at Δ = 61 (T = 1) from
-      -- the seed (3, 1) it is m = −4, and taking it returns (1, 0) — the
-      -- trivial unit — in one turn, an answer that is true and empty.  The
-      -- classical rule's "m > 0" is this condition at T = 0, where ρ̄ = −√D
-      -- is negative; the general form is m > −T/2, i.e. 2m + T ≥ 1, which
-      -- is m on ρ's side of the midpoint of the two roots.
+      -- TURN.  |m² + Tm − C| = |m − �|�|m − ��| with � = (−T + �Δ)/2 and
+      -- �� = (−T − �Δ)/2, so it is small near EITHER root.  The candidate
+      -- near �� is the previous turn run backwards: at Δ = 61 (T = 1) from
+      -- the seed (3, 1) it is m = −4, and taking it returns (1, 0) � the
+      -- trivial unit � in one turn, an answer that is true and empty.  The
+      -- classical rule's "m > 0" is this condition at T = 0, where �� = −�D
+      -- is negative; the general form is m > −T/2, i.e. 2m + T � 1, which
+      -- is m on �'s side of the midpoint of the two roots.
       let r0 = (mt - t) `mod` n
           j0 = (mStar - r0) `div` n
           onPrincipalSide z = 2 * z + t > 0
@@ -390,8 +390,8 @@ vargaPrakrti t c
         else Right q'
 
     -- BRAHMAGUPTA'S SHORTCUT (628), which predates the cycle by five
-    -- centuries: from k = −1, ±2 or 4 the answer follows by composition
-    -- alone.  Every divisibility below is CHECKED rather than argued — at
+    -- centuries: from k = −1, �2 or 4 the answer follows by composition
+    -- alone.  Every divisibility below is CHECKED rather than argued � at
     -- T = 0 the parity argument goes through, at T ≠ 0 it does not always,
     -- and `Nothing` (keep turning) is the honest answer where it does not.
     finish q@(Quad a b)
@@ -409,13 +409,13 @@ vargaPrakrti t c
 
 -- the two named instances.
 
--- T = 0, C = D: ℤ[√D].  Exactly `Nalanda`'s law, recovered as one point of
+-- T = 0, C = D: �[�D].  Exactly `Nalanda`'s law, recovered as one point of
 -- the family rather than as the family.
 pellLaw :: Integer -> Either Defect (Law Quad)
 pellLaw d = vargaPrakrti 0 d
 
 -- the MAXIMAL order of discriminant Δ.  Δ ≡ 1 (mod 4) gives T = 1,
--- C = (Δ−1)/4 and ω = (1 + √Δ)/2; Δ ≡ 0 (mod 4) gives T = 0, C = Δ/4.
+-- C = (Δ−1)/4 and ω = (1 + �Δ)/2; Δ ≡ 0 (mod 4) gives T = 0, C = Δ/4.
 -- Δ ≡ 2, 3 (mod 4) is not a discriminant and is answered with a defect
 -- naming the reason.
 maximalOrderLaw :: Integer -> Either Defect (Law Quad)
@@ -427,25 +427,25 @@ maximalOrderLaw disc = case disc `mod` 4 of
           \quadratic order; discriminants are ≡ 0 or 1 (mod 4)")
          ("Δ = " ++ show disc))
 
--------------------------------------------------- INSTANCE 2: घनप्रकृतिः
+-------------------------------------------------- INSTANCE 2: ������������
 --
--- ℤ[∛d]: N(x + y·∛d + z·∛d²) = x³ + d·y³ + d²·z³ − 3d·x·y·z.
+-- �[�d]: N(x + y��d + z��d²) = x³ + d�y³ + d²�z³ − 3d�x�y�z.
 --
 -- WHY IT IS HERE.  It is the honest test of whether "the law is a
--- parameter" means anything.  Legs 1 and 2 are present and exact —
--- multiplication in ℤ[∛d] composes two results into a third, and the norm
--- multiplies, checked at every use by `composeChecked` — so the GENERATIVE
+-- parameter" means anything.  Legs 1 and 2 are present and exact �
+-- multiplication in �[�d] composes two results into a third, and the norm
+-- multiplies, checked at every use by `composeChecked` � so the GENERATIVE
 -- half of the reactor runs here unchanged and produces certified units
 -- without any search.
 --
 -- LEG 3 IS ABSENT, AND THIS IS A WRITTEN DEFECT, NOT A GAP LEFT SILENT.
 --
---   what fails:  the cakravāla's descent composes with an interpolator
+--   what fails:  the cakravla's descent composes with an interpolator
 --                (m, 1) whose norm m² + Tm − C is a QUADRATIC in one
---                unknown, so Bhāskara's rule minimises a single-variable
---                quantity over a single residue class, and the kuṭṭaka —
---                one linear congruence — makes the division exact.  In
---                ℤ[∛d] the interpolator is (m, n, 1) with norm
+--                unknown, so Bhskara's rule minimises a single-variable
+--                quantity over a single residue class, and the kuaka �
+--                one linear congruence � makes the division exact.  In
+--                �[�d] the interpolator is (m, n, 1) with norm
 --                m³ + d n³ + d² − 3 d m n, a cubic in TWO unknowns.  There
 --                is no single congruence whose solution class contains the
 --                minimiser, so the pulverizer has nothing to solve and the
@@ -454,7 +454,7 @@ maximalOrderLaw disc = case disc `mod` 4 of
 --   the failing instance, exhibited rather than described: at d = 2, from
 --                the seed (1, 1, 0) with norm 1 + 2 = 3, the pair (m, n)
 --                minimising |N(m, n, 1)| over the class the two-variable
---                analogue of Bhāskara's congruence would give is (−1, −1),
+--                analogue of Bhskara's congruence would give is (−1, −1),
 --                for which the first coordinate of the composite is
 --                divisible by 3 and the SECOND is not.  `ghanaLaw` returns
 --                that defect with the numbers in it rather than a retry.
@@ -475,12 +475,12 @@ instance Show Ghana where
 
 ghanaLaw :: Integer -> Law Ghana
 ghanaLaw d = Law
-  { lawName = "ghana-prakṛti  ℤ[∛" ++ show d ++ "]"
-  , lawSource = "the composition is multiplication in ℤ[∛d]; the norm form \
+  { lawName = "ghana-prakti  �[�" ++ show d ++ "]"
+  , lawSource = "the composition is multiplication in �[�d]; the norm form \
                 \x³ + d y³ + d² z³ − 3d xyz is the determinant of \
-                \multiplication by x + y∛d + z∛d².  NOT attributed to any \
+                \multiplication by x + y�d + z�d².  NOT attributed to any \
                 \Indian source: no cubic norm form is in the corpus this \
-                \repository reads, and inventing a Sanskrit provenance for \
+                \repository reads, and inventing a  provenance for \
                 \it would be the mirror image of the scrubbing CLAUDE.md \
                 \forbids.  The NAME ghana (\"cube\") is descriptive and is \
                 \marked as such."
@@ -493,10 +493,10 @@ ghanaLaw d = Law
       x*x*x + d*y*y*y + d*d*z*z*z - 3*d*x*y*z
   , lawSeed = Right (Ghana 1 1 0)
   , lawDescend = \g -> Left (Defect
-      ("leg 3 (descent), law = ghana-prakṛti ℤ[∛" ++ show d ++ "]")
+      ("leg 3 (descent), law = ghana-prakti �[�" ++ show d ++ "]")
       "the interpolator is (m, n, 1), a cubic in TWO unknowns, so there is \
       \no single linear congruence whose class contains the minimiser; the \
-      \kuṭṭaka has nothing to solve and the divisions are not made exact. \
+      \kuaka has nothing to solve and the divisions are not made exact. \
       \Voronoi's chain of relative minima (1896) is the two-dimensional \
       \descent that closes this and is NOT implemented here."
       (let k = nrm g
@@ -526,10 +526,10 @@ ghanaLaw d = Law
 --      whose answer has fifteen digits.  If the generalisation broke the
 --      special case, this is where it shows.
 --   2. THE NEW ANSWERS.  Fundamental units of maximal orders at Δ ≡ 1
---      (mod 4), each verified against N(x,y) = ±1 by recomputation, and
+--      (mod 4), each verified against N(x,y) = �1 by recomputation, and
 --      each tied back to the Pell answer it contains as a power.
---   3. THE ℕ IDENTITIES the Agda certificate states, checked here at
---      concrete numbers BEFORE being handed to the kernel — so a shape
+--   3. THE � IDENTITIES the Agda certificate states, checked here at
+--      concrete numbers BEFORE being handed to the kernel � so a shape
 --      error is caught by the generator and not only by Agda.
 selfTest :: IO Bool
 selfTest = do
@@ -540,27 +540,27 @@ selfTest = do
   putStrLn ""
   putStrLn "  2. NEW: fundamental units of MAXIMAL orders, Δ ≡ 1 (mod 4),"
   putStrLn "     which x² − D y² = 1 cannot see."
-  putStrLn "     Δ       turns  ε = (x, y) in 1, ω    N(ε)   ε as (u + v√Δ)/2"
+  putStrLn "     Δ       turns  ε = (x, y) in 1, ω    N(ε)   ε as (u + v�Δ)/2"
   r2 <- mapM maximal [5, 13, 21, 29, 61, 109, 421]
   putStrLn ""
-  putStrLn "  3. THE ℕ IDENTITIES the kernel is asked to check, checked here first."
+  putStrLn "  3. THE � IDENTITIES the kernel is asked to check, checked here first."
   let r3 = natIdentities
-  putStrLn ("     general bhāvanā over ℕ, subtraction-free:  " ++ show (fst r3))
-  putStrLn ("     general cakravāla step over ℕ:             " ++ show (snd r3))
+  putStrLn ("     general bhvan over �, subtraction-free:  " ++ show (fst r3))
+  putStrLn ("     general cakravla step over �:             " ++ show (snd r3))
   putStrLn ""
   putStrLn "  4. THE CHOICE WINDOW is exhaustive, not sampled: same answers"
-  putStrLn "     at window ±2 and ±6."
+  putStrLn "     at window �2 and �6."
   let r4 = all windowStable ([(0, d) | (d, _, _) <- classical]
                              ++ [(1, (dd - 1) `div` 4) | dd <- [5, 13, 61, 109, 421]])
   putStrLn ("     window-independent: " ++ show r4)
   putStrLn ""
-  putStrLn "  5. LEG 3 ABSENT at ℤ[∛2]: legs 1 and 2 run and are checked;"
+  putStrLn "  5. LEG 3 ABSENT at �[�2]: legs 1 and 2 run and are checked;"
   putStrLn "     the descent returns a WRITTEN DEFECT with its instance."
   r5 <- ghanaReport
   pure (and r1 && and r2 && fst r3 && snd r3 && r4 && r5)
   where
     -- (D, a, b) as the tradition records the fundamental solution of
-    -- x² − D y² = 1.  D = 61 is Bhāskara's own worked example.
+    -- x² − D y² = 1.  D = 61 is Bhskara's own worked example.
     classical =
       [ (2,   3 :: Integer,          2 :: Integer)
       , (3,   2,          1)
@@ -589,14 +589,14 @@ selfTest = do
       Right law -> case (reactor law, normOneSolution law) of
         (Right tr, Right p) -> do
           let e@(Quad x y) = last tr
-              -- x + y(1+√Δ)/2 = ((2x+y) + y√Δ)/2
+              -- x + y(1+�Δ)/2 = ((2x+y) + y�Δ)/2
               u = 2 * x + y
               ok = abs (lawNorm law e) == 1
                    && u * u - dd * y * y == 4 * lawNorm law e
                    && lawNorm law p == 1
           putStrLn ("     " ++ pad 8 (show dd) ++ pad 7 (show (length tr - 1))
                     ++ pad 22 (show e) ++ pad 7 (show (lawNorm law e))
-                    ++ "(" ++ show u ++ " + " ++ show y ++ "√" ++ show dd ++ ")/2"
+                    ++ "(" ++ show u ++ " + " ++ show y ++ "�" ++ show dd ++ ")/2"
                     ++ (if ok then "" else "   <-- MISMATCH"))
           pure ok
         (Left def, _) -> putStrLn (renderDefect def) >> pure False
@@ -611,11 +611,11 @@ selfTest = do
 
     ghanaReport = do
       let law = ghanaLaw 2
-          e   = Ghana (-1) 1 0        -- ∛2 − 1, norm −1 + 2 = 1
+          e   = Ghana (-1) 1 0        -- �2 − 1, norm −1 + 2 = 1
       case composeChecked law e e of
         Left def -> putStrLn (renderDefect def) >> pure False
         Right e2 -> do
-          putStrLn ("     leg 1+2 at ℤ[∛2]:  ε = " ++ show e
+          putStrLn ("     leg 1+2 at �[�2]:  ε = " ++ show e
                     ++ ", N(ε) = " ++ show (lawNorm law e)
                     ++ ";  ε² = " ++ show e2
                     ++ ", N(ε²) = " ++ show (lawNorm law e2))
@@ -658,7 +658,7 @@ vargaPrakrtiWide t c w
     go q@(Quad a b) = do
       let k = nrm q
           n = abs k
-      bi <- maybe (Left (Defect "leg 3" "kuṭṭaka: no solution class" (show q)))
+      bi <- maybe (Left (Defect "leg 3" "kuaka: no solution class" (show q)))
                   Right (inverseMod b n)
       let mt = ((- a) * bi) `mod` n
           r0 = (mt - t) `mod` n
@@ -671,11 +671,11 @@ vargaPrakrtiWide t c w
       b' <- divExact (show q) (a + b * (m + t)) k
       Right (posify (Quad a' b'))
 
--- The two identities the Agda certificate states, evaluated over ℕ at a box
--- of concrete points.  This is NOT the proof — CLAUDE.md is explicit that a
--- finite box proves only what it exhausts — it is the generator refusing to
+-- The two identities the Agda certificate states, evaluated over � at a box
+-- of concrete points.  This is NOT the proof � CLAUDE.md is explicit that a
+-- finite box proves only what it exhausts � it is the generator refusing to
 -- emit a shape it has not itself checked.  The proof is `solve` in
--- formal/cubical/VargaPrakrti_TraceBhavanaOverN.agda, over all naturals.
+-- formal/cubical/VargaPrakrti_TraceCompositionOverN.agda, over all naturals.
 natIdentities :: (Bool, Bool)
 natIdentities = (all bhav pts4, all cakr pts3)
   where

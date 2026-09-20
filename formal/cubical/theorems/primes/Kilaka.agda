@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Kilaka where
--- कीलक: the bolt.  A square prime factor forces a duplicate in the
--- canonical factorization, so μ̂ n ≡ 0 whenever p² ∣ n.
+-- ������: the bolt.  A square prime factor forces a duplicate in the
+-- canonical factorization, so μ� n ≡ 0 whenever p² � n.
 
 open import Prakriti
 open import Vibhajana using (Prati; product; factor)
@@ -46,7 +46,7 @@ memRemove→dup p ((q , pr) ∷ l) (inr m) (inl e) =
 memRemove→dup p ((q , pr) ∷ l) (inr m) (inr m') =
   inr (memRemove→dup p l m m')
 
--- p prime with p² ∣ n: the canonical list must repeat p
+-- p prime with p² � n: the canonical list must repeat p
 squareDup : (p n : ℕ) → IsPrime p → divides (p · p) n → (h : 1 ≤ n)
           → HasDup (fst (factor n h))
 squareDup p n prP pp∣n h = memRemove→dup p l m p∈rest

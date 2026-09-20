@@ -6,7 +6,7 @@
 -- `TheGapWasAUnitsError` proves the walk's storage equals the logarithm
 -- of its workload, and lists what it quotes rather than proves:
 --
---   "QUOTED, not re-proved here: â€¦ that an injective map out of a set of
+--   "QUOTED, not re-proved here: â¦ that an injective map out of a set of
 --    n+1 elements needs at least n+1 targets (pigeonhole), which is what
 --    makes lcm(S) > n a LOWER bound and hence makes 'optimal' mean
 --    something."
@@ -14,24 +14,24 @@
 -- That is the load-bearing half of the word "optimal", and it is quoted.
 -- Here it is a term.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE STATEMENT
 --
 --     lossless-needs-room :
---       (n : â„•) (Y : FinSet â„“) (obs : Fin (suc n) â†’ Y .fst)
---       â†’ Injective obs â†’ suc n â‰¤ card Y
+--       (n : â•) (Y : FinSet â“) (obs : Fin (suc n) â’ Y .fst)
+--       â’ Injective obs â’ suc n â‰ card Y
 --
--- Any lossless observation of the inputs 0 â€¦ n â€” ANY, over every scheme,
--- not just residues and not just the walk's â€” needs at least n+1
+-- Any lossless observation of the inputs 0 â¦ n â” ANY, over every scheme,
+-- not just residues and not just the walk's â” needs at least n+1
 -- distinguishable outcomes.  With the walk's outcome space being the
 -- residues mod lcm(S), of which there are exactly lcm(S), this is what
 -- turns the CRT criterion `lcm(S) > n` from a description of the walk
 -- into a bound on every machine.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- PRIOR ART, SEARCHED FIRST THIS TIME
 --
--- `Cubical.Data.FinSet.Cardinality.cardâ†ªInequality'` is the pigeonhole in
+-- `Cubical.Data.FinSet.Cardinality.cardâInequality'` is the pigeonhole in
 -- exactly the needed direction, and `formal/cubical/FinCardinality.agda`
 -- already carries CRT (`crtEquiv`, `crtInj`) and the equal-cardinality
 -- counting principle for this repository.  Nothing below is new
@@ -42,25 +42,25 @@
 -- audit time.  This one was found before writing, which is the whole of
 -- the difference.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- AND WHY THIS SHAPE MATTERS TO THE DEFLATIONARY THREAD
 --
 -- `DeflationaryTest` Â§10 shows this lane cannot express a barrier: every
--- absence is stable, every dichotomy is a decision, and `Â¬ (Dec A)` is
+-- absence is stable, every dichotomy is a decision, and `Â (Dec A)` is
 -- contradictory.  It closes by asking what a genuine limitation would
 -- have to look like instead.
 --
 -- This is one.  `lossless-needs-room` is POSITIVE, is quantified over
 -- every observation scheme, and bounds them all.  It says "no machine of
 -- this kind does better", which is the content people reach for when they
--- write "barrier" â€” and it is available, expressible, and provable here,
+-- write "barrier" â” and it is available, expressible, and provable here,
 -- because it quantifies over a class rather than negating a proposition.
 --
 -- A limitation you can state is a Î  over machines.  A barrier you cannot
--- state is a Â¬ over propositions.  The corpus has been writing the second
+-- state is a Â over propositions.  The corpus has been writing the second
 -- while meaning the first.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -83,14 +83,14 @@ private
 -- 1.  Losslessness, as this corpus means it
 --
 -- The observation separates the inputs it is run on.  This is exactly
--- `WALK_FORCING_LAW.md`'s "the observation n â†¦ (n mod m) is injective on
+-- `WALK_FORCING_LAW.md`'s "the observation n â¦ (n mod m) is injective on
 -- the walked prefix".
 ------------------------------------------------------------------------
 
 Injective : {A : Type â„“} {B : Type â„“} â†’ (A â†’ B) â†’ Type â„“
 Injective {A = A} f = {x y : A} â†’ f x â‰¡ f y â†’ x â‰¡ y
 
--- the inputs 0 â€¦ n, as a finite set of size n+1
+-- the inputs 0 â¦ n, as a finite set of size n+1
 Inputs : â„• â†’ FinSet â„“-zero
 Inputs n = FinSetFin (suc n)
 
@@ -111,7 +111,7 @@ lossless-needs-room n Y obs inj =
 --
 -- The walk's outcome space at frontier k is the residues modulo cap k,
 -- of which there are exactly cap k.  So by Â§2 any lossless walk over the
--- prefix [0, n] has cap k â‰¥ n+1 â€” which is `WALK_FORCING_LAW.md`'s
+-- prefix [0, n] has cap k â‰ n+1 â” which is `WALK_FORCING_LAW.md`'s
 -- invariant `lcm(S) > n`, now derived as a bound on every scheme rather
 -- than stated as a property of one.
 --
@@ -133,11 +133,11 @@ lossless-needs-room n Y obs inj =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 5.  RELATION TO `WalkCapacity` â€” checked after the fact,
+-- 5.  RELATION TO `WalkCapacity` â” checked after the fact,
 --     and they are complements rather than duplicates.
 --
 -- `WalkCapacity` (2026-08-13) proves the capacity theorem: any lossless
--- sensor family whose addresses are all â‰¤ k has lcm DIVIDING lcm(1..k),
+-- sensor family whose addresses are all â‰ k has lcm DIVIDING lcm(1..k),
 -- and the bound is attained.  That bounds the state's MODULUS from above,
 -- by two universal properties and no arithmetic.
 --
@@ -152,7 +152,7 @@ lossless-needs-room n Y obs inj =
 -- `WalkCapacity`'s design note is also worth reading against
 -- `FrontierList`: it states capacity by universal property BECAUSE this
 -- lane has no LCM module, and calls that absence an improvement.  The
--- `frontierList` construction is the deliberate complement â€” a concrete
--- residue space where that module deliberately avoided one â€” and neither
+-- `frontierList` construction is the deliberate complement â” a concrete
+-- residue space where that module deliberately avoided one â” and neither
 -- supersedes the other.
 ------------------------------------------------------------------------

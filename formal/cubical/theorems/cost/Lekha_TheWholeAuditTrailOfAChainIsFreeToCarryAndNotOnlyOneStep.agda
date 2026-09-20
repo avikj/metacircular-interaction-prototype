@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤²à¥‡à¤–à¤¾ â€” à¤¸à¤°à¥à¤µà¤¾ à¤²à¥‡à¤–à¤¾ à¤®à¥à¤•à¥à¤¤à¤¾, à¤¨ à¤•à¥‡à¤µà¤²à¤®à¥ à¤à¤•à¤‚ à¤ªà¤¦à¤®à¥ à¥¤
+-- à²àà–à¾ â” àà°ààµà¾ à²àà–à¾ à®àà•ààà¾, à¨ à•ààµà²à®à àà•à àà¦à®à à
 --
 -- (the whole ledger rides free, not just one step.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- `fibre/src/Loss/Carrier.agda` proves ONE step free: the
 -- datum and its witness contribute zero degrees of freedom, because
--- `singl (f a)` is contractible.  Everything downstream in this corpus â€”
+-- `singl (f a)` is contractible.  Everything downstream in this corpus â”
 -- that a receipted mathematics is affordable at all, that proof-of-
 -- transport is cheap, that Bennett's garbage tape is the constructive
--- witness â€” is a claim about CHAINS, and one step does not give it.  A
+-- witness â” is a claim about CHAINS, and one step does not give it.  A
 -- reader could reasonably fear the trail accumulates.
 --
--- It does not.  Â§à¥¨: a point carried through TWO maps, dragging both
+-- It does not.  Â§à¨: a point carried through TWO maps, dragging both
 -- intermediate values and both witnesses, is equivalent to the bare
--- point.  Not small â€” EQUAL, and the equivalence is `Î£`-contraction
+-- point.  Not small â” EQUAL, and the equivalence is `Î`-contraction
 -- twice with no hypothesis on `A`, `B`, `C`, `f` or `g`.
 --
 -- READ AT BENNETT.  Reversible computation pays for its garbage tape in
 -- space, per execution, which is why it stayed theoretical.  Here the
 -- trail is contractible, so what is stored is not the intermediates but
--- WHICH standard trail they are, and Â§à¥¨ is the statement that this holds
--- at length two exactly as at length one.  README movement 5's identity â€”
+-- WHICH standard trail they are, and Â§à¨ is the statement that this holds
+-- at length two exactly as at length one.  README movement 5's identity â”
 -- the reversible computer's garbage tape and the constructive proof's
--- carried witness are one object â€” is that sentence, and Â§à¥¨ is the part
+-- carried witness are one object â” is that sentence, and Â§à¨ is the part
 -- of it that has to be true for the economics to work.
 --
 -- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
@@ -45,7 +45,7 @@ private variable â„“ : Level
 module _ {A B C : Type â„“} (f : A â†’ B) (g : B â†’ C) where
 
 ------------------------------------------------------------------------
--- à¥§ Â· à¤²à¥‡à¤–à¤¾ â€” the full trail: the point, both images it passes through,
+-- à§ Â à²àà–à¾ â” the full trail: the point, both images it passes through,
 --     and the witness at each step that it IS that image.
 ------------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ module _ {A B C : Type â„“} (f : A â†’ B) (g : B â†’ C) where
   à¤²à¥‡à¤–à¤¾ = Î£[ a âˆˆ A ] Î£[ p âˆˆ singl (f a) ] singl (g (p .fst))
 
 ------------------------------------------------------------------------
--- à¥¨ Â· à¤²à¥‡à¤–à¤¾ à¤®à¥à¤•à¥à¤¤à¤¾ â€” AND IT IS THE POINT.
+-- à¨ Â à²àà–à¾ à®àà•ààà¾ â” AND IT IS THE POINT.
 --
 -- Both intermediates and both witnesses contract away.  No hypothesis on
 -- anything: arbitrary types, arbitrary maps, however lossy.
@@ -65,15 +65,15 @@ module _ {A B C : Type â„“} (f : A â†’ B) (g : B â†’ C) where
 
 
 ------------------------------------------------------------------------
--- à¥© Â· à¤…à¤¨à¤¨à¥à¤¤-à¤²à¥‡à¤–à¤¾ â€” AND AT EVERY LENGTH, by induction.
+-- à© Â àà¨à¨àà-à²àà–à¾ â” AND AT EVERY LENGTH, by induction.
 --
--- Â§à¥¨ fenced itself at two steps and named the n-fold version as an
+-- Â§à¨ fenced itself at two steps and named the n-fold version as an
 -- induction nobody had written.  This writes it, for the iterated case:
 -- one endomorphism, a trail of `n` steps, every intermediate and every
 -- witness carried.  Contractible for every `n`.
 --
 -- So the audit trail of an arbitrarily long computation is informationally
--- free â€” which is the statement the whole per-edge economics rests on, and
+-- free â” which is the statement the whole per-edge economics rests on, and
 -- it is four lines.  What is bounded is not the trail; it is what the
 -- MAPS destroy, and that is the other binding entirely.
 ------------------------------------------------------------------------

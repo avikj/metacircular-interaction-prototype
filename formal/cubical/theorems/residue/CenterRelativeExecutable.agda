@@ -3,28 +3,28 @@
 ------------------------------------------------------------------------
 -- CenterRelativeExecutable
 --
--- TARGET A OF THE ANEKĀNTA–UNIVALENCE DELTA: w ± r, executably.
+-- TARGET A OF THE ANEKNTA�UNIVALENCE DELTA: w � r, executably.
 --
 -- The directive's own words for this target:
 --
 --   "In Cubical Agda over a setting where 2 is invertible, define
 --    Φ(p,q) = ((p+q)/2, (q−p)/2), Ψ(w,r) = (w−r, w+r). Prove ΦΨ = id and
 --    ΨΦ = id. Use univalence to obtain PairSpace = CenterRelativeSpace.
---    Define exchange τ(p,q) = (q,p) and reflection ρ(w,r) = (w,−r).
---    Prove Φ∘τ = ρ∘Φ. Then transport downstream structures through ua(Φ).
+--    Define exchange �(p,q) = (q,p) and reflection �(w,r) = (w,−r).
+--    Prove Φ∘� = �∘Φ. Then transport downstream structures through ua(Φ).
 --    This elementary example is the founding executable reconciliation."
 --
 -- All of that is below, and one thing more that the directive asks for
--- separately and that this instance can supply on the nose (§5): ρ is not
--- merely intertwined with τ, it **IS** the transport of τ. That is the
--- directive's `f^e = e ∘ f ∘ e⁻¹` as a checked identity of functions
+-- separately and that this instance can supply on the nose (§5): � is not
+-- merely intertwined with �, it **IS** the transport of �. That is the
+-- directive's `f^e = e ∘ f ∘ e��` as a checked identity of functions
 -- rather than a definition, and it is the smallest complete instance of
--- its "witnessed equivalence → transport" step.
+-- its "witnessed equivalence � transport" step.
 --
 -- METHOD NOTE, because the directive is explicit that warrant matters
--- (न्याय counterweight): this file reuses `Transport`'s
--- idiom exactly — `transportUAop₁` against `ua` of a constructed
--- equivalence — which is that module's `transport-+-is-⊕` one arity down.
+-- (����� counterweight): this file reuses `Transport`'s
+-- idiom exactly � `transportUAop�` against `ua` of a constructed
+-- equivalence � which is that module's `transport-+-is-⊕` one arity down.
 -- Nothing here is a new technique. The content is that the pair/centre
 -- exchange is an instance of it.
 --
@@ -33,11 +33,11 @@
 --
 -- The whole development is parameterised by a commutative ring `R`
 -- together with an element `half` and a proof `half + half ≡ 1r`. It is
--- NOT specialised to ℚ or to ℤ[1/2], and it must not be: over ℤ the maps
+-- NOT specialised to � or to �[1/2], and it must not be: over � the maps
 -- are not defined at all (Φ leaves the ring), and hard-wiring a field
 -- would hide exactly which hypothesis is load-bearing. Parameterising is
 -- the statement that **`half + half ≡ 1r` is the entire arithmetic input**
--- — every proof below uses it exactly twice per component and otherwise
+-- � every proof below uses it exactly twice per component and otherwise
 -- runs on ring axioms alone, discharged by the `CommRingSolver`.
 --
 -- Consequence worth stating, since the directive's target B is about
@@ -51,23 +51,23 @@
 --
 --   §1  `Φ`, `Ψ`             the two maps, over any (R, half).
 --   §2  `ΨΦ`, `ΦΨ`           mutually inverse, pointwise.
---       `ΦIso`, `ΦEquiv`     hence an isomorphism and an equivalence …
---       `Pair≡Centre`        … and by univalence a PATH of types.
+--       `ΦIso`, `ΦEquiv`     hence an isomorphism and an equivalence �
+--       `Pair≡Centre`        � and by univalence a PATH of types.
 --                            "PairSpace = CenterRelativeSpace" is
 --                            therefore an inhabitant of an identity type
 --                            here, not a slogan.
---   §3  `τ`, `ρ`             exchange and reflection, with
---       `τ-invol`,`ρ-invol`  both shown involutive.
---   §4  `Φ∘τ≡ρ∘Φ`            THE INTERTWINER the directive names, as a
+--   §3  `�`, `�`             exchange and reflection, with
+--       `�-invol`,`�-invol`  both shown involutive.
+--   §4  `Φ∘�≡�∘Φ`            THE INTERTWINER the directive names, as a
 --                            path of functions (`funExt`), not pointwise
 --                            only.
---   §5  `transport-τ-is-ρ`   THE TRANSPORT STATEMENT. Transporting `τ`
---                            along `ua ΦEquiv` yields **literally** `ρ`.
+--   §5  `transport-�-is-�`   THE TRANSPORT STATEMENT. Transporting `�`
+--                            along `ua ΦEquiv` yields **literally** `�`.
 --                            So reflection is not analogous to exchange
 --                            and is not merely conjugate to it; it is
 --                            what exchange becomes when the identification
 --                            is taken seriously.
---   §6  `ρ-is-conjugate`     the elementary reading of §5, `ρ = Φ∘τ∘Ψ`,
+--   §6  `�-is-conjugate`     the elementary reading of §5, `� = Φ∘�∘Ψ`,
 --                            kept because it is what a reader checks by
 --                            hand and because §5 without it looks like
 --                            machinery.
@@ -85,7 +85,7 @@
 --    arithmetic content of "prime pairs" is entirely outside it. This is
 --    a statement about the coordinate change and nothing else.
 --
---  * **Not novel.** The change of coordinates (p,q) ↦ ((p+q)/2,(q−p)/2)
+--  * **Not novel.** The change of coordinates (p,q) � ((p+q)/2,(q−p)/2)
 --    is elementary and ancient; `half + half ≡ 1r` is the only hypothesis
 --    and any algebra text has this. What is offered is that it is now a
 --    *path of types* with a *checked transport*, available to be consumed
@@ -140,7 +140,7 @@ module _ (R : CommRing ℓ) where
   ----------------------------------------------------------------------
   -- 2.  Mutually inverse, hence a path of types.
   --
-  -- Each component is `(ring identity) ∙ (the one hypothesis) ∙ ·IdL`.
+  -- Each component is `(ring identity) ∙ (the one hypothesis) ∙ �IdL`.
   -- The ring identities are discharged by the solver, so what remains
   -- visible is exactly where `half + half ≡ 1r` is used: twice, once per
   -- component, and nowhere else.
@@ -225,10 +225,10 @@ module _ (R : CommRing ℓ) where
   --
   -- Transporting the exchange involution along the univalent path yields
   -- literally the reflection.  Not "corresponds to", not "is conjugate
-  -- to" — the two functions are equal.
+  -- to" � the two functions are equal.
   --
   -- This is `Transport.transport-+-is-⊕` one arity down,
-  -- with `transportUAop₁` in place of `transportUAop₂`; the idiom is
+  -- with `transportUAop�` in place of `transportUAop�`; the idiom is
   -- borrowed wholesale and is not claimed as new.
   ----------------------------------------------------------------------
 

@@ -1,0 +1,56 @@
+#!/bin/sh
+# Build CorpusGeneratedIndex.agda from an explicit list of GREEN module files
+# (one path per line on stdin). Same enumeration logic as generate-corpus-index,
+# but restricted to modules that actually check at the pin, so the index — and
+# any importer of it — is not killed by a red module.
+set -eu
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+OUT="$ROOT/formal/cubical/CorpusGeneratedIndex.agda"
+TMP="$OUT.tmp.$$"
+
+printf '%s\n' '{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}' > "$TMP"
+printf '%s\n\n' 'module CorpusGeneratedIndex where' >> "$TMP"
+printf '%s\n' 'open import Agda.Builtin.Reflection using (Name)' >> "$TMP"
+printf '%s\n\n' 'open import Agda.Builtin.List using (List ; [] ; _∷_)' >> "$TMP"
+
+mods="$ROOT/.corpus-mods.$$"; LC_ALL=C sort > "$mods"
+names="$ROOT/.corpus-names.$$"; : > "$names"
+dups="$ROOT/.corpus-dups.$$"
+while IFS= read -r f; do
+  sed -n 's/^[[:space:]]*module[[:space:]]\([^[:space:]]*\).*where[[:space:]]*$/\1/p' "$f" | head -1
+done < "$mods" | LC_ALL=C sort | uniq -d > "$dups"
+
+i=0
+while IFS= read -r f; do
+  mod=$(sed -n 's/^[[:space:]]*module[[:space:]]\([^[:space:]]*\).*where[[:space:]]*$/\1/p' "$f" | head -1)
+  [ -n "$mod" ] || continue
+  if grep -qxF "$mod" "$dups"; then continue; fi
+  alias="C$i"
+  printf 'import %s as %s\n' "$mod" "$alias" >> "$TMP"
+  awk -v a="$alias" '
+    {
+      line=$0; sub(/--.*/, "", line)
+      ci = index(line, " : "); ei = index(line, " = ")
+      if (line ~ /^[^ \t]/ && ci > 0 && (ei == 0 || ci < ei)) {
+        left = substr(line, 1, ci - 1); n=split(left, xs, /[ \t]+/)
+        for (j=1; j<=n; j++) { x=xs[j]
+          if (x == "" || x == "private" || x == "module" || x == "open" || x == "import" || x == "infix" || x == "infixl" || x == "infixr" || x == "syntax" || x == "variable" || x == "field" || x == "data" || x == "record" || x == "postulate" || x == "mutual" || x == "abstract" || x == "instance" || x == "where" || x == "with" || x == "renaming" || x == "using" || x == "hiding") continue
+          if (x ~ /[][(){}=;.@|?\\"]/) continue
+          if (index(x, "→")) continue
+          if (x == ":" || x == "∈" || x == "∀" || x == "λ" || x == "Σ" || x == "→" || x == "×" || x == "⊎" || x == "≃" || x == "≡") continue
+          print "quote " a "." x }
+      } else if (line ~ /^data[ \t]+[^ \t:{]+/) { split(line, xs, /[ \t]+/); print "quote " a "." xs[2]
+      } else if (line ~ /^record[ \t]+[^ \t:{]+/) { split(line, xs, /[ \t]+/); print "quote " a "." xs[2] }
+    }' "$f" >> "$names"
+  i=$((i + 1))
+done < "$mods"
+
+printf '\ncorpusNames : List Name\n' >> "$TMP"
+if [ -s "$names" ]; then
+  awk 'NR==1 { printf "corpusNames = %s", $0; next } { printf "\n  ∷ %s", $0 } END { print "\n  ∷ []" }' "$names" >> "$TMP"
+else
+  printf '%s\n' 'corpusNames = []' >> "$TMP"
+fi
+rm -f "$mods" "$names" "$dups"
+mv "$TMP" "$OUT"
+printf 'generated %s (%s modules)\n' "$OUT" "$i"

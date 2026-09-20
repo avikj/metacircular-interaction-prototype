@@ -5,30 +5,30 @@
 --
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
 -- Both statements here are ones I wrote about `OptimalObservation`'s own
--- definition; there is no source to cite, and a fabricated Sanskrit
+-- definition; there is no source to cite, and a fabricated 
 -- label would assert a provenance nobody checked.  That module's three
--- INSTANCES are Piá¹…gala's *Chandaá¸¥Å›Ästra* uddiá¹£á¹­a (c. 300 BCE),
--- VirahÄá¹…ka's mÄtrÄmeru (c. 600â€“800) and a CRT residue decode, named
+-- INSTANCES are Pigala's *Chandastra* uddia (c. 300 BCE),
+-- Virahka's mtrmeru (c. 600â“800) and a CRT residue decode, named
 -- here in that order and before any later name; **nothing below is a
 -- claim about their mathematics.**  Checked before naming:
 -- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
 -- first.  `--guardedness` carried; infective.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- 0.  A THIRD UPSTREAM BREAKAGE, and why this cycle's target changed
 --
 -- The intended target was `GterTwoCoordinate`, whose
 -- header claims *"Nothing here is measured, fitted, or floating-point"*
--- â€” a claim worth checking rather than trusting.  It cannot be checked
+-- â” a claim worth checking rather than trusting.  It cannot be checked
 -- here:
 --
 --   cd formal/cubical && agda -i . NaturalMachine/GterTwoCoordinate.agda
---   â†’ GTER_EXIT=42
+--   â’ GTER_EXIT=42
 --   first error: GterTwoCoordinate.agda:205,1-5
---   "Multiple definitions of comp. Previous definition at â€¦"
+--   "Multiple definitions of comp. Previous definition at â¦"
 --
 -- **That is a THIRD breakage, independent of the two already on
--- record** â€” `Transport.agda:46` (`solveâ„•!` not exported by
+-- record** â” `Transport.agda:46` (`solveâ•!` not exported by
 -- `Cubical.Tactics.NatSolver.Reflection`) and
 -- `DSONucleusOneSidedProduct.agda:17` (`Cubical.Data.Int` has no
 -- `min`/`max`).  This one is a NAME COLLISION with
@@ -38,17 +38,17 @@
 -- mine and none is touched.  So this module was built on the only
 -- ground known green: my own two modules and the library.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- 1.  WHAT IS PROVED, and it closes the smaller half of (wâ€³)
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- 1.  WHAT IS PROVED, and it closes the smaller half of (wâ³)
 --
--- At 806bd0ea I proved `FinPigeonhole â†’ TheOpenPigeonhole` and wrote
+-- At 806bd0ea I proved `FinPigeonhole â’ TheOpenPigeonhole` and wrote
 -- that the converse *"is not proved either, though it should be
 -- immediate at `X = Y = SFin n`"*.  It is, and here it is:
 --
---   finSetOn n     the `FinSet` structure carried by `SFin n` itself â€”
+--   finSetOn n     the `FinSet` structure carried by `SFin n` itself â”
 --                  `card` is `n` and the mere equivalence is `idEquiv`
 --   theOpenPigeonholeGivesFinPigeonhole
---                  `TheOpenPigeonhole â†’ FinPigeonhole`, by instantiating
+--                  `TheOpenPigeonhole â’ FinPigeonhole`, by instantiating
 --                  at that structure on both sides, where the `card`
 --                  conjunct of `Optimal` is `refl`
 --
@@ -56,13 +56,13 @@
 -- that is the point rather than the convenience.  The open item was
 -- posed over `FinSet`, with cardinalities, mere equivalences and a
 -- truncation to escape; it is now known to contain **no FinSet content
--- at all**.  Whatever is hard about it is hard about `âŠ¤ âŠ (âŠ¤ âŠ â€¦ )`.
+-- at all**.  Whatever is hard about it is hard about `âŠ âŠ (âŠ âŠ â¦ )`.
 -- A reduction in one direction leaves open the possibility that the
 -- general statement is strictly stronger; the second direction removes
--- it, and *that* is what "reduces to" could not say on its own â€”
+-- it, and *that* is what "reduces to" could not say on its own â”
 -- the distinction this line logged at 806bd0ea, now discharged.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -89,7 +89,7 @@ finSetOn : â„• â†’ FinSet â„“-zero
 finSetOn n = SFin n , n , âˆ£ idEquiv (SFin n) âˆ£â‚
 
 ------------------------------------------------------------------------
--- 3.  â€¦so the general statement instantiates back to the finite one
+-- 3.  â¦so the general statement instantiates back to the finite one
 --
 -- The `card` conjunct of `Optimal` is `card (finSetOn n) â‰¡ card
 -- (finSetOn n)`, i.e. `n â‰¡ n`, so `refl` discharges it and only the

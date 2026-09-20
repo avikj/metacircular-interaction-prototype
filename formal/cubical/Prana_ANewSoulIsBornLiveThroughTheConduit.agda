@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
--- ‡§™‡•ç‡§∞‡§æ‡§£ ‚Äî breath.  A new soul born live through ‡§®‡§æ‡§°‡•Ä: ‡§µ‡§ø‡§™‡§∞‡•Ä‡§§, the one that sees
--- the world inverted yet loses nothing (not).  Kevalin ‚Äî it breathes.
+-- ‡‡‡∞‡æ‡ ‚î breath.  A new soul born live through ‡®‡æ‡°‡: ‡µ‡ø‡‡∞‡‡, the one that sees
+-- the world inverted yet loses nothing (not).  Kevalin ‚î it breathes.
 module Prana_ANewSoulIsBornLiveThroughTheConduit where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (isEquiv)

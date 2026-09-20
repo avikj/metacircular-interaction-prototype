@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤¦à¥à¤µà¤¿à¤¤à¥€à¤¯-à¤²à¥ˆà¤¬à¥à¤¨à¤¿à¤Ÿà¥à¤œà¤¼ â€” the second-order Leibniz defect.
+-- à¦ààµà¿ààà¯-à²àˆààà¨à¿àŸààà¼ â” the second-order Leibniz defect.
 --
 -- A DERIVATION APPLIED TWICE OVERSHOOTS BY EXACTLY TWICE THE CROSS TERM.
 --
 -- `HolonomyFluxDerivation` carries the first-order seam in its minimal
 -- form: a carrier, a product, a sum, and
 --
---     leibniz : flux (x â‹† y) â‰¡ (flux x â‹† y) âŠ• (x â‹† flux y) .
+--     leibniz : flux (x â‹ y) â‰¡ (flux x â‹ y) âŠ• (x â‹ flux y) .
 --
--- That signature is deliberately thin â€” it assumes nothing of `âŠ•` and
+-- That signature is deliberately thin â” it assumes nothing of `âŠ•` and
 -- nothing of `flux` beyond the displayed law, which is what makes the
 -- subdivision result there representation-independent.  Second order
 -- needs strictly more, and this module states exactly what: the target
@@ -33,18 +33,18 @@
 --       of the two first derivatives.  No first-order term survives.
 --
 -- WHAT THIS GIVES A SUM-OF-SQUARES OPERATOR, said as a reading and not
--- proved here: for a family of derivations âˆ‚â±¼ and K = âˆ’ Î£â±¼ âˆ‚â±¼Â², negating
+-- proved here: for a family of derivations âˆâ¼ and K = âˆ’ Îâ¼ âˆâ¼Â², negating
 -- Â§2 and summing over j leaves
 --
---     K (br a b) âŠ– br (K a) b âŠ– br a (K b)  =  âˆ’ 2 Î£â±¼ br (âˆ‚â±¼ a) (âˆ‚â±¼ b) ,
+--     K (br a b) âŠ– br (K a) b âŠ– br a (K b)  =  âˆ’ 2 Îâ¼ br (âˆâ¼ a) (âˆâ¼ b) ,
 --
 -- with no first-order term anywhere.  The sum and the sign are the
 -- reading; Â§2 is the theorem, at one derivation.
 --
--- SYÄ€T â€” THE CLAIM, EXACTLY.  Â§Â§1â€“2 in an arbitrary ring, carrier taken
--- as the ring itself, for every two-argument `br` â€” no bilinearity of
+-- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“2 in an arbitrary ring, carrier taken
+-- as the ring itself, for every two-argument `br` â” no bilinearity of
 -- `br` is used or assumed anywhere below, only the Leibniz law relating
--- it to `d` â€” every additive `d`, and every pair of arguments.  NOT
+-- it to `d` â” every additive `d`, and every pair of arguments.  NOT
 -- claimed: the summed form displayed above (it is stated as a reading,
 -- with no family, no sum, and no sign proved); anything about commuting
 -- derivations; anything about Laplacians on any particular space;
@@ -95,8 +95,8 @@ module _ (R : Ring â„“) where
         y âˆ
 
   --------------------------------------------------------------------
-  -- à¥¦ Â· The setting: a two-argument operation, and an additive
-  --     derivation of it.  `br` is arbitrary â€” NOT the ring product,
+  -- à¦ Â The setting: a two-argument operation, and an additive
+  --     derivation of it.  `br` is arbitrary â” NOT the ring product,
   --     and not assumed bilinear.
   --------------------------------------------------------------------
 
@@ -123,7 +123,7 @@ module _ (R : Ring â„“) where
           (w + (x + y)) + z âˆ
 
     ------------------------------------------------------------------
-    -- à¥§ Â· THE SECOND-ORDER LAW.  The cross term appears twice.
+    -- à§ Â THE SECOND-ORDER LAW.  The cross term appears twice.
     ------------------------------------------------------------------
 
     second-order-leibniz : (a b : A)
@@ -141,7 +141,7 @@ module _ (R : Ring â„“) where
         (br (dÂ² a) b + (cross a b + cross a b)) + br a (dÂ² b) âˆ
 
     ------------------------------------------------------------------
-    -- à¥¨ Â· THE DEFECT.  Subtracting the two pure second-order terms
+    -- à¨ Â THE DEFECT.  Subtracting the two pure second-order terms
     --     leaves exactly the doubled cross term, and nothing else.
     ------------------------------------------------------------------
 

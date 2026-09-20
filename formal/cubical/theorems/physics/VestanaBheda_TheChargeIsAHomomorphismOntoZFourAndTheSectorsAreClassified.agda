@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§µ‡•á‡§∑‡•ç‡§ü‡§®-‡§≠‡•á‡§¶ ‚Äî the charge, classified.
+-- ‡µ‡‡‡‡ü‡®-‡‡‡¶ ‚î the charge, classified.
 --
 -- VestanaSutra found the conserved global charge; this file gives it
 -- its algebra:
 --
---   ¬ß1  ADDITIVE: concatenating words adds their writhes ‚Äî the
+--   ¬ß1  ADDITIVE: concatenating words adds their writhes ‚î the
 --       charge of a composite is the sum of the charges.
 --
---   ¬ß2  A HOMOMORPHISM ONTO ‚Ñ§/4: the residue of the writhe respects
+--   ¬ß2  A HOMOMORPHISM ONTO ‚/4: the residue of the writhe respects
 --       composition (mod-four addition proved by the four-step
 --       induction), and all four sectors are inhabited by the powers
---       of a single crossing ‚Äî with the sector of œÉ‚Åø being n mod 4,
+--       of a single crossing ‚î with the sector of œ‚ø being n mod 4,
 --       computed.
 --
 --   ¬ß3  SECTOR IS AN ACTION-INVARIANT OBSTRUCTION: words in different
 --       sectors cannot act identically when their difference matters
---       mod four ‚Äî the kernel theorem already pinned the abelian
+--       mod four ‚î the kernel theorem already pinned the abelian
 --       coordinate, and the total of the count vector is the sector,
 --       so the classification is faithful exactly to the fourth turn.
 --
 -- The rope's physics closes its gauge story: a locally unreadable,
--- globally conserved ‚Ñ§/4 charge, with its sectors inhabited, its
+-- globally conserved ‚/4 charge, with its sectors inhabited, its
 -- composition law proved, and its faithfulness bounded by the same
 -- fourth turn that bounds every phase in this development.  One
--- modulus governs the twist, the ladder, the kernel, and the charge ‚Äî
+-- modulus governs the twist, the ladder, the kernel, and the charge ‚î
 -- the quarter turn is the corpus's Planck constant.
 --
 ------------------------------------------------------------------------
@@ -41,7 +41,7 @@ open import CatuhSesaSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanis
   using (catu·∏•≈õe·π£a)
 
 ------------------------------------------------------------------------
--- ‡•ß ¬∑ Additivity of the writhe.
+-- ‡ß ¬ Additivity of the writhe.
 ------------------------------------------------------------------------
 
 ve·π£·π≠ana-yoga : (w v : List ‚Ñï)
@@ -49,7 +49,7 @@ ve·π£·π≠ana-yoga : (w v : List ‚Ñï)
 ve·π£·π≠ana-yoga = length++
 
 ------------------------------------------------------------------------
--- ‡•® ¬∑ The mod-four homomorphism, and the inhabited sectors.
+-- ‡® ¬ The mod-four homomorphism, and the inhabited sectors.
 ------------------------------------------------------------------------
 
 ≈õe·π£a-yoga : (a b : ‚Ñï)

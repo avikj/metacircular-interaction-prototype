@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Anantata where
--- अनन्तता: there is no largest prime.  ∀ n, a prime above n.
+-- �������: there is no largest prime.  � n, a prime above n.
 
 open import Yantra.Prakriti
 open import Cubical.Foundations.Prelude
@@ -30,7 +30,7 @@ factDiv k (suc n) 0<k k≤sn with k ≟ suc n
       in (suc n · c , sym (·-assoc (suc n) c k) ∙ cong (suc n ·_) e)
 ... | gt sn<k = Empty.rec (<-asym sn<k k≤sn)
 
--- p ∣ a and p ∣ a+1 forces p ∣ 1
+-- p � a and p � a+1 forces p � 1
 divStep : (p a : ℕ) → divides p a → divides p (a + 1) → divides p 1
 divStep p a (c₁ , e₁) (c₂ , e₂) = pull c₁<c₂
   where
@@ -86,6 +86,6 @@ euclid n = p , pr , above
   ... | eq h = Empty.rec (contra (subst (p ≤_) (sym h) ≤-refl))
   ... | gt h = Empty.rec (contra (<-weaken h))
 
--- it computes: the prime the proof finds above 4 is 5 (from 4!+1 = 25 → 5)
+-- it computes: the prime the proof finds above 4 is 5 (from 4!+1 = 25 � 5)
 _ : fst (euclid 4) ≡ 5
 _ = refl

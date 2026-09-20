@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Dvichanel where
--- ‡§¶‡•ç‡§µ‡§ø‡§ö‡•à‡§®‡§≤: every prime beyond 3 lives in channel 1 or 5 mod 6,
+-- ‡¶‡‡µ‡ø‡‡à‡®‡≤: every prime beyond 3 lives in channel 1 or 5 mod 6,
 -- and the channel of a sum of two such primes is determined by the pair.
 
 open import Yantra.Prakriti

@@ -18,30 +18,30 @@
 -- The previous cycle proved there is no best to pick; this one proves
 -- the thing Â§5.2 picks INSTEAD is constructible.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   decâ‰¤ / decâ‰¼             the product order on fitness vectors is
---                           decidable, from `splitâ„•-â‰¤` alone
+--   decâ‰ / decâ‰¼             the product order on fitness vectors is
+--                           decidable, from `splitâ•-â‰` alone
 --   decStrictlyDominates    hence so is strict domination
 --   decIsParetoMaximal      hence so is Pareto-maximality against a
 --                           finite archive, reusing `decAny`
 --   filterDec               the stratum, as a list
---   stratumOnlyKeepsMaximal    soundness â€” everything kept is maximal
---   stratumKeepsEveryMaximal   completeness â€” nothing maximal is dropped
+--   stratumOnlyKeepsMaximal    soundness â” everything kept is maximal
+--   stratumKeepsEveryMaximal   completeness â” nothing maximal is dropped
 --
 -- Soundness and completeness together are why "the filter is exact":
 -- the computed stratum and the specified stratum have the same members,
 -- so Â§5.2's first stage denotes.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NO NOVELTY.  Decidability of a product order from decidability of its
 -- factors, and the soundness/completeness of a decidable filter, are
 -- elementary.  They are checked here because the previous module named
 -- their absence as the reason its result was a specification and not a
 -- construction.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -170,23 +170,23 @@ stratumKeepsEveryMaximal xs v =
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no line
 -- above. One is discharged, the other is not, and this says which is which.
 --
--- DISCHARGED: "No claim is made that the stratum is non-empty â€¦ for a
+-- DISCHARGED: "No claim is made that the stratum is non-empty â¦ for a
 -- non-empty archive non-emptiness needs an argument this module does
 -- not make."  The argument is made, in
 -- `ANonEmptyArchiveHasANonEmptyStratum`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so):
+-- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
 --
---   âŠ-irrefl / âŠ-trans   strict domination; transitivity is NOT
+--   âŠ-irrefl / âŠ-trans   strict domination; transitivity is NOT
 --                        inherited from `â‰¼-trans`, the negative half
 --                        has to be argued
 --   anyMap               `Any` is functorial in its predicate
 --   maximalExists        every non-empty archive has a member maximal
---                        in it â€” list induction, DECIDING at each step
+--                        in it â” list induction, DECIDING at each step
 --                        whether the tail's maximum beats the head; if
 --                        it does, the HEAD is maximal, because anything
 --                        beating the head would beat it by transitivity
---   stratumIsNonEmpty    hence `stratum (x âˆ· xs)` has a member
+--   stratumIsNonEmpty    hence `stratum (x âˆ xs)` has a member
 --
 -- The decision that makes the induction constructive is
 -- `decStrictlyDominates` above; without it this would need excluded
@@ -197,6 +197,6 @@ stratumKeepsEveryMaximal xs v =
 -- on the archive's length, and nothing iterates anywhere yet.  Also
 -- still open: the SIZE of the stratum, whether it lists all maximal
 -- elements up to the duplication `filterDec` preserves, and whether the
--- element `maximalExists` produces is canonical â€” it depends on the
+-- element `maximalExists` produces is canonical â” it depends on the
 -- list's order.
 ------------------------------------------------------------------------

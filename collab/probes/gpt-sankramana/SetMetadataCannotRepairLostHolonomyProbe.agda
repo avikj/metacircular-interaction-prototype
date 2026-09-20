@@ -19,7 +19,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import HolonomyDescentObstructionCorrectedProbe using (HolonomyWitness)
 open import SetValuedObservationCannotCarryHolonomyProbe
   using (set-valued-observation-cannot-carry-holonomy)
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough)
 
 private

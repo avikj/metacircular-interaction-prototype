@@ -4,7 +4,7 @@
 -- The gate layer of RamanujanTernary: the form, the witness finders,
 -- the seventeen, and the three kernel scans, in their own module so
 -- the twenty-minute normalization is paid once and cached.  The
--- theorems live in RamanujanTernary_…TowardTheOpenList, which imports
+-- theorems live in RamanujanTernary_�TowardTheOpenList, which imports
 -- this and pays seconds.
 ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (eq?)
 open import Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection
   using (le? ; eq?-complete ; mand ; mand-just ; loop ; loop-sound ; ≤-k·)

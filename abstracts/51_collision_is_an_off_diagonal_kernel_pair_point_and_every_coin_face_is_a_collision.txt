@@ -1,6 +1,6 @@
 COLLISION IS AN OFF-DIAGONAL KERNEL-PAIR POINT, THE KERNEL PAIR IS THE
 FIBERED PAIRING, AND EVERY COIN FACE IS A COLLISION
-Collision semantics on the atom â€” finding a collision is constructing a
+Collision semantics on the atom â” finding a collision is constructing a
 distinct pair in one fiber, and the session's whole coin was that all
 along
 
@@ -9,38 +9,38 @@ unified
 
 Collision finding is not inversion.  It is the construction of an
 off-diagonal point of a program's kernel pair, and the kernel pair is
-the fibered pairing â€” so a collision is exactly two distinct points in
+the fibered pairing â” so a collision is exactly two distinct points in
 one output fiber.  This module makes that core exact on any map, and
 then closes a loop: the session's coin was collision semantics.
 
-THE KERNEL PAIR IS THE FIBERED PAIRING.  For any P : X â†’ Y,
-KernelPair P â‰ƒ Î£ y, (Fib P y Ã— Fib P y), with no hypothesis on Y â€” the
+THE KERNEL PAIR IS THE FIBERED PAIRING.  For any P : X â’ Y,
+KernelPair P â‰ Î y, (Fib P y — Fib P y), with no hypothesis on Y â” the
 based-path space is contractible and the equivalence is that
 contraction, twice, both round trips discharged.  Relational collision
 semantics is fiber geometry, as a term.
 
 A COLLISION IS AN OFF-DIAGONAL FIBER CONFIGURATION.  Coll P maps to
-Î£ y, Confâ‚‚(Fib P y) with no hypothesis, and back when Y is a set â€”
+Î y, Confâ(Fib P y) with no hypothesis, and back when Y is a set â”
 because a set makes the output-proofs unique, so apartness of inputs
 and apartness of fiber points coincide.
 
-WHERE DID THE COLLISION ENTER?  Fiber Fubini â€” the fiber of a
-composite is the dependent pairing of stage fibers â€” gives the
+WHERE DID THE COLLISION ENTER?  Fiber Fubini â” the fiber of a
+composite is the dependent pairing of stage fibers â” gives the
 collision chain rule: a composite collision is upstream (the
 intermediates already collided) or a genuine merge (the later stage
 identified two distinct intermediates), the split being exactly
 decidability of intermediate equality.
 
-THE COIN WAS COLLISION SEMANTICS.  Every face of the coin â€” a
-projection, two carried points, apart upstairs, together downstairs â€”
+THE COIN WAS COLLISION SEMANTICS.  Every face of the coin â” a
+projection, two carried points, apart upstairs, together downstairs â”
 IS a point of Coll of its projection, in one line.  So the P/NP gap,
 the route, the schedule, the count, and the rope's charge are all
 off-diagonal kernel-pair points, and the no-retraction lemma is
 exactly that these fibers admit no global chart.
 
-SYÄ€T â€” THE CLAIM, EXACTLY.  The kernel-pair equivalence, the two
+SYT â” THE CLAIM, EXACTLY.  The kernel-pair equivalence, the two
 collision/configuration directions, fiber Fubini and the chain rule,
-and that every coin face is a collision.  NOT claimed â€” the
+and that every coin face is a collision.  NOT claimed â” the
 collision-semantics document's own boundary, kept: none of this makes
 CONSTRUCTING an off-diagonal point cheap.  Identifying the fiber is
 immediate; giving it a short generative presentation is the work these

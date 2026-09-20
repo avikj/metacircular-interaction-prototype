@@ -7,10 +7,10 @@
 -- residual.  For an observation q and installed action step, the residual
 -- carrier is reversibly equivalent to the two-reading window
 --
---                   window₁ x = (q x , q (step x)).
+--                   window� x = (q x , q (step x)).
 --
 -- A predictor on this carrier exists exactly when the third reading
--- q(step(step x)) descends through window₁.  Hence a same-window/different-
+-- q(step(step x)) descends through window�.  Hence a same-window/different-
 -- third collision is an exact no-go certificate, and adjoining the third
 -- reading is the minimal conservative repair.
 --
@@ -22,7 +22,7 @@
 -- be executed next.
 --
 -- Finite observation windows and Moore/Nerode refinement are standard.  The
--- local complete future quotient is already checked in FutureBehavior.agda;
+-- local complete future quotient is already checked in MyhillNerodeMinimalMachine.agda;
 -- this module isolates the first stabilization obstruction and connects it
 -- to ActionResidual.agda.  No novelty is claimed.
 ------------------------------------------------------------------------
@@ -164,7 +164,7 @@ module FiniteWindows
   -- A left-associated exact prefix carrier:
   --
   --   WindowCode 0       = O
-  --   WindowCode (n + 1) = WindowCode n × O.
+  --   WindowCode (n + 1) = WindowCode n � O.
   --
   -- Thus window n contains readings 0 through n, inclusive.
   WindowCode : ℕ → Type ℓo

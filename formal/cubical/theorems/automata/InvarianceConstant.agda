@@ -10,7 +10,7 @@
 -- function is defined only up to an additive constant depending on the
 -- machine, so no *absolute* description length and no *narrow*
 -- comparison of description lengths carries content.  The note states
--- the fact (Li–Vitányi Thm 2.1.1) and its "Uniformity Lemma" in prose
+-- the fact (Li�Vit�nyi Thm 2.1.1) and its "Uniformity Lemma" in prose
 -- and uses them as a tool.  This module makes the tool a term, so that
 -- any future claim of the form "this description is shorter" is checked
 -- against a hypothesis rather than asserted.
@@ -19,34 +19,34 @@
 --     bounded overhead, their difference is bounded, uniformly in the
 --     argument.
 --
--- Universality enters exactly once in the classical proof — to produce
--- the two simulation constants — and nowhere else.  Everything after
+-- Universality enters exactly once in the classical proof � to produce
+-- the two simulation constants � and nowhere else.  Everything after
 -- that point is the arithmetic below.  So the honest division of labour
 -- is: universality is the unformalised hypothesis, named as
 -- `Simulates`; the theorem is the part below.
 --
 -- CONTENTS.
---   §1  `Within c f g`  — the two-sided bound, subtraction-free.
---   §2  `invariance`    — mutual simulation ⇒ bounded difference, with
---                         the constant `max c₁ c₂` exhibited.  Plus the
+--   §1  `Within c f g`  � the two-sided bound, subtraction-free.
+--   §2  `invariance`    � mutual simulation � bounded difference, with
+--                         the constant `max c� c�` exhibited.  Plus the
 --                         groupoid structure: `Within` is reflexive at
 --                         0, symmetric, transitive with the constants
 --                         ADDING, and upward closed.  This is the
 --                         precise sense in which a complexity function
 --                         is not a function but a class.
---   §3  `within-+`      — k non-cancelling terms carry slack k·c
+--   §3  `within-+`      � k non-cancelling terms carry slack k�c
 --                         (the note's Uniformity Lemma, additive half),
 --                         and `ΔMystery-indep`, the cancellation half:
 --                         a difference at fixed object does not mention
 --                         the unconditional term at all.
---   §4  `absolute-not-invariant` — for any f and any c ≥ 1 there is a
+--   §4  `absolute-not-invariant` � for any f and any c � 1 there is a
 --                         g within c of f with g x ≠ f x at every x.
 --                         "The description length of x is n" is not a
 --                         statement about x.
---   §5  `shorter-needs-margin` — THE COMPARISON RULE.  A strict
+--   §5  `shorter-needs-margin` � THE COMPARISON RULE.  A strict
 --                         comparison transfers across machines whenever
 --                         the gap EXCEEDS 2c, and the threshold cannot
---                         be lowered.  `weak-margin` is the ≤ version.
+--                         be lowered.  `weak-margin` is the � version.
 --                         §5.1's `Sharp2c` and `SharpBelow2c`, bundled
 --                         as `threshold-sharp`: at gap exactly 2c the
 --                         strict conclusion already fails (the costs
@@ -57,7 +57,7 @@
 --
 -- The exact threshold is 2c, not c: the slack is spent twice, once
 -- raising f x to g x and once lowering f y to g y.  The note says "sign
--- when the gap ≫ c" (§1, table row 1); §5 replaces ≫ by the constant
+-- when the gap � c" (§1, table row 1); §5 replaces � by the constant
 -- that actually works and proves it cannot be lowered.  That is this
 -- module's one correction to the note, recorded in its §8.
 --
@@ -87,7 +87,7 @@ private
 -- §1  Cost functions, simulation, and the two-sided bound
 ------------------------------------------------------------------------
 
--- A "complexity function" is nothing but an ℕ-valued cost on objects.
+-- A "complexity function" is nothing but an �-valued cost on objects.
 -- No computability, no universality, no machine: those are what the
 -- hypothesis `Simulates` abstracts away.
 Cost : Type ℓ → Type ℓ
@@ -99,11 +99,11 @@ Cost X = X → ℕ
 Simulates : ℕ → Cost X → Cost X → Type _
 Simulates {X = X} c f g = (x : X) → f x ≤ g x + c
 
--- `Within c f g`: |f x − g x| ≤ c for every x, written without
+-- `Within c f g`: |f x − g x| � c for every x, written without
 -- subtraction so that no truncation lemma is needed.  Note the
 -- quantifier order: the constant is chosen BEFORE the object.  That
 -- uniformity is the content of the invariance theorem, and losing it
--- (∀ x ∃ c) would make the statement vacuous.
+-- (� x � c) would make the statement vacuous.
 Within : ℕ → Cost X → Cost X → Type _
 Within {X = X} c f g = (x : X) → (f x ≤ g x + c) × (g x ≤ f x + c)
 
@@ -111,7 +111,7 @@ Within {X = X} c f g = (x : X) → (f x ≤ g x + c) × (g x ≤ f x + c)
 -- §2  The invariance theorem, abstractly
 ------------------------------------------------------------------------
 
--- THE THEOREM.  Mutual simulation with bounded overhead ⇒ bounded
+-- THE THEOREM.  Mutual simulation with bounded overhead � bounded
 -- difference.  The constant is exhibited, not merely asserted to exist.
 invariance : {f g : Cost X} {c₁ c₂ : ℕ}
            → Simulates c₁ f g → Simulates c₂ g f
@@ -127,7 +127,7 @@ invariance∃ : {f g : Cost X} {c₁ c₂ : ℕ}
 invariance∃ {c₁ = c₁} {c₂ = c₂} s₁ s₂ = max c₁ c₂ , invariance s₁ s₂
 
 -- `Within` is an equivalence relation once the constants are allowed to
--- move — and they move ADDITIVELY under composition.  This is the exact
+-- move � and they move ADDITIVELY under composition.  This is the exact
 -- reason a complexity function is a class rather than a function, and
 -- the reason a chain of "up to a constant" steps has a constant that
 -- grows with the chain.
@@ -166,7 +166,7 @@ within-mono {f = f} {g} p w x =
 ------------------------------------------------------------------------
 
 -- Additive half.  An expression with two non-cancelling cost terms
--- carries twice the slack; iterating, k terms carry k·c.  This is the
+-- carries twice the slack; iterating, k terms carry k�c.  This is the
 -- arithmetic behind the note's table (2c for Mystery, 3c for gain and
 -- for the argmin objective).
 within-+ : {f g f' g' : Cost X} {c d : ℕ}
@@ -188,9 +188,9 @@ within-+ {f = f} {g} {f'} {g'} {c} {d} w v x =
 -- Cancellation half, stated so that it cannot be fudged.  The note's
 -- (I1) turns on the observation that in
 --
---     ΔMystery = [L(X) − L(X|𝔏')] − [L(X) − L(X|𝔏)] = L(X|𝔏) − L(X|𝔏')
+--     ΔMystery = [L(X) − L(X|�')] − [L(X) − L(X|�)] = L(X|�) − L(X|�')
 --
--- the unconditional term is GONE — not small, gone.  Formalised as: the
+-- the unconditional term is GONE � not small, gone.  Formalised as: the
 -- comparison of two conditional costs at a fixed object does not mention
 -- the unconditional cost at all, so it is literally independent of it.
 -- The proof is `refl`, and that is the point: cancellation is a fact
@@ -200,7 +200,7 @@ module Cancellation {Obj Lang : Type ℓ}
   (cond : Obj → Lang → ℕ)     -- L(x | 𝔏)
   where
 
-  -- "𝔏' explains x strictly better than 𝔏 does", the ΔMystery > 0 test.
+  -- "�' explains x strictly better than � does", the ΔMystery > 0 test.
   ΔMystery>0 : (uncond : Cost Obj) → Obj → Lang → Lang → Type
   ΔMystery>0 _ x l l' = cond x l' < cond x l
 
@@ -209,7 +209,7 @@ module Cancellation {Obj Lang : Type ℓ}
   ΔMystery-indep _ _ _ _ _ = refl
 
   -- And its invariance: the surviving two-term expression is governed by
-  -- §5 with the SAME constant as any two-term comparison — no third
+  -- §5 with the SAME constant as any two-term comparison � no third
   -- term, hence no third c.  (Instantiate `shorter-needs-margin` at the
   -- conditional cost with the language argument fixed.)
 
@@ -287,7 +287,7 @@ weak-margin {f = f} {g} {c} {x} {y} w hyp =
 
 -- Take c = 1, X = Bool.  Margin 2c = 2: the strict conclusion fails
 -- (the two costs tie), so `shorter-needs-margin` cannot be weakened to
--- `≤` in its hypothesis while keeping `<` in its conclusion.
+-- `�` in its hypothesis while keeping `<` in its conclusion.
 module Sharp2c where
   f g : Bool → ℕ
   f false = 0

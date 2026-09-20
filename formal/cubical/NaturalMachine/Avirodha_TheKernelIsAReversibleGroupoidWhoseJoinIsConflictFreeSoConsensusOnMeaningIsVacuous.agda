@@ -4,17 +4,17 @@
 -- NaturalMachine.Avirodha_TheKernelIsAReversibleGroupoid
 --                        WhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
 --
--- TERM.  अविरोध · avirodha -- non-contradiction, the absence of conflict.
--- Ordinary Sanskrit; its best-known technical placement is as the title of
--- the SECOND ADHYĀYA of Bādarāyaṇa's *Brahmasūtra*, the avirodha-adhyāya,
+-- TERM.  ������� � avirodha -- non-contradiction, the absence of conflict.
+-- Ordinary ; its best-known technical placement is as the title of
+-- the SECOND ADHYYA of Bdaryaa's *Brahmastra*, the avirodha-adhyya,
 -- whose business is showing that no apparent conflict stands.  That is
--- Vedānta, not Jaina, and the schools are named rather than blended: the
--- Jaina treatment of apparent conflict is anekāntavāda and it does NOT say
+-- Vednta, not Jaina, and the schools are named rather than blended: the
+-- Jaina treatment of apparent conflict is anekntavda and it does NOT say
 -- the conflict dissolves, it says the standpoints coexist.  Both readings
 -- appear below and they are kept apart -- §4 is avirodha (there is nothing
--- to disagree about), §5 is anekānta (what does differ is kept, not
--- resolved).  The *Brahmasūtra*'s date is contested (~200 BCE-200 CE) and I
--- pin none.  No sūtra is claimed for anything proved here.
+-- to disagree about), §5 is aneknta (what does differ is kept, not
+-- resolved).  The *Brahmastra*'s date is contested (~200 BCE-200 CE) and I
+-- pin none.  No stra is claimed for anything proved here.
 --
 ------------------------------------------------------------------------
 -- THE KERNEL IS A DISTRIBUTED SYSTEM.  NOT BY DECORATION -- BY TYPE.
@@ -24,8 +24,8 @@
 -- file, and none of them is designed for; they are consequences of `Step`
 -- having a `reverse` constructor and of `eval` landing in a set.
 --
---   REVERSIBLE.  `Step` ships `reverse : Step x y → Step y x`, so §2 builds
---     `rev : Derivation a b → Derivation b a` for EVERY derivation -- total,
+--   REVERSIBLE.  `Step` ships `reverse : Step x y � Step y x`, so §2 builds
+--     `rev : Derivation a b � Derivation b a` for EVERY derivation -- total,
 --     no hypothesis, no trapdoor.  Nothing this kernel computes is
 --     one-way, and `rev-computes-the-inverse-meaning` says the reversal's
 --     meaning IS the inverse meaning, forced.  A round trip is invisible.
@@ -35,15 +35,15 @@
 --     induction: `Tm` with `Derivation` is a strict category.  §2 shows
 --     `rev` is an inverse only up to meaning -- `reverse (reverse p)` is a
 --     different constructor application from `p`.  THE GAP BETWEEN THE TWO
---     IS THE ŚEṢA.  The structure is exactly strict where merging needs it
+--     IS THE EA.  The structure is exactly strict where merging needs it
 --     to be and exactly weak where the cost lives.
 --
 --   DECENTRALISED, WITH NO CONFLICT RESOLUTION ANYWHERE.  §3: the library
 --     is a list, the join is `++`, and
---       · merging never loses a capability (`join-keeps-the-left/right`)
---       · merging never invents one (`join-splits`)
---       · THE ORDER OF THE MERGE IS IRRELEVANT (`merge-is-order-independent`)
---       · merging a library with itself adds nothing (`merge-is-idempotent`)
+--       � merging never loses a capability (`join-keeps-the-left/right`)
+--       � merging never invents one (`join-splits`)
+--       � THE ORDER OF THE MERGE IS IRRELEVANT (`merge-is-order-independent`)
+--       � merging a library with itself adds nothing (`merge-is-idempotent`)
 --     That is a join-semilattice on capability: grow-only, commutative,
 --     idempotent.  No leader, no sequence number, no reconciliation pass.
 --     And `merge` is a TOTAL function with no failure mode -- there is no
@@ -51,7 +51,7 @@
 --     checked derivation, so a merge has nothing to validate.
 --
 --   NO CONFLICT, AND THIS IS THE ONE THAT IS USUALLY MISSED.  §4: soundness
---     lands in an identity type of ℕ, hence in a PROPOSITION, so any two
+--     lands in an identity type of �, hence in a PROPOSITION, so any two
 --     derivations between the same terms have EQUAL meanings.  Therefore
 --     TWO NODES CANNOT DISAGREE ABOUT WHAT IS TRUE.  A vote would decide
 --     nothing -- not because voting is disallowed by policy, but because the
@@ -59,17 +59,17 @@
 --     it.  Consensus on meaning is not forbidden here; it is VACUOUS.
 --
 -- AND THE PART THAT IS NOT VACUOUS IS ADDITIVE, NOT EXCLUSIVE.  §5: what
--- two nodes genuinely differ on is the ROUTE -- and `Sesa_…` exhibits two
+-- two nodes genuinely differ on is the ROUTE -- and `Residue_�` exhibits two
 -- routes between the same endpoints with equal meanings and different
 -- lengths, neither of them wrong.  A fork is not a disagreement to be
 -- settled; it is two carriers of the same fact, and `advance` is forbidden
--- to dedupe precisely so both survive.  Anekānta, as the merge rule.
+-- to dedupe precisely so both survive.  Aneknta, as the merge rule.
 --
 -- SO THE READING TO DISCARD: that a "chain" would be an application layer
 -- bolted onto this mathematics.  There is nothing to bolt on.  The
 -- properties a chain is BUILT to manufacture -- agreement, immutability,
 -- validity without a trusted party, conflict-free replication -- are here
--- as consequences of `reverse` and of ℕ being a set, and the machinery a
+-- as consequences of `reverse` and of � being a set, and the machinery a
 -- chain uses to manufacture them (ordering, voting, finality, reorg) has no
 -- work to do because the disagreement it resolves cannot be stated.
 --
@@ -89,9 +89,9 @@ open import NaturalMachine.ControlledGrammar
 open import NaturalMachine.GenerativeKernel using (direct-history ; detour-history)
 open import NaturalMachine.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
   using (SomeEnabled)
-open import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import NaturalMachine.Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
   using (meanings-are-equal ; len ; direct≢detour)
-open import NaturalMachine.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+open import NaturalMachine.Interaction_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
   using (_⊕_ ; every-operation-that-exists-is-sound)
 
 ------------------------------------------------------------------------
@@ -143,7 +143,7 @@ round-trip-is-the-identity {a} d ρ = isSetℕ (eval a ρ) (eval a ρ) _ _
 -- constructor application from `p`, and the round trip `d ⊕ rev d` is a
 -- derivation of positive length where `done` has length zero.  §1's
 -- strictness is what merging needs; this weakness is where the cost lives,
--- and `Sesa_…` proves no function of the meaning can see it.
+-- and `Residue_�` proves no function of the meaning can see it.
 the-round-trip-is-not-nothing :
   len (then-step (add-suc var zero) (done (suc (add var zero)))) ≡ ℕ.suc ℕ.zero
 the-round-trip-is-not-nothing = refl
@@ -210,7 +210,7 @@ validity-travels-with-the-operation = every-operation-that-exists-is-sound
 ------------------------------------------------------------------------
 -- §4.  AVIRODHA.  There is nothing to disagree about.
 --
--- The meaning of a derivation lives in an identity type of ℕ.  ℕ is a set.
+-- The meaning of a derivation lives in an identity type of �.  � is a set.
 -- So that type is a PROPOSITION, and any two derivations between the same
 -- terms have equal meanings -- not "compatible", not "both acceptable":
 -- EQUAL, as terms.  Two nodes therefore cannot hold different positions on
@@ -232,14 +232,14 @@ the-merge-decides-nothing {a} {b} mine theirs ρ =
   isSetℕ (eval a ρ) (eval b ρ) _ _
 
 ------------------------------------------------------------------------
--- §5.  ANEKĀNTA.  And what DOES differ is kept, not settled.
+-- §5.  ANEKNTA.  And what DOES differ is kept, not settled.
 --
--- The routes differ and neither is wrong: `Sesa_…` exhibits two derivations
+-- The routes differ and neither is wrong: `Residue_�` exhibits two derivations
 -- of the same fact with equal meanings and lengths 2 and 4.  A fork here is
 -- not a disagreement awaiting a verdict -- it is two carriers of one fact,
 -- and `advance-preserves-branch-count` is the rule that both survive the
--- merge.  §4 is the Vedāntin's avirodha (the conflict dissolves); §5 is the
--- Jaina's anekānta (the standpoints coexist).  Different schools, kept
+-- merge.  §4 is the Vedntin's avirodha (the conflict dissolves); §5 is the
+-- Jaina's aneknta (the standpoints coexist).  Different schools, kept
 -- apart, and the kernel exhibits both because they are about different
 -- layers: the meaning, and the route.
 ------------------------------------------------------------------------

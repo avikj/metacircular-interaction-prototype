@@ -4,27 +4,27 @@
 -- ConeOrder
 --
 -- Delta 17 T17.13, the remaining half: the ORDER condition on the cone.
--- And the finding is that it is not a remaining half at all — over ℕ the
+-- And the finding is that it is not a remaining half at all � over � the
 -- parity congruence and the inequality are ONE condition, not two.
 --
 -- Delta 17 presents the cone with two constraints, a congruence
 -- s ≡ d (mod 2) and an inequality bounding the gap by the sum.
 -- `ConeImage` proved the congruence is exactly the image condition over
 -- any commutative ring; that left the inequality, which needs an order
--- and so cannot live in the same generality.  The natural home is ℕ,
+-- and so cannot live in the same generality.  The natural home is �,
 -- where "the legs are nonnegative" is not a hypothesis but the type.
 --
 -- THE STATEMENT.  Write the cone condition as
 --
---     Cone s d  =  Σ[ m ∈ ℕ ] (s ≡ d + m + m).
+--     Cone s d  =  �[ m ∈ � ] (s ≡ d + m + m).
 --
--- One Σ, both constraints: the `+ m + m` is the parity, and the fact that
--- m is a NATURAL number is the inequality d ≤ s.  With it, T17.13 is an
+-- One �, both constraints: the `+ m + m` is the parity, and the fact that
+-- m is a NATURAL number is the inequality d � s.  With it, T17.13 is an
 -- isomorphism whose two directions are each one line.
 --
 -- WHY THIS IS THE RIGHT PACKAGING, and not a trick.  In `ConeImage` the
 -- parity certificate was the LARGER leg; here the certificate m is the
--- SMALLER leg.  Same theorem — and which leg is made the certificate is
+-- SMALLER leg.  Same theorem � and which leg is made the certificate is
 -- exactly what decides whether the order condition comes along for free.
 -- Delta 17 lists two constraints because it takes the symmetric
 -- coordinates (s,d) as primary; taking either leg as the certificate
@@ -35,11 +35,11 @@
 -- Contents (no holes, no postulates, --safe):
 --
 --   Legs, sumOf, gapOf         a pair presented by its smaller leg and
---                              its gap — the same data as (p,q) with a
---                              proof p ≤ q, but with no relation to carry
+--                              its gap � the same data as (p,q) with a
+--                              proof p � q, but with no relation to carry
 --   Cone                       the fused condition
---   legs→cone                  T17.13 ⇒, certified by the smaller leg
---   cone→legs                  T17.13 ⇐, with the pair reconstructed
+--   legs�cone                  T17.13 �, certified by the smaller leg
+--   cone�legs                  T17.13 �, with the pair reconstructed
 --   cone-roundtrip             the reconstruction really has that sum and
 --                              that gap
 --   parity-is-implied          the congruence of `ConeImage` recovered
@@ -58,7 +58,7 @@ open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 ------------------------------------------------------------------------
 -- §1  The two sides.
 --
--- A pair with p ≤ q is the same data as (p , d) with q = p + d.  Carrying
+-- A pair with p � q is the same data as (p , d) with q = p + d.  Carrying
 -- the gap instead of an order proof is what removes subtraction from
 -- every statement below; it is the same move `ConeImage` made with the
 -- parity certificate, applied to the order instead.
@@ -87,13 +87,13 @@ Cone s d = Σ[ m ∈ ℕ ] (s ≡ d + m + m)
 encode : (p d : ℕ) → p + (p + d) ≡ d + p + p
 encode p d = solveℕ!
 
--- ⇒  An ordered pair lands in the cone, certified by its SMALLER leg.
+-- �  An ordered pair lands in the cone, certified by its SMALLER leg.
 legs→cone : (l : Legs) → Cone (sumOf l) (gapOf l)
 legs→cone (p , d) = p , encode p d
 
--- ⇐  A cone point reconstructs an ordered pair: the certificate m is the
+-- �  A cone point reconstructs an ordered pair: the certificate m is the
 -- smaller leg, and the gap is d, so the pair is (m , m + d).  Nothing is
--- subtracted and no inequality is discharged — both were carried by the
+-- subtracted and no inequality is discharged � both were carried by the
 -- fact that m is a natural number.
 cone→legs : (s d : ℕ) → Cone s d → Legs
 cone→legs s d (m , _) = m , d
@@ -103,7 +103,7 @@ cone-roundtrip : (s d : ℕ) (c : Cone s d)
                × (gapOf (cone→legs s d c) ≡ d)
 cone-roundtrip s d (m , hs) = (encode m d ∙ sym hs) , refl
 
--- … and going the other way, the certificate recovered from a pair is the
+-- � and going the other way, the certificate recovered from a pair is the
 -- pair's own smaller leg, so the two directions are inverse on the data
 -- that matters.
 legs-roundtrip : (l : Legs)
@@ -116,7 +116,7 @@ legs-roundtrip (p , d) = refl
 -- `ConeImage` characterised the cone over a commutative ring by "s + d is
 -- a double".  Here that congruence is not assumed: it FOLLOWS from the
 -- fused condition, with the double exhibited.  So the two modules are
--- consistent and neither is assuming the other's conclusion — which is
+-- consistent and neither is assuming the other's conclusion � which is
 -- the only thing worth checking when the same theorem is landed twice at
 -- different generality.
 ------------------------------------------------------------------------

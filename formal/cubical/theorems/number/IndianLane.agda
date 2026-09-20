@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- IndianLane â€” a gate that is actually green on the pinned toolchain.
+-- IndianLane â” a gate that is actually green on the pinned toolchain.
 --
 -- WHY THIS FILE EXISTS.  `Everything.agda` was written because "an orphan
 -- that the root does not import is exactly the hole that let the earlier
 -- overstatement hide."  Audited 2026-08-18 with the mechanical check
 -- BUILD.md prescribes: TWELVE top-level modules were outside its import
--- closure, and all twelve were from one lane â€”
+-- closure, and all twelve were from one lane â”
 --
 --     Kuttaka  Bhavana  BhavanaSemiring  BhavanaGenerative  Pingala
 --     Sivasutra  Anekanta  JainSankhya  AbhavaAvacchedaka
@@ -34,7 +34,7 @@
 --     cd formal/cubical && agda IndianLane.agda      # must exit 0
 --
 -- Every module below was verified standalone before being listed (exit 0,
--- --safe, no postulates, no holes) â€” so this file changes what is GUARDED,
+-- --safe, no postulates, no holes) â” so this file changes what is GUARDED,
 -- not what is true.  They were green the day they landed and nothing had
 -- re-checked them since.
 --
@@ -44,19 +44,19 @@
 
 module IndianLane where
 
--- Ä€RYABHAá¹¬A, Ä€ryabhaá¹­Ä«ya, Gaá¹‡itapÄda 32-33 (499); BhÄskara I's bhÄá¹£ya
--- (629).  The pulverizer, and the descent as a vallÄ« of quotients.
+-- RYABHAA, ryabhaya, Gaitapda 32-33 (499); Bhskara I's bhya
+-- (629).  The pulverizer, and the descent as a vall of quotients.
 import Kuttaka
 
--- BRAHMAGUPTA, BrÄhmasphuá¹­asiddhÄnta 18 (628).  BhÄvanÄ over an arbitrary
--- commutative ring; subtraction-free over â„• as a semiring identity; and as
+-- BRAHMAGUPTA, Brhmasphuasiddhnta 18 (628).  Bhvan over an arbitrary
+-- commutative ring; subtraction-free over â• as a semiring identity; and as
 -- a typed OPERATION on solutions, which is what "production" names.
 import Bhavana
 -- The same composition made into an OBJECT rather than restated as a law:
 -- the invariant lives in the type, so an unlawful card is not rejected but
--- UNSAYABLE, and the single move à¤­à¤¾à¤µà¤¨à¤¾ carries the norm in its own type.
+-- UNSAYABLE, and the single move àà¾àµà¨à¾ carries the norm in its own type.
 -- Eight moves from the one obvious card at D = 2 reach (577, 408), which is
--- BaudhÄyana's âˆš2 -- ÅšulbasÅ«tra 1.61â€“62, c. 800 BCE, older than the
+-- Baudhyana's âˆ2 -- ulbastra 1.61â“62, c. 800 BCE, older than the
 -- composition law it is reached by.
 import BhavanaKrida
 import BhavanaSemiring
@@ -66,11 +66,11 @@ import BhavanaGenerative
 -- certifiable in arithmetic the kernel actually computes.
 import CakravalaNat
 
--- JAYADEVA (~950, via UdayadivÄkara 1073); BHÄ€SKARA II, BÄ«jagaá¹‡ita (1150):
--- the cakravÄla step, and why BhÄskara needs only ONE congruence.
+-- JAYADEVA (~950, via Udayadivkara 1073); BHSKARA II, Bjagaita (1150):
+-- the cakravla step, and why Bhskara needs only ONE congruence.
 import CakravalaDescent
 
--- The choice rule's PAYLOAD: |k| â‰¤ 2âˆšD is preserved by the step, so the
+-- The choice rule's PAYLOAD: |k| â‰ 2âˆD is preserved by the step, so the
 -- wheel turns inside a fixed window.  Termination itself stays open.
 import CakravalaBound
 
@@ -85,49 +85,49 @@ import SeamClosed
 -- machine's own discarded trace-replay proofs back, deduplicates them by
 -- declaration, and makes them citable by name.
 
--- PIá¹„GALA, Chandaá¸¥Å›Ästra (~300 BCE), with VirahÄá¹…ka (~700) and HalÄyudha
--- (10th c.): the mÄtrÄ recurrence, binary enumeration of metres.
+-- PIGALA, Chandastra (~300 BCE), with Virahka (~700) and Halyudha
+-- (10th c.): the mtr recurrence, binary enumeration of metres.
 import Pingala
 
--- PÄ€á¹†INI, Aá¹£á¹­ÄdhyÄyÄ« (~500 BCE): the ÅšivasÅ«tras as a pratyÄhÄra machine,
--- and the rule-conflict machinery -- utsarga/apavÄda, the elsewhere
--- condition, asiddhatva, anuvá¹›tti.  Green, and until now gated only by
+-- PINI, Adhyy (~500 BCE): the ivastras as a pratyhra machine,
+-- and the rule-conflict machinery -- utsarga/apavda, the elsewhere
+-- condition, asiddhatva, anuvtti.  Green, and until now gated only by
 -- Everything.agda, which cannot go green on this container.
 import Sivasutra
 -- The optimality Sivasutra.agda records as OWED, part paid: classes sharing
--- one anubandha are a âŠ†-chain, so a âŠ†-antichain of classes forces that many
+-- one anubandha are a âŠ-chain, so a âŠ-antichain of classes forces that many
 -- markers, in ANY order.  Four for the vowel classes; the order attains four.
 import PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
 import Panini
 import ElsewhereCondition
 
--- PÄ€á¹†INI 8.2.1 à¤ªà¥‚à¤°à¥à¤µà¤¤à¥à¤°à¤¾à¤¸à¤¿à¤¦à¥à¤§à¤®à¥ as a TERMINATION technique, with the
--- impossibility half: the tripÄdÄ«'s own 8.2.39/8.4.56 cycle admits no
+-- PINI 8.2.1 ààà°ààµààà°à¾àà¿à¦àà§à®à as a TERMINATION technique, with the
+-- impossibility half: the tripd's own 8.2.39/8.4.56 cycle admits no
 -- strict order in which every rule decreases -- so no reduction order,
 -- hence no RPO/KBO/polynomial/matrix interpretation, hence no Knuth-Bendix
 -- completion.  Asiddhatva terminates it anyway, by constraining which
 -- rules may OBSERVE which outputs rather than by a decreasing measure.
 -- The witness is not invented: it is what machine/Astadhyayi.hs does
--- deriving vÄk from vÄc, and what its asiddhaAudit refuses.
+-- deriving vk from vc, and what its asiddhaAudit refuses.
 import Asiddhatva
 
--- The OTHER device, 6.4.22 à¤…à¤¸à¤¿à¤¦à¥à¤§à¤µà¤¦à¤¤à¥à¤°à¤¾à¤­à¤¾à¤¤à¥ (mutual invisibility inside
--- 6.4.22â€“6.4.129, rules applying as if simultaneously), against 8.2.1's
+-- The OTHER device, 6.4.22 ààà¿à¦àà§àµà¦ààà°à¾àà¾àà (mutual invisibility inside
+-- 6.4.22â“6.4.129, rules applying as if simultaneously), against 8.2.1's
 -- ordered regime at the one site where the difference is visible: three
--- tripÄdÄ« rules offer at the same position in tat + jalam, and à¤•à¥à¤°à¤® gives
--- the attested tajjalam while à¤¸à¤¹ gives tadjalam, which Sanskrit has not.
--- Both regimes COMPUTED from one act table.  So à¤ªà¥‚à¤°à¥à¤µà¤¤à¥à¤°à¤¾à¤¸à¤¿à¤¦à¥à¤§à¤®à¥ is
+-- tripd rules offer at the same position in tat + jalam, and à•àà°à® gives
+-- the attested tajjalam while àà gives tadjalam, which  has not.
+-- Both regimes COMPUTED from one act table.  So ààà°ààµààà°à¾àà¿à¦àà§à®à is
 -- load-bearing and is the ordered device -- evidence reached from the
--- rules, not from the sÅ«tra text.
+-- rules, not from the stra text.
 import AsiddhavatRegime
 
--- UMÄ€SVÄ€TI, TattvÄrthasÅ«tra 1.5: à¤¨à¤¾à¤®à¤¸à¥à¤¥à¤¾à¤ªà¤¨à¤¾à¤¦à¥à¤°à¤µà¥à¤¯à¤­à¤¾à¤µà¤¤à¤¸à¥à¤¤à¤¨à¥à¤¨à¥à¤¯à¤¾à¤¸à¤ƒ -- the
+-- UMSVTI, Tattvrthastra 1.5: à¨à¾à®àààà¾àà¨à¾à¦àà°àµàà¯àà¾àµààààà¨àà¨àà¯à¾àà -- the
 -- fourfold placing, as an indexed sameness relation.
 import Niksepa
 
--- Jain epistemology and mathematics.  AnekÄntavÄda as a TOTAL generator
--- (no rejection path); the taxonomy of the unbounded, saá¹ƒkhyÄta /
--- asaá¹ƒkhyÄta / ananta; abhÄva with its avacchedaka.
+-- Jain epistemology and mathematics.  Anekntavda as a TOTAL generator
+-- (no rejection path); the taxonomy of the unbounded, sakhyta /
+-- asakhyta / ananta; abhva with its avacchedaka.
 import Anekanta
 import JainSankhya
 import AbhavaAvacchedaka
@@ -171,49 +171,49 @@ import AbhavaAvacchedaka
 -- Indian modules were written and none was added to it.
 -- .claude/hooks/gate-coverage.sh now fires at the moment of the write.
 --
--- PIá¹„GALA, Chandaá¸¥Å›Ästra ch. 8 (c. 300â€“200 BCE), the six pratyaya; with
--- VirahÄá¹…ka, Vá¹›ttajÄtisamuccaya ch. 6 (c. 600â€“800 CE) for the mÄtrÄmeru
--- and HalÄyudha, Má¹›tasaÃ±jÄ«vanÄ« (10th c.) on 8.34â€“8.35 for the triangular
--- array.  naá¹£á¹­a and uddiá¹£á¹­a are proved mutually inverse, each implemented
+-- PIGALA, Chandastra ch. 8 (c. 300â“200 BCE), the six pratyaya; with
+-- Virahka, Vttajtisamuccaya ch. 6 (c. 600â“800 CE) for the mtrmeru
+-- and Halyudha, Mtasajvan (10th c.) on 8.34â“8.35 for the triangular
+-- array.  naa and uddia are proved mutually inverse, each implemented
 -- independently rather than one transported along the other; and the
 -- recurrences are FORCED by the counting problem for an arbitrary counting
 -- function, not read off a definition.
 import PingalaPrastara
--- à¤¨à¤·à¥à¤Ÿà¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥ â€” à¤ªà¤¿à¤™à¥à¤—à¤²à¤¸à¥à¤¯ à¤¨à¤·à¥à¤Ÿ/à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿ à¤¸à¥à¤¥à¤¾à¤¨-à¤ªà¥ƒà¤¥à¤•à¥-à¤›à¥‡à¤¦à¥‡à¤·à¥ à¤µà¤¿à¤¸à¥à¤¤à¤¾à¤°à¤¿à¤¤à¥Œ, à¤ªà¤°à¤¸à¥à¤ªà¤°-à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®à¥Œ (à¤…à¤™à¥à¤•à¤¸à¥à¤¥à¤¾à¤¨ rs â‰ƒ Fin (à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ rs)) ;
--- à¤®à¥‡à¤°à¥-à¤ªà¤™à¥à¤•à¥à¤¤à¤¿à¤ƒ à¤à¤•-à¤ªà¤™à¥à¤•à¥à¤¤à¥à¤¯à¤¾ à¤œà¤¨à¥à¤¯à¤¤à¥‡, à¤®à¤¾à¤¤à¥à¤°à¤¾à¤®à¥‡à¤°à¥à¤ƒ à¤¯à¥à¤—à¤²à¥‡à¤¨ à¥¤  à¤à¤¤à¤¤à¥ machine/Prastara_*.hs-à¤®à¤§à¥à¤¯à¥‡ à¤šà¤²à¤¤à¤¿ à¥¤
+-- à¨àààŸà‹à¦àà¦à¿àààŸà®à â” àà¿à™àà—à²ààà¯ à¨àààŸ/à‰à¦àà¦à¿àààŸ àààà¾à¨-àààà•à-ààà¦ààà àµà¿àààà¾à°à¿àà, àà°àààà°-ààà°àà¿à²à‹à®à (àà™àà•àààà¾à¨ rs â‰ Fin (àà™àà–àà¯à¾ rs)) ;
+-- à®àà°à-àà™àà•ààà¿à àà•-àà™àà•àààà¯à¾ àà¨àà¯àà, à®à¾ààà°à¾à®àà°àà à¯àà—à²àà¨ à  àààà machine/Prastara_*.hs-à®à§àà¯à àà²àà¿ à
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
--- à¤¸à¤‚à¤–à¥à¤¯à¤¾-à¤ªà¤™à¥à¤•à¥à¤¤à¤¿-à¤¸à¥‡à¤¤à¥à¤ƒ â€” à¤ªà¤¿à¤™à¥à¤—à¤²à¤¸à¥à¤¯ à¤¸à¤‚à¤–à¥à¤¯à¤¾-à¤ªà¥à¤°à¤¤à¥à¤¯à¤¯à¤ƒ = à¤®à¥‡à¤°à¥-à¤ªà¤™à¥à¤•à¥à¤¤à¤¿-à¤¯à¥‹à¤—à¤ƒ (sankhya n = âˆ‘â‚– C(n,k))
+-- ààà–àà¯à¾-àà™àà•ààà¿-ààààà â” àà¿à™àà—à²ààà¯ ààà–àà¯à¾-ààà°ààà¯à¯à = à®àà°à-àà™àà•ààà¿-à¯à‹à—à (sankhya n = âˆâ– C(n,k))
 import PrastaraPankti
 
--- The saptabhaá¹…gÄ«: BhagavatÄ« SÅ«tra (pre-CE strata, redacted c. 5th c.);
--- UmÄsvÄti, TattvÄrthasÅ«tra 1.6, 1.33, 5.29, 5.31; Siddhasena DivÄkara,
--- Sanmatitarka 1.21 and 1.28 (c. 5th c.); Samantabhadra, Ä€ptamÄ«mÄá¹ƒsÄ
--- (c. 6th c.); Akalaá¹…ka, LaghÄ«yastraya (c. 720â€“780) for the argument that
--- the number is EXACTLY seven; Mallisena, SyÄdvÄdamaÃ±jarÄ« (1292) for
--- sakalÄdeÅ›a against vikalÄdeÅ›a.  avaktavyam is proved well-defined,
+-- The saptabhag: Bhagavat Stra (pre-CE strata, redacted c. 5th c.);
+-- Umsvti, Tattvrthastra 1.6, 1.33, 5.29, 5.31; Siddhasena Divkara,
+-- Sanmatitarka 1.21 and 1.28 (c. 5th c.); Samantabhadra, ptamms
+-- (c. 6th c.); Akalaka, Laghyastraya (c. 720â“780) for the argument that
+-- the number is EXACTLY seven; Mallisena, Sydvdamajar (1292) for
+-- sakaldea against vikaldea.  avaktavyam is proved well-defined,
 -- decidable, realised, and NOT the denotation of any single standpointed
 -- utterance -- which is what machine/Obstruction.hs was groping toward
 -- when it invented `Unparsed`, and what I cited the weaker version of
 -- earlier today.
 import SaptabhangiNaya
 
--- MÄ€DHAVA of Saá¹…gamagrÄma (c. 1340â€“1425) and the Kerala school; jÄ«va
--- (the sine-chord); the aá¹ƒÅ›a reading of the truth-instrument.
+-- MDHAVA of Sagamagrma (c. 1340â“1425) and the Kerala school; jva
+-- (the sine-chord); the aa reading of the truth-instrument.
 import Madhava
 import Jiva
 import AmshaSatyayantra
 
--- à¤…à¤¨à¥à¤•à¥à¤¤à¤®à¥ is not à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥, and the difference is a swapped quantifier.
+-- àà¨àà•ààà®à is not ààµà•àààµàà¯à®à, and the difference is a swapped quantifier.
 -- Satyayantra.agda glossed its third position as avaktavyam; Purnata
--- proves that position à¤¸à¤¾à¤®à¤¯à¤¿à¤• (for every instance SOME grant removes
--- it) and SaptabhangiNaya proves the fourth bhaá¹…ga à¤¨à¤¿à¤¤à¥à¤¯ (for every
+-- proves that position àà¾à®à¯à¿à• (for every instance SOME grant removes
+-- it) and SaptabhangiNaya proves the fourth bhaga à¨à¿ààà¯ (for every
 -- single utterance SOME profile survives it).  Dual shapes, one word.
--- Akalaá¹…ka's kramÄrpaá¹‡a against sahÄrpaá¹‡a, LaghÄ«yastraya c. 720â€“780.
+-- Akalaka's kramrpaa against sahrpaa, Laghyastraya c. 720â“780.
 import AnuktaAvaktavya
 
--- The two saptabhaá¹…gÄ« modules, which had no gate and no link to each
--- other: Saptabhangi.agda (à¤•à¥à¤°à¤®-à¤¸à¤¹-à¤­à¥‡à¤¦à¤ƒ, that the sequential bhaá¹…ga is
--- not the simultaneous one, and à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ, that ANY two-valued verdict
+-- The two saptabhag modules, which had no gate and no link to each
+-- other: Saptabhangi.agda (à•àà°à®-àà-ààà¦à, that the sequential bhaga is
+-- not the simultaneous one, and à¦àà°àà¨à¯à, that ANY two-valued verdict
 -- identifies two of the three seeds by pigeonhole) and
 -- SaptabhangiNaya.agda.  AnuktaAvaktavya Â§7 now holds both and draws
 -- the distinction that keeps them from contradicting: content is
@@ -230,7 +230,7 @@ import LosslessReturn
 -- above.  Pointer only.
 --
 -- This header names the v0.5/v0.9 skew at `NaturalMachine/PathIsSymmetry.agda:98`
--- as pre-existing, another lane's, and untouched â€” and draws the right
+-- as pre-existing, another lane's, and untouched â” and draws the right
 -- conclusion from it, that a gate which cannot go green is not a gate.
 --
 -- The repair is now VERIFIED, though still not applied: v0.5 spells the
@@ -240,7 +240,7 @@ import LosslessReturn
 -- is that one line.  Details, commands and exit codes are appended at
 -- the end of `NaturalMachine/PathIsSymmetry.agda`, at its own site.
 --
--- NOT established: that applying it makes `Everything.agda` green â€”
+-- NOT established: that applying it makes `Everything.agda` green â”
 -- Agda stops at the first error, so downstream blockers would not have
 -- shown.  So this file's reason for existing is not withdrawn by the
 -- finding; if the repair is applied and the aggregate goes green, THEN
@@ -262,7 +262,7 @@ import LosslessReturn
 -- session and never ran it.
 --
 -- The skew is not a series of renames to be patched.  MEASURED: 336 uses of
--- `solve!` and 36 of `solveâ„•!` across formal/cubical/ -- 372 proof
+-- `solve!` and 36 of `solveâ•!` across formal/cubical/ -- 372 proof
 -- obligations discharged by tactics whose v0.9 spellings the pinned v0.5
 -- does not have.  Rewriting those solver-free is not a repair, it is a
 -- rewrite of a large fraction of the corpus, and it would move the corpus
@@ -302,12 +302,12 @@ import LosslessReturn
 -- `SamayikaAndNityaAreIndependent` can be made load-bearing at all.  It
 -- refutes a claim in `AnuktaAvaktavya.agda`, and to do that it must open
 -- AnuktaAvaktavya for the very definitions it corrects
--- (`using (à¤¸à¤¾à¤®à¤¯à¤¿à¤• ; à¤¨à¤¿à¤¤à¥à¤¯)`) -- so AnuktaAvaktavya CANNOT import it back.
+-- (`using (àà¾à®à¯à¿à• ; à¨à¿ààà¯)`) -- so AnuktaAvaktavya CANNOT import it back.
 -- Agda says so:
 --
 --   cyclic module dependency:
---     AnuktaAvaktavya â†’ SamayikaAndNityaAreIndependent
---                     â†’ AnuktaAvaktavya
+--     AnuktaAvaktavya â’ SamayikaAndNityaAreIndependent
+--                     â’ AnuktaAvaktavya
 --
 -- A correction strong enough to use the object it corrects is, for that
 -- same reason, unable to be cited by it.  The gate is where the two meet:
@@ -332,7 +332,7 @@ import KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
 -- Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction imports both
 -- AnuktaAvaktavya and the two modules that refute it, which no one of
 -- them can do, and holds the objection and the survivor in one checked
--- record.  Kauá¹­ilya, ArthaÅ›Ästra 15.1; Caraka Saá¹ƒhitÄ, SiddhisthÄna 12.
+-- record.  Kauilya, Arthastra 15.1; Caraka Sahit, Siddhisthna 12.
 ------------------------------------------------------------------------
 
 import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
@@ -340,16 +340,16 @@ import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-20, sixth append: the dispute, not the blend.
 --
--- ApohaParyaya_â€¦ makes the Bauddha argue against a Jaina construction
+-- ApohaParyaya_â¦ makes the Bauddha argue against a Jaina construction
 -- already in this corpus, and exhibits the incompatibility WITHOUT
 -- resolving it.  Every modern treatment I know of blends the two schools
 -- into one "Indic" toolkit, which discards the dispute, and the dispute
--- is the content â€” CLAUDE.md's mining directive, one level up.
+-- is the content â” CLAUDE.md's mining directive, one level up.
 --
--- DignÄga, PramÄá¹‡asamuccaya (c. 480â€“540); DharmakÄ«rti, PramÄá¹‡avÄrttika
--- (c. 600â€“660); ÅšÄntaraká¹£ita, Tattvasaá¹…graha (c. 750).  Against UmÄsvÄti,
--- TattvÄrthasÅ«tra 5.29 and 5.31; Akalaá¹…ka (c. 720â€“780); VidyÄnanda,
--- Aá¹£á¹­asahasrÄ« (c. 850); PrabhÄcandra, PrameyakamalamÄrtaá¹‡á¸a (c. 1000).
+-- Dignga, Pramasamuccaya (c. 480â“540); Dharmakrti, Pramavrttika
+-- (c. 600â“660); ntarakita, Tattvasagraha (c. 750).  Against Umsvti,
+-- Tattvrthastra 5.29 and 5.31; Akalaka (c. 720â“780); Vidynanda,
+-- Aasahasr (c. 850); Prabhcandra, Prameyakamalamrtaa (c. 1000).
 ------------------------------------------------------------------------
 
 import ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuallyDispute
@@ -357,19 +357,19 @@ import ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuall
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-20, seventh append: the fitness condition on absence.
 --
--- Anupalabdhi_â€¦ adds the slot the corpus's absence machinery did not have.
+-- Anupalabdhi_â¦ adds the slot the corpus's absence machinery did not have.
 -- `AbhavaAvacchedaka` and `TheAnuyogitaAvacchedakaIsADistinctSlot`
--- carry the Navya-NyÄya slots â€” pratiyogin, anuyogin, avacchedaka â€” and none
+-- carry the Navya-Nyya slots â” pratiyogin, anuyogin, avacchedaka â” and none
 -- of them carries the EXTENT SEARCHED, which is what makes non-apprehension a
--- pramÄá¹‡a instead of an excuse.  The theorem is one line and the
+-- prama instead of an excuse.  The theorem is one line and the
 -- counterexample is the content: a search that is clean over a real, non-empty
 -- examined region while the absence is false.
 --
--- KumÄrila Bhaá¹­á¹­a, ÅšlokavÄrttika, AbhÄvapariccheda (c. 7th c.), for
--- anupalabdhi as a separate pramÄá¹‡a; PrabhÄkara refuses it as separate and
--- folds it into perception; both impose yogyÄnupalabdhi, and it is the
--- condition and not the count of pramÄá¹‡as that this file formalises.  Nothing
--- in it is Jaina, and it says so: syÄd-nÄsti with its fourfold ground is a
+-- Kumrila Bhaa, lokavrttika, Abhvapariccheda (c. 7th c.), for
+-- anupalabdhi as a separate prama; Prabhkara refuses it as separate and
+-- folds it into perception; both impose yogynupalabdhi, and it is the
+-- condition and not the count of pramas that this file formalises.  Nothing
+-- in it is Jaina, and it says so: syd-nsti with its fourfold ground is a
 -- different construction and the exchange between the two schools is exhibited
 -- rather than settled, in the Haskell lane.
 ------------------------------------------------------------------------

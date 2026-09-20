@@ -3,18 +3,18 @@
 ------------------------------------------------------------------------
 -- Gamma0Transitivity
 --
--- Transitivity of the payload action over all of â„¤: between any two
+-- Transitivity of the payload action over all of â: between any two
 -- normalization events of the same matrix m, the explicit transporter
 --
---     H = Îµáµ¤ Â· Uâ€² Â· adj U            (H Â· U â‰¡ Uâ€² : `moves`)
+--     H = Îµµ Â Uâ² Â adj U            (H Â U â‰¡ Uâ² : `moves`)
 --
 -- carries the first event to the second, and with
 --
---     K = Îµáµ¥ Â· adj V Â· Vâ€²
+--     K = Îµµ Â adj V Â Vâ²
 --
 -- STABILIZES the endpoint (`stabilizes`):
 --
---     H Â· (UÂ·mÂ·V) Â· K â‰¡ UÂ·mÂ·V   whenever  Uâ€²Â·mÂ·Vâ€² â‰¡ UÂ·mÂ·V.
+--     H Â (UÂmÂV) Â K â‰¡ UÂmÂV   whenever  Uâ²ÂmÂVâ² â‰¡ UÂmÂV.
 --
 -- Feeding `stabilizes` to Gamma0Converse extracts the congruence
 -- membership of H; with Gamma0Freeness this completes the torsor:
@@ -49,8 +49,8 @@ private
   eR _ _ _ _ _ = solve! â„¤CommRing
   eS : (s t a : R) â†’ s Â· (t Â· a) â‰¡ (s Â· t) Â· a
   eS _ _ _ = solve! â„¤CommRing
-  -- â„¤ reduction facts (probed): 0rÂ·a, 1rÂ·a, a+0r reduce; the mirrored
-  -- forms are stuck â€” entry lemmas are written against normal forms
+  -- â reduction facts (probed): 0rÂa, 1rÂa, a+0r reduce; the mirrored
+  -- forms are stuck â” entry lemmas are written against normal forms
   eE : (d c : R) â†’ 0r + d Â· c â‰¡ d Â· c
   eE _ _ = solve! â„¤CommRing
 
@@ -122,7 +122,7 @@ module _ (U U' V V' m : M) (Îµu Îµv : R)
     W : M
     W = mul (mul U m) V
 
-  -- H Â· W collapses to the second factorization
+  -- H Â W collapses to the second factorization
   private
     collapseH : mul H W â‰¡ mul (mul U' m) V
     collapseH =

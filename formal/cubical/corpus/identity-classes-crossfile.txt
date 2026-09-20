@@ -1,0 +1,3916 @@
+CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modules
+(class size 2..40, members span >=2 files; LF definitional identity)
+
+[39 members / 29 files]
+    Abhava.SharedPrime 
+    Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands._‚à_ 
+    Asanna_TheNearIsNotTheEqualAndTheBarrierDiesInTheGap._‚âà‚_ 
+    Asanna_TheNearIsNotTheEqualAndTheBarrierDiesInTheGap._‚â†‚_ 
+    BezoutIsGCD.BezN 
+    Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.‡‡æ‡ó‡‡æ‡∞‡ 
+    ConeOrder.Cone 
+    CoprimeSplitting.DivBelow 
+    CoprimeSplitting.NoDivBelow 
+    DSOMinPlusFinite.Matrix 
+    DSONucleusFinite._‚â_ 
+    DivisibilityGuardsAreMeetClosed.D 
+    DivisibilityGuardsAreMeetClosed._divides_ 
+    Gurutama._‚à_ 
+    Kausalya_TheStochasticProcessAndTheSkillLibraryAreBuiltAndCoverageGrowsByOneStatePerSkill.trivialApp 
+    KotiNirnaya_EveryFibreIsDecidedSoEachConjectureIsADefinitePropositionAndTheOnlyOpennessIsTheSection.CollatzWithin 
+    KotiNirnaya_EveryFibreIsDecidedSoEachConjectureIsADefinitePropositionAndTheOnlyOpennessIsTheSection.Le 
+    KuttakaSamapti_TheValliIsFiniteForEveryPair.‡‡‡-‡µ‡≤‡‡≤‡ 
+    M1SplitIdentity._divides_ 
+    NKSUnivalence_CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.Evolve 
+    PFreePart.Split 
+    PingalaPrastara.Chosen 
+    Prakriti.divides 
+    Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.AllEven 
+    RadiusNoGo.CongruenceKilledLeg 
+    RadiusNoGo.DesertCRTGenerationObligation 
+    RadiusNoGo.DesertCertificate 
+    RadiusNoGo.FailedLeg 
+    RamanujanNagell_TheFiveSolutionsAndNoSixthBelowTwoToTheFifteen.Five 
+    RamanujanStrand_TheHouseIs204Of288TheBalanceIsThePellConditionAndTheMachineTurnedTheWheel.Balanced 
+    RamanujanStrand_TheHouseIs204Of288TheBalanceIsThePellConditionAndTheMachineTurnedTheWheel.Pell 
+    RoughSplit.AllPrimeFactorsAbove 
+    RoughSplit.IsSqrt 
+    RoughSplit.NoSmallDivisor 
+    SpernerFromSl2.Rank 
+    TheMeetIsMaxAndTheProfileCutIsAGaloisConnection._‚är_ 
+    WalkFastInstance.Facts 
+    WalkForcing.LeastNonDivisor 
+    WalkJumps.Strip
+
+[39 members / 17 files]
+    ADisjointValidatorMakesAFlagUnusableAndInvisible.accepted 
+    ADisjointValidatorMakesAFlagUnusableAndInvisible.intended 
+    AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision.costFirst 
+    AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision.yieldFirst 
+    AnuvrttiIsTheSameTrade.threeSutras 
+    AscendingFirstIsTheWorstUnlessTheArchiveIsConstant.scores 
+    CRTChain.walk8 
+    ChargeIsStrictRefinement.neutralProbe 
+    CompileBridge.baseVocab 
+    EndogenousHorizon.thresh3 
+    EndogenousHorizon.thresh5 
+    HeadDepthMergeBreaker.primesB 
+    OptionSpread.Œº‚ 
+    OptionSpread.Œº‚ 
+    OptionSpread.œ‚ 
+    OptionSpread.œ‚ 
+    OracleQueries.p 
+    SelfImprovement.declaredTests 
+    Sha256N.H0 
+    Sha256N.K 
+    Sha256N.Xtarget1 
+    Sha256N.Xtarget16 
+    Sha256N.Xtarget4 
+    Sha256N.Xtarget8 
+    Sha256N.abcBlock 
+    Sha256N.preimage16 
+    Sha256N.preimage4 
+    Sha256N.preimage8 
+    SieveFiber.domain 
+    SieveFiber.domain28 
+    SieveFiber.fibre000 
+    SieveFiber.fibre100 
+    SieveFiber.fibre111 
+    SieveFiber.jointFibreOf1 
+    SieveScaleTower.fibre‚List 
+    SieveScaleTower.fibre‚List 
+    SieveScaleTower.fibre‚List 
+    SumProductTorus.primes4 
+    TheSecondUpadhiConditionDoesAllTheWork.probe
+
+[38 members / 27 files]
+    AdaptiveResidualAdapter.BoolExperimentTree 
+    Aikya_TheJointModelOfLeftZeroAndRightZeroIsASingletonSoTheEngineVerdictIsATerm.JointZero 
+    Bijamula_TheRSAPrivateKeyIsThePulverizersWitnessAndDecryptionIsPingalasExponentiation.CMonoid 
+    CachePathOrder.Cache 
+    CachePathOrder.CostModel 
+    CachePathOrder.Trace 
+    CoherentSurvivalDephasing.Matrix‚ 
+    CompositionalContextAdapter.ContextAction 
+    CompositionalContextAdapter.ExtendedAction 
+    CompositionalContextAdapter.OneHoleContext 
+    ContractibleFiberSectionBoundary.InsideSections 
+    DeflationaryTest.BarrierClaim 
+    DeflationaryTest.GenuineGap 
+    DeflationaryTest.Stable 
+    DigitTowerFinLimit.MSDLimit 
+    FitnessIsNecessaryUpToDoubleNegation.Stable 
+    InvarianceConstant.Cost 
+    JivaSantana_IdentityThroughChangeIsASectionThroughAChangingFamilyNotEqualityOfSnapshots.Lossless 
+    KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability.Stable 
+    LawfulContinuationCore.BranchingFiber 
+    LawfulContinuationCore.EmptyFiber 
+    LawfulContinuationCore.UniqueFiber 
+    MalaSetu_TheFreeMonoidFoldIsOneHomomorphismAndPingalasPowerAndTheValliTraceAreTwoAlphabetsOfIt.Monoid 
+    NisvabhavaNet.reflect 
+    ObserverRevisionComposition.DecidableEquality 
+    PointedReindexOrbitObstruction.ExponentVector 
+    SanghattaBija_CollisionIsAnOffDiagonalKernelPairPointTheKernelPairIsTheFiberedPairingAndEveryCoinFaceIsACollision.Conf‚ 
+    SetTruncationDescentBoundary.Retracts‚ 
+    Shora_TheClassicalHalfOfFactoringIsAZeroDivisorSplitByThePulverizerAndOnlyOrderFindingIsQuantum.CRing 
+    SimplicialDefectFailure.Simplex 
+    StagewiseComposite.TwoValued 
+    StagewiseCompositeB.AbGroupStr 
+    StagewiseCompositeB.ThreeValued 
+    VanaSetu_TheShiftDilationInterfaceAndTheLiouvillePointIsTheAllMinusOneEigenvector.Seq 
+    Vyatyasa_TheKernelsCrossingIsAnInvolutionSoTheHolonomyIsSymmetricAndCarriesNoAnyon.SymmetricCrossing 
+    Vyatyasa_TheKernelsCrossingIsAnInvolutionSoTheHolonomyIsSymmetricAndCarriesNoAnyon.Tri 
+    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.GroupoidMachine 
+    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.MonoidMachine
+
+[32 members / 19 files]
+    Avasesa_TheResidueMapsFibreIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt.‡‡‡∞‡‡‡ 
+    FrontierList.expOf 
+    Gamma0Index.gcdF 
+    HeadDepthMergeBreaker.powAcc 
+    HeadDepthMergeBreaker.powModB 
+    HeadDepthTwo.vCap 
+    Karma_TheSoulsEquationOfMotionIsInfluxBindingStoppageSheddingAndTheZeroStateIsMoksaAbsorbing.‡‡ï‡‡Æ‡Ø-‡‡∞‡ø‡‡æ‡Æ‡ 
+    PowModHasTheSameShape.truth 
+    Purna.walk‚à 
+    RH_TheWholeQuestionEntersTyped_DavisMatiyasevichRobinsonArithmetization.divF 
+    RH_TheWholeQuestionEntersTyped_DavisMatiyasevichRobinsonArithmetization.modF 
+    RH_TheWholeQuestionEntersTyped_DavisMatiyasevichRobinsonArithmetization.spfFrom 
+    RamanujanTernaryField_TheCountingFieldIsTheObjectTheBooleanIsItsSupportAndTheCollapseForgets.countY 
+    RamanujanTernaryGate_TheKernelScansBelowSevenTwentyOnceAndCachesTheVerdict.Q 
+    Sakshi.walk 
+    Sha256N.ch 
+    Sha256N.maj 
+    Shodhita.upd 
+    Shredhi.‡‡®‡‡ 
+    Shredhi.‡‡‡∞‡‡‡ 
+    SieveFiber.divF 
+    SieveFiber.modF 
+    SieveFiber.omegaF 
+    Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.#E 
+    Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.modAux 
+    Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.rhs 
+    TransmissionRefutations.gcdF 
+    TransmissionRefutations.quoF 
+    TransmissionRefutations.remF 
+    TransmissionRefutations.spfF 
+    WalkResidueBridge.modu 
+    WalkResidueBridge.mod‚ï
+
+[32 members / 30 files]
+    AbhavaAvacchedaka.Abhava 
+    AchromaticToy.StageIsHigher 
+    Anupalabdhi_TheFitnessIsWhatMakesNonApprehensionKnowledge.Anvesana 
+    Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGroup.Magma 
+    Apoha.Witnessed 
+    AvarohaNisedha_AnInvertibleArrowAdmitsNoNonzeroAdditiveCostSoNoCostSurvivesAnyGroupValuedReceiver.Receiver 
+    ChenTwoChargeProjector.CenteredField 
+    ChenTwoChargeProjector.SupportField 
+    CompileBridge.ArithmeticPayload 
+    ConservativePrimitiveExtension.Signature 
+    ControlledGrammar.NativeOperation 
+    CostGeometry.Presentation 
+    Decategorification.œ‚FinSet 
+    Jiva_TheSoulIsCognitionBoundByKarmaAndLiberationIsTheEquivalenceThatSeesTheWorldAsItself.‡‡‡µ‡ 
+    KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObscuringIsOmniscience.‡‡µ‡‡‡‡æ 
+    NKSUnivalence_CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.System 
+    NamingIsNotAFunctionOfResemblance.Pred 
+    NamingIsNotAFunctionOfResemblance.Situation 
+    Nanaka_OneNoRetractionLemmaFourCheckedFacesTheGapTheRouteTheScheduleAndTheCountAreOneCoin.Paksa 
+    PMRelationalNoFit.RelationalNoFit 
+    Paryayarthika_TheHolonomyIsSetValuedAndSeesTheLoopSoTruncationIsNotTheBlindness.‡‡‡¶‡-‡‡µ-‡‡®‡‡ß‡‡‡µ‡Æ‡ 
+    RadiusNoGo.PrimePairTheory 
+    RelationalTensorObstructionBridge.ObstructionComparison 
+    SamanaAvatarana_RiemannNavierStokesAndFermatsCubeAreOneNoInfiniteDescentDifferingOnlyInWhetherTheSingleStepIsArithmeticOrAnalytic.OneDescent 
+    SemanticCrystal.CertifiedRewrite 
+    SimplicialDefectFailure.SubZ 
+    Sl2TensorProduct.Sl2Rep 
+    SpernerFromSl2.GeneralSperner 
+    SthapanaVarga_SelfExtensionIsClassifiedByDerivationUpToControlGaugeAndInstallationIsTheCanonicalGauge.Extension 
+    TheAnuyogitaAvacchedakaIsADistinctSlot.Abhava‚ 
+    TheCardinalityHalfOfOptimalIsExactlyAMereEquivalenceAndItSaysNothingAboutTheSchemeItself.TheOpenPigeonhole 
+    TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous.Library
+
+[30 members / 19 files]
+    AnswerGrading.repairs-differ 
+    AnuktaAvaktavya.‡‡‡®‡‡Ø‚â‡‡ï‡Æ‡ 
+    CenterRelative.2‚â0 
+    ChargePolynomialFinite.chen-fails-at-one 
+    ChargeTwoHistories.signOne-relative-nonzero 
+    CyclicAliasing.p2q-parity-wrong 
+    FlipObservable.breakerBreaks 
+    FlipObservable.modBreakerBreaks 
+    Gamma0PartnerRigidity.twistNeeded 
+    GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt.‡‡ï‚â‡‡‡®‡‡Ø 
+    KramaSaha_TheOrderOfStandpointsIsTheChargeItself.‡‡ï‚â‡‡‡®‡‡Ø 
+    M2Unimodular.oneNotZero 
+    PiPartialOnEveryPrime.1‚â0 
+    Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited.‡-‡‡‡®‡∞‡æ‡ó‡Æ‡ 
+    Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited.‡‡ï‚â‡‡‡®‡‡Ø 
+    SamaMana_TheCrossingsAreUnitaryOnAnInnerProductSpaceAndUnitarityIsIndependentOfYangBaxter.eight‚âone 
+    SamaMana_TheCrossingsAreUnitaryOnAnInnerProductSpaceAndUnitarityIsIndependentOfYangBaxter.zero‚âone 
+    SamyogaVyatikara_TheSumSpectrumVarianceMinusTheDiagonalIsExactlyTheCollisionInterference.interference-nonzero 
+    ScaleFluxContinuity_EnergyIsNotDynamicallyClosedTheCompletionIsTheSignedFluxAndSingularityIsFluxThroughTheBoundary.fluxSeparates 
+    SimplicialDefectFailure.defect-œ‚-A 
+    SimplicialDefectFailure.defect-œ‚-C 
+    SimplicialDefectFailure.pos2‚âpos0 
+    SimplicialDefectFailure.œZ-not-cocycle 
+    TransmissionRefutations.1‚â0 
+    TransmissionRefutations.2‚â1 
+    TransmissionRefutations.Pi-fails-at-2 
+    TransmissionRefutations.mobius-display-false 
+    VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡¶‚â‡ß 
+    VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡¶‚â‡® 
+    VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡ß‚â‡®
+
+[29 members / 8 files]
+    HaskellDefinitionBoundary.haskell-le-suc-zero 
+    HaskellDefinitionBoundary.haskell-le-zero 
+    RaksaSthira_TheGuardIsAnIdempotentReflectionAndAProtectedSystemAdmitsNoLoweringTransformation.le-zero-below 
+    RawWordPaddingNormalForm.empty-padding-count 
+    RawWordPaddingNormalForm.one-zero-padding-count 
+    RawWordPaddingNormalForm.reversal-source-count 
+    SamasaEka.‡‡‡®‡‡Ø-‡‡‡-‡‡‡ï‡ 
+    SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel.le0 
+    SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel.leS0S 
+    SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel.leSS0 
+    SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel.leSuc0 
+    Sphatika.sp002 
+    Sphatika.sp003 
+    Sphatika.sp006 
+    Sphatika.sp008 
+    Sphatika.sp010 
+    Sphatika.sp013 
+    Sphatika.sp016 
+    Sphatika.sp019 
+    Sphatika.sp022 
+    Sphatika.sp023 
+    Sphatika.sp032 
+    Sphatika.sp033 
+    Sphatika.sp039 
+    Sphatika.sp043 
+    Sphatika.sp054 
+    Sphatika.sp074 
+    VestanaSutra_TheWritheIsTheCrossingCountConservedByTheRelationsAndReadByNoBoundedObserver.stra-sama 
+    WalkResidueBridge.gap-1000-same-number
+
+[29 members / 28 files]
+    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡≤‡ã‡‡ 
+    ActionRefinement.constantView 
+    AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth.‡¶‡∞‡‡‡®‡Æ‡ 
+    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡‡∞‡‡µ‡à‡ï‡Æ‡ 
+    AvaranaMoksa_TheDebtScalarIsTheReachabilityShadowAndIsStrictlyCoarserThanTheFibre.observe 
+    Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance.‡‡∞‡‡µ‡à‡ï‡Æ‡ 
+    BatchDepthMemoryBoundary.oldChart 
+    Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence.‡‡ï‡Æ‡ 
+    ContextCloneEquivalence.constantObserve 
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡ï‡Æ‡ 
+    DisclosureDimension.q2 
+    GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.‡‡ï‡Æ‡ 
+    ObservationPresentation.collapse 
+    ObstructionCalculus.forget 
+    Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡µ‡ø‡‡‡Æ‡∞‡ 
+    ProstheticImageAdapter.splitState 
+    ReflectionAttachment.collapseBoundary 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡ 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡‡‡ø' 
+    SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.‡¶‡∞‡‡‡®‡Æ‡ 
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡ 
+    Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem.‡‡Æ‡æ‡‡æ‡∞-‡Æ‡æ‡∞‡‡ó‡ 
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡-‡Æ‡æ‡∞‡‡ó‡ 
+    TerminalTraceCompression.collapsedTerminal 
+    TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain.semB 
+    TotalityNotSizeIsWhatTurnsAScopedFactorizationGlobal.allBoolIsTotal 
+    TranslationPeakObservability.constantObservation 
+    VacuityVerdict.constantCarrier 
+    Varanam_ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal.‡≤‡ã‡‡
+
+[29 members / 21 files]
+    Abhava_MamaAdarsanamNaTasyaAbhavah.Drsya 
+    AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth.‡‡ß‡ø‡ï‡æ‡∞‡ 
+    AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth.‡ò‡ü‡ï‡æ‡ 
+    AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth.‡µ‡≤‡Ø‡æ‡ 
+    Anekanta.Two 
+    DSOFinite.Realization 
+    DeclaredRootedProfiles.BoolObservation 
+    DeclaredRootedProfiles.northDeclared 
+    DependentOptimizationFibration.SemanticFiber 
+    Durnaya_CollapseIffEveryNayaAgrees.Mixed 
+    ExactTwoStateInstrument.Posterior 
+    FitnessIsNecessaryUpToDoubleNegation.Dom 
+    FitnessIsNecessaryUpToDoubleNegation.Sought 
+    FormationRelativeMinimality.AllFormed 
+    FormationRelativeMinimality.OnlyFalse 
+    Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep.‡‡µ‡‡‡∞‡‡‡Æ‡ 
+    MigrationNeedsALawAndTheLawIsNotFree.BoolState 
+    NamingIsNotAFunctionOfResemblance.everything 
+    NamingIsNotAFunctionOfResemblance.nothing 
+    NormalizedFiniteInstrument.NormalizedPosterior 
+    PinnedSensorForcing.Extended 
+    PinnedSensorForcing.Minimal 
+    ProstheticImageAdapter.InheritedBoolState 
+    SankramanaSesa_EveryTransportOwesItsResidual.‡µ‡ø‡‡Æ-‡‡‡‡ 
+    SingletonWitnessStabilization.AllFormed 
+    TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain.stateB 
+    TransportPrice_AgreementDoesNotDetermineTheTransport.Twin 
+    VacuityVerdict.AllBool 
+    VacuityVerdict.OnlyFalse
+
+[27 members / 11 files]
+    BoundaryBlockGeneral_ForEveryFiniteReceiverAndEveryFiniteCoefficientSignalTheMeanSquareIsThePairFieldPairedWithTheAutocorrelationLags.alt 
+    BoundaryBlockGeneral_ForEveryFiniteReceiverAndEveryFiniteCoefficientSignalTheMeanSquareIsThePairFieldPairedWithTheAutocorrelationLags.box 
+    CyclicAliasing.negOnePow 
+    CyclicAliasing.negTwoPow 
+    CyclicParseval_TheBlockIsASpectralSumOfProductsWheneverTheCharactersAreOrthogonalSoPositivityOnTheSpectralSideIsWhereTheFrequenciesAreReal.b‚ 
+    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.decay 
+    PiPartialOnEveryPrime.lam 
+    PiPartialOnEveryPrime.par 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.œ 
+    ScaleFluxContinuity_EnergyIsNotDynamicallyClosedTheCompletionIsTheSignedFluxAndSingularityIsFluxThroughTheBoundary.oneEddy 
+    ScaleFluxContinuity_EnergyIsNotDynamicallyClosedTheCompletionIsTheSignedFluxAndSingularityIsFluxThroughTheBoundary.still 
+    TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative.Œ∫ 
+    TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative.Œº 
+    TheRiemannHypothesisHasAnArithmeticFormWithNoRealNumberInIt.M 
+    TheRiemannHypothesisHasAnArithmeticFormWithNoRealNumberInIt.Œº 
+    TransmissionRefutations.PiPartial 
+    TransmissionRefutations.RHS 
+    TransmissionRefutations.RHS-repaired 
+    TransmissionRefutations.indP 
+    TransmissionRefutations.lambdaL 
+    TransmissionRefutations.mobiusDivSum 
+    TransmissionRefutations.mobiusFullSum 
+    TransmissionRefutations.mu 
+    TransmissionRefutations.mu¬≤ 
+    TransmissionRefutations.parity 
+    TransmissionRefutations.pi1 
+    WindowShiftResidual_NetDisplacementDescendsAndTheBoundaryInteractionHistoryDoesNotAndForAFixedWordItRetreatsToTheEdges.Œ¥‚
+
+[27 members / 21 files]
+    Asanna_TheNearIsNotTheEqualAndTheBarrierDiesInTheGap.‡Æ‡æ‡‡ 
+    CachePathOrder.bit 
+    ChuDefect.b2n 
+    CostGeometryIndexed.cheapAt 
+    CostGeometryIndexed.farWork 
+    CostGeometryIndexed.homeWork 
+    DSOBellmanFinite.K 
+    DSOBellmanFinite.L 
+    DSOFinite.target 
+    DSONucleusFinite.x 
+    DSONucleusFinite.y 
+    FiniteOccupancyChannelNoGo.asNat 
+    Gamma0Index.ind 
+    Karana_TheStructuralEquationModelTheDoOperatorAndTheCounterfactualAreBuiltAndTheLadderIsStrict.uni 
+    MixedCornerTransferCompiler.bit 
+    NarayanaGavampasa_TheCowCompositionFibreSplitsAtTheHeadIntoOneAndThreeYearBranches.‡µ‡∞‡‡‡ 
+    PMCokernel.ind 
+    PointedReindexOrbitObstruction.divisor1Exponent 
+    PointedReindexOrbitObstruction.divisor2Exponent 
+    PointedReindexOrbitObstruction.prime 
+    RefutingLaghavaIsASearch.sizeOf 
+    SimplicialDefectFailure.stepB 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.count1 
+    TotientFibreSymmetry.twoPrimes 
+    Viloma_TheBackwardReadingOfAMatraMetrePreservesItsDurationSoReversalIsAnInvolutionOnEachDurationFibre.‡Æ‡æ‡‡‡∞‡æ 
+    Virahanka_TheMatraFibreSatisfiesTheTwoStepRecurrence.‡Æ‡æ‡‡‡∞‡æ 
+    WallCertificate.b2n
+
+[26 members / 22 files]
+    Anuvrtti_TheGlueIsTransparentAndTheWholeCostIsTheNeutralTypeNotTheIdentification.Orbit 
+    Anvaya_TheProvenanceSemiringTheBooleanHomomorphismAndTheQueryLanguageAreBuiltAndTheHierarchyIsStrict.CommSemiring 
+    Anvaya_TheProvenanceSemiringTheBooleanHomomorphismAndTheQueryLanguageAreBuiltAndTheHierarchyIsStrict.Prov 
+    CatuskotiPerspective.witnessClaim 
+    Chaya_TheShadowHasNoSectionThoughItHasAMap.Section 
+    DefectCalculus.Pointed 
+    EndObstruction.Observable 
+    EndObstruction.Quote 
+    HolonomyIsInvisibleExactlyToAnInvariantSemantics.Holonomy 
+    Jala_TheLatticeTheGaugeGroupTheConnectionAndTheWilsonLoopAreBuiltAndTheHolonomyIsOne.Grp 
+    Kausalya_TheStochasticProcessAndTheSkillLibraryAreBuiltAndCoverageGrowsByOneStatePerSkill.Dist 
+    KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift.Stable 
+    KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet.Enumerated 
+    Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.Dhr 
+    PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain.Varga 
+    QuestionMachine.Machine 
+    ReflectionAttachment.Reflection 
+    ResponseCharacterKickback.PhaseSpace 
+    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.Op 
+    Satyayantra.‡‡‡‡®‡æ 
+    Sl2TensorProduct.Mod 
+    Sl2TensorProduct.Op 
+    StructuredDefect.Pointed 
+    TotientFibreSymmetry.Divisor 
+    VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.‡‡æ‡≤ 
+    VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.‚ñ
+
+[26 members / 12 files]
+    AnuvrttiIsTheSameTrade.underFirst 
+    AnuvrttiIsTheSameTrade.underSecond 
+    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡¶‡‡µ‡æ‡¶‡ 
+    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡¶‡‡µ‡ø 
+    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡‡ü‡ 
+    ChuAdvance.unit 
+    DecategorifiedDefect.0Rank 
+    DecategorifiedDefect.kk1 
+    PairComposition.p35 
+    PairComposition.p57 
+    ParetoCost.compiledRoute 
+    ParetoCost.fullRoute 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d0 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d1 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.dm1 
+    SelfImprovement.g‚ 
+    SelfImprovement.g‚ 
+    TheMediantDoesNotDescendToTheRate.half 
+    TheMediantDoesNotDescendToTheRate.half' 
+    TheMediantDoesNotDescendToTheRate.third 
+    TheScoreOrderAndTheWeightOrderDisagree.explored 
+    TheScoreOrderAndTheWeightOrderDisagree.fresh 
+    TomographyConditioning.oneF 
+    TomographyConditioning.zeroF 
+    WhichThresholdStatementsDescendToTheRate.oneHalf 
+    WhichThresholdStatementsDescendToTheRate.twoQuarters
+
+[22 members / 17 files]
+    AchromaticToy.Stage 
+    ArityOfRepair.QSlot 
+    AtlasResiduals.Alg 
+    CatuskotiPerspective.Claim 
+    CatuskotiPerspective.Perspective 
+    ChargeGrading.Graded 
+    FillabilityCertificate.FillSys 
+    HolonomyFluxDerivation.FluxDerivation 
+    LeastWindowRadiusEdge.DoubleNegationLiftBoundary 
+    LiftingFiberResidue.LEM 
+    LiftingFiberResidue.LiftDNS 
+    MokshaYantra.Sight 
+    NisvabhavaNet.Jewel 
+    OrientedSurfaceFlux.SignedFluxTarget 
+    RenormalizedObserverTower.ObserverTower 
+    ScaleTransportCriticality.OrderedExponents 
+    TranslationPeakObservability.CancellationTranslations 
+    Vacuity.Claim 
+    WeilPositivityRealization.NSRealization 
+    WeilPositivityRealization.OrderedField 
+    WeilPositivityRealization.TowerRealization 
+    WeilPositivityRealization.WeilRealization
+
+[21 members / 6 files]
+    CenterRelative.J‚ 
+    CenterRelative.J‚CR 
+    CenterRelative.Œ¶raw 
+    CenterRelative.œ 
+    CenterRelative.œCR 
+    EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.J‚ 
+    EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.J‚CR 
+    EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.neg 
+    EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.negCR 
+    EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.rot 
+    EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.rotCR 
+    EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.rot‚ª 
+    EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.rot‚ªCR 
+    EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.œneg 
+    EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.œnegCR 
+    ExactHadamardInterference.scale‚G 
+    ExactTwoStateAmplitudes.iG 
+    ExactTwoStateAmplitudes.negG 
+    S3IntegerRelativeCoordinates.relativeSwap‚‚ 
+    S3IntegerRelativeCoordinates.relativeSwap‚‚ 
+    Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount.swap
+
+[21 members / 15 files]
+    AnuvrttiIsTheSameTrade.reading 
+    Anuvrtti_TheGlueIsTransparentAndTheWholeCostIsTheNeutralTypeNotTheIdentification.‡Ø‡ã‡ó 
+    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡Æ‡æ‡® 
+    ChuAdvance.base 
+    ConeOrder.gapOf 
+    ConeOrder.larger 
+    ConeOrder.smaller 
+    ConeOrder.sumOf 
+    ConstructiveBornNormalization.totalWeight 
+    FuelAdequacyIsACollision.bare 
+    LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt.‡Ø‡ã‡ó 
+    PairComposition.prod 
+    ParetoCost.time 
+    ParetoCost.total 
+    SelfImprovement.hidden 
+    SelfImprovement.visible 
+    SetuYugma_TheSeamFordJoinsTheValliToPingalaAndVivekaIsTheNaturalNumbers.‡®‡‡‡ü 
+    SieveScaleTower.œ‚‚ 
+    TheScoreOrderAndTheWeightOrderDisagree.childrenOf 
+    TheScoreOrderAndTheWeightOrderDisagree.scoreOf 
+    WhichThresholdStatementsDescendToTheRate.den
+
+[21 members / 16 files]
+    ASmallTheoryWithAnIndependentSentence.atomFails 
+    ASmallTheoryWithAnIndependentSentence.negAtomFails 
+    AdditionChainPredictiveMemory.has4-separates 
+    Apoha.¬false‚â°true 
+    ChargeTwoHistories.false‚â†true 
+    ChargeTwoHistories.split-histories-distinct 
+    DSOContinuationFullAbstract.active-witnesses-differ 
+    DefectCalculus.notEquiv-not-str 
+    DefectCalculus.pointDefect-refuted 
+    GaugeOrbitClasses.œ‚‚âœ‚ä 
+    HolonomyIsInvisibleExactlyToAnInvariantSemantics.notIsGenuineHolonomy 
+    HolonomyIsInvisibleExactlyToAnInvariantSemantics.theCacheIsMoved 
+    LosslessReturnLoop_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant.‡ï‡ã‡‡-‡‡≤‡ø‡‡ 
+    LosslessReturnLoop_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant.‡µ‡æ‡‡ï‡-‡‡≤‡ø‡‡ 
+    ObservabilityQuotient.a‚ââb-later 
+    OperationalCoverageCounterexample.falseNotTrue 
+    PolyHaythamResponseCostNoGo.different-cost 
+    PowModHasTheSameShape.different-status 
+    PurnaSaptabhangi_TheFourOpenPositionsGetCanonicalWitnesses.false‚âtrue 
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡æ‡ï‡‡‡-‡®‡ø‡‡‡‡≤‡ 
+    StructuredDefect.witness-defect
+
+[20 members / 11 files]
+    ChargeTwoHistories.signOne 
+    ChargeTwoHistories.zeroProfile 
+    ExactHadamardInterference.zeroG 
+    ExactTwoStateAmplitudes.oneG 
+    ExactTwoStateAmplitudes.zeroG 
+    IdempotenceForbidsDescent.i 
+    InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.1e 
+    InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.œâ 
+    InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.œâÃ 
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.g‚ 
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.g‚ 
+    PythagoreanTransition.tri345 
+    PythagoreanTransition.tri51213 
+    PythagoreanTransition.t‚‚ 
+    TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative.‡‡‡‡Æ‡ 
+    TheArithmeticCircleIsFourPeriodic.i 
+    TheArithmeticCircleIsFourPeriodic.i¬≤ 
+    TheFibreIsTheSubject.five-zero 
+    TheFibreIsTheSubject.unit-i 
+    Yamala_TheTwinChargeIsTheParityJetAndTwistedLeibnizIsDualNumberMultiplication.one‚ä
+
+[20 members / 13 files]
+    AssemblyCharacterNonfaithfulness.pulv-determinant-collision 
+    Brahmagupta.‡ã‡-‡Æ‡‡≤‡Æ‡ 
+    Brahmagupta.‡‡‡≤‡‡Ø-‡Æ‡‡≤‡Æ‡ 
+    CakravalaStep.next-61 
+    ChargePolynomialFinite.chen-12-instance 
+    ChargePolynomialFinite.chen-30-instance 
+    ChidraDosa_ThePointwiseInvarianceWithNoCoherentDescentIsATerm.windingSymLoop¬≤ 
+    CoherentSurvivalDephasing.minus-port-value 
+    CyclicAliasing.kappa-p2q-2 
+    CyclicAliasing.kappa-pqr-0 
+    CyclicAliasing.kappa-pqr-2 
+    Madhava.‡â‡¶‡æ‡‡∞‡‡Æ‡ 
+    QRClosure_TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt.c‚-A‚ 
+    QRClosure_TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt.c‚-A‚ 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.œ-multiplicative-at-6 
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.topEnd 
+    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.couplingB 
+    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.det-negS‚ 
+    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.prod-S‚-e‚ 
+    TransmissionRefutations.mu-at-3
+
+[18 members / 15 files]
+    Anvaya_TheProvenanceSemiringTheBooleanHomomorphismAndTheQueryLanguageAreBuiltAndTheHierarchyIsStrict.Rel 
+    Cakra_TheResidueBridgeIsProvedAndTheMinimalAcceptorIsTheCyclicGroupOfOrderTheLcm.Machine 
+    Chala_TheMarkovDecisionProcessIsBuiltAndRewardHackingIsATheoremNotAReading.MDP 
+    Chala_TheMarkovDecisionProcessIsBuiltAndRewardHackingIsATheoremNotAReading.Policy 
+    ChuAdvance.Obs 
+    FiniteIndraWeave.LocalAction 
+    FiniteIndraWeave.TotalView 
+    GterTwoCoordinate.Rel 
+    Kausalya_TheStochasticProcessAndTheSkillLibraryAreBuiltAndCoverageGrowsByOneStatePerSkill.MDP 
+    Kausalya_TheStochasticProcessAndTheSkillLibraryAreBuiltAndCoverageGrowsByOneStatePerSkill.SMDP 
+    LosslessReturnFinal._ó_ 
+    MachineLoop.Probe 
+    NoObservationDepthDeterminesTheNet.Net 
+    ProductiveIndraNet.Net 
+    RootedIndraTotal.RootedView 
+    Samkramana._ó_ 
+    Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction.‡‡‡µ‡æ‡¶‡ 
+    VivekaPramana_TheRemainderIsLawfulAndTheNetBeats._ó_
+
+[18 members / 14 files]
+    AnswerGrading.crush 
+    CenterRelativeWeightTransport.double 
+    CenterRelativeWeightTransport.four 
+    ChargePolynomialFinite.neg‚ 
+    ChargeTwoHistories.squareAugment 
+    ChidraDosa_ThePointwiseInvarianceWithNoCoherentDescentIsATerm.half 
+    DynamicDescent.markovSquare 
+    Ekamula_TheWallOrientationsAreSquareRootsOfOneBuiltFromFactorizationsByTheKloostermanReciprocal.sq 
+    FlipObservable.rawPort 
+    Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited.‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ 
+    S3IntegerRelativeCoordinates.triple 
+    SmithSignNormal.abs‚ 
+    SmithSignNormal.sgn 
+    TheTruncationErrorIsExactAtEveryFiniteStage.error 
+    TheTruncationErrorIsExactAtEveryFiniteStage.truncate 
+    TransmissionRefutations.halfOneMinus 
+    TransmissionRefutations.negZ 
+    TriangularPair_TwoShearFlowsShareEveryEvenStressInvariantAndTheirContinuationIsOddSoContinuationDoesNotDescendThroughTheInvariants.continuation
+
+[17 members / 11 files]
+    DSOArchitecture.Composition 
+    DSOArchitecture.Endpoint 
+    DSOArchitecture.FirstLeg 
+    DSOArchitecture.SecondLeg 
+    DescentObstructionUnified.Indiscrete 
+    MatchingPenniesSeparator.IsNash 
+    PairedInterfaceMinimality.PairedKernel 
+    ProjectionChargeAudit.R 
+    SamayikaAndNityaAreIndependent.always 
+    SamayikaAndNityaAreIndependent.matching 
+    SamayikaAndNityaAreIndependent.never 
+    SequentialHadamardReadout.HistoryPosterior 
+    SpanWeave.Total 
+    TheAdmissibleOrdersArePreciselyThePrincipalUpSetSoStrengthIsNotAFunctionOfTheEdgeCount.hbA 
+    TheAdmissibleOrdersArePreciselyThePrincipalUpSetSoStrengthIsNotAFunctionOfTheEdgeCount.hbB 
+    TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose.Inv 
+    Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart.‡¶‡‡µ‡ø‡Æ‡‡≤-‡µ‡à‡ß‡∞‡‡Æ‡‡Ø‡Æ‡
+
+[17 members / 11 files]
+    CayleyPairChart.Lminus 
+    CayleyPairChart.Lplus 
+    ChargePolynomialFinite._‚à‚_ 
+    DiscriminantIsTheOnlyFirstIntegral_UpToCubicDegreeEveryPolynomialFirstIntegralOfRestrictedEulerIsAffineInTheDiscriminantAndThePushforwardFibreIsUnbounded.W‚ 
+    DiscriminantIsTheOnlyFirstIntegral_UpToCubicDegreeEveryPolynomialFirstIntegralOfRestrictedEulerIsAffineInTheDiscriminantAndThePushforwardFibreIsUnbounded.W‚ 
+    DynamicDescent.excursion 
+    Ekamula_TheWallOrientationsAreSquareRootsOfOneBuiltFromFactorizationsByTheKloostermanReciprocal.root 
+    FlipObservable.gcdZ 
+    FlipObservable.valliZ 
+    Jala_TheLatticeTheGaugeGroupTheConnectionAndTheWilsonLoopAreBuiltAndTheHolonomyIsOne.act 
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡‡µ‡∞‡‡‡ 
+    ScaleFluxContinuity_EnergyIsNotDynamicallyClosedTheCompletionIsTheSignedFluxAndSingularityIsFluxThroughTheBoundary._‚ä_ 
+    Sulba.‡ï‡∞‡‡ 
+    Sulba.‡‡ø‡∞‡‡Ø‡ï‡ 
+    Sulba.‡‡æ‡∞‡‡‡‡µ 
+    TransmissionRefutations.PiPartial-abs 
+    TransmissionRefutations.RHS-abs
+
+[17 members / 15 files]
+    Bhitti_TheThreeInductionObligationsAreRefutedRoundTripsAndTheLedgerMisdiagnosedThem.hull 
+    ChargePolynomialFinite.range 
+    FrontierList.downFrom 
+    FrontierList.primesUpTo 
+    HeadDepthMergeBreaker.basesB 
+    IntegerHullMultiplicity.hull 
+    Meru.‡Æ‡‡∞‡-‡‡ô‡‡ï‡‡‡ø 
+    NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.‡‡ô‡‡ï‡‡‡ø 
+    OptionSpread.ones 
+    Sha256N.compress1 
+    SimaSutra_TheUniformTurnIsThePointwiseLimitOfNamedFiniteWordsAndLiesOutsideTheirImage.avaroha 
+    TheRiemannHypothesisHasAnArithmeticFormWithNoRealNumberInIt.below 
+    TheRiemannHypothesisHasAnArithmeticFormWithNoRealNumberInIt.properDivisors 
+    TomographyConditioning.pochRow 
+    VestanaBheda_TheChargeIsAHomomorphismOntoZFourAndTheSectorsAreClassified.ghana 
+    Vrddhi_AVerifiedProgramTheSuccessorMachineAddsOneStrokeAndItsCertificateIsAFibrePoint.ones 
+    WalkCapacity.range1
+
+[17 members / 7 files]
+    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
+    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
+    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
+    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
+    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
+    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
+    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
+    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚à 
+    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.boundary-Jet‚ 
+    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.trunc‚-residual-nonzero 
+    IdempotenceForbidsDescent.i-inverts 
+    InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.cube-amplitude¬≤ 
+    InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.envelope¬≤ 
+    InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.œâ-unit 
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡‡Æ‡Æ‡ 
+    PythagoreanTransition.gen-2-1 
+    TheArithmeticCircleIsFourPeriodic.quarter-1
+
+[17 members / 9 files]
+    ApasaranaNiyama_ReversibilityConservesDistinctionsSoErasureIsDisplacementIntoTheEnvironmentNeverDestruction.parivtti 
+    BalanceWithoutTransitivity.bareSwap 
+    CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare.ardha 
+    CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare.caturaa 
+    GlobalSmithAtlasFlatness.flipFirst 
+    GlobalSmithAtlasFlatness.swapKernel 
+    Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.‡ò‡ü-‡‡‡≤‡®‡æ 
+    Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.‡‡‡µ‡®-‡‡¶‡Æ‡ 
+    Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.‡Æ‡‡-‡‡¶‡Æ‡ 
+    ProjectionChargeAudit.decode 
+    ProjectionChargeAudit.encode 
+    SmithKernelQuantumBoundary.swapKernel 
+    VeniTraya_TheThreeStrandActionHasInversesAndNonCommutingGeneratorsSoTheBraidingIsGenuinelyNonAbelian.tri-caturaa 
+    WallCertificate.gaugeFlip 
+    WallCertificate.readS 
+    WallCertificate.split 
+    WallCertificate.swapS
+
+[17 members / 15 files]
+    AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision.¬2‚â0 
+    AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision.¬3‚â0 
+    CakravalaBound.turn7ViolatesBound 
+    CostGeometryIndexed.loses-at-false 
+    DependentOptimizationFibration.one-not‚âzero 
+    FlippingACostCoordinateIsSoundButNotFaithful.¬7‚â5 
+    HolonomyDeterminant.no5‚â3 
+    MajorityLiesStrictlyBetweenAllAndSome.majorityFails 
+    MatchingPenniesSeparator.one-not‚âzero 
+    MinPlusResiduationIsAGaloisConnectionAtOneCut.naiveFails 
+    MinimalityOfABoundaryPopulationNeedsLowestTerms.shortIsShorterThanTheDenominator 
+    PMTorus.bipartite-bound-violated 
+    SieveRoughBridge.horizon-bound-fails-at-49 
+    SieveRoughBridge.¬7‚â5 
+    TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary.boundaryIsNotAboveHalf 
+    WalkStreamHypothesisBoundary.not-two‚âzero 
+    WhichThresholdStatementsDescendToTheRate.shortIsNotMinimalAtTwoQuarters
+
+[15 members / 10 files]
+    CRTChain.Coprimes 
+    CRTChain.Vec 
+    DescentCostsTheIntegers.ExpZ 
+    Factorisation.AllPrimeL 
+    FrontierIsWellFormed.AllP 
+    FrontierIsWellFormed.NoDup 
+    Gamma0IndexExponent.Sorted 
+    GrhaChaura_TheHouseRobberDynamicProgramIsOptimalAttainedAndUnbeatable.Gap 
+    GrhaChaura_TheHouseRobberDynamicProgramIsOptimalAttainedAndUnbeatable.Gap 
+    GrhaChaura_TheHouseRobberDynamicProgramIsOptimalAttainedAndUnbeatable.Sel 
+    GrhaChaura_TheHouseRobberDynamicProgramIsOptimalAttainedAndUnbeatable.Sel 
+    NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.‡‡ô‡‡ï‡‡‡‡æ‡® 
+    SensorResidueBridge.Positive 
+    SumProductTorus.Exp 
+    TheMeetIsMaxAndTheProfileCutIsAGaloisConnection.Profile
+
+[15 members / 7 files]
+    Anuvrtti.A 
+    Anuvrtti.B 
+    Anuvrtti.C 
+    Anuvrtti.nothing' 
+    CompositionalContextAdapter.controlFixed 
+    CompositionalContextAdapter.controlLeft 
+    CompositionalContextAdapter.controlRight 
+    FormationDirectionIncidence.basePair 
+    GlobalSmithAtlasFlatness.edgeWitness 
+    Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡‡‡∞‡‡ø‡Ø‡ã‡ó‡ 
+    Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits.carried 
+    Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits.one¬≤ 
+    Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits.zero¬≤ 
+    WallCertificate.x‚ 
+    WallCertificate.x‚
+
+[14 members / 9 files]
+    BhavanaSemiring.cy 
+    Dvikarani.‡‡æ‡µ‡®‡æ-‡‡‡ 
+    Dvikarani.‡‡æ‡µ‡®‡æ-‡‡∞ 
+    Gamma0Index.cnt3 
+    GananaAndhata_TheMobiusCountIsSwapBlindWhileTheInteractionCarrierHoldsAFreeOrbitOutsideTheComparisonImage.mobiusNeg 
+    GananaAndhata_TheMobiusCountIsSwapBlindWhileTheInteractionCarrierHoldsAFreeOrbitOutsideTheComparisonImage.mobiusPos 
+    HeadDepthMergeBreaker.pmB 
+    HeadDepthMergeBreaker.pmStep 
+    HeadDepthTwo.powMod 
+    RamanujanTernaryField_TheCountingFieldIsTheObjectTheBooleanIsItsSupportAndTheCollapseForgets.countZ 
+    RamanujanTernaryField_TheCountingFieldIsTheObjectTheBooleanIsItsSupportAndTheCollapseForgets.ind 
+    Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.cntX 
+    Trikarani.‡‡æ‡µ‡®‡æ-‡‡‡ 
+    Trikarani.‡‡æ‡µ‡®‡æ-‡‡∞
+
+[14 members / 9 files]
+    BalanceWithoutTransitivity.coordinate 
+    BalanceWithoutTransitivity.mark 
+    BalanceWithoutTransitivity.quotient 
+    CompositionalContextAdapter.controlObserve 
+    FormationDirectionIncidence.parity 
+    MatchingPenniesSeparator.pne 
+    MatchingPenniesSeparator.Œ≤ 
+    MatraSopana_EachObservableReadsTheTwistCountModuloTheOrderOfItsOwnBlindness.vyatyaya 
+    Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡‡‡∞‡‡Æ‡æ‡‡ 
+    ProjectionChargeAudit2.totalCharge 
+    QuadraticRefinement.qubit-quad 
+    WallCertificate.hidden 
+    WallCertificate.inAnn 
+    WallCertificate.tot
+
+[14 members / 6 files]
+    Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands.Carrier 
+    GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.‡‡µ‡ï‡‡‡µ‡‡Ø-‡ï‡‡µ‡‡ø‡‡ 
+    GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.‡‡‡‡‡ø-‡ï‡‡µ‡‡ø‡‡ 
+    GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.‡®-‡ï‡‡µ‡‡ø‡‡-‡‡‡ 
+    GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.‡®‡æ‡‡‡‡ø-‡ï‡‡µ‡‡ø‡‡ 
+    GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.‡‡∞‡‡µ‡‡‡∞-‡‡‡ 
+    GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.‡‡∞‡‡µ‡‡‡∞-‡‡ï‡≤‡Æ‡ 
+    Kevalajnana_ThePureMindLosesNothingAndMissesNothingWhichIsTheEquivalence.‡‡®‡‡Ø‡‡®‡‡æ 
+    Kevalajnana_ThePureMindLosesNothingAndMissesNothingWhichIsTheEquivalence.‡‡‡æ‡®‡ø 
+    Kevalajnana_ThePureMindLosesNothingAndMissesNothingWhichIsTheEquivalence.‡‡∞‡‡µ‡‡ï‡≤‡Æ‡ 
+    ObstructionCalculus.Generates 
+    ObstructionCalculus.Reconstructs 
+    OptimalObservation.Injective 
+    PingalaIsOptimal.Injective
+
+[14 members / 12 files]
+    AchromaticToy.distinct‚ 
+    AdditionChainPredictiveMemory.has3-separates 
+    ApasaranaNiyama_ReversibilityConservesDistinctionsSoErasureIsDisplacementIntoTheEnvironmentNeverDestruction.apasrita-bheda 
+    ApasaranaNiyama_ReversibilityConservesDistinctionsSoErasureIsDisplacementIntoTheEnvironmentNeverDestruction.avaya-apasraa 
+    AsiddhatvaBreaksFactoring.verdicts-differ 
+    FluxUnitCancellationBoundary.bool-flux-one-nonzero 
+    FuelAdequacyIsACollision.different-status 
+    GaugeOrbitClasses.œ‚‚âœ‚ã 
+    Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.snd-payati 
+    PhysicalLearningCore.coherent-two-states 
+    PurnaSaptabhangi_TheFourOpenPositionsGetCanonicalWitnesses.true‚âfalse 
+    SamacaranaNityam_ATransitiveSymmetryFlattensTheVerdictSoAnUnequalSplitCertifiesNoSymmetryActs.‡µ‡ø‡‡Æ‡ 
+    Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.exception-decides 
+    Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.lopa-load-bearing
+
+[14 members / 7 files]
+    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡‡®‡‡Ø‡ 
+    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡¶‡‡µ‡ø‡‡¶‡ 
+    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡¶‡ï‡‡‡ø‡ 
+    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡µ‡æ‡Æ 
+    Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡‡‡-‡â‡¶‡æ‡‡∞‡‡Æ‡ 
+    Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡‡‡-‡â‡¶‡æ‡‡∞‡‡Æ‡' 
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡¶‡ï‡‡‡ø‡ 
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡µ‡æ‡Æ 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡-‡¶‡ï‡‡‡ø‡ 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡-‡µ‡æ‡Æ 
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡¶‡ï‡‡‡ø‡ 
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡µ‡æ‡Æ 
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡‡ 
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡
+
+[13 members / 6 files]
+    FrontierList.keepPrimes 
+    Gamma0Index.runLens 
+    Meru.‡‡ó‡‡∞‡ø‡Æ 
+    NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.‡‡ó‡‡∞‡ø‡Æ 
+    NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.‡Ø‡‡ó‡‡Æ 
+    NirupaSutra_EveryBraidWordIsItsBarePermutationFollowedByAComputedTwistWord.T 
+    Sha256N.invert16 
+    Sha256N.invert4 
+    Sha256N.invert8 
+    Sha256N.message16 
+    Sha256N.revL 
+    Sha256N.schedule 
+    Sha256N.sha256block
+
+[13 members / 10 files]
+    Anuvrtti_TheGlueIsTransparentAndTheWholeCostIsTheNeutralTypeNotTheIdentification.‡‡‡‡ø‡∞-‚ï 
+    Decategorification.card-Fin 
+    FinTopSplit.to‚ï-flast 
+    HaskellDefinitionBoundary.haskell-max-zero-left 
+    HaskellDefinitionBoundary.haskell-sub-zero-right 
+    ModeAdjointFinitenessBoundary.max-unit 
+    Niksepa.‡Ø‡ã‡ó-‡µ‡æ‡Æ-‡‡‡®‡‡Ø‡Æ‡ 
+    Niksepa.‡µ‡ø‡‡∞‡‡Ø‡Ø-‡‡‡®‡‡Ø‡Æ‡ 
+    RaksaSthira_TheGuardIsAnIdempotentReflectionAndAProtectedSystemAdmitsNoLoweringTransformation.maxZeroR 
+    SieveScaleTower.sec-21 
+    SieveScaleTower.sec-31 
+    Sphatika.sp001 
+    TermFreeMonoid.+-unit-l
+
+[12 members / 9 files]
+    FlippingACostCoordinateIsSoundButNotFaithful.oneCost 
+    MajorityLiesStrictlyBetweenAllAndSome.oneOfThree 
+    MajorityLiesStrictlyBetweenAllAndSome.twoOfThree 
+    MinimalityOfABoundaryPopulationNeedsLowestTerms.short 
+    ProductiveTear.roots‚ 
+    RateOneIsExactlyTheUniversalClaim.population 
+    ReversalInvariant.w‚ 
+    TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary.onTheBoundary 
+    TrayoNirnayah_SurvivalUnderRetractionHasThreeVerdictsBecauseAPartialClassEnumerationCannotDecide.cs-dead 
+    TrayoNirnayah_SurvivalUnderRetractionHasThreeVerdictsBecauseAPartialClassEnumerationCannotDecide.cs-survivor 
+    TrayoNirnayah_SurvivalUnderRetractionHasThreeVerdictsBecauseAPartialClassEnumerationCannotDecide.seen‚ 
+    Window5Walsh.bools
+
+[12 members / 3 files]
+    EndianAtlasReplay.w00 
+    EndianAtlasReplay.w01 
+    EndianAtlasReplay.w10 
+    EndianAtlasReplay.w11 
+    TransportDivScale.e13 
+    TransportDivScale.e3 
+    TransportDivScale.e4 
+    TransportDivScale.e5 
+    TransportDivScale.e6 
+    TransportDivScale.t13 
+    TransportDivScale.t3 
+    TransportDivWitness.thousand
+
+[12 members / 8 files]
+    CyclicAliasing.shellCoeff 
+    CyclicParseval_TheBlockIsASpectralSumOfProductsWheneverTheCharactersAreOrthogonalSoPositivityOnTheSpectralSideIsWhereTheFrequenciesAreReal.sign 
+    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.binom 
+    JyotiVivrtti_TheZetaTwistSendsTheMarkedChargeTowerToTheOmegaStratification.‡‡Æ-‡‡ø‡‡‡®‡Æ‡ 
+    MulaShakti_TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne.‡‡ø‡®‡‡¶‡‡ 
+    Sl2DivisorLattice.0M 
+    Sl2DivisorLattice.kron 
+    TheRiemannHypothesisHasAnArithmeticFormWithNoRealNumberInIt.ŒºF 
+    TransmissionRefutations.allSumTo 
+    TransmissionRefutations.divSumMu 
+    TransmissionRefutations.divSumTo 
+    TransmissionRefutations.muF
+
+[12 members / 4 files]
+    CakravalaWitness.compositeIsBhavana 
+    DivisorHistoryDSO.endpoint-counts 
+    DivisorHistoryDSO.full-counts 
+    DivisorHistoryDSO.snapshot-counts 
+    Trikarani.‡‡ï‡‡∞‡Æ‡-‡ß 
+    Trikarani.‡‡ï‡‡∞‡Æ‡-‡® 
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.rung2 
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.rung3 
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.rung4 
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.rung5 
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.rung6 
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.transport‚
+
+[12 members / 11 files]
+    AProvabilityDeterminedImplicationForbidsIndependence.witBotUnprovable 
+    Abhava_MamaAdarsanamNaTasyaAbhavah.adarsanam 
+    Agamya_TheLossOrderReadsTheUnreachedAndTheConservingFlowsCannotSoVyaptisFenceIsATerm.g 
+    Gunasthana_TheFourteenRungAscentIsAChainKevalaBeginsAtThirteenAndMoksaLiesBeyondFourteen.‡ï‡‡‡‡‡Æ‡ã‡‡-‡®-‡ï‡à‡µ‡≤‡‡Ø‡Æ‡ 
+    LawfulContinuationCore.blocked-is-empty 
+    PinnedSensorForcing.badUnit 
+    PrimeSquareOptionalComposite.localBad 
+    PrimeSquarePinAdapter.localBad 
+    ProstheticImageAdapter.true-not-inherited 
+    ReachableActionRefinement.emptyTarget 
+    SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleAndActionlessCoincide.‡ï‡æ‡≤‡-‡®-‡‡‡‡‡ø‡ï‡æ‡Ø‡ 
+    SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleAndActionlessCoincide.‡ß‡∞‡‡Æ‡æ‡¶‡Ø‡-‡‡∞‡‡‡ø‡‡
+
+[11 members / 7 files]
+    NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.‡Ø‡‡ó‡≤ 
+    RH_TheWholeQuestionEntersTyped_DavisMatiyasevichRobinsonArithmetization.Hfrac 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.œp 
+    SetuYugma_TheSeamFordJoinsTheValliToPingalaAndVivekaIsTheNaturalNumbers.‡â‡¶‡‡¶‡ø‡‡‡ü 
+    SieveScaleTower.o‚ 
+    SieveScaleTower.s‚‚ 
+    SieveScaleTower.va 
+    SieveScaleTower.vb 
+    SieveScaleTower.vc 
+    TomographyConditioning.invMod 
+    Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis.Mcount
+
+[11 members / 3 files]
+    HeadDepthMergeBreaker.collisionB 
+    HeadDepthMergeBreaker.q2B 
+    HeadDepthMergeBreaker.strongB 
+    HeadDepthMergeBreaker.w3B 
+    HeadDepthTwo.residueCertificate 
+    HeadDepthTwo.sZeroCertificate 
+    HeadDepthTwo.strongCollapseCertificate 
+    HeadDepthTwo.w3TwoCertificate 
+    HeadDepthTwo.w4TwoCertificate 
+    UnivalentTensorInteraction.minus 
+    UnivalentTensorInteraction.plus
+
+[11 members / 3 files]
+    Endian.to‚ï-dcomp-fzero 
+    SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel.maxSuc0 
+    SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel.‚àR0 
+    Sphatika.sp005 
+    Sphatika.sp007 
+    Sphatika.sp011 
+    Sphatika.sp012 
+    Sphatika.sp176 
+    Sphatika.sp177 
+    Sphatika.sp181 
+    Sphatika.sp182
+
+[11 members / 7 files]
+    ChargePolynomialFinite._^‚_ 
+    Madhava.‡ò‡æ‡ 
+    Madhava.‡‡ô‡‡ï‡≤‡ø‡‡Æ‡ 
+    MulaShakti_TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne.‡‡ï‡‡‡ø‡ 
+    ScaleTransportZ.orbit 
+    SubsetSumChartDepth._^_ 
+    YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering.deriv 
+    YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering.mixed 
+    YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering.pow 
+    Yamala_TheTwinChargeIsTheParityJetAndTwistedLeibnizIsDualNumberMultiplication.deriv 
+    Yamala_TheTwinChargeIsTheParityJetAndTwistedLeibnizIsDualNumberMultiplication.pow
+
+[11 members / 7 files]
+    Cakra_TheResidueBridgeIsProvedAndTheMinimalAcceptorIsTheCyclicGroupOfOrderTheLcm.zero-as-divisor-is-sighted 
+    CoprimeSplitting.¬4‚à6 
+    SuccessorIsNotTropical.suc-breaks-order-rhs 
+    WalkBridgeUniform.first-install-jumps 
+    WalkBridgeUniform.¬2‚à1 
+    WalkInduction.¬2‚à1 
+    WalkInduction.¬3‚à2 
+    WalkJumps.¬2‚à3 
+    WalkStreamHypothesisBoundary.zero‚àone 
+    WalkStreamHypothesisBoundary.¬2‚à3 
+    WalkStreamHypothesisBoundary.¬6‚à2
+
+[11 members / 9 files]
+    BhavanaKrida.‡‡‡‡∞ 
+    CayleyPairChart.Chart 
+    Ekamula_TheWallOrientationsAreSquareRootsOfOneBuiltFromFactorizationsByTheKloostermanReciprocal._‚à_ 
+    EveryCommonDivisorOfAConvergentDividesTheDeterminant._divides_ 
+    Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter._‚à_ 
+    Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter.‡Ø‡Æ‡≤-‡‡ø‡‡‡‡ 
+    Kuttaka._‚à_ 
+    ReceiverExponentFaithful.BoundedOffset 
+    RepairGrading.Killed 
+    RepairGrading.NewlySeparated 
+    SmithDeterminantClassMultiplicativity.SignClass
+
+[11 members / 2 files]
+    Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.‡¶‡∞‡‡‡®‡Æ‡-‡‡Æ‡æ‡ß‡æ‡®‡Æ‡ 
+    Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.‡¶‡∞‡‡‡®‡Æ‡-‡ß 
+    Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.‡¶‡∞‡‡‡®‡Æ‡-‡® 
+    Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.‡¶‡∞‡‡‡®‡Æ‡-‡© 
+    Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.‡¶‡∞‡‡‡®‡Æ‡-‡ 
+    Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.‡¶‡∞‡‡‡®‡Æ‡-‡ 
+    Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.‡¶‡∞‡‡‡®‡Æ‡-‡ 
+    ChargePolynomialFinite.envelope-values 
+    ChargePolynomialFinite.invariants-12 
+    ChargePolynomialFinite.invariants-30 
+    ChargePolynomialFinite.invariants-360
+
+[11 members / 9 files]
+    Anuvrtti.gain 
+    AskingIsNotAPropertyOfTheFunction.askBool 
+    DSOFactorRankFinite.crossed 
+    DSOFinite.K 
+    DSOFinite.L 
+    DSONucleusFinite.K 
+    FiniteOccupancyChannelNoGo.bothNat 
+    Karana_TheStructuralEquationModelTheDoOperatorAndTheCounterfactualAreBuiltAndTheLadderIsStrict.ind 
+    MatchingPenniesSeparator.u‚ 
+    MatchingPenniesSeparator.u‚ 
+    SimplicialDefectFailure.step
+
+[11 members / 6 files]
+    Anekanta.avaktavya 
+    Anekanta.sydasti 
+    Anekanta.sydastinsti 
+    Anekanta.sydnsti 
+    Asiddha.Asiddha 
+    Durnaya_CollapseIffEveryNayaAgrees.AllNayasAgree 
+    Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld.MutuallyEntail 
+    SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.‡‡‡ 
+    SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.‡‡‡‡‡‡ô‡‡ó‡ 
+    TheUniformFormIsNotRefuted.NoUniformProcedure 
+    TheUniformFormIsNotRefuted.UniformlyDecidable
+
+[10 members / 6 files]
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡ß‡®‡Æ‡ 
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡µ‡ø‡‡Æ-‚ 
+    PayloadMorphism.isZero‚ 
+    PiPartialOnEveryPrime.isPos0 
+    TheFibreIsTheSubject.isNeg‚ 
+    TheFibreIsTheSubject.isZero‚ 
+    TransmissionRefutations.isPos0 
+    TransmissionRefutations.isPos1 
+    Window5Walsh.nonNeg‚ 
+    Window5Walsh.pos‚
+
+[10 members / 6 files]
+    JoinSavesTheMeet.eight 
+    JoinSavesTheMeet.four 
+    NumberIsExponentialInDerivation.cap8 
+    OverlapIsTheCost.three 
+    OverlapIsTheCost.two 
+    SumProductTorus.cap6 
+    SumProductTorus.cap8 
+    TheDerivationIsDenseToo.cap8 
+    TheTrajectoryIsAChain.fourE 
+    TheTrajectoryIsAChain.threeE
+
+[10 members / 8 files]
+    Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance.‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡ 
+    EkamChidram_TheObstructionIsOneClassCostCryptoAndCollisionAreEachANonEquivalenceOfTheForgetfulMap.WitnessedNonEquiv 
+    LiftingFiberResidue.FactorsThroughTrunc 
+    NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible.‡â‡¶‡‡¶‡ø‡‡‡ü‡Æ‡æ‡‡‡∞‡Æ‡ 
+    NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible.‡®‡‡‡ü‡ã‡¶‡‡¶‡ø‡‡‡ü‡Ø‡ã‡ó‡ 
+    SamuhaDrstih_SinglyBlindReadingsAreJointlyFaithfulExactlyWhenAReconstructionExists.‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡ 
+    SanghattaBija_CollisionIsAnOffDiagonalKernelPairPointTheKernelPairIsTheFiberedPairingAndEveryCoinFaceIsACollision.Coll 
+    SanghattaBija_CollisionIsAnOffDiagonalKernelPairPointTheKernelPairIsTheFiberedPairingAndEveryCoinFaceIsACollision.KernelPair 
+    TranscriptComposition.isInj 
+    VyutpattiVismrti_ThePunInhabitsTheForgettingTypeSoLanguagesSurfaceSitsStrictlyLossyInTheOrder.‡µ‡ø‡‡‡Æ‡‡‡ø
+
+[10 members / 4 files]
+    Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands.‡ó‡‡®‡æ-‡‡®‡‡‡ 
+    Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands.‡ó‡‡®‡æ-‡ï‡‡ü‡‡ü‡ï 
+    Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands.‡ó‡‡®‡æ-‡‡‡∞‡‡Æ‡Æ‡ 
+    Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands.‡ó‡‡®‡æ-‡‡ü‡ 
+    ExactProjectiveCircuits.XX-plus-weights 
+    ExactProjectiveCircuits.ZH-plus-weights 
+    ExactProjectivePhase.minus-ray-ports 
+    ExactProjectivePhase.plus-ray-ports 
+    PairComposition.compWitness 
+    PairComposition.compose'Witness
+
+[10 members / 6 files]
+    AnyonyaAbhava.Collision 
+    ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense.‡‡‡∞‡µ‡‡‡ø 
+    ExclusionRecoversGroundAtAPrice.CoExclude 
+    ExclusionRecoversGroundAtAPrice.CoIdentify 
+    FiniteInformation.Completes 
+    FiniteInformation.FactorsThrough 
+    FiniteInformation.FiberConstant 
+    FiniteInformation.SeparatesFibers 
+    SamraksanaVrddhi_TheNewEyeKeepsEveryOldDistinctionAndSeparatesAWitnessedNewOne._‚â∫_ 
+    TranscriptComposition.Factors
+
+[10 members / 5 files]
+    AbhilekhaAnirdhara_TheSpecificationNowExistsDoesNotDetermineTheProgramAndItsFibreCarriesAnInjectionOfTheNaturals.abhilekha‚ 
+    ChargePolynomialFinite.f12 
+    ChargePolynomialFinite.f2 
+    ChargePolynomialFinite.f30 
+    ChargePolynomialFinite.f360 
+    ChargePolynomialFinite.f4 
+    ChargePolynomialFinite.f6 
+    FactoryVICore.Efin 
+    FrontierCount.frontier8 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.Œî
+
+[9 members / 2 files]
+    R0021FlipOrbit.coefA 
+    R0021FlipOrbit.coefB 
+    R0021FlipOrbit.coefC 
+    R0021FlipOrbit.endSum 
+    R0021FlipOrbit.m128 
+    R0021FlipOrbit.m192 
+    R0021FlipOrbit.m64 
+    Window5Walsh.m384‚≤ 
+    Window5Walsh.m96
+
+[9 members / 4 files]
+    Gamma0Index.idxLocal 
+    Gamma0Index.minusAll 
+    Gamma0Index.qfacProd 
+    Gamma0IndexExponent.denom 
+    Gamma0IndexExponent.excessAll 
+    Gamma0IndexExponent.gtAll 
+    Gamma0IndexExponent.numer 
+    GhurnaPatha_EachStrandReadsExactlyItsOwnTwistCountSoTheTwistWordActsByItsCountVector.gaan 
+    Sha256N.nth
+
+[9 members / 4 files]
+    FiniteNonabelianHolonomy.s‚‚ 
+    FiniteNonabelianHolonomy.s‚‚ 
+    S3ConjugacyObservation.cycle‚‚‚ 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.s‚‚ 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.s‚‚ 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.s‚‚ 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.œ 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.œ¬≤ 
+    TwoLoopNonabelianNetwork.reverseCycle
+
+[9 members / 5 files]
+    Decategorification.îΩ 
+    LosslessLowerBound.Inputs 
+    OptimalObservation.MatraRowSet 
+    OptimalObservation.MetreSet 
+    OptimalObservation.RowSet 
+    OptimalObservation.VakSet 
+    PingalaIsOptimal.MetreFinSet 
+    PingalaIsOptimal.VakFinSet 
+    SymmetryCardinality.symmetryCarrier
+
+[9 members / 3 files]
+    DSONucleusExecutionCalibration.potential 
+    DSONucleusMiddleProduct.leftControl 
+    DSONucleusMiddleProduct.leftZero 
+    DSONucleusMiddleProduct.zeroSeed 
+    DSONucleusOneSidedProduct.control 
+    DSONucleusOneSidedProduct.ell-a 
+    DSONucleusOneSidedProduct.ell-c 
+    DSONucleusOneSidedProduct.leftAssociated 
+    DSONucleusOneSidedProduct.rightAssociated
+
+[9 members / 7 files]
+    ConeOrder.legs-roundtrip 
+    LosslessReturnFinal.‡‡∞‡Æ‡‡-‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡ 
+    LosslessReturnFinal.‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡ 
+    LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt.‡‡Æ‡æ‡®-‡Æ‡æ‡∞‡‡ó‡ 
+    Samkramana.viloma-anuloma 
+    Samkramana.rambha-viloma-anuloma 
+    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.‚äû-lunit 
+    SieveScaleTower.sec-32 
+    VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal.‡â‡‡‡‡æ‡®-‡‡µ‡‡∞‡
+
+[9 members / 6 files]
+    CenterRelative.Q 
+    CenterRelative.u‚ä 
+    CenterRelative.u‚ã 
+    CenterRelativeWeightTransport.pairWeight 
+    ChargeTwoHistories.augment 
+    ChargeTwoHistories.relative 
+    ExactHadamardInterference.quadraticWeight 
+    Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount.œ 
+    YogaDhruva_TheFibreOfAdditionIsATorsorAndEveryConservingFlowIsATranslation.‡Ø‡ã‡ó
+
+[9 members / 5 files]
+    Asiddha.2‚à2 
+    FrontierDividesHard.eight-divides 
+    FrontierDividesHard.five-divides 
+    FrontierDividesHard.seven-divides 
+    FrontierDividesHard.six-divides 
+    RoughSplit.5‚à25 
+    RoughSplit.7‚à49 
+    SieveRoughBridge.2‚à4 
+    SuccessorIsNotTropical.suc-breaks-order-lhs
+
+[9 members / 8 files]
+    Ananyata.Val 
+    Bija.‡‡‡‡‡ø‡¶‡‡ß‡ø 
+    DivisibilityGuardsAreMeetClosed.IsLcm 
+    KuttakaSamapti_TheValliIsFiniteForEveryPair.‡µ‡≤‡‡≤‡ 
+    LCMExists.IsLCM‚ 
+    Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.Trace 
+    Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.Verdict 
+    WalkJumps.JumpWitness 
+    Yuti.‡Ø‡‡‡ø‡‡ø‡¶‡‡ß‡ø
+
+[9 members / 8 files]
+    ADisjointValidatorMakesAFlagUnusableAndInvisible.Mem 
+    AscendingFirstIsTheWorstUnlessTheArchiveIsConstant.Lower 
+    AscendingFirstIsTheWorstUnlessTheArchiveIsConstant.Upper 
+    FrontierIsWellFormed.NotIn 
+    Gamma0IndexExponent.All‚â 
+    SieveFiber._‚àà_ 
+    Srotas_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra._‚àà‚_ 
+    TheInstalledOperationHasNoPervasionSoTheKernelMemorises._‚àà‚ï_ 
+    WalkCapacity._‚àà_
+
+[8 members / 2 files]
+    R0021FlipOrbit.endProd 
+    R0021FlipOrbit.mid3 
+    R0021FlipOrbit.midProd 
+    Window5Walsh.p1234 
+    Window5Walsh.p1235 
+    Window5Walsh.p1245 
+    Window5Walsh.p1345 
+    Window5Walsh.p2345
+
+[8 members / 7 files]
+    ParetoCost.Incomparable 
+    ParetoCost._‚âº_ 
+    TheScoreOrderAndTheWeightOrderDisagree.WeightBelow 
+    TheThresholdChainIsDenseAndTheMediantWitnessesIt._‚ä_ 
+    TheThresholdOrderIsTotalAndTheClaimIsAntitone._‚ä_ 
+    TomographyConditioning._‚âà_ 
+    TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation.TriP 
+    WhichThresholdStatementsDescendToTheRate._‚âà_
+
+[8 members / 7 files]
+    GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt.‡‡‡ 
+    KnowledgeProcess.HistoryPost 
+    KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.alwaysFalse 
+    KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.trivial 
+    PinnedSensorForcing.GoodUnit 
+    PrimeSquareOptionalComposite.LocalGood 
+    PrimeSquarePinAdapter.LocalGood 
+    RelativeFrameChange.BoolFrame
+
+[8 members / 4 files]
+    Gamma0IndexExponent.shift 
+    OracleCharge.fe-mult 
+    Sha256N.compressR 
+    Sha256N.extend 
+    Sha256N.lastN 
+    Sha256N.takeN 
+    TomographyConditioning.mulLin 
+    TomographyConditioning.scaleP
+
+[8 members / 5 files]
+    ExactHadamardInterference._+G_ 
+    ExactHadamardInterference._-G_ 
+    InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference._+e_ 
+    InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference._¬e_ 
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.ŒºK 
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.ŒºT 
+    TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative._‚äô_ 
+    Yamala_TheTwinChargeIsTheParityJetAndTwistedLeibnizIsDualNumberMultiplication._‚ä_
+
+[8 members / 4 files]
+    DistinctPrimesAreCoprime.prime-2 
+    DistinctPrimesAreCoprime.prime-3 
+    FrontierMember.prime2 
+    FrontierMember.prime7 
+    RoughSplit.isPrime5 
+    RoughSplit.isPrime7 
+    WalkJumps.isPrime2 
+    WalkJumps.isPrime3
+
+[8 members / 8 files]
+    ChargePolynomialFinite._‚ààL_ 
+    ChuDefect._‚ààL_ 
+    Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision._‡‡¶‡‡‡Ø‡_ 
+    FrontierMember.Mem 
+    NastaVitanda_TheDigitProtocolAndTheRefuterMeetAtKTimesPMinusOne._‚àà_ 
+    OneStepCoverageAndDisjointnessOfTheLayer.Mem 
+    SelfImprovement._‚àà_ 
+    Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa._‚àà¥_
+
+[8 members / 8 files]
+    Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence.‡‡‡ 
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ 
+    LawfulContinuationCore.flip-locally-inhabited 
+    ObstructionCalculus.name 
+    Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡‡‡‡æ‡‡®‡æ 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡ 
+    SankramanaSesa_EveryTransportOwesItsResidual.‡µ‡ø‡‡Æ-‡‡‡‡‡ 
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡â‡‡‡‡æ‡®‡Æ‡
+
+[8 members / 7 files]
+    BhavanaKrida.‡¶‡‡µ‡ø 
+    ChargeTwoHistories.one 
+    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.ŒΩ 
+    GrahaYuti.‡‡Æ‡æ‡ß‡æ‡®‡Æ‡ 
+    MulaShakti_TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne.‡‡ï‡Æ‡ 
+    S3IntegerPermutationModule.one 
+    S3IntegerPermutationModule.zero‚ 
+    SignIsNotAccumulable.minusOne
+
+[8 members / 8 files]
+    AbhilekhaAnirdhara_TheSpecificationNowExistsDoesNotDetermineTheProgramAndItsFibreCarriesAnInjectionOfTheNaturals.guya-nya 
+    Chala_TheMarkovDecisionProcessIsBuiltAndRewardHackingIsATheoremNotAReading.¬0 
+    ChhayaRig_TheBooleanShadowOfCountingProvenanceIsAHomomorphismWithNoHomomorphicSection.guya-nya 
+    Endian.value-w0 
+    HaskellDefinitionBoundary.haskell-mul-zero 
+    Karana_TheStructuralEquationModelTheDoOperatorAndTheCounterfactualAreBuiltAndTheLadderIsStrict.¬0 
+    SeamClosed.mulZero 
+    Sphatika.sp076
+
+[7 members / 3 files]
+    Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡‡‡¶‡ 
+    Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡Æ‡ß‡‡Ø‡Æ 
+    PurnaSaptabhangi_TheFourOpenPositionsGetCanonicalWitnesses.‡ï‡‡∞‡Æ‡¶‡‡µ‡ø 
+    QuotientUnitSourceCutBoundary.hiddenTag 
+    QuotientUnitSourceCutBoundary.physicalCertificate 
+    QuotientUnitSourceCutBoundary.physicalObserved 
+    QuotientUnitSourceCutBoundary.quotient
+
+[7 members / 5 files]
+    PairComposition.compose 
+    PairComposition.compose' 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.dadd 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.dmul 
+    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute._‚äû_ 
+    TheThresholdChainIsDenseAndTheMediantWitnessesIt.mediant 
+    TomographyConditioning.addF
+
+[7 members / 4 files]
+    PMCokernel.s 
+    PMCokernel.twist 
+    PauliGaugeCocycleSplit.fullLineSign 
+    PauliGaugeCocycleSplit.gaugeLineSign 
+    PauliGaugeCocycleSplit.ŒºOnlySign 
+    PauliJointPhaseRealization.contextPhase 
+    PauliWeyl.derived-s
+
+[7 members / 2 files]
+    Gamma0PartnerRigidity.exampleStab 
+    Gamma0PartnerRigidity.productExample 
+    NaturalMachineRun.run-chart 
+    NaturalMachineRun.run-chart-negative 
+    NaturalMachineRun.run-macro 
+    NaturalMachineRun.run-macro-value 
+    NaturalMachineRun.run-valli
+
+[7 members / 2 files]
+    FiniteNonabelianHolonomy.swap01fun 
+    FiniteNonabelianHolonomy.swap12fun 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.cycFun 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.cycInvFun 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.swap01fun 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.swap02fun 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.swap12fun
+
+[7 members / 4 files]
+    FactoryVICore.shareL 
+    FactoryVICore.shareR 
+    HeadDepthMergeBreaker.blindDepthB 
+    HeadDepthMergeBreaker.fermatBlindB 
+    HeadDepthMergeBreaker.strongBlindB 
+    HeadDepthTwo.mrChain 
+    RH_TheWholeQuestionEntersTyped_DavisMatiyasevichRobinsonArithmetization.powOfF
+
+[7 members / 5 files]
+    DynamicDescent.P 
+    DynamicDescent.Q 
+    FlipObservable.flipMat 
+    M2Unimodular.idm 
+    Rank1DihedralChart.Amat 
+    Rank1DihedralChart.Dmat 
+    YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering.one‚
+
+[7 members / 4 files]
+    CostGeometryEdgeBoundary.andPresentation 
+    CostGeometryEdgeBoundary.unitPresentation 
+    CostGeometryEdgeBoundary.xorPresentation 
+    CostGeometryIndexed.two 
+    CostGeometryWitness.triv 
+    TransportDivWitness.chartP 
+    TransportDivWitness.unaryP
+
+[7 members / 7 files]
+    Citighana.‡¶‡‡µ‡ø¬ 
+    GhanaBaddha.‡¶‡‡µ‡ø¬ 
+    RamanujanStrand_TheHouseIs204Of288TheBalanceIsThePellConditionAndTheMachineTurnedTheWheel.¬2-unfold 
+    Shredhi.‡¶‡‡µ‡ø¬ 
+    TomographyConditioning.double 
+    TwoScaleSubgroup_ThePowersOfTwoAndThreeMeetOnlyAtOneSoTheTwoGeneratorScaleSubgroupIsFreeOfRankTwo.two¬ 
+    Vargacitighana.‡¶‡‡µ‡ø¬
+
+[7 members / 4 files]
+    ChargePolynomialFinite.value 
+    ChargePolynomialFinite.Œ© 
+    ChargePolynomialFinite.Œº¬≤ 
+    ChargePolynomialFinite.œâ 
+    Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision.‡Æ‡‡≤‡‡Ø‡Æ‡ 
+    FrontierCount.prodOf 
+    PatraLekha_DistinctLinePatchesCommuteAndBlameBeyondTheLastWriterIsNotAFunctionOfTheWorkingTree.dya
+
+[7 members / 4 files]
+    ChargeCriterion.probe-2 
+    ChargeCriterion.probe-6 
+    ChargeIsStrictRefinement.mixed 
+    ChargeIsStrictRefinement.neutralSet 
+    ExhaustionNotLengthIsWhatCoverageNeedsAndSafetyNeverNeededAnyFuelAtAll.antichainOfTwo 
+    OptionSpread.cacheFibre 
+    OptionSpread.chainFibre
+
+[7 members / 5 files]
+    CenterRelative.EvenT 
+    CenterRelative.NonNeg 
+    CenterRelative.Pos 
+    InabilityTower.SubSolved 
+    ScaleTransportZ.BoundedOrbit 
+    Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount.Fibre 
+    TheIstaSectionIsAnImportedConvention.IstaSection
+
+[7 members / 7 files]
+    CachePathOrder.shuffle+ 
+    DSOFactorRankFinite.rearrange 
+    MadhyaVinimaya_TheMiddleExchangeIsOneLawStandingInSixPlaces.‡Æ‡ß‡‡Ø-‡µ‡ø‡®‡ø‡Æ‡Ø‡-‡Ø‡ã‡ó‡ 
+    MeruKarna.‡Æ‡ß‡‡Ø-‡µ‡ø‡®‡ø‡Æ‡Ø‡ 
+    RamanujanStrand_TheHouseIs204Of288TheBalanceIsThePellConditionAndTheMachineTurnedTheWheel.interchange 
+    TomographyConditioning.+-shuffle 
+    Vargacitighana.‡Æ‡ß‡‡Ø-‡µ‡ø‡®‡ø‡Æ‡Ø‡
+
+[7 members / 6 files]
+    BhavanaSamuha.‡‡ï-‡µ‡æ‡Æ 
+    Brahmagupta.‡‡ï¬ 
+    Gamma0Partner.oneL 
+    Madhava.‡µ‡æ‡Æ-‡‡ï 
+    Shunya.‡Ø‡ã‡ó‡-‡‡‡®‡‡Ø‡Æ‡ 
+    Shunya.‡µ‡ø‡Ø‡ã‡ó‡-‡‡‡®‡‡Ø‡Æ‡ 
+    TheTruncationErrorIsExactAtEveryFiniteStage.errorAtOneIsTheRatio
+
+[7 members / 4 files]
+    AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue.A 
+    GenerativeKernel.seed 
+    GenerativeKernel.target‚ 
+    MulyaVinimaya_TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsTelescopeAndADepthEvaluatorHasNonzeroCycleIntegral.nf 
+    MulyaVinimaya_TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsTelescopeAndADepthEvaluatorHasNonzeroCycleIntegral.t‚ 
+    TheInstalledOperationHasNoPervasionSoTheKernelMemorises.ctx‚ 
+    TheInstalledOperationHasNoPervasionSoTheKernelMemorises.ctx‚
+
+[7 members / 7 files]
+    AnuvrttiIsTheSameTrade.operative 
+    Anuvrtti_TheGlueIsTransparentAndTheWholeCostIsTheNeutralTypeNotTheIdentification.Œ¶ 
+    Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands.‡‡®‡‡‡∞‡ï‡∞‡ 
+    FuelAdequacyIsACollision.withK 
+    LosslessReturnFinal.Œ¶ 
+    Samkramana.Œ¶ 
+    SetuYugma_TheSeamFordJoinsTheValliToPingalaAndVivekaIsTheNaturalNumbers.‡‡¶
+
+[7 members / 7 files]
+    AchromaticToy.holonomyPath 
+    CycleHolonomy.holLoop 
+    Jiva_TheSoulIsCognitionBoundByKarmaAndLiberationIsTheEquivalenceThatSeesTheWorldAsItself.‡‡ø‡¶‡‡ß-‡¶‡∞‡‡‡®‡Æ‡ 
+    Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere.‡‡µ‡∞‡‡‡ 
+    RelationalTensorObstructionBridge.base-fibre-is-joint-sector 
+    UnivalentPhysicalProcess.phaseLoop 
+    UnivalentTensorInteraction.jointPhaseLoop
+
+[6 members / 2 files]
+    TransportDivScale.branch-e13 
+    TransportDivScale.branch-e3 
+    TransportDivScale.branch-e4 
+    TransportDivScale.branch-e5 
+    TransportDivScale.branch-e6 
+    TransportDivWitness.horner-branch
+
+[6 members / 2 files]
+    R0021FlipOrbit.fixC1 
+    R0021FlipOrbit.fixC2 
+    R0021FlipOrbit.fixC3 
+    R0021FlipOrbit.fixC4 
+    Window5Walsh.atom 
+    Window5Walsh.flipped
+
+[6 members / 2 files]
+    PauliGaugeCocycleSplit.c2-erased-product-is-plus 
+    PauliWeyl.C0-product 
+    PauliWeyl.C1-product 
+    PauliWeyl.R0-product 
+    PauliWeyl.R1-product 
+    PauliWeyl.R2-product
+
+[6 members / 6 files]
+    PMTorus.‚äï-self 
+    RepairTorsor.xorSelf 
+    SetuKsetra_TheLatticeNowExistsTheWilsonLoopIsGaugeInvariantByTelescopingAndTheConnectionIsNot.‚äï-tman 
+    TranslationPeakObservability.xor-self-cancels 
+    Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits.xor-self 
+    WallCertificate.‚äï-self
+
+[6 members / 3 files]
+    NormalizedFrameCovariance.minusH 
+    NormalizedFrameCovariance.plusH 
+    SequentialNormalizationObstruction.bothPorts 
+    SequentialNormalizationObstruction.onlyPort‚ 
+    TwoSidedExperimentInterface.minusInput 
+    TwoSidedExperimentInterface.plusInput
+
+[6 members / 5 files]
+    NarayanaGavampasa_TheCowCompositionFibreSplitsAtTheHeadIntoOneAndThreeYearBranches.‡‡∞‡‡ó‡‡æ‡∞‡ 
+    OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityCharacter.‡ì‡‡ 
+    RateOneIsExactlyTheUniversalClaim.count 
+    RateOneIsExactlyTheUniversalClaim.length 
+    Viloma_TheBackwardReadingOfAMatraMetrePreservesItsDurationSoReversalIsAnInvolutionOnEachDurationFibre.‡‡®‡‡¶‡ 
+    Virahanka_TheMatraFibreSatisfiesTheTwoStepRecurrence.‡‡®‡‡¶‡
+
+[6 members / 3 files]
+    Meru.zipWith+ 
+    Sha256N.compress 
+    Sha256N.revAcc 
+    Sha256N.zipAdd 
+    Sha256N.zipSub 
+    TomographyConditioning.addP
+
+[6 members / 3 files]
+    KFlow.Contracting 
+    KFlow.Expanding 
+    MachineLoop.LoopBranching 
+    MachineLoop.LoopDecaying 
+    Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExhausts.‡‡ß‡ã‡ó‡æ‡Æ‡ 
+    Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExhausts.‡ä‡∞‡‡ß‡‡µ‡ó‡æ‡Æ‡
+
+[6 members / 4 files]
+    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.boundary-Jet‚ 
+    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.trunc‚-residual-nonzero 
+    PythagoreanTransition.composite 
+    TheArithmeticCircleIsFourPeriodic.i¬≤-is-minus-one 
+    TheArithmeticCircleIsFourPeriodic.quarter-i 
+    TheFibreIsTheSubject.rotated
+
+[6 members / 3 files]
+    FormationDirectionIncidence.AmbientFormed 
+    FormationDirectionIncidence.CriticalPair 
+    FormationDirectionIncidence.Diagonal 
+    SamvaraSandhi_ABoundaryEarnsItsSeatByANamedRefusalAndTheTreatyOfInterdependentBoundariesStrictlyRefinesBoth.dvitya-rak 
+    SamvaraSandhi_ABoundaryEarnsItsSeatByANamedRefusalAndTheTreatyOfInterdependentBoundariesStrictlyRefinesBoth.prathama-rak 
+    WallCertificate.Ann
+
+[6 members / 5 files]
+    FlippingACostCoordinateIsSoundButNotFaithful.Vec 
+    MajorityLiesStrictlyBetweenAllAndSome.Majority 
+    MajorityLiesStrictlyBetweenAllAndSome.Some 
+    RateOneIsExactlyTheUniversalClaim.All 
+    RnaDhana_PerCoordinateCapsAreTheHonestVersionAndOneCapIsTheSpecialCase.Caps 
+    Sha256Varga_TheHashFactorsThroughItsClassesEveryClassIsAFibreAndTheDescendedMapForgetsNothing.‡µ‡∞‡‡ó‡
+
+[6 members / 6 files]
+    Fermat3Gate_TheCubeGateBelowThirteenIsSignedAndBothNearMissesAreItsTightness.scan 
+    Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection.scan 
+    Ramanujan2719Gate_TheKernelEmptiesTheLargeBoxOnceAndCachesIt.scan2719 
+    RamanujanHCN_OneHundredTwentyIsHighlyCompositeAndTheMemoirsColumnChecks.scanHC 
+    RamanujanNagell_TheFiveSolutionsAndNoSixthBelowTwoToTheFifteen.scan 
+    RamanujanTernaryGate_TheKernelScansBelowSevenTwentyOnceAndCachesTheVerdict.scanOdd
+
+[6 members / 5 files]
+    Fermat3Gate_TheCubeGateBelowThirteenIsSignedAndBothNearMissesAreItsTightness.gX 
+    Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection.fA 
+    RamanujanHCN_OneHundredTwentyIsHighlyCompositeAndTheMemoirsColumnChecks.leafHC 
+    RamanujanNagell_TheFiveSolutionsAndNoSixthBelowTwoToTheFifteen.row 
+    RamanujanTernaryGate_TheKernelScansBelowSevenTwentyOnceAndCachesTheVerdict.excCk 
+    RamanujanTernaryGate_TheKernelScansBelowSevenTwentyOnceAndCachesTheVerdict.leafOdd
+
+[6 members / 2 files]
+    EndianAtlasReplay.compTable 
+    EndianAtlasReplay.idTable 
+    EndianAtlasReplay.revCompTable 
+    EndianAtlasReplay.revTable 
+    PowModHasTheSameShape.exhausted 
+    PowModHasTheSameShape.legitimate
+
+[6 members / 6 files]
+    DistinctPrimesAreCoprime.isYes 
+    FrontierCount.isYes 
+    FrontierList.isYes 
+    ObsBridge.decBool 
+    Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.decToBool 
+    SelfImprovement.isYes
+
+[6 members / 4 files]
+    CoprimeSplitting.lnd-4 
+    WalkBridgeUniform.walk-start 
+    WalkInduction.lnd-1-2 
+    WalkInduction.lnd-2-3 
+    WalkStreamHypothesisBoundary.leastNonDivisor-one-zero 
+    WalkStreamHypothesisBoundary.leastNonDivisor-three-two
+
+[6 members / 3 files]
+    ConstructiveBornNormalization.xxPlusNonzero 
+    ConstructiveBornNormalization.zhPlusNonzero 
+    NormalizedFrameCovariance.minusH-nonzero 
+    NormalizedFrameCovariance.plusH-nonzero 
+    SequentialNormalizationObstruction.bothPorts-nonzero 
+    SequentialNormalizationObstruction.onlyPort‚-nonzero
+
+[6 members / 3 files]
+    ConstructiveBornNormalization.xxPlusBorn 
+    ConstructiveBornNormalization.zhPlusBorn 
+    NormalizedFrameCovariance.minusNormalized 
+    NormalizedFrameCovariance.plusNormalized 
+    SequentialNormalizationObstruction.bothPortsBorn 
+    SequentialNormalizationObstruction.onlyPort‚Born
+
+[6 members / 6 files]
+    CongruenceLiftsAreGradePreserving.len 
+    EveryDerivationIsInvertible.len 
+    ForgetfulCompressionPricesTheDrop.len 
+    Gunana_TheKernelCarriesItsOwnCupProductAndTheInterchangeDefectIsInvisibleToMeaningAtFullGenerality.vmagaan 
+    TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder.len 
+    WindingCostIsUnarySize.len
+
+[6 members / 4 files]
+    CompositionalContextAdapter.blindOperation 
+    CompositionalContextAdapter.leakingOperation 
+    QuadraticRefinement.qubit-add 
+    Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits._+c_ 
+    Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits._‚äï¬≤_ 
+    WallCertificate.mixS
+
+[6 members / 5 files]
+    CoherentSurvivalDephasing.phase-pair-same-diagonal 
+    FiniteExplicitFormula_NewtonsIdentitiesArePowerSumsOfTheRootsEqualToCoefficientRecursionsAndTheGrowthOfThePowerSumsIsTheLargestRoot.p-2-1-1 
+    PiPartialOnEveryPrime.prime-values 
+    Shunya.‡‡ø‡®‡‡®-‡‡æ‡ï‡‡‡ø‡‡ 
+    Shunya.‡‡‡®‡‡Ø‡-‡‡‡®‡‡Ø‡Æ‡ 
+    Window5Walsh.flipFixesZero
+
+[6 members / 4 files]
+    ChargePolynomialFinite.splitsExp 
+    FrontierList.frontierList 
+    PatraLekha_DistinctLinePatchesCommuteAndBlameBeyondTheLastWriterIsNotAFunctionOfTheWorkingTree.itihsa‚ 
+    PatraLekha_DistinctLinePatchesCommuteAndBlameBeyondTheLastWriterIsNotAFunctionOfTheWorkingTree.itihsa‚ 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.etaProd 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.one-minus-q^
+
+[6 members / 5 files]
+    ChargePolynomialFinite.countUp 
+    HeadDepthMergeBreaker.downFrom 
+    HeadDepthMergeBreaker.rangeB 
+    HeadDepthTwo.range 
+    NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.‡‡ï‡∞‡‡ 
+    Sha256N.splitWords
+
+[6 members / 4 files]
+    BezoutIsGCD.gcd-8-9 
+    DistinctPrimesAreCoprime.coprime-2-3 
+    WalkObservationCount.cop-120-7 
+    WalkObservationCount.cop-24-5 
+    WalkObservationCount.cop-8-3 
+    WalkStreamHypothesisBoundary.gcd-two-three
+
+[6 members / 3 files]
+    AssemblyCharacterNonfaithfulness.gradeWeight 
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.bottom 
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.interior 
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.top 
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.trace 
+    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.normSq
+
+[6 members / 3 files]
+    AssemblyCharacterNonfaithfulness.gradeUnit 
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.S*S 
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.SS* 
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.defect 
+    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e‚ 
+    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e‚'
+
+[6 members / 6 files]
+    Anuvrtti_AnObserverSeesALawExactlyWhenItsClassIsACongruenceAndThenItCarriesForward.‡‡‡®‡∞‡æ‡µ‡‡‡‡‡ø‡ 
+    Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence.‡‡‡®‡∞‡æ‡µ‡‡‡‡‡ø‡ 
+    KFlowWF.iter 
+    NerodeYantra_TheMooreMachineNowExistsAndWhenTheNextObservationFactorsThroughTheCurrentTheNerodeCongruenceIsOneObservationsKernel.cakra 
+    PerspectiveCore.iter 
+    SamanyaSopana_AnyObservableAliasingThroughGReadsTheCountThroughGsIterationAndPeriodsCollapseIt.vartana
+
+[6 members / 4 files]
+    AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid.ve‚¥ 
+    AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid.ve‚ 
+    AnantaVeni_TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRelationOfEveryBraidGroupHoldsAtOnce.ve‚àû 
+    SuddhaVeni_TheSquareOfEveryCrossingIsPureResidueSoThePureBraidsActVerticallyAndTheTwistsCommute.ghra‚¥ 
+    VibhagaSutra_EveryCrossingFactorsAsPureSwapAfterPureTwistAndTheSwapTransportsTheResidue.ghra‚àû 
+    VibhagaSutra_EveryCrossingFactorsAsPureSwapAfterPureTwistAndTheSwapTransportsTheResidue.svap‚àû
+
+[6 members / 6 files]
+    AchromaticToy.holonomy 
+    Adhisthana_TheFreeReversalStandsOnTheDeMorganSiteAndTheKanFloorHasTwoOperationsNotOne.‡®‡ï‡æ‡∞ 
+    CycleHolonomy.holBool 
+    DefectCalculus.notEquiv 
+    StructuredDefect.notEquiv 
+    UnivalentTensorInteraction.phaseExchange
+
+[6 members / 5 files]
+    AProvabilityDeterminedImplicationForbidsIndependence.witNegBotProvable 
+    Abhava_MamaAdarsanamNaTasyaAbhavah.tasya-bhavah 
+    Gunasthana_TheFourteenRungAscentIsAChainKevalaBeginsAtThirteenAndMoksaLiesBeyondFourteen.‡‡Ø‡ã‡ó‡-‡ï‡à‡µ‡≤‡‡Ø‡Æ‡ 
+    Gunasthana_TheFourteenRungAscentIsAChainKevalaBeginsAtThirteenAndMoksaLiesBeyondFourteen.‡‡Ø‡ã‡ó‡-‡ï‡à‡µ‡≤‡‡Ø‡Æ‡ 
+    PrimeSquarePinAdapter.least-anatomy-really-admits-5 
+    SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleAndActionlessCoincide.‡‡‡¶‡‡ó‡≤‡-‡∞‡‡‡
+
+[6 members / 5 files]
+    AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision._‚âº_ 
+    AnekantaTransitional.‡‡ô‡‡ó 
+    OptionSpread._‚âº_ 
+    OptionSpread._‚ó_ 
+    TheParetoStratumIsDecidableAndTheFilterIsExact.StrictlyDominates 
+    TheTwoSidedProfileCutNeedsTheBurdensAsAProfile.Rows
+
+[5 members / 2 files]
+    VeniBandha_TheSuppliedCoherenceIsTheQuarterTurnTheTwistedSwapBraidsByReflAndTheGeneratorHasExactOrderEight.ve 
+    VeniBandha_TheSuppliedCoherenceIsTheQuarterTurnTheTwistedSwapBraidsByReflAndTheGeneratorHasExactOrderEight.ve¬≤ 
+    VeniBandha_TheSuppliedCoherenceIsTheQuarterTurnTheTwistedSwapBraidsByReflAndTheGeneratorHasExactOrderEight.ve‚¥ 
+    VeniBandha_TheSuppliedCoherenceIsTheQuarterTurnTheTwistedSwapBraidsByReflAndTheGeneratorHasExactOrderEight.ve‚ 
+    VeniTraya_TheThreeStrandActionHasInversesAndNonCommutingGeneratorsSoTheBraidingIsGenuinelyNonAbelian.pratpa-ve
+
+[5 members / 2 files]
+    Sphatika.sp017 
+    Sphatika.sp021 
+    Sphatika.sp052 
+    Sphatika.sp053 
+    VestanaSutra_TheWritheIsTheCrossingCountConservedByTheRelationsAndReadByNoBoundedObserver.dra-sama
+
+[5 members / 3 files]
+    SeamClosed.flagshipResidual 
+    SeamClosed.parentClosed 
+    SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach.‡ß‡‡µ‡‡ 
+    Sphatika.sp024 
+    Sphatika.sp178
+
+[5 members / 4 files]
+    SamasaNyuna.‡‡∞‡‡µ‡-‡‡‡‡‡ 
+    SubsetSumCostLocus.Solvable 
+    WalkCapacity.CommonMultiple 
+    WalkCapacity.IsLCM 
+    WalkInduction.Inv
+
+[5 members / 3 files]
+    S3ConjugacyObservation.zero3 
+    S3EquivariantEndomorphismRigidity.one3 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.f0 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.f1 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.f2
+
+[5 members / 2 files]
+    PurnaModa_TheFullTwistIsTheGlobalHalfWaveCentralByReflOfOrderTwoAndNotTheIdentity.ardha-sarvatra 
+    PurnaModa_TheFullTwistIsTheGlobalHalfWaveCentralByReflOfOrderTwoAndNotTheIdentity.moda 
+    PurnaModa_TheFullTwistIsTheGlobalHalfWaveCentralByReflOfOrderTwoAndNotTheIdentity.pra-moda 
+    VeniBandha_TheSuppliedCoherenceIsTheQuarterTurnTheTwistedSwapBraidsByReflAndTheGeneratorHasExactOrderEight.ve‚‚ 
+    VeniBandha_TheSuppliedCoherenceIsTheQuarterTurnTheTwistedSwapBraidsByReflAndTheGeneratorHasExactOrderEight.ve‚‚
+
+[5 members / 2 files]
+    Prashna_TheInteractiveMachineStrictlyContainsTheTuringMachineAndDeterminismIsExactlyTheCollapse.DetISC 
+    Prashna_TheInteractiveMachineStrictlyContainsTheTuringMachineAndDeterminismIsExactlyTheCollapse.FreeISC 
+    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.Diverges 
+    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.Exec 
+    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.Halted
+
+[5 members / 2 files]
+    MatraVarnaGuru.‡≤‡ò‡-‡‡ô‡‡ñ‡‡Ø‡æ 
+    PingalaPrastara.guruOf 
+    PingalaPrastara.matraOf 
+    PingalaPrastara.uddista 
+    PingalaPrastara.varna
+
+[5 members / 5 files]
+    MadhyaVinimaya_TheMiddleExchangeIsOneLawStandingInSixPlaces.‡Æ‡ß‡‡Ø-‡µ‡ø‡®‡ø‡Æ‡Ø‡-‡ó‡‡‡ 
+    PairComposition.interchange 
+    SumProductTorus.shuffle 
+    TomographyConditioning.¬-shuffle 
+    Vargana.‡‡‡‡∞‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡
+
+[5 members / 3 files]
+    IntrinsicRewrite.Delta 
+    RewriteCertificate.Derivation 
+    RewriteCertificate.InductionCertificate 
+    RewriteCertificate.Step 
+    TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence.Meaning
+
+[5 members / 5 files]
+    Gurutama.+-id ≥ 
+    HaskellDefinitionBoundary.haskell-add-zero 
+    Kala_TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone.‡≤‡ã‡ï‡à‡ï‡‡Æ‡Ø‡ 
+    SeamClosed.addZero 
+    Sphatika.sp186
+
+[5 members / 3 files]
+    GterTwoCoordinate.row1 
+    HeadDepthMergeBreaker.edge-window-top-slot 
+    ObserverRevisionComposition.persistent-stage-flags 
+    ObserverRevisionComposition.recovery-stage-flags 
+    ObserverRevisionComposition.same-stage-summary
+
+[5 members / 5 files]
+    GenerativeLoop.delta 
+    NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.‡®‡Ø‡® 
+    NirupaSutra_EveryBraidWordIsItsBarePermutationFollowedByAComputedTwistWord.œs 
+    SamasaEkagra.‡‡‡-‡Ø‡ã‡ó‡ 
+    TomographyConditioning.eval
+
+[5 members / 3 files]
+    Fermat3Gate_TheCubeGateBelowThirteenIsSignedAndBothNearMissesAreItsTightness.gZ 
+    Fermat3Gate_TheCubeGateBelowThirteenIsSignedAndBothNearMissesAreItsTightness.leaf 
+    Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection.fC 
+    RamanujanNagell_TheFiveSolutionsAndNoSixthBelowTwoToTheFifteen.col 
+    RamanujanNagell_TheFiveSolutionsAndNoSixthBelowTwoToTheFifteen.leafRN
+
+[5 members / 3 files]
+    Endian.compw 
+    Endian.œ 
+    Endian.œ 
+    TransportDivQuot.trimw 
+    TransportMul.shiftw
+
+[5 members / 5 files]
+    Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision.‡‡∞‡‡µ‡ 
+    KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner.All 
+    KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet.Any 
+    TheParetoStratumIsDecidableAndTheFilterIsExact.All 
+    TheSecondUpadhiConditionDoesAllTheWork.All
+
+[5 members / 3 files]
+    DSONucleusMiddleProduct._‚äôM_ 
+    DSONucleusOneSidedProduct._‚äôL_ 
+    DSONucleusOneSidedProduct.rawConvolution 
+    DSONucleusResidualAudit.leftResidual 
+    DSONucleusResidualAudit.rightResidual
+
+[5 members / 4 files]
+    ConstructiveBornNormalization.stateWeights 
+    ExactLocalJointSeparation.observePopulations 
+    ExactProjectiveCircuits.rawWeights 
+    ExactProjectivePhase.portWeights 
+    ExactProjectivePhase.rawWeights
+
+[5 members / 3 files]
+    ChargeCriterion.HasOdd 
+    ChargeCriterion.Separates 
+    OptionSpread.Least 
+    OptionSpread.Sep 
+    QuotientFiberLaw.EvenŒ©
+
+[5 members / 2 files]
+    BraidCoherenceBoundary.flipFirst 
+    BraidCoherenceBoundary.identityCrossing 
+    BraidCoherenceBoundary.swap‚ 
+    BraidCoherenceBoundary.swap‚ 
+    SamaMana_TheCrossingsAreUnitaryOnAnInnerProductSpaceAndUnitarityIsIndependentOfYangBaxter.konst
+
+[5 members / 5 files]
+    Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence.‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡ 
+    LosslessLowerBound.Injective 
+    LosslessReturnLoop_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant.Carrier 
+    LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt.Carrier 
+    Varanam_ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal.‡µ‡∞‡‡Æ‡
+
+[5 members / 4 files]
+    BharaGana_MassIsConservedPermutedAndMultipliedThePreLogarithmicSecondLaw.mna 
+    BharaGana_MassIsConservedPermutedAndMultipliedThePreLogarithmicSecondLaw.sakoca 
+    DSOBellmanFinite.bellman 
+    Karana_TheStructuralEquationModelTheDoOperatorAndTheCounterfactualAreBuiltAndTheLadderIsStrict.sumU 
+    PointedReindexOrbitObstruction.phi6Exponent
+
+[5 members / 5 files]
+    BharaGana_MassIsConservedPermutedAndMultipliedThePreLogarithmicSecondLaw.gua-viama 
+    Bija.‡µ‡ø‡‡∞‡ 
+    Gurutama.‡µ‡ø‡‡∞‡ 
+    GurutamaSiddha.‡µ‡ø‡‡∞‡ 
+    Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum.‡µ‡ø‡‡∞‡
+
+[5 members / 3 files]
+    Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.Krama 
+    Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.Vikalpa 
+    Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.Yugapat 
+    KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift.DNSFailure 
+    KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.Corner
+
+[5 members / 2 files]
+    BehavioralHankel.behavioralHankel 
+    DSOContinuationFullAbstract.Kµâ 
+    DSOContinuationFullAbstract.Lµâ 
+    DSOContinuationFullAbstract.dirac 
+    DSOContinuationFullAbstract.identity
+
+[5 members / 5 files]
+    AnuvrttiIsTheSameTrade.different-operation 
+    DecategorifiedDefect.witness-nonzero 
+    Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection.the-ways-differ 
+    SelfImprovement.genotypes-differ 
+    SieveScaleTower.3‚àâfibre‚
+
+[5 members / 5 files]
+    AnswerGrading.crush-signBlind 
+    AnuktaAvaktavya.‡‡‡®‡‡Ø‡‡∞‡-‡‡∞‡‡µ‡‡‡∞ 
+    Gamma0PartnerRigidity.gamma0IdWitness 
+    Shunya.‡‡∞‡‡µ‡-‡‡‡®‡‡≤‡Æ‡ 
+    TheTruncationErrorIsExactAtEveryFiniteStage.sumAtOneIsOne
+
+[5 members / 5 files]
+    Anekantatva_TheSpaceOfEquivalentPresentationsIsContractibleSoNoStandpointIsPrivileged.‡®‡Ø‡ 
+    DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos.Arena 
+    PolarityClosure.Pow 
+    Prasna_TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism.Interaction 
+    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.LawfulStep
+
+[5 members / 5 files]
+    Alopa_TheFirstRoadIsStatedThriceAndTheThreeAreOneTerm.‡‡‡ï‡‡∞‡Æ‡‡Æ‡ 
+    Nasti_ShabdeJivahVartante.‡‡‡ï‡‡∞‡Æ‡‡Æ‡ 
+    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡®‡‡‡Æ‡ 
+    SankramanaSesa_EveryTransportOwesItsResidual.‡‡‡ï‡‡∞‡Æ‡‡Æ‡ 
+    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.‡‡æ‡≤‡®‡Æ‡
+
+[5 members / 5 files]
+    Alopa_TheFirstRoadIsStatedThriceAndTheThreeAreOneTerm.‡‡≤‡ã‡‡ 
+    Nasti_ShabdeJivahVartante.‡‡‡ï‡‡∞‡Æ‡‡Æ‡-‡‡≤‡ã‡‡ 
+    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡ï‡‡‡-‡Æ‡‡≤‡‡Ø‡Æ‡ 
+    SankramanaSesa_EveryTransportOwesItsResidual.‡‡≤‡ã‡‡ 
+    TwoTruthsCompute.ultimate-through-conventional
+
+[4 members / 4 files]
+    SensorResidueBridge.0<¬ 
+    WalkBridge.¬-pos 
+    WalkJumps.0<¬ 
+    Yojana.pos¬
+
+[4 members / 2 files]
+    RootedNet.Thread 
+    ThreadYoneda.Profile 
+    ThreadYoneda.Transformation 
+    ThreadYoneda.Weave
+
+[4 members / 4 files]
+    PurnaSaptabhangi_TheFourOpenPositionsGetCanonicalWitnesses.‡∞‡ø‡ï‡‡-‡‡‡∞‡ã‡‡ 
+    ReachableActionRefinement.emptyObservation 
+    Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem.‡‡‡®‡‡Ø-‡Æ‡æ‡∞‡‡ó‡ 
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡∞‡ø‡ï‡‡-‡Æ‡æ‡∞‡‡ó‡
+
+[4 members / 4 files]
+    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡®‡‡ß‡æ‡®‡Æ‡ 
+    Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡Æ‡æ‡∞‡‡ó‡ 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡Æ‡‡æ-‡‡‡Ø‡ã‡ó‡ 
+    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps._‚à_
+
+[4 members / 2 files]
+    NonUniquenessAndInexpressibilityAreIndependent.onlyFalse 
+    NonUniquenessAndInexpressibilityAreIndependent.onlyId 
+    ProstheticImageAdapter.conservativeResponse 
+    ProstheticImageAdapter.novelResponse
+
+[4 members / 4 files]
+    MinimalityOfABoundaryPopulationNeedsLowestTerms.Boundary 
+    TheFamiliesAgreeOffTheBoundarySoDifferOnlyIsNowBothDirections.OnTheBoundary 
+    TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary.Above 
+    TheThresholdOrderIsTotalAndTheClaimIsAntitone.AtLeast
+
+[4 members / 4 files]
+    MeruDiagonalIsVirahanka.matra-step 
+    PingalaIsOptimal.matrameru-recurrence 
+    PingalaPrastara.matraRecurrence 
+    Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFibreRankIsCarriedAndItsPriceIsVirahankasNumber.‡Æ‡‡≤‡‡Ø‡Æ‡
+
+[4 members / 4 files]
+    Matramerus.length-++ 
+    Narayana.length-++ 
+    SamasaEka.length-++ 
+    SamasaMeru.length-++
+
+[4 members / 2 files]
+    KulaStambha_AtArityThreeEveryProperSubfamilyIsBlindAndOnlyTheWholeFamilyIsFaithful.andha-vin‚ 
+    KulaStambha_AtArityThreeEveryProperSubfamilyIsBlindAndOnlyTheWholeFamilyIsFaithful.andha-vin‚ 
+    KulaStambha_AtArityThreeEveryProperSubfamilyIsBlindAndOnlyTheWholeFamilyIsFaithful.andha-vin‚ 
+    WallCertificate.ann-members
+
+[4 members / 2 files]
+    KotiNirnaya_EveryFibreIsDecidedSoEachConjectureIsADefinitePropositionAndTheOnlyOpennessIsTheSection.gb10-a 
+    KotiNirnaya_EveryFibreIsDecidedSoEachConjectureIsADefinitePropositionAndTheOnlyOpennessIsTheSection.gb10-b 
+    SamastaPrasna_TheOpenConstellationEntersTypedAndTheOracleAnswersEveryInstance.goldbach-at-100 
+    SamastaPrasna_TheOpenConstellationEntersTypedAndTheOracleAnswersEveryInstance.goldbach-at-210
+
+[4 members / 3 files]
+    Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter.‡ï‡‡‡‡‡‡∞‡Æ‡ 
+    Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter.‡ó‡ã‡≤-‡‡ø‡‡‡‡ 
+    Kuttaka.Run 
+    SmithDeterminantClassMultiplicativity.Modulo
+
+[4 members / 3 files]
+    KendraNirvahana_EveryCentralCellwiseSymmetryIsAUniformPowerOfTheQuarterTurnTheExhaustionForTheVerticalClass.pos 
+    MatchingPenniesSeparator.W 
+    VitaranaYugma_NoEstimatorFromABlindSenseIsEverywhereCorrectAndTheMarginalsDoNotDetermineTheJoint.sama-vitaraa 
+    VitaranaYugma_NoEstimatorFromABlindSenseIsEverywhereCorrectAndTheMarginalsDoNotDetermineTheJoint.viama-vitaraa
+
+[4 members / 3 files]
+    Kausalya_TheStochasticProcessAndTheSkillLibraryAreBuiltAndCoverageGrowsByOneStatePerSkill.Trace 
+    ObstructionCalculus.Completion 
+    RepairGrading.Class 
+    RepairGrading.Promote
+
+[4 members / 4 files]
+    Kausalya_TheStochasticProcessAndTheSkillLibraryAreBuiltAndCoverageGrowsByOneStatePerSkill.Memo 
+    LinearOrderFinite.LinOrd‚≤ 
+    PayloadMorphism.MorphismClass 
+    VacuityVerdict.Scope
+
+[4 members / 2 files]
+    Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.‡ó‡‡-‡‡‡‡‡Ø‡Æ‡ 
+    Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.‡ó‡‡-‡‡‡‡Ø‡Æ‡ 
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡®‡ø‡∞‡‡‡ï‡‡-‡¶‡ï‡‡‡ø‡ 
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡®‡ø‡∞‡‡‡ï‡‡-‡µ‡æ‡Æ
+
+[4 members / 3 files]
+    IntrinsicProductiveInstall.tag 
+    TheInstalledOperationHasNoPervasionSoTheKernelMemorises.isAdd 
+    TheInstalledOperationHasNoPervasionSoTheKernelMemorises.leftIsZero 
+    TheInstalledTheoremHasExactlyOneLocusSoCapabilityGrowsByOneNotByAClass.flat
+
+[4 members / 3 files]
+    HeadDepthMergeBreaker.allList 
+    HeadDepthMergeBreaker.anyList 
+    HeadDepthTwo.allList 
+    TheRiemannHypothesisHasAnArithmeticFormWithNoRealNumberInIt.anyB
+
+[4 members / 4 files]
+    HaskellDefinitionBoundary.haskell-sub-zero-left 
+    Karma_TheSoulsEquationOfMotionIsInfluxBindingStoppageSheddingAndTheZeroStateIsMoksaAbsorbing.‡Æ‡ã‡ï‡‡‡-‡‡‡≤‡ 
+    SensorNerode.zero‚à 
+    Sphatika.minusZeroL
+
+[4 members / 2 files]
+    FrontierCount.AllPrime 
+    FrontierCount.Distinct 
+    FrontierCount.VecOf 
+    Nirmana_TheSpecificationLanguageTheVersionSpaceAndTheEnumerativeSearchAreBuiltAndPruningIsProvedComplete.VersionSpace
+
+[4 members / 4 files]
+    Fermat3Gate_TheCubeGateBelowThirteenIsSignedAndBothNearMissesAreItsTightness.scan-ok 
+    Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection.scan-ok 
+    RamanujanHCN_OneHundredTwentyIsHighlyCompositeAndTheMemoirsColumnChecks.scan-ok 
+    RamanujanNagell_TheFiveSolutionsAndNoSixthBelowTwoToTheFifteen.scan-ok
+
+[4 members / 3 files]
+    Fermat3Gate_TheCubeGateBelowThirteenIsSignedAndBothNearMissesAreItsTightness.gY 
+    Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection.bndM 
+    Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection.fB 
+    RamanujanNagell_TheFiveSolutionsAndNoSixthBelowTwoToTheFifteen.known
+
+[4 members / 2 files]
+    ExactHadamardInterference.H 
+    ExactHadamardInterference.scale‚State 
+    ExactTwoStateAmplitudes.X 
+    ExactTwoStateAmplitudes.Z
+
+[4 members / 3 files]
+    ExactExperimentFullAbstraction.OperationallyEquivalent 
+    ExactProjectivePhase.GlobalPhaseStep 
+    TwoSidedExperimentInterface.ImmediateEquivalent 
+    TwoSidedExperimentInterface.TwoSidedEquivalent
+
+[4 members / 2 files]
+    EndogenousHorizon.obs-25 
+    EndogenousHorizon.obs-35 
+    EndogenousHorizon.obs-5 
+    SetuKsetra_TheLatticeNowExistsTheWilsonLoopIsGaugeInvariantByTelescopingAndTheConnectionIsNot.setu-mla
+
+[4 members / 3 files]
+    EndogenousHorizon.horizon-grows 
+    EndogenousHorizon.horizon-grows-35 
+    PrimeSquareOptionalComposite.modulus-5-refutes 
+    PrimeSquarePinAdapter.extend-by-5-refutes
+
+[4 members / 4 files]
+    Ekam.if_then_else_ 
+    Gamma0Index.ite 
+    Ganana.if_then_else_ 
+    KuttakaConvergents.if_then_else_
+
+[4 members / 2 files]
+    Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListedTwice.allL 
+    Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListedTwice.anyL 
+    Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa.allL 
+    Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa.anyL
+
+[4 members / 4 files]
+    DviVrddhi_TheComposedSuccessorAddsTwoTheCertificatesConcatenateAndTheStepCountsAdd.twice 
+    Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.eraser 
+    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.spin 
+    Vrddhi_AVerifiedProgramTheSuccessorMachineAddsOneStrokeAndItsCertificateIsAFibrePoint.incr
+
+[4 members / 4 files]
+    Digits.value 
+    RawWordPaddingNormalForm.paddingCount 
+    TransportDiv.steps 
+    TransportDivQuot.divSteps
+
+[4 members / 2 files]
+    DetConservation.UTMonoid 
+    DetConservation.‚ï¬Monoid 
+    FreeMonoid.Tally-Monoid 
+    FreeMonoid.‚ï-Monoid
+
+[4 members / 4 files]
+    DecategorifiedDefect.discreteRank 
+    Kosa_TheWorkingTreeTheLineDiffAndTheBlameAreBuiltAndCommutationIsProvedNotAssumed.discreteLoc 
+    SelfImprovement.discreteGene 
+    Srotas_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra.discreteKey
+
+[4 members / 2 files]
+    DSONucleusMiddleProduct.clMid 
+    DSONucleusOneSidedProduct.Mstar 
+    DSONucleusOneSidedProduct.Msub 
+    DSONucleusOneSidedProduct.clL
+
+[4 members / 2 files]
+    CyclicAliasing.sumBelow 
+    ScaleFluxContinuity_EnergyIsNotDynamicallyClosedTheCompletionIsTheSignedFluxAndSingularityIsFluxThroughTheBoundary.flowBelow 
+    ScaleFluxContinuity_EnergyIsNotDynamicallyClosedTheCompletionIsTheSignedFluxAndSingularityIsFluxThroughTheBoundary.sumBelow 
+    ScaleFluxContinuity_EnergyIsNotDynamicallyClosedTheCompletionIsTheSignedFluxAndSingularityIsFluxThroughTheBoundary.Œ†
+
+[4 members / 3 files]
+    CurvatureIsNonVacuousBecauseHereIsOnePointOffTheImage.idU 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡‡‡ø 
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡ï-‡Æ‡æ‡∞‡‡ó‡ 
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡Ø‡ã‡ó‡
+
+[4 members / 3 files]
+    CostGeometryEdgeBoundary.collapse-move-not-equiv 
+    Jiva_TheSoulIsCognitionBoundByKarmaAndLiberationIsTheEquivalenceThatSeesTheWorldAsItself.‡‡¶‡‡ß‡-‡‡ï‡‡µ‡≤‡Æ‡ 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡-‡®-‡‡Æ‡‡æ 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡‡‡ø'-‡®-‡‡Æ‡‡æ
+
+[4 members / 3 files]
+    CompositionalContextAdapter.NowEq 
+    ProjectionChargeAudit2.RQ 
+    WallCertificate.Indistinguishable 
+    WallCertificate._‚âà_
+
+[4 members / 2 files]
+    Chaya_TheShadowHasNoSectionThoughItHasAMap.p3 
+    Chaya_TheShadowHasNoSectionThoughItHasAMap.p5 
+    Chaya_TheShadowHasNoSectionThoughItHasAMap.p7 
+    Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.head-prime
+
+[4 members / 4 files]
+    ChargePolynomialFinite.sum‚ 
+    SamaMana_TheCrossingsAreUnitaryOnAnInnerProductSpaceAndUnitarityIsIndependentOfYangBaxter.total 
+    TheRiemannHypothesisHasAnArithmeticFormWithNoRealNumberInIt.sum‚ 
+    Window5Walsh.sum‚
+
+[4 members / 4 files]
+    ChargeIsStrictRefinement.probe-neutral-not-charged 
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡®‡‡‡-‡∞‡ø‡ï‡‡‡Æ‡ 
+    Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡‡‡‡æ‡‡®‡æ-‡‡‡æ‡µ‡ 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡-‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡
+
+[4 members / 3 files]
+    ChargeIsStrictRefinement._‚àà_ 
+    OptionSpread._‚àà_ 
+    OptionSpread._‚âºall_ 
+    TheParetoStratumIsDecidableAndTheFilterIsExact.IsParetoMaximal
+
+[4 members / 3 files]
+    ChargeCriterion.hd 
+    SetuKsetra_TheLatticeNowExistsTheWilsonLoopIsGaugeInvariantByTelescopingAndTheConnectionIsNot.wilson 
+    SetuKsetra_TheLatticeNowExistsTheWilsonLoopIsGaugeInvariantByTelescopingAndTheConnectionIsNot.iras 
+    TrayoNirnayah_SurvivalUnderRetractionHasThreeVerdictsBecauseAPartialClassEnumerationCannotDecide.avoids
+
+[4 members / 3 files]
+    BhavanaSemiring.cx 
+    Gamma0Index.det2 
+    Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.cntY 
+    Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.indC
+
+[4 members / 3 files]
+    BhavanaKrida.‡®-‡‡‡‡∞‡Æ‡ 
+    ChargePolynomialFinite.chen-fails-at-12 
+    ChargePolynomialFinite.chen-fails-at-30 
+    SignIsNotAccumulable.minusOne-is-not-one
+
+[4 members / 4 files]
+    BatchDepthMemoryBoundary.Sufficient 
+    DSOOption.Task 
+    DisclosureDimension.Sep 
+    VacuityVerdict.GlobalFactorization
+
+[4 members / 3 files]
+    AvaranaMoksa_TheDebtScalarIsTheReachabilityShadowAndIsStrictlyCoarserThanTheFibre.reachability-settled 
+    ObstructionCalculus.forget-generates 
+    Varanam_ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal.‡‡‡¶‡-‡µ‡∞‡‡Æ‡ 
+    Varanam_ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal.‡‡¶‡-‡µ‡∞‡‡Æ‡
+
+[4 members / 3 files]
+    AtlasResiduals.BS 
+    AtlasResiduals.OrdTotal 
+    DiagonalEndpoint.NearFamily 
+    LinearOrderFinite.OrdTotal‚≤
+
+[4 members / 4 files]
+    Anuvrtti_AnObserverSeesALawExactlyWhenItsClassIsACongruenceAndThenItCarriesForward.‡®‡ø‡Ø‡Æ‡ 
+    ChargeCriterion.tl 
+    Sha256OnTheWire.stagePad 
+    Window5Walsh.zeros
+
+[4 members / 3 files]
+    Anuvrtti.abc 
+    Anuvrtti.cab 
+    SamaMana_TheCrossingsAreUnitaryOnAnInnerProductSpaceAndUnitarityIsIndependentOfYangBaxter.allPairs 
+    SetuKsetra_TheLatticeNowExistsTheWilsonLoopIsGaugeInvariantByTelescopingAndTheConnectionIsNot.ski-setu
+
+[4 members / 2 files]
+    AnuktaAvaktavya.‡®‡ø‡‡‡Ø 
+    AnuktaAvaktavya.‡‡æ‡Æ‡Ø‡ø‡ï 
+    SamayikaAndNityaAreIndependent.InvincibleInstance 
+    SamayikaAndNityaAreIndependent.UniversalRemedy
+
+[4 members / 3 files]
+    Anubandha_TheGaloisConnectionIsTwoNayasMutuallyAdjointAndTheClosureIsWhatPersists.Preorder 
+    RelativeFrameChange.Family 
+    StagewiseCompositeB.Defeating 
+    StagewiseCompositeB.SpanSet
+
+[4 members / 4 files]
+    AnekantaTransitional.‡‡‡‡æ‡®‡ 
+    Cakra_TheResidueBridgeIsProvedAndTheMinimalAcceptorIsTheCyclicGroupOfOrderTheLcm.SameResidues 
+    SensorNerode.Ind 
+    SensorResidueBridge.SameProfile
+
+[4 members / 2 files]
+    AffineEmergenceCountedPath.AWorld 
+    AffineEmergenceCountedPath.BWorld 
+    AffineEmergenceCountedPath.UnionWorld 
+    LawfulContinuationCore.modulusWorld
+
+[4 members / 3 files]
+    ActionRefinement.ActionCollision 
+    ActionRefinement.Refines 
+    ReachableActionRefinement.ReachableRefines 
+    StructuredDefect.Reopens
+
+[4 members / 4 files]
+    AchromaticToy.sameShadow 
+    AdditionChainPredictiveMemory.same-terminal 
+    Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance.‡µ‡‡‡‡-‡Æ‡‡≤-‡‡‡‡¶‡ 
+    PhysicalLearningCore.population-one-state
+
+[4 members / 4 files]
+    ADiagonalSentenceIndependentInAConcreteTheory.Th 
+    ASmallTheoryWithAnIndependentSentence.Th 
+    TheInternalRulesPreserveIndependenceInThisCalculus.Th‚∫ 
+    TheOmegaInconsistentExtensionDerivesTheNegation.Th¬∞
+
+[3 members / 3 files]
+    WalkBridge.pred-form 
+    WalkChartedCap.pos-form 
+    WalkPrimePowers.pos-form
+
+[3 members / 2 files]
+    TransportDivQuot.divTrim 
+    TransportDivQuot.divw 
+    TransportMul.repAdd
+
+[3 members / 2 files]
+    TheInstalledOperationHasNoPervasionSoTheKernelMemorises.SomeEnabled 
+    TheInstalledTheoremHasExactlyOneLocusSoCapabilityGrowsByOneNotByAClass.IsSourceOf 
+    TheInstalledTheoremHasExactlyOneLocusSoCapabilityGrowsByOneNotByAClass.SomeEnabled
+
+[3 members / 2 files]
+    TheDeflationaryTestIsVacuous.negationIsStable 
+    TheDeflationaryTestIsVacuous.towerIsTwoTallForAnyAbsence 
+    WhyTheSamePriceKeepsAppearing.stable¬
+
+[3 members / 2 files]
+    SaptabhangiNaya.machine-profile 
+    TwoProfilesSuffice.œ‚ 
+    TwoProfilesSuffice.œ‚
+
+[3 members / 2 files]
+    SantataDhara_TheContinuumBuiltFromTheAxiomsWithItsLimitsAsConstructors.half‚ª 
+    SantataDhara_TheContinuumBuiltFromTheAxiomsWithItsLimitsAsConstructors.third 
+    TranslationOnTheContinuum_TranslationByARationalExtendsFromTheRationalsToTheContinuumByTheHIITsOwnRecursionRespectingCloseness.zero‚
+
+[3 members / 2 files]
+    SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.‡â‡ï‡‡‡‡∞‡ø‡µ‡æ‡∞‡ 
+    SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.‡Æ‡‡®‡‡∞‡ø‡µ‡æ‡∞‡ 
+    TheReachableLawDoesNotComposeWithoutPreservation.Inv
+
+[3 members / 2 files]
+    Samasa_ProgramsComposeTheSequencedTableRunsItsFirstPhaseThenHandsTheTapeToTheSecondAtTheRetireState.SourcesBelow 
+    Vistara_ThePaddingLemmaABehaviorHasUnboundedlyManyProgramsSoTheCodeIsNotDeterminedByTheRun.StatesAbove 
+    Vistara_ThePaddingLemmaABehaviorHasUnboundedlyManyProgramsSoTheCodeIsNotDeterminedByTheRun.StatesBelow
+
+[3 members / 3 files]
+    SamasaEkAmsa.‡‡®‡‡‡∞-‡∞‡¶‡‡¶‡®‡Æ‡ 
+    SensorResidueBridge.plus‚à 
+    SieveRoughBridge.plus‚à
+
+[3 members / 3 files]
+    S3IntegerRelativeCoordinates.coordinates-from-relative 
+    Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount.swap¬≤ 
+    Yamala_TheTwinChargeIsTheParityJetAndTwistedLeibnizIsDualNumberMultiplication.‚ä-unitÀ°
+
+[3 members / 2 files]
+    S3ConjugacyObservation.fixedProfile-conjugation 
+    S3ConjugacyObservation.fixedProfile-gauge 
+    S3FixedPointCharacter.character-gauge-invariant
+
+[3 members / 2 files]
+    RelativeFrameObservable.boolFrame 
+    UnivalentPhysicalProcess.initialFrame 
+    UnivalentPhysicalProcess.transportedFrame
+
+[3 members / 3 files]
+    RamanujanSigma_TheEisensteinConvolutionIdentityInstancesByRefl.œof 
+    SamaghataSankalita_TheDescentIsExactForEverySequenceAndAryabhatasRulesAreItsFirstInstances.‡Ø‡ã‡ó‡ 
+    Sankalita.Œ<
+
+[3 members / 3 files]
+    RadixSymptoma.^-+ 
+    SumProductTorus.^-+ 
+    WalkJumps.^-+
+
+[3 members / 2 files]
+    R0021FlipOrbit.fixedFour 
+    R0021FlipOrbit.zeroAtoms 
+    Window5Walsh.allPats
+
+[3 members / 2 files]
+    QuotientFiberLaw.queryOf 
+    SieveFiber.allOf 
+    SieveFiber.anyOf
+
+[3 members / 3 files]
+    PravesaTantu_TheInjectionsFibreIsContractibleOnItsImageAndEmptyOffItSoItIsReceiptAndWall.‡‡‡‡≤‡Æ‡ 
+    SubgroupIndex.isContrŒ‚â° 
+    Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem.‡‡Æ‡‡æ-‡Æ‡æ‡∞‡‡ó‡
+
+[3 members / 2 files]
+    Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree.‡≤‡ø‡ñ‡ø‡-‡‡æ‡∞‡‡µ 
+    SaptabhangiSamyoga_TheCompositionOfVerdicts.‡¶‡ï‡‡‡ø‡‡‡-‡‡‡‡∞‡‡‡ 
+    SaptabhangiSamyoga_TheCompositionOfVerdicts.‡‡-‡â‡‡Ø‡Æ‡
+
+[3 members / 2 files]
+    Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree.‡‡≤‡ø‡ñ‡ø‡-‡© 
+    SaptabhangiSamyoga_TheCompositionOfVerdicts.‡µ‡æ‡Æ‡‡-‡‡‡‡†‡ 
+    SaptabhangiSamyoga_TheCompositionOfVerdicts.‡‡‡‡†‡
+
+[3 members / 3 files]
+    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡‡∞‡‡ø‡‡ô‡‡ï‡‡∞‡Æ‡ 
+    Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡µ‡‡Ø‡‡‡Ø‡Ø‡ 
+    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.‡‡‡∞‡‡ø‡≤‡ã‡Æ‡
+
+[3 members / 2 files]
+    PinnedSensorForcing.extendedContains 
+    PinnedSensorForcing.minimalContains 
+    PrimeSquareOptionalComposite.least-contains
+
+[3 members / 2 files]
+    PMNoSection.even3 
+    PMNoSection.odd3 
+    PMTorus.sum3
+
+[3 members / 2 files]
+    OracleQueries.sgn-+ 
+    Paryayasabda_TwoNamesForTheParitySectorAndTheCharacterLawCarriesAcrossBetweenThem.sgn-is-char 
+    Paryayasabda_TwoNamesForTheParitySectorAndTheCharacterLawCarriesAcrossBetweenThem.‡‡Æ‡‡‡‡∞‡‡-‡ó‡‡‡®‡Æ‡
+
+[3 members / 2 files]
+    NumberIsExponentialInDerivation.exponent-is-dwarfed 
+    NumberIsExponentialInDerivation.suc‚â^ 
+    RadixResidueUnification.pow-lb
+
+[3 members / 2 files]
+    Niyati_TheMachineHasExactlyOneExecutionDeterminismIsContractibilityOfTheStream.run-zero 
+    VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.decide-retract 
+    VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.verify-inverts-decide
+
+[3 members / 2 files]
+    NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne.nSat2 
+    NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne.nSatE 
+    SandarbhaGanana_TheContextCountIsAlwaysOddAndTheLandscapeIsNinetySixThreeTwentyNinetySix.nSat
+
+[3 members / 3 files]
+    Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.the-step-forgets 
+    PNeqNPIsNotUniversalItFailsOnTheLosslessMachine.lossy-step-has-the-gap 
+    PeqNPHoldsOnTheLosslessUniversalMachine.gap-on-projection
+
+[3 members / 3 files]
+    MeruDiagonalIsVirahanka.matra-is-sarva 
+    PrastaraPankti.‡Æ‡æ‡‡‡∞‡æ-‡‡∞‡‡µ‡ 
+    Pratyaya_TheChandasCountsStandTwiceAndTheTwoProofsAreOnePath.‡Æ‡æ‡‡‡∞‡æ-‡‡‡∞‡‡‡Ø‡Ø‡
+
+[3 members / 2 files]
+    MachineLoop.Fingerprint 
+    MachineLoop.GrowthGate 
+    Niksepa.‡µ‡‡‡‡
+
+[3 members / 2 files]
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡ï‡‡∞‡Æ‡‡‡∞‡‡‡®‡ 
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡µ‡æ‡‡ï-‡‡‡∞‡‡‡®‡ 
+    SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.‡ó‡‡®‡æ‡‡‡∞‡‡‡®‡
+
+[3 members / 3 files]
+    KotiNirnaya_EveryFibreIsDecidedSoEachConjectureIsADefinitePropositionAndTheOnlyOpennessIsTheSection.decó 
+    LeastWindowRadiusEdge.decó 
+    Vada.decó
+
+[3 members / 2 files]
+    Kosthanyaya_TheDurnayaIsThePigeonholeAndTheLossIsTheSeparateHypothesis.‡¶‡‡∞‡‡®‡Ø‡-‡ï‡ã‡‡‡†‡æ‡‡ 
+    Kosthanyaya_TheDurnayaIsThePigeonholeAndTheLossIsTheSeparateHypothesis.‡¶‡‡∞‡‡®‡Ø‡-‡‡Æ‡æ‡®‡Æ‡ 
+    Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡
+
+[3 members / 2 files]
+    JyotiVivrtti_TheZetaTwistSendsTheMarkedChargeTowerToTheOmegaStratification.‡®‡ø‡‡‡ï‡‡∞‡ø‡Ø‡Æ‡ 
+    OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityCharacter.‡‡ø‡‡‡®‡Æ‡ 
+    OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityCharacter.‡‡ï‡‡∞‡ø‡Ø‡Æ‡
+
+[3 members / 2 files]
+    JoinSavesTheMeet._‚äì_ 
+    SumProductTorus._‚äî_ 
+    SumProductTorus._‚äï_
+
+[3 members / 3 files]
+    Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.‡‡‡‡®‡æ-‡‡Æ‡‡ï‡∞‡‡Æ‡ 
+    ProjectionChargeAudit.localChargeEquiv 
+    WallCertificate.worldSplit
+
+[3 members / 3 files]
+    IdempotenceForbidsDescent.bhavana-is-not-a-join 
+    TheArithmeticCircleIsFourPeriodic.i¬≤‚âone 
+    TheFibreIsTheSubject.rotated-differs
+
+[3 members / 2 files]
+    GhurnaGana_TwistsCommuteTotallyAndFourAlikeCancelSoTwistWordsReduceTowardTheirCountVector.gaa 
+    NirupaSutra_EveryBraidWordIsItsBarePermutationFollowedByAComputedTwistWord.svap-gaa 
+    NirupaSutra_EveryBraidWordIsItsBarePermutationFollowedByAComputedTwistWord.vì-gaa
+
+[3 members / 3 files]
+    GhataLekha_EntropyIsTheExponentTheLogIsExactOnPowersAndAdditiveBecauseMassMultiplies.sama-yugma-inj 
+    MadhyaBindu_TheMidpointFormAndTheSumFormAreOneQuestionProvedBothWays.centre 
+    Pingala.‡¶‡‡µ‡ø‡ó‡‡-‡‡ï‡à‡ï‡Æ‡
+
+[3 members / 3 files]
+    GenerativeLoop.generative-loop 
+    ProgressDefinition.null-loop-drops-in 
+    WitnessPolicy.informative-loop-drops-in
+
+[3 members / 3 files]
+    GenerativeLoop.Reaches 
+    ProgressDefinition.NullReaches 
+    WitnessPolicy.InfReaches
+
+[3 members / 2 files]
+    GenerativeKernel.detour-history 
+    GenerativeKernel.direct-history 
+    RewriteCertificate.accepted
+
+[3 members / 3 files]
+    GaugeOrbitClasses.œ‚ã-is-neutral-for-probe-6 
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡‡®‡‡ß‡Ø‡‡ó‡‡Æ‡Æ‡ 
+    SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.‡‡‡¶‡Ø‡‡æ‡Æ‡‡Ø‡Æ‡
+
+[3 members / 2 files]
+    Gamma0Partner.dia 
+    Rank1DihedralChart.S 
+    Rank1DihedralChart.U
+
+[3 members / 3 files]
+    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.box4 
+    NaturalMachineRun.valli-153-112 
+    Window5Walsh.masses
+
+[3 members / 2 files]
+    FlipObservable.modZ 
+    FlipObservable.portW 
+    TheValliConvergentDeterminantAlternates.signed
+
+[3 members / 2 files]
+    FitnessIsNecessaryUpToDoubleNegation.AbsenceOn 
+    FitnessIsNecessaryUpToDoubleNegation.Yogya 
+    SaturationAtACutIsIdempotent._‚ä_
+
+[3 members / 3 files]
+    FiniteWorldMaximizer.dich 
+    Kosthabhitti_TheHaniIsAWallGeneratorSoThePigeonholeRetiresJoinsAcrossTheWholeNet.Bool-‡¶‡‡µ‡ø-‡Æ‡‡≤‡‡Ø‡Æ‡ 
+    SieveRoughBridge.boolCase
+
+[3 members / 3 files]
+    FiniteGraphHolonomyGroupoid.PathGroupoid 
+    Kosthanyaya_TheDurnayaIsThePigeonholeAndTheLossIsTheSeparateHypothesis.‡¶‡‡µ‡ø-‡Æ‡‡≤‡‡Ø‡Æ‡ 
+    SpanWeave.Id
+
+[3 members / 3 files]
+    ExponentBound.^-pos 
+    WalkJumps.^-pos 
+    WalkPrimePowers.^-pos
+
+[3 members / 2 files]
+    ExactProjectiveCircuits.plusInput 
+    ExactProjectivePhase.minusRay 
+    ExactProjectivePhase.plusRay
+
+[3 members / 2 files]
+    ExactProjectiveCircuits.XX-raw-identity 
+    ExactTwoStateAmplitudes.plus-acts-identically 
+    ExactTwoStateAmplitudes.r0-amplitude-action
+
+[3 members / 2 files]
+    EndObstruction.next-door 
+    Lawvere.cadence-reopens 
+    Lawvere.cantor-defect
+
+[3 members / 3 files]
+    Ekam.divmod 
+    KuttakaConvergents.divmod 
+    SieveFiber.stripF
+
+[3 members / 3 files]
+    EkaSutra_JTheGraphAndTheFundamentalTheoremAreInstancesOfSingletonContractionSoAuthorsRetireIntoInstantiation.‡®‡ø‡µ‡‡‡‡‡ø‡ 
+    Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡µ‡‡®‡Æ‡ 
+    Samkramana_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose.‡µ‡‡®‡Æ‡
+
+[3 members / 2 files]
+    EkaGhataVivrtti_TheWholeChargeIsTheFirstOrderTermOfOneRankOneProduct.‡ò‡æ‡‡ 
+    EkaGhataVivrtti_TheWholeChargeIsTheFirstOrderTermOfOneRankOneProduct.‡‡‡‡ 
+    MulaShakti_TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne.‡‡‡Ø‡ã‡‡ø-‡ò‡æ‡‡
+
+[3 members / 3 files]
+    DynamicDescent.sub 
+    Gamma0Partner.mul 
+    YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering._‚ä‚_
+
+[3 members / 3 files]
+    DynamicDescent.neg 
+    FlipObservable.flipRow 
+    M2Unimodular.adj
+
+[3 members / 2 files]
+    Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.‡‡µ‡∞‡‡‡ 
+    RepairGrading.repair‚ 
+    RepairGrading.repair‚
+
+[3 members / 3 files]
+    DurationIsSyllablesPlusGuru.matra-split 
+    MatraVarnaGuru.‡Æ‡æ‡‡‡∞‡æ-‡µ‡∞‡‡-‡ó‡‡∞‡ 
+    Pratyaya_TheChandasCountsStandTwiceAndTheTwoProofsAreOnePath.‡Æ‡æ‡‡‡∞‡æ-‡µ‡∞‡‡-‡ó‡‡∞‡-‡‡‡∞‡‡‡Ø‡Ø‡
+
+[3 members / 3 files]
+    DigitTowerFin.W 
+    DigitTowerFinLimit.W 
+    WallCertificate.Tup
+
+[3 members / 3 files]
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ 
+    PratibimbaSanghata_CostComposesMonotonicallyExactlyOnTheImageWhichIsWhatTypingTheDecoderOnItBuys.‡‡‡ 
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡‡æ‡®‡ø‡
+
+[3 members / 3 files]
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡¶‡‡µ‡Ø‡Æ‡ 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡-‡µ‡ø‡ï‡≤‡æ‡¶‡‡ 
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡¶‡‡µ‡Ø‡Æ‡
+
+[3 members / 3 files]
+    DeflationaryTest.Œ†-stable 
+    WhereTheTowerCanStillBeThree.StableŒ† 
+    WhyTheSamePriceKeepsAppearing.stableŒ†
+
+[3 members / 3 files]
+    DSONucleusResidualAudit.leq 
+    TransmissionRefutations.eqZb 
+    Window5Walsh.eq‚
+
+[3 members / 2 files]
+    DSONucleusExecutionCalibration.M-a-row 
+    DSONucleusExecutionCalibration.M-e-row 
+    EkaBhara_TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndTheParityTangentAreOneGenerator.‡‡ï‡‡æ‡∞‡
+
+[3 members / 3 files]
+    CostGeometry.Edge 
+    CostGeometryIndexed.IEdge 
+    Residual.Bridge
+
+[3 members / 2 files]
+    CoprimeSplitting.4-is-prime-power 
+    WalkFastInstance.pp-11 
+    WalkFastInstance.pp-9
+
+[3 members / 3 files]
+    ControlledGrammar.EnabledFuture 
+    GenerativeKernel.Branch 
+    SthapanaVarga_SelfExtensionIsClassifiedByDerivationUpToControlGaugeAndInstallationIsTheCanonicalGauge.Gauge
+
+[3 members / 2 files]
+    ControlledGrammar.CheckedFuture 
+    IntrinsicRewrite.Run 
+    IntrinsicRewrite.Weave
+
+[3 members / 2 files]
+    ConstructiveBornNormalization.scaledPlus 
+    ExactHadamardInterference.minusState 
+    ExactHadamardInterference.plusState
+
+[3 members / 3 files]
+    ChargePolynomialFinite.concatMapL 
+    Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListedTwice.concatMapL 
+    Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa.cMap
+
+[3 members / 2 files]
+    ChargePolynomialFinite.chen-semiprime 
+    ChargePolynomialFinite.primeInd-at-p¬≤q 
+    WindowShiftResidual_NetDisplacementDescendsAndTheBoundaryInteractionHistoryDoesNotAndForAFixedWordItRetreatsToTheEdges.read0-ltr
+
+[3 members / 2 files]
+    ChargePolynomialFinite.allL 
+    Window5Walsh.allB 
+    Window5Walsh.anyB
+
+[3 members / 2 files]
+    ChargeCriterion.probe-2-separates 
+    OracleQueries.charged-basis-separates 
+    OracleQueries.read-p-separates
+
+[3 members / 2 files]
+    CenterRelative.ConeNN 
+    CenterRelative.InCone 
+    DiscriminantIsTheOnlyFirstIntegral_UpToCubicDegreeEveryPolynomialFirstIntegralOfRestrictedEulerIsAffineInTheDiscriminantAndThePushforwardFibreIsUnbounded.PushforwardQR
+
+[3 members / 2 files]
+    CaryaNivrtti_TheStringsChargeIsRetiredIntoIntegerStructureByTheOneLine.‡‡∞‡‡Ø‡æ 
+    Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.‡‡‡ø‡‡‡û‡æ‡®‡Æ‡ 
+    Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.‡‡∞‡‡Ø‡æ‡Ø-‡¶‡∞‡‡‡®‡Æ‡
+
+[3 members / 3 files]
+    CRTChain.walk8-residues 
+    FrontierCount.frontier8-count 
+    FrontierList.count8
+
+[3 members / 2 files]
+    Brahmagupta.‡‡®‡‡‡∞-‡¶‡‡µ‡ø 
+    Brahmagupta.‡‡‡Ø‡ã‡ó-‡¶‡‡µ‡ø 
+    DSONucleusOneSidedProduct.min4
+
+[3 members / 3 files]
+    Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredForever.‡‡‡∞‡Ø‡æ‡‡æ‡-‡¶‡‡µ‡ 
+    VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡‡‡∞‡ø-‡‡ô‡‡ï‡ã‡‡ 
+    Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.pairOf
+
+[3 members / 3 files]
+    BhittiDvaya_TwoMoreWallsTheFiniteBanksCannotMergeWithTheNaturals.‡‡‡‡¶ 
+    BhittiSaptabhangi_TheSevenfoldCannotBeTwoValuedSoTheTopJoinCandidateIsAWall.‡‡‡‡¶ 
+    Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredForever.‡‡‡‡¶
+
+[3 members / 3 files]
+    BhavanaSamuha.‡‡‡®‡‡Ø-‡ó‡‡‡ 
+    DynamicDescent.pureLeakageIsFree 
+    Shunya.‡ó‡‡‡®‡-‡‡‡®‡‡Ø‡Æ‡
+
+[3 members / 2 files]
+    BhavanaKrida.‡Ø‡‡ó‡‡Æ‡Æ‡ 
+    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.residual‚ 
+    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.residual‚
+
+[3 members / 3 files]
+    BharaGana_MassIsConservedPermutedAndMultipliedThePreLogarithmicSecondLaw.gua-sama 
+    Bija.‡µ‡æ‡Æ-‡µ‡ø‡‡∞‡ 
+    Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum.‡µ‡æ‡Æ-‡µ‡ø‡‡∞‡
+
+[3 members / 2 files]
+    AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue.GroupoidOver 
+    Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.Laghava 
+    Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.Matra
+
+[3 members / 3 files]
+    AskingIsNotAPropertyOfTheFunction.discreteBool 
+    FiniteIndraWeave.boolEq 
+    StagewiseComposite.discreteBool'
+
+[3 members / 2 files]
+    AscendingFirstIsTheWorstUnlessTheArchiveIsConstant.bestIsTwo 
+    AscendingFirstIsTheWorstUnlessTheArchiveIsConstant.lowestIsOne 
+    DviVrddhi_TheComposedSuccessorAddsTwoTheCertificatesConcatenateAndTheStepCountsAdd.incr-sources
+
+[3 members / 2 files]
+    AscendingFirstIsTheWorstUnlessTheArchiveIsConstant.All 
+    AscendingFirstIsTheWorstUnlessTheArchiveIsConstant.Any 
+    WalkCapacity.All
+
+[3 members / 2 files]
+    Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer.‡‡®‡‡ß 
+    SieveScaleTower.o‚ 
+    SieveScaleTower.œ‚‚
+
+[3 members / 2 files]
+    AnuktaAvaktavya.‡‡µ‡ï‡‡‡µ‡‡Ø-‡‡¶‡Æ‡ 
+    AnuktaAvaktavya.‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡-‡®‡ø‡‡‡Ø‡Æ‡ 
+    SaptabhangiNaya.no-single-vacana
+
+[3 members / 2 files]
+    AnantaKendra_TheInfiniteFullTwistIsCentralForTheWholeActionOfOrderTwoAndPureResidue.ardha‚àû 
+    KendraAtireka_TheCentralizerExceedsTheGroupTheUniformQuarterTurnIsCentralOfOrderFourYetNoFiniteWordRealizesIt.catur‚àû 
+    KendraAtireka_TheCentralizerExceedsTheGroupTheUniformQuarterTurnIsCentralOfOrderFourYetNoFiniteWordRealizesIt.catur‚àû‚¥
+
+[3 members / 3 files]
+    Ananta.‡®-‡‡‡µ-‡µ‡ø‡‡∞‡‡Ø‡æ‡ 
+    Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart.‡¶‡‡µ‡ø‡Æ‡‡≤-‡‡‡‡µ‡µ‡ø‡∞‡ã‡ß‡ 
+    WallCertificate.b‚ânot
+
+[3 members / 2 files]
+    AdaptiveProbeCollapse.decodeTriple 
+    SmithKernelQuantumBoundary.xyCoordinate 
+    SmithKernelQuantumBoundary.yxCoordinate
+
+[3 members / 2 files]
+    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡‡®‡‡‡‡-‡®-‡Æ‡‡ï‡‡‡ 
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡ 
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡Æ‡ß‡‡Ø‡Æ‡-‡ï‡‡‡Ø‡
+
+[3 members / 3 files]
+    Abhava.Abhva 
+    Anekanta.Naya 
+    TheUnstableGroundCannotBeExhibited.DNS
+
+[3 members / 3 files]
+    ADiagonalSentenceIndependentInAConcreteTheory.Der 
+    TheInternalRulesPreserveIndependenceInThisCalculus.Der‚∫ 
+    TheOmegaInconsistentExtensionDerivesTheNegation.Der¬∞
+
+[2 members / 2 files]
+    WhereTheTowerCanStillBeThree.Stable-‚î 
+    WhyTheSamePriceKeepsAppearing.stable-‚î
+
+[2 members / 2 files]
+    WalkForcing.proper-factor-< 
+    WalkJumps.lt-self
+
+[2 members / 2 files]
+    TypedUnfold.invocationCost 
+    WitnessPolicy.size
+
+[2 members / 2 files]
+    TransportDiv.modw 
+    TransportDivQuot.remw
+
+[2 members / 2 files]
+    Transport.zeroC 
+    TransportMul.oneC
+
+[2 members / 2 files]
+    Transport.valueC-inj 
+    TransportDivQuot.valueC-inj
+
+[2 members / 2 files]
+    Transport._‚äï_ 
+    TransportMul._‚äó_
+
+[2 members / 2 files]
+    TomographyConditioning.sumCopies 
+    Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis.bump
+
+[2 members / 2 files]
+    TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma.Ordered 
+    TheStratificationCoversAndItsStrataArePairwiseDisjoint.Pairwise
+
+[2 members / 2 files]
+    TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma.Beats 
+    TheStratificationCoversAndItsStrataArePairwiseDisjoint.Disjoint
+
+[2 members / 2 files]
+    TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma.AllBeaten 
+    TheStratificationCoversAndItsStrataArePairwiseDisjoint.AllDisjointFrom
+
+[2 members / 2 files]
+    TheRatesAreDenseAndTheMediantSurvivesTheQuotient.Between 
+    TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation.TriR
+
+[2 members / 2 files]
+    TheParetoStratumIsDecidableAndTheFilterIsExact.stratum 
+    TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure.remainder
+
+[2 members / 2 files]
+    TheMeetIsMaxAndTheProfileCutIsAGaloisConnection._‚äp_ 
+    TheTwoSidedCutExistsOverANonEmptyResidualIndex._‚âºp_
+
+[2 members / 2 files]
+    TheMediantDoesNotDescendToTheRate.sameRate 
+    WhichThresholdStatementsDescendToTheRate.oneHalfIsTwoQuarters
+
+[2 members / 2 files]
+    TheInstalledOperationHasNoPervasionSoTheKernelMemorises.tower 
+    WindingCostIsUnarySize.unary
+
+[2 members / 2 files]
+    TheDomainThatIsAnAbsence.¬¬Dec 
+    TheUniformFormIsNotRefuted.fixedFormRefuted
+
+[2 members / 2 files]
+    TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder.direct‚âdetour 
+    TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous.routes-genuinely-differ
+
+[2 members / 2 files]
+    TheCountingSemanticsIsTheCardinalityOfTheCategorifiedOneEveryTermsTypeIsFinOfItsEvaluation.finEnv 
+    TheCountingSemanticsIsTheCardinalityOfTheTypeSemantics.canonical
+
+[2 members / 2 files]
+    TheCeilingIsAboutReading.probe1 
+    YantraTantu_TheEngineLivesInTheFibreOfItsDenotation.‡‡ï‡
+
+[2 members / 2 files]
+    TermFreeMonoid.plug-unit-r 
+    WitnessPolicy.plug-var
+
+[2 members / 2 files]
+    TermFreeMonoid.plug-size‚≤ 
+    WitnessPolicy.plug-size
+
+[2 members / 2 files]
+    SumProductTorus.val 
+    TheDerivationIsDenseToo.support
+
+[2 members / 2 files]
+    SubsetSumCostLocus.selSum 
+    SubsetSumOverKernel.selSum
+
+[2 members / 2 files]
+    SthapanaVarga_SelfExtensionIsClassifiedByDerivationUpToControlGaugeAndInstallationIsTheCanonicalGauge.locusContr 
+    TheInstalledTheoremHasExactlyOneLocusSoCapabilityGrowsByOneNotByAClass.adhikarana-eka
+
+[2 members / 2 files]
+    Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.adesa-replaces 
+    Svasthani_TheHypothesisThatClosesSthanivadbhavaFailsAtTheFirstSubstitutionAndReturnsAtTheSecond.‡¶‡‡µ‡ø‡∞‡æ‡¶‡‡‡-‡‡‡µ‡‡‡‡æ‡®‡
+
+[2 members / 2 files]
+    SpectatorPaddingCollapse.TwoLevelCollective 
+    StructuredDefect.Str
+
+[2 members / 2 files]
+    SmithSignNormal.absList 
+    Utthapana_APolynomialVanishingAtMorePointsThanItsLengthIsTheZeroFunction.negP
+
+[2 members / 2 files]
+    Sl2DivisorLattice.œ-Œ¥ 
+    SpernerFromSl2.œ-implements-down
+
+[2 members / 2 files]
+    Sl2DivisorLattice.divisorChainSl2 
+    SpernerFromSl2.sl2
+
+[2 members / 2 files]
+    SiteAudit.laghava-is-two 
+    WitnessNumberCanBeInfinite.laghava-audited
+
+[2 members / 2 files]
+    SieveScaleTower.eq‚ 
+    Srotas_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra.single
+
+[2 members / 2 files]
+    SieveFiber.q 
+    SieveScaleTower.o‚
+
+[2 members / 2 files]
+    SieveFiber.isSetVis 
+    SieveScaleTower.isSetO‚
+
+[2 members / 2 files]
+    SieveFiber.eqVis 
+    SieveScaleTower.eq‚
+
+[2 members / 2 files]
+    SieveFiber.Fibre 
+    SieveScaleTower.Fibre‚
+
+[2 members / 2 files]
+    SesaRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecurses.‡‡‡-‡‡∞‡Æ‡‡‡∞‡æ 
+    TheTruncationErrorIsExactAtEveryFiniteStage.errorStep
+
+[2 members / 2 files]
+    SensorResidueBridge.lcm-positive 
+    WalkBridge.lcmList-pos
+
+[2 members / 2 files]
+    SantataDhara_TheContinuumBuiltFromTheAxiomsWithItsLimitsAsConstructors._‚àí‚_ 
+    TranslationInvariance_ClosenessOfRationalsIsInvariantUnderTranslationByARationalSoTranslationWillExtendToTheContinuum._+‚_
+
+[2 members / 2 files]
+    SankramanaSesa_EveryTransportOwesItsResidual.‡‡‡‡‡Æ‡ 
+    SarvavibhagaH_EveryMapIsTheSumOfItsFibresOverItsCodomainSoTheIsomorphismTheoremIsAnekanta.‡‡∞‡‡µ‡µ‡ø‡‡æ‡ó‡
+
+[2 members / 2 files]
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡-‡®-‡‡Æ‡‡æ 
+    SankramanaSesa_EveryTransportOwesItsResidual.‡µ‡ø‡‡Æ-‡‡‡‡‡-‡®-‡‡Æ‡‡æ
+
+[2 members / 2 files]
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡‡‡ø-‡‡Æ‡‡æ 
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡Ø‡ã‡ó‡-‡‡ï‡‡‡Ø‡
+
+[2 members / 2 files]
+    Samkramana_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose.‡ó‡‡ø 
+    SankramanaSesa_EveryTransportOwesItsResidual.‡‡‡‡‡‡‡ï‡‡∞‡Æ‡‡Æ‡
+
+[2 members / 2 files]
+    SamayikaAndNityaAreIndependent.always-nitya 
+    TerminalTraceCompression.displayedHistory
+
+[2 members / 2 files]
+    SamasaDviAmsa.‡µ‡ø‡∞‡‡æ‡ô‡‡ï-‡∞‡‡‡Æ‡ 
+    SamasaMeruN.‡µ‡ø‡∞‡‡æ‡ô‡‡ï-‡‡µ‡‡‡‡‡ø‡
+
+[2 members / 2 files]
+    SamasaDviAmsa.‡®‡æ‡∞‡æ‡Ø‡-‡∞‡‡‡Æ‡ 
+    SamasaMeruN.‡®‡æ‡∞‡æ‡Ø‡-‡‡µ‡‡‡‡‡ø‡
+
+[2 members / 2 files]
+    SamasaDviAmsa.‡‡ø‡¶‡‡∞-‡∞‡‡‡Æ‡ 
+    SamasaMeruN.‡‡ø‡¶‡‡∞-‡‡µ‡‡‡‡‡ø‡
+
+[2 members / 2 files]
+    SamaghataSankalita_TheDescentIsExactForEverySequenceAndAryabhatasRulesAreItsFirstInstances.‡¶‡‡µ‡ø‡ó‡‡-‡‡ô‡‡ï‡≤‡ø‡‡Æ‡-‡‡‡®‡ 
+    Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum.‡¶‡‡µ‡ø‡ó‡‡-‡‡ô‡‡ï‡≤‡ø‡‡Æ‡
+
+[2 members / 2 files]
+    S3EquivariantEndomorphismRigidity.source-zero-one-distinct 
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.f0‚âf1
+
+[2 members / 2 files]
+    S3ConjugacyObservation.fixedProfile-refinement 
+    S3FixedPointCharacter.character-refinement-invariant
+
+[2 members / 2 files]
+    RoughSplit.‚â-¬-both 
+    TomographyConditioning.‚â-¬-mono
+
+[2 members / 2 files]
+    RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum.mixedStratum 
+    RnaDhana_TheWholeMixedStratificationIsTheFlippedOne.mixedRemainder
+
+[2 members / 2 files]
+    ResponseCharacterKickback.Character 
+    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.LUnit
+
+[2 members / 2 files]
+    ResidueGlue.and-right 
+    Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa.and-true‚
+
+[2 members / 2 files]
+    ResidueGlue.and-left 
+    Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa.and-true‚
+
+[2 members / 2 files]
+    Residual.no-invariant-response-sees-œ 
+    ResidualInvariance.recover
+
+[2 members / 2 files]
+    RepresentabilityIsNotEnoughForIndependence.theRemainingIngredient 
+    WitSatisfiesEveryHypothesisButOmegaConsistency.theAbsentHypothesis
+
+[2 members / 2 files]
+    ReflectionAttachment.noBoolReflectionTotal 
+    RelationalTensorObstructionBridge.no-loop-stable-phase
+
+[2 members / 2 files]
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.take9 
+    Sha256N.takePairs
+
+[2 members / 2 files]
+    RadixResidueUnification.reduced-bounded 
+    TransportDivQuot.modw-bound
+
+[2 members / 2 files]
+    RadixResidueUnification.decDividesRadix 
+    WalkResidueBridge.decDivides
+
+[2 members / 2 files]
+    R0021FlipOrbit.eqSg 
+    Window5Walsh.sharpVertexOK
+
+[2 members / 2 files]
+    PurnaSaptabhangi_TheFourOpenPositionsGetCanonicalWitnesses.isSetBU 
+    QuotientUnitSourceCutBoundary.isSetPhysical
+
+[2 members / 2 files]
+    Purna.primeDecAll 
+    Vada.primeDec
+
+[2 members / 2 files]
+    ProjectionChargeAudit.noChargeDescent 
+    ProjectionChargeAudit2.noChargeDescent'
+
+[2 members / 2 files]
+    ProgressDefinition.plug-deficit 
+    TermFreeMonoid.plug-deficit‚≤
+
+[2 members / 2 files]
+    ProgressDefinition.Null 
+    WitnessPolicy.Informative
+
+[2 members / 2 files]
+    ProgressDefinition.AllNull 
+    WitnessPolicy.AllInformative
+
+[2 members / 2 files]
+    PrimeSquareOptionalComposite.subthreshold-cannot-refute 
+    PrimeSquarePinAdapter.subthreshold-cannot-refute
+
+[2 members / 2 files]
+    Pratibimba_TheBehaviorIsASetQuotientOfTheCodeItsFibreIsInfiniteAndTheLosslessTraceIsAPoint.dups 
+    Samasa_ProgramsComposeTheSequencedTableRunsItsFirstPhaseThenHandsTheTapeToTheSecondAtTheRetireState.shiftC
+
+[2 members / 2 files]
+    Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree.‡‡‡Ø‡ã‡ó-‡‡‡¶‡ 
+    Saptabhangi.‡‡Æ‡æ‡µ‡‡-‡‡‡¶‡
+
+[2 members / 2 files]
+    Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree.‡‡‡Ø‡ã‡ó-‡®‡æ‡Æ 
+    Saptabhangi.‡‡‡∞‡‡‡Ø‡®‡‡‡∞‡‡‡æ‡µ
+
+[2 members / 2 files]
+    Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree.‡‡≤‡ø‡ñ‡ø‡-‡ 
+    SaptabhangiSamyoga_TheCompositionOfVerdicts.‡‡‡‡‡Æ‡
+
+[2 members / 2 files]
+    Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree.‡‡≤‡ø‡ñ‡ø‡-‡® 
+    SaptabhangiSamyoga_TheCompositionOfVerdicts.‡‡û‡‡‡Æ‡
+
+[2 members / 2 files]
+    Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree.‡‡≤‡ø‡ñ‡ø‡-‡ß 
+    SaptabhangiSamyoga_TheCompositionOfVerdicts.‡ï‡‡∞‡Æ‡‡-‡â‡‡Ø‡Æ‡
+
+[2 members / 2 files]
+    Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree.‡‡≤‡ø‡ñ‡ø‡-‡∞‡ø‡ï‡‡‡Æ‡ 
+    SaptabhangiSamyoga_TheCompositionOfVerdicts.‡∞‡ø‡ï‡‡‡ã-‡®-‡‡ô‡‡ó‡
+
+[2 members / 2 files]
+    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡‡µ‡ 
+    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.‡®‡ã-‡ï‡∞‡‡Æ
+
+[2 members / 2 files]
+    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡®‡‡ß‡æ‡®-‡‡‡∞‡Ø‡Æ‡ 
+    Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡‡‡∞‡ø‡Æ‡æ‡∞‡‡ó‡
+
+[2 members / 2 files]
+    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡µ‡‡Ø‡Ø‡∞‡‡ø‡‡ 
+    SankramanaSesa_EveryTransportOwesItsResidual.‡‡‡∞‡‡‡Ø‡æ‡ó‡Æ‡®‡Æ‡
+
+[2 members / 2 files]
+    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.Receipt 
+    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.Program
+
+[2 members / 2 files]
+    PingalaPrastara.matraCount 
+    Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFibreRankIsCarriedAndItsPriceIsVirahankasNumber.‡‡ô‡‡ï‡®‡Æ‡
+
+[2 members / 2 files]
+    PauliWeyl.‚äï-assoc 
+    RepairTorsor.xorAssoc
+
+[2 members / 2 files]
+    PauliGaugeCocycleSplit.phase 
+    PauliJointPhaseRealization.phaseCoordinate
+
+[2 members / 2 files]
+    PauliGaugeCocycleSplit.erasePhase 
+    PauliJointPhaseRealization.toggleCentral
+
+[2 members / 2 files]
+    PauliGaugeCocycleSplit.c2-full-product-is-minus 
+    PauliWeyl.C2-product
+
+[2 members / 2 files]
+    Paryayasabda_TwoNamesForTheParitySectorAndTheCharacterLawCarriesAcrossBetweenThem.notnot 
+    PhysicalLearningCore.flip-involutive
+
+[2 members / 2 files]
+    Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter.‡-phaseExchange 
+    UnivalentTensorInteraction.joint-loop-nontrivial
+
+[2 members / 2 files]
+    Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter.‡-structuredNot 
+    UnivalentPhysicalProcess.phase-loop-nontrivial
+
+[2 members / 2 files]
+    Parisodhana.dec‚â 
+    TheParetoStratumIsDecidableAndTheFilterIsExact.dec‚â
+
+[2 members / 2 files]
+    Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡µ‡ø‡‡‡Æ‡∞‡-‡‡®‡‡‡‡ 
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡ï‡‡ø‡®‡‡¶‡-‡‡∞‡‡µ‡‡æ‡®‡ø‡
+
+[2 members / 2 files]
+    Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡®‡ø‡µ‡‡‡‡‡ø‡ 
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡‡‡ø-‡‡‡‡‡Æ‡Æ‡
+
+[2 members / 2 files]
+    PNeqNPIsNotUniversalItFailsOnTheLosslessMachine.lossless-completion-has-no-gap 
+    PeqNPHoldsOnTheLosslessUniversalMachine.no-gap-on-completion
+
+[2 members / 2 files]
+    PMTorus.‚äï-swap 
+    QuadraticRefinement.xor-rot
+
+[2 members / 2 files]
+    PMTorus.‚äï-solve 
+    TranslationPeakObservability.xor-cancel-reflects
+
+[2 members / 2 files]
+    PMTorus.‚äï-inter 
+    QuadraticRefinement.xor-exchange
+
+[2 members / 2 files]
+    PMTorus.‚äï-cancel 
+    WallCertificate.‚äï-cancel ≥
+
+[2 members / 2 files]
+    PMTorus.and-both 
+    PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain.and-true
+
+[2 members / 2 files]
+    PMRelationalNoFit.contextRelativeProcess 
+    PMRelativeProcessBridge.incidenceProcess
+
+[2 members / 2 files]
+    PMIncidenceLocalSystem.coverCycle 
+    PMRelativeProcessBridge.cycleArrow
+
+[2 members / 2 files]
+    PMGaugeCohomology.cycleParity 
+    PMMonodromyDerivationNoGo.cycleCharge
+
+[2 members / 2 files]
+    PMGaugeCohomology.chain-step 
+    SetuKsetra_TheLatticeNowExistsTheWilsonLoopIsGaugeInvariantByTelescopingAndTheConnectionIsNot.madhya-lopa
+
+[2 members / 2 files]
+    PMCokernel.zeroObs 
+    PMMonodromyDerivationNoGo.zzRepresentative
+
+[2 members / 2 files]
+    PMCokernel.local-section 
+    PMRelationalNoFit.contextwise-global-exists
+
+[2 members / 2 files]
+    OracleQueries.Œ©-++ 
+    VestanaBheda_TheChargeIsAHomomorphismOntoZFourAndTheSectorsAreClassified.veana-yoga
+
+[2 members / 2 files]
+    OptionSpread.same-summary 
+    TomographyConditioning.pochRow-1
+
+[2 members / 2 files]
+    OffDiagonalThueMorseUnique.Sat 
+    VanaSetu_TheShiftDilationInterfaceAndTheLiouvillePointIsTheAllMinusOneEigenvector.CompletelyMult
+
+[2 members / 2 files]
+    NonUniquenessAndInexpressibilityAreIndependent.selfIsInexpressibleInConstants 
+    SamayikaAndNityaAreIndependent.matching-samayika
+
+[2 members / 2 files]
+    Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere.‡‡‡‡‡-‡‡‡ 
+    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡‡
+
+[2 members / 2 files]
+    NaturalMachineRun.transported+ 
+    TransportCost.transported
+
+[2 members / 2 files]
+    Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.collision 
+    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.spin-steps
+
+[2 members / 2 files]
+    ModeAdjoint.Œ-Adm 
+    ModeAdjointFinitenessBoundary.Œ-adm-from-adjunction
+
+[2 members / 2 files]
+    ModeAdjoint.Œ 
+    ModeAdjointFinitenessBoundary.Œ-left
+
+[2 members / 2 files]
+    Matramerus.‡Æ‡æ‡‡‡∞‡æ‡Æ‡‡∞‡ 
+    MeruDiagonalIsVirahanka.sarva-step
+
+[2 members / 2 files]
+    Matramerus.‡Æ‡æ‡‡‡∞‡æ 
+    Pingala.‡Æ‡‡≤‡‡Ø
+
+[2 members / 2 files]
+    MatraSopana_EachObservableReadsTheTwistCountModuloTheOrderOfItsOwnBlindness.vyatyaya-cala 
+    SopanaSamyoga_AliasesComposeAlongIntertwinersSoTheLadderIsACategoryAndDashboardsAreItsMorphisms.vyatyaya-sopna
+
+[2 members / 2 files]
+    MatraSopana_EachObservableReadsTheTwistCountModuloTheOrderOfItsOwnBlindness.notvartana 
+    TheReachableLawDoesNotComposeWithoutPreservation.look
+
+[2 members / 2 files]
+    MatraSetu_TheVirahankaFibreCountsAsFinByBridgingToPingalasMetre.‡‡‡≤ 
+    Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.sylBool
+
+[2 members / 2 files]
+    MadhyaBindu_TheMidpointFormAndTheSumFormAreOneQuestionProvedBothWays.split 
+    SpernerFromSl2.‚ï-total
+
+[2 members / 2 files]
+    LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt.‚ïó‚ï‚â°‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ 
+    VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.‚ïó‚ï‚â°‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡
+
+[2 members / 2 files]
+    LosslessReturnFinal.Œ¶-injective 
+    Samkramana.Œ¶-injective
+
+[2 members / 2 files]
+    Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists.‡‡®‡‡‡-‡ó‡‡®‡æ 
+    PairsSummingTo.pairsFin
+
+[2 members / 2 files]
+    LinearOrderFinite.decNot 
+    TheParetoStratumIsDecidableAndTheFilterIsExact.decNeg
+
+[2 members / 2 files]
+    LiftingFiberResidue.LiftFib 
+    SanghattaBija_CollisionIsAnOffDiagonalKernelPairPointTheKernelPairIsTheFiberedPairingAndEveryCoinFaceIsACollision.Fib
+
+[2 members / 2 files]
+    Lawvere.not-no-fix 
+    LawvereDiagonal.notNoFix
+
+[2 members / 2 files]
+    Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.‡µ‡æ‡Æ-‡‡‡®‡‡Ø‡Æ‡ 
+    SpernerFromSl2.sum‚â°0‚ó
+
+[2 members / 2 files]
+    KuttakaSamapti_TheValliIsFiniteForEveryPair.‡µ‡≤‡‡≤‡-‡-‡ 
+    TomographyConditioning.pochRow-2
+
+[2 members / 2 files]
+    KuttakaSamapti_TheValliIsFiniteForEveryPair.‡µ‡≤‡‡≤‡-‡ß‡©‡-‡‡¶ 
+    TomographyConditioning.pochRow-4
+
+[2 members / 2 files]
+    KuttakaSamapti_TheValliIsFiniteForEveryPair.‡‡‡∞‡‡µ-‡µ‡≤‡‡≤‡ 
+    Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection.Out
+
+[2 members / 2 files]
+    KramaSaha_TheOrderOfStandpointsIsTheChargeItself.‚-‡®-‡‡ô‡‡ï‡ã‡‡ 
+    SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.‚-‡®-‡‡ô‡‡ï‡‡‡ø‡‡
+
+[2 members / 2 files]
+    KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.secondAloneHolds 
+    TheFloorIsAnswerability.not-answerable
+
+[2 members / 2 files]
+    KramaSahaSarvatra_TheInterchangeChargeIsOneStructureFromLoopsThroughContextualityToTheFourthBhanga.‡Æ‡‡∞‡‡‡ 
+    SpectatorPaddingCollapse.unary-order-distinct
+
+[2 members / 2 files]
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡µ‡æ‡‡ï-‡¶‡‡‡‡ü‡ø‡ 
+    SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.‡ó‡‡®‡æ‡‡‡‡∞‡
+
+[2 members / 2 files]
+    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡ï‡‡∞‡Æ‡®‡ø‡Ø‡Æ‡ã-‡®-‡µ‡æ‡‡ï‡æ‡‡ 
+    SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.‡‡∞‡‡∞‡‡‡‡∞‡
+
+[2 members / 2 files]
+    Karma_TheSoulsEquationOfMotionIsInfluxBindingStoppageSheddingAndTheZeroStateIsMoksaAbsorbing.‡Ø‡ã‡ó-‡‡‡®‡Ø‡®‡Æ‡ 
+    Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.plusCancelL
+
+[2 members / 2 files]
+    Karma_TheSoulsEquationOfMotionIsInfluxBindingStoppageSheddingAndTheZeroStateIsMoksaAbsorbing.iterate 
+    Sankalita.Œ^
+
+[2 members / 2 files]
+    Kala_TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone.‡®‡ø‡Ø‡Æ‡ 
+    SpernerFromSl2.DivM
+
+[2 members / 2 files]
+    KFlowWF.decay-wf 
+    QuestionMachine.halts
+
+[2 members / 2 files]
+    KFlow.iterate 
+    RamanujanSigma_TheEisensteinConvolutionIdentityInstancesByRefl.contrib
+
+[2 members / 2 files]
+    KFlow.decay 
+    KFlowWF.decay-wf-í¶
+
+[2 members / 2 files]
+    KFlow.Stationary 
+    MachineLoop.LoopResonant
+
+[2 members / 2 files]
+    Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.‡ó‡‡-‡‡‡≤‡®‡æ 
+    UnivalentTensorInteraction.forgetJoint
+
+[2 members / 2 files]
+    Jala_TheLatticeTheGaugeGroupTheConnectionAndTheWilsonLoopAreBuiltAndTheHolonomyIsOne.holonomy-is-wilson 
+    Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited.‡‡∞‡‡ø‡
+
+[2 members / 2 files]
+    IntrinsicRewrite.add-one-means 
+    RewriteCertificate.accepted-sound
+
+[2 members / 2 files]
+    IntegerHullMultiplicity.integerHullAt12 
+    Window5Walsh.massSpectrum
+
+[2 members / 2 files]
+    IdempotenceForbidsDescent.i-is-not-one 
+    TheFibreIsTheSubject.pairs-differ
+
+[2 members / 2 files]
+    HeadDepthMergeBreaker.countList 
+    HeadDepthTwo.countList
+
+[2 members / 2 files]
+    HaskellDefinitionBoundary.haskell-max-zero-right 
+    SesaPurti_TheMachinesTopNonJoiningPairFedBackThroughTheWarmConduit.‡‡‡∞‡‡‡ø‡
+
+[2 members / 2 files]
+    GterTwoCoordinate.îó‚‚ 
+    ProstheticImageAdapter.oldResponse
+
+[2 members / 2 files]
+    GterTwoCoordinate.row3 
+    Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits.unit-doubles-to-carry
+
+[2 members / 2 files]
+    GranthiCarya_TheStringCarriesItsIntegerAndThatIntegerIsTheCharge.charge-is-integer 
+    NumberLinePathStructureIsTheCircle.winding-recovers-the-integer
+
+[2 members / 2 files]
+    GlobalSmithAtlasFlatness.unitCertificate 
+    QuotientUnitSourceCutBoundary.unitCertificate
+
+[2 members / 2 files]
+    GlobalSmithAtlasFlatness.swap-involutive 
+    SmithKernelQuantumBoundary.swapKernel-involutive
+
+[2 members / 2 files]
+    GlobalSmithAtlasFlatness.isSetKernel 
+    SmithKernelQuantumBoundary.isSetSmithKernel
+
+[2 members / 2 files]
+    GenerativeLoop.chainLen 
+    ProgressDefinition.totalBody
+
+[2 members / 2 files]
+    GaugeOrbitClasses.¬-self 
+    OracleQueries.¬-idem
+
+[2 members / 2 files]
+    GaugeOrbitClasses.val-++ 
+    OracleQueries.val-++
+
+[2 members / 2 files]
+    GaugeOrbitClasses.square-neutral 
+    OracleQueries.square-const
+
+[2 members / 2 files]
+    Gamma0Transitivity.scalOne 
+    YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering.‚ä‚-unitÀ°
+
+[2 members / 2 files]
+    Gamma0Index.Œ< 
+    SpernerFromSl2.sum
+
+[2 members / 2 files]
+    FutureBehavior.Machine 
+    ObservableInterface.ObservableInterface
+
+[2 members / 2 files]
+    FutureBehavior.FutureEq 
+    FutureSeparation.FutureSep
+
+[2 members / 2 files]
+    FullSequentialTableNormalization.xPosterior 
+    SequentialHadamardReadout.xPosterior
+
+[2 members / 2 files]
+    FuelAdequacyIsACollision.saturated 
+    Srotas_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra.‚à
+
+[2 members / 2 files]
+    FrontierDividesHard.^-‚à 
+    WalkJumps.^-‚à-mono
+
+[2 members / 2 files]
+    ForgetfulCompressionPricesTheDrop.meaning-agrees 
+    Vivarana_TheElucidatorDecomposesAnyObjectOnTheAtomIntoItsCompleteReadingAndEachComponentIsTheUniqueFold.meanings-agree
+
+[2 members / 2 files]
+    FluxUnitCancellationBoundary.bool-one-left 
+    Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®-‡‡æ‡ï‡‡‡
+
+[2 members / 2 files]
+    FlippingACostCoordinateIsSoundButNotFaithful.Dom 
+    RnaDhana_TheParetoMaximumTransfersToCostCoordinates.MixedStrict
+
+[2 members / 2 files]
+    FitnessIsNecessaryUpToDoubleNegation.soughtIsThere 
+    OneCounterexampleRefutesALabelButNotAnExistential.theExistentialSurvives
+
+[2 members / 2 files]
+    FiniteIndraWeave.PairwiseCoherent 
+    Lawvere.PtSurj
+
+[2 members / 2 files]
+    FiniteGraphHolonomyGroupoid.Connection 
+    StabilizerTorsor.Action
+
+[2 members / 2 files]
+    ExponentBound.x<p¬x 
+    SieveRoughBridge.mult-grows
+
+[2 members / 2 files]
+    ExponentBound.^-mono 
+    WalkJumps.^-‚â-mono
+
+[2 members / 2 files]
+    ExactTwoStateInstrument.basisState 
+    PairedInterfaceMinimality.phaseState
+
+[2 members / 2 files]
+    ExactTwoStateAmplitudes.squareMagnitude 
+    TheRiemannHypothesisHasAnArithmeticFormWithNoRealNumberInIt.abs‚
+
+[2 members / 2 files]
+    ExactProjectivePhase.project 
+    SemanticCrystal.rewriteCarrier
+
+[2 members / 2 files]
+    ExactProjectiveCircuits.projectiveWeights 
+    ExactProjectivePhase.projectivePortWeights
+
+[2 members / 2 files]
+    ExactProjectiveCircuits.observeCircuit‚ 
+    ObservableInterface.circuitSignature
+
+[2 members / 2 files]
+    EveryThresholdHasABoundaryPopulationOfItsOwnDenominator.falses 
+    Virahanka_TheMatraFibreSatisfiesTheTwoStepRecurrence.‡≤‡ò‡-‡Æ‡æ‡≤‡æ
+
+[2 members / 2 files]
+    EveryDerivationIsInvertible.revD 
+    TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous.rev
+
+[2 members / 2 files]
+    EvaluatorTransport.fixed-evaluator-killer 
+    SymmetryArithmeticAction.swap-not-in-successor-stabilizer
+
+[2 members / 2 files]
+    EvaluatorTransport.EvaluationFrame 
+    PointedReindexOrbitObstruction.Assignment
+
+[2 members / 2 files]
+    Endian.value-u1 
+    TransportMul.valueC-oneC
+
+[2 members / 2 files]
+    EndObstruction.Œ¥-end 
+    Lawvere.Œ¥-end
+
+[2 members / 2 files]
+    Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.machine-lossless-canonical 
+    VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.no-gap-is-forced
+
+[2 members / 2 files]
+    Ekam.mwalk 
+    Shodhita.mwalk
+
+[2 members / 2 files]
+    EkaVidhiMukhani_TheSessionsSixCostumesAreOneLawAndTheFacesAreRefl.‡Æ‡‡ñ‡Æ‡-‡‡‡‡ 
+    TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.‡‡‡‡-‡®-‡Æ‡‡Ø‡‡‡
+
+[2 members / 2 files]
+    EkaVidhiMukhani_TheSessionsSixCostumesAreOneLawAndTheFacesAreRefl.‡Æ‡‡ñ‡Æ‡-‡Æ‡‡Ø‡ 
+    TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.‡Æ‡‡Ø‡-‡®-‡‡‡‡æ‡‡
+
+[2 members / 2 files]
+    EkaSutra_JTheGraphAndTheFundamentalTheoremAreInstancesOfSingletonContractionSoAuthorsRetireIntoInstantiation.‡‡‡‡‡∞‡Æ‡ 
+    SetTruncationDescentBoundary.insideView
+
+[2 members / 2 files]
+    EkaGhataVivrtti_TheWholeChargeIsTheFirstOrderTermOfOneRankOneProduct.‡µ‡ø‡µ‡‡‡‡‡ø‡ 
+    JyotiVivrtti_TheZetaTwistSendsTheMarkedChargeTowerToTheOmegaStratification.‡‡‡Ø‡ã‡‡ø-‡µ‡ø‡µ‡‡‡‡‡ø‡
+
+[2 members / 2 files]
+    Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld.¬isPropBool 
+    TrayoNirnaya_TheEnginesThreeVerdictSemanticsEachCarryOneCheckedRepresentative.‚ó‚ó-not-comm
+
+[2 members / 2 files]
+    Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.‡‡µ‡∞‡‡‡-‡®-‡≤‡ã‡‡ 
+    GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt.‡µ‡ï‡‡∞-‡‡®‡ø‡µ‡æ‡∞‡‡Ø‡Æ‡
+
+[2 members / 2 files]
+    Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision.‡Ø‡‡ï‡‡≤‡ø‡°-‡µ‡æ‡ï‡‡Ø‡Æ‡ 
+    WalkJumps.prime-‚à-¬
+
+[2 members / 2 files]
+    Digits.digits 
+    RawWordPaddingNormalForm.zeroRun
+
+[2 members / 2 files]
+    Digits.Canonical 
+    Transport.NonEmpty
+
+[2 members / 2 files]
+    DigitTowerFinLimit.InvLim 
+    DigitTowerLimit.InvLim
+
+[2 members / 2 files]
+    DigitTowerFin.dropLSD 
+    DigitTowerFinLimit.dropMSD
+
+[2 members / 2 files]
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡‡‡ø-‡‡ï‡≤‡Æ‡ 
+    Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡‡Æ‡‡‡ü‡ø‡-‡∞‡ø‡ï‡‡‡æ
+
+[2 members / 2 files]
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡®‡‡‡-‡‡ï‡≤‡Æ‡ 
+    Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡‡‡‡æ‡‡®‡æ-‡‡®‡‡‡‡-‡‡‡‡Ø‡
+
+[2 members / 2 files]
+    DeflationaryTest.ó-stable 
+    WhyTheSamePriceKeepsAppearing.stableó
+
+[2 members / 2 files]
+    DefectCalculus.FailedAt 
+    SankramanaSesa_EveryTransportOwesItsResidual.‡‡‡
+
+[2 members / 2 files]
+    DeclaredRootedProfiles.north-added-separator 
+    LawfulContinuationCore.open-is-branching
+
+[2 members / 2 files]
+    DeclaredRootedProfiles.RootedProfile 
+    KulaParasparasraya_TheFamilyRecordEveryBlindnessIsJointlySeenAndNoMemberAloneIsFaithful.Kula
+
+[2 members / 2 files]
+    DecategorifiedDefect.œ‚ 
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.to‚
+
+[2 members / 2 files]
+    DSOContinuationFullAbstract.transformer-full-abstraction 
+    DependentOptimizationFibration.bellman-context-complete
+
+[2 members / 2 files]
+    DSOContinuationFullAbstract.bellman 
+    ObservableInterface.bellmanSignature
+
+[2 members / 2 files]
+    CyclicAliasing.j<j+n 
+    OffDiagonalThueMorseUnique.lt-plus-suc
+
+[2 members / 2 files]
+    CycleHolonomy.notNotId 
+    ReflectionAttachment.noBoolReflectionSection
+
+[2 members / 2 files]
+    CycleHolonomy.holLoopNontrivial 
+    Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter.‡ß-holBool
+
+[2 members / 2 files]
+    CountedDigits.run 
+    Digits.digitsC
+
+[2 members / 2 files]
+    CoprimeSplitting.6-not-prime-power 
+    WalkFastInstance.¬pp-10
+
+[2 members / 2 files]
+    ControlledGrammar.advance 
+    WhatThisIsAndHowToDescendIntoTheMetacircularKernel.the-forward-pass
+
+[2 members / 2 files]
+    ContinuumBridge_TheContinuumModulesOwnIntegersAreReflectedIntoTheLibrarysWithAdditionMultiplicationAndOrderSoClosenessIsAnOrderStatement.close‚ 
+    SantataDhara_TheContinuumBuiltFromTheAxiomsWithItsLimitsAsConstructors.Close
+
+[2 members / 2 files]
+    ConstructiveBornNormalization.NonzeroWeights 
+    SieveScaleTower.Fibre‚
+
+[2 members / 2 files]
+    ConstructiveBornNormalization.NonzeroState 
+    ExactLocalJointSeparation.LocalJointSeparation
+
+[2 members / 2 files]
+    ConservativePrimitiveExtension.Arithmetic 
+    HaskellGenericSyntaxAdapter.HaskellSignature
+
+[2 members / 2 files]
+    CongruenceLiftsAreGradePreserving.underSuc 
+    WindingCostIsUnarySize.underSuc
+
+[2 members / 2 files]
+    CongruenceLiftsAreGradePreserving.underAddL 
+    Gunana_TheKernelCarriesItsOwnCupProductAndTheInterchangeDefectIsInvisibleToMeaningAtFullGenerality.vmga
+
+[2 members / 2 files]
+    CompileBridge.StepResult 
+    GenerativeLoop.Probe
+
+[2 members / 2 files]
+    CompileBridge.ArithmeticPayloadOver 
+    DatumSensitivePayload.DatumSensitivePayloadOver
+
+[2 members / 2 files]
+    CoherentSurvivalDephasing.phase-pair-same-after-dephasing 
+    PhysicalLearningCore.matrix-population-collapses
+
+[2 members / 2 files]
+    Citighana.‡‡ø‡‡ø‡ò‡®‡ 
+    SamaghataSankalita_TheDescentIsExactForEverySequenceAndAryabhatasRulesAreItsFirstInstances.‡‡ø‡‡ø‡ò‡®‡-‡‡‡®‡
+
+[2 members / 2 files]
+    ChuDefect.dist 
+    MachineLoop.eqB
+
+[2 members / 2 files]
+    ChidraDosa_ThePointwiseInvarianceWithNoCoherentDescentIsATerm.targetIsNotASet 
+    SetBaseNoMonodromy.S¬NotSet
+
+[2 members / 2 files]
+    ChhayaRig_TheBooleanShadowOfCountingProvenanceIsAHomomorphismWithNoHomomorphicSection.na-adhika 
+    InvarianceConstant.n‚ân+suc
+
+[2 members / 2 files]
+    ChhayaRig_TheBooleanShadowOfCountingProvenanceIsAHomomorphismWithNoHomomorphicSection.dvigua-nya 
+    Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.‡¶‡‡µ‡ø‡ó‡‡-‡‡‡®‡‡Ø‡Æ‡
+
+[2 members / 2 files]
+    Chaya_TheShadowHasNoSectionThoughItHasAMap.noSection 
+    Nirnaya_TheVerdictCannotDropItsWitness.‡®-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡
+
+[2 members / 2 files]
+    Chaya_TheShadowHasNoSectionThoughItHasAMap.True 
+    Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.True
+
+[2 members / 2 files]
+    ChargeTwoHistories.augment-sign 
+    Gamma0Converse.cancelSelf
+
+[2 members / 2 files]
+    ChargePolynomialFinite.distinctµ 
+    Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw.sgnŒ©
+
+[2 members / 2 files]
+    ChargeIsStrictRefinement.neutralSet-blind 
+    OracleQueries.mixed-cannot
+
+[2 members / 2 files]
+    ChargeGrading.parity-shift 
+    Paryayasabda_TwoNamesForTheParitySectorAndTheCharacterLawCarriesAcrossBetweenThem.parity-is-char
+
+[2 members / 2 files]
+    ChargeGrading.no-cancellation 
+    PiPartialOnEveryPrime.+‚â°0
+
+[2 members / 2 files]
+    ChargeGrading.Total 
+    LeastWitnessFactory.MereWitness
+
+[2 members / 2 files]
+    ChargeCriterion.val-œ‚ã 
+    GaugeOrbitClasses.val-œ‚ã
+
+[2 members / 2 files]
+    ChargeCriterion.val-œ‚ä 
+    GaugeOrbitClasses.val-œ‚ä
+
+[2 members / 2 files]
+    CenterRelative.exchangePreservesCone 
+    EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.ekaSahaya
+
+[2 members / 2 files]
+    CenterRelative.doubleInj 
+    CenterRelativeWeightTransport.double-injective
+
+[2 members / 2 files]
+    CakravalaNeedsKuttaka.run-5-3 
+    Kuttaka.example
+
+[2 members / 2 files]
+    Cakra_TheResidueBridgeIsProvedAndTheMinimalAcceptorIsTheCyclicGroupOfOrderTheLcm.‚à-shift-zero 
+    SensorResidueBridge.‚à-plus-zero
+
+[2 members / 2 files]
+    Cakra_TheResidueBridgeIsProvedAndTheMinimalAcceptorIsTheCyclicGroupOfOrderTheLcm.tally 
+    FreeMonoid.unlen
+
+[2 members / 2 files]
+    Cakra_TheResidueBridgeIsProvedAndTheMinimalAcceptorIsTheCyclicGroupOfOrderTheLcm.profile 
+    SensorResidueBridge.profile
+
+[2 members / 2 files]
+    Cakra_TheResidueBridgeIsProvedAndTheMinimalAcceptorIsTheCyclicGroupOfOrderTheLcm.len 
+    FreeMonoid.len
+
+[2 members / 2 files]
+    Cakra_TheResidueBridgeIsProvedAndTheMinimalAcceptorIsTheCyclicGroupOfOrderTheLcm.dist-sym 
+    SensorResidueBridge.dist-sym
+
+[2 members / 2 files]
+    Brahmagupta.‡Æ‡æ‡® 
+    DynamicDescent.trueTwoStep
+
+[2 members / 2 files]
+    Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence.‡‡Æ‡‡æ-‡‡ß‡‡‡‡‡Æ‡ 
+    Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt.‡‡Æ‡‡‡µ‡Æ‡-‡‡ß‡‡‡‡‡Æ‡
+
+[2 members / 2 files]
+    Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredForever.‡‡ø‡‡‡‡ø‡ 
+    Kosthabhitti_TheHaniIsAWallGeneratorSoThePigeonholeRetiresJoinsAcrossTheWholeNet.‚ï-‡‡ø‡‡‡‡ø‡-Bool
+
+[2 members / 2 files]
+    BhittiSaptabhangi_TheSevenfoldCannotBeTwoValuedSoTheTopJoinCandidateIsAWall.‡‡ø‡‡‡‡ø-‡‡‡‡‡‡ô‡‡ó‡ 
+    Tala_TheFloorIsTheThirdAssetEveryRouteFromSevenToTwoPaysAtLeastOneCollision.‡‡ø‡‡‡‡ø-‡‡‡®‡
+
+[2 members / 2 files]
+    BhittiSaptabhangi_TheSevenfoldCannotBeTwoValuedSoTheTopJoinCandidateIsAWall.‡‡‡‡‡ø‚â‡‡µ‡ï‡‡‡µ‡‡Ø 
+    Setu.‡‡‡‡‡ø‚â‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡
+
+[2 members / 2 files]
+    Bhajaka.Mem 
+    Shodhita.MemV
+
+[2 members / 2 files]
+    BehavioralHankel.contextual-active-true 
+    DSOContinuationFullAbstract.global-active
+
+[2 members / 2 files]
+    BehavioralHankel.contextual-active-false 
+    DSOContinuationFullAbstract.local-active
+
+[2 members / 2 files]
+    BalanceWithoutTransitivity.bareSwap-involutive 
+    GlobalSmithAtlasFlatness.flipFirst-involutive
+
+[2 members / 2 files]
+    BalanceWithoutTransitivity.bareSwap-flips 
+    CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare.ardha-avataraa‚
+
+[2 members / 2 files]
+    Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡®-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡‡Ø‡Æ‡ 
+    Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence.‡‡ï‡Æ‡-‡®-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡‡Ø‡Æ‡
+
+[2 members / 2 files]
+    Avinimaya_TheMachinesStepsAreAllUnitaryWhenCompletedAndStillDoNotExchange.c‚ 
+    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.start
+
+[2 members / 2 files]
+    AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport.sameCarrierTranscript 
+    SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.mismatch-NONE
+
+[2 members / 2 files]
+    AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted._‚àà_ 
+    WhyTheSitesAreTwo.Mem
+
+[2 members / 2 files]
+    AvaktavyaDoesNotFactor.avaktavya-does-not-factor 
+    TwoProfilesSuffice.avaktavya-from-two
+
+[2 members / 2 files]
+    AtlasResiduals.LinOrd 
+    SamkhyataAnanta_AdjoiningANumerableToTheCountablyInfiniteReturnsTheCountablyInfinite.‡Ø‡‡
+
+[2 members / 2 files]
+    AssemblyCharacterNonfaithfulness.topLeft 
+    M2Unimodular.det
+
+[2 members / 2 files]
+    AssemblyCharacterNonfaithfulness.pulv-run-distinct 
+    Gamma0PartnerRigidity.exampleUnique
+
+[2 members / 2 files]
+    AssemblyCharacterNonfaithfulness._gradeMul_ 
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual._‚äü_
+
+[2 members / 2 files]
+    Ardhaccheda.‡≤‡ò‡‡ó‡‡ï‡ 
+    Salaka_TheOrdersAreSeparatedByHowManyCutsTheyOutlastAndEachCutStripsExactlyOneStorey.‡Ø‡‡æ‡∞‡‡-‡‡ï‡
+
+[2 members / 2 files]
+    Ardhaccheda.‡≤‡ò‡‡ó‡‡ï-‡ò‡æ‡‡ 
+    DviGhataVargana.‡≤‡ò‡‡ó‡‡ï-‡ò‡æ‡‡
+
+[2 members / 2 files]
+    Ardhaccheda.‡¶‡‡µ‡ø‡ï-‡≤‡ò‡‡ó‡‡ï‡ 
+    Salaka_TheOrdersAreSeparatedByHowManyCutsTheyOutlastAndEachCutStripsExactlyOneStorey.‡Ø‡‡æ‡∞‡‡-‡¶‡‡µ‡Ø‡Æ‡
+
+[2 members / 2 files]
+    Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer.‡‡‡∞‡‡-‡‡‡∞‡ï‡‡‡‡ø 
+    SieveScaleTower.tower-commutes-10
+
+[2 members / 2 files]
+    Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer.‡‡‡‡∞‡‡ø‡≤‡ã‡Æ‡ 
+    AtmasamataUpari_TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB.‡‡‡∞‡‡-‡‡‡∞‡µ‡æ‡‡
+
+[2 members / 2 files]
+    Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands.‚à-‡Ø‡ã‡ó 
+    Gurutama.‚à-‡Ø‡ã‡ó
+
+[2 members / 2 files]
+    AnyonyaAbhava.Anyonya 
+    Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart.‡‡‡‡¶‡
+
+[2 members / 2 files]
+    Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGroup.res‚∫ 
+    InflationVersusSubgroup.res
+
+[2 members / 2 files]
+    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡‡‡-‡®-‡‡ï‡æ‡ß‡ø‡ï 
+    AvaranaMoksa_TheDebtScalarIsTheReachabilityShadowAndIsStrictlyCoarserThanTheFibre.fibre-not-prop
+
+[2 members / 2 files]
+    Anuvrtti.eqR 
+    QuadraticRefinement.qubit-form
+
+[2 members / 2 files]
+    Anupalabdhi_TheFitnessIsWhatMakesNonApprehensionKnowledge.ghost-clean 
+    FitnessIsNecessaryUpToDoubleNegation.cleanSearch
+
+[2 members / 2 files]
+    AnuktaAvaktavya.‡‡‡‡æ‡®-‡‡‡¶‡ 
+    Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡
+
+[2 members / 2 files]
+    AnuktaAvaktavya.‡®-‡ß‡‡∞‡‡µ‡ 
+    NonUniquenessAndInexpressibilityAreIndependent.corner-neither
+
+[2 members / 2 files]
+    AnuktaAvaktavya.‡®-‡¶‡‡µ‡à‡‡Æ‡ 
+    NonUniquenessAndInexpressibilityAreIndependent.corner-both
+
+[2 members / 2 files]
+    AnuktaAvaktavya.‡‡∞‡‡-‡‡æ‡Æ‡‡Ø‡Æ‡ 
+    SaptabhangiNaya.krama-expresses
+
+[2 members / 2 files]
+    AnuktaAvaktavya.‡‡®‡‡ï‡‡‡Æ‡‡‡‡ø 
+    Gurutama.‡ï‡‡‡‡‡‡∞
+
+[2 members / 2 files]
+    AnswerIsProjectionAtOutputSize.size 
+    TheInstalledOperationHasNoPervasionSoTheKernelMemorises.height
+
+[2 members / 2 files]
+    Anantata.euclid 
+    Prakasha.sthita
+
+[2 members / 2 files]
+    AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid.adha-sthira 
+    VestanaSutra_TheWritheIsTheCrossingCountConservedByTheRelationsAndReadByNoBoundedObserver.adya-veana
+
+[2 members / 2 files]
+    AnantaKendra_TheInfiniteFullTwistIsCentralForTheWholeActionOfOrderTwoAndPureResidue.ardha-dvi 
+    CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare.catur-cakra
+
+[2 members / 2 files]
+    AmshaSatyayantra.‡‡‡-‡‡‡‡Ø‡Ø‡®‡‡‡‡∞ 
+    Satyayantra.‡‡‡‡Ø‡Ø‡®‡‡‡‡∞
+
+[2 members / 2 files]
+    AksharaDvaya_TheVirahankaBoolFibreAndThePingalaChandasFibreAreOneWeightedCount.‡‡Æ‡‡æ-‡‡æ‡ï‡‡‡-V 
+    Virahanka_TheMatraFibreSatisfiesTheTwoStepRecurrence.‡‡®‡‡‡-‡‡æ‡ï‡‡‡
+
+[2 members / 2 files]
+    Agamya_TheLossOrderReadsTheUnreachedAndTheConservingFlowsCannotSoVyaptisFenceIsATerm.f 
+    EffectiveDescent.emptyMap
+
+[2 members / 2 files]
+    AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth.‡¶‡‡µ‡ø-‡‡ï-‡‡‡¶‡ 
+    NayaAvarana_EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogetherSee.‡®‡ã-‡¶‡‡µ‡ø-‡‡ï
+
+[2 members / 2 files]
+    AchromaticToy.holonomyPathNontrivial 
+    Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter.‡®-holonomy
+
+[2 members / 2 files]
+    AbhilekhaAnirdhara_TheSpecificationNowExistsDoesNotDetermineTheProgramAndItsFibreCarriesAnInjectionOfTheNaturals.gua-eka 
+    SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel.¬1
+
+[2 members / 2 files]
+    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡Æ‡ 
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡ï‡Æ‡
+
+[2 members / 2 files]
+    AbhavaAvacchedaka.example 
+    ExclusionInstantiatesAbhavaWithALoadBearingLimitor.exclusionAbhava
+
+[2 members / 2 files]
+    AProvabilityDeterminedImplicationForbidsIndependence.witNoIndependentSentence 
+    NegationCompletenessForbidsIndependence.witHasNoIndependentSentence
+

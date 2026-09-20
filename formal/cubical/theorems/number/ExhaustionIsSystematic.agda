@@ -4,17 +4,17 @@
 -- ExhaustionIsSystematic
 --
 -- CORRECTION TO `PowModHasTheSameShape` Â§1, which said the criterion
--- "finds one more â€” and only one".  It finds at least nine, and the
+-- "finds one more â” and only one".  It finds at least nine, and the
 -- reason it looked like one is that the earlier search read top-level
 -- SIGNATURES containing the word `fuel`.  The fuelled functions in this
 -- corpus mostly take their fuel unnamed and untyped, so that search was
 -- looking for the property it had just proved invisible.
 --
 -- Per the standing rule the earlier file is not edited; this one carries
--- the correction, and it is a substantive one â€” the phenomenon is
+-- the correction, and it is a substantive one â” the phenomenon is
 -- systematic, not a pair of anecdotes.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THE EXHAUSTION BRANCHES ACTUALLY LOOK LIKE
 --
 --   TransmissionRefutations  gcdF zero a _ = a        (right when b â‰¡ 0)
@@ -28,12 +28,12 @@
 --   HeadDepthMerge           powMod zero m b e = 1 %% m  (right when e â‰¡ 0)
 --
 -- EVERY ONE of them defaults, on exhaustion, to a value that is also a
--- legitimate output.  That is not carelessness â€” it is forced.  A total
--- function into â„• must return SOME natural number when the fuel runs
+-- legitimate output.  That is not carelessness â” it is forced.  A total
+-- function into â• must return SOME natural number when the fuel runs
 -- out, and every natural number is a legitimate output of some call.
 -- The default is unavoidable and the collision follows from it.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- AND THE CHEAP SURROGATE FAILS TOO
 --
 -- The obvious escape is to test convergence instead of correctness:
@@ -41,20 +41,20 @@
 -- loops it works.  For `powMod` it does not, and the reason is the
 -- halving recursion:
 --
---     powMod 1 7 2 4  â‰¡  1  â‰¡  powMod 2 7 2 4     while 2â´ mod 7 = 2
+--     powMod 1 7 2 4  â‰¡  1  â‰¡  powMod 2 7 2 4     while 2â´ mod 7 = 2
 --
 -- Exhaustion there is STABLE ACROSS A STEP.  So the site below uses
 -- correctness against `power b e %% m` for `powMod`, and one-step
--- stability for the subtractive ones â€” each instance takes the sharpest
+-- stability for the subtractive ones â” each instance takes the sharpest
 -- test available, and the packaging is what makes them one shape.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- OWNERSHIP
 --
 -- `TransmissionRefutations`, `SieveFiber`, `HeadDepthMerge` are other
 -- identities' files.  They are imported and not edited.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -102,7 +102,7 @@ module Site {X : Type} (run : â„• â†’ X â†’ â„•) (good : â„• â†’ X â†’ Bool) whe
       (Î» p â†’ trueâ‰¢false (sym bGood âˆ™ sym p âˆ™ aBad))
 
 ------------------------------------------------------------------------
--- 2.  HeadDepthMerge.powMod â€” correctness against the exact power
+-- 2.  HeadDepthMerge.powMod â” correctness against the exact power
 ------------------------------------------------------------------------
 
 module PowMod where
@@ -142,7 +142,7 @@ module PowMod where
   true-answer = refl
 
 ------------------------------------------------------------------------
--- 3.  TransmissionRefutations.remF â€” one-step stability
+-- 3.  TransmissionRefutations.remF â” one-step stability
 ------------------------------------------------------------------------
 
 module RemF where
@@ -174,7 +174,7 @@ module RemF where
   obstruction = site bad ok same bad-wrong ok-right
 
 ------------------------------------------------------------------------
--- 4.  SieveFiber.divF â€” one-step stability, and the default is `zero`
+-- 4.  SieveFiber.divF â” one-step stability, and the default is `zero`
 ------------------------------------------------------------------------
 
 module DivF where
@@ -209,10 +209,10 @@ module DivF where
 -- 5.  What is now established, and what is not.
 --
 -- ESTABLISHED.  Three subsystems, three hands, one shape, each with a
--- computed pair of calls: `Â¬ FactorsThrough value status`.  Together
+-- computed pair of calls: `Â FactorsThrough value status`.  Together
 -- with Â§1's reading of six further exhaustion branches, the conclusion
 -- is that this is a property of the return type, not of any author.
--- A fuelled function into bare â„• MUST pick a default, the default is
+-- A fuelled function into bare â• MUST pick a default, the default is
 -- always someone's legitimate answer, and so the returned number can
 -- never report its own adequacy.
 --
@@ -225,7 +225,7 @@ module DivF where
 --
 -- THE REPAIR is unchanged from the first two sites and is the shape the
 -- rest of this corpus already uses: take the budget as a hypothesis and
--- return a Î£.  `factorise-fuel`, `primeDivisor-fuel`, `pFree-fuel`,
+-- return a Î.  `factorise-fuel`, `primeDivisor-fuel`, `pFree-fuel`,
 -- `decay-fuel` and `WalkJumps.strip` all do, and none of them needed a
 -- theorem, because for them there is nothing left to prove.
 ------------------------------------------------------------------------

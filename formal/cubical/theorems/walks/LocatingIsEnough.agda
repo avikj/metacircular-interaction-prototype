@@ -5,7 +5,7 @@
 --
 -- `WhyTheSitesAreTwo` Â§6 left this open and refused to size it:
 --
---     whether discreteness of Y can be weakened â€” the table walk needs
+--     whether discreteness of Y can be weakened â” the table walk needs
 --     to compare observations, and nothing here says a weaker
 --     comparison would not do.
 --
@@ -13,30 +13,30 @@
 -- arbitrary observations.  It compares the LIST'S observations against
 -- an incoming one, and there are only finitely many of those.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE HYPOTHESIS THE PROOF ACTUALLY USES
 --
 --     Locates q []       = Unit
---     Locates q (x âˆ· xs) = ((y : Y) â†’ Dec (q x â‰¡ y)) Ã— Locates q xs
+--     Locates q (x âˆ xs) = ((y : Y) â’ Dec (q x â‰¡ y)) — Locates q xs
 --
 -- "each listed point's observation is decidable against an arbitrary
 -- one".  `Discrete Y` gives this for every list (Â§4) and is strictly
 -- more than needed: it decides equality of any two observations
 -- whatever, including the ones the walk never looks at.
 --
---     locatingFreeâ†’notRefuting :
---       Locates q (xâ‚€ âˆ· xs) â†’ CollisionFree q t (xâ‚€ âˆ· xs)
---       â†’ Â¬ Refutes (factorLaw q t) (xâ‚€ âˆ· xs)
+--     locatingFreeâ’notRefuting :
+--       Locates q (xâ âˆ xs) â’ CollisionFree q t (xâ âˆ xs)
+--       â’ Â Refutes (factorLaw q t) (xâ âˆ xs)
 --
--- and `WhyTheSitesAreTwo.collisionFreeâ†’notRefuting` is the corollary at
+-- and `WhyTheSitesAreTwo.collisionFreeâ’notRefuting` is the corollary at
 -- `Discrete Y`.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY THE WEAKENING IS THE RIGHT ONE, NOT MERELY A WEAKER ONE
 --
 -- Because it is the hypothesis of a LOCATION problem rather than of an
 -- equality problem.  The decoder is handed an observation and must find
--- which listed point produced it â€” that is all it ever needs, and it is
+-- which listed point produced it â” that is all it ever needs, and it is
 -- what `Locates` says is possible.  Deciding equality throughout Y is a
 -- statement about the whole observation space; deciding location is a
 -- statement about the finitely many points the absence is witnessed at.
@@ -45,9 +45,9 @@
 -- This makes its hypothesis local too, which is the natural place for
 -- it to have been.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -141,7 +141,7 @@ discreteâ†’locates :
 discreteâ†’locates dY q []       = tt*
 discreteâ†’locates dY q (x âˆ· xs) = (Î» y â†’ dY (q x) y) , discreteâ†’locates dY q xs
 
--- `WhyTheSitesAreTwo.collisionFreeâ†’notRefuting`, rederived
+-- `WhyTheSitesAreTwo.collisionFreeâ’notRefuting`, rederived
 discrete-corollary :
   {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
   (dY : Discrete Y) (q : X â†’ Y) (t : X â†’ T)
@@ -156,8 +156,8 @@ discrete-corollary dY q t xâ‚€ xs =
 --
 -- The ceiling theorem no longer asks anything about the observation
 -- space as a whole.  It asks that the finitely many observations the
--- absence is witnessed at can be recognised â€” a location problem, not
--- an equality problem â€” and under exactly that, a list still refutes
+-- absence is witnessed at can be recognised â” a location problem, not
+-- an equality problem â” and under exactly that, a list still refutes
 -- only by containing a collision, so the witness number is still 2.
 --
 -- A site whose Y is not discrete is therefore not automatically outside

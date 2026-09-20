@@ -5,8 +5,8 @@
 --
 -- Prime-Pair Atlas Delta 20, T20.4: behavioural apartness, machine-checked.
 --
--- The repository's kernel (formal/lean/Pairfield/FutureBehavior.lean)
--- formalises SAMENESS: FutureEq x y = ∀ w, behavior x w = behavior y w.
+-- The repository's kernel (formal/lean/Pairfield/MyhillNerodeMinimalMachine.lean)
+-- formalises SAMENESS: NerodeCongruence x y = � w, behavior x w = behavior y w.
 -- It contains no notion of distinction beyond the negation of that.
 --
 -- But README.md describes the machine as keeping, "for every distinction
@@ -17,7 +17,7 @@
 -- This module supplies it, and proves the asymmetry that makes it worth
 -- having separately:
 --
---   * FutureEq is a PROPOSITION (isPropFutureEq): sameness carries no data;
+--   * NerodeCongruence is a PROPOSITION (isPropNerodeCongruence): sameness carries no data;
 --   * Apart is NOT a proposition (ApartNotProp): distinction carries data.
 --
 -- So they are not De Morgan duals with the same status.  One is a
@@ -55,11 +55,11 @@ module System {St : Type ℓ} {Act : Type ℓ'} {Obs : Type ℓ''}
   behavior : St → List Act → Obs
   behavior x w = obs (run x w)
 
-  -- `FutureEq`, matching Pairfield.FutureEq.
-  FutureEq : St → St → Type (ℓ-max ℓ' ℓ'')
-  FutureEq x y = (w : List Act) → behavior x w ≡ behavior y w
+  -- `NerodeCongruence`, matching Pairfield.NerodeCongruence.
+  NerodeCongruence : St → St → Type (ℓ-max ℓ' ℓ'')
+  NerodeCongruence x y = (w : List Act) → behavior x w ≡ behavior y w
 
-  -- Delta 20 T20.4.  Apartness is a Σ: its inhabitant IS the experiment.
+  -- Delta 20 T20.4.  Apartness is a �: its inhabitant IS the experiment.
   Apart : St → St → Type (ℓ-max ℓ' ℓ'')
   Apart x y = Σ[ w ∈ List Act ] (¬ (behavior x w ≡ behavior y w))
 
@@ -68,11 +68,11 @@ module System {St : Type ℓ} {Act : Type ℓ'} {Obs : Type ℓ''}
   ----------------------------------------------------------------------
 
   -- Apartness refutes sameness.  Constructive, no hypotheses.
-  apart→¬futureEq : {x y : St} → Apart x y → ¬ FutureEq x y
-  apart→¬futureEq (w , sep) fe = sep (fe w)
+  apart→¬nerodeCongruence : {x y : St} → Apart x y → ¬ NerodeCongruence x y
+  apart→¬nerodeCongruence (w , sep) fe = sep (fe w)
 
   -- The converse is NOT provable here, and that is the point: from
-  -- ¬ FutureEq one cannot extract a word without a search principle.
+  -- � NerodeCongruence one cannot extract a word without a search principle.
   -- Delta 20's "the witness is not merely that x and y differ; it is a
   -- CONTEXT that distinguishes them" is exactly this gap.
 
@@ -80,10 +80,10 @@ module System {St : Type ℓ} {Act : Type ℓ'} {Obs : Type ℓ''}
   -- 3.  Both are congruences, in opposite directions
   ----------------------------------------------------------------------
 
-  -- Sameness descends along actions.  This is Pairfield.futureEq_step.
-  futureEq-step : {x y : St} → FutureEq x y → (a : Act)
-                → FutureEq (step x a) (step y a)
-  futureEq-step fe a w = fe (a ∷ w)
+  -- Sameness descends along actions.  This is Pairfield.nerodeCongruence_step.
+  nerodeCongruence-step : {x y : St} → NerodeCongruence x y → (a : Act)
+                → NerodeCongruence (step x a) (step y a)
+  nerodeCongruence-step fe a w = fe (a ∷ w)
 
   -- Distinction ASCENDS: an experiment separating the successors,
   -- prefixed by the action, separates the predecessors.  The witness is
@@ -109,8 +109,8 @@ module _ {St : Type ℓ} {Act : Type ℓ'} {Obs : Type ℓ''}
   open System step obs
 
   -- Sameness carries no data: any two proofs are equal.
-  isPropFutureEq : (x y : St) → isProp (FutureEq x y)
-  isPropFutureEq x y =
+  isPropNerodeCongruence : (x y : St) → isProp (NerodeCongruence x y)
+  isPropNerodeCongruence x y =
     isPropΠ (λ w → isSetObs (behavior x w) (behavior y w))
 
 ------------------------------------------------------------------------
@@ -161,14 +161,14 @@ module Minimal where
   witness₀≢witness₁ : ¬ (witness₀ ≡ witness₁)
   witness₀≢witness₁ p = []≢tt∷[] (cong fst p)
 
-  -- Hence apartness is not a proposition, while FutureEq always is.
+  -- Hence apartness is not a proposition, while NerodeCongruence always is.
   ApartNotProp : ¬ (isProp (Apart false true))
   ApartNotProp h = witness₀≢witness₁ (h witness₀ witness₁)
 
   -- The contrast, in one place: for this very system, sameness IS a
   -- proposition (Bool is a set) while distinction is not.
-  FutureEqIsProp : (x y : Bool) → isProp (FutureEq x y)
-  FutureEqIsProp = isPropFutureEq stepM obsM isSetBool
+  NerodeCongruenceIsProp : (x y : Bool) → isProp (NerodeCongruence x y)
+  NerodeCongruenceIsProp = isPropNerodeCongruence stepM obsM isSetBool
 
   -- Sanity: the two states really are apart, so §5 is not vacuous.
   falseApartTrue : Apart false true
@@ -181,19 +181,19 @@ module Minimal where
 --
 -- The header states the asymmetry as two unqualified sentences:
 --
---     * FutureEq is a PROPOSITION (isPropFutureEq): sameness carries
+--     * NerodeCongruence is a PROPOSITION (isPropNerodeCongruence): sameness carries
 --       no data;
 --     * Apart is NOT a proposition (ApartNotProp): distinction carries
 --       data.
 --
--- The first is general and the terms carry it: `isPropFutureEq` is
+-- The first is general and the terms carry it: `isPropNerodeCongruence` is
 -- proved in §4 for EVERY (step, obs) with `isSet Obs`.
 --
 -- The second is NOT general, and cannot be: `ApartNotProp` lives in
--- `module Minimal` and has type `¬ (isProp (Apart false true))` — one
+-- `module Minimal` and has type `� (isProp (Apart false true))` � one
 -- system (two states, one action, identity dynamics, state-as-
 -- observation) at one pair of states.  Read as a statement about every
--- system it is false, not merely unproved: whenever `FutureEq x y`
+-- system it is false, not merely unproved: whenever `NerodeCongruence x y`
 -- holds, `Apart x y` is empty and hence IS a proposition, and the
 -- module supplies no hypothesis excluding that case.
 --
@@ -205,8 +205,8 @@ module Minimal where
 --     sameness is ALWAYS a proposition; distinction is NOT always one,
 --     and `Minimal` is the witness that it can fail to be.
 --
--- That is still the asymmetry the module is for — one side is a
--- theorem about all systems, the other is a counterexample — and it is
+-- That is still the asymmetry the module is for � one side is a
+-- theorem about all systems, the other is a counterexample � and it is
 -- what the terms prove.  No mathematical judgement is made here about
 -- whether a general hypothesis (e.g. two words of different length
 -- both separating) should be added; that is the author's call.

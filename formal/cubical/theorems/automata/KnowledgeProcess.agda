@@ -4,7 +4,7 @@
 -- KnowledgeProcess
 --
 -- A small dependent bridge between exact interaction histories, paired
--- pastÃ—future continuation observations, and the Factory IV mixed-corner
+-- past—future continuation observations, and the Factory IV mixed-corner
 -- compiler.  Arithmetic capability and its ranked path are retained as
 -- inputs; this module does not inhabit either one.
 ------------------------------------------------------------------------
@@ -121,7 +121,7 @@ module _ {n : â„•}
 ------------------------------------------------------------------------
 -- Rigor boundary
 --
--- `observeâ†’knowledge-process` is the requested path from an exact experiment
+-- `observeâ’knowledge-process` is the requested path from an exact experiment
 -- observation into the mixed-corner compiler surface.  Its last two arguments
 -- are precisely the uninhabited arithmetic capability and transition fabric;
 -- no experiment result is being promoted into a prime theorem.

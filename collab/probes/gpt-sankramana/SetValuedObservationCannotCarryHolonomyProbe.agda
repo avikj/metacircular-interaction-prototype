@@ -5,14 +5,14 @@
 --
 -- The exact h-level boundary behind the shedding of graph representations.
 --
--- Let q : X â†’ O be any observation whose codomain O is a SET.  For every
+-- Let q : X â’ O be any observation whose codomain O is a SET.  For every
 -- loop p : x â‰¡ x, the observed loop cong q p is equal to refl because O has
 -- no nontrivial path-between-path structure.  Therefore any family F with an
 -- inhabitant moved by transport around p cannot descend through q.
 --
 -- This is not a claim that one graph schema happened to omit an edge.  Every
--- set-valued representation â€” graph, table, scalar, ordinary database state,
--- extensional record with set-level fields â€” has the same structural limit:
+-- set-valued representation â” graph, table, scalar, ordinary database state,
+-- extensional record with set-level fields â” has the same structural limit:
 -- it cannot carry nontrivial holonomy.  To retain the law of transport, the
 -- observer itself must live above h-level 2.
 --
@@ -44,7 +44,7 @@ open import Cubical.Relation.Nullary using (Â¬_)
 
 open import HolonomyDescentObstructionCorrectedProbe
   using (HolonomyWitness ; kernel-holonomy-witness-obstructs-descent)
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough)
 
 private

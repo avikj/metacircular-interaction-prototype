@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- कुट्टक-समाप्ति — the pulveriser, and the fact that it stops.
+-- ����������-������� � the pulveriser, and the fact that it stops.
 --
--- TEXT AND DATE.  कुट्टक / *kuṭṭaka*, the pulveriser, and वल्ली / *vallī*,
--- the creeper of quotients: Āryabhaṭa, *Āryabhaṭīya*, Gaṇitapāda 32–33,
--- 499 CE; the vallī worked out in Bhāskara I, *Āryabhaṭīyabhāṣya*, 629 CE.
--- The instruction the method is named for is *śeṣaṃ rakṣa* — keep the
--- remainder — and recurse on it.
+-- TEXT AND DATE.  ���������� / *kuaka*, the pulveriser, and ����� / *vall*,
+-- the creeper of quotients: ryabhaa, *ryabhaya*, Gaitapda 32�33,
+-- 499 CE; the vall worked out in Bhskara I, *ryabhayabhya*, 629 CE.
+-- The instruction the method is named for is *ea raka* � keep the
+-- remainder � and recurse on it.
 --
 ------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ combine d q b r a (c₁ , e₁) (c₂ , e₂) e =
 module _ where
   open WFI (<-wellfounded)
 
-  -- ═══ the vallī, with no fuel ═══
+  -- ═══ the vall, with no fuel ═══
   -- the recursion is on the second argument; `eucl` hands back r < d, and
   -- that inequality IS the descent.
   VGoal : ℕ → Type₀
@@ -76,8 +76,8 @@ module _ where
   antya∣b : (a b : ℕ) → divides (antya a b) b
   antya∣b a b = snd (snd (kuttaka a b))
 
--- ═══ pressed: Āryabhaṭa's own pair, and the sūtra's numbers ═══
--- 137 = 2·60+17, 60 = 3·17+9, 17 = 1·9+8, 9 = 1·8+1, 8 = 8·1+0
+-- ═══ pressed: ryabhaa's own pair, and the stra's numbers ═══
+-- 137 = 2�60+17, 60 = 3�17+9, 17 = 1�9+8, 9 = 1�8+1, 8 = 8�1+0
 _ : valli 137 60 ≡ 2 ∷ 3 ∷ 1 ∷ 1 ∷ 8 ∷ []
 _ = refl
 
@@ -90,6 +90,6 @@ _ = refl
 _ : valli 60 24 ≡ 2 ∷ 2 ∷ []
 _ = refl
 
--- and the certificate is a real quotient, not a flag: 24 = 2 · 12
+-- and the certificate is a real quotient, not a flag: 24 = 2 � 12
 _ : fst (antya∣b 60 24) ≡ 2
 _ = refl

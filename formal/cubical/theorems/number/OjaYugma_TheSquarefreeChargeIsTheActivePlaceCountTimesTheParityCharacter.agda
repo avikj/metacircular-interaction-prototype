@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe #-}
 --
--- ओजयुग्म — oja / yugma, odd and even.  The Jaina canon classifies a rāśi by
--- its remainder — the fourfold kṛtayugma / tryoja / dvāparayugma / kalyoja of
--- the Bhagavatī Sūtra (Vyākhyāprajñapti), with the oja/yugma pair also in the
--- Sthānāṅga; the canon as redacted at Valabhī, c. 5th c. CE, the material
--- older.  The sūtra number is NOT pinned here: the fourfold is standard in
+-- ��������� � oja / yugma, odd and even.  The Jaina canon classifies a ri by
+-- its remainder � the fourfold ktayugma / tryoja / dvparayugma / kalyoja of
+-- the Bhagavat Stra (Vykhyprajapti), with the oja/yugma pair also in the
+-- Sthnga; the canon as redacted at Valabh, c. 5th c. CE, the material
+-- older.  The stra number is NOT pinned here: the fourfold is standard in
 -- those texts and the exact citation was not opened, so this says text and
 -- date and stops rather than inventing a number.  Nothing below is attributed
 -- to those texts.  What is taken is the term for the parity of a count.
@@ -19,26 +19,26 @@
 --     activeFactor b = if b then  1 else 0
 --     chargeTerm marked = one pure term: activeFactor at the marked place,
 --                         signFactor at every other place
---     squarefreeChargeCube n x = Σ over marked of that pure term at x
+--     squarefreeChargeCube n x = � over marked of that pure term at x
 --
 -- the critical affine arithmetic system, its grading operator Ω, and the
--- parity character λ = (−1)^Ω — the torus evaluated at (−1,−1,…).  Theorem F
+-- parity character λ = (−1)^Ω � the torus evaluated at (−1,−1,�).  Theorem F
 -- says every gauge-charged observable has equilibrium expectation exactly
 -- zero, which is the sieve parity barrier.
 --
 -- BillIsItsGradedForm.md` claims those are one charge, and marks the claim an
 -- IDENTIFICATION exhibited on index sets and signs rather than a checked map.
 -- This module removes that qualification for the algebraic half, on a list of
--- places rather than `Fin n → Bool`:
+-- places rather than `Fin n � Bool`:
 --
---     आवेशः bs ≡ - (pos (ओजः bs) · पर्यायः bs)
+--     ����� bs ≡ - (pos (���� bs) � ������� bs)
 --
 -- the squarefree charge is the active-place count times the parity character,
 -- negated.  So the tensor whose rank is exactly n and the graded object of
--- Theorem F are one function of the places, and r = 0 — the twirl's neutral
--- sector — is the statement that this function's expectation vanishes.
+-- Theorem F are one function of the places, and r = 0 � the twirl's neutral
+-- sector � is the statement that this function's expectation vanishes.
 --
--- NOT checked here: that the Lean lane's `Fin n → Bool` form and this
+-- NOT checked here: that the Lean lane's `Fin n � Bool` form and this
 -- `List Bool` form agree.  They carry the same data in a different index
 -- shape, no map is exhibited between the lanes, and two lanes agreeing on a
 -- formula is not a map.  Nothing here touches KMS states; that is Theorem F's
@@ -54,7 +54,7 @@ open import Cubical.Data.Int
 
 -- ---------------------------------------------------------------- one place
 -- A list of Bool assigns active/inactive to finitely many ordered prime
--- places: the same data as the Lean lane's `Fin n → Bool`, folded.
+-- places: the same data as the Lean lane's `Fin n � Bool`, folded.
 
 -- signFactor, at one place.
 चिह्नम् : Bool → ℤ
@@ -80,16 +80,16 @@ open import Cubical.Data.Int
 पर्यायः (b ∷ bs) = चिह्नम् b · पर्यायः bs
 
 -- The squarefree charge.  Read one place at a time, the Lean lane's sum over
--- `marked : Fin n` says exactly this: either the head is the marked place —
--- activeFactor there, the sign on all the rest, which is `सक्रियम् b · पर्यायः bs`
--- — or the marked place is in the tail and the head contributes its sign.
+-- `marked : Fin n` says exactly this: either the head is the marked place �
+-- activeFactor there, the sign on all the rest, which is `��������� b � ������� bs`
+-- � or the marked place is in the tail and the head contributes its sign.
 आवेशः : List Bool → ℤ
 आवेशः [] = pos zero
 आवेशः (b ∷ bs) = सक्रियम् b · पर्यायः bs + चिह्नम् b · आवेशः bs
 
 -- ------------------------------------------------- the two heads, computed
 -- Named so the induction below reads as algebra rather than as unfolding.
--- Three are definitional; the fourth needs `pos0+`, because `_+_` on ℤ
+-- Three are definitional; the fourth needs `pos0+`, because `_+_` on �
 -- recurses on its right argument and `pos 0 + z` is not `z` on the nose.
 
 पर्यायः-सत् : (bs : List Bool) → पर्यायः (true ∷ bs) ≡ - (पर्यायः bs)
@@ -107,7 +107,7 @@ open import Cubical.Data.Int
 
 -- ------------------------------------------------------------- the identity
 --
---     charge  =  − Ω · λ
+--     charge  =  − Ω � λ
 --
 -- one line of the Lean lane's tensor and one line of GAUGE.md's graded
 -- object, shown to be the same function of the places.
@@ -133,11 +133,11 @@ open import Cubical.Data.Int
     ≡⟨ cong -_ (-DistR· (pos (suc (ओजः bs))) (पर्यायः bs)) ⟩
   - (pos (suc (ओजः bs)) · (- (पर्यायः bs))) ∎
 
--- ---------------------------------------------------------------- मर्यादा
+-- ---------------------------------------------------------------- �������
 --
 -- Where this is thinner than it looks.  It is stated on a LIST of places, so
 -- it says nothing about how the places are indexed, and nothing about the
--- Lean lane's `Fin n → Bool` beyond the transcription in the header above.
--- The rank theorem — rank exactly n — is the Lean lane's and is not restated
+-- Lean lane's `Fin n � Bool` beyond the transcription in the header above.
+-- The rank theorem � rank exactly n � is the Lean lane's and is not restated
 -- here; what is checked here is only that the function whose rank that
 -- theorem measures is the parity character scaled by the active-place count.

@@ -3,16 +3,16 @@
 ------------------------------------------------------------------------
 -- Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain
 --
--- à¤­à¤™à¥à¤— Â· bhaá¹…ga â€” a "figure" or mode of predication, the unit the
--- saptabhaá¹…gÄ« counts seven of (UmÄsvÄti, *TattvÄrthasÅ«tra*;
--- Samantabhadra; Akalaá¹…ka; Siddhasena DivÄkara).  The seven, and the
+-- àà™àà— Â bhaga â” a "figure" or mode of predication, the unit the
+-- saptabhag counts seven of (Umsvti, *Tattvrthastra*;
+-- Samantabhadra; Akalaka; Siddhasena Divkara).  The seven, and the
 -- proof that the fourth is irreducible, are ANOTHER IDENTITY'S:
 -- `Saptabhangi` and `SaptabhangiNaya`, written in Devanagari.  **This
--- module is about MY two atoms only** â€” `à¤¸à¤¾à¤®à¤¯à¤¿à¤•` and `à¤¨à¤¿à¤¤à¥à¤¯`, imported
--- as instances from `AnuktaAvaktavya` â€” and it does not restate,
+-- module is about MY two atoms only** â” `àà¾à®à¯à¿à•` and `à¨à¿ààà¯`, imported
+-- as instances from `AnuktaAvaktavya` â” and it does not restate,
 -- reprove or extend their construction.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- `Yugapat_TheDenialOfJointAssertionDoesNotDecompose` found a second
 -- position and asked the obvious next question: is there a THIRD,
 -- between the sequential pair and the denial of the joint assertion,
@@ -20,21 +20,21 @@
 --
 -- **There is a third, and it sits strictly between them.**
 --
---   Krama Q    = (Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•) Ã— (Â¬ à¤¨à¤¿à¤¤à¥à¤¯)     both denied, in sequence
---   Vikalpa Q  = (Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•) âŠ (Â¬ à¤¨à¤¿à¤¤à¥à¤¯)     one of them denied, said
+--   Krama Q    = (Â àà¾à®à¯à¿à•) — (Â à¨à¿ààà¯)     both denied, in sequence
+--   Vikalpa Q  = (Â àà¾à®à¯à¿à•) âŠ (Â à¨à¿ààà¯)     one of them denied, said
 --                                            without saying which
---   Yugapat Q  = Â¬ (à¤¸à¤¾à¤®à¤¯à¤¿à¤• Ã— à¤¨à¤¿à¤¤à¥à¤¯)         their joint assertion
+--   Yugapat Q  = Â (àà¾à®à¯à¿à• — à¨à¿ààà¯)         their joint assertion
 --                                            denied, as one act
 --
 -- WHAT IS PROVED
 --
---   kramaGivesVikalpa      Krama â‡’ Vikalpa, one line
---   vikalpaGivesYugapat    Vikalpa â‡’ Yugapat, two lines
+--   kramaGivesVikalpa      Krama â’ Vikalpa, one line
+--   vikalpaGivesYugapat    Vikalpa â’ Yugapat, two lines
 --   trivialHasVikalpa / trivialLacksKrama
 --                          **the first step is STRICT, and refuted
 --                          outright rather than reduced to a taboo**:
---                          at the trivially-true family, `Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•`
---                          holds while `Â¬ à¤¨à¤¿à¤¤à¥à¤¯` fails, so Vikalpa
+--                          at the trivially-true family, `Â àà¾à®à¯à¿à•`
+--                          holds while `Â à¨à¿ààà¯` fails, so Vikalpa
 --                          holds and Krama does not
 --   yugapatToVikalpaIsWeakExcludedMiddle
 --                          the second step's converse, as a general
@@ -51,12 +51,12 @@
 -- `--safe`.  A chain of three positions whose gaps have different
 -- character is a more informative object than a count of positions.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- NO NOVELTY.  The De Morgan chain `(Â¬A) Ã— (Â¬B) â†’ (Â¬A) âŠ (Â¬B) â†’
--- Â¬ (A Ã— B)` and the taboo status of its converses are standard
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- NO NOVELTY.  The De Morgan chain `(ÂA) — (ÂB) â’ (ÂA) âŠ (ÂB) â’
+-- Â (A — B)` and the taboo status of its converses are standard
 -- intuitionistic logic.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

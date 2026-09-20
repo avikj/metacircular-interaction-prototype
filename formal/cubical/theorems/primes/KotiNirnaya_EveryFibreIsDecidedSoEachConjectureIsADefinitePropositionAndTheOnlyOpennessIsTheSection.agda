@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- कोटि-निर्णय — every fibre is DECIDED, so each arithmetized conjecture is
+-- �������-������ � every fibre is DECIDED, so each arithmetized conjecture is
 -- a definite proposition and the only openness is the section.
 --
 -- The arithmetized conjectures enter the corpus as sections
---   Goldbach   = (n : ℕ) → GoldbachAt (4 + 2·n)
---   TwinPrimes = (n : ℕ) → Σ p ≥ n, twin at p
---   Collatz    = (n : ℕ) → Σ k, halts within k
+--   Goldbach   = (n : �) � GoldbachAt (4 + 2�n)
+--   TwinPrimes = (n : �) � � p � n, twin at p
+--   Collatz    = (n : �) � � k, halts within k
 -- Each is a Π over a family of FIBRES.  This module proves that every one
 -- of those fibres is DECIDABLE: for each argument the fibre is a definite
 -- proposition whose truth is computed by a Boolean, sound and complete.
@@ -15,8 +15,8 @@
 -- The consequence is exactly the non-mystical reading.  A conjecture of
 -- this shape has NO undefined free variable: fix the variable and the
 -- statement is decided, yes or no, by a terminating computation.  The
--- only thing not settled is the universally-quantified SECTION — the
--- single function inhabiting all fibres at once — and that is a definite
+-- only thing not settled is the universally-quantified SECTION � the
+-- single function inhabiting all fibres at once � and that is a definite
 -- object too, not a mystery: Goldbach is PROVABLY EQUIVALENT to a Π over
 -- a decided Boolean predicate (goldbach-definite below), so the whole of
 -- its content is "this computable Boolean is true at every stage."  The
@@ -25,12 +25,12 @@
 -- WHAT IS PROVED.
 --   §1  a Boolean bounded search with membership and extraction, proved
 --       both directions;
---   §2  gcheck : ℕ → Bool with goldbach-sound and goldbach-complete —
+--   §2  gcheck : � � Bool with goldbach-sound and goldbach-complete �
 --       gcheck m ≡ true reflects GoldbachAt m exactly;
---   §3  goldbach-dec : (m : ℕ) → Dec (GoldbachAt m) — every Goldbach
+--   §3  goldbach-dec : (m : �) � Dec (GoldbachAt m) � every Goldbach
 --       fibre is decidable;
---   §4  goldbach-definite — Goldbach ⇔ a Π over the decided Boolean;
---   §5  twin-dec, collatz-dec — the other two families' fibres decided,
+--   §4  goldbach-definite � Goldbach � a Π over the decided Boolean;
+--   §5  twin-dec, collatz-dec � the other two families' fibres decided,
 --       so the same statement holds across the constellation.
 --
 ------------------------------------------------------------------------
@@ -102,7 +102,7 @@ suc n ∸ suc m = n ∸ m
 ∸-plus (suc p) q = ∸-plus p q
 
 ------------------------------------------------------------------------
--- §1 · bounded Boolean search over 0..k, both directions
+-- §1 � bounded Boolean search over 0..k, both directions
 ------------------------------------------------------------------------
 
 search : ℕ → (ℕ → Bool) → Bool
@@ -121,7 +121,7 @@ search-find (suc k) f e with ||-elim (f (suc k)) (search k f) e
 ... | inl ft = suc k , ft
 ... | inr sk = search-find k f sk
 
--- Le p k : p ≤ k, as the witness j with j + p ≡ k
+-- Le p k : p � k, as the witness j with j + p ≡ k
 Le : ℕ → ℕ → Type
 Le p k = Σ[ j ∈ ℕ ] (j + p ≡ k)
 
@@ -137,7 +137,7 @@ search-mem (suc k) p f (suc j' , jp) fp =
   cong (f (suc k) ||_) (search-mem k p f (j' , injSuc jp) fp) ∙ ||-true-r (f (suc k))
 
 ------------------------------------------------------------------------
--- §2 · the Goldbach decision Boolean, sound and complete
+-- §2 � the Goldbach decision Boolean, sound and complete
 ------------------------------------------------------------------------
 
 gtest : ℕ → ℕ → Bool
@@ -173,7 +173,7 @@ goldbach-complete m (p , q , pp , pq , e) =
   gtrue = &&-intro pp (&&-intro b' c')
 
 ------------------------------------------------------------------------
--- §3 · every Goldbach fibre is decidable
+-- §3 � every Goldbach fibre is decidable
 ------------------------------------------------------------------------
 
 goldbach-dec : (m : ℕ) → Dec (GoldbachAt m)
@@ -184,7 +184,7 @@ goldbach-dec m = h (gcheck m) refl
   h false eq = no (λ g → false≢true (sym eq ∙ goldbach-complete m g))
 
 ------------------------------------------------------------------------
--- §4 · Goldbach is a definite proposition: equivalent to a Π over a
+-- §4 � Goldbach is a definite proposition: equivalent to a Π over a
 --       decided Boolean.  No undefined free variable remains.
 ------------------------------------------------------------------------
 
@@ -200,7 +200,7 @@ goldbach-definite =
   (λ gb n → goldbach-sound (4 + 2 · n) (gb n))
 
 ------------------------------------------------------------------------
--- §5 · the same holds across the constellation: twin and Collatz fibres
+-- §5 � the same holds across the constellation: twin and Collatz fibres
 ------------------------------------------------------------------------
 
 decTrue : (b : Bool) → Dec (b ≡ true)
@@ -225,7 +225,7 @@ collatz-dec : (k n : ℕ) → Dec (CollatzWithin k n)
 collatz-dec k n = discreteℕ (citer k (suc n)) (suc zero)
 
 ------------------------------------------------------------------------
--- §6 · the section is not an unknown object — it is the universal
+-- §6 � the section is not an unknown object � it is the universal
 --       witness, exhibited, and the only open thing is its totality.
 --
 -- `the-universal-witness` is a TOTAL function, present here, that turns a
@@ -262,12 +262,12 @@ goldbach-is-witness-totality :
 goldbach-is-witness-totality = section-factors , totality-forced
 
 ------------------------------------------------------------------------
--- §7 · two provable properties OF the totality, without proving it.
+-- §7 � two provable properties OF the totality, without proving it.
 --
 -- These say what kind of proposition the totality is, and they hold
--- because the fibre is DECIDABLE — a feature Goldbach has and the twin
+-- because the fibre is DECIDABLE � a feature Goldbach has and the twin
 -- and Collatz sections do not (their fibres are semidecidable, unbounded
--- searches).  Goldbach is Π₁; the other two are Π₂.
+-- searches).  Goldbach is Π�; the other two are Π�.
 ------------------------------------------------------------------------
 
 Dec→Stable : {A : Type} → Dec A → ¬ ¬ A → A
@@ -276,15 +276,15 @@ Dec→Stable (no ¬a) nn = E.rec (nn ¬a)
 
 -- (a) REFUTABLE BY A FINITE WITNESS.  A single even number on which the
 --     search fails disproves the whole section.  If Goldbach is false, it
---     is false at an exhibitable, checkable place — coherence has a
+--     is false at an exhibitable, checkable place � coherence has a
 --     finite defect or none.
 finite-counterexample-refutes :
   (Σ[ n ∈ ℕ ] (gcheck (4 + 2 · n) ≡ false)) → ¬ Goldbach
 finite-counterexample-refutes (n , f) g =
   false≢true (sym f ∙ totality-forced g n)
 
--- (b) ¬¬-STABLE.  Because every fibre is decidable, the section is its own
---     double negation: if Goldbach cannot be false, it is true — a term is
+-- (b) ��-STABLE.  Because every fibre is decidable, the section is its own
+--     double negation: if Goldbach cannot be false, it is true � a term is
 --     recovered, not merely licensed.  So there is NO gap between "true"
 --     and "constructively provable" for this statement; the classical and
 --     the constructive Goldbach are one proposition.  The only openness is
@@ -296,8 +296,8 @@ goldbach-¬¬-stable nn n =
              (λ ¬gn → nn (λ g → ¬gn (g n)))
 
 ------------------------------------------------------------------------
--- §8 · the fibre carries the reflection ℤ/2, and its SIZE is the
---       representation count — the founding reflection frame, now
+-- §8 � the fibre carries the reflection �/2, and its SIZE is the
+--       representation count � the founding reflection frame, now
 --       internal to the witness.
 ------------------------------------------------------------------------
 
@@ -306,8 +306,8 @@ p-of q-of : {m : ℕ} → GoldbachAt m → ℕ
 p-of w = fst w
 q-of w = fst (snd w)
 
--- REFLECTION: swap the two primes.  This is k ↦ −k about the midpoint —
--- the pair (m/2 − r, m/2 + r) reflected to (m/2 + r, m/2 − r) — now an
+-- REFLECTION: swap the two primes.  This is k � −k about the midpoint �
+-- the pair (m/2 − r, m/2 + r) reflected to (m/2 + r, m/2 − r) � now an
 -- endofunction of the fibre itself.
 reflect : {m : ℕ} → GoldbachAt m → GoldbachAt m
 reflect (p , q , pp , pq , e) = q , p , pq , pp , (+-comm q p ∙ e)
@@ -319,12 +319,12 @@ reflect-swaps-q : {m : ℕ} (w : GoldbachAt m) → q-of (reflect w) ≡ p-of w
 reflect-swaps-q w = refl
 
 -- it is an involution on the underlying pair: reflecting twice returns
--- both primes unchanged.  A ℤ/2 action on the solution set.
+-- both primes unchanged.  A �/2 action on the solution set.
 reflect-invol-p : {m : ℕ} (w : GoldbachAt m) → p-of (reflect (reflect w)) ≡ p-of w
 reflect-invol-p w = refl
 
 -- a witness is FIXED by the reflection exactly when its two primes are
--- equal — the diagonal p = q, the zero-offset centre.  Every other
+-- equal � the diagonal p = q, the zero-offset centre.  Every other
 -- solution lives in a 2-orbit {(p,q),(q,p)}.
 Fixed : {m : ℕ} → GoldbachAt m → Type
 Fixed w = p-of w ≡ q-of w
@@ -333,7 +333,7 @@ Fixed w = p-of w ≡ q-of w
 -- inhabitants, so the number of representations is the CARDINALITY of the
 -- fibre, and "strong Goldbach" (many representations) is a statement about
 -- its h-level.  Truncating the fibre to a proposition is exactly the
--- śeṣa/loss the corpus measures everywhere: it discards the count.
+-- ea/loss the corpus measures everywhere: it discards the count.
 gb10-a gb10-b : GoldbachAt 10
 gb10-a = 3 , 7 , refl , refl , refl
 gb10-b = 5 , 5 , refl , refl , refl
@@ -345,9 +345,9 @@ GoldbachAt10-is-not-a-proposition : ¬ (isProp (GoldbachAt 10))
 GoldbachAt10-is-not-a-proposition hp = 3≢5 (cong p-of (hp gb10-a gb10-b))
 
 ------------------------------------------------------------------------
--- §9 · the fixed points of the reflection are exactly primality of the
+-- §9 � the fixed points of the reflection are exactly primality of the
 --       centre.  The diagonal p = q solution of 4+2n exists iff the
---       midpoint 2+n is prime.  So the ℤ/2 has a fixed point at a centre
+--       midpoint 2+n is prime.  So the �/2 has a fixed point at a centre
 --       exactly when that centre is itself prime; every other
 --       representation is a free 2-orbit.
 ------------------------------------------------------------------------
@@ -367,9 +367,9 @@ diagonal-is-fixed : (n : ℕ) (pr : primeb (2 + n) ≡ true)
                   → Fixed (diagonal-witness n pr)
 diagonal-is-fixed n pr = refl
 
--- so a prime centre GIVES a Goldbach representation for free — the
--- diagonal one — and it is the reflection's fixed point.  10 = 5+5:
--- 5 = 2 + 3 prime, the fixed point of the pair {(3,7),(7,3)} ∪ {(5,5)}.
+-- so a prime centre GIVES a Goldbach representation for free � the
+-- diagonal one � and it is the reflection's fixed point.  10 = 5+5:
+-- 5 = 2 + 3 prime, the fixed point of the pair {(3,7),(7,3)} � {(5,5)}.
 prime-centre-gives-representation :
   (n : ℕ) → primeb (2 + n) ≡ true → GoldbachAt (4 + 2 · n)
 prime-centre-gives-representation = diagonal-witness

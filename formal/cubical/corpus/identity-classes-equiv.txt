@@ -1,0 +1,201 @@
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê EQUIVALENCE-CLASS MAP ‚î PROVABLE identity (definitional ‚à ‚â/Iso witnesses) ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+declarations (objects)        : 12393
+definitional keys (nodes)     : 7374
+equivalence-witness edges     : 173   (A ‚â B / Iso A B in the corpus)
+identity classes              : 7364
+non-trivial classes (>1 decl) : 1027
+classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distinct;
+                                 a checked ‚â/Iso proved them the same)
+
+‚î‚î‚î‚î‚î‚î‚î‚î classes fused by an equivalence witness (the coinductive resolution), largest first ‚î‚î‚î‚î‚î‚î‚î‚î
+
+[76 decls / 3 distinct types fused]
+    AnuvrttiIsTheSameTrade.underFirst
+    AnuvrttiIsTheSameTrade.underSecond
+    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡¶‡‡µ‡æ‡¶‡
+    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡¶‡‡µ‡ø
+    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.‡‡ü‡
+    CakravalaWitness.D
+    CakravalaWitness.a
+    CakravalaWitness.a¬≤
+    CakravalaWitness.b
+    CakravalaWitness.b¬≤
+    ChuAdvance.unit
+    CompileBridge.readCap
+    CompileBridge.resumeCap
+    CompileBridge.tickCap
+    CostGeometryWitness.farWork
+    CostGeometryWitness.homeWork
+    CostGeometryWitness.travel
+    DSOBellmanFinite.composite
+    DSOCutCalibration.distinctRows
+    DecategorifiedDefect.0Rank
+    DecategorifiedDefect.kk1
+    FactoryVICore.aOf
+    FactoryVICore.mstar
+    HeadDepthMergeBreaker.tripleCount
+    LineWorldTransport.p
+    LineWorldTransport.target
+    ObligationMinCut.audit-burden
+    ObligationMinCut.cutCap
+    ObligationMinCut.value-sink
+    ObligationMinCut.value-source
+    PMTorus.E
+    PMTorus.F
+    PMTorus.V
+    PairComposition.p35
+    PairComposition.p57
+    ParetoCost.compiledRoute
+    ParetoCost.fullRoute
+    Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.head-p
+    Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.head-q
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d0
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d1
+    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.dm1
+    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.Œµµ
+    SelfImprovement.g‚
+    SelfImprovement.g‚
+    Sha256N.Mabc
+    Sha256N.Xabc
+    Sha256N.m32
+    Sha256N.recovered1
+    SieveFiber.X
+    TheMediantDoesNotDescendToTheRate.half
+    TheMediantDoesNotDescendToTheRate.half'
+    TheMediantDoesNotDescendToTheRate.third
+    TheScoreOrderAndTheWeightOrderDisagree.explored
+    TheScoreOrderAndTheWeightOrderDisagree.fresh
+    TomographyConditioning.oneF
+    TomographyConditioning.zeroF
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.C
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.T
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e2x
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e2y
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e3x
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e3y
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e4x
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e4y
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e5x
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e5y
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e6x
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e6y
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.u
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.v
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.x
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.y
+    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.Œî
+    WhichThresholdStatementsDescendToTheRate.oneHalf
+    WhichThresholdStatementsDescendToTheRate.twoQuarters
+
+[40 decls / 2 distinct types fused]
+    ADisjointValidatorMakesAFlagUnusableAndInvisible.accepted
+    ADisjointValidatorMakesAFlagUnusableAndInvisible.intended
+    AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision.costFirst
+    AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision.yieldFirst
+    AnuvrttiIsTheSameTrade.threeSutras
+    AscendingFirstIsTheWorstUnlessTheArchiveIsConstant.scores
+    CRTChain.walk8
+    ChargeIsStrictRefinement.neutralProbe
+    CompileBridge.baseVocab
+    CompileBridge.taskTm
+    EndogenousHorizon.thresh3
+    EndogenousHorizon.thresh5
+    HeadDepthMergeBreaker.primesB
+    OptionSpread.Œº‚
+    OptionSpread.Œº‚
+    OptionSpread.œ‚
+    OptionSpread.œ‚
+    OracleQueries.p
+    SelfImprovement.declaredTests
+    Sha256N.H0
+    Sha256N.K
+    Sha256N.Xtarget1
+    Sha256N.Xtarget16
+    Sha256N.Xtarget4
+    Sha256N.Xtarget8
+    Sha256N.abcBlock
+    Sha256N.preimage16
+    Sha256N.preimage4
+    Sha256N.preimage8
+    SieveFiber.domain
+    SieveFiber.domain28
+    SieveFiber.fibre000
+    SieveFiber.fibre100
+    SieveFiber.fibre111
+    SieveFiber.jointFibreOf1
+    SieveScaleTower.fibre‚List
+    SieveScaleTower.fibre‚List
+    SieveScaleTower.fibre‚List
+    SumProductTorus.primes4
+    TheSecondUpadhiConditionDoesAllTheWork.probe
+
+[29 decls / 4 distinct types fused]
+    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡‡®‡‡Ø‡
+    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡¶‡‡µ‡ø‡‡¶‡
+    AchromaticToy.cInl
+    AchromaticToy.cInr
+    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡¶‡ï‡‡‡ø‡
+    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡µ‡æ‡Æ
+    Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡‡‡-‡â‡¶‡æ‡‡∞‡‡Æ‡
+    Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡‡‡-‡â‡¶‡æ‡‡∞‡‡Æ‡'
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡¶‡ï‡‡‡ø‡
+    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡µ‡æ‡Æ
+    HeadDepthMergeBreaker.collisionB
+    HeadDepthMergeBreaker.q2B
+    HeadDepthMergeBreaker.strongB
+    HeadDepthMergeBreaker.w3B
+    HeadDepthTwo.residueCertificate
+    HeadDepthTwo.sZeroCertificate
+    HeadDepthTwo.strongCollapseCertificate
+    HeadDepthTwo.w3TwoCertificate
+    HeadDepthTwo.w4TwoCertificate
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡-‡¶‡ï‡‡‡ø‡
+    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡-‡µ‡æ‡Æ
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡¶‡ï‡‡‡ø‡
+    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡µ‡æ‡Æ
+    SpanWeave.throughFalse
+    SpanWeave.throughTrue
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡‡
+    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡
+    UnivalentTensorInteraction.minus
+    UnivalentTensorInteraction.plus
+
+[16 decls / 3 distinct types fused]
+    AssemblyCharacterNonfaithfulness.gradeUnit
+    DynamicDescent.P
+    DynamicDescent.Q
+    FlipObservable.flipMat
+    M2Unimodular.idm
+    Rank1DihedralChart.Amat
+    Rank1DihedralChart.Dmat
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.S*S
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.SS*
+    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.defect
+    SmithPathCountedExecution.matA0
+    SmithPathCountedExecution.matD126
+    SmithPathCountedExecution.matH
+    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e‚
+    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e‚'
+    YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering.one‚
+
+[11 decls / 2 distinct types fused]
+    BhavanaKrida.‡¶‡‡µ‡ø
+    ChargeTwoHistories.one
+    Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.‡‡µ‡∞‡‡‡
+    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.ŒΩ
+    GrahaYuti.‡‡Æ‡æ‡ß‡æ‡®‡Æ‡
+    MulaShakti_TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne.‡‡ï‡Æ‡
+    RepairGrading.repair‚
+    RepairGrading.repair‚
+    S3IntegerPermutationModule.one
+    S3IntegerPermutationModule.zero‚
+    SignIsNotAccumulable.minusOne
+
+[7 decls / 2 distinct types fused]
+    S3ConjugacyObservation.identity-fixed
+    S3ConjugacyObservation.identity-fixed-one
+    S3ConjugacyObservation.zero3
+    S3EquivariantEndomorphismRigidity.one3
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.f0
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.f1
+    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.f2

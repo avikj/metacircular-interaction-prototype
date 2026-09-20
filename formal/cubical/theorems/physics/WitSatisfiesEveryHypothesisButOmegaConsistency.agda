@@ -23,7 +23,7 @@ open import RepresentabilityIsNotEnoughForIndependence
 --
 -- `TheDiagonalLemmaDischargesGoedelFix` derives independence from six
 -- things: consistency, HBL1, representability, and three internal rules
--- â€” contraposition, double-negation elimination, transitivity â€” plus
+-- â” contraposition, double-negation elimination, transitivity â” plus
 -- Ï‰-consistency.  `RepresentabilityIsNotEnoughForIndependence` showed
 -- the first three are satisfied by a model where independence fails.
 -- This checks the three internal rules in that same model.
@@ -35,7 +35,7 @@ open import RepresentabilityIsNotEnoughForIndependence
 -- breaks the derivation, witnessed by a model satisfying all the
 -- others.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY THE THREE HOLD, WHICH IS NOT AN ACCIDENT OF THE MODEL
 --
 -- `wPf (wimp a b)` is inhabited exactly when provability of `a` entails
@@ -46,7 +46,7 @@ open import RepresentabilityIsNotEnoughForIndependence
 -- built to be Ï‰-inconsistent is not thereby built to be
 -- propositionally deviant, and it is not.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
 -- That Ï‰-consistency SUFFICES for any theory of interest.  Â§4 says only
 -- that dropping it from the six is what the derivation cannot survive
@@ -54,7 +54,7 @@ open import RepresentabilityIsNotEnoughForIndependence
 -- Ï‰-inconsistent, so nothing here exhibits the positive case.
 --
 -- That the six hypotheses are independent of each other.  Only one
--- separation is exhibited â€” Ï‰-consistency from the rest â€” and no claim
+-- separation is exhibited â” Ï‰-consistency from the rest â” and no claim
 -- is made about any other pair.
 --
 -- That `Form = Unit` in `witHasDiagonal` is adequate to arithmetisation.
@@ -165,13 +165,13 @@ theAbsentHypothesis = witOmegaBad
 -- dropped.
 --
 -- What is withdrawn is the reading offered in this module's header and
--- in its commit message â€” that Ï‰-consistency is thereby "the one
+-- in its commit message â” that Ï‰-consistency is thereby "the one
 -- hypothesis doing the work", "witnessed by a model satisfying all the
 -- others".  That other module proves: ANY theory whose internal
 -- implication is provability-determined (`impIntro` here) and which has
 -- contraposition and an unprovable sentence with provable negation has
 -- NO independent sentence at all, whatever its Ï‰-status.  `Wit` is in
--- that class â€” by `impIntro` and `witContra`, both proved above.
+-- that class â” by `impIntro` and `witContra`, both proved above.
 --
 -- So `Wit` fails independence for two unrelated reasons, and a witness
 -- that fails twice attests to neither.  Â§4 remains a correct
@@ -188,10 +188,10 @@ theAbsentHypothesis = witOmegaBad
 -- The evidence it said was absent is now in the corpus, as a PAIR of
 -- concrete calculi differing in exactly that hypothesis:
 --
---   `TheInternalRulesPreserveIndependenceInThisCalculus` â€” Ï‰-consistency
+--   `TheInternalRulesPreserveIndependenceInThisCalculus` â” Ï‰-consistency
 --   HOLDS (`pv gs` is underivable) and `gs` is independent;
 --
---   `TheOmegaInconsistentExtensionDerivesTheNegation` â€” the same
+--   `TheOmegaInconsistentExtensionDerivesTheNegation` â” the same
 --   calculus plus double-negation introduction and the axiom `pv gs`;
 --   Ï‰-consistency FAILS, the first conjunct still holds, and `ng gs` is
 --   DERIVED in three steps.

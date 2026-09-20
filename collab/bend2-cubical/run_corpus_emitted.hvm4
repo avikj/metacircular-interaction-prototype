@@ -1,0 +1,6 @@
+// Bend2 -> HVM4 (normalize-then-erase; cubical proof structure erased)
+
+@add = λ&a. λ&b. λ{#Zer: b; #Suc: λ&p. #Suc{@add(p)(b)}}(a)
+@add_comm_stub = λ&a. λ{#Zer: &{}; #Suc: λ&p. &{}}(a)
+@main = #Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Zer}}}}}}}}}}}}}}}}}}}}}
+

@@ -823,18 +823,18 @@ The correspondence is:
 | Jain structure | Computational semantics |
 |---|---|
 | *dravya* | flow-persistent computational continuant |
-| *guṇa* | preserved invariant/interface |
-| *paryāya* | current computational mode |
-| *utpāda* | construction of a new mode |
+| *gua* | preserved invariant/interface |
+| *paryya* | current computational mode |
+| *utpda* | construction of a new mode |
 | *vyaya* | cessation of the prior mode |
 | *dhrauvya* | identity preserved through transformation |
-| *anekānta* | irreducibility to one representation or projection |
+| *aneknta* | irreducibility to one representation or projection |
 | *naya* | explicit partial view/interface |
-| *syāt* | assertion indexed by view, context, or boundary |
-| *ahiṃsā* | non-destructive transformation |
-| *saṃvara* | controlled boundary preventing invalid ingress |
-| *nirjarā* | removal of accumulated obstructive state |
-| *mokṣa* | complete removal of extrinsic binding without destruction of identity |
+| *syt* | assertion indexed by view, context, or boundary |
+| *ahis* | non-destructive transformation |
+| *savara* | controlled boundary preventing invalid ingress |
+| *nirjar* | removal of accumulated obstructive state |
+| *moka* | complete removal of extrinsic binding without destruction of identity |
 
 Different projections of one object may all be valid:
 
@@ -857,7 +857,7 @@ Composition transports information between projections while retaining the witne
 
 Partiality resides in the view, not as an assumed defect in the underlying object.
 
-This is the computational reading of anekānta–naya–syāt:
+This is the computational reading of aneknta�naya�syt:
 
 ```math
 \boxed{
@@ -869,7 +869,7 @@ This is the computational reading of anekānta–naya–syāt:
 }
 ```
 
-The corresponding safety condition is ahiṃsā.
+The corresponding safety condition is ahis.
 
 A transformation does not obtain a new state by silently destroying distinctions required to reconstruct the old one.
 
@@ -1380,9 +1380,9 @@ A boundary may encode type compatibility, authorization, privacy, reversibility,
 
 The boundary is part of the type of interaction.
 
-## 33. Ahiṃsā as a computational invariant
+## 33. Ahis as a computational invariant
 
-The computational form of ahiṃsā is non-destructive transformation.
+The computational form of ahis is non-destructive transformation.
 
 A transformation must not silently erase a distinction whose preservation belongs to the contract.
 
@@ -1412,9 +1412,9 @@ Silent destruction is excluded.
 
 The machine therefore distinguishes transformation from obliteration.
 
-Ahiṃsā is encoded as preservation discipline.
+Ahis is encoded as preservation discipline.
 
-## 34. Anekānta as representation semantics
+## 34. Aneknta as representation semantics
 
 A computational object may support many valid representations:
 
@@ -1457,7 +1457,7 @@ The view index is part of the proposition.
 
 This is the executable form of many-sidedness.
 
-## 35. Syādvāda as indexed computation
+## 35. Sydvda as indexed computation
 
 A proposition is not accepted as a context-free scalar bit when its truth depends on a view.
 
@@ -1469,7 +1469,7 @@ Instead:
 
 binds the relevant index structure.
 
-The computational analogue of syāt is therefore:
+The computational analogue of syt is therefore:
 
 ```math
 \boxed{\text{assert under explicit index}}
@@ -1481,11 +1481,11 @@ Transport then determines whether the proposition survives that change.
 
 Truth conditions become compositional objects rather than hidden assumptions.
 
-## 36. Saṃvara as ingress control
+## 36. Savara as ingress control
 
 A distributed system receives potentially unbounded external influence.
 
-Saṃvara corresponds to closure of inadmissible ingress.
+Savara corresponds to closure of inadmissible ingress.
 
 Given an incoming transformation
 
@@ -1501,11 +1501,11 @@ The system therefore distinguishes received from admitted.
 
 Ingress control is semantic, not merely network-level.
 
-## 37. Nirjarā as removal of obstructive accumulated state
+## 37. Nirjar as removal of obstructive accumulated state
 
 Historical state may remain valid yet become operationally obstructive.
 
-Nirjarā corresponds to explicit shedding of accumulated state whose continued retention is no longer required by the active invariant.
+Nirjar corresponds to explicit shedding of accumulated state whose continued retention is no longer required by the active invariant.
 
 This includes garbage collection, proof-normalization, cache elimination, dead-code elimination, history compaction, and removal of superseded obligations.
 
@@ -1513,13 +1513,13 @@ The operation is admissible only when required reconstructibility is preserved o
 
 State reduction is itself witnessed transformation.
 
-## 38. Mokṣa as complete extrinsic decoupling
+## 38. Moka as complete extrinsic decoupling
 
 A computational object may carry extrinsic bindings: location, owner, server, schema, implementation, authority, or transient dependency.
 
 A fully portable object is one whose identity and semantics no longer depend on those accidental bindings.
 
-The computational analogue of mokṣa is therefore complete removal of extrinsic dependency without destruction of intrinsic identity.
+The computational analogue of moka is therefore complete removal of extrinsic dependency without destruction of intrinsic identity.
 
 ```math
 \boxed{
@@ -1537,7 +1537,7 @@ A specification normally exists separately from the artifact it governs.
 
 Here the construction can be its own certificate when correct execution necessarily produces a measurable invariant.
 
-The Śulba geometric tradition provides a physical form of this pattern.
+The ulba geometric tradition provides a physical form of this pattern.
 
 The construction instruction and the derivation are one operation.
 
@@ -1645,7 +1645,7 @@ A durable knowledge system needs:
 - error detection by disagreement,
 - independence from a unique master copy.
 
-The ghana-pāṭha and related recitational permutations instantiate this structure in human memory.
+The ghana-pha and related recitational permutations instantiate this structure in human memory.
 
 Redundant transformations of the same source permit defect localization by disagreement among frames.
 

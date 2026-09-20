@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- WindowShiftResidual — on a finite window, net displacement descends and
+-- WindowShiftResidual � on a finite window, net displacement descends and
 -- the boundary interaction history does not; for a fixed word the
 -- residual lives only within one shift of the edges.
 --
--- WHAT THIS IS.  On the whole line the shifts form a group: U₋ₐUₐ = UₐU₋ₐ
+-- WHAT THIS IS.  On the whole line the shifts form a group: U��U� = U�U��
 -- = id.  On a window [0, t) they are truncated, and the two words
 -- "shift right then left" and "shift left then right" have the same net
 -- displacement, zero, but act differently: one keeps what did not fall
 -- off the right edge, the other what did not fall off the left edge.
 --
---   §1  the closed forms:  (S⃰ S f)(x) = f x if x + a < t, else 0;
---                          (S S⃰ f)(x) = f x if a ≤ x < t, else 0.
---   §2  INTERIOR AGREEMENT: for a ≤ x and x + a < t the two agree.  The
---       residual is supported in [0, a) ∪ [t − a, t): for a fixed word it
+--   §1  the closed forms:  (S� S f)(x) = f x if x + a < t, else 0;
+--                          (S S� f)(x) = f x if a � x < t, else 0.
+--   §2  INTERIOR AGREEMENT: for a � x and x + a < t the two agree.  The
+--       residual is supported in [0, a) � [t − a, t): for a fixed word it
 --       retreats to the edges as the window grows.
 --   §3  THE DESCENT OBSTRUCTION: the reading "net displacement" identifies
 --       the two words (both 0) while the operator reading separates them
---       at x = 0 on the delta function, for any 1 ≤ a with a < t — so the
+--       at x = 0 on the delta function, for any 1 � a with a < t � so the
 --       window action does not factor through displacement
 --       (DescentObstructionUnified.factorObstruction).
 --
@@ -26,10 +26,10 @@
 -- Weil formula introduces shifts a = log n up to the window size, so fresh
 -- words always live at boundary scale; this is the exact-layer reason
 -- bulk convergence of finite operators is not spectral convergence.
--- That reading is not proved here; §§1–3 are.
+-- That reading is not proved here; §§1�3 are.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Functions ℕ → ℤ read on a window, two
--- truncated shifts, pointwise identities by case analysis on ℕ's order.
+-- SYT � THE CLAIM, EXACTLY.  Functions � � � read on a window, two
+-- truncated shifts, pointwise identities by case analysis on �'s order.
 ------------------------------------------------------------------------
 
 module WindowShiftResidual_NetDisplacementDescendsAndTheBoundaryInteractionHistoryDoesNotAndForAFixedWordItRetreatsToTheEdges where
@@ -93,7 +93,7 @@ private
     ... | eq e = subst (a ≤_) (sym e) ≤-refl
     ... | gt g = <-weaken g
 
--- S⃰ S f (x) = f x when x + a < t, else 0
+-- S� S f (x) = f x when x + a < t, else 0
 S⃰S : (t a : ℕ) (f : Signal) (x : ℕ)
     → S⃰ t a (S a f) x ≡ (win t (λ y → f (y ∸ a)) (x + a))
 S⃰S t a f x with lt? (x + a) t
@@ -102,7 +102,7 @@ S⃰S t a f x with lt? (x + a) t
 ...   | yes h = Empty.rec (¬x+a<a x a h)
 ...   | no _  = refl
 
--- S S⃰ f (x) = f x when a ≤ x < t, else 0
+-- S S� f (x) = f x when a � x < t, else 0
 SS⃰ : (t a : ℕ) (f : Signal) (x : ℕ)
     → (S a (S⃰ t a f) x ≡ win t f x) ⊎ ((x < a) × (S a (S⃰ t a f) x ≡ pos 0))
 SS⃰ t a f x with lt? x a
@@ -141,7 +141,7 @@ displacement : Word → ℤ
 displacement right-then-left = pos 0
 displacement left-then-right = pos 0
 
--- the fine reading: the operator on the window, read at x = 0 on δ₀
+-- the fine reading: the operator on the window, read at x = 0 on δ�
 δ₀ : Signal
 δ₀ zero    = pos 1
 δ₀ (suc _) = pos 0
@@ -153,7 +153,7 @@ act t a left-then-right = λ f → S a (S⃰ t a f)
 read0 : ℕ → ℕ → Word → ℤ
 read0 t a w = act t a w δ₀ zero
 
--- for 1 ≤ a < t: right-then-left keeps δ₀(0) = 1, left-then-right kills it
+-- for 1 � a < t: right-then-left keeps δ�(0) = 1, left-then-right kills it
 read0-rtl : (t a : ℕ) → suc a < t → read0 t (suc a) right-then-left ≡ pos 1
 read0-rtl t a a<t with lt? (zero + suc a) t
 ... | no  m = Empty.rec (m a<t)
@@ -171,7 +171,7 @@ private
   pos1≢pos0 p = snotz (injPos p)
     where open import Cubical.Data.Int using (injPos)
 
--- THE OBSTRUCTION: for every window t > a ≥ 1, the operator reading does
+-- THE OBSTRUCTION: for every window t > a � 1, the operator reading does
 -- not factor through net displacement.
 window-action-not-through-displacement :
   (t a : ℕ) → suc a < t → ¬ (FactorsThrough displacement (read0 t (suc a)))

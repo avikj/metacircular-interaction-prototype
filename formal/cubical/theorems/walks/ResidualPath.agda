@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- Γ↝ IS A SEARCH, NOT AN ORACLE
+-- Γ� IS A SEARCH, NOT AN ORACLE
 --
 -- `Residual` proves
 --
---   Γ↝-never-worse : Γ↝ wHere ns ≤ wHere
---   Γ↝-sound       : Γ↝ wHere ns < wHere → Σ[ n ∈ Neighbour A ] (work n < wHere)
+--   Γ�-never-worse : Γ� wHere ns � wHere
+--   Γ�-sound       : Γ� wHere ns < wHere � �[ n ∈ Neighbour A ] (work n < wHere)
 --
 -- The second statement is strictly weaker than its own proof.  The proof
 -- walks `ns` and hands back a cell of that list; the TYPE says only that a
@@ -15,27 +15,27 @@
 -- between those two is the whole content of the fifth response.
 --
 -- This module supplies the missing index.  With list membership made
--- explicit, four statements pin Γ↝ down completely:
+-- explicit, four statements pin Γ� down completely:
 --
---   Γ↝-sound-any     the witness is IN the list that was searched;
---   Γ↝-optimal       Γ↝ is a lower bound for every listed neighbour;
---   Γ↝-never-worse   (from Residual) it is a lower bound for staying home;
---   Γ↝-greatest      it is the GREATEST such lower bound;
---   Γ↝-attained      and it is attained -- by home, or by a listed route.
+--   Γ�-sound-any     the witness is IN the list that was searched;
+--   Γ�-optimal       Γ� is a lower bound for every listed neighbour;
+--   Γ�-never-worse   (from Residual) it is a lower bound for staying home;
+--   Γ�-greatest      it is the GREATEST such lower bound;
+--   Γ�-attained      and it is attained -- by home, or by a listed route.
 --
--- Together: Γ↝ wHere ns is the minimum of {wHere} ∪ {route n | n ∈ ns},
+-- Together: Γ� wHere ns is the minimum of {wHere} � {route n | n ∈ ns},
 -- certified as a minimum, not merely as some small number.
 --
 -- RELATION TO THE DSO LANE (stated because it is a rediscovery, not a
--- discovery).  `_⊓_` of `Residual` is, symbol for symbol, `min₂` of
--- `DSOBellmanFinite`, and it is the ℕ-fibre of `minC` of
--- `DSOMinPlusFinite` restricted along `fin`.  `Γ↝` is that
+-- discovery).  `_⊓_` of `Residual` is, symbol for symbol, `min�` of
+-- `DSOBellmanFinite`, and it is the �-fibre of `minC` of
+-- `DSOMinPlusFinite` restricted along `fin`.  `Γ�` is that
 -- lane's `foldMin` with `List (Neighbour A)` in place of the finite index
 -- `Ix n`, and with `wHere` -- the cost of staying home -- in place of the
 -- unit `∞`; `route n = detour (out n) (back n) (work n)` is a `⊗`-product
--- of edge weights, so `Γ↝` is a one-step `bellman` over the neighbour
+-- of edge weights, so `Γ�` is a one-step `bellman` over the neighbour
 -- relation.  The DSO lane got there first and got further on the algebra
--- (associativity, `⊗`-distributivity, the `⋆`-monoid, `bellman-compose`);
+-- (associativity, `⊗`-distributivity, the `�`-monoid, `bellman-compose`);
 -- what is new here is only the direction this module adds, namely that the
 -- fold's value is witnessed by a member of the structure folded over --
 -- which `DSOMinPlusFinite.Argmin` already records for `foldMin`, as a
@@ -66,7 +66,7 @@ private
 -- Cubical v0.7's `Cubical.Data.List` (Base / Properties / Dependent /
 -- FinData) has no `Any` and no `_∈_`, so the predicate is defined here.
 -- The tail constructor is named `later` rather than the customary `there`
--- because `Residual` re-exports the field `there : Neighbour A →
+-- because `Residual` re-exports the field `there : Neighbour A �
 -- Presentation` via `open Neighbour public`.
 
 data Any {A : Type ℓ} (P : A → Type ℓ') : List A → Type (ℓ-max ℓ ℓ') where
@@ -83,8 +83,8 @@ Any-map f (here p) = here (f p)
 Any-map f (later a) = later (Any-map f a)
 
 -- A proof that something in the list satisfies P names the element.
--- The list is matched only through `Any`'s own indices: writing `x ∷ xs`
--- on the left would ask the unifier for injectivity of `_∷_`, which cubical
+-- The list is matched only through `Any`'s own indices: writing `x � xs`
+-- on the left would ask the unifier for injectivity of `_�_`, which cubical
 -- Agda flags as non-computing under transport.
 Any→member : {A : Type ℓ} {P : A → Type ℓ'} {xs : List A}
            → Any P xs → Σ[ x ∈ A ] ((x ∈ xs) × P x)
@@ -93,10 +93,10 @@ Any→member (later a) with Any→member a
 ... | (y , m , p) = y , later m , p
 
 --------------------------------------------------------------------------
--- 1.  The witness returned by Γ↝-sound lies in the list searched
+-- 1.  The witness returned by Γ�-sound lies in the list searched
 --------------------------------------------------------------------------
 
--- (Γ2′)  Same hypothesis as `Γ↝-sound`, indexed conclusion.
+-- (Γ2�)  Same hypothesis as `Γ�-sound`, indexed conclusion.
 Γ↝-sound-any :
     {A : Presentation} (wHere : Work) (ns : List (Neighbour A))
   → Γ↝ wHere ns < wHere
@@ -108,7 +108,7 @@ Any→member (later a) with Any→member a
               (subst (_< wHere) p lt))
 ... | inr p = later (Γ↝-sound-any wHere ns (subst (_< wHere) p lt))
 
--- The shape asked for in `Γ↝-sound`, with the membership certificate the
+-- The shape asked for in `Γ�-sound`, with the membership certificate the
 -- original proof always had and never published.
 Γ↝-sound-member :
     {A : Presentation} (wHere : Work) (ns : List (Neighbour A))
@@ -117,7 +117,7 @@ Any→member (later a) with Any→member a
 Γ↝-sound-member wHere ns lt = Any→member (Γ↝-sound-any wHere ns lt)
 
 --------------------------------------------------------------------------
--- 2.  Γ↝ is a lower bound for every listed neighbour
+-- 2.  Γ� is a lower bound for every listed neighbour
 --------------------------------------------------------------------------
 
 -- (Γ3)  Not merely small: below every route on offer.
@@ -133,8 +133,8 @@ Any→member (later a) with Any→member a
           (Γ↝-optimal wHere ms n a)
 
 -- (Γ4)  And the greatest lower bound: anything below home and below every
--- listed route is below Γ↝.  With Γ↝-never-worse and Γ↝-optimal this is the
--- universal property, so `Γ↝ wHere ns` IS min ({wHere} ∪ route ⟨ns⟩).
+-- listed route is below Γ�.  With Γ�-never-worse and Γ�-optimal this is the
+-- universal property, so `Γ� wHere ns` IS min ({wHere} � route ⟨ns⟩).
 Γ↝-greatest :
     {A : Presentation} (wHere : Work) (ns : List (Neighbour A)) (c : Cost)
   → c ≤ wHere
@@ -176,15 +176,15 @@ Any→member (later a) with Any→member a
 --------------------------------------------------------------------------
 
 -- Cost: one datatype and four short inductions, none of which needed a new
--- idea -- every case is the same `⊓-split` case split `Γ↝-sound` already
+-- idea -- every case is the same `⊓-split` case split `Γ�-sound` already
 -- performed.  That is the point.  The original proof was already this
 -- strong; only its type was weak, and a weak type on a strong proof is the
 -- exact failure mode the repository protocol is written against, one level
 -- up from a measured constant standing in for a derived one.
 --
--- Buys: `Γ↝-sound-member` is falsifiable by an implementation that returns
--- a neighbour it did not look at, and `Γ↝-optimal` is falsifiable by one
--- that stops early.  `Γ↝-sound` alone was falsifiable by neither.
+-- Buys: `Γ�-sound-member` is falsifiable by an implementation that returns
+-- a neighbour it did not look at, and `Γ�-optimal` is falsifiable by one
+-- that stops early.  `Γ�-sound` alone was falsifiable by neither.
 
 -- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
 -- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in

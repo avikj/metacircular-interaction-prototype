@@ -8,7 +8,7 @@
 -- of one and fails of the other, and concluded:
 --
 --   "MINIMALITY IS NOT A PROPERTY OF THE RATE, only of the PAIR.  That
---    sharpens the standing open item about âŠ‘ being a preorder â€” it is
+--    sharpens the standing open item about âŠ being a preorder â” it is
 --    not merely untidy, it separates statements that are true of one
 --    representative and false of another."
 --
@@ -16,36 +16,36 @@
 -- SOMETHING fails to descend, not WHICH things descend.  Both sides are
 -- here.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- FIRST, A CORRECTION TO MY OWN EARLIER CLAIM.
 --
--- `TheThresholdOrderIsTotalAndTheClaimIsAntitone` proved `âŠ‘-refl` and
--- `âŠ‘-total` and every note since has called âŠ‘ a "total preorder".
+-- `TheThresholdOrderIsTotalAndTheClaimIsAntitone` proved `âŠ-refl` and
+-- `âŠ-total` and every note since has called âŠ a "total preorder".
 -- TRANSITIVITY WAS NEVER PROVED.  Reflexive + total is not a preorder,
--- and the word was doing work it had not earned â€” the equivalence
--- below is not even an equivalence relation without it.  `âŠ‘-trans` is
--- proved here, by the same multiplyâ€“rearrangeâ€“cancel that `âŠ‘`'s other
+-- and the word was doing work it had not earned â” the equivalence
+-- below is not even an equivalence relation without it.  `âŠ-trans` is
+-- proved here, by the same multiplyâ“rearrangeâ“cancel that `âŠ`'s other
 -- theorems use, and the word is now earned.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   âŠ‘-trans            the missing preorder law
---   _â‰ˆ_                same rate = mutual âŠ‘; an equivalence relation
+--   âŠ-trans            the missing preorder law
+--   _â‰ˆ_                same rate = mutual âŠ; an equivalence relation
 --   atLeastDescends    `AtLeast` is a property of the RATE
---   aboveDescends      so is `Above` â€” both directions, both families
+--   aboveDescends      so is `Above` â” both directions, both families
 --   oneHalfIsTwoQuarters   (1,1) â‰ˆ (2,3), checked
---   minimalDoesNotDescend  and `den a â‰¤ length bs` is NOT, at that very
+--   minimalDoesNotDescend  and `den a â‰ length bs` is NOT, at that very
 --                          pair
 --
 -- So the boundary is sharp and sits where the DENOMINATOR appears
 -- alone.  `AtLeast` and `Above` mention p and suc q only inside a
--- product `p Â· length â‰¤ suc q Â· count`, which is exactly the shape âŠ‘
+-- product `p Â length â‰ suc q Â count`, which is exactly the shape âŠ
 -- compares; minimality mentions `suc q` on its own, and `suc q` is not
 -- a function of the rate.  That is the whole criterion, and it explains
 -- rather than merely records the earlier separation.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -173,12 +173,12 @@ minimalDoesNotDescend =
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  "Density of âŠ‘ remains untouched" is the last line of the
+-- line above.  "Density of âŠ remains untouched" is the last line of the
 -- NOT-CLAIMED section here, and it was the last line of two earlier
 -- modules on this line as well.  Touched now, in
 -- `TheThresholdChainIsDenseAndTheMediantWitnessesIt`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
+-- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
 --
 -- The chain is DENSE, and the witness is not found by a search: it is
 -- the MEDIANT.  Between p/(suc q) and p'/(suc q') lies
@@ -186,32 +186,32 @@ minimalDoesNotDescend =
 --   (p + p') / (suc q + suc q')
 --
 -- and both halves of the betweenness reduce, after distributing, to the
--- SAME strict inequality that was assumed â€” one is a left additive
+-- SAME strict inequality that was assumed â” one is a left additive
 -- shift of it and the other a right additive shift.  No case analysis.
 -- The denominator needs no arithmetic either: `suc q + suc q'` IS
 -- `suc (q + suc q')`, definitionally, so the mediant is visibly a
 -- threshold pair.
 --
--- `âŠ-gives-âŠ‘` is checked there too, so this is density OF THIS CHAIN
+-- `âŠ-gives-âŠ` is checked there too, so this is density OF THIS CHAIN
 -- and not of a strict relation introduced for the occasion.
 --
--- NO NOVELTY: the mediant's betweenness is classical â€” the Farey
--- dissection (Haros 1802; Farey 1816) and the Sternâ€“Brocot tree (Stern
+-- NO NOVELTY: the mediant's betweenness is classical â” the Farey
+-- dissection (Haros 1802; Farey 1816) and the Sternâ“Brocot tree (Stern
 -- 1858; Brocot 1861).
 --
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  Â§5's NOT-CLAIMED says "no quotient TYPE is formed â€” `â‰ˆ`
+-- line above.  Â§5's NOT-CLAIMED says "no quotient TYPE is formed â” `â‰ˆ`
 -- is a relation, with no set-quotient, no truncation and no
 -- univalence".  The mediant module ends at the same wall.  When one
 -- limitation ends two results it is the object, so it is built now:
 -- `TheRateQuotientExistsAndMinimalityCannotLiveOnIt`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
+-- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
 --
---   Rate = (â„• Ã— â„•) / _â‰ˆ_        the set-quotient
+--   Rate = (â• — â•) / _â‰ˆ_        the set-quotient
 --   AtLeastOnRate / AboveOnRate both predicates LIFT, by
 --                               `SetQuotients.rec`; Â§3 above is exactly
 --                               the respectfulness the lift needs
@@ -224,12 +224,12 @@ minimalDoesNotDescend =
 -- minimality holds of one representative and fails of another, which
 -- refutes ONE definition.  With the quotient, `[ oneHalf ] â‰¡
 -- [ twoQuarters ]` is a PATH, `cong` transports along it, and no
--- definition whatsoever can agree with `Minimal` on both â€” an
+-- definition whatsoever can agree with `Minimal` on both â” an
 -- impossibility rather than an absence.
 --
 -- The univalence is in the lift's target: `hProp` is a set
--- (`isSetHProp`), and `â‡”toPath` turns the two-way implication Â§3 proves
--- into a PATH.  `AtLeast` is a proposition because cubical's `â‰¤` is, so
+-- (`isSetHProp`), and `â”toPath` turns the two-way implication Â§3 proves
+-- into a PATH.  `AtLeast` is a proposition because cubical's `â‰` is, so
 -- nothing needed truncating.
 --
 ------------------------------------------------------------------------

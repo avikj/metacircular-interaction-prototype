@@ -1,42 +1,42 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§ó‡•Å‡§π‡•ç‡§Ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø ‚Äî the concealed loss: it can hide in the loops, and the
+-- ‡ó‡‡‡‡Ø-‡®‡æ‡‡‡‡ø ‚î the concealed loss: it can hide in the loops, and the
 -- set-level census cannot see it.
 --
 -- THE LIMIT OF EVERYTHING LANDED TODAY, exhibited from inside cubespace.
--- `SakalaVikalaDesa`'s trichotomy ‚Äî and my own `‡§ó‡§£‡§®‡§æ-‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä` ‚Äî grade a
--- fibre by its POINTS: empty (‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç), one up to path (‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂), or two
--- exhibitably distinct (‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂).  In cubespace there is a fourth
+-- `WholePartialDesa`'s trichotomy ‚î and my own `‡ó‡‡®‡æ-‡‡‡‡‡‡ô‡‡ó‡` ‚î grade a
+-- fibre by its POINTS: empty (‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡), one up to path (‡‡ï‡≤‡æ‡¶‡‡), or two
+-- exhibitably distinct (‡µ‡ø‡ï‡≤‡æ‡¶‡‡).  In cubespace there is a fourth
 -- condition of a fibre, and it defeats all three detectors at once:
 --
---     the fibre of  ‡§¨‡§ø‡§®‡•ç‡§¶‡•Å : S¬π ‚Üí Unit  at tt  is S¬π itself, and S¬π is
+--     the fibre of  ‡‡ø‡®‡‡¶‡ : S¬ ‚í Unit  at tt  is S¬ itself, and S¬ is
 --
---       inhabited                     ‚Äî ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç cannot fire;
+--       inhabited                     ‚î ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ cannot fire;
 --       merely connected: any two
---       points are ‚à•¬∑‚à•‚ÇÅ-equal          ‚Äî ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ cannot fire, because no
+--       points are ‚à¬‚à‚-equal          ‚î ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ cannot fire, because no
 --                                        exhibitably distinct pair EXISTS;
 --       yet not a proposition, hence
---       not contractible               ‚Äî ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ cannot fire either.
+--       not contractible               ‚î ‡‡ï‡≤‡æ‡¶‡‡ cannot fire either.
 --
 -- The crowding is real and it is INVISIBLE AT POINTS: it lives one
--- dimension up, in the loops, and it is not "some loss" ‚Äî it is exactly
--- ‚Ñ§ (`winding`, Œ©S¬πIso‚Ñ§), the same charge `Durnaya_‚Ä¶` identified as what
--- every set-valued carrier-observable destroys.  The concealed ‡§®‡§æ‡§∏‡•ç‡§§‡§ø of
+-- dimension up, in the loops, and it is not "some loss" ‚î it is exactly
+-- ‚ (`winding`, Œ©S¬Iso‚), the same charge `Durnaya_‚¶` identified as what
+-- every set-valued carrier-observable destroys.  The concealed ‡®‡æ‡‡‡‡ø of
 -- this fibre IS the gauge charge.
 --
 -- WHAT THIS MEANS FOR THE CENSUS, said exactly.  The trichotomy's
 -- exhaustiveness was a SET-LEVEL theorem: for fibres that are sets, the
 -- three verdicts cover.  For higher fibres the sevenfold does not
--- disappear ‚Äî it RESTRATIFIES: at each h-level the same three seeds
--- reappear (here: œÄ‚ÇÄ-‡§∏‡§ï‡§≤, œÄ‚ÇÅ-‡§¨‡§π‡•Å with charge ‚Ñ§).  SyƒÅdvƒÅda is graded by
+-- disappear ‚î it RESTRATIFIES: at each h-level the same three seeds
+-- reappear (here: œ‚-‡‡ï‡≤, œ‚-‡‡‡ with charge ‚).  Sydvda is graded by
 -- dimension; a census that stops at points is a durnaya one storey up,
 -- and this module is its checked counterexample.
 --
 -- No claim that any Jain author graded predication by h-level.  The
 -- claim is that their refusal to let one standpoint exhaust the object
 -- is, in cubespace, a THEOREM about which fibres a pointwise census can
--- classify.  ‡§ó‡•Å‡§π‡•ç‡§Ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø is built here, 2026-08-23.
+-- classify.  ‡ó‡‡‡‡Ø-‡®‡æ‡‡‡‡ø is built here, 2026-08-23.
 ------------------------------------------------------------------------
 
 module GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt where
@@ -56,7 +56,7 @@ open import Cubical.HITs.S1
   using (S¬π ; base ; loop ; Œ©S¬π ; winding ; intLoop ; winding‚Ñ§Loop ; isConnectedS¬π)
 
 ------------------------------------------------------------------------
--- ‡•ß ¬∑ the map, and its fibre identified: ‡§∂‡•á‡§∑ ‡§¨‡§ø‡§®‡•ç‡§¶‡•Å tt ‚âÉ S¬π.
+-- ‡ß ¬ the map, and its fibre identified: ‡‡‡ ‡‡ø‡®‡‡¶‡ tt ‚â S¬.
 ------------------------------------------------------------------------
 
 ‡§¨‡§ø‡§®‡•ç‡§¶‡•Å : S¬π ‚Üí Unit
@@ -71,14 +71,14 @@ open import Cubical.HITs.S1
                          (Œª (s , p) i ‚Üí s , isSetUnit tt tt refl p i))
 
 ------------------------------------------------------------------------
--- ‡•® ¬∑ ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç cannot fire: the fibre is inhabited.
+-- ‡® ¬ ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ cannot fire: the fibre is inhabited.
 ------------------------------------------------------------------------
 
 ‡§∏‡§§‡•ç‡§§‡•ç‡§µ‡§Æ‡•ç : ‡§∂‡•á‡§∑ tt
 ‡§∏‡§§‡•ç‡§§‡•ç‡§µ‡§Æ‡•ç = base , refl
 
 ------------------------------------------------------------------------
--- ‡•© ¬∑ ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ cannot fire: any two points of the fibre are MERELY equal ‚Äî
+-- ‡© ¬ ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ cannot fire: any two points of the fibre are MERELY equal ‚î
 -- no exhibitably distinct pair exists to name.
 ------------------------------------------------------------------------
 
@@ -95,10 +95,10 @@ open import Cubical.HITs.S1
         (isConnectedS¬π x)
 
 ------------------------------------------------------------------------
--- ‡•™ ¬∑ ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ cannot fire either: the fibre is NOT a proposition.  If every
--- two points were (exhibitably) equal, transporting along ‡§∂‡•á‡§∑‚âÉS¬π would make
--- S¬π a proposition, forcing loop ‚â° refl ‚Äî and winding refutes that with the
--- charge: 1 ‚â¢ 0 in ‚Ñ§.
+-- ‡ ¬ ‡‡ï‡≤‡æ‡¶‡‡ cannot fire either: the fibre is NOT a proposition.  If every
+-- two points were (exhibitably) equal, transporting along ‡‡‡‚âS¬ would make
+-- S¬ a proposition, forcing loop ‚â° refl ‚î and winding refutes that with the
+-- charge: 1 ‚â 0 in ‚.
 ------------------------------------------------------------------------
 
 ‡§è‡§ï‚â¢‡§∂‡•Ç‡§®‡•ç‡§Ø : ¬¨ (pos (suc zero) ‚â° pos zero)
@@ -119,7 +119,7 @@ open import Cubical.HITs.S1
 ‡§®-‡§™‡•ç‡§∞‡•ã‡§™‡•ç : ¬¨ ((x y : ‡§∂‡•á‡§∑ tt) ‚Üí x ‚â° y)
 ‡§®-‡§™‡•ç‡§∞‡•ã‡§™‡•ç h = ‡§µ‡§ï‡•ç‡§∞-‡§Ö‡§®‡§ø‡§µ‡§æ‡§∞‡•ç‡§Ø‡§Æ‡•ç loop‚â°refl
   where
-    -- a prop that is inhabited is contractible; contract S¬π through ‡§∂‡•á‡§∑‚âÉS¬π
+    -- a prop that is inhabited is contractible; contract S¬ through ‡‡‡‚âS¬
     prS¬π : (x y : S¬π) ‚Üí x ‚â° y
     prS¬π x y i = fst (h (x , refl) (y , refl) i)
     loop‚â°refl : loop ‚â° refl
@@ -131,10 +131,10 @@ open import Cubical.HITs.S1
             base
 
 ------------------------------------------------------------------------
--- ‡•´ ¬∑ the concealed charge is exactly ‚Ñ§: what the pointwise census cannot
--- see is not "some crowding" but the winding ‚Äî identified, not bounded.
--- (The library's Œ©S¬πIso‚Ñ§ is the identification; re-exported here as the
--- fibre's own loop charge through ‡§∂‡•á‡§∑‚âÉS¬π's base point.)
+-- ‡ ¬ the concealed charge is exactly ‚: what the pointwise census cannot
+-- see is not "some crowding" but the winding ‚î identified, not bounded.
+-- (The library's Œ©S¬Iso‚ is the identification; re-exported here as the
+-- fibre's own loop charge through ‡‡‡‚âS¬'s base point.)
 ------------------------------------------------------------------------
 
 ‡§ó‡•Å‡§π‡•ç‡§Ø-‡§≠‡§æ‡§∞‡§É : (‡§∏‡§§‡•ç‡§§‡•ç‡§µ‡§Æ‡•ç ‚â° ‡§∏‡§§‡•ç‡§§‡•ç‡§µ‡§Æ‡•ç) ‚Üí ‚Ñ§
@@ -147,7 +147,7 @@ open import Cubical.HITs.S1
                   ‚àô cong winding (sym (rUnit loop)) ‚àô q)
 
 ------------------------------------------------------------------------
--- ‡•¨ ¬∑ ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É.  This does not overturn the set-level census ‚Äî for fibres
+-- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  This does not overturn the set-level census ‚î for fibres
 -- that are sets its trichotomy is exhaustive and everything landed today
 -- stands.  What it proves is the census's own SCOPE: h-level is a
 -- hypothesis, not a formality, and above it the seeds restratify.  The

@@ -1,50 +1,50 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É ‚Äî the two walls elide two residues, and the survivors are
+-- ‡¶‡‡µ‡ø-‡≤‡ã‡‡ ‚î the two walls elide two residues, and the survivors are
 -- exactly counted: an equivalence, not a cardinality estimate.
 --
 -- THE LOCAL FACTOR OF THE MEAN FIELD, AS A TERM.  The centered two-wall
--- field (‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡§Æ‡•ç: ‡§ï‡•ç‡§∑‡•á‡§§‡•ç‡§∞‡§Æ‡•ç p a y = y ‚â¢ ¬±a) removes, at each prime chart,
+-- field (‡ï‡‡®‡‡¶‡‡∞‡Æ‡: ‡ï‡‡‡‡‡‡∞‡Æ‡ p a y = y ‚â ¬a) removes, at each prime chart,
 -- either two residues (walls distinct) or one (walls merged, exactly
--- when p ‚à£ 2a ‚Äî ‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡§Æ‡•ç's ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡§ô‡•ç‡§ó‡§Æ/‡§≠‡•á‡§¶ iff).  ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§ï‡•ã‡§£'s Lemma 2‚Äì3
--- prove in prose that each chart keeps p ‚àí œâ_p ‚â• 1 residues and the
--- period keeps ‚àè(p ‚àí œâ_p).  This module carries the chart-level count
+-- when p ‚à 2a ‚î ‡ï‡‡®‡‡¶‡‡∞‡Æ‡'s ‡‡ø‡‡‡‡ø-‡‡ô‡‡ó‡Æ/‡‡‡¶ iff).  ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡'s Lemma 2‚ì3
+-- prove in prose that each chart keeps p ‚àí œâ_p ‚â 1 residues and the
+-- period keeps ‚à(p ‚àí œâ_p).  This module carries the chart-level count
 -- as an EQUIVALENCE on the abstract carrier:
 --
---   ‡§è‡§ï-‡§≤‡•ã‡§™‡§É  :  (Œ£[ j ‚àà Fin (suc m) ] ¬¨ i ‚â° j)              ‚âÉ Fin m
---   ‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É :  (Œ£[ y ‚àà Fin (2+m) ] (¬¨ a ‚â° y) √ó (¬¨ b ‚â° y))  ‚âÉ Fin m
---                                                  (given ¬¨ a ‚â° b)
+--   ‡‡ï-‡≤‡ã‡‡  :  (Œ[ j ‚àà Fin (suc m) ] ¬ i ‚â° j)              ‚â Fin m
+--   ‡¶‡‡µ‡ø-‡≤‡ã‡‡ :  (Œ[ y ‚àà Fin (2+m) ] (¬ a ‚â° y) ó (¬ b ‚â° y))  ‚â Fin m
+--                                                  (given ¬ a ‚â° b)
 --
--- ‚Äî one wall leaves p‚àí1, two distinct walls leave p‚àí2, and "leave" is
+-- ‚î one wall leaves p‚àí1, two distinct walls leave p‚àí2, and "leave" is
 -- an identification of the survivor set with a standard type, which is
--- what this corpus means by a receipt (‡§∏‡•Ç‡§§‡•ç‡§∞ ‡•Æ: ‡§Ö‡§≠‡§ø‡§ú‡•ç‡§û‡§æ‡§®‡§Ç ‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç, ‡§®
--- ‡§™‡§∞‡§ø‡§Æ‡§æ‡§£‡§Æ‡•ç).  The numerators of the singular series' local factors
+-- what this corpus means by a receipt (‡‡‡‡‡∞ ‡Æ: ‡‡‡ø‡‡‡û‡æ‡®‡ ‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡Æ‡, ‡®
+-- ‡‡∞‡ø‡Æ‡æ‡‡Æ‡).  The numerators of the singular series' local factors
 -- (1 ‚àí œâ_p/p) are the sizes of these types; here they are the types.
 --
--- ON THE NAME.  ‡§≤‡•ã‡§™‡§É ‚Äî PƒÅ·πáini, A·π£·π≠ƒÅdhyƒÅyƒ´ 1.1.60, adar≈õana·πÉ lopa·∏•
+-- ON THE NAME.  ‡≤‡ã‡‡ ‚î Pini, Adhyy 1.1.60, adarana lopa
 -- (~500 BCE): elision is non-appearance; and 1.1.62, pratyayalope
--- pratyayalak·π£a·πáam: the operations conditioned by the elided element
--- STILL APPLY ‚Äî deletion with an operative receipt.  That is exactly
+-- pratyayalakaam: the operations conditioned by the elided element
+-- STILL APPLY ‚î deletion with an operative receipt.  That is exactly
 -- what an equivalence-counted removal is: the residue is gone from the
 -- carrier and its accounting continues to act (the equivalence carries
--- every survivor to its standard address).  No claim that PƒÅ·πáini counted
+-- every survivor to its standard address).  No claim that Pini counted
 -- residue systems; the word is used for its precise content, as the
--- README's movement 9 already reads it.  ‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™ built here, 2026-08-23.
+-- README's movement 9 already reads it.  ‡¶‡‡µ‡ø-‡≤‡ã‡ built here, 2026-08-23.
 --
--- THE INSTRUMENT is an involution, not an induction: ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É exchanges
+-- THE INSTRUMENT is an involution, not an induction: ‡µ‡ø‡®‡ø‡Æ‡Ø‡ exchanges
 -- the wall with fzero (its own inverse, three decidable cases), the
--- zero-wall case is a pattern match on the underlying ‚Ñï, and the
+-- zero-wall case is a pattern match on the underlying ‚ï, and the
 -- general case is the zero case conjugated by the exchange.  punchOut
 -- (the library's) is not used: the exchange route needs no separate
 -- section lemma because an involution is its own.
 --
--- ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É, scope.  The walls here are abstract distinct points of
--- Fin p ‚Äî that the arithmetic walls ¬±a (mod p) are distinct exactly
--- when p ‚à§ 2a is ‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡§Æ‡•ç's theorem on the ‚Ñ§ side; the mod-p bridge
--- (‚Ñ§ ‚Üí Fin p respecting the divisibility relations) is named, not
--- built.  The product over charts (the period count ‚àè(p ‚àí œâ_p), the
--- CRT tensor of ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§ï‡•ã‡§£ Lemma 3) is likewise named, not built: this
+-- ‡¶‡ã‡‡≤‡‡ñ‡, scope.  The walls here are abstract distinct points of
+-- Fin p ‚î that the arithmetic walls ¬a (mod p) are distinct exactly
+-- when p ‚à 2a is ‡ï‡‡®‡‡¶‡‡∞‡Æ‡'s theorem on the ‚ side; the mod-p bridge
+-- (‚ ‚í Fin p respecting the divisibility relations) is named, not
+-- built.  The product over charts (the period count ‚à(p ‚àí œâ_p), the
+-- CRT tensor of ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡ Lemma 3) is likewise named, not built: this
 -- is the chart, not the atlas.
 ------------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ private
     m : ‚Ñï
 
 ------------------------------------------------------------------------
--- ‡•¶ ¬∑ negation respects equivalence (both sides propositions).
+-- ‡¶ ¬ negation respects equivalence (both sides propositions).
 ------------------------------------------------------------------------
 
 ‡§®‡§ø‡§∑‡•á‡§ß-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ : {A B : Type} ‚Üí A ‚âÉ B ‚Üí (¬¨ A) ‚âÉ (¬¨ B)
@@ -82,7 +82,7 @@ private
                   (Œª na ‚Üí isProp¬¨ _ _ na))
 
 ------------------------------------------------------------------------
--- ‡•ß ¬∑ ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É ‚Äî the exchange of a chosen point with fzero.  Its own
+-- ‡ß ¬ ‡µ‡ø‡®‡ø‡Æ‡Ø‡ ‚î the exchange of a chosen point with fzero.  Its own
 -- inverse; the three lemmas are the three decidable cases.
 ------------------------------------------------------------------------
 
@@ -136,7 +136,7 @@ private
   isoToEquiv (iso (‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É i) (‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É i) (‡§µ‡§ø-‡§¶‡•ç‡§µ‡§ø‡§É i) (‡§µ‡§ø-‡§¶‡•ç‡§µ‡§ø‡§É i))
 
 ------------------------------------------------------------------------
--- ‡•® ¬∑ ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§≤‡•ã‡§™‡§É ‚Äî eliding fzero: the base case, by pattern on the
+-- ‡® ¬ ‡‡‡®‡‡Ø-‡≤‡ã‡‡ ‚î eliding fzero: the base case, by pattern on the
 -- underlying number.
 ------------------------------------------------------------------------
 
@@ -159,7 +159,7 @@ private
       Œ£‚â°Prop (Œª j ‚Üí isProp¬¨ (fzero ‚â° j)) (Œ£‚â°Prop (Œª _ ‚Üí isProp‚â§) refl)
 
 ------------------------------------------------------------------------
--- ‡•© ¬∑ ‡§è‡§ï-‡§≤‡•ã‡§™‡§É ‚Äî eliding ANY point: the base case conjugated by the
+-- ‡© ¬ ‡‡ï-‡≤‡ã‡‡ ‚î eliding ANY point: the base case conjugated by the
 -- exchange.  One wall leaves p ‚àí 1 residues, identified.
 ------------------------------------------------------------------------
 
@@ -169,16 +169,16 @@ private
     (Œ£-cong-equiv-snd (Œª j ‚Üí ‡§®‡§ø‡§∑‡•á‡§ß-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ (‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É j)))
     (compEquiv (Œ£-cong-equiv-fst (‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ i)) ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§≤‡•ã‡§™‡§É)
   where
-    -- (i ‚â° j) ‚âÉ (fzero ‚â° ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É i j): exchange both sides, then slide
-    -- the left endpoint along ‡§µ‡§ø-‡§∏‡•ç‡§µ‡§Æ‡•ç.
+    -- (i ‚â° j) ‚â (fzero ‚â° ‡µ‡ø‡®‡ø‡Æ‡Ø‡ i j): exchange both sides, then slide
+    -- the left endpoint along ‡µ‡ø-‡‡‡µ‡Æ‡.
     ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É : (j : Fin (suc m)) ‚Üí (i ‚â° j) ‚âÉ (fzero ‚â° ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É i j)
     ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É j =
       compEquiv (congEquiv (‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ i))
                 (compPathlEquiv (sym (‡§µ‡§ø-‡§∏‡•ç‡§µ‡§Æ‡•ç i)))
 
 ------------------------------------------------------------------------
--- ‡•™ ¬∑ ‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É ‚Äî two distinct walls leave p ‚àí 2 residues, identified.
--- Elide the first wall; the second wall survives it (a ‚â¢ b) and is
+-- ‡ ¬ ‡¶‡‡µ‡ø-‡≤‡ã‡‡ ‚î two distinct walls leave p ‚àí 2 residues, identified.
+-- Elide the first wall; the second wall survives it (a ‚â b) and is
 -- elided from the quotient carrier by the same instrument.
 ------------------------------------------------------------------------
 
@@ -197,7 +197,7 @@ private
     ‡§¨‡§π‡§ø‡§É : Fin (suc m)
     ‡§¨‡§π‡§ø‡§É = equivFun (‡§è‡§ï-‡§≤‡•ã‡§™‡§É a) (b , a‚â¢b)
 
-    -- (b ‚â° y) ‚âÉ (‡§¨‡§π‡§ø‡§É ‚â° image of s): lift to the survivor subtype (the
+    -- (b ‚â° y) ‚â (‡‡‡ø‡ ‚â° image of s): lift to the survivor subtype (the
     -- membership proof is a proposition), then transport along the
     -- first elision.
     ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É : (s : ‡§∂‡§ø‡§∑‡•ç‡§ü‡§Æ‡•ç) ‚Üí (b ‚â° fst s) ‚âÉ (‡§¨‡§π‡§ø‡§É ‚â° equivFun (‡§è‡§ï-‡§≤‡•ã‡§™‡§É a) s)
@@ -206,8 +206,8 @@ private
                 (congEquiv (‡§è‡§ï-‡§≤‡•ã‡§™‡§É a))
 
 ------------------------------------------------------------------------
--- ‡•´ ¬∑ the census, read off: the survivor type of one wall in Fin (p) is
--- Fin (p‚àí1); of two distinct walls, Fin (p‚àí2) ‚Äî ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§ï‡•ã‡§£'s œâ_p
--- dichotomy (= ‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡§Æ‡•ç's p ‚à£ 2a iff) carried as identifications.  The
+-- ‡ ¬ the census, read off: the survivor type of one wall in Fin (p) is
+-- Fin (p‚àí1); of two distinct walls, Fin (p‚àí2) ‚î ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡'s œâ_p
+-- dichotomy (= ‡ï‡‡®‡‡¶‡‡∞‡Æ‡'s p ‚à 2a iff) carried as identifications.  The
 -- singular series' local numerators are these types' names.
 ------------------------------------------------------------------------

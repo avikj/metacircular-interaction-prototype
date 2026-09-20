@@ -8,36 +8,36 @@
 --
 --   "a certificate carrying the reachable law must carry a
 --    reachability-preservation component as well, or it does not
---    survive sequencing.  That is a SIXTH component â€¦ `LCertified` is
+--    survive sequencing.  That is a SIXTH component â¦ `LCertified` is
 --    NOT amended here; extending the record with preservation is the
 --    next cycle's named step."
 --
 -- Taken here, in a new module; `LCertified` is left as it stands.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   RCertified d e     SIX components: boundary semantics, strict cost
 --                      improvement, the migration, the law ON THE
 --                      INVARIANT, PRESERVATION of the invariant,
 --                      provenance
---   composePreserves   preservation composes for nothing â€” one
+--   composePreserves   preservation composes for nothing â” one
 --                      application after another
 --   composeRCertified  and so the whole six-component certificate
 --                      composes
 --   noSelfRCertified   still no certificate from a system to itself
 --   aFullFiveComponentCertificateThatDoesNotPreserveTheInvariant
 --                      an element of the FIVE-component `LCertified`
---                      â€” real cost improvement, real semantics path,
---                      globally lawful migration, provenance â€”
+--                      â” real cost improvement, real semantics path,
+--                      globally lawful migration, provenance â”
 --                      whose migration leaves the invariant
 --   preservationIsNotImpliedByTheOtherFive
 --                      hence the sixth component is independent
 --
 -- **THE COUNT, FINALLY.**  Of the six, four are free (semantics path,
 -- migration, preservation, provenance), one is earned by a theorem
--- proved elsewhere for another purpose (cost, by `âŠ-trans`), and one
--- â€” the law on the invariant â€” composes ONLY BECAUSE the sixth is in
+-- proved elsewhere for another purpose (cost, by `âŠ-trans`), and one
+-- â” the law on the invariant â” composes ONLY BECAUSE the sixth is in
 -- the record.  So preservation is free to carry and is not free to
 -- omit: it costs nothing to compose and it is what makes the fifth
 -- component compose at all.  That is a different kind of component
@@ -48,16 +48,16 @@
 -- not merely "some function fails preservation", which would leave
 -- open that the other five exclude it, but a genuine element of the
 -- earlier record that fails only the new component.  Its observation
--- type is `Unit`, so its migration is globally lawful â€” the strongest
--- form of the fifth component â€” and it still leaves the invariant.
+-- type is `Unit`, so its migration is globally lawful â” the strongest
+-- form of the fifth component â” and it still leaves the invariant.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NO NOVELTY.  This is the standard requirement that a refinement
 -- re-establish the invariant at the interface; nothing here improves
 -- on the refinement calculi.  The content is the count over this
 -- corpus's own certificate.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

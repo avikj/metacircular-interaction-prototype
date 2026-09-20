@@ -12,16 +12,16 @@
 -- cone: at time t everything left of −t is 0 and the cell at −(t+1) at
 -- time t+1 is 1 (§1, `cone`, `edge`).  Descend N+P columns past the
 -- seed: that column is 0 at time N and 1 at time N+P, contradicting its
--- period (§4, `clash`).  §5 aligns two arbitrary periodicities (N₁,P₁),
--- (N₂,P₂) to a common one (N₁+N₂, P₁·P₂), so the theorem needs no
+-- period (§4, `clash`).  §5 aligns two arbitrary periodicities (N�,P�),
+-- (N�,P�) to a common one (N�+N�, P��P�), so the theorem needs no
 -- shared period, and states it for the centre and either neighbour.
 --
 -- Erica Jen, "Aperiodicity in one-dimensional cellular automata",
--- Physica D 21 (1986) 217–236; the statement is quoted in NKS p. 871.
+-- Physica D 21 (1986) 217�236; the statement is quoted in NKS p. 871.
 -- The proof here is the one in research/rule30/ORACLE_RULE30.md §3.2,
 -- structurally inductive throughout.  Submitted to the yantra
 -- (sadhana.patra) and accepted by its kernel, 2026-09-11.  What it does
--- not give: anything about ONE column — the inversion consumes two.
+-- not give: anything about ONE column � the inversion consumes two.
 ------------------------------------------------------------------------
 
 module Jen_NoTwoAdjacentColumnsOfRuleThirtyFromASingleSeedAreBothEventuallyPeriodicBecauseLeftPermutivityCarriesPeriodicityLeftwardIntoTheLightConeWhereTheEdgeCellIsOne where
@@ -36,7 +36,7 @@ open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
 -- Jen (1986): from the single seed, no two adjacent columns of Rule 30
--- are both eventually periodic.  Two-sided evolution, positions in ℤ.
+-- are both eventually periodic.  Two-sided evolution, positions in �.
 ------------------------------------------------------------------------
 
 r30 : Bool → Bool → Bool → Bool
@@ -109,7 +109,7 @@ predⁿ-pos zero    m = predⁿ-neg m zero
 predⁿ-pos (suc n) m = predⁿ-pos n m
 
 -- §4  the contradiction: a column left of the light cone that is periodic
---     from N with period suc P′ is 0 at time N′ and 1 at time N′ + suc P′
+--     from N with period suc P� is 0 at time N� and 1 at time N� + suc P�
 clash : (q N′ P′ : ℕ) → N′ + P′ ≡ q → Periodic (Col (negsuc q)) N′ (suc P′) → ⊥
 clash q N′ P′ e per = true≢false (sym eka ∙ per N′ ≤-refl ∙ śūnya)
   where

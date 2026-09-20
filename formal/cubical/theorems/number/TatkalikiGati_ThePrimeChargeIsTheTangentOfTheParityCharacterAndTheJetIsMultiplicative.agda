@@ -1,66 +1,66 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- तात्कालिकी गतिः — the prime charge is the tangent of the parity
+-- ������������ ����� � the prime charge is the tangent of the parity
 -- character, and the jet is multiplicative.
 --
 -- THE COMPILE STEP OF THE TWIN BOUNDARY, checked exactly.  The twin-sieve
 -- coefficient vector, for squarefree d,
 --
---     κ₁(d)  =  Σ_{p|d} μ(d/p)  =  ω(d)·(−1)^{ω(d)−1},
+--     κ�(d)  =  �_{p|d} μ(d/p)  =  ω(d)�(−1)^{ω(d)−1},
 --
--- looks nonmultiplicative — an arbitrary vector in the exponentially
+-- looks nonmultiplicative � an arbitrary vector in the exponentially
 -- large divisor space.  It is not arbitrary: it is the TANGENT at the
 -- parity point z = −1 of the one-parameter phase family z^{ω(d)}, and
--- the pair (μ, κ₁) is closed under coprime multiplication by the
--- μ-twisted Leibniz law.  Executable form: the dual numbers ℤ[ε]/ε².
+-- the pair (μ, κ�) is closed under coprime multiplication by the
+-- μ-twisted Leibniz law.  Executable form: the dual numbers �[ε]/ε².
 -- One prime contributes the jet unit (−1 + ε); a squarefree d
 -- contributes (−1 + ε)^{ω(d)}; the value is μ(d) and the ε-coefficient
--- is κ₁(d).  Multiplication of dual numbers IS the twisted Leibniz law,
--- so the law is not proved separately here — it is read off, one
--- component of one homomorphism path (सङ्कलनम् below).
+-- is κ�(d).  Multiplication of dual numbers IS the twisted Leibniz law,
+-- so the law is not proved separately here � it is read off, one
+-- component of one homomorphism path (���������� below).
 --
 -- NORMALIZATION, the olympiad move, stated so it is not smuggled: only
 -- ω(d) enters any of these quantities, so the object is normalized from
--- squarefree numbers to ℕ.  Disjoint union of prime supports becomes
--- +ℕ; "coprime multiplication" becomes addition of counts.  Nothing of
--- the (μ, κ₁) algebra is lost — that is what the closed forms prove.
+-- squarefree numbers to �.  Disjoint union of prime supports becomes
+-- +�; "coprime multiplication" becomes addition of counts.  Nothing of
+-- the (μ, κ�) algebra is lost � that is what the closed forms prove.
 --
---   घातः          (−1+ε)^n in the dual ring, by recursion
---   मूल्यम्        घातः n ≡ (μ n , κ n)      value and tangent, exactly
---   सङ्कलनम्       घातः (m+n) ≡ घातः m ⊙ घातः n     the jet is multiplicative
---   गुणकत्वम्      μ (m+n) ≡ μ m · μ n              (fst of सङ्कलनम्)
---   विकर्ण-नियमः  κ (m+n) ≡ μ m · κ n + κ m · μ n  (snd of सङ्कलनम् — the
+--   �����          (−1+ε)^n in the dual ring, by recursion
+--   �������        ����� n ≡ (μ n , κ n)      value and tangent, exactly
+--   ����������       ����� (m+n) ≡ ����� m ⊙ ����� n     the jet is multiplicative
+--   �����������      μ (m+n) ≡ μ m � μ n              (fst of ����������)
+--   �������-�����  κ (m+n) ≡ μ m � κ n + κ m � μ n  (snd of ���������� � the
 --                 twisted Leibniz law, for free)
---   घन-रूपम्      κ (suc n) ≡ pos (suc n) · μ n    the closed form
---                 κ₁ = ω·(−1)^{ω−1}
---   μ-वर्गः       μ n · μ n ≡ 1
---   κ-वर्गः       κ n · κ n ≡ pos (n²)             the twin channel κ⊗κ of
---                 the four-channel state is a POSITIVE SQUARE — the
---                 diagonal of the (1,1) jet sector carries sign ε₁ε₂ = +
+--   ���-�����      κ (suc n) ≡ pos (suc n) � μ n    the closed form
+--                 κ� = ω�(−1)^{ω−1}
+--   μ-������       μ n � μ n ≡ 1
+--   κ-������       κ n � κ n ≡ pos (n²)             the twin channel κ⊗κ of
+--                 the four-channel state is a POSITIVE SQUARE � the
+--                 diagonal of the (1,1) jet sector carries sign ε�ε� = +
 --
--- ON THE NAME.  तात्कालिकी गतिः — Bhāskara II, Siddhāntaśiromaṇi,
--- Grahagaṇitādhyāya, spaṣṭādhikāra (1150): the instantaneous motion of a
+-- ON THE NAME.  ������������ ����� � Bhskara II, Siddhntairomai,
+-- Grahagaitdhyya, spadhikra (1150): the instantaneous motion of a
 -- planet, the rate at the instant as against the mean rate over a day.
--- The term is used here for its literal content — the tangent of a
--- family at a point — and for nothing else: NO claim that Bhāskara
--- treated nilpotents, Möbius inversion, or sieve coefficients.  The
--- dual-number normal form of (μ, κ₁) was stated by the owner in this
+-- The term is used here for its literal content � the tangent of a
+-- family at a point � and for nothing else: NO claim that Bhskara
+-- treated nilpotents, Mbius inversion, or sieve coefficients.  The
+-- dual-number normal form of (μ, κ�) was stated by the owner in this
 -- session, 2026-08-23, and is checked here.
 --
--- सहजन्म.  `Yamala_TheTwinChargeIsTheParityJet…` landed from another seat
--- within the hour, from the same owner message — the general machinery:
--- (Dual, ⊛) a commutative monoid, the conditional hom J(ab) = J(a)⊛J(b)
+-- ������.  `Yamala_TheTwinChargeIsTheParityJet�` landed from another seat
+-- within the hour, from the same owner message � the general machinery:
+-- (Dual, �) a commutative monoid, the conditional hom J(ab) = J(a)�J(b)
 -- given the derivation hypotheses, and autodiff at ANY z.  This module
 -- is its parity-point complement, neither subsumed nor subsuming: the
--- concrete μ, κ : ℕ → ℤ with the laws UNCONDITIONAL over the
--- ω-normalization (गुणकत्वम्, विकर्ण-नियमः from one homomorphism path), the
--- closed form घन-रूपम्, and the sign of the twin channel (κ-वर्गः).  Two
--- seats, one seed, two adjacent theorems — kept both, cross-referenced.
+-- concrete μ, κ : � � � with the laws UNCONDITIONAL over the
+-- ω-normalization (�����������, �������-����� from one homomorphism path), the
+-- closed form ���-�����, and the sign of the twin channel (κ-������).  Two
+-- seats, one seed, two adjacent theorems � kept both, cross-referenced.
 --
--- दोषलेखः, scope.  This module is the algebra of the state, complete; the
--- ANALYTIC question — whether the critical CRT boundary amplifies the
--- (1,1) jet channel, the renormalization inequality over scales — is not
+-- ���������, scope.  This module is the algebra of the state, complete; the
+-- ANALYTIC question � whether the critical CRT boundary amplifies the
+-- (1,1) jet channel, the renormalization inequality over scales � is not
 -- touched, and no analytic claim is made.  The exponential ambient space
 -- has been compiled to a two-channel exact state; the scale induction is
 -- the open problem, named, not built.
@@ -79,7 +79,7 @@ open import Cubical.Data.Int
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
 ------------------------------------------------------------------------
--- १ · the two channels, by recursion — μ the parity, κ its tangent.
+-- � � the two channels, by recursion � μ the parity, κ its tangent.
 ------------------------------------------------------------------------
 
 μ : ℕ → ℤ
@@ -91,7 +91,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 κ (suc n) = μ n - κ n
 
 ------------------------------------------------------------------------
--- २ · the dual ring ℤ[ε]/ε² and the jet unit of a single prime.
+-- � � the dual ring �[ε]/ε² and the jet unit of a single prime.
 ------------------------------------------------------------------------
 
 द्वयम् : Type
@@ -110,7 +110,7 @@ infixl 7 _⊙_
 घातः (suc n) = बीजम् ⊙ घातः n
 
 ------------------------------------------------------------------------
--- ३ · मूल्यम् — the state IS the pair (parity, tangent), exactly.
+-- � � ������� � the state IS the pair (parity, tangent), exactly.
 ------------------------------------------------------------------------
 
 private
@@ -125,8 +125,8 @@ private
                    ∙ cong (_+ (- κ n)) (1· (μ n)) ) i)
 
 ------------------------------------------------------------------------
--- ४ · the jet is multiplicative: घातः is a homomorphism from (ℕ, +) to
--- (द्वयम्, ⊙).  Associativity of ⊙ is the only labour.
+-- � � the jet is multiplicative: ����� is a homomorphism from (�, +) to
+-- (������, ⊙).  Associativity of ⊙ is the only labour.
 ------------------------------------------------------------------------
 
 ⊙-Assoc : (x y z : द्वयम्) → x ⊙ (y ⊙ z) ≡ (x ⊙ y) ⊙ z
@@ -154,8 +154,8 @@ private
   cong (बीजम् ⊙_) (सङ्कलनम् m n) ∙ ⊙-Assoc बीजम् (घातः m) (घातः n)
 
 ------------------------------------------------------------------------
--- ५ · the two laws, read off as the two components of ONE path:
--- the homomorphism, conjugated by मूल्यम्.
+-- � � the two laws, read off as the two components of ONE path:
+-- the homomorphism, conjugated by �������.
 ------------------------------------------------------------------------
 
 नियम-मार्गः : (m n : ℕ) → (μ (m +ℕ n) , κ (m +ℕ n)) ≡ (μ m , κ m) ⊙ (μ n , κ n)
@@ -169,8 +169,8 @@ private
 विकर्ण-नियमः m n = cong snd (नियम-मार्गः m n)
 
 ------------------------------------------------------------------------
--- ६ · the closed form: the tangent is ω·(−1)^{ω−1}, exactly the
--- κ₁(d) = Σ_{p|d} μ(d/p) of the twin boundary.
+-- � � the closed form: the tangent is ω�(−1)^{ω−1}, exactly the
+-- κ�(d) = �_{p|d} μ(d/p) of the twin boundary.
 ------------------------------------------------------------------------
 
 घन-रूपम् : (n : ℕ) → κ (suc n) ≡ pos (suc n) · μ n
@@ -180,10 +180,10 @@ private
   ∙ refl
 
 ------------------------------------------------------------------------
--- ७ · the diagonal of the four-channel state: both squares are positive.
--- For two legs the state is ℤ[ε₁,ε₂]/(ε₁²,ε₂²) with channels
+-- � � the diagonal of the four-channel state: both squares are positive.
+-- For two legs the state is �[ε�,ε�]/(ε�²,ε�²) with channels
 -- (μ⊗μ, κ⊗μ, μ⊗κ, κ⊗κ); at equal leg-depth the μ⊗μ channel is +1 and
--- the twin channel κ⊗κ is the square ω², positive — the (1,1) jet
+-- the twin channel κ⊗κ is the square ω², positive � the (1,1) jet
 -- sector sits in the positive cone before any boundary acts on it.
 ------------------------------------------------------------------------
 
@@ -203,7 +203,7 @@ private
   ∙ cong₂ _·_ (sym (pos·pos (suc n) (suc n))) (μ-वर्गः n)
   ∙ ·IdR (pos (suc n ·ℕ suc n))
   where
-    -- (x·y)·(x·y) ≡ (x·x)·(y·y), commutative shuffle
+    -- (x�y)�(x�y) ≡ (x�x)�(y�y), commutative shuffle
     लयः : (x y : ℤ) → (x · y) · (x · y) ≡ (x · x) · (y · y)
     लयः x y =
       sym (·Assoc x y (x · y))

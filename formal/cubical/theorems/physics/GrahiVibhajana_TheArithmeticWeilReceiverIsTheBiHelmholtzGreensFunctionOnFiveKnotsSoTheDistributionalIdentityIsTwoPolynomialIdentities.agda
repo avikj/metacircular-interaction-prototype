@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ग्राही-विभाजन — the receiver split on its knots.
+-- �������-������ � the receiver split on its knots.
 --
--- The note's §5: with q = 4·1_{[0,1/4]}, f = e^{−4s}(q∗q), g = f∗f̃, the
+-- The note's §5: with q = 4�1_{[0,1/4]}, f = e^{−4s}(q∗q), g = f∗f�, the
 -- receiver g is piecewise
 --
---   0 ≤ t ≤ ¼:  g = [(4t−1)e⁻⁴ + (8t−4)e⁻²] e^{4t} + (8te⁻² + 4t + 1) e^{−4t},
---   ¼ ≤ t ≤ ½:  g = (3−4t) e⁻⁴ e^{4t} + (1−4t) e^{−4t},
+--   0 � t � ¼:  g = [(4t−1)e�� + (8t−4)e�²] e^{4t} + (8te�² + 4t + 1) e^{−4t},
+--   ¼ � t � ½:  g = (3−4t) e�� e^{4t} + (1−4t) e^{−4t},
 --
--- and (5.1) says (D² − 16)² g = Σ_{j=−2}^{2} b_j δ_{j/4}, equivalently
--- g(t) = Σ_j b_j E(t − j/4) with E(x) = (1 + 4|x|)e^{−4|x|}/256 the
--- fundamental solution, b_0 = 256(1 + 4e⁻² + e⁻⁴), b_{±1} = −512e⁻¹(1+e⁻²),
--- b_{±2} = 256e⁻².  On each piece the absolute values resolve, and the
--- identity g = Σ b_j E(· − x_j) becomes a POLYNOMIAL identity in
--- t, ε = e⁻¹ and y = e^{4t} (after clearing y⁻¹ and ε⁻¹).  Those two
+-- and (5.1) says (D² − 16)² g = �_{j=−2}^{2} b_j δ_{j/4}, equivalently
+-- g(t) = �_j b_j E(t − j/4) with E(x) = (1 + 4|x|)e^{−4|x|}/256 the
+-- fundamental solution, b_0 = 256(1 + 4e�² + e��), b_{�1} = −512e��(1+e�²),
+-- b_{�2} = 256e�².  On each piece the absolute values resolve, and the
+-- identity g = � b_j E(� − x_j) becomes a POLYNOMIAL identity in
+-- t, ε = e�� and y = e^{4t} (after clearing y�� and ε��).  Those two
 -- identities are proved here over any commutative ring by the solver;
 -- with E the fundamental solution of (D²−16)² they are (5.1).
 ------------------------------------------------------------------------
@@ -40,14 +40,14 @@ module _ (R : CommRing ℓ-zero) where
   512r : ⟨ R ⟩
   512r = 256r · 2r
 
-  -- the knot weights, ε = e⁻¹
+  -- the knot weights, ε = e��
   b₀ b₁ b₂ : ⟨ R ⟩ → ⟨ R ⟩
   b₀ ε = 256r · (1r + 4r · (ε · ε) + (ε · ε) · (ε · ε))
   b₁ ε = - (512r · ε · (1r + ε · ε))
   b₂ ε = 256r · (ε · ε)
 
-  -- piece one, 0 ≤ t ≤ ¼, everything multiplied by 256·y:
-  --   256·y·g(t) = b₀(1+4t) + b₋₁(2+4t)ε + b₋₂(3+4t)ε² + b₁(2−4t)ε y² + b₂(3−4t)ε² y²
+  -- piece one, 0 � t � ¼, everything multiplied by 256�y:
+  --   256�y�g(t) = b�(1+4t) + b��(2+4t)ε + b��(3+4t)ε² + b�(2−4t)ε y² + b�(3−4t)ε² y²
   g₁ : ⟨ R ⟩ → ⟨ R ⟩ → ⟨ R ⟩ → ⟨ R ⟩          -- 256·y·g on [0,¼], as a polynomial
   g₁ t ε y = 256r · (((4r · t - 1r) · (ε · ε) · (ε · ε) + (8r · t - 4r) · (ε · ε)) · (y · y)
                      + (8r · t · (ε · ε) + 4r · t + 1r))
@@ -62,8 +62,8 @@ module _ (R : CommRing ℓ-zero) where
   piece-one : (t ε y : ⟨ R ⟩) → g₁ t ε y ≡ knots₁ t ε y
   piece-one t ε y = solve! R
 
-  -- piece two, ¼ ≤ t ≤ ½, multiplied by 256·y·ε (the knot j = 1 now lies below t):
-  --   256·y·ε·g = ε[b₀(1+4t) + b₋₁(2+4t)ε + b₋₂(3+4t)ε²] + b₁(4t)·1 + b₂(3−4t)ε³ y²
+  -- piece two, ¼ � t � ½, multiplied by 256�y�ε (the knot j = 1 now lies below t):
+  --   256�y�ε�g = ε[b�(1+4t) + b��(2+4t)ε + b��(3+4t)ε²] + b�(4t)�1 + b�(3−4t)ε³ y²
   g₂ : ⟨ R ⟩ → ⟨ R ⟩ → ⟨ R ⟩ → ⟨ R ⟩          -- 256·y·ε·g on [¼,½]
   g₂ t ε y = 256r · ε · ((3r - 4r · t) · (ε · ε) · (ε · ε) · (y · y) + (1r - 4r · t))
 

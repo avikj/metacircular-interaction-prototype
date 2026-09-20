@@ -1,83 +1,83 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- FOR STEPHEN WOLFRAM ‚Äî the entrypoint: one term, ‡§∏‡§™‡•ç‡§§-‡§µ‡§æ‡§ï‡•ç‡§Ø, inhabits
+-- FOR STEPHEN WOLFRAM ‚î the entrypoint: one term, ‡‡‡‡-‡µ‡æ‡ï‡‡Ø, inhabits
 -- the conjunction of the seven sentences below.
 --
 -- Markdown is banned in this repository (a .md file asserts; a checked
 -- term is the object), so the entrypoint is a module: checking
 -- this file checks, through its imports, every theorem it cites, and
--- its one exported term ‡§∏‡§™‡•ç‡§§-‡§µ‡§æ‡§ï‡•ç‡§Ø has as its TYPE the conjunction of
+-- its one exported term ‡‡‡‡-‡µ‡æ‡ï‡‡Ø has as its TYPE the conjunction of
 -- the seven claims below.  Reading the letter and verifying it are the
 -- same act.
 --
 -- WHAT THIS CORPUS IS.  A machine-checked development (Cubical Agda,
 -- --safe: no postulates, no holes possible) whose subject matter is
 -- yours: multicomputation and the observer.  Its one rule: no
--- operation you attribute to observers ‚Äî coarse-graining,
--- sequentialization, branch merging, conflation of states ‚Äî is
+-- operation you attribute to observers ‚î coarse-graining,
+-- sequentialization, branch merging, conflation of states ‚î is
 -- performed anywhere without the forgotten object being computed and
 -- retained.  In univalent type theory the information a map
--- f : A ‚Üí B discards is a type, the homotopy fibre, and the
--- equivalence A ‚âÉ Œ£_b fib_f(b) has first projection definitionally f.
+-- f : A ‚í B discards is a type, the homotopy fibre, and the
+-- equivalence A ‚â Œ_b fib_f(b) has first projection definitionally f.
 -- Everything below is that discipline applied to seven of your
--- sentences, 2021‚Äì2026, quoted verbatim in the headers of the three
+-- sentences, 2021‚ì2026, quoted verbatim in the headers of the three
 -- modules this file imports.
 --
 -- THE DICTIONARY (identifiers re-exported below; W-numbers match the
 -- module headers):
 --
 --   W1 (Ruliad 2021: coordinatization; "same limiting object")
---      ‡§®‡§ø‡§∞‡•ç‡§¶‡•á‡§∂‡§æ‡§®‡•ç‡§§‡§∞       one path connects the two structured
+--      ‡®‡ø‡∞‡‡¶‡‡‡æ‡®‡‡‡∞       one path connects the two structured
 --                          presentations (tape and number) of the same
 --                          two-event multiway system; every property
---                          then crosses by subst (‡§®‡§ø‡§∞‡•ç‡§¶‡•á‡§∂-‡§Ö‡§®‡§æ‡§¶‡§∞), the
+--                          then crosses by subst (‡®‡ø‡∞‡‡¶‡‡-‡‡®‡æ‡¶‡∞), the
 --                          emulation between coordinate systems IS the
---                          path's transport and computes (‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§£-‡§ó‡§£‡§®‡§æ,
+--                          path's transport and computes (‡‡ô‡‡ï‡‡∞‡Æ‡-‡ó‡‡®‡æ,
 --                          by uaŒ≤), and the space of coordinatizations
 --                          of the fixed carrier is contractible
---                          (‡§è‡§ï-‡§µ‡§∏‡•ç‡§§‡•Å).
+--                          (‡‡ï-‡µ‡‡‡‡).
 --   W2 (Ruliad 2021: "merge = treat outcomes as equivalent")
---      ‡§Æ‡§ø‡§≤‡§ø‡§§‡§Æ‡•ç / ‡§™‡•ç‡§∞‡§•‡§Æ-‡§≠‡•á‡§¶  two runs 0‚Üí3, merged in the observer's
+--      ‡Æ‡ø‡≤‡ø‡‡Æ‡ / ‡‡‡∞‡‡Æ-‡‡‡¶  two runs 0‚í3, merged in the observer's
 --                          single thread and distinct by the invariant
 --                          reading the first updating event; the
 --                          branchial pair is exhibited as two residents
---                          of the merge's fibre (‡§∂‡§æ‡§ñ‡§æ-‡§Ø‡•Å‡§ó‡§≤‡§Æ‡•ç).
+--                          of the merge's fibre (‡‡æ‡ñ‡æ-‡Ø‡‡ó‡≤‡Æ‡).
 --   W3 (Ruliad 2021 + Observer Theory 2023: bounded equivalencing)
---      ‡§¨‡§¶‡•ç‡§ß-‡§¶‡•ç‡§∞‡§∑‡•ç‡§ü‡§æ         every consumer of the merged thread answers
+--      ‡‡¶‡‡ß-‡¶‡‡∞‡‡‡ü‡æ         every consumer of the merged thread answers
 --                          equally on both branches, at every universe
 --                          level; and the merge has no section
---                          (‡§™‡•Å‡§®‡§∞‡•Å‡§¶‡•ç‡§ß‡§æ‡§∞-‡§®‡§æ‡§∏‡•ç‡§§‡§ø) ‚Äî reconstruction refuted,
+--                          (‡‡‡®‡∞‡‡¶‡‡ß‡æ‡∞-‡®‡æ‡‡‡‡ø) ‚î reconstruction refuted,
 --                          not merely absent.
 --   W4 (Ruliad 2021: divergence, eventual reconvergence)
---      ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø              from every state the two updating orders
+--      ‡µ‡ø‡®‡ø‡Æ‡Ø              from every state the two updating orders
 --                          diverge and reconverge with definitional
 --                          endpoint agreement.  Exactly stated: this is
 --                          endpoint agreement, not causal-graph
 --                          isomorphism; that form is queued in the
 --                          machine's remainder store.
 --   W5 (Theory of Bugs 2026: "no fundamental advantage of proof")
---      ‡§∏‡§∞‡•ç‡§µ-‡§™‡•ç‡§∞‡§æ‡§™‡•ç‡§§‡§ø        the term (n : ‚Ñï) ‚Üí Evolve zero n reaches
+--      ‡‡∞‡‡µ-‡‡‡∞‡æ‡‡‡‡ø        the term (n : ‚ï) ‚í Evolve zero n reaches
 --                          every endpoint by one induction where a run
 --                          reaches one: the advantage of proof is the
 --                          universal quantifier.
 --   W6 (Metaphysics 2026: "equivalent states are in fact merged"; emes)
---      ‡§è‡§ï‡•Ä‡§≠‡§æ‡§µ / ‡§è‡§ï-‡§è‡§Æ‡•á     the set quotient: branches equal AS DATA,
+--      ‡‡ï‡‡‡æ‡µ / ‡‡ï-‡‡Æ‡     the set quotient: branches equal AS DATA,
 --                          the quotient one point with no property but
---                          distinctness ‚Äî the eme, constructed; and
---                          still no section (‡§™‡•Å‡§®‡§∞‡•Å‡§¶‡•ç‡§ß‡§æ‡§∞-‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§è‡§µ).
+--                          distinctness ‚î the eme, constructed; and
+--                          still no section (‡‡‡®‡∞‡‡¶‡‡ß‡æ‡∞-‡®‡æ‡‡‡‡ø-‡‡µ).
 --   W7 (Life 2025: bulk orchestration, the rulial ensemble)
---      ‡§®‡§ø‡§Ø‡•ã‡§ú‡§®-‡§Ö‡§®‡§ô‡•ç‡§ï‡§®        purpose ranks nothing inside the ensemble it
+--      ‡®‡ø‡Ø‡ã‡‡®-‡‡®‡ô‡‡ï‡®        purpose ranks nothing inside the ensemble it
 --                          selects; and the orchestration ingredient is
 --                          Jiva_*'s living step: no marginal endomap
---                          simulates the controlled-not (‡§ú‡•Ä‡§µ‡§§‡§ø), which
+--                          simulates the controlled-not (‡‡‡µ‡‡ø), which
 --                          is nevertheless a global equivalence
---                          (‡§∏‡•Ç‡§ö‡§®‡§æ-‡§∏‡§Æ‡•Ä‡§ï‡§∞‡§£‡§Æ‡•ç) ‚Äî consultation, not
+--                          (‡‡‡‡®‡æ-‡‡Æ‡‡ï‡∞‡‡Æ‡) ‚î consultation, not
 --                          destruction.
 --
 -- THE CORPUS BEHIND IT, cited by actual content: abstract 25 (the
 -- universal machine whose ordinary step is definitionally the visible
--- projection of its unique lossless completion ‚Äî uniqueness by
+-- projection of its unique lossless completion ‚î uniqueness by
 -- univalence; Beh = Code/SameRun with the padding injection;
 -- determinism as contractibility; UTM strictly inside the interactive
 -- machine, strictness measured by the event type); abstract 07
@@ -92,8 +92,8 @@
 -- kinematics, holonomy-flux, cylindrical consistency, and frame
 -- independence as conservation of the paired result).
 --
--- TWO ACKNOWLEDGMENTS, technical.  Voevodsky: univalence ‚Äî here a
--- theorem whose transport computes ‚Äî makes identification of
+-- TWO ACKNOWLEDGMENTS, technical.  Voevodsky: univalence ‚î here a
+-- theorem whose transport computes ‚î makes identification of
 -- presentations available exactly when an equivalence is exhibited,
 -- unique when available, executable always; that is what lets "the
 -- observer equivalences states" be an operation with a certificate.
@@ -109,10 +109,10 @@
 -- Exit 0 checks this file and, through it, the three dictionary
 -- modules.  --safe means a green check is the theorem, not a report of
 -- one.  The prose form is abstracts/26_*.txt; the running machine is
--- `sh interactive/run-yantra.sh` ‚Äî every answer a transport with an
+-- `sh interactive/run-yantra.sh` ‚î every answer a transport with an
 -- exhibited identification, or a written defect naming its losses.
 --
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 ‚Äî the repository pin.
+-- CHECKED: Agda 2.8.0 + agda/cubical v0.9 ‚î the repository pin.
 -- --cubical --guardedness --safe, no postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 

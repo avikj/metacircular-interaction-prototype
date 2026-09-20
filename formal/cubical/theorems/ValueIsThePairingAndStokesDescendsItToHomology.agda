@@ -10,20 +10,20 @@
 -- Neither side holds the value; it is the interaction.  This file proves
 -- the two boxed invariances of the theory: given the Stokes adjunction
 --
---     pair (δ ω) c  ≡  pair ω (∂ c),
+--     pair (δ ω) c  ≡  pair ω (� c),
 --
 -- and a bilinear pairing into an additive scalar object R,
 --
 --   * changing the evaluator by a coboundary leaves the value of a CYCLE
---     unchanged:   ∂ γ ≡ 0  ⟹  pair (ω + δ η) γ ≡ pair ω γ ;
+--     unchanged:   � γ ≡ 0  �  pair (ω + δ �) γ ≡ pair ω γ ;
 --   * changing the trace by a boundary leaves the value under a COCYCLE
---     unchanged:   δ ω ≡ 0  ⟹  pair ω (γ + ∂ σ) ≡ pair ω γ .
+--     unchanged:   δ ω ≡ 0  �  pair ω (γ + � �) ≡ pair ω γ .
 --
 -- Hence the value factors through cohomology-in-the-evaluator and
--- homology-in-the-trace: the pairing descends to  H • × H_• → R.  This
+-- homology-in-the-trace: the pairing descends to  H � � H_� � R.  This
 -- is the exact statement that "a scalar weight is only the value of one
 -- cochain against one chain, while the trace can be re-evaluated by
--- evaluators that do not yet exist" — the movement from weights to
+-- evaluators that do not yet exist" � the movement from weights to
 -- traces, made a theorem.
 --
 -- The algebra is abstract on purpose: any concrete (co)chain complex
@@ -45,7 +45,7 @@ module _
   (_+C_ : C → C → C) (0C : C)
   (_+D_ : D → D → D) (0D : D)
   (_+R_ : R → R → R) (0R : R)
-  -- the Stokes adjunction: δ is adjoint to ∂ under the pairing.
+  -- the Stokes adjunction: δ is adjoint to � under the pairing.
   (stokes : (ω : D) (c : C) → pair (δ ω) c ≡ pair ω (∂ c))
   -- the pairing is additive (bilinear) and sends the zeros to 0R.
   (pair-+D : (ω η : D) (c : C) → pair (ω +D η) c ≡ (pair ω c +R pair η c))
@@ -55,9 +55,9 @@ module _
   (rUnitR  : (r : R) → (r +R 0R) ≡ r)
   where
 
-  -- A cycle: ∂ γ ≡ 0C.  A cocycle: δ ω ≡ 0D.
+  -- A cycle: � γ ≡ 0C.  A cocycle: δ ω ≡ 0D.
 
-  -- Changing the evaluator by a coboundary δη does not change the value
+  -- Changing the evaluator by a coboundary δ� does not change the value
   -- of a cycle.
   gauge-invariance : (ω η : D) (γ : C) → ∂ γ ≡ 0C
                    → pair (ω +D δ η) γ ≡ pair ω γ
@@ -69,7 +69,7 @@ module _
         ∙ pair-0C η )
     ∙ rUnitR (pair ω γ)
 
-  -- Changing the trace by a boundary ∂σ does not change the value under
+  -- Changing the trace by a boundary �� does not change the value under
   -- a cocycle.
   boundary-invariance : (ω : D) (γ σ : C) → δ ω ≡ 0D
                       → pair ω (γ +C ∂ σ) ≡ pair ω γ

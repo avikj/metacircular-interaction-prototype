@@ -1,18 +1,18 @@
--- ‡§™‡•ç‡§∞‡§æ‡§Æ‡§æ‡§£‡•ç‡§Ø ‚Äî the five routes an answer arrives by, each with its witness.
+-- ‡‡‡∞‡æ‡Æ‡æ‡‡‡Ø ‚î the five routes an answer arrives by, each with its witness.
 --
 -- EXTRACTED FROM Server, 2026-08-23, moved
 -- not copied: Yantra imports and re-exports this module, so its wire
--- interface is unchanged, and Aisthesis imports it directly ‚Äî the light
+-- interface is unchanged, and Aisthesis imports it directly ‚î the light
 -- dependency that lets the heartbeat (./jiva, runghc) speak the same route
 -- vocabulary without interpreting the whole assembly on every beat.  The
 -- extraction also healed a copy: Aisthesis's first version carried its own
 -- pramanyaJ, which was exactly the receipt-on-copy defect its prototype
 -- event records.
 --
--- By what route is this answer a pramƒÅ·πáa?  NyƒÅya's question (Gautama,
--- NyƒÅyas≈´tra 1.1.3, c. 2nd c. CE; VƒÅtsyƒÅyana's BhƒÅ·π£ya c. 400): a means of
+-- By what route is this answer a prama?  Nyya's question (Gautama,
+-- Nyyastra 1.1.3, c. 2nd c. CE; Vtsyyana's Bhya c. 400): a means of
 -- knowledge is distinguished by its CAUSAL ROUTE, not by how confident its
--- holder is.  ¬ß19 of the s≈´tra: ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Ç ‡§ï‡§æ‡§∞‡§£‡§Æ‡§æ‡§∞‡•ç‡§ó‡•á‡§£ ‡§≠‡§ø‡§¶‡•ç‡§Ø‡§§‡•á, ‡§® ‡§µ‡§ø‡§∂‡•ç‡§µ‡§æ‡§∏‡§Æ‡§æ‡§§‡•ç‡§∞‡§Ø‡§æ ‡•§
+-- holder is.  ¬ß19 of the stra: ‡‡‡∞‡Æ‡æ‡‡ ‡ï‡æ‡∞‡‡Æ‡æ‡∞‡‡ó‡‡ ‡‡ø‡¶‡‡Ø‡‡, ‡® ‡µ‡ø‡‡‡µ‡æ‡‡Æ‡æ‡‡‡∞‡Ø‡æ ‡
 --
 -- Five, and each carries its witness rather than a name alone.
 
@@ -33,13 +33,13 @@ data Pramanya
     --   verification is proof (CLAUDE.md), and the n is stated so that the
     --   domain of the claim is visible.
   | Ganita String
-    -- ^ an exact integer identity, exhibited, computed in ‚Ñ§.  Not a
+    -- ^ an exact integer identity, exhibited, computed in ‚.  Not a
     --   measurement: there is no error term because there is no error.
   | Kernel String
     -- ^ agda typechecked an emitted module, with the two controls having
     --   been watched first (ProofGate.kernelStatus).
   | Ayogya String
-    -- ^ NO route.  Legal only on a do·π£a-lekha; Yantra's `mudra` turns a
+    -- ^ NO route.  Legal only on a doa-lekha; Yantra's `mudra` turns a
     --   transport carrying it into a defect about itself.
   deriving (Eq, Show)
 

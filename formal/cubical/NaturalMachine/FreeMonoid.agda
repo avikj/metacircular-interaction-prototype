@@ -29,7 +29,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Algebra.Monoid.Base
 
 ------------------------------------------------------------------------
--- 1.  The presentation, defined independently of ℕ.
+-- 1.  The presentation, defined independently of �.
 ------------------------------------------------------------------------
 
 Tally : Type₀

@@ -1,89 +1,89 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿-à¤¤à¤¨à¥à¤¤à¥à¤ƒ â€” à¤•à¥à¤·à¥‡à¤ªà¤¸à¥à¤¯ à¤¤à¤¨à¥à¤¤à¥à¤ƒ à¤…à¤¨à¤¨à¥à¤¤à¤ƒ, à¤­à¤¾à¤µà¤¨à¤¾ à¤š à¤¤à¤¸à¥à¤¯ à¤¸à¤¾à¤•à¥à¤·à¥€ à¥¤
+-- àµà°àà—ààà°à•ààà¿-àà¨àààà â” à•ààààààà¯ àà¨àààà àà¨à¨ààà, àà¾àµà¨à¾ à àààà¯ àà¾à•ààà à
 --
--- (the vargapraká¹›ti fibre: the fibre of the ká¹£epa over one is infinite,
+-- (the vargaprakti fibre: the fibre of the kepa over one is infinite,
 --  and Brahmagupta's composition is the witness.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS IS, AND WHY IT IS THE CRITERION AND NOT AN EXAMPLE.
 --
--- `fibre/src/Loss/Bhavana_â€¦` builds à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ as
--- `Carrier (à¤•à¥à¤·à¥‡à¤ªà¤ƒ D)`: base = the two roots, carried = the à¤•à¥à¤·à¥‡à¤ª, because
--- the roots DETERMINE it.  Its fibre `Î£[ k ] (à¤•à¥à¤·à¥‡à¤ªà¤ƒ D x â‰¡ k)` is
--- `singl`, contractible, and (â„¤ Ã— â„¤) â‰ƒ à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ D.  The carried datum
+-- `fibre/src/Loss/Composition_â¦` builds àµà°àà—ààà°à•ààà¿ as
+-- `Carrier (à•ààààà D)`: base = the two roots, carried = the à•àààà, because
+-- the roots DETERMINE it.  Its fibre `Î[ k ] (à•ààààà D x â‰¡ k)` is
+-- `singl`, contractible, and (â — â) â‰ àµà°àà—ààà°à•ààà¿ D.  The carried datum
 -- rides free.
 --
 -- Bind the OTHER side of the same equation and everything changes:
 --
---     Î£[ x ] (à¤•à¥à¤·à¥‡à¤ªà¤ƒ D x â‰¡ 1)
+--     Î[ x ] (à•ààààà D x â‰¡ 1)
 --
--- is `fiber (à¤•à¥à¤·à¥‡à¤ªà¤ƒ D) 1`, and it is not contractible and not free.  It is
--- THE SET OF SOLUTIONS of the vargapraká¹›ti â€” what the à¤•à¥à¤Ÿà¥à¤Ÿà¤•, the à¤­à¤¾à¤µà¤¨à¤¾
--- and the à¤šà¤•à¥à¤°à¤µà¤¾à¤² were all built to produce.  à¤¸à¥‚à¤¤à¥à¤° à¥«: à¤•à¤ƒ à¤ªà¤•à¥à¤·à¥‹ à¤¬à¤¦à¥à¤§ à¤‡à¤¤à¤¿
--- à¤¸à¤°à¥à¤µà¤®à¥ â€” which side is bound, that is everything.  One map, two
+-- is `fiber (à•ààààà D) 1`, and it is not contractible and not free.  It is
+-- THE SET OF SOLUTIONS of the vargaprakti â” what the à•ààŸààŸà•, the àà¾àµà¨à¾
+-- and the àà•àà°àµà¾à² were all built to produce.  ààààà° à: à•à àà•ààà‹ àà¦àà§ ààà¿
+-- àà°ààµà®à â” which side is bound, that is everything.  One map, two
 -- bindings: the carrier is free, the subject is the fibre.
 --
 -- SO THIS FILE IS THE TWO HALVES JOINED, and neither half says it alone:
 --
---   Â· `Bhavana_â€¦.à¤­à¤¾à¤µà¤¨à¤¾-à¤•à¥à¤·à¥‡à¤ªà¤ƒ` proves the carried datum MULTIPLIES:
---     à¤•à¥à¤·à¥‡à¤ª(compose) = à¤•à¥à¤·à¥‡à¤ª Â· à¤•à¥à¤·à¥‡à¤ª.  Hence composing a k=1 row with the
---     fundamental k=1 row stays at k=1 â€” the orbit never leaves the
---     fibre.  Â§à¥§ below is that invariance, over â„• and independently.
---   Â· `ALosslessReturn_â€¦.à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ` proves the orbit STRICTLY ASCENDS and so
---     never returns.  Â§à¥© below is that, chained.
+--   Â `Composition_â¦.àà¾àµà¨à¾-à•ààààà` proves the carried datum MULTIPLIES:
+--     à•àààà(compose) = à•àààà Â à•àààà.  Hence composing a k=1 row with the
+--     fundamental k=1 row stays at k=1 â” the orbit never leaves the
+--     fibre.  Â§à§ below is that invariance, over â• and independently.
+--   Â `ALosslessReturn_â¦.àµàà¦àà§à¿à` proves the orbit STRICTLY ASCENDS and so
+--     never returns.  Â§à© below is that, chained.
 --
 --   Invariance alone gives an orbit inside the fibre and says nothing
 --   about how much of it is visited.  Growth alone says the orbit is
---   infinite and says nothing about where it lives.  Together: Â§à¥ª, the
+--   infinite and says nothing about where it lives.  Together: Â§à, the
 --   fibre contains a strictly increasing sequence, so it is infinite.
 --
--- WHY THE INFINITUDE IS NOT A COUNT.  à¤¸à¥‚à¤¤à¥à¤° à¥® â€” à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤‚ à¤¤à¤¾à¤¦à¤¾à¤¤à¥à¤®à¥à¤¯à¤®à¥, à¤¨
--- à¤ªà¤°à¤¿à¤®à¤¾à¤£à¤®à¥.  Â§à¥ª does not report a number; it exhibits an injection out of
--- â„•, so the identification is a map you can evaluate, and the n-th
--- solution is `à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ n`.  That is the receipt.
+-- WHY THE INFINITUDE IS NOT A COUNT.  ààààà° à® â” ààà¿àààà¾à¨à àà¾à¦à¾ààà®àà¯à®à, à¨
+-- àà°à¿à®à¾àà®à.  Â§à does not report a number; it exhibits an injection out of
+-- â•, so the identification is a map you can evaluate, and the n-th
+-- solution is `àà™àà•ààà¿ n`.  That is the receipt.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- SOURCES.  BRAHMAGUPTA, à¤¬à¥à¤°à¤¾à¤¹à¥à¤®à¤¸à¥à¤«à¥à¤Ÿà¤¸à¤¿à¤¦à¥à¤§à¤¾à¤¨à¥à¤¤à¤ƒ à¥§à¥® (à¤•à¥à¤Ÿà¥à¤Ÿà¤•à¤¾à¤§à¥à¤¯à¤¾à¤¯à¤ƒ), 628 CE â€”
--- à¤­à¤¾à¤µà¤¨à¤¾, the composition law for à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿, with à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ for the multiplier,
--- à¤œà¥à¤¯à¥‡à¤·à¥à¤  and à¤•à¤¨à¤¿à¤·à¥à¤  for the two roots, à¤•à¥à¤·à¥‡à¤ª for the interpolator.  The
--- root (3,2) for D=2 and the value 577/408 are BAUDHÄ€YANA's, à¤¶à¥à¤²à¥à¤¬à¤¸à¥‚à¤¤à¥à¤°à¤®à¥
--- à¥§.à¥¬à¥§â€“à¥¬à¥¨ (~800 BCE), stated *saviÅ›eá¹£a*, "with its excess".  JAYADEVA
--- (c. 950, surviving inside UdayadivÄkara's à¤¸à¥à¤¨à¥à¤¦à¤°à¥€) and BHÄ€SKARA II,
--- à¤¬à¥€à¤œà¤—à¤£à¤¿à¤¤ 1150 â€” the à¤šà¤•à¥à¤°à¤µà¤¾à¤².
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- SOURCES.  BRAHMAGUPTA, ààà°à¾ààà®àààààŸàà¿à¦àà§à¾à¨ààà à§à® (à•ààŸààŸà•à¾à§àà¯à¾à¯à), 628 CE â”
+-- àà¾àµà¨à¾, the composition law for àµà°àà—ààà°à•ààà¿, with ààà°à•ààà¿ for the multiplier,
+-- ààà¯àààà  and à•à¨à¿ààà  for the two roots, à•àààà for the interpolator.  The
+-- root (3,2) for D=2 and the value 577/408 are BAUDHYANA's, ààà²ààààààà°à®à
+-- à§.àà§â“àà¨ (~800 BCE), stated *saviea*, "with its excess".  JAYADEVA
+-- (c. 950, surviving inside Udayadivkara's ààà¨àà¦à°à) and BHSKARA II,
+-- àààà—àà¿à 1150 â” the àà•àà°àµà¾à².
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- A LIMIT ON THE METHOD, added 2026-08-23 after reading a module that was
 -- sitting untracked in the tree when this was written.
 --
--- Â§à¥§-Â§à¥« reach the fibre by composing against a FUNDAMENTAL ROW, and that
--- needs a small k=1 row to seed with.  For D = 2 the Åšulba value supplies
--- one.  FOR D = 61 THERE IS NONE, and D = 61 is BhÄskara.s own worked
+-- Â§à§-Â§à reach the fibre by composing against a FUNDAMENTAL ROW, and that
+-- needs a small k=1 row to seed with.  For D = 2 the ulba value supplies
+-- one.  FOR D = 61 THERE IS NONE, and D = 61 is Bhskara.s own worked
 -- example -- so this method does not reach the case the tradition is
 -- famous for, and saying only "the fibre is infinite" would leave a reader
 -- believing it does.
 --
--- What reaches it is the à¤šà¤•à¥à¤°à¤µà¤¾à¤², and
+-- What reaches it is the àà•àà°àµà¾à², and
 -- `Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne
 -- .agda` runs one in the kernel: six turns from (8,1,+3) to
 -- (29718, 3805, âˆ’1) with every divisibility witness discharged by `refl`,
 -- then Brahmagupta.s composition of a k = âˆ’1 row with itself giving
--- 1766319049Â² âˆ’ 61 Â· 226153980Â² = 1.
+-- 1766319049Â² âˆ’ 61 Â 226153980Â² = 1.
 --
 -- And it supplies the distinction this module does not make.  Here the
--- à¤•à¥à¤·à¥‡à¤ª fibre is `singl`, CONTRACTIBLE -- every pair has a à¤•à¥à¤·à¥‡à¤ª, so the
--- datum rides free.  There the à¤­à¤¾à¤—à¤¹à¤¾à¤° fibre is a PROPOSITION AND NOT IN
+-- à•àààà fibre is `singl`, CONTRACTIBLE -- every pair has a à•àààà, so the
+-- datum rides free.  There the àà¾à—àà¾à° fibre is a PROPOSITION AND NOT IN
 -- GENERAL INHABITED, because division by k is partial and the inhabitant
 -- IS the divisibility.  Contractible versus merely propositional is the
--- whole difference between the à¤­à¤¾à¤µà¤¨à¤¾ being free and the à¤šà¤•à¥à¤°à¤µà¤¾à¤² not being
--- free, and BhÄskara.s choice of m is what supplies the inhabitant.
+-- whole difference between the àà¾àµà¨à¾ being free and the àà•àà°àµà¾à² not being
+-- free, and Bhskara.s choice of m is what supplies the inhabitant.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
 -- postulates, no holes.
 ------------------------------------------------------------------------
 
-module Vargaprakrtitantu_ThePellFibreIsInfiniteAndBrahmaguptasCompositionIsTheWitness where
+module Vargaprakrtifiber_ThePellFibreIsInfiniteAndBrahmaguptasCompositionIsTheWitness where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (â„• ; zero ; suc ; _+_ ; _Â·_)
@@ -92,34 +92,34 @@ open import Cubical.Data.Sigma using (Î£-syntax ; _Ã—_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (Â¬_)
 open import Cubical.Tactics.NatSolver.Reflection using (solveâ„•!)
 
-open import NoReturn_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
+open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
   using (à¤¨à¤µ-à¤…à¤‚à¤¶à¤ƒ ; à¤¨à¤µ-à¤¹à¤°à¤ƒ ; à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ)
 
 ------------------------------------------------------------------------
--- à¥¦ Â· the equation, in the subtraction-free form â„• can state.
+-- à¦ Â the equation, in the subtraction-free form â• can state.
 --     aÂ² âˆ’ 2bÂ² = 1  is written  aÂ² â‰¡ 2bÂ² + 1.
 ------------------------------------------------------------------------
 
 à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿à¤ƒ : â„• Ã— â„• â†’ Typeâ‚€
 à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿à¤ƒ x = fst x Â· fst x â‰¡ 2 Â· (snd x Â· snd x) + 1
 
--- the fibre of the ká¹£epa over 1: the SOLUTION SET, which is what a bound
+-- the fibre of the kepa over 1: the SOLUTION SET, which is what a bound
 -- base gives where a bound carried gave `singl`.
 à¤¤à¤¨à¥à¤¤à¥à¤ƒ : Typeâ‚€
 à¤¤à¤¨à¥à¤¤à¥à¤ƒ = Î£[ x âˆˆ â„• Ã— â„• ] à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿à¤ƒ x
 
 ------------------------------------------------------------------------
--- à¥§ Â· à¤…à¤µà¤¿à¤•à¤¾à¤°à¤ƒ â€” THE STEP DOES NOT LEAVE THE FIBRE.
+-- à§ Â ààµà¿à•à¾à°à â” THE STEP DOES NOT LEAVE THE FIBRE.
 --
---     (a,b) â†¦ (3a+4b , 2a+3b)
+--     (a,b) â¦ (3a+4b , 2a+3b)
 --
--- is à¤­à¤¾à¤µà¤¨à¤¾ against the fundamental row (3,2) at D=2, whose own à¤•à¥à¤·à¥‡à¤ª is 1.
--- Brahmagupta's identity says the composed à¤•à¥à¤·à¥‡à¤ª is the PRODUCT, so it is
--- kÂ·1 = k and the fibre is preserved.  Proved here directly in â„• rather
--- than imported, because the â„¤ statement lives in a different library
+-- is àà¾àµà¨à¾ against the fundamental row (3,2) at D=2, whose own à•àààà is 1.
+-- Brahmagupta's identity says the composed à•àààà is the PRODUCT, so it is
+-- kÂ1 = k and the fibre is preserved.  Proved here directly in â• rather
+-- than imported, because the â statement lives in a different library
 -- with its own agda-lib; two independent statements that agree is the
 -- channel this corpus accepts, and asserting the import would be the
--- third road à¤¸à¥‚à¤¤à¥à¤° à¥§à¥§ denies.
+-- third road ààààà° à§à§ denies.
 ------------------------------------------------------------------------
 
 à¤ªà¤¦à¤®à¥ : â„• Ã— â„• â†’ â„• Ã— â„•
@@ -143,15 +143,15 @@ open import NoReturn_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGen
   à¤¦à¤•à¥à¤·à¤¿à¤£ = solveâ„•!
 
 ------------------------------------------------------------------------
--- à¥¨ Â· à¤®à¥‚à¤²à¤®à¥ â€” the fundamental row.  3Â² = 2Â·2Â² + 1, i.e. 9 = 8 + 1.
---     BaudhÄyana's first convergent, and the seed of the whole orbit.
+-- à¨ Â à®àà²à®à â” the fundamental row.  3Â² = 2Â2Â² + 1, i.e. 9 = 8 + 1.
+--     Baudhyana's first convergent, and the seed of the whole orbit.
 ------------------------------------------------------------------------
 
 à¤®à¥‚à¤²à¤®à¥ : à¤¤à¤¨à¥à¤¤à¥à¤ƒ
 à¤®à¥‚à¤²à¤®à¥ = (3 , 2) , refl
 
 ------------------------------------------------------------------------
--- à¥© Â· à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ â€” THE SEQUENCE, and it lands IN the fibre by Â§à¥§.
+-- à© Â àà™àà•ààà¿ â” THE SEQUENCE, and it lands IN the fibre by Â§à§.
 ------------------------------------------------------------------------
 
 à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ : â„• â†’ à¤¤à¤¨à¥à¤¤à¥à¤ƒ
@@ -163,10 +163,10 @@ open import NoReturn_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGen
 à¤•à¤¨à¤¿à¤·à¥à¤  : â„• â†’ â„•
 à¤•à¤¨à¤¿à¤·à¥à¤  n = snd (fst (à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ n))
 
--- the first root is always a successor, so Â§à¥ª's growth applies at every
+-- the first root is always a successor, so Â§à's growth applies at every
 -- step.  Proved alongside the sequence rather than after it, because it
 -- is what keeps the growth hypothesis alive.
--- the successor form the growth lemma needs, named so solveâ„•! has a target
+-- the successor form the growth lemma needs, named so solveâ•! has a target
 à¤…à¤‚à¤¶-à¤¸à¥à¤•à¥ : (z b : â„•) â†’ à¤¨à¤µ-à¤…à¤‚à¤¶à¤ƒ (suc z) b â‰¡ suc (z Â· 3 + 4 Â· b + 2)
 à¤…à¤‚à¤¶-à¤¸à¥à¤•à¥ z b = solveâ„•!
 
@@ -177,9 +177,9 @@ open import NoReturn_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGen
       (z Â· 3 + 4 Â· b + 2) , (cong (Î» w â†’ à¤¨à¤µ-à¤…à¤‚à¤¶à¤ƒ w b) p âˆ™ à¤…à¤‚à¤¶-à¤¸à¥à¤•à¥ z b)
 
 ------------------------------------------------------------------------
--- à¥ª Â· à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ à¤ªà¤™à¥à¤•à¥à¤¤à¥Œ â€” the second root strictly grows at every step.
---     `ALosslessReturn_â€¦.à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ` needs a nonzero first root; Â§à¥©'s
---     à¤œà¥à¤¯à¥‡à¤·à¥à¤ -à¤…à¤¶à¥‚à¤¨à¥à¤¯à¤®à¥ is what keeps supplying it.
+-- à Â àµàà¦àà§à¿à àà™àà•ààà â” the second root strictly grows at every step.
+--     `ALosslessReturn_â¦.àµàà¦àà§à¿à` needs a nonzero first root; Â§à©'s
+--     ààà¯àààà -àààà¨àà¯à®à is what keeps supplying it.
 ------------------------------------------------------------------------
 
 à¤µà¥ƒà¤¦à¥à¤§à¤¿-à¤ªà¤¦à¥‡ : (n : â„•) â†’ à¤•à¤¨à¤¿à¤·à¥à¤  n < à¤•à¤¨à¤¿à¤·à¥à¤  (suc n)
@@ -193,19 +193,19 @@ open import NoReturn_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGen
 à¤µà¥ƒà¤¦à¥à¤§à¤¿-à¤¦à¥‚à¤°à¥‡ n (suc k)  = <-trans (à¤µà¥ƒà¤¦à¥à¤§à¤¿-à¤¦à¥‚à¤°à¥‡ n k) (à¤µà¥ƒà¤¦à¥à¤§à¤¿-à¤ªà¤¦à¥‡ (suc (k + n)))
 
 ------------------------------------------------------------------------
--- à¥« Â· à¤…à¤¨à¤¨à¥à¤¤à¤ƒ â€” THE FIBRE IS INFINITE.
+-- à Â àà¨à¨ààà â” THE FIBRE IS INFINITE.
 --
 --     No entry of the sequence is ever equal to a LATER entry, because
 --     their second roots differ and a strict inequality forbids the
 --     equality.  No trichotomy is needed: "later" is enough, and it is
 --     the direction that says the sequence does not close up.
 --
---     This is the join.  Â§à¥§ (invariance, Brahmagupta) puts the orbit
+--     This is the join.  Â§à§ (invariance, Brahmagupta) puts the orbit
 --     inside the fibre and says nothing about how much of it is reached.
---     Â§à¥ª (growth) says the orbit never repeats and says nothing about
+--     Â§à (growth) says the orbit never repeats and says nothing about
 --     where it lives.  Only together do they give a fibre containing a
---     sequence with no repetitions â€” an infinite solution set, with the
---     n-th solution EXHIBITED rather than counted (à¤¸à¥‚à¤¤à¥à¤° à¥®).
+--     sequence with no repetitions â” an infinite solution set, with the
+--     n-th solution EXHIBITED rather than counted (ààààà° à®).
 ------------------------------------------------------------------------
 
 à¤…à¤¨à¤¨à¥à¤¤à¤ƒ : (n k : â„•) â†’ Â¬ (à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ n â‰¡ à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ (suc (k + n)))
@@ -213,23 +213,23 @@ open import NoReturn_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGen
                            (à¤µà¥ƒà¤¦à¥à¤§à¤¿-à¤¦à¥‚à¤°à¥‡ n k))
 
 ------------------------------------------------------------------------
--- à¥¬ Â· à¤¬à¥Œà¤§à¤¾à¤¯à¤¨à¤¸à¥à¤¯ à¤®à¤¾à¤¨à¤®à¥ â€” and it lands on the Åšulba value.
+-- à Â ààà§à¾à¯à¨ààà¯ à®à¾à¨à®à â” and it lands on the ulba value.
 --
---     (3,2) â†’ (17,12) â†’ (99,70) â†’ (577,408), and 577/408 is exactly the
---     *saviÅ›eá¹£a* value BAUDHÄ€YANA gives for âˆš2, à¤¶à¥à¤²à¥à¤¬à¤¸à¥‚à¤¤à¥à¤°à¤®à¥ à¥§.à¥¬à¥§â€“à¥¬à¥¨, about
+--     (3,2) â’ (17,12) â’ (99,70) â’ (577,408), and 577/408 is exactly the
+--     *saviea* value BAUDHYANA gives for âˆ2, ààà²ààààààà°à®à à§.àà§â“àà¨, about
 --     twelve centuries before the composition that generates it here.
 --     Each of these holds by `refl`, so Agda executes the arithmetic.
 --
 --     A DISTINCTION FOUND BY THE INDEX BEING WRONG, and it matters.
---     `Dvikarani.agda` records the chain (3,2) â†’ (17,12) â†’ (577,408) by
---     DOUBLING â€” composing each row with ITSELF.  This module composes
+--     `Dvikarani.agda` records the chain (3,2) â’ (17,12) â’ (577,408) by
+--     DOUBLING â” composing each row with ITSELF.  This module composes
 --     each row against the FIXED fundamental row, and gets (99,70) in
---     between.  Both are à¤­à¤¾à¤µà¤¨à¤¾ and both reach BaudhÄyana.s value; they
+--     between.  Both are àà¾àµà¨à¾ and both reach Baudhyana.s value; they
 --     are not the same sequence.  Self-composition is the subsequence of
 --     SQUARES and skips solutions; composition against the fundamental
---     row visits them in order.  For Â§à¥« that difference is the whole
+--     row visits them in order.  For Â§à that difference is the whole
 --     point -- infinitude wants the sequence that does not skip -- and
---     the two are worth not conflating, which a note saying "the bhÄvanÄ
+--     the two are worth not conflating, which a note saying "the bhvan
 --     orbit" would do.
 ------------------------------------------------------------------------
 

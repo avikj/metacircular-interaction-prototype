@@ -116,6 +116,6 @@ no-global-sheet section =
 -- Not checked: an equivalence between this GlobalSheet and
 -- PMCokernel.Section.  The present fibre is only the one-dimensional
 -- obstruction local system, not the contextwise three-observable valuation
--- space with restriction maps.  Building that Čech object remains the next
+-- space with restriction maps.  Building that ech object remains the next
 -- step; this module prevents it from reverting to a discrete context base.
 ------------------------------------------------------------------------

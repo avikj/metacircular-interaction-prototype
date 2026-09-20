@@ -3,27 +3,27 @@
 ------------------------------------------------------------------------
 -- OracleCharge
 --
--- TARGET.md §6 item 2, executed: read `BARRIER.md` §3 Problem 2 — the
+-- TARGET.md §6 item 2, executed: read `BARRIER.md` §3 Problem 2 � the
 -- oracle model separating VALUE queries from FUNCTIONAL-EQUATION queries
--- — against `ChargeCriterion`.  The prediction there was "they should be
+-- � against `ChargeCriterion`.  The prediction there was "they should be
 -- the same distinction stated twice; if they are not, the difference is
 -- the finding."  They are the same distinction, and the identification
 -- is a theorem, not a reading:
 --
 --   **A functional-equation comparison cannot be parity-neutral.**
 --
--- A value query reads val σ n at an argument n of the method's choosing,
+-- A value query reads val � n at an argument n of the method's choosing,
 -- and `ChargeCriterion` classified these: a value-query set separates the
 -- gauge pair iff it contains an odd-Ω argument.  A method can choose to
 -- stay neutral.
 --
--- A functional-equation query — the interface entropy decrement consumes,
--- λ(pn) = −λ(n) used as a constraint — compares val at n and at p·n.
--- But Ω(p·n) = Ω(n) + 1, so THE TWO ENDS OF AN FE COMPARISON ALWAYS LIE
+-- A functional-equation query � the interface entropy decrement consumes,
+-- λ(pn) = −λ(n) used as a constraint � compares val at n and at p�n.
+-- But Ω(p�n) = Ω(n) + 1, so THE TWO ENDS OF AN FE COMPARISON ALWAYS LIE
 -- IN OPPOSITE PARITY SECTORS: whichever sector n is in, pn is in the
 -- other.  A method with FE access cannot stay neutral even if it wants
--- to — any query set closed under a single FE comparison contains an
--- odd-Ω argument, hence (by `ChargeCriterion.odd⇒separator`) admits a
+-- to � any query set closed under a single FE comparison contains an
+-- odd-Ω argument, hence (by `ChargeCriterion.odd�separator`) admits a
 -- separator.
 --
 -- WHY THIS IS THE MECHANISM AND NOT A COINCIDENCE.  Multiplication by a
@@ -31,7 +31,7 @@
 -- truncation of that grading (`ChargeGrading`, Delta 15 §15.7).  T15.27
 -- there says a degree-δ operation changes parity by δ mod 2, and
 -- `parity-moving-shifts` says an odd shift moves the parity of EVERY
--- sector it touches — "no observer refinement can prevent it, because
+-- sector it touches � "no observer refinement can prevent it, because
 -- the shift is what moves."  δ = 1 is odd.  That checked statement, two
 -- modules old, is why the FE interface carries charge: the interface's
 -- one primitive is an odd shift.
@@ -48,8 +48,8 @@
 -- What was DEFINITIONAL in BARRIER.md ("outside WL by construction")
 -- becomes STRUCTURAL here: the FE interface does not happen to sit
 -- outside the neutral class, it CANNOT sit inside it.  That is not yet
--- W3 — W3 asks whether value queries can SIMULATE FE queries, a
--- lower-bound question this module does not touch — but it is the half
+-- W3 � W3 asks whether value queries can SIMULATE FE queries, a
+-- lower-bound question this module does not touch � but it is the half
 -- of W3 that can be had exactly: the two interfaces differ in charge,
 -- provably, so a simulation would have to manufacture charge from
 -- neutral readings, and `no-decision` says post-processing alone cannot.
@@ -57,18 +57,18 @@
 -- Contents (no holes, no postulates, --safe):
 --
 --   FEPair                     the two ends of an FE comparison
---   fe-flips-parity            Ω(p·n) has the opposite parity of Ω(n)
---   fe-crosses-sectors         hence one end is always odd —
+--   fe-flips-parity            Ω(p�n) has the opposite parity of Ω(n)
+--   fe-crosses-sectors         hence one end is always odd �
 --                              as a decided disjunction, not a case split
 --                              left to the reader
 --   fe-has-charge              an FE comparison anywhere in the query set
 --                              yields HasOdd
---   fe⇒separator               …and hence a constructed separator
+--   fe�separator               �and hence a constructed separator
 --   value-can-hide             contrast: a nonempty pure-value query set
 --                              with no separator (probe-6 re-exported in
 --                              this vocabulary)
 --   fe-ratio-is-the-sign       the ratio the FE constraint propagates IS
---                              σ(p) — charge-one data on the nose
+--                              �(p) � charge-one data on the nose
 --
 ------------------------------------------------------------------------
 
@@ -89,8 +89,8 @@ open import ChargeCriterion
 ------------------------------------------------------------------------
 -- §1  The functional-equation interface.
 --
--- One FE comparison touches the pair (n , p·n).  In the factor-multiset
--- presentation p·n is literally p ∷ n, which is why the parity fact is
+-- One FE comparison touches the pair (n , p�n).  In the factor-multiset
+-- presentation p�n is literally p � n, which is why the parity fact is
 -- one line: the interface's primitive is the constructor of the grading.
 ------------------------------------------------------------------------
 
@@ -105,7 +105,7 @@ FEPair p n = n ∷ fe-mult p n ∷ []
 -- §2  The parity mechanics.
 ------------------------------------------------------------------------
 
--- Ω(p·n) = Ω(n) + 1, so the sign flips.  Definitional.
+-- Ω(p�n) = Ω(n) + 1, so the sign flips.  Definitional.
 fe-flips-parity : (p : ℕ) (n : Number)
                 → sgn (Ω (fe-mult p n)) ≡ not (sgn (Ω n))
 fe-flips-parity p n = refl
@@ -138,7 +138,7 @@ fe⇒separator p n = odd⇒separator (FEPair p n) (fe-has-charge p n)
 ------------------------------------------------------------------------
 -- §4  The contrast that makes it an asymmetry of interfaces.
 --
--- Value queries CAN be confined to the neutral sector — probe-6 from
+-- Value queries CAN be confined to the neutral sector � probe-6 from
 -- `ChargeCriterion` is a nonempty value-query set with provably no
 -- separator.  FE queries cannot be so confined: §3.  That asymmetry is
 -- the oracle-model distinction of BARRIER.md §3 Problem 2, derived
@@ -157,8 +157,8 @@ value-can-hide = probe-6 , probe-6-cannot , nonempty
 ------------------------------------------------------------------------
 -- §5  What the FE constraint actually transports.
 --
--- The relation λ(pn) = −λ(n) propagates the RATIO val σ (p·n) / val σ n,
--- and that ratio is σ(p) itself — charge-one data, the sign at a single
+-- The relation λ(pn) = −λ(n) propagates the RATIO val � (p�n) / val � n,
+-- and that ratio is �(p) itself � charge-one data, the sign at a single
 -- prime.  So the FE interface is not merely "somewhere charged": its
 -- transported datum is the generator of the charged sector.  This is the
 -- exact sense in which entropy decrement "accesses a's functional
@@ -169,7 +169,7 @@ fe-ratio-is-the-sign : (σ : Signs) (p : ℕ) (n : Number)
                      → val σ (fe-mult p n) ≡ σ p · val σ n
 fe-ratio-is-the-sign σ p n = refl
 
--- …and for the gauge pair specifically: on σ₊ the ratio is +1, on the
+-- �and for the gauge pair specifically: on �� the ratio is +1, on the
 -- flip it is −1, at every prime and every n.  The FE interface separates
 -- the pair by ONE comparison, anywhere.
 fe-ratio-separates : (p : ℕ) (n : Number)

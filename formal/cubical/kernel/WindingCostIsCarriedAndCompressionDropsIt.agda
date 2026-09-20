@@ -4,8 +4,8 @@
 -- WindingCostIsCarriedAndCompressionDropsIt
 --
 -- The capstone tying the winding cost to the forgetful compression. The
--- derivation `addTower n` reaching standpoint n is SOUND â€” its endpoints
--- compress to the same value â€” yet it carries length n+1. So the cost lives
+-- derivation `addTower n` reaching standpoint n is SOUND â” its endpoints
+-- compress to the same value â” yet it carries length n+1. So the cost lives
 -- in the trace (the carried, lossless object) and is exactly what the
 -- compression `compress = eval` cannot see: the value only records "equal",
 -- never "how far". Cost conserved in the trace; dropped by the projection.

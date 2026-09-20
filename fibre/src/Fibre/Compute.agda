@@ -21,7 +21,7 @@ open import Fibre.Viveka
 दो-पद : जाल
 दो-पद = पुनः (पुनः (आरम्भ (2 , 3)))
 
--- (2,3) → (3,4) → (4,5)
+-- (2,3) � (3,4) � (4,5)
 पद-निर्देशांक : उत्थान (इदम् दो-पद) ≡ (4 , 5)
 पद-निर्देशांक = refl
 
@@ -48,12 +48,12 @@ open import Fibre.Viveka
 परिवहन-निर्देशांक = refl
 
 -- ... but NOT on a neutral variable. Recorded as a NON-theorem, which is
--- exactly why परिवहन-अवतरण (uaβ) is load-bearing rather than decorative:
+-- exactly why ������-����� (uaβ) is load-bearing rather than decorative:
 --
---   (x : ℕ × ℕ) → परिवहन x ≡ अवतरण x
---   ✗  transp (λ i → विवेक) i0 (prim^unglue x) != अवतरण x
+--   (x : � � �) � ������ x ≡ ����� x
+--   �  transp (λ i � ������) i0 (prim^unglue x) != ����� x
 --
--- The propositional statement is परिवहन-अवतरण, and it holds for all x.
+-- The propositional statement is ������-�����, and it holds for all x.
 
 -- the square closes definitionally for an OPAQUE variable
 वर्ग-अपारदर्शी : (v : विवेक) → उत्थान (Φ-विवेक v) ≡ Φ (उत्थान v)

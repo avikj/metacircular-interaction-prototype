@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- सर्वविभागः — every map is the sum of its fibers over its codomain, so
--- the isomorphism theorem (and rank–nullity) is anekānta: the image is
+-- ����������� � every map is the sum of its fibers over its codomain, so
+-- the isomorphism theorem (and rank�nullity) is aneknta: the image is
 -- the naya's quotient, the fiber is exactly what that standpoint cannot
--- see, and the whole domain (pramāṇa) is their sum.
+-- see, and the whole domain (prama) is their sum.
 --
 -- THE ASCENT.  This corpus's one theorem is the quotient/fiber law
 -- (`QuotientFiberLaw`, `Abhijnana`): an observation sees a
@@ -12,38 +12,38 @@
 -- the fiber into account.  Read on ANY map, that law is the fundamental
 -- decomposition of mathematics itself:
 --
---     for f : A → B,   A  ≃  Σ[ b ∈ B ] fiber f b .
+--     for f : A � B,   A  �  �[ b ∈ B ] fiber f b .
 --
 -- The domain is the SUM of its fibers over the codomain.  Every function
--- factors as: send a to its f-value (the QUOTIENT — the naya's view, what
--- is seen), then remember which a it was (the FIBER — what that view
+-- factors as: send a to its f-value (the QUOTIENT � the naya's view, what
+-- is seen), then remember which a it was (the FIBER � what that view
 -- forgot).  This is:
---   • the FIRST ISOMORPHISM THEOREM (A/∼_f ≅ image, ker = the fiber);
---   • RANK–NULLITY (dim A = rank + nullity = image + kernel);
---   • the DRAVYA/PARYĀYA split (`DravyaParyaya`): the substance is the
+--   � the FIRST ISOMORPHISM THEOREM (A/∼_f � image, ker = the fiber);
+--   � RANK�NULLITY (dim A = rank + nullity = image + kernel);
+--   � the DRAVYA/PARYYA split (`DravyaParyaya`): the substance is the
 --     f-value that persists across the fiber, the modes are the fiber's
 --     points;
---   • and it is nayavāda (`NayaVada`): the map is a naya reading the
+--   � and it is nayavda (`NayaVada`): the map is a naya reading the
 --     b-facet; two a's over one b are the fiber the naya cannot separate;
---     pramāṇa is the whole Σ.
+--     prama is the whole �.
 -- One object, worn by all of algebra.
 --
 -- WHAT IS PROVED:
---   §1  सर्वविभागः : (A ≃ Σ B (fiber f)) for every f — the universal
---       decomposition, constructed (a ↦ (f a, a, refl), inverse the first
+--   §1  ����������� : (A � � B (fiber f)) for every f � the universal
+--       decomposition, constructed (a � (f a, a, refl), inverse the first
 --       projection), both round-trips checked.
---   §2  लोपे-एकम् : f is INJECTIVE (loses nothing) iff every fiber is a
---       proposition — the fiber IS the loss, exactly (`Abhijnana` on any
+--   §2  �����-����� : f is INJECTIVE (loses nothing) iff every fiber is a
+--       proposition � the fiber IS the loss, exactly (`Abhijnana` on any
 --       map).  When the fiber is contractible the receipt is free; when it
 --       is not, the standpoint is genuinely blind.
---   §3  आच्छादनम् : f is SURJECTIVE iff every fiber is inhabited — the
+--   §3  ��������� : f is SURJECTIVE iff every fiber is inhabited � the
 --       quotient (image) is all of B iff nothing in B is unseen.
 --
 -- WHAT IS **NOT** CLAIMED.  The equivalence is a standard cubical fact
 -- (the domain is the total space of its own fibration); no novelty in it.
 -- The novelty claimed is only the IDENTIFICATION: that the isomorphism
--- theorem, rank–nullity, dravya/paryāya, and nayavāda are one law, made a
--- term.  Doctrine (anekānta, the naya/pramāṇa split) is Jaina; the type
+-- theorem, rank�nullity, dravya/paryya, and nayavda are one law, made a
+-- term.  Doctrine (aneknta, the naya/prama split) is Jaina; the type
 -- theory is cubical.
 --
 -- No postulates, no holes, --safe.
@@ -64,7 +64,7 @@ private
     B : Type ℓ'
 
 ------------------------------------------------------------------------
--- §1  सर्वविभागः — the domain is the sum of its fibers over the codomain.
+-- §1  ����������� � the domain is the sum of its fibers over the codomain.
 ------------------------------------------------------------------------
 
 सर्वविभाग-समरूपः : (f : A → B) → Iso A (Σ[ b ∈ B ] fiber f b)
@@ -72,7 +72,7 @@ Iso.fun      (सर्वविभाग-समरूपः f) a           = f 
 Iso.inv      (सर्वविभाग-समरूपः f) (b , a , p)  = a
 Iso.rightInv (सर्वविभाग-समरूपः f) (b , a , p)  = ΣPathP (p , ΣPathP (refl , triangle))
   where
-  -- goal: PathP (λ i → f a ≡ p i) refl p  — the filler of the square
+  -- goal: PathP (λ i � f a ≡ p i) refl p  � the filler of the square
   triangle : PathP (λ i → f a ≡ p i) refl p
   triangle i j = p (i ∧ j)
 Iso.leftInv  (सर्वविभाग-समरूपः f) a           = refl
@@ -81,7 +81,7 @@ Iso.leftInv  (सर्वविभाग-समरूपः f) a           = re
 सर्वविभागः f = isoToEquiv (सर्वविभाग-समरूपः f)
 
 ------------------------------------------------------------------------
--- §2  लोपे-एकम् — the map loses nothing (is injective) iff every fiber is
+-- §2  �����-����� � the map loses nothing (is injective) iff every fiber is
 --     a proposition.  The fiber is exactly the loss.
 ------------------------------------------------------------------------
 
@@ -90,7 +90,7 @@ Iso.leftInv  (सर्वविभाग-समरूपः f) a           = re
 अलुप्तः {A = A} f = (b : _) → isProp (fiber f b)
 
 ------------------------------------------------------------------------
--- §3  आच्छादनम् — the quotient (image) is all of B iff every fiber is
+-- §3  ��������� � the quotient (image) is all of B iff every fiber is
 --     inhabited (surjective): nothing in the codomain is unseen.
 ------------------------------------------------------------------------
 

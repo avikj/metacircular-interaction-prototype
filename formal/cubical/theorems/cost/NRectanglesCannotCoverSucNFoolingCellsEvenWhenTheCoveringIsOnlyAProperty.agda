@@ -7,45 +7,45 @@
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`, and grepped
 -- invented.**  The pigeonhole step and the fooling-set method are not
 -- structures I can trace to a source in this corpus's traditions, and
--- attaching a Sanskrit label to them would assert a provenance nobody
--- checked â€” the mirror of the scrubbing the naming rule corrects.  Jaina
--- enumerative mathematics (*AnuyogadvÄra*, *SthÄnÄá¹…ga*) is combinatorial
+-- attaching a  label to them would assert a provenance nobody
+-- checked â” the mirror of the scrubbing the naming rule corrects.  Jaina
+-- enumerative mathematics (*Anuyogadvra*, *Sthnga*) is combinatorial
 -- and adjacent, and I am NOT claiming it as the source of this argument;
 -- I have not established that, and saying so is cheaper than a citation
 -- I cannot defend.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE AUDIT FINDING.
 --
 -- `NRectanglesCannotCoverSucNFoolingCells` is titled as an impossibility
 -- about COVERING, and covering is naturally a PROPERTY: a cell is
 -- covered when SOME rectangle of the family is sound and contains it.
--- What the theorem there actually takes is different and stronger â€”
+-- What the theorem there actually takes is different and stronger â”
 --
---     (pick : Fin (suc n) â†’ Fin n)
---     â†’ ((i : â€¦) â†’ Sound (rects (pick i)))
---     â†’ ((i : â€¦) â†’ Covers (rects (pick i)) (r i) (c i))
+--     (pick : Fin (suc n) â’ Fin n)
+--     â’ ((i : â¦) â’ Sound (rects (pick i)))
+--     â’ ((i : â¦) â’ Covers (rects (pick i)) (r i) (c i))
 --
--- â€” i.e. a cover ALREADY EQUIPPED with a choice of which rectangle
+-- â” i.e. a cover ALREADY EQUIPPED with a choice of which rectangle
 -- serves each cell.  That is structure handed to the theorem, not a
--- hypothesis about the family, and the module's Â§"SYÄ€T â€” THE CLAIM, EXACTLY"
+-- hypothesis about the family, and the module's Â§"SYT â” THE CLAIM, EXACTLY"
 -- does not mention it: it disclaims upper bounds, r_e, d_e, raw width
 -- and the min-cover/max-fooling equality, and says nothing about the
 -- shape of its own covering hypothesis.
 --
--- **THE GAP IS REAL BUT IT IS NOT A HOLE â€” IT IS A PRICE, AND THE PRICE
+-- **THE GAP IS REAL BUT IT IS NOT A HOLE â” IT IS A PRICE, AND THE PRICE
 -- IS FINITE CHOICE.**  Two repairs, both here:
 --
---   1.  Untruncated.  If the hypothesis is `(i) â†’ Î£[ k ] (Sound Ã— Covers)`
---       then `pick i = fst (h i)` and the rest is projection.  FREE â€”
---       a Î  of Î£ already contains its own choice function.
+--   1.  Untruncated.  If the hypothesis is `(i) â’ Î[ k ] (Sound — Covers)`
+--       then `pick i = fst (h i)` and the rest is projection.  FREE â”
+--       a Î  of Î already contains its own choice function.
 --   2.  Truncated, which is the honest reading of "is covered".  If the
---       hypothesis is `(i) â†’ âˆ¥ Î£[ k ] (Sound Ã— Covers) âˆ¥â‚` then no
+--       hypothesis is `(i) â’ âˆ Î[ k ] (Sound — Covers) âˆâ` then no
 --       `pick` can be projected out, because the conclusion for a single
 --       cell is not a proposition.  It goes through anyway, and what
---       pays for it is `finChoiceFin` â€” choice over a FINITE index into
+--       pays for it is `finChoiceFin` â” choice over a FINITE index into
 --       a propositional truncation, proved here by induction on `n` with
---       `fsplit`.  The final goal being `âŠ¥`, a proposition, is what lets
+--       `fsplit`.  The final goal being `âŠ`, a proposition, is what lets
 --       the truncation be eliminated at the end.
 --
 -- **AND THAT IS THE DIAGNOSTIC FROM ecb432c2 AND 53a06cc9 GIVING ITS
@@ -57,11 +57,11 @@
 -- the first time on this line that anything has needed finiteness for a
 -- reason other than the pigeonhole.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   finChoiceFin     ((i : Fin n) â†’ âˆ¥ B i âˆ¥â‚) â†’ âˆ¥ ((i : Fin n) â†’ B i) âˆ¥â‚
---   CoveredBy        covering as a property: a truncated Î£
+--   finChoiceFin     ((i : Fin n) â’ âˆ B i âˆâ) â’ âˆ ((i : Fin n) â’ B i) âˆâ
+--   CoveredBy        covering as a property: a truncated Î
 --   cannotCoverSigma      the untruncated repair, by projection
 --   cannotCoverTruncated  the truncated one, through `finChoiceFin`
 --
@@ -69,7 +69,7 @@
 -- and `covers` are constructed from the hypothesis and handed to
 -- `nRectanglesCannotCoverSucNFoolingCells` unchanged.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

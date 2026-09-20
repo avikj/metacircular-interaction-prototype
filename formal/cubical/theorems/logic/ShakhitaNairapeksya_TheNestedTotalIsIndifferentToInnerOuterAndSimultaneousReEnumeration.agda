@@ -7,7 +7,7 @@
 -- from the generic finite-fold result so the kernel can distinguish a defect
 -- in dependent reindexing from the already-closed permutation theorem.
 --
--- `BahuShakha.‡§∂‡§æ‡§ñ‡§ø‡§§‡§Ø‡•ã‡§ó‡§É` should be independent of:
+-- `BahuShakha.‡‡æ‡ñ‡ø‡‡Ø‡ã‡ó‡` should be independent of:
 --
 --   * every microbranch enumeration, independently at each coarse outcome;
 --   * the outer enumeration of coarse outcomes;

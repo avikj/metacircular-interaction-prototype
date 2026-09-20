@@ -9,19 +9,19 @@
 --
 -- This probe supplies the exact computational/type-theoretic floor:
 --
---   Micro = Œ£[ y ‚àà Fin (suc c) ] Fin (suc (k y))
---   Flat  = Fin (totalSum (Œª y ‚Üí suc (k y)))
+--   Micro = Œ[ y ‚àà Fin (suc c) ] Fin (suc (k y))
+--   Flat  = Fin (totalSum (Œª y ‚í suc (k y)))
 --
--- `SumFinŒ£‚âÉ` gives `Micro ‚âÉ Flat`.  By univalence this is a universe path,
+-- `SumFinŒ‚â` gives `Micro ‚â Flat`.  By univalence this is a universe path,
 -- and transport along the path computes to the encoder by `uaŒ≤`.  Decoding
 -- recovers both the coarse outcome and the microbranch.  The coarse observer
 -- on the flat register is `fst ‚àò decode`, and its fibre over y is equivalent
--- to `Fin (suc (k y))` exactly‚Äînot merely equal in cardinality.
+-- to `Fin (suc (k y))` exactly‚înot merely equal in cardinality.
 --
 -- One generic lemma is made explicit because it is the bridge the claim
 -- consumes: precomposing a map by an equivalence carries each fibre to an
 -- equivalent fibre.  Since the current base is a finite set, the two round
--- trips close by `Œ£‚â°Prop`; no path witness is silently identified without the
+-- trips close by `Œ‚â°Prop`; no path witness is silently identified without the
 -- set receipt.
 --
 -- WHAT THIS REACHES.
@@ -30,7 +30,7 @@
 --   * exact recovery of the coarse label after encode/decode;
 --   * the branch itself as the fibre of the flat coarse observer.
 --
--- TERM. ‡§¨‡§π‡•Å‡§∂‡§æ‡§ñ‡§æ is carried from the checked branch-family module; ‡§∏‡•á‡§§‡•Å is the
+-- TERM. ‡‡‡‡‡æ‡ñ‡æ is carried from the checked branch-family module; ‡‡‡‡ is the
 -- repository's ordinary word for a checked bridge.  The compound is built
 -- here; no source is claimed for this mathematics.
 --
@@ -118,7 +118,7 @@ module _ (c : ‚Ñï) (k : Fin (suc c) ‚Üí ‚Ñï) where
   encode-decode = secEq flatten
 
   -- The equivalence is identity in the universe, and transport computes to
-  -- the encoder‚Äînot merely propositionally to some unspecified map.
+  -- the encoder‚înot merely propositionally to some unspecified map.
   refinement-path : Micro ‚â° Flat
   refinement-path = ua flatten
 

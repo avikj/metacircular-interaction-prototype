@@ -10,18 +10,18 @@
 --
 -- `WalkBridge` makes the walk's step a total function
 --
---     next m = least q ≥ 2 with q ∤ cap m ,          cap m = lcm(1..m),
+--     next m = least q � 2 with q � cap m ,          cap m = lcm(1..m),
 --
 -- and it RUNS: next 1..5 = 2,3,4,5,7 by refl.  Then it stops.  `next 7`
--- costs 86 s and `next 8` exhausts a 3.5 GB heap, for a derived reason —
--- the search decides `s ∣ cap m` per candidate, a unary divisibility
+-- costs 86 s and `next 8` exhausts a 3.5 GB heap, for a derived reason �
+-- the search decides `s � cap m` per candidate, a unary divisibility
 -- test on cap m costs Θ(cap m), and cap m = e^{ψ(m)}.  The walk's
 -- storage law is its naive runtime law.
 --
 -- But `WalkPrimePowers` proved that the installs are exactly the prime
 -- powers in increasing order.  So the expensive predicate
 --
---     q ∤ cap m          (an object of size e^{ψ(m)})
+--     q � cap m          (an object of size e^{ψ(m)})
 --
 -- can be traded for the cheap one
 --
@@ -50,7 +50,7 @@
 -- state of the lane.
 --
 -- AND THE SUSPECT THIS HEADER NAMED WAS INNOCENT.  The correction is
--- not "the `with` was fixed" — it is that the `with` was never the
+-- not "the `with` was fixed" � it is that the `with` was never the
 -- cause.  `WalkFastInstance` carries the bisection log with its
 -- controls, and two rows of it settle the question: applying
 -- `next-characterised` itself, `with`-abstraction and all, at m = 8
@@ -85,7 +85,7 @@
 --
 -- HEADER REVISED 2026-08-15 (comment only; not one line of code below
 -- was touched).  Re-typechecked after the edit: EXIT=0 in 2.3 s, and
--- `WalkFastInstance` EXIT=0 in 3.1 s — but under Agda 2.6.3 with the
+-- `WalkFastInstance` EXIT=0 in 3.1 s � but under Agda 2.6.3 with the
 -- cubical checkout at /tmp/cubical (`cubical-0.7`), which is NOT the
 -- repository pin (Agda 2.8.0 + cubical v0.9, see BUILD.md).  Treat that
 -- as a syntax-and-scope check of the comment, not as a pin result; the
@@ -93,14 +93,14 @@
 -- are recorded in its own header.
 --
 -- ------------------------------------------------------------------
--- HISTORY.  Kept rather than deleted, per this lane's convention — cf.
+-- HISTORY.  Kept rather than deleted, per this lane's convention � cf.
 -- the retracted first-revision header preserved at the foot of
 -- `WalkFastInstance`.  Until 2026-08-15 this section read:
 --
--- > NOT DELIVERED: the payoff instances.  `next-8 : next 8 ≡ 9` — built
+-- > NOT DELIVERED: the payoff instances.  `next-8 : next 8 ≡ 9` � built
 -- > exactly as the exchange rate prescribes, with every ingredient
 -- > individually cheap (`decIsPrimePower 9` evaluates in 3 s; the
--- > interval is empty; the order proofs are `refl`) — nevertheless
+-- > interval is empty; the order proofs are `refl`) � nevertheless
 -- > exhausts a 3.5 GB heap after 5 minutes.  So SOMETHING still forces
 -- > `next 8`, and I do not yet know what; the obvious suspect is the
 -- > `with`-abstraction on `q ≟ next m` inside `next-characterised`.
@@ -144,7 +144,7 @@ open import WalkPrimePowers
 -- 1.  `next m` is the least prime power above m.
 ------------------------------------------------------------------------
 
--- every install is a prime power: §(c)(⇒) applied to the step's own
+-- every install is a prime power: §(c)(�) applied to the step's own
 -- certificate.  No ordering theorem is used.
 next-isPP : (m : ℕ) → IsPrimePower (next m)
 next-isPP m =
@@ -205,8 +205,8 @@ next-characterised m q 1≤m ippq m<q none with q ≟ next m
 ------------------------------------------------------------------------
 -- 2.  Prime-power-hood is decidable, at size n.
 --
---  n ≥ 2:  take a prime divisor p (bounded search), strip n at p to get
---          n = p^e · u with p ∤ u.  Then n is a prime power iff u = 1;
+--  n � 2:  take a prime divisor p (bounded search), strip n at p to get
+--          n = p^e � u with p � u.  Then n is a prime power iff u = 1;
 --          if u > 1 it has a prime divisor r ≠ p, and two distinct
 --          primes divide n, which CoprimeSplitting already refutes.
 ------------------------------------------------------------------------
@@ -258,7 +258,7 @@ decPP≥2 n 1<n = go (primeDivisor n 1<n)
       p≢r : ¬ (p ≡ r)
       p≢r e' = ¬p∣u (subst (_∣ u) (sym e') r∣u)
 
-    -- e = 0 means n = u and p ∤ u, contradicting p ∣ n
+    -- e = 0 means n = u and p � u, contradicting p � n
     go2 : Strip p n → Dec (IsPrimePower n)
     go2 (zero , u , 0<u , peu , ¬p∣u) =
       Empty.rec (¬p∣u (subst (p ∣_) (sym (sym (·-identityˡ u) ∙ peu)) p∣n))

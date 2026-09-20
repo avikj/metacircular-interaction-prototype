@@ -28,7 +28,7 @@ _∘_ : {A B C : Type₀} → (B → C) → (A → B) → A → C
 Task : {X Z Y : Type₀} → (X → Z) → (X → Y) → Type₀
 Task q f = Σ[ g ∈ (_ → _) ] ((x : _) → f x ≡ g (q x))
 
--- If q₂ is a coarsening of q₁, every q₂-supported task is q₁-supported.
+-- If q� is a coarsening of q�, every q�-supported task is q�-supported.
 option-monotonicity
   : {X Z₁ Z₂ Y : Type₀}
   → (q₁ : X → Z₁)

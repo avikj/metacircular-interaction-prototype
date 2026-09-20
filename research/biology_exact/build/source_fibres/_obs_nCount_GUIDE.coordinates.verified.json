@@ -1,0 +1,959 @@
+{
+  "column": "/obs/nCount_GUIDE",
+  "lane": null,
+  "exposure": null,
+  "pairs": 158,
+  "defined": 158,
+  "missing": [],
+  "all_inverse_reconstructions_exact": true,
+  "coordinates": [
+    {
+      "label": "DOT1L_EP300",
+      "numerator": -8249572112,
+      "denominator": 1024049040,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_FLI1",
+      "numerator": -31555916056,
+      "denominator": 1677121824,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_GATA2",
+      "numerator": 2871749312,
+      "denominator": 315061680,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_GFI1",
+      "numerator": 1108059552,
+      "denominator": 463956912,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_GSE1",
+      "numerator": -3713978624,
+      "denominator": 471606720,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_HDAC3",
+      "numerator": -2776213104,
+      "denominator": 1006935552,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_IKZF1",
+      "numerator": -934600980,
+      "denominator": 243098280,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_INTS1",
+      "numerator": 90593539040,
+      "denominator": 8839471440,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_KDM1A",
+      "numerator": -9994152516,
+      "denominator": 250669224,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_MED24",
+      "numerator": -6676045776,
+      "denominator": 1249205760,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_MYB",
+      "numerator": -295972200,
+      "denominator": 35488800,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_RCOR1",
+      "numerator": -7030240616,
+      "denominator": 452206176,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_RING1",
+      "numerator": -11531329712,
+      "denominator": 582568368,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_SMARCD1",
+      "numerator": -9406639296,
+      "denominator": 611353728,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_SSRP1",
+      "numerator": -631085704,
+      "denominator": 36592896,
+      "inverse_exact": true
+    },
+    {
+      "label": "DOT1L_VPRBP",
+      "numerator": 1077178896,
+      "denominator": 184541760,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_FLI1",
+      "numerator": -25310439168,
+      "denominator": 1589714224,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_GATA2",
+      "numerator": 6321520304,
+      "denominator": 397125184,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_GFI1",
+      "numerator": -3496523632,
+      "denominator": 535462816,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_GSE1",
+      "numerator": -69003456,
+      "denominator": 463102976,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_HDAC3",
+      "numerator": -4769038368,
+      "denominator": 1061397504,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_IKZF1",
+      "numerator": -370478480,
+      "denominator": 184045680,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_INTS1",
+      "numerator": -24111425680,
+      "denominator": 3219338720,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_KDM1A",
+      "numerator": -4181623680,
+      "denominator": 205079472,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_MED24",
+      "numerator": -10505060464,
+      "denominator": 1389219040,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_MYB",
+      "numerator": 196451920,
+      "denominator": 81573360,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_RCOR1",
+      "numerator": -1601949168,
+      "denominator": 372855424,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_RING1",
+      "numerator": -7142211312,
+      "denominator": 667733008,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_SMARCD1",
+      "numerator": 2604499712,
+      "denominator": 710474752,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_SSRP1",
+      "numerator": 484891488,
+      "denominator": 209978368,
+      "inverse_exact": true
+    },
+    {
+      "label": "EP300_VPRBP",
+      "numerator": -3562090144,
+      "denominator": 199551360,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_GATA2",
+      "numerator": 1379685328,
+      "denominator": 1107040256,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_GFI1",
+      "numerator": -1687091280,
+      "denominator": 708093568,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_GSE1",
+      "numerator": -19679213344,
+      "denominator": 1278175136,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_HDAC3",
+      "numerator": -26802336848,
+      "denominator": 1890212352,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_IKZF1",
+      "numerator": -4350385480,
+      "denominator": 529966080,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_INTS1",
+      "numerator": -158343734640,
+      "denominator": 9392176640,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_KDM1A",
+      "numerator": -24839106460,
+      "denominator": 563364984,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_MED24",
+      "numerator": -47538565200,
+      "denominator": 3390494800,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_MYB",
+      "numerator": -895603800,
+      "denominator": 91087920,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_RCOR1",
+      "numerator": -30888869144,
+      "denominator": 1369447072,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_RING1",
+      "numerator": -41452763296,
+      "denominator": 1389872848,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_SMARCD1",
+      "numerator": -32854532256,
+      "denominator": 1454462464,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_SSRP1",
+      "numerator": -9278395784,
+      "denominator": 426917120,
+      "inverse_exact": true
+    },
+    {
+      "label": "FLI1_VPRBP",
+      "numerator": -6756250928,
+      "denominator": 353310720,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_GFI1",
+      "numerator": 2847675616,
+      "denominator": 243320880,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_GSE1",
+      "numerator": 7281130496,
+      "denominator": 333674432,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_HDAC3",
+      "numerator": 3532561328,
+      "denominator": 478272000,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_IKZF1",
+      "numerator": 3698312380,
+      "denominator": 149758920,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_INTS1",
+      "numerator": 84038157440,
+      "denominator": 3461692880,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_KDM1A",
+      "numerator": -2503273424,
+      "denominator": 152329632,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_MED24",
+      "numerator": 6503556048,
+      "denominator": 578709120,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_MYB",
+      "numerator": 104632160,
+      "denominator": 20924400,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_RCOR1",
+      "numerator": 1796334976,
+      "denominator": 221240656,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_RING1",
+      "numerator": 2431593032,
+      "denominator": 353961136,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_SMARCD1",
+      "numerator": 7044665184,
+      "denominator": 369544832,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_SSRP1",
+      "numerator": 764008952,
+      "denominator": 55479552,
+      "inverse_exact": true
+    },
+    {
+      "label": "GATA2_VPRBP",
+      "numerator": 3020269040,
+      "denominator": 137503200,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_GSE1",
+      "numerator": 2544620224,
+      "denominator": 230927360,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_HDAC3",
+      "numerator": -3937754368,
+      "denominator": 626515968,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_IKZF1",
+      "numerator": -83171040,
+      "denominator": 46593360,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_INTS1",
+      "numerator": 25855953280,
+      "denominator": 2565929280,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_KDM1A",
+      "numerator": -2669726096,
+      "denominator": 81985488,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_MED24",
+      "numerator": 3545710592,
+      "denominator": 510801280,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_MYB",
+      "numerator": -669592720,
+      "denominator": 21649440,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_RCOR1",
+      "numerator": -1699861040,
+      "denominator": 177996048,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_RING1",
+      "numerator": -8962652816,
+      "denominator": 473965856,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_SMARCD1",
+      "numerator": -6920801760,
+      "denominator": 417300800,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_SSRP1",
+      "numerator": -718303872,
+      "denominator": 40161280,
+      "inverse_exact": true
+    },
+    {
+      "label": "GFI1_VPRBP",
+      "numerator": -663785648,
+      "denominator": 102599520,
+      "inverse_exact": true
+    },
+    {
+      "label": "GSE1_HDAC3",
+      "numerator": 3406914784,
+      "denominator": 692782080,
+      "inverse_exact": true
+    },
+    {
+      "label": "GSE1_IKZF1",
+      "numerator": 1876548640,
+      "denominator": 156227040,
+      "inverse_exact": true
+    },
+    {
+      "label": "GSE1_INTS1",
+      "numerator": -22534817760,
+      "denominator": 5305478080,
+      "inverse_exact": true
+    },
+    {
+      "label": "GSE1_KDM1A",
+      "numerator": -6744398048,
+      "denominator": 165823008,
+      "inverse_exact": true
+    },
+    {
+      "label": "GSE1_MED24",
+      "numerator": 1707419008,
+      "denominator": 961157120,
+      "inverse_exact": true
+    },
+    {
+      "label": "GSE1_MYB",
+      "numerator": -354755680,
+      "denominator": 26915520,
+      "inverse_exact": true
+    },
+    {
+      "label": "GSE1_RCOR1",
+      "numerator": -4922597536,
+      "denominator": 347405248,
+      "inverse_exact": true
+    },
+    {
+      "label": "GSE1_RING1",
+      "numerator": -4136045696,
+      "denominator": 456510624,
+      "inverse_exact": true
+    },
+    {
+      "label": "GSE1_SMARCD1",
+      "numerator": -5237744192,
+      "denominator": 317213056,
+      "inverse_exact": true
+    },
+    {
+      "label": "GSE1_SSRP1",
+      "numerator": -1864292896,
+      "denominator": 98612224,
+      "inverse_exact": true
+    },
+    {
+      "label": "GSE1_VPRBP",
+      "numerator": -23349376,
+      "denominator": 100640640,
+      "inverse_exact": true
+    },
+    {
+      "label": "HDAC3_IKZF1",
+      "numerator": -1115035080,
+      "denominator": 195989760,
+      "inverse_exact": true
+    },
+    {
+      "label": "HDAC3_INTS1",
+      "numerator": 27693800640,
+      "denominator": 8074045440,
+      "inverse_exact": true
+    },
+    {
+      "label": "HDAC3_KDM1A",
+      "numerator": -5469943320,
+      "denominator": 157158144,
+      "inverse_exact": true
+    },
+    {
+      "label": "HDAC3_MED24",
+      "numerator": -3501915008,
+      "denominator": 680570880,
+      "inverse_exact": true
+    },
+    {
+      "label": "HDAC3_MYB",
+      "numerator": -365561520,
+      "denominator": 42739200,
+      "inverse_exact": true
+    },
+    {
+      "label": "HDAC3_RCOR1",
+      "numerator": -2799742688,
+      "denominator": 129113088,
+      "inverse_exact": true
+    },
+    {
+      "label": "HDAC3_RING1",
+      "numerator": -5792330232,
+      "denominator": 658794240,
+      "inverse_exact": true
+    },
+    {
+      "label": "HDAC3_SMARCD1",
+      "numerator": -7138961120,
+      "denominator": 1023949824,
+      "inverse_exact": true
+    },
+    {
+      "label": "HDAC3_SSRP1",
+      "numerator": -2449252352,
+      "denominator": 104202240,
+      "inverse_exact": true
+    },
+    {
+      "label": "HDAC3_VPRBP",
+      "numerator": -425441424,
+      "denominator": 235676160,
+      "inverse_exact": true
+    },
+    {
+      "label": "IKZF1_INTS1",
+      "numerator": 65025270800,
+      "denominator": 3126258000,
+      "inverse_exact": true
+    },
+    {
+      "label": "IKZF1_KDM1A",
+      "numerator": -2763413940,
+      "denominator": 119803320,
+      "inverse_exact": true
+    },
+    {
+      "label": "IKZF1_MED24",
+      "numerator": -895891280,
+      "denominator": 243460800,
+      "inverse_exact": true
+    },
+    {
+      "label": "IKZF1_MYB",
+      "numerator": -77612100,
+      "denominator": 11734200,
+      "inverse_exact": true
+    },
+    {
+      "label": "IKZF1_RCOR1",
+      "numerator": -838436580,
+      "denominator": 73324440,
+      "inverse_exact": true
+    },
+    {
+      "label": "IKZF1_RING1",
+      "numerator": -2480996840,
+      "denominator": 98185680,
+      "inverse_exact": true
+    },
+    {
+      "label": "IKZF1_SMARCD1",
+      "numerator": -2583477600,
+      "denominator": 226212480,
+      "inverse_exact": true
+    },
+    {
+      "label": "IKZF1_SSRP1",
+      "numerator": -314589600,
+      "denominator": 21980160,
+      "inverse_exact": true
+    },
+    {
+      "label": "IKZF1_VPRBP",
+      "numerator": -687086880,
+      "denominator": 76129200,
+      "inverse_exact": true
+    },
+    {
+      "label": "INTS1_KDM1A",
+      "numerator": -21187436160,
+      "denominator": 2215493280,
+      "inverse_exact": true
+    },
+    {
+      "label": "INTS1_MED24",
+      "numerator": 9428083680,
+      "denominator": 4355243200,
+      "inverse_exact": true
+    },
+    {
+      "label": "INTS1_MYB",
+      "numerator": 866406000,
+      "denominator": 309859200,
+      "inverse_exact": true
+    },
+    {
+      "label": "INTS1_RCOR1",
+      "numerator": -22070963760,
+      "denominator": 4162810800,
+      "inverse_exact": true
+    },
+    {
+      "label": "INTS1_RING1",
+      "numerator": -51023157760,
+      "denominator": 5868266000,
+      "inverse_exact": true
+    },
+    {
+      "label": "INTS1_SMARCD1",
+      "numerator": 62871036640,
+      "denominator": 7167584320,
+      "inverse_exact": true
+    },
+    {
+      "label": "INTS1_SSRP1",
+      "numerator": -17553424160,
+      "denominator": 2022446080,
+      "inverse_exact": true
+    },
+    {
+      "label": "INTS1_VPRBP",
+      "numerator": 16766722400,
+      "denominator": 1512408000,
+      "inverse_exact": true
+    },
+    {
+      "label": "KDM1A_MED24",
+      "numerator": -4961948816,
+      "denominator": 220094160,
+      "inverse_exact": true
+    },
+    {
+      "label": "KDM1A_MYB",
+      "numerator": -287563800,
+      "denominator": 8433360,
+      "inverse_exact": true
+    },
+    {
+      "label": "KDM1A_RCOR1",
+      "numerator": -2320542620,
+      "denominator": 59513064,
+      "inverse_exact": true
+    },
+    {
+      "label": "KDM1A_RING1",
+      "numerator": -6753651852,
+      "denominator": 152346168,
+      "inverse_exact": true
+    },
+    {
+      "label": "KDM1A_SMARCD1",
+      "numerator": -7650846016,
+      "denominator": 257630880,
+      "inverse_exact": true
+    },
+    {
+      "label": "KDM1A_SSRP1",
+      "numerator": -1092265024,
+      "denominator": 29632512,
+      "inverse_exact": true
+    },
+    {
+      "label": "KDM1A_VPRBP",
+      "numerator": -1616548848,
+      "denominator": 54072720,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED13L_MED14",
+      "numerator": -1493981924,
+      "denominator": 71240904,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED13L_MED16",
+      "numerator": -99799512,
+      "denominator": 116769600,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED13L_MED19",
+      "numerator": -49973280,
+      "denominator": 54950400,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED13L_MED22",
+      "numerator": -254143376,
+      "denominator": 79655184,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED13L_MED24",
+      "numerator": -2853624624,
+      "denominator": 154891440,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED14_MED16",
+      "numerator": 599389580,
+      "denominator": 62514984,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED14_MED19",
+      "numerator": 1692484848,
+      "denominator": 141609216,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED14_MED22",
+      "numerator": 1200425324,
+      "denominator": 131325096,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED14_MED24",
+      "numerator": 1737491056,
+      "denominator": 271957840,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED16_MED19",
+      "numerator": 1548697224,
+      "denominator": 144275328,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED16_MED22",
+      "numerator": 2602346296,
+      "denominator": 156817248,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED16_MED24",
+      "numerator": 4192867312,
+      "denominator": 504271680,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED19_MED22",
+      "numerator": 643110480,
+      "denominator": 105708288,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED19_MED24",
+      "numerator": 3990158832,
+      "denominator": 467892480,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED22_MED24",
+      "numerator": 3484282080,
+      "denominator": 548486400,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED24_MYB",
+      "numerator": -226139760,
+      "denominator": 46173600,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED24_RCOR1",
+      "numerator": -7292303648,
+      "denominator": 418220880,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED24_RING1",
+      "numerator": -15515080768,
+      "denominator": 596152480,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED24_SMARCD1",
+      "numerator": -3960573152,
+      "denominator": 825901120,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED24_SSRP1",
+      "numerator": -1587928288,
+      "denominator": 217902080,
+      "inverse_exact": true
+    },
+    {
+      "label": "MED24_VPRBP",
+      "numerator": -2025890400,
+      "denominator": 285436800,
+      "inverse_exact": true
+    },
+    {
+      "label": "MYB_RCOR1",
+      "numerator": -268666760,
+      "denominator": 15518400,
+      "inverse_exact": true
+    },
+    {
+      "label": "MYB_RING1",
+      "numerator": -516101600,
+      "denominator": 20059440,
+      "inverse_exact": true
+    },
+    {
+      "label": "MYB_SMARCD1",
+      "numerator": -274570720,
+      "denominator": 29968320,
+      "inverse_exact": true
+    },
+    {
+      "label": "MYB_SSRP1",
+      "numerator": 27752800,
+      "denominator": 8954880,
+      "inverse_exact": true
+    },
+    {
+      "label": "MYB_VPRBP",
+      "numerator": -201393840,
+      "denominator": 7059600,
+      "inverse_exact": true
+    },
+    {
+      "label": "RCOR1_RING1",
+      "numerator": -7048426300,
+      "denominator": 191057368,
+      "inverse_exact": true
+    },
+    {
+      "label": "RCOR1_SMARCD1",
+      "numerator": -5139825536,
+      "denominator": 233914016,
+      "inverse_exact": true
+    },
+    {
+      "label": "RCOR1_SSRP1",
+      "numerator": -1302489816,
+      "denominator": 52141824,
+      "inverse_exact": true
+    },
+    {
+      "label": "RCOR1_VPRBP",
+      "numerator": -322146160,
+      "denominator": 147424800,
+      "inverse_exact": true
+    },
+    {
+      "label": "RING1_SMARCD1",
+      "numerator": -9949215232,
+      "denominator": 414561760,
+      "inverse_exact": true
+    },
+    {
+      "label": "RING1_SSRP1",
+      "numerator": -708067840,
+      "denominator": 36036608,
+      "inverse_exact": true
+    },
+    {
+      "label": "RING1_VPRBP",
+      "numerator": 824438080,
+      "denominator": 168921600,
+      "inverse_exact": true
+    },
+    {
+      "label": "SMARCA5_SMARCD1",
+      "numerator": -15958275840,
+      "denominator": 490127040,
+      "inverse_exact": true
+    },
+    {
+      "label": "SMARCD1_SSRP1",
+      "numerator": -1824677568,
+      "denominator": 101054464,
+      "inverse_exact": true
+    },
+    {
+      "label": "SMARCD1_VPRBP",
+      "numerator": 716835232,
+      "denominator": 155641920,
+      "inverse_exact": true
+    },
+    {
+      "label": "SSRP1_SUPT5H",
+      "numerator": 88321336,
+      "denominator": 140469504,
+      "inverse_exact": true
+    },
+    {
+      "label": "SSRP1_SUPT6H",
+      "numerator": -52093704,
+      "denominator": 39849216,
+      "inverse_exact": true
+    },
+    {
+      "label": "SSRP1_SUPT16H",
+      "numerator": -2517011904,
+      "denominator": 262133760,
+      "inverse_exact": true
+    },
+    {
+      "label": "SSRP1_VPRBP",
+      "numerator": -445422176,
+      "denominator": 43146240,
+      "inverse_exact": true
+    },
+    {
+      "label": "SUPT5H_SUPT6H",
+      "numerator": 9245551272,
+      "denominator": 289718352,
+      "inverse_exact": true
+    },
+    {
+      "label": "SUPT16H_SUPT5H",
+      "numerator": -4017217536,
+      "denominator": 1404990144,
+      "inverse_exact": true
+    },
+    {
+      "label": "SUPT16H_SUPT6H",
+      "numerator": -364886712,
+      "denominator": 357215760,
+      "inverse_exact": true
+    }
+  ]
+}

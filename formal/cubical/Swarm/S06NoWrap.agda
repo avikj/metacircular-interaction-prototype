@@ -6,21 +6,21 @@
 -- The exact no-wrap boundary of notes/RATIONAL_PAIR_CHANNEL.md §3.
 --
 -- The finite Fourier projectors (3.1)-(3.2) of that note compute the
--- pushforward of a graded coefficient along ℤ ↠ ℤ/q.  They recover the
--- integer grade exactly when the grade set injects into ℤ/q, i.e. when
+-- pushforward of a graded coefficient along � � �/q.  They recover the
+-- integer grade exactly when the grade set injects into �/q, i.e. when
 -- q divides no nonzero difference of grades.  The note offers only the
 -- sufficient condition "the possible values of m+n lie in an interval
 -- of length < q".
 --
--- This module proves, over ℕ, with --safe and no postulates:
+-- This module proves, over �, with --safe and no postulates:
 --
---   narrow→Sep    the interval condition is sufficient (the note's §3);
+--   narrow�Sep    the interval condition is sufficient (the note's §3);
 --   Family.sep    an explicit two-block family, separated modulo Q;
---   Family.diam   its diameter is exactly (k+1)·Q - 1.
+--   Family.diam   its diameter is exactly (k+1)�Q - 1.
 --
 -- Hence the interval condition is strictly sufficient, and its slack is
 -- unbounded: at fixed modulus Q a separated grade set may be spread over
--- (k+1)·Q consecutive integers, for every k.  Separation is a property of
+-- (k+1)�Q consecutive integers, for every k.  Separation is a property of
 -- the difference set of the grade set, not of its diameter.
 ------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ gap-refl a = cong₂ _+_ (n∸n a) (n∸n a)
 n∸0 : ∀ n → n ∸ 0 ≡ n
 n∸0 n = ∸+ n 0
 
--- when a ≤ b the gap is the honest difference
+-- when a � b the gap is the honest difference
 gap-le : ∀ a b → a ≤ b → gap a b ≡ b ∸ a
 gap-le a b p = cong (_+ (b ∸ a)) (n∸m≡0 a b p)
 
@@ -84,9 +84,9 @@ gap-bound a b n p q with splitℕ-≤ a b
         (≤<-trans (∸-≤ a b) p)
 
 ------------------------------------------------------------------------
--- 2.  Separation:  the grade map is injective into ℤ/q
+-- 2.  Separation:  the grade map is injective into �/q
 --
---    Sep S q  says  q ∣ (S i - S j)  implies  S i ≡ S j,
+--    Sep S q  says  q � (S i - S j)  implies  S i ≡ S j,
 --    which is exactly injectivity of  (S followed by reduction mod q).
 ------------------------------------------------------------------------
 
@@ -113,14 +113,14 @@ narrow→Sep S q narrow i j h = gap≡0→≡ _ _ (∣<→≡0 q _ h (narrow i j
 -- 3.  The arithmetic needed to refute divisibility
 ------------------------------------------------------------------------
 
--- q ∣ (q + m)  →  q ∣ m,  for q > 0
+-- q � (q + m)  �  q � m,  for q > 0
 ∣-cancel-add : ∀ q m → 0 < q → q ∣ (q + m) → q ∣ m
 ∣-cancel-add q m qpos h with ∣-untrunc h
 ... | (zero  , e) =
   ⊥.rec (¬-<-zero (subst (0 <_) (fst (m+n≡0→m≡0×n≡0 (sym e))) qpos))
 ... | (suc c , e) = ∣ c , inj-m+ {q} e ∣₁
 
--- the residue obstruction:  q never divides  c·q + r  when 0 < r < q
+-- the residue obstruction:  q never divides  c�q + r  when 0 < r < q
 q∤ : ∀ q c r → 0 < r → r < q → ¬ (q ∣ (c · q + r))
 q∤ q zero r rpos rlt h =
   ⊥.rec (¬-<-zero (subst (0 <_) (∣<→≡0 q r h rlt) rpos))
@@ -133,11 +133,11 @@ q∤ q (suc c) r rpos rlt h =
 -- 4.  The witness family
 --
 --   B = suc b  (block length),  Q = B + B  (= 2B, the modulus),
---   S = { 0, …, B-1 }  ∪  { k·Q + B, …, k·Q + 2B-1 }.
+--   S = { 0, �, B-1 }  �  { k�Q + B, �, k�Q + 2B-1 }.
 --
---   Residues mod Q: the low block occupies {0,…,B-1}, the high block
---   occupies {B,…,2B-1}.  Disjoint, so S is separated modulo Q, while
---   the diameter of S is k·Q + 2B - 1 = (k+1)·Q - 1, unbounded in k.
+--   Residues mod Q: the low block occupies {0,�,B-1}, the high block
+--   occupies {B,�,2B-1}.  Disjoint, so S is separated modulo Q, while
+--   the diameter of S is k�Q + 2B - 1 = (k+1)�Q - 1, unbounded in k.
 ------------------------------------------------------------------------
 
 module Family (b k : ℕ) where
@@ -170,7 +170,7 @@ module Family (b k : ℕ) where
     subst (_< Q) (sym (gap-shift base i j))
           (<≤-trans (gap-bound i j B pi pj) ≤SumLeft)
 
-  -- the cross case: the gap has the shape k·Q + r with 0 < r < Q
+  -- the cross case: the gap has the shape k�Q + r with 0 < r < Q
   cross-form : (i j : Blk)
              → gap (S (false , i)) (S (true , j))
                ≡ k · Q + ((B + fst j) ∸ fst i)
@@ -209,7 +209,7 @@ module Family (b k : ℕ) where
     gap≡0→≡ _ _ (∣<→≡0 Q _ h (high-gap i j))
 
   ------------------------------------------------------------------
-  -- Its diameter is exactly (k+1)·Q - 1.
+  -- Its diameter is exactly (k+1)�Q - 1.
   ------------------------------------------------------------------
   lo : Idx
   lo = (false , 0 , suc-≤-suc zero-≤)

@@ -1,39 +1,39 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sa·πÉkhyƒÅna ‚Äî the counting, and exactly what it is the count OF.
+-- Sakhyna ‚î the counting, and exactly what it is the count OF.
 --
--- TERM.  ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ‡§®, enumeration / reckoning; the ordinary word for counting
--- as an act, as against ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ, the number reached.  Used here in that
+-- TERM.  ‡‡‡ñ‡‡Ø‡æ‡®, enumeration / reckoning; the ordinary word for counting
+-- as an act, as against ‡‡‡ñ‡‡Ø‡æ, the number reached.  Used here in that
 -- plain sense and cited to no text: the compound is not being claimed from
--- a source, and nothing below is anyone's theorem.  (`Ankapasa_‚Ä¶` names the
+-- a source, and nothing below is anyone's theorem.  (`Ankapasa_‚¶` names the
 -- same phenomenon from the other side; the two headers do not compete.)
 --
 -- WHAT THIS MODULE ESTABLISHES, and it finishes a triangle whose other two
 -- corners are already in the corpus.
 --
---   `Anupurvi_‚Ä¶`  the calculus preserves the left-to-right WORD of variable
+--   `Anupurvi_‚¶`  the calculus preserves the left-to-right WORD of variable
 --                 occurrences, so it cannot transpose two variables, so
 --                 soundness is not completeness.
---   `Ankapasa_‚Ä¶`  the counting semantics cannot SEE a transposition: at
---                 `add var var` commutativity is a loop ‚Ñï must call `refl`,
+--   `Ankapasa_‚¶`  the counting semantics cannot SEE a transposition: at
+--                 `add var var` commutativity is a loop ‚ï must call `refl`,
 --                 while `ua` of the corresponding equivalence is not `refl`.
 --
 -- Neither says what `eval` IS in terms of the word.  This one does:
 --
---   ¬ß3  `eval-decomposes` ‚Äî for every term and every environment,
+--   ¬ß3  `eval-decomposes` ‚î for every term and every environment,
 --
---          eval t œÅ  ‚â°  sumWord (word t) œÅ  +  constPart t ,
+--          eval t œ  ‚â°  sumWord (word t) œ  +  constPart t ,
 --
 --       where `constPart` counts the `suc`s structurally.  So the meaning
 --       of a term is determined by two combinatorial data and nothing else,
 --       and `sumWord` reads the word only through the MULTISET of its
---       letters, because addition on ‚Ñï is commutative.
+--       letters, because addition on ‚ï is commutative.
 --
---   ¬ß2  `step-preserves-const` ‚Äî the constant is invariant under every
+--   ¬ß2  `step-preserves-const` ‚î the constant is invariant under every
 --       `Step`, exactly as the word is.
 --
---   ¬ß4  `soundness-via-invariants` ‚Äî therefore soundness is a COROLLARY of
+--   ¬ß4  `soundness-via-invariants` ‚î therefore soundness is a COROLLARY of
 --       two conservation laws, and is here re-proved without touching
 --       `step-sound`.  The kernel's original proof discharges each rule
 --       against `+-zero` and `+-suc`; this one observes that every rule
@@ -42,20 +42,20 @@
 --
 -- THE PICTURE THE THREE MODULES MAKE, stated once:
 --
---       Tm ‚îÄ‚îÄword‚îÄ‚îÄ‚ñ∏ List VarName ‚îÄ‚îÄabelianise‚îÄ‚îÄ‚ñ∏ ‚Ñï‚Å∂ , plus a constant
+--       Tm ‚î‚îword‚î‚î‚ñ List VarName ‚î‚îabelianise‚î‚î‚ñ ‚ï‚ , plus a constant
 --            ‚ñ≤                          ‚ñ≤
---            ‚îÇ                          ‚îî‚îÄ‚îÄ this is all `eval` sees
---            ‚îî‚îÄ‚îÄ this is what every derivation conserves
+--            ‚î                          ‚îî‚î‚î this is all `eval` sees
+--            ‚îî‚î‚î this is what every derivation conserves
 --
 -- The gap between what the calculus conserves and what the semantics reads
--- is exactly the quotient of the free monoid by commutativity ‚Äî the
+-- is exactly the quotient of the free monoid by commutativity ‚î the
 -- transpositions.  That single fact explains, at once, why derivations
--- cannot permute (`Anupurvi_‚Ä¶`), why the count cannot see a permutation
--- (`Ankapasa_‚Ä¶`), and why `add-comm` both completes the calculus toward its
--- ‚Ñï-semantics and introduces the ‚Ñ§/2 of holonomy: it is the generator of
+-- cannot permute (`Anupurvi_‚¶`), why the count cannot see a permutation
+-- (`Ankapasa_‚¶`), and why `add-comm` both completes the calculus toward its
+-- ‚ï-semantics and introduces the ‚/2 of holonomy: it is the generator of
 -- precisely that quotient.
 --
---   ¬ß5  `derivable-invariants` ‚Äî the forward half of a complete invariant:
+--   ¬ß5  `derivable-invariants` ‚î the forward half of a complete invariant:
 --       a derivation implies equal words AND equal constants.  The converse
 --       is the corpus's normalisation conjecture, restated here in its
 --       sharp form and left open, with what it needs named.
@@ -63,8 +63,8 @@
 -- WHAT IS **NOT** CLAIMED.  The converse of ¬ß5 is not proved and is not
 -- believed on the strength of the forward half.  `sumWord` is defined by a
 -- fold and its commutativity with `++` is proved (¬ß3) rather than assumed.
--- Nothing here is about `Step‚Å∫`.  No claim that (word, constPart) is
--- decidable to compare ‚Äî it plainly is, and nothing below needs it.
+-- Nothing here is about `Step‚∫`.  No claim that (word, constPart) is
+-- decidable to compare ‚î it plainly is, and nothing below needs it.
 -- The abelianisation is not constructed as a monoid map; ¬ß3 is the
 -- statement in the only form this calculus requires.
 --
@@ -204,13 +204,13 @@ derivable-invariants d =
   derivation-preserves-word d , derivation-preserves-const d
 
 -- ~~The sharp conjecture.~~  STRUCK THE SAME DAY, BY ME: it is FALSE.
--- `Baddha_‚Ä¶` proves a third conservation law ‚Äî the count of successors
--- trapped in a left operand whose sibling carries a variable ‚Äî and
+-- `Baddha_‚¶` proves a third conservation law ‚î the count of successors
+-- trapped in a left operand whose sibling carries a variable ‚î and
 -- separates `add (suc var) yvar` from `suc (add var yvar)`, which agree on
 -- word and on constant.  The cause is that the calculus has no
 -- associativity, so such a successor can never reach the front.  The type
 -- is kept so the refutation has something to name; the open question is
--- now `Baddha_‚Ä¶.ThreeLawInvariantConjecture`.
+-- now `Baddha_‚¶.ThreeLawInvariantConjecture`.
 CompleteInvariantConjecture : Type‚ÇÄ
 CompleteInvariantConjecture =
   (a b : Tm) ‚Üí word a ‚â° word b ‚Üí constPart a ‚â° constPart b ‚Üí Derivation a b

@@ -36,7 +36,7 @@ module _ (A : Ring ℓ) where
   open RingTheory A
 
   -- Zero divisors are harmless: the chosen regular-action state is `1r`,
-  -- and the only ring law used is `a · 1r ≡ a`.
+  -- and the only ring law used is `a � 1r ≡ a`.
   regular-action-detects-nonzero :
     (a : ⟨ A ⟩) → ¬ (a ≡ 0r)
     → Σ[ x ∈ ⟨ A ⟩ ] ¬ (a · x ≡ 0r)

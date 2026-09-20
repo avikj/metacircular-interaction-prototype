@@ -1,0 +1,48 @@
+cabal-version: 3.0
+name: bend-ucm
+version: 0.1.0.0
+build-type: Simple
+
+library
+  exposed-modules:
+      Bend.UCM.Execution
+    , Bend.UCM.Display
+    , Bend.UCM.Name
+    , Bend.UCM.Storage
+    , Bend.UCM.Subterm
+    , Core.Admission
+    , Core.CanonicalComponent
+    , Core.ComponentPlan
+    , Core.Provenance
+    , Core.FlatCodec
+    , Core.SyncEnvelope
+    , Core.Reify
+    , Core.SemanticIdentity
+    , Core.Projection
+    , Core.LspAnalysis
+  hs-source-dirs:
+      admission
+    , execution
+    , interface
+    , reify
+    , storage
+  build-depends:
+      base >= 4.17
+    , bend
+    , binary
+    , bytestring
+    , containers
+    , crypton
+    , directory
+    , filepath
+    , memory
+    , process
+    , text
+    , unison-codebase-sqlite
+    , unison-codebase-sqlite-hashing-v2
+    , unison-core
+    , unison-core1
+    , unison-hash
+    , unison-sqlite
+  default-language: GHC2021
+  ghc-options: -Wall

@@ -14,7 +14,7 @@ open import Cubical.Data.Bool using (Bool; true; false; if_then_else_; _and_; no
 open import HeadDepthMerge using
   (headDepth; fermatBlind; strongBlind; allList; range; eqBool; _≤?_; _%%_)
 
--- Theorem W3 at q = 29: Fermat blindness on q^a ⇔ a ≤ e_b(q),
+-- Theorem W3 at q = 29: Fermat blindness on q^a � a � e_b(q),
 -- exhaustively over the same triple shape as HeadDepthMerge.overTriples.
 w3Scan : ℕ → Bool
 w3Scan q =
@@ -23,7 +23,7 @@ w3Scan q =
                               (range 1 4))
           (range 2 (3 * q ∸ 2))
 
--- Strong (Miller–Rabin) blindness = Fermat blindness on odd prime powers
+-- Strong (Miller�Rabin) blindness = Fermat blindness on odd prime powers
 -- (HEAD_DEPTH_MERGE seed 1), certified on the same fresh range.
 strongScan : ℕ → Bool
 strongScan q =

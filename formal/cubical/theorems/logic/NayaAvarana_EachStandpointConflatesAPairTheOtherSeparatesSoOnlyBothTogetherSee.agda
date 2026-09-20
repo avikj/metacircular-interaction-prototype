@@ -1,40 +1,40 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- नय-आवरणम् — each standpoint carries its own obscuration: it conflates a
+-- ��-������ � each standpoint carries its own obscuration: it conflates a
 -- pair the other separates, so only both together see.
 --
--- THE COMPLETION OF THE द्रव्यपर्याय ↔ क्रम-सह JOIN.  `DravyaParyaya_…`
--- (Umāsvāti, Tattvārthasūtra 5.29/5.37; Siddhasena, Sanmatitarka 1.3–6)
--- identified the two standpoints in cubespace: dravyārthika reads the
--- type, paryāyārthika reads the paths.  `KramaSaha_…` proved they do not
--- commute and priced the commutator: exactly ℤ.  Siddhasena's sentence is
+-- THE COMPLETION OF THE ������������ � �����-�� JOIN.  `DravyaParyaya_�`
+-- (Umsvti, Tattvrthastra 5.29/5.37; Siddhasena, Sanmatitarka 1.3�6)
+-- identified the two standpoints in cubespace: dravyrthika reads the
+-- type, paryyrthika reads the paths.  `KramaSaha_�` proved they do not
+-- commute and priced the commutator: exactly �.  Siddhasena's sentence is
 -- stronger than either: EACH standpoint, taken as sole, denies the other
--- — a durnaya — and this module checks that sentence in BOTH directions,
+-- � a durnaya � and this module checks that sentence in BOTH directions,
 -- as two blindness theorems with explicit conflated pairs:
 --
---   the dravya census   O₁ X = ∥ X ∥₂        (what points are there)
---   the paryāya census  O₂ X = ∥ Ω X ∥₂      (what loops are there)
+--   the dravya census   O� X = � X ��        (what points are there)
+--   the paryya census  O� X = � Ω X ��      (what loops are there)
 --
---   द्रव्य-अन्धः     :  O₁ conflates S¹ with Unit      (both census to a point)
---   पर्याय-पृथक्    :  O₂ separates that very pair    (ℤ against the point)
+--   ������-�����     :  O� conflates S� with Unit      (both census to a point)
+--   ������-������    :  O� separates that very pair    (� against the point)
 --
---   पर्याय-अन्धः    :  O₂ conflates Bool × S¹ with S¹  (both census to ℤ —
+--   ������-�����    :  O� conflates Bool � S� with S�  (both census to � �
 --                     the second component vanishes without residue)
---   द्रव्य-पृथक्    :  O₁ separates that very pair    (Bool against Unit)
+--   ������-������    :  O� separates that very pair    (Bool against Unit)
 --
 -- Neither census subsumes the other; each is refutably incomplete with a
 -- WITNESSED pair it cannot tell apart; and the pair it misses is exactly
--- a pair the other resolves.  That is anekāntavāda as a pair of checked
--- counterexamples — the necessity of the plurality of nayas, not its
+-- a pair the other resolves.  That is anekntavda as a pair of checked
+-- counterexamples � the necessity of the plurality of nayas, not its
 -- recommendation.
 --
--- ON THE NAME.  आवरण (obscuration) is the tradition's own word for what
--- blocks a knower from an object — ज्ञानावरण heads the karma taxonomy
--- (Umāsvāti, Tattvārthasūtra 8.5).  The compound नय-आवरण — the obscuration
--- carried BY a standpoint, structural rather than karmic — is built here,
+-- ON THE NAME.  ���� (obscuration) is the tradition's own word for what
+-- blocks a knower from an object � ���������� heads the karma taxonomy
+-- (Umsvti, Tattvrthastra 8.5).  The compound ��-���� � the obscuration
+-- carried BY a standpoint, structural rather than karmic � is built here,
 -- 2026-08-23.  No claim that any Jain author stated these equivalences;
--- the claim is that Sanmatitarka 1.3–6's "each naya, made sole, is false"
+-- the claim is that Sanmatitarka 1.3�6's "each naya, made sole, is false"
 -- has these four terms as its smallest cubical instance.
 ------------------------------------------------------------------------
 
@@ -59,7 +59,7 @@ open import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
   using (क्रमः-लूप-प्रथमम् ; अक्रमता)
 
 ------------------------------------------------------------------------
--- ० · small instruments: contractibility transports backwards along an
+-- � � small instruments: contractibility transports backwards along an
 -- equivalence, and a contractible type set-truncates to a contractible one.
 ------------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ open import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
   elim₂ (λ _ → isProp→isSet (isSetSetTrunc _ _)) (λ a i → ∣ h a i ∣₂)
 
 ------------------------------------------------------------------------
--- १ · द्रव्य-अन्धः — the dravya census conflates S¹ with Unit.
+-- � � ������-����� � the dravya census conflates S� with Unit.
 -- Both truncate to a point: the census that reads only points cannot
 -- tell the circle from the point, because the circle's content is not
 -- in its points.
@@ -90,8 +90,8 @@ open import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
   isContr→Equiv एक-गणना (सङ्कोच-गणना (tt , λ u → isPropUnit tt u))
 
 ------------------------------------------------------------------------
--- २ · पर्याय-पृथक् — the paryāya census separates that very pair.
--- ∥ Ω S¹ ∥₂ ≃ ℤ (KramaSaha) is not contractible (अक्रमता); ∥ Ω Unit ∥₂ is.
+-- � � ������-������ � the paryya census separates that very pair.
+-- � Ω S� �� � � (KramaSaha) is not contractible (��������); � Ω Unit �� is.
 ------------------------------------------------------------------------
 
 बिन्दु-लूप-सङ्कोचः : isContr ∥ Path Unit tt tt ∥₂
@@ -101,11 +101,11 @@ open import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
 पर्याय-पृथक् e = अक्रमता (निवर्त-सङ्कोचः e बिन्दु-लूप-सङ्कोचः)
 
 ------------------------------------------------------------------------
--- ३ · पर्याय-अन्धः — the paryāya census conflates Bool × S¹ with S¹.
+-- � � ������-����� � the paryya census conflates Bool � S� with S�.
 -- At the basepoint (true , base) the loops of the product are the loops
 -- of the circle alone: the Bool coordinate of any loop is a self-path in
 -- a set, hence trivial.  The second substance vanishes from the loop
--- census WITHOUT RESIDUE — both sides census to the same ℤ.
+-- census WITHOUT RESIDUE � both sides census to the same �.
 ------------------------------------------------------------------------
 
 युगल-लूपः : Type
@@ -121,15 +121,15 @@ Iso.leftInv  लूप-प्रक्षेपः p j i =
 पर्याय-अन्धः : ∥ युगल-लूपः ∥₂ ≃ ∥ ΩS¹ ∥₂
 पर्याय-अन्धः = isoToEquiv (setTruncIso लूप-प्रक्षेपः)
 
--- and the conflation is at full charge: both censuses read ℤ, so what O₂
+-- and the conflation is at full charge: both censuses read �, so what O�
 -- reports for the two-substance space is literally what it reports for one.
 पर्याय-अन्धः-भारः : ∥ युगल-लूपः ∥₂ ≃ ℤ
 पर्याय-अन्धः-भारः = compEquiv पर्याय-अन्धः क्रमः-लूप-प्रथमम्
 
 ------------------------------------------------------------------------
--- ४ · द्रव्य-पृथक् — the dravya census separates that very pair.
--- ∥ Bool × S¹ ∥₂ ≃ Bool: two components, exhibited; against एक-गणना's
--- single point, through the wall Bool ≄ Unit.
+-- � � ������-������ � the dravya census separates that very pair.
+-- � Bool � S� �� � Bool: two components, exhibited; against ���-�����'s
+-- single point, through the wall Bool � Unit.
 ------------------------------------------------------------------------
 
 द्वि-गणना : ∥ Bool × S¹ ∥₂ ≃ Bool
@@ -159,12 +159,12 @@ Iso.leftInv  लूप-प्रक्षेपः p j i =
              (compEquiv e (isContr→Equiv एक-गणना (tt , λ u → isPropUnit tt u))))
 
 ------------------------------------------------------------------------
--- ५ · दोषलेखः.  Two censuses, two blindness witnesses, mutually covered —
--- the smallest instance, not a completeness theorem: no claim that O₁ and
--- O₂ JOINTLY classify spaces (they do not — they cannot separate spaces
--- agreeing on π₀ and π₁ at the basepoint; the tower continues upward, and
--- so, by गुह्य-नास्ति's restratification, does the sevenfold).  What is
--- proved is exactly Sanmatitarka 1.3–6's shape: each naya sole is false
+-- � � ���������.  Two censuses, two blindness witnesses, mutually covered �
+-- the smallest instance, not a completeness theorem: no claim that O� and
+-- O� JOINTLY classify spaces (they do not � they cannot separate spaces
+-- agreeing on �� and �� at the basepoint; the tower continues upward, and
+-- so, by ������-������'s restratification, does the sevenfold).  What is
+-- proved is exactly Sanmatitarka 1.3�6's shape: each naya sole is false
 -- by counterexample, and the counterexample of each lies in the sight of
 -- the other.
 ------------------------------------------------------------------------

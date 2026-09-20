@@ -9,8 +9,8 @@
 -- with everything already proved, fingerprints them against a finite list
 -- of random assignments to form equivalence classes, conjectures
 -- equalities inside a class, refutes by computation, proves the survivors,
--- installs each proof as a rewrite rule, and — when a round yields nothing
--- — GROWS by widening the vocabulary or raising the size horizon.  Until
+-- installs each proof as a rewrite rule, and � when a round yields nothing
+-- � GROWS by widening the vocabulary or raising the size horizon.  Until
 -- now that growth rule was a fixed ladder keyed on a boolean, with no
 -- measure and no gate.
 --
@@ -21,8 +21,8 @@
 --       grow (§1);
 --   2.  the separation clause of the growth gate: DO NOT GROW ON A
 --       COLLAPSED TEST SET (§2);
---   3.  the min-plus choice among the growth moves on offer — widen,
---       raise, retire, stay — and the two properties the chooser has:
+--   3.  the min-plus choice among the growth moves on offer � widen,
+--       raise, retire, stay � and the two properties the chooser has:
 --       it never picks something worse than staying, and when it strictly
 --       wins it exhibits a LISTED move that is strictly cheaper (§3).
 --
@@ -31,22 +31,22 @@
 -- given size horizon), and the fingerprint itself (which assignments are
 -- drawn, how values are hashed).  Those are unmodelled; the theorems below
 -- hold whatever they do.  In particular §2 constrains the USE of the
--- fingerprint — a round that observed no distinctions may not grow — and
+-- fingerprint � a round that observed no distinctions may not grow � and
 -- not its computation.
 --
 -- HYPOTHESES THE HASKELL CANNOT SUPPLY are taken as explicit arguments,
 -- never assumed: decidable equality on fingerprint values
 -- (`Discrete Value`), the fact that a probe list actually contains a
--- term's own reading (`agree→same-fingerprint`), the existence of two
+-- term's own reading (`agree�same-fingerprint`), the existence of two
 -- distinct terms (`do-not-grow-on-a-collapsed-test-set`), and the
 -- provenance of a listed neighbour (`Listed`, in
 -- `choose-exhibits-tagged-move`).
 --
--- NOTHING IS REPROVED.  §1 instantiates `KFlowWF.decay-wf-𝒦`,
+-- NOTHING IS REPROVED.  §1 instantiates `KFlowWF.decay-wf-�`,
 -- `KFlow.resonance`, `KFlow.branching`.  §2 instantiates
 -- `ChuAdvance.agree-drop` / `no-tests-no-defect` and `ChuDefect.defect-mono`
--- / `defect-[]`.  §3 instantiates `Residual.Γ↝-never-worse` and
--- `ResidualPath.Γ↝-optimal` / `Γ↝-greatest` / `Γ↝-sound-member`.  The only
+-- / `defect-[]`.  §3 instantiates `Residual.Γ�-never-worse` and
+-- `ResidualPath.Γ�-optimal` / `Γ�-greatest` / `Γ�-sound-member`.  The only
 -- new inductions in the file are the two small bridges `agree-at` and
 -- `disagree-witness`, and the membership transfer `∈-nbrs`.
 ------------------------------------------------------------------------
@@ -85,8 +85,8 @@ open import NaturalMachine.ResidualPath
 -- §1.  THE FLOW TRICHOTOMY
 --
 -- The round's obstruction is ONE natural number: the count of conjectures
--- the round stated and did not close.  (`∂ before` is that count at the
--- start of the round, `∂ after` at its end.)  Nothing else about the round
+-- the round stated and did not close.  (`� before` is that count at the
+-- start of the round, `� after` at its end.)  Nothing else about the round
 -- enters the classification, which is the point: the growth rule may read
 -- the measure and may not read the round.
 ------------------------------------------------------------------------
@@ -171,8 +171,8 @@ decay≢branching p = subst isDecay p tt
 resonance≢branching : ¬ (resonance ≡ branching)
 resonance≢branching p = subst isResonance p tt
 
--- The round-to-round step of the obstruction count.  `K.𝒦 = ℕ → ℕ` is
--- ∂ ∘ Γ already evaluated: `step n` is the count of open conjectures after
+-- The round-to-round step of the obstruction count.  `K.� = � � �` is
+-- � ∘ Γ already evaluated: `step n` is the count of open conjectures after
 -- a round that began with n of them.
 LoopDecaying : K.𝒦 → Type₀
 LoopDecaying step = (n : ℕ) → 0 < n → flowOf n (step n) ≡ decay
@@ -188,8 +188,8 @@ decaying→contracting step d n pos = flow-decay→drop n (step n) (d n pos)
 
 -- (F3)  THE PAYOFF, AND THE RULE THE HASKELL ENFORCES.
 --       A round in `decay` need not grow: iterating a decaying round
---       reaches ∂ = 0 in finitely many rounds.  This is `KFlowWF.decay-wf-𝒦`
---       — well-founded descent on ∂, no fuel — instantiated, not reproved.
+--       reaches � = 0 in finitely many rounds.  This is `KFlowWF.decay-wf-�`
+--       � well-founded descent on �, no fuel � instantiated, not reproved.
 decay-closes-without-growth :
     (step : K.𝒦) → LoopDecaying step
   → (n : ℕ) → Σ[ k ∈ ℕ ] K.iterate step k n ≡ 0
@@ -221,12 +221,12 @@ branching-never-closes step b =
 --
 -- The loop's objects are normalised terms; its tests are the finite list of
 -- random assignments; two terms are separated when some assignment gives
--- them different values.  That is literally `ChuAdvance.Agree` — with one
+-- them different values.  That is literally `ChuAdvance.Agree` � with one
 -- honest adjustment, stated here rather than hidden: `Obs X T` is
 -- Bool-valued, while the machine's fingerprint is a `Value`.  The Chu
--- observation a Value-valued fingerprint induces is the BIT TEST — at
--- assignment `env` and probe value `v`, does this term read `v`? — and
--- `agree→same-fingerprint` proves that agreement on the bit tests is
+-- observation a Value-valued fingerprint induces is the BIT TEST � at
+-- assignment `env` and probe value `v`, does this term read `v`? � and
+-- `agree�same-fingerprint` proves that agreement on the bit tests is
 -- agreement of fingerprints, provided the probe list contains the term's
 -- own reading.  That proviso is the hypothesis the Haskell supplies by
 -- construction (it probes with the values it computed) and it is taken as
@@ -352,7 +352,7 @@ record GrowthGate (Term Env Value : Type₀) : Type₀ where
 
 open GrowthGate public
 
--- (G1)  The gate's content: growth permitted ⇒ the tests separate.
+-- (G1)  The gate's content: growth permitted � the tests separate.
 gate-requires-separation :
     {Term Env Value : Type₀} (g : GrowthGate Term Env Value)
   → Separates (obsOf (values g) (reading g)) (probes g)
@@ -360,7 +360,7 @@ gate-requires-separation g = separated g
 
 -- (G2)  DO NOT GROW ON A COLLAPSED TEST SET.  If the round can name two
 --       distinct terms, no gate with an empty probe list exists.  The
---       distinctness hypothesis is explicit — a machine whose terms are all
+--       distinctness hypothesis is explicit � a machine whose terms are all
 --       equal has nothing to separate and nothing to prove.
 do-not-grow-on-a-collapsed-test-set :
     {Term Env Value : Type₀}
@@ -402,12 +402,12 @@ gate-exhibits-distinction g x y x≢y =
     (λ a → x≢y (separated g x y a))
 
 ------------------------------------------------------------------------
--- §3.  Γ↝ OVER GROWTH MOVES
+-- §3.  Γ� OVER GROWTH MOVES
 --
 -- The loop's growth choice is a min-plus selection over neighbouring
 -- states: widen the vocabulary, raise the size horizon, retire an unused
--- invented symbol, or stay — each with a recorded cost.  That is
--- `Residual.Γ↝` at this data.
+-- invented symbol, or stay � each with a recorded cost.  That is
+-- `Residual.Γ�` at this data.
 --
 -- A `Presentation`'s carrier and operation are INERT here, and that is the
 -- honest reading of `CostGeometry`: the maps are the mathematics, the cost
@@ -457,7 +457,7 @@ moveTo-target :
 moveTo-target s t i o w = refl
 
 -- Staying home with no edges to pay for costs exactly the work at home:
--- `route` of the trivial move is the baseline Γ↝ is compared against.
+-- `route` of the trivial move is the baseline Γ� is compared against.
 stay-is-the-baseline : (s : LoopState) (w : Work) → route (moveTo s stay 0 0 w) ≡ w
 stay-is-the-baseline s w = refl
 
@@ -472,15 +472,15 @@ choose-never-worse :
   → choose s wHere ns ≤ wHere
 choose-never-worse s wHere ns = Γ↝-never-worse wHere ns
 
--- (Γ2)  It is below every move on the list …
+-- (Γ2)  It is below every move on the list �
 choose-optimal :
     (s : LoopState) (wHere : Work) (ns : List (Neighbour (statePres s)))
     (n : Neighbour (statePres s)) → n ∈ ns
   → choose s wHere ns ≤ route n
 choose-optimal s wHere ns n m = Γ↝-optimal wHere ns n m
 
--- … and it is the GREATEST such bound, so `choose` IS the minimum of
--- {stay} ∪ {the listed moves}, certified as a minimum.
+-- � and it is the GREATEST such bound, so `choose` IS the minimum of
+-- {stay} � {the listed moves}, certified as a minimum.
 choose-greatest :
     (s : LoopState) (wHere : Work) (ns : List (Neighbour (statePres s))) (c : Cost)
   → c ≤ wHere
@@ -489,8 +489,8 @@ choose-greatest :
 choose-greatest s wHere ns c home away = Γ↝-greatest wHere ns c home away
 
 -- (Γ3)  WHEN IT STRICTLY WINS IT EXHIBITS A LISTED MOVE THAT IS STRICTLY
---       CHEAPER.  The witness is IN the list that was searched — this is
---       `ResidualPath.Γ↝-sound-member`, which is falsifiable by an
+--       CHEAPER.  The witness is IN the list that was searched � this is
+--       `ResidualPath.Γ�-sound-member`, which is falsifiable by an
 --       implementation that returns a move it did not look at.
 choose-exhibits-listed-move :
     (s : LoopState) (wHere : Work) (ns : List (Neighbour (statePres s)))
@@ -498,8 +498,8 @@ choose-exhibits-listed-move :
   → Σ[ n ∈ Neighbour (statePres s) ] ((n ∈ ns) × (work n < wHere))
 choose-exhibits-listed-move s wHere ns lt' = Γ↝-sound-member wHere ns lt'
 
--- The provenance of a listed neighbour — that it was built by one of the
--- four moves — is a fact about how the Haskell assembled the list, so it is
+-- The provenance of a listed neighbour � that it was built by one of the
+-- four moves � is a fact about how the Haskell assembled the list, so it is
 -- an explicit hypothesis, not an assumption.
 Listed : (s : LoopState) → Neighbour (statePres s) → Type₁
 Listed s n =
@@ -575,8 +575,8 @@ chooseMoves-exhibits-listed-move s wHere ms lt' =
 -- checked statement rather than a comment:
 --
 --   round classification / "need not grow"
---       `flow-total`, `flow-unique`, `flow-decay→drop`,
---       `flow-resonance→same`, `flow-branching→rise`,
+--       `flow-total`, `flow-unique`, `flow-decay�drop`,
+--       `flow-resonance�same`, `flow-branching�rise`,
 --       `decay-closes-without-growth`
 --   the growth gate's separation clause
 --       `defect-monotone-in-assignments`, `collapsed-tests-agree`,

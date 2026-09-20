@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- рдкреГрдердХреНрдХрд░рдгрдореН тАФ the p-adic splitting, as a composition of what is there.
+-- ррррХррХр░ррор тФ the p-adic splitting, as a composition of what is there.
 --
 -- (separation: every positive integer is a power of the firm number p
 --  times a rest that p does not divide; the exponent is the valuation,
 --  uniquely; and the valuation adds over products.)
 --
--- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
 -- THE ABSENCE THIS CLOSES, IN THE WORDS OF THE MODULES THAT RECORD IT.
 --
--- Three modules of theorems/number record the same missing thing тАФ
--- prime-power / valuation machinery тАФ and each says so in its own
+-- Three modules of theorems/number record the same missing thing тФ
+-- prime-power / valuation machinery тФ and each says so in its own
 -- ledger:
 --
 --   `SieveRoughBridge` (under "Nothing is proved about the visible
 --   state `q`"):
---       "The valuations `(vтВВ , vтВГ , vтВЕ)` and the factorisation
---        `n тЙб smooth n ┬╖ rough n` would need the exponent component of
+--       "The valuations `(vт , vт , vт)` and the factorisation
+--        `n тЙб smooth n ┬ rough n` would need the exponent component of
 --        `stripF`, which ┬з3 deliberately does not track: the bridge does
 --        not use it, and tracking it would drag in `pow` and a second
 --        induction for no gain here."
 --
 --   `WalkInduction` (under "WHAT IS WEAKENED, honestly", on the claim
 --   that the installs are exactly the ordered prime powers):
---       "тАФ is NOT attempted.  It needs prime-power machinery beyond
+--       "тФ is NOT attempted.  It needs prime-power machinery beyond
 --        WalkForcing's \"no proper coprime splitting\"."
 --
 --   `CoprimeSplitting`: its ┬з"WHAT REMAINS OPEN" lists two items, and
@@ -32,7 +32,7 @@
 --   records no open valuation item.  What the file does record, in
 --   "WHAT IS PROVED" (A), is that its p-part is "a = p^e is the full
 --   p-part of n and b its p-free cofactor, both produced by
---   `WalkJumps.strip` -- the fuel recursion тАж so no valuation function
+--   `WalkJumps.strip` -- the fuel recursion тж so no valuation function
 --   and no decidable divisibility enters here".  That is, the exponent
 --   there is a fuel recursion's output, related to no valuation because
 --   the corpus had none.
@@ -40,77 +40,77 @@
 -- Since those ledgers were written, the corpus acquired unique
 -- factorisation in theorems/historical_proofs:
 --
---   `Drdha_тАж`  : рджреГрдврдореН (= prime), рд╡рдзрдГ (list product), рд╕рд░реНрд╡реЗ, _рд╕рджрд╕реНрдпрдГ_,
---                рд╡рд┐рднрд╛рдЬрдирдореН (every n тЙе 1 is the product of a list of firm
---                numbers), рдпреБрдХреНрд▓рд┐рдб-рд╡рд╛рдХреНрдпрдореН (Euclid VII.30), рдЕрдиреНрддрд░реНрднрд╛рд╡рдГ (a
+--   `Drdha_тж`  : ржрррор (= prime), р╡рзр (list product), рр░рр╡р, _рржрррпр_,
+--                р╡р┐рр╛ррирор (every n тЙ 1 is the product of a list of firm
+--                numbers), рпррХрр▓р┐рб-р╡р╛рХррпрор (Euclid VII.30), рриррр░ррр╛р╡р (a
 --                firm p dividing the product of a firm list occurs in it).
---   `Ekatva_тАж` : рдПрдХрддреНрд╡рдореН (two firm lists with one product are a Perm),
---                рдПрдХрддреНрд╡-рдЧрдгрдирд╛ (hence same count of every p), and the
---                valuation рдорд╛рдирдореН p n pos := count of p in Drdha's list,
---                well defined by рдорд╛рди-рдирд┐рд╢реНрдЪрдпрдГ.
+--   `Ekatva_тж` : ррХррр╡рор (two firm lists with one product are a Perm),
+--                ррХррр╡-рЧррир╛ (hence same count of every p), and the
+--                valuation рор╛рирор p n pos := count of p in Drdha's list,
+--                well defined by рор╛ри-рир┐ррррпр.
 --
 -- This module is the composition of those two with a filter and a
 -- replicate on lists.  Nothing new is assumed.
 --
--- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
 -- WHAT IS PROVED.
 --
---   ┬зрез  рд╢реЗрд╖рдГ p L тАФ L with every occurrence of p struck out (a filter by
---       `discreteтДХ`), and the product identity, by induction on L:
---           рд╡рдз-рд╢реЗрд╖рдГ : рд╡рдзрдГ L тЙб p ^ рдЧрдгрдирд╛ p L ┬╖ рд╡рдзрдГ (рд╢реЗрд╖рдГ p L)
---       together with: рд╢реЗрд╖рдГ preserves рд╕рд░реНрд╡реЗ, p is not a member of
---       рд╢реЗрд╖рдГ p L, and hence (by рдЕрдиреНрддрд░реНрднрд╛рд╡рдГ) p тИд рд╡рдзрдГ (рд╢реЗрд╖рдГ p L) when L
+--   ┬зрз  рррр p L тФ L with every occurrence of p struck out (a filter by
+--       `discreteтХ`), and the product identity, by induction on L:
+--           р╡рз-рррр : р╡рзр L тЙб p ^ рЧррир╛ p L ┬ р╡рзр (рррр p L)
+--       together with: рррр preserves рр░рр╡р, p is not a member of
+--       рррр p L, and hence (by рриррр░ррр╛р╡р) p тИ р╡рзр (рррр p L) when L
 --       is firm.
 --
---   ┬зреи  рдкреГрдердХреНрдХрд░рдгрдореН тАФ EXISTENCE of the p-adic splitting.  For firm p and
---       n тЙе 1:
---           ╬г[ m тИИ тДХ ] ((n тЙб p ^ рдорд╛рдирдореН p n pos ┬╖ m) ├Ч (┬м (p тИг m)))
---       with m := рд╡рдзрдГ (рд╢реЗрд╖рдГ p L) for L Drdha's list of n.  The exponent
+--   ┬зри  ррррХррХр░ррор тФ EXISTENCE of the p-adic splitting.  For firm p and
+--       n тЙ 1:
+--           ╬[ m тИИ тХ ] ((n тЙб p ^ рор╛рирор p n pos ┬ m) Ч (┬ (p тИ m)))
+--       with m := р╡рзр (рррр p L) for L Drdha's list of n.  The exponent
 --       is LITERALLY Ekatva's valuation, not a new counter.
 --
---   ┬зрей  рдорд╛рди-рдПрдХрддреНрд╡рдореН тАФ UNIQUENESS of the exponent.  If n тЙб p ^ e ┬╖ m with
---       ┬м (p тИг m) then e тЙб рдорд╛рдирдореН p n pos.  Proof: expand m into its own
---       firm list M (Drdha ┬зрел); рдкреБрдирдГ e p ++ M is a firm list with product
---       n, so рдорд╛рди-рдирд┐рд╢реНрдЪрдпрдГ gives its p-count, e + рдЧрдгрдирд╛ p M, equals the
---       valuation; and рдЧрдгрдирд╛ p M тЙб 0 because p тИИ M would give p тИг m
---       (рд╕рджрд╕реНрдп-рднрд╛рдЬрдХрдГ).  No cancellation of p's is needed for this half.
---       рдкреГрдердХреНрдХрд░рдг-рдПрдХрддреНрд╡рдореН adds that m is unique too, by one cancellation
+--   ┬зрй  рор╛ри-ррХррр╡рор тФ UNIQUENESS of the exponent.  If n тЙб p ^ e ┬ m with
+--       ┬ (p тИ m) then e тЙб рор╛рирор p n pos.  Proof: expand m into its own
+--       firm list M (Drdha ┬зр); рррир e p ++ M is a firm list with product
+--       n, so рор╛ри-рир┐ррррпр gives its p-count, e + рЧррир╛ p M, equals the
+--       valuation; and рЧррир╛ p M тЙб 0 because p тИИ M would give p тИ m
+--       (рржрррп-рр╛ррХр).  No cancellation of p's is needed for this half.
+--       ррррХррХр░р-ррХррр╡рор adds that m is unique too, by one cancellation
 --       of p ^ e (which is positive since p > 1).
---       Corollaries: рдорд╛рди-рдЕрднрд╛рдЬреНрдпрдГ (p тИд n тЖТ рдорд╛рдирдореН p n тЙб 0) and рдорд╛рди-рдШрд╛рддрдГ
---       (рдорд╛рдирдореН p (p ^ e) тЙб e).
+--       Corollaries: рор╛ри-ррр╛рррпр (p тИ n тТ рор╛рирор p n тЙб 0) and рор╛ри-рШр╛рр
+--       (рор╛рирор p (p ^ e) тЙб e).
 --
---   ┬зрек  рдорд╛рди-рдЧреБрдгрдирдореН тАФ the valuation is MULTIPLICATIVE-TO-ADDITIVE:
---           рдорд╛рдирдореН p (a ┬╖ b) posab тЙб рдорд╛рдирдореН p a posa + рдорд╛рдирдореН p b posb
---       by рдПрдХрддреНрд╡-рдЧрдгрдирд╛ (through рдорд╛рди-рдирд┐рд╢реНрдЪрдпрдГ) on the concatenation of the
---       two Drdha lists, using рд╡рдз-++ and рд╕рд░реНрд╡реЗ-++, and рдЧрдгрдирд╛-++.
+--   ┬зр  рор╛ри-рЧрррирор тФ the valuation is MULTIPLICATIVE-TO-ADDITIVE:
+--           рор╛рирор p (a ┬ b) posab тЙб рор╛рирор p a posa + рор╛рирор p b posb
+--       by ррХррр╡-рЧррир╛ (through рор╛ри-рир┐ррррпр) on the concatenation of the
+--       two Drdha lists, using р╡рз-++ and рр░рр╡р-++, and рЧррир╛-++.
 --
---   ┬зрел  рджреГрдв? тАФ a bonus that costs four lines given Drdha's рдЕрдиреНрд╡реЗрд╖рдгрдореН:
+--   ┬зр  ржрр? тФ a bonus that costs four lines given Drdha's ррирр╡ррррор:
 --       firmness of n > 1 is DECIDABLE.  Used only to make the kernel
 --       tests below honest (the prime hypotheses are computed, not
 --       hand-built).
 --
---   ┬зрем  рдкрд░реАрдХреНрд╖рд╛ тАФ the kernel runs the splitting: for n = 12 the p-free
+--   ┬зр  рр░ррХррр╛ тФ the kernel runs the splitting: for n = 12 the p-free
 --       rests at p = 2, 3, 5 are 3, 4, 12 by refl, and the valuation
---       identity 2 = рдорд╛рдирдореН 2 12 = рдорд╛рдирдореН 2 4 + рдорд╛рдирдореН 2 3 is refl on both
+--       identity 2 = рор╛рирор 2 12 = рор╛рирор 2 4 + рор╛рирор 2 3 is refl on both
 --       sides.
 --
--- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
 -- WHAT IS **NOT** CLAIMED.
 --
---   ┬╖ рджреГрдврдореН is Drdha's predicate ("1 < p and every divisor is 1 or p"),
+--   ┬ ржрррор is Drdha's predicate ("1 < p and every divisor is 1 or p"),
 --     and IsPrime / IsPrimePower are theorems/number's.  This module does
 --     NOT identify them, and so does NOT literally discharge the three
 --     ledgers above in their own vocabulary: it supplies the valuation
---     and the splitting THEY say are missing, phrased over рджреГрдврдореН.  The
---     bridge рджреГрдврдореН p тЖФ IsPrime p is a separate (easy) module and is not
+--     and the splitting THEY say are missing, phrased over ржрррор.  The
+--     bridge ржрррор p тФ IsPrime p is a separate (easy) module and is not
 --     written here.
---   ┬╖ The SIMULTANEOUS splitting n тЙб smooth n ┬╖ rough n over several
---     primes at once (the (vтВВ , vтВГ , vтВЕ) of SieveRoughBridge) is not
---     stated; it is three applications of ┬зреи and ┬зрек, and the extra
+--   ┬ The SIMULTANEOUS splitting n тЙб smooth n ┬ rough n over several
+--     primes at once (the (vт , vт , vт) of SieveRoughBridge) is not
+--     stated; it is three applications of ┬зри and ┬зр, and the extra
 --     bookkeeping is not done here.
---   ┬╖ Nothing is said about the walk's installs (WalkInduction); this is
+--   ┬ Nothing is said about the walk's installs (WalkInduction); this is
 --     the arithmetic it asks for, not the induction along the walk.
---   ┬╖ `рдорд╛рдирдореН p n pos` for p NOT firm is a count in a list of firm numbers
+--   ┬ `рор╛рирор p n pos` for p NOT firm is a count in a list of firm numbers
 --     and is therefore 0; that is true but not stated, since the
 --     valuation is meaningful only at firm p.
 --
@@ -140,7 +140,7 @@ open import Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPe
 open Bahulya discreteтДХ using (рджрд╢ ; рджрд╢-рд╕реНрд╡рдпрдореН ; рдПрдХрдГ ; рдЧрдгрдирд╛)
 
 ------------------------------------------------------------------------
--- рез ┬╖ рд╢реЗрд╖рдГ тАФ the list with every p struck out, and the product identity
+-- рз ┬ рррр тФ the list with every p struck out, and the product identity
 ------------------------------------------------------------------------
 
 рдЪрдпрдирдореН : (p x : тДХ) тЖТ Dec (p тЙб x) тЖТ List тДХ тЖТ List тДХ
@@ -192,7 +192,7 @@ open Bahulya discreteтДХ using (рджрд╢ ; рджрд╢-рд╕реНрд╡рдпрдореН ; рдПрдХрдГ ;
   рд╢реЗрд╖-рдЕрд╕рджрд╕реНрдпрдГ p L (рдЕрдиреНрддрд░реНрднрд╛рд╡рдГ p рджреГ (рд╢реЗрд╖рдГ p L) (рд╢реЗрд╖-рд╕рд░реНрд╡реЗ p L рджреГL) dv)
 
 ------------------------------------------------------------------------
--- реи ┬╖ рдкреГрдердХреНрдХрд░рдгрдореН тАФ EXISTENCE: n тЙб p ^ (рдорд╛рдирдореН p n) ┬╖ m with p тИд m
+-- ри ┬ ррррХррХр░ррор тФ EXISTENCE: n тЙб p ^ (рор╛рирор p n) ┬ m with p тИ m
 ------------------------------------------------------------------------
 
 рдкреГрдердХреНрдХрд░рдгрдореН : (p : тДХ) тЖТ рджреГрдврдореН p тЖТ (n : тДХ) (pos : 0 < n)
@@ -205,7 +205,7 @@ open Bahulya discreteтДХ using (рджрд╢ ; рджрд╢-рд╕реНрд╡рдпрдореН ; рдПрдХрдГ ;
   prodL = snd (snd (рд╡рд┐рднрд╛рдЬрдирдореН n pos))
 
 ------------------------------------------------------------------------
--- рей ┬╖ рдорд╛рди-рдПрдХрддреНрд╡рдореН тАФ UNIQUENESS of the exponent (and of the rest)
+-- рй ┬ рор╛ри-ррХррр╡рор тФ UNIQUENESS of the exponent (and of the rest)
 ------------------------------------------------------------------------
 
 -- e copies of p
@@ -316,7 +316,7 @@ open Bahulya discreteтДХ using (рджрд╢ ; рджрд╢-рд╕реНрд╡рдпрдореН ; рдПрдХрдГ ;
                   (╬╗ pтИг1 тЖТ <-asym (fst рджреГ) (mтИгsnтЖТmтЙдsn pтИг1)))
 
 ------------------------------------------------------------------------
--- рек ┬╖ рдорд╛рди-рдЧреБрдгрдирдореН тАФ the valuation adds over products
+-- р ┬ рор╛ри-рЧрррирор тФ the valuation adds over products
 ------------------------------------------------------------------------
 
 рдорд╛рди-рдЧреБрдгрдирдореН : (p a b : тДХ) (posa : 0 < a) (posb : 0 < b) (posab : 0 < a ┬╖ b)
@@ -334,13 +334,13 @@ open Bahulya discreteтДХ using (рджрд╢ ; рджрд╢-рд╕реНрд╡рдпрдореН ; рдПрдХрдГ ;
   allB  = fst (snd (рд╡рд┐рднрд╛рдЬрдирдореН b posb))
   prodB = snd (snd (рд╡рд┐рднрд╛рдЬрдирдореН b posb))
 
--- the same with the positivity of a ┬╖ b supplied rather than assumed
+-- the same with the positivity of a ┬ b supplied rather than assumed
 рдорд╛рди-рдЧреБрдгрдирдореН' : (p a b : тДХ) (posa : 0 < a) (posb : 0 < b)
            тЖТ рдорд╛рдирдореН p (a ┬╖ b) (рдЧреБрдг-рдзрдирдГ a b posa posb) тЙб рдорд╛рдирдореН p a posa + рдорд╛рдирдореН p b posb
 рдорд╛рди-рдЧреБрдгрдирдореН' p a b posa posb = рдорд╛рди-рдЧреБрдгрдирдореН p a b posa posb (рдЧреБрдг-рдзрдирдГ a b posa posb)
 
 ------------------------------------------------------------------------
--- рел ┬╖ рджреГрдв? тАФ firmness of n > 1 is decidable (Drdha's search, both arms)
+-- р ┬ ржрр? тФ firmness of n > 1 is decidable (Drdha's search, both arms)
 ------------------------------------------------------------------------
 
 рджреГрдв? : (n : тДХ) тЖТ 1 < n тЖТ Dec (рджреГрдврдореН n)
@@ -352,7 +352,7 @@ open Bahulya discreteтДХ using (рджрд╢ ; рджрд╢-рд╕реНрд╡рдпрдореН ; рдПрдХрдГ ;
               (snd рджреГ d dтИгn)
 
 ------------------------------------------------------------------------
--- рем ┬╖ рдкрд░реАрдХреНрд╖рд╛ тАФ the kernel runs the splitting
+-- р ┬ рр░ррХррр╛ тФ the kernel runs the splitting
 ------------------------------------------------------------------------
 
 private
@@ -375,7 +375,7 @@ private
   рджреГ-рел : рджреГрдврдореН 5
   рджреГ-рел = рд╕рд┐рджреНрдзрдореН (рджреГрдв? 5 (suc-тЙд-suc (suc-тЙд-suc zero-тЙд))) tt
 
-  -- 12 = 2┬▓ ┬╖ 3 = 3┬╣ ┬╖ 4 = 5тБ░ ┬╖ 12
+  -- 12 = 2┬▓ ┬ 3 = 3┬ ┬ 4 = 5т░ ┬ 12
   рд╢реЗрд╖-реи-резреи : fst (рдкреГрдердХреНрдХрд░рдгрдореН 2 рджреГ-реи 12 реж<резреи) тЙб 3
   рд╢реЗрд╖-реи-резреи = refl
 
@@ -389,7 +389,7 @@ private
   рдШрд╛рдд-реи-резреи : рдорд╛рдирдореН 2 12 реж<резреи тЙб 2
   рдШрд╛рдд-реи-резреи = refl
 
-  -- additivity at 12 = 4 ┬╖ 3: both sides compute to 2
+  -- additivity at 12 = 4 ┬ 3: both sides compute to 2
   реж<рек : 0 < 4
   реж<рек = suc-тЙд-suc zero-тЙд
   реж<рей : 0 < 3

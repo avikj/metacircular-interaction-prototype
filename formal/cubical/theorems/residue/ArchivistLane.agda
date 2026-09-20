@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ArchivistLane â€” a gate for the modules cf-archivist added on
+-- ArchivistLane â” a gate for the modules cf-archivist added on
 -- 2026-08-19, so that they are checked by SOMETHING other than the
 -- one-off command that first checked them.
 --
@@ -10,23 +10,23 @@
 -- proves nothing.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/`
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY THIS EXISTS, and it is a fact about my own work
 --
 -- `collab/messages/workers/20260819T162000Z--claude--a-rename-under-a-gate-import-leaves-main-red.md`
 -- states, and it is the sentence that matters here:
 --
 --   "`IndianLane` is the only Agda gate that can go green on a
---    container off the pin â€¦ So a broken import there is not cosmetic:
+--    container off the pin â¦ So a broken import there is not cosmetic:
 --    it is the whole checkable surface of the Indian lane, dark."
 --
 -- Checked, this session, by grepping `IndianLane.agda` for each module
 -- I have written today: **not one of them is in its import closure.**
--- The other two gates â€” `agda` and `Everything.agda` â€”
--- are red upstream (`Transport.agda:46`, `solveâ„•!`), so they check
--- nothing either.  By this corpus's own standard â€” *"a module that is
+-- The other two gates â” `agda` and `Everything.agda` â”
+-- are red upstream (`Transport.agda:46`, `solveâ•!`), so they check
+-- nothing either.  By this corpus's own standard â” *"a module that is
 -- not in the import closure is built by nothing, so 'the lane builds'
--- says nothing about it"* â€” **thirty-four modules were being checked
+-- says nothing about it"* â” **thirty-four modules were being checked
 -- only by the single `agda` invocation that first accepted them, and
 -- never again.**
 --
@@ -43,8 +43,8 @@
 -- first-error citations and the blocked sets; what it failed to do is
 -- cite the notice that came first.  That is the prior-art failure this
 -- repository warns about, committed by me, in the direction that
--- flatters the later account.  **The report is not withdrawn â€” its
--- facts are checked and correct â€” but it should have opened with that
+-- flatters the later account.  **The report is not withdrawn â” its
+-- facts are checked and correct â” but it should have opened with that
 -- citation, and this is where that is said.**
 --
 -- WHAT THIS FILE IS NOT.  It is not a claim that these modules belong
@@ -55,7 +55,7 @@
 -- and it is not a result: **a gate is a green, and a green is an exit
 -- code for what was run.**
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 

@@ -104,7 +104,7 @@ At \(L=C_0r_n^{-1/5}\),
 |S_{far,L}|\le C E_0^{1/2}C_0^{-5/2}
 \]
 
-uniformly in \(n\). This is tightness of the **whole far Biotâ€“Savart strain**, not just a harmonic completion term. The physical radius is \(C_0M_n^{-2/5}\).
+uniformly in \(n\). This is tightness of the **whole far Biotâ“Savart strain**, not just a harmonic completion term. The physical radius is \(C_0M_n^{-2/5}\).
 
 Independently, a smooth Fourier cutoff obeys
 
@@ -181,7 +181,7 @@ For \(R_n=r_n^{-\alpha}\), \(1/5<\alpha<1\), and a fixed backward interval \(I=[
 \int_I\int_{\partial B_{\rho_n}}|U_n|^2\le SE_0r_n^{-1}R_n^{-1}.
 \]
 
-For \(\phi_m=\nabla H_{m+1}\), with homogeneous harmonic \(H_{m+1}\), Stokes and Cauchyâ€“Schwarz give
+For \(\phi_m=\nabla H_{m+1}\), with homogeneous harmonic \(H_{m+1}\), Stokes and Cauchyâ“Schwarz give
 
 \[
 \boxed{\int_I\left|\rho_n^{-(m+3)}
@@ -218,7 +218,7 @@ It retains the global energy exactly (on the appropriately rescaled domain), and
 =\nu\int_{t_n-S/M_n}^{t_n}\|\nabla u\|_2^2dt\to0.
 \]
 
-Bounded local vorticity and energy give local divâ€“curl bounds. A spacetime Euler limit requires a compatible time compactness/pressure argument, and nontriviality is **not** supplied by a point value under weak convergence. Claims about a conserved energy of the limit additionally need tightness and adequate strong convergence; exact conservation in the finite-stage chart does not alone provide them.
+Bounded local vorticity and energy give local divâ“curl bounds. A spacetime Euler limit requires a compatible time compactness/pressure argument, and nontriviality is **not** supplied by a point value under weak convergence. Claims about a conserved energy of the limit additionally need tightness and adequate strong convergence; exact conservation in the finite-stage chart does not alone provide them.
 
 For \(0<\mu\le1\), define
 
@@ -234,7 +234,7 @@ For the principal Poisson-source symbol,
 =|W(x)-W(y)|.
 \]
 
-Thus \(\eta_\mu\) is exactly its spatial HÃ¶lder modulus, not merely an analogy. If it is uniformly bounded along snapshots, ArzelÃ â€“Ascoli preserves \(|W_*(0)|=1\); local divâ€“curl/Rellich gives a nonzero spatial velocity limit. A nontrivial **spacetime** Euler realization and its time-zero trace remain separately to be checked. Conversely a sequence with no such spatial pointed subsequence has no bounded subsequence of \(\eta_\mu\).
+Thus \(\eta_\mu\) is exactly its spatial Hlder modulus, not merely an analogy. If it is uniformly bounded along snapshots, Arzel â“Ascoli preserves \(|W_*(0)|=1\); local divâ“curl/Rellich gives a nonzero spatial velocity limit. A nontrivial **spacetime** Euler realization and its time-zero trace remain separately to be checked. Conversely a sequence with no such spatial pointed subsequence has no bounded subsequence of \(\eta_\mu\).
 
 Let \(U=\|u\|_2\), \(H_\mu=[\omega]_{C^\mu}\). The finite-energy vorticity scale and its normalized form are
 
@@ -260,7 +260,7 @@ optimizes to
 
 Hence blow-up requires divergence of the corresponding integral in turnover time \(d\tau=Mdt\). This is an upper bound and a necessary divergence criterion, not a universal estimate proving finiteness.
 
-The original prose cited a current Constantinâ€“Ignatovaâ€“Vicol result as context. Verify the exact publication and its hypotheses before using that attribution; the scale algebra and kernel split above are independently written here.
+The original prose cited a current Constantinâ“Ignatovaâ“Vicol result as context. Verify the exact publication and its hypotheses before using that attribution; the scale algebra and kernel split above are independently written here.
 
 ## 33. Adaptive gauges: kinetic neutrality and the critical-metric weight
 
@@ -309,7 +309,7 @@ If \(|W(0)|=1\), \([W]_{C^\mu}=\eta\), a compact bump test aligned with \(W(0)\)
 
 The exponents follow from the \(\dot H^1\) and \(\dot H^{1/2}\) norms of the scaled test. Bounded \(\eta\) prevents critical-norm collapse and gives a logarithmic lower bound on accumulated \(\|B_V\|\).
 
-The ratio \(\ell_\eta/\ell_C=M^{1/10}\eta^{-1/\mu}\) and formal diffusion rate \(\nu M^{-1/5}\eta^{2/\mu}\) locate a crossover. With fixed viscosity suppressed in units the old expression was \(\eta\sim M^{\mu/10}\); unit diffusion rate includes \(\nu^{-\mu/2}\). **A global HÃ¶lder seminorm is not a localized frequency measurement and does not give a lower bound on \(-\Delta|\omega|\) at its maximum.** The toroidal shell-plus-flat-core example has large strain/HÃ¶lder variation and zero viscous derivative at the centre. Retire the claim that this crossover alone proves the peak cannot escape.
+The ratio \(\ell_\eta/\ell_C=M^{1/10}\eta^{-1/\mu}\) and formal diffusion rate \(\nu M^{-1/5}\eta^{2/\mu}\) locate a crossover. With fixed viscosity suppressed in units the old expression was \(\eta\sim M^{\mu/10}\); unit diffusion rate includes \(\nu^{-\mu/2}\). **A global Hlder seminorm is not a localized frequency measurement and does not give a lower bound on \(-\Delta|\omega|\) at its maximum.** The toroidal shell-plus-flat-core example has large strain/Hlder variation and zero viscous derivative at the centre. Retire the claim that this crossover alone proves the peak cannot escape.
 
 ## 34. A stronger estimate with the spatial supremum inside time
 
@@ -387,4 +387,4 @@ This supplies \(\mathsf B_{NS}\) on the stated small-data class. Applied to the 
 
 or \((l-1-\partial_\lambda)(l+2+\partial_\lambda)b=F\). This identifies the exact radial Green poles and the marginal \(l=2\) scale geometry. Retain the angular representation and matrix source; do not reduce an arbitrary nonlinear mode interaction to a positive scalar radial operator without proof.
 
-[S21] and [S22] additionally proposed dynamically matched dissipation bands and iterated octave suppression. Their arithmetic conclusions receive a repaired proof later in [S19]. Their unrestricted NS claims require independent audit. In particular, logarithmic factors such as \(1+m/j_\varepsilon\) cannot be replaced by a uniform constant while \(m\to\infty\); â€œmust cross adjacent bandsâ€ needs an exact paraproduct support statement compatible with highâ€“high to low interactions and source-dependent coefficient tails. A claimed Gaussian-in-octave bound is not an established global theorem in this transfer. The rigorous whole-kernel statements in the next chapter do not depend on it.
+[S21] and [S22] additionally proposed dynamically matched dissipation bands and iterated octave suppression. Their arithmetic conclusions receive a repaired proof later in [S19]. Their unrestricted NS claims require independent audit. In particular, logarithmic factors such as \(1+m/j_\varepsilon\) cannot be replaced by a uniform constant while \(m\to\infty\); âmust cross adjacent bandsâ needs an exact paraproduct support statement compatible with highâ“high to low interactions and source-dependent coefficient tails. A claimed Gaussian-in-octave bound is not an established global theorem in this transfer. The rigorous whole-kernel statements in the next chapter do not depend on it.

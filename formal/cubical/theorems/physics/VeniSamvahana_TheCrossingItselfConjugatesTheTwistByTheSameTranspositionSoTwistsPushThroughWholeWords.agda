@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- वेणी-संवहन — the crossing carries.
+-- ����-����� � the crossing carries.
 --
 -- The word-level step of the normal form.  ArdhaSamasa proved the
--- bare swap conjugates the twist by the transposition τ.  Here the
+-- bare swap conjugates the twist by the transposition �.  Here the
 -- FULL CROSSING does the same:
 --
---   §1  τ IS AN INVOLUTION, by the same double recursion that defined
---       it — no comparison function.
+--   §1  � IS AN INVOLUTION, by the same double recursion that defined
+--       it � no comparison function.
 --
---   §2  twistⱼ ∘ σᵢ = σᵢ ∘ twist_{τᵢ(j)}, at every pair of positions:
+--   §2  twist� ∘ ϵ = ϵ ∘ twist_{ϵ(j)}, at every pair of positions:
 --       assembled from the twist-first factorization, total
 --       commutation of twists, the swap conjugation, and the
---       involution — pure path algebra over the checked lemmas, no
+--       involution � pure path algebra over the checked lemmas, no
 --       new stream computation at all.
 --
 -- Consequence: a twist anywhere in a braid word pushes rightward
 -- through every remaining crossing, changing only its address by the
--- word's transpositions — so every word normalises to (crossings,
+-- word's transpositions � so every word normalises to (crossings,
 -- then twists), and the kernel theorem reduces to the two coordinate
 -- groups already presented.  The trilaw's generativity clause now
 -- runs as a confluent rewriting discipline on words: base motion
@@ -41,7 +41,7 @@ open import ArdhaSamasa_TheSwapConjugatesTheTwistByTheTranspositionSoTheTwoCoord
   using (τ ; saṃvahana)
 
 ------------------------------------------------------------------------
--- १ · The transposition is an involution.
+-- � � The transposition is an involution.
 ------------------------------------------------------------------------
 
 τ-nivartana : (i j : ℕ) → τ i (τ i j) ≡ j
@@ -52,7 +52,7 @@ open import ArdhaSamasa_TheSwapConjugatesTheTwistByTheTranspositionSoTheTwoCoord
 τ-nivartana (suc i) (suc j)       = cong suc (τ-nivartana i j)
 
 ------------------------------------------------------------------------
--- २ · The crossing conjugates the twist.
+-- � � The crossing conjugates the twist.
 ------------------------------------------------------------------------
 
 veṇī-saṃvahana : (i j : ℕ) (s : Rajju)

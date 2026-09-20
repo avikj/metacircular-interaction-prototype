@@ -3,38 +3,38 @@
 ------------------------------------------------------------------------
 -- Mani_TheOrbGateIsTheAchromaticLosslessSquareRootOfNot
 --
--- TERM.  ‡§Æ‡§£‡§ø ¬∑ ma·πái ‚Äî a jewel, an orb; the jewel of ‡§á‡§®‡•ç‡§¶‡•ç‡§∞‡§ú‡§æ‡§≤ (Indra's net),
--- each reflecting all the others.  A common Sanskrit word, used here for the
+-- TERM.  ‡Æ‡‡ø ¬ mai ‚î a jewel, an orb; the jewel of ‡‡®‡‡¶‡‡∞‡‡æ‡≤ (Indra's net),
+-- each reflecting all the others.  A common  word, used here for the
 -- optical orb.  The physics names (Fresnel rhomb, quarter-wave plate,
--- Poincar√©/Bloch sphere, total internal reflection) are modern and no Indian
+-- Poincar©/Bloch sphere, total internal reflection) are modern and no Indian
 -- source is claimed for them; the compound and the identification are built
 -- here, 2026-08-24.
 --
 -- THE DEVICE (this paragraph is the READING; the checked terms are below).
 -- An orb of high-index glass reflects light losslessly by TOTAL INTERNAL
--- REFLECTION ‚Äî the one boundary interaction that transmits zero power.  Two
+-- REFLECTION ‚î the one boundary interaction that transmits zero power.  Two
 -- such reflections, at the Fresnel-rhomb angle, impose a 90¬∞ phase between the
 -- s- and p-polarizations: a QUARTER-WAVE PLATE, and it is ACHROMATIC because
 -- the TIR phase barely depends on wavelength (unlike a birefringent crystal).
--- A photon's polarization is a qubit on the Poincar√© sphere (= the Bloch
+-- A photon's polarization is a qubit on the Poincar© sphere (= the Bloch
 -- sphere = S¬≤, the Hopf base); a waveplate is an SU(2) rotation of it.  The
 -- HALF-wave plate is the NOT gate (a fixed-point-free involution); the
--- QUARTER-wave is its SQUARE ROOT.  So an orb builds ‚àöNOT ‚Äî the very gate
--- `VargamulaViparyaya_‚Ä¶` proves cannot exist on a two-point SET.  It exists
+-- QUARTER-wave is its SQUARE ROOT.  So an orb builds ‚àNOT ‚î the very gate
+-- `VargamulaViparyaya_‚¶` proves cannot exist on a two-point SET.  It exists
 -- because polarization ENRICHES the object past two points, exactly as that
 -- theorem said it must.
 --
 -- WHAT IS CHECKED, exactly.  `Q4` is the minimal finite witness of the
--- enrichment ‚Äî a four-phase cyclic object (quarter-turns).  On it:
+-- enrichment ‚î a four-phase cyclic object (quarter-turns).  On it:
 --   `rot-is-sqrt-flip` : the quarter-wave `rot` squares to the half-wave
---        `flip` ‚Äî so ‚àö(flip) EXISTS (`‚àöNOT-EXISTS-here`, an equivalence whose
---        square is the flip).  Contrast `VargamulaViparyaya.‚àöNOT-does-not-exist`
+--        `flip` ‚î so ‚à(flip) EXISTS (`‚àNOT-EXISTS-here`, an equivalence whose
+--        square is the flip).  Contrast `VargamulaViparyaya.‚àNOT-does-not-exist`
 --        on `Bool`: forbidden on two points, present on the enrichment.
 --   `flip¬≤` : the half-wave is an involution (NOT applied twice = identity).
---   `full-turn` : four quarter-waves = a full turn = identity ‚Äî the LOSSLESS
---        closed orbit (the WGM returning to itself; punarƒÅgamana).
+--   `full-turn` : four quarter-waves = a full turn = identity ‚î the LOSSLESS
+--        closed orbit (the WGM returning to itself; punargamana).
 --   `achromatic` : the TIR gate is ONE equivalence for every colour (a
---        constant family) ‚Äî colour-independent by construction.
+--        constant family) ‚î colour-independent by construction.
 -- `rotEq` being an EQUIVALENCE is the losslessness: it is reversible, its
 -- inverse the three-quarter turn, information conserved.
 --
@@ -72,7 +72,7 @@ rotEq = isoToEquiv (iso rot (rot ‚àò rot ‚àò rot)
   (Œª { q0 ‚Üí refl ; q1 ‚Üí refl ; q2 ‚Üí refl ; q3 ‚Üí refl })
   (Œª { q0 ‚Üí refl ; q1 ‚Üí refl ; q2 ‚Üí refl ; q3 ‚Üí refl }))
 
--- ‚àöNOT EXISTS on the enrichment (cf. VargamulaViparyaya: NOT on two points).
+-- ‚àNOT EXISTS on the enrichment (cf. VargamulaViparyaya: NOT on two points).
 ‚àöNOT-EXISTS-here :
   Œ£[ g ‚àà (Q4 ‚âÉ Q4) ] ((x : Q4) ‚Üí equivFun g (equivFun g x) ‚â° flip x)
 ‚àöNOT-EXISTS-here = rotEq , rot-is-sqrt-flip

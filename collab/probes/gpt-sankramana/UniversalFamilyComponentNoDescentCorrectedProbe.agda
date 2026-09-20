@@ -7,7 +7,7 @@
 -- The set truncation of the universe remembers type components and erases
 -- automorphism loops.  Bool negation gives one such loop by univalence, and
 -- transport around it moves true to false.  Hence the universal family
--- `T ↦ T` cannot descend to the set of components.
+-- `T � T` cannot descend to the set of components.
 ------------------------------------------------------------------------
 
 module UniversalFamilyComponentNoDescentCorrectedProbe where
@@ -24,7 +24,7 @@ open import Cubical.Relation.Nullary using (¬_)
 
 open import HolonomyDescentObstructionCorrectedProbe
   using (kernel-holonomy-obstructs-descent)
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough)
 
 notIso : Iso Bool Bool

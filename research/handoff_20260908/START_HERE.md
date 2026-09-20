@@ -1,4 +1,4 @@
-# Start here â€” Claude Code mathematical handoff
+# Start here â” Claude Code mathematical handoff
 
 **Repository:** `avikj/metacircular-interaction-prototype`  
 **Comparison pin:** `168ea8e240524f898af4b0e9cf70297c38422f08`  
@@ -8,11 +8,11 @@ This archive hands off the NS/RH/metacircular research developed in the ChatGPT 
 
 ## Read these first
 
-1. [HANDOFF.md](HANDOFF.md) â€” the canonical, extensively derived synthesis: 12 chapters, 78 numbered sections, over 22,000 words. Start with the transfer contract and infrastructure chapter, then jump by source/claim ID.
-2. [CLAIM_INDEX.md](CLAIM_INDEX.md) and [CLAIM_GRAPH.json](CLAIM_GRAPH.json) â€” 103 explicit claim/obligation records with dependencies, source classes and correction edges. This is a finite audited dependency slice, not a claim to have enumerated the entire repository.
-3. [SOURCE_INDEX.md](SOURCE_INDEX.md) â€” 26 stable semantic source groups and the original programs/logs. Do not identify a theorem by a reused `proof_note(n).md` filename.
-4. [SOURCE_ANTHOLOGY.md](SOURCE_ANTHOLOGY.md) â€” about 55,000 words of complete selected source texts, preserved with provenance. Their historical overclaims are overridden by the main correction ledger.
-5. [infra/README.md](infra/README.md) â€” actual Yantra/Agda smoke requests, pinned-toolchain requirements, safe log isolation and known path/cache pitfalls.
+1. [HANDOFF.md](HANDOFF.md) â” the canonical, extensively derived synthesis: 12 chapters, 78 numbered sections, over 22,000 words. Start with the transfer contract and infrastructure chapter, then jump by source/claim ID.
+2. [CLAIM_INDEX.md](CLAIM_INDEX.md) and [CLAIM_GRAPH.json](CLAIM_GRAPH.json) â” 103 explicit claim/obligation records with dependencies, source classes and correction edges. This is a finite audited dependency slice, not a claim to have enumerated the entire repository.
+3. [SOURCE_INDEX.md](SOURCE_INDEX.md) â” 26 stable semantic source groups and the original programs/logs. Do not identify a theorem by a reused `proof_note(n).md` filename.
+4. [SOURCE_ANTHOLOGY.md](SOURCE_ANTHOLOGY.md) â” about 55,000 words of complete selected source texts, preserved with provenance. Their historical overclaims are overridden by the main correction ledger.
+5. [infra/README.md](infra/README.md) â” actual Yantra/Agda smoke requests, pinned-toolchain requirements, safe log isolation and known path/cache pitfalls.
 
 For a ready-to-paste agent instruction, use [CLAUDE_CODE_PROMPT.md](CLAUDE_CODE_PROMPT.md).
 

@@ -10,7 +10,7 @@
 -- not an integer, so such a statement is not arithmetic however elementary
 -- it looks.  Clearing the exponent removes the last real: with ε = p/q,
 --
---     |M(n)| ≤ C · n^(1/2 + p/q)   ⟺   |M(n)|^(2q) ≤ C^(2q) · n^(q + 2p)
+--     |M(n)| � C � n^(1/2 + p/q)   ⟺   |M(n)|^(2q) � C^(2q) � n^(q + 2p)
 --
 -- and the right-hand side is an inequality between two natural numbers.
 -- §4 is that statement as a type.  Nothing in it is approximate, chosen, or
@@ -21,18 +21,18 @@
 --
 --   §1  divides -- by bounded search for a cofactor, so no `mod` and no
 --       well-founded recursion is needed.
---   §2  μ -- by the Möbius identity Σ_{d∣n} μ(d) = [n = 1], read as a
---       recursion: μ(n) = [n = 1] − Σ_{d∣n, d<n} μ(d).  This is a
+--   §2  μ -- by the Mbius identity �_{d�n} μ(d) = [n = 1], read as a
+--       recursion: μ(n) = [n = 1] − �_{d�n, d<n} μ(d).  This is a
 --       DEFINITION, not a theorem about factorisations, and it never
 --       factors anything.
---   §3  M(n) = Σ_{k≤n} μ(k), with its first twenty values computed by the
+--   §3  M(n) = �_{k�n} μ(k), with its first twenty values computed by the
 --       kernel (`refl`), which is the only evidence offered that §2 defines
 --       the function it is named for.
---   §4  ArithmeticRH -- the statement.  Π over (p, q), Σ over C, Π over n,
---       and the body is `_≤_` on ℕ.
+--   §4  ArithmeticRH -- the statement.  Π over (p, q), � over C, Π over n,
+--       and the body is `_�_` on �.
 --
 -- THE ONE READING THIS LICENSES.  M(n) is a sum of n signs.  If those signs
--- were independent and fair, |M(n)| would be about √n.  §4 says the actual
+-- were independent and fair, |M(n)| would be about �n.  §4 says the actual
 -- deterministic sequence obeys that same bound.  Stated arithmetically, RH
 -- asserts of a completely determined object exactly the cancellation that
 -- randomness would supply -- and that sentence has no analytic vocabulary
@@ -59,7 +59,7 @@ eqℕ zero    (suc _) = false
 eqℕ (suc _) zero    = false
 eqℕ (suc m) (suc n) = eqℕ m n
 
--- the list [ 0 , 1 , … , k-1 ]
+-- the list [ 0 , 1 , � , k-1 ]
 below : ℕ → List ℕ
 below zero    = []
 below (suc k) = below k ++ (k ∷ [])
@@ -68,11 +68,11 @@ anyB : (ℕ → Bool) → List ℕ → Bool
 anyB f []       = false
 anyB f (x ∷ xs) = if f x then true else anyB f xs
 
--- d ∣ n  :  some q ≤ n has q · d ≡ n.  No `mod`, no recursion on a measure.
+-- d � n  :  some q � n has q � d ≡ n.  No `mod`, no recursion on a measure.
 dividesB : ℕ → ℕ → Bool
 dividesB d n = anyB (λ q → eqℕ (q · d) n) (below (suc n))
 
--- the proper divisors of n : those d with 1 ≤ d < n and d ∣ n
+-- the proper divisors of n : those d with 1 � d < n and d � n
 properDivisors : ℕ → List ℕ
 properDivisors n = filt (below n)
   where
@@ -83,9 +83,9 @@ properDivisors n = filt (below n)
     ... | suc _ = if dividesB d n then d ∷ filt ds else filt ds
 
 ------------------------------------------------------------------------
--- §2  μ, by the Möbius identity read as a recursion.
+-- §2  μ, by the Mbius identity read as a recursion.
 --
---   Σ_{d ∣ n} μ(d) = [ n ≡ 1 ]      ⟹      μ(n) = [ n ≡ 1 ] − Σ_{d ∣ n, d<n} μ(d)
+--   �_{d � n} μ(d) = [ n ≡ 1 ]      �      μ(n) = [ n ≡ 1 ] − �_{d � n, d<n} μ(d)
 --
 -- The fuel is the recursion's own bound: every proper divisor of n is < n,
 -- so `n` itself is always enough and §3's values are computed at it.
@@ -109,7 +109,7 @@ sumℤ (x ∷ xs) = x +ℤ sumℤ xs
 μ n = μF n n
 
 ------------------------------------------------------------------------
--- §3  M(n) = Σ_{k ≤ n} μ(k), and its first values, computed.
+-- §3  M(n) = �_{k � n} μ(k), and its first values, computed.
 ------------------------------------------------------------------------
 
 M : ℕ → ℤ
@@ -117,7 +117,7 @@ M zero    = pos 0
 M (suc n) = M n +ℤ μ (suc n)
 
 -- μ on the first twelve.  Every one of these is `refl`: the kernel computes
--- the Möbius function from the identity that defines it.
+-- the Mbius function from the identity that defines it.
 _ : μ 1 ≡ pos 1
 _ = refl
 _ : μ 2 ≡ negsuc 0
@@ -182,11 +182,11 @@ _^_ : ℕ → ℕ → ℕ
 b ^ zero    = 1
 b ^ (suc e) = b · (b ^ e)
 
--- |M(n)| ≤ C · n^(1/2 + p/q), cleared of its exponent by raising to 2q.
+-- |M(n)| � C � n^(1/2 + p/q), cleared of its exponent by raising to 2q.
 --
---   ∀ p q. ∃ C. ∀ n.  |M(n)|^(2q)  ≤  C · n^(q + 2p)
+--   � p q. � C. � n.  |M(n)|^(2q)  �  C � n^(q + 2p)
 --
--- Every quantity is a natural number and `_≤_` is the order on ℕ.
+-- Every quantity is a natural number and `_�_` is the order on �.
 ArithmeticRH : Type
 ArithmeticRH =
   (p q : ℕ) → Σ[ C ∈ ℕ ] ((n : ℕ) → (absℤ (M n) ^ (2 · q)) ≤ (C · (n ^ (q + 2 · p))))

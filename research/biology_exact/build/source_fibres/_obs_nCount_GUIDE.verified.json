@@ -1,0 +1,16 @@
+{
+  "column": "/obs/nCount_GUIDE",
+  "cells": 30707,
+  "fibres": 12934,
+  "every_cell_exact": true,
+  "unique_fibre_keys": true,
+  "elapsed_seconds": 0.262180375,
+  "elapsed_scope": "verification",
+  "output_sha256": "bb1490a035e8a823c2e89829e7b23efe889a9fa60f201abc5ca25097bfdb7373",
+  "stats": [
+    "- Itrs: 446122226 interactions",
+    "- Heap: 1726030591 nodes",
+    "- Time: 23.721 seconds",
+    "- Perf: 18.81 M interactions/s"
+  ]
+}

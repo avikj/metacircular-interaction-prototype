@@ -10,18 +10,18 @@
 --
 -- WHAT THE HASKELL DOES.  The scheduler
 -- (`machine/Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition.hs`)
--- reaches the fourth position, à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯, when several rules contend for one
+-- reaches the fourth position, ààµà•àààµàà¯, when several rules contend for one
 -- item and no metarule ranks them.  Its `Avaktavya` now carries the residue
 -- -- the contending offers, entire -- and from that residue a new standpoint
--- is born: the à¤…à¤¨à¤µà¤•à¤¾à¤¶ rule whose whole scope IS the contested item,
--- declared an apavÄda to every contender.
+-- is born: the àà¨àµà•à¾à rule whose whole scope IS the contested item,
+-- declared an apavda to every contender.
 --
 -- The two things that have to be true of that birth, and they pull in
 -- opposite directions:
 --
---   1. IT DECIDES.  Adjoining the child makes the apavÄda selection unique,
+--   1. IT DECIDES.  Adjoining the child makes the apavda selection unique,
 --      and the unique winner is the child.  Â§1 below, and note that it
---      needs NO hypothesis whatever on the contenders' own apavÄda
+--      needs NO hypothesis whatever on the contenders' own apavda
 --      relation: whatever mess is underneath, the child settles it.
 --
 --   2. IT TAKES NOTHING.  The child asserts exactly what every contender
@@ -30,7 +30,7 @@
 --      tie-breaker: a tie-breaker chooses one contender, and this chooses
 --      none -- it can only speak where they already spoke with one voice.
 --
--- WITHOUT (2), (1) IS DURNAYA.  Siddhasena DivÄkara, *Sanmatitarka* 1.21
+-- WITHOUT (2), (1) IS DURNAYA.  Siddhasena Divkara, *Sanmatitarka* 1.21
 -- (c. 5th c. CE): a naya that asserts itself by denying the others is a
 -- durnaya, and a durnaya is worse than a falsehood, since a falsehood can
 -- be contradicted and a concealed standpoint cannot.  `bheda-na-janayati`
@@ -44,21 +44,21 @@
 -- and a `Sesa` exists only where `nirnaya` already returned `Avaktavya`.
 --
 -- SOURCES, EARLIEST FIRST.
---   KÄtyÄyana, vÄrttika 1 on PÄá¹‡ini's *Aá¹£á¹­ÄdhyÄyÄ«* 1.4.2, preserved in
---     PataÃ±jali's *MahÄbhÄá¹£ya*, c. 150 BCE: à¤¦à¥à¤µà¥Œ à¤ªà¥à¤°à¤¸à¤™à¥à¤—à¤¾à¤µà¤¨à¥à¤¯à¤¾à¤°à¥à¤¥à¤¾à¤µà¥‡à¤•à¤¸à¥à¤®à¤¿à¤¨à¥
---     à¤¸ à¤µà¤¿à¤ªà¥à¤°à¤¤à¤¿à¤·à¥‡à¤§à¤ƒ -- two rules, each having its scope ELSEWHERE, meeting
---     on ONE item: that is vipratiá¹£edha.  That is the configuration Â§1 is
---     about, named by the PÄá¹‡inÄ«ya grammarians and not by anyone since.
---   UmÄsvÄti, *TattvÄrthasÅ«tra* 5.31, c. 2nd-5th c. CE:
---     à¤…à¤°à¥à¤ªà¤¿à¤¤à¤¾à¤¨à¤°à¥à¤ªà¤¿à¤¤à¤¸à¤¿à¤¦à¥à¤§à¥‡à¤ƒ -- the asserted and the unasserted aspect.  The
+--   Ktyyana, vrttika 1 on Pini's *Adhyy* 1.4.2, preserved in
+--     Patajali's *Mahbhya*, c. 150 BCE: à¦ààµà ààà°àà™àà—à¾àµà¨àà¯à¾à°ààà¾àµàà•ààà®à¿à¨à
+--     à àµà¿ààà°àà¿ààà§à -- two rules, each having its scope ELSEWHERE, meeting
+--     on ONE item: that is vipratiedha.  That is the configuration Â§1 is
+--     about, named by the Pinya grammarians and not by anyone since.
+--   Umsvti, *Tattvrthastra* 5.31, c. 2nd-5th c. CE:
+--     àà°ààà¿àà¾à¨à°ààà¿ààà¿à¦àà§àà -- the asserted and the unasserted aspect.  The
 --     contenders speak about this item unasserted, in passing; the child
 --     speaks about it asserted, and about nothing else.
---   Siddhasena DivÄkara, *Sanmatitarka* 1.21, c. 5th c. CE -- durnaya.
---   Akalaá¹…ka, *LaghÄ«yastraya*, c. 720-780 CE -- kramÄrpaá¹‡a / sahÄrpaá¹‡a,
+--   Siddhasena Divkara, *Sanmatitarka* 1.21, c. 5th c. CE -- durnaya.
+--   Akalaka, *Laghyastraya*, c. 720-780 CE -- kramrpaa / sahrpaa,
 --     the distinction that makes the fourth position a position at all.
---   NÄgeÅ›a Bhaá¹­á¹­a, *ParibhÄá¹£enduÅ›ekhara*, c. 1730, paribhÄá¹£Ä 38 -- the
---     strength order pÅ«rva < para < nitya < antaraá¹…ga < apavÄda, which is
---     why the child winning BY APAVÄ€DA is the strongest verdict available
+--   Ngea Bhaa, *Paribhenduekhara*, c. 1730, paribh 38 -- the
+--     strength order prva < para < nitya < antaraga < apavda, which is
+--     why the child winning BY APAVDA is the strongest verdict available
 --     and not a courtesy.
 --
 -- WHAT THE CHECKER SAYS BACK, recorded here rather than left in a terminal.
@@ -66,7 +66,7 @@
 -- postulates, no holes, and FOUR `-WUnsupportedIndexedMatch` warnings, on
 -- `na-vipakse`, `garbha-jayati`, and the two `with`-generated functions of
 -- Â§2.  Each is the same fact: the clause matches on a proof of `_âˆˆ_`, whose
--- index forces injectivity of `_âˆ·_`, which Cubical Agda does not yet
+-- index forces injectivity of `_âˆ_`, which Cubical Agda does not yet
 -- support.  The consequence is precise and worth stating rather than
 -- glossing: these functions do not COMPUTE when applied to a transport.
 -- They are still theorems, and nothing below depends on reducing them under
@@ -107,10 +107,10 @@ data _âˆˆ_ {A : Type â„“} (x : A) : List A â†’ Type â„“ where
 -- `Praja` -- what is in play once the child exists.  `just a` is a
 -- contender; `nothing` is the born standpoint, and it is a separate
 -- constructor because it is a separate kind of thing: its scope is the one
--- contested item and every contender's scope is elsewhere (anyÄrtha).
+-- contested item and every contender's scope is elsewhere (anyrtha).
 --
--- `apa*` extends the domain's own apavÄda relation to it, and the two new
--- lines are the whole content of à¤…à¤¨à¤µà¤•à¤¾à¤¶:
+-- `apa*` extends the domain's own apavda relation to it, and the two new
+-- lines are the whole content of àà¨àµà•à¾à:
 --
 --     apa* nothing (just _) = true    the child excepts every contender
 --     apa* (just _) nothing = false   no contender excepts the child
@@ -131,7 +131,7 @@ module _ {A : Type â„“} (apa : A â†’ A â†’ Bool) where
   apa* (just x) (just y) = apa x y
   apa* nothing  nothing  = false
 
-  -- The scheduler's apavÄda selection, verbatim: w wins iff every other
+  -- The scheduler's apavda selection, verbatim: w wins iff every other
   -- standpoint in play is one w excepts.  (`nirnaya`'s `apavadas`.)
   Jayati : List Praja â†’ Praja â†’ Type â„“
   Jayati xs w = (y : Praja) â†’ y âˆˆ xs â†’ (y â‰¡ w) âŠ (apa* w y â‰¡ true)
@@ -249,12 +249,12 @@ module _ {R : Type â„“} (dec : Discrete R) where
 -- Â§1 says the fourth position always bears a standpoint that decides it.
 -- Â§2 says that standpoint can say nothing the contenders had not already
 -- said, and says nothing at all when they disagree.  Neither is worth
--- much alone: Â§1 alone is a tie-breaker in Sanskrit, and Â§2 alone is the
--- machine stopping.  Together they are the sÅ«tra's claim, which is not
+-- much alone: Â§1 alone is a tie-breaker in , and Â§2 alone is the
+-- machine stopping.  Together they are the stra's claim, which is not
 -- that the fourth position is a gap and not that it is a verdict --
 --
---     à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¥‡ à¤¶à¥‡à¤·à¥‹ à¤µà¤¸à¤¤à¤¿ à¥¤ à¤¶à¥‡à¤·à¥‹ à¤—à¤°à¥à¤­à¤ƒ, à¤¨ à¤µà¤¿à¤«à¤²à¤¤à¤¾ à¥¤
---     à¤—à¤°à¥à¤­à¤¾à¤¦à¥ à¤…à¤—à¥à¤°à¤¿à¤®à¥‹ à¤¨à¤¯à¥‹ à¤œà¤¾à¤¯à¤¤à¥‡ à¥¤
+--     ààµà•àààµàà¯à àààà‹ àµààà¿ à àààà‹ à—à°ààà, à¨ àµà¿àà²àà¾ à
+--     à—à°ààà¾à¦à àà—àà°à¿à®à‹ à¨à¯à‹ àà¾à¯àà à
 --
 -- -- in the avaktavya the residue dwells; the residue is a womb, not a
 -- failure; from the womb the next naya is born.

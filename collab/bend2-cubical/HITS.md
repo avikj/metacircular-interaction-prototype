@@ -1,70 +1,153 @@
-# Higher Inductive Types in Bend2-cubical
+# General higher inductive types â” the declaration schema
 
-Adds the three higher inductive types the corpus needs â€” **SetQuotient**
-`A / R`, **propositional truncation** `âˆ¥Aâˆ¥`, and the **circle** `SÂ¹` â€” to the
-cubical Bend fork, closing the last capability gap where the corpus still
-required Cubical Agda.
+Every HIT the corpus uses is now ONE mechanism: a `type` declaration with
+`path` clauses. The three constructors that were hardcoded into the compiler
+(the set quotient, the circle, propositional truncation) are re-expressed
+through it (`hit_quotient_suite.bend`, `hit_circle_suite.bend`,
+`hit_truncation_suite.bend`, `hit_effective_suite.bend` are the suite's own
+files rewritten on the schema, definitional for definitional, 23â“ for the
+effectivity theorem). Cubical Agda's `data` with path constructors is no
+longer needed for anything the corpus does.
 
-`cubical-fork-full.patch` is the complete cubical + HIT layer as a diff against
-upstream Bend2 (`git apply` on a clean Bend2 checkout at the base commit),
-i.e. it reproduces the whole fork, base cubical primitives plus HITs, in one
-self-contained artifact. Build with
-`cabal-3.18.1.0 build -w ghc-9.12.2 exe:bend`, then run the two acceptance
-suites (`LC_ALL=C.utf8` required):
+## Syntax
 
-    bend setquotient_test.bend --total     # 8/8 [total]
-    bend hit_test.bend         --total     # 12/12 [total]
+```
+type Pushout(A: Set, B: Set, C: Set, f: C -> A, g: C -> B):
+  case @inl:
+    a: A
+  case @inr:
+    b: B
+  path @glue(c: C): Path(Pushout(A, B, C, f, g), @inl{f(c)}, @inr{g(c)})
 
-Every computation rule below holds **definitionally** â€” the checker reports the
-witnessing `refl` theorems as `definitional`.
+type Torus:
+  case @pt:
+  path @p: Path(Torus, @pt, @pt)
+  path @q: Path(Torus, @pt, @pt)
+  path @surf: PathP(lambda i. Path(Torus, @p @ i, @p @ i), @q, @q)
 
-## SetQuotient  `A / R`   (Core/Type.hs: Quot/QIn/QEq/QSq/QuotM)
+type Quotient(A: Set, R: A -> A -> Set):
+  case @cl:
+    a: A
+  path @eq(a: A, b: A, r: R(a, b)): Path(Quotient(A, R), @cl{a}, @cl{b})
+  path @sq(x: Quotient(A, R), y: Quotient(A, R),
+           p: Path(Quotient(A, R), x, y), q: Path(Quotient(A, R), x, y)):
+    Path(Path(Quotient(A, R), x, y), p, q)
+```
 
-Surface: `Quotient(A,R)`, `qin(a)`, `qeq(a,b,r)`, `qsquash(x,y,p,q)`,
-`qelim(x, fp, fe)`.
+- `case @c:` followed by `name: Type` fields is a point constructor (as before).
+- `path @c(fields): T` is a path constructor: `T` is a `Path`/`PathP` into the
+  HIT of any nesting depth (its dimension). Fields may mention the HIT itself,
+  including under function types (`f: Circle -> HTrunc(A)`, hub and spoke).
+  Endpoints are arbitrary terms in the parameters and fields.
+- A `type` with at least one `path` clause is a HIT; its type former is
+  opaque (it does not unfold to a Î), and constructor names are global.
+- Constructors are written `@c{args}` (`@c` when there are no fields), and a
+  path constructor is applied to intervals with `@`: `@glue{c} @ i`,
+  `(@surf @ i) @ j`.
+- Elimination: `hrec(x) { @c1: b1 ; @c2: b2 ; ... }` (the recursor, motive =
+  the goal) and `helim(x, P) { ... }` (the dependent eliminator, motive `P`).
+  A branch for a constructor with fields `f1..fn` is a function of the fields;
+  for a path constructor it lands in the PathP over the motive whose
+  endpoints are the eliminator on the declared endpoints. A branch may call
+  the definition it lives in on the recursive fields (that is how the
+  truncation branches are discharged: `sB(rec(x), rec(y), <i> rec(p @ i),
+  <i> rec(q @ i))`).
 
-    qin(a)            : A / R
-    qeq(a,b,r)        : Path(A/R, [a], [b])          qeq(..) @ i0 = [a], @ i1 = [b]
-    qelim(qin(a),â€¦)         â‰¡ fp a                    (point Î²)
-    qelim(qeq(a,b,r) @ i,â€¦) â‰¡ (fe a b r) @ i          (path/cong Î²)
+## Typing
 
-`fp : A -> B`, `fe : âˆ€a b. R a b -> Path B (fp a)(fp b)`, `B` a set. This is
-the one the census / NerodeCongruence quotient uses.
+- `T(ps)` is checked against the declared parameter telescope.
+- `@c{as}` is typed like every Bend constructor: against its goal. The
+  parameters are read off the goal (`T(ps)` itself, or the `Path` type of a
+  path constructor, peeled to the HIT). In an inferring position of a
+  parametric HIT, annotate: `@glue{c}::Pushout(A, B, C, f, g)` â” the
+  annotation names the HIT and supplies the parameters.
+- `hrec`/`helim`: the scrutinee's type must be `T(ps)`; every declared
+  constructor needs exactly one branch; a point branch has type
+  `fields -> P(@c{fields})`; an n-path branch has type
+  `fields -> PathP(i. ... P(@c{fields} @ i ...)) (E lhs) (E rhs)`, nested to
+  depth n, where `E` is this eliminator. The boundary agreement is therefore
+  checked by the existing typed endpoint law, nothing HIT-specific.
+- Declarations are checked: the telescope is a type and every constructor's
+  closed Î -type is a type (so endpoints must inhabit the HIT).
 
-## Propositional truncation  `âˆ¥Aâˆ¥`   (Trunc/TIn/TSq/TruncM)
+## Reduction (checker and HVM4 full runtime alike)
 
-Surface: `Trunc(A)`, `tin(a)`, `tsquash(x,y)`, `telim(x, fp, fq)`.
+- `@c{as} @ i0`, `@ i1`: the declared endpoint (with parameters and fields
+  substituted). At a symbolic interval the constructor stays canonical.
+- `hrec/helim(@c{as} @ i1 .. @ ik)` = the branch applied to the fields, then
+  to the intervals.
+- The eliminator commutes over superpositions (DUP-SUP, natively on the net).
+- `helim` of an `hcomp` in the HIT is `comp` along the motive over the filler
+  with the tubes eliminated (CCHM); `hrec` has no motive and stays stuck there.
+- `coe` along a line `i. T(ps(i))` of a parametric HIT pushes into the
+  constructors, each field carried along its own dependent type line; a HIT
+  without parameters is rigid (identity), by the existing regularity check.
+  The line may be written through a definition (`def L(i) -> Set: T(ps(i))`,
+  the type former being an opaque definition, that one head is unfolded).
+  Transport COMMUTES with an hcomp cell of the HIT: `coe(L, r, s, hcomp [Ï â¦
+  u] x) = hcomp(L(s), [Ï â¦ coe(L, r, s, u)], coe(L, r, s, x))` (`hit_hcomp.bend`,
+  definitional).
+- `helim` on an hcomp cell fires whether the cell's type is written as the
+  HIT node or as the definition naming it (`toBool(hcomp(Circle, â¦))`
+  computes to `hcomp(Bool, â¦)`, and on `Bool` to the cap).
+- Runtime (`--to-hvm4-full`): `#HT_T{ps}` is the type, `#C_T_c{ps, as}` a
+  point, a path constructor is `#PLm{Î»i. @P_T_c(ps, as, i)}` with a generated
+  `@P_T_c` that reduces at literal endpoints and is the canonical
+  `#P_T_c{ps, as, i}` otherwise; a generated `@E_T` is the eliminator, with
+  the `#HCm` case as `@compAt` over `@hfillAt`. Parameters a term does not
+  carry are erased (`&{}`) at runtime. Transport along a HIT line is the
+  generated `@X_T`, reached from `@coeT`'s default arm through `@hitCoe`: a
+  constructor is rebuilt at the parameters of `L(s)` (read off the type value
+  by `@HTp_T_k`) with each field `@coe`d along its own dependent type line, a
+  canonical cell likewise and re-applied through `@P_T_c`, an hcomp cell
+  commuted (`@hcTubesCoeLine`). Verified: `merid(True)` transported along
+  `Susp(ua(neg) @ i)` at a symbolic `i` is `#P_Susp_merid{Bool, 0, #IVar{0}}`
+  (1235 interactions); `helim` through an hcomp cell with an undecided face,
+  into `Bool`, is `1`.
 
-    tin(a)            : âˆ¥Aâˆ¥
-    tsquash(x,y)      : Path(âˆ¥Aâˆ¥, x, y)              (any two elements equal)
-    telim(tin(a),â€¦)          â‰¡ fp a                   (point Î²)
-    telim(tsquash(x,y) @ i,â€¦) â‰¡ fq (rec x)(rec y) @ i (squash Î²)
+## Files
 
-`fp : A -> P`, `fq : âˆ€u v:P. Path(P,u,v)` (i.e. `isProp P`).
+| HIT | file | checks |
+|---|---|---|
+| circle | `hit_circle.bend`, `hit_circle_suite.bend` | rec/elim Î² on point and loop definitional; runs (`True`) |
+| suspension, spheres | `hit_susp.bend`, `hit_sn.bend` | Î²-rules; `coe` through `Susp(ua(not) @ i)` pushes into `merid` |
+| pushout | `hit_pushout.bend` | endpoints mention the parameters; annotated form |
+| torus, Klein bottle | `hit_torus.bend`, `hit_klein.bend` | 2-path constructors; every literal corner definitional |
+| set quotient | `hit_quot.bend`, `hit_quotient_suite.bend`, `hit_effective_suite.bend` | recursor into a set; effectivity `[a]==[b] â’ R a b` 23â“ |
+| propositional truncation | `hit_trunc.bend`, `hit_truncation_suite.bend` | `isProp` by construction; recursor into a prop |
+| set truncation | `hit_settrunc.bend` | 2-path constructor over recursive fields |
+| hub-and-spoke truncation | `hit_ntrunc.bend` | function field into the HIT |
+| must-fail | `hit_circle_mustfail.bend` | wrong boundary and missing branch rejected |
+| interval | `hit_interval.bend` | contractible by `helim`; function extensionality derived from it (9 â“) |
+| trees | `hit_tree.bend` | swap path (a commutative `anyTrue`); assoc over NESTED constructor terms, branch = the associativity of `add` by induction â” a constant branch is rejected, the two faces having different images (16 â“) |
+| indexed families | `hit_indexed.bend` | `Reach(S, step, s, t)` by index-equation fields, path-typed step fields; `Gen(A)` with an INTERVAL-argument constructor whose target index moves along a universe path (`e: Path(Set, notPath() @ i, A)`) (15 â“) |
+| eliminator on hcomp, transport commuting with hcomp | `hit_hcomp.bend` | `helim(hcomp â¦) = hcomp(helim â¦)` definitional; `coe(L, hcomp â¦) = hcomp(coe â¦)` definitional (14 â“) |
+| soundness probes | `hit_mustfail.bend` | loop â‰  refl, wrong faces, poles to True/False, missing branch, wrong field type, wrong endpoint, constant branch on assoc â” 7 rejected |
 
-## Circle  `SÂ¹`   (Circ/Base/Loop/CircM)
+Still hardcoded and now redundant: `Quot/qcl/qeq/qsquash/qrec`, `S1/s1base/
+s1loop/srec`, `Trunc/tin/tsquash/trec` â” kept so the older suite files check
+unchanged; their keywords are reserved, so a declared HIT cannot be named
+`Trunc` or use `trec` as a definition name.
 
-Surface: `S1`, `s1base`, `s1loop`, `celim(x, b, l)`. (`s1base`/`s1loop` are
-spelled with the `s1` prefix so they do not shadow the common identifiers
-`base`/`loop`, which the corpus uses.)
+## Three checker fixes exposed by recursive definitions on the schema
 
-    s1base            : SÂ¹
-    s1loop            : Path(SÂ¹, base, base)         s1loop @ i0 = @ i1 = base
-    celim(s1base,b,l)        â‰¡ b                       (base Î²)
-    celim(s1loop @ i,b,l)    â‰¡ l @ i                   (loop Î²)
+Each was invisible while HITs were hardcoded primitives:
 
-`b : B`, `l : Path B b b`.
+1. Face-cell restriction (`restrictLits`) is a syntactic substitution of the
+   interval variable (`substVar`); the semantic `rewrite` re-normalised under
+   binders and unfolded a recursive definition stuck on a variable forever â”
+   an `hcomp` whose tube mentioned a recursive function never checked.
+2. The type-directed `hcomp` rules dispatch on the type's NORMAL FORM
+   (`whnfHCm`): the eliminator on an hcomp cell produces a composite whose
+   type is the motive applied to a filler, whose head is not syntactically
+   visible.
+3. The conversion checker's same-head shortcut sees through PATH applications
+   (`Equal.sameHead`): `addAssoc(p, size(y), size(z)) @ i`
+   against the same spine with `size(y)` unfolded used to unfold `addAssoc`
+   instead and regenerate the same shape one level deeper, forever.
 
-## Implementation
-
-Each HIT adds five (three for `SÂ¹`) `Term` constructors threaded through every
-`Term`-traversing pass â€” `Type` (Show), `WHNF` (reduction: `occursMarker`,
-`whnfGo` dispatch, `whnfPAp` path-ctor boundaries, the recursor reducers,
-`dup`, `normal`, `mapSub`), `Equal` (`eql`), `Check` (`infer`/`check` typing),
-`Deps`, `Bind`, `Flatten` (`flatten`/`unpat`/`unfrkGo`/`subst`), `Rewrite`,
-and `HVM4Full` (runtime emission). `hcomp` on a HIT stays a value (fhcom) via
-the existing symbolic-face `HCm`; `coe`/`transp` over a constant HIT line is
-the identity by the existing regularity rule (the census's case).
-
-Acceptance: `setquotient_test.bend` (8/8), `hit_test.bend` (12/12); the
-pre-existing cubical suite is unregressed.
+A fourth, general fact about the runtime, not about HITs: HVM4's normal-form
+printer expands the arms of a match stuck on a free variable, so ANY
+recursive function printed as a value diverges (`@main = @add` never
+prints). A stuck eliminator of an undecided hcomp cell inside a lambda is
+such a value; consumed, it computes.

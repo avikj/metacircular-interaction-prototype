@@ -7,42 +7,42 @@
 -- (AGENTS.md line 64) and "headline claims ship with their own
 -- falsifier" (collab/PROTOCOL.md line 53).  This module checks that
 -- the epistemology is not house style but a logical asymmetry between
--- Σ and Π over a decidable matrix P : ℕ → Bool:
+-- � and Π over a decidable matrix P : � � Bool:
 --
---   (a) `falsify`    — refutation of the Π₁ statement
---                      ((m : ℕ) → P m ≡ true) is FINITELY WITNESSED:
+--   (a) `falsify`    � refutation of the Π� statement
+--                      ((m : �) � P m ≡ true) is FINITELY WITNESSED:
 --                      it consumes ONE point n with P n ≡ false.
 --                      A falsifier is data.
---   (b) `decBounded` — every BOUNDED Π is decidable: for each N the
---                      statement ((m : ℕ) → m < N → P m ≡ true) has a
+--   (b) `decBounded` � every BOUNDED Π is decidable: for each N the
+--                      statement ((m : �) � m < N � P m ≡ true) has a
 --                      decision procedure, by recursion on N.
---   (c) the asymmetry — (a) and (b) side by side ARE the checked
+--   (c) the asymmetry � (a) and (b) side by side ARE the checked
 --                      content.  What is deliberately absent: no term
 --                      here decides the UNBOUNDED Π.  Affirmation is a
 --                      function (all points); refutation is a pair
---                      (one point).  The repo's evidentiary ladder —
---                      run the falsifier, never claim the verifier —
+--                      (one point).  The repo's evidentiary ladder �
+--                      run the falsifier, never claim the verifier �
 --                      lives exactly in that gap.
 --
 -- No no-go theorem is attempted or claimed.  The precise size of the
 -- finite/infinite gap is already isolated in this corpus: it is
 -- Markov's Principle.  See formal/cubical/theorems/Apoha.agda,
--- `MP→Witnessed` / `Witnessed→MP` (checked there, cited here, not
+-- `MP�Witnessed` / `Witnessed�MP` (checked there, cited here, not
 -- imported): MP is exactly the license to convert a bare negation of
--- the unbounded Π into the Σ-witness that `falsify` consumes.  Without
--- MP, `falsify` runs right-to-left only: witness ⇒ refutation, never
--- refutation ⇒ witness.
+-- the unbounded Π into the �-witness that `falsify` consumes.  Without
+-- MP, `falsify` runs right-to-left only: witness � refutation, never
+-- refutation � witness.
 --
 -- Shape, not theorems (comments only, nothing formalized): Goldbach is
--- Π₁ over a decidable matrix — "every even n ≥ 4 is a sum of two
--- primes" is ((m : ℕ) → P m ≡ true) for a P this module's `falsify`
--- and `decBounded` apply to verbatim.  Twin primes is Π₂ ("for every
+-- Π� over a decidable matrix � "every even n � 4 is a sum of two
+-- primes" is ((m : �) � P m ≡ true) for a P this module's `falsify`
+-- and `decBounded` apply to verbatim.  Twin primes is Π� ("for every
 -- n there is a larger twin pair"): its bounded truncations are again
--- decidable, but a single counterexample no longer kills it — the
--- falsifier for a Π₂ statement is itself a Π₁ object.  The ladder of
+-- decidable, but a single counterexample no longer kills it � the
+-- falsifier for a Π� statement is itself a Π� object.  The ladder of
 -- quantifier alternations is the ladder of how much a falsifier costs.
 --
--- Gödel strand, cycle 1, slot 12.  Everything here is elementary and
+-- Gdel strand, cycle 1, slot 12.  Everything here is elementary and
 -- classical-free; the point is that it CHECKS, so the constitution's
 -- asymmetry is now a term, not a slogan.
 ------------------------------------------------------------------------
@@ -61,7 +61,7 @@ module _ (P : ℕ → Bool) where
 
   ----------------------------------------------------------------------
   -- (a) One counterexample kills.  The falsifier is a single point;
-  --     the hypothesis it destroys is a function on all of ℕ.
+  --     the hypothesis it destroys is a function on all of �.
   ----------------------------------------------------------------------
 
   falsify : (n : ℕ) → P n ≡ false → ¬ ((m : ℕ) → P m ≡ true)
@@ -93,14 +93,14 @@ module _ (P : ℕ → Bool) where
   ----------------------------------------------------------------------
   -- (c) The asymmetry, on the record.
   --
-  --     `falsify`    : Σ-shaped evidence (one n, one path) refutes Π.
+  --     `falsify`    : �-shaped evidence (one n, one path) refutes Π.
   --     `decBounded` : every finite truncation of Π is decided.
   --
-  --     The unbounded ((m : ℕ) → P m ≡ true) receives NO decision
+  --     The unbounded ((m : �) � P m ≡ true) receives NO decision
   --     procedure in this module, and none is claimed anywhere in
   --     this corpus.  The gap between "decided at every bound" and
   --     "decided" is not an engineering shortfall; by S04Apoha's
-  --     MP↔Witnessed it is precisely Markov's Principle, i.e. a
+  --     MP�Witnessed it is precisely Markov's Principle, i.e. a
   --     classical axiom the --safe fragment does not grant.  The
   --     protocol's asymmetric ladder (falsifiers admissible, verifier
   --     claims forbidden) is the operational face of that axiom's
@@ -110,7 +110,7 @@ module _ (P : ℕ → Bool) where
 ------------------------------------------------------------------------
 -- (d) A worked instance: P = "is not 5".  The universal claim "no
 --     natural number is 5" is falsified by the single point 5, and the
---     falsifying path is refl — the counterexample computes.
+--     falsifying path is refl � the counterexample computes.
 ------------------------------------------------------------------------
 
 eqℕ : ℕ → ℕ → Bool
@@ -126,7 +126,7 @@ isNot5 n = not (eqℕ n 5)
 counterexampleAt5 : isNot5 5 ≡ false
 counterexampleAt5 = refl
 
--- One point kills the Π₁ claim "every number is not 5".
+-- One point kills the Π� claim "every number is not 5".
 not5-falsified : ¬ ((m : ℕ) → isNot5 m ≡ true)
 not5-falsified = falsify isNot5 5 refl
 

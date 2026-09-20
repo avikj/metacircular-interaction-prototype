@@ -2,7 +2,7 @@
 
 -- THE COST GEOMETRY OF REPRESENTATIONS
 --
--- `TransportCost` measured one edge: transporting `+` along `ua ℕ≃CanWord`
+-- `TransportCost` measured one edge: transporting `+` along `ua ��CanWord`
 -- computes, but quadratically, while native ripple-carry is flat.  That
 -- measurement is not a wart and not a benchmark.  It is a WEIGHT ON AN EDGE
 -- of a graph, and this module makes the graph an object.
@@ -24,7 +24,7 @@
 -- cheap direction, and it can be stated and proved inside type theory
 -- rather than narrated in prose.
 --
--- Deliberately weak: only +, ≤ and < are used, so every theorem holds for
+-- Deliberately weak: only +, � and < are used, so every theorem holds for
 -- any cost currency (steps, energy, proof length, bandwidth).  The geometry
 -- does not depend on the unit.
 
@@ -38,7 +38,7 @@ open import Cubical.Data.Nat.Order using (_<_ ; _≤_ ; ≤-trans ; ≤<-trans)
 -- 1.  Cost: an abstract currency, concretely counted steps
 --------------------------------------------------------------------------
 
--- ℕ is this repo's native unit: `CountedExecution.run` IS iteration over ℕ,
+-- � is this repo's native unit: `CountedExecution.run` IS iteration over �,
 -- so a step count is the execution law's own coordinate.
 
 Cost : Type₀
@@ -89,9 +89,9 @@ direct : Work → Cost
 direct w = w
 
 -- Travel out (two arguments), work there, travel back (one result).  This
--- is precisely the shape of `transport (ua e) f = e⁻¹ ∘ f ∘ (e × e)`: the
+-- is precisely the shape of `transport (ua e) f = e�� ∘ f ∘ (e � e)`: the
 -- transported term IS a detour, which is why it was slow -- it detoured
--- through unary ℕ.
+-- through unary �.
 
 detour : {A B : Presentation} → Edge A B → Edge B A → Work → Cost
 detour out back w = (cost out + cost out) + (cost back + w)
@@ -121,7 +121,7 @@ NoSpeedup out back wHere wThere = direct wHere ≤ detour out back wThere
 -- speed must be earned by a strictly better neighbour.
 --
 -- This is why `transport-+-is-⊕` is a certificate and NOT a compiler: the
--- transported term detours through ℕ, whose work is not smaller.
+-- transported term detours through �, whose work is not smaller.
 
 transport-is-never-free :
     {A B : Presentation} (out : Edge A B) (back : Edge B A)

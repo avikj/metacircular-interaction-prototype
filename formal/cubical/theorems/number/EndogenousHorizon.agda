@@ -15,7 +15,7 @@
 -- divisibility test below the threshold, yet differ in primality.
 --
 -- That is precisely the shape this repository's checked core already
--- formalises (FutureBehavior, 
+-- formalises (MyhillNerodeMinimalMachine, 
 -- ExcursionReturn §2): two states agreeing on all admitted observations
 -- but separated by the task.  runtime/CRYSTAL.md §3.2 calls such a pair a
 -- COLLISION and says it "is not a failure; it is a specification of the
@@ -140,8 +140,8 @@ thresh3 : List ℕ
 thresh3 = 2 ∷ 3 ∷ []
 
 -- Delta 22's own witness: a prime and a semiprime built from two primes
--- above the threshold.  5 is prime; 35 = 5·7 is not; neither is divisible
--- by 2 or 3, so the observer sees `false ∷ false ∷ []` for both.
+-- above the threshold.  5 is prime; 35 = 5�7 is not; neither is divisible
+-- by 2 or 3, so the observer sees `false � false � []` for both.
 sep-5-35 : Separator
 sep-5-35 = record
   { below = thresh3
@@ -181,7 +181,7 @@ obs-25 = refl
 --
 -- A separator at threshold z is destroyed only by admitting a modulus
 -- that actually splits the pair.  Here 5 does, and nothing below it does.
--- So certifying 25 or 35 requires testing up to 5 = √25, and the required
+-- So certifying 25 or 35 requires testing up to 5 = �25, and the required
 -- observer therefore grows with the value being certified: T22.3's
 -- converse, in the only form that has content.
 ------------------------------------------------------------------------
@@ -210,7 +210,7 @@ horizon-grows-35 p = true≢false (sym (cong headOfTail p))
 --
 -- No definition of primality, no infinitude of primes, no claim that the
 -- square root is the *least* sufficient threshold in general.  T22.3
--- (testing all primes ≤ √X suffices on [1,X]) is a standard fact and
+-- (testing all primes � �X suffices on [1,X]) is a standard fact and
 -- re-encoding it here would be exactly the gratuitous formalisation
 -- Delta 22 direction 6 warns against.
 --

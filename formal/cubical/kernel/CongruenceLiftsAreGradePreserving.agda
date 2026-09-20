@@ -8,7 +8,7 @@
 -- applying the matching congruence step to each of its steps, and this lift
 -- PRESERVES LENGTH. Consequence: a derivation assembled by structural
 -- recursion over a term's syntax has length equal to the number of redexes
--- it eliminates â€” which is why `winding-cost`, `addClosed`, and `mulPeel`
+-- it eliminates â” which is why `winding-cost`, `addClosed`, and `mulPeel`
 -- all come out linear in the size they traverse. One engine, all cases.
 ------------------------------------------------------------------------
 

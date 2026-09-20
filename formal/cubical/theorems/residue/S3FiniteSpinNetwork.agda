@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- Concrete finite-set calibration of AbstractSpinNetworkKinematics using the
--- natural S₃-action on Fin 3.  This is only equivariant finite-set data: no
+-- natural S�-action on Fin 3.  This is only equivariant finite-set data: no
 -- linear carrier, tensor product, Hilbert space, SU(2), or spin label.
 
 module S3FiniteSpinNetwork where
@@ -44,8 +44,8 @@ _▸_ unitAction g x = tt
 identityVertex : Intertwiner S₃ naturalFin3Action naturalFin3Action
 identityVertex = idIntertwiner S₃ naturalFin3Action
 
--- A genuinely non-identity equivariant vertex: forget the transitive S₃-set
--- to the terminal S₃-set.  Equivariance is computational.
+-- A genuinely non-identity equivariant vertex: forget the transitive S�-set
+-- to the terminal S�-set.  Equivariance is computational.
 terminalVertex : Intertwiner S₃ naturalFin3Action unitAction
 map terminalVertex x = tt
 equivariant terminalVertex g x = refl

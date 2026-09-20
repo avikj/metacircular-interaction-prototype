@@ -1,51 +1,51 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ-‡§¶‡•ç‡§µ‡§Ø‡§Æ‡•ç ‚Äî the two examinations.  The metacircular kernel's two
+-- ‡‡∞‡‡ï‡‡‡æ-‡¶‡‡µ‡Ø‡Æ‡ ‚î the two examinations.  The metacircular kernel's two
 -- validity rules (kernel/nodes/002, 003) are road one and road two of the
 -- fibre law, and their orthogonality (kernel/nodes/006) is a theorem about
--- the universal decomposition A ‚âÉ Œ£[b] fiber f b ‚Äî not prose in a markdown
+-- the universal decomposition A ‚â Œ[b] fiber f b ‚î not prose in a markdown
 -- node.
 --
 -- THE KERNEL, IN ITS OWN WORDS.  kernel/nodes/006-fork-discharged.md proves
 -- the two candidate validity rules detect DISJOINT, EXHAUSTIVE error
 -- classes, forced by node 001's content/gauge split:
---   002 ‚Äî validity by decidable check: catches derivation-internal error,
+--   002 ‚î validity by decidable check: catches derivation-internal error,
 --         and STRUCTURALLY CANNOT catch a frame error ("a gauge is not
---         outside the [technique] library ‚Äî it is inside it, wearing the
+--         outside the [technique] library ‚î it is inside it, wearing the
 --         right type").
---   003 ‚Äî validity by conservation across re-derivation: catches the frame
+--   003 ‚î validity by conservation across re-derivation: catches the frame
 --         error (the well-typed gauge that froze a variable).
--- Node 006's result: "the two detect disjoint, exhaustive error classes ‚Ä¶
+-- Node 006's result: "the two detect disjoint, exhaustive error classes ‚¶
 -- orthogonality, not subsumption."
 --
--- THE FIBRE LAW.  SarvavibhagaH: for every f : A ‚Üí B,
---   ‡§∏‡§∞‡•ç‡§µ‡§µ‡§ø‡§≠‡§æ‡§ó‡§É : A ‚âÉ Œ£[ b ‚àà B ] fiber f b     (the universal decomposition,
--- the totalEquiv; Punaragamana.Carrier f is its total space).  The SOURCE
--- projection is an equivalence for EVERY f.  The TARGET side ‚Äî whether each
--- fiber f b is contractible ‚Äî is `isEquiv f`, and a non-equivalence loses
+-- THE FIBRE LAW.  SarvavibhagaH: for every f : A ‚í B,
+--   ‡‡∞‡‡µ‡µ‡ø‡‡æ‡ó‡ : A ‚â Œ[ b ‚àà B ] fiber f b     (the universal decomposition,
+-- the totalEquiv; Return.Carrier f is its total space).  The SOURCE
+-- projection is an equivalence for EVERY f.  The TARGET side ‚î whether each
+-- fiber f b is contractible ‚î is `isEquiv f`, and a non-equivalence loses
 -- there.
 --
 -- THE IDENTIFICATION.  The two are the same partition:
---   ROAD ONE  = 002's reach.  A ‚âÉ Œ£[b] fiber f b holds for all f: the
+--   ROAD ONE  = 002's reach.  A ‚â Œ[b] fiber f b holds for all f: the
 --     derivation is well-formed no matter what.  Node 001's "a gauge is
---     well-typed" is exactly this ‚Äî the decomposition always typechecks, so
+--     well-typed" is exactly this ‚î the decomposition always typechecks, so
 --     road-one clearance says nothing about whether f lost anything.
---   ROAD TWO  = 003's invariant.  isEquiv f ‚Äî every fiber contractible ‚Äî is
+--   ROAD TWO  = 003's invariant.  isEquiv f ‚î every fiber contractible ‚î is
 --     whether the frame carried hidden loss.  It is INDEPENDENT of road one.
 --
 -- So node 006's orthogonality IS: road one holds for every f, road two does
 -- not, and a map can be road-one-clear while road-two-failing.  That map is
--- the frame error 002 cannot see ‚Äî a non-equivalence whose source
+-- the frame error 002 cannot see ‚î a non-equivalence whose source
 -- decomposition still holds.  The frozen Œµ (001's forcing instance, a
 -- well-typed statement that dropped a variable) has this exact shape.
 --
--- Checked by batch agda, exit 0, at 2.6.3/v0.5 ‚Äî the kernel's exit
--- condition, which carries the constraint store.  NOT ‡§®‡§æ‡§°‡•Ä's `goals`:
+-- Checked by batch agda, exit 0, at 2.6.3/v0.5 ‚î the kernel's exit
+-- condition, which carries the constraint store.  NOT ‡®‡æ‡°‡'s `goals`:
 -- kernel/nodes/008 proves `goals` reports interaction holes only, so
--- ‡§õ‡§ø‡§¶‡•ç‡§∞‡§Ç ‡§®‡§æ‡§∏‡•ç‡§§‡§ø cannot distinguish "no holes" from "typechecks".  My earlier
--- ‡§®‡§æ‡§°‡•Ä claim here was doubly wrong (I ran batch agda; goals is the wrong
--- discriminator) ‚Äî struck by 008's own rule, which this module formalises.
+-- ‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø cannot distinguish "no holes" from "typechecks".  My earlier
+-- ‡®‡æ‡°‡ claim here was doubly wrong (I ran batch agda; goals is the wrong
+-- discriminator) ‚î struck by 008's own rule, which this module formalises.
 ------------------------------------------------------------------------
 
 module PariksaDvaya_TheKernelsTwoValidityRulesAreRoadOneAndRoadTwoOfTheFibreLaw where
@@ -61,15 +61,15 @@ open import SarvavibhagaH_EveryMapIsTheSumOfItsFibresOverItsCodomainSoTheIsomorp
   using (‡§∏‡§∞‡•ç‡§µ‡§µ‡§ø‡§≠‡§æ‡§ó‡§É)
 
 ------------------------------------------------------------------------
--- ROAD ONE ‚Äî 002's reach.  For EVERY map the source decomposes as the sum
--- of its fibres: A ‚âÉ Œ£[b] fiber f b.  Always holds; says nothing of frame.
+-- ROAD ONE ‚î 002's reach.  For EVERY map the source decomposes as the sum
+-- of its fibres: A ‚â Œ[b] fiber f b.  Always holds; says nothing of frame.
 ------------------------------------------------------------------------
 
 road-one : {‚Ñì : Level} {A B : Type ‚Ñì} (f : A ‚Üí B) ‚Üí A ‚âÉ (Œ£[ b ‚àà B ] fiber f b)
 road-one f = ‡§∏‡§∞‡•ç‡§µ‡§µ‡§ø‡§≠‡§æ‡§ó‡§É f
 
 ------------------------------------------------------------------------
--- ROAD TWO ‚Äî 003's invariant.  Whether the frame lost anything: every
+-- ROAD TWO ‚î 003's invariant.  Whether the frame lost anything: every
 -- fibre contractible, i.e. f is an equivalence.  Independent of road one.
 ------------------------------------------------------------------------
 
@@ -78,10 +78,10 @@ road-two f = isEquiv f
 
 ------------------------------------------------------------------------
 -- ORTHOGONALITY (kernel/nodes/006).  Road one holds for every f; road two
--- does not.  The constant map Bool ‚Üí Unit is the frame error: road-one
+-- does not.  The constant map Bool ‚í Unit is the frame error: road-one
 -- clear (its source decomposes, like any map), road-two failing (it
 -- collapses two points, so its fibre over tt is Bool, not contractible).
--- A well-typed derivation that lost a degree of freedom ‚Äî exactly what 002
+-- A well-typed derivation that lost a degree of freedom ‚î exactly what 002
 -- cannot see and 003 catches.
 ------------------------------------------------------------------------
 

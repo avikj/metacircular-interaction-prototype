@@ -1,0 +1,30 @@
+#!/bin/sh
+# Turn /tmp/rows.txt (ROW <arity> <head> <qualname>) into the compact
+# self-presentation: declarations grouped into meaning-loci keyed by the
+# finite observation (Π-arity, conclusion head), each locus showing its
+# residual fibre (the declarations sharing that observation).
+set -eu
+ROWS="${1:-/tmp/rows.txt}"
+OUT="${2:-/tmp/presentation.txt}"
+LC_ALL=C.utf8
+total=$(wc -l < "$ROWS")
+# locus key = arity \t head ; count members per key
+loci=$(cut -f2,3 "$ROWS" | LC_ALL=C sort | uniq -c | wc -l)
+
+{
+  echo "════════ CORPUS SELF-PRESENTATION ════════"
+  echo "checked public declarations : $total"
+  echo "meaning-loci (Π-arity, head): $loci"
+  echo "observation q(decl) = (dependent Π-arity, elaborated conclusion head)"
+  echo "each LOCUS lists its residual fibre — the declarations sharing that observation"
+  echo
+  echo "──── loci by residual size (largest first) ────"
+  cut -f2,3 "$ROWS" | LC_ALL=C sort | uniq -c | sort -rnk1 | head -40 \
+    | while read -r cnt arity head; do
+        printf 'LOCUS  Π%-3s %-40s  residual=%s\n' "$arity" "$head" "$cnt"
+      done
+  echo
+  echo "──── singleton loci (unique observation — a declaration alone at its locus) ────"
+  echo "count: $(cut -f2,3 "$ROWS" | LC_ALL=C sort | uniq -c | awk '$1==1' | wc -l)"
+} > "$OUT"
+cat "$OUT"

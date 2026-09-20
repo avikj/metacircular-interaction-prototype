@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§Æ‡§ß‡•ç‡§Ø-‡§¨‡§ø‡§®‡•ç‡§¶‡•Å ‚Äî the midpoint form and the sum form are one question,
+-- ‡Æ‡ß‡‡Ø-‡‡ø‡®‡‡¶‡ ‚î the midpoint form and the sum form are one question,
 -- proved both ways.
 --
 -- The first sentence of the frame: "the set of midpoints of pairs of
 -- primes covers the naturals."  Here it is as a type, and here is the
 -- proof that it is THE SAME question as the sum form already living in
--- SamastaPrasna ‚Äî two functions, one in each direction, at the pin.
+-- SamastaPrasna ‚î two functions, one in each direction, at the pin.
 --
---   SumAt n       =  Œ£ p q primes with p + q = n + n
---   MidpointAt n  =  Œ£ a k with a + k = n, a prime, a + 2k prime
+--   SumAt n       =  Œ p q primes with p + q = n + n
+--   MidpointAt n  =  Œ a k with a + k = n, a prime, a + 2k prime
 --                    (the pair (n‚àík, n+k) written additively: a is the
---                     lower prime AND the ‚â§-witness, so no monus)
+--                     lower prime AND the ‚â-witness, so no monus)
 --
 -- The forward direction is the working half: given p + q = 2n it must
 -- SPLIT the pair around the center, and the split needs two lemmas that
 -- are the arithmetic heart of the reflection frame:
 --
---   halve  : a + a + d = n + n  ‚Üí  d is even        (the offset doubles)
---   centre : (a+k) + (a+k) = n + n  ‚Üí  a + k = n    (doubling injects)
+--   halve  : a + a + d = n + n  ‚í  d is even        (the offset doubles)
+--   centre : (a+k) + (a+k) = n + n  ‚í  a + k = n    (doubling injects)
 --
 -- both by double induction, both total, no classical steps.
 --

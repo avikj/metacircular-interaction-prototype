@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 -- EGB Delta-24, T24.3 as a term: the holonomy of a 3-cycle of
--- equivalences G₁ ≃ G₂ ≃ G₃ ≃ G₁ is an automorphism of G₁.  Coherent
+-- equivalences G� � G� � G� � G� is an automorphism of G�.  Coherent
 -- triviality of the cycle is an *extra datum* (a path hol ≡ idEquiv),
 -- not a default: we exhibit (a) the trivial cycle, whose holonomy is
 -- idEquiv, and (b) a nontrivial cycle on Bool, whose holonomy is `not`
@@ -37,11 +37,11 @@ holTrivial A = equivEq refl
 holBool : Bool ≃ Bool
 holBool = hol notEquiv notEquiv notEquiv
 
--- Its underlying map is `not`, pointwise …
+-- Its underlying map is `not`, pointwise �
 holBoolIsNot : ∀ b → equivFun holBool b ≡ not b
 holBoolIsNot b = notnot (not b)
 
--- … and `not` is not the identity, so this unity cycle retains
+-- � and `not` is not the identity, so this unity cycle retains
 -- nontrivial holonomy: it does not collapse to one static object.
 notNotId : ¬ (∀ b → not b ≡ b)
 notNotId h = true≢false (h false)
@@ -49,11 +49,11 @@ notNotId h = true≢false (h false)
 holBoolNontrivial : ¬ (∀ b → equivFun holBool b ≡ b)
 holBoolNontrivial h = notNotId (λ b → sym (holBoolIsNot b) ∙ h b)
 
--- Univalence turns the witness into a loop at Bool in the universe …
+-- Univalence turns the witness into a loop at Bool in the universe �
 holLoop : Bool ≡ Bool
 holLoop = ua holBool
 
--- … and the loop is provably not refl: transport along it flips true.
+-- � and the loop is provably not refl: transport along it flips true.
 holLoopNontrivial : ¬ (holLoop ≡ refl)
 holLoopNontrivial p = true≢false
   (sym (sym (uaβ holBool true)

@@ -7,9 +7,9 @@
 -- on:  "The object to build is the transition itself."
 --
 -- Here it is built.  Not on the line, where it does not exist, but on the
--- conic, where it does â€” and the construction is Brahmagupta's, 628 CE.
+-- conic, where it does â” and the construction is Brahmagupta's, 628 CE.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT WAS ACTUALLY PROVED IN `SuccessorIsNotTropical`
 --
 -- `disjoint-support` says: no prime divides two consecutive integers, so
@@ -17,20 +17,20 @@
 -- was read here as "the parity barrier is a chart incompatibility".
 --
 -- That reading over-claims, and this module is the correction.  What was
--- proved is a fact about â„• **with the successor as its additive law**.
+-- proved is a fact about â• **with the successor as its additive law**.
 -- It is not a fact about arithmetic.  It is a fact about a particular
--- additive structure whose generator, 1, is multiplicatively invisible â€”
+-- additive structure whose generator, 1, is multiplicatively invisible â”
 -- a unit, hence norm 1 in a chart where norms are all that is seen.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE CONIC HAS THE TRANSITION, EXACTLY
 --
 -- Put the additive law on a circle instead of a line.  A point is a pair
 -- (a,b); the norm is aÂ² + bÂ²; and the group law is
 --
---     (aâ‚,bâ‚) âŠ— (aâ‚‚,bâ‚‚) = (aâ‚aâ‚‚ âˆ’ bâ‚bâ‚‚ , aâ‚bâ‚‚ + aâ‚‚bâ‚).
+--     (aâ,bâ) âŠ— (aâ,bâ) = (aâaâ âˆ’ bâbâ , aâbâ + aâbâ).
 --
--- This is **samÄsa-bhÄvanÄ at D = âˆ’1** â€” BrÄhmasphuá¹­asiddhÄnta ch. 18,
+-- This is **samsa-bhvan at D = âˆ’1** â” Brhmasphuasiddhnta ch. 18,
 -- 628 CE, the composition law whose whole content is that the norm is
 -- multiplicative.  `Bhavana.agda` in this repository already checks the
 -- general D; this module takes D = âˆ’1, which is the case that is a
@@ -38,21 +38,21 @@
 --
 -- The answer is the sharpest possible contrast with `disjoint-support`:
 --
---     N (u âŠ— g)  â‰¡  N u Â· N g                       (`rot-norm`)
+--     N (u âŠ— g)  â‰¡  N u Â N g                       (`rot-norm`)
 --
--- The conic's successor â€” translation by a fixed g â€” is not merely
+-- The conic's successor â” translation by a fixed g â” is not merely
 -- visible in the multiplicative chart.  It is MULTIPLICATION BY A
--- CONSTANT there.  Where â„•'s successor has zero locality, the circle's
+-- CONSTANT there.  Where â•'s successor has zero locality, the circle's
 -- has total locality.  Same arithmetic, different additive law, opposite
 -- answer.  So the barrier is not arithmetic's; it belongs to the line.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE TRIPLES ARE THE GROUP, AND EUCLID'S FORMULA IS SQUARING
 --
 -- A Pythagorean triple is a pair whose norm is a square.  Then:
 --
---   * `triple-âŠ—`  triples are CLOSED under bhÄvanÄ.  (3,4,5) composed
---     with (5,12,13) is (33,56,65) â€” checked by `refl` at the bottom of
+--   * `triple-âŠ—`  triples are CLOSED under bhvan.  (3,4,5) composed
+--     with (5,12,13) is (33,56,65) â” checked by `refl` at the bottom of
 --     this file.  Triples are not a list; they are a monoid.
 --
 --   * `euclid`  every pair squares to a triple, with hypotenuse its own
@@ -65,11 +65,11 @@
 --     and the triple chart carry the SAME composition, intertwined by
 --     the parametrisation.  One chart change, no defect, exactly.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHERE UNIVALENCE ENTERS, AND IT IS NOT DECORATION
 --
--- When N g â‰¡ 1, `rot g` is invertible â€” its inverse is composition with
--- the conjugate, which is antara-bhÄvanÄ, Brahmagupta's second law.  So
+-- When N g â‰¡ 1, `rot g` is invertible â” its inverse is composition with
+-- the conjugate, which is antara-bhvan, Brahmagupta's second law.  So
 -- `rotEquiv` is an equivalence of the pair-type with itself, `rotPath`
 -- is the identification univalence supplies, and `defect-vanishes`
 -- computes Delta 15's structured defect for the norm along it: it is
@@ -79,17 +79,17 @@
 -- The line has no such family: by `disjoint-support` the successor
 -- carries NO multiplicative structure along.  Two additive laws, one
 -- arithmetic; one is a family of structured identifications and one is
--- not.  That difference â€” not any statement about primes â€” is what the
+-- not.  That difference â” not any statement about primes â” is what the
 -- barrier language has been pointing at.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
 -- Everything below is proved over an ARBITRARY commutative ring, so it
--- holds over â„¤, over â„š, and over every ring the repository may later
--- want.  Ring identities go through the CommRingSolver â€” exact symbolic
+-- holds over â, over â, and over every ring the repository may later
+-- want.  Ring identities go through the CommRingSolver â” exact symbolic
 -- computation, which CLAUDE.md admits as proof; nothing is measured.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin (2.8.0 / v0.9, BUILD.md).  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -127,12 +127,12 @@ module Circle (R : CommRing â„“) where
 
   infixl 7 _âŠ—_
 
-  -- à¤¸à¤®à¤¾à¤¸-à¤­à¤¾à¤µà¤¨à¤¾, D = âˆ’1
+  -- àà®à¾à-àà¾àµà¨à¾, D = âˆ’1
   _âŠ—_ : Pair â†’ Pair â†’ Pair
   u âŠ— v = ((fst u Â· fst v) - (snd u Â· snd v))
         , ((fst u Â· snd v) + (fst v Â· snd u))
 
-  -- à¤…à¤¨à¥à¤¤à¤°-à¤­à¤¾à¤µà¤¨à¤¾: the same law with the second sign flipped
+  -- àà¨ààà°-àà¾àµà¨à¾: the same law with the second sign flipped
   conj : Pair â†’ Pair
   conj u = fst u , (- snd u)
 
@@ -229,7 +229,7 @@ module Circle (R : CommRing â„“) where
   rot-norm g u = N-âŠ— u g
 
   ----------------------------------------------------------------------
-  -- 4.  Triples: closed under bhÄvanÄ, generated by squaring
+  -- 4.  Triples: closed under bhvan, generated by squaring
   ----------------------------------------------------------------------
 
   IsTriple : Pair â†’ A â†’ Type â„“
@@ -300,10 +300,10 @@ module Circle (R : CommRing â„“) where
   defect-vanishes g h = funExt (rot-preserves-N g h)
 
 ------------------------------------------------------------------------
--- 6.  It runs.  Over â„¤, by computation.
+-- 6.  It runs.  Over â, by computation.
 --
---   gen (2,1)        = (3,4)          â€” the 3-4-5 triple, by squaring
---   (3,4) âŠ— (5,12)   = (âˆ’33,56)       â€” 33Â² + 56Â² = 65Â² = (5Â·13)Â²
+--   gen (2,1)        = (3,4)          â” the 3-4-5 triple, by squaring
+--   (3,4) âŠ— (5,12)   = (âˆ’33,56)       â” 33Â² + 56Â² = 65Â² = (5Â13)Â²
 --
 -- Triples compose.  The two smallest primitive triples produce a third
 -- by Brahmagupta's law, and its hypotenuse is the product of theirs.

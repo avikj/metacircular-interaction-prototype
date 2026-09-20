@@ -134,3 +134,8 @@ zzz/**/*.pyc
 # up as a staged deletion.  interactive/dosa.lekha, the shared append-only
 # log several lanes write to, is a different file and stays tracked.
 interactive/yantra-session.lekha
+formal/cubical/corpus/Chunk*.agda
+formal/cubical/corpus/identity-rows.tsv
+formal/cubical/corpus/corpus-rows.tsv
+CorpusProbe.generated.agda
+formal/cubical/CensusB.agda*

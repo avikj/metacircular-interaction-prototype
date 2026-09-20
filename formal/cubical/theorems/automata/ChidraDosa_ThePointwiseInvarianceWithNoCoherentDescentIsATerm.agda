@@ -3,12 +3,12 @@
 ------------------------------------------------------------------------
 -- ChidraDosa_ThePointwiseInvarianceWithNoCoherentDescentIsATerm
 --
--- छिद्रदोष — the defect that lives in a gap.
+-- ��������� � the defect that lives in a gap.
 --
 -- `FiniteInformation` proves
 --
---   factorsThrough→fiberConstant : hypothesis-free, and
---   fiberConstant→factorsThrough : requires `isSet T`.
+--   factorsThrough�fiberConstant : hypothesis-free, and
+--   fiberConstant�factorsThrough : requires `isSet T`.
 --
 -- The asymmetry is not bookkeeping.  This module exhibits the gap as a
 -- closed term: a concrete observable `q` and target `t` with `T` NOT a
@@ -17,25 +17,25 @@
 --   `FiberConstant q t`   HOLDS   (§3, `fiberConstantDoubleId`), and
 --   `FactorsThrough q t`  FAILS   (§4, `noFactorsThroughDoubleId`).
 --
--- THE EXHIBIT.  X = Y = T = S¹, q = double (the connected double cover
--- z ↦ z², i.e. loop ↦ loop ∙ loop), t = the identity.
+-- THE EXHIBIT.  X = Y = T = S�, q = double (the connected double cover
+-- z � z², i.e. loop � loop ∙ loop), t = the identity.
 --
 --   * FiberConstant double id asks for a TERM
 --
---       (x x' : S¹) → double x ≡ double x' → x ≡ x'
+--       (x x' : S�) � double x ≡ double x' � x ≡ x'
 --
 --     i.e. a continuous "halving" of every identification of squares.
 --     It exists: eliminate both circle arguments into the SET
---     (double x ≡ double x' → x ≡ x') via `toSetElim2`; at base/base
---     the required map ΩS¹ → ΩS¹ is p ↦ intLoop ⌊winding p / 2⌋, and
+--     (double x ≡ double x' � x ≡ x') via `toSetElim2`; at base/base
+--     the required map ΩS� � ΩS� is p � intLoop �winding p / 2�, and
 --     the two loop-transport conditions are exactly the floor-division
 --     law  half (m + 2) ≡ half m + 1  (§1, `half2`).  So pointwise
---     invariance holds — as data, not merely as a proposition.
+--     invariance holds � as data, not merely as a proposition.
 --
 --   * FactorsThrough double id would be a decoder on the univalent
 --     image.  Since double is surjective (§4, `doubleIsSurjective`),
---     any decoder yields g : S¹ → S¹ with g ∘ double ∼ id, and the
---     winding number of loop then satisfies 1 = n + n in ℤ (the
+--     any decoder yields g : S� � S� with g ∘ double ∼ id, and the
+--     winding number of loop then satisfies 1 = n + n in � (the
 --     homotopy is natural, cong distributes over ∙, conjugation is a
 --     homomorphism, winding is a homomorphism).  Parity refutes it.
 --
@@ -44,36 +44,36 @@
 -- base loop shifts it by the deck transformation, and no global choice
 -- survives.  This is the anomaly named in the collaboration's queue
 -- item: POINTWISE INVARIANCE WITH NO COHERENT GLOBAL DESCENT.  The
--- `isSet T` hypothesis in `fiberConstant→factorsThrough` is therefore
--- not an artefact of the proof (`PT.rec→Set`'s 2-Constancy demand); it
+-- `isSet T` hypothesis in `fiberConstant�factorsThrough` is therefore
+-- not an artefact of the proof (`PT.rec�Set`'s 2-Constancy demand); it
 -- is the exact price of the phenomenon, and this module is the witness
 -- that the price is nonzero.
 --
 -- WHERE THE ANOMALY CANNOT LIVE (§2, the honest boundary).  If q has a
--- section, FiberConstant → FactorsThrough with NO hypothesis on T
--- (`sectionKillsTheGap`).  In particular Y = Unit with X pointed — the
--- naive first candidate — can never exhibit the gap: over a trivial
+-- section, FiberConstant � FactorsThrough with NO hypothesis on T
+-- (`sectionKillsTheGap`).  In particular Y = Unit with X pointed � the
+-- naive first candidate � can never exhibit the gap: over a trivial
 -- base the decoder is `t ∘ section ∘ fst`.  The gap needs monodromy.
--- Corollary (§5): the double cover admits no section — the classical
--- nonsplitting of z ↦ z², here a two-line consequence of the gap.
+-- Corollary (§5): the double cover admits no section � the classical
+-- nonsplitting of z � z², here a two-line consequence of the gap.
 --
 -- THE REPAIR (§6).  The SAME constancy data, pushed forward along
--- ∣_∣₂ : S¹ → ∥ S¹ ∥₂, descends at once through the corpus's own
--- `fiberConstant→factorsThrough` — the set-truncated shadow of the
+-- �_�� : S� � � S� ��, descends at once through the corpus's own
+-- `fiberConstant�factorsThrough` � the set-truncated shadow of the
 -- identity is a function of the observation, the identity itself is
 -- not.  What set-truncation destroys is precisely what obstructed.
 --
 -- LITERATURE.  That weakly constant maps into non-sets need not factor
--- through ∥_∥₁ is the theme of Kraus–Escardó–Coquand–Altenkirch,
--- "Notions of Anonymous Existence in Martin-Löf Type Theory" (LMCS
+-- through �_�� is the theme of Kraus�Escard��Coquand�Altenkirch,
+-- "Notions of Anonymous Existence in Martin-Lf Type Theory" (LMCS
 -- 2017), and Kraus's general universal property of the propositional
 -- truncation (coherence at all levels).  The contribution here is not
 -- the phenomenon but the TERM: a closed, --safe, hole-free instance in
 -- the corpus's own vocabulary (`FiberConstant`/`FactorsThrough` over
 -- the univalent `Image`), with the failure refuted by parity rather
--- than assumed from a model, plus the section boundary and the ∥_∥₂
+-- than assumed from a model, plus the section boundary and the �_��
 -- repair beside it.  Relation to the corpus: `SetTruncationDescent-
--- Boundary` locates set-level descent OF THE IDENTITY ALONG ∣_∣₂ at
+-- Boundary` locates set-level descent OF THE IDENTITY ALONG �_�� at
 -- `isSet A`; here the base map is a COVER OF THE CIRCLE BY ITSELF, the
 -- fiberwise identifications all exist, and the obstruction is not the
 -- h-level of the base or of the image (both are groupoids) but the
@@ -123,7 +123,7 @@ double : S¹ → S¹
 double base     = base
 double (loop i) = (loop ∙ loop) i
 
--- The target is the identity; its codomain S¹ is NOT a set.
+-- The target is the identity; its codomain S� is NOT a set.
 targetIsNotASet : ¬ isSet S¹
 targetIsNotASet = S¹NotSet
 
@@ -139,7 +139,7 @@ half (negsuc zero)         = negsuc zero
 half (negsuc (suc zero))   = negsuc zero
 half (negsuc (suc (suc n))) = predℤ (half (negsuc n))
 
--- half (m + 2) ≡ half m + 1 — floor division is equivariant for the
+-- half (m + 2) ≡ half m + 1 � floor division is equivariant for the
 -- deck shift.  This single identity discharges both loop conditions.
 half2 : (m : ℤ) → half (sucℤ (sucℤ m)) ≡ sucℤ (half m)
 half2 (pos n)                = refl
@@ -178,7 +178,7 @@ sectionKillsTheGap q t s hs fc =
 -- §3  POINTWISE INVARIANCE HOLDS: FiberConstant double id, as a term.
 --
 -- Both circle arguments are eliminated into the set
--- (double x ≡ double x' → x ≡ x'); at base/base the datum is integer
+-- (double x ≡ double x' � x ≡ x'); at base/base the datum is integer
 -- halving transported through winding, and the two loop conditions are
 -- `half2` in the two directions.
 ------------------------------------------------------------------------
@@ -273,7 +273,7 @@ fiberConstantDoubleId =
     k₀ right left
 
 ------------------------------------------------------------------------
--- §4  COHERENT DESCENT FAILS: ¬ FactorsThrough double id.
+-- §4  COHERENT DESCENT FAILS: � FactorsThrough double id.
 ------------------------------------------------------------------------
 
 doubleIsSurjective : (y : S¹) → isInImage double y
@@ -328,11 +328,11 @@ noFactorsThroughDoubleId (dec , replay) = notDoubleOne (winding c) (sym contra)
   Hb : g base ≡ base
   Hb = H base
 
-  -- The conjugated image of the generator …
+  -- The conjugated image of the generator �
   c : ΩS¹
   c = (sym Hb ∙ cong g loop) ∙ Hb
 
-  -- … whose double is the generator: naturality of H at loop.
+  -- � whose double is the generator: naturality of H at loop.
   conjEq : (sym Hb ∙ cong f₀ loop) ∙ Hb ≡ loop
   conjEq =
       (sym Hb ∙ cong f₀ loop) ∙ Hb  ≡⟨ sym (assoc (sym Hb) (cong f₀ loop) Hb) ⟩
@@ -352,7 +352,7 @@ noFactorsThroughDoubleId (dec , replay) = notDoubleOne (winding c) (sym contra)
   contra = sym windingLoop ∙ cong winding loopSplit ∙ winding-hom c c
 
 ------------------------------------------------------------------------
--- §5  Corollary: the double cover is nonsplit — read off from the gap.
+-- §5  Corollary: the double cover is nonsplit � read off from the gap.
 ------------------------------------------------------------------------
 
 doubleHasNoSection :
@@ -362,10 +362,10 @@ doubleHasNoSection (s , hs) =
     (sectionKillsTheGap double (idfun S¹) s hs fiberConstantDoubleId)
 
 ------------------------------------------------------------------------
--- §6  THE REPAIR: the same invariance data descends after ∥_∥₂.
+-- §6  THE REPAIR: the same invariance data descends after �_��.
 --
--- Exactly the corpus's `fiberConstant→factorsThrough`, fed the
--- push-forward of the SAME constancy term along ∣_∣₂.  The gap is the
+-- Exactly the corpus's `fiberConstant�factorsThrough`, fed the
+-- push-forward of the SAME constancy term along �_��.  The gap is the
 -- h-level of the target and nothing else.
 ------------------------------------------------------------------------
 

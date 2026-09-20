@@ -5,7 +5,7 @@
 --
 -- A reversible action on a predictive quotient and a reversible physical
 -- implementation are different typed statements.  If q : X -> Q forgets
--- physical states and u : Q ≅ Q is the effective unit, then the physical-
+-- physical states and u : Q � Q is the effective unit, then the physical-
 -- source observed map u ∘ q has exactly the fibres of q, relabelled by u.
 -- Its coherent side-memory therefore does not disappear.  Unit environment
 -- is attained only after Q itself becomes the input source.

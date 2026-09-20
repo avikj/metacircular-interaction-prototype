@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- अधिकारकरः — the agency tax of compression, and robust action grows
+-- ����������� � the agency tax of compression, and robust action grows
 -- with perception.
 --
--- TERM.  अधिकार as in अधिकारभङ्गः (capacity, the standing to act); कर —
--- tax, tribute, the levy a state exacts.  The compound अधिकार-कर, "the
+-- TERM.  ������� as in �������������� (capacity, the standing to act); ��� �
+-- tax, tribute, the levy a state exacts.  The compound �������-���, "the
 -- tax on agency", is built here; no source is claimed for it.
 --
 -- SEED.  The owner's transmission of 2026-08-23 ("causal horizon
 -- formation"), the section after the affordance theorem: the no-go
--- (अधिकारभङ्गः, landed) says no controller on the quotient can be
--- COMPLETE — but the richer distinction is between two action spaces
+-- (��������������, landed) says no controller on the quotient can be
+-- COMPLETE � but the richer distinction is between two action spaces
 -- over an observed state:
 --
 --   Possible o  =  actions valid in SOME hidden state of o's fibre;
 --   Robust o    =  actions valid in EVERY hidden state of o's fibre.
 --
 -- A controller that sees only o can safely choose from Robust o.  The
--- difference — possible but not robust — is THE AGENCY TAX OF
+-- difference � possible but not robust � is THE AGENCY TAX OF
 -- COMPRESSION.  And refining the sensorium shrinks fibres, so robust
 -- affordances can only grow: better perception does not merely improve
 -- prediction, it enlarges the set of actions takeable without
@@ -27,13 +27,13 @@
 --
 -- WHAT IS PROVED.
 --
---   दृढ→सम्भव     robust actions are possible, over any inhabited fibre.
---   करसाक्षी      the tax is real: a two-state instance where the one
+--   ���������     robust actions are possible, over any inhabited fibre.
+--   ����������      the tax is real: a two-state instance where the one
 --                 action is possible and provably not robust.
---   इन्द्रिय-वृद्धिः  monotonicity: adjoining a receptor (S' = ⟨S , q⟩)
+--   ��������-�������  monotonicity: adjoining a receptor (S' = ⟨S , q⟩)
 --                 only shrinks fibres, so every S-robust action remains
 --                 S'-robust at the refined observation.  The proof is
---                 one projection — the refined fibre maps into the
+--                 one projection � the refined fibre maps into the
 --                 coarse fibre and robustness pulls back.
 --
 ------------------------------------------------------------------------
@@ -53,7 +53,7 @@ private
     ℓ ℓ' ℓ'' ℓ''' : Level
 
 ------------------------------------------------------------------------
--- १ · the two action spaces over an observed state.
+-- � � the two action spaces over an observed state.
 ------------------------------------------------------------------------
 
 module _ {X : Type ℓ} {O : Type ℓ'} {U : Type ℓ''}
@@ -62,7 +62,7 @@ module _ {X : Type ℓ} {O : Type ℓ'} {U : Type ℓ''}
   तन्तुः : O → Type (ℓ-max ℓ ℓ')
   तन्तुः o = Σ[ x ∈ X ] S x ≡ o
 
-  -- valid in SOME hidden state of the fibre (merely — the choice of
+  -- valid in SOME hidden state of the fibre (merely � the choice of
   -- hidden state is not data the controller may use).
   सम्भवः : O → Type (ℓ-max (ℓ-max ℓ ℓ') (ℓ-max ℓ'' ℓ'''))
   सम्भवः o = Σ[ a ∈ U ] ∥ Σ[ p ∈ तन्तुः o ] V (fst p) a ∥₁
@@ -71,7 +71,7 @@ module _ {X : Type ℓ} {O : Type ℓ'} {U : Type ℓ''}
   दृढः : O → Type (ℓ-max (ℓ-max ℓ ℓ') (ℓ-max ℓ'' ℓ'''))
   दृढः o = Σ[ a ∈ U ] ((p : तन्तुः o) → V (fst p) a)
 
-  -- robust ⟹ possible, over any inhabited fibre.
+  -- robust � possible, over any inhabited fibre.
   दृढ→सम्भव : (o : O) → तन्तुः o → दृढः o → सम्भवः o
   दृढ→सम्भव o p₀ (a , all) = a , ∣ p₀ , all p₀ ∣₁
 
@@ -82,8 +82,8 @@ module _ {X : Type ℓ} {O : Type ℓ'} {U : Type ℓ''}
           × (¬ ((p : तन्तुः o) → V (fst p) a))
 
 ------------------------------------------------------------------------
--- २ · the tax is real: the smallest instance.  Two hidden states, one
--- observation, one action label — valid above, invalid below.
+-- � � the tax is real: the smallest instance.  Two hidden states, one
+-- observation, one action label � valid above, invalid below.
 ------------------------------------------------------------------------
 
 private
@@ -96,7 +96,7 @@ private
          , λ all → all (false , refl)
 
 ------------------------------------------------------------------------
--- ३ · robust action grows with perception.  Adjoin any receptor q; the
+-- � � robust action grows with perception.  Adjoin any receptor q; the
 -- refined fibre projects onto the coarse fibre, so robustness pulls
 -- back along the projection: every S-robust action is ⟨S,q⟩-robust.
 ------------------------------------------------------------------------

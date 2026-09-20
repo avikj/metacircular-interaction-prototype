@@ -14,7 +14,7 @@ the bijection type: the preimage of an identity is the entire set of
 bijections witnessing it.  No function of the identity, and no manipulation
 of the generating function, selects a bijection.  The passage from
 bijection to count is decategorification, and the datum it discards is a
-group action on the fibres â€” which we exhibit as a computed object rather
+group action on the fibres â” which we exhibit as a computed object rather
 than as a heuristic remark.  A generating-function proof and a bijective
 proof are therefore not two routes to the same statement; the second
 strictly dominates, and the excess is measurable.
@@ -34,8 +34,8 @@ binomial identity is read off, not proved separately.  A duration-preserving
 reversal acts on each fixed-weight family as an involution, so that family
 carries an order-two action whose orbit structure is invisible to the
 count, and we compute the fixed points.  The disjoint-union principle is
-proved once in the general form â€” the fibre of a two-valued map is the
-two-valued family of its fibres, hence the counts add â€” and every
+proved once in the general form â” the fibre of a two-valued map is the
+two-valued family of its fibres, hence the counts add â” and every
 additivity in the development is an instance rather than a repetition.
 
 Two structural facts explain why the excess cannot be recovered later.
@@ -45,9 +45,9 @@ that runs: an addition defined on one presentation, moved across an
 identification with another, evaluates to the standard positional
 algorithm on the second, digit by digit.  An identification here is a
 program, not a label.  Second, identifications compose strictly and invert
-only weakly â€” composition of the constructed equivalences is associative
+only weakly â” composition of the constructed equivalences is associative
 and unital on the nose as data, while double inversion of a constructed
-equivalence is a syntactically distinct object â€” and that asymmetry is
+equivalence is a syntactically distinct object â” and that asymmetry is
 exactly the content a cardinality statement discards.
 
 The consequence for practice is a prohibition and a licence.  The
@@ -59,7 +59,7 @@ register, is an entire copy of the configuration algebra rather than a
 finite ambiguity.  The licence: a family of bijections established once
 transports every statement of every family identified with it, in both
 directions, at no cost, so a bijective proof is reusable in a way a
-generating-function manipulation is not â€” and the reuse is mechanical
+generating-function manipulation is not â” and the reuse is mechanical
 rather than analogical.
 
 All constructions are machine-checked with no postulates and no admitted
