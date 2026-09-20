@@ -146,11 +146,18 @@ variable path in a universe is that path's function or inverse.
   (`present`, `retrieve` at `not`) runs on both lanes too
   (`False True True False`).
 - Upstream's interpreter-lane suite (931 files): every file the unpatched
-  checker passes still passes (927), except `proof/no_funext_000`, which
-  asserts that funext is *unprovable* and now fails as intended; upstream's
-  pinned parse errors (`~`, `!`, a `:` after a constructor) are untouched,
-  which is why negation is `-r` and a path constructor is introduced by
-  `path`.
+  checker passes still passes (927), except four whose pinned answers this
+  port changes on purpose (each is a rule below): `proof/no_funext_000`
+  asserts that funext is *unprovable* and now fails as intended;
+  `halt/strict_descent` refused a productive self-call under a constructor
+  and is now accepted (guarded corecursion); `halt/duplicate_deferred` is
+  refused one step earlier, by affinity (`x consumed more than once`)
+  instead of by descent; `grade/reject_leak` is refused one step earlier,
+  because a universe path is not `Data` (it carries a runtime transport).
+  Upstream's io suite (139 files, the JS lane through the interpreter)
+  prints exactly what upstream prints. Upstream's pinned parse errors
+  (`~`, `!`, a `:` after a constructor) are untouched, which is why
+  negation is `-r` and a path constructor is introduced by `path`.
 
 - `hit_susp_torus`: transport along `Susp<ua(not)(i)>` pushes into
   `merid`'s field definitionally (`merid{True}` becomes `merid{False}` as
@@ -224,6 +231,55 @@ things of a runtime. Where each stands on the official Bend:
 The finding that used to sit here (the coherent reverse round trip needing
 a contraction copied, which the affine wall forbade) is resolved by the
 kind rule above: a proof-valued function copies as its domain does.
+
+## The open issues, closed by rules
+
+The bugs filed against Bend 2 in its issue tracker are the holes where the
+theory stopped short of the runtime. Each is reproduced as a test here and
+closed by a rule, not by a patch to one program.
+
+- **#874, a proof forged through a foreign definition.** A foreign
+  definition is an axiom: the host answers at the declared type and nothing
+  checks the answer. Upstream lets `def give() -> IO({A == B : Type})` be
+  filled by JavaScript, and with a computational `ua` that null would be
+  read as a transport and run. Rule (`term_transportable`, at the
+  declaration and again at every call that instantiates a type parameter):
+  a foreign payload is *data*, meaning words, strings and constructors of
+  such, a handle minted by Base, a kind, a host function whose answers are
+  data, or an equation the checker closes itself by conversion (the host's
+  null is then exactly `{==}`); never a path with distinct ends, a universe
+  path, a dependent codomain or an empty type. `issue_874` (a universe
+  path), `issue_874_false` (`{0 == 1 : U32}`), `issue_874_empty` (`Empty`)
+  are refused at the declaration; `issue_874_poly` (`relay(T)` called at a
+  path) at the call. Upstream's own io tests, including a proof of
+  `{0 == 0 : U32}` and a closure crossing the seam, still print the same.
+- **#905, two `~` binders with one name identified.** A template's
+  parameters are checked as opaque constants named after the binder, so
+  `def cast(~T, ~x: T, ~T) -> T` identified both `T` and checked `x` at the
+  wrong one. Rule: a name a later binder repeats is told apart by its
+  position (`cast~2~T`); every other constant keeps its upstream name, so no
+  upstream message changes. `issue_905` is refused with the two constants
+  named.
+- **#901, a memory fault on a product over a family indexed twice.** The C
+  lane's ownership facts walk a family stuck on open indices as the types
+  of its arms, but the walk stopped at the outer arm of a nested match, so
+  `Mat(r, c)` heated `Mat.Leaf` and never `Rows`, `Cols` or `Quad`; a shared
+  operand of those constructors was then taken raw and freed under its
+  other holder. Rule (`facts_hot`): a match stuck on an open scrutinee is
+  every one of its arms' types, nested arms included. `issue_901` is the
+  reporter's program at depth 2 and prints 64 on every lane (upstream
+  2.0.21 faults at depth 2 and 3).
+- **#853, a sealed node taken raw under a family stuck on an open index.**
+  Fixed upstream at 2.0.21 (constructor field types heated at build sites,
+  a stuck family's arms heated); `issue_853` pins the reporter's program at
+  5 on the C lane.
+- **#852, a nat literal pattern with fields.** Fixed upstream at 2.0.21;
+  `issue_852` pins the refusal.
+- **#902, a template instantiating itself through a descent check** and
+  **#880, a `LAWS.bend` whose `PROOF.bend` names a def outside it or leaves
+  a law open**: both fixed upstream at 2.0.21 and re-verified on this port
+  (upstream's `template_inst_cycle` test; a `LAWS`/`PROOF` pair with an
+  unrelated def is an error, an open law is `1 TODO found`).
 
 ## What is left
 

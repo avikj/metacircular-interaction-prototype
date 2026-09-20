@@ -15,13 +15,13 @@ git checkout -q $UPSTREAM
 git checkout -q -- bend2/bend.ts bend2/comp.ts bend2/base.bend
 patch -p1 < "$HERE/cubical.patch"
 (cd bend2/pack && bun install >/dev/null)
-mkdir -p tests/cubical && cp "$HERE"/tests/cubical/*.bend tests/cubical/
+mkdir -p tests/cubical && cp "$HERE"/tests/cubical/*.bend "$HERE"/tests/cubical/*.js tests/cubical/
 tidy() { sed 's/[ \t]*$//' | sed -e :a -e '/^\n*$/{$d;N;ba' -e '}'; }
 pass=0; fail=0
 for f in tests/cubical/*.bend; do
   want=$(grep '^#|' "$f" | sed 's/^#|//; s/^exit [0-9]$//' | tidy)
   case "$f" in
-    *compiled*.bend)
+    *compiled*.bend|*issue_901.bend|*issue_853.bend)
       bun bend2/main.ts "$f" -o /tmp/cubical_compiled.js >/dev/null 2>&1; got=$(bun /tmp/cubical_compiled.js 2>&1 | tidy)
       if command -v clang >/dev/null; then
         rm -f /tmp/cubical_compiled; bun bend2/main.ts "$f" -o /tmp/cubical_compiled >/dev/null 2>&1; gotc=$(/tmp/cubical_compiled 2>&1 | tidy)
@@ -32,7 +32,8 @@ for f in tests/cubical/*.bend; do
   if [ "$got" == "$want" ]; then pass=$((pass+1)); echo "PASS $f"; else fail=$((fail+1)); echo "FAIL $f"; diff <(echo "$want") <(echo "$got") | head -20; fi
 done
 echo "cubical: $pass passed, $fail failed"
-echo "interpreter-lane suite (upstream tests; proof/no_funext_000 is expected to fail):"
+echo "interpreter-lane suite (upstream tests; four pinned answers change on purpose, see README:"
+echo "  proof/no_funext_000 halt/strict_descent halt/duplicate_deferred grade/reject_leak):"
 p=0; n=0
 for f in tests/{proof,check,eval,stuck,halt,grade,spec,comptime,flatten,parse,show,printer,base,rfc,state}/*.bend; do
   want=$(grep '^#|' "$f" | sed 's/^#|//; s/^exit [0-9]$//' | tidy)

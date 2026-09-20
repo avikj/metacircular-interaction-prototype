@@ -1,5 +1,5 @@
 --- a/bend2/bend.ts	2026-09-20 16:43:18.850854191 +0000
-+++ b/bend2/bend.ts	2026-09-20 21:58:03.759223080 +0000
++++ b/bend2/bend.ts	2026-09-20 22:17:22.707762232 +0000
 @@ -292,9 +292,21 @@
    | { $: "Rfl" }                                                                   // {==}
    | { $: "Rwt"; e: TermOf<B>; p: TermOf<B>; f: TermOf<B> }                         // %e@E : P; f (p = _ => e => P)
@@ -1017,9 +1017,9 @@
 +    case "Gle": return Gle(term_prune(tm.x), face_map(tm.sys, term_prune), tm.s);
 +    case "Ung": return Ung(term_prune(tm.g), tm.s);
 +    default: return tm;
-   }
- }
- 
++  }
++}
++
 +export function def_body(e: LTerm, x: number = 0, os: Array<[Name, Name]> = []): HTerm {
 +  let l = term_prune(term_lower(term_higher(e), x));
 +  if (x > 0) {
@@ -1163,9 +1163,9 @@
 +      continue;
 +    }
 +    return null;
-+  }
-+}
-+
+   }
+ }
+ 
 +// a path type in a universe {A == B : Kind(q)}: its ends and the kind's
 +// quantity, or null
 +export function path_in_type(book: Book, T: HTerm): { A: HTerm; B: HTerm; q: HTerm } | null {
@@ -2119,10 +2119,30 @@
    switch (tm.$) {
      // Γ[x] = q A
      // where x is bound in Γ (a ~ argument checks in the empty context,
-@@ -3337,8 +4977,20 @@
+@@ -3331,15 +4971,40 @@
+             x   = gen.x;
+             sp  = sp.slice(x);
+           }
++          if (tld.$ === "Def" && tld.i !== undefined && sp.length >= tld.n) {
++            // a foreign call at its arguments: the payload it delivers here
++            // must be transportable (a proof, a path or a function cannot
++            // come out of the host through a type parameter either)
++            let T: HTerm = tld.T;
++            for (let j = 0; j < tld.n; j++) {
++              T = tele_head(book, T, ctx, lhs.def, tm.s).B(sp[j]);
++            }
++            const [ih, ia] = term_unapply(term_strip(T));
++            if (ih.$ === "Ref" && ih.k === "IO" && ia.length === 1 && !term_transportable(book, ia[0])) {
++              throw Err(book, ctx, "a transportable payload at this foreign call (the host delivers data, never a path with distinct ends, a universe path or an empty type)", ia[0], tm.s, lhs.def);
++            }
++          }
+           if (k === lhs.def && lhs.u !== true) {
+             const cols = term_unapply(lhs.t)[1];
+             let ord: Cmp = "EQ";
              for (let j = 0; j < cols.length && j < sp.length && ord === "EQ"; j++) {
                ord = term_descend(lhs.qs[j], sp[j], cols[j]);
              }
+-            if (ord !== "LT") {
 +            // a guarded self-call: saturated, under a field's lambda of a
 +            // constructor and not eliminated there (applied at most to
 +            // dimensions), it is productive: each observation unfolds one
@@ -2133,15 +2153,15 @@
 +              return v.$ === "Dim" || (v.$ === "Var" && v.i >= 0 && term_wnf(book, pmap_get(ctx, v.i)?.T ?? Itv()).$ === "Itv");
 +            });
 +            if (ord !== "LT" && !guarded) {
-+              throw Err(book, ctx, "a decreasing self-call (arguments are read left to right: each passed unchanged until one shrinks), or a guarded one (under a constructor's delayed field)", tm, tm.s, lhs.def);
-+            }
-             if (ord !== "LT") {
--              throw Err(book, ctx, "a decreasing self-call (arguments are read left to right: each passed unchanged until one shrinks)", tm, tm.s, lhs.def);
-+              (tld as Def).c = true;
+               throw Err(book, ctx, "a decreasing self-call (arguments are read left to right: each passed unchanged until one shrinks)", tm, tm.s, lhs.def);
              }
++            if (ord !== "LT") {
++              (tld as Def).c = true;
++            }
            }
            break;
-@@ -3382,7 +5034,144 @@
+         }
+@@ -3382,7 +5047,144 @@
        const B_ctx = ctx_bind(ctx, d, tm.q, tm.k, tm.A);
        const A_chk = term_check(book, lhs, tm.A, None(), Typ(Qua(lhs_kind(lhs, tm.q)), tm.s), ctx, d);
        const B_chk = term_check(book, lhs, tm.B(Var(tm.k, d)), None(), Typ(Qua(Lone()), tm.s), B_ctx, d+1);
@@ -2287,7 +2307,7 @@
      }
      // Γ ⊢ f : @q x:A -> B ~ fu
      // Γ ⊢ a : A ~ au
-@@ -3403,10 +5192,20 @@
+@@ -3403,10 +5205,20 @@
          return { ...f_inf, x: f_inf.x - 1 };
        }
        const f_wnf = term_wnf(book, f_inf.ty);
@@ -2309,7 +2329,7 @@
        return Infer(App(f_inf.tm, x_chk.tm, tm.s), f_wnf.B(tm.x), uses_add(f_inf.us, x_chk.us));
      }
      // book[k].T = @q1 p1:K1 -> .. -> Kind(G)
-@@ -3426,11 +5225,19 @@
+@@ -3426,11 +5238,19 @@
      // where A, a and b are dead; evidence is erased, so Data
      // ------------------------------------------------------ infer-eql
      // Γ ⊢ {a == b : A} : Data ~ {}
@@ -2333,7 +2353,7 @@
      }
      // Γ ⊢ T : Type
      // Γ ⊢ x : T ~ u
-@@ -3449,12 +5256,42 @@
+@@ -3449,12 +5269,42 @@
        if (tm.$ === "Ctr" && book_ctr(book, tm.k) === null) {
          throw Err(book, ctx, "a declared constructor", tm, tm.s, lhs.def);
        }
@@ -2376,7 +2396,7 @@
  export function term_check_kind(book: Book, lhs: LHS, T: HTerm, q: Quant, ctx: Ctx, d: number, s?: Span): void {
    const kind = Typ<HBody>(Qua(lhs_kind(lhs, q)), s);
    try {
-@@ -3466,6 +5303,16 @@
+@@ -3466,6 +5316,16 @@
  }
  
  export function term_check(book: Book, lhs: LHS, tm: HTerm, qt: Quant, ty: HTerm, ctx: Ctx, d: number): Check {
@@ -2393,7 +2413,7 @@
    switch (tm.$) {
      // a share cell in a goal-checked position: open it, no evaluation
      case "Var": {
-@@ -3481,13 +5328,105 @@
+@@ -3481,13 +5341,105 @@
      //       lhs steps by x while a parameter remains
      // ---------------------------------------------- check-lam
      // Γ ⊢ x => f : T ~ u - x
@@ -2500,7 +2520,7 @@
        if (lhs.n > 0) {
          f_lhs = { ...lhs, t: term_apply(lhs.t, x), n: lhs.n - 1 };
        }
-@@ -3515,7 +5454,7 @@
+@@ -3515,7 +5467,7 @@
        let f_ctx = ctx;
        for (let j = 0; j < n; j++) {
          const v_dem = quant_dem(tm.q[j], qt);
@@ -2509,7 +2529,7 @@
          term_check_kind(book, lhs, v_inf.ty, tm.q[j], ctx, d, tm.s);
          vx.push(v_inf.tm);
          us = uses_add(us, v_inf.us);
-@@ -3538,6 +5477,24 @@
+@@ -3538,6 +5490,24 @@
      // Γ ⊢ k{x1, .., xn} : T ~ u1 + .. + un
      case "Ctr": {
        const t_wnf = term_wnf(book, ty);
@@ -2534,7 +2554,7 @@
        if (t_wnf.$ !== "ADT") {
          const fam = book_ctr(book, tm.k) === null ? null : book_fam(book, tm.k);
          throw Err(book, ctx, ty, fam === null ? typeless_show(book, ctx, tm) : Ref(fam, tm.s), tm.s, lhs.def);
-@@ -3554,7 +5511,7 @@
+@@ -3554,7 +5524,7 @@
          throw Err(book, ctx, tm.k + " with " + String(ctr.n) + (ctr.n === 1 ? " field" : " fields"), tm, tm.s, lhs.def);
        }
        const tel = tele_fill(book, ctr.T, t_wnf.x, ctx, lhs.def, tm.s);
@@ -2543,7 +2563,7 @@
        return Check(Ctr(tm.k, xs, tm.s), ty, us);
      }
      // T == @q s:D<p..> -> P
-@@ -3603,9 +5560,42 @@
+@@ -3603,9 +5573,42 @@
              throw Err(book, ctx, "a constructor of " + a_wnf.k + " (missing, or already matched)", tm, tm.s, lhs.def);
            }
            const tel = tele_fill(book, ctr.T, a_wnf.x, ctx, lhs.def, tm.s);
@@ -2587,7 +2607,7 @@
              } else {
                const c_all = tele_head(book, cur, ctx, lhs.def, b.s);
                const c_dem = c_all.q.$ === "None" ? None() : c_all.q.$ === "Lone" ? t_all.q : quant_add(t_all.q, t_all.q);
-@@ -3618,9 +5608,18 @@
+@@ -3618,9 +5621,18 @@
            if (lhs.n > 0) {
              h_lhs = { ...lhs, t: lhs_ext(lhs.t, tm.k, ctr.n), n: lhs.n - 1 + ctr.n };
            }
@@ -2609,7 +2629,7 @@
            return Check(Mat(tm.k, h_chk.tm, m_chk.tm, tm.s), ty, pmap_union(h_chk.us, m_chk.us, quant_join));
          }
        }
-@@ -3633,7 +5632,7 @@
+@@ -3633,7 +5645,7 @@
        if (t_wnf.$ !== "Eql") {
          throw Err(book, ctx, ty, typeless_show(book, ctx, tm), tm.s, lhs.def);
        }
@@ -2618,7 +2638,7 @@
          throw Err(book, ctx, t_wnf.a, t_wnf.b, tm.s, lhs.def);
        }
        return Check(Rfl(tm.s), ty, uses_nil());
-@@ -3663,7 +5662,7 @@
+@@ -3663,7 +5675,7 @@
        const p_typ = All<HBody>(Lone(), "_", 0, e_wnf.T, (x: HTerm) => All<HBody>(Lone(), "e", 0, Eql(e_wnf.a, x, e_wnf.T), () => Typ(Qua(Lone())), tm.s), tm.s);
        const p_chk = term_check(book, lhs, tm.p, None(), p_typ, ctx, d);
        const b_gol = term_apply(term_apply(tm.p, e_wnf.b), tm.e);
@@ -2627,7 +2647,7 @@
          throw Err(book, ctx, ty, b_gol, tm.s, lhs.def);
        }
        const a_gol = term_apply(term_apply(tm.p, e_wnf.a), Rfl<HBody>(tm.s));
-@@ -3678,7 +5677,7 @@
+@@ -3678,7 +5690,7 @@
      }
    }
    const x_inf = term_infer(book, lhs, tm, qt, ctx, d);
@@ -2636,14 +2656,18 @@
      return { tm: x_inf.tm, us: x_inf.us };
    }
    throw Err(book, ctx, ty, x_inf.ty, tm.s, lhs.def);
-@@ -3696,15 +5695,57 @@
+@@ -3696,15 +5708,60 @@
    }
    const gen = def.x === 0 ? book : { ...book, tlds: Object.create(book.tlds) as Record<Name, TLD> };
    let [t, v, T]: HTerm[] = [Ref(k), def.v as HTerm, def.T];
 +  const os: Array<[Name, Name]> = [];
    for (let j = 0; j < def.x; j++) {
      const h = tele_head(gen, T, ctx_nil(), k);
-     const o = k + "~" + h.k;
+-    const o = k + "~" + h.k;
++    // a ~ binder's opaque constant carries the binder's name; a name a
++    // later binder repeats (#905) is told apart by its position, since a
++    // collision would identify two constants
++    const o = os.some(([, n]) => n === h.k) ? k + "~" + String(j) + "~" + h.k : k + "~" + h.k;
      gen.tlds[o] = { $: "Def", n: 0, x: 0, T: h.A, v: null, b: true };
 +    os.push([o, h.k]);
      t = App(t, Ref(o));
@@ -2695,7 +2719,81 @@
  }
  
  // the name of a template def's instance at the spine's leading ~
-@@ -3822,11 +5863,29 @@
+@@ -3780,6 +5837,73 @@
+ // (infer-ref) while the caller is declared; it stays outside the order
+ // (a seeded book keeps it), so it is no claim.
+ 
++// a type whose values a host can deliver: first-order data with
++// constructors, over transportable fields, none of them evidence
++// A foreign definition is an axiom: the host answers at the payload type
++// and nothing checks the answer. An axiom at a data type is harmless (any
++// value is a value); an axiom at an evidence type is a new axiom of the
++// theory. So a payload is transportable when it is data: words, strings
++// and constructors of such, a handle minted by Base, a kind (a type is
++// dead, never evidence), a host program (a function whose answers are
++// data), or an equation the checker can already close by conversion
++// (the host's null is then exactly {==}). Never a path with distinct
++// ends, a universe path (runtime transport would read a null), a
++// dependent codomain, or an empty type.
++export function term_transportable(book: Book, T: HTerm, seen: Set<Name> = new Set(), d: number = 0): boolean {
++  const t = term_wnf(book, T);
++  switch (t.$) {
++    case "Typ": return true;
++    case "All": {
++      // a host program: its answers are data whatever it is given
++      if (term_mentions(t.B(SENT))) return false;
++      return term_transportable(book, t.B(Var(t.k, d)), seen, d + 1);
++    }
++    case "Eql": {
++      if (term_wnf(book, t.T).$ === "Typ") return false;
++      return term_compare("EQ", book, t.a, t.b, d);
++    }
++    case "ADT": {
++      const tld = book.tlds[t.k];
++      if (tld === undefined || tld.$ !== "ADT") {
++        return false;
++      }
++      if (seen.has(t.k)) {
++        return true;
++      }
++      seen.add(t.k);
++      if (tld.c.length === 0 || tld.c.some((c) => (c.p ?? 0) > 0)) {
++        return false;
++      }
++      // the parameters are types and families (erased); the live fields
++      // at those parameters are what a value holds
++      return tld.c.every((c) => {
++        let tel = tele_fill(book, c.T, t.x, ctx_nil());
++        for (let j = 0; j < c.n; j++) {
++          const h = tele_head(book, tel, ctx_nil());
++          if (h.q.$ !== "None" && !term_transportable(book, h.A, seen, d)) {
++            return false;
++          }
++          tel = h.B(Var(h.k, j));
++        }
++        return true;
++      });
++    }
++    case "Qnt": case "Qua": return true;
++    // a type parameter: the host relays what it was given; the call
++    // that instantiates it is checked at its own payload
++    case "Var": return true;
++    default: {
++      // a handle: a type that is a law of Base, opaque, minted by the host
++      const [h] = term_unapply(t);
++      if (h.$ === "Ref") {
++        const tld = book.tlds[h.k];
++        return tld !== undefined && tld.$ === "Def" && tld.b === true && tld.v === null;
++      }
++      return false;
++    }
++  }
++}
++
+ export function book_valid(book: Book, done: number = 0): void {
+   const tlds = book.tlds;
+   const last = new Map<Name, number>();
+@@ -3822,11 +5946,29 @@
                goal = kind;
              }
              term_check(book, { t: Ref(ctr.k), n: 0, def: ctr.k, qs: [] }, t_all.A, None(), goal, ctx, d);
@@ -2727,7 +2825,23 @@
            if (tip.$ !== "ADT" || tip.k !== k || tip.x.length !== tld.n || tip.r.length !== 0) {
              throw Err(book, ctx, exp, tip, undefined, ctr.k);
            }
-@@ -3864,6 +5923,9 @@
+@@ -3856,14 +5998,24 @@
+       for (let d = 0; tel.$ === "All"; d++) {
+         tel = term_strip(tel.B(Var(tel.k, d)));
+       }
+-      const [h] = term_unapply(tel);
++      const [h, ioargs] = term_unapply(tel);
+       const io  = book.tlds["IO"];
+       if (h.$ !== "Ref" || h.k !== "IO" || io === undefined || io.$ !== "Def" || io.b !== true) {
+         throw Err(book, ctx_nil(), "a foreign definition returning base IO(...) directly (return type aliases are not unfolded)", k, tel.s, k);
+       }
++      // a host function delivers data, never evidence: its payload must be
++      // transportable (words, strings, constructors of data with such
++      // fields), so no foreign call can forge a proof, a path, a function
++      // or an inhabitant of an empty type (#874)
++      if (ioargs.length === 1 && !term_transportable(book, ioargs[0])) {
++        throw Err(book, ctx_nil(), "a transportable payload (a foreign definition delivers data: words, strings, constructors of such, a handle, a kind, a host function answering data, or an equation the checker closes itself; never a path with distinct ends, a universe path or an empty type)", ioargs[0], tel.s, k);
++      }
      }
      if (def.v !== null) {
        def.e = def_check(book, k, def);
@@ -2738,7 +2852,7 @@
      book.tlds[k] = def;
    }
 --- a/bend2/comp.ts	2026-09-20 16:43:18.850854191 +0000
-+++ b/bend2/comp.ts	2026-09-20 21:51:24.750104042 +0000
++++ b/bend2/comp.ts	2026-09-20 22:19:19.598013400 +0000
 @@ -793,6 +793,10 @@
      case "Ctr": return term_const(t) ? [] : ctr_flds(cf.book, t.k, t.x);
      case "Mat": return [t.h, t.m];
@@ -2803,7 +2917,23 @@
      const n = tld.n + Math.min(def_raise(cb.book, h, tld.n),
        tele_unbind(cb.book, tld.T).doms.length - tld.n);
      cb.book.tlds[k] = { ...tld, n, h };
-@@ -2461,6 +2478,7 @@
+@@ -1699,6 +1716,15 @@
+   if (w?.$ === "App" && force && facts_fam(fl, w, local)) {
+     return;
+   }
++  // a match stuck on an open scrutinee is every one of its arms' types:
++  // a family over several indices matches them in a nest, so each arm is
++  // walked as a type in turn (the outer arm of a nest is itself a match)
++  if (w?.$ === "Mat" && force) {
++    const { arms, end } = mat_arms(w);
++    [...arms.map(([, h]) => h), end].forEach((h) =>
++      facts_hot(fl, h, true, local));
++    return;
++  }
+   if (w?.$ !== "ADT") {
+     const dom = w?.$ === "Var" && !local && tele_unbind(fl.book,
+       (fl.book.tlds[fl.def] as Def).T).doms[w.i];
+@@ -2461,6 +2487,7 @@
        ? emit_clo(fl, x, ty) : emit_expr(fl, (x as Of<"Lam">).f(DUMMY),
          (ty_all(fl.book, ty) as HAll).B(DUMMY), at);
      case "Hol": die("a hole value");
@@ -2811,7 +2941,7 @@
      default: return emit_zero(fl, ty);
    }
  }
-@@ -3130,6 +3148,7 @@
+@@ -3130,6 +3157,7 @@
        return `run_clo((${arg}) => {\n${lines.join("\n")}\n})`;
      }
      case "Hol": die("cannot compile a hole");
@@ -2819,7 +2949,7 @@
      default: return "null";
    }
  }
-@@ -3141,7 +3160,7 @@
+@@ -3141,7 +3169,7 @@
      return file_push(fl, "return " + js_expr(fl, x, ty) + ";");
    }
    if (x.$ === "Lam") {

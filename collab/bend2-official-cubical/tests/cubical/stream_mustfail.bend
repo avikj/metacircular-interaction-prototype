@@ -14,7 +14,7 @@ def loop() -> Box:
   bx{_ => unbox(loop())}
 
 #|Error:
-#|- expected : a decreasing self-call (arguments are read left to right: each passed unchanged until one shrinks), or a guarded one (under a constructor's delayed field)
+#|- expected : a decreasing self-call (arguments are read left to right: each passed unchanged until one shrinks)
 #|- observed : loop
 #|Context:
 #|- _ : Unit
