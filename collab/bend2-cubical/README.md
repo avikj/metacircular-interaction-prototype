@@ -1,4 +1,100 @@
-# Cubical path types for Bend2
+# Cubical Bend / HVM: Universal Executable Identity
+
+This directory is the executable convergence of computational cubical type theory, the repository's coinductive fibre / universal-identity machinery, and the Interaction Calculus / HVM execution lineage.
+
+It is not a theorem prover attached to Bend and not cubical syntax beside an unrelated evaluator. The central identification is
+
+```text
+proof = transport = inference = computation = factorization
+```
+
+as different orientations of one executable identity structure. Cubical paths make identity computational; univalence makes equivalence executable as identity; higher cubes retain coherence among alternative transports; fibres retain exactly the distinctions hidden by observations; coinduction returns the whole process as continuation; HVM realizes the object by local interaction with explicit sharing and superposition.
+
+The later cost/geodesic work closes the operational side: cost is a reading of the same represented interaction, and lower-bound/attainment proofs identify geodesic realizations in the declared primitive interaction geometry. Optimization is factorization inside a semantic fibre, not an unrelated heuristic pass.
+
+**Lineage.** This port targets the pre-launch Bend2 interaction-net lineage (DKormann/Bend2, forked from HigherOrderCO-archive/Bend2-old), not the September 2026 `bendlang/bend` implementation, whose primary runtime is BendRT. The mathematics is not contingent on HVM: HVM is the existing interaction-net realization; a lower-order C/Metal/CUDA/JS backend can be another realization of the same cubical semantic object.
+
+## Universal identity, lossless completion, and closure
+
+For every map (f:A\to B),
+
+[
+\boxed{A\simeq\sum_{b:B}\operatorname{fib}_f(b)},\qquad
+\operatorname{fib}_f(b)=\sum_{a:A}(f(a)=b).
+]
+
+The visible value is what an observation determines; the fibre is exactly the realization structure it does not determine. The complete event retains both. The development proves that the space of lawful lossless completions of a fixed map is contractible:
+
+[
+\boxed{\operatorname{isContr}(\operatorname{Lossless}(f))}.
+]
+
+Thus the residual is forced, up to identity, by the declared computation rather than selected as arbitrary optimizer metadata. At process level, lawful lossless steps are equivalent to the maps themselves.
+
+Cubical structure is what makes this identity computational at every dimension. For an equivalence (e:A\simeq B), univalence supplies a universe path and transport along that path executes the equivalence. Paths have paths; independent dimensions form squares, cubes, and higher coherence. Data, operations, proofs, interpreters, compiler states, representations, and continuing processes can therefore be transported together through one dependency-preserving operation.
+
+The universal family classifies dependent families, so once a mathematical/computational object is represented in the universe, its valid identities and transports inhabit this same executable foundation. This is the sense in which the construction is a **universal executable identity system**, not merely a dependently typed language.
+
+## One operation, many readings
+
+The system is not a stack of independent prover, solver, optimizer, and runtime engines.
+
+- **proof** is witnessed transport;
+- **inference** is the same structure with coordinates unspecified;
+- **evaluation** is transport read operationally;
+- **reconstruction** is reverse presentation;
+- **factorization** exposes decomposition forced by identity/fibre structure;
+- **optimization** reads equivalent realizations through cost;
+- **program transformation** is transport of executable structure.
+
+The machine is also in its own domain. Derived identities, equivalences, factorizations, proofs, and programs remain terms available to later interaction. Parser, elaborator, checker, lowering, optimizer, runtime representation, and backend can themselves be represented and queried. “Prove the compiler correct” is one static projection of the stronger capability: **the compiler is queryable mathematics inside the same executable identity universe.**
+
+## Exact cost semantics and geodesic execution
+
+For primitive interaction cost (c(e)) and a reduction path (\gamma),
+
+[
+C(\gamma)=\sum_{e\in\gamma}c(e).
+]
+
+If a potential (\Phi) is zero at the demanded terminal observation and satisfies
+
+[
+\Phi(u)\le c(u,v)+\Phi(v)
+]
+
+for every primitive edge, then every realization path from (s) to that observation obeys
+
+[
+\boxed{\Phi(s)\le C(\gamma)}.
+]
+
+If a native path attains equality edge-by-edge, it attains the lower bound exactly and is minimum-cost in the declared realization class. Under unit interaction cost this is minimum interaction count; vector costs give the corresponding componentwise/Pareto statement.
+
+The rope development closes this pattern exactly: the all-word prefix theorem forces at least (n) crossings to bring depth (n) to the head, and the native `Bring(n)` construction uses exactly (n). Hence the displayed execution realizes the interaction geodesic rather than merely supplying one implementation.
+
+This cost theorem is why “cubical machinery adds overhead” is the wrong model here. Cubicalization does not mean ordinary computation plus proof bookkeeping. A pre-existing realization remains available after installing additional certified identities/factorizations. If (R_K(F)) is the realization space before installation and (R_{K'}(F)) after,
+
+[
+R_K(F)\subseteq R_{K'}(F),
+]
+
+so under the same cost interpretation,
+
+[
+\boxed{\min_{r\in R_{K'}(F)} C(r)\le \min_{r\in R_K(F)} C(r)}.
+]
+
+Additional identity can leave the geodesic unchanged or expose a shorter factorization; it does not force a longer realization. Proof-only structure may erase at a selected runtime interface, but before erasure its identities can remove mediation, duplicated work, conversions, and representation detours. If an observable genuinely depends on a transport, that transport is the requested computation, not a separate cubical surcharge.
+
+## Compiler/runtime consequence
+
+A conventional verified-language architecture has preservation boundaries between paper theory, external formal model, production checker, compiler, and runtime. Cubical Bend can internalize those arrows: the implementation and each transformation can themselves inhabit the universal cubical object.
+
+This does **not** mean that merely writing a compiler in Bend proves it correct. It means compiler correctness is not a fundamentally separate proof technology. Correctness, counterexamples, representation preservation, optimization, and cost are instances of the same executable identity/factorization machinery.
+
+That observation applies directly to launch Bend2 even though it no longer runs on interaction nets. Cubicalizing its semantic core does not require restoring HVM first; BendRT can remain a target whose transformations are objects of the cubical theory. HVM remains the existing realization in which cubical operations themselves reduce on the interaction substrate.
+
 
 `cubical-paths.patch` applies to DKormann/Bend2 (fork of HigherOrderCO-archive/Bend2-old,
 snapshot 2025-07-07) and adds a CCHM-style path layer to the Bend2 core:
@@ -19,7 +115,7 @@ Checked green by the patched binary (build: GHC 9.12.2, cabal 3.18, LC_ALL=C.utf
   - cubical_test.bend: prefl, psym (via inot), pcong, funext (unprovable with
     Bend2's native Eql), connection square, and the corpus lossless-presentation
     rightInv transliterated term-for-term from cubical Agda:
-      Agda:  Iso.rightInv losslessIso (b , a , p) i = p i , a , λ j � p (i ∧ j)
+      Agda:  Iso.rightInv losslessIso (b , a , p) i = p i , a , Î» j â’ p (i âˆ§ j)
       Bend2: <i> (e @ i, a, <j> e @ iand(i, j))
   - corpus_lossless.bend: the Eql-based version (encode/decode/section/retract)
   - no regressions: examples/main.bend 39/39
@@ -68,14 +164,14 @@ Layer 5 (same patch): UNIVALENCE COMPLETE at the iso level. The three laws:
 See cubical_test5.bend. At the raw Iso level only the path-side round trip
 (uaEta) holds; the Iso-side one fails (uaroundtrip.bend), as it must.
 
-Coherent level (uaequiv.bend, 17 checks green): Equiv(A,B) = � f. �y.
+Coherent level (uaequiv.bend, 17 checks green): Equiv(A,B) = Î f. âˆy.
 isContr(fiber f y); uaE builds the path from the contractible-fibre data;
 pathToEquiv transports idEquiv; uaEquivRoundTrip : pathToEquiv(uaE e) = e
 CHECKS for arbitrary e, via isPropIsEquiv (pointwise isPropIsContr, a 4-face
-hcompN � see GENERAL_HCOMP.md). hcomp with general cofibration systems is
+hcompN â” see GENERAL_HCOMP.md). hcomp with general cofibration systems is
 present (hcompN). fibrelaw.bend (32 green): isoToIsEquiv (lemIso), the fibre
-law A � � B (fiber f) as a coherent Equiv for every f, its uaE path, and
-transport along it run natively on HVM4/HVM3 � FIBRE_LAW.md. --to-hvm4-full
+law A â‰ Î B (fiber f) as a coherent Equiv for every f, its uaE path, and
+transport along it run natively on HVM4/HVM3 â” FIBRE_LAW.md. --to-hvm4-full
 keeps every cubical object at runtime (RUNTIME_FULL.md). hfill is
 parser sugar over hcompN (hfill.bend); `bend f.bend --total` refuses a file
 with any [unchecked] definition. Not done, not asked: Glue as a first-class
@@ -108,9 +204,9 @@ run_corpus.hvm4: the same program in HVM4 surface syntax, executed on the
   (--to-hvm targets the HVM3 dialect; an HVM4 emitter is a mechanical
   printer variant, not yet written.)
 
-## General higher inductive types (same patch) � HIT.md
+## General higher inductive types (same patch) â” HIT.md
 
-`hit Name<params>(indices): case @tag(fields) -> Name(�) | path @tag(fields): T`
+`hit Name<params>(indices): case @tag(fields) -> Name(â¦) | path @tag(fields): T`
 declares a HIT at the generality of a Cubical Agda `data`: uniform
 parameters, indices, fields of any type (intervals and paths included),
 path constructors of any dimension with any well-typed faces. The compiler
@@ -123,5 +219,39 @@ circle, the suspension (transport along `Susp(ua(neg))`), the pushout,
 propositional and SET truncation, the quotient's generators, the interval
 (funext from it), trees with swap and associativity paths, the torus, an
 indexed reachability family and an indexed family with an interval-argument
-constructor � 189 � and a 7-probe must-fail. PUSC.md: the architecture
+constructor â” 189 â“ and a 7-probe must-fail. PUSC.md: the architecture
 statement (Parallel Univalent Superposition Computer).
+
+
+## Recent theorem spine
+
+The original port notes above record the cubical surgery and runtime evidence. The later repository work strengthens the interpretation of that implementation. In particular:
+
+- `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda` — the residual family is forced to be the fibre;
+- `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda` — universal-family/classifier closure;
+- `formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda` — contractibility of lawful completion;
+- `formal/cubical/theorems/residue/VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda` — finding/checking as projections of one equivalence;
+- `formal/cubical/kernel/AdiBija_TheKernelIsInitialEveryReadingIsItsUniqueFoldSoAllPathsThroughASystemAreEnumeratedByOneRecursor.agda` — one represented derivation, unique receiver folds;
+- `formal/cubical/kernel/IntrinsicRewrite.agda` — derived transformations re-enter subsequent computation;
+- `formal/cubical/theorems/cost/Transport.agda` and `ParetoCost.agda` — cost transported as structure, with non-scalar resource geometry retained;
+- `formal/cubical/theorems/walks/DSOContinuationFullAbstract.agda` — continuation-sensitive cost semantics;
+- `research/PNP_GEODESIC_REDUCTION_20260916.md` — exact distinction between semantic equivalence and costed realization, including the attained native rope geodesic;
+- `research/SAT_CUBICAL_GEODESIC_NOTES_20260916.md` and the exact SAT derivation series — SAT as a finite Boolean specialization of the already-general fibre/cubical/geodesic machinery, not a separate solver architecture;
+- `collab/bend2-cubical/BEND_HVM_COMPUTATIONAL_UNIVALENCE.md` — the consolidated Bend/HVM statement of computational univalence and optimal interaction.
+
+The resulting architecture is one object read several ways:
+
+```text
+universal identity
+      |
+      +-- proof / inference
+      +-- transport / computation
+      +-- factorization / optimization
+      +-- exact cost / geodesic
+      +-- continued self-application
+      |
+      +-- HVM interaction-net realization
+      +-- other faithful runtime realizations
+```
+
+**The result remains available. The relation remains available. The proof remains executable. The computation continues.**
