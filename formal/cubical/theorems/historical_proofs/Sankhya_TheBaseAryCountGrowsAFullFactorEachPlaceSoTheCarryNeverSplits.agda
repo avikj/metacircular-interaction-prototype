@@ -40,8 +40,6 @@
 --
 -- Sources for the mathematics: runtime/atlas/residual.py
 -- Prop. 2.11.  Complements Vahita_â¦  (the b=2,n=1 group instance).
---
--- CHECKED under the pin (Agda 2.8.0 + cubical library).
 ------------------------------------------------------------------------
 
 module Sankhya_TheBaseAryCountGrowsAFullFactorEachPlaceSoTheCarryNeverSplits where

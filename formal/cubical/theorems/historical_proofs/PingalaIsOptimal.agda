@@ -53,9 +53,6 @@
 -- algorithm, with its own name.  That is the standard this corpus's
 -- `FactorsThrough` results have mostly not met â” they establish that a
 -- decode exists or does not, and `Pingala.agda` exhibits one.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module PingalaIsOptimal where

@@ -71,12 +71,7 @@
 -- `cita` because 1.1.5 reads the `k` that 1.3.9 erased; make lopa a
 -- deletion (`deriveWithoutLopa`) and it gives `ceta`.
 --
--- CORRECTED 2026-08-20, when the engine side was spliced in and the
--- claims became checkable.  This paragraph previously predicted what
--- striking `anal-vidhau` (`deriveSthanivatEverywhere`) would give:
--- `neana` for n ~ lyu, `vj` for vc, `tadjalam` for tat + jalam.
--- All three are wrong, and the machine's answers are sharper than the
--- guesses were:
+-- Striking `anal-vidhau` (`deriveSthanivatEverywhere`) gives:
 --
 --   n ~ lyu   nayana â’ neyu.  7.3.84 reads the  it has itself just
 --               replaced, re-offers the SAME gua, the offer is a no-op,
@@ -95,10 +90,6 @@
 --               derivation -- a test on the form alone would have called
 --               this agreement.
 --   tat + jalam tajjalam â’ tajjalam, unchanged.
---
--- The prediction was made before the mechanism existed and was not
--- marked as one.  It is kept here, struck and corrected, rather than
--- edited away.
 --
 -- ONE MODELLING CHOICE, STATED.  1.1.56 is an atidea -- it EXTENDS the
 -- sthnin's properties to the dea.  Here that is rendered as a READING:

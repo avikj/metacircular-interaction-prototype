@@ -52,8 +52,6 @@
 --       verdict on `Bhanga` merges two of its three seeds
 --       (b1-asti / b2-nasti / b4-avaktavya).  Precomposition with the
 --       crossing map; nothing re-cased.
---
--- CHECKED: Agda 2.8.0, --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Namantara_TheLatinLabelledSevenfoldAndTheDevanagariSevenfoldAreOneTypeAndAkalankasCountRoutesAcross where

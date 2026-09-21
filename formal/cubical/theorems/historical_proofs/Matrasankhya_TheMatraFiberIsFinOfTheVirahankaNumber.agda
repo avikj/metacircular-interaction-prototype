@@ -28,9 +28,6 @@
 -- the mtr-count he named is the cardinality of this fiber, made a type.
 -- TERM ‡Æ‡æ‡‡‡∞‡æ-‡‡ô‡‡ñ‡‡Ø‡æ (mtr-sakhy), the count of mtr-metres;
 -- substrate cubical (Voevodsky).  Written 2026-08-23.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates, no
--- holes.
 ------------------------------------------------------------------------
 
 module Matracount_TheMatraFiberIsFinOfTheVirahankaNumber where

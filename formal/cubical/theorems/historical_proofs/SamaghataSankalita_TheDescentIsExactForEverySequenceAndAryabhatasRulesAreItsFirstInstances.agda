@@ -83,9 +83,6 @@
 -- Â§à is the p = 2 instance, which does not close on a corpus theorem:
 -- (n+1)ÂâˆÂ²n = âˆÂ³n + Î_{jâ‰n} âˆÂ²j, linking `Sankalita.âˆÂ³` to
 -- `Vargacitighana.âˆÂ²` through the same law.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the container, not the
--- repository pin (BUILD.md).  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module SamaghataSankalita_TheDescentIsExactForEverySequenceAndAryabhatasRulesAreItsFirstInstances where

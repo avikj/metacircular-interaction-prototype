@@ -54,11 +54,6 @@
 --       definitional in either module â” it is the exact statement of
 --       what the two recursions disagree about, and it falls out of Â§1
 --       in one line.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- CHECKED: Agda 2.8.0, agda/cubical (/opt/homebrew/â¦/share/agda/cubical),
--- --cubical --safe, 2026-08-22.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module SamantaraSankalita_TheGeneralSeriesAtOneAndOneIsTheSankalitaAndTheExampleWasStandingForIt where

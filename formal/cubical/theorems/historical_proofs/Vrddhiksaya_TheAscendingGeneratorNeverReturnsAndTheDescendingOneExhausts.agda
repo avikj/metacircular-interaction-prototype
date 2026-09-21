@@ -49,9 +49,6 @@
 -- senses.  ‡ï‡‡‡Ø is also the Jaina term in ‡ï‡∞‡‡Æ-‡ï‡‡‡Ø, the wearing away of
 -- bound karma, and the resonance is noted rather than claimed: no Jaina
 -- source states ¬ß‡©, and nothing below is a doctrine of karma.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExhausts where

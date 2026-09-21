@@ -25,9 +25,6 @@
 -- from the header of `LosslessReturn.agda` in this directory, which states
 -- that the earlier ‡‡‡¶ kept only half of it, dropping which side the
 -- remainder fell on and the shared magnitude at identity.
---
--- CHECKED against the pin: Agda 2.8.0, agda/cubical v0.9 (b150186).
--- --safe, no postulates, no holes.  EXIT 0.
 ------------------------------------------------------------------------
 
 module LosslessReturn_TheStepIsAConjugationAndNothingIsTouchedByIt where

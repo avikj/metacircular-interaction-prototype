@@ -52,9 +52,6 @@
 -- 628 CE law becomes composition of identifications of the circle.  That
 -- is what the conic has and the line does not, said at full strength and
 -- with the right cardinality this time.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module EveryTripleIsARotation where

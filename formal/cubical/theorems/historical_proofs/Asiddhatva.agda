@@ -263,7 +263,7 @@ producedByLater : pƒÅda vƒÅvasƒÅne ‚â° 4
 producedByLater = refl
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19.  WHICH STRA THIS MODULE IS ABOUT, AND WHICH IT IS
+-- WHICH STRA THIS MODULE IS ABOUT, AND WHICH IT IS
 -- NOT -- because the corpus contains a second module about "asiddhatva"
 -- that models the other one.
 --
@@ -281,8 +281,7 @@ producedByLater = refl
 -- to 8.2.1.  That behaviour, "sees the form as it was, not as it now is",
 -- is 6.4.22 ‡‡‡ø‡¶‡‡ß‡µ‡¶‡‡‡∞‡æ‡‡æ‡‡: inside the block 6.4.22-6.4.129 the rules are
 -- asiddhavat with respect to EACH OTHER and apply as if simultaneously.
--- Mutual and simultaneous, not one-way and ordered.  The correction is
--- appended at that file, with sources, altering none of its lines.
+-- Mutual and simultaneous, not one-way and ordered.
 --
 -- THE TWO ARE THE TWO POLES OF ONE DISTINCTION, and the corpus already
 -- names it in Jain terms: `Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡` proves that krama

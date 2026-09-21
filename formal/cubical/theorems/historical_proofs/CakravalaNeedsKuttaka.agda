@@ -48,9 +48,6 @@
 -- rule is well defined or optimal, that |k'| < |k|, that the cycle
 -- terminates, or that a solution exists for every non-square D.  One item
 -- of five is closed here.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module CakravalaNeedsKuttaka where

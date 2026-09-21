@@ -66,9 +66,6 @@
 -- the scaling action (`Composition.normScale`), a different structure from the
 -- one inverted here.  That the two are the same move is a conjecture this
 -- module does not prove.  What is proved is the reversibility dichotomy.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module IdempotenceForbidsDescent where

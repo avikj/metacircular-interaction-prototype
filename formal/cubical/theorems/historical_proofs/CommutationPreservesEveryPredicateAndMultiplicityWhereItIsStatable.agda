@@ -44,9 +44,6 @@
 -- So the standing gap resolves into this: `_~_` implies same-multiset
 -- wherever same-multiset is statable, and the question is ill-posed
 -- exactly where the corpus actually uses `_~_`.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module CommutationPreservesEveryPredicateAndMultiplicityWhereItIsStatable where

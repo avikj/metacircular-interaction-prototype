@@ -47,11 +47,6 @@
 -- ¬ß‡ of ‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡ says ‡Ø‡‡ ‡‡ø‡‡‡†‡‡ø, ‡ï‡ ‡®‡‡‡Ø‡‡ø ‚î the THAT
 -- survives and the WHICH is destroyed.  This module names the surviving
 -- THAT precisely: it is ‚/2, and no more.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther where

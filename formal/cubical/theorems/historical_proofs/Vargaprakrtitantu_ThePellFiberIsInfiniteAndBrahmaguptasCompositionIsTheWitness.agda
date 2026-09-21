@@ -78,9 +78,6 @@
 -- IS the divisibility.  Contractible versus merely propositional is the
 -- whole difference between the ‡‡æ‡µ‡®‡æ being free and the ‡‡ï‡‡∞‡µ‡æ‡≤ not being
 -- free, and Bhskara.s choice of m is what supplies the inhabitant.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Vargaprakrtifiber_ThePellFiberIsInfiniteAndBrahmaguptasCompositionIsTheWitness where

@@ -83,9 +83,6 @@
 -- Indian, and is not dressed as Indian; only Â§7's vocabulary (à˜à¾à,
 -- Pigala's fold; the kuaka witness, ryabhaa's) is inherited from
 -- the sibling modules, with their citations, second-hand.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Sarvavarta_EveryElementOfAFiniteGroupIsAnnihilatedByTheGroupsCardinalitySoEulersHypothesisIsDischargedWithoutTheCyclicAssumption where

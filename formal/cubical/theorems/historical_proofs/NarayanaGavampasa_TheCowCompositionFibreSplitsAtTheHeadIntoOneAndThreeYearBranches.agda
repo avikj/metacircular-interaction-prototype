@@ -23,8 +23,6 @@
 --  the three-year branch (weight 3, remainder n−3).  An EQUIVALENCE OF FIBRES,
 --  not a count: the numbers are its shadow.  Claimed of the source: only the
 --  {1,3} recurrence; the fibre statement and its proof are made here.)
---
--- CHECKED: Agda 2.6.3 + cubical v0.5, --safe, exit 0.
 ------------------------------------------------------------------------
 
 module NarayanaGavampasa_TheCowCompositionFibreSplitsAtTheHeadIntoOneAndThreeYearBranches where

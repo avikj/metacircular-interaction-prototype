@@ -46,9 +46,6 @@
 -- about `Cubical.Data.Nat.Mod`'s definitions.  The European name for the
 -- procedure is the "extended Euclidean algorithm", a restatement, named
 -- after the source and as one.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Avaresidue_TheResidueMapsFibreIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt where

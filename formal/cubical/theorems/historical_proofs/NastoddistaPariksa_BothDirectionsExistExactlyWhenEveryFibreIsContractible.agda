@@ -50,9 +50,6 @@
 -- round trip (`‡â‡¶‡‡¶‡ø‡‡‡ü‡Æ‡æ‡‡‡∞‡Æ‡`: every index has some pattern that
 -- indexes to it) is strictly weaker, and the witness is the same
 -- `Bool ‚í Unit`.  That is what "one-way edge" means, stated as data.
---
--- CHECKED: Agda 2.8.0 + agda/cubical (the installed version), --cubical
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible where

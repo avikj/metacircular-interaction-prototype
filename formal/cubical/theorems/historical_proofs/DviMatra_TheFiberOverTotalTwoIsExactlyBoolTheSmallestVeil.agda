@@ -26,9 +26,6 @@
 -- does not claim Virahka wrote Bool; it names the smallest lossy fiber
 -- of his own decomposition.  TERM ‡¶‡‡µ‡ø-‡Æ‡æ‡‡‡∞‡æ (two morae), Chandastra
 -- vocabulary; substrate cubical (Voevodsky).  Written 2026-08-23.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module DviMatra_TheFiberOverTotalTwoIsExactlyBoolTheSmallestVeil where

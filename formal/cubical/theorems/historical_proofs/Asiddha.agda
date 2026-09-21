@@ -50,9 +50,6 @@
 -- always cites a later restatement alongside, one never learns whether
 -- the older frame suffices.  Restricting the toolkit is how sufficiency
 -- gets tested.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module Asiddha where

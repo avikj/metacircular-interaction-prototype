@@ -21,8 +21,6 @@
 -- in the (n , suc k) cell (one fewer syllable, same heavies).  That IS
 -- Pascal's/meru's rule, and here it is an equivalence of fibers, not an
 -- equation of counts.  No count and no closed form is proved.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5, --safe, exit 0.
 
 module MeruTantu_TheGuruCountFiberSplitsByHeadIntoTheTwoAdjacentCellsWhichIsMeruprastara where
 

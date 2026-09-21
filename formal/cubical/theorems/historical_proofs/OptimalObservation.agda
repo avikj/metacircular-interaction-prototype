@@ -33,9 +33,6 @@
 -- optimality, one proof.  The first two come with their inverses named as
 -- algorithms â” naa is the inverse of uddia and has its own word â” and
 -- the third comes with CRT.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module OptimalObservation where

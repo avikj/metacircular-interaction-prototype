@@ -44,9 +44,6 @@
 -- The compound ‡‡®‡‡‡‡µ‡ø‡‡æ‡ó is built here; no text is claimed for it.
 -- ‡ó‡ as in `SamraksakaGana` (gaapha, Pini, ~500 BCE, applied to
 -- flows in this corpus).
---
--- CHECKED: Agda 2.8.0 + agda/cubical (installed bundle), --cubical
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TantuVibhaga_TheGanaOfAnObservableIsTheProductOfItsFibresOwnEndomorphismMonoids where

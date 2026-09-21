@@ -43,9 +43,6 @@
 -- , and no classical text is claimed for it.  ‡µ‡‡Ø‡‡‡‡ï‡‡∞‡Æ for the
 -- inverse follows `BhavanaSamuha`'s use for the conjugate inverse
 -- (a,‚àíb).  The compound ‡‡‡∞‡ï‡‡‡ï‡‡Æ‡‡ is built here.
---
--- CHECKED: Agda 2.8.0 + agda/cubical (installed bundle), --cubical
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module SamraksakaSamuha_TheInvertibleConservingFlowsAreTheSymmetryGroupAndTotalLossMakesItAllOfAut where

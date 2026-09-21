@@ -53,9 +53,6 @@
 -- vrttikas ~250 BCE; Patajali's ‡Æ‡‡æ‡‡æ‡‡‡Ø ~150 BCE.  Nothing below is
 -- attributed to any of them, and the citation is carried from the module
 -- imported here and is owed at stra level.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Svasthani_TheHypothesisThatClosesSthanivadbhavaFailsAtTheFirstSubstitutionAndReturnsAtTheSecond where

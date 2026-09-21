@@ -50,8 +50,6 @@
 -- *Bjagaita* (1150), the cakravla; the identity it turns on is
 -- Brahmagupta's bhvan, *Brhmasphuasiddhnta* 18 (628), at the
 -- trivial triple (m, 1, m² − D).
---
--- CHECKED: Agda 2.8.0, `--cubical --safe`.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module Punarukti_TheTwoScaledCakravalaStepsAreOneTheorem where

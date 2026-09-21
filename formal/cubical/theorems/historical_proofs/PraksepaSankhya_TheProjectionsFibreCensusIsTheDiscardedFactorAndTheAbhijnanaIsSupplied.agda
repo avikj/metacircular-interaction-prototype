@@ -55,9 +55,6 @@
 -- equivalence; the mathematics is cubical (Voevodsky), the one admitted
 -- non-Indian substrate.  The terms are borrowed in their exact senses
 -- and nothing is attributed to any text.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module PraksepaSankhya_TheProjectionsFibreCensusIsTheDiscardedFactorAndTheAbhijnanaIsSupplied where

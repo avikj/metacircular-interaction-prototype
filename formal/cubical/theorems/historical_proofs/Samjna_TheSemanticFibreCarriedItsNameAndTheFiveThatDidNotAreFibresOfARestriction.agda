@@ -65,10 +65,7 @@
 -- `TypedUnfold.Lang` and `Gurutama.‡Æ` are JOINT fibres of
 -- two or more observables, and a pair of equations is not an equation of
 -- pairs until `ŒPath‚âPathŒ` says so ‚î ‡‡®‡‡¶‡ã‡Æ‡‡¶‡‡∞‡æ ¬ß‡© performs exactly that
--- passage for `Chosen`; the other two are open.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
+-- passage for `Chosen`.
 ------------------------------------------------------------------------
 
 module Samjna_TheSemanticFibreCarriedItsNameAndTheFiveThatDidNotAreFibresOfARestriction where

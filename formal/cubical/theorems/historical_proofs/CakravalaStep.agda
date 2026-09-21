@@ -65,9 +65,6 @@
 -- substance of the method and none of them is a ring identity.  This file
 -- proves the invariant is preserved by one step, which is the part that
 -- is algebra, and says so.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module CakravalaStep where

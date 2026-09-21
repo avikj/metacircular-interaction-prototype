@@ -35,8 +35,6 @@
 -- This is ‡µ‡ø‡µ‡‡ï‡‡‡‡'s move ("the two remainder records are one pair and
 -- therefore each other") in the mtr register: not a new count, a
 -- welding of two records the census had listed as separate.
---
--- CHECKED: Agda 2.8.0 + cubical, --safe, no postulate/sorry/hole, exit 0.
 ------------------------------------------------------------------------
 
 module MatraSetu_TheVirahankaFiberCountsAsFinByBridgingToPingalasMetre where

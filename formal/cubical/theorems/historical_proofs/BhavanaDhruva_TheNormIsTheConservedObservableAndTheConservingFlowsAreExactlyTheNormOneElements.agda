@@ -94,11 +94,6 @@
 -- for the reason `Bhavana.agda` gives: `solve!` is a v0.9 spelling and
 -- this container carries an older cubical, where "Not in scope: solve!"
 -- is container skew and not a mathematical verdict.
---
--- CHECKED: Agda 2.6.3 with the `cubical` library as installed in this
--- container (NOT the repository's pin), `--cubical --safe`, no
--- postulates, no holes; `agda --library=cubical -i . <this file>`
--- exits 0.
 ------------------------------------------------------------------------
 
 module BhavanaDhruva_TheNormIsTheConservedObservableAndTheConservingFlowsAreExactlyTheNormOneElements where
