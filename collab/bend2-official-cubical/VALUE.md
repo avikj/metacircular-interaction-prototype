@@ -19,34 +19,51 @@ Two facts frame everything below:
   the mathematics says exists, and you no longer write or trust that code
   by hand.
 
-## 1. Equality proofs compute
+## Every claim below was checked against upstream
 
-**Before.** `%e : P; f` ran only when `e` was literally `{==}`. A proof of
-equality built any other way (by induction, by symmetry, by transitivity)
-was accepted by the checker and dead at runtime: a program could not use it
-to move a value from one type to the other.
+Each section states what upstream cannot do, the feature of upstream that
+prevents it, how the core resolves it, and what it costs. "Verified"
+means the program was run on pristine upstream `2.0.21` and on the fork,
+and the outputs are as stated. Where upstream already had something, the
+section says so.
 
-**Now.** Any proof of `a == b` is a conversion that runs (`coe`, and J on
-every path). `tests/cubical/j.bend`, `coe.bend`.
+## 0. What upstream already had (not claimed as new)
 
-**Where it shows up.**
-- *Index arithmetic.* A function over `Vec(n + 0)` and a value at `Vec(n)`:
-  prove `n + 0 == n` once (Base has it), transport, and the transport
-  compiles to the identity. Every dependently typed codebase is full of
-  these mismatches; this is the difference between dependent types being
-  usable and being friction.
-- *Matrix and tensor shapes.* `Mat(r, c) * Mat(c, k) : Mat(r, k)`; a reshape
-  from `(2*n, m)` to `(n, 2*m)` is a proof about arithmetic and the value
-  moves without a copy. Shape-indexed kernels live here.
-- *Protocol state machines.* `Conn(next(Handshake))` is `Conn(Established)`
-  by a proof, so `send` accepts it with no cast and no runtime check.
-- *Schema versions.* A row at version `v` and a proof `v + 1 == v'` cross
-  without re-decoding.
-- *Bit widths.* `Word(8 + 8)` is `Word(16)`; concatenating two bytes is a
-  transport that compiles to nothing.
-- *Runtime-computed sizes.* A buffer of `len(xs)` elements against a
-  declared capacity: the proof they agree is the bounds check, done once,
-  at the type.
+**Transport along an index proof.** Upstream's J (`%e : T[_]; v`) already
+moves a value from `Vec<n + 0>` to `Vec<n>` given a proof, and compiles it
+to the identity. `tests/cubical/j_index.bend` pins this and it prints the
+same on both trees. So "index mismatch friction" is *not* a cubical
+contribution: matrix reshapes, protocol state proofs, bit-width
+concatenation and schema-version moves were all available as J rewrites.
+What the core changes about J is the next section.
+
+## 1. Equality proofs compute on every path, definitionally
+
+**Upstream.** `%e : P; f` steps only when `e` normalizes to `{==}`. On a
+closed proof that is usually the case. On an *open* one (a hypothesis `p`,
+a lemma applied to a variable) the rewrite is stuck at check time, so
+nothing can be proved *about* a rewrite, and no proof can be *built* by
+abstraction: the only way to introduce an equation is `{==}` (check-rfl is
+the sole introduction rule for `Eql` in upstream's `bend.ts`), so every
+equation ever constructed is, up to J, reflexivity.
+
+**Why that blocks things.** Funext, univalence, quotients and bisimulation
+all need equations that are not reflexivity: a path *between* two distinct
+functions, two distinct types, two distinct representatives.
+
+**Resolution.** An equation is a path: `i => t` introduces one by
+abstraction with its faces checked by conversion, `p(r)` eliminates it,
+and J steps on every path (as transport along the connection square). The
+faces of `Equal.sym(p)`, `Equal.trans(p, q)`, a `coe` along a line of path
+types, all compute. `tests/cubical/j.bend`, `coe.bend`.
+
+**Cost.** None at runtime: a path is erased to `{==}` and a path at a
+literal endpoint is the endpoint, read off its annotation. At check time,
+interval conversion is a table of at most 4^8 cases.
+
+**Verified.** Upstream on `funext.bend`, `ua.bend`, `hit_quot.bend`: parse
+errors or undefined names (`-`, `coe`, `path` do not exist). The
+engineering value of this section is realized through sections 2 to 6.
 
 ## 2. Function extensionality
 
@@ -55,8 +72,14 @@ equal (upstream's `proof/no_funext_000` asserts exactly this). So a
 refactored function could not be shown equal to the original, and every
 theorem about the original had to be re-proved.
 
-**Now.** Funext is a four-line path: `i => x => p(x)(i)`.
-`tests/cubical/funext.bend`.
+**Why upstream cannot.** An equation between functions can only be
+`{==}`, and two syntactically different functions are not convertible;
+there is no way to build the equation from pointwise evidence.
+
+**Resolution.** Funext is a four-line path: `i => x => p(x)(i)`, checked
+by its faces. `tests/cubical/funext.bend`. **Cost:** none; the path is
+erased. **Verified:** upstream's `proof/no_funext_000` asserts
+unprovability and is the one intended divergence of the suite.
 
 **Where it shows up.**
 - *Refactor safety.* Replace a recursive fold by a tail-recursive one,
@@ -77,9 +100,18 @@ theorem about the original had to be re-proved.
 a list of pairs and a pair of lists, a state machine and its table) were
 different types; every proof about one had to be redone for the other.
 
-**Now.** `ua` turns an equivalence into an equality, and transport along it
-runs the equivalence. `tests/cubical/ua.bend`, `ua_round.bend`,
-`fibre.bend`, `compiled_coe.bend`, `compiled_path.bend`.
+**Why upstream cannot.** `{A == B : Type}` has one inhabitant, `{==}`,
+which requires `A` and `B` convertible; transport along it is the
+identity. There is no term that turns two functions and two round-trip
+proofs into an equation of types.
+
+**Resolution.** `ua(e) : {A == B : Kind(q)}` is a definition (a `Glue`
+line), transport along it runs `e`'s function, and `Equiv.of_path(ua(e))`
+is `e` again. `tests/cubical/ua.bend`, `ua_round.bend`, `fibre.bend`,
+`compiled_coe.bend`, `compiled_path.bend`. **Cost:** a universe path is a
+pair of closures at runtime; a transport along it is one call, along a
+list of them one map, which is the hand-written conversion. **Verified:**
+upstream refuses `coe` and `ua` as undefined names.
 
 **Where it shows up.**
 - *Representation change with proof transfer.* Verified over
@@ -110,11 +142,18 @@ runs the equivalence. `tests/cubical/ua.bend`, `ua_round.bend`,
 form and maintaining it by hand; nothing checked that functions respected
 the relation.
 
-**Now.** `path` constructors declare the relation; a `match` on the type
-must supply the path arm, so a function out of the quotient is refused
-unless it respects the relation. `tests/cubical/hit_quot.bend`,
-`hit_circle.bend`, `hit_trunc.bend`, `hit_susp_torus.bend`,
-`hit_mustfail_loop.bend`.
+**Why upstream cannot.** A `type` declares constructors whose tip is the
+family; there is no way to declare an equation as a constructor, so a
+quotient can only be simulated by a chosen normal form nothing enforces.
+
+**Resolution.** `path c{fields}: {a == b : K<..>}` declares a path
+constructor; `match` on the family must supply its arm at the path over
+the motive, so a function out of the quotient is refused unless it
+respects the relation. `tests/cubical/hit_quot.bend`, `hit_circle.bend`,
+`hit_trunc.bend`, `hit_susp_torus.bend`, `hit_mustfail_loop.bend`.
+**Cost:** none at runtime; a path constructor is erased, so a quotient is
+represented by its underlying data. **Verified:** upstream's parser
+rejects `path` in a `type` block.
 
 **Where it shows up.**
 - *Money.* Amounts modulo currency-rounding; a formatter or a sum must
@@ -139,9 +178,19 @@ unless it respects the relation. `tests/cubical/hit_quot.bend`,
 argument, so streams, servers and event loops as *values* could not be
 typed; they were imperative loops outside the checked world.
 
-**Now.** A self-call under a constructor's delayed field, observed only
-through dimensions, is productive; the definition is marked corecursive and
-prints one unfolding. `tests/cubical/stream.bend`, `stream_mustfail.bend`.
+**Why upstream cannot.** Every live self-call must descend on a column
+of the definition's case tree (`term_descend`); a self-call under a
+constructor's lambda descends on nothing and is refused.
+
+**Resolution.** A self-call under a constructor's delayed field, observed
+only through dimensions, is productive: each observation unfolds one
+constructor. The definition is marked corecursive, stays folded while
+printed or compared, and a bisimulation is a corecursive path checked
+one unfolding at a time. `tests/cubical/stream.bend`,
+`stream_mustfail.bend`. **Cost:** none; the closure is the same closure.
+**Verified:** upstream refuses `ones = mk{1n, _ => ones}` with its descent
+error, and its own `halt/strict_descent` pins that refusal (the second
+intended divergence).
 
 **Where it shows up.**
 - *Servers and event loops* as infinite request-response sequences with a
@@ -161,10 +210,18 @@ is itself a function, so a theorem was a resource consumed by its first
 use. An equivalence (a function plus a proof it is invertible) could not be
 used twice.
 
-**Now.** A function into an equation has its domain's kind: over `Data` it
-is `Data`. `isContr`, `isEquiv`, `Equiv` are ordinary Base definitions.
-The omega attack this could open is closed by positivity
-(`tests/cubical/positivity_mustfail.bend`).
+**Why upstream cannot.** No function type is `Data` (`infer-all` gives
+every `All` the kind `Type`), so a proof-valued function is affine: not a
+`+` binder, not a field of a `Data` type.
+
+**Resolution.** A function into an equation has its domain's kind, since it
+has no runtime content to copy; the omega attack this could open (a
+copyable function inside its own domain) is closed by a positivity check
+on datatype fields. `isContr`, `isEquiv`, `Equiv` are ordinary Base
+definitions. `tests/cubical/proof_fn_copy.bend`,
+`positivity_mustfail.bend`. **Cost:** none; the function is erased.
+**Verified:** upstream refuses `+h: @x:Nat -> {x == x : Nat}` and a `Data`
+field of that type, both with "expected Data, observed Type".
 
 **Where it shows up.**
 - *Reusable specifications:* a `sorted` predicate and its proofs passed to
@@ -176,9 +233,10 @@ The omega attack this could open is closed by positivity
 
 ## 7. Runtime transport on the native lanes
 
-**Before.** Not applicable: nothing transported.
+**Why upstream cannot.** Nothing to transport: the only type path is
+`{==}`.
 
-**Now.** A universe path compiles to its equivalence; `coe` along a
+**Resolution.** A universe path compiles to its equivalence; `coe` along a
 datatype line to a minted structural map; along a function line to a
 wrapper; a path applied to an endpoint to that endpoint; a path
 constructor at literal dimensions to its boundary. The C, JS and

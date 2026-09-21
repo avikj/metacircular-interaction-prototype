@@ -19,7 +19,7 @@ The artifact is five things:
 | path | what it is |
 | --- | --- |
 | `cubical.patch` | the whole change against upstream: `bend2/bend.ts` (54 hunks), `bend2/comp.ts` (11 hunks), `bend2/base.bend` (1 hunk), and the new `bend2/cubical.lean` |
-| `tests/cubical/*.bend` (31 files) and `issue_874.js` | the tests, in upstream's own format: a Bend file that ends in the `#\|` lines its run must print |
+| `tests/cubical/*.bend` (33 files) and `issue_874.js` | the tests, in upstream's own format: a Bend file that ends in the `#\|` lines its run must print |
 | `run.sh` | clones upstream at the pinned commit, applies the patch, runs the cubical tests (check + interpret; the compiled ones on the JS lane and on the C lane when clang is present), then upstream's interpreter-lane suite |
 | `README.md` | the short form of this report |
 | `VALUE.md` | the engineering case: what can now be written, what cannot go wrong, what it costs, each point tied to a test |
@@ -933,6 +933,8 @@ every file on check + interpret; the ones marked C/JS also compiled.
 | `issue_852.bend` | a nat-literal pattern with fields is refused (upstream's fix, pinned) | error | interp |
 | `issue_853.bend` | the reporter's program prints 5 on the C lane (upstream's fix, pinned) | `5` | interp, JS, C |
 | `issue_901.bend` | the reporter's matrix product at depth 2 (upstream faults) | `64` | interp, JS, C |
+| `j_index.bend` | what upstream already had: J transports a value along an index proof, on both trees (pinned so `VALUE.md` does not overclaim) | `V{[7n, 8n]}` | interp |
+| `proof_fn_copy.bend` | a proof-valued function over `Nat` is a `+` binder and a `Data` field (upstream: "expected Data, observed Type") | `Unit{}` | interp |
 | `demorgan.bend` | the De Morgan, absorption, idempotence and involution laws hold by conversion; `{==}` at `{i /\ -i == i0 : Interval}` is refused | error, `expected i /\ -i / observed i0` | interp |
 
 `issue_874.js` is the whole host side of #874: `function forge_eql(kont) {
