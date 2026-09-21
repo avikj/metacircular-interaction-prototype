@@ -40,11 +40,6 @@
 -- coordinate-transparency of `subst` (`substCoefA`/`substCoefB`); they do not
 -- route through ยง7's PathPs.  The final lemma then checks that the two routes
 -- agree, which they must since `Sol D k` is a set.
---
--- SCOPE.  Nothing about injectivity or growth of the chain
--- (that is `NoReturn_โฆ`'s business); nothing new about `_โ_`; and no
--- packaging of the graded family as a graded monoid object, since the corpus
--- has no such structure to package into.
 ------------------------------------------------------------------------
 
 module BhavanaAssoc_TheBhavanaCompositionIsAssociativeAsAnEqualityAfterTransportAndTheSolverRederivesEveryCoordinateIdentity where

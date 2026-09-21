@@ -83,35 +83,23 @@
 -- sound â” any m satisfying the congruence descends â” but the attribution
 -- is wrong, and nothing here edits those files.
 --
---   * A bound on |k| is not termination.  What
---     the bound buys is that the state (a mod Â, b mod Â, k) ranges over a
---     FINITE set, so some state must recur; turning that into "the wheel
---     returns to k = Â1" needs, in addition: that the triples with a fixed
---     k and bounded a, b are finite (a reduction theory), and that the
---     cycle cannot stall.  None of that is here.
---   * MINIMALITY OF BHSKARA'S CHOICE is not proved â” it is a HYPOTHESIS of
+--   * MINIMALITY OF BHSKARA'S CHOICE is a HYPOTHESIS of
 --     `cakravalaKBound`, discharged by whoever runs the algorithm.  What is
---     proved is that minimality suffices; that some other rule would also
---     suffice, or that this rule is optimal, is not claimed.
+--     proved is that minimality suffices.
 --   * The choice rule is used only through the inequality E_s â‰ E for the
 --     one straddling candidate `straddleExists` builds.  So the theorem is
 --     really about ANY rule that beats that candidate, and Bhskara's is
 --     the simplest such.  That is a weakening of his rule, not a
---     strengthening, and the reader should not read more into it.
---   * Nothing here says a solution to xÂ² âˆ’ DyÂ² = 1 exists.
+--     strengthening.
 --   * The bridge to â takes the step's equation mÂ² âˆ’ D = kÂk' as a
---     HYPOTHESIS.  It is NOT wired into `CakravalaDescent.cakravalaStep`,
---     which is stated over an arbitrary CommRing and so has no |Â|;
---     specialising that theorem to âCommRing and feeding its conclusion in
---     is not done here.
---   * The constant 36 is not claimed optimal.  It is 4Â(1 + 1/2)Â², the
+--     HYPOTHESIS.
+--   * The constant 36 is 4Â(1 + 1/2)Â², the
 --     value of the classical |k'| â‰ âˆD + K/4 at K = 2âˆD; iterating the
---     same estimate drives it toward 4Â(4/3)Â² = 64/9, and none of that is
---     proved here.  All Â§4 needs is 36 < 64.
+--     same estimate drives it toward 4Â(4/3)Â² = 64/9.
+--     All Â§4 needs is 36 < 64.
 --   * `1 â‰ r â‰ K` is a normalisation of the congruence class, not a
 --     restriction: every class mod K has such a representative.  That
---     normalisation is assumed, not constructed â” `Cubical.Data.Nat.Mod`
---     would supply it and is not used.
+--     normalisation is assumed.
 ------------------------------------------------------------------------
 
 module CakravalaBound where
@@ -619,11 +607,7 @@ seedBound D n E hlo hhi hE =
 -- That reading is `absÂ`, one line, and it is done here rather than
 -- asserted in a comment.
 --
--- Note what is NOT done: `CakravalaDescent.cakravalaStep` is stated over
--- an arbitrary CommRing, which has no absolute value, so nothing here is
--- plugged into it.  `stepAbs` below takes the â equation as a hypothesis;
--- specialising the descent to âCommRing and producing that equation is a
--- separate statement and is not claimed.
+-- `stepAbs` below takes the â equation as a hypothesis.
 ------------------------------------------------------------------------
 
 module ZBridge where

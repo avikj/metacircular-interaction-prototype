@@ -379,8 +379,7 @@ plug-denote I var        u = refl
 plug-denote I (node c b) u = cong (I c ∘E_) (plug-denote I b u)
 
 -- The definition is SOUND when the installed head means the denotation
--- of its body.  This is a hypothesis, never derived here: see the
--- header's first "not claimed".
+-- of its body.  This is a hypothesis.
 Sound : Interp → Shape → Tm → Type₀
 Sound I d b = I d ≡ denote I b
 
@@ -421,8 +420,8 @@ elimination-preserves I V d b bB sd t tO =
   unfold-elim V d b bB t tO , unfold-denote I d b sd t
 
 -- The same for a proposal of the obstruction-indexed proposer, whenever
--- its witness is sound.  (`Obstruction.propose` supplies the body; it
--- does not supply soundness, and nothing here says it could.)
+-- its witness is sound.  (`Obstruction.propose` supplies the body, not
+-- its soundness.)
 proposal-preserves-denotation :
   (V : Vocab) (o : Obstruction V) (I : Interp) → Sound I (residual o) (witness o)
   → (t : Tm) → Over (install V (propose V o)) t
@@ -476,7 +475,7 @@ unfold-size-unit d b hb (node c u) = go (dichotomyBool (eqℕ c d))
 --   `Lang b V I f`  �  f is the denotation of some term legal over V
 --                      whose invocation cost is at most b.
 --
--- It is a PREDICATE on `Endo`, not a set (see "not claimed").
+-- It is a PREDICATE on `Endo`, not a set.
 ------------------------------------------------------------------------
 
 Lang : ℕ → Vocab → Interp → Endo → Type₀
@@ -557,7 +556,7 @@ module QAP where
               z1 z0 z0
               z0 z0 z0
 
-  -- The interpretation is TOTAL (see "not claimed"): shapes past hN
+  -- The interpretation is TOTAL: shapes past hN
   -- denote the identity, installed or not.
   Iq : Interp
   Iq zero                                  = act matA

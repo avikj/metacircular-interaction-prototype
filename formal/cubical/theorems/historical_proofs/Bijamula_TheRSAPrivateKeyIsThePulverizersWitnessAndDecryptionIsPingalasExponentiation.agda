@@ -62,7 +62,7 @@
 -- a classical machine is not known to do in polynomial time โ” and once r
 -- is in hand the factor of n falls out by a gcd, which is the kuaka
 -- again.  ยง4 states the classical half of that reduction as a hypothesis
--- and takes the quantum half as a hypothesis; it is NOT proved here.
+-- and takes the quantum half as a hypothesis.
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------

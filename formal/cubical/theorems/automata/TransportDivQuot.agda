@@ -32,13 +32,7 @@
 --     `transport (Î» i â’ â•â‰¡CanWord i â’ â•â‰¡CanWord i) (Î» m â’ quotient m / suc n)
 --        â‰¡ divC (suc n)`.
 --
--- WHAT IS NOT DELIVERED.
---
---   * Full Word  Word long division.  Only division by a â• modulus is
---     here.  The walk's divisibility test needs no more than this.
---
---   * CANONICITY OF THE QUOTIENT.  It is false, and pretending otherwise
---     would be the only dishonest thing this file could do.
+--   * CANONICITY OF THE QUOTIENT is false:
 --     `divw-length : length (divw (suc n) w) â‰¡ length w` â” the quotient
 --     occupies exactly as many digit positions as the input, so dividing
 --     shrinks the value without shrinking the string, and the top
@@ -53,13 +47,12 @@
 --     `trimw âˆ˜ divw`, and it is `divC`, not `divw`, that lands in
 --     `CanWord`.
 --
---   * A â•-level cost model for the library's `quotient _/_`.  Two bounds
---     that do belong here are proved: the operand handed to the library
+--   * Two bounds on the library's `quotient _/_` are proved: the operand
+--     handed to the library
 --     at each digit is `< b Â suc n` (`digit-scale-bound`) and the digit
 --     it returns is `< b` (`quotient-bound`).  So the per-digit work is
 --     bounded by a function of the base and the modulus alone, uniformly
 --     in the word â” which is the entire reason this beats the unary test.
---     The constant itself is not formalised.
 --
 -- COST.  `divSteps w â‰¡ suc (length w)` and `divSteps w â‰¡ steps w`: the
 -- quotient automaton visits each digit exactly once, with the same step

@@ -273,14 +273,6 @@ truncatedDefectIsNotWritable =
                (defectIsTwoValued .snd .snd)
 
 ------------------------------------------------------------------------
--- WHAT THIS DOES NOT SAY
---
--- Not that ¬ß‡ is wrong.  Its first sentence is proved elsewhere in this
--- lane and its second is exactly right ‚î as an OBLIGATION.  What is
--- removed is the right to read its third sentence as a description of
--- how maps are, and with it the habit of treating "well, then there is a
--- defect" as though the defect were thereby in hand.
---
 --   ‡‡‡Ø‡æ‡‡ ‚î in the respect of what an AUTHOR owes: two paths, no third.
 --            Transport, or search until the site is found and write it.
 --   ‡‡‡Ø‡æ‡‡ ‚î in the respect of what is PROVABLE of an arbitrary map: no

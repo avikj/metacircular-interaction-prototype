@@ -51,8 +51,6 @@
 -- something measurable.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THIS DOES NOT OVERTURN
---
 -- `TransportPrice` still applies, with the standpoint taken to be the
 -- ORDERED presentation: cost is still a potential there, so there is
 -- still no path-dependence *between texts*.  What moves is the

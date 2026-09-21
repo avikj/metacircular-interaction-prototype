@@ -42,7 +42,6 @@ The *Yuktibhāṣā*'s derivation is a rectification of the arc by successive
 subdivision with an explicitly stated remainder; what is formalised here is
 the series and its sum, not that argument.
 
-
 ## The other lane already declared this gap, and did not fill it falsely
 
 `formal/cubical/Madhava.agda` (`--cubical --safe`) proves the finite

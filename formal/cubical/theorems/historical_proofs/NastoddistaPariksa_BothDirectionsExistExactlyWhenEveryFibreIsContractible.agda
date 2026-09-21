@@ -37,8 +37,7 @@
 -- not as an equivalence of types: `isEquiv f` is a PROPOSITION and
 -- `��������������������� f` is not, so the two are logically equivalent and
 -- NOT equal.  The round trip through `isEquiv` returns what it was
--- given (§�); the round trip through the record is not claimed, and
--- the reason is that quasi-inverse data can differ.
+-- given (§�); quasi-inverse data can differ.
 --
 -- §� is the discriminant exhibited on both roads at once: the ��������
 -- of any ���-���� carries the witness (road one, defect zero at every
@@ -163,7 +162,7 @@ Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्ट
 --
 -- One round trip does close, definitionally up to the propositionality:
 -- starting from an `isEquiv`, unpacking to the pair and repacking
--- returns what it was given.  The other direction is NOT claimed here.
+-- returns what it was given.
 ------------------------------------------------------------------------
 
 समता-प्रतिष्ठा : {A : Type ℓ} {B : Type ℓ'} (f : A → B) → isProp (isEquiv f)
@@ -245,18 +244,3 @@ open उद्दिष्टमात्रम् public
   उद्दिष्टमात्रम् T.समाहार-मार्गः × (¬ नष्टोद्दिष्टयोगः T.समाहार-मार्गः)
 मात्रम्-न-पर्याप्तम् = समाहारे-मात्रम् , समाहारे-न-योगः
 
-------------------------------------------------------------------------
--- � � ���� � what this does not settle.
---
--- The predicate is checkable in the sense that an edge either carries an
--- inhabitant of §� or is refuted like §�; it is NOT decidable, and no
--- `Dec` appears above.  For a general map in this corpus, exhibiting the
--- witness or refuting it is the mathematical work, and this module only
--- fixes what the two roads ARE, so that a census reporting "one-way" is
--- reporting the absence of a named type rather than the output of a
--- grader's flag.
---
--- Also not here: the case with no dharmin at all � an edge for which
--- there is no map to take a fibre of.  `Tantujala` §� says why that is
--- a different axis, and it stays a different axis.
-------------------------------------------------------------------------

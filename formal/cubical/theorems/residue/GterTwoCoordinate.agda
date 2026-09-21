@@ -80,6 +80,7 @@
 --   corollaries.  The relational composite is defined once, generally,
 --   and the four systems are the only data supplied โ” every value below
 --   is a kernel reduction, not a transcribed table.
+--
 --   Nothing here is measured, fitted, or floating-point: the carrier has
 --   two elements and every verdict is a kernel reduction.  This replaces
 --   the legacy Python control of `OPERATIONAL_SITE_CRYSTAL` ยง6 in

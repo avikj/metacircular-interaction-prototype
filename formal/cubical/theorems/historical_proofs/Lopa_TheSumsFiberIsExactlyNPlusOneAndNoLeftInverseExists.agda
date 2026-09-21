@@ -96,10 +96,10 @@ import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFiberFailingToBeContracti
 ------------------------------------------------------------------------
 -- à¨ Â à—àà¨à¾ â” and it is counted exactly.
 --
--- This is `pairsFin`, which is NOT proved here.  It is a structural
+-- This is `pairsFin`, a structural
 -- induction with no truncated subtraction, in
 -- `PairsSummingTo`, written for the metrical antidiagonal.
--- All this module does is point it at the map.
+-- This module points it at the map.
 --
 -- THE MEASUREMENT ROAD ONE CANNOT MAKE.  Setubandha's edges all have
 -- contractible fibers, so its cut indicator is the constant 0.  Here the

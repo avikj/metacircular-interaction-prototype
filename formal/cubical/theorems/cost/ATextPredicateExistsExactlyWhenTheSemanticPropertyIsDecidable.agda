@@ -25,15 +25,7 @@
 -- both cheap and both needed, and together they say the reduction is an
 -- equivalence and not merely a sufficient condition.
 --
--- WHAT IT DOES NOT DO, said plainly because §6 asked for something else.
--- §6 licenses "a finite exhaustive check against a fixed, stated corpus
--- snapshot � provided the checker states the snapshot and does not
--- report the result as a property of the corpus".  Nothing below is
--- evidence about SEED-05, SEED-09, or the 47 declared-classical files.
--- §2 is a reduction, and a reduction is not an answer.
---
--- Nor does it say the property IS or IS NOT decidable.  It says where to
--- look: at `Outside ∘ denotes`, not at the text.
+-- §2 says where to look: at `Outside ∘ denotes`, not at the text.
 ------------------------------------------------------------------------
 
 module ATextPredicateExistsExactlyWhenTheSemanticPropertyIsDecidable where
@@ -97,10 +89,4 @@ module _
 -- question.  Feature engineering on the text cannot answer it: the text
 -- enters only through `denotes`, and every candidate predicate is
 -- `Outside ∘ denotes` with a decision attached.
---
--- KEPT SEPARATE.  This is not the session's collision result in another
--- costume: nothing here says a coarse observation fails to determine a
--- fine one.  It says two QUESTIONS coincide.  The obstruction, if there
--- is one, lives in `Outside`, which is a parameter here and is not
--- examined.
 ------------------------------------------------------------------------

@@ -45,7 +45,7 @@
 --   everyRemainderMemberIsBeatenByAStratumMember
 --                     hence the ordering statement
 --
--- **SCOPE.**  It is the ONE-STEP ordering:
+-- The ordering statement is the ONE-STEP ordering:
 -- stratum 1 beats every member of the remainder, and since the next
 -- stratum is computed from that remainder, each stratum beats
 -- everything below it AT ITS OWN LEVEL.  The transitive statement over

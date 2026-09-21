@@ -232,7 +232,6 @@ module _ {A : Type ‚Ñì} (_‚äï_ : A ‚Üí A ‚Üí A)
 -- total; the identity between the sayings does not exist, and asserting it
 -- would be the collapse ¬ß‡ß names as ‡‡ø‡‡‡æ ‚î ‡‡‡‡®‡ ‡‡ï‡®‡æ‡Æ‡‡®‡æ ‡ó‡‡‡‡‡æ‡‡ø.
 --
--- WHAT IS ACTUALLY OPEN, and it is the real find, not the deduplication.
 -- The medial law is a commutative-SEMIGROUP fact, and this corpus reaches
 -- for it at ‚ï under two operations while its stated subject ‚î ‡‡æ‡µ‡®‡æ ‚î is a
 -- composition on a structure with TWO operations at once.  ¬ß2's homomorphism
@@ -243,6 +242,5 @@ module _ {A : Type ‚Ñì} (_‚äï_ : A ‚Üí A ‚Üí A)
 -- split coordinates the identity "degenerates to the interchange law".  So:
 -- the six-fold coincidence is the SHADOW of ‡‡æ‡µ‡®‡æ cast by the split
 -- coordinates, and the question the coincidence raises is what the medial
--- law becomes when the degeneration is undone.  That is not answered here
--- and is not claimed to be.
+-- law becomes when the degeneration is undone.
 ------------------------------------------------------------------------

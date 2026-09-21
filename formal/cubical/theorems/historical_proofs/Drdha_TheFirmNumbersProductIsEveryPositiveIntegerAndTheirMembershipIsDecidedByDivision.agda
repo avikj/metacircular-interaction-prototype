@@ -11,12 +11,9 @@
 --
 -- `Sarvasthana_‚¶agda` proves the ACCOUNTING half of ‚à_v log|x|_v = 0: for
 -- any assignment of exponents to places and any weights, the finite
--- entries and the archimedean entry cancel.  Its header says, in as many
--- words, what it does NOT do ‚î it does not say the places are the primes,
--- nor that a divisor determines a number, "that last needs unique
--- factorisation, which is exactly the work this module does not do."
+-- entries and the archimedean entry cancel.
 --
--- This is that work, as far as it goes, and NO further.  It is the
+-- This module is the
 -- ARITHMETIC half, and it is carried out multiplicatively over ‚ï: no
 -- reals, no logarithms, no absolute values.  In that form the target is
 --
@@ -64,7 +61,7 @@
 -- a solving procedure, not a classification of numbers.  Using it here
 -- for a SINGLE number that admits no nontrivial factorisation is an
 -- extension, and it is ours, not theirs.  None of these authors states
--- the theorem in ¬ß‡, and no claim is made that they did.  The choice of
+-- the theorem in ¬ß‡.  The choice of
 -- the word is because it names the right thing ‚î what remains when
 -- reduction can do no more ‚î not because the theorem is in the source.
 --
@@ -316,8 +313,8 @@ x ‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É (y ‚à∑ ys) = (x ‚â° y) ‚äé (x ‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É ys)
 --     places are firm.
 --
 --     INHABITED, not contractible.  Contractibility of this fibre is
---     unique factorisation and is not proved anywhere in this module; the
---     statement below is deliberately the weaker one, and the difference
+--     unique factorisation;
+--     the difference
 --     between it and `Sarvasthana` ¬ß‡ ‚î where the fibre is *everything* ‚î
 --     is the difference between an arithmetic fact and a bookkeeping one.
 ------------------------------------------------------------------------

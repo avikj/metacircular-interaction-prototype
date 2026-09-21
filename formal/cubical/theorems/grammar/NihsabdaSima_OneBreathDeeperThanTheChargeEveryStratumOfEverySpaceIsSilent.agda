@@ -34,12 +34,11 @@
 -- proposition, which is contractible.  Unlike SarvaMauna nothing is
 -- assumed of A ‚î the level lives in the truncation itself.
 --
--- SOURCES AND SCOPE.  isOfHLevelTrunc, isOfHLevelPlus',
--- inhProp‚íisContr are the library's; ‡‡µ‡∞‡ã‡‡ is Mauna's (this corpus,
--- 2026-08-23).  This module's content is the composition and the
+-- SOURCES.  isOfHLevelTrunc, isOfHLevelPlus',
+-- inhProp‚íisContr are the library's; ‡‡µ‡∞‡ã‡‡ is Mauna's;
+-- this module's content is the composition and the
 -- sharpness reading.  ‡®‡ø‡‡‡‡‡¶ (soundless) and ‡‡‡Æ‡æ (boundary) are
--- ordinary  used as labels; the compound is built here; no
--- source is claimed for the mathematics, and the arpita/anarpita
+-- ordinary  used as labels; the compound is built here; the arpita/anarpita
 -- stratum reading remains, as in StaraArpana, a reading.
 ------------------------------------------------------------------------
 

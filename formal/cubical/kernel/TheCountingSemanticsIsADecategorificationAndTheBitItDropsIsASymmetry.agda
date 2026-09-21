@@ -8,12 +8,6 @@
 -- of digits admits, and how to enumerate them in order.  Bhskara II,
 -- *Llvat*, the akapa section (~1150).
 --
--- LIMIT ON THIS CITATION, stated rather than glossed.  I have NOT opened the
--- verses and do not give verse numbers; editions differ in their numbering
--- of this section and a number I did not check would be a fabricated
--- provenance, which is the error the apparatus exists to stop.  The section
--- is standard and named; the verse range is not claimed.
---
 ------------------------------------------------------------------------
 -- THE THIRD READING OF THE SAME LINE, AND THE ONE THAT BUILDS.
 --
@@ -230,7 +224,7 @@ univalent-semantics-does-see-it p =
 -- (c) AND IT IS A NONTRIVIAL LOOP IN THE UNIVERSE.  The proof runs through
 -- `uaβ`: transport along `ua e` COMPUTES to `e`'s function.  That is the
 -- executable half of univalence, and it is what makes this a calculation
--- rather than a citation -- the loop is not asserted to be nontrivial, it is
+-- rather than a citation -- the loop is
 -- transported along and the answer comes back `inr tt`.
 comm-path : ⟦ add var var ⟧ σ₁ ≡ ⟦ add var var ⟧ σ₁
 comm-path = ua (derivation⁺-equiv comm-loop σ₁)

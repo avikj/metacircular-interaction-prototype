@@ -49,25 +49,14 @@
 --     inside the k=1 fibre cannot reach, because at D = 61 there is no
 --     small k=1 row to seed it with.
 --
--- SCOPE.
+-- The six m's of Â§à are supplied as data.
+-- The turn is sound for ANY
+-- m whose three divisions come out exact, which is what Â§à© states.
+-- The three àà¾à—àà¾à° of Â§à© are HYPOTHESES of the theorem.  Â§à discharges
+-- them by computation for the six particular turns.
 --
---   * TERMINATION.  Nothing here says the wheel comes round for every D.
---     `CakravalaBound.agda` proves the invariant kÂ² â‰ 4D.
---   * BHSKARA'S CHOICE RULE.  The six m's of Â§à are supplied as data.
---     That each is the m his rule selects (minimise |mÂ² âˆ’ D| subject to
---     the congruence) is NOT checked here â” and `CakravalaBound.agda` Â§à
---     already records that at least one published D = 61 run in this
---     repository gets that attribution wrong.  The turn is sound for ANY
---     m whose three divisions come out exact, which is what Â§à© states.
---   * EXISTENCE.  Nothing here says a solution exists for a general D.
---   * The three àà¾à—àà¾à° of Â§à© are HYPOTHESES of the theorem.  Â§à discharges
---     them by computation for the six particular turns; no general
---     decision procedure for them is built.
---
--- SO WHAT MAY THIS BE CALLED.  The àà•àà°àµà¾à² STEP is formalised, and one
--- complete àà•àà°àµà¾à² RUN is executed in the kernel.  The àà•àà°àµà¾à² as an
--- ALGORITHM â” a rule that chooses m and provably halts â” is not, and this
--- module does not claim it.
+-- The àà•àà°àµà¾à² STEP is formalised, and one
+-- complete àà•àà°àµà¾à² RUN is executed in the kernel..
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- SOURCES.

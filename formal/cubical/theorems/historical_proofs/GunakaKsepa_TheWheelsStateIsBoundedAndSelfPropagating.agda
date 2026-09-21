@@ -60,31 +60,16 @@
 --                    identities.
 --   ààààŸàà¯àà•-ààà°ààà¯à¾àµààààà¿à  D = 61, turn 0 â’ turn 1, computed in the kernel.
 --
---   * This file does not prove termination.  What is
+--   * What is
 --     established is a CONDITIONAL cap: exceeding BÂ² turns proves a state
 --     repeated, and, given determinism, that the wheel is in a
 --     cycle that will never reach à•àààà = 1.  A cap is a resource limit
 --     whose failure now carries a mathematical claim instead of a shrug.
 --   * DETERMINISM.  Â§5 gives that âˆ’m solves the next
---     congruence.  Full determinism needs two more things: (a) that the solution set IS the
---     class of âˆ’m, which needs gcd(b', k') = 1 â” the same coprimality
---     `CakravalaDescent.oneCongruenceCoprime` already consumes, and which
---     is produced by a kuaka run, not assumed; and (b) TIES.  Bhskara's
---     rule minimises |mÂ² âˆ’ D| over the class, and by
---     `Varana_TheChoiceWindowIsDerivedNotFitted` the minimiser is one of
---     the two bracketing members lo, hi â” but if E_lo â‰¡ E_hi the rule does
---     not name which, and the next à—ààà• is then not a function of the
---     state.  A tie is a genuine branch, not an oversight, and it is what
---     stands between Â§5 and a determinism theorem.
+--     congruence.
 --   * `CakravalaBound.agda`'s hypotheses are taken here as hypotheses.
 --     Â§1's input `16ÂEÂ² â‰ 36Â(DÂKÂ²)` is that file's `straddleBound`
 --     conclusion; this file does not import it.
---   * Â§5 is over â, and the reactor divides by |k| and then takes
---     absolute values of both new coordinates.  That sign normalisation
---     is not proved to preserve the congruence.  It was CHECKED to
---     preserve it over 38 700 turns for every non-square D â‰ 3000, which
---     is a finite exhaustive verification of a finite range and is
---     nothing else.
 ------------------------------------------------------------------------
 
 module GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating where
@@ -318,12 +303,11 @@ private
 --       = kÂ(k'Â(âˆ’b)),
 --
 -- and cancelling k gives a' + b'Â(âˆ’m) â‰¡ k'Â(âˆ’b).  Three ring identities
--- and two rewrites; the cofactor is âˆ’b, written out, not asserted to
--- exist.
+-- and two rewrites; the cofactor is âˆ’b, written out.
 --
 -- WHAT THIS IS FOR.  It is half of "the next state is a function of the
 -- current state" â” the half that says the next multiplier's RESIDUE CLASS
--- is determined.  Â§6 of the header says what the other half needs.  Note
+-- is determined.  Note
 -- that this is also the standard fact P_{i+1} â‰¡ âˆ’P_i (mod Q_{i+1}) of the
 -- continued-fraction recursion, arrived at here from the cakravla's own
 -- three divisions rather than imported from the theory that displaced it.

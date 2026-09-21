@@ -54,15 +54,13 @@
 -- hypothesis, as before.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE SCOPE, EXACTLY.  Nothing here says which lengths ARE achievable:
 -- `popIsMinimal` says suc q is achieved and nothing non-empty is
--- shorter, not that every multiple of suc q is achieved or that only
--- multiples are (the latter is `boundaryDividesInLowestTerms`, and
--- the former is not claimed).  Nothing is quotiented: `gcd p (suc q)
+-- shorter; that only multiples of suc q are achieved is
+-- `boundaryDividesInLowestTerms`.  Nothing is quotiented: `gcd p (suc q)
 -- â‰¡ 1` is a property of the PAIR, and 2/4 still fails where 1/2
 -- succeeds â” that is `twoOverFourIsNotInLowestTerms` next to
 -- `minimalityInLowestTermsGcd`, not a contradiction.  No B©zout
--- identity is used or proved; `coprime-cancel` does not need one.
+-- identity is used; `coprime-cancel` does not need one.
 --
 ------------------------------------------------------------------------
 

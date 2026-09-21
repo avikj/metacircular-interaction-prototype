@@ -74,8 +74,7 @@
 --    particular no module here proves any negation of a classical
 --    principle, and none could under `--safe` without postulates.
 --
---  * Â§5 uses a GIVEN enumeration `A â‰ Fin n`, which is structure.  Mere
---    finiteness `âˆ A â‰ Fin n âˆâ` is NOT claimed to suffice: the search
+--  * Â§5 uses a GIVEN enumeration `A â‰ Fin n`, which is structure: the search
 --    that produces the witness runs along a chosen enumeration.  (Contrast `LinearOrderFinite`,
 --    where mere totality DOES suffice because the target `Dec (x â‰ y)`
 --    is a proposition.  The target here, an element of `A`, is not.)

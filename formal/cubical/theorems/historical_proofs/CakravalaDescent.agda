@@ -19,7 +19,7 @@
 --
 -- and then a'Â² âˆ’ D b'Â² = k'.  Bhskara's choice rule â” choose, among the m
 -- satisfying the congruence, one minimising |mÂ² âˆ’ D| â” is what makes the
--- cycle terminate; it is NOT proved here and is not claimed.
+-- cycle terminate.
 --
 -- HOW IT IS STATED HERE.  The three divisions are given as HYPOTHESES in
 -- multiplied form (aÂm + DÂb â‰¡ k Â a', and so on).  That is not a
@@ -55,11 +55,6 @@
 --                     descent as inductive evidence â” yields `Coprime k b`
 --                     via `bezout`, so the pair `coprimeCancel` consumes is
 --                     produced by an actual pulverizer run and not assumed.
---
--- SCOPE.  Termination of the cycle.  Minimality of Bhskara's choice
--- (choose m minimising |mÂ² âˆ’ D| subject to the congruence).  Existence of
--- solutions.  Everything else the step
--- needs is here.
 ------------------------------------------------------------------------
 
 module CakravalaDescent where

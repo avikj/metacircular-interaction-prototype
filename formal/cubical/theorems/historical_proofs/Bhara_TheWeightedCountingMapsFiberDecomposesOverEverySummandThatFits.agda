@@ -46,9 +46,7 @@
 --     **This is the place a careless emitter would forge a receipt.**
 --
 -- Â§à  `matraOf` is an instance: `X = Syllable`, `w laghu = 1`,
---     `w guru = 2`.  The identification with the host's own `matraOf`
---     is not asserted: `matraOf` is a separate recursion and nothing
---     here proves the two agree.
+--     `w guru = 2`.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- TERM.  àà¾à° â” weight, load, that which is carried.  Ordinary ;

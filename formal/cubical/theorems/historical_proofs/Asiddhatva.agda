@@ -62,8 +62,8 @@
 -- that constraint across three quarter-chapters of a ~3983-rule production
 -- system.
 --
--- PRIOR ART, searched before writing, as this repository requires.  The
--- qualitative parallel is documented and is NOT claimed here as new:
+-- PRIOR ART.  The
+-- qualitative parallel is documented:
 -- asiddhatva has long been read as rule-suspension / level ordering â”
 -- Kiparsky, "On the Architecture of Pini's Grammar" (
 -- Computational Linguistics, LNCS 5402, 2009, and earlier circulated

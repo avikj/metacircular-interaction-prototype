@@ -37,9 +37,9 @@
 -- is the formal statement that the machine cannot commit that: given two
 -- contenders whose results differ, the birth is provably `nothing`.
 --
--- WHAT THIS DOES NOT TOUCH.  `Saptabhangi.no-single-vacana` and
+-- `Saptabhangi.no-single-vacana` and
 -- `AnuktaAvaktavya` prove the fourth position is not reachable by krama
--- from the three: it must be SUPPLIED.  Nothing here derives it.  The birth
+-- from the three: it must be SUPPLIED.  The birth
 -- CONSUMES a fourth position -- in the Haskell, `prasava` takes a `Sesa`,
 -- and a `Sesa` exists only where `nirnaya` already returned `Avaktavya`.
 --

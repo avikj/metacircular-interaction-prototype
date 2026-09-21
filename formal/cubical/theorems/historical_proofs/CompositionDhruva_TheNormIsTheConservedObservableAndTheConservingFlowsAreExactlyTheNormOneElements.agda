@@ -58,36 +58,10 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
--- 1.  **This is not the product formula.**  `‚à_v |x|_v = 1` over the
---     places of a number field is a different theorem about a different
---     object (an idele class), and nothing below has places, absolute
---     values, completions, or an archimedean term.  What is proved here
---     is that N is multiplicative along bhvan and that its fibre of 1
---     is the conserving set ‚î i.e. the conserved quantity is the value
---     of a MONOID MAP and the flows are its unit set.  Reading that as
---     "the product formula" is an ANALOGY; it is stated as one in
---
--- 2.  **No classification of conserving flows.**  ¬ß‡ß‚ì¬ß‡® is a
---     biconditional about the flows OF BHVAN FORM `‡‡‡∞‡µ‡æ‡ u`.  It does
---     NOT say every endomorphism of R ó R conserving N is one of these.
---     (Over ‚ with D non-square that stronger statement is true and is
---     not proved here.)  The title says "the conserving flows", meaning
---     the conserving flows among the bhvan flows, and this sentence
---     is what fixes the quantifier.
---
--- 3.  **No solutions, no termination, no minimality.**  Nothing here
---     says a norm-one element other than (¬1, 0) exists, nor anything
---     about Bhskara's minimality rule.  Existence for non-square D is
---     the cakravla's theorem and is not touched.
---
--- 4.  **No  source states any theorem below.**  Brahmagupta
---     states the composition identity; the reading of it as a conserved
---     observable with a flow, and the biconditional ¬ß‡®, are this
---     corpus's, and the compound ‡‡æ‡µ‡®‡æ‡ß‡‡∞‡‡µ is built here.
---
--- 5.  **Noether's theorem is not derived** ‚î no Lagrangian, no
---     variation, no continuity.  Dhruva's header fence applies verbatim
---     and is not repeated at length.
+-- Brahmagupta
+-- states the composition identity; the reading of it as a conserved
+-- observable with a flow, and the biconditional ¬ß‡®, are this
+-- corpus's, and the compound ‡‡æ‡µ‡®‡æ‡ß‡‡∞‡‡µ is built here.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- NO SOLVER.  Every step is a hand chain over the CommRing structure,
@@ -165,10 +139,7 @@ module Samrakshana (CR : CommRing ‚Ñì) (D : fst CR) where
   -- ‡© ¬ The conserving elements are closed under bhvan.
   --
   -- So the conserving flows compose; with (1,0) conserving, they are a
-  -- submonoid of the bhvan monoid.  (A GROUP needs inverses, which is
-  -- the ‡‡®‡‡‡∞‡‡æ‡µ‡®‡æ with (u‚ , ‚àíu‚) and is NOT claimed here ‚î it needs
-  -- N D u‚ (- u‚) ‚â° 1 and the coordinate identity, neither of which is
-  -- proved in this file.)
+  -- submonoid of the bhvan monoid.
   ----------------------------------------------------------------------
 
   ‡§è‡§ï‡§§‡•ç‡§µ-‡§∏‡§Ç‡§µ‡•É‡§§‡§ø : (u v : ‡§Ø‡•Å‡§ó‡•ç‡§Æ) ‚Üí ‡§®‡§ø‡§Ø‡§Æ u ‚â° 1r ‚Üí ‡§®‡§ø‡§Ø‡§Æ v ‚â° 1r

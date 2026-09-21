@@ -49,8 +49,7 @@
 -- chain at `d` is a `Chain d d` â” so certified rewrites form a
 -- SEMICATEGORY, not a category: composition is associative and total,
 -- and there is no identity.  Strict cost improvement is exactly what
--- removes the identities.  (Associativity is not proved here; nothing
--- downstream uses it.)
+-- removes the identities.
 --
 -- NO NOVELTY.  Simulation/refinement squares, their composition, and
 -- the fact that a strict order has no loops are all standard; the

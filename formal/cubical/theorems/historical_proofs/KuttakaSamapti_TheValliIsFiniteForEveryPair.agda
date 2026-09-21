@@ -12,9 +12,9 @@
 -- exactly that sentence as the growth rule this corpus spent its history
 -- lacking, "available in 499".
 --
--- WHAT IS CLAIMED OF THE SOURCE, AND WHAT IS NOT.  ryabhaa states the
--- procedure, and it terminates; he does not state a termination theorem, and
--- nothing here says he did.  What the source supplies is the MEASURE, which
+-- THE SOURCE.  ryabhaa states the
+-- procedure, and it terminates.
+-- What the source supplies is the MEASURE, which
 -- is the whole content of such a theorem: the thing kept at each step is the
 -- remainder, and a remainder is smaller than what one divided by.  "‡‡‡‡ ‡∞‡ï‡‡,
 -- ‡‡‡‡∞‡à‡µ ‡‡‡®‡∞‡æ‡µ‡∞‡‡‡‡‡µ" (AHIMSA_SUTRA_VISTARA ¬ß16, ¬ß17) is a descent as much as

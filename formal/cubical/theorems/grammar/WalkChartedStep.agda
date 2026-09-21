@@ -29,8 +29,7 @@
 --
 --        nextw≡next : (m : �) � nextw m ≡ next m
 --
---      for EVERY m, with no side hypothesis.  It is not proved by
---      matching the two searches clause for clause; it is proved from
+--      for EVERY m, with no side hypothesis.  It is proved from
 --      the SPECIFICATION both searches satisfy, because a least
 --      non-divisor is unique (`lnd-unique`, three lines of trichotomy).
 --      `value-capw` moves that specification from `value (capw m)` to
@@ -81,32 +80,10 @@
 --      evaluated, and `nextw!≡next` carries it.  That is the point of the
 --      chart, in the one form that cannot be argued with.
 --      Also `next 9 ≡ 11`, `next 13 ≡ 16`, `next 16 ≡ 17` -- prime
---      powers, §(c) firing at frontiers past the wall.  (No superlative
---      is claimed for 16 = 2�: `WalkBridge`'s own `next 3 ≡ 4` is
+--      powers, §(c) firing at frontiers past the wall.
+--      (`WalkBridge`'s own `next 3 ≡ 4` is
 --      already a non-prime install.)
 --
--- WHAT IS *NOT* DELIVERED.  The walk is not fast, and nothing here says
--- it is.
---
---   * NO ASYMPTOTIC CLAIM, AND THE TIMINGS ARE NOT RESULTS.  §5 is a
---     per-candidate count and there is no theorem here bounding the
---     number of candidates (that is `next m − m`, a fact about prime
---     powers) or `length (capw m)`.  Wall times appear only in §7, as
---     build metadata in `WalkBridge`'s sense; no exponent is fitted to
---     them and none should be.
---
---   * NO BOUND ON `length (capw m)`.  `value-<-pow` bounds the value by
---     the length, which is the direction the fuel needs; the converse --
---     the length is logarithmic in the value -- needs
---     `Canonical (capw m)`, which `WalkChartedCap` states it does not
---     prove for `scale`.  `b ^ length w` is therefore not claimed small,
---     only cheap to PEEL: the recursion consumes it one `suc` at a time
---     and stops at the first non-divisor.
---
---   * THE PER-TRANSITION ARITHMETIC IS AN UNSTATED PARAMETER, as in
---     `TransportDiv` and `WalkChartedCap`.  `run` counts transitions;
---     the cost of one `_mod_` on numerals < s is not counted, and no
---     count is claimed for `gcd`.
 ------------------------------------------------------------------------
 
 module WalkChartedStep where
@@ -401,9 +378,9 @@ module Step (k : ℕ) where
 --
 -- 9, 11, 16, 17: prime powers, in increasing order, skipping 10, 12, 14,
 -- 15 -- §(c) of the note, on the stream §(b) identifies, at frontiers
--- the unary walk could not reach.  (Nothing is claimed about 16 = 2�
--- being the first non-prime install: `WalkBridge.next-3 : next 3 ≡ 4`
--- is one already.  What is new is only the range.)
+-- the unary walk could not reach.
+-- (`WalkBridge.next-3 : next 3 ≡ 4` is already a non-prime install; what
+-- is new is only the range.)
 --
 -- WALL TIMES ARE BUILD METADATA, in `WalkBridge`'s sense; no exponent is
 -- fitted to them and none should be.  This whole file, witnesses
