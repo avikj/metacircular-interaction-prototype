@@ -46,10 +46,9 @@
 --     **This is the place a careless emitter would forge a receipt.**
 --
 -- Â§à  `matraOf` is an instance: `X = Syllable`, `w laghu = 1`,
---     `w guru = 2`.  Stated, and the identification with the host's own
---     `matraOf` is left as an obligation rather than asserted, because
---     `matraOf` is a separate recursion and nothing here proves the two
---     agree.
+--     `w guru = 2`.  The identification with the host's own `matraOf`
+--     is not asserted: `matraOf` is a separate recursion and nothing
+--     here proves the two agree.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- TERM.  àà¾à° â” weight, load, that which is carried.  Ordinary ;
@@ -60,8 +59,6 @@
 -- and no text states a weighted fiber decomposition.  Pigala proves
 -- nothing below.
 --
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Bhara_TheWeightedCountingMapsFiberDecomposesOverEverySummandThatFits where

@@ -1,23 +1,11 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- àà•àààµà®à â” the uniqueness half that `Drdha` said was absent.
+-- àà•àààµà®à â” the uniqueness half of the firm factorisation.
 --
 -- `Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIs
 -- DecidedByDivision` proved existence (every n â‰ 1 is SOME product of
 -- firm numbers), Euclid's lemma, and that the SUPPORT is determined by n.
--- Its own ledger said, at the same grain:
---
---     Â UNIQUENESS IS NOT PROVED. â¦ nothing here says two such lists are
---       permutations of each other. â¦ HOW MANY times each occurs is not
---       settled.
---     Â v_p IS NOT DEFINED HERE at all.
---
--- and `TheUsualReasonsMadeExplicitâ¦` said of the walks module's `Perm`:
---
---     Â it is not proved to coincide with "same multiset";
---       the CONVERSE containment `â‰ˆ â’ Perm` is also not proved.
---
--- Both absences are the same absence, and it is a composition of what is
+-- Uniqueness is a composition of what is
 -- already there.  Nothing new is assumed; the only tools are Euclid's
 -- lemma from Drdha, the `Insert`/`Perm` relation from the walks module,
 -- and cancellation in â• from the library.
@@ -25,7 +13,7 @@
 --   à§  Over any discrete type: `Perm xs ys` and `xs â‰ˆ ys` (the corpus's
 --      four-constructor relation) each give "same count of every element",
 --      and same-count gives `Perm` back.  So Perm, â‰ˆ and same-multiset are
---      one relation â” the equivalence `TheUsualReasons` left open.
+--      one relation.
 --   à¨  Two lists of firm numbers with the same product are a `Perm` of
 --      each other (àà•àààµà®à).  Proof: the head of one divides the product
 --      of the other, so it OCCURS there (Drdha Â§à); remove it with an

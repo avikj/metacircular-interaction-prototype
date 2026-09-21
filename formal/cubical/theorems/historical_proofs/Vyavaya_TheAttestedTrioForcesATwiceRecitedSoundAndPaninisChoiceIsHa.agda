@@ -16,15 +16,14 @@
 -- The class that names the interveners is itself a party to the
 -- obstruction this file checks.
 --
--- WHAT WAS ALREADY CHECKED, in this lane, by others.  `NaturalMachine/
+-- WHAT IS ALREADY CHECKED.  `NaturalMachine/
 -- PratyaharaBuysTotalityWithLocality` proved that repeating a letter
 -- DESTROYS locality of naming � repetition as a cost.  `NaturalMachine/
 -- TheSecondNaIsTheCollision` computed the doubled A-marker's ambiguity
 -- at a � repetition as a collision.  `Krama_NoRecitationOrderSeats-
 -- TheCycle�` proved on three abstract sounds that the three pair-classes
--- are unnameable in any recited-once line, and its header records � as a
--- correction of its own first draft � that the ATTESTED family contains
--- that cycle on {h y }, owing the checked bridge.  This file pays it.
+-- are unnameable in any recited-once line, and its header notes that
+-- the ATTESTED family contains that cycle on {h y }.  This file proves it.
 --
 -- WHAT IS PROVED, on the actual fourteen Mhevara-stras, all 57 tokens:
 --
@@ -70,7 +69,7 @@
 --     restrictions) is not examined here.
 --   * That the tradition argued this.  The doubled ha is an old topic �
 --     Patajali's Mahbhya discusses the ivastras at length � but no
---     passage is claimed: egress is blocked from this environment and a
+--     passage is claimed: a
 --     citation nobody checked is an error of the same kind as a fitted
 --     constant.  What is proved is the mathematics, not the philology.
 --   * Convention-independence, beyond what the proof actually uses.  The
@@ -81,10 +80,8 @@
 --     §6 the obstruction rests only on class-is-a-contiguous-factor
 --     (§3), which any occurrence convention satisfies; but §6 as a term
 --     is about this extractor.
---   * μ_k in general, Petersen 2004, the consecutive-ones theory: all
---     still open or owed, as recorded in `PratyaharaLaghava` and `Krama`.
 --
--- No postulates, no holes, --safe.  §§2�4 are inductions; every concrete
+-- §§2�4 are inductions; every concrete
 -- claim is refl.
 ------------------------------------------------------------------------
 
@@ -540,7 +537,7 @@ private
 रेखा-न-एकश्रुतिः (inr (inr (inr (inr (inr (inr ()))))))
 
 ------------------------------------------------------------------------
--- §8  Minimality, added the same night.  §6 proved repetition count zero
+-- §8  Minimality.  §6 proved repetition count zero
 --     impossible for the trio.  Here: the real line's repetition count is
 --     exactly ONE � ha twice, every other sound once.  Zero impossible,
 --     one attained: in the repetition dimension, for this trio, the
@@ -586,8 +583,8 @@ eqℕ (suc m₀) (suc n₀) = eqℕ m₀ n₀
 अनुबन्धाः-सकृत् = refl
 
 ------------------------------------------------------------------------
--- EXTENDED 2026-08-23, later the same night: THE FIRST NOT-CLAIMED
--- BULLET IS NOW EXAMINED, AND THE CHOICE WAS NOT ONE.  `Niyama_The-
+-- THE CHOICE OF HA WAS NOT ONE.
+-- `Niyama_The-
 -- DoubledSoundCouldHaveBeenAnyOfThreeAndTheFullClassesRestrictItToHa-
 -- Alone.agda` proves the trio also restricts to 3-cycles on {h v } and
 -- on {h y } (by refl, from this file's own stretches), and proves the
@@ -595,7 +592,5 @@ eqℕ (suc m₀) (suc n₀) = eqℕ m₀ n₀
 -- sound: ya-doubling dies on {h v }, a-doubling on {h y }, anything
 -- else on {h y }; only ha survives � a ∩ aL = {h} exactly, the sole
 -- articulation point, checked over the whole inventory.  Within single-
--- doubling lines, ha is forced, not chosen.  The counting�permutation
--- bridge and k � 2 remain owed, and are said so there.  Nothing above
--- is altered.
+-- doubling lines, ha is forced, not chosen.
 ------------------------------------------------------------------------

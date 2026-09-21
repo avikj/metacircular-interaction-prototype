@@ -58,8 +58,7 @@
 -- to the RIGHT of the start, and never asks anything of what stands left.
 -- That is the whole mechanism, and it is why the obstruction is not a cost.
 --
---   * That the iva-stra family contains such a cycle.  IT DOES, and the
---     first draft of this header said the opposite.  Three ATTESTED
+--   * The Siva-sutra family contains such a cycle.  Three ATTESTED
 --     pratyhras, restricted to the three sounds h y , are exactly C:
 --
 --        a  = a i u   e o ai au h y v r      � {h y } = {h y}
@@ -72,17 +71,14 @@
 --     stra 5 (ha ya va ra ) and again in stra 14 (ha L) � before y, and
 --     after  � which is precisely the seat no single order provides.  So
 --     the second h is not economy.  It is what makes the list nameable at
---     all.  That claim is NOT checked in this file: it needs the
---     restriction step, class � contiguous factor � interval after
---     restriction, and that is owed as the successor to this one.
+--     all.  That claim is proved in
+--     `Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa`.
 --   * The interval / consecutive-ones characterisation in general (Booth�
---     Lueker PQ-trees; Kornai, Kiparsky).  `PratyaharaLaghava` lists that
---     as owed and it stays owed; §3 is one witness, not a theory.
---   * μ_k for 0 < k < ∞, still open, still where Pini's line sits.
---   * Petersen 2004.  Owed, unread, egress blocked.
+--     Lueker PQ-trees; Kornai, Kiparsky) is not
+--     proved here; §3 is one witness, not a theory.
 --   * Any phonological content for a b c.  Three abstract sounds.
 --
--- No postulates, no holes, --safe.  Every claim is `refl`.
+-- Every claim is `refl`.
 ------------------------------------------------------------------------
 
 module Krama_NoRecitationOrderSeatsTheCycleSoRepetitionLiftsAnObstructionAndNotACost where
@@ -265,13 +261,13 @@ seats line = allL (names line) चक्रम्
 लुप्ता-आवृत्तिः = refl
 
 ------------------------------------------------------------------------
--- EXTENDED 2026-08-23, same thread, hours later: THE OWED SUCCESSOR IS
--- PAID.  `Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninis-
--- ChoiceIsHa.agda` does the restriction step this header owed: on the
+-- THE RESTRICTION STEP.
+-- `Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninis-
+-- ChoiceIsHa.agda` proves the restriction step: on the
 -- full fourteen-stra line (all 57 tokens, encoded), a, aL, yaR
 -- compute by refl and restrict to exactly the cycle above � and the
 -- impossibility is proved over ALL lines reciting h y  once each, via
 -- class � contiguous factor � factor of the restriction, with the
 -- split-enumeration carrying a completeness proof.  Not an exhaustion
--- over lines.  Nothing here is altered.
+-- over lines.
 ------------------------------------------------------------------------

@@ -61,17 +61,14 @@
 --     why the child winning BY APAVDA is the strongest verdict available
 --     and not a courtesy.
 --
--- WHAT THE CHECKER SAYS BACK, recorded here rather than left in a terminal.
--- `agda --cubical --safe --no-import-sorts` on this file: EXIT 0, no
--- postulates, no holes, and FOUR `-WUnsupportedIndexedMatch` warnings, on
+-- INDEXED MATCHES.  Four clauses carry `-WUnsupportedIndexedMatch`:
 -- `na-vipakse`, `garbha-jayati`, and the two `with`-generated functions of
--- §2.  Each is the same fact: the clause matches on a proof of `_∈_`, whose
+-- §2.  Each matches on a membership proof whose
 -- index forces injectivity of `_�_`, which Cubical Agda does not yet
--- support.  The consequence is precise and worth stating rather than
--- glossing: these functions do not COMPUTE when applied to a transport.
+-- support.  The consequence:
+-- these functions do not COMPUTE when applied to a transport.
 -- They are still theorems, and nothing below depends on reducing them under
--- transport -- but a later module that wants to transport one of these
--- along a path of lists will find it stuck, and should know that now.
+-- transport.
 ------------------------------------------------------------------------
 
 module AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted where

@@ -80,10 +80,6 @@
 -- its limit unchanged (attested for a planet's orbit; its use for the
 -- orbit of an endomorphism is this corpus's).  NO SOURCE STATES ANYTHING
 -- BELOW.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 ‚î the container, NOT the
--- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
--- holes, exit 0.
 ------------------------------------------------------------------------
 
 module Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger where
@@ -316,24 +312,7 @@ private
   ... | suc n , p = true‚â¢false (sym (‡§∏‡•ç‡§•‡§ø‡§∞‡§Æ‡•ç n true) ‚àô p)
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what stays open.
---
--- **The truncation is not shown to be necessary.**  ¬ß‡ produces
--- `‚à a ‚âà b ‚à‚` because that is all `isEquivRel‚íTruncIso` gives.  Whether
--- some flow makes the untruncated statement fail ‚î two points whose
--- classes agree but with no CHOSEN pair of meeting stations ‚î is not
--- settled here.  `SamanaKaksya` ¬ß‡'s last paragraph is the same
--- question and it is still open.
---
--- **Sufficient conditions are not surveyed.**  ¬ß‡ reduces "the fibre is
--- one orbit" to a checkable hypothesis but does not exhibit a family of
--- flows satisfying it beyond ¬ß‡'s collapse and the one-sided case.  The
--- torsor of `YogaDhruva_‚¶agda` is the natural next instance: a free
--- transitive action gives one-sided reachability by construction, hence
--- ¬ß‡®'s implication, hence ¬ß‡©.  Whether it gives it with `Œ¶` a single
--- endomorphism ‚î rather than a whole group ‚î is the actual question,
--- and iterating ONE translation on a torsor is a cyclic-subgroup
--- condition, not a torsor condition.  Not addressed.
+-- SCOPE.
 --
 -- **Nothing here is about the h-level of `A`.**  `A` is never assumed to
 -- be a set; `isSet B` is used only where `SamanaKaksya` ¬ß‡ used it, plus

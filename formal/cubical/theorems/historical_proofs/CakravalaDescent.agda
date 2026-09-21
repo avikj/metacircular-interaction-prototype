@@ -13,15 +13,6 @@
 -- "Pell's equation" is Euler's misattribution to a man who never worked
 -- on it, and the name has outlived every correction since.
 --
--- WHY THIS FILE EXISTS, which is the part worth reading.  `Composition.agda`
--- line 287 says, of the step where coprimality enters: "that step is in
--- CakravalaDescent".  There was no `CakravalaDescent`.  Line 14 says
--- pointing at work that was never done, in a form a reader takes as
--- "it is handled over there" � a claim carrying no evidence, which is the
--- same defect this repository has spent the day removing from its verdict
--- types.  A dangling citation is a bare label.  The repair is to make the
--- reference true, not to delete it.
---
 -- THE STEP.  Given a² − D b² = k and an m with k | (a + bm), set
 --
 --     a' = (am + Db)/k        b' = (a + bm)/k        k' = (m² − D)/k
@@ -37,7 +28,7 @@
 -- Stating them multiplied keeps the theorem over an arbitrary commutative
 -- ring, where there is no division to perform.
 --
--- WHAT IS PROVED.  No postulates, no holes, --safe.
+-- WHAT IS PROVED.
 --
 --   cakravalaScaled   the step's identity in k²-scaled form, over ANY
 --                     commutative ring and with NO cancellation:
@@ -65,9 +56,9 @@
 --                     via `bezout`, so the pair `coprimeCancel` consumes is
 --                     produced by an actual pulverizer run and not assumed.
 --
--- WHAT IS NOT.  Termination of the cycle.  Minimality of Bhskara's choice
+-- SCOPE.  Termination of the cycle.  Minimality of Bhskara's choice
 -- (choose m minimising |m² − D| subject to the congruence).  Existence of
--- solutions.  Those are the three open things; everything else the step
+-- solutions.  Everything else the step
 -- needs is here.
 ------------------------------------------------------------------------
 
@@ -156,8 +147,7 @@ module Descent (CR : CommRing ℓ) where
   -- b�(am + Db) and b²�(m² − D) are combinations of (a + bm) and k.
   --
   -- This is what makes the cakravla an algorithm rather than a search.
-  -- The remaining factor b is removed by gcd(k, b) = 1, which is a
-  -- kuaka; that join is not made here and is not claimed.
+  -- The remaining factor b is removed by gcd(k, b) = 1 (section 3b).
   ----------------------------------------------------------------------
 
   oneCongruence : (D a b m k : R)
@@ -187,8 +177,7 @@ module Descent (CR : CommRing ℓ) where
   -- 3b.  THE FACTOR b REMOVED � the join with the kuaka.
   --
   -- `oneCongruence` above leaves b in the way: it gives k | b�(am + Db) and
-  -- k | b²�(m² − D), not the exactness the step needs.  The commit that
-  -- landed §3 said so and left it open.  Closing it is one lemma, and the
+  -- k | b²�(m² − D), not the exactness the step needs.  Removing it is one lemma, and the
   -- lemma is ryabhaa's, because what removes b is exactly the pulverizer's
   -- output: coefficients u, v with u�k + v�b = 1.
   --
@@ -276,12 +265,7 @@ open import Cubical.Data.Int using (ℤ ; pos ; negsuc)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 
 ------------------------------------------------------------------------
--- 3c.  THE BRIDGE, MADE.  `Coprime` fed by an actual pulverizer run.
---
--- The header of this file said wiring `Kuttaka.bezout` to `Coprime` was
--- "mechanical and is not done here".  Mechanical is not a synonym for
--- done, and "not done here" is how the two dangling references at the top
--- of this file started.  So: done.
+-- 3c.  THE BRIDGE.  `Coprime` fed by an actual pulverizer run.
 --
 -- `Kuttaka.Run k b g` is ryabhaa's descent as inductive evidence � one
 -- constructor per division a ≡ q�b + r, the quotients forming the vall,

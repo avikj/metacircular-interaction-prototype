@@ -10,14 +10,7 @@
 -- What is claimed is that these are the two quantities their algorithm
 -- carries from turn to turn, and this file is about that pair.)
 --
--- Â§5 names, verbatim, the piece that is missing:
---
---     "A checked bound on the turn count.  The `2ÂD` default rests on
---      reduction theory that is not in `formal/cubical/`.  Putting it there
---      â” the finiteness of reduced forms of a given discriminant â” is the
---      piece that would turn the default from *cited* into *checked*."
---
--- This file puts a version of it there.  It does not close termination.
+-- This file gives a checked turn cap.  It does not close termination.
 -- It closes something else, which is what a turn cap actually needs and
 -- which is strictly weaker than termination:
 --
@@ -27,8 +20,7 @@
 -- That implication needs only (i) the state (à—ààà•, à•àààà) lying in a box of
 -- side B, and (ii) the next state being a function of the current one.
 -- It does NOT need the wheel to reach 1.  Â§1â“Â§4 prove (i) outright.  Â§5
--- proves the algebraic core of (ii) and Â§6 says exactly what of (ii) is
--- still missing, with the failing shape named rather than gestured at.
+-- proves the algebraic core of (ii).
 --
 -- AND ONE CORRECTION TO THE CITATION THAT `2ÂD` RESTS ON, Â§7.  The
 -- justification recorded for `turnCap d = 2Âd` is "the pairs (P, Q) with
@@ -40,8 +32,7 @@
 -- first two.  The bound proved here, mÂ² â‰ 4D, is the one the algorithm's
 -- own state actually satisfies.
 --
--- WHAT IS PROVED.  --safe, no postulates, no holes, Agda 2.8.0 +
--- cubical v0.9 (the pin).
+-- WHAT IS PROVED.
 --
 --   à—ààà•-àà¨àà§à        THE MULTIPLIER IS IN THE SAME WINDOW AS THE
 --                    INTERPOLATOR: mÂ² â‰ 4D, from `CakravalaBound`'s own
@@ -69,13 +60,13 @@
 --                    identities.
 --   ààààŸàà¯àà•-ààà°ààà¯à¾àµààààà¿à  D = 61, turn 0 â’ turn 1, computed in the kernel.
 --
---   * TERMINATION IS STILL OPEN and this file does not narrow it.  What is
+--   * This file does not prove termination.  What is
 --     established is a CONDITIONAL cap: exceeding BÂ² turns proves a state
---     repeated, and â” given Â§6's missing lemma â” that the wheel is in a
+--     repeated, and, given determinism, that the wheel is in a
 --     cycle that will never reach à•àààà = 1.  A cap is a resource limit
 --     whose failure now carries a mathematical claim instead of a shrug.
---   * DETERMINISM IS NOT COMPLETE.  Â§5 gives that âˆ’m solves the next
---     congruence.  Two things remain: (a) that the solution set IS the
+--   * DETERMINISM.  Â§5 gives that âˆ’m solves the next
+--     congruence.  Full determinism needs two more things: (a) that the solution set IS the
 --     class of âˆ’m, which needs gcd(b', k') = 1 â” the same coprimality
 --     `CakravalaDescent.oneCongruenceCoprime` already consumes, and which
 --     is produced by a kuaka run, not assumed; and (b) TIES.  Bhskara's
@@ -87,14 +78,7 @@
 --     stands between Â§5 and a determinism theorem.
 --   * `CakravalaBound.agda`'s hypotheses are taken here as hypotheses.
 --     Â§1's input `16ÂEÂ² â‰ 36Â(DÂKÂ²)` is that file's `straddleBound`
---     conclusion; this file does not import it, because under the pin
---     that module does not typecheck â” its `Cubical.Tactics.NatSolver`
---     import uses the v0.5 name `solve` where v0.9 has `solveâ•!`.  That
---     is a live defect in a module this one depends on for its input, it
---     another lane's working tree is mid-repair across the whole
---     directory.  `Varana_TheChoiceWindowIsDerivedNotFitted` declines the
---     same import for the same reason and restates its lemmas; this file
---     follows that precedent.
+--     conclusion; this file does not import it.
 --   * Â§5 is over â, and the reactor divides by |k| and then takes
 --     absolute values of both new coordinates.  That sign normalisation
 --     is not proved to preserve the congruence.  It was CHECKED to

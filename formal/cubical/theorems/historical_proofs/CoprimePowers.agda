@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- CoprimePowers
 --
--- `CRTChain` names the one missing piece: that the walk's installed prime
--- powers are pairwise coprime.  This is that piece's algebra, and the
+-- `CRTChain` needs that the walk's installed prime
+-- powers are pairwise coprime.  This is its algebra, and the
 -- algebra is all of it â” no primality is needed, only that the BASES are
 -- coprime.
 --
@@ -47,22 +47,10 @@
 -- That is the kuaka's own design: *"keep the remainder and recurse on
 -- it"* returns a construction, and the construction is what composes.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS STILL MISSING, PRECISELY
---
--- The bridge from `Bez` over â to `isGCD m n 1` over â•, which is what
--- `CRTChain.Coprimes` asks for.  It is the standard argument â” a common
--- divisor of m and n divides `mx + ny = 1` â” and it needs divisibility
--- transfer between â• and â that this lane does not carry.  Named here so
--- the gap is one lemma with a name rather than a vague "number theory".
---
--- Also missing, and separately: that distinct PRIMES are coprime.  This
+-- This
 -- module assumes coprime bases and says nothing about how to get them;
 -- for the walk's actual moduli they are computed one gcd at a time
 -- (`CRTChain.walk8-coprimes`).
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module CoprimePowers where
@@ -142,7 +130,7 @@ module Bezout (R : CommRing â„“) where
   bez-pow {a} _   zero    = bez-one a
   bez-pow     bab (suc n) = bez-mul bab (bez-pow bab n)
 
-  -- THE STATEMENT `CRTChain` asked for, modulo the â• bridge.
+  -- THE STATEMENT `CRTChain` asked for.
   coprime-powers : {a b : A} â†’ Bez a b â†’ (m n : â„•) â†’ Bez (pow a m) (pow b n)
   coprime-powers bab m n =
     bez-sym (bez-pow (bez-sym (bez-pow bab n)) m)
@@ -172,15 +160,10 @@ pow-3-2-is-9 : pow (pos 3) 2 â‰¡ pos 9
 pow-3-2-is-9 = refl
 
 ------------------------------------------------------------------------
--- 5.  What this closes and what it does not.
+-- 5.  The composition law.
 --
--- CLOSED: the composition law.  Coprimality of powers follows from
+-- Coprimality of powers follows from
 -- coprimality of bases by one ring identity plus two inductions, with the
 -- B©zout witness carried throughout â” which is the kuaka's output, not
 -- a predicate reconstructed after the fact.
---
--- OPEN, and now named as one lemma each:
---   * `Bez a b â’ isGCD a b 1` over â•, to feed `CRTChain.Coprimes`;
---   * distinct primes are coprime, which no part of this module needs but
---     the walk's general frontier does.
 ------------------------------------------------------------------------

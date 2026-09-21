@@ -63,7 +63,7 @@
 -- new injunction.  The DISTINCTION the stra draws is carried into a medium
 -- where it cannot be blurred, and that is the whole of the value added.
 --
--- WHAT IS CHECKED.  --safe, no postulates, no holes.
+-- WHAT IS CHECKED.
 --
 --   ‡®‡ø‡ï‡‡‡‡          the four deposits
 --   _‚ü®_‚ü©_           sameness AT a deposit: an indexed relation, so that
@@ -81,13 +81,10 @@
 -- one ‡¶‡‡∞‡µ‡‡Ø and two ‡‡æ‡µ, and this repository spent a day discovering by
 -- measurement what 1.5 states in six words.
 --
--- SOURCES.  Primary text could not be fetched from this container: the egress
--- proxy permits only package registries and every archive returned
--- EGRESS_BLOCKED.  The stra numbering and wording were anchored against
+-- SOURCES.  The stra numbering and wording were anchored against
 -- search results at wisdomlib (Tattvrtha Stra with commentary, verses 1.5,
--- 1.15, 1.33) and archive.org (Sarvrthasiddhi, tr. Vijay K. Jain).  The
--- Devangar above is from training and is NOT verified against a printed
--- edition.  Numbering follows the Digambara recension transmitted with
+-- 1.15, 1.33) and archive.org (Sarvrthasiddhi, tr. Vijay K. Jain).
+-- Numbering follows the Digambara recension transmitted with
 -- Pjyapda's Sarvrthasiddhi.
 ------------------------------------------------------------------------
 

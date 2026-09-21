@@ -275,8 +275,8 @@ open वाहकः public
 -- `λ i � f (base i) ≡ carried i` becomes an hcomp whose cap is the neutral
 -- path `prim^unglue x .witness`.  Two constructions that differ only by
 -- whether the record is a module-parameterized family reduce differently
--- after the parameters are supplied.  I have no derivation of why the
--- parameterization blocks the unfolding, and say so rather than guess: it is
+-- after the parameters are supplied.  Why the
+-- parameterization blocks the unfolding is not derived here; it is
 -- a measured fact about Agda 2.8.0, recorded here so it can be re-measured.
 
 ------------------------------------------------------------------------

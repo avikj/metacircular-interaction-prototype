@@ -34,8 +34,8 @@
 -- equality on standpoints, and no finiteness: two constant profiles do the
 -- whole job.  So the obstruction is not an artefact of three standpoints.
 --
--- AND IT WITHDRAWS A CLAIM MADE IN CONVERSATION, WHICH IS THE MORE USEFUL
--- HALF.  It was put to the owner that ‡‡‡æ‡∞‡‡‡ is "irreducibly n-ary" ‚î that
+-- TWO DIFFERENT OBJECTS, WHICH THE READING "IRREDUCIBLY n-ARY" CONFLATES.
+-- One might hold that ‡‡‡æ‡∞‡‡‡ is "irreducibly n-ary" ‚î that
 -- the total statement over n standpoints cannot be built from binary steps ‚î
 -- on the ground that `Arpitanarpita_‚¶.‡‡-‡‡‡ô‡‡ó‡‡ø‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡` proves ‡‡‡æ‡∞‡‡‡‡Æ‡
 -- non-associative.  That inference conflates two different objects:
@@ -43,19 +43,19 @@
 --   ¬ the CONTENT demanded by the total statement, which is a conjunction
 --     over the demand.  ¬ß2: it FOLDS.  `and` is associative, so the n-ary
 --     content is exactly the iterated binary one, and `‡ï‡‡∞‡Æ-‡‡ô‡‡ï‡≤‡®‡Æ‡` holds
---     by `refl`.  The claim was wrong here.
+--     by `refl`.
 --   ¬ the OPERATION combining seven-fold POSITIONS, `‡‡-‡Ø‡ã‡ó` / `‡‡‡æ‡∞‡‡‡‡Æ‡`,
 --     which `SaptabhangiSamyoga_‚¶.‡‡-‡‡‡ô‡‡ó‡‡ø‡` and `Arpitanarpita_‚¶.‡‡-
 --     ‡‡‡ô‡‡ó‡‡ø‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡` prove non-associative on labels and on records
 --     alike.  There the n-ary operation genuinely is not determined by the
---     binary one.  The claim was right here, about a different thing.
+--     binary one.
 --
 -- Content folds; the composition of positions does not.  Reading the second
 -- as licensing the first is exactly the collapse this corpus exists to
 -- refuse ‚î ‡‡‡‡®‡ ‡‡ï‡®‡æ‡Æ‡‡®‡æ ‡ó‡‡‡‡‡æ‡‡ø ‚î so it is written out rather than
 -- quietly dropped (‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡ ¬ß‡: ‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø).
 --
--- WHAT IS PROVED.  --cubical --safe, no postulates, no holes.
+-- WHAT IS PROVED.
 --
 --   ‡ï‡‡∞‡Æ-‡‡ô‡‡ï‡≤‡®‡Æ‡      succession expresses the demand, by construction.
 --   ‡‡∞‡‡µ-‡‡‡‡Ø‡-‡Æ‡ø‡‡‡Ø‡æ   a demand with any negative entry is false at the
@@ -134,7 +134,7 @@ module _ {S : Type ‚Ñì} where
   --
   -- NOTE WHAT THIS SETTLES.  The content is a fold of the binary
   -- conjunction, so at the level of CONTENT the n-ary total statement is
-  -- the iterated binary one.  The header records the claim this refutes.
+  -- The header records the conflation this refutes.
   ----------------------------------------------------------------------
 
   Adesa : Type ‚Ñì
@@ -284,6 +284,5 @@ data ‡§¶‡•ç‡§µ‡§ø : Type‚ÇÄ where
 --
 -- Nor does it bear on which of the seven positions a given object
 -- occupies, on the exhaustiveness of the seven, or on whether the record
--- lane and the label lane of `Arpitanarpita_‚¶` can be reconciled.  Those
--- are three separate open questions and none of them is touched here.
+-- lane and the label lane of `Arpitanarpita_‚¶` can be reconciled.
 ------------------------------------------------------------------------

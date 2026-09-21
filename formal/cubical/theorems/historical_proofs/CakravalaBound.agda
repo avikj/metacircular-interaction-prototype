@@ -13,8 +13,8 @@
 -- termination for continued fractions in 1768, six hundred years later
 -- and for a different algorithm.
 --
--- WHAT `CakravalaDescent.agda` LEAVES OPEN, verbatim: "Termination of the
--- cycle.  Minimality of Bhskara's choice."  This file takes one bite out
+-- `CakravalaDescent.agda` does not prove termination of the
+-- cycle.  This file takes one bite out
 -- of the first, and it is the bite the classical argument takes: the
 -- BOUND.  Everything below is exact â” no measurement, no fitting, no
 -- floating point, no appeal to a run.
@@ -44,7 +44,7 @@
 -- the composition law.  Nothing here needs â, and cubical's â product is
 -- unary, so â• is also the only substrate on which this computes.
 --
--- WHAT IS PROVED.  --safe, no postulates, no holes.
+-- WHAT IS PROVED.
 --
 --   amgm            2xy â‰ xÂ² + yÂ², the one analytic fact used.
 --   straddleBound   THE INEQUALITY.  If A = |2m âˆ’ K| with AÂ² â‰ 4D and
@@ -83,7 +83,7 @@
 -- sound â” any m satisfying the congruence descends â” but the attribution
 -- is wrong, and nothing here edits those files.
 --
---   * TERMINATION IS STILL OPEN.  A bound on |k| is not termination.  What
+--   * A bound on |k| is not termination.  What
 --     the bound buys is that the state (a mod Â, b mod Â, k) ranges over a
 --     FINITE set, so some state must recur; turning that into "the wheel
 --     returns to k = Â1" needs, in addition: that the triples with a fixed
@@ -103,7 +103,7 @@
 --     HYPOTHESIS.  It is NOT wired into `CakravalaDescent.cakravalaStep`,
 --     which is stated over an arbitrary CommRing and so has no |Â|;
 --     specialising that theorem to âCommRing and feeding its conclusion in
---     is a further piece of work and is not done.
+--     is not done here.
 --   * The constant 36 is not claimed optimal.  It is 4Â(1 + 1/2)Â², the
 --     value of the classical |k'| â‰ âˆD + K/4 at K = 2âˆD; iterating the
 --     same estimate drives it toward 4Â(4/3)Â² = 64/9, and none of that is
@@ -623,7 +623,7 @@ seedBound D n E hlo hhi hE =
 -- an arbitrary CommRing, which has no absolute value, so nothing here is
 -- plugged into it.  `stepAbs` below takes the â equation as a hypothesis;
 -- specialising the descent to âCommRing and producing that equation is a
--- separate piece of work and is not claimed.
+-- separate statement and is not claimed.
 ------------------------------------------------------------------------
 
 module ZBridge where
@@ -732,9 +732,6 @@ seed61 = seedBound 61 7 12 (12 , refl) (2 , refl) refl
 -- any step obeying the rule, and 16Â12Â² = 2304 > 2196 = 36Â61.  So no m
 -- obeying Bhskara's rule can produce |k'| = 12 here â” a proof, not an
 -- observation, that the rule was not obeyed.
---
--- (This file changes nothing in `CakravalaWitness.agda` or in `machine/`;
--- the refutation is recorded, the repair is someone's else's commit.)
 ------------------------------------------------------------------------
 
 -- the two candidates, |mÂ² âˆ’ 61| for m = 8 and m = 7

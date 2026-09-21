@@ -64,22 +64,8 @@
 -- ‡µ‡‡Ø‡‡‡‡ï‡‡∞‡Æ as in `SamraksakaGana`/`SamraksakaSamuha`, with their limits
 -- unchanged (‡ó‡ attested as the gaapha's device, Pini,
 -- ‡‡‡‡ü‡æ‡ß‡‡Ø‡æ‡Ø‡, ~500 BCE; the application to flows is this corpus's).
--- The compound ‡‡‡‡Æ‡‡Æ‡‡æ-‡â‡‡∞‡ø is BUILT HERE, 2026-08-23; no source states
+-- The compound ‡‡‡‡Æ‡‡Æ‡‡æ-‡â‡‡∞‡ø is BUILT HERE; no source states
 -- anything below.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 ‚î the CONTAINER, not the
--- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
--- holes, exit 0.  One caveat stated in full because it is load-bearing:
--- the import chain passes through `SvaTantuVasa`, which imports
--- `YogaKsetra`, whose ring-solver calls are written `solve! R'` ‚î a name
--- cubical v0.9 has and v0.5 does not (v0.5 calls the macro `solve`).
--- That is container skew and not a verdict on any file.  This module was
--- checked with `YogaKsetra`'s import and the `‡Ø‡ã‡ó‡` section of
--- `SvaTantuVasa` (neither of which anything below touches) locally
--- commented out; that local edit is NOT committed and no file other than
--- this one is changed by this landing.
 ------------------------------------------------------------------------
 
 module AtmasamataUpari_TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB where
@@ -270,23 +256,3 @@ module ‡§Ö‡§®‡•ç‡§ß‡•á-‡§â‡§™‡§∞‡§ø {A B : Type ‚Ñì} (setA : isSet A) (setB : is
     (iso fst (Œª Œµ ‚Üí Œµ , (Œª a ‚Üí blind (equivFun Œµ a) a))
          (Œª _ ‚Üí refl) (Œª u ‚Üí ‡§â‡§™‡§∞‡§ø-‡§∏‡§Æ‡§§‡§æ refl))
 
-------------------------------------------------------------------------
--- ¬ß‡ ¬ ‡‡‡‡.
---
--- (a) The section-side units as a packaged `Group`, with ‡µ‡æ‡‡ a
---     `GroupEquiv` onto it ‚î `SamraksakaSamuha` ¬ß‡'s remainder, still
---     open, and now cheaper: by ¬ß‡ß the section-side unit predicate can
---     be stated as invertibility of the section's point component
---     instead of as stored data.
--- (b) The group leg of `TantuVibhaga`'s decomposition: is
---     ‡‡‡‡Æ‡‡Æ‡‡æ-‡â‡‡∞‡ø ‚â Œ† over the codomain of Aut(fibre f b)?  ¬ß‡®'s
---     reassociation is what makes this a question about equivalences of
---     Œ-types rather than about the monoid, but it is NOT proved here.
--- (c) The ‚àû-version.  Over arbitrary types isEquiv is still a
---     proposition, so ¬ß‡ß has a chance of surviving verbatim while
---     ‡µ‡‡Ø‡‡‡‡ï‡‡∞‡Æ-‡‡ï‡‡‡µ‡Æ‡ does not (its uniqueness argument used
---     ‡‡‡∞‡µ‡æ‡-‡‡Æ‡‡æ, hence setB).  Untried.
--- (d) Whether `‡â‡‡∞‡ø-‡‡Æ‡‡‡` and `‡‡‡∞‡ï‡‡‡ï-‡‡Æ‡‡‡` being GroupEquiv upgrades
---     to a path of `Group`s by univalence for groups ‚î the library has
---     it; nothing below consumes it, so it is not invoked.
-------------------------------------------------------------------------

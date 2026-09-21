@@ -13,9 +13,7 @@
 -- ‡‡≤‡‡‡‡Æ‡ ‡Ø‡‡æ) ‡ k-‡‡æ‡‡®‡Æ‡ (a',b',k' ‡‡‡∞‡‡‡æ‡ô‡‡ï‡æ‡), ‡‡‡ ‡‡≤‡‡ó‡ã‡∞‡ø‡¶‡Æ-‡‡æ‡ó‡ ‡‡‡‡∞ ‡®
 -- ‡‡æ‡ß‡ø‡‡ ‚î ‡ï‡‡µ‡≤‡ ‡‡¶‡‡‡Ø ‡‡‡‡ó‡‡ø‡-‡‡æ‡∞‡ (‡‡æ‡µ‡®‡æ-‡∞‡‡-‡∞‡ï‡‡‡æ) ‡  ‡‡Æ‡æ‡‡‡‡ø-‡‡‡∞‡Æ‡æ‡‡ ‡
 -- ‡µ‡∞‡-‡®‡‡Ø‡‡®‡‡ï‡∞‡‡ ‡‡ó‡‡∞‡ø‡Æ‡ ‡  (only the step's algebraic core ‚î that the cyclic
--- step is bhvan with (m,1), preserving the form ‚î is proved.  The m-choice
--- and the exact division by k, the actual "cakra", are the algorithmic parts
--- left for later; not faked.)
+-- step is bhvan with (m,1), preserving the form ‚î is proved.)
 ------------------------------------------------------------------------
 
 module Cakravala where

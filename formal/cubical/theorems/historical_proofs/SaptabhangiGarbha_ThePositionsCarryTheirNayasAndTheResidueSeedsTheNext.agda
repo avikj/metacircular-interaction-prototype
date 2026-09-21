@@ -84,9 +84,6 @@
 -- fibres agrees, and a denial is merely the cheapest way to prove that
 -- permission absent.  ¬ß5 below carries the ‡‡‡ into that theorem, so the
 -- fourth position is a written obstruction and not a shrug.
---
--- CHECKED: Agda 2.8.0, cubical (homebrew), --cubical --safe, exit 0.
--- No postulates, no holes.
 ------------------------------------------------------------------------
 
 module SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext where
@@ -414,17 +411,15 @@ private
   false‚â¢true (cong ‡§Æ‡§æ‡§®‡§Æ‡•ç (h (‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø (tt , false)) (‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø (tt , true))))
 
 ------------------------------------------------------------------------
--- ¬ß8  The relation to the label lane, settled 2026-08-20.
+-- ¬ß8  The relation to the label lane.
 --
--- This module and `Saptabhangi.agda` / `SaptabhangiSamyoga_TheComposition
--- OfVerdicts.agda` were left deliberately unreconciled, and both headers
--- named one open question: is the forgetful map records ‚í labels a
+-- Is the forgetful map records ‚í labels a
 -- homomorphism for krama, for saha, or for neither?
 --
--- Checked in
+-- Answered in
 --   Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndThe
 --     LabelsAreARetractNotAnEquivalence.agda
---   (--cubical --guardedness --safe, exit 0, no postulates, no holes):
+--   as follows:
 --
 --   * BOTH.  ‡‡®‡∞‡‡‡‡Æ‡ (this file's positions, read with the naya UNASSERTED
 --     ‚î Tattvrthastra 5.31's ‡‡®‡∞‡‡‡ø‡) commutes with ‡ï‡‡∞‡Æ‡æ‡∞‡‡‡‡Æ‡ and with

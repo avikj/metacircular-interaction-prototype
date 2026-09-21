@@ -15,12 +15,8 @@
 -- remainder RECURSES: à˜à¾à r (suc n) â‰¡ à˜à¾à r n Â r, definitionally â” each
 -- stage's remainder is the previous remainder carried once more.
 --
--- The convergence statement (remainder â’ 0 for |r| < 1) still needs
--- â/â and remains where Madhava.agda left it: unstated, not falsely
--- proven.  What this module adds is that the FINITE essence needs no
+-- What this module adds is that the FINITE essence needs no
 -- limit at all.
---
--- Composed through à¨à¾à¡à against the warm kernel.
 ------------------------------------------------------------------------
 
 module SesaRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecurses where

@@ -4,21 +4,15 @@
 -- BhavanaAssoc â” associativity of bhvan as an EQUALITY AFTER TRANSPORT,
 -- with every coordinate identity rederived by the ring solver.
 --
--- THE ABSENCE.  `BhavanaGenerative.agda` Â§5 says of the unit-norm
--- composition:
---
---     NOT "as a monoid": associativity is unproved (see Â§7).  Closure and a
---     unit are what is shown.
---
--- and Â§7 of the same module explains why an earlier attempt stopped at the
--- coordinates: the two associations live at DIFFERENT norm indices,
+-- THE SETTING.  In `BhavanaGenerative.agda` the two associations of the
+-- composition live at DIFFERENT norm indices,
 -- `Sol D (kâ Â (kâ Â kâ))` and `Sol D ((kâ Â kâ) Â kâ)`, so `â‰¡` cannot even
 -- be written between them without first bringing the indices together.
 --
--- WHAT IS ALREADY THERE, STATED HONESTLY.  The Â§5 sentence is stale inside
--- its own file: Â§7 of `BhavanaGenerative` now assembles `âŠAssoc`, `âŠComm`,
--- `âŠIdR`, `âŠIdL` as PathPs over `ÂAssoc`/`ÂComm`/`ÂIdR`/`ÂIdL`, and the
--- module checks.  Those are DEPENDENT paths.  What that file does NOT
+-- WHAT IS ALREADY THERE.  Section 7 of `BhavanaGenerative` assembles
+-- `âŠAssoc`, `âŠComm`,
+-- `âŠIdR`, `âŠIdL` as PathPs over `ÂAssoc`/`ÂComm`/`ÂIdR`/`ÂIdL`.
+-- Those are DEPENDENT paths.  What that file does NOT
 -- state, for general norm indices, is the non-dependent form the Â§7 note
 -- describes as the obstacle â” an equality in ONE type, after transporting one
 -- side along the ring identity â” and it reaches equality of `Sol` records
@@ -47,11 +41,10 @@
 -- route through Â§7's PathPs.  The final lemma then checks that the two routes
 -- agree, which they must since `Sol D k` is a set.
 --
--- WHAT IS NOT PROVED.  Nothing about injectivity or growth of the chain
+-- SCOPE.  Nothing about injectivity or growth of the chain
 -- (that is `NoReturn_â¦`'s business); nothing new about `_âŠ_`; and no
 -- packaging of the graded family as a graded monoid object, since the corpus
--- has no such structure to package into.  No lemma is missing for what is
--- claimed above.
+-- has no such structure to package into.
 ------------------------------------------------------------------------
 
 module BhavanaAssoc_TheBhavanaCompositionIsAssociativeAsAnEqualityAfterTransportAndTheSolverRederivesEveryCoordinateIdentity where

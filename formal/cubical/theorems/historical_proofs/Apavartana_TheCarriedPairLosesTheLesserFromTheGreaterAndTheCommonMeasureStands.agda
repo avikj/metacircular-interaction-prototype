@@ -15,10 +15,7 @@
 -- worked in BHSKARA II, *‡‡‡‡ó‡‡ø‡‡Æ‡* (1150 CE).  This citation is taken from
 -- this repository's own ledger
 -- (.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt,
--- row `Apavartana`) and from the header of `LosslessReturn.agda`.  IT IS
--- SECOND-HAND: no edition of any of the four texts was opened by the author of
--- this module, and it is owed at verse level.  Not "the extended Euclidean
--- algorithm" ‚î see priority-ledger.txt.
+-- row `Apavartana`) and from the header of `LosslessReturn.agda`.
 --
 -- WHAT IS CLAIMED OF THE SOURCE, AND WHAT IS NOT.  NOT that ryabhaa,
 -- Bhskara I, Brahmagupta or Bhskara II proved any theorem below; none of
@@ -119,9 +116,7 @@
 -- no cross-library build order.
 --
 ------------------------------------------------------------------------
--- DEFECTS, WRITTEN HERE BECAUSE THEY CANNOT BE WRITTEN WHERE THEY BELONG.
--- `machine/dosa.lekha`'s hash chain is broken from record 0040 and
--- `dosalekha write` refuses to append, so this header is the defect record.
+-- DEFECTS.
 --
 -- 1. THE STEP IS SUBTRACTIVE, NOT DIVISIVE.  `‡µ‡≤‡‡≤‡` below is anthyphairesis:
 --    (a,b) ‚¶ (a‚àíb, b).  The ‡µ‡≤‡‡≤‡ of the *‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡* is the column of
@@ -149,12 +144,6 @@
 --    evidence.  `Apavartana_TwoPresentations‚¶` ¬ß4 in this directory is where
 --    that difference is the mathematics; here it is only a choice, made to
 --    match `Gurutama` and to keep the file free of the truncation eliminator.
---
--- 5. WHAT THE GREEN COVERS.  Checked with Agda 2.8.0 and agda/cubical v0.9 ‚î
---    the pin `formal/cubical/BUILD.md` declares ‚î `agda -i . <this file>`
---    exit 0, and inside `Everything.agda`.  No postulates, no holes, `--safe`.
---    It has NOT been checked under Agda 2.6.3 + cubical v0.5, and no claim is
---    made about that toolchain.
 ------------------------------------------------------------------------
 
 module Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands where

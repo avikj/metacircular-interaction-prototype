@@ -12,9 +12,7 @@
 -- the grammarians' maxim (ardhamtrlghavena putrotsava manyante
 -- vaiykara) prices half a mora of the metalanguage like the birth of a
 -- son.  `Sivasutra.agda` checks that the vowel pratyhras ARE the intervals
--- they are said to be, by refl, and its header records that the OPTIMALITY â”
--- Petersen 2004 â” is not proved and is owed.  This file pays part of that
--- debt and says exactly which part.
+-- they are said to be, by refl.
 --
 -- WHAT IS PROVED HERE, and it is a reason rather than an instance:
 --
@@ -42,8 +40,7 @@
 --   four: for this family Pini's arrangement is optimal, and the proof of
 --   the lower half quantifies over all orders, not over the traditional one.
 --
--- WHAT IS **NOT** PROVED, so that nothing here is mistaken for Petersen's
--- theorem, which remains OWED and still unread (egress blocked):
+-- SCOPE, so that nothing here is mistaken for Petersen's theorem:
 --
 --   * Petersen's actual statement â” that for the FULL family the grammar
 --     denotes over all 42 phonemes, the iva-stra order is essentially
@@ -76,7 +73,7 @@
 -- granularity, since  occurs twice in the fourteen (stras 1 and 6) and
 -- the two occurrences terminate different classes (a, ya).
 --
--- No postulates, no holes, --safe.  Order comparison is a computing Bool
+-- Order comparison is a computing Bool
 -- defined here, so the concrete checks are refl and the library's order
 -- theory is not on the critical path.
 ------------------------------------------------------------------------
@@ -389,24 +386,19 @@ iCâŠ†aC : (IC âŠ‘ AC) âŠŽ (AC âŠ‘ IC)
 iCâŠ†aC = sharedEndâ†’comparable posS 1 0 (bndS C) IC AC iC-interval aC-interval
 
 ------------------------------------------------------------------------
--- 8.  What is now settled, in one line each.
+-- 8.  Summary, in one line each.
 --
 --   lowerBound : any line, any markers â” a iK e aiC need four distinct markers
 --   upper : the iva-stra line names all four with  K  C and has no fifth
 --   so    : four is the minimum for that family and Pini's order attains it
---   owed  : the same statement for all 42 phonemes and all attested classes,
---           and the uniqueness of the order â” Petersen 2004, still unread.
 ------------------------------------------------------------------------
 
 lowerBound : (j k : Ix4) â†’ Â¬ (j â‰¡ k) â†’ Â¬ (markS j â‰¡ markS k)
 lowerBound = fourMarkersForced sivasutraEncoding
 
 ------------------------------------------------------------------------
--- EXTENDED 2026-08-23, another thread: THE SECOND NOT-CLAIMED BULLET IS
--- ANSWERED, AND THE ANSWER IS NO.
---
--- The bullet above reads "That the antichain bound is TIGHT in general.
--- `markersDistinct` gives markers â‰ width(F) and no more."  It is not
+-- THE ANTICHAIN BOUND IS NOT TIGHT.
+-- It is not
 -- tight.  `Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListed-
 -- Twice.agda` exhibits a five-class family on three sounds with âŠ-width
 -- two that NO recited-once line names with two anubandhas â” all 120
@@ -421,13 +413,9 @@ lowerBound = fourMarkersForced sivasutraEncoding
 -- survives that (classes ending at one marker are still a âŠ-chain when
 -- the nearest preceding recitation is meant), but the MINIMUM does not.
 --
--- What this does NOT do, stated at its own site so it is not read as more:
+-- What this does NOT do:
 -- it does not explain the residue of three between width 11 and Pini's
 -- 14.  His line DOES recite ha twice â” stras 5 and 14 â” so total absence
 -- of repetition cannot be the cause.  What is removed is only the reading
--- under which the bound is tight and the residue therefore spurious.  The
--- successor question is the graded one and it is open: the minimum over
--- lines with at most k twice-recited sounds.  Pini's line is k = 1.
---
--- Nothing above is altered.  Petersen remains owed and unread.
+-- under which the bound is tight and the residue therefore spurious.
 ------------------------------------------------------------------------

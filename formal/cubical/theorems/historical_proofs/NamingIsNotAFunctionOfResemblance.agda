@@ -11,7 +11,7 @@
 -- similarities as INPUT and quarantines the derived ones.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE SCHOOLS, NAMED BEFORE THEIR TERMS, AND THE DISPUTE LEFT OPEN
+-- THE SCHOOLS, NAMED BEFORE THEIR TERMS, AND THE DISPUTE NOT ADJUDICATED
 --
 -- NYYA (Gautama, *Nyyastra* 1.1.6; Vtsyyana's *Nyyabhya* on it,
 -- c. 400â“450 CE) holds upamna â” knowledge from similarity to what is
@@ -42,20 +42,15 @@
 -- on what the outside is.  Agreement in verdict does not license
 -- collapsing the grounds, so neither is adjudicated here.
 --
--- SOURCING LIMIT, stated and not evaded.  The *Nyyastra*, the
--- *Nyyabhya*, the *Tattvacintmai*, the *Pramasamuccaya* and the
--- *lokavrttika* have NOT been opened by me.  Every attribution above
+-- SOURCING.  Every attribution above
 -- is carried from `machine/Upamana.hs`, which sources and dates them in
--- its Â§0 and which I read this cycle.  Verse-level sourcing OWED AND NOT
--- CLAIMED.
+-- its Â§0.
 --
 -- Â§6 empirical control (whether what it transports lies inside the
 -- engine's enumeration reach); that is its measurement and its result,
 -- untouched here.  Not that resemblance is useless: Â§2 says only that it
 -- does not DETERMINE the naming.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NamingIsNotAFunctionOfResemblance where

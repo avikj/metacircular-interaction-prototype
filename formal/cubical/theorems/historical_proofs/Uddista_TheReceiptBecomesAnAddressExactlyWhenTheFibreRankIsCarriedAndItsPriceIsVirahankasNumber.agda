@@ -8,9 +8,7 @@
 --  of ranks it must carry at weight n is Virahka's number.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- RECOGNITION FIRST, because this repository keeps rebuilding what it
--- already owns.  Everything this module needs was ALREADY PROVED here
--- and nothing of it is reproved:
+-- WHAT IS ALREADY PROVED, and not reproved here:
 --
 --   `PingalaPrastara.matrameruIso`  Metre (2+n) ‚â Metre (1+n) ‚ä Metre n
 --   `PingalaPrastara.matraCount`    Metre n ‚â Fin (matra n)
@@ -23,10 +21,8 @@
 --   `Pata_‚¶`                        ‡µ‡‡®‡Æ‡ (receipt, unconditional) and
 --                                   ‡‡‡æ (address, iff identification)
 --
--- So "the mtr fibre's recurrence, as an equivalence and not a count"
--- is DONE, twice, and was done before this file was opened.  What was
--- NOT anywhere is the statement those files jointly set up and none of
--- them makes: the exact repair of `Pata_‚¶`'s denial.
+-- What none of them states is the statement they jointly set up:
+-- the exact repair of `Pata_‚¶`'s denial.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT IS PROVED HERE.
@@ -79,16 +75,11 @@
 -- recurrence is usually cited under Fibonacci's name (1202); that is a
 -- restatement, named here after the source and as one.
 --
--- SECOND-HAND, and marked as such.  None of these texts has been opened
--- by the author of this file.  Every citation above is carried from
+-- SECOND-HAND.  Every citation above is carried from
 -- `formal/cubical/PingalaPrastara.agda`,
 -- `formal/cubical/Chandomudra_‚¶agda` and this repository's ledger
 -- `.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
--- (row `Nasta|Uddista`, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ.‡®‡‚ì‡®‡), and is owed at verse
--- level.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
+-- (row `Nasta|Uddista`, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ.‡®‡‚ì‡®‡).
 ------------------------------------------------------------------------
 
 module Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFibreRankIsCarriedAndItsPriceIsVirahankasNumber where

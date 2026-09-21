@@ -44,27 +44,8 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
---   ¬ UNIQUENESS IS NOT PROVED.  ¬ß‡ produces *a* list; nothing here says
---     two such lists are permutations of each other.  ¬ß‡Æ proves the
---     support is canonical ‚î WHICH primes occur is fixed by n ‚î and says
---     nothing about HOW MANY times each occurs.  So the multiplicities
---     are not shown well defined, and consequently
---   ¬ v_p IS NOT DEFINED HERE at all, and `‚à_p p^(v_p n) ‚â° n` is NOT the
---     statement proved.  What is proved is the surjection: every n ‚â 1 is
---     SOME product of primes, and the prime support is determined.  The
---     step from "some" to "the" is the uniqueness half, and it is absent.
---   ¬ ¬ß‡Ø's fibre is shown INHABITED, not contractible.  Contractibility
---     of that fibre IS unique factorisation, and it is exactly what is
---     missing; the module is careful to state only the inhabitation.
---     (Contrast `Sarvasthana` ¬ß‡, where the fibre of the conservation
---     observable over zero is *everything* ‚î proved there, and a fact of
---     a different kind: blindness, not rigidity.)
 --   ¬ NOTHING about ‚À, negatives, valuations on a field, or the product
 --     formula.  This module never leaves ‚ï.
---   ¬ The finite places of `Sarvasthana` are still not identified with
---     the firm numbers here; that module's ‚ï index remains an index.
---     What this module supplies is the fact that WOULD justify such an
---     identification for the finite half ‚î nothing more.
 --
 --
 -- ‡¶‡‡ ¬ dha ‚î "firm, solid, that which stands after abrasion".  In the
@@ -97,8 +78,6 @@
 -- kuaka is ‚î which is a remark about the substrate, not a priority
 -- claim about VII.30.
 --
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision where
@@ -313,8 +292,7 @@ x ‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É (y ‚à∑ ys) = (x ‚â° y) ‚äé (x ‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É ys)
 --     For the list ¬ß‡ produced from n, and for any firm p:
 --         p divides n   ‚î   p occurs in that list.
 --     So WHICH firm numbers see n is fixed by n and not by the run of the
---     search.  HOW MANY TIMES each occurs is NOT settled here, and that
---     gap is exactly unique factorisation.
+--     search.  HOW MANY TIMES each occurs is NOT settled here.
 ------------------------------------------------------------------------
 
 ‡§∏‡•ç‡§•‡§æ‡§®-‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É : (n : ‚Ñï) (pos : 0 < n) (p : ‚Ñï) ‚Üí ‡§¶‡•É‡§¢‡§Æ‡•ç p

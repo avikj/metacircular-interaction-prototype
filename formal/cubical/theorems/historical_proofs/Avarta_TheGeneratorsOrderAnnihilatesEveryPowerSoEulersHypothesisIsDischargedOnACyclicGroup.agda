@@ -7,7 +7,7 @@
 --  so RSA's single hypothesis is discharged where RSA actually lives.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- THE SUCCESSOR THIS FILE PAYS, NAMED BY THE MODULE THAT OWED IT.
+-- THE HYPOTHESIS RSA RESTS ON, DISCHARGED ON A CYCLIC GROUP.
 --
 -- `Bijamula_TheRSAPrivateKeyIsThePulverizersWitnessAndDecryptionIs
 -- PingalasExponentiation.agda` isolates RSA to one fact and says so
@@ -17,11 +17,7 @@
 --      else is Pigala's fold and ryabhaa's witness, both already
 --      checked."
 --
--- It is the hypothesis, not a lemma ‚î deliberately, because the point is that
--- RSA's correctness isolates to exactly this one fact. Proving it (order
--- divides œ, Lagrange) is a clean owed successor."*
---
--- ¬ß‡® is that successor, in the one case where it is one line ‚î and that
+-- ¬ß‡® proves that fact in the one case where it is one line ‚î and that
 -- case is not a toy.  `BijamulaKrida_‚¶agda` establishes the ground:
 -- (‚/n)À for a semiprime is a product of two CYCLIC groups, so a cyclic
 -- factor is one CRT component of a real decryption, and it is where the
@@ -37,9 +33,9 @@
 -- the arithmetic of exponents rather than by counting cosets ‚î which is
 -- the whole reason this case is separable from the general one.
 --
---   * LAGRANGE, or Euler's theorem for a general finite group.  Not
---     proved, not approached.  The general case needs cosets and
---     cardinality; nothing below counts anything.  ¬ß‡® is the cyclic case
+--   * LAGRANGE, or Euler's theorem for a general finite group, is not
+--     needed here; nothing below counts anything.
+--     ¬ß‡® is the cyclic case
 --     and is stated as the cyclic case.
 --   * THAT (‚/n)À IS CYCLIC-BY-CRT.  Cited in `BijamulaKrida`'s header as
 --     a classical fact and not proved in either file.  ¬ß‡© therefore
@@ -63,13 +59,10 @@
 -- fold) is Pigala's procedure, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ (~300 BCE), and the
 -- kuaka whose witness supplies e¬d ‚â° œ¬k+1 is ryabhaa's,
 -- ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡ ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡© (499) ‚î both cited from the sibling module and
--- from this repository's own MulaVakya ledger, second-hand, owed at verse
--- level.  The group theory is not Indian and is not dressed as Indian:
+-- from this repository's own MulaVakya ledger, second-hand.
+-- The group theory is not Indian and is not dressed as Indian:
 -- CLAUDE.md's naming note 2 says to state that rather than invent a label,
 -- and it is stated.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Avarta_TheGeneratorsOrderAnnihilatesEveryPowerSoEulersHypothesisIsDischargedOnACyclicGroup where

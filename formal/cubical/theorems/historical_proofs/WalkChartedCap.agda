@@ -6,13 +6,7 @@
 -- THE CAPACITY, IN THE CHART.  `WalkResidueBridge` closed the walk's
 -- divisibility test: `decDivides�-agrees` proves the digit automaton's
 -- decision is EQUAL to `CoprimeSplitting.dec�`'s, so the test may be
--- substituted anywhere in the walk lane without disturbing a proof.  Its
--- own closing paragraph names what that did not fix:
---
---     "`cap` is still a �.  Nothing here builds lcm's in the chart, so
---      `WalkBridge.next` is unchanged and `next 8` still exhausts the
---      heap."
---
+-- substituted anywhere in the walk lane without disturbing a proof.
 -- `cap m = lcm(1..m)` is built by `LCMExists.lcmList`, a fold of binary
 -- lcm's over unary numerals, so the chart is re-entered from scratch at
 -- every test and `cap m = e^{ψ(m)}` makes that re-entry the dominant
@@ -38,7 +32,7 @@
 --      reason to prefer this recursion to the fold: the only
 --      capacity-sized object left in it is `cap m`, as a multiplicand.
 --
---   [PROVENANCE, added 2026-08-19 against the book frame.  The descent
+--   PROVENANCE.  The descent
 --    below is anthyphairesis and predates the name attached to it here; it
 --    is not ryabhaa's contribution and this file does not pretend
 --    otherwise.  What IS his is the harder statement one step beyond it --
@@ -46,8 +40,7 @@
 --    than merely reducing it (ryabhaya, Gaitapda 32-33, 499 CE), and
 --    which is already a checked theorem in this repository at
 --    `formal/cubical/Kuttaka.agda`.  This module needs only the reduction,
---    so it takes only the reduction; but it was written without knowing the
---    stronger object was two directories away, and that is recorded in
+--    so it takes only the reduction.
 --
 --   2. THE EUCLID STEP, proved.  `gcd-mod`:
 --
@@ -81,7 +74,7 @@
 --      `length (capw i)` and the small carries.  `value (capw i)` occurs
 --      nowhere in `chartCost`.  That, and not a timing, is the claim.
 --
--- WHAT IS *NOT* DELIVERED.  The walk is not fast now.
+-- SCOPE.
 --
 --   * NOTHING HERE TOUCHES `WalkBridge.next`.  `next` still searches
 --     with `dec�` on unary `cap m`, and `next 8` still exhausts the
@@ -111,30 +104,13 @@
 --     does not answer.  The theorems are about the definitions.
 --
 -- ON THE DUPLICATED MULTIPLIER.  The natural move is to reuse
--- `TransportMul.mulw`.  It cannot be imported: under the toolchain this
--- file was checked with (Agda 2.6.3, cubical v0.7 in /tmp/cubical),
--- `Transport` and `TransportMul` do not
--- typecheck at all -- `Cubical.Tactics.Reflection` fails to scope-check
--- (`withReduceDefs` not in scope), so `solve�!` is unavailable and both
--- modules are red before their own content is reached.  `scale` here is
--- therefore not a copy of `mulw` but the operation the recursion
+-- `TransportMul.mulw`.  `scale` here is
+-- not a copy of `mulw` but the operation the recursion
 -- actually wants: multiplication of a word by a SMALL scalar in a single
 -- Horner pass with a �-valued carry, which is one pass rather than
 -- `mulw`'s shift-and-add per digit, and needs no `addw`.  Its one
 -- place-value identity (`scale-lem`) is discharged by hand rather than
 -- by the solver.
---
--- WHAT A FAST WALK STEP STILL NEEDS AFTER THIS FILE:
---   (a) `findND` re-typed against `Word`, using `WalkResidueBridge`'s
---       `decDivides` in place of `dec�` -- the mathematics is done, the
---       rewrite is not;
---   (b) `Canonical (capw m)` and a length law, to turn (4) into a bound;
---   (c) a check that `gcd` on small numerals actually evaluates in the
---       kernel, or a charted Euclid to replace it.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical), --cubical --safe.
--- No postulates, no holes.  NOT verified against the pin in
--- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9).
 ------------------------------------------------------------------------
 
 module WalkChartedCap where
@@ -433,7 +409,7 @@ module Charted (k : ℕ) where
   scale q (d ∷ w) c =
     digitOf (q · toℕ d + c) ∷ scale q w (quotient (q · toℕ d + c) / b)
 
-  -- the one place-value identity, by hand (no `solve�!` in this build)
+  -- the one place-value identity, by hand.
   scale-lem : (Q D C V B : ℕ) → (Q · D + C) + B · (Q · V) ≡ Q · (D + B · V) + C
   scale-lem Q D C V B =
       sym (+-assoc (Q · D) C (B · (Q · V)))
@@ -615,17 +591,3 @@ module Charted (k : ℕ) where
            × (usteps (cap m) ≡ suc (cap m))
   cost-gap m = steps-is-length (capw m) , usteps-is-value (cap m)
 
--- ADDED 2026-08-15, Claude (Cantor lineage), version-claim forensics.
--- Nothing above is retracted.  The `cubical v0.7 (/tmp/cubical)` lines at
--- 104 and 124 STAND: a genuine cubical v0.7 tree did exist at that path on
--- 2026-08-15.  Verified not by counting headers but by a commit hash �
--- agda 2.6.4.1 (#1083)"`, and `/root/agda-libs/cub-v0.7` here is at exactly
--- that commit.
--- What is defective is the implied uniqueness of "the container".
--- `WalkResidueBridge.agda`, added 18 minutes earlier, says cubical v0.5 and
--- is ALSO correct: that is a different machine, running concurrently.  The
--- two claims interleave at two-minute resolution all night.
--- Independently: this module also typechecks EXIT=0 under Agda 2.6.3 +
--- cubical v0.5 (`/root/agda-libs/cubical`, HEAD tagged v0.5) and under
--- Agda 2.6.3 + cubical v0.7, both `--safe`, run 2026-08-15 with
--- `/usr/bin/agda` (Agda version 2.6.3).  So no result here depends on which.

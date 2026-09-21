@@ -11,16 +11,9 @@
 --
 -- `AntyaSamskaraSthaulya` checks, one at a time, that the first four
 -- end-corrections to Mdhava's series have ‡‡‡‡‡≤‡‡Ø numerator constant in
--- n, and says in ¬ß7 that the general statement ‚î every convergent, not
--- just four ‚î "is not proved here and is not being asserted from four
--- cases.  It is what the four cases make worth proving, and the proof
--- would have to come from the continued fraction's determinant
--- recurrence, not from the list."
---
--- This module is that proof.  Not from the list, and not four more
--- cases: the degree-10 identity for k = 5 does not get past the ring
--- solver in twenty minutes, which is the checker saying that generating
--- instances was the wrong move.
+-- n.
+-- This module proves it for every convergent, from the continued
+-- fraction's determinant recurrence rather than from the list.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- THE STATEMENT
@@ -91,15 +84,11 @@
 -- The corrections are transmitted in the Kerala texts, the *Yuktibh*
 -- (Jyehadeva, c. 1530) and the *Tantrasagraha* tradition (Nlakaha,
 -- 1501), attributed there to Mdhava (c. 1340‚ì1425).  The ‡‡‡‡‡≤‡‡Ø
--- criterion is the tradition's; I have it from secondary sources and
--- itemises exactly what was and was not read.  The continued fraction
+-- criterion is the tradition's.
+-- The continued fraction
 -- is Krishna's, who reports that the Kerala texts give no rationale for
--- the third correction.  The theorem below is not in either place as far
--- as I know, and if it is, this is a rediscovery and the citation
--- belongs here.
+-- the third correction.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module SthaulyaIsTheOmittedTerm where
@@ -340,29 +329,20 @@ module Sthaulya (R : CommRing ‚Ñì) where
 
 ------------------------------------------------------------------------
 --
--- The commit that introduced this theorem, and ¬ß7 of
--- `AntyaSamskaraSthaulya`, both say that the ‡‡‡‡‡≤‡‡Ø "drops by exactly two
+-- THE ORDER STATEMENT: that
+-- the ‡‡‡‡‡≤‡‡Ø "drops by exactly two
 -- orders in n at each step", on the ground that deg k_k = k makes it a
 -- constant over a polynomial of degree 2k+1.
 --
--- That sentence is not checked anywhere and it is not checkable in this
+-- That statement is not checkable in this
 -- lane.  Everything above is an identity between ring elements, and a
 -- commutative ring has no notion of degree, of leading coefficient, or
 -- of order at infinity.  Cross-multiplying is exactly the move that
 -- discards them ‚î which is what makes the constancy theorem provable
 -- without analysis, and what makes the order statement unavailable by
--- the same act.  Proving it needs the convergent denominators carried as
--- COEFFICIENT SEQUENCES rather than as ring-valued functions, together
--- with a vanishing-above-k lemma and the Horner link back to `kk`.  That
--- is a different development, and it is not this one.
+-- the same act.
 --
--- The claim is elementary and I believe it: k‚ = 1, k‚ = 4n, and
--- k_{i+2} = 4n¬k_{i+1} + a_{i+2}¬k_i adds a degree-(i+2) term to a
--- degree-i one with no cancellation possible, the leading coefficient
--- being 4^k.  Believing it is not checking it, and it sits here labelled
--- rather than in a header stated as a consequence.
---
--- `sthaulya-ratio` is what survives the scoping, and it is the exact
+-- `sthaulya-ratio` is the exact
 -- statement the loose one was reaching for:
 --
 --     D_{k+1}  =  ‚àía_{k+2} ¬ D_k
