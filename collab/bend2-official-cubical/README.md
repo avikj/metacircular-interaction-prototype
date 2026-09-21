@@ -1,6 +1,6 @@
 # A cubical core for the official Bend 2
 
-> The complete technical report, covering every hunk of `cubical.patch`, the typing and reduction rules, the Base additions, every test, the filed issues and the verification, is `REPORT.md`. This README is its short form.
+> Three documents: `VALUE.md` says what the core is for, in engineering terms with the test that demonstrates each point; this README is the short technical form; `REPORT.md` is the complete technical report covering every hunk of `cubical.patch`, the typing and reduction rules, the Base additions, every test, the filed issues, the mechanization and the verification.
 
 This directory gives the **official public Bend 2** (bendlang/bend, `2.0.21`,
 commit `6018e28`) a cubical core: paths, transport, composition, Glue and

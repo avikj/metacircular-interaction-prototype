@@ -11,7 +11,10 @@ changed line does. Every hunk of `cubical.patch` is covered below, by its
 anchor in the patch (the `@@ -upstream_line` marker and the patch's own line
 number), so that a reader with the patch open can follow it byte by byte.
 
-The artifact is four things:
+For what the core is *for*, in engineering terms, read `VALUE.md`. This
+report is the how and the why of every line.
+
+The artifact is five things:
 
 | path | what it is |
 | --- | --- |
@@ -19,6 +22,7 @@ The artifact is four things:
 | `tests/cubical/*.bend` (31 files) and `issue_874.js` | the tests, in upstream's own format: a Bend file that ends in the `#\|` lines its run must print |
 | `run.sh` | clones upstream at the pinned commit, applies the patch, runs the cubical tests (check + interpret; the compiled ones on the JS lane and on the C lane when clang is present), then upstream's interpreter-lane suite |
 | `README.md` | the short form of this report |
+| `VALUE.md` | the engineering case: what can now be written, what cannot go wrong, what it costs, each point tied to a test |
 
 The other implementation this port descends from is `collab/bend2-cubical`
 (the HVM3 interaction-net fork). Nothing was copied: that runtime and this
