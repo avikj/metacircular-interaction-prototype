@@ -70,23 +70,12 @@
 -- and saying so precisely is the point of writing it down rather than
 -- gesturing at it.
 --
--- **Noether's SECOND theorem is closer and still not derived here.**  It
--- says a local (gauge) symmetry yields a constraint rather than a
--- conserved charge, which in this vocabulary is the degenerate case:
--- when the flow is transitive on a fibre the whole fibre is one physical
--- state and there is no charge to carry.  ¬ß‡© exhibits that degeneracy
--- but does not prove the general dichotomy; transitivity is not stated.
---
--- Emmy Noether is credited for the theorem this is named after and for
--- nothing below, and no  source states any of it.
---
 -- TERM.  ‡ß‡‡∞‡‡µ ‚î fixed, immovable, the pole star; and in the
 -- astronomical tradition ‡ß‡‡∞‡‡µ‡∞‡æ‡‡ø / ‡ß‡‡∞‡‡µ‡ï is the technical term for a
 -- CONSTANT quantity in a computation, the term that does not vary as the
 -- others are stepped (ryabhaa, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡, 499, and standard in the
--- siddhntas after).  LIMIT: attested for a constant of calculation; its
--- use here for a conserved quantity of a flow is this corpus's, and no
--- text is claimed for the application.
+-- siddhntas after).  Its
+-- use here for a conserved quantity of a flow is this corpus's.
 ------------------------------------------------------------------------
 
 module Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry where
@@ -153,8 +142,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) where
 -- trivial in the only sense available ‚î any two points of it are equal,
 -- so moving is indistinguishable from staying.  That is the shape of
 -- Noether's SECOND theorem's conclusion (pure gauge: the whole orbit is
--- one physical state) exhibited at the smallest fibre, and it is NOT the
--- general dichotomy, which needs transitivity and is not stated here.
+-- one physical state) exhibited at the smallest fibre.
 ------------------------------------------------------------------------
 
   ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§≠‡§æ‡§∞‡§É : (b : B) ‚Üí isContr (fiber f b)

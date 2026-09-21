@@ -4,8 +4,7 @@
 -- RootedIndraTotal
 --
 -- Delta 25's exact finite bridge: a rooted view is a jewel together with
--- the total view it carries.  This is a dependent total space, not a claim
--- that all roots are equal and not a completed final coalgebra.
+-- the total view it carries.  This is a dependent total space.
 ------------------------------------------------------------------------
 
 module RootedIndraTotal where

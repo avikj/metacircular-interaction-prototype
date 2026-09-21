@@ -4,7 +4,7 @@
 -- ‡®‡ø‡‡‡‡‡¶-‡‡‡Æ‡æ ‚î the boundary of silence.  The edge that makes the
 -- stratum grammar sharp.
 --
--- THE QUESTION, asked because its answer was not known to the asker.
+-- THE QUESTION.
 -- ‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ (ArpanaSopana): stratum 3+m, looped m+1 times, utters
 -- œ‚‚ä‚ò(A) ‚î for every pointed A.  ‡Æ‡‡®‡Æ‡/‡‡∞‡‡µ‡Æ‡‡®‡Æ‡ (Mauna, SarvaMauna):
 -- for a TRUNCATED space, strata above its level are silent.  But what is

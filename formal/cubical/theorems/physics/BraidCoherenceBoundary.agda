@@ -3,10 +3,8 @@
 ------------------------------------------------------------------------
 -- BraidCoherenceBoundary
 --
--- A bounded exact response to UP-D0025, T25.E.  The word "braid" and
+-- The word "braid" and
 -- invertibility of two arbitrary proposed generators do not supply a braid
--- action.  This control does not address generators induced from one shared
--- local binary crossing, which would be strictly more structure.
 -- The Yang--Baxter equation is additional coherence data that must be
 -- proved.  On three Boolean strands we exhibit both sides of the boundary:
 --
@@ -14,10 +12,6 @@
 --   satisfy sigma1 sigma2 sigma1 = sigma2 sigma1 sigma2;
 -- * Boolean negation on the first coordinate and the identity are also
 --   involutive equivalences, but fail that equation at a named point.
---
--- This does not decide whether any historical three-lens EGB cycle has an
--- associator, hexagon, Yang--Baxter witness, or holonomy.  It proves the
--- control needed before such a structure can be inferred.
 ------------------------------------------------------------------------
 
 module BraidCoherenceBoundary where

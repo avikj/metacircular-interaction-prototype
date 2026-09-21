@@ -8,9 +8,8 @@
 -- SQUARE OF THE SPIN OPERATOR IS THE OUTER PRODUCT MINUS THE NORM.
 --
 -- `SahagunaVaha` proves the two production terms of an affine field
--- cancel, and says in its scope statement that the vanishing of the
--- vorticity of a SYMMETRIC affine field was a `curl` fact it did not
--- formalize.  This module supplies it, and supplies it in both
+-- cancel; the vanishing of the vorticity of a SYMMETRIC affine field is
+-- the `curl` fact this module supplies, in both
 -- directions.
 --
 -- NO DIFFERENTIAL OPERATOR IS CONSTRUCTED, and none is needed.  A linear
@@ -42,23 +41,15 @@
 --       product and the anticommutativity of the cross product, and
 --       needs neither.
 --
---       WHAT IT GIVES A DEVIATORIC READING, stated as a reading and not
---       proved here: the two sides differ by a multiple of the identity,
+--       THE DEVIATORIC READING.  The two sides differ by a multiple of
+--       the identity,
 --       which any trace-free projection deletes.  So the antisymmetric
 --       part of a velocity gradient contributes to a trace-free strain
 --       law only through the outer product of the vorticity with itself
---       â” the `(wÂw)` term never survives.  The projection is not
---       constructed in this file, so the factor of a quarter carried by
---       the half in `Î© = Â½[Ï‰]` is part of that reading and not of Â§4.
+--       â” the `(wÂw)` term never survives.
 --
--- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“4 over any commutative ring, for every
--- matrix presented by three columns and every pair of vectors.  NOT
--- claimed: that `curlOf` agrees with a differential curl on any NON-
--- linear field â” Â§1 is exactly the reason no derivative is needed here
--- and exactly the limit of what it licenses; anything about vorticity as
--- a solution of an equation; the deviatoric reading of Â§4, which is
--- named as a reading above; and nothing about norms or magnitudes â”
--- `w Â w` is a ring element and no order relation exists in this file.
+-- Â§Â§1â“4 over any commutative ring, for every
+-- matrix presented by three columns and every pair of vectors.
 ------------------------------------------------------------------------
 
 module BhramaMatra_TheCurlOfALinearFieldIsTheAxialVectorOfItsAntisymmetricPartAndTheSpinSquareIsTheOuterProductMinusTheNorm where

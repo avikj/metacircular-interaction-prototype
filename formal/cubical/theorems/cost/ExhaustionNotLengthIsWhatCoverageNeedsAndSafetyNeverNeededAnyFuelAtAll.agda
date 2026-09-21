@@ -3,14 +3,6 @@
 ------------------------------------------------------------------------
 -- ExhaustionNotLengthIsWhatCoverageNeedsAndSafetyNeverNeededAnyFuelAtAll
 --
--- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- Pareto stratification and fuelled recursion are not objects I can
--- trace to an Indian source, and a fabricated  label would
--- assert a provenance nobody checked.  Checked before naming:
--- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
--- `.claude/hooks/european-frame.txt`; no row applies, and the frame
--- check's scope requires Indian material, of which this module has
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- 1.  THE ASYMMETRY IS THE REAL STATEMENT
 --
@@ -26,7 +18,7 @@
 -- from the output â” does not.**  That is not an accident of who proved
 -- what: under-fuelling truncates the recursion, and a truncated list of
 -- correct layers is still correct and still ordered.  It is only
--- shorter.  Â§4 of 4e2a577d exhibits the extreme case at fuel `0`, and
+-- shorter.  Fuel `0` is the extreme case, and
 -- the classification says why that case is the only kind of damage
 -- possible.
 --
@@ -41,7 +33,7 @@
 -- by killing the right disjunct with `theStratificationTerminates`.
 -- So the hypothesis coverage needs is not `lengthL xs â‰ n`; it is
 -- **`leftover n xs â‰¡ []`** â” that the fuel EXHAUSTED, not that it was
--- large.  Â§3 below states it that way, and 4e2a577d's
+-- large.  Â§3 below states it that way, and
 -- `theStratificationCoversAtEverySufficientFuel` becomes the corollary
 -- at `fuelSuffices`.
 --
@@ -54,7 +46,7 @@
 -- WHAT IS PROVED
 --
 --   coverageFromExhaustion   `leftover n xs â‰¡ []` â’ coverage at fuel `n`
---   coverageAtTheLength      the old statement, now a corollary
+--   coverageAtTheLength      coverage at the length, a corollary
 --   antichainOfTwo / exhaustsAtOne / lengthIsTwo
 --                            a two-member archive that exhausts at fuel
 --                            `1`, so the length bound is not necessary
@@ -91,7 +83,7 @@ coverageFromExhaustion n xs v ex m with coverageStep n xs v m
 ... | inl k = k
 ... | inr l = âŠ¥.rec (subst (Mem v) ex l)
 
--- the line's original statement, now a corollary rather than a theorem
+-- coverage at the length, as a corollary
 coverageAtTheLength :
   (xs : List (List â„•)) (v : List â„•)
   â†’ Mem v xs â†’ MemSome v (strata (lengthL xs) xs)
@@ -105,7 +97,7 @@ coverageAtTheLength xs v =
 -- stratum is the whole archive and the remainder is empty.  The fuel
 -- that exhausts is `1`; the length is `2`.  Both facts are `refl`, so
 -- the separation costs no argument at all â” which is the point, since
--- 4e2a577d's hypothesis would have demanded fuel `2`.
+-- the length hypothesis would have demanded fuel `2`.
 ------------------------------------------------------------------------
 
 antichainOfTwo : List (List â„•)

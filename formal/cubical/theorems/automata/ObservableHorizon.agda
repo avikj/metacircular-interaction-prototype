@@ -10,9 +10,7 @@
 -- `isBehavioralCongruence`, so the already-checked greatest-congruence
 -- theorem upgrades bounded equality to equality under every future word.
 --
--- This module deliberately does not port the visited-pair implementation.
--- Reachable-pair counts, shortest retained witnesses, and queue exhaustion
--- remain Lean evidence.  The adapter below transports only the shared
+-- The adapter below transports the shared
 -- semantic theorem, clause for clause, into the Cubical quotient surface.
 ------------------------------------------------------------------------
 

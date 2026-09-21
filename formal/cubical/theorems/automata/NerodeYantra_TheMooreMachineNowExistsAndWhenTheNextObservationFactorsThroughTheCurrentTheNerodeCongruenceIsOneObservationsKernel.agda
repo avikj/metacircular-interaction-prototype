@@ -3,12 +3,10 @@
 ------------------------------------------------------------------------
 -- ‡®‡‡∞‡ã‡°-‡Ø‡®‡‡‡‡∞ ‚î the machine, constructed.
 --
--- RESOLUTION OF A FORMER SCOPE LINE.  Abstract 15 proved the
+-- Abstract 15 proved the
 -- indistinguishability relation of a modular sensor family equal to
--- divisibility by the lcm, and its closing section said the automaton
--- itself was absent ‚î the automata-theoretic reading was offered, not
--- proved.  This file ends that: THE AUTOMATON NOW EXISTS, and the
--- reading is a theorem, in its strongest form:
+-- divisibility by the lcm.  Here the automaton is constructed and the
+-- automata-theoretic reading is a theorem, in its strongest form:
 --
 --   ¬ß1  A Moore machine is a transition function Œ¥ : S ‚í S (unary
 --       alphabet ‚î the input letter is "advance") with an observation
@@ -32,10 +30,9 @@
 --       readout.  Hence its Nerode congruence is computed ‚î two counts
 --       are Nerode-equivalent exactly when one readout agrees ‚î and
 --       with abstract 15's own theorem (agreement ‚â divisibility by 6)
---       the chain closes: Nerode class = residue mod lcm, now WITH the
---       machine, not about a machine-shaped absence.
+--       the chain closes: Nerode class = residue mod lcm.
 --
--- The connective tissue is this session's factoring law: a derived
+-- The connective tissue is the factoring law: a derived
 -- reading is blind on its source's fibres (ApurvaIndriyam), a derived
 -- sense adds no separation (UpakaranaVrddhi), and here the same
 -- factoring, pointed along time instead of between instruments, is

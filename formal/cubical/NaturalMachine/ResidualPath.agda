@@ -34,13 +34,12 @@
 -- `Ix n`, and with `wHere` -- the cost of staying home -- in place of the
 -- unit `∞`; `route n = detour (out n) (back n) (work n)` is a `⊗`-product
 -- of edge weights, so `Γ�` is a one-step `bellman` over the neighbour
--- relation.  The DSO lane got there first and got further on the algebra
+-- relation.  The DSO lane goes further on the algebra
 -- (associativity, `⊗`-distributivity, the `�`-monoid, `bellman-compose`);
 -- what is new here is only the direction this module adds, namely that the
 -- fold's value is witnessed by a member of the structure folded over --
 -- which `DSOMinPlusFinite.Argmin` already records for `foldMin`, as a
--- record rather than as a theorem.  The two lanes are one operator and
--- should eventually be one module.
+-- record rather than as a theorem.
 
 module NaturalMachine.ResidualPath where
 

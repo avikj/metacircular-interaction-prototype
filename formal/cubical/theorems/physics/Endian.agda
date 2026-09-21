@@ -19,8 +19,6 @@
 --     significant digit"  (DIGIT_CRYSTAL Thm 4.2's boxed intertwiner,
 --     proved here at word level).
 --
--- Everything below is at the level of finite words.  The profinite
--- statements of DIGIT_CRYSTAL Â§4.3 (Thm 4.4, Cor 4.5) are NOT
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (â„• ; zero ; suc)
@@ -110,9 +108,7 @@ rev-compw-comm (d âˆ· w) =
 -- All six inequalities are landed: D, E, DE differ from id (Dâ‰id,
 -- Eâ‰id, DEâ‰id) and from each other (Dâ‰E, DEâ‰D, DEâ‰E), each refuted
 -- pointwise on an explicit witness word.  This is the on-elements
--- content of "the Klein-four action is faithful"; the Kâ group object
--- itself and a homomorphism into Word â’ Word are NOT constructed here,
--- so "faithful" has no formal referent beyond this distinctness.
+-- content of "the Klein-four action is faithful".
 ------------------------------------------------------------------------
 
 headD : Word â†’ Digit
@@ -299,8 +295,7 @@ noRevÏ€Equivariance h = fzeroâ‰ fone (sym (cong headD (h w01)))
 -- 7.  Summary object: the Klein four data, packaged.
 --
 -- "Klein four" names the shape of this data (two commuting involutions
--- and their composite, all four elements pairwise distinct); no Group
--- instance is constructed.
+-- and their composite, all four elements pairwise distinct).
 ------------------------------------------------------------------------
 
 record ChartSymmetry : Typeâ‚€ where

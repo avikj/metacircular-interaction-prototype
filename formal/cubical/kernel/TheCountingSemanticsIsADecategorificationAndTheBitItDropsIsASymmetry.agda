@@ -30,7 +30,7 @@
 --       an EQUIVALENCE and every `Derivation` a composite of them --
 --       `add-zero` the right unitor, `add-suc` a shuffle, the congruences
 --       `âŠ-equiv`, and `reverse` `invEquiv`.  So the kernel's existing
---       calculus already had a univalent semantics; nobody had written it.
+--       calculus already had a univalent semantics.
 --   Â§3  Stepâº / Derivationâº: the calculus extended by ONE constructor,
 --       `add-comm`.  It is sound for the counting semantics (`+-comm`), so
 --       this is a legitimate extension of the kernel and not a rigged one.

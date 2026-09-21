@@ -60,7 +60,7 @@
 --       that no division occurs, is a product with `q - 1` as a factor â”
 --       which is why Â§5 is exactly the case where it vanishes.
 --
--- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“4 in any commutative ring, for every
+-- Â§Â§1â“4 in any commutative ring, for every
 -- dimension `d` as a natural number and every pair of coordinates.
 -- Â§Â§5â“7 in â•.
 ------------------------------------------------------------------------

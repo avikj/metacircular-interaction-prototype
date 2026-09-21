@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- GterTwoCoordinate
 --
--- D0026 ยง7.3, owner Deltas 37โ“38,
+-- D0026 ยง7.3, Deltas 37โ“38,
 -- `collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md`
 -- lines 2456โ“2700.
 --
@@ -82,11 +82,7 @@
 --   is a kernel reduction, not a transcribed table.
 --
 --   Nothing here is measured, fitted, or floating-point: the carrier has
---   two elements and every verdict is a kernel reduction.  This replaces
---   the legacy Python control of `OPERATIONAL_SITE_CRYSTAL` ยง6 in
---   `machinery/operational_site.py` (source note ยง4.5), which reports
---   the same phenomenon family for witness (i) and which under
---   CLAUDE.md is not proof.
+--   two elements and every verdict is a kernel reduction.
 --
 -- No postulates, no holes, no TERMINATING, no primTrustMe.
 ------------------------------------------------------------------------

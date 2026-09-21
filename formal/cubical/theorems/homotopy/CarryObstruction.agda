@@ -18,8 +18,7 @@
 -- HÂ²(â/bâ¿; â/b), and derives Corollary 2.11.1 from it: a carry-free
 -- positional system would be a group-theoretic splitting, which does not
 -- exist.  **This module proves Corollary 2.11.1 directly, by the exponent
--- argument the note gives, with no cohomology machinery.**  HÂ² itself is
--- NOT constructed here; see the rigor boundary at the bottom.
+-- argument the note gives, with no cohomology machinery.**
 --
 -- The argument, in three separated layers:
 --
@@ -50,8 +49,6 @@
 -- here: it is already in this corpus as `Digits.â•â‰CanWord`,
 -- with round trips `value-digits` / `digits-value` and injectivity
 -- `value-inj`.  This module is the other half of Â§7's formalization pair.
---
--- Toolchain: Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module CarryObstruction where

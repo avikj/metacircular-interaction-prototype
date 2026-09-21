@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- WitnessNumberIsInvariant
 --
--- The standing ‡≤‡æ‡ò‡µ thread asks for a measure on presentations stable
+-- The ‡≤‡æ‡ò‡µ question asks for a measure on presentations stable
 -- under ‡‡®‡‡µ‡‡‡‡‡ø / ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞ / ‡‡‡µ‡æ‡¶.  `Laghava` answered the question
 -- it was asked and the answer was no:
 --
@@ -12,7 +12,7 @@
 --
 -- size lives on the presentation, and univalence discards presentations.
 --
--- This module records that the deflationary thread produced a measure
+-- This module records a measure
 -- that DOES survive, and says exactly why the two differ.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î

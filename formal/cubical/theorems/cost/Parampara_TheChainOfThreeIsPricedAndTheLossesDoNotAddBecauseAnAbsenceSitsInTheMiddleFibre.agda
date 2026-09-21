@@ -582,7 +582,6 @@ snd समष्टिः-रिक्ता (tt , r) = Σ≡Prop (λ _ → isSe
 --
 -- Everything here is finite, decidable and a set.
 --
--- No claim is made that the arithmetic 4 − 3 = 1 is the
--- "size" of the absence.  §� proves a non-equivalence of types; the
+-- §� proves a non-equivalence of types; the
 -- subtraction is a reading.
 ------------------------------------------------------------------------

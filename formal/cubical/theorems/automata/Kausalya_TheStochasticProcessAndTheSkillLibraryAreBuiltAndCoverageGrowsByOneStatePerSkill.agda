@@ -3,11 +3,8 @@
 ------------------------------------------------------------------------
 -- à•ààà²àà¯ â” skill, proficiency.
 --
--- WHY THIS FILE EXISTS.  The abstract "IN A PROOF-CARRYING LEARNER,
--- GENERALISATION AND SHAREABILITY ARE EXCLUSIVE" says, under WHAT IS
---
--- The process is built here with the stochasticity the earlier form
--- lacks, and the separation becomes a quantitative theorem about a
+-- The process is built here with STOCHASTIC transitions, and the
+-- separation between generalisation and shareability becomes a quantitative theorem about a
 -- learner: Â§à proves the covered set of a library is contained in the
 -- training states of its members, so CAPABILITY GROWS BY AT MOST ONE
 -- STATE PER SKILL, and Â§à proves that no finite library covers an

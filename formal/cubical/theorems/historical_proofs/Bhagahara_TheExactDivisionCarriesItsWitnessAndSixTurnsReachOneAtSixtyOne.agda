@@ -76,8 +76,7 @@
 --   àà¾à—àà¾à° (divisor / the act of dividing) and à²ààà§à¿ (the quotient, "what
 --   is obtained") are the à•ààŸààŸà• vocabulary of the same chapter.
 --
--- CITATIONS ARE SECOND-HAND.  What IS claimed is checkable: that the
--- quantity aÂ² âˆ’ D bÂ² is what their algorithms carry beside the pair of roots,
+-- The quantity aÂ² âˆ’ D bÂ² is what their algorithms carry beside the pair of roots,
 -- and that their step's three divisions are exactly the three hypotheses of
 -- Â§à©.
 --

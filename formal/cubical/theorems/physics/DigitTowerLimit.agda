@@ -10,13 +10,13 @@ module DigitTowerLimit where
 --   * The WARNING is a `Vec` artefact, not mathematics.
 --     `DigitTowerFin` restates the same base-two carry
 --     obstruction with digit words presented as `Fin n â’ Digit`.  A
---     function type has no index to match on, and the count goes 28
---     `UnsupportedIndexedMatch` warnings -> 0 with the two proved facts
+--     function type has no index to match on, so the warnings
+--     disappear with the two proved facts
 --     unchanged (LSD deletion is not additive; it is a homomorphism for
 --     carry-free XOR).  So nothing here is blocked by Cubical Agda's
 --     lack of index injectivity.
 --
---   * The INVERSE LIMIT is ported, and only that far.
+--   * The INVERSE LIMIT is ported.
 --     `DigitTowerFinLimit` carries the MSD tower over
 --     `Fin n â’ A` and proves `MSDLimit A â‰ (â• â’ A)` for any set A, using
 --     `FinTopSplit` for the top-splitting eliminator that

@@ -29,8 +29,6 @@
 -- This is the smallest home of the corpus's interdependent-pair
 -- discipline: the missing datum is the law of the coupling, and a naive
 -- "product" reading erases it.
---
--- Machine-checked, Agda 2.8.0 + cubical v0.9, --safe, no postulates.
 ------------------------------------------------------------------------
 
 module InterdependenceIsThePullbackCouplingNeitherPartDeterminesTheWhole where

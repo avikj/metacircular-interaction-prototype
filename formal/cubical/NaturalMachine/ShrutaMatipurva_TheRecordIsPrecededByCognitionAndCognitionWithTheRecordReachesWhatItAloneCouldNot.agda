@@ -7,9 +7,9 @@
 -- reaches further than cognition alone.  The classification is his.
 -- School named: Jaina.
 --
--- THIS IS THE LOOP, closed in the one language.  Until this module
--- the store received proofs; it did not GIVE them back to the prover.
--- Here the store's entries ‚î each already carrying its ‡‡æ‡ï‡‡‡ by
+-- THIS IS THE LOOP, closed in the one language.  The store receives
+-- proofs and GIVES them back to the prover:
+-- the store's entries ‚î each already carrying its ‡‡æ‡ï‡‡‡ by
 -- type ‚î speak inside the ascent's step as unconditional voices,
 -- through the certified matcher, at every instance (‡‡¶‡‡).  ‡Æ‡‡ø
 -- (‡‡‡µ‡æ‡∞‡‡-‡‡æ‡ß‡®‡Æ‡) mints a rule; the rule becomes ‡‡‡∞‡‡; and

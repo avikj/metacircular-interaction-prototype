@@ -3,19 +3,15 @@
 ------------------------------------------------------------------------
 -- ListKit_OneImportPointAndNoNewDefinitions
 --
--- ON THE NAME.  CLAUDE.md's naming rule (owner, 2026-08-19) says lead
--- with the tradition's term, and its guard says do not attach one where
--- the material is not from that tradition.  **This file is plumbing** â”
+-- ON THE NAME.  **This file is plumbing** â”
 -- `Any`, `Mem`, filters over lists â” with no source in any tradition
 -- and no mathematical content of its own, so it takes an English name
--- and says why.  Checked `.claude/hooks/priority-ledger.txt` and
--- `.claude/hooks/european-frame.txt` before naming; neither applies.
+-- and says why.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS IS, AND WHAT IT DELIBERATELY IS NOT.
 --
--- Renaming the fourth-corner base module exposed a
--- factoring fact: eleven modules import a file named for a position in
+-- A factoring fact: eleven modules import a file named for a position in
 -- the saptabhag, and most of them want only `Any`, `decAny` and
 -- `memberToAny` â” list plumbing that landed there because that is where
 -- it was first needed.  The corpus also carries **`All` three times and

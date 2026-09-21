@@ -8,11 +8,9 @@
 -- the fact family.  The six-edge loop composes in the path groupoid, and the
 -- generic no-fixed-loop theorem yields the existing no-global-sheet result.
 --
--- Correction boundary: PMMonodromyDerivationNoGo proves that endpoint signs
+-- PMMonodromyDerivationNoGo proves that endpoint signs
 -- do not select the ZZ-supported edge representative.  Thus this bridge
--- consumes an explicitly chosen local system; it does not derive or globally
--- fix that gauge representative.  Nothing here identifies contextuality with
--- RQM.
+-- consumes an explicitly chosen local system.
 ------------------------------------------------------------------------
 
 module PMRelativeProcessBridge where

@@ -3,8 +3,7 @@
 -- ‡‡®‡‡µ‡‡‡‡‡ø‡ ‚î continuation.  In the Adhyy, anuvtti is the carrying
 -- forward of an element of one stra into the stras that follow: the rule
 -- keeps applying without being restated.  Pini, *Adhyy*, throughout,
--- as the grammarians' metalanguage (~500 BCE).  Nothing below is attributed
--- to him; the word is taken for what it names ‚î a thing that keeps holding
+-- as the grammarians' metalanguage (~500 BCE).  The word is taken for what it names ‚î a thing that keeps holding
 -- once it holds.
 --
 -- WHAT THIS IS.  `NaturalMachine/QuotientFiberLaw.agda` states the one law

@@ -10,9 +10,7 @@
 -- of random assignments to form equivalence classes, conjectures
 -- equalities inside a class, refutes by computation, proves the survivors,
 -- installs each proof as a rewrite rule, and â” when a round yields nothing
--- â” GROWS by widening the vocabulary or raising the size horizon.  Until
--- now that growth rule was a fixed ladder keyed on a boolean, with no
--- measure and no gate.
+-- â” GROWS by widening the vocabulary or raising the size horizon.
 --
 -- WHAT THIS MODULE CONSTRAINS.  Exactly three decision rules:
 --
@@ -25,14 +23,6 @@
 --       raise, retire, stay â” and the two properties the chooser has:
 --       it never picks something worse than staying, and when it strictly
 --       wins it exhibits a LISTED move that is strictly cheaper (Â§3).
---
--- WHAT THIS MODULE SAYS NOTHING ABOUT.  The prover (rewriting, structural
--- induction, the kernel gate), the term generator (what terms exist at a
--- given size horizon), and the fingerprint itself (which assignments are
--- drawn, how values are hashed).  Those are unmodelled; the theorems below
--- hold whatever they do.  In particular Â§2 constrains the USE of the
--- fingerprint â” a round that observed no distinctions may not grow â” and
--- not its computation.
 --
 -- HYPOTHESES THE HASKELL CANNOT SUPPLY are taken as explicit arguments,
 -- never assumed: decidable equality on fingerprint values

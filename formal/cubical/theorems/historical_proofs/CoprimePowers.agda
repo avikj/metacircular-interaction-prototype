@@ -48,7 +48,7 @@
 -- it"* returns a construction, and the construction is what composes.
 --
 -- This
--- module assumes coprime bases and says nothing about how to get them;
+-- module assumes coprime bases;
 -- for the walk's actual moduli they are computed one gcd at a time
 -- (`CRTChain.walk8-coprimes`).
 ------------------------------------------------------------------------

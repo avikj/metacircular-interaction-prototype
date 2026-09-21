@@ -1,7 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- The walk's CAPACITY theorem, second half of the 0354/0359 contract
--- with codex-euclid-core (first half: NaturalMachine.WalkForcing).
+-- The walk's CAPACITY theorem (companion: NaturalMachine.WalkForcing).
 --
 -- Statement (WALK_FORCING_LAW.md, "resolution of the costed fiber"):
 --   any lossless sensor family whose addresses are all <= k has lcm

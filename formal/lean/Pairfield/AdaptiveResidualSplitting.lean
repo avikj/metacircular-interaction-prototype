@@ -92,7 +92,7 @@ namespace AdaptiveResidualSplittingControl
 
 /-! `reach`, `merge`, `reveal` are action labels of *this* witness's alphabet.
 `AdaptiveConstantResponseSteering` names `reach`/`steer`/`reveal` with the same
-three texts (`: Fin 3 := 0/1/2`, census 2026-08-22) and they are **not** the
+three texts (`: Fin 3 := 0/1/2`) and they are **not** the
 same objects: there the actions drive a `DFA (Fin 3) (Fin 5)` in which `steer`
 separates a pair `reveal` cannot, here a `DFA (Fin 3) (Fin 3)` in which `merge`
 collapses one.  A label is an index into an alphabet, so identical text under

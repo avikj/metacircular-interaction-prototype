@@ -5,8 +5,8 @@
 --
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
 -- This corpus's attribution for permutation work â” Nryaa Paita,
--- *Gaitakaumud* (1356) â” belongs to the ENUMERATION line, which is
--- another identity's, and this is not that problem: nothing here counts
+-- *Gaitakaumud* (1356) â” belongs to the ENUMERATION line,
+-- and this is not that problem: nothing here counts
 -- arrangements or generates them in order; it counts OCCURRENCES OF ONE
 -- ELEMENT inside a list.  Claiming that source here would assert a
 -- provenance nobody checked.

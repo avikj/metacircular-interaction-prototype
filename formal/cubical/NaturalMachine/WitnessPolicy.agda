@@ -3,11 +3,7 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.WitnessPolicy
 --
--- The obligation `GenerativeLoop` names for itself, discharged:
---
--- "Witness policy still degenerate (`witness = var`), as in `obs-complete`.
--- Conservativity holds for any base witness; an *informative* body policy is
--- the next theorem, not one proved here."
+-- An informative witness policy for `GenerativeLoop`'s obstructions.
 --
 -- An `Obstruction V` already carries everything an informative policy
 -- needs and nothing was doing with it: the field `arg` is the base
@@ -29,7 +25,6 @@
 -- `NaturalMachine.GenerativeLoop`.  Nothing new is axiomatised; the two
 -- new definitions of this file are `size : Tm โ’ โ•` and the two policies.
 --
---
 -- WHAT IS CHECKED
 --
 -- P0. The unfolding lemmas the rest needs (ยง1).
@@ -44,7 +39,7 @@
 --                          definitional extension is recovered, on the
 --                          nose, by unfolding its generic instance.
 --
--- P1. Conservativity survives the change of policy (task item 1).
+-- P1. Conservativity survives the change of policy.
 --
 --   `informative-conservative`
 --                          the exact analogue of
@@ -68,8 +63,8 @@
 --                          the informative one substitutes the recorded
 --                          payload for it.
 --
--- P2. `inform` is strictly more informative than `degenerate` (task
---     item 2).  Three separations, of increasing strength.
+-- P2. `inform` is strictly more informative than `degenerate`.
+--     Three separations, of increasing strength.
 --
 --   `informative-abbreviates`
 --                          unfold (residual o) (witness (inform V o))
@@ -107,13 +102,13 @@
 --                          vacuous: an explicit obstruction satisfying
 --                          it, over the vocabulary `0 โ []`.
 --
--- The honest scope of P2, checked as statements rather than asserted:
+-- The scope of P2, checked as statements:
 -- `policies-agree-on-matching`, `policies-agree-on-coverage` โ” `extend` reads
 -- only `residual`, so the two policies induce the SAME `Matches` and the SAME
 -- `Over`, definitionally. The informativeness is invisible to the matcher and
 -- lives entirely in `unfold`.
 --
--- P3. `inform` is a drop-in for `degenerate` (task item 3).
+-- P3. `inform` is a drop-in for `degenerate`.
 --
 --   `informative-step`     the step function of `GenerativeLoop.B2`,
 --                          with an informative obstruction and the SAME
@@ -134,7 +129,6 @@
 --   `informative-loop-drops-in`
 --                          forgetting informativity returns the
 --                          conclusion of `generative-loop` verbatim.
---
 --
 ------------------------------------------------------------------------
 
@@ -262,7 +256,7 @@ inform-preserves-extension V o = refl
 ------------------------------------------------------------------------
 -- 3.  P1.  CONSERVATIVITY SURVIVES.
 --
--- The question the header obligation actually asks: does the extension
+-- The question: does the extension
 -- still eliminate when the body is no longer a bare parameter?  It
 -- does, and the reason is structural rather than lucky โ”
 -- `propose-eliminable` needs `Over V (witness o)`, and the informative
@@ -374,7 +368,7 @@ policy-separation V o h =
   informative-grows V o h , degenerate-never-grows (residual o)
 
 ------------------------------------------------------------------------
--- 4a.  The honest scope of ยง4, checked.
+-- 4a.  The scope of ยง4, checked.
 --
 -- `extend` reads only the residual.  So the informative policy buys
 -- NOTHING at the matcher, and this is stated as a `refl`-equality

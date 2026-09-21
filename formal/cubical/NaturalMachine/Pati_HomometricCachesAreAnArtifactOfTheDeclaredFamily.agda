@@ -26,11 +26,6 @@
 --   notes/ADDITION_CHAIN_PROCESS_MEMORY.md Â§4 ("The persistence
 --   boundary": if the runtime discards every intermediate, both
 --   histories become (6,{6}) and no probe separates them).
---   `ls notes/ | grep -i 'cache\|chain'` returns 22 files, but that is
---   a name match and not a subject count â” at least three of the 22
---   (TOOLCHAIN_SKEW_AND_COVERAGE, NATURAL_MACHINE_TOOLCHAIN_DRIFT,
---   SEED85_FORMAL_LANE_STATUS_WITHOUT_A_TOOLCHAIN) are about the Agda
---   and Lean toolchain.  No count of the lane is asserted here.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS CHECKED HERE
@@ -40,10 +35,7 @@
 --   ("compile exact cache histories to their profile quotient") by
 --   exhibiting a HOMOMETRIC PAIR: two caches, both reachable from {1},
 --   with equal distance profiles on the declared family T = {11}, which
---   one exogenous control drives apart.  That witness is stated there in
---   one paragraph of hand arithmetic and, as of this writing, appears
---   nowhere else in the corpus and has never been independently
---   checked.
+--   one exogenous control drives apart.
 --
 --   Here it is computed rather than asserted.  d_C(t) is the least
 --   number of adjoin-a-sum steps until t is in the cache; every bound
@@ -62,8 +54,7 @@
 --     d_C(3) = 1  while  d_D(3) = 0
 --
 --   so the family T = {3,11} separates the pair with NO control at all.
---   The general statement, proved in the companion note and not here
---   (it quantifies over all caches, which this finite module does not):
+--   The general statement, proved in the companion note:
 --
 --     if C â–³ D âŠ T then Î”_T(C) = Î”_T(D) implies C = D,
 --
@@ -72,9 +63,6 @@
 --   the nontriviality of the profile quotient is a statement about T
 --   alone, never about the dynamics.  Both sides are instantiated
 --   below: T = {11} where homometry holds, T = {3,11} where it fails.
---
---   No claim is made about optimal chains, about quantum memory, or
---   about the general dichotomy being machine-checked.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Pati_HomometricCachesAreAnArtifactOfTheDeclaredFamily where

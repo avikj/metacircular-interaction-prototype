@@ -8,11 +8,6 @@
 -- through q.  Coarsening q can reduce the representation, but cannot add
 -- exactly supported tasks: every task visible after coarsening was already
 -- visible before it.
---
--- This is deliberately an interface theorem, not an optimizer or a claim
--- about a particular cost model.  The byte anchor requested for this return
--- was unavailable in the checkout, so no semantic content is attributed to
--- it; the theorem is retained as an independent finite DSO core.
 ------------------------------------------------------------------------
 
 module DSOOption where

@@ -44,10 +44,6 @@
 -- it.  The exact form is "negate the costs, and pick a cap
 -- above every cost you will ever compare", which is a real modelling
 -- obligation and not a rewriting step.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  That maximising `C âˆ x` is minimising `x` under a cap,
--- and that truncation loses the order above the cap, is elementary.
 ------------------------------------------------------------------------
 
 module FlippingACostCoordinateIsSoundButNotFaithful where

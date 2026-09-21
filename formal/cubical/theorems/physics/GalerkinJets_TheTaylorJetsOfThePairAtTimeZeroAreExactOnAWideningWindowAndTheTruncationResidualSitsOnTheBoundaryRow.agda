@@ -31,11 +31,8 @@
 -- term stays (0, 0, Ï aâˆâv) and divergence-free; that is why the v-jets
 -- alone carry the evolution.
 --
--- SYT â” THE CLAIM, EXACTLY.  Finite integer computations on a box,
--- decided and reflected, at Î½ = 1.  The convergence of the Taylor series
--- and the existence of v(t) are the linear theory and are NOT here; what
--- is here is every Taylor coefficient the linear theory would produce,
--- and where truncation loses them.
+-- Finite integer computations on a box,
+-- decided and reflected, at Î½ = 1.
 ------------------------------------------------------------------------
 
 module GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow where

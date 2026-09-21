@@ -14,7 +14,7 @@ term the analyzer computes and hands back:
 
 The collision (a = 4, b = 1, with 4Â² â‰¡ 1Â² mod 15) is GIVEN â” its
 manufacture is the frontier the collision-semantics document is
-explicit about, and this does not pretend to abolish it.  What runs is
+explicit about.  What runs is
 the extractor, and the kernel does not merely accept it â” it computes:
 
   the zero divisor (4 âˆ 1)(4 + 1) = 15 â‰¡ 0 mod 15;
@@ -27,8 +27,8 @@ the extractor, and the kernel does not merely accept it â” it computes:
 
 Read through sadhana.vislesana, the factors 3 and 5 come back as
 COMPUTED normal forms â” the analyzer factoring 15 by reading its own
-arithmetic, not being told the answer.  This is the session's whole
-turn made concrete: the kernel is an analyzer, and its output is the
+arithmetic, not being told the answer.  This is the point made
+concrete: the kernel is an analyzer, and its output is the
 decomposition, delivered as data.
 
 SYT â” THE CLAIM, EXACTLY.  The chain for N = 15 with the given

@@ -4,12 +4,12 @@
 -- ‡µ‡ø‡≤‡ã‡‡ ‚î the annihilation is exactly a FAILURE OF CHOICE, and that is why
 -- cost cannot compose.
 --
--- One level under `DesaSanghata_‚¶NotAGradedMonoid` (this corpus, today).
+-- One level under `DesaSanghata_‚¶NotAGradedMonoid`.
 -- That file proved cost is not a graded monoid and wrote, in its ¬ß‡ ‡¶‡ã‡‡≤‡‡ñ,
 -- that no census-to-census composition function exists because "the outcome
 -- depends on WHICH point of the outer fibre carries the empty inner fibre,
--- and a census records only that the outer fibre is crowded."  True, and it
--- leaves open what the missing datum IS.  It is a SECTION, and its absence
+-- and a census records only that the outer fibre is crowded."  True, and the
+-- missing datum IS a SECTION, whose absence
 -- is not incidental ‚î it is the mechanism.
 --
 -- THE STATEMENT.  `‡‡‡-‡‡ô‡‡ò‡æ‡‡` says the composite's fibre is the TOTAL SPACE
@@ -23,7 +23,7 @@
 -- annihilation FORCES a point of the outer fibre with no inner point over
 -- it.  ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ above collapses to ‡‡ï‡≤‡æ‡¶‡‡ below exactly when choice fails.
 --
--- WHY THAT IS THE FLOOR OF THIS LANE.  A census is pointwise data.  A
+-- WHY THAT IS THE FLOOR.  A census is pointwise data.  A
 -- section is not pointwise data ‚î its existence is a global fact about the
 -- family, recoverable from no amount of per-point information.  So
 -- DesaSanghata's ¬ß‡ is not a gap in that file; it is a theorem about all
@@ -35,10 +35,10 @@
 -- section is exactly what makes the composite's cost the OUTER cost, and
 -- ¬ß‡ gives the converse direction as the honest limit.
 --
--- No source is claimed; this is elementary type theory.  ‡µ‡ø‡≤‡ã‡ is Pinian
+-- This is elementary type theory.  ‡µ‡ø‡≤‡ã‡ is Pinian
 -- (‡≤‡ã‡‡, 1.1.60 ‡‡¶‡∞‡‡‡®‡ ‡≤‡ã‡‡ ‚î non-appearance) and is used here for the
 -- deletion of outer points by downstream emptiness, which is what the word
--- means.  The compound is built here, 2026-08-22.
+-- means.
 ------------------------------------------------------------------------
 
 module Vilopa_TheAnnihilationIsExactlyAFailureOfChoiceOverTheOuterFibre where

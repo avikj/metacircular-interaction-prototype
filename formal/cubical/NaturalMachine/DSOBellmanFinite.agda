@@ -3,9 +3,6 @@
 -- A finite, checked DSO seam extracted from the random byte anchor in
 -- `notes/RESEARCH_SYSTEM.md` (offset 8522): a local choice is not safe to
 -- erase until its continuation has been observed.
---
--- This is deliberately a two-point natural-number model.  It does not claim
--- a quantale theorem, an infinite infimum, or an optimizer for live systems.
 
 module NaturalMachine.DSOBellmanFinite where
 

@@ -32,8 +32,7 @@
 --
 -- WHY THIS FILE EXISTS.  That statement was verified on 28561 points at
 -- D = 1 and D = 2, zero failures.  Exhaustive checking of a *bounded box* is
--- not a proof of a statement quantified over all of â• â” CLAUDE.md is explicit
--- that a finite exhaustive verification is proof only of what it exhausts.
+-- not a proof of a statement quantified over all of â•.
 -- The identity is in fact a commutative-semiring identity: expanding both
 -- sides gives the same five monomials, with the cross term 2D xâxâyâyâ
 -- appearing once on each side.  So it needs no induction, no ordering, and

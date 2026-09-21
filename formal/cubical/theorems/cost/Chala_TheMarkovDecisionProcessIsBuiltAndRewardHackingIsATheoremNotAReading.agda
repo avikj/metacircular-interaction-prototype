@@ -7,14 +7,12 @@
 -- sense its author did not intend, by exploiting a reading the words
 -- literally admit.  That is specification gaming exactly: the objective
 -- is met as written and defeated as meant.  The word is used here for
--- that literal content; no source is claimed to state anything below.
+-- that literal content.
 --
 -- WHY THIS FILE EXISTS.  The abstract "NO SCORING FUNCTION OF THE
--- OUTCOME DISTINGUISHES TWO ROUTES TO IT" names reward hacking and
--- specification gaming as the phenomena it explains, with no MDP, no
--- policy, no return, no estimator and no training dynamics in its
+-- specification gaming as the phenomena it explains.  Here the MDP, the
+-- policy and the return are built, and the identification becomes a theorem.
 -- development.
---
 -- All of it is built here, and the identification becomes a theorem.
 -- A Markov decision process; policies; the return, both undiscounted
 -- and DISCOUNTED at an arbitrary rate; optimality quantified over EVERY

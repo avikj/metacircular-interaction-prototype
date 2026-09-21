@@ -17,9 +17,7 @@
 --       *is* `eâ»Â âˆ˜ f âˆ˜ (e — e)` â” a full round trip through â• per
 --       operation, and `valueC`/`digitsC` are unary.
 --
--- This file is the small reproducible witness.  The scaling runs that
--- established (2) are recorded in the note, not here, because leaving a
--- 40-second typecheck in the tree would be hostile.
+-- This file is the small reproducible witness.
 
 module TransportCost where
 

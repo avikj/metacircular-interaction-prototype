@@ -16,13 +16,13 @@ open import NegationCompletenessForbidsIndependence
 -- ASmallTheoryWithAnIndependentSentence
 --
 -- The criterion of the previous module, instantiated â” so it is not
--- vacuous, and so the lane is shown to contain a theory with an
+-- vacuous, and so the line is shown to contain a theory with an
 -- independent sentence at all.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT WAS REQUIRED, AND WHY EVERY EARLIER MODEL FAILED IT
 --
--- Two obstructions accumulated in this thread.  A theory admitting an
+-- Two obstructions accumulated on this line.  A theory admitting an
 -- independent sentence must not be negation-complete, and must not have
 -- a provability-determined implication.  Every model built here before
 -- this one read provability off a single two-valued assignment, which
@@ -56,14 +56,8 @@ open import NegationCompletenessForbidsIndependence
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- What this settles: the criterion
 -- has an instance, the two accumulated obstructions are not jointly
--- exhaustive of the lane, and a theory in this lane can have an
+-- exhaustive of the line, and a theory on this line can have an
 -- independent sentence.
---
--- PRIOR ART, by the conclusion type: a grep of `formal/cubical` for
--- `Independent` finds this thread only; for an inductively generated
--- provability relation over a syntax, nothing.  A version phrased with
--- a list-of-axioms closure operator rather than a `data` declaration
--- would evade that grep.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

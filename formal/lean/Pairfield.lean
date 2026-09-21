@@ -1,8 +1,6 @@
--- Root of the Lean lane.  Since 2026-08-20 this file imports EVERY module
--- under `Pairfield/` (133 of 133), so `import Pairfield` and the module tree
--- agree.  It began as "the V3 ledger root: machine-checked targets from
--- see the note at the foot of the file for what the drift cost and what it
--- did not.  The BUILD gate is `globs` in `lakefile.toml`, not this list.
+-- Root of the Lean lane.  This file imports EVERY module under `Pairfield/`,
+-- so `import Pairfield` and the module tree agree.  The BUILD gate is `globs`
+-- in `lakefile.toml`, not this list.
 import Pairfield.SumRigidity
 import Pairfield.BellmanArgminIntegration
 import Pairfield.ChuArgminTransport
@@ -136,13 +134,12 @@ import Pairfield.VandermondeFrequencyResponse
 -- The पुनरागमन family.  These three modules say, from
 -- outside and by `Equiv`, that several structures already written in this lane
 -- are Carriers -- a base, a determined field, and the witness pinning it -- and
--- where that fails, what the obstruction is.  Nothing they speak about was
--- edited; see each header.
+-- where that fails, what the obstruction is.
 import Pairfield.LosslessReturn_TheDeterminedFieldRidesFree
 import Pairfield.LosslessReturnPrayoga_TheTraceWitnessAndTheMergeCertificateAreCarriers
 import Pairfield.Ekarupata_TheFourSmithSpellingsAreOneCarrierShapeAndOneObligation
 
--- The parity transfer owed by
+-- The parity transfer from
 -- `formal/cubical/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
 -- §5, constructed natively here rather than imported: the two no-decoder
 -- theorems in this lane are TIGHT at the parity quotient, and their `+2`

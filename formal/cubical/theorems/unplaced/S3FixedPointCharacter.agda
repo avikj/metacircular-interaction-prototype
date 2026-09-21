@@ -2,8 +2,7 @@
 
 -- Finite character calibration for the integer permutation representation.
 -- Trace of three explicit matrices agrees with the cardinality represented by
--- the corresponding fixed-point type.  This is not Peter--Weyl theory, SU(2),
--- or a general character library.
+-- the corresponding fixed-point type.
 
 module S3FixedPointCharacter where
 

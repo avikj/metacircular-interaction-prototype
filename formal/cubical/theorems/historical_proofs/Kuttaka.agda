@@ -9,8 +9,8 @@
 -- ryabhayabhya (629 CE).  The coefficients are "pulverized" â”
 -- broken into successively smaller ones by repeated division â” and the
 -- solution is recovered by back-substitution up the resulting column,
--- the vall.  It is the first solution of ax âˆ’ by = c on record, six
--- for exactly this: the module `KuttakaValli.agda` earns "vall" (the
+-- the vall.  It is the first solution of ax âˆ’ by = c on record.
+-- The module `KuttakaValli.agda` earns "vall" (the
 -- trace-as-syntax) but not "kuaka" â” it has no gcd, no B©zout, no
 -- back-substitution.  This module supplies the missing theorem.
 --
@@ -27,8 +27,8 @@
 --   bezout        THE KUAKA: every run yields x, y with aÂx + bÂy â‰¡ g,
 --                 the coefficients built by back-substitution up the
 --                 vall â” x' , y'  become  y' , x' âˆ’ qÂy' at each step.
---                 This is the "keep the remainder and recurse" rule
---                 CLAUDE.md names as the growth law, made a term.
+--                 This is the "keep the remainder and recurse" rule,
+--                 made a term.
 --   inhomogeneous  aÂx + bÂy â‰¡ g  gives, for the equation ax + by = gÂk,
 --                 the solution (kÂx, kÂy): the scaled solution family.
 --   gcdDivides    the terminal g divides both a and b (g is a COMMON

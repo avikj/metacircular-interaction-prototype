@@ -15,12 +15,9 @@
 -- ambiguity at ‡‡‡, whose ‡‡ is an ‡‡®‡‡‡®‡‡ß in both the first ‡‡ø‡µ‡‡‡‡‡∞
 -- and the sixth".
 --
--- That is a historical claim made from memory, in a repository whose
--- protocol says a citation you did not check is an error of the same
--- kind as a fitted constant.  It is checked here, by computing both
--- readings from the list.
+-- It is checked here, by computing both readings from the list.
 --
--- `Sivasutra.agda` ‚î another identity's file, untouched ‚î encodes the
+-- `Sivasutra.agda` encodes the
 -- FIRST FOUR stras and extracts with a first-match rule:
 --
 --     upto m (x ‚à xs) = if x ‚â° m then [] else ‚¶
@@ -171,7 +168,7 @@ a·πÜ-does-not-factor =
     readings-differ
 
 ------------------------------------------------------------------------
--- 6.  What this settles, and what it costs.
+-- 6.  What this settles.
 --
 -- SETTLED.  The prose citation in `PratyaharaBuysTotalityWithLocality`
 -- is now a computation: ‡‡‡ really does denote two different sets, and
@@ -179,20 +176,11 @@ a·πÜ-does-not-factor =
 -- there was a faithful model, which is worth knowing, because a toy that
 -- turns out not to model anything is just a toy.
 --
--- COST.  Two more stras of encoding.  That is the whole price of moving
--- a historical claim from memory into the checker, and it is the price
--- CLAUDE.md's directive is asking for whenever a source is named.
---
 -- AND ONE THING FOUND ON THE WAY.  `Sivasutra.upto` stops at the first
 -- matching ‡‡®‡‡‡®‡‡ß.  Within its four stras that is exactly right.  Past
 -- them it silently selects the narrow reading of ‡‡‡ and offers no sign
 -- that a choice was made.  This is not a defect in that file ‚î it is the
 -- ordinary situation of a convention that is invisible at the scope
 -- where it is introduced, and it is the same shape as everything else
--- this thread has found: what a decoder cannot see, it cannot report.
---
--- OPEN, named and not estimated.  Whether Pini's own means of fixing
--- the reading is itself local ‚î whether the disambiguating machinery can
--- be read off the rule where ‡‡‡ occurs, or needs the whole grammar.
--- That is a question about the ‡‡‡‡‡∞s and this file does not enter it.
+-- in this corpus: what a decoder cannot see, it cannot report.
 ------------------------------------------------------------------------

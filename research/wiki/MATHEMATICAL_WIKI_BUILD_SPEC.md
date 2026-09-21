@@ -1,10 +1,6 @@
 # Mathematical Wiki â” Canonical Build Specification
 
-**Assume all chat history is deleted. This file is the handoff.**
-
-**Architecture update, 2026-09-16:** The [Bend2 — Unison handoff](BEND2_UNISON_READING_AND_SYNTHESIS.md) records the author's newer direction. The Agda-per-page requirement below describes the earlier build plan. The target is a mathematical codebase centered on checked cubical Bend2 constructions executed on the full HVM4 runtime, with content addressing, normal-form sharing, witnessed relations, and Unison-like codebase behavior. Agda remains source/provenance where the corpus is being ported; the site is a hypertext view of the live computational system.
-
-The full canonical working specification is mirrored in the ChatGPT Library as `/Research/Wiki/MATHEMATICAL_WIKI_BUILD_SPEC.md` and includes the complete initial page inventory, first identity/near-identity clustering pass, canonical-Agda-per-page requirement, typed graph ontology, and build sequence.
+**Architecture:** The [Bend2 — Unison handoff](BEND2_UNISON_READING_AND_SYNTHESIS.md) records the computational direction. The target is a mathematical codebase centered on checked cubical Bend2 constructions executed on the full HVM4 runtime, with content addressing, normal-form sharing, witnessed relations, and Unison-like codebase behavior. Agda remains source/provenance where the corpus is being ported; the site is a hypertext view of the live computational system.
 
 ## Goal
 Build a public mathematical wiki around this repository. `research/pratt/PRATT_PLATE_V2.md` is the initial front page. The site is a typed mathematical graph, not ordinary documentation or a topic tree. Pages correspond to mathematical objects, constructions, theorem-complexes, restrictions, carriers, or executable realizations; links encode mathematical relations.

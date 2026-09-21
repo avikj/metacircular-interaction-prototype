@@ -52,9 +52,6 @@
 -- is ahis over a set.  Classical computation is founded on erasure
 -- (Landauer: kT ln 2 per destroyed bit); univalent computation cannot harm.
 -- Door: the type-theoretic OS for the reversible/quantum hardware frontier.
---
--- Checked: loads clean into the warm kernel (`machine/nadi-node.js`);
--- `formal/cubical/check.sh` for the pin.
 ------------------------------------------------------------------------
 
 module Pravesa_TheFrontierTheoremsAsEntryPointsFromOtherFields where

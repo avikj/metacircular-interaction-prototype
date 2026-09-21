@@ -230,18 +230,3 @@ rebuilt = normalises (add var (suc zero)) âŠ• revD (normalises (suc var))
 -- synthesised from the two endpoints alone.  Same term, on the nose.
 synthesis-reproduces-the-hand-written-proof : rebuilt â‰¡ accepted
 synthesis-reproduces-the-hand-written-proof = refl
-
-------------------------------------------------------------------------
--- Â§6.  ONE FINDING, RECORDED BECAUSE IT COST A TYPECHECK.
---
--- The line above works only because the two normal forms are DEFINITIONALLY
--- equal, so the composite is formed directly.  Routing it through Â§4's
--- `same-nfâ’derivable` instead does NOT let `refl` compare the result to
--- `accepted`: `subst (Derivation (nf a)) p` leaves a `transp` that does not
--- reduce, and the error prints the whole stuck term.  That is precisely the
--- phenomenon `Anuvrtti_TheGlueIsTransparentâ¦` analyses â” the residual is in
--- the codomain, not in the `Glue` â” and comparing a synthesised derivation
--- to a hand-written one in the general case needs that module's path
--- lemmas.  Not done here, and named so the next reader does not rediscover
--- it by the same route.
-------------------------------------------------------------------------

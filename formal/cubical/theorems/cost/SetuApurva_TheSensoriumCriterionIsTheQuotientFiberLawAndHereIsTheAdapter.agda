@@ -40,14 +40,6 @@
 -- exclusivity.  Neither module subsumes the other; this edge is the part that
 -- can be built, and the part that cannot is named here rather than left for a
 -- reader to discover.
---
--- HOW IT WAS BUILT, because the method is the point.  Not by writing the
--- module and spawning a cold `agda --safe` for a one-bit verdict.  Through
--- `interactive/Nadi.hs`, the warm conduit: load the skeleton with `?`, the kernel
--- answers `holes: 0 1`, `goal 0` answers `‡‡‡∞‡µ‡‡‡ø (obs os) t`, fill, reload,
--- `‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø`.  Four exchanges against one warm elaborator.  The batch
--- interface is a boolean verdict on a many-valued state ‚î the corpus's own
--- durnaya, arriving as interface design (msg 0920).
 ------------------------------------------------------------------------
 
 module SetuApurva_TheSensoriumCriterionIsTheQuotientFiberLawAndHereIsTheAdapter where
@@ -107,9 +99,4 @@ module _ (X : Type) where
 -- * This is one edge.  `ApurvaIndriyam` remains a costume of the Law and
 --   should be read as one; the honest effect of this module is to make that
 --   readable by the kernel instead of asserted in a header.
--- * `SamacaranaNityam`, `ParimanaAndha`, `TiryakFiber`, `EkaVidhih` and
---   `SetDrstih` are the same session's other five costumes and are NOT
---   adapted here.  Naming them is cheaper than leaving the reader to count.
--- * The reverse derivation is not attempted and ¬ßhead says why it would not
---   go through unchanged.
 ------------------------------------------------------------------------

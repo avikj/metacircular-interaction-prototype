@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡Æ-‡¶‡‡‡‡ü‡ø‡ ‚î equal seeing.  Compound built here, 2026-08-24; no
+-- ‡‡Æ-‡¶‡‡‡‡ü‡ø‡ ‚î equal seeing.  Compound built here; no
 -- source is claimed for the mathematics.
 --
--- A BUG-CLASS, FOUND BY THE RESIDUE.  In every prior step-pervasion
--- the GOAL was processed by the record (‡‡‡∞‡‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡) but the
--- HYPOTHESIS's faces were not ‚î so when the record helpfully
--- simplified the goal, it destroyed the exact match the hypothesis
--- was about to make: the record's assistance sabotaged the exchange.
+-- WHY EQUAL VISION.  If in a step-pervasion
+-- the GOAL is processed by the record (‡‡‡∞‡‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡) but the
+-- HYPOTHESIS's faces are not ‚î so when the record helpfully
+-- simplifies the goal, it destroys the exact match the hypothesis
+-- is about to make: the record's assistance sabotages the exchange.
 -- x ‚àí s(x+y) = 0 exhibits it precisely: under the deep eye the step
 -- form IS the hypothesis, syntactically ‚î until the record rewrites
 -- one and not the other.  The repair is symmetry of vision: the

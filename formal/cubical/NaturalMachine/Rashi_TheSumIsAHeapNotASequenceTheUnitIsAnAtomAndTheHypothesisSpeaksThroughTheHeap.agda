@@ -28,10 +28,6 @@
 --   ‡‡‡‡‡‡∞‡Æ‡     the surgery: hypothesis-heap out, other-face-heap in
 --   ‡∞‡æ‡‡ø-‡‡æ‡ß‡®‡Æ‡  the examination with the deep eye and the surgical
 --                exchange, record and descent as ever
---
--- The verdict on the eight, computed by the kernel at the end of this
--- file, is whatever it is ‚î the numbers were learned by asserting
--- them wrong and reading the refusal.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Rashi_TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheHypothesisSpeaksThroughTheHeap where

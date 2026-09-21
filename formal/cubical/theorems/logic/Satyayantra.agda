@@ -16,8 +16,8 @@
 --  proves the fourth bhaga is ‡®‡ø‡‡‡Ø, permanent under single
 --  utterances: for every utterance there is a profile that survives
 --  it, and the remedy is a SECOND utterance in succession, not more
---  of anything.  Same shape with ‚à and ‚à exchanged, which is why one
---  word covered both and hid it.  `AnuktaAvaktavya.agda` exhibits
+--  of anything.  Same shape with ‚à and ‚à exchanged.
+--  `AnuktaAvaktavya.agda` exhibits
 --  the two poles; Akalaka's kramrpaa/sahrpaa is the classical
 --  name for the difference.
 --

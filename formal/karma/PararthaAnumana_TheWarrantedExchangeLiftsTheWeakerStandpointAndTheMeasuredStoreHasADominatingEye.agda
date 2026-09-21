@@ -32,8 +32,8 @@
 --
 -- so on THIS store the factoring heap eye with the surgical exchange
 -- DOMINATES ‚î ‡∞‡æ‡‡ø alone suffices for all 102, the composite
--- instrument buys nothing here (the kernel census had only ever been
--- run with ‡‡‡Ø‡‡ï‡‡; this is new).  The council of ‡ and ‡ reaches 102,
+-- instrument buys nothing here.
+-- The council of ‡ and ‡ reaches 102,
 -- which is ‡'s own reach: the exchange lifts the weaker standpoint
 -- (+9) and costs the stronger nothing.  And the near-miss pair was
 -- probed: ‡ó‡‡+‡‡‡ï‡‡‡‡Æ (101) in council with norm+‡∞‡æ‡‡ø (94) reaches

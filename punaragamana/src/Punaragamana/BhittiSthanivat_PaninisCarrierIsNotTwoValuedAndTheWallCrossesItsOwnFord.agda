@@ -18,7 +18,7 @@
 -- built ‡‡‡‡æ‡®‡ø‡µ‡‡ is the ford its wall arrives over.  A bank's own
 -- construction receipt is what its impossibilities travel on.
 --
--- ‡‡ø‡‡‡‡ø-‡‡‡‡æ‡®‡ø‡µ‡‡ is built here, 2026-08-23; the distinctness of ‡/‡ is
+-- ‡‡ø‡‡‡‡ø-‡‡‡‡æ‡®‡ø‡µ‡‡ is built here; the distinctness of ‡/‡ is
 -- proved here in the source module's own coding style (its ‡à‚â‡ pattern).
 ------------------------------------------------------------------------
 

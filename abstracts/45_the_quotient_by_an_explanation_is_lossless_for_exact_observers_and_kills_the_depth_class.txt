@@ -9,7 +9,7 @@ the observer boundary made explicit
 
 MulyaVinimaya ended on a prophecy: when an explanation fills the
 diamond's loop, the depth class is what it must kill or account for.
-This night the loop is filled and the death is watched.
+Here the loop is filled and the death is watched.
 
 The explanation enters as the synthesis defines semantic compression:
 a set-quotient of the trace space by exactly the identification of
@@ -33,7 +33,7 @@ the quotient, stated before it is paid.
 So admitting the explanation and protecting the depth observer are
 incompatible as a theorem, and the choice between them is not the
 machine's: the dangerous act is not quotienting, it is quotienting
-before declaring the observer class.  The machine now holds both
+before declaring the observer class.  The machine holds both
 consequences checked, and hands the declaration to the caller.
 
 SYT â” THE CLAIM, EXACTLY.  Losslessness for every potential over

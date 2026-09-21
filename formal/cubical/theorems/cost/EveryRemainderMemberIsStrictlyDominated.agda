@@ -3,15 +3,11 @@
 ------------------------------------------------------------------------
 -- EveryRemainderMemberIsStrictlyDominated
 --
--- `TheStratificationTerminatesOnItsOwnLength` reduced the Pareto line's
--- whole remainder to three properties of the OUTPUT:
---
---   "(1) COVERAGE â¦ (2) DISJOINTNESS â¦ (3) ORDER: nothing says a member
---    of an earlier layer relates by domination to a member of a later
---    one â” which is the property that would make 'stratification' mean
---    what Â§5.2 wants."
---
--- (3) is the one that matters, and this is its first half.
+-- The Pareto stratification has three properties of the OUTPUT:
+--   COVERAGE, DISJOINTNESS, and ORDER: a member of an earlier layer
+--   relates by domination to a member of a later one, which is the
+--   property that makes 'stratification' mean what Â§5.2 wants.
+-- ORDER is the one that matters, and this is its first half.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -31,10 +27,6 @@
 -- so failing it gives `Â Â Any â¦`, not `Any â¦`.  The dominator is
 -- recovered only because `decAny decStrictlyDominates` makes that `Any`
 -- DECIDABLE, hence stable.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  A filter's complement keeps the non-satisfiers, and a
--- decidable proposition is stable; both elementary.
 ------------------------------------------------------------------------
 
 module EveryRemainderMemberIsStrictlyDominated where

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡Æ‡‡≤-‡‡ï‡‡∞-‡‡∞‡‡ï‡‡‡æ ‚î the basis-cycle test.
 --
--- THE CLAIM (2026-09-03, the synthesis): exhaustive path testing
+-- THE CLAIM: exhaustive path testing
 -- compresses to a homology basis ‚î to certify that an additive edge
 -- effect is path-independent, it suffices to verify zero integral on
 -- basis cycles.  Here is the pairwise instance of that theorem, in the

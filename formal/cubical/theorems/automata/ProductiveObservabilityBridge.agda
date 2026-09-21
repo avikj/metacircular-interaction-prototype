@@ -8,9 +8,7 @@
 -- observation is `Net.view`.
 --
 -- The Bisim-side inverse law is a guarded path through the coinductive
--- record, not definitional eta.  This result is specific to
--- `ProductiveIndraNet.Net`; it is not transferred to the indexed, branching
--- `IndraNet.Coinductive.Net`.
+-- record, not definitional eta.
 ------------------------------------------------------------------------
 
 module ProductiveObservabilityBridge where

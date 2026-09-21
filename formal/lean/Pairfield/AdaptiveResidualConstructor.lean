@@ -4,7 +4,6 @@ Released under Apache 2.0 license.
 
 An exact conditional constructor for adaptive residual separators.  A plan is
 the recursively splittable witness; compiling it produces the native tree.
-The theorem does not assert that every reduced automaton has such a plan.
 -/
 import Pairfield.AdaptiveResidualPotentialAdapter
 

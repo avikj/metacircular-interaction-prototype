@@ -142,19 +142,11 @@ smallest-denies-collapse : (Q : Type) → ¬ (Collapses (walk-view 2 2) Q)
 smallest-denies-collapse = walk-denies-common-state 2 2 isPrime2 2∣2
 
 ------------------------------------------------------------------------
--- 4.  What this settles, and what it opens.
+-- 4.  What this settles.
 --
 -- SETTLED.  "Give the walk a single state and the additive and
 -- multiplicative sides will finally talk" is not an open engineering
 -- problem.  It is refuted, at every installed prime, by a one-line
 -- consequence of a schoolchild's fact.  The machine does not have one
 -- state; it has two views and no object beneath them.
---
--- OPEN.  Aneknta says the two permitted moves are transport or residue.
--- Collapse is gone, so the whole question is now: **what is the transport
--- between the state-rule's view and the search-rule's view, and what does
--- it cost?**  The walk already answers with a number � its step costs
--- Θ(e^{ψ(m)}) � and `WalkFast` shows that particular transport is
--- cheaper than it looks.  That is the live thread, and it is a question
--- about price rather than about possibility.
 ------------------------------------------------------------------------

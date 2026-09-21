@@ -10,8 +10,7 @@
 --
 -- Pauli X changes the frame by exchanging amplitude coordinates, outcome
 -- labels, weights, and posterior basis states.  The checked covariance law
--- says these transformations describe the same paired branch content.  It is
--- not a normalization theorem and makes no collapse-ontology claim.
+-- says these transformations describe the same paired branch content.
 ------------------------------------------------------------------------
 
 module ExactTwoStateInstrument where

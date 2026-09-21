@@ -32,15 +32,12 @@
 -- ‡µ‡à‡Ø‡æ‡ï‡∞‡‡æ‡ ‚î Ngea, Paribhenduekhara ~1700; Patajali ~150 BCE).
 -- Five-term strength ranking: Ngea, Paribhenduekhara 38.
 --
--- MINE, the  is decoration on a standard construction:
+-- COINED HERE, the  is decoration on a standard construction:
 -- Sandarbha/sthapana/Avishesha (one-hole contexts, contextual
 -- equivalence), Prakriya/Sutra as used here (a straight-line program with
 -- back-references), guru (largest intermediate), and mulya, sthula,
 -- bhrama, Anujna, Ankita, cakra, jaya, svavisaya, nishkriya, ubhau,
 -- avrtti, and every  theorem name below.
---
--- CHECKED: exit code quoted in the commit.  Agda 2.6.3 + cubical v0.5 in
--- this container, which is NOT the repository pin.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava where

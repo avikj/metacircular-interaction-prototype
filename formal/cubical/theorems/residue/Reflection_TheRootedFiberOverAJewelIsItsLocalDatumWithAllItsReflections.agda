@@ -13,9 +13,7 @@
 -- already checked in this repository as `IndraNet.agda`, whose module
 -- header names them as targets T25.B and T25.D.
 --
--- THE GAP THIS FILE CLOSES.  `IndraNet.agda` proves two equivalences and
--- never joins them, though its own `IndraRoot` comment says it is
--- "closing the loop with T25.B":
+-- `IndraNet.agda` proves two equivalences:
 --
 --   T25.B  Rooted.rootFiber x : fiber unroot x â‰ Net x
 --            â” the fibre of the rooted totalization Î x . Net x over a
@@ -27,7 +25,7 @@
 -- Both are equivalences of corpus-defined objects, and they share the
 -- middle term `Net x`.  Composing them (cubical's one verb: transport
 -- along the identification, here `compEquiv`) identifies the two OUTER
--- objects, which the corpus had left unjoined:
+-- objects:
 --
 --   fiber unroot x  â‰  L x — ((y : J) â’ Net y).
 --
@@ -72,7 +70,7 @@ module _ {J : Type â„“} (L : J â†’ Type â„“') where
   Rootâ‰¡IndraRoot : Root â‰¡ IndraRoot
   Rootâ‰¡IndraRoot = refl
 
-  -- THE CLOSED GAP.  Fibre-over-a-jewel (T25.B) composed with the guarded
+  -- THE THEOREM.  Fibre-over-a-jewel (T25.B) composed with the guarded
   -- unfolding (T25.D): to lie over x in the rooted net is exactly to be
   -- x's local datum together with the whole net's reflection.
   pratibimba : (x : J)

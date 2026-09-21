@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- OneCounterexampleRefutesALabelButNotAnExistential
 --
--- with one that is different in kind from the others:
+-- `DARWIN_GODEL_MATH.md` Â§7 lists its criteria, with one that is different in kind from the others:
 --
 --   "any artifact labeled kernel-checked or independently replayed fails
 --    a clean replay.  One such authority-label error is a boundary
@@ -16,7 +16,7 @@
 -- claim-shapes the other criteria use are not.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS PROVED, AND THE HONEST WEAKNESS OF THE CONTRAST
+-- WHAT IS PROVED
 --
 -- Â§2: one labelled artifact that fails to replay refutes the label's
 -- soundness outright.  No rate, no tolerance, nothing to average over.
@@ -92,8 +92,7 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 --
 -- Â§3 shows a single failure is compatible with another claim-shape
 -- holding, so "noise" is a meaningful notion for SOME claims â” just not
--- for this one.  Which claims, and with what tolerance, is a question
--- about rates and is not answered here.
+-- for this one.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

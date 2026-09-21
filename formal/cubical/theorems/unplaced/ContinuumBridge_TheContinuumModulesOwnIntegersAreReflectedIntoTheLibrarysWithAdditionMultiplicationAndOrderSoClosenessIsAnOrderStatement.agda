@@ -9,8 +9,7 @@
 -- preserves addition and multiplication, and shows the Boolean order
 -- decides the library's order.  From that the closeness relation
 -- Close Îµ p q becomes a statement in the library's â, on which the ring
--- solver and the order lemmas apply.  This is the first storey of the
--- analysis tower named in the remainder.
+-- solver and the order lemmas apply.
 --
 --   Â§1  toâ, and toâ (a +â b) â‰¡ toâ a + toâ b, toâ (a Ââ b) â‰¡ toâ a Â toâ b;
 --   Â§2  ltâ•b m n â‰¡ true âŸº m < n on â•, and ltâb a b â‰¡ true âŸº toâ a < toâ b;

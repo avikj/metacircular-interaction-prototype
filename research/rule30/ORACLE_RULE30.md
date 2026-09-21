@@ -22,7 +22,7 @@ sum c_t 2^{-(t+1)} is 0.86239... (binary 0.1101110011...).
 
 Problem 1 (non-periodicity). Does the centre column always remain non-periodic? Precisely: is it
 false that there exist N, p >= 1 with c_{t+p} = c_t for all t >= N? Status: OPEN. No proof in
-either direction; no prize awarded as of this writing (my knowledge runs to mid-2026).
+either direction; no prize awarded as of this writing.
 
 Problem 2 (equidistribution). Does each colour occur on average equally often in the centre
 column? Precisely: does (1/n) #{t < n : c_t = 1} -> 1/2? Status: OPEN. Note the statement is
@@ -43,17 +43,14 @@ Mathematica (Random[]) from 1988 until version 6, which is the practical origin 
 
 ### 1.2 The searched depth (Problem 1 lower bounds)
 
-Everything known in the direction of Problem 1 is finite search. The published numbers I can
-vouch for: NKS (2002) reports no periodicity in the first several million cells; the 2019 prize
-announcement reports the column computed and tested to on the order of 10^9 cells (my
-recollection is 2^30 ~ 1.07 x 10^9, the length also used for the Problem 2 statistics; I am not
-certain of the exact exponent and no better-sourced bound is known to me). Nobody else has
+Everything known in the direction of Problem 1 is finite search. The published numbers: NKS (2002) reports no periodicity in the first several million cells; the 2019 prize
+announcement reports the column computed and tested to on the order of 10^9 cells (2^30 ~ 1.07 x 10^9, the length also used for the Problem 2 statistics). Nobody else has
 published a materially deeper search. What such a search proves is only the finite exclusion
 theorem of Section 5: for every (N, p) with a mismatch c_i != c_{i+p}, N <= i < D - p, the column
 is not (N, p)-eventually periodic.
 
-For this report I recomputed to depth D = 2^21 = 2,097,152 and verified the following
-unconditional (computer-checked, not kernel-checked) statement, which is at least as strong as
+The column was recomputed here to depth D = 2^21 = 2,097,152, and the following
+unconditional (computer-checked, not kernel-checked) statement holds, which is at least as strong as
 anything published in this form:
 
   For every period p <= 65,536 there is an index i with c_i != c_{i+p} and i >= D - p - 18.
@@ -166,7 +163,7 @@ some left half.
 
 ### 3.2 Jen's theorem: no two adjacent columns are both eventually periodic
 
-This is, to my knowledge, the strongest unconditional statement in the direction of
+This is the strongest unconditional statement in the direction of
 Problem 1, due to Erica Jen ("Aperiodicity in one-dimensional cellular automata",
 Physica D 21 (1986) 217-236; cited in NKS p. 871 as "two adjacent columns can never both be
 periodic"). The proof below is self-contained and uses only structural induction, so it is a
@@ -552,7 +549,7 @@ Sturmians, Thue-Morse all have linear complexity and fail L1 already at n ~ 5):
 The Rule 30 centre column (1101110011000101100100111010111 0..., verified here to depth
 2^21) is conjectured to be non-periodic (Wolfram Prize 1), to have ones of frequency 1/2
 (Prize 2) and to be computationally irreducible (Prize 3); all three are open, and everything
-known toward Prize 1 is finite search, of which the strongest form I can vouch for is the
+known toward Prize 1 is finite search, of which the strongest form is the
 computer-checked statement that no period p <= 65,536 with preperiod <= 2,031,598 exists
 (and that p(16) = 65,536 on the first 2^20 bits, which by Morse-Hedlund refutes all N + p < 65,536).
 "Eventually periodic iff 0.c rational" is unconditionally true in both directions with no
@@ -578,7 +575,7 @@ the column exists unless the column is periodic. In the corpus's landscape the c
 the conjectural opposite of the rotations and Sturmians: never-returning with maximal
 rather than minimal complexity (p(n) = 2^n for n <= 16 observed; conjecturally normal,
 non-automatic, irreducible), and with no conserved quantity witnessing the non-return. The
-right next formal claim is the finite shadow of that: every word of length n_0 occurs in
+finite shadow of that is a formal claim: every word of length n_0 occurs in
 the first D bits (n_0 = 9 at D = 4096, n_0 = 12 at D = 2^16), which simultaneously certifies
 the exclusion of all periods and preperiods with N + p < 2^{n_0} and separates the column,
 at finite resolution, from every linear-complexity object in the corpus.

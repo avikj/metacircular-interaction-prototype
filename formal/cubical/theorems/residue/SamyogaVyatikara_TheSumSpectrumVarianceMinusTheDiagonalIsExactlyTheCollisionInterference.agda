@@ -5,7 +5,7 @@
 -- minus the diagonal is EXACTLY the interference produced when the sum
 -- map identifies two genuinely different source pairs.  V∞ − D is not a
 -- residual to be bounded; it is located, and its location is the
--- collision.  (Owner's zeta-lane message; the exact algebra as a term.)
+-- collision.
 --
 -- THE OBJECTS (REPORT.md Theorem D, the sum-spectrum measure).  At a
 -- zero-sum frequency s = γ_i + γ_j the Beta weights W_{ij} accumulate,
@@ -16,7 +16,7 @@
 --   D  = �_{i,j} | W_{ij} |²                  (diagonal: the weight each
 --                                             source carries alone)
 --
--- The owner's sharpening: V∞ = D does NOT say "the zeros are random".
+-- V∞ = D does NOT say "the zeros are random".
 -- It says the sum observation has NO UNDECLARED SOURCE COLLISIONS in
 -- the weighted sector.  V∞ − D is the cross term � the interference of
 -- distinct pairs {γ_i,γ_j} ≠ {γ_k,γ_l} arriving at one frequency.
@@ -35,7 +35,7 @@
 -- and it is nonzero whenever both collided weights are (witness at
 -- w� = w� = 1: V∞ = 4, D = 2, interference = 2).
 --
--- LEG SYMMETRY is a THIRD, separate multiplicity (the owner's point):
+-- LEG SYMMETRY is a THIRD, separate multiplicity:
 -- (γ_i,γ_j) � (γ_j,γ_i) is reversible transport, declared, and does not
 -- enter this cross term � it is the ordered-vs-unordered relabeling, not
 -- a collision of distinct unordered pairs.  §3 records it and does not
@@ -96,7 +96,7 @@ interference-nonzero : ¬ (V∞-collide (pos 1) (pos 1) - D (pos 1) (pos 1) ≡ 
 interference-nonzero p = snotz (injPos (sym interference-witness ∙ p))
 
 ------------------------------------------------------------------------
--- §4 � LEG SYMMETRY IS NOT COLLISION (owner's three-multiplicity point).
+-- §4 � LEG SYMMETRY IS NOT COLLISION.
 -- (γ_i,γ_j) � (γ_j,γ_i) is the ordered relabeling � declared, reversible,
 -- and orthogonal to §1.  Modeled: swapping the two source LABELS leaves
 -- both D and every V∞ invariant, because both are symmetric in w�,w�.

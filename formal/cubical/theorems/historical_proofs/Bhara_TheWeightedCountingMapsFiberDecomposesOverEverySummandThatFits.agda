@@ -51,11 +51,9 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- TERM.  ‡‡æ‡∞ ‚î weight, load, that which is carried.  Ordinary ;
 -- in the prosodic tradition the weight of a syllable is its ‡Æ‡æ‡‡‡∞‡æ
--- (Pigala, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡, ~300 BCE: ‡≤‡ò‡ one mtr, ‡ó‡‡∞‡ two).  LIMIT:
+-- (Pigala, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡, ~300 BCE: ‡≤‡ò‡ one mtr, ‡ó‡‡∞‡ two).
 -- ‡‡æ‡∞ is used here in its plain sense for the cost a constructor
--- charges; the prosodists' term for the syllable's own weight is ‡Æ‡æ‡‡‡∞‡æ
--- and no text states a weighted fiber decomposition.  Pigala proves
--- nothing below.
+-- charges; the prosodists' term for the syllable's own weight is ‡Æ‡æ‡‡‡∞‡æ.
 --
 ------------------------------------------------------------------------
 

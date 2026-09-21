@@ -57,8 +57,7 @@
 --
 --   §5  `derivable-invariants` � the forward half of a complete invariant:
 --       a derivation implies equal words AND equal constants.  The converse
---       is the corpus's normalisation conjecture, restated here in its
---       sharp form.
+--       is refuted in §5.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Samkhyana_TheCountingSemanticsIsTheAbelianisationOfTheWordAndSoundnessIsTwoConservationLaws where
@@ -183,7 +182,7 @@ soundness-via-invariants {a} {b} d =
     (derivation-preserves-const d)
 
 ------------------------------------------------------------------------
--- §5.  THE FORWARD HALF OF A COMPLETE INVARIANT, AND THE OPEN CONVERSE.
+-- §5.  THE FORWARD HALF OF A COMPLETE INVARIANT, AND THE CONVERSE.
 ------------------------------------------------------------------------
 
 derivable-invariants :

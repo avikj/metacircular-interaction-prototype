@@ -4,9 +4,8 @@
 -- The bounded Haskell discovery bridge and the generic primitive-extension
 -- syntax describe the same four-operation arithmetic language.
 --
--- This module supplies the missing typed adapter.  It does not certify a
--- Haskell search trace or enlarge the set of admitted primitive symbols.
--- Its payoff is narrower and exact: discovery equations can reuse the
+-- This module supplies the typed adapter.
+-- Its payoff is exact: discovery equations can reuse the
 -- generic substitution theorem without a second substitution development.
 ------------------------------------------------------------------------
 

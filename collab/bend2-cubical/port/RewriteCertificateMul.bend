@@ -366,7 +366,7 @@ def x_times_one() -> InductionCertificateM(@mul_m{@var_m, @suc_m{@zero_m}}, @var
                 @hyp_suc_m{@mul_m{@var_m, @suc_m{@zero_m}}, @var_m, @hypothesis_m{{==}, {==}}, {==}, {==}},
                 @hyp_done_m{{==}}}}}}}}}
 
-# x Â 1 â‰¡ x is now a theorem OF THE MACHINE'S CALCULUS, by a checked trace
+# x Â 1 â‰¡ x is a theorem OF THE MACHINE'S CALCULUS, by a checked trace
 def x_times_one_sound(r: Env) -> Path(Nat, evalM(@mul_m{@var_m, @suc_m{@zero_m}}, r), evalM(@var_m, r)):
   induction_soundM(@mul_m{@var_m, @suc_m{@zero_m}}, @var_m, x_times_one(), r)
 

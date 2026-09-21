@@ -16,10 +16,10 @@
 --     inverted.  The two sides are disjoint: invertible ‚ü costless;
 --     costed ‚ü non-invertible.
 --
--- Every codec this repository's `compression/` directory once held put a
+-- A codec that puts a
 -- COST (a bit-count, a `len`, an entropy code) on structure that is
--- invertible ‚î it measured length on the transport side, which the master
--- theorem forbids.  That is the error.  The right object spends no bits on
+-- invertible measures length on the transport side, which the master
+-- theorem forbids.  The right object spends no bits on
 -- anything an equivalence determines, and reaches for a cost ONLY at a
 -- fibre that fails to be contractible.  This file makes that exact and
 -- checks it.
@@ -48,8 +48,6 @@
 --                        fibre ‚ü the fibre point is unique (isProp), the
 --                        decoder needs nothing to recover it.  That is
 --                        Abstract 24's remainder and it is the whole cost.
---
--- Machine-checked, Agda 2.8.0 + cubical v0.9, --safe, no postulates.
 ------------------------------------------------------------------------
 
 module CompressionIsTransportSoTheOnlyCostIsTheNonContractibleFibre where

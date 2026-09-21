@@ -3,7 +3,7 @@
 -- Advance(�_�) ⟺ Verify ∧ SearchSep ∧ PreserveProv ∧ UsefulEscape>0 ∧ Boundary
 --
 -- The gate, as a record whose fields are the five clauses, with the two
--- clauses that are not formalizable here (provenance, declared boundary)
+-- clauses provenance and declared boundary
 -- carried as explicit propositions the caller must supply rather than
 -- silently assumed.  Two theorems:
 --

@@ -9,7 +9,7 @@
 --
 -- so the formal exponential of ð“ preserves products coefficientwise
 -- and evaluation at the actual source remains a multiplicative
--- character at every order.  (Handoff Â§37, [S17].)
+-- character at every order.
 --
 -- The sum over a + b = n is written by recursion on n, with the
 -- binomial as a function of the pair (a, b), so no truncated

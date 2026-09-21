@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- A finite, falsifiable nonabelian instance of the holonomy/refinement seam.
--- The group is Sym(Fin 3) â‰ Sâ.  This is a precursor test only: it is not
--- SU(2), a Hilbert representation, or a continuum LQG construction.
+-- The group is Sym(Fin 3) â‰ Sâ.
 
 module FiniteNonabelianHolonomy where
 
@@ -75,7 +74,7 @@ noncommuting p = lower (Sum.âŠŽPath.encode (fsuc fzero) fzero inner)
 
 -- A deliberately minimal conjugation-invariant loop observation.  It records
 -- only that a loop was observed; the point is that gauge invariance is checked
--- for the concrete nonabelian group without pretending this is a Wilson trace.
+-- for the concrete nonabelian group.
 loopObserved : âŸ¨ Sâ‚ƒ âŸ© â†’ Unit
 loopObserved _ = tt
 

@@ -6,8 +6,6 @@ A finite source-centred sector inside `BoundedPrimePair`: ordered prime legs,
 an integral midpoint, and a cutoff on that midpoint rather than on each leg.
 Enlargement is covariant on total carriers but an equivalence on every old
 complete centre fibre.
-
-No inhabitation theorem for any centre is asserted here.
 -/
 import Pairfield.BoundedPrimePair
 

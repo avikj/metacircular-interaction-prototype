@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- ConeOrder
 --
--- Delta 17 T17.13, the remaining half: the ORDER condition on the cone.
--- And the finding is that it is not a remaining half at all â” over â• the
+-- Delta 17 T17.13: the ORDER condition on the cone.
+-- The finding: over â• the
 -- parity congruence and the inequality are ONE condition, not two.
 --
 -- Delta 17 presents the cone with two constraints, a congruence

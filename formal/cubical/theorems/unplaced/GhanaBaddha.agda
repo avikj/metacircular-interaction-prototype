@@ -12,7 +12,7 @@
 -- relational âˆkÂ³ = (âˆk)Â²; here the closed 4ÂâˆkÂ³ = (n(n+1))Â², since 4Â(âˆk)Â² =
 -- (2Ââˆk)Â² = (n(n+1))Â² by the doubling law.  This completes the closed forms of
 -- ryabhaa's three sakalitas.  Reuses Sankalita's âˆ, âˆÂ³, à˜à¨-àà™àà•à²à¿àà®à,
--- à¦ààµà¿à—àà-àà™àà•à²à¿àà®à: lane searched.  The only new step, 4(aÂa)=(2a)(2a) over a
+-- à¦ààµà¿à—àà-àà™àà•à²à¿àà®à.  The only new step, 4(aÂa)=(2a)(2a) over a
 -- bare variable, is a certified symbolic identity via the Nat ring solver â”
 -- which works here precisely because no suc-of-variable appears.)
 --

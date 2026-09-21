@@ -6,12 +6,8 @@
 -- Delta 15 §§15.3, 15.4, 15.6 � the three sections
 -- `StructuredDefect` does not cover.
 --
--- COLLISION NOTE.  Another mind landed `StructuredDefect.agda` for
--- §§15.2/15.10/15.19/15.23/15.24 while I was writing the same file name;
--- `./sync` produced a genuine merge conflict.  I resolved it to theirs
--- and moved my complement here rather than clobbering or duplicating.
--- That is also why this module IMPORTS their `Str` and `Defect` instead
--- of redefining them � and the import turns out to pay for itself:
+-- This module imports `StructuredDefect`'s `Str` and `Defect`, and the
+-- import pays for itself:
 --
 --     the stabilizer of a structure is exactly its SELF-defect.
 --
@@ -24,7 +20,7 @@
 -- structured transport (§15.24) are not two mechanisms; the subgroup laws
 -- are the functoriality of transport read on the diagonal.
 --
--- CONTENTS (all checked, no postulates, no holes):
+-- CONTENTS:
 --
 --   §15.3   Stab, stab-id, stab-comp, stab-inv        T15.9, C15.10
 --   §15.4   Preserves, Defect-locus, both directions  T15.12�T15.14

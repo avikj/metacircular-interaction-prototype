@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- CayleyPairChart โ” Delta 21 ยง21.7 and ยง21.12, checked over โ
 --
--- Delta 21 (owner, 2026-08-13) makes two structural claims about the
+-- Delta 21 makes two structural claims about the
 -- binary pair that are pure algebra, and therefore settleable rather
 -- than assertable.  Both are checked here, with denominators cleared so
 -- that the statements live over a commutative ring and the degenerate

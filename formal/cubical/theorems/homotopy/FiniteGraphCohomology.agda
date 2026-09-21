@@ -84,8 +84,6 @@ module Graph
       (gauge , λ _ → refl)
 
 ------------------------------------------------------------------------
--- Rigor boundary
---
 -- Checked generically: C0 acts on C1 by endpoint coboundaries; every additive
 -- cycle evaluation killing coboundaries is invariant and descends to H1.
 ------------------------------------------------------------------------

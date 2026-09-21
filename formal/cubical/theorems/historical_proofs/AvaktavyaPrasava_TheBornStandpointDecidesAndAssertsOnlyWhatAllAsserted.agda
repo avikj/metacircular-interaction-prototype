@@ -11,7 +11,7 @@
 -- WHAT THE HASKELL DOES.  The scheduler
 -- (`machine/Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition.hs`)
 -- reaches the fourth position, ‡‡µ‡ï‡‡‡µ‡‡Ø, when several rules contend for one
--- item and no metarule ranks them.  Its `Avaktavya` now carries the residue
+-- item and no metarule ranks them.  Its `Avaktavya` carries the residue
 -- -- the contending offers, entire -- and from that residue a new standpoint
 -- is born: the ‡‡®‡µ‡ï‡æ‡ rule whose whole scope IS the contested item,
 -- declared an apavda to every contender.

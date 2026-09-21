@@ -35,7 +35,7 @@
 --
 -- Prior art: Lawvere 1969; Pavlovi, Arch. Math. Logic 31 (1992) 397â“406;
 -- Yanofsky, Bull. Symbolic Logic 9 (2003) 362â“386; Roberts,
--- Compositionality (2023), arXiv:2110.00239.  See
+-- Compositionality (2023), arXiv:2110.00239.
 ------------------------------------------------------------------------
 
 module GodelSeparation where
@@ -202,8 +202,8 @@ witOmegaBad = tt , goedelHalfOne Wit wg witCon witHBL1 witFix
 --   Gdel I, conjunct 1 goedelHalfOne                   â” instance + 2 hyps
 --   Gdel I, conjunct 2 noHalfTwo                       â” NOT an instance
 --
--- The corpus claim "Gdel's first incompleteness theorem is an instance
--- of Lawvere's fixed-point theorem" is therefore false-grounds: what is
+-- The claim "Gdel's first incompleteness theorem is an instance
+-- of Lawvere's fixed-point theorem" is false as stated: what is
 -- an instance is the diagonal lemma.  The theorem is the diagonal lemma
 -- plus arithmetic hypotheses that no cartesian closed category supplies.
 ------------------------------------------------------------------------

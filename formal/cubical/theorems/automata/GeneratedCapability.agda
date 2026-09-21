@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- A generated obstruction changes executable future behavior.
 --
--- This is the composite that was previously distributed across
+-- This is the composite of
 -- Obstruction, GenerativeLoop, CompileBridge, AcceptanceTest, and
 -- MyhillNerodeMinimalMachine.  For the concrete task already used by CompileBridge:
 --
@@ -15,7 +15,7 @@
 --
 -- The action alphabet here has one operation: repeat the generated
 -- installation.  Repetition is idempotent at the two-state interface.
--- No objective, cost model, or task is inferred: this closes the checked
+-- This is the checked
 -- execution/comparison composite for the supplied concrete task.
 ------------------------------------------------------------------------
 

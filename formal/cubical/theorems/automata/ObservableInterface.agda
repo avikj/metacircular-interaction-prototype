@@ -163,13 +163,11 @@ dso-observation-reflects-state {left} {right} =
   DSO.transformer-full-abstraction left right
 
 ------------------------------------------------------------------------
--- Rigor boundary
+-- The shared seam and the three instances
 --
 -- Shared exactly: states, a possibly higher observation object, a declared
 -- comparison, its observation path, and dependent transport along that path.
 -- Distinct intentionally: Sâ uses gauge conjugacy and a Type-valued character;
 -- circuits use equality of finite weight experiments on every projective ray;
 -- DSO uses equality under every continuation and can reconstruct its relation.
--- No identification of gauge, quantum experiment, and optimization semantics
--- is asserted.
 ------------------------------------------------------------------------

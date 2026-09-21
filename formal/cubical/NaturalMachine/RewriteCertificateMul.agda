@@ -7,7 +7,7 @@
 -- the live soundness perimeter of the Haskell gate: `MathMachine.hs` â’
 -- `Certificate.hs` â’ (S1) `InductionSearch.hs` emit modules that import it,
 -- and `induction-sound` there is the semantic warrant for installing a
--- rewrite rule.  The gate lane owns that file.  `Tm` is a closed datatype,
+-- rewrite rule.  `Tm` is a closed datatype,
 -- so a constructor cannot be added from outside; the only conservative move
 -- is to MIRROR the module with the constructor added, and then to PROVE the
 -- mirroring is conservative rather than to assert it.  That is what Â§6 does:
@@ -28,8 +28,7 @@
 -- EVERY NAME HERE MATCHES ITS ADDITIVE COUNTERPART EXACTLY.  That is a
 -- deliberate interface constraint, not an accident: the Haskell renderer
 -- (`renderModuleNamed`, S1.0) then differs by one import string plus the
--- new constructors, so the S1 extraction stays valid and the diff to the
--- gate lane's work is purely additive.
+-- new constructors, so the S1 extraction stays valid.
 --
 -- WHY MULTIPLICATION FIRST.  Its two defining equations are already in
 -- `MathMachine.vocabulary`'s `symDefs` â”
@@ -314,8 +313,8 @@ one-times-one-sound = derivation-sound one-times-one
 -- the induction hypothesis under a `suc` context.
 --
 -- That is precisely the class `Certificate.hs`'s eleven-shape skeleton
--- (`refl`, `ih`, `cong suc`, `cong (_+ k)`, â¦) cannot express, and it is
--- the class the S1 rescue lane exists to reach.  The additive calculus
+-- (`refl`, `ih`, `cong suc`, `cong (_+ k)`, â¦) cannot express.
+-- The additive calculus
 -- could not state this theorem at all.
 ------------------------------------------------------------------------
 

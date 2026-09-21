@@ -29,8 +29,8 @@
 -- is the expensive one: `add-suc`'s soundness is discharged by `+-suc`, a
 -- library lemma, and appears in `step-sound` as the only clause that needs
 -- one.  So the calculus omitted the free rule and kept the costly one, and
--- the omission is what makes it sequential.  No claim that this was
--- deliberate; the observation is that the price was paid on the wrong side.
+-- the omission is what makes it sequential.  The price was paid on the
+-- wrong side.
 --
 -- WHAT IS PROVED HERE.
 --

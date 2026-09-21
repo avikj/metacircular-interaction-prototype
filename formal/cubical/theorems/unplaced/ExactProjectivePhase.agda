@@ -136,11 +136,3 @@ relative-phase-survives-projectivization equality =
       ∙ cong projectivePortWeights equality
       ∙ minus-ray-ports))
 
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked: the set quotient by the finite Z4 global-phase action, descent of
--- norm and interference-port weights, and separation of the two concrete
--- relative-phase rays by their descended output weights.
---
-------------------------------------------------------------------------

@@ -7,11 +7,11 @@ checked term
 The conservative-semantic-compression synthesis / the kernel as its
 own laboratory / trace functionals against terminal utility
 
-The synthesis of 2026-09-03 reformulates the work as a theory of
+The synthesis reformulates the work as a theory of
 conservative semantic compression, and its first reformulation is:
 a trace is a chain, an evaluator is a cochain, value is the pairing â”
 neither side holds it alone.  Stokes then rules exactly which
-modifications preserve value.  This night that reformulation enters
+modifications preserve value.  Here that reformulation enters
 the corpus as terms, on the kernel's own derivations.
 
 THE PAIRING.  An evaluator assigns an integer to every rewrite step;

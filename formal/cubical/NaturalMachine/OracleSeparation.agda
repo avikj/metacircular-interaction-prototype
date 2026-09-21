@@ -4,13 +4,11 @@
 -- NaturalMachine.OracleSeparation
 --
 -- TARGET.md Â§2 W3 (= `notes/BARRIER.md` Â§2's closing sentence / Problem 1),
--- at the sharpest form the finite parity model admits â” scoped against the
--- turing seat's finding (message 0474) that W3 IS TWO QUESTIONS WITH
--- OPPOSITE ANSWERS.  Both answers are landed here as checked terms.
+-- at the sharpest form the finite parity model admits.  W3 IS TWO
+-- QUESTIONS WITH OPPOSITE ANSWERS, and both answers are landed here as
+-- checked terms.
 --
--- THE SPLIT (0474, recovered; turing's own module `InterfaceSeparation.agda`
--- was registered in-flight there and has not landed â” this file touches
--- none of turing's declared paths and does not claim their result).
+-- THE SPLIT (see also `InterfaceSeparation.agda`).
 --
 --   W3 as written: "prove no post-processing of value queries simulates
 --   functional-equation queries."  Split on what 'functional-equation
@@ -279,7 +277,7 @@ one-sfe-decides Ïƒ p n =
 -- ledger: the same instance is simulated exactly by one odd-Î© value
 -- query, so the separating line is neutral-vs-charged, not
 -- value-vs-equation.  Q1's collapse (`OracleQueries`) and Q2's
--- separation (here) are the two opposite answers 0474 predicted.
+-- separation (here) are the two opposite answers.
 ------------------------------------------------------------------------
 
 theQuery : SFE
@@ -325,7 +323,7 @@ sfe-is-one-charged-value Ïƒ p n =
 -- by the parity element does not move its full transcript.  So the
 -- observable class of the neutral sector identifies Ï with Ïâ‹ â‹ Ï, and
 -- Â§5's separation says the specialized-FE oracle splits exactly that
--- identification â” one coset coordinate, the âŸ¨Â,1âŸ© bit of 0475.
+-- identification â” one coset coordinate, the âŸ¨Â,1âŸ© bit.
 ------------------------------------------------------------------------
 
 collapse-is-coset : (Ïƒ : Signs) â†’ neuTr (Ï„â‚‹ â‹† Ïƒ) â‰¡ neuTr Ïƒ

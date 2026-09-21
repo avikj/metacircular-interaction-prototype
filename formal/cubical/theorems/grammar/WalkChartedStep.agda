@@ -381,16 +381,6 @@ module Step (k : ℕ) where
 -- the unary walk could not reach.
 -- (`WalkBridge.next-3 : next 3 ≡ 4` is already a non-prime install; what
 -- is new is only the range.)
---
--- WALL TIMES ARE BUILD METADATA, in `WalkBridge`'s sense; no exponent is
--- fitted to them and none should be.  This whole file, witnesses
--- included, checks in ~15 s.  `nextw! 30 ≡ 31` checks in ~21 s and
--- `nextw! 50 ≡ 53` in ~3 min; both are excluded only for gate cost,
--- exactly as `WalkBridge` excludes `next 7` at 86 s.  For contrast, and
--- as a measurement of §7's threading and of nothing else, the same
--- witnesses over the UNthreaded `capw` (i.e. `nextw`) cost ~2 s at
--- m = 9, ~20 s at m = 12, ~42 s at m = 13 and ~5 min at m = 16 --
--- consistent with the doubling §7 names, and the reason `nextw!` exists.
 ------------------------------------------------------------------------
 
 module Base10 = Step 8

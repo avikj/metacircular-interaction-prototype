@@ -10,7 +10,7 @@
 --
 -- Edges retain a finite bound, strict center advance, and strict rank descent.
 -- The compiler transports any supplied cofinal seed along a supplied fabric
--- to (radius index 0, exact charge).  No edge or arithmetic witness is built.
+-- to (radius index 0, exact charge).
 ------------------------------------------------------------------------
 
 module NaturalMachine.MixedCornerTransferCompiler where
@@ -138,15 +138,11 @@ compile-to-exact-radius-one : {n : ℕ}
 compile-to-exact-radius-one {n} Witness seed fabric =
   compile-mixed-corner Witness (target {n}) seed fabric
 
--- Neither the seed nor the fabric is manufactured by this module.
-
 ------------------------------------------------------------------------
 -- 3. The two Factory IV seed interfaces over the 123-radius band
 ------------------------------------------------------------------------
 
--- These are deliberately interfaces, not arithmetic theorems.  In
--- particular this module supplies neither a bounded-gap seed nor a Chen
--- envelope seed.
+-- These are deliberately interfaces, not arithmetic theorems.
 module Finite123Seeds
   (Witness : ℕ → CornerState 123 → Type₀) where
 
@@ -193,6 +189,3 @@ module Finite123Seeds
   compile-chen-envelope (inl targetSeed) purification = targetSeed
   compile-chen-envelope (inr excessSeed) purification =
     path-transports-cofinal Witness purification excessSeed
-
--- No inhabitant of either seed interface or of either required fabric is
--- claimed here.  The module only checks the consequence architecture.

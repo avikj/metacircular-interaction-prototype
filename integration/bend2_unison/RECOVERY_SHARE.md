@@ -1,55 +1,19 @@
-# Bend2/HVM Unison integration recovery log
+# Bend2/HVM Unison integration
 
-This file is the record of the recovery after the first integration pass was
-partly deleted from the working tree.
+## Patch overlays
 
-## Incident and current evidence
-
-The first implementation was developed in a shared checkout with many files untracked.
-An agent cleanup removed the untracked source files before they were committed. The
-following commits are the durable checkpoints known at recovery start:
-
-* `32ac713ef` recorded surviving integration artifacts.
-* `d460461a3` recovered and committed `admission/Core/Admission.hs`.
-
-Git history does not contain the other deleted source modules. Git object inspection
-did not expose additional unreachable commits. Several independent temporary Unison
-checkouts, generated patch files, compiler objects, binaries, logs, and the Bend/HVM
-source trees remain available. These are the recovery evidence. Do not claim that a
-temporary compiled binary proves source recovery: source and reproducible build inputs
-are required.
-
-## Surviving files
-
-The current integration directory has the following important surviving material.
-
-`admission/Core/Admission.hs` is the restored native admission implementation. It
-contains the Bend source parser/admission boundary, member metadata, authored source
-provenance, byte spans, checked type information, and native component plan generation.
-It is the starting point for restoring the rest of the pure core.
-
-`storage/Core/*.hi` and `storage/Core/*.o` are compiler products for the deleted pure
-storage modules. Their presence can help identify exported symbols with `ghc -ddump-
-iface`, but object files are not a substitute for source and should not be checked in
-as the only implementation. The relevant modules are `ComponentPlan`, `FlatCodec`,
-`SemanticIdentity`, and `SyncEnvelope`.
-
-The storage tests whose compiler products remain are `NativeTransactionRoundtrip`,
-`ProtocolHttpRoundtrip`, `SyncWireTest`, and `DependencyGraphTest`.
-
-The patch artifacts currently present are:
+The patch artifacts are:
 
 * `cli/ucm-bend-artifact-cache.patch`
 * `cli/ucm-bend-divergent-merge.patch`
 * `cli/ucm-bend-view-display.patch`
 * `storage/unison-bend-role-graph.patch`
 
-These are small later overlays, not the complete original integration. They are
-preserved verbatim and applied in their documented order after the base core.
+They are applied in their documented order after the base core.
 
 ## Core inventory
 
-The core is known from the prior build and test records. It includes pure
+The core includes pure
 Haskell modules under `admission/Core`, `reify/Core`, `storage/Core`, and
 `execution/Core`; fixture Bend files under `admission/fixtures`; Python live smoke
 tests under `cli`; and a single canonical integration README. The source names are:
@@ -75,10 +39,9 @@ The fixtures include the cubical path transport Bend program, imported
 multi-file Bend members, and the minimal direct HVM regression. The known canonical
 fixture is `collab/bend2-cubical/path_transport.bend`; its direct HVM result is
 `0 #4992`, with 4992 interactions and heap size 22157. A reduced `t_fwd_neg.bend`
-fixture reports 146 interactions and heap size 3701. These are stable recovery
-anchors, not new claims about the cubical implementation.
+fixture reports 146 interactions and heap size 3701.
 
-## Recovered API contract
+## API contract
 
 The admission layer must accept UTF-8 Bend source and emit one checked member record
 per declaration. A member record carries its logical namespace path, source file,
@@ -131,68 +94,4 @@ smoke checks empty diagnostics, typed hover, and go-to-definition.
 The pure storage acceptance commands are the compiled test executables listed above.
 `NativeTransactionRoundtrip` must store 22 components, export/import them through a
 temporary entity, and reproduce canonical bytes and HVM output. `ProtocolHttpRoundtrip`
-tests the loopback Share v1 request/response shape; it is not production Share. The
-Share server itself must be tested separately with PostgreSQL and Hasql before a
-production readiness claim.
-
-## Temporary evidence and builds
-
-The pinned Unison source is commit `84b95a623711b57b9ff7163f124b214d626b81e4`, found
-in several `/private/tmp/unison-*` checkouts. The most complete build trees include
-`/private/tmp/unison-bend-exact-20260917` and
-`/private/tmp/unison-bend-desktop-final-check`. Compare these trees for overlay source
-before copying. Build logs under `/private/tmp` include the strict UCM builds,
-semantic build, headless HTTP run, and Share builds.
-
-The reproducible preparation script vendors HVM3/highlight, applies Bend parser
-metadata and ordered native overlays, then builds `unison-cli-main` with the direct
-Command Line Tools compiler. A pristine patch-only dry run and a full independent
-clean build passed through UCM registration.
-
-## Known limitations
-
-General mathematical semantic identity for arbitrary dependent terms, paths, HITs,
-and recursive programs is not implemented merely because the cubical checker can
-prove equality. The checked narrow identity index must remain sound and versioned.
-Structural addresses and authored provenance must remain available even when semantic
-peers are displayed. The local loopback Share protocol is a fixture; production
-authentication, PostgreSQL migrations, and remote push/pull require their own run.
-The Desktop renderer build and backend link resolution have been exercised, but GUI
-click automation was unavailable. These limitations do not justify redesigning the
-Bend language or adding a second source syntax.
-
-## Recovery notes
-
-* 2026-09-17: created this handoff after confirming only admission source, later
-  overlays, tests' compiler products, and build evidence survived in the workspace.
-
-* 2026-09-17: regenerated `storage/unison-share-server-bend.patch` from the
-  intact `/private/tmp/share-bend-baseline` and
-  `/private/tmp/share-bend-forward-green.9IaP9w` trees. It covers backend,
-  PostgreSQL causal/entity/serialization/sync modules, web sync modules,
-  SyncV2 queries, the Bend migration, and `stack.yaml`. The patch has 905
-  unified-diff lines and portable `a/` and `b/` paths. Forward application was
-  verified with `patch -p1 --dry-run` against the baseline; all 11 expected
-  files patched and the command exited zero. Commits: `6ed19b36e` ledger,
-  `6e5ce3edd` recovered patch, `ec5ec87e9` portable paths.
-
-* Build evidence recovered from `/private/tmp/share-bend-server-build9.log`:
-  Stack compiled all 192 Share modules, linked the `share-api` executable,
-  and registered the library successfully. PostgreSQL 15.4 evidence is in
-  `/private/tmp/share-pg15-migrations.log`: the native migration applied with
-  `ALTER TYPE`, native table/index/function creation, and zero errors. The
-  fixture `/private/tmp/share-pg15-bend-fixture.log` inserted 22 native rows
-  in one transaction and committed successfully. These are local source and
-  database checks; authenticated remote Share push/pull is an explicit
-  production gate.
-
-* Reverse application was also verified against
-  `/private/tmp/share-bend-forward-green.9IaP9w` with
-  `patch -R -p1 --dry-run`; all 11 files reversed and the command exited
-  zero. The recovered artifact is therefore bidirectionally portable.
-
-* Added `storage/regenerate_share_patch.sh` so the patch can be rebuilt from
-  any clean and forward source pair. A generated patch was independently
-  forward dry-run against the baseline and patched the same 11 files with
-  exit status zero. Diff timestamps make raw patch checksums differ between
-  runs; file contents and hunks are the intended reproducible payload.
+tests the loopback Share v1 request/response shape; it is not production Share.

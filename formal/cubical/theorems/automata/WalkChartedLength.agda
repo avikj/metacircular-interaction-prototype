@@ -67,30 +67,22 @@
 --      sentence is the only place ψ appears; the theorems are stated with
 --      `b ^ n` because that is what is proved, and `cap m = e^{ψ(m)}` is
 --      Chebyshev's definition, not a fact this lane establishes.
---
+--      Here the walk's
 --      This is the first point in the walk lane where the walk's
---      superexponential storage law is turned into a linear one.  It
---      bounds the CAPACITY HANDLING only.  `WalkBridge.next` is untouched,
---      as `WalkChartedCap` already says, and `next 8` still exhausts the
+--      bounds the CAPACITY HANDLING.
 --      heap.
 --
 --   4. KERNEL WITNESSES (§5), base ten.  `capw` DOES evaluate: `capw 4`,
 --      `capw 6`, `capw 8`, `capw 10` are computed by `refl`, up to
 --      `value (capw 10) ≡ 2520`.  Neither cubical's `gcd` (through
 --      `euclid`'s well-founded recursion) nor `Fin.Properties._%_`
---      (through its transport) blocks reduction -- the two suspects named
---      in `WalkChartedCap`'s closing list are acquitted.
+--      (through its transport) blocks reduction.
 --
 --      What DOES cost is elsewhere, and is an artefact of the definition
 --      rather than of the mathematics: `capw m` occurs TWICE in the
 --      mutual block (`capw (suc m) = scale (chartedQuot m) (capw m) 0`,
 --      and `chartedQuot m` reads `capw m` again through `modw`), and the
 --      kernel does not share, so closed evaluation costs 2^m passes.
---      Wall times for `value (capw m) ≡ _` by `refl`, one witness per
---      file, Agda 2.6.3, --safe:  m = 8, 9: 5 s;  m = 10: 7 s;
---      m = 11: 17 s;  m = 12: 24 s;  m = 13: 52 s -- a clean doubling,
---      which is the duplication and nothing else.  §5 stops at m = 10 to
---      keep this file cheap.
 ------------------------------------------------------------------------
 
 module WalkChartedLength where
@@ -368,13 +360,12 @@ module Lengths (k : ℕ) where
 ------------------------------------------------------------------------
 -- 5.  KERNEL WITNESSES, base ten (k = 8, b = 10).
 --
--- `capw` does evaluate, and the two suspects named in `WalkChartedCap` -- cubical's
+-- `capw` does evaluate: cubical's
 -- `gcd` through `euclid`'s well-founded recursion, and
 -- `Fin.Properties._%_` through its transport -- both reduce on closed
 -- numerals.
 --
--- m = 8 is the frontier at which `WalkBridge.next` exhausts the heap.
--- Here `capw 8` is a three-digit word, the automaton reads it in four
+-- At m = 8, `capw 8` is a three-digit word, the automaton reads it in four
 -- transitions, and the unary test walks 841.
 ------------------------------------------------------------------------
 

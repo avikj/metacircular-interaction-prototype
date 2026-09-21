@@ -36,10 +36,10 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY FIVE AND NOT MORE
 --
--- No claim that the tower is complete.  Levels 3â“5 are Pini's and were
+-- Levels 3â“5 are Pini's and were
 -- read off the Adhyy's actual devices; a tradition with different
--- devices would supply different levels.  What is claimed is that these
--- five are distinct, and that is what the four terms establish.
+-- devices would supply different levels.  These five are distinct, and
+-- that is what the four terms establish.
 ------------------------------------------------------------------------
 
 module TheTower where

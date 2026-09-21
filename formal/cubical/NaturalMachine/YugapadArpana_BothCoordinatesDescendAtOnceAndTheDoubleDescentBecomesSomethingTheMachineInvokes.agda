@@ -26,8 +26,8 @@
 --            its own recursion and the step by the exchange.
 --
 -- Demonstrated, all through the one prover, no hand proofs:
---   � commutativity of the machine's own maximum � yesterday's manual
---     theorem, now automatic (norm eye, empty record);
+--   � commutativity of the machine's own maximum � SyatWholedesha's hand
+--     theorem, here automatic (norm eye, empty record);
 --   � (x−y)�(y−x) = 0 � a theorem needing the record AND the pair
 --     descent together: its zero-edge needs 0�x = 0, which the
 --     machine first mints for itself and installs, and the installed
@@ -235,7 +235,7 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
        (क-चक्रः E Γ fl (mxℕ (चराः l) (चराः r)) (mxℕ (चराः l) (चराः r)) l r)
 
 ------------------------------------------------------------------------
--- §4  Yesterday's manual theorem, automatic; and a theorem needing
+-- §4  SyatWholedesha's hand theorem, automatic; and a theorem needing
 --     record and pair descent together � its zero-edge lemma minted
 --     by the machine first and speaking inside the edge's own ascent.
 ------------------------------------------------------------------------

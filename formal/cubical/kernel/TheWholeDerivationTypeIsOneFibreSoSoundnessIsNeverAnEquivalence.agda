@@ -5,8 +5,7 @@
 --
 -- TERM.  ‡‡‡‡ ¬ aea -- "without remainder", hence entire, complete, the
 -- whole of it.  ORDINARY , NOT A TECHNICAL TERM, and the compound in
--- this file name IS BUILT HERE: no source is claimed for it as a term of art
--- and the ledger has no row for it.  It is chosen for the pun the module
+-- this file name is built here.  It is chosen for the pun the module
 -- proves, which is exact rather than decorative -- the kernel's derivation is
 -- *aea ea*, ENTIRELY remainder, without remainder left over as anything
 -- else.  `TheDerivationCarriesNoMeaning‚¶` proved the second word; this file proves the first.

@@ -10,8 +10,7 @@
 --
 -- ‡‡ô‡‡ñ‡‡Ø‡æ names the OBJECT b ^ n ‚î the count of n-place base-b words.
 -- The base-b generalisation (Pigala counts base two) and the
--- group-theoretic reading below are the atlas's, not Pigala's; no
--- claim is made that he proved a group extension non-split.
+-- group-theoretic reading below are the atlas's, not Pigala's.
 --
 -- WHAT IT PROVES, and why it is here.  Vahita_‚¶ checked the carry
 -- extension  0 ‚í ‚/b ‚í ‚/b^{n+1} ‚í ‚/b^n ‚í 0  does not split at its

@@ -11,7 +11,7 @@ open import Sivasutra using (Sym ; a ; i ; u ; ṛ ; ḷ ; e ; o ; ai ; au ; Ṇ
 ------------------------------------------------------------------------
 -- NonInitialPratyaharasAndOneIntersectionInstance
 --
--- `formal/cubical/Sivasutra.agda` (cf-sakshi, 2026-08-18) checks the
+-- `formal/cubical/Sivasutra.agda` checks the
 -- pratyhra device on the vowel prefix, and says so exactly in its own
 -- comment: *"All pratyhras here begin at `a`, the head, so no
 -- start-search is needed."*  Its `upto` moves ONE endpoint.
@@ -43,8 +43,6 @@ open import Sivasutra using (Sym ; a ; i ; u ; ṛ ; ḷ ; e ; o ; ai ; au ; Ṇ
 -- The vowel prefix is where the device is visible cheaply; it is not
 -- where the ordering problem lives, since the hard part of the
 -- iva-stra ordering is the consonants and the duplicated `h`.
---
--- **No historical priority statement**, per the extended module.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

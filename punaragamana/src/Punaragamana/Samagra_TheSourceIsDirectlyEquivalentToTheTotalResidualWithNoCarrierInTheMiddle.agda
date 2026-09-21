@@ -29,9 +29,7 @@
 -- always an equivalence) and ‡≤‡ï‡‡‡‡Ø-‡‡‡∞‡ï‡‡‡‡ (to B, an equivalence iff f
 -- is).  It gets from `Carrier f ‚â Œ[ b ] ‡‡‡ f b` (`‡ó‡‡∞‡æ‡`) and
 -- `Carrier f ‚â A` (`‡Æ‡‡≤-‡‡‡∞‡ï‡‡‡‡-‡‡Æ‡‡æ`) SEPARATELY.  Nowhere in that
--- module, or anywhere else searched in `punaragamana/src` or
--- `formal/cubical` (grepped for `Œ[ b`  ` ‡‡‡` composed against `A ‚â`,
--- 2026-08-24: no hit), is the two COMPOSED into the one statement that
+-- module is the two COMPOSED into the one statement that
 -- actually names the total-space theorem without routing through
 -- `Carrier` as scaffolding:
 --

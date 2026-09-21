@@ -292,7 +292,6 @@ stage-summary-does-not-determine determines =
       recoverySpan persistentSpan same-stage-summary)
 
 -- Positive control: retaining the complete comparison span is sufficient.
--- The theorem does not assert that this is a minimal sufficient summary.
 full-span-determines : DeterminesComposite (λ span → span)
 full-span-determines =
   FI.fiberConstant→factorsThrough isSetBool

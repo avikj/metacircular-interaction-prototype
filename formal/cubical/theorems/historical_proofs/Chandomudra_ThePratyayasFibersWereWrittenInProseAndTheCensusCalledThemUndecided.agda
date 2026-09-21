@@ -52,8 +52,7 @@
 -- ‡Æ‡æ‡‡‡∞‡æ‡Æ‡‡∞‡ ‚î and the receipt for that cut is not a bound or an estimate
 -- but a named type whose cardinality is a sequence the tradition
 -- tabulated.  Virahka, *Vttajtisamuccaya*, c. 600‚ì800 CE (the range
--- is H. D. Velankar's, from his 1962 edition; NOT "~700", which this
--- repository's own searched ledger forbids in those words).  The
+-- is H. D. Velankar's, from his 1962 edition).  The
 -- recurrence is usually cited under Fibonacci's name, 1202, which is a
 -- restatement and is named here after the source and as one.
 --

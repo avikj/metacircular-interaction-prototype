@@ -35,7 +35,7 @@
 -- landed on its own foundations.
 --
 -- TERM.  ‡‡ï‡‡‡‡‡∞ ‚î "one thread / one aphorism"; ordinary ,
--- compound built here, no text claimed (CLAUDE.md naming rule note 2).
+-- compound built here.
 ------------------------------------------------------------------------
 
 module EkaSutra_JTheGraphAndTheFundamentalTheoremAreInstancesOfSingletonContractionSoAuthorsRetireIntoInstantiation where

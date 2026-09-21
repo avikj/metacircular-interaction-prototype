@@ -3,17 +3,8 @@
 ------------------------------------------------------------------------
 -- PairwiseCommutationGivesEveryOrder
 --
--- `OrderIndependenceTransfersAlongAnyNumberOfSteps` closed with the one
--- remaining gap in Î” 28 Â§36â“38's "for every order":
---
---   "PERMUTATIONS ARE NOT MODELLED.  'For every order' is encoded as
---    the HYPOTHESIS that two uncompressed composites agree â” which is
---    what Î” 28 means by 'exact elimination commutes' â” and NO theorem
---    here derives that hypothesis from pairwise commutation."
---
--- Derived here, and the derivation is where the phrase "exact
--- elimination commutes" finally becomes a hypothesis about STEPS
--- rather than about composites.
+-- Î” 28's "for every order": pairwise commutation of the STEPS gives
+-- agreement of every order, compressed and uncompressed alike.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -33,18 +24,10 @@
 --                     and a point where two orders disagree is not `C`
 --                     of anything
 --
--- **So Â§36â“38's clause is now hypothesis-free at the level it is
--- stated.**  Î” 28 says exact elimination commutes and that flat
--- compression preserves semantics "for every order".  Three cycles ago
--- that was two orders of two steps; two cycles ago it was any two
--- composites ASSUMED equal; now it is: assume the STEPS commute
+-- **So Â§36â“38's clause is hypothesis-free at the level it is
+-- stated.**
+-- Assume the STEPS commute
 -- pairwise, and every order agrees, compressed and uncompressed alike.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  That adjacent transpositions generate permutations, and
--- that pairwise-commuting operations give order-independent composites,
--- are both elementary and old.  The content here is only that Î” 28's
--- phrase is now discharged rather than assumed.
 ------------------------------------------------------------------------
 
 module PairwiseCommutationGivesEveryOrder where

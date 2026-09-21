@@ -44,8 +44,7 @@ and its centralizer is that constant's cyclic group.
 
 SYT â” THE CLAIM, EXACTLY.  The exhaustion on causal presentations;
 symmetries of unbounded lookahead lie outside every physical reading
-and outside this classification, and whether their question is
-well-posed is itself held as ea.
+and outside this classification.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

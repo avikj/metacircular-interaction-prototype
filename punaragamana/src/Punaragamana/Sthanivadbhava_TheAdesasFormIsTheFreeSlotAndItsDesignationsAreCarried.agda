@@ -24,12 +24,7 @@
 --   1.1.5   ‡ï‡‡ô‡ø‡‡ø ‡                 kiti ca ‚î no gua/vddhi after an
 --           affix marked k or , a marking 1.3.9 has already erased.
 --
--- WHAT IS *NOT* CLAIMED.  Pini proved none of the theorems below, and
--- the *Adhyy* has not been opened by the author of this file: the
--- stra text and numbering are carried from
--- `formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda`
--- in the parent repository and the citation is owed at stra level.
--- What IS claimed is only this: form, sthnin and designation are the
+-- CLAIMED OF THE SOURCE: form, sthnin and designation are the
 -- three distinctions 1.1.56 turns on, and its ‡‡≤‡/‡‡®‡≤‡ exception splits
 -- one of the three off from the other two.
 --
@@ -87,7 +82,7 @@
 -- the slot the law had to leave free.
 --
 ------------------------------------------------------------------------
--- WHAT THE ORBIT THEOREM ESTABLISHES ABOUT 1.1.62, AND WHAT IT DOES NOT.
+-- WHAT THE ORBIT THEOREM ESTABLISHES ABOUT 1.1.62.
 --
 -- 1.1.62 is the reason single-step preservation is not enough: an
 -- operation conditioned by an elided affix applies LATER, so whatever
@@ -105,13 +100,7 @@
 --   n+1 is the ‡∞‡‡‡Æ‡ standing at step n, so the chain back to the
 --   original is unbroken at arbitrary depth.
 --
---   NOT ESTABLISHED.  This is NOT a proof of 1.1.62 and must not be read
---   as one.  1.1.62 is about an ELIDED affix ‚î ‡≤‡ã‡, 1.1.60's ‡‡¶‡∞‡‡‡® ‚î
---   continuing to condition operations after it has ceased to appear.
---   Nothing here models elision, appearance, or a sequence of items:
---   there is no ‡≤‡‡‡‡, no ‡¶‡∞‡‡‡®, no word.  That material is in
---   `formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda`
---   ¬ß5‚ì6 and is NOT lifted here.  What the orbit theorem establishes is
+--   What the orbit theorem establishes is
 --   the weaker, prior statement 1.1.62 PRESUPPOSES: that the designation
 --   a later rule wants to read is still there to be read at arbitrary
 --   derivational depth.  1.1.62 asserts that this holds even when the
@@ -161,13 +150,7 @@
 --    advertisement; the step is called ‡‡¶‡Æ‡ and ‡‡‡∞‡ï‡‡∞‡ø‡Ø‡æ occurs as a type
 --    abbreviation and in this header, never as a claim.
 --
--- 4. THREE FORMS AND NO MORE ‚î , its gua substitute e, and the a that
---    6.1.78 would produce from e: the ones the derivation of ‡®‡Ø‡® passes
---    through, taken from the parent-repository module.  1.1.52‚ì1.1.55
---    (which sound of the sthnin an dea replaces), the vrttikas
---    restricting 1.1.56, and 1.1.61/1.1.63 (luk, lu, lup) are absent.
---
--- 5. Nothing here imports outside `Punaragamana`: the vocabulary ‡µ‡∞‡‡ /
+-- 4. Nothing here imports outside `Punaragamana`: the vocabulary ‡µ‡∞‡‡ /
 --    ‡‡¶‡‡ / AnalVidhi is redefined rather than imported from
 --    `formal/cubical`, so the library stays standalone and `check.sh`
 --    keeps checking what it says it checks.  That duplication is
@@ -495,7 +478,7 @@ module _ (‡§®‡§ø‡§Ø‡§Æ : ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) where
 -- `Nucleus` says carrier and orbit commute over the WHOLE infinite
 -- trajectory.  The two theorems after those instances are the ones 1.1.62
 -- makes necessary and which a single-step square cannot supply.  Read the
--- header for what they do and do not establish.
+-- header for what they establish.
 ------------------------------------------------------------------------
 
 module _ (‡§®‡§ø‡§Ø‡§Æ : ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) where

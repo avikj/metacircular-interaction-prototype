@@ -33,9 +33,6 @@
 -- No rational-number type is imported and none is needed; the point is
 -- precisely that the quotient is the object, so it is exhibited as a
 -- relation on presentations and shown to be one.
---
--- CHECKED: exit code quoted in the commit message.  Container is
--- Agda 2.6.3 + cubical v0.5, which is NOT the repository pin.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Pythagoras_RatioIsTheInvariantAndLengthIsThePresentation where

@@ -13,7 +13,7 @@
 -- ‚î the conduct of the gates: nothing enters but proven (the type),
 -- nothing enters twice (savara), nothing is pronounced false
 -- (silence).  This module is their composition into ONE LIVING
--- FUNCTION ‚î the cycle that until now existed as demonstrated pieces:
+-- FUNCTION ‚î the cycle:
 --
 --   ‡ó‡‡∞‡‡‡Æ‡     digest a stream of raw encounters with the full
 --               knowing, the body growing as it eats, each encounter

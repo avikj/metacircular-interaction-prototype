@@ -2,9 +2,7 @@
 
 -- Minimal surface/intersection seam for finite graph holonomy--flux data.
 -- A subdivision vertex is assumed off the surface: a coarse transverse
--- crossing is inherited by exactly one child edge.  This is not the concrete
--- SU(2) holonomy--flux algebra; no invariant vector fields, domains, or
--- geometric operators are asserted.
+-- crossing is inherited by exactly one child edge.
 
 module NaturalMachine.OrientedSurfaceFlux where
 

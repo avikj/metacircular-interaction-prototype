@@ -72,7 +72,6 @@
 --                          That is the checkable shadow of Â§3.4's
 --                          "failure cannot be reported".
 --
---    Â§2.2 fixes, checked for internal consistency and separation.
 --  * The note's Â§5 (Theorem 5.3: the dividing line for quantitative
 --    defects is ARITY, not an attainable zero) is formalised in
 --    `NaturalMachine.ArityOfRepair`, which imports
@@ -378,8 +377,7 @@ module _ (P : â„• â†’ Bool) where
 
 -- The reduction.  A uniform decision procedure for certificate
 -- existence on infinitely-branching systems would decide, for every
--- P : â• â’ Bool, whether some k has P k â‰¡ true.  Nothing in this module
--- claims that predicate is undecidable â” the point is that it is not
+-- P : â• â’ Bool, whether some k has P k â‰¡ true.  Such a decision is not
 -- available, so neither is the decision procedure, and the finite
 -- branching consumed by `decBCert` in Â§6 is load-bearing rather than
 -- convenient.

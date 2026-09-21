@@ -22,7 +22,7 @@
 --      WELL DEFINED: every factorisation of n has that count of p.
 --   à  The fibre of àµà§à over n on firm lists is Perm-connected: that is the
 --      exact sense in which Drdha's Â§à¯ fibre is "unique".  On raw lists it
---      is not contractible (order), and this module does not say it is.
+--      is not contractible (order).
 --
 -- The kernel runs the valuation: à®à¾à¨à®à 2 12 â‰¡ 2, à®à¾à¨à®à 3 12 â‰¡ 1,
 -- à®à¾à¨à®à 5 12 â‰¡ 0 are refl.

@@ -8,10 +8,7 @@ This module packages the concrete collision from
 second residue two.  The induced DFT coefficient does not descend through the
 scalar Bessel coordinate `mn/c²`.
 
-The conclusion is deliberately narrow.  It does not obstruct choosing a
-sparse section of the residue lifts, taking several kernels, or putting the
-coefficient into an independent Whittaker-index factor.  The final theorem
-below checks the last survival mechanism explicitly.
+below checks that an independent Whittaker-index factor still realizes the coefficient.
 -/
 
 namespace Pairfield.ActualDivisorBoundaryKuznetsovNoGo

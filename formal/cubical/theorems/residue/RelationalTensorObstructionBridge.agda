@@ -106,11 +106,3 @@ relational-tensor-comparison .ObstructionComparison.globalCoherenceFails =
 relational-tensor-comparison .ObstructionComparison.quotientRetractionFails =
   no-exact-local-reconstruction
 
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked: equality of the base fibres, equality of their point motions,
--- absence of a loop-stable phase, existence of a bare local choice, and the
--- two distinct no-go statements.
---
-------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡‡∞‡‡‡‡‡‡‡‡ô‡‡ó‡ ‚î the map-level sevenfold, completed on the nose.
 --
--- WHAT THIS CLOSES.  `GananaSaptabhangi_‚¶agda` ¬ß6 (‡¶‡ã‡‡≤‡‡ñ‡) shows the
+-- WHAT THIS PROVES.  `GananaSaptabhangi_‚¶agda` ¬ß6 (‡¶‡ã‡‡≤‡‡ñ‡) shows the
 -- map-level classification IS the sevenfold ‚î the non-empty selections of
 -- three fibre seeds, 2¬≥ ‚àí 1 = 7 ‚î and supplies canonical witnesses for
 -- THREE positions:
@@ -13,14 +13,11 @@
 --   asNat : Bool ‚í ‚ï      contractible then empty, never
 --                         crowded (injective into a set)     ‚í ‡‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø
 --
--- and leaves the remaining FOUR "as the open frame, stated not smuggled":
--- ‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø, ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, pure ‡‡µ‡ï‡‡‡µ‡‡Ø, and the full triple.  This
--- module supplies canonical witnesses for those four, so all seven bhagas
--- occupy the classification with a term.  A count with witnesses for only
--- three of its seven cells is a claim standing on an unbuilt frame; the
--- sevenfold is a theorem only once every selection is inhabited.
+-- and this module supplies canonical witnesses for the remaining FOUR:
+-- ‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø, ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, pure ‡‡µ‡ï‡‡‡µ‡‡Ø, and the full triple, so all seven bhagas
+-- occupy the classification with a term.
 --
--- The seeds, following the neighbour's readings:
+-- The seeds, following `GananaSaptabhangi`'s readings:
 --   ‡‡ï‡≤‡æ‡¶‡‡ (contractible fibre) ‚î ‡‡‡‡‡ø    ‚î something carried whole
 --   ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ (crowded fibre)     ‚î ‡®‡æ‡‡‡‡ø   ‚î something lost, exhibited
 --   ‡∞‡ø‡ï‡‡    (empty fibre)        ‚î ‡‡µ‡ï‡‡‡µ‡‡Ø  ‚î something the source cannot utter

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision
 --
--- 'number of exciting claims'", lists eight objectives, and says the
+-- Â§5.2 lists eight objectives, and says the
 -- controller "maintains Pareto strata" and samples WITHIN a stratum.
 -- The design is stated; the reason it must be that shape is not.
 --
@@ -41,16 +41,13 @@
 -- branch that assumes a TOTAL order on accuracy.  Â§5.2 says the fitness
 -- is a vector.  Those two facts sit in one note: the seam is in code
 -- selecting by a scalar, and the design section says the scalar does not
--- exist.  Nothing here claims the released code implements Â§5.2 â” it
--- does not, Â§5.2 is this repository's proposed controller â” only that
--- the two sections are about the same missing total order.
+-- exist.  The two sections are about the same missing total order.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  The product order, its failure of totality, and the fact
+-- The product order, its failure of totality, and the fact
 -- that monotone scalarisations are strict extensions are standard
 -- multi-objective optimisation, going back to Pareto (`Cours
--- d'©conomie politique`, 1896) and Edgeworth before him; the Agda is
--- attached to Â§5.2, not discovered.
+-- d'©conomie politique`, 1896) and Edgeworth before him.
 ------------------------------------------------------------------------
 
 module AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision where
@@ -154,8 +151,7 @@ scalarisationDecidesAnIncomparablePair =
 --                          sound and complete, so the computed stratum
 --                          and the specified one have the same members
 --
--- What that adds to Â§5.2 is the half this module could not say.  Here:
--- there is no best to pick.  There: the thing Â§5.2 picks INSTEAD â” "the
+-- Here: there is no best to pick.  There: the thing Â§5.2 picks INSTEAD â” "the
 -- controller first selects a Pareto stratum S" â” is constructible, and
 -- a controller cannot select what it cannot compute.
 --

@@ -17,7 +17,7 @@
 -- and Â§2â“Â§3 check them exactly, in â•, with no reals and no sigmoid.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- HOW THE REALS ARE AVOIDED, AND WHAT IS LOST BY IT
+-- HOW THE REALS ARE AVOIDED
 --
 -- Comparing `fâ/(1+nâ)` against `fâ/(1+nâ)` is comparing
 -- `fâÂ(1+nâ)` against `fâÂ(1+nâ)` â” cross-multiplication, valid because
@@ -25,10 +25,9 @@
 -- â•.  So `f` below is a POSITIVE INTEGER SURROGATE for the sigmoid
 -- factor, not the sigmoid.
 --
--- WHAT IS LOST: the sigmoid's range.  Ï(10(Îâˆ’0.5)) is strictly between 0 and
--- 1 and never attains an integer; Â§2's witness uses scores 3 and 2 and claims
--- nothing about which accuracies Î could produce a ratio 3:2. The
--- disagreement proved is a property of the SHAPE of the weight, not of any
+-- Ï(10(Îâˆ’0.5)) is strictly between 0 and
+-- 1 and never attains an integer.
+-- The disagreement proved is a property of the SHAPE of the weight, not of any
 -- particular run.
 ------------------------------------------------------------------------
 

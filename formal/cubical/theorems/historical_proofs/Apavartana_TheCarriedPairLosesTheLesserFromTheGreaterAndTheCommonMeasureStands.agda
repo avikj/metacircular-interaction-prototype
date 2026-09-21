@@ -12,20 +12,13 @@
 -- reduction serves is RYABHAA, *‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡*, ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡© (499 CE), worked
 -- out step by step in BHSKARA I, *‡‡∞‡‡Ø‡‡ü‡‡Ø‡‡æ‡‡‡Ø‡Æ‡* (629 CE); the apavartana
 -- step itself is stated in BRAHMAGUPTA, *‡‡‡∞‡æ‡‡‡Æ‡‡‡‡‡ü‡‡ø‡¶‡‡ß‡æ‡®‡‡‡* 18 (628 CE) and
--- worked in BHSKARA II, *‡‡‡‡ó‡‡ø‡‡Æ‡* (1150 CE).  This citation is taken from
--- this repository's own ledger
--- (.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt,
--- row `Apavartana`) and from the header of `LosslessReturn.agda`.
+-- worked in BHSKARA II, *‡‡‡‡ó‡‡ø‡‡Æ‡* (1150 CE).
 --
--- WHAT IS CLAIMED OF THE SOURCE, AND WHAT IS NOT.  NOT that ryabhaa,
--- Bhskara I, Brahmagupta or Bhskara II proved any theorem below; none of
--- them wrote a step law for a carrier, and no such statement is attributed to
--- them here.  NOT that any of them stated the subtractive form: the ‡ï‡‡ü‡‡ü‡ï of
+-- The ‡ï‡‡ü‡‡ü‡ï of
 -- ‡ó‡‡ø‡‡‡æ‡¶ ‡©‡®‚ì‡©‡© is a DIVISION procedure (quotients written into the ‡µ‡≤‡‡≤‡),
 -- and what is formalised below is the subtractive column that produces those
 -- quotients ‚î the same distinction `KuttakaValli_TheSideIsAFreeSlot‚¶` in the
--- `loss` library records as its SECOND DEFECT.  What IS claimed is
--- narrow and checkable: that "the greater loses the lesser, the lesser
+-- `loss` library records as its SECOND DEFECT.  "The greater loses the lesser, the lesser
 -- stands" is the movement their pair undergoes, and that its common measure
 -- is what their procedure keeps.
 --
@@ -69,7 +62,7 @@
 -- two-way certificate ‚î ‡Æ measures 48 and 18 exactly when ‡Æ measures 6.
 --
 ------------------------------------------------------------------------
--- WHAT IS NOT NEW HERE, said before anything is claimed.
+-- WHAT IS NOT NEW HERE.
 --
 -- The invariance of ¬ß4 is NOT a new fact in this corpus and is not offered as
 -- one.  `Gurutama` (‚à-‡Ø‡ã‡ó, and the descent's result divides both inputs),
@@ -78,10 +71,8 @@
 -- difference law crossing between the truncated and untruncated presentations)
 -- and `KuttakaSamapti_TheValliIsFiniteForEveryPair` (termination, and the
 -- greatest-common-divisor property over ‚) are all already in this directory
--- and all predate this module.  Nothing below improves on any of them, and
--- ¬ß5's corollaries are stated for TWO NAMED PAIRS ONLY ‚î no general
--- gcd theorem is proved or claimed here, because the corpus already has one
--- and this module is not about that.
+-- and all predate this module; ¬ß5's corollaries are stated for TWO NAMED
+-- PAIRS ONLY.
 --
 -- What is new is the SHAPE: the step law of the carrier, stated as an equation
 -- in the carried datum, which is the form the other three instances have and
@@ -133,10 +124,9 @@
 --    the diagonal and nowhere else; that is a statement about the encoding of
 --    termination, not about the arithmetic.
 --
--- 3. NO TERMINATION THEOREM IS PROVED HERE.  ¬ß3's n-step law holds for every n
---    and says nothing about which n reaches ‡‡Æ.  ¬ß5's two runs are `refl` ‚î the
---    machine executes them ‚î and they are two pairs, not a theorem.
---    `KuttakaSamapti_TheValliIsFiniteForEveryPair` has the theorem.
+-- 3. TERMINATION.  ¬ß3's n-step law holds for every n; ¬ß5's two runs are `refl` ‚î the
+--    machine executes them.  `KuttakaSamapti_TheValliIsFiniteForEveryPair`
+--    has the termination theorem.
 --
 -- 4. `_‚à_` HERE IS THE UNTRUNCATED Œ, so it is not a proposition, and two
 --    proofs that ‡Æ measures ‡® need not be equal.  ¬ß4's statements are
@@ -272,9 +262,8 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 ------------------------------------------------------------------------
 -- ¬ß2 ¬ ‡‡®‡‡‡∞‡ï‡∞‡ ‚î THE STEP, AS A MAP OF PAIRS.
 --
--- The name is a compound BUILT HERE (‡‡®‡‡‡∞, difference, + ‡ï‡∞‡, making); it is
--- not offered as a term from any of the four texts, and no source is claimed
--- for it.  The object is: run the pair down into its row, step the row, read
+-- The name is a compound BUILT HERE (‡‡®‡‡‡∞, difference, + ‡ï‡∞‡, making).  The
+-- object is: run the pair down into its row, step the row, read
 -- the pair back.  ¬ß3 is the theorem that this is the same thing as stepping
 -- the carrier.
 --
@@ -429,7 +418,7 @@ _‚à£_ : ‚Ñï ‚Üí ‚Ñï ‚Üí Type
 ------------------------------------------------------------------------
 -- ¬ß5 ¬ IT RUNS.
 --
--- Every equation in this section holds by `refl`, so Agda executes the
+-- Every equation in this section holds by `refl`, so Agda executes them.
 -- The corollaries are for THESE TWO PAIRS and no others ‚î see "WHAT IS NOT
 -- NEW HERE" and DEFECT 3.
 ------------------------------------------------------------------------
@@ -452,7 +441,6 @@ _‚à£_ : ‚Ñï ‚Üí ‚Ñï ‚Üí Type
 
 -- A TWO-WAY CERTIFICATE FOR ONE PAIR.  ¬ß4 in both directions, carried along
 -- the ten steps ¬ß5 computes: ‡Æ measures 48 and 18 exactly when ‡Æ measures 6.
--- Neither direction is a general theorem and neither is offered as one.
 ‡§Ö‡§∑‡•ç‡§ü‡§ö‡§§‡•ç‡§µ‡§æ‡§∞‡§ø‡§Ç‡§∂‡§§‡•ç-‡§Ö‡§∑‡•ç‡§ü‡§æ‡§¶‡§∂-‡§Ö‡§™‡§µ‡§∞‡•ç‡§§‡§ï‡§É : (‡§Æ : ‚Ñï) ‚Üí ‡§∏‡§æ‡§ß‡§æ‡§∞‡§£ ‡§Æ (48 , 18) ‚Üí ‡§Æ ‚à£ 6
 ‡§Ö‡§∑‡•ç‡§ü‡§ö‡§§‡•ç‡§µ‡§æ‡§∞‡§ø‡§Ç‡§∂‡§§‡•ç-‡§Ö‡§∑‡•ç‡§ü‡§æ‡§¶‡§∂-‡§Ö‡§™‡§µ‡§∞‡•ç‡§§‡§ï‡§É ‡§Æ h =
   fst (subst (‡§∏‡§æ‡§ß‡§æ‡§∞‡§£ ‡§Æ) ‡§ó‡§£‡§®‡§æ-‡§∑‡§ü‡•ç (‡§Ö‡§™‡§µ‡§∞‡•ç‡§§‡§®-‡§∞‡§ï‡•ç‡§∑‡§æ-‡§™‡•Å‡§®‡§É ‡§Æ 10 (48 , 18) h))

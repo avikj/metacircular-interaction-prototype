@@ -19,9 +19,7 @@
 -- Erica Jen, "Aperiodicity in one-dimensional cellular automata",
 -- Physica D 21 (1986) 217â“236; the statement is quoted in NKS p. 871.
 -- The proof here is the one in research/rule30/ORACLE_RULE30.md Â§3.2,
--- structurally inductive throughout.  Submitted to the yantra
--- (sadhana.patra) and accepted by its kernel, 2026-09-11.  What it does
--- not give: anything about ONE column â” the inversion consumes two.
+-- structurally inductive throughout.
 ------------------------------------------------------------------------
 
 module Jen_NoTwoAdjacentColumnsOfRuleThirtyFromASingleSeedAreBothEventuallyPeriodicBecauseLeftPermutivityCarriesPeriodicityLeftwardIntoTheLightConeWhereTheEdgeCellIsOne where

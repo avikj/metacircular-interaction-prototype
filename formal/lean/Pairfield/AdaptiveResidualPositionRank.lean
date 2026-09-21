@@ -121,7 +121,7 @@ theorem card_fixedCellSpace
 
 /-- Conditional positional steering bound.  A duplicate-free history of
 canonical live cells, all of size `k`, visits at most `choose n k` positions.
-The still-open normalization joint is exactly the `Nodup` premise. -/
+The normalization joint is exactly the `Nodup` premise. -/
 theorem nodup_fixedCellHistory_length_le_choose
     (M : DFA A X) (regular : M.accepts.IsRegular) (k : Nat)
     (history : List (Finset (State M)))

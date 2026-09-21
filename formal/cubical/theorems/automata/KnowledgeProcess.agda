@@ -6,7 +6,7 @@
 -- A small dependent bridge between exact interaction histories, paired
 -- past—future continuation observations, and the Factory IV mixed-corner
 -- compiler.  Arithmetic capability and its ranked path are retained as
--- inputs; this module does not inhabit either one.
+-- inputs.
 ------------------------------------------------------------------------
 
 module KnowledgeProcess where
@@ -110,8 +110,7 @@ module _ {n : â„•}
 
   -- The arithmetic transition cannot erase the independently checked
   -- experiment-interface obstruction: immediate readout still cannot decode
-  -- the paired continuation signature.  This is preservation by retention,
-  -- not a claim that the two domains are mathematically equivalent.
+  -- the paired continuation signature.
   transition-preserves-paired-no-go : KnowledgeProcess
     â†’ Â¬ FI.FactorsThrough
         Minimal.immediateInterface Minimal.phasePairedSignature
@@ -119,10 +118,8 @@ module _ {n : â„•}
     Minimal.immediate-interface-cannot-reconstruct-paired-signature
 
 ------------------------------------------------------------------------
--- Rigor boundary
---
--- `observeâ’knowledge-process` is the requested path from an exact experiment
+-- The path into the mixed-corner compiler surface
+-- `observeâ’knowledge-process` is the path from an exact experiment
 -- observation into the mixed-corner compiler surface.  Its last two arguments
--- are precisely the uninhabited arithmetic capability and transition fabric;
--- no experiment result is being promoted into a prime theorem.
+-- are precisely the arithmetic capability and transition fabric, taken as hypotheses.
 ------------------------------------------------------------------------

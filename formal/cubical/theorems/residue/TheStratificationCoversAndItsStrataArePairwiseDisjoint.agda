@@ -5,13 +5,8 @@
 --
 -- `OneStepCoverageAndDisjointnessOfTheLayer` proved the two output
 -- properties of the DARWIN Â§5.2 stratification AT ONE STEP â” the layer
--- and the remainder cover the archive and do not overlap â” and closed
--- by naming the remainder of the line:
---
---   "the ITERATED coverage/disjointness (thread the one-step facts
---    through the recursion alongside `theStratificationTerminates`)"
---
--- That is done here.  The one-step facts are threaded through `strata`,
+-- and the remainder cover the archive and do not overlap.
+-- Here the one-step facts are threaded through `strata`,
 -- and the termination theorem is what turns the induction's leftover
 -- branch into nothing.
 --

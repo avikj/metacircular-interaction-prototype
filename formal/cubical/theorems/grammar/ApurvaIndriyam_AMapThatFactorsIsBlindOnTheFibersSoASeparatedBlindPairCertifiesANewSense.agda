@@ -132,8 +132,7 @@ private
 --   point) needs a point of X, because `h : Unit ‚í Q` must produce a Q and an
 --   empty X supplies no q x to produce it from.  The certificate direction is
 --   the free one; the representation direction is the one that costs an
---   argument.  This was written into the ‡Æ‡∞‡‡Ø‡æ‡¶‡æ before the kernel was asked,
---   and the first attempt came back from the kernel owing exactly this point.
+--   argument.
 -- * `‡‡‡∞‡µ‡‡‡ø` is DATA, not a truncated existence.  An organ that cannot hand
 --   over its h has not shown it is derived, and ¬ß‡© refutes derivability
 --   outright rather than refuting a particular h.

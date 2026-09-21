@@ -5,19 +5,15 @@
 --
 -- THE WALK'S MINIMAL STATE IS ITS LCM.
 --
--- in prose that a family `S` of moduli observes `n` only through
--- `lcm(S)`, and calls the consequence the Nerode form: `S â¦ lcm S` IS
+-- A family `S` of moduli observes `n` only through
+-- `lcm(S)`; the Nerode form of this: `S â¦ lcm S` IS
 -- the quotient by observational equivalence, so the sensor list is a
 -- redundant presentation of one number.
 --
 -- The proof carries NO ARITHMETIC.  That is not economy, it is the
 -- content: `WalkCapacity`'s `IsLCM` is the universal property, and the
 -- Nerode theorem is that property applied to one number â” the distance
--- `dist a b` â” rather than a computation about residues.  This is
--- that note describes it: "cubical v0.5's missing LCM module forced the
--- universal-property `lcm`, whose proof contains no arithmetic at all.
--- The construction hid the content."  Here is what the construction hid.
---
+-- `dist a b` â” rather than a computation about residues.
 --
 -- WHAT IS CHECKED
 --
@@ -39,13 +35,13 @@
 --                            divisibility along `L`.  Packaged as a path
 --                            of types, since both sides are props.
 --
---   Â§4  `same-lcmâ’same-obs`  COROLLARY (the note's headline): two sensor
+--   Â§4  `same-lcmâ’same-obs`  COROLLARY: two sensor
 --                            families with the same lcm induce the SAME
 --                            indistinguishability relation â” equal as
 --                            types, pointwise, not merely inter-derivable.
 --
---   Â§5  `obsâ’lcmâ‰¡`           MINIMALITY, which the note asserts and does
---       `nerode-unique`      not state: the relation DETERMINES the lcm.
+--   Â§5  `obsâ’lcmâ‰¡`           MINIMALITY:
+--       `nerode-unique`      the relation DETERMINES the lcm.
 --                            If two families induce the same relation
 --                            then their lcms are equal, by testing at
 --                            `(L , 0)` and applying antisymmetry of
@@ -58,15 +54,6 @@
 --   Â§6  `nerode!`             the same three, UNCONDITIONAL, via
 --       `same-lcmâ’same-obs!`  `LCMExists.lcmList-isLCM`.
 --       `nerode-unique!`
---
---  * Nothing here is about which families are ADMISSIBLE.  `WalkCapacity`
---    owns the frontier condition; this file is about what a family sees,
---    for an arbitrary family, and never mentions `range1`.
---
---  * Not novel mathematics.  "Congruence modulo every element of S is
---    congruence modulo lcm S" is elementary and old.  What is new is
---    that it is now connected to this lane's `IsLCM` and to the corpus's
---    Myhillâ“Nerode material, with the minimality half stated.
 ------------------------------------------------------------------------
 
 module SensorNerode where
@@ -157,7 +144,7 @@ nerode {S = S} isL a b =
 ------------------------------------------------------------------------
 -- 4.  Two families with the same lcm see the same thing.
 --
--- The note's headline, and now an equality of relations rather than a
+-- An equality of relations rather than a
 -- pair of implications.  Nothing about the two families is compared;
 -- everything factors through the single number they share.
 ------------------------------------------------------------------------

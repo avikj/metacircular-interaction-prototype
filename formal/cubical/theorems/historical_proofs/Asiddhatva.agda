@@ -72,11 +72,9 @@
 -- rewriting theory (Bergstra‚ìKlop on layered systems; Ohlebusch on
 -- modularity of termination, 1990s) ‚î so the technique is not unknown to
 -- the field, it is *late* to it, and it is not what the field teaches as
--- the general method.  What I did not find stated anywhere, and what is
--- checked here, is the impossibility half: the exhibition of a rule pair
--- inside the tripd for which no strict order exists at all.  If that is
--- stated somewhere I did not reach, this is a re-derivation and the
--- citation is owed.
+-- the general method.  What is
+-- checked here is the impossibility half: the exhibition of a rule pair
+-- inside the tripd for which no strict order exists at all.
 --
 -- No postulates, no holes, --safe.  Every theorem below is an exhaustive
 -- finite case analysis or a `refl`.
@@ -263,9 +261,8 @@ producedByLater : pƒÅda vƒÅvasƒÅne ‚â° 4
 producedByLater = refl
 
 ------------------------------------------------------------------------
--- WHICH STRA THIS MODULE IS ABOUT, AND WHICH IT IS
--- NOT -- because the corpus contains a second module about "asiddhatva"
--- that models the other one.
+-- WHICH STRA THIS MODULE IS ABOUT.  The corpus contains a second module
+-- about \"asiddhatva\" that models the other one.
 --
 -- This file is 8.2.1 ‡‡‡∞‡‡µ‡‡‡∞‡æ‡‡ø‡¶‡‡ß‡Æ‡: any SUBSEQUENT rule is asiddha with
 -- respect to any rule that PRECEDES it, so the tripd applies strictly in
@@ -275,10 +272,9 @@ producedByLater = refl
 -- it, 8.2.39 and 8.4.56 cycle k ‚í g ‚í k forever, and ¬ß5 proves no strict
 -- order can stop them.
 --
--- `NaturalMachine/AsiddhatvaBreaksFactoring.agda` proves a different and
--- also correct thing -- that a rule reading a form ERASURE has already
--- destroyed does not factor through the current form -- but attributes it
--- to 8.2.1.  That behaviour, "sees the form as it was, not as it now is",
+-- `NaturalMachine/AsiddhatvaBreaksFactoring.agda` proves a different
+-- thing -- that a rule reading a form ERASURE has already
+-- destroyed does not factor through the current form.  That behaviour, "sees the form as it was, not as it now is",
 -- is 6.4.22 ‡‡‡ø‡¶‡‡ß‡µ‡¶‡‡‡∞‡æ‡‡æ‡‡: inside the block 6.4.22-6.4.129 the rules are
 -- asiddhavat with respect to EACH OTHER and apply as if simultaneously.
 -- Mutual and simultaneous, not one-way and ordered.
@@ -292,8 +288,7 @@ producedByLater = refl
 --     6.4.22 saha    mutual, simultaneous         buys INFORMATION
 --                                                 (AsiddhatvaBreaksFactoring)
 --
--- Pini spends a stra on each.  They are not variants of one device, and
--- reading them as one is what produced the misattribution.  The
--- correspondence is offered as a reading, not proved; the stra
+-- Pini spends a stra on each.  They are not variants of one device.  The
+-- correspondence is a reading; the stra
 -- identification is sourced.
 ------------------------------------------------------------------------

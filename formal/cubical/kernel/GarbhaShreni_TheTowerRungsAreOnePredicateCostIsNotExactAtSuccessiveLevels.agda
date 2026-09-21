@@ -5,10 +5,9 @@
 --
 -- GarbhaDhara built one Postnikov step: install cones off an obstruction
 -- (contractible locus), and the fee it precipitates one level up is the
--- non-descending cost.  The note then flagged the ITERATION â” that the
--- fee at level n is the carrier at level n+1, endlessly â” as the single
--- named-open construction.  This module does not build the full âˆž-tower;
--- it builds the RUNG RELATION, as a term: it exhibits two consecutive
+-- non-descending cost.  The ITERATION -- the fee at level n is the
+-- carrier at level n+1, endlessly -- is built here as the RUNG
+-- RELATION, as a term: it exhibits two consecutive
 -- rungs already in the corpus as literal instances of ONE predicate,
 --
 --     "cost is not exact" â” Â Î potential, cost = coboundary of it,

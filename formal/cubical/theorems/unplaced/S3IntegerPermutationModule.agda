@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- Integer linear seam for the natural Fin3 permutation action.  We check the
--- two adjacent transposition generators explicitly; no field, inner product,
--- irreducibility, Hilbert completion, or SU(2) structure is claimed.
+-- two adjacent transposition generators explicitly.
 
 module S3IntegerPermutationModule where
 

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- SamayikaAndNityaAreIndependent
 --
--- `AnuktaAvaktavya` (another identity, c6883e00 and d909db0d) separates
+-- `AnuktaAvaktavya` separates
 -- two third-positions by a swapped quantifier:
 --
 --   àà¾à®à¯à¿à• bad = (i : I) â’ Î[ r âˆˆ R ] (Â bad i r)
@@ -29,13 +29,6 @@
 -- is the other's strong failure â” and those two strong failures are
 -- jointly contradictory, which is why the fourth corner has no strong
 -- witness.
---
--- NOT a claim about àà¨àà•ààà®à or ààµà•àààµàà¯à®à themselves.  `AnuktaAvaktavya`
--- assigns those two words to these two shapes and gives its own grounds;
--- this module is about the two SHAPES and adds nothing about the words,
--- the Jaina saptabhag, or which text says what.  Its Â§"three modules
--- call three different structures avaktavyam" (dc318bd9) is that
--- identity's dispute and is untouched here.
 ------------------------------------------------------------------------
 
 module SamayikaAndNityaAreIndependent where
@@ -136,18 +129,15 @@ noBothStrongFailures bad ((i , survives) , (r , clears)) =
 -- "The difference is a swapped quantifier" is right, and Â§1â“Â§2 say what
 -- kind of difference it is: an INDEPENDENT one.  A `bad` may be
 -- temporary and permanent at once (Â§1), temporary and not permanent
--- (Â§2), permanent and not temporary (Â§2).  Nothing here rules out the
--- fourth corner in the plain negated forms; Â§3 rules out only the
--- conjunction of the two STRONG failures, and says so.
+-- (Â§2), permanent and not temporary (Â§2).
+-- Â§3 rules out only the
+-- conjunction of the two STRONG failures.
 --
 -- Adjacent on the same axis, and reached earlier from other directions:
 -- `PermanentUnsaidIsStableAndTemporaryIsASearch` (the negative pole is
 -- ÂÂ-stable for free, the positive pole is a search) and
 -- `DivisibilityGuardsAreMeetClosed` (a Î-valued guard is not a Bool one,
--- and a decision is what stands between).  Those are three arrivals at
--- the Î/Â distinction, and this is a fourth; that is a pattern over four
--- instances and nothing downstream of it has been computed, so it stays
--- a pattern over four instances.
+-- and a decision is what stands between).
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

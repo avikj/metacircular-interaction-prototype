@@ -52,7 +52,7 @@ open import IndependenceNeedsAnInternalImplication
 -- there is a model where `s` fails and a model where `neg s` fails,
 -- then `s` is independent.  Two lines.
 --
--- This is exactly the thing every model in this thread lacked.  `Wit`
+-- This is exactly the thing every model on this line lacked.  `Wit`
 -- and its kin were built by reading provability off ONE two-valued
 -- assignment, which is a single model, and a single model that decides
 -- every sentence is negation-complete by construction â” Â§1.  The
@@ -61,16 +61,10 @@ open import IndependenceNeedsAnInternalImplication
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
--- That negation-completeness is a defect.  `Wit` is a correct model and
+-- `Wit` is a correct model and
 -- a decidable finite theory being negation-complete is unremarkable;
 -- what Â§2 establishes is only that it cannot be the witness for an
 -- independence result.
---
--- PRIOR ART, by the conclusion type: a grep of `formal/cubical` for
--- `Independent` finds this thread only; for `sound`/`Sound` outside
--- unrelated uses, nothing about a satisfaction relation over
--- `Theory`.  A version phrased with a valuation into `Bool` rather than
--- a satisfaction family would evade that grep.
 ------------------------------------------------------------------------
 
 private

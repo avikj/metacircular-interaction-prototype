@@ -5,7 +5,8 @@
 --
 -- WHY THIS FILE EXISTS.
 --
--- All four are built here, and the statement about synthesisers becomes
+-- The specification language, the version space, the enumerative search
+-- and pruning are built here, and the statement about synthesisers becomes
 -- three theorems: pruning by observational equivalence is COMPLETE
 -- (ยงเ), the class it collapses is UNBOUNDED (ยงเ), and any choice made
 -- inside that class is EXTRA-SEMANTIC (ยงเ) โ” not merely unjustified by

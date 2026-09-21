@@ -6,7 +6,7 @@
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
 -- This corpus's established attribution for permutation work â”
 -- Nryaa Paita, *Gaitakaumud* (1356) â” belongs to the
--- ENUMERATION line, which is another identity's, and this is not that
+-- ENUMERATION line, and this is not that
 -- problem: nothing here counts or generates arrangements.  Claiming
 -- that source for a containment between two inductively defined
 -- relations would assert a provenance nobody checked.

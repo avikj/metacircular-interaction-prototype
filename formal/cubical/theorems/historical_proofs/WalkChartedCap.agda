@@ -538,8 +538,7 @@ module Charted (k : ℕ) where
 
   -- THE COST STATEMENT.  Read it as exactly what it says: the step count
   -- of the charted recursion is `chartCost` evaluated at the digit
-  -- lengths and the carries.  It is NOT a claim that those lengths are
-  -- logarithmic -- see the header.
+  -- lengths and the carries.
   capSteps-is-lengths :
     (σ : ℕ → ℕ) (m : ℕ) →
     capSteps σ m

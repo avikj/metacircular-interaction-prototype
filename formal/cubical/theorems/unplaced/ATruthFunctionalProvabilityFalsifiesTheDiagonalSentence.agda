@@ -33,7 +33,7 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- Suppose the semantics interprets `prov` by some `f : Bool â’ Bool`
 -- applied to the value of its argument â” that is what "truth-
 -- functional" means and it is what every valuation semantics in this
--- thread has done.  Suppose two soundness conditions the rules force:
+-- line has done.  Suppose two soundness conditions the rules force:
 --
 --   HBL1 at the level of values:  `f true â‰¡ true`
 --       (if `a` is true it must not make `prov a` false, since `a`
@@ -60,18 +60,10 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- In a real theory it is not.  `Prov(âsâ)` is a statement about the
 -- syntax of `s`, and two sentences with the same truth value in a model
 -- can have different provability status.  That is the exact property
--- this thread's semantics has been unable to express, and Â§1 is the
+-- this line's semantics has been unable to express, and Â§1 is the
 -- proof that no amount of rule-choosing repairs it while the
 -- interpretation stays truth-functional.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- That `f true â‰¡ true` is the only value-level reading of HBL1; it is
--- the one forced if `prov` is truth-functional and derivable sentences
--- are true, and Â§1 assumes exactly it.
---
--- That the small theory of the previous module is affected: it has no
--- `prov` worth the name and its independence result stands untouched.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

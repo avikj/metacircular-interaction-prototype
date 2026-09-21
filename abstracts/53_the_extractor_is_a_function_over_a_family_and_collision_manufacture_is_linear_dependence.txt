@@ -7,8 +7,8 @@ manufacture into an ð”½â null-space â” both computed by the analyzer
 Collision semantics, generalized / factoring as a fold / manufacture as
 linear algebra
 
-SanghattaKarya ran the extraction chain on one modulus.  This gives the
-collision-semantics document its next asks at once, both computed and
+SanghattaKarya ran the extraction chain on one modulus.  This gives
+the general form, both computed and
 read back through the analyzer.
 
 THE EXTRACTOR IS A FUNCTION.  extract N a b = (gcd(aâˆb,N), gcd(a+b,N))
@@ -29,7 +29,7 @@ dependency IS the collision, computed.
 
 Manufacture produces the collision the extractor turns into a factor.
 The frontier the document names â” cheaply ENTERING the smooth chart â”
-is untouched and unclaimed; once inside, the whole pipeline is
+is the open problem; once inside, the whole pipeline is
 arithmetic and linear algebra the kernel computes and hands back as
 data.
 

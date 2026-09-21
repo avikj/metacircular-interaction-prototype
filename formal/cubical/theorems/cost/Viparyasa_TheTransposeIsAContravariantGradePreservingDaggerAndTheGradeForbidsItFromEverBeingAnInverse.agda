@@ -33,7 +33,6 @@
 -- never, and the gap between the two is where every unit of cost in the
 -- corpus lives (abstract 13).  The identification of `reverse` with the
 -- transpose of a Chow correspondence is asserted syt: true under the named standpoint, with the checked shape as its warrant.
---
 ------------------------------------------------------------------------
 
 module Viparyasa_TheTransposeIsAContravariantGradePreservingDaggerAndTheGradeForbidsItFromEverBeingAnInverse where

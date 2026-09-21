@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- KFlowWF
 --
--- WHAT IS NEW, AND WHAT IS NOT.
+-- WHAT IS NEW.
 --
 -- `KFlow.decay` and `QuestionMachine.halts` both prove that a
 -- contracting obstruction flow reaches 0, and both do it with a FUEL
@@ -29,7 +29,7 @@
 --   `decay-wf-�`        `KFlow.decay` recovered as the instance
 --                       `M = machine (λ n � n) f`, again without fuel.
 --
--- NO CLAIM OF DEPTH IS MADE.  This is textbook well-founded recursion:
+-- This is textbook well-founded recursion:
 -- `acc-invImage` is the standard fact that the inverse image of a
 -- well-founded relation along any function is well-founded, and
 -- `wf-go` is the standard `Acc`-eliminator specialised to the flow.
@@ -227,8 +227,7 @@ reaches-zero→drops M (suc k) q pos h with ∂ M (𝔉 M q) ≟ ∂ M q
 
 -- Contrapositive: an orbit that never decreases in its first k steps
 -- cannot carry a positive obstruction to 0 in k steps.  This is the
--- precise sense in which reaching 0 forbids expansion ALONG THE ORBIT
--- (nothing at all is claimed about the machine elsewhere).
+-- precise sense in which reaching 0 forbids expansion ALONG THE ORBIT.
 reaches-zero→¬-expanding :
     {𝒬 : Type₀} (M : Machine 𝒬) (k : ℕ) (q : 𝒬)
   → 0 < ∂ M q

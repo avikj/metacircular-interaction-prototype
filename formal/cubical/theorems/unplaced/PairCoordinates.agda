@@ -174,8 +174,7 @@ module ValuationLevel where
   -- legs are v_‚ì(p), v_‚ì(q); the centre-relative pair is (s_‚ì, d_‚ì).
 
 -- The two modules are definitionally the same theorem.  Stating the
--- shared instance explicitly, so that nobody re-proves it a third time
--- when the Mellin-exponent level (Delta 18's (œ,œ‚≤) ‚î (s,ŒΩ)) is reached.
+-- shared instance explicitly.
 same-theorem : (w r : fst ‚Ñ§CommRing)
              ‚Üí ValueLevel.leg‚ÇÅ w r ‚â° ValuationLevel.leg‚ÇÅ w r
 same-theorem w r = refl

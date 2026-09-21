@@ -47,7 +47,7 @@
 -- because neither file knew the other existed.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT IS ASSUMED OR NOT CLAIMED, and the first of these is the load-bearing one.
+-- WHAT IS ASSUMED, and the first of these is the load-bearing one.
 --
 -- 1. THAT THE THREE PRESENTATIONS ARE INDEPENDENT.  That is BARRIER's
 --    empirical classification and is assumed here, exactly as a seed's
@@ -57,14 +57,11 @@
 --    same transport would give that ‚î which is itself the answer to
 --    Problem 3's real content: exhaustiveness is not a fact about three,
 --    it is a fact about how many seeds there are.
--- 2. THAT ANY PARTICULAR MISSING COMBINATION IS INHABITED BY A METHOD.
---    ¬ß‡© names the four the counting forces.  Whether a method exists at
---    each is mathematics, not bookkeeping, and none is claimed.
--- 3. THAT TAO'S METHOD IS ‡‡ RATHER THAN ‡ï‡‡∞‡Æ.  ¬ß‡d reads it that way ‚î
+-- 2. THAT TAO'S METHOD IS ‡‡ RATHER THAN ‡ï‡‡∞‡Æ.  ¬ß‡d reads it that way ‚î
 --    entropy decrement compares empirical distributions ACROSS SCALES
 --    using the functional equation, which is simultaneous rather than
---    sequential ‚î and that reading is marked MINE there.  It is repeated
---    here as the note's reading and is NOT checked.  What IS checked,
+--    sequential.  It is repeated
+--    here as the note's reading.  What IS checked,
 --    elsewhere and cited not restated, is that the distinction is real:
 --    `Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡` (successive ‚â simultaneous) and
 --    `Arpitanarpita_‚¶.‡‡-‡‡‡ô‡‡ó‡‡ø‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡` (simultaneous is NOT
@@ -185,8 +182,8 @@ data ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡•Å‡§§‡§ø : Type where
 --     two presentations at once, and ¬ß‡© says which further combinations
 --     exist.
 --
---     THAT READING IS NOT CHECKED HERE and is not checkable here: it is a
---     claim about a proof in the literature, not about a type.  What IS
+--     That reading is a claim about a proof in the literature, not about a
+--     type.  What IS
 --     checked, elsewhere and cited rather than restated, is that the
 --     distinction it turns on is real ‚î successive is not simultaneous
 --     (`Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡`) and simultaneous is not associative

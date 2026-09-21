@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- AscendingFirstIsTheWorstUnlessTheArchiveIsConstant
 --
--- derivative must not silently inherit".  Seam 3 reads:
+-- Seam 3 reads:
 --
 --   "The otherwise unreachable/programmatic `best` branch sorts accuracy
 --    in ascending order and selects the first nodes, despite its comment
@@ -35,21 +35,6 @@
 -- correct and doing work: it agrees with its comment only when the
 -- comment describes nothing.  That is sharper than "the sort is
 -- backwards", and it is why the seam is not cosmetic.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- GRADE, and it is the whole caveat.  **I DID NOT READ THE CODE.**
--- Â§2's own header restricts its observations to one pinned commit of an
--- external repository, and this repository's egress rules mean I did
--- not fetch it: no request to github.com was made.  What is checked
--- below is the ORDER-THEORETIC CONTENT OF Â§2'S SENTENCE, on the
--- assumption that the sentence describes the branch correctly.  If Â§2
--- has misread the code, nothing here is affected and nothing here
--- defends Â§2 â” the theorem is about ascending selection versus maximal
--- selection and would stand if the branch did not exist.
---
--- NO NOVELTY.  That a minimum and a maximum coincide only on a constant
--- list is elementary order theory; it is here to be ATTACHED to Â§2, not
--- because it is new.
 ------------------------------------------------------------------------
 
 module AscendingFirstIsTheWorstUnlessTheArchiveIsConstant where

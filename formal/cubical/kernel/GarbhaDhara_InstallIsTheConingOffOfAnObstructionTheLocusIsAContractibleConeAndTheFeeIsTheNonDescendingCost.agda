@@ -3,13 +3,11 @@
 ------------------------------------------------------------------------
 -- ‡ó‡∞‡‡-‡ß‡æ‡∞‡æ ‚î the womb-holding: install IS a coning-off.
 --
--- The entrypoint note VYAYA_SESA names ONE genuinely-open object: the
--- self-generating closure ‚î whether `install` (SthapanaVarga), the act
+-- The self-generating closure: `install` (SthapanaVarga), the act
 -- by which a theorem of the kernel becomes a structure map of the
 -- kernel, is the same act as CONING OFF an obstruction and thereby
 -- climbing the Postnikov tower one level (garbha.dhara).  This module
--- makes the load-bearing half of that identification a checked term,
--- and names, exactly, the half that is not a term.
+-- makes the load-bearing half of that identification a checked term.
 --
 -- WHAT CONING-OFF IS.  To cone off a map g : X ‚í Y (Cubical's
 -- HITs.MappingCones.Cone) is to glue a hub to Y with one spoke to each

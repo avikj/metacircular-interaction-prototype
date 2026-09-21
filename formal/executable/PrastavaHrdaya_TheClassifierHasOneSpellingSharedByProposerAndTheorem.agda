@@ -5,25 +5,20 @@
 -- proposer and the theorem.
 --
 -- TERM.  hdaya, the heart, the essential core â” ordinary ;
--- the compound is built here (2026-08-24) and claimed of no source.
+-- the compound is built here.
 --
--- WHY THIS FILE EXISTS.  Until now the AC classifier lived twice: as
--- with-blocks in the executable proposer (formal/executable/
--- Prastava.agda, extracted by MAlonzo and run) and as constructor-
--- dispatched helpers in the soundness theorem (PrastavaSatya_*.agda,
--- judged by the cubical kernel).  The two spellings were asserted â”
--- never checked â” to be one function; that assertion was the last
--- named debt of the PrastavaSatya landing.  This module erases the
--- debt structurally: it is checked with --cubical-compatible, so the
--- SAME clauses are imported by the plain --safe proposer (and
--- extracted: the code that runs) and by the --cubical theorem (the
--- code that is proved about).  There is nothing left to transcribe
--- and therefore nothing left to trust.
+-- WHY THIS FILE EXISTS.  The AC classifier is used twice: by the
+-- executable proposer (formal/executable/Prastava.agda, extracted by
+-- MAlonzo and run) and by the soundness theorem (PrastavaSatya_*.agda,
+-- judged by the cubical kernel).  This module is checked with
+-- --cubical-compatible, so the SAME clauses are imported by the plain
+-- --safe proposer (and extracted: the code that runs) and by the
+-- --cubical theorem (the code that is proved about).  There is nothing
+-- to transcribe and therefore nothing to trust.
 --
--- The spelling kept is the constructor-dispatched one (insGo / lvGo /
+-- The spelling is the constructor-dispatched one (insGo / lvGo /
 -- lex2 in place of where-blocks and with), because lemma clauses can
--- case on the same scrutinee and compute; the with-block spelling is
--- deleted at its source, not preserved beside this one.
+-- case on the same scrutinee and compute.
 --
 -- Only Agda.Builtin modules are imported, so both worlds agree on â•,
 -- List and Bool on the nose.

@@ -41,8 +41,7 @@
 --     `each-obs-twice` are about one map and not two.
 --   * `even-total-is-image` / `image-is-even-total` â” EXACTNESS, both
 --     inclusions: im Î´ is EXACTLY ker(total).  With `total-onto` this
---     is coker Î´ â‰ Fâ with `total` as the class evaluator (the quotient
---     type itself is not constructed; see the honest caveat below).
+--     is coker Î´ â‰ Fâ with `total` as the class evaluator.
 --   * `local-section` â” each context separately admits an assignment
 --     with the prescribed parity (the obstruction is global, not local).
 --   * `rows-only-section` â” the rows-only cover admits a global
@@ -397,10 +396,8 @@ rows-only-section = zeroObs , refl , refl , refl
 ------------------------------------------------------------------------
 -- 6.  EXACTNESS: im Î´ is exactly ker(total), and total is onto.
 --
--- Together: coker Î´ â‰ ð”½â with `total` as the class evaluator.  The
--- quotient type is not constructed (see the header); what is proved is
--- the pair of statements that a cokernel computation consumes.  The
--- hard inclusion is imported from `PMTorus.even-kernel-is-image` along
+-- Together: coker Î´ â‰ ð”½â with `total` as the class evaluator.
+-- The hard inclusion is imported from `PMTorus.even-kernel-is-image` along
 -- the graph identification of Â§7 â” no second preimage construction.
 ------------------------------------------------------------------------
 

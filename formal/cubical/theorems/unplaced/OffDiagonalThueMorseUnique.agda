@@ -15,8 +15,7 @@
 --   * uniqueGivenHead (certified here): any two solutions agreeing at 0
 --       agree everywhere, so the solution set injects into Bool = {Îµâ};
 --   * existence of a solution for each Îµâ (the classical Thueâ“Morse
---       sequence, cf-prouhet's explicit p = âˆâ–(1 âˆ’ x^{2µ})): its formal
---       function-definition is a separable WF-recursion landing and is
+--       sequence, the explicit p = âˆâ–(1 âˆ’ x^{2µ})).
 --
 -- The obstruction "is one bit wide" (drishti): uniqueGivenHead says the
 -- fibre of the forget-the-diagonal map over a full-line partition is a

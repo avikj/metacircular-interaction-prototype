@@ -5,10 +5,9 @@
 --
 -- The cyclic method's step, as a checked term.
 --
--- This thread has quoted the cakravla in eight modules and built it in
--- none.  `Bhavana.agda` has the composition law and the two divisibility
--- conversions; what has been missing is the STEP â” the thing that makes
--- the method cyclic â” and this file supplies exactly it and nothing more.
+-- `Bhavana.agda` has the composition law and the two divisibility
+-- conversions; this file supplies the STEP â” the thing that makes
+-- the method cyclic â” and nothing more.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- PROVENANCE
@@ -43,7 +42,7 @@
 -- (m, 1, mÂ² âˆ’ D) â” the one instance the cakravla actually uses.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THE CLEARED FORM SAYS ABOUT THIS THREAD
+-- WHAT THE CLEARED FORM SAYS
 --
 -- The identity is unconditional.  The DESCENT â” concluding a'Â² âˆ’ Db'Â² = k'
 -- from the cleared form â” needs cancelling kÂ², i.e. k invertible or the
@@ -56,15 +55,6 @@
 -- thing, and the algorithm said it first: **the cycle turns on a
 -- division.**
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- NOT proved here: that a suitable m exists; that Bhskara's rule
--- (choose m minimising |mÂ² âˆ’ D| subject to k | a + bm) is well defined or
--- optimal; that k' is smaller than k; that the cycle TERMINATES at k = 1;
--- or that a solution exists for every non-square D.  Those are the
--- substance of the method and none of them is a ring identity.  This file
--- proves the invariant is preserved by one step, which is the part that
--- is algebra, and says so.
 ------------------------------------------------------------------------
 
 module CakravalaStep where
@@ -138,8 +128,7 @@ module Cycle (R : CommRing â„“) where
 -- The cyclic method does not descend monotonically in |k|; that is why it
 -- needs Bhskaraâ™s choice rule (m = 7 minimises |mÂ² âˆ’ 61| = 12 among the
 -- m with 3 | 8 + m) and why termination is not the algebra.  Both states
--- are checked below by `refl`; nothing general about termination is
--- proved anywhere in this file.
+-- are checked below by `refl`.
 ------------------------------------------------------------------------
 
 open Cycle â„¤CommRing using (OnForm)

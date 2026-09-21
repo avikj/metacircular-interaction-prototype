@@ -18,8 +18,6 @@
 -- Source and target presentations differ; their semantic action is equal;
 -- and the equality is carried by the explicit higher witness H, not
 -- asserted.  This is the exact shape wanted for a proof-carrying pass.
---
--- Machine-checked, Agda 2.8.0 + cubical v0.9, --safe, no postulates.
 ------------------------------------------------------------------------
 
 module ChainHomotopyIsCompilerPassCorrectness where

@@ -41,10 +41,6 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
---   ¬ NOTHING about ‚À, negatives, valuations on a field, or the product
---     formula.  This module never leaves ‚ï.
---
---
 -- ‡¶‡‡ ¬ dha ‚î "firm, solid, that which stands after abrasion".  In the
 -- kuaka the dividend (‡‡æ‡‡‡Ø) and divisor (‡‡æ‡‡ï) are first divided by
 -- their common measure ‚î the ‡‡‡µ‡∞‡‡‡® ‚î and the pair that remains is
@@ -289,7 +285,7 @@ x ‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É (y ‚à∑ ys) = (x ‚â° y) ‚äé (x ‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É ys)
 --     For the list ¬ß‡ produced from n, and for any firm p:
 --         p divides n   ‚î   p occurs in that list.
 --     So WHICH firm numbers see n is fixed by n and not by the run of the
---     search.  HOW MANY TIMES each occurs is NOT settled here.
+--     search.
 ------------------------------------------------------------------------
 
 ‡§∏‡•ç‡§•‡§æ‡§®-‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É : (n : ‚Ñï) (pos : 0 < n) (p : ‚Ñï) ‚Üí ‡§¶‡•É‡§¢‡§Æ‡•ç p

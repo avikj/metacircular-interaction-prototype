@@ -5,19 +5,12 @@
 --
 -- ON THE NAME.  Min-plus residuation is Birkhoff/Ore-era lattice
 -- theory and Lawvere 1973; no Indian source term applies and none is
--- invented (CLAUDE.md's naming guard).
+-- invented.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- THE POINT.
 --
--- `TheTwoSidedProfileCutNeedsTheBurdensAsAProfile` states:
---
---   "with NO rows the constraint is vacuous and that maximum is
---    unbounded ‚î the empty meet is `‚àû`, which ‚ï does not have ‚¶ a
---    two-sided cut exists over a non-empty residual index set, or over
---    `‚ï ‚ä ‚àû`, and not over ‚ï with an arbitrary index set."
---
--- That is wrong.  The burden side is ordered by `_‚äp_`, REVERSE
+-- The burden side is ordered by `_‚äp_`, REVERSE
 -- pointwise `‚â` ‚î more burden absorbed is lower.  The right adjoint
 -- must produce the `‚äp`-GREATEST profile satisfying a vacuous
 -- constraint; `‚äp`-greatest is `‚â`-LEAST, and ‚ï's least element is
@@ -37,8 +30,7 @@
 --                      the adjunction, unrestricted
 --
 -- So the two-sided profile cut exists over ‚ï with no restriction on
--- the residual index and no `‚àû` anywhere.  `dnNE`'s non-emptiness hypothesis
--- was recording a restriction that was not there;
+-- the residual index and no `‚àû` anywhere.
 -- `dnAll [] ks _ _` is `zeroProfile ks` and everything goes through.
 ------------------------------------------------------------------------
 

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡ø‡‡‡®-‡∞‡‡‡‡ ‚î the marked rope.
 --
--- THE PERMUTATION HALF'S WITNESSES, and a return of the campaign's
+-- THE PERMUTATION HALF'S WITNESSES, and a return of the series'
 -- signature shape at the detector level:
 --
 --   ¬ß1  THE CONSTANT ROPE IS BLIND TO EVERY SWAP: all strands equal,
@@ -21,7 +21,7 @@
 -- coverage: the constant rope reads only cargo, the marked rope reads
 -- motion, and the kernel theorem's two coordinates are separated by
 -- exactly this interdependent pair OF ROPES.  The record that opened
--- the campaign ‚î two senses, a named blind pair each, jointly
+-- the series ‚î two senses, a named blind pair each, jointly
 -- faithful ‚î reappears as the measurement apparatus of its deepest
 -- theorem.  What detects everything alone does not exist; what
 -- detects everything jointly is two blindnesses facing each other.

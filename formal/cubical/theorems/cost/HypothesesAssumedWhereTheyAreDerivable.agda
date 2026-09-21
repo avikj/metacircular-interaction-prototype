@@ -44,9 +44,6 @@
 -- would be asserting a standpoint by denying the other.  Both are
 -- proved below.
 --
--- What is NOT said: that either form is better.  There is no scale
--- here on which to say it.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
@@ -59,9 +56,7 @@
 --       nayas stand together;
 --   Â§4  and the one thing that makes this a finding rather than a
 --       tidy-up: `Discrete T` is strictly more than `isSet T` needs,
---       and Â§4 records what is NOT shown â” that no weaker hypothesis
---       than separatedness yields isSet.  Hedberg's argument is not
---       proved optimal here and nothing below claims it is.
+--       and separatedness is the hypothesis Hedberg's argument uses.
 --
 ------------------------------------------------------------------------
 
@@ -143,13 +138,9 @@ stableFactorsThrough-separated sepT q t =
     (Î» x x' â†’ sepT (t x) (t x'))
 
 ------------------------------------------------------------------------
--- 4.  What is not shown
+-- 4.  What is established
 --
--- Â§1 gives `Discrete â’ Separated â’ isSet`.  Nothing here shows the
--- converse of either step, nothing shows that separatedness is the
--- weakest hypothesis yielding `isSet`, and nothing shows that
--- pointwise stability along a single `t` fails to yield it.  None is
--- claimed in either direction.  What IS established is only this: at
+-- At
 -- two sites a hypothesis was assumed that the site could derive, and one
 -- of the two was genuinely redundant.
 ------------------------------------------------------------------------

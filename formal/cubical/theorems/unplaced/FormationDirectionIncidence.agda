@@ -8,8 +8,7 @@
 -- exact adapter from a supplied critical-direction criterion to the formed
 -- counterexample interface of FormationRelativeMinimality.  It deliberately
 -- assumes the mathematical calculation identifying critical directions with
--- task separation; it does not manufacture a Taylor theorem or complete a
--- formed world under hypothetical moves.
+-- task separation.
 --
 -- World inclusion is covariant for counterexamples and contravariant for
 -- sufficiency.  The final two-bit control makes the absent converses visible:

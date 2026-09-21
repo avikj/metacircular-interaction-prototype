@@ -88,12 +88,3 @@ fixed-observer-detects-motion = false≢true
 -- does not: its source identity is a nontrivial universe path, and lawful
 -- reuse transports the observer together with the state.
 
-------------------------------------------------------------------------
--- Rigor boundary
---
--- `phase-loop-nontrivial` and frame covariance are exact theorems of this
--- finite Cubical model.  They do not establish that every physical symmetry
--- is a universe path, that Bool is a complete quantum phase space, or that
--- covariance alone selects a physical theory.  A larger RQM/LQG realization
--- must supply its state family, interactions, amplitudes, and empirical link.
-------------------------------------------------------------------------

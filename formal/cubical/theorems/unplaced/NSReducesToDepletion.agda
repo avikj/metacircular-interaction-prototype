@@ -20,8 +20,7 @@
 --
 -- `GeometricBudgetZeno` already shows finiteness of the dissipation budget is
 -- NOT itself an exclusion, so excludeII must be a genuine depletion input, not
--- a budget count.  Everything here except excludeII is in place; excludeII is
--- the sole remaining mountain, isolated rather than assumed.
+-- a budget count.
 ------------------------------------------------------------------------
 
 module NSReducesToDepletion where

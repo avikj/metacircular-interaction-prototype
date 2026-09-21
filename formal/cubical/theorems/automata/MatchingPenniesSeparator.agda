@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- MatchingPenniesSeparator
 --
--- owner Delta 30,
--- `collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md`).
+-- Source: owner Delta 30,
+-- `collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md`.
 --
 -- THE POINT OF THE MODULE, stated before any code.
 --
@@ -17,7 +17,7 @@
 --                                             an equilibrium);
 --     * the best-response composite Î²â âˆ˜ Ïâ â” TWO fibers.
 --
---   By the corpus's level-set theorem (T)
+--   By the corpus's level-set theorem (T) (f factors through q
 --   iff f is constant on every q-fiber), a summary with a SINGLE fiber
 --   forces every map factoring through it to be constant.  Hence the
 --   best-response structure descends through NEITHER W NOR pne.  That is
@@ -65,9 +65,9 @@
 --       separator-pne    Î² = Î²â âˆ˜ Ïâ, whose two fibers are exhibited by
 --                        `Î²-surjective`.
 --
--- RIGOR BOUNDARY â” what is checked here, and what deliberately is not.
+-- WHAT IS CHECKED.
 --
---   CHECKED.  Every statement of Â§Â§5.2â“5.4 of the source note, as exact
+--   Every statement of Â§Â§5.2â“5.4 of the source note, as exact
 --   finite computation on Bool with â• payoffs in {0,1}: the constancy of
 --   W; that Î²â = id and Î²â = not really are best responses (a maximum
 --   over the full action set, not an assertion); the emptiness of the
@@ -77,19 +77,6 @@
 --   ARBITRARY codomains, so the separator is the general lemma applied,
 --   not a coincidence of Bool.
 --
---   NOT CHECKED, ON PURPOSE.
---    (a) The bridge `pne p â‰¡ true â” IsNash (fst p) (snd p)`.  Â§5.3
---        derives it from single-valuedness of the best responses; here
---        the two objects are established INDEPENDENTLY â” `no-pure-nash`
---        at the type level, `pne-const` at the Boolean level â” and
---        neither is used to prove the other.  Nothing below depends on
---        the bridge.
---    (b) Mixed strategies.  Remark 5.4 of the source note (the minimax
---        value 0 attained at the uniform pair) is QUOTED there from
---        `D0020_CLASSICAL_SOURCES` row 4.13 and is not derived; it is
---        absent here for the same reason.  Nothing in this module says
---        anything about mixed extensions, existence of equilibria, or
---        the value of the game.
 ------------------------------------------------------------------------
 
 module MatchingPenniesSeparator where
@@ -205,8 +192,8 @@ no-pure-nash false false (_  , dâ‚‚) = one-notâ‰¤zero (dâ‚‚ true)
 -- pne is the equilibrium test read off the two best-response maps:
 -- (a,b) is a fixed point of the joint best response iff a = Î²â b and
 -- b = Î²â a.  Â§5.3 shows the pure-Nash set is empty; here the Boolean
--- test is shown constant, so the SUMMARY pne has one fiber.  See the
--- rigor boundary (a): the two facts are established independently and
+-- test is shown constant, so the SUMMARY pne has one fiber.
+-- The two facts are established independently and
 -- neither is used to prove the other.
 ------------------------------------------------------------------------
 

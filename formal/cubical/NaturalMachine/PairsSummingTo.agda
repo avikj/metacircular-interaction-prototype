@@ -10,8 +10,7 @@
 --
 -- where `Pairs n = Î[ (a,b) âˆˆ â• — â• ] (a + b â‰¡ n)`.  The antidiagonal
 -- index set is finite, with `n + 1` elements, by a structural induction
--- and **no truncated subtraction** â” which is what every other encoding in
--- this thread died of.
+-- and **no truncated subtraction**.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE INDUCTION
@@ -124,14 +123,11 @@ pairsFin (suc n) =
 -- 5.  So the antidiagonal index set has n+1 elements, structurally.
 --
 -- That is ingredient (i).  Ingredient (ii) â” that the library's sum over
--- this FinSet is `Sankalita.AD` â” is a reindexing, and this thread's
--- record on reindexings is one for one against.
+-- this FinSet is `Sankalita.AD` â” is a reindexing.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  State of the diagonal-sum thread, facts only.
---
--- PROVED, all checked in this repository:
+-- 6.  Related results, all checked in this repository.
 --
 --   `Sankalita.sankalita-column`      Î_{m<n} meru m r â‰¡ meru n (suc r)
 --   `Sankalita.varasankalita`         Î^r 1 at n â‰¡ meru n r
@@ -144,13 +140,7 @@ pairsFin (suc n) =
 --                                     Metre n â‰ Î_{a+b=n} Chosen a b
 --   here `pairsFin`                   Pairs n â‰ SumFin (suc n)
 --
--- AND NOW ALSO PROVED, in `NaturalMachine.DiagonalIsMatra`:
+-- and, in `NaturalMachine.DiagonalIsMatra`:
 --
 --   `diagonal-is-matra : (n : â•) â’ matra n â‰¡ antidiag n`
---
--- The cardinality computation this section declined to estimate turned
--- out to need the SHIFTED family `SortedC c n` â” the unshifted one does
--- not close the induction â” plus `Î-contractFst`, `ÎâŠâ‰`, `SumFinâŠâ‰` and
--- `Fin-inj`.  Declining to estimate was right: the shift was the content,
--- and no sentence written before doing it would have named it.
 ------------------------------------------------------------------------

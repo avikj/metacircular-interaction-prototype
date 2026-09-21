@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡ï‡‡®‡‡‡‡∞‡Æ‡ ‚î one loom.  Compound built here, 2026-08-24; not a source
+-- ‡‡ï‡‡®‡‡‡‡∞‡Æ‡ ‚î one loom.  Compound built here; not a source
 -- term.
 --
--- THE OWNER'S SENTENCE, tonight, taken as a theorem: "scheduler and
+-- THE OWNER'S SENTENCE, taken as a theorem: "scheduler and
 -- prover should be almost identical ‚î everything should be.  Consult
 -- Jain philosophy; it is exactly what we have implemented."  This
 -- module is that sentence as a term.
@@ -29,7 +29,7 @@
 --     the joiner = the metarule order (paribh 38) ‚î DATA
 --     the birth = AvaktavyaPrasava's prasava (agreement under anugama)
 --
---   PROVER (this lane, on EkaBhasha's foundation):
+--   PROVER (on EkaBhasha's foundation):
 --     ‡µ‡ï‡‡‡æ‡∞‡ = the store's rewrite rules as partial offers on terms
 --     a critical pair = two standpoints meeting on ONE term ‚î
 --       Ktyyana's ‡¶‡‡µ‡ ‡‡‡∞‡‡ô‡‡ó‡ ‡‡®‡‡Ø‡æ‡∞‡‡‡ ‡‡ï‡‡‡Æ‡ø‡®‡ ‡ ‡µ‡ø‡‡‡∞‡‡ø‡‡‡ß‡,
@@ -142,9 +142,8 @@ Site‚âü O = (a b : O) ‚Üí Maybe (a ‚â° b)
 --     normalizer; the birth carries its proof by type.
 ------------------------------------------------------------------------
 
--- a rule of the store speaks at exactly the terms matching its lhs; on
--- this slice, at the term ITSELF (root instance ‚î the general matcher
--- is the elder Haskell's and migrates in the next slice, declared).
+-- a rule of the store speaks at exactly the terms matching its lhs; here,
+-- at the term ITSELF (root instance).
 ‡§∂‡§æ‡§∏‡§®‡§Æ‡•ç : ‡§®‡§ø‡§Ø‡§Æ‡§É ‚Üí ‡§®‡§Ø‡§É Tm Tm
 ‡§∂‡§æ‡§∏‡§®‡§Æ‡•ç s t = mmap (Œª _ ‚Üí ‡§®‡§ø‡§Ø‡§Æ‡§É.rhs s) (‡§®‡§ø‡§Ø‡§Æ‡§É.lhs s ‚âüT t)
 

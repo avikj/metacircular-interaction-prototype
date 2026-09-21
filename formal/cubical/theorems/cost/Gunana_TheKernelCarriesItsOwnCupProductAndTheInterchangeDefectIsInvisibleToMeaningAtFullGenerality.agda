@@ -28,7 +28,7 @@
 --
 -- Read against the corpus: abstract 13's order-two loop is this defect
 -- seen in the universe; README Â§23's commuting square is this defect
--- seen as concurrency; and the kernel verdict that occasioned this file
+-- seen as concurrency; and the kernel verdict
 -- â” the product exists unlinearized âˆ linearization kills the grade,
 -- syd-asti-nsti in succession â” is its exact position: the cup
 -- product lives at the graded level, and the bilinear completion that

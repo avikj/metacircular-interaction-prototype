@@ -28,10 +28,7 @@ direct = (steps 2, charge 1) and detour = (steps 4, charge 1): the
 length lens SEPARATES them, the charge and meaning lenses IDENTIFY
 them, and the decomposition carries all three facts without collapse.
 The compressor and the distinguisher are one instrument seen through
-different lenses.  Every value computed and certified through the
-interactive kernel; guesses at the values were refuted by the machine
-before the true profile was accepted â” the decomposer correcting its
-caller is the decomposer working.
+different lenses.
 
 SYT â” THE CLAIM, EXACTLY.  The record, its three lenses as folds,
 canonicity of the meaning component, and the computed profiles of the

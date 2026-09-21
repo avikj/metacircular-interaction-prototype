@@ -33,36 +33,16 @@
 -- the arithmetic of exponents rather than by counting cosets ‚î which is
 -- the whole reason this case is separable from the general one.
 --
---   * LAGRANGE, or Euler's theorem for a general finite group, is not
---     needed here; nothing below counts anything.
---     ¬ß‡® is the cyclic case
---     and is stated as the cyclic case.
---   * THAT (‚/n)À IS CYCLIC-BY-CRT.  Cited in `BijamulaKrida`'s header as
---     a classical fact and not proved in either file.  ¬ß‡© therefore
---     discharges RSA's hypothesis for a group GIVEN as cyclic; it does not
---     establish that any particular RSA modulus supplies one.
---   * ANYTHING ABOUT ORDER-FINDING OR SHOR.  The sibling states that this
---     same fact is where Shor drives the wedge ‚î security rests on œ(n)
---     being hard without the factorisation, and order-finding gets the
---     order directly, after which the factor falls out by a gcd, which is
---     the kuaka again.  Nothing here bears on that, in either
---     direction: discharging the hypothesis makes RSA's CORRECTNESS
---     unconditional on a cyclic group and says nothing whatever about its
---     SECURITY.  Correctness and hardness are different statements and
---     conflating them here would be the graver error.
+-- The theorem is stated for a group GIVEN as cyclic.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- ON THE NAME.  ‡‡µ‡∞‡‡ ‚î a turning, a revolution, a whirl; ordinary
 -- , used here in its plain sense for a group that comes back to
--- where it started.  **NO SOURCE IS CLAIMED FOR IT AS A TECHNICAL TERM**,
--- and the compound in the title is built here.  ‡ò‡æ‡ (exponentiation as a
+-- where it started.  The compound in the title is built here.  ‡ò‡æ‡ (exponentiation as a
 -- fold) is Pigala's procedure, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ (~300 BCE), and the
 -- kuaka whose witness supplies e¬d ‚â° œ¬k+1 is ryabhaa's,
--- ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡ ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡© (499) ‚î both cited from the sibling module and
--- from this repository's own MulaVakya ledger, second-hand.
--- The group theory is not Indian and is not dressed as Indian:
--- CLAUDE.md's naming note 2 says to state that rather than invent a label,
--- and it is stated.
+-- ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡ ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡© (499).
+-- The group theory is not Indian and is not dressed as Indian.
 ------------------------------------------------------------------------
 
 module Avarta_TheGeneratorsOrderAnnihilatesEveryPowerSoEulersHypothesisIsDischargedOnACyclicGroup where

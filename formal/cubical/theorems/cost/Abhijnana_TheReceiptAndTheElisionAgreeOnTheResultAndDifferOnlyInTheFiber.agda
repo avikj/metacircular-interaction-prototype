@@ -39,22 +39,11 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
--- Both halves are elementary and neither is new mathematics; `isContrSingl`
--- is library, and the `Bool ‚í Unit` witness is the smallest possible one.
--- What is claimed is only that the two are worth standing TOGETHER under
--- one name, because the pair is the statement and either alone is not.
---
--- No claim is made about mathematical practice, aesthetics, or history.
--- IdenticalFromInsideAndTheKernelIsTheFirstInstrumentThatSeparatesThem.md`
--- and are marked MINE there.  This file is the checkable residue of them
--- and nothing more.
---
 -- TERM.  ‡‡‡ø‡‡‡û‡æ‡® ‚î recognition, and the token by which what was lost is
 -- known again; Klidsa's ‡‡‡ø‡‡‡û‡æ‡®‡‡æ‡ï‡‡®‡‡‡≤‡Æ‡ (c. 4th‚ì5th c.) turns on such
 -- a token, the ring.  ‡≤‡ã‡ ‚î elision; Pini, ‡‡‡‡ü‡æ‡ß‡‡Ø‡æ‡Ø‡ 1.1.60, ‡‡¶‡∞‡‡‡®‡
 -- ‡≤‡ã‡‡, and 1.1.62, where the operations conditioned by the elided affix
--- still apply.  LIMIT: both words are used in their plain senses and
--- neither source states anything below.
+-- still apply.
 ------------------------------------------------------------------------
 
 module Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFiber where
@@ -76,7 +65,6 @@ private variable ‚Ñì : Level
 -- for every `f`, every `a`, arbitrary types, NO hypothesis ‚î because
 -- `f a` was never separate from `a`.  Bind `a` and it is the fiber, and
 -- the fiber is not that kind of object: below is one that is not
--- the fiber is not that kind of object: below is one that is not
 -- contractible, exhibited rather than asserted.
 --
 -- AND THE WITNESS OF "NEVER SEPARATE" IS ONE LINE OF THE LIBRARY, worth
@@ -90,7 +78,7 @@ private variable ‚Ñì : Level
 -- carry.  Non-rivalry, per-edge amortization, a route being free at any
 -- length, `ua` crossing without charge ‚î all of it is this line held up.
 --
--- Two files landed tonight contain the token `refl` ZERO times ‚î
+-- Two files contain the token `refl` ZERO times ‚î
 -- `Lekha_‚¶agda` (the trail is free at every depth) and `Anvesanam_‚¶agda`
 -- (forward search is free at every depth).  They never write it because
 -- they are built out of `isContrSingl` and inherit it.  That is what it
@@ -132,12 +120,3 @@ private variable ‚Ñì : Level
 ‡§´‡§≤‡§Ç-‡§®-‡§®‡§ø‡§∞‡•ç‡§£‡§æ‡§Ø‡§ï‡§Æ‡•ç : ¬¨ ((A : Type‚ÇÄ) (g : A ‚Üí Unit) ‚Üí isEquiv g)
 ‡§´‡§≤‡§Ç-‡§®-‡§®‡§ø‡§∞‡•ç‡§£‡§æ‡§Ø‡§ï‡§Æ‡•ç h = ‡§§‡§®‡•ç‡§§‡•Å‡§É-‡§®-‡§Æ‡•Å‡§ï‡•ç‡§§‡§É (isEquiv.equiv-proof (h Bool ‡§≤‡•ã‡§™‡§É) tt)
 
-------------------------------------------------------------------------
--- ‡© ¬ ‡‡‡‡ ‚î what this does not reach.
---
--- It does not say that a short proof is USUALLY an elision, and it says
--- nothing about which of the two any particular argument is.  It says
--- only that the result cannot answer the question, so the question has to
--- be put somewhere else.  Where it gets put is the subject of the rest of
--- this corpus.
-------------------------------------------------------------------------

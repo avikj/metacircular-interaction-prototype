@@ -56,7 +56,7 @@ open import MinimalityOfABoundaryPopulationNeedsLowestTerms
   using (short ; shortIsShorterThanTheDenominator)
 
 ------------------------------------------------------------------------
--- 1.  The law that was assumed and never proved
+-- 1.  Transitivity
 ------------------------------------------------------------------------
 
 ⊑-trans : (a b c : ℕ × ℕ) → a ⊑ b → b ⊑ c → a ⊑ c
@@ -180,7 +180,6 @@ minimalDoesNotDescend =
 -- NO NOVELTY: the mediant's betweenness is classical � the Farey
 -- dissection (Haros 1802; Farey 1816) and the Stern�Brocot tree (Stern
 -- 1858; Brocot 1861).
---
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -206,5 +205,4 @@ minimalDoesNotDescend =
 -- (`isSetHProp`), and `�toPath` turns the two-way implication §3 proves
 -- into a PATH.  `AtLeast` is a proposition because cubical's `�` is, so
 -- nothing needed truncating.
---
 ------------------------------------------------------------------------

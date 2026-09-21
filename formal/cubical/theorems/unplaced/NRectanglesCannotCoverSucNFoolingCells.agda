@@ -105,10 +105,7 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- the family contains it.  What Â§2 takes instead is a `pick : Fin (suc
 -- n) â’ Fin n` together with pointwise `Sound (rects (pick i))` and
 -- `Covers (rects (pick i)) (r i) (c i)` â” a cover ALREADY EQUIPPED with
--- a choice of which rectangle serves each cell.  Â§"SYT â” THE CLAIM, EXACTLY"
--- above disclaims upper bounds, r_e, d_e, raw width and the
--- min-cover/max-fooling equality, and says nothing about the shape of
--- its own hypothesis.
+-- a choice of which rectangle serves each cell.
 --
 -- **BOTH FORMS ARE PROVED**, in `NRectanglesCannotCoverSucNFoolingCellsEvenWhenTheCoveringIsOnlyAProperty`:
 --

@@ -20,9 +20,7 @@
 -- claiming exactly what was earned.
 --
 -- The search is bounded by the posed spec (candidates no larger than
--- the problem): targeted solving, not a survey.  What stays outside
--- honestly: problems needing loops or arrays â” the recursor frontier
--- named in Svarupa.
+-- the problem): targeted solving, not a survey.
 ------------------------------------------------------------------------
 
 module Lilavati_ThePosedProblemIsSolvedAsOptimizationTheAnswerCertifiedAndTheCostJudgedAtScales where

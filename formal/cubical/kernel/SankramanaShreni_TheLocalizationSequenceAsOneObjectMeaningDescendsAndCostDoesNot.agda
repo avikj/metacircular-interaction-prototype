@@ -3,13 +3,11 @@
 ------------------------------------------------------------------------
 -- ‡‡‡ï‡‡∞‡Æ‡-‡‡‡∞‡‡‡ ‚î the localization sequence, as one object.
 --
--- The entrypoint note VYAYA_SESA assembled, in prose, the sequence
+-- The localization sequence
 --
 --     ker L  ‚í  Derivation  ‚î‚îL‚î‚î‚ñ∫    (meaning-only)
 --
--- and its ledger listed "L as a defined map, with eval descending and
--- len not" as the main OPEN construction.  This builds it ‚î not as the
--- full ‚àû-groupoid completion, but as its exact load-bearing content: the
+-- is built here as its exact load-bearing content: the
 -- Gabriel‚ìZisman localization at the meaning-preserving class.  To
 -- localize is to invert every rewrite a chosen invariant cannot see; the
 -- set-quotient by "same meaning" IS that inversion, and it is enough to

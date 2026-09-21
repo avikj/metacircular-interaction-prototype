@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- The remaining half of notes/WALK_INSTALLS_ARE_JUMPS.md §(c): the
+-- The second half of notes/WALK_INSTALLS_ARE_JUMPS.md §(c): the
 -- direction (�), that a PRIME POWER is a jump point of the capacity
 -- function.
 --
@@ -9,8 +9,8 @@
 -- `IsPrime` is defined here (cubical v0.5 has no primality anywhere in the
 -- library).  Primality of a given numeral is therefore a proof obligation;
 -- `isPrime2` and `isPrime3` discharge it for 2 and 3 by finite case
--- analysis.  No decision procedure for primality is provided here;
--- `NaturalMachine.PrimalityDecision.decIsPrime` decides it.
+-- analysis; `NaturalMachine.PrimalityDecision.decIsPrime` decides
+-- primality in general.
 --
 -- METHOD, and why no p-adic valuation appears.  A valuation function
 -- v_p : � � � is painful in cubical v0.5 (no well-founded division, no
@@ -294,7 +294,7 @@ prime-power-not-covered p b n C pr sn≡ (_ , C-least) pa∣C = ¬p∣V p∣V
                       (·-comm (p ^ b) V ∙ cong (V ·_) (ps .snd))
                       pa∣M)
 
--- Route (2) of the brief as a corollary of route (1): the a = 1 case,
+-- Corollary: the a = 1 case,
 -- covering every prime install.
 prime-not-covered :
   (p n C : ℕ) → IsPrime p → suc n ≡ p →
@@ -320,7 +320,7 @@ prime-power-jumps-capacity p b n C D pr sn≡ lcmC (D-common , _) C≡D =
     (subst ((p ^ suc b) ∣_) (sym C≡D) (subst (_∣ D) sn≡ (D-common .fst)))
 
 ------------------------------------------------------------------------
--- Route (3): the theorem fired on concrete prime powers
+-- The theorem fired on concrete prime powers
 ------------------------------------------------------------------------
 
 isPrime2 : IsPrime 2

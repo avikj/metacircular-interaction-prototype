@@ -16,18 +16,15 @@
       an equivalence *inside this repository*:
       `NaturalMachine/FiniteEquivalenceBridge.agda` (`X ≃ Y → card X ≡ card Y`)
       and `NaturalMachine/Decategorification.agda` (`card-invariant`,
-      `card≡MereEq`).  A `Fin`-cardinality layer transporting counts along an
-      equivalence therefore did NOT need building: it was already here twice.
-    * What is genuinely absent, verified by reading
-      `Cubical/Data/FinSet/Cardinality.agda` in full: the CONVERSE counting
+      `card≡MereEq`).
+    * What the library lacks: the CONVERSE counting
       principle — *an injection between finite sets of equal cardinality is an
       equivalence*.  The library has `card↪Inequality'`, `card↠Inequality'`
       and `pigeonHole`, but nothing turning an injection into an equivalence.
       That is `injSameCard→isEquiv` (§2), with the sum lemma `sum-pointwise`
       (§1) it rests on.  Neither has a counterpart in `formal/`.
-    * Cubical v0.9 has NO Chinese remainder theorem of any form
-      (`grep -ril chinese` over the v0.9 tree is empty; and
-      `formal/` has none either — `Gamma0Index.agda`'s `crtGL12`, `crtΓ12`,
+    * Cubical v0.9 has NO Chinese remainder theorem of any form, and
+      `formal/` has none either (`Gamma0Index.agda`'s `crtGL12`, `crtΓ12`,
       `crtGL10`, `crtΓ10` are four `refl`s on closed numbers).  `crtEquiv` (§4)
       is that theorem, in the form a count can be transported along, and
       `countMul` (§5) is the multiplicativity those four `refl`s instantiate.

@@ -3,15 +3,9 @@
 ------------------------------------------------------------------------
 -- TheReachableLawDoesNotComposeWithoutPreservation
 --
--- Both modules on the certificate line closed with the same unstated
--- item:
---
---   "Nothing is said about migrations that preserve the observation
---    only on REACHABLE states, which is the version a real compiler
---    would use."
---
--- It is stated here, and it turns out NOT to be a weakening of the
--- global law with the same behaviour.
+-- The migration law on REACHABLE states only, which is the version a real
+-- compiler would use.  It turns out NOT to be a weakening of the global
+-- law with the same behaviour.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -52,11 +46,11 @@
 -- than for meaning.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  Refinement relative to an invariant, and the failure of
+-- Refinement relative to an invariant, and the failure of
 -- naive composition when the invariant is not preserved, are standard
 -- in refinement calculi and in Floydâ“Hoare style reasoning (the
--- invariant must be re-established at the interface); nothing here
--- improves on that.  The content is only that this corpus's own
+-- invariant must be re-established at the interface).
+-- The content: this corpus's own
 -- certificate loses a free component when it moves to the reachable
 -- law.
 ------------------------------------------------------------------------

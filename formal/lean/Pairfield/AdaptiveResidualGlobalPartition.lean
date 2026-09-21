@@ -8,8 +8,7 @@ response vector.  Choosing one suffix for every unordered unequal pair gives
 a complete vocabulary of size at most `choose n 2`.
 
 This is a global witness bound, not an adaptive-tree depth bound: different
-suffixes may be used at different branches, and no Lee--Yannakakis recurrence
-is inferred from the cardinality alone.
+suffixes may be used at different branches.
 -/
 import Mathlib.Data.Sym.Card
 import Mathlib.Order.Partition.Finpartition

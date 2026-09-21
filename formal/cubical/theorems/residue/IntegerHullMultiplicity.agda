@@ -3,10 +3,9 @@
 ------------------------------------------------------------------------
 -- IntegerHullMultiplicity
 --
--- THE INTEGER HULL OF THE MULTIPLICITY PROGRAM  (rescue of collab/FAILURES.md F25)
+-- THE INTEGER HULL OF THE MULTIPLICITY PROGRAM
 --
--- F25 asserted, on the evidence of `code/exp61_integer_hull_check.py`
--- (Python, banned 2026-08-13, unreplayable), that the two convex
+-- The claim: the two convex
 -- relaxations used by the August-2026 critical-line manuscript,
 --
 --     m² � 2m − 1      (Montgomery's integrality step)
@@ -16,7 +15,7 @@
 -- optima of "minimize the number of simple atoms" and "minimize the
 -- number of distinct atoms" over positive-integer multiplicity vectors
 -- are exactly (2/3)N and (5/6)N, i.e. exactly the two relaxations'
--- values.  The Python checked five values of N by search.  This module
+-- values.  A search checked five values of N.  This module
 -- proves the statement for ALL N and ALL S, with no search.
 --
 -- THE OBJECT.  A configuration is a finite list of multiplicities
@@ -51,9 +50,9 @@
 -- that no feasible configuration does better.  So the optima are the
 -- relaxations' values, for every t, not merely at N ∈ {12,18,24,30,36}.
 --
--- Idiom copied from `NaturalMachine/SieveFiber.agda` and
--- `Gamma0Freeness.agda` (solver-assisted commutative rearrangement,
--- everything else by structural induction).  Note that
+-- Idiom (as in `NaturalMachine/SieveFiber.agda` and
+-- `Gamma0Freeness.agda`): solver-assisted commutative rearrangement,
+-- everything else by structural induction.  Note that
 -- `Cubical.Tactics.NatSolver` in cubical v0.5 cannot see through `suc`
 -- or numerals (it files them as opaque constants), so every solver call
 -- below is on a goal in variables only; the numerals are handled by
@@ -340,8 +339,7 @@ hullAttains t = (hullN t , ≡≤ (hullSQ t) ≤-refl) , (hullK t , hullOnes t)
 -- (b) Cauchy�Schwarz alone is strictly weaker: at N = 12, S = 16 it
 --     gives only N²/S = 9, and 9 is NOT attainable � the integer hull
 --     is 10.  So integrality is genuinely being used, and used
---     optimally.  (This is the t = 2 row of the table the retired
---     `code/exp61_integer_hull_check.py` printed.)
+--     optimally.
 ------------------------------------------------------------------------
 
 noBetterDistinct : (t : ℕ)

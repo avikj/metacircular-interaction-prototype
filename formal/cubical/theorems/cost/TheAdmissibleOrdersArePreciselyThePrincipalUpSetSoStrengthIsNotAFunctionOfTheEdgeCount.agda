@@ -60,9 +60,7 @@
 -- `oneDeclaredEdgeExcludesTheConcurrentOrder` is the instance of
 -- `admissibilityIsFaithful` at `hb = ‚à`, `ord = Œª _ _ ‚í ‚ä`.  It is
 -- not the first point of a sequence; it is one corner of a lattice
--- statement.  Reading it as a data point ‚í **seeing a `1` in a theorem
--- and reaching for a growth law** ‚î is the reflex `CLAUDE.md` names
--- when it forbids fitting a pattern from three points.
+-- statement.
 ------------------------------------------------------------------------
 
 module TheAdmissibleOrdersArePreciselyThePrincipalUpSetSoStrengthIsNotAFunctionOfTheEdgeCount where

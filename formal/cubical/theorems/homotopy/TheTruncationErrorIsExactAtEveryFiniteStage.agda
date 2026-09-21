@@ -9,29 +9,14 @@
 --
 -- And the truncated sum alone does not carry it: at n = 1 the partial
 -- sum is `1` for EVERY ratio, while the error is the ratio itself.  So
--- the error term separates exactly what the truncation identifies ‚î
--- `CLAUDE.md`'s own sentence, "a correlation coefficient has no content;
--- the content is the error term", as a theorem, on the object the Kerala
--- school used it on.
+-- the error term separates exactly what the truncation identifies.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT `Madhava.agda` SAYS, READ IN FULL, AND WHERE I NARROW IT
+-- RELATION TO `Madhava.agda`
 --
 -- `Madhava.‡ó‡‡‡‡‡∞‡‡‡-‡Ø‡ã‡ó‡ : (1 ‚àí r) ¬ ‚à_{k<n} rµ ‚â° 1 ‚àí r‚ø` over ‚, by
--- induction ‚î I read the signature and the proof body before importing.
--- Its honesty ledger then says, in its own words (lines 17‚ì20):
---
---   "‡‡‡-‡‡¶‡Æ‡ ‡‡µ ‡‡æ‡∞‡ ; ‡‡‡ ‡‡ ‡‡®‡‡ï‡‡‡Æ‡, ‡® ‡Æ‡ø‡‡‡Ø‡æ-‡‡ø‡¶‡‡ß‡Æ‡"
---   ‚î the remainder term is the essence; here it is UN-SAID, not
---     falsely proved
---
--- because r‚ø/(1‚àír) ‚í 0 needs ‚/‚ analysis that lane does not have.
---
--- The convergence claim is indeed un-said and stays un-said.  But the
--- REMAINDER ITSELF is not: ¬ß1 below is that module's own theorem plus
--- `minusPlus`, and it says the error is exactly r‚ø.  So the ledger's
--- "the remainder term is un-said" is wider than what it needs to be; the
--- statement that survives is "the remainder's *asymptotics* are un-said".
+-- induction.
+-- ¬ß1 below is that module's own theorem plus `minusPlus`: the error is exactly r‚ø.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 ------------------------------------------------------------------------
@@ -89,10 +74,6 @@ errorStep r n = refl
 sumStep : (r : ‚Ñ§) (n : ‚Ñï) ‚Üí ‡§∏‡§ô‡•ç‡§ï‡§≤‡§ø‡§§‡§Æ‡•ç r (suc n) ‚â° ‡§∏‡§ô‡•ç‡§ï‡§≤‡§ø‡§§‡§Æ‡•ç r n + ‡§ò‡§æ‡§§ r n
 sumStep r n = refl
 
--- What ¬ß3 does NOT say: that `‡ò‡æ‡ r n ¬ r` is smaller than `‡ò‡æ‡ r n`.
--- That is an order statement, it is where ‚/‚ analysis would be needed,
--- and it is exactly the part `Madhava.agda`'s ledger is right to leave
--- un-said.  Nothing above or below uses an order on ‚.
 
 ------------------------------------------------------------------------
 -- 4.  THE COLLISION.  The error separates what the truncation identifies.
@@ -124,11 +105,10 @@ errorDoesNotFactorThroughTheTruncation =
     (Œª h ‚Üí 2‚â¢3 (sym (errorAtOneIsTheRatio (pos 2)) ‚àô h ‚àô errorAtOneIsTheRatio (pos 3)))
 
 ------------------------------------------------------------------------
--- 5.  The sentence this earns, and its exact scope
+-- 5.  The sentence this earns.
 --
--- `CLAUDE.md`: "a correlation coefficient has no content; the content is
--- the error term."  ¬ß4 is that, on Mdhava's own object and at one step:
+-- "A correlation coefficient has no content; the content is the error
+-- term."  ¬ß4 is that, on Mdhava's own object and at one step:
 -- the truncation is constant in the ratio, the error is the identity in
 -- it, and no invariant of the former reports the latter.
---
 ------------------------------------------------------------------------

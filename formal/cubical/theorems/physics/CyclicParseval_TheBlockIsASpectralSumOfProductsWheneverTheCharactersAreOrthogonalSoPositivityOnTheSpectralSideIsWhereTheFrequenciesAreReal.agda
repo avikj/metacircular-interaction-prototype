@@ -27,11 +27,6 @@
 --   Â§3  over â at N = 2 with the character (âˆ’1)^{tÎ}, orthogonality
 --       discharged by computation, and Parseval read back: for
 --       b = (3 , âˆ’1), Î bÂ² = 10 and Î_Î bÌ(Î)Â² = 4 + 16 = 20 = 2Â10.
---
--- SYT â” THE CLAIM, EXACTLY.  Bilinearity plus an orthogonality
--- hypothesis, over any commutative ring.  The roots of unity enter only
--- through the hypothesis; no root of unity is constructed here beyond
--- âˆ’1.  No zeros of Î, no Weil form: those name the reading.
 ------------------------------------------------------------------------
 
 module CyclicParseval_TheBlockIsASpectralSumOfProductsWheneverTheCharactersAreOrthogonalSoPositivityOnTheSpectralSideIsWhereTheFrequenciesAreReal where

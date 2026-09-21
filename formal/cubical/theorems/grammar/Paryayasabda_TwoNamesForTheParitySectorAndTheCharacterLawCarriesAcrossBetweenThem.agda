@@ -11,7 +11,7 @@
 -- and Vykaraa traditions use the term in the same plain sense.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT WAS OPEN.  This corpus encodes the â/2 PARITY SUPERSELECTION
+-- THE TWO ENCODINGS.  This corpus encodes the â/2 PARITY SUPERSELECTION
 -- SECTOR â” the "charge mod 2" whose neutral half is the parity barrier â”
 -- TWICE, in two modules that never meet:
 --

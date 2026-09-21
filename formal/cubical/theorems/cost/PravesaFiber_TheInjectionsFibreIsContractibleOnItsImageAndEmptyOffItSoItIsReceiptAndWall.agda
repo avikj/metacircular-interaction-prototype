@@ -33,10 +33,10 @@
 -- The four equivalences compose the library's coproduct path characterisation
 -- (`‚äPath.Cover‚âPath`, itself an encode‚ìdecode) with `Œ-cong-equiv-snd`,
 -- `isContr‚í‚âUnit` and `uninhabEquiv`.  The mathematics is elementary and
--- classical (coproduct injections are embeddings with disjoint images).  No
--- source is claimed for it.  ‡‡‡∞‡µ‡‡ is ordinary  for entering /
+-- classical (coproduct injections are embeddings with disjoint images).
+-- ‡‡‡∞‡µ‡‡ is ordinary  for entering /
 -- insertion, the dual reading to ‡‡‡∞‡ï‡‡‡‡ (throwing / projection) already used
--- in the corpus; the compound is built here, 2026-08-22.
+-- in the corpus.
 ------------------------------------------------------------------------
 
 module PravesaTantu_TheInjectionsFibreIsContractibleOnItsImageAndEmptyOffItSoItIsReceiptAndWall where

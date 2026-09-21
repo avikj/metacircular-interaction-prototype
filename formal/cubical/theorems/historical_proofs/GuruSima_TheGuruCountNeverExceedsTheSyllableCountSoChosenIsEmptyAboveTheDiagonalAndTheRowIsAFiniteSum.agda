@@ -1,13 +1,8 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- à—àà°à-ààà®à¾ â” the summand-wise statement `Lagakriya_â¦` Â§à® left.
---
--- That module says, exactly: "What is therefore still not proved is the
--- summand-wise statement â” that `Chosen n k` is empty for k > n â” which
--- is true, is what would let the infinite `Î[ k âˆˆ â• ]` be replaced by a
--- finite one over `Fin (suc n)`, and is not needed for anything above.
--- Someone who wants the row read term by term rather than in total has
--- to prove it."
+-- à—àà°à-ààà®à¾ â” the summand-wise statement of `Lagakriya_â¦` Â§à®: `Chosen n k` is
+-- empty for k > n, which lets the infinite `Î[ k âˆˆ â• ]` be replaced by a
+-- finite one over `Fin (suc n)`.
 --
 -- Proved here, from `PingalaPrastara`'s own `varna` and `guruOf`:
 --

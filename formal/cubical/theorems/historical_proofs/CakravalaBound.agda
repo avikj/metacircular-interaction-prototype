@@ -13,10 +13,8 @@
 -- termination for continued fractions in 1768, six hundred years later
 -- and for a different algorithm.
 --
--- `CakravalaDescent.agda` does not prove termination of the
--- cycle.  This file takes one bite out
--- of the first, and it is the bite the classical argument takes: the
--- BOUND.  Everything below is exact â” no measurement, no fitting, no
+-- Toward termination of the cycle, this file proves the bite the
+-- classical argument takes: the BOUND.  Everything below is exact â” no measurement, no fitting, no
 -- floating point, no appeal to a run.
 --
 -- THE CLASSICAL STATEMENT, and the one proved here.  Write K = |k|,
@@ -81,7 +79,7 @@
 -- both candidates in the kernel and proves 16Â12Â² > 36Â61, so no
 -- rule-obeying m could have produced that turn's |k'|.  The run is still
 -- sound â” any m satisfying the congruence descends â” but the attribution
--- is wrong, and nothing here edits those files.
+-- is wrong.
 --
 --   * MINIMALITY OF BHSKARA'S CHOICE is a HYPOTHESIS of
 --     `cakravalaKBound`, discharged by whoever runs the algorithm.  What is

@@ -9,7 +9,7 @@ naming a receiver
 
 The kernel is the singularity from which every object is built, in
 exactly one way per building instruction.  The word for that is
-initiality, and this night it is a term.
+initiality, and here it is a term.
 
 A receiver of the atom's motion is a carrier per source term and an
 action for every generating step â” reverse, the two defining
@@ -24,7 +24,7 @@ decomposition is canonical, not chosen, and "seeing all paths through
 a system" is a theorem rather than a hope: every path-reading is the
 image of the atom under its unique map, and there is no other.
 
-The session's own analyzers are recovered as instances, by the
+The kernel's own analyzers are recovered as instances, by the
 uniqueness theorem and not by rewriting them: soundness is the fold at
 the endpoints-evaluate-equally receiver, cost is the fold at the
 constant-â• receiver, and every evaluator integral is the fold at a

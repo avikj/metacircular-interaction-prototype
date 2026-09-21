@@ -175,7 +175,7 @@ theRatesAreDense =
 -- `TheMediantDoesNotDescendToTheRate` exhibits (1,1) â‰ˆ (2,3) whose
 -- mediants with (1,2) are 2/5 and 3/7.
 --
--- Nothing above is affected.  The density theorem is stated with
+-- The density theorem is stated with
 -- `âˆ_âˆâ` and eliminates into a proposition, so the witness only ever
 -- lived at the level of representatives â” which is what "the mediant
 -- never has to descend" says.  What the refutation removes is the

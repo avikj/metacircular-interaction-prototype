@@ -59,14 +59,9 @@ SymGroup X isSetX =
     compEquiv-assoc compEquivEquivId compEquivIdEquiv
     invEquiv-is-rinv invEquiv-is-linv
 
--- and the finite one, which the pinned v0.5 calls `Sym` and v0.9 calls
--- `FinSymGroup`.  Same reasoning: named once, here.
 -- and the finite one.  v0.9 calls it `FinSymGroup` and builds it over
 -- Cubical.Data.SumFin.Fin (‚ä ‚ä ‚¶), NOT Cubical.Data.Fin (Œ ‚ï (_< n));
 -- the pinned v0.5 calls the analogue `Sym` and uses the OTHER carrier.
--- Getting that wrong typechecks locally and then fails in the module
--- that uses it, which is how it was found: FiniteNonabelianHolonomy
--- rejected `isoToEquiv swap01Iso` with `Œ ‚ï (Œª k ‚í k < 3) != ‚ä ‚ä Fin 2`.
 -- So it is SumFin here, matching v0.9's carrier.
 FinSymGroup : ‚Ñï ‚Üí Group ‚Ñì-zero
 FinSymGroup n = SymGroup (SumFin.Fin n) SumFin.isSetFin

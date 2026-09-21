@@ -104,7 +104,7 @@ positiveWithoutMajority = someHolds , majorityFails
 
 ------------------------------------------------------------------------
 -- The general family is in `TheThresholdOrderIsTotalAndTheClaimIsAntitone`.
--- The move was to stop exhibiting populations and state the family:
+-- It states the family rather than exhibiting populations:
 --
 --   AtLeast p q bs        = p Â length bs â‰ suc q Â count bs
 --   (p , q) âŠ (p' , q')   = p Â suc q' â‰ p' Â suc q

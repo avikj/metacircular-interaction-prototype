@@ -26,16 +26,12 @@
 -- attributions to Pythagoras himself are not securely datable).  The same
 -- identification of pitch with ratio rather than with length belongs to
 -- the Indian naada tradition; Baudhayana's Sulbasutra (~800 BCE) is
--- already in this corpus for the diagonal.  NOTHING below is claimed to
--- be in those texts: the theorems are this corpus's, named for the act
--- the traditions performed.
+-- already in this corpus for the diagonal.  The theorems are this corpus's,
+-- named for the act the traditions performed.
 --
 -- No rational-number type is imported and none is needed; the point is
 -- precisely that the quotient is the object, so it is exhibited as a
 -- relation on presentations and shown to be one.
---
--- CHECKED: exit code quoted in the commit message.  Container is
--- Agda 2.6.3 + cubical v0.5, which is NOT the repository pin.
 ------------------------------------------------------------------------
 
 module Pythagoras_RatioIsTheInvariantAndLengthIsThePresentation where

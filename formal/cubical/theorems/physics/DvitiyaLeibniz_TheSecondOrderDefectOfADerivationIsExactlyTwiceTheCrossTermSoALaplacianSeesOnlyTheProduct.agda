@@ -32,8 +32,8 @@
 --       So the second-order defect is supported ENTIRELY on the product
 --       of the two first derivatives.  No first-order term survives.
 --
--- WHAT THIS GIVES A SUM-OF-SQUARES OPERATOR, said as a reading and not
--- proved here: for a family of derivations âˆâ¼ and K = âˆ’ Îâ¼ âˆâ¼Â², negating
+-- WHAT THIS GIVES A SUM-OF-SQUARES OPERATOR, as a reading:
+-- for a family of derivations âˆâ¼ and K = âˆ’ Îâ¼ âˆâ¼Â², negating
 -- Â§2 and summing over j leaves
 --
 --     K (br a b) âŠ– br (K a) b âŠ– br a (K b)  =  âˆ’ 2 Îâ¼ br (âˆâ¼ a) (âˆâ¼ b) ,
@@ -41,16 +41,10 @@
 -- with no first-order term anywhere.  The sum and the sign are the
 -- reading; Â§2 is the theorem, at one derivation.
 --
--- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“2 in an arbitrary ring, carrier taken
+-- Â§Â§1â“2 in an arbitrary ring, carrier taken
 -- as the ring itself, for every two-argument `br` â” no bilinearity of
 -- `br` is used or assumed anywhere below, only the Leibniz law relating
--- it to `d` â” every additive `d`, and every pair of arguments.  NOT
--- claimed: the summed form displayed above (it is stated as a reading,
--- with no family, no sum, and no sign proved); anything about commuting
--- derivations; anything about Laplacians on any particular space;
--- anything about brackets satisfying Jacobi; any equation of motion; and
--- nothing about `FluxDerivation`, whose thinner signature does not
--- support Â§1 and which is not weakened by this module.
+-- it to `d` â” every additive `d`, and every pair of arguments.
 ------------------------------------------------------------------------
 
 module DvitiyaLeibniz_TheSecondOrderDefectOfADerivationIsExactlyTwiceTheCrossTermSoALaplacianSeesOnlyTheProduct where

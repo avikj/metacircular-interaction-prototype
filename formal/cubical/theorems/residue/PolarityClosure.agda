@@ -6,26 +6,23 @@
 -- THE BIRKHOFF POLARITY OF A RELATION, AND THE VACUITY OF THE BOOLEAN
 -- GLOSS.
 --
--- identifies D0020 Â§5's apoha display and Â§7's two-sided evaluation
+-- APOHA_AND_POLARITY identifies D0020 Â§5's apoha display and Â§7's two-sided evaluation with
 -- Prop. 6.3 â” the ANTITONE one, A(S) = {t : âˆ¼_S âŠ âˆ¼_{t}}, the
 -- derivation closure of the formal context (X — X, T, R).  It is NOT
--- Theorem B's monotone redundancy closure C_Ï; Â§3 of that note corrects
--- D0020 Â§J3's pointer on exactly this point, and it is the antitone one
+-- Theorem B's monotone redundancy closure C_Ï; it is the antitone one
 -- that is formalised below.  Every map called `perp` here reverses
 -- inclusion, which is the check that the right closure is in hand.
 --
--- Sibling module: `ExclusionScope.agda` (genius-02, 2026-08-14), which
+-- Sibling module: `ExclusionScope.agda`, which
 -- settles exclusion on Eq(X) â” the repository's actual meaning-carriers
 -- â” and finds the relative pseudo-complement repair FAILS for |X| â‰ 3.
 -- That module is about Eq(X); this one is about the powerset P(X) and
 -- about polarities of an arbitrary relation.  They are the two halves of
 -- APOHA_AND_POLARITY Â§4.1's pairing ("the gloss is either vacuous or
 -- unavailable"): ExclusionScope owns "unavailable", this module owns
--- "vacuous".  Nothing here duplicates it â” no statement of
--- ExclusionScope is restated and no lattice of equivalence relations
--- appears below.
+-- "vacuous".
 --
--- CONTENTS (all --safe, no postulates, no holes):
+-- CONTENTS:
 --
 --   Â§1  `Polarity`.  For an arbitrary Îµ : A â’ B â’ Type, the two polarity
 --       maps perpâº, perpâ» are antitone (`perpâº-anti`, `perpâ»-anti`),

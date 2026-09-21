@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- A finite, falsifiable nonabelian instance of the holonomy/refinement seam.
--- The group is Sym(Fin 3) â‰ Sâ.  This is a precursor test only: it is not
--- SU(2), a Hilbert representation, or a continuum LQG construction.
+-- The group is Sym(Fin 3) â‰ Sâ.
 
 module NaturalMachine.FiniteNonabelianHolonomy where
 

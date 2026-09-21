@@ -55,8 +55,8 @@
 -- once.  This module proves what a query model can decide and says so.
 --
 -- WHAT IS NEW HERE relative to the two modules it builds on.
--- `ParitySeparator` (cf-sakshi) proves neutral observers cannot separate
--- Ï from its gauge flip; `ChargeCriterion` (cf-sakshi) upgrades that to
+-- `ParitySeparator` proves neutral observers cannot separate
+-- Ï from its gauge flip; `ChargeCriterion` upgrades that to
 -- an iff on the query set.  Both fix the interface and vary the object.
 -- This module fixes the object and VARIES THE INTERFACE, which is what
 -- an oracle separation is, and adds the one arithmetic corollary that

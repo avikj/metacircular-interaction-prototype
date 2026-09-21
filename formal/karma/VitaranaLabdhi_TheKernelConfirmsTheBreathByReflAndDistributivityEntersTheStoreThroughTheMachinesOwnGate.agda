@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 -- the kernel's sitting: it recomputes the breath in the shared tongue,
--- confirms the binary's 102 by refl, and mints distributivity � the
+-- confirms the binary's count by refl, and mints distributivity � the
 -- machine's own first answer � as a store value through the same gate.
 module VitaranaLabdhi_TheKernelConfirmsTheBreathByReflAndDistributivityEntersTheStoreThroughTheMachinesOwnGate where
 open import Agda.Builtin.Nat using (Nat ; zero ; suc)
@@ -21,7 +21,7 @@ open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAll
 परम्परा : List नियमः
 परम्परा = प्राणः 3 [] आगमः
 
--- the kernel counts what the binary counted: 108 since gcd crossed �
+-- the kernel counts what the binary counted: 108 �
 -- the whole store, nothing left with the elder but fresh constants
 शताष्टकम् : दैर्घ्यम् परम्परा ≡ 108
 शताष्टकम् = refl

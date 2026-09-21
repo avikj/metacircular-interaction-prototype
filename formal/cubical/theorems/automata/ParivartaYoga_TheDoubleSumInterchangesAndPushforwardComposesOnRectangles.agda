@@ -6,7 +6,7 @@
 --
 -- TERM.  ‡‡∞‡ø‡µ‡∞‡‡ (interchange, turning about) and ‡Ø‡ã‡ó (sum, as in the
 -- measure lane's ‡Ø‡ã‡ó‡‡≤/‡‡æ‡ñ‡ø‡‡Ø‡ã‡ó‡ vocabulary).  The compound ‡‡∞‡ø‡µ‡∞‡‡-‡Ø‡ã‡ó
--- is built here; no source is claimed for it.
+-- is built here.
 --
 -- The RECTANGULAR case, which is also the
 -- interchange law the span/path-integral reading consumes first:

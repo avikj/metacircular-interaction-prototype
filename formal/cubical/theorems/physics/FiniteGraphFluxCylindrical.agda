@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- Flux evaluation transported across the finite-network cylindrical path.
--- Only the subdivided stem is differentiated; no surface/intersection model,
--- operator domain, Hilbert tensor product, or LQG geometric spectrum is claimed.
+-- Only the subdivided stem is differentiated.
 
 module FiniteGraphFluxCylindrical where
 

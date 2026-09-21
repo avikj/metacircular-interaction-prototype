@@ -3,17 +3,7 @@
 ------------------------------------------------------------------------
 -- TheSaturationClosureNeedsOnlyAGaloisConnection
 --
--- `SaturationAtACutIsIdempotent` proved that Î” 28 Â§31â“32's "re-saturate"
--- is idempotent, and then said, as the load-bearing limitation:
---
---   "Â§31â“32's â and â“ are min-plus RESIDUATIONS over a semiring-valued
---    kernel â¦ That the former is an instance of the latter is NOT
---    proved here and is not obvious â¦ So what is established is that
---    the SATURATION discipline is sound wherever the adjunction holds â”
---    not that Î” 28's particular â/â“ satisfy it."
---
--- That sentence names a gap without saying what would close it.  This
--- module says exactly what would: the whole closure argument uses
+-- The whole closure argument uses
 -- NOTHING about `Type`, `âŠ`, or the relation K.  It uses two preorders,
 -- two maps, and the two directions of a contravariant Galois connection.
 -- Everything else â” antitonicity, unit, counit, the triangles,
@@ -133,7 +123,7 @@ module Galois
 -- 5.  The previous module's polarities are an instance
 --
 -- Two one-line proofs, which is the point: this is the entire cost of
--- being an instance, and it is what the min-plus residuations still owe.
+-- being an instance.
 ------------------------------------------------------------------------
 
 _âŠ†_ : {â„“ : Level} {A : Type â„“} â†’ (A â†’ Type) â†’ (A â†’ Type) â†’ Type â„“
@@ -197,8 +187,7 @@ module Polarity {X Y : Type} (K : X â†’ Y â†’ Type) where
 -- `d-antitone`; both adjunction directions throughout.  Nothing is
 -- assumed and unused.
 --
--- **WHAT THIS MODULE DOES NOT SHOW is that its package is the ONLY sufficient
--- one**, which is what "needs only X" invites a reader to conclude.  In
+-- The package is not the only sufficient one.  In
 -- `TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeed
 -- DifferentAxioms`: `FromUnitCounit` derives `galFwd`/`galBwd` from
 -- `u-antitone`, `d-antitone`, `unit`, `counit` â” one line each â” and then

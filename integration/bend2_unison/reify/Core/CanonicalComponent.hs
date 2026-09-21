@@ -151,7 +151,7 @@ canonicalOrder members resolved fullBook componentBook = do
       -- Exact graph canonicalization of a very large tied SCC needs a more
       -- scalable labeling algorithm. This deterministic fallback preserves
       -- collision resistance and termination; such components may change
-      -- address on rename until that algorithm replaces this branch.
+      -- address on rename.
       let order = concatMap (sortOn id) classes
       bytes <- encodeCanonicalComponent order resolved fullBook componentBook
       Right (order,bytes)

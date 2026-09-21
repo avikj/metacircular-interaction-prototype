@@ -4,7 +4,7 @@
 -- ‡‡ï-‡‡‡ï‡‡∞‡Æ‡ ‚î eka-sakramaa, "the unique transport."  ‡‡‡ï‡‡∞‡Æ‡ is this
 -- corpus's word for transport (subst / translation of a datum along a
 -- path ‚î DravyaParyaya_‚¶, ¬‡‡‡ï‡‡∞‡Æ‡‡Æ‡ p P = subst P p¬ª); ‡‡ï = one.  The
--- COMPOUND is this corpus's, declared here (naming rule note 2): there is
+-- COMPOUND is this corpus's, declared here: there is
 -- no classical  term for a torsor, and none is invented for the
 -- structure ‚î only for its defining property, that the element carrying
 -- one point to another is exactly one.
@@ -30,8 +30,7 @@
 -- Torsor.translate's uniqueness, for EVERY (group, action).
 --
 -- Sources for the mathematics: runtime/atlas/residual.py (Torsor,
--- law set (residual.py's FiniteGroup checks closure/associativity/
--- inverse); the right-hand laws are not re-derived from the left here.
+-- FiniteGroup).
 ------------------------------------------------------------------------
 
 module EkaSankramana_AFreeTransitiveActionsTranslationIsUniqueSoTheTorsorIsAnEquivalence where

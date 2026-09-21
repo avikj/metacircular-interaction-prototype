@@ -8,8 +8,6 @@
 -- future Hadamard insertion separates them.  Closing the signature under a
 -- declared preparation on the left and experiment on the right restores the
 -- exact compositional equality appropriate to this finite language.
---
--- This is not general Isbell duality or an associativity theorem.
 ------------------------------------------------------------------------
 
 module TwoSidedExperimentInterface where

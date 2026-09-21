@@ -54,7 +54,7 @@
 -- `TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma`, which
 -- composes `strataSound` with the theorem here.
 --
--- NO NOVELTY.  This is the standard fact that the non-dominated front
+-- This is the standard fact that the non-dominated front
 -- of a finite set dominates everything else in it (Goldberg 1989; Deb
 -- et al. 2002), and the sublist argument is the usual one.
 ------------------------------------------------------------------------

@@ -29,9 +29,7 @@
 -- What is contributed here is the IDENTIFICATION ‚î that the corpus's
 -- fibre law and the object classifier are the same object, checked by
 -- importing the corpus's own decomposition and the library's and finding them
--- equal on the nose (¬ß0) ‚î together with the three places where reading the
--- identification as "the shape of the universe, iterated, makes arbitrary
--- form"
+-- equal on the nose (¬ß0).
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT IS PROVED
@@ -287,8 +285,7 @@ the-universal-fibration-is-classified-one-level-up ‚Ñì = fiber (universal {‚Ñì})
 -- `helix : S¬ ‚í Type‚` is a single family over a single circle.  The
 -- winding number is, definitionally, ¬ß4's transport in it ‚î and that
 -- transport is an isomorphism onto ‚.  A group nobody put in comes out
--- of one application of the law.  ONE application; see WHAT IS NOT
--- CLAIMED for what does not follow.
+-- of one application of the law.
 ------------------------------------------------------------------------
 
 ‡§µ‡•á‡§∑‡•ç‡§ü‡§®‡§Æ‡•ç-‡§Ö‡§®‡•Å‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É-‡§è‡§µ : (p : Œ©S¬π) ‚Üí winding p ‚â° ‡§Ö‡§®‡•Å‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É helix p (pos zero)

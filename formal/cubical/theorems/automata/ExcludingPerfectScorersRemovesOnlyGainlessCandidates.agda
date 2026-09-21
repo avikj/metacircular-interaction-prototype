@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ExcludingPerfectScorersRemovesOnlyGainlessCandidates
 --
--- was checked two cycles ago; this is SEAM 1, and it reads:
+-- Seam 1 reads:
 --
 --   "The paper's parent-eligibility set excludes perfect-score agents.
 --    The released `choose_selfimproves` function does not make that
@@ -39,20 +39,6 @@
 -- nothing until some agent is perfect â” and once one is, every sample
 -- drawn on it is provably gainless.  Neither seam is cosmetic and
 -- neither is visible in a benign archive.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- GRADE, unchanged and load-bearing: **I DID NOT READ THE CODE.**  Â§2
--- restricts its observations to one pinned commit of an external
--- repository, and this repository's egress rules mean no request to
--- github.com was made.  What is checked is the ORDER-THEORETIC CONTENT
--- OF Â§2'S SENTENCE, assuming the sentence describes the function
--- correctly.  If Â§2 misread it, nothing here is affected and nothing
--- here defends Â§2.
---
--- NO NOVELTY.  "Nothing exceeds a bound that is attained" is
--- elementary.  It is attached here because Â§2 records the discrepancy
--- without the reason, and the reason is what tells an implementer
--- whether to care.
 ------------------------------------------------------------------------
 
 module ExcludingPerfectScorersRemovesOnlyGainlessCandidates where

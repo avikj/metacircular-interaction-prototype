@@ -3,9 +3,7 @@
 ------------------------------------------------------------------------
 -- ClosureTowerCollapse
 --
--- checked term rather than a paragraph.
---
--- §0) erects a transfinite tower
+-- The source's §0 erects a transfinite tower
 --
 --     Θ_{ν+1} := κ(Θ_ν),   Θ_λ := �_{ν<λ} Θ_ν,   Θ_∞ := �_λ Θ_λ
 --

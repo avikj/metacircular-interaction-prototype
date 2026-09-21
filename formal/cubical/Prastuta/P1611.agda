@@ -22,7 +22,7 @@ max' (suc m) zero = suc m
 max' (suc m) (suc n) = suc (max' m n)
 
 -- Euclidean gcd by subtraction, fuel-typed (the close SanghattaSamapti
--- named as owed): fuel a + b bounds the descent, since each step
+-- names): fuel a + b bounds the descent, since each step
 -- strictly shrinks the sum while both sides are positive.
 mutual
   gcdGo : ℕ → ℕ → ℕ → ℕ → ℕ

@@ -4,10 +4,6 @@
 -- AbhihitanvayaAnvitabhidhana_
 --   TheTypeOfTheSemanticsAlreadyTakesASideAndSoundnessIsFreeOnOneOfThem
 --
--- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT header)
--- and `.claude/hooks/european-frame.txt`. Neither term below restatement of
--- another identity's module.
---
 -- The two terms are the names of the two positions in the Mms
 -- dispute over bdabodha â” how the cognition of a sentence stands to
 -- the cognitions of its words:
@@ -39,16 +35,15 @@
 -- and is not resolved here.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE SETTING, AND WHAT WAS MISSING.
+-- THE SETTING.
 --
 -- `FullAbstractionIsAConditionOnTheContextFamilyAndCurvatureIsWitnessedInIt`
--- (c63b9f53) has `CtxEq` â” agreement of `obs` under every context in a
+-- has `CtxEq` â” agreement of `obs` under every context in a
 -- family â” and `FullyAbstract`, which is ONE implication:
 --
 --     CtxEq p q  â’  C p â‰¡ C q.
 --
--- The converse was never stated there, and that module's "WHAT IS NOT
--- CLAIMED" did not list it, which is the gap this closes.  The converse
+-- The converse
 -- is not a second hypothesis to be assumed.  **It is a theorem, and its
 -- two premises are exactly what the Bha side asserts and the
 -- Prbhkara side denies:**
@@ -79,7 +74,7 @@
 --   separatingContextForcesSemanticDifference
 --                    a separating context gives `Â (C p â‰¡ C q)` â”
 --                    FREE.  Compare `curvatureExhibitsAContext` in
---                    c63b9f53, which goes the other way and PAYS
+--                    that module, which goes the other way and PAYS
 --                    `Enumerated K` + `Discrete O` + `FullyAbstract`.
 --                    The asymmetry is now visible: one direction is a
 --                    congruence, the other is a search.

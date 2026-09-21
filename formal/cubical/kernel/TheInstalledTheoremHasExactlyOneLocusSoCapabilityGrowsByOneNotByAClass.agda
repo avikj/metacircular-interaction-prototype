@@ -5,11 +5,9 @@
 --
 -- TERM.  àà§à¿à•à°à Â adhikaraa, "locus, substratum" â” the place a property
 -- resides.  It is a technical term in Nyya (the locus of an absence, with
--- its counterpositive) and in Prva-Mms (the topic-section).  IT IS
--- USED HERE IN ITS ORDINARY SENSE ONLY â” the term at which an operation
--- resides â” and NO TEXT IS CLAIMED for the application, no author credited
--- with anything proved below, and no ledger row exists for the compound,
--- which is built here.
+-- its counterpositive) and in Prva-Mms (the topic-section).
+-- It is used here in its ordinary sense, the term at which an operation
+-- resides.
 --
 ------------------------------------------------------------------------
 -- WHY THIS FILE EXISTS, and it is not a limitation being recorded.

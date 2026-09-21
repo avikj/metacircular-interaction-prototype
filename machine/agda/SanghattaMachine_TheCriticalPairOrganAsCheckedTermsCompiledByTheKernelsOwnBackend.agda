@@ -16,15 +16,11 @@
 -- compiled by the kernel's OWN backend (MAlonzo/GHC), so the machine's
 -- limb is body, not a reimplementation standing beside the body.
 --
--- WHY (owner, 2026-08-24): "almost all the Haskell needs to go â” it's all
--- reimplemented shit executed by the core / agda compiler/runtime."  This
--- is the first organ dissolved that way.  The pure core of
+-- The pure core of
 -- machine/Sanghatta_â¦hs (parse, term order, unification, matching,
 -- rewriting to normal form, critical pairs, the non-joining census) is
 -- ported here term-for-term into --safe Agda; `agda -c` compiles it to a
--- native executable through GHC.  The Haskell version stays only until
--- this is differential-tested equal on machine/library.terms, then it
--- goes.  Nothing here is postulated except the IO membrane at the very
+-- native executable through GHC.  Nothing here is postulated except the IO membrane at the very
 -- bottom â” the typed world-leaf (readFile/putStrLn), which is the only
 -- part that CANNOT be a checked term and is kept to ~a dozen lines.
 --

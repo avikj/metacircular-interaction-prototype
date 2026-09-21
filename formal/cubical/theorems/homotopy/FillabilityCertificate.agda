@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- FillabilityCertificate
 --
--- the CERTIFICATE STRUCTURE of the two fillability predicates of that
+-- The CERTIFICATE STRUCTURE of the two fillability predicates of that
 -- note's Def 2.2.2, formalised as datatypes and decision procedures.
 --
 -- HEADLINE STATEMENTS:
@@ -71,7 +71,6 @@
 --                          That is the checkable shadow of §3.4's
 --                          "failure cannot be reported".
 --
---    §2.2 fixes, checked for internal consistency and separation.
 --  * The note's §5 (Theorem 5.3: the dividing line for quantitative
 --    defects is ARITY, not an attainable zero) is
 --    formalised in `ArityOfRepair`, which imports

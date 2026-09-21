@@ -60,8 +60,7 @@
 --   ¬ß5  THE REFUTATION OF ¬ß3.  Every flat triangle is a gauge: one chart
 --       seen three ways.  So the ¬ß3 witness is a gauge artifact and, by
 --       the stanza's own rule (`‡¶‡ã‡‡ ‡Ø‡¶‡ø gauge-artifact ‚í ‡‡‡Ø‡æ‡‡‡Ø‡`),
---       carries no invariant.  My claim that the triangle counterexample
---       had content is dead.
+--       carries no invariant.
 --   ¬ß6  What survives instead: the SQUARE.  A four-chart cycle whose
 --       holonomy is `not`, hence admits no gauge over any common chart at
 --       any universe level ‚î and which contains no triangle to be
@@ -72,8 +71,7 @@
 -- the failure is empty; the first place holonomy is chart-invariant is
 -- the square, which is the stanza's own next display, Œ¥_‚óä = h‚àòf ‚àí k‚àòg.
 --
--- PRIOR ART IN THIS REPOSITORY, checked before writing (grep for
--- holonomy/cocycle/flat over formal/cubical):
+-- PRIOR ART IN THIS REPOSITORY:
 --   EGBCycleHolonomy.agda ‚î holonomy of a 3-cycle of equivalences; the
 --     trivial cycle is idEquiv, and (not,not,not) on Bool is a NONtrivial
 --     witness.  That is the ‚í direction plus a curvature witness.
@@ -88,10 +86,6 @@
 -- None of them states the converse, the uniqueness of the closing
 -- transport, or the gauge collapse of the triangle counterexample.  Those
 -- three are what is new here.
---
--- CHECKED: exit code quoted in the commit message and in
--- collab/messages/.  Container is Agda 2.6.3 + cubical v0.5, which is NOT
--- the repository pin (2.8.0 + v0.9).
 ------------------------------------------------------------------------
 
 module Pathabheda_TheTriangleCounterexampleIsPureGaugeAndTheSquareIsNot where
@@ -216,9 +210,9 @@ everyPairExtendsFlatly :
 everyPairExtendsFlatly tab tbc = flatClosure tab tbc , flatClosureIsFlat tab tbc
 
 ------------------------------------------------------------------------
--- ¬ß5  THE REFUTATION.  Required by the brief, and it kills my own claim.
+-- ¬ß5  THE REFUTATION: every flat triangle is a gauge.
 --
--- CLAIM I FORMED, on the strength of ¬ß3 and ¬ß4: that `Œ© = 1 ‚í planitas`
+-- A tempting reading of ¬ß3 and ¬ß4: that `Œ© = 1 ‚í planitas`
 -- is false in a way that carries content ‚î that flat-but-not-agreeing is
 -- a real phenomenon on the triangle, and the Bool witness exhibits it.
 --
@@ -237,7 +231,7 @@ everyPairExtendsFlatly tab tbc = flatClosure tab tbc , flatClosureIsFlat tab tbc
 --   curvature-candidate
 --   ("a defect, if a gauge artifact, is to be discarded; if
 --    chart-invariant, a curvature candidate")
--- it is to be discarded.  The claim is dead.  ¬ß3 stands as a theorem and
+-- it is to be discarded.  ¬ß3 stands as a theorem and
 -- is worth nothing as a phenomenon.
 ------------------------------------------------------------------------
 
@@ -294,8 +288,7 @@ witnessIsGauge = flat‚Üígauge notEquiv notEquiv (idEquiv Bool) flatWitness
 -- four-chart cycle can have nontrivial holonomy, and then NO common chart
 -- exists ‚î over any G, at any universe level.  And the cycle has no
 -- triangle in it at all, so "every triangle is flat" is satisfied while
--- the family is not a gauge.  My claim in ¬ß5 mislocated the content by
--- exactly one dimension.
+-- the family is not a gauge.
 ------------------------------------------------------------------------
 
 Hol4 : {X‚ÇÄ : Type ‚Ñìa} {X‚ÇÅ : Type ‚Ñìb} {X‚ÇÇ : Type ‚Ñìc} {X‚ÇÉ : Type ‚Ñìd}
@@ -363,7 +356,7 @@ squareHasNoGauge œà‚ÇÄ œà‚ÇÅ œà‚ÇÇ œà‚ÇÉ g =
 -- Chord X‚ ‚â X‚ taken to be the composite t‚‚ ; t‚‚.  Then the triangle
 -- (0,1,2) is flat by ¬ß4 ‚î the chord's inverse is its unique flat closure
 -- ‚î while the triangle (0,2,3) is not.  So the hypothesis "every triangle
--- in the family is flat" was doing all the work in my dead claim, and it
+-- in the family is flat" does all the work in that reading, and it
 -- is available only because the bare 4-cycle carries no 2-cell.
 ------------------------------------------------------------------------
 

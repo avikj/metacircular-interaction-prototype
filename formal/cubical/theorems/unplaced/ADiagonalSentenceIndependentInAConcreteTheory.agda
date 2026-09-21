@@ -61,7 +61,7 @@ open import ASmallTheoryWithAnIndependentSentence
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- What IS established: a diagonal pair and an HBL-shaped rule can
--- coexist with independence of the diagonal sentence in this lane, and
+-- coexist with independence of the diagonal sentence, and
 -- the two model kinds must be used in a specific order.
 ------------------------------------------------------------------------
 

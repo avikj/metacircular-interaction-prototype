@@ -3,17 +3,12 @@
 ------------------------------------------------------------------------
 -- RepairGrading
 --
---
--- There I wrote that of the four repair kinds of `papers/hieroglyphics_ii.tex`
--- only `Î“âˆ` and `Î“^` are distinguishable, "after 0-truncation", and that
--- `Ï = Î”Reach/Î”Kill` is not encodable without a cost model.  Both statements
--- were about the model I had chosen, not about what is encodable.  Cubical
+-- Cubical
 -- Agda is exactly the setting where identifications are data, and this
 -- repository forbids *measured* numbers, not *counted* ones.
 --
 --   A.  `Î“â` and `Î“âº` are separated here, by SÂ: two repairs of one defect
---       that `Î“â` distinguishes and `Î“âº` identifies.  No truncation was
---       forced on us; I had imposed it.
+--       that `Î“â` distinguishes and `Î“âº` identifies.
 --
 --   B.  `Ï = 1` is proved for the sign defect --- not as a ratio of two
 --       measured rates, but as a biconditional: Î¦ newly separates a pair

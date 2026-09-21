@@ -21,9 +21,6 @@
 -- i.e. no denominator â‰ 256 (Â§1: N + p â‰ 2b + 1), has this column.  The
 -- certificate scales as 2^nâ Â D where the shift search of Apunaravrtti
 -- scales as PÂ² Â D, which is why it reaches four times further.
---
--- All three instances were submitted to the yantra (sadhana.patra) and
--- accepted by its kernel, 2026-09-11; transcript in research/rule30/.
 ------------------------------------------------------------------------
 
 module Sarvapada_EveryNineBitWordOccursInTheFirstFourThousandBitsOfRuleThirtysMiddleColumnSoByMorseHedlundNoPeriodAndPreperiodSumBelowFiveHundredTwelveAndNoRationalWithDenominatorUpToTwoHundredFiftySixIsThatColumn where
@@ -339,9 +336,9 @@ module Exclude (D nâ‚€ : â„•) (0<nâ‚€ : 0 < nâ‚€) (colL : List Bool) (lenD : len
 
 -- The instances are written out one by one, each behind NAMED constants
 -- for its depth and word length: with the literals inlined into the
--- statements the checker spent twenty-seven minutes of "miscellaneous"
--- time beside forty seconds for the two decisions themselves, and with a
--- parametrised module opened per instance the same.  Behind names, the
+-- statements, or with a parametrised module opened per instance, the
+-- checker spends its time on elaboration beside the two decisions
+-- themselves.  Behind names, the
 -- decisions are all there is.
 
 Dâ‚† nâ‚† : â„•

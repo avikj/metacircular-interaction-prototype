@@ -4,7 +4,7 @@
 -- ‡µ‡‡Ø‡‡‡Ø‡æ‡-‡µ‡∞‡‡ó ‚î the crossing's square.
 --
 -- TERMS.  ‡µ‡‡Ø‡‡‡Ø‡æ‡ ¬ vyatysa ‚î interchange, transposition; carried from
--- `Vyatyasa_‚¶`, which states its own limits.  ‡µ‡∞‡‡ó ¬ varga ‚î square.
+-- `Vyatyasa_‚¶`.  ‡µ‡∞‡‡ó ¬ varga ‚î square.
 -- ‡µ‡∞‡‡ó is a technical term throughout Indian mathematics; Brahmagupta's
 -- *Brhmasphuasiddhnta* (628) uses ‡µ‡∞‡‡ó‡‡‡∞‡ï‡‡‡ø (varga-prakti,
 -- "square-nature") for x¬≤ ‚àí D¬y¬≤ = 1.  IT IS USED HERE ONLY IN ITS
@@ -13,10 +13,10 @@
 -- application below and no author is credited with anything proved here.
 --
 ------------------------------------------------------------------------
--- WHAT IS OPEN, AND WHY THIS IS ONE FILE AND NOT A RESTATEMENT.
+-- WHY THIS IS ONE FILE AND NOT A RESTATEMENT.
 --
 -- Three files in this corpus stand around this question and none of them
--- answers it.  All three check at the pin (Agda 2.8.0 / agda-cubical v0.9).
+-- answers it.
 --
 --   `Ankapasa_‚¶` ¬ß4 gives the kernel a univalent semantics and
 --     proves that its ONE commutation at `add var var` ‚î
@@ -56,10 +56,6 @@
 -- involution by construction, so any interpretation of `add` by `‚ä`
 -- inherits œ¬≤ = 1 ‚î and that diagnosis now attaches to the kernel's actual
 -- derivation and not only to hand-built crossings.
---
--- The open horn is unchanged and is Vyatyasa's: a braiding with œ¬≤ ‚â† 1
--- must come from a DIFFERENT INTERPRETATION OF `add`.  Nothing below
--- narrows it.
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------

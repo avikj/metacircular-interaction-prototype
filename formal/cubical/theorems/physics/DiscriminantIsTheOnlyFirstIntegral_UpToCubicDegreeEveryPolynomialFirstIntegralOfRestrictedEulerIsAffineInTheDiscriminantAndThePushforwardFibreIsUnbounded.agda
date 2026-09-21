@@ -28,13 +28,9 @@
 --       QÌ right-hand sides âˆ’3Âtr AâÂ³ âˆ’ 6t, an injection of â into the
 --       pushforward set.  Read with the fact that for a spatially linear
 --       field u = Ax the deviatoric Hessian is a free parameter (a
---       reading, not proved here): the escape move at every point of the
+--       reading): the escape move at every point of the
 --       tail is inhabited at every magnitude and both signs, so nothing
 --       confined to (Q, R, H) can empty it.
---
--- SYT â” THE CLAIM, EXACTLY.  Linear algebra over â on ten coefficients,
--- one solver identity, one injection.  Degree â‰ 3 only; no claim about
--- higher degree or non-polynomial integrals.  No flow, no time.
 ------------------------------------------------------------------------
 
 module DiscriminantIsTheOnlyFirstIntegral_UpToCubicDegreeEveryPolynomialFirstIntegralOfRestrictedEulerIsAffineInTheDiscriminantAndThePushforwardFibreIsUnbounded where

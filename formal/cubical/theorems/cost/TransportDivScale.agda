@@ -7,8 +7,7 @@
 --
 -- `TransportDivWitness` pins one point: base ten, the word 1000, chart
 -- work 5 against home work 1000, detour 14, branch â.  A single point
--- is a number without its scaling, and CLAUDE.md is explicit that such a
--- number "looks like knowledge".  This module supplies the exponent.
+-- is a number without its scaling.  This module supplies the exponent.
 --
 -- Two laws, both proved, neither measured:
 --
@@ -446,15 +445,13 @@ chart-is-better-e13 = canonical-chart-is-better 3 3 fzero t13 can13 long-enough
 -- base supplies and the kernel checks it â” a fitted threshold would be
 -- strictly worse than either.
 --
--- COST OF CHECKING.  Nothing here was too expensive for the kernel.  All
--- of Â§3 â” including value e6 â‰¡ 10â and value e13 â‰¡ 10ÂÂ³ by `refl` â”
--- checks in about three seconds, because `Cubical.Data.Nat` is
+-- COST OF CHECKING.  All of Â§3 â” including value e6 â‰¡ 10â and value e13 â‰¡ 10ÂÂ³ by `refl` â”
+-- is cheap to check, because `Cubical.Data.Nat` is
 -- `Agda.Builtin.Nat` and its `+` and `Â` are GMP-backed on closed
 -- literals; the numerals are never walked in unary.  One practical
--- caveat, recorded because it cost an hour: the numeric gaps of Â§3d must
+-- caveat: the numeric gaps of Â§3d must
 -- be NAMED definitions.  Inlining `(9984 , refl)` as an argument to
 -- `speedup-from-gap` sends the elaborator down a path that normalises
--- the â‰-witness arithmetic symbolically and exhausts a 3 GB heap by
--- 10â´ â” a fact about Agda's constraint solver, not about the
+-- the â‰-witness arithmetic symbolically â” a fact about Agda's constraint solver, not about the
 -- mathematics, and one that the named form avoids entirely.
 ------------------------------------------------------------------------

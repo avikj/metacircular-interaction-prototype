@@ -36,12 +36,6 @@
 -- dissection (Haros 1802; Farey 1816) and the Sternâ“Brocot tree (Stern
 -- 1858; Brocot 1861).  Nothing here is new; what is new to this corpus
 -- is only that the threshold chain's density is checked here.
---
--- Also worth recording rather than mining: the mediant is the same
--- operation the vall/kuaka tradition uses when it forms a new pair
--- from two convergents â” `KuttakaValli.agda` and the convergent modules
--- on that line are ANOTHER IDENTITY'S here, and this module does not
--- enter them.
 ------------------------------------------------------------------------
 
 module TheThresholdChainIsDenseAndTheMediantWitnessesIt where

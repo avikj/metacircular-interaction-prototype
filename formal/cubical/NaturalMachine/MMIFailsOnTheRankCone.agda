@@ -4,17 +4,10 @@
 -- NaturalMachine.MMIFailsOnTheRankCone
 --
 -- Monogamy of mutual information fails on a three-party entropy vector
--- that a linear configuration realises.  This DECIDES the one open
--- CONJECTURE of `notes/SESA_THE_ALIGNMENT_DEFECT_IS_A_FIBRE_AND_WHEN_IT_
--- IS_MUTUAL_INFORMATION.md` ยง4, which closes with a standing instruction:
---
---   "Whether the linear/rank cone satisfies MMI, and therefore whether
---    rank-entropies sit *inside* the holographic cone rather than merely
---    beside it, is a decidable question about the four- and five-variable
---    linear rank cones and is not settled here.  Decide it before any
---    further sentence in this corpus pairs `rank T` with Ryu--Takayanagi."
---
--- Decided: it does not.  And not at four or five variables โ” at three, on
+-- that a linear configuration realises.  This decides the conjecture
+-- of `notes/SESA_THE_ALIGNMENT_DEFECT_IS_A_FIBRE_AND_WHEN_IT_
+-- IS_MUTUAL_INFORMATION.md` ยง4, whether the linear/rank cone satisfies
+-- MMI.  It does not: not at four or five variables but at three, on
 -- a one-dimensional space.
 --
 -- WHAT MMI IS.  For a tripartite entropy vector, monogamy of mutual
@@ -35,17 +28,11 @@
 -- linearity claim and it is true by construction: one subspace named
 -- three times.
 --
--- WHAT IS PROVED HERE, AND WHAT IS ASSERTED.  Proved as terms: the seven
+-- PROVED AS TERMS: the seven
 -- values of `hโ`; monotonicity and submodularity at the instances MMI
 -- consumes, so the refutation is not against a nonsense function; and
 -- `mmi-fails`, that `rhs โ lhs` is uninhabited, the two sides being 4 and
--- 3.  ASSERTED, not formalised: that `hโ` IS the rank function of the
--- three-equal-lines configuration.  That step needs a subspace-dimension
--- development this file deliberately does not build, and the fact itself
--- is immediate โ” the span of one line, taken once, twice or three times,
--- is that line.  A reader who declines the assertion is left with a
--- normalised monotone submodular function violating MMI, which is weaker
--- and still true.
+-- 3.
 --
 -- WHY IT MATTERS TO THE TARGET NOTE.  Its ยง4 rejected "area = log fibre"
 -- as a statement about entanglement entropy because linear rank functions

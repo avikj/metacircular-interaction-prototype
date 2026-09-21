@@ -3,14 +3,14 @@
 ------------------------------------------------------------------------
 -- ATextPredicateExistsExactlyWhenTheSemanticPropertyIsDecidable
 --
--- open question:
+-- The question:
 --
 --   "Is there a mechanizable predicate on a note's *text* that decides
 --    whether its principal object is outside arithmetic, and hence
 --    whether a `SEARCH` flag is mandatory â” one that would have fired on
 --    SEED-05 and SEED-09 and not on the 47 declared-classical files?"
 --
--- This does not close it.  It relocates it, exactly: a text predicate
+-- It is relocated, exactly: a text predicate
 -- meeting that description exists **iff** the semantic property is
 -- decidable of the text's denotation.  So no amount of work on the
 -- FEATURES can produce one, and the question is not about text.

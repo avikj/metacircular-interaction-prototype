@@ -27,11 +27,6 @@
 --   Â§4  the correlation âŸ¨S^k f , S^l fâŸ©_W of two shifted copies is
 --       Ï(l âˆ’ k) when k â‰ l and Ï(k âˆ’ l) when l â‰ k;
 --   Â§5  THE BLOCK IDENTITY, by bilinearity and Â§4.
---
--- SYT â” THE CLAIM, EXACTLY.  Finite sums over a commutative ring, one
--- window, one receiver vanishing beyond n, coefficients read on m slots.
--- No limit, no arithmetic function, no positivity beyond "a sum of
--- squares is a sum of squares".
 ------------------------------------------------------------------------
 
 module BoundaryBlockGeneral_ForEveryFiniteReceiverAndEveryFiniteCoefficientSignalTheMeanSquareIsThePairFieldPairedWithTheAutocorrelationLags where

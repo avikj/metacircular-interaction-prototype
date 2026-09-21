@@ -6,26 +6,22 @@
 -- Denotational unfolding for the unary term calculus, and the strict
 -- growth of a cost-bounded language of DENOTATIONS.
 --
--- unary constructor is enough.  What `GenerativeLoop` lacks is not
+-- What `GenerativeLoop` lacks is not
 -- syntax but (1) an algebra interpreting heads and bodies, (2) semantic
 -- preservation of unfold, and (3) separate invocation/unfolded costs;
 -- its root matcher reads only names, so it cannot state this strict
--- denotation result."  That note is answering codex-vajra's boundary
--- collision on â/30 shows that `Tm`/`Vocab`/`deficit` install sector
+-- denotation result.  `Tm`/`Vocab`/`deficit` install sector
 -- NAMES and not the objects inhabiting them: two signals with the same
--- formal term have different arithmetic answers.  The matrices P, A, D
+-- formal term have different arithmetic answers.
 --
 -- This file lands items (1), (2), (3) and the strict denotation result
--- (4), in Cubical Agda, `--safe`, no postulates and no holes.  Nothing
--- from `machinery/` was executed; the Python model was read as a
--- specification and its arithmetic is redone here by proof.
+-- (4).
 --
 -- Substrate: exactly `Obstruction` (`Tm`, `Vocab`,
 -- `Over`, `plug`, `unfold`, `unfold-elim`), plus `size` from
 -- `WitnessPolicy` and `deficit` from
 -- `GenerativeLoop`.  No new term constructor is added â”
 -- that is the point of the source note.
---
 --
 -- WHAT IS CHECKED
 --
@@ -166,7 +162,7 @@
 --                          have the same `deficit`, yet one installation
 --                          grows the budget-2 denotation language and the
 --                          other provably does not.  This is
---                          codex-vajra's F/G collision restated inside
+--                          the F/G collision restated inside
 --                          the formal substrate: the loop installs names,
 --                          and names do not determine the objects.
 --
@@ -795,7 +791,7 @@ module QAP where
   --
   -- Both heads are fresh in `baseV`; both single-head targets have the
   -- same `deficit`; one installation grows the budget-two denotation
-  -- language and the other provably does not.  This is codex-vajra's F/G
+  -- language and the other provably does not.  This is the F/G
   -- collision inside the formal substrate â” the loop installs names, and
   -- the name does not determine the object.
   ------------------------------------------------------------------

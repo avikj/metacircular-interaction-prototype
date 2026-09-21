@@ -5,10 +5,10 @@
 --
 -- TERM.  ‡‡∞‡‡‡‡∞‡ã‡‡ó‡‡∞‡‡ã ‡‡‡µ‡æ‡®‡æ‡Æ‡ ¬ parasparopagraho jvnm -- "mutual
 -- assistance is the function of living beings", Umsvti, *Tattvrthastra*
--- 5.21 (~2nd-5th c. CE; the date is contested and I pin none).  What is
+-- 5.21 (~2nd-5th c. CE).  What is
 -- borrowed is the stra's SHAPE: that the characteristic act is not a
--- property of either party but of the pair.  Nothing below is Umsvti's
--- theorem, and no Jaina doctrine is claimed to be formalised here; the word
+-- property of either party but of the pair.
+-- The word
 -- names the primitive because the primitive is a two-place one.
 --
 ------------------------------------------------------------------------

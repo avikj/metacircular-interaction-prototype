@@ -3,8 +3,6 @@
 ------------------------------------------------------------------------
 -- ParyaptiSambandha_TheRejectionWitnessResidesInTheCollectionNotTheCarrier
 --
--- cf-tessera-3, 2026-08-20.
---
 --
 -- **parypti-sambandha** â” the relation of complete occurrence â” is
 -- Navya-Nyya's answer to a question about WHERE a property resides.
@@ -19,14 +17,14 @@
 -- c. 1500, and by Gaddhara after him.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT WAS FOUND ALREADY DONE, AND IS NOT REDONE HERE
+-- RELATED MODULES, none re-derived here
 --
 --   `formal/cubical/NaturalMachine/Abhava.agda`, `notes/NO_BARE_ABSENCES.md`
 --       â” abhva with pratiyogin; the absence tower; `dec-collapses`.
 --   `formal/cubical/AbhavaAvacchedaka.agda`
 --       â” the avacchedaka as a genuine dependent binder, load-bearing.
 --   `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`
---       â” **withdraws** Abhava's reading: `Â-always-stable` needs no
+--       â” `Â-always-stable` needs no
 --         hypothesis, so the absence tower is two-tall for every `A`,
 --         and decidability lands on the PRATIYOGIN, not on the absence.
 --   `NaturalMachine.WhereTheTowerCanStillBeThree` Â§5
@@ -38,10 +36,7 @@
 --         the converse "must BUILD a permutation â¦ and that search is
 --         where finiteness and decidability do real work."
 --
--- **None of the above is re-derived.**  `Perm` does not appear here; the
--- relation below is `_âŠ_` (sub-multiset), which is not that module's
--- object, and no theorem of any of those files is used, altered, or
--- restated.  This file answers, on ONE
+-- This file answers, on ONE
 -- object: for a Î-shaped pratiyogin, WHAT BOUNDS THE SEARCH?
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”

@@ -3,7 +3,7 @@ Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
 The exact witness criterion for strict refinement of the global residual
-experiment partition.  This closes the remaining logical direction of the
+experiment partition.  This is the other logical direction of the
 annotated/global adapter: inserting one suffix is strictly informative iff it
 separates some pair which all previously installed suffixes still identify.
 -/

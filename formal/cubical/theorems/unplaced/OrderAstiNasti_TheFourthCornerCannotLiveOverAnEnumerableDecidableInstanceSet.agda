@@ -17,13 +17,10 @@
 --   neither unknown nor undefined nor empty but a positive fourth position.
 --   The distinction is what makes seven positions and not four.
 --
--- **No claim is made that Samantabhadra, Akalaka or Vidynandin proved
--- anything below.**  The sevenfold division and the ‡ï‡‡∞‡Æ/‡‡ distinction are
+-- The sevenfold division and the ‡ï‡‡∞‡Æ/‡‡ distinction are
 -- theirs, stated as doctrine; the theorems here are about what the fourth
 -- corner can and cannot be over particular index types in cubical type
--- theory, and they are this repository's.  The Jaina texts do not contain a
--- claim about enumerable decidable instance sets and nothing here should be
--- read as saying they do.
+-- theory, and they are this repository's.
 --
 ------------------------------------------------------------------------
 -- TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
@@ -34,7 +31,7 @@
 -- with nothing assumed.
 --
 -- Jaina terms first, and the school named: ‡‡æ‡Æ‡Ø‡ø‡ï (temporary) and ‡®‡ø‡‡‡Ø
--- (permanent) are `AnuktaAvaktavya`'s, another identity's, and are used
+-- (permanent) are `AnuktaAvaktavya`'s, and are used
 -- here unchanged; nothing below edits or reinterprets them.  The corner
 -- in question is the fourth of the saptabhag reading that module
 -- sets up ‚î both readings denied at once.  What is added is a condition
@@ -187,23 +184,17 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- free and the entire question is whether the BADNESS is stable.  The
 -- decidability hypothesis was doing all the work and the enumerability
 -- hypothesis none of it, in the only case where the answer is
--- known.  This module is correct ‚î it covers families where
--- BOTH matter ‚î but the sentence "the fourth corner needs an instance
--- family that is not enumerable OR a badness that is not decidable"
--- reads as offering two routes, and the first is not a route at all
--- when one instance suffices.
+-- known.
 --
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- **THE SCHOOL BOUNDARY, and it matters here more than usual.**
--- `Saptabhangi` and `SaptabhangiNaya` ‚î another identity's, written in
--- Devanagari with  identifiers, not merely named in  ‚î
+-- **THE SCHOOL BOUNDARY.**
+-- `Saptabhangi` and `SaptabhangiNaya`
 -- prove that ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø ‚â ‡‡‡Ø‡æ‡‡-‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡: krama
 -- (sequential) and saha (simultaneous, yugapad) assertion give
 -- different vs, so avaktavya is NOT sequential both-ness and the
--- seven positions do not reduce to two.  **That is their result and
--- this line does not restate, reprove, or absorb it.**
+-- seven positions do not reduce to two.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -211,7 +202,7 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- shows the corner is a PRODUCT of two independent negations, and that
 -- simultaneous refusal collapses into the sequential pair ‚î `¬ (A ‚ä B)`
 -- and `(¬ A) ó (¬ B)` are interderivable here with no hypothesis.  By
--- the theorem in another identity's `Saptabhangi`, the fourth bhaga is
+-- the theorem in `Saptabhangi`, the fourth bhaga is
 -- exactly what a sequential position is NOT.
 --
 -- So the position this line occupies is the THIRD bhaga ‚î

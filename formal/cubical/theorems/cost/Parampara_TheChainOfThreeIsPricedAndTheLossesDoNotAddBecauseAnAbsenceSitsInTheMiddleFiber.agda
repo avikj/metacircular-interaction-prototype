@@ -95,16 +95,6 @@
 --      phenomenon, and ¬ß‡ prices both.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- No general theorem about chains is proved here; this is ONE chain,
--- every map explicit, every fiber written out.  Nothing here says the
--- ledger fails for every chain ‚î ¬ß‡'s agreement is exactly the statement
--- that `‡‡‡` covers this case correctly, so the composition law is NOT
--- refuted and no repair to it is needed.  What is refuted is the weaker
--- and more tempting thing: that the per-step fibers determine the
--- composite's fiber.  They do not; the alignment term does, and ¬ß‡ names
--- it.  Nothing here is about rank, dimension, entropy, area or
--- shadow of ¬ß‡ and is not used.
 ------------------------------------------------------------------------
 
 module Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFiber where
@@ -592,7 +582,6 @@ snd ‡§∏‡§Æ‡§∑‡•ç‡§ü‡§ø‡§É-‡§∞‡§ø‡§ï‡•ç‡§§‡§æ (tt , r) = Œ£‚â°Prop (Œª _ ‚Üí isSe
 --
 -- Everything here is finite, decidable and a set.
 --
--- No claim is made that the arithmetic 4 ‚àí 3 = 1 is the
--- "size" of the absence.  ¬ß‡ proves a non-equivalence of types; the
+-- ¬ß‡ proves a non-equivalence of types; the
 -- subtraction is a reading.
 ------------------------------------------------------------------------

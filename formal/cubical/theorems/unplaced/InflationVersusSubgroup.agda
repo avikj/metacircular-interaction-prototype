@@ -49,8 +49,7 @@
 --     with `incl` (`res-is-restriction`), so neither is an ad-hoc table.
 --     `proj` and `incl` are checked to be group homomorphisms by finite
 --     exhaustion over all 16 resp. 4 pairs.  Everything below is a
---     closed computation; every proof is `refl` or a case split
---     (CLAUDE.md: exact / certified symbolic computation is proof).
+--     closed computation; every proof is `refl` or a case split.
 --
 -- HEADLINE TERMS
 --   infl-injective          Thm 3.5 on this model, quotient hypothesis in the type

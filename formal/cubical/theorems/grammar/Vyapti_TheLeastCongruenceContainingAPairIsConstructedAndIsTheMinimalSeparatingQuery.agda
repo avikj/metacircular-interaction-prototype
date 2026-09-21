@@ -5,7 +5,7 @@
 -- exception.  Gagea, *Tattvacintmai*, c. 1325, is where its definition is
 -- fought over at length; the notion is older, in the *Nyyastra* tradition.
 -- The word is taken for what it names â” what must hold everywhere once it
--- holds somewhere.  Nothing below is attributed to those texts.
+-- holds somewhere.
 --
 -- WHAT THIS ANSWERS.  `Anuvrtti_...` proved that an observer sees a law
 -- exactly when its class is a congruence for the rule, and that one blind

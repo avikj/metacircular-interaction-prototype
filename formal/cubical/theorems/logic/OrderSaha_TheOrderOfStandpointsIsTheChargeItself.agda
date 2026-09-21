@@ -38,7 +38,7 @@
 -- Î©SÂIsoâ and setTruncIdempotent are the
 -- library's.
 --
--- [2026-08-23, later] RECOGNITION: the corpus's grammar lane had already
+-- The corpus's grammar lane has
 -- checked the same distinction at a sandhi site â” `AsiddhavatRegime.agda`
 -- (Pini 8.2.1 krama vs 6.4.22 saha, tat+jalam, the regime decides the
 -- form).  The polarity

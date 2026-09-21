@@ -4,22 +4,18 @@
 -- à°à•ààà¾àààà¿à° â” THE GUARD IS AN IDEMPOTENT REFLECTION, AND A PROTECTED
 -- SYSTEM ADMITS NO LOWERING TRANSFORMATION.
 --
--- THE OCCASION.  A security modality was described: a seed that
+-- THE SETTING.  A security modality: a seed that
 -- reflects any unprotected system into a protected fixed point, while
--- protected instances admit no unauthorized transformation.  Put to
--- the interactive kernel (`interactive/run-machine.sh --wire`), the
--- shape of that claim resolved to the order structure of â• under
--- `max`.  Every reduction rule of `max` and `le` used below was first
--- CERTIFIED on the wire, one query each, before this module was
--- written â” the kernel signed
+-- protected instances admit no unauthorized transformation.  The
+-- shape of that claim is the order structure of â• under
+-- `max`.  The reduction rules of `max` and `le` used below:
 --     max x 0 â‰¡ x            (refl)
 --     max 0 (s x) â‰¡ s x      (refl)
 --     max (s x)(s y) â‰¡ s (max x y)   (refl)
 --     max 0 x â‰¡ x            (induction on x)
 --     le (s x)(s y) â‰¡ le x y (refl)
 --     le x x â‰¡ 1             (induction on x)
--- and its rejections of the two-variable laws named their stuck terms
--- exactly, which is what let those laws be closed here.  `max` and `le`
+-- `max` and `le`
 -- are transcribed verbatim from the emitter's own fragment
 -- (interactive/ProofGate.hs, `preambleCore`), so this module is about
 -- the wire's own arithmetic, not a parallel copy.
@@ -39,8 +35,7 @@
 --                          lowering: le t x â‰¡ 1 â’ guard t x â‰¡ x.  This is
 --                          the conditional the equation-only wire could
 --                          not STATE (it speaks bare equations, no
---                          hypotheses) and kept naming as the organ it
---                          had yet to grow; here it is a proved
+--                          hypotheses); here it is a proved
 --                          implication.  "Protected instances admit no
 --                          unauthorized transformation" â” exactly.
 --   Â the merge          â” max-comm, max-assoc, max-idem: the protection
@@ -161,7 +156,7 @@ protected-stable (suc t) (suc x) h = cong suc (protected-stable t x h)
 
 ------------------------------------------------------------------------
 -- Â§6  The fixed point is exactly the protected region.
---     Two directions, both now in hand:
+--     Two directions:
 --       guarding reaches the region        (reflect),
 --       and the region is fixed by guarding (protected-stable âˆ˜ reflect).
 --     So a guarded system is a fixed point of the guard, on the nose.

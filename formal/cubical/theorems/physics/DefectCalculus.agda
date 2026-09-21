@@ -44,8 +44,8 @@
 --                             back a reconstruction question located in
 --                             a specific fibre.
 --
---   §4  `Stab`,`stab-id`,     D15.8 stabiliser, T15.9 in the form
---       `stab-∘`,`stab-inv`   available here (see scope note).
+--   §4  `Stab`,`stab-id`,     D15.8 stabiliser, T15.9.
+--       `stab-∘`,`stab-inv`
 --
 --   §5  `PolarBreak`          §15.4: D15.13's defect locus as a type,
 --       `polar-restricts`     T15.12 sufficient direction, T15.14 as
@@ -78,9 +78,7 @@
 --                             refutation transports across equivalence
 --                             exactly as a positive theorem does).
 --                             Delta 15 calls this "executable pruning
---                             without special refutation edges"; it is
---                             what `collab/FAILURES.md` has been doing
---                             by hand for forty entries.
+--                             without special refutation edges".
 --
 --   §9  `invariant-separates` T15.73 � sharper than the directive
 --                             suggests.  Under univalence EVERY function
@@ -91,11 +89,6 @@
 --                             invariants is dual to search for
 --                             equivalences" is therefore not two search
 --                             problems but one.
---
---  * **Nothing here is about primes.**  §15.25's instantiations
---    (positive cone, charge grading, roughness-conditioned measure,
---    stopping rule) are exactly what `Def` is built to receive, and not
---    one of them is computed here.  **The container is not the content.**
 --
 --  * **Not novel.**  Structure identity, stabilisers, kernel pairs and
 --    contravariant refutation are standard.  The contribution is that the
@@ -210,7 +203,6 @@ failedEquivQuestion b bad e = bad (e .equiv-proof b)
 
 ------------------------------------------------------------------------
 -- 4.  STABILISERS  (D15.8, T15.9, C15.10)
---
 ------------------------------------------------------------------------
 
 module _ (Str : Type ℓ → Type ℓ') {A : Type ℓ} (s : Str A) where
@@ -332,8 +324,7 @@ descends-split q f s sect coeq = (f ∘ s) , λ a → coeq (s (q a)) a (sect (q 
 ------------------------------------------------------------------------
 -- 8.  REFUTATION TRANSPORT  (§15.19: T15.68, T15.70, C15.71)
 --
--- "Executable pruning without special refutation edges."  This is what
--- `collab/FAILURES.md` has been doing by hand for forty entries.
+-- "Executable pruning without special refutation edges."
 ------------------------------------------------------------------------
 
 -- T15.68.  No-go knowledge propagates contravariantly along reductions.

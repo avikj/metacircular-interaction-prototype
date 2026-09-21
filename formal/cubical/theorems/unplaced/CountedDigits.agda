@@ -47,7 +47,6 @@ counting-executes-carry : (n : ℕ) →
   valueC (sucC (run n)) ≡ suc n
 counting-executes-carry n = observe-step (run n) ∙ cong suc (observe-run n)
 
--- Cost boundary.  `sucw` performs real recursive carry propagation, but the
+-- `sucw` performs real recursive carry propagation, but the
 -- imported development proves semantic equations, not a work measure for that
--- recursion.  This module therefore makes no constant-cost claim and does not
--- hide digit encoding/decoding work inside the equivalence.
+-- recursion.

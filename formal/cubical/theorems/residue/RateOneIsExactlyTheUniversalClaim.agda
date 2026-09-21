@@ -3,15 +3,6 @@
 ------------------------------------------------------------------------
 -- RateOneIsExactlyTheUniversalClaim
 --
--- `OneCounterexampleRefutesALabelButNotAnExistential` proved that a
--- label � a Π � is refuted by one counterexample, and said in its own
--- words:
---
---   "WHAT IS NOT MODELLED, said rather than glossed: a genuine RATE
---    claim ('more than half', 'at most 25%').  That needs a measure and
---    a count, neither of which appears below.  §3 therefore does NOT
---    establish the comparison §7's list invites."
---
 -- The count is here, over a finite population as a `List Bool`, and it
 -- gives the comparison exactly: the universal claim IS the rate-one
 -- case, and every strictly lower rate has tolerance.
@@ -117,14 +108,6 @@ theThresholdAtOneAndBelow :
   (¬ All population) × (1 ≤ count population)
 theThresholdAtOneAndBelow = theUniversalClaimFails , butOneStillPasses
 
-------------------------------------------------------------------------
--- 5.  What this settles about the earlier module
---
--- The earlier contrast used an existential and said so.  §2 replaces it
--- with a count and gives the comparison the list invited: the label is
--- the rate-one case, and §4 exhibits a lower threshold surviving the
--- failure that kills it.
-------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 -- "More than half", as `MajorityLiesStrictlyBetweenAllAndSome` states it:

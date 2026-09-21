@@ -54,15 +54,13 @@
 -- ‡‡‡‡ó‡‡ø‡ 1150 ‚î the ‡‡ï‡‡∞‡µ‡æ‡≤.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- A LIMIT ON THE METHOD, added 2026-08-23 after reading a module that was
--- sitting untracked in the tree when this was written.
+-- THE METHOD'S REACH.
 --
 -- ¬ß‡ß-¬ß‡ reach the fiber by composing against a FUNDAMENTAL ROW, and that
 -- needs a small k=1 row to seed with.  For D = 2 the ulba value supplies
 -- one.  FOR D = 61 THERE IS NONE, and D = 61 is Bhskara.s own worked
 -- example -- so this method does not reach the case the tradition is
--- famous for, and saying only "the fiber is infinite" would leave a reader
--- believing it does.
+-- famous for.
 --
 -- What reaches it is the ‡‡ï‡‡∞‡µ‡æ‡≤, and
 -- `Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne
@@ -71,7 +69,7 @@
 -- then Brahmagupta.s composition of a k = ‚àí1 row with itself giving
 -- 1766319049¬≤ ‚àí 61 ¬ 226153980¬≤ = 1.
 --
--- And it supplies the distinction this module does not make.  Here the
+-- The distinction: here the
 -- ‡ï‡‡‡‡ fiber is `singl`, CONTRACTIBLE -- every pair has a ‡ï‡‡‡‡, so the
 -- datum rides free.  There the ‡‡æ‡ó‡‡æ‡∞ fiber is a PROPOSITION AND NOT IN
 -- GENERAL INHABITED, because division by k is partial and the inhabitant
@@ -217,7 +215,7 @@ open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTh
 --     twelve centuries before the composition that generates it here.
 --     Each of these holds by `refl`, so Agda executes the arithmetic.
 --
---     A DISTINCTION FOUND BY THE INDEX BEING WRONG, and it matters.
+--     A DISTINCTION, and it matters.
 --     `Dvikarani.agda` records the chain (3,2) ‚í (17,12) ‚í (577,408) by
 --     DOUBLING ‚î composing each row with ITSELF.  This module composes
 --     each row against the FIXED fundamental row, and gets (99,70) in
@@ -225,9 +223,7 @@ open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTh
 --     are not the same sequence.  Self-composition is the subsequence of
 --     SQUARES and skips solutions; composition against the fundamental
 --     row visits them in order.  For ¬ß‡ that difference is the whole
---     point -- infinitude wants the sequence that does not skip -- and
---     the two are worth not conflating, which a note saying "the bhvan
---     orbit" would do.
+--     point -- infinitude wants the sequence that does not skip.
 ------------------------------------------------------------------------
 
 ‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡•¶ : fst (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø 0) ‚â° (3 , 2)

@@ -88,12 +88,10 @@
 --         is 0 and the two policies agree there.  `unfold-fixes-base`
 --         is the reason; this is its arithmetic shadow.
 --
--- §6  THE BRIDGE.  `NaturalMachine.Obstruction`'s own disclaimer says:
---
---        "The coverage chain (T5-T10) never mentions `witness`, `body`,
---         `unfold` or T1-T2. � the definitional content of a proposal
---         and the progress made by proposing it are proved side by side
---         and never interact."
+-- §6  THE BRIDGE.  In `NaturalMachine.Obstruction` the coverage chain
+--     (T5-T10) never mentions `witness`, `body`, `unfold` or T1-T2: the
+--     definitional content of a proposal and the progress made by
+--     proposing it are proved side by side and never interact.
 --
 --     `deficit-extend-unfold` makes them interact:
 --
@@ -426,8 +424,8 @@ generic-size d b =
 ------------------------------------------------------------------------
 -- 6.  THE BRIDGE.
 --
--- `Obstruction`'s disclaimer records that the coverage/progress lane and
--- the definitional lane "are proved side by side and never interact".
+-- In `Obstruction` the coverage/progress lane and the definitional lane
+-- are proved side by side and never interact.
 -- They do: installing the head and unfolding it are the same number.
 ------------------------------------------------------------------------
 
@@ -503,7 +501,7 @@ proposal-progress-exact V d b t hb hd =
                      ∙ if≡false {x = 0} {y = 1} hd' )
     go (inr e) = if≡false {x = 1} {y = delta V' c} e
 
--- The identification that makes the honesty note above checkable:
+-- The identification that makes the note above checkable:
 -- `GenerativeLoop.gaps d V` IS `count d` when `d` is absent from V.
 gaps-is-count : (V : Vocab) (d : Shape) → memb d V ≡ false
               → (t : Tm) → gaps d V t ≡ count d t

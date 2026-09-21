@@ -34,8 +34,7 @@
 --        Read: a tick that propagates c carries destroys câˆ’1 maximal
 --        digits (each worth bâˆ’1) and adds 1.  This is the potential-
 --        function identity behind the folklore "increment is amortised
---        O(1)", written as an equation rather than as a bound, per
---        CLAUDE.md Â§2 (derive the constant, do not fit it).
+--        O(1)", written as an equation rather than as a bound.
 --
 -- Â§5     THE EXECUTION LAW, EXACT.  Telescoped over a whole run from zero:
 --
@@ -43,9 +42,8 @@
 --
 --        so the total native carry work C(n) of the first n increments
 --        satisfies (bâˆ’1)ÂC(n) + digitSum (digits n) = nÂb EXACTLY, with no
---        error term to hide and no scale at which the constant changes
---        (CLAUDE.md, HOLOGRAM Â§7: a number without its X-dependence looks
---        like knowledge).  Corollaries: n â‰ C(n) and (bâˆ’1)ÂC(n) â‰ nÂb.
+--        error term to hide and no scale at which the constant changes.
+--        Corollaries: n â‰ C(n) and (bâˆ’1)ÂC(n) â‰ nÂb.
 --
 -- Â§6     THE LANE'S DECLARED COST.  `AcceptanceTest.cost` prices
 --        a tick at 1.  Â§5 says that price is a LOWER bound that is never
@@ -554,9 +552,8 @@ module Base (k : â„•) where
 ------------------------------------------------------------------------
 -- 10.  THE COUNTER, RUN.
 --
--- Exact finite verification â” a mathematical object, not a measurement
--- (CLAUDE.md: "a finite exhaustive verification â¦ produces mathematical
--- objects").  It is in this file rather than in a companion witness file
+-- Exact finite verification â” a mathematical object, not a measurement.
+-- It is in this file rather than in a companion witness file
 -- so that the counter the cost theorem is about is run here.  Every
 -- equation below is `refl`.
 ------------------------------------------------------------------------

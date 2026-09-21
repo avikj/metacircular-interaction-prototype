@@ -44,26 +44,10 @@
 -- coincidences.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- GRADE: **I DID NOT READ THE CODE, and this seam is about
--- PYTHON'S SEMANTICS.**  No request to github.com was made, and no
--- claim is made here about what `argparse` does, what Python's
--- adjacent-literal concatenation does, or what the pinned file
--- contains.  What is modelled is the SITUATION Â§2 describes â” a
--- validator whose accepted set is disjoint from the intended set â” and
--- the theorems are about that situation.  If Â§2 misread the code, the
--- situation simply does not arise and nothing here is affected.
---
 -- NO NOVELTY.  Disjointness implies rejection; this is a triviality.
 -- It is written because the seam reads as a typo, and a typo whose
 -- consequence is "the flag cannot be used at all, and no one will
 -- notice" deserves the consequence stated.
---
--- SEAM 4 IS NOT FORMALISED.  It reports that the prose
--- says the selected parent analyses its own logs while the appendix and
--- code say a separate diagnostic call reads them.  That is a
--- discrepancy about WHICH AGENT PERFORMS A STEP â” an attribution of an
--- action, not a relation between values â” and nothing in Â§2 turns it
--- into a claim with a truth condition this substrate can carry.
 ------------------------------------------------------------------------
 
 module ADisjointValidatorMakesAFlagUnusableAndInvisible where

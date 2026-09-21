@@ -39,7 +39,6 @@
 --     and a path of orders is exactly a pointwise logical equivalence
 --     (`LinOrdâ²â‰¡` together with `hPropExt`).
 --
---
 -- WHAT IS CHECKED
 --
 --   Â§1 `IsLinOrd`, `LinOrdâ²`, `isPropIsLinOrd`, `LinOrdâ²â‰¡`.
@@ -77,7 +76,6 @@
 --                    Obtained by transporting AtlasResiduals'
 --                    `isContrOrdTotal` along Â§4 fibrewise.
 --
---
 -- ====================================================================
 --
 --  * `LinOrdâ²` takes the relation valued in `Typeâ` with
@@ -87,10 +85,8 @@
 --    AtlasResiduals.  `isFinSet` from the library is stated with
 --    `SumFin`; `finFinâ•` bridges.
 --
---  * `embSurj` is proved only for `FinSet â“-zero`, and only in the
+--  * `embSurj` is proved for `FinSet â“-zero`, in the
 --    direction needed (embedding + equal cardinality â’ surjection).
---    The converse, the level-polymorphic version, and any general
---    counting library are absent.
 --
 --  * Two definitions are written in a deliberately awkward style for
 --    ELABORATION-COST reasons, and the comments at those points say so:

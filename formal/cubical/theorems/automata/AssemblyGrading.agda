@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- AssemblyGrading
 --
--- A TRANSLATION between two vocabularies that both appear in the
--- swarm-0814-14 draw and that have never been put in the same type:
+-- A TRANSLATION between two vocabularies:
 --
 --   (a) ryabhaa's vall, typed in `KuttakaValli` as a monoid
 --       morphism  replay : List â â’ Mâ(â)  with  det âˆ˜ replay = Â1;
@@ -42,7 +41,7 @@
 -- i.e. the Smith normal form with invariants (c , cÂn) â” Î¦â»Â(c , n) at
 -- the diagonal.
 --
--- WHY THIS IS THE POINT WHERE THE TWO DRAWN LENSES DISAGREE.
+-- WHY THIS IS THE POINT WHERE THE TWO LENSES DISAGREE.
 -- Riemann's lens reads the assembly as an Euler-product factorization,
 --     Î Ïâ(m) m^{-s} = Î(s)Î(sâˆ’1) = Î(2s) Â ( Î(s)Î(sâˆ’1)/Î(2s) ),
 -- the Î(2s) being the `scal` series Î_c c^{âˆ’2s} and the quotient the

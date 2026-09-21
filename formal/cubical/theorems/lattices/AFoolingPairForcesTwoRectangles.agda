@@ -15,22 +15,6 @@
 --
 -- That argument uses nothing about the matrix, its size, or its
 -- carriers.  Â§2 is it, for arbitrary row and column types.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT I READ FIRST
---
--- `DSOCutCalibration.agda`'s header and the shape of its statements:
--- the min-plus closure over `V4`, the two elimination orders, and the
--- four rows (1,0),(0,1),(1,1),(1,1) with raw = 4 and deterministic = 3
--- certified by kernel count.  I did not re-derive any of that and Â§2
--- does not depend on it.
---
--- KEPT SEPARATE from the last-cut result.  That one showed a
--- computed instance was also a quantified fact about any import
--- relation.  This one lifts an ARGUMENT, not a fact: the calibration
--- already gives the argument in prose and calls it a proof; Â§2 makes it
--- a term and removes the carriers.  Different move, and neither derives
--- the other.
 ------------------------------------------------------------------------
 
 module AFoolingPairForcesTwoRectangles where

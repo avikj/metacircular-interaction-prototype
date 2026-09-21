@@ -5,10 +5,7 @@
 --
 -- ON THE NAME.  Contextual equivalence and full abstraction are
 -- Milner's and Plotkin's (1977); there is no Indian source term for
--- them and none is invented, per CLAUDE.md's naming guard.  Checked
--- `.claude/hooks/priority-ledger.txt` and
--- `.claude/hooks/european-frame.txt` before naming; no row applies and
--- the frame check does not fire on a module with no Indian material.
+-- them and none is invented.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
@@ -17,10 +14,6 @@
 --    Curvature arises only from too-small context families,
 --    approximation, dropped witnesses, or incoherent interface
 --    updates."
---
--- and the curvature module already in this corpus recorded the gap:
--- "**Theorem 28.14 is not formalised** â” full abstraction is a
--- condition on the context *family*, and no context family appears."
 --
 -- A context family appears here, and with it the theorem.
 --
@@ -58,10 +51,10 @@
 -- claim is, in this reading, the observation that shrinking `K` breaks
 -- the hypothesis â” not that it creates curvature by some other route.
 --
--- **AND THE WITNESS COSTS EXACTLY WHAT IT COST ON THE FOURTH-CORNER
--- LINE.**  `curvatureIsWitnessedInTheFamily` gives `Â CtxEq`, a double
--- negation; turning it into a context needs the same two hypotheses
--- that line found â” enumerability of the index and decidability of the
+-- **THE COST OF THE WITNESS.**
+-- `curvatureIsWitnessedInTheFamily` gives `Â CtxEq`, a double
+-- negation; turning it into a context needs two hypotheses:
+-- enumerability of the index and decidability of the
 -- observation â” through the same lemma, `decÎOverEnumerated`.
 ------------------------------------------------------------------------
 
@@ -143,17 +136,11 @@ module _ {Tm O : Type} (Ctx : Type) (plug : Ctx â†’ Tm â†’ Tm) (obs : Tm â†’ O)
 -- and does not use `FullyAbstract`.  Together with `FullyAbstract` it
 -- gives that `CtxEq` IS the kernel of `C`, not merely contained in it.
 --
--- **WHAT THAT MAKES VISIBLE ABOUT THIS MODULE, AND IT IS THE POINT.**
+-- **WHAT THAT MAKES VISIBLE.**
 -- `curvatureExhibitsAContext` above pays `Enumerated K` + `Discrete O`
 -- + `FullyAbstract` to produce a separating context from `Â (C p â‰¡ C q)`.
 -- The OPPOSITE direction â” a separating context yielding
--- `Â (C p â‰¡ C q)` â” is free at the recording site.  The header above
--- says the witness "costs exactly what it cost on the fourth-corner
--- line" and is right about the cost; what it could not see, having only
--- one implication, is that **the cost is not the statement's, it is the
+-- `Â (C p â‰¡ C q)` â” is free at the recording site.
+-- **The cost is not the statement's, it is the
 -- DIRECTION's.**  One way is a congruence.  The other is a search.
---
--- Nothing in the corpus is shown to satisfy any of
--- this.  The recording site adds three more parameters (`act`, `obsD`,
--- and `D` unchanged) and constructs nothing either.
 ------------------------------------------------------------------------

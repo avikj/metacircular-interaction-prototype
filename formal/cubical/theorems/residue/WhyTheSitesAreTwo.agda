@@ -3,15 +3,7 @@
 ------------------------------------------------------------------------
 -- WhyTheSitesAreTwo
 --
--- `WitnessNumberIsUnbounded` settled that there is no general ceiling â”
--- witness number 3 exists â” and asked:
---
---     whether any absence arising from the MATHEMATICS here, rather
---     than constructed to order, exceeds 2.  Nothing found so far does.
---     This module cannot tell whether that is a fact about the
---     mathematics or about how the sites were chosen.
---
--- It is neither.  It is a fact about the DECODER SPACE, and here is the
+-- The uniform 2 across this corpus is a fact about the DECODER SPACE, and here is the
 -- theorem.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -50,9 +42,9 @@
 -- table stores.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- FOR THE DEFLATIONARY THREAD
+-- FOR THE DEFLATIONARY READING
 --
--- This is the strongest form of the deflation so far.  It is not that
+-- This is the strongest form of the deflation.  It is not that
 -- the obstructions here happen to be cheap; over discrete observations
 -- and unconstrained decoders they CANNOT be expensive.  Any barrier
 -- stated in this shape is a two-point statement, and calling it a
@@ -216,14 +208,13 @@ module _ {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
 ------------------------------------------------------------------------
 -- 8.  WHERE THE HYPOTHESIS FAILS: `SiteAudit`.
 --
--- Â§6's "so the witness number is 2 whenever it is finite at all" is
--- false as a universal: the ceiling needs discreteness or locatability.
+-- The ceiling needs discreteness or locatability.
 -- `SiteAudit` enumerates the sites.  Two are not covered by this theorem:
 --
 --   * `Laghava` observes into `Denotation = â• â’ â•`, which is neither
 --     discrete nor (as far as anything here shows) locatable â” so
 --     neither this theorem nor `LocatingIsEnough` applies at the site
---     the whole à²à¾à˜àµ thread is about;
+--     the whole à²à¾à˜àµ line is about;
 --   * `AvaktavyaDoesNotFactor` has six atoms as its decoders, not a
 --     function space.
 --

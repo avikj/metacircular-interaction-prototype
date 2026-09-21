@@ -35,7 +35,7 @@
 -- WHAT IS PROVED, and why it is not already in the module it extends
 --
 -- `NaturalMachine.Pratyahara_TheRepeatedHaBreaksIntersectionClosureAtExactlyOneSet`
--- (cf-tessera-k-6, 691156fe) proves ààà âˆ© àà²à â‰¡ à âˆ [] and that à âˆ []
+-- proves ààà âˆ© àà²à â‰¡ à âˆ [] and that à âˆ []
 -- bears no legal name, hence that the generated family is not closed
 -- under non-empty intersection.  It does NOT ask where that singleton
 -- comes from.
@@ -51,8 +51,7 @@
 --       lacks and needs.  `upto` returns the truncated tail when the
 --       marker is absent, so `between` MANUFACTURES a denotation for a
 --       name that does not exist; on the *para* string it reports
---       ààà = à âˆ [] â” the unnameable singleton itself.  Â§3 records that
---       as a refuted claim of mine rather than hiding it.
+--       ààà = à âˆ [] â” the unnameable singleton itself.
 --
 --   Â§4  Ktyyana's list in the *prva* branch is exactly the classes
 --       that begin after the earlier à and close at à²à.  Four of them
@@ -97,7 +96,7 @@ reaches m (x âˆ· xs) = if eqSym x m then true else reaches m xs
 named? : Sym â†’ Sym â†’ List Sym â†’ Bool
 named? s m xs = reaches m (from s xs)
 
--- On the fourteen as they stand, both names of k-6's witness exist.
+-- On the fourteen as they stand, both names of Pratyahara's witness exist.
 haÅš-exists : named? ha Åš sivasutra14 â‰¡ true
 haÅš-exists = refl
 
@@ -161,22 +160,21 @@ sivasutra14-pÅ«rva =
 haÅš-unnamed-under-para : named? ha Åš sivasutra14-para â‰¡ false
 haÅš-unnamed-under-para = refl
 
--- A CLAIM OF MINE, STATED AND KILLED.
+-- THE EXTRACTOR ON THE VANISHED NAME.
 --
--- I first wrote that `between ha  sivasutra14-para` would come out â‰¡ []
--- â” that the extractor would report the vanished name as the empty
--- class.  It does not.  `upto` collects until it finds the marker or
+-- `between ha  sivasutra14-para` does not come out â‰¡ [].
+-- `upto` collects until it finds the marker or
 -- runs out of list, so it walks off the end and returns the sounds it
 -- passed:
 haÅš-para-is-manufactured : between ha Åš sivasutra14-para â‰¡ ha âˆ· []
 haÅš-para-is-manufactured = refl
 
 -- which is worse than empty in the exact way that matters here: the
--- extractor hands back the very singleton k-6 proves is UNNAMEABLE, as
+-- extractor hands back the very singleton Pratyahara proves is UNNAMEABLE, as
 -- though it were the value of a name.  So the âˆ©-closure statement cannot
 -- be transported to a counterfactual string by `between` alone; it needs
 -- `named?`.  On the actual fourteen the silent truncation never fires
--- for these two names (Â§1), so k-6's theorem is untouched â” but its
+-- for these two names (Â§1), so Pratyahara's theorem is untouched â” but its
 -- extractor is total by truncation, not by totality, and that is a
 -- defect the three modules sharing it all carry.
 
@@ -229,7 +227,7 @@ haÅš-under-pÅ«rva = refl
 -- teaching and empty (or nameless) under either single teaching.
 ------------------------------------------------------------------------
 
--- as given: nonempty, and equal to { à } (k-6 Â§5).
+-- as given: nonempty, and equal to { à } (Pratyahara Â§5).
 inter-double : isNil (inter (between ha Åš sivasutra14)
                             (between Å›a L sivasutra14)) â‰¡ false
 inter-double = refl
@@ -251,23 +249,21 @@ singleton-needs-both =
   cong isNil inter-pÅ«rva
 
 ------------------------------------------------------------------------
--- 6.  WHAT THIS DOES AND DOES NOT SETTLE
+-- 6.  WHAT THIS SETTLES
 --
--- Settles: the counterexample to âˆ©-closure is not incidental to the
+-- The counterexample to âˆ©-closure is not incidental to the
 -- string.  It is the trace of the repetition, and the repetition is what
--- Kielhorn I.27.2â“20 argues is forced.  The two pratyhras in k-6's
+-- Kielhorn I.27.2â“20 argues is forced.  The two pratyhras in Pratyahara's
 -- witness are, further, the two that Patajali cites on OPPOSITE sides
 -- of his alternative â” ààà from A 6.1.114 in the *para* branch {10},
 -- àà²à from A 3.1.45 in the *prva* branch {20} â” and each of those is
--- the only stra in the Adhyy using its pratyhra (checked against
--- `/root/agda-libs/vidyut/vidyut-prakriya/data/sutrapatha.tsv`, 3984
--- stras, snapshot 2026-08-20; reported in the note).
+-- the only stra in the Adhyy using its pratyhra.
 --
--- Does not settle: whether âˆ©-closure is a property Pini's device was
+-- A separate question is whether âˆ©-closure is a property Pini's device was
 -- ever meant to have.  Nothing in the thirty sentences suggests the
--- question was posed, and Â§4 of k-6's module already shows the failure
--- is invisible to the symmetry.  The honest statement is that coverage
--- and âˆ©-closure are two different demands on the same family, that the
--- tradition argues the first at length, and that satisfying the first is
+-- question was posed, and Â§4 of Pratyahara's module already shows the failure
+-- is invisible to the symmetry.  Coverage
+-- and âˆ©-closure are two different demands on the same family; the
+-- tradition argues the first at length, and satisfying the first is
 -- what breaks the second â” here, at exactly one set.
 ------------------------------------------------------------------------

@@ -46,9 +46,7 @@ lives.  Finite interdependence builds the ladder; the infinite
 carrier is the ladder's limit, standing one rung above every word.
 
 SYT â” THE CLAIM, EXACTLY.  Pointwise convergence, strictness, and
-the centrality of the excess; the inverse-limit topology proper and
-the exhaustion of the completion by uniform vectors are the standing
-constructions.
+the centrality of the excess.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

@@ -5,18 +5,14 @@
 --
 -- The checked proposer (formal/executable/Prastava.agda) refuses a pair
 -- whose sides are equal after AC-canonicalisation, ASSERTING they are
--- "equal modulo associativity-commutativity of +/Â".  Until this module
--- nothing had judged that assertion: the classifier was total and
--- well-typed, but its semantic claim was prose.  Here the claim is a
+-- "equal modulo associativity-commutativity of +/Â".
+-- Here the claim is a
 -- term: acCanon preserves denotation over every environment, so a
 -- classifier hit really is a true equation, kernel-said.
 --
 -- The classifier's definitions are IMPORTED from PrastavaHrdaya â” the
 -- one spelling shared with the executable proposer â” so nothing here
--- is a transcription and nothing is asserted to coincide; the theorems
--- are the machine's, posed as holes and closed through the warm
--- conduit by split/solve/give, the carrier emitting only mechanical
--- candidates.
+-- is a transcription and nothing is asserted to coincide.
 ------------------------------------------------------------------------
 
 module PrastavaSatya_TheClassifiersACClaimIsJudgedByTheKernel where
@@ -593,8 +589,8 @@ nf-sound e t =
 -- à®à°àà¯à¾à¦à¾.  What stands: acCanon preserves denotation, and a comparison
 -- verdict of 1 is a path, so a classifier hit means the two sides denote
 -- one function (acShuffle-sound) â” the content of the refusal, judged
--- end to end.  The transcription debt is PAID structurally, not by a
--- proof: the classifier now has one spelling (PrastavaHrdaya, checked
+-- end to end.  The classifier
+-- has one spelling (PrastavaHrdaya, checked
 -- --cubical-compatible), imported both here and by the extracted
--- proposer, so there are no longer two functions to identify.
+-- proposer, so there is one function, not two.
 ------------------------------------------------------------------------

@@ -1,9 +1,9 @@
 # The full bit-level Sha256.agda predicate, carried to the cubical Bend backend.
-# Source: formal/cubical/Sha256.agda @ e1112905e213b7512cf5e52d291132db6d2d75fa.
+# Source: formal/cubical/Sha256.agda.
 # No reduced rounds, digest oracle, external nonce loop, or independent digest
 # coordinates. The constants/padding are emitted as literal data by mining.mjs.
 # Words are LSB-first Bool lists; messages/digests are MSB-first bit streams.
-# This is a new source port: require the native conformance gate before mining.
+# Require the native conformance gate before mining.
 import MiningConstants
 
 def btcNot(x: Bool) -> Bool:
