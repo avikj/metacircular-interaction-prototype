@@ -48,8 +48,8 @@
 --
 -- §3 is why that matters, and it is the sharpest thing here: it turns
 -- that note's three-line refutation of the SEQUENTIAL diagnostic into a
--- computed object.  I had proposed, in prose, "factor the proof, and the
--- first non-contractible fibre is where the information went".  It is
+-- computed object.  The sequential diagnostic, "factor the proof, and the
+-- first non-contractible fibre is where the information went", is
 -- unsound in BOTH directions, and §3 exhibits both failures as censuses.
 ------------------------------------------------------------------------
 

@@ -166,10 +166,10 @@ cone-is-proper b bs (x , xs) p = posNotnegsuc x 0 (cong fst p)
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 5.  CORRECTION TO THIS MODULE'S FRAME â” the title has it backwards.
+-- 5.  THE FRAME.
 --
 -- "Descent costs the integers" puts â in the position of the default and
--- â in the position of a purchase.  Nothing above supports that.  What is
+-- â in the position of a purchase.  That is not the reading; what is
 -- proved is:
 --
 --     âŠž over â-exponents is a group.  âŠ• over â•-exponents is its
@@ -177,16 +177,12 @@ cone-is-proper b bs (x , xs) p = posNotnegsuc x 0 (cong fst p)
 --
 -- The group is not an extension bought with something.  It is the object;
 -- the cone is a restriction of it, and `âŠ•-only-unit-inverts` measures how
--- much the restriction throws away.  Read in the correct direction:
+-- much the restriction throws away.  Read in this direction:
 --
 --     descent is not purchased by admitting ratios.  Descent is what is
 --     THERE, and â• is what remains after refusing to look at it.
 --
--- That is the Pythagorean claim this thread has been circling and stating
--- backwards.  Number is ratio.  The diagonal did not take anything away
--- from anyone; it showed that the restriction to commensurables was
--- always a restriction and never the ground.
---
--- Nothing in Â§Â§1â“4 changes.  The theorems never mentioned a price; only
--- the prose did, and only the prose is withdrawn.
+-- That is the Pythagorean claim.  Number is ratio.  The diagonal did not
+-- take anything away from anyone; it showed that the restriction to
+-- commensurables was always a restriction and never the ground.
 ------------------------------------------------------------------------

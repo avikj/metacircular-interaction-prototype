@@ -183,7 +183,7 @@
 --   it is an interface in the style of
 --   `CapabilityGraph.ObservationalClassCompiler`.
 --
---   I2 `ArithmeticPayloadOver`  THE CORRECTED JOINT, and why it exists.
+--   I2 `ArithmeticPayloadOver`  THE JOINT WITH THE MORPHISM CLASS, and why it exists.
 --   `ArithmeticPayload` fixes DATA and never fixes the
 --   TRANSFORMATIONS under which that data may be re-presented � so any
 --   carrier or minimality notion it implies is underdetermined.  Its
@@ -238,8 +238,7 @@
 --    theorem about the enterprise: it says a function of `(Vocab , Tm)`
 --    cannot be the answer.  It does not say no extension of the substrate
 --    can carry the answer � §I names one that could.
---  * `ArithmeticPayload` is kept, superseded by `ArithmeticPayloadOver`,
---    so that the correction is legible.
+--  * `ArithmeticPayload` is kept alongside `ArithmeticPayloadOver` (I2).
 --  * The witness policy is degenerate wherever the loop builds
 --    obstructions (`witness = var`); conservativity holds for any base
 --    witness, and nothing here makes bodies informative.
@@ -636,7 +635,7 @@ record ArithmeticPayload : Type₁ where
       Σ[ st ∈ Store V ] Σ[ st' ∈ Store V ] (¬ (sem st t h ≡ sem st' t h))
 
 ------------------------------------------------------------------------
--- I2.  THE SAME JOINT WITH ITS OMISSION REPAIRED.
+-- I2.  THE SAME JOINT WITH THE MORPHISM CLASS AS A PARAMETER.
 --
 -- The record above fixes the payload's DATA and never fixes the class of
 -- transformations under which the data may be re-presented, so its
@@ -648,7 +647,7 @@ record ArithmeticPayload : Type₁ where
 -- proved there too (`chain-min-interval`), with the zero-boundary false
 -- control (`chain-min-loop`).
 --
--- The repair is one parameter and one field: the class `M` is now part
+-- The difference is one parameter and one field: the class `M` is now part
 -- of the interface, and the payload must have a MINIMAL CARRIER IN `M`.
 -- By `PayloadMorphism.min-unique` that number is then unique � see
 -- `payload-carrier-determined` below, which is the precise sense in
@@ -689,7 +688,7 @@ record ArithmeticPayloadOver (Ans : Type₀) (M : MorphismClass Ans) : Type₁ w
     Cost    : Type₀
     vcost   : {V : Vocab} → Store V → (t : Tm) → Over V t → Cost
 
-    -- (6) THE CORRECTION.  A payload has no minimal carrier until the
+    -- (6) THE MORPHISM CLASS.  A payload has no minimal carrier until the
     --     admissible transformations are declared; they are declared by
     --     the parameter `M`, and this pair of fields demands that every
     --     covered task's answer have a minimal carrier IN THAT CLASS.

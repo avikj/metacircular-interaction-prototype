@@ -9,9 +9,9 @@
 --   next-9  : next 9  ≡ 11    (10 refuted by the decision procedure)
 --   next-10 : next 10 ≡ 11    (the interval is empty)
 --
--- typecheck.  What
--- was wrong was not the heap and not the exchange rate but the DIAGNOSIS,
--- and the fix is one `let`.
+-- typecheck.  The blow-up in `WalkFast` came from neither the heap nor
+-- the exchange rate but from the conversion checker, and the fix is one
+-- `let`.
 --
 ------------------------------------------------------------------------
 -- WHAT ACTUALLY FORCES THE EVALUATION

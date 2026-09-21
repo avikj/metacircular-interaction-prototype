@@ -14,7 +14,7 @@
 --
 -- In particular, checking a larger finite sample never constructs
 -- `GlobalFactorization`.  It remains `undecided` until an ambient theorem is
--- supplied.  This is the exact correction forced by VACUITY_CERTIFICATES.
+-- supplied.
 ------------------------------------------------------------------------
 
 module VacuityVerdict where

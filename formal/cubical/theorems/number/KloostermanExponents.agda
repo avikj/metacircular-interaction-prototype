@@ -551,7 +551,7 @@ phase-φ1-E₁ = refl
 phase-φ1-E₃ : isNeg (evalAt 3 1 3 S₃)
 phase-φ1-E₃ = 1 , refl
 
--- CORRECTION SUPPLEMENT (not in the note): the crossover is exactly � = 2/3,
+-- SUPPLEMENT (not in the note): the crossover is exactly � = 2/3,
 -- where (1+�)/5 = 1/3 and E�, E� vanish simultaneously.  q = 3, r = 1, f = 2.
 crossover-E₁ : isZer (evalAt 3 1 2 S₁)
 crossover-E₁ = refl

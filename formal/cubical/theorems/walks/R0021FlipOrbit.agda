@@ -12,7 +12,7 @@
 -- (a,b,c) case of Taoâ“Tervinen, Forum Math. Sigma 7 (2019) e33,
 -- Thm 1.14 Â§7.  Window5Walsh already checks the headline table facts
 -- (ten zeros, mass one, stationarity, Walsh spectrum, one broken-flip
--- witness).  What remained UNFORMALIZED were the packet's clauses
+-- witness).  This module formalizes the packet's clauses
 --
 --   (B) for |c| < 1 at most TEN of the 32 atoms vanish, with equality
 --       iff c = 1/3 and |a| = |b| = 1/3  (four vertices); and

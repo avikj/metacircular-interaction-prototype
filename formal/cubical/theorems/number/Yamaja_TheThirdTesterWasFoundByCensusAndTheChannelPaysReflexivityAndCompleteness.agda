@@ -20,12 +20,7 @@
 --     "A duplication that has been identified is not merely tidier â” it is
 --      a CHANNEL, and theorems flow both ways along it."
 --
--- And its Â§à says what it could not do: "the pattern generalises and is
--- not generalisedâ¦ a question for the audit tool, which currently reports
--- only same-PRINTED-type groups and would miss a pair whose definitions
--- agree under different names."
---
--- That audit now exists â” `interactive/Pratyaksa_â¦hs --twins`, which erases
+-- The census tool `interactive/Pratyaksa_â¦hs --twins`, which erases
 -- each declaration's own module prefix from its KERNEL-ELABORATED type and
 -- groups â” and the first thing it returned was a THIRD `eqâ•`:
 --

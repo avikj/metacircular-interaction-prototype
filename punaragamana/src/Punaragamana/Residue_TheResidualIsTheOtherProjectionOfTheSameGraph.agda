@@ -46,9 +46,7 @@
 -- the source end or from the target end, and which end you are standing
 -- at decides which of the two theorems you get.
 --
--- ~~There is no third reading, because there is no third projection.~~
---
--- The sentence is a ‡¶‡‡∞‡‡®‡Ø and `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` is the proof of why:
+-- A third reading exists.  The two-valued verdict is a ‡¶‡‡∞‡‡®‡Ø and `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` is the proof of why:
 -- a two-valued verdict on a threefold situation must identify two of the
 -- three.  `isContr (‡‡‡ f b)` fails in two OPPOSITE ways ‚î
 --
@@ -62,18 +60,15 @@
 -- below are therefore about the CROWDED arm only, and ¬ß5's `Bool ‚í Unit`
 -- is level ‡® of a five-level scale, not "the refusal".
 --
--- The repair is `Punaragamana.SakalaVikalaDesa_‚¶` in this library: the
+-- The census is `Punaragamana.SakalaVikalaDesa_‚¶` in this library: the
 -- diagnosis is a CENSUS ‚î a function `B ‚í ‡¶‡‡ f b` whose constructors
 -- carry their evidence ‚î and not a verdict about the map.  It also
 -- contains the refutation, as a computed term, of the sequential
--- diagnostic this module's author proposed in prose ("factor the proof;
+-- diagnostic ("factor the proof;
 -- the first non-contractible fibre is where the information went"), which
 -- is unsound in both directions.
 --
 -- The argument is `notes/SakalaVikalaDesa_TheFibreIsTheLossAndAnEmptyFibreIsAvaktavyamNotNasti.md`.
--- What survives untouched: ¬ß2's `‡ó‡‡∞‡æ‡`, and the observation that `Carrier`
--- and the residual are two projections of one graph.  What does not: the
--- claim that the two projections exhaust the readings.
 --
 -- ¬ß5 exhibits the refusal and PRICES it rather than merely detecting it:
 -- for the collapsing map Bool ‚í Unit the residual is not just
@@ -133,7 +128,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
   ------------------------------------------------------------------------
   -- 3.  ‡Æ‡‡≤-‡‡‡∞‡ï‡‡‡‡ ‚î the source projection.  ALWAYS an equivalence.
   --
-  -- No hypothesis on f.  This is `Carrier‚â-via-law` renamed to say what it
+  -- No hypothesis on f.  This is `Carrier‚â-via-law`, named here for what it
   -- is: reading the graph from the source end loses nothing, ever, for any
   -- map whatsoever.  That is the whole content of "carrying determined
   -- data is free" ‚î and the freeness is unconditional.

@@ -214,12 +214,6 @@ stableAnswerable-fromDecidableSearch law dec =
 --
 -- "The absence tower is three tall" is a statement about iterated `Â`
 -- in a constructive type theory.  It is mine, it is proved, and it is
--- not a translation.  Naming the module after it, in a thread whose
--- whole discipline is to prefer the earliest statement over a later
--- restatement, dressed an imported notion in the tradition's clothes â”
--- equations for, one step further along: those at least mapped onto the
--- fourfold before being withdrawn.
---
--- The mathematics below is untouched by this.  What is withdrawn is any
--- suggestion that "the tower" or its height renders a  term.
+-- not a translation; neither "the tower" nor its height renders a
+-- Sanskrit term.
 ------------------------------------------------------------------------

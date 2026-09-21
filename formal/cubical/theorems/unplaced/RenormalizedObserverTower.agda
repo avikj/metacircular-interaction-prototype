@@ -8,7 +8,7 @@
 -- along which one studies RENORMALIZED TRANSPORT rather than the bare
 -- inverse limit.
 --
--- The checked content here is the correction the run produced: the Clay
+-- The checked content here: the Clay
 -- difficulty is NOT a limÂ class in the finite-dimensional residual
 -- kernels.  A tower of finite-rank kernels is automatically
 -- Mittag--Leffler, because a non-increasing rank sequence cannot strictly

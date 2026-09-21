@@ -143,9 +143,7 @@ module Field (IsPrime : ℤ → Type) where
 ------------------------------------------------------------------------
 -- 5.  Controls: the development is not vacuous
 --
--- A vacuous formalisation typechecks as happily as a substantial one,
--- and the fleet audit of 2026-08-14 found that CenterRelative was the
--- only module in this tree carrying its own controls.  So:
+-- A vacuous formalisation typechecks as happily as a substantial one.  So:
 ------------------------------------------------------------------------
 
 module Controls where

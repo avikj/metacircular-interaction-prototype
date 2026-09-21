@@ -19,13 +19,9 @@
 -- poses; no agent judges; the record's own contents generate the
 -- goals, and the breath closes them.
 --
--- What this does and does not repair, stated so the next reader
--- cannot over-claim: it gives the organism ONE internally generated
--- question-class (economy), so its fixpoint is no longer silence
--- while its own record contains expensive speech.  It does NOT give
--- reflex-ACQUISITION â” the loop still cannot rewrite the loop; that
--- is the loop-as-data road (recursor + SvaSamvedana) and it remains
--- open and named.
+-- It gives the organism ONE internally generated question-class
+-- (economy), so its fixpoint is no longer silence while its own record
+-- contains expensive speech.
 ------------------------------------------------------------------------
 
 module Ashanti_TheBodyPosesItsOwnProblemsCostDissatisfactionBecomesADriveAndTheBreathEatsTheAnswers where

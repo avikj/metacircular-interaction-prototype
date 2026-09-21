@@ -6,15 +6,11 @@
 -- ààà¾àµ, and how tall it can get.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE STANDING CLAIM THIS CORRECTS
+-- THE CLAIM
 --
--- The working state of this thread has said, for many cycles:
---
---     "no bare absences; the absence hierarchy stabilises at three;
---      DECIDABILITY OF THE COUNTERPOSITIVE SETS THE LEVEL."
---
--- The count is right and the mechanism is wrong, and the mechanism was
--- doing the work.  Nothing sets the level.  The tower over any type is
+-- The absence hierarchy stabilises at three, and decidability of the
+-- counterpositive does not set the level.  Nothing sets the level.  The
+-- tower over any type is
 -- three tall, unconditionally, with no hypothesis whatever â” and the
 -- one thing a hypothesis can do is collapse it the rest of the way, in
 -- a single step, to two.  There is no intermediate outcome to be set.
@@ -228,12 +224,6 @@ obstructionIsStable q t = Â¬Â¬Â¬â†’Â¬
 --
 -- "The absence tower is three tall" is a statement about iterated `Â`
 -- in a constructive type theory.  It is mine, it is proved, and it is
--- not a translation.  Naming the module after it, in a thread whose
--- whole discipline is to prefer the earliest statement over a later
--- restatement, dressed an imported notion in the tradition's clothes â”
--- equations for, one step further along: those at least mapped onto the
--- fourfold before being withdrawn.
---
--- The mathematics below is untouched by this.  What is withdrawn is any
--- suggestion that "the tower" or its height renders a  term.
+-- not a translation; neither "the tower" nor its height renders a
+-- Sanskrit term.
 ------------------------------------------------------------------------

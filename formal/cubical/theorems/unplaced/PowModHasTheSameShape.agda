@@ -4,10 +4,9 @@
 -- PowModHasTheSameShape
 --
 -- The criterion in `FuelAdequacyIsACollision` found `FrontierList.expOf`
--- retrospectively.  Applied forward across the twenty modules that
--- MENTION fuel or gas, it finds one more â” and only one, though see Â§5
--- for why that search is not exhaustive.  Different subsystem, different
--- hand:
+-- retrospectively.  Applied forward across the corpus it finds at least
+-- nine more, listed in `ExhaustionIsSystematic`.  Different subsystem,
+-- different hand:
 --     HeadDepthMerge.powMod : â• â’ â• â’ â• â’ â• â’ â•
 --     powMod zero    m b e = 1 %% m          -- exhausted
 --     powMod (suc f) m b e = â¦ if e == 0 then 1 %% m â¦   -- legitimate
@@ -174,27 +173,22 @@ correct-factors = decode , law
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  CORRECTION.
+-- 6.  THE FULL LIST.
 --
--- Â§1 above says the criterion "finds one more â” and only one".  That is
--- wrong.  It finds at least nine.
---
--- The error is instructive and is exactly the one this pair of files is
--- about.  The search that produced "only one" read top-level SIGNATURES
--- containing the word `fuel`.  But the whole point of the criterion is
+-- A search over top-level SIGNATURES containing the word `fuel` finds
+-- only these two.  The whole point of the criterion is
 -- that the risky functions take their fuel as bare, unnamed data â”
 -- `expOf : â• â’ â• â’ â• â’ â•`, `powMod : â• â’ â• â’ â• â’ â• â’ â•` â” so that
--- search was looking for the very property it had just proved absent.
--- Â§5 named this limit and then the next paragraph up violated it.
+-- search looks for the very property Â§5 proves absent.
 --
--- The correct search is over bare arrow chains, and it turns up
+-- The search over bare arrow chains turns up
 -- `remF`, `quoF`, `gcdF`, `spfF` (TransmissionRefutations), `divF`,
 -- `modF`, `omegaF` (SieveFiber) and `gcdF` (Gamma0Index) alongside these
 -- two.  Every one defaults on exhaustion to a value that is also a
 -- legitimate output â” which is forced, not careless, since a total
 -- function into â• must return something.
 --
--- `ExhaustionIsSystematic` carries the corrected claim,
+-- `ExhaustionIsSystematic` carries the claim,
 -- the shared packaging, and computed collisions in three subsystems.
 -- It also records that the cheap surrogate â” "did more fuel change the
 -- answer?" â” fails for `powMod` itself: exhaustion there is stable

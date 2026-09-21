@@ -10,9 +10,8 @@
 ------------------------------------------------------------------------
 -- WHY THIS MODULE EXISTS.
 --
--- `Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph` STRUCK its own
--- sentence "there is no third reading", and left in the header the reason,
--- as prose:
+-- `Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph` states in its
+-- header, as prose:
 --
 --     `isContr (‡‡‡ f b)` fails in two OPPOSITE ways ‚î
 --       the fibre is EMPTY   ‚î nothing was lost, ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡;

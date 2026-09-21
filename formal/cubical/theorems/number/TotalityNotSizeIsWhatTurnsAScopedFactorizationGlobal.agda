@@ -14,7 +14,7 @@
 -- infective.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE CLAIM, AND MY OWN WRONG GUESS ABOUT IT
+-- THE CLAIM
 --
 -- `VacuityVerdict`'s header ends:
 --
@@ -22,11 +22,7 @@
 --    `GlobalFactorization`.**  It remains `undecided` until an ambient
 --    theorem is supplied."
 --
--- At a430ec41 I logged this as possibly unformalisable â” *"a statement
--- about a SAMPLING PROCEDURE, and no sampling procedure exists in
--- either module"* â” and said to retire it if so.  **That guess was
--- wrong, and it was wrong in a way this line keeps repeating: I took
--- the sentence's own noun ("larger") for its content.**  Size is not
+-- Size is not
 -- the operative property.  TOTALITY is, and totality is expressible
 -- with no sampling procedure at all.
 --

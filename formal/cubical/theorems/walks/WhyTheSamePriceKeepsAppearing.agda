@@ -9,7 +9,8 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE REPETITION
 --
--- This thread has found the same correction at several sites: a hypothesis of `Dec` where the proof uses only
+-- The same pattern appears at several sites: a hypothesis of `Dec` where
+-- the proof uses only
 -- `Â Â A â’ A`, or a target-side condition of `Discrete` where only
 -- path-stability is used.  This corpus's own rule about such things is
 -- that a pattern over n instances is a pattern over n instances until

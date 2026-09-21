@@ -15,16 +15,14 @@
 -- everything below are the repository's and this file's.
 --
 ------------------------------------------------------------------------
--- WHY THIS MODULE EXISTS.  Its neighbour repaired a collapse and
--- committed the same collapse one level up.
+-- WHY THIS MODULE EXISTS.  The three-valued census lacks a fourth case.
 --
 -- `SakalaVikalaDesa_‚¶` (this library) replaced a two-valued test
 -- with a three-valued census ‚î empty / contractible / crowded ‚î because
--- `isContr` was merging ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ with ‡®‡‡‡ü‡ø.  That was right.
+-- `isContr` was merging ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ with ‡®‡‡‡ü‡ø.
 --
--- It is also incomplete in exactly the way it accused `isContr` of being,
--- and the corpus has had the missing case in a type since before either
--- module was written.  `machine/Obstruction.hs` carries FOUR outcomes:
+-- The census has no case for the question that has no subject.
+-- `machine/Obstruction.hs` carries FOUR outcomes:
 --
 --     asti ¬ nsti ¬ avaktavya ¬ ADharmin
 --

@@ -95,8 +95,7 @@
 --    which the pinned library already has as
 --    `Cubical.Functions.Surjection.epiâ’surjective`.  Â§6 is a
 --    repackaging of it at the subobject classifier.  The exact
---    difference, stated after a first draft of this comment got it
---    wrong: the library's `rightCancellable` quantifies over EVERY type
+--    difference: the library's `rightCancellable` quantifies over EVERY type
 --    of `Type (â“-suc (â“ âŠ” â“'))`, and Â§6 needs the SINGLE object
 --    `hProp (â“ âŠ” â“')` of that same universe.  `hProp` is not one level
 --    lower â” the subobject classifier never is â” so the sharpening is

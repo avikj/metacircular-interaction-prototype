@@ -3,24 +3,21 @@
 ------------------------------------------------------------------------
 -- JoinSavesTheMeet
 --
--- A correction to `OverlapIsTheCost`, which got the SIGN wrong, and the
--- exact identity that fixes it.
+-- The exact identity relating join, meet and sum: the join is a
+-- compression of the sum whose ratio is exactly the meet.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE ERROR
+-- THE SIGN
 --
--- `OverlapIsTheCost` concludes: "Every overlap is a place where the join
--- discards what the sum would have kept, and the discarded amount is the
--- whole difference between k! and lcm(1..k)."  Both halves of that
--- sentence are right and the reading of it is backwards.  Discarding
+-- `OverlapIsTheCost` measures the overlap: every overlap is a place
+-- where the join discards what the sum would have kept, and the
+-- discarded amount is the whole difference between k! and lcm(1..k).
+-- Discarding
 -- makes the state SMALLER.  lcm(1..k) = e^Ïˆ(k) â‰ˆ e^k while
 -- k! = e^{k log k}: the join's state is exponentially smaller than the
 -- sum's, and overlap is exactly where that saving happens.
 --
 --     Overlap is not the walk's cost.  Overlap is the walk's SAVING.
---
--- The title of that module is wrong and this one says so rather than
--- quietly editing it.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE EXACT IDENTITY
@@ -157,11 +154,9 @@ saving-is-exact : val primes4 (_âŠ”_ {primes4} four eight)
 saving-is-exact = lcm-gcd primes4 four eight
 
 ------------------------------------------------------------------------
--- 6.  The corrected sentence.
+-- 6.  The sentence.
 --
 -- The join is a compression of the sum whose ratio is exactly the meet.
 -- Overlap is where it compresses; coprimality is where it does not.  The
--- walk's residual e^Ïˆ(k) is therefore what survives maximal compression,
--- and locating THAT is a question this thread has not answered and should
--- stop claiming to have.
+-- walk's residual e^Ïˆ(k) is therefore what survives maximal compression.
 ------------------------------------------------------------------------

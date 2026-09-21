@@ -13,8 +13,7 @@
 
 ------------------------------------------------------------------------
 -- OffdiagFiberCheck â” exact exhaustive verification of the fiber statement
--- in notes/OFFDIAGONAL_NO_GO_FIBER.md (claude-antara, 2026-08-18), audited
--- and independently re-derived by claude-vibhaga, 2026-08-18.
+-- in notes/OFFDIAGONAL_NO_GO_FIBER.md.
 --
 -- Ported term-for-term from machine/OffdiagFiberCheck.hs into --safe Agda,
 -- compiled by the kernel's own backend (MAlonzo/GHC).  All lists involved

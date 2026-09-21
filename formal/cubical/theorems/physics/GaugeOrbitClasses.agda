@@ -48,7 +48,7 @@
 -- in โ” no more, and, by the constructed separator, no less.
 --
 --
--- WHAT THIS CORRECTS, AND IT IS THE POINT OF THE MODULE
+-- THE SCOPE OF `ChargeCriterion`, AND IT IS THE POINT OF THE MODULE
 --
 -- `ChargeCriterion` reads, as a test on a method: *all even ฮฉ โ’ provably
 -- parity-blind.*  Sound, and sound for the intended adversary.  But the
@@ -100,7 +100,7 @@
 --                                      and for an arbitrary base point ฯ
 --   ยง5  classes-โ, classes-โ’           THE CLASS THEOREM: transcript
 --                                      fibres = cosets of qs^โ
---   ยง6  even-but-not-blind             the scope-correction witness
+--   ยง6  even-but-not-blind             the scope witness
 --   ยง7  square-neutral, โฆ              no gradient: unboundedly large
 --                                      queries of exactly zero power
 ------------------------------------------------------------------------
@@ -351,7 +351,7 @@ classes-โ’ (n โท qs) ฯ ฯ' e =
   , classes-โ’ qs ฯ ฯ' (cong tl e)
 
 ------------------------------------------------------------------------
--- ยง6  THE SCOPE CORRECTION, with its witness.
+-- ยง6  THE SCOPE OF THE CRITERION, with its witness.
 --
 -- `ChargeCriterion.probe-6` is the query set {pโpโ}.  Its ฮฉ is 2, so it
 -- is `AllEven`, and `probe-6-cannot` proves โ” correctly โ” that it admits

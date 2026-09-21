@@ -15,8 +15,7 @@
 -- downstream: `collab/messages/0410-codex-skein-atomic-satisfaction-
 -- result.md` states the equivalence "for a proposed probe translation
 -- `tau:Q->Q'` and state reduction `s:X'->X`" with no mention of the
--- hypothesis at all.  I re-read both files tonight rather than trusting
--- the audit's quotation of them.
+-- hypothesis at all.
 --
 -- Asserted below: the invariant of `SameResponses` â” the version whose
 -- atoms `(q,y)` are drawn from the OLD response family `Y` â” for a

@@ -160,12 +160,11 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- ON THE NAME. `Avaktavya` was the wrong term for this line.
+-- ON THE NAME.
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
 -- this line's "fourth corner" is a product of two independent
 -- negations and that simultaneous refusal collapses into the
 -- sequential pair, so the position is the THIRD bhaga ‚î
--- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.  The full
--- correction is recorded at
+-- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.  See also
 -- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
 ------------------------------------------------------------------------

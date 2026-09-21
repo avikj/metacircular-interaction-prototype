@@ -24,8 +24,6 @@
 -- `‚âº-trans` in `u-antitone` and `saturatedGivesFixed`, `‚ä-refl` in
 -- `unit` and `fixedGivesSaturated`, `‚ä-trans` in `d-antitone`, and both
 -- adjunction directions throughout.  Nothing is assumed and unused.
--- That is worth recording because the sweep's other findings have all
--- been overclaims; this one is not.
 --
 -- **WHAT IT DOES NOT SHOW IS THAT ITS PACKAGE IS THE ONLY SUFFICIENT ONE**,
 -- and "needs only X" invites exactly that reading. A reader who already has

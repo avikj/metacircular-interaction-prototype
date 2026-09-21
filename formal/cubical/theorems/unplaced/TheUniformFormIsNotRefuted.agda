@@ -76,9 +76,8 @@ open import TheUnstableGroundCannotBeExhibited using (DNS)
 -- That is a resemblance and I am not claiming it is an identity.  An
 -- ‡‡µ‡‡‡‡‡¶‡ï limits a ‡‡‡∞‡‡ø‡Ø‡ã‡ó‡ø‡‡æ ‚î it fixes under what description the
 -- counterpositive is absent ‚î and quantifier scope in a type theory is
--- not that.  Naming ¬ß3 an avacchedaka distinction would be exactly the
--- move withdrawn at `b18ca12b`: an imported notion in the tradition's
--- clothes.  The note is cited because it names the failure mode this
+-- not that.  Naming ¬ß3 an avacchedaka distinction would be an imported
+-- notion in the tradition's clothes.  The note is cited because it names the failure mode this
 -- file is about; nothing here translates it.
 ------------------------------------------------------------------------
 

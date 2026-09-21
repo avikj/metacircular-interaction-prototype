@@ -17,8 +17,8 @@
 -- quantified claim about FUNCTIONS of (b,n): the audit's refutation is
 -- Î¦ââ(2) = 2047 = 23Â89, where the yield is 2, so the function equal to
 -- 2 at (2,11) and 1 elsewhere is a valid bound strictly better than the
--- constant.  I re-derived the three arithmetic facts by hand before
--- writing this:  2ââˆ’1 = 127 and 2Âââˆ’1 = 131071 are prime, 2ÂÂâˆ’1 = 2047
+-- constant.  The three arithmetic facts:
+-- 2ââˆ’1 = 127 and 2Âââˆ’1 = 131071 are prime, 2ÂÂâˆ’1 = 2047
 -- = 23Â89, and for prime n the primitive part Î¦_n(2) is all of 2â¿âˆ’1.
 --
 -- NO LEXICAL SIGNATURE.  "No function of (b,n) improves it" and "the

@@ -54,16 +54,7 @@
 -- is which is the point of this paragraph.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT SURVIVES OF Â§Â§15â“18
---
--- Every theorem.  `lcm-gcd`, `chain-join-absorbs`, `sucâ‰^`, `cap-is-dense`
--- are unaffected â” they are statements about joins, chains, exponentials
--- and supports, and none of them mentions a workload.  What is withdrawn
--- is the FRAMING that made them answers: they were presented as
--- eliminating or identifying explanations for a cost, and there was no
--- cost to explain.
---
--- The honest residue is smaller and, being true, more useful:
+-- THE RESIDUE
 --
 --     the walk's state is its workload, its bit-size is that workload's
 --     logarithm, and the interesting question was never "why so big" but
@@ -127,7 +118,7 @@ frontier-index-is-not-the-workload p = snotz (injSuc (injSuc (injSuc (injSuc
         open import Cubical.Relation.Nullary using (Â¬_)
 
 ------------------------------------------------------------------------
--- 3.  The corrected sentence.
+-- 3.  The sentence.
 --
 -- The walk's storage is the logarithm of the number of inputs it has
 -- distinguished.  Ïˆ(k) is not overhead; it is log of the workload, and

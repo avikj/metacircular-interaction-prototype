@@ -411,7 +411,7 @@ module T4 = Terms _∧₄_ d3 ∧₄-idem ∧₄-comm ∧₄-assoc ∧₄-unit
 -- The positive half of the same witness: psi IS a pointwise meet of two
 -- thresholds.  chi-a tests "s >= d2" and chi-b tests "s >= d3"; both are
 -- filter tests, so both thresholds are admissible modes in the sense of
--- OBLIGATION.md Definition 4 as repaired by swarm-0814-02.
+-- OBLIGATION.md Definition 4.
 χa : Four → Bool
 χa d0 = false
 χa d1 = false

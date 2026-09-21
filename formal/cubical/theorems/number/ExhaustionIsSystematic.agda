@@ -3,15 +3,10 @@
 ------------------------------------------------------------------------
 -- ExhaustionIsSystematic
 --
--- CORRECTION TO `PowModHasTheSameShape` Â§1, which said the criterion
--- "finds one more â” and only one".  It finds at least nine, and the
--- reason it looked like one is that the earlier search read top-level
--- SIGNATURES containing the word `fuel`.  The fuelled functions in this
--- corpus mostly take their fuel unnamed and untyped, so that search was
--- looking for the property it had just proved invisible.
---
--- Per the standing rule the earlier file is not edited; this one carries
--- the correction, and it is a substantive one â” the phenomenon is
+-- The fuel-exhaustion criterion of `PowModHasTheSameShape` Â§1 finds at
+-- least nine sites.  The fuelled functions in this corpus mostly take
+-- their fuel unnamed and untyped, so a search of top-level SIGNATURES
+-- containing the word `fuel` cannot see them: the phenomenon is
 -- systematic, not a pair of anecdotes.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”

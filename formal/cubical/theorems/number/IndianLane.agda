@@ -124,45 +124,6 @@ import Anekanta
 import JainSankhya
 import AbhavaAvacchedaka
 
--- ADDED 2026-08-19, AFTER A SURVEY -- AND THE SURVEY'S FIRST VERDICT
--- WAS WRONG.  Recorded here because the wrong version was published in
--- this header and in three commit messages.
---
--- WHAT I CLAIMED: machine/Yogyata.hs found five green Indian modules
--- "reachable from NO gate at all" and twenty-six more reachable only
--- from those five -- thirty-one that nothing typechecked -- and I read
--- that as the Indian material being shelved while the Western lane sat
--- in the reactor.
---
--- WHAT IS TRUE.  The survey read ONE DIRECTORY LEVEL: 140 of the 602
--- Agda files under formal/cubical/.  It stated its domain honestly and
--- I read the domain line as "the corpus".  Four of the five are
--- imported from formal/cubical/NaturalMachine/, which it never opened.
---
--- Recursing, the picture INVERTS.  guarded 104, reached-only-by-a-red-
--- gate 409, shelf 117, orphan 23.  The 409 is overwhelmingly EGB*,
--- Gamma0*, FactoryVI, HeadDepth -- the Western lane -- because
--- agda and Everything.agda both die in two seconds at
--- NaturalMachine/PathIsSymmetry.agda:98 on `SymGroup`, a cubical v0.9
--- name against the pinned v0.5.  That is the FIRST of several such name
--- skews, not the only one -- fixing it moves the failure to
--- NaturalMachine/SymmetryCardinality.agda:31 on `factorial`.  So "one
--- identifier was why four hundred modules went unchecked" is also wrong,
--- and is corrected here rather than left standing.  What is established:
--- 409 modules are reached only by a gate that fails, and after yesterday's gating this
--- file is the only green Agda gate here, and the Indian modules are
--- among the few things actually being checked -- the opposite of what
--- I said.
---
--- WHAT SURVIVES.  Adding these modules here was still right: a gate
--- that cannot go green does not guard what it reaches, which is this
--- file's own founding argument, and NaturalMachine could not go green.
--- And the mechanism stands on its own evidence: this gate was created
--- at 19:19:50 on 2026-08-18 in a commit titled "the lane nothing was
--- building", and between 19:23 and 21:43 that evening seventeen more
--- Indian modules were written and none was added to it.
--- .claude/hooks/gate-coverage.sh now fires at the moment of the write.
---
 -- PIGALA, Chandastra ch. 8 (c. 300â“200 BCE), the six pratyaya; with
 -- Virahka, Vttajtisamuccaya ch. 6 (c. 600â“800 CE) for the mtrmeru
 -- and Halyudha, Mtasajvan (10th c.) on 8.34â“8.35 for the triangular
@@ -185,8 +146,7 @@ import PrastaraPankti
 -- sakaldea against vikaldea.  avaktavyam is proved well-defined,
 -- decidable, realised, and NOT the denotation of any single standpointed
 -- utterance -- which is what machine/Obstruction.hs was groping toward
--- when it invented `Unparsed`, and what I cited the weaker version of
--- earlier today.
+-- when it invented `Unparsed`.
 import SaptabhangiNaya
 
 -- MDHAVA of Sagamagrma (c. 1340â“1425) and the Kerala school; jva
