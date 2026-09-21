@@ -10,11 +10,6 @@
 -- Prva-Mms â” Jaimini's stras with abara's bhya, developed by
 -- Kumrila and Prabhkara.
 --
--- LIMIT ON THE CITATION, stated rather than glossed: I have not opened
--- the stras and give no stra number.  The term is standard and its
--- school is named; a number I did not check would be a fabricated
--- provenance, which is the error this apparatus exists to stop.
---
 -- WHY AGDA AND NOT PROSE.  Every claim below is a LIVE DEPENDENCY.  The
 -- five theorems are imported, not described.  If one is renamed, or
 -- weakened, or its module stops checking, THIS FILE GOES RED.  A document
@@ -167,22 +162,6 @@ open import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMe
   using (two-nodes-cannot-disagree ; merge-is-idempotent)
 
 ------------------------------------------------------------------------
---
--- * NOT that the five are instances of one formal statement in this file.
---   They are not: their types differ, their ambient structures differ,
---   and no functor between them is constructed here.  What is exhibited
---   is that each is the same SENTENCE about collapse and blindness, and
---   that two of them (III and V) are literally about one object.
--- * NOT that Pini, Bhskara II, Jaimini or any Mmsaka proved,
---   stated or anticipated any of this.  Â§I quotes stras; the fibre
---   reading is not Pini's.
--- * NOT anything about physical spacetime, quantum states, Hilbert
---   spaces or SU(2).  Â§II is about a semantics and an equivalence.
--- * NOT that Â§IV's machine-learning reading is a theorem about any
---   deployed system.  The theorem is about functions of a count-valued
---   semantics; that a reward model is such a function is an
---   interpretation, and is stated as one.
---
 -- WHAT IS CLAIMED: the named terms exist, are checked, say what is
 -- written above them, and are imported here â” so this file is false the
 -- moment any of them is.

@@ -3,49 +3,29 @@
 ------------------------------------------------------------------------
 -- HolonomyIsInvisibleExactlyToAnInvariantConsumerAndExactlyIsNowEarned
 --
--- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
--- (CURRENT header) and `.claude/hooks/european-frame.txt`.  **No tradition
--- term is claimed and none is invented.**  Univalence is Voevodsky's and
--- is this repository's declared substrate (CLAUDE.md: tools are not
--- frames); the holonomy framing is Î” 28 Â§36â“38's, i.e. this corpus's own.
--- Naming this file with a  label would assert a provenance
--- nobody checked, which is the mirror of the scrubbing the naming rule
--- corrects.
---
--- One connection is RECORDED AND NOT DEVELOPED, deliberately.  Â§5 of the
--- module below has the shape Jaina nayavda describes â” one object, two
--- standpoints, both verdicts correct, neither cancelling the other.  The
--- Jaina-logic line in this corpus is resting, and pulling it back for a
--- resemblance would be exactly the mining CLAUDE.md prohibits: taking the
--- convertible fragment of a darana and discarding the dispute.  So this
--- is a note that the connection exists, not a claim that it holds.
+-- ON THE NAME.  Univalence is Voevodsky's and
+-- is this repository's declared substrate;
+-- the holonomy framing is Î” 28 Â§36â“38's, i.e. this corpus's own.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE AUDIT FINDING, WHICH IS THIS MODULE'S REASON FOR EXISTING.
+-- THE CONVERSE.
 --
--- `HolonomyIsInvisibleExactlyToAnInvariantSemantics` says EXACTLY in
--- its own name.  It proves ONE direction:
+-- `HolonomyIsInvisibleExactlyToAnInvariantSemantics`
+-- proves ONE direction:
 --
 --   invariantSemanticsIsUnmoved :
 --     ((z : Z) â’ sem (equivFun h z) â‰¡ sem z)
 --     â’ (z : Z) â’ sem (transport (ua h) z) â‰¡ sem z
 --
--- The converse is nowhere in the file, and its Â§"SYT â” THE CLAIM, EXACTLY"
--- â” which does list architecture space, flatness, boundary semantics,
--- loop composition and the fundamental group â” does not list it.
--- **So the word doing the most work in that module was in its title and
--- was unearned.**
---
--- **AND THE CONVERSE COSTS NOTHING.**  `uaÎ² h z : transport (ua h) z â‰¡
+-- THE CONVERSE COSTS NOTHING.  `uaÎ² h z : transport (ua h) z â‰¡
 -- equivFun h z` is a PATH, so it may be walked in either orientation;
 -- the backward direction is the forward one with `sym`.  Same for Â§3's
 -- statement about the raw interface.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- **THE CONTRAST WITH 53a06cc9.**  The
--- same audit found a missing converse in
+-- THE CONTRAST.  The converse in
 -- `FullAbstractionIsAConditionOnTheContextFamilyAndCurvatureIsWitnessedInIt`
--- and the finding there was an ASYMMETRY: one direction a congruence,
+-- is an ASYMMETRY: one direction a congruence,
 -- the other a search paying `Enumerated K` + `Discrete O`.  Here there
 -- is NO asymmetry, and the reason is structural rather than lucky â”
 -- there the two directions were related by an IMPLICATION assumed
@@ -60,19 +40,18 @@
 --   Invariant / Invisible   the two conditions, named
 --   invariantâ’invisible     the old direction, REUSED not restated â”
 --                           it is `invariantSemanticsIsUnmoved`
---   invisibleâ’invariant     the missing direction
+--   invisibleâ’invariant     the converse direction
 --   invisibleExactlyWhenInvariant
 --                           the biconditional, so the title's "exactly"
---                           is now a theorem
+--                           is a theorem
 --   invisibleIsInvariantAsTypes
 --                           with `isSet B`, an EQUIVALENCE of the two
 --                           conditions, not merely a two-way implication
---   movedImpliesNotFixed    the same repair for Â§3: the raw interface
+--   movedImpliesNotFixed    the same converse for Â§3: the raw interface
 --                           being moved by the transport implies `h`
---                           does not fix the point.  The old module has
---                           only the other direction.
+--                           does not fix the point.
 --
--- NO NOVELTY.  `ua`, `uaÎ²`, `propBiimplâ’Equiv` are library.
+-- `ua`, `uaÎ²`, `propBiimplâ’Equiv` are library.
 ------------------------------------------------------------------------
 
 module HolonomyIsInvisibleExactlyToAnInvariantConsumerAndExactlyIsNowEarned where
@@ -126,7 +105,7 @@ module _ {Z B : Type} (h : Holonomy Z) (sem : Z â†’ B) where
       invisibleâ†’invariant
 
 ------------------------------------------------------------------------
--- 4.  The same repair for the raw interface
+-- 4.  The same converse for the raw interface
 ------------------------------------------------------------------------
 
 movedImpliesNotFixed :

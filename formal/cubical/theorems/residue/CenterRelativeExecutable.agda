@@ -28,7 +28,6 @@
 -- Nothing here is a new technique. The content is that the pair/centre
 -- exchange is an instance of it.
 --
---
 -- WHERE "2 IS INVERTIBLE" GOES, AND WHY IT IS A PARAMETER
 --
 -- The whole development is parameterised by a commutative ring `R`
@@ -45,7 +44,6 @@
 -- the ring is trivial and everything holds vacuously; if `2` is a
 -- zero-divisor but `half` exists the development still runs. What fails
 -- without `half` is not a theorem here but the *definition* of Φ.
---
 --
 -- WHAT IS CHECKED
 --
@@ -71,25 +69,6 @@
 --                            kept because it is what a reader checks by
 --                            hand and because §5 without it looks like
 --                            machinery.
---
---
---  * **No positive cone, so no boundary breaking.** Target B asks whether
---    the equivalence restricts to positive subobjects. `R` here has no
---    order, so the question cannot even be posed in this file. That is
---    deliberate: the directive's schema wants the failure exhibited as an
---    *uninhabited restricted equivalence type*, which needs an ordered
---    setting, and inventing one here would prejudge it.
---
---  * **No primes anywhere.** Despite the framing, nothing below mentions
---    primality, and the file would be identical for any (R, half). The
---    arithmetic content of "prime pairs" is entirely outside it. This is
---    a statement about the coordinate change and nothing else.
---
---  * **Not novel.** The change of coordinates (p,q) � ((p+q)/2,(q−p)/2)
---    is elementary and ancient; `half + half ≡ 1r` is the only hypothesis
---    and any algebra text has this. What is offered is that it is now a
---    *path of types* with a *checked transport*, available to be consumed
---    by later modules rather than re-derived.
 ------------------------------------------------------------------------
 
 module CenterRelativeExecutable where

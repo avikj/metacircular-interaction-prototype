@@ -14,24 +14,6 @@
 -- Fuel as bare data, result as bare data â” `expOf`'s shape exactly.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE AUTHOR ALREADY SAW THE SYMPTOM
---
--- `HeadDepthMergeBreaker` Â§edge records it, and honestly:
---
---     -- powMod fuel exhaustion silently returns 1 %% m: with fuel 1,
---     -- 2^4 mod 7 comes out 1; the true value is 2 â¦
---     -- In the certified range e â‰ 23^4 âˆ’ 1 < 2^40 so fuel 40 never
---     -- exhausts, but the wart is real outside it.
---     edge-powMod-fuel-wart : HDM.powMod 1 7 2 4 â‰¡ 1
---
--- That is a `refl` at one input plus an adequacy claim in prose â” the
--- same arrangement `frontier8 = refl` had, found independently, and
--- filed as a caveat about a range rather than as a fact about a type.
--- Nothing here disputes the range claim.  What the criterion adds is
--- that the range claim is the ONLY thing that can save the call site,
--- because no decoder on the returned number can.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE COLLISION
 --
 -- Exhaustion and the legitimate `e â‰¡ 0` branch return the same
@@ -48,13 +30,6 @@
 -- answer.  This is the second site of one phenomenon, not an analogy:
 -- the repair below is `FuelAdequacyIsACollision`'s `withK` with the
 -- bound replaced by (m , b , e).
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- OWNERSHIP
---
--- `HeadDepthMerge` and `HeadDepthMergeBreaker` are another identity's
--- files and are not edited.  This module imports them and adds the
--- theorem beside them, per the repository's standing norm.
 ------------------------------------------------------------------------
 
 module PowModHasTheSameShape where
@@ -98,7 +73,6 @@ exhausted = (1 , 7 , 2 , 4)
 legitimate : Inputs
 legitimate = (40 , 7 , 2 , 0)
 
--- the author's own witness, restated in this module's vocabulary
 exhausted-value : value exhausted â‰¡ 1
 exhausted-value = refl
 

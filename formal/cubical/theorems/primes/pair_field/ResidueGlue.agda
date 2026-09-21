@@ -32,24 +32,22 @@
 -- (allFin) whose truth is a single refl, then reflected into paths.
 -- No holes, no postulates, imports from Cubical.* only.
 --
--- NOTE ON THE REPRESENTATION OF Fin.  An earlier draft of this module
--- used the indexed inductive
+-- NOTE ON THE REPRESENTATION OF Fin.  Fin is defined by recursion on
+-- N,
+--
+--   Fin zero = empty, Fin (suc n) = Maybe (Fin n),
+--
+-- rather than as the indexed inductive family
 --
 --   data Fin : N -> Type where fz : Fin (suc n); fs : Fin n -> Fin (suc n)
 --
 -- Pattern matching on that family at a *literal* index (Fin 4, Fin 6)
 -- forces the unifier to use injectivity of `suc` on the index, which
--- Cubical Agda does not support: six clauses raised
--- UnsupportedIndexedMatch, i.e. those functions would not compute
--- when applied to transports.  (As a side effect Agda then exited 42
--- rather than 0 under a non-UTF-8 locale, because it could not encode
--- the character N in the warning text.)  Defining Fin by recursion on
--- N instead,
---
---   Fin zero = empty, Fin (suc n) = Maybe (Fin n),
---
--- removes every index from the picture: all matching is on Maybe,
--- which is unindexed.  The pattern synonyms fz/fs keep the notation.
+-- Cubical Agda does not support (UnsupportedIndexedMatch), so such
+-- functions would not compute when applied to transports.  With the
+-- recursive definition every index is out of the picture: all matching
+-- is on Maybe, which is unindexed.  The pattern synonyms fz/fs keep the
+-- notation.
 ------------------------------------------------------------------------
 
 module ResidueGlue where

@@ -7,11 +7,7 @@
 -- makes an inference carry from the case at hand to every case of the same
 -- mark.  Root notion in Gautama, *Nyyastra* (~2nd c. CE) under ‡‡®‡‡Æ‡æ‡®;
 -- the vyptivda and the ‡â‡‡æ‡ß‡ø that defeats a proposed pervasion are
--- Navya-Nyya, Gagea, *Tattvacintmai* (~1325).  The gap is stated
--- because filing the later apparatus under the strakra is the error this
--- corpus struck in its own Pini row.  Carried second-hand from
--- `TheInstalledOperationHasNoPervasionSoTheKernelMemorises`; no text is
--- opened here and no Naiyyika is credited with anything proved below.
+-- Navya-Nyya, Gagea, *Tattvacintmai* (~1325).
 --
 ------------------------------------------------------------------------
 -- WHAT THIS FILE DOES, in one sentence.
@@ -63,7 +59,7 @@
 --     `IntrinsicRewrite.weave-step` from `Step` (and `Run`) to
 --     `Derivation`.  `IntrinsicRewrite` proved one local motion reweaves
 --     through any one-hole `Locus`; `Derivation` is what a
---     `NativeOperation` actually carries, and the lift had not been taken.
+--     `NativeOperation` actually carries.
 --
 -- Substitution and locus are orthogonal and pervasion needs both: a rule
 -- should fire at `subVar u lhs` PLUGGED ANYWHERE.  ¬ß4's control is exactly
@@ -158,8 +154,8 @@ sub-derivation u (then-step p d) = then-step (sub-step u p) (sub-derivation u d)
 --
 -- `IntrinsicRewrite.weave-step` already transports one motion through a
 -- one-hole context.  A `Derivation` is a list of motions, so it transports
--- clause by clause.  This is the lift that had not been taken, and it is
--- the one the kernel needs, because `NativeOperation.checked` is a
+-- clause by clause.  This is the lift
+-- the kernel needs, because `NativeOperation.checked` is a
 -- `Derivation` and not a `Run`.
 ------------------------------------------------------------------------
 

@@ -3,8 +3,6 @@
 ------------------------------------------------------------------------
 -- HeadDepthMerge
 --
--- THE MERGE THE CORPUS ASKED FOR THREE TIMES.
---
 -- WHAT_IS_ACTUALLY_OPEN Â§1: the quantity  e_b(q) = v_q(b^ord_q(b) âˆ’ 1)
 -- is computed by two separate organs under three names â”
 --
@@ -14,18 +12,15 @@
 --   * EXPOSED_SET Cor W2's Wieferich condition (e_2(q) â‰ 2),
 --
 -- and three seeds (EXPOSED_SET 3, HEAD_DEPTH_BLINDNESS 3, PINNING 1)
--- demand the organism compute it ONCE.  The organs were Python and are
--- dead (owner ban 2026-08-13); this module is the merged organ, and the
--- kernel replaces the retired replay `machinery/head_depth_blindness.py`:
--- the note's "1048 triples, zero disagreements" table is now a CHECKED
--- TERM (finite exhaustive verification is proof, CLAUDE.md), not a dead
--- script's stdout.
+-- demand the organism compute it ONCE.  This module is the merged organ:
+-- the note's "1048 triples, zero disagreements" table is a CHECKED TERM
+-- (finite exhaustive verification is proof, CLAUDE.md).
 --
 -- One definition (headDepth); every other predicate below is a
 -- threshold reading of it.
 --
--- AND THE ATTACHED OPEN SEED IS CLOSED.  HEAD_DEPTH_BLINDNESS seed 1
--- (restated as the "sharply posed" residue in WHAT_IS_ACTUALLY_OPEN Â§1)
+-- STRONG BLINDNESS.  HEAD_DEPTH_BLINDNESS seed 1
+-- (restated in WHAT_IS_ACTUALLY_OPEN Â§1)
 -- asks: W3 pins FERMAT blindness exactly; the strong (Millerâ“Rabin)
 -- test refutes more; is the strong-blindness depth also e_b(q), or is
 -- there a correction term?  Answer: EQUALITY, no correction.  For n =
@@ -37,8 +32,7 @@
 -- is âˆ’1, and j â‰ vâ(qâˆ’1) â‰ vâ(nâˆ’1) puts that index inside the
 -- Millerâ“Rabin window.  Hence every Fermat liar for an odd prime power
 -- is a strong liar: strong blindness = Fermat blindness = (a â‰ e_b(q)).
--- (Known-shaped: this is Monier/Rabin-era liar bookkeeping; SEARCH
--- before any novelty claim.  The prose proof lives in
+-- (This is Monier/Rabin-era liar bookkeeping.  The certificate over the
 -- 1048-triple range is `strongTheorem` below.)
 --
 -- Wieferich becomes an instance: the only known Wieferich primes 1093
@@ -163,8 +157,7 @@ overTriples P =
     oddPrimes
 
 -- Theorem W3, kernel form: Fermat blindness on q^a âŸº a â‰ e_b(q),
--- exhaustively over all 1048 triples.  This replaces the dead Python
--- replay with a checked term.
+-- exhaustively over all 1048 triples.
 w3Certificate : Bool
 w3Certificate = overTriples
   (Î» q a b â†’ eqBool (fermatBlind q a b) (a â‰¤? headDepth q b))
@@ -172,7 +165,7 @@ w3Certificate = overTriples
 w3Theorem : w3Certificate â‰¡ true
 w3Theorem = refl
 
--- Seed 1 closed on the same range: the STRONG test is blind exactly
+-- On the same range, the STRONG test is blind exactly
 -- as deep as the Fermat test on odd prime powers â” no correction term.
 -- General proof in the header/note; kernel certificate here.
 strongCertificate : Bool

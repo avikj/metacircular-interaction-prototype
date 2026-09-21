@@ -3,13 +3,13 @@
 ------------------------------------------------------------------------
 -- TheCardinalityHalfOfOptimalIsExactlyAMereEquivalenceAndItSaysNothingAboutTheSchemeItself
 --
--- ON THE NAME.  **No tradition term is claimed and none is invented.**
+-- ON THE NAME.
 -- The object audited here is `OptimalObservation`'s
 -- DEFINITION of `Optimal`, which is that module's own construction.
 -- Its three INSTANCES are Pigala's *Chandastra* uddia (c. 300
 -- BCE), Virahka's mtrmeru (c. 600‚ì800), and a CRT residue decode;
--- those sources are named here in that order, before any later name,
--- and **nothing below is a claim about them** ‚î the instances are
+-- those sources are named here in that order;
+-- the instances are
 -- untouched.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
@@ -124,8 +124,6 @@ isoGivesOptimalBackwards X Y i =
 --
 -- The pigeonhole direction ‚î that the two conjuncts of `Optimal` force
 -- `obs` ITSELF to be an equivalence ‚î is exactly the statement below.
--- Writing the type out means no theorem may
--- quietly assume it.
 ------------------------------------------------------------------------
 
 TheOpenPigeonhole : Type‚ÇÅ

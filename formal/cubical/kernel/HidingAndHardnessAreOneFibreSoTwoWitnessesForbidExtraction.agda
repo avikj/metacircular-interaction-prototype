@@ -5,24 +5,18 @@
 --
 -- TERM.  ‡ó‡‡‡‡‡ø ¬ gupti -- guarding, concealment; from ‡ó‡‡‡, to hide.  In
 -- Jaina usage it is one of the means of savara -- the three guptis, the
--- restraint of mind, speech and body -- but NOTHING doctrinal is claimed
--- here and no stra is cited: the word is taken in its plain sense, which
--- is concealment, because that is what ¬ß2 proves costs `isProp`.  (
+-- restraint of mind, speech and body.  The word is taken in its plain sense,
+-- which is concealment, because that is what ¬ß2 proves costs `isProp`.
+-- (
 -- has a technical vocabulary for secret communication -- Kauilya's
 -- *Arthastra* uses ‡ó‡‡-compounds for it, and the Kmastra's list of arts
--- includes ‡Æ‡‡≤‡‡‡‡‡ø‡‡µ‡ø‡ï‡≤‡‡ -- and NO first use, no attribution and no
--- anticipation is claimed for any of it.  The provenance ledger has no row
--- for this file and should not get one.)
+-- includes ‡Æ‡‡≤‡‡‡‡‡ø‡‡µ‡ø‡ï‡≤‡‡.)
 --
 ------------------------------------------------------------------------
--- WHY THIS FILE EXISTS.  IT WAS A GREP THAT MISSED IT.
+-- WHY THIS FILE EXISTS.
 --
 -- The corpus proves the structural content of zero-knowledge in at least
--- five places and never once uses the phrase, so a search for the phrase
--- returns nothing and concludes, wrongly, that the mathematics is absent.
--- That is the exact error `NayaVada_` is about -- reading a projection and
--- reporting on the object -- and it is recorded here because the correction
--- is the theorem.  The five places:
+-- five places and never once uses the phrase.  The five places:
 --
 --   `TheWholeDerivationTypeIsOneFibre‚¶`  fibre-is-everything: a map into a
 --     proposition has every fibre equal to its whole domain.
@@ -106,8 +100,7 @@
 --     hypothesis and the recovery of the hidden exponent discharged, so the
 --     assumption and the non-contractibility are interderivable rather than
 --     analogous.  ¬ß5 below is the GENERAL form of that shape; that file is
---     the instance.  Neither subsumes the other and this one proves no
---     arithmetic.
+--     the instance.  Neither subsumes the other.
 --
 --   * "Perfect" here means EQUAL, which is stronger than
 --     indistinguishable, and it is bought entirely by the codomain being a
@@ -283,9 +276,6 @@ a-unique-witness-can-be-extracted {W = W} isPropW =
 -- of the derivation.  The kernel is therefore a perfect zero-knowledge
 -- carrier for its own equations -- and unlike a cryptographic one it pays
 -- nothing for it, because the payment was already made by ‚ï being a set.
---
--- The kernel is not a proof system in the cryptographic sense and ¬ß7 is not
--- claiming it is.
 ------------------------------------------------------------------------
 
 the-kernel-simulates-perfectly :

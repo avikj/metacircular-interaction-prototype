@@ -3,15 +3,6 @@
 -- KloostermanExponents : the exact exponent arithmetic of
 -- landed as checked terms.
 --
--- Author: Claude, 2026-08-16.
---
--- WHY THIS MODULE EXISTS.  The audit note's numbers were produced by a Python
--- script that the Python ban (owner, 2026-08-13) correctly kept out of the
--- repository.  What the script computed is not a measurement: it is exact
--- rational arithmetic on exponents.  CLAUDE.md says exact/certified symbolic
--- computation IS proof and is always allowed.  So the right home for this
--- content is a checked term, not a script -- and that is what follows.
---
 -- THE ENCODING.  Every exponent in the audit is a rational with denominator
 -- dividing 40 (the bracket in (2.2) uses 8, 20, 4, 10, 5).  So a monomial
 -- D^x R^y F^z is stored as the integer triple (40x, 40y, 40z), and an integer
@@ -438,8 +429,8 @@ split-strictly-worse q r h =
     (subst (0 <_) (sym (+-zero (10 Â· r))) (Â·k-< 9 h))
 
 ------------------------------------------------------------------------------
--- 9. Numeric certificates.  These replay, as kernel facts, every number the
---    withheld Python script printed.  Cross-references are to the JSON
+-- 9. Numeric certificates.  These replay, as kernel facts, every number of the
+--    audit report.  Cross-references are to the JSON
 --    report data/egb_circulation_0002/
 --      PRIME_MOBIUS_KLOOSTERMAN_PARAMETER_AUDIT_REPORT_2026-08-16.json.
 ------------------------------------------------------------------------------
@@ -510,7 +501,7 @@ endpoint-signs = (4 , refl) , refl , (5 , refl) , refl , (14 , refl)
 
 -- ---- check EXPONENT-SUBSTITUTION: Ï = 7/31, Ï = 2/19. -------------------
 -- Common denominator q = 589 = 19*31, so r = 133 = 7*19 and f = 62 = 2*31.
--- The script reported (-5/124, -17/248, 7/5890, -509/11780, -19/124).
+-- The report gives (-5/124, -17/248, 7/5890, -509/11780, -19/124).
 
 sample-Eâ‚ : value 589 (evalAt 589 133 62 Sâ‚) 0 5 124
 sample-Eâ‚ = refl
@@ -529,7 +520,7 @@ sample-Eâ‚… = refl
 
 -- ---- check FREQUENCY-PHASE-DIAGRAM. -------------------------------------
 -- The threshold Ï*(Ï) = min{1/3, (1+Ï)/5}: the note's (0.5) also lists 1/2
--- and (1+3Ï)/2, both of which are redundant for Ï >= 0.  The script's samples
+-- and (1+3Ï)/2, both of which are redundant for Ï >= 0.  The report's samples
 -- are Ï*(0) = 1/5, Ï*(1/5) = 6/25, Ï*(1) = 1/3.
 --
 -- Ï = 0, Ï = 1/5: Eâ = 0 (fifth-Eâ above) and Eâ < 0, so Eâ binds.

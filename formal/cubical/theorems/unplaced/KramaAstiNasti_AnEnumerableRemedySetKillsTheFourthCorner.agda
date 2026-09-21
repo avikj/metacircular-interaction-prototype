@@ -17,21 +17,17 @@
 --   neither unknown nor undefined nor empty but a positive fourth position.
 --   The distinction is what makes seven positions and not four.
 --
--- **No claim is made that Samantabhadra, Akalaka or Vidynandin proved
--- anything below.**  The sevenfold division and the ‡ï‡‡∞‡Æ/‡‡ distinction are
+-- The sevenfold division and the ‡ï‡‡∞‡Æ/‡‡ distinction are
 -- theirs, stated as doctrine; the theorems here are about what the fourth
 -- corner can and cannot be over particular index types in cubical type
--- theory, and they are this repository's.  The Jaina texts do not contain a
--- claim about enumerable decidable instance sets and nothing here should be
--- read as saying they do.
+-- theory, and they are this repository's.
 --
 ------------------------------------------------------------------------
 -- AnEnumerableRemedySetKillsTheFourthCorner
 --
 -- `TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift` showed
 -- that at a single instance the fourth corner IS a counterexample to
--- the double-negation shift, and left EXISTENCE open with the remark
--- that a model would be needed.  It also recorded that the earlier
+-- the double-negation shift.  It also recorded that the
 -- `Enumerated` hypothesis on the INSTANCE set was INERT there ‚î
 -- `Enumerated Unit` is immediate, so enumerability of instances cannot
 -- be what separates the corner from its absence.
@@ -57,21 +53,17 @@
 -- finding.**  Enumerating the INSTANCES buys nothing ‚î one instance
 -- already suffices for the corner, and one instance is enumerable.
 -- Enumerating the REMEDIES buys everything: DNS becomes a theorem, and
--- the corner cannot exist.  An earlier module reached for `Enumerated`
--- on the wrong side of the pair and this says which side it belonged
--- on.  Where the corner can live is now: a NON-ENUMERABLE remedy set
+-- the corner cannot exist.
+-- Where the corner can live is a NON-ENUMERABLE remedy set
 -- with a badness that is not stable.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- NO NOVELTY.  That DNS holds over a finite index is elementary and
 -- classical in the constructive literature ‚î DNS is only interesting
 -- for infinite domains, which is exactly why Spector's bar recursion
--- concerns `‚ï`.  It is proved here because this corpus reached for
--- enumerability twice without noticing the two sides differ.
+-- concerns `‚ï`.
 --
--- School named: ‡‡æ‡Æ‡Ø‡ø‡ï and ‡®‡ø‡‡‡Ø are `AnuktaAvaktavya`'s, another
--- identity's, used unchanged; DNS is from proof theory and no claim is
--- made that the two traditions are talking about one thing.
+-- School named: ‡‡æ‡Æ‡Ø‡ø‡ï and ‡®‡ø‡‡‡Ø are `AnuktaAvaktavya`'s, used unchanged.
 ------------------------------------------------------------------------
 
 module KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner where
@@ -155,12 +147,10 @@ theFourthCornerNeedsANonEnumerableRemedySet Q corner enum =
     d = fourthCornerGivesDNSFailure Q corner
 
 ------------------------------------------------------------------------
--- ON THE NAME. `Avaktavya` was the wrong term for this line.
+-- ON THE NAME.
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
--- this line's "fourth corner" is a product of two independent
+-- the "fourth corner" here is a product of two independent
 -- negations and that simultaneous refusal collapses into the
 -- sequential pair, so the position is the THIRD bhaga ‚î
--- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.  The full
--- correction is recorded at
--- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
+-- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.
 ------------------------------------------------------------------------

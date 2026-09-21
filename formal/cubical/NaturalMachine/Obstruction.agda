@@ -52,11 +52,7 @@
 --                               here is eliminability of the new head
 --                               from `Over`, and nothing more.
 --   T3 `match-conservative`     installing a head changes matchability
---                               at no OTHER head.  This is a membership
---                               skip lemma; calling it "the D3 content"
---                               is borrowed collateral â” gate D3 refuses
---                               old-language left-hand sides, and that
---                               refusal is P3, not this.
+--                               at no OTHER head.
 --   T4 `match-mono`, `Over-mono` extension loses nothing.
 --   T5 `progress-after` +
 --      `progress-before` +
@@ -71,11 +67,10 @@
 --                               from an already-matched head leaves the
 --                               matcher EQUAL (a path of functions, by
 --                               funExt), and hence any finite chain of
---                               such proposals does too.  Read T7â²
---                               before quoting this.
+--                               such proposals does too.
 --   T7â² `freq-reaches-every-installed` /
 --      `freq-memb-absorbed` /
---      `freq-Over-plateau`      what T7 actually says: the heads a
+--      `freq-Over-plateau`      the heads a
 --                               `FreqChain` step can name are EXACTLY
 --                               the already-installed ones, so such a
 --                               chain changes no membership test at all
@@ -371,11 +366,6 @@ obstruction-eliminated V o (o' , p) =
 -- Tm â’ Typeâ â” and therefore so does any finite chain of such
 -- proposals.  Naming re-describes the matchable set; it does not
 -- enlarge it.
---
--- Read T7â² below before quoting this paragraph: in THIS model the
--- candidate is not merely drawn from a closed shape class, it is a head
--- already installed, so the conclusion is automatic and the paragraph
--- above describes the datatype rather than a frequency proposer.
 ------------------------------------------------------------------------
 
 extend-absorbed : (V : Vocab) (s : Shape) â†’ memb s V â‰¡ true
@@ -410,8 +400,7 @@ plateau (step {W = W} ch t m) =
   extend-absorbed W (headShape W t m) (headShape-built W t m) âˆ™ plateau ch
 
 ------------------------------------------------------------------------
--- T7â².  HOW MUCH OF T7 IS THE DATATYPE.  Exactly this much â” and it is
--- more than the wording above admits, so the wording is corrected here.
+-- T7â².  HOW MUCH OF T7 IS THE DATATYPE.
 --
 -- The step constructor names `headShape W t m`, which by
 -- `headShape-built` is ALREADY INSTALLED in W.  The converse holds too:
@@ -526,7 +515,7 @@ class-can-grow C V s cs e =
 -- innermost-first, and each uncovered head yields an obstruction whose
 -- proposal installs it.  (The chain constructed here uses the
 -- degenerate witness `var`; a witness policy is a refinement, not a
--- prerequisite â” see the plan note.)
+-- prerequisite.)
 ------------------------------------------------------------------------
 
 data ObsChain (V : Vocab) : Vocab â†’ Typeâ‚€ where

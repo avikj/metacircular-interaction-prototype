@@ -24,11 +24,6 @@
 --       mathematics; only the choice of representative differs.
 --
 -- The repair is `SmithSignNormal`.
---
--- These evaluations are why the mismatch was found at all.  Every other
--- concrete Smith fact in this corpus checks a *supplied* certificate
--- (`SmithPathCountedExecution`), which cannot expose a convention the
--- producer chose on its own.
 ------------------------------------------------------------------------
 
 module SmithSignControl where

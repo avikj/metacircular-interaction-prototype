@@ -36,17 +36,14 @@
 --       is NECESSARY and not merely sufficient: the corner exists only
 --       where `Stable (Q r)` fails at some r
 --
--- The last one is the point.  Two modules gave sufficient conditions and
--- said no necessary one was known.  Here the condition is necessary, so
+-- The last one is the point.  Here the condition is necessary, so
 -- the search for the fourth corner is not "look for an exotic instance
 -- family" ‚î a ONE-element instance family already suffices, and the
--- whole question is whether the BADNESS is stable.  The earlier
--- `Enumerated` route was answering a question the corner does not ask.
+-- whole question is whether the BADNESS is stable.
 --
 -- EXISTENCE.  DNS is not provable in this substrate and NOT
--- refutable in it either ‚î exhibiting a failure needs a model, and no model
--- is constructed here, nor can one be from inside `--safe` cubical without
--- postulates. What changes is the STATUS of the question: it is no longer "is
+-- refutable in it either; exhibiting a failure needs a model.  What
+-- changes is the STATUS of the question: it is no longer "is
 -- there an exotic configuration?" but "does this substrate validate DNS?",
 -- which is a question with a literature and an answer that depends on the
 -- metatheory.
@@ -159,9 +156,7 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 -- **THE TWO ENUMERABILITY HYPOTHESES ARE NOT SYMMETRIC.**  Enumerating
 -- the INSTANCES buys nothing ‚î one instance suffices for the corner and
 -- one instance is enumerable.  Enumerating the REMEDIES buys
--- everything: DNS becomes a theorem and the corner cannot exist.  An
--- earlier module reached for `Enumerated` on the wrong side of the pair;
--- that is now said, with the right side identified.
+-- everything: DNS becomes a theorem and the corner cannot exist.
 --
 -- WHERE THE CORNER CAN LIVE: a
 -- NON-ENUMERABLE remedy set with a badness that is not stable.
@@ -169,13 +164,9 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- Renamed from
--- `Avaktavya_*` to `KramaAstiNasti_*`: the previous term was wrong.
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
 -- this line's "fourth corner" is a product of two independent
 -- negations and that simultaneous refusal collapses into the
 -- sequential pair, so the position is the THIRD bhaga ‚î
--- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.  The full
--- correction is recorded at
--- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
+-- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.
 ------------------------------------------------------------------------

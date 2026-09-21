@@ -109,9 +109,7 @@
 --                            example
 --   mixedStep, mixedDescent  Factory IV's own edges as an INHABITANT of
 --                            Descent: (r,0) â’ (râˆ’1,1) mixed, (r,1) â’ (r,0)
---                            purifying.  The specification is non-vacuous
---                            as a specification; see the next paragraph
---                            for what that does and does not mean
+--                            purifying
 --   example-trajectory       (2,true) â¦ radius 3, charge defect 1, Îº = 5:
 --                            the six-state trajectory computes by refl,
 --                            saturating traj-bound
@@ -215,8 +213,7 @@ non-corner s ne h = ne (rank-zero-unique s h)
 -- Note what is deliberately absent: any bound on the transition (Factory
 -- IV's "bounded"), any center, any arithmetic.  The bound and the center
 -- are what make the produced family cofinal; they are orthogonal to
--- termination and are declared missing in the header rather than modelled
--- vacuously.
+-- termination.
 ------------------------------------------------------------------------
 
 Descent : Type
@@ -365,9 +362,6 @@ traj-bound r =
 -- The corner has no outgoing edge, and the clause that would need one is
 -- discharged from its own non-corner hypothesis â” so `mixedDescent` is
 -- total without ever pretending the corner steps anywhere.
---
--- AGAIN, AND LAST: this inhabits the specification on LABELS.  It is not
--- an arithmetic edge, and there is no arithmetic edge (header, item 2).
 ------------------------------------------------------------------------
 
 mixedStep : State â†’ State

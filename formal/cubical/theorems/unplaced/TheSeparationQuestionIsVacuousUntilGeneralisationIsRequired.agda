@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- TheSeparationQuestionIsVacuousUntilGeneralisationIsRequired
 --
---
 --   "Is there a mechanizable predicate on a note's *text* that decides
 --    whether its principal object is outside arithmetic, and hence
 --    whether a `SEARCH` flag is mandatory â” one that would have fired
@@ -69,7 +68,7 @@
 -- itself sets, and it is not answerable by a lookup table.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY, AND THE PRIOR ART IS NOT MINE.  "A classifier that fits
+-- NO NOVELTY.  "A classifier that fits
 -- finitely many labelled points proves nothing; the content is
 -- generalisation and the false-positive rate" is the founding
 -- observation of statistical learning theory (Vapnikâ“Chervonenkis

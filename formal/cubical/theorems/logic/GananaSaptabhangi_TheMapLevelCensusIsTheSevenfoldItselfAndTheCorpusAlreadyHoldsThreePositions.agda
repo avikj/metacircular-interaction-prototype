@@ -4,7 +4,7 @@
 -- ‡ó‡‡®‡æ-‡‡‡‡‡‡ô‡‡ó‡ ‚î the map-level census IS the sevenfold, and the corpus
 -- already holds witnesses of three distinct positions.
 --
--- THE IMPURITY REPAIRED.  `SakalaVikalaDesa` made the census a term ‚î but
+-- `SakalaVikalaDesa` made the census a term ‚î but
 -- PER POINT: three constructors (‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ / ‡‡ï‡≤‡æ‡¶‡‡ / ‡µ‡ø‡ï‡≤‡æ‡¶‡‡) at each b.
 -- A MAP's character is which of the three kinds occur anywhere across its
 -- codomain ‚î a selection from three seeds ‚î and the non-empty selections
@@ -21,7 +21,7 @@
 -- following the note's own readings (empty fibre = avaktavya, ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡;
 -- crowded = the loss).
 --
--- THE THREE WITNESSES, all already in the corpus, now classified:
+-- THE THREE WITNESSES, all already in the corpus, classified:
 --
 --   id : Bool ‚í Bool     every fibre contractible          ‚í pure ‡‡‡‡‡ø
 --   ‡‡ï‡Æ‡ : Bool ‚í Unit    every fibre crowded               ‚í pure ‡®‡æ‡‡‡‡ø
@@ -34,8 +34,7 @@
 -- GRADE.  The classification records below are this module's;
 -- the sevenfold count and the seed reading are Saptabhangi's and
 -- SakalaVikalaDesa's respectively; Malliea (Sydvdamajar, 1292, at
--- ‡‡‡‡¶ grade via the note) for sakaldea/vikaldea.  No claim that any
--- Jain author classified functions; the claim is that their selection
+-- ‡‡‡‡¶ grade via the note) for sakaldea/vikaldea.  Their selection
 -- algebra is this classification's type, on the nose.
 ------------------------------------------------------------------------
 

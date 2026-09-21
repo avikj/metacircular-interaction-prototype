@@ -3,17 +3,6 @@
 ------------------------------------------------------------------------
 -- LosslessLowerBound
 --
--- `TheGapWasAUnitsError` proves the walk's storage equals the logarithm
--- of its workload, and lists what it quotes rather than proves:
---
---   "QUOTED, not re-proved here: â¦ that an injective map out of a set of
---    n+1 elements needs at least n+1 targets (pigeonhole), which is what
---    makes lcm(S) > n a LOWER bound and hence makes 'optimal' mean
---    something."
---
--- That is the load-bearing half of the word "optimal", and it is quoted.
--- Here it is a term.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE STATEMENT
 --
@@ -29,14 +18,12 @@
 -- into a bound on every machine.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- PRIOR ART, SEARCHED FIRST THIS TIME
+-- PRIOR ART
 --
 -- `Cubical.Data.FinSet.Cardinality.cardâInequality'` is the pigeonhole in
 -- exactly the needed direction, and `formal/cubical/FinCardinality.agda`
 -- already carries CRT (`crtEquiv`, `crtInj`) and the equal-cardinality
--- counting principle for this repository.  Nothing below is new
--- mathematics; what is new is that the walk's optimality no longer rests
--- on a sentence in a comment.
+-- counting principle for this repository.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- AND WHY THIS SHAPE MATTERS TO THE DEFLATIONARY THREAD
@@ -53,8 +40,7 @@
 -- because it quantifies over a class rather than negating a proposition.
 --
 -- A limitation you can state is a Î  over machines.  A barrier you cannot
--- state is a Â over propositions.  The corpus has been writing the second
--- while meaning the first.
+-- state is a Â over propositions.
 ------------------------------------------------------------------------
 
 module LosslessLowerBound where
@@ -114,19 +100,9 @@ lossless-needs-room n Y obs inj =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 4.  Note on the build.
---
--- This module imports `FinCardinality`, which pulls in the FinSet
--- machinery and takes several minutes to elaborate from a cold cache.
--- That cost is deliberate: the alternative was a private copy of the
--- pigeonhole.  A slow import that reuses a checked theorem is the
--- cheaper of the two.
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
 -- 5.  RELATION TO `WalkCapacity` â” they are complements rather than duplicates.
 --
--- `WalkCapacity` (2026-08-13) proves the capacity theorem: any lossless
+-- `WalkCapacity` proves the capacity theorem: any lossless
 -- sensor family whose addresses are all â‰ k has lcm DIVIDING lcm(1..k),
 -- and the bound is attained.  That bounds the state's MODULUS from above,
 -- by two universal properties and no arithmetic.

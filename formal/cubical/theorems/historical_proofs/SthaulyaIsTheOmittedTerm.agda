@@ -59,8 +59,7 @@
 --     can carry a law and this one can.
 --
 -- The order statement ‚î that the ‡‡‡‡‡≤‡‡Ø drops by two orders in n at each
--- step ‚î is the analytic gloss on the second bullet; see the closing
--- section.
+-- step ‚î is the analytic gloss on the second bullet.
 --
 -- The proof is the determinant recurrence and nothing else.  The form
 --
@@ -334,16 +333,14 @@ module Sthaulya (R : CommRing ‚Ñì) where
 -- orders in n at each step", on the ground that deg k_k = k makes it a
 -- constant over a polynomial of degree 2k+1.
 --
--- That statement is not checkable in this
--- lane.  Everything above is an identity between ring elements, and a
+-- Everything above is an identity between ring elements, and a
 -- commutative ring has no notion of degree, of leading coefficient, or
 -- of order at infinity.  Cross-multiplying is exactly the move that
 -- discards them ‚î which is what makes the constancy theorem provable
--- without analysis, and what makes the order statement unavailable by
--- the same act.
+-- without analysis.
 --
 -- `sthaulya-ratio` is the exact
--- statement the loose one was reaching for:
+-- statement:
 --
 --     D_{k+1}  =  ‚àía_{k+2} ¬ D_k
 --

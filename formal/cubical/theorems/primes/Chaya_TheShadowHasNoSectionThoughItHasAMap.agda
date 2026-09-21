@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- àà¾à¯à¾ â” the shadow, and what is actually impossible about it.
+-- àà¾à¯à¾ â” the shadow, and what is impossible about it.
 --
 -- TERM.  àà¾à¯à¾ / *chy*, shadow, is `Prakasha`'s own coinage in
 -- this corpus for the truncated form (`G-chaya`), and is carried here for
@@ -34,9 +34,9 @@ noSection : {A : Typeâ‚€} (a b : A) â†’ Â¬ (a â‰¡ b) â†’ Â¬ Section A
 noSection a b aâ‰¢b (s , sec) =
   aâ‰¢b (sym (sec a) âˆ™ cong s (squashâ‚ âˆ£ a âˆ£â‚ âˆ£ b âˆ£â‚) âˆ™ sec b)
 
--- â•â•â• and the map the overclaim confused it with â•â•â•
--- inhabited A: a map âˆ A âˆâ â’ A exists, trivially.  so "no reverse map"
--- is false, and "no section" is what is true.
+-- â•â•â• and the map that does exist â•â•â•
+-- inhabited A: a map âˆ A âˆâ â’ A exists, trivially;
+-- what fails is the section, not the map.
 mapFromInhabited : {A : Typeâ‚€} â†’ A â†’ (âˆ¥ A âˆ¥â‚ â†’ A)
 mapFromInhabited a _ = a
 
@@ -78,7 +78,7 @@ fibrePlural e = 3â‰¢5 (cong fst e)
 noSectionAt10 : Â¬ Section (Fibre 10)
 noSectionAt10 = noSection three+seven five+five fibrePlural
 
--- and the map does exist there, which is the half that was overstated
+-- and the map does exist there
 mapAt10 : âˆ¥ Fibre 10 âˆ¥â‚ â†’ Fibre 10
 mapAt10 = mapFromInhabited three+seven
 

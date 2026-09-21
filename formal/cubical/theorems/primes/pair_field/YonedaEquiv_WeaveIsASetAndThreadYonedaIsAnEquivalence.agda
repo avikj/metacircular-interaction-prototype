@@ -3,15 +3,9 @@
 ------------------------------------------------------------------------
 -- YonedaEquiv_WeaveIsASetAndThreadYonedaIsAnEquivalence
 --
--- Closes the absence stated in `ThreadYoneda` (header, "WHAT IS NOT",
--- and ยง7):
---
---     The round trips give a bijection, not a `โ`: upgrading needs
---     `isSet (Weave i j)` so that naturality is a proposition and two
---     transformations agreeing pointwise are equal.  That is true
---     (Thread is built from equalities in โ•, which is a set) and it is
---     not proved here.  Said plainly because "โ" is what T25.A asks for
---     and this is "โ”".
+-- Upgrades the Yoneda bijection of `ThreadYoneda` ยง4 to an equivalence:
+-- `isSet (Weave i j)` makes naturality a proposition, so two
+-- transformations agreeing pointwise are equal.
 --
 -- WHAT IS PROVED (all `--safe`, no postulates, no holes):
 --
@@ -41,11 +35,6 @@
 --                     by `isoToEquiv`.
 --   * `yonedaPath`  : the corresponding path of types, by univalence
 --                     (`isoToPath`), so the "โ" is also an "โก".
---
--- WHAT IS NOT.  Nothing in this file adds relations to `Weave`; it is
--- still the free category of `ThreadYoneda` ยง1, and the other two
--- items of ยง7 there (relations between the thread families, and the
--- tear) are untouched.  Only the first item of ยง7 is closed.
 ------------------------------------------------------------------------
 
 module YonedaEquiv_WeaveIsASetAndThreadYonedaIsAnEquivalence where

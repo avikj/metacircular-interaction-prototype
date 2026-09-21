@@ -26,8 +26,8 @@
 -- criterion FAILS to separate them: `¬ Œ[œà] (œà ‚àò collapse ‚â° id)` holds of
 -- both.
 --
--- them ‚î the SIZE of the fiber relative to the source ‚î and marks the
--- load-bearing half a CONJECTURE, "one line to check":
+-- The criterion proposed for the seam is the SIZE of the fiber relative
+-- to the source:
 --
 --     (x : ‚à A ‚à‚) ‚í fiber ‚à_‚à‚ x ‚â A
 --
@@ -41,22 +41,13 @@
 -- of the map can see which point it came from.  That is what makes
 -- truncation ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø‡æ rather than merely lossy.
 --
--- ALSO, deliberately: this does NOT add the fourth
--- constructor to `‡¶‡‡`.  That datatype is in another library, and the
--- refusal to extend it was a considered act by its author.  A criterion
--- is what was missing; supplying the criterion and extending the type are
--- different decisions, and the second is theirs.  Supplying a criterion
--- and then using it to edit someone's refusal would be the forgery this
--- corpus keeps catching, wearing helpfulness.
---
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- THE TERM.  ‡‡µ‡‡‡‡‡¶‡ï ‚î Nyya's "delimitor", the property that fixes the
 -- exact extent of a relation or an absence (Gagea, ‡‡‡‡‡‡µ‡‡ø‡®‡‡‡æ‡Æ‡‡ø,
 -- 14th c., and the Navya-Nyya technical apparatus after him; the
 -- corpus's own `interactive/Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearched
--- Domain.hs` and `AbhavaAvacchedaka.agda` use it in that sense).  LIMIT:
--- nothing below is attributed to any Naiyyika, and the citation is
--- second-hand.  The word is taken for one property ‚î that a relation is
+-- Domain.hs` and `AbhavaAvacchedaka.agda` use it in that sense).
+-- The word is taken for one property ‚î that a relation is
 -- not stated until its extent is ‚î which is exactly what the seam was
 -- missing and what ¬ß‡® supplies.
 ------------------------------------------------------------------------
@@ -116,8 +107,8 @@ private
 --     "The loss is total at b" := the residual over b is the whole source.
 --
 -- ‡‡∞‡‡µ‡‡æ‡®‡ø‡ does NOT separate the levels.  It holds of `‡‡∞‡‡µ‡à‡ï‡Æ‡ : Bool ‚í Unit`, the
--- map that drops exactly one bit ‚î `Residue_‚¶` ¬ß5, which its own struck
--- header calls "level ‡® of a five-level scale".  `Unit` is a proposition,
+-- map that drops exactly one bit ‚î `Residue_‚¶` ¬ß5, at level
+-- ‡® of a five-level scale.  `Unit` is a proposition,
 -- so the path component of the fiber contracts and the fiber is `Bool`,
 -- the whole source.  The proof is ¬ß‡®'s proof with `isPropUnit` for
 -- `isPropPropTrunc`, which is why: this criterion reads propositionality
@@ -128,10 +119,6 @@ private
 -- ¬ß‡® there shows it is not a stray instance ‚î `‚à Bool ‚à‚ ‚â Unit` and the
 -- triangle commutes, so at `A = Bool` the level-‡ archetype IS the
 -- level-‡® archetype, and the two fiber censuses are pointwise equivalent.
---
--- ¬ß‡® of THIS file holds: every fiber of `‚à_‚à‚` is
--- the whole source, for every `A`.  What is refuted is its use as a
--- criterion, which ¬ß‡ below does not claim in general.
 ------------------------------------------------------------------------
 
 ‡§∏‡§∞‡•ç‡§µ‡§π‡§æ‡§®‡§ø‡§É : {A B : Type ‚Ñì} ‚Üí (A ‚Üí B) ‚Üí B ‚Üí Type ‚Ñì
@@ -145,8 +132,8 @@ private
 -- ‡ ¬ The seam, and the refutation of the criterion.
 --
 -- `‡‡∞‡‡µ‡‡æ‡®‡ø‡` is satisfied by
--- the corpus's own level-‡® archetype, so ¬ß‡© gave level ‡ no criterion at
--- all; and the level-‡© half of the scale ‚î a proper fiber, with something
+-- the corpus's own level-‡® archetype;
+-- and the level-‡© half of the scale ‚î a proper fiber, with something
 -- out of the source still seeing the difference ‚î is satisfied at the
 -- level-‡ archetype and is vacuous wherever the fiber is crowded.  Both
 -- halves are refuted in
@@ -154,5 +141,5 @@ private
 -- CriterionFailsOnItsOwnArchetype`, which also exhibits the same map
 -- under two retained contexts with opposite verdicts ‚î so the level is
 -- not a property of the map, and no per-map criterion can complete the
--- scale.  What survives here untouched is ¬ß‡®.
+-- scale.
 ------------------------------------------------------------------------

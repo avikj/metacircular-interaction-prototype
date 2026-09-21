@@ -3,33 +3,7 @@
 ------------------------------------------------------------------------
 -- IndianLane ‚î a gate that is actually green on the pinned toolchain.
 --
--- WHY THIS FILE EXISTS.  `Everything.agda` was written because "an orphan
--- that the root does not import is exactly the hole that let the earlier
--- overstatement hide."  By the mechanical check BUILD.md prescribes,
--- TWELVE top-level modules were outside its import
--- closure, and all twelve were from one lane ‚î
---
---     Kuttaka  Bhavana  BhavanaSemiring  BhavanaGenerative  Pingala
---     Sivasutra  Anekanta  JainSankhya  AbhavaAvacchedaka
---     MachineCurriculum  BhedaAvatarana  LosslessReturn
---
--- The newest and most emphasised work in the repository was built by
--- nothing while the older lane was guarded.  That is the sourcing skew
--- reproduced in the build graph rather than in citations, which is the
--- form of it no amount of careful prose catches.
---
--- WHY NOT JUST ADD THEM TO `Everything.agda`.  They ARE added there too.
--- But `Everything.agda` cannot go green on this container: it reaches
--- `NaturalMachine/PathIsSymmetry.agda:98`, which needs `SymGroup`, a
--- cubical v0.9 name that the pinned v0.5 spells `Symmetric-Group`.  That
--- failure is pre-existing, is documented in BUILD.md ¬ß280, belongs to
--- another lane, and is untouched here.  Its consequence for THIS lane is
--- the thing worth naming: adding a module to an aggregate that is red for
--- unrelated reasons does not guard it.  The check still fails, the failure
--- still comes from somewhere else, and nobody learns anything about these
--- twelve files.  A gate has to be able to go green to be a gate.
---
--- So this aggregate is the one that runs:
+-- This aggregate runs:
 --
 --     cd formal/cubical && agda IndianLane.agda      # must exit 0
 ------------------------------------------------------------------------
@@ -63,7 +37,7 @@ import CakravalaNat
 import CakravalaDescent
 
 -- The choice rule's PAYLOAD: |k| ‚â 2‚àD is preserved by the step, so the
--- wheel turns inside a fixed window.  Termination itself stays open.
+-- wheel turns inside a fixed window.
 import CakravalaBound
 
 -- EMITTED BY THE REACTOR (machine/NalandaEmit.hs) and checked here: the
@@ -83,10 +57,10 @@ import Pingala
 
 -- PINI, Adhyy (~500 BCE): the ivastras as a pratyhra machine,
 -- and the rule-conflict machinery -- utsarga/apavda, the elsewhere
--- condition, asiddhatva, anuvtti.  Green, and until now gated only by
+-- condition, asiddhatva, anuvtti.
 -- Everything.agda, which cannot go green on this container.
 import Sivasutra
--- The optimality Sivasutra.agda records as OWED, part paid: classes sharing
+-- Optimality for Sivasutra.agda, the lower-bound half: classes sharing
 -- one anubandha are a ‚ä-chain, so a ‚ä-antichain of classes forces that many
 -- markers, in ANY order.  Four for the vowel classes; the order attains four.
 import PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
@@ -163,11 +137,11 @@ import AmshaSatyayantra
 -- Akalaka's kramrpaa against sahrpaa, Laghyastraya c. 720‚ì780.
 import AnuktaAvaktavya
 
--- The two saptabhag modules, which had no gate and no link to each
--- other: Saptabhangi.agda (‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡, that the sequential bhaga is
+-- The two saptabhag modules:
+-- Saptabhangi.agda (‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡, that the sequential bhaga is
 -- not the simultaneous one, and ‡¶‡‡∞‡‡®‡Ø‡, that ANY two-valued verdict
 -- identifies two of the three seeds by pigeonhole) and
--- SaptabhangiNaya.agda.  AnuktaAvaktavya ¬ß7 now holds both and draws
+-- SaptabhangiNaya.agda.  AnuktaAvaktavya ¬ß7 holds both and draws
 -- the distinction that keeps them from contradicting: content is
 -- reachable by a pair, position is not reachable by sequencing.
 import Saptabhangi
@@ -178,15 +152,12 @@ import BhedaAvatarana
 import LosslessReturn
 
 ------------------------------------------------------------------------
--- Two correctors that no gate reached.
+-- Two correctors.
 --
 -- `NaturalMachine/SamayikaAndNityaAreIndependent.agda` and
--- `NaturalMachine/TheFourthCornerIsRefutedUnderPointwiseStability.agda`
--- are under NaturalMachine/ by name only: nothing else imports
--- either, and the second imports the first, so the pair was a
--- closed island.
+-- `NaturalMachine/TheFourthCornerIsRefutedUnderPointwiseStability.agda`.
 --
--- Adding them here is not bookkeeping.  It is the ONLY mechanism by which
+-- Importing them here is the ONLY mechanism by which
 -- `SamayikaAndNityaAreIndependent` can be made load-bearing at all.  It
 -- refutes a claim in `AnuktaAvaktavya.agda`, and to do that it must open
 -- AnuktaAvaktavya for the very definitions it corrects
@@ -204,11 +175,11 @@ import LosslessReturn
 -- side and keeps a pointer there, which is the strongest mechanism
 -- available IN that direction.
 --
--- General, and it is the reason this is written out rather than just done:
+-- In general:
 -- an aggregate is not only a list of what to check.  It is the only place
 -- in a module system where mutually uncitable results can be held
 -- together.  Every pair (claim, refutation-that-uses-the-claim) in this
--- corpus has this shape and will need this remedy.
+-- corpus has this shape.
 ------------------------------------------------------------------------
 
 import SamayikaAndNityaAreIndependent

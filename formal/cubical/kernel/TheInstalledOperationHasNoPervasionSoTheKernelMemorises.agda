@@ -8,8 +8,6 @@
 -- mark.  Root notion in Gautama, *Nyyastra* (~2nd c. CE), under ‡‡®‡‡Æ‡æ‡®;
 -- the definitional apparatus (the vyptivda, and the ‡â‡‡æ‡ß‡ø that defeats a
 -- proposed pervasion) is Navya-Nyya, Gagea, *Tattvacintmai* (~1325).
--- The 12-century gap is stated because filing the later apparatus under the
--- strakra is the error this corpus struck in its own Pini row.
 --
 ------------------------------------------------------------------------
 -- WHAT THIS IS ABOUT

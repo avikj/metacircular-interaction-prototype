@@ -6,15 +6,10 @@
 -- (searching: only at the middle grade does a search have content ‚î
 --  uniqueness is free and existence is the whole of the work.)
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHY THIS EXISTS, AND IT IS A CORRECTION TO HOW I HAD BEEN READING THE
--- CARRIER LAW ALL DAY.
---
 -- `loss/‚¶/Carrier.agda` gives `A ‚â Carrier f` for every f because
--- `singl (f a)` is CONTRACTIBLE, and I had been treating "contractible
--- fibre = free" as the whole of it.  It is one of three grades, and
+-- `singl (f a)` is CONTRACTIBLE.  That is one of three grades, and
 -- `Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAt
--- SixtyOne.agda` names the one I was missing, in the case that matters:
+-- SixtyOne.agda` names the middle one, in the case that matters:
 --
 --     "For the ‡ï‡‡‡‡ the fibre is `singl` ‚î contractible ‚î because the
 --      roots determine it TOTALLY: every pair has a ‡ï‡‡‡‡.  For the ‡‡æ‡ó‡‡æ‡∞
@@ -44,8 +39,8 @@
 -- The obstruction to undoing is TWO DISTINCT SOURCES over one target,
 -- strictly stronger than ‡‡‡, and that is its ¬ß‡® ‚î four lines, no h-level,
 -- no decidability, no finiteness, arbitrary A and B.  ¬ß‡ below uses
--- `Bool ‚í Unit`, whose two fibre points DO have distinct sources, so the
--- instance stands; the reading did not.  This grade says what its name
+-- `Bool ‚í Unit`, whose two fibre points DO have distinct sources.
+-- This grade says what its name
 -- says and no more, and what a search can recover is answered by sources.
 --
 -- AND THE MIDDLE GRADE IS WHERE AN ALGORITHM HAS CONTENT.  At the top
