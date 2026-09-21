@@ -22,17 +22,6 @@
 -- implies the other, neither implies the other's negation, and both can
 -- hold at once.  So they are not two readings of one thing at any
 -- strength, and one word cannot cover both without loss.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT IS NOT DONE, and it is that identity's own point
---
--- The THIRD structure ‚î Satyayantra's ‡‡®‡‡ï‡‡‡Æ‡, the un-said ‚î is NOT
--- brought onto this carrier.  It is temporal (a grant may still say it),
--- so it is not a predicate of a content and a language at all.  d909db0d
--- already states that the two third-positions' remedies live in
--- different types; forcing all three onto one carrier would be the
--- collapse this module is about.  Two are compared because two are
--- comparable.
 ------------------------------------------------------------------------
 
 module NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent where
@@ -134,7 +123,6 @@ corner-neither = selfIsUnique , selfIsExpressibleInOnlyId
 -- is dc318bd9's "boolean collapse, one level up", as a theorem rather
 -- than as a diagnosis.
 --
--- SCOPE, stated because the corners use two different languages.
 -- `Inexpressible` is relative to a language, and corners 1 and 3 differ
 -- in the language, not in the content.  That is not a defect of the
 -- statement: expressibility IS language-relative, and the pair

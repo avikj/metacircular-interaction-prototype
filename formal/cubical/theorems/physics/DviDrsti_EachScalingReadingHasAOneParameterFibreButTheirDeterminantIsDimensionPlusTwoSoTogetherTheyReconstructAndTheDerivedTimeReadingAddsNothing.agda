@@ -62,15 +62,7 @@
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“4 in any commutative ring, for every
 -- dimension `d` as a natural number and every pair of coordinates.
--- Â§Â§5â“7 in â•.  NOT claimed: that the readings correspond to any
--- particular physical normalization â” `peak` and `energy` are two linear
--- forms and the module never leaves that; anything about M, about
--- logarithms, or about the exponents -2/(d+2) and -d/(d+2), which are
--- what Â§2 becomes after dividing by d+2 and are therefore NOT stated
--- here; that `d+2` is cancellable, which Â§3 carries as a hypothesis;
--- and nothing about jets, harmonic velocities, or pressure beyond the
--- comparison of two natural numbers â” Â§Â§5â“7 are about denominators, and
--- the thresholds they came from are not constructed.
+-- Â§Â§5â“7 in â•.
 ------------------------------------------------------------------------
 
 module DviDrsti_EachScalingReadingHasAOneParameterFibreButTheirDeterminantIsDimensionPlusTwoSoTogetherTheyReconstructAndTheDerivedTimeReadingAddsNothing where

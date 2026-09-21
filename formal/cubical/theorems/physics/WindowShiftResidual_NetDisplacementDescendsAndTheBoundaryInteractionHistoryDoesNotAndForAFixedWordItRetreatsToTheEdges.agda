@@ -26,7 +26,6 @@
 -- Weil formula introduces shifts a = log n up to the window size, so fresh
 -- words always live at boundary scale; this is the exact-layer reason
 -- bulk convergence of finite operators is not spectral convergence.
--- That reading is not proved here; Â§Â§1â“3 are.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Functions â• â’ â read on a window, two
 -- truncated shifts, pointwise identities by case analysis on â•'s order.

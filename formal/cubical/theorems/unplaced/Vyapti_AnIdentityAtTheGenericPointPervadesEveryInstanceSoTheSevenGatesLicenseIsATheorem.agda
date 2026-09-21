@@ -29,21 +29,6 @@
 --   Â§3  pervade : an identity at every assignment survives every
 --       substitution â” the G3 license.  Two applications of Â§2 around
 --       the hypothesis at the composite assignment.
---
--- FENCE.  Initiality of â[X] among commutative â-algebras in full is not
--- stated here; what the installer USES is this pervasion over â, and â is
--- where its G7 grid evaluates.  The evaluation target generalises to any
--- CommRing with the same proof; instantiated at â to stay in the
--- machine's own semantics.
---
--- SCOPE.  The title says "the seven
--- gates' license"; what is checked is G3's license â” pervasion from the
--- generic point â” for this âŠ•/âŠ—/lit/var language.  The OTHER gates carry
--- their own licenses, and in particular G7's ("a grid whose size is a
--- complete bound for the degree decides the identity" â” that a
--- degree-bounded polynomial vanishing on a large-enough grid is zero)
--- is not claimed here.  "The" in the
--- title means G3's.
 ------------------------------------------------------------------------
 
 module Vyapti_AnIdentityAtTheGenericPointPervadesEveryInstanceSoTheSevenGatesLicenseIsATheorem where

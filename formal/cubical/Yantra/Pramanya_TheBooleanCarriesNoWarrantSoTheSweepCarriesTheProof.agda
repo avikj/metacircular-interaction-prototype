@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡‡∞‡æ‡Æ‡æ‡‡‡Ø ‚î whether a verdict carries its own warrant.
 --
--- SCOPE.  944676e4 ships two lanes that compute the same numbers and are
+-- 944676e4 ships two lanes that compute the same numbers and are
 -- joined by nothing.  `Yantra.Ganana` and `Yantra.Ekam` decide primality
 -- with `prime : ‚ï ‚í Bool`, fuelled trial division, and report
 -- `fastsweep 500 4 ‚â° true`, `tcount 200 ‚â° 15`.  `Yantra.Purna` and

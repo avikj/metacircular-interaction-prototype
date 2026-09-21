@@ -37,9 +37,8 @@
 --
 -- SYT � THE CLAIM, EXACTLY.  §0 the predicate; §§1�2 the two corpus
 -- obstructions AS instances of it (rung 0 definitional, rung 1 up to
--- sym); §3 the pair.  NOT claimed: the full ∞-tower (that every rung n
--- precipitates rung n+1 for all n) � that induction is the construction
--- GarbhaDhara's note still names open.  What IS claimed: two consecutive
+-- sym); §3 the pair.
+-- What IS claimed: two consecutive
 -- rungs are the SAME predicate at successive degrees, so the tower's
 -- step is one type re-instantiated, not a sequence of coincidences.
 ------------------------------------------------------------------------

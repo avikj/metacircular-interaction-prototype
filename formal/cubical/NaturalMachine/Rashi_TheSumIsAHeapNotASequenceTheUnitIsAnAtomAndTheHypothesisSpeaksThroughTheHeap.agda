@@ -5,8 +5,7 @@
 -- gaita tradition for a quantity under operation (Bhskara II,
 -- Llvat and Bjagaita, c. 1150, where ri names the quantity
 -- worked upon).  The classification â” a sum as a heap of atoms, not a
--- sequence â” is the tradition's; the mathematics here is not claimed
--- for the source.
+-- sequence â” is the tradition's.
 --
 -- WHY THE EIGHT SURVIVED EVERYTHING.  The head of the residue is
 -- y + xÂy = (sx)Ây, and its inductive step dies in every prior

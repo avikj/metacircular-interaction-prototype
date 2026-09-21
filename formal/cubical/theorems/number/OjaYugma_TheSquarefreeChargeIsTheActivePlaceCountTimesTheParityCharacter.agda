@@ -37,12 +37,6 @@
 -- negated.  So the tensor whose rank is exactly n and the graded object of
 -- Theorem F are one function of the places, and r = 0 â” the twirl's neutral
 -- sector â” is the statement that this function's expectation vanishes.
---
--- NOT checked here: that the Lean lane's `Fin n â’ Bool` form and this
--- `List Bool` form agree.  They carry the same data in a different index
--- shape, no map is exhibited between the lanes, and two lanes agreeing on a
--- formula is not a map.  Nothing here touches KMS states; that is Theorem F's
--- own content and lives in prose.
 module OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityCharacter where
 
 open import Cubical.Foundations.Prelude

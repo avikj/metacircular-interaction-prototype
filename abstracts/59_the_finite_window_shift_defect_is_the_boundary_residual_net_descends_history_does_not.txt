@@ -30,8 +30,6 @@ descent/non-descent instance in the sense of SankramanaShreni and VyayaSesa.
 
 SYT â” THE CLAIM, EXACTLY. The three facts for the N = 3 window (the shape
 is general, the witness is exhibited, per the corpus's concrete-witness
-discipline). NOT claimed: anything about Î or its zeros â” this is the
-residual's algebra, the piece the explicit-formula boundary block is built
-on, not the spectral theorem.
+discipline).
 
 Machine-checked in cubical type theory, --safe, at the pin.

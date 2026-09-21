@@ -63,7 +63,7 @@
 --                   is the size of the field that had to be added.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- SOURCES, and what is NOT claimed of them.
+-- SOURCES.
 --
 -- Pigala, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ.‡®‡©‚ì‡©‡ (~300 BCE), the ‡‡‡∞‡‡‡Ø‡Ø‡æ‡: ‡‡‡∞‡‡‡‡æ‡∞ (lay the
 -- table out by a rule, do not store it), ‡®‡‡‡ü (given a place, recover the
@@ -225,29 +225,3 @@ rightInv ‡§∏‡§Æ‡§∑‡•ç‡§ü‡§ø‡§É (n , (p , e)) =
 
 ‡§Æ‡•Ç‡§≤‡•ç‡§Ø‡§Æ‡•ç : (n : ‚Ñï) ‚Üí matra (suc (suc n)) ‚â° matra (suc n) + matra n
 ‡§Æ‡•Ç‡§≤‡•ç‡§Ø‡§Æ‡•ç = matraRecurrence
-
-------------------------------------------------------------------------
--- ‡ ¬ What is NOT shown, said rather than left to be assumed.
---
---     (a) No claim that this address is Pigala's own ‡Æ‡æ‡‡‡∞‡æ-‡‡‡∞‡‡‡‡æ‡∞
---         ORDER.  `matraCount` is built from `matrameruIso` and
---         `Fin+‚âFin‚äFin`, so the rank it assigns is determined by that
---         composite and is a rank; whether it agrees row-for-row with
---         the order the tradition lays the ‡Æ‡æ‡‡‡∞‡æ-‡‡‡∞‡‡‡‡æ‡∞ out in is a
---         separate question and is not answered here.  ¬ß‡ pins only the
---         FIRST component.
---
---     (b) No claim of minimality beyond cardinality.  `matra n` is the
---         exact size of the fiber, so no smaller rank type can do; that
---         is `matraCount` and needs nothing further.  It is not a claim
---         about bits, encodings, or the cost of computing ‡®‡‡‡ü.
---
---     (c) No closed form for `matra`, and none is wanted here.
---
---     (d) The general statement ‚î that ¬ß‡® holds for ANY map and so every
---         receipt is completed to an address by its own fiber ‚î is true
---         and is one line, and is deliberately not stated as a lemma
---         here because `Pata_‚¶` is where the general law belongs and
---         this file is the instance that shows what the general law
---         costs at Pigala's weight.
-------------------------------------------------------------------------

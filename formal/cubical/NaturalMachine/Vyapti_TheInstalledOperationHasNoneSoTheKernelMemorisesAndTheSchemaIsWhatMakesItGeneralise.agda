@@ -12,8 +12,7 @@
 -- The 12-century gap is stated because filing the later apparatus under the
 -- strakra is the error this corpus struck in its own Pini row.
 --
--- SCOPE OF THE CLAIM ON THE SOURCE.  Naming this module for vypti does NOT
--- say the Naiyyikas proved anything below.  What is borrowed is one
+-- What is borrowed is one
 -- distinction they drew sharply and that this kernel's types do not: a
 -- à®à¾à°àà• that licenses an inference ONLY in the instance where it was
 -- observed is not a pervasion at all.  Â§1 shows the kernel's installed

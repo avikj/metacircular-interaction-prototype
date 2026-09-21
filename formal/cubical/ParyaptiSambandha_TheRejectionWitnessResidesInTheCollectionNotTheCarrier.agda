@@ -82,25 +82,6 @@
 --
 -- One sentence: **soundness of the residue costs nothing; extracting a
 -- witness from its failure costs exactly the delimitor.**
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
---  * NO COMPLETENESS.  Nothing here proves residue-domination implies
---    `âŠ`.  That is the converse and it is not attempted.
---  * NO UNDECIDABILITY.  Â§3 shows the delimited Î IS decidable given
---    `Discrete A`.  It does NOT show the undelimited Î is undecidable
---    without it â” that needs a countermodel and none is built.  What is
---    exhibited is that `Discrete A` appears in Â§2â“Â§4 and is absent from
---    Â§1: a statement about these proofs, not a lower bound.
---  * NO CLAIM ABOUT AGGREGATE RESIDUES.  Â§1 covers every monoid
---    homomorphism, a single sum-hash included.  Â§2â“Â§4 concern the
---    PER-ELEMENT counting residue.  Whether a rejection by an aggregate
---    residue yields an element witness is not settled here â” and for
---    `Discrete A` it trivially does, by ignoring the aggregate and
---    running Â§3, which is itself the point: the aggregate contributes
---    cost, not level.
---  * `_âŠ_` is one presentation of sub-multiset containment.  Its
---    agreement with any other presentation in this corpus is not proved.
 ------------------------------------------------------------------------
 
 module ParyaptiSambandha_TheRejectionWitnessResidesInTheCollectionNotTheCarrier where

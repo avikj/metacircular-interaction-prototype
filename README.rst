@@ -342,22 +342,6 @@ are one idempotence, priced once as a loss and once as a guarantee.
 SYT â” THE CLAIM, EXACTLY
 ------------------------------------------------------------------------------------------
 
-Not that the five are instances of one formal statement.  They are not:
-their types differ, their ambient structures differ, and no functor
-between them is constructed.  What is exhibited is that each is the same
-SENTENCE, and that III and V are literally about one object.  A common
-generalisation would be a real theorem and it is not proved.
-
-Not that Pini or Bhskara II proved, stated or anticipated any of this.
-Â§I quotes stras of the Adhyy; the fibre reading is not Pini's.
-
-Not anything about physical spacetime, quantum states, Hilbert spaces or
-SU(2).  Â§II is about a semantics and an equivalence.
-
-Not that Â§IV's machine-learning reading is a theorem about any deployed
-system.  The theorem is about functions of a count-valued semantics; that
-a reward model is such a function is an interpretation, stated as one.
-
 What IS claimed: the named terms exist, are checked, say what is written
 above them, and are imported by one Agda module â” so that module stops
 compiling the moment any of them stops being true.

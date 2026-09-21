@@ -167,9 +167,7 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞ : Type‚ÇÄ where
 --     It shows ‡Æ‡æ‡‡‡∞‡æ is not an address.  It does NOT show that the
 --     ‡‡‡∞‡‡‡‡æ‡∞'s rank map fails to be one ‚î ‡â‡¶‡‡¶‡ø‡‡‡ü IS an address, and the
 --     punaragamana module proves it by exhibiting ‡®‡‡‡ü with both round
---     trips.  That direction is not reproved here and is not claimed;
---     what is claimed is only the contrast, which needs just one side to
---     be exhibited to be a distinction rather than a preference.
+--     trips.
 --
 --     And it shows the two are independent properties of the SAME map
 --     type, not two grades of one property: `‡Æ‡æ‡‡‡∞‡æ-‡µ‡‡®‡Æ‡` and

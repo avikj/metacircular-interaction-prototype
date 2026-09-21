@@ -6,12 +6,8 @@
 -- `TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary` showed
 -- that the strict and non-strict families differ exactly at a
 -- population sitting ON a threshold, exhibited ONE such population at
--- ONE threshold, and said:
---
---   "that EVERY threshold has such a population is NOT proved, and
---    would need a construction of a population realising an arbitrary
---    p/(suc q), which is a divisibility statement about â• and not a
---    statement about lists."
+-- ONE threshold.  This module shows that EVERY threshold has such a
+-- population.
 --
 -- It is a statement about â•, and there is no divisibility in it: the
 -- denominator itself is the length.  For p â‰ suc q, the population of

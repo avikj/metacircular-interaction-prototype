@@ -35,8 +35,6 @@ To analyze a system is to name its receiver; the atom does the rest.
 
 SYT â” THE CLAIM, EXACTLY.  Recursion and uniqueness for receivers
 indexed by Tm with a level-polymorphic carrier and an action per Step;
-the three named analyzers as instances.  NOT claimed: initiality
-packaged as an object in a category of algebras â” this is its
-computational content, stated directly on the kernel's type.
+the three named analyzers as instances.
 
 Machine-checked in cubical type theory, --safe, at the pin.

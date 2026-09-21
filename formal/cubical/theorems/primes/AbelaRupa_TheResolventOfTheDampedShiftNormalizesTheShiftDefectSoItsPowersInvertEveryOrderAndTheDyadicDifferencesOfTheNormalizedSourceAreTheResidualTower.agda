@@ -47,10 +47,7 @@
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“2 in any commutative ring, for every
 -- `T`, `Ï`, and every resolvent `c` of `1 - ÏT`.  Â§3 in any commutative
 -- ring, for every source, every invertible scale character, every order
--- and every lattice point.  NOT claimed: existence of the resolvent
--- (carried); anything about norms, câ, contractions, or limits; that the
--- actual arithmetic source's normalized readings converge â” which is
--- (32) there and needs the explicit formula; and nothing about zeta.
+-- and every lattice point.
 ------------------------------------------------------------------------
 
 module AbelaRupa_TheResolventOfTheDampedShiftNormalizesTheShiftDefectSoItsPowersInvertEveryOrderAndTheDyadicDifferencesOfTheNormalizedSourceAreTheResidualTower where

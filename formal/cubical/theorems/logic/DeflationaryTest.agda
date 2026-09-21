@@ -299,15 +299,6 @@ decâ†’sumâ†’dec (no  _) = refl
 -- There is no sense available in this lane in which any statement here is
 -- a barrier, other than "here is a proof of ÂA" â” and that reading is
 -- exact.  The word has nothing left to mean.
---
--- WHAT THIS DOES NOT SAY, and the boundary now matters more than before:
--- that no real barrier exists in the mathematics.  Independence and
--- algorithmic impossibility are real, are proved elsewhere by other
--- means, and are not of the form `Â (Dec A)`.  Stating one requires a
--- theory to be independent OF, or a uniformity to quantify over â” objects
--- this lane does not carry.  `GodelSeparation` is the corpus's one
--- gesture at the first, and it too proves a Â-headed statement by
--- exhibiting a countermodel.
 ------------------------------------------------------------------------
 
 no-barrier-claim : (A : Type â„“) â†’ Â¬ (BarrierClaim A)

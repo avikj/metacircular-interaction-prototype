@@ -25,16 +25,15 @@
 --      contractibility of the fibre of the cell map, obtained from the
 --      equivalence rather than from a search.
 --
---  (b) NONPLANARITY â” ARITHMETIC OBSTRUCTION ONLY.  Topological
---      planarity is NOT formalized here, and no claim is made that it
---      is.  What is proved is the arithmetic that obstructs it:
+--  (b) NONPLANARITY â” ARITHMETIC OBSTRUCTION ONLY.
+--      What is proved is the arithmetic that obstructs it:
 --      `bipartite-bound-violated : Â (E + 4 â‰â• 2 Â V)` for the certified
 --      cardinalities E = 9, V = 6 (the subtraction-free form of
 --      E â‰ 2V âˆ’ 4), together with its contrapositive packaging
 --      `not-K33 : (v e : â•) â’ e + 4 â‰â• 2 Â v â’ Â ((v â‰¡ V) — (e â‰¡ E))`.
 --      The Euler-bound theorem itself â” "a simple planar bipartite graph
---      satisfies E â‰ 2V âˆ’ 4" â” is a topological input, assumed, not
---      proved.  Read (b) as: any graph obeying that bound is not this
+--      satisfies E â‰ 2V âˆ’ 4" â” is a topological input.
+--      Read (b) as: any graph obeying that bound is not this
 --      one.
 --
 --  (c) TOROIDAL ROTATION SYSTEM â” COMBINATORICS ONLY.  Proved:
@@ -445,7 +444,7 @@ ctxCount = compEquiv ctxEquiv vertexCount
 -- CLAIM (b).  The bipartite Euler bound is violated â” ARITHMETIC ONLY.
 --
 -- A simple planar bipartite graph satisfies E â‰ 2V âˆ’ 4.  That theorem is
--- topological input; it is ASSUMED, not proved here.  What is proved is
+-- topological input.  What is proved is
 -- that these numbers cannot satisfy it, in the subtraction-free form
 -- E + 4 â‰ 2ÂV (equivalent over â• for 2V â‰ 4).
 ------------------------------------------------------------------------

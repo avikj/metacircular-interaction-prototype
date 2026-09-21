@@ -3,11 +3,7 @@
 ------------------------------------------------------------------------
 -- LocatingIsEnough
 --
--- `WhyTheSitesAreTwo` §6 asks:
---
---     whether discreteness of Y can be weakened � the table walk needs
---     to compare observations, and nothing here says a weaker
---     comparison would not do.
+-- `WhyTheSitesAreTwo` §6 asks whether discreteness of Y can be weakened.
 --
 -- It can, and this is exactly how far.  The theorem never compares two
 -- arbitrary observations.  It compares the LIST'S observations against

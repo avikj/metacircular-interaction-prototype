@@ -70,13 +70,7 @@
 -- pairing into any ring, and any `M`, satisfying the three displayed
 -- equations.  Â§Â§2â“4 in any ring with involution, for every `Mop`, every
 -- skew `Î `, every `M` intertwining as displayed, and every pair of
--- sources.  NOT claimed: that any concrete bracket satisfies the Jacobi
--- hypothesis (it is assumed, not verified â” no Lie algebra is
--- constructed here); that any pairing is nondegenerate, or that any form
--- is represented by an operator; anything about compactness, ideals, or
--- quotients, which enter only in `RiktaTantu`; and nothing about
--- solving, averaging, or lifting anything â” there is no propagator and
--- no expectation in this file.
+-- sources.
 ------------------------------------------------------------------------
 
 module SarvaMula_TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator where

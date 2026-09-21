@@ -55,19 +55,8 @@
 -- sequential rule set is measured by a quantity that was already a theorem
 -- before anyone asked the question.
 --
--- Named as the frame this speaks to.  Nothing below is a theorem of any of
--- those authors, no concrete data structure appears, and no claim is made
--- that this kernel is an instance of their definitions â” only that the
--- distinction they drew is the one the omitted rule turns on.
---
--- WHAT IS **NOT** CLAIMED.  Not that the extended calculus is confluent,
--- terminating, or has normal forms â” `add (suc x) (suc y)` now has two
--- redexes at one position, so `Visranti_â¦`'s orthogonality argument does
--- NOT survive and would have to be redone by joining the critical pair.
--- Not that (word, constant) becomes a complete invariant for the extended
--- system.  Not
--- that the extension is an improvement â” `Visranti_â¦` gets a decision
--- procedure out of the omission, which is a real thing to lose.
+-- Named as the frame this speaks to: the distinction they drew is the one
+-- the omitted rule turns on.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Ubhayatah_TheOmittedLeftRuleIsFreeAndItsAbsenceIsExactlyTheTrappedCount where

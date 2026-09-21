@@ -49,13 +49,6 @@
 -- The corrected statement, with no conjecture attached to it: derivability
 -- implies agreement on word, constant AND trapped count, and whether those
 -- three suffice is §4's conjecture.
---
--- WHAT IS **NOT** CLAIMED.  Not that `trapped` completes the invariant
--- (§4).  Not that the
--- three laws are independent as a set � only that `trapped` is not a
--- function of the other two, which §3 establishes by exhibiting a pair
--- agreeing on both and differing on it.  Nothing here concerns `Step�`;
--- an associativity or commutativity rule would break §2 by design.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Baddha_TheTrappedSuccessorIsAThirdConservationLawAndItRefutesTheCompleteInvariantConjecture where

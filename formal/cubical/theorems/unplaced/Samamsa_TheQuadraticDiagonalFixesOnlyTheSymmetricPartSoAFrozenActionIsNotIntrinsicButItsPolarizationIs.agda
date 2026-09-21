@@ -49,12 +49,6 @@
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“2 in an arbitrary ring, with the
 -- carrier taken as the ring itself, `additive` meaning preservation of
 -- `+`, and bilinearity assumed only in the slots each statement uses.
--- NOT claimed: anything about the affine-space structure of the
--- realization fibre over `Hom(ÎÂ² V , W)` (that needs the exterior
--- square, which is not built here); anything about vector spaces,
--- topology, or any particular equation; and nothing about halving â”
--- every statement is on the symmetrized quantity, never on a half of
--- it, so no invertibility of 2 is used anywhere.
 ------------------------------------------------------------------------
 
 module Samamsa_TheQuadraticDiagonalFixesOnlyTheSymmetricPartSoAFrozenActionIsNotIntrinsicButItsPolarizationIs where

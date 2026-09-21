@@ -150,16 +150,3 @@ module _ {A B : Type ℓ} (f : A → B) (b : B) where
 
 बहु-न-एकाधिक : ¬ (एकाधिक सर्वैकम् tt)
 बहु-न-एकाधिक p = true≢false (cong fst (p दक्षिण वाम))
-
-------------------------------------------------------------------------
--- � � ���� � what this does not say.
---
---     `��������` does NOT say the existence question is decidable, and no
---     notion of algorithm, cost or decidability appears above.  It says
---     that uniqueness is not part of the problem � which is what makes a
---     search well posed, not what makes it succeed.  Whether an m exists
---     with the three divisions exact is, at D = 61, six facts discharged
---     by computation in `Bhagahara` §� and no theorem at all in general;
---     that module is explicit that no decision procedure for them is
---     built and that termination of the wheel is not proved.
-------------------------------------------------------------------------

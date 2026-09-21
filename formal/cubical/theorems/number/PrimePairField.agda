@@ -151,7 +151,7 @@ module Field (IsPrime : ℤ → Type) where
 module Controls where
 
   -- A primality predicate that holds of exactly 3 and 5.  Enough to
-  -- exhibit a genuine inhabitant; nothing here claims to decide primality.
+  -- exhibit a genuine inhabitant.
   data Tiny : ℤ → Type where
     three : Tiny (pos 3)
     five  : Tiny (pos 5)

@@ -289,17 +289,9 @@ mid-drops-at-a : ¬ (((ℓc ⊙ ℓa) ⊙ ℓc) a ≡ ((ℓc ⊙ᴸ ℓa) ⊙ᴸ
 mid-drops-at-a h = snotz (injSuc (injNegsuc h))
 
 ------------------------------------------------------------------------
--- 4.  What is NOT claimed.
+-- 4.  The side condition.
 --
--- Not §2.5's theorem.  That statement is universally quantified over
--- profiles and this is one triple; the general proof goes through the
--- nucleus adjunction (N_* � N*, closure, two-sided compatibility with
--- �) and is not attempted here.  Clause four of §14.1 stays open, and
--- the honest reading of this module is: on the one instance where the
--- one-sided calculus is known to fail, the middle calculus does not.
---
--- Not that ⊙ and ⊙� agree elsewhere, or that either is the "right"
--- composition � §2.5's own lesson is stated as a side condition and is
+-- §2.5's own lesson is stated as a side condition and is
 -- worth carrying verbatim rather than paraphrased:
 --
 --     "The exact lesson is not that every microscopic detail must be

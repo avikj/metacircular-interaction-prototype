@@ -5,8 +5,7 @@
 -- doctrine ‚î the examination of the authority.  An pta is
 -- established by examination, never by claim; received text (gama)
 -- is knowledge only downstream of that examination.  The
--- classification is his; the mathematics is not claimed for the
--- source.  School named: Jaina.
+-- classification is his.  School named: Jaina.
 --
 -- THE TWO-BODY PROBLEM, CROSSED.  Until now the machine's LIVE store
 -- ‚î the rewriter's rules in machine/library.terms, grown by ‡‡ø‡¶‡‡ß‡ø's

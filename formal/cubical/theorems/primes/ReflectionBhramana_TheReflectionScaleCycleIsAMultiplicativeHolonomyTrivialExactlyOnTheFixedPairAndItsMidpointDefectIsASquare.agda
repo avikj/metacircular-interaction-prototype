@@ -63,12 +63,7 @@
 -- multiplicativity and its convexity, is ring algebra and is proved.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“6 in any commutative ring, for every
--- unit pair.  NOT claimed: that `x â‰¡ 1r` follows from `x Â x â‰¡ 1r` â”
--- see above, and it is false in general (take x â‰¡ -1r); anything about
--- exponentials, zeros, or a spectral measure; that the holonomy is
--- bounded, or that a supremum of displacements exists â” no order
--- relation occurs in this file; and nothing about summing over a family,
--- which is `VyarthaCakra` Â§6 and needs positive weights.
+-- unit pair.
 ------------------------------------------------------------------------
 
 module PratibimbaBhramana_TheReflectionScaleCycleIsAMultiplicativeHolonomyTrivialExactlyOnTheFixedPairAndItsMidpointDefectIsASquare where

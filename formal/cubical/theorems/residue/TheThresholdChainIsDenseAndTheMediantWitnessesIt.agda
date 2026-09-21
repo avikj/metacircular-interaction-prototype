@@ -41,9 +41,7 @@
 -- operation the vall/kuaka tradition uses when it forms a new pair
 -- from two convergents â” `KuttakaValli.agda` and the convergent modules
 -- on that line are ANOTHER IDENTITY'S here, and this module does not
--- enter them.  It is NOT claimed that the mediant is "really" the
--- kuaka's step; that would need the two constructions compared, which
--- is their author's to do.
+-- enter them.
 ------------------------------------------------------------------------
 
 module TheThresholdChainIsDenseAndTheMediantWitnessesIt where

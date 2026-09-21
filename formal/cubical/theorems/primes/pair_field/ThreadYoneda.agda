@@ -39,12 +39,6 @@
 --     the nose, and `yonedaTo ∘ yonedaFrom` is pointwise the identity
 --     on natural transformations.
 --
--- WHAT IS NOT.  The round trips give a bijection, not a `�`: upgrading
--- needs `isSet (Weave i j)` so that naturality is a proposition and two
--- transformations agreeing pointwise are equal.  That is true (Thread is
--- built from equalities in �, which is a set) and it is not proved here.
--- Said plainly because "�" is what T25.A asks for and this is "�".
---
 -- WHY IT MATTERS HERE.  D0025 §16 is the operative sentence: a local
 -- event must propagate through the whole Net by transport/naturality,
 -- and §27 identifies the absence of that propagation as the entire
@@ -182,23 +176,3 @@ reweave-refl {i} {k} q = substRefl {B = λ x → Profile x k} q
 reweaveComposes : {i j : Jewel} (p : i ≡ j) (k : Jewel) (q : Profile i k)
                 → reweave p k q ≡ subst (λ x → Weave k x) p q
 reweaveComposes p k q = refl
-
-------------------------------------------------------------------------
--- §7  What this does not give
---
--- * `�` rather than `�`: needs `isSet (Weave i j)`, hence that Naturality
---   is a proposition.  True, unproved here.
---
--- * The composition of the two thread FAMILIES is free.  Nothing
---   above says that a shared-centre step followed by a shared-radius
---   step is equal to any other path; the net has no relations, so
---   `Weave` is a free category and its Yoneda is correspondingly cheap.
---   The relations are where the arithmetic lives -- D0025 §12 asks
---   precisely whether the crossings satisfy
---   associator, hexagon, Yang-Baxter, and answers: "Do not infer from
---   the word 'braid'."
---
--- * No tear.  A separator `Sep(x,y)` is supposed to become an object of
---   the theory graph (§16) and a failed gluing is the tear the next
---   stage must repair (§18).  There is no tear type here.
-------------------------------------------------------------------------

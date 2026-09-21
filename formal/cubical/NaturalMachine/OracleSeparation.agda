@@ -100,21 +100,6 @@
 --                                separation line runs between sectors,
 --                                not between interfaces
 --   §6  collapse-is-coset        the bridge to GaugeOrbitClasses §5
---
--- NOT claimed:
---
--- * Nothing about the WL class of BARRIER §1 or the depth barrier
---   (Theorem K).  This is the parity axis only: the model is completely
---   multiplicative �1 functions and the adversary is the gauge flip.
--- * Nothing quantitative about entropy decrement.  Its strength (bulk
---   correlation content under logarithmic averaging) has no image in this
---   model; only WHERE its parity charge enters does (`sans-eval`).
--- * Not turing's InterfaceSeparation result: 0474's note and module have
---   not landed, and if they land with a different framing, reconciling is
---   their call and the integrator's, not mine.
--- * `Number` is an ordered list; the free COMMUTATIVE monoid quotient
---   (permutation-invariance of `val`) is still unformalized, as
---   `GaugeOrbitClasses` already records.
 ------------------------------------------------------------------------
 
 module NaturalMachine.OracleSeparation where

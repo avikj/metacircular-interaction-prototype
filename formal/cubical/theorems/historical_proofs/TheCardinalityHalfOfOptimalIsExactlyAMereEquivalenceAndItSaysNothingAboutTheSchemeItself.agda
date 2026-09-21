@@ -36,8 +36,7 @@
 -- `obs` is a bijection.  It does not say that.  Whether the two
 -- conjuncts together force it is a pigeonhole theorem â” an injection
 -- between finite sets of equal cardinality is surjective â” which is
--- **not proved in the audited module and is not proved here**; section 4
--- states it as a type.
+-- stated in section 4 as a type.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- 1.  AND SECTION 3'S HEADING NAMES A THEOREM SECTION 3 DOES NOT HAVE
@@ -125,7 +124,7 @@ isoGivesOptimalBackwards X Y i =
 --
 -- The pigeonhole direction â” that the two conjuncts of `Optimal` force
 -- `obs` ITSELF to be an equivalence â” is exactly the statement below.
--- It is not proved here; writing the type out means no theorem may
+-- Writing the type out means no theorem may
 -- quietly assume it.
 ------------------------------------------------------------------------
 

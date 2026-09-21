@@ -45,8 +45,7 @@ SYT â” THE CLAIM, EXACTLY.  There is no Hilbert space, no complex number, no
 Born rule, no beam splitter and no interferometer in this development.
 "Amplitude" names an integer, "intensity" its distance from zero,
 "phase" its sign, and the theorems are a six-line case analysis over
-that data.  Whether physical complementarity has this shape is a
-reading and is not proved; the shape itself is.
+that data.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

@@ -14,10 +14,7 @@
 -- The lcm is taken by its universal property rather than constructed:
 -- `IsLcm d e l` says l is a common multiple that divides every common
 -- multiple.  Existence of such an l is a hypothesis of every statement
--- below, not a claim.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- SCOPE, and it is the interesting half
+-- below.
 --
 -- This is NOT an instance of `ElsewhereCondition.directedRooted`: its
 -- `Guard A = A â’ Bool`, so a guard there is a DECISION, while `D d`

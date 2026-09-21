@@ -13,7 +13,7 @@
 -- (*Sanmatitarka*) and Akalaka use `durnaya` for a naya asserted to the
 -- exclusion of the rest; that a naya so asserted is defective is theirs.
 -- The characterisation below â” collapse is available iff every pair of
--- fibres is equivalent â” is NOT claimed to be in those texts.  It is
+-- fibres is equivalent â” is
 -- this corpus's mathematics, named for the act the tradition already
 -- named, in the sense `Anekanta.agda` argues for at length.
 --

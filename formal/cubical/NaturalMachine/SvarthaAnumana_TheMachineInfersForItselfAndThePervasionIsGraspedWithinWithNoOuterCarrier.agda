@@ -8,8 +8,7 @@
 -- hetu's force rests on the pervasion grasped WITHIN the subject
 -- itself ‚î antarvypti (Nyyvatra 20; pressed by Ptrasvmin) ‚î
 -- against bahirvypti, pervasion gathered from outer examples.  The
--- classification is theirs; the mathematics here is not claimed for
--- any source.  School named: Jaina.
+-- classification is theirs.  School named: Jaina.
 --
 -- WHAT THIS IS, in those terms exactly.  Until tonight the machine's
 -- inductive truths went out through ‡‡∞‡æ‡∞‡‡: ‡‡ø‡¶‡‡ß‡ø stated each proof

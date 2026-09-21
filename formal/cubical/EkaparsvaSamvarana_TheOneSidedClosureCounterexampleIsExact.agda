@@ -39,8 +39,7 @@
 -- `EqualityPramanena_TheTrefoilLawIsExactlyPAssociativity.agda`.  This
 -- module discharges the clause named "the exact counterexample", and
 -- with it the Isbell conjugates and one-sided closure it is stated in
--- terms of.  Middle associativity, the residual laws and the derived
--- nucleus are NOT here and are not claimed.
+-- terms of.
 --
 -- WHAT IS CHECKED.  Everything below is a finite exhaustive computation
 -- on a four-element carrier with integer weights, decided by `refl` in
@@ -425,16 +424,7 @@ left≤right c = refl
 left≤right d = refl
 
 ------------------------------------------------------------------------
--- 7.  What is NOT claimed.
---
--- Not that the counterexample is new: §2.4 marks it � inherited, and
--- that mark stands.  Not that ⊙_L is non-associative in general � one
--- instance is exhibited, which is exactly what a counterexample is, and
--- §2.4's own conclusion is the negative universal ("There is no
--- universal compiler that records only one-sided binary closure ... and
--- still guarantees associative semantic composition"), which this
--- instance witnesses and does not extend.  Not middle associativity:
--- D0026 §2.5 repairs the failure with the two-sided middle nucleus.
+-- 7.  What is added.
 --
 -- One thing IS added rather than reproduced: §2.4 does not state that
 -- its four-element table is associative, and the counterexample is

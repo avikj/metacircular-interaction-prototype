@@ -3,8 +3,7 @@ Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
 A headline composition of the checked Goldbach reconstruction chain.  This
-module deliberately stops in the half-plane `re s > 1`; it makes no claim
-about constructing or determining an analytic continuation.
+module deliberately stops in the half-plane `re s > 1`.
 -/
 import Pairfield.GoldbachTailLossless
 import Pairfield.VonMangoldtTriangularReconstruction

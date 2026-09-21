@@ -30,19 +30,9 @@
 --   * exact recovery of the coarse label after encode/decode;
 --   * the branch itself as the fibre of the flat coarse observer.
 --
--- WHAT THIS DOES NOT CLAIM.
---   * no Hilbert space, amplitude, inner product, or unitary dynamics;
---   * no physical process implements this equivalence;
---   * no equality yet between the nested weight fold and the direct fold on
---     `Flat`‚îthat is the Born coherence square now made well-typed by this
---     reversible carrier and by `OrderNairapeksya`.
---
 -- TERM. ‡‡‡‡‡æ‡ñ‡æ is carried from the checked branch-family module; ‡‡‡‡ is the
 -- repository's ordinary word for a checked bridge.  The compound is built
 -- here; no source is claimed for this mathematics.
---
--- STATUS. Complete no-hole daemon-facing candidate outside `Everything.agda`.
--- Not called checked until a route-bearing warm Nadi load answers.
 ------------------------------------------------------------------------
 
 module BahuShakhaSetuProbe where

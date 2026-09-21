@@ -56,15 +56,12 @@
 -- the connection was noticed.  This module makes the identification a
 -- named object so it can be used, cited, and refuted.
 --
--- WHAT IS **NOT** CLAIMED.  No Hilbert space, no unitarity, no Born rule,
--- no probability appears below; nothing here derives quantum mechanics.
 -- The claim is STRUCTURAL and exact: the verdict-architecture of
 -- observer-relative facts (relativity of the verdict, impossibility of
 -- one absolute utterance, recovery by successive comparison) is the
 -- checked architecture of `SaptabhangiNaya`, instantiated â” every theorem
 -- below is that module's, specialised and re-read; the two thin wrappers
--- are labelled as wrappers.  Whether physical agents ARE nayas in this
--- sense is an interpretation, made in this header and in no term.
+-- are labelled as wrappers.
 ------------------------------------------------------------------------
 
 module MitraSakshi_TheFriendsFactAndWignersAccountAreTwoNayasWhoseJointIsAvaktavyaSoTheParadoxIsAForcedSingleUtterance where

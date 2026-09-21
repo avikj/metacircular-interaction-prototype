@@ -5,8 +5,7 @@
 -- ‡‡‡‡æ‡®‡‡Ø‡ã‡ó‡æ (the genitive in a rule designates the ‡‡‡‡æ‡®‡ø‡®‡, that in
 -- whose place the substitute comes) and 1.1.56 ‡‡‡‡æ‡®‡ø‡µ‡¶‡æ‡¶‡‡‡ã‡Ω‡®‡≤‡‡µ‡ø‡ß‡
 -- (the ‡‡¶‡‡ ‚î substitute ‚î behaves like the original).  The
--- classification is his; the mathematics here ‚î a substitution lemma
--- for a term algebra over ‚ï ‚î is not claimed to be in the source.
+-- classification is his.
 --
 -- WHAT THIS CLOSES, in the machine's own ledger: EkaTantra's prover
 -- face spoke only at the ROOT instance (‡‡æ‡‡®‡Æ‡ tested lhs ‚âüT t ‚î

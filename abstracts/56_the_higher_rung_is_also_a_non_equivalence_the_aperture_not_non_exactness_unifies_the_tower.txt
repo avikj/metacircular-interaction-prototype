@@ -35,9 +35,7 @@ where the invariant is a group-valued cochain.
 
 SYT â” THE CLAIM, EXACTLY.  rungâ for every map between the HÂ² carriers,
 from àà™àà•ààà; theWiderAperture identifying this rung with the cost rung
-under Â isEquiv.  NOT claimed: that Â isEquiv is the k-invariant in the
-technical Postnikov sense â” it is the obstruction's INHABITANT (a
-surviving fibre), not the cohomology class as such; nor the full âˆž-tower.
+under Â isEquiv.
 What IS corrected: GarbhaShreni's "one predicate for all rungs" â” the
 predicate is Â isEquiv, and NotExact was only its abelian shadow.
 

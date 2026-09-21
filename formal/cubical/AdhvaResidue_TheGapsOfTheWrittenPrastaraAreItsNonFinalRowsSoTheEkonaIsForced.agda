@@ -20,7 +20,7 @@
 --   no gap below it.  That subtraction ‚î ‡‡ï‡ã‡®‡æ ‚î is what this module
 --   proves is forced rather than conventional.
 --
--- SOURCES, with dates, and what is and is NOT claimed of each.
+-- SOURCES, with dates.
 --
 --   ‡ï‡‡¶‡æ‡∞‡‡ü‡‡ü‡, ‡µ‡‡‡‡‡∞‡‡‡®‡æ‡ï‡∞‡ ‡.‡ß‚ì‡.‡Ø, the a-pratyaya chapter.  Text:
 --   GRETIL file 1_sanskr/5_poetry/1_chandas/kedvratu.htm, from the
@@ -48,15 +48,8 @@
 --   rest is the ea, and it is the object counted here.
 --
 --   ‡‡ø‡ô‡‡ó‡≤‡, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ (c. 300‚ì200 BCE) is the origin of the
---   pratyaya system and is NOT the text used here.  No copy of it is in
---   this container.  Checked against GRETIL's own catalogue page
---   (gretil.html, 5,443-file INDOLOGY/GRETIL-mirror snapshot) rather
---   than against filenames, which are abbreviations and would have been
---   the wrong predicate: the catalogue returns Vrttaratnakara 2 and
---   Kedarabhatta 2 ‚î so the check finds what is there ‚î and returns 0
---   for each of Chandahsastra, Pingala, Halayudha, Mrtasanjivani,
---   Virahanka, Vrttajatisamuccaya.  Nothing below is claimed for
---   Pigala's own stras.  Kedra is a later systematiser and the
+--   pratyaya system and is NOT the text used here.
+--   Kedra is a later systematiser and the
 --   closed six-fold list in the form used here is his.
 --
 -- WHAT IS PROVED.  No postulates, no holes, no `--safe` escape.

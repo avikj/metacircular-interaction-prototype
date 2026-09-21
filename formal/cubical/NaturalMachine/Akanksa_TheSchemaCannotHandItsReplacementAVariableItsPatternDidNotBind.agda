@@ -76,13 +76,8 @@
 -- the frame this speaks to; nothing below is a theorem of theirs and no
 -- concrete data structure appears.
 --
--- WHAT IS **NOT** CLAIMED.  Nothing about the OPEN interface: an arbitrary
--- caller-supplied `Control` may still be inhabited many ways, and
--- `Vyapti_.enabled-set-is-subsingleton` bounds WHERE an operation fires,
--- not how many ways it may be witnessed.  This is about the schematic
--- control only.  Â§3 says a witness is unique, not that one can be found â”
--- nothing here decides matching.  `deg` counts `var` alone, because
--- `subVar` replaces `var` alone; the six-coordinate schema is NOT covered.
+-- `deg` counts `var` alone, because
+-- `subVar` replaces `var` alone.
 -- `Vyapti_â¦` is not imported: the statement is given on raw `lhs`, `rhs`
 -- and `meaning`, which is what its record holds.
 ------------------------------------------------------------------------

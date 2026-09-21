@@ -16,7 +16,6 @@ The positive form.  A frontier expansion that maps over candidates with no dedup
 
 There is no specification language, no example-based synthesis, no version
 space and no enumerative search procedure here. The object is a rewriting
-calculus with an interpreter, and "candidate" names a history. The reading as
-a statement about synthesisers is a reading and is not proved.
+calculus with an interpreter, and "candidate" names a history.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

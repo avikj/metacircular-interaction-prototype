@@ -58,16 +58,7 @@
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“5 for any three types with the
 -- displayed maps and the two displayed hypotheses, with the spectrum
--- type a set (Â§Â§2â“4 only).  NOT claimed: that (i) holds for any
--- particular restriction â” its proof there is an entire-function
--- uniqueness argument over a positive proportion of points and has no
--- carrier in this corpus; that (ii) holds for any particular reflection;
--- that any source exists â” the fibre's inhabitation is exactly what is
--- being characterized, never assumed; anything about a completion, a
--- norm, or a cost â” a datum's membership in a larger completed space is
--- a different question from membership in this image, and the two are
--- deliberately not connected here; and nothing about finite subfamilies
--- of the constraint, which is a different diagram again.
+-- type a set (Â§Â§2â“4 only).
 ------------------------------------------------------------------------
 
 module PratibimbaTantu_TheReflectedFibreIsASingletonOrEmptySoALiftOfTheReflectionThroughTheSourceForcesItToBeTheIdentityOnTheImage where

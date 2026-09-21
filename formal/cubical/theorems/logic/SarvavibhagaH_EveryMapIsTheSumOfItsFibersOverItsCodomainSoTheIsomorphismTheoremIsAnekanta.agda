@@ -39,13 +39,6 @@
 --   ¬ß3  ‡‡‡‡‡æ‡¶‡®‡Æ‡ : f is SURJECTIVE iff every fiber is inhabited ‚î the
 --       quotient (image) is all of B iff nothing in B is unseen.
 --
--- WHAT IS **NOT** CLAIMED.  The equivalence is a standard cubical fact
--- (the domain is the total space of its own fibration); no novelty in it.
--- The novelty claimed is only the IDENTIFICATION: that the isomorphism
--- theorem, rank‚ìnullity, dravya/paryya, and nayavda are one law, made a
--- term.  Doctrine (aneknta, the naya/prama split) is Jaina; the type
--- theory is cubical.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

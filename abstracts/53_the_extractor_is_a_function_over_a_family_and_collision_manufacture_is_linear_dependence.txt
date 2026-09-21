@@ -35,8 +35,7 @@ data.
 
 SYT â” THE CLAIM, EXACTLY.  The extractor over the tabulated moduli
 with their given collisions, and the exhibited parity dependency with
-its square product.  NOT claimed: that the collisions or the smooth
-relations were found rather than supplied.
+its square product.
 
 Machine-checked in cubical type theory, --safe, at the pin; computed
 and read back through the interactive kernel.

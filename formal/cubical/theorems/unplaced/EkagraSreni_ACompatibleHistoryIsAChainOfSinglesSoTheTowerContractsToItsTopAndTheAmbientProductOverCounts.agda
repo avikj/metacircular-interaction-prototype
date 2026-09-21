@@ -43,12 +43,7 @@
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“3 for any family of stages and any
 -- reductions between them: no group structure, no finiteness, no
--- decidability, and no arithmetic.  NOT claimed: any cardinality â”
--- there are no numbers in this file, and the counting consequence
--- above is what the equivalence gives ONCE the stages are finite and
--- their sizes are supplied from elsewhere; nor anything about infinite
--- towers or their limits, which is a different object from every
--- finite truncation of one.
+-- decidability, and no arithmetic.
 ------------------------------------------------------------------------
 
 module EkagraSreni_ACompatibleHistoryIsAChainOfSinglesSoTheTowerContractsToItsTopAndTheAmbientProductOverCounts where

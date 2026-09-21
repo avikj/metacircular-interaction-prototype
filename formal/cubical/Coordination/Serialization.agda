@@ -54,12 +54,10 @@
 --                            exactly the gap, and the gap is inhabited.
 --   indep-sym                independence is symmetric
 --
--- NOT claimed.  The full K2 of §7 also asserts that any two linear
--- extensions of (dependency order ⊕ per-domain local orders) are
--- connected by such swaps.  That combinatorial half is stated in
--- `LinextConnected` below as an explicit interface; this module proves
--- the semantic half exactly.  Nothing here is about consensus, networks,
--- or agents.
+-- The combinatorial half of K2 -- that any two linear extensions of
+-- (dependency order ⊕ per-domain local orders) are connected by such
+-- swaps -- is stated in `LinextConnected` below as an explicit interface;
+-- this module proves the semantic half exactly.
 ------------------------------------------------------------------------
 
 module Coordination.Serialization where

@@ -19,7 +19,7 @@
 -- kernel's own backend (MAlonzo/GHC).  ‡‡‡∞‡‡‡‡æ‡∞ is Pigala's word for the
 -- systematic laying-out of metres (Chandastra 8, ~300 BCE; Halyudha's
 -- Mtasajvan, 10th c., names the meru); the sign on the array is the
--- Mbius sign and is not claimed for him.  Checked identity behind this
+-- Mbius sign.  The identity behind this
 -- display: formal/cubical/MulaShakti_TheMarkingParameterIsAPowerAndThe
 -- ZetaTwistIsTranslationByOne.agda.
 ------------------------------------------------------------------------

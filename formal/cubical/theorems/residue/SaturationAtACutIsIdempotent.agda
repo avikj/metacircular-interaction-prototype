@@ -51,34 +51,16 @@
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
--- The note's â and â“ are min-plus RESIDUATIONS over a semiring-valued
--- kernel, taking burden profiles to residual profiles.  The â and â“
--- below are the two-valued polarities of a RELATION.  That the former
--- is an instance of the latter is not claimed here:
--- it needs the kernel's values to form a quantale and the residuations
--- to be its adjoints.  So
--- what is established is that the SATURATION discipline is sound
--- wherever the adjunction holds â” not that Î” 28's particular â/â“ satisfy
--- it.  Reading this as a theorem about min-plus convolution would be
--- exactly the error of quoting a figure without its input.
---
 -- Inclusion is used, not equality: `A âŠ B` and `B âŠ A` are proved
 -- separately and never combined into a path.  Turning them into `A â‰¡ B`
 -- needs the predicates to be proposition-valued and funExt, neither of
 -- which is assumed, and nothing below needs it.
 --
--- No tractability theorem is claimed here either â” Â§31â“32 says it
--- claims none, and computing c is no cheaper for being idempotent.
---
 -- On the two-slot shape: this repository already carries a distinct
 -- two-slot structure in `formal/cubical/AbhavaAvacchedaka.agda` and
 -- `NaturalMachine/TheAnuyogitaAvacchedakaIsADistinctSlot`, from
 -- Nyya-Vaieika's treatment of absence, where the pratiyogin and the
--- anuyogin occupy separate delimitor slots.  It is NOT claimed that
--- that is a Galois connection or that these are the same structure â”
--- the Naiyyika slots are not required to be adjoint and nothing here
--- checks that they are.  The pointer is so a later reader compares them
--- rather than assuming either way.
+-- anuyogin occupy separate delimitor slots.
 ------------------------------------------------------------------------
 
 module SaturationAtACutIsIdempotent where

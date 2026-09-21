@@ -38,24 +38,6 @@
 -- The direction of the debt is worth stating: `àà²à‹àà` is the semantic
 -- shadow of `loop-is-free`, not an independent result.  It was proved
 -- second and it proves less.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- SCOPE
---
--- Not that the two standpoints below are the nayas TransportPrice was
--- written about; `Anekanta`'s standpoints are charts on a structure and
--- these are two presentations of one pair-type.  The theorem is
--- parametric in X and applies to both, which is the whole reason it can
--- be reused â” that is not an argument that the two are the same thing.
---
--- Not that Î¦ is free: Î¦ acts BELOW, and nothing here prices it.  Only
--- the descent and the ascent are round-tripped.  A machine whose Î¦ is
--- expensive is expensive; the claim is that the CONJUGATION adds
--- nothing to it.
---
--- Not any verdict on `laghavaPrice` as the right potential for this
--- machine â” TransportPrice Â§2 supplies it for presentations and that is
--- its result, untouched here.
 ------------------------------------------------------------------------
 
 module LosslessReturnCost_TheReturnTripIsFreeForEveryAdditiveCost where

@@ -105,33 +105,8 @@
 --     to the definitional half after all; it is the same number counted
 --     twice.
 --
---
---  * NOT claimed: any chain-level statement.  Every theorem here is
---    about ONE substitution.  Composing the substitutions along an
---    `ObsChain` gives a strictly triangular incidence structure (each
---    body is base over the vocabulary before its own step, so it cannot
---    mention any later residual), and that is the shape a chain-level
---    conservativity and a chain-level size bound would take; neither is
---    proved here, and the triangularity itself is not proved here.
---    WitnessPolicy's "NOT claimed: a size bound on the informative
---    loop's OUTPUT" therefore still stands.
---
---  * NOT claimed: that the informative policy is optimal, canonical, or
---    matchability-improving.  WitnessPolicy proves it is not the last
---    (`policies-agree-on-matching`) and disclaims the first two; nothing
---    here disturbs either.  Â§5 sharpens the SIZE separation and nothing
---    else.
---
---  * NOT claimed: that `weight` is a new idea.  It is the free monoid's
---    universal property into (â•, +, 0) â” the Parikh/abelianisation map
---    restricted to one coordinate at a time â” and it is old.  What is
---    new here is only that this lane's `unfold` is a substitution and
---    that its three measures are weights, so the standard linear-algebra
---    statement about substitutions applies to them verbatim.
---
 --  * `size` is `WitnessPolicy.size`, the node count, and `Â` is
---    multiplication of natural numbers.  Nothing below measures anything
---    outside this model.
+--    multiplication of natural numbers.
 ------------------------------------------------------------------------
 
 module NaturalMachine.UnfoldAlgebra where

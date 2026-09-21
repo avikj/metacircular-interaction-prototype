@@ -19,8 +19,8 @@
 -- `Unparsed` cannot say it either.
 --
 -- SOURCES, EARLIEST FIRST.  The classification below is theirs.  The
--- algebra (`krama`, `saha`, and the laws in `selfTest`) is not claimed to be
--- in any of them; what is theirs is three seed predicates, two modes of
+-- algebra (`krama`, `saha`, and the laws in `selfTest`) is this module's;
+-- what is theirs is three seed predicates, two modes of
 -- assertion, the rule that the simultaneous mode of asti-and-nasti is a
 -- FOURTH position rather than the sequential pair, and that the total is
 -- seven.
@@ -47,9 +47,9 @@
 --   Mallisena, Syadvadamanjari, 1292 CE â” sakaladesa (total statement,
 --     pramana) against vikaladesa (partial statement, naya).
 --
--- CHECKED, NOT ASSERTED.  Every law this module states is proved in
+-- Every law this module states is proved in
 -- `formal/cubical/SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`
--- (--cubical --safe, no postulates, no holes, exit 0), and re-verified here
+-- and re-verified here
 -- by exhaustive finite computation over the seven positions in `selfTest`.
 -- Exhaustive verification of a finite predicate is proof (CLAUDE.md); a
 -- correlation would not be.

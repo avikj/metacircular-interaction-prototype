@@ -31,9 +31,9 @@ That is the restatement.  This module states the source's form and derives it
 from mathlib's; the ordering of the two is the point, and mathlib's name is
 named second, as a restatement, per CLAUDE.md.
 
-## What is and is not claimed of the source
+## The source's claim
 
-CLAIMED: that the identity below is the content of the verse above, in the
+The identity below is the content of the verse above, in the
 verse's own variables — an arbitrary *vyāsa*, four times it, divided by the
 successive odd numbers, alternately subtracted and added, converging to the
 *paridhi*.
@@ -41,11 +41,6 @@ successive odd numbers, alternately subtracted and added, converging to the
 The *Yuktibhāṣā*'s derivation is a rectification of the arc by successive
 subdivision with an explicitly stated remainder; what is formalised here is
 the series and its sum, not that argument.
-
-None of that discipline: the *āsanna* — the source says in the verse itself
-that the value is approximate, and the tradition that inherited it dropped the
-word. A module that formalises the series and omits the correctors should say
-so rather than let the name stand for the whole.
 
 
 ## The other lane already declared this gap, and did not fill it falsely

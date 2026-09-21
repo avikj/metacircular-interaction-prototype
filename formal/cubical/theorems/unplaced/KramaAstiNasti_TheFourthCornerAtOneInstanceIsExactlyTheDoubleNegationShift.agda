@@ -51,8 +51,8 @@
 -- School named before the term: ‡‡æ‡Æ‡Ø‡ø‡ï and ‡®‡ø‡‡‡Ø are `AnuktaAvaktavya`'s,
 -- another identity's, imported unchanged; the fourth corner is the
 -- position in the saptabhag reading that module sets up.  The
--- double-negation shift is not a Jaina notion and no claim is made that
--- it is ‚î the identification is between a configuration this repository
+-- double-negation shift is not a Jaina notion;
+-- the identification is between a configuration this repository
 -- wrote down and a principle from proof theory, and it is an
 -- identification of the FORMULA, not of the two traditions' concerns.
 --

@@ -31,10 +31,6 @@
 --                   DERIVED, not assumed, via suc a â‰ 2^a.
 --   â machine7 â¦  â” the machine's scan outputs (a,q) = (2,3), (3,1),
 --                   (1,5), (0,7) as computed normal forms (refl).
---
--- NOT claimed: anything about the Rust machine's semantics.  The bridge
--- "cost of the successor action = this number" is the machine lane's to
--- certify.  This module is the arithmetic identity only.
 ------------------------------------------------------------------------
 
 module EGBSuccessorCost where

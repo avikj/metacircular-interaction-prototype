@@ -25,7 +25,7 @@
 -- So the walk pays for a lattice of dimension Ï(k) with coordinates up to
 -- log k, in order to move along a totally ordered path of length k.
 --
--- That sentence is a READING and is not proved here.  What is proved is
+-- That sentence is a READING.  What is proved is
 -- the absorption, generally (from step-monotonicity alone) and concretely
 -- (the first eight states of the actual walk, by `refl`).
 ------------------------------------------------------------------------

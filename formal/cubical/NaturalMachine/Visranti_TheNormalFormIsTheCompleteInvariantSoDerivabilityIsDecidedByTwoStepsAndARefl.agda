@@ -57,8 +57,7 @@
 --                   identifies terms the calculus cannot join;
 --     derivational  `Derivation a b` holds exactly when `nf a â‰¡ nf b`, so
 --                   THE EXISTENCE QUESTION IS DECIDABLE (given
---                   discreteness of `Tm`, which is routine and not proved
---                   here);
+--                   discreteness of `Tm`);
 --     intensional   and everything that remains â” which route, how long,
 --                   which of the many derivations between two joinable
 --                   terms â” is what `Sesa_â¦` proves no semantic criterion
@@ -68,17 +67,6 @@
 -- checking is hard and search is hard; it is that in this calculus
 -- JOINABILITY IS DECIDABLE AND STILL SAYS NOTHING ABOUT THE ROUTE, and the
 -- route is where every quantity a policy needs lives.
---
--- WHAT IS **NOT** CLAIMED.  Confluence and termination are the ARGUMENT for
--- why this works and are NOT formalised below; what is formalised is the
--- consequence, directly â” Â§2 and Â§3 together give both directions without
--- a diamond lemma, because `nf` is defined so that the two real rules hold
--- by `refl`.  So no critical-pair analysis appears as a term and none is
--- claimed as checked.  Discreteness of `Tm` is not proved, so the word
--- "decidable" above is a corollary stated in prose, not a term.  Nothing
--- here concerns `Stepâº`; `add-comm` breaks the orthogonality by design.
--- `nf` is one normalising function; no claim that it is canonical among
--- such, nor any statement about its cost.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Visranti_TheNormalFormIsTheCompleteInvariantSoDerivabilityIsDecidedByTwoStepsAndARefl where

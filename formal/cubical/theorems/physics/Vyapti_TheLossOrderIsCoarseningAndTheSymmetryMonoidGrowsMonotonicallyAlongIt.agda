@@ -71,21 +71,20 @@
 -- what the file is for.
 --
 -- **The order is a preorder, not a partial order.**  `àµàà¯à¾ààà¨à‹àà¿` has
--- reflexivity and transitivity (Â§à¨) and antisymmetry is neither true nor
--- claimed: two maps can factor through each other without being equal.
+-- reflexivity and transitivity (Â§à¨) and antisymmetry fails:
+-- two maps can factor through each other without being equal.
 -- Nothing below quotients by it.
 --
 -- **Â§à© and Â§à are one direction only.**  That `ààà°à•àààà®à f âŠ ààà°à•àààà®à g`
 -- implies `f àµàà¯à¾ààà¨à‹àà¿ g` is FALSE in general and no weakened converse is
 -- offered.  Likewise Â§àÂà¨: `f a â‰¡ f a' â’ g a â‰¡ g a'` follows from the
--- order; recovering the order from it would need a choice of section and
--- is not attempted.
+-- order.
 --
 -- **Â§à is not a characterisation of non-injectivity.**  `isEquiv Î¦ â’
 -- Â àµà¿ààà®ààà¿à Î¦` is proved; the converse â” that a non-equivalence
 -- exhibits a àµà¿ààà®ààà¿à â” is CLASSICAL (it needs a collision to be found,
 -- and a Â(a â‰¡ a') to be produced from Â(a â‰¡ a') failing) and is not
--- available constructively.  It is not proved and not used.
+-- available constructively.
 --
 -- **Everything lives at ONE universe level.**  Not for depth: `Dhruva`
 -- declares `ààà°à•àààà®à` in a telescope `{A B : Type â“}` with a single â“,
@@ -142,7 +141,7 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
   Î£[ h âˆˆ (B â†’ C) ] ((a : A) â†’ g a â‰¡ h (f a))
 
 ------------------------------------------------------------------------
--- à¨ Â It is a preorder.  Antisymmetry is not claimed (see the fence).
+-- à¨ Â It is a preorder.
 ------------------------------------------------------------------------
 
 à¤µà¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿-à¤¸à¥à¤µà¤¤à¤ƒ : {A : Type â„“} {B : Type â„“} (f : A â†’ B) â†’ f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ f
@@ -291,7 +290,7 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
 -- à Â àààà â” scope.
 --
 --  * `àµà¿ààà®ààà¿à` uses a bare `Â (a â‰¡ a')`, which is the weak apartness.
---  * Nothing above says which fibres are BIG.  There is no size notion
+--  * There is no size notion
 --    in this file at all, deliberately; supplying one (a cardinality, a
 --    measure) is exactly where a fitted constant would enter, and the
 --    order is what makes the statement possible without one.

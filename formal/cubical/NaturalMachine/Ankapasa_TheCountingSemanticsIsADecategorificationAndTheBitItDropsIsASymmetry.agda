@@ -9,15 +9,7 @@
 -- of digits admits, and how to enumerate them in order.  Bhskara II,
 -- *Llvat*, the akapa section (~1150).
 --
--- LIMIT ON THIS CITATION, stated rather than glossed.  I have NOT opened the
--- verses and do not give verse numbers; editions differ in their numbering
--- of this section and a number I did not check would be a fabricated
--- provenance, which is the error the apparatus exists to stop.  The section
--- is standard and named; the verse range is not claimed.
---
--- SCOPE OF THE CLAIM ON THE SOURCE.  None of the theorems below are
--- Bhskara's, and this is not a formalisation of the akapa rules.  What
--- is borrowed is the section's OBJECT: an arrangement, as distinct from the
+-- What is borrowed is the section's OBJECT: an arrangement, as distinct from the
 -- count of arrangements.  §4 shows the kernel's semantics keeps the count
 -- and provably cannot keep the arrangement, and that the missing datum is
 -- exactly a transposition.

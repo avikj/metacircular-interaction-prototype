@@ -20,7 +20,7 @@
 -- uttered whole at level n+1" ‚î ‡‡∞‡‡‡ø‡ / ‡‡®‡∞‡‡‡ø‡: what one stratum
 -- withholds (anarpita), the next offers (arpita).
 --
--- SOURCES AND SCOPE (the six rules).  The level-shift engine is the
+-- SOURCES (the six rules).  The level-shift engine is the
 -- LIBRARY's PathIdTruncIso (Cubical.HITs.Truncation.Properties; the
 -- shift Œ©‚àX‚à‚ô‚ä‚ ‚â ‚àŒ©X‚à‚ô is standard HoTT ‚î this module's content is
 -- its INSTANTIATION at the corpus's own charge, against OrderSaha's
@@ -28,8 +28,7 @@
 -- The word-pair arpita/anarpita is Umsvti, Tattvrthastra 5.31
 -- (‡‡∞‡‡‡ø‡‡æ‡®‡∞‡‡‡ø‡‡‡ø‡¶‡‡ß‡‡ ‚î establishment from the emphasized and the
 -- non-emphasized), taken as the READING of standpoint-graded
--- establishment; the stra is not claimed to grade truncations by
--- h-level.  The stratum grading is this repository's statement.
+-- establishment.  The stratum grading is this repository's statement.
 ------------------------------------------------------------------------
 
 module StaraArpana_TheChargeTheSetLevelKillsIsUtteredWholeOneLevelUp where

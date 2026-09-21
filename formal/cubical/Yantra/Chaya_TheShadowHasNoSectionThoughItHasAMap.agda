@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡æ‡Ø‡æ ‚î the shadow, and what is actually impossible about it.
 --
--- SCOPE.  This module supplies the term that `Yantra.Prakasha` asserts in
+-- This module supplies the term that `Yantra.Prakasha` asserts in
 -- prose and does not contain, and it corrects the assertion in the same
 -- act.  944676e4's message says, of the collapse from the witnessed
 -- statement to the truncated one: "the collapse ... exists while the

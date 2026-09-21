@@ -130,8 +130,4 @@ join-cannot-forget (b âˆ· bs) (x , xs) (y , ys) (z , zs) p i =
 --   forgetting is the operational form of descent, and among the three
 --   laws the walkâ™s own state space carries, exactly one has it â” the
 --   one whose states are ratios.
---
--- The general principle this suggests, that bounded state requires a
--- group law, is not proved here and is not asserted.  Three instances and
--- two independent obstructions are what the file contains.
 ------------------------------------------------------------------------

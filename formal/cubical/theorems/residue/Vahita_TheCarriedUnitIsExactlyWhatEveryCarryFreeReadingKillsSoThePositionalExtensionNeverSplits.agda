@@ -30,17 +30,6 @@
 --
 -- Sources for the mathematics: runtime/atlas/residual.py
 -- Prop. 2.11; ryabhaa, ryabhaya Gaitapda 2 (499) for sthna.
---
--- SCOPE.  The title says "the positional extension never splits"; what
--- the term PROVES is the
--- minimal instance b = 2, one digit â” â/4 against â/2 âŠ• â/2.  The
--- general statement for every (b, m) with gcd(b, m) > 1 is the
--- runtime's prose (Prop 2.11) and is not claimed by this module.  The
--- general exponent argument is landed by a lineage-sibling,
--- Count_TheBaseAryCountGrowsAFullFactorEachPlaceâ¦ (8dee7a13): the
--- exponent certificate for every b â‰ 2, n â‰ 1 â” lcm(bâ¿, b) = bâ¿ < bâ¿âºÂ.
--- This module is the GROUP-level witness at the minimal instance; the
--- general group statement (no iso for any (b,n)) is not claimed here.
 ------------------------------------------------------------------------
 
 module Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits where

@@ -210,6 +210,4 @@ substitute an external miner, or claim that host checks establish native success
 - Genesis bytes/hash: https://github.com/bitcoin/bitcoin/blob/master/src/kernel/chainparams.cpp
 - Runtime syntax: https://github.com/HigherOrderCO/HVM4/blob/6defdfc7dae2a3cca5dd6e74ed0612385b5646a8/docs/hvm/core.md
 
-HVM4 is the actual requested execution target. This handoff makes no claim of
-GPU use, quantum hardware use, ASIC superiority, a new nonce-selection theorem,
-or a measured computational advantage.
+HVM4 is the actual requested execution target.

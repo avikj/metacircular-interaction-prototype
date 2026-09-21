@@ -37,9 +37,6 @@
 -- observations in exactly this sense.  This module is the checked
 -- license for extending them with a law-stratum line, and the checked
 -- refutation of ever reading "counts matched" as "body unchanged".
--- The Haskell-side extension (a ‡‡∞‡‡∞‡‡‡‡∞ line in the heartbeat) is
--- engineering owed downstream; nothing here claims it exists.
---
 ------------------------------------------------------------------------
 
 module SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession where

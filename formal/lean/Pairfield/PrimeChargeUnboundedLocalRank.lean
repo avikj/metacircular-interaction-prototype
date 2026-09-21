@@ -8,9 +8,7 @@ consequence: no fixed finite number of pure local products represents
 CP tensor rank over `ℚ` is `n`.
 
 This statement concerns the valuation-bit tensor
-`(Fin n → Bool) → ℚ`.  It makes no claim about the bipartite CRT rank of a
-residue-class table or the three-factor scalar-radial rank in the finite
-Kuznetsov API; those notions group local variables differently.
+`(Fin n → Bool) → ℚ`.
 -/
 import Pairfield.PrimeChargeArbitraryRank
 

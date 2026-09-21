@@ -24,11 +24,11 @@
 -- the condition at a coprime prime, so a joint survivor is a tuple of
 -- local survivors.  The identification of this product with the survivors
 -- inside Fin (p¬q) is the Chinese Remainder ring-iso (‚/pq ‚â ‚/p ó ‚/q,
--- coprime), which is NOT proved here ‚î this module works on the product
+-- coprime); this module works on the product
 -- carrier directly, where the count is exact and needs no CRT.  So the
 -- result is the DENSITY product, on the product carrier.
 --
--- No claim about primes as such: p = 2+m is any modulus ‚â 2 with two
+-- Here p = 2+m is any modulus ‚â 2 with two
 -- distinct walls; primality and coprimality enter only when this product
 -- is read as the singular series, which ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡ does.
 ------------------------------------------------------------------------

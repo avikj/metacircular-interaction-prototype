@@ -5,13 +5,11 @@ import Mathlib.Logic.Unique
 /-!
 # पुनरागमन — the determined field rides free, and the other fibre is where it stops
 
-## On the name, and what is and is not claimed
+## On the name
 
 *Punarāgamana* (पुनरागमन), "coming back again / return", is used here as the
 name of a module family, following `loss/` and
-`fibre/src/Fibre/Carrier.agda` in this repository. **The compound
-is chosen here; no text and no source is claimed for it**, and naming a module
-for it asserts nothing about any tradition's authorship of the theorem below.
+`fibre/src/Fibre/Carrier.agda` in this repository.
 The contrast the name is for is नष्टि (destruction), which is अप्रतिकार्य — the
 return does not exist; पुनरागमन is the case where it does.
 

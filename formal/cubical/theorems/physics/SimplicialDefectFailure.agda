@@ -473,8 +473,8 @@ module Sharp
 -- §4.  The SHARP FORM, converse half, COVARIANT (simplicial) variance
 --
 -- Note §9's slogan: "δ is functorial along faces exactly when � is a
--- cocycle, i.e. exactly when δ is zero."  Note §7.4 records the converse
--- as NOT claimed.  It is proved here � for ONE of the two variances, and
+-- cocycle, i.e. exactly when δ is zero."
+-- The converse is proved here � for ONE of the two variances, and
 -- §5 shows it is FALSE for the other, which is the substantive finding
 -- of this extension and amends the slogan.
 --
@@ -928,13 +928,12 @@ Cosimplicial-sharp-fails-archive =
 ------------------------------------------------------------------------
 -- §6.  What §4 and §5 leave standing, stated so no one over-reads them.
 --
---  * §4 is the converse the note declined to claim (§7.4), in the
+--  * §4 is the converse of the slogan, in the
 --    SIMPLICIAL variance, from a weaker hypothesis (d� only), and it is
 --    agnostic between the two readings of the holonomy.
 --  * §4� converts note §0.3's discrepancy into two theorems instead of
 --    a choice: corpus reading � cocycle; archive reading � �² = e and a
---    different closure identity.  Nothing here resolves which reading
---    D0016 §B intends; that is the owner's (note §7.3).
+--    different closure identity.
 --  * §5 REFUTES the cosimplicial half of the slogan.  It does NOT
 --    rescue the realization repair: note §2.2's objection (the copower
 --    forces δ_n to be �-blind, hence �-independent) is untouched by any
@@ -943,6 +942,5 @@ Cosimplicial-sharp-fails-archive =
 --    is SATISFIABLE for the � of §5, so "faces act in neither variance"
 --    is a statement about that counterexample, not about all charts.
 --  * The example of §5 uses X = �, hence an infinite Chu space; §2's
---    example is finite.  No claim is made that a finite chart with the
---    same property exists.
+--    example is finite.
 ------------------------------------------------------------------------

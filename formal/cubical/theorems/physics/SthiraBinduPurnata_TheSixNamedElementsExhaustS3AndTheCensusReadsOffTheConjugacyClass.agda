@@ -51,10 +51,6 @@
 --     countFix œ ‚â° 1 ‚í œ is a conjugate of s‚‚,
 --     countFix œ ‚â° 0 ‚í œ is a conjugate of œ, derived from the above by
 --     discriminating the natural numbers 3, 1, 0.
---
--- SCOPE.  The enumeration is complete; its irredundancy (pairwise
--- distinctness of the six) is not stated here.  Nothing about S‚ô for
--- n ‚â† 3.
 ------------------------------------------------------------------------
 
 module SthiraBinduPurnata_TheSixNamedElementsExhaustS3AndTheCensusReadsOffTheConjugacyClass where

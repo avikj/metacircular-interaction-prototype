@@ -56,13 +56,7 @@
 -- must be blind to is exactly two-dimensional â” neither more nor less.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“6 over any commutative ring, for every
--- sequence and every pair of constants.  NOT claimed: that any
--- particular receiver is additive or blind; that a sequence with a
--- prescribed second difference EXISTS â” Â§Â§4â“5 are about the fibre's
--- shape, never its inhabitation; anything about sums, convergence, or
--- boundary terms â” there is no summation in this file, so no summation
--- by parts either; and nothing about primes, zeta, or any specific
--- second difference: `Î”Â² f` is whatever it is.
+-- sequence and every pair of constants.
 ------------------------------------------------------------------------
 
 module AdrsyaMana_TheKernelOfTheDiscreteSecondDifferenceIsExactlyTheAffineSequencesSoAnAdditiveReceiverBlindToThemDescendsToTheFibre where

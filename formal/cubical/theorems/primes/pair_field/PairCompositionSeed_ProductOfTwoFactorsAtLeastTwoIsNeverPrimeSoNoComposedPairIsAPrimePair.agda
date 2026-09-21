@@ -60,11 +60,6 @@
 -- hold by refl for OPEN d, n, k, and the kernel's clauses fire on
 -- divH*/noDiv* under pattern matching.  Nothing is postulated: if the
 -- recovered Name were wrong, those two refls would fail to check.
---
--- SCOPE.  The
--- converse direction of the tester's specification (divides d n ‚â° true
--- ‚í d ‚à n, and isPrime n ‚â° true ‚í ‡¶‡‡‡Æ‡ n) is not needed for the seed
--- and is not proved here.
 ------------------------------------------------------------------------
 
 module PairCompositionSeed_ProductOfTwoFactorsAtLeastTwoIsNeverPrimeSoNoComposedPairIsAPrimePair where

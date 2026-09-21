@@ -51,10 +51,7 @@ costless.
 SYT â” THE CLAIM, EXACTLY.  No Chow correspondences, no cycles, no additive
 or triangulated category, and no linearisation appear.  The dagger is
 defined on the six-register kernel as it stands, and every law is about
-that object.  The reading of the transpose as the transpose of an
-algebraic correspondence, and of the prohibition as the reason a
-category of motives is built self-dual rather than invertible, is a
-reading and is not proved.
+that object.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

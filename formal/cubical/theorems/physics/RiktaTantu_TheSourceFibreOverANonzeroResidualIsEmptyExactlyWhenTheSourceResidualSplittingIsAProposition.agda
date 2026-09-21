@@ -45,24 +45,14 @@
 --       fibre, in both directions and with nothing else assumed.
 --
 -- WHAT IS CARRIED AND WHAT IS PROVED.  Faithfulness is a HYPOTHESIS
--- here, not a theorem.  In the intended reading it comes from a norm
--- identity â” a source's residual class has the same norm as the source
--- â” and no norm exists anywhere in this corpus, so that derivation is
--- not available and is not attempted.  What is proved is that
+-- here, not a theorem.
+-- What is proved is that
 -- faithfulness is exactly equivalent to uniqueness of the splitting,
 -- which is the step that would otherwise be waved through.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“4 in any ring, for any source type at all
 -- â” no set-truncation is imposed on it â” any additive-on-differences `Î `, and any
 -- proposition-valued `Res` closed under difference and containing zero.
--- NOT claimed: that the residuals form an ideal â” closure under
--- multiplication is never used and never assumed; that any particular
--- class of operators (compact or otherwise) satisfies the hypotheses;
--- any norm, any inequality, any separation between a residual and the
--- source image â” Â§2 gives emptiness, not distance; that a splitting
--- EXISTS for any given x, which is a different statement and is proved
--- nowhere below; and nothing about limits â” a family of residuals need
--- not have a residual limit, and no limit is taken here.
 ------------------------------------------------------------------------
 
 module RiktaTantu_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition where

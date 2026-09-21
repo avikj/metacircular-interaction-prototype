@@ -39,18 +39,9 @@
 --       corollary, on the kernel's OWN library.  Exact analogue of
 --       Obstruction.frequency-cannot-reach.
 --
--- SCOPE.
---   * NOTHING HERE IS AN OBSTRUCTION, and the scope of that is narrow.
---     `InstallChain`'s step is restricted to `install`, whose control is the
---     trivial family `t â‰¡ lhs`.  `Control : Tm â’ Typeâ` is a FIELD and the
---     caller may supply ANY type family, so this plateau is a theorem about
---     the one trivial instance and says nothing about what an arbitrary
---     control can enable.  Obstruction's own residual-reading is a
---     projection only because its terms are unary; on the kernel's `Tm` the
---     corresponding question is not asked here.
---   * `SomeEnabled` is restated here from Vyapti_ rather than imported, so
---     that this module depends on the kernel and not on that module's
---     other machinery; the definition is identical.
+-- `SomeEnabled` is restated here from Vyapti_ rather than imported, so
+-- that this module depends on the kernel and not on that module's
+-- other machinery; the definition is identical.
 ------------------------------------------------------------------------
 
 module Kernel.Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateauSoTheKernelsOwnLibraryCannotGrowItsReach where

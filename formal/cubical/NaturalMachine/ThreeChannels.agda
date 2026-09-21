@@ -37,10 +37,7 @@
 -- information parity cannot see (both have λ = +1).  Factory VIII's
 -- analytic claim (square branch negligible at Chen scale) is exactly
 -- the statement that this extra resolution costs nothing
--- asymptotically; that claim is analytic and NOT formalized here.
---
--- RECONSTRUCTION DISCIPLINE: nothing here claims to match the
--- Factory VIII/IX texts beyond the index's stated identities.
+-- asymptotically.
 ------------------------------------------------------------------------
 
 module NaturalMachine.ThreeChannels where

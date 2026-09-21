@@ -55,14 +55,8 @@
 -- holonomy that the counting readout annihilates.  The completion and the
 -- holonomy arrive together, because they are the same generator.
 --
--- WHAT IS **NOT** CLAIMED.  Not that the word is a COMPLETE invariant.
--- Â§5 states the normalisation conjecture â” derivable iff same word and
--- same constant â” as a type, unproved, and says what proving it needs
--- (a normal form and a terminating strategy, neither of which exists in
--- this corpus).  Nothing here concerns the extended calculus `Stepâº`;
 -- `Ankapasa_â¦` is not imported, and its `add-comm` would break Â§2 by
--- design, which is the point.  Nothing here says the â•-theory of the
--- calculus is decidable, though Â§4's argument suggests where to look.
+-- design, which is the point.
 -- `word` is defined on the six coordinates only, ignoring `zero` and
 -- `suc`, because those are exactly what the rules move.
 ------------------------------------------------------------------------

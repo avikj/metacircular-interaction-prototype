@@ -54,21 +54,10 @@ open import NegationCompletenessForbidsIndependence
 --       soundness at the valuation sending the atom to `true`.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE HONEST LIMIT, WHICH IS LARGE
---
--- This is NOT Gdel's theorem and is not a step of it.  The independent
--- sentence is an atom, independent because the rules never mention it;
--- there is no diagonal, no fixed point, no Ï‰-consistency, and the
--- theory's `prov` is the identity, which is not a provability predicate
--- in any sense beyond typing.  `HasDiagonal` is not claimed for it and
--- would fail: with one atom and these rules there is no formula to
--- diagonalise.
---
--- What this settles is narrower and was genuinely open: the criterion
+-- What this settles: the criterion
 -- has an instance, the two accumulated obstructions are not jointly
 -- exhaustive of the lane, and a theory in this lane can have an
--- independent sentence.  Before this, every model in the thread had
--- none, and it was not shown that any could.
+-- independent sentence.
 --
 -- PRIOR ART, by the conclusion type: a grep of `formal/cubical` for
 -- `Independent` finds this thread only; for an inductively generated

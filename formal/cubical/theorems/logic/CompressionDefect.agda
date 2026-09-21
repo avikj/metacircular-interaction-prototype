@@ -25,7 +25,6 @@
 -- says *what the failure costs dynamically* â” the defect is not lost
 -- information, it is *leave the sector, evolve outside, return*.
 --
---
 -- WHY A RING AND NOT A COMMUTATIVE RING
 --
 -- The natural home is `End(U)`, which is not commutative, so
@@ -39,7 +38,6 @@
 -- `1r âˆ’ e`.  That is what "Q = I âˆ’ iP" means and it avoids re-deriving
 -- `1r âˆ’ (1r âˆ’ e) â‰¡ e` from scratch; it also makes the hypothesis visible
 -- at the use site instead of buried in a definition.
---
 --
 -- WHAT IS CHECKED
 --
@@ -67,7 +65,6 @@
 --                              observation, states differing only in it
 --                              are indistinguishable forever.
 --
---
 --  * **Â§3 is one direction only.**  Delta 18's corollary is an "exactly
 --    when": `K` is a semigroup iff every excursion has zero return
 --    amplitude.  The converse requires cancelling `K_{t+s}` from both
@@ -76,19 +73,6 @@
 --    excursions.  The excursion reading is prose; only the algebra is
 --    checked.
 --
---  * **Nothing from Delta 18's SU(1,1) sections.**  T18.1 (x = tanh Î)
---    and T18.2 (the sum-gap reflection acts by x â¦ 1/x, NOT the Weyl
---    x â¦ âˆ’x) are corrections to earlier language and are *analytic*
---    statements about positive reals; they belong with the Hahn/Meixner
---    material, not here.  T18.2 is consistent with what
---    `CenterRelativeIntegral.Jâ-negates-Q` already checks â” with
---    W = p+q, R = qâˆ’p, the map (p,q) â¦ (p,âˆ’q) sends (W,R) â¦ (âˆ’R,âˆ’W),
---    hence x = R/W â¦ 1/x â” but the ratio-level statement needs division
---    and is not proved here.
---
---  * **Not novel, and Delta 18 says so first**: "This is standard
---    observability theory" and "mature operator/control mathematics, not
---    a new ontology."
 ------------------------------------------------------------------------
 
 module CompressionDefect where

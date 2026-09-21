@@ -215,7 +215,7 @@ obtains a separable pair only after adding a constructor.
 
 *Nyyastra* 1.2.4 lists the hetvbhsas; 1.2.5 reads **`anaikntika
 savyabhicra`**. The apparatus for *vypti* and its defeat by an *updhi* is
-Gagea's, *Tattvacintmai*, ~1325, and is not claimed for anything below.
+Gagea's, *Tattvacintmai*, ~1325.
 
 ```agda
 vyabhicara : {a b : Tm} (� : Env)
@@ -364,21 +364,6 @@ Recorded here, and struck in place in the module headers.
 - `ek saj` � the Adhyy e-text reads `saj`.
 - *Tattvrthastra* 5.31 and the seven-naya list were cited without being opened,
   and are marked unverified in §2.
-
----
-
-## 10. Not claimed
-
-- No theorem is attributed to Umsvti, Siddhasena, Akalaka, Gautama, Gagea,
-  Ngrjuna, Patajali, Arcaa or Bhskara.
-- No claim that any formalisation here is the correct reading of its tradition.
-- No completeness, characterisation, or decision procedure. §3 refutes two
-  statements and does not describe what is derivable.
-- The Jaina fourth bhaga is not formalised.
-- *Asakhyta* has no counterpart in §6.
-- No repair of the gap in §3.2. Making an induction certificate installable
-  requires a `Step` constructor for induction or a weakening of the operation
-  record's certificate field.
 
 ---
 

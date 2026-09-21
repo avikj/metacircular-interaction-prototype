@@ -50,7 +50,7 @@
 -- the family still cannot come down.  Stage-2 blindness is a
 -- type-level phenomenon before it is a value-level one.
 --
--- SOURCES AND SCOPE.  The double cover is classical topology; its
+-- SOURCES.  The double cover is classical topology; its
 -- cubical form (F base = Bool, F (loop i) = ua notEquiv i) is the
 -- standard first nontrivial family, and the adjacent phenomenon for
 -- values is Krausâ“Escard³â“Coquandâ“Altenkirch (LMCS 2017), already

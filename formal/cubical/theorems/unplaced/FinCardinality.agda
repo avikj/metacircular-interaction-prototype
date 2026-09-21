@@ -6,7 +6,7 @@
   theorem as an *equivalence* of finite types, with the multiplicativity of a
   counting function read off from it.
 
-  PRIOR ART, and what is and is not claimed here.
+  PRIOR ART.
 
     * `card`, its invariance `cardEquiv : ∥ X ≃ Y ∥₁ → card X ≡ card Y`, the
       sums/products `sum`, `prod`, `cardΣ`, `cardΠ`, `card+`, `card×`, and the

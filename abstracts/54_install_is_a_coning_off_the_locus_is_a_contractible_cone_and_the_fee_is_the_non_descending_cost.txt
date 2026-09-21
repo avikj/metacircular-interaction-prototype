@@ -43,9 +43,7 @@ full âˆž-tower, is what stays conjecture: proved here is one step's shape.
 
 SYT â” THE CLAIM, EXACTLY.  install's locus is a contractible cone and
 its points are mapping-cone spokes, as checked terms read back by the
-analyzer; the fee is cited.  NOT claimed: that iterated install
-generates the whole Postnikov tower â” one step is built, the tower is
-named.
+analyzer; the fee is cited.
 
 Machine-checked in cubical type theory, --safe, at the pin; the
 identification's types and normal forms computed and read back through

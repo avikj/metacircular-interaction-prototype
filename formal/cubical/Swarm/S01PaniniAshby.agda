@@ -363,7 +363,6 @@ sigDistinct12 e = tâ‰¢f (cong snd e)
 --   the signature map separates whatever the action map separates.  The
 --   counting form â” n binary patterns cannot compute an action with
 --   more than 2â¿ classes on a single observable fibre â” follows by
---   pigeonhole on Bool^n and is NOT formalized here; only its n = 1
---   instance (`oneCondCannotSeparateThree`) is.  Nothing below depends
---   on the unformalized version.
+--   pigeonhole on Bool^n; its n = 1
+--   instance is `oneCondCannotSeparateThree`.
 ------------------------------------------------------------------------

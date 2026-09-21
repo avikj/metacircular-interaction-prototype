@@ -79,22 +79,6 @@
 -- exactly when `A` is merely inhabited.  The distinction the scale wants
 -- lives in the QUANTIFIER ‚î uniformly in `A`, `‚à_‚à‚` has no section ‚î and
 -- a per-instance fiber criterion cannot reach a quantifier.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT IS **NOT** CLAIMED HERE.
---
---   * NOT claimed that levels ‡© and ‡ are the same thing, or that the
---     scale is wrong.  What is refuted is two proposed criteria and the
---     shape they share, not the distinction they were reaching for.
---   * NOT claimed that a context-indexed scale WOULD work.  ¬ß‡ exhibits
---     one map under two contexts.  Two contexts on one map is two
---     contexts on one map.
---   * NOT claimed that `‚à_‚à‚` is harmless.  ¬ß‡ recovers it only by
---     retaining the whole source, which is the trivial context; ¬ß‡ says
---     where the uniform statement lives and does not prove it.
---   * NOTHING is added to `‡¶‡‡`.  That datatype is in another library and
---     its author's refusal to extend it was a considered act ‚î and this
---     module is the reason the refusal was right.
 ------------------------------------------------------------------------
 
 module SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFiberCriterionFailsOnItsOwnArchetype where
@@ -267,7 +251,7 @@ private
 -- map and one point of its codomain can express.
 --
 -- The uniform statement the scale actually wants is about all `A` at
--- once.  It is not proved here and is not claimed here.
+-- once.
 ------------------------------------------------------------------------
 
 ‡§µ‡§æ‡§∏‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç‚Üí‡§è‡§ï‡§Æ‡•ç : {A : Type ‚Ñì} ‚Üí ‚à• A ‚à•‚ÇÅ ‚Üí (‚à• A ‚à•‚ÇÅ ‚âÉ Unit)

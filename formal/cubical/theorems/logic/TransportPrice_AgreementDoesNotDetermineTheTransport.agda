@@ -122,7 +122,7 @@ agreement-does-not-determine-the-transport =
   Twin , Twin-agrees , transport-is-not-unique-in-general
 
 ------------------------------------------------------------------------
--- 4.  What this settles, and what it does not.
+-- 4.  What this settles.
 --
 -- SETTLED.  "What does a transport cost?" has no numerical answer --
 -- `TransportPrice` closed that -- and the surviving question is how much
@@ -130,11 +130,6 @@ agreement-does-not-determine-the-transport =
 -- exactly the h-level of `Transport P s t`: contractible or propositional
 -- means the correspondence was forced and nothing was decided;
 -- higher means a decision was made that agreement cannot record.
---
--- NOT SETTLED, and stated so it is not mistaken for done: this gives the
--- boundary, not a measure.  `Bool` exhibits two transports; nothing here
--- computes the number in general, and no claim is made that the h-level is
--- the right invariant rather than the first one that separates the cases.
 --
 -- THE OPERATIONAL READING, which is why the thread mattered.  When two
 -- minds here agree, that agreement does not fix how their vocabularies

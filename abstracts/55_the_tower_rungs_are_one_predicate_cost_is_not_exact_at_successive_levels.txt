@@ -39,8 +39,7 @@ the same predicate is why the climb is a step, not a coincidence.
 
 SYT â” THE CLAIM, EXACTLY.  The predicate, and the two corpus
 obstructions AS instances of it (rung 0 definitional, rung 1 up to sym),
-and their product.  NOT claimed: the full âˆž-tower â” that rung n
-precipitates rung n+1 for all n.
+and their product.
 
 Machine-checked in cubical type theory, --safe, at the pin; the rung
 types and their product computed and read back through the interactive

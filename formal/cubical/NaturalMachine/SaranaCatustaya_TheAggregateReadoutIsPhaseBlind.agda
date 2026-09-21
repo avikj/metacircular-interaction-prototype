@@ -253,9 +253,4 @@ readout-separates p = 19â‰¢18 (cong fst p)
 -- have carried.  Nearly vacuous is not vacuous, and the difference is the
 -- whole of what a labelled readout buys over an aggregate one â” which is
 -- the theorem, not an aside.
---
--- The generalisation is not claimed here: that for every
--- n, p with 0 < n mod p < p the labelled count vector determines the phase
--- uniquely.  Two instances and a mechanism are two instances and a
--- mechanism.
 ------------------------------------------------------------------------

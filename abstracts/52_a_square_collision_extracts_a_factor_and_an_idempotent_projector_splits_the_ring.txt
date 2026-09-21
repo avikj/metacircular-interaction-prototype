@@ -32,9 +32,8 @@ turn made concrete: the kernel is an analyzer, and its output is the
 decomposition, delivered as data.
 
 SYT â” THE CLAIM, EXACTLY.  The chain for N = 15 with the given
-collision, every value computed and read back.  NOT claimed: that the
-collision was found rather than supplied, nor anything about N in
-general.  The extractor is executed on one worked instance; that is
+collision, every value computed and read back.
+The extractor is executed on one worked instance; that is
 what makes the factors readable rather than only provable.
 
 Machine-checked in cubical type theory, --safe, at the pin; computed

@@ -72,11 +72,6 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 --
 -- That the small theory of the previous module is affected: it has no
 -- `prov` worth the name and its independence result stands untouched.
---
--- SCOPE.
--- A version phrased over a valuation into a larger algebra
--- than `Bool` would evade §1, which
--- is a fact about two-valued semantics.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

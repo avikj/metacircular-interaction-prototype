@@ -51,12 +51,7 @@
 -- no larger than affine wherever all triples are admissible.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“3 over â, for all arguments, plus one
--- computed witness.  NOT claimed: that ð’ŸF â‰¡ 0 on admissible triples
--- FORCES F affine â” that needs the admissibility geometry (every three
--- points of an interval (a,2a) form a strict triangle) and an overlap
--- argument, neither of which is formalised here; nor any statement
--- about positivity, which is an order fact and not a ring identity;
--- nor anything about the field equation the defect is extracted from.
+-- computed witness.
 ------------------------------------------------------------------------
 
 module TryaSresthaDosa_TheTriadicProductionDefectIsACollinearityDeterminantSoAffineWeightsAreItsKernelAndTheMagnitudeWeightIsNotInIt where

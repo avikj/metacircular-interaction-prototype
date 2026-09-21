@@ -50,13 +50,4 @@ cardinality the right measure" is to ask a question this module answers no
 to, by exhibiting the same object at three different orders and keeping
 them apart.
 
-WHAT IS NOT CLAIMED.  `inflate` exhibits an injection â• â Derivation a b,
-not a bijection; nothing is claimed about the h-level of that type or that
-the padding enumerates it.  Nothing is claimed about `Step a b` for a fixed
-pair, which is a different question -- the unboundedness here is in the
-length of a walk.  The one-bit collapse is a fact about the â•-valued
-soundness semantics; it is not a claim that no finer semantics
-distinguishes the histories -- a univalent semantics does, and is treated
-elsewhere.
-
 Machine-checked in cubical type theory, no postulates, no admitted goals.

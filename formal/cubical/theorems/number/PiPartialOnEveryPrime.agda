@@ -7,20 +7,11 @@
 -- declines to claim: D0020 Â§8's Î _âˆ identity fails on EVERY prime, by
 -- exactly 1, as a closed universally quantified Agda theorem.
 --
--- WHY THIS MODULE EXISTS.  `TransmissionRefutations.agda` (in HEAD, 682
--- lines, green under the pin â” re-checked before this module was written)
--- is the second reader on ledger rows 8.5, 1.5 and 0.3.  Its scope note
--- A.4 is scrupulous about one gap:
---
---     "* 'the display fails by 1 at Î½, given the prime values' â” THEOREM.
---      * 'every prime has those values' â” checked here only at
---        Î½ = 2, 3, 5, 7, 11, 13, 17, 19, 23 (A.5), by computation â¦
---      The universal claim of ledger row 8.5 is therefore established
---      modulo that standard evaluation, and is NOT claimed as a closed
---      Agda theorem over all primes."
---
--- That gap is real: nine witnesses are not "every prime".  It is closed
--- here by changing the representation rather than the argument.  Instead
+-- WHY THIS MODULE EXISTS.  `TransmissionRefutations.agda` is the second
+-- reader on ledger rows 8.5, 1.5 and 0.3; it establishes ledger row 8.5
+-- at Î½ = 2, 3, 5, 7, 11, 13, 17, 19, 23 (A.5), by computation.  Here the
+-- universal claim is proved by changing the representation rather than
+-- the argument.  Instead
 -- of computing Î¼, Ï‰, Î©, Î», ðŸ™_â˜ from a numeral by trial division (where
 -- the passage from "Î½ is prime" to their values is a theorem about the
 -- algorithms), each Î½ is represented by its multiset of prime exponents,
@@ -266,28 +257,25 @@ fails-pp-on-every-prime-square e q =
   subst (Î» f â†’ (Î âˆ‚ f â‰¡ pos zero) Ã— (RHSdisplay-pp f â‰¡ negsuc 0)) (sym q) (refl , refl)
 
 ------------------------------------------------------------------------
--- 6.  SCOPE.
---
--- WHAT IS A THEOREM HERE.  `fails-on-every-prime` and
+-- 6.  WHAT IS A THEOREM HERE.
+-- `fails-on-every-prime` and
 -- `off-by-exactly-one` quantify over every shape with Î© = 1 â” that is,
 -- over every prime, with no bound and no enumeration â” and the
 -- classification `Î©â‰¡1â’shape` that makes them bite is proved, not
 -- assumed.  Likewise `holds-on-every-Î©2` and `repair-on-whole-range`
 -- cover the whole hypothesis 1 â‰ Î© â‰ 2 rather than a range of numerals.
--- This closes the gap that `TransmissionRefutations.agda` A.4 correctly
--- declines to claim.
 --
--- WHAT IS ASSUMED, and it is one thing.  The faithfulness of the model:
+-- WHAT IS ASSUMED.  The faithfulness of the model:
 -- that Î½ â¦ its multiset of prime exponents is a bijection from the
 -- integers â‰ 1 onto finite multisets of positive integers, and that the
 -- five functions of the display are, on that datum, exactly Ï‰ = length,
 -- Î© = Î exponents, Î¼Â² = [all exponents are 1], Î» = (âˆ’1)^Î©, and
 -- ðŸ™_â˜ = [Î© = 1].  Each of the five is the *definition* of the arithmetic
 -- function on factorisation data; the bijection is unique factorisation
--- (Euclid IX.14; Gauss, D.A. art. 16), which is classical and is NOT
--- re-proved here.  No other input is used: no ordering, no primality
+-- (Euclid IX.14; Gauss, D.A. art. 16), which is classical.
+-- No other input is used: no ordering, no primality
 -- algorithm, no arithmetic beyond â• and â.
 --
--- NOTHING is claimed here about ledger rows 1.5 and 0.3; they are settled
+-- Ledger rows 1.5 and 0.3 are settled
 -- in `TransmissionRefutations.agda` Sections B and C.
 ------------------------------------------------------------------------

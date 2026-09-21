@@ -32,14 +32,13 @@
 -- the corpus's own `len` and `cardœ‚`, that the finite set a tally word
 -- is sent to has cardinality equal to the length of the word.
 --
--- PROVENANCE / SCOPE.  ‡‡ï‡æ‡ï‡‡‡∞ ("single-syllable / single-letter") names
+-- PROVENANCE.  ‡‡ï‡æ‡ï‡‡‡∞ ("single-syllable / single-letter") names
 -- `Tally` honestly: it is the set of words over a one-symbol alphabet,
 -- which is exactly a tally of single marks.  ‡‡‡‡ ("ford / bridge") is
 -- the tirtha-graph vocabulary `SetuYugma` established for this region.
 -- The decategorification side (œ‚ of finite sets, cardinality of a finite
--- set) is category-theoretic and is NOT claimed for any Indian source;
--- the compound ‡‡ï‡æ‡ï‡‡‡∞-‡‡‡‡ is built here, 2026-08-22.  Naming `Tally`
--- ‡‡ï‡æ‡ï‡‡‡∞ does not claim any source enumerated finite sets.
+-- set) is category-theoretic;
+-- the compound ‡‡ï‡æ‡ï‡‡‡∞-‡‡‡‡ is built here.
 --
 -- No sorry / postulate / axiom / hole; no Bool, no decision.
 ------------------------------------------------------------------------

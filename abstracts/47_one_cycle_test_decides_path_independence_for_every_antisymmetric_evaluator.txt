@@ -30,7 +30,6 @@ cycle can certify and value no cycle can kill.
 
 SYT â” THE CLAIM, EXACTLY.  Additivity, the cancellation, the test,
 the antisymmetry of every coboundary, at one fundamental cycle
-uniformly in the pair it spans.  NOT claimed: a spanning tree or full
-Hâ basis for the whole step graph.
+uniformly in the pair it spans.
 
 Machine-checked in cubical type theory, --safe, at the pin.

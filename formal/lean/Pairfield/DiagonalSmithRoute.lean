@@ -116,8 +116,7 @@ theorem positiveDiagonalSwapCertificate_valid_iff {a b : Nat}
   · exact positiveDiagonalSwapCertificate_valid hb
 
 /-- The incomparable route is exactly the failure of both closed-form
-diagonal orderings.  This is the proved boundary; no claim is made about an
-unspecified larger class of “weak” operations. -/
+diagonal orderings. -/
 theorem positiveDiagonalRoute_nontrivialJoin_iff_two_simple_fail {a b : Nat}
     (ha : 0 < a) (hb : 0 < b) :
     positiveDiagonalRoute a b = .nontrivialJoin ↔

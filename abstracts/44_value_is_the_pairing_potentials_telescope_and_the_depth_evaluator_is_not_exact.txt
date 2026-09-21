@@ -45,7 +45,6 @@ integral into boundary.
 SYT â” THE CLAIM, EXACTLY.  The pairing, the telescoping theorem and
 its closed corollary, the two schedules and their depths, the loop
 and its integral, and the nonexistence of a potential for the depth
-evaluator.  NOT claimed: the full HÂ of the derivation complex, nor
-evaluators valued outside â.
+evaluator.
 
 Machine-checked in cubical type theory, --safe, at the pin.

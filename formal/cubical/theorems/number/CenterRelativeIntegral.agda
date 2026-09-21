@@ -31,7 +31,6 @@
 -- missing datum is not a structure but a ring element, and the failure
 -- is not of transport but of the map being invertible at all.
 --
---
 -- WHAT IS CHECKED
 --
 --   Â§1  `Î¦â²`, `Î¨`            the integral maps.  `Î¦â²(p,q) = (p+q, qâˆ’p)`
@@ -66,28 +65,6 @@
 --                            reflection negates it.**  Two involutions,
 --                            two different fates for `Q`, both checked.
 --
---
---  * **No valuations, no places, no adeles.**  Â§17.8's `s_â“`/`d_â“` are
---    the motivation and are NOT constructed here.  This file is about a
---    commutative ring; that the ring is `â` and the elements are
---    `v_â“(p), v_â“(q)` is a reading, not a term.  Program 17.23
---    (adelic formulation) is untouched.
---
---  * **T17.13 is not proved as stated.**  Delta 17 states an equivalence
---    of `â_{â‰0}Â²` with the cone `{(s,d) : s â‰ |d|, s â‰¡ d mod 2}`.  The
---    parity half is Â§3 above; the **order half â” `s â‰ |d|` â” is absent**,
---    because it needs an ordered ring and this file deliberately has no
---    order.
---
---  * **Nothing from Â§Â§17.2â“17.3, 17.5, 17.12â“17.14, 17.16â“17.21.**  The
---    split torus, `SOâº(1,1)`, the Weyl group as a normaliser quotient,
---    `SU(1,1)`, the `A_{kâˆ’1}` root system, formal group laws, and the
---    local logarithms are all absent.
---
---  * **Not novel.**  `(p,q) â¦ (p+q, qâˆ’p)` having determinant 2 is
---    immediate and ancient.  What this file contributes is that the
---    corpus's own `half` hypothesis is now *explained* by a checked
---    statement rather than carried as a side condition.
 ------------------------------------------------------------------------
 
 module CenterRelativeIntegral where

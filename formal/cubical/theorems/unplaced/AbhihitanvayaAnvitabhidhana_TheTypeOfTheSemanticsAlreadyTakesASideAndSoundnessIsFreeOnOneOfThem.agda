@@ -90,9 +90,6 @@
 --   connectedOf / connectedAgrees
 --                    the abhihitnvaya-shaped data DETERMINES the
 --                    connected form: `act c (C t) â‰¡ C (plug c t)`.
---                    The reverse construction â” recovering `C` from a
---                    connected semantics alone â” is NOT built, and
---                    nothing here says it is impossible either.
 ------------------------------------------------------------------------
 
 module AbhihitanvayaAnvitabhidhana_TheTypeOfTheSemanticsAlreadyTakesASideAndSoundnessIsFreeOnOneOfThem where

@@ -49,10 +49,6 @@
 -- The alternative ‚î emitting `refl` for each turn ‚î would prove only that
 -- the generator's arithmetic agrees with the kernel's, and would not tie the
 -- run to Brahmagupta's law at all.
---
--- WHAT IS NOT HERE.  Termination, and BhƒÅskara's minimality rule; nothing
--- below touches them.  Nor does this file recover k and k' ‚Äî it is the step's IDENTITY,
--- not the step's bookkeeping, and the bookkeeping is where the signs live.
 ------------------------------------------------------------------------
 
 module CakravalaNat where

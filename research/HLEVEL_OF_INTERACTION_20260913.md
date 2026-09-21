@@ -307,9 +307,7 @@ the same forward/backward asymmetry the SHA analysis called the arrow
 of time and the fibre law called output-vs-input binding. Three
 descriptions, one mechanism: **the contractibility of `singl` is the
 whole of determinism, losslessness, and the free future; its failure at
-one floor is the whole of loss, cost, and generativity.** ([R]; the
-literal De Morgan relation between the two fillers is not claimed as
-[T] ‚î only that both are the singl filler, oriented.)
+one floor is the whole of loss, cost, and generativity.** ([R]: both are the singl filler, oriented.)
 
 `‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡` is now readable as one sentence: **in the kernel tower
 one floor is not a singleton** ‚î the receipt slot holds `Derivation w o`

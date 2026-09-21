@@ -94,8 +94,7 @@
 -- universal property doing the work in Â§3: `certIso` is precisely
 -- currying `X â’ E` along `X â‰ Î Y (fiber f)`.  It is written out
 -- directly because in that form one round trip is definitional, which
--- is the point being made; `certIsoâ‰¡curry-totalEquiv` is NOT proved
--- and is not needed.
+-- is the point being made.
 --
 -- PRIOR ART.  `Cubical.Foundations.Equiv.Fiberwise.fibers-total` is HoTT
 -- Thm 4.7.6:
@@ -109,10 +108,7 @@
 -- while Â§1's source is `X` itself and its target family is CONSTANT, so
 -- both round trips are `refl` and `fiberIso` computes.  The derived
 -- version is available and is strictly weaker in computational
--- content; the conjugation `certIso â‰¡ curry along totalEquiv` and
--- `fiberIso â‰¡ conjugate of fibers-total` are both plainly true and
--- NEITHER IS PROVED HERE.  They are not needed: nothing below cites
--- them.
+-- content.
 --
 -- Also searched, under the standard names: `isEmbedding`,
 -- `hasPropFibers`, `fiber`, `totalEquiv`, `fibrationEquiv`,
@@ -274,13 +270,6 @@ module _ {X : Type â„“x} {Y : Type â„“y} {E : Type â„“e} (f : X â†’ Y) where
 -- post-state `B`, so the state map is constant and its single fibre is
 -- `â•`.  Therefore every certificate alphabet that restores injectivity
 -- admits `â• â E`.
---
--- What this is NOT: it is not a claim about `A_q`'s Smith arithmetic,
--- which is not formalised here.  It is the exact statement that the
--- broadcast's `N`-indexed family was standing in for, with `N â’ âˆž`
--- deleted rather than estimated.  The Smith content â” that the
--- constant post-state really is `B` for every `q` â” is imported from
--- that message, not reproved.
 ------------------------------------------------------------------------
 
 module SmithQuotientNoGo where

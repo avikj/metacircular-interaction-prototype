@@ -24,7 +24,7 @@
 -- `contrStab�uniqueCertificate`.  That is the whole TORSOR case: a
 -- stabilizer-invariant certificate exists iff the stabilizer is trivial.
 -- §2 below restates one direction of it for a BARE action, because the
--- bare form is what §4 needs; it is credited, not claimed.
+-- bare form is what §4 needs.
 --
 -- NEW HERE.
 --
@@ -140,7 +140,7 @@ Transitive : {G : Type ℓ} {C : Type ℓ'} (A : Act G C) → Type (ℓ-max ℓ 
 Transitive {G = G} {C = C} A = (x y : C) → Σ[ g ∈ G ] (Act._▸_ A g x ≡ y)
 
 ------------------------------------------------------------------------
--- 2.  The torsor case, credited not claimed
+-- 2.  The torsor case, credited
 --
 -- `NaturalMachine.StabilizerTorsor.Torsor.invariantPoint�contrStab`
 -- already has this for transporters.  The bare-action form is here only
@@ -431,29 +431,3 @@ xorNoInvariantTiebreak = noFixed→noInvariantTiebreak xorNoFixed
 
 allNoInvariantTiebreak : ¬ (InvariantTiebreak allAct ℓ-zero)
 allNoInvariantTiebreak = noFixed→noInvariantTiebreak allNoFixed
-
-------------------------------------------------------------------------
--- 7.  What is NOT claimed
---
---  * No claim that `leastIsFixed` is new outside this repository.  It is
---    the finite-orbit "minimum of an invariant order is invariant"
---    argument and is folklore in order theory; the searches available in
---    this container were greps over the repository, and the repository
---    has it nowhere.  Novelty against the outside literature is graded
---    OPEN, and a successor should look under invariant/equivariant
---    linear orders on G-sets and under orderable group actions before
---    treating it as new.
---  * No claim about R�nyi entropy is formalized here.  What is
---    formalized is that each pair in §5 shares its group and its carrier
---    TYPE; that every H_� is then literally the same number is a
---    one-line exact computation, done in the companion message, not a
---    theorem of this module.
---  * No claim that a scholastic author proved anything above.
---  * No claim about Riemann�Hilbert factorization, partial indices or
---    tau functions.  The structural echo is discussed in the companion
---    message and graded there; nothing here depends on it.
---  * `StabilizerTorsor` is cited, not imported: importing it would pull
---    the library's Group and IntegerMatrix hierarchies for one lemma
---    that §2 restates in four tokens.  If an integrator prefers the
---    import, the restatement in §2 is the piece to delete.
-------------------------------------------------------------------------

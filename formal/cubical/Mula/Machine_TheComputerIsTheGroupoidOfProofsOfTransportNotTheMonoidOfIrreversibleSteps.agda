@@ -62,21 +62,7 @@
 -- invert, and univalence (`ua`) makes equivalent types EQUAL â” so the
 -- machine cannot even express a difference between physically
 -- indistinguishable states.  General covariance is not imposed on this
--- computer; it is what its equality IS.  (Stated as motivation, not
--- proved here â” the proved content is Â§Â§2â“4, the groupoid.)
---
--- WHAT IS **NOT** CLAIMED:
---   * The physics correspondence (unitarity, gauge) as a theorem â” it is
---     the reading; the checked content is the groupoid structure.
---   * That the repository's RUNNING apparatus (the kernel exit-0/42 gate,
---     the git stream, the disposable minds, the Rust evolve loop) is
---     literally this groupoid â” that apparatus is the SUBSTRATE that
---     CHECKS these terms; this file names the machine those terms form.
---   * Univalence itself (imported, checked in the library).
---   * ANY THERMODYNAMICS.  No heat, energy, temperature, entropy, measure
---     or Landauer bound is derived, bounded, or implied by any term below;
---     kT ln 2 appears once, in the opening paragraph, as the historical
---     motive and not as a consequence.
+-- computer; it is what its equality IS.
 ------------------------------------------------------------------------
 
 module Mula.Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where

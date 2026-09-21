@@ -5,8 +5,8 @@
 -- and Akalaka's analysis of the saptabhag: kramrpaa presents
 -- aspects in sequence; yugapad-arpaa presents both AT ONCE â” which
 -- speech cannot carry (whence avaktavyam), but which is not thereby
--- unavailable to knowing.  The classification is theirs; the
--- mathematics is not claimed for the sources.  School named: Jaina.
+-- unavailable to knowing.  The classification is theirs.
+-- School named: Jaina.
 --
 -- WHAT SPEECH CANNOT DO SIMULTANEOUSLY, THE DESCENT CAN.  The
 -- machine's own operators â” its maximum, its comparison, its monus â”

@@ -109,28 +109,19 @@
 --     the instance.  Neither subsumes the other and this one proves no
 --     arithmetic.
 --
---   * NO PROBABILITY AND NO RESOURCE BOUND.  There is no distribution, no
---     negligible function, no polynomial-time simulator and no adversary
---     class below.  "Perfect" here means EQUAL, which is stronger than
+--   * "Perfect" here means EQUAL, which is stronger than
 --     indistinguishable, and it is bought entirely by the codomain being a
 --     proposition.  A protocol whose transcripts do NOT land in a
 --     proposition receives none of this for free and must pay with a
---     simulator argument; nothing here says such a payment is available.
---     (Cost in the graded sense is NOT absent from the corpus -- see
---     `Laghava_` above.  It is absent from THIS file.)
+--     simulator argument.
 --
---   * COMPLETENESS OF THE CALCULUS IS NOT PROVED, and that is the exact
---     hypothesis ยง4 takes rather than assumes.  `view : W โ’ V` says an
+--   * COMPLETENESS OF THE CALCULUS is the exact
+--     hypothesis ยง4 takes.  `view : W โ’ V` says an
 --     honest party's view comes from a witness; it does not say an
 --     inhabitant of `V` entails one.  At the kernel, `Meaning a b` can hold
 --     with no `Derivation a b` -- two terms may be pointwise equal with no
 --     route between them -- so `uniqueness-gives-extraction` demands
 --     `V โ’ W` explicitly.  This is COMPLETENESS, not soundness.
---
---   * NOTHING ABOUT ROUNDS, challenges, Fiat-Shamir, commitment schemes or
---     a verifier's coins.  ยง1 is a map, not a protocol.  (The corpus does
---     have interaction structure -- `Session`, `step`, `Encounter` -- but
---     none of it is a round in the protocol sense and none is used here.)
 ------------------------------------------------------------------------
 
 module HidingAndHardnessAreOneFibreSoTwoWitnessesForbidExtraction where

@@ -48,13 +48,6 @@
 --                              distinction the end task does not need
 --   unsafe-compression         §15/§16 read back: a compressor whose
 --                              collapsed class admits no common action
---
--- NOT claimed: novelty, and none of the NP-hardness.  T3 identifies κ�
--- with a set-cover number and Cor 3.1 concludes NP-hardness; that is a
--- statement about explicitly represented finite relations and is not
--- formalized here.  What is formalized is every statement of Δ01 that is
--- a theorem about the relation itself rather than about the cost of
--- computing with it.
 ------------------------------------------------------------------------
 
 module NaturalMachine.SufficientInterfaces where

@@ -28,8 +28,6 @@ time: the hard distinctions are sides of one nonbinary coin, and each
 new face is one record away from joining.
 
 SYT â” THE CLAIM, EXACTLY.  The family ropeFace : (k i : â•) â’ Paksa
-and its no-retraction corollary.  NOT claimed: apartness of a single
-crossing from the identity (the checked apartness the lane exports is
-at the fourth power), nor anything about readers above the crossing.
+and its no-retraction corollary.
 
 Machine-checked in cubical type theory, --safe, at the pin.

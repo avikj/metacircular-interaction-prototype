@@ -462,7 +462,7 @@ maximalOrderLaw disc = case disc `mod` 4 of
 --   what is known to close it, named so the next reader does not re-derive
 --                the hole: Voronoi's chain of relative minima (1896), which
 --                is a two-dimensional descent and not a one-dimensional
---                one.  It is not implemented here and is not claimed.
+--                one.
 --
 -- So: this instance's `reactor` run cannot reach a unit by descent, and it
 -- says so with the instance.  Its `lawCompose` and `lawNorm` do run, and

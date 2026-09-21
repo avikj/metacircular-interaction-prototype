@@ -66,15 +66,7 @@
 -- identities that a symbol calculation would need, and nothing more.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“5 over any commutative ring, for all
--- triples satisfying the displayed equations.  NOT claimed: any norm â”
--- no order relation occurs in this file; any spectrum, essential or
--- otherwise, and no Weyl sequence, no limit, no wave packet; nothing
--- about `â–Ââ–_âˆž`, about LÂ², or about any continuation criterion; nothing
--- about a Leray projection as an operator; the eigenvalue reading of Â§2
--- and Â§4, which is stated above as a reading of the identities and is
--- not itself proved (there is no â here to state it in); and no
--- injectivity of any representation, which needs a norm Â§5 does not
--- supply.
+-- triples satisfying the displayed equations.
 ------------------------------------------------------------------------
 
 module TiryakChihna_TheTransverseSymbolIsTheAxialVorticityTimesAComplexStructureSoItsSquareIsMinusThatScalarSquared where

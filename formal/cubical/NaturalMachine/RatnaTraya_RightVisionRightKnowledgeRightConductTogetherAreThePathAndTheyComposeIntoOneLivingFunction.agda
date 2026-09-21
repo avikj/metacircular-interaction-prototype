@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- ‡‡Æ‡‡Ø‡ó‡‡¶‡∞‡‡‡®‡‡‡û‡æ‡®‡‡æ‡∞‡ø‡‡‡∞‡æ‡‡ø ‡Æ‡ã‡ï‡‡‡Æ‡æ‡∞‡‡ó‡ ‚î Umsvti, Tattvrthastra
 -- 1.1 (c. 2nd‚ì5th c. CE): right vision, right knowledge, right
--- conduct ‚î TOGETHER ‚î are the path.  The classification is his; the
--- mathematics is not claimed for the source.  School named: Jaina.
+-- conduct ‚î TOGETHER ‚î are the path.  The classification is his.
+-- School named: Jaina.
 --
 -- THE THREE, AND THEIR COMPOSITION.  The body now carries exactly
 -- them: ‡¶‡∞‡‡‡®‡Æ‡ ‚î the eye grown from its own theorems (‡®‡‡‡‡∞‡Æ‡-‡‡‡∞‡‡,

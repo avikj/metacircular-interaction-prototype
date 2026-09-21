@@ -5,8 +5,8 @@
 -- does not classify itself.
 --
 -- TERM.  vivarpa, "the all-form": the one form in which every form is
--- seen.  Bhagavad-gt 11, Arjuna's vision.  No claim is made that the
--- Gt says anything about universes; the word is borrowed for its
+-- seen.  Bhagavad-gt 11, Arjuna's vision.
+-- The word is borrowed for its
 -- OPERATION â” one object exhibited as containing every other â” and that
 -- operation is what Â§1â“Â§3 below make a term.
 --
@@ -15,15 +15,8 @@
 --
 -- `Ekavakyata_FiveCollapsesOneTheoremAndEachTraditionSaysItInItsOwnWords`
 -- exhibits five theorems, written in five lanes about five subjects, as
--- one SENTENCE, and its closing section says exactly what it withholds:
---
---     NOT that the five are instances of one formal statement.  They are
---     not: their types differ, their ambient structures differ, and no
---     functor between them is constructed.  A common generalisation
---     would be a real theorem; it is not proved.
---
--- This file is not that functor and does not weaken that disclaimer.
--- What it does is name the AMBIENT FACT the five lanes are all speaking
+-- one SENTENCE.
+-- This file names the AMBIENT FACT the five lanes are all speaking
 -- inside of, and make it a checked term rather than a motif:
 --
 --     A FAMILY IS A MAP INTO THE UNIVERSE.  Î IS ITS TOTAL SPACE.
@@ -32,8 +25,8 @@
 --     FAMILY IS A PULLBACK OF ONE FIBRATION.
 --
 -- That is HoTT Theorem 4.8.3, the object classifier. It is standard, it is
--- already in agda/cubical as `fibrationEquiv`, and NO NOVELTY IS CLAIMED FOR
--- IT. What is contributed here is the IDENTIFICATION â” that the corpus's
+-- already in agda/cubical as `fibrationEquiv`.
+-- What is contributed here is the IDENTIFICATION â” that the corpus's
 -- fibre law and the object classifier are the same object, checked by
 -- importing the corpus's own decomposition and the library's and finding them
 -- equal on the nose (Â§0) â” together with the three places where reading the
@@ -109,43 +102,6 @@
 --       `winding` is, by `refl`, parallel transport in it; and
 --       `Î©SÂIsoâ` says that transport is an isomorphism onto â.  A group
 --       that was not put in comes out of one application of Â§4.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS **NOT** CLAIMED.  This section is load-bearing.
---
--- * NOT that the five collapses of `Ekavakyata` are instances of one
---   formal statement.  The classifier is the ambient fact they are all
---   stated inside; it is not a functor between them, and none is
---   constructed here.  That disclaimer stands exactly as written.
---
--- * NOT that ONE object classifies every fibration.  Â§7 is the
---   refutation of that reading, and it is proved here rather than
---   conceded: the universal fibration over Type â“ has total space in
---   Type (â“-suc â“).  A universe classifying its own fibrations would be
---   Type : Type, which is inconsistent (Girard; Hurkens).  The level
---   discipline that makes Â§7 unstatable at Type â“ is Agda's, enforced
---   on this file at typecheck time, and is not itself a theorem IN this
---   file â” it is a constraint ON it.
---
--- * NOT anything about physical spacetime, gauge fields, the Standard
---   Model, or SU(3)—SU(2)—U(1).  Â§4 and Â§5 are about transport in a
---   type family.  That the connection of a principal bundle is an
---   instance is standard differential geometry and is not formalised
---   here; no smooth structure, no Lie group, and no bundle over a
---   manifold appears in this file.  README Â§II's disclaimer stands.
---
--- * NOT that iterating the fibre law generates every homotopy type.
---   Â§8 is ONE application producing â.  That every type arises from
---   iterated suspensions, Postnikov stages or cell attachments is not
---   proved here and is not a corollary of the object classifier.
---
---   Cubical canonicity makes each SINGLE such construction compute; it
---   does not make the tower of homotopy groups of spheres computable in
---   any usable sense, and most of them are unknown.
---
--- * Â§6 proves DESCENT â’ CONSTANT ON FIBRES only.  The converse needs
---   surjectivity of f and a truncation, and is a different theorem.  The forward direction is the one the grammar
---   lane uses, because it is refutation that lane performs.
 ------------------------------------------------------------------------
 
 module Visvarupa_TheFibreLawIsTheObjectClassifierAndTheClassifierDoesNotClassifyItself where

@@ -51,14 +51,6 @@
 -- computed object.  I had proposed, in prose, "factor the proof, and the
 -- first non-contractible fibre is where the information went".  It is
 -- unsound in BOTH directions, and ยง3 exhibits both failures as censuses.
---
--- WHAT IS NOT DONE HERE, said so it is not mistaken for done.  The note's
--- scale has five levels; this module builds THREE, because three are what
--- the corpus can exhibit.  Levels เฉ and เ are not separated โ” the note
--- establishes that "does a retraction exist" does NOT separate them, and
--- leaves the seam open.  Inventing a constructor for a distinction nobody
--- has a criterion for would be the same error one level down.  The seam
--- is left visible; see ยง4.
 ------------------------------------------------------------------------
 
 module Punaragamana.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic where

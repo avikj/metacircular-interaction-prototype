@@ -40,8 +40,7 @@
 --     `each-obs-twice` are about one map and not two.
 --   * `even-total-is-image` / `image-is-even-total` ‚î EXACTNESS, both
 --     inclusions: im Œ¥ is EXACTLY ker(total).  With `total-onto` this
---     is coker Œ¥ ‚â F‚ with `total` as the class evaluator (the quotient
---     type itself is not constructed; see SCOPE below).
+--     is coker Œ¥ ‚â F‚ with `total` as the class evaluator.
 --   * `local-section` ‚î each context separately admits an assignment
 --     with the prescribed parity (the obstruction is global, not local).
 --   * `rows-only-section` ‚î the rows-only cover admits a global
@@ -56,12 +55,10 @@
 --     `PMTorus.cycleEquiv` rather than measured.  `kernelIso` is the
 --     bridge: ker Œ¥ ‚â PMTorus.Cycle.
 --
--- SCOPE.  The quotient type F‚‚/im Œ¥ is not constructed
--- (no SetQuotient), exactly as in `PMTorus`; "coker Œ¥ ‚â F‚" is
+-- Exactly as in `PMTorus`, "coker Œ¥ ‚â F‚" is
 -- delivered in its usable form ‚î im Œ¥ = ker total (both inclusions)
--- together with total onto.  The upstream operator data (the Weyl
--- 2-cocycle Œº and the gauge 1-cochain œ of the note) is NOT formalized:
--- the sign vector s enters here as a DATUM, transcribed from the note,
+-- together with total onto.
+-- The sign vector s enters here as a DATUM, transcribed from the note,
 -- not derived from Gaussian-integer Pauli matrices.  What is proved is
 -- everything downstream of s.
 --

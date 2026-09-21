@@ -34,16 +34,15 @@
 -- that never finishes speaking ‚î and ‡‡∞‡‡µ‡Æ‡‡®‡Æ‡ says why: it is not
 -- truncated at any level.
 --
--- SOURCES AND SCOPE.  ‡‡µ‡∞‡ã‡‡ is imported from Mauna (this corpus,
+-- SOURCES.  ‡‡µ‡∞‡ã‡‡ is imported from Mauna (this corpus,
 -- 2026-08-23); isGroupoidS¬ (Cubical.HITs.S1.Properties), Torus‚â°S¬óS¬
 -- (Cubical.HITs.Torus.Base), isOfHLeveló, isOfHLevelPlus',
 -- isOfHLevelRespectEquiv, truncIdempotentIso are the library's.  This
 -- module's content is the generalisation and the two torus terms.
 -- ‡‡∞‡‡µ (all), ‡‡Æ (even/level, for the untwisted), ‡µ‡≤‡Ø (ring) are
--- ordinary  labels; no source is claimed for the mathematics,
--- and, as in StaraArpana, arpita/anarpita as a READING of strata is
--- Umsvti (Tattvrthastra 5.31) with no claim that any source grades
--- truncations.
+-- ordinary  labels;
+-- as in StaraArpana, arpita/anarpita as a READING of strata is
+-- Umsvti (Tattvrthastra 5.31).
 ------------------------------------------------------------------------
 
 module SarvaMauna_TheLadderOfATruncatedSpaceEndsExactlyAtItsOwnLevelAndTheUntwistedRingJoinsTheBell where

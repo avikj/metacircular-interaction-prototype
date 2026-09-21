@@ -123,12 +123,6 @@ module Polarization {A : Type ℓ} (J : A → A) (P : A → Bool) where
 -- Program 15.16.  Signed magnitudes `Bool � A`, reflection = sign flip,
 -- predicate = the sign bit.  EVERY point is in the failure locus: the
 -- reflection destroys positivity everywhere it is defined.
---
--- HONEST SCOPE.  Delta 15 says "all nonzero points" for �.  This carrier
--- does not identify (true , z) with (false , z), so it has no zero to
--- except � the statement here is therefore about signed magnitudes, and
--- the missing exception IS the sign-of-zero identification.  Stated
--- rather than quietly matched.
 module SignFlip (A : Type₀) where
   open Polarization {A = Bool × A} (λ p → (not (p .fst) , p .snd)) fst public
 

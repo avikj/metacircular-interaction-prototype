@@ -49,11 +49,7 @@
 -- `spf-spec`, `mu-step`, `gcdN-isGCD`), and the module's sums are shown
 -- to be instances of one summation operator `Œ‚â`.
 --
--- SCOPE.  Nothing about the other displays of
--- `TransmissionRefutations` (its B.3 sums, its Section A, its Section
--- C) is touched; Gauss's identity Œ_{d‚àn} œ(d) = n and the general
--- Mbius inversion formula are not proved, because this route does not
--- pass through them.  The fuel of every imported program is discharged
+-- The fuel of every imported program is discharged
 -- by a proof, never by a range assumption.
 ------------------------------------------------------------------------
 

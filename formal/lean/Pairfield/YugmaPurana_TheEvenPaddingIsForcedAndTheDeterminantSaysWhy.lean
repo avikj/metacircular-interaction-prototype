@@ -52,16 +52,14 @@ Note the matrices are not literally the same: `L q = (q 1 / 1 0)` and
 `euclidStep q = (0 1 / 1 -q)`.  Both are in the family `{M : det M = -1}`,
 and the determinant argument needs nothing more of either than that.
 
-## What is and is not claimed of the source
+## The source
 
 The वल्ली is Āryabhaṭa's — *Āryabhaṭīya*, Gaṇitapāda 32–33 (499 CE),
 *"śeṣaṃ rakṣa"*, keep the remainder; the column worked out in Bhāskara I's
-*Āryabhaṭīyabhāṣya* (629).  Āryabhaṭa proved nothing below and none of this is
-attributed to him.  What is claimed is only that the object priced here is the
+*Āryabhaṭīyabhāṣya* (629).
+The object priced here is the
 column of quotients his procedure produces.  युग्म ("pair, even") and पूरण
-("filling, padding") are used in their plain senses; **no text is claimed for
-the compound, which was built in this repository** (the same declaration the
-Agda module makes).
+("filling, padding") are used in their plain senses.
 
 ## Discipline
 
@@ -270,20 +268,5 @@ theorem one_paddedOne_padding_is_even :
       CoefficientWitness.one.cost % 2 ∧
     CoefficientWitness.paddedOne.cost - CoefficientWitness.one.cost = 2 := by
   decide
-
-/-! ## 4 · शेषः — what this does not say
-
-* It does not say the endpoint matrices determine the word up to parity.  They
-  forget the quotients entirely; `det` sees only the length, and only its
-  parity.  The claim is about the coordinate the two counterexamples were
-  built to defeat, not about the fibre.
-* It does not say a **minimal** word length is undecodable.  Both no-decoder
-  theorems are about *historical* cost, and
-  `kuttaka610_leftWord_length_ge_four` in `DiagonalSmithRoute.lean` is the
-  living proof that the shortest-word question is a different and answerable
-  one.
-* It does not transport anything from the Agda lane.  See the header: the two
-  proofs are independent, and their agreeing is the content.
--/
 
 end Pairfield

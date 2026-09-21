@@ -179,8 +179,7 @@
 --   installed payloads to answers, semantic preservation under
 --   `unfold`, and a cost that is a separate field from the structural
 --   measure â” plus `payload-separates`, the field that demands the F/G
---   collision be resolvable.  IT IS DEFINED AND NOT INHABITED.  Nothing
---   in this file constructs one and no claim is made that one exists;
+--   collision be resolvable.  IT IS DEFINED AND NOT INHABITED;
 --   it is an interface in the style of
 --   `CapabilityGraph.ObservationalClassCompiler`.
 --
@@ -198,8 +197,7 @@
 --   `ArithmeticPayload` could not say.  IT TOO IS DEFINED AND NOT
 --   INHABITED.
 --
---
---    Â§G's `resumeCap`/`tickCap`/`readCap` are numerals with suggestive
+--  * Â§G's `resumeCap`/`tickCap`/`readCap` are numerals with suggestive
 --    identifiers; the mathematics is unchanged if they are renamed.
 --  * E1 locates the checkpoint-naming step SOMEWHERE in the chain and
 --    returns the intermediate vocabulary `X` at which it occurs.  It does
@@ -228,7 +226,7 @@
 --    counts `sucC` ticks a plan SCHEDULES, priced at one unit each.
 --    "Strictly cheaper" means strictly fewer scheduled transitions of the
 --    certified odometer.  The native-work theorem is `CountedDigitsEdge`.
---  * NO ARITHMETIC INTEGRATION IS CLAIMED, and by H2 none is available
+--  * By H2 no arithmetic integration is available
 --    from this state.  In particular Â§F does NOT unify the substrates:
 --    `compileTm` reads one bit off the term (`demands checkpoint t`) and
 --    takes the task's numbers natively.  A reader who wants "the term
@@ -239,25 +237,12 @@
 --  * H2 is a no-go about DECODERS FROM THE STATE, not an impossibility
 --    theorem about the enterprise: it says a function of `(Vocab , Tm)`
 --    cannot be the answer.  It does not say no extension of the substrate
---    can carry the answer â” Â§I names one that could.  Â§I is not proved to
---    be sufficient, only to be a type; and no term of it is built.
---  * NEITHER Â§I RECORD IS INHABITED, and `ArithmeticPayloadOver` is not
---    claimed to be sufficient either â” it is `ArithmeticPayload` with
---    one omission repaired, not a construction.  Its `carrier` field
---    demands a minimal carrier for a task's ANSWER in the declared
---    class; nothing here relates that number to `deficit`, and the
---    corpus's termination measure is the structural one.  The morphism
---    class is a parameter: what is fixed is that the interface must
---    name one.
+--    can carry the answer â” Â§I names one that could.
 --  * `ArithmeticPayload` is kept, superseded by `ArithmeticPayloadOver`,
 --    so that the correction is legible.
 --  * The witness policy is degenerate wherever the loop builds
 --    obstructions (`witness = var`); conservativity holds for any base
 --    witness, and nothing here makes bodies informative.
---  * Everything inherited from `Obstruction`'s and `GenerativeLoop`'s
---    disclaimers stands: single-parameter bodies, matching only at the
---    root, no arity structure in the residual, gates D2-D7 unmodelled,
---    and no relation to the Python runtime in `runtime/vocabulary/`.
 ------------------------------------------------------------------------
 
 module CompileBridge where
@@ -600,9 +585,7 @@ module Bridge (k : â„•) (checkpoint : Shape) where
 -- `payload-separates`, which is the demand that the F/G collision be
 -- resolvable â” exactly what Â§H proves the bare state cannot do.
 --
--- THIS RECORD IS DEFINED AND NOT INHABITED.  Nothing in this file
--- constructs a term of it.  No claim is made that one exists, nor that
--- these fields are sufficient for the arithmetic task; the record is an
+-- THIS RECORD IS DEFINED AND NOT INHABITED; the record is an
 -- interface written in the type language, in the style of
 -- `CapabilityGraph.ObservationalClassCompiler`.
 ------------------------------------------------------------------------

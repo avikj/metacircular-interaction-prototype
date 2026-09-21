@@ -17,26 +17,16 @@
 --   neither unknown nor undefined nor empty but a positive fourth position.
 --   The distinction is what makes seven positions and not four.
 --
--- **No claim is made that Samantabhadra, Akalaka or Vidynandin proved
--- anything below.**  The sevenfold division and the à•àà°à®/àà distinction are
+-- The sevenfold division and the à•àà°à®/àà distinction are
 -- theirs, stated as doctrine; the theorems here are about what the fourth
 -- corner can and cannot be over particular index types in cubical type
--- theory, and they are this repository's.  The Jaina texts do not contain a
--- claim about enumerable decidable instance sets and nothing here should be
--- read as saying they do.
+-- theory, and they are this repository's.
 --
 ------------------------------------------------------------------------
 -- TheFourthCornerIsRefutedUnderPointwiseStability
 --
--- `SamayikaAndNityaAreIndependent` proved three of four corners and
--- said of the fourth:
---
---   "NOT PROVED and NOT ASSERTED: that the fourth corner is impossible
---    in the PLAIN negated forms.  `Â àà¾à®à¯à¿à•` does not constructively
---    yield an instance no remedy removes, so `Â (Â àà¾à®à¯à¿à• bad — Â à¨à¿ààà¯
---    bad)` is NOT proved here and is not asserted."
---
--- It is refuted under one named hypothesis, and the hypothesis is
+-- `SamayikaAndNityaAreIndependent` proved three of four corners.
+-- The fourth is refuted under one named hypothesis, and the hypothesis is
 -- exactly a stability, pointwise in the remedy:
 --
 --   fourthCornerRefutedUnderPointwiseStability :

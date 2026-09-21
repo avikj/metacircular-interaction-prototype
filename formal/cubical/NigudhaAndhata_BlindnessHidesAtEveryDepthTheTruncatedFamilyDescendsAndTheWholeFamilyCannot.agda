@@ -39,7 +39,7 @@
 --   level is a sufficient sensorium for an unbounded higher world ‚î
 --   stated as the type ‡®‡ø‡ó‡‡-‡‡®‡‡ß‡‡æ, one n at a time, checked.
 --
--- SOURCES AND SCOPE.  The engines are the library's (sphereConnected,
+-- SOURCES.  The engines are the library's (sphereConnected,
 -- Cubical.HITs.Sn.Properties) and this corpus's own (‡‡®‡®‡‡‡∞‡Æ‡,
 -- AnantaraArpana ‚î œ‚ô‚ä‚S‚ø‚∫¬ ‚â ‚ read at the stratum above silence).
 -- The descent vocabulary follows the probe's, restated here because a

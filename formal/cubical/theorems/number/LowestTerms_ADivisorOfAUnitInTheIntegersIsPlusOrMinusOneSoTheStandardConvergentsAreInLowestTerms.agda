@@ -26,9 +26,7 @@
 -- (d divides x  =  Î c. x â‰¡ c Â d), imported, not redefined, so Â§4 is
 -- stated in exactly its terms.
 --
--- SCOPE.  Nothing about the third face (COMPLETE):
--- this module says nothing about where the vall comes from or that it
--- terminates.  "Lowest terms" here means precisely: every common divisor
+-- "Lowest terms" here means precisely: every common divisor
 -- of numerator and denominator is a unit of â, and the units of â are
 -- exactly Â1.  No gcd is computed and no B©zout witness is produced.
 ------------------------------------------------------------------------

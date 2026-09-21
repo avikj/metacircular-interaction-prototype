@@ -47,9 +47,6 @@ themselves.
 SYT â” THE CLAIM, EXACTLY.  The section, the equivalence, the two
 definitional factorizations, the contractible locus, and the map of
 every applicability space into it, for this kernel's NativeOperation
-as it stands.  NOT claimed: that install is an equivalence onto
-operations (gauges differ), nor anything about extensions that change
-Tm, Step, or eval: this classifies what install can reach, which is
-the kernel's own stated growth axis.
+as it stands.
 
 Machine-checked in cubical type theory, --safe, at the pin.

@@ -6,9 +6,8 @@
 -- its midpoint c to the mirror pair Âh.  The complex phases disappear;
 -- the object is real and symmetric.  (Owner's optical-centering message;
 -- the exact arithmetic core as a term.  The Fourier crystal r_{p,a} and
--- its cosine amplitude are the stated reading, fenced below â” trig over
--- â is not checked here; the modular centering that MAKES the crystal
--- real is.)
+-- its cosine amplitude are the stated reading, fenced below; the
+-- modular centering that MAKES the crystal real is checked.)
 --
 -- THE UNIFICATION.  Both problems are S_{a,z}(y) = âˆ_{pâ‰z} 1[y â‰ Âa mod p]:
 --   â Goldbach   x â‰ 0, N (mod p),  N = 2h,  x = h + y  âŸ  y â‰ Âh  (a=h=N/2)
@@ -24,7 +23,7 @@
 --     specialization of Â§1, exhibited.
 -- Â§3  FENCE â” the per-prime real crystal r_{p,a}(t) = âˆ’2cos(2Ïat/p)/(pâˆ’2)
 --     and the survivor-count identity are the owner's spectral reading;
---     they need â and the DFT and are NOT checked here.  What is checked
+--     they need â and the DFT.  What is checked
 --     is the centering that renders the two-wall indicator symmetric, on
 --     which the reality of the crystal rests.
 ------------------------------------------------------------------------
@@ -79,7 +78,7 @@ twin-right : ((- pos 2) - (- pos 1)) â‰¡ - pos 1
 twin-right = refl
 
 ------------------------------------------------------------------------
--- Â§3 Â FENCE (the owner's spectral reading, stated, NOT checked here).
+-- Â§3 Â FENCE (the owner's spectral reading).
 --
 -- After centering, the per-prime normalized Fourier crystal is REAL and
 -- signed: for p âˆ 2a,  r_{p,a}(0) = 1,  r_{p,a}(t) = âˆ’2cos(2Ïat/p)/(pâˆ’2)

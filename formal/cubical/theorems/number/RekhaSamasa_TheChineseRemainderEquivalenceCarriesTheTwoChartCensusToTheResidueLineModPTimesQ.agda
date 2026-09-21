@@ -46,10 +46,8 @@
 --   (CRT reduction, two exchanges-and-elisions per chart, factorEquiv)
 --   COMPUTES on a closed residue.
 --
--- SCOPE.  Coprimality of p and q is a HYPOTHESIS (isGCD
--- p q 1), as in crtEquiv; nothing here derives it from primality — that
--- is DistinctPrimesAreCoprime's business, not repeated.  No claim about
--- primes as such.
+-- Coprimality of p and q is a HYPOTHESIS (isGCD
+-- p q 1), as in crtEquiv.
 ------------------------------------------------------------------------
 
 module RekhaSamasa_TheChineseRemainderEquivalenceCarriesTheTwoChartCensusToTheResidueLineModPTimesQ where

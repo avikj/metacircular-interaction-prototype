@@ -40,9 +40,8 @@ exactly that these fibers admit no global chart.
 
 SYT â” THE CLAIM, EXACTLY.  The kernel-pair equivalence, the two
 collision/configuration directions, fiber Fubini and the chain rule,
-and that every coin face is a collision.  NOT claimed â” the
-collision-semantics document's own boundary, kept: none of this makes
-CONSTRUCTING an off-diagonal point cheap.  Identifying the fiber is
+and that every coin face is a collision.
+Identifying the fiber is
 immediate; giving it a short generative presentation is the work these
 theorems relocate, not abolish.
 

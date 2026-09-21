@@ -6,7 +6,6 @@
 -- cancellation core of the identity Îâ™¯_Q(P_Q) = M(Q) of the same section
 -- Â§1(i).  Coverage-ledger rows A18 / Â§6 item 2.
 --
---
 --     [â™¯â™¯](T)-constant = A(Q)Â²/4 + 2 A(Q) S(Q) + O(1),
 --     A(Q) = Îâ™¯_Q(1),   S(Q) = Î_{mâ‰2} Îâ™¯_Q(m)/(1+m)Â²,
 --
@@ -217,8 +216,7 @@ module Weighted
 
   ----------------------------------------------------------------------------
   -- Â§5.  Îâ™¯_Q(P_Q) = M(Q): the cancellation, with its two arithmetic
-  -- inputs as explicit hypotheses (see the header for what they are and
-  -- what is not proved).
+  -- inputs as explicit hypotheses (see the header for what they are).
   ----------------------------------------------------------------------------
 
   sharp-collapse :

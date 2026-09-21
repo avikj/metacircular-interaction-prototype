@@ -111,18 +111,6 @@
 --     so `quo` is a licensed inference and not an extra assumption.
 --   * `p-two-ways`: the orthogonality witness that answers TARGET Â§6 item 2,
 --     which is a different question from W3.
---
--- NOT claimed: that this says anything about BARRIER.md's OTHER axis, the
--- depth/correlation barrier of Theorem K.  The model here is the parity
--- observable class of `ParitySeparator`, and every statement is about
--- separating ÏâŠ from its gauge flip.  Whether the value/FE distinction is
--- also empty for the windowed-linear class is untouched here.
---
--- NOT claimed either: that entropy decrement is thereby "explained" or
--- weakened.  Its content is quantitative (logarithmic averaging, the
--- decrement bound); the claim here is only about where its parity charge
--- enters, which is a question about its interface and not about its
--- strength.
 ------------------------------------------------------------------------
 
 module NaturalMachine.OracleQueries where

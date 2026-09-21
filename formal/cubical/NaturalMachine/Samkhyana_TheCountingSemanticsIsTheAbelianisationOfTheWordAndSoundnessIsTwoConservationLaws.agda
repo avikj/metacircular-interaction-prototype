@@ -59,14 +59,6 @@
 --       a derivation implies equal words AND equal constants.  The converse
 --       is the corpus's normalisation conjecture, restated here in its
 --       sharp form.
---
--- WHAT IS **NOT** CLAIMED.  The converse of Â§5 is not proved and is not
--- believed on the strength of the forward half.  `sumWord` is defined by a
--- fold and its commutativity with `++` is proved (Â§3) rather than assumed.
--- Nothing here is about `Stepâº`.  No claim that (word, constPart) is
--- decidable to compare â” it plainly is, and nothing below needs it.
--- The abelianisation is not constructed as a monoid map; Â§3 is the
--- statement in the only form this calculus requires.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Samkhyana_TheCountingSemanticsIsTheAbelianisationOfTheWordAndSoundnessIsTwoConservationLaws where

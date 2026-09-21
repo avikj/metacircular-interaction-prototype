@@ -32,10 +32,8 @@
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§1 for every map between the HÂ² carriers,
 -- from àà™àà•ààà; Â§2 the identification of this rung with EkamChidram's
--- cost rung under Â isEquiv.  NOT claimed: that Â isEquiv is the k-
--- invariant in the technical Postnikov sense (it is the obstruction's
--- INHABITANT â” a surviving fibre â” not the cohomology class as such);
--- nor the full âˆž-tower.  What IS corrected: GarbhaShreni's "one
+-- cost rung under Â isEquiv.
+-- What IS corrected: GarbhaShreni's "one
 -- predicate for all rungs" â” that predicate is Â isEquiv, and NotExact
 -- was only the abelian shadow of it.
 ------------------------------------------------------------------------

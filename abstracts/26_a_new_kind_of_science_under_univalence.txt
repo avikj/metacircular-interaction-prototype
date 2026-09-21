@@ -85,9 +85,7 @@ the corpus already went further â” abstract 14 proves that pointwise
 pairwise commutation makes EVERY permutation of a run agree on every
 source state, and that any observed order-dependence localises a state
 outside the image of the observation â” the citation is to that
-theorem's actual content, agreement of states under reordering.  The
-causal-graph form, isomorphism of the event dependency structure
-across orders, is not claimed by either module.
+theorem's actual content, agreement of states under reordering.
 
 The 2025â“2026 writings extend the dictionary, and a second module
 (NKSRuliology2025To2026_*, same system, same pin) holds three more

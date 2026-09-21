@@ -87,8 +87,7 @@
 --    closed.  "Strictly cheaper" means strictly fewer scheduled ticks.
 --
 --  * `orientation-cheaper` says which of two plans to prefer GIVEN both
---    checkpoints; nothing here says a deployment has either checkpoint,
---    and no compilation or checkpoint-construction cost is modelled.
+--    checkpoints.
 --
 --  * One structure (monoid), one property (commutativity of the
 --    operation), one equivalence (â• â‰ CanWord, base b = 2 + k,

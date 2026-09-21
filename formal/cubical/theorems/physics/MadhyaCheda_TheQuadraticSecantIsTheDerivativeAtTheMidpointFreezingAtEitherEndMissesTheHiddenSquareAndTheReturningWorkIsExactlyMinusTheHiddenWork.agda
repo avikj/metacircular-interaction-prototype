@@ -61,12 +61,7 @@
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“2 for every biadditive `B` on the
 -- additive group of any ring and every `a`, `b`.  Â§3 additionally for
 -- every biadditive pairing conserved by `N`.  Â§4 in any commutative
--- ring.  NOT claimed: that any particular `N` conserves any particular
--- pairing â” that is the incompressibility identity âŸ¨v, N vâŸ© = 0 and it
--- is a hypothesis here; anything about a projection, an evolution, a
--- propagator, or an integral in time â” `a` and `b` are two elements, not
--- two histories; and no bound on anything: Â§3 is an exchange, not an
--- estimate.
+-- ring.
 ------------------------------------------------------------------------
 
 module MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork where

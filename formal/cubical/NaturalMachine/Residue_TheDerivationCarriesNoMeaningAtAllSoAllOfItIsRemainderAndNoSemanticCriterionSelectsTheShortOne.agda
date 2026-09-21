@@ -8,7 +8,6 @@
 -- the next step, rather than discarded.  ryabhaa, *ryabhaya*,
 -- Gaitapda 32-33 (499), as the kuaka's governing move.
 --
--- SCOPE OF THE CLAIM ON THE SOURCE.  Nothing below is ryabhaa's theorem.
 -- What is borrowed is the kuaka's structural decision -- that the object
 -- worth carrying forward is the residue, not the quotient -- and the claim
 -- here is that this kernel's types force the same decision: §3 shows the

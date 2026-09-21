@@ -35,10 +35,7 @@ caller is the decomposer working.
 
 SYT â” THE CLAIM, EXACTLY.  The record, its three lenses as folds,
 canonicity of the meaning component, and the computed profiles of the
-two named objects.  NOT claimed: that three lenses exhaust every
-reading â” the family is open (add a receiver), and completeness is
-per-lens (each is the unique fold), not a claim that no further lens
-exists.
+two named objects.
 
 Machine-checked in cubical type theory, --safe, at the pin; executed
 and read back through the interactive kernel.

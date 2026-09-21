@@ -3,12 +3,8 @@
 ------------------------------------------------------------------------
 -- TheFamiliesAgreeOffTheBoundarySoDifferOnlyIsNowBothDirections
 --
--- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
--- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- invented.**  This is threshold arithmetic over â• on this corpus's own
--- claim-families.  Jaina enumerative mathematics is combinatorially
--- adjacent and is explicitly NOT claimed as a source â” the third time
--- this run that it is declined for the same reason (083dfbd2, d3963e51).
+-- ON THE NAME.  This is threshold arithmetic over â• on this corpus's own
+-- claim-families.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE AUDIT.  Target:

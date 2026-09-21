@@ -42,20 +42,14 @@
 --   §4  and therefore � is DETERMINED by δ at three consecutive points,
 --       given cancellation at δ(suc n)².  The cancellation is taken as
 --       an explicit hypothesis rather than assumed: it holds as soon as
---       δ(suc n) is positive, and positivity of δ is a fact about `spf`
---       and the fuel recursion that this module does not prove.
+--       δ(suc n) is positive.
 --
 -- So the walk volume is a lossless encoding of the local prime-power
 -- field: two summations up, one second difference back down, exactly,
 -- with no asymptotics anywhere.
 --
 -- SYT � THE CLAIM, EXACTLY.  §§1�4 for every n, on the `�`, `Π�`, `δ`
--- of the DMR module as they stand.  NOT claimed: anything about the RH
--- inequality itself, which remains open there and is untouched here;
--- nothing about �, Dirichlet series, Mellin transforms, or analytic
--- continuation; nothing about the size of δ or of the harmonic sum; and
--- no positivity of δ � §4 carries its cancellation hypothesis in the
--- open rather than discharging it.
+-- of the DMR module as they stand.
 ------------------------------------------------------------------------
 
 module DvitiyaAntara_TheLocalPrimePowerFieldIsTheMultiplicativeSecondDifferenceOfTheDMRWalkVolume where

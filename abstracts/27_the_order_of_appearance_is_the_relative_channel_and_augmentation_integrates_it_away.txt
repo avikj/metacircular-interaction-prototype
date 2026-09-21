@@ -54,10 +54,4 @@ it, and the erased datum is recovered, doubled, from the difference.  What
 is conserved under forgetting the order, and what is lost, are two named
 projections of one pair.
 
-WHAT IS NOT CLAIMED.  No global ordering of the primes is asserted or
-used; the histories are local to one number's two-factor decomposition.
-Nothing here is a statement about factorization existence or uniqueness --
-that is unique factorization, assumed.  The profiles are the two-factor
-case; higher multiplicities are not treated in this module.
-
 Machine-checked in cubical type theory, no postulates, no admitted goals.

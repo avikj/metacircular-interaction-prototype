@@ -55,15 +55,12 @@
 -- separate the fibre have EQUAL meanings, because the meaning type is a
 -- proposition and has no two positions in it.
 --
--- WHAT IS **NOT** CLAIMED.  No braiding.  A groupoid whose inverse fails
+-- A groupoid whose inverse fails
 -- to be strict is not thereby a braid group action:
 -- `Mula.BraidCoherenceBoundary` exhibits two involutive
 -- self-EQUIVALENCES of `Bool — Bool — Bool` that fail Yangâ“Baxter at
 -- (false , false , false), so invertibility does not entail the
--- coherence.  No thermodynamics, no
--- physical implementation, no measure, no heat â” `Yantra_â¦` carries a
--- correction inset about exactly that overclaim and this file does not
--- reinstate it.
+-- coherence.
 ------------------------------------------------------------------------
 
 module Mula.AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndRefusesTheGroupoidSoTheRoundTripIsTheResidue where

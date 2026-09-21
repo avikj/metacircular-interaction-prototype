@@ -61,18 +61,6 @@
 --   marginal-to-joint-gap  the three facts bundled: this is the gap
 --                          made checkable â” commutation holds, and the
 --                          marginals still say nothing about the joint
---
--- NOT claimed: any recurrence statement.  Chen's and Maynard's theorems
--- are cited analytic inputs about the integers; nothing here inhabits
--- an infinite family of witnesses, and `theWorld` is a two-element
--- field, exactly what Â§XI's "may place" licenses and no more.  Not
--- claimed either: that the gap is essential â” Â§XI itself says the
--- missing theorem must create positive dependence between the radius
--- and charge events, and this module fixes precisely what such a
--- theorem would have to exclude, namely worlds like `theWorld` at
--- scale.  The commutation half shows the obstruction is not algebraic;
--- the counterexample half shows what it is instead: marginals do not
--- bound joints.  Nothing more is asserted.
 ------------------------------------------------------------------------
 
 module NaturalMachine.CornerProjectors where

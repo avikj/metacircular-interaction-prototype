@@ -34,10 +34,7 @@
 --             bound itself justifies.
 --
 -- So a monotone ‚ï-sourced edge is priced by one application, and the
--- verdict computes.  What is NOT claimed: anything about non-monotone
--- ‚ï-sourced maps ‚î for those ‡‡ã‡‡æ‡®‡ is a step, not a decision, and
--- pretending otherwise would be a guessed verdict, which Saptabhangi's
--- ‡¶‡‡∞‡‡®‡Ø‡ rules out.
+-- verdict computes.
 ------------------------------------------------------------------------
 
 module SesaMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget where

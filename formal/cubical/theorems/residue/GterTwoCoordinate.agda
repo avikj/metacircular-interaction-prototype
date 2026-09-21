@@ -73,50 +73,13 @@
 --   SIX refl clauses in total (four rows, two tears), exactly as Â§4.7
 --   predicted; everything else is derived from them.
 --
--- RIGOR BOUNDARY â” what is checked here, and what deliberately is NOT.
---
---   CHECKED.  Theorem 4 in full, as a surjectivity statement onto
+-- Theorem 4 in full, as a surjectivity statement onto
 --   Bool — Bool with an explicit cut system in every fiber; both of
 --   D0026's witnesses, including their tear values against the declared
 --   direct realization ğ”—ââ = {(a,c)}; and the two non-functionality
 --   corollaries.  The relational composite is defined once, generally,
 --   and the four systems are the only data supplied â” every value below
 --   is a kernel reduction, not a transcribed table.
---
---   NOT IN THIS MODULE, as the source note says first (its Â§4.7):
---
---    (a) THEOREM 6, minimality of the shape (1,2,1).  It quantifies over
---        SHAPES â” over all finite Îâ,Îâ,Îâ â” and is the hand proof of
---        Â§4.2 (if |Îâ| â‰ 1 then sep â‰¡ T; if Îâ or Îâ is empty then
---        comp â‰¡ F).  That is an argument about a family of index types,
---        not a Boolean table, and it is NOT refl-material.  Nothing
---        below claims the shape is minimal.
---
---    (b) PROPOSITION 7, non-invariance of the tear under truncation â”
---        that replacing relations by Set-valued profunctors makes the
---        canonical comparison Î³ a 2-to-1 surjection on witness (ii), so
---        â‹ = 0 relationally and â‹ â‰  0 in the Set-valued reading, on the
---        SAME cut system.  It needs the honest coend
---        â¨¿_{b âˆˆ Îâ} ğ”—ââ(a,b) — ğ”—ââ(b,c) and the comparison map: a real
---        construction, not a Boolean table.
---
---        Consequence to keep in view, since this module lives entirely
---        on the relational side of it: `tear` below is the
---        (âˆ’1)-truncated tear, and by Proposition 7 that is a CHOICE of
---        truncation level, not the tear.  A tear reported as one symbol
---        has already discarded the non-injective half of Î³ â” which is
---        exactly D0026 Â§7's hidden-history tomography.  This module
---        certifies the relational coordinate and says nothing about the
---        Set-valued one.
---
---    (c) Â§4.4's fence, restated so it is not lost in translation: the
---        four cells show sep and comp are LOGICALLY independent as
---        coordinates.  They do not show the coordinates are causally
---        unrelated in any given family; on families where every cut
---        state must meet both boundaries the cells can be constrained.
---        The theorem is that no such constraint is implied by the
---        definitions.
---
 --   Nothing here is measured, fitted, or floating-point: the carrier has
 --   two elements and every verdict is a kernel reduction.  This replaces
 --   the legacy Python control of `OPERATIONAL_SITE_CRYSTAL` Â§6 in
@@ -141,8 +104,7 @@ open import Cubical.Relation.Nullary using (Â¬_)
 --
 -- Relations are Bool-valued tables on finite index types.  The shape is
 -- (|Îâ|,|Îâ|,|Îâ|) = (1,2,1), the minimal shape the source note's
--- Theorem 6 identifies â” minimality itself is not claimed here, see the
--- rigor boundary (a).
+-- Theorem 6 identifies.
 ------------------------------------------------------------------------
 
 Rel : Typeâ‚€ â†’ Typeâ‚€ â†’ Typeâ‚€
@@ -197,7 +159,7 @@ compCut : Rel Î£â‚€ Î£â‚ â†’ Rel Î£â‚ Î£â‚‚ â†’ Bool
 compCut s t = (s âŠ™ t) tt tt
 
 -- The tear â‹(ğ”–) = (ğ”—ââ â‰  ğ”—ââ âŠ™ ğ”—ââ), at the relational truncation
--- level â” see rigor boundary (b): this is a CHOICE, not the tear.
+-- level.
 tear : Rel Î£â‚€ Î£â‚ â†’ Rel Î£â‚ Î£â‚‚ â†’ Rel Î£â‚€ Î£â‚‚ â†’ Bool
 tear s t d = not (eqb ((s âŠ™ t) tt tt) (d tt tt))
 

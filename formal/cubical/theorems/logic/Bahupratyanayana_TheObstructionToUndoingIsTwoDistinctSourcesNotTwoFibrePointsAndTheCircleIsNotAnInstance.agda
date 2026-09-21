@@ -192,8 +192,7 @@ private
 à¤µà¥ƒà¤¤à¥à¤¤-à¤®à¥‚à¤²-à¤…à¤­à¥‡à¤¦à¤ƒ = refl
 
 ------------------------------------------------------------------------
--- à Â àààà â” why `noDescentSÂ` is a different theorem, stated and not
---     proved here.
+-- à Â àààà â” why `noDescentSÂ` is a different theorem.
 --
 -- Â§à¨ needs two points of A that are provably distinct.  SÂ is connected,
 -- so it has none: `base â‰¡ base` is inhabited by `refl`, and the law
@@ -204,9 +203,4 @@ private
 -- distinctness is present, the point-level distinctness is absent, and
 -- the retraction EXISTS.  So the corpus's two no-return theorems live at
 -- two levels and neither implies the other.
---
--- NOT PROVED HERE: that SÂ has no two distinct points (that is
--- connectedness, in the library, and is not invoked); and nothing about
--- higher levels â” whether the pattern continues at Ïâ and above is not
--- addressed and no conjecture is offered.
 ------------------------------------------------------------------------
