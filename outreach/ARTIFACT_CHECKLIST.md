@@ -39,11 +39,14 @@ actually score.
       Until this exists the honest sentence is "verified locally by the
       author", which is the sentence to avoid.
 - [ ] **`must_fail/` runner.** `formal/cubical/theorems/must_fail/` holds
-      11 modules that must *not* typecheck, but `check --all` loops over
-      `theorems/*/*.agda` and would mark them RED. Either they are
-      excluded somewhere not obvious, or the suite is unwired. Add an
-      explicit loop that asserts non-zero exit for each. A working
-      must-fail suite is unusually strong artifact evidence.
+      11 modules whose headers say `*** THIS FILE MUST FAIL TO TYPE-CHECK ***`
+      ("a designed-annihilation control, collab/PROTOCOL.md §7 … NOT part
+      of the checked build"). Confirmed: `check` has no mention of
+      `must_fail`, and `--all` loops over `theorems/*/*.agda`, so today a
+      full run reports these 11 as RED. Add `case "$m" in */must_fail/*)
+      continue ;; esac` to the `--all` loop and a separate loop that runs
+      each and asserts a non-zero exit, quoting the first error line. A
+      working must-fail suite is unusually strong artifact evidence.
 - [ ] **Deduplicate.** 175 md5-identical groups / 350 files. Inside
       `Kernel/` alone: `Residue_`≡`Sesa_`, `Interaction_`≡`Samvada_`,
       `Avataranika_`≡`DescentNote_`. `fibre/`, `fiber/`, `punaragamana/`
