@@ -120,8 +120,7 @@
 -- lanes is that saha tests the JOINED position for an asti-nasti pair,
 -- and whether that pair is present depends on the grouping.
 --
--- The Mallisena reading is still unsettled, and is now known to be
--- undecidable BY THE COMPOSITION LAWS: the two lanes agree across it, so
+-- The Mallisena reading is undecidable BY THE COMPOSITION LAWS: the two lanes agree across it, so
 -- any argument for a reading that runs through krama or saha proves
 -- nothing.  It is a question about what a position IS.
 --

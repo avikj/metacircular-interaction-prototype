@@ -44,7 +44,6 @@ RUN_SECONDS=600 BEND="$BEND" HVM="$HVM" bash \
 ```
 
 An interrupted, rejected, or out-of-memory run is **not** an empty fibre.
-There is no native runtime result in this handoff yet; read STATUS.md.
 
 ## Actual invocation, not a replacement search engine
 

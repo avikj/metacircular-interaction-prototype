@@ -4,9 +4,6 @@
 -- ‡∞‡ï‡‡‡æ‡‡‡‡ø‡∞ ‚î THE GUARD IS AN IDEMPOTENT REFLECTION, AND A PROTECTED
 -- SYSTEM ADMITS NO LOWERING TRANSFORMATION.
 --
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0
--- (2026-08-29).
---
 -- THE OCCASION.  A security modality was described: a seed that
 -- reflects any unprotected system into a protected fixed point, while
 -- protected instances admit no unauthorized transformation.  Put to

@@ -11,12 +11,11 @@
 --    files?"
 --
 -- Two candidates have been killed by measurement in Â§9 and Â§10 of that
--- note (ÂPâ at a 77.3% base rate; Pâ firing on neither).  Both cycles
+-- note (ÂPâ at a 77.3% base rate; Pâ firing on neither).  Both
 -- hunted a THIRD candidate.  This one does not.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE GAP, STATED AND NOT AMENDED (the note is untouched by this
--- cycle; the wording offer is the next cycle's named step).
+-- THE GAP.
 --
 -- **Â§6 AS PHRASED IS SATISFIED BY A LOOKUP TABLE.**  The predicate
 -- "the file's path is one of these two" is mechanizable, decides in
@@ -82,9 +81,6 @@
 -- adds to either.  What is added is the observation that SEED-83's Â§6
 -- is stated in the enumerative form and therefore has a trivial
 -- answer.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheSeparationQuestionIsVacuousUntilGeneralisationIsRequired where

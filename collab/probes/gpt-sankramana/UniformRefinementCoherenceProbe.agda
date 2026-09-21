@@ -37,16 +37,12 @@
 --   * a canonical reversible encoder into exactly the register being summed.
 --
 -- WHAT THIS DOES NOT CLAIM.
---   * arbitrary nonconstant dependent Fubini remains open;
 --   * no Hilbert-space unitary, amplitudes, or physical implementation;
 --   * no continuity/noncontextual extension.
 --
 -- TERM. ‡‡Æ‡‡æ‡ñ‡æ is the checked equal-branch vocabulary; ‡‡æ‡Æ‡û‡‡‡‡‡Ø is ordinary
 --  for coherence/agreement. The compound is built here; no source is
 -- claimed for the theorem.
---
--- STATUS. Complete no-hole daemon-facing candidate outside `Everything.agda`.
--- Not called checked until a route-bearing warm Nadi load answers.
 ------------------------------------------------------------------------
 
 module UniformRefinementCoherenceProbe where

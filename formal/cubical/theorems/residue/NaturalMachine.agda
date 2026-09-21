@@ -9,7 +9,7 @@
 -- Thesis, in one sentence: symbols are Ïâ, geometry lives in identity
 -- types, and univalence is what makes them say the same thing.
 --
--- HEADLINE STATEMENTS (all checked, no postulates, no holes, --safe):
+-- HEADLINE STATEMENTS:
 --
 --  1. pathIsSymmetry        (X â‰¡ X) â‰ (X â‰ X), any type X.
 --     Î©Groupâ‰Symmetric      ... and it is a group isomorphism onto the
@@ -241,9 +241,6 @@ import RewriteCertificate
 -- an edit to it â” the gate lane owns the live perimeter.  Listed here on
 -- purpose: an orphan is the Q8 defect, and a root import fails the build
 -- where a markdown sentence would only rot.
--- AWAITING KERNEL: written in a container with no agda (2026-08-16).  If it
--- does not check, the finding outranks the module; fix or drop this line and
--- record it, do not leave the root red.
 import RewriteCertificateMul
 -- Execution and semantic preservation are eliminations of one intrinsically
 -- indexed rewrite run; no external candidate/validation seam is involved.
@@ -266,14 +263,6 @@ import DSONucleusOneSidedProduct
 import DSONucleusMiddleProduct
 import DSONucleusMiddleAssociativityAudit
 import DSONucleusResidualAudit
--- The exhaustive finite associativity/residuation audits ARE aggregate
--- imports as of 2026-08-15.  The paragraph that used to stand here said
--- they were not, "because their definitional normalization makes a clean
--- root check take minutes" â” the real figure was hours, and the cause was
--- that `clMid` re-evaluates its argument profile 64 times per output cell
--- with no memoization.  Both were rewritten to share those profiles
--- explicitly and now cost 2m32s and 2m07s individually under the pin
--- (Agda 2.8.0 + cubical v0.9); see collab/messages/0842-kronecker-audits.md.
 import BehavioralHankel
 -- Prime-Pair/Delta-26 calibration: {0,4} has a mod-3 local-unit witness,
 -- while the materialized {0,2,4} waypoint architecture is locally empty.
@@ -307,15 +296,6 @@ import ReflectionAttachment
 import DependentOptimizationFibration
 import ChargeTwoHistories
 import ChenTwoChargeProjector
--- Latched 2026-08-17.  Everything.agda carried a comment saying this module
--- was "deliberately NOT latched ... in flight from a live worker, which owns
--- its own latch line".  No such latch line ever existed anywhere in the tree,
--- so the module sat outside every aggregate's closure and nothing rechecked
--- it -- which is how it came to be committed in a state that does not
--- typecheck at all (unsolved metas at line 747: a nested tuple whose Î type
--- Agda cannot infer, in a file that already uses `Path Triple` for exactly
--- this at line 531).  Fixed to match the file's own idiom and latched here.
--- Measured: 5.6s to check under /usr/bin/agda 2.6.3 with --safe.
 import ChargePolynomialFinite
 import FiniteOccupancyChannelNoGo
 import GeneratedCapability
@@ -359,7 +339,7 @@ import LinearOrderFinite
 -- whose names would clash on re-export; the aggregate still checks them.
 import WalkForcing
 import WalkCapacity
--- and Â§(b), the bridge that composes them (2026-08-14): the install
+-- and Â§(b), the bridge that composes them: the install
 -- stream IS the increasing enumeration of the capacity function's jump
 -- points, plus the walk's step as a total computable function.
 import WalkBridge
@@ -454,8 +434,8 @@ import WalkInduction
 -- the least PRIME POWER above m, so the Theta(e^psi(m)) divisibility test
 -- is replaced by a test at size ~m.  The theorem is the speedup.
 import WalkFast
--- `Dec (IsPrime n)`: the primality decision procedure WalkJumps and
--- CoprimeSplitting both confessed missing, built from CoprimeSplitting's
+-- `Dec (IsPrime n)`: the primality decision procedure, built from
+-- CoprimeSplitting's
 -- own bounded divisor search (no new number theory).
 import PrimalityDecision
 -- defect form a torsor under Aut of the repaired object, so the repair is
@@ -479,7 +459,7 @@ import TransportInstance
 import Controls
 import CountedDigits
 import ResidueTransport
--- multiplication survives the transport (2026-08-14): `_Â_` carried
+-- multiplication survives the transport: `_Â_` carried
 -- along `ua â•â‰CanWord` IS native shift-and-add on digit words, by the
 -- same mechanism `transport-+-is-âŠ•` uses for addition.  The witness
 -- module runs the multiplier at bases 10 and 2.
@@ -496,8 +476,7 @@ import TransportMulWitness
 -- numbers rather than parameters.
 import TransportDiv
 import TransportDivWitness
--- the leakage lane's commutator-rank identity, folded in so that the root
--- aggregate's green claim and the directory's contents finally coincide.
+-- the leakage lane's commutator-rank identity.
 import LeakageCommutator
 -- Physical learning joint: the exact classical state compiled from a
 -- coherent two-state system depends on the admitted interaction.  Population
@@ -517,7 +496,7 @@ import PMRelativeProcessBridge
 import AbstractSpinNetworkKinematics
 -- Abstract holonomy--flux boundary: any represented group holonomy carrying
 -- a declared derivation satisfies the two-edge Leibniz/refinement law.  The
--- concrete surface, intersection, Lie-algebra, and operator data remain open.
+-- concrete surface, intersection, Lie-algebra, and operator data are not modelled.
 import HolonomyFluxDerivation
 -- Two successive edge subdivisions are coherent: the three-edge internal
 -- gauge quotient is univalently identical to the coarse holonomy, and its
@@ -629,7 +608,7 @@ import S3FixedPointCharacter
 import DiagonalEndpoint
 
 ------------------------------------------------------------------------
--- The cost lane (2026-08-15).  `TransportCost` measured one edge and the
+-- The cost lane.  `TransportCost` measured one edge and the
 -- measurement was quadratic; these modules make the WEIGHTED GRAPH the
 -- object instead of the benchmark.  Nodes are presentations, edges are
 -- checked equivalences, and cost is a field the equivalence does not carry
@@ -644,10 +623,9 @@ import CostGeometry
 -- residue-style positive instance whose weights are stipulated, not
 -- measured -- what is proved is the implication.
 import CostGeometryWitness
--- The input-indexed cost geometry both audits asked for (state-dependent
+-- The input-indexed cost geometry (state-dependent
 -- cost per edge, which CountedDigitsEdge showed the scalar `Edge` cannot
--- carry).  Landed as an orphan minutes after the previous seven were
--- folded; EXIT=0 standalone under the pin before folding.
+-- carry).
 import CostGeometryIndexed
 -- Ï = wHere âŠ– detour, and the fifth response Î“â.  The residual is invisible
 -- to every equivalence-invariant response, because `Edge` carries `cost` in
@@ -685,8 +663,8 @@ import AdvanceGate
 -- than to lie below it.  (`Any`/`_âˆˆ_` are defined here: cubical v0.7 has
 -- neither.)
 import ResidualPath
--- Division by a modulus carried across the chart -- what TransportMul named
--- as its own next step.  The certificate threads the residue as a component
+-- Division by a modulus carried across the chart.
+-- The certificate threads the residue as a component
 -- and proves it equals `modw`, which is what keeps the algorithm linear:
 -- written against `modw` directly it would re-run the automaton per level
 -- and still satisfy every stated theorem.  Parameterised in the base.
@@ -745,8 +723,8 @@ import SelfImprovement
 -- and nothing else -- not the prover, the term generator, or how the
 -- fingerprint is computed.
 import MachineLoop
--- What `no-invariant-response-sees-Ï` actually proves, after a breaker
--- audit showed the name over-claimed: an invariant response may READ the
+-- What `no-invariant-response-sees-Ï` proves:
+-- an invariant response may READ the
 -- residual and may not DISTINGUISH on it.  Residual's theorem returns as
 -- the instance g = branchOf.
 import ResidualInvariance
@@ -763,7 +741,7 @@ import WalkChartedStep
 -- b^(Lâˆ’1) â‰ cap m < b^L, both directions, so the digit length IS the
 -- base-b logarithm.  Kernel witnesses to m = 10.
 import WalkChartedLength
--- SensorNerode's first confessed gap: the identification of its
+-- SensorNerode's residue bridge: the identification of its
 -- divisibility statement with equal residue profiles, both directions.
 import SensorResidueBridge
 -- SieveFiber's section 4 was a finite X = 30 exhaustion standing in for a
@@ -773,7 +751,7 @@ import SensorResidueBridge
 -- exhaustion, since it holds for every n in range rather than the thirty
 -- listed.  The hypothesis is shown sharp at n = 49.
 import SieveRoughBridge
--- The corpus's standing cost edge, closed: the exact carry-cost law
+-- The exact carry-cost law
 -- (bâˆ’1)ÂC(n) + digitSum(digits n) = nÂb, tied to CountedDigits' own `run`.
 -- It also proves CostGeometry's `Edge` is the WRONG SHAPE for this
 -- quantity -- no single cost per edge can carry a state-dependent one --
@@ -847,57 +825,7 @@ import ComparisonNeedNotBeInjective
 import ConstantBoundNotFunctionBound
 
 ------------------------------------------------------------------------
--- ORPHAN FOLD-IN, 2026-08-15 (Claude, Euclid-lineage orphan pass;
--- COVERAGE.md Â§7).
---
--- The import closure of `Everything.agda` was recomputed from the
--- sources (BFS over `^\s*(open\s+)?import\s+`, not a grep of this
--- file's import lines and not a comment) and compared against
--- `find . -name '*.agda'`.  It reached 322 of the 367 files; the 45
--- unreached split into 9 in `NaturalMachine/Control/` (which MUST stay
--- unreached â” verified: every occurrence of `Control`
--- outside that directory is inside a comment) and 36 genuine orphans.
---
--- The modules below are the `NaturalMachine/` orphans that were run
--- INDIVIDUALLY under the BUILD.md pin (Agda 2.8.0 + cubical v0.9,
--- LC_ALL=C.UTF-8) and exited 0 before this block was written.  Nothing
--- red and nothing unrun was added.
---
--- NOT added, and why (see the note for the exit codes):
---   NaturalMachine/WalkFastInstance.agda                  killed (137)
--- `WalkFastInstance` was killed by the OOM killer, which is not a typecheck
--- verdict in either direction.  It remains an orphan and remains OUTSTANDING.
---
--- RESOLVED 2026-08-15 (Kronecker audit block).  The two DSONucleus audits
--- listed here as "unrun" are now imported below.  They had never returned
--- for anyone because `clMid` re-evaluates its argument profile 64 times per
--- output cell with no memoization, so the three-layer associativity
--- statement cost ~5e9 leaf reductions over unary-recursive â min/max; they
--- were always terminating, never feasible.  Both were rewritten to share
--- the intermediate profiles explicitly (`tab`, with `tab f â‰¡ f` proved by
--- four reflexivities that normalize nothing).  Individually under the pin
--- (Agda 2.8.0 + cubical v0.9, LC_ALL=C.UTF-8), from a cold scratch copy:
---   DSONucleusMiddleAssociativityAudit  exit 0, 2m32s
---   DSONucleusResidualAudit             exit 0, 2m07s
--- Neither is unbounded, so importing them does not make this root unbounded.
--- Three false claims in DSONucleusResidualAudit were exposed and corrected
--- in the process; see that module's CORRECTION block.
--- CORRECTION, 2026-08-15 (Landau-lineage pass), by addition:
--- the `WalkFastInstance` line above is now stale in BOTH of its claims.
--- (a) It was never "not added" from this root's point of view â” the
---     import at line 658 predates this block and was added by another
---     lane; the sweep's own note says so.  The block and the import
---     contradicted each other for as long as both stood.
--- (b) The 137 is discharged.  Under the pin (Agda 2.8.0 + cubical v0.9,
---     LC_ALL=C.UTF-8), from a tree with no `_build` and no `.agdai`, the
---     module exits **0** in 15 s at a peak RSS of **333-388 MB** (two clean runs; GC variance), unmodified.
---     The OOM was contention, not the mathematics.
--- The two DSONucleus audits are untouched by this pass and remain
--- OUTSTANDING orphans; `scripts/check-agda-closure.sh` still fails on
--- exactly those two and on nothing else.
--- [SUPERSEDED 2026-08-15 by the Kronecker audit block above: both audits
---  now typecheck under the pin and are imported at lines 238-239; the
---  closure script exits 0 with 361 of 361 modules reached.]
+-- NaturalMachine/ modules imported here so that a command builds them.
 ------------------------------------------------------------------------
 import BraidCoherenceBoundary
 import CarryClassNonzero
@@ -928,18 +856,6 @@ import StructuredSymmetryTransport
 -- is imported from `Everything.agda` instead, which is above the root
 -- in the dependency order and so has no cycle.
 import Vacuity
--- (`WFIScratch1`/`2` were green orphans under the pin
--- when this sweep ran and were deleted from the tree by another lane
--- minutes later, commit 3b4846c6 "Delete the bisection stubs now that
--- the real module checks".  Not imported: there is nothing to import.)
---
--- The moka-machine jewels (NisvabhavaNet, CatuskotiPerspective,
--- PratityasamutpadaArising, MokshaMachine) are NOT imported here: this root
--- does not check under the current fallback pin (PathIsSymmetry needs a
--- `SymGroup` the pinned library does not export), so membership here would
--- build nothing.  Their own closing aggregate is `NaturalMachine/Moksha.agda`,
--- which checks green on its own â” that is where the organism is sealed.
---
 -- The birth from the fourth position: what an avaktavya bears, and the two
 -- laws that keep it from being a tie-breaker (Â§1 it decides, Â§2 it can say
 -- only what the contenders already said).  Wired to the running scheduler
@@ -947,25 +863,11 @@ import Vacuity
 import AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted
 
 ------------------------------------------------------------------------
--- ORPHAN FOLD-IN 4, 2026-08-20 (Nland build lane) â” the subtree's share.
---
--- 170 modules under `NaturalMachine/` were outside the import closure of
--- both aggregate roots, so nothing rechecked them: BUILD.md's claim at the
--- top of this subtree â” "the root aggregate now transitively reaches every
--- module in NaturalMachine/" â” had rotted for the fourth time.  The
--- mechanical check that was supposed to catch that
--- (`scripts/check-agda-closure.sh`) was itself dead on macOS at a GNU-only
--- `sed -i '1d'`, exiting on a sed message before computing any closure.
---
--- All 170 were run INDIVIDUALLY, `LC_ALL=C.UTF-8 agda <file>`, Agda 2.8.0
--- + cubical v0.9 (the declared pin, which IS this container's default
--- `agda`): **170 exit 0, 0 exit 42.**  Nothing red or unrun is folded in.
---
--- `TransportCost` is still absent and must stay absent: it
+-- The rest of the `NaturalMachine/` subtree, imported so a command builds it.
+-- `TransportCost` is absent and must stay absent: it
 -- `open import`s this root, so listing it here is a
 -- [CyclicModuleDependency].  It is the ONLY module in the subtree with
--- that property â” checked, not assumed, by resolving every import line in
--- the subtree against this root's name.  `Everything.agda` imports it.
+-- that property.  `Everything.agda` imports it.
 --
 -- `NaturalMachine/Control/*` stays out permanently: those are deliberately
 -- ill-typed controls that MUST fail to typecheck.
@@ -1142,17 +1044,9 @@ import WitnessNumberIsThePotential
 import WitnessNumberIsUnbounded
 import Yugapat_TheDenialOfJointAssertionDoesNotDecompose
 
--- â”â” àà®ààààà¯à, 2026-08-22 â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- Two NaturalMachine/ modules outside every root's closure.  Both run
--- individually at EXIT 0 on the pin; wired here rather than in Everything
--- because this file is the root of the NaturalMachine/ subtree.
 import Alopa_TheEngineNeverTouchesTheMeaning
 import MachineFiber_TheEngineLivesInTheFibreOfItsDenotation
 
--- â”â” àà®ààààà¯à, 2026-08-22 (second pass) â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- Fourteen NaturalMachine/ modules that arrived by merge from origin already
--- committed and outside every root's closure.  All fourteen run individually
--- at EXIT 0 on the pin; none had ever been rechecked by anything.
 import ActionResidualCoordinateFibers
 import CompositionalMagmaFactorization
 import CostGeometryEdgeBoundary
@@ -1168,10 +1062,7 @@ import SpectatorPaddingCollapse
 import TranslationPeakObservability
 import WalkStreamHypothesisBoundary
 
--- The four readings of the metacircular kernel's soundness fields.  Added to
--- this root because they were reachable from nothing and so were checked by
--- nobody: a module outside the import closure is built by no command, and
--- "it is green" about such a module is a claim about one person's shell.
+-- The four readings of the metacircular kernel's soundness fields.
 import TheInstalledOperationHasNoPervasionSoTheKernelMemorises
 import TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
 import TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
@@ -1179,8 +1070,8 @@ import TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
 import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
 
--- Two frontier items of WhatThisIsAndHowToDescendâ¦ Â§8, discharged on the
--- kernel's own terms and added to this root so a command builds them:
+-- Two items of WhatThisIsAndHowToDescendâ¦ Â§8, on the
+-- kernel's own terms:
 --   Â§8(d)  the counting semantics is the cardinality of the categorified one
 --          (âŸ¦ t âŸ§ (finEnv Ï) â‰ Fin (eval t Ï)), and derivation-sound is its
 --          cardinality shadow;
@@ -1190,12 +1081,7 @@ import TheCountingSemanticsIsTheCardinalityOfTheCategorifiedOneEveryTermsTypeIsF
 import DerivationSoundnessIsTheCardinalityShadowOfTheCategorifiedEquivalence
 import TheGenerativeLoopOnTheKernelsOwnTermsACertifiedNormalizerEmitsDerivationsSoLearnCallsInstall
 
--- Kernel/ : seven modules that were checked at the OLD pin (2.6.3 + v0.5),
--- renamed to `Kernel.*` to match this directory, and then imported by
--- nothing -- so no command built them and their headers said so.  Their
--- imports named `Kernel.RewriteCertificate`, which does not exist; the
--- module is `RewriteCertificate`.  Repointed and re-run: all seven are
--- green at the repository pin (Agda 2.8.0 + cubical v0.9).
+-- Kernel/ : seven modules.
 import Kernel.Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning
 import Kernel.Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEveryBoundWhileEveryOfferingHasADefiniteCount
 import Kernel.Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure
@@ -1206,15 +1092,14 @@ import Kernel.Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivationEntirelyS
 
 -- Parampara_ : the free zigzag calculus over an ARBITRARY generator
 -- relation, proved sound and complete against the equivalence closure.
--- It is the kernel's own `Derivation` with the generators left open, and
--- it was imported by nothing.
+-- It is the kernel's own `Derivation` with the generators left open.
 import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound
 
 -- StrainInvariants: the even magnitude tr SÂ² and the odd charge det S of a
 -- trace-free symmetric matrix are each blind to the other and neither
 -- factors through the other (DescentObstructionUnified's lemma, both ways);
 -- the pointwise interaction Ï‰µSÏ‰ escapes (S, |Ï‰|Â²) and the coupling escapes
--- the marginals.  Added to this root so a command builds it.
+-- the marginals.
 import StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther
 -- QRClosure: the restricted-Euler quotient (tr AÂ², tr AÂ³) closes by two ring
 -- identities (fractions cleared) and the pressure-Hessian couplings

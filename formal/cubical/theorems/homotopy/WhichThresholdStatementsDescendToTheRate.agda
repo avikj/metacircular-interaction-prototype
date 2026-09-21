@@ -7,30 +7,21 @@
 -- 1/2 are the same RATE and different PAIRS, and that minimality holds
 -- of one and fails of the other, and concluded:
 --
---   "MINIMALITY IS NOT A PROPERTY OF THE RATE, only of the PAIR.  That
---    sharpens the standing open item about ‚ä being a preorder ‚î it is
---    not merely untidy, it separates statements that are true of one
---    representative and false of another."
+--   "MINIMALITY IS NOT A PROPERTY OF THE RATE, only of the PAIR."
 --
 -- A separation without the other side is only half a result: it says
 -- SOMETHING fails to descend, not WHICH things descend.  Both sides are
 -- here.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- FIRST, A CORRECTION TO MY OWN EARLIER CLAIM.
---
--- `TheThresholdOrderIsTotalAndTheClaimIsAntitone` proved `‚ä-refl` and
--- `‚ä-total` and every note since has called ‚ä a "total preorder".
--- TRANSITIVITY WAS NEVER PROVED.  Reflexive + total is not a preorder,
--- and the word was doing work it had not earned ‚î the equivalence
--- below is not even an equivalence relation without it.  `‚ä-trans` is
+-- `‚ä-trans` is
 -- proved here, by the same multiply‚ìrearrange‚ìcancel that `‚ä`'s other
--- theorems use, and the word is now earned.
+-- theorems use.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT IS PROVED
 --
---   ‚ä-trans            the missing preorder law
+--   ‚ä-trans            transitivity
 --   _‚âà_                same rate = mutual ‚ä; an equivalence relation
 --   atLeastDescends    `AtLeast` is a property of the RATE
 --   aboveDescends      so is `Above` ‚î both directions, both families
@@ -44,9 +35,6 @@
 -- compares; minimality mentions `suc q` on its own, and `suc q` is not
 -- a function of the rate.  That is the whole criterion, and it explains
 -- rather than merely records the earlier separation.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module WhichThresholdStatementsDescendToTheRate where
@@ -172,13 +160,7 @@ minimalDoesNotDescend =
   shortIsNotMinimalAtTwoQuarters
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  "Density of ‚ä remains untouched" is the last line of the
--- NOT-CLAIMED section here, and it was the last line of two earlier
--- modules on this line as well.  Touched now, in
--- `TheThresholdChainIsDenseAndTheMediantWitnessesIt`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin ‚î check.sh returns 1 and says so).
+-- In `TheThresholdChainIsDenseAndTheMediantWitnessesIt`:
 --
 -- The chain is DENSE, and the witness is not found by a search: it is
 -- the MEDIANT.  Between p/(suc q) and p'/(suc q') lies
@@ -202,14 +184,7 @@ minimalDoesNotDescend =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  ¬ß5's NOT-CLAIMED says "no quotient TYPE is formed ‚î `‚âà`
--- is a relation, with no set-quotient, no truncation and no
--- univalence".  The mediant module ends at the same wall.  When one
--- limitation ends two results it is the object, so it is built now:
--- `TheRateQuotientExistsAndMinimalityCannotLiveOnIt`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin ‚î check.sh returns 1 and says so).
+-- In `TheRateQuotientExistsAndMinimalityCannotLiveOnIt`:
 --
 --   Rate = (‚ï ó ‚ï) / _‚âà_        the set-quotient
 --   AtLeastOnRate / AboveOnRate both predicates LIFT, by

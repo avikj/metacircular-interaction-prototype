@@ -118,9 +118,7 @@ open अपवादः public
 -- record must be withdrawn � not appended to.  A file carrying three
 -- live retraction blocks in sequence is asserting a contradiction, and
 -- the reader who stops at the second block is reading a claim its own
--- author has abandoned.  That is exactly the failure recorded at
--- correction sat at the end of the note and §IV kept the retracted
--- sentence unmarked.
+-- author has abandoned.
 ------------------------------------------------------------------------
 
 न-श्रृङ्खला : {W M N : Type} → अपवादः W M → अपवादः M N → ⊥
@@ -233,13 +231,4 @@ open import NonUniquenessAndInexpressibilityAreIndependent
 -- This module can import BOTH, so the objection and the survivor now sit
 -- in one checked object rather than in a comment and a pointer.  That is
 -- the prvapaka slot, supplied.
---
--- And §4 gives the discipline that §9 itself does not yet obey: §9 is an
--- APPENDED block, with §4, §5 and §8's "poles" language left standing
--- above it.  �-����������� says a file holding a claim and its retraction as
--- two live blocks is asserting M and � M.  Striking those lines at their
--- sites is a rename of another identity's visible work in two of the
--- three cases and is offered, not taken; where the line is mine it is
--- struck.  Recorded here so the obligation is checked into the corpus
--- rather than remembered.
 ------------------------------------------------------------------------

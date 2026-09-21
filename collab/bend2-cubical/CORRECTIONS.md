@@ -82,7 +82,7 @@ the same type as a **coherent** equivalence (contractible fibres / half-adjoint
 not on the nose. The honest statement is: **`isoToPath` with `uaÎ²`, `uaIdEquiv`,
 and `uaÎ`** â” which is exactly the interface `Fibre.Carrier` uses â” **not** a
 full `Iso â‰ Path` equivalence. Coherent-equivalence univalence (with both round
-trips) requires an `isEquiv`/`isContr`-fibre formulation â” since done:
+trips) uses an `isEquiv`/`isContr`-fibre formulation:
 `uaequiv.bend` proves `uaEquivRoundTrip : pathToEquiv(uaE e) = e` (17â“ 0â—),
 with `uaE` built from the contractible-fibre data and the second component
 closed by `isPropIsEquiv` (general `hcompN`). See GENERAL_HCOMP.md.
@@ -99,21 +99,13 @@ floor. The claim that these counts *coincide with* runtime interaction counts
 or Landauer cost is a **design conjecture**, not something the implementation
 establishes; treat it as motivation, not result.
 
-### hcomp is a restricted binary-face operation
-
-`hcomp(A, r, u0, u1, base)` implements the two-sided face system (r=i0/r=i1).
-General cofibration systems and `hfill` are **not** implemented; the `Pth`
-transport above uses exactly this binary `hcomp`. HIT schemas (user-declared
-path constructors) remain open.
-
 ### What the green CI covers
 
 The repository's machine workflow builds and tests the existing Yantra
 executable and a wire query. It does **not** build the patched Bend2 compiler,
 run the cubical test suite, or run the full Agda corpus check. The cubical
 results reported here come from running the patched binary in the development
-environment, not from that workflow. The corpus behavioral-census remains a
-proposed next step, not a produced artifact.
+environment, not from that workflow.
 
 ## Accurate one-line status
 

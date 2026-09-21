@@ -5,10 +5,9 @@
 --
 -- The end of the thread that began at `SuccessorIsNotTropical`.
 --
--- `NoNormOnAJoin` closed the question "does the walk admit a norm?" with
--- a No for the join and a Yes for âŠ•, and left open whether a âŠ•-stepping
--- machine would therefore have descent.  It would not, and the reason
--- names the price of descent exactly.
+-- `NoNormOnAJoin` answered "does the walk admit a norm?" with a No for
+-- the join and a Yes for âŠ•.  A âŠ•-stepping machine does not thereby have
+-- descent, and the reason names the price of descent exactly.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THREE LAWS, THREE FAILURES, TWO REASONS
@@ -64,9 +63,6 @@
 --
 -- Number IS ratio.  This module is that sentence with a proof attached,
 -- and the proof is that the alternative has no inverses.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module DescentCostsTheIntegers where
@@ -192,7 +188,5 @@ cone-is-proper b bs (x , xs) p = posNotnegsuc x 0 (cong fst p)
 -- always a restriction and never the ground.
 --
 -- Nothing in Â§Â§1â“4 changes.  The theorems never mentioned a price; only
--- the prose did, and only the prose is withdrawn.  The module keeps its
--- filename so the correction stays visible in the history rather than
--- being tidied out of it.
+-- the prose did, and only the prose is withdrawn.
 ------------------------------------------------------------------------

@@ -3,12 +3,12 @@
 ------------------------------------------------------------------------
 -- TheDeflationaryTestIsVacuous
 --
--- Closing thread (2), by showing that its conclusion is a theorem, its
--- stated mechanism was never needed, and the inference it was going to
--- license does not follow.
+-- The deflationary test's conclusion is a theorem, its stated mechanism
+-- was never needed, and the inference it was going to license does not
+-- follow.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- THE TEST, AS THIS THREAD HAS BEEN CARRYING IT
+-- THE TEST
 --
 --   "if the absence tower is two-tall exactly for decidable
 --    counterpositives, and every absence in this corpus looks
@@ -45,8 +45,7 @@
 --       in the only way that settles it: `Stable ‚ä` and `Stable Unit`
 --       both hold.  A property that every type has separates no types.
 --       So "the tower is short, therefore the barrier language
---       overstates its objects" is a non-sequitur, and this thread was
---       one step from drawing it.
+--       overstates its objects" is a non-sequitur.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT REPLACES IT
@@ -67,11 +66,6 @@
 -- Calling the question empty and the work it caused empty would be two
 -- different claims, and only the first is made.  A ‡®‡Ø that dismissed
 -- the second along with the first would be a ‡¶‡‡∞‡‡®‡Ø.
---
--- The live remainder is positive and is not about absence at all:
--- which hypotheses in this corpus are DERIVABLE ‚î isSet, Discrete,
--- Answerable, Dec ‚î at the sites that assume them.  That question has
--- failing instances, which is what makes it a question.
 --
 ------------------------------------------------------------------------
 
@@ -160,11 +154,9 @@ stabilityDoesNotDecide : Stable ‚ä• √ó Stable Unit
 stabilityDoesNotDecide = stable‚ä• , stableUnit
 
 ------------------------------------------------------------------------
--- PRIOR ART, found late and recorded here rather than by deletion.
+-- PRIOR ART.
 --
--- `DeflationaryTest` was in the corpus and in
--- `RootsThreadLatch` throughout the cycles that produced this module,
--- and was not read.  It already contains the closure lemmas for
+-- `DeflationaryTest` already contains the closure lemmas for
 -- `¬`, `‚í`, `ó`, `Œ†`, their instantiation at the corpus's obstruction
 -- shapes, the observation that stability does not pass through `‚ä`,
 -- `no-barrier-claim : ¬ (¬ (Dec A))`, and the deflation that the
@@ -173,6 +165,5 @@ stabilityDoesNotDecide = stable‚ä• , stableUnit
 -- `TheDeflationaryTestWasAlreadyRun` carries the ledger,
 -- line by line, of what here is a rediscovery and what is not ‚î and
 -- proves the overlap by `refl`, the closure lemmas on both sides being
--- the same terms.  Read that ledger before citing anything below as
--- new.
+-- the same terms.
 ------------------------------------------------------------------------

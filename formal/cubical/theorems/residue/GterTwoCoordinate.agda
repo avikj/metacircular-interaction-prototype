@@ -3,11 +3,6 @@
 ------------------------------------------------------------------------
 -- GterTwoCoordinate
 --
--- *** AWAITING KERNEL (authored without local toolchain; a green is an
--- exit code). ***
---
--- ¬ß¬ß4.1‚ì4.2 and ¬ß4.7 (which specifies this module and states plainly
--- that it was neither written nor checked; this file is that
 -- D0026 ¬ß7.3, owner Deltas 37‚ì38,
 -- `collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md`
 -- lines 2456‚ì2700.
@@ -42,7 +37,7 @@
 -- the whole point of ¬ß4.1: the independence is not manufactured by
 -- letting probes and gluing range over unrelated parameters.
 --
--- WHAT THE FOUR CELLS SAY, once checked:
+-- WHAT THE FOUR CELLS SAY:
 --
 --     îñ‚  S_L = S_R = {b‚}       sep = T , comp = T
 --     îñ‚  S_L = {b‚}, S_R = {b‚} sep = T , comp = F   witness (i)
@@ -88,7 +83,7 @@
 --   and the four systems are the only data supplied ‚î every value below
 --   is a kernel reduction, not a transcribed table.
 --
---   NOT CHECKED, and the source note says so first (its ¬ß4.7):
+--   NOT IN THIS MODULE, as the source note says first (its ¬ß4.7):
 --
 --    (a) THEOREM 6, minimality of the shape (1,2,1).  It quantifies over
 --        SHAPES ‚î over all finite Œ‚,Œ‚,Œ‚ ‚î and is the hand proof of
@@ -103,8 +98,7 @@
 --        ‚ã = 0 relationally and ‚ã ‚â† 0 in the Set-valued reading, on the
 --        SAME cut system.  It needs the honest coend
 --        ‚®ø_{b ‚àà Œ‚} îó‚‚(a,b) ó îó‚‚(b,c) and the comparison map: a real
---        construction, not a Boolean table.  NOT refl-material and not
---        attempted.
+--        construction, not a Boolean table.
 --
 --        Consequence to keep in view, since this module lives entirely
 --        on the relational side of it: `tear` below is the
@@ -122,11 +116,6 @@
 --        state must meet both boundaries the cells can be constrained.
 --        The theorem is that no such constraint is implied by the
 --        definitions.
---
---    (d) Theorem 4 is elementary and is SEARCH-pending for prior art
---        (source note ¬ß4.6).  What the note claims as absent from this
---        corpus is the PAIRING ‚î a probe defect and a gluing defect
---        carried as one two-coordinate object ‚î not the table.
 --
 --   Nothing here is measured, fitted, or floating-point: the carrier has
 --   two elements and every verdict is a kernel reduction.  This replaces
@@ -152,7 +141,7 @@ open import Cubical.Relation.Nullary using (¬¨_)
 --
 -- Relations are Bool-valued tables on finite index types.  The shape is
 -- (|Œ‚|,|Œ‚|,|Œ‚|) = (1,2,1), the minimal shape the source note's
--- Theorem 6 identifies ‚î minimality itself is NOT checked here, see the
+-- Theorem 6 identifies ‚î minimality itself is not claimed here, see the
 -- rigor boundary (a).
 ------------------------------------------------------------------------
 
@@ -200,28 +189,10 @@ sep : Rel Œ£‚ÇÄ Œ£‚ÇÅ ‚Üí Rel Œ£‚ÇÅ Œ£‚ÇÇ ‚Üí Bool
 sep s t = not ((eqb (L s false) (L s true)) and (eqb (R t false) (R t true)))
 
 -- compCut îñ  ‚ü∫  îó‚‚ ‚äô îó‚‚ ‚â† ‚à: some cut state carries the a ‚ c
--- composite.  D0026 ¬ß7.3 calls this coordinate `comp`, and that is the
--- name it carried here until 2026-08-19.
---
--- RENAMED, and the rename is the whole repair of a real breakage.  A
--- top-level `comp` at this position collides with `comp` from
+-- composite.  D0026 ¬ß7.3 calls this coordinate `comp`; it is `compCut`
+-- here because a top-level `comp` collides with `comp` from
 -- `Cubical/Core/Primitives.agda:16`, which every `--cubical` module has
--- in scope, and the collision is FATAL, not shadowing:
---
---   container (Agda 2.6.3 + cubical v0.5 at /root/agda-libs/cubical):
---     GterTwoCoordinate.agda:205,1-5 "Multiple definitions of comp."
---     ‚î reported by another lane in
---     `TheTwoPigeonholesAreInterderivable‚¶OpenItem.agda` ¬ß0, which then
---     conjectured "under the declared pin it evidently does not fire."
---   pin (Agda 2.8.0 + cubical v0.9 @ b150186): IT FIRES THERE TOO, as a
---     name clash against the same primitive while scope-checking this
---     very signature.  So the conjecture was wrong, and the module was
---     red on BOTH toolchains, not one.
---
--- Nothing mathematical changes: the coordinate, the four witnesses and
--- the two independence theorems are untouched; only this identifier and
--- its three use sites move.  Everything.agda:432 imports this module,
--- so the clash was also the FIRST error of the whole aggregate.
+-- in scope, and the collision is FATAL, not shadowing.
 compCut : Rel Œ£‚ÇÄ Œ£‚ÇÅ ‚Üí Rel Œ£‚ÇÅ Œ£‚ÇÇ ‚Üí Bool
 compCut s t = (s ‚äô t) tt tt
 

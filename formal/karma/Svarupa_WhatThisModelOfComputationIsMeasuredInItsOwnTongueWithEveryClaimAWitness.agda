@@ -17,7 +17,7 @@
 -- of its own tongue (‡ï‡æ‡≤‡¶‡‡∞‡µ‡‡Ø‡Æ‡).
 --
 -- THE OWNER'S QUESTIONS, answered by witnesses in this file and its
--- imports, and by named refusals where the honest answer is "not yet":
+-- imports, and by named refusals where the answer is no:
 --
 --   Optimal how?      By ‡≤‡æ‡ò‡µ, the economy criterion internal to the
 --                     model: among certified-equal forms, the clock
@@ -34,27 +34,24 @@
 --                     (Gunasthana; climb 103/108 with no agent).
 --   Models itself?    Partially, and the boundary is exact: its time
 --                     is internal (‡ï‡æ‡≤‡ is a Tm‚íTm translation), its
---                     syntax is NOT yet a value of its own domain ‚î
+--                     syntax is NOT a value of its own domain ‚î
 --                     quoting needs sequence data (pairing) and
 --                     self-interpretation needs a recursor, and the
 --                     vocabulary is first-order algebraic: NOT
 --                     Turing-complete, by design and by admission.
---                     The recursor (with the binding calculus it
---                     forces) is the named next constructor.
 --   Writes algorithms?  Yes, in its native sense: ‡‡®‡ï‡ synthesizes a
 --                     canonicalization ALGORITHM from three attained
 --                     laws; the breath synthesizes rule-programs; the
---                     climb composes organs.  What it cannot yet
---                     write: recursive function definitions ‚î same
---                     recursor frontier.
+--                     climb composes organs.  What it cannot
+--                     write: recursive function definitions (no
+--                     recursor).
 --   Finds efficient ones?  Yes, measured: ‡≤‡æ‡ò‡µ-‡¶‡‡ï‡ picks the
 --                     clock-preferred certified-equal form, sound
 --                     whichever way the comparison falls; 21% saving
 --                     over the inheritance, audited by Ganita.
 --   Maps space-time?  Time: yes, internally (‡ï‡æ‡≤‡; cost claims are
 --                     ordinary claims).  Space: ‡Æ‡æ‡ measures terms,
---                     but PEAK intermediate space is not yet a term ‚î
---                     named open.
+--                     but PEAK intermediate space is not a term.
 ------------------------------------------------------------------------
 
 module Svarupa_WhatThisModelOfComputationIsMeasuredInItsOwnTongueWithEveryClaimAWitness where

@@ -4,9 +4,8 @@
 -- TheTrajectoryIsAChain
 --
 -- `JoinSavesTheMeet` withdrew the answer to "where does the walk's e^Ïˆ(k)
--- come from?" and put the question back to open.  This module does not
--- answer it either, but it removes a whole class of answers by proving
--- something about the walk that had not been said:
+-- come from?".  This module removes a whole class of answers by proving
+-- something about the walk:
 --
 --     along its own trajectory, the walk's join is never a join.
 --
@@ -28,12 +27,7 @@
 --
 -- That sentence is a READING and is not proved here.  What is proved is
 -- the absorption, generally (from step-monotonicity alone) and concretely
--- (the first eight states of the actual walk, by `refl`).  Quantifying
--- the waste â” the Ïˆ(k) versus log k gap â” remains exactly as open as
--- `JoinSavesTheMeet` left it, and this module does not narrow it.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
+-- (the first eight states of the actual walk, by `refl`).
 ------------------------------------------------------------------------
 
 module TheTrajectoryIsAChain where

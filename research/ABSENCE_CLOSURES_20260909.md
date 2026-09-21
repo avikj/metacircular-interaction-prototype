@@ -42,20 +42,6 @@ edited.  Nothing was assumed.
 | fibre census: the seam conjecture (fibre of âˆ_âˆâ over a truncated point) | fibre/Fibre/Avaccheda_â¦ | fiber âˆ_âˆâ x â‰ A for every x : âˆ A âˆâ |
 | ChargePolynomialFinite: "the table is *the* factorization â¦ unique factorization â¦ not proved" | number/Sarani_â¦ | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |
 
-## Not closed, with the exact obstruction
-
-- Cakravla termination and Bhskara's minimality (CakravalaBound, CakravalaDescent, CakravalaStep): Lagrange 1768; needs periodicity of the continued fraction of âˆD.  No corpus term approaches it.
-- Petersen's optimality of the ivastras (Sivasutra, PratyaharaLaghava, Dvihpatha): a graded minimisation over all enumerations; unread source, no formal statement in the corpus.
-- â(âˆ2) has exactly two orderings (SamacaranaNityam): needs ordered-field theory absent from the pin.
-- Nontrivial factorisation of the norm form forces âˆ’1 a square (WhereTheCircleSplits): polynomial factorisation over a field, absent.
-- Aut â‰ Î  over the codomain of Aut(fibre) (AtmasamataUpari, SamraksakaSamuha): the currying coherence of Avaccheda; open in the corpus's own terms.
-- Sha256Varga: two distinct colliding inputs.  A SHA-256 collision.
-- GunakaKsepa Â§5: sign normalisation preserving the congruence; a statement about the wheel's own reactor, not a composition.
-- KuttakaSamapti: the logarithmic bound on the vall length (Lam©) is now the Virahka bound of Svarnasima; the base-Ï logarithm as a function is still not composed.
-- Gleason's theorem (EkatvaMatra); Born interior.
-- The seven UNSUPPLIED nodes of research/handoff_20260908 (O-RBOUND, O-RONESIDE, O-RLOWER, O-RLIFT, O-RDYADIC, O-RGOLDBACH, O-NPEAK): analytic estimates; no real-analysis library at the pin; nothing here changes their status.
-- The section `(n : â•) â’ frontierb n â‰¡ true` of SamastaSima (RH — Goldbach): every stage is decided; the section is not inhabited by anything in this corpus.
-
 ## What the exercise shows
 
 Twenty-six absences the corpus had recorded were compositions of terms it

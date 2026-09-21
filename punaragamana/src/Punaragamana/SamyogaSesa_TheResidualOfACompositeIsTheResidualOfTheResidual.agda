@@ -55,9 +55,6 @@
 -- theorem needs no MORE path algebra than `Carrier` already contains is
 -- itself the point: this is not new machinery, it is the existing
 -- machinery answering a question it had not yet been asked.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 â” the library's declared pin.
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Punaragamana.SamyogaSesa_TheResidualOfACompositeIsTheResidualOfTheResidual where

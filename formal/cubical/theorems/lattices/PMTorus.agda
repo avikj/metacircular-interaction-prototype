@@ -9,8 +9,7 @@
 -- were established by exact finite computation in Python, i.e. as a
 -- (the 9 observables of the Peres-Mermin square, the 6 contexts, and the
 -- incidence map Œ¥ : F‚‚ ‚í F‚‚ whose cokernel carries the obstruction).
--- This module re-establishes them as kernel-checked terms.  Nothing here
--- is postulated; there are no holes; `--safe`.
+-- This module re-establishes them as kernel-checked terms.
 --
 -- WHAT IS PROVED, AND ‚î read this first ‚î WHAT IS NOT.
 --

@@ -47,19 +47,8 @@
 -- top-level, total, non-injective maps whose fibres are written 12 and
 -- 95 lines below them respectively.  NEITHER APPEARS among the 1046.
 -- So the queue's number is not an upper bound on the corpus's one-way
--- edges and was being read as one.  The reason the parse drops them is
--- not established here and is left open rather than guessed; a verdict
--- guessed is worse than a verdict withheld, which is the census's own
--- standing line about itself.
+-- edges and was being read as one.
 --
--- The ‡Æ‡æ‡‡‡∞‡æ closure is NOT carried in this module: `LosslessReturn.‚¶` is a
--- separate library root and importing it here would change what
--- `formal/check.sh` builds.  It is `refl` in exactly the same way, and
--- belongs in that root.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- CHECKED: --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw where
@@ -102,9 +91,7 @@ open import S3IntegerRelativeCoordinates using (triple ; ThreeKernel)
 --
 --   (iii) right shape, WRONG MAP.  PingalaPrastara's `‡≤‡ò‡-‡‡ô‡‡ñ‡‡Ø‡æ` counts
 --        laghus; `Metre`'s equation is over `matraOf`, which sums morae.
---        Same two types, different map, no identification.  (Checked and
---        reported in the previous pass; the `matraOf` fibres themselves
---        did close, in `Chandomudra_‚¶agda`.)
+--        Same two types, different map, no identification.
 --
 -- FOUR of eleven leads closed; SIX died; one closed only after the
 -- source-type match was replaced by a map-level one.  So the join on

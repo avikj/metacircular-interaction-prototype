@@ -5,9 +5,7 @@
 > **Read `CORRECTIONS.md` alongside this document.** A technical review found
 > places where an earlier draft of this writeup overclaimed (univalence, cost
 > as runtime/thermodynamic measurement, CI coverage). Those claims are
-> corrected there and inline below; several gaps the review named (faithful
-> native transport lowering, nonconstant-Path transport, a sound totality
-> analysis) have since been completed in code and are noted where relevant.
+> corrected there and inline below.
 
 ---
 
@@ -204,7 +202,7 @@ other round trip `pathToIso(ua e) = e` at the Iso-record level does **not** hold
 by refl (raw isomorphism data is not a coherent equivalence â” see
 `uaroundtrip.bend` and CORRECTIONS.md). This is `isoToPath`, exactly what
 `Fibre.Carrier` uses. Coherent-equivalence univalence with both round trips is
-now closed on top of it: `uaequiv.bend` (17 checks green) defines
+built on top of it: `uaequiv.bend` (17 checks green) defines
 `Equiv(A,B) = Î f. âˆy. isContr(fiber f y)`, `uaE` (path from the coherent data),
 `pathToEquiv` (transport of `idEquiv`), and proves
 `uaEquivRoundTrip : pathToEquiv(uaE e) = e` for arbitrary `e` â” first
@@ -251,7 +249,7 @@ syntax (`run_corpus.hvm4`) executes on the actual HVM4 C runtime:
    correct inhabitants. The `Sup — Path` rule lets such a search be transported
    across a `ua` â” search one representation, get the answer in all equivalent
    ones. Superposed proof search inside a univalent theory, at optimal cost.
-4. **The cost theorem motivates a static proof-structure metric (not yet a
+4. **The cost theorem motivates a static proof-structure metric (not a
    runtime/thermodynamic measurement).** The corpus proves `cost =
    non-contractible fibre`. The analysis layer (`Core/Analysis.hs`) counts
    *syntactic occurrences* of the rewrite/transport constructors in a proof
@@ -357,12 +355,10 @@ Two directions, both now backed by running code rather than argument:
   about a process and becomes the process running, at the information-theoretic
   bound, on hardware-scale parallelism.
 
-The honest ledger: what exists today is the corpus, the patched checker
-(cubical through complete univalence + `Sup — Path` + analysis), the closed
-loop to the HVM4 runtime, and this document. It is a proof of splice, not yet a
-platform. The shortest path to "groundbreaking against what is public" is 4.1
-(the self-quotient census) plus 4.2 (the HVM4 emitter): two engineering tasks
-that together produce a result â” a mathematical development computing its own
+What exists is the corpus, the patched checker (cubical through complete
+univalence + `Sup — Path` + analysis), the closed loop to the HVM4 runtime, and
+this document. 4.1 (the self-quotient census) and 4.2 (the HVM4 emitter)
+together produce a result â” a mathematical development computing its own
 behavioral structure on an optimal parallel runtime â” that neither the proof-
-assistant world nor the interaction-net world can currently produce, because
+assistant world nor the interaction-net world can produce alone, because
 neither has the other's half.

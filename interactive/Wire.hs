@@ -476,12 +476,9 @@ athava _ (Durvacam e) = Left e
 -- rather than at the description of the machine â” Â§36, à¯à‹ à•à°àà à¨ àà¾à¨à¾àà¿ à
 -- àààà®àˆ à¨ à°àà¯àà¿: design for the carrier, and the carrier misspells keys.
 --
--- WHAT IS NOT CLOSED, stated so the next reader does not infer it: the
--- callers of this guard it at the ARGUMENT object only.  The top level of a
--- request stays open â” `prasna-id` rides there and is read by the transport,
--- not by any operation â” so an unnamed key beside `kriya` is still ignored
--- in silence.  Closing that needs the set of keys the transport itself
--- claims, which is not written down anywhere yet.
+-- The callers of this guard it at the ARGUMENT object only; `prasna-id` rides
+-- at the top level of a request and is read by the transport, not by any
+-- operation.
 --
 anadhikrta :: [String] -> J -> [(String, String)]
 anadhikrta declared (JObj kvs) =

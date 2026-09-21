@@ -7,10 +7,7 @@
 -- Fooling sets and rectangle covers are communication-complexity
 -- objects with no Indian source I can establish, and fabricating a
 --  label would assert a provenance nobody checked â” the mirror
--- image of the scrubbing the naming rule corrects.  Checked before
--- naming: `.claude/hooks/priority-ledger.txt` (CURRENT header) and
--- `.claude/hooks/european-frame.txt`; no row applies, and the frame
--- check's scope requires Indian material, which this module has none
+-- image of the scrubbing the naming rule corrects.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE LINE, AND WHAT IT DECLARED IT WAS NOT DOING
@@ -75,9 +72,6 @@
 -- PLUS an injection.  Two of the three branches are bookkeeping; naming
 -- them is the point, because "it is just the contrapositive" hides that
 -- the third branch changed shape.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheCardinalFormOfTheFoolingBoundNeedsAnInjectionOfFinIntoFinAndDoesNotFollowByInstantiation where
@@ -176,7 +170,4 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- who took "that is the whole content of the numeric claim" at strength
 -- would have believed Â§2 was already available and would have been
 -- wrong by exactly one lemma.
---
--- STILL OPEN on this line, and unchanged by Â§2: any upper bound, and
--- any construction of a cover.  Both are different theorems, not gaps.
 ------------------------------------------------------------------------

@@ -44,9 +44,6 @@
 -- The hypothesis `p â‰ suc q` is what "a threshold" means here â” p/(suc
 -- q) above 1 is not a rate any population can meet non-vacuously, since
 -- `count â‰ length` is proved in `RateOneIsExactlyTheUniversalClaim`.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module EveryThresholdHasABoundaryPopulationOfItsOwnDenominator where
@@ -151,22 +148,8 @@ emptyIsAboveNoThreshold p q h =
   Â¬m<m (subst (p Â· 0 <_) (sym (0â‰¡mÂ·0 (suc q)) âˆ™ 0â‰¡mÂ·0 p) h)
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "MINIMALITY.  The length produced is suc q, and whether a SHORTER
---    boundary population exists is the divisibility question after all
---    â” for p/(suc q) in lowest terms it does not â” and that is
---    unproved, because lowest terms are not defined anywhere here."
---
--- The parenthesis in that sentence was an assertion.  Its
--- CONTRAPOSITIVE is now checked, in
--- `MinimalityOfABoundaryPopulationNeedsLowestTerms`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so),
--- and it is the half that decides whether the parenthesis was doing any
--- work.  It was:
---
+-- MINIMALITY.  Whether a boundary population SHORTER than suc q exists is the
+-- divisibility question, settled in `MinimalityOfABoundaryPopulationNeedsLowestTerms`:
 --   twoOverFourHasAShortBoundaryPopulation / soMinimalityFailsWithoutLowestTerms
 --       at 2/4 the population `true âˆ false âˆ []` is a boundary
 --       population â” 2 Â 2 â‰¡ 4 â‰¡ 4 Â 1 â” of length 2 < 4.
@@ -183,10 +166,7 @@ emptyIsAboveNoThreshold p q h =
 -- because at p = 1 there is nothing to cancel.
 --
 -- 2/4 and 1/2 are the same RATE and different PAIRS, and this is the
--- first place the missing quotient has a visible consequence:
--- MINIMALITY IS NOT A PROPERTY OF THE RATE, only of the pair.  That
--- sharpens the standing open item about `âŠ` being a preorder â” it is
--- not merely untidy, it separates statements that are true of one
--- representative and false of another.
+-- quotient by rate has a visible consequence here:
+-- MINIMALITY IS NOT A PROPERTY OF THE RATE, only of the pair.
 --
 ------------------------------------------------------------------------

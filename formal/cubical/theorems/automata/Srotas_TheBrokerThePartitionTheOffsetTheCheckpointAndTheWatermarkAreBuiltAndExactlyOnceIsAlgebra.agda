@@ -39,9 +39,6 @@
 --                           delivered key from the state changes it, so
 --                           the store is monotone â” no tombstones, no
 --                           compaction, no retention policy.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Srotas_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra where

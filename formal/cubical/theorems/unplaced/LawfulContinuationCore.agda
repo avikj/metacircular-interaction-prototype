@@ -106,7 +106,7 @@ open-is-branching : BranchingFiber (ControlFiber branching)
 open-is-branching = false , true , λ p → true≢false (sym p)
 
 ------------------------------------------------------------------------
--- Raw inhabitants are not yet a global continuation.
+-- Raw inhabitants are not a global continuation.
 --
 -- Edges say which local views must be compared.  `transport` is the actual
 -- comparison map.  A coherent section must choose in every fiber and survive

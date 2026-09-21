@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheSecondUpadhiConditionDoesAllTheWork
 --
--- The Naiyyikas state TWO conditions on an updhi.  Checked here: the
+-- The Naiyyikas state TWO conditions on an updhi.  Proved here: the
 -- first alone is satisfied by a candidate that always exists, so it
 -- carries no information; the second is what has content; and the bare
 -- existential "some updhi exists" is equivalent to "the pervasion
@@ -44,7 +44,7 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT PROVOKED THIS
 --
--- `interactive/Upadhi.hs`, read this cycle.  It reports that the engine's
+-- `interactive/Upadhi.hs`.  It reports that the engine's
 -- sampler draws 40 assignments reduced `mod 9` and declares two terms
 -- equal when their 40 values agree, and it records â” in its own words â”
 -- "the risk is real and the failure is unobserved, and those are
@@ -55,11 +55,6 @@
 -- shelf is reproduced, relied on, or needed here: the probe below is
 -- nine points because `mod 9` is nine points, and the counterexample is
 -- exhibited, not sampled.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” container pin.  --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheSecondUpadhiConditionDoesAllTheWork where

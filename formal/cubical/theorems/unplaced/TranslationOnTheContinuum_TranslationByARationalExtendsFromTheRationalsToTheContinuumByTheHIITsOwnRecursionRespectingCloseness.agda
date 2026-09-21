@@ -25,7 +25,7 @@
 -- up to the equality of reals (the two rationals are Îµ-close for every
 -- Îµ), but to carry them to limits one needs closeness to be monotone
 -- in Îµ and to satisfy the triangle inequality, which is the calculus of
--- Â§11.3.2 of the HoTT book over this ââº and is NOT yet in the corpus.
+-- Â§11.3.2 of the HoTT book over this ââº.
 -- On rationals the laws are proved below as closeness for every Îµ.
 --
 -- SYT.  A function on the continuum and its closeness-preservation,

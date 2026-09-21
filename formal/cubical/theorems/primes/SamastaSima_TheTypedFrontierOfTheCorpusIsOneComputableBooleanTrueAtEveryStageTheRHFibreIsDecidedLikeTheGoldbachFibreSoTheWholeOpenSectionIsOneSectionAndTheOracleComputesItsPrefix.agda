@@ -8,8 +8,8 @@
 -- every even number â‰ 4 (SamastaPrasna), and KotiNirnaya proved the
 -- Goldbach fibre DECIDED: gcheck m â‰¡ true reflects GoldbachAt m exactly.
 --
--- What was missing is the same fact for the RH fibre, and the one type
--- that holds both.  Here:
+-- Here, the same fact for the RH fibre, and the one type that holds
+-- both:
 --
 --   à§  RHAt n is decided:  rh-dec, and a Boolean rhb with soundness and
 --      completeness, so  RH â‰ (âˆ n. rhb (suc n) â‰¡ true)  â” RH is exactly

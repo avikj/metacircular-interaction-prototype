@@ -14,15 +14,8 @@
 -- 1.21‚ì25, date disputed, c. 5th c. CE** ‚î a standpoint asserted
 -- ‡®‡ø‡∞‡‡‡ï‡‡, apart from the others it stands among, is ‡Æ‡ø‡‡‡Ø‡æ.
 --
--- ‡ó‡‡∞‡‡° ¬ ‡‡‡‡¶, declared.  No edition of the *Sanmatitarka* was opened by
--- me.  The attribution, the stra numbers and the date are carried from
--- this repository's own ledger
--- (`.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
--- rows 120 and 121) and from
--- and are owed at verse level.
---
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS REFUTES, and it is this author's own module from yesterday.
+-- WHAT THIS REFUTES.
 --
 -- (recoverable only by outside supply) and ‡ (‡®‡‡‡ü‡ø‡, ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø‡æ) are
 -- both crowded fibres; `Loss.SakalaVikalaDesa_‚¶` refuses a fourth
@@ -35,7 +28,7 @@
 --             source still see the difference.
 --
 -- `Avacchedaka_TheTruncationsFibreIsTheWholeSourceAndTheSeamHasItsCriterion`
--- (this lane, yesterday, mine) checked the load-bearing half ‚î every
+-- checked the load-bearing half ‚î every
 -- fibre of `‚à_‚à‚` is equivalent to the whole source ‚î and wrote the
 -- criterion down as `‡‡∞‡‡µ‡‡æ‡®‡ø‡ f b = fiber f b ‚â A`, with the sentence:
 -- *"‡µ‡ø‡ï‡≤‡æ‡¶‡‡ says the fibre has two distinct points; that is true of a
@@ -101,9 +94,6 @@
 --   * NOTHING is added to `‡¶‡‡`.  That datatype is in another library and
 --     its author's refusal to extend it was a considered act ‚î and this
 --     module is the reason the refusal was right.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype where

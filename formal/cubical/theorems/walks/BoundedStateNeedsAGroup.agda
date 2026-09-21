@@ -41,9 +41,6 @@
 -- With them the arc that began at `SuccessorIsNotTropical` is closed for
 -- the walk specifically: its unbounded state is forced, the force is
 -- algebraic, and the only exit among its own operations is ratios.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module BoundedStateNeedsAGroup where

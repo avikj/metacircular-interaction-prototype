@@ -7,22 +7,8 @@
 -- tables `Fact = List (‚ï ó ‚ï)`, an entry `(p , e)` standing for p^(1+e),
 -- and discharges each table four ways ((i) `value f ‚â° n`, (ii) every base
 -- prime by `isPrimeµ`, (iii) bases distinct by `distinctµ`, (iv) Œ©
--- against SieveFiber's trial division).  Its header then says, exactly:
---
---     What (i)‚ì(iv) do NOT give is that the table is *the* factorization:
---     that step is unique factorization, which is not proved here and
---     not available in the imported library at the shape needed.  So the
---     precise reading of everything below is: **these are theorems about
---     factorization tables, together with a four-way check that the
---     three tables used are correct tables for 12, 30 and 360.**  Under
---     unique factorization ‚î and only under it ‚î they are the note's
---     theorems at those n.
---
--- and its rigor boundary repeats: "unique factorization ‚¶ the bridge from
--- a table to the integer it names is checked four ways and is still a
--- bridge."
---
--- The corpus now has unique factorisation, in
+-- against SieveFiber's trial division).
+-- Unique factorisation is in
 --   `Drdha_‚¶`  ‚î ‡¶‡‡‡Æ‡ (prime), ‡µ‡ß‡ (product of a list), ‡µ‡ø‡‡æ‡‡®‡Æ‡
 --                (existence of a prime list for every n ‚â 1), and
 --   `Uniqueness_‚¶` ‚î ‡‡ï‡‡‡µ‡Æ‡ (two prime lists with one product are a `Perm`),
@@ -30,7 +16,7 @@
 --                (the valuation), ‡Æ‡æ‡®-‡®‡ø‡‡‡‡Ø‡ (every prime list with
 --                product n has count ‡Æ‡æ‡®‡Æ‡ p n of p).
 --
--- This module builds the bridge.
+-- This module builds the bridge from a table to the factorization.
 --
 -- WHAT IS PROVED.
 --

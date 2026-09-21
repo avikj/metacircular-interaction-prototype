@@ -3,19 +3,9 @@
 ------------------------------------------------------------------------
 -- StabilizerSubgroup
 --
--- T15.9 AS A SUBGROUP.  A completion of `DefectCalculus`
--- Â§4, written as a separate module so that nobody's file is edited.
+-- T15.9 AS A SUBGROUP.  A completion of `DefectCalculus` Â§4.
 --
--- THE OBJECTION.  `DefectCalculus`'s ledger records, under WHAT IS NOT
--- CLAIMED:
---
---     "T15.9 is not proved as 'subgroup'.  Â§4 takes a family of
---      self-equivalences and proves closure under identity, composition
---      and inverse.  The *group* statement wants a group object acting;
---      packaging one here would be scope creep."
---
--- The first half of that sentence is not accurate and the diagnosis in
--- the second half is the wrong one.  Â§4's parameter is not "a family of
+-- Â§4's parameter is not "a family of
 -- self-equivalences": it is `A â‰ A`, which IS the group object, and
 -- cubical ships it as `Cubical.Algebra.SymmetricGroup`
 -- `SymGroup A isSetA` â” `1g = idEquiv`, `_Â_ = compEquiv`,
@@ -39,30 +29,16 @@
 --        need coherence conditions (associativity of `stab-âˆ˜` against
 --        `compEquiv-assoc`, and so on) which Â§4 does not state.
 --
--- So the honest ledger entry is not "the group packaging would be scope
--- creep" â” it is thirteen lines and reuses Â§4 verbatim â” but: *Â§4 is
--- stated at a generality (arbitrary `A`, arbitrary `Str : Type â“ â’
--- Type â“'`) at which "subgroup" is not yet well-posed.*  That is a
--- sharper statement than the one recorded, and it is the corpus's own
--- recurring lesson: the obstruction was an h-level, not a missing
--- missing machinery was never the obstacle").
---
 -- The restriction `â“' = â“` below is cubical's `â™ X = X â’ hProp _` at
 -- `X`'s own level, not a mathematical restriction; a `Lift` would
 -- remove it and add nothing.
 --
--- A second remark, recorded and not pursued: `Î[ g âˆˆ A â‰ A ] Stab g` is
+-- A second remark: `Î[ g âˆˆ A â‰ A ] Stab g` is
 -- the fibre of the orbit map `g â¦ subst Str (ua g) s` over `s`, so Â§4
 -- is also an instance of the fibre language in
 -- `CertificateFibration`.  Making that identification
 -- carry weight needs the orbit map's own universal property, which is
 -- `StabilizerTorsor`'s subject, not this file's.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5 (`formal/cubical/BUILD.md`),
--- `--cubical --safe`, no postulates, no holes.  Deliberately not
--- imported by `agda` (this session was forbidden to edit
--- the root aggregate); `DefectCalculus`'s owner should fold it in or
--- reject it.
 ------------------------------------------------------------------------
 
 module StabilizerSubgroup where

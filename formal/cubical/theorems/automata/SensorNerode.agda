@@ -8,9 +8,7 @@
 -- in prose that a family `S` of moduli observes `n` only through
 -- `lcm(S)`, and calls the consequence the Nerode form: `S â¦ lcm S` IS
 -- the quotient by observational equivalence, so the sensor list is a
--- redundant presentation of one number.  The note's Â§4 records the
--- whole of Â§1â“Â§2 as "Not yet Agda".  Â§1 is now Agda; Â§2 is not, and the
--- reason is recorded below rather than hidden.
+-- redundant presentation of one number.
 --
 -- The proof carries NO ARITHMETIC.  That is not economy, it is the
 -- content: `WalkCapacity`'s `IsLCM` is the universal property, and the
@@ -58,23 +56,8 @@
 --                            observational classes to state values.
 --
 --   Â§6  `nerode!`             the same three, UNCONDITIONAL, via
---       `same-lcmâ’same-obs!`  `LCMExists.lcmList-isLCM`.  Added as a
---       `nerode-unique!`      correction against this file: Â§Â§3â“5 assume
---                             `IsLCM S L`, which is how the walk lane read
---                             *before* `LCMExists` closed that gap â” I
---                             wrote them without having read the closure
---                             and re-inherited a discharged hypothesis.
---
---
---  * **Â§2 of the note â” the divisor lattice â” is NOT here.**  That the
---    reachable states at frontier `k` are exactly the divisors of
---    `cap k` needs the (âŠ) direction, i.e. that every divisor of
---    `cap k` is `lcm` of a family of addresses in `[1,k]`.  The note's
---    proof factors the divisor into prime powers `p^{b_p} â‰ p^{a_p} â‰ k`.
---    That is genuinely arithmetic â” it needs existence of the prime
---    factorisation and the `p`-adic valuation, neither of which is in
---    cubical v0.5 â” so it is a real piece of work and not an oversight.
---    Â§3 below is independent of it.
+--       `same-lcmâ’same-obs!`  `LCMExists.lcmList-isLCM`.
+--       `nerode-unique!`
 --
 --  * Nothing here is about which families are ADMISSIBLE.  `WalkCapacity`
 --    owns the frontier condition; this file is about what a family sees,
@@ -231,16 +214,12 @@ nerode-unique isS isT h =
 ------------------------------------------------------------------------
 -- 6.  UNCONDITIONAL FORMS.
 --
--- CORRECTION, same day, and it is against this file.  Â§Â§3â“5 above take
--- `IsLCM S L` as a HYPOTHESIS, which is how the whole walk lane was
--- phrased *until* `LCMExists` closed exactly that gap:
+-- Â§Â§3â“5 above take
+-- `IsLCM S L` as a HYPOTHESIS; `LCMExists` discharges it:
 -- `lcmList-isLCM : (xs : List â•) â’ IsLCM xs (lcmList xs)`, no hypothesis,
--- no positivity restriction.  `WALK_FORCING_LAW.md` records the closure
--- under the heading "The conditionality gap is CLOSED (same day)"; I
--- wrote Â§Â§3â“5 without having read it, and so re-inherited a conditionality
--- the lane had already discharged.
+-- no positivity restriction.
 --
--- Nothing above is wrong and nothing above is deleted â” the hypothetical
+-- The hypothetical
 -- forms are the general statements and are what a caller with its own
 -- lcm witness wants.  What follows is the instantiation, which is what
 -- the walk actually has.

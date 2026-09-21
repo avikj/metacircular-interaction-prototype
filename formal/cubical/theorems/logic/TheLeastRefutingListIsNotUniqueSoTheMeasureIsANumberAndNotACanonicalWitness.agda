@@ -10,15 +10,12 @@
 -- **the school is named before the term**, as the naming rule requires.
 -- This module touches none of that material â” its subject is whether a
 -- minimiser is unique â” and **makes no claim whatever about avaktavya,
--- anuvtti, pratyhra or apavda.**  Checked before naming:
--- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
--- first.
+-- anuvtti, pratyhra or apavda.**
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE ITEM.  At 78a82d16 I completed the range below 2 for
--- `WitnessNumberIsTwo`'s measure â” the least list of points on which no
--- decoder survives â” and left open, in my own words: *"is the least
--- refuting list UNIQUE at a site?"*
+-- THE QUESTION.  `WitnessNumberIsTwo`'s measure is the least list of
+-- points on which no decoder survives.  Is the least refuting list
+-- UNIQUE at a site?
 --
 -- **It is not, and the counterexample is the site's own pair reversed.**
 -- A collision is symmetric: `q x â‰¡ q x'` gives `q x' â‰¡ q x`, and
@@ -48,11 +45,7 @@
 -- least refuting list to transport, quotient by, or read a further
 -- invariant off â” only its length.  That is not a defect: a measure is
 -- allowed to be a number.  It does mean any future construction that
--- says "take the least refuting list" is under-specified, and the
--- audited line does not make that mistake anywhere I have read.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- says "take the least refuting list" is under-specified.
 ------------------------------------------------------------------------
 
 module TheLeastRefutingListIsNotUniqueSoTheMeasureIsANumberAndNotACanonicalWitness where

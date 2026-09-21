@@ -184,23 +184,21 @@ reweaveComposes : {i j : Jewel} (p : i ≡ j) (k : Jewel) (q : Profile i k)
 reweaveComposes p k q = refl
 
 ------------------------------------------------------------------------
--- §7  What this does not yet give
+-- §7  What this does not give
 --
 -- * `�` rather than `�`: needs `isSet (Weave i j)`, hence that Naturality
 --   is a proposition.  True, unproved here.
 --
--- * The composition of the two thread FAMILIES is still free.  Nothing
+-- * The composition of the two thread FAMILIES is free.  Nothing
 --   above says that a shared-centre step followed by a shared-radius
---   step is equal to any other path; the net has no relations yet, so
+--   step is equal to any other path; the net has no relations, so
 --   `Weave` is a free category and its Yoneda is correspondingly cheap.
---   The relations are where the arithmetic lives, and finding them is
---   the work -- D0025 §12 asks precisely whether the crossings satisfy
+--   The relations are where the arithmetic lives -- D0025 §12 asks
+--   precisely whether the crossings satisfy
 --   associator, hexagon, Yang-Baxter, and answers: "Do not infer from
 --   the word 'braid'."
 --
 -- * No tear.  A separator `Sep(x,y)` is supposed to become an object of
 --   the theory graph (§16) and a failed gluing is the tear the next
---   stage must repair (§18).  There is no tear type here, and until
---   there is, nothing in this development can be FORCED to extend
---   itself -- which is the difference between a net and a notation.
+--   stage must repair (§18).  There is no tear type here.
 ------------------------------------------------------------------------

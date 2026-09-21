@@ -3,15 +3,9 @@
 ------------------------------------------------------------------------
 -- PairCompositionSeed_ProductOfTwoFactorsAtLeastTwoIsNeverPrimeSoNoComposedPairIsAPrimePair
 --
--- Closes the seed left open in PairComposition, which states (header,
--- "SEED"):
---
---   "SEED (stated, not proved here): for u‚,v‚,u‚,v‚ ‚â 2 every composed
---    leg is a product of two factors ‚â 2, hence composite; so no
---    composite of two ‚â2-legged pairs is ever a prime pair.  Primality
---    is exactly the condition of falling out of every proper
---    composition.  The general lemma is a two-line
---    ¬isPrime-of-product; only the finite witness is checked below."
+-- The seed of PairComposition: for u‚ÇÅ,v‚ÇÅ,u‚ÇÇ,v‚ÇÇ ‚â• 2 every composed
+-- leg is a product of two factors ‚â• 2, hence composite; so no
+-- composite of two ‚â•2-legged pairs is ever a prime pair.
 --
 -- WHAT IS PROVED.
 --
@@ -67,10 +61,10 @@
 -- divH*/noDiv* under pattern matching.  Nothing is postulated: if the
 -- recovered Name were wrong, those two refls would fail to check.
 --
--- WHAT IS NOT PROVED.  Nothing from the seed is left open.  The
+-- SCOPE.  The
 -- converse direction of the tester's specification (divides d n ‚â° true
 -- ‚í d ‚à n, and isPrime n ‚â° true ‚í ‡¶‡‡‡Æ‡ n) is not needed for the seed
--- and is not attempted here.
+-- and is not proved here.
 ------------------------------------------------------------------------
 
 module PairCompositionSeed_ProductOfTwoFactorsAtLeastTwoIsNeverPrimeSoNoComposedPairIsAPrimePair where

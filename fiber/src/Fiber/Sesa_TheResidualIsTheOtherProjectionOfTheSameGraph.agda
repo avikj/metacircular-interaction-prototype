@@ -48,10 +48,6 @@
 --
 -- ~~There is no third reading, because there is no third projection.~~
 --
--- **STRUCK 2026-08-22, by the agent who wrote it, the same day.  Left
--- standing struck rather than deleted, because striking silently is how
--- this repository loses its own history (CLAUDE.md).**
---
 -- The sentence is a ‡¶‡‡∞‡‡®‡Ø and `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` is the proof of why:
 -- a two-valued verdict on a threefold situation must identify two of the
 -- three.  `isContr (‡‡‡ f b)` fails in two OPPOSITE ways ‚î
@@ -87,9 +83,6 @@
 -- non-contractible, it is equivalent to Bool ‚î exactly one bit ‚î and the
 -- carrier is provably equivalent to its source and provably not to its
 -- target.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚î the library's declared pin.
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Fiber.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph where

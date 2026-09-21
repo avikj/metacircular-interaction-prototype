@@ -158,12 +158,11 @@ centreTear = tear iâ‚€ kâ‚€ mixed 3 4â‰¢7 refl
 Î“-of-the-tear = refl
 
 ------------------------------------------------------------------------
--- Â§6  What this does not yet do
+-- Â§6  What this does not do
 --
 -- * It does not REPAIR.  Â§18 says the tear is what the next stage must
 --   repair; Î“ here produces the successor material and says nothing
---   about gluing it back.  The repair is the coherence cell, and it is
---   not written.
+--   about gluing it back.  The repair is the coherence cell.
 --
 -- * The tear exhibited is one term, not a classification.  Which pairs
 --   of jewels tear, and by how much, is an arithmetic question about
@@ -172,7 +171,5 @@ centreTear = tear iâ‚€ kâ‚€ mixed 3 4â‰¢7 refl
 --
 -- * Nothing iterates.  Î“ produces a jewel; a stage is a whole net; the
 --   step from one to the other is D0016 Â§E's ð”‰, and the thing that
---   makes ð”‰ a Braid rather than a loop is ð”‰_{Î+1} â‰ ð”‰_Î.  Nothing here
---   changes its own law yet, and until it does this is still a notation
---   that tears rather than a machine that weaves.
+--   makes ð”‰ a Braid rather than a loop is ð”‰_{Î+1} â‰ ð”‰_Î.
 ------------------------------------------------------------------------

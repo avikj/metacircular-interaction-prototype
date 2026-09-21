@@ -78,8 +78,6 @@
 -- fiberwise identifications all exist, and the obstruction is not the
 -- h-level of the base or of the image (both are groupoids) but the
 -- incoherence of the invariance data itself.
---
--- No holes, no postulates, --safe.
 ------------------------------------------------------------------------
 
 module ChidraDosa_ThePointwiseInvarianceWithNoCoherentDescentIsATerm where

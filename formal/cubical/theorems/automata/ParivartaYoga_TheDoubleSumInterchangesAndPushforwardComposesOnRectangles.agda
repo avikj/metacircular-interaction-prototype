@@ -8,12 +8,7 @@
 -- measure lane's ‡Ø‡ã‡ó‡‡≤/‡‡æ‡ñ‡ø‡‡Ø‡ã‡ó‡ vocabulary).  The compound ‡‡∞‡ø‡µ‡∞‡‡-‡Ø‡ã‡ó
 -- is built here; no source is claimed for it.
 --
--- SEED.  The owner's transmission of 2026-08-23 ("causal horizon"):
--- "the next finite theorem is Fubini as transport."  The full statement
--- ‚î g_!(f_!w) ‚â° (g‚àòf)_!w across the fibre-composition equivalence ‡‡‡
--- (fc/Sesa_TheCompositesRemainder‚¶:92) ‚î needs fibre ENUMERATIONS,
--- which the corpus does not yet carry for arbitrary maps.  What is
--- landable exactly, today, is the RECTANGULAR case, which is also the
+-- The RECTANGULAR case, which is also the
 -- interchange law the span/path-integral reading consumes first:
 --
 --     Œ_y Œ_z w(y,z)  ‚â°  Œ_z Œ_y w(y,z)
@@ -23,8 +18,7 @@
 -- more.  On a rectangle X = Fin(1+a) ó Fin(1+b) with the two
 -- projections as observations, the nested totals ARE f_! then g_!, so
 -- this theorem is pushforward functoriality for the product square ‚î
--- the case where both fibres are constant.  The general fib version
--- remains owed and is named in the ledger.
+-- the case where both fibres are constant.
 --
 -- WHAT IS PROVED.
 --

@@ -59,9 +59,6 @@
 -- improves on that.  The content is only that this corpus's own
 -- certificate loses a free component when it moves to the reachable
 -- law.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheReachableLawDoesNotComposeWithoutPreservation where
@@ -158,16 +155,11 @@ preservationIsNecessary : ¬¨ (Preserves State look Inv 0 1 mg‚ÇÅ)
 preservationIsNecessary p = false‚â¢true (p true refl)
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The next step named above ‚î "extending the record with
--- preservation" ‚î is taken in
--- `TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin ‚î check.sh returns 1 and says so):
+-- `TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose` extends the record with preservation:
 -- `RCertified`, `composePreserves`, `composeRCertified`,
 -- `noSelfRCertified`, and the independence witness.
 --
--- Two things there were not visible from here.  `Preserves` COMPOSES
+-- `Preserves` COMPOSES
 -- FOR NOTHING, so the sixth component is free to carry ‚î the price is
 -- entirely in having to establish it per rewrite, not in sequencing.
 -- And it is INDEPENDENT of the other five: the witness is a full

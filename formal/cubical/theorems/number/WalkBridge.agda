@@ -2,14 +2,11 @@
 
 -- jump points of the capacity function, in increasing order.
 --
--- This was the last gap in the walk lane.  §(c) is closed in both
--- directions (WalkForcing + CoprimeSplitting: an install is a prime
--- power; WalkJumps: a prime power is a jump point).  Capacity is
--- unconditional (WalkUnconditional, on LCMExists).  But nothing said
--- that the walk's install EVENTS coincide with the capacity function's
--- jump POINTS -- both halves were checked and the composed statement was
--- not a term.  WalkJumps says so in its own header ("§(b) of the note is
--- not formalised here either ... the ordering statement is untouched").
+-- §(c) holds in both directions (WalkForcing + CoprimeSplitting: an
+-- install is a prime power; WalkJumps: a prime power is a jump point), and
+-- capacity is unconditional (WalkUnconditional, on LCMExists).  This module
+-- proves that the walk's install EVENTS coincide with the capacity
+-- function's jump POINTS.
 --
 -- THE ARGUMENT, in four lines of arithmetic and no new machinery.
 -- Write cap k = lcm(1..k), and call k a jump when suc k � cap k.
@@ -61,9 +58,6 @@
 --
 -- Predicates are recursive type families and no constructor is matched
 -- in an index position, per WalkCapacity's recorded constraints.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
--- No postulates, no holes.
 
 module WalkBridge where
 
@@ -340,8 +334,7 @@ walk-step m 1≤m = j , q≡sj , install-beyond m j 1≤m lnd
 --
 -- Together: the map n � install n is the increasing enumeration of
 -- { k : Jump k } shifted by one (install n = suc of the jump index), so
--- the walk's install events ARE the jump points, in order.  That is the
--- sentence WalkJumps left open.
+-- the walk's install events ARE the jump points, in order.
 ------------------------------------------------------------------------
 
 install : ℕ → ℕ

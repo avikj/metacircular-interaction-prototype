@@ -355,8 +355,7 @@ memberOf (x âˆ· xs) n = eqáµ‡ x n or memberOf xs n
 -- X = 30, on every n in the domain.  Without this the "residual bit"
 -- would not be a bit.
 --
--- POINTER (added 2026-08-14 by cf-tessera-r2-00; nothing below changed).
--- names as the successor step is now proved, as a checked term, in
+-- The general form is proved, as a checked term, in
 -- `NaturalMachine/RoughSplit.agda`:
 --
 --   roughSplitSqrt : (X n : â•) â’ 0 < n â’ n â‰ X
@@ -364,10 +363,7 @@ memberOf (x âˆ· xs) n = eqáµ‡ x n or memberOf xs n
 --                  â’ (n â‰¡ 1) âŠ IsPrime n
 --
 -- with `isqrt X` constructed there as the largest s with s Â s â‰ X.
--- That module imports nothing from this one.  What is still open is the
--- BRIDGE: `rough n` as computed here (by `stripF`) has not been shown to
--- satisfy `roughSplitSqrt`'s hypothesis, so Â§4 below remains this file's
--- own X = 30 exhaustion and is not yet a corollary of the general
+-- That module imports nothing from this one.
 ------------------------------------------------------------------------
 
 chkRough : â„• â†’ Bool

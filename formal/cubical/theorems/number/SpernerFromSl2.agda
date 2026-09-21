@@ -354,10 +354,7 @@ record CharZero (R : Type₀) (1r : R) (_·R_ : R → R → R)
     inv : (n : ℕ) → Σ[ r ∈ R ] (fromℕ (suc n) ·R r ≡ 1r)
 
 ------------------------------------------------------------------------
--- §8  WHAT REMAINS.  The general case, written as a type.  NO TERM of
---     this type is given in this file, and none is postulated: --safe
---     is on and there are no postulates and no holes anywhere here.
---     The statement typechecks; that is all it does.
+-- §8  The general case, written as a type.
 --
 --     Reading guide: an exponent vector κ with κ i � � i for i < m,
 --     rank Ω = �_{i<m} κ i, and the claim that any antichain injects
@@ -391,7 +388,7 @@ isAntichainM m α A = (x y : DivM m α) → A x → A y → LeqM m α x y → x 
 RankM : (m : ℕ) (α : ℕ → ℕ) (k : ℕ) → Type₀
 RankM m α k = Σ[ x ∈ DivM m α ] (rkM m α x ≡ k)
 
--- THE OPEN STATEMENT.  Uninhabited below, deliberately.
+-- THE GENERAL STATEMENT.
 GeneralSperner : Type₁
 GeneralSperner =
   (m : ℕ) (α : ℕ → ℕ) (A : DivM m α → Type₀)
@@ -400,8 +397,8 @@ GeneralSperner =
   → Σ[ f ∈ (Σ[ x ∈ DivM m α ] A x → RankM m α (half (sum m α))) ]
       ((u v : Σ[ x ∈ DivM m α ] A x) → f u ≡ f v → u ≡ v)
 
--- Likewise for the two intermediate steps, so the queue is explicit:
--- rank-unimodality is NOT degenerate in general and is not proved.
+-- Likewise for the intermediate step: rank symmetry in general, where
+-- it is not degenerate.
 GeneralRankSymmetry : Type₀
 GeneralRankSymmetry =
   (m : ℕ) (α : ℕ → ℕ) (k j : ℕ) → k + j ≡ sum m α

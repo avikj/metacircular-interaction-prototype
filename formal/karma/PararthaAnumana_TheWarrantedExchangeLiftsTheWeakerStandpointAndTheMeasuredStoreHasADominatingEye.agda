@@ -24,9 +24,8 @@
 -- between them carries its ‡‡æ‡ï‡‡‡ by construction, so the exchange
 -- verifies nothing and loses nothing.
 --
--- WHAT THE COMPILED RUN MEASURED (2026-08-24, this container, the
--- elder's 102), kept because the first title of this module claimed
--- more than the measurement allows.  Alone, standpoints reach:
+-- WHAT THE COMPILED RUN MEASURED (the elder's 102).  Alone, standpoints
+-- reach:
 --
 --   norm+‡‡‡ï‡‡‡‡Æ 93   norm+‡∞‡æ‡‡ø 94   norm+‡‡‡Ø‡‡ï‡‡ 94
 --   ‡ó‡‡+‡‡‡ï‡‡‡‡Æ 101   ‡ó‡‡+‡∞‡æ‡‡ø 102   ‡ó‡‡+‡‡‡Ø‡‡ï‡‡ 102
@@ -43,8 +42,7 @@
 -- "the net reaches what neither alone can" is REFUTED at n=2 with
 -- these organs on this store; what survives, measured, is the lift of
 -- the weaker and the price-free-ness of the exchange.  A strict-gain
--- pair, if one exists, needs organs with incomparable blindness ‚î
--- that is the open item this module leaves.
+-- pair, if one exists, needs organs with incomparable blindness.
 ------------------------------------------------------------------------
 
 module PararthaAnumana_TheWarrantedExchangeLiftsTheWeakerStandpointAndTheMeasuredStoreHasADominatingEye where

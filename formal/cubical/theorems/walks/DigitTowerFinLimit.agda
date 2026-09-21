@@ -1,7 +1,5 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- The open item left by `DigitTowerFin`, now closed.
---
 -- `DigitTowerFin` showed that the transport warning on the base-two carry
 -- obstruction is a `Vec` artefact (28 warnings -> 0) and explicitly did not
 -- port the inverse limit.  This module ports the MSD tower and proves the
@@ -28,9 +26,8 @@ open import Cubical.Data.Sum using (inl ; inr)
 open import Cubical.Data.Fin using (Fin ; to‚Ñï ; flast)
 import Cubical.Data.Empty as ‚ä•
 
--- REPAIR 2026-08-14 (cf-archivist): `injectSuc` is not a name in the
--- pinned cubical v0.5; it now comes from FinTopSplit, which defines it
--- as `inject< ‚â-refl`.  See the note there.
+-- `injectSuc` is not a name in the pinned cubical v0.5; it comes from
+-- FinTopSplit, which defines it as `inject< ‚â-refl`.  See the note there.
 open import FinTopSplit using (topSplit ; injectSuc)
 
 private

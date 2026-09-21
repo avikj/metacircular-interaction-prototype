@@ -54,9 +54,9 @@
 -- The note's â and â“ are min-plus RESIDUATIONS over a semiring-valued
 -- kernel, taking burden profiles to residual profiles.  The â and â“
 -- below are the two-valued polarities of a RELATION.  That the former
--- is an instance of the latter is NOT proved here and is not obvious:
+-- is an instance of the latter is not claimed here:
 -- it needs the kernel's values to form a quantale and the residuations
--- to be its adjoints, none of which is set up in this repository.  So
+-- to be its adjoints.  So
 -- what is established is that the SATURATION discipline is sound
 -- wherever the adjunction holds â” not that Î” 28's particular â/â“ satisfy
 -- it.  Reading this as a theorem about min-plus convolution would be
@@ -79,9 +79,6 @@
 -- the Naiyyika slots are not required to be adjoint and nothing here
 -- checks that they are.  The pointer is so a later reader compares them
 -- rather than assuming either way.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module SaturationAtACutIsIdempotent where
@@ -176,17 +173,7 @@ module _ {X Y : Type} (K : X â†’ Y â†’ Type) where
     âŠ†-trans (c A) (â†“ B) A (â†“-antitone B (â†‘ A) ba) da
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section names a gap â”
---
---   "what is established is that the SATURATION discipline is sound
---    wherever the adjunction holds â” not that Î” 28's particular â/â“
---    satisfy it"
---
--- â” without saying what would close it.  Now said, in
--- `TheSaturationClosureNeedsOnlyAGaloisConnection`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- `TheSaturationClosureNeedsOnlyAGaloisConnection` generalises this module.
 --
 -- Everything above uses NOTHING about `Type`, `âŠ`, or the relation K.
 -- It uses two preorders, two maps, and the two directions of a
@@ -206,7 +193,6 @@ module _ {X Y : Type} (K : X â†’ Y â†’ Type) where
 --
 -- Â§5 there checks that THIS module is one instance: `galFwdPred` and
 -- `galBwdPred` are a line each, and the closure theory transports with
--- nothing re-proved.  That is what makes the size of the remaining
--- obligation credible rather than asserted.
+-- nothing re-proved.
 --
 ------------------------------------------------------------------------

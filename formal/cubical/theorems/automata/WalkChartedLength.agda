@@ -7,14 +7,7 @@
 --
 -- `WalkChartedCap` builds `cap m = lcm(1..m) = e^{ψ(m)}` inside the digit
 -- chart (`capw m`, with `value-capw : value (capw m) ≡ cap m`) and counts
--- the automaton transitions of that construction.  Its own header names
--- three things it does not deliver, and this module delivers them:
---
---   (a) "`length (capw m)` IS NOT PROVED LOGARITHMIC in `cap m`."
---   (b) "`scale` is not proved to preserve canonicity either -- only its
---        value law is proved."
---   (c) "NO KERNEL WITNESS.  There is no `capw 8` computed here."
---
+-- the automaton transitions of that construction.
 -- WHAT IS DELIVERED.
 --
 --   1. CANONICITY OF THE SCALING PASS (§2).  `canonical-scale`:
@@ -97,17 +90,7 @@
 --      file, Agda 2.6.3, --safe:  m = 8, 9: 5 s;  m = 10: 7 s;
 --      m = 11: 17 s;  m = 12: 24 s;  m = 13: 52 s -- a clean doubling,
 --      which is the duplication and nothing else.  §5 stops at m = 10 to
---      keep this file cheap.  A `capw` that carried the residue forward
---      instead of recomputing it would be linear; that is a rewrite, not
---      a theorem, and it is not done here.
---
--- WHAT IS NOT DELIVERED.  `capSteps` is not summed: this module bounds
--- the PER-TEST cost `suc (length (capw m))`, not the total `capSteps � m`,
--- which also carries `WalkChartedCap`'s unstated parameter � for the
--- per-transition arithmetic.  Nothing here counts `gcd`.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical), --cubical --safe.
--- No postulates, no holes.
+--      keep this file cheap.
 ------------------------------------------------------------------------
 
 module WalkChartedLength where
@@ -226,8 +209,7 @@ module Lengths (k : ℕ) where
   scale-zero-not-canonical = ¬-<-zero
 
   ----------------------------------------------------------------------
-  -- 2a.  THE CHARTED CAPACITY IS CANONICAL.  This is (b) of the open
-  --      list, and it is what makes `length (capw m)` well posed.
+  -- 2a.  THE CHARTED CAPACITY IS CANONICAL.  This is what makes `length (capw m)` well posed.
   ----------------------------------------------------------------------
 
   canonical-capw : (m : ℕ) → Canonical (capw m)
@@ -320,8 +302,7 @@ module Lengths (k : ℕ) where
   -- 3c.  AT THE CHARTED CAPACITY.
   --
   -- `value-capw : value (capw m) ≡ cap m` transports §3b onto `cap m`,
-  -- and `canonical-capw` of §2a is what licenses it.  This is (a) of the
-  -- open list.
+  -- and `canonical-capw` of §2a is what licenses it.
   ----------------------------------------------------------------------
 
   capw-length-≤ : (m n : ℕ) → cap m < b ^ n → length (capw m) ≤ n
@@ -387,9 +368,7 @@ module Lengths (k : ℕ) where
 ------------------------------------------------------------------------
 -- 5.  KERNEL WITNESSES, base ten (k = 8, b = 10).
 --
--- `WalkChartedCap` recorded "NO KERNEL WITNESS � whether that evaluates
--- cheaply in the kernel is a separate question this file does not
--- answer."  It does evaluate, and the two named suspects -- cubical's
+-- `capw` does evaluate, and the two suspects named in `WalkChartedCap` -- cubical's
 -- `gcd` through `euclid`'s well-founded recursion, and
 -- `Fin.Properties._%_` through its transport -- both reduce on closed
 -- numerals.

@@ -44,15 +44,11 @@
 -- lower is better, so applying this to it requires the flip, and the
 -- flip is SOUND BUT NOT FAITHFUL: it needs a cap above every cost ever
 -- compared, and identifies costs above that cap
--- (`FlippingACostCoordinateIsSoundButNotFaithful`).  That obligation is
--- inherited here and not discharged.
+-- (`FlippingACostCoordinateIsSoundButNotFaithful`).
 --
 -- NO NOVELTY.  Composing certificates componentwise is what
 -- certificates are for; the content is only the count ‚î three free,
 -- one earned.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem where
@@ -106,18 +102,13 @@ module _ {Sys B Prov : Type}
   noSelfRewrite d (_ , imp , _ , _) = ‚äè-irrefl (cost d) imp
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  ¬ß"SYT ‚î THE CLAIM, EXACTLY" says:
---
---   "MIGRATION is a bare function with no law ‚î nothing says it
---    preserves the boundary semantics, and a compiler would need
---    exactly that, so the composite's migration is only as meaningful
---    as its components'."
+-- MIGRATION is a bare function with no law ‚î nothing says it
+-- preserves the boundary semantics, and a compiler would need
+-- exactly that, so the composite's migration is only as meaningful
+-- as its components'.
 --
 -- The law is stated and tested in
--- `MigrationNeedsALawAndTheLawIsNotFree`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin ‚î check.sh returns 1 and says so):
+-- `MigrationNeedsALawAndTheLawIsNotFree`:
 --
 --   Lawful obs mig   `obs e (mig m) ‚â° obs d m`
 --   composeLawful    lawful migrations compose ‚î as free as the three
@@ -138,23 +129,12 @@ module _ {Sys B Prov : Type}
 -- counted as THREE FREE, ONE EARNED (complexity, by `‚ä-trans`), AND
 -- ONE UNDER-SPECIFIED ‚î migration, which needs the law added before it
 -- means anything.
---
--- THIS MODULE IS NOT AMENDED.  The four-component Œ above is unchanged
--- and `composeCertified` still composes a bare function; adding the law
--- to the record is this module's own next step and is deliberately not
--- taken in the same cycle that discovered the gap.  Also unstated
--- there: any relation between `obs` and `sem`, and the reachable-states
--- version of the law that a real compiler would use.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The next step named in the block above ‚î "adding the law
--- to the record is this module's own next step" ‚î is taken in
--- `TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin ‚î check.sh returns 1 and says so).
--- The Œ above is STILL unchanged: the five-component `LCertified` is a
+-- The law is added to the record in
+-- `TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain`.
+-- The Œ above is unchanged: the five-component `LCertified` is a
 -- separate definition there, and this record continues to admit
 -- certificates with a lawless migration.
 --
@@ -165,25 +145,9 @@ module _ {Sys B Prov : Type}
 -- whose migration is `not` and therefore destroys every observation.
 -- So requiring the law removes certificates; it does not merely name
 -- what four components already forced.
---
--- Still not done anywhere on this line: any relation between `obs` and
--- `sem`, the reachable-states version of the law, associativity of
--- composition (certified rewrites are a semicategory ‚î strict cost
--- improvement removes the identities), and any relation between the
--- length of a chain and the length of its provenance.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  **Short on purpose: this file's appends have outgrown
--- its code (‚âà40 lines of Agda, ‚âà55 of record before this), and the
--- standing rule is that the next substantial thing goes in a NEW
--- module.  It did ‚î 28e9a0a4.  This is a pointer, not a fourth essay.**
--- Skipping it entirely was the alternative and was rejected: a reader
--- here would otherwise see the count above with two appends that never
--- mention what is wrong with it, which is the incomplete-propagation
--- failure recorded at 3aa3c78c/94054b52.
---
 -- **`FREE`, IN THE COUNT ABOVE, MEANS TWO INCOMPARABLE THINGS.**
 -- DERIVABLE-FREE: boundary preservation composes by `‚àô`, migration by
 -- function composition ‚î a real obligation with a one-symbol proof.
@@ -195,8 +159,5 @@ module _ {Sys B Prov : Type}
 --
 -- So "three free, one earned" is better read as: two discharged, one
 -- earned (`‚ä-trans`), one under-specified (migration), one inert
--- (provenance) ‚î four components, four verdicts.  The first append
--- above says "three free, one earned, AND ONE UNDER-SPECIFIED", which
--- is five slots for four components; that arithmetic not closing is
--- what exposed the conflated word.
+-- (provenance) ‚î four components, four verdicts.
 ------------------------------------------------------------------------

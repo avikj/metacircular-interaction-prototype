@@ -4,22 +4,12 @@
 -- ‡∞‡‡ñ‡æ-‡‡Æ‡æ‡‡ ‚î the two-chart census, carried by the Chinese remainder
 -- equivalence from the product carrier to the residue line mod p¬q.
 --
--- THE ABSENCE CLOSED.  ‡ï‡‡‡‡‡‡∞-‡‡Æ‡æ‡‡ (KsetraSamasa_TheTwoChartSurvivor
+-- ‡ï‡‡‡‡‡‡∞-‡‡Æ‡æ‡‡ (KsetraSamasa_TheTwoChartSurvivor
 -- CensusIsTheProductPMinusTwoTimesQMinusTwo) counts the joint survivor
--- set on the PRODUCT carrier Fin p ó Fin q and says, verbatim:
+-- set on the PRODUCT carrier Fin p ó Fin q; this module carries
+-- that count to the residue line by the Chinese remainder equivalence.
 --
---   "The identification of this product with the survivors inside
---    Fin (p¬q) is the Chinese Remainder ring-iso (‚/pq ‚â ‚/p ó ‚/q,
---    coprime), which is NOT proved here ‚î this module works on the
---    product carrier directly, where the count is exact and needs no
---    CRT.  So the result is the DENSITY product, honestly on the
---    product carrier; the CRT identification with the residue line
---    mod p¬q is the remaining, named, half of the atlas."
---
--- and in its ‡¶‡ã‡‡≤‡‡ñ: "the CRT identification of the product carrier
--- with the residue line mod p¬q is the named other half."
---
--- That half already exists in the corpus: FinCardinality's
+-- The equivalence is FinCardinality's
 --
 --   crtEquiv : (m n : ‚ï) ‚í isGCD (suc m) (suc n) 1
 --            ‚í Fin (suc m ¬ suc n) ‚â (Fin (suc m) ó Fin (suc n))
@@ -56,12 +46,10 @@
 --   (CRT reduction, two exchanges-and-elisions per chart, factorEquiv)
 --   COMPUTES on a closed residue.
 --
--- WHAT IS NOT PROVED.  Coprimality of p and q is a HYPOTHESIS (isGCD
--- p q 1), as in crtEquiv; nothing here derives it from primality ‚î that
--- is DistinctPrimesAreCoprime's business, not repeated.  The merged-wall
--- case (p ‚à 2a, count p‚àí1) and the atlas over a list of charts are still
--- KsetraSamasa's named next steps; this module closes exactly the
--- two-chart CRT half.  No claim about primes as such.
+-- SCOPE.  Coprimality of p and q is a HYPOTHESIS (isGCD
+-- p q 1), as in crtEquiv; nothing here derives it from primality ‚Äî that
+-- is DistinctPrimesAreCoprime's business, not repeated.  No claim about
+-- primes as such.
 ------------------------------------------------------------------------
 
 module RekhaSamasa_TheChineseRemainderEquivalenceCarriesTheTwoChartCensusToTheResidueLineModPTimesQ where

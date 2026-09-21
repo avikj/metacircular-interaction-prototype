@@ -10,7 +10,7 @@
 -- Nevertheless every field of ArithmeticPayloadOver is satisfied,
 -- including separation and pointwise minimal carriers.
 --
--- Therefore the record is consistent, but its maps do not yet express
+-- Therefore the record is consistent, but its maps do not express
 -- the advertised dependence of an answer on installed arithmetic data.
 -- In particular `Datum` and `installP` are not constrained by any law:
 -- the semantic preservation square commutes here because installation

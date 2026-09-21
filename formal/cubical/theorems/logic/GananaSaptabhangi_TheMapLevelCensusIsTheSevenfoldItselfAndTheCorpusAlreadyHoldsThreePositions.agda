@@ -29,13 +29,9 @@
 --                        NEVER crowded (injectivity ‚ü the
 --                        fibres are propositions)          ‚í ‡‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø
 --
--- Three maps, three DIFFERENT bhagas, each coordinate a term.  The
--- remaining four positions are combinations awaiting their canonical
--- witnesses; they exist (e.g. Bool ‚í Bool ‚ä Unit hitting one point
--- doubly and one not at all is ‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø) and are left as the open
--- frame, stated not smuggled.
+-- Three maps, three DIFFERENT bhagas, each coordinate a term.
 --
--- GRADE.  The classification records below are MINE (built 2026-08-23);
+-- GRADE.  The classification records below are this module's;
 -- the sevenfold count and the seed reading are Saptabhangi's and
 -- SakalaVikalaDesa's respectively; Malliea (Sydvdamajar, 1292, at
 -- ‡‡‡‡¶ grade via the note) for sakaldea/vikaldea.  No claim that any
@@ -154,10 +150,7 @@ asNat-‡§Ö‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç = asNat-‡§Ö‡§∏‡•ç‡§§‡§ø , a
     (isContr‚ÜíisProp c (fst (‡§è‡§ï‡§Æ‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø tt)) (fst (snd (‡§è‡§ï‡§Æ‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø tt))))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  Four positions lack canonical witnesses here (‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø,
--- ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, pure ‡‡µ‡ï‡‡‡µ‡‡Ø ‚î which needs an EMPTY source against an
--- inhabited codomain ‚î and the full triple).  They exist; they are left
--- as the open frame.  And the selection "none of the three" is the empty
+-- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  The selection "none of the three" is the empty
 -- selection, excluded for inhabited B exactly as Saptabhangi's ‡ï‡‡‡-‡‡‡‡
 -- excludes the empty combination: 2¬≥ ‚àí 1.  The count is the theorem.
 ------------------------------------------------------------------------

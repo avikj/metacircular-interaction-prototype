@@ -46,7 +46,7 @@ a stuck composition carrying its faces; the same term at `#I0` is `#Zer`, at
 paths as Church pairs) and `--to-hvm` (HVM3) remain, so the cost of erasure vs
 runtime can be read side by side (e.g. `viaNeg3`: 31 itrs erased, 1106 full).
 
-## Kan rules on the runtime (later session)
+## Kan rules on the runtime
 
 `@coe` on a `#Glue{A, faces}` line (`@coeGlue`) and `@hcomp` at `#Set`
 (`#Glue` over the base with `@transpEquiv` of each tube â” pathToEquiv computed
@@ -67,36 +67,26 @@ endpoint lets a true face collapse the Glue to its partial type. Verified:
 A glue value with no live faces is its base; a Glue type keeps its faces
 (types are consumed only by `@coe`). Binders now get globally unique names.
 
-## Set-quotient recursor on the full runtime (added)
+## Set-quotient recursor on the full runtime
 
-`Quo`/`QCl`/`QEq`/`QSq`/`QRec` now emit to `--to-hvm4-full`: `@qrec` computes
+`Quo`/`QCl`/`QEq`/`QSq`/`QRec` emit to `--to-hvm4-full`: `@qrec` computes
 `qrec([a]) â’ f a` and `qrec(eq/ a b w @ i) â’ resp a b w @ i` (with `@pathAt`
 giving `eq/ @ i0 = [a]`, `@ i1 = [b]`), commuting over `Sup` natively. Verified:
 `qrec(qcl 3n, dbl) â’ 6`, `qrec(qeq(2n,2n,refl)@i0, dbl) â’ 4`; `minmachine`,
-`quotient`, `nerode_effective_closed` all emit and run. Previously the full-runtime
-emitter threw on the quotient constructors; the whole suite now emits with no
-crashes.
+`quotient`, `nerode_effective_closed` all emit and run.
 
-## Not runtime yet / caveats
+## Caveats
 
 - `coe` to a *symbolic* endpoint stays stuck (`@dir` = 2); the runtime
   `pathToEquiv` therefore carries stuck proof components, but the function
   and the fibre centre (inverse) compute, which is what transport needs.
-- (resolved) `isprop_run.bend` left residual DUP nodes at three corners. Cause:
-  HVM4 auto-dup labels are static per binder, so `@pathAt`'s `Î»&p` (cloned
-  only because `p` was used in three match *arms*) duplicated an argument
-  that already contained another `@pathAt` instance's dup with the same
-  label. Fix: prelude functions never clone a value merely for use in
-  different arms (match first, bind per arm). Now `#One` at all four corners
-  (104â“157 itrs).
 - Dependent Î /Î lines go through the generic `@coe`. Over a varying base the
   family receives a transport **to a symbolic endpoint** (`coe râ’i`), which
   this prelude leaves stuck (`#StuckCoe`); a family that does not inspect it
   still computes (probe: `Î b:(negPath@i). Nat` transports `(True, 3n)` to
-  `3n` on the net), one that does would need `transp` with a symbolic
-  endpoint (Glue-style `unglue`). Note the checker rejects that probe's
+  `3n` on the net). Note the checker rejects that probe's
   well-typedness anyway (`b : negPath@i` is not `Bool`), correctly.
 - Traces are inspectable data: `@main = @negNeg` prints
   `#CompU{Î»i. â¦#At{#UaU{#Bool,#Bool,neg,neg}, i}â¦, Î»i. â¦}` â” the composite
   path itself, faces and all. Paths between universe paths are `#PLm` over
-  these; representable, not yet exercised beyond `refl`.
+  these.

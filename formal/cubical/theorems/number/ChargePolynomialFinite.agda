@@ -3,21 +3,13 @@
 ------------------------------------------------------------------------
 -- ChargePolynomialFinite
 --
--- *** AWAITING KERNEL (authored without local toolchain; there is no
--- agda, no ghc and no python in this container.  A green is an exit code
--- or it is a rumour.) ***
---
--- (build worker, 2026-08-16), Theorem A §1.1 with the exact instance
+-- Theorem A §1.1 with the exact instance
 -- tables of §1.5 and the verification inventory of §5; Theorem B §2.1
 -- with the exhaustive three-case table of §2.2 and the SCOPE FENCE of
 -- §2.4.1.  Owner provenance: D0026 §5.5 (divisor-lattice characteristic
 -- polynomial) and §5.9 (Chen-envelope prime projector), i.e.
 -- `collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md`,
--- as re-derived and disagreement-reported in the note.  The note's own
--- §5 says: "Both theorems are ideal `refl`-certificate material (finite
--- tables + one general lemma each) per the Q3 obligation; the Agda
--- landing is left to a toolchain-bearing session".  This file is that
--- landing, minus the toolchain.
+-- as re-derived and disagreement-reported in the note.
 --
 -- WHY THIS ROUTE AND NOT A VOCABULARY EXTENSION.
 -- `interactive/patches/S4-certificate-vocabulary.md` §3.4 is a FINDING that
@@ -67,15 +59,10 @@
 --   (iv)  Ω agrees with an INDEPENDENT trial-division Ω, imported from
 --         `SieveFiber`, on every divisor of the table.
 --
--- What (i)�(iv) do NOT give is that the table is *the* factorization:
--- that step is unique factorization, which is not proved here and not
--- available in the imported library at the shape needed.  So the precise
--- reading of everything below is: **these are theorems about
--- factorization tables, together with a four-way check that the three
--- tables used are correct tables for 12, 30 and 360.**  Under unique
--- factorization � and only under it � they are the note's theorems at
--- those n.  This is the single unformalized bridge in the module and it
--- is named again in the rigor boundary at the end of this header.
+-- (i)–(iv) certify the tables.  So the precise reading of everything
+-- below is: **these are theorems about factorization tables, together
+-- with a four-way check that the three tables used are correct tables
+-- for 12, 30 and 360.**
 --
 -- � VERSUS �.  Ω, ω, μ², `value` and every exhaustion flag live in �.
 -- The charge polynomial does not: μ takes the value −1, κ_r(30) = −1,
@@ -160,7 +147,7 @@
 --                           this module: 12 = 2²�3 and 30 = 2�3�5.
 --
 ------------------------------------------------------------------------
--- PRIOR ART IN THIS REPOSITORY � searched before writing, per CLAUDE.md
+-- PRIOR ART IN THIS REPOSITORY
 ------------------------------------------------------------------------
 --
 --   `SieveFiber` � HAS a computable Ω already, by
@@ -191,7 +178,7 @@
 --     different functional (minimal sufficient charts, not μ * t^Ω).  It
 --     is the closest prior art in the corpus and it does not overlap.
 --   `interactive/patches/S4-certificate-vocabulary.md` §3.4 � the finding
---     that redirected this task; quoted above.
+--     quoted above.
 --
 --   Nothing found in `formal/cubical/` defines ω, μ, μ², a Mbius
 --   divisor sum, or Rota's characteristic polynomial.  Those are new

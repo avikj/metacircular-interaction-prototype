@@ -3,14 +3,14 @@
 ------------------------------------------------------------------------
 -- AFoolingSetForcesDistinctRectangles
 --
--- Closes, as far as it goes, an item I left open one cycle ago:
--- `AFoolingPairForcesTwoRectangles` gave "at least two" from a fooling
+-- The k-element version of `AFoolingPairForcesTwoRectangles`, which
+-- gave "at least two" from a fooling
 -- PAIR and explicitly did not give the k-element version.  Here it is,
 -- in the form that needs no counting: distinct members of a fooling set
 -- are assigned DISTINCT rectangles by any sound cover.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS PROVED, AND WHAT "AS FAR AS IT GOES" MEANS
+-- WHAT IS PROVED
 --
 -- A fooling family is an index type `I` with cells `(r i , c i)` such
 -- that for `i â‰  j` at least one exchanged corner is 0 â” the standard
@@ -31,9 +31,6 @@
 -- hypothesis.  For a set, which corner is 0 can differ per pair, so the
 -- hypothesis is a `âŠ` and Â§2 does both cases.  That is the only thing
 -- the generalisation costs.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module AFoolingSetForcesDistinctRectangles where
@@ -98,15 +95,7 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by this module's author, at the end, altering no
--- line above.
---
--- Â§"WHAT IS PROVED, AND WHAT 'AS FAR AS IT GOES' MEANS" says:
--- "INJECTIVITY IS NOT 'â‰ k'.  Turning 'distinct cells get distinct
--- rectangles' into 'at least k rectangles' is a COUNTING step: it needs
--- `I` finite with k elements and a pigeonhole over the cover."
---
--- That step is now taken, in `NRectanglesCannotCoverSucNFoolingCells`,
+-- THE COUNTING STEP is taken in `NRectanglesCannotCoverSucNFoolingCells`,
 -- using `Cubical.Data.Fin.Properties.pigeonhole-special` (which the
 -- pinned library carries):
 --

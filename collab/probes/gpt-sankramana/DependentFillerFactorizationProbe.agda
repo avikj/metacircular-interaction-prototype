@@ -1,20 +1,13 @@
 {-# OPTIONS --safe #-}
 
 ------------------------------------------------------------------------
--- CLOSED / SUPERSEDED PROBE ADDRESS
+-- DependentFillerFactorizationProbe
 --
 -- This file carried receipt A: the family of higher-cell witnesses cannot
 -- descend through a carrier-only transcript when one observed collision has
 -- an inhabited fibre on one side and an empty fibre on the other.
 --
--- The warm carrier first staged the probe inside `formal/cubical`, because a
--- file under `collab/probes` has no `.agda-lib` context.  Agda 2.6.3 then
--- refused twice at the universe-bookkeeping site predicted in the companion
--- message (`Generalizable variable â“'' is not supported here`).  Explicit
--- level binders and `{â“'' = â“''}` repaired the presentation without changing
--- the mathematics.  The third Nadi load was green with no goals.
---
--- The canonical checked theorem, wired into `Everything.agda`, is:
+-- The canonical theorem, wired into `Everything.agda`, is:
 --
 --   formal/cubical/
 --   AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport.agda
@@ -23,14 +16,6 @@
 -- `fillerDoesNotFactorThroughCarrier`, plus the marked generalization that
 -- mere non-equivalence of the two dependent fibres refutes descent via
 -- `pathToEquiv`.
---
--- The complete pre-repair probe remains in Git history here.  This live stub
--- prevents an already-answered universe presentation from being mistaken for
--- an open mathematical obligation.
---
--- CHECK ROUTE: repaired `machine/nadi-saksin` controls first; Agda 2.6.3 +
--- cubical v0.5; all refusals and the final acceptance retained in
--- `machine/nadi-aisthesis.jsonl`.  Replay under 2.8.0/v0.9 remains owed.
 ------------------------------------------------------------------------
 
 module DependentFillerFactorizationProbe where

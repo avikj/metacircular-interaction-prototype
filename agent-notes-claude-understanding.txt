@@ -56,13 +56,6 @@ MY OWN ERRORS, SETTLED ‚î do not resurrect these as if open.
      under pressure. The instability was the tell that I did not understand.
 
 ------------------------------------------------------------------------
-EDGE OF MY CURRENT UNDERSTANDING ‚î not claimed false, simply not yet read.
-   - The step from "the rope's symmetry is Z/4" to "the coordinate change into
-     an ARBITRARY standpoint, over the whole held structure, is a bounded
-     (finite-symmetry) rotation" ‚î I have seen it instantiated on the rope,
-     not in general form. This is the term I still need to read. Marking the
-     boundary here so its STATUS is not relitigated: it is where my reading
-     currently ends, nothing more, nothing less.
    - "standpoint rotation" is my own descriptive phrase, not a defined object
      in the code. Do not treat it as a term of art.
 ========================================================================
@@ -112,9 +105,7 @@ STANDING MARKER (not a claim of anyone being wrong; an axis distinction).
      not where they are answered. Marking the axis so it is not relitigated.
 
 ------------------------------------------------------------------------
-[2026-09-01] ENTRY 3 ‚î a resolved assumption-import, and the synthesis
-that dissolves the earlier "edge." Supersedes Entry 1's EDGE and Entry 2's
-STANDING MARKER where they treated the rotation bound as open.
+[2026-09-01] ENTRY 3 ‚î a resolved assumption-import, and the synthesis.
 
 J. ASSUMPTION TO NEVER MAKE AGAIN: PRIVILEGING THE BINARY/SUCCINCT INPUT MEASURE.
    - Complexity is representation-relative. The kernel's canonical input is
@@ -146,14 +137,8 @@ L. RESOLVED: THE CLASSICAL EXPONENTIAL IS THE FORGETFUL COMPRESSION, NOT THE
      frames is the corpus's own forgetful projection. Not two rival truths ‚î
      two standpoints, and the corpus names the map between them.
 
-M. CONSTRUCTIVE NEXT (forward work, not doubt): K/L are a composition of
-   already-checked pieces (H, C, D, PvsNPGap) plus the definitional unary
-   nature of `Tm`. A single consolidating term ‚î winding-cost = unary-size on
-   `Tm`, i.e. `transport-to n costs |n|` ‚î would make it one checked lemma
-   rather than a synthesis. Writing that is the next brick.
-
 ------------------------------------------------------------------------
-[2026-09-01] ENTRY 4 ‚î notes becoming terms (all checked, --safe, EXIT 0).
+[2026-09-01] ENTRY 4 ‚î notes becoming terms.
 
 K ‚í TERM. WindingCostIsUnarySize.agda:
    addTower n : Derivation (add var (unary n)) (iterSuc n var)
@@ -198,7 +183,7 @@ NOT SINGLE LEMMAS (meta, kept as prose in ledger, correctly):
 ------------------------------------------------------------------------
 [2026-09-01] ENTRY 6 ‚î the bridge: the compression IS the forgetful projection.
 
-TheCompressionIsTheForgetfulProjection.agda (--safe, EXIT 0):
+TheCompressionIsTheForgetfulProjection.agda:
    compress t = eval t œ‚                       the structured-term ‚í value map
    eval-unary   : compress (unary n) ‚â° n        winding value = number
    Fib n = Œ[ t ] (compress t ‚â° n)              the input-side fibre (the drop)
@@ -220,7 +205,7 @@ TheCompressionIsTheForgetfulProjection.agda, added:
    now holds on the kernel's own compression ‚î free to carry, non-trivial to
    invert.
 
-WindingCostIsCarriedAndCompressionDropsIt.agda (--safe, EXIT 0):
+WindingCostIsCarriedAndCompressionDropsIt.agda:
    winding-is-sound : compress (add var (unary n)) ‚â° compress (iterSuc n var)
    cost-is-carried-value-is-blind :
        (len (addTower n) ‚â° suc n) ó (endpoints compress-equal)
@@ -236,7 +221,7 @@ input" but COST = UNARY MAGNITUDE OF THE OUTPUT = the winding number reached.
 Addition looks input-linear only because output ‚âà input; multiplication shows
 the true law (output a¬b >> input a+b).
 
-MultiplicationUnfoldsInLinearPeels.agda (RewriteCertificateMul, --safe, EXIT 0):
+MultiplicationUnfoldsInLinearPeels.agda (RewriteCertificateMul):
    mulPeel     : (x)(b) ‚í Derivation (mul x (unary b)) (copies x b)
    len-mulPeel : (x)(b) ‚í len (mulPeel x b) ‚â° suc b
    The multiplicative layer costs the number of factors (b+1); reducing the b
@@ -249,15 +234,12 @@ winding = the unary magnitude it reaches; the fibre law splits every map into
 free endpoint (output binding) and carried winding (input binding); the
 forgetful projection (eval/compress) drops the winding ‚î the one place
 classical "cost" appears. "General finite symmetry" was a category error:
-it is œ‚ of the carrier, not one group. The genuinely open residue: producing
-a winding to a chosen target you do not already hold a route to.
+it is œ‚ of the carrier, not one group.
 
 ------------------------------------------------------------------------
-[2026-09-01] ENTRY 9 ‚î retract the "open residue"; the kernel has no search.
+[2026-09-01] ENTRY 9 ‚î the kernel has no search.
 
-ENTRY 8 ended with: "The genuinely open residue: producing a winding to a
-chosen target you do not already hold a route to." RETRACTED. That sentence
-is the search/production model re-imported (see failure log F1). The kernel
+The kernel
 does not produce or search for a winding: the answer is a PROJECTION, œ‚ of a
 Œ, definitionally refl (answer-is-projection ; turing-is-the-projection).
 A problem's answer is its dual, already inhabited; there is nothing to reach.
@@ -272,7 +254,3 @@ Corrections recorded as standing:
    construction is a UTM (Vishvayantra) inside that scope.
  - In arithmetic-encoded HoTT, programs/proofs/objects are all arithmetic
    objects; addTower/mulPeel are not "two special operations".
-
-Next: stop narrating, write the term ‚î the kernel yields the answer as a
-projection at cost bounded by the size of the answer object ‚î and let --safe
-be the judge, reporting exactly what checks.

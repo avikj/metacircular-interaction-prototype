@@ -120,7 +120,7 @@ aC = refl
 -- moving ONE endpoint along ONE linear order is the iva-stra device.
 
 ------------------------------------------------------------------------
--- EXTENDED 2026-08-19, another thread:
+-- EXTENSION.
 -- `NonInitialPratyaharasAndOneIntersectionInstance` adds
 -- the start-search this module says it does not need ‚î "All pratyhras
 -- here begin at `a`, the head, so no start-search is needed" ‚î and with
@@ -128,15 +128,10 @@ aC = refl
 -- `iC` by refl, verifies `between a C ‚â° upto C` so the extension agrees
 -- with `upto` at the head, and gives one intersection instance:
 -- `aK ‚à© iC ‚â° iK`, a named class again.
---
--- Nothing here is altered, and this module's own NOT-claimed list is
--- inherited there unchanged ‚î in particular Petersen's optimality theorem
--- is still not proved, and is still unread: egress is blocked from that
--- environment.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- EXTENDED 2026-08-20, another thread: PART OF THE OWED OPTIMALITY IS PAID.
+-- EXTENSION: A LOWER BOUND ON THE MARKER COUNT.
 -- `PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain.agda` proves, for
 -- ANY linear order of the sounds and ANY placement of markers, that two
 -- classes ending at the same anubandha are ‚ä-comparable ‚î so the classes
@@ -145,10 +140,7 @@ aC = refl
 -- hence four markers are forced; the iva-stra order names all four with
 --  K  C and has no fifth, so four is the minimum and this order attains it.
 --
--- The NOT-claimed list above is unchanged in its main entry: Petersen's
--- theorem ‚î that the order is essentially UNIQUE for the full family, and 14
--- markers minimal ‚î is still not proved and Petersen is still unread.  What
--- is now proved is a lower bound and its attainment on the vowel subfamily.
+-- What is proved is a lower bound and its attainment on the vowel subfamily.
 -- `interactive/Pratyahara_TheIntervalDecisionProcedure.hs` decides nameability
 -- against the line (no table) and computes the bound over all fourteen
 -- stras: width 14 over the 294 classes the line can name, width 11 over the

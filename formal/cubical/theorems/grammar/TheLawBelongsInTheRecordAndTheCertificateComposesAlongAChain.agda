@@ -3,15 +3,9 @@
 ------------------------------------------------------------------------
 -- TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain
 --
--- `ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem` closed
--- with its own next step named and deliberately not taken:
---
---   "THIS MODULE IS NOT AMENDED.  The four-component Î above is
---    unchanged and `composeCertified` still composes a bare function;
---    adding the law to the record is this module's own next step and is
---    deliberately not taken in the same cycle that discovered the gap."
---
--- The step is taken here, in a new module, leaving that one's Î
+-- `ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem` composes
+-- a four-component certificate whose migration is a bare function.
+-- This module adds the law to the record, leaving that one's Î
 -- untouched.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -62,9 +56,6 @@
 -- the fact that a strict order has no loops are all standard; the
 -- content is again only the count â” the law is the component that does
 -- NOT come for free and does NOT follow from the others.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain where
@@ -187,10 +178,7 @@ theLawIsIndependentOfTheOtherFour :
 theLawIsIndependentOfTheOtherFour l = falseâ‰¢true (l true)
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  `LCertified` is unchanged and this module is not
--- amended.  Recorded here only because this record is the one the
--- later work compares against:
+-- This record is the one the later work compares against:
 --
 -- `TheReachableLawDoesNotComposeWithoutPreservation`
 -- shows that relativising the fifth component to reachable states

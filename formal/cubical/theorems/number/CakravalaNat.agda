@@ -50,9 +50,8 @@
 -- the generator's arithmetic agrees with the kernel's, and would not tie the
 -- run to Brahmagupta's law at all.
 --
--- WHAT IS NOT HERE.  Termination, and Bhskara's minimality rule.  Those are
--- open in `CakravalaDescent.agda` and remain open; nothing below touches
--- them.  Nor does this file recover k and k' � it is the step's IDENTITY,
+-- WHAT IS NOT HERE.  Termination, and Bhāskara's minimality rule; nothing
+-- below touches them.  Nor does this file recover k and k' — it is the step's IDENTITY,
 -- not the step's bookkeeping, and the bookkeeping is where the signs live.
 ------------------------------------------------------------------------
 

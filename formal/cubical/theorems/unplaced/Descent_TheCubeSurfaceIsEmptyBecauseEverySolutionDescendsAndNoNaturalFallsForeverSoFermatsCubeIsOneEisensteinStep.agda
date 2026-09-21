@@ -39,7 +39,7 @@
 -- SYT â” THE CLAIM, EXACTLY.  NOT FLTâ: `Descent` is not inhabited here,
 -- and nothing below produces a solution's smaller successor.  What IS
 -- proved: the LOSSLESS reduction of Fermat's cube to that single descent
--- step, --safe, no postulates, no holes, citing `no-infinite-descent`.
+-- step, citing `no-infinite-descent`.
 -- The measure is z; any strictly-decreasing invariant of the descent
 -- serves identically.
 ------------------------------------------------------------------------

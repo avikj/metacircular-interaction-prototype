@@ -5,20 +5,11 @@
 --
 -- "bahugua": of many strands.  The divisor lattice of an arbitrary
 -- n = âˆ_{i<m} p_i^{Î i} is a product of m chains, and this module
--- closes the queue that SpernerFromSl2 leaves open at its Â§8.
---
--- THE ABSENCE, quoted from SpernerFromSl2 Â§8, verbatim:
---
---   "THE OPEN STATEMENT.  Uninhabited below, deliberately."
---        GeneralSperner : Typeâ
---   "Likewise for the two intermediate steps, so the queue is explicit:
---    rank-unimodality is NOT degenerate in general and is not proved."
---        GeneralRankSymmetry : Typeâ
---
--- and, from its header: "THE SCOPE, EXACTLY, and is stated as a type
--- with NO inhabitant (Â§8): the general case B_n = â¨_i V_{Î_i}, i.e. the
--- divisors of an arbitrary n.  There the conclusion is not degenerate â”
--- W_k really varies, unimodality has content".
+-- inhabits the two types SpernerFromSl2 Â§8 states for it,
+-- GeneralSperner and GeneralRankSymmetry: the general case of the
+-- divisors of an arbitrary n, where W_k really varies and unimodality
+-- has content.
+
 --
 -- WHAT IS PROVED HERE (all --safe, no postulates, no holes, and with the
 -- statements of SpernerFromSl2 imported, not restated):
@@ -67,13 +58,11 @@
 --       elements with the same image lie on one chain, so are
 --       comparable, so are equal by the antichain hypothesis.
 --
--- WHAT IS NOT PROVED, and is not claimed: nothing here uses ð”°ð”©â.  The
+-- THE ROUTE: nothing here uses sl2.  The
 -- route is the 1951 combinatorial one (symmetric chains), not Stanley's
 -- hard-Lefschetz route through the injectivity of Îµ^{Aâˆ’2k}; the CharZero
 -- hypothesis of SpernerFromSl2 Â§7 is therefore never needed and never
--- assumed.  The "tensor product carries the coproduct triple" and
--- "Îµ^{Aâˆ’2k} is injective on the weight space" steps of the note's
--- representation-theoretic chain remain exactly as open as before.
+-- assumed.
 --
 -- The lower bound "max antichain = W_{âŠÎ©/2â‹}" is proved for the FINITE
 -- product only (middleRank-isAntichainP, middle-count): the middle rank

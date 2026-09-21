@@ -106,8 +106,7 @@
 --   the weaker, prior statement 1.1.62 PRESUPPOSES: that the designation
 --   a later rule wants to read is still there to be read at arbitrary
 --   derivational depth.  1.1.62 asserts that this holds even when the
---   bearer has disappeared from the surface.  That extra step is exactly
---   what is missing, and it is missing because elision is not modelled.
+--   bearer has disappeared from the surface.
 --
 ------------------------------------------------------------------------
 -- DEFECTS, WRITTEN RATHER THAN HIDDEN.  (¬ß‡ ‡¶‡‡µ‡ ‡Æ‡æ‡∞‡‡ó‡ of
@@ -157,13 +156,7 @@
 --    (which sound of the sthnin an dea replaces), the vrttikas
 --    restricting 1.1.56, and 1.1.61/1.1.63 (luk, lu, lup) are absent.
 --
--- 5. ~~WHAT THE GREEN COVERS.  ‚¶ NOT checked under this library's declared
---    pin (Agda 2.6.3, agda/cubical v0.5), which does not run on this
---    machine at all.~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the
---    pin itself and this module checked under Agda 2.6.3 + cubical v0.5,
---    exit 0.  No postulates, no holes, no TERMINATING.  See README,
---    "Toolchain".
---    Nothing here imports outside `Punaragamana`: the vocabulary ‡µ‡∞‡‡ /
+-- 5. Nothing here imports outside `Punaragamana`: the vocabulary ‡µ‡∞‡‡ /
 --    ‡‡¶‡‡ / AnalVidhi is redefined rather than imported from
 --    `formal/cubical`, so the library stays standalone and `check.sh`
 --    keeps checking what it says it checks.  That duplication is

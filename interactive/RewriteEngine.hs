@@ -2836,13 +2836,11 @@ selfTest = concat
 
     -- 8.6a  THE TWO REGIMES ARE NOT THE SAME DEVICE -- and the difference
     -- is ONE PASS against a fixpoint, which is narrower than it first
-    -- looked.  [NARROWED 2026-08-19, after checking the obvious next claim
-    -- in formal/cubical/AsiddhavatRegime.agda and finding it false:
-    -- ITERATE the simultaneous pass and it converges, to exactly the form
-    -- the ordered regime gives in one traversal.  So simultaneity is not
+    -- looked.  ITERATE the simultaneous pass and it converges, to exactly
+    -- the form the ordered regime gives in one traversal
+    -- (formal/cubical/AsiddhavatRegime.agda).  So simultaneity is not
     -- incapable of the answer; what the ordering buys is the answer IN ONE
-    -- PASS, and the tripadi is traversed once.  A claim that the
-    -- simultaneous device "cannot get there" would have been false.]
+    -- PASS, and the tripadi is traversed once.
     -- The ordered one
     -- is what produces attested .  Run the tripadi under 6.4.22's
     -- simultaneous regime instead of 8.2.1's ordered one and `tat + jalam`

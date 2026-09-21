@@ -8,8 +8,7 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT THIS IS.
 --
--- `SamanaKaksya_‚¶agda` ¬ß‡ leaves one thing open and states it as an
--- assertion, in these words:
+-- `SamanaKaksya_‚¶agda` ¬ß‡ states, in these words:
 --
 --     "Unaddressed here: whether `‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ` is valued in propositions
 --      (it is not, in general ‚î the meeting stations are data), and
@@ -95,10 +94,6 @@
 -- states anything below.**  The LIMIT on ‡ï‡ï‡‡‡‡Ø‡æ is carried in unchanged
 -- from `Kaksya_‚¶agda`: attested for a planet's orbit, and its use for the
 -- orbit of an endomorphism is this corpus's, not the tradition's.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 ‚î the container toolchain, NOT
--- the repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
--- holes, exit 0.
 ------------------------------------------------------------------------
 
 module SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndTheTruncationLosesTheStations where
@@ -267,30 +262,3 @@ module _ {A : Type ‚Ñì} (Œ¶ : A ‚Üí A) where
                  (r : ‡§∏‡§Æ‡§æ‡§®‡§ï‡§ï‡•ç‡§∑‡•ç‡§Ø‡§æ Œ¶ a a)
                ‚Üí fst (‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø-‡§µ‡§æ‡§Æ‡§æ a p per r) ‚â° fst r + p
   ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø-‡§∏‡•ç‡§•‡§æ‡§®‡§Æ‡•ç a p per r = refl
-
-------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what stays open, stated so it is not mistaken for proved.
---
--- (i)  The action groupoid.  ¬ß‡ß and ¬ß‡ say the relation carries ‚ï-indexed
---      data at every point and that periods act on it.  They do NOT say
---      that the untruncated quotient of `A` by `‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ` is the
---      action groupoid of the ‚ï-action, and no such quotient is built
---      here.  Building it needs a HIT that is not `SetQuotients`, and the
---      first honest question about it is whether the resulting type is
---      even 1-truncated ‚î which ¬ß‡© makes doubtful, since the isotropy
---      already contains `‚ï ó ‚ï` for reasons having nothing to do with the
---      flow.
---
--- (ii) The loop space.  "Œ© of the quotient at `[a]` is the period monoid"
---      is UNPROVED here and, as stated, is probably false as it stands:
---      ¬ß‡ß's two witnesses are diagonal and exist with no period present,
---      so any such identification would first have to quotient the
---      station pair by its diagonal ‚î i.e. read `(m,n)` through `m ‚à n`,
---      which is only a group when `Œ¶` is an equivalence.  That is the
---      real shape of the open item, and it is not addressed below or
---      above.
---
--- (iii) The converse of ¬ß‡®: whether anything at all survives truncation
---      beyond the mere existence of a meeting.  ¬ß‡® kills the station map;
---      it does not classify what does factor.
-------------------------------------------------------------------------

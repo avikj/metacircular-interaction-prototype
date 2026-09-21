@@ -7,7 +7,7 @@
 -- not go through.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT WAS LEFT OPEN
+-- THE AFFIRMATIONS
 --
 -- `TheAbsenceTowerIsThreeUnconditionally` settles the
 -- absence side outright: every statement of the form `Â A` is stable

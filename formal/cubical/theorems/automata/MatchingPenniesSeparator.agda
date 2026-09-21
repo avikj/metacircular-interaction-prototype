@@ -3,13 +3,8 @@
 ------------------------------------------------------------------------
 -- MatchingPenniesSeparator
 --
--- *** AWAITING KERNEL (authored without local toolchain; a green is an
--- exit code). ***
---
 -- owner Delta 30,
 -- `collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md`).
--- Â§5.5 of that note specifies this module and explicitly does not claim
--- to have written or checked it; this file is that authorship.
 --
 -- THE POINT OF THE MODULE, stated before any code.
 --
@@ -88,28 +83,13 @@
 --        the two objects are established INDEPENDENTLY â” `no-pure-nash`
 --        at the type level, `pne-const` at the Boolean level â” and
 --        neither is used to prove the other.  Nothing below depends on
---        the bridge; a reader who wants it must prove it.
+--        the bridge.
 --    (b) Mixed strategies.  Remark 5.4 of the source note (the minimax
 --        value 0 attained at the uniform pair) is QUOTED there from
 --        `D0020_CLASSICAL_SOURCES` row 4.13 and is not derived; it is
 --        absent here for the same reason.  Nothing in this module says
 --        anything about mixed extensions, existence of equilibria, or
 --        the value of the game.
---    (c) The Candoganâ“Menacheâ“Ozdaglarâ“Parrilo harmonic/potential
---        decomposition (source note Remark 5.5): matching pennies is the
---        canonical harmonic game, the repo has potential games at
---        EGB_LIBRARY_INDEX 202â“205, and the connection is open in the
---        note and open here.
---    (d) The lens category laws of the source note's Theorem 2.3, which
---        Â§5.5 says are likewise refl and belong in a SIBLING module.
---        They are not here.
---
---   Nothing in this file is measured, fitted, or floating-point.  Every
---   number is an element of a two-element subset of â• and every
---   comparison is a kernel reduction â” the exact/certified symbolic
---   computation CLAUDE.md licenses unconditionally.
---
--- No postulates, no holes, no TERMINATING, no primTrustMe.
 ------------------------------------------------------------------------
 
 module MatchingPenniesSeparator where

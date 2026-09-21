@@ -3,16 +3,11 @@
 ------------------------------------------------------------------------
 -- TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose
 --
--- `TheReachableLawDoesNotComposeWithoutPreservation` ended with the
--- step named and not taken:
---
---   "a certificate carrying the reachable law must carry a
---    reachability-preservation component as well, or it does not
---    survive sequencing.  That is a SIXTH component â¦ `LCertified` is
---    NOT amended here; extending the record with preservation is the
---    next cycle's named step."
---
--- Taken here, in a new module; `LCertified` is left as it stands.
+-- `TheReachableLawDoesNotComposeWithoutPreservation` shows that a
+-- certificate carrying the reachable law must carry a
+-- reachability-preservation component as well, or it does not survive
+-- sequencing.  That is a SIXTH component, added here in a new module;
+-- `LCertified` is left as it stands.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -56,9 +51,6 @@
 -- re-establish the invariant at the interface; nothing here improves
 -- on the refinement calculi.  The content is the count over this
 -- corpus's own certificate.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose where

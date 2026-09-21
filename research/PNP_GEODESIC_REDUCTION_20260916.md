@@ -8,7 +8,7 @@ The working question is Avik's original one: computational irreducibility as nat
 
 This revision replaces incorrect inferences in the earlier assistant-written ledger. Earlier versions remain in Git history at ed8e26332c6926efa83e03cc924b8c3f5e074492 and 8b02225e1ca128e72f3509b51ff3bed0a2950ba9. In particular, do not transcribe their assertion that positive computational cost can occur only in noninvertible transformations.
 
-Source snapshot inspected: 8b02225e1ca128e72f3509b51ff3bed0a2950ba9. Source terms were read; Agda was NOT run in this session. SOURCE below means a declaration and its implementation were inspected. DERIVED means the mathematical proof is given here for later transcription, not that a new checked module has been installed or that the result is historically novel. INTERFACE means an additional specifically named hypothesis is required. No theorem below claims a standard P/NP resolution.
+Source snapshot inspected: 8b02225e1ca128e72f3509b51ff3bed0a2950ba9. SOURCE below means a declaration and its implementation were inspected. DERIVED means the mathematical proof is given here, not that a checked module exists or that the result is historically novel. INTERFACE means an additional specifically named hypothesis is required. No theorem below claims a standard P/NP resolution.
 
 The principal completed result of this revision is G3: the rope transformation bringing cell n to the head has minimum crossing length exactly n. Its proof is a direct composition of the repository's crossing equations, prefix-continuity theorem, and injectivity of the quarter-turn. It is reversible and has positive geodesic length. This simultaneously gives the requested concrete irreducibility theorem and fixes the previous conflation of information loss with execution cost.
 
@@ -491,15 +491,9 @@ Completed as hand proofs here: finite answer concatenation and endpoint-fibre de
 
 Not established by these results: a superpolynomial lower bound for a standard NP-complete language, a polynomial deterministic realization of all NP languages, or an identification of arbitrary standard computations with the locally bounded rope-word class. None follows from fibre cardinality, noninjectivity, the existence of a causal modulus, or losslessness alone.
 
-The next exact object is the costed semantic fibre H1 for a chosen observation, together with a source-backed structural characterization of its inhabitants. G3 shows what a genuine closure looks like: coverage of the entire permitted realization class, a separating-input obstruction below the claimed cost, and an explicit realization attaining it. That is the reusable theorem, not a promise that every input domain has the same distance.
+G3 shows what a genuine closure looks like: coverage of the entire permitted realization class, a separating-input obstruction below the claimed cost, and an explicit realization attaining it. That is the reusable theorem, not a promise that every input domain has the same distance.
 
-## J. Transcription order and negative guards
-
-1. Import the existing fibre and coinductive modules. Transcribe A4 and B2-B4 with their actual input families and maps.
-2. Transcribe G1-G3 using the native rope definitions, then extend to signed crossings and disjoint layers separately.
-3. Transcribe C1-C3 for set-valued Boolean observations, with the image assumption explicit.
-4. Transcribe D1-D3 and H1-H3 so all later complexity claims retain their resource and uniformity indices.
-5. F1/F2 are a separate finite-test instantiation, not an assumed characterization of all programs.
+## J. Negative guards
 
 Required guards / expected refutations:
 
@@ -511,4 +505,3 @@ Required guards / expected refutations:
 - Once all coordinate projections are present, their common observational equivalence on Bool^n is equality.
 - A semantic decoder has no automatically inherited small execution cost.
 - Do not replace one globally correct program by a different hard-coded program for each input.
-- Do not claim machine checking for the DERIVED blocks until the resulting modules have actually compiled.

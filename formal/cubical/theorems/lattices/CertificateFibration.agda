@@ -96,9 +96,7 @@
 -- is the point being made; `certIsoâ‰¡curry-totalEquiv` is NOT proved
 -- and is not needed.
 --
--- PRIOR ART, searched before proving and found â” recorded because the
--- first draft of this header wrongly said Â§1 was absent from the
--- library.  `Cubical.Foundations.Equiv.Fiberwise.fibers-total` is HoTT
+-- PRIOR ART.  `Cubical.Foundations.Equiv.Fiberwise.fibers-total` is HoTT
 -- Thm 4.7.6:
 --
 --     fiber (Î» (a , p) â’ a , g a p) (a , q)  â‰  fiber (g a) q
@@ -114,20 +112,6 @@
 -- `fiberIso â‰¡ conjugate of fibers-total` are both plainly true and
 -- NEITHER IS PROVED HERE.  They are not needed: nothing below cites
 -- them.
---
--- Also searched, under the standard names: `isEmbedding`,
--- `hasPropFibers`, `fiber`, `totalEquiv`, `fibrationEquiv`,
--- `cardâInequality'` in `~/agda-libs/cubical` v0.5; `Completes`,
--- `SeparatesFibers` in this corpus.  Â§2â“Â§4 (the embedding transfer, the
--- certificate/trivialisation Iso, the cardinality corollary) are not in
--- the library under any of them.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5 (`formal/cubical/BUILD.md`),
--- `--cubical --safe`, no postulates, no holes.  Not imported by
--- `agda` â” the landing instruction for this session
--- forbade editing the root aggregate, so this module is a deliberate
--- orphan in the sense of BUILD.md's mechanical check, and its owner
--- should fold it in.
 ------------------------------------------------------------------------
 
 module CertificateFibration where

@@ -2,8 +2,8 @@
 Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
-Aggregate the implementation costs left open by the native complete witness
-language, and expose the exact prefix/suffix boundary for any future shared
+Aggregate the implementation costs not fixed by the native complete witness
+language, and expose the exact prefix/suffix boundary for a shared
 pair-search implementation.
 -/
 import Pairfield.NativeCompleteWitnesses

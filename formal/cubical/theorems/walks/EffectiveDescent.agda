@@ -6,38 +6,21 @@
 -- DESCENT ALONG A SURJECTION OF SETS, WITH THE SPLIT HYPOTHESIS REMOVED
 -- AND THE SURJECTIVITY HYPOTHESIS SHOWN TO BE NECESSARY.
 --
--- WHAT THIS CLOSES
+-- WHAT THIS PROVES
 --
--- `DefectCalculus` Â§7 proves T15.40 in the direction that
--- matters only for a SPLIT surjection, and names its own gap verbatim:
+-- `DefectCalculus` Â§7 proves T15.40 in the direction that matters only
+-- for a SPLIT surjection.  Here it is proved for an arbitrary surjection
+-- of sets:
 --
---     "a genuine surjection needs the image quotient (a set-truncation)
---      to build `g`, so what is proved here is the split case â¦ for the
---      general surjection this needs `Cubical.HITs.SetQuotients` and a
---      set hypothesis on `C`."
---
--- Half of that sentence is right and half is wrong, and the wrong half
--- is the interesting one:
---
---   * a set hypothesis on `C` is genuinely USED â” `recâ’Set` demands it,
---     and it is not shown necessary here (see SYT â” THE CLAIM, EXACTLY);
+--   * a set hypothesis on `C` is genuinely USED â” `recâ’Set` demands it;
 --   * **`SetQuotients` is not needed at all.**  No quotient is
 --     constructed anywhere in this file.  The universal property of the
 --     propositional truncation into a set â” Krausâ“Escard³â“Coquandâ“
 --     Altenkirch's factorisation of a 2-Constant map, `PT.recâ’Set` â”
---     supplies `g` directly.  This is the third or fourth time in this
---     corpus that a missing construction turned out to be a universal
---     and the fourth instance is worth recording because the corpus
---     ALREADY OWNED the tool: `FiniteInformation`
+--     supplies `g` directly.  `FiniteInformation`
 --     (`fiberConstantâ’factorsThrough`) does exactly this
 --     truncation-into-a-set argument, choice-free, for factorisation
---     through `Image q`.  The only step it was missing is that for a
---     surjection `Image q` is `B`.  DefectCalculus Â§7 re-derived a
---     weaker statement, in the same tree, four files away â” which is the
---     lesson DefectCalculus Â§4 narrates about itself ("grep before you
---     prove, including for four-line lemmas") arriving one section
---     later.  Nothing here is a criticism of that file; it is what the
---     joint is for.
+--     through `Image q`; for a surjection `Image q` is `B`.
 --
 -- WHAT IS PROVED
 --
@@ -121,13 +104,12 @@
 --    is what makes Â§6 the literal converse of Â§4, whose hypothesis is
 --    exactly "`C` is a set".  A hypothesis sharpening, not a theorem.
 --
---  * **`isSet C` is not shown necessary.**  The honest ledger, since Â§5
---    could be misread as strict improvement: `descends-split` needs no
+--  * **The two hypotheses are incomparable.**  `descends-split` needs no
 --    set hypothesis but needs a section; `descends` needs no section but
---    needs `isSet C`.  The two are INCOMPARABLE in hypotheses.  What Â§5
---    proves is only that once `C` is a set the split statement is
---    subsumed, and that the two produce the same function.  Exhibiting a
---    non-set `C` at which Â§4 fails would need `Ïâ(SÂ)` and is not done.
+--    needs `isSet C`.  What Â§5 proves is only that once `C` is a set the
+--    split statement is subsumed, and that the two produce the same
+--    function.  `AsetChidra_â¦` exhibits a non-set `C` at which Â§4 fails,
+--    so the set hypothesis is necessary.
 --
 --    Â§2 locates the Peresâ“Mermin obstruction as "a property of the
 --    *cover*, i.e. genuinely cohomological â” of the nerve, not of the

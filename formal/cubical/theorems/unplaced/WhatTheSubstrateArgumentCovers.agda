@@ -69,12 +69,6 @@
 -- โ-shaped sites specifically, and answering the question asked is not
 -- an error.  The generalisation is recorded because this thread needed
 -- it at `ฮ`, not as a verdict on where it was first written.
---
--- Also: ยง8 cites "an audit of all 434 `.agda` files โฆ 74 such
--- signatures".  Counts are dated.  That one is not rechecked here and
--- nothing below depends on it โ” and ยง8 itself says the audit "was not
--- needed", which is the part ยง1 confirms.
---
 ------------------------------------------------------------------------
 
 module WhatTheSubstrateArgumentCovers where

@@ -95,9 +95,4 @@ pm-relational-no-fit .RelationalNoFit.pointwiseCannotAssemble =
 -- Checked: the naive context-indexed RelativeProcess is globally inhabited,
 -- the true PM Section is empty, a true section restricts pointwise, and no
 -- reverse assembler/equivalence exists.
---
--- Not constructed: the ech nerve, incidence HIT, or sheaf whose dependent
--- sections are definitionally PMCokernel.Section.  This theorem identifies
--- why that additional base/coherence is necessary; it does not pretend the
--- missing higher cover has already been formalized.
 ------------------------------------------------------------------------

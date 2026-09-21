@@ -15,9 +15,7 @@ open import ASmallTheoryWithAnIndependentSentence
 ------------------------------------------------------------------------
 -- ADiagonalSentenceIndependentInAConcreteTheory
 --
--- Both conjuncts, for a diagonal sentence, in a concrete theory â” and
--- the two previous cycles' obstructions turn out to describe exactly
--- how it has to be done.
+-- Both conjuncts, for a diagonal sentence, in a concrete theory.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE SYNTAX AND THE RULES
@@ -33,7 +31,7 @@ open import ASmallTheoryWithAnIndependentSentence
 -- Nothing is read off a valuation; `Der` is a `data` declaration.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS PROVED, AND THAT ITS SHAPE WAS PREDICTED
+-- WHAT IS PROVED
 --
 --   Â§3  FIRST CONJUNCT, from a TRUTH-FUNCTIONAL model: interpret `pv`
 --       as constantly `true` and `gs` as `false`.  All five rules are
@@ -80,18 +78,7 @@ open import ASmallTheoryWithAnIndependentSentence
 --
 -- What IS established: a diagonal pair and an HBL-shaped rule can
 -- coexist with independence of the diagonal sentence in this lane, and
--- the two model kinds must be used in a specific order.  Before this,
--- the line had two closure results and no positive instance carrying a
--- diagonal at all.
---
--- PRIOR ART, grep run and quoted.  Searching `formal/cubical` for
--- `Der (ng gs)`, `gsIndependent`, `dfwd`, `dbwd` returns only five
--- lines, all inside
--- `ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence`, where
--- `dfwd` is a local hypothesis name in the two-line obstruction.  No
--- concrete diagonal calculus exists.  A version naming its rules
--- differently â” `ax1`/`ax2`, or a list of axiom schemes â” would evade
--- that grep.
+-- the two model kinds must be used in a specific order.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

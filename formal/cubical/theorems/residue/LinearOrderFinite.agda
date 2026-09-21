@@ -4,8 +4,7 @@
 -- LinearOrderFinite
 --
 -- SOURCE OF THE TARGET.  `AtlasResiduals` Â§4 checks
--- `LinOrd n X` DEFINED to be `X â‰ Fin n`.  Its "WHAT IS DELIBERATELY
---
+-- `LinOrd n X` DEFINED to be `X â‰ Fin n`.
 --
 -- ====================================================================
 -- THE AXIOMS OF `LinOrdâ²`, AND WHICH WAY THEY ERR
@@ -21,8 +20,7 @@
 --     total       (x y : X) â’ âˆ (x â‰ y) âŠ (y â‰ x) âˆâ
 --
 -- Totality is MERE (propositionally truncated), and DECIDABILITY IS NOT
--- AN AXIOM.  The obligation as recorded in AtlasResiduals offered a
--- decidable total order; taking that licence was the cheap route and is
+-- AN AXIOM.  A decidable total order would have been the cheap route and is
 -- declined here.  Untruncated `(x â‰ y) âŠ (y â‰ x)` is *structure*, not a
 -- property: it is not a proposition (both disjuncts hold on the
 -- diagonal), so a "linear order" carrying it would remember a choice
@@ -71,7 +69,7 @@
 --      `rank-pull`,`pull-rank`
 --                    the two round trips, as paths.
 --      `linOrdâ²â‰`    LinOrdâ² X â‰ (X â‰ Fin n) for X with âˆ X â‰ Fin n âˆâ.
---                    THE RESIDUE OF AtlasResiduals Â§4, DISCHARGED.
+--                    the passage from orders to rank listings.
 --
 --   Â§5 `isContrOrdTotalâ²`
 --                    Î[ X âˆˆ BSâ™ ] LinOrdâ²(X) is CONTRACTIBLE: Theorem

@@ -87,11 +87,7 @@ source state, and that any observed order-dependence localises a state
 outside the image of the observation â” the citation is to that
 theorem's actual content, agreement of states under reordering.  The
 causal-graph form, isomorphism of the event dependency structure
-across orders, is not claimed by either module: it is queued in the
-machine's remainder store, with a candidate shape recorded (events
-carrying read/write footprints, the causal order as an indexed family,
-invariance as an equivalence of orders), and the queueing itself was a
-transported operation of the running machine, not a note in a file.
+across orders, is not claimed by either module.
 
 The 2025â“2026 writings extend the dictionary, and a second module
 (NKSRuliology2025To2026_*, same system, same pin) holds three more
@@ -173,6 +169,4 @@ refutation lands on a named collision, and the four sentences are
 discharged by nine identifiers whose combined proof text is shorter
 than this abstract.  The claim is not that the ruliad has been
 formalised; it is that the ruliad's load-bearing sentences are, one by
-one, theorems of univalent mathematics â” and that where a sentence
-outruns what is checked, the remainder is in the remainder store,
-where the next step will find it.
+one, theorems of univalent mathematics.

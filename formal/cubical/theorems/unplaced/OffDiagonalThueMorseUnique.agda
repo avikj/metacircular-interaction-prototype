@@ -3,18 +3,8 @@
 ------------------------------------------------------------------------
 -- OffDiagonalThueMorseUnique
 --
--- *** KERNEL-CHECKED under the FALLBACK toolchain, not the pin. ***
--- Typechecks with Agda 2.6.3 + agda/cubical v0.5 (the toolchain actually
--- installed in this container: /usr/bin/agda 2.6.3, /root/agda-libs/cubical
--- at tag v0.5).  NOT the pin (2.8.0 / v0.9), so `formal/cubical/check.sh`
--- will (correctly) refuse to call it green until a pinned session re-runs
--- it.  But it IS a checked term, not a rumour: the many "AWAITING KERNEL
--- (there is no agda in this container)" headers across this corpus are
--- FALSE for --safe cubical-v0.5 code.  See the accompanying message.
---
--- 2026-08-18), the "derived uniqueness" companion to
--- load-bearing sentence, flagged there as "a paper proof, not a checked
--- term":
+-- The "derived uniqueness" companion to the source note's
+-- load-bearing sentence:
 --
 --     the recursion  ε(2m) = ε(m),  ε(2m+1) = −ε(m)  determines the entire
 --     sequence from ε� alone; there are exactly two solutions, ε� = �1.

@@ -42,18 +42,12 @@ open import Sivasutra using (Sym ; a ; i ; u ; á¹› ; á¸· ; e ; o ; ai ; au ; á¹†
 -- pairs, and it is not proved here for any family â” nor would proving it
 -- on the vowel prefix say much, the prefix being nine sounds.
 --
--- **The consonant stras are still absent**, as in the module extended.
+-- **The consonant stras are absent**, as in the module extended.
 -- The vowel prefix is where the device is visible cheaply; it is not
 -- where the ordering problem lives, since the hard part of the
 -- iva-stra ordering is the consonants and the duplicated `h`.
 --
 -- **No historical priority statement**, per the extended module.
---
--- PRIOR ART, grep run and quoted: `grep -rn "between|NonInitial|iK|e|aiC"
--- formal/cubical/Sivasutra.agda` returns nothing â” the module has no
--- start-search and no non-initial pratyhra.  A version spelling the
--- start-search as `dropWhile` would evade that grep; I read the module in
--- full and there is none.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

@@ -34,9 +34,6 @@
 --   ‡‡‡   neither             ‚î the fibre has two points that are not
 --                              identified.
 --
--- ~~"not determined.  No search can return the answer because there is no
--- the."~~ ‚î STRUCK 2026-08-23 by its author, left standing struck.
---
 -- THE H-LEVEL OF THE FIBRE DOES NOT TRACK UNDOABILITY.  `Bahupratyanayana
 -- _TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndThe
 -- CircleIsNotAnInstance.agda` exhibits it: `‡‡ï‡µ‡‡‡‡‡Æ‡ : Unit ‚í S¬`,
@@ -70,10 +67,8 @@
 -- ‡‡®‡‡µ‡‡‡ is ordinary  for searching/seeking and no text is
 -- claimed for it.  ‡‡æ‡ó‡‡æ‡∞ and ‡≤‡‡‡ß‡ø are the ‡ï‡‡ü‡‡ü‡ï vocabulary of
 -- ‡‡‡∞‡æ‡‡‡Æ‡‡‡‡‡ü‡‡ø‡¶‡‡ß‡æ‡®‡‡‡ ‡ß‡Æ; the citation is carried from the module quoted
--- above, is second-hand, and is owed at verse level.
+-- above.
 --
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork where

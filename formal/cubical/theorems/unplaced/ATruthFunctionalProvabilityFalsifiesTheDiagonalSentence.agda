@@ -12,7 +12,7 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 ------------------------------------------------------------------------
 -- ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence
 --
--- The open question from last cycle, answered on the negative side.
+-- The question of `ASmallTheoryWithAnIndependentSentence`, answered on the negative side.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE QUESTION
@@ -21,7 +21,7 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- independent sentence by generating derivability from rules and
 -- proving soundness for every Boolean valuation.  Its stated limit is
 -- that the sentence is independent because the rules never mention it:
--- no diagonal, no provability predicate.  The question left open was
+-- no diagonal, no provability predicate.  The question is
 -- whether adding the diagonal machinery preserves independence.
 --
 -- With a TRUTH-FUNCTIONAL provability predicate, it does not, and the
@@ -73,13 +73,9 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- That the small theory of the previous module is affected: it has no
 -- `prov` worth the name and its independence result stands untouched.
 --
--- PRIOR ART, by the conclusion type â” and the first draft of this
--- paragraph was wrong, which is why it is stated as a checked result.
--- A grep of `formal/cubical` for `truth-functional` returns ONE hit:
--- `RepresentabilityIsNotEnoughForIndependence` line 32, a sentence of
--- prose describing `wimp`, not a theorem.  A grep for `impB` outside
--- the previous module returns nothing.  A version phrased over a valuation into a larger algebra
--- than `Bool` would evade that grep â” and would also evade Â§1, which
+-- SCOPE.
+-- A version phrased over a valuation into a larger algebra
+-- than `Bool` would evade Â§1, which
 -- is a fact about two-valued semantics.
 ------------------------------------------------------------------------
 

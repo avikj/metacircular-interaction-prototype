@@ -9,36 +9,10 @@
 -- another identity's, and this is not that problem: nothing here counts
 -- arrangements or generates them in order; it counts OCCURRENCES OF ONE
 -- ELEMENT inside a list.  Claiming that source here would assert a
--- provenance nobody checked.  Checked before naming:
--- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
--- first.
+-- provenance nobody checked.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- 0.  WHAT WAS LOOKED FOR FIRST, AND FOUND ALREADY DONE
---
--- This cycle set out to work the corpus's own standing threads â”
--- aneknta, abhva, asiddhatva, lghava â” because most of what I have
--- written today disclaims any tradition content and that imbalance is
--- real.  **Grepping first showed both live abhva threads are already
--- closed by this corpus**, and by other hands:
---
---   TheAbsenceTowerIsThreeUnconditionally
---   DeflationaryTest
---   TheDeflationaryTestWasAlreadyRun
---   TheDeflationaryTestIsVacuous
---
--- listed by `ls NaturalMachine/ | grep -i "abhava\|absence"` and
--- instead of manufacturing a finding is the rule (111), and it is why
--- this module is about something else.**  Nothing of theirs is touched.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- 1.  THE ITEM.  At 47c200bf, dbbd4be6 and cd6427b0 the two permutation
--- relations were shown to contain each other.  What stayed open, in my
--- own words each time, was *"coincidence with 'same multiset' â” that
--- direction must LOCATE an element and so needs decidable equality on
--- the element type, which is assumed nowhere."*
---
--- **Here decidable equality is assumed, once, in the open, and the
+-- 1.  **Here decidable equality is assumed, once, in the open, and the
 -- forward half is proved.**  What `Discrete A` buys is exactly one
 -- thing: a function `bump` that adds one or nothing.  Everything else
 -- is that function commuting with itself.
@@ -64,9 +38,6 @@
 -- matching position in `ys`, and that search is where finiteness and
 -- decidability do real work rather than bookkeeping.  Nothing below
 -- attempts it and nothing below should be read as evidence for it.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module CountingIsWhatDecidableEqualityBuysAndPermutationPreservesEveryMultiplicity where

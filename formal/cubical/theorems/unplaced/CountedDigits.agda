@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Execute the already-checked positional-numeral machine by counting.
+-- Execute the positional-numeral machine by counting.
 --
 -- This module adds no second evaluator and no scheduler.  `digitsC` is the
 -- existing encoder, `sucC` is the existing schoolbook carry transition, and
@@ -50,5 +50,4 @@ counting-executes-carry n = observe-step (run n) ∙ cong suc (observe-run n)
 -- Cost boundary.  `sucw` performs real recursive carry propagation, but the
 -- imported development proves semantic equations, not a work measure for that
 -- recursion.  This module therefore makes no constant-cost claim and does not
--- hide digit encoding/decoding work inside the equivalence.  A costed execution
--- edge remains open until a native carry-cost theorem is installed.
+-- hide digit encoding/decoding work inside the equivalence.

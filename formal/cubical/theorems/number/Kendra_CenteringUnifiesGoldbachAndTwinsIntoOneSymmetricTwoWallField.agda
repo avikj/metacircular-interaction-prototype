@@ -27,8 +27,6 @@
 --     they need โ and the DFT and are NOT checked here.  What is checked
 --     is the centering that renders the two-wall indicator symmetric, on
 --     which the reality of the crystal rests.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9) for the โ solver.
 ------------------------------------------------------------------------
 
 module Kendra_CenteringUnifiesGoldbachAndTwinsIntoOneSymmetricTwoWallField where
@@ -92,7 +90,7 @@ twin-right = refl
 -- the zero ray ฯ_{a,z}|I| being the singular-series main term.  These
 -- require โ, cosine, and the finite DFT; they are the reading this
 -- module's centering makes possible (the phase vanishes BECAUSE ยง1's
--- symmetry is exact) and are owed as separate terms in an โ-carrying
--- lane.  Absolute values would discard the cosine signs โ” that discard
+-- symmetry is exact).
+-- Absolute values would discard the cosine signs โ” that discard
 -- is the parity loss; ยง1 is what keeps the angular information real.
 ------------------------------------------------------------------------

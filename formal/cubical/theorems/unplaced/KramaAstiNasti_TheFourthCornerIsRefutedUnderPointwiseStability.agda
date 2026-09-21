@@ -28,9 +28,8 @@
 ------------------------------------------------------------------------
 -- TheFourthCornerIsRefutedUnderPointwiseStability
 --
--- Partial closure of an item I have carried open since
--- `SamayikaAndNityaAreIndependent`, which proved three of four corners
--- and said of the fourth:
+-- `SamayikaAndNityaAreIndependent` proved three of four corners and
+-- said of the fourth:
 --
 --   "NOT PROVED and NOT ASSERTED: that the fourth corner is impossible
 --    in the PLAIN negated forms.  `¬ ‡‡æ‡Æ‡Ø‡ø‡ï` does not constructively
@@ -56,9 +55,6 @@
 -- stability of that Œ at each remedy ‚î which `Dec` supplies, and which
 -- is precisely the "positive pole is a search" side of the axis this
 -- corpus keeps meeting.  ¬ß4 then refutes the fourth corner.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability where
@@ -128,30 +124,17 @@ fourthCornerRefutedUnderPointwiseStability bad stab (noSam , noNit) =
           (Œª ur ‚Üí noSam (universalRemedyGivesSamayika bad ur)))
 
 ------------------------------------------------------------------------
--- 5.  What this settles and what it does not
+-- 5.  What this settles
 --
 -- SETTLED: with the Œ stable at each remedy ‚î which a decision at each
 -- remedy supplies ‚î the four corners are three.  So the fourth corner,
 -- if it exists at all, exists only where some `Œ[ i ] bad i r` is not
 -- stable, i.e. where finding a surviving instance is a genuine search.
---
--- NOT SETTLED: whether it exists.  The hypothesis is not shown
--- necessary, and no model realising `¬ ‡‡æ‡Æ‡Ø‡ø‡ï ó ¬ ‡®‡ø‡‡‡Ø` is exhibited.
--- The unconditional question is where it was, and this narrows where to
--- look rather than answering it.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  ¬ß5's NOT SETTLED paragraph says the hypothesis "is not
--- shown necessary" and that this "narrows where to look rather than
--- answering it".  The narrowing is now much sharper, and by
--- DISCHARGING the hypothesis rather than weakening it:
---
---   `TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`
---   (--safe, no postulates, no holes; container green under Agda 2.6.3
---    + cubical v0.5, NOT the declared pin ‚î check.sh returns 1 and says
---    so)
+-- The hypothesis is DISCHARGED, not weakened, in
+--   `TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`:
 --
 --   Enumerated Ix = Œ[ xs ‚àà List Ix ] ((i : Ix) ‚í Any (_‚â° i) xs)
 --
@@ -168,21 +151,13 @@ fourthCornerRefutedUnderPointwiseStability bad stab (noSam , noNit) =
 -- instance family that is not enumerable, OR a badness that is not
 -- decidable ‚î which is a much smaller place to look than "some Œ is
 -- unstable".
---
--- STILL NOT SETTLED, exactly as ¬ß5 says: EXISTENCE.  The new module
--- gives a second SUFFICIENT condition, sharper and checkable, and no
--- necessary one; it exhibits no model of `¬ ‡‡æ‡Æ‡Ø‡ø‡ï ó ¬ ‡®‡ø‡‡‡Ø` either.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end.  Renamed from
--- `Avaktavya_*` to `KramaAstiNasti_*`: the previous term was wrong.
+-- ON THE NAME.
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
 -- this line's "fourth corner" is a product of two independent
 -- negations and that simultaneous refusal collapses into the
 -- sequential pair, so the position is the THIRD bhaga ‚î
--- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.  The full
--- correction is recorded at
--- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
--- Only the `module` line changed here; no statement was touched.
+-- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.
 ------------------------------------------------------------------------

@@ -3,14 +3,9 @@
 ------------------------------------------------------------------------
 -- MobiusPhi_TheDivisorSumOfMobiusTimesCofactorIsEulersTotientForEveryPositiveInteger
 --
--- CLOSES an absence stated in `TransmissionRefutations.agda`, Section
--- B.2, which checks the identification of the Mbius divisor sum with
--- Euler's totient at twelve points and says of the rest:
---
---     "SCOPE: this is the ledger's identification of the sum, checked at
---      twelve points.  The general identity Œ_{d|n} Œº(d)(n/d) = œ(n) is
---      classical (Mbius inversion of n = Œ_{d|n} œ(d)) and is NOT
---      proved here; the refutation of the display does not need it."
+-- The identification of the M√∂bius divisor sum with Euler's totient,
+-- for every n ‚â• 1, in the definitions of `TransmissionRefutations.agda`
+-- Section B.2 (which checks it at twelve points).
 --
 -- WHAT IS PROVED.  For every n ‚â 1, in that module's OWN definitions
 -- (`mobiusDivSum`, `mu`, `phi`, `spf`, `gcdN`, `_div_`, `dividesb`, all
@@ -32,7 +27,7 @@
 -- i.e.  Œ_{d ‚à n} Œº(d) = [n = 1], including at n = 0 where both sides
 -- are 0 (`muSum-is-indicator`).
 --
--- The route is not the one the scope note names (Gauss's identity plus
+-- The route is not the classical one (Gauss's identity plus
 -- Mbius inversion) but the direct one, which needs less:
 --
 --   (i)   Œ_{d ‚à m} Œº(d) = [m = 1]           (`muSum-is-indicator`)
@@ -54,13 +49,12 @@
 -- `spf-spec`, `mu-step`, `gcdN-isGCD`), and the module's sums are shown
 -- to be instances of one summation operator `Œ‚â`.
 --
--- WHAT IS NOT PROVED.  Nothing about the other displays of
+-- SCOPE.  Nothing about the other displays of
 -- `TransmissionRefutations` (its B.3 sums, its Section A, its Section
 -- C) is touched; Gauss's identity Œ_{d‚àn} œ(d) = n and the general
 -- Mbius inversion formula are not proved, because this route does not
--- pass through them.  No postulates, no holes, no termination pragmas;
--- the fuel of every imported program is discharged by a proof, never by
--- a range assumption.
+-- pass through them.  The fuel of every imported program is discharged
+-- by a proof, never by a range assumption.
 ------------------------------------------------------------------------
 
 module MobiusPhi_TheDivisorSumOfMobiusTimesCofactorIsEulersTotientForEveryPositiveInteger where

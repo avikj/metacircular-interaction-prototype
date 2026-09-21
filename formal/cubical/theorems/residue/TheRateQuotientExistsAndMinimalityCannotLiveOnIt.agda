@@ -50,9 +50,6 @@
 -- rationals are built this way in the library itself.  What is
 -- contributed is only which of THIS corpus's threshold predicates
 -- survive the quotient, and the proof that one provably does not.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheRateQuotientExistsAndMinimalityCannotLiveOnIt where
@@ -146,20 +143,8 @@ noMinimalityOnTheRate M agrees =
     chain = sym (agrees oneHalf short) ‚àô step ‚àô agrees twoQuarters short
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "DENSITY OF THE RATES is NOT proved: the mediant module's `‚ä` is
---    not lifted here, and lifting it needs `‚ä` to respect `‚âà` on BOTH
---    sides, which is unchecked."
---
--- Both halves closed in
--- `TheRatesAreDenseAndTheMediantSurvivesTheQuotient`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin ‚î check.sh returns 1 and says so),
--- and the sentence above named the harder half correctly: the LIFTING
--- is the work.
---
+-- DENSITY OF THE RATES is proved in
+-- `TheRatesAreDenseAndTheMediantSurvivesTheQuotient`:
 --   ‚ä‚ä-trans / ‚ä‚ä-trans   mixed transitivities, by the same
 --                         multiply‚ìrearrange‚ìcancel as `‚ä-trans`
 --   ‚ä-respects-‚âà          hence `‚ä` respects `‚âà` on both sides

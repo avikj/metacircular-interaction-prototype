@@ -3,21 +3,11 @@
 ------------------------------------------------------------------------
 -- TheDelimitorNeedsOnlyStability
 --
--- Third instance of the replacement question, and the first that
--- answers a named open item rather than removing a hypothesis.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE SITE
 --
 -- `AnyonyaAbhava` Â§5 assumes `Dec (Collision q t)` to
--- close the gap between the two Vaieika categories of ààà¾àµ, and its
--- Â§6 leaves an open item in these words, read from the file:
---
---     "OPEN, named and not estimated.  Whether `Dec (Collision q t)`
---      holds at any site in this corpus."
---
--- Two things are wrong with the shape of that, and one of them is the
--- same correction this thread has now made three times.
+-- close the gap between the two Vaieika categories of ààà¾àµ.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -28,43 +18,12 @@
 --       corollary by `Decâ’Stable`.  The delimitor does not need a
 --       decision; it needs the double negation to collapse.
 --
---   Â§2  the open item, answered on a class of sites rather than
---       estimated: for a two-point state space with discrete Y and
+--   Â§2  decidability on a class of sites: for a two-point state space with discrete Y and
 --       discrete T, `Dec (Collision q t)` HOLDS, by an exhaustion over
 --       the four pairs of which two are diagonal and die on `refl`.
 --       So the answer to "does it hold at any site" is yes, and the
 --       cost is the same finite search that `RefutingLaghavaIsASearch`
 --       found at the presentation-measures site.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- TWO CORRECTIONS TO MY OWN EARLIER TEXT, MADE HERE AND MARKED THERE
---
--- `AnyonyaAbhava` Â§6 is mine and contains two sentences the standing
--- method forbids.  Reading one's own file critically is the point of
--- the method, so:
---
---   (a) "This is the second time in this corpus that the Nyya analysis
---       of ààà¾àµ has turned out to track constructive structure â¦ Two is
---       not a coincidence worth explaining away."  Two instances are
---       two instances.  A pattern over n instances is a pattern over n
---       instances until something downstream of it is computed, and
---       nothing downstream of that sentence was ever computed.  The
---       observation stands as an observation; the inference from it
---       does not.
---
---   (b) "conducted by people who did not have one and were right
---       anyway."  That scores the past by its proximity to a
---       constructive setting, which is a criterion imported and not
---       examined â” a à¦àà°àà¨à¯, a standpoint asserting itself by denying
---       others.  What can be said instead, and is enough: the Nyya
---       division of ààà¾àµ into àààà°àà— and àà¨àà¯à‹à¨àà¯ is a distinction, the
---       distinction is registered in this formalism, and the two
---       directions cost differently here.  Whether the Naiyyikas were
---       tracking what this formalism tracks is a question about them
---       that this corpus has no means to settle.
---
--- Neither sentence is deleted at its site: the record of having
--- written them is part of the record.  A pointer is added there.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE RESPECTS, SINCE Â§1 AND Â§2 PULL DIFFERENT WAYS
@@ -134,7 +93,7 @@ categories-agree-when-stable dT q t st =
   , samsargaâ†’anyonya-when-stable dT q t st
 
 ------------------------------------------------------------------------
--- 2.  The open item, answered by exhaustion on a two-point state space
+-- 2.  Decidability by exhaustion on a two-point state space
 --
 -- `Bool` is a hypothesis here.  Nothing below claims any site of this
 -- corpus has a two-point state space; what is claimed is that where one
@@ -179,21 +138,3 @@ categories-agree-on-two-points :
 categories-agree-on-two-points dY dT q t =
   categories-agree-when-stable dT q t
     (Decâ†’Stable (decCollisionOnTwoPoints dY dT q t))
-
-------------------------------------------------------------------------
--- PRIOR-ART OBLIGATION, undischarged, recorded 2026-08-19.
---
--- Navya-Nyya* (Panday & Ghosh), whose stated content includes DEPENDENT
--- DELIMITATION (avacchedaka) and TYPED ABSENCE (abhva) in cubical type
--- theory â” the same substrate and the same notions this module touches.
---
--- This module does not cite it, and could not: the citation sits in a
--- note whose Â§2 alone had been read.  arxiv.org is EGRESS_BLOCKED from
--- this session's environment, so the comparison could not be made here;
--- leaves open.
---
--- Until someone who can read the paper compares them, NO NOVELTY IS
--- CLAIMED for anything below.  The theorems are about observables,
--- fibres and Bool-valued models and are unaffected; what is owed is a
--- citation check, not a withdrawal.
-------------------------------------------------------------------------

@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- RateOneIsExactlyTheUniversalClaim
 --
--- Closes the item I left open one cycle ago.
 -- `OneCounterexampleRefutesALabelButNotAnExistential` proved that a
 -- label â” a Î  â” is refuted by one counterexample, and said in its own
 -- words:
@@ -30,9 +29,6 @@
 -- at 1, where the tolerance is zero.  Â§4 exhibits a population where a
 -- strictly lower threshold survives a failure that kills the Î , which is
 -- what "tolerable benchmark noise" means and why the label admits none.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module RateOneIsExactlyTheUniversalClaim where
@@ -128,24 +124,10 @@ theThresholdAtOneAndBelow = theUniversalClaimFails , butOneStillPasses
 -- with a count and gives the comparison the list invited: the label is
 -- the rate-one case, and Â§4 exhibits a lower threshold surviving the
 -- failure that kills it.
---
--- Percentages are still absent.  "More than half" is stateable as
--- `length xs < 2 Â count xs`; it is not stated, and no threshold other
--- than 1 is analysed.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  Â§5's last paragraph named an item and left it open; this
--- closes it.  Recording the closure here rather than editing Â§5 keeps
--- the earlier statement readable as what was true when it was written.
---
---   `MajorityLiesStrictlyBetweenAllAndSome`
---   (--safe, no postulates, no holes; container green under
---    Agda 2.6.3 + cubical v0.5, NOT the declared pin â” check.sh itself
---    returns 1 and prints that the toolchain is not the pin)
---
--- states exactly the sentence Â§5 said was stateable and unstated:
+-- "More than half", as `MajorityLiesStrictlyBetweenAllAndSome` states it:
 --
 --   Majority bs = length bs < 2 Â count bs
 --

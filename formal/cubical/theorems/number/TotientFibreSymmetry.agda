@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- Two theorems about the open item in
+-- Two theorems about the claim that
 -- totient-fibre collapse arises from a *transitive* group action (Theorem E,
 -- msg 0250), with the group on the divisors "exhibited by nobody yet".
 --
@@ -244,7 +244,7 @@ discreteDivisor d e with (d false ≟ e false) | (d true ≟ e true)
 ... | yes _ | no ¬q = no (λ h → ¬q (funExt⁻ h true))
 ... | no ¬p | _     = no (λ h → ¬p (funExt⁻ h false))
 
--- Theorem T applied to the very fibre the open item names: a group acts
+-- Theorem T applied to the very fibre Theorem E names: a group acts
 -- transitively on {1,2} �
 one-two-fibre-has-a-transitive-group
   : Σ[ e ∈ (Divisor Bool ≃ Divisor Bool) ]

@@ -1,7 +1,7 @@
 # SAT as cubical reduction: persistent working notes
 
 **Date:** 2026-09-16  
-**Status:** working mathematical notebook. Preserve exact distinctions between checked source theorems and deductions made here. This file exists so later sessions can resume from the mathematics rather than reconstructing the conversation.
+Preserve exact distinctions between checked source theorems and deductions made here.
 
 ## 0. Standing discipline
 
@@ -227,11 +227,11 @@ Under (4), this is a lower bound on every faithful reduction in the declared cos
 
 This is qualitatively different from “there are \(2^n\) assignments.” The latter counts vertices of a compact cube. The certificate above proves that **the incidence pattern forces the reduction itself to materialize \(2^n\) inequivalent cells/interactions after all lawful sharing and transport have already been used.**
 
-A concise name for the object, pending better terminology, is a **forced-crossing certificate** or **cubical exponentiality certificate**.
+A concise name for the object is a **forced-crossing certificate** or **cubical exponentiality certificate**.
 
 ---
 
-## 9. What must be proved next, purely inside the cube
+## 9. What the certificate requires, purely inside the cube
 
 Do not begin by searching for a complexity-theory theorem. Calculate the cell incidence.
 
@@ -276,7 +276,7 @@ The following repository sources are directly relevant to resuming this notebook
 - `formal/cubical/kernel/SubsetSumCostLocus.agda`
 - `formal/cubical/theorems/physics/SthairyaSutra_EveryCrossingIsOneLipschitzWithUnitLookaheadSoEveryWordIsUniformlyContinuousWithModulusItsLength.agda`
 - `formal/cubical/theorems/physics/AnantaVeni_TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRelationOfEveryBraidGroupHoldsAtOnce.agda`
-- `research/PNP_GEODESIC_REDUCTION_20260916.md` (use as a ledger, but respect its dated scope notes; later/general machinery may supersede them).
+- `research/PNP_GEODESIC_REDUCTION_20260916.md`.
 
 ## 11. Guardrails against regression
 

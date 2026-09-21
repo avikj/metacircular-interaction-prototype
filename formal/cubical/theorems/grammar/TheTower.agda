@@ -23,8 +23,7 @@
 --   3 ‚ê 4   `Anuvrtti.anuvrtti-collision`.  Two texts, one rule set,
 --           different ‡≤‡æ‡ò‡µ, by ‡‡®‡‡µ‡‡‡‡‡ø.
 --   4 ‚ê 5   `Pratyahara.no-order-makes-all-intervals`.  Not a collision ‚î
---           an exhaustive impossibility, and the only genuine obstruction
---           the session found.
+--           an exhaustive impossibility.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHERE UNIVALENCE SITS
@@ -41,9 +40,6 @@
 -- read off the Adhyy's actual devices; a tradition with different
 -- devices would supply different levels.  What is claimed is that these
 -- five are distinct, and that is what the four terms establish.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheTower where
@@ -60,8 +56,7 @@ open import Pratyahara using (no-order-makes-all-intervals)
 ------------------------------------------------------------------------
 -- 1 ‚ê 2.  Cardinality does not determine the function.
 --
--- The one separation the session had not made as a term.  `Bool` and
--- `Bool` are equivalent in two ways; at level 1 that is one fact (the
+-- `Bool` and `Bool` are equivalent in two ways; at level 1 that is one fact (the
 -- cardinality is 2), at level 2 it is two different functions.
 ------------------------------------------------------------------------
 
@@ -101,8 +96,4 @@ level4‚Üê5 = no-order-makes-all-intervals
 -- Three of them are COLLISIONS: two objects identified above, separated
 -- below.  The fourth is not ‚î it is an exhaustive impossibility, and by
 -- `Pratyahara` ¬ß¬ß6‚ì7 its content is a size, four rather than three.
---
--- shape with the analytic lane's flagship open problem.  The tower is
--- where the two notes meet: every level boundary is either a collision or
--- a size, and there is no third kind in anything this session touched.
 ------------------------------------------------------------------------

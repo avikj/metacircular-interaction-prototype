@@ -16,9 +16,9 @@
 --
 ------------------------------------------------------------------------
 -- WHY THIS MODULE EXISTS.  Its neighbour repaired a collapse and
--- committed the same collapse one level up, hours later.
+-- committed the same collapse one level up.
 --
--- `SakalaVikalaDesa_‚¶` (this library, today) replaced a two-valued test
+-- `SakalaVikalaDesa_‚¶` (this library) replaced a two-valued test
 -- with a three-valued census ‚î empty / contractible / crowded ‚î because
 -- `isContr` was merging ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ with ‡®‡‡‡ü‡ø.  That was right.
 --
@@ -58,22 +58,13 @@
 -- "nothing lost" with "the loss" ‚î and every one of those merges is the
 -- durnaya the census exists to refuse.
 --
--- WHAT IS NOT DONE.  `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` is NOT imported and NOT
--- reproved.  It lives in `formal/cubical/`, pinned to Agda 2.8.0 with
--- cubical v0.9; this library is pinned to 2.6.3 with v0.5, and the two
--- trees have no shared library path.  So ¬ß2 is proved here from scratch
--- over four names, and the relation to ‡¶‡‡∞‡‡®‡Ø‡ is a claim about two
--- statements that no term in either tree connects.  Writing that bridge
--- needs one toolchain that can see both, which this container does not
--- have.  Said plainly so it is not mistaken for done.
+-- ¬ß2 is proved here from scratch over four names.  `formal/cubical/` is
+-- pinned to Agda 2.8.0 with cubical v0.9 and this library to 2.6.3 with
+-- v0.5; nothing is imported across the two trees.
 --
 -- Nirnaya's header carries a FIFTH name, ‡‡‡‡‡‡‡Æ‡ ‚î "the symbol outside
 -- the vocabulary that silenced this naya" ‚î which is neither an unposed
--- question nor an empty fibre.  It is not modelled here.  Four is what
--- this file can exhibit; the fifth is written down and left open.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚î the library's declared pin.
--- --cubical --safe, no postulates, no holes.
+-- question nor an empty fibre.  It is not modelled here.
 ------------------------------------------------------------------------
 
 module Punaragamana.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt where

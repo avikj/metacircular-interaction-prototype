@@ -3,18 +3,12 @@
 ------------------------------------------------------------------------
 -- HomometricMinimality_NoHomometricPairHasDiameterAtMostTen
 --
--- THE ABSENCE THIS MODULE CLOSES.  HomometricPair.agda certifies the
+-- HomometricPair.agda certifies the
 -- existence half of Theorem A(ii) â” the 6-element sets
 --
 --     A = {0,1,2,6,8,11}      B = {0,1,6,7,9,11}
 --
--- are homometric and not congruent â” and states its own scope thus:
---
---     "THE SCOPE, EXACTLY: minimality ("no homometric pair of diameter
---      â‰ 10", "6 distinct pairs across 12 collision events").  That is
---      a 2^14-subset sweep, a separate and larger kernel run;
---      REPORT.md's minimality clause still rests on the legacy Python
---      search.  This module discharges the existence half only."
+-- are homometric and not congruent.
 --
 -- This module discharges the first minimality clause, "no homometric
 -- pair of diameter â‰ 10", as a kernel-checked theorem:
@@ -68,21 +62,14 @@
 --                    of indicators is the reflection of HomometricPair
 --                    (`reflect11` there, with 11 replaced by d).
 --
--- WHAT IS NOT PROVED.  (i) `reflect-iv` and `reflect-support` are
+-- SCOPE.  (i) `reflect-iv` and `reflect-support` are
 -- established by exhaustion for diameter â‰ 10, not as general lemmas
 -- for all d; the minimality theorem does not depend on them â” the sweep
 -- compares every pair directly, without symmetry reduction â” they are
 -- consistency checks tying reversal to the reflection of the existence
 -- half.  (ii) The reduction of â-congruence to the normal-form shapes is
 -- inherited from HomometricPair, where it is a definition, not a
--- theorem.  (iii) The second minimality clause ("6 distinct pairs across
--- 12 collision events", a statement about diameter 11) is not touched.
---
--- TIMINGS (Agda 2.8.0, --safe, this machine): the whole file with the
--- sweep bound at diameter â‰ 6 (64 sets) checks in about 3 s; at
--- diameter â‰ 10 (1024 sets, 2^20 ordered pairs) in about 30 s.  The
--- diameter-â‰-11 control is cheap because `all` stops at the first
--- failing pair.
+-- theorem.
 ------------------------------------------------------------------------
 
 module HomometricMinimality_NoHomometricPairHasDiameterAtMostTen where

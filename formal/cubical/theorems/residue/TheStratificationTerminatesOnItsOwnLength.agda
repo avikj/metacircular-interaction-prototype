@@ -3,19 +3,9 @@
 ------------------------------------------------------------------------
 -- TheStratificationTerminatesOnItsOwnLength
 --
--- `TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure` built
--- the decreasing measure and closed with:
---
---   "THE ITERATION IS NOT WRITTEN.  No `strata` function exists,
---    fuelled or well-founded, and nothing claims the layers it would
---    produce cover the archive, are pairwise disjoint, or are ordered
---    by domination.  What was missing for a stratification was never
---    the recursion â” it was the measure the recursion decreases."
---
--- That sentence is now testable, and it holds: with the measure in
--- hand the recursion is four lines and its termination is one
--- induction.  The iteration is written here; the three claims about
--- the LAYERS are still not made, and are still the honest remainder.
+-- With the measure of `TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure`
+-- in hand the recursion is four lines and its termination is one
+-- induction.  The LAYER properties are in the modules cited at the end.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -29,19 +19,15 @@
 --                         hence `leftover (lengthL xs) xs â‰¡ []` â” the
 --                         archive's OWN LENGTH is enough fuel
 --
--- The induction is the previous cycle's measure applied once per step:
+-- The induction is that measure applied once per step:
 -- `theRemainderIsStrictlyShorter` turns `lengthL (x âˆ xs) â‰ suc n` into
 -- `lengthL (remainder (x âˆ xs)) â‰ n`, which is exactly the recursive
--- call's obligation.  Nothing else is needed, which is what "the
--- measure was the missing piece" meant.
+-- call's obligation.  Nothing else is needed.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NO NOVELTY.  Fuelled recursion with the fuel bounded by a decreasing
 -- measure is the standard way to write a well-founded loop without
 -- well-founded machinery.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheStratificationTerminatesOnItsOwnLength where
@@ -93,12 +79,8 @@ theStratificationTerminates :
 theStratificationTerminates xs = fuelSuffices (lengthL xs) xs â‰¤-refl
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no line
--- above. ORDER as the one that would make "stratification" mean what Â§5.2
--- wants. Its FIRST HALF is now proved, in
--- `EveryRemainderMemberIsStrictlyDominated` (--safe, no postulates, no holes;
--- container green under Agda 2.6.3 + cubical v0.5, NOT the declared pin â”
--- check.sh returns 1 and says so):
+-- ORDER, first half: every remainder member is strictly dominated, in
+-- `EveryRemainderMemberIsStrictlyDominated`:
 --
 --   filterOutOnlyKeepsNonSatisfiers   the complement keeps exactly what
 --                                     fails the predicate
@@ -113,16 +95,13 @@ theStratificationTerminates xs = fuelSuffices (lengthL xs) xs â‰¤-refl
 -- `IsParetoMaximal v xs` is `Â Any (StrictlyDominates v) xs`, so failing
 -- it gives `Â Â Any â¦`.  The dominator is recovered only because
 -- `decAny decStrictlyDominates` makes that `Any` decidable, hence
--- stable â” the fourth cycle on this line to turn on the same decision.
+-- stable.
 --
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no line
--- above. ORDER, and this closes (1) COVERAGE and (2) DISJOINTNESS AT ONE
--- STEP, in `OneStepCoverageAndDisjointnessOfTheLayer` (--safe, no postulates,
--- no holes; container green under Agda 2.6.3 + cubical v0.5, NOT the declared
--- pin â” check.sh returns 1 and says so):
+-- COVERAGE and DISJOINTNESS AT ONE STEP, in
+-- `OneStepCoverageAndDisjointnessOfTheLayer`:
 --
 --   memberOfFilterSatisfies / memberOfFilterOutFails
 --   memberSplits       every member of `xs` is in the filter or its

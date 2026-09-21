@@ -3,19 +3,12 @@
 ------------------------------------------------------------------------
 -- SieveRoughBridge
 --
--- THE BRIDGE `SieveFiber` §4 SAYS IS UNBUILT.
+-- THE BRIDGE FROM `SieveFiber` §4 TO `RoughSplit`.
 --
 -- `NaturalMachine/SieveFiber.agda` §4 proves "ε really is one bit" � the
 -- rough part of every n in its 30-element domain is 1 or a prime above
--- the horizon � by EXHAUSTION at X = 30, and its own pointer says what
--- is missing:
---
---   "What is still open is the BRIDGE: `rough n` as computed here (by
---    `stripF`) has not been shown to satisfy `roughSplitSqrt`'s
---    hypothesis, so §4 below remains this file's own X = 30 exhaustion
---    and is not yet a corollary of the general theorem."
---
--- This module builds it.  `RoughSplit.roughSplitSqrt` asks for
+-- the horizon — by EXHAUSTION at X = 30.
+-- This module builds the bridge.  `RoughSplit.roughSplitSqrt` asks for
 --
 --     0 < m,  m � X,  AllPrimeFactorsAbove (isqrt X) m
 --
@@ -124,12 +117,6 @@
 --
 --  * `SieveFiber` and `RoughSplit` are untouched; this module imports
 --    both and neither imports it.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  Whole file, cold interface: 4.1 s.  No postulates, no
--- holes, no TERMINATING pragma (every recursion here is on fuel, and
--- the fuel is what `SieveFiber` already used to make its functions
--- total).
 ------------------------------------------------------------------------
 
 module SieveRoughBridge where
@@ -552,13 +539,6 @@ roughSplit-30 n 0<n n≤30 = roughIsOneOrPrime 30 n 0<n n≤30 isqrt-30≤5
 -- Written as `roughSplit-30� n 0<n n�30 with roughSplit-30 n 0<n n�30`
 -- and two `...` clauses, this definition did not finish typechecking in
 -- 120 s; written with the eliminator, the whole file checks in 4.2 s.
--- Nothing else changed between the two runs.  I do not know what the
--- `with` costs here and I am not guessing: README §1 records that
--- `WalkFast`'s twin symptom was misdiagnosed twice as a `with` problem
--- and was in fact the conversion checker comparing two independently
--- elaborated copies of one term.  Recorded because the next person to
--- write this line will write the `with` first, not because the cause is
--- understood.
 roughSplit-30′ : (n : ℕ) → 0 < n → n ≤ 30
                → (rough n ≡ 1) ⊎ (IsPrime (rough n) × (5 < rough n))
 roughSplit-30′ n 0<n n≤30 =

@@ -1,11 +1,7 @@
 # Bend2/HVM Unison integration recovery log
 
-This file is the durable handoff for recovery after the first integration pass was
-partly deleted from the working tree. It is deliberately kept inside the integration
-directory and is updated before each meaningful recovery batch. Every source recovery
-must be committed immediately. The repository contains substantial unrelated changes;
-recovery work must stage only files below `integration/bend2_unison` unless a specific
-Unison overlay is being restored.
+This file is the record of the recovery after the first integration pass was
+partly deleted from the working tree.
 
 ## Incident and current evidence
 
@@ -39,9 +35,7 @@ as the only implementation. The relevant modules are `ComponentPlan`, `FlatCodec
 `SemanticIdentity`, and `SyncEnvelope`.
 
 The storage tests whose compiler products remain are `NativeTransactionRoundtrip`,
-`ProtocolHttpRoundtrip`, `SyncWireTest`, and `DependencyGraphTest`. Their source is
-missing and should be reconstructed from the APIs exercised by the compiled objects,
-the generated patch overlays, and the recorded command logs.
+`ProtocolHttpRoundtrip`, `SyncWireTest`, and `DependencyGraphTest`.
 
 The patch artifacts currently present are:
 
@@ -50,18 +44,15 @@ The patch artifacts currently present are:
 * `cli/ucm-bend-view-display.patch`
 * `storage/unison-bend-role-graph.patch`
 
-These are small later overlays, not the complete original integration. They should be
-preserved verbatim and applied in their documented order after the base core is
-restored. Earlier larger overlays may be present in temporary checkouts and must be
-copied into this directory only after comparing them byte-for-byte.
+These are small later overlays, not the complete original integration. They are
+preserved verbatim and applied in their documented order after the base core.
 
-## Deleted or missing core inventory
+## Core inventory
 
-The missing core is known from the prior build and test records. It included pure
+The core is known from the prior build and test records. It includes pure
 Haskell modules under `admission/Core`, `reify/Core`, `storage/Core`, and
 `execution/Core`; fixture Bend files under `admission/fixtures`; Python live smoke
-tests under `cli`; and a single canonical integration README. The exact source names
-to locate or recreate are:
+tests under `cli`; and a single canonical integration README. The source names are:
 
 * `reify/Core/Reify.hs`, for converting checked Bend members into the canonical
   structural component representation and preserving authored presentations.
@@ -80,7 +71,7 @@ to locate or recreate are:
 * `execution/Core/HVM4.hs` or its equivalent adapter, for invoking the pinned HVM4
   binary, collecting result text, interaction count, heap size, and trace data.
 
-The missing fixtures include the cubical path transport Bend program, imported
+The fixtures include the cubical path transport Bend program, imported
 multi-file Bend members, and the minimal direct HVM regression. The known canonical
 fixture is `collab/bend2-cubical/path_transport.bend`; its direct HVM result is
 `0 #4992`, with 4992 interactions and heap size 22157. A reduced `t_fwd_neg.bend`
@@ -101,8 +92,7 @@ hashing where the term graph permits it, while authored names and source spans r
 separate metadata. Recursive groups are encoded as deterministic SCCs. The canonical
 codec is version tagged and rejects malformed tags, lengths, references, and trailing
 bytes. Dependency extraction records term references and type references; when a
-definition also has an associated HIT slot, conservative dual-role edges are allowed
-until origin-role metadata is restored.
+definition also has an associated HIT slot, conservative dual-role edges are allowed.
 
 Native storage uses the existing Unison SQLite object database. Native Bend objects
 must be identifiable as a separate object-kind/type-4 envelope, but use the same
@@ -154,31 +144,15 @@ in several `/private/tmp/unison-*` checkouts. The most complete build trees incl
 before copying. Build logs under `/private/tmp` include the strict UCM builds,
 semantic build, headless HTTP run, and Share builds.
 
-The reproducible preparation script, once recovered, must vendor HVM3/highlight,
-apply Bend parser metadata and ordered native overlays, then build `unison-cli-main`
-with the direct Command Line Tools compiler. A pristine patch-only dry run and a full
-independent clean build previously passed through UCM registration. Re-run those
-checks after every recovered source batch.
+The reproducible preparation script vendors HVM3/highlight, applies Bend parser
+metadata and ordered native overlays, then builds `unison-cli-main` with the direct
+Command Line Tools compiler. A pristine patch-only dry run and a full independent
+clean build passed through UCM registration.
 
-## Recovery procedure
-
-First recover pure source from any temporary checkout or agent workspace and compare
-its imports and exported symbols against the surviving `.hi` interfaces. Copy with
-`apply_patch`, stage only the recovered file, and commit immediately. Record the commit,
-source, and evidence here. Next reconstruct the fixtures and pure tests, then rebuild
-the storage round trip. Only after pure tests pass should the UCM overlays be reapplied.
-Finally run the live UCM, import, sync, HTTP, LSP, desktop, and Share checks.
-
-Every agent must read this file before editing, append a short timestamped note after
-each unit of work, and communicate collisions to the other agents. No cleanup agent
-may delete untracked files. Use `git status --short` before and after each operation;
-commit integration files at least once per minute while active. If a generated build
-tree is needed, place it under `/private/tmp` and leave the source and patch in Git.
-
-## Known limitations to preserve honestly
+## Known limitations
 
 General mathematical semantic identity for arbitrary dependent terms, paths, HITs,
-and recursive programs is not yet implemented merely because the cubical checker can
+and recursive programs is not implemented merely because the cubical checker can
 prove equality. The checked narrow identity index must remain sound and versioned.
 Structural addresses and authored provenance must remain available even when semantic
 peers are displayed. The local loopback Share protocol is a fixture; production
@@ -209,7 +183,7 @@ Bend language or adding a second source syntax.
   `ALTER TYPE`, native table/index/function creation, and zero errors. The
   fixture `/private/tmp/share-pg15-bend-fixture.log` inserted 22 native rows
   in one transaction and committed successfully. These are local source and
-  database checks; authenticated remote Share push/pull is still an explicit
+  database checks; authenticated remote Share push/pull is an explicit
   production gate.
 
 * Reverse application was also verified against

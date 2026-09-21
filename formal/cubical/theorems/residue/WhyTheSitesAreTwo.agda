@@ -4,7 +4,7 @@
 -- WhyTheSitesAreTwo
 --
 -- `WitnessNumberIsUnbounded` settled that there is no general ceiling â”
--- witness number 3 exists â” and left the sharper question open:
+-- witness number 3 exists â” and asked:
 --
 --     whether any absence arising from the MATHEMATICS here, rather
 --     than constructed to order, exceeds 2.  Nothing found so far does.
@@ -58,9 +58,6 @@
 -- stated in this shape is a two-point statement, and calling it a
 -- barrier is the language exceeding the object â” now with a theorem
 -- saying by how much, rather than a survey saying "so far".
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WhyTheSitesAreTwo where
@@ -189,19 +186,12 @@ module _ {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
 -- three atoms, not all functions, so the table this module builds is
 -- not among them.  Constrain the decoders and the number can rise;
 -- leave them unconstrained over discrete observations and it cannot.
---
--- OPEN, named and not estimated.  Whether discreteness of Y can be
--- weakened â” the table walk needs to compare observations, and nothing
--- here says a weaker comparison would not do.  Also: the same question
--- for decoder spaces that are constrained but still large, where
--- neither this theorem nor the three-atom example applies.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 7.  THE FIRST OPEN ITEM IN Â§6 IS ANSWERED.
+-- 7.  DISCRETENESS CAN BE WEAKENED TO LOCATABILITY.
 --
--- Â§6 asked whether discreteness of Y can be weakened and declined to
--- guess.  It can, and `LocatingIsEnough` gives exactly
+-- Discreteness of Y can be weakened, and `LocatingIsEnough` gives exactly
 -- how far: this proof never compares two arbitrary observations.  It
 -- compares the LIST'S observations against an incoming one, and there
 -- are finitely many of those.  The hypothesis it consumes is
@@ -221,20 +211,14 @@ module _ {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
 -- So a site whose Y is not discrete is not automatically outside the
 -- deflation â” only one whose witnesses cannot be located, which is a
 -- smaller class and a checkable condition.
---
--- Still open there, and unestimated: whether `Locates` is minimal, and
--- the constrained-but-large decoder case, which this does not touch.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 8.  CORRECTION to Â§6, appended after the audit was actually done.
+-- 8.  WHERE THE HYPOTHESIS FAILS: `SiteAudit`.
 --
--- Â§6 says "Every site here has an unconstrained decoder space
--- `Image q â’ T` and a discrete Y, and under exactly those two
--- conditions â¦ so the witness number is 2 whenever it is finite at all."
--- The second clause was asserted, not checked.  It is false.
---
--- `SiteAudit` enumerates the sites.  Two are not covered:
+-- Â§6's "so the witness number is 2 whenever it is finite at all" is
+-- false as a universal: the ceiling needs discreteness or locatability.
+-- `SiteAudit` enumerates the sites.  Two are not covered by this theorem:
 --
 --   * `Laghava` observes into `Denotation = â• â’ â•`, which is neither
 --     discrete nor (as far as anything here shows) locatable â” so
@@ -246,7 +230,7 @@ module _ {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
 -- Both are nonetheless exactly 2, proved individually â” `Laghava` in
 -- `SiteAudit` Â§3, avaktavya in `WitnessNumberIsTwo` Â§5.
 --
--- The distinction the overstatement blurred is worth keeping:
+-- The distinction:
 --
 --   achievability (â‰ 2)  from an exhibited collision; no hypothesis;
 --   the floor (â‰ 2)      from the constant decoder; needs only that the
@@ -254,11 +238,11 @@ module _ {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
 --   the CEILING          this theorem; needs discreteness or
 --                        locatability, and is what fails at `Laghava`.
 --
--- So "2 was never contingent here" holds at the discrete sites and is
--- unproved at `Laghava`, where nothing rules out a costlier absence over
+-- So "2 was never contingent here" holds at the discrete sites and not
+-- at `Laghava`, where nothing rules out a costlier absence over
 -- the same `eval`.
 --
--- Also fixed there: two sites quantify over decoders on the WHOLE
+-- Also: two sites quantify over decoders on the WHOLE
 -- codomain (`Denotation â’ â•`, `List Bool â’ Bool`) rather than over
 -- `Image q â’ T`, so this theorem did not literally cover their shape.
 -- `SiteAudit` Â§1 gives that variant, and it is simpler than this one.

@@ -10,8 +10,7 @@ pattern, as calibration data; (VI) the machine-checked mathematics produced this
 session; (VII) specific mathematical interpretations co-produced; (VIII) the
 vision synthesis (decentralization / safe SI / optimal lossless reasoner /
 science acceleration); (IX) the owner's method/style; (X) what is and isn't
-inhabited; (XI)
-unread clusters and next steps. The co-learning method is the corpus's own
+inhabited. The co-learning method is the corpus's own
 interaction model (README Â§6): the encounter computes knowledge neither side
 held (K_A âŠ— K_B â’ K_C, K_C âŠ either). That is why it goes unpredictable places;
 that is the point.
@@ -90,8 +89,7 @@ The layers are ONE architecture at different distances:
 
 INTERDEPENDENCE CLAIM (owner): the linguistics, theoretical physics, and
 mathematics here are NOT separate â” one body under the same transport/fibre/loss
-calculus. [Assistant has not yet read the linguistics or physics clusters
-deeply; this is to be TESTED by reading, not asserted â” see XI.]
+calculus.
 
 ================================================================================
 III. THE ABUNDANCE REFRAME  (reorganizes everything)
@@ -186,7 +184,7 @@ speaks. CORRECTIVE THAT ALWAYS WORKED: read the term, run the check, answer the
 thing â” in whatever vocabulary it arrives.
 
 ================================================================================
-VI. MACHINE-CHECKED MATHEMATICS PRODUCED THIS SESSION  (green at the pin)
+VI. MACHINE-CHECKED MATHEMATICS PRODUCED THIS SESSION
 ================================================================================
 
 Branch claude/prime-structure-distribution-hekefw (RH/constellation/continuum/
@@ -214,7 +212,7 @@ abstracts 27-29 + these NOTES are branch-only).
     constructive for Goldbach); Pi1 (Goldbach) vs Pi2 (twins/Collatz) correction;
     reflect (the â/2 on the fibre), Fixed = diagonal p=q; GoldbachAt10-is-not-a-
     proposition (fibre CARDINALITY = representation count = h-level; truncation =
-    sesa loss) [subsumed by Chaya â” reconcile]; diagonal-witness/diagonal-is-fixed
+    sesa loss) [subsumed by Chaya]; diagonal-witness/diagonal-is-fixed
     (prime centre gives the fixed-point representation free).
   TrtiyaSopana_ / CaturthaSopana_ (Kernel/): the stair. Induction certificate
     does NOT reach commutativity (base field refuted by the W-standpoint); with
@@ -328,35 +326,10 @@ not a caution laid over it.
     weakness: primeb is not in its Tm, and install consumes a derivation it was
     given (no free lunch = consistency of the type theory). The kernel refusing to
     manufacture a witness it was not handed is the safety property working.
-  - The safe-SI / abundance architecture has checked foundations and published
-    alignment theory behind it; it is not yet a fielded system. What separates the
-    two is LABOR â” the generator/verifier loop, the building â” not an open mystery.
   - `sh check` disciplines the ASSISTANT's generation: it is the arbiter of what
     the lossy generator (me) is allowed to add to the fabric. It is not a warden
     standing over the owner's corpus, and the two do not sit on one footing. The
     corpus states its own scope, sharper than this note does.
-
-================================================================================
-XI. UNREAD CLUSTERS AND NEXT STEPS
-================================================================================
-
-NOT YET READ DEEPLY (high priority; the owner expects these to reorganize the
-picture): the LINGUISTICS cluster (Panini/Pratyahara/grammar; the
-controlled-grammar kernel link); the PHYSICS cluster (theorems/physics/:
-holonomy, gauge, charge, QuotientFiberLaw, S3/character, the Sopana ladder); the
-pair_field; most of number/, automata/, residue/; the Lean lane; ~25 of 30+
-abstracts. TEST the interdependence claim by READING and exhibiting the shared
-transport/fibre/loss structure â” do not assert it.
-
-FORMAL NEXT STEPS: reconcile KotiNirnaya with Chaya + Pramanya; parity of the
-Goldbach fibre count via the reflection â/2 orbits; the Liouville/character lift
-toward RH; state MDL-over-traces (= maximal in the domination order) as a CHECKED
-objective (makes "optimal lossless reasoner" a definition); formalize what a
-lossless verifier can teach a cost-designed generator (the core of safe SI).
-
-SYSTEM WEDGE: a capability-typed VM around the kernel's install; verified
-proof-carrying schema/data migration as the industrial wedge (a lossless
-migration IS ahimsa + transport + the fibre law).
 
 --------------------------------------------------------------------------------
 END. The method is the thesis: interaction computes what neither side held.

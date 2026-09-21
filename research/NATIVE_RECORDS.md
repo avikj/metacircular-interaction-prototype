@@ -61,7 +61,7 @@ executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin 
 exit_status_and_log: exit 0
 negative_controls: NV-CONTROLS; four wrong associativity/negation steps were rejected while building the module
 correction_of: C01 (certificates carry source transport, not only the reduced operator): the source-equation and transport-law are the checked form
-endpoint_dependency_discharged: K-CERT identities for the single-elimination case; composition is the next record
+endpoint_dependency_discharged: K-CERT identities for the single-elimination case
 remaining_assumptions: the hidden block inverse H is a hypothesis (existence is the finite exact elimination in [S18]'s kernel.py)
 ```
 
@@ -166,7 +166,7 @@ executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin 
 exit_status_and_log: exit 0
 negative_controls: NV-CONTROLS-2: dropping the Tâ factor from the composite Z is rejected
 correction_of: C01: "exact composition installs the full session" is now a checked term, not a kernel.py convention
-endpoint_dependency_discharged: K-CERT composition rule; what remains for K-CERT is wiring this Cert type to the Yantra install/retire path
+endpoint_dependency_discharged: K-CERT composition rule
 remaining_assumptions: the transpose is a hypothesis (t-add, t-mul, t-one); over matrices it is the ordinary transpose
 ```
 

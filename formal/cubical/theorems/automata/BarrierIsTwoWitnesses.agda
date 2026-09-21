@@ -67,9 +67,6 @@
 -- two-witness problem, that one witness is provably never enough, and
 -- that "exhibit a pair" is not a convenient route to the barrier but its
 -- exact statement.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module BarrierIsTwoWitnesses where

@@ -92,9 +92,6 @@
 -- proved nothing below, and the connection asserted is only that both
 -- name the same job â” marking, in the statement, that what is in hand
 -- is near and not equal.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module Asanna_TheNearIsNotTheEqualAndTheBarrierDiesInTheGap where

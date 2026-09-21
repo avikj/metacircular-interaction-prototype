@@ -4,8 +4,8 @@ Released under Apache 2.0 license.
 
 Mathlib's finite-cyclic resolution specialized to the carry obstruction from
 `NaturalMachine.CarryObstruction`.  This file constructs the degree-two
-cohomology carrier deliberately left open by the Cubical proof.  It does not
-yet identify the explicit digit-section carry cocycle with the class below.
+cohomology carrier that the Cubical proof leaves abstract.  It does not
+identify the explicit digit-section carry cocycle with the class below.
 -/
 import Mathlib.GroupTheory.SpecificGroups.Cyclic
 import Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyclic

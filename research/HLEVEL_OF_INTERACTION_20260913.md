@@ -254,24 +254,6 @@ Scaffolding / bounded [S]:
   statement about Navierâ“Stokes regularity. This is the weakest leg and
   must be labelled so.
 
-Open and sharper, in order of reachability:
-1. **`Â isProp (Derivation seed targetâ)` as a term** â” immediate from
-   `dlen direct â‰ dlen detour`; worth adding, it states the h-level fact
-   the process-space theorem currently only implies.
-2. **The h-level of `Vardhana seed` itself** â” is it a set? This asks
-   whether two derivations of equal length and equal endpoints are
-   identified, i.e. whether `Derivation` is a set once length is fixed.
-   A real question the corpus's groupoid readings (Avirodha: the kernel
-   is a reversible groupoid) bear on.
-3. **Truncation as the safety operator, as a term** â” build
-   `â– Vardhana â–â` and show it *is* contractible: soundness-as-service
-   and generativity-as-branching as literally the truncation and its
-   total space, closing Â§5 from [R] to [T].
-4. The HMAC-positive theorem flagged last session, now readable as: the
-   enveloped interface's emitted receipt is propositional (a tag,
-   WHICH-free) while the inner state stays proof-relevant â” a deliberate
-   h-level demotion at the boundary.
-
 ---
 
 ## 7. One paragraph

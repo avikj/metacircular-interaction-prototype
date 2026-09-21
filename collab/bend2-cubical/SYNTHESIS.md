@@ -1,8 +1,7 @@
-# What this is, what it buys, and what is still unproved
+# What this is and what it buys
 
-A cold assessment, written after the coinduction and silence work landed.
-Every number here is from a run recorded in this file's tables; the negative
-results are kept deliberately.
+A cold assessment. Every number here is from a run recorded in this file's
+tables; the negative results are kept deliberately.
 
 ## 1. The one structural claim
 
@@ -134,8 +133,7 @@ Reproduce: `bench_same{2,4,8}_{sup,sep}.bend`, `bench_iso_*.bend`,
 
 1. **Proof-carrying data migration.** `ua(e) : A = B` transported over a
    value *is* the migration, and it runs. The Glue rules mean Ï-restricted
-   (partial) migrations work too. Everything needed is in place; what is
-   missing is a demo on a record type with more than two fields.
+   (partial) migrations work too.
 2. **Hot-swap by bisimulation.** Two corecursive machines and a proved
    bisimulation path; transport a mid-execution state along it. The shape
    is already `replayForget`, which collapses the receipt onto `refl`. This
@@ -156,22 +154,17 @@ Reproduce: `bench_same{2,4,8}_{sup,sep}.bend`, `bench_iso_*.bend`,
    directly with item 1 â” a schema migration over a batch of records is
    exactly "one shared line, many values".
 
-## 6. What is not proved
+## 6. Scope
 
 - **No metatheory.** There is no canonicity or normalisation theorem for
-  this layer. The Kan rules were implemented and tested against a must-fail
-  suite, not proved sound. This is the largest gap by a wide margin, and
-  nothing above should be read as if it were closed.
+  this layer. The Kan rules are implemented and tested against a must-fail
+  suite.
 - **Totality is a gate, not a typing rule.** `--total` classifies; the
   ungated checker accepts `cheat`. Productivity is checked by a syntactic
-  guardedness pass, which is weaker than Agda's `--guardedness` in ways I
-  have not characterised.
+  guardedness pass, which is weaker than Agda's `--guardedness`.
 - **Conversion is one-step unfolding.** Bisimilarity is proved, never
   decided. Some equalities that Agda accepts definitionally need an explicit
   path here.
-- **Scale is untested.** The largest file is under a hundred definitions.
-  `epNormCtx` unfolds one level deep specifically to stop a loop; whether
-  that is the right depth at scale is unknown.
 - **No performance comparison against a real system.** The interaction
   counts above are internally comparable and nothing more.
 

@@ -237,8 +237,4 @@ measured by its own theorem: the trace is the fibre, the relation is
 the graph, the interaction is the receipt.
 
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
---guardedness --safe, no postulates, no holes.  The interactive
-generalisation, long queued as a ea, is now collected on both of
-its flanks; what the remainder store holds next is the interactive
-machine's own composition law â” sequencing dialogues as Samasa
-sequences tapes.
+--guardedness --safe, no postulates, no holes.

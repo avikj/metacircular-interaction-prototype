@@ -57,16 +57,6 @@ http and many proxies tunnel only https; hackage's mirrors answer 403 on
 networks where hackage itself answers 200 â” and it prints exactly what it
 obtained either way.
 
-  Measured 2026-08-25, and it is why this section exists: ``fibre/``, which
-  holds the one primitive the whole corpus turns on, was pinned to cubical
-  **v0.5** while everything else was built at **v0.9**.  It had been read as
-  a mathematical fact â” "a different lake", and the modules that wanted to
-  cite the fibre law said so in prose "rather than pretending to a
-  dependency it does not have."  It was not a fact.  It was a missing
-  ``--guardedness`` flag.  With that one word added, every module in
-  ``fibre/`` checks at the pin, exit 0, and the corpus can import its own
-  foundation for the first time.
-
 
 THE KERNEL, AND WHY IT DOES NOT GENERATE FOREVER
 ------------------------------------------------------------------------------------------
@@ -214,9 +204,7 @@ set, to an EQUIVALENCE of the two conditions.
 And the converse cost nothing.  The reason outlives the theorem:
 
   the two sides are joined by uaÎ², which is a PATH, and a path may be
-  walked in either orientation.  One cycle earlier the same audit found a
-  converse costing `Enumerated K` + `Discrete O`, because there the sides
-  were joined by an implication assumed.
+  walked in either orientation.
 
   A PATH HAS AN INVERSE.  AN IMPLICATION DOES NOT.
 

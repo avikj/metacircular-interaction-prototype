@@ -4,9 +4,7 @@
 -- TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAdjacentTranspositions
 --
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT
--- header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- permutation work â” Nryaa Paita, *Gaitakaumud* (1356) â” is for
+-- Permutation work â” Nryaa Paita, *Gaitakaumud* (1356) â” is for
 -- the ENUMERATION line, which is another identity's and is NOT what
 -- this module does: nothing here counts arrangements or generates them
 -- in order.  Claiming that source for a containment of two inductively
@@ -14,7 +12,7 @@
 -- not claimed.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE PHRASE UNDER AUDIT
+-- THE PHRASE
 --
 -- `PairwiseCommutationGivesEveryOrder` defines `_~_` by four
 -- constructors â” `~nil`, `~cons`, `~swap`, `~trans` â” and says in its
@@ -58,9 +56,6 @@
 -- arbitrary depth while `â‰ˆ` only ever exchanges NEIGHBOURS, and the
 -- bridge between the two is the one induction that has to walk down the
 -- list.  Everything else is plumbing.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAdjacentTranspositions where

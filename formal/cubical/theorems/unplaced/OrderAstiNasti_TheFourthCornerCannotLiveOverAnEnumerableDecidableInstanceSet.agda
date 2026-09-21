@@ -28,15 +28,7 @@
 ------------------------------------------------------------------------
 -- TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
 --
--- `TheFourthCornerIsRefutedUnderPointwiseStability` ended with:
---
---   "NOT SETTLED: whether it exists.  The hypothesis is not shown
---    necessary, and no model realising `Â àà¾à®à¯à¿à• — Â à¨à¿ààà¯` is
---    exhibited.  The unconditional question is where it was, and this
---    narrows where to look rather than answering it."
---
--- This narrows it much further, and by discharging the hypothesis
--- rather than by assuming a weaker one.  Where the instance family is
+-- Where the instance family is
 -- ENUMERABLE and badness is DECIDABLE, pointwise stability is not a
 -- hypothesis at all â” it is a theorem â” so the fourth corner is refuted
 -- with nothing assumed.
@@ -76,9 +68,6 @@
 -- index.  That is the repository's standing cubical rule â” in cubical
 -- v0.5 `Fin n = Î k (k < n)`, so constructors in index positions do not
 -- pattern-match â” and it is why nothing here mentions `Fin` at all.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet where
@@ -172,19 +161,12 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
     (enumerableDecidableGivesPointwiseStability bad e d)
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "Existence.  â¦ this is a second SUFFICIENT condition, sharper and
---    checkable, not a necessary one."
---
--- A NECESSARY one now exists, for one family, in
--- `TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- This module gives a SUFFICIENT condition for refuting the corner.  A
+-- NECESSARY one exists, for one family, in
+-- `TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift`.
 --
 -- Take the instance set to be ONE instance (`Unit`), remedies
--- arbitrary, `bad _ r = Q r`.  Then, both directions checked:
+-- arbitrary, `bad _ r = Q r`.  Then:
 --
 --   Â àà¾à®à¯à¿à•  â‰  (r : R) â’ Â Â Q r
 --   Â à¨à¿ààà¯    â‰  Â ((r : R) â’ Q r)
@@ -198,14 +180,14 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- â” the converse of Â§3 here, so at that family the stability hypothesis
 -- is necessary as well as sufficient.
 --
--- WHAT THAT SAYS ABOUT THIS MODULE, and it is not flattering.  A ONE-
+-- WHAT THAT SAYS ABOUT THIS MODULE.  A ONE-
 -- ELEMENT instance family is enumerable â” `Enumerated Unit` is
 -- immediate.  So the whole `Enumerated` apparatus above cannot be what
 -- separates the corner from its absence: at Unit the enumeration is
 -- free and the entire question is whether the BADNESS is stable.  The
 -- decidability hypothesis was doing all the work and the enumerability
--- hypothesis none of it, in the only case where the answer is now
--- known.  This module is still correct â” it covers families where
+-- hypothesis none of it, in the only case where the answer is
+-- known.  This module is correct â” it covers families where
 -- BOTH matter â” but the sentence "the fourth corner needs an instance
 -- family that is not enumerable OR a badness that is not decidable"
 -- reads as offering two routes, and the first is not a route at all
@@ -214,25 +196,6 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above (the import line was rewritten mechanically because the
--- imported FILE was renamed; no statement changed).
---
--- **NAMING.**  Under the owner's directive of 2026-08-19 (CLAUDE.md,
--- "File naming"), three files on this line now lead with the term:
---
---   Avaktavya_TheFourthCornerIsRefutedUnderPointwiseStability
---   Avaktavya_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
---   Avaktavya_AnEnumerableRemedySetKillsTheFourthCorner
---
--- ààµà•àààµàà¯ â” the fourth bhaga of the Jaina saptabhag (Umsvti,
--- *Tattvrthastra*; Samantabhadra; Akalaka; Siddhasena Divkara),
--- which is the position this line's "fourth corner" has meant since it
--- began, via `AnuktaAvaktavya`'s àà¾à®à¯à¿à• and à¨à¿ààà¯.  This file keeps its
--- name for now because thirteen modules import it and the rename is a
--- separate, mechanical cycle; that is a scheduling fact, not a
--- judgement that the term does not apply.
---
 -- **THE SCHOOL BOUNDARY, and it matters here more than usual.**
 -- `Saptabhangi` and `SaptabhangiNaya` â” another identity's, written in
 -- Devanagari with  identifiers, not merely named in  â”
@@ -241,52 +204,10 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- different vs, so avaktavya is NOT sequential both-ness and the
 -- seven positions do not reduce to two.  **That is their result and
 -- this line does not restate, reprove, or absorb it.**
---
--- What it does to my claims is an OPEN COMPARISON, stated as such:
--- this line identifies the fourth corner AT ONE INSTANCE with failure
--- of the double-negation shift, a principle from a different lineage
--- entirely (Spector 1962; Kreisel), and nothing here has checked
--- whether the DNS identification is compatible with their krama/saha
--- separation, or whether it collapses a distinction they keep.  Until
--- that is checked, treating the two as one toolkit would be exactly
--- the error CLAUDE.md names â” and the honest position is that I have
--- an identification at one instance and they have a structure, and the
--- relation between them is unproved.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end.  The file was
--- renamed under the owner's directive (CLAUDE.md, "File naming",
--- 2026-08-19) to lead with ààµà•àààµàà¯ â” the fourth bhaga of the Jaina
--- saptabhag, which is the position this line has meant by "the
--- fourth corner" throughout, via `AnuktaAvaktavya`'s àà¾à®à¯à¿à• and à¨à¿ààà¯.
--- Eleven importing modules had their `open import` line rewritten
--- mechanically; nothing else in any of them changed, and all twelve
--- re-checked EXIT=0 with zero warning lines.
---
--- **AND THE RENAME EXPOSED SOMETHING STRUCTURAL WORTH RECORDING.**  Of
--- the eleven importers, most take only `Any`, `decAny` and
--- `memberToAny` â” list utilities that have nothing to do with the
--- fourth corner, or with Jaina logic, and that ended up here because
--- this is where they were first needed.  So a module named for a
--- position in the saptabhag is load-bearing for the Pareto
--- stratification, which is Goldberg/Deb non-dominated sorting and has
--- no Indian source at all.  That is not a naming problem the directive
--- creates â” it is a factoring problem the rename made visible: the
--- utilities want their own module, and the corpus already has THREE
--- separate `All` definitions for the same reason.  Consolidating them
--- touches other identities' files, so it is an OFFER and not an edit,
--- and it is recorded here rather than done.
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end.  **THE
--- PREVIOUS NAME WAS WRONG AND THIS RECORDS THE CORRECTION.**
---
--- One cycle ago this file, and three others on this line, were renamed
--- `Avaktavya_*` on the grounds that "the fourth corner" is the fourth
--- bhaga of the saptabhag.  The next cycle proved it is not:
--- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition`
+-- ON THE NAME.  `OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition`
 -- shows the corner is a PRODUCT of two independent negations, and that
 -- simultaneous refusal collapses into the sequential pair â” `Â (A âŠ B)`
 -- and `(Â A) — (Â B)` are interderivable here with no hypothesis.  By
@@ -295,16 +216,5 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 --
 -- So the position this line occupies is the THIRD bhaga â”
 -- ààà¯à¾àà-ààààà¿-à¨à¾àààà¿, asserted à•àà°à®àà (kramena, in sequence) â” and the
--- four files now lead with `KramaAstiNasti_`.  Fifteen modules had
--- their `module` or `open import` line rewritten mechanically; no
--- statement in any of them changed, and all fifteen re-checked EXIT=0
--- with zero warning lines.
---
--- **The naming directive is what made this refutable.**  An
--- English-only title asserts nothing about the object and cannot be
--- checked against it; naming a file for a tradition's term states a
--- claim, and this one failed in one cycle.  The lesson for the rest of
--- the backlog: when adopting a term, prove the object has the property
--- the term names â” before the rename, not after.
---
+-- files on this line lead with `OrderAstiNasti_`.
 ------------------------------------------------------------------------

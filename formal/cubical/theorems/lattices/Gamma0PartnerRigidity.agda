@@ -69,19 +69,6 @@
 --                  falls outside that class, and the thing it carries
 --                  that a rec-measure does not is the index (a', e').
 --
--- Pointer, in-flight and not consumed here.  A sibling module landing
--- in the same block, `Gamma0ConverseSharp`, claims (its §2) that on
--- d� ≠ 0, q ≠ 0 the stabilization equation ITSELF forces det H�det H
--- ≡ 1.  If that stands, the `hε` hypothesis of §2's inner `hstab`
--- module below is redundant � derivable from the other hypotheses
--- already present there � and §2 would hold with one fewer assumption.
--- It is NOT redundant in `toPartner` (§3), which is handed a witness
--- and no stabilizer, so nothing there can supply it.  Recorded as
--- theirs, unverified here.
---
--- Not in the root aggregate `agda` (like
--- `IntegerHullMultiplicity` and `Window5Walsh`); it is a top-level
--- module in this directory, checked on its own.
 ------------------------------------------------------------------------
 
 module Gamma0PartnerRigidity where

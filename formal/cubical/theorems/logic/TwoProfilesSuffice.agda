@@ -60,9 +60,6 @@
 -- is exact now â” but it says the earlier reading was measuring the
 -- wrong thing, and that a "must be exhaustive" verdict is a claim about
 -- witness count that has to be proved, not read off a finite type.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TwoProfilesSuffice where
@@ -197,14 +194,10 @@ says-nki-Ï†â‚‚ = refl
 -- verdict of "this one must be exhaustive" is a lower bound on witness
 -- count and needs a proof of its own â” Â§2 is that proof for the bound 1,
 -- and Â§3 shows the bound is exactly 2.
---
--- OPEN, named and not estimated: whether any site in this corpus needs
--- more than two.  Nothing here suggests one does, and nothing here rules
--- it out.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 7.  CORRECTION, appended 2026-08-18 â” same day, next commit.
+-- 7.  CORRECTION.
 --
 -- Â§"WHAT THE CORRECTED DISTINCTION IS" above says the invariant is the
 -- number of witnesses, "1 for à²à¾à˜àµ, àà¨ààµààààà¿, carry/borrow and the fuel

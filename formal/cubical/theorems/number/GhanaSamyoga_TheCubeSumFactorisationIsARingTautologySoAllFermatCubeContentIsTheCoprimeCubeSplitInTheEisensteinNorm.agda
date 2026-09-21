@@ -90,7 +90,7 @@ open Tautology ℤCommRing public
 --     is the whole remaining content of Fermat's cube; it is NOT
 --     inhabited here.  `Coprime` and `IsCube` are left as parameters so
 --     the type records the shape of the debt without importing a �[ω]
---     development that does not yet exist.
+--     development.
 ------------------------------------------------------------------------
 
 CubeSplit :

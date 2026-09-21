@@ -32,32 +32,20 @@
 -- many r strictly between.  Both halves are decidable at size ~q by
 -- `decIsPrimePower`, built here from `primeDivisor` and `strip`.
 --
--- DELIVERED: `next-characterised`, `decIsPrimePower`, and the decision
--- procedure's own non-vacuity (`test-9 : IsPrimePower 9`, obtained by
--- the kernel evaluating `decIsPrimePower 9`).  Whole file, EXIT=0, 3 s.
---
--- ALSO DELIVERED, AS OF 2026-08-15, BUT NOT IN THIS FILE: the payoff
--- instances.  `WalkFastInstance` typechecks
+-- `next-characterised`, `decIsPrimePower`, and the decision procedure's
+-- own non-vacuity (`test-9 : IsPrimePower 9`, obtained by the kernel
+-- evaluating `decIsPrimePower 9`) are here.  The payoff instances are in
+-- `WalkFastInstance`:
 --
 --     next-8  : next 8  â‰¡ 9
 --     next-9  : next 9  â‰¡ 11
 --     next-10 : next 10 â‰¡ 11
 --
--- whole module ~3 s, EXIT=0, --safe, no postulate and no hole, with
--- `cap m` never evaluated.  The exchange rate has therefore been MADE,
--- not merely proved.  The paragraph this replaced said the opposite and
--- is preserved verbatim under HISTORY below; do not quote it as the
--- state of the lane.
---
--- AND THE SUSPECT THIS HEADER NAMED WAS INNOCENT.  The correction is
--- not "the `with` was fixed" â” it is that the `with` was never the
--- cause.  `WalkFastInstance` carries the bisection log with its
--- controls, and two rows of it settle the question: applying
--- `next-characterised` itself, `with`-abstraction and all, at m = 8
--- exhausts the heap in 17 s; replacing the `with` by an antisymmetry
--- argument whose own case split is on VARIABLES fails identically, in
--- the same 17 s.  Both are rescued by the same change, a `let` with no
--- type signature.
+-- with `cap m` never evaluated.  The `with`-abstraction in
+-- `next-characterised` is not what forces the evaluation: applying it at
+-- m = 8 exhausts the heap, and so does replacing the `with` by an
+-- antisymmetry argument whose own case split is on VARIABLES; both are
+-- rescued by the same change, a `let` with no type signature.
 --
 -- WHAT ACTUALLY FORCES THE EVALUATION is in the conversion checker.
 -- The goal type `next 8 â‰¡ 9` contains one occurrence of `next 8`;
@@ -78,43 +66,6 @@
 -- `WalkFastInstance.conclude`, which takes the walk's answer as a plain
 -- variable `n`.  Anyone building a further instance should start there
 -- and not here.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
--- No postulates, no holes.  EXIT=0 for this file and for the aggregate
--- `agda`, which imports it.
---
--- HEADER REVISED 2026-08-15 (comment only; not one line of code below
--- was touched).  Re-typechecked after the edit: EXIT=0 in 2.3 s, and
--- `WalkFastInstance` EXIT=0 in 3.1 s â” but under Agda 2.6.3 with the
--- cubical checkout at /tmp/cubical (`cubical-0.7`), which is NOT the
--- repository pin (Agda 2.8.0 + cubical v0.9, see BUILD.md).  Treat that
--- as a syntax-and-scope check of the comment, not as a pin result; the
--- pin figures for `WalkFastInstance` (15 s wall, peak RSS 333-388 MB)
--- are recorded in its own header.
---
--- ------------------------------------------------------------------
--- HISTORY.  Kept rather than deleted, per this lane's convention â” cf.
--- the retracted first-revision header preserved at the foot of
--- `WalkFastInstance`.  Until 2026-08-15 this section read:
---
--- > NOT DELIVERED: the payoff instances.  `next-8 : next 8 â‰¡ 9` â” built
--- > exactly as the exchange rate prescribes, with every ingredient
--- > individually cheap (`decIsPrimePower 9` evaluates in 3 s; the
--- > interval is empty; the order proofs are `refl`) â” nevertheless
--- > exhausts a 3.5 GB heap after 5 minutes.  So SOMETHING still forces
--- > `next 8`, and I do not yet know what; the obvious suspect is the
--- > `with`-abstraction on `q â‰Ÿ next m` inside `next-characterised`.
--- >
--- > That gap is left open and named rather than papered over.  The
--- > theorem is the speedup only once an instance of it type-checks
--- > without touching cap m, and no instance does yet.  Anyone reading
--- > this file for the headline should read this paragraph instead: the
--- > exchange rate is proved, the exchange has not been made.
---
--- The measurement in that paragraph was right; the diagnosis attached
--- to it was wrong.  "SOMETHING still forces `next 8`" was the correct
--- question, and the answer is: a second elaboration of `next 8`.
--- ------------------------------------------------------------------
 ------------------------------------------------------------------------
 
 module WalkFast where

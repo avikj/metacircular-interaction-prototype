@@ -6,7 +6,7 @@
 -- the CERTIFICATE STRUCTURE of the two fillability predicates of that
 -- note's Def 2.2.2, formalised as datatypes and decision procedures.
 --
--- HEADLINE STATEMENTS (all checked, no postulates, no holes, --safe):
+-- HEADLINE STATEMENTS:
 --
 --  1. Cert / FillTerm      The finite certificate of the note's
 --                          Fill_term (Def 2.2.2, §3.4(i)): an inductive

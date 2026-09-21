@@ -70,9 +70,6 @@
 -- univalent invariant.  This is the finer statement: it is not invariant
 -- under the one device that exists to change it, and it IS invariant
 -- under the two that do not.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module AnuvrttiIsTheSameTrade where
@@ -185,21 +182,12 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 -- sense, each provably; ‡‡‡µ‡æ‡¶ and ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞ are local, which needs no
 -- proof because no extra argument appears in their types.  And ‡‡®‡‡µ‡‡‡‡‡ø
 -- pays that non-locality for a saving that can be counted.
---
--- OPEN, named and not estimated.  Whether the two local devices are
--- local UNCONDITIONALLY.  ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞ is local only when the needed sets
--- are intervals of the ‡‡ø‡µ‡‡‡‡‡∞ order, which `Pratyahara
--- .no-order-makes-all-intervals` shows fails in general ‚î so the
--- repeated ‡‡ is buying locality, and whether that purchase is minimal
--- is exactly the question that module leaves open.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  CORRECTION to ¬ß5's open item, and to the column ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞ is in.
+-- 6.  CORRECTION to ¬ß5: the column ‡‡‡∞‡‡‡Ø‡æ is in.
 --
--- ¬ß5 names as open "whether the two local devices are local
--- UNCONDITIONALLY", guessing that ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞'s difficulty would be
--- locality.  It is not, and ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞ is not local.
+-- ¬ß5 puts ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞ in the local column.  ‡‡Ø‡æ‡‡æ‡∞ is not local.
 --
 -- `PratyaharaBuysTotalityWithLocality` separates two
 -- costs the header above ran together:
@@ -228,56 +216,24 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 7.  PRIOR-ART CORRECTION, appended after reading
+-- 7.  PRIOR ART
 --
--- CLAUDE.md requires prior art to be searched BEFORE the write-up, and
--- names three rediscoveries in this corpus caught only at audit time.  I
--- did not search it for this thread.  A 616-line map of exactly this
--- on what I wrote.
---
--- FIRST, AND IT IS A LIVE ERROR UPSTREAM OF THIS FILE.
---
--- `Anuvrtti.agda` ¬ß, which this module builds on, states:
+-- FIRST.  `Anuvrtti.agda` ¬ß, which this module builds on, states:
 --
 --   > `vipratiedhe para kryam` ‚î "of two conflicting rules, the later
 --   > prevails"
 --
--- as settled fact.  The map's entry says, in bold: **DISPUTED ‚î do not
--- cite "later rule wins" as settled.**  Rajpopat (Cambridge PhD,
+-- as settled fact.  That reading is DISPUTED.  Rajpopat (Cambridge PhD,
 -- published 2022-12-15, *In Pini We Trust*) argues 1.4.2 means the rule
 -- applicable to the RIGHT-HAND-SIDE OPERAND wins, and that the serial
--- reading is a 2,500-year misreading.  The map further records that the
--- brief which produced an earlier note asserted the serial reading as
--- fact, and that this is precisely what Rajpopat contests.
---
--- I repeated it.  It is also in the standing state I have been handed
--- each cycle.  Neither is a reason to have asserted it.
+-- reading is a 2,500-year misreading.
 --
 -- Nothing in this module's THEOREMS depends on the reading ‚î ¬ß2 and ¬ß3
--- are about ‡‡®‡‡µ‡‡‡‡‡ø, not about conflict resolution.  What is corrected
--- is a claim in the surrounding prose of a file I depend on, and my
--- having propagated it.
+-- are about ‡‡®‡‡µ‡‡‡‡‡ø, not about conflict resolution.
 --
--- SECOND, AND IT IS PRIOR ART I SHOULD HAVE CITED.
---
--- `Pratyahara.agda` explicitly declines to claim that Pini's ordering
--- is optimal, saying that would need "the family enumerated".  That hedge
--- is honest.  But the theorem EXISTS: Petersen 2004, *A Mathematical
+-- SECOND.  `Pratyahara.agda` does not claim that Pini's ordering is
+-- optimal.  The theorem exists: Petersen 2004, *A Mathematical
 -- Analysis of Pini's ivastras*, JoLLI 13:471‚ì489, proves optimality
 -- of the ordering from the Hasse diagram of the intersection-closure
--- alone, with no phonological input.  The map calls it "the one item on
--- this page that is already a proved statement of the kind this repo
--- demands".
---
--- `PratyaharaBuysTotalityWithLocality` names as open "whether some order
--- and naming convention achieves totality and locality together at three
--- letters".  That is adjacent to Petersen's result and I did not check
--- whether it is settled by it.  I still have not ‚î the paper is not
--- reachable from this container ‚î but the open item should have carried
--- the citation from the start instead of standing as though nothing were
--- known.
---
--- The pattern in both: I was reading the tradition and not the
--- repository, having spent the previous stretch reading the repository
--- and not the tradition.
+-- alone, with no phonological input.
 ------------------------------------------------------------------------

@@ -17,10 +17,10 @@
 -- deep, monotone in slack.
 --
 -- The boundary, restated from Svarupa so this module cannot be read
--- as more than it is: this is representation, not yet
+-- as more than it is: this is representation, not
 -- self-INTERPRETATION â” an evaluator over threads needs the recursor,
--- and the vocabulary remains first-order.  The lamp sees the lamp;
--- it does not yet light itself.
+-- and the vocabulary is first-order.  The lamp sees the lamp;
+-- it does not light itself.
 ------------------------------------------------------------------------
 
 module SvaSamvedana_TheBodysSyntaxRoundTripsThroughItsOwnDataAndTheKnowingKnowsItself where

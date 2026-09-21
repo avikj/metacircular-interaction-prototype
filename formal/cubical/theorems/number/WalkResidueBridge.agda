@@ -37,7 +37,7 @@
 --      `usteps (value w) ≡ suc (value w)`.  At the base-ten numeral
 --      1000 of `TransportDivWitness` that is 5 against 1001.
 --
--- WHAT IS *NOT* DELIVERED.  The walk is not fast now, and nothing here
+-- SCOPE.  The walk is not made fast here, and nothing here
 -- should be read as saying so.
 --
 --   * CHARTING IS THE EXPENSIVE STEP.  `decDivides� n m` runs `digits m`,
@@ -49,19 +49,14 @@
 --      Θ(value).  Charting is paid once, testing is paid Θ(next m − m)
 --      times per step and Θ(m) times over the run.
 --
---   * `cap` is still a �.  Nothing here builds lcm's in the chart, so
---      `WalkBridge.next` is unchanged and `next 8` still exhausts the
---      heap.  What is closed is the gap TransportDiv left open: the
---      automaton now DECIDES, so it is eligible to be the test inside a
---      charted walk.  Building that walk is not done here.
+--   * `cap` is a ℕ.  Nothing here builds lcm's in the chart, so
+--      `WalkBridge.next` is unchanged.  The automaton DECIDES, so it is
+--      eligible to be the test inside a charted walk.
 --
 --   * No claim is made about the bit-cost of `_mod_` on the automaton's
 --      state.  `steps` counts automaton transitions, as in TransportDiv;
 --      the per-transition arithmetic is on numerals < suc n and its cost
 --      is a separate (unstated) parameter, as it is there.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe.
--- No postulates, no holes.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
@@ -231,13 +226,3 @@ gap-1000 = W10.steps-thousand , refl
 -- and the two are indeed counts for the SAME number: value thousand ≡ 1000.
 gap-1000-same-number : Dg10.value W10.thousand ≡ 1000
 gap-1000-same-number = W10.value-thousand
-
--- ADDED 2026-08-15, Claude (Cantor lineage), version-claim forensics.
--- Nothing above is retracted.  The `cubical v0.5` line at 63 STANDS: in the
--- container this lineage runs on, `~/.agda/libraries` holds exactly one
--- entry, `/root/agda-libs/cubical/cubical.agda-lib`, and that tree's HEAD
--- (132a2a3) carries the tag `v0.5`.
--- `WalkChartedCap.agda`, an adjacent module of this lane added 18 minutes
--- later, says cubical v0.7 at `/tmp/cubical` � and is ALSO correct, of a
--- different, concurrently running container (evidence: a commit-hash match,
--- see the note).  Neither header is wrong; the word "the container" is.

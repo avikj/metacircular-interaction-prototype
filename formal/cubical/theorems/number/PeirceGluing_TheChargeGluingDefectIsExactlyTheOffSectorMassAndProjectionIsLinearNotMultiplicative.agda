@@ -23,7 +23,7 @@
 --        propagation is closed under composition iff all off-sector
 --        excursion-return terms vanish".
 --
--- (3) D0015 Â§15.8, listed by the corpus as NOT YET TOUCHED:
+-- (3) D0015 Â§15.8:
 --
 --       "fixed-charge coefficient extraction
 --        Î _c(FG) = Î_{i+j=c} Î _i(F)Î _j(G); Î _c linear but not
@@ -103,7 +103,7 @@
 --         Î -not-mult       Î _1 (indâ âŠ  indâ) â‰ Î _1 indâ Â Î _1 indâ
 --         Î -not-mult-âˆ     Â âˆ F G c. Î _c (F âŠ  G) â‰¡ Î _c F Â Î _c G
 --
--- WHAT IS NOT PROVED, exactly.
+-- SCOPE, exactly.
 --
 --  * Orthogonality (e_r e_s â‰¡ 0 for r â‰  s) is part of the hypothesis
 --    "complete orthogonal family of idempotents" in the task and in
@@ -119,10 +119,7 @@
 --    ÂÂ(some off-sector component is nonzero), not the component.  The
 --    price is genuine: a sum of n ring elements being nonzero does not
 --    constructively locate a nonzero summand unless equality in R is
---    decidable (`offâ‰0â’witness`) or otherwise stable.  What
---    `CompressionDefect` calls open â” a STATE in a module that changes a
---    future observation â” is still not touched: there is no module,
---    no state, no observation here, only ring elements.
+--    decidable (`offâ‰0â’witness`) or otherwise stable.
 --
 --  * D0026's arithmetic operators (the charge operator C with
 --    eigenvalues Î©(n), the projectors Î _r on â“Â²(â•), the shift U_h) are

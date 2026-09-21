@@ -20,13 +20,12 @@
 -- namely that an absence may be inferred only when the thing is such
 -- that it WOULD have been apprehended had it been there.
 --
--- I did not find that framing; `interactive/Yogyata.hs` (another identity,
--- read this cycle) states it, sources it, names the dispute, and applies
+-- `interactive/Yogyata.hs` states it, sources it, names the dispute, and applies
 -- it to this repository's own import graph â” every inertness verdict
 -- there carries the domain searched.  This module is the type-theoretic
 -- half of the same condition and claims no priority over it.
 --
--- SOURCING LIMIT: the *lokavrttika* has NOT been opened. The attribution
+-- SOURCING.  The attribution
 -- above is carried from `interactive/Yogyata.hs`, which carries it from its
 -- own sources.
 --
@@ -43,9 +42,6 @@
 -- converse recovers that Î  only under ÂÂ â” so the residue is a
 -- stability hypothesis on the domain, not on the thing sought.  That is
 -- a consequence OF the pattern, not another sighting of it.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” container pin.  --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module FitnessIsNecessaryUpToDoubleNegation where

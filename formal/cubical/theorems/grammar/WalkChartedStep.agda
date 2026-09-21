@@ -3,27 +3,14 @@
 ------------------------------------------------------------------------
 -- WalkChartedStep
 --
--- THE SEARCH, IN THE CHART.  Two modules of this lane name the same
--- remaining gap in their own headers.  `WalkResidueBridge`:
---
---     "`cap` is still a â•.  Nothing here builds lcm's in the chart, so
---      `WalkBridge.next` is unchanged and `next 8` still exhausts the
---      heap."
---
--- and `WalkChartedCap`, which removed that half and then listed what a
--- fast walk step still needs:
---
---     "(a) `findND` re-typed against `Word`, using `WalkResidueBridge`'s
---      `decDivides` in place of `decâˆ` -- the mathematics is done, the
---      rewrite is not."
---
--- (a) is what this file is.  The two halves it stands on are already
--- proved: `WalkResidueBridge.decDividesâ•-agrees` says the charted
--- divisibility test IS `decâˆ`'s decision (`Dec` of a proposition is a
--- proposition), so it substitutes without disturbing a downstream proof;
--- `WalkChartedCap.value-capw` says the charted capacity IS the capacity.
--- What was missing is the search between them: a `findND` that consumes
--- the capacity as a `Word` and never converts it back.
+-- THE SEARCH, IN THE CHART.  This file is `findND` re-typed against
+-- `Word`, using `WalkResidueBridge`'s `decDivides` in place of `decâˆ`.
+-- The two halves it stands on: `WalkResidueBridge.decDividesâ•-agrees`
+-- says the charted divisibility test IS `decâˆ`'s decision (`Dec` of a
+-- proposition is a proposition), so it substitutes without disturbing a
+-- downstream proof; `WalkChartedCap.value-capw` says the charted
+-- capacity IS the capacity.  The search between them is a `findND` that
+-- consumes the capacity as a `Word` and never converts it back.
 --
 -- WHAT IS DELIVERED.
 --
@@ -120,10 +107,6 @@
 --     `TransportDiv` and `WalkChartedCap`.  `run` counts transitions;
 --     the cost of one `_mod_` on numerals < s is not counted, and no
 --     count is claimed for `gcd`.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
--- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9).
 ------------------------------------------------------------------------
 
 module WalkChartedStep where

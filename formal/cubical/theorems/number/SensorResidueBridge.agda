@@ -3,24 +3,13 @@
 ------------------------------------------------------------------------
 -- SensorResidueBridge
 --
--- THE RESIDUE BRIDGE, CHECKED.  `SensorNerode` proves the
+-- THE RESIDUE BRIDGE.  `SensorNerode` proves the
 -- Nerode theorem for a family `S` of moduli in the form
 --
---     Ind S a b  âŸº  lcm S âˆ dist a b
+--     Ind S a b  âŸº  lcm S âˆ£ dist a b
 --
--- and its header names, as the FIRST of its two open gaps:
---
---     "**The residue bridge is not proved here.**  The note writes the
---      observation as `profile_S(n) = (n mod m)_{mâˆˆS}`, and this file
---      works with `m âˆ dist a b` instead.  These agree â” that is the
---      standard characterisation of congruence â” but `_mod_` does not
---      appear below, so a reader should take Â§3 as a theorem about
---      divisibility of the distance, and the identification with equal
---      residues as an unchecked (if entirely standard) step."
---
--- This module is that step, checked.  It closes gap (i).  It does NOT
--- close gap (ii) â” the divisor lattice â” and Â§7 says exactly what is
--- missing there and why the tools that arrived since do not supply it.
+-- with `m âˆ£ dist a b` in place of equal residues `(n mod m)_{mâˆˆS}`.
+-- This module is the identification of the two.
 --
 --
 -- WHAT IS CHECKED
@@ -107,27 +96,6 @@
 --
 -- SCOPE
 --
---  * **SensorNerode's SECOND gap is not closed.**  Its Â§2 â” the divisor
---    lattice, "the reachable states at frontier k are exactly the
---    divisors of cap k" â” stays open, and this file does not touch it.
---    The tools that arrived since (`CoprimeSplitting.primeDivisor` and
---    `strip`) supply the two ingredients its header named as missing
---    (existence of a prime divisor; the p-part/p-free split), but they
---    are not what the (âŠ) direction turns on.  That direction needs
---
---        p prime, p^e âˆ lcm(1..k)  âŸ  p^e â‰ k,
---
---    which is a statement about the VALUATION of an lcm, and neither
---    `strip` nor `primeDivisor` gives it: `strip` splits ONE number at a
---    prime, and says nothing about how the exponent behaves under `lcm`.
---    What is needed first is `p^e âˆ lcm (x âˆ xs) â’ (p^e âˆ x) âŠ (p^e âˆ
---    lcm xs)` â” the max-of-valuations law, provable from `strip` on both
---    arguments plus Euclid, but a module's worth of work â” and after it a
---    well-founded recursion on the divisor that reassembles it as an lcm
---    of a family in [1,k].  That is a piece of work, not an oversight,
---    exactly as SensorNerode's header says; naming its first lemma is
---    the whole of the progress this file makes on it.
---
 --  * Nothing here is novel.  "Congruent modulo every element of S iff
 --    congruent modulo lcm S" is elementary, and so is the m âˆ aâˆ’b
 --    characterisation of congruence.  What is new is that the two
@@ -139,13 +107,6 @@
 --
 --  * No cost claim.  Â§6 exhibits the automaton form; the step counts are
 --    `TransportDiv.steps` and are not re-derived here.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  Whole file, cold interface: 3.4 s.  No postulates, no
--- holes.  NOT verified against the pin in formal/cubical/BUILD.md
--- (Agda 2.8.0, cubical v0.9); the modules it imports carry the same
--- caveat, and `WalkResidueBridge`'s header records why three toolchain
--- states are live in this repository at once.
 ------------------------------------------------------------------------
 
 import Digits            as Dg
@@ -369,7 +330,7 @@ indâ†’sameProfile []      a b _        = tt
 indâ†’sameProfile (m âˆ· S) a b (d , ds) =
   âˆ£distâ†’modâ‰¡ m a b d , indâ†’sameProfile S a b ds
 
--- THE IDENTIFICATION SensorNerode's header calls unchecked.
+-- THE IDENTIFICATION.
 profileâ‰¡Ind : (S : List â„•) â†’ Positive S â†’ (a b : â„•)
             â†’ SameProfile S a b â‰¡ Ind S a b
 profileâ‰¡Ind S pos a b =

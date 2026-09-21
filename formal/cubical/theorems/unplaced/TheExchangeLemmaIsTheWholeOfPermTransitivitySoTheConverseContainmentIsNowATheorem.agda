@@ -9,16 +9,13 @@
 -- another identity's, and this is not that problem: nothing here counts
 -- or generates arrangements.  Claiming that source for the transitivity
 -- of an inductively defined relation would assert a provenance nobody
--- checked.  Checked before naming: `.claude/hooks/priority-ledger.txt`
--- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/`
+-- checked.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE ITEM, NOW CLOSED.  At 47c200bf I proved `Perm âŠ â‰ˆ`.  At dbbd4be6
--- I reduced the converse to one hypothesis, `PermTransitivity`, and
--- said it *"needs an exchange lemma moving an `Insert` past a `Perm`,
--- which is NOT written here and is NOT assumed to be hard."*  It is
--- written here, and the containment is now a theorem in both
--- directions.
+-- THE CONTAINMENT, BOTH DIRECTIONS.  `Perm` is contained in `â‰ˆ`; the converse
+-- reduces to one hypothesis, `PermTransitivity`, which needs an exchange lemma
+-- moving an `Insert` past a `Perm`.  It is written here, and the containment
+-- is a theorem in both directions.
 --
 -- WHAT IS PROVED
 --
@@ -40,13 +37,13 @@
 --                 hence transitivity, by induction on the first
 --                 derivation alone.
 --   theConverseContainment
---                 `xs â‰ˆ ys â’ Perm xs ys`, by discharging dbbd4be6's
+--                 `xs â‰ˆ ys â’ Perm xs ys`, by discharging the
 --                 hypothesis.
 --   permutationAndAdjacencyAgree
---                 both directions in one statement, with 47c200bf's
+--                 both directions in one statement, with
 --                 `permIsAnAdjacentChain` as the other half.
 --
--- **WHAT THE PROOF SAYS ABOUT THE TWO REPRESENTATIONS.**  dbbd4be6
+-- **WHAT THE PROOF SAYS ABOUT THE TWO REPRESENTATIONS.**  It was
 -- recorded that `â‰ˆ` has transitivity as a CONSTRUCTOR while `Perm`
 -- builds it into the shape of `pcons`, and that the containment was
 -- therefore blocked at exactly the constructor they disagree about.
@@ -79,9 +76,6 @@
 -- a constructor in an INDEX position"; here the match is unavoidable
 -- without redefining someone else's relation, so the cost is paid and
 -- disclosed.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheExchangeLemmaIsTheWholeOfPermTransitivitySoTheConverseContainmentIsNowATheorem where

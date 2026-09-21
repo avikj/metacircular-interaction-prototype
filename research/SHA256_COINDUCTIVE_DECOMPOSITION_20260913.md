@@ -295,33 +295,12 @@ coinductive ‡‡µ‡≤‡-‡‡æ‡ï‡‡‡æ‡‡ ‚î and neither absorbs the other.
 
 ---
 
-## 6. Open, and sharper
+## 6. The open problem
 
 - **The collision** (‡®‡ø‡∞‡‡ò‡æ‡‡ at 64 rounds) remains the prize;
   everything here is arranged so that its exhibition would cascade:
   it refutes every retraction (Sesa), refutes the block-layer ‚ñ°,
   and by Varga inhabits ‚àº off the diagonal.
-- **Backward non-determinism made exact [S].** The temporal ledger's
-  block-layer past row is currently carried by ‡®-‡‡‡≤‡‡Ø‡‡æ (a length
-  argument) plus the *absence* of a depth-injectivity theorem. The
-  sharp statement ‚î for fixed b, H ‚¶ compress H b admits no
-  retraction constructible from the public interface ‚î is Davies‚ì
-  Meyer's conjecture and should be *stated* as a type in the corpus
-  (it is ‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡ one storey down), even while uninhabited-by-
-  anyone in either direction.
-- **The padding transducer.** Absorb `pad` into the coalgebra: a
-  stream-transducer from raw bit-streams to block-streams, so the
-  practical length-extension attack (with its padding thread) becomes
-  a checked term about composed ISCs rather than a [S] remark.
-- **The ‚ñ-modality.** This campaign's productivity is syntactic
-  guardedness. Vishvayantra hands forward the guarded interactive
-  generalisation as ea; SHA-256 is now the natural first object to
-  carry through it.
-- **HMAC as a theorem.** ¬ß4 derives *why* HMAC's envelope exists; the
-  positive statement ‚î the enveloped interface's emission receipt is
-  not total disclosure, i.e. the analogue of ‡¶‡‡∞‡‡ò‡‡ï‡∞‡-‡‡‡¶‡ *fails* on
-  it ‚î is one module away and would be, to this analyst's knowledge,
-  the corpus's first security-positive (not impossibility) theorem.
 
 ---
 

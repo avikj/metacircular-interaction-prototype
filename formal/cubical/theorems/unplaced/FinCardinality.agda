@@ -26,7 +26,7 @@
       That is `injSameCard→isEquiv` (§2), with the sum lemma `sum-pointwise`
       (§1) it rests on.  Neither has a counterpart in `formal/`.
     * Cubical v0.9 has NO Chinese remainder theorem of any form
-      (`grep -ril chinese` over the v0.9 tree is empty; re-verified today, and
+      (`grep -ril chinese` over the v0.9 tree is empty; and
       `formal/` has none either — `Gamma0Index.agda`'s `crtGL12`, `crtΓ12`,
       `crtGL10`, `crtΓ10` are four `refl`s on closed numbers).  `crtEquiv` (§4)
       is that theorem, in the form a count can be transported along, and
@@ -35,8 +35,7 @@
   The mathematics is entirely classical (CRT; "an injective map between finite
   sets of the same size is bijective"); see the HoTT book's finite-set chapter,
   the cubical library's own `FinSet` development, and Agda-unimath's
-  finite-type library.  What is claimed is the certificate under this pin, and
-  that it is the layer the Γ₀(N)-index lane was blocked on.
+  finite-type library.  What is claimed is the certificate under this pin.
 
   Hypotheses are arguments, never comments.  §6 gives five controls, three of
   them NEGATIONS: the order hypothesis of `split+`, the coprimality hypothesis

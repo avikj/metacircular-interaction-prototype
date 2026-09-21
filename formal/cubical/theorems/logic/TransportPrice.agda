@@ -3,9 +3,9 @@
 ------------------------------------------------------------------------
 -- TransportPrice
 --
--- The live thread `Anekanta` left open: collapse is settled (agreement
--- permits it, plurality blocks it), so the only question remaining about
--- two nayas is what a transport between them COSTS.
+-- In `Anekanta`, collapse is settled (agreement permits it, plurality
+-- blocks it); the question about two nayas is what a transport between
+-- them COSTS.
 --
 -- It has an answer, and the answer is that the question is smaller than
 -- it looks.
@@ -46,20 +46,15 @@
 -- whole of Pini's lghava discipline, in two theorems.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- AND WHY "PRICE" IS THE WRONG WORD FOR IT â” recorded, owner 2026-08-18
+-- AND WHY "PRICE" IS THE WRONG WORD FOR IT
 --
 -- The potential is not a fee anyone pays.  It is a coordinate on
 -- presentations, and "the price of getting from p to q" is nothing but
 -- the difference of two coordinates.  Nothing is spent; a reformulation
 -- gains what the difference says and loses nothing, because by
--- `Apavada.Reformulation` the denotation is untouched.  The scarcity
--- reading of this quantity was withdrawn in
--- too; the name `TransportPrice` is kept only because the thread that
--- asked the question used it, and `loop-is-free` is the theorem that
+-- `Apavada.Reformulation` the denotation is untouched.  The name `TransportPrice` is kept because the
+-- thread that asked the question used it, and `loop-is-free` is the theorem that
 -- makes the objection precise.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TransportPrice where

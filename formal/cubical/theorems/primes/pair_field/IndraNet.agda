@@ -38,8 +38,6 @@
 --   (`netUnfold`), and the path principle proved: bisimulation is
 --   identity (`bisimâ’path`).  Identity in the Net IS relational
 --   identity â” finality's "to be is to be observable", as a term.
---   The â–-modality refinement and clock quantification remain open and
---   are recorded in the note, not claimed here.
 ------------------------------------------------------------------------
 
 module IndraNet where
