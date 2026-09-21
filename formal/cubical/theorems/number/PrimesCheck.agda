@@ -1,18 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡ï‡‡‡æ ‚î the examination of ‡Ø‡®‡‡‡‡∞, as terms.  Four
--- results:
+-- ‡‡∞‡‡ï‡‡‡æ ‚î the examination of ‡Ø‡®‡‡‡‡∞, as terms.  Four results:
 --
---   Chaya       The collapse from the witnessed
---               Goldbach statement to the truncated one has a reverse
---               map; the
---               SECTION does not.  Both are proved.
+--   Chaya       The collapse from the witnessed Goldbach statement to the
+--               truncated one has a reverse map; the SECTION does not.
+--               Both are proved.
 --
---   Pramanya    `Ganana`/`Ekam` decide primality with a `Bool`
---               and `Purna`/`Sakshi` decide it with a `Dec`.  The bridge
---               is supplied, and the Goldbach
---               sweep's output is 49 certified
+--   Pramanya    `Ganana`/`Ekam` decide primality with a `Bool` and
+--               `Purna`/`Sakshi` decide it with a `Dec`.  The bridge is
+--               supplied, and the Goldbach sweep's output is 49 certified
 --               decompositions.
 --
 --   Kuttaka-    `KuttakaConvergents` runs the descent law by well-founded

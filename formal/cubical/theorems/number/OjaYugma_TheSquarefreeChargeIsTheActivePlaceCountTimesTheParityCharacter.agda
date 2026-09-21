@@ -123,4 +123,3 @@ open import Cubical.Data.Int
   - (- (pos (suc (ओजः bs)) · पर्यायः bs))
     ≡⟨ cong -_ (-DistR· (pos (suc (ओजः bs))) (पर्यायः bs)) ⟩
   - (pos (suc (ओजः bs)) · (- (पर्यायः bs))) ∎
-

@@ -24,8 +24,8 @@ open import Kuttaka using (solutionFamily)
 -- formalisation makes it a parameter and proves the equation is
 -- indifferent to it.
 --
--- sections, and that multiplicity is the point: the equation does not pick
--- one.
+-- §1's type admits many sections, and that multiplicity is the point: the
+-- equation does not pick one.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

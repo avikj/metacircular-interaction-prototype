@@ -9,7 +9,6 @@
 -- its positions).  The compound ‡‡µ‡‡∞‡-‡‡ô‡‡ó, "the break of descent", is
 -- built here.
 --
---
 -- The "dependent novelty" generalization ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ ‚î the
 -- inhabited/empty contrast weakened to mere non-equivalence of the
 -- fibres, via pathToEquiv.  The inhabited/empty theorem becomes the

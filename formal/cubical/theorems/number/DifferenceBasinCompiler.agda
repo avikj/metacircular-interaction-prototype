@@ -79,4 +79,3 @@ module _
 
     route : ComposedPath d 1
     route = fabric d membership
-

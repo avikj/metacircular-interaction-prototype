@@ -96,4 +96,3 @@ detPrefix a b p₀ p₁ q₀ q₁ k h =
 -- agree at 0.  Keeping the seeds as parameters is what makes that
 -- visible; it is not generality for its own sake.
 ------------------------------------------------------------------------
-

@@ -831,4 +831,3 @@ private
     ⟪ rop εK , lop φK ⟫ u12 ((0 , 1) , (3 , 0)) ≡ pos 0
   control-off-diagonal-cancels′ =
     funExt⁻ (swap-rop-lop εK φK u12) ((0 , 1) , (3 , 0))
-
