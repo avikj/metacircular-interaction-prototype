@@ -4,14 +4,8 @@
 -- ANonEmptyArchiveHasANonEmptyStratum
 --
 -- `TheParetoStratumIsDecidableAndTheFilterIsExact` computed the maximal
--- layer and closed with two admissions:
---
---   "No claim is made that the stratum is non-empty: for the empty
---    archive it is empty, and for a non-empty archive non-emptiness
---    needs an argument this module does not make."
---
--- and, separately, that one STRATUM is not a STRATIFICATION.  The first
--- is discharged here.  The second is not, and stays named.
+-- layer.  For the empty archive it is empty; for a non-empty archive
+-- non-emptiness needs an argument, made here.
 --
 -- Non-emptiness is not decoration.  DARWIN Â§5.2's controller "first
 -- selects a Pareto stratum S" and then samples inside it; a stratum
@@ -42,11 +36,9 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NO NOVELTY.  "A finite non-empty set has a maximal element for a
 -- decidable partial order" is elementary; it is proved here because the
--- previous module named its absence, and because the constructive proof
--- needs the decision that module supplies rather than excluded middle.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- constructive proof needs the decision
+-- `TheParetoStratumIsDecidableAndTheFilterIsExact` supplies rather than
+-- excluded middle.
 ------------------------------------------------------------------------
 
 module ANonEmptyArchiveHasANonEmptyStratum where
@@ -128,18 +120,10 @@ stratumIsNonEmpty x xs with maximalExists x xs
   m , stratumKeepsEveryMaximal (x âˆ· xs) m mem max
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "A STRATIFICATION.  Removing the layer and repeating needs a
---    termination argument on the archive's length, and nothing here
---    iterates."
---
--- The termination argument is the DECREASING MEASURE, and it is built
--- in
--- `TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
+-- A STRATIFICATION â” removing the layer and repeating â” needs a
+-- termination argument on the archive's length.  That argument is the
+-- DECREASING MEASURE, built in
+-- `TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure`:
 --
 --   filterOut / partitionLength   the filter and its complement
 --                                 PARTITION the list, so their lengths
@@ -149,30 +133,25 @@ stratumIsNonEmpty x xs with maximalExists x xs
 --   theRemainderIsStrictlyShorter instantiated at the Pareto stratum,
 --                                 USING `stratumIsNonEmpty` above
 --
--- THE DEPENDENCY CHAIN IS THREE CYCLES DEEP AND NONE OF IT COULD HAVE
--- BEEN TAKEN IN ANOTHER ORDER: decidability of the order gave a
--- computable stratum; the computable stratum plus a decision gave
--- non-emptiness CONSTRUCTIVELY; non-emptiness gives the strict
--- decrease.  Each cycle's output was the next cycle's only route.
+-- THE DEPENDENCY CHAIN, WHICH CAN BE TAKEN IN NO OTHER ORDER:
+-- decidability of the order gives a computable stratum; the computable
+-- stratum plus a decision gives non-emptiness CONSTRUCTIVELY;
+-- non-emptiness gives the strict decrease.
 --
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The admission this line has carried since it began â”
--- that its theorems are about a vector all of whose coordinates point
+-- The theorems above are about a vector all of whose coordinates point
 -- the same way, while Â§5.2's objectives include quantities to be
--- MINIMISED â” is DISCHARGED for `maximalExists` in
--- `RnaDhana_TheParetoMaximumTransfersToCostCoordinates`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- MINIMISED.  `maximalExists` transfers to MIXED vectors in
+-- `RnaDhana_TheParetoMaximumTransfersToCostCoordinates`.
 --
 -- `mixedMaximalExists` proves that a non-empty archive of MIXED
 -- benefit/cost vectors has a member nothing beats, by calling
 -- `maximalExists` above on the flipped archive and pulling the result
 -- back.  Nothing about maximality is re-proved there.
 --
--- Two things that cycle established about the price:
+-- Two things about the price:
 --
 --   * The bound is needed only in the NEGATIVE half â” soundness of the
 --     flip is unconditional, and it is turning "the flipped z does not
@@ -182,10 +161,4 @@ stratumIsNonEmpty x xs with maximalExists x xs
 --     flip is not injective; it goes through `anyMapBack`, which
 --     recovers a member of the ORIGINAL archive whose flip is the
 --     maximal element found.
---
--- STILL NOT TRANSFERRED: the stratification itself â” `strata`,
--- `theStratificationCovers`, `theStrataArePairwiseDisjoint`,
--- `theStrataAreOrdered`.  Those need the peeling run on flipped
--- vectors and pulled back layer by layer, and that is a separate
--- cycle, not a corollary of this one.
 ------------------------------------------------------------------------

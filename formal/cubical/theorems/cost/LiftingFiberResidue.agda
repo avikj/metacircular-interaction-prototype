@@ -75,43 +75,30 @@
 --    principle, and none could under `--safe` without postulates.
 --
 --  * ยง5 uses a GIVEN enumeration `A โ Fin n`, which is structure.  Mere
---    finiteness `โ A โ Fin n โโ` is NOT claimed to suffice and I do not
---    believe it does: the search that produces the witness runs along a
---    chosen enumeration.  (Contrast `LinearOrderFinite`,
+--    finiteness `โ A โ Fin n โโ` is NOT claimed to suffice: the search
+--    that produces the witness runs along a chosen enumeration.  (Contrast `LinearOrderFinite`,
 --    where mere totality DOES suffice because the target `Dec (x โ y)`
 --    is a proposition.  The target here, an element of `A`, is not.)
 --
 --  * The equivalence in ยง4 is with excluded middle for PROPOSITIONS, at
 --    one universe level.  No choice principle is analysed.
 --
---  * MY LEAST-SURE STEP, and it is not formalised here.  ยง4 quantifies
---    over arbitrary maps `U : A โ’ B` between sets, whereas the note
---    quantifies over the hom-action of a forgetful FUNCTOR.  I claim
---    these coincide, by the following construction, which is argued in
---    prose and NOT checked: let `C` have objects `{a,b}` with
---    `Hom(a,b) = Dec P`, `Hom(b,a) = โ`, and only identities otherwise;
---    let `D` be the same with `Hom(a,b) = Unit*`; let `U` be the
---    identity on objects and the constant map on homs.  Composition
---    never pairs two non-identity arrows, so both are categories and `U`
---    is a functor.  If that construction is wrong, ยง4 degrades from "the
---    note's sentence IS excluded middle" to "the sentence as I have
---    generalised it is", and ยง3 and ยง5 are untouched.  This is the step
---    to attack.
+--  * ยง4 quantifies over arbitrary maps `U : A โ’ B` between sets, whereas
+--    the note quantifies over the hom-action of a forgetful FUNCTOR.
+--    These coincide, by the following construction: let `C` have
+--    objects `{a,b}` with `Hom(a,b) = Dec P`, `Hom(b,a) = โ`, and only
+--    identities otherwise; let `D` be the same with `Hom(a,b) = Unit*`;
+--    let `U` be the identity on objects and the constant map on homs.
+--    Composition never pairs two non-identity arrows, so both are
+--    categories and `U` is a functor.
 --
 --  * `ย ย X โ’ โ X โโ โบ LEM` is standard folklore in univalent
---    foundations (CITED; web search "HoTT double negation propositional
---    truncation equivalent to law of excluded middle" โ” the two are
---    routinely observed to coincide only classically, e.g. the nLab
---    discussion of double-negation as an approximation to truncation).
---    The content claimed as new is the AUDIT: ยง3's uniqueness boundary,
---    ยง4's `everySetIsAFibre` reduction pinning the note's own sentence
---    to that principle, and ยง5's identification of the repair already
---    present in the note.
---
---  * This module imports no other module of this repository and is
---    imported by none; it modifies nothing.  It is a sibling top-level
---    module in the style of `ProjectionChargeAudit.agda`, deliberately
---    NOT added to `agda`.
+--    foundations (the two are routinely observed to coincide only
+--    classically, e.g. the nLab discussion of double-negation as an
+--    approximation to truncation).  The content here is the AUDIT: ยง3's
+--    uniqueness boundary, ยง4's `everySetIsAFibre` reduction pinning the
+--    note's own sentence to that principle, and ยง5's identification of
+--    the repair already present in the note.
 ------------------------------------------------------------------------
 
 module LiftingFiberResidue where

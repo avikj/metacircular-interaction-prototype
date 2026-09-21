@@ -10,18 +10,16 @@
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- `RnaDhana_TheWholeMixedStratificationIsTheFlippedOne` proved the two
--- stratifications equal and left the output properties unstated: "the
--- transported statements are NOT written out as separate theorems".
--- Written out here, at one step â” and the three do NOT cost the same,
--- which is why this is a module and not three `subst`s.
+-- stratifications equal.  The output properties are written out here,
+-- at one step â” and the three do NOT cost the same, which is why this
+-- is a module and not three `subst`s.
 --
 -- WHAT IS PROVED
 --
 --   mixedLayerCovers      every archive member is in the mixed layer
 --                         or the mixed remainder
 --   mixedLayerIsDisjoint  and never in both
---   allBoundedFilterDec   the layer is still bounded (the remainder
---                         half was proved last cycle)
+--   allBoundedFilterDec   the layer is still bounded
 --   mixedRemainderIsBeaten
 --                         every member of the mixed remainder is
 --                         strictly beaten IN THE MIXED ORDER by a
@@ -30,8 +28,9 @@
 -- **COVERAGE AND DISJOINTNESS COST NOTHING AND NEVER MENTION THE
 -- FLIP.**  `mixedStratum` and `mixedRemainder` are `filterDec` and
 -- `filterOut` of the SAME decidable predicate, and `memberSplits` /
--- `noMemberInBoth` were proved for an arbitrary such predicate several
--- cycles ago.  They are instantiations, not transports: no caps, no
+-- `noMemberInBoth` are proved for an arbitrary such predicate in
+-- `OneStepCoverageAndDisjointnessOfTheLayer`.  They are instantiations,
+-- not transports: no caps, no
 -- `AllBounded`, no flip, two lines each.  That is what proving the
 -- generic lemma first buys.
 --
@@ -47,9 +46,6 @@
 -- NO NOVELTY.  Standard output properties of non-dominated sorting
 -- (Goldberg 1989; Deb et al. 2002), here for mixed benefit/cost
 -- vectors.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module RnaDhana_TheMixedLayerCoversAndBeatsTheMixedRemainder where

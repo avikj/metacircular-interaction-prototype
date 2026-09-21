@@ -9,9 +9,7 @@
 -- that is what the word means and no closer one exists in English.  GRADE,
 -- and it matters: the Gt states no theorem, none is claimed for it, and
 -- nothing below is anyone's mathematics but the univalent foundations'.
--- The chapter number is what I can establish and no verse is given.  If
--- this reads as decoration, delete the name and keep Â§1â“Â§4; the terms are
--- what is being asserted.
+-- The chapter number is what I can establish and no verse is given.
 --
 -- THE CLAIM THIS CHECKS, which is the owner's and is exact.
 --
@@ -62,7 +60,7 @@
 -- univalent universe gives you, for free and computing, exactly the flat
 -- part â” monodromy, Wilson loops around non-contractible cycles, the
 -- invisible-iff-invariant phenomenon â” and the curvature of a genuine gauge
--- field is a further structure this substrate does not yet carry.
+-- field is a further structure this substrate does not carry.
 --
 -- The corpus already owns the worked instance:
 -- `NaturalMachine.Ankapasa_â¦`'s `comm-loop` is a loop whose transport is
@@ -77,7 +75,6 @@
 -- is already classified.  That is what makes "iterate the fibre law" a
 -- construction rather than a circle.
 --
---
 --   `StaraArpana_â¦`     SÂ: Î©(âˆSÂâˆâ) â‰ â â” the charge uttered whole one
 --                       stratum above the silence.
 --   `AyamaArpana_â¦`     SÂ²: âˆSÂ²âˆâ is contractible (sphereConnected 2), so
@@ -90,16 +87,10 @@
 --
 -- So the corpus does not merely have the tower; it has the tower's GRADING,
 -- which is a statement the "iterate pushouts and you get every type"
--- formulation does not make.  What remains true of THIS file is only that
--- Â§4 checks well-foundedness and no more â” a statement about these lines,
--- not about the corpus, and the original wording failed to distinguish
--- those.  Completeness of the cell-complex construction is still a
--- citation, but it is a citation the corpus has already cashed on the
--- sphere family.
---
--- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
--- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +
--- v0.9).  Re-check at the pin before treating this green as the lane's.
+-- formulation does not make.  What is true of THIS file is only that Â§4
+-- checks well-foundedness and no more, a statement about these lines and
+-- not about the corpus.  Completeness of the cell-complex construction is
+-- a citation the corpus has already cashed on the sphere family.
 ------------------------------------------------------------------------
 
 module Visvarupa_TheObjectClassifierIsTheFibreLawAndBothBindingsTotaliseToTheDomain where

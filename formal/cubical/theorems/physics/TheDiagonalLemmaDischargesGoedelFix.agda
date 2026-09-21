@@ -14,11 +14,10 @@ open import IndependenceNeedsAnInternalImplication
 ------------------------------------------------------------------------
 -- TheDiagonalLemmaDischargesGoedelFix
 --
--- Closing the gap the previous module named: `GodelSeparation` takes
--- `GoedelFix` as a hypothesis and says, at that definition, that
--- obtaining it "needs the representability of prov, which is a
--- hypothesis about T".  Representability had never been written down.
--- This writes it down and discharges the hypothesis with it.
+-- `GodelSeparation` takes `GoedelFix` as a hypothesis; obtaining it
+-- needs the representability of prov, which is a hypothesis about T.
+-- This module writes representability down and discharges `GoedelFix`
+-- with it.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT `Theory` HAS AND WHAT THE DIAGONAL LEMMA NEEDS
@@ -36,8 +35,8 @@ open import IndependenceNeedsAnInternalImplication
 -- WHAT IS PROVED
 --
 --   Â§1  `HasDiagonal`: one-place formulas, application, and a fixed
---       point for each, in the corpus's own vocabulary plus the `imp`
---       and `mp` isolated at `c22194ab`.
+--       point for each, in the corpus's own vocabulary plus `imp`
+--       and `mp`.
 --
 --   Â§2  the diagonal lemma at the formula `Â prov(âˆ’)` DISCHARGES
 --       `GoedelFix`.  Two applications of modus ponens; no consistency,
@@ -46,7 +45,7 @@ open import IndependenceNeedsAnInternalImplication
 --       structure at all â” it is representability, and this is the
 --       term.
 --
---   Â§3  what it still does NOT give: the second conjunct.  Getting
+--   Â§3  what Â§2 alone does NOT give: the second conjunct.  Getting
 --       `Pf (imp (neg G) (prov G))` from the diagonal pair needs
 --       contraposition AND double-negation elimination AND transitivity
 --       INSIDE the theory.  Â§3 assumes exactly those three and derives
@@ -55,11 +54,10 @@ open import IndependenceNeedsAnInternalImplication
 --   Â§4  and then independence, from Â§2, Â§3 and Ï‰-consistency.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE ANSWER, SHARPENED FROM LAST CYCLE
+-- THE INTERNAL FRAGMENT
 --
--- At `c22194ab` the answer to "which lane" on this route was: a
--- connective former, not a theory object.  Â§3 sharpens it.  What the
--- lane needs is a PROPOSITIONAL FRAGMENT INTERNAL TO THE THEORY â”
+-- What the lane needs is not a theory object but a connective former:
+-- a PROPOSITIONAL FRAGMENT INTERNAL TO THE THEORY â”
 -- `imp`, `mp`, contraposition, double-negation elimination,
 -- transitivity.  Stated exactly, since the careless version is wrong:
 -- the FIRST conjunct needs `imp` and `mp` (they discharge `GoedelFix`
@@ -72,17 +70,6 @@ open import IndependenceNeedsAnInternalImplication
 -- about T.  It is named as such and not smuggled: a theory without it
 -- does not get Â§3, and this file says nothing about whether that is a
 -- defect of such a theory.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- PRIOR ART, by grepping the conclusion type: `GoedelFix` appears in
--- `GodelSeparation` only, always as a hypothesis (`goedelHalfOne`,
--- `noHalfTwo`, `witFix`); a grep of `formal/cubical` for
--- `Representab`, `representab` and `Diagonal` outside
--- `LawvereDiagonal` returns nothing, and `LawvereDiagonal` is
--- `Bool`-valued â” the Cantor/Tarski side, with no `Sent`.  A diagonal
--- lemma phrased over a coding function rather than a formula type
--- would evade that grep.
 ------------------------------------------------------------------------
 
 private

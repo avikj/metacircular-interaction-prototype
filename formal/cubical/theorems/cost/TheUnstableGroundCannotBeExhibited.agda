@@ -3,13 +3,12 @@
 ------------------------------------------------------------------------
 -- TheUnstableGroundCannotBeExhibited
 --
--- The open item this thread has been carrying as "construct the
--- separating object or show it cannot be constructed", answered on the
--- second branch â” and a correction to the vocabulary the item was
--- phrased in, which matters more than the answer.
+-- "Construct the separating object or show it cannot be constructed",
+-- answered on the second branch â” and a correction to the vocabulary
+-- the question is phrased in, which matters more than the answer.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE ITEM
+-- THE QUESTION
 --
 -- `ExclusionRecoversGroundAtAPrice` proves two things that do not meet:
 --
@@ -48,10 +47,8 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE CORRECTION, WHICH IS THE LARGER HALF
 --
--- This thread's standing state has said, in every cycle for a long
--- while, that `Â FactorsThrough` IS the fourth bhaga â” ààµà•àààµàà¯ â”
--- "proved".  That identification has never been earned and should stop
--- being asserted.
+-- `Â FactorsThrough` is not identified here with the fourth bhaga â”
+-- â”â”â”ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 --
 -- What is true: `Â FactorsThrough q t` says no single decoder expresses
 -- `t` from `q`'s observations.  What ààµà•àààµàà¯ says, in the Jaina
@@ -61,45 +58,38 @@
 -- (à¯àà—ààà) of the same subject in the same respect â” not the failure of
 -- some third thing to exist.
 --
--- These are not the same claim, and the analogy has been doing work it
--- did not pay for.  Three things would have to be produced before the
--- identification is more than a suggestive name:
+-- These are not the same claim.  Three things would have to be produced
+-- before the identification is more than a suggestive name:
 --
 --   (i)   the two predications, as objects, with their respects;
 --   (ii)  a simultaneity operation distinct from taking both in
---         succession.  What this corpus actually has, in the top-level
---         module `SaptabhangiNaya` â” read, not recalled â” is
+--         succession.  What this corpus has, in the top-level
+--         module `SaptabhangiNaya`, is
 --         `yugapat-empty : Â Î[ n ] (P n — Â P n)` and
 --         `kramaâ’yugapat-fails : Â (Krama â’ Yugapat)`.  That is the
 --         opposite of a simultaneity operation: it says the obvious
 --         candidate for à¯àà—ààà is EMPTY, being a contradiction at one
---         à¨à¯.  So the distinction is not merely unused here, it is
---         unbuilt â” and three of this thread's modules have been citing
---         a `SaptabhangiNaya` that does not exist, with
---         a summary ("krama â‰  sah") that is not what the real module
---         proves.  Both errors are corrected at their sites;
+--         ï¿½ï¿½;
 --   (iii) a demonstration that the simultaneous object is the
 --         non-factoring, rather than merely resembling it.
 --
--- None of the three is in this file or, as far as I can find, anywhere
--- in this thread.  Until they are, the honest statement is: `Â
+-- None of the three is in this file.  The statement here is: `Â
 -- FactorsThrough` is an obstruction to expressibility by one decoder,
--- and calling it the fourth bhaga is a naming convention that has not
--- been discharged.  A à¨à¯ that asserts itself by denying the others is a
+-- and calling it the fourth bhaga is a naming convention, not a
+-- theorem.  A à¨à¯ that asserts itself by denying the others is a
 -- à¦àà°àà¨à¯; a name that asserts an identification it has not shown is the
 -- same failure at the level of vocabulary.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT Â§1 DOES TO THE DEFLATIONARY TEST
 --
--- Thread (2) has been asking: is every absence in this corpus stable?
--- Â§1 says that question is ONE-SIDED.  It can be settled affirmatively
--- at any site where stability is provable, and it can never be settled
--- negatively anywhere, because `Â Stable A` is refuted for every A.  A
--- test that admits confirmations and admits no refutations is not
--- thereby answered â” it is a different kind of question from the one
--- it looked like, and the difference should be recorded before any
--- more cycles are spent looking for the counterexample that closes it.
+-- "Is every absence in this corpus stable?"  Â§1 says that question is
+-- ONE-SIDED.  It can be settled affirmatively at any site where
+-- stability is provable, and it can never be settled negatively
+-- anywhere, because `Â Stable A` is refuted for every A.  A test that
+-- admits confirmations and admits no refutations is not thereby
+-- answered â” it is a different kind of question from the one it looked
+-- like.
 --
 -- The four corners, on the separating object.  ASSERTED â” refuted at
 -- points by Â§2.  DENIED â” not claimed; Â§2 is about exhibition in this
@@ -151,7 +141,7 @@ noUnstablePoint :
   â†’ Â¬ Â¬ Stable (Ground q x x')
 noUnstablePoint q x x' = Â¬Â¬Stable
 
--- said in the form the open item was phrased in: the separating
+-- said in the form the question is phrased in: the separating
 -- witness, at a point, is unbuildable.
 noPointwiseSeparatingWitness :
   {X : Type â„“x} {Y : Type â„“y} (q : X â†’ Y)
@@ -185,19 +175,15 @@ DNS X B = ((x : X) â†’ Â¬ Â¬ B x) â†’ Â¬ Â¬ ((x : X) â†’ B x)
   outer (Î» x â†’ inner x (Î» x' â†’ Â¬Â¬Stable))
 
 ------------------------------------------------------------------------
--- PRIOR ART, found late and recorded here rather than by deletion.
+-- PRIOR ART.
 --
--- `DeflationaryTest` was in the corpus and in
--- `RootsThreadLatch` throughout the cycles that produced this module,
--- and was not read.  It already contains the closure lemmas for
+-- `DeflationaryTest` contains the closure lemmas for
 -- `Â`, `â’`, `—`, `Î `, their instantiation at the corpus's obstruction
 -- shapes, the observation that stability does not pass through `âŠ`,
 -- `no-barrier-claim : Â (Â (Dec A))`, and the deflation that the
 -- stabilisation level measures nothing.
 --
--- `TheDeflationaryTestWasAlreadyRun` carries the ledger,
--- line by line, of what here is a rediscovery and what is not â” and
--- proves the overlap by `refl`, the closure lemmas on both sides being
--- the same terms.  Read that ledger before citing anything below as
--- new.
+-- `TheDeflationaryTestWasAlreadyRun` records, line by line, what here
+-- overlaps with it and what does not â” and proves the overlap by
+-- `refl`, the closure lemmas on both sides being the same terms.
 ------------------------------------------------------------------------

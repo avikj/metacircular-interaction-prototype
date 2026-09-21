@@ -4,8 +4,7 @@
 -- NaturalMachine.TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
 --
 -- `TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet` gave a
--- second SUFFICIENT condition for refuting the fourth corner and closed:
---
+-- second SUFFICIENT condition for refuting the fourth corner.
 --
 -- A necessary one is here, for one family, and it identifies the corner
 -- with a named principle instead of describing it.
@@ -44,7 +43,7 @@
 -- whole question is whether the BADNESS is stable.  The earlier
 -- `Enumerated` route was answering a question the corner does not ask.
 --
--- EXISTENCE IS STILL OPEN. DNS is not provable in this substrate and NOT
+-- EXISTENCE.  DNS is not provable in this substrate and NOT
 -- refutable in it either ‚î exhibiting a failure needs a model, and no model
 -- is constructed here, nor can one be from inside `--safe` cubical without
 -- postulates. What changes is the STATUS of the question: it is no longer "is
@@ -64,9 +63,6 @@
 -- it is ‚î the identification is between a configuration this repository
 -- wrote down and a principle from proof theory, and it is an
 -- identification of the FORMULA, not of the two traditions' concerns.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
@@ -152,13 +148,8 @@ fourthCornerRefutesPointwiseStability Q corner stab =
     d = fourthCornerGivesDNSFailure Q corner
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no line
--- above.
---
 -- Enumerability of the REMEDY set is a different matter and is NOT
--- inert.  In `NaturalMachine.AnEnumerableRemedySetKillsTheFourthCorner`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin ‚î check.sh returns 1 and says so):
+-- inert.  In `NaturalMachine.AnEnumerableRemedySetKillsTheFourthCorner`:
 --
 --   finiteDNSList   `All (¬¬ P) xs ‚í ¬ ¬ All P xs`, by induction ‚î no
 --                   decidability, no choice
@@ -174,13 +165,13 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 -- earlier module reached for `Enumerated` on the wrong side of the pair;
 -- that is now said, with the right side identified.
 --
--- WHERE THE CORNER CAN LIVE, as narrow as it has been: a
+-- WHERE THE CORNER CAN LIVE: a
 -- NON-ENUMERABLE remedy set with a badness that is not stable.
 --
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end.  Renamed from
+-- Renamed from
 -- `Avaktavya_*` to `KramaAstiNasti_*`: the previous term was wrong.
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
 -- this line's "fourth corner" is a product of two independent
@@ -189,5 +180,4 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 -- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.  The full
 -- correction is recorded at
 -- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
--- Only the `module` line changed here; no statement was touched.
 ------------------------------------------------------------------------

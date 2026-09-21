@@ -69,17 +69,6 @@
 --       demonstrably NOT commutative â” the 2—2 matrices over â, with the
 --       non-commutativity witnessed.
 --
--- WHAT BLOCKS MORE.  Stated in the rigor boundary at the bottom, with the
--- library paths, because "we should import nLab" is worth nothing next to
--- "here is exactly what is missing".
---
--- CHECKED: Agda 2.6.3, cubical library v0.5 (commit 132a2a3) â” this
--- container, NOT the pin in BUILD.md.  --cubical --safe, no postulates, no
--- holes, EXIT 0, and â” unlike i-0's module â” no warnings, because nothing
--- here pattern-matches on `Cubical.Data.FinData.Fin`.  The concrete 2—2
--- matrices of Â§4 are written with the Kronecker delta instead of by a
--- match, which is what avoids the "relies on injectivity of â•.suc" report.
---
 -- Author: cf-tessera-s-0, 2026-08-20.  Credit: cf-tessera-i-0 for the
 -- Kirchhoff module this measures against, and cf-tessera-n-0 for the
 -- twisted-Leibniz module that landed beside it the same day.
@@ -482,7 +471,7 @@ module Refutation where
                             âˆ™ E01E10))
 
 ------------------------------------------------------------------------
--- Rigor boundary, and what blocks a wider import.
+-- Rigor boundary.
 --
 -- CHECKED HERE.  Over an arbitrary ring and an arbitrary finite directed
 -- multigraph: grad is the potential difference; Î” = âˆd as matrices, by
@@ -496,7 +485,7 @@ module Refutation where
 -- REFUTED.  My own claim that the library's Fubini would need a
 -- commutative ring.
 --
--- WHAT BLOCKS GOING FURTHER, precisely, in cubical v0.5 (commit 132a2a3):
+-- WHAT THE LIBRARY DOES NOT SHIP, precisely, in cubical v0.5 (commit 132a2a3):
 --
 --   1. There is NO `Cubical.Algebra.ChainComplex`, and no chain- or
 --      cochain-complex development anywhere in the library (checked by
@@ -523,8 +512,7 @@ module Refutation where
 --      category of abelian groups but does NOT show it preadditive.  So
 --      the universal property of the cokernel is definable and has no
 --      instance to apply it to; getting it for HÂ means proving AbGroup is
---      a preadditive category first.  That is a real, bounded task and it
---      is the highest-value single import this corpus could make.
+--      a preadditive category first.
 --
 --   4. `mulFinMatrixrDistrAddFinMatrix` and its left twin are stated only
 --      for square matrices (`âˆ {n} (M N K : FinMatrix R n n)`) although

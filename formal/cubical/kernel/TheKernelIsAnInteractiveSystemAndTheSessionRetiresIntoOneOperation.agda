@@ -64,8 +64,7 @@
 --
 --   THE OUTPUT OF AN INTERACTION IS AN INPUT TO THE LIBRARY.  That is the
 --   metacircularity, and it is interactive: the transcript of a session
---   becomes the machine's stock of moves.  `CheckedFuture` appears in no
---   file but `ControlledGrammar.agda`; the loop had never been closed.
+--   becomes the machine's stock of moves.
 --
 --   §1  demand, any-demand-is-safe -- the extension point exercised, and the
 --       old theorem re-read as its safety property.
@@ -87,8 +86,6 @@
 -- `Session` records a library but nothing here consults it when stepping;
 -- the caller supplies the `EnabledFuture`.  Nothing here is concurrent, and
 -- `step` is a function, not a protocol.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation where

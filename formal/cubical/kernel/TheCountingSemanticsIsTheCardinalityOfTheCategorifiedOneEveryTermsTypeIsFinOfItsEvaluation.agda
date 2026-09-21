@@ -1,8 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
+-- TheCountingSemanticsIsTheCardinalityOfTheCategorifiedOneEveryTermsTypeIsFinOfItsEvaluation
 --
--- It is proved here.  The categorified interpretation ‚ü¶_‚üß sends
+-- The categorified interpretation ‚ü¶_‚üß sends
 -- zero ‚¶ ‚ä, suc ‚¶ Unit ‚ä ‚àí, add ‚¶ ‚ä ‚î which is EXACTLY the structure of
 -- `Cubical.Data.SumFin`'s `Fin` (Fin 0 = ‚ä, Fin (suc n) = Unit ‚ä Fin n).
 -- So if each variable is interpreted as `Fin` of its numeric value
@@ -14,8 +15,7 @@
 -- makes the base case `Fin (eval var œ)` on the nose.  The counting
 -- semantics `eval` is therefore the CARDINALITY (the decategorification,
 -- œ‚ of a finite type) of the categorified semantics ‚ü¶_‚üß ‚î the "keeps a
--- cardinality and drops the bijection" claim, made precise in the
--- direction that module left open.
+-- cardinality and drops the bijection" claim, made precise.
 --
 -- WHAT IS PROVEN, --safe, no postulates, structural:
 --   finSum   Fin m ‚ä Fin n ‚â Fin (m + n)  (induction on m; reassociation).
@@ -30,8 +30,6 @@
 -- the categorified semantics refines the counting one, and the counting
 -- one is its cardinality.  Bhskara's akapa distinction (the count of
 -- arrangements vs. an arrangement) as a checked equivalence.
---
--- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 
 module TheCountingSemanticsIsTheCardinalityOfTheCategorifiedOneEveryTermsTypeIsFinOfItsEvaluation where

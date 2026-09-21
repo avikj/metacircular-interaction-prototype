@@ -16,37 +16,29 @@
 -- sense, which happens to be exactly this record's double role.
 --
 ------------------------------------------------------------------------
--- A CORRECTION FIRST, BECAUSE IT IS MINE AND IT IS LOAD-BEARING.
+-- WHAT THE ADJACENT THEOREMS ESTABLISH, READ FORWARD.
 --
--- `Vyapti_â¦`, `Sesa_â¦` and `Avataranika_â¦` Â§7 read this kernel as a static
--- artifact and reported its limits.  The theorems there are true and the
--- READING WAS BACKWARDS.  Three claims are struck here, in place:
+-- `Vyapti_â¦`, `Sesa_â¦` and `Avataranika_â¦` Â§7 read forward as the
+-- interactive design of this kernel:
 --
---  ~~"the kernel memorises"~~  `Control : Tm â’ Typeâ` is a FIELD.  The
---    caller supplies it, and may supply ANY type family whatsoever.
---    `install` is one instance -- the trivial one -- and until now the only
---    one anybody had ever constructed:
---        grep -rn 'NativeOperation.Control' formal/cubical
---        -> the record, install, and my own theorems.  Nothing else.
---    So `enabled-set-is-subsingleton` is not a diagnosis of a lookup table.
---    It is THE SAFETY THEOREM OF AN OPEN EXTENSION POINT: whatever evidence
+--    `Control : Tm â’ Typeâ` is a FIELD the caller supplies, and may be ANY
+--    type family whatsoever.  `install` is its trivial instance.  So
+--    `enabled-set-is-subsingleton` is THE SAFETY THEOREM OF AN OPEN EXTENSION POINT: whatever evidence
 --    type a caller invents, it cannot enable the operation anywhere the
 --    operation does not hold.  Â§1 supplies the first non-trivial `Control`
 --    in the corpus and shows the theorem covers it for free.
 --
---  ~~"no scoring, ranking, sorting or sampling -- a real gap"~~  It is the
---    design.  `advance` does not dedupe, sort or quotient because RANKING IS
+--    `advance` does not dedupe, sort or quotient because RANKING IS
 --    THE CALLER'S ACT.  The machine presents; the caller disposes.  That is
 --    the same refusal as `Saptabhangi`'s (a boolean verdict is a
 --    theorem-grade error) and `Uttara`'s (never a bare verdict).
 --
---  ~~"no semantic criterion selects the short proof -- a no-go"~~  It is a
---    GUARANTEE OF NON-DISPLACEMENT.  `Sesa_â¦` proves the machine can never
---    take the choice from you on semantic grounds.  The system is
---    interactive by theorem, not by omission.
+--    That no semantic criterion selects the short proof is a GUARANTEE OF
+--    NON-DISPLACEMENT: `Sesa_â¦` proves the machine can never take the
+--    choice from you on semantic grounds.  The system is interactive by
+--    theorem.
 --
--- The generative content of the correction is Â§2: the loop those readings
--- missed was never written down, and it closes in one line.
+-- The generative content is Â§2: the loop closes in one line.
 --
 ------------------------------------------------------------------------
 -- WHAT THE KERNEL ACTUALLY IS.
@@ -71,8 +63,7 @@
 --
 --   THE OUTPUT OF AN INTERACTION IS AN INPUT TO THE LIBRARY.  That is the
 --   metacircularity, and it is interactive: the transcript of a session
---   becomes the machine's stock of moves.  `CheckedFuture` appears in no
---   file but `ControlledGrammar.agda`; the loop had never been closed.
+--   becomes the machine's stock of moves.
 --
 --   Â§1  demand, any-demand-is-safe -- the extension point exercised, and the
 --       old theorem re-read as its safety property.
@@ -94,8 +85,6 @@
 -- `Session` records a library but nothing here consults it when stepping;
 -- the caller supplies the `EnabledFuture`.  Nothing here is concurrent, and
 -- `step` is a function, not a protocol.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module Kernel.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation where

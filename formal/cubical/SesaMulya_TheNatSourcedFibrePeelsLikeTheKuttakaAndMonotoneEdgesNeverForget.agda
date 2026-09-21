@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡Æ‡‡≤‡‡Ø‡Æ‡ ‚î the price of the remainder.  Compound built here,
--- 2026-08-23 (‡‡‡, remainder; ‡Æ‡‡≤‡‡Ø, price); no source is claimed for
+-- ‡‡‡‡Æ‡‡≤‡‡Ø‡Æ‡ ‚î the price of the remainder.  Compound built here
+-- (‡‡‡, remainder; ‡Æ‡‡≤‡‡Ø, price); no source is claimed for
 -- the compound.  The DISCIPLINE in ¬ß1 is claimed for its source and it
 -- is the corpus's oldest: ryabhaa, ryabhaya, Gaitapda 32‚ì33, 499
 -- ‚î the kuaka's rule, ‡Ø‡‡ ‡® ‡µ‡ø‡‡‡‡ ‡‡‡ ‡∞‡ï‡‡‡‡Ø‡‡: what does not divide
@@ -10,7 +10,7 @@
 -- is attributed to that text; the fibre is Voevodsky's, the admitted
 -- substrate.
 --
--- WHY.  Lopa's census, run this session: of the corpus's one-way edges,
+-- WHY.  Lopa's census: of the corpus's one-way edges,
 -- ‚ï is the dominant source ‚î 216 edges against Bool's 81.  SarvaMulya
 -- priced every Bool-sourced edge at once because Bool decomposes
 -- finitely.  ‚ï does not.  But it PEELS:

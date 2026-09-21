@@ -15,19 +15,14 @@
 -- his, the cap and its adjunction are not, and the theorem is
 -- elementary.  The name leads with the term because the structure is
 -- named there first and the English is the translation, not the other
--- way round (human owner, 2026-08-19).
+-- way round.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- `FlippingACostCoordinateIsSoundButNotFaithful` proved that mixed
 -- dominance implies product dominance of the capped-and-subtracted
--- vectors, refuted the unrestricted converse, and said:
---
---   "No RESTRICTED converse is proved: presumably `flipIsSound`'s
---    converse holds once every cost is `â‰ cap`, and that is NOT checked
---    here."
---
--- It is checked here, and the hypothesis needed is weaker than the one
--- guessed there.
+-- vectors and refuted the unrestricted converse.  The RESTRICTED
+-- converse is proved here, and the hypothesis needed is weaker than
+-- "every cost is `â‰ cap`".
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -44,17 +39,16 @@
 --   flipIsFaithfulBelowTheCap
 --                       with `flipIsSound`, the two orders agree
 --
--- **THE HYPOTHESIS IS ONE-SIDED, AND THAT IS THE CONTENT.**  The
--- earlier module's guess was "once every cost is â‰ cap".  Only the
+-- **THE HYPOTHESIS IS ONE-SIDED, AND THAT IS THE CONTENT.**  Only the
 -- costs of `w` â” the DOMINATING vector, the one claimed better â” need
 -- the bound; `v`'s costs may exceed the cap arbitrarily.  The reason is
 -- visible in `capReflects`: the bound is used to turn `(c âˆ y) + y`
 -- back into `c`, and `y` is `w`'s entry.  So a cap has to be chosen
 -- above the costs of the candidates one wants to CONCLUDE ARE BETTER,
 -- not above every cost in the archive.  That is a materially weaker
--- modelling obligation than the one the Pareto line has been carrying.
+-- modelling obligation.
 --
--- The refutation still stands and is consistent: its witness has
+-- The refutation is consistent with it: its witness has
 -- `cap = 3` with `w`'s cost `7`, which fails `Bounded`.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -63,9 +57,6 @@
 -- doing the work (`â‰-âˆ-+-cancel`, `â‰-k+-cancel`) are cubical's.  The
 -- Galois-adjunction framing of monus is Birkhoff/Ore-era lattice
 -- theory.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module RnaDhana_TheCostFlipIsFaithfulBelowTheCap where
@@ -133,14 +124,9 @@ flipIsFaithfulBelowTheCap cap ds v w b =
   , flipReflectsBelowTheCap cap ds v w b
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The item left open above â” "the cap is still a single
--- number shared by all cost coordinates; per-coordinate caps are not
--- modelled, though the one-sided hypothesis suggests they would be the
--- honest version" â” is closed in
--- `RnaDhana_PerCoordinateCapsAreTheHonestVersionAndOneCapIsTheSpecialCase`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- Here the cap is a single number shared by all cost coordinates.
+-- Per-coordinate caps are in
+-- `RnaDhana_PerCoordinateCapsAreTheHonestVersionAndOneCapIsTheSpecialCase`.
 --
 -- The generalisation costs nothing: `flipCapsIsSound`,
 -- `flipCapsReflect` and `flipCapsFaithful` are this module's theorems

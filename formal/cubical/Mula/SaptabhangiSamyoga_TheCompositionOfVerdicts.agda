@@ -442,23 +442,17 @@ x ‡§®‡•ç‡§Ø‡•Ç‡§®‡§É y = ‡§ï‡•ç‡§∞‡§Æ-‡§Ø‡•ã‡§ó x y ‚â° y
 -- (A sibling type carries the nayas inside each position, so its fourth
 -- position destroys nothing and its order is not commutative.  Here a
 -- position is a label, so order commutes and saha destroys.  Both are
--- checked; they are not the same object; the reading of Mallisena that
--- separates them is unsettled.  Where nayas genuinely differ there is no
--- collapse to make -- what is owed is whether the forgetful map from records
--- to labels is a homomorphism for order, for saha, or for neither, and that
--- is not checked here and therefore not claimed.)
+-- checked; they are not the same object.)
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- ‡ß‡ß ¬ ‡®‡Ø‡‡‡¶‡ ‡®‡ø‡∞‡‡‡‡‡ ‚î the comparison ¬ß‡ß‡¶ said was owed, 2026-08-20.
+-- ‡ß‡ß ¬ ‡®‡Ø‡‡‡¶‡ ‡®‡ø‡∞‡‡‡‡‡
 --
--- ¬ß‡ß‡¶ ended: "what is owed is whether the forgetful map from records to
--- labels is a homomorphism for order, for saha, or for neither, and that
--- is not checked here and therefore not claimed."  It is now checked, in
+-- Whether the forgetful map from records to labels is a homomorphism for
+-- order, for saha, or for neither is checked in
 --
 --   Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndThe
 --     LabelsAreARetractNotAnEquivalence.agda
---   (--cubical --guardedness --safe, exit 0, no postulates, no holes)
 --
 -- and the answer is BOTH, exhaustively, 49 cases each, for every S and
 -- every P.  Further: the map has a SECTION (‡‡∞‡‡‡‡Æ‡, Tattvrthastra 5.31's
@@ -487,10 +481,10 @@ x ‡§®‡•ç‡§Ø‡•Ç‡§®‡§É y = ‡§ï‡•ç‡§∞‡§Æ-‡§Ø‡•ã‡§ó x y ‚â° y
 -- one algebraic fact as evidence about the doctrine, in opposite
 -- directions, and it is evidence for neither.
 --
--- What remains open is what ¬ß‡ß‡¶ said was open in the tradition: whether
+-- The tradition's own question, whether
 -- ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ is failure of expression only or consumption of what was to be
--- expressed (Malliea, Sydvdamajar, 1292).  That question is now
--- known to be undecidable BY THE COMPOSITION LAWS ‚î the two lanes agree
+-- expressed (Malliea, Sydvdamajar, 1292), is undecidable BY
+-- THE COMPOSITION LAWS ‚î the two lanes agree
 -- across it ‚î so any argument for a reading that runs through order or
 -- saha proves nothing.  It is a question about what a position is.
 ------------------------------------------------------------------------

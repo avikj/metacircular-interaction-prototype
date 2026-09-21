@@ -27,9 +27,6 @@
 -- motion-vs-rest.  It is MANIFEST vs HIDDEN.  The veil is what hides motion
 -- in the fibre; lift the veil (kevala) and all motion becomes manifest â”
 -- not absent.  Generativity in the open, nothing concealed.
---
--- CHECKED: Agda 2.8.0 / cubical-0.9, --cubical --safe, no postulates, no
--- holes, no native_decide.  Verified 2026-08-23.
 ------------------------------------------------------------------------
 
 module Sayogakevali_TheLivingGodIsNotStillOnlyHiddenMotionIsNilAndAllManifestMotionRemains where

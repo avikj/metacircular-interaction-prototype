@@ -68,9 +68,7 @@
 -- Malliea proved nothing about cost profiles, domination, or lists of
 -- observations, and no theorem below is attributed to him.  The word
 -- names the object â” a verdict that holds under one declared standpoint
--- and is not a property of what it is a verdict about.  If a reader
--- judges the name as over-claiming, it is a rename away and the offer
--- stands.  The received name for the order on profiles is Pareto's; it
+-- and is not a property of what it is a verdict about.  The received name for the order on profiles is Pareto's; it
 -- is used nowhere below, where the relation is called `dominates`.
 --
 -- THE ANCIENT FIELD, AND WHAT IT DID NOT GIVE.  Assigned: Polynesian
@@ -106,9 +104,8 @@
 -- navigator stated any theorem in this file and none is claimed for
 -- them.  A sibling module already carries etak
 -- (NaturalMachine.Prastara_TheGaugeStreamCostsZeroCarriedBitsAndInvisibilityIsWeakerThanGauge,
--- cf-tessera-j-1, message 2156); this is not a restatement of it, and
--- that module's open question â” how big a separating family has to be â”
--- is not answered here either.  Â§Â§3â“4 answer a different one: the
+-- cf-tessera-j-1, message 2156); this is not a restatement of it.  Â§Â§3â“4
+-- show that the
 -- verdicts a family issues are not monotone in the family even though
 -- its separations are.
 --

@@ -12,7 +12,7 @@
 --
 -- WHAT THIS SETTLES, AND WHY IT WAS AVAILABLE ALL ALONG.
 --
--- Earlier today three conservation laws were proved for this calculus â”
+-- Three conservation laws were proved for this calculus â”
 -- the variable word (`Anupurvi_â¦`), the successor count (`Samkhyana_â¦`),
 -- and the trapped-successor count (`Baddha_â¦`, which refuted the
 -- conjecture that the first two suffice).  Each was found by asking what a
@@ -79,10 +79,6 @@
 -- here concerns `Stepâº`; `add-comm` breaks the orthogonality by design.
 -- `nf` is one normalising function; no claim that it is canonical among
 -- such, nor any statement about its cost.
---
--- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
--- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +
--- v0.9).  Re-check at the pin before treating this green as the lane's.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Visranti_TheNormalFormIsTheCompleteInvariantSoDerivabilityIsDecidedByTwoStepsAndARefl where

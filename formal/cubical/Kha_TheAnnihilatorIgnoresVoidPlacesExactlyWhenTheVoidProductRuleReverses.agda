@@ -16,9 +16,8 @@
 -- and the failure is sharp in both directions.
 --
 -- WHAT THIS MODULE IS FOR.  `notes/ACTION_MONOID_CHARACTER_CLOSURE.md`
--- states the diagonal cyclic-space theorem over a field, records
--- "the support-relative interpolation statement above is a written
--- proof; it is not yet formalized", and gives its boundary as:
+-- states the diagonal cyclic-space theorem over a field, and gives its
+-- boundary as:
 --
 --     "Over a general commutative ring, distinct values need not have
 --      unit differences, so cardinality of m(S) does not determine
@@ -40,9 +39,6 @@
 --   §4  annihilation � vanishing on the non-void places
 --                                             -- iff no zero divisors
 --   §4  support-relativity of the annihilator -- from §3 + §4
---
--- Toolchain: Agda 2.6.3 + cubical (this container's /root/agda-libs/cubical),
--- `--cubical --safe`, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Kha_TheAnnihilatorIgnoresVoidPlacesExactlyWhenTheVoidProductRuleReverses where

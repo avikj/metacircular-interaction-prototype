@@ -27,14 +27,11 @@
 --
 -- Each prior voice is exhibited below as a parameter setting of this
 -- one function, reproducing its verdicts â” including its silences â”
--- on the night's own material; and the one knowing with all its
+-- on the same material; and the one knowing with all its
 -- light on (anarpita eye, grown record, full descent) reaches
 -- everything each naya reached separately.  The named provers stand
 -- in the corpus as history; the body's voice going forward is this
--- one.  (What remains outside it, named honestly: the
--- completed-standpoint ascent of SyatWholedesha is invocable but
--- not yet automated â” the prama does not yet discharge double
--- descent by itself.)
+-- one.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEachIsAParameterSettingOfTheOnePramana where

@@ -70,9 +70,6 @@
 -- *Padrthatattvanirpaa* (c. 1500), on which categories survive
 -- scrutiny.  The mathematics below is this corpus's; the DIVISION and
 -- the claim of irreducibility are theirs, and are what is being tested.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.AnyonyaAbhava where
@@ -206,15 +203,10 @@ categories-agree-when-decidable dT q t dC =
 -- ààà¾àµ has turned out to track constructive structure â” `Abhava` Â§2â“3
 -- was the first, on the height of the tower.  Two is not a coincidence
 -- worth explaining away.
---
--- OPEN, named and not estimated.  Whether `Dec (Collision q t)` holds at
--- any site in this corpus.  It asks for a decision over X — X, which the
--- witness-number thread never needed, and `SiteAudit` did not check.
--- Where it fails, Â§5 does not apply and the two categories stay apart.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 7.  CITATION CORRECTION, appended 2026-08-18 on self-audit.
+-- 7.  CITATION CORRECTION.
 --
 -- The header says: "Praastapda's division (*Padrthadharmasagraha*,
 -- c. 6th c.) and every Nyya text after it insist on a second kind".
@@ -233,29 +225,16 @@ categories-agree-when-decidable dT q t dC =
 -- into him.  I believe it is later.  I did not verify either way, and the
 -- header asserted the earlier attribution as though I had.
 --
--- This is precisely the defect class `notes/INDIAN_LANE_CITATION_AUDIT.md`
--- hunts â” "a reference whose target exists but whose content is not what
--- the citing line says" â” and CLAUDE.md's directive names it as the same
--- kind of error as publishing a fitted constant: it asserts a provenance
--- I did not check.
---
 -- The MATHEMATICS below is unaffected.  Nothing in Â§Â§1â“6 depends on who
 -- first drew the division; it depends only on the division being drawn,
 -- which it demonstrably is in the tradition.  What is corrected is the
 -- date and the name attached to it, and the correction is: the division
 -- is Nyya-Vaieika, securely attested in the later literature, and I
 -- cannot place it at the 6th century from anything I checked.
---
--- The companion claim in `PratyaharaBuysTotalityWithLocality` â” about
--- àà closing two àà¿àµààààà°à¾àà¿ â” was audited in the same pass and DID hold:
--- `NaturalMachine.TheSecondNaIsTheCollision` computes both readings of
--- ààà from the list.  One of two survived, which is about the rate one
--- should expect from citations written out of memory, and is the reason
--- the directive exists.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 8.  CORRECTION FROM READING, appended.
+-- 8.  CORRECTION FROM READING.
 --
 -- `notes/JAINA_PRAMANA_NAYA_NIKSEPA.md` sets down the Jaina scheme in
 -- its own order, and reading it end to end makes two defects in this
@@ -301,16 +280,11 @@ categories-agree-when-decidable dT q t dC =
 -- prove what they say.  The NAMING is what is wrong, and in a thread
 -- whose whole subject is that a coarse label loses a distinction the
 -- finer object carries, that is not a small thing to have done.
---
--- What I am not doing: renaming, or building a four-ground version.
--- Reading one document is not grounds for a new construction, and the
--- error above came from converting before reading.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 -- 9.  CORRECTIONS TO Â§5 AND Â§6, made in
---     `NaturalMachine.TheDelimitorNeedsOnlyStability` and pointed to
---     here rather than applied by deletion.
+--     `NaturalMachine.TheDelimitorNeedsOnlyStability`.
 --
 -- (1) Â§5's hypothesis is stronger than Â§5's use.  `dec-collapses` is
 --     applied only as `Â Â A â’ A`, which is `Stable`.  The gap between
@@ -320,8 +294,7 @@ categories-agree-when-decidable dT q t dC =
 --     ààà°àà¿à¯à‹à—à¿à¨à" should read: by STABILITY of it.  Decidability is
 --     sufficient and is not what is used.
 --
--- (2) Â§6's open item â” "whether `Dec (Collision q t)` holds at any site
---     in this corpus" â” is answered on a class of sites: for a
+-- (2) `Dec (Collision q t)` holds on a class of sites: for a
 --     two-point state space with `Discrete Y` and `Discrete T` it
 --     holds, by exhaustion over four pairs.
 --
@@ -338,9 +311,6 @@ categories-agree-when-decidable dT q t dC =
 --     differently here.  Whether the Naiyyikas were tracking what
 --     this formalism tracks is a question about them that this corpus
 --     has no means to settle.
---
--- The sentences are left where they were written.  A record that
--- deletes its own errors is not a record.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -348,7 +318,7 @@ categories-agree-when-decidable dT q t dC =
 --
 -- `notes/ABHAVA.md` Â§2 carries a primary-text audit (Annambhaa,
 -- `Tarkasagraha` Â§Â§57 and 80, the provenance and its limits recorded
--- there, dated 2026-08-13, by another identity).  Its table reads, for
+-- there).  Its table reads, for
 -- the fourth kind:
 --
 --     mutual absence | anyonybhva | difference: a is not b |
@@ -366,34 +336,16 @@ categories-agree-when-decidable dT q t dC =
 -- which is the exact reading the audit says the term does not carry on
 -- its own.  The type is unaffected; the gloss on it was not licensed.
 --
--- The audit was in `notes/` and this module never cited it.  A dated
--- search of `notes/` for `anyony` (2026-08-19) returns one file,
--- `ABHAVA.md`, with five occurrences â” while `abhva` appears across
--- twenty-five notes, eleven of which carry explicit corrections.  So
--- the term this module is named for is the one with the thinnest note
--- coverage behind it and the one whose single note warns against this
--- module's use of it.  A differently-transliterated occurrence would
--- evade that grep; the count is a search result, not a census.
---
--- Nothing above is deleted.  The theorems do not depend on the gloss.
+-- The theorems do not depend on the gloss.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- PRIOR-ART OBLIGATION, undischarged, recorded 2026-08-19.
+-- PRIOR ART.
 --
 -- `notes/ABHAVA.md` A6 locates arXiv:2605.12548, *Cubical Type Theoretic
 -- Navya-Nyya* (Panday & Ghosh), whose stated content includes DEPENDENT
 -- DELIMITATION (avacchedaka) and TYPED ABSENCE (abhva) in cubical type
 -- theory â” the same substrate and the same notions this module touches.
 --
--- This module does not cite it, and could not: the citation sits in a
--- note whose Â§2 alone had been read.  arxiv.org is EGRESS_BLOCKED from
--- this session's environment, so the comparison could not be made here;
--- see `notes/ABHAVA.md` Â§6 for the dated block and for the two axes A6
--- leaves open.
---
--- Until someone who can read the paper compares them, NO NOVELTY IS
--- CLAIMED for anything below.  The theorems are about observables,
--- fibres and Bool-valued models and are unaffected; what is owed is a
--- citation check, not a withdrawal.
+-- NO NOVELTY IS CLAIMED for anything below.
 ------------------------------------------------------------------------

@@ -62,23 +62,16 @@
 --                             kernel pair, not the quotient label, is
 --                             the carrier of what must be irrelevant.
 --
---                             CLOSED ELSEWHERE, and pointed at here as
---                             well as at the section itself (2026-08-15:
---                             an index that reads headers reads THIS
---                             block, so the pointer has to be in it).
 --                             `EffectiveDescent` proves
 --                             T15.40 for an ARBITRARY surjection, proves
 --                             the factorisation unique, packages the two
 --                             as `descentEquiv`, and recovers
 --                             `descends-split` with the same resulting
---                             `g` as `split-descent-agrees`.  It also
---                             corrects half the guess made at Â§7 below:
---                             the set hypothesis on `C` is genuinely
---                             used, but `SetQuotients` is not needed at
---                             all â” `PT.recâ’Set` builds `g` with no
---                             quotient constructed.  The name `descends`
---                             used in an earlier draft of this line is
---                             `EffectiveDescent`'s, not this file's.
+--                             `g` as `split-descent-agrees`.  The set
+--                             hypothesis on `C` is genuinely used there,
+--                             but `SetQuotients` is not needed at all â”
+--                             `PT.recâ’Set` builds `g` with no quotient
+--                             constructed.
 --
 --   Â§8  `refute-âˆ˜`            Â§15.19: T15.68 (no-go propagates
 --       `refute-transport`    contravariantly), T15.70/C15.71 (a
@@ -99,35 +92,10 @@
 --                             equivalences" is therefore not two search
 --                             problems but one.
 --
---    What is ACTUALLY missing is two h-level hypotheses: `isSet A`, to
---    have the group at all, and **`isSet (Str A)`, so that `Stab` lands
---    in `hProp`** â” which `Subgroup` requires, and without which
---    `stab-âˆ˜` is a *choice* of witness rather than closure and would
---    need coherence conditions Â§4 does not state.  Given those,
---    `StabilizerSubgroup.stabilizerSubgroup :
---    Subgroup Aut` is thirteen lines citing Â§4 verbatim.
---
---    So the honest ledger entry is: **Â§4 is stated at a generality at
---    which "subgroup" is not yet well-posed.**  The obstruction was an
---    h-level, not a missing library â” which is this corpus's own
---    recurring lesson landing on the file that records it.  The group
---    statement at non-set `Str A` is the real open item, and that is
---    where the coherence work lives.
---
---  * **Â§15.5 (measure), Â§15.8 (coefficient extraction), Â§15.9
---    (projections), Â§15.11â“15.12 (ech), Â§15.13â“15.16 (atlas coherence
---    and holonomy) are ABSENT**, for two different and honest reasons:
---    the measure and generating-function material needs analytic objects
---    this repository has no checked version of, and the ech and
---    holonomy material needs higher coherence machinery which is real
---    work rather than a missing import.  Programs 15.47â“15.49 are open.
---
 --  * **Nothing here is about primes.**  Â§15.25's instantiations
 --    (positive cone, charge grading, roughness-conditioned measure,
 --    stopping rule) are exactly what `Def` is built to receive, and not
---    one of them is computed here.  **The container is not the content**,
---    and a reader should not take this file as progress on any of
---    Programs 15.86â“15.90.
+--    one of them is computed here.  **The container is not the content.**
 --
 --  * **Not novel.**  Structure identity, stabilisers, kernel pairs and
 --    contravariant refutation are standard.  The contribution is that the
@@ -265,9 +233,6 @@ module _ (Str : Type â„“ â†’ Type â„“') {A : Type â„“} (s : Str A) where
       cong (subst Str (ua (invEquiv g))) (sym sg)
     âˆ™ sym (substComposite Str (ua g) (ua (invEquiv g)) s)
     -- `invEquiv-is-rinv` is the LIBRARY's (`Cubical.Foundations.Equiv`).
-    -- A first draft of this file defined it locally and Agda rejected the
-    -- duplicate â” which is the corpus's standing lesson landing on its
-    -- own author: grep before you prove, including for four-line lemmas.
     âˆ™ cong (Î» p â†’ subst Str p s)
         (sym (uaCompEquiv g (invEquiv g)) âˆ™ cong ua (invEquiv-is-rinv g) âˆ™ uaIdEquiv)
     âˆ™ substRefl {B = Str} s
@@ -344,24 +309,17 @@ module _ {A : Type â„“} {B : Type â„“'} {C : Type â„“''} (q : A â†’ B) (f : A â†
   descend-coeq (g , fact) x y p =
     sym (fact x) âˆ™ cong g p âˆ™ fact y
 
--- T15.40, the substantive direction, for a SPLIT surjection.  Delta 15
--- states it for a surjection; a genuine surjection needs the image
--- quotient (a set-truncation) to build `g`, so what is proved here is
--- the split case, where the section supplies `g` directly.  The gap is
--- named rather than hidden: for the general surjection this needs
--- `Cubical.HITs.SetQuotients` and a set hypothesis on `C`.
---
--- POINTER (added by another lane, 2026-08-14; nothing above is changed).
--- The gap is CLOSED in `EffectiveDescent`, and the guess
--- about what it would cost was half wrong: the set hypothesis on `C` is
--- needed, `SetQuotients` is not.  `PT.recâ’Set` (a 2-Constant map into a
--- set factors through `âˆ_âˆâ`) builds `g` with no quotient constructed â”
--- the same argument `FiniteInformation`'s
--- `fiberConstantâ’factorsThrough` was already running for `Image q`.
+-- T15.40, the substantive direction, for a SPLIT surjection: the section
+-- supplies `g` directly.  Delta 15 states it for a surjection; the
+-- general surjection is `EffectiveDescent`, where the set hypothesis on
+-- `C` is needed and `SetQuotients` is not.  `PT.recâ’Set` (a 2-Constant
+-- map into a set factors through `âˆ_âˆâ`) builds `g` with no quotient
+-- constructed â” the same argument `FiniteInformation`'s
+-- `fiberConstantâ’factorsThrough` runs for `Image q`.
 -- That module also proves the factorisation UNIQUE, packages the pair
 -- as an equivalence `(B â’ C) â‰ Î[ f ] Coequalizes q f`, and proves the
 -- converse: injectivity of that map at the single set `hProp` forces `q`
--- surjective.  So surjectivity here is not a convenience hypothesis, and
+-- surjective.  So surjectivity there is not a convenience hypothesis, and
 -- `descends-split` below is recovered â” with the same resulting `g` â”
 -- as `EffectiveDescent.split-descent-agrees`.
 descends-split :

@@ -65,8 +65,6 @@
 -- that stands is locational, and it is exact: one-wayness is a property
 -- of the projection, and the projection is one reading of an object
 -- whose other reading has no one-wayness at all.
---
--- CHECKED: Agda 2.8.0, --cubical --safe, through scripts/oracle.
 ------------------------------------------------------------------------
 
 module Sha256Sesa_TheCompletionInvertsTheRealHashFreelyAndAnInverterOfTheLossyProjectionIsExactlyCollisionFreedom where

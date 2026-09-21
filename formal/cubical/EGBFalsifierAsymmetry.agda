@@ -42,7 +42,7 @@
 -- falsifier for a Î â statement is itself a Î â object.  The ladder of
 -- quantifier alternations is the ladder of how much a falsifier costs.
 --
--- Gdel strand, cycle 1, slot 12.  Everything here is elementary and
+-- Everything here is elementary and
 -- classical-free; the point is that it CHECKS, so the constitution's
 -- asymmetry is now a term, not a slogan.
 ------------------------------------------------------------------------

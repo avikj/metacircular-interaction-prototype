@@ -77,8 +77,6 @@
 -- quantity the semantics is provably blind to.  That is why `advance` may
 -- not dedupe, why lghava is a SEPARATE order, and why search does not
 -- reduce to checking.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne where

@@ -76,10 +76,7 @@
 -- the amount it fails to hold is all of it.  Hiding is not achieved.  It is
 -- what is left when a codomain has no capacity.
 --
--- PRIOR ART IN THIS REPOSITORY, CITED AND NOT RESTATED.  Three of these
--- answer questions this file would otherwise have listed as absences, and
--- listing them as absences is how the first draft of this header got them
--- wrong.  None is imported: the kernel is kept self-contained on purpose,
+-- PRIOR ART IN THIS REPOSITORY, CITED AND NOT RESTATED.  None is imported: the kernel is kept self-contained on purpose,
 -- and a citation that is checked elsewhere is not weaker for being cited.
 --
 --   `Laghava_TheCostAndTheInverseCannotCoexistâ¦`  A COST AND AN INVERSE
@@ -128,16 +125,12 @@
 --     inhabitant of `V` entails one.  At the kernel, `Meaning a b` can hold
 --     with no `Derivation a b` -- two terms may be pointwise equal with no
 --     route between them -- so `uniqueness-gives-extraction` demands
---     `V â’ W` explicitly.  This is COMPLETENESS, not soundness; the first
---     draft of this header called it soundness and that was wrong, and the
---     correction is the reason the distinction is spelled out here.
+--     `V â’ W` explicitly.  This is COMPLETENESS, not soundness.
 --
 --   * NOTHING ABOUT ROUNDS, challenges, Fiat-Shamir, commitment schemes or
 --     a verifier's coins.  Â§1 is a map, not a protocol.  (The corpus does
 --     have interaction structure -- `Session`, `step`, `Encounter` -- but
 --     none of it is a round in the protocol sense and none is used here.)
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0.
 ------------------------------------------------------------------------
 
 module HidingAndHardnessAreOneFibreSoTwoWitnessesForbidExtraction where

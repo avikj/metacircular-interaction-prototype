@@ -3,16 +3,9 @@
 ------------------------------------------------------------------------
 -- TheRoundTripsCloseSoDecisionAndPredicateAreEquivalentTypes
 --
--- THE ABSENCE CLOSED.  `TheTextPredicateIsUniqueSoExistsCarriesNoChoice`
--- says, in its SYT paragraph:
---
---   "The ROUND TRIP is not proved: `predicateGivesDecision âˆ˜
---    decisionGivesPredicate` is not shown to be the identity, which
---    would need `Dec` to be a proposition and hence the same hypothesis
---    again."
---
--- Both maps are from `ATextPredicateExistsExactlyWhenTheSemanticProperty
--- IsDecidable` Â§2, abbreviated here as
+-- THE ROUND TRIPS.  Both maps are from
+-- `ATextPredicateExistsExactlyWhenTheSemanticPropertyIsDecidable` Â§2,
+-- abbreviated here as
 --
 --   Decision  = (t : Text) â’ Dec (Outside (denotes t))
 --   Predicate = Î[ p âˆˆ (Text â’ Bool) ] Correct Text Object denotes Outside p
@@ -36,9 +29,8 @@
 --
 --   With NO hypothesis on `Outside` (Â§2, Â§3):
 --     decisionRoundTrip         toDecision (toPredicate d) â‰¡ d
---                               â” so the audit's "would need `Dec` to be
---                               a proposition" was too pessimistic for
---                               THIS direction: the `no` case needs only
+--                               â’ THIS direction does not need `Dec` to
+--                               be a proposition: the `no` case needs only
 --                               `isPropÂ`, and the `yes` case reduces
 --                               once `d t` is abstracted, the one
 --                               residual (`correct t | d t` inside
@@ -59,9 +51,9 @@
 --         (P : Predicate) (t : Text) (e : P .fst t â‰¡ true)
 --         â’ toDecision P t â‰¡ yes (P .snd t .snd e)
 --
--- WHAT IS NOT PROVED, EXACTLY.  `decisionWitnessAtTrue` itself, without
--- `po`.  It holds by reduction inside the audited module (`go true e =
--- yes (c t .snd e)`), but `go` is local to the clause
+-- THE PARAMETER OF Â§3b, EXACTLY.  `decisionWitnessAtTrue` holds by
+-- reduction inside `ATextPredicateExistsExactlyWhenTheSemanticProperty-
+-- IsDecidable` (`go true e = yes (c t .snd e)`), but `go` is local to the clause
 -- `predicateGivesDecision (p , c) t`, closes over `p`, and has `p t â‰¡ b`
 -- as the type of its own second argument; so from outside, for a
 -- general `P`, no with-abstraction of `p t` is well-typed (Agda reports
@@ -71,10 +63,8 @@
 -- (some witness) and `decisionAtFalse` (the given refutation, by
 -- `isPropÂ`), and those suffice for everything else above.  Under `po`
 -- the lemma is immediate (`isPropDec`), which is why Â§4 needs no such
--- parameter.  Nothing here examines `Outside`, which remains a
--- parameter, and nothing is empirical.
---
--- CHECKED: Agda 2.8.0 + cubical v0.9, --safe, no postulates, no holes.
+-- parameter.  Nothing here examines `Outside`, which is a parameter,
+-- and nothing is empirical.
 ------------------------------------------------------------------------
 
 module TheRoundTripsCloseSoDecisionAndPredicateAreEquivalentTypes where
@@ -225,10 +215,11 @@ module _
           n o = trueâ‰¢false (sym (P .snd t .fst o) âˆ™ e)
 
   ------------------------------------------------------------------
-  -- 3b. The ONE lemma that is missing for the full predicate-side
-  --     round trip without any hypothesis, taken as a module parameter
-  --     so that its exact shape is on record.  It is true by reduction
-  --     inside the audited module (`go true e = yes (c t .snd e)`) but
+  -- 3b. The ONE lemma the full predicate-side round trip without any
+  --     hypothesis needs, taken as a module parameter so that its exact
+  --     shape is on record.  It is true by reduction inside
+  --     `ATextPredicateExistsExactlyWhenTheSemanticPropertyIsDecidable`
+  --     (`go true e = yes (c t .snd e)`) but
   --     cannot be reached from outside: `go` is local to the clause
   --     `predicateGivesDecision (p , c) t`, closes over `p`, and has
   --     `p t â‰¡ b` as the type of its own argument, so no

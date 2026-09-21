@@ -112,11 +112,7 @@
 -- admit taking a lesser from a greater (common notion 3, used throughout
 -- Book V).  Â§9 checks that **this witness does not**: Îµ âŠ Î©, and yet no z
 -- satisfies Îµ âŠ• z â‰¡ Î©.  So `logon-echein-is-independent` is independence
--- over ordered commutative *monoids*, and that is all it is.  Independence
--- over ordered abelian *groups* is not settled here; the candidate witness
--- is â — â lex, and cubical v0.5 carries no order on `Cubical.Data.Int`
--- (a fact `NaturalMachine/OrderedSectorBreak.agda` records independently),
--- so it is not formalized in this module.
+-- over ordered commutative *monoids*, and that is all it is.
 --
 ------------------------------------------------------------------------
 

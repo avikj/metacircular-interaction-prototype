@@ -94,10 +94,6 @@
 -- indistinguishable states.  General covariance is not imposed on this
 -- computer; it is what its equality IS.  (Stated as motivation, not
 -- proved here â” the proved content is Â§Â§2â“4, the groupoid.)
---
--- No postulates, no holes, --safe.
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 (the repository pin),
--- --cubical --safe, exit 0, re-checked 2026-09-14.
 ------------------------------------------------------------------------
 
 module Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where

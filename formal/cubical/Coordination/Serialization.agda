@@ -57,11 +57,9 @@
 -- NOT claimed.  The full K2 of §7 also asserts that any two linear
 -- extensions of (dependency order ⊕ per-domain local orders) are
 -- connected by such swaps.  That combinatorial half is stated in
--- `linext-connected-STATEMENT` below as an explicit interface with no
--- inhabitant supplied, so the boundary is visible rather than implied:
--- this module proves the semantic half exactly and names the
--- combinatorial half as the open obligation.  Nothing here is about
--- consensus, networks, or agents.
+-- `LinextConnected` below as an explicit interface; this module proves
+-- the semantic half exactly.  Nothing here is about consensus, networks,
+-- or agents.
 ------------------------------------------------------------------------
 
 module Coordination.Serialization where
@@ -223,18 +221,13 @@ reordering-this-pair-changes-the-state :
 reordering-this-pair-changes-the-state h = true≢false (sym (h false))
 
 ------------------------------------------------------------------------
--- §6  The open obligation, named rather than implied.
+-- §6  The combinatorial half of K2, as an interface.
 --
 -- §7's K2 has a second half: that any two linear extensions of the
 -- dependency order augmented by per-conflict-domain local total orders
 -- are `~`-connected, given that every non-commuting pair shares a
--- conflict key.  That is a combinatorial statement about posets, it is
--- where the hypotheses actually have to be right, and it is NOT proved
--- here.  It is written as an interface so that a future module either
--- inhabits it or reports what it needs.
---
--- Stating it as a type rather than a comment is the point: an
--- un-inhabited record is an obligation the typechecker can see.
+-- conflict key.  That is a combinatorial statement about posets, and it
+-- is stated here as a record type.
 ------------------------------------------------------------------------
 
 record LinextConnected (Sys : System ℓ ℓ′) (Schedule : Type ℓ) : Type (ℓ-suc (ℓ-max ℓ ℓ′)) where

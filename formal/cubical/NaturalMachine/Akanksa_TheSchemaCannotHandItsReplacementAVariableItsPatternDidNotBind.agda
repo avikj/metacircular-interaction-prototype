@@ -82,14 +82,9 @@
 -- not how many ways it may be witnessed.  This is about the schematic
 -- control only.  ยง3 says a witness is unique, not that one can be found โ”
 -- nothing here decides matching.  `deg` counts `var` alone, because
--- `subVar` replaces `var` alone; the six-coordinate schema (the corpus's
--- open frontier item) is NOT covered โ” ยง4 would need redoing for it.
+-- `subVar` replaces `var` alone; the six-coordinate schema is NOT covered.
 -- `Vyapti_โฆ` is not imported: the statement is given on raw `lhs`, `rhs`
 -- and `meaning`, which is what its record holds.
---
--- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
--- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +
--- v0.9).  Re-check at the pin before treating this green as the lane's.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Akanksa_TheSchemaCannotHandItsReplacementAVariableItsPatternDidNotBind where

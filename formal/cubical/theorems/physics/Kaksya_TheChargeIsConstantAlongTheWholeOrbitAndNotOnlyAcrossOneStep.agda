@@ -6,15 +6,12 @@
 -- (the conserved quantity is constant along the orbit.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS IS.  `Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThere
--- IsNoSymmetry.agda` ¬ß‡ names its own open item, verbatim:
+-- WHAT THIS IS.  In `Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThere
+-- IsNoSymmetry.agda` ¬ß‡ß the conserved quantity is `f` itself: `‡‡‡∞‡ïÔøΩ‡ÔøΩ‡ÆÔøΩ`
+-- says exactly that `f` is Œ¶-invariant, so `f` descends to the orbits ‡
+-- "the charge is a function on the quotient, not on the cover".
 --
---     "The conserved quantity here is `f` itself: `‡‡‡∞‡ï‡‡‡‡Æ‡` says exactly
---      that `f` is Œ¶-invariant, so `f` descends to the orbits.  That is a
---      `FactorsThrough` obligation ... so 'the charge is a function on the
---      quotient, not on the cover' is stateable here and is not stated yet."
---
--- This states it.  Dhruva's ¬ß‡ß gives one step ‚î `f (Œ¶ a) ‚â° f a` ‚î and that
+-- This module states that.  Dhruva's ¬ß‡ß gives one step ‚î `f (Œ¶ a) ‚â° f a` ‚î and that
 -- alone leaves open whether the charge could drift along a long orbit.  It
 -- cannot: ¬ß‡® below is the induction, and its content is that the charge
 -- cannot distinguish ANY two points of an orbit, at ANY distance.  That is
@@ -36,12 +33,6 @@
 -- its use here for the forward orbit of an endomorphism is this corpus's,
 -- and no text is claimed for the application.  No source states anything
 -- below.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 ‚î the container, NOT the
--- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
--- holes, exit 0.  `Dhruva` itself was re-checked under this same toolchain
--- at the same time and also exits 0, so the import is not resting on the
--- pin either.
 ------------------------------------------------------------------------
 
 module Kaksya_TheChargeIsConstantAlongTheWholeOrbitAndNotOnlyAcrossOneStep where
@@ -96,15 +87,10 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) where
     ‡§ß‡•ç‡§∞‡•Å‡§µ‡§Ç-‡§ï‡§ï‡•ç‡§∑‡•ç‡§Ø‡§æ‡§Ø‡§æ‡§Æ‡•ç cons m a ‚àô sym (‡§ß‡•ç‡§∞‡•Å‡§µ‡§Ç-‡§ï‡§ï‡•ç‡§∑‡•ç‡§Ø‡§æ‡§Ø‡§æ‡§Æ‡•ç cons n a)
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what this opens and does not close.
+-- ‡ ¬ ‡‡‡‡ ‚î scope.
 --
--- The genuine descent statement needs the orbit RELATION and its
--- quotient, and `Œ¶` without an inverse does not give an equivalence
--- relation ‚î `a ~ Œ¶‚ø a` is reflexive and transitive and not symmetric.
--- So the honest next rung is either (a) require `Œ¶` to be an equivalence
--- and take the groupoid it generates, or (b) state descent along the
--- reflexive-transitive closure and accept a preorder rather than a
--- quotient.  Neither is done here, and ¬ß‡®‚ì¬ß‡© are true without either.
+-- `Œ¶` is a bare endomorphism.  ¬ß‡®‚ì¬ß‡© are stated on the cover and need
+-- no orbit relation, no quotient, and no inverse.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -146,13 +132,10 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) where
 -- station of the forward orbit of `a` is a point of the fibre over
 -- `f a`, with ¬ß‡® supplying its membership witness.
 --
--- So the sentence "the gauge orbit lies in the fibre" now has a term
--- whose subject is the orbit, and the physics reading of `Dhruva` ¬ß‡ß is
--- discharged rather than asserted.  What is still NOT claimed is the
--- converse -- that the fibre is exhausted by one orbit -- which is
--- transitivity of the flow on the fibre, exactly the hypothesis
--- `Dhruva`'s header says the second theorem's dichotomy needs and does
--- not have.
+-- So the sentence "the gauge orbit lies in the fibre" has a term
+-- whose subject is the orbit.  The converse -- that the fibre is
+-- exhausted by one orbit -- is transitivity of the flow on the fibre,
+-- which ¬ß‡ß takes as a hypothesis.
 ------------------------------------------------------------------------
 
 open import Cubical.Foundations.Equiv using (fiber)
@@ -166,11 +149,8 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) where
 -- ‡ ¬ ‡‡ô‡‡ï‡‡∞‡Æ‡‡ ‡‡æ‡∞‡ã ‡®‡æ‡‡‡‡ø ‚î WHERE THE FLOW IS TRANSITIVE, NO INVARIANT
 --     CARRIES A CHARGE.
 --
--- `Dhruva`'s header names this twice as missing: its ¬ß‡© exhibits the
--- degenerate case at the smallest fibre "but does not prove the general
--- dichotomy; transitivity is not stated", and ¬ß‡ repeats it.  ¬ß‡ above
--- fenced the same gap from the other side ‚î the orbit lies IN the fibre,
--- and whether it EXHAUSTS the fibre is transitivity.
+-- ¬ß‡ above: the orbit lies IN the fibre, and whether it EXHAUSTS the
+-- fibre is transitivity.
 --
 -- Here transitivity is stated, as a hypothesis, and its consequence
 -- proved: if the flow reaches every point of a fibre from every other,
@@ -181,8 +161,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) where
 --
 -- That is Noether's SECOND theorem's conclusion ‚î a local symmetry gives
 -- a constraint rather than a charge ‚î at the level where no Lagrangian is
--- needed.  `Dhruva`'s fences on the first theorem are untouched and still
--- apply: no variation, no continuity, no action.
+-- needed.  As in `Dhruva`: no variation, no continuity, no action.
 ------------------------------------------------------------------------
 
 module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) where

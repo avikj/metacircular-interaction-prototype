@@ -6,23 +6,15 @@
 -- (durnaya at the fibre: a two-valued fibre census is FORCED to collapse,
 --  and the third position escapes it.)
 --
--- THE OPEN ITEM THIS CLOSES.
--- `notes/SamagraDarsana_‚¶md` ¬ß‡ lists, as open:
---
---     "Whether `isContr`'s merging of *empty fibre* and *fibre with ‚â2
---      points* is an instance of `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡`. The note
---      `SakalaVikalaDesa_‚¶` argues it is; the instantiation is not written."
---
--- `Tantujala_‚¶agda` ¬ß‡ takes the nearest available step and says so: it
--- re-exports `S.‡¶‡‡∞‡‡®‡Ø‡` under a fibre-flavoured name and asks the reader to
+-- `Tantujala_‚¶agda` ¬ß‡ re-exports `S.‡¶‡‡∞‡‡®‡Ø‡` under a fibre-flavoured name and asks the reader to
 -- *read* ‡∞‡ø‡ï‡‡‡Æ‡/‡‡ï‡Æ‡/‡‡‡ as ‡‡µ‡ï‡‡‡µ‡‡Ø/‡‡‡‡‡ø/‡®‡æ‡‡‡‡ø ‚î
 --
 --     ‡¶‡‡µ‡ø‡‡¶-‡®‡ø‡∞‡‡‡Ø‡ã-‡Æ‡‡≤‡Ø‡‡ø = S.‡¶‡‡∞‡‡®‡Ø‡
 --
 -- ‚î which is the sevenfold theorem with a comment attached, not the fibre
 -- theorem.  ¬ß‡ there then exhibits the collapse by hand (‚ä ‚í Unit against
--- Bool ‚í Unit) rather than deriving it.  What was missing is the term that
--- makes the transfer a computation: a map from the three seeds to three
+-- Bool ‚í Unit) rather than deriving it.  The term that
+-- makes the transfer a computation is a map from the three seeds to three
 -- WITNESS TYPES, so that an arbitrary verdict on fibres pulls back to a
 -- verdict on ‡‡‡‡‡‡ô‡‡ó‡ and `‡¶‡‡∞‡‡®‡Ø‡` fires on it.  ¬ß‡® below is that term, and
 -- it is one line.
@@ -69,9 +61,6 @@
 -- `Saptabhangi.agda`, which states the pigeonhole; not re-cited at verse
 -- level, and the primary texts are unopened by me.  Univalence and
 -- `isEquiv` are Voevodsky's, as realised in agda/cubical.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 (b150186), --cubical --safe,
--- no postulates, no holes.
 ------------------------------------------------------------------------
 
 module DurnayaTantau_TheTwoValuedFibreCensusIsForcedToCollapseAndTheThirdPositionEscapesIt where
@@ -114,8 +103,7 @@ private
 ------------------------------------------------------------------------
 -- ‡® ¬ THE INSTANTIATION.  Every two-valued verdict on types collapses.
 --
--- This is the line `SamagraDarsana` ¬ß‡ says is not written.  It is not a
--- new proof: it is `S.‡¶‡‡∞‡‡®‡Ø‡` applied to `V ‚àò ‡‡æ‡ï‡‡‡`, and the whole content
+-- It is not a new proof: it is `S.‡¶‡‡∞‡‡®‡Ø‡` applied to `V ‚àò ‡‡æ‡ï‡‡‡`, and the whole content
 -- is that the composite typechecks ‚î the three seeds have become three
 -- types, so the pigeonhole on bhagas IS a pigeonhole on fibres.
 --

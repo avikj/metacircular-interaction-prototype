@@ -60,7 +60,7 @@
 -- `Mula.BraidCoherenceBoundary` exhibits two involutive
 -- self-EQUIVALENCES of `Bool — Bool — Bool` that fail Yangâ“Baxter at
 -- (false , false , false), so invertibility does not entail the
--- coherence, and nothing here supplies it.  No thermodynamics, no
+-- coherence.  No thermodynamics, no
 -- physical implementation, no measure, no heat â” `Yantra_â¦` carries a
 -- correction inset about exactly that overclaim and this file does not
 -- reinstate it.

@@ -5,10 +5,9 @@
 --
 -- WHY THIS FILE EXISTS.  `Pradakshina_โฆ` computes the holonomy of the
 -- library's `helix` over the circle and proves it is the successor
--- function.  The abstract for that result then says, under WHAT IS NOT
--- CLAIMED, that there is no lattice, no gauge group, no connection form
--- and no Wilson loop anywhere in the development, and that the physical
--- reading is a reading and is not proved.
+-- function, with no lattice, no gauge group, no connection form and no
+-- Wilson loop in its development; there the physical reading is a
+-- reading.
 --
 -- Every one of those objects is built here, in the generality it is
 -- normally stated in, and the reading is then a THEOREM: ยงเ proves that
@@ -39,9 +38,6 @@
 --                              what makes a holonomy physical rather
 --                              than a coordinate artefact.
 --   ยงเ  `holonomy-is-wilson`   THE BRIDGE, and the point of the file.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 โ” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Jala_TheLatticeTheGaugeGroupTheConnectionAndTheWilsonLoopAreBuiltAndTheHolonomyIsOne where

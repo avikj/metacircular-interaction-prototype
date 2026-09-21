@@ -434,10 +434,7 @@ left≤right d = refl
 -- universal compiler that records only one-sided binary closure ... and
 -- still guarantees associative semantic composition"), which this
 -- instance witnesses and does not extend.  Not middle associativity:
--- D0026 §2.5 repairs the failure with the two-sided middle nucleus, and
--- that repair is NOT formalized here.  §14.1's remaining clauses �
--- middle associativity, the residual laws, the derived nucleus � remain
--- open.
+-- D0026 §2.5 repairs the failure with the two-sided middle nucleus.
 --
 -- One thing IS added rather than reproduced: §2.4 does not state that
 -- its four-element table is associative, and the counterexample is

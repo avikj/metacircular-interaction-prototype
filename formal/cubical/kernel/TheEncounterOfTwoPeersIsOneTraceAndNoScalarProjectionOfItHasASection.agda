@@ -75,8 +75,6 @@
 -- because two independent encounters commute, so the route-sensitive scalar
 -- has a collision it cannot avoid.  The blindness is not the semantics'.
 -- It is the SCALAR'S, and it survives every refinement that stays scalar.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0.
 ------------------------------------------------------------------------
 
 module TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection where

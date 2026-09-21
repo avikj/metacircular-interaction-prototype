@@ -39,7 +39,7 @@
 -- So the cone is lawful to horizon 1 and breaks at horizon 2: the
 -- observation is causally sufficient for one step of planning and
 -- structurally incapable of two.  "Same present observation, same
--- one-step affordances, different futures" is now a checked
+-- one-step affordances, different futures" is a checked
 -- configuration â” the dependent no-go in its dynamical form, and the
 -- floor of the transmission's bisimulation reading: states may be
 -- lawfully identified only when their whole future cones descend.

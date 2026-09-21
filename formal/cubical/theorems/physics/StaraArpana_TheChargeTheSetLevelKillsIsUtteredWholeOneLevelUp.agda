@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡∞-‡‡∞‡‡‡ ‚î offering by stratum.  A REAL question, asked because its
--- answer was not known to the asker: OrderSaha proves the set-level
+-- ‡‡‡‡∞-‡‡∞‡‡‡ ‚î offering by stratum.  A question: OrderSaha proves the
+-- set-level
 -- kills the circle's charge (its ‡ï‡‡∞‡Æ‡-‡‡‡ü‡-‡‡‡∞‡‡Æ‡Æ‡: Path ‚àS¬‚à‚ is
 -- contractible) while the other order keeps it (‡ï‡‡∞‡Æ‡-‡≤‡‡-‡‡‡∞‡‡Æ‡Æ‡:
 -- ‚àŒ©S¬‚à‚ ‚â ‚).  Is the charge DESTROYED ‚î or WITHHELD, and uttered
@@ -24,14 +24,12 @@
 -- LIBRARY's PathIdTruncIso (Cubical.HITs.Truncation.Properties; the
 -- shift Œ©‚àX‚à‚ô‚ä‚ ‚â ‚àŒ©X‚à‚ô is standard HoTT ‚î this module's content is
 -- its INSTANTIATION at the corpus's own charge, against OrderSaha's
--- checked pair, closing a question the corpus's doctrine left open).
+-- checked pair).
 -- The word-pair arpita/anarpita is Umsvti, Tattvrthastra 5.31
 -- (‡‡∞‡‡‡ø‡‡æ‡®‡∞‡‡‡ø‡‡‡ø‡¶‡‡ß‡‡ ‚î establishment from the emphasized and the
 -- non-emphasized), taken as the READING of standpoint-graded
 -- establishment; the stra is not claimed to grade truncations by
 -- h-level.  The stratum grading is this repository's statement.
---
--- Composed through ‡®‡æ‡°‡ against the warm kernel.
 ------------------------------------------------------------------------
 
 module StaraArpana_TheChargeTheSetLevelKillsIsUtteredWholeOneLevelUp where

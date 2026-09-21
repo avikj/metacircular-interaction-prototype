@@ -91,7 +91,7 @@
 -- `refl` below did reduce â” but they do not compute when applied to a
 -- transport.  Nothing here transports along a path in `Fin n`, so no
 -- proof below depends on that.  The same warning is already emitted by
--- `NaturalMachine/SmithPathCountedExecution.agda`; the build is exit 0.
+-- `NaturalMachine/SmithPathCountedExecution.agda`.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PMTorus where

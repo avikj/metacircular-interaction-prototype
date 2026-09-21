@@ -29,8 +29,6 @@
 -- The algebra is abstract on purpose: any concrete (co)chain complex
 -- over any additive R with a Stokes adjunction instantiates it.  The
 -- content is the DERIVATION of invariance from closedness + adjunction.
---
--- Machine-checked, Agda 2.8.0 + cubical v0.9, --safe, no postulates.
 ------------------------------------------------------------------------
 
 module ValueIsThePairingAndStokesDescendsItToHomology where

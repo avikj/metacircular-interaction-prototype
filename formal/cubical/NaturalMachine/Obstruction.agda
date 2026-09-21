@@ -16,10 +16,7 @@
 -- covers) and name exactly the missing structure.
 --
 -- This module states and CHECKS both halves in a small substrate.  How
--- much of Â§7 survives the shrinking is the subject of T7â² and T10 below,
--- and of the disclaimer at the end of this header; "the smallest
--- substrate that carries them honestly" was the original wording and it
--- claimed more than is true of the frequency half.
+-- much of Â§7 survives the shrinking is the subject of T7â² and T10 below.
 --
 --   * `Tm`      â” unary constructor terms over a countable alphabet of
 --                 head shapes (a term language in which a definitional
@@ -53,11 +50,7 @@
 --                               no provability relation is modelled
 --                               anywhere in this file, so "conservative"
 --                               here is eliminability of the new head
---                               from `Over`, and nothing more.  The
---                               statement with real conservativity
---                               content is P3 of
---                               notes/OBSTRUCTION_AGDA_PLAN.md (the D3
---                               counterexample `x*y := x+y`), unproved.
+--                               from `Over`, and nothing more.
 --   T3 `match-conservative`     installing a head changes matchability
 --                               at no OTHER head.  This is a membership
 --                               skip lemma; calling it "the D3 content"
@@ -106,7 +99,6 @@
 --                               obstruction whose residual is outside
 --                               the class.  This, not T7/T8, is the
 --                               faithful rendering of the source.
---
 --
 ------------------------------------------------------------------------
 

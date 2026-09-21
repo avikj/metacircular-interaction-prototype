@@ -13,13 +13,7 @@
 --   Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.‡‡‡ï‡‡∞‡Æ‡‡-‡®-‡ï‡ø‡û‡‡‡ø‡®‡-‡®‡‡‡Ø‡‡ø
 --
 -- Two of the three carry the same  stem under different module roofs.
--- No one of the three imports another.  (Two of the three do cite a third in
--- prose ‚î Apratikaryatva's header records that it restates the line because
--- ¬ß‡'s own statement in Nasti_Shabde‚¶ had not typechecked at the time, and
--- Samkramana_‚¶ separately imports Nasti's.  Prose citation is not import, and
--- the audit that found this group could not see the prose.  Recording that
--- here so the finding is not overstated: this is not three modules ignorant
--- of each other, it is three modules that never got wired.)
+-- No one of the three imports another.
 --
 -- THE IDENTIFICATION, AND ITS GRADE.  All three are definitionally the term
 -- `uaŒ≤`, so the identification is `refl` ‚î not a path that had to be
@@ -135,17 +129,5 @@ private
 --     ‡‡‡ a map leaves is complete ‚î so ‡‡≤‡ã‡‡ there is the half that is
 --     already known, present to make the other half's status legible.
 --
--- Setup, input, and foil.  A shared import would have served all three; that
--- it did not happen is the fact the audit surfaced, and it is a fact about
--- how this corpus was written, not about univalence.
---
--- WHAT REMAINS OPEN.  ¬ß‡ says there are exactly two roads and no third.  The
--- three modules above state road one.  Road two ‚î the written ‡‡‡ ‚î has no
--- corresponding single declaration anywhere, because it is not a theorem: it
--- is what one writes WHEN the theorem is unavailable.  Apratikaryatva argues
--- that road two is nonetheless complete (the fibres of a map determine its
--- domain over its codomain), which is the closest this corpus comes to
--- mechanising the second road, and SankramanaSesa argues that road one always
--- owes something to road two.  Whether those two claims are the same claim is
--- not settled here, and neither module cites the other.
+-- Setup, input, and foil.  A shared import would have served all three.
 ------------------------------------------------------------------------

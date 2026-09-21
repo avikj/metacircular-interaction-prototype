@@ -46,7 +46,7 @@
 -- kernel's own library.
 --
 ------------------------------------------------------------------------
--- THE TWO MISSING LEMMAS, and why neither is a new axiom.
+-- THE TWO LEMMAS, and why neither is a new axiom.
 --
 -- §1  SUBSTITUTION ACTS ON THE REWRITE CALCULUS.  `subStep` and `subDer`:
 --     every `Step` constructor commutes with `subVar` on the nose, by
@@ -85,11 +85,6 @@
 --                                      forbids to every NativeOperation
 --   §6  Future, advance, advance-      the wiring: the same no-premature-
 --       preserves-branch-count         collapse law, over Operation
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- `sh check` EXIT 0,
--- 2026-08-25, every kernel module and the fibre law green in the same run.
--- The commit that introduced this file said NOT YET CHECKED AT THE PIN and
--- meant it; this is the discharge, added rather than amended into history.
 ------------------------------------------------------------------------
 
 module TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass where
@@ -332,11 +327,6 @@ no-native-operation-does-this op c₀ c₂ =
 -- this module is not a fourth unwired record: a pervading operation can be
 -- offered as a future, executed, and carried in a branch list whose
 -- multiplicity is exactly conserved.
---
--- NOT DONE, named: `Session`, `retire`, `learn` and `merge` are still
--- typed over `NativeOperation` in their own modules.  `native�operation`
--- makes the embedding available to them; re-typing them is the next step
--- and is not taken here.
 ------------------------------------------------------------------------
 
 record Future (seed : Tm) : Type₁ where

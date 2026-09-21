@@ -16,10 +16,7 @@
 -- covers) and name exactly the missing structure.
 --
 -- This module states and CHECKS both halves in a small substrate.  How
--- much of Â§7 survives the shrinking is the subject of T7â² and T10 below,
--- and of the disclaimer at the end of this header; "the smallest
--- substrate that carries them honestly" was the original wording and it
--- claimed more than is true of the frequency half.
+-- much of Â§7 survives the shrinking is the subject of T7â² and T10 below.
 --
 --   * `Tm`      â” unary constructor terms over a countable alphabet of
 --                 head shapes (a term language in which a definitional
@@ -53,10 +50,7 @@
 --                               no provability relation is modelled
 --                               anywhere in this file, so "conservative"
 --                               here is eliminability of the new head
---                               from `Over`, and nothing more.  The
---                               statement with real conservativity
---                               content is P3 of
---                               counterexample `x*y := x+y`), unproved.
+--                               from `Over`, and nothing more.
 --   T3 `match-conservative`     installing a head changes matchability
 --                               at no OTHER head.  This is a membership
 --                               skip lemma; calling it "the D3 content"
@@ -417,8 +411,7 @@ plateau (step {W = W} ch t m) =
   extend-absorbed W (headShape W t m) (headShape-built W t m) âˆ™ plateau ch
 
 ------------------------------------------------------------------------
--- T7â².  HOW MUCH OF T7 IS THE DATATYPE.  Exactly this much â” and it is
--- more than the wording above admits, so the wording is corrected here.
+-- T7â².  HOW MUCH OF T7 IS THE DATATYPE.  Exactly this much.
 --
 -- The step constructor names `headShape W t m`, which by
 -- `headShape-built` is ALREADY INSTALLED in W.  The converse holds too:
@@ -533,7 +526,7 @@ class-can-grow C V s cs e =
 -- innermost-first, and each uncovered head yields an obstruction whose
 -- proposal installs it.  (The chain constructed here uses the
 -- degenerate witness `var`; a witness policy is a refinement, not a
--- prerequisite â” see the plan note.)
+-- prerequisite.)
 ------------------------------------------------------------------------
 
 data ObsChain (V : Vocab) : Vocab â†’ Typeâ‚€ where

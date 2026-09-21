@@ -54,10 +54,9 @@ run-split² seed step l m n =
   ∙ run-+ (run seed step n) step l m
 
 ------------------------------------------------------------------------
--- Instantiation on the checked positional-numeral machine.  This closes the
--- resumption edge left open by `CountedDigits`: that module executes only
--- from the zero word, so nothing there says a computation may be suspended
--- at an arbitrary checkpoint and resumed without recounting the prefix.
+-- Instantiation on the checked positional-numeral machine.  `CountedDigits`
+-- executes only from the zero word; here a computation is suspended at an
+-- arbitrary checkpoint and resumed without recounting the prefix.
 ------------------------------------------------------------------------
 
 module Odometer (k : ℕ) where

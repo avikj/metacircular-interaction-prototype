@@ -3,9 +3,8 @@
 ------------------------------------------------------------------------
 -- TheCountingSemanticsIsTheCardinalityOfTheTypeSemantics
 --
--- Closes the bridge that `TheCountingSemanticsIsADecategorification�`
--- explicitly left open ("No theorem here relates ⟦t⟧ to eval t by
--- cardinality � that would need finiteness and is not proved").
+-- The bridge between `TheCountingSemanticsIsADecategorification�`'s two
+-- semantics: ⟦t⟧ and eval t are related by cardinality.
 --
 -- THE CLAIM, made precise: `eval` is the CARDINALITY of `⟦_⟧`. Interpret
 -- each of the six variable coordinates not by a number but by a finite type

@@ -3,10 +3,7 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.PMCokernel
 --
--- CHECKED (Agda 2.6.3, cubical v0.5, 2026-08-13).  No postulates, no
--- holes, `--safe`.
---
--- WHAT THIS DISCHARGES.  `notes/PM_SECTION_VS_COCYCLE.md` ends with:
+-- WHAT THIS PROVES.  `notes/PM_SECTION_VS_COCYCLE.md` ends with:
 -- "The natural checked target: `coker(Î´) â‰ Fâ` and the exactness step â”
 -- pure finite linear algebra over Fâ, no matrices over â[i] needed."
 -- This module is that target, carried out on the PHYSICAL index sets
@@ -87,8 +84,7 @@
 -- Only `âˆ-Î´` below does this, and only to compare two definitionally
 -- equal six-clause functions; nothing in this module transports along a
 -- path in `Fin n`, so no proof depends on those clauses computing under
--- transport.  The build is exit 0 with no errors and no unsolved
--- metas.
+-- transport.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PMCokernel where

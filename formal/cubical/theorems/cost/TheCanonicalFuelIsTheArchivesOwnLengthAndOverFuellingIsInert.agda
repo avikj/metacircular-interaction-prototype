@@ -4,32 +4,22 @@
 -- TheCanonicalFuelIsTheArchivesOwnLengthAndOverFuellingIsInert
 --
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- Pareto stratification and fuelled recursion are not objects I can
--- trace to an Indian source, and a fabricated  label would
--- assert a provenance nobody checked.  Checked before naming:
--- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
--- `.claude/hooks/european-frame.txt`; no row applies, and the frame
--- check's scope requires Indian material, of which this module has
--- `overFuel`, `over-fuel` and `moreFuel` return nothing anywhere.
+-- Pareto stratification and fuelled recursion have no established
+-- Indian source, and a fabricated label would assert a provenance.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE GAP, NAMED BY THE LINE ITSELF AND LEFT OPEN
+-- THE QUESTION
 --
--- `TheStratificationTerminatesOnItsOwnLength` closes with:
---
---   "`strata` takes the fuel as an argument, so **a caller may
---    under-fuel it**; only `lengthL xs` is proved sufficient, and
---    nothing forces a caller to pass it."
---
--- That is accurate and it is only one side.  `fuelSuffices` proves
--- `lengthL xs` is ENOUGH.  Nothing on the line proves it is not TOO
--- MUCH â” i.e. that two callers passing different sufficient fuels get
--- the same stratification.  Until that is proved, `strata n xs` is a
--- FAMILY indexed by a caller's choice, and no theorem stated at one
--- fuel transfers to another.
+-- `strata` takes the fuel as an argument, so **a caller may under-fuel
+-- it**; `fuelSuffices` in `TheStratificationTerminatesOnItsOwnLength`
+-- proves `lengthL xs` is ENOUGH.  Is it also not TOO MUCH â” do two
+-- callers passing different sufficient fuels get the same
+-- stratification?  Without that, `strata n xs` is a FAMILY indexed by
+-- a caller's choice, and no theorem stated at one fuel transfers to
+-- another.
 --
 -- **AND ONE THEOREM ON THIS LINE IS STATED AT EXACTLY ONE FUEL.**
--- Checked by reading the signatures, not the headers:
+-- By the signatures:
 --
 --   theStrataAreOrdered : (n : â•) (xs : â¦) â’ Ordered (strata n xs)
 --        â” every fuel.  Ordering is a property of the output's shape.
@@ -37,7 +27,7 @@
 --        â’ MemSome v (strata (lengthL xs) xs)
 --        â” **`lengthL xs` and nothing else.**
 --
--- So coverage was, until Â§2 below, a statement about one point of the
+-- So coverage, as stated there, is a statement about one point of the
 -- family.  Â§3 extends it to every sufficient fuel, and that extension
 -- is the reason this module exists rather than being a tidying-up.
 --
@@ -62,11 +52,7 @@
 -- at or above it, every choice gives the same list (Â§2).  So
 -- `strata (lengthL xs) xs` is not *a* stratification, it is *the* one,
 -- and the fuel argument is an implementation detail rather than a
--- parameter of the object â” which is what the line has been assuming in
--- prose since `strata` was written.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- parameter of the object.
 ------------------------------------------------------------------------
 
 module TheCanonicalFuelIsTheArchivesOwnLengthAndOverFuellingIsInert where

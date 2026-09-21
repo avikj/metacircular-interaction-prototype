@@ -2,8 +2,7 @@
 
 ------------------------------------------------------------------------
 -- Sha256Lossless â” P=NP on the lossless machine, instantiated at the real
--- full 64-round SHA-256.  This is the result I earlier dismissed as a
--- "side channel": free inversion on the trace-carrying completion is not
+-- full 64-round SHA-256.  Free inversion on the trace-carrying completion is not
 -- a cheat, it is `Â Gap (completed sha256)` â” the find/check gap is
 -- IMPOSSIBLE on the completion, universally, at every message, all 64
 -- rounds.  (PeqNPHoldsOnTheLosslessUniversalMachine, at sha256nat.)

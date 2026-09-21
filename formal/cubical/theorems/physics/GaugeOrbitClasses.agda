@@ -88,7 +88,7 @@
 -- * `ChargeCriterion` is NOT refuted.  Every statement in it is true as
 --   written; ยง6 refutes only an over-reading its wording invites.
 --
--- Contents (no holes, no postulates, --safe):
+-- Contents:
 --
 --   ยง1  _โ_, ย-self, ย-not, ย-unit-r   the gauge group acting on signs
 --   ยง2  val-โ                          the character law (bilinearity)

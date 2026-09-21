@@ -71,8 +71,6 @@
 -- as consequences of `reverse` and of â• being a set, and the machinery a
 -- chain uses to manufacture them (ordering, voting, finality, reorg) has no
 -- work to do because the disagreement it resolves cannot be stated.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous where

@@ -5,7 +5,7 @@
 --
 -- The Chen envelope's three channels and the primitive projector â”
 -- the multiset skeleton of Factories VIII and IX, reconstructed from
--- the EGB V3 index summaries (full texts not yet exported; msg 0489).
+-- the EGB V3 index summaries.
 -- Index item 128: "exact projectors onto prime, square, and
 -- distinct-semiprime channels."  Index item 132: "Ïâ(N) = Ï‰(N)âˆ’1;
 -- 1_â™ = Î¼Â² âˆ’ Ïâ on Pâ."
@@ -39,10 +39,8 @@
 -- the statement that this extra resolution costs nothing
 -- asymptotically; that claim is analytic and NOT formalized here.
 --
--- RECONSTRUCTION DISCIPLINE: nothing here claims to match the absent
--- Factory VIII/IX texts beyond the index's stated identities; when the
--- sources are exported, this module is the checked object the
--- comparison lands on.
+-- RECONSTRUCTION DISCIPLINE: nothing here claims to match the
+-- Factory VIII/IX texts beyond the index's stated identities.
 ------------------------------------------------------------------------
 
 module NaturalMachine.ThreeChannels where

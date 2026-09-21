@@ -92,8 +92,7 @@
 -- and this file reuses that definition rather than restating it, so it
 -- inherits the restriction.  Nothing below depends on the levels being
 -- equal and the general statement is a mechanical widening of Dhruva's
--- telescope; it is not done here because renaming another identity's
--- declaration is theirs to do.
+-- telescope.
 --
 -- **No  source states anything below**, and no Nyya doctrine is
 -- being formalised: see the TERM note.
@@ -114,10 +113,6 @@
 -- NOT being formalised and Gagea is credited with nothing here.  A
 -- Naiyyika would also refuse the substrate outright: cubical type
 -- theory (Voevodsky) is this repository's one admitted non-Indian frame.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 ‚î the container, NOT the
--- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
--- holes, exit 0.
 ------------------------------------------------------------------------
 
 module Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt where
@@ -293,22 +288,9 @@ _‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§®‡•ã‡§§‡§ø_ {A = A} {B = B} {C = C} f g =
   a' , sym (‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£‡§Ç-‡§§‡§®‡•ç‡§§‡•å cons a a' q)
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what stays open, named so the next rung is not
---     over-specified.
+-- ‡ ¬ ‡‡‡‡ ‚î scope.
 --
---  * ANTISYMMETRY.  `f ‡µ‡‡Ø‡æ‡‡‡®‡ã‡‡ø g` and `g ‡µ‡‡Ø‡æ‡‡‡®‡ã‡‡ø f` gives a pair of
---    maps between the images; whether they compose to identities is a
---    genuine question and is not answered here.  The right object is
---    probably the order on IMAGES rather than on maps, and this corpus
---    already types cost on the image (`ReflectionAggregate_‚¶`).
---  * THE CONVERSE OF ¬ß‡©, which is false as stated; what could be true is
---    a converse relative to the orbit relation of `SamanaKaksya_‚¶` ¬ß‡®,
---    since that file's `‡‡µ‡‡‡∞‡‡‡` already descends the charge.  Not
---    attempted.
 --  * `‡µ‡ø‡‡‡Æ‡‡‡ø‡` uses a bare `¬ (a ‚â° a')`, which is the weak apartness.
---    `Vaidharmya_‚¶agda` argues in this corpus that the answer type need
---    only be APART, and a positive apartness would make ‡¬‡® constructive
---    in a stronger sense.  Not done here.
 --  * Nothing above says which fibres are BIG.  There is no size notion
 --    in this file at all, deliberately; supplying one (a cardinality, a
 --    measure) is exactly where a fitted constant would enter, and the

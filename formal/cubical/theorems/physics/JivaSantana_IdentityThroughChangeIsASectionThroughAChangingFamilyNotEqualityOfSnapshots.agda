@@ -41,9 +41,9 @@
 -- THE FIVE FATES (Â§3).  A single claim, under a transition, meets one
 -- of five fates â” the owner's anatomy of a lossless correction.  They
 -- are the constructors of the transition fibre; the datatype is their
--- codomain.  FENCE: classifying a SPECIFIC claim's fate needs the
--- actual span maps and is not done here â” this supplies the type a
--- lossless correction must land in, so that no claim silently vanishes.
+-- codomain.  Classifying a SPECIFIC claim's fate needs the actual span
+-- maps; this supplies the type a lossless correction must land in, so
+-- that no claim silently vanishes.
 ------------------------------------------------------------------------
 
 module JivaSantana_IdentityThroughChangeIsASectionThroughAChangingFamilyNotEqualityOfSnapshots where

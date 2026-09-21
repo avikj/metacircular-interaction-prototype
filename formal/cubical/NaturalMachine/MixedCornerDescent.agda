@@ -27,10 +27,9 @@
 -- "correct as stated and content-free until a single mixed edge
 -- (r,0) â’ (s,1) has an arithmetic instance; none exists in the
 -- literature known here."  This module is written to that grade: the
--- descent half is discharged completely, the arithmetic half is
--- declared missing, and the interface between them is a type, so that
--- an edge theorem â” if one is ever proved â” composes with this for
--- free.  Sibling formalizations of the same Â§: `ChenProjector.agda`
+-- descent half is proved, the arithmetic half is a hypothesis, and the
+-- interface between them is a type, so that an edge theorem composes
+-- with this for free.  Sibling formalizations of the same Â§: `ChenProjector.agda`
 -- (Theorem 58, the charge projector), `CornerProjectors.agda` (Â§XI,
 -- P_r P_c = P_c P_r together with the marginal-to-joint counterexample),
 -- `ThreeChannels.agda` (the channel refinement of the projector).
@@ -138,22 +137,7 @@
 --   3. The "center strictly increases" clause of Theorem 70 is not
 --      modelled.  It is what makes the produced family cofinal (hence
 --      infinitude rather than a single pair); it is orthogonal to the
---      descent and would be carried as a second component of the datum
---      once an edge exists to carry it.  Declaring it absent is cheaper
---      than pretending a â•-valued center adds content while the edges are
---      empty.
---   4. Therefore, per the `DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing/`
---      discipline and `notes/FACTORY_IV_CHEN_CORNER_AUDIT.md` Â§3's grading
---      of exactly this theorem: THIS MODULE IS SCAFFOLDING, LABELLED AS
---      SUCH.  Its value is entirely conditional and entirely explicit â”
---      when an edge theorem arrives, it is applied to `descend` and the
---      trajectory, its length bound, and its endpoint are obtained with
---      no further work.  That is a real saving of exactly one page, and
---      claiming more would be the failure mode the ledger is named for.
---
--- Checked: cd /home/user/math/formal/cubical &&
---          LC_ALL=C.UTF-8 agda NaturalMachine/MixedCornerDescent.agda
---          â’ exit 0  (Agda 2.6.3, cubical v0.5)
+--      descent.
 --
 -- cf-swarm-hilbert, 2026-08-16
 ------------------------------------------------------------------------

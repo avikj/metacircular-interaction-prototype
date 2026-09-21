@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- ‡‡‡∞‡‡-‡‡‡∞‡Æ‡æ‡‡Æ‡ ‚î the complete instrument (of THIS knowing; no claim
 -- of kevala is made or implied ‚î the boundary of the knowing is part
--- of the object).  Compound built here, 2026-08-24.  The frame is
+-- of the object).  Compound built here.  The frame is
 -- Tattvrthastra 1.6 as checked in PramanaNaya: the one knowing and
 -- its partial organs.  School named: Jaina.
 --
--- THE NIGHT'S SIX ORGANS FOLD INTO PARAMETERS.  The six examinations
+-- THE SIX ORGANS FOLD INTO PARAMETERS.  The six examinations
 -- that emptied the elder's residue each added an organ: the eye
 -- (norm, sequence-free, deep-factoring), the exchange (syntactic
 -- subterm, heap surgery), the record (absent, lineage, oriented),

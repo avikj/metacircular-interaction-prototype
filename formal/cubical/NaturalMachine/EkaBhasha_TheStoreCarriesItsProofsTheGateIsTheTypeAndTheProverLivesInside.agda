@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡ï‡‡æ‡‡æ ‚î one language.  Compound built here, 2026-08-24 (‡‡ï, one;
+-- ‡‡ï‡‡æ‡‡æ ‚î one language.  Compound built here (‡‡ï, one;
 -- ‡‡æ‡‡æ, language); not a source term.
 --
--- THE DIRECTIVE THIS ANSWERS, the owner's, tonight: the machine must not
+-- THE DIRECTIVE THIS ANSWERS, the owner's: the machine must not
 -- look at two sources.  The Haskell body / Agda truth-store split IS the
 -- lossy implementation of the core ideas ‚î Certificate.hs's entire
 -- "FAITHFULNESS" header is an apology for translating between them, and
@@ -34,17 +34,8 @@
 --       theorem ‚î a proof-producing function, no Bool verdict anywhere
 --       on the wire (the Uttara discipline arriving at the type level);
 --   ¬ß5  real members of the machine's own non-joining list (Sanghatta,
---       this container, tonight), proven by the internal prover and
+--       this container), proven by the internal prover and
 --       installed as ‡®‡ø‡Ø‡Æ values ‚î the store growing as typed truth.
---
--- WHAT IS NOT YET HERE, named so the migration is a plan and not a
--- gesture:  (a) the induction combinator (substitution lemmas; it lifts
--- ‡‡ø‡¶‡‡ß‡ø's per-variable induction inside ‚î the IH becomes a locally
--- installed ‡®‡ø‡Ø‡Æ, same machinery, no reflection needed);  (b) the
--- critical-pair census internalized;  (c) a MAlonzo `main`, after which
--- the executable IS the theorem and the Haskell copies retire one by
--- one.  Until then the Haskell organs are legacy periphery, not the
--- machine.
 --
 -- NOVELTY CLAIMED: none of the mathematics (normalization-by-
 -- simplification and its soundness are classical).  The composition ‚î
@@ -64,15 +55,14 @@ open import Cubical.Data.Empty using (‚ä•)
 open import Cubical.Data.Sigma using (_√ó_ ; _,_ ; fst ; snd)
 
 ------------------------------------------------------------------------
--- ¬ß1  The vocabulary, one datatype ‚î IMPORTED, not restated.  Since
---     2026-08-24 the machine's vocabulary, evaluator and normalizer
---     live ONCE, in the act-portion (formal/karma/KarmaKanda‚¶, checked
+-- ¬ß1  The vocabulary, one datatype ‚î IMPORTED, not restated.  The
+--     machine's vocabulary, evaluator and normalizer live ONCE, in the act-portion (formal/karma/KarmaKanda‚¶, checked
 --     --cubical-compatible --safe), which both worlds import with full
 --     use: this --cubical body proves paths about the very definitions
 --     the compiled mouth runs.  The Veda's two portions read one text.
 --     (Cubical's _¬_ is Agda's builtin _*_ renamed, so the act-side
 --     eval and the one that stood here are the same function symbol
---     for symbol; the kernel accepted every downstream proof unchanged.)
+--     for symbol.)
 --     Variables are names over ‚ï; an environment is total, so no
 --     finite-context bureaucracy.  The machine's own max and le, ITS
 --     clause order (library.terms' world):
@@ -115,10 +105,10 @@ record ‡§®‡§ø‡§Ø‡§Æ‡§É : Type where
 
 -- (the simplifiers and norm are imported from the act-portion in ¬ß1)
 
--- Since 2026-08-24 the soundness of the simplifiers and of norm is
+-- The soundness of the simplifiers and of norm is
 -- proven ONCE, in the shared tongue (PramanaKanda), where the compiled
 -- mouth runs the same theorem; this body LIFTS it to a path.  One
--- proof, two worlds ‚î the re-founding the reflection weld promised.
+-- proof, two worlds.
 norm-sound : ‚àÄ t œÅ ‚Üí eval (norm t) œÅ ‚â° eval t œÅ
 norm-sound t œÅ = eqToPath (‡§™‡•ç‡§∞.norm-sound t œÅ)
 
@@ -154,7 +144,7 @@ a ‚âüT b = ‡§â‡§¶‡•ç‡§ß‡§æ‡§∞-‡§Æ‡§æ eqToPath (a ‡§™‡•ç‡§∞.‚âüT b)
 ------------------------------------------------------------------------
 -- ¬ß5  The machine's own missing theorems, proven internally and
 --     installed as typed store values.  Each pair below is a member of
---     Sanghatta's non-joining list, this container, tonight (the ‡‡ø‡¶‡‡ß‡ø
+--     Sanghatta's non-joining list, this container (the ‡‡ø‡¶‡‡ß‡ø
 --     runs' ledger).  `fromJust ‚¶ tt` compiles exactly when the prover
 --     succeeds ‚î a failed proof is a TYPE ERROR here, not a log line.
 ------------------------------------------------------------------------

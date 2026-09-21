@@ -3,23 +3,21 @@
 ------------------------------------------------------------------------
 -- SquareClass
 --
--- `GaugeOrbitClasses` (theorems/physics) states, in its SYT paragraph:
+-- `GaugeOrbitClasses` (theorems/physics) Â§7 proves the concatenated
+-- form `val Ï (m ++ (k ++ k)) â‰¡ val Ï m`, which is the core and avoids
+-- permutation machinery.  The full square-class theorem â” that
+-- val Ï m = val Ï n whenever m and n differ by a square in any
+-- arrangement â” needs invariance of `val` under permutation of the
+-- factor multiset.
 --
---   * The full square-class theorem â” that val Ï m = val Ï n whenever m
---     and n differ by a square in any arrangement â” needs invariance of
---     `val` under permutation of the factor multiset, which is NOT
---     proved here.  Â§7 proves the concatenated form
---     `val Ï (m ++ (k ++ k)) â‰¡ val Ï m`, which is the core and avoids
---     permutation machinery.
+-- This module proves it.  The permutation machinery is the corpus's ï¿½
+-- `Insert`/`Perm`/`_â‰ˆ_` and the embedding `permIsAnAdjacentChain`
+-- (theorems/walks), `perm-sym`/`perm-trans` (PermSankramana), and
+-- `count-perm` in `Bahulya` (Ekatva) â” and the only new arithmetic is
+-- that ParitySeparator's `_Â_` is commutative, which that module
+-- proves (`Â-comm`).
 --
--- This module closes that absence.  The permutation machinery now
--- exists in the corpus â” `Insert`/`Perm`/`_â‰ˆ_` and the embedding
--- `permIsAnAdjacentChain` (theorems/walks), `perm-sym`/`perm-trans`
--- (PermSankramana), and `count-perm` in `Bahulya` (Ekatva) â” and the
--- only new arithmetic is that ParitySeparator's `_Â_` is commutative,
--- which that module already proves (`Â-comm`).
---
--- PROVED HERE (no holes, no postulates, --safe):
+-- PROVED HERE:
 --
 --   Â§1  val-â‰ˆ        val Ï m â‰¡ val Ï n  whenever  m â‰ˆ n
 --                    (â‰ˆnil: refl; â‰ˆcons: cong; â‰ˆswap: commutativity of
@@ -55,12 +53,9 @@
 --       m = pâpâpâ is an arrangement of pâ Â pâÂ², so val agrees on pâ
 --       and on pâpâpâ â” by the theorem, and also by `refl`.
 --
--- NOT PROVED (and not claimed): the converse â” that val Ï m â‰¡ val Ï n
--- for every Ï forces m and n into one square class.  That is the
--- statement that the characters separate the square-class group, and
--- it needs a separator constructed from the factor multiset (the
--- sign assignment that flips exactly the primes of odd count in m ++ n);
--- GaugeOrbitClasses does not state it as an absence and it is left open.
+-- NOT CLAIMED: the converse â” that val Ï m â‰¡ val Ï n for every Ï forces
+-- m and n into one square class, i.e. that the characters separate the
+-- square-class group.
 --
 -- No arithmetic beyond Bool; `Number` is `List â•` as in ParitySeparator.
 --

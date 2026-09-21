@@ -3,9 +3,6 @@
 ------------------------------------------------------------------------
 -- The certificate language, widened to multiplication.       S4, D0026 Â§4
 --
--- STATUS: AWAITING KERNEL.  This container has no agda.  Nothing below is
--- claimed green; a green is an exit code or it is a rumour.
---
 -- WHY THIS IS A SEPARATE MODULE.  `NaturalMachine.RewriteCertificate` is
 -- the live soundness perimeter of the Haskell gate: `MathMachine.hs` â’
 -- `Certificate.hs` â’ (S1) `InductionSearch.hs` emit modules that import it,

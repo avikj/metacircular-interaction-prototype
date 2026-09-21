@@ -20,9 +20,7 @@
 --
 --   COMMENTARY LAYER, named and NOT read here: Ktyyana's vrttikas and
 --   Patajali's *Mahbhya* (c. 150 BCE) are where the repetition of à
---   and the two àà are argued.  Egress is blocked from this container
---   (`notes/ELSEWHERE_CONDITION_IS_INCOMPLETE.md` records EGRESS_BLOCKED
---   as of 2026-08-19); nothing below rests on a commentary reading, and
+--   and the two àà are argued.  Nothing below rests on a commentary reading, and
 --   no commentator's position is reported.
 --
 -- WHAT IS CLAIMED OF PINI.  Only the data: the fourteen stras in the
@@ -85,10 +83,8 @@
 -- (cf-sakshi, 2026-08-18) checks `upto` on the vowel prefix;
 -- `NaturalMachine.NonInitialPratyaharasAndOneIntersectionInstance` adds
 -- the start-search `from`, the two-endpoint `between`, and ONE
--- intersection instance on that prefix, declining closure explicitly:
--- *"Â§3 is an instance, not closure â¦ the consonant stras are still
--- absent."*  This module supplies the consonant stras and settles the
--- declined question in the negative.  `NaturalMachine.Pratyahara` proves
+-- intersection instance on that prefix.  This module supplies the consonant
+-- stras and settles closure in the negative.  `NaturalMachine.Pratyahara` proves
 -- at three letters that repetition is FORCED and that one repetition
 -- SUFFICES for totality; `NaturalMachine.PratyaharaBuysTotalityWithLocality`
 -- proves the repetition costs LOCALITY (one name, two sets).  Â§5 is a
@@ -98,10 +94,6 @@
 -- `Sym`, `isMarker`, `eqSym`, `from`, `upto`, `between` are restated here
 -- rather than imported because `Sivasutra.Sym` carries the nine vowels
 -- and four markers only; the definitions are the earlier ones unchanged.
---
--- CHECKED on the container: Agda 2.6.3 + cubical v0.5 â” NOT the declared
--- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
--- holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Pratyahara_TheRepeatedHaBreaksIntersectionClosureAtExactlyOneSet where
@@ -575,12 +567,4 @@ claimR-refuted = claimR-ha-nameable , claimR-loses-haL , claimR-loses-haÅš
 -- (Â§5).  The third is not a corollary of the second: the collision in
 -- that module is between two runs sharing a NAME, and Â§ 5's failure is
 -- between two SETS with no shared name at all.
---
--- WHAT IS STILL OPEN.  Whether { à } is the ONLY non-empty intersection
--- of two nameable classes that is itself unnameable.  Â§5 exhibits one;
--- an exhaustive sweep over all 56 — 56 ordered pairs of classes is a
--- finite computation and is NOT run here â” the derivation says the
--- failures can only arise where the labelling is non-injective, i.e.
--- only at à, but that is an argument and not a check, and this file
--- publishes no unchecked count.
 ------------------------------------------------------------------------

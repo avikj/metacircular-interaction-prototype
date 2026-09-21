@@ -21,9 +21,6 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT WAS FOUND ALREADY DONE, AND IS NOT REDONE HERE
 --
--- Grepped `notes/`, `collab/messages/`, `formal/` for the source text's
--- OWN name (`Tattvacintmai`, not just `Gagea`) BEFORE writing:
---
 --   `formal/cubical/NaturalMachine/Abhava.agda`, `notes/NO_BARE_ABSENCES.md`
 --       ‚î abhva with pratiyogin; the absence tower; `dec-collapses`.
 --   `formal/cubical/AbhavaAvacchedaka.agda`
@@ -44,7 +41,7 @@
 -- **None of the above is re-derived.**  `Perm` does not appear here; the
 -- relation below is `_‚ä_` (sub-multiset), which is not that module's
 -- object, and no theorem of any of those files is used, altered, or
--- restated.  This file answers the question they leave open, on ONE
+-- restated.  This file answers, on ONE
 -- object: for a Œ-shaped pratiyogin, WHAT BOUNDS THE SEARCH?
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
@@ -104,12 +101,6 @@
 --    cost, not level.
 --  * `_‚ä_` is one presentation of sub-multiset containment.  Its
 --    agreement with any other presentation in this corpus is not proved.
---
--- CHECKED on the CONTAINER: Agda 2.6.3 + cubical v0.5 at
--- /root/agda-libs/cubical; `agda` with no CLI flags, `LC_ALL=C.UTF-8`.
--- NOT the repository's declared pin (Agda 2.8.0 + cubical v0.9); see
--- `notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md`.
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module ParyaptiSambandha_TheRejectionWitnessResidesInTheCollectionNotTheCarrier where

@@ -3,9 +3,6 @@
 ------------------------------------------------------------------------
 -- PMCokernel
 --
--- CHECKED (Agda 2.6.3, cubical v0.5, 2026-08-13).  No postulates, no
--- holes, `--safe`.
---
 -- "The natural checked target: `coker(Œ¥) ‚â F‚` and the exactness step ‚î
 -- pure finite linear algebra over F‚, no matrices over ‚[i] needed."
 -- This module is that target, carried out on the PHYSICAL index sets
@@ -44,7 +41,7 @@
 --   * `even-total-is-image` / `image-is-even-total` ‚î EXACTNESS, both
 --     inclusions: im Œ¥ is EXACTLY ker(total).  With `total-onto` this
 --     is coker Œ¥ ‚â F‚ with `total` as the class evaluator (the quotient
---     type itself is not constructed; see the honest caveat below).
+--     type itself is not constructed; see SCOPE below).
 --   * `local-section` ‚î each context separately admits an assignment
 --     with the prescribed parity (the obstruction is global, not local).
 --   * `rows-only-section` ‚î the rows-only cover admits a global
@@ -59,7 +56,7 @@
 --     `PMTorus.cycleEquiv` rather than measured.  `kernelIso` is the
 --     bridge: ker Œ¥ ‚â PMTorus.Cycle.
 --
--- WHAT IS *NOT* PROVED.  The quotient type F‚‚/im Œ¥ is not constructed
+-- SCOPE.  The quotient type F‚‚/im Œ¥ is not constructed
 -- (no SetQuotient), exactly as in `PMTorus`; "coker Œ¥ ‚â F‚" is
 -- delivered in its usable form ‚î im Œ¥ = ker total (both inclusions)
 -- together with total onto.  The upstream operator data (the Weyl
@@ -86,8 +83,7 @@
 -- Only `‚à-Œ¥` below does this, and only to compare two definitionally
 -- equal six-clause functions; nothing in this module transports along a
 -- path in `Fin n`, so no proof depends on those clauses computing under
--- transport.  The build is exit 0 with no errors and no unsolved
--- metas.
+-- transport.
 ------------------------------------------------------------------------
 
 module PMCokernel where

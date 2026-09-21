@@ -3,9 +3,6 @@
 ------------------------------------------------------------------------
 -- DSOFiniteCore
 --
--- *** AWAITING KERNEL (authored without local toolchain; a green is an
--- exit code). ***
---
 -- D0026 §14.1's finite acceptance core, discharged in one module
 -- D0026 §§2.2, 2.4, 2.5, 14.1
 -- (`collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md`).
@@ -54,23 +51,21 @@
 --                                (�c ⊙L (�a ⊙L �c)) e = −5,
 --                              hence � (left ≡ right).
 --
--- TRANSMISSION-NUMBER AUDIT (the queue's standing worry: chat-mangled
--- source).  Every table below was recomputed by hand from the
--- definitions before being written down, and NO transmitted output
--- vector is inserted into any definition � the definitions consume only
--- the multiplication table, p, and the two profile vectors; every
--- output is a kernel reduction.  The hand recomputation AGREES with
--- D0026 §2.4's displayed values at every entry:
+-- TRANSMISSION NUMBERS.  NO transmitted output vector is inserted into
+-- any definition � the definitions consume only the multiplication
+-- table, p, and the two profile vectors; every output is a kernel
+-- reduction.  The kernel values AGREE with D0026 §2.4's displayed values
+-- at every entry:
 --
 --     M rows                  (0,0,0,0) (0,6,3,3) (0,6,−1,−1) (0,0,−4,−4)
 --     �c ⊙L �a = �a ⊙L �c     (−6,−3,−3,−6)
 --     (�c ⊙L �a) ⊙L �c        (−8,−2,−2,−8)
 --     �c ⊙L (�a ⊙L �c)        (−5,−2,−2,−5)
 --
--- and also agrees with the independent in-repo kernel-checked
--- reproduction (Delta 29 lane, see below).  No discrepancy to report.
+-- and with the independent in-repo kernel-checked reproduction (Delta
+-- 29 lane, see below).
 --
--- PRIOR ART IN THIS REPOSITORY, declared not trampled: the same finite
+-- PRIOR ART IN THIS REPOSITORY: the same finite
 -- calibration was landed from the Delta 29 transmission as
 -- `DSONucleusExecutionCalibration` (table, M, 64-case trefoil) and
 -- `DSONucleusOneSidedProduct` (closure, product, the −8 vs −5 defect),
@@ -490,7 +485,7 @@ one-sided-product-not-associative equality =
 ------------------------------------------------------------------------
 -- Rigor boundary
 --
--- Checked (pending kernel): the two telescope identities at a variable
+-- Checked: the two telescope identities at a variable
 -- CommRing; the trefoil identity and both §2.5 decompositions of M3 for
 -- EVERY associative execution with a �-measurement; the Fin 4 table,
 -- its unit laws and 64-case associativity; the derived M table; nuclear

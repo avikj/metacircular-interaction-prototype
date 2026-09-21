@@ -13,8 +13,6 @@
 -- compound with a date I checked, and I am not supplying one.
 --
 ------------------------------------------------------------------------
--- WHAT WAS OPEN.
---
 -- `NaturalMachine.Obstruction` proves a separation on ITS substrate (unary
 -- terms, a vocabulary of head shapes):
 --
@@ -22,9 +20,7 @@
 --
 -- A proposer that installs what it can already match leaves the matcher
 -- EQUAL AS A FUNCTION, after any number of steps; and `obs-step-strict`
--- says one obstruction-indexed step cannot.  `DescentNote_` Â§7 records that
--- no file imports both `Obstruction` and `RewriteCertificate`, so it was
--- open whether that separation says anything about the kernel at all.
+-- says one obstruction-indexed step cannot.
 --
 -- THIS FILE ANSWERS THE FIRST HALF: the plateau transfers, and it is not a
 -- port.  Obstruction's proof runs through `extend-absorbed` on a Bool
@@ -43,14 +39,7 @@
 --       corollary, on the kernel's OWN library.  Exact analogue of
 --       Obstruction.frequency-cannot-reach.
 --
--- THE FRONTIER THIS OPENS â” the live questions it makes precise:
---   * NO ANTI-PLATEAU IS PROVED HERE.  Obstruction's separation has two
---     halves and this is one.  What escapes the plateau on the kernel side
---     is Vyapti_'s `SchematicOperation` -- `no-native-operation-does-this`
---     shows one schema fires where no NativeOperation can -- but a schema
---     is not a NativeOperation and cannot be installed, so the escape is
---     not yet a step of any chain.  `Adesa_` supplies the certificate a
---     schema would need; the record change does not exist.
+-- SCOPE.
 --   * NOTHING HERE IS AN OBSTRUCTION, and the scope of that is narrow.
 --     `InstallChain`'s step is restricted to `install`, whose control is the
 --     trivial family `t â‰¡ lhs`.  `Control : Tm â’ Typeâ` is a FIELD and the
@@ -62,11 +51,6 @@
 --   * `SomeEnabled` is restated here from Vyapti_ rather than imported, so
 --     that this module depends on the kernel and not on that module's
 --     other machinery; the definition is identical.
---
--- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
--- exit 0 at the previous module path.  Module name and imports were renamed
--- to `Kernel.*` to match this directory; that rename has not been re-run at
--- the repository pin (2.8.0 + v0.9).
 ------------------------------------------------------------------------
 
 module Kernel.Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateauSoTheKernelsOwnLibraryCannotGrowItsReach where

@@ -3,17 +3,16 @@
 ------------------------------------------------------------------------
 -- CompileBridge
 --
--- Discharging the hypothesis of `GenerativeLoop.Compile.generated-step-
--- improves`.
+-- The hypothesis of `GenerativeLoop.Compile.generated-step-improves`,
+-- derived.
 --
--- THE GAP THIS CLOSES.  `GenerativeLoop.Compile` proves: *given* an
--- obstruction `o` whose residual IS the `checkpoint` capability, one
--- obstruction-indexed proposal flips the compiler's branch from
--- `restart` to `resume`, at the same answer and strictly smaller counted
--- cost.  The hypothesis `residual o ‚â° checkpoint` was assumed and
--- discharged nowhere: nothing said that running the generative loop on
--- anything ever PRODUCES such an obstruction.  This module supplies that
--- half, and hence the composite with no hypothesis dangling.
+-- `GenerativeLoop.Compile` proves: *given* an obstruction `o` whose
+-- residual IS the `checkpoint` capability, one obstruction-indexed
+-- proposal flips the compiler's branch from `restart` to `resume`, at
+-- the same answer and strictly smaller counted cost.  This module proves
+-- that running the generative loop on a task that demands `checkpoint`
+-- PRODUCES such an obstruction, and hence the composite with no
+-- hypothesis.
 --
 --
 -- WHAT IS CHECKED
@@ -58,13 +57,12 @@
 --                               with its hypothesis replaced by the two
 --                               facts about the TASK (checkpoint not yet
 --                               installed, task demands checkpoint).  The
---                               improvement is now derived, not
+--                               improvement is derived, not
 --                               hypothesised.
 --
 -- F. A compiler that is a function of the term too (¬ßF).
 --
---   `GenerativeLoop`'s disclaimer says ¬ßC "does not exhibit `Tm` terms
---   compiling to `Plan`s" ‚î the compiler there reads only the vocabulary.
+--   In `GenerativeLoop` ¬ßC the compiler reads only the vocabulary.
 --   Here the compiler is a total function of the TERM as well.  READ ¬ßH
 --   BEFORE READING THIS AS AN INTEGRATION: the term contributes exactly
 --   one bit (which capability the task demands); the task's arithmetic
@@ -102,8 +100,8 @@
 --                               obstruction whose residual is literally
 --                               `resumeCap`.  Not "some step of the
 --                               chain": the FIRST one, by computation.
---                               NEGATIVE CONTROL, landed and excluded
---                               from the aggregate because it must fail:
+--                               NEGATIVE CONTROL, excluded from the
+--                               aggregate because it must fail:
 --                               `NaturalMachine/Control/WrongFirstStep.agda`
 --                               asserts the same `refl` at `tickCap` and
 --                               is rejected with `0 != 1 of type
@@ -129,7 +127,7 @@
 --
 -- H. THE NEGATIVE RESULT: the loop's state underdetermines the answer.
 --
---   2026-08-13) proves that the natural arithmetic plug into this
+--   codex-vajra's collision proves that the natural arithmetic plug into this
 --   substrate FAILS, by an exact collision: on Z/30 the signals
 --   F = (1,‚¶,1) and G = (2,‚¶,2) generate the same order-1 cyclotomic
 --   sector, hence translate to the identical formal term with identical
@@ -174,7 +172,7 @@
 --   supplies it, and which of two plans is emitted ‚î and nothing in
 --   ¬ßE-¬ßG decodes an arithmetic answer from a term.
 --
--- I. The interface that would close what H2 leaves open (¬ßI).
+-- I. The interface an arithmetic payload must satisfy (¬ßI).
 --
 --   `ArithmeticPayload` is a record with vajra's five required items:
 --   shape-indexed native data, a composition law, semantics from
@@ -183,18 +181,17 @@
 --   measure ‚î plus `payload-separates`, the field that demands the F/G
 --   collision be resolvable.  IT IS DEFINED AND NOT INHABITED.  Nothing
 --   in this file constructs one and no claim is made that one exists;
---   it is a named open joint in the style of
+--   it is an interface in the style of
 --   `CapabilityGraph.ObservationalClassCompiler`.
 --
 --   I2 `ArithmeticPayloadOver`  THE CORRECTED JOINT, and why it exists.
---   showed that `ArithmeticPayload` fixes DATA and never fixes the
+--   `ArithmeticPayload` fixes DATA and never fixes the
 --   TRANSFORMATIONS under which that data may be re-presented ‚î so any
 --   carrier or minimality notion it implies is underdetermined.  Its
 --   instance: the k = 3 Mbius residual has unrestricted carrier rank 1
 --   and graded carrier rank 3, the same payload under two morphism
---   classes.  That separation is now PROVED inside the substrate in
---   `PayloadMorphism` (¬ßF there), together with the
---   there).  Accordingly `ArithmeticPayloadOver Ans M` takes the
+--   classes.  That separation is PROVED inside the substrate in
+--   `PayloadMorphism` (¬ßF there).  Accordingly `ArithmeticPayloadOver Ans M` takes the
 --   morphism class `M` AS A PARAMETER and demands a minimal carrier IN
 --   THAT CLASS; `payload-carrier-determined` then proves the demanded
 --   number is unique, which is exactly what the parameter buys and what
@@ -216,7 +213,7 @@
 --  * H2 negates a Œ-type and is therefore worth nothing until that
 --    Œ-type is known to be inhabitable.  It is, at fixed arguments:
 --    H3 `decoder-exists-pointwise` in this file.  Both controls for this
---    module are landed and are cited by path, not described ‚î the
+--    module are cited by path, not described ‚î the
 --    positive one here as H3, the negative one at
 --    `NaturalMachine/Control/WrongFirstStep.agda`.  Neither control
 --    builds a decoder that reads anything off `(V , t)`: H3's witness is
@@ -230,8 +227,7 @@
 --  * The cost model is inherited unchanged from `AcceptanceTest`: `cost`
 --    counts `sucC` ticks a plan SCHEDULES, priced at one unit each.
 --    "Strictly cheaper" means strictly fewer scheduled transitions of the
---    certified odometer.  No native-work theorem is claimed here, and the
---    open cost edge of the corpus is not closed.
+--    certified odometer.  The native-work theorem is `CountedDigitsEdge`.
 --  * NO ARITHMETIC INTEGRATION IS CLAIMED, and by H2 none is available
 --    from this state.  In particular ¬ßF does NOT unify the substrates:
 --    `compileTm` reads one bit off the term (`demands checkpoint t`) and
@@ -250,13 +246,12 @@
 --    one omission repaired, not a construction.  Its `carrier` field
 --    demands a minimal carrier for a task's ANSWER in the declared
 --    class; nothing here relates that number to `deficit`, and the
---    corpus's termination measure remains the structural one.  The
---    morphism class the ARITHMETIC wants is still unfixed (see the "not
---    claimed" section of `PayloadMorphism`): what is
---    fixed is that the interface must name one.
---  * `ArithmeticPayload` is kept, superseded, so that the correction is
---    legible; it is not deleted and it is not inhabited.
---  * The witness policy is still degenerate wherever the loop builds
+--    corpus's termination measure is the structural one.  The morphism
+--    class is a parameter: what is fixed is that the interface must
+--    name one.
+--  * `ArithmeticPayload` is kept, superseded by `ArithmeticPayloadOver`,
+--    so that the correction is legible.
+--  * The witness policy is degenerate wherever the loop builds
 --    obstructions (`witness = var`); conservativity holds for any base
 --    witness, and nothing here makes bodies informative.
 --  * Everything inherited from `Obstruction`'s and `GenerativeLoop`'s
@@ -599,17 +594,16 @@ module Bridge (k : ‚Ñï) (checkpoint : Shape) where
   decoder-exists-pointwise V t m n = (Œª _ _ ‚Üí exec (resume m (suc n))) , refl
 
 ------------------------------------------------------------------------
--- I.  THE OPEN JOINT, named only by its required interface.
+-- I.  THE INTERFACE.
 --
--- missing object must carry.  They are the five fields below, plus
+-- What an arithmetic payload must carry: the five fields below, plus
 -- `payload-separates`, which is the demand that the F/G collision be
--- resolvable ‚î exactly what ¬ßH proves the present state cannot do.
+-- resolvable ‚î exactly what ¬ßH proves the bare state cannot do.
 --
--- THIS RECORD IS DEFINED AND NOT INHABITED.  Nothing in this file, and
--- nothing in this corpus that I am aware of, constructs a term of it.
--- No claim is made that one exists, nor that these fields are sufficient
--- for the arithmetic task; the record is a statement-to-prove written in
--- the type language, in the style of
+-- THIS RECORD IS DEFINED AND NOT INHABITED.  Nothing in this file
+-- constructs a term of it.  No claim is made that one exists, nor that
+-- these fields are sufficient for the arithmetic task; the record is an
+-- interface written in the type language, in the style of
 -- `CapabilityGraph.ObservationalClassCompiler`.
 ------------------------------------------------------------------------
 
@@ -661,15 +655,15 @@ record ArithmeticPayload : Type‚ÇÅ where
 ------------------------------------------------------------------------
 -- I2.  THE SAME JOINT WITH ITS OMISSION REPAIRED.
 --
--- record above fixes the payload's DATA and never fixes the class of
+-- The record above fixes the payload's DATA and never fixes the class of
 -- transformations under which the data may be re-presented, so its
--- implied "minimal carrier" is underdetermined ‚î the note's instance,
+-- implied "minimal carrier" is underdetermined ‚î the instance,
 -- the k = 3 Mbius residual with unrestricted carrier rank 1 and graded
 -- carrier rank 3, is proved as `PayloadMorphism.minimal-carrier-depends-
--- on-class`, with the promotion table (1,3), (1,2), (1,1), (0,0) checked
--- same day) adds a third class in which a differential forces a larger
--- carrier; that too is proved there (`chain-min-interval`), with the
--- note's own zero-boundary false control (`chain-min-loop`).
+-- on-class`, with the promotion table (1,3), (1,2), (1,1), (0,0).  A
+-- third class, in which a differential forces a larger carrier, is
+-- proved there too (`chain-min-interval`), with the zero-boundary false
+-- control (`chain-min-loop`).
 --
 -- The repair is one parameter and one field: the class `M` is now part
 -- of the interface, and the payload must have a MINIMAL CARRIER IN `M`.

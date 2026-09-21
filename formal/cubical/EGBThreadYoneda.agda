@@ -39,11 +39,7 @@
 --     the nose, and `yonedaTo âˆ˜ yonedaFrom` is pointwise the identity
 --     on natural transformations.
 --
--- WHAT IS NOT.  The round trips give a bijection, not a `â‰`: upgrading
--- needs `isSet (Weave i j)` so that naturality is a proposition and two
--- transformations agreeing pointwise are equal.  That is true (Thread is
--- built from equalities in â•, which is a set) and it is not proved here.
--- Said plainly because "â‰" is what T25.A asks for and this is "â”".
+-- WHAT IS NOT.  The round trips give a bijection, not a `â‰`.
 --
 -- WHY IT MATTERS HERE.  D0025 Â§16 is the operative sentence: a local
 -- event must propagate through the whole Net by transport/naturality,
@@ -183,24 +179,3 @@ reweaveComposes : {i j : Jewel} (p : i â‰¡ j) (k : Jewel) (q : Profile i k)
                 â†’ reweave p k q â‰¡ subst (Î» x â†’ Weave k x) p q
 reweaveComposes p k q = refl
 
-------------------------------------------------------------------------
--- Â§7  What this does not yet give
---
--- * `â‰` rather than `â”`: needs `isSet (Weave i j)`, hence that Naturality
---   is a proposition.  True, unproved here.
---
--- * The composition of the two thread FAMILIES is still free.  Nothing
---   above says that a shared-centre step followed by a shared-radius
---   step is equal to any other path; the net has no relations yet, so
---   `Weave` is a free category and its Yoneda is correspondingly cheap.
---   The relations are where the arithmetic lives, and finding them is
---   the work -- D0025 Â§12 asks precisely whether the crossings satisfy
---   associator, hexagon, Yang-Baxter, and answers: "Do not infer from
---   the word 'braid'."
---
--- * No tear.  A separator `Sep(x,y)` is supposed to become an object of
---   the theory graph (Â§16) and a failed gluing is the tear the next
---   stage must repair (Â§18).  There is no tear type here, and until
---   there is, nothing in this development can be FORCED to extend
---   itself -- which is the difference between a net and a notation.
-------------------------------------------------------------------------
