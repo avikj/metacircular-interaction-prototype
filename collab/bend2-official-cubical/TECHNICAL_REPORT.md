@@ -2,27 +2,21 @@
 
 This document is the full account of `collab/bend2-official-cubical/`: a
 port of a cubical type theory onto the official public Bend 2 (bendlang/bend
-`2.0.21`, commit `6018e28ecc67cf1fffc0c20c64b11023474c2df8`). It supersedes
-the directory's `README.md` and the two documents the work answered to
-(the repository's `README.md` and
-`collab/bend2-interactive-cubical/BEND_HVM_COMPUTATIONAL_UNIVALENCE.md`) as the
-reference for what the fork is, why each rule is what it is, and what every
-changed line does. Every hunk of `cubical.patch` is covered below, by its
+`2.0.21`, commit `6018e28ecc67cf1fffc0c20c64b11023474c2df8`). Every hunk of `cubical.patch` is covered below, by its
 anchor in the patch (the `@@ -upstream_line` marker and the patch's own line
 number), so that a reader with the patch open can follow it byte by byte.
 
-For what the core is *for*, in engineering terms, read `ENGINEERING_CASE.md`. This
-report is the how and the why of every line.
+`README.md` says what the core is and what it is for. This report is the
+how of every line, for an auditor.
 
-The artifact is five things:
+The artifact is four things:
 
 | path | what it is |
 | --- | --- |
 | `cubical.patch` | the whole change against upstream: `bend2/bend.ts` (54 hunks), `bend2/comp.ts` (11 hunks), `bend2/base.bend` (1 hunk), and the new `bend2/cubical.lean` |
 | `tests/cubical/*.bend` (33 files) and `issue_874.js` | the tests, in upstream's own format: a Bend file that ends in the `#\|` lines its run must print |
 | `run.sh` | clones upstream at the pinned commit, applies the patch, runs the cubical tests (check + interpret; the compiled ones on the JS lane and on the C lane when clang is present), then upstream's interpreter-lane suite |
-| `README.md` | the short form of this report |
-| `ENGINEERING_CASE.md` | the engineering case: what can now be written, what cannot go wrong, what it costs, each point tied to a test |
+| `README.md` | what it is, what it gives, the numbers |
 
 The other implementation this port descends from is `collab/bend2-interactive-cubical`
 (the HVM3 interaction-net fork). Nothing was copied: that runtime and this
@@ -31,157 +25,9 @@ re-read as a path type rather than a new one being bolted on.
 
 ---
 
-## Part I. The setting: the official Bend 2 as the port found it
+## Part I. The language: syntax, typing, reduction, conversion
 
-The reader needs six facts about upstream to follow the change.
-
-**1. Terms are one tagged union in two shapes.** `TermOf<B>` (bend.ts around
-line 270) is the syntax; `LTerm = TermOf<[LTerm]>` is the lowered, first
-order tree with de Bruijn indices (`Var(k, i)`), and `HTerm = TermOf<HBody>`
-is the higher order tree where binders are JavaScript closures (`Lam.f:
-(x: HTerm) => HTerm`). `term_higher(tm, env)` turns an `LTerm` into an
-`HTerm` under an environment; `term_lower(tm, d)` turns an `HTerm` back into
-an `LTerm` at depth `d`. Every checker function works on `HTerm`s; the
-elaborated output of a check is an `LTerm`.
-
-**2. The checker is one bidirectional pass with annotations.** `term_infer`
-returns `Infer(tm, ty, us)` and `term_check` returns `Check(tm, ty, us)`,
-where `tm` is the elaborated tree: upstream wraps every node in
-`Ann(tm, Var("_", -1, undefined, ty))`, an annotation whose type lives in a
-negative-index share cell. `us` is a `Uses` map: the quantity each variable
-was consumed at. This is where the affine discipline lives: a variable is
-`-` (dead, erased, may be used freely in dead positions), plain (used at
-most once, live), or `+` (copyable). `quant_dem`, `quant_join`, `uses_add`,
-`uses_del` are the arithmetic of it.
-
-**3. Kinds carry quantities.** `Kind(q)` is the universe of types whose
-values copy as `q` says: `Data` is `Kind(&2)` (copyable, first order),
-`Type` is `Kind(&1)` (affine: closures live here). No function type is
-`Data`; a datatype declared `is Data` must have `Data` fields. This is
-Bend's consistency story: not a universe hierarchy but a dead/live wall.
-Dead code (types, erased arguments, the endpoints of an equation) may
-diverge or inhabit `Empty`; nothing dead is ever live evidence.
-
-**4. Equality is a primitive.** `{a == b : T}` is `Eql`, its only closed
-inhabitant is `{==}` (`Rfl`), and `%e : P; f` (`Rwt`, the J rule with
-motive `P`) steps to `f` when `e` is `{==}` and is otherwise stuck. The
-equation `e` of a rewrite is *live*: this is the one place upstream draws
-the wall inside evidence, and the port keeps it exactly there.
-
-**5. Definitions and templates.** A `Def` has `n` parameters of which the
-leading `x` are `~` templates (`def f(~T: Type, x: T)`), checked as opaque
-constants (`def_check` binds each to a bodiless `Def` named `f~T`), so that
-"a template is a theorem": it is checked once, over every instance. A
-checked def keeps its elaborated tree in `Def.e`. `term_wnf` (weak head
-normal form, a frame machine) unfolds a `Ref` to `Def.v`, its raw body.
-`term_compare(mode, book, a, b, dep)` is conversion (`EQ`) and subkinding
-(`LE`). `book_valid` runs the declarations in order: ADT telescopes, foreign
-definitions, `def_check` of every body, with a descent check on self-calls
-(`term_descend`).
-
-**6. The compiler is the analysis.** `comp.ts` emits C (host and device
-from one source), Metal, CUDA and JS from the checked tree. Its ownership
-facts (`own`, `hot`, `poly`, `lend`) are computed by emitting the book until
-a pass changes nothing; a "hot" type is one whose values are shared, and a
-hot constructor is read through `ctr_take` (a refcounted take) rather than
-`term_loc`/`term_peek` (a raw read). A family stuck on an open index (a
-`def` that matches on its argument and returns a type) is walked as the
-types of its arms (`facts_fam`).
-
----
-
-## Part II. Design: what a cubical core is, in Bend's own terms
-
-The mathematics is CCHM cubical type theory (Cohen, Coquand, Huber,
-Mörtberg): an interval with a De Morgan algebra, path types as functions
-out of the interval with fixed faces, a transport operation `coe` along a
-line of types, a homogeneous composition `hcomp`, and `Glue` types, from
-which univalence (`ua`) is a definition, not an axiom. What is specific to
-this port is how each of those lands on Bend's six facts.
-
-**Paths are the existing equations.** `{a == b : T}` is now *the* path type
-`Path T a b`; `{a == b : i => T(i)}` is `PathP`; `{==}` is the constant
-path; a lambda `i => t` checked at a path type is path abstraction, with its
-faces `t[i0] ≡ a`, `t[i1] ≡ b` decided by conversion; `p(r)` at an interval
-term is path application. Nothing in upstream's syntax changed, which is
-why every upstream test that mentions equality still parses and checks.
-
-**Dimensions are dead.** `Interval : Data`; `i0`, `i1`, `-r`, `r /\ s`,
-`r \/ s` are checked at demand `None()`. A dimension never runs. This is
-the same decision upstream took for the endpoints of an equation, and it
-is what makes a path erasable: on the compiled lanes a path lambda is the
-zero-sized `{==}`, and a path applied to a literal endpoint is that
-endpoint, read off its annotation.
-
-**The wall is kept where upstream drew it.** A path lambda's body is checked
-at the *ambient* demand: a path built in live code is live evidence and
-cannot re-export an erased hypothesis (`i => e(i)` with `-e` is refused,
-because `e` is used live inside). `coe`'s line, being the evidence that the
-transport is licit, is checked at the ambient demand, exactly as `%e : P;
-f` checks its `e`: an erased `-p : {A == B : Type}` does not transport a
-live value (`tests/cubical/must_fail_dead_coe.bend`). `hcomp`'s tubes are
-live because a face that holds *is* the value.
-
-**A checked def runs as the tree it checked.** Upstream evaluates `Def.v`,
-the raw body. The port evaluates `Def.w`, the elaborated tree with its
-annotations (`def_body`), because a stuck path (a variable, a stuck rewrite,
-a stuck coe) must be able to read its endpoints off its own type when it is
-applied to `i0` or `i1`. This one decision is what makes
-`Equal.sym(N, a, b, p)(i0) ≡ b` a fact of *evaluation* rather than of a
-side table, and it is why the runtime elaboration (`term_uncoe`,
-`term_unpath`) can be one pass over an annotated tree.
-
-**Universe paths are runtime data: equivalences.** A path in a universe
-`{A == B : Kind(q)}` has a runtime value, the equivalence it denotes
-(`Equiv.of_path`), because transport along it (`coe`) must run. An
-equivalence is a pair of closures, so a universe path is *affine*:
-`{A == B : Type}` has kind `Type`, not `Data`, and a value of it is spent
-once or passed as a `~` template. Every other path type has kind `Data`
-(its evidence is erased). This is the "Eql over a universe is Type-kinded"
-rule, and it is what the C lane's "runtime fail-stop on copying an Equiv"
-forced.
-
-**Proof-valued functions are `Data`.** A function into an equation type
-`@x:A -> {f(x) == g(x) : B}` has no runtime content at all, so it copies
-freely whatever its domain. (The first version of this rule gave it the
-domain's kind; the principle in the next paragraph says that was
-conservative for no reason, and the change passed every suite and admits
-a proof function over closures, `proof_fn_kind`.) The omega attack this
-would open (a copyable function inside its own domain) is closed by a
-positivity check on datatype fields.
-
-**One principle.** Every rule above is the same question at a boundary:
-what is the runtime content of this thing? The kind rule, the
-proof-function rule, the foreign-payload rule below, and the compiler's
-read rule (Part V) are its four instances. Seen that way the port is one
-idea, not a list of features.
-
-**Guarded corecursion is a productive self-call.** A self-call under a
-constructor's field lambda, applied only to dimensions, is not a descent
-violation: each observation unfolds one constructor. The def is marked
-corecursive (`Def.c`) and stays folded while a lambda body is normalized
-for printing or compared (`WNF_LAZY`).
-
-**Higher inductive types are constructors whose tip is a path type.**
-`path c{fields}: {a == b : K<..>}` declares a constructor of any dimension.
-Its faces compute; a `match` on the family takes an arm per path
-constructor, checked at the path over the motive between the eliminator's
-values at the endpoints; `coe` and `hcomp` at a HIT are the fieldwise rules
-plus the boundaries.
-
-**Foreign code delivers data, never evidence.** A foreign definition is an
-axiom at its payload type. The payload must be *transportable*: words,
-strings, constructors of such, a handle minted by Base, a kind, a host
-function whose answers are data, or an equation the checker closes itself
-by conversion. Never a path with distinct ends, a universe path, a
-dependent codomain or an empty type. This closes issue #874 at the type
-level, at declarations and at instantiating calls.
-
----
-
-## Part III. The language: syntax, typing, reduction, conversion
-
-### III.1 Syntax
+### I.1 Syntax
 
 | form | meaning | parser |
 | --- | --- | --- |
@@ -207,7 +53,7 @@ A *face* is a conjunction of constraints `r == i0` or `r == i1` (either
 side may be the literal); a *system* is a bracketed, comma separated list
 of `(face) body`.
 
-### III.2 Typing rules
+### I.2 Typing rules
 
 Written as upstream writes its rules in comments: `Γ ⊢ t : T ~ u` means `t`
 checks at `T` with uses `u`. "dead" means checked at demand `None()`.
@@ -276,7 +122,7 @@ match on K, arm for a path constructor c{xs} with tip {a == b : L}:
 fixes replaced by its literal), computed by `face_check` and applied by
 `term_subst`.
 
-### III.3 Reduction (`term_wnf`)
+### I.3 Reduction (`term_wnf`)
 
 - **Interval constants fold.** `-i0 ↦ i1`, `--r ↦ r`, `i0 /\ r ↦ i0`,
   `i1 /\ r ↦ r`, `i1 \/ r ↦ i1`, `i0 \/ r ↦ r`, and symmetrically.
@@ -317,7 +163,7 @@ fixes replaced by its literal), computed by `face_check` and applied by
 - **A checked def unfolds to its elaborated tree** (`Def.w`); a productive
   def stays folded under `WNF_LAZY`.
 
-### III.4 Conversion (`term_compare`)
+### I.4 Conversion (`term_compare`)
 
 - Two interval terms are convertible iff they agree under every valuation
   of their atoms in the four-element De Morgan algebra DM4 (at most 8
@@ -325,7 +171,7 @@ fixes replaced by its literal), computed by `face_check` and applied by
   exactly equality in the free De Morgan algebra, the CCHM interval. A
   two-valued table would also validate `i /\ -i == i0`, which the interval
   does not have; `bend2/cubical.lean` proves the difference and the
-  soundness of the folds (Part XI).
+  soundness of the folds (Part VII).
 - `{==}` against a path lambda: the lambda must be a constant path.
 - Same-head shortcut: the same definition at convertible arguments is
   convertible before either unfolds (a corecursive def would unfold
@@ -338,13 +184,13 @@ fixes replaced by its literal), computed by `face_check` and applied by
 
 ---
 
-## Part IV. The checker, hunk by hunk (`bend2/bend.ts`)
+## Part II. The checker, hunk by hunk (`bend2/bend.ts`)
 
 Each entry names the hunk by its upstream anchor (`@-N`, the line in the
 unpatched file) and its position in `cubical.patch` (`patch:L`), then says
 what the lines do and why they exist. Hunks are in file order.
 
-### IV.1 Syntax and constructors
+### II.1 Syntax and constructors
 
 **`@-292` (patch:3) — the term union.** `Ann` gains an optional flag `a?:
 Bool` ("by the checker"): the checker's own annotations (`Infer`/`Check`
@@ -382,7 +228,7 @@ function to every term inside a system (used by every traversal below).
 **`@-465` (patch:111) — `Infer`/`Check`.** Both wrap the elaborated term in
 an annotation flagged `a: true`.
 
-### IV.2 Higher/lower and the book
+### II.2 Higher/lower and the book
 
 **`@-706`, `@-714`, `@-733` (patch:125, 134, 143) — `term_higher` with
 `keep`.** A third parameter `keep: boolean` makes an unbound variable stay a
@@ -421,7 +267,7 @@ constructor alone and is left stuck).
 `coe(..)`, `hcomp(A, x, [(r == i0) u, ..])`, `Glue(..)`, `glue(..)`,
 `unglue(..)`. These are the spellings the error messages print.
 
-### IV.3 The parser
+### II.3 The parser
 
 **`@-1532` (patch:433) — keywords.** `Interval i0 i1 coe hcomp Glue glue
 unglue` are reserved.
@@ -461,7 +307,7 @@ an ordinary constructor's tip stays `ADT(k, params)` with `p: 0`. The
 regular-expression guard (`/^path\s+[A-Za-z_]/`) keeps a constructor that
 happens to be *named* `path` working.
 
-### IV.4 `term_wnf`, the frame machine
+### II.4 `term_wnf`, the frame machine
 
 **`@-2856` (patch:615) — two module-level switches and the variable case.**
 `WNF_CTX: Ctx | null` is the context of the check in progress (set by
@@ -527,7 +373,7 @@ filler `hfill_at` is the composite with an extra face `j == i0 ↦ x`).
 sets `WNF_LAZY` while normalizing a lambda's body (a corecursive value
 prints one unfolding); the ten forms are traversed.
 
-### IV.5 The running body and the compiler-facing passes (patch:947 continued)
+### II.5 The running body and the compiler-facing passes (patch:947 continued)
 
 This is the largest hunk (948 lines). It holds, in order:
 
@@ -670,7 +516,7 @@ partial filler, and glues the partial composites.
 context variables: lowered at depth `d` and rebound, each unsubstituted
 variable to itself (named from the context's scope).
 
-### IV.6 Conversion
+### II.6 Conversion
 
 **`@-3139` (patch:1896) — `term_pend` and the head of `term_compare`.**
 `term_pend` is described in III.4: it infers the head's type in the
@@ -685,7 +531,7 @@ call, extend it under `All`, and add the structural cases for `Itv`,
 `Glu`, `Gle`, `Ung`, `Hcm`, `Coe` (faces compared constraint by
 constraint, literal and term).
 
-### IV.7 Inference
+### II.7 Inference
 
 **`@-3274` (patch:2116) — `term_infer` wraps `term_infer_go`** setting
 `WNF_CTX` for the duration.
@@ -739,7 +585,7 @@ the eliminator a residual match chain belongs to (set while the rest of a
 match is checked, so that a later arm's path goal uses the *full*
 eliminator, not the chain from that arm on).
 
-### IV.8 Checking
+### II.8 Checking
 
 **`@-3466` (patch:2410) — `term_check` wraps `term_check_go`** setting
 `WNF_CTX`.
@@ -783,7 +629,7 @@ set to `top` for the rest, and restored.
 **`@-3633`, `@-3663`, `@-3678` (patch:2643–2670)** pass `ctx` to the three
 conversion checks in `Rfl`, `Rwt` and the fallback.
 
-### IV.9 Definitions, transportability, validation
+### II.9 Definitions, transportability, validation
 
 **`@-3696` (patch:2670) — `def_check` and `term_refsub`.** A `~` binder's
 opaque constant is named `k~name`, or `k~j~name` when an earlier binder has
@@ -817,7 +663,7 @@ copies the mark (`dec.c`) into the definition kept in the book.
 
 ---
 
-## Part V. The compiler, hunk by hunk (`bend2/comp.ts`)
+## Part III. The compiler, hunk by hunk (`bend2/comp.ts`)
 
 **`@-793` (patch:2867) — children.** The tree walker that lists a node's
 live children knows the Kan forms: a `coe`'s value, an `hcomp`'s and a
@@ -872,7 +718,7 @@ lambda.
 
 ---
 
-## Part VI. The Base library (`bend2/base.bend`, `@-419`, patch:2974)
+## Part IV. The Base library (`bend2/base.bend`, `@-419`, patch:2974)
 
 A `# Cubical` section after `Equal.*`. Every def takes the kind
 quantities of its carriers as leading arguments (`a`, `b`), so that the
@@ -905,7 +751,7 @@ the function by computation and the proof by `isEquiv.prop`.
 
 ---
 
-## Part VII. The tests (`tests/cubical/`)
+## Part V. The tests (`tests/cubical/`)
 
 Each file is upstream's format. "Lanes" says where `run.sh` runs it:
 every file on check + interpret; the ones marked C/JS also compiled.
@@ -941,7 +787,7 @@ every file on check + interpret; the ones marked C/JS also compiled.
 | `issue_852.bend` | a nat-literal pattern with fields is refused (upstream's fix, pinned) | error | interp |
 | `issue_853.bend` | the reporter's program prints 5 on the C lane (upstream's fix, pinned) | `5` | interp, JS, C |
 | `issue_901.bend` | the reporter's matrix product at depth 2 (upstream faults) | `64` | interp, JS, C |
-| `j_index.bend` | what upstream already had: J transports a value along an index proof, on both trees (pinned so `ENGINEERING_CASE.md` does not overclaim) | `V{[7n, 8n]}` | interp |
+| `j_index.bend` | what upstream already had: J transports a value along an index proof, on both trees (pinned so the README does not overclaim) | `V{[7n, 8n]}` | interp |
 | `proof_fn_copy.bend` | a proof-valued function over `Nat` is a `+` binder and a `Data` field (upstream: "expected Data, observed Type") | `Unit{}` | interp |
 | `proof_fn_kind.bend` | a proof function over a domain of closures is `Data`: used twice and stored in a record (refused by upstream and by the first cubical rule) | `Unit{}` | interp |
 | `demorgan.bend` | the De Morgan, absorption, idempotence and involution laws hold by conversion; `{==}` at `{i /\ -i == i0 : Interval}` is refused | error, `expected i /\ -i / observed i0` | interp |
@@ -954,68 +800,7 @@ code is consulted.
 
 ---
 
-## Part VIII. The filed issues and the rules that close them
-
-The bugs filed against Bend 2 in its tracker are the holes where the
-theory stopped short of the runtime. The mandate of the fork was to close
-each by a rule, not by a patch to one program.
-
-**#874, a proof forged through a foreign definition.** Upstream lets
-`def give() -> IO({A == B : Type})` be filled by JavaScript; the checker
-accepts the returned null as evidence (its own test `io/marshal_proof_null`
-asserts "a null answer at an equation type IS the working evidence"). With
-a computational `ua` that null would be read as a transport and run, and
-even without `ua`, a forged `{0 == 1 : U32}` lets J rewrite `P(0)` into
-`P(1)` at runtime, a type confusion. The rule (Part II, `term_transportable`,
-`@-3780`; the declaration check `@-3856`; the call check `@-3331`): a
-foreign payload is data. The refinement that keeps every one of upstream's
-139 io tests printing the same is the definition of "data": Base's handles
-(`Chan(A)`, minted by the runtime), kinds (a type is dead), host functions
-whose answers are data (`Maybe<U32 -> U32>` crosses the seam in
-`io/marshal_closure`), and equations the checker can close by conversion
-(`{0 == 0 : U32}` in `io/marshal_proof_null`: the host's null is exactly
-`{==}`). What is refused is exactly what would be a new axiom: a path with
-distinct ends, a universe path, a dependent codomain, an empty type.
-
-**#905, two `~` binders with one name identified.** A template's
-parameters are checked as opaque constants named after the binder, so `def
-cast(~T, ~x: T, ~T) -> T` identified both `T` and checked `x` at the wrong
-one, a cast between arbitrary types. The rule (`@-3696`): a name a later
-binder repeats is told apart by its position. Every other constant keeps
-its upstream name, so no upstream message changes (`comptime/err_generic`
-still prints `add0~n`).
-
-**#901, a memory fault on a product over a family indexed twice.** The C
-lane's ownership facts walk a family stuck on open indices as the types of
-its arms, but the walk stopped at the outer arm of a nested match, so
-`Mat(r, c)` heated `Mat.Leaf` and never `Rows`, `Cols` or `Quad`; a shared
-operand of those constructors was then read raw (`term_loc`) and freed
-under its other holder. Reproduced on upstream 2.0.21: `./r 1` prints 8,
-`./r 2` and `./r 3` fault, while the interpreter prints 512. The rule
-(`@-1699` in comp.ts): a match stuck on an open scrutinee is every one of
-its arms' types, nested arms included. Diagnosed by printing the fixpoint's
-facts: the failing build's hot set held `m:Mat` and `t:Mat.Leaf` only; the
-workaround build (a second recursion whose `Mat(d, d)` hit `Quad` directly)
-held `t:Mat.Quad`. After the fix all four families are hot in both, and the
-reporter's program prints 8, 64, 512.
-
-**#853, a sealed node taken raw under a family stuck on an open index.**
-Fixed upstream at 2.0.21 (constructor field types heated at build sites,
-`facts_ctr`; a stuck family's arms heated, `facts_fam`); the reporter's
-program prints 5 on both trees; pinned.
-
-**#852, a nat-literal pattern with fields.** Fixed upstream at 2.0.21
-("a Zero pattern with 1 field"); pinned.
-
-**#902, a template instantiating itself through a descent check**, and
-**#880, a `LAWS.bend` whose `PROOF.bend` names a def outside it or leaves a
-law open**: both fixed upstream at 2.0.21 and re-verified on the fork
-(upstream's `check/template_inst_cycle`; a `LAWS`/`PROOF` pair with an
-unrelated def is an error, an open law is `1 TODO found`).
-
----
-
-## Part IX. Verification
+## Part VI. Verification
 
 **Cubical tests.** 29 of 29 from a fresh clone through `run.sh`
 (`compiled*`, `issue_901`, `issue_853` and `hit_susp_torus` also on the JS
@@ -1054,42 +839,7 @@ way, so a failure counts only when the two trees differ.
 
 ---
 
-## Part X. Limits, and what is left
-
-- **Interval equality is bounded.** `itv_eq` evaluates DM4 valuations
-  over at most 8 atoms (65536 valuations) and answers "unequal" above
-  that. No test comes near it; a term with 9 distinct stuck interval atoms
-  would be refused where it is in fact convertible.
-- **A composite or glue whose face is a dimension variable in live
-  code** cannot arise (dimensions are dead), so the compiler's refusal of
-  "an undecided face" is a diagnostic, not a gap.
-- **Transport along a variable path in `Type` at a non-literal dimension**
-  is refused by the compiler (`kan_die`): a runtime value carries the
-  equivalence, which is the transport at `i0` → `i1` and its inverse, not a
-  family over the interval.
-- **A minted transport over an affine free variable** (a universe path or
-  a function captured by the line) is refused with "pass it as a ~
-  template"; the transport is pushed into every field and would spend the
-  variable once per field.
-- **The C-lane ownership analysis is half type-directed.** Reads are
-  decided by kinds (a `Data` node is always taken through its tag, Part V),
-  so a raw read of a shared node cannot be emitted. Sealing a node's fields
-  at build still relies on the hot walk (now complete over nested matches);
-  a constructor the walk misses is shared unsealed and fails stop with
-  `ERR_RFCS` at the take, never a memory fault. Sealing lazily at share time
-  would remove the walk, but a shared node's fields may be faded by two
-  threads at once on the device lanes, which have no 64-bit compare and
-  swap, so static sealing is the price of lock-free sharing there.
-- **The Lean spec.** `cubical.lean` proves the interval and states the
-  fragment's rules (Part XI); canonicity for `coe`/`hcomp`/`Glue`, the kind
-  rule for proof-valued functions with its positivity condition, and the
-  guarded self-call are stated, not proved. Extending `bend.lean`'s `Term`
-  would touch its twenty thousand lines of proofs; the fragment is kept in
-  its own file until that is done.
-
----
-
-## Part XI. The mechanization (`bend2/cubical.lean`) and the trust boundaries
+## Part VII. The mechanization (`bend2/cubical.lean`) and the trust boundaries
 
 `bend2/cubical.lean` is checked by Lean 4.34 with no imports and no
 `sorry` (638 lines). Upstream's `bend.lean` checks under the same
@@ -1133,7 +883,7 @@ III.3 that need only the fragment (path beta, the endpoint rules off an
 annotation, J on the constant path and J as transport along the
 connection square, `coe` at equal endpoints or along a constant line,
 `hcomp`/`Glue`/`glue` at a face that holds or with every face dead,
-`unglue` of a `glue`), and `Has`, the typing rules of Part III.2
+`unglue` of a `glue`), and `Has`, the typing rules of Part I.2
 parametric in the core's conversion and typing (`Judg`). The Kan rules by
 type shape (the function and constructor cases of `coe_step`/`hcm_step`)
 are stated in Part III against `bend.lean`'s core and not transcribed.
@@ -1177,11 +927,11 @@ bun bend2/main.ts tests/cubical/compiled.bend -o x && ./x
 @-2912 @-2929 @-2950 @-3010 @-3092 @-3122 @-3139 @-3173 @-3192 @-3214
 @-3242 @-3274 @-3331 @-3382 @-3403 @-3426 @-3449 @-3466 @-3481 @-3515
 @-3538 @-3554 @-3603 @-3618 @-3633 @-3663 @-3678 @-3696 @-3780 @-3822
-@-3856` (54 hunks, all covered in Part IV).
+@-3856` (54 hunks, all covered in Part II).
 
 `bend2/comp.ts`: `@-793 @-908 @-945 @-1055 @-1063 @-1406 @-1659 @-1699
 @-2461 @-3130 @-3141` (11 hunks, Part V).
 
 `bend2/base.bend`: `@-419` (1 hunk, Part VI).
 
-`bend2/cubical.lean`: a new file (Part XI).
+`bend2/cubical.lean`: a new file (Part VII).

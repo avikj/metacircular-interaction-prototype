@@ -1,33 +1,158 @@
 # A cubical core for the official Bend 2
 
-**Which document to read.**
-
-| you want | read |
-| --- | --- |
-| to know what this lets a Bend programmer do, what can no longer go wrong, and what it costs, each claim tied to a test and checked against upstream | `ENGINEERING_CASE.md` |
-| the short technical account: the language, the rules, the verification | this file |
-| every changed line explained, the typing and reduction rules, the Lean mechanization, the issues, the trust boundaries | `TECHNICAL_REPORT.md` |
-
-This directory gives the **official public Bend 2** (bendlang/bend, `2.0.21`,
+This directory gives the official public Bend 2 (bendlang/bend `2.0.21`,
 commit `6018e28`) a cubical core: paths, transport, composition, Glue and
-univalence, higher inductive types, and transport that *runs* on the
-compiled C and JavaScript lanes. It ports the mathematics of
-`collab/bend2-interactive-cubical` (built on the HVM3 interaction-net fork) onto a
-different language implementation: a TypeScript checker (`bend2/bend.ts`,
-one linear bidirectional pass, an affine dependent theory with a dead/live
-wall), a C/Metal/CUDA/JS compiler (`bend2/comp.ts`) and a Lean spec.
-Nothing is copied over: the equality primitive of the official language
-(`{a == b : T}`, `{==}`, `%e : P; f`) is *re-read* as a path type, the Kan
-operations are term forms with type-directed reduction in the style of the
-checker they extend, and the runtime side is a compile-time elaboration
-pass, not a new machine.
+univalence, higher inductive types, coinduction, and transport that runs
+on the compiled C and JavaScript lanes. The equality the language already
+has, `{a == b : T}`, is re-read as a path type; nothing that checked
+before stops checking, and a program that uses none of it compiles to the
+same code at the same speed.
 
-`cubical.patch` is the whole change against upstream `6018e28`
-(`bend2/bend.ts`, `bend2/comp.ts`, `bend2/base.bend`). `tests/cubical/*.bend`
-are the tests, in upstream's own format (a file ends in the `#|` lines its
-run must print). `run.sh` clones upstream at the pinned commit, applies the
-patch, runs the cubical tests (the `compiled_*` ones on the JS lane, and on
-the C lane when clang is present), then upstream's interpreter-lane suite.
+```
+./run.sh        # clones upstream at 6018e28, applies cubical.patch, runs every test, checks the Lean file
+```
+
+`cubical.patch` is the whole change (`bend2/bend.ts`, `bend2/comp.ts`,
+`bend2/base.bend`, and the new `bend2/cubical.lean`). `tests/cubical/` are
+33 programs in upstream's format: each ends in the `#|` lines its run must
+print. `TECHNICAL_REPORT.md` explains every changed line.
+
+## Three programs
+
+**Function extensionality.** Upstream's own test `proof/no_funext_000`
+asserts this is unprovable. It is four lines, and the transported function
+runs.
+
+```
+# function extensionality is a path lambda: a path between functions is a
+# function of the dimension whose faces are the two functions
+type N is Data:
+  Z{}
+  S{p: N}
+
+law add:
+  for n: N
+  for m: N
+  N
+
+def add(n, m):
+  match n:
+    case Z{}:
+      m
+    case S{k}:
+      S{add(k, m)}
+
+law add_zero:
+  for n: N
+  {add(n, Z{}) == n : N}
+
+def add_zero(n):
+  match n:
+    case Z{}:
+      {==}
+    case S{k}:
+      %add_zero(k) : {S{add(k, Z{})} == S{_} : N}; {==}
+
+law add_zero_eta:
+  {(x => add(x, Z{})) == (x => x) : N -> N}
+
+def add_zero_eta(): i => x => add_zero(x)(i)
+
+law sym:
+  for -A: Type
+  for -a: A
+  for -b: A
+  for p: {a == b : A}
+  {b == a : A}
+
+def sym(A, a, b, p): i => p(-i)
+
+law cong:
+  for -A: Type
+  for -B: Type
+  for f: A -> B
+  for -a: A
+  for -b: A
+  for p: {a == b : A}
+  {f(a) == f(b) : B}
+
+def cong(A, B, f, a, b, p): i => f(p(i))
+
+law main:
+  N
+
+def main(): add_zero_eta()(i0)(S{S{Z{}}})
+```
+prints
+```
+S{S{Z{}}}
+```
+
+**Transport along univalence, compiled.** `ua` turns the equivalence
+`not : Bool ≃ Bool` into a path between types; transport along a list of
+it is one `map`, emitted as ordinary code for the C and JS lanes.
+
+```
+# transport along a line of datatypes over ua, compiled: the runtime pass
+# mints a structural transport for List, pushing the equivalence into
+# every element, and along a function line it wraps the function
+import Base
+
+def Bool.not.not(b: Bool) -> {Bool.not(Bool.not(b)) == b : Bool}:
+  match b:
+    case True{}:
+      {==}
+    case False{}:
+      {==}
+
+def notEquiv() -> Equiv(&2, &2, Bool, Bool):
+  Equiv.from_iso(~Bool, ~Bool, ~Bool.not, ~Bool.not, ~Bool.not.not, ~Bool.not.not)
+
+def flipAll(xs: List<Bool>) -> List<Bool>:
+  coe(i => List<ua(&2, Bool, Bool, notEquiv())(i)>, i0, i1, xs)
+
+def flipFun(f: Bool -> Bool) -> Bool -> Bool:
+  coe(i => ua(&2, Bool, Bool, notEquiv())(i) -> ua(&2, Bool, Bool, notEquiv())(i), i0, i1, f)
+
+def main() -> IO(Unit):
+  do IO<Unit>:
+    IO.print(List.show(~&1, ~Bool, ~Bool.show, flipAll([True{}, False{}, True{}])))
+    IO.print(Bool.show(flipFun(x => x)(True{})))
+```
+prints
+```
+[False, True, False]
+True
+```
+
+**A higher inductive type refuses what it must.** `loop` is a path
+constructor of the circle; it is not the constant path.
+
+```
+# loop is not the constant path: a match arm that maps loop to the
+# constant path at base is fine, but loop itself is not {==}
+import Base
+
+type S1 is Data:
+  base{}
+  path loop{}: {base{} == base{} : S1}
+
+law bad:
+  {loop{} == {==} : {base{} == base{} : S1}}
+
+def bad(): {==}
+```
+prints
+```
+Error:
+- expected : loop{}
+- observed : {==}
+Location: bad
+11 | 
+12>| def bad(): {==}
+13 | 
+exit 1
+```
 
 ## The language
 
@@ -59,38 +184,154 @@ the extra face), `isContr.prop`, `isEquiv.prop`, `ua` and `Equiv.of_path`
 project an equivalence through Base's own `Equiv.fun`/`inv`/`sec`, so a
 stuck projection of a variable equivalence is the term the user writes.
 
-### Reduction
+## What you can now write
 
-- **Endpoints.** A checked def unfolds to its elaborated tree (`Def.w`,
-  built by `def_body`, which lowers the annotation cells at their depth and
-  re-binds them; a template is closed over its `~` binders), so `term_wnf`
-  reads a stuck path's endpoints off its annotation when it is applied to
-  `i0`/`i1`; a bound path variable reads them off the context of the check
-  in progress (`WNF_CTX`); a raw spine headed by a variable or reference
-  goes through `term_pend`. A path constructor applied to an endpoint is
-  its declared face (`ctr_face`).
-- **coe** by the shape of the line's body at a fresh dimension: identity on
-  constants, kinds, `Interval`, path types with erased content; functions
-  contravariantly; constructors fieldwise along dependent field lines
-  (every ADT of the book, no per-type code); a path constructor applied to
-  dimensions fieldwise with the dimensions kept; an hcomp cell of a family
-  commutes; a line of path types reparametrizes to `i0..i1` and composes in
-  the carrier; **Glue** is CCHM transport (unglue at `r`, transport the base,
-  invert through the contractible fibre on each face live at `s`, correct
-  along the fibre's path, glue back).
-- **hcomp**: a face that holds is the tube at `i1`; functions pointwise;
-  paths in the carrier with the endpoints as faces; constructors fieldwise
-  when every tube is that constructor; **in `Type`** a Glue over the base
-  with the transport equivalence of each tube; **at a Glue** inside each
-  partial type and in the base with the fillers' images as extra faces.
-- **HIT eliminators**: a `match` needs an arm per constructor, path ones
-  included; a path arm lands in the path over the motive between the
-  eliminator's values at the constructor's endpoints (nested by dimension;
-  the eliminator's value is the definition's own application where the
-  match does not compute, so recursive arms line up); the match on a path
-  constructor applied to dimensions is the arm at the fields then the
-  dimensions; the match on an hcomp cell composes along the motive over the
-  filler with the tubes eliminated.
+Each item says what upstream lacks and why, then the rule, then the test.
+Every "upstream" claim was run on pristine `2.0.21`; `j_index.bend` pins
+the one thing upstream already had (J transports a value along an index
+proof, and still does).
+
+**Equations built by abstraction, computing on every path.** Upstream's
+only way to introduce an equation is `{==}` (check-rfl is the sole
+introduction rule for `Eql`), so every equation is reflexivity up to J, and
+J is stuck on an open proof. Here `i => t` introduces a path with its faces
+checked by conversion, `p(r)` eliminates it, and J steps on every path as
+transport along the connection square. `j.bend`, `coe.bend`.
+
+**Function extensionality.** An equation between functions can only be
+`{==}`, and two syntactically different functions are not convertible;
+there is no way to build the equation from pointwise evidence. Funext is a four-line path: `i => x => p(x)(i)`, checked
+by its faces. `funext.bend`. Cost: none; the path is
+erased. Verified: upstream's `proof/no_funext_000` asserts
+unprovability and is the one intended divergence of the suite.
+
+**Univalence.** `{A == B : Type}` has one inhabitant, `{==}`,
+which requires `A` and `B` convertible; transport along it is the
+identity. There is no term that turns two functions and two round-trip
+proofs into an equation of types. `ua(e) : {A == B : Kind(q)}` is a definition (a `Glue`
+line), transport along it runs `e`'s function, and `Equiv.of_path(ua(e))`
+is `e` again. `ua.bend`, `ua_round.bend`, `fibre.bend`,
+`compiled_coe.bend`, `compiled_path.bend`. Cost: a universe path is a
+pair of closures at runtime; a transport along it is one call, along a
+list of them one map, which is the hand-written conversion. Verified:
+upstream refuses `coe` and `ua` as undefined names.
+
+**Quotients and truncation.** A `type` declares constructors whose tip is the
+family; there is no way to declare an equation as a constructor, so a
+quotient can only be simulated by a chosen normal form nothing enforces.
+`path c{fields}: {a == b : K<..>}` declares a path
+constructor; `match` on the family must supply its arm at the path over
+the motive, so a function out of the quotient is refused unless it
+respects the relation. `hit_quot.bend`, `hit_circle.bend`,
+`hit_trunc.bend`, `hit_susp_torus.bend`, `hit_mustfail_loop.bend`.
+Cost: none at runtime; a path constructor is erased, so a quotient is
+represented by its underlying data. Verified: upstream's parser
+rejects `path` in a `type` block.
+
+**Coinduction.** Every live self-call must descend on a column
+of the definition's case tree (`term_descend`); a self-call under a
+constructor's lambda descends on nothing and is refused. A self-call under a constructor's delayed field, observed
+only through dimensions, is productive: each observation unfolds one
+constructor. The definition is marked corecursive, stays folded while
+printed or compared, and a bisimulation is a corecursive path checked
+one unfolding at a time. `stream.bend`,
+`stream_mustfail.bend`. Cost: none; the closure is the same closure.
+Verified: upstream refuses `ones = mk{1n, _ => ones}` with its descent
+error, and its own `halt/strict_descent` pins that refusal (the second
+intended divergence).
+
+**Copyable proof functions.** No function type is `Data` (`infer-all` gives
+every `All` the kind `Type`), so a proof-valued function is affine: not a
+`+` binder, not a field of a `Data` type. A function into an equation is `Data`, whatever its
+domain, since it has no runtime content to copy; the omega attack this
+could open (a copyable function inside its own domain) is closed by a
+positivity check on datatype fields. `isContr`, `isEquiv`, `Equiv` are
+ordinary Base definitions. `proof_fn_copy.bend`,
+`proof_fn_kind.bend` (a proof function over closures, used twice and
+stored in a record), `positivity_mustfail.bend`. Cost: none; the function is erased.
+Verified: upstream refuses `+h: @x:Nat -> {x == x : Nat}` and a `Data`
+field of that type, both with "expected Data, observed Type".
+
+**Transport on the native lanes.** Upstream has nothing to transport: its only
+type path is `{==}`. A universe path compiles to its equivalence; `coe` along a
+datatype line to a minted structural map; along a function line to a
+wrapper; a path applied to an endpoint to that endpoint; a path
+constructor at literal dimensions to its boundary. The C, JS and
+interpreter lanes agree. `compiled*.bend`,
+`hit_susp_torus.bend` on all lanes.
+
+## What can no longer go wrong
+
+- **Foreign code cannot deliver evidence** (issue #874, closed uniformly).
+  A C library cannot return "this buffer is null-terminated" as a proof;
+  it returns the buffer and the proof is built in Bend. A JS callback
+  cannot return "these types are equal." A host may return data, a
+  handle, a kind, a callback that returns data, or an equation the checker
+  can already close; never a path with distinct ends, a universe path, a
+  dependent codomain or an empty type. Checked at the declaration and at
+  every call that instantiates a type parameter. `issue_874*.bend`.
+- **Template binder names cannot collide** (#905). `def cast(~T, ~x: T,
+  ~T)` no longer typechecks as an unsafe cast. `issue_905.bend`.
+- **A raw read of a shared node cannot be emitted** (#901). Any program
+  over an indexed family (matrices, sized vectors, protocol states) that
+  the C emitter's ownership analysis mishandles now runs or stops with an
+  error; it cannot corrupt memory. The reporter's matrix product runs at
+  every depth. `issue_901.bend`, `issue_853.bend`.
+- **The interval decision procedure is mechanized** (`bend2/cubical.lean`).
+  Stating the decision procedure in Lean showed that a two-valued table
+  decides a Boolean algebra, not the free De Morgan algebra the theory
+  requires; the procedure evaluates in the four-element De Morgan algebra
+  and is proved sound and strictly finer. `demorgan.bend`.
+
+## What it costs
+
+| what | cost |
+| --- | --- |
+| a program with no path operation | none: same code, same speed (benches within 1%) |
+| checking a proof with dimension variables | a table of at most 4^8 cases; real proofs have two or three atoms |
+| a transport along an index proof | the identity |
+| a transport along a list of equivalences | one map over the list |
+| a transport along a function line | one wrapper |
+| a universe path at runtime | a pair of closures, spent once or passed as a `~` template |
+| a read of a `Data` node on the C lane | one predictable branch |
+
+The one rule that shapes new code: a path between *types* is affine, like
+the closures it holds. It constrains nothing that existed before.
+
+## Verification
+
+| what | result |
+| --- | --- |
+| `tests/cubical` | 33 of 33, the compiled ones on the C and JS lanes |
+| `bend2/cubical.lean` | checks under Lean 4.34, no `sorry` |
+| upstream interpreter suite, 931 files | 923 pass; 4 fail on unpatched upstream too; 4 change on purpose (below) |
+| upstream io suite, 139 files | identical output |
+| upstream compiled lanes, every Base program with a `main` in `run compile io check eval base spec` | identical output, one added refusal (a universe-path `main` cannot be printed) |
+| upstream benches `bfs`, `queens`, `tree-matmul`, sequential | within 1% |
+
+The four intended divergences: `proof/no_funext_000` asserts funext is
+unprovable and now fails; `halt/strict_descent` refused a productive
+self-call and now accepts it; `halt/duplicate_deferred` and
+`grade/reject_leak` are refused one step earlier (by affinity, and because
+a universe path is not `Data`). Upstream's pinned parse errors for `~`,
+`!` and `:` are untouched, which is why negation is `-r` and a path
+constructor is introduced by `path`.
+
+## Design
+
+### One principle, four boundaries
+
+Every rule this port adds is one question asked at a boundary: *what is
+the runtime content of this thing?* Bend's kinds already classify types
+by it (`Data` copies freely, `Type` holds closures), and cubical type
+theory has the matching fact that a path is erasable everywhere except in
+a universe, where its content is an equivalence, a pair of closures. So:
+a path type over data is `Data` and a universe path is `Type` (the kind
+rule); a function into an equation is `Data` (the proof-function rule); a
+host may deliver a value only when its runtime representation is its
+meaning, data or an equation the checker already closes, whose null is
+exactly `{==}` (the foreign rule); and the C lane takes a node through its
+refcount tag exactly when its kind says it may be copied (the read rule).
 
 ### The wall, kept
 
@@ -112,231 +353,6 @@ proof-valued function copies as its domain does, and any other function
 used twice is a template parameter (`~f`: a template is a theorem, a
 closure is affine). `Equiv.from_iso` and the fibre law are written that
 way.
-
-### Runtime
-
-The compiler erases types, so before emission `term_uncoe` runs every Kan
-node of a checked tree to ordinary code: `coe_step` with the value symbolic
-handles functions, kinds, Glue (`ua`: the equivalence's function forward,
-its inverse backward, through Base's own defs) and lines of path types; a
-datatype line with a symbolic value becomes a *minted transport def*
-(`coe~n`), a lambda-match pushing the transport into every constructor's
-fields, recursive lines reaching the def itself (a `List<ua(e)(i)>` line
-mints exactly `List.map` of `e`); an `hcomp`, `glue` or `unglue` with
-decided faces is its value there; a rewrite along a path is J as transport.
-`term_unpath` then erases path lambdas and path constructors at path types
-(evidence), turns a path lambda in a universe into its equivalence, and
-resolves path applications at literal endpoints; a transport along a
-variable path in a universe is that path's function or inverse.
-
-## Verification
-
-- `funext`, `coe`, `j`, `hcomp`, `must_fail_face`, `must_fail_dead_coe`:
-  paths, transport by shape, J on non-constant paths, hand-written fillers,
-  the face check and the wall.
-- `ua`: `ua` of the identity is the identity by computation, both ways; the
-  faces of `ua` are its types; **ua-beta is definitional for an abstract
-  equivalence**: `coe(ua(A, B, e), i0, i1, x) ≡ Equiv.fun(A, B, e)(x)`.
-- `fibre`: the fibre law `A ≃ &b:B -> fiber f b` for every `f` over `Data`
-  carriers, as a coherent equivalence through `Equiv.from_iso`, then
-  `losslessPath = ua(totalEquiv f)`; `present = coe(losslessPath, i0, i1)`
-  **is the factoring `a => (f(a), a, {==})` definitionally**, and
-  `retrieve` after `present` is the identity; run at `f = not`.
-- `hit_circle`, `hit_quot`, `hit_trunc`, `hit_mustfail_loop`: the circle
-  (faces of `loop`, eliminators, a loop-dependent one), a set quotient with
-  parameters (faces mention the fields, the recursor on `eq` is the arm
-  definitionally), propositional truncation (a recursive path constructor,
-  the recursor into a proposition by its recursive results, the eliminator
-  on an hcomp cell with a symbolic face); `loop` is not `{==}`.
-- `compiled`, `compiled_coe`: on the C and JS lanes, a funext-transported
-  function runs; transport along `List<ua(not)(i)>` flips every element and
-  along a function line wraps the function. The fibre law's instance
-  (`present`, `retrieve` at `not`) runs on both lanes too
-  (`False True True False`).
-- Upstream's interpreter-lane suite (931 files): every file the unpatched
-  checker passes still passes (927), except four whose pinned answers this
-  port changes on purpose (each is a rule below): `proof/no_funext_000`
-  asserts that funext is *unprovable* and now fails as intended;
-  `halt/strict_descent` refused a productive self-call under a constructor
-  and is now accepted (guarded corecursion); `halt/duplicate_deferred` is
-  refused one step earlier, by affinity (`x consumed more than once`)
-  instead of by descent; `grade/reject_leak` is refused one step earlier,
-  because a universe path is not `Data` (it carries a runtime transport).
-  Upstream's io suite (139 files, the JS lane through the interpreter)
-  prints exactly what upstream prints. Upstream's compiled lanes (JS and C,
-  every Base program with a `main` in `run`, `compile`, `io`, `check`,
-  `eval`, `base`, `spec`) print what upstream prints, with one refusal
-  added: `check/type_erased_runtime` has `main : {U32 == U32 : Type}`, a
-  universe path, which is an equivalence at runtime here and so, like a
-  function, cannot be printed by the compiled lanes (the interpreter still
-  prints `{==}`). Upstream's pinned parse errors
-  (`~`, `!`, a `:` after a constructor) are untouched, which is why
-  negation is `-r` and a path constructor is introduced by `path`.
-
-- `hit_susp_torus`: transport along `Susp<ua(not)(i)>` pushes into
-  `merid`'s field definitionally (`merid{True}` becomes `merid{False}` as
-  a path); the torus has a two-dimensional path constructor whose corners
-  and edges compute and an eliminator with a two-dimensional arm. A
-  path constructor at literal dimensions is its boundary on the compiled
-  lanes too (`surf{}(i1)(i0)` is `pt{}` on C and JS).
-
-### One principle, four boundaries
-
-Every rule this port adds is one question asked at a boundary: *what is
-the runtime content of this thing?* Bend's kinds already classify types
-by it (`Data` copies freely, `Type` holds closures), and cubical type
-theory has the matching fact that a path is erasable everywhere except in
-a universe, where its content is an equivalence, a pair of closures. So:
-a path type over data is `Data` and a universe path is `Type` (the kind
-rule); a function into an equation is `Data` (the proof-function rule); a
-host may deliver a value only when its runtime representation is its
-meaning, data or an equation the checker already closes, whose null is
-exactly `{==}` (the foreign rule); and the C lane takes a node through its
-refcount tag exactly when its kind says it may be copied (the read rule).
-The three rules below are the ones the two source documents forced, seen
-through that principle.
-
-### Three rules the documents forced, answered by the mathematics
-
-- **A proof-valued function is `Data`.** A function into an equation type
-  is erased whole, so it copies freely whatever its domain (a first
-  version gave it the domain's kind, which was conservative for no reason
-  the principle below supports; `proof_fn_kind` pins a proof function over
-  closures used twice and stored in a record). The only reason it was not
-  copyable was the omega attack through a negative datatype; that needs
-  the function's domain to contain the function, so a datatype may not
-  have a copyable proof-function field with a negative occurrence of
-  itself (`positivity_mustfail`). With it, `isContr` over `Data` is `Data`, the
-  contraction is `+p0`, `isContr.prop` is Cubical Agda's four-face
-  composite, `isEquiv.prop` is pointwise, and the coherent **reverse
-  univalence round trip** `Equiv.of_path(ua(e)) == e` holds for every
-  equivalence (`ua_round`). Quantities lead the equivalence defs
-  (`Equiv(a, b, A, B)`, `ua(a, A, B, e)`), the kind of the carriers.
-- **A path in a universe is, at runtime, its equivalence.** `Equiv.of_path`
-  carries the identity equivalence along it, which the elaboration pass
-  computes; so a path lambda in `Type` compiles to an `Equiv` value, `{==}`
-  to `Equiv.id`, a path-typed variable is that value, and `coe(p, i0, i1,
-  x)` along a variable path is `Equiv.fun(p)(x)` (backwards, `Equiv.inv`).
-  Such a path is affine, as a closure is (its kind is `Type`); a line that
-  spends it once per element, `i => List<p(i)>`, takes it as a `~`
-  template, as `List.map` takes its function (`compiled_path`, both
-  lanes). The README's trace `(a, p)` is stored and replayed.
-- **A guarded self-call is productive.** A self-call under a constructor's
-  delayed field (a lambda), saturated and eliminated by nothing there
-  (applied at most to dimensions), unfolds one constructor per
-  observation, so the descent check admits it and marks the def
-  corecursive. Normalisation for printing and conversion under a lambda
-  keep such a def folded, and conversion takes the same-definition
-  shortcut before unfolding, so a corecursive value prints one unfolding
-  and a bisimulation is a corecursive path checked face by face
-  (`stream`, `stream_mustfail`: an eliminated self-call is refused).
-
-## Against the two documents this port answers to
-
-`README.md` (the interactive symbolic computer) and
-`collab/bend2-interactive-cubical/BEND_HVM_COMPUTATIONAL_UNIVALENCE.md` ask for five
-things of a runtime. Where each stands on the official Bend:
-
-1. **Proof is executable transport; `coe(ua(e), x) ↝ e(x)`.** Held, at the
-   checker (definitionally, for an abstract `e`) and on the C and JS lanes.
-2. **Every map is visible value plus fibre; lossless completion is forced,
-   not chosen.** Held: `A ≃ Σ b. fib_f(b)` as a coherent equivalence for
-   every `f` over `Data`, `ua` of it, `present` the factoring by
-   computation, and it runs. This is the corpus's "lossless inference", and
-   it is the most primitive object here too: everything else is transport
-   along it.
-3. **Partial compositions retained as runtime terms; paths as runtime
-   data (the trace `(a, e, b)`).** Paths in a universe are runtime data
-   now: their equivalences, affine, transported along at runtime and
-   stored in a trace and replayed (`compiled_path`). A composition with an
-   undecided face is still not a runtime value: a dimension is dead in
-   this language, so every face is decided by the time code runs; the
-   composite's value is computed then, and that is exact.
-4. **Sharing versus independence (SUP/DUP labels, diagonal versus product);
-   transport along a superposed line routing each universe.** No
-   counterpart: the official Bend has no superposition; correlation is a
-   `+` reference count. The type-level fibre law stands; its runtime form
-   as label routing is specific to interaction nets.
-5. **Coinduction and intrinsic rewrite.** Coinduction is in: a record with
-   a delayed field is a coinductive type, a guarded self-call is
-   productive, a bisimulation is a corecursive path (`stream`). The
-   README's "self-rewriting becomes proof-carrying rewriting" is
-   `LAWS.bend` and `PROOF.bend` at the level of the toolchain.
-
-The finding that used to sit here (the coherent reverse round trip needing
-a contraction copied, which the affine wall forbade) is resolved by the
-kind rule above: a proof-valued function copies as its domain does.
-
-## The open issues, closed by rules
-
-The bugs filed against Bend 2 in its issue tracker are the holes where the
-theory stopped short of the runtime. Each is reproduced as a test here and
-closed by a rule, not by a patch to one program.
-
-- **#874, a proof forged through a foreign definition.** A foreign
-  definition is an axiom: the host answers at the declared type and nothing
-  checks the answer. Upstream lets `def give() -> IO({A == B : Type})` be
-  filled by JavaScript, and with a computational `ua` that null would be
-  read as a transport and run. Rule (`term_transportable`, at the
-  declaration and again at every call that instantiates a type parameter):
-  a foreign payload is *data*, meaning words, strings and constructors of
-  such, a handle minted by Base, a kind, a host function whose answers are
-  data, or an equation the checker closes itself by conversion (the host's
-  null is then exactly `{==}`); never a path with distinct ends, a universe
-  path, a dependent codomain or an empty type. `issue_874` (a universe
-  path), `issue_874_false` (`{0 == 1 : U32}`), `issue_874_empty` (`Empty`)
-  are refused at the declaration; `issue_874_poly` (`relay(T)` called at a
-  path) at the call. Upstream's own io tests, including a proof of
-  `{0 == 0 : U32}` and a closure crossing the seam, still print the same.
-- **#905, two `~` binders with one name identified.** A template's
-  parameters are checked as opaque constants named after the binder, so
-  `def cast(~T, ~x: T, ~T) -> T` identified both `T` and checked `x` at the
-  wrong one. Rule: a name a later binder repeats is told apart by its
-  position (`cast~2~T`); every other constant keeps its upstream name, so no
-  upstream message changes. `issue_905` is refused with the two constants
-  named.
-- **#901, a memory fault on a product over a family indexed twice.** The C
-  lane's ownership facts walk a family stuck on open indices as the types
-  of its arms, but the walk stopped at the outer arm of a nested match, so
-  `Mat(r, c)` heated `Mat.Leaf` and never `Rows`, `Cols` or `Quad`; a shared
-  operand of those constructors was then taken raw and freed under its
-  other holder. Rule (`facts_hot`): a match stuck on an open scrutinee is
-  every one of its arms' types, nested arms included. `issue_901` is the
-  reporter's program at depth 2 and prints 64 on every lane (upstream
-  2.0.21 faults at depth 2 and 3).
-- **#853, a sealed node taken raw under a family stuck on an open index.**
-  Fixed upstream at 2.0.21 (constructor field types heated at build sites,
-  a stuck family's arms heated); `issue_853` pins the reporter's program at
-  5 on the C lane.
-- **#852, a nat literal pattern with fields.** Fixed upstream at 2.0.21;
-  `issue_852` pins the refusal.
-- **#902, a template instantiating itself through a descent check** and
-  **#880, a `LAWS.bend` whose `PROOF.bend` names a def outside it or leaves
-  a law open**: both fixed upstream at 2.0.21 and re-verified on this port
-  (upstream's `template_inst_cycle` test; a `LAWS`/`PROOF` pair with an
-  unrelated def is an error, an open law is `1 TODO found`).
-
-## The trust boundaries, and what closed since the issues
-
-- **The interval is the free De Morgan algebra, mechanized.** Conversion
-  of interval terms is decided in the four-element De Morgan algebra
-  (which generates the variety), not in `{0, 1}`: a two-valued table
-  validates `i /\ -i == i0`, which is not a law of the interval.
-  `bend2/cubical.lean` (checked, no `sorry`) proves the folds `term_wnf`
-  applies are sound, the decision relation is a congruence satisfying every
-  De Morgan law, the two-valued table is strictly coarser (the
-  counterexample above), and canonicity: a closed interval term folds to
-  an endpoint. It also states the fragment's reduction and typing rules as
-  inductive relations, the list the TypeScript is audited against.
-  `tests/cubical/demorgan.bend` pins the laws and the refusal.
-- **A raw read of a shared node cannot be emitted.** The C lane takes an
-  owned node through its refcount tag whenever its family is `Data`, the
-  checker's own condition for a value to be copyable; a `Type`-kinded
-  family (closures inside) is affine by the checker's rule, never shared,
-  and reads raw. The hot walk now only decides which constructors seal
-  their fields at build; whatever it misses fails stop (`ERR_RFCS`)
-  instead of faulting. Cost on upstream's benches (`bfs`, `queens`,
-  `tree-matmul`, sequential): within 1% of upstream.
 
 ## What is left
 
