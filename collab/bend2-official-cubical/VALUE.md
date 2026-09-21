@@ -6,6 +6,15 @@ now write that they could not, what can no longer go wrong, and what it
 costs. Each point names the test in `tests/cubical/` that demonstrates it,
 so every claim here is a program you can run.
 
+One idea underlies everything below. Every rule the core adds is the
+same question asked at a boundary: *what is the runtime content of this
+thing?* A path over data has none and is erased; a path between types is
+an equivalence, a pair of closures, and is affine; a function into a
+proof has none and copies freely; a host may hand over only what its
+runtime representation fully describes; a compiled node is taken through
+its refcount tag exactly when its kind says it may be copied. If you
+remember one thing, remember the question.
+
 Two facts frame everything below:
 
 - **A program that uses none of this is unchanged.** The runtime
@@ -124,8 +133,17 @@ upstream refuses `coe` and `ua` as undefined names.
   the bytes.
 - *Newtypes.* `UserId` over `U32` is equivalent to `U32`; lemmas transport
   without wrapping by hand.
-- *API versioning.* If v2 of a type is equivalent to v1 (renamed,
-  reordered fields), clients verified against v1 are verified against v2.
+- *API versioning and schema migration.* If v2 of a row or message type
+  is equivalent to v1 (fields renamed, reordered, split or merged without
+  loss), the equivalence is the migration function, `ua` makes the two
+  types equal, and every invariant proved of v1 rows holds of v2 rows by
+  transport, which compiles to that function. Three cases to keep apart:
+  a migration by an index proof (`Row<v + 1>` is `Row<v'>`) was already a
+  J rewrite upstream (section 0); a migration by equivalence is this
+  section and is new; a migration that adds or drops information (a new
+  column with a default) is an embedding, and no equality theory makes it
+  an equality. The rows are Bend values inside the program; nothing here
+  reaches a database outside it.
 - *Numeric representations.* Montgomery form and standard form of a field
   element are equivalent; prove the arithmetic once in the convenient form.
 - *Hardware and software views.* A register file as a record and as a bit
@@ -214,12 +232,13 @@ used twice.
 every `All` the kind `Type`), so a proof-valued function is affine: not a
 `+` binder, not a field of a `Data` type.
 
-**Resolution.** A function into an equation has its domain's kind, since it
-has no runtime content to copy; the omega attack this could open (a
-copyable function inside its own domain) is closed by a positivity check
-on datatype fields. `isContr`, `isEquiv`, `Equiv` are ordinary Base
-definitions. `tests/cubical/proof_fn_copy.bend`,
-`positivity_mustfail.bend`. **Cost:** none; the function is erased.
+**Resolution.** A function into an equation is `Data`, whatever its
+domain, since it has no runtime content to copy; the omega attack this
+could open (a copyable function inside its own domain) is closed by a
+positivity check on datatype fields. `isContr`, `isEquiv`, `Equiv` are
+ordinary Base definitions. `tests/cubical/proof_fn_copy.bend`,
+`proof_fn_kind.bend` (a proof function over closures, used twice and
+stored in a record), `positivity_mustfail.bend`. **Cost:** none; the function is erased.
 **Verified:** upstream refuses `+h: @x:Nat -> {x == x : Nat}` and a `Data`
 field of that type, both with "expected Data, observed Type".
 

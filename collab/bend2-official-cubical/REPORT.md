@@ -19,7 +19,7 @@ The artifact is five things:
 | path | what it is |
 | --- | --- |
 | `cubical.patch` | the whole change against upstream: `bend2/bend.ts` (54 hunks), `bend2/comp.ts` (11 hunks), `bend2/base.bend` (1 hunk), and the new `bend2/cubical.lean` |
-| `tests/cubical/*.bend` (32 files) and `issue_874.js` | the tests, in upstream's own format: a Bend file that ends in the `#\|` lines its run must print |
+| `tests/cubical/*.bend` (33 files) and `issue_874.js` | the tests, in upstream's own format: a Bend file that ends in the `#\|` lines its run must print |
 | `run.sh` | clones upstream at the pinned commit, applies the patch, runs the cubical tests (check + interpret; the compiled ones on the JS lane and on the C lane when clang is present), then upstream's interpreter-lane suite |
 | `README.md` | the short form of this report |
 | `VALUE.md` | the engineering case: what can now be written, what cannot go wrong, what it costs, each point tied to a test |
@@ -141,11 +141,20 @@ once or passed as a `~` template. Every other path type has kind `Data`
 rule, and it is what the C lane's "runtime fail-stop on copying an Equiv"
 forced.
 
-**Proof-valued functions copy as their domain does.** A function into an
-equation type `@x:A -> {f(x) == g(x) : B}` has no runtime content, so its
-kind is the kind of its domain (a proof function over `Data` is `Data`).
-The omega attack this would open (a copyable function inside its own
-domain) is closed by a positivity check on datatype fields.
+**Proof-valued functions are `Data`.** A function into an equation type
+`@x:A -> {f(x) == g(x) : B}` has no runtime content at all, so it copies
+freely whatever its domain. (The first version of this rule gave it the
+domain's kind; the principle in the next paragraph says that was
+conservative for no reason, and the change passed every suite and admits
+a proof function over closures, `proof_fn_kind`.) The omega attack this
+would open (a copyable function inside its own domain) is closed by a
+positivity check on datatype fields.
+
+**One principle.** Every rule above is the same question at a boundary:
+what is the runtime content of this thing? The kind rule, the
+proof-function rule, the foreign-payload rule below, and the compiler's
+read rule (Part V) are its four instances. Seen that way the port is one
+idea, not a list of features.
 
 **Guarded corecursion is a productive self-call.** A self-call under a
 constructor's field lambda, applied only to dimensions, is not a descent
@@ -249,9 +258,9 @@ T ≡ Glue(A, [(fk) (Tk, ek), ..])
 ------------------------------------------------ infer-unglue
 Γ ⊢ unglue(g) : A ~ u
 
-Γ ⊢ A : Kind(q)     Γ, x:A ⊢ B : Kind(_)     B ≡ {_ == _ : _}
+Γ ⊢ A : Kind(_)     Γ, x:A ⊢ B : Kind(_)     B ≡ {_ == _ : _}
 ------------------------------------------------ infer-all (proof-valued)
-Γ ⊢ @x:A -> B : Kind(q)
+Γ ⊢ @x:A -> B : Data
 
 type K: path c{xs}: {a == b : L}     (L's carrier is K at its own parameters)
 Γ ⊢ xs : the fields' telescope at K's parameters
@@ -698,8 +707,7 @@ error message for the unguarded case is upstream's, verbatim.
 
 **`@-3382` (patch:2175) — `All`'s kind, and the six new inference cases.**
 `infer-all`: if the codomain (at a fresh variable) is an `Eql`, the kind is
-the domain's inferred kind (the positivity side of this is in `book_valid`,
-`@-3822`). Then `Itv`, `Dim`, `Ineg`, `Imin`/`Imax`, `Coe`, `Hcm`, `Glu`,
+`Data` (the positivity side of this is in `book_valid`, `@-3822`). Then `Itv`, `Dim`, `Ineg`, `Imin`/`Imax`, `Coe`, `Hcm`, `Glu`,
 `Ung` exactly as III.2 states them. In `Coe`, a line written `i => T` is
 checked at `Interval -> Type` at the ambient demand `qt`; anything else is
 inferred and must have a universe path type. In `Hcm`, tubes are checked at
@@ -935,6 +943,7 @@ every file on check + interpret; the ones marked C/JS also compiled.
 | `issue_901.bend` | the reporter's matrix product at depth 2 (upstream faults) | `64` | interp, JS, C |
 | `j_index.bend` | what upstream already had: J transports a value along an index proof, on both trees (pinned so `VALUE.md` does not overclaim) | `V{[7n, 8n]}` | interp |
 | `proof_fn_copy.bend` | a proof-valued function over `Nat` is a `+` binder and a `Data` field (upstream: "expected Data, observed Type") | `Unit{}` | interp |
+| `proof_fn_kind.bend` | a proof function over a domain of closures is `Data`: used twice and stored in a record (refused by upstream and by the first cubical rule) | `Unit{}` | interp |
 | `demorgan.bend` | the De Morgan, absorption, idempotence and involution laws hold by conversion; `{==}` at `{i /\ -i == i0 : Interval}` is refused | error, `expected i /\ -i / observed i0` | interp |
 
 `issue_874.js` is the whole host side of #874: `function forge_eql(kont) {

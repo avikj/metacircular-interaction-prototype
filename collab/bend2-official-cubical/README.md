@@ -174,14 +174,33 @@ variable path in a universe is that path's function or inverse.
   path constructor at literal dimensions is its boundary on the compiled
   lanes too (`surf{}(i1)(i0)` is `pt{}` on C and JS).
 
+### One principle, four boundaries
+
+Every rule this port adds is one question asked at a boundary: *what is
+the runtime content of this thing?* Bend's kinds already classify types
+by it (`Data` copies freely, `Type` holds closures), and cubical type
+theory has the matching fact that a path is erasable everywhere except in
+a universe, where its content is an equivalence, a pair of closures. So:
+a path type over data is `Data` and a universe path is `Type` (the kind
+rule); a function into an equation is `Data` (the proof-function rule); a
+host may deliver a value only when its runtime representation is its
+meaning, data or an equation the checker already closes, whose null is
+exactly `{==}` (the foreign rule); and the C lane takes a node through its
+refcount tag exactly when its kind says it may be copied (the read rule).
+The three rules below are the ones the two source documents forced, seen
+through that principle.
+
 ### Three rules the documents forced, answered by the mathematics
 
-- **A proof-valued function has its domain's kind.** A function into an
-  equation type has no runtime, so the only reason it was not copyable was
-  the omega attack through a negative datatype; that needs the function's
-  domain to contain the function, so a `Data` datatype may not have a
-  copyable proof-function field with a negative occurrence of itself
-  (`positivity_mustfail`). With it, `isContr` over `Data` is `Data`, the
+- **A proof-valued function is `Data`.** A function into an equation type
+  is erased whole, so it copies freely whatever its domain (a first
+  version gave it the domain's kind, which was conservative for no reason
+  the principle below supports; `proof_fn_kind` pins a proof function over
+  closures used twice and stored in a record). The only reason it was not
+  copyable was the omega attack through a negative datatype; that needs
+  the function's domain to contain the function, so a datatype may not
+  have a copyable proof-function field with a negative occurrence of
+  itself (`positivity_mustfail`). With it, `isContr` over `Data` is `Data`, the
   contraction is `+p0`, `isContr.prop` is Cubical Agda's four-face
   composite, `isEquiv.prop` is pointwise, and the coherent **reverse
   univalence round trip** `Equiv.of_path(ua(e)) == e` holds for every
