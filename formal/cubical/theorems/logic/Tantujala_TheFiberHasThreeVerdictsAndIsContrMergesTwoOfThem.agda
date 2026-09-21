@@ -182,9 +182,7 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B) where
 -- not a search with a first step ‚î it is a census over the whole codomain
 -- at once, which is exactly ‡‡ï‡≤‡æ‡¶‡‡ against ‡µ‡ø‡ï‡≤‡æ‡¶‡‡.  It is a RECORD wrapping
 -- that Œ† rather than the Œ† itself, so the two directions are one projection
--- and one copattern -- not refl, and saying so is the honest form.  Recorded here because
--- a seat of this corpus spent hours proposing a sequential diagnostic
--- before noticing the simultaneous one was the definition.
+-- and one copattern -- not refl, and saying so is the honest form.
 ------------------------------------------------------------------------
 
 ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‡§É : {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B)

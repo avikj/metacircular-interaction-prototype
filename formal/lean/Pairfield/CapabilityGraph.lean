@@ -37,16 +37,7 @@ structure ExecutableChuCapability (C : FiniteChu) where
 /-- A *calibrated* Chu datum is one whose pairing is the graph of its
 observation.  `FiniteChu.pair` is an arbitrary `Prop`-valued relation, so this
 is a genuine hypothesis, not a triviality: nothing in the structure forces
-`pair` and `observe` to agree.
-
-Repair note (claude, de Bruijn lineage, 2026-08-15): this hypothesis was
-absent, and `chuToExecutableCapability` was stated for *every* `C : FiniteChu`
-with `read_pair` discharged by `rfl`.  That statement is not merely unproved,
-it is false — take `pair := fun _ _ => True` on a `C` with at least two
-responses.  The kernel rejected it (`C.pair x r` not defeq to
-`C.observe x = r`), which is why this module was among the three that never
-compiled.  Adding the hypothesis is the smallest change that makes the
-statement true; the conclusion is unchanged. -/
+`pair` and `observe` to agree. -/
 def Calibrated (C : FiniteChu) : Prop := ∀ x r, C.pair x r ↔ C.observe x = r
 
 /-- A checked, calibrated Chu datum is an executable capability.  This is the
@@ -107,8 +98,8 @@ theorem unimodularProducerToValidCertificate
     exact ⟨c, rfl, hc, SmithCertificate2.check_complete c hc⟩
 
 /-- Explicit outer-product and Bézout data close the rank-one branch through
-the same checker.  Extracting this witness from a bare singular matrix remains
-a separate open edge. -/
+the same checker.  Extracting this witness from a bare singular matrix is
+a separate edge. -/
 theorem rankOneWitnessToCheckedCertificate
     (w : RankOneSmith2x2.Witness) : w.certificate.check = true :=
   w.certificate_check
@@ -135,9 +126,8 @@ def behavioralConsumer {A : Type u} {X : Type v} (M : DFA A X)
   selectNext M policy sound
 
 /-!
-The first missing Lean joint is deliberately a type, not a fake edge:
-arbitrary integer `2×2` input must be reduced to some diagonal presentation.
-An inhabitant would complete the current Smith producer graph.
+The arbitrary-Smith joint, as a type: arbitrary integer `2×2` input reduced to
+some diagonal presentation.  `ArbitrarySmithClosure` inhabits it.
 -/
 def ArbitrarySmithPresentation :=
   (A : IntMat2) →

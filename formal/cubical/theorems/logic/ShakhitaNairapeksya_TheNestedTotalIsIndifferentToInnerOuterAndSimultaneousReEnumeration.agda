@@ -17,10 +17,6 @@
 -- into a theorem about the finite fibres themselves. The only algebra spent is
 -- the generic theorem's associativity and commutativity; dependent reindexing
 -- itself is `total-ext` plus composition.
---
--- STATUS. Complete no-hole daemon-facing candidate outside `Everything.agda`.
--- The imported generic theorem is checked; only these three consequences await
--- a route-bearing warm Nadi verdict.
 ------------------------------------------------------------------------
 
 module ShakhitaNairapeksya_TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration where

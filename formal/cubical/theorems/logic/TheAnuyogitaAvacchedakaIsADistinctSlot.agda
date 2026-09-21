@@ -11,15 +11,7 @@
 -- that HOLDS under a delimited locus and FAILS on the whole one.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT PROVOKED THIS
---
---
---   "the limitor is a *dependent binder over the relatum* â” and,
---    separately, that the avacchedaka of the `pratiyogit` and the
---    avacchedaka of the `anuyogit` are distinct slots.  Neither of
---    these is used anywhere in the repo."
---
--- The first part: `AbhavaAvacchedaka` makes the limitor a
+-- `AbhavaAvacchedaka` makes the limitor a
 -- dependent binder and proves it load-bearing, and
 -- `ExclusionInstantiatesAbhavaWithALoadBearingLimitor`
 -- uses it.  Its
@@ -41,13 +33,6 @@
 --   anuyogin                the locus
 --   anuyogitvacchedaka     the mode under which the LOCUS is taken
 --
--- SOURCING.
--- The slot doctrine is carried from this repository's own exactly as
--- `AbhavaAvacchedaka.agda`'s own header records for itself. The concrete
--- example in
--- Â§3 is this module's â” a two-point locus, not a tradition example â” and it is
--- offered as a separating instance, not as an exegesis.
---
 -- WHAT RIVAL SCHOOLS WOULD SAY TO EACH OTHER, unadjudicated.  The
 -- Prbhkara Mmsakas deny that abhva is a distinct padrtha at all:
 -- for them what is reported as apprehending an absence is apprehending
@@ -57,7 +42,7 @@
 -- (Dignga, Dharmakrti) take exclusion as primitive rather than
 -- built from a positive relatum, so the question "which limitor
 -- delimits the counterpositive" does not arise in their terms at all.
--- Nothing here adjudicates any of that; the theorems are about the
+-- The theorems are about the
 -- Naiyyika apparatus as the Naiyyikas state it.  (Related and already
 -- settled elsewhere in this corpus: MAP Â§2.3 refutes the reading of
 -- apoha as Boolean complementation.)
@@ -187,10 +172,10 @@ bothSlotsAreLoadBearing =
   , (absenceHoldsUnderTheOtherCounterpositiveLimitor , absenceFailsOnTheWholeLocus)
 
 ------------------------------------------------------------------------
--- 5.  What this closes
+-- 5.  Summary
 --
--- MAP Â§3.3's second clause â” "the avacchedaka of the pratiyogit and the
--- avacchedaka of the anuyogit are distinct slots â¦ not used anywhere in
--- the repo" â” is now used, and the distinctness is a theorem rather than
+-- The avacchedaka of the pratiyogit and the
+-- avacchedaka of the anuyogit are distinct slots,
+-- and the distinctness is a theorem rather than
 -- a report of the doctrine.
 ------------------------------------------------------------------------

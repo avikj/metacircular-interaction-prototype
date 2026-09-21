@@ -67,10 +67,9 @@
 --      sentence is the only place ψ appears; the theorems are stated with
 --      `b ^ n` because that is what is proved, and `cap m = e^{ψ(m)}` is
 --      Chebyshev's definition, not a fact this lane establishes.
---      Here the walk's
---      This is the first point in the walk lane where the walk's
---      bounds the CAPACITY HANDLING.
---      heap.
+--
+--      Here the walk's superexponential storage law is turned into a
+--      linear one.  It bounds the CAPACITY HANDLING.
 --
 --   4. KERNEL WITNESSES (§5), base ten.  `capw` DOES evaluate: `capw 4`,
 --      `capw 6`, `capw 8`, `capw 10` are computed by `refl`, up to

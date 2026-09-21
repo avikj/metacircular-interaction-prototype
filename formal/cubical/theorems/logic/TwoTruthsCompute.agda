@@ -3,11 +3,7 @@
 ------------------------------------------------------------------------
 -- TwoTruthsCompute
 --
--- checked, computing term.
---
--- Interpretation (marked as interpretation, per the note's discipline â”
--- the checked fact below is plain type theory; the reading is argued, not
--- asserted by the term): univalence produces, from an equivalence e, an
+-- Interpretation: univalence produces, from an equivalence e, an
 -- identity `ua e`.  Transport along that identity is the ULTIMATE face â”
 -- it says the two types are not two.  Applying the equivalence, `equivFun e`,
 -- is the CONVENTIONAL face â” a concrete operation you run.  The computation
@@ -21,7 +17,7 @@
 --     the transported (ultimate) value equals the plainly-applied
 --     (conventional) value; the two truths are one operation.
 --
--- This is uaÎ², re-exhibited.  No new theorem; the point is that the
+-- This is uaÎ², re-exhibited.  The point is that the
 -- correspondence is not prose here â” it is a reduction the kernel checks.
 ------------------------------------------------------------------------
 

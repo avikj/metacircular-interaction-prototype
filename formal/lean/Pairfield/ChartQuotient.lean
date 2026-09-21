@@ -246,16 +246,11 @@ local instance : Fintype (Quotient (dfaFutureSetoid automaton)) :=
 future classes. -/
 theorem quotientCard_eq_three :
     Fintype.card (Quotient (dfaFutureSetoid automaton)) = 3 := by
-  -- NATIVE-BECAUSE: the kernel route was tried twice and MEASURED to fail,
-  -- not assumed to.  `decide` with maxRecDepth 100000 / maxHeartbeats 4000000
-  -- ran over 20 minutes without terminating and was killed
-  -- retired the five DiagonalSmithRoute sites — was substituted here on
-  -- 2026-08-15 and the build was killed with exit 137 (OOM) after 123 s, so
-  -- this is a genuine COST case and not the elaborator-irreducibility case
-  -- `+kernel` fixes.  Deciding a `Fintype.card` of a quotient by a
-  -- behavioural setoid materialises the quotient's `Fintype` instance.
-  -- This theorem is therefore COMPILER-checked, not kernel-checked, and must
-  -- not be described as "checked" without that qualification.
+  -- NATIVE-BECAUSE: deciding a `Fintype.card` of a quotient by a behavioural
+  -- setoid materialises the quotient's `Fintype` instance, which the kernel
+  -- route cannot afford; this is a genuine COST case and not the
+  -- elaborator-irreducibility case `+kernel` fixes.  This theorem is
+  -- therefore COMPILER-checked, not kernel-checked.
   native_decide
 
 example : (behavioralQuotientDFA automaton).accepts = automaton.accepts :=

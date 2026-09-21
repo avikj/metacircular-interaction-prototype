@@ -4,7 +4,7 @@ import Pairfield.SmithContent
 # A valid certificate recovers its source, so no deterministic reducer has an
 irreducible quotient trace
 
-question:
+`SMITH_ACCUMULATOR_TRANSCRIPT_NO_GO.md` asks:
 
 > does the full pair `(L,R)` determine the installed reducer's entire quotient
 > trace on arbitrary two-by-two inputs, or can two distinct traces yield the

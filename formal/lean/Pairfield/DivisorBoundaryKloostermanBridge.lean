@@ -3,7 +3,7 @@ Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
 The exact finite bridge from one gcd-reduced divisor/CRT stratum to additive
-Fourier completion.  No automorphic realization is asserted here.
+Fourier completion.
 -/
 import Pairfield.FiniteKloostermanCompletion
 
@@ -104,9 +104,7 @@ def gcdStratumInversePhase (B g b k N₀ : ℕ) [NeZero b]
         ((-((k * N₀ : ℕ) : ZMod b)) *
           (((reducedUnit a)⁻¹ : (ZMod b)ˣ) : ZMod b))
 
-/-- One exact gcd stratum completes to classical Kloosterman sums.  This is
-the strongest finite statement: realizing the DFT coefficient as a GL₂
-big-cell orbital/Bessel transform is a separate input, not a consequence. -/
+/-- One exact gcd stratum completes to classical Kloosterman sums. -/
 theorem gcdStratumInversePhase_eq_dft_kloosterman
     (B g b k N₀ : ℕ) [NeZero b] (cz : ℕ → ℂ)
     (endpoint : ℕ → ℂ) :

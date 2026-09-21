@@ -52,8 +52,8 @@
 -- presentations, and "the price of getting from p to q" is nothing but
 -- the difference of two coordinates.  Nothing is spent; a reformulation
 -- gains what the difference says and loses nothing, because by
--- `Apavada.Reformulation` the denotation is untouched.  The name `TransportPrice` is kept because the
--- thread that asked the question used it, and `loop-is-free` is the theorem that
+-- `Apavada.Reformulation` the denotation is untouched.
+-- `loop-is-free` is the theorem that
 -- makes the objection precise.
 ------------------------------------------------------------------------
 
@@ -135,7 +135,7 @@ laghava-loop-free : (p q : Expr) → laghavaPrice p q + laghavaPrice q p ≡ pos
 laghava-loop-free = loop-is-free laghavaPrice laghava-additive
 
 ------------------------------------------------------------------------
--- 3.  The answer to the thread, stated once.
+-- 3.  The answer, stated once.
 --
 -- What does a transport between two nayas cost?  Whatever the potential
 -- says, and nothing else.  Additivity alone kills every path structure:

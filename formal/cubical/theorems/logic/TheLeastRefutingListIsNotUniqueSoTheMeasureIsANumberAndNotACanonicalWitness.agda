@@ -26,12 +26,12 @@
 --   theLeastRefutingListIsNotUnique
 --                                all three together: two distinct lists,
 --                                both refuting, both of length 2, which
---                                78a82d16 and `singleton-never-refutes`
+--                                `singleton-never-refutes`
 --                                show is least
 --
 -- **WHAT THIS SETTLES ABOUT THE MEASURE, AND IT IS THE POINT.**
--- `WitnessNumberIsInvariant` records that this thread found "a measure
--- that DOES survive" where `size` did not.  It survives as a **NUMBER**.
+-- `WitnessNumberIsInvariant` records a measure
+-- that DOES survive where `size` did not.  It survives as a **NUMBER**.
 -- The minimiser is not canonical, so there is no such thing as *the*
 -- least refuting list to transport, quotient by, or read a further
 -- invariant off â” only its length.  That is not a defect: a measure is

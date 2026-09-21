@@ -2,7 +2,7 @@ import Pairfield.EuclidDoublingFork
 -- These three carry the `Fintype` instances for `Prod`, `Option` and the
 -- decidability of bounded quantification over a `Fintype`.  Without them the
 -- `Fintype (CausalSlot 1 × …)` and `Decidable (∀ formation, …)` searches below
--- fail; the module never typechecked because nothing built it
+-- fail.
 import Mathlib.Data.Fintype.Prod
 import Mathlib.Data.Fintype.Option
 import Mathlib.Data.Fintype.Pi
@@ -12,7 +12,7 @@ import Mathlib.Data.Fintype.Pi
 
 The displayed formation of `{3, 8}` uses five operations, but its first
 certificate only compared it with independent replay and the signed-unit
-subgrammar.  This module closes the remaining finite loophole.
+subgrammar.  This module proves global minimality in the causal unary grammar.
 
 An `AtMostFourFormation` is a causally ordered unary operation DAG with four
 optional slots.  Every active slot applies `inc`, `dec`, or `double` to the

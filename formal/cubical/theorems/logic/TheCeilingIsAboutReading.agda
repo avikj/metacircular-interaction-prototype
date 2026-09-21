@@ -3,20 +3,7 @@
 ------------------------------------------------------------------------
 -- TheCeilingIsAboutReading
 --
---     whether the ceiling holds at `Laghava` â” i.e. whether every
---     absence over `eval : Expr â’ (â• â’ â•)` costs 2.  Equality of
---     functions â• â’ â• is not decidable, but locating finitely many
---     SPECIFIC denotations against an arbitrary one is a weaker demand.
---
--- It cannot be met by any construction available here, and the reason is
--- not incidental: a decoder `Denotation â’ â•` that answers a listed
--- denotation correctly must first recognise it, and recognising an
--- arbitrary `d : â• â’ â•` as a particular one is exactly a decision of
--- function equality.  Nothing in this lane builds that, and nothing in
--- this lane refutes its existence either â” the type `Denotation â’ â•`
--- contains whatever it contains.
---
--- So the honest result is not a verdict on that decoder space.  It is a
+-- The result is a
 -- characterisation of exactly which decoder spaces DO get the ceiling,
 -- and `Laghava`'s is the boundary case.
 --
@@ -196,7 +183,7 @@ laghava-probe-is-two =
   least (a âˆ· b âˆ· ys) lt = Empty.rec (Â¬-<-zero (pred-â‰¤-pred (pred-â‰¤-pred lt)))
 
 ------------------------------------------------------------------------
--- 4.  What this settles, and the one thing it deliberately does not.
+-- 4.  What this settles.
 --
 -- SETTLED.  The ceiling was never about discreteness of the
 -- OBSERVATIONS.  It is about the decoders having something discrete to
@@ -212,7 +199,5 @@ laghava-probe-is-two =
 --
 -- Over the FULL space `Denotation â’ â•`: a decoder
 -- there must recognise an arbitrary `d : â• â’ â•` as a listed denotation,
--- which is a decision of function equality.  This lane builds no such
--- decision and refutes no such decision; the type contains what it
--- contains.
+-- which is a decision of function equality.
 ------------------------------------------------------------------------

@@ -95,9 +95,8 @@ categories-agree-when-stable dT q t st =
 ------------------------------------------------------------------------
 -- 2.  Decidability by exhaustion on a two-point state space
 --
--- `Bool` is a hypothesis here.  Nothing below claims any site of this
--- corpus has a two-point state space; what is claimed is that where one
--- does, and Y and T are discrete, the delimitor is decidable and §5 of
+-- `Bool` is a hypothesis here: where a site has a two-point state space,
+-- and Y and T are discrete, the delimitor is decidable and §5 of
 -- `AnyonyaAbhava` applies.
 ------------------------------------------------------------------------
 

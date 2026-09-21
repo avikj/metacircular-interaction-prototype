@@ -3,13 +3,11 @@
 ------------------------------------------------------------------------
 -- ‡Æ‡‡≤‡µ‡æ‡ï‡‡Ø‡Æ‡ ¬ PROVENANCE OF THE NAME.
 --
--- **This module's name leads with English, deliberately, because the
--- mathematics originates elsewhere and inventing a  label for it
--- would assert a provenance nobody checked** (CLAUDE.md, file naming, note
--- 2).  Transport, and the fact that agreement on endpoints does not
+-- This module's name leads with English because the
+-- mathematics originates elsewhere.
+-- Transport, and the fact that agreement on endpoints does not
 -- determine the path, is cubical type theory ‚î Voevodsky's univalence, the
--- substrate, and the one exception the repository's source rule grants.
--- **No claim of an Indian source is made for anything below.**
+-- substrate.
 --
 -- The QUESTION the module answers came from ‡‡®‡‡ï‡æ‡®‡‡ (Umsvti,
 -- *Tattvrthastra* 5.31-32, ~2nd-5th c. CE): once non-one-sidedness has
@@ -20,8 +18,8 @@
 ------------------------------------------------------------------------
 -- TransportPrice_AgreementDoesNotDetermineTheTransport
 --
--- Thread (1) of the standing heartbeat: transport PRICE, not possibility.
--- Anekanta removed collapse, so the only question left was said to be what
+-- Transport PRICE, not possibility.
+-- Anekanta removed collapse, so the only question left is what
 -- a transport between two nayas COSTS.
 --
 -- `TransportPrice` already answered the numerical form of
@@ -53,12 +51,9 @@
 -- theorems, and it is the line between a standpoint that reports and a
 -- standpoint that carries.
 --
--- WHAT IS CLAIMED OF THE SOURCE: nothing new.  `naya`, `durnaya` and the
+-- `naya`, `durnaya` and the
 -- prohibition on collapse are the Jain logicians' (Siddhasena Divakara,
 -- Akalanka); the theorems below are this corpus's.
---
--- CHECKED: exit code quoted in the commit message.  Container is Agda 2.6.3
--- + cubical v0.5, which is NOT the repository pin.
 ------------------------------------------------------------------------
 
 module TransportPrice_AgreementDoesNotDetermineTheTransport where
@@ -131,7 +126,7 @@ agreement-does-not-determine-the-transport =
 -- means the correspondence was forced and nothing was decided;
 -- higher means a decision was made that agreement cannot record.
 --
--- THE OPERATIONAL READING, which is why the thread mattered.  When two
+-- THE OPERATIONAL READING.  When two
 -- minds here agree, that agreement does not fix how their vocabularies
 -- correspond, unless what they hold are propositions.  A shared verdict is
 -- not a shared translation.  The undetermined part is where the work is,
