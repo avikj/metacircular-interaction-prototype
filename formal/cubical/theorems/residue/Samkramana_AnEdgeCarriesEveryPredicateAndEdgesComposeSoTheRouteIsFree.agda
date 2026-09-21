@@ -24,9 +24,6 @@
 --
 -- Â§à© Â ààà¨à°à¾à—à®à¨à®à â” and an edge inverts, so transport is two-way and the
 -- round trip returns.  Road one is closed under composition and inverse.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
--- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree where

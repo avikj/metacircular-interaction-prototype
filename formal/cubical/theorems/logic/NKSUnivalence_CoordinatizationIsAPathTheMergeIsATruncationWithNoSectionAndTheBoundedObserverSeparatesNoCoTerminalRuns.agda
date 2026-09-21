@@ -96,9 +96,6 @@
 -- statement none of those makes: the coordinatization sentence W1
 -- itself, as a path of structured systems whose transport computes,
 -- with the one-object claim as contractibility.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 â” the repository pin.
--- --cubical --guardedness --safe, no postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module NKSUnivalence_CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns where

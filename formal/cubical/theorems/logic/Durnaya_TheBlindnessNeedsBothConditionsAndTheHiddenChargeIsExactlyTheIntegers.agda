@@ -12,8 +12,7 @@
 -- and would not accept the diagnosis this module applies.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT WAS OPEN, AND IT IS A CORRECTION TO THIS REPOSITORY'S OWN FRONT
--- DOOR, LANDED ONE DAY AFTER THE CLAIM IT CORRECTS.
+-- A CORRECTION TO THIS REPOSITORY'S OWN FRONT DOOR.
 --
 -- `README.md` Â§àà°à¿àà‹à§à¨à®à C2 (2026-08-22) strikes an earlier gloss and
 -- puts this in its place, verbatim:
@@ -74,11 +73,6 @@
 -- Â§à is the counterexample restated where nothing can be blamed on a
 -- universe: `cong (idfun SÂ) loop â‰ refl`, with `idfun SÂ : SÂ â’ SÂ`
 -- non-dependent and `SÂ` merely not a set.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.  Written 2026-08-22.
 ------------------------------------------------------------------------
 
 module Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers where

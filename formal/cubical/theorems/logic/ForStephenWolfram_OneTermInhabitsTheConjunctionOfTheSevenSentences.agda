@@ -111,9 +111,6 @@
 -- one.  The prose form is abstracts/26_*.txt; the running machine is
 -- `sh interactive/run-yantra.sh` â” every answer a transport with an
 -- exhibited identification, or a written defect naming its losses.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 â” the repository pin.
--- --cubical --guardedness --safe, no postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module ForStephenWolfram_OneTermInhabitsTheConjunctionOfTheSevenSentences where

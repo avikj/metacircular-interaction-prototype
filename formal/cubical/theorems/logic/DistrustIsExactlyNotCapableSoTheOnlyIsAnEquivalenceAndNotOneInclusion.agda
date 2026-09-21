@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- DistrustIsExactlyNotCapableSoTheOnlyIsAnEquivalenceAndNotOneInclusion
 --
--- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
--- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
+-- ON THE NAME.  **No tradition term is claimed and none is
 -- invented.**  The subject is the verdict semantics of a Haskell shelf
 -- in this repository (`interactive/KernelProbe.hs`) and the h-level step is
 -- the declared substrate.  I have established no Indian source for
@@ -67,9 +66,6 @@
 --                              verdict â” one line from the converse, no
 --                              case analysis at all, which is the
 --                              precise form of "forgets the reason"
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module DistrustIsExactlyNotCapableSoTheOnlyIsAnEquivalenceAndNotOneInclusion where

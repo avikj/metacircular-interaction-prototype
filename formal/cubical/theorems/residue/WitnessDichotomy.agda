@@ -44,9 +44,6 @@
 -- `laghava-is-two` each assemble "a collision plus the floor gives
 -- exactly 2" by hand, with the same length bookkeeping three times.
 -- ยง2 does it once.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 โ” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WitnessDichotomy where

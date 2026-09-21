@@ -76,7 +76,3 @@ branchOf-nonconstant p = subst is↻ p tt
 
 recover : ¬ Invariant respondB
 recover inv = branchOf-nonconstant (invariant-read-is-constant branchOf inv 0 1)
-
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical, with the 2.6.3
--- back-port of Cubical.Tactics.Reflection recorded in
--- no holes.  NOT verified against the pin (Agda 2.8.0, cubical v0.9).

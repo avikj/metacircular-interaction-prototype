@@ -30,9 +30,6 @@
 --   §15.4   Preserves, Defect-locus, both directions  T15.12�T15.14
 --           SignFlip.total-defect                      Program 15.16
 --   §15.6   Shift, shift-comp                          T15.22, T15.24
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
--- No postulates, no holes.
 ------------------------------------------------------------------------
 
 module PerspectiveSymmetry where

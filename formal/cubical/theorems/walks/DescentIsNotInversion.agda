@@ -65,9 +65,6 @@
 -- and sharper: the walk has no inverses AND no scaling action, so it has
 -- neither of the two mechanisms by which the conic's states come back
 -- down.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module DescentIsNotInversion where
@@ -201,8 +198,4 @@ module Descent (R : CommRing â„“) where
 --
 --     the walk has scaling and no norm; it has no inverses at all; and a
 --     scaling action with nothing to reduce is not a descent.
---
--- Whether the walk admits a norm is open, is the sharpest form of the
--- question these three modules have been circling, and is not touched
--- here.
 ------------------------------------------------------------------------

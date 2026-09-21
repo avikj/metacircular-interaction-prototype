@@ -41,8 +41,7 @@
 -- a collision of distinct unordered pairs.  Â§3 records it and does not
 -- conflate it with ààà¯à‹à—.
 --
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9) for the â ring
--- solver.  Exact, --safe.  No numerics, no bound â” an identity.
+-- Exact.  No numerics, no bound: an identity.
 ------------------------------------------------------------------------
 
 module SamyogaVyatikara_TheSumSpectrumVarianceMinusTheDiagonalIsExactlyTheCollisionInterference where

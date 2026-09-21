@@ -95,7 +95,7 @@
 -- â” the door is not open: each fibre is either contracted or refuted,
 -- uniformly, by the bit the living step computes.
 --
--- RELATION TO THE CORPUS, checked before writing.  `Tantutrayam_â¦` puts
+-- RELATION TO THE CORPUS.  `Tantutrayam_â¦` puts
 -- the three fibre verdicts over ONE codomain with three maps; here the
 -- same three verdicts (contractible / empty / two-point) occur as
 -- readings of ONE construction, the product comparison, varying the
@@ -105,9 +105,6 @@
 -- instantiates.  Abstract 25's lossless completion applied to âŸ¨p,qâŸ© is
 -- Â§à¦'s `ààà•à²à¨à®à`, and its trace-is-fibre discipline is why Â§à states the
 -- information exponentially instead of numerically.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 â” the repository pin.
--- --cubical --guardedness --safe, no postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals where

@@ -82,9 +82,6 @@
 -- proved anything below, and the connection asserted is that both name
 -- the same job â” the condition under which two things count as told
 -- apart.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart where

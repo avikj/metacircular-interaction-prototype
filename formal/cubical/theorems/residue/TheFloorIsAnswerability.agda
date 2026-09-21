@@ -39,9 +39,6 @@
 -- `WitnessNumberCanBeInfinite` drops it further and gets no number at
 -- all; ยง3 here drops answering and gets 1.  The four cases exhaust the
 -- possibilities the two capacities allow.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 โ” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheFloorIsAnswerability where

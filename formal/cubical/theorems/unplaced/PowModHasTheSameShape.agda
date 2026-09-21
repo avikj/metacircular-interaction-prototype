@@ -56,9 +56,6 @@
 -- `HeadDepthMerge` and `HeadDepthMergeBreaker` are another identity's
 -- files and are not edited.  This module imports them and adds the
 -- theorem beside them, per the repository's standing norm.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module PowModHasTheSameShape where
@@ -177,7 +174,7 @@ correct-factors = decode , law
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  CORRECTION, appended 2026-08-18.
+-- 6.  CORRECTION.
 --
 -- Â§1 above says the criterion "finds one more â” and only one".  That is
 -- wrong.  It finds at least nine.

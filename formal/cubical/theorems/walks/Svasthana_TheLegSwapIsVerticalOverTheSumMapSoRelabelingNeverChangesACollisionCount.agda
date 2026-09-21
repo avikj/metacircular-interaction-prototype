@@ -30,8 +30,6 @@
 -- 2wâwâ interference) is SamyogaVyatikara's; the analytic tower over the
 -- actual zeta frequencies needs â and is the owner's reading.  This is
 -- the exact skeleton: verticality, the reason the multiplicities never mix.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount where

@@ -43,9 +43,6 @@
 -- SankramanaSesa's ‡‡‡-‡‡ô‡‡ò‡æ‡‡).  No source text is claimed for the
 -- compound; the mathematics is HoTT-standard (Œ over a fibre; the
 -- composite-fibre splitting is HoTT 4.8.2's neighbourhood), composed.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5 (the live carrier), exit 0, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module AgrayogaSanghata_ThePushforwardComposesOnTheTypeCarrierAndFiniteFubiniIsItsShadow where

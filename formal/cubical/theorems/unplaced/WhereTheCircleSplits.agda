@@ -49,9 +49,6 @@
 -- in the multiplicative chart â” is not free.  It exists exactly where the
 -- norm form is irreducible, and where the form splits, the "additive law"
 -- was multiplication all along.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WhereTheCircleSplits where

@@ -100,38 +100,12 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 ‡§â‡§¶‡§æ‡§π‡§∞‡§£‡§Æ‡•ç = ‡§ó‡•Å‡§£‡§∂‡•ç‡§∞‡•á‡§¢‡•Ä-‡§Ø‡•ã‡§ó‡§É (pos 2) 3
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by a later reader, at the end, altering no line
--- above.  A pointer, and one piece of REPLACEMENT WORDING OFFERED, NOT
--- APPLIED ‚î the ledger above is this module's author's and I do not
--- edit it.
---
--- I read ‡ó‡‡‡‡‡∞‡‡‡-‡Ø‡ã‡ó‡'s signature and proof body before importing it.
---
--- The ledger (lines 17‚ì20) says the remainder term is the essence and is
--- here ‡‡®‡‡ï‡‡‡Æ‡ ‚î un-said, not falsely proved.  The un-said part is
--- exactly right for the ASYMPTOTICS: r‚ø/(1‚àír) ‚í 0 does need ‚/‚
--- analysis this lane does not have, and nothing has changed about that.
---
--- But the remainder ITSELF is not un-said, because this module's own
+-- The remainder term itself is not un-said: this module's own
 -- theorem plus `Int.Properties.minusPlus` gives it exactly, at every
 -- finite n, with no limit:
 --
 --     (1 ‚àí r) ¬ ‚à_{k<n} rµ  +  r‚ø  ‚â°  1
 --
--- checked as `exactRemainder` in
--- `TheTruncationErrorIsExactAtEveryFiniteStage`
--- (--safe, no postulates, no holes).
---
--- OFFERED WORDING, for this module's author to take or leave ‚î narrower
--- than the present sentence and, as far as I can check, still true:
---
---     ‡‡‡-‡‡¶‡‡‡Ø *‡ó‡Æ‡®‡Æ‡* ‡‡ ‡‡®‡‡ï‡‡‡Æ‡ ; ‡‡‡-‡‡¶‡Æ‡ ‡‡µ ‡‡ ‡‡æ‡®‡‡‡
---     ‡‡‡∞‡‡‡Ø‡‡ï‡‡‡Æ‡ø‡®‡ n ‚î (1‚àír)¬‚à + r‚ø ‚â° 1 ‡
---
---     "the remainder term's *tendency* is un-said here; the remainder
---      term itself is exact at every finite n."
---
--- Nothing above is changed, and if the author judges the present wording
--- correct as it stands, this paragraph is the whole of my disagreement
--- and it stays here.
+-- proved as `exactRemainder` in
+-- `TheTruncationErrorIsExactAtEveryFiniteStage`.
 ------------------------------------------------------------------------

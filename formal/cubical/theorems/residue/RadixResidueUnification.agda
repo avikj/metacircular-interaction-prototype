@@ -83,7 +83,7 @@
 -- Â§4's two bounds are the honest form of the same claim.  Read this
 -- paragraph as an unproved framing remark, which is what it is.
 --
--- NAME COLLISION (reported, not fixed).  `RadixSymptoma.scale-mod` and
+-- NAME COLLISION.  `RadixSymptoma.scale-mod` and
 -- `TransportDiv.scale-mod` are DIFFERENT theorems sharing a name in one
 -- directory:
 --
@@ -91,37 +91,9 @@
 --                   â’ (b ^ (j + k) Â r) mod n â‰¡ (b ^ (j + k) Â s) mod n
 --     TransportDiv:   (n x : â•) â’ (b Â x) mod n â‰¡ (b Â (x mod n)) mod n
 --
--- Neither is renamed here (both are load-bearing).  RECOMMENDATION:
--- rename the RadixSymptoma one, to `scale-mod-deep` â” it is the
--- statement that a congruence survives every DEEPER scaling, which the
--- current name does not say, and `RadixSymptoma` is imported by exactly
--- one module (`agda`, the index) against `TransportDiv`'s
--- six.  This module dodges the clash by importing `RadixSymptoma`
--- qualified as `RS`, which is why it can mention both.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical), --cubical --safe,
--- exit 0, 4.4 s wall from a cold interface for this module and for
--- `RadixSymptoma`.  No postulates, no holes.
---
--- TOOLCHAIN, STATED IN FULL BECAUSE IT IS NOT CLEAN.  The check above
--- required a ONE-LINE compatibility fix to the cubical checkout, which
--- was applied, used, and then REVERTED, so the environment as left will
--- reproduce the failure and not the success:
---
---   /tmp/cubical/Cubical/Tactics/Reflection.agda:92
---     -    withReduceDefs (false , don't-Reduce) (
---     +    dontReduceDefs don't-Reduce (
---
--- cubical v0.7 is released for Agda 2.6.4.1 and `withReduceDefs` does
--- not exist in the installed Agda 2.6.3, where the same effect is
--- `dontReduceDefs`.  Consequence, which is not this module's fault and
--- is worth flagging on its own: EVERY module in this directory that
--- uses `solveâ•!` is currently unbuildable here, `RadixSymptoma`
--- INCLUDED â” there is no `RadixSymptoma.agdai` in `_build/2.6.3/`, so
--- its own header's green claim has never been reproduced in this
--- environment.  Same caveat as `TransportDiv`: NOT verified against the
--- pin in `formal/cubical/BUILD.md` (Agda 2.8.0, cubical v0.9), where
--- `withReduceDefs` exists and no patch is needed.
+-- Neither is renamed here (both are load-bearing).  This module dodges the
+-- clash by importing `RadixSymptoma` qualified as `RS`, which is why it
+-- can mention both.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (â„• ; zero ; suc)

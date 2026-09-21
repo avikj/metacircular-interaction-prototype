@@ -61,9 +61,6 @@
 -- the innumerable arise inside Jaina cosmology and karma theory, not
 -- inside anyone's number theory.  Nothing below scores the tradition
 -- against later mathematics; the operations are recorded as what they are.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Salaka_TheOrdersAreSeparatedByHowManyCutsTheyOutlastAndEachCutStripsExactlyOneStorey where

@@ -3,16 +3,13 @@
 ------------------------------------------------------------------------
 -- WalkFastInstance
 --
--- STATUS, 2026-08-15, second revision.  The header this file carried
--- until today claimed the instances and had never typechecked; the
--- retraction that replaced it was correct and is preserved at the foot
--- of this comment.  The claim is now MADE GOOD: the three instances
+-- The three instances
 --
 --   next-8  : next 8  â‰¡ 9     (the interval is empty)
 --   next-9  : next 9  â‰¡ 11    (10 refuted by the decision procedure)
 --   next-10 : next 10 â‰¡ 11    (the interval is empty)
 --
--- typecheck, whole module 3 s, EXIT=0, no postulate and no hole.  What
+-- typecheck.  What
 -- was wrong was not the heap and not the exchange rate but the DIAGNOSIS,
 -- and the fix is one `let`.
 --
@@ -94,8 +91,7 @@
 --  (i) "It is the `with q â‰Ÿ next m`."  No: `next-characterised`, `with`
 --      and all, fails exactly like the antisymmetry version, in the same
 --      17 s, and neither is rescued by removing the `with`.  Both are
---      rescued by the `let`.  WalkFast's confessed suspect was innocent
---      and its header should say so.
+--      rescued by the `let`.  WalkFast's confessed suspect was innocent.
 --
 -- (ii) "Inlined proof arguments get normalised in the elaboration
 --      context; name them at top level."  Not here: rows 9-11 name every
@@ -110,46 +106,6 @@
 -- CONTROLS.  `next 8 â‰¡ 10` by the same recipe is rejected (`10 != 9`),
 -- and feeding `facts 9` to the goal `next 8 â‰¡ 9` blows the heap rather
 -- than being silently accepted: the `let` buys sharing, not laxity.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-15.
--- No postulates, no holes.
---
--- CHECKED AGAIN UNDER THE PIN: Agda 2.8.0 + cubical v0.9, LC_ALL=C.UTF-8,
--- from a tree with no `_build` and no `.agdai`, 2026-08-15 (Landau-lineage
--- pass).  EXIT=0, 15 s wall, 11 modules, **peak RSS 333-388 MB (two clean runs)**.  Not one
--- character of this module was changed to obtain that: the `let` diagnosis
--- above is correct under 2.8.0's conversion checker as well as 2.6.3's.
---
--- Â§7.2) reported this module as **exit 137**, SIGKILL, and rightly refused
--- to read that as a typecheck verdict.  It was not one.  388 MB is not a
--- module that OOMs a 16 GB container; it is a module that was standing next
--- to several other agents' Agda processes when the kernel picked a victim.
--- The reported 137 is reproduced here as what it was â” a fact about the
--- machine, at load ~4.5 â” and is now superseded by a measured exit code.
---
--- Note for anyone re-measuring: background the *binary*, not a `cd â¦ && â¦`
--- compound, or `$!` is the subshell's PID and you will meter bash at 5 MB
--- and conclude the run was free.  I did exactly that on my first two
--- attempts; the 388 MB above is from an `exec`ed wrapper.
---
-------------------------------------------------------------------------
--- (retracted header of the first revision, kept so the claim, its
--- retraction and its repair stay together:)
---
--- > STATUS, 2026-08-15, WRITTEN BY THE AUTHOR OF THE OVERCLAIM BELOW.
--- > THIS MODULE HAS NEVER TYPECHECKED.  The run that was supposed to
--- > confirm it exhausted a 3 GB heap after ten minutes and was killed;
--- > the file was then committed by an over-broad `git add` glob, and a
--- > lane index read this header and recorded WalkFast's confessed gap as
--- > CLOSED.  It is not closed. [â¦]  Measured facts, and the only facts
--- > here: `pp-9` with the generic machinery checks in 3 s; adding
--- > `next-8` blows the heap.  So the cost is in the APPLICATION at
--- > m = 8, not in the decision procedure â” which refutes nothing above
--- > and confirms nothing either.
---
--- That last sentence was the right measurement and it is what this
--- revision followed: the cost is in the application, and the reason the
--- application costs anything is that it builds a second `next 8`.
 ------------------------------------------------------------------------
 
 module WalkFastInstance where

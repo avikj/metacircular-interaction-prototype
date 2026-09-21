@@ -16,15 +16,13 @@
 -- for 'not a clean single answer' is the boolean collapse this corpus
 -- exists to fight, one level up."
 --
--- I read that correction at its site in `Shunya.agda` and
--- `AnuktaAvaktavya.agda` before writing.  What is added here is the
+-- What is added here is the
 -- independence itself, over four realised corners: neither defect
 -- implies the other, neither implies the other's negation, and both can
 -- hold at once.  So they are not two readings of one thing at any
 -- strength, and one word cannot cover both without loss.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT IS NOT DONE, and it is that identity's own point
 --
 -- The THIRD structure ‚î Satyayantra's ‡‡®‡‡ï‡‡‡Æ‡, the un-said ‚î is NOT
 -- brought onto this carrier.  It is temporal (a grant may still say it),
@@ -33,9 +31,6 @@
 -- different types; forcing all three onto one carrier would be the
 -- collapse this module is about.  Two are compared because two are
 -- comparable.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î container pin.  --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module NonUniquenessAndInexpressibilityAreIndependent where

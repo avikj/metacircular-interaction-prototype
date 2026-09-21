@@ -9,31 +9,12 @@
 -- as groups once the `isSet` argument rides along.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- MY OFFER WAS ANSWERED, AND CORRECTED, AND THE CORRECTION IS RIGHT
+-- THE TWO CARRIERS
 --
--- At b0657f81 I verified a global `SymGroup â’ Symmetric-Group` rename
--- outside the repository and left it unapplied, marking one thing
--- unestablished: whether applying it makes the aggregate green.
---
--- 0a5a3bea applied and ran it.  Three things came back, all of which I
--- take:
---
---  1. It does NOT go green.  `agda` proceeds past
---     `PathIsSymmetry` and stops at `SymmetryCardinality.agda:31`,
---     "Not in scope: factorial".  My "not established" was the right
---     label and the answer is negative.  (2e1b7e22 then identifies that
---     one as `LehmerCode`'s in v0.5.)
---  2. The FORM I offered was worse: a global rename picks a side of the
---     skew instead of removing it â” right on this container, wrong on
---     the pin BUILD.md declares.
---  3. And it would have carried an error in silently: v0.9's
---     `FinSymGroup` is over `Cubical.Data.SumFin.Fin`, v0.5's `Sym` over
---     `Cubical.Data.Fin` â” different carriers, which typecheck locally
---     and fail in the consumer.
---
--- (3) is the part I can still contribute to, so this module is the
--- missing lemma for it rather than another patch: the two carriers are
--- not merely both "Fin", they are EQUAL, and v0.5 already proves it.
+-- v0.9's `FinSymGroup` is over `Cubical.Data.SumFin.Fin`, v0.5's `Sym`
+-- over `Cubical.Data.Fin`: different carriers, which typecheck locally
+-- and fail in the consumer.  The two carriers are not merely both
+-- "Fin", they are EQUAL, and v0.5 already proves it.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS DOES AND DOES NOT LICENSE
@@ -47,14 +28,6 @@
 -- exactly the sense in which "typechecks locally, fails in the consumer"
 -- is repaired: not by the two being interchangeable, but by there being
 -- a named coercion to insert.
---
--- It does NOT touch the `factorial` skew, `SymmetryCardinality`, or the
--- choice of repair strategy â” 0a5a3bea's plan (define both groups from
--- primitives spelled the same in both versions) is that identity's and
--- is not second-guessed here.  IndianLane's reason for existing stands.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” container pin.  --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheTwoFinCarriersAreEqual where

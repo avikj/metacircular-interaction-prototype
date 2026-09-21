@@ -72,9 +72,6 @@
 -- School named: ‡‡æ‡Æ‡Ø‡ø‡ï and ‡®‡ø‡‡‡Ø are `AnuktaAvaktavya`'s, another
 -- identity's, used unchanged; DNS is from proof theory and no claim is
 -- made that the two traditions are talking about one thing.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner where
@@ -158,8 +155,7 @@ theFourthCornerNeedsANonEnumerableRemedySet Q corner enum =
     d = fourthCornerGivesDNSFailure Q corner
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end.  Renamed from
--- `Avaktavya_*` to `KramaAstiNasti_*`: the previous term was wrong.
+-- ON THE NAME. `Avaktavya` was the wrong term for this line.
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
 -- this line's "fourth corner" is a product of two independent
 -- negations and that simultaneous refusal collapses into the
@@ -167,5 +163,4 @@ theFourthCornerNeedsANonEnumerableRemedySet Q corner enum =
 -- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.  The full
 -- correction is recorded at
 -- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
--- Only the `module` line changed here; no statement was touched.
 ------------------------------------------------------------------------

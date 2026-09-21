@@ -54,9 +54,6 @@
 -- standpoint reports â” and this thread's own measure, which prices an
 -- absence by its witnesses, is the obstruction à¨à¯ speaking, so it cannot
 -- be the arbiter.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheFibreIsTheSubject where

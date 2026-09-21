@@ -54,9 +54,6 @@
 -- the only gate over the corpus's actual subject.  It proves nothing
 -- and it is not a result: **a gate is a green, and a green is an exit
 -- code for what was run.**
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module ArchivistLane where

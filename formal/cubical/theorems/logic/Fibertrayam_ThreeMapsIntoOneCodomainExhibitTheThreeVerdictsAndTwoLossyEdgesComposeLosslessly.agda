@@ -20,16 +20,13 @@
 -- image dodges the second edge's collapse.  README movement 2 names
 -- `Unitâ’Boolâ’Unit` as the checked cancellation; this is that term.
 --
--- RELATION TO `Parampara_...agda`, checked before writing and cited rather
--- than rediscovered.  That module also finds that losses do not add along a
+-- RELATION TO `Parampara_...agda`.
+-- That module also finds that losses do not add along a
 -- chain, by a DIFFERENT mechanism -- an ABSENCE sitting in the middle fibre
 -- -- over three maps rather than two.  Section 2 here is the other mechanism
 -- at minimum scale: the first edge's image DODGES the second edge's collapse,
 -- with nothing empty anywhere.  Two distinct ways for the alignment term to
 -- vanish, and the corpus now carries both.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 -- the container, NOT the
--- repository pin.  --cubical --safe, no postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly where

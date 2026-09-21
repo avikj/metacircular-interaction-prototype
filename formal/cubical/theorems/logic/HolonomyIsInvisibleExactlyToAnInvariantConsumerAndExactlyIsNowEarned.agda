@@ -34,8 +34,7 @@
 -- â” which does list architecture space, flatness, boundary semantics,
 -- loop composition and the fundamental group â” does not list it.
 -- **So the word doing the most work in that module was in its title and
--- was unearned.**  Found by the audit move that produced ae3c3d00:
--- read a Â§"SYT â” THE CLAIM, EXACTLY" for what it FAILED to list.
+-- was unearned.**
 --
 -- **AND THE CONVERSE COSTS NOTHING.**  `uaÎ² h z : transport (ua h) z â‰¡
 -- equivFun h z` is a PATH, so it may be walked in either orientation;
@@ -43,8 +42,8 @@
 -- statement about the raw interface.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- **AND THAT IS THE CONTRAST WORTH RECORDING, against 53a06cc9.**  One
--- cycle earlier the same audit found a missing converse in
+-- **THE CONTRAST WITH 53a06cc9.**  The
+-- same audit found a missing converse in
 -- `FullAbstractionIsAConditionOnTheContextFamilyAndCurvatureIsWitnessedInIt`
 -- and the finding there was an ASYMMETRY: one direction a congruence,
 -- the other a search paying `Enumerated K` + `Discrete O`.  Here there
@@ -74,9 +73,6 @@
 --                           only the other direction.
 --
 -- NO NOVELTY.  `ua`, `uaÎ²`, `propBiimplâ’Equiv` are library.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module HolonomyIsInvisibleExactlyToAnInvariantConsumerAndExactlyIsNowEarned where

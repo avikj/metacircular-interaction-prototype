@@ -43,19 +43,6 @@
 -- the meet is trivial (`disjointâ’meet-trivial`) and the join saves
 -- nothing â” which is `OverlapIsTheCost.val-âŠ”-disjoint` recovered here as a
 -- corollary of an identity rather than proved separately.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- AND WHAT THE WALK'S ACTUAL COST IS, STATED HONESTLY AS OPEN
---
--- If the join is a saving, the walk's e^Ïˆ(k) is what SURVIVES maximal
--- compression by it, not what the compression costs.  Distinguishing k
--- inputs needs log k bits; the walk carries Ïˆ(k) â‰ˆ k of them.  That gap
--- is not overlap and this thread has not located it.  Naming the previous
--- module's answer as wrong leaves the question open, and open is where it
--- honestly sits.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module JoinSavesTheMeet where

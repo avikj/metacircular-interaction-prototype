@@ -39,9 +39,6 @@
 -- three lines and its value law is one application of the semiring
 -- solver.  Canonicity of the MULTIPLIER is never needed â” only of the
 -- multiplicand â” which is visible in `canonical-mulw`'s signature.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
--- No postulates, no holes.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (â„• ; zero ; suc)

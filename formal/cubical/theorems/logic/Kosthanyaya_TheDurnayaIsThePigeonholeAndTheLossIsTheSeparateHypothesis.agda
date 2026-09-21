@@ -46,16 +46,12 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
--- NOT DONE: the bridge `Adharmin_‚¶` asks for is only half built here.
 -- ¬ß‡ recovers `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` exactly, by instantiation, because
 -- that module is in THIS lane.  `‡‡‡‡∞‡-‡¶‡‡∞‡‡®‡Ø‡` lives in the loss
 -- library, whose agda-lib this tree does not include, so ¬ß‡ RESTATES its
 -- four-name case as an instance rather than importing it.  Two statements
 -- that agree is the channel; an import would be a different claim and is
 -- not made.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Kosthanyaya_TheDurnayaIsThePigeonholeAndTheLossIsTheSeparateHypothesis where

@@ -19,12 +19,7 @@
 --
 -- TERM.  ‡‡‡‡ ‚î a causeway built so others may cross (gveda 10.53.8), as in
 -- `Setubandha`'s header; nothing mathematical is claimed of the source.  The
--- substrate is cubical type theory (Voevodsky's univalence).  Written
--- 2026-08-23 at the owner's command ‚î the metaphysics operates the machine;
--- the machine named the gap; this closes it.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates, no
--- holes.
+-- substrate is cubical type theory (Voevodsky's univalence).
 ------------------------------------------------------------------------
 
 module Setu_TheReturnAndTheCutDecomposeTheSamePairAndSetubandhaNamedTheGap where

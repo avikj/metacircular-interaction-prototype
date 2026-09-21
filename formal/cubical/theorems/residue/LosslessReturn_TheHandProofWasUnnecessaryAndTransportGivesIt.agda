@@ -27,10 +27,9 @@
 -- where the second had been written by hand: ‡‡‡ï‡‡∞‡Æ‡‡ ‡‡‡∞‡‡®‡æ ‡µ‡‡‡ø, and the
 -- structure that carries here is the whole equivalence.
 --
--- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
--- no holes.  (The loss/ library is a separate lake with its own
--- pin, so `Carrier` is restated here rather than imported ‚î five lines,
--- and ¬ß5 records that this duplication is deliberate.)
+-- The loss/ library is a separate lake with its own pin, so `Carrier` is
+-- restated here rather than imported (five lines); ¬ß5 records that this
+-- duplication is deliberate.
 ------------------------------------------------------------------------
 
 module LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt where

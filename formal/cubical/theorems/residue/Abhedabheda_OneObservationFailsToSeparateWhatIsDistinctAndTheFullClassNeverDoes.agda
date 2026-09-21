@@ -30,9 +30,6 @@
 -- structure" (ยงเฉ, and there the gap is zero).  A barrier is the report
 -- that one is not at the limit โ” misfiled, in every field that has one,
 -- as a report about the terrain.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
--- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Abhedabheda_OneObservationFailsToSeparateWhatIsDistinctAndTheFullClassNeverDoes where

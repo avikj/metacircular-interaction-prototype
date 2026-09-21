@@ -30,15 +30,6 @@
 -- not two costumes of one invariant: the linear invariant is a SUM over
 -- a composite, the finite-set invariant is a MAX over fibres, and max
 -- does not add.
---
--- CHECKED ON THE PIN: `NM_MODULES="DisclosureDimension.agda" ./check.sh`
--- reports  EXIT 0  with  agda 2.8.0 (/root/Agda-2.8.0/...) and cubical
--- /root/agda-libs/cubical-v0.9 at tag v0.9, commit b150186 -- i.e. the
--- pin declared in BUILD.md and in check.sh's own header, verified by
--- check.sh itself and not by a bare `agda -i .`.  No postulates, no
--- holes, --safe.  (This supersedes, for this module only,
--- check.sh exits 2 here: the pin toolchain is now present on this
--- container.  That note's re-grading of ITS OWN earlier greens stands.)
 ------------------------------------------------------------------------
 
 module DisclosureDimension where

@@ -9,9 +9,8 @@
 --   ‡‡‡∞‡‡‡‡æ  ‚î ‡‡∞‡‡Ø‡æ‡‡‡‡æ‡®‡‡¶‡æ‡®‡ ‡‡µ‡‡‡Ø‡Æ‡ ‡â‡ï‡‡‡Æ‡ (complete) ‡
 -- ‡‡®‡‡ï‡‡‡ ‡® ‡Æ‡ø‡‡‡Ø‡æ, ‡® ‚ä ‚î ‡‡‡‡‡Ø‡ ‡‡¶‡Æ‡, ‡‡‡≤‡ø‡Ø‡®‡-‡∞‡‡ø‡‡Æ‡ ‡
 --
--- [CORRECTED 2026-08-19.  This line read "‡‡‡‡‡Ø‡ ‡‡¶‡Æ‡ (avaktavyam)".
---  The third position is real and is neither falsity nor ‚ä ‚î that much
---  stands.  The parenthesis does not.  `Purnata.agda` proves this
+--  The third position is real and is neither falsity nor ‚ä.
+--  `Purnata.agda` proves this
 --  un-said is ‡‡æ‡Æ‡Ø‡ø‡ï, temporary: ‡‡‡∞‡‡‡‡æ gives, for every instance, a
 --  grant at which it is gone.  `SaptabhangiNaya.no-single-vacana`
 --  proves the fourth bhaga is ‡®‡ø‡‡‡Ø, permanent under single
@@ -20,7 +19,7 @@
 --  of anything.  Same shape with ‚à and ‚à exchanged, which is why one
 --  word covered both and hid it.  `AnuktaAvaktavya.agda` exhibits
 --  the two poles; Akalaka's kramrpaa/sahrpaa is the classical
---  name for the difference.]
+--  name for the difference.
 --
 -- (the honest machine ‚î the general shape of hallucination-free
 -- computation.  A machine that runs on a grant and returns either an

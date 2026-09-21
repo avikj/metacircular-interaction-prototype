@@ -44,12 +44,9 @@
 -- TERM.  ‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø ‚î essential identity, sameness of tattva; a technical
 -- term of Indian philosophy (Nyya-Vaieika, and Advaita's ‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø-
 -- ‡‡Æ‡‡‡®‡‡ß).  LosslessReturn already uses ‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡ for the ‡‡Æ / equal case
--- (a = b = d).  The compound ‡µ‡ø‡µ‡‡ï-‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø is built here, 2026-08-22; no
+-- (a = b = d).  The compound ‡µ‡ø‡µ‡‡ï-‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø is built here; no
 -- historical source is claimed to have stated this theorem.  Substrate
 -- cubical (Voevodsky).
---
--- CHECKED: Agda + agda/cubical, --cubical --safe, no postulates, no
--- holes, no sorry.
 ------------------------------------------------------------------------
 
 module VivekaTadatmya_TheSumTypeDescentAndTheGraphOfPlusAreOneObject where

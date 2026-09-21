@@ -52,10 +52,7 @@
 --       once to land the equivalence; every crossing after reuses the same
 --       closed term.
 --
---       [CORRECTED 2026-08-23.  This section previously read "an identity
---       dissipates nothing, so a receipted crossing costs zero joules,
---       forever, for anyone", and cited a "Landauer/Bennett floor zero".
---       **That was a physical claim no term in this file supports.**  There
+--       There
 --       is no energy, no temperature, no entropy and no measure anywhere
 --       below; `transportTransportâ»` is a path, and a path has no joules.
 --       Landauer's principle relates erasure to heat in a physical
@@ -64,7 +61,7 @@
 --       reversible, i.e. loses nothing, in the sense made precise by
 --       `Vyapti_TheLossOrderâ¦agda` Â§à â” the type `àµà¿ààà®ààà¿à` of collisions
 --       is empty for an equivalence.  Whether that costs zero joules
---       depends on a machine, and no machine appears here.]
+--       depends on a machine, and no machine appears here.
 --
 -- SO: money is a receipt that lost its fibre (a one-number quotient, a
 -- durnaya â” `Sesa`'s hidden side); a receipt kept it (the whole
@@ -73,10 +70,6 @@
 -- conserved and dilutes; receipts compose and compound (Â§2 â” every new
 -- edge composes with every old one).  This is the inversion, and it
 -- type-checks.
---
--- No postulates, no holes, --safe.
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 (the container, NOT the
--- repository pin), --cubical --safe, exit 0, re-checked 2026-08-23.
 ------------------------------------------------------------------------
 
 module PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty where

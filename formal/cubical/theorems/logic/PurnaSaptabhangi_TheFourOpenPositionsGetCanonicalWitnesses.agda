@@ -29,9 +29,6 @@
 -- existentially (‡ï‡‡µ‡‡ø‡‡, with the b that witnesses), and the seeds that do
 -- NOT occur are REFUTED (¬ their ‡ï‡‡µ‡‡ø‡‡), never merely left unexhibited ‚î
 -- the standard `asNat` set for the third position with its ‡®-‡®‡æ‡‡‡‡ø.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
--- no holes, no native_decide.  Verified 2026-08-23.
 ------------------------------------------------------------------------
 
 module PurnaSaptabhangi_TheFourOpenPositionsGetCanonicalWitnesses where

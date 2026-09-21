@@ -33,10 +33,6 @@
 -- `plurality-blocks-collapse` is a corollary (ยง2).  The mathematics of
 -- `Anekanta.agda` is untouched; only its claim to exhaustiveness is
 -- withdrawn.  Transport, or keep the residue โ” including here.
---
--- CHECKED: Agda 2.8.0, cubical (homebrew), --cubical --safe, exit 0.
--- No postulates, no holes.  `Anekanta.agda` itself was re-checked under
--- the same toolchain, which is NOT the container it was written against.
 ------------------------------------------------------------------------
 
 module Durnaya_CollapseIffEveryNayaAgrees where

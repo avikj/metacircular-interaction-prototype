@@ -82,9 +82,6 @@
 -- disjunction from a DECIDABLE source (`splitâ•-â‰`, `discreteâ`, an
 -- explicit case split).  That is where decidability was doing work all
 -- along â” in the disjunctions, not in the absences.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module DeflationaryTest where

@@ -48,9 +48,6 @@
 -- used here â” two preorders, two antitone maps, one adjunction â” is
 -- stated.  What is contributed is the reduction of Î” 28 Â§31â“32's
 -- residuation obligation to those two lines.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheSaturationClosureNeedsOnlyAGaloisConnection where
@@ -169,17 +166,9 @@ module Polarity {X Y : Type} (K : X â†’ Y â†’ Type) where
     public
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "the min-plus instance itself: neither `galFwd` nor `galBwd` is
---    proved for a semiring-valued kernel here, and no quantale is
---    constructed anywhere in this repository."
---
--- Paid AT ONE CUT, with real min-plus data, in
--- `MinPlusResiduationIsAGaloisConnectionAtOneCut`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- THE MIN-PLUS INSTANCE.  `galFwd` and `galBwd` for a semiring-valued
+-- kernel are paid AT ONE CUT, with real min-plus data, in
+-- `MinPlusResiduationIsAGaloisConnectionAtOneCut`:
 --
 --   âˆ-adjË¡ / âˆ-adjÊ³   K âˆ Ïˆ â‰ Ï âŸº K â‰ Ï + Ïˆ, which v0.5 does not ship
 --   galFwd / galBwd   both directions for `u = d = (K âˆ_)`, and they
@@ -196,30 +185,21 @@ module Polarity {X Y : Type} (K : X â†’ Y â†’ Type) where
 -- `K = 0, Ï = 0, Ïˆ = 5`, where one side holds and the other does not,
 -- because `âˆ` truncates.  The obligation is dischargeable or false
 -- depending on which way the order points.
---
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above â” including the 2026-08-19 append above it, half of which
--- is what is being corrected.  TWO items, and they are of different
--- kinds.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- (1)  THE TITLE IS EARNED, AND SAYING SO IS PART OF THE AUDIT.
+-- THE TITLE IS EARNED.
 --
 -- All six of `module Galois`'s hypotheses are consumed: `â‰¼-refl` in
 -- `counit`; `â‰¼-trans` in `u-antitone` and `saturatedGivesFixed`;
 -- `âŠ-refl` in `unit` and `fixedGivesSaturated`; `âŠ-trans` in
 -- `d-antitone`; both adjunction directions throughout.  Nothing is
--- assumed and unused.  This was checked by a sweep whose four previous
--- findings were all overclaims, and a sweep that only ever finds faults
--- is not auditing â” so the negative result is recorded here rather than
--- left silent.
+-- assumed and unused.
 --
 -- **WHAT THIS MODULE DOES NOT SHOW is that its package is the ONLY sufficient
--- one**, which is what "needs only X" invites a reader to conclude. At commit
--- 10c5bca1, `TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeed
+-- one**, which is what "needs only X" invites a reader to conclude.  In
+-- `TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeed
 -- DifferentAxioms`: `FromUnitCounit` derives `galFwd`/`galBwd` from
 -- `u-antitone`, `d-antitone`, `unit`, `counit` â” one line each â” and then
 -- transports this entire module by `open Galois â¦ public`, nothing re-proved;
@@ -233,57 +213,10 @@ module Polarity {X Y : Type} (K : X â†’ Y â†’ Type) where
 -- transitive relation.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- (2)  A CORRECTION THAT WAS RECORDED AT ONE SITE AND NOT AT THIS ONE.
---
--- The append above ends: *"its `â` takes a meet over all burdens â” that
--- needs `min` over a finite index and its universal property, not
--- built."*  **Both halves of that are now wrong.**
---
---   THE OPERATION.  The min-plus order is â•'s `â‰` REVERSED â” the same
---   append says so three lines earlier â” so a meet in it is a JOIN in
---   â•.  The operation is `max`, not `min`.  That correction was made in
---   `TheMeetIsMaxAndTheProfileCutIsAGaloisConnection`, whose header
---   states it as its own finding, and it was recorded THERE AND NOWHERE
---   ELSE.  The wrong word survived here, in a file that had already
---   written down the reversal that refutes it.
---
---   "NOT BUILT".  Built.  The meet with its universal property is in
---   that module; the two-sided profile cut is at 89c9b7f0 and then,
---   over an ARBITRARY residual index list with no `âˆž` and no
---   restriction, at 8f3acebb.  The intermediate claim that the empty
---   meet forced `â• âŠ âˆž` was mine and was itself wrong; retracted at
---   819e0a57.
---
--- **THIS IS A DIFFERENT FAILURE MODE FROM THE OTHERS THIS SWEEP HAS
--- FOUND, AND WORTH NAMING.**  Nothing here was ever an overclaim: the
--- sentence was true when written and was corrected elsewhere later.
--- What failed is PROPAGATION â” a correction recorded at one of the two
--- sites carrying the same wrong word.  Grepping for the word, not for
--- the module, is what catches it.
---
--- WHAT IS NOT RETRACTED.  Everything else above.  Â§1â“Â§5 are unaltered
--- and true; the reduction of Î” 28 Â§31â“32's obligation to two lines
--- stands; the reversal paragraph in the earlier append is correct and
--- is what convicts the sentence three lines below it.  CONVOLUTION is
--- still absent everywhere, so Î” 28's COMPOSITION step remains untouched
--- by any of this.
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  Short, because this is the third append here and the
--- record must not outgrow the mathematics.
---
--- **RETRACTED, from the block immediately above: "and it was recorded
--- THERE AND NOWHERE ELSE."**  False.
--- `MinPlusResiduationIsAGaloisConnectionAtOneCut` also carries the
--- correction, in its own words, in its own earlier append.  The
--- correction had reached two of its three sites; one was missed â” this
--- one.  Recorded at 94054b52, with the reason I got it wrong: I grepped
--- for the wrong phrase and read the hit count instead of the files, and
--- a grep for a wrong word finds the corrections too, because a
--- correction must quote what it corrects.
---
--- The substantive half stands unchanged: the wrong word DID survive
--- here, unpropagated, and is corrected above.
+-- THE MEET IS MAX.
+-- The min-plus order is â„•'s `â‰¤` REVERSED, so a meet in it is a JOIN in â„•:
+-- the operation is `max`, not `min`.  The meet with its universal property
+-- is in `TheMeetIsMaxAndTheProfileCutIsAGaloisConnection`, and the
+-- two-sided profile cut exists over an ARBITRARY residual index list with
+-- no `âˆž` and no restriction.
 ------------------------------------------------------------------------

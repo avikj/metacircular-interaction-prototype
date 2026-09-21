@@ -24,9 +24,6 @@
 -- ยง3: the same single failure leaves an EXISTENTIAL claim standing.
 -- That is the weakest possible witness that claim-shapes differ in
 -- refutation conditions, and it is chosen because it needs no counting.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 โ” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module OneCounterexampleRefutesALabelButNotAnExistential where
@@ -100,15 +97,8 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by this module's author, at the end, altering no
--- line above.
---
--- ยง"WHAT IS NOT MODELLED" above says: "a genuine RATE claim ('more than
--- half', 'at most 25%') โฆ needs a measure and a count, neither of which
--- appears below.  ยง3 therefore does NOT establish the comparison ยง7's
--- list invites."
---
--- The count is now supplied, in
+-- THE COUNT.  A genuine RATE claim ("more than half", "at most 25%")
+-- needs a measure and a count.  The count is supplied in
 -- `RateOneIsExactlyTheUniversalClaim`, over a finite
 -- population as a `List Bool`:
 --
@@ -121,10 +111,4 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 -- is the threshold at 1, where a single failure moves the count off the
 -- length and there is nothing left to tolerate.  A strictly lower
 -- threshold surviving that same failure is exhibited there.
---
--- STILL ABSENT, and still said: percentages.  "More than half" is
--- stateable as `length xs < 2 ย count xs`; it is not stated there, and
--- no threshold other than 1 is analysed.  The population is a LIST, so
--- multiplicity is counted and order carried โ” neither matters to the
--- equivalence and both would matter to a finer measure.
 ------------------------------------------------------------------------

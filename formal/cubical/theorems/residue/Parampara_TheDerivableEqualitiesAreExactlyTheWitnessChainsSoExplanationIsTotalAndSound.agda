@@ -25,8 +25,6 @@
 -- witness, forward or backward, and nothing else is needed.  Nothing here
 -- is about hash-consing or find(): this is the invariant that LICENSES
 -- storing a forest of justifications instead of whole derivations.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound where

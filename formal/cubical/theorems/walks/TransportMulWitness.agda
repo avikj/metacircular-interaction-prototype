@@ -21,9 +21,6 @@
 -- compute in â” and computing in the chart is what the walk needs if it
 -- is ever to run past frontier 8 (see TransportMul's header for why
 -- that wall is the capacity theorem rather than a hardware limit).
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
--- No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TransportMulWitness where

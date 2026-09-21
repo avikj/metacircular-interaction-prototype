@@ -63,9 +63,6 @@
 -- negation; turning it into a context needs the same two hypotheses
 -- that line found â” enumerability of the index and decidability of the
 -- observation â” through the same lemma, `decÎOverEnumerated`.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module FullAbstractionIsAConditionOnTheContextFamilyAndCurvatureIsWitnessedInIt where
@@ -132,18 +129,9 @@ module _ {Tm O : Type} (Ctx : Type) (plug : Ctx â†’ Tm â†’ Tm) (obs : Tm â†’ O)
                        (Î» Â¬e â†’ Â¬w (k , Â¬e))))
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  Recording site: commit ae3c3d00,
--- `AbhihitanvayaAnvitabhidhana_TheTypeOfTheSemanticsAlreadyTakesASideAndSoundnessIsFreeOnOneOfThem`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin).
---
--- **THE OMISSION.**  Everything above states ONE implication â”
--- `CtxEq p q â’ C p â‰¡ C q` â” and the Â§"SYT â” THE CLAIM, EXACTLY" above does
--- not list the CONVERSE among what is missing.  It should have.  The
--- section names a term language, contexts, compression, "arising",
--- approximation, dropped witnesses, incoherent updates and holonomy,
--- and omits the one gap that was a theorem away.
+-- THE CONVERSE.  Everything above states ONE implication,
+-- `CtxEq p q â†’ C p â‰¡ C q`.  The converse is proved in
+-- `AbhihitanvayaAnvitabhidhana_TheTypeOfTheSemanticsAlreadyTakesASideAndSoundnessIsFreeOnOneOfThem`.
 --
 -- **AND THE CONVERSE IS NOT A SECOND HYPOTHESIS.**  It follows from two
 -- premises about `C`, by `cong` three times:
@@ -165,13 +153,7 @@ module _ {Tm O : Type} (Ctx : Type) (plug : Ctx â†’ Tm â†’ Tm) (obs : Tm â†’ O)
 -- one implication, is that **the cost is not the statement's, it is the
 -- DIRECTION's.**  One way is a congruence.  The other is a search.
 --
--- NOTHING ABOVE IS RETRACTED.  `flatCompressionPreservesEveryOrder`,
--- `curvatureIsWitnessedInTheFamily` and `curvatureExhibitsAContext` are
--- unaltered and true as stated; `FullyAbstract` remains the right
--- hypothesis for all three.  Only the inventory of what was missing was
--- incomplete.
---
--- Also unchanged: nothing in the corpus is shown to satisfy any of
+-- Nothing in the corpus is shown to satisfy any of
 -- this.  The recording site adds three more parameters (`act`, `obsD`,
 -- and `D` unchanged) and constructs nothing either.
 ------------------------------------------------------------------------

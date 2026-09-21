@@ -56,9 +56,6 @@
 -- here all cost 2, and 2 is not forced â” 3 exists, one type-former
 -- away.  Before this module the uniform 2 could have been an artefact
 -- of the measure.  It is not; it is a fact about the sites.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WitnessNumberIsUnbounded where

@@ -40,9 +40,6 @@
 --     is 0 at N+1.  So `any (== 0)` over a prefix is sound and
 --     INCOMPLETE, and the "otherwise ‚ü branching" catch-all is unsound:
 --     the same witness is labelled branching while it decays.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module OneStepDecidesResonanceAndNoPrefixDecidesDecay where

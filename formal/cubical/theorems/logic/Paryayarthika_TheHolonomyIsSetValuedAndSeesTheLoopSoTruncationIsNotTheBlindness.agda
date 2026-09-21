@@ -58,9 +58,6 @@
 -- DOES see gauge charge.  A theory on which "set-valued â’ blind to the
 -- gauge loop" would predict Aharonovâ“Bohm invisible.  Â§à¨ is that
 -- objection made into a term.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.  Written 2026-08-22.
 ------------------------------------------------------------------------
 
 module Paryayarthika_TheHolonomyIsSetValuedAndSeesTheLoopSoTruncationIsNotTheBlindness where

@@ -25,13 +25,11 @@
 -- (isIntegralâ), so the quotient inherits the remaining roots; lengths
 -- drop by one; induction on the point list closes it.
 --
--- CHECKED:
+-- CONTENTS:
 --   Â§1  evalP, quot, and the factor identity.
 --   Â§2  roots descend to the quotient (integral domain step).
 --   Â§3  grid : length p â‰ length pts, pts distinct, p vanishing on pts
 --       âŸ evalP p x â‰¡ 0 for EVERY x.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Utthapana_APolynomialVanishingAtMorePointsThanItsLengthIsTheZeroFunction where

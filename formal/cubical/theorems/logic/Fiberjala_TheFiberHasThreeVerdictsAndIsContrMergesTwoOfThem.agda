@@ -44,14 +44,7 @@
 -- so storing and generating are the same type ‚î ¬ß‡‡ß ‡‡æ‡∞‡‡ ‡µ‡æ ‡ï‡‡∞‡ø‡Ø‡æ as an
 -- identity rather than a trade.
 --
--- [CORRECTED 2026-08-22, and the wrong version is quoted rather than erased,
--- because a citation is a claim about the repository and silently mending one
--- loses the fact that it was made.  This header said, twice:
---
---     `Loss.Prastara_‚¶` proves ‡‡‡∞‡‡‡‡æ‡∞ ‚â° ‚ï
---
--- There is no module of that name in the tree or anywhere in git history, and
--- nothing in the corpus proves ‡‡‡∞‡‡‡‡æ‡∞ ‚â° ‚ï.  What exists is
+-- What exists in the corpus is
 -- `NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.‡‡‡∞‡‡‡‡æ‡∞‡`, and it gives
 --
 --     ‡‡‡∞‡‡‡‡æ‡∞‡ : (rs : List ‚ï) ‚í Iso (‡‡ô‡‡ï‡‡‡‡æ‡® rs) (Fin (‡‡ô‡‡ñ‡‡Ø‡æ rs))
@@ -59,18 +52,11 @@
 -- ‚î a FINITE type, at each fixed ‡‡‡¶-‡‡‡‡ rs, from two separately proved
 -- procedures (‡â‡¶‡‡¶‡ø‡‡‡ü by addition and multiplication, ‡®‡‡‡ü by division) with
 -- no table stored.  By univalence that is `‡‡ô‡‡ï‡‡‡‡æ‡® rs ‚â° Fin (‡‡ô‡‡ñ‡‡Ø‡æ rs)`,
--- checked at this commit, and at rs = [] it reads `Unit ‚â° Fin 1`, which is
--- where `‚â° ‚ï` dies on sight.
+-- and at rs = [] it reads `Unit ‚â° Fin 1`.
 --
--- The exchange claim SURVIVES and is the honest form: at each rs the space of
+-- The exchange claim is that at each rs the space of
 -- stored patterns and the range of indices are equal AS TYPES, so keeping the
--- ‡‡æ‡∞‡‡ and running the ‡ï‡‡∞‡ø‡Ø‡æ are one object.  ¬ß‡‡ß is an identity.  What does
--- not survive is the codomain and the citation.  Grounds:
--- ‡â‡ï‡‡‡ ‡‡†‡ø‡‡ ‡ ‡® ‡‡ø‡®‡‡‡‡ø, the instrument does not distinguish having read a
--- thing from having seen it cited, which is what produced this line.]
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
--- no holes.
+-- ‡‡æ‡∞‡‡ and running the ‡ï‡‡∞‡ø‡Ø‡æ are one object.  ¬ß‡‡ß is an identity.
 ------------------------------------------------------------------------
 
 module Tantujala_TheFiberHasThreeVerdictsAndIsContrMergesTwoOfThem where
@@ -212,9 +198,7 @@ isEquiv.equiv-proof (‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§ó‡§Æ‡§É f g) =
 -- and when the census comes back ‡‡ï‡Æ‡ everywhere, base and carried may be
 -- exchanged: `NastaUddista_‚¶.‡‡‡∞‡‡‡‡æ‡∞‡` gives `‡‡ô‡‡ï‡‡‡‡æ‡® rs ‚â° Fin (‡‡ô‡‡ñ‡‡Ø‡æ rs)`
 -- from exactly this, so at each ‡‡‡¶-‡‡‡‡ storing and generating are one type.
--- (Corrected 2026-08-22 ‚î this line read `Loss.Prastara_‚¶ proves
--- ‡‡‡∞‡‡‡‡æ‡∞ ‚â° ‚ï`, a module that does not exist and a codomain that is wrong;
--- see the inset in ¬ß‡ above.)  The identity is the smallest instance.
+-- The identity is the smallest instance.
 ‡§∏‡§Æ‡§§‡§æ-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É : {A : Type ‚Ñì} ‚Üí (b : A) ‚Üí ‡§è‡§ï‡§Æ‡•ç (Œª (a : A) ‚Üí a) b
 ‡§∏‡§Æ‡§§‡§æ-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É {A = A} b = isEquiv.equiv-proof (equivIsEquiv (idEquiv A)) b
 

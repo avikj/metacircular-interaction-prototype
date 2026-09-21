@@ -23,9 +23,6 @@
 -- map.  That gap is not a defect; it is exactly the corpus's standing
 -- distinction between counting a loss and naming it ‚î ‡‡ô‡‡ñ‡‡Ø‡æ vs the
 -- carried identification ‚î kept honest here rather than papered over.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module SankhyaTantu_TheFiberOfAFiniteSourceMapIsFiniteAndItsCardinalityIsTheReceipt where
