@@ -60,7 +60,8 @@ reads), X only to point at the issue. Do not DM.
 >
 > Everything is at [repo link]/collab/bend2-cubical; `HANDOFF.md` has the
 > exact build recipe for the patched lineage, including the no-Haskell-
-> mirror route. Written with heavy AI assistance, every claim verified by
+> mirror route. The design is mine; the patch and the port were driven by
+> coding agents under my direction, and every claim is verified by
 > execution; `CORRECTIONS.md` lists what earlier drafts overclaimed and
 > how it was fixed.
 

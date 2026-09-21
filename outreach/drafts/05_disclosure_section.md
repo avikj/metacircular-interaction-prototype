@@ -20,19 +20,20 @@ reason in `axiom-allowlist.txt`; that list currently has one entry, an
 `ofReduceBool` instance whose kernel-checked alternative was observed to
 exhaust memory, documented there.
 
-Large language model assistants ([Claude, models and dates]; [others])
-were used throughout for drafting proofs, prose, and tooling, and for
-adversarial review of the author's claims. The author designed the
-calculus, chose every statement, and directed and corrected the
-assistants; a running log of the assistants' mathematical errors and
-the corrections (`ERRATA_LOG.md`) and an append-only ledger of what was
-settled and when (`agent-notes-claude-understanding.txt`) are in the
-repository. No AI-generated text was accepted without the corresponding
-term typechecking. Verification, in every case, certifies the formal
-statement; whether the formal statement matches the informal claim is
-argued in the text, and where the repository's own working notes mark a
-claim as not yet formalized (the SAT and geodesic notebooks under
-`research/`), this work does not cite it.
+The mathematics is the author's: the calculus, every definition, every
+theorem statement, and the proofs as mathematics. A large language model
+assistant (Claude, [models and dates]) was used as a transcription tool,
+to type the author's proofs into Cubical Agda and Lean under the author's
+direction, and for build tooling. The assistant's mathematical errors
+during transcription, and the author's corrections of them, are logged
+in `ERRATA_LOG.md`; an append-only ledger of what was settled and when is
+in `agent-notes-claude-understanding.txt`. No transcription was accepted
+until the corresponding term typechecked. [State here whether any prose
+in this document was drafted or edited with the assistant.] Verification
+certifies the formal statement; whether the formal statement matches the
+informal claim is argued in the text, and where the repository's own
+working notes mark a claim as not yet formalized (the SAT and geodesic
+notebooks under `research/`), this work does not cite it.
 
 Computation: `sh check` (kernel + fibre + Lean root closure) runs in
 [N] minutes on [machine]; `sh check --all` in [N] on [machine] with

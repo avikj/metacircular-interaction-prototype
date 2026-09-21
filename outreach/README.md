@@ -204,10 +204,13 @@ Questions you will be asked, with the honest answers already in the repo:
 - "Why Sanskrit names?" — scholarship, documented in `NOTES.txt` and the
   1lab site's concept index; and every such file has an English twin.
   (Then dedupe, so the twin is a link, not a copy.)
-- "How much of this was written by an AI?" — the disclosure section. The
-  ERRATA_LOG shows the AI being corrected by the author on Gödel,
-  Church–Turing and the input measure; that is the opposite of what the
-  11 Sep declaration is worried about.
+- "How much of this was written by an AI?" — the true answer, stated
+  first: the mathematics is yours; Claude transcribed it into Agda and
+  Lean under your direction and was corrected on the way. The
+  ERRATA_LOG shows you correcting it on Gödel, Church–Turing and the
+  input measure. Reviewers will assume the opposite from file names like
+  `agent-notes-claude-understanding.txt` and "if you are a fresh agent"
+  in HANDOFF.md unless you say it, so say it.
 
 ## 5. What not to do
 

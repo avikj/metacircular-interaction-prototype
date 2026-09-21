@@ -48,12 +48,14 @@ already have this"). Topic title: the theorem, in words.
 > statement in this shape); (2) is the statement the one you'd want, or is
 > there a more canonical phrasing?
 >
-> Repo: [link]. Nothing here is AI-reviewed; the lane was written with an
-> AI assistant and every proof was checked by `lake build` as above; the
-> error log of that process is public in the repo if it matters to anyone.
+> Repo: [link]. The mathematics is mine; I used Claude to transcribe it
+> into Lean, checked every step with `lake build` as above, and the log of
+> its transcription errors and my corrections is public in the repo.
 
 Notes for you: the last paragraph is the disclosure Buzzard and Tao both
-ask for, in one sentence, before anyone asks. If he replies "mathlib has
+ask for, in one sentence, before anyone asks, and it says the true thing:
+the mathematics is yours and the tool typed. Say it first so nobody
+guesses wrong from the file names. If he replies "mathlib has
 this, see X", that is a good outcome: you now have a thread with him, and
 the next post is the lemma mathlib does *not* have. If nobody replies in
 three days, post the second candidate as a new topic; do not bump.
