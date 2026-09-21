@@ -84,18 +84,12 @@
 --   by `refl`: sakhy 16 (oaa), gaps 15 (pacadaa), adhvan 31
 --   (ekatriat).
 --
--- CHECKED: Agda 2.6.3, `--cubical --safe --no-import-sorts`, against
--- the cubical library at /root/agda-libs/cubical, `git describe` = v0.5
--- (the version is not recorded in cubical.agda-lib).  Exit 0 with no
--- warnings.  ‡µ‡æ‡ï‡ and ‡‡‡‡ are both defined BY RECURSION ON ‚ï rather
+-- ‡µ‡æ‡ï‡ and ‡‡‡‡ are both defined BY RECURSION ON ‚ï rather
 -- than as inductive families, because matching an indexed family at a
 -- constructor index needs injectivity of suc, which Cubical Agda
 -- rejects ‚î such a definition still typechecks but does not compute
 -- under transport.  Self-contained: imports only Cubical.*, no module
--- of this corpus.  NOTHING IN THIS REPOSITORY BUILDS IT ‚î it is not in
--- Everything.agda, and check-everything-coverage.sh fails on 60
--- pre-existing orphans independently of this file.  It was checked by
--- running agda on it directly, and that is the whole of the evidence.
+-- of this corpus.
 ------------------------------------------------------------------------
 
 module AdhvaSesa_TheGapsOfTheWrittenPrastaraAreItsNonFinalRowsSoTheEkonaIsForced where

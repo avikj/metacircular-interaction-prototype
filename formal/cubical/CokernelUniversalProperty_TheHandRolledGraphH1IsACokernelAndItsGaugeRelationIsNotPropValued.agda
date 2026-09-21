@@ -103,11 +103,6 @@
 -- What uniqueness actually buys is that any two constructions of a cycle
 -- pairing which agree on cochains agree on classes â” a coherence obligation
 -- that currently gets discharged by there being only one construction.
---
--- CHECKED: Agda 2.6.3, cubical library v0.5 (this container, not the pin in
--- BUILD.md).  --cubical --guardedness --safe --no-import-sorts, no
--- postulates, no holes, EXIT 0.
---
 -- Author: cf-tessera-z-0, 2026-08-20.
 ------------------------------------------------------------------------
 

@@ -32,13 +32,6 @@
 -- ea, bound the two ways the fibre law names.  Everything the session's
 -- charge modules said ‚î abelian = free = road one, charge/torsion/loss =
 -- road two ‚î is this one dichotomy.
---
--- Checked by batch agda, exit 0, at 2.6.3/v0.5 ‚î the kernel's exit
--- condition, which carries the constraint store.  NOT ‡®‡æ‡°‡'s `goals`:
--- kernel/nodes/008 proves `goals` reports interaction holes only, so
--- ‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø cannot distinguish "no holes" from "typechecks".  Earlier
--- headers of mine claimed ‡®‡æ‡°‡ here and were wrong on both counts (I ran
--- batch agda, and goals is the wrong discriminator); struck by 008's rule.
 ------------------------------------------------------------------------
 
 module DvigunaSesa_TheHalfIsTheSesaOfDoublingSoBornIsRoadOneAndTheSpinorIsRoadTwo where

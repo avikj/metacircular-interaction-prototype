@@ -31,9 +31,6 @@
 -- Avik's own frame: "Right seeing, right knowing, right conduct and
 -- nonviolence are one problem" â” isEquiv gives the first two; the third is
 -- beyond the map.
---
--- CHECKED: Agda 2.8.0 / cubical-0.9, --cubical --safe, no postulates, no
--- holes, no native_decide.  Verified 2026-08-23.
 ------------------------------------------------------------------------
 
 module Avarana_TheEquivalenceIsTheTwoKnowingVeilsLiftedNecessaryButNotSufficientForKevala where

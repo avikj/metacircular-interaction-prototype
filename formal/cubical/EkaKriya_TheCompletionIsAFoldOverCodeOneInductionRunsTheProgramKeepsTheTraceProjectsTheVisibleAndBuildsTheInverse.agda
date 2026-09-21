@@ -36,8 +36,6 @@
 -- returns the digest wearing its message.  The interest is never the
 -- leaf; it is that completion commutes with program structure, so the
 -- system can complete WHAT IT RUNS while running it.
---
--- CHECKED: Agda 2.8.0, --cubical --safe, through scripts/oracle.
 ------------------------------------------------------------------------
 
 module EkaKriya_TheCompletionIsAFoldOverCodeOneInductionRunsTheProgramKeepsTheTraceProjectsTheVisibleAndBuildsTheInverse where

@@ -59,9 +59,6 @@
 -- leaves the seam open.  Inventing a constructor for a distinction nobody
 -- has a criterion for would be the same error one level down.  The seam
 -- is left visible; see ยง4.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 โ” the library's declared pin.
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Punaragamana.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic where

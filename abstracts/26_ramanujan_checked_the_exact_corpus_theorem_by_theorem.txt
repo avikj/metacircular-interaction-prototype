@@ -108,6 +108,3 @@ finite computation Ramanujan performed â” the question is a type over
 all n, the gate is signed on 1..16, and no converse is written:
 sixteen instances license nothing universal, and the type system now
 says so.
-
-Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
---guardedness --safe, no postulates, no holes, no booleans.

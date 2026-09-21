@@ -61,9 +61,6 @@
 --
 -- Symmetry as a naya is powerful and nothing here takes that from it.
 -- Symmetry as THE criterion is the durnaya, and §3 prices it.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5, this lane's .agda-lib,
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Durnayah_TheSymmetryReadoutIsTwoValuedAndComputablyMergesGraspedWholeWithMissedEntirely where

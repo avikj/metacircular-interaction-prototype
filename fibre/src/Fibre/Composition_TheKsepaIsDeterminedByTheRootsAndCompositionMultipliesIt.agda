@@ -80,14 +80,6 @@
 -- and later releases (`Cubical.Tactics.CommRingSolver`), so using it
 -- would pin this file to one of them.  Every lemma named above is present
 -- and identically typed in both.
---
--- ~~THIRD DEFECT â” WHAT THE GREEN ACTUALLY COVERS.  â¦ It has NOT been
--- checked under this library's declared pin (Agda 2.6.3, agda/cubical
--- v0.5) â¦~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the pin itself
--- (fresh container, no agda on PATH) and this module checked under
--- Agda 2.6.3 + cubical v0.5, exit 0 â” the solver-free lemma choice above
--- held.  The defect was a fact about one host, not about this file.  See
--- README, "Toolchain".
 ------------------------------------------------------------------------
 
 module Fibre.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt where

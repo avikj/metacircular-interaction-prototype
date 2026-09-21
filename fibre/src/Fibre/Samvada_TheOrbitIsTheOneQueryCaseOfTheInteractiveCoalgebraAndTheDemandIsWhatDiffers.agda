@@ -45,10 +45,6 @@
 -- This module is the coalgebra, in the `fibre` library, which does not
 -- depend on that one.  The shared name is the shared shape, not a shared
 -- theorem.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 (the repository pin),
--- --cubical --safe --guardedness, no postulates, no holes; reachable
--- from fibre/src/Everything.agda, so `sh check` drives it.
 ------------------------------------------------------------------------
 
 module Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers where

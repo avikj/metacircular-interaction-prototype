@@ -56,9 +56,6 @@
 -- between krama and saha (Laghyastraya, c. 720â“780) is, in this algebra,
 -- exactly the statement that r has non-trivial kernel â” and the size of that
 -- kernel is why the count is seven rather than five.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5, this lane's own .agda-lib,
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module KaroubiSaptabhangi_TheSevenfoldIsTheFreeJoinSemilatticeOnThreeSeedsDeformedByOneIdempotent where

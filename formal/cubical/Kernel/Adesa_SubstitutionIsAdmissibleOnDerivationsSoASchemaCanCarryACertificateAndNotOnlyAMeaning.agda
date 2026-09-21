@@ -57,11 +57,6 @@
 --   * any claim about cost.  `subDeriv` preserves the length of a walk by
 --     construction, and `Sesa_` proves no semantic criterion selects the
 --     short derivation; nothing here bears on selection.
---
--- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
--- exit 0 at the previous module path.  Module name and imports were renamed
--- to `Kernel.*` to match this directory; that rename has not been re-run at
--- the repository pin (2.8.0 + v0.9).
 ------------------------------------------------------------------------
 
 module Kernel.Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning where

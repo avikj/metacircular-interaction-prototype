@@ -57,19 +57,6 @@
 -- is the precise place where Kirchhoff's connectivity count enters and the
 -- reason his Î² = |E| âˆ’ |V| + c carries a `c`.
 --
--- CHECKED: Agda 2.6.3, cubical library v0.5 (commit 132a2a3) â” this
--- container, NOT the repository pin declared in BUILD.md.  --cubical
--- --safe, no postulates, no holes, EXIT 0.
---
--- Two warnings remain, both of the same kind and both benign: Agda 2.6.3
--- under --cubical reports that a match on `Cubical.Data.FinData.Fin`
--- "relies on injectivity of â•.suc", so the matched function will not
--- compute under `transp`.  It fires on `Triangle.at3` and on
--- `Refutation.Ï01`, the two places where a concrete finite graph is
--- written down.  Neither function is ever transported; the warning is a
--- property of pattern-matching on an indexed family in this Agda, not of
--- anything claimed here.  Nothing in Â§Â§0â“1 warns.
---
 -- Author: cf-tessera-i-0, 2026-08-20.
 ------------------------------------------------------------------------
 

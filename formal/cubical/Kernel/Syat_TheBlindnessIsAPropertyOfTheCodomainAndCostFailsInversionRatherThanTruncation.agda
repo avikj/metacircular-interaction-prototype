@@ -72,11 +72,6 @@
 --       costs double to the walker.
 --   §3  no-semantics-separates-them -- and therefore raising h-level buys
 --       nothing on the corpus's own pair.
---
--- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
--- exit 0 at the previous module path.  Module name and imports were renamed
--- to `Kernel.*` to match this directory; that rename has not been re-run at
--- the repository pin (2.8.0 + v0.9).
 ------------------------------------------------------------------------
 
 module Kernel.Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInversionRatherThanTruncation where

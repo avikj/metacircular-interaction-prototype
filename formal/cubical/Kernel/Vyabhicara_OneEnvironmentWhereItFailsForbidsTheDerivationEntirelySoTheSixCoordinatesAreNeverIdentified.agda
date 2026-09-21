@@ -12,14 +12,9 @@
 --
 --     ‡‡®‡à‡ï‡æ‡®‡‡‡ø‡ï‡ ‡‡µ‡‡Ø‡‡ø‡‡æ‡∞‡     anaikntika savyabhicra
 --
--- CORRECTED 2026-08-25 against the e-text.  I first wrote this as
--- ~~savyabhicro 'naikntika~~, THE WORDS IN REVERSE ORDER, from memory.
 -- GRETIL's `sa_gautama-nyAyasUtra.txt` line 204 reads `1.2.5:
 -- anaikntika savyabhicra`, and line 200 is 1.2.4, the hetvbhsa
--- list.  Cloned from the INDOLOGY/tokushige-koyasan GitHub mirror, since
--- GRETIL's own host answers 403 here.  This file's own thesis is that a
--- number propagates where words do not; I had the number right and the
--- words wrong, which is the same defect one level in.
+-- list.
 --
 -- I give the words rather than lean on the number, per this repository's
 -- own finding that a stra's number propagates through citation while its
@@ -74,11 +69,6 @@
 --       coordinates; and yvar with zvar, so the fact is not about `var`.
 --   ¬ß3  the same pair, asti at one updhi and nsti at another, both
 --       checked -- the configuration ¬ß2 reads as a fault.
---
--- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
--- exit 0 at the previous module path.  Module name and imports were renamed
--- to `Kernel.*` to match this directory; that rename has not been re-run at
--- the repository pin (2.8.0 + v0.9).
 ------------------------------------------------------------------------
 
 module Kernel.Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivationEntirelySoTheSixCoordinatesAreNeverIdentified where

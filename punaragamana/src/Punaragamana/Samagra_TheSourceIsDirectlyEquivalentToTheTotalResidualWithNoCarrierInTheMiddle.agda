@@ -54,9 +54,6 @@
 -- directly.  `‡‡ã‡Æ-‡‡ø‡¶‡‡ß‡ø` below proves exactly that: the round-trip
 -- through Carrier and the direct one agree, definitionally, at every
 -- point.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚î the library's declared pin.
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Punaragamana.Samagra_TheSourceIsDirectlyEquivalentToTheTotalResidualWithNoCarrierInTheMiddle where

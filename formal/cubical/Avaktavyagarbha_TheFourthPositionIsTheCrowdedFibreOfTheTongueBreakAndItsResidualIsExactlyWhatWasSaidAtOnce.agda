@@ -80,9 +80,6 @@
 -- the same fact ‚î a point with a crowded fibre is a point no injection
 -- reaches from its preimages, and the seed-free fragment is precisely the
 -- part of ‡‡Æ‡æ‡µ‡‡ on which ‡‡ø‡‡‡µ‡æ‡‡‡¶‡ IS the identity (¬ß2.3).
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5, --cubical --safe, no postulates,
--- no holes, checked against this lane's own `.agda-lib`.
 ------------------------------------------------------------------------
 
 module Avaktavyagarbha_TheFourthPositionIsTheCrowdedFibreOfTheTongueBreakAndItsResidualIsExactlyWhatWasSaidAtOnce where

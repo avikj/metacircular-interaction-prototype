@@ -52,9 +52,6 @@
 --
 -- ‡‡‡‡®‡∞‡æ‡ó‡Æ‡® and ‡µ‡‡¶‡‡ß‡ø are used in their plain senses; no text is claimed
 -- for the compound.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Mula.Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity where

@@ -78,12 +78,6 @@
 --      four while "a symmetry-natural point exists" is inhabited in
 --      exactly two: the description-length functional separates
 --      nothing here.
---
--- CHECKED on the CONTAINER: Agda 2.6.3, cubical v0.5 at
--- /root/agda-libs/cubical â” NOT the repository pin (2.8.0 + v0.9).
--- `--cubical --safe`, no postulates, no holes, no TERMINATING.
--- Not added to `Everything.agda`, which is red here for unrelated
--- reasons.
 ------------------------------------------------------------------------
 
 module InvariantTiebreak_AGaugeFreeShortestDescriptionWouldBeAFixedPointSoNoneExistsOnATorsor where

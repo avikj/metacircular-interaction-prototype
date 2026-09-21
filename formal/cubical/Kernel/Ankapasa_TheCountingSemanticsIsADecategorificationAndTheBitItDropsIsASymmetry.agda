@@ -74,8 +74,6 @@
 -- and §4 exhibits the exact datum such a score cannot represent: which
 -- arrangement, as opposed to how many.  Order information is not an
 -- inefficiency of a bag-of-counts semantics; it is provably absent from it.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module Kernel.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry where

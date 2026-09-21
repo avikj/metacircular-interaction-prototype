@@ -63,8 +63,6 @@
 -- `advance-preserves-branch-count` -- multiplicity conserved, no dedupe, no
 -- sort, no quotient -- is not housekeeping: it is the only place in the
 -- kernel where the collapsed information is still held.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module Kernel.Aresidue_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence where

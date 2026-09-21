@@ -41,10 +41,6 @@
 -- content is order-free, every successive expression of it must pick an
 -- order.  That is the same seam in the logical lane; this module is the
 -- executional one, and neither imports the other.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 (the repository pin),
--- --cubical --safe --guardedness, no postulates, no holes; reachable
--- from fibre/src/Everything.agda, so `sh check` drives it.
 ------------------------------------------------------------------------
 
 module Fibre.Krama_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained where

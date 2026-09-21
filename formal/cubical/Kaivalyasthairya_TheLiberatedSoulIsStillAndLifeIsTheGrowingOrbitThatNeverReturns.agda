@@ -28,9 +28,6 @@
 -- generates.  Neither collapses the other: reading kevala as the goal makes
 -- the machine "report exhaustion as progress" (Areturn's warning);
 -- reading growth as mere debt treats generativity as a defect.  syt.
---
--- CHECKED: Agda 2.8.0 / cubical-0.9, --cubical --safe, no postulates, no
--- holes, no native_decide.  Verified 2026-08-23.
 ------------------------------------------------------------------------
 
 module Kaivalyasthairya_TheLiberatedSoulIsStillAndLifeIsTheGrowingOrbitThatNeverReturns where

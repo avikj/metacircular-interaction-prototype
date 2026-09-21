@@ -235,6 +235,3 @@ three grammars â” lossless step, functional relation, collapsed
 interaction â” present one function, and each grammar's surplus is
 measured by its own theorem: the trace is the fibre, the relation is
 the graph, the interaction is the receipt.
-
-Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
---guardedness --safe, no postulates, no holes.

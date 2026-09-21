@@ -81,11 +81,6 @@
 --       THE INDUCTION RULE IS STRICTLY STRONGER THAN THE REWRITE CLOSURE,
 --       and the kernel can certify theorems it cannot install, since
 --       `NativeOperation.checked` demands a `Derivation`.
---
--- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
--- exit 0 at the previous module path.  Module name and imports were renamed
--- to `Kernel.*` to match this directory; that rename has not been re-run at
--- the repository pin (2.8.0 + v0.9).
 ------------------------------------------------------------------------
 
 module Kernel.Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure where

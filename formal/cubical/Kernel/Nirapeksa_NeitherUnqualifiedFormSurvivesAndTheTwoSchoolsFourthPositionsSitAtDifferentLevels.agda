@@ -75,11 +75,6 @@
 --       doctrine whose fourth position is §2's shape are not variants of
 --       one logic: the first lives in the dependency of a type on an
 --       index, the second in the propositional structure of negation.
---
--- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
--- exit 0 at the previous module path.  Module name and imports were renamed
--- to `Kernel.*` to match this directory; that rename has not been re-run at
--- the repository pin (2.8.0 + v0.9).
 ------------------------------------------------------------------------
 
 module Kernel.Nirapeksa_NeitherUnqualifiedFormSurvivesAndTheTwoSchoolsFourthPositionsSitAtDifferentLevels where

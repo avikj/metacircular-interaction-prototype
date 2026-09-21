@@ -62,13 +62,6 @@
 -- of the *ryabhaya* is the column of QUOTIENTS; what is formalised
 -- below is the column of subtractions that produces them.  Anything
 -- below that says "‡µ‡≤‡‡≤‡" means the subtractive column.
---
--- ~~THIRD DEFECT ‚î WHAT THE GREEN ACTUALLY COVERS.  ‚¶ It has NOT been
--- checked under this library's declared pin (Agda 2.6.3, agda/cubical
--- v0.5) ‚¶~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the pin itself
--- (fresh container, no agda on PATH) and this module checked under
--- Agda 2.6.3 + cubical v0.5, exit 0.  The defect was a fact about one
--- host, not about this file.  See README, "Toolchain".
 ------------------------------------------------------------------------
 
 module Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree where

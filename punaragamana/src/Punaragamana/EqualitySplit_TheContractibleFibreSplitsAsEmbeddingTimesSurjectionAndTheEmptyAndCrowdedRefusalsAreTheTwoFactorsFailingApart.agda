@@ -52,9 +52,6 @@
 --   ‡‡∞‡‡µ‡à‡ï‡Æ‡ : Bool ‚í Unit   collapses (crowded), yet covers    ‚í only LEFT fails
 --   ‡‡ø‡®‡‡¶‡‡  : Unit ‚í Bool    embeds (all fibres prop), misses false ‚í only RIGHT fails
 -- Each is a checked term, so the independence is proved, not asserted.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚î the library's declared pin.
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Punaragamana.SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionAndTheEmptyAndCrowdedRefusalsAreTheTwoFactorsFailingApart where
