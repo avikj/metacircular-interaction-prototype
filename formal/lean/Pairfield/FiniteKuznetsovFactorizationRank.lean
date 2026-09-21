@@ -3,8 +3,7 @@ Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
 Finite algebraic rank for coefficient tensors built from separable Whittaker
-weights and a scalar radial Kuznetsov kernel.  This file makes no analytic
-claim that a radial factor is a Bessel transform of an admissible test.
+weights and a scalar radial Kuznetsov kernel.
 -/
 import Pairfield.KuznetsovSingleKernelBoundary
 import Pairfield.PrimeResidueTensorRank

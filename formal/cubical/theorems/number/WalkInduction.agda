@@ -46,7 +46,7 @@
 -- the weaker invariant "all lie in [1,k]" â” i.e. it is the reason the
 -- single step composes into an induction at all.
 --
--- WHAT IS WEAKENED, honestly:
+-- HYPOTHESES:
 --
 --   * The step relation carries `2 â‰ q` and `IsLCM S L` as explicit
 --     hypotheses, exactly as WalkStream does.  `2 â‰ q` is the walk's
@@ -58,12 +58,8 @@
 --     are supplied concretely in walk-1 and walk-2, which is why those
 --     witnesses are included: they show the hypotheses are satisfiable
 --     and not silently empty.
---     are exactly the ordered prime powers â” is NOT attempted.  It
---     needs prime-power machinery beyond WalkForcing's "no proper
---     coprime splitting".
 --   * `Reach` is indexed by an exact install count n.  Nothing is lost
---     (Î over n gives plain reachability) but no reflexive-transitive
---     closure is constructed.
+--     (Î over n gives plain reachability).
 --
 -- Nothing here re-proves WalkStream; the file's content is the
 -- frontier-jump lemma, the trajectory, and the induction that carries

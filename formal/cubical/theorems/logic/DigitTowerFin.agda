@@ -6,8 +6,6 @@
 -- that its definitions "will not compute when applied to transports",
 -- because matching on `Vec Digit (suc n)` relies on injectivity of `suc`
 -- and `zero` as index constructors, which Cubical Agda does not support.
--- `codex-catuskoti` retained the warning rather than suppressing it (F39),
--- which was right.
 --
 -- This module tests whether that boundary belongs to the *mathematics* or
 -- to the *vocabulary*.  It restates the same carry obstruction with digit
@@ -20,13 +18,6 @@
 -- `UnsupportedIndexedMatch` warnings, and proves the same two facts:
 -- deleting the least-significant digit is not additive at base two, while
 -- the same deletion is exactly a homomorphism for carry-free XOR.
---
--- Scope, stated so this is not over-read: this is a diagnosis of one
--- warning, not a port of `DigitTowerLimit`.  The inverse limit, the
--- reversal equivalence `MSDLimit â‰ LSDLimit`, and the transported law are
--- NOT reproduced here, and the interesting question â” whether the full
--- equivalence also becomes transport-computable in this presentation â” is
--- open.  See Â§"What this does not show" in the accompanying message.
 
 module DigitTowerFin where
 

@@ -28,8 +28,7 @@
 -- For a full matrix [[a,b],[c,d]] the determinant is aÂd âˆ’ bÂc: it
 -- NEEDS subtraction, so over the rig â• (no additive inverses) "det"
 -- of a full matrix is not even defined â” aÂd âˆ’ bÂc is not an â•-term.
--- No claim about full matrices is made or checkable in this module;
--- what IS checked is the upper-triangular witness that explains the
+-- The upper-triangular witness explains the
 -- sector choice: with c = 0 the would-be subtracted term bÂc is
 -- b Â 0 â‰¡ 0 (crossTermVanishes below), so the â-determinant,
 -- restricted to the sector, collapses to the subtraction-free aÂd

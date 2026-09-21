@@ -58,12 +58,8 @@
 --       chosen, so whatever a norm then measures on symbols, it measures
 --       on differences of sources unchanged.
 --
--- WHAT `P n` IS AND IS NOT.  `P n` here is the SYMBOL of a transverse
+-- `P n` here is the SYMBOL of a transverse
 -- projection at one direction `n`: a pointwise linear map on triples.
--- It is not an operator on a function space, there is no Fourier
--- transform in this file, and nothing below is a statement about a
--- projection acting on fields.  Â§Â§2â“5 are exactly the pointwise
--- identities that a symbol calculation would need, and nothing more.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“5 over any commutative ring, for all
 -- triples satisfying the displayed equations.

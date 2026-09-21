@@ -7,11 +7,7 @@
 -- TERM.  ‡‡‡‡ ¬ setu ‚î a bridge, a causeway.  This file builds none of its
 -- own objects; it CONNECTS two things already in the tree, so the orb device
 -- inherits the holonomy lane's theorems instead of shadowing them.  Written
--- 2026-08-25, after reading the lane it should have read first: `VeniYang-
--- Baxtara_‚¶` rebuilt on a private `Three` an S‚ that `FiniteNonabelian-
--- Holonomy` already had, and `Sphatika_‚¶`'s orb winding restates the ‚
--- holonomy `Pradakshina_‚¶` already proved.  Overlap is not the sin; leaving
--- the two unconnected is.  This bridges them.
+-- inherits the holonomy lane's theorems instead of shadowing them.
 --
 -- ¬ß1.  THE NONABELIAN HOLONOMY IS A BRAID REPRESENTATION.  `FiniteNonabelian-
 -- Holonomy` proved its two adjacent transpositions s‚‚, s‚‚ of S‚ do not
@@ -28,8 +24,6 @@
 -- circuit` identifies them: the orb's phase quantum IS Pradakshina's circuit,
 -- read optically.  So the whispering-gallery winding and the LQG-lane circuit
 -- holonomy are one term.
---
--- Checked: --cubical --safe; loads clean on the wire.
 ------------------------------------------------------------------------
 
 module SetuHolonomya_TheNonabelianHolonomyS3IsABraidRepAndTheOrbWindingIsTheCircuit where

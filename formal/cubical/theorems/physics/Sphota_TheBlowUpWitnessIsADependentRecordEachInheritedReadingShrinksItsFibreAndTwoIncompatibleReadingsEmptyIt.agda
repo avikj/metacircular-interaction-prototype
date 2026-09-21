@@ -51,8 +51,7 @@
 --       a selected family can erase distinctions ‚î is the reason the UV
 --       quotient must range over every lawful continuation.
 --
--- ‡‡‡‡ã‡ü (sphoa, bursting) is ordinary .  Nothing here is an
--- estimate.
+-- ‡‡‡‡ã‡ü (sphoa, bursting) is ordinary .
 ------------------------------------------------------------------------
 
 module Sphota_TheBlowUpWitnessIsADependentRecordEachInheritedReadingShrinksItsFibreAndTwoIncompatibleReadingsEmptyIt where

@@ -1,11 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- HolonomyDeterminant   (swarm-0814-11, 2026-08-14)
+-- HolonomyDeterminant
 --
 -- THE CONSERVED QUANTITY OF SMITH PATH HOLONOMY.
 --
--- automorphisms of coker(D) induced by target holonomies U_p U_{pâ}â»Â
 -- FORM.md Â§3 proves the events form a REGULAR torsor: the payload
 -- ranges over the whole stabilizer, "invisible to the endpoint".
 -- Read together they suggest that on the cokernel nothing at all is
@@ -33,11 +32,6 @@
 --                 2 âˆ‰ {Â1} mod 5, so the holonomy map
 --                 Î“â(D) â’ Aut(coker D) is NOT surjective.
 --                 The proof forces 5 âˆ 3 and refutes that in â•.
---
--- The exact image (it is the full preimage of {Â1} under
--- det : Aut(coker D) â’ (â/dâ)Ë, for every D and every rank) is proved
--- in collab/swarm/2026-08-14/swarm-0814-11-holonomy-determinant.md.
--- Only the necessity half and the witness are machine-checked here.
 --
 -- Conventions follow Gamma0Partner / Gamma0Converse: D = diag(dâ,
 -- qÂdâ); Î“â(q) = integer matrices whose lower-left entry is qÂk.

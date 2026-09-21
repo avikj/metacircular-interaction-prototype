@@ -8,10 +8,6 @@ This file sharpens the contamination estimate in `GoldbachWeightedBoundary` by
 keeping the convolution on the antidiagonal.  The key point is that each of the
 two mixed error sums contains only one freely summed prime-power error factor;
 the other factor is bounded by `log N` on the fixed fiber.
-
-The proof follows the checked route recorded in
-`collab/messages/workers/20260814T091333Z--codex--fixed-antidiagonal-contamination-route.md`.
-That message supplied theorem shape and provenance, not a formal proof.
 -/
 
 namespace Pairfield
@@ -191,9 +187,7 @@ theorem mangoldtGoldbachCoeff_eq_primePowerContamination_of_not_goldbachAt
     primeLogGoldbachCoeff_eq_zero_of_not_goldbachAt N hN, sub_zero]
 
 /-- Checked exception signature: an exceptional center can carry at most the
-explicit fixed-fiber prime-power error.  Calling this “near-total minor-arc
-cancellation” requires a separate major-arc decomposition and lower bound;
-this theorem records only the exact algebraic prerequisite. -/
+explicit fixed-fiber prime-power error. -/
 theorem mangoldtGoldbachCoeff_le_four_sqrt_mul_log_sq_of_not_goldbachAt
     (N : ℕ) (hN : 1 ≤ N) (hException : ¬ GoldbachAt N) :
     mangoldtGoldbachCoeff N ≤

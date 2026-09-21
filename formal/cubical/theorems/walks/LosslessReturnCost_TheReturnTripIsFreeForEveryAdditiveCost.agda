@@ -12,8 +12,7 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT THIS CONNECTS
 --
--- The owner's specification (2026-08-21) makes the machine's step a
--- CONJUGATION and not an action:
+-- The machine's step is a CONJUGATION and not an action:
 --
 --     ‡‡‡®‡ (‡‡‡® v) = ‡‡‡® (‡‡µ‡‡∞‡ (Œ¶ (‡â‡‡‡‡æ‡® v)))
 --
@@ -35,9 +34,8 @@
 -- about this Œ¶ ‚î it is forced by the cost structure before any of those
 -- are chosen.  ¬ß1 below is that instantiation.
 --
--- The direction of the debt is worth stating: `‡‡≤‡ã‡‡` is the semantic
--- shadow of `loop-is-free`, not an independent result.  It was proved
--- second and it proves less.
+-- `‡‡≤‡ã‡‡` is the semantic
+-- shadow of `loop-is-free`, not an independent result.
 ------------------------------------------------------------------------
 
 module LosslessReturnCost_TheReturnTripIsFreeForEveryAdditiveCost where

@@ -26,6 +26,6 @@ The consequence for univalent foundations is where the result is sharpest, becau
 
 Hence a design consequence that is mechanical rather than interpretive. An interface that answers with a transport answers with something proved to be costless, and therefore historyless.  An interface that intends to carry cost, route, effort or provenance must carry the DERIVATION, since the theorem says those quantities do not exist on the other side.
 
-We claim no braiding: two involutive self-equivalences of a three-bit state space, each supplied with its inverse and both unit laws, fail the braid relation at an explicitly named state, so invertibility does not induce a braid group action and nothing here supplies the missing coherence.  We claim no thermodynamics: cost here is a natural number, and no heat, energy, temperature, entropy or erasure bound is derived, bounded or implied at any point.
+Two involutive self-equivalences of a three-bit state space, each supplied with its inverse and both unit laws, fail the braid relation at an explicitly named state, so invertibility does not induce a braid group action.  Cost here is a natural number.
 
 All statements are machine-checked in a proof assistant with no postulates, no admitted goals, and no warnings.

@@ -25,7 +25,6 @@
 -- an intensity-like detector sees fringes at half the period of the
 -- field's phase â” coarser senses alias the memory at the divisor
 -- their invariance dictates.
---
 ------------------------------------------------------------------------
 
 module MatraSopana_EachObservableReadsTheTwistCountModuloTheOrderOfItsOwnBlindness where

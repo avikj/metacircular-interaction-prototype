@@ -3,27 +3,12 @@
 ------------------------------------------------------------------------
 -- FillerReceiptProbe
 --
--- A daemon-facing probe, not a landed theorem.  The previous
--- YugapatSankramana proposal did two things separately:
---
---   (1) proved that the two coordinatewise compiler composites are equal
---       as equivalences;
---   (2) drew the two-dimensional family (i , j) � ua e i � ua f j.
---
--- It did not identify the family as a Square whose four boundary paths are
--- the compiler paths.  That missing identification is the actual receipt.
---
--- Closed below without holes:
+-- Contents:
 --   * the explicit product square;
 --   * its boundary-composition equality by Square�compPath;
 --   * the equality of compiler composites;
 --   * the compiler-boundary equality via uaCompEquiv;
 --   * a Square whose boundaries are exactly the four compiler paths.
---
--- The two remaining holes ask whether transport along each explicit product
--- edge is the hand-built coordinate equivalence by the expected uaβ proof.
--- They are deliberately holes so Nadi can answer with the kernel's exact
--- acceptance or refusal rather than this file claiming the bridge in prose.
 --
 -- The guardedness pragma is load-bearing even though this probe defines no
 -- coinductive object: the imported cubical world is infective. Omitting it
@@ -85,7 +70,7 @@ compilerRoutesEqual : (e : A ≃ B) (f : C ≃ D)
 compilerRoutesEqual e f = equivEq (funExt λ { (a , c) → refl })
 
 ------------------------------------------------------------------------
--- 2. The explicit cubical family, now given its actual Square type.
+-- 2. The explicit cubical family, as a Square.
 --
 -- Square's outer interval is vertical and its inner interval horizontal,
 -- hence the argument order below is f first, e second.
@@ -127,8 +112,7 @@ compiledSquare : (e : A ≃ B) (f : C ≃ D)
 compiledSquare e f = compPath→Square (compiledBoundary e f)
 
 ------------------------------------------------------------------------
--- 4. The daemon questions: identify the explicit edges with the compiler
---    edges.  Candidate fills are written in the companion message.
+-- 4. Identify the explicit edges with the compiler edges.
 ------------------------------------------------------------------------
 
 leftTransportIsCompiler : (e : A ≃ B) (C : Type ℓ)
@@ -141,9 +125,7 @@ rightTransportIsCompiler : (A : Type ℓ) (f : C ≃ D)
 rightTransportIsCompiler A f =
   equivEq (funExt λ { (a , c) → ΣPathP (transportRefl a , uaβ f c) })
 
--- Once the two equivalence equalities are filled, univalence identifies the
--- explicit edges with the compiler edges.  These are the receipts that were
--- absent from the previous proposal.
+-- Univalence identifies the explicit edges with the compiler edges.
 
 topIsCompiled : (e : A ≃ B) (C : Type ℓ)
   → topPath e C ≡ ua (leftCompiler e C)

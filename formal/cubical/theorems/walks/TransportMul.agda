@@ -7,7 +7,7 @@
 -- proves that â•'s addition, transported along `ua â•â‰CanWord`, IS
 -- schoolbook ripple-carry addition on digit words.  That is the
 -- repository's central exhibit for "place value is a chart".  It stops
--- at `+`, and until now nothing said whether the phenomenon was special
+-- at `+`, and says nothing about whether the phenomenon is special
 -- to addition.
 --
 -- It is not.  The same statement holds for `Â`:
@@ -18,7 +18,7 @@
 -- shift-and-add and never mentions â•.  So the chart carries the whole
 -- semiring, not just the monoid.
 --
--- WHY THIS WAS WORTH DOING, beyond symmetry.  The walk
+-- WHY THIS MATTERS, beyond symmetry.  The walk
 -- (`WalkBridge`) executes in the kernel and stops at
 -- frontier m â‰ˆ 8, and the reason is derived rather than measured: a walk
 -- step costs Î˜(cap m Â (next m âˆ’ m)) because a UNARY divisibility test

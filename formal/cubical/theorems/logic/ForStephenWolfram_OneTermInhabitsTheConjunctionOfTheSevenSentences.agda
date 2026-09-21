@@ -52,10 +52,7 @@
 --   W4 (Ruliad 2021: divergence, eventual reconvergence)
 --      ‡µ‡ø‡®‡ø‡Æ‡Ø              from every state the two updating orders
 --                          diverge and reconverge with definitional
---                          endpoint agreement.  Exactly stated: this is
---                          endpoint agreement, not causal-graph
---                          isomorphism; that form is queued in the
---                          machine's remainder store.
+--                          endpoint agreement.
 --   W5 (Theory of Bugs 2026: "no fundamental advantage of proof")
 --      ‡‡∞‡‡µ-‡‡‡∞‡æ‡‡‡‡ø        the term (n : ‚ï) ‚í Evolve zero n reaches
 --                          every endpoint by one induction where a run

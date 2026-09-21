@@ -3,7 +3,7 @@
 -- Two based loops expose the exact boundary between noncommuting path order
 -- and conjugacy-invariant observation.  Raw Sâ holonomy distinguishes the two
 -- orders; the fixed-point profile identifies the resulting conjugate
--- three-cycles.  No trace, Hilbert space, or continuum claim is made.
+-- three-cycles.
 
 module TwoLoopNonabelianNetwork where
 

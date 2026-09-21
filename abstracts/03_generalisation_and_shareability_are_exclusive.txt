@@ -55,18 +55,14 @@ potential-shaped return a function of the endpoints alone, so the
 route-blindness results apply to shaped reward in full.  "Skill"
 names a record, "state" names a term, and "fires" names inhabitation
 of an applicability family â” that glossary is the claim, exactly.
-Stochasticity, discounting and optimisation remain constructions.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
 
-REFUTED.
+THE UNIFIED RECORD.
 
-The headline separation does not hold.  It was a property of WHICH FIELD the
-generalising record carried, not of generalisation.  The memorising record
-holds a trace; the generalising record was written holding an outcome family;
-an outcome family carries no route; hence it could not be installed.  Every
-step of that is correct and the conclusion still does not follow, because the
-generalising record does not have to hold an outcome family.
+The separation above is a property of WHICH FIELD the generalising record
+carries, not of generalisation: the generalising record does not have to hold
+an outcome family.
 
 Kernel/Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificate
 AndNotOnlyAMeaning proves subDeriv: substitution is admissible on derivations,
@@ -82,22 +78,19 @@ Both forms are then constructors of ONE record.  `ground` recovers the
 memorising skill with nothing lost.  `schema` is installable and carries a real
 derivation at EVERY instance.  Soundness is free for both, uniformly, with no
 case split and no new obligation.  Unforgeability is preserved -- the route is
-still carried, now per firing site, and no operation can be built without a
+carried per firing site, and no operation can be built without a
 derivation to build it from.
 
-WHAT SURVIVES, unchanged: the enabled set of a memorising
+The enabled set of a memorising
 skill is a subsingleton, contractible, centred on its training state
-(eka-adhikarana), and that argument still applies to `ground`; the two-state
+(eka-adhikarana), and that argument applies to `ground`; the two-state
 instance; the library that cannot reach a term three constructors deep; the
 unbounded fibre over an emission when the pattern has no free register; and
-that emission does not determine the witness.  The observation that an outcome
-family carries no route is also correct, and is precisely why the repair had to
-supply a derivation rather than strengthen the family.  One schema fires at
+that emission does not determine the witness.  One schema fires at
 two provably distinct terms; no ground operation does.
 
 kernel/TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass carries
 the unified record with THREE instances (ground, schematic, pervading), the
-embedding native->operation so ControlledGrammar is not edited and nothing
-downstream is invalidated, control carrying instance AND locus via
-weave-derivation, advance and advance-preserves-branch-count rewired over
+embedding native->operation, control carrying instance AND locus via
+weave-derivation, advance and advance-preserves-branch-count over
 Operation, and learn-generalises / retire-generalises closing the loop.

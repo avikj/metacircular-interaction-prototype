@@ -8,14 +8,12 @@
 --            ‡µ‡ø‡∞‡‡æ‡ô‡‡ï‡, ‡µ‡‡‡‡‡‡æ‡‡ø‡‡Æ‡‡‡‡‡Ø‡ (c. 600‚ì800 CE) ; ‡‡≤‡æ‡Ø‡‡ß‡
 --            (‡Æ‡‡‡‡û‡‡‡‡µ‡®‡, ‡Æ‡‡∞‡-‡µ‡‡Ø‡æ‡ñ‡‡Ø‡æ) ‡
 --
--- THE GAP THIS CLOSES.  Two modules in this corpus each hold half of the
+-- Two modules in this corpus each hold half of the
 -- mtr story and never touched:
 --
 --   Virahanka_‚¶.agda  proves the RECURRENCE on its own fibre ‚î
 --       fiber ‡‡®‡‡¶‡ (2+n) ‚â fiber ‡‡®‡‡¶‡ (1+n) ‚ä fiber ‡‡®‡‡¶‡ n
---     over `List Bool` weighted ‡Æ‡æ‡‡‡∞‡æ(true)=1, ‡Æ‡æ‡‡‡∞‡æ(false)=2, and
---     states in its header, in as many words, "No count and no closed
---     form is proved here."
+--     over `List Bool` weighted ‡Æ‡æ‡‡‡∞‡æ(true)=1, ‡Æ‡æ‡‡‡∞‡æ(false)=2.
 --
 --   PingalaPrastara.agda  proves the CLOSED FORM ‚î
 --       matraCount : Metre n ‚â Fin (matra n)
@@ -29,7 +27,7 @@
 -- built from the alphabet identification and the fact that both fibre
 -- witnesses are propositions (‚ï is a set).  COMPOSING that bridge with
 -- PingalaPrastara.matraCount ‚î the corpus's own equivalence, transported
--- through, not re-proved ‚î supplies exactly the count ‡µ‡ø‡∞‡‡æ‡ô‡‡ï declined:
+-- through, not re-proved ‚î supplies the count of ‡µ‡ø‡∞‡‡æ‡ô‡‡ï's fibre:
 --     fiber ‡‡®‡‡¶‡ n ‚â Fin (matra n).
 --
 -- This is ‡µ‡ø‡µ‡‡ï‡‡‡‡'s move ("the two remainder records are one pair and
@@ -125,7 +123,7 @@ leftInv  (‡§∏‡•á‡§§‡•Å‡§É n) (l , p) = Œ£‚â°Prop (Œª _ ‚Üí isSet‚Ñï _ _) (‡§∏‡•Ç
 ------------------------------------------------------------------------
 -- ¬ß‡  The payoff.  Compose the bridge with Pigala's own ‡Æ‡æ‡‡‡∞‡æ‡Æ‡‡∞‡ count
 --     (matraCount, transported, not re-proved) to give ‡µ‡ø‡∞‡‡æ‡ô‡‡ï's fibre
---     the closed form his module declined to prove.
+--     its closed form.
 ------------------------------------------------------------------------
 
 ‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï-‡§ó‡§£‡§®‡§æ : (n : ‚Ñï) ‚Üí fiber ‡§õ‡§®‡•ç‡§¶‡§É n ‚âÉ Fin (matra n)

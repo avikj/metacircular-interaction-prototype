@@ -57,10 +57,7 @@
 -- `x â‰¡ 1`.  Over an ordered field where `x` is a positive exponential
 -- the two coincide, because the only positive square root of one is one.
 -- That single step â” POSITIVITY OF THE SCALE FACTOR â” is the whole of
--- what an ordered structure is needed for here, and it is the only thing
--- in this circuit that this corpus cannot supply.  Everything else, the
--- cycle, its triviality criterion, its cocycle relation, its
--- multiplicativity and its convexity, is ring algebra and is proved.
+-- what an ordered structure is needed for here.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“6 in any commutative ring, for every
 -- unit pair.

@@ -20,7 +20,7 @@
 -- a heavy head lands in the (n , k) cell (one fewer of each), a light head
 -- in the (n , suc k) cell (one fewer syllable, same heavies).  That IS
 -- Pascal's/meru's rule, and here it is an equivalence of fibers, not an
--- equation of counts.  No count and no closed form is proved.
+-- equation of counts.
 
 module MeruTantu_TheGuruCountFiberSplitsByHeadIntoTheTwoAdjacentCellsWhichIsMeruprastara where
 

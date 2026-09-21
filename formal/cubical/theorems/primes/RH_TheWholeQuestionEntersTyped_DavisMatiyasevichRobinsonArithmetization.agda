@@ -18,11 +18,10 @@
 -- square of the difference whichever side is larger.
 --
 -- WHAT THIS MODULE IS.  The statement, entire, as one type: RH below.
--- Every function in it computes.  Nothing here is proved about it, and
--- that is the point: the question now lives in the corpus as a typed
+-- Every function in it computes.  The question
+-- lives in the corpus as a typed
 -- object whose inhabitation is open.  An inhabitant would be a proof of
 -- the Riemann hypothesis; an inhabitant of its negation would refute it.
--- The type sits where the fourth position held the seat for it.
 --
 ------------------------------------------------------------------------
 

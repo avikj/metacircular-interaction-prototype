@@ -2,13 +2,12 @@
 
 ------------------------------------------------------------------------
 -- ‡‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡ ‚î incl does not section proj, and the host's own subject is
--- why.  The probe's open row (notes/SADHYA_OPEN_OBLIGATIONS.md, "host
--- enumeration", rung ‡®/‡©) asked incl (proj z) ‚â° z.  But incl includes
+-- why.  The identity incl (proj z) ‚â° z fails: incl includes
 -- the KERNEL N = {z0, z2} of proj, not a complement of it: proj z1 = e1
 -- and incl e1 = z2, so the composite carries z1 to z2 ‚î one step around
 -- the extension.  ‚/4 is a non-split extension of ‚/2 by ‚/2; a section
--- of proj through incl would split it.  The probe was asking the module
--- to refute its own reason for existing.  Road two, witness z1.
+-- of proj through incl would split it.
+-- Road two, witness z1.
 ------------------------------------------------------------------------
 
 module Ratri.Anirdharita_InflationVersusSubgroup_InclProj where

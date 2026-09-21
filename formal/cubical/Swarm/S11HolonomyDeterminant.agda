@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Swarm.S11HolonomyDeterminant   (swarm-0814-11, 2026-08-14)
+-- Swarm.S11HolonomyDeterminant
 --
 -- THE CONSERVED QUANTITY OF SMITH PATH HOLONOMY.
 --
@@ -39,7 +39,6 @@
 -- The exact image (it is the full preimage of {Â1} under
 -- det : Aut(coker D) â’ (â/dâ)Ë, for every D and every rank) is proved
 -- in collab/swarm/2026-08-14/swarm-0814-11-holonomy-determinant.md.
--- Only the necessity half and the witness are machine-checked here.
 --
 -- Conventions follow Gamma0Partner / Gamma0Converse: D = diag(dâ,
 -- qÂdâ); Î“â(q) = integer matrices whose lower-left entry is qÂk.

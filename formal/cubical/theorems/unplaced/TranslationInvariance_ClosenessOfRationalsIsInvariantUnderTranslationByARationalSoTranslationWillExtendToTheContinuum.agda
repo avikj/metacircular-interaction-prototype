@@ -25,8 +25,7 @@
 --       and |kÂz| = kÂ|z|;
 --   Â§4  THE INVARIANCE, both directions.
 --
--- SYT.  Rational arithmetic and one order lemma; the continuum itself
--- is not touched here.
+-- SYT.  Rational arithmetic and one order lemma.
 ------------------------------------------------------------------------
 
 module TranslationInvariance_ClosenessOfRationalsIsInvariantUnderTranslationByARationalSoTranslationWillExtendToTheContinuum where

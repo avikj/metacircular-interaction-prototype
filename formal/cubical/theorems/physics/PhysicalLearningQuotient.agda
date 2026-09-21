@@ -11,10 +11,6 @@
 -- the two declared ports, equality after compilation is equivalent, including
 -- proof level, to equality under every finite action word.  The coherent
 -- kernel is a strict refinement of the population kernel.
---
--- This is a theorem about the deliberately chosen Bool/Unit compiler, not a
--- construction of a learner.  It adds no noisy update, memory, instrument,
--- matrix-to-response realization, Born rule, or empirical physical claim.
 ------------------------------------------------------------------------
 
 module PhysicalLearningQuotient where

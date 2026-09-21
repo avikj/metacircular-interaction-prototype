@@ -38,9 +38,6 @@
 -- back-references), guru (largest intermediate), and mulya, sthula,
 -- bhrama, Anujna, Ankita, cakra, jaya, svavisaya, nishkriya, ubhau,
 -- avrtti, and every  theorem name below.
---
--- CHECKED: exit code quoted in the commit.  Agda 2.6.3 + cubical v0.5 in
--- this container, which is NOT the repository pin.
 ------------------------------------------------------------------------
 
 module Nirjara_SheddingAPrimitiveCostsLaghava where

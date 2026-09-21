@@ -17,8 +17,7 @@
 --             nothing is lost.  `punaragamana/` states it for a map.
 --   holonomy   go around and return changed.  Stated for a loop.
 --
--- Same object, opposite sign, two lanes of this repository, and until now
--- no line joining them.
+-- Same object, opposite sign.
 --
 -- WHY IT IS SHORT, AND WHY THAT IS THE POINT.  ¬ß‡ of ‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡:
 -- ‡‡‡ï‡‡∞‡Æ‡‡ ‡‡‡∞‡‡®‡æ ‡µ‡‡‡ø, ‡‡‡ï‡‡∞‡Æ‡‡ ‡® ‡ï‡ø‡û‡‡‡ø‡®‡ ‡®‡‡‡Ø‡‡ø.  A transport that costs

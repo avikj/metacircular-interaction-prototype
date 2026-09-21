@@ -34,7 +34,6 @@
 -- kernel modulus, the ladder's top rung and now the centralizer's
 -- vertical exhaustion all answer to the same four â” the quarter turn
 -- as the one constant of the theory.
---
 ------------------------------------------------------------------------
 
 module KendraNirvahana_EveryCentralCellwiseSymmetryIsAUniformPowerOfTheQuarterTurnTheExhaustionForTheVerticalClass where

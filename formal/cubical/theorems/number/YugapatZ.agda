@@ -8,12 +8,12 @@
 -- à•ààŸààŸà•-àà¾à•ààà), àà°ààà¿ X = râÂ(cÂv) + râÂ(bÂu) à¯àà—ààà X â‰ˆ râ [b], X â‰ˆ râ [c] à
 -- à—àà¿àà àµà²à¯-àà¾à§à•àà¨ (solve âCommRing) ; àà¾àà•àààµà pos 1-à°àà¿àà, bz-ààà°àà¿àààà¾àà¨àà¨ à
 --
--- (The existence direction of CRT that Yugapat.agda left avaktavya for wanting
--- rââˆ’râ (signed) is here PROVED over â: given a B©zout witness bÂu+cÂv=1 (the
+-- (The existence direction of CRT, needing
+-- rââˆ’râ (signed), proved over â: given a B©zout witness bÂu+cÂv=1 (the
 -- kuaka's coprimality certificate), X = râÂ(cÂv)+râÂ(bÂu) simultaneously
 -- solves X â‰ˆ râ [b] and X â‰ˆ râ [c].  The algebra is the â ring solver, kept
 -- free of bare `pos 1` by substituting pos 1 â¦ bÂu+cÂv via the witness â” the
--- move around the Mdhava-lane finding that the solver mishandles `pos 1`.)
+-- move around the solver's mishandling of `pos 1`.)
 --
 -- ààà°à‹àà¾ààà¿ : àà°àà¯ààŸà, à—àà¿ààà¾à¦à à©à¨â“à©à© (à•ààŸààŸà•à, à—àà°à-à¯ààà¿) ; ààà°ààà®à—ààààà (àà¾àµà¨à¾/
 -- àà°àààà°-ààà°àà®àààµà®à) à  â•-ààà°à•àààà-à¦à¿à•à Yugapat.agda-à®à§àà¯à à

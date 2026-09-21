@@ -12,9 +12,7 @@
 -- ‡∞‡‡ (rpa, "form") + ‡‡Æ‡‡æ (samat, "sameness") ‚î and is BUILT HERE, not
 -- attributed to a source: the object it names (an equivalence of two type
 -- encodings) is not an Indian-source result and none is claimed for it.
--- This follows note 2 of the file-naming rule in CLAUDE.md ("Where the
--- mathematics genuinely originates elsewhere, say so in the header rather
--- than inventing a  label").  The substrate ‚î `transport`, `Iso`,
+-- than inventing a  The substrate ‚î `transport`, `Iso`,
 -- and the fact that a path between types carries structure both ways ‚î is
 -- Voevodsky's, this repository's one admitted non-Indian frame.
 --

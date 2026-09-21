@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- FactoryVICoolingKill
 --
--- Theorem Factory VI, T110 (insufficiency â” the STRATEGY KILL), as a
--- supplying the phase-bound arithmetic.)
+-- Theorem Factory VI, T110 (insufficiency â” the STRATEGY KILL).
 --
 -- T110 claims: for 0 < Î´ < 1/2 there is an ABSTRACT UNITLESS family with
 --   â count â‰ X/logÂ²X,
@@ -31,7 +30,7 @@
 --   (c) at Î² = 3,  Z_3 = M_X Â a_X^{âˆ’3} = M_X / a_X^3 = M_X / X â‰ 1/logÂ²X
 --       â’ 0, with NO unit surviving (every a_X > 1).
 --
--- WHAT IS CERTIFIED HERE (kernel, --safe, no postulates/holes):
+-- WHAT IS CERTIFIED HERE:
 --   1.  ^-+ and the geometric recurrence  a^{suc Î²} = aÂa^Î²  : Z is one
 --       geometric term.
 --   2.  LOG-CONVEXITY, general, exact:  a^Î² Â a^{Î²+2} â‰¡ (a^{Î²+1})Â²  for
@@ -184,11 +183,3 @@ cm-maximal = mkCM 1000 10 999 refl refl refl refl refl refl
 
 -- Z_0 = 999 is essentially the whole X = 1000 of mass, yet Z_3 = 999/1000
 -- < 1: unit-scale positivity at Î² = 0 coexists with vanishing at Î² = 1/Î´.
-
-------------------------------------------------------------------------
--- STATUS.  All terms above type-check under --cubical --safe with no
--- postulates and no holes.  Together they exhibit an abstract unitless
--- family (count â‰ X/logÂ²X, roughness a_X > 1, log-convex hence completely
--- monotone Z_Î², large Z_0) with Z_{1/Î´} â’ 0 â” the T110 strategy kill,
--- established by exhibition.
-------------------------------------------------------------------------

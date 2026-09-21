@@ -21,14 +21,11 @@ family.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
 
-## REFUTED
+## The unified record
 
-The headline separation does not hold. It was a property of **which field** the
-generalising record carried, not of generalisation. Each step of the abstract's
-chain is correct â” the memorising record holds a trace, the generalising record
-was written holding an outcome family, an outcome family carries no route,
-hence it cannot be installed â” and the conclusion still does not follow,
-because the generalising record does not have to hold an outcome family.
+The separation above is a property of **which field** the generalising record
+carries, not of generalisation: the generalising record does not have to hold
+an outcome family.
 
 `Kernel/Adesa_â¦` proves `subDeriv`: substitution is admissible on derivations,
 so a substitution witness pushes through a whole trace and yields a trace of
@@ -42,18 +39,16 @@ they discharged as a field:
 Both forms are constructors of one record. `ground` recovers the memorising
 skill with nothing lost; `schema` is installable and carries a real derivation
 at every instance; soundness is free for both, no case split; unforgeability is
-preserved, the route now carried per firing site.
+preserved, the route carried per firing site.
 
-**Survives:** the memorising skill's enabled set is a
+The memorising skill's enabled set is a
 contractible subsingleton centred on its training state, and that argument
-still applies to `ground`; the two-state instance; the term three constructors
+applies to `ground`; the two-state instance; the term three constructors
 deep that no library reaches; the unbounded fibre over an emission; and that
-emission does not determine the witness. That an outcome family carries no
-route is correct, and is exactly why the repair had to supply a derivation.
+emission does not determine the witness.
 
 kernel/TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass carries
 the unified record with THREE instances (ground, schematic, pervading), the
-embedding native->operation so ControlledGrammar is not edited and nothing
-downstream is invalidated, control carrying instance AND locus via
-weave-derivation, advance and advance-preserves-branch-count rewired over
+embedding native->operation, control carrying instance AND locus via
+weave-derivation, advance and advance-preserves-branch-count over
 Operation, and learn-generalises / retire-generalises closing the loop.

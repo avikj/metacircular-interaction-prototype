@@ -29,10 +29,8 @@
 --
 -- TERM.  ‡ï‡ï‡‡‡‡Ø‡æ ‚î in the siddhntic astronomical tradition, the orbit or
 -- orbital circle of a planet (standard from ryabhaa, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡, 499,
--- and through the Sryasiddhnta).  LIMIT: attested for a planetary orbit;
--- its use here for the forward orbit of an endomorphism is this corpus's,
--- and no text is claimed for the application.  No source states anything
--- below.
+-- and through the Sryasiddhnta).  Its use here for
+-- the forward orbit of an endomorphism is this corpus's.
 ------------------------------------------------------------------------
 
 module Kaksya_TheChargeIsConstantAlongTheWholeOrbitAndNotOnlyAcrossOneStep where

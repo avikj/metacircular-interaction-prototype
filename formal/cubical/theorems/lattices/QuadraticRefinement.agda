@@ -12,7 +12,7 @@
 --
 --     q (a + b)  =  q a  xor  q b  xor  B a b .
 --
--- Everything my Python witnesses computed about the two-qubit case is
+-- Everything the Python witnesses computed about the two-qubit case is
 -- downstream of two facts proved here:
 --
 --   * `difference-additive`: any two refinements of the *same* B differ
@@ -29,10 +29,6 @@
 -- Also proved: the concrete one-qubit refinement q(x,z) = x AND z has
 -- polarization the one-qubit symplectic form, and refinements add
 -- along a direct sum.  Iterating the sum gives every n.
---
--- Scope.  This is the F_2 quadratic/symplectic bookkeeping only.  It
--- does not formalize operators, measurement, memory, or contextuality;
--- those live in machinery/pauli_context_memory.py and the notes.  See
 ------------------------------------------------------------------------
 
 module QuadraticRefinement where

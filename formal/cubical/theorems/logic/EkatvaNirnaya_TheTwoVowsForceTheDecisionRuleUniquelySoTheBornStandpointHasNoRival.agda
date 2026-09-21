@@ -2,10 +2,10 @@
 
 -- EkatvaNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival
 --
--- ‡‡ï‡‡‡µ-‡®‡ø‡∞‡‡‡Ø‡ ‚î ekatva, uniqueness; niraya, the decision.  Compound
--- built here, 2026-08-23, for program ‡ of YugaParivartana (measurement
+-- ‡‡ï‡‡‡µ-‡®‡ø‡∞‡‡‡Ø‡ ‚î ekatva, uniqueness; niraya, the decision.
+-- For program ‡ of YugaParivartana (measurement
 -- as conflict resolution).  Sources as AvaktavyaPrasava's header gives
--- them, and nothing further claimed of any: Ktyyana's vrttika on
+-- them: Ktyyana's vrttika on
 -- 1.4.2 (the configuration), Umsvti 5.31 (asserted/unasserted),
 -- Siddhasena, Sanmatitarka 1.21 (durnaya ‚î the vow this theorem shows
 -- is load-bearing).

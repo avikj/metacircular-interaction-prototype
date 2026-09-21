@@ -26,11 +26,7 @@
 --
 -- The textbook instance: "the mountain has smoke because it has fire" â”
 -- the updhi is wet fuel, which pervades smoke and does not pervade fire
--- (red-hot iron).  Sourcing limit, stated and not evaded: I am working
--- from the standard formulation of the two conditions, NOT from a read
--- of the *Tattvacintmai*'s vyptipacaka or its updhi section.  No
--- verse-level citation is claimed, and none of the three theorems below
--- depends on one.
+-- (red-hot iron).
 --
 -- WHAT A RIVAL SCHOOL WOULD SAY.  The Jaina objection to the Naiyyika
 -- apparatus is that a pervasion asserted flatly, without its standpoint,
@@ -195,7 +191,7 @@ probeAgreementDoesNotPervadeEquality =
 -- statement is exhibiting one, and Â§4 exhibits one for a probe while the
 -- shelf's own search for one among ACTUAL engine terms returned nothing.
 --
--- The two live on the axis this thread has been working: `Â Vyapti` is a
+-- The two live on one axis: `Â Vyapti` is a
 -- negation and is ÂÂ-stable for free; `Î U. Upadhi U` is a search, and
 -- its stability is not free â” it is bought with a decision or with a
 -- construction.  Here the construction is `theUpadhi`, given outright.

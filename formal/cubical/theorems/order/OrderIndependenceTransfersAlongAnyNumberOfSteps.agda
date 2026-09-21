@@ -3,14 +3,8 @@
 ------------------------------------------------------------------------
 -- OrderIndependenceTransfersAlongAnyNumberOfSteps
 --
--- `CurvatureCannotLiveOnTheImageOfAnExactCompression` closed with:
---
---   "ORDERS: two steps are treated, so 'for every order' is here just
---    'the two orders of two steps'; nothing is proved for `n` steps,
---    and the `n`-step statement needs the two-step case plus an
---    induction that is not written."
---
--- The induction is written, and it turns out NOT to need the two-step
+-- The n-step generalisation of `CurvatureCannotLiveOnTheImageOfAnExactCompression`.
+-- The induction turns out NOT to need the two-step
 -- case at all â” which is the finding.  What the two-step proof did by
 -- pasting three squares, the n-step proof does by pasting ONE square
 -- per step and then using the uncompressed order-independence once.

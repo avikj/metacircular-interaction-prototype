@@ -8,9 +8,7 @@
 -- precomposition.  Frame independence is conservation of the paired result,
 -- not the assertion that observer-relative facts are literally equal.
 --
--- This is structural input for relational reference-frame models.  It does
--- not assert that every physical observable is frame independent, nor does it
--- supply quantum dynamics or probabilities.
+-- This is structural input for relational reference-frame models.
 ------------------------------------------------------------------------
 
 module RelativeFrameObservable where

@@ -39,9 +39,7 @@ record SymmetryCapability (n : ℕ) : Type₁ where
 symmetryPipeline : (n : ℕ) → (Fin n ≃ Fin n) → SymmetryCapability n
 SymmetryCapability.symmetry (symmetryPipeline n e) = e
 
--- The open joint is named only by its required interface.  The present
--- repository has equality of response functions but no installed quotient
--- carrier satisfying this exact classification law.
+-- The joint is named only by its required interface.
 record ObservationalClassCompiler (n : ℕ)
                                   (observation : Fin n → ℕ) : Type₁ where
   field

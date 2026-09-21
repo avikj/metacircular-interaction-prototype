@@ -12,8 +12,7 @@
 -- Nothing new is proved here by hand: the module is pure composition â”
 -- `stabilizes` transported to the endpoint, `det` bookkeeping
 -- (multiplicativity, adjugate, scaling), and Gamma0Converse.membership
--- consuming the result.  The tower measured on finite windows in
--- August stands as one typed statement: the event set of a Smith
+-- consuming the result.  One typed statement: the event set of a Smith
 -- normalization is a Î“â(q)-torsor, and every clause is a program.
 ------------------------------------------------------------------------
 

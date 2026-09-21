@@ -11,7 +11,7 @@
 -- the extent of the search; an inference with an undetected updhi is not
 -- knowledge, however many instances stand behind it.
 --
--- `Yantra.Shodhita` and `Yantra.Ekam` in 944676e4 hold a gate at
+-- `Yantra.Shodhita` and `Yantra.Ekam` hold a gate at
 -- every step of a Mertens walk, `|M(k)|Â² â‰ k`, and report it as
 -- "the mertens fragment of RH" and "RH-fragment: |M(k)| â‰ âˆk for all
 -- k â‰ 400".  Two things are wrong with that label and one thing is right.

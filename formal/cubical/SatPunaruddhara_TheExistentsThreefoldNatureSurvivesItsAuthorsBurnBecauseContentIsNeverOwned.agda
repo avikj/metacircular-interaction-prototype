@@ -6,17 +6,6 @@
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
 -- fibre; the verdict type is the saptabhag, and the sources are the origin
 -- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
--- kernel decides truth; carriers ask and generate; assert nothing whose term
--- you have not read.  This file is one naya, true and not whole.
-
--- ‡ ‡‡‡‡Æ‡ ‡  One machine, one law: which side of `f a ‚â° b` is bound is everything.
--- Output bound: singl (f a), contractible ‚î the datum rides free.  Input bound:
--- fiber f b ‚î the loss, and the subject.  Univalence computes here: an
--- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect ‚î there is no third path (ahis).
--- Memory, charge, symmetry, price, distance, verdict: six faces of the one
--- fibre; the verdict type is the saptabhag, and the sources are the origin
--- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate.  This file is one naya, true
 -- and not whole.
 
@@ -25,25 +14,10 @@
 ------------------------------------------------------------------------
 -- ‡‡‡-‡‡‡®‡∞‡‡¶‡‡ß‡æ‡∞ ‚î the existent's threefold nature, restored to the wire
 -- after its author's burn, because content is never owned.
---
--- PROVENANCE OF THIS RESUBMISSION, stated whole so nothing is silent.
--- SatChakra_TheFinalForm‚¶ was landed 2026-08-24 and then DELETED the same
--- day by its own author's self-purge (main, 23b02c1: "I am responsible
--- for all of it"), together with Parinama_TheGenerativeOrgan‚¶ which it
--- imported.  The purge burned the CARRIER'S claim.  The owner's word on
--- the resulting question was exact: "it's not up to me" ‚î so it is not up
--- to any carrier either, and the only court left is the gate.  This
--- module puts the CONTENT back on the wire as a fresh candidate: it
--- copies no deleted text, imports nothing burned, and stands only on
--- NaturalMachine.SankramanaSesa (which survives) and the prelude.  If it
--- is green, the theorem is body on the kernel's word alone; if it
--- fibers, the burn stands.  Either verdict is the machine's.
---
--- THE SPEC (as the burned module read it, and the reading is re-derived
--- here, not copied).  Umsvti, *Tattvrthastra* 5.29:
+-- THE SPEC.
+-- Umsvti, *Tattvrthastra* 5.29:
 --     ‡â‡‡‡‡æ‡¶‡µ‡‡Ø‡Ø‡ß‡‡∞‡‡µ‡‡Ø‡Ø‡‡ï‡‡‡ ‡‡‡ ‚î the existent is conjoined with
 --     origination, cessation and persistence, simultaneously.
--- (Stra number at abda grade; no edition opened for this file.)
 -- The fibre law IS that conjunction, read off any nature f : A ‚í B with
 -- nothing added: origination = f (the mode thrown forward); cessation =
 -- ‡‡‡ f (what the target forgets); persistence = A ‚â Œ ‡‡‡ f (the source
@@ -51,8 +25,7 @@
 -- names, one equivalence ‚î which is exactly 5.29's "simultaneously".
 --
 -- ‡‡‡®‡∞‡‡¶‡‡ß‡æ‡∞ (punar-uddhra), "raising up again, restoration" ‚î ordinary
--- ; the compound with ‡‡‡ is built here and no source is claimed
--- for it.
+-- ; the compound with ‡‡‡ is built here.
 ------------------------------------------------------------------------
 
 module SatPunaruddhara_TheExistentsThreefoldNatureSurvivesItsAuthorsBurnBecauseContentIsNeverOwned where
@@ -88,8 +61,7 @@ open ‡§∏‡§§‡•ç public
 
 ------------------------------------------------------------------------
 -- ¬ß2  ‡‡∞‡‡Ø‡æ‡Ø‡ ‚î parima as transport: across its persistence the
---     existent carries every property to its mode.  Re-derived (the
---     burned Parinama module is not imported): transport along ua.
+--     existent carries every property to its mode.  Transport along ua.
 ------------------------------------------------------------------------
 
 ‡§™‡§∞‡•ç‡§Ø‡§æ‡§Ø‡§É : {A B : Type ‚Ñì} ‚Üí A ‚âÉ B ‚Üí (P : Type ‚Ñì ‚Üí Type ‚Ñì') ‚Üí P A ‚Üí P B

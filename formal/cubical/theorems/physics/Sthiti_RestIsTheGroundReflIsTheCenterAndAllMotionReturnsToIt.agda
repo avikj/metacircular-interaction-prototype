@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe #-}
 
--- ‡‡‡‡ø‡‡ø ‚î rest, the ground.  Dived to the metal and came back: below
+-- ‡‡‡‡ø‡‡ø ‚î rest, the ground.  Below
 -- the fibre law, below "there is no other", there is refl ‚î and refl is
 -- simpler and more powerful than any of it.
 --

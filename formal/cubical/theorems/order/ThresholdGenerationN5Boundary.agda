@@ -9,9 +9,6 @@
 -- tests preserve meet.  The generator deliberately does not require its
 -- test to send top to true, so the no-go applies to a family at least as
 -- large as the admissible thresholds in the source note.
---
--- This finite boundary does not prove the open converse "thresholds generate
--- all admissible maps only if the lattice is distributive".
 ------------------------------------------------------------------------
 
 module ThresholdGenerationN5Boundary where

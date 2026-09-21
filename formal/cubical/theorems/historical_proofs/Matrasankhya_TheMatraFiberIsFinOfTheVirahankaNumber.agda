@@ -24,10 +24,9 @@
 -- backwards, so a sum of two Fins is one Fin of the sum ‚î which is why the
 -- census ADDS, exactly the meru's building rule).
 --
--- Scope: this does NOT claim Virahka wrote a bijection to Fin; it claims
--- the mtr-count he named is the cardinality of this fiber, made a type.
+-- The mtr-count named above is the cardinality of this fiber, made a type.
 -- TERM ‡Æ‡æ‡‡‡∞‡æ-‡‡ô‡‡ñ‡‡Ø‡æ (mtr-sakhy), the count of mtr-metres;
--- substrate cubical (Voevodsky).  Written 2026-08-23.
+-- substrate cubical (Voevodsky).
 ------------------------------------------------------------------------
 
 module Matracount_TheMatraFiberIsFinOfTheVirahankaNumber where

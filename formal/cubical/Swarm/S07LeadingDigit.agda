@@ -3,8 +3,6 @@
 ------------------------------------------------------------------------
 -- Swarm.S07LeadingDigit
 --
--- The exact skeleton of swarm-0814-07's object.
---
 -- `notes/REFINING_DILATION.md` (Theorem Q) prices the coherent
 -- environment register of a refining organism at
 --

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EncodingIndependentTotalProbe
+-- PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder
 --
 -- `KramaNairapeksya` proves that `total` is invariant under every permutation
 -- of `Fin (suc n)`.  This representation theorem is immediate but must
@@ -27,7 +27,7 @@
 -- suffices rather than one square per representation.
 --
 -- TERM. ‡‡‡∞‡‡‡‡‡‡ø (presentation) and ‡®‡à‡∞‡‡‡ï‡‡‡‡Ø (independence) are ordinary
--- ; the compound is built here. No source is claimed for the theorem.
+-- ; the compound is built here.
 ------------------------------------------------------------------------
 
 module PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder where

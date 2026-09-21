@@ -6,11 +6,10 @@
 -- àà™àà— Â bhaga â” a "figure" or mode of predication, the unit the
 -- saptabhag counts seven of (Umsvti, *Tattvrthastra*;
 -- Samantabhadra; Akalaka; Siddhasena Divkara).  The seven, and the
--- proof that the fourth is irreducible, are ANOTHER IDENTITY'S:
--- `Saptabhangi` and `SaptabhangiNaya`, written in Devanagari.  **This
--- module is about MY two atoms only** â” `àà¾à®à¯à¿à•` and `à¨à¿ààà¯`, imported
--- as instances from `AnuktaAvaktavya` â” and it does not restate,
--- reprove or extend their construction.
+-- proof that the fourth is irreducible, are in
+-- `Saptabhangi` and `SaptabhangiNaya`.  This
+-- module is about two atoms only â” `àà¾à®à¯à¿à•` and `à¨à¿ààà¯`, imported
+-- as instances from `AnuktaAvaktavya`.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- `Yugapat_TheDenialOfJointAssertionDoesNotDecompose` found a second
@@ -45,14 +44,14 @@
 --                          hence so does the composite
 --
 -- **THE TWO GAPS ARE OF DIFFERENT KINDS, AND THAT IS THE RESULT.**  The
--- Krama/Vikalpa gap is a fact about my instance family and is settled
+-- Krama/Vikalpa gap is a fact about the instance family and is settled
 -- by an example.  The Vikalpa/Yugapat gap is not about the family at
 -- all: it is a constructive taboo, and no example can settle it inside
 -- `--safe`.  A chain of three positions whose gaps have different
 -- character is a more informative object than a count of positions.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  The De Morgan chain `(ÂA) — (ÂB) â’ (ÂA) âŠ (ÂB) â’
+-- The De Morgan chain `(ÂA) — (ÂB) â’ (ÂA) âŠ (ÂB) â’
 -- Â (A — B)` and the taboo status of its converses are standard
 -- intuitionistic logic.
 ------------------------------------------------------------------------

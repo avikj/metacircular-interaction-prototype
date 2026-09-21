@@ -35,7 +35,6 @@
 -- and is not quotiented by that, and this is the first place where the
 -- missing quotient has visible consequences: minimality is not a
 -- property of the RATE, only of the PAIR.
---
 ------------------------------------------------------------------------
 
 module MinimalityOfABoundaryPopulationNeedsLowestTerms where

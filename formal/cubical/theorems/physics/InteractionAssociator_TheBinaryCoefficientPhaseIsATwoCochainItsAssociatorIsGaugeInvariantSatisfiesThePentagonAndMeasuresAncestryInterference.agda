@@ -35,12 +35,6 @@
 -- Ω ≠ 1 obstructs flattening c to an associative cocycle by a mode
 -- gauge, and nothing more.  The pentagon says the comparisons around
 -- the associahedron are coherent.
---
--- SYT.  Ring identities in the values of c, over an abstract abelian
--- group of modes; the Waleffe coefficient itself, its helical geometry,
--- and the Navier�Stokes equation are NOT here.  The numerical values on
--- the orthogonal cube were computed outside the kernel and enter only
--- as the instance in §4.
 ------------------------------------------------------------------------
 
 module InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference where

@@ -9,11 +9,6 @@
 -- into an inhabited witness type for this regular representation.  Reading
 -- that expression as a structured compression defect additionally requires
 -- the enclosing idempotent/complement/semigroup laws.
---
--- This does not extract a state in an arbitrary intended module or carrier.
--- Such an extraction needs a declared action and a witness-producing
--- faithfulness/nontriviality hypothesis.  In particular, this leaf does not
--- close the general T18.5 witness direction.
 ------------------------------------------------------------------------
 
 module CompressionDefectRegularWitness where

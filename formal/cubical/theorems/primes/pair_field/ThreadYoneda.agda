@@ -23,12 +23,12 @@
 -- the sum of two exact relations (shared centre, shared radius).
 -- Neither is closed under composition with the other: a shared-centre
 -- thread followed by a shared-radius thread is in general neither.  So
--- the generators do NOT form a category, and §5 of that file said so.
+-- the generators do NOT form a category.
 -- `Weave` below is the reflexive-transitive closure -- the free category
 -- on the two families -- which is the smallest honest repair and is
 -- what makes composition, and therefore Yoneda, available at all.
 --
--- WHAT IS PROVED (all `--safe`, no postulates, no holes):
+-- WHAT IS PROVED:
 --
 --   * `Weave` is a category: identity on both sides, associativity.
 --   * `yonedaTo`   : a thread-path induces a transformation of profiles,
@@ -40,10 +40,8 @@
 --     on natural transformations.
 --
 -- WHY IT MATTERS HERE.  D0025 §16 is the operative sentence: a local
--- event must propagate through the whole Net by transport/naturality,
--- and §27 identifies the absence of that propagation as the entire
--- failure of the machine work.  Naturality is that propagation, and
--- this file is where it stops being a word.
+-- event must propagate through the whole Net by transport/naturality.
+-- Naturality is that propagation.
 ------------------------------------------------------------------------
 
 module ThreadYoneda where

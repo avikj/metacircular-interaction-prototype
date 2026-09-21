@@ -126,9 +126,3 @@ projectivizingRewrite .CertifiedRewrite.preservesDefect = rewrite-preserves-defe
 projectivizingRewrite .CertifiedRewrite.preservesNucleus = rewrite-preserves-nucleus
 projectivizingRewrite .CertifiedRewrite.preservesObservation =
   rewrite-preserves-observation
-
-------------------------------------------------------------------------
--- Boundary: this is a finite common kernel.  It does not claim autonomous
--- theorem invention, a universal optimizer, a full quantum computer, or that
--- projectivization preserves observations not listed in CertifiedRewrite.
-------------------------------------------------------------------------

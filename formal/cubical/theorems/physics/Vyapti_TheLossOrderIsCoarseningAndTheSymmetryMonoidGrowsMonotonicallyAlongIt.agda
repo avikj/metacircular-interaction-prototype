@@ -59,28 +59,11 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
--- **There is no thermodynamics here.  None.**  No entropy, no measure,
--- no temperature, no Boltzmann constant, no Hilbert space, no unitarity,
--- no joules, and NO NUMBER OF ANY KIND appears below.  Landauer's
--- principle is named in this header as the MOTIVE for asking which step
--- is non-injective; nothing below derives it, bounds it, or implies it,
--- and no physical consequence follows from any term here.  What survives
--- the stripping is combinatorial and typal ‚î *the coarser observation
--- admits more invariant flows, and an erasing step is a fibre that is
--- not a proposition* ‚î and saying exactly that much, and no more, is
--- what the file is for.
---
 -- **The order is a preorder, not a partial order.**  `‡µ‡‡Ø‡æ‡‡‡®‡ã‡‡ø` has
 -- reflexivity and transitivity (¬ß‡®) and antisymmetry fails:
 -- two maps can factor through each other without being equal.
--- Nothing below quotients by it.
 --
--- **¬ß‡© and ¬ß‡ are one direction only.**  That `‡‡‡∞‡ï‡‡‡‡Æ‡ f ‚ä ‡‡‡∞‡ï‡‡‡‡Æ‡ g`
--- implies `f ‡µ‡‡Ø‡æ‡‡‡®‡ã‡‡ø g` is FALSE in general and no weakened converse is
--- offered.  Likewise ¬ß‡¬‡®: `f a ‚â° f a' ‚í g a ‚â° g a'` follows from the
--- order.
---
--- **¬ß‡ is not a characterisation of non-injectivity.**  `isEquiv Œ¶ ‚í
+-- `isEquiv Œ¶ ‚í
 -- ¬ ‡µ‡ø‡‡‡Æ‡‡‡ø‡ Œ¶` is proved; the converse ‚î that a non-equivalence
 -- exhibits a ‡µ‡ø‡‡‡Æ‡‡‡ø‡ ‚î is CLASSICAL (it needs a collision to be found,
 -- and a ¬(a ‚â° a') to be produced from ¬(a ‚â° a') failing) and is not
@@ -89,12 +72,7 @@
 -- **Everything lives at ONE universe level.**  Not for depth: `Dhruva`
 -- declares `‡‡‡∞‡ï‡‡‡‡Æ‡` in a telescope `{A B : Type ‚ì}` with a single ‚ì,
 -- and this file reuses that definition rather than restating it, so it
--- inherits the restriction.  Nothing below depends on the levels being
--- equal and the general statement is a mechanical widening of Dhruva's
--- telescope.
---
--- **No  source states anything below**, and no Nyya doctrine is
--- being formalised: see the TERM note.
+-- inherits the restriction.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- TERM.  ‡µ‡‡Ø‡æ‡‡‡‡ø ¬ vypti ‚î pervasion, the relation that makes an
@@ -102,14 +80,14 @@
 -- *‡®‡‡Ø‡æ‡Ø‡‡‡‡‡∞* (~2nd c. CE); the definitional apparatus, the
 -- ‡µ‡‡Ø‡æ‡‡‡‡ø‡‡û‡‡‡ï, is ‡ó‡ô‡‡ó‡‡, *‡‡‡‡‡‡µ‡‡ø‡®‡‡‡æ‡Æ‡‡ø* (~1325).
 --
--- LIMIT, stated because the resemblance is close enough to mislead.  The
+-- The
 -- Naiyyika relation holds between two PROPERTIES (sdhya pervades
 -- hetu) and its whole difficulty is the ‡â‡‡æ‡ß‡ø, the defeating condition
 -- ‚î Gagea's five definitions exist because the naive one fails.  What
 -- is defined below is a containment between two MAPS, it has no updhi,
 -- and it is not defeasible.  The word is borrowed for the shape
--- "wherever the one identifies, the other identifies"; the doctrine is
--- NOT being formalised and Gagea is credited with nothing here.  A
+-- "wherever the one identifies, the other identifies".
+-- A
 -- Naiyyika would also refuse the substrate outright: cubical type
 -- theory (Voevodsky) is this repository's one admitted non-Indian frame.
 ------------------------------------------------------------------------
@@ -245,8 +223,7 @@ _‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§®‡•ã‡§§‡§ø_ {A = A} {B = B} {C = C} f g =
 -- ‡ ¬ ‡µ‡ø‡‡‡Æ‡‡‡ø‡ ‚î FORGETTING AS A TYPE.
 --
 -- Landauer's bound is about an erasing, i.e. non-injective, step.  Here
--- the erasing is a type and never a number.  See the fence: nothing in
--- this section is thermodynamic.
+-- the erasing is a type and never a number.
 ------------------------------------------------------------------------
 
 ‡§µ‡§ø‡§∏‡•ç‡§Æ‡•É‡§§‡§ø‡§É : {A : Type ‚Ñì} ‚Üí (A ‚Üí A) ‚Üí Type ‚Ñì
@@ -286,12 +263,3 @@ _‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§®‡•ã‡§§‡§ø_ {A = A} {B = B} {C = C} f g =
 ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£‡§Ç-‡§§‡§®‡•ç‡§§‡•å-‡§∏‡•ç‡§•‡§ø‡§§‡§Æ‡•ç cons (a , a' , q , n) =
   a' , sym (‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£‡§Ç-‡§§‡§®‡•ç‡§§‡•å cons a a' q)
 
-------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î scope.
---
---  * `‡µ‡ø‡‡‡Æ‡‡‡ø‡` uses a bare `¬ (a ‚â° a')`, which is the weak apartness.
---  * There is no size notion
---    in this file at all, deliberately; supplying one (a cardinality, a
---    measure) is exactly where a fitted constant would enter, and the
---    order is what makes the statement possible without one.
-------------------------------------------------------------------------

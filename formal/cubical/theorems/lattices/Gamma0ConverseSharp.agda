@@ -33,7 +33,7 @@
 --
 --     which is `hÎµ` on the nose.  So on the whole intended domain
 --     (q = dâ/dâ a nonzero level) `hÎµ` is not merely unused: it is a
---     THEOREM.  Any statement in this lane whose hypotheses already
+--     THEOREM.  Any statement here whose hypotheses already
 --     include the stabilization equation carries `hÎµ` as a consequence
 --     of its own other hypotheses â” `Gamma0Converse` here, and
 --     `Gamma0PartnerRigidity` Â§2 inside its inner `hstab` module.
@@ -54,9 +54,6 @@
 -- Summary: the Î“â converse is a statement about Mâ(â), and the group
 -- GLâ(â) it is usually stated inside is recovered for free off the
 -- degenerate stratum and is simply wrong to impose on it.
---
--- Nothing in `Gamma0Converse.agda` or `Gamma0Partner.agda` is edited by
--- this module; it only imports them.
 ------------------------------------------------------------------------
 
 module Gamma0ConverseSharp where

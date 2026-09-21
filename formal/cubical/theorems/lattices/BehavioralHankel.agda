@@ -56,5 +56,4 @@ active-mode-changes :
     ≡ Argmin.witness contextual-active-true) → ⊥
 active-mode-changes = active-witnesses-differ
 
--- A finite observation therefore certifies only the selected cut semantics;
--- it does not assert a converse for arbitrary weighted automata.
+-- A finite observation therefore certifies only the selected cut semantics.

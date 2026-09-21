@@ -83,7 +83,6 @@
 --   Gen-neutral               CONSERVATION: closure of neutral is neutral
 --   closure-no-separator      hence FE inference cannot manufacture a
 --                             separator from neutral readings
---
 ------------------------------------------------------------------------
 
 module OracleQueries where
@@ -186,7 +185,7 @@ obsQ Ïƒ qs = map (ans Ïƒ) qs
 -- function, at every pair of arguments.  So the FE oracle is not merely
 -- parity-blind: it is blind to EVERYTHING, distinguishing no two members
 -- of the class at all.  This is the strongest possible failure of
--- cf-sakshi's predicted identification â” the FE side of BARRIER's
+-- the predicted identification â” the FE side of BARRIER's
 -- distinction is not the charged side, it is a degenerate sub-case of the
 -- neutral side.
 ------------------------------------------------------------------------

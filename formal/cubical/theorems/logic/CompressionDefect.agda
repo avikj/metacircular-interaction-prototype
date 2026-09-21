@@ -70,8 +70,7 @@
 --    amplitude.  The converse requires cancelling `K_{t+s}` from both
 --    sides, which is available in a ring, but the resulting statement is
 --    "the defect is 0" â” the same thing â” rather than anything about
---    excursions.  The excursion reading is prose; only the algebra is
---    checked.
+--    excursions.
 --
 ------------------------------------------------------------------------
 

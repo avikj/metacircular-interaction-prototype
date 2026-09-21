@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- WhereTheCircleSplits
 --
--- A check that should have been run before `PythagoreanTransition` was
--- celebrated, and is run now: **is the circle actually a circle?**
+-- **Is the circle actually a circle?**
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE TRIVIALISING POSSIBILITY

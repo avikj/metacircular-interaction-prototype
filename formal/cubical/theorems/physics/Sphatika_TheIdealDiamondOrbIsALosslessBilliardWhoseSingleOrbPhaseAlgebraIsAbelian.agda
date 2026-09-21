@@ -5,10 +5,9 @@
 --          WhoseSingleOrbPhaseAlgebraIsAbelian
 --
 -- TERM.  ààààŸà¿à• Â sphaika â” rock crystal, quartz; the material of a crystal
--- ball, here the massive smooth diamond orb.  A common  word, no
--- technical-source claim.  Physics (whispering-gallery mode, circle billiard,
+-- ball, here the massive smooth diamond orb.  Physics (whispering-gallery mode, circle billiard,
 -- total internal reflection, Poincar© phase) modern; compound and reading
--- built here, 2026-08-25.
+-- built here.
 --
 -- THE READING (checked terms below).  A huge, smooth, high-index orb â” diamond,
 -- nâ‰ˆ2.42, so the critical angle is â‰ˆ24Â° and almost every internal ray totally-
@@ -33,8 +32,6 @@
 --   `bounceEq` : the bounce packaged as an equivalence SÂ â‰ SÂ.
 --   `single-orb-abelian` : the orbit's phases (loops in Î©SÂ) commute
 --        (`comm-Î©SÂ`).  One conserved quantity; the single orb is abelian.
---
--- Checked: --cubical --safe; loads clean on the wire.
 ------------------------------------------------------------------------
 
 module Sphatika_TheIdealDiamondOrbIsALosslessBilliardWhoseSingleOrbPhaseAlgebraIsAbelian where

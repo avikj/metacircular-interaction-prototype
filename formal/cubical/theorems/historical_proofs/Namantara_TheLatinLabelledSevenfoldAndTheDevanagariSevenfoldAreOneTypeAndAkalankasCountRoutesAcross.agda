@@ -18,7 +18,7 @@
 -- claimed for no Indian source.
 --
 ------------------------------------------------------------------------
--- WHAT THIS MODULE IS, AND THE GAP IT CLOSES.
+-- WHAT THIS MODULE IS.
 --
 -- The corpus carries FOUR encodings of the sevenfold predication.  Three
 -- are named `‡‡‡‡‡‡ô‡‡ó‡`, and `Punarukti_TwoOfTheThreeSevenfolds‚¶` settled

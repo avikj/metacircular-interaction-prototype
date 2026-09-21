@@ -3,9 +3,9 @@
 ------------------------------------------------------------------------
 -- ‡µ‡∞‡‡ó‡Æ‡‡≤‡Æ‡ ‚î the square root is the threshold, and it is forced.
 --
--- SOURCE (owner transmission D0022, "Evaluation geometry, collision
--- divisors, and polynomial moduli", recovered from git history; quoted
--- exactly):
+-- SOURCE (D0022, "Evaluation geometry, collision
+-- divisors, and polynomial moduli"), quoted
+-- exactly:
 --
 --   "**T22.2**: for a fixed finite prime set S there exist composites
 --    coprime to every p in S ‚î Proof: choose primes q,r outside S and
@@ -72,18 +72,16 @@
 --                 chart IS Vieta for the pair.
 --
 -- For m = 0 the hypothesis is vacuous when X < 4 and 0 is neither 1 nor
--- prime, so the bound is needed and is stated. ¬ "Sufficient" in T22.3 is the
--- mathematical statement, not a statement about the Boolean testers
--- `primeb`/`spf` of SamastaPrasna/RH_; those are not touched here. ¬
+-- prime, so the bound is needed and is stated.
 -- "Observer" is formalised as the family of divisibility readings (d ‚à n for
 -- d in a finite list, or for primes d ‚â z), and "decides primality" as: some
 -- property that depends on n ONLY through those readings coincides with
--- ‡¶‡‡‡Æ‡. The separator refutes every such property at once. Nothing is said
--- about observers of any other shape. ¬ The sentence "growth of the
+-- ‡¶‡‡‡Æ‡. The separator refutes every such property at once.
+-- The sentence "growth of the
 -- sufficient observer with task scale" is illustrated (T22.3 gives a
 -- sufficient observer of size ‚àX; T22.4 shows z < ‚àX does not suffice when
--- two primes sit in (z, ‚àX]) but "growth" is not itself a formal statement
--- here. ¬ T22.5 over ‚ uses no ordering; the ‚ï chart needs r ‚â w and says so.
+-- two primes sit in (z, ‚àX]).
+-- T22.5 over ‚ uses no ordering; the ‚ï chart needs r ‚â w and says so.
 ------------------------------------------------------------------------
 
 module Vargamula_TwoPrimesAboveTheThresholdMakeAnUnseenCompositeSoTheSquareRootIsForcedNoFiniteDivisibilityObserverDecidesPrimalityAndCentreRadiusIsVieta where

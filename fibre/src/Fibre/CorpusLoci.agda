@@ -289,9 +289,9 @@ tryRealization f n x =
   ... | false = []
 
 -- Each probe â” successful or failed â” permanently retains typechecker
--- state that runSpeculative does not give back (measured: heap grows
--- quadratically in probe count and exhausts 13 GB near 300 pool
--- names).  So the probe bill is bounded by the OUTPUT: a generator
+-- state that runSpeculative does not give back; the heap grows
+-- quadratically in probe count.  So the probe bill is bounded by the
+-- OUTPUT: a generator
 -- stops probing once its exhibited family reaches the cap.  The locus
 -- is then the first realizationCap checked realizations in pool order â”
 -- an exact, checked, finite presentation of the family, not its
@@ -369,8 +369,8 @@ buildLociOverPool pool gens =
   bindTC (buildLoci pool egens) quoteTC
 
 ------------------------------------------------------------------------
--- Single-pass materialization.  Profiled: each generator's candidate
--- walk re-forces the whole pool literal (~100 MB retained per
+-- Single-pass materialization.  Each generator's candidate
+-- walk re-forces the whole pool literal (once per
 -- generator), so the loop is inverted â” ONE pass over the pool,
 -- every generator carried as folded state with its own caps, probes
 -- interleaved.  The literal is forced exactly once per shard.

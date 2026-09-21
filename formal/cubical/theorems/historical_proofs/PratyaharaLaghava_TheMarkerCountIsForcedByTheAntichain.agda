@@ -58,11 +58,6 @@
 -- That residue is where Petersen's theorem is needed; the 14-antichain is a
 -- computed witness in Haskell.
 --
--- Only the forward direction ‚î this order does realise these
--- classes as intervals ‚î is checked.
---
--- Pini stated the order.
---
 -- MODELLING NOTE, stated because it is the one place a reader could be
 -- misled: `pos` enumerates the SOUNDS only, markers being boundaries and
 -- never members (Sivasutra.agda checks that separately).  A marker is
@@ -396,8 +391,7 @@ lowerBound = fourMarkersForced sivasutraEncoding
 
 ------------------------------------------------------------------------
 -- THE ANTICHAIN BOUND IS NOT TIGHT.
--- It is not
--- tight.  `Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListed-
+-- `Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListed-
 -- Twice.agda` exhibits a five-class family on three sounds with ‚ä-width
 -- two that NO recited-once line names with two anubandhas ‚î all 120
 -- arrangements of the five tokens checked, the enumeration's length

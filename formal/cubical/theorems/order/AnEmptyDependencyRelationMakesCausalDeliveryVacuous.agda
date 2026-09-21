@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- AnEmptyDependencyRelationMakesCausalDeliveryVacuous
 --
--- about this repository's own sync rule read as a consistency model:
+-- On this repository's own sync rule read as a consistency model:
 --
 --   "Causal consistency is only as strong as the dependency graph you
 --    record. â¦ The corpus records none â” no note declares which other

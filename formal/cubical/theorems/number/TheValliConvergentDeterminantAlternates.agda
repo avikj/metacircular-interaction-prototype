@@ -9,19 +9,6 @@
 -- a unit at every step, so each step of the vall is invertible over ‚.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- THE OPEN TAG THIS ANSWERS, AND HOW MUCH OF IT
---
--- tag: "whether the three honesty faces (lossless / complete / stable)
--- recur for continued-fraction convergents ‚î the vall already IS the
--- CF".
---
--- Answered here: LOSSLESS, yes, and exactly.  NOT answered: complete,
--- and stable.  Those are statements about a grant and about monotonicity
--- under more grant; neither is touched below, and one face out of three
--- is not the tag closed.  It is one third of it, and saying so is the
--- point of the note's own honesty ledger.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- THE OBJECT
 --
 -- Given partial quotients `a : ‚ï ‚í ‚` ‚î the vall, ryabhaa's column of
@@ -36,8 +23,7 @@
 -- standard seeds the first one is 1, so all are units ‚î which is B©zout,
 -- and is what `Bija.‡‡‡‡ó‡‡ø‡‡Æ‡`'s alternating orientation is computing.
 --
--- SOURCING LIMIT. Nothing here is offered as a reading of Gaitapda 32‚ì33;
--- the recurrence is the standard one and the vall is named because this
+-- The recurrence is the standard one and the vall is named because this
 -- corpus's own kuaka modules name it.
 ------------------------------------------------------------------------
 
@@ -133,9 +119,4 @@ standardDeterminantIsAUnit a k =
 -- over ‚, so no step of the vall loses information.  `Bija.‡‡‡‡ó‡‡ø‡‡Æ‡`
 -- computes B©zout by climbing that column with alternating orientation
 -- ‚î the alternation of ¬ß2 is that orientation, as an identity.
---
--- The other two faces are NOT here.  `Purnata.‡‡‡∞‡‡‡‡Ø‡æ-‡ó‡‡∞‡‡‡Æ‡`
--- (complete: enough grant always resolves) and `Sthairya.‡‡‡‡à‡∞‡‡Ø-‡ó‡‡ø`
--- (stable: a resolved answer survives more grant) are statements about a
--- grant, and no grant appears above.  One face is not three.
 ------------------------------------------------------------------------

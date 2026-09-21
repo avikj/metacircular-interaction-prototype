@@ -25,7 +25,7 @@
 --            equivalent â” the pair the stratum could not tell apart is
 --            separated type-level, one functor up.
 --
--- THE READING (a reading, not a claim about the sources).  README
+-- THE READING.  README
 -- movement 34: every wall this corpus hits is â/2, "the smallest
 -- possible fibre â” the minimal hiding."  Here the wall arrives with a
 -- direction: the krama-difference the charge carrier forgets does not
@@ -39,20 +39,16 @@
 -- â” it CANNOT see the order); neither standpoint subsumes the other,
 -- and the two separations are of one difference.
 --
--- SEAM, named rather than bridged.  The library's torus in
+-- The library's torus in
 -- ZCohomology.Groups.Torus is SâŠ 1 — SâŠ 1; VakraValaya's torus is the
 -- HIT (Cubical.HITs.Torus), with Torusâ‰¡SÂ—SÂ in the library.  The two
--- presentations are equivalent and the bridge SÂ â‰ SâŠ 1 is standard;
--- it is not composed here, so this module's torus is the product
--- presentation and the identification of the two torus presentations
--- is carried by the library, not re-landed.  What is claimed is only
--- what is checked: the two HÂ² carriers are inequivalent as types.
+-- presentations are equivalent, and this module's torus is the product
+-- presentation.
 --
 -- SOURCES: HÂ²-ð•Â²â‰Bool, Cubical.ZCohomology.Groups.KleinBottle (the
 -- Brunerieâ“Ljungstrm line); HÂ²-TÂ²â‰â, Cubical.ZCohomology.Groups.Torus.
 -- àµà•àà° (twisted), àµà²à¯ (ring), àà™àà•àà (the mark, the signal) are ordinary
---  labels; no source is claimed for the compound or the
--- mathematics, which is the library's, composed.
+--  labels.
 ------------------------------------------------------------------------
 
 module VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee where

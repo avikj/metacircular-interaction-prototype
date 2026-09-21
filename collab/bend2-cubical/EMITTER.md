@@ -37,7 +37,7 @@ and the emitted `@add`/`@div2`/`@mul2` genuinely REDUCE on the HVM4 C runtime
 file (`cubical_test4.bend`) emits with everything erased except the live data,
 and `sup_transport` survives as `&L0{0, 1}` â” real superposition nodes.
 
-## What this unlocks (now mechanical, not blocked)
+## What this unlocks
 
 - **Type-driven superposed synthesis**: drive `SUPGEN_DEMO`-style search from a
   Bend2 *spec-as-type*; the survivor arrives with an erasing type-theoretic
@@ -46,14 +46,3 @@ and `sup_transport` survives as `&L0{0, 1}` â” real superposition nodes.
   lossless, self-inverting transform whose proof costs nothing at runtime.
 - **Cubical corpus modules at the optimal bound**: the transport-heavy proofs
   that blew Agda's heap extract with proofs erased and run on the net.
-
-## Known edges (next passes)
-
-- Sig-encoded user constructors emit as `#Pair`; a type-directed pass would
-  recover named constructors (the HVM3 target's `extractTypeDef` shows how).
-- `Fix` emits a let-style self-reference; wiring it to HVM4's `@fix` combinator
-  for top-level recursive refs is cleaner. Top-level `@name` recursion already
-  works (functions reference themselves by `@name`), which covers the corpus.
-- normalize-at-emit precomputes closed mains (0 interactions); an
-  erase-without-full-normalize mode would leave the computation for the runtime
-  where that is the point.

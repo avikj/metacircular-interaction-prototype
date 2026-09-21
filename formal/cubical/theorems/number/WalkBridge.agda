@@ -45,15 +45,14 @@
 -- measurement.
 --
 -- WHERE THE COMPUTATION STOPS, and why that is the theorem again.  The
--- witnesses stop at `next 5`.  `next 7 ≡ 8` also checks, in 86 s; it is
--- excluded from the file only for gate cost.  `next 8` exhausts a 3.5 GB
--- heap.  This is not an accident of the evaluator: the search decides
+-- witnesses stop at `next 5`.  This is not an accident of the evaluator:
+-- the search decides
 -- `s � cap m` for each candidate s, and a unary divisibility test on
 -- cap m costs Θ(cap m), so a step costs Θ(cap m � (next m − m)) � and
 -- cap m is e^ψ(m).  The walk's STORAGE law is also its naive RUNTIME
 -- law, so the capacity theorem is exactly the obstruction to executing
--- the walk far by evaluation.  Nothing here is measured: the cost is
--- read off the definitions, and the timings are build metadata.  Getting
+-- the walk far by evaluation.  The cost is
+-- read off the definitions.  Getting
 -- past m ≈ 8 needs binary naturals, not a bigger machine.
 --
 -- Predicates are recursive type families and no constructor is matched

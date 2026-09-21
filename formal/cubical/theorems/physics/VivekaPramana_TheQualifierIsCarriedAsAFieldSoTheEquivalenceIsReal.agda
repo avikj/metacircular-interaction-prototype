@@ -7,9 +7,8 @@
 -- (the updhi is carried as a field.  ‡‡µ‡‡∞‡ is not onto; the equivalence
 -- holds exactly where the ‡‡‡∞‡Æ‡æ‡ holds, and the type says so.)
 --
--- SPECIFICATION handed over whole by the owner, 2026-08-21.  The move
--- that matters is his and is stated here so it is not mistaken for a
--- refactor: ‡‡µ‡‡∞‡ d k = mk‡µ‡ø‡µ‡‡ï d k k hits only the diagonal, so
+-- THE MOVE THAT MATTERS:
+-- ‡‡µ‡‡∞‡ d k = mk‡µ‡ø‡µ‡‡ï d k k hits only the diagonal, so
 -- ‚ï ó ‚ï is NOT equivalent to ‡µ‡ø‡µ‡‡ï.  Rather than assert the equivalence,
 -- the defeating condition is carried as a FIELD ‚î ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ is the
 -- subtype on which ‡‡µ‡‡∞‡/‡â‡‡‡‡æ‡® are mutually inverse ‚î and the
@@ -23,9 +22,9 @@
 -- defeater and stops; here the defeater is carried and the transfer
 -- proceeds on its domain.
 --
--- ONE GAP, named because the owner's text had it and it is where the
--- content is: `‡‡µ‡‡∞‡-‡â‡‡‡‡æ‡® p = refl` does not hold ‚î the checker's
--- words are "the projections ‡µ‡æ‡Æ and ‡¶‡ï‡‡‡ø‡ do not match".  It is
+-- THE ONE NON-REFL STEP:
+-- `‡‡µ‡‡∞‡-‡â‡‡‡‡æ‡® p = refl` does not hold.
+-- It is
 -- discharged below BY THE ‡‡‡∞‡Æ‡æ‡ FIELD (path in `v` is sym ‡‡‡∞‡Æ‡æ‡; the
 -- ‡‡‡∞‡Æ‡æ‡ component by isSet ‡µ‡ø‡µ‡‡ï), which is what that field is for.
 ------------------------------------------------------------------------
@@ -72,7 +71,7 @@ open ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£
 ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£-‡§Ö‡§µ‡§§‡§∞‡§£ : ‚Ñï √ó ‚Ñï ‚Üí ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£
 ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£-‡§Ö‡§µ‡§§‡§∞‡§£ (d , k) = mk‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ (‡§Ö‡§µ‡§§‡§∞‡§£ d k) refl
 
--- the claim, now discharged BY THE ‡‡‡∞‡Æ‡æ‡ FIELD rather than by refl
+-- the claim, discharged BY THE ‡‡‡∞‡Æ‡æ‡ FIELD rather than by refl
 ‡§Ö‡§µ‡§§‡§∞‡§£-‡§â‡§§‡•ç‡§•‡§æ‡§® : (p : ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£) ‚Üí ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£-‡§Ö‡§µ‡§§‡§∞‡§£ (‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£-‡§â‡§§‡•ç‡§•‡§æ‡§® p) ‚â° p
 ‡§Ö‡§µ‡§§‡§∞‡§£-‡§â‡§§‡•ç‡§•‡§æ‡§® p i .v       = ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ p (~ i)
 ‡§Ö‡§µ‡§§‡§∞‡§£-‡§â‡§§‡•ç‡§•‡§æ‡§® p i .‡§™‡•ç‡§∞‡§Æ‡§æ‡§£  =

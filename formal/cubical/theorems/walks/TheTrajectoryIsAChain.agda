@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheTrajectoryIsAChain
 --
--- `JoinSavesTheMeet` withdrew the answer to "where does the walk's e^Ïˆ(k)
+-- `JoinSavesTheMeet` poses the question "where does the walk's e^Ïˆ(k)
 -- come from?".  This module removes a whole class of answers by proving
 -- something about the walk:
 --
@@ -144,11 +144,8 @@ lattice-is-not-a-chain-here = refl , refl , refl
 --
 -- The walk's cost cannot be explained by anything the join does at
 -- incomparable states, because the walk never visits an incomparable
--- pair.  Every idempotence consequence in this thread â” no inverses, no
+-- pair.  Every idempotence consequence â” no inverses, no
 -- norm, no forgetting, no sign â” holds along a path on which the join is
 -- pure absorption.  Whatever Ïˆ(k) is paying for, it is not the width of
 -- the lattice.
---
--- The question stands where `JoinSavesTheMeet` left it, one class of
--- answers narrower.
 ------------------------------------------------------------------------

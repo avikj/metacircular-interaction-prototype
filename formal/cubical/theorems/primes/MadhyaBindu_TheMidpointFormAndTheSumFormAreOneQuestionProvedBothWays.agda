@@ -7,7 +7,7 @@
 -- The first sentence of the frame: "the set of midpoints of pairs of
 -- primes covers the naturals."  Here it is as a type, and here is the
 -- proof that it is THE SAME question as the sum form already living in
--- SamastaPrasna â” two functions, one in each direction, at the pin.
+-- SamastaPrasna â” two functions, one in each direction.
 --
 --   SumAt n       =  Î p q primes with p + q = n + n
 --   MidpointAt n  =  Î a k with a + k = n, a prime, a + 2k prime

@@ -7,11 +7,11 @@
 --  over the codomain, of its fibers' own endomorphism monoids.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS IS.  `SvaTantuVasa` ¬ß‡(a) and `SamraksakaGana` ¬ß‡(a) both
--- hand the same remainder forward: currying along A ‚â Œ B (fiber f)
+-- WHAT THIS IS.
+-- Currying along A ‚â Œ B (fiber f)
 -- identifies the section CARRIER with (b : B) ‚í fiber f b ‚í fiber f b,
--- "but carrying ‚ã onto pointwise composition needs the transport
--- coherence of that currying, and it is not given here."  This module
+-- and carrying ‚ã onto pointwise composition needs the transport
+-- coherence of that currying.  This module
 -- gives it, over set carriers:
 --
 --   ‡µ‡ø‡‡æ‡ó‡      :  ‡‡‡¶‡ f  ‚â  ((b : B) ‚í fiber f b ‚í fiber f b)
@@ -35,8 +35,8 @@
 -- to their point components (the path components are propositions).
 -- All four preservation/round-trip proofs are ‡≤‡Æ‡‡‡ plus plumbing; the
 -- coherence tax the ‚àû-version would pay (the full subst-action law
--- subst p (x , r) ‚â° (x , r ‚àô p) and its associativity) is named in ¬ß‡
--- and not paid here, because at set level nothing consumes it.
+-- subst p (x , r) ‚â° (x , r ‚àô p) and its associativity) is not needed:
+-- at set level nothing consumes it.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- TERMS.  ‡‡®‡‡‡ for the fiber follows this corpus's own use
@@ -157,19 +157,3 @@ module ‡§§‡§®‡•ç‡§§‡•å {A B : Type ‚Ñì} (setA : isSet A) (setB : isSet B) (f : A
     , monoidequiv ‡§™‡•ç‡§∞‡§§‡§ø-‡§è‡§ï‡§É
         (Œª œÉ œÑ ‚Üí ‡§™‡•ç‡§∞‡§§‡§ø-‡§ó‡•Å‡§£‡§É (equivFun (‡§µ‡§æ‡§∏‡§É f) œÉ) (equivFun (‡§µ‡§æ‡§∏‡§É f) œÑ))
 
-------------------------------------------------------------------------
--- ¬ß‡ ¬ ‡‡‡‡.
---
--- (a) THE ‚àû-VERSION.  Over arbitrary carriers the point-reduction of
---     ‡≤‡Æ‡‡‡ is not available: the full action law subst (fiber f) p
---     (x , r) ‚â° (x , r ‚àô p) and its compatibility with ‚àô-assoc must be
---     carried through every preservation proof.  Named, not paid.
--- (b) THE GROUP LEG.  `SamraksakaSamuha`'s symmetry group should ride
---     ‡‡‡∞‡µ‡æ‡-‡‡®‡‡‡-‡‡Æ‡‡æ to a subgroup of Œ†_b Aut(fiber f b); pointwise
---     that is ¬ß‡© of that module repeated here, and it is not written.
--- (c) THE POLES.  At zero loss every fiber is contractible and ‡‡®‡‡‡‡ó‡‡
---     is trivial pointwise; at total loss over a pointed connected
---     codomain the product collapses to one factor.  Both are
---     transports of the poles already proved in SamraksakaGana and are
---     not restated.
-------------------------------------------------------------------------

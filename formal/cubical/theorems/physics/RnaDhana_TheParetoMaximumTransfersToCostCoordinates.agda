@@ -52,12 +52,6 @@
 -- element: it goes through `anyMapBack`, which recovers a member of the
 -- ORIGINAL archive whose flip is the maximal element found.  That is
 -- the step where a naive transfer would break.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  Transporting an order-theoretic existence result along
--- an order-preserving map with an order-reflecting partial inverse is
--- routine; `maximalExists` is this corpus's own, and the mixed
--- statement is the one DARWIN Â§5.2 needs.
 ------------------------------------------------------------------------
 
 module RnaDhana_TheParetoMaximumTransfersToCostCoordinates where

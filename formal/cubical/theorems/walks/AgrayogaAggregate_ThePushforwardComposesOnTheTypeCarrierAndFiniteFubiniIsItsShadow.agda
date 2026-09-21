@@ -4,13 +4,13 @@
 -- ‡‡ó‡‡∞‡Ø‡ã‡ó-‡‡ô‡‡ò‡æ‡‡ ‚î the pushforward composes on the Type carrier, and
 -- every finite Fubini is its shadow.
 --
--- THE JOIN THIS LANDS.  The owner's transmission (2026-08-23) names the
--- next finite theorem: g_!(f_!w) ‚â° (g‚àòf)_!w ‚î Fubini as transport,
+-- THE THEOREM.  The
+-- finite theorem g_!(f_!w) ‚â° (g‚àòf)_!w ‚î Fubini as transport,
 -- needing two receipts: (1) the equivalence between the index types,
--- (2) invariance of the fold under that reindexing.  Receipt (1) has
--- been checked in this tree since SankramanaSesa ¬ß3 under the name
+-- (2) invariance of the fold under that reindexing.  Receipt (1) is
+-- SankramanaSesa ¬ß3 under the name
 -- ‡‡‡-‡‡ô‡‡ò‡æ‡‡ ‚î residuals compose, `‡‡‡ (g‚àòf) c ‚â Œ[w ‚àà ‡‡‡ g c] ‡‡‡ f
--- (fst w)` ‚î and nobody had told the measure lane.  This module cashes
+-- (fst w)`.  This module cashes
 -- it at the TOP of the carrier table: for W = Type, "sum over the
 -- fibre" IS Œ, the pushforward is
 --
@@ -28,20 +28,19 @@
 -- ‚ï counting, tropical cost, ‚‚ä probability, ‚ amplitude, Type the full
 -- uncollapsed history fibre) is a ladder of lawful forgettings.  Every
 -- W-valued finite Fubini is THIS equivalence read through a fold: apply
--- an enumeration-invariant `total` (the measure lane's receipt, its
--- permutation-invariance probe on the ‡®‡æ‡°‡ route as this is written) to
+-- an enumeration-invariant `total` to
 -- both sides, and the fold's invariance under the reindexing that THIS
--- module exhibits is exactly receipt (2).  So the division of labour,
--- named for the fleet: the equivalence receipt is here and in
+-- module exhibits is exactly receipt (2).  So the division of labour:
+-- the equivalence receipt is here and in
 -- SankramanaSesa; the fold receipt is the measure lane's; their
 -- composition is W-Fubini for every carrier in the table at once.
 -- Functoriality of pushforward = change of variables = Fubini: one
 -- theorem, and on the Type row it costs two library lemmas.
 --
--- COMPOUND BUILT HERE (naming rule, note 2): ‡‡ó‡‡∞‡Ø‡ã‡ó (the forward
+-- COMPOUND BUILT HERE: ‡‡ó‡‡∞‡Ø‡ã‡ó (the forward
 -- yoking ‚î the pushforward), ‡‡ô‡‡ò‡æ‡ (composition/stacking, following
--- SankramanaSesa's ‡‡‡-‡‡ô‡‡ò‡æ‡‡).  No source text is claimed for the
--- compound; the mathematics is HoTT-standard (Œ over a fibre; the
+-- SankramanaSesa's ‡‡‡-‡‡ô‡‡ò‡æ‡‡).  The mathematics is HoTT-standard
+-- (Œ over a fibre; the
 -- composite-fibre splitting is HoTT 4.8.2's neighbourhood), composed.
 ------------------------------------------------------------------------
 

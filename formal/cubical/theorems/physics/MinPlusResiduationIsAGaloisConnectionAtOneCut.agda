@@ -41,12 +41,12 @@
 -- genuine min-plus data: saturate once and stop.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- NO NOVELTY.  `(_‚à b) ‚ä (_+ b)` is the standard residuation in ‚ï and
+-- `(_‚à b) ‚ä (_+ b)` is the standard residuation in ‚ï and
 -- makes it a residuated monoid; that Isbell conjugation over a quantale
 -- is a Galois connection is likewise standard (Lawvere's metric-space
 -- reading of enriched categories, `Metric spaces, generalized logic,
 -- and closed categories`, 1973, is where min-plus becomes the value
--- object).  What is contributed is only the instantiation at one cut.
+-- object).
 ------------------------------------------------------------------------
 
 module MinPlusResiduationIsAGaloisConnectionAtOneCut where

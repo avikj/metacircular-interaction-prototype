@@ -7,9 +7,8 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT THIS IS.  `Dhruva_‚¶.agda` proves the frame (conservation acts
 -- inside the fibres; lossless forces Œ¶ ‚â° id) and `YogaDhruva_‚¶.agda`
--- instantiates it (fiber ‡Ø‡ã‡ó n is a ‚-torsor under the shears) ‚î and its
--- own header fences that it did NOT classify the conserving
--- endomorphisms.  This module is that classification, for this
+-- instantiates it (fiber ‡Ø‡ã‡ó n is a ‚-torsor under the shears).
+-- This module classifies the conserving endomorphisms, for this
 -- observable, over an ARBITRARY commutative ring:
 --
 --   ¬ß‡ß  every shear FIELD ‚î a shear whose parameter varies with the
@@ -29,12 +28,9 @@
 -- has a flow space as large as a function space.  The freedom of a cut
 -- is measured by its conserving flows, and here the measure is exact.
 --
--- PROOF-SHAPE NOTE, following the precedent of `PraksepaTantu_‚¶.agda`
--- (landed 2026-08-22 as the shape a ‡‡‡‡ fst/snd emitter instantiates):
--- everything below is parametric in the CommRing, and every ring fact is
--- discharged by the solver, so this is the shape a future T-SHEAR
--- emitter would instantiate at any additive observable the census
--- meets.  The ‚ instance is taken at the end in one line.
+-- PROOF-SHAPE NOTE: everything below is parametric in the CommRing, and
+-- every ring fact is discharged by the solver.
+-- The ‚ instance is taken at the end in one line.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --

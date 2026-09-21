@@ -165,6 +165,5 @@ degenerate: two updating events, one branch point, one merge, two
 coordinate systems.  Every constructor is reachable by hand, every
 refutation lands on a named collision, and the four sentences are
 discharged by nine identifiers whose combined proof text is shorter
-than this abstract.  The claim is not that the ruliad has been
-formalised; it is that the ruliad's load-bearing sentences are, one by
+than this abstract.  The ruliad's load-bearing sentences are, one by
 one, theorems of univalent mathematics.

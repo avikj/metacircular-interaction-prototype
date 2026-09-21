@@ -5,9 +5,7 @@
 --
 -- The nonabelian holonomy census for Sâ by fixed-point counting.
 --
--- sthira-bindu = fixed point, gaan = count; the  terms are
--- used in their plain mathematical senses, and no text is claimed as a
--- source.
+-- sthira-bindu = fixed point, gaan = count.
 --
 -- WHAT IS PROVED.  For Sâ = FinSymGroup 3 (the group of equivalences of
 -- Cubical.Data.SumFin's Fin 3, from Cubical.Algebra.SymmetricGroup),

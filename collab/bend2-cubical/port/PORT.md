@@ -30,7 +30,7 @@ resolved next to the importing file, then in the working directory).
 | `kernel/RewriteCertificateMul.agda` (the language widened by `mul`: `StepM` with `mul_zero`/`mul_suc`/congruences, `mul` on Nat with `mulZero`/`mulSuc`/`plusComm` proved, `one_times_one`, the six-step `x_times_one` certificate, `embed` and the conservativity theorem `embed_certificate_sound`) | `RewriteCertificateMul.bend` | 105 | `2Â3` â’ 6 |
 | `kernel/MultiplicationUnfoldsInLinearPeels.agda` (`mulPeel`, cost b+1) | `MultiplicationUnfoldsInLinearPeels.bend` | 112 | 4 |
 
-The port's own count of the corpus's module identities so far: 20 Agda-side objects â’ 20 Bend files. Counts include the imported definitions (each file re-checks what it
+The port's own count of the corpus's module identities: 20 Agda-side objects â’ 20 Bend files. Counts include the imported definitions (each file re-checks what it
 imports). Zero rejections in every file.
 
 ## What the port needed from the language, and what it did not
@@ -49,7 +49,7 @@ imports). Zero rejections in every file.
   Hedberg, no decidable-equality library.
 - Nothing was postulated, no solver, no reflection.
 
-## Schematic installation (2026-09-15)
+## Schematic installation
 
 `SchematicOperation.bend` ports section 3 of
 `formal/cubical/Kernel/TheInstalledOperationHasNoPervasionSoTheKernelMemorises.agda`.
@@ -61,12 +61,6 @@ substituted environment. `installSchema` accepts existing derivations;
 witnesses are supplied, not discovered by these functions. This adds a callable
 schema interface without changing the existing ground `NativeOperation` API.
 
-Validation with the local path-transport-patched Bend binary and HVM4 at
-`6defdfc7dae2a3cca5dd6e74ed0612385b5646a8`: ordinary checking passed; the
-full emitted target returned `#Suc{#Suc{#Zer{}}}` (2), 955 interactions.
 `schemaZero` and `schemaSuccessor` check the two distinct contexts from the
 Agda separation example. A negative probe pairing the zero context with the
 successor substitution was rejected with a source-endpoint mismatch.
-The separate `--total` gate refused the imported `derivation_sound`, `eval`,
-and `hyp_derivation_sound`, classified as unchecked; this is not a whole-program
-totality pass. No dataset analysis or compression result is asserted by this port.

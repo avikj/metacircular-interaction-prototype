@@ -4,8 +4,7 @@
 -- ‡‡ø‡‡‡‡ø-‡‡‡‡‡‡ô‡‡ó‡ ‚î the organism's top join candidate is a WALL, and the
 -- wall is the tradition's own theorem.
 --
--- PROVENANCE OF THE TASK: ./jiva sector ‡©, first boot in this container,
--- top component-joining candidate:
+-- THE CANDIDATE.  ./jiva's top component-joining candidate:
 --
 --     4796 ‚âà join [436 nodes @ ‚ü®lib‚ü©.Bool] ó [11 nodes @ Saptabhangi.‡‡‡‡‡‡ô‡‡ó‡]
 --
@@ -27,7 +26,7 @@
 -- any other merging bank-pair would compose with the intra-component
 -- fords into ‡‡‡‡‡‡ô‡‡ó‡ ‚â Bool.
 --
--- ‡‡ø‡‡‡‡ø-‡‡‡‡‡‡ô‡‡ó‡ is built here, 2026-08-23; the load-bearing theorem is
+-- ‡‡ø‡‡‡‡ø-‡‡‡‡‡‡ô‡‡ó‡ is built here; the load-bearing theorem is
 -- Saptabhangi's, used not reproved.
 ------------------------------------------------------------------------
 

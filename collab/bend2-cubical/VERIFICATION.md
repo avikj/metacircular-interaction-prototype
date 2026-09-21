@@ -5,7 +5,7 @@ Environment: Ubuntu 24.04, 4 cores, GHC 9.12.2 + cabal 3.18 (ghcup),
 current `cubical-paths.patch` (main @ 1e03559a1). HVM3 built from
 HigherOrderCO/HVM3 HEAD (2026-01-29) as a LOCAL package.
 
-## Build fixes required (not previously documented)
+## Build fixes required
 
 1. **HVM3 `Runtime.c` does not include `reduce/ref.c` / `reduce/ref_sup.c`**
    (added upstream, never wired into the include list). The `hvm` executable
@@ -40,8 +40,7 @@ HigherOrderCO/HVM3 HEAD (2026-01-29) as a LOCAL package.
 | loop.bend | 0 | 2 | 0 |
 
 - `uaroundtrip.bend`: `â— uaRoundTrip â” Mismatch`. The other round trip
-  `pathToIso(ua e) = e` at the raw `Iso5` level FAILS, as CORRECTIONS states.
-  The narrowed claim ("iso-univalence with the path-side round trip") is right.
+  `pathToIso(ua e) = e` at the raw `Iso5` level FAILS.
 - `loop.bend`: `loop` tagged `[unchecked]` (was a `[total]` false positive).
 - Native runtime (HVM3 `hvm`, arithmetic baseline): `rt.bend --to-hvm` runs:
   result correct, **304 interactions**, 0.42 ms.
@@ -120,15 +119,6 @@ Checker regression on the final binary: examples/main 39â“, cubical_test 11â“,
 test2 10â“, test3 12â“, test4 8â“, test5 7â“, applypath 9â“, applypath_bwd 11â“,
 pth2 2â“, pthtransport 3â“, loop 2â“ ([unchecked]), equiv 7â“ â” 0 â— anywhere;
 uaRoundTrip still correctly fails.
-
-## Status against the review's list
-- Native execution of cubical transport, both directions, on TWO runtimes: **done, measured.**
-- Pth transport through nonconstant families (`pth2.bend`): **reproduced.**
-- Totality false-positive (`loop.bend` â’ `[unchecked]`): **reproduced.**
-- "Univalence complete" â’ narrowed; reverse round trip fails at raw Iso level: **reproduced**; `equiv.bend` (coherent isEquiv, idEquiv) typechecks as the foundation for the coherent statement.
-- Backward transport (`@pathBwd` undefined; `ua` dropped `g`): **found and fixed.**
-- HVM3 target crashing on cubical terms: **found and fixed.**
-- Build blockers (HVM3 Runtime.c includes; UTF-8 locale; `bend check` false-positive): **found, fixed, documented.**
 
 ## Addendum â” coherent reverse univalence round trip (verified by execution)
 

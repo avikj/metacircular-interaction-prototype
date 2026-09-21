@@ -3,15 +3,14 @@
 ------------------------------------------------------------------------
 -- ‡‡‡∞‡‡-‡‡ø‡¶‡‡ß‡æ‡®‡‡ ‚î the kernel theorem, whole.
 --
--- THE STANDING CONSTRUCTION SINCE THE ENDLESS BRAID WAS BUILT,
--- DISCHARGED.  For every braid word w:
+-- For every braid word w:
 --
 --     w ACTS TRIVIALLY ON EVERY ROPE
 --         ‚ü∫
 --     ITS BARE SWAP WORD ACTS TRIVIALLY, AND EVERY DEPOSITED TWIST
 --     COUNT VANISHES MODULO FOUR.
 --
--- Both directions, by assembly of the campaign's lemmas:
+-- Both directions, by assembly of the lemmas:
 --
 --   NECESSITY.  Triviality at the constant rope ‚î which is blind to
 --   the swap word entirely ‚î already pins the twist word (the mod-four
@@ -25,9 +24,7 @@
 -- The braid's memory is now exactly accounted: what a word remembers
 -- = its permutation + its twist vector mod four, nothing more and
 -- nothing less, and both coordinates are read off by the
--- interdependent pair of detector ropes.  The question the machine
--- has held since AnantaVeni ‚î which words act trivially ‚î is closed.
---
+-- interdependent pair of detector ropes.
 ------------------------------------------------------------------------
 
 module PurnaSiddhanta_ABraidWordActsTriviallyExactlyWhenItsSwapWordDoesAndEveryDepositedCountVanishesModFour where

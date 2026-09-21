@@ -8,8 +8,6 @@ a pointwise strict lower bound above prime-power contamination covers every
 eligible later centre.
 
 This file proves only that those two hypotheses compose to `StrongGoldbach`.
-It supplies neither the finite certificate at a chosen large horizon nor the
-tail lower bound for the von-Mangoldt coefficient.
 -/
 import Pairfield.GoldbachDecisionRange
 import Pairfield.GoldbachFixedFiberContamination
@@ -20,8 +18,7 @@ noncomputable section
 
 /-- The exact-contamination inequality is itself equivalent to Goldbach at
 one centre: after unfolding contamination it says precisely that the
-prime-log coefficient is positive.  This prevents the abstract crossover
-contract below from being misread as an analytic advance. -/
+prime-log coefficient is positive. -/
 theorem contamination_lt_mangoldtGoldbachCoeff_iff (N : ℕ) :
     primePowerContamination N < mangoldtGoldbachCoeff N ↔ GoldbachAt N := by
   constructor

@@ -11,10 +11,6 @@ finite identity
 `number of blocks = number of coordinates - combinatorial Levi rank`
 
 and its local obstruction form for `h : Fin k → Fin p`.
-
-The file does not construct root vectors or identify this combinatorial number
-with the finrank of their linear span.  That standard linear-algebra bridge is
-a separate theorem surface.
 -/
 
 namespace Pairfield.LeviResidueCorank

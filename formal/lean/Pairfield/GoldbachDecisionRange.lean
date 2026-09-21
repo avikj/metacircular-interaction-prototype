@@ -7,8 +7,7 @@ horizon.  The target list and every first-leg search use explicit
 `List.range`; no finite-set conversion or sampled enumeration is involved.
 
 Success is equivalent to `GoldbachUpTo X`, and it decodes to a dependent
-family of actual center-fiber elements.  This is a generic verified program,
-not an evaluation of any horizon and not a proof of unbounded Goldbach.
+family of actual center-fiber elements.  This is a generic verified program.
 -/
 import Pairfield.GoldbachDecision
 

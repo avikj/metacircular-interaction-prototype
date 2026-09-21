@@ -2,8 +2,7 @@
 
 ------------------------------------------------------------------------
 -- ‡‡ß‡ø‡‡‡†‡æ‡®‡Æ‡ ‚î the substratum.  What the corpus's deepest identity is
--- standing on, made explicit, because an unindexed claim means "at the
--- standpoint this file works in" and this standpoint has never been named.
+-- standing on, made explicit.
 --
 -- THE CLAIM BEING INDEXED.  The transport lane's floor is stated as:
 -- "reversibility IS ahis IS losslessness, one equation" (LosslessReturn's
@@ -11,7 +10,7 @@
 -- below the interval `hcomp` as "the one operation under all the verbs",
 -- and below that the presheaf topos [‚ñ°µíµñ, Set] with "no concept beneath it."
 --
--- Two corrections, and neither demolishes the reading ‚î they locate it.
+-- Two refinements, and neither demolishes the reading ‚î they locate it.
 --
 -- (‡ß) THE KAN FLOOR HAS TWO PRIMITIVES, NOT ONE.  `hcomp` fills a box
 --     INSIDE A FIXED TYPE; `transp` moves ALONG A LINE OF TYPES; `comp` is
@@ -39,15 +38,7 @@
 --     The consequence, in the lane's own frame: choosing the cube category
 --     is itself the act, because it decides whether the return is free.
 --
--- RIGOR BOUNDARY, said rather than hidden.  ¬ß‡®‚ì¬ß‡ are terms and are checked.
--- The comparison to the cartesian site is METATHEORY about a different type
--- theory and is NOT checkable inside this file or any Agda file; it is a
--- sourced claim (ABCFHL, "Syntax and Models of Cartesian Cubical Type
--- Theory", and CCHM for the De Morgan side) and is carried as one.  Nothing
--- here asserts the two theories are inequivalent in strength.
---
--- ‡‡ß‡ø‡‡‡†‡æ‡® is ordinary  (substratum, ground stood upon); no source
--- is claimed for the mathematics; the compound is built here, 2026-08-22.
+-- ‡‡ß‡ø‡‡‡†‡æ‡® is ordinary  (substratum, ground stood upon).
 ------------------------------------------------------------------------
 
 module Adhisthana_TheFreeReversalStandsOnTheDeMorganSiteAndTheKanFloorHasTwoOperationsNotOne where

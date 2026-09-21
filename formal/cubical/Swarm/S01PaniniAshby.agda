@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- Swarm.S01PaniniAshby
 --
--- A DICTIONARY between two vocabularies that the draw for swarm-0814-01
--- forced together:
+-- A DICTIONARY between two vocabularies:
 --
 --   Pini : a behaviour is a finite ORDERED list of rules, each a
 --            pattern (condition) paired with an operation; conflicts are

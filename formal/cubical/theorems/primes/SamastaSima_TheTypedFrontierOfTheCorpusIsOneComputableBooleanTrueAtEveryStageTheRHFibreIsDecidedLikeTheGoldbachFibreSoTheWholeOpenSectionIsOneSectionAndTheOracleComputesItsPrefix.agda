@@ -25,10 +25,10 @@
 --
 -- What this says exactly: the open frontier of this corpus is the single
 -- section  (n : â•) â’ frontierb n â‰¡ true  of a decided Boolean family.
--- Every stage is a definite computation; only the section is open.  No
--- inhabitant is offered.  The analytic identification of the DMR
+-- Every stage is a definite computation; only the section is open.
+-- The analytic identification of the DMR
 -- inequality with the zeta zeros is classical and cited in the RH
--- module; nothing analytic is assumed here.
+-- module.
 ------------------------------------------------------------------------
 module SamastaSima_TheTypedFrontierOfTheCorpusIsOneComputableBooleanTrueAtEveryStageTheRHFibreIsDecidedLikeTheGoldbachFibreSoTheWholeOpenSectionIsOneSectionAndTheOracleComputesItsPrefix where
 

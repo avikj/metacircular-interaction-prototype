@@ -67,9 +67,7 @@ open import IndependenceNeedsAnInternalImplication
 -- countermodel, is exactly this fragment.
 --
 -- Internal double-negation elimination is a classicality assumption
--- about T.  It is named as such and not smuggled: a theory without it
--- does not get §3, and this file says nothing about whether that is a
--- defect of such a theory.
+-- about T.
 ------------------------------------------------------------------------
 
 private

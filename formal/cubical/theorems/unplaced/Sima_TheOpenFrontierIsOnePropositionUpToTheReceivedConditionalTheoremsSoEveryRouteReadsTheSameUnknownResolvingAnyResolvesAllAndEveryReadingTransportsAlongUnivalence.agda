@@ -24,8 +24,8 @@
 --       maximal solution.
 --
 -- This is the exact expression of what is unknown: not six problems
--- but one proposition with six readings.  Nothing here proves it, and
--- the hypotheses are exactly the received conditional theorems; what
+-- but one proposition with six readings.  The hypotheses are exactly
+-- the received conditional theorems; what
 -- the checker certifies is the SHAPE of the frontier.  The finite
 -- algebra under each hypothesis is in: Grahaka (two-packet matrix,
 -- PSD â” |Z| â‰ Mâ), AbelaRupa / ResidueDvaya (Abel inverse, dyadic

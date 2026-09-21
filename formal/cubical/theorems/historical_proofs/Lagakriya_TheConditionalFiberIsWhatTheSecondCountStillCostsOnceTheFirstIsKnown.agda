@@ -76,7 +76,6 @@
 -- same source.  They are different fibrations of a fibration and neither
 -- follows from the other; ยงเง's hypothesis is a common domain, ยงเเเ's is
 -- a shared middle.
---
 ------------------------------------------------------------------------
 
 module Lagakriya_TheConditionalFiberIsWhatTheSecondCountStillCostsOnceTheFirstIsKnown where

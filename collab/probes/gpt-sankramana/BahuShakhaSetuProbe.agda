@@ -3,10 +3,6 @@
 ------------------------------------------------------------------------
 -- BahuShakhaSetuProbe
 --
--- The finite Born/refinement lane has proved the arithmetic of branchwise
--- weights and has now proved enumeration-independence.  Its remaining step 3
--- asks for a REVERSIBLE realization of a dependent finite refinement.
---
 -- This probe supplies the exact computational/type-theoretic floor:
 --
 --   Micro = Œ[ y ‚àà Fin (suc c) ] Fin (suc (k y))
@@ -31,8 +27,7 @@
 --   * the branch itself as the fibre of the flat coarse observer.
 --
 -- TERM. ‡‡‡‡‡æ‡ñ‡æ is carried from the checked branch-family module; ‡‡‡‡ is the
--- repository's ordinary word for a checked bridge.  The compound is built
--- here; no source is claimed for this mathematics.
+-- repository's ordinary word for a checked bridge.
 ------------------------------------------------------------------------
 
 module BahuShakhaSetuProbe where

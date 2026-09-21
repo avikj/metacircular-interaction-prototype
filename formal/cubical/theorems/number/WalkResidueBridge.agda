@@ -83,7 +83,7 @@ open import CoprimeSplitting using (decâˆ£)
 -- TransportDiv proves `modw-zeroâ’âˆ`.  Without this direction the
 -- automaton is a semi-decision procedure: a zero state certifies
 -- divisibility, a nonzero state certifies nothing.  Both directions are
--- needed before `Dec` can be produced, and only one of them was there.
+-- needed before `Dec` can be produced.
 --
 -- `_âˆ_` is `âˆ[ c ] c Â d â‰¡ n`, a propositional truncation.  The target is
 -- an equality of naturals, hence a proposition by `isSetâ•`, so

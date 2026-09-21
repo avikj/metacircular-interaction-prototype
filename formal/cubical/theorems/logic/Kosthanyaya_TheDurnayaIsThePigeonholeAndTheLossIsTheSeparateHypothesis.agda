@@ -14,9 +14,7 @@
 --   ¬ `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` ‚î over ‡‡‡‡‡‡ô‡‡ó‡, three seeds into ‡¶‡‡µ‡ø‡‡¶, by
 --     `with` on six cases.
 --   ¬ `loss/‚¶/Adharmin_‚¶.‡‡‡‡∞‡-‡¶‡‡∞‡‡®‡Ø‡` ‚î over a four-name type
---     into Bool, by explicit exhaustion, and its header says the bridge
---     to ‡¶‡‡∞‡‡®‡Ø‡ "needs one toolchain that can see both, which this
---     container does not have".
+--     into Bool, by explicit exhaustion.
 --   ¬ `Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakes
 --     ThemOne` ‚î which already found the repetition and joined four
 --     instances by transport.
@@ -46,12 +44,10 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
--- ¬ß‡ recovers `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` exactly, by instantiation, because
--- that module is in THIS lane.  `‡‡‡‡∞‡-‡¶‡‡∞‡‡®‡Ø‡` lives in the loss
+-- ¬ß‡ recovers `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` exactly, by instantiation.
+-- `‡‡‡‡∞‡-‡¶‡‡∞‡‡®‡Ø‡` lives in the loss
 -- library, whose agda-lib this tree does not include, so ¬ß‡ RESTATES its
--- four-name case as an instance rather than importing it.  Two statements
--- that agree is the channel; an import would be a different claim and is
--- not made.
+-- four-name case as an instance rather than importing it.
 ------------------------------------------------------------------------
 
 module Kosthanyaya_TheDurnayaIsThePigeonholeAndTheLossIsTheSeparateHypothesis where
@@ -124,8 +120,6 @@ private
 -- ‡ ¬ `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` RECOVERED, by instantiation and nothing else.
 --
 --     Same type, same three seeds, and the proof is now one application.
---     This is the half of `Adharmin_‚¶`'s missing bridge that this tree
---     can build, because Saptabhangi is in this lane.
 ------------------------------------------------------------------------
 
 ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É-‡§ï‡•ã‡§∑‡•ç‡§†‡§æ‡§§‡•ç : (f : ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚Üí ‡§¶‡•ç‡§µ‡§ø‡§™‡§¶)

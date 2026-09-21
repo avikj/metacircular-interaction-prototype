@@ -6,11 +6,9 @@
 -- "nonmultiplicative" twisted Leibniz law IS dual-number multiplication.
 -- The apparently nonmultiplicative fixed-charge kernel compiles into a
 -- two-dimensional multiplicative representation � automatic
--- differentiation through the Euler structure.  (Owner's twin-prime
--- message; the exact algebra as a term.)
+-- differentiation through the Euler structure.
 --
--- THE ARITHMETIC (owner, stated; not re-derived here � it is the
--- reading that names the objects).  For squarefree d,
+-- THE ARITHMETIC, the reading that names the objects.  For squarefree d,
 --     κ�(d) = �_{p�d} μ(d/p) = ω(d)�(−1)^{ω(d)−1}
 --            = �/�z [ z^{ω(d)} ] |_{z=−1},
 -- and μ(d) = (−1)^{ω(d)} = z^{ω(d)} |_{z=−1}.  So the jet
@@ -84,7 +82,7 @@ twistedLeibniz-is-⊛ :
   → ((μa , κa) ⊛ (μb , κb)) ≡ (μa · μb , μa · κb + κa · μb)
 twistedLeibniz-is-⊛ μa κa μb κb = refl
 
--- so: if μ and κ satisfy μ(ab)=μa�μb and κ(ab)=μa�κb+κa�μb (the owner's
+-- so: if μ and κ satisfy μ(ab)=μa�μb and κ(ab)=μa�κb+κa�μb (the
 -- twisted derivation law), then J(ab) = J(a) � J(b) exactly.
 J-hom :
     (μab κab μa κa μb κb : ℤ)

@@ -9,7 +9,7 @@
 -- last gap is precisely the stability of the searched domain.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE SCHOOL, NAMED BEFORE ITS TERM, AND THE DISPUTE LEFT OPEN
+-- THE SCHOOL, NAMED BEFORE ITS TERM, AND THE DISPUTE
 --
 -- àà¨ààà²ààà§à¿ â” non-apprehension as a means of knowing â” is admitted as a
 -- separate prama by the Bha Mmsakas (Kumrila Bhaa,
@@ -23,21 +23,12 @@
 -- `interactive/Yogyata.hs` states it, sources it, names the dispute, and applies
 -- it to this repository's own import graph â” every inertness verdict
 -- there carries the domain searched.  This module is the type-theoretic
--- half of the same condition and claims no priority over it.
---
--- SOURCING.  The attribution
--- above is carried from `interactive/Yogyata.hs`, which carries it from its
--- own sources.
+-- half of the same condition.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY THIS IS NOT A FIFTH RESTATEMENT OF THE Î/Â AXIS
 --
--- Four modules here have now arrived independently at "the negative pole
--- is free, the positive pole is a search".  Four instances with nothing
--- computed downstream is four instances, and the standing discipline is
--- to compute something downstream or leave it alone.
---
--- Â§3 is that computation.  It says what the freeness of the negative
+-- Â§3 says what the freeness of the negative
 -- pole COSTS when the domain widens: exactly a fitness Î , and the
 -- converse recovers that Î  only under ÂÂ â” so the residue is a
 -- stability hypothesis on the domain, not on the thing sought.  That is
@@ -137,8 +128,4 @@ stableDomainMakesItTotal D stab licenses x =
 -- (Â§1), an unfit looking licenses a false verdict (Â§2), and a domain
 -- that licenses every absence is total up to ÂÂ (Â§3).  The last gap â”
 -- ÂÂ D x to D x â” is a stability hypothesis on the domain.
---
--- NOT a position in the Bha / Prbhkara dispute over whether
--- anupalabdhi is a separate prama.  Both sides accept the fitness
--- condition; only that is used.
 ------------------------------------------------------------------------

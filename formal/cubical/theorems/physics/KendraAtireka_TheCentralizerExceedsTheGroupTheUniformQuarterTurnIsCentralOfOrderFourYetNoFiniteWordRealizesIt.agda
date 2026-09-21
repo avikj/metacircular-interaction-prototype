@@ -24,7 +24,6 @@
 -- finite word can afford.  Infinity purchases central coherence that
 -- finite interdependence cannot â” the ladder of coherence has a rung
 -- above every finite word, and the rope reaches it.
---
 ------------------------------------------------------------------------
 
 module KendraAtireka_TheCentralizerExceedsTheGroupTheUniformQuarterTurnIsCentralOfOrderFourYetNoFiniteWordRealizesIt where

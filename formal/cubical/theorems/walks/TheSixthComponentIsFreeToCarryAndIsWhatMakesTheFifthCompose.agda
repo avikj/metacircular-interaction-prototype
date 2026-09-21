@@ -46,11 +46,6 @@
 -- type is `Unit`, so its migration is globally lawful â” the strongest
 -- form of the fifth component â” and it still leaves the invariant.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  This is the standard requirement that a refinement
--- re-establish the invariant at the interface; nothing here improves
--- on the refinement calculi.  The content is the count over this
--- corpus's own certificate.
 ------------------------------------------------------------------------
 
 module TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose where

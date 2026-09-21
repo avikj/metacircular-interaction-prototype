@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- PMIncidenceLocalSystem
 --
--- The first honest overlap base for the Peres--Mermin cover.  Its points are
+-- The overlap base for the Peres--Mermin cover.  Its points are
 -- the six contexts and each observable generates a path between the two
 -- contexts containing it.  A Bool local system is trivial on eight overlaps
 -- and transports by negation across ZZ.  The standard six-edge cycle then
@@ -106,13 +106,3 @@ no-global-sheet : ¬ GlobalSheet
 no-global-sheet section =
   cycle-has-no-fixed-sheet (section (context PM.R0))
     (section-naturality section coverCycle)
-
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked: the incidence HIT, all nine overlap paths, nontrivial ZZ
--- transport, the six-edge holonomy, and absence of a global sheet.
---
--- The fibre is the one-dimensional obstruction local system, not the
--- contextwise three-observable valuation space with restriction maps.
-------------------------------------------------------------------------

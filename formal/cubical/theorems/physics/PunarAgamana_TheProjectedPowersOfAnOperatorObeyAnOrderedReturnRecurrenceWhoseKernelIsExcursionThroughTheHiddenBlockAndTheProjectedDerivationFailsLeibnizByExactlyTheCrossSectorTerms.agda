@@ -51,12 +51,7 @@
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“4 in any ring, for every `L` and every
 -- idempotent `P`.  Â§5 in any commutative ring, for every additive
--- Leibniz `ð“` and every additive multiplicative idempotent `ð’`.  NOT
--- claimed: convergence of anything â” `K`, `W` are finite ring elements
--- at each n; the resolvent form  P(Î»âˆ’L)â»ÂP = [Î» âˆ’ A âˆ’ B(Î»âˆ’D)â»ÂC]â»Â,
--- which needs inverses and is a separate statement; that any evolution
--- is the exponential of `L`; and nothing about which `P` is the toroidal
--- projection â” the instance is named in the commentary only.
+-- Leibniz `ð“` and every additive multiplicative idempotent `ð’`.
 ------------------------------------------------------------------------
 
 module PunarAgamana_TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms where

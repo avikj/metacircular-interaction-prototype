@@ -15,7 +15,7 @@ exactly what its type says. Pins:
 the Agda corpus checks at **Agda 2.8.0 + agda/cubical v0.9, `--safe`** (no
 postulates, no holes). The cubical Bend2 patch builds at **GHC 9.12.2 / cabal**,
 applied to **DKormann/Bend2 @ f026483**; runs shown were executed on **HVM3** and
-(per `STATUS.md`) HVM4.
+HVM4.
 
 ---
 
@@ -708,9 +708,7 @@ functions* (`FRONTIER.md`, `SamastaSima`):
 Exact: one object, every stage terminating, the only open thing the **function
 inhabiting all stages at once**. Not inhabited â” the DMR preimage is decidable but
 its cost explodes (`Î´(4)=12`), the DMRâ”Î equivalence is classical and cited,
-Navierâ“Stokes has no computable-preimage form. **No endpoint status changes.**
-`ANALYTIC_INTERFACE.md` is the honesty model: each module discharges an exact
-algebraic core and lists the analytic hypotheses left outside the checker.
+Navierâ“Stokes has no computable-preimage form.
 
 **The port's own boundary.** The computer-over-equivalences is lifted from terms
 to types: transport through `Glue`, `hcomp`-in-`Set` = `Glue`, and `ua` from

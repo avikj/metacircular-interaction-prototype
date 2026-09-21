@@ -94,8 +94,7 @@ prime-power-is-jump k (p , a , pp , 0<a , pa≡sk) =
 ------------------------------------------------------------------------
 -- FROM LOCAL EXHAUSTIVENESS TO GLOBAL: every jump point is installed.
 --
--- This is the step the WalkBridge commit message wrongly called
--- renaming.  `install-exhaustive` says nothing is skipped BETWEEN
+-- `install-exhaustive` says nothing is skipped BETWEEN
 -- install n and install (suc n); to conclude that a given jump point k
 -- is hit, one must first locate k in the stream, and that needs the
 -- stream to outrun the index.

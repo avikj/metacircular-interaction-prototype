@@ -4,9 +4,8 @@
 --
 -- ‡µ‡≤‡‡≤‡: ryabhaa, ryabhaya, Gaitapda 32‚ì33 (499).  ‡‡æ‡µ‡®‡æ: Brahmagupta,
 -- Brhmasphuasiddhnta 18.64‚ì65 (628).  ‡‡®‡‡ß‡ø‡: junction; the compound
--- ‡µ‡≤‡‡≤‡-‡‡æ‡µ‡®‡æ-‡‡®‡‡ß‡ø‡ is built in this corpus (2026-08-23, and no source is
--- claimed for it. What is claimed of the sources is exactly what the machine
--- lane already claims: the vall is the quotient column, the ‡‡æ‡µ‡®‡æ is the
+-- ‡µ‡≤‡‡≤‡-‡‡æ‡µ‡®‡æ-‡‡®‡‡ß‡ø‡ is built in this corpus.
+-- The vall is the quotient column, the ‡‡æ‡µ‡®‡æ is the
 -- composition rule (xx'+Dyy', xy'+x'y).
 --
 -- WHAT THIS MODULE CHECKS, checked forms of the note's derivation:

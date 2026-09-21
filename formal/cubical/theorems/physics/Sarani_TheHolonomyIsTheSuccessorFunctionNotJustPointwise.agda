@@ -5,12 +5,9 @@
 -- Pradakshina proved ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ x ‚â° suc‚ x for each x (by uaŒ≤, definitional);
 -- this is the single function identity ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ ‚â° suc‚, its funext.
 --
--- Spoken into being through ‡®‡æ‡°‡, 2026-08-23: the proof term was proposed
--- and kernel-verified in one utterance ‚î `sadh ‡‡ß‡ø‡ï‡∞‡ 0 ‡ï‡∞‡ funExt ‡‡∞‡‡ø‡`
--- ‚î the coprocessing conduit producing a checked theorem, not merely
--- reading one.  No content beyond Pradakshina's; the OBJECT is the point:
+-- The OBJECT is the point:
 -- the holonomy of S¬'s helix bundle is the successor function on ‚, on the
--- nose, and now nameable as such.
+-- nose.
 ------------------------------------------------------------------------
 
 module Sarani_TheHolonomyIsTheSuccessorFunctionNotJustPointwise where

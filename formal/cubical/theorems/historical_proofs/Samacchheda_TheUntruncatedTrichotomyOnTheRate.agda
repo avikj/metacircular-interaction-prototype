@@ -9,8 +9,7 @@
 -- *Brhmasphuasiddhnta* 628; Bhskara II, *Llvat*, c. 1150).
 -- Every comparison underneath this module is that operation:
 -- `p Â suc q'` against `p' Â suc q` is the pair of numerators once the
--- divisors are equalised.  **No claim is made that trichotomy, or the
--- propositionality of a three-way sum, is stated in those texts** â” the
+-- divisors are equalised.  The
 -- operation is theirs, the type theory is not.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -25,7 +24,6 @@
 --
 -- NO NOVELTY.  Trichotomy of the rationals is classical; `isPropSum` is
 -- standard and cubical v0.5 happens not to export it.
---
 ------------------------------------------------------------------------
 
 module Samacchheda_TheUntruncatedTrichotomyOnTheRate where

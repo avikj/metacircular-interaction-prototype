@@ -292,7 +292,7 @@ prime-power-not-covered p b n C pr sn≡ (_ , C-least) pa∣C = ¬p∣V p∣V
                       (·-comm (p ^ b) V ∙ cong (V ·_) (ps .snd))
                       pa∣M)
 
--- Route (2) of the brief as a corollary of route (1): the a = 1 case,
+-- Route (2) as a corollary of route (1): the a = 1 case,
 -- covering every prime install.
 prime-not-covered :
   (p n C : ℕ) → IsPrime p → suc n ≡ p →

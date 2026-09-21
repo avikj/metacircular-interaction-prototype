@@ -28,7 +28,7 @@ This is the quantity for which the launch Bend2 implementation moved away from i
 
 ### The universal closure
 
-The important strengthening since the original Bend/HVM note is that the language implementation is itself inside the domain of the machine. Parser, elaborator, checker, lowering, optimizer, runtime representation, backend, proof, and cost are representable computational objects. The same identity/fibre machinery can therefore answer questions about them.
+The important strengthening is that the language implementation is itself inside the domain of the machine. Parser, elaborator, checker, lowering, optimizer, runtime representation, backend, proof, and cost are representable computational objects. The same identity/fibre machinery can therefore answer questions about them.
 
 “Prove the compiler correct” is only one projection. The stronger operation is to ask the whole language exact computational questions:
 
@@ -93,9 +93,9 @@ The repository contains a closed native example: the all-word prefix theorem for
 
 The SAT/3SAT work is a finite Boolean specialization of this already-general machinery, not a separate solver architecture.
 
-### Source spine added after the original note
+### Source spine
 
-The later closure is anchored by:
+The closure is anchored by:
 
 - \`Fibre.Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda\`
 - \`Fibre.Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda\`
@@ -107,7 +107,7 @@ The later closure is anchored by:
 - \`research/PNP_GEODESIC_REDUCTION_20260916.md\`
 - \`research/SAT_CUBICAL_GEODESIC_NOTES_20260916.md\` and the exact SAT derivation series
 
-The sections below retain the original HOC-facing derivation from HVM sharing and Boolean independence through fibre completion, univalence, cubical composition, execution, cost, and the concrete port.
+The sections below give the HOC-facing derivation from HVM sharing and Boolean independence through fibre completion, univalence, cubical composition, execution, cost, and the concrete port.
 
 ---
 
@@ -431,11 +431,10 @@ A basic univalent transport reduces natively:
 Dependent List transport exposes the same semantics in emitted code:
 
 ```text
-old: List(ua(not) @ i) : [True] → [True]
-new: List(ua(not) @ i) : [True] → [False]
+List(ua(not) @ i) : [True] → [False]
 ```
 
-The emitted HVM4 reduction now transports each list element through the element-type line while retaining the list structure and branch correlation.
+The emitted HVM4 reduction transports each list element through the element-type line while retaining the list structure and branch correlation.
 
 ---
 

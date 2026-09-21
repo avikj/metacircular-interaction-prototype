@@ -3,9 +3,7 @@
 ------------------------------------------------------------------------
 -- AtlasResiduals
 --
--- targets for the sibling Cubical lane", lists four statements from that
--- note as worth machine-checking.  Two of them were unclaimed; this
--- module lands those two.
+-- Two statements of the atlas note, machine-checked:
 --
 --   * Theorem 2.1 (¬ß2.1), the half the note calls load-bearing: not that
 --     the comparison between chart (a) (initial (1+X)-algebra) and chart
@@ -18,12 +16,10 @@
 --     note's "two-line univalent proof that is the whole content of
 --     'ordinals rigidify what cardinals truncate'".
 --
--- The other two ¬ß7 targets (Theorem 3.1's ‚àê BS‚ô decomposition, and
--- Theorem 2.7 + Proposition 2.11) are NOT touched here; the loop-group
--- half of 3.1 is already in `PathIsSymmetry` (Œ©Fin‚âSym)
+-- The loop-group half of Theorem 3.1 is in
+-- `PathIsSymmetry` (Œ©Fin‚âSym)
 -- and `Decategorification` (‚ï‚âœ‚FinSet, card‚â°MereEq,
--- FinSetLoop‚âSym), and nothing below reproves any of them.
---
+-- FinSetLoop‚âSym).
 --
 -- WHAT IS CHECKED
 --
@@ -48,9 +44,7 @@
 --                            a redundancy to be eliminated ‚î a checked
 --                            translation, stronger than an equivalence,
 --                            in the module that argues presentations are
---                            charts.  The earlier hand proof and the set
---                            hypothesis it needed are gone; the second
---                            presentation stays, now connected.
+--                            charts.
 --   A3 `‚ï-recursor-unique`   the honest minimum the task names: the type
 --                            of algebra maps ‚ï ‚í ‚ï commuting with zero
 --                            and suc is contractible.
@@ -62,7 +56,7 @@
 --                            which only handled self-EQUIVALENCES and
 --                            only concluded a path of equivalences.
 --   A5 `initial‚íisEquiv`     the generalisation to two initial algebras,
---     `isContrAlgIso`        which did land cleanly: if A and B are both
+--     `isContrAlgIso`        if A and B are both
 --                            initial then every comparison map is an
 --                            equivalence, and the type of algebra
 --                            ISOMORPHISMS A ‚â B is contractible.  This
@@ -93,32 +87,21 @@
 --                            A torsor is a fibre that becomes the group
 --                            once a point is chosen; that is this line.
 --
---
 --    B5 is exactly the univalence half of Theorem 3.2; the name for
 --    the whole theorem is `LinearOrderFinite.isContrOrdTotal‚≤`.
 --
 --  * `isInitial` is stated at a FIXED universe level, because A5 must
 --    apply an algebra's initiality to another algebra AND to itself.
---    A2 is separately universe-polymorphic in the target.  No claim is
---    made that these two notions of initiality agree.
+--    A2 is separately universe-polymorphic in the target.
 --
---  * Nothing here is about chart (b) as a MONOID.  The note's Theorem
+--  * The note's Theorem
 --    2.1 also asserts that the induced (N,+,0) is a free commutative
 --    monoid and that the two constructions are mutually inverse.  That
 --    half lives in `FreeMonoid`, which builds ‚ï ‚â Tally
---    and the SIP equality of monoids; the present module contributes
---    only the contractibility, which is the half ¬ß7 singled out.
+--    and the SIP equality of monoids.
 --
 --  * `BS` is taken at `Type‚` with `Cubical.Data.Fin.Fin`, matching
---    `Decategorification`.  No universe-polymorphic BS‚ô, no comparison
---    with `Cubical.Data.FinSet`'s `FinSet`, and no claim that BS‚ô is
---    connected (it is, by the truncation, but connectedness is not used
---    and not stated).
---
---  * B6 exhibits an equivalence, not a group action.  No torsor
---    structure is packaged, no S‚ô-action is defined, and freeness and
---    transitivity are not separately stated: they are what the
---    equivalence would unfold to, and unfolding them is not done.
+--    `Decategorification`.
 ------------------------------------------------------------------------
 
 module AtlasResiduals where
@@ -184,7 +167,7 @@ compAlgHom (h , p , q) (h' , p' , q') =
 ‚ÑïAlg = alg ‚Ñï zero suc
 
 ------------------------------------------------------------------------
--- A2, RE-DERIVED FROM THE LIBRARY AND STRENGTHENED.
+-- A2, FROM THE LIBRARY.
 --
 -- `Cubical.Data.Nat.Algebra`, a module of the
 -- library this file already depends on, following
@@ -271,7 +254,7 @@ module _ {B : Type ‚Ñì} (b‚ÇÄ : B) (bs : B ‚Üí B) where
   ‚Ñï-isInitial‚àû : isContr (AlgHom‚àû b‚ÇÄ bs)
   ‚Ñï-isInitial‚àû = isOfHLevelRetractFromIso 0 AlgHomChart (isNatHInitial‚Ñï libAlg)
 
--- A2.  The original statement, now a definitional instance of A2‚àû
+-- A2.  A definitional instance of A2‚àû
 -- (`AlgHom ‚ïAlg B` reduces to `AlgHom‚àû (pt B) (op B)`).
 ‚Ñï-isInitial : (B : Alg ‚Ñì) ‚Üí isContr (AlgHom ‚ÑïAlg B)
 ‚Ñï-isInitial B = ‚Ñï-isInitial‚àû (pt B) (op B)
@@ -380,8 +363,7 @@ isContrBasedPath : (n : ‚Ñï) ‚Üí isContr (Œ£[ X ‚àà Type‚ÇÄ ] (X ‚â° Fin n))
 isContrBasedPath n =
   isOfHLevelRespectEquiv 0 (invEquiv (basedPath‚âÉ n)) (EquivContr (Fin n))
 
--- B5.  THE STATEMENT.  (With the caveat of the header: this is the
--- univalence half of Theorem 3.2.)
+-- B5.  THE STATEMENT: the univalence half of Theorem 3.2.
 isContrOrdTotal : (n : ‚Ñï) ‚Üí isContr (OrdTotal n)
 isContrOrdTotal n =
   isOfHLevelRespectEquiv 0 (invEquiv (ordTotal‚âÉbasedPath n)) (isContrBasedPath n)

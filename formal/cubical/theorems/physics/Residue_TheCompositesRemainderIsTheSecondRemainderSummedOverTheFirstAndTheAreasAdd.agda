@@ -6,9 +6,7 @@
 -- kuaka's governing move is exactly that: divide, keep the remainder,
 -- recurse on it.
 --
--- LIMIT ON THE TERM.  ryabhaa states a descent on integers.  He states
--- nothing whatever about maps of types, fibres, or composition of maps,
--- and none of the theorems below are attributed to him.  ‡‡‡ is borrowed
+-- ‡‡‡ is borrowed
 -- for its exact sense ‚î the part not consumed by the step, carried into
 -- the next one ‚î because that is what a fibre of a map is.
 --

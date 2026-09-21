@@ -3,13 +3,6 @@
 ------------------------------------------------------------------------
 -- UniformRefinementCoherenceProbe
 --
--- The finite Born lane now has:
---   * dependent branchwise arithmetic (`BahuShakha`);
---   * enumeration-independence (`KramaNairapeksya`);
---   * rectangular Fubini (`ParivartaYoga`);
---   * a reversible dependent flat register on the Nadi wire
---     (`BahuShakhaSetuProbe`).
---
 -- This probe closes the equal-amplitude coherence square for arbitrary
 -- dependent branch sizes.  Let each coarse outcome y refine into
 -- `suc (k y)` micro-outcomes, all carrying one weight h.  Define
@@ -37,8 +30,7 @@
 --   * a canonical reversible encoder into exactly the register being summed.
 --
 -- TERM. ‡‡Æ‡‡æ‡ñ‡æ is the checked equal-branch vocabulary; ‡‡æ‡Æ‡û‡‡‡‡‡Ø is ordinary
---  for coherence/agreement. The compound is built here; no source is
--- claimed for the theorem.
+--  for coherence/agreement.
 ------------------------------------------------------------------------
 
 module UniformRefinementCoherenceProbe where

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Swarm.S09SmithKuttaka   (swarm-0814-09, 2026-08-14)
+-- Swarm.S09SmithKuttaka
 --
 -- THE TRANSLATION.  Two documents in this repository state the same
 -- theorem in vocabularies that do not cite each other:

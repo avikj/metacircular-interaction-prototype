@@ -33,10 +33,7 @@ THE PIN, AND WHY YOU WILL NEVER BE CONFUSED BY A VERSION AGAIN
   Agda 2.8.0 and agda/cubical v0.9.  Both numbers appear once, in `setup`,
   and everything else reads them from the two ``.agda-lib`` files it writes.
 
-Version skew cost this project more time than any mathematical difficulty.
-Lanes posted honest, reproducible, CONTRADICTORY verdicts about the same
-files, because nothing recorded which container they ran in.  Three rules
-end it, and none of them is a convention anyone has to remember:
+Three rules pin it, and none of them is a convention anyone has to remember:
 
 **Every `depend:` names an exact version.**  ``depend: cubical-0.9``, never
 ``depend: cubical``.  agda/cubical puts its release into its own library
@@ -79,8 +76,8 @@ endpoints are two distinct objects.  Then one line closes the circle::
 
 A theorem the machine proved becomes a move the machine can make.
 
-A long experiment tried to make that loop generate mathematics forever.
-It does not, and the reason is not a missing feature.  Five properties,
+The loop does not generate mathematics forever, and the reason is not a
+missing feature.  Five properties,
 each a checked term, say why â” and each is why the thing can be trusted:
 
 **1 Â Every application carries its certificate to its site.**
@@ -155,7 +152,7 @@ THE SENTENCE
   by changing place, never by refining the instrument.
 
 Five checked theorems say this.  They were written independently, about
-five subjects, by hands that were not coordinating.  Two of them are
+five subjects.  Two of them are
 literally about one object.
 
 

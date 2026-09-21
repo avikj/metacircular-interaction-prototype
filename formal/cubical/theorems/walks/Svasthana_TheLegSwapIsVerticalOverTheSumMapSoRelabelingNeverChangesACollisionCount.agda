@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- ‡‡‡µ‡‡‡‡æ‡® ‚î one's own station.  The graded fibre tower of the sum
--- spectrum (owner's three-multiplicity message), structural half:
+-- spectrum, structural half:
 --
 --   level 0   frequencies s                    (the base)
 --   level 1   pair-witnesses (Œ≥µ, Œ≥‚º) over s = Œ≥µ + Œ≥‚º   (the fibres)
@@ -26,9 +26,8 @@
 --   ¬ß3  the induced action on the base is the identity ‚î the swap is
 --       vertical, level 2 acts on level 1 over a FIXED level 0.
 --
--- FENCE.  The weighted count (that |fibre| ‚â 2 with weights gives the
--- 2w‚w‚ interference) is SamyogaVyatikara's; the analytic tower over the
--- actual zeta frequencies needs ‚ and is the owner's reading.  This is
+-- The weighted count (that |fibre| ‚â 2 with weights gives the
+-- 2w‚w‚ interference) is SamyogaVyatikara's.  This is
 -- the exact skeleton: verticality, the reason the multiplicities never mix.
 ------------------------------------------------------------------------
 

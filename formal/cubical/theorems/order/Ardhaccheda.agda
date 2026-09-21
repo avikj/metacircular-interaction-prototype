@@ -236,7 +236,7 @@ n≤द्विघात (suc n) =
 --
 -- (Log of a power: ���������((2�)�) ≡ n�k � the companion of the log-of-product
 --  law, the inverse-world mirror of Vargana's ����-����.  The three Jain log laws
---  (product, iterated log, power) now stand.)
+--  (product, iterated log, power) stand.)
 ------------------------------------------------------------------------
 
 लघुगणक-घातः : (n k : ℕ) → अर्धच्छेद (घात (द्वि-घात n) k) ≡ n · k

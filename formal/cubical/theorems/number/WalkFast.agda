@@ -5,15 +5,15 @@
 --
 -- THE THEOREM REPLACES THE COMPUTATION.  This is CLAUDE.md's central
 -- rule applied to the walk's own execution, and it is the first place in
--- this lane where a proved theorem buys a superexponential speedup
+-- the walk lane where a proved theorem buys a superexponential speedup
 -- rather than merely recording one.
 --
 -- `WalkBridge` makes the walk's step a total function
 --
 --     next m = least q â‰ 2 with q âˆ cap m ,          cap m = lcm(1..m),
 --
--- and it RUNS: next 1..5 = 2,3,4,5,7 by refl.  Then it stops.  `next 7`
--- costs 86 s and `next 8` exhausts a 3.5 GB heap, for a derived reason â”
+-- and it RUNS: next 1..5 = 2,3,4,5,7 by refl.  Then it stops, for a
+-- derived reason â”
 -- the search decides `s âˆ cap m` per candidate, a unary divisibility
 -- test on cap m costs Î˜(cap m), and cap m = e^{Ïˆ(m)}.  The walk's
 -- storage law is its naive runtime law.
@@ -53,7 +53,7 @@
 -- independently elaborated occurrence, and putting the two side by side
 -- runs the walk on cap 8.  A metavariable is solved by assignment and
 -- never by reduction, so handing the proof the goal's OWN `next 8` is
--- free; building a second one costs 3.5 GB.  Hence `WalkFastInstance`
+-- free; building a second one is not.  Hence `WalkFastInstance`
 -- packages everything the walk knows into one value, binds it with a
 -- signature-free `let` (a signature is itself a second elaboration of
 -- `next 8`, and loses), and lets the goal supply `next m` as a meta.

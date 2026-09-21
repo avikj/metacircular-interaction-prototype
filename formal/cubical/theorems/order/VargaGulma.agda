@@ -12,8 +12,7 @@
 -- gnomons ‚î L-shaped borders ‚î the k-th of which has size 2k+1, the next odd
 -- number, so n gnomons build an nón square.  Hence the sum of the first n odd
 -- numbers is n¬≤: ‡ì‡-‡Ø‡ã‡ó n ‚â° n ¬ n, subtraction-free over ‚ï.  The gnomon
--- (samacaturara grown by gulma) is the ulba tradition's; no specific verse is
--- claimed for this arithmetic identity, only the construction it counts.)
+-- (samacaturara grown by gulma) is the ulba tradition's.)
 --
 -- ‡‡‡∞‡ã‡‡æ‡‡‡ø : ‡‡‡ß‡æ‡Ø‡®-‡‡‡≤‡‡‡‡‡‡‡∞‡Æ‡ (‡‡Æ‡‡‡‡∞‡‡‡∞-‡µ‡‡¶‡‡ß‡ø‡, ‡ó‡‡≤‡‡Æ-‡∞‡‡®‡æ) ‡
 ------------------------------------------------------------------------

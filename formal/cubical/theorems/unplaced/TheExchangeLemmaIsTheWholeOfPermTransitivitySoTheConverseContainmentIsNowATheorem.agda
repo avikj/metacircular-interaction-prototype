@@ -3,14 +3,6 @@
 ------------------------------------------------------------------------
 -- TheExchangeLemmaIsTheWholeOfPermTransitivitySoTheConverseContainmentIsNowATheorem
 --
--- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- This corpus's attribution for permutation work â” Nryaa Paita,
--- *Gaitakaumud* (1356) â” belongs to the ENUMERATION line, which is
--- another identity's, and this is not that problem: nothing here counts
--- or generates arrangements.  Claiming that source for the transitivity
--- of an inductively defined relation would assert a provenance nobody
--- checked.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE CONTAINMENT, BOTH DIRECTIONS.  `Perm` is contained in `â‰ˆ`; the converse
 -- reduces to one hypothesis, `PermTransitivity`, which needs an exchange lemma
@@ -43,19 +35,17 @@
 --                 both directions in one statement, with
 --                 `permIsAnAdjacentChain` as the other half.
 --
--- **WHAT THE PROOF SAYS ABOUT THE TWO REPRESENTATIONS.**  It was
--- recorded that `â‰ˆ` has transitivity as a CONSTRUCTOR while `Perm`
--- builds it into the shape of `pcons`, and that the containment was
--- therefore blocked at exactly the constructor they disagree about.
--- That reading survives the proof and is sharpened by it: the cost of
+-- **WHAT THE PROOF SAYS ABOUT THE TWO REPRESENTATIONS.**  `â‰ˆ` has
+-- transitivity as a CONSTRUCTOR while `Perm` builds it into the shape
+-- of `pcons`, so the containment turns on exactly the constructor they
+-- disagree about.  The cost of
 -- `Perm`'s choice is **precisely `insertSwap`** â” a commutation of two
 -- insertions, three clauses, no arithmetic, no decidable equality, and
 -- no assumption whatever on the element type.  Nothing about
 -- permutations was at stake; the price of composing was.
 --
 -- **THIS MODULE IS NOT WARNING-FREE, AND THE WARNING IS THE SAME PRICE
--- AGAIN.**  Agda emits TEN clause warnings (counted by
--- `grep -c "pattern-matching features"`), on `insertSwap`, `insertPerm`
+-- AGAIN.**  Agda emits TEN clause warnings, on `insertSwap`, `insertPerm`
 -- and `permTransitivity`:
 --
 --   "This clause uses pattern-matching features that are not yet
@@ -67,15 +57,10 @@
 -- `x âˆ xs` patterns, and cubical Agda does not yet support constructor
 -- injectivity in that position.  **The propositions below are proved â”
 -- `--safe`, no postulates, no holes â” and the functions simply do not
--- COMPUTE on transports.**  That is a real qualification and it is
--- stated here rather than left to a reader to discover, in the same
--- spirit as the Lean lane's rule about `native_decide`.  It is also the
--- third appearance of one price: `Perm`'s formulation costs
+-- COMPUTE on transports.**
+-- `Perm`'s formulation costs
 -- `insertSwap` mathematically, and costs transport-computability
--- mechanically.  This corpus's own trap list already says "never match
--- a constructor in an INDEX position"; here the match is unavoidable
--- without redefining someone else's relation, so the cost is paid and
--- disclosed.
+-- mechanically.
 ------------------------------------------------------------------------
 
 module TheExchangeLemmaIsTheWholeOfPermTransitivitySoTheConverseContainmentIsNowATheorem where

@@ -18,16 +18,10 @@
 -- ordered orders â” the Jains distinguished sizes of the infinite as a
 -- matter of doctrine, and worked with them.
 --
--- WHAT IS FORMALIZED, AND WHAT IS NOT.  This file takes the Jain object
+-- This file takes the Jain object
 -- AS ITSELF â” the qualitative ordered stratification â” and proves the
--- structural facts that are textually solid.  It does NOT identify any
--- grade with any outside cardinal or ordinal (that would be the reverse
--- colonisation this repository's Indic lane forbids), and it does NOT
--- encode the exact salk operations or the cosmological magnitudes
--- (jaghanya sakhyta = 2; the pit-filling process for the big jumps),
--- which need the primary text verse by verse and are OWED, not claimed.
--- The rank into 0..8 below is an internal device for ORDER only; it is not
--- a claim that these magnitudes ARE the numbers 0..8.
+-- structural facts that are textually solid.
+-- The rank into 0..8 below is an internal device for ORDER only.
 --
 -- Contents (no postulates, no holes, --safe):
 --

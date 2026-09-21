@@ -12,9 +12,7 @@
 -- and `ð’ŸF â‰¡ 0` on every admissible triad is exactly the condition for
 -- the functional to be produced by no triad â” i.e. to be an invariant.
 -- This module proves the three algebraic facts that determine which
--- weights those are.  Nothing analytic is claimed: the passage from a
--- field equation to this defect is where the analysis lives, and it is
--- not here.  What IS here is the whole of the algebra downstream.
+-- weights those are.
 --
 --   Â§1  ð’ŸF IS A COLLINEARITY DETERMINANT.  For every weight and every
 --       triple,

@@ -27,11 +27,6 @@
 -- *"‚à1..4, the a=1 d=1 special case"*.  `Shredhi` has no
 -- `open import Sankalita`; the two lanes never meet in a type.
 --
--- CLAUDE.md, ¬ß"On green as an organizing activity": *"instances rather
--- than reasons, counts rather than bijections.  The `refl` at the end is
--- the floor of the claim, not the claim."*  An example at n = 4 is the
--- instance; ¬ß1 below is the reason.
---
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT IS CHECKED
 --
@@ -43,9 +38,7 @@
 --       forms already in the corpus MEET, and nobody had joined them.
 --
 --   ¬ß2  `‡â‡¶‡æ‡‡∞‡‡Æ‡-‡‡‡®‡` ‚î `Shredhi.‡â‡¶‡æ‡‡∞‡‡Æ‡-‚à` demoted from a claim to
---       an instantiation of ¬ß1 at n = 4.  Left standing, not deleted:
---       the example is still true and still worth reading; it is just
---       no longer carrying the statement.
+--       an instantiation of ¬ß1 at n = 4.
 --
 --   ¬ß3  `‡‡‡∞‡‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡ : ‡‡‡∞‡‡‡ 1 1 (suc n) ‚â° suc n + ‡‡‡∞‡‡‡ 1 1 n` ‚î
 --       the head/tail swap.  By definition `‡‡‡∞‡‡‡ 1 1 (suc n)` peels

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Swarm.S10VertexOrbit   (swarm-0814-10, 2026-08-14)
+-- Swarm.S10VertexOrbit
 --
 -- THE FEASIBLE VERTEX OF A ROOT CAGE IS ESSENTIALLY UNIQUE.
 --

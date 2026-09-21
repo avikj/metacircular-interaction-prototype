@@ -19,7 +19,6 @@ Where preference must come from.  Selection among histories is therefore extra-s
 No MDP, no policy, no return, no estimator and no training dynamics appear.
 The evaluator is a specific interpreter into the naturals and the results are
 about functions of it. Reward hacking and specification gaming are named as
-the phenomena we take this to explain; that identification is a reading and is
-not proved.
+the phenomena we take this to explain.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

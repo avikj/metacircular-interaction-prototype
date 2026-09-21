@@ -16,7 +16,7 @@
 --   à¨  composition  E = EâEâ, S = Sâ, T = TâTâ, R = RâRâ,
 --      Z = Zâ + RâZâTâ  of a certificate for M with a certificate for
 --      its reduced operator Sâ is again a certificate for M â” so the
---      whole session installs from its steps (handoff Â§45, [S18]);
+--      whole session installs from its steps;
 --   à©  a causal kernel with KÂ³ = 0 has  (1 âˆ’ zK)â»Â = 1 + zK + zÂ²KÂ²  for
 --      every z, whatever its norm: large norm is not a causal-inverse
 --      failure.

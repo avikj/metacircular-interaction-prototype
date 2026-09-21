@@ -61,11 +61,6 @@ else, now at the scale of a six-element set of integers.
 
 The
 reduction of â-congruence to the four normalized shapes is a definition in
-the module, elementary and assumed, not a theorem of it.  No claim is made
-that homometry and cohomological side information are related by more than
-the shared shape of a non-injective transport with an exhibited residue;
-the identification is structural, not a theorem that one reduces to the
-other.  The mathematics of homometric sets is entirely classical and none
-of it is claimed as new.
+the module.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

@@ -2,16 +2,14 @@
 
 ------------------------------------------------------------------------
 -- ‡‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡ ‚î apavda does not shed sthla's provenance, and that is
--- the host's thesis, not its failure.  The probe's open row
--- (notes/SADHYA_OPEN_OBLIGATIONS.md, "host enumeration", rung ‡®/‡©)
--- asked apavada (sthula t) ‚â° t.  But sthula t = yoga (nyasa t) (mita 0)
+-- the host's thesis, not its failure.  The identity
+-- apavada (sthula t) ‚â° t fails: sthula t = yoga (nyasa t) (mita 0)
 -- ‚î the coarse embedding that stamps a "+0" of provenance ‚î and apavada
 -- is structural: it carries the stamp through, landing at
 -- yoga' t (mita' 0), never back at t.  The host proves the two
 -- embeddings ‡®‡‡Ø‡æ‡ and ‡‡‡‡‡≤ are observationally inseparable in value
--- (nyasa-sthula-avishesha) yet distinct in cost (mulya-bheda); a probe
--- that closed this row green would have collapsed exactly the
--- distinction the module exists to hold apart.  Road two, witness cara'.
+-- (nyasa-sthula-avishesha) yet distinct in cost (mulya-bheda).
+-- Road two, witness cara'.
 ------------------------------------------------------------------------
 
 module Ratri.Anirdharita_Nirjara_ApavadaSthula where

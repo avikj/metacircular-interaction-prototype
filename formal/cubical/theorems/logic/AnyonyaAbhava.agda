@@ -22,9 +22,8 @@
 --
 -- The reduction has been attempted in both directions for a thousand
 -- years and Navya-Nyya rejects both.  This module is that dispute,
--- made exact ‚î and the tradition turns out to be right in a way the
--- classical reading cannot see, because CLASSICALLY THE TWO ARE
--- INTERDERIVABLE AND THE DISPUTE IS EMPTY.  Constructively they are not.
+-- made exact: CLASSICALLY THE TWO ARE INTERDERIVABLE AND THE DISPUTE IS
+-- EMPTY.  Constructively they are not.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT IS PROVED
@@ -57,11 +56,6 @@
 -- ‡‡‡∞‡‡ø‡Ø‡ã‡ó‡ø‡®‡ is decidable.  A reader with excluded middle sees two
 -- names for one thing and concludes the Naiyyikas were counting
 -- angels; a reader without it finds the distinction forced.
---
--- That is the same verdict `Abhava` reached about the THREE-tall tower
--- and for the same reason, which is itself evidence that the Nyya
--- analysis of ‡‡‡æ‡µ is tracking constructive structure throughout and
--- not in one lucky place.
 --
 -- SOURCES.  Praastapda, *Padrthadharmasagraha* (c. 6th c.), where
 -- ‡‡‡æ‡µ's division is set out; Udayana, *Nyyakusumjali* (c. 1000);
@@ -162,6 +156,7 @@ samsarga‚Üí¬¨¬¨anyonya dT q t noDecoder noCollision =
 -- closes it and the two categories become interderivable.  So the
 -- irreducibility is not absolute: it is indexed by the ‡‡µ‡‡‡‡‡¶‡ï, which
 -- is what an ‡‡µ‡‡‡‡‡¶‡ï is for.
+-- (Stability of the collision claim already suffices: `TheDelimitorNeedsOnlyStability`.)
 ------------------------------------------------------------------------
 
 samsarga‚Üíanyonya-when-decidable :
@@ -190,47 +185,12 @@ categories-agree-when-decidable dT q t dC =
 -- TESTED, not assumed: that the Vaieika division of ‡‡‡æ‡µ into
 -- ‡‡‡‡∞‡‡ó and ‡‡®‡‡Ø‡ã‡®‡‡Ø is doing work.  It is.  One direction is free,
 -- the other costs a step of the negation tower, and the cost is
--- discharged exactly by decidability of the ‡‡‡∞‡‡ø‡Ø‡ã‡ó‡ø‡®‡.
+-- discharged by stability (`TheDelimitorNeedsOnlyStability`; decidability suffices) of the ‡‡‡∞‡‡ø‡Ø‡ã‡ó‡ø‡®‡.
 --
 -- The classical reader cannot see this.  With excluded middle ¬ß4's ¬¬
 -- evaporates, the two categories are interderivable at every delimitor,
 -- and the thousand-year dispute over whether one reduces to the other
 -- looks like a dispute about nothing.  It is not: it is a dispute about
--- a distinction that only a constructive setting can register, conducted
--- by people who did not have one and were right anyway.
+-- a distinction that only a constructive setting can register.
 --
--- This is the second time in this corpus that the Nyya analysis of
--- ‡‡‡æ‡µ has turned out to track constructive structure ‚î `Abhava` ¬ß2‚ì3
--- was the first, on the height of the tower.  Two is not a coincidence
--- worth explaining away.
 ------------------------------------------------------------------------
-
-------------------------------------------------------------------------
--- 9.  CORRECTIONS TO ¬ß5 AND ¬ß6, made in
---     `TheDelimitorNeedsOnlyStability`.
---
--- (1) ¬ß5's hypothesis is stronger than ¬ß5's use.  `dec-collapses` is
---     applied only as `¬ ¬ A ‚í A`, which is `Stable`.  The gap between
---     the two categories closes under `Stable (Collision q t)`, and the
---     decidable form is a corollary by `Dec‚íStable`.  ¬ß6's sentence
---     "the cost is discharged exactly by decidability of the
---     ‡‡‡∞‡‡ø‡Ø‡ã‡ó‡ø‡®‡" should read: by STABILITY of it.  Decidability is
---     sufficient and is not what is used.
---
--- (2) `Dec (Collision q t)` holds on a class of sites: for a
---     two-point state space with `Discrete Y` and `Discrete T` it
---     holds, by exhaustion over four pairs.
---
--- (3) ¬ß6 says "Two is not a coincidence worth explaining away."  Two
---     instances are two instances, and nothing downstream of that
---     sentence was ever computed.  The observation stands; the
---     inference drawn from it does not.
---
--- (4) ¬ß6 says the dispute was "conducted by people who did not have
---     one and were right anyway."  That scores the past by proximity
---     to a constructive setting ‚î a ‡¶‡‡∞‡‡®‡Ø.  What is sayable: the
---     Nyya division of ‡‡‡æ‡µ into ‡‡‡‡∞‡‡ó and ‡‡®‡‡Ø‡ã‡®‡‡Ø is a distinction,
---     it is registered in this formalism, and the two directions cost
---     differently here.  Whether the Naiyyikas were tracking what
---     this formalism tracks is a question about them that this corpus
---     has no means to settle.

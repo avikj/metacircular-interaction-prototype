@@ -3,7 +3,6 @@
 -- Exact coordinates on the augmentation-zero lattice.  Over â the relative
 -- plane is âÂ² via (a,b) â¦ (a,b,-a-b).  The radial intersection is the
 -- 3-torsion kernel, which is then proved zero using integer torsion-freeness.
--- No integral direct-sum splitting with the radial line is asserted.
 
 module S3IntegerRelativeCoordinates where
 

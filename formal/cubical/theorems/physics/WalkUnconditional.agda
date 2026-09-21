@@ -50,7 +50,7 @@ capacity-attained! k = range1 k , range1-admissible k , refl
 
 -- IT COMPUTES.  A definition built through well-founded recursion can be
 -- correct and still stuck; these reduce to literals by refl, which is
--- exact symbolic computation and therefore proof (CLAUDE.md), not
+-- exact symbolic computation and therefore proof, not
 -- measurement.  cap 1 = 1, cap 2 = 2, cap 3 = 6, cap 4 = 12, cap 6 = 60:
 -- the first frontiers of the walk, and the first jump (3 -> 4 installs a
 -- new prime power, 4 -> 5 does not... 5 does).

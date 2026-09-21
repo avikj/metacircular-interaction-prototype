@@ -2,13 +2,12 @@
 
 ------------------------------------------------------------------------
 -- ‡‡‡‡Æ‡‡≤‡‡Ø‡Æ‡ ‚î the price of the remainder.  Compound built here
--- (‡‡‡, remainder; ‡Æ‡‡≤‡‡Ø, price); no source is claimed for
--- the compound.  The DISCIPLINE in ¬ß1 is claimed for its source and it
+-- (‡‡‡, remainder; ‡Æ‡‡≤‡‡Ø, price).
+-- The DISCIPLINE in ¬ß1 is claimed for its source and it
 -- is the corpus's oldest: ryabhaa, ryabhaya, Gaitapda 32‚ì33, 499
 -- ‚î the kuaka's rule, ‡Ø‡‡ ‡® ‡µ‡ø‡‡‡‡ ‡‡‡ ‡∞‡ï‡‡‡‡Ø‡‡: what does not divide
--- is KEPT, first-class, the material of the next step.  Nothing further
--- is attributed to that text; the fibre is Voevodsky's, the admitted
--- substrate.
+-- is KEPT, first-class, the material of the next step.  The fibre is
+-- Voevodsky's, the admitted substrate.
 --
 -- WHY.  Lopa's census: of the corpus's one-way edges,
 -- ‚ï is the dominant source ‚î 216 edges against Bool's 81.  SarvaMulya

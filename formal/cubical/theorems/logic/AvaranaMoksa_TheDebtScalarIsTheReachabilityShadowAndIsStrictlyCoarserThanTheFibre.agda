@@ -5,12 +5,12 @@
 -- only the reachability shadow, and it is strictly coarser than the
 -- fibre.  The scalar can read "settled" while curvature remains.
 --
--- ‡®‡Ø-‡‡µ‡∞‡‡Æ‡ (landed this hour): each standpoint conflates a pair the
--- other separates.  ‡‡Æ‡æ‡‡∞‡-‡®‡ø‡‡‡Ø‡Æ‡ (same hour): a transitive verdict
+-- ‡®‡Ø-‡‡µ‡∞‡‡Æ‡: each standpoint conflates a pair the
+-- other separates.  ‡‡Æ‡æ‡‡∞‡-‡®‡ø‡‡‡Ø‡Æ‡: a transitive verdict
 -- flattens, and a typed spectrum does not escape it merely by having
 -- more coordinates.  MoksaLosslessReturn proved a fixed-point theorem for
 -- the debt COUNT (a ‚ï).  A count is a set-valued observable of the
--- configuration, and ‚î the owner's field-equation message ‚î the real
+-- configuration, and the real
 -- metric is NOT a scalar: it is holonomy, the fibre, the typed boundary
 -- spectrum.  So the scalar's fixed point (debt 0) cannot be the
 -- stationary condition of the endogenous geometry.  This module proves
@@ -22,7 +22,7 @@
 --     savara-step drives to zero.
 --   ‚ FIBRE debt: is every fibre a proposition (no retained
 --     distinction)? = injectivity/equivalence.  This is the curvature
---     the owner names ‚î what a loop carries, what an observation cannot
+--     ‚î what a loop carries, what an observation cannot
 --     see into.
 --
 -- THE WITNESS: Bool ‚í Unit.  Surjective (reachability debt = 0: the

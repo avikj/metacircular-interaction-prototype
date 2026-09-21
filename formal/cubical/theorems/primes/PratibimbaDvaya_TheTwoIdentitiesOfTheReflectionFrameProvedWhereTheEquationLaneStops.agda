@@ -4,12 +4,8 @@
 -- ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡-‡¶‡‡µ‡Ø‡Æ‡ ‚î the two identities of the reflection frame, proved
 -- exactly where the equation lane stops.
 --
--- The wire session mapped the kernel lane's certification power: the
--- x-induction closure with steps {refl, cong suc, ih}.  Both identities
--- below were asked on the wire and refused ‚î each needs distributivity
--- or two-coordinate reasoning, which the stair theorems place beyond
--- that closure.  They are true, they are the algebra of the first
--- message's frame, and here they are theorems at the pin:
+-- Two identities of the reflection frame, each needing distributivity
+-- or two-coordinate reasoning beyond one-variable induction:
 --
 --   ‡ß  pq + p¬≤ = p¬(p+q)
 --      so modulo any divisor of p+q the pair-product is minus a

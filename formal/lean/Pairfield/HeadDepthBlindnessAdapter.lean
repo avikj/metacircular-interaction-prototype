@@ -77,12 +77,10 @@ theorem pow_dvd_fermatExponent_iff_pow_dvd_head
     emultiplicity_fermatExponent_eq_head hq hqodd hb]
 
 /-!
-## Continuation from the native-lineage return
+## The second exponent transport
 
-The first checked bridge stops at exponent `q - 1`.  The native Fermat test on
-the actual input `q ^ a` uses exponent `q ^ a - 1`.  The return correctly
-rejected an unqualified W3 label until this second exponent transport was
-checked.  Its quotient is the geometric sum below, congruent to `1` modulo
+The first bridge stops at exponent `q - 1`.  The native Fermat test on
+the actual input `q ^ a` uses exponent `q ^ a - 1`.  Its quotient is the geometric sum below, congruent to `1` modulo
 `q`, so the same Mathlib LTE theorem applies once more.
 -/
 

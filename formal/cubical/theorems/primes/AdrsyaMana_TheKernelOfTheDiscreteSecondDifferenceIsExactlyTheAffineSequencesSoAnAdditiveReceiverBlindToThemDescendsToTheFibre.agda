@@ -47,11 +47,8 @@
 --       a function of the second difference alone โ” it never sees which
 --       representative of the fibre it was handed.
 --
--- WHAT IS CARRIED IN ยง6 AND WHY.  That a particular receiver annihilates
--- the affine directions is a HYPOTHESIS here, not a theorem.  For the
--- receiver this is written for, the annihilation is two vanishing sums
--- against a compactly supported packet, which is an analytic fact about
--- that packet and has no carrier in this corpus.  What is proved is that
+-- WHAT IS CARRIED IN ยง6.  That the receiver annihilates the affine
+-- directions is a hypothesis of ยง6.  What is proved is that
 -- annihilation is exactly what descent requires, and that the fibre it
 -- must be blind to is exactly two-dimensional โ” neither more nor less.
 --

@@ -3,8 +3,6 @@
 ------------------------------------------------------------------------
 -- Swarm.S00TranscriptComposition
 --
--- swarm-0814-00, 2026-08-14.
---
 -- The object: an exact characterisation of when a STAGEWISE transcript
 -- test certifies a COMPOSITE one.
 --
@@ -220,21 +218,3 @@ module RecordBound {X : Type â„“} where
     {A : Type â„“'} â†’ (Î£[ r âˆˆ (X â†’ A) ] Determines erase r (idfun X))
     â†’ Î£[ r âˆˆ (X â†’ A) ] isInj r
   soundRecordIsEmbedding (r , d) = r , recordLowerBound r d
-
-------------------------------------------------------------------------
--- 6.  Scope
---
--- Proved: everything above, with no postulates and no holes.
---
--- Not proved here (proved by hand, elementarily, in the accompanying
--- note): the exact finite composition law
---
---     râ  â‰  R  â‰  râ Â f,
---
--- where `râ` is the stage-1 record size, `f` the merge multiplicity of
--- `wâ` on the image of `wâ`, and `R` the composite record size; both
--- bounds are attained.  `f` is a property of `wâ` alone and is
--- invisible to both stagewise transcript tests â” which is the exact
--- sense in which the missing coordinate is a coordinate of the
--- FORGETTING, not of either transcript.
-------------------------------------------------------------------------

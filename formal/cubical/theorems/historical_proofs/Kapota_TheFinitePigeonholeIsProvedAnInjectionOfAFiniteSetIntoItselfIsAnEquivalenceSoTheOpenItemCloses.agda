@@ -5,9 +5,7 @@
 -- `TheOpenPigeonholeReducesToFinâ¦` and `TheTwoPigeonholesAreInterderivableâ¦`
 -- showed `TheOpenPigeonhole` (over FinSet, with mere equivalences) and
 -- `FinPigeonhole` (an injection SFin n â’ SFin n is an equivalence) are
--- interderivable, and said of the latter, exactly: "it is true and
--- standard, asserting it without a proof is what this corpus forbids,
--- and both directions here take it â¦ as a HYPOTHESIS."
+-- interderivable; this module proves the latter.
 --
 -- The proof is a composition of library terms already in the pin:
 --
@@ -21,7 +19,7 @@
 --     equivalence (`isEmbedding—isSurjectionâ’isEquiv`).
 --
 -- So `FinPigeonhole` is inhabited, and through the earlier reduction so
--- is `TheOpenPigeonhole`: the item labelled (wâ³) is closed, not reduced.
+-- is `TheOpenPigeonhole`.
 ------------------------------------------------------------------------
 module Kapota_TheFinitePigeonholeIsProvedAnInjectionOfAFiniteSetIntoItselfIsAnEquivalenceSoTheOpenItemCloses where
 

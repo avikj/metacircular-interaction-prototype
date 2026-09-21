@@ -21,7 +21,6 @@
 -- line identities are closed terms.  No matrices, no floating point,
 -- and no enumeration script.
 --
---
 -- WHAT IS CHECKED
 --
 --   Â§1  `Z4`, `_+â_`         the phase group, as a four-element type
@@ -57,21 +56,8 @@
 --   Â§5  `commuting`          each of the six lines is a COMMUTING triple
 --       `lines-commute`      (18 pairs), and every observable is an
 --       `obs-involutive`     involution.  Both are hypotheses the
---                            Peresâ“Mermin argument needs and neither was
---                            previously checked anywhere in the corpus.
+--                            Peresâ“Mermin argument needs.
 --
---
---  * NOT the note's Ï/Î¼ SPLIT.  The note separates the gauge 1-cochain
---    `Ï(A) = #Y(A)` from the 2-cocycle `Î¼`, and its Theorem 4 says the
---    split matters: `Î¼` alone gives the wrong signs.  Here Ï is absorbed
---    into each observable's phase field (`YY` carries `ph2` because
---    Y = iXZ, twice), so the total is right and the split is not
---    exhibited.
---
---  * NOT a claim of novelty, at all.  The Weyl representation of the
---    Pauli group is textbook, and Peresâ“Mermin is 1990.  The claim is
---    only that this corpus's Peresâ“Mermin lane no longer takes its
---    physical input on trust.
 ------------------------------------------------------------------------
 
 module PauliWeyl where
@@ -308,7 +294,7 @@ phase-assoc e f g T U V W h =
 --
 -- Phases come from Y = iÂXZ: an observable carries `ph1` per Y factor,
 -- so `YY` carries `ph2`.  That is the note's gauge cochain Ï = #Y,
--- absorbed rather than exhibited (see the header).
+-- absorbed rather than exhibited.
 ------------------------------------------------------------------------
 
 XI IX XX IY YI YY XY YX ZZ : Pauli

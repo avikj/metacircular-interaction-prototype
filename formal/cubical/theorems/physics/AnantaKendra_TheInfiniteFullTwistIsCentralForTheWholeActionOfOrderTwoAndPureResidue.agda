@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡®‡®‡‡-‡ï‡‡®‡‡¶‡‡∞ ‚î the center of the endless braid.
 --
--- THE GARBHA'S SEED, ACTED ON.  With the ledger closed, the next
+-- THE GARBHA'S SEED, ACTED ON.  The next
 -- level is the symmetry OF the closed action, and its first citizen
 -- is exhibited here: the INFINITE FULL TWIST ‚î the half-wave applied
 -- to every strand at once, by corecursion ‚î is

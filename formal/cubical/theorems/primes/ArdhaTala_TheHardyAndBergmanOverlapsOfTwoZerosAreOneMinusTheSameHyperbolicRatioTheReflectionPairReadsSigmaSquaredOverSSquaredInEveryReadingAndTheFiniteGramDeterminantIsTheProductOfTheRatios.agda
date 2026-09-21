@@ -2,8 +2,8 @@
 ------------------------------------------------------------------------
 -- ‡‡∞‡‡ß-‡‡≤ ‚î the half-plane.
 --
--- The Hardy/Bergman geometry of the receiver zeros (handoff ¬ß58‚ì60,
--- [S09]).  In the half-plane Re z < s the Hardy feature has
+-- The Hardy/Bergman geometry of the receiver zeros.
+-- In the half-plane Re z < s the Hardy feature has
 -- ‚ü®œ_z, œ_w‚ü© = 1/(2s ‚àí z ‚àí wÃ), norm¬≤ 1/(2d_z), d_z = s ‚àí Re z, and the
 -- Bergman feature has the squared kernel.  Everything reduces to
 -- polynomial identities in the real and imaginary parts, with

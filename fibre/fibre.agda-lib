@@ -11,8 +11,5 @@ depend: cubical-0.9
 
 -- --guardedness is required because agda/cubical v0.9 is built with it, and
 -- Agda's InfectiveImport rule refuses an import from a module that has it
--- into one that does not.  This library carried `--cubical --safe` alone
--- until 2026-08-25 and was therefore UNBUILDABLE at the repository pin --
--- which is the entire reason it was believed to be "a different lake" that
--- the main corpus could not import.  It was one flag.
+-- into one that does not.
 flags: --cubical --safe --guardedness

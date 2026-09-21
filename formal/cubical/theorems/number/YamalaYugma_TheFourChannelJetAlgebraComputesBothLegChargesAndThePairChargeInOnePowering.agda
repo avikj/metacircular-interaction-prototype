@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¯à®à²-à¯àà—àà®à®à â” the twin pair.  The 4-channel jet transfer of the owner's
--- twin message (Î¼âŠ—Î¼ / ÎºâŠ—Î¼ / Î¼âŠ—Îº / ÎºâŠ—Îº), as the algebra
+-- à¯à®à²-à¯àà—àà®à®à â” the twin pair.  The 4-channel jet transfer
+-- (Î¼âŠ—Î¼ / ÎºâŠ—Î¼ / Î¼âŠ—Îº / ÎºâŠ—Îº), as the algebra
 --
 --     â[Îµâ,Îµâ] / (ÎµâÂ², ÎµâÂ²)  =  (value, legâ, legâ, pair),
 --

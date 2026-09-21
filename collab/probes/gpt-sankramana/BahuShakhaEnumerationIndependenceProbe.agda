@@ -7,7 +7,7 @@
 --   formal/cubical/
 --   ShakhitaNairapeksya_TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration.agda
 --
--- The landed module proves:
+-- The module proves:
 --
 --   * independent re-enumeration of every micro-fibre;
 --   * re-enumeration of the outer coarse index with its dependent size family;

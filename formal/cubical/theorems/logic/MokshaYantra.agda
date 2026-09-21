@@ -1,9 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- avidy/moka are not "which `Sight : Type â’ Bool` meets the pair"; this is
--- a small fact about sights on `Bool`.  The live identity is univalence â”
--- nisvabhva (that note), not this wheel.
-
 ------------------------------------------------------------------------
 -- MokshaYantra â” the wheel that turns
 --

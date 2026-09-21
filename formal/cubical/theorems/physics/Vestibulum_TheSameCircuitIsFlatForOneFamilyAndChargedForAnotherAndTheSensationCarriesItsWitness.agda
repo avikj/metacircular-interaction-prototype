@@ -3,11 +3,8 @@
 -- Vestibulum_TheSameCircuitIsFlatForOneFamilyAndChargedForAnotherAndTheSensationCarriesItsWitness
 --
 -- ‡µ‡‡‡‡‡ø‡‡‡≤‡Æ‡ ‚î Latin vestibulum, the threshold: the inner ear's chamber.
--- The name is the OWNER'S, given in transmission U0021 (2026-08-23,
--- collab/upstream/raw/U0021.txt) for exactly this organ, so the Latin
--- lead is his utterance carried, not a departure from the naming rule.
 --
--- THE SPECIFICATION BEING CHECKED (U0021 ¬ß1).  A sense is not a passive
+-- THE SPECIFICATION.  A sense is not a passive
 -- map X ‚í O; it is a family carried through action.  The receptor takes
 --     a circuit l, a carried family F, an inhabitant u over the base,
 -- and returns the transported inhabitant together with a SENSATION that

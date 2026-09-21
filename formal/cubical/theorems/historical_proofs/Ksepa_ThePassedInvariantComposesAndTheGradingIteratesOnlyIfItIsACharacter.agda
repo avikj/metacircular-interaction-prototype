@@ -43,7 +43,6 @@
 -- So iteration holds exactly when the grading is a character.  Brahmagupta
 -- sits at g â‰¡ ðŸ™, where the condition is free â” and that freedom is the
 -- whole of the cyclic method.
---
 ------------------------------------------------------------------------
 
 module Ksepa_ThePassedInvariantComposesAndTheGradingIteratesOnlyIfItIsACharacter where

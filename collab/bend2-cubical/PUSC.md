@@ -1,6 +1,6 @@
 # Parallel Univalent Superposition Computer
 
-*The architecture statement, as written by the author (2026-09-14). It is the
+*The architecture statement, as written by the author. It is the
 level at which the name of this work is to be understood. The sections below
 are the author's text; the closing section maps it onto what this directory
 has built and verified by execution.*

@@ -10,7 +10,7 @@
 -- no nontrivial path-between-path structure.  Therefore any family F with an
 -- inhabitant moved by transport around p cannot descend through q.
 --
--- This is not a claim that one graph schema happened to omit an edge.  Every
+-- Every
 -- set-valued representation â” graph, table, scalar, ordinary database state,
 -- extensional record with set-level fields â” has the same structural limit:
 -- it cannot carry nontrivial holonomy.  To retain the law of transport, the

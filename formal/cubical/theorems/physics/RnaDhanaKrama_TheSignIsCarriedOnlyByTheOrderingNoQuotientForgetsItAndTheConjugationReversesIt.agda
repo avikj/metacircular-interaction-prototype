@@ -8,7 +8,7 @@
 -- (runtime/CRYSTAL.md Â§1) and POSITIVITY_HAS_A_PLACE's "the ordering is the
 -- avacchedaka (limitor)", made elementary and exact over â.
 --
--- THE CONVERGENCE (owner's directive; the reading, not re-proved here).
+-- THE CONVERGENCE (the reading).
 -- One theorem in six vocabularies, each a face of "sign is preserved by no
 -- averaging":
 --   â positivity is a point of Sper K, chart-free only because |Sper â|=1
@@ -32,12 +32,8 @@
 --       by sign â” sign is exactly what the quotient forgets, and it is an
 --       order datum, so only an Order edge recovers it.
 --
--- FENCE.  The genuine multi-cone fork needs a field with |Sper K| > 1
--- (â(âˆ2): xÂ² âˆ’ âˆ2 yÂ² definite at one ordering, indefinite at the other),
--- which needs the real embedding and is NOT built here.  â carries the one
--- ordering, so this is the minimal faithful model of the Order edge, not
--- the fork.  Sources: Brahmagupta, Brhmasphuasiddhnta 18 (628), the
--- a/dhana sign rules; Artinâ“Schreier 1927 (formally real fields), via
+-- Sources: Brahmagupta, Brhmasphuasiddhnta 18 (628), the
+-- a/dhana sign rules; Artinâ“Schreier 1927 (formally real fields).
 ------------------------------------------------------------------------
 
 module RnaDhanaKrama_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheConjugationReversesIt where

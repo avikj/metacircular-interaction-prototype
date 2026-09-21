@@ -9,12 +9,9 @@
 -- ‡‡‡‡æ‡®‡ø‡µ‡‡-‡‡ô‡‡ñ‡‡Ø‡æ, "the count of the sthnivat", is built HERE and no
 -- source is claimed for it.
 --
--- SEED.  The machine asked for this itself.  ‡‡‡µ's mass map
--- (interactive/Jiva_TheMachineComputesItsOwnMetric.hs, run 2026-08-23 in
--- this container) scored the join of the component at
+-- THE COUNT.  The join of the component at
 -- `Fibre.Sthanivadbhava‚¶.‡‡‡‡æ‡®‡ø‡µ‡‡` to the number component at
--- 2970 ‚î its second-highest curvature-removal candidate.  A join, in
--- the graph's own terms, is a checked identification.  Here it is:
+-- Fin 81 is a checked identification.  Here it is:
 --
 --     ‡µ‡∞‡‡‡∞‡‡ ‚â Fin 3        (three forms)
 --     ‡µ‡∞‡‡‡‡û‡‡‡‡û‡æ ‚â Fin 3     (three designations)
@@ -30,10 +27,6 @@
 -- adds NOTHING to the cardinality, because the fibre is contractible.
 -- A reader who trusts only numbers can now check ahis by counting.
 --
--- SYT ‚î THE CLAIM, EXACTLY.  Nothing new about Pini ‚î the grammar content
--- is `Sthanivadbhava_‚¶`'s, with its own sources and scope sentences.
--- 81 = 3‚¥ is a fact about THIS toy inventory (three forms, three
--- designations), not about the Adhyy's vara inventory.
 ------------------------------------------------------------------------
 
 module Fibre.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked where

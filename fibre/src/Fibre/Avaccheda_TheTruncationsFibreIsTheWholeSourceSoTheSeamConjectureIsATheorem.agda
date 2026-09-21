@@ -1,12 +1,9 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- Punargamana ¬ ‡‡µ‡‡‡‡‡¶‡ ‚î the seam, closed.
+-- Punargamana ¬ ‡‡µ‡‡‡‡‡¶‡ ‚î the seam.
 --
--- `WholePartialDesa_‚¶` wrote, of the distinction between levels ‡© and ‡
--- of its five-level scale: its candidate criterion "rests on an
--- unchecked conjecture, `(x : ‚à A ‚à‚) ‚í fibre ‚à_‚à‚ x ‚â A`."  It is not a
--- conjecture.  The fibre of the truncation map over any point is the
+-- The fibre of the truncation map over any point is the
 -- whole source: a point of the fibre is a source element together with
 -- a path in a proposition, and paths in a proposition are contractible.
 --

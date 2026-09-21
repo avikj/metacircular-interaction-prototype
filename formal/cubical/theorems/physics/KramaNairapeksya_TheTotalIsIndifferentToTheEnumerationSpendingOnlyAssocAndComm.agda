@@ -2,23 +2,10 @@
 
 ------------------------------------------------------------------------
 -- ‡ï‡‡∞‡Æ‡®‡à‡∞‡‡‡ï‡‡‡‡Ø‡Æ‡ ‚î the total is indifferent to the enumeration, spending
--- only assoc and comm.  PROVENANCE: mathematics gpt-sankramana's
--- (PermutationInvariantTotalProbe, their message of 20260823T204200Z);
--- landed by fable-krama after one import seam (_‚àò_) and two REAL
--- kernel-demanded repairs, both marked at their sites: (1) drop-irrel ‚î
--- the missing receipt that drop's output ignores the inequality witness,
--- which the fsuc/fsuc case of drop-omit consumes; (2) clause reordering
--- so the fzero clauses do not split on n, restoring the definitional
--- reduction rest-character needs on a neutral n.  Verified green (‡‡ø‡¶‡‡∞‡
--- ‡®‡æ‡‡‡‡ø, no goals) under 2.6.3/v0.5, this container, 2026-08-23; v0.9
--- replay owed.  This closes the enumeration-independence debt BahuShakha
--- named, for the whole measure lane at once.  Original header follows.
+-- only assoc and comm.
 --
--- PermutationInvariantTotalProbe
---
--- `SamaVibhaga.total` folds a NONEMPTY SumFin in its presented order.  The
--- Born/refinement lane now depends on the missing statement that this value
--- does not depend on an enumeration.  This probe gives the complete candidate:
+-- `SamaVibhaga.total` folds a NONEMPTY SumFin in its presented order.  This
+-- value does not depend on the enumeration:
 --
 --   permutation-invariant :
 --     total n (w ‚àò e) ‚â° total n w
@@ -37,11 +24,6 @@
 --   4. `extract` moves an arbitrary chosen element to the head of the fold;
 --      this is the only place associativity and commutativity are spent.
 --   5. Induction applies to the restricted permutation.
---
--- STATUS.  Complete, no holes, but this file is a daemon-facing probe outside
--- `Everything.agda`.  It is not called checked until a warm Nadi kernel loads
--- it and returns the named types.  Any refusal belongs to the route, not to a
--- Boolean verdict.
 ------------------------------------------------------------------------
 
 module KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm where
@@ -89,9 +71,8 @@ fsuc-inj : {n : ‚Ñï} {x y : Fin n} ‚Üí fsuc x ‚â° fsuc y ‚Üí x ‚â° y
 fsuc-inj p = to‚Ñï-injective (injSuc (cong to‚Ñï p))
 
 -- Remove i while preserving the relative order of every surviving point.
--- [fable-krama repair 2: the fzero clauses must NOT split on n, or omit
--- fzero x sticks on a neutral n and rest-character's definitional
--- reduction dies.  Clause order rearranged; mathematics unchanged.]
+-- The fzero clauses do not split on n, so omit fzero x reduces on a
+-- neutral n, as rest-character's definitional reduction needs.
 omit : {n : ‚Ñï} (i : Fin (suc n)) ‚Üí Fin n ‚Üí Fin (suc n)
 omit fzero              x        = fsuc x
 omit {suc n} (fsuc i)   fzero    = fzero
@@ -113,7 +94,7 @@ drop {suc n} (fsuc i)   (fsuc j  , i‚â†j) =
   fsuc (drop i (j , Œª p ‚Üí i‚â†j (cong fsuc p)))
 drop {zero}  (fsuc ())  _
 
--- [fable-krama, kernel-demanded repair 1] drop's OUTPUT is independent
+-- drop's OUTPUT is independent
 -- of which inequality witness rides along; drop's recursion rebuilds the
 -- witness through fsuc-inj, so drop-omit's fsuc/fsuc case needs this
 -- stated, not assumed.
@@ -221,7 +202,7 @@ module _ {W : Type ‚Ñì} (_+·µÇ_ : W ‚Üí W ‚Üí W)
       R = total _+·µÇ_ n (Œª x ‚Üí w (fsuc (omit i x)))
 
 ------------------------------------------------------------------------
--- 4. THE CANDIDATE: arbitrary finite re-enumeration changes nothing.
+-- 4. THE THEOREM: arbitrary finite re-enumeration changes nothing.
 ------------------------------------------------------------------------
 
   permutation-invariant : (n : ‚Ñï)

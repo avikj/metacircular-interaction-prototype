@@ -14,10 +14,6 @@
 -- union admits 2 --A--> 1 --B--> 0.  The individual avoidance proofs quantify
 -- over every finite CountedPath, so the result kills generatorwise
 -- composition of no-hit verdicts, not merely a bounded test.
---
--- This exact witness does not classify affine semigroups, transfer the finite
--- path to an integer lift, prove a frequency of emergence, or compute an
--- optimal hitting time.
 ------------------------------------------------------------------------
 
 module AffineEmergenceCountedPath where

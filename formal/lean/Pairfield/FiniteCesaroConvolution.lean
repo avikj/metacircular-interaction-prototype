@@ -7,8 +7,7 @@ The finite counting-measure skeleton of E2B_PROOF Lemma C1.  A split point
 equivalently it contributes one of the `N-m-n` witnesses over that pair.
 
 This file proves only the finite reindexing and its semiring convolution
-corollary.  It contains no integral, von Mangoldt function, explicit formula,
-RH assumption, Gamma/Beta weight, zero sum, or asymptotic estimate.
+corollary.
 -/
 import Mathlib
 

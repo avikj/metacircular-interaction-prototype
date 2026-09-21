@@ -16,8 +16,7 @@
 --     δ  x  =  Π_{m < x} Π� m
 --
 -- and states RH as a uniform inequality on the harmonic sum at δ(n).
--- Nothing is proved there about δ, and that is deliberate: the type sits
--- open.  This module proves the one structural fact about δ that needs
+-- This module proves the one structural fact about δ that needs
 -- no analysis � that δ loses nothing.
 --
 -- The usual way to say it is additive: log δ is the first Riesz mean of

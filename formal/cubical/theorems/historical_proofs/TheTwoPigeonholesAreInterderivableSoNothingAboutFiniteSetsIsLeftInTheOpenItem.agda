@@ -3,14 +3,10 @@
 ------------------------------------------------------------------------
 -- TheTwoPigeonholesAreInterderivableSoNothingAboutFiniteSetsIsLeftInTheOpenItem
 --
--- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- Both statements here are ones I wrote about `OptimalObservation`'s own
--- definition; there is no source to cite, and a fabricated 
--- label would assert a provenance nobody checked.  That module's three
+-- ON THE NAME.  No tradition term is used.  Both statements here are
+-- about `OptimalObservation`'s own definition.  That module's three
 -- INSTANCES are Pigala's *Chandastra* uddia (c. 300 BCE),
--- Virahka's mtrmeru (c. 600‚ì800) and a CRT residue decode, named
--- here in that order and before any later name; **nothing below is a
--- claim about their mathematics.**
+-- Virahka's mtrmeru (c. 600‚ì800) and a CRT residue decode.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- 1.  WHAT IS PROVED
@@ -26,14 +22,13 @@
 --                  conjunct of `Optimal` is `refl`
 --
 -- **THE TWO STATEMENTS ARE INTERDERIVABLE**, and
--- that is the point rather than the convenience.  The open item was
+-- that is the point rather than the convenience.  The statement was
 -- posed over `FinSet`, with cardinalities, mere equivalences and a
--- truncation to escape; it is now known to contain **no FinSet content
+-- truncation to escape; it contains **no FinSet content
 -- at all**.  Whatever is hard about it is hard about `‚ä ‚ä (‚ä ‚ä ‚¶ )`.
 -- A reduction in one direction leaves open the possibility that the
 -- general statement is strictly stronger; the second direction removes
 -- it, and *that* is what "reduces to" could not say on its own.
---
 ------------------------------------------------------------------------
 
 module TheTwoPigeonholesAreInterderivableSoNothingAboutFiniteSetsIsLeftInTheOpenItem where

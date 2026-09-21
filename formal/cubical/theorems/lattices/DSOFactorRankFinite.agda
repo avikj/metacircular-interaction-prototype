@@ -3,8 +3,7 @@
 -- A finite semantic-width obstruction extracted from random batch-02 anchor
 -- #4 (the coordination-graph delta).  The source discusses information cuts;
 -- this module records the exact min-plus analogue: one latent mode forces a
--- rectangular/additive minor identity.  No information-theoretic or tropical
--- rank claim is imported here.
+-- rectangular/additive minor identity.
 module DSOFactorRankFinite where
 
 open import Cubical.Foundations.Prelude

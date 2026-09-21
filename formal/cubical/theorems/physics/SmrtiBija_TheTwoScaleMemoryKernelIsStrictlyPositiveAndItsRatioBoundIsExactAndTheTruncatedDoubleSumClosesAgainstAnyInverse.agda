@@ -47,11 +47,7 @@
 -- WHAT THESE TWO HALVES ARE DOING TOGETHER.  Â§Â§1â“2 say the memory
 -- kernel is positive and controlled by the radius ratio; Â§3 says the
 -- sum of a geometric tower against such a control has an exact closed
--- form at every truncation depth.  The finiteness conclusion drawn from
--- them is a bound on a limit and needs an ordered complete field.
--- Neither the positivity
--- nor the closed form is where that analysis is needed â” both are
--- algebra, and both are checked.
+-- form at every truncation depth.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“2 in â•, for every pair of radii.  Â§3
 -- in any commutative ring, for every element, every inverse of its

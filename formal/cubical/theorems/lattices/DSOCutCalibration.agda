@@ -250,7 +250,7 @@ oneRectangleImpossible œÅ Œ≥ sound p q =
 ------------------------------------------------------------------------
 -- The lower-bound argument this header states ‚î "a rectangle through
 -- (r‚,c‚) and (r‚,c‚) must contain (r‚,c‚), where the matrix is 0" ‚î is
--- carrier-free, and is now a term for arbitrary row and column types in
+-- carrier-free, and is a term for arbitrary row and column types in
 -- `AFoolingPairForcesTwoRectangles`:
 --
 --   foolingPairNotInOneRectangle :
@@ -258,8 +258,7 @@ oneRectangleImpossible œÅ Œ≥ sound p q =
 --     ‚í (rect : Rect) ‚í Sound rect
 --     ‚í ¬ (Covers rect r‚ c‚ ó Covers rect r‚ c‚)
 --
--- One thing that surfaced in making it a term, and it sharpens the
--- method rather than this instance: the proof uses NEITHER 1-entry.  It
+-- The proof uses NEITHER 1-entry.  It
 -- needs only `R r‚`, `C c‚`, and the 0 at the exchanged corner.  The two
 -- 1-entries are what make a pair worth CHOOSING as a fooling pair; they
 -- are not what makes the argument run.

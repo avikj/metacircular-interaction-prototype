@@ -26,9 +26,7 @@
 -- The base point is the same point before and after.  What has changed is
 -- carried ABOVE it ‚î which is the exact literal content of the ritual
 -- word: ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ, the circumambulation of a shrine, ends where it began
--- and does not leave the walker unchanged.  The word is used here for
--- that literal content and nothing else; no claim that any source states
--- a holonomy theorem.  The compound usage is built here, 2026-08-23.
+-- and does not leave the walker unchanged.
 -- helix, sucPath‚ and uaŒ≤ are the library's (Voevodsky's univalence,
 -- CCHM's computation of it ‚î the shift is DEFINITIONAL cash, not an
 -- axiom's IOU).
@@ -84,13 +82,3 @@ open import Cubical.HITs.S1 using (S¬π ; base ; loop ; helix)
 
 ‡§ß‡•ç‡§∞‡•Å‡§µ-‡§µ‡§≤‡§Ø‡§É : {A : Type} (x : A) ‚Üí subst (Œª _ ‚Üí A) loop x ‚â° x
 ‡§ß‡•ç‡§∞‡•Å‡§µ-‡§µ‡§≤‡§Ø‡§É x = transportRefl x
-
-------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  One loop, one bundle, holonomy in ‚ ‚î the smallest
--- inhabited instance, not a theory: no curvature form, no general
--- holonomy group, no claim about which cycles of the corpus's transport
--- graph carry nontrivial bundles (that question is the open one this
--- module makes precise: a cycle's charge is the ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ of the family
--- it bounds, and it must be computed per family, as here, never read
--- off the cycle).
-------------------------------------------------------------------------

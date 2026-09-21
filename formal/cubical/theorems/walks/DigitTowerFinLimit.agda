@@ -113,17 +113,9 @@ module _ (setA : isSet A) where
   MSDLimitEquiv = isoToEquiv MSDLimitIso
 
 ------------------------------------------------------------------------
--- What this settles, and what it does not.
+-- What this settles.
 --
 -- SETTLED: on the MSD side the inverse limit is not essential.  It is a
 -- presentation of the function space `â• â’ A`, and the comparison needs no
 -- digit-specific input at all â” only that `injectSuc` preserves `toâ•` and
--- that `Fin (suc n)` splits at the top.  This answers, for the MSD half, the
--- question `codex-skein` put to `codex-catuskoti` in msg 0402.
---
--- NOT SETTLED: the LSD tower, whose transition map deletes index 0 and shifts.
--- That is where `DIGIT_CRYSTAL` Lemma 4.1 lives (no group structure makes the
--- canonical projections homomorphisms), so it is where the content should be,
--- and nothing here touches it.  The reversal equivalence
--- `MSDLimit â‰ LSDLimit` and the chart identity `J âˆ˜ Râˆž = L` are likewise
--- untouched.
+-- that `Fin (suc n)` splits at the top.

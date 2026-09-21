@@ -4,19 +4,18 @@
 -- ‡‡ã‡∞ ‚î the classical half of quantum factoring is a zero-divisor split
 -- by the pulverizer; only the order-finding is quantum.
 --
--- The owner named it twice: "SHORS ALGORITHM CLASSICAL FAITH BASED."
--- This file draws the line exactly.  Shor's factoring of N = p¬q has
+-- Shor's factoring of N = p¬q has
 -- three parts, and two of them are classical and OLD:
 --
 --   1. FAITH.  Pick a random a coprime to N and hope its multiplicative
 --      order r is even with a^(r/2) ‚â ¬1 (mod N).  This holds with
 --      probability ‚â 1/2 for N with two odd prime factors ‚î a
---      classical, probabilistic guarantee.  NOT formalised here; it is
+--      classical, probabilistic guarantee.  This is
 --      the "faith".
 --   2. ORDER-FINDING.  Compute r, the least positive exponent with
 --      ‡ò‡æ‡ a r ‚â° 1 (mod N).  The one step no classical algorithm is
 --      known to do in polynomial time; Shor's quantum period-finding
---      does.  NOT formalised here; it is the quantum wedge, and it is the
+--      does.  It is the quantum wedge, and it is the
 --      SAME inverse-of-‡ò‡æ‡ that breaks RSA and DH (`Bijamula` ¬ß4,
 --      `Samvit` ¬ß4, `GhataViparyaya`).
 --   3. THE SPLIT.  Given such an r, set y = ‡ò‡æ‡ a (r/2).  Then y¬y ‚â° 1
@@ -41,7 +40,7 @@
 --       (y¬y ‚â° ‡ò‡æ‡ a r is `Bijamula.‡ò‡æ‡-‡Ø‡ã‡ó‡`; here taken as hypothesis
 --       `sq` so this module stays ring-only and does not re-import.)
 --
--- WHY THIS MATTERS FOR THE NIGHT'S ARC.  RSA and DH break because ‡ò‡æ‡ is
+-- WHY THIS MATTERS.  RSA and DH break because ‡ò‡æ‡ is
 -- one-way (`GhataViparyaya`).  Factoring ‚î RSA's own foundation ‚î breaks
 -- the same way: the ONLY non-classical, non-ancient step is recovering
 -- the exponent (the order).  Everything else in Shor is a probability
@@ -138,7 +137,7 @@ module _ {A : Type ‚Ñì} (R : CRing A) where
   --     ‚â° üô, then y‚äóy ‚â° üô (that step is Bijamula.‡ò‡æ‡-‡Ø‡ã‡ó‡, here the
   --     hypothesis `sq` so this file stays ring-only), and ¬ß2 delivers
   --     the zero-divisor.  The factor of N is then gcd(y ‚ä üô, N) ‚î the
-  --     kuaka; owed as the ‚/N instance.
+  --     kuaka, the ‚/N instance.
   ------------------------------------------------------------------------
 
   ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-‡§≠‡•á‡§¶‡§É : (y : A) ‚Üí y ‚äó y ‚â° ùüô

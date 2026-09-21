@@ -10,8 +10,6 @@ facts:
 * arbitrary real sequences with positive coefficient at `2` are determined
   by all coefficients of their additive convolution square;
 * Mathlib's von Mangoldt L-series is `-ζ'/ζ` on `re s > 1`.
-
-No Boolean Goldbach-positivity statement is used or claimed sufficient.
 -/
 
 namespace Pairfield.GoldbachDeterminesZeta

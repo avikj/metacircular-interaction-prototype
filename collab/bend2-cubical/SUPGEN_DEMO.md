@@ -54,7 +54,3 @@ by construction) and the certificate is the erasure of the alternatives.
 - With the cubical layer's `Sup — Path` rule, such a search is transportable
   across a `ua`: search one representation, obtain the answer in every
   equivalent one. That is the piece no other system has.
-
-Next: scale the candidate space (recursive program grammars), and drive the
-search from a Bend2 spec-as-type via the HVM4 emitter, so the survivor arrives
-with an erasing type-theoretic certificate rather than a boolean test.

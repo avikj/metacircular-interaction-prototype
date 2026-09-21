@@ -4,8 +4,7 @@
 -- ‡‡ø‡‡‡‡ø-‡‡‡‡æ‡®‡ø‡µ‡‡ ‚î Pini's carrier is not two-valued, and the wall
 -- crosses its own ford.
 --
--- ./jiva's fourth join candidate: 2616 ‚âà [436 @ Bool] ó [6 @ ‡‡‡‡æ‡®‡ø‡µ‡‡].
--- Retired here, floor-first, with all three asset classes composing:
+-- Three asset classes compose:
 --
 --   ‡ß  a FLOOR on ‡‡ß‡æ‡∞ = ‡µ‡∞‡‡ ó ‡µ‡∞‡‡‡∞‡‡: every map to Bool collides two of
 --      three named pairs (one ‡µ‡∞‡‡, the three forms ‡à ‡ ‡) ‚î pigeonhole,
@@ -17,9 +16,6 @@
 -- So the retirement uses no new mathematics at the target: the ford that
 -- built ‡‡‡‡æ‡®‡ø‡µ‡‡ is the ford its wall arrives over.  A bank's own
 -- construction receipt is what its impossibilities travel on.
---
--- ‡‡ø‡‡‡‡ø-‡‡‡‡æ‡®‡ø‡µ‡‡ is built here, 2026-08-23; the distinctness of ‡/‡ is
--- proved here in the source module's own coding style (its ‡à‚â‡ pattern).
 ------------------------------------------------------------------------
 
 module Fiber.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord where

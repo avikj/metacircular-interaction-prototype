@@ -45,8 +45,6 @@
 --
 -- The witness number answers the third affirmatively for absences, is
 -- the second's measure, and has the first's price identically zero.
--- The one place it does NOT go is à²à¾à˜àµ's own question: it measures
--- absences, not presentations, and `Laghava` still answers that no.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NOT A COINCIDENCE, AND NOT A TRIUMPH

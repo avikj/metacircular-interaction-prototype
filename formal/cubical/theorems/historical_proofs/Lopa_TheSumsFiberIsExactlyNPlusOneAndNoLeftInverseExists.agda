@@ -21,7 +21,7 @@
 -- WHY THIS EDGE AND NOT ANOTHER.
 --
 -- `machine/Setubandha_â¦hs` built the graph of the corpus's checked
--- identifications; every edge in it is invertible, so its gluing defect is
+-- identifications; every edge in it is invertible.
 -- `machine/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs`
 -- built the other graph â” 1054 one-way edges over 474 nodes, against 88
 -- invertible edges over 120 â” and 1036 of those 1054 came back UNDECIDED

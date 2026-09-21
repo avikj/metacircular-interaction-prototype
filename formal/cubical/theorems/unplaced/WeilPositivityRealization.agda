@@ -27,7 +27,7 @@
 -- thousand theorems relevant to `ObserverTower`, `PSD`, and the pairfield
 -- reconstruction are brought to bear on a single term.  The target is to
 -- inhabit `RH`; the arithmetic engine under it (Î from Goldbach `R`) is
--- lossless and already checked.  Built here: the ordered field, the finite
+-- lossless.  Built here: the ordered field, the finite
 -- double-sum Gram form, the PSD predicate, the Weil kernel from Î, and the
 -- wiring into `ObserverTower` (the NS slot is the dual: no bad recurrent
 -- orbit).

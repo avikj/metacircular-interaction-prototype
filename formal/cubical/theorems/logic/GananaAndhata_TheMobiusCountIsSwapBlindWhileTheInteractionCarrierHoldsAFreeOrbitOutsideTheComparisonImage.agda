@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡ó‡‡®‡æ-‡‡®‡‡ß‡‡æ ‚î the count's blindness.
 --
--- THE CLAIM, in the language of the moduli conversation (2026-09-03):
+-- THE CLAIM:
 -- the finite Mbius interaction I‚ = |top| ‚àí |mid‚| ‚àí |mid‚| + |bot|
 -- is the decategorified shadow of the second cross-effect.  A cross-
 -- effect carries a Œ‚-action; an alternating sum of cardinalities is

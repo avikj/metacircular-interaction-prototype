@@ -1,15 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡ï‡‡‡æ ‚î the examination of ‡Ø‡®‡‡‡‡∞ (944676e4), as terms rather than as
+-- ‡‡∞‡‡ï‡‡‡æ ‚î the examination of ‡Ø‡®‡‡‡‡∞, as terms rather than as
 -- a review.  Four objections, each turned into something the kernel can
 -- reject.
 --
--- `YantraAll.agda` is the machine's own root and is left untouched; this
--- is a second root so the corrections can be checked as a unit and so
--- nothing here is mistaken for part of the original commit.
---
---   Chaya       944676e4's message says the collapse from the witnessed
+--   Chaya       The Yantra commit message says the collapse from the witnessed
 --               Goldbach statement to the truncated one "exists while the
 --               reverse provably does not."  The reverse map exists; the
 --               SECTION does not.  Both are proved.

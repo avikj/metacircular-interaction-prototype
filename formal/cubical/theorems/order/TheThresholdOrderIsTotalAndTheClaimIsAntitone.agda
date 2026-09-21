@@ -4,14 +4,8 @@
 -- TheThresholdOrderIsTotalAndTheClaimIsAntitone
 --
 -- `MajorityLiesStrictlyBetweenAllAndSome` exhibited three claim-shapes
--- with two populations and then said:
---
---   "no threshold order is shown TOTAL over all fractions -- two
---    populations are two populations, not a chain -- and no fraction
---    other than 1/2 and 1 is analysed."
---
--- Both halves are answered here, and by the same move: stop exhibiting
--- populations and state the threshold family.  A rate claim at p/(suc q)
+-- with two populations.  Here the threshold family is stated in full:
+-- A rate claim at p/(suc q)
 -- is
 --
 --   AtLeast p q bs  =  p Â length bs â‰ suc q Â count bs
@@ -199,14 +193,7 @@ universalImpliesEveryLowerThreshold p q bs cross a =
   atLeastAntitone p q 1 0 bs cross (thresholdOneFromAll bs a)
 
 ------------------------------------------------------------------------
--- The NOT-CLAIMED section says:
---
---   "STRICT thresholds (the `Majority` of the previous module is
---    strict: length < 2 Â count) are NOT in this family; `AtLeast 1 1`
---    is the non-strict 'at least half', which is weaker, and the
---    strict/non-strict gap is not analysed."
---
--- Analysed in
+-- STRICT thresholds are analysed in
 -- `TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary`
 --
 --   Above p q bs = p Â length bs < suc q Â count bs
@@ -225,7 +212,7 @@ universalImpliesEveryLowerThreshold p q bs cross a =
 -- separates the two families is not their ordering but their verdict at
 -- a population sitting exactly ON a threshold.
 --
--- The gap between the families is therefore exactly the boundary, and
+-- The gap between the families is therefore exactly the boundary.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

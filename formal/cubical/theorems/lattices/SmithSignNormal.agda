@@ -12,7 +12,6 @@
 -- acceptance predicate (`Pairfield.SmithCertificate2.Valid`) demands
 -- `0 â‰ dâ` and `0 â‰ dâ`, and the native output does not satisfy it.
 --
--- Nobody had noticed, because the capability was used only through its types.
 -- Section C below evaluates it on a closed input and the disagreement appears
 -- immediately: `diag(2,3)` normalizes to `diag(1,-6)`.
 --
@@ -66,10 +65,7 @@ sgn (pos _) = pos 1
 sgn (negsuc _) = negsuc 0
 
 -- Both cases are definitional: `pos 1 Â pos n` and `negsuc 0 Â negsuc n`
--- already reduce to `pos (abs _)`.  Deliberately no named arithmetic lemma is
--- used here -- `ÂRid` / `ÂIdR` is exactly the identifier the cubical rename
--- generation moved (msg 0467), and this module should not depend on how that
--- question is settled.
+-- already reduce to `pos (abs _)`.
 sgnÂ· : (x : â„¤) â†’ sgn x Â· x â‰¡ absâ„¤ x
 sgnÂ· (pos n) = refl
 sgnÂ· (negsuc n) = refl

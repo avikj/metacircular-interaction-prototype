@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- IndraNet
 --
--- The synchronic side of the Eternal Golden Braid
+-- The synchronic side of the Eternal Golden Braid, its
 -- targets as checked terms:
 --
 -- T25.A â” Yoneda jewel theorem, univalent-groupoid case.  The
@@ -18,7 +18,7 @@
 -- T25.B â” Rooted reflection total space.  Root(U,Î¦) = Î[ x âˆˆ U ] Î¦ x,
 --   the projection forgets the root, and the fiber over x is Î¦ x â”
 --   "the net as seen from this jewel" (library `fiberEquiv`, inherited
---   as instructed rather than re-proved).
+--   rather than re-proved).
 --
 -- T25.F â” Local discovery propagation.  A new thread e : x â‰¡ y updates
 --   every rooted profile functorially (`threadUpdatesProfiles`), every

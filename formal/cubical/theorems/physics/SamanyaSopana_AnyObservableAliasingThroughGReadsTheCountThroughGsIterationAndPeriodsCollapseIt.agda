@@ -4,7 +4,7 @@
 -- ‡‡æ‡Æ‡æ‡®‡‡Ø-‡‡ã‡‡æ‡® ‚î the ladder, generalized.
 --
 -- The resolution ladder's rungs were instances.  Here is the ladder
--- itself, and it is the campaign's one factoring law pointed along
+-- itself, and it is the one factoring law pointed along
 -- the twist:
 --
 --   ¬ß1  ANY observable O that aliases through some g ‚î O ‚àò turn =
@@ -28,7 +28,6 @@
 -- THE ORDER OF THE ALIAS, and every observable sits at the divisor
 -- its own factoring dictates.  Factoring kills separation ‚î across
 -- instruments, across time, across value, and now across resolution.
---
 ------------------------------------------------------------------------
 
 module SamanyaSopana_AnyObservableAliasingThroughGReadsTheCountThroughGsIterationAndPeriodsCollapseIt where

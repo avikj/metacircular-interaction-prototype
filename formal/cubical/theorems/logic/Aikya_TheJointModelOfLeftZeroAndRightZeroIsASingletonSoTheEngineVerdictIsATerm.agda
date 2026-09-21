@@ -1,17 +1,15 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ê‡ï‡‡Ø ‚î forced oneness.  (Term used descriptively ‚î aikya, "unity/
--- identity", classical ; no source-text claim is made for the
--- mathematics, which is elementary and stated everywhere.  The compound
--- file name was built here.)
+-- ‡ê‡ï‡‡Ø ‚î forced oneness.
+-- (aikya: "unity/identity".)
 --
 -- WHAT THIS IS.  machinery/crystal/'s engine issued IMPOSSIBLE for the
 -- identity-map interpretation between the theories `left-zero`
 -- (x¬y = x) and `right-zero` (x¬y = y): completion of the joint theory
 -- collapses the carrier, and models.py confirmed by finite search that
--- every joint model on domains of size 2 and 3 is trivial (36/36 run,
--- commit 0b2f6850).  Both of those are testimony ‚î a Python run a
+-- every joint model on domains of size 2 and 3 is trivial.
+-- Both of those are testimony ‚î a Python run a
 -- reader must trust.  This module is the same verdict as PERCEPTION:
 -- a kernel-checked term, for every carrier and every size at once.
 --

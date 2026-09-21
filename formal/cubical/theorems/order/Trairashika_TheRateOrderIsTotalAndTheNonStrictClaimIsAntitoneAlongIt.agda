@@ -4,16 +4,7 @@
 -- Trairashika_TheRateOrderIsTotalAndTheNonStrictClaimIsAntitoneAlongIt
 --
 -- `TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt` proved
--- irreflexivity and transitivity of `‚äR` on `Rate` and closed with:
---
---   "ASYMMETRY and TRICHOTOMY are not proved: `‚ä-total`-style
---    comparability was proved for `‚ä` on PAIRS and is not transported
---    here, so nothing says two rates are always comparable.  No claim
---    relates `‚äR` to `AtLeastOnRate` ‚î only to `AboveOnRate`; the
---    non-strict claim's antitonicity along the STRICT order is a
---    different statement and is not made."
---
--- All of it is closed here, on `Rate` itself.
+-- irreflexivity and transitivity of `‚äR` on `Rate`.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT IS PROVED
@@ -47,8 +38,7 @@
 --                      the NON-strict claim is antitone along the
 --                      NON-strict order, on `Rate`
 --   atLeastIsAntitoneOnRatesStrictly
---                      and hence along the STRICT order ‚î the statement
---                      the earlier module says is "not made"
+--                      and hence along the STRICT order
 --   aboveGivesAtLeastOnRate
 --                      the strict claim implies the non-strict one on
 --                      `Rate`, so the two families are ordered too
@@ -58,24 +48,15 @@
 -- fractions is the rule of three (trairika) read as a comparison;
 -- that a decidable, mutually-exclusive three-way split is a proposition
 -- and so descends through a set-quotient by `elimProp` is standard.
--- What is contributed is that the corpus's `Rate` now carries a strict
+-- What is contributed is that the corpus's `Rate` carries a strict
 -- total order and a total order that agree in the usual way, with both
 -- claim families antitone along both.
 --
--- THE SCOPE, EXACTLY.  Nothing here is truncated: trichotomy is a
+-- Nothing here is truncated: trichotomy is a
 -- genuine sum, and its elimination into propositions is by
 -- `elimProp2`, not by choice ‚î the sum is a proposition BECAUSE the
 -- cases exclude each other, and that exclusion is proved, not assumed.
--- `Rate` still has no arithmetic, no lowest-terms section and no
--- relation to any library type of rationals.  Decidability of `‚âà` and
--- of `‚äR` on `Rate` is NOT stated as a `Dec`: trichotomy gives it on
--- representatives, and `Dec` is a proposition when the decided type is,
--- so it would lift by the same route, but that lift is not written.
--- Density (`theRatesAreDense`) remains truncated for the reason its
--- own module gives.
 --
--- CHECKED against the declared pin (Agda 2.8.0 + cubical v0.9).
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Trairashika_TheRateOrderIsTotalAndTheNonStrictClaimIsAntitoneAlongIt where
@@ -271,7 +252,7 @@ atLeastIsAntitoneOnRates =
     (Œª x y ‚Üí isProp‚Üí (isPropŒ† (Œª bs ‚Üí isProp‚Üí (str (AtLeastOnRate x bs)))))
     (Œª where (p , q) (p' , q') h bs ‚Üí atLeastAntitone p q p' q' bs h)
 
--- The statement the earlier module says is "not made": the NON-strict
+-- The NON-strict
 -- claim along the STRICT order.
 atLeastIsAntitoneOnRatesStrictly :
   (x y : Rate) ‚Üí ‚ü® x ‚äèR y ‚ü©

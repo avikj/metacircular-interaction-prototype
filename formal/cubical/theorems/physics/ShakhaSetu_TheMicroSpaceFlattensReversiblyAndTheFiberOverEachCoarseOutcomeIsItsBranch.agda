@@ -4,10 +4,9 @@
 -- BahuShakhaSetuProbe
 --
 -- The finite Born/refinement lane has proved the arithmetic of branchwise
--- weights and enumeration-independence.  Its step 3
--- asks for a REVERSIBLE realization of a dependent finite refinement.
---
--- This probe supplies the exact computational/type-theoretic floor:
+-- weights and enumeration-independence.  This probe supplies the REVERSIBLE
+-- realization of a dependent finite refinement, at its exact
+-- computational/type-theoretic floor:
 --
 --   Micro = Î[ y âˆˆ Fin (suc c) ] Fin (suc (k y))
 --   Flat  = Fin (totalSum (Î» y â’ suc (k y)))

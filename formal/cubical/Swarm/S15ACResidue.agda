@@ -62,15 +62,14 @@
 --     context acts on position p -- additively at one occurrence,
 --     multiplicatively at another, in the single witness below.
 --
--- METHOD NOTE (the draw's two lenses, which disagree here).  Poincare:
+-- METHOD NOTE (two lenses, which disagree here).  Poincare:
 -- the AC matcher is an exponential search with no closed form, so study
 -- the qualitative flow -- which is what the docstring does, and it
 -- misidentifies the invariant.  Gauss: build the scaffolding, publish
 -- the theorem.  The theorem is `rootUniform` + `noUniformInner`; the
--- scaffolding is the 1040-line matcher.  Per CLAUDE.md the derivable
--- statement was shorter than the machinery, and this is the derivation.
+-- scaffolding is the 1040-line matcher.
 --
--- No postulates, no holes, checked with Agda 2.6.3 + cubical v0.5.
+-- No postulates, no holes.
 ------------------------------------------------------------------------
 
 module Swarm.S15ACResidue where

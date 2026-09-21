@@ -20,9 +20,7 @@
 --
 --   * `Tm`      â” unary constructor terms over a countable alphabet of
 --                 head shapes (a term language in which a definitional
---                 body and its unfolding are non-degenerate; "smallest"
---                 is an informal judgement, not a theorem, and nothing
---                 below depends on it).
+--                 body and its unfolding are non-degenerate).
 --   * `Vocab`   â” the installed vocabulary, a list of head shapes; the
 --                 root matcher `Matches` and the full-term predicate
 --                 `Over` are Bool-membership tests against it.
@@ -53,10 +51,7 @@
 --                               from `Over`, and nothing more.
 --   T3 `match-conservative`     installing a head changes matchability
 --                               at no OTHER head.  This is a membership
---                               skip lemma; calling it "the D3 content"
---                               is borrowed collateral â” gate D3 refuses
---                               old-language left-hand sides, and that
---                               refusal is P3, not this.
+--                               skip lemma.
 --   T4 `match-mono`, `Over-mono` extension loses nothing.
 --   T5 `progress-after` +
 --      `progress-before` +
@@ -71,8 +66,7 @@
 --                               from an already-matched head leaves the
 --                               matcher EQUAL (a path of functions, by
 --                               funExt), and hence any finite chain of
---                               such proposals does too.  Read T7â²
---                               before quoting this.
+--                               such proposals does too.
 --   T7â² `freq-reaches-every-installed` /
 --      `freq-memb-absorbed` /
 --      `freq-Over-plateau`      what T7 actually says: the heads a
@@ -99,7 +93,6 @@
 --                               obstruction whose residual is outside
 --                               the class.  This, not T7/T8, is the
 --                               faithful rendering of the source.
---
 --
 ------------------------------------------------------------------------
 
@@ -224,8 +217,7 @@ match-mono V s (node c u) m = memb-mono c s V m
 
 -- T3: conservativity of the matcher.  Installing a new head changes
 -- matchability at NO other head â” the path of types is by cong, not
--- assertion.  This is the model's rendering of gate D3: the new name
--- constrains no old symbol.
+-- assertion.
 match-conservative : (V : Vocab) (s c : Shape) (u : Tm) â†’ Â¬ c â‰¡ s
                    â†’ Matches (s âˆ· V) (node c u) â‰¡ Matches V (node c u)
 match-conservative V s c u Â¬p = cong (_â‰¡ true) (memb-skip c s V Â¬p)
@@ -373,7 +365,7 @@ obstruction-eliminated V o (o' , p) =
 -- proposals.  Naming re-describes the matchable set; it does not
 -- enlarge it.
 --
--- Read T7â² below before quoting this paragraph: in THIS model the
+-- In THIS model the
 -- candidate is not merely drawn from a closed shape class, it is a head
 -- already installed, so the conclusion is automatic and the paragraph
 -- above describes the datatype rather than a frequency proposer.
@@ -418,7 +410,7 @@ plateau (step {W = W} ch t m) =
 -- every installed head is the head of some term the vocabulary matches,
 -- namely `node s var` (`freq-reaches-every-installed`).  So the heads a
 -- frequency step can name are EXACTLY the installed ones â” no fewer and
--- no more â” and the honest statement of the plateau is not about the
+-- no more â” and the statement of the plateau is not about the
 -- matcher at all, it is about membership:
 --
 --   `freq-memb-absorbed` : a frequency chain changes NO membership test.
@@ -485,7 +477,7 @@ frequency-cannot-reach V o ch m =
 --                             install heads that were not there.
 --
 -- So this subsumes T8's content without T7's degeneracy.  Note what is
--- lost in the honest version: the matcher genuinely changes (on C), so
+-- lost in this version: the matcher genuinely changes (on C), so
 -- no PATH of matchers is available and `Matches W â‰¡ Matches V` is false
 -- in general.  T7's headline â” "leaves the matcher EQUAL, not
 -- equivalent, EQUAL" â” is a symptom of the degenerate model, not extra

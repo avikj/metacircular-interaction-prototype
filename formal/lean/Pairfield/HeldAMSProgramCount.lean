@@ -9,8 +9,7 @@ available slots.  The dependent product of these choices has the advertised
 cardinality, and no endpoint evaluator can have a larger finite image.
 
 The third AMS operation is symmetric absolute difference, so unordered
-operands are appropriate.  No evaluator, positivity invariant, or arithmetic
-chain is constructed here.
+operands are appropriate.
 -/
 
 namespace Pairfield.HeldAMSProgramCount

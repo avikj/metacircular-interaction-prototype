@@ -43,7 +43,6 @@
 -- is what turns the upper bound into an attained optimum.  The order is
 -- the library's Î-based `_â‰_`, so transitivity and monotonicity are the
 -- standard lemmas, not re-derived.
---
 ------------------------------------------------------------------------
 
 module GrhaChaura_TheHouseRobberDynamicProgramIsOptimalAttainedAndUnbeatable where

@@ -18,9 +18,9 @@
 --     â[X]); AÂ² = BÂ² forces A = B or A = âˆ’B, and nonnegativity of the coefficients
 --     kills the second branch (both sides must then vanish identically).
 --
--- WHAT IS PROVED HERE, exactly.  The same rigidity theorem, composed a
--- second time in this lane, directly over â•: no polynomial ring, no â[X],
--- no finite-support hypothesis, no transport from the Lean lane.  For any
+-- WHAT IS PROVED HERE, exactly.  The same rigidity theorem, directly
+-- over â•: no polynomial ring, no â[X],
+-- no finite-support hypothesis.  For any
 -- f : â• â’ â• the ordered pair count at N is the Cauchy square
 --
 --     sq f N := Î_{m=0}^{N} f m Â f (N âˆ m)

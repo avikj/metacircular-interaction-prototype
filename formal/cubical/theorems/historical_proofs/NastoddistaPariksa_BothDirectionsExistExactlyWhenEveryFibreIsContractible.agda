@@ -151,8 +151,7 @@ Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्ट
 परीक्षा-लक्षणम् f = परीक्षा→एकम् , एकम्→परीक्षा
 
 ------------------------------------------------------------------------
--- � � THE LIMIT, stated because "if and only if" is weaker than "equal"
---     and this corpus has been burned by the difference before.
+-- � � THE LIMIT.
 --
 -- `isEquiv f` is a proposition: any two proofs are equal.  The record
 -- above is NOT � it carries a chosen quasi-inverse together with chosen

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 -- Sha256OnTheWire â” the object itself, as a value, in the machinery
--- that eats objects.  No proposition of mine anywhere below: sha256P
+-- that eats objects.  No proposition is added anywhere below: sha256P
 -- is sha256 (definitionally â” `agreement` is refl, so the datum on
 -- the wire IS the function, not a stand-in), and everything else is
 -- the machinery running on it: the completion computed, the inverse

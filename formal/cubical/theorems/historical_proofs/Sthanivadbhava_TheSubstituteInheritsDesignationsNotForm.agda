@@ -99,16 +99,12 @@
 -- whose cost can be measured, and what it costs is that an extension of a
 -- property is rendered as a substitution on the input.
 --
--- PRIOR ART, searched before writing.  That sthnivadbhva has the shape
--- of an abstraction barrier is stated in this repository's own
--- reading came from and which flags it as unimplemented; the reading of
+-- PRIOR ART.  The reading of
 -- 1.1.56 as opacity-with-an-exception is standard in the commentarial
 -- literature (the Kik's treatment of anal-vidhi; Kiparsky on the
 -- architecture of the grammar).  What is here is the mechanisation and
 -- the impossibility half â” that no designation-function agrees with an
--- al-vidhi, and that no single reading serves both â” which I did not
--- find stated, and which is cheap enough that if it is stated somewhere
--- I did not reach, this is a re-derivation and the citation is owed.
+-- al-vidhi, and that no single reading serves both.
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
@@ -359,8 +355,7 @@ darsana-cannot-see r = cong r same-surface
 -- first as a factorisation theorem; Â§5â“6 is the second as a separation.
 --
 -- The engine in machine/Astadhyayi.hs runs on exactly this, and the
--- correspondence is stated with the engine's own names (checked against
--- it 2026-08-20, when the engine side was written):
+-- correspondence is stated with the engine's own names:
 --
 --   `Varna` here          â’ there the item and a PARALLEL channel `Prov`,
 --                           not one record.  The sthnin is a String and

@@ -6,9 +6,7 @@
 -- TERM.  ‡Æ‡‡ø ¬ mai ‚î a jewel, an orb; the jewel of ‡‡®‡‡¶‡‡∞‡‡æ‡≤ (Indra's net),
 -- each reflecting all the others.  A common  word, used here for the
 -- optical orb.  The physics names (Fresnel rhomb, quarter-wave plate,
--- Poincar©/Bloch sphere, total internal reflection) are modern and no Indian
--- source is claimed for them; the compound and the identification are built
--- here, 2026-08-24.
+-- Poincar©/Bloch sphere, total internal reflection) are modern.
 --
 -- THE DEVICE (this paragraph is the READING; the checked terms are below).
 -- An orb of high-index glass reflects light losslessly by TOTAL INTERNAL
@@ -37,8 +35,6 @@
 --        constant family) ‚î colour-independent by construction.
 -- `rotEq` being an EQUIVALENCE is the losslessness: it is reversible, its
 -- inverse the three-quarter turn, information conserved.
---
--- Checked: --cubical --safe; loads clean on the wire.
 ------------------------------------------------------------------------
 
 module Mani_TheOrbGateIsTheAchromaticLosslessSquareRootOfNot where

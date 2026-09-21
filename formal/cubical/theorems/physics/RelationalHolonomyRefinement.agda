@@ -2,26 +2,12 @@
 
 -- A smallest exact holonomy/refinement organ.
 --
--- LOCAL SCOPE ONLY.  This module isolates one finite presentation of the
+-- This module isolates one finite presentation of the
 -- holonomy/refinement law: subdividing one oriented edge into two introduces
 -- an internal gauge coordinate; quotienting that coordinate is equivalent
 -- (as a Cubical path-level object) to the original coarse holonomy.  Endpoint
 -- gauge transformations remain visible, while a conjugation-invariant
 -- closed-loop observation descends through them.
---
--- Do not read this isolated organ as a boundary on the surrounding physical
--- mathematics.  The corpus develops the complementary structure in the same
--- lossless interaction object: executable univalent transport and fibres;
--- interdependent quarter-turn phase; twisted exchange and braid coherence;
--- path/derivation residue and holonomy; refinement and quotient invariance;
--- coinductive completion; unit-speed causal propagation; conserved global
--- Z/4 charge locally invisible to bounded readers; and exhaustion of the
--- causal central symmetry by uniform quarter-turn powers.  Those constructions
--- are the context in which this finite gauge/refinement presentation is used.
--- In particular, absence of SU(2), spin-network, flux/geometric-operator,
--- constraint, or spin-foam vocabulary *inside this file* is not a claim that
--- the corresponding mathematical content is absent from the corpus; this file
--- intentionally factors out only the group-valued holonomy/refinement law.
 
 module RelationalHolonomyRefinement where
 

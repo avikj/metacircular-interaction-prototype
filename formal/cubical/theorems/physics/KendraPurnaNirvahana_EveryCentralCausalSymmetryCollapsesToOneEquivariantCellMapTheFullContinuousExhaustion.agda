@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡ï‡‡®‡‡¶‡‡∞-‡‡‡∞‡‡-‡®‡ø‡∞‡‡µ‡‡ ‚î the full continuous exhaustion.
 --
--- The standing causal case, discharged.  A CAUSAL symmetry reads, at
+-- A CAUSAL symmetry reads, at
 -- each depth, at most the cells above it: it is presented by a family
 -- F of prefix-readers, assembled by corecursion (krya).  If it
 -- commutes with every crossing, everything collapses:
@@ -35,7 +35,6 @@
 -- four that grade the twist, decide the kernel, top the ladder, and
 -- charge the sectors.  The theory has one constant, and now its
 -- symmetry algebra says so too.
---
 ------------------------------------------------------------------------
 
 module KendraPurnaNirvahana_EveryCentralCausalSymmetryCollapsesToOneEquivariantCellMapTheFullContinuousExhaustion where

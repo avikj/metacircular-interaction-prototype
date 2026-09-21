@@ -53,8 +53,6 @@
 -- sublist of fam d k, L2), and WalkForcing.coprime-divisors-multiply
 -- closes.  No lcm is constructed anywhere; `lcmList` appears only as a
 -- witness in L1 and in the instances.
---
--- Only the note's §2 Theorem, the "interior" row, is proved here.
 ------------------------------------------------------------------------
 
 module Antarala_EveryDivisorOfTheCapacityIsTheLcmOfASensorFamilyBelowTheFrontierSoTheReachableStatesAreExactlyTheDivisorLatticeOfTheCapacity where

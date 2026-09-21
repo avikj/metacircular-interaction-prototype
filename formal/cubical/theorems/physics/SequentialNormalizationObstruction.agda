@@ -22,9 +22,6 @@
 -- `normalize-table-X-data` supplies the X-covariance law that was
 -- vacuous here.
 --
---   * SUFFICIENCY ONLY.  That module makes no minimality claim for its
---     carrier and says so in its own header.
---
 --   * The counterexample below is imported
 --     back by the repair: `forgetSelected` maps the complete table onto
 --     this file's `History`, `forgotten-false-branches-collide` shows the

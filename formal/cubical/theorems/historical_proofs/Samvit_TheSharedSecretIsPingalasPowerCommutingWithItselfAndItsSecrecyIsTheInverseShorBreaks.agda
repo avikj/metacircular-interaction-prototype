@@ -35,7 +35,7 @@
 -- quantum step that lifts RSA's one hypothesis breaks DH's one secret.
 -- Â§4 states the reduction shape.
 --
--- THE UNIFICATION, stated because it is the night's spine.  `MalaSetu`
+-- THE UNIFICATION.  `MalaSetu`
 -- showed à˜à¾à is the free-monoid fold; `Bijamula` showed RSA is that fold
 -- plus the pulverizer; this shows DH is that fold commuting with itself.
 -- Encryption (RSA), key-agreement (DH), the vall trace, and the metre
@@ -93,8 +93,7 @@ module _ {M : Type â„“} (CM : CMonoid M) where
 --     the discrete log of `pow g a` is â” the inverse of à˜à¾à.  Given the
 --     exponent a (which order-finding yields), the shared secret is one
 --     more à˜à¾à.  So the secret is exactly one à˜à¾à-inverse away, and that
---     inverse is Shor's territory (Bijamula Â§4); the quantum step is not
---     proved here.
+--     inverse is Shor's territory (Bijamula Â§4).
 --
 --     Stated as: if an oracle returns the exponent a from A = pow g a,
 --     then the shared secret àà¾à§à¾à°àà®à g a b follows from the public B by

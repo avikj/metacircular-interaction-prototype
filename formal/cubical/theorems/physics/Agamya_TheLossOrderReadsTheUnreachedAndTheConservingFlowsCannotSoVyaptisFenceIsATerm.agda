@@ -7,17 +7,9 @@
 --  order can.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS FILLS.  `Vyapti_TheLossOrderIsCoarsening‚¶agda`'s fence says,
--- verbatim:
---
---     "**¬ß‡© and ¬ß‡ are one direction only.**  That `‡‡‡∞‡ï‡‡‡‡Æ‡ f ‚ä
---      ‡‡‡∞‡ï‡‡‡‡Æ‡ g` implies `f ‡µ‡‡Ø‡æ‡‡‡®‡ã‡‡ø g` is FALSE in general and no
---      weakened converse is offered."
---
--- The sentence stands in that file with no witness.  Per the corpus's own
--- discipline (an absence without a command is a rumor; a fence without a
--- counterexample is an estimate), this module makes it a term ‚î and the
--- witness turns out to say more than the fence asked for.
+-- THE FENCE MADE A TERM.  Vyapti's one-direction fence (order implies
+-- conservation-inclusion, not conversely) is witnessed here, and the
+-- witness says more than the fence asked for.
 --
 -- THE THEOREM.  There are observables f, g on one domain whose entire
 -- conserving apparatus is IDENTICAL ‚î each conserving-flow space
@@ -45,9 +37,8 @@
 --
 -- TERM.  ‡‡ó‡Æ‡‡Ø ‚î "not to be gone to", unreachable; ordinary 
 -- (‡ó‡Æ‡ with negative prefix, gerundive).  The compound and its use here
--- for a codomain point outside the image are THIS FILE's; no text is
--- claimed for the term or for any statement below, per CLAUDE.md's
--- naming rule note 2.  The mathematics is cubical type theory
+-- for a codomain point outside the image are THIS FILE's.
+-- The mathematics is cubical type theory
 -- (Voevodsky), this repository's one admitted non-Indian frame.
 ------------------------------------------------------------------------
 

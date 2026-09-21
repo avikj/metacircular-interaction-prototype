@@ -17,9 +17,8 @@
 -- compiler is only one executable presentation of this path-sensitive
 -- structure.
 --
--- This is not a construction of Hilbert tensor products, Born probabilities,
--- entanglement entropy, or a physical quantum computer.  It is the exact
--- local/joint obstruction those larger constructions must preserve.
+-- This is the exact local/joint obstruction that Hilbert tensor products,
+-- Born probabilities and entanglement entropy must preserve.
 ------------------------------------------------------------------------
 
 module UnivalentTensorInteraction where

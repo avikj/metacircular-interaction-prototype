@@ -10,10 +10,7 @@ particular, at a fixed modulus it cannot distinguish two mode pairs with the
 same product.
 
 This file records only that exact factorization requirement and its smallest
-finite hostile control.  It does not claim that the arithmetic weights in the
-Goldbach boundary equal the control below, nor does it obstruct a linear
-combination of kernels, a matrix-valued test, or a nonfactorizable relative
-trace distribution.
+finite hostile control.
 -/
 
 namespace Pairfield.KuznetsovSingleKernelBoundary

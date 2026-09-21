@@ -8,7 +8,7 @@
 -- two is a READING, said as one.)
 --
 -- DEEPER than the witnesses.  Anirdharita_IntegerHullMultiplicity_
--- AllFourSections killed the queue's four section guesses at t = 1.
+-- AllFourSections killed the four section guesses at t = 1.
 -- The host's price theorems license the general law, every t at once:
 -- hull's census is six per unit (hullN : N (hull t) â‰¡ t Â 6) and eight
 -- per unit squared (hullSQ : SQ (hull t) â‰¡ t Â 8), so the loop

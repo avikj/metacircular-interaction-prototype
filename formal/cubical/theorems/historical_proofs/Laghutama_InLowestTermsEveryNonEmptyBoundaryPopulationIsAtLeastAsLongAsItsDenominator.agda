@@ -61,7 +61,6 @@
 -- succeeds â” that is `twoOverFourIsNotInLowestTerms` next to
 -- `minimalityInLowestTermsGcd`, not a contradiction.  No B©zout
 -- identity is used; `coprime-cancel` does not need one.
---
 ------------------------------------------------------------------------
 
 module Laghutama_InLowestTermsEveryNonEmptyBoundaryPopulationIsAtLeastAsLongAsItsDenominator where

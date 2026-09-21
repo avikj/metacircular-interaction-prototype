@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- DependentFillerFactorizationProbe
 --
--- This file carried receipt A: the family of higher-cell witnesses cannot
+-- The family of higher-cell witnesses cannot
 -- descend through a carrier-only transcript when one observed collision has
 -- an inhabited fibre on one side and an empty fibre on the other.
 --

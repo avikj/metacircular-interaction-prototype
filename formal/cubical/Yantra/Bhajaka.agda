@@ -19,7 +19,7 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 open import Cubical.Relation.Nullary
 
--- bridge: my untruncated divides � library �
+-- bridge: the untruncated divides � library �
 to∣ : {d n : ℕ} → divides d n → d ∣ n
 to∣ dv = ∣ dv ∣₁
 

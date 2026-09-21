@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- HolonomyIsInvisibleExactlyToAnInvariantSemantics
 --
---
 --   "Even flat architectures can carry interface holonomy h : Z â‰ Z
 --    around loops in architecture space â” harmless for boundary
 --    semantics, load-bearing for caches, provenance, optimizer state,
@@ -47,24 +46,6 @@
 -- the SAME `h` â” the invariance hypothesis and the transport are
 -- connected rather than merely parallel.  `notEquiv` is the standard
 -- witness that this content is not vacuous: a self-equivalence with no
--- fixed point at `true`.
---
--- NO NOVELTY WHATSOEVER.  `ua`, `uaÎ²` and the `not` automorphism of
--- `Bool` are the first examples in every cubical development, and
--- Voevodsky's univalence axiom is the substrate this repository already
--- runs on.  What is contributed is the identification of Â§36â“38's two
--- clauses as one statement.
---
--- Â§36â“38 says such a loop YIELDS, not what it is.  So this is a theorem
--- about interface holonomy taken as given, and the step from "loop in
--- architecture space" to "h : Z â‰ Z" is assumed, not built.  FLATNESS
--- is not used: nothing here needs the architecture to be flat, so this
--- says nothing about Â§36â“38's claim that flat architectures can still
--- carry holonomy â” only about what holonomy does once present.  No
--- claim that "boundary semantics" in Î” 28's sense IS invariant; that is
--- a hypothesis here and a modelling question there.  Nothing is said
--- about composing loops, so no group structure, no fundamental group,
--- and no claim that holonomies compose to a holonomy.
 ------------------------------------------------------------------------
 
 module HolonomyIsInvisibleExactlyToAnInvariantSemantics where

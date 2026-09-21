@@ -4,15 +4,15 @@
 -- ScaleTransportZ
 --
 -- Discharging the abstract order/analytic fields of ScaleTransportCriticality
--- over the concrete ordered group â.  This turns obligations B and C from the
--- ledger into checked terms:
+-- over the concrete ordered group â.  This turns obligations B and C into
+-- checked terms:
 --
 --   B  (functional equation, dual-exp)  : the exponent pairing exp(dual m) =
 --        âˆ’exp m is supplied by Â pairing; here it is a hypothesis of
 --        `all-critical` discharged trivially by any concrete symmetric mode set.
 --   C  (grows-unbounds)                 : PROVED â” a positive integer exponent
 --        makes the additive scale orbit unbounded (`grows`), by an Archimedean
---        bound `orbit-lb`.  No longer a field.
+--        bound `orbit-lb`.
 --   the order layer (Â<0â’â‰0, antisymmetry, negâ‰0â’0â‰) : PROVED from â's order.
 --
 -- Obligation A (the explicit formula bridging the arithmetic B(t) to these

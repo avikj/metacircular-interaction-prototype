@@ -5,7 +5,7 @@
 --
 -- D0025 Â§T25.B, on D0025 Â§19's objects.
 --
--- The owner's transmission asks for the rooted reflection total space
+-- D0025 asks for the rooted reflection total space
 --
 --     Uâ  :=  Î (x : U) . View_x(U)
 --
@@ -18,21 +18,13 @@
 --
 -- WHAT THIS FILE IS.  The general construction, and that instantiation,
 -- with the three incidence identities proved to hold AT EVERY JEWEL.
--- Nothing here is asserted: `--safe`, no postulates, no holes.
---
--- WHAT IT IS NOT.  No primality statement, and therefore no Goldbach or
--- twin statement â” the jewel type below carries the centre/radius
--- geometry only, exactly as `PairConic` carries the conic only.  The
--- Net whose jewels are *witnesses* needs Prime as a predicate and that
--- is a separate construction (Â§5).
 --
 -- WHY IT IS SEPARATE FROM THE MACHINE.  `machine/MathMachine.hs`
 -- generates its own term algebra over {0,s,+,*,âˆ,max,le,gcd} and proves
 -- theorems inside it.  That is a closed toy universe: its jewels are
 -- things it invented, and no result in this repository can enter it.
 -- This file starts from the other end â” the objects the corpus actually
--- carries â” and is the first stone of the object D0025 Â§27 describes,
--- where a local event reweaves the whole rather than lengthening a list.
+-- carries.
 ------------------------------------------------------------------------
 
 module RootedNet where
@@ -156,21 +148,3 @@ View : Jewel â†’ Type
 View j = (i : Jewel) â†’ Thread i j â†’ Jewel
 
 open Rooted Jewel View public renaming (Root to IndraRoot ; Ï€ to root)
-
-------------------------------------------------------------------------
--- Â§5  What is NOT here
---
--- * `Prime` does not occur.  A jewel here is a centre/radius point, not
---   a prime-pair WITNESS; Â§19's Î¾ = (w,r,p,q,Ï_p,Ï_q) carries the two
---   primality proofs and this type does not.  Adding them changes
---   nothing above and everything about what the Net means.
---
--- * `Thread` has no composition and no identity, so this is not a
---   category and Yoneda (T25.A: Map(x,y) â‰ƒ Nat(y x, y y)) is not stated
---   here.  Shared centre and shared radius are both equivalence
---   relations, so the composition exists.
---
--- * Nothing here reweaves.  D0025 Â§16 and T25.F require that adjoining
---   an equivalence change every rooted profile functorially; that is the
---   operation whose absence D0025 Â§27 identifies as the whole failure.
-------------------------------------------------------------------------

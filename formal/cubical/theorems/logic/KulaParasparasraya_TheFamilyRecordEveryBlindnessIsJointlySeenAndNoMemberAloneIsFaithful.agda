@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡ï‡‡≤-‡‡∞‡‡‡‡∞‡æ‡‡‡∞‡Ø ‚î the interdependent family.
 --
--- The campaign's founding record, generalized from pairs to families
+-- The founding record, generalized from pairs to families
 -- over any index type:
 --
 --   a family of senses, a named blind pair for EACH member, and joint

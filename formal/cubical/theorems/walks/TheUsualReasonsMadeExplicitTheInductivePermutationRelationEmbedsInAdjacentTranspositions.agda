@@ -7,8 +7,7 @@
 -- THE PHRASE
 --
 -- `PairwiseCommutationGivesEveryOrder` defines `_~_` by four
--- constructors â” `~nil`, `~cons`, `~swap`, `~trans`.
--- **"The
+-- constructors â” `~nil`, `~cons`, `~swap`, `~trans`.  **"The
 -- usual reasons" is a proof, and it fits in a page**; Â§Â§1â“3 are that
 -- page, and Â§4 lands it on the corpus's own relation.
 --

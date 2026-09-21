@@ -6,9 +6,7 @@
 -- Completeness of the six-element enumeration of Sâ, and the census
 -- corollary that follows from it.
 --
--- prat = completeness; sthira-bindu = fixed point.  The 
--- terms are used in their plain mathematical senses, and no text is
--- claimed as a source.
+-- prat = completeness; sthira-bindu = fixed point.
 --
 -- SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3
 -- names six elements of Sâ and computes the census values of those

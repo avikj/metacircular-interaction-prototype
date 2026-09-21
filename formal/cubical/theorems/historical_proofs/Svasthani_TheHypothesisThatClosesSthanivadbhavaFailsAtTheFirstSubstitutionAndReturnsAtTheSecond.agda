@@ -13,15 +13,8 @@
 -- sthnin and the designation are carried, and a designation-reading rule
 -- cannot see which form was substituted BY refl.
 --
--- It also states, as a written defect, exactly what the law does NOT buy:
---
---     THE LAW DERIVES 1.1.56'S BLINDNESS ACROSS SUBSTITUTIONS
---     DEFINITIONALLY AND DOES NOT DERIVE ITS BLINDNESS BETWEEN A
---     SUBSTITUTE AND ITS ORIGINAL
---
--- because those two points do not lie in one fibre of the carried map.
--- It then names the exact hypothesis that closes the gap rather than
--- describing it: `‡‡‡‡æ‡®‡ v ‚â° ‡∞‡‡‡Æ‡ v` ‚î v stands in place of itself.
+-- Blindness between a substitute and its original needs one hypothesis:
+-- `‡‡‡‡æ‡®‡ v ‚â° ‡∞‡‡‡Æ‡ v` ‚î v stands in place of itself.
 --
 -- This file asks what that hypothesis is, and the answer is not a
 -- technicality.  ¬ß‡®: for a SUBSTITUTE, it holds exactly when the
@@ -36,23 +29,14 @@
 -- ‡‡®‡≤‡‡µ‡ø‡ß‡ø between a substitute and its original is therefore available at
 -- the start of a derivation and at repeated sites, and not in between.
 --
--- WHAT THIS IS AND IS NOT ABOUT THE GRAMMAR.  It is a fact about the
+-- THE MODEL.  It is a fact about the
 -- `adesa` of `Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm`,
 -- which models 1.1.56 as a three-slot record and one constructor.  The
 -- tradition DOES restrict 1.1.56 for iterated substitution ‚î that is what
--- Ktyyana's vrttikas on the stra are for ‚î and it is tempting to read
--- ¬ß‡® as the formal shadow of that restriction.  **That reading is not
--- claimed.**  The vrttikas have not been opened by the author of this
--- file, their restrictions are conditioned on material this model does not
--- have (environment, stratum, the ‡‡‡∞‡ø‡‡æ‡¶‡'s ‡‡‡ø‡¶‡‡ß‡‡‡µ), and a formal fact
--- resembling a grammatical dispute is not evidence about the dispute.
--- What IS claimed is the arithmetic of the model, and the resemblance is
--- recorded as a question worth someone opening the vrttikas for.
+-- Ktyyana's vrttikas on the stra are for.
 --
 -- Pini, ‡‡‡‡ü‡æ‡ß‡‡Ø‡æ‡Ø‡ ‡ß.‡ß.‡‡ (‡‡‡‡æ‡®‡ø‡µ‡¶‡æ‡¶‡‡‡ã‡Ω‡®‡≤‡‡µ‡ø‡ß‡), ~500 BCE; Ktyyana's
--- vrttikas ~250 BCE; Patajali's ‡Æ‡‡æ‡‡æ‡‡‡Ø ~150 BCE.  Nothing below is
--- attributed to any of them, and the citation is carried from the module
--- imported here and is owed at stra level.
+-- vrttikas ~250 BCE; Patajali's ‡Æ‡‡æ‡‡æ‡‡‡Ø ~150 BCE.
 ------------------------------------------------------------------------
 
 module Svasthani_TheHypothesisThatClosesSthanivadbhavaFailsAtTheFirstSubstitutionAndReturnsAtTheSecond where

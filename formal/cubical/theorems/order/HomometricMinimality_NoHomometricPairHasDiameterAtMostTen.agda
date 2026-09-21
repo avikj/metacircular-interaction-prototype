@@ -61,15 +61,6 @@
 --                    sorted list of d âˆ x over the support â” reversal
 --                    of indicators is the reflection of HomometricPair
 --                    (`reflect11` there, with 11 replaced by d).
---
--- (i) `reflect-iv` and `reflect-support` are
--- established by exhaustion for diameter â‰ 10, not as general lemmas
--- for all d; the minimality theorem does not depend on them â” the sweep
--- compares every pair directly, without symmetry reduction â” they are
--- consistency checks tying reversal to the reflection of the existence
--- half.  (ii) The reduction of â-congruence to the normal-form shapes is
--- inherited from HomometricPair, where it is a definition, not a
--- theorem.
 ------------------------------------------------------------------------
 
 module HomometricMinimality_NoHomometricPairHasDiameterAtMostTen where

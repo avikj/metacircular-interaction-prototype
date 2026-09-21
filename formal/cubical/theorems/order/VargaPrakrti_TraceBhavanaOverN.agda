@@ -7,7 +7,7 @@
 -- àµà°àà—-ààà°à•ààà¿ ("square-nature") is BRAHMAGUPTA's own name, in the
 -- Brhmasphuasiddhnta (628), ch. 18, for the object of his composition
 -- rule.  He composes xÂ² âˆ’ D yÂ² with arbitrary kepa, which is T = 0
--- below.  The parameter T is NOT his and is not attributed to him; it is what
+-- below.  The parameter T is not his; it is what
 -- the composition becomes in â[Ï‰] with Ï‰Â² = TÂÏ‰ + C, and it is introduced
 -- here because restricting the reactor to T = 0 was restricting Brahmagupta's
 -- rule to the one equation that later displaced it. The identities below at T
@@ -22,8 +22,8 @@
 --                â[(1+âˆÎ”)/2], which contains â[âˆÎ”] with index 2 and which
 --                xÂ² âˆ’ D yÂ² = 1 cannot see.
 --
--- WHY â• AND WHY SUBTRACTION-FREE.  Twice-learned in this lane and
--- unchanged here.  `BhavanaSemiring.agda`: bhvan as classically written
+-- WHY â• AND WHY SUBTRACTION-FREE.
+-- `BhavanaSemiring.agda`: bhvan as classically written
 -- is FALSE over â• because monus truncates, and moving every negative term
 -- across makes it true with no hypothesis and makes it a commutative-
 -- SEMIRING identity â” no induction, no ordering, no case split on a sign.
@@ -66,8 +66,7 @@ open import Cubical.Data.Nat using (â„• ; _+_ ; _Â·_)
 open import Cubical.Tactics.NatSolver using (solveâ„•!)
 
 ------------------------------------------------------------------------
--- BRAHMAGUPTA'S TWO COORDINATES, TRANSCRIBED RATHER THAN IMPORTED, and
--- the reason is a defect in the lane that must not be papered over.
+-- BRAHMAGUPTA'S TWO COORDINATES, TRANSCRIBED RATHER THAN IMPORTED.
 --
 -- `BhavanaSemiring.agda` defines exactly `cx` and `cy` below and this file
 -- would import them.  It cannot: `BhavanaSemiring.agda`, `CakravalaNat
@@ -79,19 +78,10 @@ open import Cubical.Tactics.NatSolver using (solveâ„•!)
 --
 --     cd formal/cubical && agda BhavanaSemiring.agda
 --
--- The consequence reaches further than this file: `interactive/NalandaEmit.hs`
--- emits a witness importing `BhavanaSemiring` and `CakravalaNat`, and
--- `interactive/NalandaCertify.hs` hands that witness to the kernel and reports
--- the verdict.  Under the pinned toolchain that pipeline cannot return a
--- green, because its dependencies do not check.  BUILD.md Â§"Where the skew
--- bites" catalogues the 2.6.3 â’ 2.8.0 migration and says the tree "is not
--- claimed to be dual-version compatible"; these three modules are on the
--- wrong side of it.
---
 -- This file stands alone: the two coordinates below
 -- are transcribed verbatim from `BhavanaSemiring.agda` so that the
 -- containment claim â” that the generalisation at T = 0 IS Brahmagupta's
--- statement â” is a checked term here and does not wait on that repair.
+-- statement â” is a checked term here.
 ------------------------------------------------------------------------
 
 cx : â„• â†’ â„• â†’ â„• â†’ â„• â†’ â„• â†’ â„•

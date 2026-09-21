@@ -58,8 +58,8 @@
 -- The fibre Œ[ p ] (‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡ x ‚â° p) = singl (‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡ x) is
 -- contractible, so ‡‡ß‡æ‡∞ ‚â ‡‡‡‡æ‡®‡ø‡µ‡‡ and, by univalence, ‡‡ß‡æ‡∞ ‚â° ‡‡‡‡æ‡®‡ø‡µ‡‡.
 --
--- WHY THE PAIR AND NOT THE ‡‡‡‡æ‡®‡ø‡®‡ ALONE.  The candidate this module was
--- asked to check was `f (v , r) = ‡∞‡‡‡Æ‡ v`, carrying the ‡‡‡‡æ‡®‡ by itself.
+-- WHY THE PAIR AND NOT THE ‡‡‡‡æ‡®‡ø‡®‡ ALONE.
+-- The alternative `f (v , r) = ‡∞‡‡‡Æ‡ v`, carrying the ‡‡‡‡æ‡®‡ by itself.
 -- That is correct and it is not the whole of what is determined: ‡‡û‡‡‡‡û‡æ
 -- is determined by the base in exactly the same way, and it is the
 -- quantity 1.1.56 is actually about ‚î the substitute inherits the
@@ -78,7 +78,7 @@
 -- the slot the law had to leave free.
 --
 ------------------------------------------------------------------------
--- WHAT THE ORBIT THEOREM ESTABLISHES ABOUT 1.1.62, AND WHAT IT DOES NOT.
+-- WHAT THE ORBIT THEOREM ESTABLISHES ABOUT 1.1.62.
 --
 -- 1.1.62 is the reason single-step preservation is not enough: an
 -- operation conditioned by an elided affix applies LATER, so whatever
@@ -88,7 +88,7 @@
 -- BISIMULATIONS, corecursively, one head at a time, because equality of
 -- coinductive objects is not implied by agreement on any finite prefix.
 --
---   ESTABLISHED.  `‡‡û‡‡‡‡û‡æ-‡‡®‡‡µ‡‡‡‡‡ø‡`: along the entire orbit of an
+--   `‡‡û‡‡‡‡û‡æ-‡‡®‡‡µ‡‡‡‡‡ø‡`: along the entire orbit of an
 --   ARBITRARY rule ‡®‡ø‡Ø‡Æ, the designation read off the carried datum is
 --   constant and equal to the designation of the starting vara ‚î not
 --   "for every n" but as a single path between two coinductive objects.
@@ -96,21 +96,14 @@
 --   n+1 is the ‡∞‡‡‡Æ‡ standing at step n, so the chain back to the
 --   original is unbroken at arbitrary depth.
 --
---   NOT ESTABLISHED.  This is NOT a proof of 1.1.62 and must not be read
---   as one.  1.1.62 is about an ELIDED affix ‚î ‡≤‡ã‡, 1.1.60's ‡‡¶‡∞‡‡‡® ‚î
---   continuing to condition operations after it has ceased to appear.
---   Nothing here models elision, appearance, or a sequence of items:
---   there is no ‡≤‡‡‡‡, no ‡¶‡∞‡‡‡®, no word.  That material is in
---   `formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda`
---   ¬ß5‚ì6 and is NOT lifted here.  What the orbit theorem establishes is
+--   What the orbit theorem establishes is
 --   the weaker, prior statement 1.1.62 PRESUPPOSES: that the designation
 --   a later rule wants to read is still there to be read at arbitrary
 --   derivational depth.  1.1.62 asserts that this holds even when the
 --   bearer has disappeared from the surface.
 --
 ------------------------------------------------------------------------
--- DEFECTS, WRITTEN RATHER THAN HIDDEN.  (¬ß‡ ‡¶‡‡µ‡ ‡Æ‡æ‡∞‡‡ó‡ of
--- defect is written; there is no third road.)
+-- REMARKS.
 --
 -- 1. `‡‡¶‡‡` IS NOT LITERALLY `descend`, and cannot be ‚î different
 --    codomains.  `descend ‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡ : ‡‡ß‡æ‡∞ ‚í ‡‡‡‡æ‡®‡ø‡µ‡‡`, while
@@ -123,8 +116,8 @@
 --    pair (‡‡‡‡æ‡®‡ , ‡‡û‡‡‡‡û‡æ) of the dea's own output.  The two records
 --    hold the same information; neither is the other.
 --
--- 2. `‡‡¶‡‡-‡‡®‡‡ß‡` ‚î the parent module's `anal-blind` ‚î DID HAVE TO BE
---    REPROVED, and the reason is worth more than the theorem.  What the
+-- 2. `‡‡¶‡‡-‡‡®‡‡ß‡` ‚î the parent module's `anal-blind` ‚î is
+--    reproved from the factorisation.  What the
 --    Carrier gives for free is `‡µ‡æ‡‡ï-‡‡®‡‡ß‡`: two bases differing ONLY in
 --    the free slot have equal carried data, hence equal verdicts from any
 --    carried-reading rule, BY refl, with no factorisation lemma and no
@@ -146,15 +139,11 @@
 --    later rule's result is invisible to the earlier).  A one-vara rule
 --    has no environment and no stratum, so the orbit below is the
 --    trajectory of ONE site under ONE rule and not a derivation of the
---    *Adhyy*.  Calling it a derivation would be a false
---    advertisement; the step is called ‡‡¶‡Æ‡ and ‡‡‡∞‡ï‡‡∞‡ø‡Ø‡æ occurs as a type
---    abbreviation and in this header, never as a claim.
+--    *Adhyy*.
 --
 -- 4. THREE FORMS AND NO MORE ‚î , its gua substitute e, and the a that
 --    6.1.78 would produce from e: the ones the derivation of ‡®‡Ø‡® passes
---    through, taken from the parent-repository module.  1.1.52‚ì1.1.55
---    (which sound of the sthnin an dea replaces), the vrttikas
---    restricting 1.1.56, and 1.1.61/1.1.63 (luk, lu, lup) are absent.
+--    through, taken from the parent-repository module.
 --
 -- 5. Nothing here imports outside `Punaragamana`: the vocabulary ‡µ‡∞‡‡ /
 --    ‡‡¶‡‡ / AnalVidhi is redefined rather than imported from
@@ -271,7 +260,7 @@ open ‡§µ‡§∞‡•ç‡§£ public
 ‡§Ü‡§¶‡•á‡§∂-‡§∏‡•ç‡§•‡§æ‡§®‡•Ä f v = refl
 
 -- when a vara already stands for its own form, replacing it by that
--- same form changes nothing.  This is the hypothesis DEFECT 2 isolates.
+-- same form changes nothing.  This is the hypothesis Remark 2 isolates.
 ‡§Ü‡§¶‡•á‡§∂-‡§∏‡•ç‡§µ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä : (v : ‡§µ‡§∞‡•ç‡§£) ‚Üí ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä v ‚â° ‡§∞‡•Ç‡§™‡§Æ‡•ç v ‚Üí ‡§Ü‡§¶‡•á‡§∂ (‡§∞‡•Ç‡§™‡§Æ‡•ç v) v ‚â° v
 ‡§Ü‡§¶‡•á‡§∂-‡§∏‡•ç‡§µ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä v p i = ‡§µ‡§∞‡•ç‡§£‡§É (‡§∞‡•Ç‡§™‡§Æ‡•ç v) (p (~ i)) (‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ v)
 
@@ -339,7 +328,7 @@ open ‡§µ‡§∞‡•ç‡§£ public
 ------------------------------------------------------------------------
 -- ‡ ¬ IS ‡‡¶‡‡ THE descend?  Not literally ‚î different codomains.  It is
 -- descend composed with one reassembly map, and the factorisation is
--- definitional in both directions.  See DEFECT 1.
+-- definitional in both directions.  See Remark 1.
 ------------------------------------------------------------------------
 
 ‡§™‡•Å‡§®‡§∞‡•ç‡§∞‡§ö‡§®‡§æ : ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ‚Üí ‡§µ‡§∞‡•ç‡§£
@@ -403,7 +392,7 @@ AnalVidhi A r = Œ£ (‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ ‚Üí A) (Œª g ‚Üí (v : ‡§µ‡
     k = snd (‡§Ö‡§®‡§≤‡•ç‡§µ‡§ø‡§ß‡§ø‡§É-‡§µ‡§æ‡§π‡§ï‡•á‡§® r av)
 
 -- THE PARENT MODULE'S STATEMENT, reproved from the factorisation.  See
--- DEFECT 2: the two points compared do not lie in one fibre of
+-- Remark 2: the two points compared do not lie in one fibre of
 -- ‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡, so the contraction has nothing to say about them.
 ‡§Ü‡§¶‡•á‡§∂-‡§Ö‡§®‡•ç‡§ß‡§É : {A : Type} (r : ‡§µ‡§∞‡•ç‡§£ ‚Üí A) ‚Üí AnalVidhi A r
            ‚Üí (f : ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) (v : ‡§µ‡§∞‡•ç‡§£) ‚Üí r (‡§Ü‡§¶‡•á‡§∂ f v) ‚â° r v
@@ -444,15 +433,14 @@ CarriedVidhi A r = Œ£ (‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ √ó ‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§
 --
 -- A rule ‡®‡ø‡Ø‡Æ : ‡µ‡∞‡‡ ‚í ‡µ‡∞‡‡‡∞‡‡ says what form to put in the current
 -- vara's place.  One step performs the pending substitution and asks the
--- rule for the next form.  See DEFECT 3 for what a rule of this shape is
--- not.
+-- rule for the next form.
 ------------------------------------------------------------------------
 
 ‡§™‡§¶‡§Æ‡•ç : (‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) ‚Üí ‡§Ü‡§ß‡§æ‡§∞ ‚Üí ‡§Ü‡§ß‡§æ‡§∞
 ‡§™‡§¶‡§Æ‡•ç ‡§®‡§ø‡§Ø‡§Æ x = ‡§Ü‡§¶‡•á‡§∂ (snd x) (fst x) , ‡§®‡§ø‡§Ø‡§Æ (‡§Ü‡§¶‡•á‡§∂ (snd x) (fst x))
 
 ------------------------------------------------------------------------
--- ‡Ø ¬ THE LIFT, AND THE SQUARE.  Neither is proved here ‚î both are
+-- ‡Ø ¬ THE LIFT, AND THE SQUARE.  Both are
 -- instances of the law, and `Œ¶-square` closes DEFINITIONALLY, by refl,
 -- for an opaque variable.
 ------------------------------------------------------------------------
@@ -483,8 +471,7 @@ module _ (‡§®‡§ø‡§Ø‡§Æ : ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) where
 --
 -- `Nucleus` says carrier and orbit commute over the WHOLE infinite
 -- trajectory.  The two theorems after those instances are the ones 1.1.62
--- makes necessary and which a single-step square cannot supply.  Read the
--- header for what they do and do not establish.
+-- makes necessary and which a single-step square cannot supply.
 ------------------------------------------------------------------------
 
 module _ (‡§®‡§ø‡§Ø‡§Æ : ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) where
@@ -557,7 +544,7 @@ module _ (‡§®‡§ø‡§Ø‡§Æ : ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) where
 -- holds by refl, so Agda must execute the steps.
 --
 -- The rule below is a caricature: one site, no environment, no
--- stratification (DEFECT 3).  What the numbers show is only that the
+-- stratification (Remark 3).  What the numbers show is only that the
 -- carried datum tracks the chain ‚î ‡ stands for ‡à, ‡ stands for ‡ ‚î and
 -- that the designation ‡‡ô‡‡ó is never lost.
 ------------------------------------------------------------------------

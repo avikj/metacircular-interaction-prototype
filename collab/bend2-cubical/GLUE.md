@@ -1,6 +1,6 @@
 # Glue â” the type former for edge 1
 
-Edge 1 was: `hcomp` in `Set` beyond the composite shape has no rule, because
+`hcomp` in `Set` beyond the composite shape has no rule, because
 CCHM handles composition in the universe via `Glue`. This adds `Glue` as a
 sound type former.
 
@@ -34,11 +34,9 @@ soundness hole is opened. Full repo suite after this change: 267 â“, â— only in
 the deliberate must-fails (`hfill`, `uaequiv_mustfail`, `uaroundtrip`,
 `glue_mustfail`).
 
-## Reconciliation
+## Integration
 
-The parser for `Glue(...)/glue(...)/unglue(...)` had not reached `main` (the
-committed whole-file `.hs` copies were from a divergent tree and lacked it, so
-`glue.bend` parsed on no binary built from `main`). Glue is now integrated
+Glue is integrated
 into the single canonical source, `cubical-paths.patch`: Type constructors,
 formation typing, all traversals (bind/deps/rewrite/equal/flatten/whnf/normal/
 dup/analysis/totality/epNormCtx), the parser, and the emitters (erased targets:
@@ -46,7 +44,6 @@ Glue type erases, `glue` â’ its base after normalisation; `--to-hvm4-full`:
 runtime `@glueT/@glue/@unglue` with the same boundary rules). Verified:
 `glue.bend` 2â“, `glue_mustfail.bend` â— (must), full suite unchanged, and on the
 full runtime `@glueT(#Nat,[(#I1,#Bool,e)]) â’ #Bool`, `@unglue(@glue(â¦,1)) â’ 1`.
-The stale `.hs` copies were removed; the patch is the only source of truth.
 
 ## Kan rules (verified by execution)
 
@@ -78,4 +75,4 @@ whose section is incoherent with its base is rejected (`incoherent` â—).
 Implementation note: the transported base is evaluated strictly inside the
 rule; left as an unevaluated `Coe` thunk it is re-read inside the
 equivalence's own nested transports under the shared coe marker and yields a
-wrong value (observed and fixed; `twist3` probe).
+wrong value.

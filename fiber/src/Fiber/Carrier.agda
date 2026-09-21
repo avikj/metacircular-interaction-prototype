@@ -36,9 +36,7 @@
 -- judged to resemble it by prose.
 --
 -- ON THE NAME.  `punargamana` (‡‡‡®‡∞‡æ‡ó‡Æ‡®), "coming back again / return", is
--- used here as the name of this module family.  It is not being cited from a
--- particular text for a particular technical sense: the compound is chosen
--- here, and no source is claimed for it.
+-- used here as the name of this module family.
 --
 -- TWO IMPLEMENTATION FACTS, load-bearing, do not regress them:
 --
@@ -88,8 +86,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
   -- whole point of the law below is that those are different, so spelling
   -- them the same is not a clash to work around with `hiding`; it is the
   -- distinction the file exists to make.  (Agda catches it: naming this
-  -- `fiber` is a ClashingDefinition against the import above, which is how
-  -- the collision was found rather than reasoned about.)  The same object
+  -- `fiber` is a ClashingDefinition against the import above.)  The same object
   -- carries the same name in the corpus's own second copy of this law,
   -- formal/cubical/theorems/residue/LosslessReturn_TheHandProofWas‚¶ .
   ‡§ï‡•ç‡§∑‡•á‡§§‡•ç‡§∞‡§Æ‡•ç : A ‚Üí Type ‚Ñì

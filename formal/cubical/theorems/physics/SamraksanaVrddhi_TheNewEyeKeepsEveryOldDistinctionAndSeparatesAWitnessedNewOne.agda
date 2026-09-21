@@ -5,14 +5,13 @@
 -- ‡‡‡∞‡ï‡‡‡-‡µ‡‡¶‡‡ß‡ø‡ ‚î sarakaa, guarding/conservation; vddhi, growth
 -- (both ordinary ; vddhi is also Pini's technical name for
 -- the strengthened vowel grade, Adhyy 1.1.1 vddhir daic ‚î taken
--- here ONLY in its ordinary sense of increase; nothing grammatical is
--- claimed).  Compound built here, 2026-08-23, for the owner's U0023
--- (collab/upstream/raw/U0023.txt).
+-- here ONLY in its ordinary sense of increase).  Compound built here for
+-- U0023 (collab/upstream/raw/U0023.txt).
 --
 -- THE OTHER HALF OF THE ADMISSION GATE.  ApurvaIndriyam (imported)
 -- checked the NOVELTY criterion: one blind pair separated by a proposal
 -- refutes every possible derivation of it from the present sensorium.
--- U0023 supplies what was missing ‚î CONSERVATION:
+-- U0023 supplies the other half ‚î CONSERVATION:
 --
 --     "Form the enlarged sensorium S'(x) = (S(x), q(x)).  The old
 --      sensorium is recovered exactly: S = œ‚ ‚àò S'.  So S' is not

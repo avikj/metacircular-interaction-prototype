@@ -9,17 +9,13 @@
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- `TheTwoSidedProfileCutNeedsTheBurdensAsAProfile` built the left
--- adjoint for a matrix of burdens (`UpP`) and located the obstruction
--- to the right adjoint: with NO rows the constraint is vacuous and the
--- required meet is `âˆž`.
+-- adjoint for a matrix of burdens (`UpP`).
 --
 -- WHAT IS PROVED
 --
 --   _â‰¼p_        pointwise `â‰` on the RESIDUAL side.  It is NOT `_âŠp_`:
 --               the burden side is ordered by reverse pointwise `â‰`
---               (more burden absorbed is lower), and writing both sides
---               with the same symbol is exactly how the sign error on
---               this line happened once before
+--               (more burden absorbed is lower)
 --   dnNE        the right adjoint over a non-empty residual index:
 --               componentwise `maxµ (bµâ¼ âˆ Ïˆµ)`, by structural
 --               recursion on the row list â” no accumulator, so the
@@ -28,9 +24,7 @@
 --   goBwdNE     and back
 --
 -- **SO THE TWO-SIDED CUT EXISTS.**  `dnNE` takes the row list in `j âˆ js` form, so the type
--- itself records that a residual index must exist; over `â• âŠ âˆž` the
--- empty case would be `âˆž` and the restriction would lift.  Nothing
--- here adjoins `âˆž`.
+-- itself records that a residual index must exist.
 --
 -- **WHAT MADE IT ROUTINE**: `maxP`'s three laws.
 -- `maxP-âŠË¡`/`maxP-âŠÊ³` split a hypothesis about the fold into per-row
@@ -105,15 +99,6 @@ goBwdNE j (i âˆ· js) ks (b , bs) Ï† (Ïˆ , Ïˆs) (le , rest) =
     (goBwdNE i js ks bs Ï† Ïˆs rest)
 
 ------------------------------------------------------------------------
--- Recording site of the general case:
--- `TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero`.
---
--- **THE NON-EMPTINESS HYPOTHESIS THIS MODULE PUTS IN ITS SIGNATURES IS
--- NOT NEEDED.**  `dnNE`, `goFwdNE`, `goBwdNE` take their rows as
--- `Rows (j âˆ js) ks` because the module it was built on claimed the
--- empty meet was `âˆž`.  That claim is false: `_âŠp_` is reverse pointwise
--- `â‰`, so the `âŠp`-greatest profile under a vacuous constraint is the
--- `â‰`-least, i.e. all zeros, which â• has.  `dnAll`/`goFwdAll`/
--- `goBwdAll` at the recording site are the same adjunction over an
--- ARBITRARY residual index list.
+-- The general case, over an ARBITRARY residual index list, is `dnAll`/
+-- `goFwdAll`/`goBwdAll` in `TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero`.
 ------------------------------------------------------------------------

@@ -6,9 +6,6 @@
 -- Delta 29's execution-derived four-state calibration.  The defect M is
 -- computed from the supplied state multiplication and potential; its complete
 -- table and trefoil identity are kernel reductions, not imported outputs.
---
--- The later one-sided closure product is intentionally not guessed here: its
--- displayed profile values do not define the operator which produced them.
 ------------------------------------------------------------------------
 
 module DSONucleusExecutionCalibration where
@@ -199,15 +196,3 @@ trefoil d d e = refl
 trefoil d d a = refl
 trefoil d d c = refl
 trefoil d d d = refl
-
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked: execution multiplication, associativity, potential, the complete
--- derived M table, and every trefoil instance.
---
--- Not checked here: Delta 29's principal left closures or their one-sided
--- product.  The reported vectors alone are outputs, not a definition of that
--- product.  Formalizing them as constants would plant the counterexample
--- instead of deriving it; an exact closure/product definition is required.
-------------------------------------------------------------------------

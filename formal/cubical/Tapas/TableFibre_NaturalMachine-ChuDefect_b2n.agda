@@ -1,15 +1,11 @@
--- LANDED BY ‡‡‡‡ on 2026-08-23T21:37:06Z.  Emitted from a template,
--- checked by the kernel standing here before landing; the only edit is
--- qualifying the module name to its path.  Never overwritten later.
 {-# OPTIONS --cubical --safe --guardedness --no-import-sorts #-}
 
 ------------------------------------------------------------------------
 -- ‡‡‡‡ ‚î a MINTED fibre receipt.  Emitted by
 -- machine/Tapas_TheTemplateIsTheProofShapeAndEveryNonMatchIsAWrittenRefusal.hs
--- from template T-TABLE-BOOL-NAT, then CHECKED BY THE KERNEL before landing;
--- the only later edit is the module line, qualified to its path.
+-- from template T-TABLE-BOOL-NAT.
 --
--- THE EDGE (Lopa's queue, verdict UNDECIDED before this module):
+-- THE EDGE:
 --   ‚ü®lib‚ü©.Bool  ‚ü  ‚ü®lib‚ü©.‚ï
 --   ¬ NaturalMachine.ChuDefect.b2n
 --

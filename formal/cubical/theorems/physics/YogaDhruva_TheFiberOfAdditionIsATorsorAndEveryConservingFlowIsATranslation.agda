@@ -38,8 +38,7 @@
 --
 -- TERM.  ‡Ø‡ã‡ó ‚î addition, the standard arithmetical term (‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡
 -- and the siddhntas throughout); ‡ß‡‡∞‡‡µ as in Dhruva's header.  The
--- compound is this corpus's; no  source states any theorem
--- below.
+-- compound is this corpus's.
 ------------------------------------------------------------------------
 
 module YogaDhruva_TheFiberOfAdditionIsATorsorAndEveryConservingFlowIsATranslation where

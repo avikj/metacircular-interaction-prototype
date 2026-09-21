@@ -4,7 +4,7 @@
 -- CorpusPresentation â” the corpus running the corpus's own mathematics
 -- on its own checked declarations.
 --
--- The cold-start handoff's flow, realised with EXISTING machinery only:
+-- The flow, realised with EXISTING machinery only:
 --
 --   checked declaration
 --     â”â” reflection only (ReflectedFormation) â”â”â– formed presentation

@@ -8,9 +8,7 @@
 -- ‡ï‡‡ü‡‡ü‡ï, the pulverizer, for the linear indeterminate equation; the
 -- procedure spelled out step by step by BHSKARA I, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡‡æ‡‡‡Ø‡Æ‡ (629 CE).
 -- Its rule is one sentence ‚î divide, KEEP THE REMAINDER AND RECURSE ON IT,
--- and write each quotient into the ‡µ‡≤‡‡≤‡, the column ‚î and CLAUDE.md quotes
--- exactly that sentence as the growth rule this corpus spent its history
--- lacking, "available in 499".
+-- and write each quotient into the ‡µ‡≤‡‡≤‡, the column.
 --
 -- THE SOURCE.  ryabhaa states the
 -- procedure, and it terminates.
@@ -36,8 +34,7 @@
 -- (7,5) ‚î is the only pair in this repository for which anyone ever did.
 -- `CakravalaDescent.KuttakaCoprime.runToCoprime` inherits the same
 -- conditionality: it turns a run into the B©zout pair the cakravla's
--- cancellation consumes, for pairs a run is supplied for.  Nothing in the
--- lane said a run EXISTS.
+-- cancellation consumes, for pairs a run is supplied for.
 --
 -- WHAT IS PROVED HERE.
 -- Nothing below uses a ring solver.
@@ -77,12 +74,6 @@
 --                   pos a ¬ x + pos b ¬ y ‚â° pos g, with g the terminal value,
 --   ‡Æ‡‡‡‡‡Æ-‡‡∞‡‡µ‡‡‡∞    and g divides both and is divisible by every common
 --                   divisor ‚î the gcd, for every pair, constructively.
---
---   * Nothing here touches the cakravla's termination.
---     That is a different and harder question: this
---     module's measure decreases at every step BY CONSTRUCTION, and the
---     wheel's does not ‚î which is why the wheel needs a window argument and
---     the pulverizer does not.
 ------------------------------------------------------------------------
 
 module KuttakaSamapti_TheValliIsFiniteForEveryPair where

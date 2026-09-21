@@ -6,8 +6,7 @@
 -- Reversal as an involution whose invariants are exactly the
 -- achromatic data.
 --
--- The corpus's one symmetry that every colored ray reports identically
--- join nobody used: "four vocabularies, one symmetry, no cross-citation"
+-- The one symmetry that every colored ray reports identically
 -- ‚î the "up to reflection" of every rigidity theorem
 -- (PARITY_RIGIDITY Thm A‚≤‚≤), the pairing Res(g, g(‚àíx)) behind the whole
 -- factor-exclusion tower (PARITY_RESULTANT Thm 1b), the endian class of
@@ -25,14 +24,13 @@
 --   (d) the fixed locus Palindrome = (rev xs ‚â° xs), with one witness
 --       and one refutation ‚î where the two readings coincide.
 --
--- ATTRIBUTION (PROTOCOL ¬ß0 ‚î do not re-derive library lemmas):
+-- ATTRIBUTION:
 --   * rev            : Cubical/Data/List/Base.agda        (library)
 --   * rev-rev        : Cubical/Data/List/Properties.agda  (library)
 --   * cons-inj‚      : Cubical/Data/List/Properties.agda  (library)
 --   * just-inj       : Cubical/Data/Maybe/Properties.agda (library)
 --   * true‚âfalse, false‚âtrue : Cubical/Data/Bool/Properties.agda (library)
---   The library has NO length-rev (checked: only length-map at
---   Properties.agda:178); length-snoc and length-rev below are the only
+--   The library has no length-rev; length-snoc and length-rev below are the only
 --   inductions this file performs.
 ------------------------------------------------------------------------
 
@@ -56,7 +54,7 @@ private
 ------------------------------------------------------------------------
 -- (a) The involution.  This is the LIBRARY's theorem, re-exported under
 -- the ray's name with attribution: rev-rev in
--- Cubical/Data/List/Properties.agda (lines 37‚ì39 of the checked copy).
+-- Cubical/Data/List/Properties.agda.
 -- Nothing is re-proved here.
 
 rev-involution : (xs : List A) ‚Üí rev (rev xs) ‚â° xs
@@ -135,18 +133,3 @@ pal‚ÇÉ = refl
 -- library's, Cubical/Data/List/Properties.agda).
 ¬¨pal-w‚ÇÇ : ¬¨ Palindrome w‚ÇÇ
 ¬¨pal-w‚ÇÇ p = false‚â¢true (cons-inj‚ÇÅ p)
-
-------------------------------------------------------------------------
--- Successor seed (not attempted here): the same trichotomy ‚î
--- involution / blind observables / fixed locus ‚î for the pair field's
--- r ‚¶ ‚àír.  There the involution is negation on the offset coordinate,
--- the blind observables are the even data (|r|, r¬≤, the wedge-norm),
--- the sighted observable is sign, and the fixed locus is r = 0, the
--- diagonal.  This should connect to PairCoordinates' wedge-antisym:
--- the wedge is not blind but ANTI-blind (picks up exactly the sign of
--- the ‚/2), which is the third character ‚î equivariant of weight ‚àí1 ‚î
--- that lists already exhibit via rev-++ swapping the concatenation
--- order.  A second seed: transport length along revPath above and
--- check transport (Œª i ‚í revPath i ‚í ‚ï) length ‚â° length ‚î the
--- ua-computation making "achromatic = transports trivially" literal.
-------------------------------------------------------------------------

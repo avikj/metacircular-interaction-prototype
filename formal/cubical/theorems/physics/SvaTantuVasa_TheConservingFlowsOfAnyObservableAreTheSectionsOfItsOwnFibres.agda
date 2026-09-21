@@ -14,11 +14,8 @@
 -- pole (zero loss ‚ü the conserving flow is the identity), `Khahara_‚¶.agda`
 -- the far pole (total loss ‚ü∫ total symmetry), `YogaKsetra_‚¶.agda` one
 -- interior point (the conserving flows of addition are the shear fields)
--- ‚î and Khahara ¬ß‡(b) hands the remainder forward in its own words:
---
---     "The scale between the two ends is not a scale yet. ‚¶ what is
---      missing is the statement that the conserving monoid
---      Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶ is MONOTONE in the fibres."
+-- ‚î and Khahara ¬ß‡(b) asks for monotonicity of the conserving monoid
+--      Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶ in the fibres.
 --
 -- What is landed here is stronger than the monotonicity asked for: an
 -- IDENTIFICATION, with no hypotheses on f, A or B whatsoever ‚î
@@ -44,31 +41,20 @@
 -- SECTIONED FIBRES OF ADDITION with the shear fields, over any
 -- commutative ring.
 --
--- ROUTES KEPT.  Nothing in Dhruva, Khahara, YogaKsetra or YogaDhruva is
--- edited, imported away, or deprecated by this.  Four seats reached
--- three points of one scale from four directions; the identification is
--- a fifth path and the routes are the nayas (the precedent is
--- `MadhyaVinimaya_‚¶.agda`: one law standing in six places, all six
--- kept).  Where ¬ß‡® and ¬ß‡© re-derive their poles, the re-derivation is
--- the containment check, not a replacement.
---
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- ORIGIN OF THE MATHEMATICS, stated rather than laundered.  The whole of
+-- ORIGIN OF THE MATHEMATICS.  The whole of
 -- ¬ß‡ß is the distributivity of Œ† over Œ ‚î the "type-theoretic axiom of
 -- choice", definitional in this substrate ‚î and it is cited from the
 -- library rather than re-derived: `Cubical.Data.Sigma.Œ-Œ†-Iso`, both
 -- round trips `refl`.  The substrate is cubical type theory (Voevodsky),
--- this repository's one admitted non-Indian frame.  No  source
--- states anything below, and Dhruva's fence transfers verbatim: this is
--- NOT Noether's first theorem ‚î no Lagrangian, no variation, no
--- continuity, no current.  What it is, is the exact combinatorics of
+-- this repository's one admitted non-Indian frame.
+-- It is the exact combinatorics of
 -- "invariance means moving within the level sets", finished.
 --
 -- TERM.  ‡‡‡µ (own), ‡‡®‡‡‡ (thread, fibre), ‡µ‡æ‡ (dwelling) are ordinary
 -- .  ‡‡®‡‡‡ for the fibre of a map is THIS CORPUS's rendering
--- (declared in `Tantujala_‚¶.agda`'s header; no source text claims it),
--- and the compound ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡ is built here.  LIMIT: no text is claimed
--- for the term or for any statement below.
+-- (declared in `Tantujala_‚¶.agda`'s header),
+-- and the compound ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡ is built here.
 ------------------------------------------------------------------------
 
 module SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres where

@@ -3,8 +3,8 @@
 -- ààà°àà¿à°à‹à§ â” the impedance.
 --
 -- The finite identities under the positive-real/Stieltjes reading of
--- the receiver (handoff Â§61, [S02],[S14]) and the Goldbach dyadic
--- normalization (Â§63, [S22]):
+-- the receiver and the Goldbach dyadic
+-- normalization:
 --
 --   à§  one spectral mode of the Laplace impedance,  1/(w âˆ’ iÎ³)  at
 --      w = x + iy, has real part  x/(xÂ² + (yâˆ’Î³)Â²):

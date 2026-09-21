@@ -58,12 +58,7 @@
 --       whether such a direction is itself a source is a question about
 --       the image of `Î `, answered separately in `RiktaTantu`.
 --
--- WHY THE TWO PARTS ARE NOT JOINED HERE.  Part One proves the law for
--- the paired trilinear form; Part Two ASSUMES it as an equation between
--- operators.  Passing from the first to the second needs a nondegenerate
--- pairing and an operator representing each form â” that is a modelling
--- step, it is where a concrete space enters, and it is not carried out
--- anywhere below.  Part Two's `intertwine` is a hypothesis in the open,
+-- Part Two's `intertwine` is a hypothesis in the open,
 -- exactly like `SamanaMula`'s `cov`.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§1 for any bracket, any binary `_âŠ•_`, any

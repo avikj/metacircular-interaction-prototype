@@ -3,17 +3,14 @@
 ------------------------------------------------------------------------
 -- à‰àààà¾àà¨ â” evaluation, the raising of an expression to its value at a
 -- point (the term is Bhskara II's, Bjagaita (1150), for substituting a
--- value and computing; the THEOREM below is not attributed to that text â”
--- it is stated here for the runtime's G7 gate, per the naming rule's
--- honesty clause).
+-- value and computing; the theorem below is stated for the runtime's G7
+-- gate).
 --
--- THE GAP THIS CLOSES (owner's biography rule, 2026-08-23: a declaration
--- can be valid as a declaration while its mathematics is still waiting to
--- become a term).  crystallize/install.py G7 decides a polynomial
+-- crystallize/install.py G7 decides a polynomial
 -- identity "by exact evaluation on an integer grid whose size is a
 -- complete bound for the degree" â” the completeness of that grid is the
--- gate's license and was declared, not checked.  Its univariate core,
--- checked here over â:
+-- gate's license.  Its univariate core,
+-- over â:
 --
 --     a polynomial with MORE DISTINCT ROOTS THAN COEFFICIENTS is the
 --     zero function.
@@ -165,7 +162,7 @@ grid (a âˆ· as) (c âˆ· cs) len dist (cons va vs) x =
   âˆ™ mulZeroR (x - a)
 
 ------------------------------------------------------------------------
--- Â§4 Â THE TWO-SIDED FORM â” the scope note's debt, paid.  The
+-- Â§4 Â THE TWO-SIDED FORM.  The
 -- coefficientwise difference, its evaluation law, and the agreement
 -- theorem: two polynomials agreeing at more distinct points than either
 -- has coefficients agree at EVERY point.  This is G7's actual univariate

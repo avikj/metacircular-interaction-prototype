@@ -19,8 +19,7 @@
 -- Ktyyana's vrttikas c. 250 BCE and Patajali's *Mahbhya* c. 150 BCE
 -- are the commentarial layer on 8.2.1; they are named, not used, here.
 --
--- RECOGNITION BEFORE CONSTRUCTION, as this repository requires, and it
--- changed what this module is.  Three things were already here:
+-- WHAT IS ALREADY IN THE CORPUS.  Three things:
 --
 --   `Asiddhatva.agda`     ‚î 8.2.1 buys TERMINATION: the unstratified
 --                           system has no normal form and, sharply, no
@@ -68,16 +67,11 @@
 --   into one.  It is derived from the two halves.  At this
 --   site both later rules collapse, and both witnesses are exhibited.
 --
--- PRIOR ART, searched.  Asiddhatva read as rule suspension / level
+-- PRIOR ART.  Asiddhatva read as rule suspension / level
 -- ordering is documented (Kiparsky, "On the Architecture of Pini's
 -- Grammar", 2009; the elsewhere condition, Kiparsky 1973 ‚î a restatement,
 -- named here after the thing it restates).  Staged and layered rewriting
 -- is standard (Bergstra‚ìKlop; Ohlebusch on modularity of termination).
--- What I did not find is the descent formulation: the blindness as failure
--- of a predicate to factor through the later strata, with the obstruction
--- identified as the fiber and localised to a named stra.  If that is
--- stated somewhere I did not reach, this is a re-derivation and the
--- citation is owed.
 --
 -- THE CARRIER.  The
 -- carrier is the pada-final consonant of `vc` ("speech") along the
@@ -134,7 +128,7 @@ eqRupa _  _  = false
 
 ------------------------------------------------------------------------
 -- ‡®.  The three stras, each as the total function it is on this carrier.
---     Nothing is stated about forms off the trajectory; see the scope note.
+--     Nothing is stated about forms off the trajectory.
 ------------------------------------------------------------------------
 
 -- 8.2.30 ‡‡ã‡ ‡ï‡‡

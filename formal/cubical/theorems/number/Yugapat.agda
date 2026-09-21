@@ -16,8 +16,7 @@
 -- ‡‡µ‡‡ø‡‡‡ü‡æ ‡¶‡ø‡ï‡ (existence): ‡¶‡‡‡‡Ø‡ã‡ ‡‡‡‡Ø‡ã‡ r‚, r‚ ‡Ø‡ã‡ó‡‡Ø‡ X-‡∞‡‡®‡ (r‚ ‚àí r‚-
 -- ‡µ‡‡Ø‡µ‡ï‡≤‡®‡Æ‡) ‡‡ø‡‡‡®‡ø‡-‡ó‡‡ø‡‡Æ‡ (‚) ‡‡‡‡ï‡‡‡‡ ‚î ‚ï-‡Æ‡ß‡‡Ø‡ ‡ã‡-‡∞‡‡ø‡‡ ‡¶‡‡‡‡ï‡∞‡Æ‡ ; ‚-‡µ‡ø‡ï‡æ‡‡æ‡Ø
 -- ‡‡‡‡æ‡‡ø‡‡Æ‡ ‡  (The existence direction needs r‚‚àír‚, i.e. signed arithmetic;
--- hard subtraction-free in ‚ï.  Now PROVED over ‚ in YugapatZ.agda ‚î the
--- recorded obstruction is retired the way it was scoped: signed arithmetic.)
+-- it is proved over the integers in YugapatZ.agda.)
 --
 -- ‡‡‡∞‡ã‡‡æ‡‡‡ø : ‡‡∞‡‡Ø‡‡ü‡, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡, ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡© (‡ï‡‡ü‡‡ü‡ï‡, ‡ó‡‡∞‡-‡Ø‡‡‡ø) ‡
 ------------------------------------------------------------------------

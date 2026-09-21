@@ -37,12 +37,6 @@
 -- recurrence IS the identity's induction step.  That is the content: the
 -- two traditions' constructions coincide at the level of the recurrence,
 -- not merely in their values.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- Nor is any claim made about transmission.  The two constructions
--- agreeing is a theorem; whether the Kerala mathematicians had Pigala's
--- array in view is a historical question this file does not touch.
 ------------------------------------------------------------------------
 
 module Sankalita where
@@ -116,9 +110,6 @@ column0-is-column1 = sankalita-is-meru 0 4
 -- `Î k^p â‰ˆ n^{p+1}/(p+1)` by taking these repeated sums exactly and then
 -- estimating them; the exact half is this identity, and it is Pigala's
 -- array with a different name and seventeen centuries between them.
---
--- Nothing analytic is claimed.  The estimate is the Kerala achievement
--- and it is not here.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

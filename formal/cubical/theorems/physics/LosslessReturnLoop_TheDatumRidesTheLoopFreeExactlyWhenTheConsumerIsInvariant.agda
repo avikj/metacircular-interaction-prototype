@@ -17,8 +17,7 @@
 --             nothing is lost.  `loss/` states it for a map.
 --   holonomy   go around and return changed.  Stated for a loop.
 --
--- Same object, opposite sign, two lanes of this repository, and until now
--- no line joining them.
+-- Same object, opposite sign, two lanes of this repository.
 --
 -- WHY IT IS SHORT, AND WHY THAT IS THE POINT.  ¬ß‡ of ‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡:
 -- ‡‡‡ï‡‡∞‡Æ‡‡ ‡‡‡∞‡‡®‡æ ‡µ‡‡‡ø, ‡‡‡ï‡‡∞‡Æ‡‡ ‡® ‡ï‡ø‡û‡‡‡ø‡®‡ ‡®‡‡‡Ø‡‡ø.  A transport that costs
@@ -176,22 +175,3 @@ module _ {B Z : Type‚ÇÄ} (sem : Z ‚Üí B) (h : H.Holonomy Z) where
 
 ‡§ï‡•ã‡§∂‡§É-‡§ö‡§≤‡§ø‡§§‡§É : ¬¨ (transport (ua notEquiv) true ‚â° true)
 ‡§ï‡•ã‡§∂‡§É-‡§ö‡§≤‡§ø‡§§‡§É = H.theCacheIsMoved
-
-------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î syt ‚î the claim, exactly.
---
--- Not that every holonomy statement in this corpus is a ‡‡‡®‡∞‡æ‡ó‡Æ‡® statement:
--- the gauge lane (`PMGaugeCohomology`, `HolonomyDescent`,
--- `RelationalHolonomyRefinement`, `FiniteGraphHolonomyGroupoid`) has group
--- structure this module never touches, and `HolonomyDescent`'s
--- `homFactorsIsoInvariant` inverts by a CONSTRUCTION (`SQ.rec`), not by a
--- path ‚î a different mechanism reaching a similar shape.
---
--- Not that ¬ß‡ is deep.  It is `refl` twice, and that is the evidence that
--- the two lanes were about one object: joining them took no work.  Where a
--- joint takes work, the joint is wrong.
---
--- Nothing in `HolonomyIsInvisible‚¶` was edited.  ¬ß‡ of the
--- stra: ‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‚î where the standpoints differ the
--- collapse does not exist, and deleting a route is ‡¶‡‡∞‡‡®‡Ø.
-------------------------------------------------------------------------

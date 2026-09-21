@@ -2,8 +2,8 @@
 ------------------------------------------------------------------------
 -- à—àà°à¾àà• â” the receiver.
 --
--- The fixed two-packet autocorrelation receiver of handoff Â§46â“47
--- ([S02]):  H(z) = 16 (1 âˆ’ e^{âˆ’(z+4)/4})Â² / (z+4)Â²  and  G = H(z)H(âˆ’z).
+-- The fixed two-packet autocorrelation receiver:
+-- H(z) = 16 (1 âˆ’ e^{âˆ’(z+4)/4})Â² / (z+4)Â²  and  G = H(z)H(âˆ’z).
 -- Its finite identities:
 --
 --   à§  the packet product: with  w = e^{z/4},  wÌ = e^{âˆ’z/4} (w wÌ = 1)

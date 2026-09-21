@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 -- àà®-àà¾à° â” equal weight.  Compound built here (sama: equal; bhra:
--- load/weight); no source claimed for the compound.  The doctrine terms
+-- load/weight).  The doctrine terms
 -- inside are sourced: arpita/anarpita from Umsvti, Tattvrthastra 5.31
 -- (c. 2ndâ“5th c. CE); durnaya from Siddhasena Divkara, Sanmatitarka 1.21.
 -- Gleason 1957 is the later restatement-target for comparison, named as
 -- such and not as the frame.
 --
--- This lays the NEXT STONE named by YugaParivartana Â§4 ("state the
--- uniqueness conjecture as an Agda type over the existing Sthana/verdict
--- machinery"): the Born-weight uniqueness program at the corpus's own
+-- This states the uniqueness conjecture as an Agda type over the
+-- existing Sthana/verdict machinery (YugaParivartana Â§4): the Born-weight
+-- uniqueness program at the corpus's own
 -- finite scale, the Peresâ“Mermin square of PMNoSection (six contexts,
 -- nine Fâ cells, no global section â” the 512-fold exhaustion already runs
 -- in the typechecker there).
@@ -50,8 +50,7 @@
 -- that asserts nothing, so they cannot force Born.  The repair the
 -- refutation demands is exact: aneknta must bind at PAIR grain â”
 -- correlations, not marginals â” which is precisely the grain at which the
--- square's contextuality (PMNoSection's no-global-section) lives.  The
--- pair-grain restatement is the next stone, not laid here.
+-- square's contextuality (PMNoSection's no-global-section) lives.
 
 module SamaBhara_TheTwoVowsOnThePeresMerminSquareAndTheOneWeightSchedulerConjectureStatedAsAType where
 

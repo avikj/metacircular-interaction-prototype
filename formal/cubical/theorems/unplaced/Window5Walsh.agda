@@ -7,12 +7,11 @@
 --
 -- F23 recorded a stationary false model for the five-window correlation
 -- algebra used in the nonzero-(a,b,c) case of Taoâ“Tervinen's Theorem
--- 1.14.  Its evidence artifact was `code/exp53_window5_polytope.py`
--- (exact rationals, but Python â” banned 2026-08-13, unreplayable).  This
+-- 1.14.  Its evidence artifact was `code/exp53_window5_polytope.py`.  This
 -- module redoes every finite, exact assertion that script made, as terms
 -- the Agda kernel checks.  Nothing here is floating point and nothing is
 -- a search: each `refl` is a finite exhaustive verification over the 32
--- sign patterns, in the sense CLAUDE.md admits as proof.
+-- sign patterns.
 --
 -- THE OBJECT.  For Îµ âˆˆ {Â1}âµ and rationals a,b,c,
 --

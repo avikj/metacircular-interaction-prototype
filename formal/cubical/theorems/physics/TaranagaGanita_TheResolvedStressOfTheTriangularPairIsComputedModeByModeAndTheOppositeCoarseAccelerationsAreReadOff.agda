@@ -13,8 +13,7 @@
 -- (N,0,0) + (âˆ’N,1,0) = (0,1,0) survives the projection while
 -- (2N,0,0), (âˆ’2N,2,0), (2N,âˆ’1,0) do not; hence
 -- âˆÂR^Ï = âˆ’(ÏAÂ²/2) eâ sin xâ, âˆ_t U^Ï(0) = (ÏAÂ²/2) eâ sin xâ, and against
--- w = eâ sin xâ the reading is ÏAÂ²/4.  That computation was checked
--- symbolically; here it is a term.
+-- w = eâ sin xâ the reading is ÏAÂ²/4.
 --
 --   Â§1  THE KERNEL.  A trigonometric polynomial on ð•‹Â³ is a list of
 --       (kind, frequency, coefficient) with one dyadic denominator 2^d.

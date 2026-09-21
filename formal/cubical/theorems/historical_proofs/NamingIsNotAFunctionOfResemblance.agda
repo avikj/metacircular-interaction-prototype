@@ -46,11 +46,6 @@
 -- is carried from `machine/Upamana.hs`, which sources and dates them in
 -- its §0.
 --
--- §6 empirical control (whether what it transports lies inside the
--- engine's enumeration reach); that is its measurement and its result,
--- untouched here.  Not that resemblance is useless: §2 says only that it
--- does not DETERMINE the naming.
---
 ------------------------------------------------------------------------
 
 module NamingIsNotAFunctionOfResemblance where
@@ -136,9 +131,4 @@ namingDoesNotFactorThroughResemblance =
 -- similarity cannot become a naming without something else being
 -- supplied.  Whether that something is a distinct prama (Nyya) or
 -- testimony plus memory (Dignga) is not decided here and §0 says why.
---
--- What §2 does NOT give that module: any evidence about its §6 control �
--- whether what it transports already lies inside the engine's own
--- enumeration reach.  That is an empirical question about a particular
--- engine at particular knobs, and it is that module's to answer.
 ------------------------------------------------------------------------

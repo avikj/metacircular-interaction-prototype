@@ -3,14 +3,10 @@
 ------------------------------------------------------------------------
 -- TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary
 --
--- `TheThresholdOrderIsTotalAndTheClaimIsAntitone` says:
---
---   "STRICT thresholds (the `Majority` of the previous module is
---    strict: length < 2 Â count) are NOT in this family; `AtLeast 1 1`
---    is the non-strict 'at least half', which is weaker, and the
---    strict/non-strict gap is not analysed."
---
--- The gap is analysed here, and it is exactly one point.
+-- STRICT thresholds (the `Majority` of the previous module is
+-- strict: length < 2 Â count) are NOT in `TheThresholdOrderIsTotalAndTheClaimIsAntitone`'s family; `AtLeast 1 1`
+-- is the non-strict 'at least half', which is weaker.  The
+-- strict/non-strict gap is exactly one point:
 --
 --   Above p q bs  =  p Â length bs < suc q Â count bs
 --
