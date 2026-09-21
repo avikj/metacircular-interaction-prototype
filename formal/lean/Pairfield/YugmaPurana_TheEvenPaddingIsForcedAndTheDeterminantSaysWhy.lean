@@ -40,10 +40,8 @@ rather than as a remark.
 `formal/cubical/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
 proves the same thing about Āryabhaṭa's वल्ली: `detReplay` gives
 `det (replay v) ≡ (-1)^(length v)` for the step matrices `L q = (q 1 / 1 0)`,
-and its §5 states the transfer to this lane as **owed, not done** — grade
-three, "a real channel, to be constructed rather than asserted", because the
-Lean statements live over a different matrix type in a system without
-univalence.  This file is that construction.  It is **not** an import, a
+The Lean statements live over a different matrix type in a system without
+univalence, and this file is the construction on that side.  It is **not** an import, a
 translation, or a transport: nothing crosses the lane boundary.  It is the
 same mathematics proved a second time against the objects that are actually
 here, which is what a grade-three channel is.
@@ -64,8 +62,7 @@ column of quotients his procedure produces.  युग्म ("pair, even") and 
 ## Discipline
 
 No `sorry`, no `admit`, no `axiom`, and **no `native_decide`**: every decision
-below is either a kernel `decide` or an ordinary proof term.  Verified under
-`lake build`, Lean 4.33.0 with mathlib `v4.33.0`.
+below is either a kernel `decide` or an ordinary proof term.
 -/
 
 namespace Pairfield

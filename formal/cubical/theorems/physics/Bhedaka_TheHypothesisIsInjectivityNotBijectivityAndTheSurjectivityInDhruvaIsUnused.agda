@@ -24,8 +24,7 @@
 -- What the argument actually needs is that `f` does not CONFLATE:
 -- `isEmbedding f`.  Â§à© proves the theorem under that hypothesis, and
 -- Â§à recovers `Dhruva` Â§à¨ from it in one line.  **Surjectivity of the
--- observable buys nothing.**  This is not a repair â” `Dhruva` Â§à¨ is
--- true as stated â” it is the statement of what makes it true.
+-- observable buys nothing.**
 --
 -- WHY THIS IS THE CARRIER LAW AND NOT A LEMMA ABOUT EMBEDDINGS.
 -- `fibre/src/Loss/Carrier.agda` is built on one line:
@@ -62,8 +61,7 @@
 -- TERM.  ààà¦à• â” "differentiating, that which distinguishes", the
 -- standard stric agentive of ààà¦ (difference, distinction), which is
 -- the technical vocabulary of difference across Nyya-Vaieika and
--- Skhya alike.  LIMIT, and it is the important half: no single stra
--- is claimed for it, and none of these schools states anything below.
+-- Skhya alike.
 -- The word is taken in its ordinary stric sense and applied here to a
 -- map that does not conflate its arguments; that application is this
 -- corpus's.  Internal precedent for the pairing: `Kaksya_â¦agda` Â§à© names

@@ -10,7 +10,7 @@
 -- halves of why are proved here.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT I READ, AND WHAT IT SHOWED
+-- WHAT `KFlow` STATES
 --
 -- `KFlow`, signatures and proof bodies:
 --

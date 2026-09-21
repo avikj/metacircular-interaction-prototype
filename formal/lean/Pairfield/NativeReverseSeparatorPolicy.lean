@@ -2,7 +2,7 @@
 Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
-The exact certificate carrier required by a future shared reverse pair search:
+The exact certificate carrier required by a shared reverse pair search:
 one rank and one outgoing action backpointer at each current product state.
 The policy reconstructs suffixes; root replay remains an explicit append
 adapter and is not identified with the shared product state.

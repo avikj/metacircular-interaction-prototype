@@ -6,12 +6,12 @@
 -- (the fibre of a weighted counting map splits by the head's weight.)
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- `Avrtti_â¦agda` Â§à names this as its next rung:
+-- `Avrtti_â¦agda` Â§à treats `length`:
 -- `length` charges one per constructor so its fibre recurrence has no
 -- guard, while a WEIGHTED map does.  This writes the general weighted
 -- emitter.
 --
--- THE SHAPE, and it is why the rung is a rung.  A first guess
+-- THE SHAPE.  A first guess
 -- is
 --
 --     fiber f n â‰ Î[ x âˆˆ X ] Î[ m âˆˆ â• ] (w x + m â‰¡ n) — fiber f m

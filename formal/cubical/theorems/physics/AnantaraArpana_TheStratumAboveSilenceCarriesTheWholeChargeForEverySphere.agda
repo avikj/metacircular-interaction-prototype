@@ -29,7 +29,7 @@
 -- arrives whole or not at all.  (At strata BELOW the silence boundary
 -- the truncation is contractible a fortiori by the same connectivity.)
 --
--- SOURCES (the six rules).  The engines are the LIBRARY's:
+-- SOURCES.  The engines are the LIBRARY's:
 -- sphereConnected (Cubical.HITs.Sn.Properties) for the silence;
 -- ÏTruncIso and isSetÎ©Trunc (Cubical.Homotopy.Group.Base) and
 -- Ïâ™Sâ¿â‰â (Cubical.Homotopy.Group.PinSn) for the utterance.  This

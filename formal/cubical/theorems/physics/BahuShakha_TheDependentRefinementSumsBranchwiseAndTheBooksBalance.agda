@@ -6,10 +6,9 @@
 --
 -- TERM.  ‡‡‡ (many) and ‡‡æ‡ñ‡æ (branch ‚î also the word for a recension
 -- of a Veda, a branch of the one text).  The compound ‡‡‡-‡‡æ‡ñ‡æ, "the
--- many-branched", is built HERE and no source is claimed for it
--- (CLAUDE.md, naming rule, note 2).
+-- many-branched", is built HERE.
 --
--- SEED.  The owner's transmission of 2026-08-23, the Born ladder,
+-- SEED.  The Born ladder,
 -- steps 3‚ì4, taken at their arithmetic floor.  `SthulaBhara_‚¶` did the
 -- BINARY split (two branches, sizes a+1 and b+1).  This module does
 -- the general dependent family: a coarse outcome space Fin (suc c),

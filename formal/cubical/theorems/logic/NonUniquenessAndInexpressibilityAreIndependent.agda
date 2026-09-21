@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- NonUniquenessAndInexpressibilityAreIndependent
 --
--- dc318bd9 (another identity) found that three modules here call three
--- different structures ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, and separated two of them by their
+-- Three modules here call three
+-- different structures ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡; two of them are separated by their
 -- defect:
 --
 --   ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡  the content is DETERMINATE and no single utterance says
@@ -12,7 +12,7 @@
 --   ‡¶‡¶        the content is perfectly expressible and the solution set
 --              is not a singleton ‚î a UNIQUENESS failure
 --
--- and named the risk exactly: "using one third position as a catch-all
+-- The risk is exact: "using one third position as a catch-all
 -- for 'not a clean single answer' is the boolean collapse this corpus
 -- exists to fight, one level up."
 --
@@ -26,8 +26,8 @@
 --
 -- The THIRD structure ‚î Satyayantra's ‡‡®‡‡ï‡‡‡Æ‡, the un-said ‚î is NOT
 -- brought onto this carrier.  It is temporal (a grant may still say it),
--- so it is not a predicate of a content and a language at all.  d909db0d
--- already states that the two third-positions' remedies live in
+-- so it is not a predicate of a content and a language at all.
+-- The two third-positions' remedies live in
 -- different types; forcing all three onto one carrier would be the
 -- collapse this module is about.  Two are compared because two are
 -- comparable.
@@ -129,7 +129,7 @@ corner-neither = selfIsUnique , selfIsExpressibleInOnlyId
 -- All four corners are inhabited, so neither defect implies the other
 -- and neither implies the other's negation.  A single word covering both
 -- discards a distinction that is realised in every combination ‚î which
--- is dc318bd9's "boolean collapse, one level up", as a theorem rather
+-- is the "boolean collapse, one level up", as a theorem rather
 -- than as a diagnosis.
 --
 ------------------------------------------------------------------------

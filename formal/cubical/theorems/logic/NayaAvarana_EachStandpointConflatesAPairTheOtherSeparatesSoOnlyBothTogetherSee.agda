@@ -32,9 +32,8 @@
 -- ON THE NAME.  ‡‡µ‡∞‡ (obscuration) is the tradition's own word for what
 -- blocks a knower from an object ‚î ‡‡‡û‡æ‡®‡æ‡µ‡∞‡ heads the karma taxonomy
 -- (Umsvti, Tattvrthastra 8.5).  The compound ‡®‡Ø-‡‡µ‡∞‡ ‚î the obscuration
--- carried BY a standpoint, structural rather than karmic ‚î is built here,
--- 2026-08-23.  No claim that any Jain author stated these equivalences;
--- the claim is that Sanmatitarka 1.3‚ì6's "each naya, made sole, is false"
+-- carried BY a standpoint, structural rather than karmic ‚î is built here.
+-- Sanmatitarka 1.3‚ì6's "each naya, made sole, is false"
 -- has these four terms as its smallest cubical instance.
 ------------------------------------------------------------------------
 
@@ -160,10 +159,8 @@ Iso.leftInv  ‡§≤‡•Ç‡§™-‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™‡§É p j i =
 
 ------------------------------------------------------------------------
 -- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  Two censuses, two blindness witnesses, mutually covered ‚î
--- the smallest instance, not a completeness theorem: no claim that O‚ and
--- O‚ JOINTLY classify spaces (they do not ‚î they cannot separate spaces
--- agreeing on œ‚ and œ‚ at the basepoint; the tower continues upward, and
--- so, by ‡ó‡‡‡‡Ø-‡®‡æ‡‡‡‡ø's restratification, does the sevenfold).  What is
+-- the smallest instance, not a completeness theorem.
+-- What is
 -- proved is exactly Sanmatitarka 1.3‚ì6's shape: each naya sole is false
 -- by counterexample, and the counterexample of each lies in the sight of
 -- the other.

@@ -8,18 +8,14 @@
 -- Akalaka; Siddhasena Divkara ‚î as cited by `Saptabhangi.agda` and
 -- `KramaSaha_TheOrderOfStandpointsIsTheChargeItself.agda`, whose
 -- theorems this file uses as a lens and does not restate).  The
--- compound ‡ï‡‡∞‡Æ-‡®‡ø‡Ø‡Æ, "the rule of succession", is built HERE, for this
--- object; no source is claimed for the compound (CLAUDE.md, naming
--- rule, note 2).
+-- compound ‡ï‡‡∞‡Æ-‡®‡ø‡Ø‡Æ means "the rule of succession".
 --
--- SEED.  The owner's transmission of 2026-08-23 ("the fibre of
--- forgetting"), which named this as the first of four determined
--- terms:
+-- THE SLOGAN:
 --
 --     same carrier + different commutator
 --       ‚ü  the law does not factor through the carrier alone.
 --
--- UPSTREAM, in this corpus, same day:
+-- UPSTREAM, in this corpus:
 -- `VakraValaya_TheSameCarrierTwoLawsOfSuccession‚¶` proved ‡‡Æ‡/‡‡‡¶‡ at
 -- œ‚ itself ‚î torus loops commute, Klein loops do not, through
 -- `windingKlein` ‚î over the ONE stratum-3 carrier ‚ ó ‚.  This module

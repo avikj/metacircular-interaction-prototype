@@ -8,9 +8,7 @@ base-`p` digits.  The declared early-stopping query count determines the
 within-level subtraction count, while occurrences of the maximal digit before
 the final position contribute one boundary subtraction.
 
-The result concerns the supplied trace and cost definitions only.  It does not
-construct a scheduler or reversible circuit, choose a digit order, or prove an
-average-case or Pareto-optimality statement.
+The result concerns the supplied trace and cost definitions only.
 -/
 
 namespace Pairfield.OutputSensitiveCleanCost

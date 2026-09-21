@@ -153,7 +153,7 @@ emptyIsAboveNoThreshold p q h =
 -- So "in lowest terms" is not a convenience.  Dropping it makes the
 -- minimality statement FALSE, and `pop p k` above is then not minimal.
 --
--- The positive half is proved only at numerator one:
+-- The positive half at numerator one:
 --
 --   boundaryDividesAtNumeratorOne   suc q âˆ length bs
 --   minimalityAtNumeratorOne        hence suc q â‰ length bs, for a
@@ -161,8 +161,8 @@ emptyIsAboveNoThreshold p q h =
 --
 -- because at p = 1 there is nothing to cancel.
 --
--- 2/4 and 1/2 are the same RATE and different PAIRS, and this is the
--- quotient by rate has a visible consequence here:
+-- 2/4 and 1/2 are the same RATE and different PAIRS, and here the
+-- quotient by rate has a visible consequence:
 -- MINIMALITY IS NOT A PROPERTY OF THE RATE, only of the pair.
 --
 ------------------------------------------------------------------------

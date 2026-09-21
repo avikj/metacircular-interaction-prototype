@@ -8,8 +8,8 @@
 -- corpus is built on, bandha is the binding of karman to the jva ‚î two things
 -- made one, not separable by acting on either alone.  That is exactly
 -- entanglement, and the word is used for it here; the physics (CNOT, Bell
--- state, two-qubit gate) is modern and no source is claimed for it.  Compound
--- and identification built here, 2026-08-24.
+-- state, two-qubit gate) is modern.  Compound
+-- and identification built here.
 --
 -- THE READING (checked terms below).  ‡Æ‡‡ø gives one orb = a single-qubit gate;
 -- ‡‡‡∞‡ø‡ï gives the non-abelian single-qubit group.  Single-qubit gates are NOT
@@ -33,8 +33,6 @@
 --   `bell-diagonal` : `cnot (a , false) ‚â° (a , a)` ‚î CNOT copies the control
 --       into the target, the perfectly-correlated diagonal.  Under a superposed
 --       control this diagonal IS the Bell state; here is its basis skeleton.
---
--- Checked: --cubical --safe; loads clean on the wire.
 ------------------------------------------------------------------------
 
 module Bandha_TheEntanglingGateIsLosslessButDoesNotFactorIntoSingleQubitGates where

@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- àà¯à¾à®-àà°ààà â” offering by dimension.  StaraArpana proved the circle's
 -- charge is withheld at stratum 2 and offered whole at stratum 3
--- (Î©(âˆSÂâˆ 3) â‰ â).  THE DIMENSIONAL QUESTION (real; answer unknown to
--- the asker before the library search): does the withholding deepen by
+-- (Î©(âˆSÂâˆ 3) â‰ â).  THE DIMENSIONAL QUESTION:
+-- does the withholding deepen by
 -- one stratum per dimension?
 --
 -- ANSWERED for the absent half, checked below: for SÂ², EVERYTHING
@@ -13,17 +13,12 @@
 -- its loop space (àà•àà°à¦ààµà¯-ààà°à¿-àààà°à-à®àà¨à®à).  Where SÂ's stratum 3
 -- carried all of â, SÂ²'s stratum 3 carries nothing at all.
 --
--- THE OFFERED HALF, stated with its exact route and owed as a term:
--- Î©Â²(âˆSÂ²âˆ 4) â‰ Ïâ(SÂ²) â‰ â â” double PathIdTruncIso, then the library's
--- own sphere ladder (PinSn: ÏâSÂ²â‰ÏâSÂ, Ïâ™'Sâ¿â‰â â” the full theorem is
--- IN v0.9).  The plumbing (pointed Î©-congruence across the two
--- truncation shifts, Ï'â”Ï conversion) is real work not done here; the
--- endpoint isomorphisms are the library's.
+-- THE OFFERED HALF, Î©Â²(âˆ¥SÂ²âˆ¥ 4) â‰ƒ Ï€â‚‚(SÂ²) â‰ƒ â„¤, is proved in AnantaraArpana.
 --
--- THE LAW, at the precision earned: dimension grades the withholding â”
+-- THE LAW: dimension grades the withholding â”
 -- the n-sphere's charge is anarpita through stratum n+1 and arpita at
--- n+2 (n=1 checked whole in StaraArpana; n=2 checked here on the
--- silent side, the offered side reduced to named library theorems).
+-- n+2 (n=1 in StaraArpana; n=2 here on the silent side and in
+-- AnantaraArpana on the offered side).
 -- àà°ààà¿àà¾à¨à°ààà¿ààà¿à¦àà§àà (TS 5.31) as the reading; the grading is this
 -- repository's statement.
 ------------------------------------------------------------------------

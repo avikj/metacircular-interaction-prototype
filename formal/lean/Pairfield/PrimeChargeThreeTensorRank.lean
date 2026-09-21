@@ -7,8 +7,7 @@ The three-party `W` tensor is the local-basis normal form of the charge-one
 Möbius insertion on three squarefree prime places.  This module proves its
 tensor rank is not at most two by the matrix-pencil substitution argument.
 
-The statement is finite and algebraic over `ℚ`.  No asymptotic tensor-rank or
-automorphic conclusion is asserted here.
+The statement is finite and algebraic over `ℚ`.
 -/
 
 namespace Pairfield.PrimeChargeThreeTensorRank

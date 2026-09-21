@@ -5,8 +5,7 @@ Released under Apache 2.0 license.
 Compile the existing globally shortest native pair separators into the rank
 and action-backpointer policy consumed by demand-restricted observable
 formation.  This is an executable independent-search baseline.  It closes the
-policy-supply seam but does not claim the aggregate work bound sought from the
-shared reverse traversal.
+policy-supply seam.
 -/
 import Pairfield.NativeDemandRestrictedFormation
 

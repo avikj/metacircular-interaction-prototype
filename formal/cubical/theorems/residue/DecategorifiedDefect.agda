@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- DecategorifiedDefect
 --
--- an invariant that detects a defect in ONE DIRECTION ONLY, and the
+-- An invariant that detects a defect in ONE DIRECTION ONLY, and the
 -- resulting unsoundness of the certificate "the invariant vanished,
 -- therefore the construction is sufficient".
 --
@@ -18,26 +18,22 @@
 -- Â§4.3 conclusion â” Â§7's own conditional "â‹ = 0 âŸ Îâ sufficient" is
 -- UNSOUND, its contrapositive sound â” is what this module makes a term.
 --
--- WHAT IS FORMALIZED, AND WHAT IS NOT
+-- WHAT IS FORMALIZED
 --
--- Formalized: the information-loss structure.  A "defect" valued in a
+-- The information-loss structure: a "defect" valued in a
 -- type D with a distinguished zero, an invariant Ï : D â’ A killing that
 -- zero, and the exact logical asymmetry between the two directions.
 --
--- NOT formalized: stable âˆž-categories, cofibre sequences, Kâ, or the
--- Grothendieck group of D^b(Vect_k).  Â§2 below is a FAITHFUL FINITE
--- MODEL of the Kâ argument and is not the derived-category statement
--- itself: it replaces an object of D^b(Vect_k) with the pair of its
+-- Â§2 below is a FAITHFUL FINITE
+-- MODEL of the Kâ argument:
+-- it replaces an object of D^b(Vect_k) with the pair of its
 -- even/odd total ranks, â• — â•, replaces Kâ â‰ â-by-Euler-characteristic
 -- with the honest difference m âˆ’ n : â, and replaces the note's
 -- k âŠ• k[1] with (1 , 1).  Under that replacement the note's witness is
 -- reproduced exactly: the model's Ï(1,1) = 1 âˆ’ 1 = 0 while
--- (1,1) â‰ (0,0).  What the model does NOT show is that D^b(Vect_k)
--- realizes the pair (1,1) as a cofibre â” that is the note's Â§4.3, done
--- with pen, and it is quoted here, not re-proved.  No claim of this
--- module depends on the derived-category reading; every claim of this
--- module is about the abstract shape, and the finite model is exhibited
--- only to show that shape is INHABITED, i.e. that the failure of the
+-- (1,1) â‰ (0,0).
+-- The finite model is exhibited
+-- to show that the abstract shape is INHABITED, i.e. that the failure of the
 -- converse is not vacuous.
 --
 -- CONTENTS
@@ -136,8 +132,7 @@ module Invariant {D : Type â„“} {A : Type â„“'}
 -- Îâââ = 0 : k â’ k is k âŠ• k[1], whose ranks are (1 , 1) and whose
 -- Euler characteristic is 1 âˆ’ 1 = 0.
 --
--- MODEL, NOT THE STATEMENT.  This does not prove anything about
--- D^b(Vect_k); it proves that the abstract shape of Â§1 is inhabited by
+-- THE MODEL.  It proves that the abstract shape of Â§1 is inhabited by
 -- a concrete Ï, which is all that is needed to make `Unsound` a
 -- theorem rather than a hypothesis.
 ------------------------------------------------------------------------

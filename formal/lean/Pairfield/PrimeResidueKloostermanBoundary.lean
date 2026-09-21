@@ -9,9 +9,7 @@ residue weight does, but it is not a rank-one product of a mod-2 weight and a
 mod-3 weight.
 
 This only rejects the displayed scalar CRT-factorization ansatz.  The finite
-Kloosterman expansion is retained, and no obstruction is asserted for a
-nonfactorizable automorphic test function, kernel, orbital integral, period,
-or relative trace distribution on `GL₂`.
+Kloosterman expansion is retained.
 -/
 import Pairfield.FiniteKloostermanCompletion
 

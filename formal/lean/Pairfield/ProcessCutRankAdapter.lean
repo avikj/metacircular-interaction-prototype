@@ -14,8 +14,7 @@ to that subspace, gives the exact gluing defect.  This file identifies both
 the restricted range and the restricted kernel with the native process-cut
 objects before exposing the rank formula.
 
-The theorem concerns ordinary linear rank only.  It does not identify
-nonnegative rank, completely-positive memory, or a physical spacetime metric.
+The theorem concerns ordinary linear rank only.
 -/
 
 namespace Pairfield.ProcessCutRankAdapter

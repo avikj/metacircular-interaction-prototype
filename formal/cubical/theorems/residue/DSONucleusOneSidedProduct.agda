@@ -140,8 +140,6 @@ one-sided-product-is-not-associative equality =
     ∙ fst right-associated-values)
 
 ------------------------------------------------------------------------
--- Rigor boundary
---
 -- Checked: finite Isbell operators, left closure, raw convolution over every
 -- exact factorization, closure of the two calibration profiles, both control
 -- products, and the explicit associator defect (-8 versus -5 at e).

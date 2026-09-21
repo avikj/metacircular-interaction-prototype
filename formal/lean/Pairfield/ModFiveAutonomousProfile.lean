@@ -7,8 +7,7 @@ Install `a : ZMod 5`, start at one, repeatedly apply multiplication by `a`,
 and observe only whether the current value is zero, one, or other.  Complete
 trace equality stabilizes after exponent two and has exactly four classes.
 
-This is a finite deterministic profile theorem.  It does not formalize a
-Hilbert-space encoding or make the multipliers externally selectable.
+This is a finite deterministic profile theorem.
 -/
 
 namespace Pairfield.ModFiveAutonomousProfile

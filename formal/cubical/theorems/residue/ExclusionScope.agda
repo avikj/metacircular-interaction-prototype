@@ -5,7 +5,7 @@
 --
 -- WHAT IS AN EXCLUSION OPERATOR, AND ON WHICH LATTICE DOES IT EXIST?
 --
--- explicitly flagged `[MINE]` and unsourced there: that the shape
+-- The conjecture: that the shape
 -- nearest to Dignga's `anypoha` is "a relative pseudo-complement in a
 -- lattice" rather than `ย` in a Boolean algebra.  This module settles
 -- that conjecture on the repository's OWN meaning-carriers, and the
@@ -15,11 +15,11 @@
 -- fixed by `runtime/render/channel.py`: a channel is a function on a
 -- declared language, and its content is the PARTITION it induces
 -- ("the partition of L induced by encode is a coarsening of equality").
--- Probes in `machinery/active_observer_design.py` and the objects of
+-- Probes in `machinery/active_observer_design.py` are likewise partitions of a
 -- finite set, i.e. equivalence relations.  So the ambient lattice here
 -- is Eq(X), not the powerset P(X).
 --
--- Contents, all `--safe`, no postulates, no holes:
+-- Contents:
 --
 --   Theorem 1 (`Imp-is-exclusion`).  On UNRESTRICTED relations the
 --     exclusion operator exists, for every X, and is pointwise
@@ -48,8 +48,6 @@
 -- Boolean algebra of that vocabulary's index set โ” the pre-given
 -- universe.  ยง2.3 said "do not call it apoha"; Theorem 3 + Theorem 4
 -- say why, exactly: the operator does not extend past the list.
---
--- Author: genius-02 (DIGNGA draw), 2026-08-14.
 ------------------------------------------------------------------------
 
 module ExclusionScope where

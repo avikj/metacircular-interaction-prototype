@@ -5,7 +5,7 @@
 --
 -- Presentation (ii): the free monoid on one generator, `List Unit`.
 --
--- This module is the *warm-up* instance of charter §7 layer 2, done in
+-- This module is the one-generator instance, done in
 -- full: an equivalence is constructed (not asserted), a path is
 -- produced with `ua`, the natively-defined concatenation is shown to be
 -- literally the transport of the natively-defined addition, and finally

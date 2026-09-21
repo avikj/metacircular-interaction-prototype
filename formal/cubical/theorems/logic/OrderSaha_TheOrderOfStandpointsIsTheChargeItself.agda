@@ -5,8 +5,8 @@
 --
 -- THE CRITERION ‡ó‡‡‡‡Ø-‡®‡æ‡‡‡‡ø's ‡¶‡ã‡‡≤‡‡ñ ASKED FOR, supplied by the tradition.
 -- That module proved the set-level census cannot see the loss in the
--- loops, and refused to build the graded census "without a criterion for
--- how the levels interact."  The saptabhag already carries the
+-- loops.
+-- The saptabhag already carries the
 -- criterion, in one word of difference between its third and fourth
 -- positions: ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø is both standpoints IN SEQUENCE (‡ï‡‡∞‡Æ‡‡), and
 -- ‡‡µ‡ï‡‡‡µ‡‡Ø is both AT ONCE (‡‡) ‚î the corpus's own Anekanta lane renders
@@ -33,18 +33,17 @@
 -- along: not unknown, not undefined ‚î held whole because either order of
 -- utterance loses.
 --
--- No claim that any Jain author stated an interchange law for truncation
--- and loops.  The claim: their ‡ï‡‡∞‡Æ/‡‡ distinction is this non-commutation's
--- exact shape, and the fourth bhaga is its exact repair.  ‡ï‡‡∞‡Æ-‡‡ is
--- built here, 2026-08-23; Œ©S¬Iso‚ and setTruncIdempotent are the
+-- Their ‡ï‡‡∞‡Æ/‡‡ distinction is this non-commutation's
+-- exact shape, and the fourth bhaga is its exact repair.
+-- Œ©S¬Iso‚ and setTruncIdempotent are the
 -- library's.
 --
 -- [2026-08-23, later] RECOGNITION: the corpus's grammar lane had already
 -- checked the same distinction at a sandhi site ‚î `AsiddhavatRegime.agda`
 -- (Pini 8.2.1 krama vs 6.4.22 saha, tat+jalam, the regime decides the
--- form) ‚î and this module was built without knowing it.  The polarity
+-- form).  The polarity
 -- CROSSES between the lanes (the grammar's feeding krama is this module's
--- untruncated ‡‡); the crossing is worked out in
+-- untruncated ‡‡).
 ------------------------------------------------------------------------
 
 module KramaSaha_TheOrderOfStandpointsIsTheChargeItself where
@@ -120,9 +119,8 @@ snd ‡§ï‡•ç‡§∞‡§Æ‡§É-‡§∏‡•á‡§ü‡•ç-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç p = isSetSetTrunc ‚à£ bas
 ------------------------------------------------------------------------
 -- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  This is the smallest instance of the interchange failure
 -- (one space, one basepoint, levels 0 and 1), not a general interchange
--- law for ‚à_‚à‚ô and Œ©µ ‚î that general statement involves the full
--- Postnikov data and is NOT built here, for the standing reason: no
--- criterion, no constructor.  What is proved: the levels of the graded
+-- law for ‚à_‚à‚ô and Œ©µ.
+-- What is proved: the levels of the graded
 -- census interact by ORDER, the failure of commutation at the first
 -- rung is exactly ‚, and ‡‡ ‚î declining to order the standpoints ‚î is
 -- the only position that loses nothing, which is what the fourth bhaga

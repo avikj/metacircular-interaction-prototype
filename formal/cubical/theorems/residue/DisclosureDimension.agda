@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- DisclosureDimension
 --
---
 -- CONTEXT.  For a linear observation quotient q : V -> W over a field,
 -- the minimal number of scalars that must be disclosed alongside q x to
 -- determine x is exactly dim (ker q) (Theorem 1 of the note, one line of
@@ -25,8 +24,8 @@
 -- composite, and 3 < 2 * 2 STRICTLY.  Minimal alphabet is therefore
 -- strictly submultiplicative, so its logarithm is not additive, so it is
 -- not a dimension of anything.  This is the exact reason the flow
--- instance (COORDINATION_THEOREMS_XXIX 804-833) and the finite-set
--- instances (msg 0264's dilation dimension, msg 0249's cache fiber) are
+-- instance and the finite-set
+-- instances (the dilation dimension, the cache fiber) are
 -- not two costumes of one invariant: the linear invariant is a SUM over
 -- a composite, the finite-set invariant is a MAX over fibres, and max
 -- does not add.

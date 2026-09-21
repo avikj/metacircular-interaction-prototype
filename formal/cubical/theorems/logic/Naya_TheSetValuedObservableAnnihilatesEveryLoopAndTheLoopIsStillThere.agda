@@ -10,8 +10,7 @@
 -- Siddhasena Divkara, *Sanmatitarka* 1.21-25 (~5th c.); the durnaya
 -- sharpening is Siddhasena's and Akalaka's (~8th c.).  Jaina, and the
 -- Naiyyikas reject anekntavda outright -- the school is named because
--- the dispute is the content (CLAUDE.md, "rival schools are not one
--- toolkit").
+-- the dispute is the content.
 --
 -- WHAT IS PROVED.  Five things, four of them over the loop `ua notEquiv : Bool â‰¡ Bool`.
 --
@@ -27,13 +26,11 @@
 --   à  the escape, and there is exactly one shape of it: an observable
 --      that is NOT set-valued does see the loop.  Truncating to a set is
 --      the whole of the blindness.
---      whose every edge is an identification, ANTISYMMETRY IS FREE.  A
+--      On a graph whose every edge is an identification, ANTISYMMETRY IS FREE.  A
 --      causal order read off such a graph is therefore vacuous -- it
 --      constrains nothing, because `R x y â’ x â‰¡ y` already holds.
 --
 -- interactive/Setubandha_â¦.hs (14 automorphisms, "no reachability, real content").
---
--- Written 2026-08-22.
 ------------------------------------------------------------------------
 
 module Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere where

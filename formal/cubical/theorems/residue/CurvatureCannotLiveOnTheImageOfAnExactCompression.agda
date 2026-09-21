@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- CurvatureCannotLiveOnTheImageOfAnExactCompression
 --
---
 --   "Exact elimination commutes; compression C can make orders differ:
 --    Î”^C_{ij} > 0 is architecture curvature. â¦ Curvature arises only
 --    from too-small context families, approximation, dropped witnesses,
@@ -115,10 +114,9 @@ module _ {S T : Type}
 -- and `disagreementUnderPermutationIsOffTheImage` then carry it to the
 -- compressed side.
 --
--- HYPOTHESIS there, in the closing module's own
+-- THE HYPOTHESIS there, in the closing module's own
 -- words: the commutation hypothesis is GLOBAL â” `comm` quantifies over
 -- ALL steps of the type, not over the steps appearing in the list.
 -- So the line covers a system whose elimination steps all
--- commute, not a system with a commuting sub-family â” which is the case
--- Î” 28's setting plausibly has.
+-- commute, not a system with a commuting sub-family.
 ------------------------------------------------------------------------
