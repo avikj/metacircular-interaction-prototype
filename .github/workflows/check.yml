@@ -1,0 +1,71 @@
+# The Agda corpus, checked at the pin, on demand and weekly.
+#
+# machine.yml deliberately does not run `sh check` because the cold build of
+# Agda 2.8.0 is 30-60 minutes.  This workflow makes that cost a one-time one:
+# the built agda binary and the cubical v0.9 checkout are cached under a key
+# that names the pin, so every run after the first is minutes.  It is
+# triggered by hand and on a weekly schedule, not on every push — flip the
+# `push:` block on when the cache is warm and the cost is known.
+#
+# Two gates, both the repository's own:
+#   1. `sh setup` must end AT THE PIN (exit 0), or nothing is checked.
+#   2. `sh check` (kernel + fibre + Lean root closure) must be ALL GREEN.
+# `--all` is a separate manual input because its runtime is not yet recorded;
+# the first person to run it here should write the number into
+# outreach/ARTIFACT_CHECKLIST.md.
+name: check
+
+on:
+  workflow_dispatch:
+    inputs:
+      all:
+        description: 'also run `sh check --all` (slow; needs the -M heap cap)'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '17 6 * * 1'   # Mondays 06:17 UTC
+  # push:
+  #   branches: [main]
+  #   paths: ['formal/**', 'fibre/**', 'check', 'setup', '**/*.agda-lib']
+
+permissions:
+  contents: read
+
+jobs:
+  agda:
+    name: sh check at the pin (Agda 2.8.0 / cubical v0.9)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      LC_ALL: C.utf8   # Agda crashes printing this corpus's Devanagari identifiers under POSIX
+      MATH_PREFIX: /home/runner
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore the pinned toolchain
+        id: toolchain
+        uses: actions/cache@v4
+        with:
+          path: |
+            /home/runner/.local/bin/agda
+            /home/runner/.local/bin/agda-mode
+            /home/runner/.cache/cubical-v0.9
+            /home/runner/.cabal/packages
+          key: agda-2.8.0-cubical-v0.9-${{ runner.os }}-v1
+
+      - name: Build or verify the toolchain (30-60 min cold, seconds warm)
+        run: |
+          set -eu
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ghc cabal-install
+          sh setup
+          sh setup --report
+
+      - name: sh check
+        run: sh check
+
+      - name: sh check --all (manual)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.all }}
+        env:
+          GHCRTS: -M12500m
+        run: sh check --all
