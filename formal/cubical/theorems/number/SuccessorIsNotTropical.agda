@@ -165,11 +165,9 @@ join-does-not-follow p =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 5.  ADDENDUM, 2026-08-18 â” scope of Â§4, added without altering it.
+-- 5.  Scope of Â§4.
 --
--- Â§4 above reads `disjoint-support` as "the parity barrier is a chart
--- incompatibility" and calls it "its whole content".  That reading is
--- scoped and the scope was not stated: the theorem is about â• **with the
+-- The theorem is about â• **with the
 -- successor**, whose generator 1 is a unit and therefore multiplicatively
 -- invisible by construction.  It is not a theorem about arithmetic
 -- carrying two structures.
@@ -188,6 +186,4 @@ join-does-not-follow p =
 -- itself" â” is answered there by `gen-hom`: squaring is a monoid
 -- homomorphism from the parameter chart to the triple chart, so Euclid's
 -- parametrisation IS the transition, with no defect.
---
--- Everything proved in Â§Â§1â“3 stands unchanged.  See
 ------------------------------------------------------------------------

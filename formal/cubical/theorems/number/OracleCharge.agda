@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- OracleCharge
 --
--- TARGET.md ยง6 item 2, executed: read `BARRIER.md` ยง3 Problem 2 โ” the
+-- Reading `BARRIER.md` ยง3 Problem 2 โ” the
 -- oracle model separating VALUE queries from FUNCTIONAL-EQUATION queries
 -- โ” against `ChargeCriterion`.  The prediction there was "they should be
 -- the same distinction stated twice; if they are not, the difference is
@@ -47,9 +47,9 @@
 --
 -- What was DEFINITIONAL in BARRIER.md ("outside WL by construction")
 -- becomes STRUCTURAL here: the FE interface does not happen to sit
--- outside the neutral class, it CANNOT sit inside it.  That is not yet
--- W3 โ” W3 asks whether value queries can SIMULATE FE queries, a
--- lower-bound question this module does not touch โ” but it is the half
+-- outside the neutral class, it CANNOT sit inside it.
+-- W3 asks whether value queries can SIMULATE FE queries;
+-- this is the half
 -- of W3 that can be had exactly: the two interfaces differ in charge,
 -- provably, so a simulation would have to manufacture charge from
 -- neutral readings, and `no-decision` says post-processing alone cannot.

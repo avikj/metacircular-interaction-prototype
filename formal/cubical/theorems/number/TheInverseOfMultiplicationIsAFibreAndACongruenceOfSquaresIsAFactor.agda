@@ -214,21 +214,18 @@ module AdditiveAndMultiplicativeFibresAreOneShape (R : CommRing â„“-zero) where
       stepâ‚‚ = solve! R
 
 ------------------------------------------------------------------------
--- CODA â” what is proven, and what is honestly not.
+-- CODA.
 --
--- PROVEN, and it is the real content: the fibre-law backbone (hardness
+-- The fibre-law backbone (hardness
 -- is exactly the non-contractible input-fibre), the congruence of
 -- squares (a collision of two routes IS a factor, for free), and the
 -- identity of the additive and multiplicative faces.  The EXTRACTION
 -- half of each problem â” turning a collision into the answer â” is a
 -- checked term with no search.
 --
--- NOT PROVEN, and it is exactly where the difficulty lives: the
--- MANUFACTURE of collisions.  Every theorem above takes the collision as
+-- Every theorem above takes the collision as
 -- hypothesis.  Producing collisions cheaply â” smooth relations for the
 -- sieve, a prime pair at a fixed centre for Goldbach, a twin beyond every
--- bound â” is the open work, localized here to the derivation rather than
--- the answer.  What stays open (Goldbach, twin primes, RH â” the
--- inhabitation of the universal) is a boundary in a type, never
--- fabricated.
+-- bound â” is the open problem, localized here to the derivation rather than
+-- the answer.
 ------------------------------------------------------------------------

@@ -15,7 +15,7 @@
 -- divisors [2,12], det 24 ‚î not a general formula, and this module does
 -- not assume more of it than that.)
 --
--- What was missing is the entry at ‚àû, and with it the reason the local
+-- This module adds the entry at ‚àû, and with it the reason the local
 -- prices are not a list of unrelated losses: THEY SUM TO ZERO.  A defect
 -- at one place is not an absolute loss; it is compensated, and the
 -- compensating term lives at a place the local method cannot see.  ¬ß‡® is
@@ -36,9 +36,9 @@
 -- Indian astronomy; used here for the entry that makes the scale rest.
 -- ‡‡®‡®‡‡ (endless) is used for the archimedean place; in Jaina mathematics
 -- ‡‡®‡®‡‡ is a technical term with its own orders, distinguished from
--- ‡‡‡‡ñ‡‡Ø‡æ‡ (Anuyogadvra, akhagama tradition), and NO connection to
--- that classification is claimed ‚î the word is borrowed for the place at
--- infinity and nothing of the Jaina theory of the infinite is used.
+-- ‡‡‡‡ñ‡‡Ø‡æ‡ (Anuyogadvra, akhagama tradition); the word is borrowed
+-- for the place at
+-- infinity.
 ------------------------------------------------------------------------
 
 module Sarvasthana_TheTotalOverEveryPlaceIsZeroAndTheArchimedeanEntryIsTheBalancingOne where

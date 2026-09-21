@@ -43,10 +43,7 @@
 -- Grahagaitdhyya, spadhikra (1150): the instantaneous motion of a
 -- planet, the rate at the instant as against the mean rate over a day.
 -- The term is used here for its literal content ‚î the tangent of a
--- family at a point ‚î and for nothing else: NO claim that Bhskara
--- treated nilpotents, Mbius inversion, or sieve coefficients.  The
--- dual-number normal form of (Œº, Œ∫‚) was stated by the owner
--- and is checked here.
+-- family at a point.
 --
 -- ‡‡‡‡®‡‡Æ.  `Yamala_TheTwinChargeIsTheParityJet‚¶` is
 -- the general machinery:

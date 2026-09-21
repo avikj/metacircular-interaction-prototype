@@ -103,13 +103,10 @@ ten-coordinate : 10 < 2 ^ 10
 ten-coordinate = exponent-is-dwarfed 0 10
 
 ------------------------------------------------------------------------
--- 3.  The sentence, with its boundary marked.
+-- 3.  The sentence.
 --
 -- The walk's number is exponential in the walk's derivation, coordinate
--- by coordinate, provably and without asymptotics.  Whether that
--- coordinatewise fact sums to the ψ(k)-versus-log-k gap is a question
--- about �_{p � k} �log_p k�, i.e. about Chebyshev, and this module does
--- not touch it.
+-- by coordinate, provably and without asymptotics.
 --
 -- The walk's size is not a lattice cost (`TheTrajectoryIsAChain`) and
 -- not an overlap cost (`JoinSavesTheMeet` — overlap is a saving).
@@ -122,6 +119,5 @@ ten-coordinate = exponent-is-dwarfed 0 10
 -- the walk's derivation is DENSE — cap(k) is divisible by every prime
 -- p ≤ k, so there is a nonzero entry at each, support 4 out of 4 at
 -- frontier 8.  The exponential saving `suc e ≤ b ^ e` is a saving WITHIN
--- a coordinate; density is a cost ACROSS them; and which dominates is a
--- question about Σ_{p≤k} versus ψ(k) that this file does not touch.
+-- a coordinate; density is a cost ACROSS them.
 ------------------------------------------------------------------------
