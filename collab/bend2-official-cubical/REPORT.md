@@ -19,7 +19,7 @@ The artifact is five things:
 | path | what it is |
 | --- | --- |
 | `cubical.patch` | the whole change against upstream: `bend2/bend.ts` (54 hunks), `bend2/comp.ts` (11 hunks), `bend2/base.bend` (1 hunk), and the new `bend2/cubical.lean` |
-| `tests/cubical/*.bend` (33 files) and `issue_874.js` | the tests, in upstream's own format: a Bend file that ends in the `#\|` lines its run must print |
+| `tests/cubical/*.bend` (32 files) and `issue_874.js` | the tests, in upstream's own format: a Bend file that ends in the `#\|` lines its run must print |
 | `run.sh` | clones upstream at the pinned commit, applies the patch, runs the cubical tests (check + interpret; the compiled ones on the JS lane and on the C lane when clang is present), then upstream's interpreter-lane suite |
 | `README.md` | the short form of this report |
 | `VALUE.md` | the engineering case: what can now be written, what cannot go wrong, what it costs, each point tied to a test |
