@@ -4,21 +4,13 @@
 --
 --     the walk installs exactly the prime powers, in increasing order.
 --
--- Carried as prose in this repository since the walk lane opened, under
--- the excuse "needs prime-power machinery cubical v0.5 does not supply".
--- The excuse was retired three times (WalkJumps: no valuations needed;
--- CoprimeSplitting: no factorisation theory needed; correction 0401:
--- decidable divisibility was there all along), and the three pieces have
--- been checked separately for a day:
+-- The three pieces:
 --
 --   ยง(b)   WalkBridge     the installs are the jump points, in order
 --   ยง(c)โ  WalkJumps      a prime power is a jump point
 --   ยง(c)โ’  CoprimeSplitting  a least non-divisor is a prime power
 --
--- This file composes them.  I claimed in the WalkBridge commit that the
--- composition was "renaming plus lcmList-isLCM, with no mathematics left
--- in it".  HALF of that was true and I am correcting the other half here
--- rather than leaving it standing:
+-- This file composes them.  Two things worth noting:
 --
 --   * `installs-are-prime-powers` really is three lines, and -- worth
 --     noting -- it does not use ยง(b) at all.  It is ยง(c)โ’ applied
@@ -36,9 +28,6 @@
 --
 -- Together with `WalkBridge.install-mono` (strictly increasing), the two
 -- theorems below are statement (2) with no residue.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
--- No postulates, no holes.
 
 module WalkPrimePowers where
 

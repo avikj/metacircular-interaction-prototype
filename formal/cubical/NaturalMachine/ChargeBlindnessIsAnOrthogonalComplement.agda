@@ -46,10 +46,6 @@
 --
 -- That last is `ParitySeparator`'s no-go recovered as the S = ðŸ instance,
 -- and the first is what it never said: the barrier has a dimension.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 with the `notes/CUBICAL_PATCH.md`
--- back-port, `--cubical --safe`, no postulates, no holes.  NOT the
--- repository pin (2.8.0 + v0.9).
 ------------------------------------------------------------------------
 
 module NaturalMachine.ChargeBlindnessIsAnOrthogonalComplement where

@@ -89,16 +89,11 @@
 --
 -- So it is NOT reconciled here.  Two nayas that genuinely differ have no
 -- collapse to make (AHIMSA_SUTRA_VISTARA §7: it is not forbidden, it does
--- not exist), and what is owed instead is the comparison: whether the
--- forgetful map from records to labels is a homomorphism for krama, for
--- saha, or for neither.  It is not claimed here in either direction,
--- because it has not been checked.
---
--- SETTLED 2026-08-20.  The comparison the paragraph above said was owed is
--- done, in
+-- not exist).  The comparison to make is whether the forgetful map from
+-- records to labels is a homomorphism for krama, for saha, or for
+-- neither.  It is settled in
 -- formal/cubical/Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda
--- (--cubical --guardedness --safe, exit 0, no postulates, no holes) and
--- re-verified exhaustively in the sibling module's `selfTest` as
+-- and re-verified exhaustively in the sibling module's `selfTest` as
 -- `anarpana`.  The answer is BOTH: the forgetful map is a homomorphism
 -- for krama AND for saha, for every standpoint family; it has a section
 -- (Tattvarthasutra 5.31's arpita to its anarpita) which is also a

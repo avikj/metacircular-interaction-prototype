@@ -1,8 +1,6 @@
 {-# OPTIONS --safe #-}
 
 ------------------------------------------------------------------------
--- CLOSED / SUPERSEDED PROBE ADDRESS
---
 -- This probe supplied finite enumeration-independence for the repository's
 -- nonempty `total`. The warm kernel required one import seam and two genuine
 -- receipts before accepting it:
@@ -25,10 +23,6 @@
 -- spending associativity and commutativity onlyâ”no zero and no unit. The
 -- generic enumeration debt named by `BahuShakha` is closed. Its dependent
 -- inner/outer/nested corollaries remain separate kernel objects.
---
--- CHECK ROUTE: Agda 2.6.3 + cubical v0.5 through repaired nadi-saksin; exact
--- refusals and final acceptance remain in `machine/nadi-aisthesis.jsonl`.
--- Replay under 2.8.0/v0.9 remains owed.
 ------------------------------------------------------------------------
 
 module PermutationInvariantTotalProbe where

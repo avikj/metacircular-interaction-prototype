@@ -29,9 +29,6 @@
 --   * ‡‡∞‡‡ï‡‡‡æ-abc    ‚î SHA-256 of "abc" likewise (ba7816bf‚¶f20015ad).
 --   * ‡µ‡‡Ø‡‡‡‡ï‡‡∞‡Æ-‡¶‡‡µ‡Ø‡Æ‡ ‚î notW is an involution (a small structural fact
 --     proved for every length, not only 32).
---
--- CHECKED: Agda 2.8.0, --cubical --safe, through scripts/oracle with
--- both controls watched.
 ------------------------------------------------------------------------
 
 module Sha256 where

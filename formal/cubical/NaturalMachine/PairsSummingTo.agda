@@ -27,19 +27,6 @@
 -- Every round-trip obligation beyond the pair itself is an equation in
 -- â•, hence a proposition, hence `isSetâ•`.  Same observation that made
 -- `DurationIsSyllablesPlusGuru`'s Î-contraction go through.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT REMAINS OF THE DIAGONAL IDENTITY
---
--- `Sankalita` Â§13 refuted three encodings; `DurationIsSyllablesPlusGuru`
--- carried the fourth to an equivalence and then Â§7 named two remaining
--- ingredients.  This is the first.  The second â” that the library's `sum`
--- over this FinSet is the recursive `Sankalita.AD` â” is a reindexing, and
--- reindexing is precisely what the third refuted encoding got wrong, so
--- it is not being called routine here.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PairsSummingTo where

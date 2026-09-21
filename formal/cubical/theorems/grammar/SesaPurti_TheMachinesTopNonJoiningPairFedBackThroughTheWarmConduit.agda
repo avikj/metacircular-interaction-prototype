@@ -17,9 +17,6 @@
 -- TERM.  ‡‡‡-‡‡‡∞‡‡‡ø, "filling of the remainder" ‚î ordinary ,
 -- compound built here, no text claimed (CLAUDE.md naming rule, note 2).
 -- The mathematics is one recursion clause of Cubical.Data.Nat.max.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5 (the container; corpus pin is
--- 2.8.0/v0.9).  --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module SesaPurti_TheMachinesTopNonJoiningPairFedBackThroughTheWarmConduit where

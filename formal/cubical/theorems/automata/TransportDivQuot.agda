@@ -35,9 +35,7 @@
 -- WHAT IS NOT DELIVERED.
 --
 --   * Full Word  Word long division.  Only division by a â• modulus is
---     here.  The walk's divisibility test needs no more than this, and
---     the general algorithm needs a trial-digit estimate (Knuth D) whose
---     correctness proof is a different piece of work.
+--     here.  The walk's divisibility test needs no more than this.
 --
 --   * CANONICITY OF THE QUOTIENT.  It is false, and pretending otherwise
 --     would be the only dishonest thing this file could do.
@@ -68,9 +66,6 @@
 -- count as `TransportDiv`'s residue automaton, because it IS that
 -- automaton with an extra output tape.  `remw-is-modw` records that the
 -- single pass recomputes the residue, so nothing needs a second pass.
---
--- CHECKED: Agda 2.6.3, cubical (the /tmp/cubical checkout), --cubical
--- --safe, 2026-08-15.  No postulates, no holes, no TERMINATING.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (â„• ; zero ; suc)

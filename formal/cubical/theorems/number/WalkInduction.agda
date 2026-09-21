@@ -68,9 +68,6 @@
 -- Nothing here re-proves WalkStream; the file's content is the
 -- frontier-jump lemma, the trajectory, and the induction that carries
 -- the step along it.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-13.
--- No postulates, no holes.
 
 module WalkInduction where
 

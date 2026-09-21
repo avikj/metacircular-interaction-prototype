@@ -60,9 +60,6 @@
 -- the sequence all along, and any account that took the rule set as the
 -- standpoint was working with a quotient that the measure does not
 -- descend to.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module Anuvrtti where

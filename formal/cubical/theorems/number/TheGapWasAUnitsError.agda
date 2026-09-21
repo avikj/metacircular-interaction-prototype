@@ -4,8 +4,7 @@
 -- TheGapWasAUnitsError
 --
 -- modules behind them, chase a gap that does not exist.  This file
--- records the dissolution, and the dissolution came from reading a note
--- that has been in this repository since 2026-08-12.
+-- records the dissolution.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE ERROR
@@ -71,19 +70,6 @@
 --     "why does losslessness force lcm at all" â” which
 --     `WALK_FORCING_LAW.md` answers by CRT and which nothing in this
 --     thread improved on.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE METHOD FAILURE, RECORDED PLAINLY
---
--- Four modules and four note sections were spent on a quantity that a
--- note already in the repository defines away in one line.  The protocol
--- in CLAUDE.md says prior art gets searched BEFORE the work, not after
--- the write-up, and lists three rediscoveries found only at audit time.
--- This is a fourth, and it is worse than a rediscovery: not a result
--- found twice, but a question that had already been dissolved.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheGapWasAUnitsError where

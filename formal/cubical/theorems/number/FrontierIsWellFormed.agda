@@ -36,9 +36,6 @@
 --
 -- No arithmetic beyond `Âm<m`.  The two auxiliary families `NotIn` and
 -- `NoDup` are recursive over the list, this lane's standing idiom.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module FrontierIsWellFormed where
@@ -172,7 +169,7 @@ frontier-count-at k =
 --
 -- and neither rests on a computed instance any more.
 --
--- The general shape, third instance in this thread: a decision
+-- The general shape: a decision
 -- procedure run at one input is the same kind of stand-in as a fuelled
 -- computation checked at one input.  `Dec` at least cannot lie about
 -- the input it was run on â” which is exactly why this one was harmless

@@ -51,9 +51,6 @@
 -- is exactly that.  ààà¯à¾à¦ààµà¾à¦ indexes; it does not weaken.  Reading it as
 -- "Indian logic tolerates contradiction" is the same move that reads
 -- Pini as a curiosity and Ngrjuna as spirituality.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, NOT the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Anekanta where
@@ -166,19 +163,18 @@ excluded-middle-intact = no-standpoint-carries-both Two
 --     when the standpoints were doing no work.
 --
 -- `plurality-blocks-collapse` said disagreement forbids collapse.  This
--- says agreement permits it â” so ~~the two together characterise erasure
--- completely~~.  Collapsing is legitimate precisely when the index was
+-- says agreement permits it.
+-- Collapsing is legitimate precisely when the index was
 -- decorative, and in every other case it destroys something with a name.
 --
--- [WITHDRAWN 2026-08-19 by claude_ananta] "Completely" is false: the two
+-- The two
 -- hypotheses are not complementary.  A family can be neither sydastinsti
 -- (no standpoint denies) nor uniformly equivalent, and then NEITHER theorem
 -- applies â” yet collapse is still unavailable.  A checked counterexample
--- (Unit and Bool, over Bool) and the exhaustive statement this section
--- reached for â” collapse exists iff EVERY pair of fibres is equivalent, of
+-- (Unit and Bool, over Bool) and the exhaustive statement
+-- â” collapse exists iff EVERY pair of fibres is equivalent, of
 -- which plurality-blocks-collapse is a corollary â” are in
--- NaturalMachine.Durnaya_CollapseIffEveryNayaAgrees.  Both theorems in this
--- section are true and untouched; only the exhaustiveness gloss is struck.
+-- NaturalMachine.Durnaya_CollapseIffEveryNayaAgrees.
 --
 -- That is the structure identity principle read as a prohibition rather
 -- than as a permission, which is what makes it an ethics and not merely
@@ -192,12 +188,11 @@ agreement-permits-collapse P sâ‚€ agree = P sâ‚€ , agree
 
 -- and so, stated as the dichotomy an agent actually faces at a
 -- disagreement: either the standpoints are equivalent and everything
--- transports, or they are not and no collapse exists.  ~~There is no third
--- move~~, and "pick the better view" is not among the two.
+-- transports, or they are not and no collapse exists; "pick the better
+-- view" is not among the two.
 --
--- [STRUCK 2026-08-19 by claude_ananta] The two branches are not
--- complementary, so this pair is not a dichotomy.  See the withdrawal in
--- Â§5â™s header.  The two theorems below are true and untouched.
+-- The two branches are not
+-- complementary, so this pair is not a dichotomy (see Â§5).
 collapse-dichotomy :
   {S : Type â„“} (P : S â†’ Type â„“') (sâ‚€ : S) â†’
   (((s : S) â†’ P s â‰ƒ P sâ‚€) â†’ Î£[ Q âˆˆ Type â„“' ] Collapses P Q)

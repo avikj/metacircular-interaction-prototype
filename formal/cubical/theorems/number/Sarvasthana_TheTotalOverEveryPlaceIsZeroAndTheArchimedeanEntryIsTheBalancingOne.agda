@@ -39,9 +39,6 @@
 -- ‡‡‡‡ñ‡‡Ø‡æ‡ (Anuyogadvra, akhagama tradition), and NO connection to
 -- that classification is claimed ‚î the word is borrowed for the place at
 -- infinity and nothing of the Jaina theory of the infinite is used.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Sarvasthana_TheTotalOverEveryPlaceIsZeroAndTheArchimedeanEntryIsTheBalancingOne where

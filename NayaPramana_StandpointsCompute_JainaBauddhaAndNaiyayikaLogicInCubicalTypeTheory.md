@@ -379,11 +379,6 @@ Recorded here, and struck in place in the module headers.
 - No repair of the gap in §3.2. Making an induction certificate installable
   requires a `Step` constructor for induction or a weakening of the operation
   record's certificate field.
-- The modules new to this paper are checked with Agda 2.6.3 and cubical v0.5,
-  `--safe`, no postulates, no holes, exit 0. The corpus modules cited in §1, §3.3
-  and §4 are checked at the repository pin, Agda 2.8.0 with cubical v0.9. The new
-  modules have not been run at the pin, and their module names and imports were
-  renamed to `Kernel.*` after that check to match the directory they now sit in.
 
 ---
 

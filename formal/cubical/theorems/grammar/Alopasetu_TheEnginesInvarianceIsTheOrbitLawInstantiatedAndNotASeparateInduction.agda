@@ -12,8 +12,6 @@
 -- The only real content of the bridge is that the two iteration orders
 -- differ -- normalize steps THEN recurses, ‡ï‡ï‡‡‡‡Ø‡æ recurses THEN steps --
 -- so ¬ß‡® proves they commute.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5, --safe, exit 0.
 
 module Alopasetu_TheEnginesInvarianceIsTheOrbitLawInstantiatedAndNotASeparateInduction where
 

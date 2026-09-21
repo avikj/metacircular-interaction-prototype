@@ -44,8 +44,6 @@
 -- `headCode` is constant on future-equivalence fibres, so it factors
 -- through the presentation (`headCode-factors`).  A demanded finer view
 -- needs refinement precisely when it is NOT so constant.
---
--- Checked, --safe, at the pin (Agda 2.8.0, agda/cubical v0.9): EXIT 0.
 ------------------------------------------------------------------------
 
 module CorpusPresentation where

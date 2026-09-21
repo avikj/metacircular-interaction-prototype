@@ -42,21 +42,13 @@
 -- engineering rather than as piety: DISCARDING A SLOT MANUFACTURES A
 -- BRANCH, and the branch is what the boolean stands in for.
 --
--- ~~"and it is sharper than the thermodynamic form: erasure does not
--- merely cost"~~ -- STRUCK 2026-08-23 by its author, left standing struck.
--- That sentence imports Landauer as the comparison class and NO CHECKED
--- TERM ANYWHERE SUPPORTS IT.  A statement about `Dec` in a step function
+-- No Landauer comparison is made here: no checked term anywhere supports
+-- one.  A statement about `Dec` in a step function
 -- is about code; joules are about a physical implementation, and this
 -- corpus.s implementation runs on a machine that dissipates.  The branch
 -- claim needs no physics and is weakened, not helped, by borrowing some:
 -- ‡µ‡≤‡‡≤‡ needs no comparison because ‡‡ï‡‡‡ kept the slot, which is checkable
 -- and checked, and that is the whole of it.
---
--- The same overclaim was struck the same day in
--- `Yantra_TheComputerIsTheGroupoidOfProofsOfTransport‚¶` ("nothing is
--- erased, so nothing dissipates"; "hence (Landauer) the zero-heat floor")
--- and in `PramanaSankramana` ¬ß5 ("a receipted crossing costs zero joules,
--- forever, for anyone").  Three files, one inference, no term.
 --
 -- OPERATIVE CONSEQUENCE, and it is why this is written here.  This wire
 -- turns back a boolean and offers a repair AT THE WIRE.  That is the right
@@ -67,7 +59,7 @@
 --
 -- Neither file said this.  '1 knows the collapse is irreversible and not
 -- what produced it; the kuaka module knows what produces it and is not
--- about wires.  2026-08-23.
+-- about wires.
 --
 -- Nor is there `null`.  Absence is said by omitting the key, and asked
 -- for by name; a key present-and-null is two facts flattened into one.

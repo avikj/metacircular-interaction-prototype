@@ -277,22 +277,16 @@ L16 x y = cong (Î» t â†’ suc (suc t)) (mulComm x y)
 --       runnable at all.  Neither route is wrong; they are different claims,
 --       and (b) is the one the engine's own annotations distinguish.
 --
--- CORRECTION to that file, reported not edited (it belongs to another lane).
+-- CORRECTION to that file.
 -- Its header says "seven lines look plausible" and "the Agda kernel checks all
 -- seven proofs"; `NaturalMachine/README.md:284` repeats "all seven proofs
 -- kernel-checked".  The file defines `sound-1` â¦ `sound-4`, and
 -- `expectedDiscoveries` has four entries.  The checked count is FOUR.  The
 -- mathematics is untouched by this â” every one of the four does check â” but
--- the number in the prose is not the number in the module, which is the exact
--- drift `BUILD.md` records having caught once before.
+-- the number in the prose is not the number in the module.
 --
 -- Snapshot lines 1-17 â” every line over the signature {0, s, +, *} â” are
 -- discharged above as L01â¦L17.  Lines 18-28 of the snapshot are over `max`,
 -- `-` (truncated subtraction) and `le`; they are out of scope for this module
--- and are not claimed.  Note that `machine/Certificate.hs` records a genuine
--- residual gap there (its Note B: no Agda case tree reproduces the engine's
--- `max` reductions, because the engine uses `max x 0 = x` and `max 0 x = x` as
--- unconditional rewrite rules in both argument positions while a case tree
--- must split one column first), so that lane needs its own treatment rather
--- than more of the same.
+-- and are not claimed.
 -- ---------------------------------------------------------------------------

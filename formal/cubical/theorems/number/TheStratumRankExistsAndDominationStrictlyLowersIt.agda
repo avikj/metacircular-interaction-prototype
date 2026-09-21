@@ -49,9 +49,6 @@
 -- whereas "beaten by a member of an earlier stratum" needs the whole
 -- stratification to chain.  It is also the form in which selection
 -- pressure is usually stated.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheStratumRankExistsAndDominationStrictlyLowersIt where

@@ -50,9 +50,6 @@
 --
 --     the walk's cost is its overlap, and overlap is exactly the locus
 --     where the two operations disagree.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module OverlapIsTheCost where

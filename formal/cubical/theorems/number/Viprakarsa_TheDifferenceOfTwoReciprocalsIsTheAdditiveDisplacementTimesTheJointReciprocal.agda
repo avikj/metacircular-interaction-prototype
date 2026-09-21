@@ -20,8 +20,6 @@
 -- WHY NO FENCE.  h3 gives w with wÂuâuâ â‰¡ 1, so the cancellation of uâuâ
 -- is INTERNAL: v âˆ AÂ(uâuâ) plus wÂuâuâ â‰¡ 1 give v âˆ A directly.  The
 -- inverse being present is exactly what the reciprocal form provides.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Viprakarsa_TheDifferenceOfTwoReciprocalsIsTheAdditiveDisplacementTimesTheJointReciprocal where

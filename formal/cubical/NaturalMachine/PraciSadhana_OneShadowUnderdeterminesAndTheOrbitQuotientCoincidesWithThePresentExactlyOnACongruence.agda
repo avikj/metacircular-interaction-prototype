@@ -99,9 +99,6 @@
 --
 --  ยง6  THE REFUTATION OF THIS AUTHOR'S OWN CLAIM, kept because it was
 --      wrong.  Stated and killed below.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5 โ” the container, NOT the repository
--- pin (2.8.0 + v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PraciSadhana_OneShadowUnderdeterminesAndTheOrbitQuotientCoincidesWithThePresentExactlyOnACongruence where

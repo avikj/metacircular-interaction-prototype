@@ -40,9 +40,6 @@
 -- first install; here `below-first-uniform` is the SAME theorem
 -- instantiated at `m = 0`, because `cap 0 = 1` and the least non-divisor
 -- of `1` is `2`.  One statement covers the trajectory and its base.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe.
--- No postulates, no holes.
 
 module WalkBridgeUniform where
 

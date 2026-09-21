@@ -84,9 +84,6 @@
 -- sufficient observer of size âˆX; T22.4 shows z < âˆX does not suffice when
 -- two primes sit in (z, âˆX]) but "growth" is not itself a formal statement
 -- here. Â T22.5 over â uses no ordering; the â• chart needs r â‰ w and says so.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes, no TERMINATING pragmas.
 ------------------------------------------------------------------------
 
 module Vargamula_TwoPrimesAboveTheThresholdMakeAnUnseenCompositeSoTheSquareRootIsForcedNoFiniteDivisibilityObserverDecidesPrimalityAndCentreRadiusIsVieta where

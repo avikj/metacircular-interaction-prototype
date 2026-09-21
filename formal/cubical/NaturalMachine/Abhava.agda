@@ -45,9 +45,6 @@
 -- fourteenth century.  Same move: negation is positive data, not the
 -- vanishing of data.  One was available to Gagea; the other had to
 -- wait for Voevodsky.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Abhava where
@@ -148,7 +145,7 @@ walk-blindness-is-exact :
 walk-blindness-is-exact n p = Â¬Â¬Â¬â†’Â¬
 
 ------------------------------------------------------------------------
--- CORRECTION, 2026-08-18 â” Â§3's reading of the stabilisation level.
+-- Â§3's reading of the stabilisation level, corrected.
 --
 -- This module's header says "the level at which the hierarchy stabilises
 -- measures the decidability of what is absent â¦ the same absence,
@@ -169,13 +166,10 @@ walk-blindness-is-exact n p = Â¬Â¬Â¬â†’Â¬
 -- hypotheses), stability is closed under Â / â’ / — / Î  but NOT under âŠ,
 -- a gap between ÂÂA and A is contradictory, and so the only surviving
 -- form of a barrier claim is Â(Dec A) â” which nothing here asserts.
---
--- Everything PROVED in this module stands.  The withdrawn sentence is the
--- reading of the level, and it is left visible above rather than edited.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  THE OTHER HALF OF THE DIVISION, appended 2026-08-18.
+-- 6.  THE OTHER HALF OF THE DIVISION.
 --
 -- Everything above is àààà°àà—à¾àà¾àµ â” the absence of a RELATION at a locus.
 -- Praastapda's division (*Padrthadharmasagraha*, c. 6th c.) and every

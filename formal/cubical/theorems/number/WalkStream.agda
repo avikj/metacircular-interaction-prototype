@@ -34,13 +34,10 @@
 --
 -- So nothing is weakened relative to the note's statement (3): both
 -- directions of the lcm characterisation are proved, and the closing
--- corollary is the note's equality.  What is not done here is the
--- induction ALONG the walk (that the installs are the prime powers in
--- order, statement (2)); this file proves the single install step, which
+-- corollary is the note's equality.  The induction ALONG the walk (that
+-- the installs are the prime powers in order, statement (2)) is
+-- `WalkPrimePowers`; this file proves the single install step, which
 -- is that induction's step.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-13.
--- No postulates, no holes.
 
 module WalkStream where
 

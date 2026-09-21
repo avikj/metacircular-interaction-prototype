@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- FrontierDividesHard
 --
--- `FrontierDivides` Â§2, the half its own header called hard and said no
--- amount of certificate-composition would produce:
+-- Half (a) of the universal property `FrontierDivides` names:
 --
 --     frontier-divides-hard :
 --       0 < m â’ m â‰ k â’ m âˆ prodOf (frontierList k)
@@ -27,26 +26,6 @@
 --   m' âˆ prodOf (frontierList k)                     induction, m' < m
 --   isGCD (p^a) m' 1                                 PrimeCofactorCoprime
 --   âŸ (p^a Â m') âˆ prodOf                            FinCardinality.gauss
---
--- Every line but the two in Â§1â“Â§2 is a module this thread built for the
--- purpose, and those two are list and power bookkeeping.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT `FrontierDivides` GOT RIGHT AND WHAT IT GOT WRONG
---
--- Right: that this half needs existence of prime factorisation, strong
--- induction on m, and a smallest-divisor argument.  All three are used.
---
--- Wrong: "no amount of certificate-composition produces it".  The
--- certificates do most of it.  What was actually missing was smaller
--- and duller than that sentence suggests â” a specification for `logOf`
--- (which turned out not to exist at all), a membership lemma, and a
--- coprimality lemma that is three lines.  The asymmetry between the two
--- halves is real but it is a factor of six modules, not a difference in
--- kind.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module FrontierDividesHard where

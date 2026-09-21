@@ -27,9 +27,6 @@
 --
 -- The conclusion `ย FactorsThrough` is shared; the route is not, and
 -- reading five sites as "one lemma" would have flattened that.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 โ” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module OneLemmaFiveSites where
@@ -82,7 +79,7 @@ anuvrtti-noFactor =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 4.  CORRECTION, appended 2026-08-18.
+-- 4.  CORRECTION.
 --
 -- ยง3 above and the header say `AvaktavyaDoesNotFactor` "stays as it is,
 -- and the header says why: its route is exhaustion, not collision,

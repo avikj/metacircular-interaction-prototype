@@ -29,8 +29,6 @@
 --
 -- Uses Ekamula's root, root-mod-u, root-mod-v.  Ring identities keep the
 -- constant 1 as a variable (predâ evasion, as in Ekamula).
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Paraspara_AdditiveReciprocityAndTheConjugateRootInvolutionFoldEveryRayTowardTheShorterModulus where

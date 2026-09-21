@@ -31,9 +31,6 @@
 -- is carried from the neighbouring module and is owed at verse level.
 -- Not that Φ means anything: it is suc on two slots.  Not that this
 -- replaces `Punaragamana.agda`, which is untouched.
---
--- CHECKED against the pin: Agda 2.8.0, agda/cubical v0.9 (b150186).
--- --safe, no postulates, no holes.  EXIT 0.
 ------------------------------------------------------------------------
 
 module Mula.Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt where

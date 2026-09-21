@@ -48,9 +48,6 @@
 --                        the other half of the dichotomy: when the lcm
 --                        is 0 the quotient is â• and nothing is merged.
 --                        Â§à® and Â§à¯ together cover every family.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Cakra_TheResidueBridgeIsProvedAndTheMinimalAcceptorIsTheCyclicGroupOfOrderTheLcm where

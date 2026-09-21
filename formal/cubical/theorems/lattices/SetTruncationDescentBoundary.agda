@@ -223,11 +223,9 @@ noDescentSÂ¹ r = SÂ¹NotSet (retractâ†’isSet r)
 insideViewSÂ¹ : (a : SÂ¹) â†’ isContr (Î£[ x âˆˆ SÂ¹ ] (a â‰¡ x))
 insideViewSÂ¹ = insideView
 
--- RETIRED CLAIM (false, corrected 2026-08-14): this comment formerly called
--- `Retractsâ` a global section of the contractible `insideView` fibres and
--- inferred that the section fails for SÂ.  Those are different data types.
+-- `Retractsâ` is not a global section of the contractible `insideView`
+-- fibres; those are different data types.
 -- The actual dependent section space `(a : A) â’ Î[ x âˆˆ A ] (a â‰¡ x)` is
 -- contractible for every A; `Retractsâ A` is left-inverse data for the
 -- set-truncation unit.  `ContractibleFiberSectionBoundary.agda` checks the
--- distinction and the SÂ no-equivalence control.  The theorems above remain
--- unchanged.
+-- distinction and the SÂ no-equivalence control.

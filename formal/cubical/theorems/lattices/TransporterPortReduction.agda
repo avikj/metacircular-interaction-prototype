@@ -55,13 +55,6 @@
 --                            Without the first, §3 has no bite; without
 --                            the second, §3 would be a proof that ports
 --                            never work.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5 (`formal/cubical/BUILD.md`),
--- `--cubical --safe`, no postulates, no holes, 0 warnings.  Deliberately
--- NOT imported by `agda`: this session was forbidden to
--- edit the root aggregate, so per BUILD.md this module is an ORPHAN and
--- the root's green claim does NOT cover it.  Its own exit status is
--- reported separately.  The integrator may fold it in.
 ------------------------------------------------------------------------
 
 module TransporterPortReduction where

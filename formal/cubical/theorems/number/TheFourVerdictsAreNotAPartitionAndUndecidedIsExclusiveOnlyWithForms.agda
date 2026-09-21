@@ -64,9 +64,6 @@
 -- payload `undecided` carries.  The header's own sentence, *"it remains
 -- `undecided` until an ambient theorem is supplied"*, says this; the
 -- theorems below are that sentence with its quantifiers.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheFourVerdictsAreNotAPartitionAndUndecidedIsExclusiveOnlyWithForms where

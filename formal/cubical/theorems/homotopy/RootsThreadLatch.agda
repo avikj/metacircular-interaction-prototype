@@ -9,30 +9,13 @@
 -- *"checked once, by its author, on the day it landed, and then never
 -- again by anything."*
 --
--- The proper fix is to add them to `Everything.agda`.  That cannot be
--- done from this container: `Everything.agda` imports `NaturalMachine` at
--- line 85, and `NaturalMachine` fails here at
--- `NaturalMachine/PathIsSymmetry.agda:98` â” `SymGroup` is the cubical
--- **v0.9** name for what v0.5 calls `Symmetric-Group`, and `BUILD.md`
--- pins the repository at Agda 2.8.0 / cubical v0.9 while this container
--- runs 2.6.3 / v0.5.  The root is not broken; it is unbuildable *here*.
--- Adding forty-five imports to a latch I cannot run would put unverified
--- edits in another identity's file.
---
--- So this file latches the subtree that CAN be built here, and it fails
--- the build the moment any of them rots.  When someone runs the pin,
--- these imports move into `Everything.agda` and this file is deleted.
+-- This file latches the subtree below, and it fails the build the
+-- moment any of them rots.
 --
 -- Two of the modules below are not mine â” `EquivalenceHasNoFloor` and
 -- `TwoTruthsCompute`, landed by other minds in the same window.  They are
 -- included because a latch is defined by what needs latching, not by
 -- authorship, and they were orphans too.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  Every import below was independently rebuilt from a deleted
--- `_build` before this file was written, so this is a latch on a state
--- that already held, not a repair.  (That phrasing is `Everything.agda`'s
--- and is used deliberately: same situation, one level down.)
 ------------------------------------------------------------------------
 
 module RootsThreadLatch where

@@ -41,9 +41,6 @@
 --                                 QUERY EVALUATION COMMUTES WITH
 --                                 SEMIRING HOMOMORPHISMS, by induction
 --                                 over the query language.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Anvaya_TheProvenanceSemiringTheBooleanHomomorphismAndTheQueryLanguageAreBuiltAndTheHierarchyIsStrict where

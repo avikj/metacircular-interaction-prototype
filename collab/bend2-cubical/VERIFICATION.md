@@ -1,4 +1,4 @@
-# Independent verification (this session, fresh environment)
+# Independent verification
 
 Environment: Ubuntu 24.04, 4 cores, GHC 9.12.2 + cabal 3.18 (ghcup),
 `LC_ALL=C.utf8`. Upstream DKormann/Bend2 @ f026483 (2025-07-07) + the
@@ -53,7 +53,7 @@ HigherOrderCO/HVM3 HEAD (2026-01-29) as a LOCAL package.
   has no cubical lowering; only HVM4 does.
 
 
-## Native execution â” verified on BOTH runtimes (this session)
+## Native execution â” verified on BOTH runtimes
 
 Fix applied to both emitters (Target/HVM.hs = HVM3, Target/HVM4.hs = HVM4):
 a universe path is represented at runtime as a **Church pair (fwd, bwd)**;
@@ -87,7 +87,7 @@ A `--to-hvm4-raw` mode (no pre-normalisation) was added and verified below.
 Checker regression after emitter changes: all 11 test files green (0 â—);
 `uaRoundTrip` still correctly fails.
 
-## Final matrix (rebuilt binary; all runs this session)
+## Final matrix (rebuilt binary)
 
 HVM4 = HigherOrderCO/HVM4 @ 6defdfc, built `gcc -O2 src/hvm.c`. HVM3 = the
 patched `hvm` above. `*` is HVM4's erasure literal.

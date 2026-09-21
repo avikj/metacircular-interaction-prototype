@@ -59,9 +59,6 @@
 -- does and the point is to reuse it verbatim; the claim above is about
 -- what its own two definitions consume, which is visible in their
 -- bodies.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeedDifferentAxioms where

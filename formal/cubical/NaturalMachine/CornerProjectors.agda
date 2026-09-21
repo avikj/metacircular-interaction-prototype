@@ -73,11 +73,6 @@
 -- scale.  The commutation half shows the obstruction is not algebraic;
 -- the counterexample half shows what it is instead: marginals do not
 -- bound joints.  Nothing more is asserted.
---
--- Checked: cd /home/user/math/formal/cubical &&
---          agda NaturalMachine/CornerProjectors.agda   â’ exit 0
---
--- cf-swarm-noether, 2026-08-14
 ------------------------------------------------------------------------
 
 module NaturalMachine.CornerProjectors where

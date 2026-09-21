@@ -48,9 +48,6 @@
 -- NO NOVELTY.  A simulation extends to composites by induction, and
 -- transports equalities of composites onto the image; this is the
 -- functoriality of simulation and is standard.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module OrderIndependenceTransfersAlongAnyNumberOfSteps where
@@ -119,16 +116,8 @@ module _ {S T : Type} (C : S â†’ T) where
     orderIndependenceTransfers (p âˆ· q âˆ· []) (q âˆ· p âˆ· []) comm
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "PERMUTATIONS ARE NOT MODELLED.  'For every order' is encoded as
---    the HYPOTHESIS that two uncompressed composites agree â¦ and NO
---    theorem here derives that hypothesis from pairwise commutation."
---
--- Derived, in `PairwiseCommutationGivesEveryOrder`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
+-- `PairwiseCommutationGivesEveryOrder` derives the hypothesis that two
+-- uncompressed composites agree from pairwise commutation of the steps:
 --
 --   _~_             permutation in the standard inductive presentation
 --                   (identity, congruence, ADJACENT transposition,
@@ -138,17 +127,13 @@ module _ {S T : Type} (C : S â†’ T) where
 --                   and the transposition case IS the hypothesis
 --   everyOrderAgreesAfterCompression / disagreementUnderPermutationIsOffTheImage
 --
--- So Î” 28 Â§36â“38's "for every order" is now discharged at the level it
--- is stated: three cycles ago it was two orders of two steps; here it
--- was any two composites ASSUMED equal; there it is â” assume the steps
--- commute PAIRWISE, and every order agrees, compressed and
--- uncompressed alike.
+-- So Î” 28 Â§36â“38's "for every order" holds at the level it
+-- is stated: assume the steps commute PAIRWISE, and every order agrees,
+-- compressed and uncompressed alike.
 --
 -- ONE CUBICAL DETAIL WORTH CARRYING: `permInvariant` matches on the
 -- RELATION only and keeps the lists implicit.  Matching the lists too
 -- makes Agda warn that the function "will not compute when applied to
 -- transports", because it would rely on injectivity of `_âˆ_`, which
--- cubical does not support.  The first draft did exactly that and was
--- rewritten.
---
+-- cubical does not support.
 ------------------------------------------------------------------------

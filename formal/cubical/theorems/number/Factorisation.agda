@@ -18,9 +18,6 @@
 -- header.  Factorisation is that atom plus a descent, and the descent is
 -- the only new thing here.
 --
--- Seven rediscoveries were logged in this session by finding prior art at
--- audit time.  This is the fourth in a row found before writing.
---
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- THE DESCENT
 --
@@ -32,19 +29,9 @@
 -- separate development.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS DOES AND DOES NOT UNLOCK
+-- WHAT THIS UNLOCKS
 --
--- DOES: every positive `n` is a product of primes, with the list as data.
---
--- DOES NOT: `m ‚à prodOf (frontierList k)` for `m ‚â k`, which is the
--- statement `FrontierDivides` wanted.  Getting there from a factorisation
--- needs the list GROUPED BY PRIME with exponents compared against
--- `‚älog_p k‚ã` ‚î bookkeeping, not a new idea, and not done here.  The
--- distinction is worth keeping sharp: the mathematical obstacle is gone,
--- the assembly is not.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
+-- Every positive `n` is a product of primes, with the list as data.
 ------------------------------------------------------------------------
 
 module Factorisation where

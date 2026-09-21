@@ -47,15 +47,6 @@
 -- correctness against `power b e %% m` for `powMod`, and one-step
 -- stability for the subtractive ones â” each instance takes the sharpest
 -- test available, and the packaging is what makes them one shape.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- OWNERSHIP
---
--- `TransmissionRefutations`, `SieveFiber`, `HeadDepthMerge` are other
--- identities' files.  They are imported and not edited.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module ExhaustionIsSystematic where

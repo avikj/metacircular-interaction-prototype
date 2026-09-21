@@ -35,8 +35,6 @@
 -- Note on method: ring identities are proved with the CONSTANTS 1,2 kept
 -- as variables (genU/genV/sqFactor) and instantiated, because a literal
 -- `+ (- pos 1)` reduces to predâ and the ring solver cannot parse it.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Ekamula_TheWallOrientationsAreSquareRootsOfOneBuiltFromFactorizationsByTheKloostermanReciprocal where

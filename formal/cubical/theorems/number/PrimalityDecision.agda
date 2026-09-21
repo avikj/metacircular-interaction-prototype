@@ -2,19 +2,7 @@
 
 -- PrimalityDecision: `Dec (IsPrime n)` for every n : â•.
 --
--- WHAT THIS CLOSES.  `WalkJumps` (its `IsPrime` block), `CoprimeSplitting`
--- (Â§ header, "no `Dec (IsPrime n)` in NaturalMachine/"), and the README's
--- Â§1 work-queue row all record the same confession, re-checked open on
--- 2026-08-15:
---
---     "there is no `Dec (IsPrime n)` anywhere in NaturalMachine/.  What
---      DOES exist is WalkFast.decIsPrimePower (decides prime-POWER-hood,
---      which is what the walk needs) and CoprimeSplitting.primeDivisor
---      (PRODUCES a prime divisor).  Deciding IsPrime itself is a bounded
---      search that nobody in this lane has had a use for; it is unwritten,
---      not blocked."
---
--- It was, exactly as diagnosed, unwritten rather than blocked: no new
+-- No new
 -- number theory is used.  `CoprimeSplitting.searchDiv n k` already returns
 -- either a nontrivial divisor â‰ k or a proof that none exists; the whole
 -- decision is dispatching on that one search at k = n-1.
@@ -27,9 +15,6 @@
 -- The bound k = n-1 is what makes the divisor case a refutation rather
 -- than merely "found a divisor": a divisor d â‰ n-1 with d âˆ n and 1 < d
 -- is exactly a proper nontrivial factor.
---
--- CHECKED: Agda 2.6.3, cubical (local pin), --cubical --safe.
--- No postulates, no holes.
 
 module PrimalityDecision where
 

@@ -35,8 +35,6 @@
 -- n = Ï‰(d), this is (Î¼(d), Îºâ(d)): the prime-charge vector IS executable
 -- AD through the Euler product.  The IOI move: keep the sufficient jet
 -- state, discard the exponential divisor tree, preserve exact semantics.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9) for the â solver.
 ------------------------------------------------------------------------
 
 module Yamala_TheTwinChargeIsTheParityJetAndTwistedLeibnizIsDualNumberMultiplication where

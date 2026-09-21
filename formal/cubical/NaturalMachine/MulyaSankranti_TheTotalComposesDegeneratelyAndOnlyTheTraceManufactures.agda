@@ -73,10 +73,6 @@
 -- empirical fact about neural networks; the terms are about this kernel.
 -- `Visranti_â¦` and `Asesa_â¦` are cited in Â§5, not imported: the recovery
 -- map and the non-equivalence live there and are not re-proved.
---
--- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
--- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +
--- v0.9).  Re-check at the pin before treating this green as the lane's.
 ------------------------------------------------------------------------
 
 module NaturalMachine.MulyaSankranti_TheTotalComposesDegeneratelyAndOnlyTheTraceManufactures where

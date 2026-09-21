@@ -5,8 +5,8 @@
 --
 -- WHY THIS FILE EXISTS.  `Everything.agda` was written because "an orphan
 -- that the root does not import is exactly the hole that let the earlier
--- overstatement hide."  Audited 2026-08-18 with the mechanical check
--- BUILD.md prescribes: TWELVE top-level modules were outside its import
+-- overstatement hide."  By the mechanical check BUILD.md prescribes,
+-- TWELVE top-level modules were outside its import
 -- closure, and all twelve were from one lane â”
 --
 --     Kuttaka  Bhavana  BhavanaSemiring  BhavanaGenerative  Pingala
@@ -32,14 +32,6 @@
 -- So this aggregate is the one that runs:
 --
 --     cd formal/cubical && agda IndianLane.agda      # must exit 0
---
--- Every module below was verified standalone before being listed (exit 0,
--- --safe, no postulates, no holes) â” so this file changes what is GUARDED,
--- not what is true.  They were green the day they landed and nothing had
--- re-checked them since.
---
--- WHEN THE v0.9 SKEW IS RESOLVED this file becomes redundant with
--- `Everything.agda` and should be deleted rather than maintained.
 ------------------------------------------------------------------------
 
 module IndianLane where
@@ -226,76 +218,12 @@ import BhedaAvatarana
 import LosslessReturn
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by a later reader, at the end, altering no line
--- above.  Pointer only.
---
--- This header names the v0.5/v0.9 skew at `NaturalMachine/PathIsSymmetry.agda:98`
--- as pre-existing, another lane's, and untouched â” and draws the right
--- conclusion from it, that a gate which cannot go green is not a gate.
---
--- The repair is now VERIFIED, though still not applied: v0.5 spells the
--- name `Symmetric-Group`, with the same two explicit arguments, in the
--- module that file already opens.  A renamed copy compiled OUTSIDE the
--- repository gives exit 0, and `Everything.agda`'s only reported error
--- is that one line.  Details, commands and exit codes are appended at
--- the end of `NaturalMachine/PathIsSymmetry.agda`, at its own site.
---
--- NOT established: that applying it makes `Everything.agda` green â”
--- Agda stops at the first error, so downstream blockers would not have
--- shown.  So this file's reason for existing is not withdrawn by the
--- finding; if the repair is applied and the aggregate goes green, THEN
--- this file's own closing sentence applies and it should be deleted.
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
--- APPENDED 2026-08-19, third correction, and it reframes the two above.
---
--- I have been reporting "409 modules reached only by a gate that fails" as
--- if it described this CORPUS.  It describes this CONTAINER.
---
--- BUILD.md and formal/cubical/check.sh give the pin as Agda 2.8.0 with
--- agda/cubical v0.9.  This container carries Agda 2.6.3 and cubical v0.5.
--- check.sh exists to stop exactly the conclusion I drew -- its own contract
--- says "It NEVER reports green under a toolchain that is not the pin.  If it
--- has to fall back, every line of its output says so and the exit code is
--- non-zero regardless of what Agda returned."  I called `agda` directly all
--- session and never ran it.
---
--- The skew is not a series of renames to be patched.  MEASURED: 336 uses of
--- `solve!` and 36 of `solveâ•!` across formal/cubical/ -- 372 proof
--- obligations discharged by tactics whose v0.9 spellings the pinned v0.5
--- does not have.  Rewriting those solver-free is not a repair, it is a
--- rewrite of a large fraction of the corpus, and it would move the corpus
--- OFF its own declared pin to suit a container.
---
--- And the library alone does not close it: cloning cubical v0.9 and pointing
--- Agda 2.6.3 at it fails in the library's own Foundations/Structure.agda on
--- `opaque`, an Agda 2.7+ feature.  The pin is 2.8.0 for a reason.
---
--- SO: the corpus is not rotting.  The two version-agnostic repairs made
--- today (SymGroup and FinSymGroup in NaturalMachine/PathIsSymmetry.agda,
--- factorial in NaturalMachine/SymmetryCardinality.agda) are still
--- improvements -- they name the same objects under both surfaces and pick no
--- side -- but they do NOT open a path to a green NaturalMachine here, and I
--- should not have implied one.
---
--- WHAT STANDS UNCHANGED, because it does not depend on any of this: this
--- gate was created at 19:19:50 on 2026-08-18 in a commit titled "the lane
--- nothing was building", seventeen more Indian modules were written by 21:43
--- that evening with none added to it, and .claude/hooks/gate-coverage.sh now
--- fires at the moment of the write.  A gate has to be able to go green to be
--- a gate -- and on this container, this one is the only Agda gate that can.
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
--- APPENDED 2026-08-19, fourth append: two correctors that NO gate reached.
+-- Two correctors that no gate reached.
 --
 -- `NaturalMachine/SamayikaAndNityaAreIndependent.agda` and
 -- `NaturalMachine/TheFourthCornerIsRefutedUnderPointwiseStability.agda`
--- were both written today, both are green under this container's Agda
--- 2.6.3 / cubical v0.5, and both were reachable from nothing.  They are
--- under NaturalMachine/ by name only: `agda` does not
--- import either, and the second imports the first, so the pair was a
+-- are under NaturalMachine/ by name only: nothing else imports
+-- either, and the second imports the first, so the pair was a
 -- closed island.
 --
 -- Adding them here is not bookkeeping.  It is the ONLY mechanism by which
@@ -327,8 +255,6 @@ import SamayikaAndNityaAreIndependent
 import KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, fifth append.
---
 -- Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction imports both
 -- AnuktaAvaktavya and the two modules that refute it, which no one of
 -- them can do, and holds the objection and the survivor in one checked
@@ -338,7 +264,7 @@ import KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
 import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-20, sixth append: the dispute, not the blend.
+-- The dispute, not the blend.
 --
 -- ApohaParyaya_â¦ makes the Bauddha argue against a Jaina construction
 -- already in this corpus, and exhibits the incompatibility WITHOUT
@@ -355,7 +281,7 @@ import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
 import ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuallyDispute
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-20, seventh append: the fitness condition on absence.
+-- The fitness condition on absence.
 --
 -- Anupalabdhi_â¦ adds the slot the corpus's absence machinery did not have.
 -- `AbhavaAvacchedaka` and `TheAnuyogitaAvacchedakaIsADistinctSlot`

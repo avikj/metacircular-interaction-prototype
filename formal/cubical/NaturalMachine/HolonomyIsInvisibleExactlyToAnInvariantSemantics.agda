@@ -66,9 +66,6 @@
 -- a hypothesis here and a modelling question there.  Nothing is said
 -- about composing loops, so no group structure, no fundamental group,
 -- and no claim that holonomies compose to a holonomy.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.HolonomyIsInvisibleExactlyToAnInvariantSemantics where
@@ -132,43 +129,16 @@ oneLoopTwoVerdicts =
   , theCacheIsMoved
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  Recording site: commit ecb432c2,
--- `NaturalMachine.HolonomyIsInvisibleExactlyToAnInvariantConsumerAndExactlyIsNowEarned`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin).
---
--- **THE WORD `EXACTLY` IS IN THIS MODULE'S NAME AND WAS IN NONE OF ITS
--- THEOREMS.**  Â§2 proves invariant âŸ unmoved. The same holds of Â§3:
+-- Â§2 proves invariant âŸ unmoved. The same holds of Â§3:
 -- `nonTrivialHolonomyMovesTheRawInterface` goes one way only.
 --
--- **AND BOTH CONVERSES COST NOTHING.**  `uaÎ² h z` is a PATH, so it may
+-- **BOTH CONVERSES COST NOTHING.**  `uaÎ² h z` is a PATH, so it may
 -- be walked in either orientation; each backward direction is the
--- forward one composed with `sym`.  At the recording site:
+-- forward one composed with `sym`.  In
+-- `NaturalMachine.HolonomyIsInvisibleExactlyToAnInvariantConsumerAndExactlyIsNowEarned`:
 -- `invisibleâ’invariant`, `invisibleExactlyWhenInvariant`, and â”
 -- given `isSet B` â” `invisibleIsInvariantAsTypes`, an EQUIVALENCE of
 -- the two conditions rather than a two-way implication.  `Invariant`
 -- and `Invisible` are named there; `invariantâ’invisible` is
 -- `invariantSemanticsIsUnmoved` REUSED, not restated.
---
--- **WHY THIS WAS WORTH A CYCLE RATHER THAN A ONE-LINE FIX.**  One cycle
--- earlier the same audit found a missing converse in
--- `FullAbstractionIsAConditionOnTheContextFamilyAndCurvatureIsWitnessedInIt`
--- (53a06cc9), and THERE the two directions were genuinely asymmetric:
--- one a congruence, the other a search paying `Enumerated K` +
--- `Discrete O`.  Here there is no asymmetry, and the difference is
--- structural rather than luck.  In that module the two sides are joined
--- by an IMPLICATION ASSUMED (`FullyAbstract`); here by a PATH GIVEN
--- (`uaÎ²`).  A path has an inverse; an implication does not.  So the
--- question "is the converse free?" has an answer readable off the shape
--- of what joins the two sides, and this module is the case where it is
--- free.
---
--- NOTHING ABOVE IS RETRACTED.  Every theorem in this file is true as
--- stated, and Â§5's `oneLoopTwoVerdicts` is unaffected.  What was wrong
--- was a title asserting a biconditional the file did not contain, and
--- an inventory of omissions that did not name the omission.
---
--- The name is NOT changed: renaming would break importers and would
--- also erase the record of the error, which is the more useful object.
 ------------------------------------------------------------------------

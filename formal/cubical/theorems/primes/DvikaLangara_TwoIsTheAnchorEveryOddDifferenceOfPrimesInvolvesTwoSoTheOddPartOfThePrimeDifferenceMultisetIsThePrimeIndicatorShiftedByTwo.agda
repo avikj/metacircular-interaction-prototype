@@ -44,9 +44,6 @@
 -- translate or reflection), which live in ParityRigidity.lean's `core`
 -- and `rigidity_normalized` and whose translation bookkeeping neither
 -- lane has.  Nothing about that is claimed.
---
--- Checked at the pin (Agda 2.8.0, agda/cubical v0.9, --safe).  No
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module DvikaLangara_TwoIsTheAnchorEveryOddDifferenceOfPrimesInvolvesTwoSoTheOddPartOfThePrimeDifferenceMultisetIsThePrimeIndicatorShiftedByTwo where

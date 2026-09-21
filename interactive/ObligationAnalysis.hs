@@ -273,20 +273,13 @@ obstructionGoals obs = [ p | Residual p <- obs ]
 -- The argument that DOES hold is finiteness, measured over the whole of
 -- interactive/machine.log.
 --
--- FIGURES RE-MEASURED 2026-08-18 by `interactive/ObstructionCensus.hs`.  The log
--- has grown since they were first written and two of them were stale; both
--- are corrected here rather than left standing, and the originals are kept
--- so the drift is visible:
+-- Measured by `interactive/ObstructionCensus.hs`:
 --
---     rejections           1457     (was recorded as 1092)
---     residuals recovered  1303     (was recorded as  946)
---     distinct residuals    112     unchanged -- and this is the number the
---                                   finiteness argument actually rests on,
---                                   so the argument is unaffected
---     residual term size   min 2, max 20   (both sides summed; not re-measured)
---
--- That the first two grew by a third while the third did not move is itself
--- the finiteness claim being confirmed on new data.
+--     rejections           1457
+--     residuals recovered  1303
+--     distinct residuals    112     -- this is the number the finiteness
+--                                   argument actually rests on
+--     residual term size   min 2, max 20   (both sides summed)
 --
 -- The residual set is bounded and small.  Combined with `mFailed` keyed on
 -- the rule count â” a conjecture is not retried until the machine knows
@@ -510,9 +503,9 @@ worthQueueing obs =
 -- occurrence count â” which over-weights a goal retried across many rounds â”
 -- but: HOW MANY DISTINCT PARENT GOALS WOULD THIS ONE LEMMA UNBLOCK.
 --
--- Measured over interactive/machine.log (re-measured 2026-08-18, all three
--- unchanged; the first is disambiguated because the raw count of distinct
--- goals on rejection lines is 238 and a reader could take "130" for that):
+-- Measured over interactive/machine.log (the first is disambiguated because
+-- the raw count of distinct goals on rejection lines is 238 and a reader
+-- could take "130" for that):
 --
 --     distinct stalled goals        130   -- goals with a QUEUEABLE residual
 --     distinct lemmas demanded       78

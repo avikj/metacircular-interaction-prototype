@@ -289,7 +289,5 @@ fails-pp-on-every-prime-square e q =
 -- algorithm, no arithmetic beyond â• and â.
 --
 -- NOTHING is claimed here about ledger rows 1.5 and 0.3; they are settled
--- in `TransmissionRefutations.agda` Sections B and C, which this pass
--- re-checked under the pin (Agda 2.8.0 + cubical v0.9, exit 0) before
--- writing a line.
+-- in `TransmissionRefutations.agda` Sections B and C.
 ------------------------------------------------------------------------

@@ -56,9 +56,6 @@
 -- Not any verdict on `laghavaPrice` as the right potential for this
 -- machine โ” TransportPrice ยง2 supplies it for presentations and that is
 -- its result, untouched here.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 (b150186), --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PunaragamanaMulyam_TheReturnTripIsFreeForEveryAdditiveCost where

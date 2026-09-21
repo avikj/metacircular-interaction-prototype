@@ -37,9 +37,6 @@
 -- the ‡µ‡ø‡‡Æ axes therefore OWE ‚î which is the point of doing this at all:
 -- an unequal union is not forbidden, it is conditional on a technique,
 -- and the technique here is a theorem that already exists.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical, with the back-port in
--- notes/CUBICAL_PATCH.md), --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Samprayogika_TheJoinIsClassifiedByBothConstitutions where

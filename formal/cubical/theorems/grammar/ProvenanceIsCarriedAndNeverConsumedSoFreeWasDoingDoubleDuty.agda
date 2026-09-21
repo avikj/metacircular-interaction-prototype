@@ -66,9 +66,6 @@
 --                      immediately: two certificates for the same pair
 --                      agreeing on the first three components and
 --                      differing on the fourth
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module ProvenanceIsCarriedAndNeverConsumedSoFreeWasDoingDoubleDuty where

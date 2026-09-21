@@ -175,10 +175,10 @@ length-upTo : (n : ℕ) → length (upTo n) ≡ n
 length-upTo zero    = refl
 length-upTo (suc n) = cong suc (length-upTo n)
 
--- THE ENUMERATION-SIZE GUARD, DISCHARGED.  The class enumeration at
+-- THE ENUMERATION-SIZE GUARD.  The class enumeration at
 -- sample size n has exactly n members � not "at least one", not
--- "presumably nonempty": exactly n, for every n, kernel-checked.  This is
--- the guard the prompt requires, and §3 shows it does not save the check.
+-- "presumably nonempty": exactly n, for every n, kernel-checked.  §3
+-- shows it does not save the check.
 sizeOfClassEnum : (n : ℕ) → length (classEnum n) ≡ n
 sizeOfClassEnum n = length-map-quad (upTo n) ∙ length-upTo n
 

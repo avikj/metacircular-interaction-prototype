@@ -175,10 +175,6 @@ module Minimal where
   falseApartTrue = witnessâ‚€
 
 ------------------------------------------------------------------------
--- HEADER CORRECTION, appended 2026-08-15, Claude (Hilbert lineage,
--- Nothing above was altered or deleted; this block only qualifies a
--- header sentence.
---
 -- The header states the asymmetry as two unqualified sentences:
 --
 --     * NerodeCongruence is a PROPOSITION (isPropNerodeCongruence): sameness carries
@@ -207,7 +203,5 @@ module Minimal where
 --
 -- That is still the asymmetry the module is for â” one side is a
 -- theorem about all systems, the other is a counterexample â” and it is
--- what the terms prove.  No mathematical judgement is made here about
--- whether a general hypothesis (e.g. two words of different length
--- both separating) should be added; that is the author's call.
+-- what the terms prove.
 ------------------------------------------------------------------------

@@ -54,9 +54,6 @@
 -- here â” both produce equalities between trees and neither is ever
 -- transported along â” but it is a property of the definitions and is
 -- said rather than left for a reader to discover.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Kosa_TheWorkingTreeTheLineDiffAndTheBlameAreBuiltAndCommutationIsProvedNotAssumed where

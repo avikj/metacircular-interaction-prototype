@@ -4,9 +4,6 @@
 -- ‡‡‡Ø‡‡‡‡†‡æ‡µ‡∞ ‚î THE JOIN IS THE LEAST UPPER BOUND, SO NO COMMON BOUND
 -- IS SMALLER.
 --
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0
--- (2026-08-29).
---
 -- THE QUESTION.  Does this substrate settle OPTIMALITY, not merely
 -- correctness?  An optimality claim has two halves: a thing works, and
 -- nothing works better.  The second half is a universal over all rival

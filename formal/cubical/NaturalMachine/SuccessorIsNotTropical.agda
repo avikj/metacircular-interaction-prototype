@@ -31,9 +31,6 @@
 -- reading it as the obstruction: the fact everyone knows IS the barrier
 -- everyone describes, once you notice that the multiplicative world is a
 -- chart and ask what fails to transport.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, NOT the repository
--- pin (2.8.0 / v0.9, BUILD.md).  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.SuccessorIsNotTropical where

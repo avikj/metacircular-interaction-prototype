@@ -65,11 +65,7 @@
 -- The honest form of the claim is a conditional, and it is worth having
 -- as one: IF a sieve's combination law is accumulative and IF its weight
 -- must be multiplicative for that law, THEN by the theorem below the
--- weight is 1 wherever it is a unit, hence cannot be λ.  Both antecedents
--- are open.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 � the container, not the repository
--- pin.  No postulates, no holes.
+-- weight is 1 wherever it is a unit, hence cannot be λ.
 ------------------------------------------------------------------------
 
 module SignIsNotAccumulable where

@@ -1,7 +1,5 @@
 # SAT cubical derivation series — index
 
-This is the resume point for the 2026-09-16/17 SAT/cube session.
-
 Read in this order:
 
 1. `SAT_CUBICAL_GEODESIC_NOTES_20260916.md` — original persistent conversation notebook; its §8–9 forced-crossing sketch is superseded by the exact derivations below.

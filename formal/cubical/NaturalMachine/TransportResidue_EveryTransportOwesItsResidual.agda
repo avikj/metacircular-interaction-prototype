@@ -65,9 +65,6 @@
 -- `Punaragamana` supplies the machine's proved-lossless boundary,
 -- `(â• — â•) â‰ àµà¿àµàà•`, whose residual Â§5b computes to be contractible
 -- everywhere â” a "no loss" report that did look.
---
--- CHECKED: Agda 2.8.0, cubical library as installed by the container.
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual where

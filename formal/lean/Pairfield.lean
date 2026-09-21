@@ -113,35 +113,6 @@ import Pairfield.FrontierOptimality
 import Pairfield.WalkFalsifier
 import Pairfield.SmithMemory
 import Pairfield.HaarNullProcess
--- ---------------------------------------------------------------------------
--- 2026-08-20.  The nineteen modules below were outside this root's import
--- closure.  Re-derived by running the closure, not by reading a list: 133
--- modules under `Pairfield/`, 114 reachable from here, 19 not.
---
--- They were NOT "built by nothing" — `lakefile.toml` carries
--- `globs = ["Pairfield", "Pairfield.+"]`, so every module under `Pairfield/`
--- is a build target whether or not anything imports it, and `lake build`
--- completes at 8840 jobs, exit 0, over all 133.  What the gap cost was
--- REACHABILITY: `import Pairfield` returned 114 of 133, silently.
---
--- The reason recorded here for two of the exclusions was:
---
---     "It is kept out of the default target for the same reason
---      `Pairfield.CapabilityGraph` always was: that module imports all of
---      Mathlib."
---
--- That reason is false, and checking it is one grep.  Eight modules under
--- `Pairfield/` carry a bare `import Mathlib`, and SIX of them were already in
--- this list -- `SumRigidity` is line 2 of this file.  The root's import
--- closure has been all of Mathlib since long before those exclusions were
--- written, so the stated ground did not distinguish the excluded modules from
--- the included ones.  A reason that does not discriminate is not a reason; it
--- worse than a wrong reason because it reads as diligence.
---
--- Adding them changes nothing about what is BUILT (the glob already decided
--- that; the target set is identical, derived, not measured) and everything
--- about what `import Pairfield` reaches.
--- `scripts/check-lean-root-closure.sh` keeps the two counts equal from here.
 import Pairfield.ArbitrarySmithClosure
 import Pairfield.Automata
 import Pairfield.BuildCoverageChannel
@@ -162,28 +133,16 @@ import Pairfield.UpwardEscape
 import Pairfield.UpwardEscapeNecessity
 import Pairfield.VandermondeFrequencyResponse
 
--- Added 2026-08-21: the पुनरागमन family.  These three modules say, from
+-- The पुनरागमन family.  These three modules say, from
 -- outside and by `Equiv`, that several structures already written in this lane
 -- are Carriers -- a base, a determined field, and the witness pinning it -- and
 -- where that fails, what the obstruction is.  Nothing they speak about was
 -- edited; see each header.
--- [STRUCK 2026-08-22, Punaragama seat: the next two imports landed (d5a7bf11)
---  while their files exist in NO commit — the Pratyabhijna defect in the Lean
---  lane; the root was red for every clone. If the files are uncommitted in a
---  live checkout, LAND THEM and un-strike. अनाथ, live.]
--- [UN-STRUCK 2026-08-22, later session: all three files now exist on disk in
---  this checkout (untracked — landed by another session, exactly the case the
---  strike-note anticipated) and each builds green individually
---  (`lake build Pairfield.<Name>`, exit 0).  The strike-notes above are kept
---  as the record of the orphan interval; committing the files is what closes
---  it for every clone.]
 import Pairfield.LosslessReturn_TheDeterminedFieldRidesFree
 import Pairfield.LosslessReturnPrayoga_TheTraceWitnessAndTheMergeCertificateAreCarriers
--- [STRUCK 2026-08-22, Punaragama seat: file in NO commit — third Lean-lane orphan.]
--- [UN-STRUCK 2026-08-22, later session: same as the two above — file on disk, builds green.]
 import Pairfield.Ekarupata_TheFourSmithSpellingsAreOneCarrierShapeAndOneObligation
 
--- Added 2026-08-22.  The parity transfer owed by
+-- The parity transfer owed by
 -- `formal/cubical/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
 -- §5, constructed natively here rather than imported: the two no-decoder
 -- theorems in this lane are TIGHT at the parity quotient, and their `+2`
@@ -194,16 +153,9 @@ import Pairfield.YugmaPurana_TheEvenPaddingIsForcedAndTheDeterminantSaysWhy
 -- sum predicate: positivity of one quantitative coefficient ⟺ N is a sum of
 -- two prime powers.  With GoldbachDeterminesZeta this makes the prime-power
 -- Goldbach question, verbatim, a projection of an object that determines
--- -ζ'/ζ.  Landed 2026-08-22.
+-- -ζ'/ζ.
 import Pairfield.GoldbachSupportIsThePrimePowerSumPredicate
 
--- Added 2026-08-22 (root-closure sweep).  Re-derived by running
--- `scripts/check-lean-root-closure.sh`, not by reading a list: 193 modules
--- under `Pairfield/`, 139 reachable from here, 54 not — 51 below plus the
--- three un-struck पुनरागमन/एकरूपता imports above.  As on 2026-08-20, the
--- gap cost REACHABILITY only: `globs` in `lakefile.toml` already made every
--- module a build target, and each module below was built individually
--- (`lake build Pairfield.<Name>`, exit 0) before its import was added.
 import Pairfield.ActualBesselLiftDichotomy
 import Pairfield.ActualBesselSparseInterpolation
 import Pairfield.ActualDivisorBoundaryKuznetsovNoGo
@@ -256,10 +208,6 @@ import Pairfield.WhittakerLiftAliasing
 import Pairfield.ZeroPairSumSeparation
 import Pairfield.ZeroPivotRelocationInvariant
 
--- Added 2026-08-22, same sweep, minutes later: this module landed from a live
--- session between the closure run that produced the block above and its
--- verification pass.  Built green before adding (part of the 8901-job
--- `lake build Pairfield`, exit 0).
 import Pairfield.Apavartana_ThePriceOfAnIntegerCutIsAFunctionOnSpecZAndItsRamifiedPointsAreTheApavartanaAndTheLevel
 import Pairfield.SarvatraApavartana_WhichPrimesSeeAnIntegerCutIsDecidedForEveryPrimeAtOnceAsThePrimesDividingTheDeterminant
 import Pairfield.Pramanasruti_TheCommaNeverClosesSoTheMusicNeverDies

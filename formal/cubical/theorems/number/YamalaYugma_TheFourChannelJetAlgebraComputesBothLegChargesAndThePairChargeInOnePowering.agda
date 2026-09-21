@@ -27,7 +27,7 @@
 -- computed by the same ‚ä-powering that computes Œº.  The divisor-tree
 -- exponential is again discarded for a 4-slot exact state.
 --
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9), ring identities by
+-- Ring identities by
 -- solve! with ŒPathP componentwise; the recurrences native.
 ------------------------------------------------------------------------
 

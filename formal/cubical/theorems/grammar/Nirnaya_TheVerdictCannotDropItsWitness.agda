@@ -33,9 +33,6 @@
 -- ‡‡‡≤‡ã‡ï‡µ‡æ‡∞‡‡‡‡‡ø‡ï‡Æ‡, ‡‡‡æ‡µ‡‡∞‡ø‡‡‡‡‡¶‡).  Naming a constructor for a term does not
 -- claim that its author proved anything below; the debt is the
 -- distinction, which is theirs, and the theorems are this file's.
---
--- CHECKED: Agda 2.8.0, cubical v0.9.  --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module Nirnaya_TheVerdictCannotDropItsWitness where

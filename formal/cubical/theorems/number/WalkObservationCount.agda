@@ -40,9 +40,6 @@
 -- Three terms, and together they are the word "optimal" with nothing left
 -- quoted at frontier 8: a bound over all schemes, a count for this one,
 -- and an attainment.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WalkObservationCount where

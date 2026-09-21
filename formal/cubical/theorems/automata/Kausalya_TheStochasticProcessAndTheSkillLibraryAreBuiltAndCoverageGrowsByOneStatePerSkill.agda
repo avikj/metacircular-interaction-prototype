@@ -41,9 +41,6 @@
 --                                   endpoints and prop-valued outcome
 --                                   families â” does not determine the
 --                                   route the library demands.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Kausalya_TheStochasticProcessAndTheSkillLibraryAreBuiltAndCoverageGrowsByOneStatePerSkill where

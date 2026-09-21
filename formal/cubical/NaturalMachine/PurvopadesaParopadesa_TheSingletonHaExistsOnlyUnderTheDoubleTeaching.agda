@@ -59,9 +59,6 @@
 --       are checked here by refl; that the four are ALL the ones the
 --       Adhyy uses is philological, is established outside Agda,
 --       and is stated in the note, not here.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5 (the container's pair, not the
--- declared repository pin).  --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PurvopadesaParopadesa_TheSingletonHaExistsOnlyUnderTheDoubleTeaching where

@@ -46,9 +46,6 @@
 -- transitivity of âˆ, by induction on the list.  Predicates are the
 -- recursive type families from WalkCapacity (indexed inductive families
 -- over lists need injectivity of _âˆ_, unavailable in cubical Agda).
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-13.
--- No postulates, no holes.  Nothing is assumed.
 
 module LCMExists where
 

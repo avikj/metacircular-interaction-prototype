@@ -33,9 +33,6 @@
 -- different types; forcing all three onto one carrier would be the
 -- collapse this module is about.  Two are compared because two are
 -- comparable.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” container pin.  --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent where

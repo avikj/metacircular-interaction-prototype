@@ -61,9 +61,6 @@
 -- reaches it â” and not a fact about lcm's difficulty.  It is a choice of
 -- semigroup, made implicitly, whose consequence is the loss of every
 -- descent mechanism at once.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module NoNormOnAJoin where

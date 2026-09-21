@@ -71,9 +71,6 @@
 -- reached for was a proxy that happens to imply the real hypothesis in
 -- the easy direction and is not equivalent to it.  **The proxy is
 -- always the one that can be counted.**
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TotalityNotSizeIsWhatTurnsAScopedFactorizationGlobal where

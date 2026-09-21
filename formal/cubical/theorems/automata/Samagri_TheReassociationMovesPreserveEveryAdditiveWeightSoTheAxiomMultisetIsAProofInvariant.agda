@@ -25,8 +25,6 @@
 --
 -- The path language mirrors the kernel's proof forest (kernel/egraph.py):
 -- axiom leaves, refl, symmetry, transitivity, congruence context.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Samagri_TheReassociationMovesPreserveEveryAdditiveWeightSoTheAxiomMultisetIsAProofInvariant where

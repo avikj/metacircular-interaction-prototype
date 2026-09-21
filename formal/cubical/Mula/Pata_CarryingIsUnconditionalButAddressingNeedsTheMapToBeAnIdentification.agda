@@ -52,9 +52,6 @@
 -- uses and that two distinct patterns share a weight, which Â§à exhibits
 -- rather than asserts.  ààà¾ is ordinary modern /Hindi for an address
 -- and no text is claimed for it.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Mula.Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification where

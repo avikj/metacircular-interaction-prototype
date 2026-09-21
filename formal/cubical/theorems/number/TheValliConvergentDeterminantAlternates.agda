@@ -39,9 +39,6 @@
 -- SOURCING LIMIT. Nothing here is offered as a reading of Gaitapda 32â“33;
 -- the recurrence is the standard one and the vall is named because this
 -- corpus's own kuaka modules name it.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, which is Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no
 ------------------------------------------------------------------------
 
 module TheValliConvergentDeterminantAlternates where

@@ -33,9 +33,6 @@
 -- confuses โ” and neither subsumes the other: Parampara computes fibres,
 -- this one says every nontrivial fibre contains a two.  Its ยงเ counting
 -- and this floor are the same fact at two altitudes.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
--- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Dvayam_AnyLossEmbedsABitSoTwoIsTheSmallestVeilThereIs where

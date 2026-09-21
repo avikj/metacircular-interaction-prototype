@@ -40,9 +40,6 @@
 -- not REDUCE under a transport.  Harmless here â” all of them produce
 -- proofs that are never transported along â” and said rather than left
 -- to be discovered.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Nirmana_TheSpecificationLanguageTheVersionSpaceAndTheEnumerativeSearchAreBuiltAndPruningIsProvedComplete where

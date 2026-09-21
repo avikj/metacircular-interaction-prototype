@@ -75,9 +75,6 @@
 -- No text is claimed for anything below, and the mathematics â” path,
 -- transport, `ua` â” is cubical type theory, Voevodsky's, this
 -- repository's one admitted non-Indian substrate.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Yamaja_TheThirdTesterWasFoundByCensusAndTheChannelPaysReflexivityAndCompleteness where

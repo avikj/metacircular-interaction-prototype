@@ -53,9 +53,6 @@
 -- elementary.  It is attached here because ยง2 records the discrepancy
 -- without the reason, and the reason is what tells an implementer
 -- whether to care.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 โ” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module ExcludingPerfectScorersRemovesOnlyGainlessCandidates where

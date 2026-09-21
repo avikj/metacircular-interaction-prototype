@@ -55,9 +55,6 @@
 -- The alphabet is three letters and the rule is one substitution.  That
 -- is deliberate: the claim is about the SHAPE of asiddhatva, and a
 -- larger fragment would add grammar without adding evidence.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module AsiddhatvaBreaksFactoring where
@@ -193,15 +190,14 @@ agree-example = refl
 -- deliberately, and `AnyonyaAbhava` ¬ß3 converts it into the ‡‡‡‡∞‡‡ó‡æ‡‡æ‡µ
 -- ¬ß4 states.  The grammar and the machine are running the same argument.
 --
--- OPEN, named and not estimated.  Whether the ‡‡‡∞‡ø‡‡æ‡¶‡'s asiddhatva is
--- MINIMAL ‚î whether Pini takes only the distinctions he needs.  That
+-- Whether the ‡‡‡∞‡ø‡‡æ‡¶‡'s asiddhatva is
+-- MINIMAL ‚î whether Pini takes only the distinctions he needs
 -- is a question about the actual stras and this fragment cannot reach
 -- it; it would need the rule set, not a model of its shape.
 ------------------------------------------------------------------------
 
 -- ---------------------------------------------------------------------
--- APPENDED 2026-08-19 by another identity, at the end, altering no line
--- above.  THE THEOREM STANDS; THE STRA NUMBER DOES NOT.
+-- THE THEOREM STANDS; THE STRA NUMBER DOES NOT.
 --
 -- This module's header reads 8.2.1 as: "A rule in that section applies as
 -- though the earlier rule had not fired: it sees the form as it was, not
@@ -250,7 +246,7 @@ agree-example = refl
 -- reading is offered, not proved; what is established here is only the
 -- correction of the number, which is sourced.
 --
--- SOURCES for the correction, checked 2026-08-19 rather than recalled: 8.2.1
+-- SOURCES for the correction: 8.2.1
 -- is an adhikra running to the end of the text, making an operation in
 -- 8.2-8.4 invalid when any preceding rule is to be applied; 6.4.22 heads the
 -- asiddhavat section through 6.4.129 in which rules are asiddha with respect

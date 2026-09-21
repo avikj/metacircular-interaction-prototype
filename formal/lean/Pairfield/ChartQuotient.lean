@@ -254,10 +254,6 @@ theorem quotientCard_eq_three :
   -- this is a genuine COST case and not the elaborator-irreducibility case
   -- `+kernel` fixes.  Deciding a `Fintype.card` of a quotient by a
   -- behavioural setoid materialises the quotient's `Fintype` instance.
-  -- REMOVAL PATH: a proof that does not materialise the instance — exhibit
-  -- the three classes and prove the canonical map to `Fin 3` a bijection, or
-  -- give `Quotient (dfaFutureSetoid ·)` a `Fintype` computed from the
-  -- ChartStateBFS row table rather than by quotienting the carrier.
   -- This theorem is therefore COMPILER-checked, not kernel-checked, and must
   -- not be described as "checked" without that qualification.
   native_decide

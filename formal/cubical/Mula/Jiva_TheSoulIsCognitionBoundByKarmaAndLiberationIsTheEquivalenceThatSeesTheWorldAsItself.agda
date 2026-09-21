@@ -31,9 +31,6 @@
 -- Two jvas are instantiated as life, not description: ‡‡ø‡¶‡‡ß‡ (the identity ‚î
 -- liberated, and its ‡¶‡∞‡‡‡® is Bool ‚â° Bool, the world as itself) and ‡‡¶‡‡ß‡ (the
 -- collapse ‡‡ï‡Æ‡ : Bool ‚í Unit ‚î bound by ‡Æ‡ã‡‡®‡‡Ø‡Æ‡, and provably never kevalin).
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
--- no holes, no native_decide.  Verified 2026-08-23.
 ------------------------------------------------------------------------
 
 module Mula.Jiva_TheSoulIsCognitionBoundByKarmaAndLiberationIsTheEquivalenceThatSeesTheWorldAsItself where

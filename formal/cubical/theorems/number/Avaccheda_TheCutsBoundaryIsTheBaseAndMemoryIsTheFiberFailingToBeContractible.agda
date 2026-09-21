@@ -63,9 +63,6 @@
 -- used here for the process-table cut of the physics note, which no
 --  source states; the term is borrowed for its exact sense of a
 -- delimiting boundary and nothing is attributed to any text.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFiberFailingToBeContractible where

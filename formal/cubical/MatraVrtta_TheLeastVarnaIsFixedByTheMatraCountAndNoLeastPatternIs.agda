@@ -88,8 +88,6 @@
 --   ยง3.4 both negated types are inhabitable on other formations, so neither
 --        negation is vacuous by typing
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 โ” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 -- `--guardedness` is carried from `PingalaPrastara` and is infective.
 ------------------------------------------------------------------------
 

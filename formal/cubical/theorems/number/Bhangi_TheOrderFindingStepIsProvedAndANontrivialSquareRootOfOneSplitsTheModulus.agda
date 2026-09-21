@@ -23,14 +23,11 @@
 --                       order is 4, giving the square root 4 and the
 --                       factor 3, all computed rather than asserted.
 --
--- WHAT IS STILL NOT PROVED, and it is not a gap in the above: nothing
+-- Nothing
 -- here says the order is easy or hard to FIND, on any machine.  That is
 -- a statement about cost, and the corpus's cost results live in
 -- theorems/cost; this file supplies the arithmetic the reduction needs
 -- and nothing about the price of running it.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Bhangi_TheOrderFindingStepIsProvedAndANontrivialSquareRootOfOneSplitsTheModulus where

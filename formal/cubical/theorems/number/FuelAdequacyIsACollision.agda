@@ -77,9 +77,6 @@
 -- fuelled modules line by line: the criterion is stated, four instances
 -- are checked against it by inspection of their signatures above, and
 -- the rest are named as unaudited rather than assumed clean.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module FuelAdequacyIsACollision where

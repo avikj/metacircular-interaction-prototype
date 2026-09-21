@@ -28,17 +28,8 @@
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
--- That the walk's installed prime powers ARE pairwise coprime.  That is
--- Euclid's lemma territory â” `Kuttaka.bezout` is the ingredient this
--- repository has, and assembling it is a separate piece of work.  Here
--- the coprimality is a hypothesis, and at any concrete frontier it is
+-- Here the coprimality is a hypothesis, and at any concrete frontier it is
 -- discharged by computing a gcd.
---
--- The honest form of the boundary: CRT is general; the primes are not
--- done.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module CRTChain where

@@ -1,7 +1,6 @@
 {-# OPTIONS --cubical --safe #-}
 --
--- ‡‡‡®‡‡Ø-‡‡µ‡‡‡ ‚î the charge is zero.  Written with holes and composed in
--- conversation with the kernel; the header is filled in when the holes are.
+-- ‡‡‡®‡‡Ø-‡‡µ‡‡‡ ‚î the charge is zero.
 --
 -- WHAT IS BEING ASKED.  `OjaYugma_...` checked that the squarefree prime
 -- charge is ‚àí Œ© ¬ Œª, with Œ© the active-place count and Œª = (‚àí1)^Œ© the parity
@@ -9,10 +8,9 @@
 -- Theorem F" ‚î a rank-zero separable family is the zero function.
 --
 -- That reading is only worth its words if the charge vanishes exactly on the
--- vacuum: nowhere else.  It was asked as a question and the kernel answered.
+-- vacuum: nowhere else.
 --
--- WHAT IS CHECKED.  Three statements, `--cubical --safe`, no holes, no
--- postulates, batch exit 0:
+-- WHAT IS PROVED.  Three statements:
 --
 --   ‡‡∞‡‡Ø‡æ‡Ø-‡µ‡∞‡‡ó‡    Œª¬≤ = 1 ‚î the parity character squares to the unit, so it
 --                   is never zero and multiplying by it is invertible
@@ -27,13 +25,7 @@
 -- charge only where there are no active places at all, and every further
 -- place must be paid for.  The price is `squarefreeChargeCube_rankExactly`,
 -- in the Lean lane; what is added here is that r = 0 has no slack in it.
---
--- HOW.  Written with holes, loaded warm through ‡®‡æ‡°‡, the kernel naming its
--- ‡‡ø‡¶‡‡∞‡æ‡‡ø; each filler proposed with `give` and accepted live before it was
--- written down; then sealed and batch-checked.  One proposal appeared to
--- come back with no obligation named, which turned out to be the conduit and not the
--- term ‚î see the turn-boundary repair in `interactive/Nadi.hs` committed the same
--- hour.  The term had been right the first time.
+
 module SunyaAvesa_TheChargeVanishesExactlyOnTheVacuumSoTheNeutralSectorIsTheEmptyPlaceSet where
 
 open import Cubical.Foundations.Prelude

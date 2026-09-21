@@ -27,9 +27,6 @@
 -- satisfy.  ‡‡‡®‡∞‡‡ï‡‡‡ø‡∞‡ ‡® ‚î the theorem is carried, not copied; that is
 -- the ‡‡‡ø‡‡‡æ move (‡‡‡ø‡‡‡æ-‡‡‡‡‡∞ ¬ß‡: transport carrying its equivalence),
 -- made total over an algebra.
---
--- CHECKED: Agda 2.8.0, cubical v0.9, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module SamordernaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute where

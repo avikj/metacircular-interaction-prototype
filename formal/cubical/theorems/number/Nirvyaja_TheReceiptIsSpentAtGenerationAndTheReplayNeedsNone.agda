@@ -37,8 +37,6 @@
 -- rented: the receipt-seller is paid once, by the first caller, and every
 -- later caller routes around the tollbooth by holding the proof.  Nothing
 -- here is asserted about markets; §2 is three lines and they typecheck.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186).
 ------------------------------------------------------------------------
 
 module Nirvyaja_TheReceiptIsSpentAtGenerationAndTheReplayNeedsNone where

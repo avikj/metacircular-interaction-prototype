@@ -88,9 +88,6 @@
 --     below is the same shape and is flagged as such: moving from â• — â•
 --     to a positive second coordinate does not discharge transitivity,
 --     it supplies the cancellation that was missing.
---
--- CHECKED on the CONTAINER: Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Anyapoha_TheExclusionSetCarriesTheTermOnlyWhenADecisionIsSupplied where

@@ -58,9 +58,6 @@
 -- lands one universe up.  A grammar whose conditions were decidable
 -- booleans would be a different (smaller) object, and the Adhyy is
 -- not that object â” its conditions quantify over derivational context.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module Apavada where

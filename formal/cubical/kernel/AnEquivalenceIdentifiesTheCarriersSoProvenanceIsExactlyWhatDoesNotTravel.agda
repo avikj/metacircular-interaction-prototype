@@ -80,8 +80,6 @@
 --       is total; there is no `Maybe`, no error, and no silent case.
 --   Â§7  the fixed-representation encounter is the identity instance, so
 --       `TheEncounterOfTwoPeersâ¦` is this file at `e = idEquiv`.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0.
 ------------------------------------------------------------------------
 
 module AnEquivalenceIdentifiesTheCarriersSoProvenanceIsExactlyWhatDoesNotTravel where

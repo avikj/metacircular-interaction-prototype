@@ -36,9 +36,6 @@
 -- visits points.  `interactive/Lopa_â¦hs` therefore reports UNDECIDED by count
 -- rather than guessing, on the stated ground that a verdict guessed is
 -- worse than a verdict withheld.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
--- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Anupalabdhi_AbsenceIsAStatementAboutTheWholeFieldAndNotAFailureAtAPoint where

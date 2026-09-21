@@ -20,10 +20,7 @@
 --
 -- Predicates are recursive type families rather than inductive ones:
 -- indexed inductive families over lists need injectivity of _::_, which
--- cubical Agda does not provide.  (Caught by the checker, recorded.)
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-13.
--- No postulates, no holes.
+-- cubical Agda does not provide.
 
 module NaturalMachine.WalkCapacity where
 

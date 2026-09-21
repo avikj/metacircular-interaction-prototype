@@ -63,9 +63,6 @@
 --     `NaturalMachine.FiniteInformation` by import.  No definition of
 --     FactorsThrough/FiberConstant is restated here; if that module's
 --     meaning shifts, this crossing re-prices automatically.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Marga2_TheFirstTolledCrossingOfAOneWayEdge where

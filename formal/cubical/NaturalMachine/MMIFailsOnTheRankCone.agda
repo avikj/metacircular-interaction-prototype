@@ -59,10 +59,6 @@
 -- standard example of a holographic inequality with no classical or
 -- general-quantum provenance.  What is supplied is the decision the target
 -- note asked for, in its own dictionary, with the witness checked.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 with the `notes/CUBICAL_PATCH.md`
--- back-port, `--cubical --safe`, no postulates, no holes.  This is NOT the
--- repository pin (2.8.0 + v0.9); see `formal/cubical/BUILD.md`.
 ------------------------------------------------------------------------
 
 module NaturalMachine.MMIFailsOnTheRankCone where

@@ -36,9 +36,6 @@
 --
 -- TERM.  ‡‡ï‡‡‡‡‡∞ ‚î "one thread / one aphorism"; ordinary ,
 -- compound built here, no text claimed (CLAUDE.md naming rule note 2).
---
--- CHECKED: Agda 2.6.3 + cubical v0.5 (container; corpus pin 2.8.0/v0.9).
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module EkaSutra_JTheGraphAndTheFundamentalTheoremAreInstancesOfSingletonContractionSoAuthorsRetireIntoInstantiation where

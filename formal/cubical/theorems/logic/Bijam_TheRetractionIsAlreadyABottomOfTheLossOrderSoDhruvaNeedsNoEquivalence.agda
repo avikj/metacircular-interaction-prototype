@@ -49,9 +49,6 @@
 --
 -- ‡‡‡ (seed) in its plain sense; no text is claimed.  The mathematics is
 -- cubical type theory.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence where

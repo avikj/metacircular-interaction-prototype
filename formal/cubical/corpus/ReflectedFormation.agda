@@ -25,8 +25,7 @@
 --     destructive ingestion: the raw term is retained; normalisation is
 --     something one may ask for, not something done to the stored datum.
 --
--- No new semantic theory. Under --safe, exit 0 at the pin (Agda 2.8.0,
--- agda/cubical v0.9).  The reflection primitives run only at elaboration
+-- No new semantic theory.  The reflection primitives run only at elaboration
 -- time, through the demonstration macros in §4 and in CorpusPresentation.
 ------------------------------------------------------------------------
 

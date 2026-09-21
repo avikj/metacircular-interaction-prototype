@@ -38,9 +38,6 @@
 -- NO NOVELTY.  Irreflexivity and transitivity of a strict order defined
 -- by cross multiplication are elementary; lifting propositional
 -- statements through a set-quotient by `elimProp` is standard.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt where

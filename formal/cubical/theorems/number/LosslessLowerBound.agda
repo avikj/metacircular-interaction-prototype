@@ -38,10 +38,6 @@
 -- mathematics; what is new is that the walk's optimality no longer rests
 -- on a sentence in a comment.
 --
--- Five rediscoveries were logged in this session by finding prior art at
--- audit time.  This one was found before writing, which is the whole of
--- the difference.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- AND WHY THIS SHAPE MATTERS TO THE DEFLATIONARY THREAD
 --
@@ -59,9 +55,6 @@
 -- A limitation you can state is a Î  over machines.  A barrier you cannot
 -- state is a Â over propositions.  The corpus has been writing the second
 -- while meaning the first.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module LosslessLowerBound where
@@ -126,15 +119,12 @@ lossless-needs-room n Y obs inj =
 -- This module imports `FinCardinality`, which pulls in the FinSet
 -- machinery and takes several minutes to elaborate from a cold cache.
 -- That cost is deliberate: the alternative was a private copy of the
--- pigeonhole, and this session has already logged five instances of the
--- corpus proving one thing repeatedly because prior art was searched
--- after the write-up.  A slow import that reuses a checked theorem is the
+-- pigeonhole.  A slow import that reuses a checked theorem is the
 -- cheaper of the two.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 5.  RELATION TO `WalkCapacity` â” checked after the fact,
---     and they are complements rather than duplicates.
+-- 5.  RELATION TO `WalkCapacity` â” they are complements rather than duplicates.
 --
 -- `WalkCapacity` (2026-08-13) proves the capacity theorem: any lossless
 -- sensor family whose addresses are all â‰ k has lcm DIVIDING lcm(1..k),

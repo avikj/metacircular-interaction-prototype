@@ -50,9 +50,6 @@
 -- NO NOVELTY.  That a minimum and a maximum coincide only on a constant
 -- list is elementary order theory; it is here to be ATTACHED to ยง2, not
 -- because it is new.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 โ” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module AscendingFirstIsTheWorstUnlessTheArchiveIsConstant where

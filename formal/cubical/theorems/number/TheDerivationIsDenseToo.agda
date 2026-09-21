@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- TheDerivationIsDenseToo
 --
--- A scope correction to `NumberIsExponentialInDerivation`, made the same
--- session, by the same author, before anyone had to find it.
+-- A scope correction to `NumberIsExponentialInDerivation`.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE OVER-REACH
@@ -43,15 +42,10 @@
 -- same reason it was placed there: the estimate is unavailable in this
 -- lane and quoting it would be the error CLAUDE.md forbids.  The previous
 -- module's own boundary paragraph forbade the conclusion its table drew,
--- one screen further down.  That is worth recording as a failure mode in
--- its own right: **a correctly-hedged file whose summary table forgets
--- the hedge.**
+-- one screen further down.
 --
 -- WHAT SURVIVES.  `sucâ‰^` and `1â‰^` are unaffected, as is everything in
 -- Â§Â§1â“2 of that module.  What is withdrawn is the word "IDENTIFIED".
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheDerivationIsDenseToo where

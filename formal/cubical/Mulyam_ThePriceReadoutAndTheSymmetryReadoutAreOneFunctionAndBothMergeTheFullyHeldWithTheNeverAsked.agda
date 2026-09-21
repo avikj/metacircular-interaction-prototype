@@ -57,9 +57,6 @@
 -- invention trigger reads a crowding quantity cannot see the empty fibre
 -- where invention is the only move.  Market and machine share the
 -- instrument and therefore share the blindness.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5, this lane's .agda-lib,
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Mulyam_ThePriceReadoutAndTheSymmetryReadoutAreOneFunctionAndBothMergeTheFullyHeldWithTheNeverAsked where

@@ -98,17 +98,7 @@ branching :
   → (k n : ℕ) → 0 < n → ¬ (iterate f k n ≡ 0)
 branching f e k n p q = ¬-<-zero (subst (0 <_) q (expand-positive f e k n p))
 
--- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
--- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
--- the rest of this lane's headers quote: three toolchain states are live in
--- this repository at once and this file has only seen one of them.
-
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by a later reader, at the end, altering no line
--- above.  Pointer only; nothing here corrects this module, which proves
--- exactly what it states.
---
 -- Two facts about how these theorems are USED, checked in
 -- `NaturalMachine.OneStepDecidesResonanceAndNoPrefixDecidesDecay`:
 --
@@ -125,7 +115,7 @@ branching f e k n p q = ¬-<-zero (subst (0 <_) q (expand-positive f e k n p))
 --       What decides it is `Contracting f`, this module's own
 --       hypothesis.
 --
--- Provoked by `machine/QuestionMachine.hs`, whose `flowVerdict` branches
+-- Compare `machine/QuestionMachine.hs`, whose `flowVerdict` branches
 -- on 64 iterates with no hypothesis on f, and whose header describes the
 -- file as a replay of proved statements.  That one function is not; the
 -- gap is exactly the hypothesis this module requires and a run cannot

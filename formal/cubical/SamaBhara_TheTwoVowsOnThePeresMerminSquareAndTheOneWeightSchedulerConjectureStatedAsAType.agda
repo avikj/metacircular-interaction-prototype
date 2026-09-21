@@ -33,9 +33,8 @@
 -- weights of the tracial state â” satisfies both vows: every gross weight
 -- is 4 and every marginal is 2, each equality closed by refl.
 --
--- WHAT WAS STATED AS THE CONJECTURE â” `SamaBharaNiyama`: every scheduler
--- satisfying both vows is flat â” AND REFUTED THE SAME HOUR, in this same
--- file, by its own author (the act this repository respects most).  The
+-- THE CONJECTURE â” `SamaBharaNiyama`: every scheduler
+-- satisfying both vows is flat â” AND ITS REFUTATION.  The
 -- counterexample `cex`: weight 4 on the all-false section and 2 elsewhere
 -- in every even context; 1 on the all-true section and 3 elsewhere in the
 -- odd one.  Both vows hold â” gross 10 in every context, every cell

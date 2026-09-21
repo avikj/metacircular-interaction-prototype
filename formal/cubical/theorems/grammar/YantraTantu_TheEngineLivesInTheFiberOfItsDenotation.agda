@@ -43,10 +43,6 @@
 -- Every declaration below is an instantiation, a `refl`, or one line.
 -- `LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt` records
 -- the rule this follows: where a joint takes work, the joint is wrong.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical, with the back-port in
--- `Tantujala` is checked under the pin (2.8.0 / v0.9) by its author and
--- also checks here.
 ------------------------------------------------------------------------
 
 module YantraTantu_TheEngineLivesInTheFiberOfItsDenotation where

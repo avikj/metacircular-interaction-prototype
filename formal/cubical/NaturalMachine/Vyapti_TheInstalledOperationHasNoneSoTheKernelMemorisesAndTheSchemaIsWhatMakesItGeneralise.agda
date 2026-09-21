@@ -68,8 +68,6 @@
 --       exhibits the two-element case of this (two histories, one target);
 --       here it is unbounded.  Collapsing that fibre is the loss the carrier
 --       law prices, and the reason `advance` refuses to dedupe.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise where

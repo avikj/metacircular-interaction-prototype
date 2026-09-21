@@ -49,9 +49,6 @@
 -- the compound ‡‡‡∞‡ï‡‡‡ï‡ó‡ and the application to a monoid of flows are
 -- built here, and no text is claimed for them.  "Monoid" itself is
 -- modern (the structure is used from the library, not re-derived).
---
--- CHECKED: Agda 2.8.0 + agda/cubical (installed bundle), --cubical
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Mula.SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl where

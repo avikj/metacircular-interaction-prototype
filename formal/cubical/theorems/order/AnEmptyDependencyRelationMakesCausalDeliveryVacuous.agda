@@ -32,22 +32,6 @@
 -- treats and none of which appears below.  NOT claimed: that eventual
 -- and causal consistency are the same in general; the claim is about the
 -- degenerate case, which is the case the note identifies.
---
--- DATE CHECKED BEFORE ANY COMMENT ON THE CLAIM.
--- `git log --diff-filter=A --format='%h %ad' --date=short` gives
--- `6e9fffd8  2026-08-14` for that note.  Its "the corpus records none"
--- was written five days ago, and it is one of the two premises here.
--- One thing HAS changed since, and it is small and must not be
--- overstated: this session added 26 pointer edges â” appended
--- back-references from a corrected file to its corrector.  By Â§3 an
--- inhabited relation is no longer vacuous, so those edges DO constrain
--- some orders.  That is all they do.  Twenty-six edges are not a
--- happens-before relation for the corpus, no note yet declares its
--- claim-level dependencies, and Â§3 says nothing about how many edges
--- would suffice for anything.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module AnEmptyDependencyRelationMakesCausalDeliveryVacuous where
@@ -114,11 +98,4 @@ module _ (Write : Type) (hb : Write â†’ Write â†’ Type) where
 -- constraint bite.  And Â§3 says the repair is not a better process but a
 -- recorded edge â” which is why that note calls the missing thing
 -- METADATA rather than latency.
---
--- KEPT SEPARATE, deliberately.  This session has a distinct finding
--- about back-references not reaching the files that carry a corrected
--- claim.  That was about REACHABILITY for a human reader.  This is about
--- a delivery ORDER for concurrent writers, and the two coincide only in
--- that both are repaired by writing an edge down.  Neither derives the
--- other and they are not merged.
 ------------------------------------------------------------------------

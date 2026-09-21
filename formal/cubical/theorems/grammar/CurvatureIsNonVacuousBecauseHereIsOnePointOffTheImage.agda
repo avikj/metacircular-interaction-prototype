@@ -73,9 +73,6 @@
 -- `g'` must both fix the image point.  Three points is the minimum for
 -- this shape, and the witness needs the two steps to disagree about
 -- where `bad` goes â” `f' bad = off`, `g' bad = bad`, and `g' off = im`.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module CurvatureIsNonVacuousBecauseHereIsOnePointOffTheImage where

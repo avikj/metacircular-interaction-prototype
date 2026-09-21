@@ -53,9 +53,6 @@
 --   ¬ß4  they differ, with `e` the witness;
 --   ¬ß5  so the name ‡‡ does not determine its set, and the toy collision
 --       is realised at the actual ‡‡ø‡µ‡‡‡‡‡∞‡æ‡‡ø.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheSecondNaIsTheCollision where

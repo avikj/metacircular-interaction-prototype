@@ -248,9 +248,6 @@ oneRectangleImpossible œÅ Œ≥ sound p q =
                     (and-true-r (œÅ r‚ÇÇ) (Œ≥ c‚ÇÇ) q)
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by a later reader, at the end, altering no line
--- above.  Pointer only; nothing here corrects this module.
---
 -- The lower-bound argument this header states ‚î "a rectangle through
 -- (r‚,c‚) and (r‚,c‚) must contain (r‚,c‚), where the matrix is 0" ‚î is
 -- carrier-free, and is now a term for arbitrary row and column types in
