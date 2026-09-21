@@ -2,7 +2,8 @@
 # Clones the official Bend 2 at the pinned commit, applies cubical.patch,
 # runs the cubical tests (check + interpret; the compiled_*.bend files on
 # the JS lane, and on the C lane when clang is present), then the
-# interpreter-lane suite. Needs bun.
+# interpreter-lane suite, and checks bend2/cubical.lean when lean is on
+# PATH. Needs bun.
 set -e
 HERE=$(cd "$(dirname "$0")" && pwd)
 WORK=${1:-/tmp/bend-cubical}
@@ -32,6 +33,11 @@ for f in tests/cubical/*.bend; do
   if [ "$got" == "$want" ]; then pass=$((pass+1)); echo "PASS $f"; else fail=$((fail+1)); echo "FAIL $f"; diff <(echo "$want") <(echo "$got") | head -20; fi
 done
 echo "cubical: $pass passed, $fail failed"
+if command -v lean >/dev/null; then
+  if lean bend2/cubical.lean; then echo "lean: bend2/cubical.lean checks"; else echo "lean: bend2/cubical.lean FAILED"; fi
+else
+  echo "lean: not on PATH, bend2/cubical.lean not checked (elan: https://github.com/leanprover/elan; Lean 4.34 was used)"
+fi
 echo "interpreter-lane suite (upstream tests; four pinned answers change on purpose, see README:"
 echo "  proof/no_funext_000 halt/strict_descent halt/duplicate_deferred grade/reject_leak):"
 p=0; n=0

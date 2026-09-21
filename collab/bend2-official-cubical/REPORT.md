@@ -15,8 +15,8 @@ The artifact is four things:
 
 | path | what it is |
 | --- | --- |
-| `cubical.patch` | the whole change against upstream: `bend2/bend.ts` (2180 lines added, 88 removed, 54 hunks), `bend2/comp.ts` (32 added, 5 removed, 9 hunks), `bend2/base.bend` (78 added, 1 hunk) |
-| `tests/cubical/*.bend` (30 files) and `issue_874.js` | the tests, in upstream's own format: a Bend file that ends in the `#\|` lines its run must print |
+| `cubical.patch` | the whole change against upstream: `bend2/bend.ts` (54 hunks), `bend2/comp.ts` (11 hunks), `bend2/base.bend` (1 hunk), and the new `bend2/cubical.lean` |
+| `tests/cubical/*.bend` (31 files) and `issue_874.js` | the tests, in upstream's own format: a Bend file that ends in the `#\|` lines its run must print |
 | `run.sh` | clones upstream at the pinned commit, applies the patch, runs the cubical tests (check + interpret; the compiled ones on the JS lane and on the C lane when clang is present), then upstream's interpreter-lane suite |
 | `README.md` | the short form of this report |
 
@@ -306,9 +306,13 @@ fixes replaced by its literal), computed by `face_check` and applied by
 
 ### III.4 Conversion (`term_compare`)
 
-- Two interval terms are convertible iff they agree on every assignment of
-  their atoms (a truth table over at most 16 atoms; the free De Morgan
-  algebra is decided exactly).
+- Two interval terms are convertible iff they agree under every valuation
+  of their atoms in the four-element De Morgan algebra DM4 (at most 8
+  atoms). DM4 generates the variety of De Morgan algebras, so this is
+  exactly equality in the free De Morgan algebra, the CCHM interval. A
+  two-valued table would also validate `i /\ -i == i0`, which the interval
+  does not have; `bend2/cubical.lean` proves the difference and the
+  soundness of the folds (Part XI).
 - `{==}` against a path lambda: the lambda must be a constant path.
 - Same-head shortcut: the same definition at convertible arguments is
   convertible before either unfolds (a corecursive def would unfold
@@ -614,8 +618,10 @@ mentions a variable index (default the sentinel); `term_names(t, k)`
 whether it mentions a family or definition by name (used by positivity and
 transportability). `itv_eq` decides equality in the free De Morgan algebra:
 collect the atoms of both sides (any stuck non-interval term, keyed by its
-syntax, a variable by its index), and evaluate both sides under every
-assignment of at most 16 atoms; more atoms are conservatively unequal.
+syntax, a variable by its index), and evaluate both sides under every DM4
+valuation of at most 8 atoms (`DM4_MIN`, `DM4_MAX`, `DM4_NEG` are the
+algebra's tables, `0 < a, b < 1`, `a` and `b` each its own negation); more
+atoms are conservatively unequal.
 
 **`coe_line`, `coe_step`.** `coe_line(A, f)` builds the line `i => f(A(i),
 i)`. `coe_step` is III.3's transport, case by case; two details matter:
@@ -818,6 +824,19 @@ or a section's, decided before emission).
 **`@-1055` (patch:2906) — a diagnostic.** "a constructor outside a
 datatype" now names the constructor and the type it was found at.
 
+**`@-1063`, `@-1659` — `adt_copies` and the take rule.** `adt_copies(book,
+k)` says whether the family of constructor `k` is `Data`-kinded (its
+declared kind, read off its telescope's tip; an unknown family counts as
+copyable). In `node_fields`, an owned node (`brwl` has no root for it) is
+taken through `ctr_take` when its constructor is hot, static, *or its
+family copies*. The checker allows a value to be used more than once only
+at a `Data` type, so a `Type`-kinded family (closures inside) is never
+shared and its raw read is provably safe; every `Data` node goes through
+the tag check, so the hot walk can no longer cause a raw read of a shared
+node. `ctr_take` on an unshared node is the raw read plus one branch;
+upstream's `bfs`, `queens` and `tree-matmul` benches, sequential, are
+within 1% of upstream after the change.
+
 **`@-1406` (patch:2915) — `def_body` runs the two passes.** A module-level
 `Mint` is bound to the book being compiled, its local memo reset per def,
 and the tree handed to the emitter is `term_unpath(term_uncoe(e))`: Kan
@@ -910,6 +929,7 @@ every file on check + interpret; the ones marked C/JS also compiled.
 | `issue_852.bend` | a nat-literal pattern with fields is refused (upstream's fix, pinned) | error | interp |
 | `issue_853.bend` | the reporter's program prints 5 on the C lane (upstream's fix, pinned) | `5` | interp, JS, C |
 | `issue_901.bend` | the reporter's matrix product at depth 2 (upstream faults) | `64` | interp, JS, C |
+| `demorgan.bend` | the De Morgan, absorption, idempotence and involution laws hold by conversion; `{==}` at `{i /\ -i == i0 : Interval}` is refused | error, `expected i /\ -i / observed i0` | interp |
 
 `issue_874.js` is the whole host side of #874: `function forge_eql(kont) {
 return { $: "Rfl" }; }`, a JavaScript function that returns the encoding
@@ -1021,10 +1041,10 @@ way, so a failure counts only when the two trees differ.
 
 ## Part X. Limits, and what is left
 
-- **Interval equality is bounded.** `itv_eq` evaluates a truth table over
-  at most 16 atoms and answers "unequal" above that. No test comes near
-  it; a term with 17 distinct stuck interval atoms would be refused where
-  it is in fact convertible.
+- **Interval equality is bounded.** `itv_eq` evaluates DM4 valuations
+  over at most 8 atoms (65536 valuations) and answers "unequal" above
+  that. No test comes near it; a term with 9 distinct stuck interval atoms
+  would be refused where it is in fact convertible.
 - **A composite or glue whose face is a dimension variable in live
   code** cannot arise (dimensions are dead), so the compiler's refusal of
   "an undecided face" is a diagnostic, not a gap.
@@ -1036,17 +1056,87 @@ way, so a failure counts only when the two trees differ.
   a function captured by the line) is refused with "pass it as a ~
   template"; the transport is pushed into every field and would spend the
   variable once per field.
-- **The C-lane ownership analysis is still syntactic.** #901 was closed
-  by completing a walk, not by deriving ownership from the checker's
-  quantities. The checker knows, for every binder, whether its value is
-  copied (`+`), used once, or dead; a type-directed lowering that reads
-  those quantities would make a whole class of "raw read of a shared node"
-  faults impossible by construction. This is the natural next step and it
-  is a compiler change only.
-- **The Lean spec (`bend.lean`)** does not model the new forms: the kind
-  rule for proof-valued functions with its positivity condition, the
-  guarded self-call, and the Kan operations all need their metatheory
-  carried.
+- **The C-lane ownership analysis is half type-directed.** Reads are
+  decided by kinds (a `Data` node is always taken through its tag, Part V),
+  so a raw read of a shared node cannot be emitted. Sealing a node's fields
+  at build still relies on the hot walk (now complete over nested matches);
+  a constructor the walk misses is shared unsealed and fails stop with
+  `ERR_RFCS` at the take, never a memory fault. Sealing lazily at share time
+  would remove the walk, but a shared node's fields may be faded by two
+  threads at once on the device lanes, which have no 64-bit compare and
+  swap, so static sealing is the price of lock-free sharing there.
+- **The Lean spec.** `cubical.lean` proves the interval and states the
+  fragment's rules (Part XI); canonicity for `coe`/`hcomp`/`Glue`, the kind
+  rule for proof-valued functions with its positivity condition, and the
+  guarded self-call are stated, not proved. Extending `bend.lean`'s `Term`
+  would touch its twenty thousand lines of proofs; the fragment is kept in
+  its own file until that is done.
+
+---
+
+## Part XI. The mechanization (`bend2/cubical.lean`) and the trust boundaries
+
+`bend2/cubical.lean` is checked by Lean 4.34 with no imports and no
+`sorry` (638 lines). Upstream's `bend.lean` checks under the same
+toolchain in about 90 seconds; the two are independent files.
+
+**§1 DM4.** The four-element De Morgan algebra as an inductive with `neg`,
+`min`, `max`; every lattice law (commutativity, associativity,
+idempotence, absorption, distributivity, the bounds), the De Morgan laws
+and involution, each by finite case analysis; and `not_boolean`: `a /\ -a
+≠ 0`.
+
+**§2 Interval terms and `Eq`.** `Itv` (atoms by number, `i0`, `i1`, `neg`,
+`min`, `max`), evaluation under a valuation `Nat → DM4`, and `Eq r s := ∀
+ρ, eval ρ r = eval ρ s`. `Eq` is reflexive, symmetric, transitive, a
+congruence for the three operators, and every De Morgan law holds as an
+`Eq` between terms. This is the specification of interval conversion;
+`itv_eq` in bend.ts computes it (the citation, not proved here: DM4
+generates the variety, Kalman 1958, so `Eq` is equality in the free De
+Morgan algebra).
+
+**§3 The folds.** `Fold` lists exactly the eleven rewrites `term_wnf`
+applies in its `Ineg`, `Imin`, `Imax` cases; `fold_sound` proves each is an
+`Eq`.
+
+**§4 Why DM4.** `EqBool` is agreement under `{0, 1}` valuations only.
+`Eq.toBool`: `Eq` refines `EqBool`. `eq_strictly_finer`: `i /\ -i` and
+`i0` are `EqBool` but not `Eq` (the valuation sending the atom to `a`
+separates them). This is the theorem that changed the checker: the first
+version of `itv_eq` was the two-valued table.
+
+**§5 Canonicity of the interval.** `Fold1` is a fold anywhere under the
+operators and `Folds` its reflexive-transitive closure, both proved sound.
+`closed_endpoint`: a closed interval term is `Eq` to `i0` or `i1`.
+`closed_folds`: the folds reach that endpoint, which is what `term_wnf`
+computes when it normalizes a face or a coe's endpoints.
+
+**§6 The fragment.** `CTerm` (the fragment's nodes over opaque core
+terms, dimensions de Bruijn), dimension substitution, faces with `Holds`
+and `Dead` (`holds_not_dead`: exclusive), `Step` with the rules of Part
+III.3 that need only the fragment (path beta, the endpoint rules off an
+annotation, J on the constant path and J as transport along the
+connection square, `coe` at equal endpoints or along a constant line,
+`hcomp`/`Glue`/`glue` at a face that holds or with every face dead,
+`unglue` of a `glue`), and `Has`, the typing rules of Part III.2
+parametric in the core's conversion and typing (`Judg`). The Kan rules by
+type shape (the function and constructor cases of `coe_step`/`hcm_step`)
+are stated in Part III against `bend.lean`'s core and not transcribed.
+
+**The trust boundaries, after this work.** From the outside in:
+
+1. *The source theory* (CCHM): a constructive model and canonicity exist
+   in the literature; the port adds nothing the model does not have,
+   except the affine kind of universe paths, which restricts, not extends.
+2. *The checker*: `bend.lean` for the core; `cubical.lean` for the
+   interval (proved) and the fragment's rules (specified). The residual
+   trust is that the TypeScript matches the two files.
+3. *The lowering*: reads decided by kinds (proved safe by the checker's own
+   affinity), seals by the hot walk (complete over every syntactic form,
+   fail-stop when wrong). The residual trust is the walk and the rest of
+   the emitter, which is not a term of the language.
+4. *The runtime*: the refcount cells, atomics and allocator, unstated.
+5. *The host*: typed by transportability; delivers data, never evidence.
 
 ---
 
@@ -1074,7 +1164,9 @@ bun bend2/main.ts tests/cubical/compiled.bend -o x && ./x
 @-3538 @-3554 @-3603 @-3618 @-3633 @-3663 @-3678 @-3696 @-3780 @-3822
 @-3856` (54 hunks, all covered in Part IV).
 
-`bend2/comp.ts`: `@-793 @-908 @-945 @-1055 @-1406 @-1699 @-2461 @-3130
-@-3141` (9 hunks, Part V).
+`bend2/comp.ts`: `@-793 @-908 @-945 @-1055 @-1063 @-1406 @-1659 @-1699
+@-2461 @-3130 @-3141` (11 hunks, Part V).
 
 `bend2/base.bend`: `@-419` (1 hunk, Part VI).
+
+`bend2/cubical.lean`: a new file (Part XI).

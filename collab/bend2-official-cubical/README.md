@@ -291,10 +291,37 @@ closed by a rule, not by a patch to one program.
   (upstream's `template_inst_cycle` test; a `LAWS`/`PROOF` pair with an
   unrelated def is an error, an open law is `1 TODO found`).
 
+## The trust boundaries, and what closed since the issues
+
+- **The interval is the free De Morgan algebra, mechanized.** Conversion
+  of interval terms is decided in the four-element De Morgan algebra
+  (which generates the variety), not in `{0, 1}`: a two-valued table
+  validates `i /\ -i == i0`, which is not a law of the interval.
+  `bend2/cubical.lean` (checked, no `sorry`) proves the folds `term_wnf`
+  applies are sound, the decision relation is a congruence satisfying every
+  De Morgan law, the two-valued table is strictly coarser (the
+  counterexample above), and canonicity: a closed interval term folds to
+  an endpoint. It also states the fragment's reduction and typing rules as
+  inductive relations, the list the TypeScript is audited against.
+  `tests/cubical/demorgan.bend` pins the laws and the refusal.
+- **A raw read of a shared node cannot be emitted.** The C lane takes an
+  owned node through its refcount tag whenever its family is `Data`, the
+  checker's own condition for a value to be copyable; a `Type`-kinded
+  family (closures inside) is affine by the checker's rule, never shared,
+  and reads raw. The hot walk now only decides which constructors seal
+  their fields at build; whatever it misses fails stop (`ERR_RFCS`)
+  instead of faulting. Cost on upstream's benches (`bfs`, `queens`,
+  `tree-matmul`, sequential): within 1% of upstream.
+
 ## What is left
 
 - A composition or glue whose face is a dimension *variable* in live code
   (it cannot arise: dimensions are dead, so this is a diagnostic).
-- The Lean spec (`bend.lean`) does not model the new forms: the kind rule
-  for proof-valued functions with its positivity condition, the guarded
-  self-call, and the Kan operations all need their metatheory carried.
+- The Lean spec (`bend.lean`) does not carry the new forms' metatheory:
+  `cubical.lean` specifies the fragment's rules and proves the interval,
+  but canonicity for `coe`/`hcomp`/`Glue`, the kind rule for proof-valued
+  functions with its positivity condition, and the guarded self-call are
+  stated, not proved.
+- The emitter is not a term of the language: ownership is now decided by
+  kinds for reads, but sealing still relies on the hot walk, and the
+  lowering as a whole is trusted, not proved.

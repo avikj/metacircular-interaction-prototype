@@ -1,5 +1,5 @@
 --- a/bend2/bend.ts	2026-09-20 16:43:18.850854191 +0000
-+++ b/bend2/bend.ts	2026-09-20 22:27:30.216997037 +0000
++++ b/bend2/bend.ts	2026-09-21 00:20:19.174234618 +0000
 @@ -292,9 +292,21 @@
    | { $: "Rfl" }                                                                   // {==}
    | { $: "Rwt"; e: TermOf<B>; p: TermOf<B>; f: TermOf<B> }                         // %e@E : P; f (p = _ => e => P)
@@ -944,7 +944,7 @@
        }, tm.s);
      }
      case "App": {
-@@ -3122,7 +3722,948 @@
+@@ -3122,7 +3722,960 @@
      case "Hol": {
        return Hol(tm.k, tm.s);
      }
@@ -1586,13 +1586,25 @@
 +  }
 +}
 +
++// the interval is the free De Morgan algebra on its atoms, and equality
++// there is decided in the four-element De Morgan algebra DM4 = {0, a, b, 1}
++// (0 < a, b < 1, a and b incomparable, each its own negation), which
++// generates the variety: two terms are equal in every De Morgan algebra
++// iff they agree under every DM4 valuation. a two-valued table would also
++// identify i /\ -i with i0, a law the interval does not have.
++// encoding: 0 = 0, a = 1, b = 2, 1 = 3; meet and join are the lattice's,
++// negation swaps 0 and 1 and fixes a and b
++const DM4_MIN: number[][] = [[0, 0, 0, 0], [0, 1, 0, 1], [0, 0, 2, 2], [0, 1, 2, 3]];
++const DM4_MAX: number[][] = [[0, 1, 2, 3], [1, 1, 3, 3], [2, 3, 2, 3], [3, 3, 3, 3]];
++const DM4_NEG: number[] = [3, 1, 2, 0];
++
 +function itv_eval(book: Book, t: HTerm, env: Map<string, number>): number {
 +  const x = term_wnf(book, t);
 +  switch (x.$) {
-+    case "Dim": return x.d;
-+    case "Ineg": return 1 - itv_eval(book, x.a, env);
-+    case "Imin": return Math.min(itv_eval(book, x.a, env), itv_eval(book, x.b, env));
-+    case "Imax": return Math.max(itv_eval(book, x.a, env), itv_eval(book, x.b, env));
++    case "Dim": return x.d === 0 ? 0 : 3;
++    case "Ineg": return DM4_NEG[itv_eval(book, x.a, env)];
++    case "Imin": return DM4_MIN[itv_eval(book, x.a, env)][itv_eval(book, x.b, env)];
++    case "Imax": return DM4_MAX[itv_eval(book, x.a, env)][itv_eval(book, x.b, env)];
 +    default: return env.get(itv_key(x)) ?? 0;
 +  }
 +}
@@ -1602,12 +1614,12 @@
 +  itv_atoms(book, a, atoms);
 +  itv_atoms(book, b, atoms);
 +  const ks = [...atoms];
-+  if (ks.length > 16) {
++  if (ks.length > 8) {
 +    return false;
 +  }
-+  for (let m = 0; m < (1 << ks.length); m++) {
++  for (let m = 0; m < (1 << (2 * ks.length)); m++) {
 +    const env = new Map<string, number>();
-+    ks.forEach((k, j) => env.set(k, (m >> j) & 1));
++    ks.forEach((k, j) => env.set(k, (m >> (2 * j)) & 3));
 +    if (itv_eval(book, a, env) !== itv_eval(book, b, env)) {
 +      return false;
 +    }
@@ -1893,7 +1905,7 @@
  }
  
  // Compare
-@@ -3139,19 +4680,85 @@
+@@ -3139,19 +4692,85 @@
  // same walk, kinds exact, no swap (a swap under EQ is harmless, so
  // the All case swaps unconditionally).
  
@@ -1983,7 +1995,7 @@
    }
    switch (a.$) {
      case "Var": {
-@@ -3173,16 +4780,16 @@
+@@ -3173,16 +4792,16 @@
          return true;
        }
        if (g.$ === "Min") {
@@ -2005,7 +2017,7 @@
      }
      case "Qnt": {
        return b.$ === "Qnt";
-@@ -3192,19 +4799,55 @@
+@@ -3192,19 +4811,55 @@
      }
      case "Min": {
        return b.$ === "Min"
@@ -2067,7 +2079,7 @@
      }
      case "ADT": {
        if (b.$ !== "ADT" || a.k !== b.k || a.x.length !== b.x.length) {
-@@ -3214,25 +4857,25 @@
+@@ -3214,25 +4869,25 @@
          return false;
        }
        return b.r.every((c) => a.r.includes(c))
@@ -2100,7 +2112,7 @@
      }
      case "Rfl": {
        return b.$ === "Rfl";
-@@ -3242,9 +4885,9 @@
+@@ -3242,9 +4897,9 @@
      }
      case "Rwt": {
        return b.$ === "Rwt"
@@ -2113,7 +2125,7 @@
      }
      default: {
        return false;
-@@ -3274,6 +4917,16 @@
+@@ -3274,6 +4929,16 @@
  // so its type's quantity is at least q under term_compare's order.
  
  export function term_infer(book: Book, lhs: LHS, tm: HTerm, qt: Quant, ctx: Ctx, d: number, sp: HTerm[] = []): Infer {
@@ -2130,7 +2142,7 @@
    switch (tm.$) {
      // Γ[x] = q A
      // where x is bound in Γ (a ~ argument checks in the empty context,
-@@ -3331,15 +4984,40 @@
+@@ -3331,15 +4996,40 @@
              x   = gen.x;
              sp  = sp.slice(x);
            }
@@ -2172,7 +2184,7 @@
            }
            break;
          }
-@@ -3382,7 +5060,144 @@
+@@ -3382,7 +5072,144 @@
        const B_ctx = ctx_bind(ctx, d, tm.q, tm.k, tm.A);
        const A_chk = term_check(book, lhs, tm.A, None(), Typ(Qua(lhs_kind(lhs, tm.q)), tm.s), ctx, d);
        const B_chk = term_check(book, lhs, tm.B(Var(tm.k, d)), None(), Typ(Qua(Lone()), tm.s), B_ctx, d+1);
@@ -2318,7 +2330,7 @@
      }
      // Γ ⊢ f : @q x:A -> B ~ fu
      // Γ ⊢ a : A ~ au
-@@ -3403,10 +5218,20 @@
+@@ -3403,10 +5230,20 @@
          return { ...f_inf, x: f_inf.x - 1 };
        }
        const f_wnf = term_wnf(book, f_inf.ty);
@@ -2340,7 +2352,7 @@
        return Infer(App(f_inf.tm, x_chk.tm, tm.s), f_wnf.B(tm.x), uses_add(f_inf.us, x_chk.us));
      }
      // book[k].T = @q1 p1:K1 -> .. -> Kind(G)
-@@ -3426,11 +5251,19 @@
+@@ -3426,11 +5263,19 @@
      // where A, a and b are dead; evidence is erased, so Data
      // ------------------------------------------------------ infer-eql
      // Γ ⊢ {a == b : A} : Data ~ {}
@@ -2364,7 +2376,7 @@
      }
      // Γ ⊢ T : Type
      // Γ ⊢ x : T ~ u
-@@ -3449,12 +5282,42 @@
+@@ -3449,12 +5294,42 @@
        if (tm.$ === "Ctr" && book_ctr(book, tm.k) === null) {
          throw Err(book, ctx, "a declared constructor", tm, tm.s, lhs.def);
        }
@@ -2407,7 +2419,7 @@
  export function term_check_kind(book: Book, lhs: LHS, T: HTerm, q: Quant, ctx: Ctx, d: number, s?: Span): void {
    const kind = Typ<HBody>(Qua(lhs_kind(lhs, q)), s);
    try {
-@@ -3466,6 +5329,16 @@
+@@ -3466,6 +5341,16 @@
  }
  
  export function term_check(book: Book, lhs: LHS, tm: HTerm, qt: Quant, ty: HTerm, ctx: Ctx, d: number): Check {
@@ -2424,7 +2436,7 @@
    switch (tm.$) {
      // a share cell in a goal-checked position: open it, no evaluation
      case "Var": {
-@@ -3481,13 +5354,105 @@
+@@ -3481,13 +5366,105 @@
      //       lhs steps by x while a parameter remains
      // ---------------------------------------------- check-lam
      // Γ ⊢ x => f : T ~ u - x
@@ -2531,7 +2543,7 @@
        if (lhs.n > 0) {
          f_lhs = { ...lhs, t: term_apply(lhs.t, x), n: lhs.n - 1 };
        }
-@@ -3515,7 +5480,7 @@
+@@ -3515,7 +5492,7 @@
        let f_ctx = ctx;
        for (let j = 0; j < n; j++) {
          const v_dem = quant_dem(tm.q[j], qt);
@@ -2540,7 +2552,7 @@
          term_check_kind(book, lhs, v_inf.ty, tm.q[j], ctx, d, tm.s);
          vx.push(v_inf.tm);
          us = uses_add(us, v_inf.us);
-@@ -3538,6 +5503,24 @@
+@@ -3538,6 +5515,24 @@
      // Γ ⊢ k{x1, .., xn} : T ~ u1 + .. + un
      case "Ctr": {
        const t_wnf = term_wnf(book, ty);
@@ -2565,7 +2577,7 @@
        if (t_wnf.$ !== "ADT") {
          const fam = book_ctr(book, tm.k) === null ? null : book_fam(book, tm.k);
          throw Err(book, ctx, ty, fam === null ? typeless_show(book, ctx, tm) : Ref(fam, tm.s), tm.s, lhs.def);
-@@ -3554,7 +5537,7 @@
+@@ -3554,7 +5549,7 @@
          throw Err(book, ctx, tm.k + " with " + String(ctr.n) + (ctr.n === 1 ? " field" : " fields"), tm, tm.s, lhs.def);
        }
        const tel = tele_fill(book, ctr.T, t_wnf.x, ctx, lhs.def, tm.s);
@@ -2574,7 +2586,7 @@
        return Check(Ctr(tm.k, xs, tm.s), ty, us);
      }
      // T == @q s:D<p..> -> P
-@@ -3603,9 +5586,42 @@
+@@ -3603,9 +5598,42 @@
              throw Err(book, ctx, "a constructor of " + a_wnf.k + " (missing, or already matched)", tm, tm.s, lhs.def);
            }
            const tel = tele_fill(book, ctr.T, a_wnf.x, ctx, lhs.def, tm.s);
@@ -2618,7 +2630,7 @@
              } else {
                const c_all = tele_head(book, cur, ctx, lhs.def, b.s);
                const c_dem = c_all.q.$ === "None" ? None() : c_all.q.$ === "Lone" ? t_all.q : quant_add(t_all.q, t_all.q);
-@@ -3618,9 +5634,18 @@
+@@ -3618,9 +5646,18 @@
            if (lhs.n > 0) {
              h_lhs = { ...lhs, t: lhs_ext(lhs.t, tm.k, ctr.n), n: lhs.n - 1 + ctr.n };
            }
@@ -2640,7 +2652,7 @@
            return Check(Mat(tm.k, h_chk.tm, m_chk.tm, tm.s), ty, pmap_union(h_chk.us, m_chk.us, quant_join));
          }
        }
-@@ -3633,7 +5658,7 @@
+@@ -3633,7 +5670,7 @@
        if (t_wnf.$ !== "Eql") {
          throw Err(book, ctx, ty, typeless_show(book, ctx, tm), tm.s, lhs.def);
        }
@@ -2649,7 +2661,7 @@
          throw Err(book, ctx, t_wnf.a, t_wnf.b, tm.s, lhs.def);
        }
        return Check(Rfl(tm.s), ty, uses_nil());
-@@ -3663,7 +5688,7 @@
+@@ -3663,7 +5700,7 @@
        const p_typ = All<HBody>(Lone(), "_", 0, e_wnf.T, (x: HTerm) => All<HBody>(Lone(), "e", 0, Eql(e_wnf.a, x, e_wnf.T), () => Typ(Qua(Lone())), tm.s), tm.s);
        const p_chk = term_check(book, lhs, tm.p, None(), p_typ, ctx, d);
        const b_gol = term_apply(term_apply(tm.p, e_wnf.b), tm.e);
@@ -2658,7 +2670,7 @@
          throw Err(book, ctx, ty, b_gol, tm.s, lhs.def);
        }
        const a_gol = term_apply(term_apply(tm.p, e_wnf.a), Rfl<HBody>(tm.s));
-@@ -3678,7 +5703,7 @@
+@@ -3678,7 +5715,7 @@
      }
    }
    const x_inf = term_infer(book, lhs, tm, qt, ctx, d);
@@ -2667,7 +2679,7 @@
      return { tm: x_inf.tm, us: x_inf.us };
    }
    throw Err(book, ctx, ty, x_inf.ty, tm.s, lhs.def);
-@@ -3696,15 +5721,60 @@
+@@ -3696,15 +5733,60 @@
    }
    const gen = def.x === 0 ? book : { ...book, tlds: Object.create(book.tlds) as Record<Name, TLD> };
    let [t, v, T]: HTerm[] = [Ref(k), def.v as HTerm, def.T];
@@ -2730,7 +2742,7 @@
  }
  
  // the name of a template def's instance at the spine's leading ~
-@@ -3780,6 +5850,73 @@
+@@ -3780,6 +5862,73 @@
  // (infer-ref) while the caller is declared; it stays outside the order
  // (a seeded book keeps it), so it is no claim.
  
@@ -2804,7 +2816,7 @@
  export function book_valid(book: Book, done: number = 0): void {
    const tlds = book.tlds;
    const last = new Map<Name, number>();
-@@ -3822,11 +5959,29 @@
+@@ -3822,11 +5971,29 @@
                goal = kind;
              }
              term_check(book, { t: Ref(ctr.k), n: 0, def: ctr.k, qs: [] }, t_all.A, None(), goal, ctx, d);
@@ -2836,7 +2848,7 @@
            if (tip.$ !== "ADT" || tip.k !== k || tip.x.length !== tld.n || tip.r.length !== 0) {
              throw Err(book, ctx, exp, tip, undefined, ctr.k);
            }
-@@ -3856,14 +6011,24 @@
+@@ -3856,14 +6023,24 @@
        for (let d = 0; tel.$ === "All"; d++) {
          tel = term_strip(tel.B(Var(tel.k, d)));
        }
@@ -2863,7 +2875,7 @@
      book.tlds[k] = def;
    }
 --- a/bend2/comp.ts	2026-09-20 16:43:18.850854191 +0000
-+++ b/bend2/comp.ts	2026-09-20 22:27:30.222622820 +0000
++++ b/bend2/comp.ts	2026-09-21 00:14:14.308520705 +0000
 @@ -793,6 +793,10 @@
      case "Ctr": return term_const(t) ? [] : ctr_flds(cf.book, t.k, t.x);
      case "Mat": return [t.h, t.m];
@@ -2912,7 +2924,32 @@
    }
    const word = adt.k === "U32" || adt.k === "F32";
    return [arr_open(fl.book, adt), word ? Bend.u32_from_term(x, adt.k) : null];
-@@ -1406,10 +1419,14 @@
+@@ -1063,6 +1076,24 @@
+ 
+ // A constructor's fields: the last n domains of its type, over the
+ // datatype's arguments `xs` when given.
++// the family of a constructor is Data-kinded: its values may be copied
++const COPIES = new Map<Bend.Name, boolean>();
++function adt_copies(book: Bend.Book, k: Bend.Name): boolean {
++  return memo(COPIES, k, () => {
++    const ctr = book.ctrs[k];
++    const fam = ctr && book.tlds[Bend.book_fam(book, k)];
++    if (!fam || fam.$ !== "ADT") {
++      return true;
++    }
++    const g = Bend.term_wnf(book, tele_unbind(book, fam.T).ret);
++    if (g.$ !== "Typ") {
++      return true;
++    }
++    const q = Bend.term_wnf(book, g.g);
++    return q.$ !== "Qua" || q.q.$ === "Many";
++  });
++}
++
+ function ctr_tail(book: Bend.Book, ctr: Bend.Ctr, xs?: HTerm[]): Dom[] {
+   const doms = tele_unbind(book, xs === undefined ? ctr.T
+     : Bend.tele_fill(book, ctr.T, xs, Bend.ctx_nil())).doms;
+@@ -1406,10 +1437,14 @@
  // Carb
  // ====
  
@@ -2928,7 +2965,22 @@
      const n = tld.n + Math.min(def_raise(cb.book, h, tld.n),
        tele_unbind(cb.book, tld.T).doms.length - tld.n);
      cb.book.tlds[k] = { ...tld, n, h };
-@@ -1699,6 +1716,15 @@
+@@ -1659,7 +1694,13 @@
+   }
+   const r = fl.brwl.get(t);
+   const k = node.arms![0].k;
+-  const z = r === undefined && (fl.hot.has(k) || fl.stat.has(k));
++  // an owned node is taken through its refcount tag whenever its family
++  // is Data: the checker lets a Data value be copied, so some holder may
++  // share it; a Type-kinded family (closures inside) is affine by the
++  // checker's own rule, never shared, and reads raw. the hot walk still
++  // decides which constructors seal their fields at build (a cost), but
++  // no raw read of a shared node can be emitted whatever the walk missed
++  const z = r === undefined && (fl.hot.has(k) || fl.stat.has(k) || adt_copies(fl.book, k));
+   const sp = name_local(fl, "sp");
+   let fb = `e.mem[${sp} + `;
+   if (z) {
+@@ -1699,6 +1740,15 @@
    if (w?.$ === "App" && force && facts_fam(fl, w, local)) {
      return;
    }
@@ -2944,7 +2996,7 @@
    if (w?.$ !== "ADT") {
      const dom = w?.$ === "Var" && !local && tele_unbind(fl.book,
        (fl.book.tlds[fl.def] as Def).T).doms[w.i];
-@@ -2461,6 +2487,7 @@
+@@ -2461,6 +2511,7 @@
        ? emit_clo(fl, x, ty) : emit_expr(fl, (x as Of<"Lam">).f(DUMMY),
          (ty_all(fl.book, ty) as HAll).B(DUMMY), at);
      case "Hol": die("a hole value");
@@ -2952,7 +3004,7 @@
      default: return emit_zero(fl, ty);
    }
  }
-@@ -3130,6 +3157,7 @@
+@@ -3130,6 +3181,7 @@
        return `run_clo((${arg}) => {\n${lines.join("\n")}\n})`;
      }
      case "Hol": die("cannot compile a hole");
@@ -2960,7 +3012,7 @@
      default: return "null";
    }
  }
-@@ -3141,7 +3169,7 @@
+@@ -3141,7 +3193,7 @@
      return file_push(fl, "return " + js_expr(fl, x, ty) + ";");
    }
    if (x.$ === "Lam") {
@@ -3081,3 +3133,644 @@
  # Empty
  # -----
  
+--- a/bend2/cubical.lean	1970-01-01 00:00:00.000000000 +0000
++++ b/bend2/cubical.lean	2026-09-21 00:25:58.750548607 +0000
+@@ -0,0 +1,638 @@
++-- ============================================================================
++-- BEND-CUBICAL — the interval of the cubical core, as bend.ts implements it
++-- ============================================================================
++--
++-- The cubical core of Bend 2 (cubical.patch) adds an interval to the
++-- language: i0, i1, -r, r /\ s, r \/ s over atoms (a bound dimension or
++-- any stuck term of type Interval). Two interval terms are convertible
++-- when they are equal in the free De Morgan algebra on their atoms, which
++-- is what CCHM cubical type theory requires of its interval.
++--
++-- bend.ts decides that equality by a finite table: it evaluates both
++-- terms under every valuation of their atoms in the four-element De Morgan
++-- algebra DM4 and asks whether they agree (itv_eq). This file is the
++-- specification and the proofs behind that procedure:
++--
++--   §1 DM4 is a De Morgan algebra (every law, by finite case analysis)
++--   §2 interval terms, their evaluation, and Eq (agreement under every
++--      DM4 valuation): an equivalence relation and a congruence
++--   §3 the constant folds term_wnf applies (Ineg, Imin, Imax cases) are
++--      sound: a fold never changes the value under any valuation
++--   §4 why DM4 and not {0, 1}: the two-valued table validates i /\ -i = i0,
++--      which is not a law of the interval; DM4 refuses it, and every DM4
++--      equality is a two-valued equality (the finer table refines the
++--      coarser)
++--   §5 canonicity of the interval: a closed interval term (no atoms) is
++--      convertible to i0 or to i1, and the folds reach it
++--   §6 the cubical fragment: its syntax, its reduction (the rules of
++--      term_wnf, coe_step, hcm_step) and its typing (the rules of
++--      term_infer and term_check), as inductive relations. This is the
++--      specification the TypeScript is audited against; its metatheory
++--      (canonicity for the fragment) is not carried here.
++--
++-- What is cited, not proved here: the variety of De Morgan algebras is
++-- generated by DM4 (Kalman 1958), so agreement under every DM4 valuation
++-- is exactly equality in the free De Morgan algebra. §2's Eq is therefore
++-- the specification of interval conversion, and itv_eq computes it.
++--
++-- Checked with Lean 4 (no imports beyond the core).
++
++namespace BendCubical
++
++-- ============================================================================
++-- §1 DM4
++-- ============================================================================
++
++-- 0 < a, b < 1 with a and b incomparable; negation swaps 0 and 1 and
++-- fixes a and b.
++inductive DM4 : Type
++  | zero | a | b | one
++  deriving DecidableEq, Repr
++
++namespace DM4
++
++def neg : DM4 → DM4
++  | zero => one
++  | a    => a
++  | b    => b
++  | one  => zero
++
++def min : DM4 → DM4 → DM4
++  | zero, _    => zero
++  | _,    zero => zero
++  | one,  y    => y
++  | x,    one  => x
++  | a,    a    => a
++  | b,    b    => b
++  | a,    b    => zero
++  | b,    a    => zero
++
++def max : DM4 → DM4 → DM4
++  | one,  _    => one
++  | _,    one  => one
++  | zero, y    => y
++  | x,    zero => x
++  | a,    a    => a
++  | b,    b    => b
++  | a,    b    => one
++  | b,    a    => one
++
++-- the lattice laws
++theorem min_comm (x y : DM4) : min x y = min y x := by cases x <;> cases y <;> rfl
++theorem max_comm (x y : DM4) : max x y = max y x := by cases x <;> cases y <;> rfl
++theorem min_assoc (x y z : DM4) : min (min x y) z = min x (min y z) := by
++  cases x <;> cases y <;> cases z <;> rfl
++theorem max_assoc (x y z : DM4) : max (max x y) z = max x (max y z) := by
++  cases x <;> cases y <;> cases z <;> rfl
++theorem min_idem (x : DM4) : min x x = x := by cases x <;> rfl
++theorem max_idem (x : DM4) : max x x = x := by cases x <;> rfl
++theorem absorb_min (x y : DM4) : min x (max x y) = x := by cases x <;> cases y <;> rfl
++theorem absorb_max (x y : DM4) : max x (min x y) = x := by cases x <;> cases y <;> rfl
++theorem distrib (x y z : DM4) : min x (max y z) = max (min x y) (min x z) := by
++  cases x <;> cases y <;> cases z <;> rfl
++theorem min_zero (x : DM4) : min zero x = zero := by cases x <;> rfl
++theorem min_one (x : DM4) : min one x = x := by cases x <;> rfl
++theorem max_zero (x : DM4) : max zero x = x := by cases x <;> rfl
++theorem max_one (x : DM4) : max one x = one := by cases x <;> rfl
++
++-- the De Morgan laws
++theorem neg_neg (x : DM4) : neg (neg x) = x := by cases x <;> rfl
++theorem neg_min (x y : DM4) : neg (min x y) = max (neg x) (neg y) := by
++  cases x <;> cases y <;> rfl
++theorem neg_max (x y : DM4) : neg (max x y) = min (neg x) (neg y) := by
++  cases x <;> cases y <;> rfl
++
++-- and the law DM4 does not have: it is not Boolean
++theorem not_boolean : ∃ x : DM4, min x (neg x) ≠ zero := ⟨a, by decide⟩
++
++end DM4
++
++-- ============================================================================
++-- §2 Interval terms and Eq
++-- ============================================================================
++
++-- an atom is named by a number (bend.ts keys it by its syntax)
++inductive Itv : Type
++  | atom : Nat → Itv
++  | i0   : Itv
++  | i1   : Itv
++  | neg  : Itv → Itv
++  | min  : Itv → Itv → Itv
++  | max  : Itv → Itv → Itv
++  deriving DecidableEq, Repr
++
++-- a valuation of the atoms in DM4
++def Val : Type := Nat → DM4
++
++def Itv.eval (ρ : Val) : Itv → DM4
++  | atom n  => ρ n
++  | i0      => DM4.zero
++  | i1      => DM4.one
++  | neg r   => DM4.neg (eval ρ r)
++  | min r s => DM4.min (eval ρ r) (eval ρ s)
++  | max r s => DM4.max (eval ρ r) (eval ρ s)
++
++-- conversion of interval terms: agreement under every valuation
++def Itv.Eq (r s : Itv) : Prop := ∀ ρ : Val, r.eval ρ = s.eval ρ
++
++namespace Itv
++
++theorem Eq.refl (r : Itv) : Eq r r := fun _ => rfl
++theorem Eq.symm {r s : Itv} (h : Eq r s) : Eq s r := fun ρ => (h ρ).symm
++theorem Eq.trans {r s t : Itv} (h : Eq r s) (k : Eq s t) : Eq r t :=
++  fun ρ => (h ρ).trans (k ρ)
++
++theorem Eq.neg {r s : Itv} (h : Eq r s) : Eq (neg r) (neg s) :=
++  fun ρ => by simp [eval, h ρ]
++theorem Eq.min {r r' s s' : Itv} (h : Eq r r') (k : Eq s s') :
++    Eq (min r s) (min r' s') :=
++  fun ρ => by simp [eval, h ρ, k ρ]
++theorem Eq.max {r r' s s' : Itv} (h : Eq r r') (k : Eq s s') :
++    Eq (max r s) (max r' s') :=
++  fun ρ => by simp [eval, h ρ, k ρ]
++
++-- the interval's laws, as Eq: the term algebra modulo Eq is a De Morgan
++-- algebra (each is DM4's law under every valuation)
++theorem law_min_comm (r s : Itv) : Eq (min r s) (min s r) :=
++  fun ρ => by simp [eval, DM4.min_comm]
++theorem law_max_comm (r s : Itv) : Eq (max r s) (max s r) :=
++  fun ρ => by simp [eval, DM4.max_comm]
++theorem law_min_assoc (r s t : Itv) : Eq (min (min r s) t) (min r (min s t)) :=
++  fun ρ => by simp [eval, DM4.min_assoc]
++theorem law_max_assoc (r s t : Itv) : Eq (max (max r s) t) (max r (max s t)) :=
++  fun ρ => by simp [eval, DM4.max_assoc]
++theorem law_min_idem (r : Itv) : Eq (min r r) r :=
++  fun ρ => by simp [eval, DM4.min_idem]
++theorem law_max_idem (r : Itv) : Eq (max r r) r :=
++  fun ρ => by simp [eval, DM4.max_idem]
++theorem law_absorb_min (r s : Itv) : Eq (min r (max r s)) r :=
++  fun ρ => by simp [eval, DM4.absorb_min]
++theorem law_absorb_max (r s : Itv) : Eq (max r (min r s)) r :=
++  fun ρ => by simp [eval, DM4.absorb_max]
++theorem law_distrib (r s t : Itv) : Eq (min r (max s t)) (max (min r s) (min r t)) :=
++  fun ρ => by simp [eval, DM4.distrib]
++theorem law_neg_neg (r : Itv) : Eq (neg (neg r)) r :=
++  fun ρ => by simp [eval, DM4.neg_neg]
++theorem law_de_morgan_min (r s : Itv) : Eq (neg (min r s)) (max (neg r) (neg s)) :=
++  fun ρ => by simp [eval, DM4.neg_min]
++theorem law_de_morgan_max (r s : Itv) : Eq (neg (max r s)) (min (neg r) (neg s)) :=
++  fun ρ => by simp [eval, DM4.neg_max]
++theorem law_neg_i0 : Eq (neg i0) i1 := fun _ => rfl
++theorem law_neg_i1 : Eq (neg i1) i0 := fun _ => rfl
++
++end Itv
++
++-- ============================================================================
++-- §3 The folds of term_wnf
++-- ============================================================================
++
++-- term_wnf's Ineg, Imin and Imax cases rewrite by exactly these rules
++-- (after normalizing the operands), and leave any other shape stuck.
++inductive Fold : Itv → Itv → Prop
++  | neg_i0            : Fold (.neg .i0) .i1
++  | neg_i1            : Fold (.neg .i1) .i0
++  | neg_neg (r)       : Fold (.neg (.neg r)) r
++  | min_i0_l (r)      : Fold (.min .i0 r) .i0
++  | min_i0_r (r)      : Fold (.min r .i0) .i0
++  | min_i1_l (r)      : Fold (.min .i1 r) r
++  | min_i1_r (r)      : Fold (.min r .i1) r
++  | max_i1_l (r)      : Fold (.max .i1 r) .i1
++  | max_i1_r (r)      : Fold (.max r .i1) .i1
++  | max_i0_l (r)      : Fold (.max .i0 r) r
++  | max_i0_r (r)      : Fold (.max r .i0) r
++
++-- every fold is an Eq: term_wnf's interval normalization is sound for
++-- conversion
++theorem fold_sound {r s : Itv} (h : Fold r s) : Itv.Eq r s := by
++  intro ρ
++  cases h with
++  | neg_i0 => rfl
++  | neg_i1 => rfl
++  | neg_neg r => exact DM4.neg_neg _
++  | min_i0_l r => exact DM4.min_zero _
++  | min_i0_r r => simp only [Itv.eval]; rw [DM4.min_comm]; exact DM4.min_zero _
++  | min_i1_l r => exact DM4.min_one _
++  | min_i1_r r => simp only [Itv.eval]; rw [DM4.min_comm]; exact DM4.min_one _
++  | max_i1_l r => exact DM4.max_one _
++  | max_i1_r r => simp only [Itv.eval]; rw [DM4.max_comm]; exact DM4.max_one _
++  | max_i0_l r => exact DM4.max_zero _
++  | max_i0_r r => simp only [Itv.eval]; rw [DM4.max_comm]; exact DM4.max_zero _
++
++-- ============================================================================
++-- §4 Why DM4 and not the two-valued table
++-- ============================================================================
++
++-- a Boolean valuation takes atoms to 0 or 1 only
++def Val.Boolean (ρ : Val) : Prop := ∀ n, ρ n = DM4.zero ∨ ρ n = DM4.one
++
++-- the two-valued procedure: agreement under Boolean valuations only
++def Itv.EqBool (r s : Itv) : Prop := ∀ ρ : Val, ρ.Boolean → r.eval ρ = s.eval ρ
++
++-- Eq refines EqBool: whatever DM4 identifies, the two-valued table did too
++theorem Itv.Eq.toBool {r s : Itv} (h : Itv.Eq r s) : Itv.EqBool r s :=
++  fun ρ _ => h ρ
++
++-- and strictly: i /\ -i and i0 agree under every Boolean valuation but not
++-- under the valuation sending the atom to a. The two-valued table is
++-- therefore not conversion in the free De Morgan algebra, and a checker
++-- using it would accept {==} at {i /\ -i == i0 : Interval}.
++def counter_l : Itv := .min (.atom 0) (.neg (.atom 0))
++def counter_r : Itv := .i0
++
++theorem counter_bool : Itv.EqBool counter_l counter_r := by
++  intro ρ hρ
++  simp only [counter_l, counter_r, Itv.eval]
++  rcases hρ 0 with h | h <;> simp [h, DM4.neg, DM4.min]
++
++theorem counter_not_eq : ¬ Itv.Eq counter_l counter_r := by
++  intro h
++  have := h (fun _ => DM4.a)
++  simp [counter_l, counter_r, Itv.eval, DM4.neg, DM4.min] at this
++
++-- so Eq is strictly finer than EqBool
++theorem eq_strictly_finer : ∃ r s, Itv.EqBool r s ∧ ¬ Itv.Eq r s :=
++  ⟨counter_l, counter_r, counter_bool, counter_not_eq⟩
++
++-- ============================================================================
++-- §5 Canonicity of the interval
++-- ============================================================================
++
++def Itv.Closed : Itv → Prop
++  | atom _  => False
++  | i0      => True
++  | i1      => True
++  | neg r   => Closed r
++  | min r s => Closed r ∧ Closed s
++  | max r s => Closed r ∧ Closed s
++
++-- a closed term's value does not depend on the valuation
++theorem Itv.closed_eval {r : Itv} (h : r.Closed) (ρ σ : Val) : r.eval ρ = r.eval σ := by
++  induction r with
++  | atom n => exact absurd h id
++  | i0 => rfl
++  | i1 => rfl
++  | neg r ih => simp only [Itv.eval]; rw [ih h]
++  | min r s ihr ihs => simp only [Itv.eval]; rw [ihr h.1, ihs h.2]
++  | max r s ihr ihs => simp only [Itv.eval]; rw [ihr h.1, ihs h.2]
++
++-- and is an endpoint: a closed interval term is i0 or i1 up to conversion
++theorem Itv.closed_endpoint {r : Itv} (h : r.Closed) : Itv.Eq r .i0 ∨ Itv.Eq r .i1 := by
++  induction r with
++  | atom n => exact absurd h id
++  | i0 => exact Or.inl (Itv.Eq.refl _)
++  | i1 => exact Or.inr (Itv.Eq.refl _)
++  | neg r ih =>
++    rcases ih h with e | e
++    · exact Or.inr (fun ρ => by simp only [Itv.eval]; rw [e ρ]; rfl)
++    · exact Or.inl (fun ρ => by simp only [Itv.eval]; rw [e ρ]; rfl)
++  | min r s ihr ihs =>
++    rcases ihr h.1 with er | er <;> rcases ihs h.2 with es | es
++    · exact Or.inl (fun ρ => by simp only [Itv.eval]; rw [er ρ, es ρ]; rfl)
++    · exact Or.inl (fun ρ => by simp only [Itv.eval]; rw [er ρ, es ρ]; rfl)
++    · exact Or.inl (fun ρ => by simp only [Itv.eval]; rw [er ρ, es ρ]; rfl)
++    · exact Or.inr (fun ρ => by simp only [Itv.eval]; rw [er ρ, es ρ]; rfl)
++  | max r s ihr ihs =>
++    rcases ihr h.1 with er | er <;> rcases ihs h.2 with es | es
++    · exact Or.inl (fun ρ => by simp only [Itv.eval]; rw [er ρ, es ρ]; rfl)
++    · exact Or.inr (fun ρ => by simp only [Itv.eval]; rw [er ρ, es ρ]; rfl)
++    · exact Or.inr (fun ρ => by simp only [Itv.eval]; rw [er ρ, es ρ]; rfl)
++    · exact Or.inr (fun ρ => by simp only [Itv.eval]; rw [er ρ, es ρ]; rfl)
++
++-- the folds compute it: term_wnf normalizes the operands first, so on a
++-- closed term every operand is an endpoint and one of the fold rules
++-- fires. Fold1 is a fold applied anywhere under the operators; Folds is
++-- its reflexive-transitive closure.
++inductive Fold1 : Itv → Itv → Prop
++  | here {r s} : Fold r s → Fold1 r s
++  | neg {r r'} : Fold1 r r' → Fold1 (.neg r) (.neg r')
++  | min_l {r r' s} : Fold1 r r' → Fold1 (.min r s) (.min r' s)
++  | min_r {r s s'} : Fold1 s s' → Fold1 (.min r s) (.min r s')
++  | max_l {r r' s} : Fold1 r r' → Fold1 (.max r s) (.max r' s)
++  | max_r {r s s'} : Fold1 s s' → Fold1 (.max r s) (.max r s')
++
++inductive Folds : Itv → Itv → Prop
++  | refl (r) : Folds r r
++  | step {r s t} : Fold1 r s → Folds s t → Folds r t
++
++theorem Folds.trans {r s t : Itv} (h : Folds r s) (k : Folds s t) : Folds r t := by
++  induction h with
++  | refl _ => exact k
++  | step f _ ih => exact Folds.step f (ih k)
++
++theorem Folds.one {r s : Itv} (h : Fold1 r s) : Folds r s := Folds.step h (Folds.refl _)
++
++theorem Folds.neg {r r' : Itv} (h : Folds r r') : Folds (.neg r) (.neg r') := by
++  induction h with
++  | refl _ => exact Folds.refl _
++  | step f _ ih => exact Folds.step (Fold1.neg f) ih
++
++theorem Folds.min_l {r r' s : Itv} (h : Folds r r') : Folds (.min r s) (.min r' s) := by
++  induction h with
++  | refl _ => exact Folds.refl _
++  | step f _ ih => exact Folds.step (Fold1.min_l f) ih
++
++theorem Folds.min_r {r s s' : Itv} (k : Folds s s') : Folds (.min r s) (.min r s') := by
++  induction k with
++  | refl _ => exact Folds.refl _
++  | step f _ ih => exact Folds.step (Fold1.min_r f) ih
++
++theorem Folds.max_l {r r' s : Itv} (h : Folds r r') : Folds (.max r s) (.max r' s) := by
++  induction h with
++  | refl _ => exact Folds.refl _
++  | step f _ ih => exact Folds.step (Fold1.max_l f) ih
++
++theorem Folds.max_r {r s s' : Itv} (k : Folds s s') : Folds (.max r s) (.max r s') := by
++  induction k with
++  | refl _ => exact Folds.refl _
++  | step f _ ih => exact Folds.step (Fold1.max_r f) ih
++
++theorem Folds.min {r r' s s' : Itv} (h : Folds r r') (k : Folds s s') :
++    Folds (.min r s) (.min r' s') := (Folds.min_l h).trans (Folds.min_r k)
++
++theorem Folds.max {r r' s s' : Itv} (h : Folds r r') (k : Folds s s') :
++    Folds (.max r s) (.max r' s') := (Folds.max_l h).trans (Folds.max_r k)
++
++-- every fold under the operators is sound too
++theorem fold1_sound {r s : Itv} (h : Fold1 r s) : Itv.Eq r s := by
++  induction h with
++  | here f => exact fold_sound f
++  | neg _ ih => exact ih.neg
++  | min_l _ ih => exact ih.min (Itv.Eq.refl _)
++  | min_r _ ih => exact (Itv.Eq.refl _).min ih
++  | max_l _ ih => exact ih.max (Itv.Eq.refl _)
++  | max_r _ ih => exact (Itv.Eq.refl _).max ih
++
++theorem folds_sound {r s : Itv} (h : Folds r s) : Itv.Eq r s := by
++  induction h with
++  | refl _ => exact Itv.Eq.refl _
++  | step f _ ih => exact (fold1_sound f).trans ih
++
++def Itv.IsEnd : Itv → Prop
++  | i0 => True
++  | i1 => True
++  | _  => False
++
++-- canonicity: the folds take every closed interval term to an endpoint
++theorem Itv.closed_folds {r : Itv} (h : r.Closed) : ∃ e, e.IsEnd ∧ Folds r e := by
++  induction r with
++  | atom n => exact absurd h id
++  | i0 => exact ⟨.i0, trivial, Folds.refl _⟩
++  | i1 => exact ⟨.i1, trivial, Folds.refl _⟩
++  | neg r ih =>
++    obtain ⟨e, he, f⟩ := ih h
++    cases e with
++    | i0 => exact ⟨.i1, trivial, (Folds.neg f).trans (Folds.one (Fold1.here Fold.neg_i0))⟩
++    | i1 => exact ⟨.i0, trivial, (Folds.neg f).trans (Folds.one (Fold1.here Fold.neg_i1))⟩
++    | _ => exact absurd he id
++  | min r s ihr ihs =>
++    obtain ⟨e1, he1, f1⟩ := ihr h.1
++    obtain ⟨e2, he2, f2⟩ := ihs h.2
++    cases e1 with
++    | i0 => exact ⟨.i0, trivial, (Folds.min f1 f2).trans (Folds.one (Fold1.here (Fold.min_i0_l _)))⟩
++    | i1 => exact ⟨e2, he2, (Folds.min f1 f2).trans (Folds.one (Fold1.here (Fold.min_i1_l _)))⟩
++    | _ => exact absurd he1 id
++  | max r s ihr ihs =>
++    obtain ⟨e1, he1, f1⟩ := ihr h.1
++    obtain ⟨e2, he2, f2⟩ := ihs h.2
++    cases e1 with
++    | i1 => exact ⟨.i1, trivial, (Folds.max f1 f2).trans (Folds.one (Fold1.here (Fold.max_i1_l _)))⟩
++    | i0 => exact ⟨e2, he2, (Folds.max f1 f2).trans (Folds.one (Fold1.here (Fold.max_i0_l _)))⟩
++    | _ => exact absurd he1 id
++
++-- ============================================================================
++-- §6 The cubical fragment: syntax, reduction, typing
++-- ============================================================================
++--
++-- The fragment bend.ts adds, over an abstract term language. Dimensions
++-- are de Bruijn: Itv.atom 0 is the innermost bound dimension; a path
++-- lambda binds one. Term binders (Lam, All) are left to bend.lean's core;
++-- here a term is a node of the fragment or an opaque core term, and the
++-- rules that need a term substitution take the substituted result as a
++-- premise (Insts), the way bend.lean states its own.
++
++-- dimension substitution on interval terms: atom 0 := v, the rest shift down
++def Itv.substD (v : Itv) : Itv → Itv
++  | atom 0       => v
++  | atom (n + 1) => atom n
++  | i0           => i0
++  | i1           => i1
++  | neg r        => neg (substD v r)
++  | min r s      => min (substD v r) (substD v s)
++  | max r s      => max (substD v r) (substD v s)
++
++def Itv.shiftD : Itv → Itv
++  | atom n  => atom (n + 1)
++  | i0      => i0
++  | i1      => i1
++  | neg r   => neg (shiftD r)
++  | min r s => min (shiftD r) (shiftD s)
++  | max r s => max (shiftD r) (shiftD s)
++
++-- a face: a conjunction of constraints r = d
++abbrev Face := List (Itv × Bool)
++
++inductive CTerm : Type
++  | core  : Nat → CTerm                              -- an opaque core term (a Var, Ref, Lam.. of bend.lean)
++  | app   : CTerm → CTerm → CTerm                    -- application (also path application)
++  | ann   : CTerm → CTerm → CTerm                    -- {x : T}, the checker's annotation
++  | itv   : CTerm                                    -- Interval
++  | dim   : Itv → CTerm                              -- a dimension term
++  | eql   : CTerm → CTerm → CTerm → CTerm            -- {a == b : T}
++  | eqlP  : CTerm → CTerm → CTerm → CTerm            -- {a == b : i => T}, T under a bound dimension
++  | rfl   : CTerm                                    -- {==}
++  | plam  : CTerm → CTerm                            -- i => t, t under a bound dimension
++  | rwt   : CTerm → CTerm → CTerm → CTerm            -- %e : P; f
++  | coe   : CTerm → Itv → Itv → CTerm → CTerm        -- coe(A, r, s, x), A under a bound dimension
++  | hcm   : CTerm → CTerm → List (Face × CTerm) → CTerm  -- hcomp(A, x, [(f) u]), u under a bound dimension
++  | glu   : CTerm → List (Face × CTerm × CTerm) → CTerm  -- Glue(A, [(f) (T, e)])
++  | gle   : CTerm → List (Face × CTerm) → CTerm      -- glue(x, [(f) t])
++  | ung   : CTerm → CTerm                            -- unglue(g)
++
++-- dimension substitution on terms (dimension binders shift the substitute)
++mutual
++def CTerm.substD (v : Itv) : CTerm → CTerm
++  | .core n     => .core n
++  | .app f x    => .app (substD v f) (substD v x)
++  | .ann x T    => .ann (substD v x) (substD v T)
++  | .itv        => .itv
++  | .dim r      => .dim (r.substD v)
++  | .eql a b T  => .eql (substD v a) (substD v b) (substD v T)
++  | .eqlP a b T => .eqlP (substD v a) (substD v b) (substD v.shiftD T)
++  | .rfl        => .rfl
++  | .plam t     => .plam (substD v.shiftD t)
++  | .rwt e P f  => .rwt (substD v e) (substD v P) (substD v f)
++  | .coe A r s x => .coe (substD v.shiftD A) (r.substD v) (s.substD v) (substD v x)
++  | .hcm A x sys => .hcm (substD v A) (substD v x) (substFaces v sys)
++  | .glu A sys  => .glu (substD v A) (substGFaces v sys)
++  | .gle x sys  => .gle (substD v x) (substFaces v sys)
++  | .ung g      => .ung (substD v g)
++def CTerm.substFaces (v : Itv) : List (Face × CTerm) → List (Face × CTerm)
++  | [] => []
++  | (f, u) :: rest => (f.map (fun (r, d) => (r.substD v, d)), CTerm.substD v.shiftD u) :: substFaces v rest
++def CTerm.substGFaces (v : Itv) : List (Face × CTerm × CTerm) → List (Face × CTerm × CTerm)
++  | [] => []
++  | (f, T, e) :: rest => (f.map (fun (r, d) => (r.substD v, d)), CTerm.substD v T, CTerm.substD v e) :: substGFaces v rest
++end
++
++-- a face holds when every constraint is an endpoint that agrees; it is
++-- dead when some constraint is the other endpoint (a symbolic constraint
++-- is neither)
++def Face.Holds (f : Face) : Prop := ∀ c ∈ f, Itv.Eq c.1 (if c.2 then .i1 else .i0)
++def Face.Dead  (f : Face) : Prop := ∃ c ∈ f, Itv.Eq c.1 (if c.2 then .i0 else .i1)
++
++theorem Face.holds_not_dead {f : Face} (h : f.Holds) : ¬ f.Dead := by
++  rintro ⟨c, hc, e⟩
++  have k := (h c hc).symm.trans e
++  have v := k (fun _ => DM4.zero)
++  revert v
++  cases c.2 <;> exact fun v => nomatch v
++
++-- the line A(v): the body at dimension v
++def CTerm.at (A : CTerm) (v : Itv) : CTerm := A.substD v
++def CTerm.mentionsD : CTerm → Prop := fun t => t.substD .i0 ≠ t.substD .i1
++
++-- ----------------------------------------------------------------------------
++-- Reduction: the rules term_wnf, coe_step and hcm_step apply to the
++-- fragment (the Kan rules by type shape refer to bend.lean's core for the
++-- function and constructor cases, and are stated there in Part III of the
++-- report; here are the rules that need only the fragment)
++-- ----------------------------------------------------------------------------
++
++inductive Step : CTerm → CTerm → Prop
++  -- path application: a path lambda at a dimension is its body there
++  | papp_beta (t : CTerm) (r : Itv) :
++      Step (.app (.plam t) (.dim r)) (t.substD r)
++  -- a term annotated at a path type, at a literal endpoint, is that endpoint
++  | papp_end0 (x a b T : CTerm) :
++      Step (.app (.ann x (.eql a b T)) (.dim .i0)) a
++  | papp_end1 (x a b T : CTerm) :
++      Step (.app (.ann x (.eql a b T)) (.dim .i1)) b
++  | pappP_end0 (x a b T : CTerm) :
++      Step (.app (.ann x (.eqlP a b T)) (.dim .i0)) a
++  | pappP_end1 (x a b T : CTerm) :
++      Step (.app (.ann x (.eqlP a b T)) (.dim .i1)) b
++  -- J on the constant path is its body; on a path it is transport along
++  -- the connection square (P applied to the endpoint and the path to it)
++  | rwt_refl (P f : CTerm) :
++      Step (.rwt .rfl P f) f
++  | rwt_const (e P f : CTerm) :
++      ¬ e.mentionsD → Step (.rwt (.plam e) P f) f
++  -- (P mentions no dimension, so under the line's binder it is itself;
++  -- inside the inner path lambda the line's dimension is atom 1)
++  | rwt_path (e P f : CTerm) :
++      e.mentionsD →
++      Step (.rwt (.plam e) P f)
++        (.coe (.app (.app P (.app (.plam e) (.dim (.atom 0))))
++                    (.plam (.app (.plam e) (.dim (.min (.atom 1) (.atom 0))))))
++              .i0 .i1 f)
++  -- coe: equal endpoints, or a line that does not mention its dimension
++  | coe_eq (A : CTerm) (r s : Itv) (x : CTerm) :
++      Itv.Eq r s → Step (.coe A r s x) x
++  | coe_const (A : CTerm) (r s : Itv) (x : CTerm) :
++      ¬ A.mentionsD → Step (.coe A r s x) x
++  -- hcomp: a face that holds is its tube at i1
++  | hcm_face (A x : CTerm) (sys : List (Face × CTerm)) (f : Face) (u : CTerm) :
++      (f, u) ∈ sys → f.Holds → Step (.hcm A x sys) (u.substD .i1)
++  -- Glue and glue: a face that holds is its partial type / section
++  | glu_face (A : CTerm) (sys) (f : Face) (T e : CTerm) :
++      (f, T, e) ∈ sys → f.Holds → Step (.glu A sys) T
++  | glu_none (A : CTerm) (sys) :
++      (∀ p ∈ sys, (p.1 : Face).Dead) → Step (.glu A sys) A
++  | gle_face (x : CTerm) (sys) (f : Face) (t : CTerm) :
++      (f, t) ∈ sys → f.Holds → Step (.gle x sys) t
++  | gle_none (x : CTerm) (sys) :
++      (∀ p ∈ sys, (p.1 : Face).Dead) → Step (.gle x sys) x
++  -- unglue of a glue is its base
++  | ung_gle (x : CTerm) (sys) :
++      Step (.ung (.gle x sys)) x
++
++-- the two endpoint rules never both apply, and a face that fires hcm_face
++-- is not a face gle_none/glu_none would drop
++theorem step_faces_exclusive {f : Face} (h : f.Holds) (d : f.Dead) : False :=
++  Face.holds_not_dead h d
++
++-- ----------------------------------------------------------------------------
++-- Typing: the judgments of term_infer and term_check on the fragment.
++-- Γ is a context of dimension binders (their count) and term binders
++-- (abstract); Conv is bend.lean's conversion, extended by Itv.Eq on
++-- dimensions; Ty is "a type" (a kind judgment) and Of is the core's
++-- typing, both abstract here.
++-- ----------------------------------------------------------------------------
++
++structure Judg where
++  Conv : CTerm → CTerm → Prop           -- conversion (term_compare EQ)
++  Of   : Nat → CTerm → CTerm → Prop     -- Γ ⊢ t : T for core terms (bend.lean's Check), Γ its dimension count
++  Ty   : Nat → CTerm → Prop             -- Γ ⊢ T : Type
++
++-- the fragment's rules, parametric in the core's judgments
++inductive Has (J : Judg) : Nat → CTerm → CTerm → Prop
++  -- infer-itv, infer-dim
++  | itv (n) : Has J n .itv .itv               -- Interval : Data, written as its own type here
++  | dim (n) (r : Itv) : Has J n (.dim r) .itv -- (the atoms are the n bound dimensions)
++  -- infer-eql: a path type over a type, or over a line
++  | eql (n) (a b T : CTerm) :
++      J.Ty n T → Has J n a T → Has J n b T → J.Ty n (.eql a b T)
++      → Has J n (.eql a b T) (.core 0)
++  | eqlP (n) (a b T : CTerm) :
++      J.Ty (n + 1) T → Has J n a (T.at .i0) → Has J n b (T.at .i1)
++      → Has J n (.eqlP a b T) (.core 0)
++  -- check-path: the body under a fresh dimension, at the carrier there,
++  -- with both faces convertible to the endpoints
++  | plam (n) (t a b T : CTerm) :
++      Has J (n + 1) t T
++      → J.Conv (t.substD .i0) a → J.Conv (t.substD .i1) b
++      → Has J n (.plam t) (.eql a b T)
++  | plamP (n) (t a b T : CTerm) :
++      Has J (n + 1) t T
++      → J.Conv (t.substD .i0) a → J.Conv (t.substD .i1) b
++      → Has J n (.plam t) (.eqlP a b T)
++  -- infer-papp
++  | papp (n) (p a b T : CTerm) (r : Itv) :
++      Has J n p (.eql a b T) → Has J n (.app p (.dim r)) T
++  | pappP (n) (p a b T : CTerm) (r : Itv) :
++      Has J n p (.eqlP a b T) → Has J n (.app p (.dim r)) (T.at r)
++  -- the constant path
++  | rfl (n) (a b T : CTerm) :
++      J.Conv a b → Has J n .rfl (.eql a b T)
++  -- infer-coe: a line (a type under a dimension), two dimensions, a value
++  -- at the line's start; the result at its end
++  | coe (n) (A : CTerm) (r s : Itv) (x : CTerm) :
++      J.Ty (n + 1) A → Has J n x (A.at r) → Has J n (.coe A r s x) (A.at s)
++  -- infer-hcomp: each tube a line in A on its face, agreeing with the base
++  -- at i0 and with each other where faces meet
++  | hcm (n) (A x : CTerm) (sys : List (Face × CTerm)) :
++      J.Ty n A → Has J n x A
++      → (∀ p, p ∈ sys → Has J (n + 1) p.2 A)
++      → (∀ p, p ∈ sys → J.Conv (p.2.substD .i0) x)
++      → Has J n (.hcm A x sys) A
++  -- infer-glue: partial types with equivalences into the base (the
++  -- equivalence's type is Base's Equiv, a core term)
++  | glu (n) (A : CTerm) (sys : List (Face × CTerm × CTerm)) (Equiv : CTerm → CTerm → CTerm) :
++      J.Ty n A → (∀ p, p ∈ sys → J.Ty n p.2.1)
++      → (∀ p, p ∈ sys → Has J n p.2.2 (Equiv p.2.1 A))
++      → Has J n (.glu A sys) (.core 0)
++  -- check-glue: a base and a section on every face, mapping to the base
++  -- under the face's equivalence (the map is a core application, abstract)
++  -- (sec picks the section written for each face of the type)
++  | gle (n) (x : CTerm) (sysT : List (Face × CTerm × CTerm)) (sys : List (Face × CTerm)) (A : CTerm)
++      (fun_ : CTerm → CTerm → CTerm) (sec : Face → CTerm) :
++      Has J n x A
++      → (∀ p, p ∈ sysT → (p.1, sec p.1) ∈ sys)
++      → (∀ p, p ∈ sysT → Has J n (sec p.1) p.2.1)
++      → (∀ p, p ∈ sysT → J.Conv (fun_ p.2.2 (sec p.1)) x)
++      → Has J n (.gle x sys) (.glu A sysT)
++  -- infer-unglue
++  | ung (n) (g A : CTerm) (sysT) :
++      Has J n g (.glu A sysT) → Has J n (.ung g) A
++  -- J: the motive over the path's type, the body at the reflexive case
++  | rwt (n) (e a b T P f Pab Paa : CTerm) :
++      Has J n e (.eql a b T)
++      → J.Of n P (.core 1)      -- P : @_:T -> @e:{a == _ : T} -> Type, abstract
++      → J.Conv Paa (.app (.app P a) .rfl) → Has J n f Paa
++      → J.Conv Pab (.app (.app P b) e)
++      → Has J n (.rwt e P f) Pab
++
++-- the fragment's rules are the ones the report states; a checker that
++-- implements them (bend.ts) is audited against this list
++
++end BendCubical
