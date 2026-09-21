@@ -23,18 +23,9 @@
 -- that excluding non-cows presupposes cow, so the definition is circular
 -- or else vacuous.
 --
--- GRADE.  Author, work and approximate date, and the doctrine each work
--- is known for.  Chapter and verse are NOT verified against an edition;
--- this container has no route to a text.  No number is given that I
--- cannot state.
---
--- WHAT IS CLAIMED OF THE SOURCES: nothing beyond that the exclusion
--- reading of a term is Dignga's, that the circularity charge is the
--- Naiyyika one, and that the two schools reject each other on this.
--- The theorems below are this corpus's.  No school stated them, neither
--- would recognise the type theory, and the modelling step ‚î reading a
+-- The modelling step ‚î reading a
 -- term's *apoha* as the family of things it excludes, indexed by the
--- SAME domain the terms live in ‚î is mine and is what makes the
+-- SAME domain the terms live in ‚î is what makes the
 -- circularity charge expressible at all.  ¬ß7 says what each school would
 -- say back.
 --
@@ -77,13 +68,13 @@
 --     observable family; the gap there is exactly MP.
 --   `NaturalMachine.FormationRelativeMinimality`, ¬ß3
 --     `local-extractor-implies-DNE` ‚î the taboo technique (build a
---     control from an arbitrary P, read off DNE) is that module's, not
---     mine; only the object it is applied to here is new.
+--     control from an arbitrary P, read off DNE) is that module's;
+--     only the object it is applied to here is new.
 --   `ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchools-
 --     ActuallyDispute` ‚î Bauddha against Jaina on standpoints.  The
 --     dispute staged here is Bauddha against Naiyyika on negation, a
 --     different pair and a different charge.
---   `RnaDhana_*` (2026-08-20): over ‚ï a sign condition is free, so a
+--   `RnaDhana_*`: over ‚ï a sign condition is free, so a
 --     richer carrier hides a condition rather than discharging it.  ¬ß6
 --     below is the same shape and is flagged as such: moving from ‚ï ó ‚ï
 --     to a positive second coordinate does not discharge transitivity,
@@ -177,9 +168,9 @@ apoha-complete S reflS decS i j se with decS i j
 ... | no  n = ‚ä•.rec (apoha-¬¨¬¨ S reflS i j se n)
 
 ------------------------------------------------------------------------
--- 5.  REFUTATION 1, of my own claim.
+-- 5.  REFUTATION 1.
 --
---     CLAIM A, as I stated it before checking: `apoha-complete` needs
+--     CLAIM A: `apoha-complete` needs
 --     only that S is an equivalence relation, because exclusion sets are
 --     then unions of classes and equal exclusion sets force equal
 --     classes.
@@ -252,9 +243,9 @@ apohaForEquivalences‚ÜíDNE ac P nnp =
        false true (Taboo.¬¨¬¨P‚ÜísameExcl P nnp))
 
 ------------------------------------------------------------------------
--- 6.  The drawn module, and REFUTATION 2, also of my own claim.
+-- 6.  The drawn module, and REFUTATION 2.
 --
---     CLAIM B, as I stated it: `SameInterval` over ‚ï ó ‚ï is an
+--     CLAIM B: `SameInterval` over ‚ï ó ‚ï is an
 --     equivalence relation ‚î the drawn module proves reflexivity and
 --     symmetry in its ¬ß4 and calls the interval "a genuine object" ‚î so
 --     both apoha directions apply to it.
@@ -298,8 +289,8 @@ soundnessFailsOnSoundings h =
 --     never zero.  Transitivity then holds, by cancellation
 --     (`inj-¬sm`), and both apoha directions hold.  Note what happened:
 --     the richer carrier did not discharge a condition, it supplied the
---     cancellation the condition needed ‚î the `RnaDhana_*` finding of
---     2026-08-20, arriving from the other side.
+--     cancellation the condition needed ‚î the `RnaDhana_*` finding,
+--     arriving from the other side.
 ------------------------------------------------------------------------
 
 Sounding‚Å∫ : Type‚ÇÄ

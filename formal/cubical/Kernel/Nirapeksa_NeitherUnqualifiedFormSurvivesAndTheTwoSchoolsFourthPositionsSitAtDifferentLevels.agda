@@ -13,15 +13,12 @@
 -- of an assertion made with no updhi; against àà¾ààà•àà Â speka, made with
 -- one.  The Jaina rule is that a à¨à¯ Â naya asserted nirapeka becomes a
 -- à¦àà°àà¨à¯ Â durnaya.  Siddhasena Divkara, *Sanmatitarka*; developed by
--- Akalaka (~8th c.).  No first use of the pair is established here.
+-- Akalaka (~8th c.).
 --
--- AND A WARNING THIS REPOSITORY'S OWN LEDGER RECORDS, HEEDED: three
--- separate corrections have landed on the word ààµà•àààµàà¯ Â avaktavya in this
--- corpus, one of them because a line named for it actually sat at the
--- THIRD bhaga.  So, said plainly: Â§1 exhibits bhagas ONE and TWO
+-- Â§1 exhibits bhagas ONE and TWO
 -- (syd-asti, syd-nsti) and the KRAMA reading of the THIRD -- both, in
--- succession.  IT DOES NOT EXHIBIT THE FOURTH.  The fourth arises from
--- à¯àà—ààà Â yugapat, simultaneous assertion, and is not what is proved here.
+-- succession.  The fourth arises from
+-- à¯àà—ààà Â yugapat, simultaneous assertion.
 --
 -- TERM (BAUDDHA).  àààààà•à‹àŸà¿ Â catukoi -- the four corners, standard in
 -- Ngrjuna's *Mlamadhyamakakrik* (~2nd c. CE).  Â§2 formalises the
@@ -29,12 +26,12 @@
 -- the non-implicative negation -- the reading on which the negation
 -- asserts nothing positive, which is `A â’ âŠ`.  The distinction from
 -- àà°àà¯àà¦à¾à Â paryudsa, the implicative negation, is drawn by Westerhoff in
--- the modern literature; it is a reading and I mark it as one.  UNDER
+-- the modern literature.  UNDER
 -- PARYUDSA THE FOURTH CORNER IS A DIFFERENT FORMULA AND Â§2 DOES NOT
 -- APPLY TO IT.
 --
 ------------------------------------------------------------------------
--- PRIOR ART, SEARCHED BEFORE WRITING RATHER THAN AFTER.
+-- PRIOR ART.
 --
 -- Formal treatments of both exist and are contested.  Priest and Ganeri
 -- read the saptabhag as supporting a non-classical (many-valued/modal)
@@ -47,12 +44,7 @@
 -- Â§3 DISAGREES WITH SCHANG, and the disagreement is the file's point: the
 -- two fourth positions are not two settings of one dial.  What would
 -- refute Â§3 is a single formal setting in which the Jaina fourth and the
--- Bauddha fourth are the same construction; I claim there is none, and
--- exhibit the difference rather than argue it.
---
--- I did not find published work formalising either doctrine in a proof
--- assistant or in type theory.  That is a report on a search made from
--- this environment, not a claim that none exists.
+-- Bauddha fourth are the same construction.
 --
 ------------------------------------------------------------------------
 -- WHAT IS PROVED.

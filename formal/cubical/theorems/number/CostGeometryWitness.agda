@@ -14,7 +14,7 @@
 --        gap exceeds the round trip, so the detour provably wins.  This is
 --        the shape of CRT multiplication, Karatsuba and the FFT.
 --
--- Honesty about W2: the weights are STIPULATED, not measured here.  That is
+-- In W2 the weights are STIPULATED.  That is
 -- exactly the epistemic status an algorithm designer's cost model has --
 -- "schoolbook is n², componentwise is n, conversion is linear" is an
 -- assumption about an implementation, and the theorem is what follows FROM

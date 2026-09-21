@@ -58,8 +58,8 @@
 -- SOURCES.  Umsvti, *Tattvrthastra* (c. 2nd‚ì5th c. CE); Siddhasena
 -- Divkara, *Sanmatitarka* (c. 5th c.); Akalaka ‚î ‡‡‡‡‡‡ô‡‡ó‡ and the rule
 -- that a naya asserting itself whole is ‡¶‡‡∞‡‡®‡Ø.  Carried from
--- `Saptabhangi.agda`, which states the pigeonhole; not re-cited at verse
--- level, and the primary texts are unopened by me.  Univalence and
+-- `Saptabhangi.agda`, which states the pigeonhole.
+-- Univalence and
 -- `isEquiv` are Voevodsky's, as realised in agda/cubical.
 ------------------------------------------------------------------------
 

@@ -1,31 +1,25 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡ï‡‡‡æ ‚î the examination of ‡Ø‡®‡‡‡‡∞ (944676e4), as terms rather than as
--- a review.  Four objections, each turned into something the kernel can
--- reject.
+-- ‡‡∞‡‡ï‡‡‡æ ‚î the examination of ‡Ø‡®‡‡‡‡∞, as terms.  Four
+-- results:
 --
--- `PrimesAll.agda` is the machine's own root and is left untouched; this
--- is a second root so the corrections can be checked as a unit and so
--- nothing here is mistaken for part of the original commit.
---
---   Chaya       944676e4's message says the collapse from the witnessed
---               Goldbach statement to the truncated one "exists while the
---               reverse provably does not."  The reverse map exists; the
+--   Chaya       The collapse from the witnessed
+--               Goldbach statement to the truncated one has a reverse
+--               map; the
 --               SECTION does not.  Both are proved.
 --
---   Pramanya    `Ganana`/`Ekam` decide primality with an unbacked `Bool`
---               and `Purna`/`Sakshi` decide it with a `Dec`, and nothing
---               joins them.  The bridge is supplied, and the Goldbach
---               sweep is rebuilt so its output is 49 certified
---               decompositions instead of the word `true`.
+--   Pramanya    `Ganana`/`Ekam` decide primality with a `Bool`
+--               and `Purna`/`Sakshi` decide it with a `Dec`.  The bridge
+--               is supplied, and the Goldbach
+--               sweep's output is 49 certified
+--               decompositions.
 --
---   Kuttaka-    `KuttakaConvergents` runs the descent law on a fuel constant
---   samapti     and proves nothing.  The fuel is removed by well-founded
---               recursion on the remainder, and the divisor comes back
+--   Kuttaka-    `KuttakaConvergents` runs the descent law by well-founded
+--   samapti     recursion on the remainder, and the divisor comes back
 --               carrying proofs that it divides both inputs.
 --
---   Upadhi      `Shodhita`/`Ekam` call `|M(k)|¬≤ ‚â k` a fragment of the
+--   Upadhi      `|M(k)|¬≤ ‚â k` is not a fragment of the
 --               Riemann Hypothesis.  It is the Mertens conjecture, which
 --               was disproved in 1985.  The universal statement and the
 --               finite check are separated into two types with a map in

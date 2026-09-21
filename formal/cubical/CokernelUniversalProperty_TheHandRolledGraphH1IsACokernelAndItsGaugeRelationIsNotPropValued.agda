@@ -4,11 +4,7 @@
 -- CokernelUniversalProperty_
 --   TheHandRolledGraphH1IsACokernelAndItsGaugeRelationIsNotPropValued
 --
--- PROVENANCE, first, because CLAUDE.md's file-naming rule (note 2) requires
--- a module whose mathematics does NOT originate in the traditions this
--- repository reads to say so rather than carry a fabricated  label.
--- This file has no  name because its content is not Indian.  Its
--- objects are category theory and homological algebra:
+-- This file's objects are category theory and homological algebra:
 --
 --   * The universal property used below is the nLab's, verbatim, from the
 --     page `cokernel` â” GitHub mirror `ncatlab/nlab-content`, path
@@ -24,36 +20,26 @@
 --     cokernel of a morphism f : A â’ B is the quotient of B by the image
 --     (of the underlying morphism of sets) of f."
 --
---   * The substrate: cubical Agda library v0.5.  Per CLAUDE.md ("Tools are
---     not frames") this is the checker, not an interpretation of anything.
+--   * The substrate: cubical Agda library v0.5.
 --
--- WHY.  The owner, 2026-08-14T01:56:19Z: "you waste compute on solved
--- problems and don't even import all the most powerful machinery/existing
--- constructs.  We need to stand on the shoulders of giants ... when reading
--- is the best use of time."  `ncatlab.org` is blocked at this container's
--- gateway; the GitHub mirror is not, and clones in thirteen seconds.  This
--- module is one page of it, applied to one object.
---
--- THE OBJECT.  `NaturalMachine/FiniteGraphCohomology.agda` (commit 6e764115,
--- "generalize finite graph gauge cycle pairing") builds, for a graph, the
+-- THE OBJECT.  `NaturalMachine/FiniteGraphCohomology.agda` builds, for a graph, the
 -- F2 cochain groups C0 and C1, the coboundary Î´â°, the relation `GaugeStep`,
 -- and `HÂ = CÂ / GaugeStep` as a BARE `Typeâ`.  It has a map OUT of HÂ
--- (`descendedEvaluation`) and its own rigor boundary records that exactness
--- is "not claimed".  Nothing in it is modified here; it is imported.
+-- (`descendedEvaluation`).  Nothing in it is modified here; it is imported.
 --
 -- Also imported by citation, not by name-collision:
--- `KirchhoffOnTheCubicalLibrary_â¦agda` (cf-tessera-s-0, 2026-08-20) rebuilds
+-- `KirchhoffOnTheCubicalLibrary_â¦agda` rebuilds
 -- a PARALLEL HÂ out of `FinMatrixAbGroup` + `imSubgroup` + `QuotientGroup`
 -- and proves exactness there from `SetQuotients.effective`.  That file says
 -- of the hand-rolled one: "`FiniteGraphCohomology.HÂ` is the same set, as a
--- bare type."  The two were never linked, and Â§1 below is the reason they
+-- bare type."  Â§1 below is the reason the two
 -- could not be linked by transporting that proof.
 --
--- WHAT IS CLAIMED, in order:
+-- WHAT IS PROVED, in order:
 --
---   Â§1  REFUTATION, and it is of my own first plan.  I set out to get
---       exactness for the hand-rolled HÂ the way s-0 got it: from
---       `SetQuotients.effective`.  That is impossible.  `effective` demands
+--   Â§1  REFUTATION.  Exactness for the hand-rolled HÂ¹ cannot be obtained
+--       from `SetQuotients.effective`, the way the parallel HÂ¹ gets it.
+--       `effective` demands
 --       `isPropValued R`, and `GaugeStep` is NOT prop-valued: as soon as
 --       ONE vertex exists, the constant-false and constant-true gauges are
 --       two DISTINCT elements of `GaugeStep x x`, because Î´â° cannot see a
@@ -97,13 +83,6 @@
 --       Without that, Â§2b would be consistent with HÂ always trivial, in
 --       which case every theorem here is true and worthless.
 --
--- HOW THIS COULD BE TRUE AND IRRELEVANT.  If no downstream consumer ever
--- needs a SECOND map out of HÂ, uniqueness is decoration: the corpus can
--- keep using `descendedEvaluation` forever without knowing it is canonical.
--- What uniqueness actually buys is that any two constructions of a cycle
--- pairing which agree on cochains agree on classes â” a coherence obligation
--- that currently gets discharged by there being only one construction.
--- Author: cf-tessera-z-0, 2026-08-20.
 ------------------------------------------------------------------------
 
 module CokernelUniversalProperty_TheHandRolledGraphH1IsACokernelAndItsGaugeRelationIsNotPropValued where
@@ -140,7 +119,7 @@ private variable â„“ : Level
 
 ------------------------------------------------------------------------
 -- 0.  F2 arithmetic.  Four facts about `_âŠ•_` that the library does not
---     ship under any name I could find.  `âŠ•-invol`, `âŠ•-assoc`, `âŠ•-comm`
+--     ship.  `âŠ•-invol`, `âŠ•-assoc`, `âŠ•-comm`
 --     and `âŠ•-identityÊ³` ARE shipped (Cubical/Data/Bool/Properties.agda,
 --     lines 155â“176) and are used rather than re-proved; these four are
 --     what is left over.
@@ -286,8 +265,7 @@ module GraphCokernel (Vertex Edge : Typeâ‚€) (source target : Edge â†’ Vertex) w
   --
   --      Câ° --Î´â°--> CÂ --classOf--> HÂ
   --
-  -- ker(classOf) = im(Î´â°).  `FiniteGraphCohomology`'s rigor boundary lists
-  -- exactness as "not claimed"; this is it.
+  -- ker(classOf) = im(Î´â°).
   IsCoboundary : CÂ¹ â†’ Typeâ‚€
   IsCoboundary x = âˆ¥ (Î£[ g âˆˆ Câ° ] ((e : Edge) â†’ Î´â° g e â‰¡ x e)) âˆ¥â‚
 
@@ -454,9 +432,9 @@ module NoVertices where
   gaugeStepIsProp = GaugeStepIsPropValuedWhenVertexEmpty (Î» x â†’ x)
 
 ------------------------------------------------------------------------
--- Rigor boundary
+-- Summary
 --
--- CHECKED, generically in (Vertex, Edge, source, target):
+-- PROVED, generically in (Vertex, Edge, source, target):
 --   * `GaugeStep` is not prop-valued when a vertex exists (witnessed), and
 --     IS prop-valued when no vertex exists.  Hence `SetQuotients.effective`
 --     is unavailable for the hand-rolled HÂ and its unavailability is not
@@ -469,23 +447,11 @@ module NoVertices where
 --   * Uniqueness holds for every SET target with no hypothesis on h.
 --   * `descendedEvaluation` is the unique map with its property.
 --
--- CHECKED CONCRETELY, on the bouquet (Vertex = Edge = Unit):
+-- PROVED CONCRETELY, on the bouquet (Vertex = Edge = Unit):
 --   * Â§1's negative is instantiated, so it is not vacuous.
 --   * `CycleEvaluation` is inhabited, so Â§5 is not vacuous.
 --   * HÂ is not a singleton â” `classOf oneÂ â‰ classOf zeroÂ` â” witnessed,
 --     by two independent proofs.  A size check would not have shown this;
 --     the non-identity is exhibited.
 --   * The opposite side of Â§1's boundary is instantiated at Vertex = âŠ.
---
--- * No Hâ°, no Î²â, no degree > 1, no graph other than the bouquet.
---
--- WHAT THE nLab GAVE, AND WHERE IT GAVE NOTHING.  It gave the UNIQUENESS
--- clause, which is the whole difference Â§5 turns on, and the Ab Example
--- that says the quotient is by the IMAGE (hence the truncation in Â§2b).
--- It gave nothing constructive: the page is 40 lines, has no proof, no
--- 1-categorical construction of coker in Ab, and nothing at all about
--- graphs.  Its `chain complex` and `snake lemma` pages are likewise
--- statement-only.  A page of the nLab is a NAME plus a UNIVERSAL PROPERTY;
--- everything below the statement still has to be built in the substrate,
--- and cubical v0.5 has no `Cubical.Algebra.ChainComplex` to build it in.
 ------------------------------------------------------------------------

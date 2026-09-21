@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- ‡‡ï-‡‡‡æ‡Ø ¬ EkaSahaya ‚î "one companion."
 --
--- THE QUESTION, inherited as a ea from the yantra session of
--- 2026-08-27: classify ALL cone-preserving involutions of the pair
+-- THE QUESTION:
+-- classify ALL cone-preserving involutions of the pair
 -- field.  PrimePairField.noSelfDualPair shows the ONE map that exchanges
 -- the Goldbach foliation (fixed centre) with the twin foliation (fixed
 -- gap) exits the positivity cone.  That refutes one candidate.  This

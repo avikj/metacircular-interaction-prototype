@@ -50,8 +50,7 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
--- ‡‡‡‡®‡∞‡æ‡ó‡Æ‡® and ‡µ‡‡¶‡‡ß‡ø are used in their plain senses; no text is claimed
--- for the compound.
+-- ‡‡‡‡®‡∞‡æ‡ó‡Æ‡® and ‡µ‡‡¶‡‡ß‡ø are used in their plain senses.
 ------------------------------------------------------------------------
 
 module Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity where

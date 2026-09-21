@@ -15,7 +15,7 @@
 -- multiplicity, extracted one prime at a time.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- PRIOR ART, SEARCHED FIRST
+-- PRIOR ART
 --
 -- `CoprimeSplitting.decâˆ : (d n : â•) â’ 0 < d â’ Dec (d âˆ n)` is the
 -- decision this needs, and that module's header explains why it exists:

@@ -86,8 +86,8 @@ open Tautology ℤCommRing public
 ------------------------------------------------------------------------
 -- §3  The one absent lemma, named as a type: coprime factors of a cube
 --     are each a cube (up to a unit) in the Eisenstein integers.  This
---     is the whole remaining content of Fermat's cube; it is NOT
---     inhabited here.  `Coprime` and `IsCube` are left as parameters so
+--     is the whole remaining content of Fermat's cube.
+--     `Coprime` and `IsCube` are left as parameters so
 --     the type records the shape of the debt without importing a �[ω]
 --     development.
 ------------------------------------------------------------------------

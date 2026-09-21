@@ -5,15 +5,12 @@
 --
 -- TERM.  ‡¶‡‡µ‡Ø (the pair, the two) and ‡‡‡‡ (bridge ‚î the corpus's own
 -- word for a checked identification, per Setubandha).  The compound
--- ‡¶‡‡µ‡Ø-‡‡‡‡, "the bridge of the two", is built HERE and no source is
--- claimed for it (CLAUDE.md, naming rule, note 2).
+-- ‡¶‡‡µ‡Ø-‡‡‡‡ means "the bridge of the two".
 --
--- SEED.  `SamaVibhaga_‚¶`'s header states: "at X = Fin 2 the iterate
--- ‡ó‡‡‡ 1 y is y +µ y, so this module's divideUniquely hypothesis is
--- EXACTLY UniquenessMatraDvaya's halvesUniquely ‚¶ (the Bool ‚â Fin 2 shim
--- is not built here; the correspondence is stated, not wired)."  A
--- stated correspondence is a debt.  This module pays it: the wire is
--- a term, and the instantiation is definitional ‚î ‡ó‡‡‡ 1 y and y +µ y
+-- `SamaVibhaga_‚¶`: at X = Fin 2 the iterate
+-- ‡ó‡‡‡ 1 y is y +µ y, so `SamaVibhaga`'s `divideUniquely` hypothesis is
+-- EXACTLY UniquenessMatraDvaya's halvesUniquely.
+-- The wire is a term, and the instantiation is definitional ‚î ‡ó‡‡‡ 1 y and y +µ y
 -- are the SAME normal form, so `halvesUniquely` is passed to
 -- `divideUniquely` with no coercion at all.
 --

@@ -1,20 +1,19 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡ã‡‡ ‚î ascent.  Compound built here, 2026-08-24; the identifiers in
+-- ‡‡∞‡ã‡‡ ‚î ascent.  The identifiers in
 -- this module (‡‡Æ‡æ‡®‡, ‡â‡‡‡‡‡æ‡‡®‡Æ‡, ‡‡ï‡æ‡¶‡‡‡, ‡‡∞‡ã‡‡) are functional
--- vocabulary built here, not source terms, and the principle proved ‚î
--- structural induction over ‚ï, internalized as a combinator on ‚ä® ‚î is
--- not claimed for any Indian source.  Its descent form (establish at
+-- vocabulary built here, not source terms.
+-- The principle's descent form (establish at
 -- the base, recurse on the smaller) is kin to the kuaka discipline
 -- this corpus already carries from ryabhaya (499); kinship, not
 -- provenance.
 --
--- WHAT THIS CLOSES, in the ledger of the seams: the proposer's
--- vocabulary was bounded by the flat normalizer ‚î ‡‡æ‡ß‡®‡Æ‡ proves
+-- WHAT THIS DOES.  The proposer's
+-- vocabulary is bounded by the flat normalizer ‚î ‡‡æ‡ß‡®‡Æ‡ proves
 -- exactly what norm identifies, and the machine's inductive truths
 -- (max(x,x)=x, le(x,x)=1, the whole class ‡‡ø‡¶‡‡ß‡ø routes to the
--- EXTERNAL kernel under "induction on x", agent-carried) lay outside
+-- EXTERNAL kernel under "induction on x") lie outside
 -- it.  This module is that wire brought inside: an induction
 -- combinator ON ‚ä® whose premises are themselves discharged by the
 -- internal prover and by definitional computation, so the store now
@@ -33,8 +32,7 @@
 -- environment update; and ‡‡∞‡ã‡‡ climbs: base at k‚âîze, step from the
 -- hypothesis at k to the conclusion at k‚âîsu(var k), landing ‚ä® (l , r)
 -- entire.  The induction hypothesis enters the step as a genuine
--- hypothesis over every environment ‚î the "IH as local ‡®‡ø‡Ø‡Æ" of the
--- EkaBhasha migration plan, in its semantic form.
+-- hypothesis over every environment.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilentAndTheStoreAdmitsInductionThroughTheSameGate where

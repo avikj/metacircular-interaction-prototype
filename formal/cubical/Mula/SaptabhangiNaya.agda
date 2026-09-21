@@ -5,7 +5,7 @@
 --
 -- SOURCES, EARLIEST FIRST.  These are the origin of the doctrine, not a
 -- gloss on it, and this file cites them because the structure below is
--- theirs and not mine.
+-- theirs.
 --
 --   Bhagavat Stra (Viyha-pannatti / Vykhyprajapti), the fifth
 --     Aga of the vetmbara canon; oldest strata pre-Common-Era, redacted
@@ -102,15 +102,6 @@ private
 -- Not the seven nayas of Tattvrthastra 1.33.  Those classify ways of
 -- REFERRING; these are the three provers the machine actually runs, read
 -- off `machine/machine.log`'s own tactic vocabulary.
---
---     A REPLAY MUST NAME A FIXED OBJECT: a commit hash, a text pattern, an
---     invariant.  Never a position, never a quantity the record is inside,
---     never a HEAD-relative query.
---
--- Registered as `uddhrta` in `machine/mula.pramana` and checked by
--- `machine/MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs`, which
--- does not export the constructors of its designation type, so a citation
--- naming a position cannot be built at any call site.
 --
 -- Collapsed to the three that disagree with each other in the log.
 -- Siddhasena's 1.28 licenses this: as many nayas as ways of speaking.
@@ -461,19 +452,9 @@ sapeksa : Œ£[ œÜ ‚àà Profile ] ((œÜ rewriter ‚â° true) √ó (œÜ kernel-refl ‚â° fa
 sapeksa = machine-profile , refl , refl
 
 ------------------------------------------------------------------------
--- PROVENANCE.
+-- RELATION TO `Saptabhangi`.
 --
--- This is `formal/cubical/Saptabhangi.agda` as of commit 1e2b841b,
--- recovered verbatim except for the module name.  Commit 2c7908ed
--- replaced that file with a different development (‡‡∞‡‡‡ / ‡¶‡‡µ‡ø‡Æ‡‡≤ /
--- ‡‡‡‡‡‡ô‡‡ó‡, ‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡, ‡¶‡‡∞‡‡®‡Ø‡), which stands untouched.
---
--- Three modules depended on the API the rewrite removed ‚î
--- `WitnessNumberIsTwo`, `AvaktavyaDoesNotFactor`, `TwoProfilesSuffice` ‚î
--- so the removed definitions live here under a non-colliding name and
--- those three are repointed.
---
--- The two files are complementary rather than rival.  `Saptabhangi` now
+-- `Saptabhangi`
 -- proves ‡ï‡‡∞‡Æ ‚â† ‡‡ directly on the seven ‡‡ô‡‡ó and identifies the
 -- boolean collapse as ‡¶‡‡∞‡‡®‡Ø; this one carries the ‡®‡Ø-profile semantics,
 -- `denotes`, `joint`, and `no-single-vacana`, which the witness thread

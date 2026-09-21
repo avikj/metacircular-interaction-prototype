@@ -5,9 +5,9 @@
 -- program, keeps the trace, projects the visible map, and builds the
 -- inverse.  It is all one act.
 --
--- The owner's sentence, landed.  Vishvayantra completes any MAP in one
+-- Vishvayantra completes any MAP in one
 -- line (semantic level); Sha256Sthana completed one program by hand
--- (an agent read the code of roundStep and emitted its inverse).  This
+-- (by reading the code of roundStep and emitting its inverse).  This
 -- module is the level between, where the sentence "given an output of
 -- a lossy function the system reports the class of inputs" becomes one
 -- mechanical act: because the system holds the function AS CODE, the

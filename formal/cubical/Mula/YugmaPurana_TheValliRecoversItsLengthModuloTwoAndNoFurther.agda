@@ -10,7 +10,7 @@
 -- WHAT THIS IS.  This corpus holds THREE no-decoder theorems, in two
 -- lanes and two languages, proved by three unrelated arguments � and all
 -- three are sharp at exactly �/2.  None of them says so, and none cites
--- another.  A uniform random draw found the coincidence; this module is
+-- another.  This module is
 -- the one line that explains it.
 --
 --   `KuttakaValli.detReplay`     (Agda)  det (replay v) ≡ sgn v, where
@@ -152,25 +152,8 @@ open CommRingStr (ℤCommRing .snd)
 यत्-तिष्ठति v w p = detReplay v ∙ चिह्नं-दैर्घ्यात् v w p ∙ sym (detReplay w)
 
 ------------------------------------------------------------------------
--- � � ���� � what this does NOT say.
+-- THE LEAN COUNTERPART.
 --
--- It does not say the fibre of `replay` is the set of valls of a given
--- parity: `replay` forgets far more than length, and two valls of one
--- parity generally have different matrices.  The claim is only about what
--- the DETERMINANT sees, which is the coordinate all three no-decoder
--- theorems' witnesses were built to defeat.
---
--- It does not compute the fibre of `replay` itself.  That fibre is the
--- subject rather than a defect � `Gamma0Freeness` is where it lives � and
--- computing it would be a different module.
---
--- And it does not transfer to the Lean lane as a term.  The two
--- `IntMat2`/`euclidStep` results are stated there over a different matrix
--- type in a system without univalence, so the identification is grade
--- three: a real channel, to be constructed rather than asserted.  Stated
--- here as owed, not as done.
---
--- [2026-08-22 � PAID, and paid the only way a grade-three channel can be.]
 -- `formal/pairfield/Pairfield/YugmaPurana_TheEvenPaddingIsForcedAndThe-
 -- DeterminantSaysWhy.lean` proves §��§� again over `IntMat2`, natively, and
 -- states the tightness at the two Lean sites:

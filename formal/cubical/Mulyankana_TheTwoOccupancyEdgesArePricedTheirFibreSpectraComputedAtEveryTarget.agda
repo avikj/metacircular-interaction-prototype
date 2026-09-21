@@ -1,21 +1,18 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡Æ‡‡≤‡‡Ø‡æ‡ô‡‡ï‡®‡Æ‡ ‚î the pricing.  Compound built here, 2026-08-23, from
--- ordinary  (‡Æ‡‡≤‡‡Ø, price; ‡‡ô‡‡ï‡®, marking); no source is claimed
--- for the term.  The mathematics is the fibre of a map (cubical, the one
+-- ‡Æ‡‡≤‡‡Ø‡æ‡ô‡‡ï‡®‡Æ‡ ‚î the pricing.
+-- The mathematics is the fibre of a map (cubical, the one
 -- admitted non-Indian substrate); the three-verdict discipline is
 -- Avaccheda's (‡∞‡ø‡ï‡‡‡Æ‡ / ‡‡ï‡Æ‡ / ‡‡‡ ‚î a target nothing reaches, a
 -- contractible fibre, a fibre that IS the memory required), and the
 -- refusal to collapse three verdicts into two is Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡.
 --
--- WHY THIS MODULE EXISTS.  The machine asked for it.  Jiva's top-10
--- frontier (JIVA-HEARTBEAT 2026-08-23, unpriced=1203) names five
--- Bool ‚ü ‚ï edges to price first; two of them live in
+-- WHY THIS MODULE EXISTS.  Two Bool ‚Üí ‚Ñï edges live in
 -- NaturalMachine.FiniteOccupancyChannelNoGo: `asNat` and `bothNat`.
 -- Lopa's deciding rules R1‚ìR4 cannot reach them (target ‚ï is neither
--- contractible nor ‚ä nor a truncation), so they sat UNDECIDED ‚î withheld,
--- correctly, because no type expression forced a verdict.  This module
+-- contractible nor ‚ä nor a truncation).
+-- This module
 -- forces the verdicts by computation: the COMPLETE fibre spectrum of both
 -- maps, at every target, so the edges are priced rather than graded.
 --

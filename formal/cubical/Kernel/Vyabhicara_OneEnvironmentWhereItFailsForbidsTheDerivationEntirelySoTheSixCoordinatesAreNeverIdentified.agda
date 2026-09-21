@@ -16,13 +16,10 @@
 -- anaikntika savyabhicra`, and line 200 is 1.2.4, the hetvbhsa
 -- list.
 --
--- I give the words rather than lean on the number, per this repository's
--- own finding that a stra's number propagates through citation while its
--- words appear only where someone opened the text.  The received placement
--- is in the hetvbhsa passage of adhyya 1, pda 2; I do not pin it.  The
+-- The received placement is in the hetvbhsa passage of adhyya 1, pda 2.  The
 -- definitional apparatus for vypti and its defeat is much later --
--- Gagea, *Tattvacintmai*, vyptivda (~1325) -- and none of it is
--- claimed for anything proved below.  `Vyapti_�` in this directory is the
+-- Gagea, *Tattvacintmai*, vyptivda (~1325).
+-- `Vyapti_�` in this directory is the
 -- sibling module and uses the same school's vocabulary.
 --
 -- AND THE DISPUTE, WHICH IS THE POINT AND MUST NOT BE FLATTENED.
@@ -44,19 +41,17 @@
 -- it states which reading each section is, and stops.
 --
 ------------------------------------------------------------------------
--- WHAT WAS OPEN.
+-- THE COMMENT IN `RewriteCertificate`.
 --
--- `RewriteCertificate` states a design rationale in a comment and never
--- proves it:
+-- `RewriteCertificate` states a design rationale in a comment:
 --
 --     "Keeping all six coordinates distinct matters: identifying them
 --      would prove only equality on the diagonal."
 --
 -- That is a claim about what this calculus CANNOT derive, and prose is not
--- a source for an absence.  Nothing in the corpus exhibits an uninhabited
--- `Derivation`.  §1 gives the general instrument in one line and §2 uses
--- it, so the comment becomes a checked non-existence with a command behind
--- it rather than a rationale nobody tested.
+-- a source for an absence.
+-- §1 gives the general instrument in one line and §2 uses
+-- it, so the comment becomes a checked non-existence.
 --
 ------------------------------------------------------------------------
 -- WHAT IS PROVED.

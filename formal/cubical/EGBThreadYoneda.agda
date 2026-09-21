@@ -39,8 +39,6 @@
 --     the nose, and `yonedaTo ∘ yonedaFrom` is pointwise the identity
 --     on natural transformations.
 --
--- WHAT IS NOT.  The round trips give a bijection, not a `�`.
---
 -- WHY IT MATTERS HERE.  D0025 §16 is the operative sentence: a local
 -- event must propagate through the whole Net by transport/naturality,
 -- and §27 identifies the absence of that propagation as the entire

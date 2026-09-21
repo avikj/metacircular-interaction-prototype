@@ -505,11 +505,6 @@ roughSplit-30 : (n : ℕ) → 0 < n → n ≤ 30 → (rough n ≡ 1) ⊎ IsPrime
 roughSplit-30 n 0<n n≤30 = roughIsOneOrPrime 30 n 0<n n≤30 isqrt-30≤5
 
 -- �and in the form `SieveFiber` §4 states it: 1, or a prime above 5.
---
--- NOTE ON THE `Sum.rec`, and it is a MEASUREMENT, not a diagnosis.
--- Written as `roughSplit-30� n 0<n n�30 with roughSplit-30 n 0<n n�30`
--- and two `...` clauses, this definition did not finish typechecking in
--- 120 s; written with the eliminator, the whole file checks in 4.2 s.
 roughSplit-30′ : (n : ℕ) → 0 < n → n ≤ 30
                → (rough n ≡ 1) ⊎ (IsPrime (rough n) × (5 < rough n))
 roughSplit-30′ n 0<n n≤30 =

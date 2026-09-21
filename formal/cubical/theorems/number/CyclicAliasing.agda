@@ -44,10 +44,10 @@
 --     general": at M = 2 the s = 1 projector returns Î_{r odd} Îº_r, and
 --     for d = pÂ²q that is 2, not Îºâ = 1.
 --
--- WHAT IS FORMALIZED, AND WHAT IS NOT.  The step from the left side of
+-- WHAT IS FORMALIZED.  The step from the left side of
 -- (2.1) to the right side is character orthogonality over â â” inherited
 -- elementary harmonic analysis, and the note claims no novelty for it.
--- It is NOT reproved here; no root of unity and no complex number
+-- No root of unity and no complex number
 -- occurs in this module.  What IS formalized is everything (2.1)
 -- reduces to once that step is taken, which is where the operational
 -- content lives: the right-hand side of (2.1) is taken as the
@@ -108,7 +108,7 @@
 --     two derivations of these numbers are independent: one runs the
 --     index-class sum, the other evaluates the note's formula.
 --
--- Nothing here proves anything about primes.  It establishes the
+-- This module establishes the
 -- precondition n > R under which the Îº=1 projector is the identity on
 -- the targeted atom, and the exact functional it becomes when the
 -- precondition fails.  --safe throughout; no postulates, no holes.

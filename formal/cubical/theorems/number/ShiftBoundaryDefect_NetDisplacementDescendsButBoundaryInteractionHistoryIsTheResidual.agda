@@ -37,11 +37,7 @@
 -- statement is the general one and the witness is exhibited, in the
 -- corpus's concrete-witness discipline.
 --
--- SYT â” THE CLAIM, EXACTLY.  The three facts for this window.  NOT
--- claimed: unitarity's failure quantified over all N (the shape is
--- identical, the witness is N = 3), nor anything about Î â” this is the
--- residual's algebra, the piece the explicit-formula boundary block is
--- built on, not the spectral theorem.
+-- SYT â” THE CLAIM, EXACTLY.  The three facts for this window.
 ------------------------------------------------------------------------
 
 module ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual where

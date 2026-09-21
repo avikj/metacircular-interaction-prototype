@@ -18,7 +18,7 @@
 -- having separately:
 --
 --   * NerodeCongruence is a PROPOSITION (isPropNerodeCongruence): sameness carries no data;
---   * Apart is NOT a proposition (ApartNotProp): distinction carries data.
+--   * Apart is NOT always a proposition (ApartNotProp, in `Minimal`): distinction carries data.
 --
 -- So they are not De Morgan duals with the same status.  One is a
 -- truth value; the other is a space of experiments.
@@ -173,35 +173,3 @@ module Minimal where
   -- Sanity: the two states really are apart, so Â§5 is not vacuous.
   falseApartTrue : Apart false true
   falseApartTrue = witnessâ‚€
-
-------------------------------------------------------------------------
--- The header states the asymmetry as two unqualified sentences:
---
---     * NerodeCongruence is a PROPOSITION (isPropNerodeCongruence): sameness carries
---       no data;
---     * Apart is NOT a proposition (ApartNotProp): distinction carries
---       data.
---
--- The first is general and the terms carry it: `isPropNerodeCongruence` is
--- proved in Â§4 for EVERY (step, obs) with `isSet Obs`.
---
--- The second is NOT general, and cannot be: `ApartNotProp` lives in
--- `module Minimal` and has type `Â (isProp (Apart false true))` â” one
--- system (two states, one action, identity dynamics, state-as-
--- observation) at one pair of states.  Read as a statement about every
--- system it is false, not merely unproved: whenever `NerodeCongruence x y`
--- holds, `Apart x y` is empty and hence IS a proposition, and the
--- module supplies no hypothesis excluding that case.
---
--- The body is already correct where it is local: Â§5 is titled
--- "Control", says "The minimal witnessing system", and closes with
--- `falseApartTrue` labelled "so Â§5 is not vacuous".  Only the header
--- generalises.  The accurate reading of the pair is:
---
---     sameness is ALWAYS a proposition; distinction is NOT always one,
---     and `Minimal` is the witness that it can fail to be.
---
--- That is still the asymmetry the module is for â” one side is a
--- theorem about all systems, the other is a counterexample â” and it is
--- what the terms prove.
-------------------------------------------------------------------------

@@ -22,9 +22,7 @@
 -- What is proved here (arithmetic only):
 --   â costAgree   â” the two subtraction forms agree for ALL a, q, with
 --                   no hypotheses at all (truncated âˆ absorbs every
---                   degenerate case symmetrically; this is formulation
---                   (ii) of the brief, closed in more generality than
---                   asked: the 1 â‰ q hypothesis proved unnecessary).
+--                   degenerate case symmetrically).
 --   â costLawâº    â” the addition form (no subtraction on the left):
 --                   (q + a) + cost â‰¡ m, under the single hypothesis
 --                   1 â‰ q; the side condition a â‰ qÂ(2^a âˆ’ 1) is

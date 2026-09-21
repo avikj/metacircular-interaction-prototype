@@ -6,14 +6,12 @@
 -- Theorem A §1.1 with the exact instance
 -- tables of §1.5 and the verification inventory of §5; Theorem B §2.1
 -- with the exhaustive three-case table of §2.2 and the SCOPE FENCE of
--- §2.4.1.  Owner provenance: D0026 §5.5 (divisor-lattice characteristic
--- polynomial) and §5.9 (Chen-envelope prime projector), i.e.
--- `collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md`,
--- as re-derived and disagreement-reported in the note.
+-- §2.4.1.  Source: D0026 §5.5 (divisor-lattice characteristic
+-- polynomial) and §5.9 (Chen-envelope prime projector).
 --
 -- WHY THIS ROUTE AND NOT A VOCABULARY EXTENSION.
--- `interactive/patches/S4-certificate-vocabulary.md` §3.4 is a FINDING that
--- redirects queue Q3: Ω, ω, μ² are *not* a vocabulary problem for the
+-- `interactive/patches/S4-certificate-vocabulary.md` §3.4 finds that
+-- Ω, ω, μ² are *not* a vocabulary problem for the
 -- Natural Machine.  Ω(n) = 1 + Ω(n / lpf(n)) has an argument that is not
 -- a subterm of the left-hand side, so LPO cannot orient it at all
 -- (`orient` returns `Nothing`), the bounded BFS has no structural
@@ -23,8 +21,6 @@
 -- INSTANCES checked by exhaustive `refl`, which `CLAUDE.md` rates as
 -- proof outright ("a finite exhaustive verification ... produces
 -- mathematical objects, not measurements").  That is what is below.
--- Nothing here extends the machine's certificate language and nothing
--- here should be read as doing so.
 --
 ------------------------------------------------------------------------
 -- THE ENCODING CHOICE, AND ITS COST � read this before the code
@@ -167,9 +163,8 @@
 --     `Number`; proves nothing about divisor sums.  Disjoint.
 --   `ChenTwoChargeProjector` � despite the name, this is
 --     support geometry: `Charge = {one, two}`, commuting projections, and
---     a countermodel showing two cofinal faces need not meet.  It states
---     explicitly that it "proves no Chen, twin-prime, or Goldbach
---     theorem".  The present module is the arithmetic content the name
+--     a countermodel showing two cofinal faces need not meet.  The
+--     present module is the arithmetic content the name
 --     suggests and that module deliberately does not carry: μ² − (ω−1).
 --     They are complementary and neither subsumes the other.
 --   `ChargeGrading` � Ω as the �-grading in the abstract
@@ -179,12 +174,6 @@
 --     is the closest prior art in the corpus and it does not overlap.
 --   `interactive/patches/S4-certificate-vocabulary.md` §3.4 � the finding
 --     quoted above.
---
---   Nothing found in `formal/cubical/` defines ω, μ, μ², a Mbius
---   divisor sum, or Rota's characteristic polynomial.  Those are new
---   here.  Ω is NOT new here and is not re-implemented as a recursion:
---   the module's Ω is a fold over a table, and it is checked against
---   SieveFiber's.
 --
 ------------------------------------------------------------------------
 -- RIGOR BOUNDARY
@@ -204,13 +193,6 @@
 --       primes, not over a sample;
 --     the failure rows of §2.4.1 for every p, q, r and every exponent
 --       3 + k.
---
---   TYPECHECKING COST, declared because it is the one place this module
---   could be expensive: §4's Φ���(5) forces the kernel to evaluate
---   5^6 = 15625 and a 24-term � sum in unary-successor Int arithmetic,
---   twice (raw and closed).  Everything else is small.  If the kernel
---   session finds this line slow, it is that line; it is kept because
---   8000 is one of the note's own checksums.
 ------------------------------------------------------------------------
 
 module ChargePolynomialFinite where
@@ -824,8 +806,6 @@ outside-envelope-30 = refl
 -- Ω = 1 and therefore always lies in the envelope, so intersecting any
 -- family with the envelope condition discards no primes.  In this
 -- encoding that is exactly `classify1` read backwards, and it is the
--- statement that makes the note's B3/B4 counts FULL counts.  (Those
--- counting theorems themselves quantify over primes in a window and are
--- deliberately not formalized here � see the rigor boundary.)
+-- statement that makes the note's B3/B4 counts FULL counts.
 primes-are-in-envelope : (p : ℕ) → (Ω ((p , 0) ∷ []) ≡ 1) ⊎ (Ω ((p , 0) ∷ []) ≡ 2)
 primes-are-in-envelope p = inl refl

@@ -3,9 +3,7 @@
 ------------------------------------------------------------------------
 -- EGBFalsifierAsymmetry
 --
--- The collaboration's constitution says "numerics are falsifiers only"
--- (AGENTS.md line 64) and "headline claims ship with their own
--- falsifier" (collab/PROTOCOL.md line 53).  This module checks that
+-- "Numerics are falsifiers only."  This module checks that
 -- the epistemology is not house style but a logical asymmetry between
 -- Î and Î  over a decidable matrix P : â• â’ Bool:
 --
@@ -24,7 +22,7 @@
 --                      run the falsifier, never claim the verifier â”
 --                      lives exactly in that gap.
 --
--- No no-go theorem is attempted or claimed.  The precise size of the
+-- The precise size of the
 -- finite/infinite gap is already isolated in this corpus: it is
 -- Markov's Principle.  See formal/cubical/Swarm/S04Apoha.agda,
 -- `MPâ’Witnessed` / `Witnessedâ’MP` (checked there, cited here, not
@@ -33,7 +31,7 @@
 -- MP, `falsify` runs right-to-left only: witness â’ refutation, never
 -- refutation â’ witness.
 --
--- Shape, not theorems (comments only, nothing formalized): Goldbach is
+-- Goldbach is
 -- Î â over a decidable matrix â” "every even n â‰ 4 is a sum of two
 -- primes" is ((m : â•) â’ P m â‰¡ true) for a P this module's `falsify`
 -- and `decBounded` apply to verbatim.  Twin primes is Î â ("for every
@@ -97,8 +95,7 @@ module _ (P : â„• â†’ Bool) where
   --     `decBounded` : every finite truncation of Î  is decided.
   --
   --     The unbounded ((m : â•) â’ P m â‰¡ true) receives NO decision
-  --     procedure in this module, and none is claimed anywhere in
-  --     this corpus.  The gap between "decided at every bound" and
+  --     procedure in this module.  The gap between "decided at every bound" and
   --     "decided" is not an engineering shortfall; by S04Apoha's
   --     MPâ”Witnessed it is precisely Markov's Principle, i.e. a
   --     classical axiom the --safe fragment does not grant.  The

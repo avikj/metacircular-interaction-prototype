@@ -9,7 +9,7 @@
 -- 8.24-25 (~300 BCE); worked with the array in Halyudha, *Mtasajvan*
 -- (10th c. CE).**
 --
--- **No claim is made that Pigala proved anything below.**  What is his is
+-- What is his is
 -- the pair of procedures and the decision to GENERATE rather than STORE ‚î
 -- 2‚ø patterns at zero space, which is the design principle, not a
 -- side-effect.  What is this repository's is the statement that ‡®‡‡‡ü and

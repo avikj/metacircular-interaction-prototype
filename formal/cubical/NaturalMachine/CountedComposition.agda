@@ -3,10 +3,8 @@
 ------------------------------------------------------------------------
 -- Sequential composition of counted execution.
 --
--- `CountedExecution.run` iterates a step map under a tick count, but the
--- corpus so far only relates single ticks (`run-suc`) and whole executions
--- to other whole executions (`compile`).  The missing law is the one the
--- acceptance test actually needs: counted time composes additively along
+-- `CountedExecution.run` iterates a step map under a tick count.
+-- The law here: counted time composes additively along
 -- sequential execution.  Running for m + n ticks is running for n ticks and
 -- then resuming the machine, from the very state it reached, for m more.
 -- This is what makes a tick count a *cost*: segments of work concatenate,

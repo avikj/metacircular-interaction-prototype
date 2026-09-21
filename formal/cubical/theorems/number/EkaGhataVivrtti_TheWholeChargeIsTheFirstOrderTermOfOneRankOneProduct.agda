@@ -2,7 +2,7 @@
 --
 -- ‡‡ï-‡ò‡æ‡-‡µ‡ø‡µ‡‡‡‡‡ø‡ ‚î one product, expanded to first order.
 --
--- THE QUESTION THIS ASKS, and it is asked because nobody in this corpus has:
+-- THE QUESTION THIS ASKS:
 -- every rank statement about the squarefree prime charge is about EXACT
 -- realization by t-independent products.  `PrimeChargeArbitraryRank` proves
 -- rank exactly n; `PrimeChargeUnboundedLocalRank` proves no finite number of
@@ -12,8 +12,7 @@
 -- Analysis never needs that.  An estimate needs an approximation with
 -- controlled constants, and the gap between exact realization and
 -- approximation is where a whole class of constructions lives ‚î for tensors
--- it is the gap between rank and border rank, and the phrase "border rank"
--- appears nowhere in this corpus.
+-- it is the gap between rank and border rank.
 --
 -- Asked and answered here in a form sharper than a limit: not a degenerating
 -- family, an identity.
@@ -67,7 +66,7 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
 
 -- ---------------------------------------------------------------- ‡Æ‡∞‡‡Ø‡æ‡¶‡æ
 --
--- WHAT THIS DOES AND DOES NOT SAY, because the two are easy to run together.
+-- WHAT THIS SAYS.
 --
 -- It does NOT contradict `squarefreeChargeCube_rankExactly n`.  That theorem
 -- counts realizations of the charge as a sum of pure products with CONSTANT
@@ -87,23 +86,8 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
 -- k = 1 and ‡‡∞‡‡Ø‡æ‡Ø‡ is k = 0.  A rank obstruction applies to each coefficient
 -- separately.  None of them applies to the product that generates all of
 -- them at once.
---
--- NOT here: any analytic claim.  Whether a Kuznetsov-type kernel admits the
--- corresponding parameter ‚î a derivative in a spectral variable of a single
--- separable kernel ‚î is a question about that kernel and not about this
--- identity.  What this removes is the belief that the rank theorems already
--- forbid it.
 
 -- ------------------------------------------------------------- the tower
--- The machine's own reading of this residue, asked of `kernel.dhara` with
--- the two standpoints ‚î "n constant-coefficient products are needed" and
--- "one product carries it at first order" ‚î was a stream in which every born
--- position keeps the second standpoint as its base and adds ONE MORE Arpita,
--- forking asserted/withheld at the tip.  The rank standpoint drops out of
--- the born pair after the first birth.
---
--- Arpita^k is reading to order k.  The stream is the expansion, and it says
--- the object to define next is the k-marked charge ‚î which is what follows.
 
 -- the k-marked charge: choose k places to be active-marked, sign the rest.
 -- k = 0 is the parity character; k = 1 is the squarefree charge.

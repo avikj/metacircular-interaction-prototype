@@ -10,9 +10,9 @@
 --       â’ (i j : â•) â’ isGCD (p ^ i) (q ^ j) 1
 --
 -- `CoprimePowers` proved certificates compose, over any ring.
--- `DistinctPrimesAreCoprime` supplied the base case over â•.  What was
--- missing, and named there as the last gap, is the transfer between â• and
--- â.  Both directions are here.
+-- `DistinctPrimesAreCoprime` supplied the base case over â•.  The transfer
+-- between â• and
+-- â, in both directions, is here.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- PRIOR ART

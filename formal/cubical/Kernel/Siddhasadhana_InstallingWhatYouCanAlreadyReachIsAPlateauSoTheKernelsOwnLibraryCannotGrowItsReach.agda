@@ -9,8 +9,7 @@
 -- because the sdhya is already siddha for the opponent, so the inference
 -- accomplishes nothing.  Discussed under the ‡®‡ø‡ó‡‡∞‡‡‡‡‡æ‡® / ‡‡æ‡‡ø apparatus
 -- descending from Gautama's *Nyyastra* (~2nd c. CE) book 5 and developed
--- in the later Naiyyika manuals; I have not established a first use of the
--- compound with a date I checked, and I am not supplying one.
+-- in the later Naiyyika manuals.
 --
 ------------------------------------------------------------------------
 -- `NaturalMachine.Obstruction` proves a separation on ITS substrate (unary
@@ -106,12 +105,6 @@ install-chain-plateau (step ch t e d) t' s =
 --      `add var (suc zero)`; a tower has an outermost `suc`.  A head
 --      discriminator kills the control, and ¬ß2 extends it to anything the
 --      library builds from itself.
---
---      `Vyapti_` proves the seed case and is now a sibling in this
---      directory, so the import would resolve; the discriminator was
---      inlined when this module was written against a branch that predated
---      the reorganisation, and it is left inlined rather than changed
---      without a re-check.  The statement is the same either way.
 ------------------------------------------------------------------------
 
 isAdd : Tm ‚Üí Bool

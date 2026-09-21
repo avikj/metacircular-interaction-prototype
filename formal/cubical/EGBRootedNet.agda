@@ -5,7 +5,7 @@
 --
 -- D0025 Â§T25.B, on D0025 Â§19's objects.
 --
--- The owner's transmission asks for the rooted reflection total space
+-- The rooted reflection total space
 --
 --     Uâ  :=  Î (x : U) . View_x(U)
 --
@@ -20,8 +20,7 @@
 -- with the three incidence identities proved to hold AT EVERY JEWEL.
 -- Nothing here is asserted: `--safe`, no postulates, no holes.
 --
--- WHAT IT IS NOT.  No primality statement, and therefore no Goldbach or
--- twin statement â” the jewel type below carries the centre/radius
+-- The jewel type below carries the centre/radius
 -- geometry only, exactly as `EGBPairConic` carries the conic only.
 --
 -- WHY IT IS SEPARATE FROM THE MACHINE.  `machine/MathMachine.hs`

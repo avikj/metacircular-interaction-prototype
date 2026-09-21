@@ -31,8 +31,8 @@
 -- import it, and nothing else may: `NaturalMachine/Control/` is
 -- excluded from the root aggregate exactly so its contents may fail.
 --
--- OBSERVED, 2026-08-15, THE PIN (Agda 2.8.0 + cubical v0.9, the owner
--- §6.1), `LC_ALL=C.UTF-8 agda --library-file=<v0.9>
+-- Under the pin (Agda 2.8.0 + cubical v0.9),
+-- `LC_ALL=C.UTF-8 agda --library-file=<v0.9>
 -- NaturalMachine/Control/ReachabilityWithoutStart.agda`, exit code 42,
 -- error verbatim:
 --

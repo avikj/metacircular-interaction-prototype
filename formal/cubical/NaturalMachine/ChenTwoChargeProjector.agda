@@ -4,8 +4,8 @@
 -- NaturalMachine.ChenTwoChargeProjector
 --
 -- Factory IV's exact two-charge seam.  This is support geometry parameterized
--- by an arithmetic witness field; it proves no Chen, twin-prime, or Goldbach
--- theorem.  Algebraic commutation of two projections is kept sharply distinct
+-- by an arithmetic witness field.
+-- Algebraic commutation of two projections is kept sharply distinct
 -- from any lower-bound/intersection claim.
 ------------------------------------------------------------------------
 
@@ -153,13 +153,9 @@ two-cofinal-faces-do-not-force-corner : ¬ (CornerCofinal CrossedFaces)
 two-cofinal-faces-do-not-force-corner corner = corner-is-empty 1 (corner zero)
 
 ------------------------------------------------------------------------
--- Rigor boundary
+-- Summary
 --
--- Checked: exact two-charge parity/projector, its singleton fiber, commutation
+-- Proved: exact two-charge parity/projector, its singleton fiber, commutation
 -- of radius and charge restrictions for every parameterized finite support,
 -- and an explicit field with two cofinal faces but an empty (1,one) corner.
---
--- Not claimed: that the parameterized witnesses are primes or semiprimes, or
--- any arithmetic Chen/twin/Goldbach lower bound.  Projection commutation is
--- algebra; intersection inhabitation is additional arithmetic content.
 ------------------------------------------------------------------------

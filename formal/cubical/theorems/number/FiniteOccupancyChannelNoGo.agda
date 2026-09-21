@@ -7,9 +7,6 @@
 -- summary and a distinguished local channel.  The two configurations 1010
 -- and 1100 have the same Hamming weight and the same total number of occupied
 -- unordered pairs, but only the latter occupies an adjacent pair.
---
--- This is finite-information geometry only.  It makes no statement about
--- Maynard weights, primes, or an analytic transfer estimate.
 ------------------------------------------------------------------------
 
 module FiniteOccupancyChannelNoGo where

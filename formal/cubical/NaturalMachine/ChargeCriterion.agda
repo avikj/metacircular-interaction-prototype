@@ -32,7 +32,7 @@
 -- also what stops the criterion from being vacuous: without it, "neutral
 -- â’ blind" would be consistent with everything being blind.
 --
--- WHAT IT IS NOT.  This is a criterion on the QUERY SET, not on the
+-- THE ASYMMETRY.  This is a criterion on the QUERY SET, not on the
 -- post-processing, and that asymmetry is the theorem, not a limitation:
 -- charge lives in what a method reads, and no amount of computation on
 -- neutral readings manufactures it.  A method reading odd-Î© arguments is

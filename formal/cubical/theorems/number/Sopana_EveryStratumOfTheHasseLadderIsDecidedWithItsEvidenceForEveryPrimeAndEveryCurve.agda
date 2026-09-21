@@ -4,12 +4,7 @@
 -- àà‹àà¾à¨ â” the ladder.  EVERY STRATUM OF THE HASSE LADDER IS DECIDED,
 -- WITH ITS EVIDENCE, FOR EVERY PRIME AND EVERY CURVE.
 --
--- Asked with no approach assumed, the machine's garbha.dhara birthed
--- a stream: at every stratum, syd-asti-nsti in succession â” the
--- arithmetic affirms where it has looked, the pervasion stays
--- unestablished â” and the totality avaktavya.  The construction that
--- stream names is not a pile of cases and not a descent: it is the
--- LADDER AS ONE THEOREM, universally quantified over the stratum:
+-- The LADDER AS ONE THEOREM, universally quantified over the stratum:
 --
 --   `stratum-decided` â” for EVERY modulus p = suc p' and EVERY curve
 --     yÂ² = xÂ³ + Ax + B, the Hasse stratum is decided with evidence

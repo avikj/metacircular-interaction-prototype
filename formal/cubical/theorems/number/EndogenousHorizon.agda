@@ -206,15 +206,7 @@ horizon-grows-35 p = trueâ‰¢false (sym (cong headOfTail p))
     headOfTail _               = true
 
 ------------------------------------------------------------------------
--- What is deliberately NOT here
---
--- No definition of primality, no infinitude of primes, no claim that the
--- square root is the *least* sufficient threshold in general.  T22.3
--- (testing all primes â‰ âˆX suffices on [1,X]) is a standard fact and
--- re-encoding it here would be exactly the gratuitous formalisation
--- Delta 22 direction 6 warns against.
---
--- What is here is the half with content: the observer's insufficiency is
+-- The observer's insufficiency is
 -- a behavioural separation, it is refuted by an explicit pair rather than
 -- by an existence argument, and the pair is destroyed only by enlarging
 -- the observer past a value determined by the object.  That is what

@@ -4,8 +4,8 @@
 -- ‡‡ï‡‡æ‡∞‡ ‚î one charge.  The winding, the holonomy, the commutator image,
 -- the hidden charge, and the parity tangent are one generator of one ‚.
 --
--- THE STEP BACK, spoken to the machine in its own tongue.  Today five
--- modules were laid down in five lanes, each exhibiting "a charge":
+-- THE STEP BACK.  Five
+-- modules each exhibit "a charge":
 --
 --   ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ       transport around the circuit shifts the fibre    (holonomy)
 --   ‡ó‡‡‡‡Ø-‡®‡æ‡‡‡‡ø     the loss the set-census cannot see, in the loops  (winding)
@@ -18,7 +18,7 @@
 -- ARE ONE.  Not analogous ‚î equal.  Four of the five faces below are
 -- refl or a single imported step, because under the hood the terms
 -- already coincide: winding IS encode base IS subst helix ‚î the library
--- built one charge and the day discovered it five times.  The fifth
+-- built one charge under five names.  The fifth
 -- (the jet) lives in a different ring and lands on the same generator
 -- pos 1, which is the precise content of "the charge is quantized and
 -- there is one quantum."
@@ -31,7 +31,7 @@
 -- step of one loop, and every census that forgets it is off by exactly
 -- this quantum, everywhere, forever.
 --
--- ‡‡ï‡‡æ‡∞ is built here, 2026-08-23; each face's instrument is its own
+-- ‡‡ï‡‡æ‡∞ is built here; each face's instrument is its own
 -- module's, imported, never copied.
 ------------------------------------------------------------------------
 
@@ -97,8 +97,5 @@ open import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJe
 -- ‡¶‡ã‡‡≤‡‡ñ‡.  The first three links are refl: those instruments were one
 -- term wearing three names, and saying so costs nothing ‚î that is what
 -- makes it worth saying.  The last link crosses from the loop space to
--- the parity jet through the VALUE pos 1 only: no functor from circuits
--- to sieve weights is claimed, and building one ‚î the bridge that would
--- make the fourth equality structural rather than numerical ‚î is named
--- as open.  One charge, four refl, one crossing, one open bridge.
+-- the parity jet through the VALUE pos 1 only.
 ------------------------------------------------------------------------

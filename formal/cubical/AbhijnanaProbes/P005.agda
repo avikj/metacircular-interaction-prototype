@@ -6,7 +6,7 @@ open import Cubical.Data.Sigma
 -- the index of a 0-parameter fibre is a LITERAL lifted out of the source
 -- line (, ), so the constructors have to be in scope
 -- or the probe dies [NotInScope] and the death is the instrument's, not
--- the corpus's.  Two of the first thirteen died exactly that way.
+-- the corpus's.
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int

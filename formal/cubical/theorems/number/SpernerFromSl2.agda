@@ -8,8 +8,8 @@
 -- rank-symmetry, rank-unimodality, full-rank raising maps, and the
 -- Sperner property of the divisor lattice.
 --
--- PRIOR ART.  Everything stated here is CLASSICAL and nothing is
--- claimed as new mathematics.  The theorem (divisor lattices are
+-- PRIOR ART.  Everything stated here is CLASSICAL.
+-- The theorem (divisor lattices are
 -- Sperner) is de Bruijn â“ van Ebbenhorst Tengbergen â“ Kruyswijk, "On
 -- the set of divisors of a number", Nieuw Arch. Wiskunde (2) 23 (1951),
 -- 191â“193, by symmetric chain decomposition and with no Lie algebra.
@@ -20,8 +20,7 @@
 -- "Representations of ð”°ð”©(2,â) on posets and the Sperner property",
 -- SIAM J. Alg. Disc. Meth. 3 (1982), 275â“280; products of chains are
 -- Proctorâ“Saksâ“Sturtevant, Discrete Math. 30 (1980), 173â“180.  The
--- rank-one content is textbook (Humphreys, Â§7).  Companion prose, with
--- formalizes; it does not discover.
+-- rank-one content is textbook (Humphreys, Â§7).
 --
 -- ---------------------------------------------------------------------
 -- WHAT IS PROVED HERE (all --safe, no postulates, no holes):
@@ -66,8 +65,8 @@
 -- explicit record â” "every positive integer is invertible" â” and it is
 -- a HYPOTHESIS of the general statement in Â§8, written into its type.
 --
--- In rank one it is not needed, and I say so rather than pretending
--- the proofs below are the general ones cut down: for a single chain,
+-- In rank one it is not needed, and the proofs below are not
+-- the general ones cut down: for a single chain,
 -- Îµ carries the rank-k basis vector to the rank-(k+1) basis vector on
 -- the nose (Îµ-Î´), so injectivity is a statement about â•-indices and
 -- needs no field at all.  The reader should therefore NOT read Â§6 as
@@ -79,9 +78,7 @@
 -- The construction takes the factorization as INPUT.  Div Î below is a
 -- type family on a single natural number Î; no prime enters anywhere in
 -- this file, and the statements are blind to whether the p_i are prime
--- â” indeed to whether there are any p_i.  Nothing here says anything
--- about the distribution of Î© or Ï‰, and it is NOT a bridge to the
--- Goldbach / critical-line material of the transmission.  See
+-- â” indeed to whether there are any p_i.
 ------------------------------------------------------------------------
 
 module SpernerFromSl2 where

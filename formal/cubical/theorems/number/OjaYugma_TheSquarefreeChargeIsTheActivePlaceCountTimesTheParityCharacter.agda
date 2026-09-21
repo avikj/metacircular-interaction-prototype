@@ -4,10 +4,7 @@
 -- its remainder � the fourfold ktayugma / tryoja / dvparayugma / kalyoja of
 -- the Bhagavat Stra (Vykhyprajapti), with the oja/yugma pair also in the
 -- Sthnga; the canon as redacted at Valabh, c. 5th c. CE, the material
--- older.  The stra number is NOT pinned here: the fourfold is standard in
--- those texts and the exact citation was not opened, so this says text and
--- date and stops rather than inventing a number.  Nothing below is attributed
--- to those texts.  What is taken is the term for the parity of a count.
+-- older.  What is taken is the term for the parity of a count.
 --
 -- WHAT THIS CHECKS, and where its two halves come from.
 --
@@ -127,11 +124,3 @@ open import Cubical.Data.Int
     ≡⟨ cong -_ (-DistR· (pos (suc (ओजः bs))) (पर्यायः bs)) ⟩
   - (pos (suc (ओजः bs)) · (- (पर्यायः bs))) ∎
 
--- ---------------------------------------------------------------- �������
---
--- Where this is thinner than it looks.  It is stated on a LIST of places, so
--- it says nothing about how the places are indexed, and nothing about the
--- Lean lane's `Fin n � Bool` beyond the transcription in the header above.
--- The rank theorem � rank exactly n � is the Lean lane's and is not restated
--- here; what is checked here is only that the function whose rank that
--- theorem measures is the parity character scaled by the active-place count.

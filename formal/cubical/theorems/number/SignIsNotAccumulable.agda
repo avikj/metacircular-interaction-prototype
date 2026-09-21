@@ -12,7 +12,7 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY IDEMPOTENCE IS NOT A SPECIAL FEATURE OF lcm
 --
--- Everything in this thread has turned on idempotence, and it has been
+-- Everything in this chain of modules has turned on idempotence, and it has been
 -- presented as a property of the join.  It is more general than that, and
 -- the general reason needs no arithmetic at all:
 --
@@ -46,24 +46,16 @@
 -- accumulating law and no multiplicative f taking the value âˆ’1, ever.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THIS IS AND IS NOT, ABOUT THE PARITY BARRIER
+-- THE PARITY BARRIER
 --
--- IS: an exact statement that no weight taking a unit value other than 1
+-- This is an exact statement that no weight taking a unit value other than 1
 -- can be multiplicative for an accumulating state law.  Over â that rules
 -- out every function attaining âˆ’1 â” Î» everywhere, Î¼ off the squares â”
 -- for every accumulative law at once.  Whatever carries sign, it is not
 -- accumulation.
 --
--- IS NOT: a theorem about sieves.  The bridge â” "a sieve's state law is
--- accumulation of congruence knowledge, and its weights would have to be
--- multiplicative for it" â” is a MODELLING CLAIM.  It is stated here and
--- proved nowhere, in this repository or (as far as this file's author
--- established) elsewhere.  Treating the bridge as established would be
--- exactly the error CLAUDE.md's opening paragraph is about, one level up
--- from a fitted constant: a resemblance promoted to a mechanism.
---
--- The honest form of the claim is a conditional, and it is worth having
--- as one: IF a sieve's combination law is accumulative and IF its weight
+-- The claim about sieves is a conditional:
+-- IF a sieve's combination law is accumulative and IF its weight
 -- must be multiplicative for that law, THEN by the theorem below the
 -- weight is 1 wherever it is a unit, hence cannot be Î».
 ------------------------------------------------------------------------
@@ -169,6 +161,4 @@ sign-is-not-accumulable _â‹†_ acc f mult m h =
 -- weight multiplicative for an accumulative law is 1 wherever it is a
 -- unit.  Sign is a unit and is not 1.  Therefore no accumulating machine
 -- multiplies sign â” not the walk, not a sieve, not an observer.
---
--- Whether a sieve IS such a machine is the open half, and it is open.
 ------------------------------------------------------------------------

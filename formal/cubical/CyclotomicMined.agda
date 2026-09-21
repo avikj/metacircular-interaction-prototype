@@ -20,7 +20,7 @@
 -- certified below at (p,a,n) = (3,2,2).
 --
 -- Every claim below is a finite exhaustive verification (a checked
--- refl term), which CLAUDE.md admits as proof.  The arithmetic and the
+-- refl term).  The arithmetic and the
 -- e_b(q) carrier are imported from HeadDepthMerge, unchanged.
 ------------------------------------------------------------------------
 

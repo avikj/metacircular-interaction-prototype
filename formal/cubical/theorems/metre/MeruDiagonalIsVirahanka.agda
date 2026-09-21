@@ -102,7 +102,7 @@ check-9 : length (‡§∏‡§∞‡•ç‡§µ 9) ‚â° antidiag 9
 check-9 = virahanka-is-the-diagonal 9
 
 ------------------------------------------------------------------------
--- 5.  Scope.
+-- 5.  Dependencies.
 --
 -- This bridges the two COUNTS (`‡‡∞‡‡µ` and `matra`) and inherits the
 -- diagonal identity from `DiagonalIsMatra`, which is stated over

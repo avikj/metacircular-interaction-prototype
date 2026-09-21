@@ -158,8 +158,7 @@ transcript s Q = map (λ v → ⟪ s , v ⟫) Q
 -- indexed family here matches on constructor injectivity, which Cubical
 -- Agda does not support, so the predicate would not compute under
 -- transport � and a criterion that does not compute under transport is
--- not a test.  The kernel said exactly this on the first pass of this
--- file, in two `-WUnsupportedIndexedMatch` warnings naming `[]` and `_�_`.
+-- not a test.
 
 -- "some query in Q is not orthogonal to the charge S"
 Sees : List Vec → Vec → Type₀

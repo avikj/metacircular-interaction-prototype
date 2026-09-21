@@ -37,8 +37,7 @@
 -- `NaturalMachine/Control/` is excluded from the root aggregate exactly
 -- so its contents may fail.
 --
--- OBSERVED, 2026-08-15, container toolchain (Agda 2.6.3 + cubical v0.5;
--- `formal/cubical/BUILD.md` pins 2.8.0 + v0.9, check OUTSTANDING),
+-- Under Agda 2.6.3 + cubical v0.5,
 -- `LC_ALL=C.UTF-8 agda NaturalMachine/Control/MaximizerWithoutNonvanishing.agda`,
 -- exit code 42, error verbatim:
 --
@@ -51,16 +50,6 @@
 -- does not supply, is `NonVanishing W` â” the dropped clause "`f != 0`
 -- on `E`", named by the machine, in the position where the summary
 -- deleted it.
---
--- (Agda stops at the first error, so the second assertion,
--- `every-world-nonvanishing`, is not reached.  Checked separately by
--- commenting out the first (same file, two lines commented out, then
--- restored): it fails at 88,30-32 with
---   Cubical.Data.Unit.Unit !=< Cubical.Data.Empty.Base.âŠ
---   when checking that the expression tt has type
---   FiniteWorldMaximizer.IsFin (vanishing-world q)
--- â” the world where the observable vanishes identically cannot be given
--- the certificate, which is exactly the case the clause excludes.)
 --
 -- If a future edit makes this file compile, the finite no-go has been
 -- silently extended past its nonvanishing hypothesis and the corpus has

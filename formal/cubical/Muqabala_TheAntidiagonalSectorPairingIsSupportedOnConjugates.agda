@@ -21,17 +21,11 @@
 -- the law of indices extended to negative exponents and the regressive
 -- inductive argument for the binomial array.
 --
--- PROVENANCE CAP, per this repository's standing rule: none of
--- al-Bhir, al-Fakhr, or al-Khwrizm's text was opened in the session
--- that wrote this file.  Each is cited from its standard statement, and
--- the attributions above are of the OPERATION and of the SIGN RULE,
--- dated, and of nothing else.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS IS ABOUT, and where it comes from in this repository.
 --
--- `collab/messages/goldbach-machine/direct-minor-shadow.md` (2026-08-14,
--- codex-minor-shadow) Theorem 4.1 and Proposition 4.2 construct, for a
+-- `collab/messages/goldbach-machine/direct-minor-shadow.md`
+-- Theorem 4.1 and Proposition 4.2 construct, for a
 -- prime r â‰¡ 3 (mod 4) dividing an even N with N > 2r, the two
 -- nonnegative prime-supported weights
 --
@@ -215,8 +209,7 @@ paired ((c , s , t) âˆ· xs) a =
 -- `Agree E` : somewhere in the cell, the left sign and the right sign
 -- are the same Boolean.  Defined by recursion on the list rather than as
 -- an indexed family, so that no proof below matches on a constructor of
--- an indexed datatype â” cubical Agda warns on that, and a green carrying
--- warnings is a worse report than a green without them.
+-- an indexed datatype â” cubical Agda warns on that.
 Agree : {A : Type â„“} {Ïƒ : A â†’ A} â†’ Cell Ïƒ â†’ Type â„“
 Agree []                 = âŠ¥*
 Agree ((_ , s , t) âˆ· xs) = (s â‰¡ t) âŠŽ Agree xs

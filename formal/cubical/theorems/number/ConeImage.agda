@@ -11,7 +11,7 @@
 -- a congruence s ≡ d (mod 2), and presents the congruence as a
 -- constraint the cone must satisfy.  `PairCoordinates.sumIsDouble`
 -- already checked the easy direction (the constraint is necessary).
--- What was OPEN was the equivalence.  Here it is, both ways, over an
+-- Here is the equivalence, both ways, over an
 -- ARBITRARY commutative ring:
 --
 --   (s,d) is hit by the pair map  ⟺  s + d is a double.
@@ -42,11 +42,6 @@
 --   cone-image                  the equivalence of the two
 --   decode-roundtrip            the decoder really does invert: the pair
 --                               produced from (s,d) has sum s and gap d
---
--- NOT covered, and named so the ledger stays honest: the INEQUALITY half
--- of Delta 17's cone (|d| � s, i.e. both legs nonnegative) is an order
--- statement, has no meaning over an arbitrary commutative ring, and is
--- not touched here.
 ------------------------------------------------------------------------
 
 module ConeImage where

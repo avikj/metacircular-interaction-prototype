@@ -15,12 +15,7 @@
 --     the set-truncation (œ‚) of the groupoid of finite sets, i.e. the
 --     iso-classes of finite sets.  `‚ï‚âœ‚FinSet` is proved there.
 --
--- Both are already identified with ‚ï; NEITHER is identified with the
--- other in the corpus.  `Ankapasa` mints `‡‡®‡‡¶‡‡‚âœ‚FinSet` and `Sthana`
--- mints `CanWord‚â°Tally`, so the tirtha graph's component 5 was reachable
--- transitively ‚î but a reachable crossing is not a checked one, and this
--- particular bank (`Tally`) had no minted edge to `œ‚FinSet`.  This file
--- is that edge, and nothing more: the two proved equivalences composed.
+-- This file composes the two proved equivalences into one edge.
 --
 -- WHY `‚â` AND NOT `‚â°`.  `Tally : Type‚` and `œ‚FinSet : Type‚` sit in
 -- different universes, so there is no path `Tally ‚â° œ‚FinSet` to write;

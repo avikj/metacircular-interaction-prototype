@@ -30,10 +30,9 @@
 -- `NaturalMachine/Control/` is excluded from the root aggregate exactly
 -- so that its contents are allowed to fail.
 --
--- OBSERVED, 2026-08-13, pinned toolchain of `formal/cubical/BUILD.md`
--- (Agda 2.6.3 + cubical v0.5), `agda NaturalMachine/Control/WrongFirstStep.agda`,
--- exit code 42, error verbatim (preceded only by the pre-existing
--- `PayloadMorphism` pattern-matching warnings, which are unrelated):
+-- Under Agda 2.6.3 + cubical v0.5,
+-- `agda NaturalMachine/Control/WrongFirstStep.agda`,
+-- exit code 42, error verbatim:
 --
 --   /home/user/math/formal/cubical/NaturalMachine/Control/WrongFirstStep.agda:59,25-29
 --   0 != 1 of type Agda.Builtin.Nat.Nat
@@ -41,16 +40,12 @@
 --   ResidualIs tickCap baseVocab taskTm
 --   (generative-step baseVocab taskTm)
 --
--- (That observation was made when this file ended at line 59.  The
--- statement below is unchanged; only this header has grown, and the
--- `refl` now sits at the line marked Â§Z below.)
---
 -- If a future edit makes this file compile, `CompileBridge`'s Â§G1 is
 -- vacuous and its claim that the FIRST step names the missing capability
 -- is broken.
 --
 -- ---------------------------------------------------------------- --
--- TOOLCHAIN CAVEAT â” THIS CONTROL NEEDS THE PIN.  Read before trusting
+-- TOOLCHAIN CAVEAT â” THIS CONTROL NEEDS THE PIN.
 --
 -- A control's pass condition is not "agda exits nonzero".  It is "agda
 -- rejects THIS file's statement, at THIS file's line, for the stated
@@ -66,14 +61,7 @@
 -- `solveâ•!`.  Under Agda 2.6.3 + cubical v0.7,
 -- `Cubical/Tactics/Reflection.agda:92` does not scope-check at all
 -- (`withReduceDefs` is an Agda 2.6.4 builtin), so this file exits 42
--- WITHOUT EVER LOOKING AT Â§Z.  Verbatim, in that container:
---
---   /tmp/cubical/Cubical/Tactics/Reflection.agda:92,5-19
---   Not in scope:
---     withReduceDefs
---   when scope checking withReduceDefs
---
--- Exit code 42, i.e. indistinguishable from success, and testing nothing.
+-- WITHOUT EVER LOOKING AT Â§Z.
 --
 -- THE TWIN.  `NaturalMachine/Control/WrongFirstStepNoTactic.agda` asserts
 -- the identical false statement with the tactic path cut: it imports only
@@ -82,10 +70,7 @@
 -- the assertion runs through.  It carries a positive guard (the TRUE Â§G1
 -- statement, checked first) so that a drifted copy fails at the guard
 -- rather than passing itself off as this control.  It fails at its own
--- line, with `0 != 1`, in this container.
---
--- Run BOTH under the pin: this file is the one with no copy in it, and is
--- the primary control.  Run the twin when the pin is unavailable.
+-- line, with `0 != 1`.
 ------------------------------------------------------------------------
 
 module WrongFirstStep where

@@ -5,7 +5,6 @@
 --
 -- The exact algebra underneath the parity/resultant lane of this corpus:
 --
---
 -- Those notes compute, by hand, one degree-10 reflection product, a 3x3
 -- and a 4x4 Sylvester determinant, and a norm-multiplicativity step; and
 -- every later stage (the coefficient boxes, the 1591-solution
@@ -20,10 +19,6 @@
 -- domain.  (It is also what the pinned solver can actually do -- the
 -- v0.5 CommRingSolver does not reduce `1r` at the concrete `ZCommRing`
 -- instance, but handles it fine at a variable ring.)
---
--- Nothing analytic is claimed.  Root locations, Sturm counts, coefficient
--- boxes and tail certificates are NOT in this file and are NOT certified
--- by it.
 ------------------------------------------------------------------------
 
 module ParityNormEliminant where

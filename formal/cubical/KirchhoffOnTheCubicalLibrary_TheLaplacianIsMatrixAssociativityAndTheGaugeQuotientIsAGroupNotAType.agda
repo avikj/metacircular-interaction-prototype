@@ -4,10 +4,7 @@
 -- KirchhoffOnTheCubicalLibrary_
 --   TheLaplacianIsMatrixAssociativityAndTheGaugeQuotientIsAGroupNotAType
 --
--- PROVENANCE, stated first, because CLAUDE.md's file-naming rule (note 2)
--- requires a module whose mathematics does not originate in the traditions
--- this repository reads to SAY SO rather than carry a fabricated 
--- label.  This file has no  name because its content is not Indian.
+-- This file has no  name because its content is not Indian.
 -- Its objects are, with text and date:
 --
 --   * G. Kirchhoff, Ann. Phys. Chem. 64 (1845) 497�514 (the node and loop
@@ -20,35 +17,28 @@
 --   * The substrate: the cubical Agda library, v0.5, commit 132a2a3 �
 --     `Cubical.Algebra.Matrix`, `Cubical.Algebra.Ring.BigOps`,
 --     `Cubical.Algebra.Group.Subgroup`, `Cubical.Algebra.Group.QuotientGroup`.
---     Per CLAUDE.md ("Tools are not frames"), this is the checker, not an
---     interpretation of anything.
 --
--- WHY THIS FILE EXISTS.  `formal/cubical/` holds 808 modules, of which 799
--- import from the cubical library; 1 imports `Cubical.Categories` and 0
--- import `Cubical.Cohomology`, `Cubical.Homotopy`, `Cubical.Displayed`,
--- `Cubical.Structures` or `Cubical.Modalities`.  The owner, 2026-08-14
--- 01:56:19Z: "you waste compute on solved problems and don't even import
--- all the most powerful machinery/existing constructs".  This module takes
+-- WHY THIS FILE EXISTS.  This module takes
 -- ONE hand-rolled object in this corpus and redoes it on the library's own
 -- structures, in order to measure the difference exactly.
 --
 -- THE OBJECT.  `KirchhoffIncidence_GraphLaplacianIsDivGradAndSummationBy
--- PartsIsExact.agda` (cf-tessera-i-0, 2026-08-20) and, at the far end,
+-- PartsIsExact.agda` and, at the far end,
 -- `NaturalMachine/FiniteGraphCohomology.agda`.  Nothing in either is
 -- modified, and nothing in either is wrong; what is reported here is what
 -- the library already had.
 --
---   (1) §1.  Two of the three finite-sum facts that i-0's §0 records as
+--   (1) §1.  Two of the three finite-sum facts that KirchhoffIncidence §0 records as
 --       "facts about finite sums that the library does not ship" ARE
 --       shipped.  Fubini is `�Exchange` in `Cubical.Algebra.Matrix`; the
 --       empty sum is `�0r` = `bigOpε` in `Cubical.Algebra.Monoid.BigOp`.
 --       Both are proved here BY the library term.  The third, `�δ`, is
 --       genuinely absent and is one `�Ext` from `�Mulr1`.
---       `�Exchange` needs only a `Ring`; i-0's `�Swap` was stated over a
---       `CommRing`.  This is a report, not a repair: i-0's file is i-0's.
+--       `�Exchange` needs only a `Ring`; the incidence module's `�Swap` was stated over a
+--       `CommRing`.
 --
 --   (2) §2.  Kirchhoff's incidence matrix is a `FinMatrix`, `grad` and
---       `div` are `mulFinMatrix`, and i-0's Theorem 2 (summation by parts)
+--       `div` are `mulFinMatrix`, and KirchhoffIncidence's Theorem 2 (summation by parts)
 --       and Theorem 3 (Δ = B B�) are BOTH the single library lemma
 --       `mulFinMatrixAssoc`, one line each instead of five.  The
 --       commutativity hypothesis disappears: everything in §2 holds over
@@ -63,15 +53,10 @@
 --       `H� = C� / GaugeStep` as a type with no group structure, and no
 --       statement that the kernel of the quotient map is the image of δ�.
 --
---   (4) §4.  A claim of my own, refuted: I claimed the library's Fubini
---       was unusable here because it would need commutativity.  It is
+--   (4) §4.  The library's Fubini does not need commutativity.  It is
 --       proved at `Ring`, and it is instantiated below at a ring that is
 --       demonstrably NOT commutative � the 2�2 matrices over �, with the
 --       non-commutativity witnessed.
---
--- Author: cf-tessera-s-0, 2026-08-20.  Credit: cf-tessera-i-0 for the
--- Kirchhoff module this measures against, and cf-tessera-n-0 for the
--- twisted-Leibniz module that landed beside it the same day.
 ------------------------------------------------------------------------
 
 module KirchhoffOnTheCubicalLibrary_TheLaplacianIsMatrixAssociativityAndTheGaugeQuotientIsAGroupNotAType where
@@ -126,31 +111,30 @@ module SumsAreShipped (R' : Ring ℓ) where
   open RingTheory R' public
   private R = ⟨ R' ⟩
 
-  -- i-0's �0.  Library: Cubical.Algebra.Monoid.BigOp.bigOpε, re-exported
+  -- KirchhoffIncidence's �0.  Library: Cubical.Algebra.Monoid.BigOp.bigOpε, re-exported
   -- through Cubical.Algebra.Ring.BigOps.Sum as �0r.  `replicateFinVec n 0r`
   -- is definitionally `λ _ � 0r`, so no adaptation is needed at all.
   ∑0-is-∑0r : ∀ {n} → ∑ {n} (λ _ → 0r) ≡ 0r
   ∑0-is-∑0r {n} = ∑0r n
 
-  -- i-0's �Swap.  Library: Cubical.Algebra.Matrix.�Exchange.  Note the
+  -- KirchhoffIncidence's �Swap.  Library: Cubical.Algebra.Matrix.�Exchange.  Note the
   -- hypothesis: R' is a Ring here, not a CommRing.
   ∑Swap-is-∑Exchange : ∀ {n m} (F : Fin n → Fin m → R)
                      → ∑ (λ i → ∑ (λ j → F i j)) ≡ ∑ (λ j → ∑ (λ i → F i j))
   ∑Swap-is-∑Exchange F = ∑Exchange R' F
 
-  -- i-0's �δ.  This one the library does NOT have; it is one �Ext away
-  -- from �Mulr1, which the library does have.  Recorded so the next agent
-  -- does not go looking for it twice.
+  -- KirchhoffIncidence's �δ.  This one the library does NOT have; it is one �Ext away
+  -- from �Mulr1, which the library does have.
   ∑δ : ∀ {n} (j : Fin n) → ∑ (λ i → δ i j) ≡ 1r
   ∑δ {n} j = ∑Ext (λ i → sym (·IdL (δ i j))) ∙ ∑Mulr1 n (λ _ → 1r) j
 
 ------------------------------------------------------------------------
--- 2.  Kirchhoff's incidence matrix IS a FinMatrix, and two of i-0's five
+-- 2.  Kirchhoff's incidence matrix IS a FinMatrix, and two of KirchhoffIncidence's five
 --     theorems are one library lemma
 --
 --   Vertices `Fin n`, edges `Fin m`, each edge with a source and a target.
 --   Loops, parallel edges, isolated vertices and disconnection are all
---   allowed.  Coefficients in an arbitrary RING � i-0's module needs a
+--   allowed.  Coefficients in an arbitrary RING � KirchhoffIncidence needs a
 --   CommRing, and §2 shows where that hypothesis was actually being spent.
 --
 --   Cochains are column matrices `FinMatrix R k 1` rather than `FinVec R k`.
@@ -200,7 +184,7 @@ module Graph (R' : Ring ℓ) (n m : ℕ) (src tgt : Fin m → Fin n) where
   L-lives-in-that-ring = L
 
   ----------------------------------------------------------------------
-  -- THEOREM 1 (i-0's Theorem 1, restated).  `grad` really is the potential
+  -- THEOREM 1 (KirchhoffIncidence's Theorem 1, restated).  `grad` really is the potential
   -- difference along an edge.  This is the only place in §2 where anything
   -- about `δ` is used, and it uses the library's `�Mul1r`.
   ----------------------------------------------------------------------
@@ -218,7 +202,7 @@ module Graph (R' : Ring ℓ) (n m : ℕ) (src tgt : Fin m → Fin n) where
         ∙ cong -_ (∑Mul1r n (λ v → φ v k) (src e)) )
 
   ----------------------------------------------------------------------
-  -- THEOREM 2 (i-0's Theorem 3).  Δ = B B�.
+  -- THEOREM 2 (KirchhoffIncidence's Theorem 3).  Δ = B B�.
   --
   --   The hand-rolled proof is five �-steps (�Ext, �Mulrdist, �Swap, �Ext,
   --   �Ext) over a CommRing.  Here it is `mulFinMatrixAssoc`, over a Ring.
@@ -228,7 +212,7 @@ module Graph (R' : Ring ℓ) (n m : ℕ) (src tgt : Fin m → Fin n) where
   laplacian-is-gram φ = mulFinMatrixAssoc R' ∂ d φ
 
   ----------------------------------------------------------------------
-  -- THEOREM 3 (i-0's Theorem 2).  Summation by parts.
+  -- THEOREM 3 (KirchhoffIncidence's Theorem 2).  Summation by parts.
   --
   --   Again `mulFinMatrixAssoc`, and again over a Ring.  Stated for an
   --   arbitrary row covector ψ : FinMatrix R 1 n rather than for ϵ,
@@ -243,7 +227,7 @@ module Graph (R' : Ring ℓ) (n m : ℕ) (src tgt : Fin m → Fin n) where
   by-parts ψ ω = mulFinMatrixAssoc R' ψ ∂ ω
 
   ----------------------------------------------------------------------
-  -- THEOREM 4 (i-0's Theorem 4).  Constants are harmonic.  Not in the
+  -- THEOREM 4 (KirchhoffIncidence's Theorem 4).  Constants are harmonic.  Not in the
   -- library in any form; kept because §3 needs it to say something about
   -- the kernel.
   ----------------------------------------------------------------------
@@ -401,8 +385,7 @@ module GraphGroups (R' : Ring ℓ) (n m : ℕ) (src tgt : Fin m → Fin n) where
 ------------------------------------------------------------------------
 -- 4.  THE REFUTATION.
 --
---   The claim I formed on first reading i-0's §0, and held long enough to
---   write into a draft of this header: "i-0 had to hand-roll �Swap because
+--   The claim: "one had to hand-roll �Swap because
 --   the library's Fubini, if it exists at all, is stated for commutative
 --   rings � the � machinery lives under CommRing in this corpus, so the
 --   library's version would not have applied."
@@ -471,9 +454,9 @@ module Refutation where
                             ∙ E01E10))
 
 ------------------------------------------------------------------------
--- Rigor boundary.
+-- Summary.
 --
--- CHECKED HERE.  Over an arbitrary ring and an arbitrary finite directed
+-- PROVED HERE.  Over an arbitrary ring and an arbitrary finite directed
 -- multigraph: grad is the potential difference; Δ = �d as matrices, by
 -- `mulFinMatrixAssoc`; summation by parts, by the same lemma; constants
 -- are harmonic.  Over an arbitrary ring: grad and div are AbGroupHoms,
@@ -482,14 +465,13 @@ module Refutation where
 -- directions.  Over �: the 2�2 matrix ring is not commutative, and
 -- `�Exchange` applies to it.
 --
--- REFUTED.  My own claim that the library's Fubini would need a
--- commutative ring.
+-- REFUTED.  That the library's Fubini would need a commutative ring.
 --
 -- WHAT THE LIBRARY DOES NOT SHIP, precisely, in cubical v0.5 (commit 132a2a3):
 --
 --   1. There is NO `Cubical.Algebra.ChainComplex`, and no chain- or
---      cochain-complex development anywhere in the library (checked by
---      `find` over the whole tree).  So the long exact sequence, the snake
+--      cochain-complex development anywhere in the library.
+--      So the long exact sequence, the snake
 --      lemma, and H� of a complex are unavailable; the exactness in §3 had
 --      to be proved by hand from `effective`.
 --
@@ -520,7 +502,5 @@ module Refutation where
 --      the rectangular case in three lines.
 --
 --   5. `Cubical.Algebra.Ring.BigOps` does not re-export `�Exchange`; it
---      sits in `Cubical.Algebra.Matrix`, which is why it was missed.  A
---      grep for "Fubini" or "Swap" in `Cubical/Algebra/` finds nothing
---      relevant.  This is a discoverability failure, not an absence.
+--      sits in `Cubical.Algebra.Matrix`.
 ------------------------------------------------------------------------

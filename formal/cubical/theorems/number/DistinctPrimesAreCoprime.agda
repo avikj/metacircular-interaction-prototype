@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- DistinctPrimesAreCoprime
 --
--- The last gap in the chain `BezoutIsGCD` ยง5 names.
+-- The last link in the chain `BezoutIsGCD` ยง5 names.
 --
 --   `Kuttaka.bezout`     ryabhaa's procedure returns the multipliers
 --   `CoprimePowers`      certificates compose: coprime bases โ coprime powers
@@ -33,7 +33,7 @@
 -- the primality of the installed bases โ” which `WalkPrimePowers` supplies
 -- and `PrimalityDecision.decIsPrime` decides.
 --
--- What made this the last gap rather than the first is worth recording:
+-- What made this the last link rather than the first is worth recording:
 -- every earlier step was a certificate composing, and this one is the
 -- only place where a case analysis on a PREDICATE was unavoidable.  The
 -- kuaka's habit of returning a construction carried the chain as far as

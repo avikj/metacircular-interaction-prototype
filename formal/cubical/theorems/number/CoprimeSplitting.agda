@@ -8,7 +8,7 @@
 --
 -- WHAT IS PROVED.
 --
---   (A) `two-primesâ’coprime-split` -- the brief's recommended target, in
+--   (A) `two-primesâ’coprime-split` -- in
 --       its positive form, needing no negative hypothesis and no
 --       definition of "not a prime power":
 --
@@ -19,8 +19,7 @@
 --       b its p-free cofactor, both produced by
 --       `WalkJumps.strip` -- the fuel recursion whose case
 --       split is `prime-alt`, so no valuation function and no decidable
---       divisibility enters here (the technique the brief asked to be
---       reused rather than reinvented).
+--       divisibility enters here.
 --
 --   (C) `leastNonDivisor-isPrimePower` -- the full form:
 --

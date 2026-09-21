@@ -23,12 +23,7 @@
 -- type, while reversible interoperability additionally needs the explicit
 -- alignment automorphism.
 --
--- This module checks the four-state control and the alignment no-go.  The
--- elementary general arithmetic formula
---
---     |ker A| = gcd(dâ,m) gcd(dâ,m),  when U A V = diag(dâ,dâ),
---
--- promoted here to a formal integer-matrix development.
+-- This module checks the four-state control and the alignment no-go.
 ------------------------------------------------------------------------
 
 module SmithKernelQuantumBoundary where

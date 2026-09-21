@@ -5,12 +5,9 @@
 -- force the uniform measure.
 --
 -- TERM.  ‡‡Æ (equal) and ‡µ‡ø‡‡æ‡ó (division, apportionment) are ordinary
--- ; the compound ‡‡Æ-‡µ‡ø‡‡æ‡ó, "the equal apportionment", is built
--- HERE for this object and no source is claimed for it (CLAUDE.md,
--- naming rule, note 2).
+-- ; the compound ‡‡Æ-‡µ‡ø‡‡æ‡ó means "the equal apportionment".
 --
--- SEED.  The owner's transmission of 2026-08-23 ("the fibre of
--- forgetting"), term 2 of the four determined landings:
+-- THE SLOGAN:
 --
 --     Transitive(G ‚ X) ‚í Invariant(w) ‚í Normalized(w)
 --       ‚í UniqueNDivision(W, n) ‚í the weight rule is unique.
@@ -20,10 +17,10 @@
 -- (`EkatvaMatraDvaya_‚¶`, this directory) is the n = 2 instance: at
 -- X = Fin 2 the iterate ‡ó‡‡‡ 1 y is y +µ y, so this module's
 -- `divideUniquely` hypothesis is EXACTLY that module's
--- `halvesUniquely`, over Fin 2 in place of Bool.  (The Bool ‚â Fin 2
--- shim is not built here; the correspondence is stated, not wired.)
+-- `halvesUniquely`, over Fin 2 in place of Bool.
+-- The bridge is `DvayaSetu_TheHalfTheoremIsTheFinTwoInstanceOnTheNose`.
 --
--- ONE FINDING BEYOND THE TRANSMISSION'S STATEMENT, visible only once
+-- ONE FURTHER FINDING, visible only once
 -- the proof is written: THE GROUP LAWS ARE NEVER CONSUMED.  G below is
 -- a bare type with a bare action function ‚î no unit, no composition,
 -- no inverses, no associativity.  Transitivity of the action and
@@ -46,7 +43,7 @@
 --                 rule, normalized and invariant under EVERY action.
 --   ‡‡ï‡æ‡ï‡ø‡‡‡µ‡Æ‡     packaging: over a set W, with an n-th part given,
 --                 the type of normalized invariant weight rules is
---                 contractible ‚î isContr(WeightRule), as transmitted.
+--                 contractible ‚î isContr(WeightRule).
 --
 ------------------------------------------------------------------------
 
@@ -140,7 +137,7 @@ module _ {W : Type ‚Ñì} (_+·µÇ_ : W ‚Üí W ‚Üí W) (ùüô : W) (m : ‚Ñï)
     record { ‡§Ø‡•ã‡§ó‡§É = total-const _+·µÇ_ m y ‚àô p
            ; ‡§Ö‡§®‡•ç‡§µ‡§Ø‡§É = Œª _ _ ‚Üí refl }
 
-  -- packaging, as transmitted: over a set W the rule type contracts.
+  -- packaging: over a set W the rule type contracts.
   ‡§è‡§ï‡§æ‡§ï‡§ø‡§§‡•ç‡§µ‡§Æ‡•ç : isSet W
             ‚Üí (‡§¶ : Œ£[ y ‚àà W ] ‡§ó‡•Å‡§£‡§É _+·µÇ_ m y ‚â° ùüô)
             ‚Üí isContr (Œ£[ w ‚àà (Fin (suc m) ‚Üí W) ] ‡§∏‡§Æ‡§≠‡§æ‡§∞‡§ø‡§®‡•ç w)

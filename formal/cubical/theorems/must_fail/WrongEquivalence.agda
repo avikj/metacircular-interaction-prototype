@@ -12,8 +12,7 @@
 -- type-checker actually catches it rather than waving it through.
 --
 -- It is NOT part of the checked build.  `agda` does not
--- import it.  The verbatim error the checker produces is quoted in
--- the development's main claim is broken and the note is wrong.
+-- import it.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)

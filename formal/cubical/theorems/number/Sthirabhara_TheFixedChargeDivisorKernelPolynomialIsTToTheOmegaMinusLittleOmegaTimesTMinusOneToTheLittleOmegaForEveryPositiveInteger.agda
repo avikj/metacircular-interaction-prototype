@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- Sthirabhara_TheFixedChargeDivisorKernelPolynomialIsTToTheOmegaMinusLittleOmegaTimesTMinusOneToTheLittleOmegaForEveryPositiveInteger
 --
--- àààà¿à°-àà¾à°à, the fixed charge.  Owner transmission D0026 Â§5.5, recovered
--- from git history, displays
+-- àààà¿à°-àà¾à°à, the fixed charge.  D0026 Â§5.5 displays
 --
 --     "Î¦_n(t) = Î_{d|n} Î¼(n/d) t^{Î©(d)} = t^{Î©(n)âˆ’Ï‰(n)} (tâˆ’1)^{Ï‰(n)}"
 --
@@ -17,8 +16,7 @@
 --      multiplicative".
 --
 -- `ChargePolynomialFinite.agda` certified the identity at n = 12, 30,
--- 360 only, on factorisation TABLES taken as input, and named unique
--- factorisation as its one unformalised bridge.  This module proves the
+-- 360 only, on factorisation TABLES taken as input.  This module proves the
 -- identity for EVERY n â‰ 1, from the corpus's own Î¼, divisibility and
 -- factorisation, with no table.
 --

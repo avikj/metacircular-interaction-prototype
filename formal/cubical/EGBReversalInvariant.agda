@@ -26,7 +26,7 @@
 --   (d) the fixed locus Palindrome = (rev xs ‚â° xs), with one witness
 --       and one refutation ‚î where the two readings coincide.
 --
--- ATTRIBUTION (PROTOCOL ¬ß0 ‚î do not re-derive library lemmas):
+-- ATTRIBUTION:
 --   * rev            : Cubical/Data/List/Base.agda        (library)
 --   * rev-rev        : Cubical/Data/List/Properties.agda  (library)
 --   * cons-inj‚      : Cubical/Data/List/Properties.agda  (library)
@@ -137,17 +137,3 @@ pal‚ÇÉ = refl
 ¬¨pal-w‚ÇÇ : ¬¨ Palindrome w‚ÇÇ
 ¬¨pal-w‚ÇÇ p = false‚â¢true (cons-inj‚ÇÅ p)
 
-------------------------------------------------------------------------
--- Successor seed (not attempted here): the same trichotomy ‚î
--- involution / blind observables / fixed locus ‚î for the pair field's
--- r ‚¶ ‚àír.  There the involution is negation on the offset coordinate,
--- the blind observables are the even data (|r|, r¬≤, the wedge-norm),
--- the sighted observable is sign, and the fixed locus is r = 0, the
--- diagonal.  This should connect to PairCoordinates' wedge-antisym:
--- the wedge is not blind but ANTI-blind (picks up exactly the sign of
--- the ‚/2), which is the third character ‚î equivariant of weight ‚àí1 ‚î
--- that lists already exhibit via rev-++ swapping the concatenation
--- order.  A second seed: transport length along revPath above and
--- check transport (Œª i ‚í revPath i ‚í ‚ï) length ‚â° length ‚î the
--- ua-computation making "achromatic = transports trivially" literal.
-------------------------------------------------------------------------

@@ -832,19 +832,3 @@ private
   control-off-diagonal-cancelsâ€² =
     funExtâ» (swap-rop-lop ÎµK Ï†K u12) ((0 , 1) , (3 , 0))
 
-------------------------------------------------------------------------
--- Â§8  What is NOT here.
---
---  * A multi-index Î´ and the display Îµ Î¾^Îº = Î_{i=1}^m Î¾^{Îº+e_i} for
---    GENERAL m.  What is proved for general m is the action (Â§5) and
---    the recursive comultiplication (Â§6, tensor-E/F/H); Â§6's rank-2
---    displays are general in (Îºâ,dâ,Îºâ,dâ) but are stated at m = 2.
---  * The multigrading (the analogue of Sl2DivisorLattice Â§4): that each
---    B_n = â¨ V_{Î_i} with FIXED Î is invariant.  It follows factorwise
---    from that module's Îµ-grade/Ï-grade/Î-grade, but is not written.
---  * Everything in note Â§5 â” complete reducibility, rank-unimodality,
---    Sperner â” which needs characteristic 0 and finite-dimensional
---    ğ”°ğ”©â theory.  Nothing here bears on it.
---  * Any claim of novelty.  The coproduct is Humphreys Â§7; the poset
---    application is Stanley 1980 / Proctor 1982 (note Â§4).
-------------------------------------------------------------------------

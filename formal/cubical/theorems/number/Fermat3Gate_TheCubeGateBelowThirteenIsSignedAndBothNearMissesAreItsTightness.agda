@@ -4,8 +4,8 @@
 -- ‡‡º‡∞‡‡Æ‡æ, ‡ò‡® ‚î THE CUBE GATE BELOW THIRTEEN IS SIGNED, AND BOTH
 -- NEAR-MISSES ARE ITS TIGHTNESS.
 --
--- THE OCCASION.  A sweep of this corpus for Fermat's Last Theorem
--- found the equation in three rooms and absent from the fourth:
+-- THE OCCASION.  Fermat's Last Theorem appears in this corpus
+-- in three rooms and is absent from the fourth:
 -- the near-misses of n = 3 (RamanujanCubes_‚¶ ‚î off by exactly one,
 -- both directions), the Fermat primality test (HeadDepthMerge, its
 -- blindness pinned at a ‚â e_b(q)), and Fermat's factorization as one

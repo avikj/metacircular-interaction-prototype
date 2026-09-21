@@ -10,7 +10,7 @@
 --     factorise : (n : â•) â’ 0 < n â’ Î[ ps ] (AllPrimeL ps — (prodL ps â‰¡ n))
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- PRIOR ART, SEARCHED FIRST
+-- PRIOR ART
 --
 -- `CoprimeSplitting.primeDivisor` already provides the
 -- atom â” `(n : â•) â’ 1 < n â’ Î[ p ] (IsPrime p — (p âˆ n))`, a fuelled
@@ -132,9 +132,4 @@ fact-12-product = fact-12 .snd .snd
 --   here                              hence a factorisation
 --   `FrontierDivides`                 coprime divisors multiply (Gauss)
 --   `FrontierCount`                   and the residue count is CRT
---
--- The remaining assembly â” grouping a factorisation by prime and
--- comparing exponents to `âŠlog_p kâ‹` â” is the last thing between this
--- chain and `prodOf (frontierList k) â‰¡ lcm(1..k)`.  It is bookkeeping,
--- and saying so is not the same as doing it.
 ------------------------------------------------------------------------

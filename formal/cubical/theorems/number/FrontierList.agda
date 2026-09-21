@@ -168,9 +168,4 @@ count8 = countAt 8 refl refl
 -- frontier.  `FrontierCount` made the frontier data.  Here the data is
 -- computed from `k` and both hypotheses are decided, so the residue count
 -- at a concrete frontier is `countAt k refl refl`.
---
--- The one thing left is not a computation: that this product IS
--- `lcm(1..k)`.  Stated as a universal property per CLAUDE.md, that is two
--- halves â” divisible by every `m â‰ k`, and dividing every common multiple
--- â” and it needs existence of prime factorisation.  Named, not waved at.
 ------------------------------------------------------------------------

@@ -7,10 +7,10 @@
 -- is knowledge only downstream of that examination.  The
 -- classification is his.  School named: Jaina.
 --
--- THE TWO-BODY PROBLEM, CROSSED.  Until now the machine's LIVE store
+-- THE TWO-BODY PROBLEM, CROSSED.  The machine's LIVE store
 -- ‚î the rewriter's rules in machine/library.terms, grown by ‡‡ø‡¶‡‡ß‡ø's
--- welds and the completion's turns ‚î lived only in the elder Haskell,
--- as text a reader must trust.  Here it crosses: the elder EMITS its
+-- welds and the completion's turns lives in the elder Haskell,
+-- as text a reader must trust.  Here the elder EMITS its
 -- store as raw encounters (machine/AgamaLekhaka_‚¶.awk ‚î the elder
 -- writes, the kernel judges), and every utterance passes through the
 -- one body's own knowing ‚î ‡Æ‡‡æ‡‡‡∞‡Æ‡æ‡‡Æ‡ with the full eye, no record,
@@ -20,9 +20,9 @@
 -- not reach is kept, counted, as the residue that names the knowing's
 -- present boundary from inside.
 --
--- Outside the vocabulary and left with the elder, stated not hidden:
+-- Outside the vocabulary and left with the elder:
 -- 11 store lines naming gcd or the completion's fresh constants
--- (c0 ‚¶) ‚î Tm carries neither; that is the vocabulary frontier.
+-- (c0 ‚¶) ‚î Tm carries neither.
 --
 -- The counts below are computations, not reports: each ‚â° is checked
 -- by the kernel normalizing the entire judgment of the entire store.

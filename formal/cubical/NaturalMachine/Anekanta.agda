@@ -3,10 +3,9 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.Anekanta
 --
--- ‡‡®‡‡ï‡æ‡®‡‡‡µ‡æ‡¶ ‚î the judgment structure this repository has been missing,
--- and the one every module in it has silently violated.
+-- ‡‡®‡‡ï‡æ‡®‡‡‡µ‡æ‡¶: the judgment structure of standpoints.
 --
--- Every proposition here, including the ones I checked tonight, has the
+-- Every proposition here has the
 -- form `P : Type`.  One proposition, one truth value, no index.  That is
 -- not neutrality.  It is a positive claim ‚î that there is a standpoint
 -- from which the object simply IS what it is ‚î and it is the exact form

@@ -12,12 +12,7 @@
 -- rules, with a stated exception.
 --
 ------------------------------------------------------------------------
--- WHAT WAS OPEN.
---
--- `Avataranika_โฆ` ยง8(b) names the frontier item: raise Vyapti_'s schema and
--- replace `install` with `install-schema`, "so that generalisation is the
--- kernel's default rather than a companion module's."  This is the missing
--- map underneath that.
+-- MOTIVATION.
 --
 -- Vyapti_.SchematicOperation carries `apply-sound`, an EVAL EQUALITY:
 --
@@ -29,34 +24,11 @@
 --     apply-checked : (t : Tm) (c : Control t) โ’ Derivation t (apply t c)
 --
 -- So a schema has the semantics of its instances and not their
--- certificates, and cannot presently become a kernel operation.
---
--- BEFORE THIS FILE, `subVar` occurred in exactly three places in the
--- kernel's own module -- the two fields of `InductionCertificate` and
--- `eval-subVar` -- and nowhere as an operation ON a proof:
---
---     git grep -nE 'Step \(subVar|Derivation \(subVar' formal/cubical
---       -> only InductionCertificate.base / .step
---     git grep -ln 'SchematicOperation' formal/cubical
---       -> Vyapti_ and Avataranika_ only
---
+-- certificates.
 ------------------------------------------------------------------------
 -- WHAT IS PROVED.  ยง1 substitution is admissible on one rewrite; ยง2 hence
 -- on a whole walk; ยง3 the consequence for schemas; ยง4 exhibited at the two
 -- contexts Vyapti_ proves no single NativeOperation can both fire at.
---
--- THE REMAINDER, LOCATED โ” each a named next construction, not a gap:
---   * `install-schema` itself.  `NativeOperation.control-sound : Control t
---     โ’ t โก source` FORCES the subsingleton property Vyapti_ measures, so
---     no schema can inhabit that record as it stands; the record's
---     `apply`/`apply-checked` would have to become fields.  This file
---     supplies the certificate a schema would need, not the record change.
---   * substitution for the other five coordinates.  `subVar` binds `var`
---     alone; ยง8(b)'s "all six coordinates" needs a substitution indexed by
---     coordinate and the corresponding `eval-sub`, neither written here.
---   * any claim about cost.  `subDeriv` preserves the length of a walk by
---     construction, and `Sesa_` proves no semantic criterion selects the
---     short derivation; nothing here bears on selection.
 ------------------------------------------------------------------------
 
 module Kernel.Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning where

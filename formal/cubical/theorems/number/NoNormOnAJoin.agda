@@ -9,7 +9,7 @@
 --     does the walk admit a norm?
 --
 -- It does not, and the proof is the same three words as every other
--- answer in this thread â” **idempotence forbids it** â” but the
+-- answer in this line of modules â” **idempotence forbids it** â” but the
 -- conclusion is not the one the question expected, and the last section
 -- says why.
 --

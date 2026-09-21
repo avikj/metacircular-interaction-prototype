@@ -13,11 +13,8 @@
 --        âˆÎ“âŸ¨Î´â½â¿â¾âŸ© = Î´â½â¿âºÂâ¾, and Â§I: "the boundary is the womb of the
 --        successor form".
 --
--- This is the operation whose absence is the whole complaint in Â§27,
--- and the concrete form of it in `machine/MathMachine.hs` is that a
--- round refuted 9,001 conjectures and failed to prove 34,320 and
--- DELETED all 43,321, keeping 30 successes.  Every one of those was a
--- witnessed distinction.  A machine that keeps only what succeeded is
+-- This is the operation whose absence is the whole complaint in Â§27.  A
+-- machine that keeps only what succeeded is
 -- accumulating jewels; the material of the next stage is what tore.
 --
 -- WHAT IS PROVED HERE.  That this net actually tears -- not as a

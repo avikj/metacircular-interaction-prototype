@@ -68,12 +68,3 @@ commonDivisorDividesAUnit a k d dn dd =
   subst (d divides_)
     (standardDeterminantIsAUnit a k)
     (commonDivisorDividesDet a (pos 1) (a 0) (pos 0) (pos 1) k d dn dd)
-
-------------------------------------------------------------------------
--- 4.  The report on the third face
---
--- COMPLETE is not here and is not close.  The two convergent modules
--- study a recurrence given a vall; completeness is a statement about
--- where the vall comes from and that it stops.  Anyone continuing this
--- should start from `Gati` and `Purnata`, not from these two.
-------------------------------------------------------------------------

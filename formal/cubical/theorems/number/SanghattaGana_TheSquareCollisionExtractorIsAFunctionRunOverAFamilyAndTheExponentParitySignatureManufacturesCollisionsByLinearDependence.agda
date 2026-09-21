@@ -4,7 +4,7 @@
 -- àà™àà˜àŸààŸ-à—à â” the collision factory, as a family and as linear algebra.
 --
 -- SanghattaKarya ran the extraction chain on one N.  This gives the
--- collision-semantics document everything it asks for next, at once:
+-- collision-semantics document what it asks for:
 --
 --   Â§A  THE EXTRACTOR IS A FUNCTION, run over a FAMILY.  `extract N a b
 --       = (gcd (a âˆ b) N , gcd (a + b) N)` is the congruence-of-squares
@@ -23,9 +23,8 @@
 --       the collision, computed.
 --
 -- Read together: manufacture (Â§B) produces the collision that the
--- extractor (Â§A) turns into a factor.  The frontier the document names
--- â” cheaply ENTERING the smooth chart â” is untouched and unclaimed;
--- what is here is that once inside, the whole pipeline is arithmetic and
+-- extractor (Â§A) turns into a factor.  Once inside the smooth chart,
+-- the whole pipeline is arithmetic and
 -- linear algebra the kernel computes and hands back.
 --
 ------------------------------------------------------------------------

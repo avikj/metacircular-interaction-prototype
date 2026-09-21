@@ -36,16 +36,9 @@
 -- loan, ÎºÎÎ½ÏÏÎ¿Î½, fully absorbed: Sryasiddhnta; Brahmagupta's
 -- manda-kendra, Brhmasphuasiddhnta, 628).  It names exactly this
 -- module's move: replace the raw coordinate by the deviation from the
--- mean point and the symmetry appears.  No claim that any siddhnta
--- treats sieve walls; the term is used for its literal geometric
--- content.  The centered field was stated by the owner this session,
--- 2026-08-23; the type-level identities are built here.
---
--- à¦à‹àà²àà–à, scope.  Exact and local: the affine normalization and the
--- wall dichotomy, over â with divisibility as data (Î, untruncated).
--- NOT built: the per-period survivor counts pâˆ’2 / pâˆ’1 as cardinality
--- theorems, the Fourier crystal r_{p,a}, the CRT ray decomposition, and
--- the signed inequality over rays â” named as the open frame, in order.
+-- mean point and the symmetry appears.  The term
+-- is used for its literal geometric
+-- content.
 ------------------------------------------------------------------------
 
 module Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter where

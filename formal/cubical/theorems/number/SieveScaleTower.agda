@@ -17,7 +17,7 @@
 -- This file builds the tower for `SieveFiber`'s model
 -- (X = 30) at the four horizons z = 0, 2, 3, 5, i.e. at the four
 -- initial segments of the primes below �30.  It is FINITE on purpose:
--- no inverse limit is constructed and none is claimed (§6).
+-- no inverse limit is constructed (§6).
 --
 --
 -- THE TOWER

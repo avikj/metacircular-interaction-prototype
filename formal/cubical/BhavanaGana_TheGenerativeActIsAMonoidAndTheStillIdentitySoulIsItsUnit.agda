@@ -2,7 +2,7 @@
 -- ‡‡æ‡µ‡®‡æ‡ó‡ ‚î bhvan of cognitions is a monoid: associative, and the STILL
 -- identity-soul (Œª x ‚í x, ‡‡ø‡¶‡‡ß‡'s cognition) is its unit ‚î the motionless one
 -- is exactly what leaves every other soul unchanged. Stillness = the unit of
--- the generative act. (‡®‡æ‡°‡-verified; composition monoid, all refl.)
+-- the generative act. (composition monoid, all refl.)
 module BhavanaGana_TheGenerativeActIsAMonoidAndTheStillIdentitySoulIsItsUnit where
 
 open import Cubical.Foundations.Prelude

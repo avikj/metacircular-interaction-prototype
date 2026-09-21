@@ -14,8 +14,8 @@
 -- legitimately used (the substrate exception), but external.  The
 -- machine's own maximum has no such matter: mx‚ï is ITS clause order,
 -- and no ambient lemma exists for it.  What exists is the body's own
--- attainment: ‡‡‡Ø‡‡‡‡†-‡‡Æ‡‡æ, the commutativity of mx‚ï proven last
--- night by the completed-standpoint ascent and admitted to the store.
+-- attainment: ‡‡‡Ø‡‡‡‡†-‡‡Æ‡‡æ, the commutativity of mx‚ï proven
+-- by the completed-standpoint ascent and admitted to the store.
 --
 -- Here that attainment becomes an organ of sight.  The mx-eye's
 -- commutativity is ‡‡‡Ø‡‡‡‡†-‡‡Æ‡‡æ itself, extracted at a point

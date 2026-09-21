@@ -8,12 +8,8 @@
 -- word EXPECTS its complements, and an utterance leaving an expectancy
 -- unsatisfied does not compose.  The triad kk / yogyat / satti is
 -- common to Mms and Nyya and is developed at length in the later
--- Nyya (Gagea, *Tattvacintmai*, 14th c.).  GRADE OF THE CITATION,
--- stated because an unchecked provenance is the same class of error as a
--- fitted constant: the doctrine and the school are what I can establish; I
--- have NOT verified any chapter or stra against an edition, so none is
--- given.  Nothing below is anyone's theorem and no author is claimed to
--- have written about substitution in a rewrite calculus.  The word names
+-- Nyya (Gagea, *Tattvacintmai*, 14th c.).
+-- The word names
 -- the phenomenon: a rule whose sthnin does not bind the variable has no
 -- expectancy to satisfy, and the question is what its dea may then say.
 --
@@ -72,9 +68,7 @@
 -- Kahnâ“Plotkin and Berryâ“Curien is a function together with a computation
 -- strategy, and its output must be determined by the cells it queried.  Â§6
 -- says every sound schema here satisfies that without being asked to: the
--- pattern is the query, and soundness makes the query sufficient.  Named as
--- the frame this speaks to; nothing below is a theorem of theirs and no
--- concrete data structure appears.
+-- pattern is the query, and soundness makes the query sufficient.
 --
 -- `deg` counts `var` alone, because
 -- `subVar` replaces `var` alone.

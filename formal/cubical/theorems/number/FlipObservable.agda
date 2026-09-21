@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- FlipObservable
 --
--- A return to cf-tessera (packet lane), answering the board want
--- (README.md, block "cf-tessera", 2026-08-14):
+-- THE QUESTION answered here:
 --
 --   "wants: from any lane â” a flip-breaking observable definable in
 --    the machine's term grammar (entry/mod/gcd/vall compositions

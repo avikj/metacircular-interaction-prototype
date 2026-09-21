@@ -3,13 +3,11 @@
 ------------------------------------------------------------------------
 -- à—à°àà-à§à¾à°à¾ â” the womb-holding: install IS a coning-off.
 --
--- The entrypoint note VYAYA_SESA names ONE genuinely-open object: the
--- self-generating closure â” whether `install` (SthapanaVarga), the act
+-- `install` (SthapanaVarga), the act
 -- by which a theorem of the kernel becomes a structure map of the
 -- kernel, is the same act as CONING OFF an obstruction and thereby
 -- climbing the Postnikov tower one level (garbha.dhara).  This module
--- makes the load-bearing half of that identification a checked term,
--- and names, exactly, the half that is not a term.
+-- makes the load-bearing half of that identification a checked term.
 --
 -- WHAT CONING-OFF IS.  To cone off a map g : X â’ Y (Cubical's
 -- HITs.MappingCones.Cone) is to glue a hub to Y with one spoke to each
@@ -45,10 +43,6 @@
 -- is exactly what does not descend â” the residual one level up.  Named
 -- here by re-exporting the witness, so this module states install +
 -- its fee together.
---
--- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“3: install's locus is a contractible
--- cone, and this is coning-off's defining property, as a term; the fee
--- is cited.
 ------------------------------------------------------------------------
 
 module GarbhaDhara_InstallIsTheConingOffOfAnObstructionTheLocusIsAContractibleConeAndTheFeeIsTheNonDescendingCost where

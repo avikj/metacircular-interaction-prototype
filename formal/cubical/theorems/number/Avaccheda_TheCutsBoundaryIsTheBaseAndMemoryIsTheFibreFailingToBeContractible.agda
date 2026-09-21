@@ -7,9 +7,8 @@
 --  memory.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- are the same construction and neither knows it.  102 files in this
--- corpus name Myhill‚ìNerode; not one of the causal-state notes contains
--- the word ‡‡‡®‡∞‡æ‡ó‡Æ‡®.  This module is the identification.
+-- are the same construction and neither knows it.  This module is the
+-- identification.
 --
 -- THE PHYSICS LANE'S OWN SENTENCES, quoted because they are already the
 -- statement and only the vocabulary is missing:
@@ -166,15 +165,3 @@ open import Cubical.Data.Empty renaming (rec to ‚ä•-rec)
 -- nothing is remembered because nothing happened, in the second a bit
 -- must cross the boundary.  That is the ‡¶‡‡∞‡‡®‡Ø.
 
-------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what this leaves.
---
--- The identification is structural and it is now a term.  What it does
--- NOT give: the rank.  `d = rank T` is a dimension and ¬ß‡ß is a
--- decomposition, so the numerical half of the cut theorem is still only
--- in prose.  The honest next piece is a finite instance where the fibre
--- census and the rank are both computed and compared ‚î and the physics
--- note is explicit that nonnegative rank can EXCEED ordinary rank, so a
--- classical latent variable and a linear factorization are already two
--- verdicts there, which is the same three-verdict warning one level up.
-------------------------------------------------------------------------

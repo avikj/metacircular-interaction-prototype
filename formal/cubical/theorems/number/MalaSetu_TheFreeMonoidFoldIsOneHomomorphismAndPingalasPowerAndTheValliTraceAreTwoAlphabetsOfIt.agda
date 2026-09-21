@@ -7,12 +7,12 @@
 -- ‡Æ‡æ‡≤‡æ is a garland ‚î the standard  image for a list/sequence
 -- (akara-ml, the garland of syllables).  The free monoid on an
 -- alphabet A is the garland of its letters, `List A`, with concatenation.
--- ‡‡‡‡, the bridge, because this file earns a bridge-claim its author
--- offered in `collab/messages/0915‚¶` and had NOT checked: that Pigala's
--- exponentiation and ryabhaa's vall-trace are the SAME map.  No stra
--- is claimed for the compound; both words are ordinary.
+-- ‡‡‡‡, the bridge: this file proves
+-- that Pigala's
+-- exponentiation and ryabhaa's vall-trace are the SAME map.
+-- Both words are ordinary.
 --
--- THE CLAIM, now built.  Over any monoid M and any alphabet map
+-- THE CLAIM.  Over any monoid M and any alphabet map
 -- f : A ‚í M, the fold
 --
 --     foldMap f []       = Œµ
@@ -29,7 +29,7 @@
 -- THE TWO ALPHABETS, and this is the whole point:
 --
 --   (I) THE VALL TRACE, alphabet A = R (the quotient digits).
---       `KuttakaValli.agda` (another identity's file, untouched) defines,
+--       `KuttakaValli.agda` defines,
 --       for its 2ó2-matrix monoid (mul, idm) and its column map L : R ‚í M,
 --           replay []      = idm
 --           replay (q ‚à v) = mul (L q) (replay v)

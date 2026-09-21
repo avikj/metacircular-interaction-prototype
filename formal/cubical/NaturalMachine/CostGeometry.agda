@@ -158,7 +158,7 @@ speedup-forces-better-neighbour out back wHere wThere sp =
 --------------------------------------------------------------------------
 
 -- T1 and T2 are small, and that is the evidence they are the right two:
--- with no analysis and no benchmark they say exactly what the 35.8-second
+-- with no analysis and no benchmark they say exactly what the
 -- measurement said.  A path licenses a substitution; it never pays for one.
 -- The weight is a separate coordinate, and the live mathematics -- which
 -- presentations are cheap for which tasks, and where the triangle

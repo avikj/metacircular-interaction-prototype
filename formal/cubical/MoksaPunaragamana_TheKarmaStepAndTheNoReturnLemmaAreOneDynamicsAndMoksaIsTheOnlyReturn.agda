@@ -4,14 +4,14 @@
 -- ‡Æ‡ã‡ï‡‡-‡‡‡®‡∞‡æ‡ó‡Æ‡® ‚î the karma step and the no-return lemma are one
 -- dynamics, and moka is the only return.
 --
--- Joins two terms landed hours apart tonight, from opposite poles:
+-- Two terms, from opposite poles:
 --
 --   Karma_‚¶agda (Umsvti, Tattvrthastra 8/9/10) ‚î one samaya
 --     transforms the bound-count:  s ‚¶ (s + a) ‚à r.  Under savara
 --     (a = 0) with nirjar (r ‚â 1) the count strictly drops while
 --     positive and REACHES 0 (ktsna-karma-kaya = moka), ABSORBING.
 --
---   Ratri/Nirdharana_Hull_‚¶agda (this session) ‚î noReturn: a positively
+--   Ratri/Nirdharana_Hull_‚¶agda ‚î noReturn: a positively
 --     priced loop  suc (k + s ¬ suc m) ‚â° s  is refutable by descent, so
 --     a loop that multiplies by ‚â 2 has NO fixed point above zero.
 --
