@@ -6,7 +6,7 @@ This directory gives the **official public Bend 2** (bendlang/bend, `2.0.21`,
 commit `6018e28`) a cubical core: paths, transport, composition, Glue and
 univalence, higher inductive types, and transport that *runs* on the
 compiled C and JavaScript lanes. It ports the mathematics of
-`collab/bend2-cubical` (built on the HVM3 interaction-net fork) onto a
+`collab/bend2-interactive-cubical` (built on the HVM3 interaction-net fork) onto a
 different language implementation: a TypeScript checker (`bend2/bend.ts`,
 one linear bidirectional pass, an affine dependent theory with a dead/live
 wall), a C/Metal/CUDA/JS compiler (`bend2/comp.ts`) and a Lean spec.
@@ -228,7 +228,7 @@ through that principle.
 ## Against the two documents this port answers to
 
 `README.md` (the interactive symbolic computer) and
-`collab/bend2-cubical/BEND_HVM_COMPUTATIONAL_UNIVALENCE.md` ask for five
+`collab/bend2-interactive-cubical/BEND_HVM_COMPUTATIONAL_UNIVALENCE.md` ask for five
 things of a runtime. Where each stands on the official Bend:
 
 1. **Proof is executable transport; `coe(ua(e), x) ↝ e(x)`.** Held, at the

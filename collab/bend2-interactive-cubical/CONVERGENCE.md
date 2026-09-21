@@ -489,7 +489,7 @@ multiplies is totalizing.
 
 ## Part VI â” What was built and verified (the port)
 
-`collab/bend2-cubical/cubical-paths.patch` adds a CCHM cubical layer to the Bend2
+`collab/bend2-interactive-cubical/cubical-paths.patch` adds a CCHM cubical layer to the Bend2
 core and the HVM target:
 
 - **Paths + transport:** interval/`i0`/`i1`/De Morgan; `Path`/`PathP`; path Î» and
@@ -815,7 +815,7 @@ is why its value is that object's value times the scale it can now reach.
 - Corpus: `sh setup` builds Agda 2.8.0 + agda/cubical v0.9; `sh check` runs kernel
   + fiber law + gate; `sh check --all` runs every theorem module. `--safe`, no
   postulates, no holes.
-- Cubical Bend2: apply `collab/bend2-cubical/cubical-paths.patch` to
+- Cubical Bend2: apply `collab/bend2-interactive-cubical/cubical-paths.patch` to
   DKormann/Bend2 @ f026483; build with GHC 9.12.2; `bend <file.bend>` checks and
   runs; `bend <file.bend> --to-hvm` / `--to-hvm4-raw` / `--to-hvm4-full` emits
   (the last is the full cubical runtime, nothing erased). `LC_ALL=C.utf8`
@@ -852,6 +852,6 @@ Coinductive/interactive: `Parasparasrayaâ¦`, `PurnataSutraâ¦`, `HistoryCompletio
 `kernel/{RewriteCertificate, ControlledGrammar, GenerativeKernel}`, `Apunaragamanaâ¦`,
 `run-corpus-calculus/Siddhasadhanaâ¦`, `NayaPramanaâ¦`. Frontier: `research/FRONTIER.md`,
 `research/ANALYTIC_INTERFACE.md`, `SamastaSimaâ¦`. Physics/life:
-`papers/for_michael_levinâ¦`. Convergence: `collab/bend2-cubical/{cubical-paths.patch,
+`papers/for_michael_levinâ¦`. Convergence: `collab/bend2-interactive-cubical/{cubical-paths.patch,
 STATUS.md, GENERAL_HCOMP.md, RUNTIME_FULL.md, FIBRE_LAW.md, RUNTIME_ALGEBRA.md,
 census/}`, `research/HLEVEL_OF_INTERACTION_20260913.md`.

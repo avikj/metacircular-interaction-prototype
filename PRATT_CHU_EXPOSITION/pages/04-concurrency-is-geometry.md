@@ -14,7 +14,7 @@ At runtime the same local geometry appears in interaction-net reduction rather t
 
 ## Canonical checked construction
 
-Core carrier/transport: [`Nucleus.agda`](../../fibre/src/Fibre/Nucleus.agda). Physics/geodesic theorem ledger: [`research/PNP_GEODESIC_REDUCTION_20260916.md`](../../research/PNP_GEODESIC_REDUCTION_20260916.md). Runtime convergence: [`CONVERGENCE.md`](../../collab/bend2-cubical/CONVERGENCE.md).
+Core carrier/transport: [`Nucleus.agda`](../../fibre/src/Fibre/Nucleus.agda). Physics/geodesic theorem ledger: [`research/PNP_GEODESIC_REDUCTION_20260916.md`](../../research/PNP_GEODESIC_REDUCTION_20260916.md). Runtime convergence: [`CONVERGENCE.md`](../../collab/bend2-interactive-cubical/CONVERGENCE.md).
 
 ## External coordinates
 

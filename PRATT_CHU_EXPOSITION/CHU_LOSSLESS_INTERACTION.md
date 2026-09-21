@@ -365,7 +365,7 @@ meet the Bend/HVM local interaction calculus with native sharing/superposition a
 - `formal/cubical/NaturalMachine/ChuDefect.agda`
 - `formal/cubical/theorems/logic/ObsBridge.agda`
 - `LIFECYCLE.rst`
-- `collab/bend2-cubical/CONVERGENCE.md`
+- `collab/bend2-interactive-cubical/CONVERGENCE.md`
 
 ## Compressed statement
 

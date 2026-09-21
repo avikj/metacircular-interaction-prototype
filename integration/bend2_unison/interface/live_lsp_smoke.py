@@ -16,7 +16,7 @@ import time
 from urllib.parse import urlparse, unquote
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
-DEFAULT_FIXTURE = ROOT / "collab/bend2-cubical/path_transport.bend"
+DEFAULT_FIXTURE = ROOT / "collab/bend2-interactive-cubical/path_transport.bend"
 PROMPT = re.compile(r"scratch/main>\s*$")
 ANSI = re.compile(r"\x1b(?:\[[0-?]*[ -/]*[@-~]|[=>])")
 

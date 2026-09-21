@@ -5,7 +5,7 @@ set -euo pipefail
 : "${HVM_BIN:?Set HVM_BIN to the HVM4 executable}"
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-fixture="$repo_root/collab/bend2-cubical/path_transport.bend"
+fixture="$repo_root/collab/bend2-interactive-cubical/path_transport.bend"
 work="$(mktemp -d)"
 trap 'rm -rf "$work"' EXIT
 

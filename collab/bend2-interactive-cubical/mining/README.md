@@ -8,8 +8,8 @@ and **HVM4 C runtime** already built:
 ```sh
 export BEND=/absolute/path/to/bend
 export HVM=/absolute/path/to/HVM4/src/hvm
-bash collab/bend2-cubical/mining/run.sh \
-  collab/bend2-cubical/mining/genesis-mainnet.json \
+bash collab/bend2-interactive-cubical/mining/run.sh \
+  collab/bend2-interactive-cubical/mining/genesis-mainnet.json \
   /tmp/bitcoin-native-run-001
 ```
 
@@ -23,7 +23,7 @@ For a fresh build on Linux, after installing GHC 9.12.2, Cabal >=3.14,
 Node.js >=18, Git, Clang, and the usual Haskell/C development prerequisites:
 
 ```sh
-bash collab/bend2-cubical/mining/bootstrap.sh /tmp/bitcoin-native-toolchain
+bash collab/bend2-interactive-cubical/mining/bootstrap.sh /tmp/bitcoin-native-toolchain
 source /tmp/bitcoin-native-toolchain/env.sh
 # Then run the command above.
 ```
@@ -40,7 +40,7 @@ Optional explicit wall-clock cap:
 
 ```sh
 RUN_SECONDS=600 BEND="$BEND" HVM="$HVM" bash \
-  collab/bend2-cubical/mining/run.sh JOB.json /tmp/bitcoin-native-run-002
+  collab/bend2-interactive-cubical/mining/run.sh JOB.json /tmp/bitcoin-native-run-002
 ```
 
 An interrupted, rejected, or out-of-memory run is **not** an empty fibre.
@@ -171,9 +171,9 @@ this program. Submission and stale-job handling belong to the node/pool owner.
 ## Checks available without the native toolchain
 
 ```sh
-node --test collab/bend2-cubical/mining/transport-checks.mjs
-bash -n collab/bend2-cubical/mining/run.sh
-bash -n collab/bend2-cubical/mining/bootstrap.sh
+node --test collab/bend2-interactive-cubical/mining/transport-checks.mjs
+bash -n collab/bend2-interactive-cubical/mining/run.sh
+bash -n collab/bend2-interactive-cubical/mining/bootstrap.sh
 ```
 
 These check serialization, compact targets, masks, header membership, source
@@ -192,7 +192,7 @@ The prior source additions now live at:
 Check them separately with the repository's Agda 2.8.0 / cubical v0.9 pin:
 
 ```sh
-bash collab/bend2-cubical/mining/check-agda.sh
+bash collab/bend2-interactive-cubical/mining/check-agda.sh
 ```
 
 If a native gate fails, preserve the exact logs and fix the source/compiler

@@ -16,7 +16,7 @@ For Pratt this closes the loop from symbolic action logic, process geometry, Chu
 
 ## Canonical checked construction
 
-ISC/orbit: [`Samvada...agda`](../../fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda). Carrier/transport: [`Nucleus.agda`](../../fibre/src/Fibre/Nucleus.agda). Lifecycle: [`LIFECYCLE.rst`](../../LIFECYCLE.rst). Runtime convergence: [`collab/bend2-cubical/CONVERGENCE.md`](../../collab/bend2-cubical/CONVERGENCE.md). The later canonical-Agda pass should consolidate ISC + installation + runtime-facing cubical laws into one page construction.
+ISC/orbit: [`Samvada...agda`](../../fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda). Carrier/transport: [`Nucleus.agda`](../../fibre/src/Fibre/Nucleus.agda). Lifecycle: [`LIFECYCLE.rst`](../../LIFECYCLE.rst). Runtime convergence: [`collab/bend2-interactive-cubical/CONVERGENCE.md`](../../collab/bend2-interactive-cubical/CONVERGENCE.md). The later canonical-Agda pass should consolidate ISC + installation + runtime-facing cubical laws into one page construction.
 
 ## External coordinates
 

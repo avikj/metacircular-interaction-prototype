@@ -5,8 +5,8 @@ Bend2 checkout at `f026483`:
 
 ```sh
 # Set CORPUS to an absolute path to this repository.
-git apply "$CORPUS/collab/bend2-cubical/cubical-paths.patch"
-git apply "$CORPUS/collab/bend2-cubical/list-transport.patch"
+git apply "$CORPUS/collab/bend2-interactive-cubical/cubical-paths.patch"
+git apply "$CORPUS/collab/bend2-interactive-cubical/list-transport.patch"
 # Then build as described in HANDOFF.md.
 ```
 
@@ -41,7 +41,7 @@ other prelude clone labels.
 ## Regression test
 
 ```sh
-python3 collab/bend2-cubical/test_list_transport.py --hvm /path/to/hvm
+python3 collab/bend2-interactive-cubical/test_list_transport.py --hvm /path/to/hvm
 ```
 
 The runner extracts **the actual literal prelude** from `Target/HVM4Full.hs` in

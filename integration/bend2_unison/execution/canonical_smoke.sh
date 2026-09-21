@@ -28,5 +28,5 @@ ghc -v0 \
   integration/bend2_unison/execution/CanonicalExecutionSmoke.hs \
   -o "$build_dir/bend-ucm-canonical-smoke"
 
-"$build_dir/bend-ucm-canonical-smoke" collab/bend2-cubical/t_fwd_neg.bend "$hvm" 146 3701
-"$build_dir/bend-ucm-canonical-smoke" collab/bend2-cubical/path_transport.bend "$hvm" 4992 22157
+"$build_dir/bend-ucm-canonical-smoke" collab/bend2-interactive-cubical/t_fwd_neg.bend "$hvm" 146 3701
+"$build_dir/bend-ucm-canonical-smoke" collab/bend2-interactive-cubical/path_transport.bend "$hvm" 4992 22157

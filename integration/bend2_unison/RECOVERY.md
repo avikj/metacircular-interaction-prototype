@@ -82,7 +82,7 @@ to locate or recreate are:
 
 The missing fixtures include the cubical path transport Bend program, imported
 multi-file Bend members, and the minimal direct HVM regression. The known canonical
-fixture is `collab/bend2-cubical/path_transport.bend`; its direct HVM result is
+fixture is `collab/bend2-interactive-cubical/path_transport.bend`; its direct HVM result is
 `0 #4992`, with 4992 interactions and heap size 22157. A reduced `t_fwd_neg.bend`
 fixture reports 146 interactions and heap size 3701. These are stable recovery
 anchors, not new claims about the cubical implementation.

@@ -4,7 +4,7 @@ Everything below is on `main`. The patched compiler lives OUTSIDE the repo in a
 container (`/tmp/Bend2`); to rebuild from the repo:
 
     git clone https://github.com/DKormann/Bend2 /tmp/Bend2 && cd /tmp/Bend2 && git checkout f026483
-    git apply collab/bend2-cubical/cubical-paths.patch      # the whole cubical layer + emitters
+    git apply collab/bend2-interactive-cubical/cubical-paths.patch      # the whole cubical layer + emitters
     # HVM3 as a local package: clone HigherOrderCO/HVM3 to /tmp/HVM3, patch Runtime.c to
     #   #include "runtime/reduce/ref.c" and "ref_sup.c"; cabal.project: packages: . /tmp/HVM3
     export PATH="$HOME/.ghcup/bin:$PATH" LC_ALL=C.utf8 LANG=C.utf8   # LC_ALL is MANDATORY

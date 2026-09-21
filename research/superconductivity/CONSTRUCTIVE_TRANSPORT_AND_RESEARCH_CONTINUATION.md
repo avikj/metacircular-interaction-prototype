@@ -242,7 +242,7 @@ The source mechanisms behind this organization are:
 - `formal/cubical/kernel/TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass.agda`;
 - `fibre/src/Fibre/Nucleus.agda`;
 - `formal/cubical/theorems/residue/CorpusSelfPresentation.agda` and `fibre/src/Fibre/CorpusSamvada.agda`;
-- `collab/bend2-cubical/supline.bend`;
+- `collab/bend2-interactive-cubical/supline.bend`;
 - `LIFECYCLE.rst` and `research/LIFECYCLE_SOURCES.rst` for the actual interfaces and their composition.
 
 These were read at the earlier research anchor e0e4623c03a5a1a0afa17ca271bf6bbb3cacbf63. Computational cubical univalence has its primary source in C. Cohen, T. Coquand, S. Huber, A. Mrtberg, *Cubical Type Theory: a constructive interpretation of the univalence axiom*, arXiv:1611.02108. The maps in (T.2), (T.3), and (T.12) and their inverse arguments are explicitly written here. No new aggregate Agda/HVM execution is reported by importing this chapter.

@@ -150,4 +150,4 @@ meet the Bend/HVM local interaction calculus with native sharing/superposition a
 - `formal/cubical/theorems/residue/VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda`
 - `formal/cubical/theorems/residue/ActionResidualPhase.agda`
 - `research/PNP_GEODESIC_REDUCTION_20260916.md`
-- `collab/bend2-cubical/CONVERGENCE.md`
+- `collab/bend2-interactive-cubical/CONVERGENCE.md`

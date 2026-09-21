@@ -10,7 +10,7 @@ bend_db="$toolchain/Bend2-f026483/dist-newstyle/packagedb/ghc-9.14.1"
 sdk=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
 clt=/Library/Developer/CommandLineTools/usr/bin
 hvm=${BEND_UCM_HVM4:-"$toolchain/hvm4"}
-fixture=${BEND_UCM_SMOKE_FILE:-"$repo_root/collab/bend2-cubical/t_fwd_neg.bend"}
+fixture=${BEND_UCM_SMOKE_FILE:-"$repo_root/collab/bend2-interactive-cubical/t_fwd_neg.bend"}
 build_dir=$(mktemp -d /private/tmp/bend-ucm-smoke.XXXXXX)
 trap 'rm -rf "$build_dir"' EXIT HUP INT TERM
 

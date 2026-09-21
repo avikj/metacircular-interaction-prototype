@@ -5,7 +5,7 @@ port of a cubical type theory onto the official public Bend 2 (bendlang/bend
 `2.0.21`, commit `6018e28ecc67cf1fffc0c20c64b11023474c2df8`). It supersedes
 the directory's `README.md` and the two documents the work answered to
 (the repository's `README.md` and
-`collab/bend2-cubical/BEND_HVM_COMPUTATIONAL_UNIVALENCE.md`) as the
+`collab/bend2-interactive-cubical/BEND_HVM_COMPUTATIONAL_UNIVALENCE.md`) as the
 reference for what the fork is, why each rule is what it is, and what every
 changed line does. Every hunk of `cubical.patch` is covered below, by its
 anchor in the patch (the `@@ -upstream_line` marker and the patch's own line
@@ -24,7 +24,7 @@ The artifact is five things:
 | `README.md` | the short form of this report |
 | `VALUE.md` | the engineering case: what can now be written, what cannot go wrong, what it costs, each point tied to a test |
 
-The other implementation this port descends from is `collab/bend2-cubical`
+The other implementation this port descends from is `collab/bend2-interactive-cubical`
 (the HVM3 interaction-net fork). Nothing was copied: that runtime and this
 one share no code, and the official language's own equality primitive was
 re-read as a path type rather than a new one being bolted on.

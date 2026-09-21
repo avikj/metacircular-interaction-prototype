@@ -213,27 +213,27 @@ source-linked documentation; no new proof or native run is claimed.
 7. Native cubical coinduction and integrated execution
 =====================================================
 
-`Carrier.bend <../collab/bend2-cubical/port/Carrier.bend>`_
+`Carrier.bend <../collab/bend2-interactive-cubical/port/Carrier.bend>`_
     ``Carrier``, ``descend``, ``ascend``, ``CarrierPath``,
     ``carry_transport``, and the lifted step laws.
 
-`coinduction.bend <../collab/bend2-cubical/coinduction.bend>`_
+`coinduction.bend <../collab/bend2-interactive-cubical/coinduction.bend>`_
     ``Answers``, ``IExec``, ``forgetStates``, ``replay``,
     ``forgetReplay``, ``replayForget``, ``stateAt``.
 
     Continuing records and corecursive paths are present in the Bend source.
     Read the associated `coinduction account
-    <../collab/bend2-cubical/COINDUCTION.md>`_ for the declared productivity
+    <../collab/bend2-interactive-cubical/COINDUCTION.md>`_ for the declared productivity
     discipline; do not regress to a finite-depth encoding as the only object.
 
-`supline.bend <../collab/bend2-cubical/supline.bend>`_
+`supline.bend <../collab/bend2-interactive-cubical/supline.bend>`_
     ``supLine``, ``sup_transport``.
 
     The type line, transported value, and branch are correlated. Ordinary
     variables, cubical dimensions, and SUP labels have different roles.
 
-`PUSC <../collab/bend2-cubical/PUSC.md>`_ and
-`full runtime <../collab/bend2-cubical/RUNTIME_FULL.md>`_
+`PUSC <../collab/bend2-interactive-cubical/PUSC.md>`_ and
+`full runtime <../collab/bend2-interactive-cubical/RUNTIME_FULL.md>`_
     The integrated architecture and its source/runtime correspondence.
     Preserve the distinction between executable compatibility constructions,
     recorded native runs, and an independently established global metatheorem.

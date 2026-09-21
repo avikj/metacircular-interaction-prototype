@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[3]
-FIXTURE = ROOT / "collab/bend2-cubical/path_transport.bend"
+FIXTURE = ROOT / "collab/bend2-interactive-cubical/path_transport.bend"
 PROMPT = re.compile(r"scratch/(?:main|bendFeature)>\s*$")
 ANSI = re.compile(r"\x1b(?:\[[0-?]*[ -/]*[@-~]|[=>])")
 
