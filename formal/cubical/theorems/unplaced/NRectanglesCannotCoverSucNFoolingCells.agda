@@ -6,7 +6,7 @@
 -- Closes the last piece I left open on this line.
 -- `AFoolingSetForcesDistinctRectangles` proved a sound cover is
 -- INJECTIVE on a fooling family and said, in its own words: "INJECTIVITY
--- IS NOT 'â‰ k'.  Turning 'distinct cells get distinct rectangles' into
+-- IS NOT 'â‰¥ k'.  Turning 'distinct cells get distinct rectangles' into
 -- 'at least k rectangles' is a COUNTING step: it needs `I` finite with
 -- k elements and a pigeonhole over the cover."
 --
@@ -14,12 +14,12 @@
 -- arithmetic: a fooling family of `suc n` cells cannot be covered by a
 -- family of `n` rectangles.  The pigeonhole is
 -- `Cubical.Data.Fin.Properties.pigeonhole-special`, which the pinned
--- library already carries â” I checked before planning on it:
+-- library already carries â€” I checked before planning on it:
 --
---   pigeonhole-special : (f : Fin (suc n) â’ Fin n)
---     â’ Î[ i ] Î[ j ] (Â i â‰¡ j) — (f i â‰¡ f j)
+--   pigeonhole-special : (f : Fin (suc n) â†’ Fin n)
+--     â†’ Î£[ i ] Î£[ j ] (Â¬ i â‰¡ j) Ã— (f i â‰¡ f j)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THE CONTRAPOSITIVE IS THE HONEST FORM
 --
 -- "At least k rectangles" is a statement about a cardinal, and a
@@ -32,7 +32,7 @@
 --
 -- Â§2 gives a LOWER bound only.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -115,28 +115,28 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- module is titled as an impossibility about COVERING, and covering is
 -- naturally a property: a cell is covered when SOME sound rectangle of
 -- the family contains it.  What Â§2 takes instead is a `pick : Fin (suc
--- n) â’ Fin n` together with pointwise `Sound (rects (pick i))` and
--- `Covers (rects (pick i)) (r i) (c i)` â” a cover ALREADY EQUIPPED with
--- a choice of which rectangle serves each cell.  Â§"SYT â” THE CLAIM, EXACTLY"
+-- n) â†’ Fin n` together with pointwise `Sound (rects (pick i))` and
+-- `Covers (rects (pick i)) (r i) (c i)` â€” a cover ALREADY EQUIPPED with
+-- a choice of which rectangle serves each cell.  Â§"SYÄ€T â€” THE CLAIM, EXACTLY"
 -- above disclaims upper bounds, r_e, d_e, raw width and the
 -- min-cover/max-fooling equality, and says nothing about the shape of
 -- its own hypothesis.
 --
 -- **IT IS A PRICE, NOT A HOLE, AND BOTH FORMS ARE NOW PROVED.**
 --
---   cannotCoverSigma      hypothesis `(i) â’ Î[ k ] (Sound — Covers)`.
---                         FREE: a Î  of Î already contains its own
+--   cannotCoverSigma      hypothesis `(i) â†’ Î£[ k ] (Sound Ã— Covers)`.
+--                         FREE: a Î  of Î£ already contains its own
 --                         choice function, so `pick i` is `fst (h i)`
 --                         and the rest is projection.
---   cannotCoverTruncated  hypothesis `(i) â’ âˆ Î[ k ] (Sound — Covers) âˆâ`,
+--   cannotCoverTruncated  hypothesis `(i) â†’ âˆ¥ Î£[ k ] (Sound Ã— Covers) âˆ¥â‚`,
 --                         which is the honest reading of "is covered".
---                         No `pick` can be projected out â” the
+--                         No `pick` can be projected out â€” the
 --                         conclusion for a single cell is not a
---                         proposition â” and it goes through anyway, paid
+--                         proposition â€” and it goes through anyway, paid
 --                         for by `finChoiceFin`, choice over a FINITE
 --                         index into a truncation, proved by induction
 --                         on the BOUND with `fsplit` and `subst`.  The
---                         final goal being `âŠ`, a proposition, is what
+--                         final goal being `âŠ¥`, a proposition, is what
 --                         lets the truncation be eliminated at the end.
 --
 -- Neither repair restates anything here: both END at
@@ -147,8 +147,8 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- Up to here `Fin` appeared on this line only because the pigeonhole
 -- needs it.  `finChoiceFin` needs it for choice, which is unavailable
 -- over an arbitrary index; so the line's use of finiteness is not one
--- fact but two, and Â§3's summary above â” which presents the line as
--- three steps each naming what it did not do â” is missing that.
+-- fact but two, and Â§3's summary above â€” which presents the line as
+-- three steps each naming what it did not do â€” is missing that.
 --
 -- NOTHING ABOVE IS RETRACTED.  Â§2 is true as stated and is the theorem
 -- both repairs end at; Â§3's account of the three steps is correct as

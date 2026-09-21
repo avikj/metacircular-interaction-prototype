@@ -6,12 +6,12 @@
 -- THE MERGE THE CORPUS ASKED FOR THREE TIMES.
 --
 -- WHAT_IS_ACTUALLY_OPEN §1: the quantity  e_b(q) = v_q(b^ord_q(b) − 1)
--- is computed by two separate organs under three names �
+-- is computed by two separate organs under three names —
 --
 --   * CYCLOTOMIC_SENSOR's head depth (the sensor state (d,e)),
 --   * HEAD_DEPTH_BLINDNESS Thm W3's Fermat blindness depth
---       (b fails to refute q^a  ⟺  e_b(q) � a),
---   * EXPOSED_SET Cor W2's Wieferich condition (e_2(q) � 2),
+--       (b fails to refute q^a  ⟺  e_b(q) ≥ a),
+--   * EXPOSED_SET Cor W2's Wieferich condition (e_2(q) ≥ 2),
 --
 -- and three seeds (EXPOSED_SET 3, HEAD_DEPTH_BLINDNESS 3, PINNING 1)
 -- demand the organism compute it ONCE.  The organs were Python and are
@@ -26,23 +26,23 @@
 --
 -- AND THE ATTACHED OPEN SEED IS CLOSED.  HEAD_DEPTH_BLINDNESS seed 1
 -- (restated as the "sharply posed" residue in WHAT_IS_ACTUALLY_OPEN §1)
--- asks: W3 pins FERMAT blindness exactly; the strong (Miller�Rabin)
+-- asks: W3 pins FERMAT blindness exactly; the strong (Miller–Rabin)
 -- test refutes more; is the strong-blindness depth also e_b(q), or is
 -- there a correction term?  Answer: EQUALITY, no correction.  For n =
 -- q^a (q odd prime) the unit group is cyclic, so (i) the Fermat liars
 -- form the cyclic subgroup H of order q−1 (W3's proof); (ii) for b ∈ H
--- with ord(b) = 2^j�u (u odd), u divides the odd part d of n−1 (since
--- u � q−1 � n−1), so b^d has order 2^j; (iii) if j = 0 then b^d = 1,
--- else b^{d�2^{j−1}} is the unique involution of a cyclic group, which
--- is −1, and j � v�(q−1) � v�(n−1) puts that index inside the
--- Miller�Rabin window.  Hence every Fermat liar for an odd prime power
--- is a strong liar: strong blindness = Fermat blindness = (a � e_b(q)).
+-- with ord(b) = 2^j·u (u odd), u divides the odd part d of n−1 (since
+-- u ∣ q−1 ∣ n−1), so b^d has order 2^j; (iii) if j = 0 then b^d = 1,
+-- else b^{d·2^{j−1}} is the unique involution of a cyclic group, which
+-- is −1, and j ≤ v₂(q−1) ≤ v₂(n−1) puts that index inside the
+-- Miller–Rabin window.  Hence every Fermat liar for an odd prime power
+-- is a strong liar: strong blindness = Fermat blindness = (a ≤ e_b(q)).
 -- (Known-shaped: this is Monier/Rabin-era liar bookkeeping; SEARCH
 -- before any novelty claim.  The prose proof lives in
 -- 1048-triple range is `strongTheorem` below.)
 --
 -- Wieferich becomes an instance: the only known Wieferich primes 1093
--- and 3511 are certified as the e � 2 threshold events, with their
+-- and 3511 are certified as the e ≥ 2 threshold events, with their
 -- neighbours certified below threshold.
 --
 -- Everything computes through Agda.Builtin.Nat primitives (GMP-backed
@@ -59,7 +59,7 @@ open import Cubical.Data.Bool using (Bool; true; false; if_then_else_; _and_; no
 open import Cubical.Data.List using (List; []; _∷_)
 
 ------------------------------------------------------------------------
--- Fast arithmetic on builtin �
+-- Fast arithmetic on builtin ℕ
 
 _%%_ : ℕ → ℕ → ℕ
 n %% zero  = n
@@ -72,7 +72,7 @@ n // suc m = div-helper 0 m n m
 eqBool : Bool → Bool → Bool
 eqBool x y = if x then y else not y
 
--- a � e as a Bool
+-- a ≤ e as a Bool
 _≤?_ : ℕ → ℕ → Bool
 a ≤? e = a < suc e
 
@@ -98,7 +98,7 @@ ord : ℕ → ℕ → ℕ
 ord q b = ordFrom q q b (b %% q) 1
 
 -- q-adic valuation, capped by fuel; v(0) saturates to the fuel (acts
--- as ∞ against every threshold a � 40 used here)
+-- as ∞ against every threshold a ≤ 40 used here)
 vCap : ℕ → ℕ → ℕ → ℕ
 vCap zero    q n = 0
 vCap (suc f) q n =
@@ -120,11 +120,11 @@ fermatBlind : ℕ → ℕ → ℕ → Bool
 fermatBlind q a b =
   let n = power q a in powMod 40 n b (n ∸ 1) == 1
 
--- reading 3: Wieferich condition = threshold e_2(q) � 2
+-- reading 3: Wieferich condition = threshold e_2(q) ≥ 2
 wieferich : ℕ → Bool
 wieferich q = 2 ≤? headDepth q 2
 
--- the strong (Miller�Rabin) reading: b is a strong liar for q^a
+-- the strong (Miller–Rabin) reading: b is a strong liar for q^a
 mrChain : ℕ → ℕ → ℕ → Bool
 mrChain n zero    x = false
 mrChain n (suc k) x =
@@ -139,8 +139,8 @@ strongBlind q a b =
   in if x₀ == 1 then true else mrChain n s x₀
 
 ------------------------------------------------------------------------
--- The certified range: q � 23 odd prime, 2 � b < 3q with q � b,
--- 1 � a � 4 � the note's exact 1048 triples
+-- The certified range: q ≤ 23 odd prime, 2 ≤ b < 3q with q ∤ b,
+-- 1 ≤ a ≤ 4 — the note's exact 1048 triples
 
 range : ℕ → ℕ → List ℕ
 range x zero    = []
@@ -162,7 +162,7 @@ overTriples P =
       (range 2 (3 * q ∸ 2)))
     oddPrimes
 
--- Theorem W3, kernel form: Fermat blindness on q^a ⟺ a � e_b(q),
+-- Theorem W3, kernel form: Fermat blindness on q^a ⟺ a ≤ e_b(q),
 -- exhaustively over all 1048 triples.  This replaces the dead Python
 -- replay with a checked term.
 w3Certificate : Bool
@@ -173,7 +173,7 @@ w3Theorem : w3Certificate ≡ true
 w3Theorem = refl
 
 -- Seed 1 closed on the same range: the STRONG test is blind exactly
--- as deep as the Fermat test on odd prime powers � no correction term.
+-- as deep as the Fermat test on odd prime powers — no correction term.
 -- General proof in the header/note; kernel certificate here.
 strongCertificate : Bool
 strongCertificate = overTriples
@@ -184,7 +184,7 @@ strongTheorem = refl
 
 ------------------------------------------------------------------------
 -- Corollary W4 instances: the blind bases at depth a form the
--- subgroup of order q−1 in (�/q^a)^� � the note's table, certified
+-- subgroup of order q−1 in (ℤ/q^a)^× — the note's table, certified
 
 countList : (ℕ → Bool) → List ℕ → ℕ
 countList f []       = 0
@@ -210,7 +210,7 @@ w4-13-3 = refl
 
 ------------------------------------------------------------------------
 -- Wieferich as the b = 2 threshold instance: both known Wieferich
--- primes certified at e � 2, immediate neighbours certified below
+-- primes certified at e ≥ 2, immediate neighbours certified below
 
 wieferich-1093 : wieferich 1093 ≡ true
 wieferich-1093 = refl

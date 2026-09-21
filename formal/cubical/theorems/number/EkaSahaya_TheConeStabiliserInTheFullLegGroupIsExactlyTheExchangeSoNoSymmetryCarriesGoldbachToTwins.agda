@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���-���� � EkaSahaya � "one companion."
+-- एक-सहाय · EkaSahaya — "one companion."
 --
 -- THE QUESTION, inherited as a ea from the yantra session of
 -- 2026-08-27: classify ALL cone-preserving involutions of the pair
@@ -10,7 +10,7 @@
 -- gap) exits the positivity cone.  That refutes one candidate.  This
 -- module closes the family: over the whole finite symmetry group the
 -- legs naturally carry, the cone has EXACTLY ONE nontrivial symmetry,
--- and it is the exchange � � which FIXES each foliation instead of
+-- and it is the exchange τ — which FIXES each foliation instead of
 -- swapping them.  So within this group there is no self-duality of the
 -- pair field at all, and the split of the one symmetric-plane statement
 -- into two conjectures is exhaustive, not an artifact of testing one map.
@@ -18,22 +18,22 @@
 -- THE GROUP.  A pair of legs (p , q) carries sign change on each leg
 -- and the leg swap: the hyperoctahedral group of the square, order 8
 -- (Klein four-group of signs, extended by the swap).  Its eight
--- elements, in leg form and � computed through Φraw, each equality
--- discharged by the ring solver � in centre-relative form:
+-- elements, in leg form and — computed through Φraw, each equality
+-- discharged by the ring solver — in centre-relative form:
 --
 --     legs (p , q)        (W , R) form          cone verdict
 --   1 ( p ,  q)   id      ( W ,  R)             PRESERVES (trivially)
---   2 ( q ,  p)   �       ( W , -R)             PRESERVES  � the companion
---   3 (-p ,  q)   J�      ( R ,  W)             breaks
---   4 ( p , -q)   J�      (-R , -W)             breaks
+--   2 ( q ,  p)   τ       ( W , -R)             PRESERVES  ← the companion
+--   3 (-p ,  q)   J₁      ( R ,  W)             breaks
+--   4 ( p , -q)   J₂      (-R , -W)             breaks
 --   5 (-p , -q)   -id     (-W , -R)             breaks
---   6 (-q , -p)   �∘-id   (-W ,  R)             breaks
+--   6 (-q , -p)   τ∘-id   (-W ,  R)             breaks
 --   7 ( q , -p)   rot     ( R , -W)             breaks
---   8 (-q ,  p)   rot�    (-R ,  W)             breaks
+--   8 (-q ,  p)   rot⁻    (-R ,  W)             breaks
 --
 -- Row 3 is the finding that prompted this module: negating the FIRST
--- leg is the PURE SWAP (W , R) � (R , W) � the naked Goldbach�twin
--- exchange, no signs � and it breaks the cone exactly as J� does.
+-- leg is the PURE SWAP (W , R) ↦ (R , W) — the naked Goldbach↔twin
+-- exchange, no signs — and it breaks the cone exactly as J₂ does.
 -- Rows 3, 4, 7, 8 are the four maps carrying the fixed-centre foliation
 -- to the fixed-gap foliation; all four break.  Rows 5 and 6 preserve
 -- each foliation but break the cone anyway.  Only row 2 survives, and
@@ -43,8 +43,8 @@
 --   breaks the cone.  No symmetry in the group carries Goldbach to
 --   twins.  (ekaSahaya plus the breakage theorems, packaged in §3.)
 --
--- Proof economy: every breakage is the one lemma posAnti � a nonzero
--- integer and its negation are never both positive � applied to the
+-- Proof economy: every breakage is the one lemma posAnti — a nonzero
+-- integer and its negation are never both positive — applied to the
 -- cone coordinate the element negates, after a ring-solver identity.
 -- The cone is killed by polarity alone, which is the arithmetic
 -- content: the obstruction to self-duality of the prime-pair field
@@ -69,7 +69,7 @@ open import CenterRelative
 
 ------------------------------------------------------------------------
 -- 1.  The remaining elements of the leg group, in both presentations.
---     (id, �, J� already live in CenterRelative.)
+--     (id, τ, J₂ already live in CenterRelative.)
 ------------------------------------------------------------------------
 
 J₁ neg τneg rot rot⁻ : Pair → Pair
@@ -127,7 +127,7 @@ intertwineRot⁻ (p , q) i = er⁻f p q i , er⁻s p q i
 ------------------------------------------------------------------------
 -- 2.  The breakage theorems.  One lemma each: posAnti on the cone
 --     coordinate the element negates.
---     InCone (a , b) = Pos (a - b) � Pos (a + b).
+--     InCone (a , b) = Pos (a - b) × Pos (a + b).
 ------------------------------------------------------------------------
 
 private
@@ -150,7 +150,7 @@ pureSwapBreaksCone (W , R) (d , _) (d' , _) =
   posAnti (W - R) d (subst Pos (cJ₁ W R) d')
 
 -- Row 5: total negation breaks the cone (the cone is not centrally
--- symmetric � it has an arrow).
+-- symmetric — it has an arrow).
 negBreaksCone : (x : ℤ × ℤ) → InCone x → ¬ InCone (negCR x)
 negBreaksCone (W , R) (d , _) (d' , _) =
   posAnti (W - R) d (subst Pos (cNeg W R) d')
@@ -162,7 +162,7 @@ negBreaksCone (W , R) (d , _) (d' , _) =
 
 -- Rows 7 and 8: the quarter-turn rotations break it.  For rot the
 -- SECOND cone coordinate of the image is the negated first coordinate
--- of the source; for rot� the first is the negated second.
+-- of the source; for rot⁻ the first is the negated second.
 rotBreaksCone : (x : ℤ × ℤ) → InCone x → ¬ InCone (rotCR x)
 rotBreaksCone (W , R) (d , _) (_ , s') =
   posAnti (W - R) d (subst Pos (cRot W R) s')
@@ -177,7 +177,7 @@ rot⁻BreaksCone (W , R) (_ , s) (d' , _) =
 -- 3.  The stabiliser statement, as data.
 ------------------------------------------------------------------------
 
--- The one companion: � preserves (CenterRelative.exchangePreservesCone),
+-- The one companion: τ preserves (CenterRelative.exchangePreservesCone),
 -- re-exported under the name the classification gives it.
 ekaSahaya : (x : ℤ × ℤ) → InCone x → InCone (τCR x)
 ekaSahaya = exchangePreservesCone
@@ -193,7 +193,7 @@ noDualityInTheLegGroup =
   pureSwapBreaksCone , thm16-4 , rotBreaksCone , rot⁻BreaksCone
 
 -- And the two non-exchanging nontrivial sign elements break it too, so
--- the full stabiliser is {id , �}: the cone has exactly one companion.
+-- the full stabiliser is {id , τ}: the cone has exactly one companion.
 stabiliserIsIdAndτ :
     ((x : ℤ × ℤ) → InCone x → InCone (τCR x))
   × ((x : ℤ × ℤ) → InCone x → ¬ InCone (negCR  x))

@@ -18,11 +18,11 @@
 --   formal/cubical/
 --   KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm.agda
 --
--- It proves for every `e : Fin (suc n) � Fin (suc n)`:
+-- It proves for every `e : Fin (suc n) ≃ Fin (suc n)`:
 --
 --   total n (w ∘ equivFun e) ≡ total n w
 --
--- spending associativity and commutativity only�no zero and no unit. The
+-- spending associativity and commutativity only—no zero and no unit. The
 -- generic enumeration debt named by `BahuShakha` is closed. Its dependent
 -- inner/outer/nested corollaries remain separate kernel objects.
 --

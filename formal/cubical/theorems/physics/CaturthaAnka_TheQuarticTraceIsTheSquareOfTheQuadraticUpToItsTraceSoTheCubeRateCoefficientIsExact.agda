@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-������ � the fourth power.
+-- चतुर्थ-अङ्क — the fourth power.
 --
--- FOR EVERY 3�3 MATRIX OVER EVERY COMMUTATIVE RING, TWICE THE QUARTIC
+-- FOR EVERY 3×3 MATRIX OVER EVERY COMMUTATIVE RING, TWICE THE QUARTIC
 -- TRACE IS THE SQUARE OF THE QUADRATIC TRACE, UP TO AN EXPLICIT
 -- MULTIPLE OF THE TRACE ITSELF.  So at trace zero the two agree exactly,
 -- and the cube-rate coefficient that follows is a checked number rather
@@ -11,21 +11,21 @@
 --
 --   §1  THE GENERAL IDENTITY, with no hypothesis on the matrix at all:
 --
---         2�tr(M�)  ≡  (tr M²)²
---                      + (tr M)�( 2�(tr M)(tr M²) + 8�det M - (tr M)³ ) .
+--         2·tr(M⁴)  ≡  (tr M²)²
+--                      + (tr M)·( 2·(tr M)(tr M²) + 8·det M - (tr M)³ ) .
 --
---       This is Newton's identity for a 3�3 characteristic polynomial,
+--       This is Newton's identity for a 3×3 characteristic polynomial,
 --       stated so that the trace-free case is a substitution and not a
 --       separate computation.  It is one call to the commutative-ring
 --       solver on the nine entries; no eigenvalues, no field, no
 --       characteristic hypothesis, no symmetry.
 --
---   §2  HENCE AT TRACE ZERO:  2�tr(M�) ≡ (tr M²)² .
+--   §2  HENCE AT TRACE ZERO:  2·tr(M⁴) ≡ (tr M²)² .
 --
---   §3  AND IN DEVIATORIC FORM.  Writing `dev M = 3M - (tr M)�I` for the
+--   §3  AND IN DEVIATORIC FORM.  Writing `dev M = 3M - (tr M)·I` for the
 --       trace-free part CLEARED OF ITS THIRD,
 --
---         2�tr( M² � dev(M²) )  ≡  (tr M²)²      when tr M ≡ 0 .
+--         2·tr( M² · dev(M²) )  ≡  (tr M²)²      when tr M ≡ 0 .
 --
 --       This is the whole content of the cube-rate coefficient: the
 --       quadratic invariant's square, with a factor of two and nothing
@@ -34,16 +34,16 @@
 --   §4  SO THE COEFFICIENT IS EXACT.  If a strain law reads, cleared of
 --       its denominator,
 --
---         21�X  ≡  -5�dev(S²)  -  21�K
+--         21·X  ≡  -5·dev(S²)  -  21·K
 --
---       � which is `�S = -(5/7)(S²)� - K` multiplied by 21 � then for
+--       — which is `∂S = -(5/7)(S²)₀ - K` multiplied by 21 — then for
 --       every correction `K` whatsoever,
 --
---         42�tr(S²�X)  ≡  -5�(tr S²)²  -  42�tr(S²�K) .
+--         42·tr(S²·X)  ≡  -5·(tr S²)²  -  42·tr(S²·K) .
 --
---       Dividing by 42 and using �(tr S³) = 3�tr(S²�X) this is the
+--       Dividing by 42 and using ∂(tr S³) = 3·tr(S²·X) this is the
 --       -5/14 law; the division is left to the reader because the ring
---       need not admit it.  `K` is arbitrary � it is never assumed to be
+--       need not admit it.  `K` is arbitrary — it is never assumed to be
 --       a pressure term, and §4 says nothing about what it contains.
 --
 -- WHY §1 AND NOT ONLY §2.  Carrying the trace correction costs one
@@ -52,14 +52,14 @@
 -- the trace-free hypothesis visible as the ONE place it enters, rather
 -- than baked into a substituted representation.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�4 over any commutative ring, for every
--- 3�3 matrix.  NOT claimed: anything about a material derivative � `X`
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–4 over any commutative ring, for every
+-- 3×3 matrix.  NOT claimed: anything about a material derivative — `X`
 -- in §4 is an arbitrary matrix constrained only by the displayed
 -- equation, and no evolution is differentiated anywhere; that any
 -- particular `K` is what a pressure Hessian, a rotation term, or a
 -- viscous term contributes; symmetry or trace-freeness of anything
 -- beyond the stated hypothesis; and no eigenvalues, discriminants, or
--- orderings � `q³ - 6r²` does not appear and no order relation exists in
+-- orderings — `q³ - 6r²` does not appear and no order relation exists in
 -- this file.
 ------------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ module _ (R : CommRing ℓ) where
     A = ⟨ R ⟩
 
   ------------------------------------------------------------------
-  -- � � Iterated addition, and 3�3 matrices with their operations.
+  -- ० · Iterated addition, and 3×3 matrices with their operations.
   ------------------------------------------------------------------
 
   scale : ℕ → A → A
@@ -161,7 +161,7 @@ module _ (R : CommRing ℓ) where
     + ( (- (a₁₂ M · ((a₂₁ M · a₃₃ M) + (- (a₂₃ M · a₃₁ M)))))
       + (a₁₃ M · ((a₂₁ M · a₃₂ M) + (- (a₂₂ M · a₃₁ M)))))
 
-  -- the trace-free part, cleared of its third:  dev M = 3M - (tr M)�I
+  -- the trace-free part, cleared of its third:  dev M = 3M - (tr M)·I
   dev : M3 → M3
   dev M .a₁₁ = (a₁₁ M + (a₁₁ M + a₁₁ M)) + (- trM M)
   dev M .a₁₂ = a₁₂ M + (a₁₂ M + a₁₂ M)
@@ -194,7 +194,7 @@ module _ (R : CommRing ℓ) where
     tr⊗-add M N (scaleM n N) ∙ cong (trM (M ⊗ N) +_) (tr⊗-scale n M N)
 
   ------------------------------------------------------------------
-  -- � � THE GENERAL QUARTIC TRACE IDENTITY.
+  -- १ · THE GENERAL QUARTIC TRACE IDENTITY.
   ------------------------------------------------------------------
 
   quartic-trace : (M : M3)
@@ -210,7 +210,7 @@ module _ (R : CommRing ℓ) where
   quartic-trace M = solve! R
 
   ------------------------------------------------------------------
-  -- � � HENCE AT TRACE ZERO.
+  -- २ · HENCE AT TRACE ZERO.
   ------------------------------------------------------------------
 
   quartic-trace-free : (M : M3) → trM M ≡ 0r
@@ -235,7 +235,7 @@ module _ (R : CommRing ℓ) where
       kill x = solve! R
 
   ------------------------------------------------------------------
-  -- � � AND IN DEVIATORIC FORM.  This is the cube-rate coefficient.
+  -- ३ · AND IN DEVIATORIC FORM.  This is the cube-rate coefficient.
   ------------------------------------------------------------------
 
   dev-pairing : (N : M3)
@@ -267,7 +267,7 @@ module _ (R : CommRing ℓ) where
           shape u = solve! R
 
   ------------------------------------------------------------------
-  -- � � SO THE CUBE-RATE COEFFICIENT IS EXACT.
+  -- ४ · SO THE CUBE-RATE COEFFICIENT IS EXACT.
   ------------------------------------------------------------------
 
   cube-rate : (S K X : M3) → trM S ≡ 0r

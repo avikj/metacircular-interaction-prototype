@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ����-��� � the two measures.
+-- द्वि-मान — the two measures.
 --
 -- The general two-metric algebra of handoff §12 ([S14]):  J² = 1 and a
 -- transfer T conserving the indefinite metric,  T* J T = J.  Nothing
 -- about the star is used beyond that one equation, so it is stated for
 -- an arbitrary element S in the place of T*:
 --
---   �  S = J T�� J,  hence the metric  C = S T  is the reflected
---      inverse loop  J T�� J T;
---   �  the conservation law reverses:  T J S = J;
---   �  J-conjugation inverts the metric:  (J C J) C = 1 = C (J C J),
---      so  J C J = C��  � the anti-commutation of  A = ½ log C  with J;
---   �  for a normal transfer (S T = T S) the reciprocal cycle
---      J T J T��  is  C��.
+--   १  S = J T⁻¹ J,  hence the metric  C = S T  is the reflected
+--      inverse loop  J T⁻¹ J T;
+--   २  the conservation law reverses:  T J S = J;
+--   ३  J-conjugation inverts the metric:  (J C J) C = 1 = C (J C J),
+--      so  J C J = C⁻¹  — the anti-commutation of  A = ½ log C  with J;
+--   ४  for a normal transfer (S T = T S) the reciprocal cycle
+--      J T J T⁻¹  is  C⁻¹.
 -- The research alternated the two loop orientations; both are here
 -- with their exact hypotheses.
 ------------------------------------------------------------------------
@@ -45,7 +45,7 @@ module _ (R : Ring ℓ) where
       SJ : S · J ≡ J · Tinv
       SJ = sym (·IdR (S · J)) ∙ cong ((S · J) ·_) (sym TTinv) ∙ ·Assoc (S · J) T Tinv ∙ cong (_· Tinv) conserve
 
-    -- � � the star is the reflected inverse
+    -- १ · the star is the reflected inverse
     star-is-reflected-inverse : S ≡ (J · Tinv) · J
     star-is-reflected-inverse = sym (·IdR S) ∙ cong (S ·_) (sym JJ) ∙ ·Assoc S J J ∙ cong (_· J) SJ
 
@@ -55,7 +55,7 @@ module _ (R : Ring ℓ) where
     metric-is-reflected-loop : C ≡ ((J · Tinv) · J) · T
     metric-is-reflected-loop = cong (_· T) star-is-reflected-inverse
 
-    -- � � the conservation law reverses
+    -- २ · the conservation law reverses
     reverse-conservation : (T · J) · S ≡ J
     reverse-conservation =
         cong ((T · J) ·_) star-is-reflected-inverse
@@ -68,7 +68,7 @@ module _ (R : Ring ℓ) where
             ∙ cong (_· Tinv) (sym (·Assoc T J J) ∙ cong (T ·_) JJ ∙ ·IdR T)
             ∙ TTinv
 
-    -- � � J-conjugation inverts the metric on both sides
+    -- ३ · J-conjugation inverts the metric on both sides
     J-conjugation-inverts : ((J · C) · J) · C ≡ 1r
     J-conjugation-inverts =
         sym (·Assoc (J · C) J C)
@@ -88,7 +88,7 @@ module _ (R : Ring ℓ) where
       ∙ cong (_· J) (·Assoc S J T ∙ conserve)
       ∙ JJ
 
-    -- � � for a normal transfer the reciprocal cycle is the inverse metric
+    -- ४ · for a normal transfer the reciprocal cycle is the inverse metric
     reciprocal-loop-is-inverse : S · T ≡ T · S → (((J · T) · J) · Tinv) · C ≡ 1r
     reciprocal-loop-is-inverse normal =
         sym (·Assoc ((J · T) · J) Tinv C)

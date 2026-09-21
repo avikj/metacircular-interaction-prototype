@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- Punargamana ¬ ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡
+-- PunarƒÅgamana ¬∑ ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨
 --
--- ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡ (pratibimba) ‚î reflection, image.  The compound is CHOSEN
+-- ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨ (pratibimba) ‚Äî reflection, image.  The compound is CHOSEN
 -- here, descriptively; no source is claimed for it (the same standing as
 -- `Carrier` and `SamataDvidha`'s own names).
 ------------------------------------------------------------------------
@@ -12,34 +12,34 @@
 -- `SamataDvidha` proved, fibrewise, that being an equivalence is a
 -- PRODUCT of two independent obligations:
 --
---     ((b : B) ‚í isContr (‡‡‡ f b))  ‚â  ‡‡‡¶‡ f  ó  ‡‡æ‡¶‡®‡Æ‡ f
+--     ((b : B) ‚Üí isContr (‡§∂‡•á‡§∑ f b))  ‚âÉ  ‡§≠‡•á‡§¶‡§É f  √ó  ‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç f
 --
--- ‡‡‡¶‡ f  = hasPropFibers f      ("no two points collapsed", an embedding)
--- ‡‡æ‡¶‡®‡Æ‡ f = (b : B) ‚í ‡‡‡ f b     ("nothing missing", a split surjection)
+-- ‡§≠‡•á‡§¶‡§É f  = hasPropFibers f      ("no two points collapsed", an embedding)
+-- ‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç f = (b : B) ‚Üí ‡§∂‡•á‡§∑ f b     ("nothing missing", a split surjection)
 --
 -- That is a per-point SPLIT of a hypothesis.  This module exhibits the
--- SAME split as a factorisation of the MAP: every f : A ‚í B factors as
+-- SAME split as a factorisation of the MAP: every f : A ‚Üí B factors as
 --
---     A  --‡‡‡∞‡‡Æ-‡‡∞‡-->  ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡ f  --‡¶‡‡µ‡ø‡‡‡Ø-‡‡∞‡-->  B
+--     A  --‡§™‡•ç‡§∞‡§•‡§Æ-‡§ö‡§∞‡§£-->  ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨ f  --‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§ö‡§∞‡§£-->  B
 --
--- where ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡ f = Œ[ b ‚àà B ] ‚à ‡‡‡ f b ‚à‚ (the propositional image),
--- ‡‡‡∞‡‡Æ-‡‡∞‡ is UNCONDITIONALLY a surjection, and ‡¶‡‡µ‡ø‡‡‡Ø-‡‡∞‡ is
+-- where ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨ f = Œ£[ b ‚àà B ] ‚à• ‡§∂‡•á‡§∑ f b ‚à•‚ÇÅ (the propositional image),
+-- ‡§™‡•ç‡§∞‡§•‡§Æ-‡§ö‡§∞‡§£ is UNCONDITIONALLY a surjection, and ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§ö‡§∞‡§£ is
 -- UNCONDITIONALLY an embedding.  f is an equivalence exactly when this
 -- factorisation's own obligations trivialise:
 --
---   ‡¶‡‡µ‡ø‡‡‡Ø-‡‡∞‡ is an equivalence  ‚ü∫  f is surjective  (isSurjection f)
---   ‡‡‡∞‡‡Æ-‡‡∞‡  is an equivalence  ‚ü∫  f is an embedding  (‡‡‡¶‡ f, up to
---                                    `SamataDvidha.‡‡‡¶‡‚íembedding`)
+--   ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§ö‡§∞‡§£ is an equivalence  ‚ü∫  f is surjective  (isSurjection f)
+--   ‡§™‡•ç‡§∞‡§•‡§Æ-‡§ö‡§∞‡§£  is an equivalence  ‚ü∫  f is an embedding  (‡§≠‡•á‡§¶‡§É f, up to
+--                                    `SamataDvidha.‡§≠‡•á‡§¶‡§É‚Üíembedding`)
 --
--- and both together are exactly `isEquiv‚âisEmbeddingóisSurjection`
--- (`Cubical.Functions.Surjection`), which is `‡‡Æ‡‡æ‚â‡‡‡¶ó‡‡æ‡¶‡®` composed with
--- the observation, proved in ¬ß3 below, that ‡‡æ‡¶‡®‡Æ‡ f and isSurjection f
--- COINCIDE precisely when ‡‡‡¶‡ f holds ‚î i.e. exactly when the fibres are
--- already propositions, truncation is idempotent (`propTruncIdempotent‚â`)
+-- and both together are exactly `isEquiv‚âÉisEmbedding√óisSurjection`
+-- (`Cubical.Functions.Surjection`), which is `‡§∏‡§Æ‡§§‡§æ‚âÉ‡§≠‡•á‡§¶√ó‡§õ‡§æ‡§¶‡§®` composed with
+-- the observation, proved in ¬ß3 below, that ‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç f and isSurjection f
+-- COINCIDE precisely when ‡§≠‡•á‡§¶‡§É f holds ‚Äî i.e. exactly when the fibres are
+-- already propositions, truncation is idempotent (`propTruncIdempotent‚âÉ`)
 -- and "merely inhabited" and "inhabited" are the same obligation.  So
 -- SamataDvidha's per-point product and Image's map factorisation are the
 -- SAME theorem, read at two different granularities: SamataDvidha reads it
--- fibre-by-fibre with the UNtruncated ‡‡æ‡¶‡®‡Æ‡; the factorisation reads it as
+-- fibre-by-fibre with the UNtruncated ‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç; the factorisation reads it as
 -- one map with the TRUNCATED isSurjection, and ¬ß3 is exactly the bridge
 -- between the two granularities.
 --
@@ -54,21 +54,21 @@
 -- imported and used directly, by name, so their provenance stays visible.
 -- What this module adds, as new checked terms:
 --
---   1.  the missing converse `isEquiv (‡¶‡‡µ‡ø‡‡‡Ø-‡‡∞‡ f) ‚â isSurjection f`
+--   1.  the missing converse `isEquiv (‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§ö‡§∞‡§£ f) ‚âÉ isSurjection f`
 --       (the library states the first-leg case; not the second-leg case);
---   2.  the bridge ‡‡æ‡¶‡®‡Æ‡ f ‚â isSurjection f UNDER ‡‡‡¶‡ f ‚î the exact
+--   2.  the bridge ‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç f ‚âÉ isSurjection f UNDER ‡§≠‡•á‡§¶‡§É f ‚Äî the exact
 --       identification between SamataDvidha's untruncated obligation and
 --       Image's truncated one;
---   3.  `‡‡‡∞‡‡Æ-‡‡∞‡-equiv‚â‡‡‡¶‡`, restating the library's embedding-onto-image
---       facts through ‡‡‡¶‡ so they compose with SamataDvidha directly,
---       exhibiting `‡‡‡∞‡‡ø‡‡ø‡Æ‡‡`'s factorisation and `‡‡Æ‡‡æ-‡¶‡‡µ‡ø‡ß‡æ`'s product
+--   3.  `‡§™‡•ç‡§∞‡§•‡§Æ-‡§ö‡§∞‡§£-equiv‚âÉ‡§≠‡•á‡§¶‡§É`, restating the library's embedding-onto-image
+--       facts through ‡§≠‡•á‡§¶‡§É so they compose with SamataDvidha directly,
+--       exhibiting `‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨`'s factorisation and `‡§∏‡§Æ‡§§‡§æ-‡§¶‡•ç‡§µ‡§ø‡§ß‡§æ`'s product
 --       as the same theorem at two granularities.
 --
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚î the library's declared pin.
+-- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚Äî the library's declared pin.
 -- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module Punaragamana.Pratibimba_TheImageFactorsEveryMapAsSurjectionThenEmbeddingAndSamataDvidhaIsBothLegsTrivial where
+module Punaragamana.Reflection_TheImageFactorsEveryMapAsSurjectionThenEmbeddingAndEqualitySplitIsBothLegsTrivial where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
@@ -102,7 +102,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
   -- 0.  THE FACTORISATION ITSELF, named in this module's vocabulary.
   ------------------------------------------------------------------------
 
-  -- ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡ f = the propositional image, Œ[ b ‚àà B ] ‚à ‡‡‡ f b ‚à‚.
+  -- ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨ f = the propositional image, Œ£[ b ‚àà B ] ‚à• ‡§∂‡•á‡§∑ f b ‚à•‚ÇÅ.
   ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨ : Type ‚Ñì
   ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨ = Image f
 
@@ -117,22 +117,22 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
   ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨-‡§∏‡§Ç‡§ò‡§ü‡§® = imageFactorization f
 
   ------------------------------------------------------------------------
-  -- 1.  ‡‡‡∞‡‡Æ-‡‡∞‡ is UNCONDITIONALLY a surjection.
+  -- 1.  ‡§™‡•ç‡§∞‡§•‡§Æ-‡§ö‡§∞‡§£ is UNCONDITIONALLY a surjection.
   ------------------------------------------------------------------------
 
   ‡§™‡•ç‡§∞‡§•‡§Æ-‡§ö‡§∞‡§£-‡§õ‡§æ‡§¶‡§ï‡§É : isSurjection ‡§™‡•ç‡§∞‡§•‡§Æ-‡§ö‡§∞‡§£
   ‡§™‡•ç‡§∞‡§•‡§Æ-‡§ö‡§∞‡§£-‡§õ‡§æ‡§¶‡§ï‡§É = isSurjectionImageRestriction f
 
   ------------------------------------------------------------------------
-  -- 2.  ‡¶‡‡µ‡ø‡‡‡Ø-‡‡∞‡ is UNCONDITIONALLY an embedding.
+  -- 2.  ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§ö‡§∞‡§£ is UNCONDITIONALLY an embedding.
   ------------------------------------------------------------------------
 
   ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§ö‡§∞‡§£-‡§≠‡§ø‡§®‡•ç‡§®‡§É : isEmbedding ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§ö‡§∞‡§£
   ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§ö‡§∞‡§£-‡§≠‡§ø‡§®‡•ç‡§®‡§É = snd (imageInclusion f)
 
   ------------------------------------------------------------------------
-  -- 3.  THE BRIDGE.  Under ‡‡‡¶‡ f (f's fibres already propositions),
-  --     the UNTRUNCATED ‡‡æ‡¶‡®‡Æ‡ f and the TRUNCATED isSurjection f
+  -- 3.  THE BRIDGE.  Under ‡§≠‡•á‡§¶‡§É f (f's fibres already propositions),
+  --     the UNTRUNCATED ‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç f and the TRUNCATED isSurjection f
   --     coincide: truncation is idempotent on an already-prop type.
   ------------------------------------------------------------------------
 
@@ -141,8 +141,8 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
     equivŒ†Cod (Œª b ‚Üí invEquiv (propTruncIdempotent‚âÉ (‡§≠ b)))
 
   ------------------------------------------------------------------------
-  -- 4.  ‡¶‡‡µ‡ø‡‡‡Ø-‡‡∞‡ IS an equivalence  ‚ü∫  f IS surjective.
-  --     (fibre of ‡¶‡‡µ‡ø‡‡‡Ø-‡‡∞‡ over b is isInImage f b, an ALREADY-prop
+  -- 4.  ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§ö‡§∞‡§£ IS an equivalence  ‚ü∫  f IS surjective.
+  --     (fibre of ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§ö‡§∞‡§£ over b is isInImage f b, an ALREADY-prop
   --     type by definition, so isEquiv ‚ü∫ inhabited, pointwise.)
   ------------------------------------------------------------------------
 
@@ -165,9 +165,9 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
           (‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§ö‡§∞‡§£-fibre-prop b)
 
   ------------------------------------------------------------------------
-  -- 5.  ‡‡‡∞‡‡Æ-‡‡∞‡ IS an equivalence  ‚ü∫  f IS an embedding.
+  -- 5.  ‡§™‡•ç‡§∞‡§•‡§Æ-‡§ö‡§∞‡§£ IS an equivalence  ‚ü∫  f IS an embedding.
   --     (Library's `isEquivEmbeddingOntoImage` / `isEmbeddingFromIsEquivToImage`,
-  --     restated through ‡‡‡¶‡ so it composes with SamataDvidha directly.)
+  --     restated through ‡§≠‡•á‡§¶‡§É so it composes with SamataDvidha directly.)
   ------------------------------------------------------------------------
 
   ‡§™‡•ç‡§∞‡§•‡§Æ-‡§ö‡§∞‡§£-equiv‚âÉ‡§≠‡•á‡§¶‡§É : isEquiv ‡§™‡•ç‡§∞‡§•‡§Æ-‡§ö‡§∞‡§£ ‚âÉ ‡§≠‡•á‡§¶‡§É f

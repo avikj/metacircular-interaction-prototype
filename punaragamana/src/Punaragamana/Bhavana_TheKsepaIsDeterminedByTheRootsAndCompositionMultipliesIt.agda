@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- рр╛р╡рир╛ тФ рХрррррЛ рорр▓р╛рррпр╛р рир┐р░ррзр╛р░ррпрр, ррор╛рр р рЧррррпрр р
+-- рднрд╛рд╡рдирд╛ тАФ рдХреНрд╖реЗрдкреЛ рдореВрд▓рд╛рднреНрдпрд╛рдВ рдирд┐рд░реНрдзрд╛рд░реНрдпрддреЗ, рд╕рдорд╛рд╕реЗ рдЪ рдЧреБрдгреНрдпрддреЗ ред
 -- (composition: the interpolator is determined by the two roots, and
 --  composing multiplies it.)
 --
 -- SOURCES.
 --
---   Brahmagupta, *Brhmasphuasiddhnta*, chapter 18 (рХррЯррЯрХр╛рзррпр╛рп), 628
---   CE тФ the рр╛р╡рир╛, the composition law for р╡р░ррЧррр░рХррр┐, the "square-
---   nature" equation.  The vocabulary used below is his: ррр░рХррр┐ for the
---   multiplier D, рррпрррра for the greater root a, рХрир┐ррра for the lesser
---   root b, рХрррр for the interpolator k in
+--   Brahmagupta, *Br─Бhmasphuс╣нasiddh─Бnta*, chapter 18 (рдХреБрдЯреНрдЯрдХрд╛рдзреНрдпрд╛рдп), 628
+--   CE тАФ the рднрд╛рд╡рдирд╛, the composition law for рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐, the "square-
+--   nature" equation.  The vocabulary used below is his: рдкреНрд░рдХреГрддрд┐ for the
+--   multiplier D, рдЬреНрдпреЗрд╖реНрда for the greater root a, рдХрдирд┐рд╖реНрда for the lesser
+--   root b, рдХреНрд╖реЗрдк for the interpolator k in
 --
---       рррпрррра┬▓ тИТ ррр░рХррр┐ ┬ рХрир┐ррра┬▓ = рХрррр          (a┬▓ тИТ D b┬▓ = k)
+--       рдЬреНрдпреЗрд╖реНрда┬▓ тИТ рдкреНрд░рдХреГрддрд┐ ┬╖ рдХрдирд┐рд╖реНрда┬▓ = рдХреНрд╖реЗрдк          (a┬▓ тИТ D b┬▓ = k)
 --
---   and ррор╛р-рр╛р╡рир╛ for the composition of two such rows.
+--   and рд╕рдорд╛рд╕-рднрд╛рд╡рдирд╛ for the composition of two such rows.
 --
 --   Jayadeva (c. 950, surviving only inside Udayadivkara's *Sundar*
---   commentary) and Bhskara II, *Bjagaita*, 1150 тФ the ррХрр░р╡р╛р▓, the
+--   commentary) and Bh─Бskara II, *B─лjagaс╣Зita*, 1150 тАФ the рдЪрдХреНрд░рд╡рд╛рд▓, the
 --   cyclic method, which is the algorithm that repeatedly applies this
 --   composition against a chosen multiplier and divides through by the
---   current рХрррр.
+--   current рдХреНрд╖реЗрдк.
 --
 -- WHAT IS *NOT* CLAIMED.  Not that any of the three proved any theorem in
 -- this file.  Not that any of the three texts has been opened by the
--- author of this file тФ the citations are second-hand and are owed at
+-- author of this file тАФ the citations are second-hand and are owed at
 -- verse level.  What IS claimed is narrower and checkable: that a┬▓ тИТ D b┬▓
 -- is the quantity their algorithms carry alongside the pair of roots, and
 -- that it is a FUNCTION of that pair, which is why it belongs in the
@@ -35,65 +35,65 @@
 -- WHICH SLOTS ARE BASE AND WHICH ARE CARRIED.
 --
 -- Exact, with no residue.  The base is the pair of roots
--- (рррпрррра , рХрир┐ррра) : т Ч т, genuinely two independent integers.  The
--- рХрррр is carried:
+-- (рдЬреНрдпреЗрд╖реНрда , рдХрдирд┐рд╖реНрда) : тДд ├Ч тДд, genuinely two independent integers.  The
+-- рдХреНрд╖реЗрдк is carried:
 --
---     рХррррр D (a , b)  =  a ┬ a тИТ D ┬ (b ┬ b)
---     р╡р░ррЧррр░рХррр┐ D      =  Carrier (рХррррр D)
+--     рдХреНрд╖реЗрдкрдГ D (a , b)  =  a ┬╖ a тИТ D ┬╖ (b ┬╖ b)
+--     рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐ D      =  Carrier (рдХреНрд╖реЗрдкрдГ D)
 --
--- with base = (a , b), carried = k, and witness : рХррррр D (a , b) тЙб k.
--- The fibre is ╬[ k тИИ т ] (рХррррр D (a , b) тЙб k) = singl (рХррррр D (a , b)),
--- contractible, so (т Ч т) тЙ р╡р░ррЧррр░рХррр┐ D and, by univalence,
--- (т Ч т) тЙб р╡р░ррЧррр░рХррр┐ D.
+-- with base = (a , b), carried = k, and witness : рдХреНрд╖реЗрдкрдГ D (a , b) тЙб k.
+-- The fibre is ╬г[ k тИИ тДд ] (рдХреНрд╖реЗрдкрдГ D (a , b) тЙб k) = singl (рдХреНрд╖реЗрдкрдГ D (a , b)),
+-- contractible, so (тДд ├Ч тДд) тЙГ рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐ D and, by univalence,
+-- (тДд ├Ч тДд) тЙб рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐ D.
 --
 -- This is the clean case, and the contrast with the kuaka module in
 -- this same library is the point: there, none of the three slots was a
 -- function of the other two and all three had to stay in the base.  Here
 -- the third slot is exactly a function of the first two, so it may be
--- carried тФ present as a real projectable term, contributing no degree of
+-- carried тАФ present as a real projectable term, contributing no degree of
 -- freedom.
 --
--- THE STEP.  ррор╛р-рр╛р╡рир╛ against a fixed row (p , q) is an endomorphism of
+-- THE STEP.  рд╕рдорд╛рд╕-рднрд╛рд╡рдирд╛ against a fixed row (p , q) is an endomorphism of
 -- the base:
 --
---     рр╛р╡рир╛ (p , q) (a , b)  =  (a┬p + D┬(b┬q) , a┬q + b┬p)
+--     рднрд╛рд╡рдирд╛ (p , q) (a , b)  =  (a┬╖p + D┬╖(b┬╖q) , a┬╖q + b┬╖p)
 --
--- It lifts by `╬ж-carrier`, and `╬ж-square` closes DEFINITIONALLY тФ it is
--- `refl` for an opaque variable, since ╬ has eta and `descend` does not
+-- It lifts by `╬ж-carrier`, and `╬ж-square` closes DEFINITIONALLY тАФ it is
+-- `refl` for an opaque variable, since ╬г has eta and `descend` does not
 -- pattern match.  That is the law being instantiated, not re-proved.
 --
 -- THE ARITHMETIC CONTENT, which the law does not give and which is proved
--- here by hand: `рр╛р╡рир╛-рХррррр`, Brahmagupta's identity
+-- here by hand: `рднрд╛рд╡рдирд╛-рдХреНрд╖реЗрдкрдГ`, Brahmagupta's identity
 --
---     рХррррр D (рр╛р╡рир╛ (p,q) (a,b))  тЙб  рХррррр D (a,b) ┬ рХррррр D (p,q)
+--     рдХреНрд╖реЗрдкрдГ D (рднрд╛рд╡рдирд╛ (p,q) (a,b))  тЙб  рдХреНрд╖реЗрдкрдГ D (a,b) ┬╖ рдХреНрд╖реЗрдкрдГ D (p,q)
 --
 -- so the carried datum of the lifted step is the PRODUCT of the two
--- рХрррр.  That is what makes the method work: composing a row of рХрррр k
--- with itself gives k┬▓, and dividing through by it is what the ррХрр░р╡р╛р▓ is
+-- рдХреНрд╖реЗрдк.  That is what makes the method work: composing a row of рдХреНрд╖реЗрдк k
+-- with itself gives k┬▓, and dividing through by it is what the рдЪрдХреНрд░рд╡рд╛рд▓ is
 -- driving at.
 --
--- DEFECT, written rather than hidden.  The ррХрр░р╡р╛р▓ STEP ITSELF is not
--- formalised.  It requires choosing m with k тИ (a + b┬m), and then
--- dividing the composed row through by k тФ exact division in т, which
+-- DEFECT, written rather than hidden.  The рдЪрдХреНрд░рд╡рд╛рд▓ STEP ITSELF is not
+-- formalised.  It requires choosing m with k тИг (a + b┬╖m), and then
+-- dividing the composed row through by k тАФ exact division in тДд, which
 -- needs a divisibility witness carried alongside and is not done here.
--- What is formalised is the рр╛р╡рир╛ the ррХрр░р╡р╛р▓ is built out of.  Calling
+-- What is formalised is the рднрд╛рд╡рдирд╛ the рдЪрдХреНрд░рд╡рд╛рд▓ is built out of.  Calling
 -- this module "the cakravla" would be a false advertisement, so it is
 -- not called that.
 --
 -- SECOND DEFECT.  Brahmagupta's identity is proved by hand, from
--- +Assoc / +Comm / ┬Assoc / ┬Comm / ┬DistL+ / ┬DistR+ / -Dist+ /
--- -DistL┬ / -DistR┬ / -DistLR┬ / -Cancel / pos0+ only.  A commutative
+-- +Assoc / +Comm / ┬╖Assoc / ┬╖Comm / ┬╖DistL+ / ┬╖DistR+ / -Dist+ /
+-- -DistL┬╖ / -DistR┬╖ / -DistLR┬╖ / -Cancel / pos0+ only.  A commutative
 -- ring solver would do it in one line, but the solver's module path
 -- differs between agda/cubical v0.5 (`Cubical.Algebra.CommRingSolver.*`)
 -- and later releases (`Cubical.Tactics.CommRingSolver`), so using it
 -- would pin this file to one of them.  Every lemma named above is present
 -- and identically typed in both.
 --
--- ~~THIRD DEFECT тФ WHAT THE GREEN ACTUALLY COVERS.  тж It has NOT been
+-- ~~THIRD DEFECT тАФ WHAT THE GREEN ACTUALLY COVERS.  тАж It has NOT been
 -- checked under this library's declared pin (Agda 2.6.3, agda/cubical
--- v0.5) тж~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the pin itself
+-- v0.5) тАж~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the pin itself
 -- (fresh container, no agda on PATH) and this module checked under
--- Agda 2.6.3 + cubical v0.5, exit 0 тФ the solver-free lemma choice above
+-- Agda 2.6.3 + cubical v0.5, exit 0 тАФ the solver-free lemma choice above
 -- held.  The defect was a fact about one host, not about this file.  See
 -- README, "Toolchain".
 ------------------------------------------------------------------------
@@ -116,7 +116,7 @@ open import Punaragamana.Nucleus
 
 ------------------------------------------------------------------------
 -- A commutative-ring toolkit, small and reused.  Nothing here is about
--- р╡р░ррЧррр░рХррр┐; it is the rearrangement the identity needs.
+-- рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐; it is the rearrangement the identity needs.
 ------------------------------------------------------------------------
 
 private
@@ -124,7 +124,7 @@ private
   рдмрд╣рд┐рдГ : (x y z : тДд) тЖТ x ┬╖ (y ┬╖ z) тЙб y ┬╖ (x ┬╖ z)
   рдмрд╣рд┐рдГ x y z = ┬╖Assoc x y z тИЩ cong (_┬╖ z) (┬╖Comm x y) тИЩ sym (┬╖Assoc y x z)
 
-  -- рорзррпр╡р┐рир┐рорп, the middle exchange: (w┬x)┬(y┬z) тЙб (w┬y)┬(x┬z)
+  -- рдордзреНрдпрд╡рд┐рдирд┐рдордп, the middle exchange: (w┬╖x)┬╖(y┬╖z) тЙб (w┬╖y)┬╖(x┬╖z)
   рдордзреНрдпрд╡рд┐рдирд┐рдордп : (w x y z : тДд) тЖТ (w ┬╖ x) ┬╖ (y ┬╖ z) тЙб (w ┬╖ y) ┬╖ (x ┬╖ z)
   рдордзреНрдпрд╡рд┐рдирд┐рдордп w x y z =
       sym (┬╖Assoc w x (y ┬╖ z))
@@ -147,7 +147,7 @@ private
   рд╢реВрдиреНрдпрдореН : (x : тДд) тЖТ x + pos 0 тЙб x
   рд╢реВрдиреНрдпрдореН x = +Comm x (pos 0) тИЩ sym (pos0+ x)
 
-  -- рХр░ррри: a term and its negative delete each other out of a sum.
+  -- рдХрд░реНрддрди: a term and its negative delete each other out of a sum.
   рдХрд░реНрддрди : (g h k : тДд) тЖТ (g + h) + (k + (- h)) тЙб g + k
   рдХрд░реНрддрди g h k =
       рд╡рд┐рдирд┐рдордп g h k (- h)
@@ -162,7 +162,7 @@ private
     тИЩ рд╡рд┐рдирд┐рдордп' (u ┬╖ u) (u ┬╖ v) (v ┬╖ u) (v ┬╖ v)
 
 ------------------------------------------------------------------------
--- рХррррр тФ the interpolator, as a function of the two roots.  THIS is the
+-- рдХреНрд╖реЗрдкрдГ тАФ the interpolator, as a function of the two roots.  THIS is the
 -- f of the law.  The pair is the base; k is what the pair determines.
 ------------------------------------------------------------------------
 
@@ -214,7 +214,7 @@ module _ (D : тДд) where
   рдкрд░рд┐рд╡рд╣рди-рдЕрд╡рддрд░рдг = carry-transport-descend (рдХреНрд╖реЗрдкрдГ D)
 
   ----------------------------------------------------------------------
-  -- ррор╛р-рр╛р╡рир╛ тФ composition against a fixed row, as a ╬ж on the base.
+  -- рд╕рдорд╛рд╕-рднрд╛рд╡рдирд╛ тАФ composition against a fixed row, as a ╬ж on the base.
   ----------------------------------------------------------------------
 
   module _ (p q : тДд) where
@@ -227,8 +227,8 @@ module _ (D : тДд) where
     --
     --   (a┬▓ тИТ D b┬▓)(p┬▓ тИТ D q┬▓) = (ap + D bq)┬▓ тИТ D (aq + bp)┬▓
     --
-    -- The two cross monomials a┬p ┬ D┬(b┬q) and D ┬ (a┬q ┬ b┬p) are the
-    -- SAME monomial, and `рХр░ррри` is where they delete each other.
+    -- The two cross monomials a┬╖p ┬╖ D┬╖(b┬╖q) and D ┬╖ (a┬╖q ┬╖ b┬╖p) are the
+    -- SAME monomial, and `рдХрд░реНрддрди` is where they delete each other.
     --------------------------------------------------------------------
 
     рднрд╛рд╡рдирд╛-рдХреНрд╖реЗрдкрдГ : (a b : тДд)
@@ -260,7 +260,7 @@ module _ (D : тДд) where
         DEE : D ┬╖ (E ┬╖ E) тЙб Y ┬╖ Z
         DEE = cong (D ┬╖_) (рдордзреНрдпрд╡рд┐рдирд┐рдордп b p b p) тИЩ ┬╖Assoc D (b ┬╖ b) (p ┬╖ p)
 
-        -- the two cross monomials, both normalised to (a┬b) ┬ (D ┬ (p┬q))
+        -- the two cross monomials, both normalised to (a┬╖b) ┬╖ (D ┬╖ (p┬╖q))
         AB : A ┬╖ B тЙб (a ┬╖ b) ┬╖ (D ┬╖ (p ┬╖ q))
         AB = рдордзреНрдпрд╡рд┐рдирд┐рдордп a p D (b ┬╖ q)
            тИЩ cong ((a ┬╖ D) ┬╖_) (рдмрд╣рд┐рдГ p b q)
@@ -277,7 +277,7 @@ module _ (D : тДд) where
                    (AB тИЩ sym DCE)
                    (┬╖Comm B A тИЩ AB тИЩ sym DCE тИЩ cong (D ┬╖_) (┬╖Comm C E))
 
-        -- expand D ┬ (aq + bp)┬▓ into diagonal + cross
+        -- expand D ┬╖ (aq + bp)┬▓ into diagonal + cross
         рдЛрдг : D ┬╖ ((C + E) ┬╖ (C + E))
            тЙб (D ┬╖ (C ┬╖ C) + D ┬╖ (E ┬╖ E)) + (D ┬╖ (C ┬╖ E) + D ┬╖ (E ┬╖ C))
         рдЛрдг = cong (D ┬╖_) (рд╡рд░реНрдЧрдпреЛрдЧрдГ C E)
@@ -323,7 +323,7 @@ module _ (D : тДд) where
     рднрд╛рд╡рдирд╛-рдкрд░рд┐рд╡рд╣рди = ╬ж-transport (рдХреНрд╖реЗрдкрдГ D) рднрд╛рд╡рдирд╛
 
     -- the two halves joined: the carried datum of the LIFTED step is the
-    -- product of the two рХрррр.  The law supplies that the datum is
+    -- product of the two рдХреНрд╖реЗрдк.  The law supplies that the datum is
     -- recomputed; Brahmagupta supplies what it recomputes to.
     рднрд╛рд╡рдирд╛-рдХреНрд╖реЗрдк-рд▓рдмреНрдзрдГ : (x : тДд ├Ч тДд)
                      тЖТ рдХреНрд╖реЗрдк (рднрд╛рд╡рдирд╛-рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐ (рдЕрд╡рддрд░рдг x))
@@ -343,11 +343,11 @@ module _ (D : тДд) where
     рднрд╛рд╡рдирд╛-рдирд┐рд░реАрдХреНрд╖рдг = orbit-lookup (рдХреНрд╖реЗрдкрдГ D) рднрд╛рд╡рдирд╛
 
 ------------------------------------------------------------------------
--- IT RUNS.  D = 2, the row (3 , 2): 3┬▓ тИТ 2┬2┬▓ = 9 тИТ 8 = 1.
--- Composing it with itself gives (3┬3 + 2┬(2┬2) , 3┬2 + 2┬3) = (17 , 12),
--- and 17┬▓ тИТ 2┬12┬▓ = 289 тИТ 288 = 1 = 1 ┬ 1.
+-- IT RUNS.  D = 2, the row (3 , 2): 3┬▓ тИТ 2┬╖2┬▓ = 9 тИТ 8 = 1.
+-- Composing it with itself gives (3┬╖3 + 2┬╖(2┬╖2) , 3┬╖2 + 2┬╖3) = (17 , 12),
+-- and 17┬▓ тИТ 2┬╖12┬▓ = 289 тИТ 288 = 1 = 1 ┬╖ 1.
 --
--- Each holds by refl, so Agda must execute the arithmetic in т.
+-- Each holds by refl, so Agda must execute the arithmetic in тДд.
 ------------------------------------------------------------------------
 
 рдЧрдгрдирд╛-рдореВрд▓рдореН : рдХреНрд╖реЗрдкрдГ (pos 2) (pos 3 , pos 2) тЙб pos 1
@@ -365,8 +365,8 @@ module _ (D : тДд) where
             тЙб рдХреНрд╖реЗрдкрдГ (pos 2) (pos 3 , pos 2) ┬╖ рдХреНрд╖реЗрдкрдГ (pos 2) (pos 3 , pos 2)
 рдЧрдгрдирд╛-рдЧреБрдгрдирдореН = рднрд╛рд╡рдирд╛-рдХреНрд╖реЗрдкрдГ (pos 2) (pos 3) (pos 2) (pos 3) (pos 2)
 
--- a row whose рХрррр is not ┬1: D = 7, (3 , 1) has 9 тИТ 7 = 2, and
--- composing it with itself gives рХрррр 4.
+-- a row whose рдХреНрд╖реЗрдк is not ┬▒1: D = 7, (3 , 1) has 9 тИТ 7 = 2, and
+-- composing it with itself gives рдХреНрд╖реЗрдк 4.
 рдЧрдгрдирд╛-рд╕рдкреНрдд : рдХреНрд╖реЗрдкрдГ (pos 7) (pos 3 , pos 1) тЙб pos 2
 рдЧрдгрдирд╛-рд╕рдкреНрдд = refl
 

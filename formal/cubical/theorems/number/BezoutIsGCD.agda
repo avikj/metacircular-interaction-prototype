@@ -3,32 +3,32 @@
 ------------------------------------------------------------------------
 -- BezoutIsGCD
 --
--- `CoprimePowers` closes the composition law for B©zout certificates and
+-- `CoprimePowers` closes the composition law for BÃ©zout certificates and
 -- names what is left: the bridge from a certificate to `isGCD _ _ 1`,
 -- which is what `CRTChain.Coprimes` consumes.  Here is the bridge.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STATEMENT
 --
--- Over â•, cleared of subtraction â” which is how the kuaka states its
+-- Over â„•, cleared of subtraction â€” which is how the kuá¹­á¹­aka states its
 -- own output, as a pair of multipliers with a unit remainder:
 --
---     BezN a b  =  Î x, Î y,  aÂx â‰¡ bÂy + 1
+--     BezN a b  =  Î£ x, Î£ y,  aÂ·x â‰¡ bÂ·y + 1
 --
---     bezNâ’isGCD :  BezN a b â’ isGCD a b 1
+--     bezNâ†’isGCD :  BezN a b â†’ isGCD a b 1
 --
--- A common divisor `d` of `a` and `b` divides `aÂx` and `bÂy`, so it
--- divides their difference â” and in â•, where there is no difference to
+-- A common divisor `d` of `a` and `b` divides `aÂ·x` and `bÂ·y`, so it
+-- divides their difference â€” and in â„•, where there is no difference to
 -- take, the argument goes through the witnesses exactly as
--- `SuccessorIsNotTropical.cd-consecutive` does: `uÂd â‰¡ vÂd + 1` forces
--- `v < u`, and then `(suc k)Âd â‰¡ 1` by cancellation.
+-- `SuccessorIsNotTropical.cd-consecutive` does: `uÂ·d â‰¡ vÂ·d + 1` forces
+-- `v < u`, and then `(suc k)Â·d â‰¡ 1` by cancellation.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS COMPLETES
 --
---   `CoprimePowers`  coprime bases âŸ coprime powers, certificates composing
---   here             a certificate âŸ `isGCD _ _ 1`
---   `CRTChain`       `isGCD` data âŸ the residue equivalence, any frontier
+--   `CoprimePowers`  coprime bases âŸ¹ coprime powers, certificates composing
+--   here             a certificate âŸ¹ `isGCD _ _ 1`
+--   `CRTChain`       `isGCD` data âŸ¹ the residue equivalence, any frontier
 --
 -- so the chain from ryabhaa's multipliers to the walk's residue count
 -- is now unbroken except for one arithmetical fact, stated below.
@@ -39,7 +39,7 @@
 -- (`CRTChain.walk8-coprimes`), and that is enough for any named frontier
 -- and not enough for all of them.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ BezN : â„• â†’ â„• â†’ Type
 BezN a b = Î£[ x âˆˆ â„• ] Î£[ y âˆˆ â„• ] (a Â· x â‰¡ b Â· y + 1)
 
 ------------------------------------------------------------------------
--- 2.  The one arithmetic step: uÂd â‰¡ vÂd + 1 forces d to be a unit
+-- 2.  The one arithmetic step: uÂ·d â‰¡ vÂ·d + 1 forces d to be a unit
 ------------------------------------------------------------------------
 
 private
@@ -122,7 +122,7 @@ bezNâ†’isGCD a b (x , y , p) =
 ------------------------------------------------------------------------
 -- 4.  It runs: 8 and 9, from the certificate the kuaka would produce.
 --
---   8Â8 = 64 = 9Â7 + 1.
+--   8Â·8 = 64 = 9Â·7 + 1.
 ------------------------------------------------------------------------
 
 bez-8-9 : BezN 8 9
@@ -135,9 +135,9 @@ gcd-8-9 = bezNâ†’isGCD 8 9 bez-8-9
 -- 5.  The chain, now unbroken except at one place.
 --
 --   `Kuttaka.bezout`     ryabhaa's procedure returns the multipliers
---   `CoprimePowers`      certificates compose: coprime bases âŸ coprime powers
+--   `CoprimePowers`      certificates compose: coprime bases âŸ¹ coprime powers
 --   here                 a certificate is an `isGCD _ _ 1`
---   `CRTChain`           `isGCD` data âŸ the residue equivalence
+--   `CRTChain`           `isGCD` data âŸ¹ the residue equivalence
 --   `LosslessLowerBound` and the count is a minimum
 --
 -- The one remaining gap is the EXISTENCE of a certificate for two

@@ -9,26 +9,26 @@
 -- the Weil pairing is positive.  So RH is the positive-semidefiniteness
 -- of the Weil form.  This module builds that form as a FINITE Gram object
 -- over an abstract ordered field, whose entries are assembled from the von
--- Mangoldt values � � and the checked pairfield reconstructs every �(n)
+-- Mangoldt values Λ — and the checked pairfield reconstructs every Λ(n)
 -- losslessly and triangularly from the Goldbach convolution
 --
---     R(N) = �_{a+b=N} �(a) �(b).
+--     R(N) = Σ_{a+b=N} Λ(a) Λ(b).
 --
 -- Hence the Gram entries are, ultimately, functions of Goldbach pair-counts,
 -- with NO analytic continuation entering the reconstruction.  The RH
 -- realization is then
 --
---     RH  =  � t.  the size-t Weil Gram form is PSD.
+--     RH  =  ∀ t.  the size-t Weil Gram form is PSD.
 --
 -- This is the type-theoretic characterization of the Riemann hypothesis:
 -- RH as positive-semidefiniteness of a finite Goldbach-entried Gram form
--- at every scale.  Placing RH into this type is real progress � the whole
+-- at every scale.  Placing RH into this type is real progress — the whole
 -- corpus's transport, descent, and fibre machinery now acts on it, and the
 -- thousand theorems relevant to `ObserverTower`, `PSD`, and the pairfield
 -- reconstruction are brought to bear on a single term.  The target is to
--- inhabit `RH`; the arithmetic engine under it (� from Goldbach `R`) is
+-- inhabit `RH`; the arithmetic engine under it (Λ from Goldbach `R`) is
 -- lossless and already checked.  Built here: the ordered field, the finite
--- double-sum Gram form, the PSD predicate, the Weil kernel from �, and the
+-- double-sum Gram form, the PSD predicate, the Weil kernel from Λ, and the
 -- wiring into `ObserverTower` (the NS slot is the dual: no bad recurrent
 -- orbit).
 ------------------------------------------------------------------------
@@ -69,7 +69,7 @@ record OrderedField (ℓ : Level) : Type (ℓ-suc ℓ) where
   Σ< g (suc n) = Σ< g n ⊕ g n
 
   -- The Gram form of a symmetric kernel K on a size-m test vector c:
-  --     Q(c) = �_{i<m} �_{j<m} c i ⊗ K i j ⊗ c j.
+  --     Q(c) = Σ_{i<m} Σ_{j<m} c i ⊗ K i j ⊗ c j.
   Gram : (ℕ → ℕ → Car) → ℕ → (ℕ → Car) → Car
   Gram K m c = Σ< (λ i → Σ< (λ j → c i ⊗ K i j ⊗ c j) m) m
 
@@ -81,7 +81,7 @@ record OrderedField (ℓ : Level) : Type (ℓ-suc ℓ) where
 open OrderedField public
 
 ------------------------------------------------------------------------
--- §2  The Weil realization: an ordered field, the von Mangoldt values �
+-- §2  The Weil realization: an ordered field, the von Mangoldt values Λ
 --     (reconstructed losslessly from the Goldbach convolution R), the
 --     assembled Weil kernel, and the RH goal as its all-scales PSD.
 ------------------------------------------------------------------------
@@ -123,7 +123,7 @@ open NSRealization public
 
 ------------------------------------------------------------------------
 -- §4  The two realizations sit on ONE carrier: the observer tower.  A
---     joint realization is a tower together with both goal slots � the
+--     joint realization is a tower together with both goal slots — the
 --     positive (RH) and no-growing-mode (NS) faces of one transport form.
 ------------------------------------------------------------------------
 

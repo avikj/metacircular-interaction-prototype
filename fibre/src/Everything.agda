@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
--- Punargamana ¬ Everything
+-- PunarƒÅgamana ¬∑ Everything
 --
 -- The single entry point: typechecking this module typechecks the library.
 -- check.sh drives exactly this file, so a module that is not reachable from
@@ -14,21 +14,21 @@ open import Fibre.Orbit
 open import Fibre.Nucleus
 
 -- The law's other projection: the residual, and the price of a collapse.
--- Its two-valued test is a ‡¶‡‡∞‡‡®‡Ø; see the struck paragraph in its header.
+-- Its two-valued test is a ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø; see the struck paragraph in its header.
 open import Fibre.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 -- The repair: the diagnosis is a CENSUS, not a verdict.  A fibre fails to
--- be contractible in two opposite ways ‚î empty (‡®‡æ‡‡‡‡ø: no source over b,
--- ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡) and crowded (‡®‡‡‡ü‡ø, ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø‡æ) ‚î and `isContr` merges
+-- be contractible in two opposite ways ‚Äî empty (‡§®‡§æ‡§∏‡•ç‡§§‡§ø: no source over b,
+-- ‡§ß‡§®‡§æ‡§§‡•ç‡§Æ‡§ï‡§Æ‡•ç) and crowded (‡§®‡§∑‡•ç‡§ü‡§ø, ‡§Ö‡§™‡•ç‡§∞‡§§‡§ø‡§ï‡§æ‡§∞‡•ç‡§Ø‡§æ) ‚Äî and `isContr` merges
 -- them.  Contains the computed refutation of the sequential diagnostic.
 open import Fibre.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
 
 -- The census's seam, closed: the fibre of the truncation map is the whole
--- source, so the level-‡ criterion is a theorem and not a conjecture.
+-- source, so the level-‡•™ criterion is a theorem and not a conjecture.
 open import Fibre.Avaccheda_TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem
 
--- ‚¶and the census's own collapse, one level up.  A fourth outcome exists
--- that `‡¶‡‡` structurally cannot express ‚î the question with no subject ‚î
+-- ‚Ä¶and the census's own collapse, one level up.  A fourth outcome exists
+-- that `‡§¶‡•á‡§∂` structurally cannot express ‚Äî the question with no subject ‚Äî
 -- and `interactive/Obstruction.hs` has carried it in a type all along while
 -- the Agda lane has never had it.  Silence is not denial.
 open import Fibre.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt
@@ -39,37 +39,37 @@ open import Fibre.Compute
 
 -- The two number-theoretic instances.
 --
--- ‡ï‡‡ü‡‡ü‡ï (ryabhaa, ryabhaya, ‡ó‡‡ø‡‡‡æ‡¶ 32‚ì33, 499 CE): base = the three
--- slots ‡‡ï‡‡‡ / ‡‡∞‡ø‡Æ‡æ‡‡Æ‡ / ‡‡‡‡, none of which is a function of the other
--- two ‚î three theorems say so ‚î and carried = the pair of magnitudes.
+-- ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï (ƒÄryabha·π≠a, ƒÄryabha·π≠ƒ´ya, ‡§ó‡§£‡§ø‡§§‡§™‡§æ‡§¶ 32‚Äì33, 499 CE): base = the three
+-- slots ‡§™‡§ï‡•ç‡§∑‡§É / ‡§™‡§∞‡§ø‡§Æ‡§æ‡§£‡§Æ‡•ç / ‡§∂‡•á‡§∑‡§É, none of which is a function of the other
+-- two ‚Äî three theorems say so ‚Äî and carried = the pair of magnitudes.
 open import Fibre.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree
 
--- ‡µ‡∞‡‡ó‡‡‡∞‡ï‡‡‡ø (Brahmagupta, Brhmasphuasiddhnta 18, 628 CE; the ‡‡ï‡‡∞‡µ‡æ‡≤
+-- ‡§µ‡§∞‡•ç‡§ó‡§™‡•ç‡§∞‡§ï‡•É‡§§‡§ø (Brahmagupta, BrƒÅhmasphu·π≠asiddhƒÅnta 18, 628 CE; the ‡§ö‡§ï‡•ç‡§∞‡§µ‡§æ‡§≤
 -- of Jayadeva c. 950 and Bhskara II, Bjagaita, 1150): base = the two
--- roots ‡‡‡Ø‡‡‡‡† / ‡ï‡®‡ø‡‡‡† over ‚, carried = the ‡ï‡‡‡‡ a¬≤ ‚àí D b¬≤, which the
+-- roots ‡§ú‡•ç‡§Ø‡•á‡§∑‡•ç‡§† / ‡§ï‡§®‡§ø‡§∑‡•ç‡§† over ‚Ñ§, carried = the ‡§ï‡•ç‡§∑‡•á‡§™ a¬≤ ‚àí D b¬≤, which the
 -- roots determine exactly.
 open import Fibre.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
 
--- ‡‡‡‡æ‡®‡ø‡µ‡¶‡‡‡æ‡µ (Pini, Adhyy 1.1.56 ‡‡‡‡æ‡®‡ø‡µ‡¶‡æ‡¶‡‡‡ã‡Ω‡®‡≤‡‡µ‡ø‡ß‡, ~500 BCE;
--- with 1.1.60, 1.1.62, 1.3.9, 1.1.5): a ‡µ‡∞‡‡'s three fields are mutually
--- independent ‚î three theorems say so ‚î so the base is (‡µ‡∞‡‡ , the form
--- substituted) and the carried datum is (‡‡‡‡æ‡®‡ , ‡‡û‡‡‡‡û‡æ) of the output,
--- both functions of the base.  The ‡‡≤‡/‡‡®‡≤‡ exception of 1.1.56 is the
+-- ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§¶‡•ç‡§≠‡§æ‡§µ (PƒÅ·πáini, A·π£·π≠ƒÅdhyƒÅyƒ´ 1.1.56 ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§¶‡§æ‡§¶‡•á‡§∂‡•ã‡§Ω‡§®‡§≤‡•ç‡§µ‡§ø‡§ß‡•å, ~500 BCE;
+-- with 1.1.60, 1.1.62, 1.3.9, 1.1.5): a ‡§µ‡§∞‡•ç‡§£'s three fields are mutually
+-- independent ‚Äî three theorems say so ‚Äî so the base is (‡§µ‡§∞‡•ç‡§£ , the form
+-- substituted) and the carried datum is (‡§∏‡•ç‡§•‡§æ‡§®‡•Ä , ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ) of the output,
+-- both functions of the base.  The ‡§Ö‡§≤‡•ç/‡§Ö‡§®‡§≤‡•ç exception of 1.1.56 is the
 -- base/carried split, and the orbit carries the designation through the
 -- whole derivation rather than one step.
 open import Fibre.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried
 
--- ‡‡ø‡‡‡‡ø: the carrier is not two-valued, and the wall crosses its own ford.
+-- ‡§≠‡§ø‡§§‡•ç‡§§‡§ø: the carrier is not two-valued, and the wall crosses its own ford.
 open import Fibre.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord
 
--- ‡‡‡‡æ‡®‡ø‡µ‡‡‡‡ô‡‡ñ‡‡Ø‡æ ‚î the machine's own frontier ask (jva join score 2970):
--- the dea state space enumerated, ‡‡‡‡æ‡®‡ø‡µ‡‡ ‚â Fin 81, the carried datum
--- adding nothing to the count ‚î ahis read as a number.
+-- ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ ‚Äî the machine's own frontier ask (jƒ´va join score 2970):
+-- the ƒÅde≈õa state space enumerated, ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ‚âÉ Fin 81, the carried datum
+-- adding nothing to the count ‚Äî ahi·πÉsƒÅ read as a number.
 open import Fibre.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
 
--- ‡‡‡µ‡ø‡‡æ-‡‡‡Æ‡‡‡ø ‚î the carried memory is alive at every depth of the infinite
--- orbit: at rung n it is ‡Ø‡ã‡ó of the n-th state, never a stale payload.
--- ‡‡‡®‡∞‡æ‡ó‡Æ‡® read forward into infinity ‚î losslessness as ‡â‡‡Ø‡ã‡ó at every rung.
+-- ‡§ú‡•Ä‡§µ‡§ø‡§§‡§æ-‡§∏‡•ç‡§Æ‡•É‡§§‡§ø ‚Äî the carried memory is alive at every depth of the infinite
+-- orbit: at rung n it is ‡§Ø‡•ã‡§ó of the n-th state, never a stale payload.
+-- ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§® read forward into infinity ‚Äî losslessness as ‡§â‡§™‡§Ø‡•ã‡§ó at every rung.
 open import Fibre.JivitaSmrti
 
 -- The naming of the law: Carrier IS the motive (the universal lossless
@@ -80,9 +80,9 @@ open import Fibre.JivitaSmrti
 open import Fibre.TheCarrierIsTheMotiveAndEachReadingIsARealization
 
 -- A reading, as a reusable shape: a collapse into a set, with its kept
--- middle (Carrier) and owed residual (‡‡‡) derived at the record level,
+-- middle (Carrier) and owed residual (‡§∂‡•á‡§∑) derived at the record level,
 -- and the two halves of the law as its derived theorems.  The verdict
--- reading (Bool ‚í Unit) is a checked instance; the six domain readings
+-- reading (Bool ‚Üí Unit) is a checked instance; the six domain readings
 -- named in the kernel overview instantiate this shape in their own files.
 open import Fibre.AReadingIsACollapseWithItsKeptMiddleAndOwedResidual
 ------------------------------------------------------------------------
@@ -109,7 +109,7 @@ open import Fibre.AReadingIsACollapseWithItsKeptMiddleAndOwedResidual
 --   * higher coherence.  `Commutes` is ONE path between two composites.
 --     That several such squares assemble into a filled cube is a further
 --     obligation, and proving the faces does not prove the cube.
---   * strategies with memory.  A strategy in `Fibre.Samvada_‚¶` is a
+--   * strategies with memory.  A strategy in `Fibre.Samvada_‚Ä¶` is a
 --     function of the state alone; histories, protocols and adversaries
 --     are not modelled.
 --   * cost.  Nothing here says a trace is small, cheap to store, or safe
@@ -121,14 +121,14 @@ open import Fibre.AReadingIsACollapseWithItsKeptMiddleAndOwedResidual
 ------------------------------------------------------------------------
 
 -- The trace family of a factorisation is FORCED to be the fibre family of
--- the map it induces ‚î so the residue of a computation is not a design
+-- the map it induces ‚Äî so the residue of a computation is not a design
 -- choice.  Carrier is the contractible end of that same scale.
 open import Fibre.Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase
 
 -- A state transition need not be invertible for its residue to be typed.
--- `collapse` (n ‚¶ 0) is the witness: provably not an equivalence, residue
--- provably ‚ï, and lossless all the same.  `suc` is the opposite failure ‚î
--- an EMPTY fibre ‚î which isContr alone cannot distinguish from the first.
+-- `collapse` (n ‚Ü¶ 0) is the witness: provably not an equivalence, residue
+-- provably ‚Ñï, and lossless all the same.  `suc` is the opposite failure ‚Äî
+-- an EMPTY fibre ‚Äî which isContr alone cannot distinguish from the first.
 open import Fibre.LawfulStep_TheVisibleStepNeedNotBeInvertibleAndItsResidueIsStillExactlyOneFibre
 
 -- Commutation is the certificate that a serialisation was removable: any
@@ -141,7 +141,7 @@ open import Fibre.Krama_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFail
 -- `counter` shows that in general two strategies disagree at step one.
 open import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
 
--- The formal corpus itself is the same coalgebra: a state is Œ A . A and a
+-- The formal corpus itself is the same coalgebra: a state is Œ£ A . A and a
 -- question is exactly a typed map out of the current A.  No finite-depth
 -- approximation or external scheduler is introduced.
 open import Fibre.CorpusSamvada

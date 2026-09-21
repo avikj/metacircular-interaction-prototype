@@ -1,61 +1,61 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à•à‹à â” the treasury; the repository.
+-- à¤•à¥‹à¤¶ â€” the treasury; the repository.
 --
 -- WHY THIS FILE EXISTS.  `PairwiseCommutationGivesEveryOrder` proves
 -- that pairwise commutation of steps gives order-independence of every
 -- permutation of a run.  Its abstract then says, under WHAT IS NOT
 -- CLAIMED, that there is no working tree, no file, no line-based diff,
--- no blame algorithm and no repository format in the development â” that
+-- no blame algorithm and no repository format in the development â€” that
 -- a patch is a step on an abstract state, and that COMMUTATION IS A
 -- HYPOTHESIS DISCHARGED BY THE CALLER.
 --
 -- That last clause is the one that matters, and it is closed here by
 -- exhibiting a calculus in which commutation is a THEOREM.  A caller
--- supplies distinctness of locations â” a decidable, checkable property
--- of a patch list â” and gets commutation, order-independence and blame
+-- supplies distinctness of locations â€” a decidable, checkable property
+-- of a patch list â€” and gets commutation, order-independence and blame
 -- back.  Nothing is passed out to be assumed.
 --
--- Â§à does it: the hypothesis here is carried through the swap and
+-- Â§à¥¬ does it: the hypothesis here is carried through the swap and
 -- transitivity cases by a membership index, so it constrains only the patches
 -- that actually appear.
 --
 -- THE REPOSITORY FORMAT is the one git actually uses: a tree is a map
 -- from locations to contents, not a list of lines carrying its own
 -- length.  A location is a path together with a line number, so "line-
--- based" is literal â” a patch names the file and the line.
+-- based" is literal â€” a patch names the file and the line.
 --
 -- WHAT IS CHECKED
 --
---   Â§à§  `Tree`, `Loc`, `Patch`, `apply`   the working tree and the edit.
---   Â§à¨  `commute`        DISTINCT LOCATIONS COMMUTE â” proved, no
+--   Â§à¥§  `Tree`, `Loc`, `Patch`, `apply`   the working tree and the edit.
+--   Â§à¥¨  `commute`        DISTINCT LOCATIONS COMMUTE â€” proved, no
 --                        hypothesis, for every tree and every content.
---   Â§à©  `same-location-does-not-commute`
---                        â¦and the distinctness is not removable: two
+--   Â§à¥©  `same-location-does-not-commute`
+--                        â€¦and the distinctness is not removable: two
 --                        writes to one location are exhibited failing.
---   Â§à  `blame`          the last writer at each location, and
+--   Â§à¥ª  `blame`          the last writer at each location, and
 --       `blame-explains` the theorem that it explains the tree: the
 --                        content after a run is exactly what blame says
 --                        wrote it.
---   Â§à  `diff`, `diff-correct`
+--   Â§à¥«  `diff`, `diff-correct`
 --                        the line-based diff over a finite location
 --                        set, and that applying it transports one tree
 --                        to the other there.
---   Â§à  `permInvariant`  EVERY ORDER AGREES, with the commutation
+--   Â§à¥¬  `permInvariant`  EVERY ORDER AGREES, with the commutation
 --                        hypothesis localised to the patches in the
 --                        list, and
---       `distinctâ’commuting`
+--       `distinctâ†’commuting`
 --                        that hypothesis discharged from distinctness.
 --
 -- ONE IMPLEMENTATION FACT, stated because it is real.  `~âˆˆ` and
 -- `diff-correct` pattern match on an indexed family, so Agda warns that
 -- they will not REDUCE when applied to a transport.  That costs nothing
--- here â” both produce equalities between trees and neither is ever
--- transported along â” but it is a property of the definitions and is
+-- here â€” both produce equalities between trees and neither is ever
+-- transported along â€” but it is a property of the definitions and is
 -- said rather than left for a reader to discover.
 --
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
+-- CHECKED: Agda 2.8.0, agda/cubical v0.9 â€” the repository pin.
 -- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ private
   absurd ()
 
 ------------------------------------------------------------------------
--- à§ Â the repository format, the working tree, and the edit.
+-- à¥§ Â· the repository format, the working tree, and the edit.
 --
 -- A location is a path and a line number.  A tree assigns content to
 -- every location; the empty repository is the constant absent content,
@@ -105,7 +105,7 @@ module Repo (Content : Type) where
   open Patch public
 
   -- the branch is a function of the decision, so it reduces wherever
-  -- the decision does â” which is what makes Â§à¨ a case analysis and not
+  -- the decision does â€” which is what makes Â§à¥¨ a case analysis and not
   -- a rewriting argument.
   choose : {A : Type} â†’ Dec A â†’ Content â†’ Content â†’ Content
   choose (yes _) c d = c
@@ -119,11 +119,11 @@ module Repo (Content : Type) where
   applyAll (p âˆ· ps) t = applyAll ps (apply p t)
 
   ------------------------------------------------------------------
-  -- à¨ Â COMMUTATION, PROVED.
+  -- à¥¨ Â· COMMUTATION, PROVED.
   --
   -- Two patches at distinct locations commute, for every tree.  The
   -- proof is a case analysis on the two decisions at each location, and
-  -- the only awkward case â” both fire â” is exactly the one the
+  -- the only awkward case â€” both fire â€” is exactly the one the
   -- distinctness hypothesis forbids.
   ------------------------------------------------------------------
 
@@ -139,7 +139,7 @@ module Repo (Content : Type) where
       ... | no  _  | no  _  = refl
 
   ------------------------------------------------------------------
-  -- à© Â blame, and the theorem that it explains the tree.
+  -- à¥© Â· blame, and the theorem that it explains the tree.
   --
   -- The blame of a location after a run is the LAST patch in the run
   -- that named it.  `blame-explains` is the correctness statement a
@@ -174,7 +174,7 @@ module Repo (Content : Type) where
   ...   | no  _ = ih
 
   ------------------------------------------------------------------
-  -- à Â the line-based diff.
+  -- à¥ª Â· the line-based diff.
   --
   -- Over a finite set of locations, the diff of two trees is the list
   -- of writes carrying the first to the second, and `diff-correct` is
@@ -217,7 +217,7 @@ module Repo (Content : Type) where
     diff-correct ls (apply (patch m (u m)) t) u l mem
 
   ------------------------------------------------------------------
-  -- à Â EVERY ORDER AGREES, with the hypothesis localised.
+  -- à¥« Â· EVERY ORDER AGREES, with the hypothesis localised.
   --
   -- `Commuting xs` constrains only the patches that appear in `xs`;
   -- the membership index is carried through the swap and transitivity
@@ -262,8 +262,8 @@ module Repo (Content : Type) where
 
   -- AND THE HYPOTHESIS IS DISCHARGED.  The caller supplies "no two
   -- patches in this list name one location without being the same
-  -- patch" â” a property of the list, decidable wherever content
-  -- equality is â” and gets commutation, and therefore every order.
+  -- patch" â€” a property of the list, decidable wherever content
+  -- equality is â€” and gets commutation, and therefore every order.
   distinctâ†’commuting : (xs : List Patch)
                      â†’ ((p q : Patch) â†’ p âˆˆâ‚š xs â†’ q âˆˆâ‚š xs â†’ at p â‰¡ at q â†’ p â‰¡ q)
                      â†’ Commuting xs
@@ -282,10 +282,10 @@ module Repo (Content : Type) where
   every-order-agrees xs ys perm d = permInvariant perm (distinctâ†’commuting xs d)
 
 ------------------------------------------------------------------------
--- à Â AND THE DISTINCTNESS IS NOT REMOVABLE.
+-- à¥¬ Â· AND THE DISTINCTNESS IS NOT REMOVABLE.
 --
 -- Two writes to one location, with different content, do not commute.
--- So Â§à¨ is not a theorem waiting to be generalised: the hypothesis it
+-- So Â§à¥¨ is not a theorem waiting to be generalised: the hypothesis it
 -- carries is exactly the boundary, and here is the pair that sits on
 -- the far side of it.
 ------------------------------------------------------------------------

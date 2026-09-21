@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Anupalabdhi ‚î ‡‡®‡‡‡≤‡‡‡ß‡ø, non-apprehension: the fitness condition is what
+-- Anupalabdhi ‚Äî ‡§Ö‡§®‡•Å‡§™‡§≤‡§¨‡•ç‡§ß‡§ø, non-apprehension: the fitness condition is what
 -- separates "search found nothing" from a negative result, and here it is a
 -- hypothesis of the theorem rather than a remark in a header.
 --
@@ -10,14 +10,14 @@
 -- separate and folds it into perception.  BOTH impose the same condition, and
 -- the condition is the content of this file:
 --
---   yogynupalabdhi ‚î non-apprehension counts only where the counterpositive
+--   yogyƒÅnupalabdhi ‚Äî non-apprehension counts only where the counterpositive
 --   WOULD HAVE BEEN apprehended had it been present.  There is no pot on the
 --   floor: you would have seen it.  There is no ghost in the room: you would
 --   not have, so your not seeing one establishes nothing about ghosts.
 --
--- The slots of the absence itself ‚î pratiyogin (what is absent), anuyogin
+-- The slots of the absence itself ‚Äî pratiyogin (what is absent), anuyogin
 -- (the locus), avacchedaka (the limitor under which the counterpositive is
--- taken) ‚î are Nyya-Vaieika's, and are already in this corpus as a
+-- taken) ‚Äî are NyƒÅya-Vai≈õe·π£ika's, and are already in this corpus as a
 -- dependent record: `AbhavaAvacchedaka`, with the second limitor slot in
 -- `TheAnuyogitaAvacchedakaIsADistinctSlot`.  This file adds the
 -- FITNESS, which is not in either, and which is Mms's rather than Nyya's.
@@ -32,7 +32,7 @@
 -- logician does not accept absence-as-entity at all: syd-nsti is the same
 -- object denied under a standpoint, on a fourfold ground (dravya, ketra,
 -- kla, bhva), and the Naiyyika's seventh padrtha is on that reading a
--- durnaya ‚î a standpoint mistaken for a thing.  The two constructions and the
+-- durnaya ‚Äî a standpoint mistaken for a thing.  The two constructions and the
 -- exchange between them are kept apart, and the collision is exhibited rather
 -- than settled, in
 -- `interactive/Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearchedDomain.hs`.
@@ -51,10 +51,10 @@
 --   Clean           nothing examined bore the counterpositive
 --   Yogya           the fitness: every point of the locus was examined
 --   Abhava          the absence itself: nothing in the locus bears it
---   yogyanupalabdhi Clean ‚í Yogya ‚í Abhava.  The theorem, and it is one line,
+--   yogyanupalabdhi Clean ‚Üí Yogya ‚Üí Abhava.  The theorem, and it is one line,
 --                   which is the point: what was missing was never the proof,
 --                   it was the second hypothesis.
---   abhava‚íclean    the absence always makes any search clean ‚î so Clean is
+--   abhava‚Üíclean    the absence always makes any search clean ‚Äî so Clean is
 --                   the weaker notion in general
 --   clean-without-yogyata-is-not-abhava
 --                   a search that is Clean while the Abhava FAILS.  This is
@@ -97,7 +97,7 @@ open Anvesana public
 Clean : Anvesana ‚Üí Type
 Clean A = (x : A .anuyogin) ‚Üí A .drsta x ‚Üí ¬¨ (A .pratiyogin x)
 
--- The fitness.  Every point of the locus was examined ‚î so anything present
+-- The fitness.  Every point of the locus was examined ‚Äî so anything present
 -- would have been met.  This is yogyat, and it is a claim about the SEARCH,
 -- not about the counterpositive.
 Yogya : Anvesana ‚Üí Type
@@ -130,7 +130,7 @@ abhava‚Üíclean _ abs x _ = abs x
 --
 -- locus = Bool.  The counterpositive is borne by `true` only.  The search
 -- examined `false` only.  It found nothing, honestly, over a region it really
--- did examine ‚î and the thing was there the whole time, at the point the
+-- did examine ‚Äî and the thing was there the whole time, at the point the
 -- search did not reach.
 ------------------------------------------------------------------------
 
@@ -162,7 +162,7 @@ clean-without-yogyata-is-not-abhava :
 clean-without-yogyata-is-not-abhava =
   ghost-clean , ghost-looked-somewhere , ghost-abhava-fails
 
--- Consequently the fitness itself fails for this search ‚î which is the
+-- Consequently the fitness itself fails for this search ‚Äî which is the
 -- diagnosis, and it is derived rather than asserted: had it held, the theorem
 -- would have delivered an absence that is refutable.
 ghost-is-not-yogya : ¬¨ (Yogya ghost)
@@ -207,7 +207,7 @@ extent-load-bearing = ghost-clean , sarva-not-clean
 -- What it does not license: treating `Yogya` as something the machine can
 -- check for itself.  Nothing here decides whether a grep would have caught a
 -- differently-spelled name, or whether 84 assignments cover a term of arity
--- four (they cover 0.61% of the box ‚î `ANEKANTA.md` ¬ß12).  The fitness is a
+-- four (they cover 0.61% of the box ‚Äî `ANEKANTA.md` ¬ß12).  The fitness is a
 -- claim someone makes and can be wrong about.  The gain is that it is now a
 -- claim that has to be MADE.
 ------------------------------------------------------------------------

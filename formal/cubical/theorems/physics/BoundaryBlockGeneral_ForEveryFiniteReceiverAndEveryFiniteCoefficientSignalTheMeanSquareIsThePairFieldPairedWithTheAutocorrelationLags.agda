@@ -1,34 +1,34 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- BoundaryBlockGeneral � for every finite receiver f and every finite
+-- BoundaryBlockGeneral — for every finite receiver f and every finite
 -- coefficient signal c, over any commutative ring,
 --
---     �_{t<W} ( �_{k<m} c_k (S^k f)(t) )²
---       ≡  �_{k<m} �_{l<m} c_k � c_l � �(|k − l|),
+--     Σ_{t<W} ( Σ_{k<m} c_k (S^k f)(t) )²
+--       ≡  Σ_{k<m} Σ_{l<m} c_k · c_l · ρ(|k − l|),
 --
 -- where S is the unit right shift, W = m + n is the window holding the
--- shifted receivers, and �(d) = �_{s<n} f(s) f(s+d) is the receiver's
+-- shifted receivers, and ρ(d) = Σ_{s<n} f(s) f(s+d) is the receiver's
 -- autocorrelation at lag d.  This is BoundaryBlock at arbitrary widths.
 --
 -- WHAT THIS IS.  The identity behind the prime-boundary document's
--- boundary profile h = f ∗ f�: driving a receiver f by coefficients c
+-- boundary profile h = f ∗ f̃: driving a receiver f by coefficients c
 -- and taking the mean square is the same as pairing the pair field
 -- c_k c_l with the autocorrelation of f.  The left side is a sum of
 -- squares; so the pairing is non-negative at every autocorrelation
 -- receiver by an identity, not by an estimate.
 --
---   §1  finite sums over �: extensionality (bounded), linearity,
+--   §1  finite sums over ℕ: extensionality (bounded), linearity,
 --       exchange, splitting, and the product of two sums;
 --   §2  the shift S, shift-invariance of the inner product
 --       ⟨S^k g , S^k h⟩_{k+N} ≡ ⟨g , h⟩_N, and S^{k+d} ≡ S^k ∘ S^d;
 --   §3  padding: a receiver vanishing from n on has the same inner
 --       product on any longer window;
 --   §4  the correlation ⟨S^k f , S^l f⟩_W of two shifted copies is
---       �(l − k) when k � l and �(k − l) when l � k;
+--       ρ(l − k) when k ≤ l and ρ(k − l) when l ≤ k;
 --   §5  THE BLOCK IDENTITY, by bilinearity and §4.
 --
--- SYT � THE CLAIM, EXACTLY.  Finite sums over a commutative ring, one
+-- SYĀT — THE CLAIM, EXACTLY.  Finite sums over a commutative ring, one
 -- window, one receiver vanishing beyond n, coefficients read on m slots.
 -- No limit, no arithmetic function, no positivity beyond "a sum of
 -- squares is a sum of squares".
@@ -52,13 +52,13 @@ private
   +-assoc' zero b c = refl
   +-assoc' (suc a) b c = cong suc (+-assoc' a b c)
 
-  -- m + n ≡ k + (n + (m � k)) when k < m
+  -- m + n ≡ k + (n + (m ∸ k)) when k < m
   window : (m n k : ℕ) → k < m → m + n ≡ k + (n + (m ∸ k))
   window m n k k<m =
     cong (_+ n) (sym (≤-∸-+-cancel (<-weaken k<m)) ∙ +-comm (m ∸ k) k)
     ∙ sym (+-assoc' k (m ∸ k) n) ∙ cong (k +_) (+-comm (m ∸ k) n)
 
-  -- k + (l � k) ≡ l when k � l
+  -- k + (l ∸ k) ≡ l when k ≤ l
   split : (k l : ℕ) → k ≤ l → k + (l ∸ k) ≡ l
   split k l k≤l = +-comm k (l ∸ k) ∙ ≤-∸-+-cancel k≤l
 
@@ -184,7 +184,7 @@ module General {ℓ : Level} (R' : CommRing ℓ) where
   ρ : (n : ℕ) (f : Sig) → ℕ → K
   ρ n f d = ip n f (S d f)
 
-  -- ⟨S^k f , S^{k+d} f⟩ on a window k + n + E is �(d)
+  -- ⟨S^k f , S^{k+d} f⟩ on a window k + n + E is ρ(d)
   corr-≤ : (n : ℕ) (f : Sig) → Vanish f n → (k d E : ℕ)
          → ip (k + (n + E)) (S k f) (S (k + d) f) ≡ ρ n f d
   corr-≤ n f v k d E =
@@ -251,7 +251,7 @@ module General {ℓ : Level} (R' : CommRing ℓ) where
         ∙ cong ((c k ·r c l) ·r_) (corr m n f v k l k<m l<m)
 
 ------------------------------------------------------------------------
--- §6  Over �: the fixed-size instance of BoundaryBlock recovered.
+-- §6  Over ℤ: the fixed-size instance of BoundaryBlock recovered.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Int using (ℤ ; pos ; negsuc)

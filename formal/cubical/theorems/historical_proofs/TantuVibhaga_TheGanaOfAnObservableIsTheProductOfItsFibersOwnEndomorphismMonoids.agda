@@ -1,48 +1,48 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ррирррр╡р┐рр╛рЧр тФ рр╡р▓рЛрХрирррп рЧрр ррр-рриррррир╛рор ррр╡-рриррррХрр░р┐рпр╛-рЧрр╛рир╛р рЧрррирор рр╡ р
+-- рддрдиреНрддреБрд╡рд┐рднрд╛рдЧрдГ тАФ рдЕрд╡рд▓реЛрдХрдирд╕реНрдп рдЧрдгрдГ рддрддреН-рддрдиреНрддреВрдирд╛рдореН рд╕реНрд╡-рдЕрдиреНрддрдГрдХреНрд░рд┐рдпрд╛-рдЧрдгрд╛рдирд╛рдВ рдЧреБрдгрдирдореН рдПрд╡ ред
 --
 -- (the fiber decomposition: the gaa of an observable IS the product,
 --  over the codomain, of its fibers' own endomorphism monoids.)
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
--- WHAT THIS IS.  `SvaTantuVasa` ┬зр(a) and `SamraksakaGana` ┬зр(a) both
--- hand the same remainder forward: currying along A тЙ ╬ B (fiber f)
--- identifies the section CARRIER with (b : B) тТ fiber f b тТ fiber f b,
--- "but carrying тЛ onto pointwise composition needs the transport
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- WHAT THIS IS.  `SvaTantuVasa` ┬зрем(a) and `SamraksakaGana` ┬зрел(a) both
+-- hand the same remainder forward: currying along A тЙГ ╬г B (fiber f)
+-- identifies the section CARRIER with (b : B) тЖТ fiber f b тЖТ fiber f b,
+-- "but carrying тЛЖ onto pointwise composition needs the transport
 -- coherence of that currying, and it is not given here."  This module
 -- gives it, over set carriers:
 --
---   р╡р┐рр╛рЧр      :  ррржр f  тЙ  ((b : B) тТ fiber f b тТ fiber f b)
---   р╡р┐рр╛рЧ-рЧр-ррорр╛ : MonoidEquiv ррржрЧрр рриррррЧрр
---   ррр░р╡р╛р-рриррр-ррорр╛ : MonoidEquiv ррр░р╡р╛ррЧрр рриррррЧрр
+--   рд╡рд┐рднрд╛рдЧрдГ      :  рдЫреЗрджрдГ f  тЙГ  ((b : B) тЖТ fiber f b тЖТ fiber f b)
+--   рд╡рд┐рднрд╛рдЧ-рдЧрдг-рд╕рдорддрд╛ : MonoidEquiv рдЫреЗрджрдЧрдгрдГ рддрдиреНрддреБрдЧрдгрдГ
+--   рдкреНрд░рд╡рд╛рд╣-рддрдиреНрддреБ-рд╕рдорддрд╛ : MonoidEquiv рдкреНрд░рд╡рд╛рд╣рдЧрдгрдГ рддрдиреНрддреБрдЧрдгрдГ
 --
--- where рриррррЧрр is the PRODUCT monoid ╬а_b End(fiber f b) under
--- pointwise composition.  Composing with `SamraksakaGana.рЧр-ррорр╛`
+-- where рддрдиреНрддреБрдЧрдгрдГ is the PRODUCT monoid ╬а_b End(fiber f b) under
+-- pointwise composition.  Composing with `SamraksakaGana.рдЧрдг-рд╕рдорддрд╛`
 -- (whose preservation fields are refl), the chain becomes: conserving
--- flows тЙ sections of one's own fibers тЙ the product of the fibers'
--- endomorphism monoids тФ the typal shadow of "the commutant decomposes
+-- flows тЙЕ sections of one's own fibers тЙЕ the product of the fibers'
+-- endomorphism monoids тАФ the typal shadow of "the commutant decomposes
 -- over the spectrum", now exact and checked end to end.
 --
 -- THE ONE COHERENCE, and why it is small.  The transport that currying
 -- introduces is `subst (fiber f) p`, and over a SET codomain the only
 -- fact needed about it is that it fixes the point:
 --
---   р▓роррр : subst (fiber f) p w .fst тЙб w .fst        (one J)
+--   рд▓рдореНрдмрдГ : subst (fiber f) p w .fst тЙб w .fst        (one J)
 --
 -- because equality of sections and of fiber-endomorphisms alike reduces
 -- to their point components (the path components are propositions).
--- All four preservation/round-trip proofs are р▓роррр plus plumbing; the
+-- All four preservation/round-trip proofs are рд▓рдореНрдмрдГ plus plumbing; the
 -- coherence tax the тИЮ-version would pay (the full subst-action law
--- subst p (x , r) тЙб (x , r тИЩ p) and its associativity) is named in ┬зр
+-- subst p (x , r) тЙб (x , r тИЩ p) and its associativity) is named in ┬зрел
 -- and not paid here, because at set level nothing consumes it.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
--- TERMS.  рриррр for the fiber follows this corpus's own use
--- (`Vargaprakrtitantu`); р╡р┐рр╛рЧ in its plain sense, division into parts.
--- The compound ррирррр╡р┐рр╛рЧ is built here; no text is claimed for it.
--- рЧр as in `SamraksakaGana` (gaapha, Pini, ~500 BCE, applied to
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- TERMS.  рддрдиреНрддреБ for the fiber follows this corpus's own use
+-- (`Vargaprakrtitantu`); рд╡рд┐рднрд╛рдЧ in its plain sense, division into parts.
+-- The compound рддрдиреНрддреБрд╡рд┐рднрд╛рдЧ is built here; no text is claimed for it.
+-- рдЧрдг as in `SamraksakaGana` (gaс╣Зap─Бс╣нha, P─Бс╣Зini, ~500 BCE, applied to
 -- flows in this corpus).
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical (installed bundle), --cubical
@@ -65,7 +65,7 @@ open import SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificatio
 private variable тДУ : Level
 
 ------------------------------------------------------------------------
--- ┬зрз ┬ THE TWO SIDES, over any f.
+-- ┬зрез ┬╖ THE TWO SIDES, over any f.
 ------------------------------------------------------------------------
 
 module _ {A B : Type тДУ} (f : A тЖТ B) where
@@ -81,16 +81,16 @@ module _ {A B : Type тДУ} (f : A тЖТ B) where
   рдд-рдПрдХрдГ b x = x
 
   -- currying: a section of one's own fibers acts on each fiber, the
-  -- transport along x's residence certificate doing the bookkeeping тж
+  -- transport along x's residence certificate doing the bookkeeping тАж
   рдкреНрд░рддрд┐ : рдЫреЗрджрдГ f тЖТ рддрдиреНрддреБ-рдЕрдиреНрддрдГ
   рдкреНрд░рддрд┐ s b x = subst (fiber f) (x .snd) (s (x .fst))
 
-  -- тж and every fiber-endomorphism family reads back as a section.
+  -- тАж and every fiber-endomorphism family reads back as a section.
   рдЖрдЧрдордГ : рддрдиреНрддреБ-рдЕрдиреНрддрдГ тЖТ рдЫреЗрджрдГ f
   рдЖрдЧрдордГ t a = t (f a) (a , refl)
 
 ------------------------------------------------------------------------
--- ┬зри ┬ THE COHERENCE, over a set codomain: transport fixes the point.
+-- ┬зреи ┬╖ THE COHERENCE, over a set codomain: transport fixes the point.
 ------------------------------------------------------------------------
 
 module рддрдиреНрддреМ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A тЖТ B) where
@@ -110,7 +110,7 @@ module рддрдиреНрддреМ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A
     funExt (╬╗ b тЖТ funExt (╬╗ x тЖТ ╬гтЙбProp (╬╗ _ тЖТ setB _ _) (h b x)))
 
   ------------------------------------------------------------------
-  -- ┬зрй ┬ THE CARRIER EQUIVALENCE.
+  -- ┬зрей ┬╖ THE CARRIER EQUIVALENCE.
   ------------------------------------------------------------------
 
   рд╡рд┐рднрд╛рдЧ-Iso : Iso (рдЫреЗрджрдГ f) (рддрдиреНрддреБ-рдЕрдиреНрддрдГ f)
@@ -125,7 +125,7 @@ module рддрдиреНрддреМ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A
   рд╡рд┐рднрд╛рдЧрдГ = isoToEquiv рд╡рд┐рднрд╛рдЧ-Iso
 
   ------------------------------------------------------------------
-  -- ┬зр ┬ THE MONOIDS, AND THE IDENTIFICATION CARRIES THEM.
+  -- ┬зрек ┬╖ THE MONOIDS, AND THE IDENTIFICATION CARRIES THEM.
   ------------------------------------------------------------------
 
   рддрдиреНрддреБрдЧрдгрдГ : Monoid тДУ
@@ -133,11 +133,11 @@ module рддрдиреНрддреМ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A
     (isSet╬а (╬╗ b тЖТ isSet╬а (╬╗ _ тЖТ isSet╬г setA (╬╗ _ тЖТ isPropтЖТisSet (setB _ _)))))
     (╬╗ _ _ _ тЖТ refl) (╬╗ _ тЖТ refl) (╬╗ _ тЖТ refl)
 
-  -- currying carries the unit to the identity тж
+  -- currying carries the unit to the identity тАж
   рдкреНрд░рддрд┐-рдПрдХрдГ : рдкреНрд░рддрд┐ f (рдЫреЗрдж-рдПрдХрдГ f) тЙб рдд-рдПрдХрдГ f
   рдкреНрд░рддрд┐-рдПрдХрдГ = рддрдиреНрддреБ-рд╕рдорддрд╛ _ _ (╬╗ b x тЖТ рд▓рдореНрдмрдГ (x .snd) (x .fst , refl))
 
-  -- тж and the convolution тЛ to pointwise composition.
+  -- тАж and the convolution тЛЖ to pointwise composition.
   рдкреНрд░рддрд┐-рдЧреБрдгрдГ : (s s' : рдЫреЗрджрдГ f)
              тЖТ рдкреНрд░рддрд┐ f (_тЛЖ_ f s s') тЙб _тИШрдд_ f (рдкреНрд░рддрд┐ f s) (рдкреНрд░рддрд┐ f s')
   рдкреНрд░рддрд┐-рдЧреБрдгрдГ s s' = рддрдиреНрддреБ-рд╕рдорддрд╛ _ _ (╬╗ b x тЖТ
@@ -149,9 +149,9 @@ module рддрдиреНрддреМ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A
   рд╡рд┐рднрд╛рдЧ-рдЧрдг-рд╕рдорддрд╛ = рд╡рд┐рднрд╛рдЧрдГ , monoidequiv рдкреНрд░рддрд┐-рдПрдХрдГ рдкреНрд░рддрд┐-рдЧреБрдгрдГ
 
   ------------------------------------------------------------------
-  -- ┬зрт▓ ┬ THE COMPOSITE: flows тЙ the product of the fibers' monoids.
-  -- `рЧр-ррорр╛`'s preservation fields are refl, so the composite's are
-  -- exactly this module's тФ no path algebra joins the two legs.
+  -- ┬зректА▓ ┬╖ THE COMPOSITE: flows тЙЕ the product of the fibers' monoids.
+  -- `рдЧрдг-рд╕рдорддрд╛`'s preservation fields are refl, so the composite's are
+  -- exactly this module's тАФ no path algebra joins the two legs.
   ------------------------------------------------------------------
 
   рдкреНрд░рд╡рд╛рд╣-рддрдиреНрддреБ-рд╕рдорддрд╛ : MonoidEquiv рдкреНрд░рд╡рд╛рд╣рдЧрдгрдГ рддрдиреНрддреБрдЧрдгрдГ
@@ -161,16 +161,16 @@ module рддрдиреНрддреМ {A B : Type тДУ} (setA : isSet A) (setB : isSet B) (f : A
         (╬╗ ╧Г ╧Д тЖТ рдкреНрд░рддрд┐-рдЧреБрдгрдГ (equivFun (рд╡рд╛рд╕рдГ f) ╧Г) (equivFun (рд╡рд╛рд╕рдГ f) ╧Д))
 
 ------------------------------------------------------------------------
--- ┬зр ┬ рррр.
+-- ┬зрел ┬╖ рд╢реЗрд╖рдГ.
 --
 -- (a) THE тИЮ-VERSION.  Over arbitrary carriers the point-reduction of
---     р▓роррр is not available: the full action law subst (fiber f) p
+--     рд▓рдореНрдмрдГ is not available: the full action law subst (fiber f) p
 --     (x , r) тЙб (x , r тИЩ p) and its compatibility with тИЩ-assoc must be
 --     carried through every preservation proof.  Named, not paid.
 -- (b) THE GROUP LEG.  `SamraksakaSamuha`'s symmetry group should ride
---     ррр░р╡р╛р-рриррр-ррорр╛ to a subgroup of ╬а_b Aut(fiber f b); pointwise
---     that is ┬зрй of that module repeated here, and it is not written.
--- (c) THE POLES.  At zero loss every fiber is contractible and рриррррЧрр
+--     рдкреНрд░рд╡рд╛рд╣-рддрдиреНрддреБ-рд╕рдорддрд╛ to a subgroup of ╬а_b Aut(fiber f b); pointwise
+--     that is ┬зрей of that module repeated here, and it is not written.
+-- (c) THE POLES.  At zero loss every fiber is contractible and рддрдиреНрддреБрдЧрдгрдГ
 --     is trivial pointwise; at total loss over a pointed connected
 --     codomain the product collapses to one factor.  Both are
 --     transports of the poles already proved in SamraksakaGana and are

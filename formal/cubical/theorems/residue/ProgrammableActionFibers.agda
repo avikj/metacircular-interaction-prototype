@@ -119,7 +119,7 @@ module _ {Program : Type ℓp} {Data : Type ℓx} {Output : Type ℓy}
 ------------------------------------------------------------------------
 -- 4. The hostile phase control at the reduced cut
 --
--- `dephase�` is the exact algebraic shadow of discarding the orthogonal
+-- `dephaseℤ` is the exact algebraic shadow of discarding the orthogonal
 -- collision record.  The two global phase states survive as distinct inputs,
 -- but the reduced chart identifies them.  This does not formalize Hilbert
 -- spaces or partial trace; the note supplies the standard inner-product

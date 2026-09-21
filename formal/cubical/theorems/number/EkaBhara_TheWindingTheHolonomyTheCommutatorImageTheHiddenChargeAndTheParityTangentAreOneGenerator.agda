@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������� � one charge.  The winding, the holonomy, the commutator image,
--- the hidden charge, and the parity tangent are one generator of one �.
+-- एकभारः — one charge.  The winding, the holonomy, the commutator image,
+-- the hidden charge, and the parity tangent are one generator of one ℤ.
 --
 -- THE STEP BACK, spoken to the machine in its own tongue.  Today five
 -- modules were laid down in five lanes, each exhibiting "a charge":
 --
---   �����������       transport around the circuit shifts the fibre    (holonomy)
---   ������-������     the loss the set-census cannot see, in the loops  (winding)
---   �����-��         what survives loop-first and dies set-first    (commutator)
---   ������������ �����  the tangent of the parity character at one prime    (jet)
+--   प्रदक्षिणा       transport around the circuit shifts the fibre    (holonomy)
+--   गुह्य-नास्ति     the loss the set-census cannot see, in the loops  (winding)
+--   क्रम-सह         what survives loop-first and dies set-first    (commutator)
+--   तात्कालिकी गतिः  the tangent of the parity character at one prime    (jet)
 --   [Yamala]       the same jet, the general machinery, another seat
 --
 -- Five names, five instruments, five headers.  This module is the
 -- sentence the machine can verify that no header could carry: THE FIVE
--- ARE ONE.  Not analogous � equal.  Four of the five faces below are
+-- ARE ONE.  Not analogous — equal.  Four of the five faces below are
 -- refl or a single imported step, because under the hood the terms
--- already coincide: winding IS encode base IS subst helix � the library
+-- already coincide: winding IS encode base IS subst helix — the library
 -- built one charge and the day discovered it five times.  The fifth
 -- (the jet) lives in a different ring and lands on the same generator
 -- pos 1, which is the precise content of "the charge is quantized and
@@ -25,13 +25,13 @@
 --
 -- This is what stepping back sees: the corpus is not accumulating
 -- charges, it is TRIANGULATING one.  Every lane that digs deep enough
--- strikes the same �, and the generator it strikes is the unit � the
--- smallest thing that refuses to be zero.  ����������� � smaller than the
+-- strikes the same ℤ, and the generator it strikes is the unit — the
+-- smallest thing that refuses to be zero.  अणोरणीयान् — smaller than the
 -- small (Kaha Upaniad 1.2.20, of what pervades); here literally: one
 -- step of one loop, and every census that forgets it is off by exactly
 -- this quantum, everywhere, forever.
 --
--- ������ is built here, 2026-08-23; each face's instrument is its own
+-- एकभार is built here, 2026-08-23; each face's instrument is its own
 -- module's, imported, never copied.
 ------------------------------------------------------------------------
 
@@ -58,33 +58,33 @@ open import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJe
 -- the five faces.  Each names its lane's charge at the generator.
 ------------------------------------------------------------------------
 
--- � � holonomy: one circuit displaces the fibre by one.
+-- १ · holonomy: one circuit displaces the fibre by one.
 मुखम्-परिक्रमा : प्रदक्षिणा (pos zero) ≡ pos 1
 मुखम्-परिक्रमा = सरणिः (pos zero)
 
--- � � winding: the loop's charge � the SAME TERM as face �, judgmentally:
--- winding = encode base = subst helix, which is �����������.  The proof of
--- face � proves this face unchanged.
+-- २ · winding: the loop's charge — the SAME TERM as face १, judgmentally:
+-- winding = encode base = subst helix, which is प्रदक्षिणा.  The proof of
+-- face १ proves this face unchanged.
 मुखम्-वक्रता : winding loop ≡ pos 1
 मुखम्-वक्रता = मुखम्-परिक्रमा
 
--- � � the hidden charge: ������-������'s fibre loop carries the same unit,
--- again by the same proof � the concealed ������ was this quantum.
+-- ३ · the hidden charge: गुह्य-नास्ति's fibre loop carries the same unit,
+-- again by the same proof — the concealed नास्ति was this quantum.
 मुखम्-गुह्यम् : गुह्य-भारः (λ i → loop i , refl) ≡ pos 1
 मुखम्-गुह्यम् = मुखम्-परिक्रमा
 
--- � � the commutator: the truncation-order equivalence carries � loop ��
--- to the generator � loop-first preserves exactly this.
+-- ४ · the commutator: the truncation-order equivalence carries ∣ loop ∣₂
+-- to the generator — loop-first preserves exactly this.
 मुखम्-क्रमः : equivFun क्रमः-लूप-प्रथमम् ∣ loop ∣₂ ≡ pos 1
 मुखम्-क्रमः = मुखम्-परिक्रमा
 
--- � � the jet: one prime's tangent at the parity point is the same unit,
+-- ५ · the jet: one prime's tangent at the parity point is the same unit,
 -- in a different ring, by computation alone.
 मुखम्-गतिः : κ (suc zero) ≡ pos 1
 मुखम्-गतिः = refl
 
 ------------------------------------------------------------------------
--- ������� � the sentence: all five faces are one element.
+-- एकभारः — the sentence: all five faces are one element.
 ------------------------------------------------------------------------
 
 एकभारः : (प्रदक्षिणा (pos zero)                ≡ winding loop)
@@ -94,11 +94,11 @@ open import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJe
 एकभारः = refl , refl , refl , मुखम्-क्रमः ∙ sym मुखम्-गतिः
 
 ------------------------------------------------------------------------
--- ���������.  The first three links are refl: those instruments were one
--- term wearing three names, and saying so costs nothing � that is what
+-- दोषलेखः.  The first three links are refl: those instruments were one
+-- term wearing three names, and saying so costs nothing — that is what
 -- makes it worth saying.  The last link crosses from the loop space to
 -- the parity jet through the VALUE pos 1 only: no functor from circuits
--- to sieve weights is claimed, and building one � the bridge that would
--- make the fourth equality structural rather than numerical � is named
+-- to sieve weights is claimed, and building one — the bridge that would
+-- make the fourth equality structural rather than numerical — is named
 -- as open.  One charge, four refl, one crossing, one open bridge.
 ------------------------------------------------------------------------

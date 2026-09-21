@@ -7,16 +7,16 @@
 -- owner, 2026-08-19) is to lead with the tradition's term.  **There is
 -- no Indian source term for this object and none is invented.**  The
 -- object is the rank of a candidate in iterated non-dominated sorting
--- â” Goldberg 1989, and the fast-non-dominated-sort of Deb, Pratap,
--- Agarwal & Meyarivan 2002 â” and that is where it comes from.  The
+-- â€” Goldberg 1989, and the fast-non-dominated-sort of Deb, Pratap,
+-- Agarwal & Meyarivan 2002 â€” and that is where it comes from.  The
 -- naming rule's own guard says to say so rather than to attach a
 --  label to material that is not Indian; this file is an
 -- instance of that guard, and the English name is a decision, not a
--- default.  (Where the same corpus DOES have the term â” a-dhana for
--- the debt/asset reading, samacchheda for equalising divisors â” the
+-- default.  (Where the same corpus DOES have the term â€” á¹›á¹‡a-dhana for
+-- the debt/asset reading, samacchheda for equalising divisors â€” the
 -- files carry it.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- Every ordering statement on this line so far says "some earlier
 -- stratum": `Beats`, `theStrataAreOrdered`, `OrderedM`.  That is
 -- weaker than a rank, and the corpus has recorded the gap for several
@@ -33,24 +33,24 @@
 --                     complement (arbitrary decidable predicate)
 --   rankDominatorIsSmaller
 --                     **if w strictly dominates v and both are in the
---                     archive, then `rank w < rank v`** â” given enough
---                     fuel, which is `lengthL xs â‰ n`
+--                     archive, then `rank w < rank v`** â€” given enough
+--                     fuel, which is `lengthL xs â‰¤ n`
 --
 -- **WHY THE FUEL HYPOTHESIS IS NOT A BLEMISH.**  At `n = 0` the rank of
 -- everything is 0 and the statement would be false; the hypothesis
--- `lengthL xs â‰ n` makes that case VACUOUS rather than excluded,
--- because a list of length â‰ 0 is empty and has no members.  The same
+-- `lengthL xs â‰¤ n` makes that case VACUOUS rather than excluded,
+-- because a list of length â‰¤ 0 is empty and has no members.  The same
 -- hypothesis is what `fuelSuffices` already needed for termination, so
 -- the rank costs no new assumption.
 --
 -- **WHAT THE RANK BUYS OVER "SOME EARLIER STRATUM".**  A number, hence
 -- a comparison that composes: from `rank w < rank v` and
--- `rank z < rank w` one gets `rank z < rank v` by transitivity on â•,
+-- `rank z < rank w` one gets `rank z < rank v` by transitivity on â„•,
 -- whereas "beaten by a member of an earlier stratum" needs the whole
 -- stratification to chain.  It is also the form in which selection
 -- pressure is usually stated.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

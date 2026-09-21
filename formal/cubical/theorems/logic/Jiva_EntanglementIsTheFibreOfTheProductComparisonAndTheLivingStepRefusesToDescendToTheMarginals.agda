@@ -1,112 +1,112 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��� � �������� �����������, ����� � �������� ������ �
+-- जीव — संश्लेषः तुलनातन्तुः, जीवनं च अवतरणस्य निषेधः ।
 --
 -- (entanglement is the fibre of the product comparison, and life is
 --  the refusal of the descent.)
 --
 -- ONE MAP CARRIES THE WHOLE VOCABULARY.  A joint state of two parts is
--- a type J with two projections p : J � A and q : J � B, and everything
+-- a type J with two projections p : J → A and q : J → B, and everything
 -- the words below name is an officer of the single comparison map
 --
---     ⟨p,q⟩ : J � A � B.
+--     ⟨p,q⟩ : J → A × B.
 --
--- §� � THE LEDGER IS GENERAL.  For every joint whatsoever, the total
+-- §० · THE LEDGER IS GENERAL.  For every joint whatsoever, the total
 -- space of the entanglement fibres is the joint itself:
--- �_{(a,b)} fib_{⟨p,q⟩}(a,b) � J (`��������`), by the same interval trick
+-- Σ_{(a,b)} fib_{⟨p,q⟩}(a,b) ≃ J (`संकलनम्`), by the same interval trick
 -- that proves abstract 25's e_f.  Nothing double-kept, nothing dropped:
 -- the fibres carry exactly what the marginals forgot, and summing them
 -- back recovers the whole.  Applied to ⟨p,q⟩ this is the purification.
 --
--- §� � INDEPENDENCE IS THE COMPARISON BEING AN EQUIVALENCE, exhibited
--- at the product pole: for J = A � B with the two projections, the
--- comparison is definitionally the identity (�-eta), so `idIsEquiv`
+-- §१ · INDEPENDENCE IS THE COMPARISON BEING AN EQUIVALENCE, exhibited
+-- at the product pole: for J = A × B with the two projections, the
+-- comparison is definitionally the identity (Σ-eta), so `idIsEquiv`
 -- closes it with no path algebra.
 --
--- §� � ENTANGLEMENT IS THE FIBRE OF THE COMPARISON, and both failures
+-- §२ · ENTANGLEMENT IS THE FIBRE OF THE COMPARISON, and both failures
 -- are POINTED AT rather than counted, in the discipline of abstract 18
 -- (a blindness is a named identification, not a cardinality argument):
---   �������� � over the diagonal joint (J = Bool sitting in Bool � Bool
---   as j � (j , j)) the fibre over (true , false) is EMPTY: a pair of
+--   रिक्तम् — over the diagonal joint (J = Bool sitting in Bool × Bool
+--   as j ↦ (j , j)) the fibre over (true , false) is EMPTY: a pair of
 --   marginal readings the whole never realises.  The refutation is two
---   `cong`s and `true�false`.
---   ��� � over the joint that outruns its marginals (J = Bool over
---   Unit � Unit) the fibre over the one reading holds TWO NAMED POINTS,
+--   `cong`s and `true≢false`.
+--   बहु — over the joint that outruns its marginals (J = Bool over
+--   Unit × Unit) the fibre over the one reading holds TWO NAMED POINTS,
 --   distinguished by `cong fst`: a hidden degree of freedom the two
 --   marginals jointly cannot see.
 --
--- §� � CONDITIONAL CERTAINTY IS A RECONSTRUCTION, NOT A NUMBER.  On the
+-- §३ · CONDITIONAL CERTAINTY IS A RECONSTRUCTION, NOT A NUMBER.  On the
 -- diagonal joint, either reading determines the other: the recovering
 -- function is exhibited and the commuting square is `refl`.  This is
--- H(A|B) = 0 in its fibre form � what abstract 18 calls a
--- reconstruction � and on this joint it holds BOTH ways, so the joint
+-- H(A|B) = 0 in its fibre form — what abstract 18 calls a
+-- reconstruction — and on this joint it holds BOTH ways, so the joint
 -- is the graph of a bijection: the pole where every bit of marginal
--- uncertainty is shared.  The two poles (§� product, §� graph) bracket
+-- uncertainty is shared.  The two poles (§१ product, §३ graph) bracket
 -- the same two-element alphabet.
 --
--- §� � A LIVING STEP IS ONE THAT REFUSES TO DESCEND TO THE MARGINALS.
+-- §४ · A LIVING STEP IS ONE THAT REFUSES TO DESCEND TO THE MARGINALS.
 -- The word LIVING is a definition, not a metaphor, and it is total
--- here: a joint step `step : J � J` DESCENDS along p when some
--- f : A � A closes the square f ∘ p ∼ p ∘ step, and the descent
--- structure is fully characterised � a pair (f , g) simulates the step
--- exactly when each side descends separately (`�������-������`, proved in
+-- here: a joint step `step : J → J` DESCENDS along p when some
+-- f : A → A closes the square f ∘ p ∼ p ∘ step, and the descent
+-- structure is fully characterised — a pair (f , g) simulates the step
+-- exactly when each side descends separately (`युगलम्-उभयतः`, proved in
 -- BOTH directions).  Over the full product joint the controlled-not
--- step (a , b) � (a ⊕ b , b) is placed exactly: it descends on the
--- environment side by `refl` (`�������-�����`) and REFUSES on the visible
--- side (`�����`) � any candidate f is interrogated at (true , false)
+-- step (a , b) ↦ (a ⊕ b , b) is placed exactly: it descends on the
+-- environment side by `refl` (`दक्षिण-विलयः`) and REFUSES on the visible
+-- side (`जीवति`) — any candidate f is interrogated at (true , false)
 -- and (true , true), where fst agrees and fst ∘ step disagrees, and
--- the collision is `true�false`.  A fortiori no pair simulates it
--- (`�����-���������`).  Beside it, (a , b) � (not a , b) descends on
--- BOTH sides by `refl` (`�����`, `���-�������`): decoherence.  For both
+-- the collision is `true≢false`.  A fortiori no pair simulates it
+-- (`जीवति-युगलेऽपि`).  Beside it, (a , b) ↦ (not a , b) descends on
+-- BOTH sides by `refl` (`विलयः`, `मृत-युगलम्`): decoherence.  For both
 -- steps both verdicts are terms; no case is left to judgement.
 --
--- §� � THE INFORMATION EQUATION, EXACT AND EXPONENTIAL.  The identity
--- I(A;B) = log(|A�B|/|J|) is not cited and no logarithm is taken �
+-- §५ · THE INFORMATION EQUATION, EXACT AND EXPONENTIAL.  The identity
+-- I(A;B) = log(|A×B|/|J|) is not cited and no logarithm is taken —
 -- following the machine's own refusal of floats (doa 0012: exact
 -- objects only, sanna stated in the verse), it is proved in the form
--- the exact object takes: 2^I � |J| = |A|�|B| with I = 1, as an
+-- the exact object takes: 2^I · |J| = |A|·|B| with I = 1, as an
 -- equivalence rather than an equation of reals.  The living step
 -- ITSELF is that equivalence: controlled-not is an involution
--- (`����-�����`), hence an equivalence A � B � A � B (`�����-���������`),
+-- (`जीवन-द्विः`), hence an equivalence A × B ≃ A × B (`सूचना-समीकरणम्`),
 -- and it carries the diagonal joint pointwise, by `refl` per point,
--- onto the slice {parity = false} (`�����-�������`): the reading space
--- splits as (one bit) � (one copy of J), and the factor Bool IS the
+-- onto the slice {parity = false} (`कर्ण-स्थानम्`): the reading space
+-- splits as (one bit) × (one copy of J), and the factor Bool IS the
 -- mutual information, held as a type.  Two corollaries close two more
--- doors: the living step is GLOBALLY LOSSLESS while locally refusing �
+-- doors: the living step is GLOBALLY LOSSLESS while locally refusing —
 -- so life is consultation, not destruction, and irreversibility is not
--- the content of §�; and the bit is not a summary of the fibres but
--- decides them (§�).
+-- the content of §४; and the bit is not a summary of the fibres but
+-- decides them (§६).
 --
--- §� � THE ORACLE DECIDES EVERY DOOR.  In this corpus an oracle
+-- §६ · THE ORACLE DECIDES EVERY DOOR.  In this corpus an oracle
 -- separation is a theorem about what a reading consults
 -- (`OracleQueries`: a query simulated by post-processing that ignores
--- the oracle carries no charge).  Both poles of §� are placed on that
+-- the oracle carries no charge).  Both poles of §४ are placed on that
 -- axis by terms: the dead step is simulated exactly by post-processing
--- that ignores the hidden half � its square closes by `refl` � while
+-- that ignores the hidden half — its square closes by `refl` — while
 -- the living step is the checked refusal of every such simulation.
 -- And the entanglement fibres themselves are oracle-decidable: ONE
 -- query to the parity bit decides every fibre of the diagonal joint,
 --
---     fib_{diag}(a,b) � (fst (cnot (a,b)) ≡ false)      (`�����-�������`)
+--     fib_{diag}(a,b) ≃ (fst (cnot (a,b)) ≡ false)      (`द्वार-निर्णयः`)
 --
 -- proved as a propositional biimplication between prop fibres (the
 -- diagonal is injective into a set, so its fibres are propositions)
--- � the door is not open: each fibre is either contracted or refuted,
+-- — the door is not open: each fibre is either contracted or refuted,
 -- uniformly, by the bit the living step computes.
 --
--- RELATION TO THE CORPUS, checked before writing.  `Tantutrayam_�` puts
+-- RELATION TO THE CORPUS, checked before writing.  `Tantutrayam_…` puts
 -- the three fibre verdicts over ONE codomain with three maps; here the
 -- same three verdicts (contractible / empty / two-point) occur as
 -- readings of ONE construction, the product comparison, varying the
 -- joint.  `Durnaya_CollapseIffEveryNayaAgrees` is the standpoint-level
--- statement of §�'s ���: both-inhabited is not identifiable.
--- `OracleQueries.fe-simulated-by-constant` is the shape §�'s dead pole
+-- statement of §२'s बहु: both-inhabited is not identifiable.
+-- `OracleQueries.fe-simulated-by-constant` is the shape §६'s dead pole
 -- instantiates.  Abstract 25's lossless completion applied to ⟨p,q⟩ is
--- §�'s `��������`, and its trace-is-fibre discipline is why §� states the
+-- §०'s `संकलनम्`, and its trace-is-fibre discipline is why §५ states the
 -- information exponentially instead of numerically.
 --
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 � the repository pin.
+-- CHECKED: Agda 2.8.0 + agda/cubical v0.9 — the repository pin.
 -- --cubical --guardedness --safe, no postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
@@ -129,7 +129,7 @@ private
     ℓ : Level
 
 ------------------------------------------------------------------------
--- � � the comparison map, and the general ledger.
+-- ० · the comparison map, and the general ledger.
 ------------------------------------------------------------------------
 
 module _ {J A B : Type ℓ} (p : J → A) (q : J → B) where
@@ -146,8 +146,8 @@ module _ {J A B : Type ℓ} (p : J → A) (q : J → B) where
   संश्लेष-तन्तुः = fiber तुलना
 
   -- the ledger: the joint is the sum of its entanglement fibres.
-  -- nothing double-kept, nothing dropped � the same interval trick,
-  -- λ i � (pth i , j , λ k � pth (i ∧ k)), that proves abstract 25's
+  -- nothing double-kept, nothing dropped — the same interval trick,
+  -- λ i → (pth i , j , λ k → pth (i ∧ k)), that proves abstract 25's
   -- e_f, here read as: purifying and then forgetting is the identity.
   संकलनम् : Iso (Σ (A × B) संश्लेष-तन्तुः) J
   संकलनम् = iso (λ (_ , j , _) → j)
@@ -156,19 +156,19 @@ module _ {J A B : Type ℓ} (p : J → A) (q : J → B) where
                 (λ (ab , j , pth) i → (pth i , j , λ k → pth (i ∧ k)))
 
 ------------------------------------------------------------------------
--- � � the product pole: the comparison is the identity, definitionally.
+-- १ · the product pole: the comparison is the identity, definitionally.
 ------------------------------------------------------------------------
 
 घट-तुलना : Bool × Bool → Bool × Bool
 घट-तुलना = तुलना fst snd
 
--- �-eta makes ⟨fst , snd⟩ definitionally the identity, so independence
+-- Σ-eta makes ⟨fst , snd⟩ definitionally the identity, so independence
 -- of the product joint is `idIsEquiv` with nothing to transport.
 घटः-स्वतन्त्रः : isEquiv घट-तुलना
 घटः-स्वतन्त्रः = idIsEquiv (Bool × Bool)
 
 ------------------------------------------------------------------------
--- � � the diagonal joint: an EMPTY fibre, named.
+-- २ · the diagonal joint: an EMPTY fibre, named.
 ------------------------------------------------------------------------
 
 -- J = Bool, both projections the identity: the support {(t,t),(f,f)}.
@@ -188,13 +188,13 @@ module _ {J A B : Type ℓ} (p : J → A) (q : J → B) where
 
 -- the diagonal is injective into a set, so every entanglement fibre of
 -- this joint is a proposition: each door is either open or walled, and
--- §� decides which, uniformly.
+-- §६ decides which, uniformly.
 कर्ण-तन्तुः-वाक्यम् : (ab : Bool × Bool) → isProp (fiber कर्ण-तुलना ab)
 कर्ण-तन्तुः-वाक्यम् =
   injective→hasPropFibers (isSet× isSetBool isSetBool) (λ pth → cong fst pth)
 
 ------------------------------------------------------------------------
--- � � the joint that outruns its marginals: a TWO-POINT fibre, named.
+-- ३ · the joint that outruns its marginals: a TWO-POINT fibre, named.
 ------------------------------------------------------------------------
 
 -- J = Bool over the one-point parts: two globally distinct situations
@@ -211,13 +211,13 @@ module _ {J A B : Type ℓ} (p : J → A) (q : J → B) where
 गूढौ-भिन्नौ pth = true≢false (cong fst pth)
 
 ------------------------------------------------------------------------
--- � � conditional certainty is a reconstruction: H(A|B) = 0 as a term.
+-- ४ · conditional certainty is a reconstruction: H(A|B) = 0 as a term.
 ------------------------------------------------------------------------
 
 -- on the diagonal joint, the reading of B determines A: the recovering
 -- function is exhibited and the square commutes by refl.  By symmetry
 -- of the construction the same term is the other direction, so the
--- joint is the graph of a bijection � the pole where the part's
+-- joint is the graph of a bijection — the pole where the part's
 -- uncertainty is entirely the whole's information.
 प्रत्यानयनम् : Bool → Bool
 प्रत्यानयनम् b = b
@@ -226,7 +226,7 @@ module _ {J A B : Type ℓ} (p : J → A) (q : J → B) where
 प्रत्यानयन-साक्षी j = refl
 
 ------------------------------------------------------------------------
--- � � the living step: no marginal endomap simulates it.
+-- ५ · the living step: no marginal endomap simulates it.
 ------------------------------------------------------------------------
 
 _⊕_ : Bool → Bool → Bool
@@ -240,7 +240,7 @@ true  ⊕ b = not b
 
 -- descent along a projection: some endomap of the part closing the
 -- square against the step.  Descent along fst is simulation of the
--- visible half by post-processing that ignores the hidden half � the
+-- visible half by post-processing that ignores the hidden half — the
 -- oracle-free reading, in OracleQueries' sense.
 अवतरणम् दक्षिण-अवतरणम् : (Bool × Bool → Bool × Bool) → Type
 अवतरणम् step =
@@ -255,7 +255,7 @@ true  ⊕ b = not b
 
 -- the descent structure is fully characterised: a pair simulates the
 -- step exactly when each side descends separately.  Both directions
--- are terms, so §�'s definition leaves no case to judgement.
+-- are terms, so §४'s definition leaves no case to judgement.
 युगलम्-उभयतः : (s : Bool × Bool → Bool × Bool)
              → (युगल-अवतरणम् s → अवतरणम् s × दक्षिण-अवतरणम् s)
              × (अवतरणम् s × दक्षिण-अवतरणम् s → युगल-अवतरणम् s)
@@ -265,7 +265,7 @@ true  ⊕ b = not b
 
 -- THE THEOREM.  The two interrogating configurations share their
 -- visible half and split their hidden half; any simulator must answer
--- both with one value, and the collision is true�false.
+-- both with one value, and the collision is true≢false.
 जीवति : ¬ अवतरणम् जीवन-पदम्
 जीवति (f , h) = true≢false (sym (h (true , false)) ∙ h (true , true))
 
@@ -280,7 +280,7 @@ true  ⊕ b = not b
 दक्षिण-विलयः = (λ b → b) , λ j → refl
 
 ------------------------------------------------------------------------
--- � � beside it, the decoherent step: descent on both sides by refl.
+-- ६ · beside it, the decoherent step: descent on both sides by refl.
 ------------------------------------------------------------------------
 
 मृत-पदम् : Bool × Bool → Bool × Bool
@@ -294,10 +294,10 @@ true  ⊕ b = not b
 
 -- the contrast is the content: same joint, same projections, one step
 -- provably inseparable and one separable, and the difference is not a
--- number but a term � whether the square closes.
+-- number but a term — whether the square closes.
 
 ------------------------------------------------------------------------
--- � � the information equation, exact and exponential.
+-- ७ · the information equation, exact and exponential.
 ------------------------------------------------------------------------
 
 -- controlled-not is an involution: consulting the same oracle twice
@@ -310,14 +310,14 @@ true  ⊕ b = not b
 
 -- so the LIVING step is an EQUIVALENCE of the whole reading space:
 -- globally lossless, locally refusing.  Life is consultation, not
--- destruction � the step that no marginal simulates loses nothing.
+-- destruction — the step that no marginal simulates loses nothing.
 सूचना-समीकरणम् : (Bool × Bool) ≃ (Bool × Bool)
 सूचना-समीकरणम् = isoToEquiv (iso जीवन-पदम् जीवन-पदम् जीवन-द्विः जीवन-द्विः)
 
 -- and under it the diagonal joint occupies exactly the slice
 -- {parity = false}, pointwise by refl: the reading space is (one bit)
--- � (one copy of the joint), which is 2^I � |J| = |A|�|B| with I = 1
--- held as a TYPE � the mutual information in the exact, exponential
+-- × (one copy of the joint), which is 2^I · |J| = |A|·|B| with I = 1
+-- held as a TYPE — the mutual information in the exact, exponential
 -- form, with no logarithm taken and no real number invoked.
 कर्ण-स्थानम् : (j : Bool) → जीवन-पदम् (कर्ण-तुलना j) ≡ (false , j)
 कर्ण-स्थानम् false = refl
@@ -329,8 +329,8 @@ true  ⊕ b = not b
 ⊕-अन्वयः false = refl
 ⊕-अन्वयः true  = refl
 
--- THE ORACLE DECIDES EVERY DOOR.  One query to the parity bit � the
--- bit the living step computes � decides every entanglement fibre of
+-- THE ORACLE DECIDES EVERY DOOR.  One query to the parity bit — the
+-- bit the living step computes — decides every entanglement fibre of
 -- the diagonal joint: fibre and answer are equivalent propositions.
 -- No fibre is left undetermined; each is contracted or refuted by the
 -- same uniform reading.

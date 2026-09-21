@@ -4,20 +4,20 @@
 -- OneStepDecidesResonanceAndNoPrefixDecidesDecay
 --
 -- `interactive/QuestionMachine.hs` opens by saying "Agda holds the theorems;
--- this holds the run. Every function here has a checked counterpart â¦
+-- this holds the run. Every function here has a checked counterpart â€¦
 -- Nothing is measured: the output is a replay of statements that are
 -- already proved."  One of its functions is not a replay, and the two
 -- halves of why are proved here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT I READ, AND WHAT IT SHOWED
 --
 -- `KFlow`, signatures and proof bodies:
 --
---   Contracting f = (n : â•) â’ 0 < n â’ f n < n
---   decay      : (f) â’ Contracting f â’ (n) â’ Î[ k ] iterate f k n â‰¡ 0
+--   Contracting f = (n : â„•) â†’ 0 < n â†’ f n < n
+--   decay      : (f) â†’ Contracting f â†’ (n) â†’ Î£[ k ] iterate f k n â‰¡ 0
 --   Stationary f n = f n â‰¡ n
---   resonance  : (f) (n) â’ Stationary f n â’ (k) â’ iterate f k n â‰¡ n
+--   resonance  : (f) (n) â†’ Stationary f n â†’ (k) â†’ iterate f k n â‰¡ n
 --
 -- Every one of those is conditional on a GLOBAL property of `f`.  The
 -- shelf's `flowVerdict` takes no such hypothesis: it computes 64 iterates
@@ -26,7 +26,7 @@
 -- replay of `KFlow`; it is a finite approximation of a statement `KFlow`
 -- proves under hypotheses the run cannot check.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE TWO HALVES, AND THEY GO OPPOSITE WAYS
 --
 -- Â§1  RESONANCE: one comparison decides it.  `Stationary f n` is
@@ -38,10 +38,10 @@
 -- Â§2  DECAY: no prefix decides it.  For EVERY prefix length N there is a
 --     contracting `f` and a start whose orbit is nowhere 0 within N and
 --     is 0 at N+1.  So `any (== 0)` over a prefix is sound and
---     INCOMPLETE, and the "otherwise âŸ branching" catch-all is unsound:
+--     INCOMPLETE, and the "otherwise âŸ¹ branching" catch-all is unsound:
 --     the same witness is labelled branching while it decays.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -112,7 +112,7 @@ noPrefixDecidesDecay N =
 ------------------------------------------------------------------------
 -- 3.  What the two halves say together
 --
--- The finite resonance test is exact â” and 63 of the shelf's 64
+-- The finite resonance test is exact â€” and 63 of the shelf's 64
 -- comparisons buy nothing, because `f n â‰¡ n` already gives the orbit.
 -- The finite decay test is sound and incomplete at every length, so the
 -- branch that fires when it fails cannot be "branching": failure to see
@@ -120,7 +120,7 @@ noPrefixDecidesDecay N =
 --
 -- The repair is not a bigger prefix.  Â§2 is quantified over N, so no
 -- constant fixes it; what fixes it is checking the HYPOTHESIS `KFlow`
--- actually assumes â” `Contracting f` â” which `decIsContracting`
+-- actually assumes â€” `Contracting f` â€” which `decIsContracting`
 -- discharges in one line for this witness.  A run cannot check that for
 -- an arbitrary `f`, which is the honest reason the shelf's verdict is a
 -- report and not a replay.

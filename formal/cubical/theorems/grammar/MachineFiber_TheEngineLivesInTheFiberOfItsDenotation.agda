@@ -1,41 +1,41 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-������ � ������� ���-����-����� ���� �
+-- यन्त्र-तन्तुः — यन्त्रं स्व-अर्थ-तन्तौ वसति ।
 --
 -- (the engine lives in the fiber of its own denotation.)
 --
 -- `Tantujala_TheFiberHasThreeVerdictsAndIsContrMergesTwoOfThem` states the
 -- criterion: WHICH SIDE OF `f a ≡ b` IS BOUND.  Bind b and you have
--- `singl`, ����� always and free.  Bind a and you have `fiber`, which is
--- any of the three � ��������, �����, ���.
+-- `singl`, एकम् always and free.  Bind a and you have `fiber`, which is
+-- any of the three — रिक्तम्, एकम्, बहु.
 --
 -- `interactive/MathMachine.hs` is a fiber navigator and did not know it.  Its
 -- denotation map is ⟦_⟧, terms to meanings, and every organ it has is a
 -- response to one of the three verdicts on that map's fibers:
 --
---   ���      many terms, one meaning.  THIS IS WHERE THE ENGINE LIVES.
+--   बहु      many terms, one meaning.  THIS IS WHERE THE ENGINE LIVES.
 --            Its rewrite rules move inside one fiber and never leave it
---            (§� is `Alopa.������` read as a fiber statement), and ����� �
---            the size it is trying to reduce � is a function ON the fiber
+--            (§४ is `Alopa.अलोपः` read as a fiber statement), and लाघव —
+--            the size it is trying to reduce — is a function ON the fiber
 --            which the base cannot see at all (`Laghava`:
 --            no function of the denotation computes the size).  Searching
---            inside a ��� fiber is the whole of what the engine does.
---   ��������   no term denotes this meaning.  §� exhibits one: with this
+--            inside a बहु fiber is the whole of what the engine does.
+--   रिक्तम्   no term denotes this meaning.  §५ exhibits one: with this
 --            vocabulary every term vanishes at the zero environment, so
 --            the constant 1 has an EMPTY fiber.  No amount of rewriting
 --            reaches it.  This is the exact condition under which
---            inventing a symbol is the only move � and the engine's
+--            inventing a symbol is the only move — and the engine's
 --            invention step currently fires on a description-length gain
---            instead, which is a fact about ��� and says nothing about
---            ��������.
---   �����     nothing to search; the datum rides free.
+--            instead, which is a fact about बहु and says nothing about
+--            रिक्तम्.
+--   एकम्     nothing to search; the datum rides free.
 --
 -- AND THE SAMPLER BINDS NEITHER SIDE.  The engine's conjecture step draws
 -- forty environments and compares.  An environment is a point of `Env`,
--- and `Env` is the DOMAIN of the meanings � neither the a nor the b of
+-- and `Env` is the DOMAIN of the meanings — neither the a nor the b of
 -- the equation whose fiber is being asked about.  So the criterion
--- explains the failure that `Alopa` §� exhibits: `var 0` and `var 1`
+-- explains the failure that `Alopa` §८ exhibits: `var 0` and `var 1`
 -- agree on every constant environment, infinitely many samples, all
 -- confirming, and they are not equal.  More samples cannot help because
 -- samples are not on the axis.
@@ -49,7 +49,7 @@
 -- also checks here.
 ------------------------------------------------------------------------
 
-module YantraTantu_TheEngineLivesInTheFiberOfItsDenotation where
+module MachineFiber_TheEngineLivesInTheFiberOfItsDenotation where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (fiber)
@@ -66,7 +66,7 @@ open import Tantujala_TheFiberHasThreeVerdictsAndIsContrMergesTwoOfThem
   using (रिक्तम् ; एकम् ; बहु ; वहनम् ; प्रतिबिम्बम् ; वहनम्-सदा-एकम् ; प्रतिबिम्बम्-तन्तुः)
 
 ------------------------------------------------------------------------
--- � � ����� � the engine's denotation map, and it is the one that matters
+-- १ · अर्थः — the engine's denotation map, and it is the one that matters
 ------------------------------------------------------------------------
 
 अर्थ : Type₀
@@ -76,7 +76,7 @@ open import Tantujala_TheFiberHasThreeVerdictsAndIsContrMergesTwoOfThem
 ⟦ t ⟧ ρ = eval ρ t
 
 ------------------------------------------------------------------------
--- � � �������� ������ ������ � the criterion, at this map
+-- २ · कस्मिन् पक्षे बद्धम् — the criterion, at this map
 --
 -- A rule carries its certificate, so it binds the MEANING side: what is
 -- being asserted is "there is a meaning, and it is this one".  Free, by
@@ -92,7 +92,7 @@ open import Tantujala_TheFiberHasThreeVerdictsAndIsContrMergesTwoOfThem
 अनुमान-बन्धः = प्रतिबिम्बम्-तन्तुः ⟦_⟧
 
 ------------------------------------------------------------------------
--- � � ��� � where the engine lives, exhibited
+-- ३ · बहु — where the engine lives, exhibited
 ------------------------------------------------------------------------
 
 वाम दक्षिण : Term
@@ -110,7 +110,7 @@ private
 भिन्नौ : ¬ (वाम ≡ दक्षिण)
 भिन्नौ p = true≢false (cong आदिः-शून्यः p)
 
--- two distinct terms, one meaning: the fiber over ⟦ ��� ⟧ has two points
+-- two distinct terms, one meaning: the fiber over ⟦ वाम ⟧ has two points
 यन्त्रस्य-वासः : बहु ⟦_⟧ ⟦ वाम ⟧
 यन्त्रस्य-वासः =
     (वाम , refl)
@@ -118,10 +118,10 @@ private
   , λ p → भिन्नौ (cong fst p)
 
 ------------------------------------------------------------------------
--- � � ������, read as a fiber statement
+-- ४ · अलोपः, read as a fiber statement
 --
 -- The run does not leave the fiber it started in.  This is not a new
--- theorem: it is `Alopa.������` with `funExt` in front of it, which is the
+-- theorem: it is `Alopa.अलोपः` with `funExt` in front of it, which is the
 -- honest amount of work a correct joint takes.
 ------------------------------------------------------------------------
 
@@ -131,7 +131,7 @@ private
   normalize n rs t , funExt (λ ρ → अलोपः n rs ρ t)
 
 ------------------------------------------------------------------------
--- � � �������� � a meaning this vocabulary cannot reach, and the proof
+-- ५ · रिक्तम् — a meaning this vocabulary cannot reach, and the proof
 --     that no rewriting will ever reach it
 ------------------------------------------------------------------------
 
@@ -153,14 +153,14 @@ private
 अप्राप्यम् (t , p) = znots (sym (सर्वं-शून्ये-लीयते t) ∙ funExt⁻ p शून्य-परिस्थितिः)
 
 ------------------------------------------------------------------------
--- � � ���� � what this does not settle
+-- ६ · शेषः — what this does not settle
 --
 -- It does not say the engine's invention step is wrong, only that its
 -- trigger is measured on the wrong verdict: `kConceptGain` is a
--- description-length gain, a quantity about ���, and �������� is the
+-- description-length gain, a quantity about बहु, and रिक्तम् is the
 -- condition under which invention is the ONLY move.  Nothing here
--- computes �������� for the engine's real vocabulary, and §� is one
--- witness, not a decision procedure.  `Tantujala` §� is also in force:
+-- computes रिक्तम् for the engine's real vocabulary, and §५ is one
+-- witness, not a decision procedure.  `Tantujala` §७ is also in force:
 -- where there is no map there is no fiber, and the engine's own
 -- "no question was posed" case is not on this axis.
 ------------------------------------------------------------------------

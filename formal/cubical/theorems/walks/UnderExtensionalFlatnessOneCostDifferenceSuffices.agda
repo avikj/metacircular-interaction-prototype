@@ -13,11 +13,11 @@
 --
 -- Â§2 is what the pairing gives, and it is sharper than the general
 -- non-factoring lemma: under flatness, EVERY pair of orders is already a
--- collision, so a SINGLE cost difference â” anywhere â” refutes the
+-- collision, so a SINGLE cost difference â€” anywhere â€” refutes the
 -- existence of a decoder from result to cost.  No collision has to be
 -- hunted for.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS ADDS TO THE STANDING LEMMA
 --
 -- `TranscriptDescent.collisionObstructsDecoder` needs two objects the
@@ -34,7 +34,7 @@
 -- HYPOTHESIS: flatness makes collisions universal, which is why one
 -- difference suffices.  Same lemma downstream, different work upstream.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -80,8 +80,8 @@ module _ (Order Result Cost : Type)
 -- 3.  The limit, stated so Â§2 is not read as more than it is
 --
 -- Flatness does NOT by itself refute the decoder.  If the cost is also
--- constant, the decoder exists â” take the constant function â” and Â§2's
--- hypothesis `Â (cost o â‰¡ cost o')` is unsatisfiable.  So Â§2 is exactly:
+-- constant, the decoder exists â€” take the constant function â€” and Â§2's
+-- hypothesis `Â¬ (cost o â‰¡ cost o')` is unsatisfiable.  So Â§2 is exactly:
 -- flatness converts ANY observed cost difference into an obstruction,
 -- and supplies no obstruction on its own.
 --

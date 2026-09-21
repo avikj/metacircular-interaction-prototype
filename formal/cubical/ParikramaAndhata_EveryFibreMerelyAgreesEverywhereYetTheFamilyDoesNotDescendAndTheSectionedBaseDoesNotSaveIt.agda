@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡ø‡ï‡‡∞‡Æ‡æ-‡‡®‡‡ß‡‡æ ‚î blindness to the circumambulation.  Compound built
--- here, 2026-08-23 (‡‡∞‡ø‡ï‡‡∞‡Æ‡æ, the walk around; ‡‡®‡‡ß‡‡æ, blindness); not a
+-- ‡§™‡§∞‡§ø‡§ï‡•ç‡§∞‡§Æ‡§æ-‡§Ö‡§®‡•ç‡§ß‡§§‡§æ ‚Äî blindness to the circumambulation.  Compound built
+-- here, 2026-08-23 (‡§™‡§∞‡§ø‡§ï‡•ç‡§∞‡§Æ‡§æ, the walk around; ‡§Ö‡§®‡•ç‡§ß‡§§‡§æ, blindness); not a
 -- source term.  The reading is the temple practice: what you acquire by
 -- walking the loop around the shrine is real and is invisible at every
 -- single point of the path.
 --
--- WHAT THIS IS.  The corpus's stage-1 descent organs ‚î ‡‡‡¶-‡‡æ‡ß‡
--- (NigudhaAndhata) and ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ (AvataranaBhanga) ‚î detect
+-- WHAT THIS IS.  The corpus's stage-1 descent organs ‚Äî ‡§≠‡•á‡§¶-‡§¨‡§æ‡§ß‡§É
+-- (NigudhaAndhata) and ‡§Ö‡§µ‡§§‡§∞‡§£-‡§≠‡§ô‡•ç‡§ó-‡§∏‡§æ‡§Æ‡§æ‡§®‡•ç‡§Ø‡§Æ‡•ç (AvataranaBhanga) ‚Äî detect
 -- non-descent from ONE hypothesis: a blind pair whose fibres are not
 -- equivalent.  The transmission of 2026-08-23 names the next stage as
 -- the organ nobody has: descent failing while every pair of fibres IS
@@ -18,28 +18,28 @@
 -- module is that witness, checked:
 --
 --   the double cover of the circle, as a family over the maximally
---   blind observation ‡¶‡‡ï‡ : S¬ ‚í Unit ‚î
+--   blind observation ‡§¶‡•É‡§ï‡•ç : S¬π ‚Üí Unit ‚Äî
 --
 --   ¬ß1  every fibrewise organ is PROVABLY SILENT: all fibres merely
---       agree, (x y : S¬) ‚í ‚à ‡ï‡‡‡‡°‡≤‡ x ‚â ‡ï‡‡‡‡°‡≤‡ y ‚à‚, so the stage-1
---       premise ¬(F x ‚â F y) is refuted at every pair (‡Æ‡‡®‡Æ‡-‡‡®‡‡¶‡‡∞‡ø‡Ø‡‡‡Ø);
+--       agree, (x y : S¬π) ‚Üí ‚à• ‡§ï‡•Å‡§£‡•ç‡§°‡§≤‡•Ä x ‚âÉ ‡§ï‡•Å‡§£‡•ç‡§°‡§≤‡•Ä y ‚à•‚ÇÅ, so the stage-1
+--       premise ¬¨(F x ‚âÉ F y) is refuted at every pair (‡§Æ‡•å‡§®‡§Æ‡•ç-‡§á‡§®‡•ç‡§¶‡•ç‡§∞‡§ø‡§Ø‡§∏‡•ç‡§Ø);
 --   ¬ß2  one circumambulation carries a charge: transport of the family
---       around the base loop is `not`, by uaŒ≤ (‡‡∞‡ø‡ï‡‡∞‡Æ‡æ-‡‡µ‡‡‡);
+--       around the base loop is `not`, by uaŒ≤ (‡§™‡§∞‡§ø‡§ï‡•ç‡§∞‡§Æ‡§æ-‡§Ü‡§µ‡•á‡§∂‡§É);
 --   ¬ß3  descent through ANY observation into Unit forces every loop's
---       transport to be the identity (‡‡Æ‡®‡Æ‡, generic in the family);
---   ¬ß4  so the family does not descend (‡‡∞‡ø‡ï‡‡∞‡Æ‡æ-‡‡æ‡ß‡): true ‚â° false.
+--       transport to be the identity (‡§∂‡§Æ‡§®‡§Æ‡•ç, generic in the family);
+--   ¬ß4  so the family does not descend (‡§™‡§∞‡§ø‡§ï‡•ç‡§∞‡§Æ‡§æ-‡§¨‡§æ‡§ß‡§É): true ‚â° false.
 --
 -- THE ASYMMETRY THIS EXPOSES, and it is the point no lane has stated.
--- ChidraDosa (this corpus) proves the VALUE-level stage-2 witness ‚î a
--- map with pointwise invariance data and no coherent decoder ‚î and its
+-- ChidraDosa (this corpus) proves the VALUE-level stage-2 witness ‚Äî a
+-- map with pointwise invariance data and no coherent decoder ‚Äî and its
 -- ¬ß2 (`sectionKillsTheGap`) proves that gap CANNOT live over a base
 -- with a section: "over a trivial base the decoder is t ‚àò section ‚àò
--- fst.  The gap needs monodromy" ‚î needs it in the BASE MAP.  Here the
--- observation ‡¶‡‡ï‡ : S¬ ‚í Unit has an obvious section, and the
+-- fst.  The gap needs monodromy" ‚Äî needs it in the BASE MAP.  Here the
+-- observation ‡§¶‡•É‡§ï‡•ç : S¬π ‚Üí Unit has an obvious section, and the
 -- DEPENDENT gap lives on it anyway: a section rescues value-level
 -- factorization and rescues nothing at the type level, because a
--- decoder for a FAMILY needs a path ‡ï‡‡‡‡°‡≤‡ x ‚â° D tt at every x ‚î
--- exactly the trivialization the monodromy forbids ‚î while a decoder
+-- decoder for a FAMILY needs a path ‡§ï‡•Å‡§£‡•ç‡§°‡§≤‡•Ä x ‚â° D tt at every x ‚Äî
+-- exactly the trivialization the monodromy forbids ‚Äî while a decoder
 -- for a map needs only a value, which the section supplies.  So:
 --
 --   value descent over a sectioned base:   free      (ChidraDosa ¬ß2)
@@ -53,11 +53,11 @@
 -- SOURCES AND SCOPE.  The double cover is classical topology; its
 -- cubical form (F base = Bool, F (loop i) = ua notEquiv i) is the
 -- standard first nontrivial family, and the adjacent phenomenon for
--- values is Kraus‚ìEscard≥‚ìCoquand‚ìAltenkirch (LMCS 2017), already
+-- values is Kraus‚ÄìEscard√≥‚ÄìCoquand‚ÄìAltenkirch (LMCS 2017), already
 -- cited by ChidraDosa.  NOVELTY CLAIMED: none of the mathematics; the
--- composition ‚î the dependent stage-2 witness in the corpus's own
+-- composition ‚Äî the dependent stage-2 witness in the corpus's own
 -- Desc vocabulary, the organ-silence term beside it, and the
--- section asymmetry against ChidraDosa ‚î is the contribution.
+-- section asymmetry against ChidraDosa ‚Äî is the contribution.
 ------------------------------------------------------------------------
 
 module ParikramaAndhata_EveryFibreMerelyAgreesEverywhereYetTheFamilyDoesNotDescendAndTheSectionedBaseDoesNotSaveIt where
@@ -109,8 +109,8 @@ private
       (isConnectedS¬π y))
     (isConnectedS¬π x)
 
--- so the stage-1 premise is refuted at EVERY pair: ‡‡‡¶-‡‡æ‡ß‡ and
--- ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ can never fire on this family.
+-- so the stage-1 premise is refuted at EVERY pair: ‡§≠‡•á‡§¶-‡§¨‡§æ‡§ß‡§É and
+-- ‡§Ö‡§µ‡§§‡§∞‡§£-‡§≠‡§ô‡•ç‡§ó-‡§∏‡§æ‡§Æ‡§æ‡§®‡•ç‡§Ø‡§Æ‡•ç can never fire on this family.
 ‡§Æ‡•å‡§®‡§Æ‡•ç-‡§á‡§®‡•ç‡§¶‡•ç‡§∞‡§ø‡§Ø‡§∏‡•ç‡§Ø : (x y : S¬π) ‚Üí ¬¨ ¬¨ (‡§ï‡•Å‡§£‡•ç‡§°‡§≤‡•Ä x ‚âÉ ‡§ï‡•Å‡§£‡•ç‡§°‡§≤‡•Ä y)
 ‡§Æ‡•å‡§®‡§Æ‡•ç-‡§á‡§®‡•ç‡§¶‡•ç‡§∞‡§ø‡§Ø‡§∏‡•ç‡§Ø x y k = PT.rec Empty.isProp‚ä• k (‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ x y)
 
@@ -122,7 +122,7 @@ private
 ‡§™‡§∞‡§ø‡§ï‡•ç‡§∞‡§Æ‡§æ-‡§Ü‡§µ‡•á‡§∂‡§É = uaŒ≤ notEquiv
 
 ------------------------------------------------------------------------
--- ¬ß3  Descent extinguishes every loop charge ‚î generic in the family.
+-- ¬ß3  Descent extinguishes every loop charge ‚Äî generic in the family.
 ------------------------------------------------------------------------
 
 module _ {C : Type ‚Ñì} (G : S¬π ‚Üí Type ‚Ñì) (comm : (x : S¬π) ‚Üí G x ‚â° C) where

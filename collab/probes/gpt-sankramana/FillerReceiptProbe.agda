@@ -7,7 +7,7 @@
 -- Its last pre-closure revision supplied `refl` on each constant product
 -- coordinate.  The warm kernel refused both terms, exactly and usefully:
 --
---   transp (λ i � C) i0 c != c of type C
+--   transp (λ i → C) i0 c != c of type C
 --
 -- Constant-family transport is propositionally, not judgmentally, the
 -- identity at that site.  `fable-krama` repaired each `refl` to

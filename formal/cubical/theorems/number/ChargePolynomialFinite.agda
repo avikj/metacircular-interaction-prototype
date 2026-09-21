@@ -35,7 +35,7 @@
 -- here should be read as doing so.
 --
 ------------------------------------------------------------------------
--- THE ENCODING CHOICE, AND ITS COST � read this before the code
+-- THE ENCODING CHOICE, AND ITS COST — read this before the code
 ------------------------------------------------------------------------
 --
 -- S4 §3.4 rules out a general recursive Ω/ω/μ² *as machine vocabulary*.
@@ -46,44 +46,44 @@
 --
 --     A NUMBER IS PRESENTED BY ITS FACTORIZATION TABLE.
 --
---     Fact = List (� � �), where the entry `(p , e)` denotes the prime
+--     Fact = List (ℕ × ℕ), where the entry `(p , e)` denotes the prime
 --     power p^(1+e).  Storing the exponent MINUS ONE makes positivity
 --     structural rather than a side condition, which is what lets §6's
 --     classification lemma be a plain induction on the list.
 --
 -- On that presentation Ω, ω and μ² are *not* recursions on factorization
--- at all � they are a fold, a length, and a flat test:
+-- at all — they are a fold, a length, and a flat test:
 --
---     Ω f = � exponents,   ω f = length f,   μ² f = [all exponents = 1].
+--     Ω f = Σ exponents,   ω f = length f,   μ² f = [all exponents = 1].
 --
 -- THE COST, stated plainly.  The table is an INPUT.  Writing
--- `f360 = (2 , 2) � (3 , 1) � (5 , 0) � []` asserts that 360 factors as
--- 2³�3²�5, and a reader must not be asked to take that on trust.  §3
+-- `f360 = (2 , 2) ∷ (3 , 1) ∷ (5 , 0) ∷ []` asserts that 360 factors as
+-- 2³·3²·5, and a reader must not be asked to take that on trust.  §3
 -- therefore discharges the assertion four ways, all by kernel reduction:
 --
---   (i)   `value f360 ≡ 360`         � the table multiplies out (refl);
---   (ii)  every base is prime        � exhaustive trial division (refl);
---   (iii) the bases are distinct     � (refl);
+--   (i)   `value f360 ≡ 360`         — the table multiplies out (refl);
+--   (ii)  every base is prime        — exhaustive trial division (refl);
+--   (iii) the bases are distinct     — (refl);
 --   (iv)  Ω agrees with an INDEPENDENT trial-division Ω, imported from
 --         `SieveFiber`, on every divisor of the table.
 --
--- What (i)�(iv) do NOT give is that the table is *the* factorization:
+-- What (i)–(iv) do NOT give is that the table is *the* factorization:
 -- that step is unique factorization, which is not proved here and not
 -- available in the imported library at the shape needed.  So the precise
 -- reading of everything below is: **these are theorems about
 -- factorization tables, together with a four-way check that the three
 -- tables used are correct tables for 12, 30 and 360.**  Under unique
--- factorization � and only under it � they are the note's theorems at
+-- factorization — and only under it — they are the note's theorems at
 -- those n.  This is the single unformalized bridge in the module and it
 -- is named again in the rigor boundary at the end of this header.
 --
--- � VERSUS �.  Ω, ω, μ², `value` and every exhaustion flag live in �.
+-- ℕ VERSUS ℤ.  Ω, ω, μ², `value` and every exhaustion flag live in ℕ.
 -- The charge polynomial does not: μ takes the value −1, κ_r(30) = −1,
 -- and the Chen functional evaluates to −1 outside the envelope, which is
 -- precisely the content of §2.4.1's failure table.  So Φ, κ and `chen`
--- are �-valued, over `Cubical.Data.Int`.  Only `�`, `pos`, `negsuc`,
--- `_+_` and `_�_` are imported from it; negation and subtraction are
--- defined here (`neg�`, `_��_`) so that the module depends on as little
+-- are ℤ-valued, over `Cubical.Data.Int`.  Only `ℤ`, `pos`, `negsuc`,
+-- `_+_` and `_·_` are imported from it; negation and subtraction are
+-- defined here (`negℤ`, `_∸ℤ_`) so that the module depends on as little
 -- library naming as possible and so that every closed term visibly
 -- reduces.
 --
@@ -93,17 +93,17 @@
 --
 --   §1  Bool, exhaustion    `allL` / `allL-sound`: the `PMNoSection`
 --                           idiom (via `SieveFiber`) generalized from
---                           `List �` to any `List A`, so that a Boolean
+--                           `List ℕ` to any `List A`, so that a Boolean
 --                           `refl` becomes a statement about EVERY
 --                           element rather than about a flag.
 --
 --   §2  Fact, Ω, ω, μ², μ   the factorization-table encoding, `value`,
 --       splits, divisorsOf  and the complete enumeration of divisor
---                           SPLITS (d , n/d) � pairs, not divisors,
+--                           SPLITS (d , n/d) — pairs, not divisors,
 --                           because the Mbius sum needs the cofactor.
 --
 --   §3  f12 f30 f360        the three certified tables, with the four
---       value-*, wf-*       discharges (i)�(iv) of the header:
+--       value-*, wf-*       discharges (i)–(iv) of the header:
 --       splits-multiply-*   value; well-formedness (prime, distinct);
 --       Ω-agrees-*          every split multiplies back to n; and Ω
 --                           against SieveFiber's independent trial
@@ -111,30 +111,30 @@
 --
 --   §4  Φraw, Φclosed       Theorem A as an IDENTITY, not a value: for
 --       Φ-identity-*        each (n , t) the raw Mbius divisor sum
---       Φ-value-*           �_{d|n} μ(n/d) t^Ω(d) is computed
+--       Φ-value-*           Σ_{d|n} μ(n/d) t^Ω(d) is computed
 --       κVec-*              independently of the closed form and the two
 --                           are shown equal by refl; the note's
 --                           evaluation checksum is then a separate refl
 --                           on the raw sum.  Instances are exactly the
---                           note's §5 inventory: Φ��(2)=2, Φ��(3)=12,
---                           Φ��(2)=1, Φ��(3)=8, Φ���(2)=8,
---                           Φ���(3)=216, Φ���(5)=8000.  The coefficient
+--                           note's §5 inventory: Φ₁₂(2)=2, Φ₁₂(3)=12,
+--                           Φ₃₀(2)=1, Φ₃₀(3)=8, Φ₃₆₀(2)=8,
+--                           Φ₃₆₀(3)=216, Φ₃₆₀(5)=8000.  The coefficient
 --                           vectors κ(12) = (0,1,−2,1),
 --                           κ(30) = (−1,3,−3,1),
 --                           κ(360) = (0,0,0,−1,3,−3,1) are certified as
 --                           lists, again from the raw sum.
 --
 --   §5  ΦsumRaw ΦsumClosed  the fixed-charge PARTITION OF UNITY
---       pou-360-2           �_{d|n} Φ_d(t) = t^Ω(n), at the note's two
---       pou-12-3            checksums: �_{d|360} Φ_d(2) = 64 = 2^6 and
---                           �_{d|12} Φ_d(3) = 27 = 3^3.  Both are
+--       pou-360-2           Σ_{d|n} Φ_d(t) = t^Ω(n), at the note's two
+--       pou-12-3            checksums: Σ_{d|360} Φ_d(2) = 64 = 2^6 and
+--                           Σ_{d|12} Φ_d(3) = 27 = 3^3.  Both are
 --                           certified twice, once through the raw
 --                           Mbius sums and once through the closed
 --                           form, and the two are shown equal.
 --
 --   §6  classify1 classify2 Theorem B, and this is the one part that is
 --       chen, primeInd      GENERAL rather than instance-wise.  Inside
---       chen-envelope       the encoding, "1 � Ω(N) � 2" is a statement
+--       chen-envelope       the encoding, "1 ≤ Ω(N) ≤ 2" is a statement
 --                           about an exponent multiset, so the note's
 --                           §2.2 three-row table is not an appeal to
 --                           unique factorization but an INDUCTION on the
@@ -157,40 +157,40 @@
 --                           the ACCIDENTAL agreement the note calls it.
 --                           The two negative rows are then re-certified
 --                           at the concrete integers already carried by
---                           this module: 12 = 2²�3 and 30 = 2�3�5.
+--                           this module: 12 = 2²·3 and 30 = 2·3·5.
 --
 ------------------------------------------------------------------------
--- PRIOR ART IN THIS REPOSITORY � searched before writing, per CLAUDE.md
+-- PRIOR ART IN THIS REPOSITORY — searched before writing, per CLAUDE.md
 ------------------------------------------------------------------------
 --
---   `SieveFiber` � HAS a computable Ω already, by
---     fuel-bounded trial division over �, together with the
+--   `SieveFiber` — HAS a computable Ω already, by
+--     fuel-bounded trial division over ℕ, together with the
 --     `allOf`/`allOf-sound` exhaustion idiom (itself credited there to
 --     `PMNoSection`).  It is REUSED here, not re-derived: §3's check
 --     (iv) is exactly that import, and it is what makes the factorization
 --     tables checked rather than asserted.  SieveFiber's own domain is
---     [1,30] at the �X horizon; it computes no ω, no μ, no divisor sum
+--     [1,30] at the √X horizon; it computes no ω, no μ, no divisor sum
 --     and no characteristic polynomial, so nothing below duplicates it.
---   `ChargeGradedPeeling` � Ω as a dependent index on the
+--   `ChargeGradedPeeling` — Ω as a dependent index on the
 --     X = 30 domain, with `peelDrops : Ω(peel n) + 1 = Ω(n)`.  That is
 --     the *grading* lane; it consumes SieveFiber's Ω for the same reason
 --     this module does.  Disjoint content.
---   `ChargeCriterion` � the parity barrier as a decidable
+--   `ChargeCriterion` — the parity barrier as a decidable
 --     test on odd-Ω queries.  Uses Ω abstractly, over an axiomatized
 --     `Number`; proves nothing about divisor sums.  Disjoint.
---   `ChenTwoChargeProjector` � despite the name, this is
+--   `ChenTwoChargeProjector` — despite the name, this is
 --     support geometry: `Charge = {one, two}`, commuting projections, and
 --     a countermodel showing two cofinal faces need not meet.  It states
 --     explicitly that it "proves no Chen, twin-prime, or Goldbach
 --     theorem".  The present module is the arithmetic content the name
 --     suggests and that module deliberately does not carry: μ² − (ω−1).
 --     They are complementary and neither subsumes the other.
---   `ChargeGrading` � Ω as the �-grading in the abstract
---     (Delta 15 §§15.6�15.7).  Disjoint.
+--   `ChargeGrading` — Ω as the ℕ-grading in the abstract
+--     (Delta 15 §§15.6–15.7).  Disjoint.
 --     a lens poset, with ω(N) counting the prime frontier.  Same lattice,
 --     different functional (minimal sufficient charts, not μ * t^Ω).  It
 --     is the closest prior art in the corpus and it does not overlap.
---   `interactive/patches/S4-certificate-vocabulary.md` §3.4 � the finding
+--   `interactive/patches/S4-certificate-vocabulary.md` §3.4 — the finding
 --     that redirected this task; quoted above.
 --
 --   Nothing found in `formal/cubical/` defines ω, μ, μ², a Mbius
@@ -213,14 +213,14 @@
 --
 --   CERTIFIED, generally, but INSIDE THE ENCODING:
 --     the envelope classification (§6) and hence Theorem B for every
---       factorization table with 1 � Ω � 2 � this quantifies over all
+--       factorization table with 1 ≤ Ω ≤ 2 — this quantifies over all
 --       primes, not over a sample;
 --     the failure rows of §2.4.1 for every p, q, r and every exponent
 --       3 + k.
 --
 --   TYPECHECKING COST, declared because it is the one place this module
---   could be expensive: §4's Φ���(5) forces the kernel to evaluate
---   5^6 = 15625 and a 24-term � sum in unary-successor Int arithmetic,
+--   could be expensive: §4's Φ₃₆₀(5) forces the kernel to evaluate
+--   5^6 = 15625 and a 24-term ℤ sum in unary-successor Int arithmetic,
 --   twice (raw and closed).  Everything else is small.  If the kernel
 --   session finds this line slow, it is that line; it is kept because
 --   8000 is one of the note's own checksums.
@@ -245,7 +245,7 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 -- The independent arithmetic, imported rather than re-derived.  `Ωtrial`
--- is SieveFiber's fuel-bounded trial-division Ω; `pow`, `eq�`, `lt�` and
+-- is SieveFiber's fuel-bounded trial-division Ω; `pow`, `eqᵇ`, `ltᵇ` and
 -- `_rem_` are its computable primitives, written there structurally on
 -- purpose so that `refl` reduces (see its §1).
 open import SieveFiber
@@ -256,11 +256,11 @@ open import SieveFiber
 -- §1  Exhaustion: a Boolean refl, promoted to a statement about every
 --     element.
 --
--- SieveFiber has this for `List �`.  Everything below quantifies over
+-- SieveFiber has this for `List ℕ`.  Everything below quantifies over
 -- lists of factorizations and of split PAIRS, so it is restated here at
 -- an arbitrary element type.  The `_∈L_` membership is a recursive
 -- family rather than an indexed datatype for the reason SieveFiber
--- gives: cubical Agda declines constructor injectivity of `_�_` for
+-- gives: cubical Agda declines constructor injectivity of `_∷_` for
 -- indexed unification, so `here`/`there` matching would not compute.
 ------------------------------------------------------------------------
 
@@ -309,7 +309,7 @@ concatMapL : {A B : Type₀} → (A → List B) → List A → List B
 concatMapL g []       = []
 concatMapL g (x ∷ xs) = g x ++ concatMapL g xs
 
--- [0 , 1 , � , n], increasing, so that κ below is indexed the way the
+-- [0 , 1 , … , n], increasing, so that κ below is indexed the way the
 -- source note's §1.5 vectors are indexed (r = 0 upward).
 countUp : ℕ → ℕ → List ℕ
 countUp s zero    = s ∷ []
@@ -321,7 +321,7 @@ range n = countUp 0 n
 ------------------------------------------------------------------------
 -- §2  The factorization-table encoding
 --
--- `(p , e) : � � �` denotes the prime power p^(1+e).  The "minus one"
+-- `(p , e) : ℕ × ℕ` denotes the prime power p^(1+e).  The "minus one"
 -- is what makes §6 an induction instead of an induction plus a side
 -- condition; it is the only cleverness in the encoding and it is paid
 -- for by having to write `(2 , 2)` where a reader expects `2³`.
@@ -335,17 +335,17 @@ value : Fact → ℕ
 value []             = 1
 value ((p , e) ∷ f)  = pow p (suc e) ·ℕ value f
 
--- Ω: prime factors with multiplicity � a fold, not a recursion on n.
+-- Ω: prime factors with multiplicity — a fold, not a recursion on n.
 Ω : Fact → ℕ
 Ω []             = 0
 Ω ((p , e) ∷ f)  = suc e +ℕ Ω f
 
--- ω: distinct prime factors � a length.
+-- ω: distinct prime factors — a length.
 ω : Fact → ℕ
 ω []            = 0
 ω ((p , e) ∷ f) = suc (ω f)
 
--- μ²: the squarefree indicator � a flat test on the exponent vector.
+-- μ²: the squarefree indicator — a flat test on the exponent vector.
 μ² : Fact → ℕ
 μ² []                   = 1
 μ² ((p , zero)  ∷ f)    = μ² f
@@ -353,7 +353,7 @@ value ((p , e) ∷ f)  = pow p (suc e) ·ℕ value f
 
 -- Integers, with negation and subtraction defined here so that every
 -- closed term below visibly reduces and the library surface stays at
--- {� , pos , negsuc , _+_ , _�_}.
+-- {ℤ , pos , negsuc , _+_ , _·_}.
 negℤ : ℤ → ℤ
 negℤ (pos zero)    = pos zero
 negℤ (pos (suc n)) = negsuc n
@@ -378,13 +378,13 @@ sumℤ (x ∷ xs) = x +ℤ sumℤ xs
 μ ((p , zero)  ∷ f) = negℤ (μ f)
 μ ((p , suc _) ∷ f) = pos 0
 
--- Prepend p^k, dropping the entry when k = 0 � so a table never carries
+-- Prepend p^k, dropping the entry when k = 0 — so a table never carries
 -- an exponent-zero entry and `ω` stays a length.
 consP : ℕ → ℕ → Fact → Fact
 consP p zero    f = f
 consP p (suc k) f = (p , k) ∷ f
 
--- All (j , a � j) for j = 0 � a.
+-- All (j , a ∸ j) for j = 0 … a.
 splitsExp : ℕ → List (ℕ × ℕ)
 splitsExp a = mapL (λ j → (j , a ∸ j)) (range a)
 
@@ -406,7 +406,7 @@ divisorsOf f = mapL fst (splits f)
 -- §3  The three tables, and the four discharges of the encoding cost
 ------------------------------------------------------------------------
 
--- 12 = 2²�3,  30 = 2�3�5,  360 = 2³�3²�5.
+-- 12 = 2²·3,  30 = 2·3·5,  360 = 2³·3²·5.
 f12 f30 f360 : Fact
 f12  = (2 , 1) ∷ (3 , 0) ∷ []
 f30  = (2 , 0) ∷ (3 , 0) ∷ (5 , 0) ∷ []
@@ -466,7 +466,7 @@ bases-prime-360 =
 
 -- (iv-a) every enumerated split really is a factorization of n.  This is
 -- the check that `splits` is the divisor enumeration and not some other
--- list: d � (n/d) = n, for all 6 / 8 / 24 of them.
+-- list: d · (n/d) = n, for all 6 / 8 / 24 of them.
 chkSplit : Fact → (Fact × Fact) → Bool
 chkSplit f de = eqᵇ (value (fst de) ·ℕ value (snd de)) (value f)
 
@@ -488,8 +488,8 @@ split-factorizes-360 m =
 -- (iv-b) THE INDEPENDENCE CHECK.  `Ω` above is a fold over a table;
 -- `Ωtrial` is SieveFiber's trial division on the integer.  They are
 -- written by different means and agree on every divisor of every table.
--- This is the note's own standard � "each computed twice: raw divisor
--- sum and closed form" � applied one level lower, to Ω itself.
+-- This is the note's own standard — "each computed twice: raw divisor
+-- sum and closed form" — applied one level lower, to Ω itself.
 chkΩ : Fact → Bool
 chkΩ d = eqᵇ (Ωtrial (value d)) (Ω d)
 
@@ -522,11 +522,11 @@ invariants-360 = refl
 ------------------------------------------------------------------------
 -- §4  Theorem A as an identity
 --
---     Φ_n(t) = �_{d|n} μ(n/d) t^Ω(d)   (raw, the definition)
+--     Φ_n(t) = Σ_{d|n} μ(n/d) t^Ω(d)   (raw, the definition)
 --            = t^(Ω−ω) (t−1)^ω          (closed, the theorem)
 --
--- The two sides are computed by disjoint code paths � `Φraw` never
--- mentions ω and `Φclosed` never mentions `splits` � so each
+-- The two sides are computed by disjoint code paths — `Φraw` never
+-- mentions ω and `Φclosed` never mentions `splits` — so each
 -- `Φ-identity-*` below certifies the IDENTITY, and the separate
 -- `Φ-value-*` then records the note's checksum for the raw sum.  A
 -- module that only checked the closed form's value would be certifying
@@ -539,7 +539,7 @@ invariants-360 = refl
 Φclosed : Fact → ℤ → ℤ
 Φclosed f t = (t ^ℤ (Ω f ∸ ω f)) ·ℤ ((t ∸ℤ pos 1) ^ℤ ω f)
 
--- n = 12 = 2²�3.   Φ��(t) = t³ − 2t² + t = t(t−1)².
+-- n = 12 = 2²·3.   Φ₁₂(t) = t³ − 2t² + t = t(t−1)².
 Φ-identity-12-2 : Φraw f12 (pos 2) ≡ Φclosed f12 (pos 2)
 Φ-identity-12-2 = refl
 
@@ -552,7 +552,7 @@ invariants-360 = refl
 Φ-value-12-3 : Φraw f12 (pos 3) ≡ pos 12
 Φ-value-12-3 = refl
 
--- n = 30 = 2�3�5.  Φ��(t) = t³ − 3t² + 3t − 1 = (t−1)³.
+-- n = 30 = 2·3·5.  Φ₃₀(t) = t³ − 3t² + 3t − 1 = (t−1)³.
 Φ-identity-30-2 : Φraw f30 (pos 2) ≡ Φclosed f30 (pos 2)
 Φ-identity-30-2 = refl
 
@@ -565,7 +565,7 @@ invariants-360 = refl
 Φ-value-30-3 : Φraw f30 (pos 3) ≡ pos 8
 Φ-value-30-3 = refl
 
--- n = 360 = 2³�3²�5.  Φ���(t) = t� − 3t� + 3t� − t³ = t³(t−1)³.
+-- n = 360 = 2³·3²·5.  Φ₃₆₀(t) = t⁶ − 3t⁵ + 3t⁴ − t³ = t³(t−1)³.
 Φ-identity-360-2 : Φraw f360 (pos 2) ≡ Φclosed f360 (pos 2)
 Φ-identity-360-2 = refl
 
@@ -584,7 +584,7 @@ invariants-360 = refl
 Φ-value-360-5 : Φraw f360 (pos 5) ≡ pos 8000
 Φ-value-360-5 = refl
 
--- Fixed-charge kernels κ_r(n) = �_{d|n , Ω(d)=r} μ(n/d), read off the
+-- Fixed-charge kernels κ_r(n) = Σ_{d|n , Ω(d)=r} μ(n/d), read off the
 -- raw sum (never off the closed form's binomial expression), indexed
 -- r = 0 upward exactly as the note's §5 inventory lists them.
 κ : Fact → ℕ → ℤ
@@ -605,12 +605,12 @@ invariants-360 = refl
 κVec-360 = refl
 
 ------------------------------------------------------------------------
--- §5  The fixed-charge partition of unity,  �_{d|n} Φ_d(t) = t^Ω(n)
+-- §5  The fixed-charge partition of unity,  Σ_{d|n} Φ_d(t) = t^Ω(n)
 --
 -- This is what makes κ_r consumable (note §1.4): it turns the
 -- fixed-charge condition Ω(n) = r into a divisor sum.  Certified at the
--- note's two checksums, each computed twice � through the raw Mbius
--- sums and through the closed form � with the two shown equal.
+-- note's two checksums, each computed twice — through the raw Möbius
+-- sums and through the closed form — with the two shown equal.
 ------------------------------------------------------------------------
 
 ΦsumRaw : Fact → ℤ → ℤ
@@ -619,7 +619,7 @@ invariants-360 = refl
 ΦsumClosed : Fact → ℤ → ℤ
 ΦsumClosed f t = sumℤ (mapL (λ d → Φclosed d t) (divisorsOf f))
 
--- �_{d|360} Φ_d(2) = 64 = 2^Ω(360) = 2�.
+-- Σ_{d|360} Φ_d(2) = 64 = 2^Ω(360) = 2⁶.
 pou-360-2-raw : ΦsumRaw f360 (pos 2) ≡ pos 64
 pou-360-2-raw = refl
 
@@ -632,7 +632,7 @@ pou-360-2-agree = refl
 pou-360-2-charge : ΦsumRaw f360 (pos 2) ≡ pos 2 ^ℤ Ω f360
 pou-360-2-charge = refl
 
--- �_{d|12} Φ_d(3) = 27 = 3^Ω(12) = 3³.
+-- Σ_{d|12} Φ_d(3) = 27 = 3^Ω(12) = 3³.
 pou-12-3-raw : ΦsumRaw f12 (pos 3) ≡ pos 27
 pou-12-3-raw = refl
 
@@ -646,9 +646,9 @@ pou-12-3-charge : ΦsumRaw f12 (pos 3) ≡ pos 3 ^ℤ Ω f12
 pou-12-3-charge = refl
 
 ------------------------------------------------------------------------
--- §6  Theorem B � the Chen-envelope prime projector, GENERALLY
+-- §6  Theorem B — the Chen-envelope prime projector, GENERALLY
 --
---     1_P(N) = μ²(N) − (ω(N) − 1)      for all N with 1 � Ω(N) � 2.
+--     1_P(N) = μ²(N) − (ω(N) − 1)      for all N with 1 ≤ Ω(N) ≤ 2.
 --
 -- The note proves this by an exhaustive three-case table and remarks
 -- that "the envelope has exactly three shapes; a finite table is a
@@ -656,7 +656,7 @@ pou-12-3-charge = refl
 -- becomes an actual induction: the classification of exponent multisets
 -- of total weight 1 and 2 is `classify1` / `classify2` below, proved by
 -- case analysis on a list, using no arithmetic beyond `injSuc`.  So §6
--- is general in the primes � it is not three instances.
+-- is general in the primes — it is not three instances.
 ------------------------------------------------------------------------
 
 chen : Fact → ℤ
@@ -719,7 +719,7 @@ chen-envelope f (inr h) =
        (classify2 f h)
 
 -- The envelope rows again at concrete integers, so the general statement
--- is anchored: 2 (prime), 4 = 2² (square), 6 = 2�3 (semiprime).
+-- is anchored: 2 (prime), 4 = 2² (square), 6 = 2·3 (semiprime).
 f2 f4 f6 : Fact
 f2 = (2 , 0) ∷ []
 f4 = (2 , 1) ∷ []
@@ -749,7 +749,7 @@ chen-6 = refl
 
 private
   -- Two discriminators, so that the refutations below depend on no
-  -- library lemma about � at all.
+  -- library lemma about ℤ at all.
   signᵇ : ℤ → Bool
   signᵇ (pos _)    = true
   signᵇ (negsuc _) = false
@@ -800,7 +800,7 @@ chen-fails-at-pqr : (p q r : ℕ)
 chen-fails-at-pqr p q r h = negsuc≢pos 0 0 (sym (chen-at-pqr p q r) ∙ h)
 
 -- N = p^(3+k):  both sides are 0.  The note is explicit that this
--- AGREEMENT IS ACCIDENTAL � it is not evidence that the fence can be
+-- AGREEMENT IS ACCIDENTAL — it is not evidence that the fence can be
 -- moved, and it is recorded here in exactly that spirit.
 chen-accidental-at-primePower :
   (p k : ℕ) → chen ((p , suc (suc k)) ∷ []) ≡ primeInd ((p , suc (suc k)) ∷ [])
@@ -811,7 +811,7 @@ chen-accidental-is-zero :
 chen-accidental-is-zero p k = refl
 
 -- And the two negative rows at the concrete integers this module already
--- carries: 12 = 2²�3 is a p²q, 30 = 2�3�5 is a pqr.  So the same three
+-- carries: 12 = 2²·3 is a p²q, 30 = 2·3·5 is a pqr.  So the same three
 -- tables that certify Theorem A also witness Theorem B's fence.
 chen-12-instance : chen f12 ≡ negsuc 0
 chen-12-instance = refl
@@ -825,7 +825,7 @@ chen-30-instance = refl
 chen-fails-at-30 : ¬ (chen f30 ≡ primeInd f30)
 chen-fails-at-30 h = negsuc≢pos 0 0 (sym chen-30-instance ∙ h)
 
--- Both live strictly outside the envelope � Ω = 3 � which is the
+-- Both live strictly outside the envelope — Ω = 3 — which is the
 -- hypothesis `chen-envelope` requires and which these two do not meet.
 outside-envelope-12 : Ω f12 ≡ 3
 outside-envelope-12 = refl
@@ -839,6 +839,6 @@ outside-envelope-30 = refl
 -- encoding that is exactly `classify1` read backwards, and it is the
 -- statement that makes the note's B3/B4 counts FULL counts.  (Those
 -- counting theorems themselves quantify over primes in a window and are
--- deliberately not formalized here � see the rigor boundary.)
+-- deliberately not formalized here — see the rigor boundary.)
 primes-are-in-envelope : (p : ℕ) → (Ω ((p , 0) ∷ []) ≡ 1) ⊎ (Ω ((p , 0) ∷ []) ≡ 2)
 primes-are-in-envelope p = inl refl

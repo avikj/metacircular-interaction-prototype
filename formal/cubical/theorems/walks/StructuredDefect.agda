@@ -28,18 +28,18 @@
 -- Contents (all proved, no holes, no postulates, --safe):
 --
 --   Defect, StructuredEquiv     D15.83, D15.5
---   defect�structured           T15.84 (both directions)
+--   defect→structured           T15.84 (both directions)
 --   defect-id, defect-comp      transport is functorial on defects
---   Descends, descends�respects,
---   respects�descends           T15.40 / C15.41, both directions
+--   Descends, descends→respects,
+--   respects→descends           T15.40 / C15.41, both directions
 --   reopening-is-defect         the loop's REOPEN phase, as a type
 --   refute-transport            T15.70 / C15.71: no-go knowledge
 --                               transports across equivalence exactly
 --                               as a positive theorem does
 --   refute-pullback             T15.68 / C15.69: refutations propagate
 --                               contravariantly along constructions
---   emptyFiber��isEquiv,
---   twoPoints��isEquiv          T15.81 / C15.82: a failed equivalence
+--   emptyFiber→¬isEquiv,
+--   twoPoints→¬isEquiv          T15.81 / C15.82: a failed equivalence
 --                               hands you its fiber, and the fiber IS
 --                               the reconstruction question
 --   witness-two, witness-defect a concrete inhabited defect: a bare
@@ -69,8 +69,8 @@ private
 ------------------------------------------------------------------------
 
 -- A structure family, in the sense of Delta 15 §15.1: a dependent family
--- over the universe.  C15.3 is then automatic � anything of this shape
--- is representation-transportable � and P15.4 says that a structure NOT
+-- over the universe.  C15.3 is then automatic — anything of this shape
+-- is representation-transportable — and P15.4 says that a structure NOT
 -- of this shape is evidence that its definition depends on presentation
 -- data not included in the type being equated.
 
@@ -78,7 +78,7 @@ Str : (ℓ ℓS : Level) → Type (ℓ-suc (ℓ-max ℓ ℓS))
 Str ℓ ℓS = Type ℓ → Type ℓS
 
 -- D15.83.  The structured defect of a bare equivalence.  This is the
--- object; `Defect` inhabited is the good case, `� Defect` is a reopening.
+-- object; `Defect` inhabited is the good case, `¬ Defect` is a reopening.
 Defect : {S : Str ℓ ℓS} {A B : Type ℓ}
        → (e : A ≃ B) → S A → S B → Type ℓS
 Defect {S = S} e sA sB = subst S (ua e) sA ≡ sB
@@ -91,7 +91,7 @@ StructuredEquiv S A sA B sB = Σ[ e ∈ (A ≃ B) ] Defect {S = S} e sA sB
 
 -- T15.84.  `e` upgrades to a structured equivalence exactly when its
 -- defect type is inhabited.  Both directions, and both are trivial by
--- construction � which is the content: the upgrade condition IS the
+-- construction — which is the content: the upgrade condition IS the
 -- defect, not a separate side condition someone has to remember.
 defect→structured : {S : Str ℓ ℓS} {A B : Type ℓ} {sA : S A} {sB : S B}
                   → (e : A ≃ B) → Defect {S = S} e sA sB
@@ -112,7 +112,7 @@ defect-id {S = S} sA =
 
 -- Defects compose: if the structure transports along `e` and along `f`,
 -- it transports along their composite.  This is T15.57 in the form the
--- machine needs � a library of sound actions is closed under composition,
+-- machine needs — a library of sound actions is closed under composition,
 -- so soundness only ever has to be checked on generators.
 defect-comp : {S : Str ℓ ℓS} {A B C : Type ℓ}
               {sA : S A} {sB : S B} {sC : S C}
@@ -192,18 +192,18 @@ separatedPair→reopens q f (x , x' , k , sep) d =
 ------------------------------------------------------------------------
 
 -- T15.68 / C15.69.  Refutations propagate contravariantly: to refute B
--- it suffices to construct B � A for an already-refuted A.
+-- it suffices to construct B → A for an already-refuted A.
 refute-pullback : {A : Type ℓ} {B : Type ℓ'}
                 → (A → ⊥) → (B → A) → (B → ⊥)
 refute-pullback f g = λ b → f (g b)
 
 -- T15.70 / C15.71.  A refutation transports across equivalence exactly
--- as a positive theorem does � no special machinery, just the inverse.
+-- as a positive theorem does — no special machinery, just the inverse.
 refute-transport : {A B : Type ℓ} → A ≃ B → (A → ⊥) → (B → ⊥)
 refute-transport e f = λ b → f (invEq e b)
 
 ------------------------------------------------------------------------
--- §15.23  The equivalence�defect dichotomy
+-- §15.23  The equivalence–defect dichotomy
 --
 -- T15.81: if f is not an equivalence, some homotopy fiber is empty or
 -- non-contractible.  C15.82: every failed equivalence contains a precise
@@ -220,7 +220,7 @@ emptyFiber→¬isEquiv f (b , noPre) eq = noPre (equiv-proof eq b .fst)
 
 -- Two points in one fiber that are not equal: the fiber is inhabited but
 -- not contractible, so f identifies what it should not.  In the machine
--- this is a collision, and Delta 15's reading is the operative one � the
+-- this is a collision, and Delta 15's reading is the operative one — the
 -- collision is not a failure, it is a specification of the missing
 -- distinction.
 twoPoints→¬isEquiv : {A : Type ℓ} {B : Type ℓ'} (f : A → B)
@@ -234,8 +234,8 @@ twoPoints→¬isEquiv f (b , u , v , sep) eq =
 -- structured equivalence fails.
 --
 -- Carrier: Bool, twice.  Bare equivalence: `not`, which is an
--- equivalence Bool � Bool.  Structure: a distinguished point.  The
--- structure does NOT transport � `not` carries `true` to `false` � so
+-- equivalence Bool ≃ Bool.  Structure: a distinguished point.  The
+-- structure does NOT transport — `not` carries `true` to `false` — so
 -- the defect type at (true, true) is uninhabited while the carriers are
 -- equivalent.  This is C15.7 made concrete: the apparent failure of
 -- univalent transport is a failure to include the structure in the

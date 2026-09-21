@@ -1,38 +1,38 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡-‡Ø‡‡ó‡‡Æ‡Æ‡ ‚î the seam ford.  (‚ï ó ‚ï) ‚â ‚ï, hence ‚â° ‚ï; and composed with
--- LosslessReturn's own ‡Ø‡‡ó‡‡Æ‚â°‡µ‡ø‡µ‡‡ï, a third path neither file paid for:
+-- ‡§∏‡•á‡§§‡•Å-‡§Ø‡•Å‡§ó‡•ç‡§Æ‡§Æ‡•ç ‚Äî the seam ford.  (‚Ñï √ó ‚Ñï) ‚âÉ ‚Ñï, hence ‚â° ‚Ñï; and composed with
+-- LosslessReturn's own ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚â°‡§µ‡§ø‡§µ‡•á‡§ï, a third path neither file paid for:
 --
---                          ‡µ‡ø‡µ‡‡ï ‚â° ‚ï .
+--                          ‡§µ‡§ø‡§µ‡•á‡§ï ‚â° ‚Ñï .
 --
 -- WHY THIS FILE EXISTS, stated as a measurement rather than a taste.
 -- Read as a graph they fall into 48 components, 33 of them singletons or
--- pairs, giving 191 reachable pairs ‚î leverage ó1.72 over the fords paid
+-- pairs, giving 191 reachable pairs ‚Äî leverage √ó1.72 over the fords paid
 -- for.  Minting is local: a module lands its fords among its own types,
 -- where the marginal value is zero.  The four most-used banks sit in four
 -- DIFFERENT components:
 --
---     ‚ü®lib‚ü©.‚ï            component 5   (‡‡®‡‡¶‡‡, CanWord, Tally, Word, œ‚FinSet)
---     ‚ü®lib‚ü©.‚ï ó ‚ü®lib‚ü©.‚ï   component 2   (‡µ‡ø‡µ‡‡ï, ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡, Carrier, ‡Ø‡ã‡ó-fibre)
+--     ‚ü®lib‚ü©.‚Ñï            component 5   (‡§õ‡§®‡•ç‡§¶‡§∏‡•ç, CanWord, Tally, Word, œÄ‚ÇÄFinSet)
+--     ‚ü®lib‚ü©.‚Ñï √ó ‚ü®lib‚ü©.‚Ñï   component 2   (‡§µ‡§ø‡§µ‡•á‡§ï, ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£, Carrier, ‡§Ø‡•ã‡§ó-fibre)
 --     ‚ü®lib‚ü©.Bool         component 1
 --     ‚ü®lib‚ü©.Unit         component 6
 --
--- So `LosslessReturn.‡Ø‡‡ó‡‡Æ‚â°‡µ‡ø‡µ‡‡ï` ‚î the crown of the seed file ‚î could not
--- reach ‚ï itself.  This ford joins components 2 and 5: +42 free crossings
+-- So `LosslessReturn.‡§Ø‡•Å‡§ó‡•ç‡§Æ‚â°‡§µ‡§ø‡§µ‡•á‡§ï` ‚Äî the crown of the seed file ‚Äî could not
+-- reach ‚Ñï itself.  This ford joins components 2 and 5: +42 free crossings
 -- from one classical bijection, which is ryabhaa's vall meeting
--- Pigala's metre.  A receipt's worth is món, not 1.
+-- Pi·πÖgala's metre.  A receipt's worth is m√ón, not 1.
 --
--- PROVENANCE.  ‡®‡‡‡ü and ‡â‡¶‡‡¶‡ø‡‡‡ü are Pigala's own pratyayas
--- (‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ.‡®‡‚ì‡®‡; Halyudha's ‡Æ‡‡‡‡û‡‡‡‡µ‡®‡ is the received
--- commentary): ‡â‡¶‡‡¶‡ø‡‡‡ü carries an index to the pattern it names, ‡®‡‡‡ü
+-- PROVENANCE.  ‡§®‡§∑‡•ç‡§ü and ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü are Pi·πÖgala's own pratyayas
+-- (‡§õ‡§®‡•ç‡§¶‡§É‡§∂‡§æ‡§∏‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç ‡•Æ.‡•®‡•™‚Äì‡•®‡•´; HalƒÅyudha's ‡§Æ‡•É‡§§‡§∏‡§û‡•ç‡§ú‡•Ä‡§µ‡§®‡•Ä is the received
+-- commentary): ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü carries an index to the pattern it names, ‡§®‡§∑‡•ç‡§ü
 -- carries a pattern back to its index, and their joint existence is
--- exactly invertibility ‚î which is the whole content of a ford.  No source
+-- exactly invertibility ‚Äî which is the whole content of a ford.  No source
 -- is claimed for the DIAGONAL enumeration itself; that is Cantor (1878).
--- The compound ‡‡‡‡-‡Ø‡‡ó‡‡Æ is built here, 2026-08-22.
+-- The compound ‡§∏‡•á‡§§‡•Å-‡§Ø‡•Å‡§ó‡•ç‡§Æ is built here, 2026-08-22.
 --
--- No Bool, no Dec, no decision anywhere: ‡‡¶ moves by matching a
--- constructor, and ‡‡æ‡∞ is structural in (diagonal, first coordinate).
+-- No Bool, no Dec, no decision anywhere: ‡§™‡§¶ moves by matching a
+-- constructor, and ‡§ö‡§æ‡§∞ is structural in (diagonal, first coordinate).
 ------------------------------------------------------------------------
 
 module SetuYugma_TheSeamFordJoinsTheValliToPingalaAndVivekaIsTheNaturalNumbers where
@@ -48,7 +48,7 @@ open import Cubical.Data.Empty using () renaming (rec to ‚ä•-rec)
 open import LosslessReturn using (‡§µ‡§ø‡§µ‡•á‡§ï ; ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚âÉ‡§µ‡§ø‡§µ‡•á‡§ï ; ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚â°‡§µ‡§ø‡§µ‡•á‡§ï)
 
 ------------------------------------------------------------------------
--- ‡‡¶ ‚î one step of the diagonal walk.  Along the current diagonal while
+-- ‡§™‡§¶ ‚Äî one step of the diagonal walk.  Along the current diagonal while
 -- the second coordinate survives; at its exhaustion, open the next.
 ------------------------------------------------------------------------
 
@@ -57,8 +57,8 @@ open import LosslessReturn using (‡§µ‡§ø‡§µ‡•á‡§ï ; ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚âÉ‡§µ‡§ø‡§µ‡
 ‡§™‡§¶ (x , zero)  = (zero , suc x)
 
 ------------------------------------------------------------------------
--- ‡â‡¶‡‡¶‡ø‡‡‡ü ‚î index ‚¶ pattern.  ‡‡‡∞‡ø‡ï‡ã‡ ‚î the triangular count.
--- ‡®‡‡‡ü ‚î pattern ‚¶ index.
+-- ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü ‚Äî index ‚Ü¶ pattern.  ‡§§‡•ç‡§∞‡§ø‡§ï‡•ã‡§£ ‚Äî the triangular count.
+-- ‡§®‡§∑‡•ç‡§ü ‚Äî pattern ‚Ü¶ index.
 ------------------------------------------------------------------------
 
 ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü : ‚Ñï ‚Üí ‚Ñï √ó ‚Ñï
@@ -73,7 +73,7 @@ open import LosslessReturn using (‡§µ‡§ø‡§µ‡•á‡§ï ; ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚âÉ‡§µ‡§ø‡§µ‡
 ‡§®‡§∑‡•ç‡§ü (x , y) = ‡§§‡•ç‡§∞‡§ø‡§ï‡•ã‡§£ (x + y) + x
 
 ------------------------------------------------------------------------
--- ‡‡¶-‡®‡‡‡ü ‚î the step is exactly the successor on indices.  This one lemma
+-- ‡§™‡§¶-‡§®‡§∑‡•ç‡§ü ‚Äî the step is exactly the successor on indices.  This one lemma
 -- carries both round trips.
 ------------------------------------------------------------------------
 
@@ -87,7 +87,7 @@ open import LosslessReturn using (‡§µ‡§ø‡§µ‡•á‡§ï ; ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚âÉ‡§µ‡§ø‡§µ‡
   ‚àô cong (Œª z ‚Üí suc (‡§§‡•ç‡§∞‡§ø‡§ï‡•ã‡§£ z + x)) (sym (+-zero x))
 
 ------------------------------------------------------------------------
--- ‡®‡‡‡ü ‚àò ‡â‡¶‡‡¶‡ø‡‡‡ü ‚â° id.
+-- ‡§®‡§∑‡•ç‡§ü ‚àò ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü ‚â° id.
 ------------------------------------------------------------------------
 
 ‡§®‡§∑‡•ç‡§ü-‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü : (n : ‚Ñï) ‚Üí ‡§®‡§∑‡•ç‡§ü (‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü n) ‚â° n
@@ -96,9 +96,9 @@ open import LosslessReturn using (‡§µ‡§ø‡§µ‡•á‡§ï ; ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚âÉ‡§µ‡§ø‡§µ‡
   ‡§™‡§¶-‡§®‡§∑‡•ç‡§ü (‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü n) ‚àô cong suc (‡§®‡§∑‡•ç‡§ü-‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü n)
 
 ------------------------------------------------------------------------
--- ‡â‡¶‡‡¶‡ø‡‡‡ü ‚àò ‡®‡‡‡ü ‚â° id.  ‡‡æ‡∞ walks it, structural in (diagonal, first
--- coordinate): (suc x , y) hands back to (x , suc y) ‚î same diagonal, x
--- smaller; (zero , suc y) hands back to (y , zero) ‚î the diagonal smaller.
+-- ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü ‚àò ‡§®‡§∑‡•ç‡§ü ‚â° id.  ‡§ö‡§æ‡§∞ walks it, structural in (diagonal, first
+-- coordinate): (suc x , y) hands back to (x , suc y) ‚Äî same diagonal, x
+-- smaller; (zero , suc y) hands back to (y , zero) ‚Äî the diagonal smaller.
 ------------------------------------------------------------------------
 
 ‡§ö‡§æ‡§∞ : (d x y : ‚Ñï) ‚Üí x + y ‚â° d ‚Üí ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü (‡§®‡§∑‡•ç‡§ü (x , y)) ‚â° (x , y)
@@ -117,7 +117,7 @@ open import LosslessReturn using (‡§µ‡§ø‡§µ‡•á‡§ï ; ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚âÉ‡§µ‡§ø‡§µ‡
 ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü-‡§®‡§∑‡•ç‡§ü (x , y) = ‡§ö‡§æ‡§∞ (x + y) x y refl
 
 ------------------------------------------------------------------------
--- ‡‡‡‡‡ ‚î the ford.  Both pratyayas exist, so the edge inverts.
+-- ‡§∏‡•á‡§§‡•Å‡§É ‚Äî the ford.  Both pratyayas exist, so the edge inverts.
 ------------------------------------------------------------------------
 
 ‡§Ø‡•Å‡§ó‡•ç‡§Æ-Iso-‚Ñï : Iso (‚Ñï √ó ‚Ñï) ‚Ñï
@@ -130,9 +130,9 @@ open import LosslessReturn using (‡§µ‡§ø‡§µ‡•á‡§ï ; ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚âÉ‡§µ‡§ø‡§µ‡
 ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚â°‚Ñï = ua ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚âÉ‚Ñï
 
 ------------------------------------------------------------------------
--- ‡‡æ‡µ‡®‡æ ‚î two solutions meet and a third arises that neither contained,
--- and all three survive.  LosslessReturn paid for (‚ï ó ‚ï) ‚â° ‡µ‡ø‡µ‡‡ï; this file
--- paid for (‚ï ó ‚ï) ‚â° ‚ï; the composite is free, and it is the crossing the
+-- ‡§≠‡§æ‡§µ‡§®‡§æ ‚Äî two solutions meet and a third arises that neither contained,
+-- and all three survive.  LosslessReturn paid for (‚Ñï √ó ‚Ñï) ‚â° ‡§µ‡§ø‡§µ‡•á‡§ï; this file
+-- paid for (‚Ñï √ó ‚Ñï) ‚â° ‚Ñï; the composite is free, and it is the crossing the
 -- ford was minted for.
 ------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 # "All the fugue entries passed to it SIMULTANEOUSLY."  The entries are handed
 # in as one superposition &0{...}. `shape` (the elucidator) commutes over the
-# superposition â” the whole set is factored in a single parallel pass â” and the
+# superposition â€” the whole set is factored in a single parallel pass â€” and the
 # entries that are the same subject transported produce the SAME shape, which the
 # net shares by DUP-SUP annihilation (the fibre discriminator). Common subject
 # material across the corpus collapses to one class, automatically, at once.
@@ -21,8 +21,8 @@ def shape(m: I64[]) -> I64[]:
 def subject() -> I64[]:
   [+0, +2, +4, +5, +4, +2, +0]
 
-# four fugal entries â” subject, dominant answer, octave entry, cross-fugue
-# quotation â” every one the subject transported, elucidated simultaneously into
+# four fugal entries â€” subject, dominant answer, octave entry, cross-fugue
+# quotation â€” every one the subject transported, elucidated simultaneously into
 # one superposition. On the net the equal results annihilate (DUP-SUP): the whole
 # corpus's shared subject is a single shared node.
 def factorAll() -> &0{I64[], &0{I64[], &0{I64[], I64[]}}}:

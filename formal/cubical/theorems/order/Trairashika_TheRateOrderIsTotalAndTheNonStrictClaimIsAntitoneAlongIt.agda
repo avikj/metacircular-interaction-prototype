@@ -4,56 +4,56 @@
 -- Trairashika_TheRateOrderIsTotalAndTheNonStrictClaimIsAntitoneAlongIt
 --
 -- `TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt` proved
--- irreflexivity and transitivity of `âŠR` on `Rate` and closed with:
+-- irreflexivity and transitivity of `âŠR` on `Rate` and closed with:
 --
---   "ASYMMETRY and TRICHOTOMY are not proved: `âŠ-total`-style
---    comparability was proved for `âŠ` on PAIRS and is not transported
+--   "ASYMMETRY and TRICHOTOMY are not proved: `âŠ-total`-style
+--    comparability was proved for `âŠ‘` on PAIRS and is not transported
 --    here, so nothing says two rates are always comparable.  No claim
---    relates `âŠR` to `AtLeastOnRate` â” only to `AboveOnRate`; the
+--    relates `âŠR` to `AtLeastOnRate` â€” only to `AboveOnRate`; the
 --    non-strict claim's antitonicity along the STRICT order is a
 --    different statement and is not made."
 --
 -- All of it is closed here, on `Rate` itself.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   âŠR-asym            x âŠR y â’ Â (y âŠR x), from transitivity and
---                      irreflexivity â” no arithmetic
---   âŠ-trichotomy-pair  (a âŠ b) âŠ (a â‰ˆ b) âŠ (b âŠ a) on PAIRS, by
---                      `splitâ•-<` then `â‰-split`
---   âŠR-trichotomy      (x âŠR y) âŠ (x â‰¡ y) âŠ (y âŠR x) on RATES â” an
+--   âŠR-asym            x âŠR y â†’ Â¬ (y âŠR x), from transitivity and
+--                      irreflexivity â€” no arithmetic
+--   âŠ-trichotomy-pair  (a âŠ b) âŠ (a â‰ˆ b) âŠ (b âŠ a) on PAIRS, by
+--                      `splitâ„•-<` then `â‰¤-split`
+--   âŠR-trichotomy      (x âŠR y) âŠ (x â‰¡ y) âŠ (y âŠR x) on RATES â€” an
 --                      honest SUM, not a truncation.  The three cases
 --                      are mutually exclusive, so the sum is a
---                      proposition (`isPropâŠ` twice, disjointness from
+--                      proposition (`isPropâŠ` twice, disjointness from
 --                      irreflexivity and asymmetry), so `elimProp2`
 --                      applies and the pair-level split finishes it
---   âŠR-connected       Â (x âŠR y) â’ Â (y âŠR x) â’ x â‰¡ y, the corollary
---                      that makes `âŠR` a strict TOTAL order
---   _âŠR_               the NON-strict order lifted to `Rate` by `rec2`,
---                      computing to `âŠ` on representatives by `refl`
---   âŠR-refl / âŠR-trans / âŠR-antisym / âŠR-total
---                      `âŠR` is a total order on `Rate` â” antisymmetry
+--   âŠR-connected       Â¬ (x âŠR y) â†’ Â¬ (y âŠR x) â†’ x â‰¡ y, the corollary
+--                      that makes `âŠR` a strict TOTAL order
+--   _âŠ‘R_               the NON-strict order lifted to `Rate` by `rec2`,
+--                      computing to `âŠ‘` on representatives by `refl`
+--   âŠ‘R-refl / âŠ‘R-trans / âŠ‘R-antisym / âŠ‘R-total
+--                      `âŠ‘R` is a total order on `Rate` â€” antisymmetry
 --                      is `eq/`, which is exactly where the quotient
 --                      turns a preorder on pairs into an order.
 --                      Totality's two disjuncts OVERLAP on equal rates,
 --                      so that sum is NOT a proposition and is not
 --                      lifted by `elimProp2`; it is read off trichotomy
---   âŠRâ’âŠR              strict implies non-strict
---   ÂâŠRâ’âŠR / âŠRâ’ÂâŠR    Â (x âŠR y)  â”  y âŠR x, both directions
---   âŠRâ’âŠR—â‰ / âŠR—â‰â’âŠR
---                      x âŠR y  â”  (x âŠR y) — Â (x â‰¡ y), both directions
+--   âŠRâ†’âŠ‘R              strict implies non-strict
+--   Â¬âŠRâ†’âŠ‘R / âŠ‘Râ†’Â¬âŠR    Â¬ (x âŠR y)  â‡”  y âŠ‘R x, both directions
+--   âŠRâ†’âŠ‘RÃ—â‰¢ / âŠ‘RÃ—â‰¢â†’âŠR
+--                      x âŠR y  â‡”  (x âŠ‘R y) Ã— Â¬ (x â‰¡ y), both directions
 --   atLeastIsAntitoneOnRates
 --                      the NON-strict claim is antitone along the
 --                      NON-strict order, on `Rate`
 --   atLeastIsAntitoneOnRatesStrictly
---                      and hence along the STRICT order â” the statement
+--                      and hence along the STRICT order â€” the statement
 --                      the earlier module says is "not made"
 --   aboveGivesAtLeastOnRate
 --                      the strict claim implies the non-strict one on
 --                      `Rate`, so the two families are ordered too
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  Trichotomy for a cross-multiplication order on positive
 -- fractions is the rule of three (trairika) read as a comparison;
 -- that a decidable, mutually-exclusive three-way split is a proposition
@@ -64,11 +64,11 @@
 --
 -- THE SCOPE, EXACTLY.  Nothing here is truncated: trichotomy is a
 -- genuine sum, and its elimination into propositions is by
--- `elimProp2`, not by choice â” the sum is a proposition BECAUSE the
+-- `elimProp2`, not by choice â€” the sum is a proposition BECAUSE the
 -- cases exclude each other, and that exclusion is proved, not assumed.
 -- `Rate` still has no arithmetic, no lowest-terms section and no
 -- relation to any library type of rationals.  Decidability of `â‰ˆ` and
--- of `âŠR` on `Rate` is NOT stated as a `Dec`: trichotomy gives it on
+-- of `âŠR` on `Rate` is NOT stated as a `Dec`: trichotomy gives it on
 -- representatives, and `Dec` is a proposition when the decided type is,
 -- so it would lift by the same route, but that lift is not written.
 -- Density (`theRatesAreDense`) remains truncated for the reason its
@@ -165,7 +165,7 @@ isPropTrichotomy x y =
     carry {a} {b} (inl (inr e)) = inl (inr (eq/ a b e))
     carry (inr h) = inr h
 
--- Hence `âŠR` is CONNECTED: two rates neither of which is below the
+-- Hence `âŠR` is CONNECTED: two rates neither of which is below the
 -- other are the same rate.
 âŠR-connected : (x y : Rate) â†’ Â¬ âŸ¨ x âŠR y âŸ© â†’ Â¬ âŸ¨ y âŠR x âŸ© â†’ x â‰¡ y
 âŠR-connected x y nxy nyx = go (âŠR-trichotomy x y)
@@ -178,8 +178,8 @@ isPropTrichotomy x y =
 ------------------------------------------------------------------------
 -- 3.  The non-strict order on `Rate`
 --
--- `âŠ` respects `â‰ˆ` on both sides by `âŠ-trans` alone, so it lifts by
--- the same `rec2` as `âŠ` did.
+-- `âŠ‘` respects `â‰ˆ` on both sides by `âŠ‘-trans` alone, so it lifts by
+-- the same `rec2` as `âŠ` did.
 ------------------------------------------------------------------------
 
 âŠ‘P : â„• Ã— â„• â†’ â„• Ã— â„• â†’ hProp â„“-zero
@@ -209,7 +209,7 @@ _âŠ‘R_ = SQ.rec2 isSetHProp âŠ‘P âŠ‘-respectsË¡ âŠ‘-respectsÊ³
   elimProp3 (Î» x y z â†’ isPropâ†’ (isPropâ†’ (str (x âŠ‘R z)))) âŠ‘-trans
 
 -- Antisymmetry is where the quotient earns its keep: on pairs, mutual
--- `âŠ` is `â‰ˆ`, which is NOT equality; on `Rate` it is `eq/`.
+-- `âŠ‘` is `â‰ˆ`, which is NOT equality; on `Rate` it is `eq/`.
 âŠ‘R-antisym : (x y : Rate) â†’ âŸ¨ x âŠ‘R y âŸ© â†’ âŸ¨ y âŠ‘R x âŸ© â†’ x â‰¡ y
 âŠ‘R-antisym =
   elimProp2 (Î» x y â†’ isPropâ†’ (isPropâ†’ (squash/ x y)))
@@ -223,8 +223,8 @@ _âŠ‘R_ = SQ.rec2 isSetHProp âŠ‘P âŠ‘-respectsË¡ âŠ‘-respectsÊ³
 âŠRâ†’âŠ‘R =
   elimProp2 (Î» x y â†’ isPropâ†’ (str (x âŠ‘R y))) (Î» a b â†’ <-weaken)
 
--- Â (x âŠR y)  â”  y âŠR x, both ways.  The forward direction is the one
--- that uses decidability of `<` on â• (`<-asym'`); the backward one is
+-- Â¬ (x âŠR y)  â‡”  y âŠ‘R x, both ways.  The forward direction is the one
+-- that uses decidability of `<` on â„• (`<-asym'`); the backward one is
 -- plain asymmetry of `<`.
 Â¬âŠRâ†’âŠ‘R : (x y : Rate) â†’ Â¬ âŸ¨ x âŠR y âŸ© â†’ âŸ¨ y âŠ‘R x âŸ©
 Â¬âŠRâ†’âŠ‘R =
@@ -235,7 +235,7 @@ _âŠ‘R_ = SQ.rec2 isSetHProp âŠ‘P âŠ‘-respectsË¡ âŠ‘-respectsÊ³
   elimProp2 (Î» x y â†’ isPropâ†’ (isPropÂ¬ âŸ¨ x âŠR y âŸ©))
             (Î» a b h k â†’ <-asym k h)
 
--- Totality of `âŠR` as a genuine sum.  Its two disjuncts OVERLAP on
+-- Totality of `âŠ‘R` as a genuine sum.  Its two disjuncts OVERLAP on
 -- equal rates, so the sum is not a proposition and `elimProp2` does
 -- not apply to it directly; it is instead read off the trichotomy,
 -- which is one.
@@ -247,7 +247,7 @@ _âŠ‘R_ = SQ.rec2 isSetHProp âŠ‘P âŠ‘-respectsË¡ âŠ‘-respectsÊ³
     go (inl (inr e)) = inl (subst (Î» z â†’ âŸ¨ x âŠ‘R z âŸ©) e (âŠ‘R-refl x))
     go (inr h)       = inr (âŠRâ†’âŠ‘R y x h)
 
--- x âŠR y  â”  (x âŠR y) — Â (x â‰¡ y).
+-- x âŠR y  â‡”  (x âŠ‘R y) Ã— Â¬ (x â‰¡ y).
 âŠRâ†’âŠ‘RÃ—â‰¢ : (x y : Rate) â†’ âŸ¨ x âŠR y âŸ© â†’ âŸ¨ x âŠ‘R y âŸ© Ã— (Â¬ (x â‰¡ y))
 âŠRâ†’âŠ‘RÃ—â‰¢ x y h = âŠRâ†’âŠ‘R x y h , âŠR-â‰¢ x y h
 

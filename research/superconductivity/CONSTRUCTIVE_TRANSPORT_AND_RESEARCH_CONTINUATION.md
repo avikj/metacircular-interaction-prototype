@@ -1,6 +1,6 @@
 # Constructive transport and the continuing superconductivity investigation
 
-## Research notes in progress â” September 16, 2026
+## Research notes in progress â€” September 16, 2026
 
 This chapter preserves the mathematical organization of the work, not a separate philosophical project. Superconductivity remains the central physical target. The shared research object includes its supplied mathematical and physical structures and the unresolved conditions on them. Established results are used as executable mathematical transformations: compose them where their actual inputs agree, retain their reconstruction data, and keep every discrepancy available for the next calculation. The user's instruction to pursue the whole connected field of questions does not make the physical target peripheral.
 
@@ -21,7 +21,7 @@ e_f:A\simeq\sum_{b:B}F_f(b),\qquad
 
 Its inverse takes a. The other inverse homotopy changes the displayed b along the retained path f(a)=b. No representative of an unknown preimage is selected.
 
-The source `Fibre.Trace` makes the constraint on any conservative presentation explicit. Given whole:Aâ‰sum_b T(b), the actual visible map is run=fst o whole. The module constructs T(b)â‰fib_run(b). An equivalence of total spaces not over a preselected f can factor a different map. The retained Boolean counterexample separates these claims.
+The source `Fibre.Trace` makes the constraint on any conservative presentation explicit. Given whole:Aâ‰ƒsum_b T(b), the actual visible map is run=fst o whole. The module constructs T(b)â‰ƒfib_run(b). An equivalence of total spaces not over a preselected f can factor a different map. The retained Boolean counterexample separates these claims.
 
 For any later target Z, composition with e_f and dependent currying yield
 
@@ -66,14 +66,14 @@ Not every term called a residual is literally a homotopy fibre without an identi
 
 # 3. Phase algebra and spectral closure in the actual model
 
-The interdependent quarter turn obeys qÂ²=simultaneous negation and qâ´=identity. Its signed realization JÂ²=-I closes the planar algebra:
+The interdependent quarter turn obeys qÂ²=simultaneous negation and qâ´=identity. Its signed realization JÂ²=-I closes the planar algebra:
 
 \[
 (aI+bJ)(cI+dJ)=(ac-bd)I+(ad+bc)J.
 \tag{T.4}
 \]
 
-The source's norm-one construction is an algebra of executable equivalences. Finite compositional order does not count how much mathematical content those transformations can carry. A supplied equivalence e:Aâ‰B can itself be organized into a four-periodic action on A_0 disjoint-union B_1 disjoint-union A_2 disjoint-union B_3:
+The source's norm-one construction is an algebra of executable equivalences. Finite compositional order does not count how much mathematical content those transformations can carry. A supplied equivalence e:Aâ‰ƒB can itself be organized into a four-periodic action on A_0 disjoint-union B_1 disjoint-union A_2 disjoint-union B_3:
 
 \[
 a_0\mapsto e(a)_1,\quad b_1\mapsto e^{-1}(b)_2,
@@ -103,7 +103,7 @@ H_0(H_0-\Delta I)(H_0-2\Delta I)=0,
 
 This is an exact spectral normal form, not a truncated expansion. Increasing the volume does not add another free energy in this class.
 
-Contact compression retains Câ P_0C=G, Câ P_1C=2D-2G, Câ P_2C=I-2D+G. Therefore all bound-state questions reduce to the explicitly reconstructed contact problem in `FINITE_GAP_PAIR_REDUCTION.md`. Its commutator is
+Contact compression retains Câ€ P_0C=G, Câ€ P_1C=2D-2G, Câ€ P_2C=I-2D+G. Therefore all bound-state questions reduce to the explicitly reconstructed contact problem in `FINITE_GAP_PAIR_REDUCTION.md`. Its commutator is
 
 \[
 [\mathscr K_x,\mathscr K_y]
@@ -117,7 +117,7 @@ This was the concrete reduction in repeated work. The derivation separated the h
 
 # 4. Transport carries operations, evaluators, and their dependent obligations
 
-For an equivalence e:Aâ‰B, computational univalence gives ua(e):A=B and a beta rule identifying transport in the identity family with application of e. Dependent constructions transport along that path. Two elementary presentations are
+For an equivalence e:Aâ‰ƒB, computational univalence gives ua(e):A=B and a beta rule identifying transport in the identity family with application of e. Dependent constructions transport along that path. Two elementary presentations are
 
 \[
 T_B=eT_Ae^{-1},\qquad O_B=O_Ae^{-1},
@@ -148,7 +148,7 @@ E'=\frac{u^\dagger\partial_\varphi H_{eff}u}
 
 The partial source derivative is at fixed E on a simple branch. Norm and response are operations on the same reconstruction. This is why computing the pair did not leave normalization and band occupation as unrelated tasks. Its retained upper-sector norm also changes the physical optimization, rather than merely documenting an unchanged projected answer.
 
-The new excitation embedding has the same structure. `GROUND_SPACE_AND_DENSITY_RESPONSE.md` constructs mathcal I_M(F)=B_Fâ (etaâ )^(M-1)|0> and its exact metric, rather than treating it as an isometry. The filling-dependent density-response weight follows from that metric. The same overlap Gram matrix S=|P_ij|Â² controls the complete ground-space condition and the exactly reachable density-response subspace. This is a further application of retaining the map, not just its eigenvalues.
+The new excitation embedding has the same structure. `GROUND_SPACE_AND_DENSITY_RESPONSE.md` constructs mathcal I_M(F)=B_Fâ€ (etaâ€ )^(M-1)|0> and its exact metric, rather than treating it as an isometry. The filling-dependent density-response weight follows from that metric. The same overlap Gram matrix S=|P_ij|Â² controls the complete ground-space condition and the exactly reachable density-response subspace. This is a further application of retaining the map, not just its eigenvalues.
 
 # 5. A failed equivalence produces a definite next object
 

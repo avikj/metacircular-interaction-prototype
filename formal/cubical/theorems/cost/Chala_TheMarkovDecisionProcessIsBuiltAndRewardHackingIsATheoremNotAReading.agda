@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �� � the quibble.
+-- छल — the quibble.
 --
 -- In Nyya, `chala` is the named fallacy of taking a statement in a
 -- sense its author did not intend, by exploiting a reading the words
@@ -24,34 +24,34 @@
 --
 -- WHAT IS CHECKED
 --
---   §�  `MDP`, `Policy`, `ret`, `dret`   the process and the return.
+--   §१  `MDP`, `Policy`, `ret`, `dret`   the process and the return.
 --       `dret-undiscounted`              γ = 1 recovers the plain sum.
---   §�  the process: a start, a lure, a goal, and an idle state.
---   §�  `hack-proxy-optimal`             the gaming policy is optimal
---                                        for the proxy � over ALL
+--   §२  the process: a start, a lure, a goal, and an idle state.
+--   §३  `hack-proxy-optimal`             the gaming policy is optimal
+--                                        for the proxy — over ALL
 --                                        policies, not a shortlist.
---   §�  `proxy-optimal�true-worthless`   AND EVERY proxy-optimal policy
+--   §४  `proxy-optimal→true-worthless`   AND EVERY proxy-optimal policy
 --                                        earns zero true reward.  So
 --                                        maximising the proxy is not
 --                                        merely unhelpful, it is
 --                                        incompatible with the aim.
---   §�  `no-estimator-repairs-it`        two policies with EQUAL proxy
+--   §५  `no-estimator-repairs-it`        two policies with EQUAL proxy
 --                                        return and different true
 --                                        return, so every function of
 --                                        the proxy return whatsoever
 --                                        ranks them together.  The
 --                                        failure is not statistical and
 --                                        no amount of data touches it.
---   §�  the same three under an ARBITRARY discount rate, so none of it
+--   §६  the same three under an ARBITRARY discount rate, so none of it
 --       is an artefact of the undiscounted finite horizon.
 --
 -- ON THE DISCOUNT, and why no rationals are needed.  With γ = a/b the
--- discounted return over horizon n is `� γ�� r�`; multiplying by the
--- positive constant `b�` gives `� a�� b��⻵�� r�`, which is what `dret`
--- computes in �.  Multiplying every policy's return by one positive
+-- discounted return over horizon n is `Σ γᵗ rₜ`; multiplying by the
+-- positive constant `bⁿ` gives `Σ aᵗ b⁽ⁿ⁻ᵗ⁾ rₜ`, which is what `dret`
+-- computes in ℕ.  Multiplying every policy's return by one positive
 -- constant reorders nothing, so optimality statements transfer exactly.
 --
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 � the repository pin.
+-- CHECKED: Agda 2.8.0, agda/cubical v0.9 — the repository pin.
 -- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -81,7 +81,7 @@ private
   one^ (suc n) = ·-identityˡ (1 ^ n) ∙ one^ n
 
 ------------------------------------------------------------------------
--- � � the process, the policy, and the return.
+-- १ · the process, the policy, and the return.
 ------------------------------------------------------------------------
 
 record MDP (S A : Type) : Type where
@@ -99,7 +99,7 @@ ret : {S A : Type} → MDP S A → ℕ → Policy S A → S → ℕ
 ret M zero    π s = 0
 ret M (suc n) π s = payoff M s (π s) + ret M n π (move M s (π s))
 
--- the discounted return at rate a/b, scaled by b� (see the header).
+-- the discounted return at rate a/b, scaled by bⁿ (see the header).
 dret : {S A : Type} → MDP S A → ℕ → ℕ → ℕ → Policy S A → S → ℕ
 dret M a b zero    π s = 0
 dret M a b (suc n) π s =
@@ -117,12 +117,12 @@ dret-undiscounted M (suc n) π s =
      ∙ dret-undiscounted M n π (move M s (π s)))
 
 ------------------------------------------------------------------------
--- � � the process.  A start, a lure, a goal, and somewhere to idle.
+-- २ · the process.  A start, a lure, a goal, and somewhere to idle.
 --
 -- The proxy pays for sitting at the lure; the true objective pays for
 -- sitting at the goal.  Every state but the start is absorbing, so a
--- policy's whole content is what it does on the first move � which is
--- what lets §��§� quantify over EVERY policy in three lines each.
+-- policy's whole content is what it does on the first move — which is
+-- what lets §३–§५ quantify over EVERY policy in three lines each.
 ------------------------------------------------------------------------
 
 data St : Type where
@@ -159,9 +159,9 @@ honest _ = toGoal
 idler  _ = toIdle
 
 ------------------------------------------------------------------------
--- � � the gaming policy is proxy-optimal, over EVERY policy.
+-- ३ · the gaming policy is proxy-optimal, over EVERY policy.
 --
--- Only the first move matters, so the case split is on `� start` and
+-- Only the first move matters, so the case split is on `π start` and
 -- each branch is a computation.
 ------------------------------------------------------------------------
 
@@ -184,7 +184,7 @@ hack-proxy-optimal π with π start
 ... | toIdle = zero-≤
 
 ------------------------------------------------------------------------
--- � � AND EVERY PROXY-OPTIMAL POLICY EARNS NOTHING.
+-- ४ · AND EVERY PROXY-OPTIMAL POLICY EARNS NOTHING.
 --
 -- Not "the optimum may be gamed": attaining the proxy optimum FORCES a
 -- true return of zero.  The two objectives are not merely misaligned,
@@ -206,11 +206,11 @@ honest-beats-every-proxy-optimum π p =
   subst (_< true3 honest) (sym (proxy-optimal→true-worthless π p)) (1 , refl)
 
 ------------------------------------------------------------------------
--- � � NO ESTIMATOR REPAIRS IT.
+-- ५ · NO ESTIMATOR REPAIRS IT.
 --
 -- The honest policy and the idle policy have EQUAL proxy return, so
--- every function of the proxy return � every score, every ranking,
--- every learned critic, at every target type � assigns them the same
+-- every function of the proxy return — every score, every ranking,
+-- every learned critic, at every target type — assigns them the same
 -- value.  Their true returns differ.  So the failure is not a shortage
 -- of samples and not a bad estimator: the signal does not contain the
 -- distinction, and this is the same subsingleton argument the abstract
@@ -240,7 +240,7 @@ no-proxy-ranking-separates (score , sound) =
     (sym (sound honest) ∙ no-estimator-repairs-it score ∙ sound idler)
 
 ------------------------------------------------------------------------
--- � � �AND NONE OF IT IS AN ARTEFACT OF THE UNDISCOUNTED SUM.
+-- ६ · …AND NONE OF IT IS AN ARTEFACT OF THE UNDISCOUNTED SUM.
 --
 -- The same statements at an ARBITRARY discount rate a/b: the gaming
 -- policy is still optimal for the proxy over every policy, it still
@@ -341,7 +341,7 @@ hack-dtrue-zero a b =
   dret-zero-under True′ a b 3 hack notGoal start tt
     hack-pays-nothing hack-notGoal-closed
 
--- �and the honest policy earns something, at every rate that gives the
+-- …and the honest policy earns something, at every rate that gives the
 -- future any weight.  So the conflict is not an artefact of the horizon
 -- or of the discounting: it is in the specification.
 honest-dtrue-value : (a b : ℕ)

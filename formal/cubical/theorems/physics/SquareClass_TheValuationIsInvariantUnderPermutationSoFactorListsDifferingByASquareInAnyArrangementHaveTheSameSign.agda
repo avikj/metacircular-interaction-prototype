@@ -5,64 +5,64 @@
 --
 -- `GaugeOrbitClasses` (theorems/physics) states, in its SYT paragraph:
 --
---   * The full square-class theorem � that val � m = val � n whenever m
---     and n differ by a square in any arrangement � needs invariance of
+--   * The full square-class theorem — that val σ m = val σ n whenever m
+--     and n differ by a square in any arrangement — needs invariance of
 --     `val` under permutation of the factor multiset, which is NOT
 --     proved here.  §7 proves the concatenated form
---     `val � (m ++ (k ++ k)) ≡ val � m`, which is the core and avoids
+--     `val σ (m ++ (k ++ k)) ≡ val σ m`, which is the core and avoids
 --     permutation machinery.
 --
 -- This module closes that absence.  The permutation machinery now
--- exists in the corpus � `Insert`/`Perm`/`_≈_` and the embedding
+-- exists in the corpus — `Insert`/`Perm`/`_≈_` and the embedding
 -- `permIsAnAdjacentChain` (theorems/walks), `perm-sym`/`perm-trans`
--- (PermSankramana), and `count-perm` in `Bahulya` (Ekatva) � and the
--- only new arithmetic is that ParitySeparator's `_�_` is commutative,
--- which that module already proves (`�-comm`).
+-- (PermSankramana), and `count-perm` in `Bahulya` (Ekatva) — and the
+-- only new arithmetic is that ParitySeparator's `_·_` is commutative,
+-- which that module already proves (`·-comm`).
 --
 -- PROVED HERE (no holes, no postulates, --safe):
 --
---   §1  val-≈        val � m ≡ val � n  whenever  m ≈ n
+--   §1  val-≈        val σ m ≡ val σ n  whenever  m ≈ n
 --                    (≈nil: refl; ≈cons: cong; ≈swap: commutativity of
---                    `_�_` conjugated by associativity; ≈trans: ∙)
---       val-Perm     � whenever Perm m n           (via permIsAnAdjacentChain)
---       val-Insert   val � ys ≡ � x � val � xs whenever Insert x xs ys
---                    (a second, direct route to val-Perm, val-Perm�)
---       val-count    on �, � whenever every factor has the same count
---                    in m and in n (Bahulya.����� at discrete�, count-perm)
+--                    `_·_` conjugated by associativity; ≈trans: ∙)
+--       val-Perm     … whenever Perm m n           (via permIsAnAdjacentChain)
+--       val-Insert   val σ ys ≡ σ x · val σ xs whenever Insert x xs ys
+--                    (a second, direct route to val-Perm, val-Perm′)
+--       val-count    on ℕ, … whenever every factor has the same count
+--                    in m and in n (Bahulya.गणना at discreteℕ, count-perm)
 --       obs-Perm     rearranging a query changes no transcript
 --
 --   §2  the full square-class theorem, in the module's own terms.
 --       Three formulations of "m and n differ by a square in any
---       arrangement", each proved to force val � m ≡ val � n for EVERY �:
+--       arrangement", each proved to force val σ m ≡ val σ n for EVERY σ:
 --
---       SquareTimes m n   :=  � k. Perm (m ++ (k ++ k)) n
+--       SquareTimes m n   :=  Σ k. Perm (m ++ (k ++ k)) n
 --                    n is some arrangement of m times a square
 --                    (square-class, and square-class-≈ for _≈_)
---       SameSquareClass m n :=  � r k k'. Perm (r ++ (k ++ k)) m
---                                        � Perm (r ++ (k' ++ k')) n
+--       SameSquareClass m n :=  Σ r k k'. Perm (r ++ (k ++ k)) m
+--                                        × Perm (r ++ (k' ++ k')) n
 --                    a common square-free core, in any arrangement
 --                    (square-class-sym; SameSquareClass is reflexive and
 --                    symmetric, and symmetric is what SquareTimes is not)
---       ProductIsSquare m n :=  � k. Perm (m ++ n) (k ++ k)
---                    the classical form: m ~ n iff m�n is a square
---                    (square-class-prod, using �-cancel: a � b ≡ true � a ≡ b)
+--       ProductIsSquare m n :=  Σ k. Perm (m ++ n) (k ++ k)
+--                    the classical form: m ~ n iff m·n is a square
+--                    (square-class-prod, using ·-cancel: a · b ≡ true → a ≡ b)
 --
 --       square-class-adds-no-class   replacing a query by one in the
 --                    same square class splits no observable class,
 --                    extending GaugeOrbitClasses.square-adds-no-class
 --
---   §3  a checked instance at the module's own gauge elements ��, ��:
---       m = p�p�p� is an arrangement of p� � p�², so val agrees on p�
---       and on p�p�p� � by the theorem, and also by `refl`.
+--   §3  a checked instance at the module's own gauge elements τ₀, τ₋:
+--       m = p₀p₁p₀ is an arrangement of p₁ · p₀², so val agrees on p₁
+--       and on p₀p₁p₀ — by the theorem, and also by `refl`.
 --
--- NOT PROVED (and not claimed): the converse � that val � m ≡ val � n
--- for every � forces m and n into one square class.  That is the
+-- NOT PROVED (and not claimed): the converse — that val σ m ≡ val σ n
+-- for every σ forces m and n into one square class.  That is the
 -- statement that the characters separate the square-class group, and
 -- it needs a separator constructed from the factor multiset (the
 -- sign assignment that flips exactly the primes of odd count in m ++ n);
 -- GaugeOrbitClasses does not state it as an absence and it is left open.
 --
--- No arithmetic beyond Bool; `Number` is `List �` as in ParitySeparator.
+-- No arithmetic beyond Bool; `Number` is `List ℕ` as in ParitySeparator.
 --
 -- Agda reports `UnsupportedIndexedMatch` warnings while checking this
 -- file; all of them come from the imported PermSankramana module
@@ -93,10 +93,10 @@ open import Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPe
 open Bahulya discreteℕ using (गणना ; count-perm ; perm-count)
 
 ------------------------------------------------------------------------
--- §1  `val �` is invariant under permutation of the factor multiset.
+-- §1  `val σ` is invariant under permutation of the factor multiset.
 --
 -- The single computation: the swap case, which is commutativity of
--- `_�_` moved past one factor by associativity.  Everything else is
+-- `_·_` moved past one factor by associativity.  Everything else is
 -- structural.
 ------------------------------------------------------------------------
 
@@ -130,13 +130,13 @@ val-Perm′ σ (pcons {x = x} p ins) =
     cong (λ z → σ x · z) (val-Perm′ σ p)
   ∙ sym (val-Insert σ ins)
 
--- On the discrete factor type �, equal counts of every factor is the
+-- On the discrete factor type ℕ, equal counts of every factor is the
 -- same as being a permutation (Ekatva), so `val` reads only the counts.
 val-count : (σ : Signs) (m n : Number)
           → ((z : ℕ) → गणना z m ≡ गणना z n) → val σ m ≡ val σ n
 val-count σ m n h = val-Perm σ (count-perm m n h)
 
--- �and conversely a permutation preserves counts, so the two
+-- …and conversely a permutation preserves counts, so the two
 -- hypotheses are interchangeable (the direction the module needs is
 -- val-count; this one records that nothing was lost).
 count-of-Perm : {m n : Number} → Perm m n → (z : ℕ) → गणना z m ≡ गणना z n
@@ -150,7 +150,7 @@ obs-Perm σ qs p = cong (λ b → b ∷ obs σ qs) (val-Perm σ p)
 ------------------------------------------------------------------------
 -- §2  THE FULL SQUARE-CLASS THEOREM.
 --
--- GaugeOrbitClasses §7: `val � (m ++ (k ++ k)) ≡ val � m` for the
+-- GaugeOrbitClasses §7: `val σ (m ++ (k ++ k)) ≡ val σ m` for the
 -- square appended at the end.  With §1 the square may sit anywhere in
 -- the factor list, and the two lists need not even share a common
 -- arrangement of the remaining factors.
@@ -201,7 +201,7 @@ SquareTimes⊂SameSquareClass : (m n : Number) → SquareTimes m n → SameSquar
 SquareTimes⊂SameSquareClass m n (k , p) =
   m , [] , k , perm-unit-r m , p
 
--- (c)  The classical form: m ~ n iff m � n is a square.  Since {�1}
+-- (c)  The classical form: m ~ n iff m · n is a square.  Since {±1}
 --      has exponent 2 this is exactly what a character can see.
 ProductIsSquare : Number → Number → Type
 ProductIsSquare m n = Σ[ k ∈ Number ] Perm (m ++ n) (k ++ k)
@@ -221,7 +221,7 @@ square-class-prod σ m n (k , p) =
     ∙ square-neutral σ k )
 
 -- Replacing a query by any member of its square class splits no
--- observable class � GaugeOrbitClasses.square-adds-no-class with the
+-- observable class — GaugeOrbitClasses.square-adds-no-class with the
 -- square in any arrangement and the base query allowed to move too.
 square-class-adds-no-class : (qs : List Number) (m n : Number) (σ σ' : Signs)
                            → SameSquareClass m n
@@ -235,10 +235,10 @@ square-class-adds-no-class qs m n σ σ' c e =
 ------------------------------------------------------------------------
 -- §3  A checked instance.
 --
--- p�p�p� is an arrangement of p� � p�², with the square NOT at the end:
+-- p₀p₁p₀ is an arrangement of p₁ · p₀², with the square NOT at the end:
 -- exactly the case §7 of GaugeOrbitClasses could not reach.  At the
--- module's own �� (flip p� only) and �� (flip everything), val agrees
--- on p� and on p�p�p�, by the theorem � and the same equation is
+-- module's own τ₀ (flip p₀ only) and τ₋ (flip everything), val agrees
+-- on p₁ and on p₀p₁p₀, by the theorem — and the same equation is
 -- `refl`, so the theorem is checked against the computation.
 ------------------------------------------------------------------------
 
@@ -248,7 +248,7 @@ p₁ = 1 ∷ []
 p₀p₁p₀ : Number
 p₀p₁p₀ = 0 ∷ 1 ∷ 0 ∷ []
 
--- p�p�p� is a rearrangement of p� ++ (p� ++ p�) = p�p�p�
+-- p₀p₁p₀ is a rearrangement of p₁ ++ (p₀ ++ p₀) = p₁p₀p₀
 p₀p₁p₀-is-p₁-times-a-square : SquareTimes p₁ p₀p₁p₀
 p₀p₁p₀-is-p₁-times-a-square =
   (0 ∷ []) , pcons (perm-refl (0 ∷ 0 ∷ [])) (there here)
@@ -266,7 +266,7 @@ instance-τ₋-refl : val τ₋ p₁ ≡ val τ₋ p₀p₁p₀
 instance-τ₋-refl = refl
 
 -- and by the count criterion: every factor has the same count in
--- p�p�p� and in p�p�p�, so val agrees, for every � at once.
+-- p₁p₀p₀ and in p₀p₁p₀, so val agrees, for every σ at once.
 instance-count : (σ : Signs) → val σ (1 ∷ 0 ∷ 0 ∷ []) ≡ val σ p₀p₁p₀
 instance-count σ =
   val-count σ (1 ∷ 0 ∷ 0 ∷ []) p₀p₁p₀

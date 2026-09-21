@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��������-������� � the centralizer, exhausted on the vertical class.
+-- केन्द्र-निर्वहण — the centralizer, exhausted on the vertical class.
 --
--- The standing question � what commutes with the whole braid action �
+-- The standing question — what commutes with the whole braid action —
 -- is answered completely for the cellwise symmetries:
 --
 --     EVERY CENTRAL CELLWISE SYMMETRY IS A UNIFORM POWER OF THE
@@ -16,23 +16,23 @@
 --
 --   §3  THE FAMILY IS CONSTANT: reading at the upper position, the
 --       crossing carries cell i to position i+1 untouched, so
---       g(i+1) = g(i) at every value � one family member, everywhere.
+--       g(i+1) = g(i) at every value — one family member, everywhere.
 --
 --   §4  THE MEMBER COMMUTES WITH THE TURN: reading at the lower
 --       position, the crossing turns what it carries, so
 --       g ∘ turn = turn ∘ g.
 --
 --   §5  A TURN-EQUIVARIANT CELL MAP IS A POWER OF THE TURN: the cell
---       space is a single orbit � every value is the turn iterated
+--       space is a single orbit — every value is the turn iterated
 --       from the base point, with the exponent computed by a
---       four-case position function � so equivariance propagates one
+--       four-case position function — so equivariance propagates one
 --       value to the whole map: g ≡ turn^{pos (g base)}.
 --
 -- Assembled: central cellwise = uniform twist, exactly the excess
--- KendraAtireka found � so for the vertical class the centralizer is
+-- KendraAtireka found — so for the vertical class the centralizer is
 -- EXACTLY the four uniform powers, no more.  The charge sectors, the
 -- kernel modulus, the ladder's top rung and now the centralizer's
--- vertical exhaustion all answer to the same four � the quarter turn
+-- vertical exhaustion all answer to the same four — the quarter turn
 -- as the one constant of the theory.
 --
 ------------------------------------------------------------------------
@@ -62,7 +62,7 @@ open import GhurnaPatha_EachStrandReadsExactlyItsOwnTwistCountSoTheTwistWordActs
 open Dhārā
 
 ------------------------------------------------------------------------
--- � � Cellwise symmetries, witness ropes, and their readers.
+-- १ · Cellwise symmetries, witness ropes, and their readers.
 ------------------------------------------------------------------------
 
 sthānika : (ℕ → Sūtra → Sūtra) → Rajju → Rajju
@@ -86,14 +86,14 @@ kośa-pāṭha zero    x = refl
 kośa-pāṭha (suc i) x = kośa-pāṭha i x
 
 ------------------------------------------------------------------------
--- � � Centrality, and the two pointwise forcings.
+-- २ · Centrality, and the two pointwise forcings.
 ------------------------------------------------------------------------
 
 module _ (g : ℕ → Sūtra → Sūtra)
          (kendra : (i : ℕ) (s : Rajju)
                  → sthānika g (veṇī∞ i s) ≡ veṇī∞ i (sthānika g s)) where
 
-  -- §3 � The family is constant.
+  -- §3 · The family is constant.
   sama-kula : (i : ℕ) (x : Sūtra) → g (suc i) x ≡ g i x
   sama-kula i x =
     sym (cong (g (suc i)) (avara-pāṭha i (kośa i x)
@@ -104,7 +104,7 @@ module _ (g : ℕ → Sūtra → Sūtra)
     ∙ sthānika-pāṭha g i (kośa i x)
     ∙ cong (g i) (kośa-pāṭha i x)
 
-  -- §4 � The member commutes with the turn.
+  -- §4 · The member commutes with the turn.
   cakra-sama-g : (x : Sūtra) → g 0 (caturaṃśa x) ≡ caturaṃśa (g 0 x)
   cakra-sama-g x =
     sym (cong (g 0) (pāra-pāṭha 0 (kośa 1 x)
@@ -117,7 +117,7 @@ module _ (g : ℕ → Sūtra → Sūtra)
     ∙ cong caturaṃśa (sama-kula 0 x)
 
 ------------------------------------------------------------------------
--- � � Equivariance is a power: the orbit is single, the exponent
+-- ३ · Equivariance is a power: the orbit is single, the exponent
 -- computed.
 ------------------------------------------------------------------------
 

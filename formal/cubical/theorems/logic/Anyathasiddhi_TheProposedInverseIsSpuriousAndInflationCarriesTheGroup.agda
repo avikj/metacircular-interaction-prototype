@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà¨àà¯àà¾àà¿à¦àà§à¿à â” the proposed antecedent is spurious, and the cause is
+-- à¤…à¤¨à¥à¤¯à¤¥à¤¾à¤¸à¤¿à¤¦à¥à¤§à¤¿à¤ƒ â€” the proposed antecedent is spurious, and the cause is
 -- another.
 --
--- THE TERM, ITS TEXT AND ITS DATE.  `àà¨àà¯àà¾àà¿à¦àà§` (anyathsiddha,
+-- THE TERM, ITS TEXT AND ITS DATE.  `à¤…à¤¨à¥à¤¯à¤¥à¤¾à¤¸à¤¿à¤¦à¥à¤§` (anyathÄsiddha,
 -- "established otherwise") is the Nyya-Vaieika technical term for a
--- factor that stands next to an effect, is proposed as its à•à¾à°à, and is
--- excluded â” because what it contributes is already accounted for
+-- factor that stands next to an effect, is proposed as its à¤•à¤¾à¤°à¤£, and is
+-- excluded â€” because what it contributes is already accounted for
 -- elsewhere.  The doctrine is stated with its fivefold classification
--- (àààààµà¿à§-àà¨àà¯àà¾àà¿à¦àà§à¿) in Annabhaa, *Tarkasagraha* with his own
--- *Dpik*, c. 1600 CE, on the à•à¾à°à section; the notion is Navya-Nyya and
--- is worked in Gagea, *Tattvacintmai*, c. 1325 CE, whose à•à¾à°ààà¾àµà¾à¦ is
+-- (à¤ªà¤à¥à¤šà¤µà¤¿à¤§-à¤…à¤¨à¥à¤¯à¤¥à¤¾à¤¸à¤¿à¤¦à¥à¤§à¤¿) in Annaá¹ƒbhaá¹­á¹­a, *Tarkasaá¹ƒgraha* with his own
+-- *DÄ«pikÄ*, c. 1600 CE, on the à¤•à¤¾à¤°à¤£ section; the notion is Navya-NyÄya and
+-- is worked in Gaá¹…geÅ›a, *TattvacintÄmaá¹‡i*, c. 1325 CE, whose à¤•à¤¾à¤°à¤£à¤¤à¤¾à¤µà¤¾à¤¦ is
 -- where the exclusion tests are argued.
 --
 -- AND THE SCHOOL IS NAMED BEFORE THE TERM IS USED, per CLAUDE.md: this is
 -- Nyya vocabulary, not Jaina.  A Jaina logician would not describe the
--- situation this way at all â” for anekntavda the two candidate readings
+-- situation this way at all â€” for anekÄntavÄda the two candidate readings
 -- of "the map back" would be two nayas to be indexed and held together,
--- and `Tantujala_â¦agda` is where this corpus does that.  Nyya's move here
+-- and `Tantujala_â€¦agda` is where this corpus does that.  NyÄya's move here
 -- is the opposite one and it is the right one HERE, because the question
 -- has a determinate answer: one of the two maps is the inverse and the
 -- other provably is not.
@@ -26,35 +26,35 @@
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.
 --
--- `interactive/AnulomaPratiloma_â¦hs` proposes candidate inverse pairs by
+-- `interactive/AnulomaPratiloma_â€¦hs` proposes candidate inverse pairs by
 -- matching type signatures inside one module and puts the round trip to
 -- the kernel.  On `InflationVersusSubgroup` it proposed
 --
---     infl : H2 â’ H4      â      res : H4 â’ H2
+--     infl : H2 â†’ H4      â‡„      res : H4 â†’ H2
 --
 -- and the kernel denied it.  This module says what the denial is worth,
 -- in three parts.
 --
---   à§  THE PAIR IS REFUTED, AND THE HOST ALREADY PROVED WHY.  `res` is
+--   à¥§  THE PAIR IS REFUTED, AND THE HOST ALREADY PROVED WHY.  `res` is
 --      identically `k0` (`res-is-zero`, InflationVersusSubgroup Â§4), so
---      `res âˆ˜ infl` collapses both classes.  Â§à§ below is one line and it
---      cites the host's own theorem.  Restriction to N â‰ â/4 of a class
+--      `res âˆ˜ infl` collapses both classes.  Â§à¥§ below is one line and it
+--      cites the host's own theorem.  Restriction to N â‰¤ â„¤/4 of a class
 --      inflated from the quotient is zero: that is the mathematics, and it
 --      is the whole point of the module that defined the two maps.
 --
---   à¨  THE EDGE IS NEVERTHELESS REAL.  `infl` IS an equivalence â” its
---      inverse is `resâº`, defined here, which is not `res` and is not
+--   à¥¨  THE EDGE IS NEVERTHELESS REAL.  `infl` IS an equivalence â€” its
+--      inverse is `resâº`, defined here, which is not `res` and is not
 --      restriction along anything.  So the refuted pair licenses no verdict
---      on the types: H2 â‰ H4 holds.  A machine that reported "not an
+--      on the types: H2 â‰ƒ H4 holds.  A machine that reported "not an
 --      equivalence" from a failed round trip would have reported a falsehood
 --      about the objects while reporting a truth about the pair, and those
 --      are two different claims.
 --
---   à©  THE EDGE CARRIES A GROUP.  H4 = HÂ(â/4, â/2) has no operation in
---      the host module.  Â§à© gives it one, as the transport of the pointwise
---      sum on H2 = HÂ(â/2, â/2), together with its associativity, in one
---      `subst` and with no case split on H4 â” the `Setubandha_â¦agda`
---      pattern.  Â§à then checks that the transported operation is the
+--   à¥©  THE EDGE CARRIES A GROUP.  H4 = HÂ¹(â„¤/4, â„¤/2) has no operation in
+--      the host module.  Â§à¥© gives it one, as the transport of the pointwise
+--      sum on H2 = HÂ¹(â„¤/2, â„¤/2), together with its associativity, in one
+--      `subst` and with no case split on H4 â€” the `Setubandha_â€¦agda`
+--      pattern.  Â§à¥ª then checks that the transported operation is the
 --      pointwise sum of realizations, which is what makes the sentence
 --      "inflation is a group isomorphism" true here rather than asserted.
 ------------------------------------------------------------------------
@@ -78,13 +78,13 @@ open import InflationVersusSubgroup
         ; k0â‰¢kÎ¹ ; h0â‰¢hÏ‡ ; infl-is-inflation )
 
 ------------------------------------------------------------------------
--- à§ Â THE PROPOSAL IS REFUTED, BY THE HOST'S OWN THEOREM.
+-- à¥§ Â· THE PROPOSAL IS REFUTED, BY THE HOST'S OWN THEOREM.
 --
 --     The machine asked for `res (infl c) â‰¡ c` for every c.  Taking
---     c = kÎ, `res-is-zero` gives k0, and the host proves k0 â‰ kÎ.
+--     c = kÎ¹, `res-is-zero` gives k0, and the host proves k0 â‰¢ kÎ¹.
 --
 --     Note what is refuted: the PAIR.  Nothing here says anything about
---     whether H2 and H4 are equivalent, and Â§à¨ shows they are.
+--     whether H2 and H4 are equivalent, and Â§à¥¨ shows they are.
 ------------------------------------------------------------------------
 
 res-is-not-a-retraction : Â¬ ((c : H2) â†’ res (infl c) â‰¡ c)
@@ -96,10 +96,10 @@ res-is-not-a-section : Â¬ ((h : H4) â†’ infl (res h) â‰¡ h)
 res-is-not-a-section Ïƒ = h0â‰¢hÏ‡ (sym (cong infl (res-is-zero hÏ‡)) âˆ™ Ïƒ hÏ‡)
 
 ------------------------------------------------------------------------
--- à¨ Â THE REAL INVERSE, AND THE EDGE.
+-- à¥¨ Â· THE REAL INVERSE, AND THE EDGE.
 --
---     `resâº` is not restriction.  It is the inverse of inflation, which on
---     this model exists because HÂ(N,V) â’ HÂ(G,V) is not the map in play:
+--     `resâº` is not restriction.  It is the inverse of inflation, which on
+--     this model exists because HÂ¹(N,V) â†’ HÂ¹(G,V) is not the map in play:
 --     inflation goes from the QUOTIENT's cohomology, and here the quotient
 --     Î“ = G/N and the subgroup N happen to be abstractly isomorphic, which
 --     is exactly the coincidence that made the machine's signature match
@@ -125,17 +125,17 @@ H2â‰ƒH4 = isoToEquiv infl-iso
 H2â‰¡H4 : H2 â‰¡ H4
 H2â‰¡H4 = ua H2â‰ƒH4
 
--- `resâº` really is another map: it disagrees with `res` at hÏ, and that
--- single disequality is the whole of Â§à§ restated as a separation of the
+-- `resâº` really is another map: it disagrees with `res` at hÏ‡, and that
+-- single disequality is the whole of Â§à¥§ restated as a separation of the
 -- two candidate backward maps.
 resâºâ‰¢res : Â¬ (resâº hÏ‡ â‰¡ res hÏ‡)
 resâºâ‰¢res p = k0â‰¢kÎ¹ (sym (p âˆ™ res-is-zero hÏ‡))
 
 ------------------------------------------------------------------------
--- à© Â WHAT CROSSES.  HÂ(Î“,V) is a group under pointwise addition of
+-- à¥© Â· WHAT CROSSES.  HÂ¹(Î“,V) is a group under pointwise addition of
 --     homomorphisms; two elements, so the table is two lines.  H4 has no
 --     operation in the host module and acquires one here by transport,
---     with its associativity, in one `subst` â” no case split on H4 occurs
+--     with its associativity, in one `subst` â€” no case split on H4 occurs
 --     anywhere below.
 ------------------------------------------------------------------------
 
@@ -167,21 +167,21 @@ _+H4_ = subst (Î» A â†’ A â†’ A â†’ A) H2â‰¡H4 _+H_
 +H4-assoc = subst Assoc à¤®à¤¾à¤°à¥à¤—à¤ƒ +H-assoc
 
 ------------------------------------------------------------------------
--- à Â THE TRANSPORTED OPERATION IS THE RIGHT ONE.
+-- à¥ª Â· THE TRANSPORTED OPERATION IS THE RIGHT ONE.
 --
---     Â§à© produces an associative operation on H4 by fiat of transport;
+--     Â§à¥© produces an associative operation on H4 by fiat of transport;
 --     that alone would be a checkmark and not a causeway.  This is the
 --     content: the transported sum realizes as the pointwise sum of the
---     corresponding characters â/4 â’ â/2.  With Â§à¨ that is the statement
+--     corresponding characters â„¤/4 â†’ â„¤/2.  With Â§à¥¨ that is the statement
 --     that inflation is an isomorphism OF GROUPS
 --
---         HÂ(G/N, V)  â‰  HÂ(G, V)
+--         HÂ¹(G/N, V)  â‰…  HÂ¹(G, V)
 --
 --     on this model, and the only case split performed is on H2 (two
---     cases in `+H4-realizes`, via `resâº`), never on H4's structure.
+--     cases in `+H4-realizes`, via `resâº`), never on H4's structure.
 ------------------------------------------------------------------------
 
--- The transported operation, unfolded once: `transportUAopâ` is the
+-- The transported operation, unfolded once: `transportUAopâ‚‚` is the
 -- library's statement that a binary operation moved along `ua` is the
 -- conjugate of the original.
 +H4-unfold : (x y : H4) â†’ x +H4 y â‰¡ infl (resâº x +H resâº y)
@@ -208,17 +208,17 @@ real2-+H kÎ¹ kÎ¹ e1 = refl
           (Iso.rightInv infl-iso x) (Iso.rightInv infl-iso y)
 
 ------------------------------------------------------------------------
--- à Â THE SCOPE, EXACTLY, stated so nothing is read into it.
+-- à¥« Â· THE SCOPE, EXACTLY, stated so nothing is read into it.
 --
 --   * That inflation is an isomorphism in general.  It is not.  The
---     inflationâ“restriction sequence is exact at HÂ with cokernel governed
---     by HÂ(N,V)^Î“, and on this model that term vanishes because `res` is
---     zero â” which is why the isomorphism holds HERE.  Nothing above
+--     inflationâ€“restriction sequence is exact at HÂ¹ with cokernel governed
+--     by HÂ¹(N,V)^Î“, and on this model that term vanishes because `res` is
+--     zero â€” which is why the isomorphism holds HERE.  Nothing above
 --     generalises and the host module's Â§3 says the same.
 --   * That `res` is the wrong map to have defined.  It is the right map;
 --     it is the only canonical map attached to a subgroup, and the host
 --     module exists to say so.  What is refuted is the machine's proposal
 --     that it inverts `infl`.
---   * That the Nyya doctrine of àà¨àà¯àà¾àà¿à¦àà§à¿ has any formal counterpart
+--   * That the NyÄya doctrine of à¤…à¤¨à¥à¤¯à¤¥à¤¾à¤¸à¤¿à¤¦à¥à¤§à¤¿ has any formal counterpart
 --     below.  The term names the move; the checks are cubical type theory.
 ------------------------------------------------------------------------

@@ -1,34 +1,34 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà¾à°-ààµààààà¿ â” àà¾à°àµààà¯à¾à à—àà¨à¾-à•àà°à¿à¯à¾à¯à¾à àà¨àààà àà¿à°à‹-àà¾à°àà àà¿à¦àà¯àà à
+-- à¤­à¤¾à¤°-à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿ â€” à¤­à¤¾à¤°à¤µà¤¤à¥à¤¯à¤¾à¤ƒ à¤—à¤£à¤¨à¤¾-à¤•à¥à¤°à¤¿à¤¯à¤¾à¤¯à¤¾à¤ƒ à¤¤à¤¨à¥à¤¤à¥à¤ƒ à¤¶à¤¿à¤°à¥‹-à¤­à¤¾à¤°à¥‡à¤£ à¤­à¤¿à¤¦à¥à¤¯à¤¤à¥‡ à¥¤
 --
 -- (the fiber of a weighted counting map splits by the head's weight.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- `Avrtti_â¦agda` Â§à names this as its next rung, in its own words:
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- `Avrtti_â€¦agda` Â§à¥« names this as its next rung, in its own words:
 -- `length` charges one per constructor so its fiber recurrence has no
 -- guard, while a WEIGHTED map does, "and the general weighted emitter is
 -- not written here."  It even gives the shape it would have.  This writes
 -- it.
 --
--- THE CORRECTION TO THAT SHAPE, and it is why the rung is a rung.  Â§à
+-- THE CORRECTION TO THAT SHAPE, and it is why the rung is a rung.  Â§à¥«
 -- proposes
 --
---     fiber f n â‰ Î[ x âˆˆ X ] Î[ m âˆˆ â• ] (w x + m â‰¡ n) — fiber f m
+--     fiber f n â‰ƒ Î£[ x âˆˆ X ] Î£[ m âˆˆ â„• ] (w x + m â‰¡ n) Ã— fiber f m
 --
 -- which cannot hold as stated: the empty list inhabits `fiber f 0` and
 -- has no head `x` to produce.  The nil case is a SEPARATE SUMMAND, and
--- the honest decomposition is a coproduct â” Â§à¨ below.  With it the
+-- the honest decomposition is a coproduct â€” Â§à¥¨ below.  With it the
 -- recurrence is exact and both round trips close by `refl`, because
--- `f (x âˆ xs)` reduces to `w x + f xs` definitionally and no fitting
+-- `f (x âˆ· xs)` reduces to `w x + f xs` definitionally and no fitting
 -- proof has to be constructed at all.
 --
--- AND WHY Â§à's `Î[ m ]` FORM IS EQUIVALENT ANYWAY, which is worth saying
--- because it is the corpus's own law: `Î[ m âˆˆ â• ] (f xs â‰¡ m) — â¦` carries
+-- AND WHY Â§à¥«'s `Î£[ m ]` FORM IS EQUIVALENT ANYWAY, which is worth saying
+-- because it is the corpus's own law: `Î£[ m âˆˆ â„• ] (f xs â‰¡ m) Ã— â€¦` carries
 -- a `singl (f xs)`, which is contractible, so the `m` and its witness
--- contract away and the form collapses to Â§à¨'s.  The intermediate value
--- rides free â” `fiber/src/Fiber/Carrier.agda`, and `Lekha_â¦agda` for the
+-- contract away and the form collapses to Â§à¥¨'s.  The intermediate value
+-- rides free â€” `fiber/src/Fiber/Carrier.agda`, and `Lekha_â€¦agda` for the
 -- same fact at length.
 --
 -- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
@@ -50,7 +50,7 @@ private variable â„“ : Level
 module _ {X : Type â„“} (w : X â†’ â„•) where
 
 ------------------------------------------------------------------------
--- à§ Â àà¾à°-à—àà¨à¾ â” the weighted counting map: charge `w x` per element.
+-- à¥§ Â· à¤­à¤¾à¤°-à¤—à¤£à¤¨à¤¾ â€” the weighted counting map: charge `w x` per element.
 ------------------------------------------------------------------------
 
   à¤­à¤¾à¤°à¤ƒ : List X â†’ â„•
@@ -58,11 +58,11 @@ module _ {X : Type â„“} (w : X â†’ â„•) where
   à¤­à¤¾à¤°à¤ƒ (x âˆ· xs) = w x + à¤­à¤¾à¤°à¤ƒ xs
 
 ------------------------------------------------------------------------
--- à¨ Â ààµààààà¿à â” the fiber decomposes: the nil case, or a head with its
+-- à¥¨ Â· à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ â€” the fiber decomposes: the nil case, or a head with its
 --     weight fitting into what remains.
 --
--- Both round trips are `refl`: `àà¾à°à (x âˆ xs)` reduces to `w x + àà¾à°à xs`,
--- so the "fitting proof" Â§à expected to construct is the SAME path,
+-- Both round trips are `refl`: `à¤­à¤¾à¤°à¤ƒ (x âˆ· xs)` reduces to `w x + à¤­à¤¾à¤°à¤ƒ xs`,
+-- so the "fitting proof" Â§à¥« expected to construct is the SAME path,
 -- carried across unchanged.
 ------------------------------------------------------------------------
 
@@ -88,10 +88,10 @@ module _ {X : Type â„“} (w : X â†’ â„•) where
 
 
 ------------------------------------------------------------------------
--- à© Â ààµààààà¿à àµà¿à¨à¾ àààµà°ààà¨àà¨ â” the recurrence with NO subtraction.
+-- à¥© Â· à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ à¤µà¤¿à¤¨à¤¾ à¤…à¤ªà¤µà¤°à¥à¤¤à¤¨à¥‡à¤¨ â€” the recurrence with NO subtraction.
 --
--- The usual weighted recurrence is written with `n âˆ w x`, which over â•
--- is truncated and needs a guard that `w x â‰ n`.  Clearing it the way
+-- The usual weighted recurrence is written with `n âˆ¸ w x`, which over â„•
+-- is truncated and needs a guard that `w x â‰¤ n`.  Clearing it the way
 -- `CompositionSemiring.agda` clears bhvan -- move the subtraction across
 -- rather than truncate -- gives a statement with no monus, no guard, and
 -- no side condition: the fiber is a coproduct of SHIFTED fibers.

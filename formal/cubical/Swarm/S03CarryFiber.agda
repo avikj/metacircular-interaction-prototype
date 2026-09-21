@@ -7,13 +7,13 @@
 --
 -- R0032 (`Rank1DihedralChart.agda`, notes/SMITH_PATH_COORDINATE_TORSOR.md)
 -- proves: for the rank-one Smith cell the complete transporter is a
--- REGULAR D∞-torsor, charted by (U��, det U) : Z � {�1}; the retained
--- proof-relevant payload for that stratum is exactly `Z � Bool`.
+-- REGULAR D∞-torsor, charted by (U₀₀, det U) : Z × {±1}; the retained
+-- proof-relevant payload for that stratum is exactly `Z × Bool`.
 --
 -- The successor seed asks for the general stratum.  The curriculum layer
 -- (runtime/curriculum, `test_curriculum.py`) meanwhile asserts that
--- POSITIONAL NOTATION costs exactly three choices � a finite quotient
--- (the base), a torsor (endianness) and a cocycle (the carry) � i.e. the
+-- POSITIONAL NOTATION costs exactly three choices — a finite quotient
+-- (the base), a torsor (endianness) and a cocycle (the carry) — i.e. the
 -- same "one integer and one sign, plus a carry" vocabulary.
 --
 -- This module shows the two vocabularies do NOT glue: the carry stratum
@@ -22,18 +22,18 @@
 -- The object.  Fix width 2 and the redundant binary alphabet {0,1,2}
 -- (the alphabet a carry normalisation acts on: a digit 2 is exactly a
 -- pending carry).  Let  value (a,b) = a + 2b  and let the descent fibre
--- over n be  Fib n = � w. value w ≡ n.  Then
+-- over n be  Fib n = Σ w. value w ≡ n.  Then
 --
---     Fib 1 is contractible,          (one representation:  1 = 1 + 2�0)
---     Fib 2 has two distinct points   (2 = 2 + 2�0  and  2 = 0 + 2�1),
+--     Fib 1 is contractible,          (one representation:  1 = 1 + 2·0)
+--     Fib 2 has two distinct points   (2 = 2 + 2·0  and  2 = 0 + 2·1),
 --
--- so `Fib 1 � Fib 2` is absurd.  A regular G-torsor structure on every
+-- so `Fib 1 ≃ Fib 2` is absurd.  A regular G-torsor structure on every
 -- inhabited fibre would give, for each inhabited n, an equivalence
--- Fib n � G (choose the base point); composing at n = 1 and n = 2 gives
+-- Fib n ≃ G (choose the base point); composing at n = 1 and n = 2 gives
 -- exactly that absurdity.  Hence:
 --
---   * no group G � in particular not D∞, and no payload type G � in
---     particular not `Z � Bool` � charts the carry fibres uniformly;
+--   * no group G — in particular not D∞, and no payload type G — in
+--     particular not `Z × Bool` — charts the carry fibres uniformly;
 --   * fibre cardinality is a non-constant invariant of the carry
 --     descent, whereas it is constant for a torsor.  R0032's payload
 --     theorem is stratum-local and does not extend along the carry.
@@ -75,7 +75,7 @@ wt d2 = 2
 Word : Type₀
 Word = Digit × Digit
 
--- little-endian:  value (a , b) = a + 2�b
+-- little-endian:  value (a , b) = a + 2·b
 value : Word → ℕ
 value (a , b) = wt a + (wt b + wt b)
 
@@ -148,7 +148,7 @@ no-uniform-chart : {ℓ : Level} {G : Type ℓ}
 no-uniform-chart {G = G} h =
   Fib1≃Fib2→⊥ (compEquiv (h 1 pt1) (invEquiv (h 2 carryRep)))
 
--- The R0032 payload, named.  `Z � Bool` is the trace type R0032 fixes for
+-- The R0032 payload, named.  `Z × Bool` is the trace type R0032 fixes for
 -- the rank-one Smith stratum; it does not chart the carry stratum.
 no-Int×Bool-chart : ((n : ℕ) → Fib n → (Fib n ≃ (ℤ × Bool))) → ⊥
 no-Int×Bool-chart = no-uniform-chart

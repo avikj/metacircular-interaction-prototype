@@ -3,10 +3,10 @@
 ------------------------------------------------------------------------
 -- Punarukti_TheTwoScaledCakravalaStepsAreOneTheorem
 --
--- ON THE NAME.  ‡‡‡®‡∞‡‡ï‡‡ ¬ punarukta ‚î "said again".  Gautama,
+-- ON THE NAME.  ‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§ ¬∑ punarukta ‚Äî "said again".  Gautama,
 -- *Nyyastra* 5.2 (~2nd c. CE), the nigrahasthna list, at 5.2.14 in
 -- the standard numbering: abdrthayo punarvacana punaruktam
--- **anyatra anuvdt** ‚î restating word or sense is a ground of defeat,
+-- **anyatra anuvƒÅdƒÅt** ‚Äî restating word or sense is a ground of defeat,
 -- EXCEPT where it is anuvda, deliberate restatement.  The exception is
 -- the whole point of the name here: a second proof of a theorem is not
 -- a defect if it says it is a second proof.  Neither of the two modules
@@ -23,14 +23,14 @@
 -- are ONE THEOREM over an arbitrary commutative ring: same hypotheses
 -- (the state condition plus the cakravla's three cleared divisions),
 -- same conclusion up to `sym` on the hypotheses and one associativity.
--- `scaled‚ístep` and `step‚íscaled` below derive each from the other,
+-- `scaled‚Üístep` and `step‚Üíscaled` below derive each from the other,
 -- so neither is a weakening of the other in any direction.
 --
 -- The duplication is not visible from either header.  NaturalMachine's
 -- (10:00) says "This thread has quoted the cakravla in eight modules
 -- and built it in none", which was true when written.
 -- CakravalaDescent's (19:27) says "There was no `CakravalaDescent`
--- ... two references pointing at work that was never done" ‚î and by
+-- ... two references pointing at work that was never done" ‚Äî and by
 -- then the k¬≤-scaled step HAD been done, nine hours earlier, in the
 -- same generality, in this same directory tree.  Neither file names the
 -- other.  Exactly one module imports both: the GENERATED aggregate root
@@ -40,8 +40,8 @@
 --
 -- The private lemma `Cakravala.Cycle.bhavana-trivial`
 -- (`solve! R`) is likewise `Bhavana.Form.cakravalaCleared` again, and
--- `Cakravala.‡‡ï‡‡∞‡‡Ø-‡‡¶-‡∞‡‡‡Æ‡` is that same identity a third time over ‚
--- from `Brahmagupta.‡‡æ‡µ‡®‡æ-‡Æ‡æ‡®`.  Those are named here and NOT bridged:
+-- `Cakravala.‡§ö‡§ï‡•ç‡§∞‡•Ä‡§Ø-‡§™‡§¶-‡§∞‡•Ç‡§™‡§Æ‡•ç` is that same identity a third time over ‚Ñ§
+-- from `Brahmagupta.‡§≠‡§æ‡§µ‡§®‡§æ-‡§Æ‡§æ‡§®`.  Those are named here and NOT bridged:
 -- one bridge is enough to place the finding, and `bhavana-trivial` is
 -- private, so a bridge to it would have to edit another author's file.
 --

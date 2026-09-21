@@ -5,7 +5,7 @@ Repository read: `avikj/metacircular-interaction-prototype@168ea8e240524f898af4b
 
 ## Status and precise additions
 
-The source dependency is not discarded in a reduction. It determines the operator that transports the residual. For a quadratic vector field, this operator is its derivative at the source midpoint. This gives an exact nonlinear Volterra representation along every already-smooth Navierâ“Stokes history, without constructing an infinite Taylor or angular-return expansion. Its full returning force has an exact signed kinetic-work identity, including arbitrary nonzero initial residual energy. The identity does not require contractivity of the residual tangent propagator.
+The source dependency is not discarded in a reduction. It determines the operator that transports the residual. For a quadratic vector field, this operator is its derivative at the source midpoint. This gives an exact nonlinear Volterra representation along every already-smooth Navierâ€“Stokes history, without constructing an infinite Taylor or angular-return expansion. Its full returning force has an exact signed kinetic-work identity, including arbitrary nonzero initial residual energy. The identity does not require contractivity of the residual tangent propagator.
 
 The complete toroidal degree-two source projection supplies an actual orthogonal, heat-commuting velocity projection to which these statements apply. An energy/vorticity preserving, continuously changing normalization adds an explicitly skew-adjoint dilation generator. Therefore the signed storage identity survives that normalization, with its changing viscosity retained. Moving observers have an explicit exchange term as well.
 
@@ -357,7 +357,7 @@ d=\mu^{-3/5}c'(t).
 \tag{26}
 \]
 
-The normalization leaves the nonlinear coefficient exactly one. Both the translation generator and `yÂgrad+3/2` are skew in `L2`, by integration by parts. The exact coefficient `3/2` is forced by the energy-preserving amplitude/length relation `A=r^(3/2)`.
+The normalization leaves the nonlinear coefficient exactly one. Both the translation generator and `yÂ·grad+3/2` are skew in `L2`, by integration by parts. The exact coefficient `3/2` is forced by the energy-preserving amplitude/length relation `A=r^(3/2)`.
 
 Therefore (4), (6), and the residual Volterra representation apply with the time-dependent field
 
@@ -553,6 +553,6 @@ Fresh reads at the pinned head:
 * The saved run 23 source note: the full toroidal pressure theorem and actual angular nonlinear source.
 * Saved run 29: higher arithmetic residuals and its limiting-convergence step, repaired by (35).
 
-Primary background: Chorin, Hald and Kupferman, *Optimal prediction and the Moriâ“Zwanzig representation of irreversible processes*, PNAS 97 (2000), 2968â“2973; Gouasmi, Parish and Duraisamy, *A priori estimation of memory effects in reduced-order models of nonlinear systems using the Moriâ“Zwanzig formalism*, Proc. R. Soc. A 473 (2017), 20170385. Projection memory and exact nonlinear reformulation are classical; the calculations here instantiate the retained NS source projection and the actual arithmetic residual tower.
+Primary background: Chorin, Hald and Kupferman, *Optimal prediction and the Moriâ€“Zwanzig representation of irreversible processes*, PNAS 97 (2000), 2968â€“2973; Gouasmi, Parish and Duraisamy, *A priori estimation of memory effects in reduced-order models of nonlinear systems using the Moriâ€“Zwanzig formalism*, Proc. R. Soc. A 473 (2017), 20170385. Projection memory and exact nonlinear reformulation are classical; the calculations here instantiate the retained NS source projection and the actual arithmetic residual tower.
 
 Verification: `checks.py` is rerunnable. It checks the general quadratic midpoint identity, energy-preserving quadratic source work, projection-motion exchange, dynamic-normalization coefficients, Abel normal forms and inverse sums, and a genuinely three-dimensional finite-Fourier NS source without truncating any generated product modes. No new Lean/Agda theorem is claimed.

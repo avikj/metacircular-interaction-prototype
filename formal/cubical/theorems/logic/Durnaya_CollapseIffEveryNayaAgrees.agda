@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- Durnaya_CollapseIffEveryNayaAgrees
 --
--- ‡¶‡‡∞‡‡®‡Ø ‚î a standpoint that asserts itself by denying the others.
+-- ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø ‚Äî a standpoint that asserts itself by denying the others.
 -- Collapsing a standpoint-indexed proposition to a single type IS that
 -- act, so the question "when may the index be dropped?" is the question
 -- of when a naya is a durnaya.  This module answers it exactly, and in
@@ -12,27 +12,27 @@
 -- WHAT IS BEING CLAIMED OF THE SOURCE, precisely.  Siddhasena Divkara
 -- (*Sanmatitarka*) and Akalaka use `durnaya` for a naya asserted to the
 -- exclusion of the rest; that a naya so asserted is defective is theirs.
--- The characterisation below ‚î collapse is available iff every pair of
--- fibres is equivalent ‚î is NOT claimed to be in those texts.  It is
+-- The characterisation below ‚Äî collapse is available iff every pair of
+-- fibres is equivalent ‚Äî is NOT claimed to be in those texts.  It is
 -- this corpus's mathematics, named for the act the tradition already
 -- named, in the sense `Anekanta.agda` argues for at length.
 --
 -- THE CORRECTION.  `Anekanta.agda` ¬ß5 proves two true theorems:
 --
---     plurality-blocks-collapse   : disagreement (sydastinsti) ‚ü no collapse
---     agreement-permits-collapse  : uniform equivalence to one fibre ‚ü collapse
+--     plurality-blocks-collapse   : disagreement (syƒÅdastinƒÅsti) ‚üπ no collapse
+--     agreement-permits-collapse  : uniform equivalence to one fibre ‚üπ collapse
 --
 -- and then its header says of the pair: "the two together characterise
 -- erasure completely", "There is no third option".  ~~That is false.~~
 -- The two hypotheses are not complementary.  A family may be neither
 -- sydastinsti (no standpoint denies) nor uniformly equivalent, and
--- then NEITHER theorem applies ‚î yet collapse is still unavailable.
+-- then NEITHER theorem applies ‚Äî yet collapse is still unavailable.
 -- `third-option-exists` below is an explicit checked witness.
 --
 -- What replaces the gloss is the honest characterisation, ¬ß1, of which
 -- `plurality-blocks-collapse` is a corollary (¬ß2).  The mathematics of
 -- `Anekanta.agda` is untouched; only its claim to exhaustiveness is
--- withdrawn.  Transport, or keep the residue ‚î including here.
+-- withdrawn.  Transport, or keep the residue ‚Äî including here.
 --
 -- CHECKED: Agda 2.8.0, cubical (homebrew), --cubical --safe, exit 0.
 -- No postulates, no holes.  `Anekanta.agda` itself was re-checked under
@@ -57,10 +57,10 @@ private
 
 ------------------------------------------------------------------------
 -- 1.  The characterisation.  Collapse is available exactly when the
---     index was idle ‚î every naya equivalent to every other.
+--     index was idle ‚Äî every naya equivalent to every other.
 ------------------------------------------------------------------------
 
--- ‡‡∞‡‡µ‡®‡Ø‡‡æ‡Æ‡‡Ø ‚î all standpoints agree, pairwise.
+-- ‡§∏‡§∞‡•ç‡§µ‡§®‡§Ø‡§∏‡§æ‡§Æ‡•ç‡§Ø ‚Äî all standpoints agree, pairwise.
 AllNayasAgree : {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') ‚Üí Type _
 AllNayasAgree {S = S} P = (s t : S) ‚Üí P s ‚âÉ P t
 
@@ -87,8 +87,8 @@ collapse-characterisation P s‚ÇÄ =
 
 ------------------------------------------------------------------------
 -- 2.  `plurality-blocks-collapse` is a corollary, not an axiom of the
---     ethics.  Disagreement blocks collapse because it is one way ‚î not
---     the only way ‚î for two fibres to fail to be equivalent.
+--     ethics.  Disagreement blocks collapse because it is one way ‚Äî not
+--     the only way ‚Äî for two fibres to fail to be equivalent.
 ------------------------------------------------------------------------
 
 plurality-blocks-collapse-derived :
@@ -104,7 +104,7 @@ plurality-blocks-collapse-derived P ((s , ps) , (t , ¬¨pt)) Q c =
 -- No standpoint denies, so sydastinsti is empty and
 -- `plurality-blocks-collapse` says nothing.  The fibres are inequivalent,
 -- so `agreement-permits-collapse` does not apply either.  And collapse
--- is nonetheless unavailable ‚î the third option.
+-- is nonetheless unavailable ‚Äî the third option.
 ------------------------------------------------------------------------
 
 ¬¨Unit‚âÉBool : ¬¨ (Unit ‚âÉ Bool)
@@ -147,7 +147,7 @@ third-option-exists =
 -- The ethics is unchanged and slightly stronger: the permission to drop
 -- a standpoint index requires EVERY pair of standpoints to agree, and
 -- exhibiting a denial is merely the cheapest way to prove that permission
--- absent.  A family can be many-sided without any naya denying another ‚î
+-- absent.  A family can be many-sided without any naya denying another ‚Äî
 -- Unit and Bool disagree about nothing, and still cannot be identified.
 -- Erasure is unavailable more often than `Anekanta.agda` proved.
 ------------------------------------------------------------------------

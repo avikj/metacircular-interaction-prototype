@@ -14,60 +14,60 @@
 -- reconstruction after adding side data.
 --
 -- WHAT THE PORT BUYS: the Lean file opens `classical` in two theorems
--- (`factorsThrough_iff_fiberConstant` ‚ê, and `targetFiber_injects_side`),
+-- (`factorsThrough_iff_fiberConstant` ‚Üê, and `targetFiber_injects_side`),
 -- with three `Classical.choose` call sites between them.
 -- Here `Set.range q` is the univalent image `Cubical.Functions.Image`
--- (`Image q = Œ[ y ‚àà Y ] ‚à fiber q y ‚à‚`) and the descent direction is
--- `PT.rec‚íSet` ‚î elimination of `‚à_‚à‚` into a SET along a 2-Constant
+-- (`Image q = Œ£[ y ‚àà Y ] ‚à• fiber q y ‚à•‚ÇÅ`) and the descent direction is
+-- `PT.rec‚ÜíSet` ‚Äî elimination of `‚à•_‚à•‚ÇÅ` into a SET along a 2-Constant
 -- family.  The first choice therefore disappears outright: the decoder
 -- is CONSTRUCTED, and its computation rule `decode (restrictToImage q x)
 -- ‚â° t x` is `refl`, not a lemma.  The hypothesis paid for it is `isSet T`,
 -- which is strictly weaker than choice.
 --
 ------------------------------------------------------------------------
--- ‚† REQUIRED DISCLOSURE ‚î THE ONE RESTATED LEAN STATEMENT
+-- ‚ö† REQUIRED DISCLOSURE ‚Äî THE ONE RESTATED LEAN STATEMENT
 ------------------------------------------------------------------------
 --
 -- Lean `targetFiber_injects_side` is NOT ported in its literal form,
 -- and no theorem below carries that name silently weakened.  The Lean
 -- statement is
 --
---     (decode : Y ‚í C ‚í T) (hdecode : ‚à x, decode (q x) (c x) = t x)
---     (y : Y) ‚í ‚à encode : TargetFiber q t y ‚í C, Injective encode
+--     (decode : Y ‚Üí C ‚Üí T) (hdecode : ‚àÄ x, decode (q x) (c x) = t x)
+--     (y : Y) ‚Üí ‚àÉ encode : TargetFiber q t y ‚Üí C, Injective encode
 --
--- where `TargetFiber q t y = {v : T // ‚à x, q x = y ‚àß t x = v}`.
+-- where `TargetFiber q t y = {v : T // ‚àÉ x, q x = y ‚àß t x = v}`.
 --
 -- Why the literal form is unavailable constructively.  To BUILD
--- `encode` one must turn the merely-existing witness `‚à x, q x = y ‚àß
+-- `encode` one must turn the merely-existing witness `‚àÉ x, q x = y ‚àß
 -- t x = v` carried by an element of `TargetFiber` into an actual `x`,
--- and then return `c x`.  That is an escape from `‚à_‚à‚` into `C`, and
--- the only choice-free escape into a non-proposition is `rec‚íSet`,
+-- and then return `c x`.  That is an escape from `‚à•_‚à•‚ÇÅ` into `C`, and
+-- the only choice-free escape into a non-proposition is `rec‚ÜíSet`,
 -- which demands the eliminated family be 2-Constant.  Here it is NOT:
 -- two witnesses `x , x'` for the SAME target value `v` in the same
 -- fiber satisfy `decode y (c x) ‚â° v ‚â° decode y (c x')`, but nothing
--- forces `c x ‚â° c x'` ‚î `decode y` need not be injective, and `C`
--- carries no structure at all.  So the map `v ‚¶ c (witness v)` is
+-- forces `c x ‚â° c x'` ‚Äî `decode y` need not be injective, and `C`
+-- carries no structure at all.  So the map `v ‚Ü¶ c (witness v)` is
 -- genuinely un-definable without choice; Lean's `Classical.choose` is
 -- doing real work, not bookkeeping.  (`isSet C` would not help: the
 -- obstruction is 2-constancy, not h-level.)
 --
 -- What is proved instead, per the port map, is the SURJECTION out of C
--- that carries the same cardinality content `|C| ‚â |t(q‚ª¬ y)|`:
+-- that carries the same cardinality content `|C| ‚â• |t(q‚Åª¬π y)|`:
 --
---     SideUsed y = Œ[ k ‚àà C ] ‚à Œ[ x ‚àà X ] (q x ‚â° y) ó (c x ‚â° k) ‚à‚
---     sideUsed‚C           : SideUsed y ‚ C
---     sideUsed‚†targetFiber : SideUsed y ‚† TargetFiber q t y
+--     SideUsed y = Œ£[ k ‚àà C ] ‚à• Œ£[ x ‚àà X ] (q x ‚â° y) √ó (c x ‚â° k) ‚à•‚ÇÅ
+--     sideUsed‚Ü™C           : SideUsed y ‚Ü™ C
+--     sideUsed‚Ü†targetFiber : SideUsed y ‚Ü† TargetFiber q t y
 --
 -- Both directions of the sandwich are choice-free.  Their quantitative
 -- consequence is proved outright (delta, strengthening the map's spec,
--- which left it as a remark): `targetFiber-card‚â` gives
--- `card (TargetFiber q t y) ‚â card C` for finite side alphabets ‚î i.e.
+-- which left it as a remark): `targetFiber-card‚â§` gives
+-- `card (TargetFiber q t y) ‚â§ card C` for finite side alphabets ‚Äî i.e.
 -- exactly the numerical statement Lean's injection was a proxy for.
 --
 -- And the literal Lean statement is recorded honestly as
 -- `targetFiber-injects-side-given-choice`, whose extra hypothesis
 --
---     pick : (u : TargetFiber q t y) ‚í Œ[ x ‚àà X ] (q x ‚â° y) ó (t x ‚â° fst u)
+--     pick : (u : TargetFiber q t y) ‚Üí Œ£[ x ‚àà X ] (q x ‚â° y) √ó (t x ‚â° fst u)
 --
 -- IS `Classical.choose` for this family, made visible.  Its proof is
 -- the Lean calc block transcribed.  So: `Classical.choice` is fully
@@ -76,34 +76,34 @@
 -- the choice-free replacement is proved beside it.
 --
 ------------------------------------------------------------------------
--- Signature ledger (Lean name ‚í this module)
+-- Signature ledger (Lean name ‚Üí this module)
 --
---   FactorsThrough  (Set.range)         ‚í FactorsThrough (Image)
---   ‚î  (Lean: it is a Prop by fiat)     ‚í isPropFactorsThrough (a THEOREM
+--   FactorsThrough  (Set.range)         ‚Üí FactorsThrough (Image)
+--   ‚Äî  (Lean: it is a Prop by fiat)     ‚Üí isPropFactorsThrough (a THEOREM
 --                                         here, given isSet T)
---   factorsThrough_iff_fiberConstant    ‚í factorsThrough‚ífiberConstant,
---                                         fiberConstant‚ífactorsThrough,
+--   factorsThrough_iff_fiberConstant    ‚Üí factorsThrough‚ÜífiberConstant,
+--                                         fiberConstant‚ÜífactorsThrough,
 --                                         factorsThroughIsoFiberConstant
---   ‚î  (unstated in Lean)               ‚í decode-restrict (= refl)
---   Completes (Function.Injective)      ‚í Completes
---   completes_iff_separatesFibers       ‚í completes‚íseparates,
---                                         separates‚ícompletes,
+--   ‚Äî  (unstated in Lean)               ‚Üí decode-restrict (= refl)
+--   Completes (Function.Injective)      ‚Üí Completes
+--   completes_iff_separatesFibers       ‚Üí completes‚Üíseparates,
+--                                         separates‚Üícompletes,
 --                                         completesIsoSeparates
---   completes_of_injective              ‚í completes-of-injective
---   completes_mono                      ‚í completes-mono, separates-mono
---   factorsThrough_postprocess          ‚í fiberConstant-postprocess,
+--   completes_of_injective              ‚Üí completes-of-injective
+--   completes_mono                      ‚Üí completes-mono, separates-mono
+--   factorsThrough_postprocess          ‚Üí fiberConstant-postprocess,
 --                                         factorsThrough-postprocess
---   TargetFiber                         ‚í TargetFiber
---   targetFiber_injects_side            ‚í RESTATED, see above:
---                                         sideUsed‚†targetFiber
+--   TargetFiber                         ‚Üí TargetFiber
+--   targetFiber_injects_side            ‚Üí RESTATED, see above:
+--                                         sideUsed‚Ü†targetFiber
 --                                         (+ decode-covers-fiber,
---                                          targetFiber-card‚â,
+--                                          targetFiber-card‚â§,
 --                                          targetFiber-injects-side-given-choice)
 --
 -- Deltas against the port-map spec (¬ß3.3):
 --   * The map offered "an Iso, or the two maps".  Both are delivered:
 --     the two maps are the content, and the Iso is available because
---     BOTH sides are propositions when T is a set ‚î isPropFactorsThrough
+--     BOTH sides are propositions when T is a set ‚Äî isPropFactorsThrough
 --     is proved (Lean gets it free by putting FactorsThrough in Prop,
 --     which is exactly what makes the Lean decoder unusable as data).
 --   * `Completes` is kept in Lean's own form (injectivity of the pair
@@ -115,36 +115,36 @@
 --     (Lean's form, needing isSet T for the round trip) as well as on
 --     FiberConstant (the map's form, hypothesis-free).
 --   * The cardinality corollary the map left as a parenthetical is
---     proved (`targetFiber-card‚â`).
---   * v0.5 skew: `isEmbeddingFstŒProp` (Cubical.Data.Sigma.Properties)
---     is stated POINTWISE ‚î `{u v : Œ A B} ‚í isEquiv (cong fst)` ‚î not
---     as `isEmbedding fst`, so `sideUsed‚C` wraps it in `Œª _ _ ‚í`.
+--     proved (`targetFiber-card‚â§`).
+--   * v0.5 skew: `isEmbeddingFstŒ£Prop` (Cubical.Data.Sigma.Properties)
+--     is stated POINTWISE ‚Äî `{u v : Œ£ A B} ‚Üí isEquiv (cong fst)` ‚Äî not
+--     as `isEmbedding fst`, so `sideUsed‚Ü™C` wraps it in `Œª _ _ ‚Üí`.
 --     Reapply the inverse if cubical is upgraded (cf. BUILD.md).
 --
--- LINE-COUNT LEDGER ‚î and one honest correction to the port map.
+-- LINE-COUNT LEDGER ‚Äî and one honest correction to the port map.
 -- The map's ¬ß1(b) criterion is "the Cubical port is shorter".  For this
 -- file that prediction is FALSE, and the note should be corrected:
 --   Lean   130 lines total,  95 non-comment.
 --   Agda   446 lines total, 206 non-comment (‚âà120 of the total is this
 --                                            header/disclosure block).
 -- Attribution of the 206, by declaration:
---   ‚âà107  the eight Lean statements, one for one ‚î PAR with Lean's 95,
+--   ‚âà107  the eight Lean statements, one for one ‚Äî PAR with Lean's 95,
 --         the +13% being explicit universe and type binders on every
 --         signature where Lean auto-bounds `u v w z`.
 --   ‚âà 75  statements with NO Lean counterpart: decode-restrict,
 --         isPropFiberConstant, isPropFactorsThrough (+ agree),
 --         factorsThroughIsoFiberConstant, fiberConstant-postprocess,
 --         SeparatesFibers + completesIsoSeparates + separates-mono,
---         decode-covers-fiber, targetFiber-card‚â.
+--         decode-covers-fiber, targetFiber-card‚â§.
 --   ‚âà 24  targetFiber-injects-side-given-choice: the Lean theorem kept
 --         verbatim beside its choice-free replacement, which is a cost
 --         the map did not budget for and which honesty requires.
 -- So the profit here is exactly the qualitative one the map's ¬ß2 ranking
 -- already predicted ("the port deletes Classical.choice"), plus the
--- isProp/Iso/cardinality layer ‚î not brevity.
+-- isProp/Iso/cardinality layer ‚Äî not brevity.
 --
--- No holes, no postulates, --safe.  The only ‚à_‚à‚-escapes in the file
--- are `PT.rec‚íSet` (once), `PT.rec` into propositions, and `PT.map` ‚î
+-- No holes, no postulates, --safe.  The only ‚à•_‚à•‚ÇÅ-escapes in the file
+-- are `PT.rec‚ÜíSet` (once), `PT.rec` into propositions, and `PT.map` ‚Äî
 -- i.e. the port-map success test holds.
 ------------------------------------------------------------------------
 
@@ -176,8 +176,8 @@ private
 -- A target `t` descends through an observable `q` when it is a function
 -- of the observed value alone.  Lean uses `Set.range q` "to avoid an
 -- arbitrary default on unobservable values"; the univalent `Image` does
--- the same job and, being a Œ over a PROPOSITION, has the additional
--- property that its paths are paths in Y (Œ‚â°Prop below).
+-- the same job and, being a Œ£ over a PROPOSITION, has the additional
+-- property that its paths are paths in Y (Œ£‚â°Prop below).
 ------------------------------------------------------------------------
 
 FactorsThrough : {X : Type ‚Ñìx} {Y : Type ‚Ñìy} {T : Type ‚Ñìt}
@@ -203,9 +203,9 @@ factorsThrough‚ÜífiberConstant q t (decode , replay) x x' p =
   sym (replay x) ‚àô‚àô cong decode (sameObservation‚ÜísamePoint q p) ‚àô‚àô replay x'
 
 -- Lean: factorsThrough_iff_fiberConstant, backward direction.  This is
--- the one that used `Classical.choose`; here it is `PT.rec‚íSet` on the
+-- the one that used `Classical.choose`; here it is `PT.rec‚ÜíSet` on the
 -- mere fiber witness, with the 2-Constant proof supplied by fiber
--- constancy itself.  Hypothesis traded: choice ‚¶ isSet T.
+-- constancy itself.  Hypothesis traded: choice ‚Ü¶ isSet T.
 fiberConstant‚ÜífactorsThrough :
   {X : Type ‚Ñìx} {Y : Type ‚Ñìy} {T : Type ‚Ñìt}
   (isSetT : isSet T) (q : X ‚Üí Y) (t : X ‚Üí T)
@@ -218,7 +218,7 @@ fiberConstant‚ÜífactorsThrough {X = X} {T = T} isSetT q t fc = decode , Œª _ ‚Üí
     decode : Image q ‚Üí T
     decode (y , w) = rec‚ÜíSet isSetT (Œª u ‚Üí t (fst u)) (kf y) w
 
--- The computation rule is DEFINITIONAL ‚î in Lean it is the second
+-- The computation rule is DEFINITIONAL ‚Äî in Lean it is the second
 -- component of the existential, discharged by `apply hfiber`.
 decode-restrict :
   {X : Type ‚Ñìx} {Y : Type ‚Ñìy} {T : Type ‚Ñìt}
@@ -347,9 +347,9 @@ separates-mono q c d h x x' p r = h x x' p (cong fst r)
 ------------------------------------------------------------------------
 -- 4.  The target values alive inside one observer fiber
 --
--- Lean: `TargetFiber q t y = {v : T // ‚à x, q x = y ‚àß t x = v}`.  Note
+-- Lean: `TargetFiber q t y = {v : T // ‚àÉ x, q x = y ‚àß t x = v}`.  Note
 -- this is literally `Image` of `t` restricted to the fiber of q over y,
--- so it is a Œ over a proposition, exactly as in Lean's subtype.
+-- so it is a Œ£ over a proposition, exactly as in Lean's subtype.
 ------------------------------------------------------------------------
 
 TargetFiber : {X : Type ‚Ñìx} {Y : Type ‚Ñìy} {T : Type ‚Ñìt}
@@ -362,11 +362,11 @@ TargetFiber {X = X} {T = T} q t y =
 --
 -- Setting: an observer sees `q x`, a helper sends `c x`, and a decoder
 -- `decode` must reproduce `t x` exactly (`replay`).  This is the
--- distribution-free core of `|C| ‚â max_y |t(q‚ª¬ y)|`.
+-- distribution-free core of `|C| ‚â• max_y |t(q‚Åª¬π y)|`.
 --
 -- See the disclosure at the top of the file: Lean's injection
--- `TargetFiber ‚ C` is choice-shaped; the choice-free content is the
--- sandwich  C ‚© SideUsed ‚† TargetFiber.
+-- `TargetFiber ‚Ü™ C` is choice-shaped; the choice-free content is the
+-- sandwich  C ‚Ü© SideUsed ‚Ü† TargetFiber.
 ------------------------------------------------------------------------
 
 module SideInformation
@@ -383,7 +383,7 @@ module SideInformation
   SideUsed y = Œ£[ k ‚àà C ] ‚à• Œ£[ x ‚àà X ] ((q x ‚â° y) √ó (c x ‚â° k)) ‚à•‚ÇÅ
 
   sideUsed‚Ü™C : (y : Y) ‚Üí SideUsed y ‚Ü™ C
-  -- (v0.5 skew: `isEmbeddingFstŒProp` is stated pointwise, with the two
+  -- (v0.5 skew: `isEmbeddingFstŒ£Prop` is stated pointwise, with the two
   -- endpoints implicit, rather than as `isEmbedding fst`.)
   sideUsed‚Ü™C y = fst , Œª _ _ ‚Üí isEmbeddingFstŒ£Prop (Œª _ ‚Üí isPropPropTrunc)
 
@@ -396,7 +396,7 @@ module SideInformation
       hit : (u : Œ£[ x ‚àà X ] ((q x ‚â° y) √ó (c x ‚â° k))) ‚Üí t (fst u) ‚â° decode y k
       hit u = sym (replay (fst u)) ‚àô cong‚ÇÇ decode (fst (snd u)) (snd (snd u))
 
-  -- ‚¶ and it hits every target value in the fiber.  This is the honest
+  -- ‚Ä¶ and it hits every target value in the fiber.  This is the honest
   -- replacement for Lean's `targetFiber_injects_side`.
   sideDecode-isSurjection : (y : Y) ‚Üí isSurjection (sideDecode y)
   sideDecode-isSurjection y (v , w) =

@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààµààààà¦ â” the cut.  à¯àà ààà®à¾ à§à¾à°à¯àà¿ ààà àà§à¾à°à, à¯àà à¨ à§à¾à°à¯àà¿ àà¾ ààà®ààà¿à à
+-- à¤…à¤µà¤šà¥à¤›à¥‡à¤¦ â€” the cut.  à¤¯à¤¤à¥ à¤¸à¥€à¤®à¤¾ à¤§à¤¾à¤°à¤¯à¤¤à¤¿ à¤¤à¤¤à¥ à¤†à¤§à¤¾à¤°à¤ƒ, à¤¯à¤¤à¥ à¤¨ à¤§à¤¾à¤°à¤¯à¤¤à¤¿ à¤¸à¤¾ à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ à¥¤
 --
 -- (what the boundary retains is the base; what it does not retain is the
 --  memory.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- are the same construction and neither knows it.  102 files in this
--- corpus name Myhillâ“Nerode; not one of the causal-state notes contains
--- the word ààà¨à°à¾à—à®à¨.  This module is the identification.
+-- corpus name Myhillâ€“Nerode; not one of the causal-state notes contains
+-- the word à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨.  This module is the identification.
 --
 -- THE PHYSICS LANE'S OWN SENTENCES, quoted because they are already the
 -- statement and only the vocabulary is missing:
@@ -24,41 +24,41 @@
 --
 --   "Memory is a failure of factorization."
 --
--- And its predictive quotient (3):  h âˆ¼ hâ² âŸº P(F âˆ h) = P(F âˆ hâ²).
+-- And its predictive quotient (3):  h âˆ¼ hâ€² âŸº P(F âˆ£ h) = P(F âˆ£ hâ€²).
 --
 -- THAT QUOTIENT IS THE FIBRE OF THE RESPONSE MAP.  Write the response as
--- `f : A â’ B`, a history to the profile it induces.  Then two histories
+-- `f : A â†’ B`, a history to the profile it induces.  Then two histories
 -- are predictively identified exactly when they lie in one fibre of `f`,
 -- and the three sentences above become three facts about that fibre.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED BELOW, and none of it is constructed by hand.
 --
---  Â§à§  A â‰ Î[ b âˆˆ B ] fibre f b.  The history set decomposes as
+--  Â§à¥§  A â‰ƒ Î£[ b âˆˆ B ] fibre f b.  The history set decomposes as
 --      (boundary datum, what the boundary did not retain).  This is NOT a
---      new theorem: it is `Carrier f` with its two Î's exchanged, and
---      `Loss.Carrier` already proves `A â‰ Carrier f` for every
+--      new theorem: it is `Carrier f` with its two Î£'s exchanged, and
+--      `Loss.Carrier` already proves `A â‰ƒ Carrier f` for every
 --      `f`, with no h-level hypothesis on either side.  The physics
---      lane's decomposition and the ààà¨à°à¾à—à®à¨ law are one line apart.
+--      lane's decomposition and the à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨ law are one line apart.
 --
---  Â§à¨  "No memory" is `isEquiv f`, i.e. every fibre contractible.  Then
+--  Â§à¥¨  "No memory" is `isEquiv f`, i.e. every fibre contractible.  Then
 --      A â‰¡ B: the boundary IS the history set and nothing is retained
 --      beyond it.  This is the cut theorem's d = rank T at rank = |A|.
 --
---  Â§à©  So "memory is a failure of factorization" reads, exactly,
---      MEMORY IS THE FIBRE FAILING TO BE CONTRACTIBLE â” and the failure
---      has the three verdicts of `Tantujala_â¦agda`, not two:
---          à°à¿à•ààà®à  a profile no history induces  (b outside the image)
---          àà•à®à    contractible â” no memory at that profile
---          ààà     memory required, and the fibre IS the amount
+--  Â§à¥©  So "memory is a failure of factorization" reads, exactly,
+--      MEMORY IS THE FIBRE FAILING TO BE CONTRACTIBLE â€” and the failure
+--      has the three verdicts of `Tantujala_â€¦agda`, not two:
+--          à¤°à¤¿à¤•à¥à¤¤à¤®à¥  a profile no history induces  (b outside the image)
+--          à¤à¤•à¤®à¥    contractible â€” no memory at that profile
+--          à¤¬à¤¹à¥     memory required, and the fibre IS the amount
 --      `isContr` merges the first and the third, so a two-valued verdict
 --      on a cut cannot distinguish "unreachable" from "remembered", which
---      is `Saptabhangi.à¦àà°àà¨à¯à` arriving in physics.
+--      is `Saptabhangi.à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ` arriving in physics.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- TERM.  ààµààààà¦ â” delimitation, cutting off, the marking of a boundary â”
--- is standard Nyya-Vaieika technical vocabulary (ààµààààà¦à•, the
+-- TERM.  à¤…à¤µà¤šà¥à¤›à¥‡à¤¦ â€” delimitation, cutting off, the marking of a boundary â€”
+-- is standard NyÄya-VaiÅ›eá¹£ika technical vocabulary (à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤•, the
 -- delimitor: that which restricts a property to its locus).  LIMIT: it is
 -- used here for the process-table cut of the physics note, which no
 --  source states; the term is borrowed for its exact sense of a
@@ -80,31 +80,31 @@ open import Cubical.Data.Sigma
 private variable â„“ â„“' : Level
 
 ------------------------------------------------------------------------
--- à§ Â ààµààààà¦à â” the cut decomposes the history set.
+-- à¥§ Â· à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤ƒ â€” the cut decomposes the history set.
 --
--- Î[ b âˆˆ B ] fibre f b â‰ A.  The left side is (boundary datum, the
+-- Î£[ b âˆˆ B ] fibre f b â‰ƒ A.  The left side is (boundary datum, the
 -- histories that datum does not separate); the right is the histories.
--- Nothing is built: it is Î-swap composed with the contractibility of
+-- Nothing is built: it is Î£-swap composed with the contractibility of
 -- singletons, which is the same pair of facts `Loss.Carrier`
--- uses to prove A â‰ Carrier f.
+-- uses to prove A â‰ƒ Carrier f.
 ------------------------------------------------------------------------
 
 module _ {A B : Type â„“} (f : A â†’ B) where
   -- One universe, because an equivalence needs both sides in it.  This is
   -- the same restriction `Loss.Carrier` carries in its own
-  -- {A B : Type â“} â” a further sign these are one construction.
+  -- {A B : Type â„“} â€” a further sign these are one construction.
 
   -- what the boundary does not retain, at a given boundary datum
   à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ : B â†’ Type â„“
   à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ b = fiber f b
-  -- The decomposition.  `Î-contractSnd` will not fire here (the second
+  -- The decomposition.  `Î£-contractSnd` will not fire here (the second
   -- component is genuinely dependent), so the retract is written, and it
-  -- is one line of cube: `Î» j â’ p (i âˆ§ j)` slides the witness along the
+  -- is one line of cube: `Î» j â†’ p (i âˆ§ j)` slides the witness along the
   -- very path that says the history lands on that boundary datum.  At
   -- i = 0 the conjunction collapses to `refl`, at i = 1 it is `p` itself.
   -- This is the same contractible-singleton fact `Loss.Carrier`
-  -- runs on, in the other order â” the physics note's decomposition and
-  -- the ààà¨à°à¾à—à®à¨ law are not analogous, they are one construction.
+  -- runs on, in the other order â€” the physics note's decomposition and
+  -- the à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨ law are not analogous, they are one construction.
   à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤ƒ : (Î£[ b âˆˆ B ] à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ b) â‰ƒ A
   à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤ƒ = isoToEquiv (iso à¤ªà¥à¤°à¤¤à¤¿ à¤…à¤¨à¥ (Î» _ â†’ refl) à¤¨à¤¿à¤µà¥ƒà¤¤à¥à¤¤à¤¿)
     where
@@ -119,10 +119,10 @@ module _ {A B : Type â„“} (f : A â†’ B) where
   à¤…à¤µà¤šà¥à¤›à¥‡à¤¦-à¤ªà¤¥à¤ƒ = ua à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤ƒ
 
 ------------------------------------------------------------------------
--- à¨ Â ààà®àààà¯àà¾àµà â” no memory is exactly `isEquiv`.
+-- à¥¨ Â· à¤¸à¥à¤®à¥ƒà¤¤à¥à¤¯à¤­à¤¾à¤µà¤ƒ â€” no memory is exactly `isEquiv`.
 --
 -- "The boundary retains everything" is every fibre contractible, which is
--- the DEFINITION of isEquiv, not a consequence of it â” so this is `refl`
+-- the DEFINITION of isEquiv, not a consequence of it â€” so this is `refl`
 -- on the record's field and the content is that the physics reading and
 -- the type-theoretic one are the same predicate.
 ------------------------------------------------------------------------
@@ -137,27 +137,27 @@ module _ {A B : Type â„“} {f : A â†’ B} where
   à¤¸à¥€à¤®à¤¾-à¤¸à¤°à¥à¤µà¤®à¥ e = ua (f , e)
 
 ------------------------------------------------------------------------
--- à© Â ààà°à¯à‹ àà™àà—à¾à â” the three verdicts, at the cut.
+-- à¥© Â· à¤¤à¥à¤°à¤¯à¥‹ à¤­à¤™à¥à¤—à¤¾à¤ƒ â€” the three verdicts, at the cut.
 --
--- `Tantujala_â¦agda` proves the fibre census has three answers and that
+-- `Tantujala_â€¦agda` proves the fibre census has three answers and that
 -- `isContr` merges two of them.  Here that theorem is READ at the cut and
 -- becomes a statement about memory: a boolean verdict on a boundary
 -- cannot tell "this profile is never induced" from "this profile is
 -- induced by many histories and the boundary must remember which".
 --
 -- The witnesses are the smallest possible and are `refl`, because the
--- point is not that they are hard â” it is that they are DIFFERENT.
+-- point is not that they are hard â€” it is that they are DIFFERENT.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Unit
 open import Cubical.Data.Bool
 open import Cubical.Data.Empty renaming (rec to âŠ¥-rec)
 
--- à°à¿à•ààà®à : a profile no history induces.  âŠ â’ Unit has empty fibre at tt.
+-- à¤°à¤¿à¤•à¥à¤¤à¤®à¥ : a profile no history induces.  âŠ¥ â†’ Unit has empty fibre at tt.
 à¤°à¤¿à¤•à¥à¤¤à¤®à¥-à¤‰à¤¦à¤¾à¤¹à¤°à¤£à¤®à¥ : fiber {A = âŠ¥} {B = Unit} (Î» ()) tt â†’ âŠ¥
 à¤°à¤¿à¤•à¥à¤¤à¤®à¥-à¤‰à¤¦à¤¾à¤¹à¤°à¤£à¤®à¥ (() , _)
 
--- ààà : two histories, one profile.  Bool â’ Unit remembers a bit.
+-- à¤¬à¤¹à¥ : two histories, one profile.  Bool â†’ Unit remembers a bit.
 à¤¬à¤¹à¥-à¤‰à¤¦à¤¾à¤¹à¤°à¤£à¤®à¥ : fiber {A = Bool} {B = Unit} (Î» _ â†’ tt) tt
 à¤¬à¤¹à¥-à¤‰à¤¦à¤¾à¤¹à¤°à¤£à¤®à¥ = false , refl
 
@@ -167,16 +167,16 @@ open import Cubical.Data.Empty renaming (rec to âŠ¥-rec)
 -- Neither fibre is contractible, and a verdict that says only "not
 -- contractible" has said one word about two situations: in the first
 -- nothing is remembered because nothing happened, in the second a bit
--- must cross the boundary.  That is the à¦àà°àà¨à¯.
+-- must cross the boundary.  That is the à¤¦à¥à¤°à¥à¤¨à¤¯.
 
 ------------------------------------------------------------------------
--- à Â àààà â” what this leaves.
+-- à¥ª Â· à¤¶à¥‡à¤·à¤ƒ â€” what this leaves.
 --
 -- The identification is structural and it is now a term.  What it does
--- NOT give: the rank.  `d = rank T` is a dimension and Â§à§ is a
+-- NOT give: the rank.  `d = rank T` is a dimension and Â§à¥§ is a
 -- decomposition, so the numerical half of the cut theorem is still only
 -- in prose.  The honest next piece is a finite instance where the fibre
--- census and the rank are both computed and compared â” and the physics
+-- census and the rank are both computed and compared â€” and the physics
 -- note is explicit that nonnegative rank can EXCEED ordinary rank, so a
 -- classical latent variable and a linear factorization are already two
 -- verdicts there, which is the same three-verdict warning one level up.

@@ -1,48 +1,48 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡µ‡‡‡‡®‡‡‡‡ ‚î the fiber of an ENTERING (a coproduct injection).
+-- ‡§™‡•ç‡§∞‡§µ‡•á‡§∂‡§§‡§®‡•ç‡§§‡•Å‡§É ‚Äî the fiber of an ENTERING (a coproduct injection).
 --
--- THE DUAL OF ‡‡‡∞‡ï‡‡‡‡‡‡®‡‡‡‡.  `PraksepaTantu_‚¶` computed the fiber of a
--- PROJECTION `fst , snd : A ó B ‚í A , B`: a projection FORGETS a factor, and
--- its fiber IS the whole discarded factor ‚î a genuine loss, priced at that
--- factor's cardinality.  An INJECTION `inl , inr : A , B ‚í A ‚ä B` is the
+-- THE DUAL OF ‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™‡§§‡§®‡•ç‡§§‡•Å‡§É.  `PraksepaTantu_‚Ä¶` computed the fiber of a
+-- PROJECTION `fst , snd : A √ó B ‚Üí A , B`: a projection FORGETS a factor, and
+-- its fiber IS the whole discarded factor ‚Äî a genuine loss, priced at that
+-- factor's cardinality.  An INJECTION `inl , inr : A , B ‚Üí A ‚äé B` is the
 -- opposite move: it FORGETS NOTHING.  This file prices its fiber, and the
 -- price is the corpus's two extremes and nothing between them.
 --
--- ON ITS IMAGE THE FIBER IS A RECEIPT.  Over a point `inl a‚` that lies in
--- the left summand, `fiber inl (inl a‚)` is CONTRACTIBLE ‚î equivalent to
--- `Unit`.  A contractible fiber is exactly what `Abhijnana_‚¶` and
--- `Avaccheda_‚¶` call a receipt: the preimage is a single point together with
+-- ON ITS IMAGE THE FIBER IS A RECEIPT.  Over a point `inl a‚ÇÄ` that lies in
+-- the left summand, `fiber inl (inl a‚ÇÄ)` is CONTRACTIBLE ‚Äî equivalent to
+-- `Unit`.  A contractible fiber is exactly what `Abhijnana_‚Ä¶` and
+-- `Avaccheda_‚Ä¶` call a receipt: the preimage is a single point together with
 -- the unique proof it maps correctly, no choice to make, no memory to carry.
 -- An injection is therefore LOSSLESS on its image, a ford in the corpus's
 -- ledger, not a lossy edge.
 --
 -- OFF ITS IMAGE THE FIBER IS A WALL.  Over a point `inr b` in the OTHER
--- summand, `fiber inl (inr b)` is EMPTY ‚î equivalent to `‚ä`.  This is
--- `Bhitti_‚¶`'s wall at the level of a single point: a proved absence, an
+-- summand, `fiber inl (inr b)` is EMPTY ‚Äî equivalent to `‚ä•`.  This is
+-- `Bhitti_‚Ä¶`'s wall at the level of a single point: a proved absence, an
 -- `inl a ‚â° inr b` that cannot exist, so `inl` misses the right summand
 -- entirely.  The two summands are disjoint, and disjointness is a wall.
 --
 -- So `inl` (and `inr`) is all receipt and all wall, with nothing in the
--- middle ‚î which is precisely the sense in which it "forgets nothing": every
+-- middle ‚Äî which is precisely the sense in which it "forgets nothing": every
 -- fiber is either the whole answer (contractible) or the impossibility of an
 -- answer (empty), never a proper set of alternatives the way a projection's
 -- fiber `B` is.
 --
 -- The four equivalences compose the library's coproduct path characterisation
--- (`‚äPath.Cover‚âPath`, itself an encode‚ìdecode) with `Œ-cong-equiv-snd`,
--- `isContr‚í‚âUnit` and `uninhabEquiv`.  The mathematics is elementary and
+-- (`‚äéPath.Cover‚âÉPath`, itself an encode‚Äìdecode) with `Œ£-cong-equiv-snd`,
+-- `isContr‚Üí‚âÉUnit` and `uninhabEquiv`.  The mathematics is elementary and
 -- classical (coproduct injections are embeddings with disjoint images).  No
--- source is claimed for it.  ‡‡‡∞‡µ‡‡ is ordinary  for entering /
--- insertion, the dual reading to ‡‡‡∞‡ï‡‡‡‡ (throwing / projection) already used
+-- source is claimed for it.  ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ is ordinary Sanskrit for entering /
+-- insertion, the dual reading to ‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™ (throwing / projection) already used
 -- in the corpus; the compound is built here, 2026-08-22.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
 -- no holes.
 ------------------------------------------------------------------------
 
-module PravesaTantu_TheInjectionsFiberIsContractibleOnItsImageAndEmptyOffItSoItIsReceiptAndWall where
+module PravesaFiber_TheInjectionsFiberIsContractibleOnItsImageAndEmptyOffItSoItIsReceiptAndWall where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_‚âÉ_ ; fiber ; invEquiv ; compEquiv ; LiftEquiv)
@@ -57,8 +57,8 @@ open import Cubical.Data.Empty.Properties using (uninhabEquiv)
 private variable ‚Ñì ‚Ñì' : Level
 
 ------------------------------------------------------------------------
--- ‡¶ ¬ ‡‡‡‡≤‡Æ‡ ‚î the based path space `Œ[ t ] t ‚â° t‚` is contractible.
--- (`isContrSingl` names the t‚ ‚â° t orientation; this is its mirror.)
+-- ‡•¶ ¬∑ ‡§∏‡•ç‡§•‡§≤‡§Æ‡•ç ‚Äî the based path space `Œ£[ t ] t ‚â° t‚ÇÄ` is contractible.
+-- (`isContrSingl` names the t‚ÇÄ ‚â° t orientation; this is its mirror.)
 ------------------------------------------------------------------------
 ‡§∏‡•ç‡§•‡§≤‡§Æ‡•ç : {T : Type ‚Ñì} (t‚ÇÄ : T) ‚Üí isContr (Œ£[ t ‚àà T ] (t ‚â° t‚ÇÄ))
 ‡§∏‡•ç‡§•‡§≤‡§Æ‡•ç t‚ÇÄ .fst = t‚ÇÄ , refl
@@ -67,8 +67,8 @@ private variable ‚Ñì ‚Ñì' : Level
 module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} where
 
   ------------------------------------------------------------------------
-  -- ‡ß ¬ ‡µ‡æ‡Æ-‡‡‡∞‡µ‡‡‡ on its image ‚î `fiber inl (inl a‚) ‚â Unit`.
-  -- Per point: `(inl a ‚â° inl a‚) ‚â (a ‚â° a‚)` by the injectivity built into
+  -- ‡•ß ¬∑ ‡§µ‡§æ‡§Æ-‡§™‡•ç‡§∞‡§µ‡•á‡§∂‡§É on its image ‚Äî `fiber inl (inl a‚ÇÄ) ‚âÉ Unit`.
+  -- Per point: `(inl a ‚â° inl a‚ÇÄ) ‚âÉ (a ‚â° a‚ÇÄ)` by the injectivity built into
   -- the coproduct's own path cover; then the base space is contractible.
   ------------------------------------------------------------------------
   ‡§µ‡§æ‡§Æ-‡§™‡•ç‡§∞‡§µ‡•á‡§∂-‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨‡•á : (a‚ÇÄ : A)
@@ -81,8 +81,8 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} where
       (isContr‚Üí‚âÉUnit (‡§∏‡•ç‡§•‡§≤‡§Æ‡•ç a‚ÇÄ))
 
   ------------------------------------------------------------------------
-  -- ‡® ¬ ‡µ‡æ‡Æ-‡‡‡∞‡µ‡‡‡ off its image ‚î `fiber inl (inr b) ‚â ‚ä`.
-  -- `inl a ‚â° inr b` transports (encode) to `Lift ‚ä`, so the fiber is empty.
+  -- ‡•® ¬∑ ‡§µ‡§æ‡§Æ-‡§™‡•ç‡§∞‡§µ‡•á‡§∂‡§É off its image ‚Äî `fiber inl (inr b) ‚âÉ ‚ä•`.
+  -- `inl a ‚â° inr b` transports (encode) to `Lift ‚ä•`, so the fiber is empty.
   ------------------------------------------------------------------------
   ‡§µ‡§æ‡§Æ-‡§™‡•ç‡§∞‡§µ‡•á‡§∂-‡§¨‡§π‡§ø‡§É : (b : B)
     ‚Üí fiber (inl {A = A} {B = B}) (inr b) ‚âÉ ‚ä•
@@ -91,7 +91,7 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} where
                  (Œª z ‚Üí z)
 
   ------------------------------------------------------------------------
-  -- ‡© ¬ ‡¶‡ï‡‡‡ø‡-‡‡‡∞‡µ‡‡‡ on its image ‚î `fiber inr (inr b‚) ‚â Unit`.
+  -- ‡•© ¬∑ ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£-‡§™‡•ç‡§∞‡§µ‡•á‡§∂‡§É on its image ‚Äî `fiber inr (inr b‚ÇÄ) ‚âÉ Unit`.
   ------------------------------------------------------------------------
   ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£-‡§™‡•ç‡§∞‡§µ‡•á‡§∂-‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨‡•á : (b‚ÇÄ : B)
     ‚Üí fiber (inr {A = A} {B = B}) (inr b‚ÇÄ) ‚âÉ Unit
@@ -103,7 +103,7 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} where
       (isContr‚Üí‚âÉUnit (‡§∏‡•ç‡§•‡§≤‡§Æ‡•ç b‚ÇÄ))
 
   ------------------------------------------------------------------------
-  -- ‡ ¬ ‡¶‡ï‡‡‡ø‡-‡‡‡∞‡µ‡‡‡ off its image ‚î `fiber inr (inl a) ‚â ‚ä`.
+  -- ‡•™ ¬∑ ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£-‡§™‡•ç‡§∞‡§µ‡•á‡§∂‡§É off its image ‚Äî `fiber inr (inl a) ‚âÉ ‚ä•`.
   ------------------------------------------------------------------------
   ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£-‡§™‡•ç‡§∞‡§µ‡•á‡§∂-‡§¨‡§π‡§ø‡§É : (a : A)
     ‚Üí fiber (inr {A = A} {B = B}) (inl a) ‚âÉ ‚ä•

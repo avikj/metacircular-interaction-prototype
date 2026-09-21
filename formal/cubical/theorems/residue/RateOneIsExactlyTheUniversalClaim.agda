@@ -5,7 +5,7 @@
 --
 -- Closes the item I left open one cycle ago.
 -- `OneCounterexampleRefutesALabelButNotAnExistential` proved that a
--- label â” a Î  â” is refuted by one counterexample, and said in its own
+-- label â€” a Î  â€” is refuted by one counterexample, and said in its own
 -- words:
 --
 --   "WHAT IS NOT MODELLED, said rather than glossed: a genuine RATE
@@ -17,21 +17,21 @@
 -- gives the comparison exactly: the universal claim IS the rate-one
 -- case, and every strictly lower rate has tolerance.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   countIsAtMostLength   the rate is a rate: count â‰ length
+--   countIsAtMostLength   the rate is a rate: count â‰¤ length
 --   allGivesFullCount     the Î  forces count â‰¡ length
 --   fullCountGivesAll     and is forced by it
 --
 -- Together: `count xs â‰¡ length xs` and `All isTrue xs` are the same
 -- claim.  So `DARWIN_GODEL_MATH.md` Â§7's label criterion is not a
--- different KIND of criterion from its thresholds â” it is the threshold
+-- different KIND of criterion from its thresholds â€” it is the threshold
 -- at 1, where the tolerance is zero.  Â§4 exhibits a population where a
 -- strictly lower threshold survives a failure that kills the Î , which is
 -- what "tolerable benchmark noise" means and why the label admits none.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -96,7 +96,7 @@ fullCountGivesAll (false âˆ· bs) e =
 --
 -- `count bs â‰¡ length bs` is a statement about a rate, and Â§2 says it is
 -- the universal claim verbatim.  A label is therefore the degenerate
--- threshold â” the one where a single failure moves the count off the
+-- threshold â€” the one where a single failure moves the count off the
 -- length and there is nothing left to tolerate.
 ------------------------------------------------------------------------
 
@@ -130,7 +130,7 @@ theThresholdAtOneAndBelow = theUniversalClaimFails , butOneStillPasses
 -- failure that kills it.
 --
 -- Percentages are still absent.  "More than half" is stateable as
--- `length xs < 2 Â count xs`; it is not stated, and no threshold other
+-- `length xs < 2 Â· count xs`; it is not stated, and no threshold other
 -- than 1 is analysed.
 ------------------------------------------------------------------------
 
@@ -142,12 +142,12 @@ theThresholdAtOneAndBelow = theUniversalClaimFails , butOneStillPasses
 --
 --   `MajorityLiesStrictlyBetweenAllAndSome`
 --   (--safe, no postulates, no holes; container green under
---    Agda 2.6.3 + cubical v0.5, NOT the declared pin â” check.sh itself
+--    Agda 2.6.3 + cubical v0.5, NOT the declared pin â€” check.sh itself
 --    returns 1 and prints that the toolchain is not the pin)
 --
 -- states exactly the sentence Â§5 said was stateable and unstated:
 --
---   Majority bs = length bs < 2 Â count bs
+--   Majority bs = length bs < 2 Â· count bs
 --
 -- and it separates three claim-shapes with two populations rather than
 -- one, because one population cannot exhibit strictness on both sides:

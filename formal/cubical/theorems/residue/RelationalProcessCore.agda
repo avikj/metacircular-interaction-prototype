@@ -15,7 +15,7 @@
 --     exists;
 --   * retaining the rooted/sheet datum repairs that particular obstruction.
 --
--- The control is the Bool double cover of SÂ.  Its loop exchanges sheets,
+-- The control is the Bool double cover of SÂ¹.  Its loop exchanges sheets,
 -- so a global section would give a fixed point of Bool negation.  Pulling the
 -- family back to its own total space has the canonical rooted section.
 ------------------------------------------------------------------------

@@ -4,26 +4,26 @@
 -- PairwiseCommutationGivesEveryOrder
 --
 -- `OrderIndependenceTransfersAlongAnyNumberOfSteps` closed with the one
--- remaining gap in Î” 28 Â§36â“38's "for every order":
+-- remaining gap in Î” 28 Â§36â€“38's "for every order":
 --
 --   "PERMUTATIONS ARE NOT MODELLED.  'For every order' is encoded as
---    the HYPOTHESIS that two uncompressed composites agree â” which is
---    what Î” 28 means by 'exact elimination commutes' â” and NO theorem
+--    the HYPOTHESIS that two uncompressed composites agree â€” which is
+--    what Î” 28 means by 'exact elimination commutes' â€” and NO theorem
 --    here derives that hypothesis from pairwise commutation."
 --
 -- Derived here, and the derivation is where the phrase "exact
 -- elimination commutes" finally becomes a hypothesis about STEPS
 -- rather than about composites.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   _~_               permutation, in the standard inductive
---                     presentation: identity, congruence under `âˆ`,
+--                     presentation: identity, congruence under `âˆ·`,
 --                     the ADJACENT transposition, and transitivity
 --   permInvariant     under pairwise commutation of the steps, any two
 --                     permutations of a list have the same uncompressed
---                     composite â” one line per constructor, and the
+--                     composite â€” one line per constructor, and the
 --                     transposition case IS the commutation hypothesis
 --   everyOrderAgreesAfterCompression
 --                     hence, composing with the previous module, the
@@ -33,20 +33,20 @@
 --                     and a point where two orders disagree is not `C`
 --                     of anything
 --
--- **So Â§36â“38's clause is now hypothesis-free at the level it is
+-- **So Â§36â€“38's clause is now hypothesis-free at the level it is
 -- stated.**  Î” 28 says exact elimination commutes and that flat
 -- compression preserves semantics "for every order".  Three cycles ago
 -- that was two orders of two steps; two cycles ago it was any two
 -- composites ASSUMED equal; now it is: assume the STEPS commute
 -- pairwise, and every order agrees, compressed and uncompressed alike.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  That adjacent transpositions generate permutations, and
 -- that pairwise-commuting operations give order-independent composites,
 -- are both elementary and old.  The content here is only that Î” 28's
 -- phrase is now discharged rather than assumed.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -86,7 +86,7 @@ module _ {S T : Type} (C : S â†’ T) where
                  â†’ fst p (fst q s) â‰¡ fst q (fst p s)) where
 
     -- matching on the RELATION only, never on the lists: pattern
-    -- matching that would need injectivity of `_âˆ_` is not supported in
+    -- matching that would need injectivity of `_âˆ·_` is not supported in
     -- cubical Agda and produces a "will not compute on transports"
     -- warning, so the lists stay implicit
     permInvariant :

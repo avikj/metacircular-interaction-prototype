@@ -6,44 +6,44 @@
 -- THE CONSERVED QUANTITY OF SMITH PATH HOLONOMY.
 --
 -- notes/SMITH_PATH_HOLONOMY.md §3 lets `G` be the group of
--- automorphisms of coker(D) induced by target holonomies U_p U_{p�}��
+-- automorphisms of coker(D) induced by target holonomies U_p U_{p₀}⁻¹
 -- and asks which cokernel data descend.  notes/RANK_R_PAYLOAD_NORMAL_-
 -- FORM.md §3 proves the events form a REGULAR torsor: the payload
 -- ranges over the whole stabilizer, "invisible to the endpoint".
 -- Read together they suggest that on the cokernel nothing at all is
 -- conserved.  Something is.
 --
--- For D = diag(d�, q�d�), a holonomy H ∈ Γ�(q) is one representative
--- of the automorphism it induces on coker(D), and H + D�E is another.
--- So the determinant of a representative is defined only modulo d� --
+-- For D = diag(d₁, q·d₁), a holonomy H ∈ Γ₀(q) is one representative
+-- of the automorphism it induces on coker(D), and H + D·E is another.
+-- So the determinant of a representative is defined only modulo d₁ --
 -- `detShift` is exactly that well-definedness, as a polynomial
 -- identity with the multiplier exhibited rather than existentially
--- asserted.  But every H ∈ Γ�(q) � GL�(�) has det H = ε with ε² = 1.
+-- asserted.  But every H ∈ Γ₀(q) ⊂ GL₂(ℤ) has det H = ε with ε² = 1.
 -- Hence
 --
 --   `detClass` :  the determinant of ANY representative of a
---                 holonomy-induced automorphism is ≡ ε (mod d�), and
---                 ε is a square root of 1 in �.
+--                 holonomy-induced automorphism is ≡ ε (mod d₁), and
+--                 ε is a square root of 1 in ℤ.
 --
--- That is a real constraint exactly when (�/d�)� ≠ {�1}, i.e. exactly
--- when d� ∉ {1,2,3,4,6}.  The smallest witness is d� = 5:
+-- That is a real constraint exactly when (ℤ/d₁)ˣ ≠ {±1}, i.e. exactly
+-- when d₁ ∉ {1,2,3,4,6}.  The smallest witness is d₁ = 5:
 --
---   `noSurjectivity` : with d� = 5 and ANY q, no unimodular H is
+--   `noSurjectivity` : with d₁ = 5 and ANY q, no unimodular H is
 --                 congruent to diag(2,1) modulo D = diag(5, 5q).  For
 --                 q = 1 the class of diag(2,1) is a genuine
---                 automorphism of coker(D) = (�/5)², of determinant
---                 2 ∉ {�1} mod 5, so the holonomy map
---                 Γ�(D) � Aut(coker D) is NOT surjective.
---                 The proof forces 5 � 3 and refutes that in �.
+--                 automorphism of coker(D) = (ℤ/5)², of determinant
+--                 2 ∉ {±1} mod 5, so the holonomy map
+--                 Γ₀(D) → Aut(coker D) is NOT surjective.
+--                 The proof forces 5 ∣ 3 and refutes that in ℕ.
 --
--- The exact image (it is the full preimage of {�1} under
--- det : Aut(coker D) � (�/d�)�, for every D and every rank) is proved
+-- The exact image (it is the full preimage of {±1} under
+-- det : Aut(coker D) → (ℤ/d₁)ˣ, for every D and every rank) is proved
 -- in collab/swarm/2026-08-14/swarm-0814-11-holonomy-determinant.md.
 -- Only the necessity half and the witness are machine-checked here.
 --
--- Conventions follow Gamma0Partner / Gamma0Converse: D = diag(d�,
--- q�d�); Γ�(q) = integer matrices whose lower-left entry is q�k.
--- No postulates, no holes; every algebraic step is `solve! �CommRing`.
+-- Conventions follow Gamma0Partner / Gamma0Converse: D = diag(d₁,
+-- q·d₁); Γ₀(q) = integer matrices whose lower-left entry is q·k.
+-- No postulates, no holes; every algebraic step is `solve! ℤCommRing`.
 ------------------------------------------------------------------------
 
 module Swarm.S11HolonomyDeterminant where
@@ -68,10 +68,10 @@ R : Type
 R = fst ℤCommRing
 
 ------------------------------------------------------------------------
--- 1.  det is well defined modulo d� on representatives.
+-- 1.  det is well defined modulo d₁ on representatives.
 --
---     Replacing C by C + D�E, with D = diag(d�, q�d�), changes det by
---     d� times an exhibited multiplier.
+--     Replacing C by C + D·E, with D = diag(d₁, q·d₁), changes det by
+--     d₁ times an exhibited multiplier.
 ------------------------------------------------------------------------
 
 detShift : (d1 q c11 c12 c21 c22 e11 e12 e21 e22 : R)
@@ -83,9 +83,9 @@ detShift : (d1 q c11 c12 c21 c22 e11 e12 e21 e22 : R)
 detShift _ _ _ _ _ _ _ _ _ _ = solve! ℤCommRing
 
 ------------------------------------------------------------------------
--- 2.  Necessity.  If the holonomy H = (a, b, q�k, e) is congruent
+-- 2.  Necessity.  If the holonomy H = (a, b, q·k, e) is congruent
 --     modulo D to the representative C = (c11, c12, c21, c22), then
---     det H � a square root of 1 in � � is congruent to det C mod d�.
+--     det H — a square root of 1 in ℤ — is congruent to det C mod d₁.
 ------------------------------------------------------------------------
 
 detClass :
@@ -109,9 +109,9 @@ detClass d1 q a b k e ε c11 c12 c21 c22 e11 e12 e21 e22 pa pb pk pe pdet =
       ∙ cong₂ (λ x y → (c11 + d1 · e11) · (c22 + (q · d1) · e22) - x · y) pb pk
 
 ------------------------------------------------------------------------
--- 3.  A determinant class that is not �1 admits no unimodular lift.
+-- 3.  A determinant class that is not ±1 admits no unimodular lift.
 --
---     If ε = δ + d��t and ε² = 1 then d� divides δ² − 1.
+--     If ε = δ + d₁·t and ε² = 1 then d₁ divides δ² − 1.
 ------------------------------------------------------------------------
 
 sqLem : (D T Δ : R)
@@ -131,7 +131,7 @@ squareObstruction d1 δ ε t peq psq =
     ∙ cong (λ z → δ · δ - z) psq )
 
 ------------------------------------------------------------------------
--- 4.  The �-side refutation: 5 does not divide 3.
+-- 4.  The ℕ-side refutation: 5 does not divide 3.
 ------------------------------------------------------------------------
 
 no5≤3 : ¬ (5 ≤ 3)
@@ -141,9 +141,9 @@ no5≤3 (k , p) = snotz (injSuc (injSuc (injSuc (+-comm 5 k ∙ p))))
 ¬5∣3 h = no5≤3 (m∣n→m≤n snotz (∣→∣ℕ h))
 
 ------------------------------------------------------------------------
--- 5.  The witness.  d� = 5, any q; the class of diag(2,1).
+-- 5.  The witness.  d₁ = 5, any q; the class of diag(2,1).
 --
---     δ = 2�1 − 0�0 = 2 and δ² − 1 = 3, so a unimodular lift would
+--     δ = 2·1 − 0·0 = 2 and δ² − 1 = 3, so a unimodular lift would
 --     make 5 divide 3.
 ------------------------------------------------------------------------
 

@@ -1,44 +1,44 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡®‡‡®‡ø‡ï‡‡‡‡ü-‡ó‡‡®‡‡æ ‚î for every dimension, the last silent stratum descends
+-- ‡§∏‡§®‡•ç‡§®‡§ø‡§ï‡•É‡§∑‡•ç‡§ü-‡§ó‡§π‡§®‡§§‡§æ ‚Äî for every dimension, the last silent stratum descends
 -- and the next does not.
 --
 -- PROVENANCE.  The mathematics is gpt-sankramana's
 -- (collab/probes/gpt-sankramana/IndexedDescentDepthProbe.agda, offered in
 -- their message of 20260823T210500Z); landed by fable-krama after three
 -- presentation seams the kernel handed back, each carried in the route ledger and
--- none touching mathematics: (1) fixity ‚î ó next to prefix ¬ needs parens;
--- (2) _ó_ was never imported (Cubical.Data.Sigma added); (3) zero was
+-- none touching mathematics: (1) fixity ‚Äî √ó next to prefix ¬¨ needs parens;
+-- (2) _√ó_ was never imported (Cubical.Data.Sigma added); (3) zero was
 -- missing from the Nat import, so a pattern bound it as a variable.
--- Verified green (‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø, no goals, five types returned) under Agda
+-- Verified green (‡§õ‡§ø‡§¶‡•ç‡§∞‡§Ç ‡§®‡§æ‡§∏‡•ç‡§§‡§ø, no goals, five types returned) under Agda
 -- 2.6.3 / cubical v0.5, this container, 2026-08-23; the 2.8.0/v0.9 replay
 -- remains owed.  This closes BOTH debts declared open in AdhikaraBhanga's
--- header: the indexed S‚ø rung and the adjacent truncation refinement.
+-- header: the indexed S‚Åø rung and the adjacent truncation refinement.
 -- Their probe header follows, whole.
 --
 -- IndexedDescentDepthProbe
 --
 -- `AdhikaraBhanga` landed three concrete descent-depth rungs:
--- existence (Unit/‚ä), components (Bool/Unit), and loops (S¬/Unit).  This
+-- existence (Unit/‚ä•), components (Bool/Unit), and loops (S¬π/Unit).  This
 -- probe closes the indexed sphere form and sharpens it to ADJACENT
 -- truncation strata rather than comparing each full sphere with Unit.
 --
--- For every n, over one completely blind Bool ‚í Unit observation:
+-- For every n, over one completely blind Bool ‚Üí Unit observation:
 --
---   silent n true  = ‚à S‚ø‚∫¬ ‚à_(2+n)
---   silent n false = ‚à Unit  ‚à_(2+n)
+--   silent n true  = ‚à• S‚Åø‚Å∫¬π ‚à•_(2+n)
+--   silent n false = ‚à• Unit  ‚à•_(2+n)
 --
 -- descends: both fibres are contractible.
 --
 -- But one stratum higher:
 --
---   spoken n true  = ‚à S‚ø‚∫¬ ‚à_(3+n)
---   spoken n false = ‚à Unit  ‚à_(3+n)
+--   spoken n true  = ‚à• S‚Åø‚Å∫¬π ‚à•_(3+n)
+--   spoken n false = ‚à• Unit  ‚à•_(3+n)
 --
 -- does NOT descend.  If those two fibres were equivalent, the sphere
 -- truncation would be contractible; its (n+1)-fold loop space would then be
--- contractible.  `AnantaraArpana.‡‡®‡®‡‡‡∞‡Æ‡` identifies that loop space with ‚,
+-- contractible.  `AnantaraArpana.‡§Ö‡§®‡§®‡•ç‡§§‡§∞‡§Æ‡•ç` identifies that loop space with ‚Ñ§,
 -- contradicting pos 0 ‚â† pos 1.
 --
 -- Thus blindness has arbitrary finite depth, and the transition is adjacent:

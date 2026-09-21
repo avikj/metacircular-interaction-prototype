@@ -1,46 +1,46 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà°à‹ààà â” the stream, the current.
+-- à¤¸à¥à¤°à¥‹à¤¤à¤¸à¥ â€” the stream, the current.
 --
 -- WHY THIS FILE EXISTS.
 --
 -- The broker is built here, with all five, and the reading becomes the
 -- theorem the design rests on: under at-least-once delivery with
 -- arbitrary duplication and arbitrary reordering, the consumer's state
--- depends only on the SET of records delivered (Â§à).  Exactly-once is
+-- depends only on the SET of records delivered (Â§à¥ª).  Exactly-once is
 -- therefore an algebraic consequence and not a delivery guarantee, and
 -- the deduplication store, its key, and its expiry policy all disappear
--- together â” which is what the earlier form asserts and does not model.
+-- together â€” which is what the earlier form asserts and does not model.
 --
 -- WHAT IS CHECKED
 --
---   Â§à§  `Key`, `Delivery`   partitions and offsets; a delivery is a
+--   Â§à¥§  `Key`, `Delivery`   partitions and offsets; a delivery is a
 --                           LIST, so duplicates and reordering are
 --                           representable rather than assumed away.
---   Â§à¨  `consume`           the consumer's state, and `consume-is-fold`
---                           that it IS the idempotent merge â” the merge
+--   Â§à¥¨  `consume`           the consumer's state, and `consume-is-fold`
+--                           that it IS the idempotent merge â€” the merge
 --                           is a theorem about the consumer, not its
 --                           definition.
---   Â§à©  merge laws          idempotent, commutative, associative, with
+--   Â§à¥©  merge laws          idempotent, commutative, associative, with
 --                           the empty state its unit.
---   Â§à  `same-setâ’same-state`  EXACTLY ONCE, BY ALGEBRA.  Two deliveries
+--   Â§à¥ª  `same-setâ†’same-state`  EXACTLY ONCE, BY ALGEBRA.  Two deliveries
 --                           with the same members give the same state,
 --                           whatever their order and however many times
 --                           each arrived.
 --       `redelivery-harmless`  the special case a broker actually needs.
---   Â§à  `Checkpoint`, `watermark`, `watermarkâ‰`
+--   Â§à¥«  `Checkpoint`, `watermark`, `watermarkâ‰¤`
 --                           the checkpoint per partition and the
 --                           watermark as their least; and
 --       `below-watermark-final`
 --                           below the watermark the state is FINAL: no
 --                           future delivery, of anything, changes it.
---   Â§à  `no-safe-compaction`  and the cost, exactly: dropping a
+--   Â§à¥¬  `no-safe-compaction`  and the cost, exactly: dropping a
 --                           delivered key from the state changes it, so
---                           the store is monotone â” no tombstones, no
+--                           the store is monotone â€” no tombstones, no
 --                           compaction, no retention policy.
 --
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
+-- CHECKED: Agda 2.8.0, agda/cubical v0.9 â€” the repository pin.
 -- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -61,10 +61,10 @@ private
   absurd ()
 
 ------------------------------------------------------------------------
--- à§ Â THE BROKER.
+-- à¥§ Â· THE BROKER.
 --
 -- A record is addressed by its partition and its offset within that
--- partition â” which is what a broker's coordinates are.  A delivery is
+-- partition â€” which is what a broker's coordinates are.  A delivery is
 -- a LIST of such addresses: duplicates are representable, order is
 -- representable, and nothing below assumes either away.
 ------------------------------------------------------------------------
@@ -90,7 +90,7 @@ data _âˆˆ_ : Key â†’ Delivery â†’ Type where
   there : {k j : Key} {d : Delivery} â†’ k âˆˆ d â†’ k âˆˆ (j âˆ· d)
 
 ------------------------------------------------------------------------
--- à¨ Â THE CONSUMER.
+-- à¥¨ Â· THE CONSUMER.
 --
 -- A grow-only set of the records seen, as a characteristic function.
 -- No offset table, no seen-set with an expiry, no identity key beyond
@@ -142,7 +142,7 @@ consume-is-fold (k âˆ· d) = funExt step
     ... | no  _ | no  _ = funExtâ» (consume-is-fold d) j
 
 ------------------------------------------------------------------------
--- à© Â the merge laws the whole design rests on.
+-- à¥© Â· the merge laws the whole design rests on.
 ------------------------------------------------------------------------
 
 merge-idem : (a : State) â†’ merge a a â‰¡ a
@@ -172,10 +172,10 @@ merge-unit : (a : State) â†’ merge âˆ… a â‰¡ a
 merge-unit a = refl
 
 ------------------------------------------------------------------------
--- à Â EXACTLY ONCE, BY ALGEBRA.
+-- à¥ª Â· EXACTLY ONCE, BY ALGEBRA.
 --
 -- The state records membership and nothing else, so two deliveries with
--- the same members agree â” whatever the order, however many times each
+-- the same members agree â€” whatever the order, however many times each
 -- record arrived.  At-least-once delivery therefore already gives the
 -- effect exactly-once was bought for, and the deduplication store, its
 -- identity key and its expiry policy disappear together.
@@ -239,11 +239,11 @@ redelivery-harmless d =
     caseâˆˆ (inr b) = b
 
 ------------------------------------------------------------------------
--- à Â CHECKPOINTS AND THE WATERMARK.
+-- à¥« Â· CHECKPOINTS AND THE WATERMARK.
 --
 -- A checkpoint records, per partition, how far the consumer has read.
 -- The watermark is their least, taken over the partitions in play, from
--- a seed â” the seed being the conservative answer for the empty case,
+-- a seed â€” the seed being the conservative answer for the empty case,
 -- since a watermark that is too small is safe and one that is too large
 -- is not.
 --
@@ -297,10 +297,10 @@ below-watermark-final d extra ps c w comp p o mem lt =
   already-final d extra (p , o) (comp p o mem (â‰¤-trans lt (watermarkâ‰¤ c w ps p mem)))
 
 ------------------------------------------------------------------------
--- à Â THE COST, EXACTLY.
+-- à¥¬ Â· THE COST, EXACTLY.
 --
 -- Nothing may be dropped.  A retention policy that removes a delivered
--- key from the state changes the state â” so there are no tombstones, no
+-- key from the state changes the state â€” so there are no tombstones, no
 -- compaction and no safe expiry, and the store is monotone.  Systems
 -- adopting this design trade unbounded growth for the elimination of the
 -- entire delivery-semantics stack, and here that trade is a term rather

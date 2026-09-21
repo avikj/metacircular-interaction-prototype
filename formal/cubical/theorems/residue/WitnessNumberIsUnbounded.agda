@@ -12,52 +12,52 @@
 -- theorem about absences.  That distinction is the whole point of having
 -- fixed a measure.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE WITNESS
 --
 -- Three standpoints, three points, and each standpoint wrong at exactly
 -- one of them:
 --
---     law d x  =  âŠ      when d â‰¡ x
+--     law d x  =  âŠ¥      when d â‰¡ x
 --     law d x  =  Unit   otherwise
 --
 -- A list refutes exactly when it contains all three points, because a
 -- decoder survives every point but its own.  So:
 --
---     Refutes law (t0 âˆ t1 âˆ t2 âˆ [])          Â§3
---     Â Refutes law (a âˆ b âˆ [])   for all a b Â§4
+--     Refutes law (t0 âˆ· t1 âˆ· t2 âˆ· [])          Â§3
+--     Â¬ Refutes law (a âˆ· b âˆ· [])   for all a b Â§4
 --
 -- and the witness number is exactly 3.  The nine cases of Â§4 are the
 -- pigeonhole, written out: from any two points some standpoint is
 -- missing, and the missing one survives.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IT IS, READ AS NAYAVDA
 --
 -- This is the plurality condition with a number on it.  Two standpoints
 -- in disagreement are separated by two observations; three standpoints
--- that disagree pairwise need three, and no pair will do â” not because
+-- that disagree pairwise need three, and no pair will do â€” not because
 -- the third is hard to find but because every pair leaves a survivor.
 --
 -- The standing aneknta law (887641a7) is that a collapse exists IFF
 -- every pair of standpoints agrees.  Plurality is one way to fail that,
 -- not the only one.  This says how much plurality costs to
 -- demonstrate: one witness per standpoint, when the standpoints
--- disagree in general position.  A durnaya â” a standpoint asserting
--- itself by denying the others â” is exactly the degenerate case where
+-- disagree in general position.  A durnaya â€” a standpoint asserting
+-- itself by denying the others â€” is exactly the degenerate case where
 -- one witness would have sufficed, and it is not this one.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS DOES TO THE DEFLATIONARY THREAD
 --
 -- It sharpens rather than weakens it.  The reading "every absence here
 -- is exact, so the barrier language is stronger than the objects
 -- warrant" survives, and it is now a claim with content: the objects
--- here all cost 2, and 2 is not forced â” 3 exists, one type-former
+-- here all cost 2, and 2 is not forced â€” 3 exists, one type-former
 -- away.  Before this module the uniform 2 could have been an artefact
 -- of the measure.  It is not; it is a fact about the sites.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -97,7 +97,7 @@ law t2 t2 = âŠ¥
 ------------------------------------------------------------------------
 -- 3.  THREE POINTS REFUTE
 --
--- Each decoder meets its own point in the list, and `law d d` is âŠ.
+-- Each decoder meets its own point in the list, and `law d d` is âŠ¥.
 ------------------------------------------------------------------------
 
 triple : List Three
@@ -109,7 +109,7 @@ three-refute t1 (_ , bad , _)     = bad
 three-refute t2 (_ , _ , bad , _) = bad
 
 ------------------------------------------------------------------------
--- 4.  NO PAIR DOES â” the pigeonhole, written out
+-- 4.  NO PAIR DOES â€” the pigeonhole, written out
 --
 -- From any two points a standpoint is missing, and a missing standpoint
 -- survives the whole list.
@@ -169,7 +169,7 @@ no-universal-standpoint = refutesâ†’absent law triple three-refute
 -- 7.  What is settled and what is not.
 --
 -- SETTLED.  Witness number is not bounded by 2.  The corpus's uniform 2
--- is a property of its sites, not of the notion of absence â” which is
+-- is a property of its sites, not of the notion of absence â€” which is
 -- what a measure is for, and what could not be said before one was
 -- fixed.
 --
@@ -178,8 +178,8 @@ no-universal-standpoint = refutesâ†’absent law triple three-refute
 -- pigeonhole at general n, and Â§4 is an enumeration at n = 3.
 --
 -- ALSO OPEN, and more interesting.  Whether any absence arising from
--- MATHEMATICS in this corpus â” rather than constructed to order, as
--- this one was â” has witness number above 2.  Nothing found so far
+-- MATHEMATICS in this corpus â€” rather than constructed to order, as
+-- this one was â€” has witness number above 2.  Nothing found so far
 -- does.  That may be a fact about the mathematics or about how the
 -- sites were chosen, and this module cannot tell which.
 ------------------------------------------------------------------------
@@ -193,10 +193,10 @@ no-universal-standpoint = refutesâ†’absent law triple three-refute
 -- could not tell which.  It is neither: it is a fact about the DECODER
 -- SPACE.  `WhyTheSitesAreTwo` proves
 --
---     Discrete Y â’ CollisionFree q t ys â’ Â Refutes (factorLaw q t) ys
+--     Discrete Y â†’ CollisionFree q t ys â†’ Â¬ Refutes (factorLaw q t) ys
 --
--- so over an unconstrained decoder space `Image q â’ T` with discrete
--- observations, a list refutes only by containing a collision â” and a
+-- so over an unconstrained decoder space `Image q â†’ T` with discrete
+-- observations, a list refutes only by containing a collision â€” and a
 -- collision is already a pair.  Every site in this corpus satisfies
 -- both hypotheses, so 2 was never contingent there.
 --
@@ -218,12 +218,12 @@ no-universal-standpoint = refutesâ†’absent law triple three-refute
 -- `WitnessNumberCanBeInfinite` generalises Â§2 to any
 -- discrete A and CHARACTERISES the refuting lists rather than bounding
 -- them: a list refutes exactly when it contains every point.  At A =
--- Three that recovers 3.  At A = â• it gives
+-- Three that recovers 3.  At A = â„• it gives
 --
 --     no-finite-list-refutes :
---       (ys : List â•) â’ Â Refutes (diagLaw discreteâ•) ys
+--       (ys : List â„•) â†’ Â¬ Refutes (diagLaw discreteâ„•) ys
 --
--- while the absence still holds â” so the witness number there is not
+-- while the absence still holds â€” so the witness number there is not
 -- merely large, it is not a number at all.
 --
 -- Characterising the refuting lists turned out to be easier than

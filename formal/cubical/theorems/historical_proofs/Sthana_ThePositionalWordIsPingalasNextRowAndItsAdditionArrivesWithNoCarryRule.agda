@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡æ‡®‡Æ‡ ‚î ‡‡‡‡æ‡®‡æ‡‡ ‡‡‡‡æ‡®‡ ‡¶‡‡ó‡‡‡ ‡‡‡Ø‡æ‡‡ ‡
+-- ‡§∏‡•ç‡§•‡§æ‡§®‡§Æ‡•ç ‚Äî ‡§∏‡•ç‡§•‡§æ‡§®‡§æ‡§§‡•ç ‡§∏‡•ç‡§•‡§æ‡§®‡§Ç ‡§¶‡§∂‡§ó‡•Å‡§£‡§Ç ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç ‡•§
 -- (sthnt sthna daagua syt: "from place to place let it be
---  ten-fold" ‚î the place-value rule.)
+--  ten-fold" ‚Äî the place-value rule.)
 --
--- THE TERM, ITS TEXT AND ITS DATE.  `‡‡‡‡æ‡®` (sthna, "place") in the
+-- THE TERM, ITS TEXT AND ITS DATE.  `‡§∏‡•ç‡§•‡§æ‡§®` (sthƒÅna, "place") in the
 -- place-value sense is stated by ryabhaa, *ryabhaya*, Gaitapda 2
 -- (499 CE): *sthnt sthna daagua syt*.  The metrical material is
--- Pigala, *‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡* ‡Æ.‡®‡‚ì‡®‡Æ (~300 BCE): the ‡‡‡∞‡‡‡‡æ‡∞ and its
+-- Pi·πÖgala, *‡§õ‡§®‡•ç‡§¶‡§É‡§∂‡§æ‡§∏‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç* ‡•Æ.‡•®‡•™‚Äì‡•®‡•Æ (~300 BCE): the ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ and its
 -- next-row rule.
 --
 ------------------------------------------------------------------------
@@ -16,22 +16,22 @@
 --
 -- `machine/Setubandha_TheCheckedIdentificationsAreEdgesAndTheIsolatedNodes
 -- AreTheFrontier.hs` reports the largest component of this corpus's
--- identification graph: 10 nodes, diameter 3, hub `‚ï` at degree 7.  Among
+-- identification graph: 10 nodes, diameter 3, hub `‚Ñï` at degree 7.  Among
 -- its pairs at DISTANCE 2 is
 --
---       Pingala.‡‡®‡‡¶‡‡  ‚î‚î[ Pingala.‡‡®‡‡¶‡‡‚â°‚ï ]‚î‚î  ‚ï
---                       ‚î‚î[ Digits.‚ï‚â°CanWord ]‚î‚î  CanWord
+--       Pingala.‡§õ‡§®‡•ç‡§¶‡§∏‡•ç  ‚îÄ‚îÄ[ Pingala.‡§õ‡§®‡•ç‡§¶‡§∏‡•ç‚â°‚Ñï ]‚îÄ‚îÄ  ‚Ñï
+--                       ‚îÄ‚îÄ[ Digits.‚Ñï‚â°CanWord ]‚îÄ‚îÄ  CanWord
 --
 -- and the two banks had never been joined: nothing in this corpus puts
--- Pigala's ‡‡‡∞‡‡‡‡æ‡∞ and a base-b positional numeral in one statement.
--- `Setubandha_ThePrastarasNextRow‚¶` walked the OTHER distance-2 route out
--- of ‡‡®‡‡¶‡‡, through `‚ï` to `Tally`.  This file walks this one, reusing
+-- Pi·πÖgala's ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ and a base-b positional numeral in one statement.
+-- `Setubandha_ThePrastarasNextRow‚Ä¶` walked the OTHER distance-2 route out
+-- of ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç, through `‚Ñï` to `Tally`.  This file walks this one, reusing
 -- that route's own lemma rather than reproving it, so the two causeways
 -- share a span.
 --
--- NOTHING BELOW IS CONSTRUCTED BY HAND.  No induction over ‡‡®‡‡¶‡‡, no
--- case split on ‡≤‡ò‡/‡ó‡‡∞‡, no digit recursion, no carry lemma.  The one
--- definition that looks like a construction ‚î `‡‡ô‡‡ï‡æ‡®‡‡ï‡‡∞‡Æ` ‚î repackages
+-- NOTHING BELOW IS CONSTRUCTED BY HAND.  No induction over ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç, no
+-- case split on ‡§≤‡§ò‡•Å/‡§ó‡•Å‡§∞‡•Å, no digit recursion, no carry lemma.  The one
+-- definition that looks like a construction ‚Äî `‡§Ö‡§ô‡•ç‡§ï‡§æ‡§®‡•Å‡§ï‡•ç‡§∞‡§Æ` ‚Äî repackages
 -- two things `Digits` already proved (`sucw`,
 -- `canonical-sucw`) into the pair type they were about; it introduces no
 -- mathematics, and it exists only so that the theorem below has a
@@ -39,26 +39,26 @@
 --
 -- THE FOUR THINGS THE ROUTE CARRIES.
 --
---   ‡ß  ‡‡ô‡‡ï‡æ‡®‡‡ï‡‡∞‡Æ ‚î Pigala's next-row rule, transported along the
+--   ‡•ß  ‡§Ö‡§ô‡•ç‡§ï‡§æ‡§®‡•Å‡§ï‡•ç‡§∞‡§Æ ‚Äî Pi·πÖgala's next-row rule, transported along the
 --      composite, IS schoolbook increment-with-carry in base b, for every
---      b ‚â 2 simultaneously.  `Digits.agda` spends ~150 lines on `sucw`
+--      b ‚â• 2 simultaneously.  `Digits.agda` spends ~150 lines on `sucw`
 --      and `value-sucw`; `Pingala.agda` never mentions a digit.  The
 --      identification is `substComposite` of two checked transports.
 --
---   ‡®  A MONOID, MOVED AS ONE NODE.  `Digits.agda` defines NO addition
---      on `CanWord` ‚î only the odometer.  Here `CanWord` acquires an
+--   ‡•®  A MONOID, MOVED AS ONE NODE.  `Digits.agda` defines NO addition
+--      on `CanWord` ‚Äî only the odometer.  Here `CanWord` acquires an
 --      addition, an identity, associativity, both unit laws and `isSet`
 --      in a single `subst MonoidStr`, because the whole structure travels
 --      as one object.  Moving the carrier and re-proving the laws would
 --      be the recomputation this construction exists to refuse.
 --
---   ‡©  THE OPERATION IS THE RIGHT ONE.  The transported `_¬_` is not an
---      abstract stand-in: `‡‡‡ï‡≤‡®-‡Æ‡‡≤‡‡Ø` says it is "read both words, add
---      the values, re-digit", and `‡Æ‡‡≤‡‡Ø-‡‡‡ï‡≤‡®` says `valueC` is a
---      homomorphism for it.  So it really is base-b addition ‚î obtained
+--   ‡•©  THE OPERATION IS THE RIGHT ONE.  The transported `_¬∑_` is not an
+--      abstract stand-in: `‡§∏‡§Ç‡§ï‡§≤‡§®-‡§Æ‡•Ç‡§≤‡•ç‡§Ø` says it is "read both words, add
+--      the values, re-digit", and `‡§Æ‡•Ç‡§≤‡•ç‡§Ø-‡§∏‡§Ç‡§ï‡§≤‡§®` says `valueC` is a
+--      homomorphism for it.  So it really is base-b addition ‚Äî obtained
 --      without ever writing the addition-with-carry algorithm.
 --
---   ‡  THE THIRD BANK.  Composing with `FreeMonoid.‚ï-Monoid‚â°Tally-Monoid`
+--   ‡•™  THE THIRD BANK.  Composing with `FreeMonoid.‚Ñï-Monoid‚â°Tally-Monoid`
 --      identifies base-b positional addition with tally concatenation, as
 --      monoids, in one `‚àô`.
 ------------------------------------------------------------------------
@@ -85,7 +85,7 @@ open import FreeMonoid
 open import Digits k
 
 ------------------------------------------------------------------------
--- ‡¶ ¬ THE ROUTE.  Two checked edges, composed.  This is the only new
+-- ‡•¶ ¬∑ THE ROUTE.  Two checked edges, composed.  This is the only new
 --     path in the file and `_‚àô_` builds it.
 ------------------------------------------------------------------------
 
@@ -93,10 +93,10 @@ open import Digits k
 ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç‚â°CanWord = ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç‚â°‚Ñï ‚àô ‚Ñï‚â°CanWord
 
 ------------------------------------------------------------------------
--- ‡ß ¬ THE SECOND HALF OF THE ROUTE, made explicit.
+-- ‡•ß ¬∑ THE SECOND HALF OF THE ROUTE, made explicit.
 --
 --     `Digits.agda` proves `value-sucw`: the odometer computes the
---     successor.  Read across `ua ‚ï‚âCanWord` that says exactly: the
+--     successor.  Read across `ua ‚Ñï‚âÉCanWord` that says exactly: the
 --     transport of `suc` IS the odometer.  This is a re-reading of a
 --     theorem already checked there, not a new one.
 ------------------------------------------------------------------------
@@ -118,11 +118,11 @@ transport-suc-is-‡§Ö‡§ô‡•ç‡§ï‡§æ‡§®‡•Å‡§ï‡•ç‡§∞‡§Æ = funExt lemma
           ‚àô digits-value (sucw w) (canonical-sucw w c) )
 
 ------------------------------------------------------------------------
--- ‡® ¬ THE ROUTED THEOREM.
+-- ‡•® ¬∑ THE ROUTED THEOREM.
 --
---     ‡‡‡∞‡‡‡‡æ‡∞‡‡‡Ø ‡‡ó‡‡∞‡ø‡Æ‡æ ‡‡ô‡‡ï‡‡‡ø‡ ‡‡‡‡æ‡®‡ï‡‡∞‡Æ‡‡ ‡‡ï‡Ø‡‡ï‡‡‡ø‡ ‡
+--     ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞‡§∏‡•ç‡§Ø ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ‡§æ ‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø‡§É ‡§∏‡•ç‡§•‡§æ‡§®‡§ï‡•ç‡§∞‡§Æ‡•á‡§£ ‡§è‡§ï‡§Ø‡•Å‡§ï‡•ç‡§§‡§ø‡§É ‡•§
 --     Pigala's next row is increment-with-carry in base b, for every
---     b ‚â 2.  `substComposite` is the statement that routing composes;
+--     b ‚â• 2.  `substComposite` is the statement that routing composes;
 --     with it the two halves meet and no induction is performed.
 ------------------------------------------------------------------------
 
@@ -134,9 +134,9 @@ transport-suc-is-‡§Ö‡§ô‡•ç‡§ï‡§æ‡§®‡•Å‡§ï‡•ç‡§∞‡§Æ = funExt lemma
   ‚àô transport-suc-is-‡§Ö‡§ô‡•ç‡§ï‡§æ‡§®‡•Å‡§ï‡•ç‡§∞‡§Æ
 
 ------------------------------------------------------------------------
--- ‡© ¬ A WHOLE STRUCTURE THAT CROSSES, WITH EVERY LAW IT HAS.
+-- ‡•© ¬∑ A WHOLE STRUCTURE THAT CROSSES, WITH EVERY LAW IT HAS.
 --
---     `Monoid ‚ì = Œ[ A ‚àà Type ‚ì ] MonoidStr A`.  Transporting the
+--     `Monoid ‚Ñì = Œ£[ A ‚àà Type ‚Ñì ] MonoidStr A`.  Transporting the
 --     STRUCTURE along the carrier path moves operation, identity,
 --     associativity, both unit laws and `isSet` together, because they
 --     are fields of one record.  This is the model module's `Magma`
@@ -170,18 +170,18 @@ CanWord-Monoid = CanWord , subst MonoidStr ‚Ñï‚â°CanWord (snd ‚Ñï-Monoid)
 ‡§∏‡§Ç‡§ï‡§≤‡§®-‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§µ‡§æ‡§Æ‡•á = MonoidStr.¬∑IdL (snd CanWord-Monoid)
 
 -- `Digits.agda` proves `isSetCanWord` directly; here it is again, and it
--- was not proved again ‚î it rode across inside the record.
+-- was not proved again ‚Äî it rode across inside the record.
 isSetCanWord-routed : isSet CanWord
 isSetCanWord-routed = MonoidStr.is-set (snd CanWord-Monoid)
 
 ------------------------------------------------------------------------
--- ‡ ¬ THE OPERATION IS BASE-b ADDITION, AND NOT MERELY SOME OPERATION.
+-- ‡•™ ¬∑ THE OPERATION IS BASE-b ADDITION, AND NOT MERELY SOME OPERATION.
 --
 --     A transported structure is worthless if the transported operation
---     cannot be recognised.  It can:  `‡‡‡ï‡≤‡®` is "read both words, add
+--     cannot be recognised.  It can:  `‡§∏‡§Ç‡§ï‡§≤‡§®` is "read both words, add
 --     the values, re-digit", and `valueC` is a homomorphism for it.
 --     Neither statement is proved by digit recursion; both fall out of
---     the same path, read at its `_¬_` field.
+--     the same path, read at its `_¬∑_` field.
 ------------------------------------------------------------------------
 
 ‡§∏‡§Ç‡§ï‡§≤‡§®-is-transported-+ :
@@ -199,11 +199,11 @@ isSetCanWord-routed = MonoidStr.is-set (snd CanWord-Monoid)
   ‚àô value-digits (valueC x + valueC y)
 
 ------------------------------------------------------------------------
--- ‡ ¬ THE THIRD BANK, in one `‚àô`.
+-- ‡•´ ¬∑ THE THIRD BANK, in one `‚àô`.
 --
 --     Base-b positional addition and tally concatenation are the same
 --     monoid.  `FreeMonoid` proved its half; this file proved its own;
---     the composite is a path in `Monoid ‚ì-zero` and required no third
+--     the composite is a path in `Monoid ‚Ñì-zero` and required no third
 --     argument.
 ------------------------------------------------------------------------
 
@@ -214,19 +214,19 @@ CanWord‚â°Tally : CanWord ‚â° Tally
 CanWord‚â°Tally = cong ‚ü®_‚ü© ‡§∏‡•ç‡§•‡§æ‡§®-‡§§‡§≤‡•ç‡§≤‡•Ä
 
 ------------------------------------------------------------------------
--- ‡ ¬ THE SCOPE, EXACTLY.
+-- ‡•¨ ¬∑ THE SCOPE, EXACTLY.
 --
---   * That `‡‡‡ï‡≤‡®` is ryabhaa's or anyone's ADDITION ALGORITHM.  It is
+--   * That `‡§∏‡§Ç‡§ï‡§≤‡§®` is ƒÄryabha·π≠a's or anyone's ADDITION ALGORITHM.  It is
 --     a function on canonical words that agrees with `+` under `valueC`;
 --     it is not presented digitwise and this file contains no carry rule
 --     for addition.  The claim is precisely that none was needed.
---   * That `‡‡®‡‡¶‡‡‚â°CanWord` respects metrical structure.  It is built
---     from `‡Æ‡‡≤‡‡Ø`, a numerical encoding, so the induced operations on
---     ‡‡®‡‡¶‡‡ are operations on ‡‡‡∞‡‡‡‡æ‡∞-indices, not on syllables.
+--   * That `‡§õ‡§®‡•ç‡§¶‡§∏‡•ç‚â°CanWord` respects metrical structure.  It is built
+--     from `‡§Æ‡•Ç‡§≤‡•ç‡§Ø`, a numerical encoding, so the induced operations on
+--     ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç are operations on ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞-indices, not on syllables.
 --   * That the route is the SHORTEST one.  The graph program reports
 --     distance 2 over the edges it can currently SEE; an edge it cannot
 --     see would shorten it.  That distance is an upper bound on the
 --     geodesic and is stated as one.
 --   * Anything about bases in the *ryabhaya*.  ryabhaa states the
---     decimal case; the quantification over b ‚â 2 is this file's.
+--     decimal case; the quantification over b ‚â• 2 is this file's.
 ------------------------------------------------------------------------

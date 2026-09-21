@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡∞‡æ‡Æ‡æ‡®‡‡‡®‡, ‡‡‡æ‡‡‡Ø ‚î THE FIVE THRESHOLDS HOLD TO 50, AND EACH
+-- ‡§∞‡§æ‡§Æ‡§æ‡§®‡•Å‡§ú‡§®‡•ç, ‡§Ö‡§≠‡§æ‡§ú‡•ç‡§Ø ‚Äî THE FIVE THRESHOLDS HOLD TO 50, AND EACH
 -- MINIMALITY IS ONE REFUTATION.
 --
 -- Ramanujan's proof of Bertrand's postulate (1919) ends with a
--- sharpening Hardy called characteristic: œ(x) ‚àí œ(x/2) ‚â 1, 2, 3,
--- 4, 5, ‚¶ as soon as x ‚â 2, 11, 17, 29, 41, ‚¶ ‚î the Ramanujan
+-- sharpening Hardy called characteristic: œÄ(x) ‚àí œÄ(x/2) ‚â• 1, 2, 3,
+-- 4, 5, ‚Ä¶ as soon as x ‚â• 2, 11, 17, 29, 41, ‚Ä¶ ‚Äî the Ramanujan
 -- primes.  This file verifies the five thresholds on 1..50:
 --
---   THE COUNTER.  A prime is a number whose divisor counter ‚î the
---   self-defining dCount of the highly-composite file ‚î answers
---   exactly 2.  œ is the sum of that indicator.  No primality is
+--   THE COUNTER.  A prime is a number whose divisor counter ‚Äî the
+--   self-defining dCount of the highly-composite file ‚Äî answers
+--   exactly 2.  œÄ is the sum of that indicator.  No primality is
 --   asserted; each is counted by interrogation.
 --
---   `ramanujan-thresholds` ‚î for every x ‚â 50 and each k ‚â 5: once
---   x reaches the k-th threshold, œ(‚äx/2‚ã) + k ‚â œ(x),
+--   `ramanujan-thresholds` ‚Äî for every x ‚â§ 50 and each k ‚â§ 5: once
+--   x reaches the k-th threshold, œÄ(‚åäx/2‚åã) + k ‚â§ œÄ(x),
 --   subtraction-free.  One scan, five guarded leaves per point,
 --   soundness by the taxicab engine.  The k = 1 row is Bertrand's
 --   postulate on the range: between half of x and x there is always
 --   a prime.
 --
---   `minimal-2 ‚¶ minimal-41` ‚î each threshold is exact: one step
+--   `minimal-2 ‚Ä¶ minimal-41` ‚Äî each threshold is exact: one step
 --   earlier the count falls short, and each refutation is literally
---   ¬m<m ‚î the failed inequality normalizes to a strict
+--   ¬¨m<m ‚Äî the failed inequality normalizes to a strict
 --   self-precedence, which the order refuses.
 --
 -- The unbounded statements are the 1919 paper's Chebyshev estimates;
@@ -75,7 +75,7 @@ half (suc (suc n)) = suc (half n)
 -- ¬ß2  The scan: five guarded leaves per point.
 ------------------------------------------------------------------------
 
--- Once x reaches R, demand œ(half x) + k ‚â œ(x); before R, vacuous.
+-- Once x reaches R, demand œÄ(half x) + k ‚â§ œÄ(x); before R, vacuous.
 leafK : ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï ‚Üí Maybe Unit
 leafK k R x =
   rec (rec nothing (Œª _ ‚Üí just tt) (le? (œÄC (half x) + k) (œÄC x)))

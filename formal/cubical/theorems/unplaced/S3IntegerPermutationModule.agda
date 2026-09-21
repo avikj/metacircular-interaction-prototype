@@ -33,7 +33,7 @@ swap₀₁ (vec3 a b c) = vec3 b a c
 swap₁₂ : ℤ³ → ℤ³
 swap₁₂ (vec3 a b c) = vec3 a c b
 
--- The generator actions are �-linear under coordinatewise addition.
+-- The generator actions are ℤ-linear under coordinatewise addition.
 swap₀₁-linear : (u v : ℤ³) → swap₀₁ (u +³ v) ≡ swap₀₁ u +³ swap₀₁ v
 swap₀₁-linear (vec3 a b c) (vec3 x y z) = refl
 
@@ -90,7 +90,7 @@ augmentation-basis fzero = refl
 augmentation-basis (fsuc fzero) = refl
 augmentation-basis (fsuc (fsuc fzero)) = refl
 
--- Thus the finite equivariant collapse Fin3�Unit has this exact additive
+-- Thus the finite equivariant collapse Fin3→Unit has this exact additive
 -- shadow: all three distinguishable basis states share augmentation one.
 augmentation-collapses-basis : (x y : Fin3)
   → augmentation (basis x) ≡ augmentation (basis y)

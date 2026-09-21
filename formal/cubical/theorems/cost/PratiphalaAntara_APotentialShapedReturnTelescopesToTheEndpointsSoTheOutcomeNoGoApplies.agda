@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡‡ø‡‡≤-‡‡®‡‡‡∞ ‚î the return difference.
+-- ‡§™‡•ç‡§∞‡§§‡§ø‡§´‡§≤-‡§Ö‡§®‡•ç‡§§‡§∞ ‚Äî the return difference.
 --
 -- RESOLUTION TOWARD ABSTRACT 12.  That abstract proved no functional
 -- of an endpoint-valued evaluation separates two histories sharing
@@ -11,18 +11,18 @@
 -- shaping story:
 --
 --   A REWARD DERIVED FROM A POTENTIAL HAS AN ENDPOINT-DETERMINED
---   RETURN.  For a deterministic system Œ¥ : S ‚í S and a potential
---   Œ¶ : S ‚í ‚ï, let each step pay the debit Œ¶(state before) and earn
+--   RETURN.  For a deterministic system Œ¥ : S ‚Üí S and a potential
+--   Œ¶ : S ‚Üí ‚Ñï, let each step pay the debit Œ¶(state before) and earn
 --   the credit Œ¶(state after).  Then over any k steps,
 --
 --       Œ¶ s + credits k s ‚â° debits k s + Œ¶ (after k steps)
 --
---   ‚î the telescoping identity, stated additively so it lives in ‚ï
+--   ‚Äî the telescoping identity, stated additively so it lives in ‚Ñï
 --   with no subtraction.  The net shaped return (credits against
 --   debits) is a function of the two endpoints alone, so EVERY no-go
 --   of abstract 12 applies to it in full: a shaped return cannot rank
 --   routes, cannot recover length, cannot adjudicate between two
---   histories sharing endpoints ‚î it is exactly as blind as the
+--   histories sharing endpoints ‚Äî it is exactly as blind as the
 --   outcome, because it IS a function of the outcome.
 --
 -- The connective law, third appearance this campaign: FACTORING KILLS
@@ -33,7 +33,7 @@
 -- and the potential-based class is precisely the class of rewards
 -- that provably cannot see the route.  Conversely, a reward that DOES
 -- separate two same-endpoint histories is thereby certified
--- non-potential ‚î the admission gate for genuinely route-sensitive
+-- non-potential ‚Äî the admission gate for genuinely route-sensitive
 -- reward, dual to ApurvaIndriyam's gate for genuinely new senses.
 --
 ------------------------------------------------------------------------

@@ -29,7 +29,7 @@ record NearFamily (m⋆ : ℕ) : Type₁ where
   field
     threshold : ℕ → ℕ
     -- The near-boundary theorem itself.  Its concrete arithmetic meaning
-    -- (a � b^(1/m), factor share, etc.) belongs to the instance.
+    -- (a ≤ b^(1/m), factor share, etc.) belongs to the instance.
     near : (m : ℕ) → (x : ℕ) → threshold m ≤ x → Type₀
     witness : (m : ℕ) → (x : ℕ) → (h : threshold m ≤ x) →
       Σ[ state ∈ FactorState m⋆ ] near m x h

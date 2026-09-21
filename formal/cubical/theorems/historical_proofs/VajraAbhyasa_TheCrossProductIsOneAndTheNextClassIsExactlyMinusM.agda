@@ -1,26 +1,26 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����������� � the cross product of two consecutive turns is 1, and from that
+-- वज्राभ्यासः — the cross product of two consecutive turns is 1, and from that
 -- alone the next turn's admissible multipliers are EXACTLY the class of −m.
 --
--- SOURCE AND DATE.  ���������� ("thunderbolt multiplication") is BHSKARA II's
--- own word for the crosswise product of two pairs; ������� and ����������, 1150
--- CE.  The ���������� is JAYADEVA's, ~950, surviving through Udayadivkara's
--- �������, 1073.  The ���������� that the previous account of this step reached for
--- is RYABHAA's, ����������� ��������� �����, 499.  Nothing below claims any of
+-- SOURCE AND DATE.  वज्राभ्यास ("thunderbolt multiplication") is BHĀSKARA II's
+-- own word for the crosswise product of two pairs; लीलावती and बीजगणितम्, 1150
+-- CE.  The चक्रवालम् is JAYADEVA's, ~950, surviving through Udayadivākara's
+-- सुन्दरी, 1073.  The कुट्टक that the previous account of this step reached for
+-- is ĀRYABHAṬA's, आर्यभटीयम् गणितपादः ३२–३३, 499.  Nothing below claims any of
 -- them stated the theorem in this file; what is claimed is that the quantity
 -- this file turns on is the crosswise product they named, taken between a
--- turn of the wheel and its successor.  �������������� is this repository's
+-- turn of the wheel and its successor.  प्रत्यावृत्तिः is this repository's
 -- label, introduced by
 -- `GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating`, not a source term.
 --
 -- §4 names two things standing between the state box and determinism.  The
 -- first, verbatim:
 --
---     "The solution set must BE the class of −m.  �������������� gives that −m
+--     "The solution set must BE the class of −m.  प्रत्यावृत्तिः gives that −m
 --      is *a* solution.  That the solutions are exactly −m mod k' needs
---      gcd(b', k') = 1 � the same coprimality
+--      gcd(b', k') = 1 — the same coprimality
 --      CakravalaDescent.oneCongruenceCoprime already consumes, and which
 --      CakravalaDescent.runToCoprime produces from an actual kuaka run
 --      rather than assuming.  Wiring that here is mechanical and is not
@@ -28,28 +28,28 @@
 --
 -- It is closed here, and NOT by wiring in a kuaka run.  The run is not
 -- needed: gcd(b', k') = 1 is a CONSEQUENCE of the step's own three exact
--- divisions, with both B�zout coefficients written out of a, b, a', b'.  So
+-- divisions, with both Bézout coefficients written out of a, b, a', b'.  So
 -- the file is shorter than the wiring it replaces, and it removes a
 -- dependency instead of adding one.
 --
 -- THE MECHANISM, in one line each.
 --
---   �����������  k�(a�b' − b�a') = a�(k�b') − b�(k�a') = a(a+bm) − b(am+Db)
---              = a² − D�b² = k = k�1, and k cancels.  So consecutive turns
---              of the wheel have crosswise product exactly 1 � an equality,
+--   वज्राभ्यासः  k·(a·b' − b·a') = a·(k·b') − b·(k·a') = a(a+bm) − b(am+Db)
+--              = a² − D·b² = k = k·1, and k cancels.  So consecutive turns
+--              of the wheel have crosswise product exactly 1 — an equality,
 --              not a divisibility, and it needs no choice rule, no
 --              minimality, no ordering.
 --
---   ��-�������   (a�b' − b�a')² = 1 expands, with k' = a'² − D�b'² substituted
+--   सह-प्रथमता   (a·b' − b·a')² = 1 expands, with k' = a'² − D·b'² substituted
 --              for a'², into
---                  (b�b)�k' + v�b' ≡ 1,   v = a²b' + D�b²�b' − 2�a�b�a',
---              in which the D-terms cancel identically.  That IS the B�zout
+--                  (b·b)·k' + v·b' ≡ 1,   v = a²b' + D·b²·b' − 2·a·b·a',
+--              in which the D-terms cancel identically.  That IS the Bézout
 --              pair for (k', b').  No pulverizer, no gcd, no primality.
 --
---   ������      with that pair, `CakravalaDescent.coprimeCancel` turns
---              �������������� � that −m solves the next congruence � into the
+--   श्रेणी      with that pair, `CakravalaDescent.coprimeCancel` turns
+--              प्रत्यावृत्तिः — that −m solves the next congruence — into the
 --              two-way statement:
---                  k' � (a' + b'�m')   ⟺   k' � (m + m').
+--                  k' ∣ (a' + b'·m')   ⟺   k' ∣ (m + m').
 --              The admissible multipliers of the next turn are exactly the
 --              residue class of −m modulo k'.
 --
@@ -58,17 +58,17 @@
 -- whole of the next state is determined by the current one AS SOON AS the
 -- minimisation over that class picks a unique member.
 --
--- WHAT IT DOES NOT BUY, and this is not a hedge � it is a checked negative.
+-- WHAT IT DOES NOT BUY, and this is not a hedge — it is a checked negative.
 -- The minimisation does NOT always pick a unique member.
 -- `Dvaidha_TheVaranaTiesExactlyWhenDIsASumOfTwoSquares` exhibits the tie, in
--- the kernel, at D = 58 turn 1 � on a class that IS the −m mod k' this file
--- proves � and characterises exactly when a tie can occur.  So after this
+-- the kernel, at D = 58 turn 1 — on a class that IS the −m mod k' this file
+-- proves — and characterises exactly when a tie can occur.  So after this
 -- file the gap between the state box and determinism is one thing and not
 -- two, that thing is not a missing lemma but a genuine branch in the rule,
 -- and it has an instance.
 --
 -- WHAT IS PROVED.  --safe, no postulates, no holes, Agda 2.8.0 + cubical v0.9.
--- Stated over � rather than an arbitrary CommRing only because the ring
+-- Stated over ℤ rather than an arbitrary CommRing only because the ring
 -- solver wants a concrete ring; nothing below uses more than commutativity
 -- and the cancellation hypothesis that `CakravalaDescent.cakravalaStep`
 -- already takes.
@@ -93,15 +93,15 @@ open Form ℤCommRing using (N)
 open Descent ℤCommRing using (_∣_ ; Coprime ; coprimeCancel ; cakravalaStep)
 
 ------------------------------------------------------------------------
--- � � ����������� � THE CROSS PRODUCT OF TWO CONSECUTIVE TURNS IS ONE.
+-- १ · वज्राभ्यासः — THE CROSS PRODUCT OF TWO CONSECUTIVE TURNS IS ONE.
 --
--- Given a² − D�b² = k and the two exact divisions k�a' = a�m + D�b,
--- k�b' = a + b�m, the crosswise product a�b' − b�a' is exactly 1.
+-- Given a² − D·b² = k and the two exact divisions k·a' = a·m + D·b,
+-- k·b' = a + b·m, the crosswise product a·b' − b·a' is exactly 1.
 --
 -- Note what is NOT used: k' does not appear, the choice rule does not
 -- appear, and no ordering or minimality is involved.  This is a fact about
 -- Brahmagupta's composition with the trivial triple (m, 1, m² − D) and
--- nothing else � the composite pair and the pair it came from are a
+-- nothing else — the composite pair and the pair it came from are a
 -- unimodular pair, always.
 ------------------------------------------------------------------------
 
@@ -122,21 +122,21 @@ open Descent ℤCommRing using (_∣_ ; Coprime ; coprimeCancel ; cakravalaStep)
   विभागः : k · (a · b' - b · a') ≡ a · (k · b') - b · (k · a')
   विभागः = solve! ℤCommRing
 
-  -- a�(a + b�m) − b�(a�m + D�b)  ≡  a�a − D�(b�b),  which IS `N D a b`.
+  -- a·(a + b·m) − b·(a·m + D·b)  ≡  a·a − D·(b·b),  which IS `N D a b`.
   सारः : a · (a + b · m) - b · (a · m + D · b) ≡ a · a - D · (b · b)
   सारः = solve! ℤCommRing
 
 ------------------------------------------------------------------------
--- � � ��-������� � THE NEXT PAIR'S COPRIMALITY, WITH BOTH COEFFICIENTS
+-- २ · सह-प्रथमता — THE NEXT PAIR'S COPRIMALITY, WITH BOTH COEFFICIENTS
 -- WRITTEN OUT.
 --
--- `Coprime` in `CakravalaDescent` is deliberately not "no common factor" �
--- it is the two B�zout coefficients themselves, because that is what the
+-- `Coprime` in `CakravalaDescent` is deliberately not "no common factor" —
+-- it is the two Bézout coefficients themselves, because that is what the
 -- cancellation can compute with.  Here they are:
 --
---     u = b�b        v = a²�b' + D�b²�b' − 2�a�b�a'
+--     u = b·b        v = a²·b' + D·b²·b' − 2·a·b·a'
 --
--- and u�k' + v�b' ≡ 1 is the square of §1 with k' = a'² − D�b'² substituted
+-- and u·k' + v·b' ≡ 1 is the square of §1 with k' = a'² − D·b'² substituted
 -- back in; the two D-terms cancel identically, which is why D does not have
 -- to be anything in particular.
 --
@@ -154,8 +154,8 @@ open Descent ℤCommRing using (_∣_ ; Coprime ; coprimeCancel ; cakravalaStep)
   v : ℤ
   v = ((a · a) · b' + (D · (b · b)) · b') - ((a · b) · a' + (a · b) · a')
 
-  -- the whole content, as one ring identity: with a'² − D�b'² in place of
-  -- k', the left side IS (a�b' − b�a')².
+  -- the whole content, as one ring identity: with a'² − D·b'² in place of
+  -- k', the left side IS (a·b' − b·a')².
   तादात्म्यम् : (b · b) · (a' · a' - D · (b' · b')) + v · b'
              ≡ (a · b' - b · a') · (a · b' - b · a')
   तादात्म्यम् = solve! ℤCommRing
@@ -167,14 +167,14 @@ open Descent ℤCommRing using (_∣_ ; Coprime ; coprimeCancel ; cakravalaStep)
        ∙ ·IdR 1r
 
 ------------------------------------------------------------------------
--- � � ������ � THE CLASS, BOTH WAYS.
+-- ३ · श्रेणी — THE CLASS, BOTH WAYS.
 --
 -- §3a is free: if m' ≡ −m then m' solves the congruence, because −m does
--- (��������������) and the difference is b'�(m + m').
+-- (प्रत्यावृत्तिः) and the difference is b'·(m + m').
 --
--- §3b is the direction that needs §2: from k' � b'�(m + m') and the B�zout
--- pair, k' � (m + m').  Without §2 the class could a priori be larger � the
--- solutions could be a class modulo a proper divisor of k' � and then the
+-- §3b is the direction that needs §2: from k' ∣ b'·(m + m') and the Bézout
+-- pair, k' ∣ (m + m').  Without §2 the class could a priori be larger — the
+-- solutions could be a class modulo a proper divisor of k' — and then the
 -- next multiplier would not be a function of the state even with ties ruled
 -- out.
 ------------------------------------------------------------------------
@@ -214,14 +214,14 @@ open Descent ℤCommRing using (_∣_ ; Coprime ; coprimeCancel ; cakravalaStep)
   संयोगः = solve! ℤCommRing
 
 ------------------------------------------------------------------------
--- � � ������-������� � THE JOIN.
+-- ४ · श्रेणी-निर्णयः — THE JOIN.
 --
 -- One theorem, taking exactly the hypotheses the algorithm's own situation
--- supplies � the norm, the three exact divisions, and cancellation by k �
+-- supplies — the norm, the three exact divisions, and cancellation by k —
 -- and returning: the next turn's admissible multipliers are EXACTLY the
 -- residue class of −m modulo k'.
 --
--- that item is closed, and the ���������� it asked for is not used.
+-- that item is closed, and the कुट्टक it asked for is not used.
 ------------------------------------------------------------------------
 
 श्रेणी-निर्णयः : (D a b m k a' b' k' : ℤ)
@@ -248,22 +248,22 @@ open Descent ℤCommRing using (_∣_ ; Coprime ; coprimeCancel ; cakravalaStep)
           (वज्राभ्यासः D a b m k a' b' cancel nab ea eb) nab'
 
 ------------------------------------------------------------------------
--- � � ���������� � D = 13, BHSKARA'S OWN WORKED EXAMPLE, IN THE KERNEL.
+-- ५ · त्रयोदशम् — D = 13, BHĀSKARA'S OWN WORKED EXAMPLE, IN THE KERNEL.
 --
 -- The same turn `CakravalaDescent.StepAtThirteen` certifies: from the
--- trivial triple 3² − 13�1² = −4 with m = 1,
+-- trivial triple 3² − 13·1² = −4 with m = 1,
 --
---     a' = (3�1 + 13�1)/(−4) = −4     b' = (3 + 1�1)/(−4) = −1
+--     a' = (3·1 + 13·1)/(−4) = −4     b' = (3 + 1·1)/(−4) = −1
 --     k' = (1 − 13)/(−4) = 3
 --
 -- and then, computed rather than asserted:
 --
---   �����������-��   3�(−1) − 1�(−4) = 1                       (§1)
---   ��-�������-��    1�3 + 2�(−1) = 1, i.e. u = b² = 1, v = 2  (§2)
---   ������-��        the next multiplier the reactor takes is 2, and
---                   3 � (1 + 2) � it is in the class of −m, as §4 forces.
+--   वज्राभ्यासः-१३   3·(−1) − 1·(−4) = 1                       (§1)
+--   सह-प्रथमता-१३    1·3 + 2·(−1) = 1, i.e. u = b² = 1, v = 2  (§2)
+--   श्रेणी-१३        the next multiplier the reactor takes is 2, and
+--                   3 ∣ (1 + 2) — it is in the class of −m, as §4 forces.
 --
--- (Cubical's � product is unary, so these are stated at turn 0 where the
+-- (Cubical's ℤ product is unary, so these are stated at turn 0 where the
 -- numbers are one digit.  `CakravalaNat.agda` records the same constraint
 -- and the same reason.)
 ------------------------------------------------------------------------
@@ -273,16 +273,16 @@ module त्रयोदशम् where
   वज्राभ्यासः-१३ : pos 3 · negsuc 0 - pos 1 · negsuc 3 ≡ pos 1
   वज्राभ्यासः-१३ = refl
 
-  -- u = b�b = 1 and v = a²b' + D�b²�b' − 2�a�b�a' = −9 − 13 + 24 = 2.
+  -- u = b·b = 1 and v = a²b' + D·b²·b' − 2·a·b·a' = −9 − 13 + 24 = 2.
   सह-प्रथमता-१३ : pos 1 · pos 3 + pos 2 · negsuc 0 ≡ pos 1
   सह-प्रथमता-१३ = refl
 
-  -- the class of −m mod k' at this turn is {m' : 3 � (1 + m')}, and the
+  -- the class of −m mod k' at this turn is {m' : 3 ∣ (1 + m')}, and the
   -- reactor's next multiplier is 2.
   श्रेणी-१३ : pos 1 + pos 2 ≡ pos 3 · pos 1
   श्रेणी-१३ = refl
 
   -- and it does satisfy the congruence the next turn actually poses,
-  -- a' + b'�m' = −4 + (−1)�2 = −6 = 3�(−2).
+  -- a' + b'·m' = −4 + (−1)·2 = −6 = 3·(−2).
   सङ्गतिः-१३ : negsuc 3 + negsuc 0 · pos 2 ≡ pos 3 · negsuc 1
   सङ्गतिः-१३ = refl

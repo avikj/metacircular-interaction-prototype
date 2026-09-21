@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �����-���� � the tail bound.
+-- पुच्छ-सीमा — the tail bound.
 --
--- (5.5) of the note: for d > 0 and K � 3,
+-- (5.5) of the note: for d > 0 and K ≥ 3,
 --
---   0 � H(d) − �_{k<K} e^{−λ_k d}/(λ_k²−16)²
---     � e^{−λ_K d} / ((λ_K²−16)² (1 − e^{−2d})),      λ_k = 2k + ½.
+--   0 ≤ H(d) − Σ_{k<K} e^{−λ_k d}/(λ_k²−16)²
+--     ≤ e^{−λ_K d} / ((λ_K²−16)² (1 − e^{−2d})),      λ_k = 2k + ½.
 --
--- Its finite algebra: the terms are positive; for k � K the factor
+-- Its finite algebra: the terms are positive; for k ≥ K the factor
 -- 1/(λ_k²−16)² is at most 1/(λ_K²−16)² since λ_k²−16 is increasing and
--- positive for k � 3; and e^{−λ_k d} = e^{−λ_K d} r^{k−K} with r = e^{−2d},
--- so the tail is at most the first term times �_{j} r^j, and
--- (1 − r) �_{j<n} r^j = 1 − r^n � 1.  Over �, with r an element of [0,1):
+-- positive for k ≥ 3; and e^{−λ_k d} = e^{−λ_K d} r^{k−K} with r = e^{−2d},
+-- so the tail is at most the first term times Σ_{j} r^j, and
+-- (1 − r) Σ_{j<n} r^j = 1 − r^n ≤ 1.  Over ℚ, with r an element of [0,1):
 --
---   §1  THE GEOMETRIC IDENTITY (1 − r)��_{j<n} r^j ≡ 1 − r^n over any ring.
+--   §1  THE GEOMETRIC IDENTITY (1 − r)·Σ_{j<n} r^j ≡ 1 − r^n over any ring.
 --   §2  THE PARTIAL GEOMETRIC SUM IS AT MOST 1/(1−r), in the division-free
---       form (1 − r)��_{j<n} r^j � 1 for 0 � r � 1.
---   §3  THE TAIL BOUND for any nonnegative sequence a_j � a_0 � r^j:
---       (1 − r)��_{j<n} a_j � a_0.
+--       form (1 − r)·Σ_{j<n} r^j ≤ 1 for 0 ≤ r ≤ 1.
+--   §3  THE TAIL BOUND for any nonnegative sequence a_j ≤ a_0 · r^j:
+--       (1 − r)·Σ_{j<n} a_j ≤ a_0.
 --
--- The analytic step � that the true H-tail is the limit of these partial
--- sums and that λ_k² − 16 increases � is the trust boundary.
+-- The analytic step — that the true H-tail is the limit of these partial
+-- sums and that λ_k² − 16 increases — is the trust boundary.
 ------------------------------------------------------------------------
 
 module PucchaSima_TheTailOfTheArchimedeanSeriesIsBoundedByItsFirstTermTimesTheGeometricFactorSoTruncationIsCertifiedInFiniteAlgebra where
@@ -59,7 +59,7 @@ open import Prabala_TheDominantModeWinsSoASignedSumOfModesWithADominantRatioAbov
   using (Σ-mono)
 
 ------------------------------------------------------------------------
--- � � (1 − r)��_{j<n} r^j ≡ 1 − r^n.
+-- १ · (1 − r)·Σ_{j<n} r^j ≡ 1 − r^n.
 ------------------------------------------------------------------------
 
 geo : (r : ℚ) (n : ℕ) → (1 - r) · Σ⟨ n ⟩ (λ j → r ^ j) ≡ 1 - (r ^ n)
@@ -69,14 +69,14 @@ geo r (suc n) = Sama.step ℚRing (Σ⟨ n ⟩ (λ j → r ^ j)) (r ^ n) r
               ∙ Sama.śeṣa′ ℚRing (r ^ n) r
 
 ------------------------------------------------------------------------
--- � � (1 − r)��_{j<n} r^j � 1 for 0 � r � 1.
+-- २ · (1 − r)·Σ_{j<n} r^j ≤ 1 for 0 ≤ r ≤ 1.
 ------------------------------------------------------------------------
 
 geo-≤ : (r : ℚ) → 0 ≤ r → r ≤ 1 → (n : ℕ) → (1 - r) · Σ⟨ n ⟩ (λ j → r ^ j) ≤ 1
 geo-≤ r 0≤r r≤1 n = subst (_≤ 1) (sym (geo r n)) (vyava-≤ 1 (r ^ n) (fst (antar r 0≤r r≤1 n)))
 
 ------------------------------------------------------------------------
--- � � For 0 � a_j � a��r^j:  (1 − r)��_{j<n} a_j � a�.
+-- ३ · For 0 ≤ a_j ≤ a₀·r^j:  (1 − r)·Σ_{j<n} a_j ≤ a₀.
 ------------------------------------------------------------------------
 
 puccha-sīmā : (r a₀ : ℚ) → 0 ≤ r → r ≤ 1 → 0 ≤ a₀ → (n : ℕ)

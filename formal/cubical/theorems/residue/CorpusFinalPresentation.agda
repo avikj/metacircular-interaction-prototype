@@ -18,8 +18,8 @@ referenceRelation : CR.RefGraph
 referenceRelation = R.refGraph
 
 -- THE COINDUCTIVE CALCULUS IS THE PRESENTATION.  The corpus is one state
--- of the guarded interactive coalgebra; every question â” every map out of
--- it â” is answered on demand with its target, the EXACT residual fibre,
+-- of the guarded interactive coalgebra; every question â€” every map out of
+-- it â€” is answered on demand with its target, the EXACT residual fibre,
 -- and a continuation.  Nothing is globally normalised and no relation is
 -- enumerated eagerly: the finite description unfolds, under demand, to
 -- the complete relation web.

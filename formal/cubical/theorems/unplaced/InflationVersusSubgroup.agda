@@ -5,13 +5,13 @@
 --
 -- QUALIFIER MADE PART OF THE TYPE: the enlargement it is about is
 -- enlargement ALONG A QUOTIENT, and the other reading of "enlargement"
--- � a subgroup inclusion Γ � G � has no map for the theorem to be
+-- — a subgroup inclusion Γ ≤ G — has no map for the theorem to be
 -- about.
 --
 -- §3.5, verbatim):
 --
 --   *Let N ⊴ G act trivially on V, and let Γ = G/N.  Then inflation
---   inf : H�(Γ,V) � H�(G,V) is injective.  Hence enlarging the symmetry
+--   inf : H¹(Γ,V) → H¹(G,V) is injective.  Hence enlarging the symmetry
 --   group from Γ to G never kills a nonzero class.*
 --
 -- keeps the qualifier ("enlarging the symmetry group along a quotient")
@@ -19,29 +19,29 @@
 -- drop it: "symmetry enlargement: Thm 3.5 proves this is **not a repair
 -- at all**", "widening *symmetry* cannot [kill]", "*refuted, not a
 -- repair*", "one of which (symmetry enlargement) is **proved** to be no
--- repair" � and §3.5 calls the flattened version "the note's principal
+-- repair" — and §3.5 calls the flattened version "the note's principal
 -- negative".  The dropped qualifier has no lexical signature: the
 -- flattened sentences contain no wrong word, only a missing one.
 --
--- WHAT IS AT STAKE.  For Γ � G there is no canonical
--- H�(Γ,V) � H�(G,V) at all; the canonical map runs the other way
+-- WHAT IS AT STAKE.  For Γ ≤ G there is no canonical
+-- H¹(Γ,V) → H¹(G,V) at all; the canonical map runs the other way
 -- (restriction).  So the subgroup reading is not "also proved" and it
 -- is not even "unproved by the same argument": there is nothing for the
--- argument to be applied to, and � as this file shows on the smallest
--- model � the transport a repair-claim would need is not merely
+-- argument to be applied to, and — as this file shows on the smallest
+-- model — the transport a repair-claim would need is not merely
 -- unproved but IMPOSSIBLE.
 --
--- THIS IS A MODEL, NOT THE FULL SETTING.  The full setting is H� of an
+-- THIS IS A MODEL, NOT THE FULL SETTING.  The full setting is H¹ of an
 -- arbitrary group with arbitrary coefficients.  Formalized here is the
 -- smallest pair that realizes both readings at once:
 --
---   * G = �/4, N = {0,2} � �/2 ⊴ G, Γ = G/N � �/2, V = �/2 trivial
+--   * G = ℤ/4, N = {0,2} ≅ ℤ/2 ⊴ G, Γ = G/N ≅ ℤ/2, V = ℤ/2 trivial
 --     action.  N is BOTH the kernel of the quotient (giving the
 --     inflation reading) AND a subgroup of G (giving the subgroup
 --     reading), so the two readings are compared on one and the same
 --     group inclusion/projection pair.
---   * With trivial action, H�(A,V) = Hom(A,V).  Hom(�/4,�/2) = {0,�}
---     with � = proj, and Hom(�/2,�/2) = {0,id}; these are enumerated as
+--   * With trivial action, H¹(A,V) = Hom(A,V).  Hom(ℤ/4,ℤ/2) = {0,χ}
+--     with χ = proj, and Hom(ℤ/2,ℤ/2) = {0,id}; these are enumerated as
 --     `H4` and `H2`, each class carried by its realizing function
 --     (`real4`, `real2`).
 --   * `infl` is CERTIFIED to be precomposition with `proj`
@@ -55,7 +55,7 @@
 -- HEADLINE TERMS
 --   infl-injective          Thm 3.5 on this model, quotient hypothesis in the type
 --   res-is-zero             the subgroup map runs the other way and is zero here
---   no-section              NO function H�(N,V) � H�(G,V) splits restriction
+--   no-section              NO function H¹(N,V) → H¹(G,V) splits restriction
 --   quotient-map-is-not-the-subgroup-map  inflation does not serve the flat reading
 ------------------------------------------------------------------------
 
@@ -67,7 +67,7 @@ open import Cubical.Data.Bool.Properties using (true≢false)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 
 ------------------------------------------------------------------------
--- 0.  The groups.  G = �/4 � N = {0,2} � �/2 = Γ = G/N.
+-- 0.  The groups.  G = ℤ/4 ⊇ N = {0,2} ≅ ℤ/2 = Γ = G/N.
 
 data Z4 : Type where
   z0 z1 z2 z3 : Z4
@@ -86,8 +86,8 @@ e0 +2 y = y
 e1 +2 e0 = e1
 e1 +2 e1 = e0
 
--- The quotient map G � Γ (kernel N = {z0,z2}) and the subgroup
--- inclusion N � G.  These are the two directions the flattened reading
+-- The quotient map G ↠ Γ (kernel N = {z0,z2}) and the subgroup
+-- inclusion N ↪ G.  These are the two directions the flattened reading
 -- confuses.
 proj : Z4 → Z2
 proj z0 = e0 ; proj z1 = e1 ; proj z2 = e0 ; proj z3 = e1
@@ -108,7 +108,7 @@ incl-hom e0 e0 = refl ; incl-hom e0 e1 = refl
 incl-hom e1 e0 = refl ; incl-hom e1 e1 = refl
 
 ------------------------------------------------------------------------
--- 1.  The cohomology, with trivial coefficients: H�(A,V) = Hom(A,V).
+-- 1.  The cohomology, with trivial coefficients: H¹(A,V) = Hom(A,V).
 
 data H4 : Type where          -- H¹(G,V) = Hom(ℤ/4,ℤ/2) = {0 , χ}
   h0 hχ : H4
@@ -150,7 +150,7 @@ h0≢hχ q = true≢false (cong b4 (sym q))
 ------------------------------------------------------------------------
 -- 2.  The two maps, each certified to be the map it is named after.
 
--- Inflation, along the quotient G � Γ.
+-- Inflation, along the quotient G ↠ Γ.
 infl : H2 → H4
 infl k0 = h0
 infl kι = hχ
@@ -159,7 +159,7 @@ infl-is-inflation : (c : H2) (g : Z4) → real4 (infl c) g ≡ real2 c (proj g)
 infl-is-inflation k0 _ = refl
 infl-is-inflation kι _ = refl
 
--- Restriction, along the inclusion N � G.  This is the ONLY canonical
+-- Restriction, along the inclusion N ↪ G.  This is the ONLY canonical
 -- map attached to a subgroup, and it points the other way.
 res : H4 → H2
 res h0 = k0
@@ -181,7 +181,7 @@ infl-injective k0 kι q = ⊥-rec (h0≢hχ q)
 infl-injective kι k0 q = ⊥-rec (h0≢hχ (sym q))
 
 ------------------------------------------------------------------------
--- 4.  The other reading.  For N � G there is no map H�(N,V) � H�(G,V);
+-- 4.  The other reading.  For N ≤ G there is no map H¹(N,V) → H¹(G,V);
 --     what exists is `res`, and on this model `res` is identically zero.
 
 res-is-zero : (c : H4) → res c ≡ k0
@@ -191,7 +191,7 @@ res-is-zero hχ = refl
 -- Hence NO function whatsoever splits restriction: the nonzero class on
 -- the subgroup is not the restriction of anything on G.  A "repair by
 -- subgroup enlargement" would need exactly such a transport, and there
--- is none � for reasons that have nothing to do with Thm 3.5.
+-- is none — for reasons that have nothing to do with Thm 3.5.
 no-section : (m : H2 → H4) → res (m kι) ≡ kι → ⊥
 no-section m q = k0≢kι (sym (res-is-zero (m kι)) ∙ q)
 
@@ -201,8 +201,8 @@ quotient-map-is-not-the-subgroup-map : res (infl kι) ≡ kι → ⊥
 quotient-map-is-not-the-subgroup-map = no-section infl
 
 ------------------------------------------------------------------------
--- 5.  Therefore the flattened statement � "enlargement (flatly) is
---     covered by Thm 3.5" � is false on the model, not merely unproved.
+-- 5.  Therefore the flattened statement — "enlargement (flatly) is
+--     covered by Thm 3.5" — is false on the model, not merely unproved.
 --     `NaturalMachine/Control/InflationFlattened.agda` asserts exactly
 --     the antecedent below and must fail to type-check.
 

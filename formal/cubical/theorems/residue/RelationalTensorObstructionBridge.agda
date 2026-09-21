@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- RelationalTensorObstructionBridge
 --
--- The RQM-adjacent SÂ family and the local/joint compiler share an exact
+-- The RQM-adjacent SÂ¹ family and the local/joint compiler share an exact
 -- residual: the Bool fibre with negation monodromy.  Their obstructions are
 -- nevertheless different.
 --

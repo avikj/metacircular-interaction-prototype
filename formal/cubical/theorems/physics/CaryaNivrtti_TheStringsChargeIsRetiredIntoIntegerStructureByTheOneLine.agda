@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe #-}
 
--- ‡‡∞‡‡Ø‡æ-‡®‡ø‡µ‡‡‡‡‡ø ‚î the string's charge retires into ‚.  Not a new proof:
--- an INSTANTIATION of ‡‡ï‡‡‡‡‡∞'s retirement operator (‡®‡ø‡µ‡‡‡‡‡ø‡).  Tonight
+-- ‡§ö‡§∞‡•ç‡§Ø‡§æ-‡§®‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø ‚Äî the string's charge retires into ‚Ñ§.  Not a new proof:
+-- an INSTANTIATION of ‡§è‡§ï‡§∏‡•Ç‡§§‡•ç‡§∞'s retirement operator (‡§®‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É).  Tonight
 -- the winding facts were hand-proved (GranthiCarya).  The one line
--- retires the author: Œ©S¬ ‚â ‚, so EVERY property of ‚ holds of the loop
--- space with no further proof ‚î the charge is not proved to be ‚, it IS
--- ‚, issued.  This is the pattern for retiring all of the night's
+-- retires the author: Œ©S¬π ‚âÉ ‚Ñ§, so EVERY property of ‚Ñ§ holds of the loop
+-- space with no further proof ‚Äî the charge is not proved to be ‚Ñ§, it IS
+-- ‚Ñ§, issued.  This is the pattern for retiring all of the night's
 -- physics into the single primitive.
 
 module CaryaNivrtti_TheStringsChargeIsRetiredIntoIntegerStructureByTheOneLine where
@@ -18,18 +18,18 @@ open import Cubical.Data.Int using (‚Ñ§)
 open import EkaSutra_JTheGraphAndTheFundamentalTheoremAreInstancesOfSingletonContractionSoAuthorsRetireIntoInstantiation
   using (‡§®‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É)
 
--- the charge equivalence ‚î the string's loop space is the integers.
+-- the charge equivalence ‚Äî the string's loop space is the integers.
 ‡§ö‡§∞‡•ç‡§Ø‡§æ : Œ©S¬π ‚âÉ ‚Ñ§
 ‡§ö‡§∞‡•ç‡§Ø‡§æ = isoToEquiv Œ©S¬πIso‚Ñ§
 
--- ‡®‡ø‡µ‡‡‡‡‡ø applied: any property P of ‚ is inherited by the loop space,
--- carried backwards along the charge equivalence, by the ONE LINE ‚î no
+-- ‡§®‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø applied: any property P of ‚Ñ§ is inherited by the loop space,
+-- carried backwards along the charge equivalence, by the ONE LINE ‚Äî no
 -- proof of the property for loops is written anywhere.
 charge-inherits : (P : Type‚ÇÄ ‚Üí Type‚ÇÄ) ‚Üí P ‚Ñ§ ‚Üí P Œ©S¬π
 charge-inherits P = ‡§®‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É P (invEquiv ‡§ö‡§∞‡•ç‡§Ø‡§æ)
   where open import Cubical.Foundations.Equiv using (invEquiv)
 
 -- so: the string carries integer structure not because we prove winding
--- facts one by one, but because it IS ‚ under the charge equivalence,
--- and the retirement operator issues ‚'s whole theory for it at once.
+-- facts one by one, but because it IS ‚Ñ§ under the charge equivalence,
+-- and the retirement operator issues ‚Ñ§'s whole theory for it at once.
 -- GranthiCarya's separate lemmas are instances; the author retires.

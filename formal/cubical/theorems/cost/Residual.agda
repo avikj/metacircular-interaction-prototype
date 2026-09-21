@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- � : THE RESIDUAL, AND Γ� : THE FIFTH RESPONSE
+-- ϱ : THE RESIDUAL, AND Γ↝ : THE FIFTH RESPONSE
 --
---   δ � 0                 � �   (no bridge; Γ� Γ� Γ� Γ^ apply)
---   δ ≡ 0 ∧ � ≡ 0         � �   (bridged, flat; classification complete)
---   δ ≡ 0 ∧ � � 0         � �   (bridged, not flat; �������������)
+--   δ ≢ 0                 ↦ ★   (no bridge; Γ∅ Γ⇑ Γ↻ Γ^ apply)
+--   δ ≡ 0 ∧ ϱ ≡ 0         ↦ ↻   (bridged, flat; classification complete)
+--   δ ≡ 0 ∧ ϱ ≢ 0         ↦ ↝   (bridged, not flat; मार्गान्तरम्)
 --
--- � = wHere ⊖ detour: the residual is invisible to every equivalence-
+-- ϱ = wHere ⊖ detour: the residual is invisible to every equivalence-
 -- invariant response, because `Edge` carries `cost` in a field the maps do
--- not determine.  `no-invariant-response-sees-�` is that statement, proved.
+-- not determine.  `no-invariant-response-sees-ϱ` is that statement, proved.
 --
--- Γ� = min-plus over neighbours (`DSOMinPlusFinite`, `DSOBellmanFinite` are
+-- Γ↝ = min-plus over neighbours (`DSOMinPlusFinite`, `DSOBellmanFinite` are
 -- the same operator on other data).  It never loses, and when it wins it
 -- exhibits a strictly better presentation.
 
@@ -57,7 +57,7 @@ suc n ⊖ suc m = n ⊖ m
 ⊖-suc→< (suc m) (suc n) k p = suc-≤-suc (⊖-suc→< m n k p)
 
 --------------------------------------------------------------------------
--- 1.  δ ≡ 0 is a checked round trip; � is what survives it
+-- 1.  δ ≡ 0 is a checked round trip; ϱ is what survives it
 --------------------------------------------------------------------------
 
 Bridge : (A B : Presentation) → Type₀
@@ -124,7 +124,7 @@ branchOf-↝ (suc k) _ = k , refl
     witness : Σ[ j ∈ ℕ ] (wHere ⊖ detour out back wThere) ≡ suc j
     witness = branchOf-↝ (wHere ⊖ detour out back wThere) p
 
--- � has a target: the far presentation is strictly better at the work.
+-- ↝ has a target: the far presentation is strictly better at the work.
 ↝-forces-better-presentation :
     {A B : Presentation} (b : Bridge A B) (wHere wThere : Work)
   → respond (just b) wHere wThere ≡ ↝
@@ -134,7 +134,7 @@ branchOf-↝ (suc k) _ = k , refl
     (↝-is-speedup b wHere wThere p)
 
 --------------------------------------------------------------------------
--- 4.  � is null for every equivalence-invariant response
+-- 4.  ϱ is null for every equivalence-invariant response
 --------------------------------------------------------------------------
 
 -- A response is invariant when it reads the maps and not the weights.
@@ -148,7 +148,7 @@ Invariant Γ =
 respondB : {A B : Presentation} → Bridge A B → Work → Work → Branch
 respondB b wHere wThere = respond (just b) wHere wThere
 
--- Γ� Γ� Γ� Γ^ are all invariant, hence all blind here: two bridges with
+-- Γ∅ Γ⇑ Γ↻ Γ^ are all invariant, hence all blind here: two bridges with
 -- the same maps and different weights land in different branches.
 no-invariant-response-sees-ϱ : ¬ Invariant respondB
 no-invariant-response-sees-ϱ inv = subst is↝ (inv cheap dear cheap dear refl refl 10 1) tt
@@ -163,7 +163,7 @@ no-invariant-response-sees-ϱ inv = subst is↝ (inv cheap dear cheap dear refl 
     dear = edge (λ x → x) 100
 
 --------------------------------------------------------------------------
--- 5.  Γ� : min-plus over neighbours
+-- 5.  Γ↝ : min-plus over neighbours
 --------------------------------------------------------------------------
 
 _⊓_ : ℕ → ℕ → ℕ

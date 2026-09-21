@@ -2,37 +2,37 @@
 
 -- JivaTantu_TheThreadMovesAtEveryStepAndStillCoheres
 --
--- àààµ-àà¨àààà â” jva, the living one (Umsvti, ààààààµà¾à°ààààààà°, opening
--- adhyyas, ~2ndâ“5th c. CE: the knower persisting through karmic change);
+-- à¤œà¥€à¤µ-à¤¤à¤¨à¥à¤¤à¥à¤ƒ â€” jÄ«va, the living one (UmÄsvÄti, à¤¤à¤¤à¥à¤¤à¥à¤µà¤¾à¤°à¥à¤¥à¤¸à¥‚à¤¤à¥à¤°, opening
+-- adhyÄyas, ~2ndâ€“5th c. CE: the knower persisting through karmic change);
 -- tantu, thread (ordinary ; the weaver's word for continuity,
--- attested of the sacrificial line in the gveda â” second-hand, verse
+-- attested of the sacrificial line in the á¹šgveda â€” second-hand, verse
 -- citation owed). The compound is built here, 2026-08-23, for the owner's
 -- U0022 (collab/upstream/raw/U0022.txt); no source is claimed for it. What is
--- taken is the exact position being checked: the jva persists AND changes â”
--- against both the eternalist and the annihilationist reading â” and this
+-- taken is the exact position being checked: the jÄ«va persists AND changes â€”
+-- against both the eternalist and the annihilationist reading â€” and this
 -- module is that position as theorems about one term.
 --
 -- U0022's line:
---     "The living thread â” the jva â” is a section through the changing
---      family: j_n âˆˆ M_n with Ï_n(j_n) â‰ j_{n+1} ...  Continuity does
+--     "The living thread â€” the jÄ«va â€” is a section through the changing
+--      family: j_n âˆˆ M_n with Ï„_n(j_n) â‰ƒ j_{n+1} ...  Continuity does
 --      not require abandonment of change; change does not require
 --      annihilation of continuity."
 --
 -- WHAT IS PROVED, smallest inhabited instance:
---   Â§1  Tantu: a family M : â• â’ Type with step maps Ï; a thread is a
+--   Â§1  Tantu: a family M : â„• â†’ Type with step maps Ï„; a thread is a
 --       pointwise inhabitant TOGETHER WITH the section law at every
 --       step.  The coherences are data, not side conditions.
---   Â§2  à—àà¿à: over the constant family â with Ï = sucâ, the thread
+--   Â§2  à¤—à¤¤à¤¿à¤ƒ: over the constant family â„¤ with Ï„ = sucâ„¤, the thread
 --       j n = pos n; its section law holds by refl.
---   Â§3  ààààˆà°àà¯à-à¨à¿àà¿à¦àà§à®à: for EVERY thread over this Ï, no two
---       consecutive moments are equal â” j n â‰¡ j (suc n) would make an
+--   Â§3  à¤¸à¥à¤¥à¥ˆà¤°à¥à¤¯à¤‚-à¤¨à¤¿à¤·à¤¿à¤¦à¥à¤§à¤®à¥: for EVERY thread over this Ï„, no two
+--       consecutive moments are equal â€” j n â‰¡ j (suc n) would make an
 --       integer its own successor.  So over this family a section
 --       exists (Â§2) and immutability is uninhabitable (Â§3): continuity
 --       and change in one checked object.  That is the whole claim.
 --
 -- NOT BUILT YET, so the scope is exact: U0022's fate ledger
 -- (transported / restricted / refuted / split / unresolved over a span
--- M_n â C_n â’ M_{n+1}) and the heartbeat's dependent state type.  This
+-- M_n â† C_n â†’ M_{n+1}) and the heartbeat's dependent state type.  This
 -- is the thread alone, because the thread is what the smallest instance
 -- checks without invented structure.
 
@@ -45,17 +45,17 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Empty using (âŠ¥)
 open import Cubical.Relation.Nullary using (Â¬_)
 
--- â”â” Â§1 Â the thread through a changing family â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ Â§1 Â· the thread through a changing family â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 Tantu : (M : â„• â†’ Type) (Ï„ : (n : â„•) â†’ M n â†’ M (suc n)) â†’ Type
 Tantu M Ï„ = Î£[ j âˆˆ ((n : â„•) â†’ M n) ] ((n : â„•) â†’ Ï„ n (j n) â‰¡ j (suc n))
 
--- â”â” Â§2 Â the living instance: the family whose step is succession â”â”â”â”â”â”â”â”
+-- â”€â”€ Â§2 Â· the living instance: the family whose step is succession â”€â”€â”€â”€â”€â”€â”€â”€
 
 à¤—à¤¤à¤¿à¤ƒ : Tantu (Î» _ â†’ â„¤) (Î» _ â†’ sucâ„¤)
 à¤—à¤¤à¤¿à¤ƒ = (Î» n â†’ pos n) , (Î» n â†’ refl)
 
--- â”â” Â§3 Â every thread over this step law moves at every step â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ Â§3 Â· every thread over this step law moves at every step â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 private
   predâ„• : â„• â†’ â„•
@@ -66,9 +66,9 @@ private
   à¤¨-à¤¸à¥à¤µà¥‹à¤¤à¥à¤¤à¤°à¤ƒ zero    p = snotz (sym p)
   à¤¨-à¤¸à¥à¤µà¥‹à¤¤à¥à¤¤à¤°à¤ƒ (suc n) p = à¤¨-à¤¸à¥à¤µà¥‹à¤¤à¥à¤¤à¤°à¤ƒ n (cong predâ„• p)
 
-  -- no integer is its own successor: sucâ (pos n) = pos (suc n) and
-  -- sucâ (negsuc (suc m)) = negsuc m reduce both cases to â•; the
-  -- boundary case negsuc zero â¦ pos zero crosses constructors, where
+  -- no integer is its own successor: sucâ„¤ (pos n) = pos (suc n) and
+  -- sucâ„¤ (negsuc (suc m)) = negsuc m reduce both cases to â„•; the
+  -- boundary case negsuc zero â†¦ pos zero crosses constructors, where
   -- a pos/negsuc discriminator closes it.
   à¤­à¥‡à¤¦à¤ƒ : â„¤ â†’ â„•
   à¤­à¥‡à¤¦à¤ƒ (pos _)    = zero

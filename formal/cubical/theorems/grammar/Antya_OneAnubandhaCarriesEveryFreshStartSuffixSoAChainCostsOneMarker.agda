@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Antya � one anubandha carries every fresh-start suffix of its stretch.
--- A whole �-chain of classes costs ONE marker, for chains of any length,
+-- Antya — one anubandha carries every fresh-start suffix of its stretch.
+-- A whole ⊆-chain of classes costs ONE marker, for chains of any length,
 -- over any alphabet.  The reason under Dvipha's exhaustion.
 --
 -- SOURCE.  Pini, *Adhyy* 1.1.71, dir antyena sahet: the initial
@@ -12,30 +12,30 @@
 --
 -- WHAT CALLED THIS FILE.  `Dvihpatha_TheAntichainBoundIsAttainedOnlyIf-
 -- ASoundMayBeListedTwice.agda` settles a five-class family by checking all
--- 120 arrangements: �-width two, cost three recited-once, cost two once a
+-- 120 arrangements: ⊆-width two, cost three recited-once, cost two once a
 -- sound may be recited twice.  That is an instance and it is decided, but
 -- an exhaustion says nothing about a sixth class or a fourth sound.  The
 -- general fact it is an instance of is here, and it needs no enumeration:
 --
---   §3  `����������-��������` � for any alphabet A with a boolean equality
---       reflexive on the diagonal, any stretch written `p ++ s � q` and
+--   §3  `स्वच्छादिः-अन्त्येन` — for any alphabet A with a boolean equality
+--       reflexive on the diagonal, any stretch written `p ++ s ∷ q` and
 --       any marker m fresh in that stretch:  if s does not recur in q,
---       then `klass s m` returns exactly `s � q`.
+--       then `klass s m` returns exactly `s ∷ q`.
 --
 --   So EVERY suffix of the stretch whose first sound does not recur later
 --   in the stretch is a class of the single marker m.  A stretch with n
 --   such positions gives n classes on one antya, and they are nested by
---   construction � each is a suffix of the next � which is
---   `PratyaharaLaghava.sharedEnd�comparable` arriving again from the other
---   side.  A �-chain of length n costs one marker, not n.
+--   construction — each is a suffix of the next — which is
+--   `PratyaharaLaghava.sharedEnd→comparable` arriving again from the other
+--   side.  A ⊆-chain of length n costs one marker, not n.
 --
 --   §4  the two hypotheses are each load-bearing, shown by a term:
 --       recurrence of s inside q moves the answer to a later block
---       (`����������-���������`), and a marker occurring earlier truncates
---       the stretch (`���������-�����������`).  Neither is decoration.
+--       (`स्वच्छत्वं-आवश्यकम्`), and a marker occurring earlier truncates
+--       the stretch (`अन्त्यस्य-स्वच्छत्वम्`).  Neither is decoration.
 --
 --   §5  the general extractor at A := Dvipha's Sym IS Dvipha's
---       extractor, pointwise (`������`), so §3 applies to the checked
+--       extractor, pointwise (`समानम्`), so §3 applies to the checked
 --       instance and does not merely resemble it.  §6 reads that instance
 --       back through §3: the two-marker twice-recited line is two stretches
 --       carrying a 3-chain and a 2-chain, and §3 predicts all five classes
@@ -46,9 +46,9 @@
 -- each chain's stretch down in order, close it with its own antya, and §3
 -- delivers that chain's whole nesting from that one antya.  Since sounds
 -- may recur across stretches and §3 asks only for freshness WITHIN a
--- stretch, the stretches never interfere.  With Dilworth's theorem �
--- CITED, not proved here, and not proved anywhere in this repository �
--- chain-cover number equals �-width, and `PratyaharaLaghava.markersDistinct`
+-- stretch, the stretches never interfere.  With Dilworth's theorem —
+-- CITED, not proved here, and not proved anywhere in this repository —
+-- chain-cover number equals ⊆-width, and `PratyaharaLaghava.markersDistinct`
 -- gives the matching lower bound.  So the antichain bound is exactly the
 -- answer when repetition is free, and the entire content of the
 -- iva-stra problem is the economy of repetition.  Pini's line recites
@@ -57,15 +57,15 @@
 -- WHAT IS **NOT** PROVED HERE, said plainly because the paragraph above is
 -- the kind that gets quoted without its qualifications:
 --
---   * Dilworth's theorem.  Cited.  The construction above gives markers �
---     chain-cover number; turning that into markers � width needs it.
+--   * Dilworth's theorem.  Cited.  The construction above gives markers ≤
+--     chain-cover number; turning that into markers ≤ width needs it.
 --   * The construction over an arbitrary family as a single checked term.
 --     §3 is the per-chain step, fully general; assembling n stretches for
 --     n chains is a fold over a list of chains and is not written here.
 --     What is written is the step that does the work and the instance §6
 --     where the assembly is exhibited concretely.
---   * μ_k for 0 < k < ∞ � the minimum over lines with at most k
---     twice-recited sounds.  Dvipha gives μ� = 3, μ� = 2 on its family;
+--   * μ_k for 0 < k < ∞ — the minimum over lines with at most k
+--     twice-recited sounds.  Dviḥpāṭha gives μ₀ = 3, μ₁ = 2 on its family;
 --     §3 gives μ_∞ = width in general.  The graded middle is OPEN and it
 --     is where Pini's line actually sits: 42 sounds, k = 1, 14 markers.
 --   * Petersen 2004.  Still owed, still unread; egress is blocked here.
@@ -113,7 +113,7 @@ or-false₂ true  b p = ⊥rec (true≢false p)
 ------------------------------------------------------------------------
 -- §2  The extractor over an abstract alphabet.  `mem` tests the element
 --     against the target in the SAME orientation the extractor uses, so no
---     symmetry of the boolean equality is ever needed � and indeed the
+--     symmetry of the boolean equality is ever needed — and indeed the
 --     only property assumed anywhere below is reflexivity on the diagonal.
 ------------------------------------------------------------------------
 
@@ -166,7 +166,7 @@ module Reason (eq : A → A → Bool) (eq-refl : (x : A) → eq x x ≡ true) wh
            (or-false₁ (eq y s) (mem s q) h)
 
   -- FRESH START.  If s does not recur to the right of the marked position,
-  -- the nearest-preceding search lands exactly there � whatever stands to
+  -- the nearest-preceding search lands exactly there — whatever stands to
   -- the left, however many times s was recited earlier.
   स्वच्छादेः-पश्चात् : (s : A) (p q : List A) → mem s q ≡ false
                     → suffixFromLast s (p ++ s ∷ q) ≡ just (s ∷ q)
@@ -196,7 +196,7 @@ module Reason (eq : A → A → Bool) (eq-refl : (x : A) → eq x x ≡ true) wh
   -- recur later in it, closed by an antya fresh to it: the pratyhra is
   -- exactly the suffix.  One antya, every fresh-start position, no bound
   -- on how many.  The classes so named are suffixes of one stretch, hence
-  -- �-nested � a chain of any length on ONE marker.
+  -- ⊆-nested — a chain of any length on ONE marker.
   स्वच्छादिः-अन्त्येन : (s m : A) (p q r : List A)
                      → mem s q ≡ false
                      → mem m (p ++ s ∷ q) ≡ false
@@ -221,14 +221,14 @@ eqSym-refl M₃ = refl
 
 open Reason eqSym eqSym-refl
 
--- Drop freshness of the start: s� recurs later in the stretch, and the
+-- Drop freshness of the start: s₂ recurs later in the stretch, and the
 -- class is the LATER block, not the one the split names.  The theorem does
 -- not merely fail to apply; the answer moves.
 स्वच्छत्वं-आवश्यकम् : klass s₂ M₁ (s₂ ∷ s₁ ∷ s₂ ∷ s₃ ∷ M₁ ∷ [])
                     ≡ just (s₂ ∷ s₃ ∷ [])
 स्वच्छत्वं-आवश्यकम् = refl
 
--- Drop freshness of the antya: M� already stands inside the stretch, and
+-- Drop freshness of the antya: M₁ already stands inside the stretch, and
 -- the cut happens at the earlier occurrence, truncating it.
 अन्त्यस्य-स्वच्छत्वम् : klass s₁ M₁ (s₁ ∷ M₁ ∷ s₂ ∷ s₃ ∷ M₁ ∷ [])
                       ≡ just (s₁ ∷ [])
@@ -254,11 +254,11 @@ open Reason eqSym eqSym-refl
 -- §6  Dvipha's twice-recited line, read through §3 instead of through
 --     the enumeration.  The line is
 --
---         s� s� s� M� s� s� M�
+--         s₃ s₂ s₁ M₁ s₂ s₃ M₂
 --
---     two stretches: `s� s� s�` closed by M�, and `s� s� s� M� s� s�`
---     closed by M�.  The first has three fresh-start positions, the second
---     two � because s� and s� were recited again, which is exactly what
+--     two stretches: `s₃ s₂ s₁` closed by M₁, and `s₃ s₂ s₁ M₁ s₂ s₃`
+--     closed by M₂.  The first has three fresh-start positions, the second
+--     two — because s₂ and s₃ were recited again, which is exactly what
 --     makes their earlier occurrences stop being fresh and their later
 --     ones start being.  Three classes plus two classes, on two antyas:
 --     a 3-chain and a 2-chain, which is the family Dvipha names.
@@ -267,7 +267,7 @@ open Reason eqSym eqSym-refl
 --     `refl`s are the hypotheses discharged by computation.
 ------------------------------------------------------------------------
 
--- first stretch, three fresh starts, one antya M�
+-- first stretch, three fresh starts, one antya M₁
 कक्ष्या-प्रथमा-त्रिपदा-आदौ : klass s₃ M₁ द्विःपाठः ≡ just (s₃ ∷ s₂ ∷ s₁ ∷ [])
 कक्ष्या-प्रथमा-त्रिपदा-आदौ = स्वच्छादिः-अन्त्येन s₃ M₁ [] (s₂ ∷ s₁ ∷ []) (s₂ ∷ s₃ ∷ M₂ ∷ []) refl refl
 
@@ -277,8 +277,8 @@ open Reason eqSym eqSym-refl
 कक्ष्या-प्रथमा-एकपदा : klass s₁ M₁ द्विःपाठः ≡ just (s₁ ∷ [])
 कक्ष्या-प्रथमा-एकपदा = स्वच्छादिः-अन्त्येन s₁ M₁ (s₃ ∷ s₂ ∷ []) [] (s₂ ∷ s₃ ∷ M₂ ∷ []) refl refl
 
--- second stretch, two fresh starts, one antya M�.  The earlier recitations
--- of s� and s� sit in `p` and are simply passed over: §3 asks nothing of p.
+-- second stretch, two fresh starts, one antya M₂.  The earlier recitations
+-- of s₂ and s₃ sit in `p` and are simply passed over: §3 asks nothing of p.
 कक्ष्या-द्वितीया-द्विपदा : klass s₂ M₂ द्विःपाठः ≡ just (s₂ ∷ s₃ ∷ [])
 कक्ष्या-द्वितीया-द्विपदा = स्वच्छादिः-अन्त्येन s₂ M₂ (s₃ ∷ s₂ ∷ s₁ ∷ M₁ ∷ []) (s₃ ∷ []) [] refl refl
 

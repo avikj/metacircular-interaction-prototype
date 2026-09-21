@@ -1,55 +1,55 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àààà²-à°àà â” the Abel normal form.
+-- à¤†à¤¬à¥‡à¤²-à¤°à¥‚à¤ª â€” the Abel normal form.
 --
 -- THE RESOLVENT OF THE DAMPED SHIFT TURNS THE SHIFT DEFECT INTO A
 -- CONTRACTION, SO ITS POWERS INVERT THE DEFECT AT EVERY ORDER; AND THE
 -- ITERATED DIFFERENCES OF THE NORMALIZED SOURCE ARE EXACTLY THE
 -- RESIDUAL TOWER, RESCALED.
 --
--- Two identities from the repaired arithmetic inverse [S19 Â§Â§8â“10],
--- both pure algebra, both stated so that the analytic step â” the strong
--- limit Ï â 1 â” is visibly the only thing not here.
+-- Two identities from the repaired arithmetic inverse [S19 Â§Â§8â€“10],
+-- both pure algebra, both stated so that the analytic step â€” the strong
+-- limit Ï â†‘ 1 â€” is visibly the only thing not here.
 --
---   Â§1  THE NORMAL FORM.  With `T` the shift, `Ï` the damping, and `c`
---       the resolvent  c Â (1 - Ï T) â‰¡ 1 , put  B = (1 - Ï) T c .  Then
+--   Â§1  THE NORMAL FORM.  With `T` the shift, `Ï` the damping, and `c`
+--       the resolvent  c Â· (1 - Ï T) â‰¡ 1 , put  B = (1 - Ï) T c .  Then
 --
---         1 - B  â‰¡  c Â (1 - T) ,
+--         1 - B  â‰¡  c Â· (1 - T) ,
 --
 --       so the shift defect `1 - T` and the contraction defect `1 - B`
---       differ by the invertible factor `c` â” nothing else.
+--       differ by the invertible factor `c` â€” nothing else.
 --
---   Â§2  AT EVERY ORDER:  (1 - B)^m â‰¡ c^m Â (1 - T)^m .  This is
---       `(I - ÏT)^{-m}(I - T)^m = (I - B_Ï)^m` with the negative power
+--   Â§2  AT EVERY ORDER:  (1 - B)^m â‰¡ c^m Â· (1 - T)^m .  This is
+--       `(I - ÏT)^{-m}(I - T)^m = (I - B_Ï)^m` with the negative power
 --       written as the power of the resolvent.  The right side is what
---       tends to the identity as Ï â 1; the left side is the m-th order
+--       tends to the identity as Ï â†‘ 1; the left side is the m-th order
 --       inverse applied to the m-th order defect.  Both sides are
 --       finite ring elements here, and equal.
 --
 --   Â§3  THE RESIDUAL TOWER.  For a source `S` on the lattice, the
---       normalized readings  Y k = cÌ^k Â S k  (cÌ the inverse of the
+--       normalized readings  Y k = cÌ„^k Â· S k  (cÌ„ the inverse of the
 --       scale character c) have iterated forward differences
 --
---         Î”^m Y k  â‰¡  cÌ^{k+m} Â (A m) k ,      A m = (shift - c)^m S ,
+--         Î”^m Y k  â‰¡  cÌ„^{k+m} Â· (A m) k ,      A m = (shift - c)^m S ,
 --
 --       exactly, for every m and k.  So the m-th residual of the actual
 --       source and the m-th difference of the normalized source are one
---       object read at two normalizations â” which is why an inverse for
+--       object read at two normalizations â€” which is why an inverse for
 --       differences is an inverse for residuals.
 --
--- WHERE THE ANALYSIS ENTERS, NAMED.  Â§Â§1â“3 are what the Abel inverse
--- uses; what it adds is that `B` is a contraction on câ and `B x â’ 0`
--- strongly, hence `(1-B)^m â’ 1`.  That is a statement about a limit in
+-- WHERE THE ANALYSIS ENTERS, NAMED.  Â§Â§1â€“3 are what the Abel inverse
+-- uses; what it adds is that `B` is a contraction on câ‚€ and `B x â†’ 0`
+-- strongly, hence `(1-B)^m â†’ 1`.  That is a statement about a limit in
 -- a Banach space and is not made here.  Everything up to it is ring
 -- algebra, checked.
 --
--- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“2 in any commutative ring, for every
--- `T`, `Ï`, and every resolvent `c` of `1 - ÏT`.  Â§3 in any commutative
+-- SYÄ€T â€” THE CLAIM, EXACTLY.  Â§Â§1â€“2 in any commutative ring, for every
+-- `T`, `Ï`, and every resolvent `c` of `1 - ÏT`.  Â§3 in any commutative
 -- ring, for every source, every invertible scale character, every order
 -- and every lattice point.  NOT claimed: existence of the resolvent
--- (carried); anything about norms, câ, contractions, or limits; that the
--- actual arithmetic source's normalized readings converge â” which is
+-- (carried); anything about norms, câ‚€, contractions, or limits; that the
+-- actual arithmetic source's normalized readings converge â€” which is
 -- (32) there and needs the explicit formula; and nothing about zeta.
 ------------------------------------------------------------------------
 
@@ -57,109 +57,109 @@ module M3 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â• ; zero ; suc ; +-suc ; +-zero) renaming (_+_ to _+â•_)
+open import Cubical.Data.Nat using (â„• ; zero ; suc ; +-suc ; +-zero) renaming (_+_ to _+â„•_)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
-    â“ : Level
+    â„“ : Level
 
-module _ (R : CommRing â“) where
+module _ (R : CommRing â„“) where
   open CommRingStr (snd R)
 
   private
-    A : Type â“
+    A : Type â„“
     A = âŸ¨ R âŸ©
 
-  pow : A â’ â• â’ A
+  pow : A â†’ â„• â†’ A
   pow x zero    = 1r
-  pow x (suc n) = x Â pow x n
+  pow x (suc n) = x Â· pow x n
 
-  pow-Â : (x y : A) (n : â•) â’ pow (x Â y) n â‰¡ pow x n Â pow y n
-  pow-Â x y zero    = sym (ÂIdR 1r)
-  pow-Â x y (suc n) =
-      cong ((x Â y) Â_) (pow-Â x y n)
+  pow-Â· : (x y : A) (n : â„•) â†’ pow (x Â· y) n â‰¡ pow x n Â· pow y n
+  pow-Â· x y zero    = sym (Â·IdR 1r)
+  pow-Â· x y (suc n) =
+      cong ((x Â· y) Â·_) (pow-Â· x y n)
     âˆ™ shuffle x y (pow x n) (pow y n)
     where
-      shuffle : (a b p q : A) â’ (a Â b) Â (p Â q) â‰¡ (a Â p) Â (b Â q)
+      shuffle : (a b p q : A) â†’ (a Â· b) Â· (p Â· q) â‰¡ (a Â· p) Â· (b Â· q)
       shuffle a b p q = solve! R
 
   ------------------------------------------------------------------
-  -- à§ Â THE NORMAL FORM.
+  -- à¥§ Â· THE NORMAL FORM.
   ------------------------------------------------------------------
 
-  module _ (T Ï c : A) (resolvent : c Â (1r + (- (Ï Â T))) â‰¡ 1r) where
+  module _ (T Ï c : A) (resolvent : c Â· (1r + (- (Ï Â· T))) â‰¡ 1r) where
 
     B : A
-    B = ((1r + (- Ï)) Â T) Â c
+    B = ((1r + (- Ï)) Â· T) Â· c
 
-    normal-form : 1r + (- B) â‰¡ c Â (1r + T)
+    normal-form : 1r + (- B) â‰¡ c Â· (1r + T)
     normal-form =
         cong (_+ (- B)) (sym resolvent)
-      âˆ™ shape c Ï T
+      âˆ™ shape c Ï T
       where
         shape : (a r t : A)
-          â’ (a Â (1r + (- (r Â t)))) + (- (((1r + (- r)) Â t) Â a))
-            â‰¡ a Â (1r + (- t))
+          â†’ (a Â· (1r + (- (r Â· t)))) + (- (((1r + (- r)) Â· t) Â· a))
+            â‰¡ a Â· (1r + (- t))
         shape a r t = solve! R
 
     ----------------------------------------------------------------
-    -- à¨ Â AT EVERY ORDER.
+    -- à¥¨ Â· AT EVERY ORDER.
     ----------------------------------------------------------------
 
-    normal-form-power : (m : â•) â’ pow (1r + (- B)) m â‰¡ pow c m Â pow (1r + (- T)) m
+    normal-form-power : (m : â„•) â†’ pow (1r + (- B)) m â‰¡ pow c m Â· pow (1r + (- T)) m
     normal-form-power m =
-      cong (Î» z â’ pow z m) normal-form âˆ™ pow-Â c (1r + (- T)) m
+      cong (Î» z â†’ pow z m) normal-form âˆ™ pow-Â· c (1r + (- T)) m
 
   ------------------------------------------------------------------
-  -- à© Â THE RESIDUAL TOWER.
+  -- à¥© Â· THE RESIDUAL TOWER.
   ------------------------------------------------------------------
 
-  module _ (S : â• â’ A) (c cÌ : A) (ccÌ : c Â cÌ â‰¡ 1r) where
+  module _ (S : â„• â†’ A) (c cÌ„ : A) (ccÌ„ : c Â· cÌ„ â‰¡ 1r) where
 
     -- the normalized reading, and the two iterated operators
-    Y : â• â’ A
-    Y k = pow cÌ k Â S k
+    Y : â„• â†’ A
+    Y k = pow cÌ„ k Â· S k
 
-    Î” : (â• â’ A) â’ â• â’ A
+    Î” : (â„• â†’ A) â†’ â„• â†’ A
     Î” f k = f (suc k) + (- f k)
 
-    Î”^ : â• â’ (â• â’ A) â’ â• â’ A
+    Î”^ : â„• â†’ (â„• â†’ A) â†’ â„• â†’ A
     Î”^ zero    f = f
     Î”^ (suc m) f = Î” (Î”^ m f)
 
     -- (shift âˆ’ c) applied to a source
-    res : (â• â’ A) â’ â• â’ A
-    res f k = f (suc k) + (- (c Â f k))
+    res : (â„• â†’ A) â†’ â„• â†’ A
+    res f k = f (suc k) + (- (c Â· f k))
 
-    A^ : â• â’ â• â’ A
+    A^ : â„• â†’ â„• â†’ A
     A^ zero    = S
     A^ (suc m) = res (A^ m)
 
     private
-      pow-suc : (k : â•) â’ pow cÌ k â‰¡ (pow cÌ (suc k) Â c)
+      pow-suc : (k : â„•) â†’ pow cÌ„ k â‰¡ (pow cÌ„ (suc k) Â· c)
       pow-suc k =
-          sym (ÂIdR (pow cÌ k))
-        âˆ™ cong (pow cÌ k Â_) (sym (ÂComm cÌ c âˆ™ ccÌ))
-        âˆ™ shape (pow cÌ k) cÌ c
+          sym (Â·IdR (pow cÌ„ k))
+        âˆ™ cong (pow cÌ„ k Â·_) (sym (Â·Comm cÌ„ c âˆ™ ccÌ„))
+        âˆ™ shape (pow cÌ„ k) cÌ„ c
         where
-          shape : (p a b : A) â’ p Â (a Â b) â‰¡ (a Â p) Â b
+          shape : (p a b : A) â†’ p Â· (a Â· b) â‰¡ (a Â· p) Â· b
           shape p a b = solve! R
 
     difference-is-rescaled-residual :
-        (m k : â•) â’ Î”^ m Y k â‰¡ pow cÌ (k +â• m) Â A^ m k
+        (m k : â„•) â†’ Î”^ m Y k â‰¡ pow cÌ„ (k +â„• m) Â· A^ m k
     difference-is-rescaled-residual zero k =
-      cong (Î» n â’ pow cÌ n Â S k) (sym (+-zero k))
+      cong (Î» n â†’ pow cÌ„ n Â· S k) (sym (+-zero k))
     difference-is-rescaled-residual (suc m) k =
-        congâ (Î» p q â’ p + (- q))
+        congâ‚‚ (Î» p q â†’ p + (- q))
               (difference-is-rescaled-residual m (suc k))
               (difference-is-rescaled-residual m k)
-      âˆ™ cong (Î» z â’ pow cÌ (suc (k +â• m)) Â A^ m (suc k) + (- (z Â A^ m k)))
-             (pow-suc (k +â• m))
-      âˆ™ collect (pow cÌ (suc (k +â• m))) c (A^ m (suc k)) (A^ m k)
-      âˆ™ cong (Î» n â’ pow cÌ n Â res (A^ m) k) (sym (+-suc k m))
+      âˆ™ cong (Î» z â†’ pow cÌ„ (suc (k +â„• m)) Â· A^ m (suc k) + (- (z Â· A^ m k)))
+             (pow-suc (k +â„• m))
+      âˆ™ collect (pow cÌ„ (suc (k +â„• m))) c (A^ m (suc k)) (A^ m k)
+      âˆ™ cong (Î» n â†’ pow cÌ„ n Â· res (A^ m) k) (sym (+-suc k m))
       where
         collect : (p a u v : A)
-          â’ p Â u + (- ((p Â a) Â v)) â‰¡ p Â (u + (- (a Â v)))
+          â†’ p Â· u + (- ((p Â· a) Â· v)) â‰¡ p Â· (u + (- (a Â· v)))
         collect p a u v = solve! R

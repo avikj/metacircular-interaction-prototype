@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ���-���� � the subset product.
+-- उप-गुण — the subset product.
 --
 -- Handoff §8 ([S03]), the all-order shared-source variations: mixed
 -- derivatives of a product obey the exact subset rule
 --
---     �_S (f g) = �_{T � S} (�_T f)(�_{S∖T} g),
+--     ∂_S (f g) = Σ_{T ⊆ S} (∂_T f)(∂_{S∖T} g),
 --
 -- and the linearized generator of a quadratic flow F(ω) = Lω + B(ω,ω)
 -- is its linear part plus twice the polarization,
@@ -13,7 +13,7 @@
 --     F(ω + v) = F(ω) + [L v + 2 B(ω,v)] + B(v,v).
 --
 -- The subset rule is checked for two and three derivations (4 and 8
--- terms; no commutation of the derivations is needed � the rule is
+-- terms; no commutation of the derivations is needed — the rule is
 -- iterated Leibniz), and the generator identity for any additive L
 -- and symmetric biadditive B.  (The single-derivation all-order rule is
 -- DvipadaGuna; the projected failure of the rule is PunarAgamana.)
@@ -42,7 +42,7 @@ module _ (R : CommRing ℓ) where
   ι (suc n) = 1r + ι n
 
   ----------------------------------------------------------------
-  -- � � the subset rule for two and three derivations
+  -- १ · the subset rule for two and three derivations
   ----------------------------------------------------------------
   module _ (∂₁ ∂₂ ∂₃ : A → A)
            (∂₁-add : (x y : A) → ∂₁ (x + y) ≡ ∂₁ x + ∂₁ y)
@@ -53,7 +53,7 @@ module _ (R : CommRing ℓ) where
            (∂₃-leib : (x y : A) → ∂₃ (x · y) ≡ ∂₃ x · y + x · ∂₃ y)
            where
 
-    -- ����(fg) = ����f�g + ��f���g + ��f���g + f�����g
+    -- ∂₁∂₂(fg) = ∂₁∂₂f·g + ∂₂f·∂₁g + ∂₁f·∂₂g + f·∂₁∂₂g
     subset-rule-2 : (f g : A)
       → ∂₁ (∂₂ (f · g)) ≡ (∂₁ (∂₂ f) · g + ∂₂ f · ∂₁ g) + (∂₁ f · ∂₂ g + f · ∂₁ (∂₂ g))
     subset-rule-2 f g =
@@ -61,7 +61,7 @@ module _ (R : CommRing ℓ) where
       ∙ ∂₁-add (∂₂ f · g) (f · ∂₂ g)
       ∙ cong₂ _+_ (∂₁-leib (∂₂ f) g) (∂₁-leib f (∂₂ g))
 
-    -- ������(fg): the eight subsets of {1,2,3}
+    -- ∂₃∂₁∂₂(fg): the eight subsets of {1,2,3}
     subset-rule-3 : (f g : A)
       → ∂₃ (∂₁ (∂₂ (f · g)))
         ≡ ( ((∂₃ (∂₁ (∂₂ f)) · g + ∂₁ (∂₂ f) · ∂₃ g) + (∂₃ (∂₂ f) · ∂₁ g + ∂₂ f · ∂₃ (∂₁ g))) )
@@ -73,7 +73,7 @@ module _ (R : CommRing ℓ) where
                   (∂₃-add _ _ ∙ cong₂ _+_ (∂₃-leib (∂₁ f) (∂₂ g)) (∂₃-leib f (∂₁ (∂₂ g))))
 
   ----------------------------------------------------------------
-  -- � � the linearized generator of a quadratic flow
+  -- २ · the linearized generator of a quadratic flow
   ----------------------------------------------------------------
   module _ (L : A → A) (L-add : (x y : A) → L (x + y) ≡ L x + L y)
            (B : A → A → A)

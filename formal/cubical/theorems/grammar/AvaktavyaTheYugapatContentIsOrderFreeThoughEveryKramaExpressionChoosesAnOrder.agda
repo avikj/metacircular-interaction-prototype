@@ -5,26 +5,26 @@
 -- expression of it must choose an order.
 --
 -- `SaptabhangiNaya` proves avaktavya is real: the joint content
---     joint œ = œ rewriter ‚àß ¬ (œ kernel-refl)
+--     joint œÜ = œÜ rewriter ‚àß ¬¨ (œÜ kernel-refl)
 -- is denoted by NO single utterance (`no-single-vacana`) and by the
 -- ORDERED pair (asti-from rewriter, nasti-from kernel-refl) in succession
 -- (`krama-expresses`).  That is the fourth bhaga: inexpressible at once,
 -- recovered in krama.
 --
 -- Here is the fact that pair leaves on the table.  `joint` is a
--- CONJUNCTION, and conjunction is symmetric ‚î so the SIMULTANEOUS content
+-- CONJUNCTION, and conjunction is symmetric ‚Äî so the SIMULTANEOUS content
 -- privileges no order, while the SUCCESSIVE expression of it necessarily
 -- does.  Both orders of the krama-pair recover the same joint, and the two
 -- orders are equal not by `refl` but by `and`-commutativity: the symmetry
 -- is a real (propositional) identification, not a definitional one, which
--- is exactly right ‚î yugapat is order-free as a THEOREM, not by fiat.
+-- is exactly right ‚Äî yugapat is order-free as a THEOREM, not by fiat.
 --
 -- This is the precise seam between b3 (krama, successive asti-nsti) and b4
 -- (yugapat, avaktavya): b4's content does not depend on the order its
 -- krama-witness happens to pick.
 --
 -- Uses only SaptabhangiNaya's own terms; nothing named is invented.
--- Checked warm through ‡®‡æ‡°‡ against the container's agda ‚î ‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø.
+-- Checked warm through ‡§®‡§æ‡§°‡•Ä against the container's agda ‚Äî ‡§õ‡§ø‡§¶‡•ç‡§∞‡§Ç ‡§®‡§æ‡§∏‡•ç‡§§‡§ø.
 ------------------------------------------------------------------------
 
 module AvaktavyaTheYugapatContentIsOrderFreeThoughEveryKramaExpressionChoosesAnOrder where
@@ -42,7 +42,7 @@ and-comm true  false = refl
 and-comm false true  = refl
 and-comm false false = refl
 
--- the two krama orders express the SAME joint content ‚î the yugapat is
+-- the two krama orders express the SAME joint content ‚Äî the yugapat is
 -- order-free.  Not refl: it is `and`-commutativity, an earned symmetry.
 avaktavya-order-free :
   (œÜ : Profile)

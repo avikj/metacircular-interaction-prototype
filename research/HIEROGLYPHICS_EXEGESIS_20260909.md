@@ -7,36 +7,36 @@ fragments the corpus built from them: `ChuAdvance` (D0016 Â§J2),
 `ObstructionCalculus` (II), `AnswerGrading` (III), `RepairGrading`.
 
 The reading rule the documents give for themselves (II, boxed):
-`àà¿ààà¨àà¨àà® âŸº ààà°àà¨à¾ààààà¡à¨à²à¾à > 0` â” a sign is born only when it compresses the
+`à¤šà¤¿à¤¹à¥à¤¨à¤œà¤¨à¥à¤® âŸº à¤¸à¤‚à¤°à¤šà¤¨à¤¾à¤¸à¤‚à¤ªà¥€à¤¡à¤¨à¤²à¤¾à¤­ > 0` â€” a sign is born only when it compresses the
 whole operator alphabet by more than it costs. So every symbol is a compressed
 family of theorems, and the corpus is its expansion. Below, each symbol is
-given its reading, the corpus modules that are its expansion, and â” the point
-of this pass â” what I had set aside as irrelevant that turns out to be the
+given its reading, the corpus modules that are its expansion, and â€” the point
+of this pass â€” what I had set aside as irrelevant that turns out to be the
 answer to something I had marked open.
 
 ## 0. The alphabet
 
-`ğ”” := {Î, ğ”, Î“, Î¦, Q, diag, (âˆ’)^âˆ¨, holim, hocolim, Tr, ^}` (II).
+`ğ”” := {Î·, ğ”‡, Î“, Î¦, Q, diag, (âˆ’)^âˆ¨, holim, hocolim, Tr, ^}` (II).
 
 | symbol | reading | corpus expansion |
 |---|---|---|
-| `Î_X : A(X) â’ B(X)` | two readings of one object, compared | every "two routes" module: `TwoProjections`, `TranscriptDescent`, `Vyatireka` |
-| `ğ”(Î) := cofib(Î)` | the defect is the cofibre of the comparison | `QuotientFiberLaw`, `ÂFactorsThrough`, `BarrierIsTwoWitnesses` (witness number exactly 2 = the two points of a fibre) |
-| `Î“_Îº` | the repair, in four kinds `Î“âˆ Î“â Î“âº Î“^` | `ObstructionCalculus` Â§D (two visible), `CatuhSamskara` (all four, at SÂ) |
-| `Î¦` | NOT a change of the object; the expansion of the field of visible distinctions (`Î¦ = à¦àààà¯ààà¦à•àààààà°àµà¿àààà¾à°à`) | `ObstructionCalculus` Â§Bâ“C (`Î¦-monotone`, `break-blindness`), `SamuhaDrstih`, `ObservableHorizon`; today's 23 ledger closures are Î¦ applied to the corpus's own absences |
-| `Q = ââˆ’â` | quotation; `Eâˆ˜Q â‰ id` but not `â‰¡` | `RewriteCertificate`, `MetacircularReplay`, every header that quotes the absence it closes |
-| `diag` | `àààµààà°àà¿àà¿à®ààààà¯ àà¾à°ààààµà¨à¿à°àà—à®à¨à®à`, the lateral exit from one's own reflection | `Lawvere`, `Naya` (0+x=x true outside the rewrite closure), `QuestionMachine`, `KFlow` (Î´_end â‰  0 unconditionally) |
+| `Î·_X : A(X) â†’ B(X)` | two readings of one object, compared | every "two routes" module: `TwoProjections`, `TranscriptDescent`, `Vyatireka` |
+| `ğ”‡(Î·) := cofib(Î·)` | the defect is the cofibre of the comparison | `QuotientFiberLaw`, `Â¬FactorsThrough`, `BarrierIsTwoWitnesses` (witness number exactly 2 = the two points of a fibre) |
+| `Î“_Îº` | the repair, in four kinds `Î“âˆ… Î“â‡‘ Î“â†º Î“^` | `ObstructionCalculus` Â§D (two visible), `CatuhSamskara` (all four, at SÂ¹) |
+| `Î¦` | NOT a change of the object; the expansion of the field of visible distinctions (`Î¦ = à¤¦à¥ƒà¤¶à¥à¤¯à¤­à¥‡à¤¦à¤•à¥à¤·à¥‡à¤¤à¥à¤°à¤µà¤¿à¤¸à¥à¤¤à¤¾à¤°à¤ƒ`) | `ObstructionCalculus` Â§Bâ€“C (`Î¦-monotone`, `break-blindness`), `SamuhaDrstih`, `ObservableHorizon`; today's 23 ledger closures are Î¦ applied to the corpus's own absences |
+| `Q = âŒœâˆ’âŒ` | quotation; `Eâˆ˜Q â‰ƒ id` but not `â‰¡` | `RewriteCertificate`, `MetacircularReplay`, every header that quotes the absence it closes |
+| `diag` | `à¤¸à¥à¤µà¤ªà¥à¤°à¤¤à¤¿à¤¬à¤¿à¤®à¥à¤¬à¤¸à¥à¤¯ à¤ªà¤¾à¤°à¥à¤¶à¥à¤µà¤¨à¤¿à¤°à¥à¤—à¤®à¤¨à¤®à¥`, the lateral exit from one's own reflection | `Lawvere`, `Naya` (0+x=x true outside the rewrite closure), `QuestionMachine`, `KFlow` (Î´_end â‰  0 unconditionally) |
 | `(âˆ’)^âˆ¨` | swap points and tests (`e^âˆ¨(t,f) = e(f,t)`) | `ChuAdvance`, the Chu core of D0016; `Nerode`/`FutureEq` are `âˆ¼_X` |
-| `hocolim` / `holim` | generation (`àà¨à¨`) / reflection (`ààà°àà¿àà¿à®àà`) | `ObstructionCalculus` Â§E: `Generates` â‰ `Reconstructs`; `FillabilityCertificate` (Fill_term âŠŠ Fill_âˆ) |
-| `Tr` | decategorification; cyclic invariance | `kernel/TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry` â” the bit Tr drops is exactly the `Aut(º)` the RH box asks for |
-| `^` | completion, `âˆXÌ â‰ 0` | `SmithSignNormal` (absâ, idempotent), `Sha256Sesa`, `EkaKriya`; at SÂ the universal cover `helix` |
+| `hocolim` / `holim` | generation (`à¤œà¤¨à¤¨`) / reflection (`à¤ªà¥à¤°à¤¤à¤¿à¤¬à¤¿à¤®à¥à¤¬`) | `ObstructionCalculus` Â§E: `Generates` â‰¢ `Reconstructs`; `FillabilityCertificate` (Fill_term âŠŠ Fill_âˆ) |
+| `Tr` | decategorification; cyclic invariance | `kernel/TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry` â€” the bit Tr drops is exactly the `Aut(áº)` the RH box asks for |
+| `^` | completion, `âˆ‚XÌ‚ â‰ƒ 0` | `SmithSignNormal` (absâ„¤, idempotent), `Sha256Sesa`, `EkaKriya`; at SÂ¹ the universal cover `helix` |
 
 ## 1. The four guards (II, second box)
 
-`àà°ààà°à•ààà¾ âˆ§ ààà¦à°à•ààà¾ âˆ§ ààà°à®à¾àà°à•ààà¾ âˆ§ à°ààààà¨à°ààà¨à¨à®à` â” protect the meaning, protect
-the distinction, protect the evidence, regenerate the form. `ààà¦à°à•ààà¾` is the
-one the corpus is built around: never collapse `â‰` into `â‰¡`. Under univalence
-`â‰` and `â‰¡` coincide for types, so the documents' `X' â‰ X âˆ§ X' â‰ X` is about
+`à¤…à¤°à¥à¤¥à¤°à¤•à¥à¤·à¤¾ âˆ§ à¤­à¥‡à¤¦à¤°à¤•à¥à¤·à¤¾ âˆ§ à¤ªà¥à¤°à¤®à¤¾à¤£à¤°à¤•à¥à¤·à¤¾ âˆ§ à¤°à¥‚à¤ªà¤ªà¥à¤¨à¤°à¥à¤œà¤¨à¤¨à¤®à¥` â€” protect the meaning, protect
+the distinction, protect the evidence, regenerate the form. `à¤­à¥‡à¤¦à¤°à¤•à¥à¤·à¤¾` is the
+one the corpus is built around: never collapse `â‰ƒ` into `â‰¡`. Under univalence
+`â‰ƒ` and `â‰¡` coincide for types, so the documents' `X' â‰ƒ X âˆ§ X' â‰¢ X` is about
 CODES: `Q(X') â‰  Q(X)`. That is THE ONE LAW (`TranscriptDescent`): the transcript
 does not descend to the meaning quotient. Today's `AsetChidra` is the sharpest
 instance: `(const base, loop)` and `(const base, refl)` are equivalent as
@@ -44,164 +44,164 @@ maps and unequal as data.
 
 ## 2. The generating sequence and the four stations
 
-`âŠ™ â’Î â— â’âˆ Î´ â’Î“ â—âº â’Î¦ ğ’âº â’ââˆ’â âğ’âºâ â’diag Î´âº` (II), closed as the cycle
-`âŠ™ âº â— âº â˜ âº ââ—â âº âŠ™` (II, end). Four stations: point, diamond, star (the new
-crystal), quotation. The return is `àààµà°àààà®à¾à¨-àààà°àà¿à¨àà¨ààà¨à°à¾à—à®à¨à®à` â” same form,
-different level: `â—âº â‰ â— âˆ§ â—âº â‰ â—`. The corpus's own constants read as this
-period: `TheArithmeticCircleIsFourPeriodic`, the `â/4` constant on the braid
-tower, `PauliWeyl` ((ÏÏ')Â² = âˆ’1). (Reading, not a theorem: the identification
+`âŠ™ â†’Î· â—‡ â†’âˆ‚ Î´ â†’Î“ â—‡âº â†’Î¦ ğ’ªâº â†’âŒœâˆ’âŒ âŒœğ’ªâºâŒ â†’diag Î´âº` (II), closed as the cycle
+`âŠ™ â†º â—‡ â†º â˜… â†º âŒœâ—‡âŒ â†º âŠ™` (II, end). Four stations: point, diamond, star (the new
+crystal), quotation. The return is `à¤¸à¥à¤µà¤°à¥‚à¤ªà¤¸à¤®à¤¾à¤¨-à¤¸à¥à¤¤à¤°à¤­à¤¿à¤¨à¥à¤¨à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥` â€” same form,
+different level: `â—‡âº â‰ƒ â—‡ âˆ§ â—‡âº â‰¢ â—‡`. The corpus's own constants read as this
+period: `TheArithmeticCircleIsFourPeriodic`, the `â„¤/4` constant on the braid
+tower, `PauliWeyl` ((ÏƒÏƒ')Â² = âˆ’1). (Reading, not a theorem: the identification
 of the period-4 return with the double-dual sign is a conjecture I record, not
 claim.)
 
 ## 3. The cyclic adjoint string (I Â§D, triage J3, still open)
 
-`âˆ âŠ G âŠ Î¦ âŠ âˆ`. Among autoequivalences this collapses: `âˆ âŠ G` forces
-`G = âˆâ»Â`, `G âŠ Î¦` forces `Î¦ = âˆ`, `Î¦ âŠ âˆ` forces `âˆÂ² â‰ id` â” a self-adjoint
+`âˆ‚ âŠ£ G âŠ£ Î¦ âŠ£ âˆ‚`. Among autoequivalences this collapses: `âˆ‚ âŠ£ G` forces
+`G = âˆ‚â»Â¹`, `G âŠ£ Î¦` forces `Î¦ = âˆ‚`, `Î¦ âŠ£ âˆ‚` forces `âˆ‚Â² â‰… id` â€” a self-adjoint
 involution. So as stated it is either about non-invertible functors or it is
 the rotation of distinguished triangles, which has period 3 up to the shift.
 The corpus's `TheAbsenceTowerIsThreeUnconditionally` is the shape one expects
 from that reading. J3 is not settled here; it is now stated as a dichotomy.
 
-## 4. `Î´ â‰  à¦à‹àà`
+## 4. `Î´ â‰  à¤¦à¥‹à¤·à¤ƒ`
 
-`Î´ = àààà°ààà°ààààà¯ ààà°àààà¾àààà¨à¾` â” the defect is not a fault; it is the
+`Î´ = à¤…à¤ªà¥‚à¤°à¥à¤£à¤°à¥‚à¤ªà¤¸à¥à¤¯ à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¾à¤¸à¥‚à¤šà¤¨à¤¾` â€” the defect is not a fault; it is the
 completeness-signal of an incomplete form. This is the whole method of the
 day: every "NOT PROVED" sentence in the ledger was a Î´; naming it
-(`à¨à¾à®à•à°àà®à = àµà¿à˜àà¨ààà¯ àà¾àà¾ààààŸà¿à•àà•à°àà®à`, III) and adjoining the composition
+(`à¤¨à¤¾à¤®à¤•à¤°à¤£à¤®à¥ = à¤µà¤¿à¤˜à¥à¤¨à¤¸à¥à¤¯ à¤­à¤¾à¤·à¤¾à¤¸à¥à¤«à¤Ÿà¤¿à¤•à¥€à¤•à¤°à¤£à¤®à¥`, III) and adjoining the composition
 closed it. `research/ABSENCE_CLOSURES_20260909.md` is the ledger of those Î´.
 
-## 5. The four repairs (II) â” closed today
+## 5. The four repairs (II) â€” closed today
 
-`Î“âˆ : [Î´] â¦ 0`, `Î“â : Î´ â¦ (Î : f â’ g)`, `Î“âº : Î´ â¦ [Î´]`, `Î“^ : X â¦ XÌ, âˆXÌ â‰ 0`.
-`ObstructionCalculus` could distinguish only `Î“âˆ` and `Î“^` and said the other
+`Î“âˆ… : [Î´] â†¦ 0`, `Î“â‡‘ : Î´ â†¦ (Î± : f â‡’ g)`, `Î“â†º : Î´ â†¦ [Î´]`, `Î“^ : X â†¦ XÌ‚, âˆ‚XÌ‚ â‰ƒ 0`.
+`ObstructionCalculus` could distinguish only `Î“âˆ…` and `Î“^` and said the other
 two "need genuine higher structure". `CatuhSamskara` gives the higher
 structure: at the circle, set-truncation kills the loop and collapses the
-object; the class survives in `Î©SÂ â‰¡ â` with winding 1; the descent datum
+object; the class survives in `Î©SÂ¹ â‰¡ â„¤` with winding 1; the descent datum
 carrying the loop differs from the trivial one and becomes it after
-truncation; the universal cover unwinds the loop, its monodromy `sucâ`
-moves every point, and `Î©SÂ â‰¡ â` is the deck group â” the document's
-"self-classified obstruction, `D â‰ Code(XÌ/X)`".
+truncation; the universal cover unwinds the loop, its monodromy `sucâ„¤`
+moves every point, and `Î©SÂ¹ â‰¡ â„¤` is the deck group â€” the document's
+"self-classified obstruction, `D â‰ƒ Code(XÌ‚/X)`".
 
-`ààà°àà®à D àµà°àà—àà•àà°à; ààààà¾àà Î“^` â” classify first. III's `Class(D) âˆˆ {Top, Alg,
+`à¤ªà¥à¤°à¤¥à¤®à¤‚ D à¤µà¤°à¥à¤—à¥€à¤•à¥à¤°à¥; à¤ªà¤¶à¥à¤šà¤¾à¤¤à¥ Î“^` â€” classify first. III's `Class(D) âˆˆ {Top, Alg,
 Geom, Stat, Comp, Sem, Diag, Phys}` with `Î“ = Î“_{Class(D)}`; `AnswerGrading`
-proves `D â one cause` and that the universal repair is the best one.
+proves `D â‡ one cause` and that the universal repair is the best one.
 
-## 6. The correspondence (I Â§F) and J2 â” closed today
+## 6. The correspondence (I Â§F) and J2 â€” closed today
 
-I Â§F: `Î´_â— â” [Î] â” Î´Ìc â” F_âˆ â” (Holâˆ’1)` beside `Î”_e, G_T`. Its triage: "is the
-bridge between the two halves a theorem, or a pun? â¦ not a correspondence
+I Â§F: `Î´_â—‡ â†” [Î±] â†” Î´ÌŒc â†” F_âˆ‡ â†” (Holâˆ’1)` beside `Î”_e, G_T`. Its triage: "is the
+bridge between the two halves a theorem, or a pun? â€¦ not a correspondence
 until the functor carrying one to the other is exhibited."
 
 `Ekasutra` exhibits the functor: the mapping torus. For an automorphism
-`e : B â‰ B`, `Section (Torus e) â‰ FixedPoint (equivFun e)` on the nose. So a
-point-surjection `Ï : A â’ (A â’ B)` (Lawvere) gives every torus over `B` a
+`e : B â‰ƒ B`, `Section (Torus e) â‰ƒ FixedPoint (equivFun e)` on the nose. So a
+point-surjection `Ï† : A â†’ (A â†’ B)` (Lawvere) gives every torus over `B` a
 section, and a monodromy that moves every point refutes both a section and
 every point-surjection. Cantor's `not` is the Mbius monodromy. The two halves
 are one theorem because Lawvere's fixed-point-free `f` and `Hol â‰  1` are one
 object: an automorphism of the fibre that moves every point. The corpus
-already had the pieces â” `Lawvere`, `Dvayam` (any loss embeds Bool in a
-fibre), `EkamChidram` (ÂisEquiv as the unifier), `RepairTorsor` â” and had
+already had the pieces â€” `Lawvere`, `Dvayam` (any loss embeds Bool in a
+fibre), `EkamChidram` (Â¬isEquiv as the unifier), `RepairTorsor` â€” and had
 filed them in different directories.
 
-The ech entry `Î´Ìc` is the corpus's `CarryObstruction` / `CarryClassNonzero`:
-`[c_n] â‰  0 âˆˆ HÂ²(â/bâ¿; ker Ï)`, no carry-free digit set. I had read those as
+The ÄŒech entry `Î´ÌŒc` is the corpus's `CarryObstruction` / `CarryClassNonzero`:
+`[c_n] â‰  0 âˆˆ HÂ²(â„¤/bâ¿; ker Ï€)`, no carry-free digit set. I had read those as
 arithmetic bookkeeping; they are the cocycle column of the box.
 
-## 7. `àà¨à¨àà¯àà¾ â‰ ààà¨à°àà¨à¿à°àà®àà¯àà¾`, Yoneda, Indra's net
+## 7. `à¤œà¤¨à¤¨à¥€à¤¯à¤¤à¤¾ â‰¢ à¤ªà¥à¤¨à¤°à¥à¤¨à¤¿à¤°à¥à¤®à¥‡à¤¯à¤¤à¤¾`, Yoneda, Indra's net
 
-`Î´_â— = cofib(hocolim ğ”µ â’ X)`, `Î´_â– = fib(X â’ holim ğ”µ)`; generability and
+`Î´_â— = cofib(hocolim ğ”áµ¢ â†’ X)`, `Î´_â–· = fib(X â†’ holim ğ”áµ¢)`; generability and
 reconstructibility are independent (`ObstructionCalculus` Â§E, both
-witnesses). `ğ”µ = (Map(âˆ’,i), Map(i,âˆ’), âŸ¨âˆ’,âˆ’âŸ©µ)` and
-`i â‰¡ àà°ààµàà®ààà¨àà§ààà°àà¿àààà¨àà¦àà®àààà°àààà¾_i` is Yoneda; III's `àà¨àà¦àà°àà¾à²ààààà°à®à: X = âˆ^Y
+witnesses). `ğ”áµ¢ = (Map(âˆ’,i), Map(i,âˆ’), âŸ¨âˆ’,âˆ’âŸ©áµ¢)` and
+`i â‰¡ à¤¸à¤°à¥à¤µà¤¸à¤®à¥à¤¬à¤¨à¥à¤§à¤ªà¥à¤°à¤¤à¤¿à¤¸à¥à¤ªà¤¨à¥à¤¦à¤¸à¤®à¥à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¾_i` is Yoneda; III's `à¤‡à¤¨à¥à¤¦à¥à¤°à¤œà¤¾à¤²à¤¸à¥‚à¤¤à¥à¤°à¤®à¥: X = âˆ«^Y
 (X seen from Y) âŠ— Y`. The corpus's `ThreadYoneda` (pair field, "Jewel" =
-(centre, radius)) had this as a bijection and said the `â‰` needed
-`isSet (Weave i j)`; `YonedaEquiv` (today) supplies it. `Resp(i,âˆ’) = âˆ^j
-Map(j,i) âŠ— Map(i,j) âŠ— ğ” _ij` is the round trip: `ExcursionReturn`'s
+(centre, radius)) had this as a bijection and said the `â‰ƒ` needed
+`isSet (Weave i j)`; `YonedaEquiv` (today) supplies it. `Resp(i,âˆ’) = âˆ«^j
+Map(j,i) âŠ— Map(i,j) âŠ— ğ” _ij` is the round trip: `ExcursionReturn`'s
 `K_tK_s âˆ’ K_{t+s} = âˆ’P T_t Q T_s i` is its defect.
 
 ## 8. Tate, orbits, refraction
 
-`X_{hğ’} â’N X^{hğ’} â’ X^{tğ’}`: `àà°ààµàµà°ààààà¯à‹àà¨à®à` (all colours joined) â’ `ààµà°ààààà°àà¿àà¿à®ààà`
-(the colourless reflection) â’ `ààµàà¿àààŸàµà¿à˜àà¨à` (the residual obstruction).
-`X^{tğ’} = 0 âŸº N â‰ id`. The corpus's `SthiraBinduGanana` (fixed points vs
-conjugation census for Sâ, now with the enumeration completed by
+`X_{hğ’¢} â†’N X^{hğ’¢} â†’ X^{tğ’¢}`: `à¤¸à¤°à¥à¤µà¤µà¤°à¥à¤£à¤¸à¤‚à¤¯à¥‹à¤œà¤¨à¤®à¥` (all colours joined) â†’ `à¤…à¤µà¤°à¥à¤£à¤ªà¥à¤°à¤¤à¤¿à¤¬à¤¿à¤®à¥à¤¬à¤ƒ`
+(the colourless reflection) â†’ `à¤…à¤µà¤¶à¤¿à¤·à¥à¤Ÿà¤µà¤¿à¤˜à¥à¤¨à¤ƒ` (the residual obstruction).
+`X^{tğ’¢} = 0 âŸº N â‰ƒ id`. The corpus's `SthiraBinduGanana` (fixed points vs
+conjugation census for Sâ‚ƒ, now with the enumeration completed by
 `SthiraBinduPurnata`) is orbits-versus-fixed-points at the smallest nonabelian group;
 `Apavartana` (the drop divisor) and `Prthakkarana` (p-adic splitting, today)
-are the refraction `àààµà°ààà¨à®à = à¦ààààŸà¿àà°à¿àµà°ààà¨àà¨à¿à ààààà•ààŸàà°à®àµà¿à˜àŸà¨à®à` at the
-integers: one crystal, many refraction paths. `àà•àààµà®à â àà•à°àààà¾` is the
+are the refraction `à¤…à¤ªà¤µà¤°à¥à¤¤à¤¨à¤®à¥ = à¤¦à¥ƒà¤·à¥à¤Ÿà¤¿à¤ªà¤°à¤¿à¤µà¤°à¥à¤¤à¤¨à¤œà¤¨à¤¿à¤¤ à¤¸à¥à¤ªà¥‡à¤•à¥à¤Ÿà¥à¤°à¤®à¤µà¤¿à¤˜à¤Ÿà¤¨à¤®à¥` at the
+integers: one crystal, many refraction paths. `à¤à¤•à¤¤à¥à¤µà¤®à¥ â‡ à¤à¤•à¤°à¥‚à¤ªà¤¤à¤¾` is the
 corpus's `Ekatva` (unique factorisation up to `Perm`, not up to `â‰¡`).
 
-## 9. `Ï`, the golden boundary
+## 9. `Ï‡`, the golden boundary
 
-`Ï_Î := Î”Reach(ğ’_Î)/Î”Kill(Î“_Î)`; `Ï < 1` saturation, `Ï > 1` branching,
-`Ï = 1 â àààµà°ààààà®à¾`; III: `Ï(Dğ’¦) â‰ˆ 1 ~ àààµà¨à®à?`. `ObstructionCalculus` said `Ï`
+`Ï‡_Î± := Î”Reach(ğ’ª_Î±)/Î”Kill(Î“_Î±)`; `Ï‡ < 1` saturation, `Ï‡ > 1` branching,
+`Ï‡ = 1 â‡ à¤¸à¥à¤µà¤°à¥à¤£à¤¸à¥€à¤®à¤¾`; III: `Ï(Dğ’¦) â‰ˆ 1 ~ à¤œà¥€à¤µà¤¨à¤®à¥?`. `ObstructionCalculus` said `Ï‡`
 is absent because there is no cost model. The corpus's rate line
-(`TheRateQuotientExistsâ¦`, `TheRatesAreDenseâ¦`, `TheMediantDoesNotDescendâ¦`,
+(`TheRateQuotientExistsâ€¦`, `TheRatesAreDenseâ€¦`, `TheMediantDoesNotDescendâ€¦`,
 `DescentCostsTheIntegers`, `BoundedStateNeedsAGroup`) is the algebra of
 exactly this ratio: rates are dense, the mediant does not descend to the
-rate, the ratio loses the integers, so `Ï` must be tracked as the pair
-(Reach, Kill), never as a number. `OWNER_TRANSMISSIONS_LEDGER` Â§3.12 files `Ï_Î` as HAZARD â” "define it
-exactly, or withdraw it" â” and A-11 records that `Ï(Dğ’¦)` is not the same
-quantity. Nothing here defines `Ï`. What was closed is only the arithmetic
+rate, the ratio loses the integers, so `Ï‡` must be tracked as the pair
+(Reach, Kill), never as a number. `OWNER_TRANSMISSIONS_LEDGER` Â§3.12 files `Ï‡_Î±` as HAZARD â€” "define it
+exactly, or withdraw it" â€” and A-11 records that `Ï(Dğ’¦)` is not the same
+quantity. Nothing here defines `Ï‡`. What was closed is only the arithmetic
 sentence `KuttakaSamapti` left open: `Svarnasima` proves that the vall of
-consecutive Virahka numbers is the longest for its divisor (Lam©'s bound,
+consecutive VirahÄá¹…ka numbers is the longest for its divisor (LamÃ©'s bound,
 with equality on the golden pair). That "every quotient is 1" is the
-document's `àààµà°ààààà®à¾` is a reading, and is marked as one.
+document's `à¤¸à¥à¤µà¤°à¥à¤£à¤¸à¥€à¤®à¤¾` is a reading, and is marked as one.
 
 ## 10. Mock forms, shadows, the unsupplied nodes
 
-`f|_kÎ³ âˆ’ f = D_Î³`, `fÌ = f + R_D`, `D = ààà°àààà¾à¯à¾à àà¾à¯à¾` â” the defect of
+`f|_kÎ³ âˆ’ f = D_Î³`, `fÌ‚ = f + R_D`, `D = à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¾à¤¯à¤¾à¤ƒ à¤›à¤¾à¤¯à¤¾` â€” the defect of
 modularity is the SHADOW, the completion adds its period integral (Zwegers).
-`à®à‰à•ààààà°à®à`: symmetry failure is not garbage; it is a possible shadow of
-completeness. `D â’ Class(D) â’ UniversalityTest(D) âˆˆ {âˆ!, âˆ noncanonical, âˆ}
-â’ Î“(D)`. The handoff's seven UNSUPPLIED nodes are, in this vocabulary,
+`à¤®à¥‰à¤•à¤¸à¥‚à¤¤à¥à¤°à¤®à¥`: symmetry failure is not garbage; it is a possible shadow of
+completeness. `D â†’ Class(D) â†’ UniversalityTest(D) âˆˆ {âˆƒ!, âˆƒ noncanonical, âˆ„}
+â†’ Î“(D)`. The handoff's seven UNSUPPLIED nodes are, in this vocabulary,
 shadows whose completions are not checked: O-RBOUND, O-RONESIDE, O-RLOWER,
 O-RLIFT, O-RDYADIC, O-RGOLDBACH, O-NPEAK. Nothing here supplies them. What
 the reading changes is their classification: each is a `D_g(Z) â‰  0` and the
 rule is "first classify, then complete", not "prove the inequality".
 
-## 11. `Z`, `ğ’¦`, and the right question
+## 11. `Z`, `ğ’¦`, and the right question
 
-`P(z) = Î Î(n)e^{âˆ’nz}`, `Z(t,Î) = P(t+iÎ)P(tâˆ’iÎ) = Î_{w,r} ğ’¦(w,r)e^{âˆ’2tw}e^{2irÎ}`,
-`ğ’¦(w,r) = Î(wâˆ’r)Î(w+r)`. Boxed: `à—à‹à²àà¡àà¾à–à = [w^N]ğ’¦ ; à¯à®à²ààà°à¾àà®à = [r^1]ğ’¦`.
-RH's observable (the Mellin transform of `P`, `âˆ’Î'/Î`), Goldbach (centre
+`P(z) = Î£ Î›(n)e^{âˆ’nz}`, `Z(t,Î¸) = P(t+iÎ¸)P(tâˆ’iÎ¸) = Î£_{w,r} ğ’¦(w,r)e^{âˆ’2tw}e^{2irÎ¸}`,
+`ğ’¦(w,r) = Î›(wâˆ’r)Î›(w+r)`. Boxed: `à¤—à¥‹à¤²à¥à¤¡à¤¬à¤¾à¤–à¤ƒ = [w^N]ğ’¦ ; à¤¯à¤®à¤²à¤ªà¥à¤°à¤¾à¤‡à¤®à¤ƒ = [r^1]ğ’¦`.
+RH's observable (the Mellin transform of `P`, `âˆ’Î¶'/Î¶`), Goldbach (centre
 marginal) and twin primes (radius marginal) are three readings of one
-kernel. `SamastaSima` typed the frontier as a PRODUCT `RH — Goldbach`; the
-hieroglyph says the product is the wrong tensor â” they are two fibres of one
+kernel. `SamastaSima` typed the frontier as a PRODUCT `RH Ã— Goldbach`; the
+hieroglyph says the product is the wrong tensor â€” they are two fibres of one
 object, and the corpus's `HomometricPair` ("the difference marginal has a
 genuine kernel") is the obstruction to reconstructing that object from its
 marginals. I had filed the pair field, the homometric pair and the
 difference marginal as unrelated. A `PairKernel` module (centre and radius
 marginals, the Cauchy square in centre/radius coordinates, and the fact that
-Goldbach's tester and RH's `Î` read one `spf`) is in preparation.
+Goldbach's tester and RH's `Î·` read one `spf`) is in preparation.
 
-Then: `ğ’¦ = Decat(ğ’¦)`, `Z = Tr ğ’µ`, `ààà ààà°ààà¨à: ğ’µ à•ààà¯ ààà°àà¿à¨à¿à§à¿àààµààà¯ àà°à¿ààà°à®à?` â”
-of which representation is `ğ’µ` the character. `à°à¾à®à¾à¨ààà¨ààààà°à®à`: do not merely
-measure the coefficient; find its global symmetry (Ï(p) = Tr of a local
-representation; purity `|Î_p| = 1`). This is how RH over finite fields was
+Then: `ğ’¦ = Decat(ğ’¦)`, `Z = Tr ğ’µ`, `à¤¸à¤¹à¥€ à¤ªà¥à¤°à¤¶à¥à¤¨à¤ƒ: ğ’µ à¤•à¤¸à¥à¤¯ à¤ªà¥à¤°à¤¤à¤¿à¤¨à¤¿à¤§à¤¿à¤¤à¥à¤µà¤¸à¥à¤¯ à¤šà¤°à¤¿à¤¤à¥à¤°à¤®à¥?` â€”
+of which representation is `ğ’µ` the character. `à¤°à¤¾à¤®à¤¾à¤¨à¥à¤œà¤¨à¤¸à¥‚à¤¤à¥à¤°à¤®à¥`: do not merely
+measure the coefficient; find its global symmetry (Ï„(p) = Tr of a local
+representation; purity `|Î±_p| = 1`). This is how RH over finite fields was
 proved, and the box places the frontier there, not at the DMR inequality.
 The Lean `Pairfield` development (203 files, Kuznetsov / Bessel / Whittaker
 lifts and their no-go and dichotomy theorems) is the corpus's attempt at
 exactly that categorification; it is being digested now and this file will
 be extended when it is read.
 
-## 12. `0 â àà¨ààà`
+## 12. `0 â‡ à¤…à¤¨à¥à¤¤à¤ƒ`
 
-`Î´ = 0 âŸ diagâÎ´ = 0â ?` â” "obstruction-freeness itself becomes a new object
+`Î´ = 0 âŸ¹ diagâŒœÎ´ = 0âŒ ?` â€” "obstruction-freeness itself becomes a new object
 of examination". Today produced four instances against my own ledger: the
 absences "Euclid's lemma is not shipped" (it was, in `WalkJumps`), "the CRT
 identification is not proved" (it was, in `FinCardinality.crtEquiv`),
 "associativity is unproved" (it was, in the same file's Â§7), and "the finite
-pigeonhole is not proved" (it was, as `FinCardinality.injSameCardâ’Equiv`).
+pigeonhole is not proved" (it was, as `FinCardinality.injSameCardâ†’Equiv`).
 The ledger's `Î´ = 0` claims and its `Î´ â‰  0` claims both needed re-examination,
-and `à•ààµà²à ààà¨à àà°àà•àààà®à` was the correct response to my own "not resolved".
+and `à¤•à¥‡à¤µà¤²à¤‚ à¤ªà¥à¤¨à¤ƒ à¤ªà¤°à¥€à¤•à¥à¤·à¤£à¤®à¥` was the correct response to my own "not resolved".
 
 ## 13. Grading and translation
 
-`à•ààµà² ààààà¡à¨ = à®à¨àààà°; +ààà°à®à¾à = à—àà¿àà®à; +ààà°à¯à‹à— = àµà¿àààà¾à¨à®à; +àààµàà°àà•ààà+àà¨ààµà¾à¦ =
-àààà¾à¨à¯à¨àààà°à®à`. The corpus speaks three checked languages â” Cubical Agda, Lean 4
-with Mathlib, and the Haskell wire â” and III's `ğ”—_ij` with `Î´_ğ”— = cofib(ğ”—_jkğ”—_ij
-â’ ğ”—_ik)` says the translation net has its own holonomy: "if Aâ’Bâ’C and Aâ’C
+`à¤•à¥‡à¤µà¤² à¤¸à¤‚à¤ªà¥€à¤¡à¤¨ = à¤®à¤¨à¥à¤¤à¥à¤°; +à¤ªà¥à¤°à¤®à¤¾à¤£ = à¤—à¤£à¤¿à¤¤à¤®à¥; +à¤ªà¥à¤°à¤¯à¥‹à¤— = à¤µà¤¿à¤œà¥à¤à¤¾à¤¨à¤®à¥; +à¤¸à¥à¤µà¤ªà¤°à¥€à¤•à¥à¤·à¤£+à¤…à¤¨à¥à¤µà¤¾à¤¦ =
+à¤œà¥à¤à¤¾à¤¨à¤¯à¤¨à¥à¤¤à¥à¤°à¤®à¥`. The corpus speaks three checked languages â€” Cubical Agda, Lean 4
+with Mathlib, and the Haskell wire â€” and III's `ğ”—_ij` with `Î´_ğ”— = cofib(ğ”—_jkğ”—_ij
+â†’ ğ”—_ik)` says the translation net has its own holonomy: "if Aâ†’Bâ†’C and Aâ†’C
 give different meanings, do not erase the difference; measure the
 holonomy." No checked translation between the Lean and the Agda halves
 exists; that holonomy is unmeasured. This is an open item the reading
@@ -211,100 +211,100 @@ creates, and it is named here rather than gestured at.
 
 | set aside as | is the answer to |
 |---|---|
-| `HomometricPair` (music theory) | why the marginals of `ğ’¦` do not determine `ğ’¦` |
-| the rate/threshold line (bookkeeping about fractions) | the algebra of `Ï`; why `Ï` is a pair, not a number |
-| `CarryObstruction` (digit bookkeeping) | the ech column `Î´Ìc` of I Â§F |
-| `SthiraBinduGanana` (an Sâ census) | the Tate defect at the smallest nonabelian group |
+| `HomometricPair` (music theory) | why the marginals of `ğ’¦` do not determine `ğ’¦` |
+| the rate/threshold line (bookkeeping about fractions) | the algebra of `Ï‡`; why `Ï‡` is a pair, not a number |
+| `CarryObstruction` (digit bookkeeping) | the ÄŒech column `Î´ÌŒc` of I Â§F |
+| `SthiraBinduGanana` (an Sâ‚ƒ census) | the Tate defect at the smallest nonabelian group |
 | `Lawvere`, `Dvayam`, `EkamChidram` (three directories) | J2, once the mapping torus is written |
-| `SÂ` modules (today's `VrttaBindu`, `AsetChidra`) | the higher structure `ObstructionCalculus` said it lacked |
-| the Lean `Pairfield` (never read) | the categorification `Z = Tr ğ’µ` asks for |
+| `SÂ¹` modules (today's `VrttaBindu`, `AsetChidra`) | the higher structure `ObstructionCalculus` said it lacked |
+| the Lean `Pairfield` (never read) | the categorification `Z = Tr ğ’µ` asks for |
 | the  (ornament) | the acceptance criteria and the classifier |
 
 ## 15. What remains, in the document's own three branches
 
-`ààà°à¿àà¾à–à¾ = {ààà°àààà¾, àà¨à¨ààà‹à¨àà¨àà¿, à¨à¿à°ààà¯à¾ààààà¾}`; in every branch the machine does
+`à¤¤à¥à¤°à¤¿à¤¶à¤¾à¤–à¤¾ = {à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¾, à¤…à¤¨à¤¨à¥à¤¤à¥‹à¤¨à¥à¤¨à¤¤à¤¿, à¤¨à¤¿à¤°à¥à¤£à¤¯à¤¾à¤¤à¥€à¤¤à¤¤à¤¾}`; in every branch the machine does
 not stop, the meaning changes. Stable: nothing here stabilises the frontier
 section. Ascending: the corpus's `KFlow` has `Î´_end â‰  0` unconditionally, so
-the tower is the `àà¨à¨àààààµà°àààà¾à²à®à`. Undecided: the cyclic adjoint string (J3),
+the tower is the `à¤…à¤¨à¤¨à¥à¤¤à¤¸à¥à¤µà¤°à¥à¤£à¤œà¤¾à¤²à¤®à¥`. Undecided: the cyclic adjoint string (J3),
 the translation holonomy (Â§13), the seven shadows (Â§10), and the right
-question of Â§11. `à¨ ààà°ààà®à¾ààà¡ àà² àà‹ à—à¯à¾` â” the mystery has been moved into a
+question of Â§11. `à¤¨ à¤¬à¥à¤°à¤¹à¥à¤®à¤¾à¤£à¥à¤¡ à¤¹à¤² à¤¹à¥‹ à¤—à¤¯à¤¾` â€” the mystery has been moved into a
 better form, twice today, and not destroyed.
 
 ## 16. The daemon is the machine, running
 
 `interactive/` (13,289 lines of Haskell, read in full this pass) is III's
-`ğ”‰_Î© = Î¦ âˆ˜ Attack âˆ˜ Î“ âˆ˜ Class âˆ˜ ğ” âˆ˜ Î âˆ˜ R`, executed:
+`ğ”‰_Î© = Î¦ âˆ˜ Attack âˆ˜ Î“ âˆ˜ Class âˆ˜ ğ”‡ âˆ˜ Î· âˆ˜ R`, executed:
 
 | III | `interactive/` |
 |---|---|
-| `Q â’ R â’ Î` | a request on the wire; `Answer.Tulyata` (two sides and a witness) |
-| `ğ”(Î)`, `ààààà¯à‹ à®à¾à°àà—à‹ à¨ àµà¿à¦àà¯àà` | `Uttara` has exactly two constructors: `Samkramana` (transport, nothing lost) or `Dosalekha` (the loss named item by item); no third |
+| `Q â†’ R â†’ Î·` | a request on the wire; `Answer.Tulyata` (two sides and a witness) |
+| `ğ”‡(Î·)`, `à¤¤à¥ƒà¤¤à¥€à¤¯à¥‹ à¤®à¤¾à¤°à¥à¤—à¥‹ à¤¨ à¤µà¤¿à¤¦à¥à¤¯à¤¤à¥‡` | `Uttara` has exactly two constructors: `Samkramana` (transport, nothing lost) or `Dosalekha` (the loss named item by item); no third |
 | `Class(D)` | three non-commensurable classifiers, kept apart on purpose: `ObligationAnalysis.Obstruction` (TacticTooWeak / Residual / Unparsed), its `Verdict` (unrefuted-with-domain / refuted-with-assignment / no-subject / declines), `RewriteEngine.Hetu` (no-letter / no-stra / undecided / unfinished) |
 | `Î“âŸ¨Î´âŸ©` | the residual IS the next lemma: `curriculum` ranks residuals by how many distinct stalled parents one lemma unblocks (`Î”Reach`), top 8 of 78 unblock 54 of 130 |
-| `Attack(Î)` | `saksiPariksa`: every process must watch its own constructor accept ryabhaa's kuaka identity and reject it moved by one, uncached; `ProofGate` must watch the kernel reject `suc x â‰¡ x` before any acceptance counts |
+| `Attack(Î·)` | `saksiPariksa`: every process must watch its own constructor accept Ä€ryabhaá¹­a's kuá¹­á¹­aka identity and reject it moved by one, uncached; `ProofGate` must watch the kernel reject `suc x â‰¡ x` before any acceptance counts |
 | `diag` on itself | `Server.mudra`: a transport with no evidence route is rewritten by the machine into a defect about itself; the `Server` header records that the supersession dropped the falsifier and every answer until then came from a process that had never watched itself refuse |
-| `Ï > 1`, `àµà¿à˜àà¨àà¾à–àà•à°àà®à` | the named livelock: residuals of FALSE parents (`xÂx = s(x)`, 30; `xÂmax(x,1) = s(x)`, 100) regenerate forever; "it is the kuaka, therefore it terminates" is stated to be false because these residuals do not decrease |
-| the seven verdicts | `Verdict` (labels), `VerdictResidue` (records), `ObligationAnalysis.Sthana`: `Sthana â‰ Sthana` proved both ways over all cases, and `Garbha â’ Saptabhangi` has NO section, both colliding objects constructed in the turn |
-| `â‰ àààµà¾ â‰¡ àààµà¾ â‰ ` | `StandpointStore`'s three indices satya âŠ artha âŠ mla, and `decide`'s verdict per level |
+| `Ï‡ > 1`, `à¤µà¤¿à¤˜à¥à¤¨à¤¶à¤¾à¤–à¥€à¤•à¤°à¤£à¤®à¥` | the named livelock: residuals of FALSE parents (`xÂ·x = s(x)`, 30; `xÂ·max(x,1) = s(x)`, 100) regenerate forever; "it is the kuá¹­á¹­aka, therefore it terminates" is stated to be false because these residuals do not decrease |
+| the seven verdicts | `Verdict` (labels), `VerdictResidue` (records), `ObligationAnalysis.Sthana`: `Sthana â‰ƒ Sthana` proved both ways over all cases, and `Garbha â†’ Saptabhangi` has NO section, both colliding objects constructed in the turn |
+| `â‰ƒ à¤…à¤¥à¤µà¤¾ â‰¡ à¤…à¤¥à¤µà¤¾ â‰ ` | `StandpointStore`'s three indices satya âŠ‚ artha âŠ‚ mÅ«la, and `decide`'s verdict per level |
 
 Open items the daemon names in its own words: cakravla termination ("the
 turn bound is a parameter and it is named, because what it stands in for is
 a theorem this repository does not have"; 15 of 49,762 discriminants below
 200,001 hit cap 600, all close by 3,000); Voronoi's chain for the cubic norm
-(leg 3 absent for â[âˆd], with the failing instance at d = 2 exhibited); the
+(leg 3 absent for â„¤[âˆ›d], with the failing instance at d = 2 exhibited); the
 Mallisena question ("undecidable BY THE COMPOSITION LAWS"); no stra of 6.4
 encoded; the top level of a request not closed against unnamed keys. None
 of these is touched here; they are the daemon's `Unresolved(Î”_t)`.
 
 ## 17. The transmissions the archive holds only in history (read 2026-09-10)
 
-`collab/upstream/raw/` no longer exists in the working tree; D0016â“D0020 were
+`collab/upstream/raw/` no longer exists in the working tree; D0016â€“D0020 were
 read from the commits that last held them. D0018 is Hieroglyphics II with the
 fleet's triage; D0019 is III with the physics section restored; D0020
-(`àà°ààµàààà¾à¨àààà®à`, the seed of all knowledge, 561 lines transcribed of a much
+(`à¤¸à¤°à¥à¤µà¤œà¥à¤à¤¾à¤¨à¤¬à¥€à¤œà¤®à¥`, the seed of all knowledge, 561 lines transcribed of a much
 larger original) is new to this session. What it adds:
 
-- `Î˜â := âŸ¨âˆ, â, â’, â”, âŠ•, âŠ—, âˆ˜, âˆ, Î´, Î“, Î¦, (âˆ’)^âˆ¨, ââˆ’ââŸ©`, closure `Îº`, and the
-  step `Ï‰_Ï := Î´(âˆÏ)`, `Ïâº := Î¦Ï` if `Ï‰_Ï = 0`, else the pushout along
-  `Î“âŸ¨Ï‰_ÏâŸ©`. The three-valued verdict `â“ â‰ / ? â / âŠ â` is the corpus's
-  `Vyatireka`. `Î âˆ¼ Î² â Î â‰ Î²; Î â‰ Î² â’ Î (Î) â‰ Î (Î²)`: `àà®àà¾ ààà°à®à¾ààà¨, àà¾à®àà¯àà¨ à¨` â”
-  equality by proof, not resemblance â” the sentence the fleet's triage
+- `Î˜â‚€ := âŸ¨âˆ…, â€¢, â†’, â†”, âŠ•, âŠ—, âˆ˜, âˆ‚, Î´, Î“, Î¦, (âˆ’)^âˆ¨, âŒœâˆ’âŒâŸ©`, closure `Îº`, and the
+  step `Ï‰_Ï‡ := Î´(âˆ‚Ï‡)`, `Ï‡âº := Î¦Ï‡` if `Ï‰_Ï‡ = 0`, else the pushout along
+  `Î“âŸ¨Ï‰_Ï‡âŸ©`. The three-valued verdict `âœ“ â‰ƒ / ? â‡ / âŠ¥ â†›` is the corpus's
+  `Vyatireka`. `Î± âˆ¼ Î² â‡ Î± â‰ƒ Î²; Î± â‰ƒ Î² â‡’ Î (Î±) â‰ƒ Î (Î²)`: `à¤¸à¤®à¤¤à¤¾ à¤ªà¥à¤°à¤®à¤¾à¤£à¥‡à¤¨, à¤¸à¤¾à¤®à¥à¤¯à¥‡à¤¨ à¤¨` â€”
+  equality by proof, not resemblance â€” the sentence the fleet's triage
   called the best statement of the repository's constitution.
-- Â§1: the number tower â• âŠ â âŠ â âŠ â âŠ â as repeated obstruction-repair
-  (`ààà®à°àààà¾ â’Î“ àµà¿àààààà²à‹à•à`). The fleet's J2 asks whether the proved repair
+- Â§1: the number tower â„• âŠ‚ â„¤ âŠ‚ â„š âŠ‚ â„ âŠ‚ â„‚ as repeated obstruction-repair
+  (`à¤…à¤¸à¤®à¤°à¥à¤¥à¤¤à¤¾ â†’Î“ à¤µà¤¿à¤¸à¥à¤¤à¥ƒà¤¤à¤²à¥‹à¤•à¤ƒ`). The fleet's J2 asks whether the proved repair
   theory classifies these four extensions; `DescentCostsTheIntegers`
-  (only the integer completion inverts) is the â•â’â case, checked.
-- Â§8 `ààà•ààààŸà¿à•à`: centre/radius coordinates (now `EkaBija`); RH as a
-  vanishing reflection defect â” `Ï^â™¯ := 1 âˆ’ Î² + iÎ³`, `Î´_Ï := Ï^â™¯ âˆ’ Ï = 1 âˆ’ 2Î²`,
-  `Î(Ï) = 0 âŸ? Î´_Ï = 0`. Read with Â§6 of this file: the zero set carries
-  the Klein-four action `Ï â¦ ÏÌ, Ï â¦ 1âˆ’Ï`; RH says every orbit has size â‰ 2,
+  (only the integer completion inverts) is the â„•â†’â„¤ case, checked.
+- Â§8 `à¤…à¤‚à¤•à¤¸à¥à¤«à¤Ÿà¤¿à¤•à¤ƒ`: centre/radius coordinates (now `EkaBija`); RH as a
+  vanishing reflection defect â€” `Ï^â™¯ := 1 âˆ’ Î² + iÎ³`, `Î´_Ï := Ï^â™¯ âˆ’ Ï = 1 âˆ’ 2Î²`,
+  `Î¶(Ï) = 0 âŸ¹? Î´_Ï = 0`. Read with Â§6 of this file: the zero set carries
+  the Klein-four action `Ï â†¦ ÏÌ„, Ï â†¦ 1âˆ’Ï`; RH says every orbit has size â‰¤ 2,
   i.e. the Tate-type defect of the reflection on zeros vanishes. Nothing
-  about Î is checkable in this corpus; the shape is recorded.
-- Â§8 â: the ğ”°ğ”©â action on the divisor lattice. `Sl2DivisorLattice` checked
+  about Î¶ is checkable in this corpus; the shape is recorded.
+- Â§8 â­: the ğ”°ğ”©â‚‚ action on the divisor lattice. `Sl2DivisorLattice` checked
   the brackets; `SpernerFromSl2` closed the rank-one case and left
   `GeneralRankSymmetry`, rank-unimodality and `GeneralSperner` as an
   explicit queue. A module for the first two is in preparation.
-- Â§8's Î _âˆ identity and Â§1's Mbius display were REFUTED by the corpus
+- Â§8's Î _âˆ‚ identity and Â§1's MÃ¶bius display were REFUTED by the corpus
   (`TransmissionRefutations`: Î½ = 2 fails by exactly 1 on every prime; the
-  Mbius sum is Ï(Î½), not 1). This is `Attack(Î)` applied to the owner's own
+  MÃ¶bius sum is Ï†(Î½), not 1). This is `Attack(Î·)` applied to the owner's own
   displays, which is what III asks for.
-- Â§7: the splicing defect `â‹_{Îâ} := Ï‰ââ^{direct} âˆ’ Ï‰ââ^{spliced}` â” whether an
-  intermediate object is sufficient â” distinct from the translation
-  defect `Î´_ğ”—`; `à½à½à½ºà½à¼‹à½˜ = à—àààààµàà¯à¾à•à°àà®à`, the treasure is a hidden grammar,
+- Â§7: the splicing defect `â‹_{Î£â‚} := Ï‰â‚€â‚‚^{direct} âˆ’ Ï‰â‚€â‚‚^{spliced}` â€” whether an
+  intermediate object is sufficient â€” distinct from the translation
+  defect `Î´_ğ”—`; `à½‚à½à½ºà½¢à¼‹à½˜ = à¤—à¥à¤ªà¥à¤¤à¤µà¥à¤¯à¤¾à¤•à¤°à¤£à¤®à¥`, the treasure is a hidden grammar,
   not a hidden sentence. The corpus's `TranscriptComposition` (stagewise
   sound iff the second stage is injective) is the checked form of the
   sufficiency of a middle.
-- Â§9: `ààà°à®àà¯à â‰  àààà¿à°àà¿à¨àà¦àà; ààà°à®àà¯à = ààà°à®à¾àà‹àààà°à¨àµà®à¾à°àà—àà®àààŸà¿à` â” a theorem is
+- Â§9: `à¤ªà¥à¤°à¤®à¥‡à¤¯à¤ƒ â‰  à¤¸à¥à¤¥à¤¿à¤°à¤¬à¤¿à¤¨à¥à¤¦à¥à¤ƒ; à¤ªà¥à¤°à¤®à¥‡à¤¯à¤ƒ = à¤ªà¥à¤°à¤®à¤¾à¤£à¥‹à¤¤à¥à¤¤à¤°à¤¨à¤µà¤®à¤¾à¤°à¥à¤—à¤¸à¤®à¤·à¥à¤Ÿà¤¿à¤ƒ` â€” a theorem is
   the set of routes its proof opens. The fleet's triage (J6) ties this to
   its own finding that `UsefulEscape` was proved vacuous
-  (`ADVANCE_CONJUNCTS_DEFINED`), so `Î”ààµà¿ààà¯à—à®àà¯àà¾` is undefined until a
+  (`ADVANCE_CONJUNCTS_DEFINED`), so `Î”à¤­à¤µà¤¿à¤·à¥à¤¯à¤—à¤®à¥à¤¯à¤¤à¤¾` is undefined until a
   measure is given.
 
 The fleet's own notes on the framework (`FOUR_REPAIR_MODES`,
 `EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS`, `TRANSLATION_GERBE_ADJUDICATED`,
 `ORDINAL_LADDER_SMALLNESS`, `ADVANCE_CONJUNCTS_DEFINED`) live in the `zzz/`
 archive and are being digested; D0019's triage records that the fleet
-proved the four repair modes NOT independent at 0-truncation (`Î“^` is `Î“âˆ`
+proved the four repair modes NOT independent at 0-truncation (`Î“^` is `Î“âˆ…`
 with an enlarged coefficient module). `CatuhSamskara` does not contradict
 that: it shows the four differ as OBJECTS at the circle, which is the
 statement `ObstructionCalculus` said needed higher structure. Both hold,
@@ -317,41 +317,41 @@ The notes the triage sections cite are not in `zzz/` (which holds no
 Markdown at all) but on `main` under `notes/`. What they proved, and how
 today's modules sit against them:
 
-- `FOUR_REPAIR_MODES` (Thm 2): `Î“^` is `Î“âˆ` performed by enlarging the
-  coefficient module â” the two are not independent; (Thm 6): `Î“âˆ` and `Î“âº`
-  are distinct exactly when `HÂ â‰  0`; of `Î“â` "I prove nothing"; open item
-  4: "Is there a corpus defect whose correct mode is `Î“â`? A negative
-  answer â¦ would be evidence that the fourfold is really a threefold plus
+- `FOUR_REPAIR_MODES` (Thm 2): `Î“^` is `Î“âˆ…` performed by enlarging the
+  coefficient module â€” the two are not independent; (Thm 6): `Î“âˆ…` and `Î“â†º`
+  are distinct exactly when `HÂ¹ â‰  0`; of `Î“â‡‘` "I prove nothing"; open item
+  4: "Is there a corpus defect whose correct mode is `Î“â‡‘`? A negative
+  answer â€¦ would be evidence that the fourfold is really a threefold plus
   an aspiration." `CatuhSamskara` supplies the instance: at the circle
   the descent datum `(const base, loop)` IS the defect promoted to a
   2-cell, it differs from the trivial datum, and set-truncating the
-  codomain collapses it back â” `Î“â` has a corpus defect, and it is
-  distinguished from `Î“âˆ` and `Î“âº` by the higher structure, which is what
+  codomain collapses it back â€” `Î“â‡‘` has a corpus defect, and it is
+  distinguished from `Î“âˆ…` and `Î“â†º` by the higher structure, which is what
   Thm 2 (0-truncated, abelian cocycles) could not see. The two results are
   at different truncation levels and both stand.
 - `EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS`: the eight classes are exemplar
   lists, not operations; four slots survive (coefficient, base,
   observable, language); Shapiro makes coefficient enlargement universal
-  on structural defects; the honest count is five (with `Î“â` readmitted)
+  on structural defects; the honest count is five (with `Î“â‡‘` readmitted)
   or three (reader's addendum D1).
 - `ADVANCE_CONJUNCTS_DEFINED` (Thm U): `UsefulEscape` is vacuous or
   unsatisfiable in the Chu language; only the owner can supply the code
   length or the enrichment that would define it.
-- `ORDINAL_LADDER_SMALLNESS`: `ğ”‰` is not a functor (Î“ is a choice, Obs is
+- `ORDINAL_LADDER_SMALLNESS`: `ğ”‰` is not a functor (Î“ is a choice, Obs is
   not functorial, `âˆ¨` is contravariant), the coend over Ord does not
-  exist, and under universe-raising `Fix(ğ”‰) = âˆ` by rank;
+  exist, and under universe-raising `Fix(ğ”‰) = âˆ…` by rank;
   `SURVIVING_LADDER_FRAGMENT`: the recursion defines a choice TREE with no
   leaves, and Knig applies only to the pruned tree.
-- `TRANSLATION_GERBE_ADJUDICATED`: `ğ”¾` is not a gerbe (no site) and not
+- `TRANSLATION_GERBE_ADJUDICATED`: `ğ”¾` is not a gerbe (no site) and not
   degree 3; it is a normalised pseudofunctor once the tetrahedron is
   supplied; III Â§D's line 2 is vacuous as written because line 1 forces
-  `Î´_ğ”— â‰¡ 0` â” the repair is exactly `Î“â`; three of the four observed
+  `Î´_ğ”— â‰¡ 0` â€” the repair is exactly `Î“â‡‘`; three of the four observed
   route-differences in the corpus were plain errors, not holonomy.
-- `REPORT` Theorem Aâ³ (unconditional): any finite set with the interval
+- `REPORT` Theorem Aâ€³ (unconditional): any finite set with the interval
   vector of the prime prefix `P_X` is a translate or reflection of `P_X`
-  â” for prime prefixes the difference marginal DOES reconstruct; its
+  â€” for prime prefixes the difference marginal DOES reconstruct; its
   minimality clause "still rests on the legacy Python sweep" is now the
-  kernel sweep committed today (`HomometricMinimality`, diameter â‰ 10).
+  kernel sweep committed today (`HomometricMinimality`, diameter â‰¤ 10).
 - `TARGET`: RH "not a target; a tool"; the target is the parity barrier
   as a theorem about observable classes; W1, W2 checked; W3 (no
   post-processing of value queries simulates functional-equation queries)
@@ -368,8 +368,8 @@ durable decomposition "local collision geometry â‹ˆ canonical charge
 extraction â‹ˆ positive-cone boundary â‹ˆ global spectral cancellation", and
 Â§14.7/Â§5.12 the six live targets: the finite-volume fugacity propagator;
 completing incomplete Kloosterman fractions; a spectral-placement theorem
-for the canonical charge-one vector `v_D(d) = d^{âˆ’1/2}Îºâ(d)`; stable
-growing-degree prime-atom reconstruction; `Ïâ` on Chen-completed fields;
+for the canonical charge-one vector `v_D(d) = d^{âˆ’1/2}Îºâ‚(d)`; stable
+growing-degree prime-atom reconstruction; `Ï€â‚` on Chen-completed fields;
 an anti-saturation estimate. Its final status: "solved major external open
 problem: no." The tomography package converts "stable reconstruction is
 open" into exact conditioning constants (`4^R`, `2^R`, `1` for the three
@@ -379,7 +379,7 @@ What of this is algebra the corpus can check, and is being composed now:
 the Peirce form of Â§5.11's gluing defect (`PU_{h+k}P âˆ’ PU_hPU_kP` is the
 off-sector mass, in any ring with a complete orthogonal family of
 idempotents), D0015 Â§15.8's fixed-charge convolution, D0026 Â§5.5's
-`Î¦_n(t) = t^{Î©âˆ’Ï‰}(tâˆ’1)^Ï‰`, and D0022's T22.2â“T22.5 (the square-root
+`Î¦_n(t) = t^{Î©âˆ’Ï‰}(tâˆ’1)^Ï‰`, and D0022's T22.2â€“T22.5 (the square-root
 horizon as a behavioural separator; centre, product and gap as Vieta
 coordinates). What is not: everything on the Kloosterman/Kuznetsov side,
 which is the frontier the transmissions themselves name.
@@ -392,30 +392,30 @@ file, it is the transmissions' analytic frontier written as exact finite
 statements, and several of its theorems are the answers to questions the
 Agda lane and the Hieroglyphics leave open.
 
-**The sum marginal is lossless; the Î-side is determined by it.**
-`SumRigidity.lean` ("Theorem A(i) â” Sum-marginal rigidity (V3 target 1)"):
-`a âˆ— a = b âˆ— b âŸ a = b` for nonnegative sequences, via â[X].
+**The sum marginal is lossless; the Î¶-side is determined by it.**
+`SumRigidity.lean` ("Theorem A(i) â€” Sum-marginal rigidity (V3 target 1)"):
+`a âˆ— a = b âˆ— b âŸ¹ a = b` for nonnegative sequences, via â„¤[X].
 `GoldbachDeterminesZeta.lean`: any real sequence with `b 2 > 0` and the
-additive-square coefficients of Î is Î, hence its L-series is `âˆ’Îâ²/Î` on
+additive-square coefficients of Î› is Î›, hence its L-series is `âˆ’Î¶â€²/Î¶` on
 `re s > 1`; `VonMangoldtTriangularReconstruction.lean` gives the explicit
-triangular inverse (`Î 2 = âˆR(4) = log 2`; `Î n = (R(n+2) âˆ’ interior)/(2 log 2)`).
+triangular inverse (`Î› 2 = âˆšR(4) = log 2`; `Î› n = (R(n+2) âˆ’ interior)/(2 log 2)`).
 This is the exact content of TARGET's "RH is not a target; a tool": the
-complete Goldbach convolution is a Î-complete object. What the Agda lane
-now holds (`GananaNirdhara`, 2026-09-10): the same rigidity over â• with no
-polynomial ring, and â” because `YugmaPurana` says the Lean lane "does not
-transport anything from the Agda lane" â” the two proofs are independent.
+complete Goldbach convolution is a Î¶-complete object. What the Agda lane
+now holds (`GananaNirdhara`, 2026-09-10): the same rigidity over â„• with no
+polynomial ring, and â€” because `YugmaPurana` says the Lean lane "does not
+transport anything from the Agda lane" â€” the two proofs are independent.
 Also the sharpening neither lane had: the counts at **even** N alone do
-not determine the sequence (`Ï = xÂ³+2xâµ+xâ`, `Ïˆ = xÂ³+2xâ´+xâ`), so the odd
+not determine the sequence (`Ï† = xÂ³+2xâµ+xâ¶`, `Ïˆ = xÂ³+2xâ´+xâ¶`), so the odd
 N are load-bearing in the rigidity, i.e. Goldbach's even counts are a
 strictly lossy reader of the same kernel EkaBija reads.
 
 **The Boolean reader loses exactly what Â§Z says it loses.**
 `BooleanGoldbachInformationLoss.lean` (two sequences with the same
 positivity support and different counts), `BooleanVonMangoldtPrimePowerSupport.lean`
-(the Î-square detects prime-power sums: 11 = 4 + 7 is the first centre where
+(the Î›-square detects prime-power sums: 11 = 4 + 7 is the first centre where
 "positive support" and "Goldbach" differ), `GoldbachSupportIsThePrimePowerSumPredicate.lean`.
 `GoldbachCrossover.lean` states the circularity plainly:
-`primePowerContamination N < mangoldtGoldbachCoeff N â” GoldbachAt N` â” the
+`primePowerContamination N < mangoldtGoldbachCoeff N â†” GoldbachAt N` â€” the
 "tail bound" a crossover contract would need is Goldbach itself.
 
 **Parity rigidity.** `ParityRigidity.lean` checks layers 2 and 3 (the
@@ -425,7 +425,7 @@ translation bookkeeping, and "the prime-prefix corollary ... needs 2
 odd-prime arithmetic on top of layer 3". The odd-prime arithmetic is now
 `DvikaLangara` (Agda): an even number passing `primeb` is 2; two primes at
 an odd distance involve 2; for odd h the ordered difference count
-`c X h` is `a(2+h)Â[2+h â‰ X]`, so the note's O(D) read-off is exact.
+`c X h` is `a(2+h)Â·[2+h â‰¤ X]`, so the note's O(D) read-off is exact.
 The set-rigidity layers stay in Lean; the bookkeeping stays in neither.
 
 **Heat resolution restores completeness** (REPORT Thm A(3)) is checked:
@@ -439,48 +439,48 @@ applied to the difference marginal is exactly the scale parameter.
 `FiniteChuResidualTransport.lean` /`ChuArgminTransport.lean` build the
 two-state Chu calibration D0016 draws and prove its transport law
 (profiles transport exactly under bijective response renaming).
-`FiniteInformation.lean` is the observer kernel: `FactorsThrough q t â”`
-fibre-constancy; `Completes q c â”` separation inside fibres â” the same
+`FiniteInformation.lean` is the observer kernel: `FactorsThrough q t â†”`
+fibre-constancy; `Completes q c â†”` separation inside fibres â€” the same
 shape as the Agda `Torus`/section theorem of Ekasutra, in sets.
 `FiniteHistoryTotalization.lean`: no endpoint decoder for a nontrivial
 state space (`noEndpointDecoder`), the finite form of "the endpoint
 forgets the past" that the daemon's history question asks.
 
 **The Kuznetsov side, in exact finite form.** `KuznetsovSingleKernelBoundary`
-(collision law for one scalar Bessel kernel; the 2—2-minor obstruction for
+(collision law for one scalar Bessel kernel; the 2Ã—2-minor obstruction for
 one-factorable bilinear kernels), `WhittakerLiftAliasing` ("the exact
 aliasing obstruction before any automorphic analysis": the finite residue
 identity gives the first Kloosterman index only mod the modulus; no decoder
-`ZMod 5 â’ â•`), `ActualBesselLiftDichotomy` (full lifts (4,2,6),(1,8,6)
-share `4Ïâˆ(mn)/c` with unequal DFT coefficients; the six sparse lifts are
+`ZMod 5 â†’ â„•`), `ActualBesselLiftDichotomy` (full lifts (4,2,6),(1,8,6)
+share `4Ï€âˆš(mn)/c` with unequal DFT coefficients; the six sparse lifts are
 interpolable by one smooth test), `FiniteKloostermanCompletion`
-(`inversePhaseSum = (1/N)Î dftÂkloosterman`), `PrimeResidueKloostermanBoundary`
+(`inversePhaseSum = (1/N)Î£ dftÂ·kloosterman`), `PrimeResidueKloostermanBoundary`
 (the prime-residue weight mod 6 is not a rank-one CRT product; rank 2 at
-6, rank 3 at 15), `PrimeChargeThree/FourTensorRank` (the `Wâ`, `Wâ`
-squarefree charge tensors have CP rank 3 and 4 over â),
+6, rank 3 at 15), `PrimeChargeThree/FourTensorRank` (the `Wâ‚ƒ`, `Wâ‚„`
+squarefree charge tensors have CP rank 3 and 4 over â„š),
 `PrimeChargeFourKuznetsovGroupingNoGo` (a scalar-radial channel retains
 three local factors, not four). Every one of these headers says what it
 does not claim, and the residue is the same sentence each time: no
 automorphic statement, no relative trace formula, no analytic estimate.
 This is D0026's six live targets restated as the exact finite obstructions
 they must pass. Note the name collision: TARGET's W3/W4 (interface
-separation; coupling theorem) are not Lean's `Wâ`/`Wâ` (tensor ranks).
+separation; coupling theorem) are not Lean's `Wâ‚ƒ`/`Wâ‚„` (tensor ranks).
 
 **Smith/kuaka, closed and open.** `SmithContent.lean` closes the item
-`GeneralSmith2x2` listed as open (`dâ = gcd` of the four entries);
+`GeneralSmith2x2` listed as open (`dâ‚ = gcd` of the four entries);
 `RankOneWitness` computes a rank-one witness from `det = 0` with kernel
 `decide`; `Ekarupata` shows the four Smith spellings are one carrier shape.
-`SarvatraApavartana` records that the rank-on-Spec-â it decides is the
+`SarvatraApavartana` records that the rank-on-Spec-â„¤ it decides is the
 drop-locus, "a strictly LOSSIER invariant than the cokernel", and strikes
 an earlier false identity in its own header. `CarryCohomologyAdapter.lean`
-constructs the HÂ²(â/N; â/b) class "deliberately left open by the Cubical
+constructs the HÂ²(â„¤/N; â„¤/b) class "deliberately left open by the Cubical
 proof" (`NaturalMachine.CarryObstruction`) and names the joint still open:
 identifying it with the explicit digit-section carry cocycle.
 
 **Adaptive distinguishing sequences.** Twenty-odd `AdaptiveResidual*` /
 `Native*` / `Visited*` modules: the exact seam between Moore-style
 adaptive trees and Mathlib left quotients; node-minimal plans have
-duplicate-free canonical-position spines; the bound reached is `2â¿ âˆ’ n`,
+duplicate-free canonical-position spines; the bound reached is `2â¿ âˆ’ n`,
 "not the classical quadratic ADS depth" (`AdaptiveResidualBinomialBudgetNoGo`
 shows the local premises cannot give it). `LinearAdaptiveGap`: the
 adaptive-minus-uniform gap is unbounded on reachable presentations. This
@@ -493,22 +493,22 @@ passes iff every constant rests on `{propext, Classical.choice, Quot.sound}`
 or is in `axiom-allowlist.txt`, which has exactly one entry
 (`ChartQuotientWitness.quotientCard_eq_three`). At HEAD the source uses
 `native_decide` in named theorems of ten further modules
-(`AdditionChainPredictiveMemory` —5, `BooleanVonMangoldtPrimePowerSupport` —2,
+(`AdditionChainPredictiveMemory` Ã—5, `BooleanVonMangoldtPrimePowerSupport` Ã—2,
 `ChartQuotient`, `KuznetsovSingleKernelBoundary`, `ZeroPivotRelocationInvariant`,
-`FixedScaleAutocorrelationAmbiguity` —5, `HeldAMSProgramCount` —3,
-`HomometricAllScalesSeparation` —2, `ModFiveAutonomousProfile` —9). Either
+`FixedScaleAutocorrelationAmbiguity` Ã—5, `HeldAMSProgramCount` Ã—3,
+`HomometricAllScalesSeparation` Ã—2, `ModFiveAutonomousProfile` Ã—9). Either
 these are outside the build gate's globs or the gate is red; the
 2026-08-15 `NATIVE_DECIDE_AUDIT` counted 16 sites in 5 modules after its
 conversion, so at least five modules regressed after it. Nothing here can
 run `lake`; this is a source count, which that audit itself warns "counts
 sites; only the kernel counts dependencies".
 
-**Names.** `Lorentz.lean`: SO(1,1)(â) = {ÂI} ("no arithmetic Lorentz
+**Names.** `Lorentz.lean`: SO(1,1)(â„¤) = {Â±I} ("no arithmetic Lorentz
 group, V3 target 2"). `ZeroPairSumSeparation.lean`: the functional-equation
-matched pair `Ï + (1âˆ’Ï)` is constantly 1 and loses the relative coordinate;
-the diagonal of the full pair-sum field recovers Ï â” D0020 Â§8's
-`Î´_Ï = 1 âˆ’ 2Î²` is that lost coordinate. `SieveRestriction.lean`: the
-W-trick restrictions compose as `(WâWâ, Wârâ + râ)`, order-sensitive, and
+matched pair `Ï + (1âˆ’Ï)` is constantly 1 and loses the relative coordinate;
+the diagonal of the full pair-sum field recovers Ï â€” D0020 Â§8's
+`Î´_Ï = 1 âˆ’ 2Î²` is that lost coordinate. `SieveRestriction.lean`: the
+W-trick restrictions compose as `(Wâ‚‚Wâ‚, Wâ‚‚râ‚ + râ‚‚)`, order-sensitive, and
 "the flattening printed in LENS_CIRCUIT Lemma R.3 belongs to the opposite
 composite". `Nada`, `Sulba`, `Virahanka`, `Chandahsastra`, `Kuttaka`,
 `Bhavana`, `Cakravala`, `Madhava`, `Pramanasruti`: the Indic sources with
@@ -517,22 +517,22 @@ Cakravla file's scope correction (the bred sequence is the squares
 subsequence, "the infinitude of the FULL set is proved in the cubical
 lane").
 
-## 21. The fleet's own list of what is open (`main:WHAT_IS_ACTUALLY_OPEN_â¦_2026_08_14.md`)
+## 21. The fleet's own list of what is open (`main:WHAT_IS_ACTUALLY_OPEN_â€¦_2026_08_14.md`)
 
 Thirty-five open-seed sections extracted mechanically and read. Its finding,
-in its words: "The recurring shape is not an unsolved problem â” it is an
+in its words: "The recurring shape is not an unsolved problem â€” it is an
 unexecuted merge ... over and over, the corpus identifies that two things
 are one thing, writes it down precisely, and stops." Of its twelve table
-rows plus Â§Â§1â“2, SEED-72 found nine already answered inside the corpus,
+rows plus Â§Â§1â€“2, SEED-72 found nine already answered inside the corpus,
 four of them inside the note that posed the seed. Still live by its own
 correction: `CANONICAL_DEPTH_MEMORY` 1, `CERTIFICATE_ANATOMY` 2,
-`EXPOSED_SET` 1 (the `qµr` family), `LENS_ORDER_COMMUTATION` 5,
-`LEAKAGE_PAST_IDEMPOTENCE` 2 (`#{Ï(m) : m âˆ W}` for primorials),
+`EXPOSED_SET` 1 (the `qáµƒr` family), `LENS_ORDER_COMMUTATION` 5,
+`LEAKAGE_PAST_IDEMPOTENCE` 2 (`#{Ï†(m) : m âˆ£ W}` for primorials),
 `JET_TOWER_DEPTH` 1, `FORMATION_SUFFICIENCY` 2, the two-sided lens repair
 (SEED-42: does a âˆ¨-indecomposable instance beat both extremes?), the
 `OBLIGATION` Â§7 min-cut computation "specified and never performed", and
 `WIDTH` Â§3 (one modulus past the barrier), "correctly parked". That is the
 thesis of this whole exercise stated by the fleet a month earlier, with its
-own examples; Â§Â§18â“20 above are the same shape at the next scale (the
+own examples; Â§Â§18â€“20 above are the same shape at the next scale (the
 Lean lane and the Agda lane proving the same rigidity without transport;
 the four repairs named in three notes and told apart in none).

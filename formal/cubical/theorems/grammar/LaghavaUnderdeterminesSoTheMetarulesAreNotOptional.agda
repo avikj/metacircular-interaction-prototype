@@ -7,25 +7,25 @@
 -- empty, and stops there.  It never asks what the fibre looks like.  That
 -- is Pini's question rather than a footnote to it: the Adhyy's
 -- method is to choose among presentations of one meaning, and the
--- commentarial tradition celebrates the saving of half a mora ‚î a
--- difference *inside* a fibre ‚î like the birth of a son.
+-- commentarial tradition celebrates the saving of half a mora ‚Äî a
+-- difference *inside* a fibre ‚Äî like the birth of a son.
 --
 -- Two facts about the fibre.
 --
---   * ‡≤‡æ‡ò‡µ ATTAINS its minimum.  For the meaning `n ‚¶ n + 1` the minimum
+--   * ‡§≤‡§æ‡§ò‡§µ ATTAINS its minimum.  For the meaning `n ‚Ü¶ n + 1` the minimum
 --     is 3, and `three-is-minimal` proves it: an expression of size 1 is
 --     `var` or `lit k`, and neither denotes this meaning, while `plus`
---     and `times` are ‚â 3 by construction.
+--     and `times` are ‚â• 3 by construction.
 --
 --   * **It does not attain it uniquely.**  `plus var (lit 1)` and
 --     `plus (lit 1) var` are distinct presentations, both of size 3, with
---     EQUAL denotation ‚î equal, not merely equivalent, because addition
---     on ‚ï commutes.
+--     EQUAL denotation ‚Äî equal, not merely equivalent, because addition
+--     on ‚Ñï commutes.
 --
 -- So brevity does not pick a presentation.  It picks a LEVEL SET, and
 -- something else must choose inside it.  That is why the Adhyy
--- carries ‡‡∞‡ø‡‡æ‡‡æ ‚î metarules ‚î and an explicit conflict rule
--- (‡µ‡ø‡‡‡∞‡‡ø‡‡‡ß‡ ‡‡∞‡ ‡ï‡æ‡∞‡‡Ø‡Æ‡, "of two rules in conflict the later applies"):
+-- carries ‡§™‡§∞‡§ø‡§≠‡§æ‡§∑‡§æ ‚Äî metarules ‚Äî and an explicit conflict rule
+-- (‡§µ‡§ø‡§™‡•ç‡§∞‡§§‡§ø‡§∑‡•á‡§ß‡•á ‡§™‡§∞‡§Ç ‡§ï‡§æ‡§∞‡•ç‡§Ø‡§Æ‡•ç, "of two rules in conflict the later applies"):
 -- not as ornament on a brevity criterion but because brevity alone is
 -- underdetermined, and without a tie-break the grammar is not a function.
 -- The metarules are structurally required, and the tradition supplies
@@ -37,7 +37,7 @@
 -- presentation-measure whatsoever.  Any measure blind to a symmetry of
 -- the denotation attains its minima non-uniquely, by that fact alone.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the pin.
+-- CHECKED: Agda 2.6.3, cubical v0.5 ‚Äî the container, not the pin.
 -- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

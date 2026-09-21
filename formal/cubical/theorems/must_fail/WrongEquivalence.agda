@@ -6,7 +6,7 @@
 -- *** THIS FILE MUST FAIL TO TYPE-CHECK. ***
 --
 -- It is a designed-annihilation control (collab/PROTOCOL.md §7): it
--- asserts the equivalence � � Word for RAW digit words, dropping the
+-- asserts the equivalence ℕ ≃ Word for RAW digit words, dropping the
 -- canonicity hypothesis.  That statement is false --- `Controls.C1`
 -- proves it false --- and the point of this file is to exhibit that the
 -- type-checker actually catches it rather than waving it through.
@@ -37,6 +37,6 @@ digits-value-raw w =
             (value-digits (value w))
 
 -- If the line above had gone through, this would be an equivalence
--- between � and the raw word chart --- contradicting Controls.C1.
+-- between ℕ and the raw word chart --- contradicting Controls.C1.
 ℕ≃Word : ℕ ≃ Word
 ℕ≃Word = isoToEquiv (iso digits value digits-value-raw value-digits)

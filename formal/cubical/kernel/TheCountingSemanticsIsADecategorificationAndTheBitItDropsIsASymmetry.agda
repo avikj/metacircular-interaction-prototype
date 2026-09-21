@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
 --
--- TERM.  ‡‡ô‡‡ï‡‡æ‡ ¬ akapa -- "the net of digits", the traditional name for
+-- TERM.  ‡§Ö‡§ô‡•ç‡§ï‡§™‡§æ‡§∂ ¬∑ a·πÖkapƒÅ≈õa -- "the net of digits", the traditional name for
 -- the combinatorics of PERMUTATIONS: how many arrangements a given multiset
 -- of digits admits, and how to enumerate them in order.  Bhskara II,
 -- *Llvat*, the akapa section (~1150).
@@ -17,36 +17,36 @@
 ------------------------------------------------------------------------
 -- THE THIRD READING OF THE SAME LINE, AND THE ONE THAT BUILDS.
 --
--- `TheInstalledOperationHasNoPervasion‚¶` read `NativeOperation.control-sound`: the kernel memorises.
--- `TheDerivationCarriesNoMeaning‚¶`   read `RewriteCertificate.derivation-sound`: the derivation
+-- `TheInstalledOperationHasNoPervasion‚Ä¶` read `NativeOperation.control-sound`: the kernel memorises.
+-- `TheDerivationCarriesNoMeaning‚Ä¶`   read `RewriteCertificate.derivation-sound`: the derivation
 --            carries no meaning, so all of it is remainder.
 --
 -- Both are one fact.  Each soundness field lands in an identity type of a
--- SET (`Tm` for control, `‚ï` for meaning), hence in a proposition, hence
+-- SET (`Tm` for control, `‚Ñï` for meaning), hence in a proposition, hence
 -- carries zero bits.  So the diagnosis is not "the proofs are weak" but:
 --
 --     THE KERNEL'S SEMANTICS IS DECATEGORIFIED.
---     `eval : Tm ‚í Env ‚í ‚ï` keeps a cardinality and drops the bijection.
+--     `eval : Tm ‚Üí Env ‚Üí ‚Ñï` keeps a cardinality and drops the bijection.
 --
 -- This module builds the categorified semantics and measures the gap.
 --
---   ¬ß1  ‚ü¶_‚üß : Tm ‚í TEnv ‚í Type‚.  zero ‚¶ ‚ä, suc ‚¶ Unit ‚ä ‚àí, add ‚¶ ‚ä.
+--   ¬ß1  ‚ü¶_‚üß : Tm ‚Üí TEnv ‚Üí Type‚ÇÄ.  zero ‚Ü¶ ‚ä•, suc ‚Ü¶ Unit ‚äé ‚àí, add ‚Ü¶ ‚äé.
 --       The six variable coordinates stay distinct, as in `Env`.
 --   ¬ß2  step-equiv, derivation-equiv.  EVERY constructor of `Step` becomes
 --       an EQUIVALENCE and every `Derivation` a composite of them --
 --       `add-zero` the right unitor, `add-suc` a shuffle, the congruences
---       `‚ä-equiv`, and `reverse` `invEquiv`.  So the kernel's existing
+--       `‚äé-equiv`, and `reverse` `invEquiv`.  So the kernel's existing
 --       calculus already had a univalent semantics; nobody had written it.
---   ¬ß3  Step‚∫ / Derivation‚∫: the calculus extended by ONE constructor,
+--   ¬ß3  Step‚Å∫ / Derivation‚Å∫: the calculus extended by ONE constructor,
 --       `add-comm`.  It is sound for the counting semantics (`+-comm`), so
 --       this is a legitimate extension of the kernel and not a rigged one.
---   ¬ß4  THE SEPARATION.  Let œ interpret `var` by `Unit`, and let
---       `comm-loop : Derivation‚∫ (add var var) (add var var)` be the single
+--   ¬ß4  THE SEPARATION.  Let œÉ interpret `var` by `Unit`, and let
+--       `comm-loop : Derivation‚Å∫ (add var var) (add var var)` be the single
 --       commutation.  Then:
 --
 --         counting-semantics-cannot-see-it
---           its ‚ï-meaning is equal to `refl`, forced, and by `TheDerivationCarriesNoMeaning‚¶` ¬ß4 NO
---           function of that meaning distinguishes it from `done‚∫`;
+--           its ‚Ñï-meaning is equal to `refl`, forced, and by `TheDerivationCarriesNoMeaning‚Ä¶` ¬ß4 NO
+--           function of that meaning distinguishes it from `done‚Å∫`;
 --         univalent-semantics-does-see-it
 --           its interpretation sends `inl tt` to `inr tt`, so it is not the
 --           identity map;
@@ -57,8 +57,8 @@
 --
 --       The bit the counting semantics provably cannot hold is a
 --       transposition of a two element type.  Commutativity of addition is
---       not free information: it is a ‚/2 of holonomy, and every readout
---       valued in a set annihilates it (‡®‡Ø-‡®‡ø‡∞‡ã‡ß‡).
+--       not free information: it is a ‚Ñ§/2 of holonomy, and every readout
+--       valued in a set annihilates it (‡§®‡§Ø-‡§®‡§ø‡§∞‡•ã‡§ß‡§É).
 --
 -- WHY THIS IS THE LANGUAGE-MODEL STATEMENT.  `install` makes a proved
 -- theorem a next-move, so the operation library is a learned policy.  A
@@ -122,7 +122,7 @@ open TEnv
 -- This is the semantics the kernel's calculus always admitted.  `add-zero`
 -- is the right unitor; `add-suc` is the shuffle that moves a successor out
 -- of the right summand and to the front; the three congruence constructors
--- are `‚ä-equiv`; and `reverse`, which in the counting semantics was `sym`,
+-- are `‚äé-equiv`; and `reverse`, which in the counting semantics was `sym`,
 -- is `invEquiv` -- the constructor that makes the derivation space a
 -- groupoid rather than a rewriting order.
 ------------------------------------------------------------------------
@@ -205,7 +205,7 @@ counting-semantics-cannot-see-it :
 counting-semantics-cannot-see-it œÅ =
   isSet‚Ñï (eval (add var var) œÅ) (eval (add var var) œÅ) _ _
 
--- and therefore, by the general no-go of `TheDerivationCarriesNoMeaning‚¶` ¬ß4 restated here at Step‚∫,
+-- and therefore, by the general no-go of `TheDerivationCarriesNoMeaning‚Ä¶` ¬ß4 restated here at Step‚Å∫,
 -- no function whatsoever of the counting meaning separates them.
 no-counting-criterion-separates :
   {C : Type ‚Ñì} (œÜ : ((œÅ : Env) ‚Üí eval (add var var) œÅ ‚â° eval (add var var) œÅ) ‚Üí C)
@@ -254,10 +254,10 @@ comm-loop-is-a-nontrivial-loop-in-the-universe p =
 -- and the question it leaves is the one that decides what any policy over
 -- this kernel could ever be scored by.
 --
--- `TheDerivationCarriesNoMeaning‚¶` exhibits the kernel's own separable-
--- looking pair ‚î `direct-history` (2 steps) and `detour-history` (4:
--- forward, the reverse of that same step, then the direct route) ‚î and
--- proves no function of their ‚ï-MEANING tells them apart.  The natural
+-- `TheDerivationCarriesNoMeaning‚Ä¶` exhibits the kernel's own separable-
+-- looking pair ‚Äî `direct-history` (2 steps) and `detour-history` (4:
+-- forward, the reverse of that same step, then the direct route) ‚Äî and
+-- proves no function of their ‚Ñï-MEANING tells them apart.  The natural
 -- suspicion is that categorifying repairs this and makes length visible.
 --
 -- IT DOES NOT, and the reason is structural rather than accidental.  A
@@ -265,20 +265,20 @@ comm-loop-is-a-nontrivial-loop-in-the-universe p =
 -- `invEquiv e`.  `isEquiv` is a proposition, so two equivalences are equal
 -- exactly when their functions are; and `retEq` cancels that pair
 -- pointwise.  So the detour is annihilated by the categorified semantics
--- TOO ‚î not because ‚ü¶_‚üß is coarse, but because `reverse` was put into
+-- TOO ‚Äî not because ‚ü¶_‚üß is coarse, but because `reverse` was put into
 -- `Step` on purpose, and a groupoid cannot remember that you went and came
 -- back.
 --
 -- THE LINE, therefore, and it is exact for these two examples:
 --
---     length     invisible to ‚ï, invisible to Type   (¬ß5)
---     symmetry   invisible to ‚ï, VISIBLE to Type     (¬ß4)
+--     length     invisible to ‚Ñï, invisible to Type   (¬ß5)
+--     symmetry   invisible to ‚Ñï, VISIBLE to Type     (¬ß4)
 --
 -- Read as the design constraint it is: categorifying the readout buys the
 -- arrangement and does not buy the route.  A lghava order over derivations
--- is not a measure awaiting discovery at a higher level ‚î it is extra-
+-- is not a measure awaiting discovery at a higher level ‚Äî it is extra-
 -- semantic at every level of this hierarchy, which is `TheDerivation
--- CarriesNoMeaning‚¶`'s no-go surviving the obvious repair.
+-- CarriesNoMeaning‚Ä¶`'s no-go surviving the obvious repair.
 --
 ------------------------------------------------------------------------
 
@@ -292,7 +292,7 @@ detour-cancels p d œÉ =
                               (retEq (step-equiv p œÉ) x)))
 
 -- and the kernel's own two histories are one instance of it: the pair the
--- ‚ï-semantics cannot separate is not separated by the type semantics either.
+-- ‚Ñï-semantics cannot separate is not separated by the type semantics either.
 the-detour-is-invisible-after-categorification-too :
   (œÉ : TEnv) ‚Üí derivation-equiv detour-history œÉ ‚â° derivation-equiv direct-history œÉ
 the-detour-is-invisible-after-categorification-too =

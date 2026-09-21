@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 module ArithWeil3 where
--- dyadic slack certificate: Aâ² = 2^144ÂA, Lâ² = 2^40ÂL, Dâ² = 2^64ÂD, câ² = 2^144Âc
+-- dyadic slack certificate: Aâ€² = 2^144Â·A, Lâ€² = 2^40Â·L, Dâ€² = 2^64Â·D, câ€² = 2^144Â·c
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (â„• ; zero ; suc)
 open import Cubical.Data.Bool using (true)

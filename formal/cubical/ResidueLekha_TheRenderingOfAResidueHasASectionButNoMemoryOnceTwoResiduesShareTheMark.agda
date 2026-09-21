@@ -1,61 +1,61 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡-‡≤‡‡ñ‡ ‚î the writing of the remainder.  Compound built here,
--- 2026-08-23 (‡‡‡, remainder; ‡≤‡‡ñ, writing/record); it is not a source
+-- ‡§∂‡•á‡§∑-‡§≤‡•á‡§ñ‡§É ‚Äî the writing of the remainder.  Compound built here,
+-- 2026-08-23 (‡§∂‡•á‡§∑, remainder; ‡§≤‡•á‡§ñ, writing/record); it is not a source
 -- term.  The DOCTRINE it checks is the corpus's own, stated in prose in
 -- four places and as a term in none of them:
 --
 --   * Vipratisedha (machine/): "`Dosa` is the WRITING of the undecided
---     site ‚¶ a caller handed only a `Dosa` can print the fourth position
---     and can do nothing else with it ‚¶ none of it is computable from
+--     site ‚Ä¶ a caller handed only a `Dosa` can print the fourth position
+--     and can do nothing else with it ‚Ä¶ none of it is computable from
 --     the `Dosa` alone."
---   * Uttara (machine/): "a count is ‚à¬‚à‚ of the list it replaces" ‚î
+--   * Uttara (machine/): "a count is ‚à•¬∑‚à•‚ÇÅ of the list it replaces" ‚Äî
 --     naa must be named item by item, never counted.
 --   * SaptabhangiGarbha (machine/): the label lane is a retract of the
---     record lane ‚î proved for the standpoint families in
---     Arpitanarpita_‚¶agda (section, homomorphism, no inverse).
+--     record lane ‚Äî proved for the standpoint families in
+--     Arpitanarpita_‚Ä¶agda (section, homomorphism, no inverse).
 --   * SesaMulya / Mulyankana (this lane): the fibre IS the amount; a
---     ‡‡‡ flag is the collapse of the fibre that grounds it.
+--     ‡§¨‡§π‡•Å flag is the collapse of the fibre that grounds it.
 --
 -- All four are one statement about one map, and this module is that
 -- statement, checked once, generically:
 --
---   the RENDERING  ‡≤‡‡ñ‡ : R ‚ä S ‚í R ‚ä Unit  ‚î keep the resolved cases,
---   reduce every residue to the bare mark that one exists ‚î
+--   the RENDERING  ‡§≤‡•á‡§ñ‡§É : R ‚äé S ‚Üí R ‚äé Unit  ‚Äî keep the resolved cases,
+--   reduce every residue to the bare mark that one exists ‚Äî
 --
---   ¬ß1  HAS A SECTION as soon as one residue is in hand (‡‡‡∞‡‡Æ‡): the
+--   ¬ß1  HAS A SECTION as soon as one residue is in hand (‡§™‡•Ç‡§∞‡§£‡§Æ‡•ç): the
 --       mark can always be FILLED, which is why a rendering looks
---       harmless ‚î nothing appears to be missing from where the reader
+--       harmless ‚Äî nothing appears to be missing from where the reader
 --       stands;
 --   ¬ß2  HAS NO LEFT INVERSE once two distinct residues share the mark
---       (‡‡‡Æ‡‡‡ø-‡‡‡æ‡µ‡ / ‡-‡‡‡∞‡‡‡Ø‡æ‡ó‡Æ‡): any map back forces the two to
+--       (‡§∏‡•ç‡§Æ‡•É‡§§‡§ø-‡§Ö‡§≠‡§æ‡§µ‡§É / ‡§Ö-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§ó‡§Æ‡§É): any map back forces the two to
 --       coincide.  The WHICH is not in the mark, and no post-processing
---       of the mark manufactures it ‚î the same shape as
+--       of the mark manufactures it ‚Äî the same shape as
 --       QuotientFiberLaw's `no-decision`, arriving at the answer type
 --       instead of the transcript.
 --
 -- So a Dosa without its Sesa, a count without its list, a label without
--- its naya, a ‡‡‡ without its fibre are all the same object: a mark
--- with a filler and no memory.  The filler is the trap ‚î ¬ß1 is why the
+-- its naya, a ‡§¨‡§π‡•Å without its fibre are all the same object: a mark
+-- with a filler and no memory.  The filler is the trap ‚Äî ¬ß1 is why the
 -- collapse feels safe, ¬ß2 is why it is not.
 --
 -- RELATION TO WHAT IS ALREADY CHECKED, so this does not overclaim:
--- Apratikaryatva_‚¶agda proves the WHOLE-TYPE case (a retraction of
--- ‚à_‚à‚ï is exactly an h-level hypothesis); Arpitanarpita_‚¶agda proves
+-- Apratikaryatva_‚Ä¶agda proves the WHOLE-TYPE case (a retraction of
+-- ‚à£_‚à£‚Çï is exactly an h-level hypothesis); Arpitanarpita_‚Ä¶agda proves
 -- the standpoint-family instance.  This is the one-summand case those
 -- two sit either side of, stated so the machine lane's prose sentences
--- have a term to point at.  NOVELTY CLAIMED: none of the mathematics ‚î
+-- have a term to point at.  NOVELTY CLAIMED: none of the mathematics ‚Äî
 -- every step is elementary; the content is the identification of the
 -- four sites as instances.
 --
--- ¬ß3 instantiates it at the fibre: Mulyankana's ‡‡‡ at 0 (three
--- configurations under one mark) ‚î the two exhibited residues are
+-- ¬ß3 instantiates it at the fibre: Mulyankana's ‡§¨‡§π‡•Å at 0 (three
+-- configurations under one mark) ‚Äî the two exhibited residues are
 -- distinct, so the count admits no way back, by the generic theorem
 -- and nothing else.
 ------------------------------------------------------------------------
 
-module SesaLekha_TheRenderingOfAResidueHasASectionButNoMemoryOnceTwoResiduesShareTheMark where
+module ResidueLekha_TheRenderingOfAResidueHasASectionButNoMemoryOnceTwoResiduesShareTheMark where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (fiber)
@@ -82,7 +82,7 @@ module _ {R : Type ‚Ñì} {S : Type ‚Ñì'} where
   ‡§≤‡•á‡§ñ‡§É (inr _) = inr tt
 
   ----------------------------------------------------------------------
-  -- ¬ß1  The mark can be filled ‚î one residue in hand gives a section.
+  -- ¬ß1  The mark can be filled ‚Äî one residue in hand gives a section.
   --     This is why a rendering looks harmless.
   ----------------------------------------------------------------------
 
@@ -95,7 +95,7 @@ module _ {R : Type ‚Ñì} {S : Type ‚Ñì'} where
   ‡§™‡•Ç‡§∞‡§£-‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§®‡•ç s‚ÇÄ (inr tt) = refl
 
   ----------------------------------------------------------------------
-  -- ¬ß2  The mark has no memory ‚î a left inverse forces any two residues
+  -- ¬ß2  The mark has no memory ‚Äî a left inverse forces any two residues
   --     to coincide, so once two distinct residues share the mark there
   --     is no way back at all.
   ----------------------------------------------------------------------
@@ -115,8 +115,8 @@ module _ {R : Type ‚Ñì} {S : Type ‚Ñì'} where
   ‡§Ö-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§ó‡§Æ‡§É s‚ÇÅ s‚ÇÇ ne (h , ret) = ne (‡§∏‡•ç‡§Æ‡•É‡§§‡§ø-‡§Ö‡§≠‡§æ‡§µ‡§É h ret s‚ÇÅ s‚ÇÇ)
 
 ------------------------------------------------------------------------
--- ¬ß3  The fibre instance: Mulyankana's ‡‡‡ at 0.  Two of the three
---     configurations under the one mark, distinct ‚î so the count of
+-- ¬ß3  The fibre instance: Mulyankana's ‡§¨‡§π‡•Å at 0.  Two of the three
+--     configurations under the one mark, distinct ‚Äî so the count of
 --     that fibre is a mark with no memory, by ¬ß2 alone.
 ------------------------------------------------------------------------
 

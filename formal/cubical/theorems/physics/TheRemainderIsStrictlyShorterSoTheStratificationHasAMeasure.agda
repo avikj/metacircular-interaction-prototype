@@ -13,20 +13,20 @@
 --
 -- The termination argument is the DECREASING MEASURE, and it is built
 -- here.  The iteration itself is still not written, and this module
--- says so rather than implying otherwise â” but the measure is the part
+-- says so rather than implying otherwise â€” but the measure is the part
 -- that was actually missing, since a fuelled or well-founded recursion
 -- is mechanical once the measure exists and impossible before.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   filterOut                 the complement of `filterDec`, keeping
 --                             exactly what the filter drops
---   partitionLength           `length (filterDec â¦) + length
---                             (filterOut â¦) â‰¡ length xs` â” the two
+--   partitionLength           `length (filterDec â€¦) + length
+--                             (filterOut â€¦) â‰¡ length xs` â€” the two
 --                             halves partition, so nothing is lost or
 --                             double-counted
---   memberMakesItNonEmpty     a list with a member has length â‰ 1
+--   memberMakesItNonEmpty     a list with a member has length â‰¥ 1
 --   nonEmptyFilterShortensTheComplement
 --                             hence if the kept part is non-empty the
 --                             dropped part is STRICTLY shorter
@@ -42,13 +42,13 @@
 -- NON-EMPTINESS constructively; non-emptiness gives the STRICT
 -- DECREASE.  None of the three could have been taken first.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  A filter and its complement partition a list, and a
 -- non-empty part forces the other to be shorter; both are elementary.
 -- They are proved because the missing piece for the stratification was
--- never the recursion â” it was the measure the recursion decreases.
+-- never the recursion â€” it was the measure the recursion decreases.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -120,7 +120,7 @@ nonEmptyFilterShortensTheComplement P d xs a mem =
     kept : 1 â‰¤ lengthL (filterDec P d xs)
     kept = memberMakesItNonEmpty (filterDec P d xs) a mem
 
-    -- 1 + |out| â‰ |kept| + |out|
+    -- 1 + |out| â‰¤ |kept| + |out|
     shifted : lengthL (filterOut P d xs)
             < lengthL (filterDec P d xs) + lengthL (filterOut P d xs)
     shifted =
@@ -151,28 +151,28 @@ theRemainderIsStrictlyShorter x xs with stratumIsNonEmpty x xs
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
 -- line above.  The NOT-CLAIMED section says:
 --
---   "THE ITERATION IS NOT WRITTEN â¦ What was missing for a
---    stratification was never the recursion â” it was the measure the
+--   "THE ITERATION IS NOT WRITTEN â€¦ What was missing for a
+--    stratification was never the recursion â€” it was the measure the
 --    recursion decreases."
 --
 -- That sentence was a claim about difficulty, and it is now testable.
 -- It holds.  In
 -- `TheStratificationTerminatesOnItsOwnLength`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so)
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so)
 -- the recursion is four lines and its termination is one induction:
 --
 --   leftover / strata     peel the maximal layer, recurse on the
 --                         remainder, fuelled
---   fuelSuffices          fuel â‰ length â’ the iteration exhausts
+--   fuelSuffices          fuel â‰¥ length â‡’ the iteration exhausts
 --   theStratificationTerminates
---                         `leftover (lengthL xs) xs â‰¡ []` â” the
+--                         `leftover (lengthL xs) xs â‰¡ []` â€” the
 --                         archive's OWN LENGTH is enough fuel
 --
 -- The induction applies `theRemainderIsStrictlyShorter` exactly once
--- per step, to turn `lengthL (x âˆ xs) â‰ suc n` into
--- `lengthL (remainder (x âˆ xs)) â‰ n`, which is precisely the recursive
--- call's obligation.  Nothing else is used â” which is what "the measure
+-- per step, to turn `lengthL (x âˆ· xs) â‰¤ suc n` into
+-- `lengthL (remainder (x âˆ· xs)) â‰¤ n`, which is precisely the recursive
+-- call's obligation.  Nothing else is used â€” which is what "the measure
 -- was the missing piece" meant, now demonstrated rather than asserted.
 --
 ------------------------------------------------------------------------

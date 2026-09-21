@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-������� � the receiver that takes everything.
+-- सर्व-ग्राही — the receiver that takes everything.
 --
 -- The proof note's elementary receiver is h = e^{−s} b(s−1) with b the
 -- cubic B-spline, and its Laplace transform H(z) has zeros only at
--- z = −1 + 8�ik, so H(� − ½) ≠ 0 for every zero �: the receiver is
+-- z = −1 + 8πik, so H(ρ − ½) ≠ 0 for every zero ρ: the receiver is
 -- faithful on every mode of the explicit formula, and attenuates to
 -- fourth order.  The B-spline is the fourfold convolution of the box;
 -- its discrete shadow is the fourfold convolution of (1,1), the binomial
 -- receiver g = (1, 4, 6, 4, 1), and its transfer on the geometric mode
--- k � m^k is � g_k m^k = (1 + m)^4.
+-- k ↦ m^k is Σ g_k m^k = (1 + m)^4.
 --
 --   §1  THE RECEIVER AND ITS TRANSFER, over any commutative ring: the
---       binomial identity �_{k�4} g_k m^k ≡ (1+m)^4 by the ring solver.
+--       binomial identity Σ_{k≤4} g_k m^k ≡ (1+m)^4 by the ring solver.
 --   §2  FOURTH-ORDER ATTENUATION.  At m = −1 + ε the transfer is ε^4,
 --       exactly.
---   §3  OVER � THE RECEIVER SEES EVERY MODE BUT ONE.  If m ≠ −1 then
+--   §3  OVER ℚ THE RECEIVER SEES EVERY MODE BUT ONE.  If m ≠ −1 then
 --       (1+m)^4 > 0, hence ≠ 0: by trichotomy 1+m is negative or
 --       positive, its square is positive, and the square of that is
 --       positive.  No zero-product law is used; the order does it.
 --
--- ������� (grh, receiver) and ���� (sarva, all) are ordinary .
+-- ग्राही (grāhī, receiver) and सर्व (sarva, all) are ordinary Sanskrit.
 ------------------------------------------------------------------------
 
 module SarvaGrahi_TheBinomialReceiversTransferOnAGeometricModeIsTheFourthPowerOfOnePlusTheRatioSoItVanishesOnlyAtMinusOneAndToFourthOrderThereAndOverQItSeesEveryOtherMode where
@@ -42,7 +42,7 @@ module _ (R : CommRing ℓ) where
   open CommRingStr (snd R)
 
   ----------------------------------------------------------------------
-  -- � � The binomial receiver and its transfer on a geometric mode.
+  -- १ · The binomial receiver and its transfer on a geometric mode.
   ----------------------------------------------------------------------
 
   -- the receiver's taps: 1, 4, 6, 4, 1, then 0
@@ -59,7 +59,7 @@ module _ (R : CommRing ℓ) where
   m ^ zero  = 1r
   m ^ suc k = m · (m ^ k)
 
-  -- the transfer: �_{k � 4} g_k � m^k
+  -- the transfer: Σ_{k ≤ 4} g_k · m^k
   saṅorderṇa : ⟨ R ⟩ → ⟨ R ⟩
   saṅorderṇa m = grāhī 0 · (m ^ 0) + grāhī 1 · (m ^ 1) + grāhī 2 · (m ^ 2)
                + grāhī 3 · (m ^ 3) + grāhī 4 · (m ^ 4)
@@ -67,12 +67,12 @@ module _ (R : CommRing ℓ) where
   caturtha : ⟨ R ⟩ → ⟨ R ⟩
   caturtha x = (x · x) · (x · x)
 
-  -- � g_k m^k = (1 + m)^4
+  -- Σ g_k m^k = (1 + m)^4
   sarva-grāhī : (m : ⟨ R ⟩) → saṅorderṇa m ≡ caturtha (1r + m)
   sarva-grāhī m = solve! R
 
   ----------------------------------------------------------------------
-  -- � � Fourth-order attenuation at m = −1.
+  -- २ · Fourth-order attenuation at m = −1.
   ----------------------------------------------------------------------
 
   caturtha-kṣaya : (ε : ⟨ R ⟩) → saṅorderṇa ((- 1r) + ε) ≡ caturtha ε
@@ -83,7 +83,7 @@ module _ (R : CommRing ℓ) where
   ṛṇa-eka-śūnya = solve! R
 
   ----------------------------------------------------------------------
-  -- �� � The receiver is the fourfold convolution of the box (1, 1):
+  -- २′ · The receiver is the fourfold convolution of the box (1, 1):
   --      the discrete cubic B-spline, not a table.
   ----------------------------------------------------------------------
 
@@ -92,12 +92,12 @@ module _ (R : CommRing ℓ) where
   peṭikā (suc zero) = 1r
   peṭikā (suc (suc _)) = 0r
 
-  -- convolution with the box: (f � box) n = f n + f (n − 1)
+  -- convolution with the box: (f ⋆ box) n = f n + f (n − 1)
   ⋆peṭikā : (ℕ → ⟨ R ⟩) → ℕ → ⟨ R ⟩
   ⋆peṭikā f zero    = f zero
   ⋆peṭikā f (suc n) = f (suc n) + f n
 
-  -- box � box � box � box
+  -- box ⋆ box ⋆ box ⋆ box
   catuṣ-peṭikā : ℕ → ⟨ R ⟩
   catuṣ-peṭikā = ⋆peṭikā (⋆peṭikā (⋆peṭikā peṭikā))
 
@@ -112,13 +112,13 @@ module _ (R : CommRing ℓ) where
   peṭikā-grāhī (suc (suc (suc (suc (suc (suc k)))))) = solve! R
 
   ----------------------------------------------------------------------
-  -- �� � The convolution theorem for the box: convolving with the box
-  --      multiplies the transfer by (1 + m).  So (1+m)^4 is structural �
-  --      the fourth power counts the four boxes � and every further box
+  -- २″ · The convolution theorem for the box: convolving with the box
+  --      multiplies the transfer by (1 + m).  So (1+m)^4 is structural —
+  --      the fourth power counts the four boxes — and every further box
   --      raises the attenuation order by one.
   ----------------------------------------------------------------------
 
-  -- �_{k < N} f k
+  -- Σ_{k < N} f k
   Σ⟨_⟩ : ℕ → (ℕ → ⟨ R ⟩) → ⟨ R ⟩
   Σ⟨ zero ⟩  f = 0r
   Σ⟨ suc N ⟩ f = Σ⟨ N ⟩ f + f N
@@ -127,7 +127,7 @@ module _ (R : CommRing ℓ) where
   T : ℕ → (ℕ → ⟨ R ⟩) → ⟨ R ⟩ → ⟨ R ⟩
   T N f m = Σ⟨ N ⟩ (λ k → f k · (m ^ k))
 
-  -- T_{N+1}(f � box) = T_{N+1}(f) + m � T_N(f)
+  -- T_{N+1}(f ⋆ box) = T_{N+1}(f) + m · T_N(f)
   peṭikā-T : (N : ℕ) (f : ℕ → ⟨ R ⟩) (m : ⟨ R ⟩)
            → T (suc N) (⋆peṭikā f) m ≡ T (suc N) f m + m · T N f m
   peṭikā-T zero    f m = solve! R
@@ -154,7 +154,7 @@ module _ (R : CommRing ℓ) where
   peṭikā-T₂ : (m : ⟨ R ⟩) → T 2 peṭikā m ≡ 1r + m
   peṭikā-T₂ m = solve! R
 
-  -- hence, structurally: T�(box�) = (1+m)^4
+  -- hence, structurally: T₆(box⁴) = (1+m)^4
   catuṣ-T : (m : ⟨ R ⟩) → T 5 catuṣ-peṭikā m ≡ caturtha (1r + m)
   catuṣ-T m =
       peṭikā-guṇa 4 (⋆peṭikā (⋆peṭikā peṭikā)) m z₄
@@ -171,7 +171,7 @@ module _ (R : CommRing ℓ) where
     z₄ = solve! R
 
 ------------------------------------------------------------------------
--- � � Over � the receiver sees every mode but m = −1.
+-- ३ · Over ℚ the receiver sees every mode but m = −1.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Rationals
@@ -180,7 +180,7 @@ open import Cubical.Data.Rationals.Order
 open import ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAHalfAndNonnegativityExcludesMinusTwoSoTheFiniteWeilCriterionAndTheKreinSplittingHoldOverQ
   using (ℚRing ; ṛṇa-viparīta)
 
--- x < 0 or 0 < x gives 0 < x � x
+-- x < 0 or 0 < x gives 0 < x · x
 dhana-varga : (x : ℚ) → 0 < x → 0 < x · x
 dhana-varga x 0<x = subst (_< x · x) (·AnnihilL x) (<-·o 0 x x 0<x 0<x)
 
@@ -207,6 +207,6 @@ na-ṛṇa-eka m ne p = ne (sym (+IdL m) ∙ cong (_+ m) (sym (+InvL 1)) ∙ sym
                        ∙ cong ((- 1) +_) p ∙ +IdR (- 1))
 
 -- THE THEOREM: on every geometric mode other than −1 the receiver's
--- transfer is nonzero � the discrete H(� − ½) ≠ 0.
+-- transfer is nonzero — the discrete H(ρ − ½) ≠ 0.
 sarva-grāhī-ℚ : (m : ℚ) → ¬ (m ≡ - 1) → ¬ (saṅorderṇa ℚRing m ≡ 0)
 sarva-grāhī-ℚ m ne p = anasta-caturtha (1 + m) (na-ṛṇa-eka m ne) (sym (sarva-grāhī ℚRing m) ∙ p)

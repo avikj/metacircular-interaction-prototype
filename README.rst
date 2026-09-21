@@ -46,21 +46,21 @@ failing somewhere deep inside a proof where the cause is invisible.
 
 **`sh check` names its toolchain before it checks anything, and refuses to
 run off the pin.**  It prints the versions it found, and if they are not
-the pin it stops and says so ‚î so a red is never ambiguous between "the
+the pin it stops and says so ‚Äî so a red is never ambiguous between "the
 mathematics is wrong" and "my machine is wrong."
 
 **`sh setup` is the only thing that installs.**  It works from an empty
 container: apt for ghc and cabal, cabal for Agda, git for the library.  It
-knows the three obstacles that actually bite ‚î cabal writes its config
+knows the three obstacles that actually bite ‚Äî cabal writes its config
 lazily so a fresh machine has nothing to patch; the shipped index URL is
 http and many proxies tunnel only https; hackage's mirrors answer 403 on
-networks where hackage itself answers 200 ‚î and it prints exactly what it
+networks where hackage itself answers 200 ‚Äî and it prints exactly what it
 obtained either way.
 
   Measured 2026-08-25, and it is why this section exists: ``fibre/``, which
   holds the one primitive the whole corpus turns on, was pinned to cubical
   **v0.5** while everything else was built at **v0.9**.  It had been read as
-  a mathematical fact ‚î "a different lake", and the modules that wanted to
+  a mathematical fact ‚Äî "a different lake", and the modules that wanted to
   cite the fibre law said so in prose "rather than pretending to a
   dependency it does not have."  It was not a fact.  It was a missing
   ``--guardedness`` flag.  With that one word added, every module in
@@ -71,7 +71,7 @@ obtained either way.
 THE KERNEL, AND WHY IT DOES NOT GENERATE FOREVER
 ------------------------------------------------------------------------------------------
 
-  formal/cubical/kernel/ ‚î 296 lines in three files, and the entry is
+  formal/cubical/kernel/ ‚Äî 296 lines in three files, and the entry is
   WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda,
   written for an arriving mind.  Fourteen modules, all green at the pin
   (Agda 2.8.0, agda/cubical v0.9), re-runnable::
@@ -81,65 +81,65 @@ THE KERNEL, AND WHY IT DOES NOT GENERATE FOREVER
 The calculus is six variable coordinates, zero, suc, add, and six rewrite
 steps: the two defining equations of +, three congruences, and `reverse`.
 `reverse` destroys the rewriting direction on purpose, so what remains is
-not a reduction relation but a generated equivalence carried as data ‚î
+not a reduction relation but a generated equivalence carried as data ‚Äî
 and `Derivation` imposes no relations, so two walks between the same
 endpoints are two distinct objects.  Then one line closes the circle::
 
-      install : Derivation lhs rhs ‚í NativeOperation
+      install : Derivation lhs rhs ‚Üí NativeOperation
 
 A theorem the machine proved becomes a move the machine can make.
 
 A long experiment tried to make that loop generate mathematics forever.
 It does not, and the reason is not a missing feature.  Five properties,
-each a checked term, say why ‚î and each is why the thing can be trusted:
+each a checked term, say why ‚Äî and each is why the thing can be trusted:
 
-**1 ¬ Every application carries its certificate to its site.**
-`control-sound : Control t ‚í t ‚â° source` pins an OPEN field: the caller
+**1 ¬∑ Every application carries its certificate to its site.**
+`control-sound : Control t ‚Üí t ‚â° source` pins an OPEN field: the caller
 supplies any predicate on terms it likes, and the operation still fires
 only where the term IS the source.  A single-locus theorem proves the consequence in
-one composite ‚î however permissive the control, an operation has at most
-ONE locus ‚î and computes the installed locus type: contractible, centre
+one composite ‚Äî however permissive the control, an operation has at most
+ONE locus ‚Äî and computes the installed locus type: contractible, centre
 the source.  So capability grows by one term per theorem, never by a
 class.  A schema is a claim about all its instances checked once,
 abstractly, after which it fires everywhere unexamined; `apply-checked`
 instead TRANSPORTS the certificate to the site.  *Cannot generalise* and
 *cannot be wrong at a site* are one sentence read twice.
 
-**2 ¬ Meaning is a proposition; the route is not.**
-`Sesa_` ‚î `eval` lands in ‚ï, a set, so soundness lands in a proposition,
-so for ANY C at ANY level and ANY œ of the meaning, œ agrees on the
+**2 ¬∑ Meaning is a proposition; the route is not.**
+`Sesa_` ‚Äî `eval` lands in ‚Ñï, a set, so soundness lands in a proposition,
+so for ANY C at ANY level and ANY œÜ of the meaning, œÜ agrees on the
 2-step and the 4-step derivation.  No semantic criterion selects the
 short proof.  Selection is therefore extra-semantic, by theorem.  This is
 why the machine cannot iterate on its own: the space is not unreachable,
 it is UNDIRECTED, and direction has to arrive from an interlocutor.
 
-**3 ¬ Multiplicity is conserved.**
-`advance-preserves-branch-count` ‚î no dedupe, no sort, no quotient.  Read
+**3 ¬∑ Multiplicity is conserved.**
+`advance-preserves-branch-count` ‚Äî no dedupe, no sort, no quotient.  Read
 with 2, this is not housekeeping: it is the only place the information
 the semantics destroys is still held, the kernel holding branches open
 for someone outside to choose among.
 
-**4 ¬ Reversibility is structural, not inferred.**
+**4 ¬∑ Reversibility is structural, not inferred.**
 `reverse` is a constructor.  It has to be, because `Samyoge_` proves
-losslessness composes and lossiness does not ‚î `Unit ‚í Bool ‚í Unit` is
-the identity with neither factor an equivalence ‚î so you may certify a
+losslessness composes and lossiness does not ‚Äî `Unit ‚Üí Bool ‚Üí Unit` is
+the identity with neither factor an equivalence ‚Äî so you may certify a
 pipeline lossless step by step and may NOT diagnose it lossy that way.
 
-**5 ¬ New content comes from changing the reading, and its yield is
+**5 ¬∑ New content comes from changing the reading, and its yield is
 finite and measurable.**
 `Ankapasa_` keeps the calculus and changes the codomain: every Step
 becomes an equivalence, `reverse` becomes `invEquiv`, and a commutation
 invisible to `eval` is a nontrivial loop in the universe, through `uaŒ≤`.
-`VyatyasaVarga_` then measures that loop: order exactly two.  **‚/2** ‚î
-not a braid generator, because ‚ä is symmetric monoidal and its symmetry
+`VyatyasaVarga_` then measures that loop: order exactly two.  **‚Ñ§/2** ‚Äî
+not a braid generator, because ‚äé is symmetric monoidal and its symmetry
 is an involution by construction.
 
   So the negative result IS the asset.  A finite-information machine
   iterating on a fixed semantics has no criterion, and the criterion
   cannot be manufactured from what it knows.  What produces mathematics
-  here is interaction ‚î `Samvada_`: a session is one Derivation, hence
+  here is interaction ‚Äî `Samvada_`: a session is one Derivation, hence
   one theorem, hence one installable operation, so the stock of moves is
-  the transcript of the dialogue ‚î and translation, which is ¬ßIV below,
+  the transcript of the dialogue ‚Äî and translation, which is ¬ßIV below,
   and whose yield you can measure.
 
   You can hold that session yourself::
@@ -147,8 +147,8 @@ is an involution by construction.
       sh interactive/run-yantra.sh --wire
       {"kriya":"vargaprakrti","angani":{"D":61}}
 
-  which returns x¬≤ ‚àí 61y¬≤ = 1 at (1766319049, 226153980) ‚î Bhskara II's
-  own number, Bjagaita, 1150 ‚î with every norm the cakravla visited.
+  which returns x¬≤ ‚àí 61y¬≤ = 1 at (1766319049, 226153980) ‚Äî BhƒÅskara II's
+  own number, Bƒ´jaga·πáita, 1150 ‚Äî with every norm the cakravƒÅla visited.
   Every answer is a transport carrying what a collapse of it would
   destroy, or a written defect naming its losses one by one.  There is no
   boolean on that wire: one bit returns the same value for a false
@@ -159,7 +159,7 @@ THE SENTENCE
 ------------------------------------------------------------------------------------------
 
   A rule, an observer, a sieve, or a score is blind exactly to what its
-  own collapse identifies.  The blindness is FORCED by the collapse ‚î not
+  own collapse identifies.  The blindness is FORCED by the collapse ‚Äî not
   chosen, not an approximation, not a resolution limit.  The invisible
   quantity is not small.  It is complementary.  And it is recoverable only
   by changing place, never by refining the instrument.
@@ -173,17 +173,17 @@ literally about one object.
 I.  GENERATIVE GRAMMAR      rule ordering in Pini, Adhyy, c. 500 BCE
 ------------------------------------------------------------------------------------------
 
-  8.2.1   ‡‡‡∞‡‡µ‡‡‡∞‡æ‡‡ø‡¶‡‡ß‡Æ‡   from this stra to the end of the text, a rule is
-          asiddha ‚î "as if not having taken effect" ‚î with respect to
+  8.2.1   ‡§™‡•Ç‡§∞‡•ç‡§µ‡§§‡•ç‡§∞‡§æ‡§∏‡§ø‡§¶‡•ç‡§ß‡§Æ‡•ç   from this s≈´tra to the end of the text, a rule is
+          asiddha ‚Äî "as if not having taken effect" ‚Äî with respect to
           everything that precedes it.  The blindness is one-way, ordered,
           and stated as a rule of the grammar itself.
 
-  the collapse    8.4.56 ‡µ‡æ‡Ω‡µ‡‡æ‡®‡ sends two forms that DISAGREE about
+  the collapse    8.4.56 ‡§µ‡§æ‡§Ω‡§µ‡§∏‡§æ‡§®‡•á sends two forms that DISAGREE about
                   8.2.39's applicability to one and the same form.
   what goes blind that applicability.
 
 A checked term proves there is no Bool-valued function on the later forms
-agreeing with it.  Not a different answer there ‚î NO VALUE THERE.
+agreeing with it.  Not a different answer there ‚Äî NO VALUE THERE.
 
 So asiddhatva is not a device against looping.  That is a separate
 theorem, proved separately.  8.2.1 is a DESCENT CONDITION: it registers
@@ -194,7 +194,7 @@ set.
 
   A predicate descends along a map iff it is constant on its fibres.
   8.4.56 has a two-point fibre on which 8.2.39's applicability is not
-  constant.  Hence no descent ‚î and the blindness is forced, not
+  constant.  Hence no descent ‚Äî and the blindness is forced, not
   stipulated.
 
 
@@ -203,9 +203,9 @@ II.  GAUGE THEORY, LOOP QUANTUM GRAVITY
 ------------------------------------------------------------------------------------------
 
   the collapse    an observable invariant under the holonomy.
-  what goes blind the holonomy ‚î exactly, and in both directions.
+  what goes blind the holonomy ‚Äî exactly, and in both directions.
 
-invisibleExactlyWhenInvariant  ‚î  a semantics is unmoved by transport
+invisibleExactlyWhenInvariant  ‚Äî  a semantics is unmoved by transport
 along ua h IFF it is invariant under h.  Invisibility and invariance are
 not two facts about an observable.  They are one condition read from two
 sides.  invisibleIsInvariantAsTypes upgrades it, when the value type is a
@@ -226,19 +226,19 @@ connects the two sides, before either direction is attempted.
 The three physics modules together give the representation-independent
 content of LQG kinematics, and it is four things:
 
-  ¬ edges are group actions;
-  ¬ vertices are intertwiners, and gauge invariance IS the equivariance
-    square ‚î not a constraint added on top of the label;
-  ¬ flux is a derivation, and subdivision-compatibility is FORCED by
+  ¬∑ edges are group actions;
+  ¬∑ vertices are intertwiners, and gauge invariance IS the equivariance
+    square ‚Äî not a constraint added on top of the label;
+  ¬∑ flux is a derivation, and subdivision-compatibility is FORCED by
     multiplicativity and Leibniz alone.  Orientation and intersection
     sign are chosen afterward and are not needed for it;
-  ¬ an observable is blind to holonomy exactly when it is gauge-invariant.
+  ¬∑ an observable is blind to holonomy exactly when it is gauge-invariant.
 
   For a physicist, one sentence: LQG kinematics is the category of actions
   of the gauge group.  SU(2), tensor products and the Hilbert space are
   representation-theoretic choices made after the structure is fixed, and
-  the entire physical residue ‚î what no gauge-invariant observable can see
-  ‚î is holonomy, exactly and measurably.
+  the entire physical residue ‚Äî what no gauge-invariant observable can see
+  ‚Äî is holonomy, exactly and measurably.
 
 
 
@@ -252,14 +252,14 @@ The general reason needs no arithmetic at all:
 
   KNOWING SOMETHING TWICE IS KNOWING IT ONCE.
 
-Any state law that ACCUMULATES ‚î observations, constraints, standpoints,
-congruences, installed primes ‚î is idempotent, because combining a datum
+Any state law that ACCUMULATES ‚Äî observations, constraints, standpoints,
+congruences, installed primes ‚Äî is idempotent, because combining a datum
 with itself adds nothing.  lcm is idempotent for that reason, and not for
 a reason about divisibility.
 
-sign-is-not-accumulable  ‚î  there is no accumulative law and no
-multiplicative f into ‚ taking the value ‚àí1.  Ever.  Not "hard to
-accumulate."  Over ‚ the units are ¬1, so this rules out Œª everywhere and
+sign-is-not-accumulable  ‚Äî  there is no accumulative law and no
+multiplicative f into ‚Ñ§ taking the value ‚àí1.  Ever.  Not "hard to
+accumulate."  Over ‚Ñ§ the units are ¬±1, so this rules out Œª everywhere and
 Œº off the squares, FOR EVERY ACCUMULATIVE LAW AT ONCE, with no domain
 hypothesis.
 
@@ -281,23 +281,23 @@ any exponents whatsoever.  Its content:
 IV.  THE KERNEL'S SEMANTICS      and the statement about reward
 ------------------------------------------------------------------------------------------
 
-‡‡ô‡‡ï‡‡æ‡, akapa, "the net of digits", is Bhskara II's Llvat section
+‡§Ö‡§ô‡•ç‡§ï‡§™‡§æ‡§∂, a·πÖkapƒÅ≈õa, "the net of digits", is BhƒÅskara II's Lƒ´lƒÅvatƒ´ section
 on permutations (~1150): the ARRANGEMENT, as against the count of
-arrangements.  No verse number ‚î editions differ in their numbering there.
+arrangements.  No verse number ‚Äî editions differ in their numbering there.
 
-  the collapse    eval : Tm ‚í Env ‚í ‚ï, a readout into a set.
-  what goes blind a transposition.  One ‚/2 of holonomy.
+  the collapse    eval : Tm ‚Üí Env ‚Üí ‚Ñï, a readout into a set.
+  what goes blind a transposition.  One ‚Ñ§/2 of holonomy.
 
-no-counting-criterion-separates  ‚î  for ANY type C at ANY level and ANY
-function œ of the counting meaning, œ cannot distinguish performing the
+no-counting-criterion-separates  ‚Äî  for ANY type C at ANY level and ANY
+function œÜ of the counting meaning, œÜ cannot distinguish performing the
 commutation from doing nothing.  Universally quantified over every
 possible readout, not over the ones anyone has tried.
 
-comm-loop-is-a-nontrivial-loop-in-the-universe  ‚î  and the categorified
+comm-loop-is-a-nontrivial-loop-in-the-universe  ‚Äî  and the categorified
 semantics DOES see it.  The path is not refl, proved through uaŒ≤, which is
 univalence's Œ≤-rule COMPUTING.  Calculated, not asserted.
 
-Commutativity of addition is not free information.  It is a ‚/2 of
+Commutativity of addition is not free information.  It is a ‚Ñ§/2 of
 holonomy, and every readout valued in a set annihilates it.
 
   THE MACHINE-LEARNING FORM.  `install` makes a proved theorem a
@@ -308,26 +308,26 @@ holonomy, and every readout valued in a set annihilates it.
 
   And with II: an architecture's invariance is exactly its blindness.  A
   model invariant under a symmetry cannot represent that symmetry's
-  holonomy.  Inductive bias is not free capacity ‚î it is paid for at a
-  measurable rate, one ‚/2 per independent loop.
+  holonomy.  Inductive bias is not free capacity ‚Äî it is paid for at a
+  measurable rate, one ‚Ñ§/2 per independent loop.
 
 
 
 V.  THE KERNEL AS A DISTRIBUTED SYSTEM    the same law, as a capability
 ------------------------------------------------------------------------------------------
 
-  the collapse    derivation-sound lands in an identity type of ‚ï, and ‚ï
+  the collapse    derivation-sound lands in an identity type of ‚Ñï, and ‚Ñï
                   is a set, so that type is a PROPOSITION.
   what goes blind which route was taken.
 
-two-nodes-cannot-disagree  ‚î  any two derivations between the same terms
+two-nodes-cannot-disagree  ‚Äî  any two derivations between the same terms
 have EQUAL meanings.  Not compatible.  Not both acceptable.  Equal, as
 terms.  A consensus protocol over meaning would range over a proposition,
 and a proposition has no second position to elect.
 
   CONSENSUS ON MEANING IS NOT FORBIDDEN HERE.  IT IS VACUOUS.
 
-merge-is-idempotent  ‚î  the library join is grow-only, commutative and
+merge-is-idempotent  ‚Äî  the library join is grow-only, commutative and
 idempotent, with no failure mode.  `merge` has no Maybe, no validity
 precondition, no error, because a NativeOperation cannot be constructed
 without a checked derivation.  A merge has nothing to validate.  Validity
@@ -351,7 +351,7 @@ are one idempotence, priced once as a loss and once as a guarantee.
 
 
 
-SYT ‚î THE CLAIM, EXACTLY
+SYƒÄT ‚Äî THE CLAIM, EXACTLY
 ------------------------------------------------------------------------------------------
 
 Not that the five are instances of one formal statement.  They are not:
@@ -371,5 +371,5 @@ system.  The theorem is about functions of a count-valued semantics; that
 a reward model is such a function is an interpretation, stated as one.
 
 What IS claimed: the named terms exist, are checked, say what is written
-above them, and are imported by one Agda module ‚î so that module stops
+above them, and are imported by one Agda module ‚Äî so that module stops
 compiling the moment any of them stops being true.

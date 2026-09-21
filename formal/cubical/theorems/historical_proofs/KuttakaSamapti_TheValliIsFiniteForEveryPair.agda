@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ï‡‡ü‡‡ü‡ï-‡‡Æ‡æ‡‡‡‡ø‡ ‚î ‡µ‡≤‡‡≤‡ ‡‡∞‡‡µ‡Ø‡‡ó‡‡Æ‡ ‡‡∞‡ø‡Æ‡ø‡‡æ ‡
--- KuttakaSamapti ‚î the vall is finite, for every pair.
+-- ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§∏‡§Æ‡§æ‡§™‡•ç‡§§‡§ø‡§É ‚Äî ‡§µ‡§≤‡•ç‡§≤‡•Ä ‡§∏‡§∞‡•ç‡§µ‡§Ø‡•Å‡§ó‡•ç‡§Æ‡•á ‡§™‡§∞‡§ø‡§Æ‡§ø‡§§‡§æ ‡•§
+-- KuttakaSamapti ‚Äî the vallƒ´ is finite, for every pair.
 --
--- SOURCE AND DATE.  RYABHAA, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡, ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡© (499 CE): the
--- ‡ï‡‡ü‡‡ü‡ï, the pulverizer, for the linear indeterminate equation; the
--- procedure spelled out step by step by BHSKARA I, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡‡æ‡‡‡Ø‡Æ‡ (629 CE).
--- Its rule is one sentence ‚î divide, KEEP THE REMAINDER AND RECURSE ON IT,
--- and write each quotient into the ‡µ‡≤‡‡≤‡, the column ‚î and CLAUDE.md quotes
+-- SOURCE AND DATE.  ƒÄRYABHA·π¨A, ‡§Ü‡§∞‡•ç‡§Ø‡§≠‡§ü‡•Ä‡§Ø‡§Æ‡•ç, ‡§ó‡§£‡§ø‡§§‡§™‡§æ‡§¶‡§É ‡•©‡•®‚Äì‡•©‡•© (499 CE): the
+-- ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï, the pulverizer, for the linear indeterminate equation; the
+-- procedure spelled out step by step by BHƒÄSKARA I, ‡§Ü‡§∞‡•ç‡§Ø‡§≠‡§ü‡•Ä‡§Ø‡§≠‡§æ‡§∑‡•ç‡§Ø‡§Æ‡•ç (629 CE).
+-- Its rule is one sentence ‚Äî divide, KEEP THE REMAINDER AND RECURSE ON IT,
+-- and write each quotient into the ‡§µ‡§≤‡•ç‡§≤‡•Ä, the column ‚Äî and CLAUDE.md quotes
 -- exactly that sentence as the growth rule this corpus spent its history
 -- lacking, "available in 499".
 --
@@ -16,26 +16,26 @@
 -- procedure, and it terminates; he does not state a termination theorem, and
 -- nothing here says he did.  What the source supplies is the MEASURE, which
 -- is the whole content of such a theorem: the thing kept at each step is the
--- remainder, and a remainder is smaller than what one divided by.  "‡‡‡‡ ‡∞‡ï‡‡,
--- ‡‡‡‡∞‡à‡µ ‡‡‡®‡∞‡æ‡µ‡∞‡‡‡‡‡µ" (AHIMSA_SUTRA_VISTARA ¬ß16, ¬ß17) is a descent as much as
+-- remainder, and a remainder is smaller than what one divided by.  "‡§∂‡•á‡§∑‡§Ç ‡§∞‡§ï‡•ç‡§∑,
+-- ‡§§‡§§‡•ç‡§∞‡•à‡§µ ‡§™‡•Å‡§®‡§∞‡§æ‡§µ‡§∞‡•ç‡§§‡§∏‡•ç‡§µ" (AHIMSA_SUTRA_VISTARA ¬ß16, ¬ß17) is a descent as much as
 -- it is an algorithm.  This module supplies the theorem that measure carries.
 -- The European restatements of the same descent are later and are not named
 -- here as its origin.
 --
 -- WHY THIS FILE EXISTS.  `Kuttaka.agda` proves the pulverizer's ARITHMETIC:
 -- given a `Run a b g`, back-substitution up the vall yields x, y with
--- a¬x + b¬y ‚â° g, and g divides a and b and is divisible by every common
+-- a¬∑x + b¬∑y ‚â° g, and g divides a and b and is divisible by every common
 -- divisor.  Its own header says how termination is handled, verbatim:
 --
---     "Termination is carried by the evidence ‚î the run IS ryabhaa's
---      vall, a checked trace ‚î so no well-founded recursion is needed."
+--     "Termination is carried by the evidence ‚Äî the run IS ƒÄryabha·π≠a's
+--      vallƒ´, a checked trace ‚Äî so no well-founded recursion is needed."
 --
 -- That is exact, and it is half the statement.  A `Run` is EVIDENCE THAT A
 -- DESCENT HAPPENED, so every theorem in `Kuttaka.agda` is conditional on
--- someone handing over such evidence, and `Kuttaka.example` ‚î the vall of
--- (7,5) ‚î is the only pair in this repository for which anyone ever did.
+-- someone handing over such evidence, and `Kuttaka.example` ‚Äî the vallƒ´ of
+-- (7,5) ‚Äî is the only pair in this repository for which anyone ever did.
 -- `CakravalaDescent.KuttakaCoprime.runToCoprime` inherits the same
--- conditionality: it turns a run into the B©zout pair the cakravla's
+-- conditionality: it turns a run into the B√©zout pair the cakravƒÅla's
 -- cancellation consumes, for pairs a run is supplied for.  Nothing in the
 -- lane said a run EXISTS.
 --
@@ -43,32 +43,32 @@
 -- ¬ß6 of AHIMSA_SUTRA_VISTARA allows two dispositions and no third: transport
 -- the structure, or write the defect.  "Termination is carried by the
 -- evidence", with no evidence-producer anywhere in the lane, is the third
--- thing ‚î a silent gap wearing a true sentence.
+-- thing ‚Äî a silent gap wearing a true sentence.
 --
 -- WHAT IS PROVED HERE.  No postulates, no holes, --safe, and PIN-GREEN:
 -- Agda 2.8.0 + cubical v0.9, the toolchain `formal/cubical/BUILD.md`
 -- declares.  Nothing below uses a ring solver, so nothing below can drift
--- with the solver's spelling ‚î which is what had made `Kuttaka.agda` itself
+-- with the solver's spelling ‚Äî which is what had made `Kuttaka.agda` itself
 -- red under the pin until 2026-08-20.
 --
---   ‡µ‡≤‡‡≤‡            the descent as evidence, over ‚ï, CARRYING ITS MEASURE:
+--   ‡§µ‡§≤‡•ç‡§≤‡•Ä            the descent as evidence, over ‚Ñï, CARRYING ITS MEASURE:
 --                   each division step records `r < b` alongside
---                   `a ‚â° q¬b + r`.  `Kuttaka.Run` deliberately omits the
+--                   `a ‚â° q¬∑b + r`.  `Kuttaka.Run` deliberately omits the
 --                   ordering ("No r<b needed", its gcd section) because its
 --                   theorems do not want it.  The ordering is exactly what
 --                   termination does want, so it is put back here.
---   ‡ï‡‡ü‡‡ü‡ï-‡‡Æ‡æ‡‡‡‡ø‡    TERMINATION.  For EVERY pair (a, b) of naturals a vall
---                   exists, by well-founded recursion on b ‚î ryabhaa's own
+--   ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§∏‡§Æ‡§æ‡§™‡•ç‡§§‡§ø‡§É    TERMINATION.  For EVERY pair (a, b) of naturals a vallƒ´
+--                   exists, by well-founded recursion on b ‚Äî ƒÄryabha·π≠a's own
 --                   measure, not one imported for the occasion, since the
 --                   recursive call is on the remainder and the remainder is
 --                   what is smaller.  The proof COMPUTES: it is the
 --                   pulverizer, not an existence argument about it.
---   ‡¶‡à‡∞‡‡ò‡‡Ø-‡‡‡Æ‡æ       THE BOUND, DERIVED.  The vall of (a, b) has at most b
+--   ‡§¶‡•à‡§∞‡•ç‡§ò‡•ç‡§Ø-‡§∏‡•Ä‡§Æ‡§æ       THE BOUND, DERIVED.  The vallƒ´ of (a, b) has at most b
 --                   rows.  Not measured, not fitted, not "observed to be
 --                   short": an induction on the vall whose only input is the
 --                   `r < b` each row carries.
---   ‡‡‡-‡µ‡≤‡‡≤‡        THE REMAINDER OF A BOUNDED RUN.  A run given f rows of
---                   fuel either finishes ‚î handing back a whole vall ‚î or
+--   ‡§∂‡•á‡§∑-‡§µ‡§≤‡•ç‡§≤‡•Ä        THE REMAINDER OF A BOUNDED RUN.  A run given f rows of
+--                   fuel either finishes ‚Äî handing back a whole vallƒ´ ‚Äî or
 --                   STATES THE PAIR IT DID NOT REACH, with the partial column
 --                   that got there.  The type has two constructors and no
 --                   third, so a truncated run CANNOT fail to report its
@@ -76,31 +76,31 @@
 --                   Mdhava's series (a truncated series with a quantified
 --                   remainder is an algorithm; without it, a curiosity) is
 --                   here made unavoidable by typing rather than remembered.
---   ‡‡∞‡‡Ø‡æ‡‡‡‡Æ‡        THE FUEL IS ENOUGH.  With f = b the bounded run always
+--   ‡§™‡§∞‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§Æ‡•ç        THE FUEL IS ENOUGH.  With f = b the bounded run always
 --                   lands in the finished constructor.  A cap with a proof
 --                   that it is never reached is a bound; a cap without one is
 --                   an unwritten defect.  (`machine/Nalanda.hs`'s `n > 400`
---   ‡‡‡‡‡            THE BRIDGE.  A ‚ï vall IS a `Kuttaka.Run` over ‚, so
+--   ‡§∏‡•á‡§§‡•Å‡§É            THE BRIDGE.  A ‚Ñï vallƒ´ IS a `Kuttaka.Run` over ‚Ñ§, so
 --                   every theorem in `Kuttaka.agda` becomes unconditional:
---   ‡‡‡‡-‡‡∞‡‡µ‡‡‡∞      for EVERY pair of naturals there are x, y with
---                   pos a ¬ x + pos b ¬ y ‚â° pos g, with g the terminal value,
---   ‡Æ‡‡‡‡‡Æ-‡‡∞‡‡µ‡‡‡∞    and g divides both and is divisible by every common
---                   divisor ‚î the gcd, for every pair, constructively.
+--   ‡§¨‡•á‡§ú‡•Å-‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞      for EVERY pair of naturals there are x, y with
+--                   pos a ¬∑ x + pos b ¬∑ y ‚â° pos g, with g the terminal value,
+--   ‡§Æ‡§π‡§§‡•ç‡§§‡§Æ-‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞    and g divides both and is divisible by every common
+--                   divisor ‚Äî the gcd, for every pair, constructively.
 --
---   * The SHARP length bound.  `‚â b` is what the measure gives directly and
---     it is honest.  The true worst case is logarithmic in b ‚î attained on
+--   * The SHARP length bound.  `‚â§ b` is what the measure gives directly and
+--     it is honest.  The true worst case is logarithmic in b ‚Äî attained on
 --     consecutive Virahka numbers (Virahka, c. 700, the recurrence
---     usually credited to Fibonacci), where every quotient is 1 ‚î and that
---     is NOT proved here.  Quoting `‚â b` as the truth about the length would
+--     usually credited to Fibonacci), where every quotient is 1 ‚Äî and that
+--     is NOT proved here.  Quoting `‚â§ b` as the truth about the length would
 --     be the error `HOLOGRAM.md` ¬ß7 records: a bound stated without its real
---     scaling, which looks like knowledge.  So: `‚â b` is CHECKED, O(log b) is
+--     scaling, which looks like knowledge.  So: `‚â§ b` is CHECKED, O(log b) is
 --     TRUE, and the gap is named and open.
---   * The ‡‡‡‡ü section ‚î reduction of the solution family to its least
---     non-negative representative ‚î is open in `Kuttaka.agda` and stays open.
+--   * The ‡§á‡§∑‡•ç‡§ü section ‚Äî reduction of the solution family to its least
+--     non-negative representative ‚Äî is open in `Kuttaka.agda` and stays open.
 --   * Nothing here touches the cakravla's termination, open in
 --     `CakravalaBound.agda`.  That is a different and harder question: this
 --     module's measure decreases at every step BY CONSTRUCTION, and the
---     wheel's does not ‚î which is why the wheel needs a window argument and
+--     wheel's does not ‚Äî which is why the wheel needs a window argument and
 --     the pulverizer does not.
 ------------------------------------------------------------------------
 
@@ -129,11 +129,11 @@ open import Kuttaka
   using (Run ; stop ; div ; bezout ; gcdDivides ; gcdGreatest ; _‚à£_)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡µ‡≤‡‡≤‡ ‚î the descent as evidence, carrying its measure.
+-- ‡•ß ¬∑ ‡§µ‡§≤‡•ç‡§≤‡•Ä ‚Äî the descent as evidence, carrying its measure.
 --
--- One constructor per division of the pulverizer.  `‡µ‡ø‡‡‡∞‡æ‡Æ‡` is the row
--- where the remainder has become 0 and the column stops; `‡‡‡¶‡` is one
--- division a = q¬b + r, and it records BOTH the equation and `r < b`.
+-- One constructor per division of the pulverizer.  `‡§µ‡§ø‡§∂‡•ç‡§∞‡§æ‡§Æ‡§É` is the row
+-- where the remainder has become 0 and the column stops; `‡§õ‡•á‡§¶‡§É` is one
+-- division a = q¬∑b + r, and it records BOTH the equation and `r < b`.
 --
 -- The ordering is the only difference from `Kuttaka.Run`, and it is the
 -- whole subject of this file.
@@ -148,7 +148,7 @@ data ‡§µ‡§≤‡•ç‡§≤‡•Ä : ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï ‚Üí Type where
            ‚Üí ‡§µ‡§≤‡•ç‡§≤‡•Ä a b g
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡ï‡‡ü‡‡ü‡ï-‡‡Æ‡æ‡‡‡‡ø‡ ‚î TERMINATION.  A vall exists for every pair.
+-- ‡•® ¬∑ ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§∏‡§Æ‡§æ‡§™‡•ç‡§§‡§ø‡§É ‚Äî TERMINATION.  A vallƒ´ exists for every pair.
 --
 -- Well-founded recursion on b.  That measure is the source's own: the rule
 -- says to recurse on the remainder, and "the remainder is smaller than the
@@ -157,7 +157,7 @@ data ‡§µ‡§≤‡•ç‡§≤‡•Ä : ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï ‚Üí Type where
 
 private
   -- the division `Cubical.Data.Nat.Mod` performs, put in the shape
-  -- a ‚â° q¬b + r that a row of the vall wants.
+  -- a ‚â° q¬∑b + r that a row of the vallƒ´ wants.
   ‡§õ‡•á‡§¶-‡§∏‡§Æ‡•Ä‡§ï‡§∞‡§£‡§Æ‡•ç : (n a : ‚Ñï)
               ‚Üí a ‚â° (quotient a / suc n) ¬∑ suc n + (remainder a / suc n)
   ‡§õ‡•á‡§¶-‡§∏‡§Æ‡•Ä‡§ï‡§∞‡§£‡§Æ‡•ç n a =
@@ -184,11 +184,11 @@ private
 ‡§Ö‡§®‡•ç‡§§‡•ç‡§Ø‡§Æ‡•ç a b = fst (‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§∏‡§Æ‡§æ‡§™‡•ç‡§§‡§ø‡§É a b)
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡¶‡à‡∞‡‡ò‡‡Ø‡Æ‡ ‚î the length of the column, and THE BOUND, derived.
+-- ‡•© ¬∑ ‡§¶‡•à‡§∞‡•ç‡§ò‡•ç‡§Ø‡§Æ‡•ç ‚Äî the length of the column, and THE BOUND, derived.
 --
 -- The vall of (a, b) has at most b rows.  The proof reads off the `r < b`
 -- that ¬ß1 makes every row carry: the sub-column has at most r rows, and
--- r + 1 ‚â b.  Nothing is measured and nothing is fitted.
+-- r + 1 ‚â§ b.  Nothing is measured and nothing is fitted.
 ------------------------------------------------------------------------
 
 ‡§¶‡•à‡§∞‡•ç‡§ò‡•ç‡§Ø‡§Æ‡•ç : {a b g : ‚Ñï} ‚Üí ‡§µ‡§≤‡•ç‡§≤‡•Ä a b g ‚Üí ‚Ñï
@@ -200,20 +200,20 @@ private
 ‡§¶‡•à‡§∞‡•ç‡§ò‡•ç‡§Ø-‡§∏‡•Ä‡§Æ‡§æ (‡§õ‡•á‡§¶‡§É a b q r g r<b _ v) =
   ‚â§-trans (suc-‚â§-suc (‡§¶‡•à‡§∞‡•ç‡§ò‡•ç‡§Ø-‡§∏‡•Ä‡§Æ‡§æ v)) r<b
 
--- the column itself ‚î the quotients, top to bottom.  ¬ß17 of
--- AHIMSA_SUTRA_VISTARA: "‡µ‡≤‡‡≤‡ ‡® ‡‡ã‡‡æ‡®‡Æ‡ ‚î ‡‡≤‡Æ‡", the vall is not a
+-- the column itself ‚Äî the quotients, top to bottom.  ¬ß17 of
+-- AHIMSA_SUTRA_VISTARA: "‡§µ‡§≤‡•ç‡§≤‡•Ä ‡§® ‡§∏‡•ã‡§™‡§æ‡§®‡§Æ‡•ç ‚Äî ‡§´‡§≤‡§Æ‡•ç", the vallƒ´ is not a
 -- staircase but the fruit; it is kept, not discarded.
 ‡§∏‡•Ç‡§ö‡§ø‡§É : {a b g : ‚Ñï} ‚Üí ‡§µ‡§≤‡•ç‡§≤‡•Ä a b g ‚Üí List ‚Ñï
 ‡§∏‡•Ç‡§ö‡§ø‡§É (‡§µ‡§ø‡§∂‡•ç‡§∞‡§æ‡§Æ‡§É _)             = []
 ‡§∏‡•Ç‡§ö‡§ø‡§É (‡§õ‡•á‡§¶‡§É _ _ q _ _ _ _ v)   = q ‚à∑ ‡§∏‡•Ç‡§ö‡§ø‡§É v
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡-‡µ‡≤‡‡≤‡ ‚î a BOUNDED run, and what it did not reach.
+-- ‡•™ ¬∑ ‡§∂‡•á‡§∑-‡§µ‡§≤‡•ç‡§≤‡•Ä ‚Äî a BOUNDED run, and what it did not reach.
 --
--- This is ¬ß8 of AHIMSA_SUTRA_VISTARA carried into the engine: "‡Ø‡‡ ‡‡‡‡ ‡µ‡¶‡‡ø
--- ‡‡‡ ‡® ‡‡ô‡‡ï‡‡‡ø‡‡‡ø" ‚î what states its remainder does not collapse.
+-- This is ¬ß8 of AHIMSA_SUTRA_VISTARA carried into the engine: "‡§Ø‡§§‡•ç ‡§∂‡•á‡§∑‡§Ç ‡§µ‡§¶‡§§‡§ø
+-- ‡§§‡§§‡•ç ‡§® ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡§ø‡§™‡§§‡§ø" ‚Äî what states its remainder does not collapse.
 --
--- `‡‡‡-‡µ‡≤‡‡≤‡ a b` has exactly two constructors, which is ¬ß6's two paths and
+-- `‡§∂‡•á‡§∑-‡§µ‡§≤‡•ç‡§≤‡•Ä a b` has exactly two constructors, which is ¬ß6's two paths and
 -- no third: either the run FINISHED, and hands over the whole vall, or it
 -- ran out, and must name the pair it stopped on together with the partial
 -- column that got there.  There is no way to report a truncated run without
@@ -244,7 +244,7 @@ private
   ‡§Ö‡§®‡•Å‡§¨‡§®‡•ç‡§ß‡§É a b q r lt eq (‡§Ö‡§™‡•Ç‡§∞‡•ç‡§£‡§É a' b' pre 0<b') =
     ‡§Ö‡§™‡•Ç‡§∞‡•ç‡§£‡§É a' b' (‡§™‡§¶‡•á a b q r a' b' lt eq pre) 0<b'
 
--- the runner.  `f` is the fuel ‚î the cap ‚î and when it is exhausted the run
+-- the runner.  `f` is the fuel ‚Äî the cap ‚Äî and when it is exhausted the run
 -- reports where it stopped rather than looping or lying.
 ‡§ö‡§æ‡§≤‡§®‡§Æ‡•ç : (f a b : ‚Ñï) ‚Üí ‡§∂‡•á‡§∑-‡§µ‡§≤‡•ç‡§≤‡•Ä a b
 ‡§ö‡§æ‡§≤‡§®‡§Æ‡•ç f       a zero    = ‡§∏‡§Æ‡§æ‡§™‡•ç‡§§‡§É a (‡§µ‡§ø‡§∂‡•ç‡§∞‡§æ‡§Æ‡§É a)
@@ -255,10 +255,10 @@ private
           (‡§ö‡§æ‡§≤‡§®‡§Æ‡•ç f (suc n) (remainder a / suc n))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡∞‡‡Ø‡æ‡‡‡‡Æ‡ ‚î THE FUEL IS ENOUGH, which is what ¬ß3's bound is FOR.
+-- ‡•´ ¬∑ ‡§™‡§∞‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§Æ‡•ç ‚Äî THE FUEL IS ENOUGH, which is what ¬ß3's bound is FOR.
 --
--- With f ‚â b the bounded run always finishes.  So `b` is a BOUND ‚î a number
--- carrying a proof that it is never reached ‚î and not a GUESS, a number
+-- With f ‚â• b the bounded run always finishes.  So `b` is a BOUND ‚Äî a number
+-- carrying a proof that it is never reached ‚Äî and not a GUESS, a number
 -- carrying a hope.  That distinction is the whole difference between this
 -- and `machine/Nalanda.hs`'s `n > 400`.
 ------------------------------------------------------------------------
@@ -290,7 +290,7 @@ private
 ‡§∏‡•Ä‡§Æ‡§æ‡§Ø‡§æ‡§Ç-‡§∏‡§Æ‡§æ‡§™‡•ç‡§§‡§ø‡§É a b = ‡§™‡§∞‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§Æ‡•ç b a b ‚â§-refl
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡‡ ‚î THE BRIDGE.  A ‚ï vall IS a `Kuttaka.Run` over ‚.
+-- ‡•¨ ¬∑ ‡§∏‡•á‡§§‡•Å‡§É ‚Äî THE BRIDGE.  A ‚Ñï vallƒ´ IS a `Kuttaka.Run` over ‚Ñ§.
 --
 -- With it, every theorem in `Kuttaka.agda` loses its hypothesis: what was
 -- "given a run" becomes "for every pair of naturals".
@@ -328,11 +328,11 @@ private
               (‡§∏‡•á‡§§‡•Å‡§É (snd (‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§∏‡§Æ‡§æ‡§™‡•ç‡§§‡§ø‡§É a b)))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡-‡∞‡ø‡ï‡‡‡‡æ ‚î non-vacuity, at the stra's own numbers.
+-- ‡•≠ ¬∑ ‡§Ö-‡§∞‡§ø‡§ï‡•ç‡§§‡§§‡§æ ‚Äî non-vacuity, at the s≈´tra's own numbers.
 --
 -- AHIMSA_SUTRA_VISTARA ¬ß17 works the kuaka on (137, 60) and prints its
 -- vall: 2 3 1 1 8.  The kernel is asked for the same column, from
--- `‡ï‡‡ü‡‡ü‡ï-‡‡Æ‡æ‡‡‡‡ø‡` and not from a hand-built run, so this checks that the
+-- `‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§∏‡§Æ‡§æ‡§™‡•ç‡§§‡§ø‡§É` and not from a hand-built run, so this checks that the
 -- termination proof COMPUTES the algorithm rather than merely asserting a
 -- vall is out there somewhere.
 ------------------------------------------------------------------------

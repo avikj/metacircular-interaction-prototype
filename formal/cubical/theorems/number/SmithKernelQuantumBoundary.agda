@@ -7,12 +7,12 @@
 --
 -- For the compatible system
 --
---     2x = b‚,  2y = b‚  (mod 30),
+--     2x = b‚ÇÅ,  2y = b‚ÇÇ  (mod 30),
 --
 -- each scalar equation has a two-element homogeneous kernel, so the joint
--- solution fibre is (Z/2)¬≤.  We model that kernel by Bool ó Bool.  The map
+-- solution fibre is (Z/2)¬≤.  We model that kernel by Bool √ó Bool.  The map
 -- from a solution state to its retained output therefore needs a four-state
--- environment, in the precise type-level sense that Bool ó Bool embeds into
+-- environment, in the precise type-level sense that Bool √ó Bool embeds into
 -- every exact certificate alphabet.  The kernel coordinate itself attains
 -- the bound.
 --
@@ -26,7 +26,7 @@
 -- This module checks the four-state control and the alignment no-go.  The
 -- elementary general arithmetic formula
 --
---     |ker A| = gcd(d‚,m) gcd(d‚,m),  when U A V = diag(d‚,d‚),
+--     |ker A| = gcd(d‚ÇÅ,m) gcd(d‚ÇÇ,m),  when U A V = diag(d‚ÇÅ,d‚ÇÇ),
 --
 -- promoted here to a formal integer-matrix development.
 ------------------------------------------------------------------------

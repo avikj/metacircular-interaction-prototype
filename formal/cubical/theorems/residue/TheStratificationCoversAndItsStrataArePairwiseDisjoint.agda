@@ -4,8 +4,8 @@
 -- TheStratificationCoversAndItsStrataArePairwiseDisjoint
 --
 -- `OneStepCoverageAndDisjointnessOfTheLayer` proved the two output
--- properties of the DARWIN Â§5.2 stratification AT ONE STEP â” the layer
--- and the remainder cover the archive and do not overlap â” and closed
+-- properties of the DARWIN Â§5.2 stratification AT ONE STEP â€” the layer
+-- and the remainder cover the archive and do not overlap â€” and closed
 -- by naming the remainder of the line:
 --
 --   "the ITERATED coverage/disjointness (thread the one-step facts
@@ -15,16 +15,16 @@
 -- and the termination theorem is what turns the induction's leftover
 -- branch into nothing.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   MemSome v sss        v is a member of SOME list in sss
 --   filterDecSubset      a member of a filtered list was a member
 --   filterOutSubset      likewise for the complement
 --   strataSound          a member of ANY stratum of `strata n xs` was a
---                        member of xs â” the stratification invents
+--                        member of xs â€” the stratification invents
 --                        nothing
---   coverageStep         `Mem v xs â’ MemSome v (strata n xs) âŠ
+--   coverageStep         `Mem v xs â†’ MemSome v (strata n xs) âŠŽ
 --                         Mem v (leftover n xs)` for every fuel n
 --   theStratificationCovers
 --                        at fuel `lengthL xs` the leftover is empty
@@ -37,8 +37,8 @@
 --
 -- **THE TWO HALVES ARE NOT SYMMETRIC, and that is the content.**
 -- Coverage needs the MEASURE: the induction leaves a leftover at every
--- fuel, and only `theStratificationTerminates` â” proved separately,
--- for its own reasons â” kills it.  Disjointness needs NO measure: it
+-- fuel, and only `theStratificationTerminates` â€” proved separately,
+-- for its own reasons â€” kills it.  Disjointness needs NO measure: it
 -- holds at every fuel, including fuels too small to exhaust the
 -- archive, because it is inherited step by step from
 -- `layerIsDisjoint` plus `strataSound`.  So a truncated stratification
@@ -49,14 +49,14 @@
 -- ALL later strata is not a one-step fact, and becomes one only once
 -- every later stratum is known to sit inside the remainder.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  That iterated non-dominated sorting partitions its
 -- input is the property it is named for (Goldberg 1989; the
 -- fast-non-dominated-sort of Deb et al. 2002 is the standard
 -- reference).  What is here is only the checked version of it over
 -- this corpus's own `stratum`/`remainder`.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -156,7 +156,7 @@ coverageStep (suc n) (x âˆ· xs) v m with layerCovers (x âˆ· xs) v m
 ...   | inr l = inr l
 
 ------------------------------------------------------------------------
--- 4.  â¦and the measure removes the leftover
+-- 4.  â€¦and the measure removes the leftover
 ------------------------------------------------------------------------
 
 theStratificationCovers :
@@ -167,7 +167,7 @@ theStratificationCovers xs v m with coverageStep (lengthL xs) xs v m
 ... | inr l = âŠ¥.rec (subst (Mem v) (theStratificationTerminates xs) l)
 
 ------------------------------------------------------------------------
--- 5.  Pairwise disjointness â” no measure needed
+-- 5.  Pairwise disjointness â€” no measure needed
 ------------------------------------------------------------------------
 
 Disjoint : List (List â„•) â†’ List (List â„•) â†’ Type

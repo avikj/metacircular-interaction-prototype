@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������������ � without inverse.
+-- अप्रतिलोमम् — without inverse.
 --
 -- HEADER CORRECTED 2026-08-22, same day, by the driver: "no one overreached".
 -- The mathematics below is untouched and stands. What was WRONG is the framing
--- that follows � this file does NOT correct anyone. The ����������� descent wrote
+-- that follows — this file does NOT correct anyone. The स्वतन्तुवास descent wrote
 -- "No Lagrangian, no variation, no current" in the same breath as the sentence
 -- quoted below, which IS the fence; it never claimed Noether transfers. The
 -- "reading attached to it" was manufactured by me out of a corrupted, line-
@@ -15,18 +15,18 @@
 -- A written defect, standing where it can be
 -- read, against a claim made in this corpus and not against its author.
 --
--- WHAT IS BEING CORRECTED.  ����������� (YogaKsetra / SvaTantuVasa lane) proves,
+-- WHAT IS BEING CORRECTED.  स्वतन्तुवास (YogaKsetra / SvaTantuVasa lane) proves,
 -- with no hypothesis on anything,
 --
---     (�[ Φ ∈ A � A ] ((a : A) � f (Φ a) ≡ f a))  �  ((a : A) � fiber f (f a))
+--     (Σ[ Φ ∈ A → A ] ((a : A) → f (Φ a) ≡ f a))  ≃  ((a : A) → fiber f (f a))
 --
--- � the conserving flows of an observation are the sections of its own fibre
--- family.  That is exact, and it is � for � and Π: both round trips are `refl`,
+-- — the conserving flows of an observation are the sections of its own fibre
+-- family.  That is exact, and it is η for Σ and Π: both round trips are `refl`,
 -- no funext, no h-level, any universes.  Independently re-checked here before
 -- this file was written.
 --
--- The reading attached to it � that this DISSOLVES Noether's theorem, "the
--- deepest law in physics is a rearrangement of quantifiers" � does not hold,
+-- The reading attached to it — that this DISSOLVES Noether's theorem, "the
+-- deepest law in physics is a rearrangement of quantifiers" — does not hold,
 -- and the fence was already placed inside this corpus.  `Dhruva`'s own header:
 --
 --     "Noether's first theorem needs continuous dynamics and a variational
@@ -37,14 +37,14 @@
 -- quantity is conserved ALONG TRAJECTORIES, and nothing here moves.  (ii) No
 -- variational structure: Noether needs an action the symmetry preserves up to a
 -- divergence; `f` is an arbitrary map with no functional attached.  (iii) No
--- group � and (iii) is what this module makes a term rather than an opinion.
+-- group — and (iii) is what this module makes a term rather than an opinion.
 --
 -- THE WITNESS.  Noether's first theorem concerns a Lie GROUP acting on an
--- action.  `�[ Φ ] ���������� f Φ` is only a MONOID: it is closed under
+-- action.  `Σ[ Φ ] संरक्षणम् f Φ` is only a MONOID: it is closed under
 -- composition and contains the identity, but its elements need not be
 -- invertible.  Below, `crush` conserves `blind` on the nose while being
 -- neither injective nor surjective, so it lies in no one-parameter family and
--- has no inverse.  A structure containing `λ _ � zero` is not symmetry.
+-- has no inverse.  A structure containing `λ _ → zero` is not symmetry.
 --
 -- WHAT SURVIVES, and it is the stronger half: the conserving-flow space of an
 -- observation IS its fibre census, pointwise, unconditionally.  "How much
@@ -55,8 +55,8 @@
 -- this (monoid) invariance, so the undecided queue measures uncounted
 -- invariance and not merely uncounted structure.
 --
--- No source is claimed for any of the mathematics; ���������� is ordinary
---  (���������, inverse/reverse, is LosslessReturn's own word for the
+-- No source is claimed for any of the mathematics; अप्रतिलोम is ordinary
+-- Sanskrit (प्रतिलोम, inverse/reverse, is LosslessReturn's own word for the
 -- ascent), and the compound is built here, 2026-08-22.
 ------------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Unit using (Unit ; tt)
 
 ------------------------------------------------------------------------
--- � � The result being confirmed, restated and re-checked here.
+-- १ · The result being confirmed, restated and re-checked here.
 ------------------------------------------------------------------------
 
 module _ {ℓ ℓ'} {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
@@ -90,7 +90,7 @@ module _ {ℓ ℓ'} {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
   संहति : ((a : A) → तन्तु (f a)) → प्रवाह
   संहति s = (λ a → fst (s a)) , (λ a → snd (s a))
 
-  -- both round trips are refl: � for � and Π, no funext, no h-level
+  -- both round trips are refl: η for Σ and Π, no funext, no h-level
   छेद-संहति : (s : (a : A) → तन्तु (f a)) → छेद (संहति s) ≡ s
   छेद-संहति s = refl
 
@@ -101,7 +101,7 @@ module _ {ℓ ℓ'} {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
   स्वतन्तु = isoToEquiv (iso छेद संहति छेद-संहति संहति-छेद)
 
 ------------------------------------------------------------------------
--- � � ������ is a MONOID: identity and composition, no inverses claimed.
+-- २ · प्रवाह is a MONOID: identity and composition, no inverses claimed.
 ------------------------------------------------------------------------
 
 module _ {ℓ ℓ'} {A : Type ℓ} {B : Type ℓ'} {f : A → B} where
@@ -113,7 +113,7 @@ module _ {ℓ ℓ'} {A : Type ℓ} {B : Type ℓ'} {f : A → B} where
   (Φ , c) ∘प्र (Ψ , d) = (λ a → Φ (Ψ a)) , (λ a → c (Ψ a) ∙ d a)
 
 ------------------------------------------------------------------------
--- � � The witness: a conserving flow with no inverse.
+-- ३ · The witness: a conserving flow with no inverse.
 ------------------------------------------------------------------------
 
 अन्ध : ℕ → Unit          -- the maximally blind observation
@@ -130,6 +130,6 @@ module _ {ℓ ℓ'} {A : Type ℓ} {B : Type ℓ'} {f : A → B} where
 अप्रतिलोमः : प्रवाह अन्ध
 अप्रतिलोमः = चूर्ण , चूर्ण-संरक्षति
 
--- and it is genuinely not the identity: ����� 1 ≡ 0 while (λ a � a) 1 ≡ 1
+-- and it is genuinely not the identity: चूर्ण 1 ≡ 0 while (λ a → a) 1 ≡ 1
 न-एकः : चूर्ण (suc zero) ≡ zero
 न-एकः = refl

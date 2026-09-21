@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ààà°à¿à•à‹à â” the triangle.
+-- à¤¤à¥à¤°à¤¿à¤•à¥‹à¤£ â€” the triangle.
 --
 -- The all-orders family of exact NS solutions of handoff Â§14 ([S02]):
---     u = (0, a, Âv),   a = a(xâ,t),   v = v(xâ,xâ,t),   p = 0.
+--     u = (0, a, Â±v),   a = a(xâ‚,t),   v = v(xâ‚,xâ‚‚,t),   p = 0.
 -- Over a commutative ring with three derivations and the ansatz
--- hypotheses  âˆâa = âˆâa = 0,  âˆâv = 0,  the checked facts are
+-- hypotheses  âˆ‚â‚‚a = âˆ‚â‚ƒa = 0,  âˆ‚â‚ƒv = 0,  the checked facts are
 --
---   à§  the convective term collapses:  (uÂâˆ)u = (0, 0, a âˆâv);
---   à¨  it is divergence-free, so p = 0 is consistent:  div((uÂâˆ)u) = 0;
---   à©  u is divergence-free:  div u = 0;
---   à  the velocity gradient is strictly lower triangular, so
---      (âˆu)Â³ = 0,  tr(âˆu)Â² = 0,  tr(âˆu)Â³ = 0:  the invariants
---      Q_inv = âˆ’Â½tr(âˆu)Â² and R_inv = âˆ’â“tr(âˆu)Â³ vanish identically;
---   à  the component equations:  a_t = Î½Î”a  and  v_t + aâˆâv = Î½Î”v  are
+--   à¥§  the convective term collapses:  (uÂ·âˆ‡)u = (0, 0, a âˆ‚â‚‚v);
+--   à¥¨  it is divergence-free, so p = 0 is consistent:  div((uÂ·âˆ‡)u) = 0;
+--   à¥©  u is divergence-free:  div u = 0;
+--   à¥ª  the velocity gradient is strictly lower triangular, so
+--      (âˆ‡u)Â³ = 0,  tr(âˆ‡u)Â² = 0,  tr(âˆ‡u)Â³ = 0:  the invariants
+--      Q_inv = âˆ’Â½tr(âˆ‡u)Â² and R_inv = âˆ’â…“tr(âˆ‡u)Â³ vanish identically;
+--   à¥«  the component equations:  a_t = Î½Î”a  and  v_t + aâˆ‚â‚‚v = Î½Î”v  are
 --      exactly the second and third components of NS with p = 0.
 -- The linear coefficient system, its path counting and the I_m bound
 -- are the analytic continuation of this algebra.
@@ -22,176 +22,176 @@ module M21 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â• ; zero ; suc)
-open import Cubical.Data.Sigma using (_—_ ; _,_)
+open import Cubical.Data.Nat using (â„• ; zero ; suc)
+open import Cubical.Data.Sigma using (_Ã—_ ; _,_)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
-    â“ : Level
+    â„“ : Level
 
 ------------------------------------------------------------------------
-module _ (R : CommRing â“) where
+module _ (R : CommRing â„“) where
   open CommRingStr (snd R)
 
   private
     A = âŸ¨ R âŸ©
 
-  V3 : Type â“
-  V3 = A — A — A
+  V3 : Type â„“
+  V3 = A Ã— A Ã— A
 
-  -- a derivation kills 0:  âˆ0 = âˆ(0Â0) = âˆ0Â0 + 0Ââˆ0 = 0
+  -- a derivation kills 0:  âˆ‚0 = âˆ‚(0Â·0) = âˆ‚0Â·0 + 0Â·âˆ‚0 = 0
   private
-    leib-zero : (âˆ : A â’ A) â’ ((x y : A) â’ âˆ (x Â y) â‰¡ âˆ x Â y + x Â âˆ y) â’ âˆ 0r â‰¡ 0r
-    leib-zero âˆ leib = cong âˆ (sym (zeroÂ 0r)) âˆ™ leib 0r 0r âˆ™ shape (âˆ 0r)
+    leib-zero : (âˆ‚ : A â†’ A) â†’ ((x y : A) â†’ âˆ‚ (x Â· y) â‰¡ âˆ‚ x Â· y + x Â· âˆ‚ y) â†’ âˆ‚ 0r â‰¡ 0r
+    leib-zero âˆ‚ leib = cong âˆ‚ (sym (zeroÂ· 0r)) âˆ™ leib 0r 0r âˆ™ shape (âˆ‚ 0r)
       where
-        zeroÂ : (x : A) â’ 0r Â x â‰¡ 0r
-        zeroÂ x = solve! R
-        shape : (d : A) â’ d Â 0r + 0r Â d â‰¡ 0r
+        zeroÂ· : (x : A) â†’ 0r Â· x â‰¡ 0r
+        zeroÂ· x = solve! R
+        shape : (d : A) â†’ d Â· 0r + 0r Â· d â‰¡ 0r
         shape d = solve! R
 
-  module _ (âˆâ âˆâ âˆâ D : A â’ A)
-           (âˆâ-leib : (x y : A) â’ âˆâ (x Â y) â‰¡ âˆâ x Â y + x Â âˆâ y)
-           (âˆâ-leib : (x y : A) â’ âˆâ (x Â y) â‰¡ âˆâ x Â y + x Â âˆâ y)
-           (âˆâ-leib : (x y : A) â’ âˆâ (x Â y) â‰¡ âˆâ x Â y + x Â âˆâ y)
-           (D-leib  : (x y : A) â’ D (x Â y) â‰¡ D x Â y + x Â D y)
-           (commââ : (x : A) â’ âˆâ (âˆâ x) â‰¡ âˆâ (âˆâ x))
+  module _ (âˆ‚â‚ âˆ‚â‚‚ âˆ‚â‚ƒ D : A â†’ A)
+           (âˆ‚â‚-leib : (x y : A) â†’ âˆ‚â‚ (x Â· y) â‰¡ âˆ‚â‚ x Â· y + x Â· âˆ‚â‚ y)
+           (âˆ‚â‚‚-leib : (x y : A) â†’ âˆ‚â‚‚ (x Â· y) â‰¡ âˆ‚â‚‚ x Â· y + x Â· âˆ‚â‚‚ y)
+           (âˆ‚â‚ƒ-leib : (x y : A) â†’ âˆ‚â‚ƒ (x Â· y) â‰¡ âˆ‚â‚ƒ x Â· y + x Â· âˆ‚â‚ƒ y)
+           (D-leib  : (x y : A) â†’ D (x Â· y) â‰¡ D x Â· y + x Â· D y)
+           (commâ‚‚â‚ƒ : (x : A) â†’ âˆ‚â‚ƒ (âˆ‚â‚‚ x) â‰¡ âˆ‚â‚‚ (âˆ‚â‚ƒ x))
            (a v Î½ : A)
-           (âˆâa : âˆâ a â‰¡ 0r) (âˆâa : âˆâ a â‰¡ 0r) (âˆâv : âˆâ v â‰¡ 0r)
+           (âˆ‚â‚‚a : âˆ‚â‚‚ a â‰¡ 0r) (âˆ‚â‚ƒa : âˆ‚â‚ƒ a â‰¡ 0r) (âˆ‚â‚ƒv : âˆ‚â‚ƒ v â‰¡ 0r)
            where
 
     private
-      âˆâ0 = leib-zero âˆâ âˆâ-leib
-      âˆâ0 = leib-zero âˆâ âˆâ-leib
-      âˆâ0 = leib-zero âˆâ âˆâ-leib
+      âˆ‚â‚0 = leib-zero âˆ‚â‚ âˆ‚â‚-leib
+      âˆ‚â‚‚0 = leib-zero âˆ‚â‚‚ âˆ‚â‚‚-leib
+      âˆ‚â‚ƒ0 = leib-zero âˆ‚â‚ƒ âˆ‚â‚ƒ-leib
       D0  = leib-zero D D-leib
 
     u : V3
     u = (0r , a , v)
 
-    -- (uÂâˆ) applied to a scalar
-    advect : A â’ A
-    advect f = (0r Â âˆâ f + a Â âˆâ f) + v Â âˆâ f
+    -- (uÂ·âˆ‡) applied to a scalar
+    advect : A â†’ A
+    advect f = (0r Â· âˆ‚â‚ f + a Â· âˆ‚â‚‚ f) + v Â· âˆ‚â‚ƒ f
 
-    -- (uÂâˆ)u componentwise
+    -- (uÂ·âˆ‡)u componentwise
     convective : V3
     convective = advect 0r , advect a , advect v
 
     ----------------------------------------------------------------
-    -- à§ Â the convective term collapses to (0, 0, a âˆâv)
+    -- à¥§ Â· the convective term collapses to (0, 0, a âˆ‚â‚‚v)
     ----------------------------------------------------------------
     private
-      câ : advect 0r â‰¡ 0r
-      câ = congâ (Î» w w' â’ (0r Â âˆâ 0r + a Â w) + v Â w') âˆâ0 âˆâ0 âˆ™ shape (âˆâ 0r)
-        where shape : (p : A) â’ (0r Â p + a Â 0r) + v Â 0r â‰¡ 0r
+      câ‚ : advect 0r â‰¡ 0r
+      câ‚ = congâ‚‚ (Î» w w' â†’ (0r Â· âˆ‚â‚ 0r + a Â· w) + v Â· w') âˆ‚â‚‚0 âˆ‚â‚ƒ0 âˆ™ shape (âˆ‚â‚ 0r)
+        where shape : (p : A) â†’ (0r Â· p + a Â· 0r) + v Â· 0r â‰¡ 0r
               shape p = solve! R
-      câ : advect a â‰¡ 0r
-      câ = congâ (Î» w w' â’ (0r Â âˆâ a + a Â w) + v Â w') âˆâa âˆâa âˆ™ shape (âˆâ a)
-        where shape : (p : A) â’ (0r Â p + a Â 0r) + v Â 0r â‰¡ 0r
+      câ‚‚ : advect a â‰¡ 0r
+      câ‚‚ = congâ‚‚ (Î» w w' â†’ (0r Â· âˆ‚â‚ a + a Â· w) + v Â· w') âˆ‚â‚‚a âˆ‚â‚ƒa âˆ™ shape (âˆ‚â‚ a)
+        where shape : (p : A) â†’ (0r Â· p + a Â· 0r) + v Â· 0r â‰¡ 0r
               shape p = solve! R
-      câ : advect v â‰¡ a Â âˆâ v
-      câ = cong (Î» w â’ (0r Â âˆâ v + a Â âˆâ v) + v Â w) âˆâv âˆ™ shape (âˆâ v) (âˆâ v)
-        where shape : (p q : A) â’ (0r Â p + a Â q) + v Â 0r â‰¡ a Â q
+      câ‚ƒ : advect v â‰¡ a Â· âˆ‚â‚‚ v
+      câ‚ƒ = cong (Î» w â†’ (0r Â· âˆ‚â‚ v + a Â· âˆ‚â‚‚ v) + v Â· w) âˆ‚â‚ƒv âˆ™ shape (âˆ‚â‚ v) (âˆ‚â‚‚ v)
+        where shape : (p q : A) â†’ (0r Â· p + a Â· q) + v Â· 0r â‰¡ a Â· q
               shape p q = solve! R
 
-    convective-collapses : convective â‰¡ (0r , 0r , v Â âˆâ a)
-    convective-collapses = Î» t â’ (câ t , câ t , câ t)
+    convective-collapses : convective â‰¡ (0r , 0r , v Â· âˆ‚â‚‚ a)
+    convective-collapses = Î» t â†’ (câ‚ t , câ‚‚ t , câ‚ƒ t)
 
     ----------------------------------------------------------------
-    -- à¨ Â the convective term is divergence-free, so p = 0 is consistent
+    -- à¥¨ Â· the convective term is divergence-free, so p = 0 is consistent
     ----------------------------------------------------------------
-    div : V3 â’ A
-    div (fâ , fâ , fâ) = (âˆâ fâ + âˆâ fâ) + âˆâ fâ
+    div : V3 â†’ A
+    div (fâ‚ , fâ‚‚ , fâ‚ƒ) = (âˆ‚â‚ fâ‚ + âˆ‚â‚‚ fâ‚‚) + âˆ‚â‚ƒ fâ‚ƒ
 
     convective-is-divergence-free : div convective â‰¡ 0r
     convective-is-divergence-free =
         cong div convective-collapses
-      âˆ™ congâ _+_ (congâ _+_ âˆâ0 âˆâ0) (âˆâ-leib a (âˆâ v) âˆ™ congâ _+_ (cong (_Â âˆâ v) âˆâa) (cong (a Â_) (commââ v âˆ™ cong âˆâ âˆâv âˆ™ âˆâ0)))
-      âˆ™ shape (âˆâ v)
-      where shape : (q : A) â’ (0r + 0r) + (0r Â q + a Â 0r) â‰¡ 0r
+      âˆ™ congâ‚‚ _+_ (congâ‚‚ _+_ âˆ‚â‚0 âˆ‚â‚‚0) (âˆ‚â‚ƒ-leib a (âˆ‚â‚‚ v) âˆ™ congâ‚‚ _+_ (cong (_Â· âˆ‚â‚‚ v) âˆ‚â‚ƒa) (cong (a Â·_) (commâ‚‚â‚ƒ v âˆ™ cong âˆ‚â‚‚ âˆ‚â‚ƒv âˆ™ âˆ‚â‚‚0)))
+      âˆ™ shape (âˆ‚â‚‚ v)
+      where shape : (q : A) â†’ (0r + 0r) + (0r Â· q + a Â· 0r) â‰¡ 0r
             shape q = solve! R
 
     ----------------------------------------------------------------
-    -- à© Â u itself is divergence-free
+    -- à¥© Â· u itself is divergence-free
     ----------------------------------------------------------------
     u-is-divergence-free : div u â‰¡ 0r
-    u-is-divergence-free = congâ _+_ (congâ _+_ âˆâ0 âˆâa) âˆâv âˆ™ shape
+    u-is-divergence-free = congâ‚‚ _+_ (congâ‚‚ _+_ âˆ‚â‚0 âˆ‚â‚‚a) âˆ‚â‚ƒv âˆ™ shape
       where shape : (0r + 0r) + 0r â‰¡ 0r
             shape = solve! R
 
     ----------------------------------------------------------------
-    -- à Â the component equations with p = 0
+    -- à¥« Â· the component equations with p = 0
     ----------------------------------------------------------------
-    Î” : A â’ A
-    Î” f = (âˆâ (âˆâ f) + âˆâ (âˆâ f)) + âˆâ (âˆâ f)
+    Î” : A â†’ A
+    Î” f = (âˆ‚â‚ (âˆ‚â‚ f) + âˆ‚â‚‚ (âˆ‚â‚‚ f)) + âˆ‚â‚ƒ (âˆ‚â‚ƒ f)
 
-    -- NS residual, componentwise:  âˆâuµ + (uÂâˆ)uµ âˆ’ Î½Î”uµ  (pressure 0)
-    NSâ NSâ NSâ : A
-    NSâ = (D 0r + advect 0r) + (- (Î½ Â Î” 0r))
-    NSâ = (D a + advect a) + (- (Î½ Â Î” a))
-    NSâ = (D v + advect v) + (- (Î½ Â Î” v))
+    -- NS residual, componentwise:  âˆ‚â‚œuáµ¢ + (uÂ·âˆ‡)uáµ¢ âˆ’ Î½Î”uáµ¢  (pressure 0)
+    NSâ‚ NSâ‚‚ NSâ‚ƒ : A
+    NSâ‚ = (D 0r + advect 0r) + (- (Î½ Â· Î” 0r))
+    NSâ‚‚ = (D a + advect a) + (- (Î½ Â· Î” a))
+    NSâ‚ƒ = (D v + advect v) + (- (Î½ Â· Î” v))
 
     private
       Î”0 : Î” 0r â‰¡ 0r
-      Î”0 = congâ _+_ (congâ _+_ (cong âˆâ âˆâ0 âˆ™ âˆâ0) (cong âˆâ âˆâ0 âˆ™ âˆâ0)) (cong âˆâ âˆâ0 âˆ™ âˆâ0) âˆ™ shape
+      Î”0 = congâ‚‚ _+_ (congâ‚‚ _+_ (cong âˆ‚â‚ âˆ‚â‚0 âˆ™ âˆ‚â‚0) (cong âˆ‚â‚‚ âˆ‚â‚‚0 âˆ™ âˆ‚â‚‚0)) (cong âˆ‚â‚ƒ âˆ‚â‚ƒ0 âˆ™ âˆ‚â‚ƒ0) âˆ™ shape
         where shape : (0r + 0r) + 0r â‰¡ 0r
               shape = solve! R
 
-    first-component-is-trivial : NSâ â‰¡ 0r
-    first-component-is-trivial = congâ (Î» w w' â’ (w + advect 0r) + (- (Î½ Â w'))) D0 Î”0 âˆ™ cong (Î» w â’ (0r + w) + (- (Î½ Â 0r))) câ âˆ™ shape
-      where shape : (0r + 0r) + (- (Î½ Â 0r)) â‰¡ 0r
+    first-component-is-trivial : NSâ‚ â‰¡ 0r
+    first-component-is-trivial = congâ‚‚ (Î» w w' â†’ (w + advect 0r) + (- (Î½ Â· w'))) D0 Î”0 âˆ™ cong (Î» w â†’ (0r + w) + (- (Î½ Â· 0r))) câ‚ âˆ™ shape
+      where shape : (0r + 0r) + (- (Î½ Â· 0r)) â‰¡ 0r
             shape = solve! R
 
-    second-component-is-heat : NSâ â‰¡ D a + (- (Î½ Â Î” a))
-    second-component-is-heat = cong (Î» w â’ (D a + w) + (- (Î½ Â Î” a))) câ âˆ™ cong (_+ (- (Î½ Â Î” a))) (+IdR (D a))
+    second-component-is-heat : NSâ‚‚ â‰¡ D a + (- (Î½ Â· Î” a))
+    second-component-is-heat = cong (Î» w â†’ (D a + w) + (- (Î½ Â· Î” a))) câ‚‚ âˆ™ cong (_+ (- (Î½ Â· Î” a))) (+IdR (D a))
 
-    third-component-is-advected-heat : NSâ â‰¡ (D v + a Â âˆâ v) + (- (Î½ Â Î” v))
-    third-component-is-advected-heat = cong (Î» w â’ (D v + w) + (- (Î½ Â Î” v))) câ
+    third-component-is-advected-heat : NSâ‚ƒ â‰¡ (D v + a Â· âˆ‚â‚‚ v) + (- (Î½ Â· Î” v))
+    third-component-is-advected-heat = cong (Î» w â†’ (D v + w) + (- (Î½ Â· Î” v))) câ‚ƒ
 
   ----------------------------------------------------------------
-  -- à Â a strictly lower-triangular 3—3 gradient is nilpotent and
+  -- à¥ª Â· a strictly lower-triangular 3Ã—3 gradient is nilpotent and
   --     both velocity-gradient invariants vanish
   ----------------------------------------------------------------
-  -- âˆu = [[0,0,0],[p,0,0],[q,r,0]]  with  p = âˆâa, q = âˆâv, r = âˆâv
+  -- âˆ‡u = [[0,0,0],[p,0,0],[q,r,0]]  with  p = âˆ‚â‚a, q = âˆ‚â‚v, r = âˆ‚â‚‚v
   module _ (p q r : A) where
     -- entries of MÂ² and MÂ³, computed
-    MÂ² : A — A — A — A — A — A — A — A — A
-    MÂ² = (0r Â 0r + 0r Â p + 0r Â q) , (0r Â 0r + 0r Â 0r + 0r Â r) , (0r Â 0r + 0r Â 0r + 0r Â 0r)
-       , (p Â 0r + 0r Â p + 0r Â q) , (p Â 0r + 0r Â 0r + 0r Â r) , (p Â 0r + 0r Â 0r + 0r Â 0r)
-       , (q Â 0r + r Â p + 0r Â q) , (q Â 0r + r Â 0r + 0r Â r) , (q Â 0r + r Â 0r + 0r Â 0r)
+    MÂ² : A Ã— A Ã— A Ã— A Ã— A Ã— A Ã— A Ã— A Ã— A
+    MÂ² = (0r Â· 0r + 0r Â· p + 0r Â· q) , (0r Â· 0r + 0r Â· 0r + 0r Â· r) , (0r Â· 0r + 0r Â· 0r + 0r Â· 0r)
+       , (p Â· 0r + 0r Â· p + 0r Â· q) , (p Â· 0r + 0r Â· 0r + 0r Â· r) , (p Â· 0r + 0r Â· 0r + 0r Â· 0r)
+       , (q Â· 0r + r Â· p + 0r Â· q) , (q Â· 0r + r Â· 0r + 0r Â· r) , (q Â· 0r + r Â· 0r + 0r Â· 0r)
 
     -- tr MÂ² = 0
-    Q-invariant-vanishes : (0r Â 0r + 0r Â p + 0r Â q) + (p Â 0r + 0r Â 0r + 0r Â r) + (q Â 0r + r Â 0r + 0r Â 0r) â‰¡ 0r
+    Q-invariant-vanishes : (0r Â· 0r + 0r Â· p + 0r Â· q) + (p Â· 0r + 0r Â· 0r + 0r Â· r) + (q Â· 0r + r Â· 0r + 0r Â· 0r) â‰¡ 0r
     Q-invariant-vanishes = solve! R
 
-    -- the only nonzero entry of MÂ² is (3,1) = rÂp
-    square-is-one-corner : MÂ² â‰¡ (0r , 0r , 0r , 0r , 0r , 0r , r Â p , 0r , 0r)
-    square-is-one-corner = Î» t â’ (eâ t , eâ t , eâ t , eâ t , eâ t , eâ t , eâ t , eâˆ t , eâ‰ t)
+    -- the only nonzero entry of MÂ² is (3,1) = rÂ·p
+    square-is-one-corner : MÂ² â‰¡ (0r , 0r , 0r , 0r , 0r , 0r , r Â· p , 0r , 0r)
+    square-is-one-corner = Î» t â†’ (eâ‚ t , eâ‚‚ t , eâ‚ƒ t , eâ‚„ t , eâ‚… t , eâ‚† t , eâ‚‡ t , eâ‚ˆ t , eâ‚‰ t)
       where
-        eâ : 0r Â 0r + 0r Â p + 0r Â q â‰¡ 0r
-        eâ = solve! R
-        eâ : 0r Â 0r + 0r Â 0r + 0r Â r â‰¡ 0r
-        eâ = solve! R
-        eâ : 0r Â 0r + 0r Â 0r + 0r Â 0r â‰¡ 0r
-        eâ = solve! R
-        eâ : p Â 0r + 0r Â p + 0r Â q â‰¡ 0r
-        eâ = solve! R
-        eâ : p Â 0r + 0r Â 0r + 0r Â r â‰¡ 0r
-        eâ = solve! R
-        eâ : p Â 0r + 0r Â 0r + 0r Â 0r â‰¡ 0r
-        eâ = solve! R
-        eâ : q Â 0r + r Â p + 0r Â q â‰¡ r Â p
-        eâ = solve! R
-        eâˆ : q Â 0r + r Â 0r + 0r Â r â‰¡ 0r
-        eâˆ = solve! R
-        eâ‰ : q Â 0r + r Â 0r + 0r Â 0r â‰¡ 0r
-        eâ‰ = solve! R
+        eâ‚ : 0r Â· 0r + 0r Â· p + 0r Â· q â‰¡ 0r
+        eâ‚ = solve! R
+        eâ‚‚ : 0r Â· 0r + 0r Â· 0r + 0r Â· r â‰¡ 0r
+        eâ‚‚ = solve! R
+        eâ‚ƒ : 0r Â· 0r + 0r Â· 0r + 0r Â· 0r â‰¡ 0r
+        eâ‚ƒ = solve! R
+        eâ‚„ : p Â· 0r + 0r Â· p + 0r Â· q â‰¡ 0r
+        eâ‚„ = solve! R
+        eâ‚… : p Â· 0r + 0r Â· 0r + 0r Â· r â‰¡ 0r
+        eâ‚… = solve! R
+        eâ‚† : p Â· 0r + 0r Â· 0r + 0r Â· 0r â‰¡ 0r
+        eâ‚† = solve! R
+        eâ‚‡ : q Â· 0r + r Â· p + 0r Â· q â‰¡ r Â· p
+        eâ‚‡ = solve! R
+        eâ‚ˆ : q Â· 0r + r Â· 0r + 0r Â· r â‰¡ 0r
+        eâ‚ˆ = solve! R
+        eâ‚‰ : q Â· 0r + r Â· 0r + 0r Â· 0r â‰¡ 0r
+        eâ‚‰ = solve! R
 
-    -- MÂ³ = M Â MÂ²:  every entry is a product with a zero row of MÂ² except through (3,1),
+    -- MÂ³ = M Â· MÂ²:  every entry is a product with a zero row of MÂ² except through (3,1),
     -- which M's third column (all zero) kills:  tr MÂ³ = 0 and MÂ³ = 0
-    R-invariant-vanishes : (0r Â 0r + 0r Â 0r + 0r Â (r Â p)) + (p Â 0r + 0r Â 0r + 0r Â 0r) + (q Â 0r + r Â 0r + 0r Â 0r) â‰¡ 0r
+    R-invariant-vanishes : (0r Â· 0r + 0r Â· 0r + 0r Â· (r Â· p)) + (p Â· 0r + 0r Â· 0r + 0r Â· 0r) + (q Â· 0r + r Â· 0r + 0r Â· 0r) â‰¡ 0r
     R-invariant-vanishes = solve! R
 
-    cube-vanishes : (0r Â 0r + 0r Â 0r + 0r Â (r Â p)) + (p Â 0r + 0r Â 0r + 0r Â (r Â p)) + (q Â 0r + r Â 0r + 0r Â (r Â p)) â‰¡ 0r
+    cube-vanishes : (0r Â· 0r + 0r Â· 0r + 0r Â· (r Â· p)) + (p Â· 0r + 0r Â· 0r + 0r Â· (r Â· p)) + (q Â· 0r + r Â· 0r + 0r Â· (r Â· p)) â‰¡ 0r
     cube-vanishes = solve! R

@@ -4,7 +4,7 @@
 -- NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAll
 --                     SoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
 --
--- TERM.  ‡‡‡ ¬ ea -- the remainder that is KEPT and made the material of
+-- TERM.  ‡§∂‡•á‡§∑ ¬∑ ≈õe·π£a -- the remainder that is KEPT and made the material of
 -- the next step, rather than discarded.  ryabhaa, *ryabhaya*,
 -- Gaitapda 32-33 (499), as the kuaka's governing move.
 --
@@ -16,17 +16,17 @@
 -- forward it is the remainder or it is nothing.
 --
 ------------------------------------------------------------------------
--- COMPANION TO `Vyapti_‚¶`, AND THE SHARPER HALF.
+-- COMPANION TO `Vyapti_‚Ä¶`, AND THE SHARPER HALF.
 --
--- `Vyapti_‚¶` read `NativeOperation.control-sound` and found the kernel
+-- `Vyapti_‚Ä¶` read `NativeOperation.control-sound` and found the kernel
 -- cannot generalise.  This module reads the other soundness field --
 -- `RewriteCertificate.derivation-sound` -- and finds something that no
 -- schema repairs, because it is not a defect:
 --
---     derivation-sound : Derivation a b ‚í (œ : Env) ‚í eval a œ ‚â° eval b œ
+--     derivation-sound : Derivation a b ‚Üí (œÅ : Env) ‚Üí eval a œÅ ‚â° eval b œÅ
 --
--- `eval` lands in ‚ï.  ‚ï is a set.  So the codomain of that map is, at every
--- œ, a PROPOSITION (¬ß1).  A map into a proposition transmits at most one
+-- `eval` lands in ‚Ñï.  ‚Ñï is a set.  So the codomain of that map is, at every
+-- œÅ, a PROPOSITION (¬ß1).  A map into a proposition transmits at most one
 -- bit, and here the bit is already fixed by the type's being inhabited.
 --
 --     THEREFORE A DERIVATION CARRIES NO SEMANTIC INFORMATION WHATSOEVER.
@@ -40,25 +40,25 @@
 -- semantics cannot see.
 --
 --   ¬ß1  meaning-is-a-proposition, soundness-factors-through-truncation
---       The soundness of a derivation depends only on ‚à Derivation a b ‚à‚ --
+--       The soundness of a derivation depends only on ‚à• Derivation a b ‚à•‚ÇÅ --
 --       on THAT one exists, never on WHICH.  The factoring is exhibited and
 --       the triangle commutes by `refl`.
 --
 --   ¬ß2  derivations-are-not-a-proposition
 --       And the truncation is strict, on the kernel's OWN pair: the direct
 --       and detour histories of `GenerativeKernel` are distinct elements of
---       one `Derivation seed target‚`, separated by step count (2 against 4).
+--       one `Derivation seed target‚ÇÄ`, separated by step count (2 against 4).
 --       So the kernel's proof-relevance is real, not formal.
 --
 --   ¬ß3  cost-does-not-factor
 --       `len` -- lghava, the step count -- does NOT factor through the
---       truncation.  A g on ‚à¬‚à‚ agreeing with `len` would have to equate
---       2 and 4, because `squash‚` identifies the two histories upstairs.
+--       truncation.  A g on ‚à•¬∑‚à•‚ÇÅ agreeing with `len` would have to equate
+--       2 and 4, because `squash‚ÇÅ` identifies the two histories upstairs.
 --       So cost is not a function of meaning.  Sharp, on named terms.
 --
 --   ¬ß4  every-semantic-criterion-is-blind
 --       The general form, and the reason ¬ß3 is not about `len` in
---       particular: for ANY C and ANY œ from the meaning to C, œ agrees on
+--       particular: for ANY C and ANY œÜ from the meaning to C, œÜ agrees on
 --       the cheap and the expensive derivation.  No semantic criterion --
 --       none, at any h-level, of any complexity -- selects the short proof.
 --       Selection must be extra-semantic or it does not exist.
@@ -102,7 +102,7 @@ private
 -- ¬ß1.  THE MEANING IS ONE BIT, AND SOUNDNESS FACTORS THROUGH ITS EXISTENCE.
 ------------------------------------------------------------------------
 
--- Because ‚ï is a set, the type a derivation's soundness lands in is a
+-- Because ‚Ñï is a set, the type a derivation's soundness lands in is a
 -- proposition.  Everything else in this module is downstream of this line.
 meaning-is-a-proposition :
   (a b : Tm) (œÅ : Env) ‚Üí isProp (eval a œÅ ‚â° eval b œÅ)
@@ -157,7 +157,7 @@ derivations-are-not-a-proposition ip = direct‚â¢detour (ip direct-history detour
 ------------------------------------------------------------------------
 -- ¬ß3.  COST IS NOT A FUNCTION OF MEANING.
 --
--- `squash‚` identifies the two histories in the truncation, so anything
+-- `squash‚ÇÅ` identifies the two histories in the truncation, so anything
 -- defined downstream of the truncation must give them the same cost.  `len`
 -- gives 2 and 4.  Hence no such definition exists.
 ------------------------------------------------------------------------
@@ -173,9 +173,9 @@ cost-does-not-factor (g , agrees) =
     ‚àô agrees detour-history )
 
 ------------------------------------------------------------------------
--- ¬ß4.  THE GENERAL NO-GO.  ¬ß3 is not about `len`, and not about ‚ï.
+-- ¬ß4.  THE GENERAL NO-GO.  ¬ß3 is not about `len`, and not about ‚Ñï.
 --
--- Take ANY target type C and ANY function œ of the meaning.  œ cannot tell
+-- Take ANY target type C and ANY function œÜ of the meaning.  œÜ cannot tell
 -- the two derivations apart, because their meanings are literally the same
 -- function.  There is no clever semantic criterion; there is no semantic
 -- criterion.

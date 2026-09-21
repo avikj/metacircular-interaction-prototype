@@ -1,56 +1,56 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- VargaPrakrti_TraceBhavanaOverN � ����� ��� �������� with the middle
--- coefficient carried, over �, subtraction-free.
+-- VargaPrakrti_TraceBhavanaOverN — भावना और चक्रवाल with the middle
+-- coefficient carried, over ℕ, subtraction-free.
 --
--- �����-�������� ("square-nature") is BRAHMAGUPTA's own name, in the
+-- वर्ग-प्रकृति ("square-nature") is BRAHMAGUPTA's own name, in the
 -- Brhmasphuasiddhnta (628), ch. 18, for the object of his composition
 -- rule.  He composes x² − D y² with arbitrary kepa, which is T = 0
 -- below.  The parameter T is NOT his and is not attributed to him; it is what
--- the composition becomes in �[ω] with ω² = T�ω + C, and it is introduced
+-- the composition becomes in ℤ[ω] with ω² = T·ω + C, and it is introduced
 -- here because restricting the reactor to T = 0 was restricting Brahmagupta's
 -- rule to the one equation that later displaced it. The identities below at T
 -- = 0 ARE his, and that specialisation is exhibited at the bottom of this
 -- file as a checked term rather than asserted.
 --
--- THE FORM.   N(x, y) = x² + T�x�y − C�y²,  Δ = T² + 4C.
+-- THE FORM.   N(x, y) = x² + T·x·y − C·y²,  Δ = T² + 4C.
 --
---   T = 0, C = D  is  x² − D y²  � Brahmagupta's, and `Nalanda.hs`'s.
+--   T = 0, C = D  is  x² − D y²  — Brahmagupta's, and `Nalanda.hs`'s.
 --   T = 1, C = (Δ−1)/4  is the principal form of a discriminant
 --                Δ ≡ 1 (mod 4), i.e. the norm form of the MAXIMAL order
---                �[(1+�Δ)/2], which contains �[�Δ] with index 2 and which
+--                ℤ[(1+√Δ)/2], which contains ℤ[√Δ] with index 2 and which
 --                x² − D y² = 1 cannot see.
 --
--- WHY � AND WHY SUBTRACTION-FREE.  Twice-learned in this lane and
+-- WHY ℕ AND WHY SUBTRACTION-FREE.  Twice-learned in this lane and
 -- unchanged here.  `BhavanaSemiring.agda`: bhvan as classically written
--- is FALSE over � because monus truncates, and moving every negative term
+-- is FALSE over ℕ because monus truncates, and moving every negative term
 -- across makes it true with no hypothesis and makes it a commutative-
--- SEMIRING identity � no induction, no ordering, no case split on a sign.
+-- SEMIRING identity — no induction, no ordering, no case split on a sign.
 -- `CakravalaNat.agda`: the same move applied to the cycle, which is what
 -- removed the sign of k as an obstacle rather than handling it.  And the
--- hard constraint underneath both: cubical's � multiplication is unary
--- (`pos (suc n) � m = m + pos n � m`), so a `refl` on the nine- and
--- fifteen-digit integers these runs produce asks the kernel for ~10��
--- unfoldings and never returns, while cubical's � is `Agda.Builtin.Nat`
--- with GMP-backed `_+_` and `_�_` and is instant.
+-- hard constraint underneath both: cubical's ℤ multiplication is unary
+-- (`pos (suc n) · m = m + pos n · m`), so a `refl` on the nine- and
+-- fifteen-digit integers these runs produce asks the kernel for ~10¹⁸
+-- unfoldings and never returns, while cubical's ℕ is `Agda.Builtin.Nat`
+-- with GMP-backed `_+_` and `_·_` and is instant.
 --
 -- HOW THE SUBTRACTION IS CLEARED, so the statements can be read.  Write
--- Q� = x�² + T�x�y�, so that N(x�, y�) = Q� − C�y�².  Then over �
+-- Qᵢ = xᵢ² + T·xᵢyᵢ, so that N(xᵢ, yᵢ) = Qᵢ − C·yᵢ².  Then over ℤ
 --
---     N(X, Y) = N(x�,y�)�N(x�,y�)
+--     N(X, Y) = N(x₁,y₁)·N(x₂,y₂)
 --
--- expands to  (X² + T�XY) − C�Y² = (Q� − Cy�²)(Q� − Cy�²), and carrying
+-- expands to  (X² + T·XY) − C·Y² = (Q₁ − Cy₁²)(Q₂ − Cy₂²), and carrying
 -- every negative term across gives the statement below, in which nothing
--- is subtracted anywhere.  Over � it IS bhvan, by adding the same two
+-- is subtracted anywhere.  Over ℤ it IS bhāvanā, by adding the same two
 -- terms to both sides.
 --
 -- WHAT IS PROVED HERE.  --safe, no postulates, no holes.
 --
---   bhavanaTrace�     the composition law with the middle coefficient,
---                     for ALL naturals T C x� y� x� y�.
---   cakravalaTrace�   the cycle's step � composition with the
---                     interpolator (m, 1) � for ALL naturals T C a b m.
+--   bhavanaTraceℕ     the composition law with the middle coefficient,
+--                     for ALL naturals T C x₁ y₁ x₂ y₂.
+--   cakravalaTraceℕ   the cycle's step — composition with the
+--                     interpolator (m, 1) — for ALL naturals T C a b m.
 --   vpXIsBrahmagupta / vpYIsBrahmagupta
 --                     at T = 0 the two composed coordinates ARE
 --                     `BhavanaSemiring.cx` and `.cy`, checked, so the
@@ -59,7 +59,7 @@
 --
 ------------------------------------------------------------------------
 
-module VargaPrakrti_TraceBhavanaOverN where
+module VargaPrakrti_TraceCompositionOverN where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
@@ -74,7 +74,7 @@ open import Cubical.Tactics.NatSolver using (solveℕ!)
 -- .agda` and `Brahmagupta.agda` DO NOT CHECK under the toolchain
 -- `BUILD.md` pins (Agda 2.8.0, cubical v0.9).  They call
 -- `Cubical.Tactics.NatSolver.Reflection.solve`, the point-free solver of
--- cubical v0.5, which v0.9 replaced with the hole macro `solve�!`.  The
+-- cubical v0.5, which v0.9 replaced with the hole macro `solveℕ!`.  The
 -- error is `[NotInScope] solve`, reproducible in one command:
 --
 --     cd formal/cubical && agda BhavanaSemiring.agda
@@ -84,12 +84,12 @@ open import Cubical.Tactics.NatSolver using (solveℕ!)
 -- `interactive/NalandaCertify.hs` hands that witness to the kernel and reports
 -- the verdict.  Under the pinned toolchain that pipeline cannot return a
 -- green, because its dependencies do not check.  BUILD.md §"Where the skew
--- bites" catalogues the 2.6.3 � 2.8.0 migration and says the tree "is not
+-- bites" catalogues the 2.6.3 → 2.8.0 migration and says the tree "is not
 -- claimed to be dual-version compatible"; these three modules are on the
 -- wrong side of it.
 --
--- WHAT IS NOT DONE HERE, and why.  The repair is mechanical � the import
--- line and one token per theorem � and it is NOT done in this commit,
+-- WHAT IS NOT DONE HERE, and why.  The repair is mechanical — the import
+-- line and one token per theorem — and it is NOT done in this commit,
 -- because those are another identity's modules and a silent rewrite of
 -- someone else's file is the move CLAUDE.md forbids for renames and which
 -- has the same shape here.  The defect is written instead, with the
@@ -98,8 +98,8 @@ open import Cubical.Tactics.NatSolver using (solveℕ!)
 --
 -- What this file does instead is stand alone: the two coordinates below
 -- are transcribed verbatim from `BhavanaSemiring.agda` so that the
--- containment claim � that the generalisation at T = 0 IS Brahmagupta's
--- statement � is a checked term here and does not wait on that repair.
+-- containment claim — that the generalisation at T = 0 IS Brahmagupta's
+-- statement — is a checked term here and does not wait on that repair.
 ------------------------------------------------------------------------
 
 cx : ℕ → ℕ → ℕ → ℕ → ℕ → ℕ
@@ -109,11 +109,11 @@ cy : ℕ → ℕ → ℕ → ℕ → ℕ
 cy x₁ y₁ x₂ y₂ = x₁ · y₂ + x₂ · y₁
 
 ------------------------------------------------------------------------
--- The composed coordinates in �[ω], ω² = T�ω + C.
+-- The composed coordinates in ℤ[ω], ω² = T·ω + C.
 --
---   (x� + y�ω)(x� + y�ω) = (x�x� + C y�y�) + (x�y� + x�y� + T y�y�) ω
+--   (x₁ + y₁ω)(x₂ + y₂ω) = (x₁x₂ + C y₁y₂) + (x₁y₂ + x₂y₁ + T y₁y₂) ω
 --
--- The T�y�y� term is the entire difference from Brahmagupta's rule, and
+-- The T·y₁y₂ term is the entire difference from Brahmagupta's rule, and
 -- it is the term a reactor hard-coded to x² − D y² cannot represent.
 ------------------------------------------------------------------------
 
@@ -123,15 +123,15 @@ vpX C x₁ y₁ x₂ y₂ = x₁ · x₂ + C · (y₁ · y₂)
 vpY : ℕ → ℕ → ℕ → ℕ → ℕ → ℕ
 vpY T x₁ y₁ x₂ y₂ = x₁ · y₂ + (x₂ · y₁ + T · (y₁ · y₂))
 
--- Q� = x�² + T�x�y�, the subtraction-free half of the norm:
--- N(x, y) = Q(x, y) − C�y².
+-- Qᵢ = xᵢ² + T·xᵢyᵢ, the subtraction-free half of the norm:
+-- N(x, y) = Q(x, y) − C·y².
 vpQ : ℕ → ℕ → ℕ → ℕ
 vpQ T x y = x · x + T · (x · y)
 
 ------------------------------------------------------------------------
--- BHVAN WITH THE MIDDLE COEFFICIENT, over �, subtraction-free.
+-- BHĀVANĀ WITH THE MIDDLE COEFFICIENT, over ℕ, subtraction-free.
 --
--- Read it as N(X,Y) = N��N� with every negative term carried across.
+-- Read it as N(X,Y) = N₁·N₂ with every negative term carried across.
 -- `solve` discharges it: after expansion both sides are the same
 -- monomials, so it holds in ANY commutative semiring and needs no
 -- induction, no ordering, and no subtraction.
@@ -148,14 +148,14 @@ bhavanaTraceℕ
 bhavanaTraceℕ T C x₁ y₁ x₂ y₂ = solveℕ!
 
 ------------------------------------------------------------------------
--- THE CYCLE'S STEP, over �, subtraction-free.
+-- THE CYCLE'S STEP, over ℕ, subtraction-free.
 --
 -- The cakravla composes the current pair (a, b) with the interpolator
--- (m, 1), whose norm is m² + T�m − C.  Specialising the law above at
--- (x�, y�) = (m, 1) gives the step's identity, stated in the shape a run
+-- (m, 1), whose norm is m² + T·m − C.  Specialising the law above at
+-- (x₂, y₂) = (m, 1) gives the step's identity, stated in the shape a run
 -- can instantiate turn by turn.
 --
---   X = a�m + C�b      Y = a + (b�m + T�b)      Q� = m² + T�m
+--   X = a·m + C·b      Y = a + (b·m + T·b)      Q₂ = m² + T·m
 --
 -- Note what this is NOT: it is not `refl`.  A `refl` per turn would show
 -- only that a generator's arithmetic agrees with the kernel's.  This is
@@ -201,17 +201,17 @@ vpQIsSquare x y = solveℕ!
 ------------------------------------------------------------------------
 -- THE CONTAINMENT, AS A CHECKED TERM.
 --
--- The statement below is `BhavanaSemiring.bhavana�` verbatim � Brahmagupta's
--- composition law over � as this repository already states it.  It is NOT
+-- The statement below is `BhavanaSemiring.bhavanaℕ` verbatim — Brahmagupta's
+-- composition law over ℕ as this repository already states it.  It is NOT
 -- proved here by calling the solver again, which would show only that both
 -- are semiring identities and would leave the generalisation and the source
 -- as two unrelated true things.  It is `transport`ed out of
--- `bhavanaTrace� 0 D x� y� x� y�` along the two coordinate equalities
+-- `bhavanaTraceℕ 0 D x₁ y₁ x₂ y₂` along the two coordinate equalities
 -- above.  So: the general law AT T = 0 IS his law, and the kernel says so.
 --
--- The `0 � (X � Y) +` summand of the general statement disappears
--- definitionally at T = 0, because �'s builtin `_�_` reduces `zero � m` to
--- `zero` and `_+_` reduces `zero + w` to `w`.  Only `vpQ 0 x y = x � x + 0`
+-- The `0 · (X · Y) +` summand of the general statement disappears
+-- definitionally at T = 0, because ℕ's builtin `_·_` reduces `zero · m` to
+-- `zero` and `_+_` reduces `zero + w` to `w`.  Only `vpQ 0 x y = x · x + 0`
 -- and `vpY 0 = cy` need the transport, since `_+_` recurses on its FIRST
 -- argument and `x + 0` is therefore not definitionally `x`.
 ------------------------------------------------------------------------
@@ -251,7 +251,7 @@ vpStepXIsCa D a b m = refl
 vpStepYIsCb : (a b m : ℕ) → vpStepY 0 a b m ≡ cb a b m
 vpStepYIsCb a b m = solveℕ!
 
--- `CakravalaNat.cakravala�` verbatim, transported out of the general step.
+-- `CakravalaNat.cakravalaℕ` verbatim, transported out of the general step.
 cakravalaIsTheTraceZeroCase
   : (D a b m : ℕ)
   → ca D a b m · ca D a b m + (D · (a · a) + D · (b · b · (m · m)))
@@ -265,7 +265,7 @@ cakravalaIsTheTraceZeroCase D a b m =
                 + D · (vpStepYIsCb a b m i · vpStepYIsCb a b m i)))
     (cakravalaTraceℕ 0 D a b m)
   where
-    -- (m � m + 0 � m) � (b � b) ≡ b � b � (m � m)  and  m � m + 0 � m ≡ m � m
+    -- (m · m + 0 · m) · (b · b) ≡ b · b · (m · m)  and  m · m + 0 · m ≡ m · m
     mulFlip : (m · m + 0 · m) · (b · b) ≡ b · b · (m · m)
     mulFlip = solveℕ!
     sqFlip : (m · m + 0 · m) ≡ m · m

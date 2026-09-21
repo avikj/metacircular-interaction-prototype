@@ -13,11 +13,11 @@
 -- It is stated here, and it turns out NOT to be a weakening of the
 -- global law with the same behaviour.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Reach step i        reachability from an initial state under a
---                       step relation â” an inductive family, no Fin,
+--                       step relation â€” an inductive family, no Fin,
 --                       no index matching
 --   reachIsClosedUnderSteps
 --                       so it is an invariant, which is what makes it
@@ -26,7 +26,7 @@
 --   Preserves R d e mig the migration keeps R
 --   globalLawIsLawfulOnAnything
 --                       the global law implies the reachable law for
---                       EVERY R â” so this really is a weakening
+--                       EVERY R â€” so this really is a weakening
 --   composeLawfulOn     reachable laws compose GIVEN preservation by
 --                       the first migration
 --   totalInvariantGivesBackTheGlobalLaw
@@ -40,7 +40,7 @@
 -- nothing: `composeLawful` is two paths and a `âˆ™`.  The reachable law
 -- does not: `composeLawfulOn` needs `Preserves`, and
 -- `preservationIsNecessary` shows the hypothesis cannot be dropped.
--- The witness is small and concrete â” the first migration sends a
+-- The witness is small and concrete â€” the first migration sends a
 -- reachable state to an unreachable one, where the second migration's
 -- law says nothing, and the composite observes the wrong thing.
 --
@@ -51,16 +51,16 @@
 -- component, and unlike the fifth it is needed for composition rather
 -- than for meaning.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  Refinement relative to an invariant, and the failure of
 -- naive composition when the invariant is not preserved, are standard
--- in refinement calculi and in Floydâ“Hoare style reasoning (the
+-- in refinement calculi and in Floydâ€“Hoare style reasoning (the
 -- invariant must be re-established at the interface); nothing here
 -- improves on that.  The content is only that this corpus's own
 -- certificate loses a free component when it moves to the reachable
 -- law.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -124,8 +124,8 @@ module _ {Sys O : Type}
 --
 -- Three systems, indexed 0, 1, 2.  Every state space is `Bool`; the
 -- invariant is "the state is `true`" everywhere; the middle system
--- observes a constant.  `mgâ` sends the reachable state to the
--- unreachable one, where `mgâ`'s law says nothing.
+-- observes a constant.  `mgâ‚` sends the reachable state to the
+-- unreachable one, where `mgâ‚‚`'s law says nothing.
 ------------------------------------------------------------------------
 
 State : â„• â†’ Type
@@ -159,19 +159,19 @@ preservationIsNecessary p = falseâ‰¢true (p true refl)
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The next step named above â” "extending the record with
--- preservation" â” is taken in
+-- line above.  The next step named above â€” "extending the record with
+-- preservation" â€” is taken in
 -- `TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so):
 -- `RCertified`, `composePreserves`, `composeRCertified`,
 -- `noSelfRCertified`, and the independence witness.
 --
 -- Two things there were not visible from here.  `Preserves` COMPOSES
--- FOR NOTHING, so the sixth component is free to carry â” the price is
+-- FOR NOTHING, so the sixth component is free to carry â€” the price is
 -- entirely in having to establish it per rewrite, not in sequencing.
 -- And it is INDEPENDENT of the other five: the witness is a full
 -- five-component `LCertified` whose observation type is `Unit`, so its
--- migration is globally lawful â” the strongest form of the fifth
--- component â” and it still leaves the invariant.
+-- migration is globally lawful â€” the strongest form of the fifth
+-- component â€” and it still leaves the invariant.
 ------------------------------------------------------------------------

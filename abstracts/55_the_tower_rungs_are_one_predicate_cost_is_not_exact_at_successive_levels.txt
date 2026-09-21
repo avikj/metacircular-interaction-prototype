@@ -1,6 +1,6 @@
 THE POSTNIKOV TOWER'S RUNGS ARE ONE PREDICATE: COST IS NOT EXACT AT
 SUCCESSIVE LEVELS
-The self-generating climb made a pattern rather than an anecdote ‚î two
+The self-generating climb made a pattern rather than an anecdote ‚Äî two
 consecutive rungs already in the corpus exhibited as literal instances of
 one k-invariant type, read back by the analyzer
 
@@ -9,44 +9,44 @@ non-exactness at every degree
 
 GarbhaDhara built one step: install cones off an obstruction and
 precipitates the fee one level up (the non-descending cost).  The open
-item it left was the ITERATION ‚î that the fee at level n is the carrier
+item it left was the ITERATION ‚Äî that the fee at level n is the carrier
 at level n+1, endlessly.  GarbhaShreni does not build the whole ‚àû-tower;
 it builds the RUNG RELATION as a term, so that "climb a level" is
 re-instantiating ONE predicate one degree up, not a new phenomenon each
 time.
 
-ONE PREDICATE.  NotExact ‚à V = ¬ Œ[ œ ] (‚à i ‚í ‚à œ i ‚â° V i): the
-invariant V is not the coboundary ‚à of any potential œ.  A single
+ONE PREDICATE.  NotExact ‚àÇ V = ¬¨ Œ£[ œÜ ] (‚àÄ i ‚Üí ‚àÇ œÜ i ‚â° V i): the
+invariant V is not the coboundary ‚àÇ of any potential œÜ.  A single
 k-invariant type, degree-agnostic.
 
-RUNG 0 (œ‚).  V = len; œ ranges over functions  ‚í ‚ï on the
-localization; ‚à œ d = œ (L d).  "Cost is not a FUNCTION on the
-set-quotient" ‚î SankramanaShreni.kernelCostDoesNotDescend ‚î IS NotExact
+RUNG 0 (œÄ‚ÇÄ).  V = len; œÜ ranges over functions ƒú ‚Üí ‚Ñï on the
+localization; ‚àÇ œÜ d = œÜ (L d).  "Cost is not a FUNCTION on the
+set-quotient" ‚Äî SankramanaShreni.kernelCostDoesNotDescend ‚Äî IS NotExact
 on the nose: the pass-through is refl, the two types are definitionally
-one.  The analyzer read costNotExact‚ back as `NotExact ‚à‚ len`.
+one.  The analyzer read costNotExact‚ÇÄ back as `NotExact ‚àÇ‚ÇÄ len`.
 
-RUNG 1 (œ‚).  V = ‡ó‡‡‡∞‡‡æ, the depth evaluator; œ ranges over state
-potentials Tm ‚í ‚; ‚à œ = d‚≤ œ, the coboundary.  "Cost is not the
-COBOUNDARY of a potential" ‚î MulyaVinimaya.depthHasNoPotential, whose
-loop integrates to pos 3 ‚â† 0 ‚î is NotExact one degree up (bridged by
-sym).  Read back as `NotExact ‚à‚ V‚`.
+RUNG 1 (œÄ‚ÇÅ).  V = ‡§ó‡§≠‡•Ä‡§∞‡§§‡§æ, the depth evaluator; œÜ ranges over state
+potentials Tm ‚Üí ‚Ñ§; ‚àÇ œÜ = d‚Ä≤ œÜ, the coboundary.  "Cost is not the
+COBOUNDARY of a potential" ‚Äî MulyaVinimaya.depthHasNoPotential, whose
+loop integrates to pos 3 ‚â† 0 ‚Äî is NotExact one degree up (bridged by
+sym).  Read back as `NotExact ‚àÇ‚ÇÅ V‚ÇÅ`.
 
-THE LADDER.  theTower : NotExact ‚à‚ len ó NotExact ‚à‚ V‚ ‚î the two rungs
+THE LADDER.  theTower : NotExact ‚àÇ‚ÇÄ len √ó NotExact ‚àÇ‚ÇÅ V‚ÇÅ ‚Äî the two rungs
 as one type at two degrees, read back by the analyzer as the product.
-Rung 0: cost has no 0-potential (not a function on œ‚).  Rung 1: cost
-has no 1-potential (not exact on œ‚).  Coning off rung n (install) is
+Rung 0: cost has no 0-potential (not a function on œÄ‚ÇÄ).  Rung 1: cost
+has no 1-potential (not exact on œÄ‚ÇÅ).  Coning off rung n (install) is
 exactly what makes rung n+1's failure visible; that the two rungs are
 the same predicate is why the climb is a step, not a coincidence.
 
 The open problem is thereby sharpened, not solved: from "does install
 iterate into a tower" to the precise induction "for the derivation
-cochain complex, cost is not exact at any degree n" ‚î two base cases
+cochain complex, cost is not exact at any degree n" ‚Äî two base cases
 now discharged as one predicate.
 
-SYT ‚î THE CLAIM, EXACTLY.  The predicate, and the two corpus
+SYƒÄT ‚Äî THE CLAIM, EXACTLY.  The predicate, and the two corpus
 obstructions AS instances of it (rung 0 definitional, rung 1 up to sym),
-and their product.  NOT claimed: the full ‚àû-tower ‚î that rung n
-precipitates rung n+1 for all n ‚î which is the remaining induction.
+and their product.  NOT claimed: the full ‚àû-tower ‚Äî that rung n
+precipitates rung n+1 for all n ‚Äî which is the remaining induction.
 
 Machine-checked in cubical type theory, --safe, at the pin; the rung
 types and their product computed and read back through the interactive

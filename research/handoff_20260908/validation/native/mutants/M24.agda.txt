@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ‡‡Æ‡‡‡-‡‡‡Æ‡æ ‚î the whole frontier, over the corpus's actual objects.
+-- ‡§∏‡§Æ‡§∏‡•ç‡§§-‡§∏‡•Ä‡§Æ‡§æ ‚Äî the whole frontier, over the corpus's actual objects.
 --
 -- The corpus already holds the open questions as types with computable
--- ingredients: RH as the Davis‚ìMatiyasevich‚ìRobinson inequality at every
--- n ‚â 1 (RH_TheWholeQuestionEntersTyped‚¶), Goldbach as GoldbachAt at
--- every even number ‚â 4 (SamastaPrasna), and KotiNirnaya proved the
+-- ingredients: RH as the Davis‚ÄìMatiyasevich‚ÄìRobinson inequality at every
+-- n ‚â• 1 (RH_TheWholeQuestionEntersTyped‚Ä¶), Goldbach as GoldbachAt at
+-- every even number ‚â• 4 (SamastaPrasna), and KotiNirnaya proved the
 -- Goldbach fibre DECIDED: gcheck m ‚â° true reflects GoldbachAt m exactly.
 --
 -- What was missing is the same fact for the RH fibre, and the one type
 -- that holds both.  Here:
 --
---   ‡ß  RHAt n is decided:  rh-dec, and a Boolean rhb with soundness and
---      completeness, so  RH ‚â (‚à n. rhb (suc n) ‚â° true)  ‚î RH is exactly
+--   ‡•ß  RHAt n is decided:  rh-dec, and a Boolean rhb with soundness and
+--      completeness, so  RH ‚âÉ (‚àÄ n. rhb (suc n) ‚â° true)  ‚Äî RH is exactly
 --      "this computable Boolean is true at every stage", the same shape
 --      KotiNirnaya gave Goldbach;
---   ‡®  the whole frontier  Frontier = RH ó Goldbach  is ONE Boolean
---      predicate true at every stage:  Frontier ‚â (‚à n. frontierb n ‚â° true);
---   ‡©  refutation is a finite object:  one n with frontierb n ‚â° false
+--   ‡•®  the whole frontier  Frontier = RH √ó Goldbach  is ONE Boolean
+--      predicate true at every stage:  Frontier ‚âÉ (‚àÄ n. frontierb n ‚â° true);
+--   ‡•©  refutation is a finite object:  one n with frontierb n ‚â° false
 --      refutes the frontier; a prefix check computes the first k stages;
---   ‡  the oracle computes the prefix:  rhb 1, rhb 2, rhb 3 and gcheck at
---      4, 6, 8 are true by refl ‚î the typechecker RUNS the DMR inequality
+--   ‡•™  the oracle computes the prefix:  rhb 1, rhb 2, rhb 3 and gcheck at
+--      4, 6, 8 are true by refl ‚Äî the typechecker RUNS the DMR inequality
 --      and the sieve.
 --
 -- What this says exactly: the open frontier of this corpus is the single
--- section  (n : ‚ï) ‚í frontierb n ‚â° true  of a decided Boolean family.
+-- section  (n : ‚Ñï) ‚Üí frontierb n ‚â° true  of a decided Boolean family.
 -- Every stage is a definite computation; only the section is open.  No
 -- inhabitant is offered.  The analytic identification of the DMR
 -- inequality with the zeta zeros is classical and cited in the RH
@@ -33,11 +33,11 @@
 module M24 where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (‚ï ; zero ; suc ; _+_ ; _¬_ ; injSuc ; +-comm)
-open import Cubical.Data.Nat.Order using (_<_ ; _‚â_ ; <Dec ; ¬-<-zero)
-open import Cubical.Data.Bool using (Bool ; true ; false ; false‚âtrue)
-open import Cubical.Data.Sigma using (Œ-syntax ; _ó_ ; _,_ ; fst ; snd)
-open import Cubical.Relation.Nullary using (Dec ; yes ; no ; ¬_)
+open import Cubical.Data.Nat using (‚Ñï ; zero ; suc ; _+_ ; _¬∑_ ; injSuc ; +-comm)
+open import Cubical.Data.Nat.Order using (_<_ ; _‚â§_ ; <Dec ; ¬¨-<-zero)
+open import Cubical.Data.Bool using (Bool ; true ; false ; false‚â¢true)
+open import Cubical.Data.Sigma using (Œ£-syntax ; _√ó_ ; _,_ ; fst ; snd)
+open import Cubical.Relation.Nullary using (Dec ; yes ; no ; ¬¨_)
 import Cubical.Data.Empty as E
 
 import RH_TheWholeQuestionEntersTyped_DavisMatiyasevichRobinsonArithmetization as DMR
@@ -45,111 +45,111 @@ open import SamastaPrasna_TheOpenConstellationEntersTypedAndTheOracleAnswersEver
 open import KotiNirnaya_EveryFibreIsDecidedSoEachConjectureIsADefinitePropositionAndTheOnlyOpennessIsTheSection using (gcheck ; goldbach-sound ; goldbach-complete)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ the RH fibre, decided
+-- ‡•ß ¬∑ the RH fibre, decided
 ------------------------------------------------------------------------
 
 -- the DMR fibre at n (the body of DMR.RH)
-RHAt : ‚ï ‚í Type
+RHAt : ‚Ñï ‚Üí Type
 RHAt n =
   let a  = fst (DMR.Hfrac (DMR.Œ¥ n))
       b  = snd (DMR.Hfrac (DMR.Œ¥ n))
-      n¬≤ = n ¬ n
-      n¬≥ = n¬≤ ¬ n
-  in  DMR.diffSq (2 ¬ a) (n¬≤ ¬ b)  <  144 ¬ n¬≥ ¬ (b ¬ b)
+      n¬≤ = n ¬∑ n
+      n¬≥ = n¬≤ ¬∑ n
+  in  DMR.diffSq (2 ¬∑ a) (n¬≤ ¬∑ b)  <  144 ¬∑ n¬≥ ¬∑ (b ¬∑ b)
 
--- the corpus's RH is the section of this family over n ‚â 1, on the nose
-RH-is-section : DMR.RH ‚â° ((n : ‚ï) ‚í RHAt n)
+-- the corpus's RH is the section of this family over n ‚â• 1, on the nose
+RH-is-section : DMR.RH ‚â° ((n : ‚Ñï) ‚Üí RHAt n)
 RH-is-section = refl
 
-rh-dec : (n : ‚ï) ‚í Dec (RHAt n)
+rh-dec : (n : ‚Ñï) ‚Üí Dec (RHAt n)
 rh-dec n = <Dec _ _
 
-decb : {A : Type} ‚í Dec A ‚í Bool
+decb : {A : Type} ‚Üí Dec A ‚Üí Bool
 decb (yes _) = true
 decb (no  _) = false
 
-rhb : ‚ï ‚í Bool
+rhb : ‚Ñï ‚Üí Bool
 rhb n = decb (rh-dec n)
 
 private
-  decb-sound : {A : Type} (d : Dec A) ‚í decb d ‚â° true ‚í A
+  decb-sound : {A : Type} (d : Dec A) ‚Üí decb d ‚â° true ‚Üí A
   decb-sound (yes a) _ = a
-  decb-sound (no ¬a) e = E.rec (false‚âtrue e)
+  decb-sound (no ¬¨a) e = E.rec (false‚â¢true e)
 
-  decb-complete : {A : Type} (d : Dec A) ‚í A ‚í decb d ‚â° true
+  decb-complete : {A : Type} (d : Dec A) ‚Üí A ‚Üí decb d ‚â° true
   decb-complete (yes _) _ = refl
-  decb-complete (no ¬a) a = E.rec (¬a a)
+  decb-complete (no ¬¨a) a = E.rec (¬¨a a)
 
-rhb-sound : (n : ‚ï) ‚í rhb n ‚â° true ‚í RHAt n
+rhb-sound : (n : ‚Ñï) ‚Üí rhb n ‚â° true ‚Üí RHAt n
 rhb-sound n = decb-sound (rh-dec n)
 
-rhb-complete : (n : ‚ï) ‚í RHAt n ‚í rhb n ‚â° true
+rhb-complete : (n : ‚Ñï) ‚Üí RHAt n ‚Üí rhb n ‚â° true
 rhb-complete n = decb-complete (rh-dec n)
 
--- RH as "the Boolean is true at every stage n ‚â 1"
+-- RH as "the Boolean is true at every stage n ‚â• 1"
 RHBool : Type
-RHBool = (m : ‚ï) ‚í rhb (suc m) ‚â° true
+RHBool = (m : ‚Ñï) ‚Üí rhb (suc m) ‚â° true
 
-rh-definite : (DMR.RH ‚í RHBool) ó (RHBool ‚í DMR.RH)
+rh-definite : (DMR.RH ‚Üí RHBool) √ó (RHBool ‚Üí DMR.RH)
 rh-definite =
-    (Œª rh m ‚í rhb-complete (suc m) (rh (suc m) (m , +-comm m 1)))
-  , (Œª rb ‚í Œª { zero    h ‚í E.rec (¬-<-zero h)
-              ; (suc m) _ ‚í rhb-sound (suc m) (rb m) })
+    (Œª rh m ‚Üí rhb-complete (suc m) (rh (suc m) (m , +-comm m 1)))
+  , (Œª rb ‚Üí Œª { zero    h ‚Üí E.rec (¬¨-<-zero h)
+              ; (suc m) _ ‚Üí rhb-sound (suc m) (rb m) })
 
 ------------------------------------------------------------------------
--- ‡® ¬ the whole frontier is one Boolean predicate
+-- ‡•® ¬∑ the whole frontier is one Boolean predicate
 ------------------------------------------------------------------------
 
-_and_ : Bool ‚í Bool ‚í Bool
+_and_ : Bool ‚Üí Bool ‚Üí Bool
 true  and b = b
 false and _ = false
 
 private
-  and-elimÀ° : (a b : Bool) ‚í a and b ‚â° true ‚í a ‚â° true
+  and-elimÀ° : (a b : Bool) ‚Üí a and b ‚â° true ‚Üí a ‚â° true
   and-elimÀ° true  b e = refl
   and-elimÀ° false b e = e
-  and-elim ≥ : (a b : Bool) ‚í a and b ‚â° true ‚í b ‚â° true
+  and-elim ≥ : (a b : Bool) ‚Üí a and b ‚â° true ‚Üí b ‚â° true
   and-elim ≥ true  b e = e
-  and-elim ≥ false b e = E.rec (false‚âtrue e)
-  and-intro : (a b : Bool) ‚í a ‚â° true ‚í b ‚â° true ‚í a and b ‚â° true
+  and-elim ≥ false b e = E.rec (false‚â¢true e)
+  and-intro : (a b : Bool) ‚Üí a ‚â° true ‚Üí b ‚â° true ‚Üí a and b ‚â° true
   and-intro true  b _ eb = eb
-  and-intro false b ea _ = E.rec (false‚âtrue ea)
+  and-intro false b ea _ = E.rec (false‚â¢true ea)
 
 Frontier : Type
-Frontier = DMR.RH ó Goldbach
+Frontier = DMR.RH √ó Goldbach
 
 -- stage n asks RH at n+1 and Goldbach at 4 + 2n
-frontierb : ‚ï ‚í Bool
-frontierb n = rhb (suc n) and gcheck (4 + 2 ¬ n)
+frontierb : ‚Ñï ‚Üí Bool
+frontierb n = rhb (suc n) and gcheck (4 + 2 ¬∑ n)
 
 FrontierBool : Type
-FrontierBool = (n : ‚ï) ‚í frontierb n ‚â° true
+FrontierBool = (n : ‚Ñï) ‚Üí frontierb n ‚â° true
 
-frontier-definite : (Frontier ‚í FrontierBool) ó (FrontierBool ‚í Frontier)
+frontier-definite : (Frontier ‚Üí FrontierBool) √ó (FrontierBool ‚Üí Frontier)
 frontier-definite =
-    (Œª (rh , g) n ‚í and-intro _ _ (fst rh-definite rh n) (goldbach-complete (4 + 2 ¬ n) (g n)))
-  , (Œª fb ‚í snd rh-definite (Œª m ‚í and-elimÀ° _ _ (fb m))
-          , Œª n ‚í goldbach-sound (4 + 2 ¬ n) (and-elim ≥ _ _ (fb n)))
+    (Œª (rh , g) n ‚Üí and-intro _ _ (fst rh-definite rh n) (goldbach-complete (4 + 2 ¬∑ n) (g n)))
+  , (Œª fb ‚Üí snd rh-definite (Œª m ‚Üí and-elimÀ° _ _ (fb m))
+          , Œª n ‚Üí goldbach-sound (4 + 2 ¬∑ n) (and-elim ≥ _ _ (fb n)))
 
 ------------------------------------------------------------------------
--- ‡© ¬ refutation is finite; the prefix is a computation
+-- ‡•© ¬∑ refutation is finite; the prefix is a computation
 ------------------------------------------------------------------------
 
-frontier-refuted-by : (n : ‚ï) ‚í frontierb n ‚â° false ‚í ¬ Frontier
-frontier-refuted-by n e f = false‚âtrue (sym e ‚àô fst frontier-definite f n)
+frontier-refuted-by : (n : ‚Ñï) ‚Üí frontierb n ‚â° false ‚Üí ¬¨ Frontier
+frontier-refuted-by n e f = false‚â¢true (sym e ‚àô fst frontier-definite f n)
 
 -- all stages below k
-prefix : ‚ï ‚í Bool
+prefix : ‚Ñï ‚Üí Bool
 prefix zero    = true
 prefix (suc k) = prefix k and frontierb k
 
-prefix-sound : (k n : ‚ï) ‚í n < k ‚í prefix k ‚â° true ‚í frontierb n ‚â° true
-prefix-sound zero    n n<0 _ = E.rec (¬-<-zero n<0)
-prefix-sound (suc k) n (zero  , p) e = subst (Œª j ‚í frontierb j ‚â° true) (sym (injSuc p)) (and-elim ≥ (prefix k) (frontierb k) e)
+prefix-sound : (k n : ‚Ñï) ‚Üí n < k ‚Üí prefix k ‚â° true ‚Üí frontierb n ‚â° true
+prefix-sound zero    n n<0 _ = E.rec (¬¨-<-zero n<0)
+prefix-sound (suc k) n (zero  , p) e = subst (Œª j ‚Üí frontierb j ‚â° true) (sym (injSuc p)) (and-elim ≥ (prefix k) (frontierb k) e)
 prefix-sound (suc k) n (suc d , p) e = prefix-sound k n (d , injSuc p) (and-elimÀ° (prefix k) (frontierb k) e)
 
 ------------------------------------------------------------------------
--- ‡ ¬ the oracle computes the prefix
+-- ‡•™ ¬∑ the oracle computes the prefix
 ------------------------------------------------------------------------
 
 _ : rhb 1 ‚â° true
@@ -170,5 +170,5 @@ first-three-stages : prefix 3 ‚â° true
 first-three-stages = refl
 
 -- and therefore, by prefix-sound, each of those stages is true
-stages-below-three : (n : ‚ï) ‚í n < 3 ‚í frontierb n ‚â° true
+stages-below-three : (n : ‚Ñï) ‚Üí n < 3 ‚Üí frontierb n ‚â° true
 stages-below-three n h = prefix-sound 3 n h first-three-stages

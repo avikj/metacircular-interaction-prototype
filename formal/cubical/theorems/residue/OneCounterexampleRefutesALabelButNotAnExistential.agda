@@ -9,13 +9,13 @@
 --    a clean replay.  One such authority-label error is a boundary
 --    failure, not tolerable benchmark noise."
 --
--- Every other criterion in that list is a threshold on a rate â” 25% of
+-- Every other criterion in that list is a threshold on a rate â€” 25% of
 -- compute, 80% of children, half the development gain, 10% relative
--- score.  This one is not a threshold, and Â§2â“Â§3 are why: a LABEL is a
+-- score.  This one is not a threshold, and Â§2â€“Â§3 are why: a LABEL is a
 -- Î -claim, and a Î -claim is refuted by one instance, while the
 -- claim-shapes the other criteria use are not.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED, AND THE HONEST WEAKNESS OF THE CONTRAST
 --
 -- Â§2: one labelled artifact that fails to replay refutes the label's
@@ -25,7 +25,7 @@
 -- That is the weakest possible witness that claim-shapes differ in
 -- refutation conditions, and it is chosen because it needs no counting.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 -- says.
 --
 -- Â§3 shows a single failure is compatible with another claim-shape
--- holding, so "noise" is a meaningful notion for SOME claims â” just not
+-- holding, so "noise" is a meaningful notion for SOME claims â€” just not
 -- for this one.  Which claims, and with what tolerance, is a question
 -- about rates and is not answered here.
 ------------------------------------------------------------------------
@@ -104,7 +104,7 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 -- line above.
 --
 -- Â§"WHAT IS NOT MODELLED" above says: "a genuine RATE claim ('more than
--- half', 'at most 25%') â¦ needs a measure and a count, neither of which
+-- half', 'at most 25%') â€¦ needs a measure and a count, neither of which
 -- appears below.  Â§3 therefore does NOT establish the comparison Â§7's
 -- list invites."
 --
@@ -112,19 +112,19 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 -- `RateOneIsExactlyTheUniversalClaim`, over a finite
 -- population as a `List Bool`:
 --
---   countIsAtMostLength : count bs â‰ length bs
---   allGivesFullCount   : All bs â’ count bs â‰¡ length bs
---   fullCountGivesAll   : count bs â‰¡ length bs â’ All bs
+--   countIsAtMostLength : count bs â‰¤ length bs
+--   allGivesFullCount   : All bs â†’ count bs â‰¡ length bs
+--   fullCountGivesAll   : count bs â‰¡ length bs â†’ All bs
 --
 -- So the universal claim and rate one are THE SAME CLAIM, and the label
--- criterion is not a different KIND of criterion from a threshold â” it
+-- criterion is not a different KIND of criterion from a threshold â€” it
 -- is the threshold at 1, where a single failure moves the count off the
 -- length and there is nothing left to tolerate.  A strictly lower
 -- threshold surviving that same failure is exhibited there.
 --
 -- STILL ABSENT, and still said: percentages.  "More than half" is
--- stateable as `length xs < 2 Â count xs`; it is not stated there, and
+-- stateable as `length xs < 2 Â· count xs`; it is not stated there, and
 -- no threshold other than 1 is analysed.  The population is a LIST, so
--- multiplicity is counted and order carried â” neither matters to the
+-- multiplicity is counted and order carried â€” neither matters to the
 -- equivalence and both would matter to a finer measure.
 ------------------------------------------------------------------------

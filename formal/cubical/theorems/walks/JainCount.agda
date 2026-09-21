@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- JainSankhya � the Jain stratification of magnitude, as itself.
+-- JainSankhya — the Jain stratification of magnitude, as itself.
 --
 -- SOURCE.  The Jain theory of number and the infinite: magnitude
--- (ri / sakhy) is of three irreducible kinds �
+-- (rāśi / saṅkhyā) is of three irreducible kinds —
 --   sakhyta  (numerable),
 --   asakhyta (innumerable),
---   ananta     (infinite) �
+--   ananta     (infinite) —
 -- and each kind is graded jaghanya (minimum) / madhyama (intermediate) /
 -- utka (maximum).  The locus classicus is the Anuyogadvra-stra; the
 -- doctrine is systematized in Umsvti's Tattvrthastra and, with the
@@ -15,11 +15,11 @@
 -- orders, in Yativabha's Tiloyapaatt and Vrasena's Dhaval.  The
 -- decisive claim, and the one this file makes a checked term, is that
 -- ANANTA IS NOT ONE: the infinite is itself stratified into strictly
--- ordered orders � the Jains distinguished sizes of the infinite as a
+-- ordered orders — the Jains distinguished sizes of the infinite as a
 -- matter of doctrine, and worked with them.
 --
 -- WHAT IS FORMALIZED, AND WHAT IS NOT.  This file takes the Jain object
--- AS ITSELF � the qualitative ordered stratification � and proves the
+-- AS ITSELF — the qualitative ordered stratification — and proves the
 -- structural facts that are textually solid.  It does NOT identify any
 -- grade with any outside cardinal or ordinal (that would be the reverse
 -- colonisation this repository's Indic lane forbids), and it does NOT
@@ -36,16 +36,16 @@
 --                            rank), a strict order
 --   num≺innum, innum≺inf,    the stratification: EVERY magnitude of a lower
 --   num≺inf                  kind is strictly below EVERY magnitude of a
---                            higher kind, whatever the grades � numerable,
+--                            higher kind, whatever the grades — numerable,
 --                            then innumerable, then infinite, uniformly
 --   infinite-is-not-one      three strictly-ordered infinities:
 --                            (ananta,jaghanya) ≺ (ananta,madhyama) ≺
 --                            (ananta,utka).  The Jain crown, as a term.
---   least                    jaghanya sakhyta is � every magnitude
+--   least                    jaghanya saṃkhyāta is ≤ every magnitude
 --                            (the floor of number)
 ------------------------------------------------------------------------
 
-module JainSankhya where
+module JainCount where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
@@ -71,9 +71,9 @@ Magnitude : Type
 Magnitude = Kind × Grade
 
 ------------------------------------------------------------------------
--- Rank into 0..8 � an internal ORDER device only (see header): kind in
+-- Rank into 0..8 — an internal ORDER device only (see header): kind in
 -- the high place, grade in the low, so kind dominates and grade breaks
--- ties.  rank = 3�kindRank + gradeRank.
+-- ties.  rank = 3·kindRank + gradeRank.
 ------------------------------------------------------------------------
 
 kindRank : Kind → ℕ
@@ -111,7 +111,7 @@ gradeRank≤2 utkṛṣṭa  = 0 , refl
 ------------------------------------------------------------------------
 -- The kind dominates the grade: if a low base + any grade is separated
 -- from a high base by more than a grade can span (base a + 2 < base b),
--- then a+grade� < b+grade� for ALL grades.  This is why the kind wins.
+-- then a+grade₁ < b+grade₂ for ALL grades.  This is why the kind wins.
 ------------------------------------------------------------------------
 
 private
@@ -150,7 +150,7 @@ infinite-is-not-one =
             (0 , refl) (0 , refl)    -- 6 < 8
 
 ------------------------------------------------------------------------
--- jaghanya sakhyta is the floor: � every magnitude (rank 0).
+-- jaghanya saṃkhyāta is the floor: ≤ every magnitude (rank 0).
 ------------------------------------------------------------------------
 
 least : (a : Magnitude) → rank (saṃkhyāta , jaghanya) ≤ rank a
@@ -158,7 +158,7 @@ least a = zero-≤
 
 ------------------------------------------------------------------------
 -- The stratification is a DECIDABLE total order: any two magnitudes are
--- comparable � below, at the same rank, or above.  (The Jains ranked
+-- comparable — below, at the same rank, or above.  (The Jains ranked
 -- magnitudes; comparison is total, not partial.)
 ------------------------------------------------------------------------
 

@@ -1,62 +1,62 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��������� � the return.
+-- पुनरागमन — the return.
 --
 -- THE PROJECTED POWERS OF AN OPERATOR OBEY AN ORDERED RETURN
 -- RECURRENCE WHOSE KERNEL IS "LEAVE THE VISIBLE BLOCK, EVOLVE IN THE
 -- HIDDEN BLOCK, COME BACK"; AND A PROJECTED DERIVATION FAILS THE
 -- LEIBNIZ RULE BY EXACTLY THE TWO CROSS-SECTOR TERMS.
 --
--- Both are the algebra under the excursion�return representation
--- [S17 §§3�4; handoff §11], stated once, in a ring, for every operator
+-- Both are the algebra under the excursion–return representation
+-- [S17 §§3–4; handoff §11], stated once, in a ring, for every operator
 -- and every idempotent.
 --
--- PART ONE � the recurrence.  With `P` idempotent, `Q = 1 - P`, and the
+-- PART ONE — the recurrence.  With `P` idempotent, `Q = 1 - P`, and the
 -- four blocks  A = PLP,  B = PLQ,  C = QLP,  D = QLQ,  put
 --
---     K n  =  P L� P             the observed n-th power
---     W n  =  �_{j<n} Dʲ C K(n-1-j)   in Horner form: W 0 = 0,
+--     K n  =  P Lⁿ P             the observed n-th power
+--     W n  =  Σ_{j<n} Dʲ C K(n-1-j)   in Horner form: W 0 = 0,
 --                                     W (n+1) = C K n + D W n .
 --
 --   §1  ONE INSERTION OF  P + Q = 1  gives, for any X, Y and any front
 --       block E,   E (X Y) P  ≡  (E X P)(P Y P) + (E X Q)(Q Y P) .
 --       Every step below is this lemma at a different front.
 --
---   §2  THE HIDDEN COMPONENT IS THE HORNER SUM:  Q L� P ≡ W n .
+--   §2  THE HIDDEN COMPONENT IS THE HORNER SUM:  Q Lⁿ P ≡ W n .
 --
 --   §3  THE ORDERED RETURN RECURRENCE:
 --
---         K (n+1)  ≡  A � K n  +  B � W n ,
+--         K (n+1)  ≡  A · K n  +  B · W n ,
 --
---       i.e.  K_{n+1} = A K_n + �_{j<n} (B Dʲ C) K_{n-1-j} .  No binomial
+--       i.e.  K_{n+1} = A K_n + Σ_{j<n} (B Dʲ C) K_{n-1-j} .  No binomial
 --       factor appears: this is the exponential-generating form, and the
 --       kernel M_j = B Dʲ C is literally "out through B, j steps in the
 --       hidden block, back through C".
 --
---   §4  THE FIRST RETURN:  K 2 ≡ A�A + B�C .  The second observed power
---       is the square of the observed block plus one excursion � the
---       `2 � 4 � 2` coefficient is this term at the toroidal blocks.
+--   §4  THE FIRST RETURN:  K 2 ≡ A·A + B·C .  The second observed power
+--       is the square of the observed block plus one excursion — the
+--       `2 → 4 → 2` coefficient is this term at the toroidal blocks.
 --
--- PART TWO � the defect.  For a derivation � on a commutative algebra of
--- observables and an idempotent algebra homomorphism � with � = 1 - �,
+-- PART TWO — the defect.  For a derivation 𝓛 on a commutative algebra of
+-- observables and an idempotent algebra homomorphism 𝒫 with 𝒬 = 1 - 𝒫,
 --
---   §5  ��(hk) − (��h)k − h(��k)  ≡  (��h)(�k) + (�h)(��k) .
+--   §5  𝒬𝓛(hk) − (𝒬𝓛h)k − h(𝒬𝓛k)  ≡  (𝒫𝓛h)(𝒬k) + (𝒬h)(𝒫𝓛k) .
 --
 --       So the projected generator is not a derivation, and the failure
 --       is exactly the two terms that cross between the sectors.  Its
 --       exponential must therefore not be replaced by the pullback of a
---       guessed autonomous flow on the visible sector � which is why the
+--       guessed autonomous flow on the visible sector — which is why the
 --       exact elimination of Part One is used instead.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�4 in any ring, for every `L` and every
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–4 in any ring, for every `L` and every
 -- idempotent `P`.  §5 in any commutative ring, for every additive
--- Leibniz `�` and every additive multiplicative idempotent `�`.  NOT
--- claimed: convergence of anything � `K`, `W` are finite ring elements
--- at each n; the resolvent form  P(λ−L)��P = [λ − A − B(λ−D)��C]��,
+-- Leibniz `𝓛` and every additive multiplicative idempotent `𝒫`.  NOT
+-- claimed: convergence of anything — `K`, `W` are finite ring elements
+-- at each n; the resolvent form  P(λ−L)⁻¹P = [λ − A − B(λ−D)⁻¹C]⁻¹,
 -- which needs inverses and is a separate statement; that any evolution
 -- is the exponential of `L`; and nothing about which `P` is the toroidal
--- projection � the instance is named in the commentary only.
+-- projection — the instance is named in the commentary only.
 ------------------------------------------------------------------------
 
 module PunarAgamana_TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms where
@@ -73,7 +73,7 @@ private
     ℓ : Level
 
 ------------------------------------------------------------------------
--- PART ONE � The ordered return recurrence.
+-- PART ONE · The ordered return recurrence.
 ------------------------------------------------------------------------
 
 module _ (R : Ring ℓ) where
@@ -128,7 +128,7 @@ module _ (R : Ring ℓ) where
     W (suc n) = C · K n + D · W n
 
     ------------------------------------------------------------------
-    -- � � ONE INSERTION OF  P + Q = 1.
+    -- १ · ONE INSERTION OF  P + Q = 1.
     ------------------------------------------------------------------
 
     insert : (E X Y : A)
@@ -154,7 +154,7 @@ module _ (R : Ring ℓ) where
           ∙ sym (·Assoc (E · X · Q) (Q · Y) P)
 
     ------------------------------------------------------------------
-    -- � � THE HIDDEN COMPONENT IS THE HORNER SUM.
+    -- २ · THE HIDDEN COMPONENT IS THE HORNER SUM.
     ------------------------------------------------------------------
 
     hidden-is-horner : (n : ℕ) → Q · pow L n · P ≡ W n
@@ -164,7 +164,7 @@ module _ (R : Ring ℓ) where
       ∙ cong (C · K n +_) (cong (D ·_) (hidden-is-horner n))
 
     ------------------------------------------------------------------
-    -- � � THE ORDERED RETURN RECURRENCE.
+    -- ३ · THE ORDERED RETURN RECURRENCE.
     ------------------------------------------------------------------
 
     return-recurrence : (n : ℕ) → K (suc n) ≡ Ablk · K n + B · W n
@@ -173,7 +173,7 @@ module _ (R : Ring ℓ) where
       ∙ cong (Ablk · K n +_) (cong (B ·_) (hidden-is-horner n))
 
     ------------------------------------------------------------------
-    -- � � THE FIRST RETURN:  K 2 ≡ A�A + B�C.
+    -- ४ · THE FIRST RETURN:  K 2 ≡ A·A + B·C.
     ------------------------------------------------------------------
 
     private
@@ -199,7 +199,7 @@ module _ (R : Ring ℓ) where
               ∙ +IdR C ) )
 
 ------------------------------------------------------------------------
--- PART TWO � The projected derivation fails Leibniz by the cross terms.
+-- PART TWO · The projected derivation fails Leibniz by the cross terms.
 ------------------------------------------------------------------------
 
 module _ (O : CommRing ℓ) where
@@ -221,7 +221,7 @@ module _ (O : CommRing ℓ) where
     𝒬 x = x + (- 𝒫 x)
 
     ------------------------------------------------------------------
-    -- � � THE DEFECT IS EXACTLY THE TWO CROSS-SECTOR TERMS.
+    -- ५ · THE DEFECT IS EXACTLY THE TWO CROSS-SECTOR TERMS.
     ------------------------------------------------------------------
 
     projected-leibniz-defect : (h k : Obs)

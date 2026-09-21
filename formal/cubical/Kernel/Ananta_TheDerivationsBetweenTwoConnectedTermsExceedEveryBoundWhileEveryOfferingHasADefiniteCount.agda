@@ -4,8 +4,8 @@
 -- Kernel.Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEvery
 --                BoundWhileEveryOfferingHasADefiniteCount
 --
--- TERM.  ‡‡®‡®‡‡ ¬ ananta -- the third of the three orders of magnitude in the
--- Jaina counting apparatus, ‡‡‡ñ‡‡Ø‡æ‡ / ‡‡‡‡ñ‡‡Ø‡æ‡ / ‡‡®‡®‡‡ (sakhyta,
+-- TERM.  ‡§Ö‡§®‡§®‡•ç‡§§ ¬∑ ananta -- the third of the three orders of magnitude in the
+-- Jaina counting apparatus, ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ‡§§ / ‡§Ö‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ‡§§ / ‡§Ö‡§®‡§®‡•ç‡§§ (sa·πÉkhyƒÅta,
 -- asakhyta, ananta), each further subdivided.  *Anuyogadvrastra* (date
 -- contested, commonly placed ~2nd-5th c. CE; I pin none); *Sthngastra*;
 -- *Bhagavatstra*.  No first use of the term is established here.
@@ -21,14 +21,14 @@
 ------------------------------------------------------------------------
 -- WHAT WAS OPEN.
 --
--- `Residue_‚¶` exhibits TWO histories between the kernel's own pair, separated
+-- `Residue_ÔøΩ` exhibits TWO histories between the kernel's own pair, separated
 -- by step count, 2 against 4, and concludes the truncation is strict.
--- `Avirodha_‚¶` locates the same fact structurally: `‚äï` is associative and
+-- `Avirodha_‚Ä¶` locates the same fact structurally: `‚äï` is associative and
 -- unital on the nose, `rev` is an inverse only up to meaning, and THE GAP
 -- BETWEEN STRICT CATEGORY AND WEAK GROUPOID IS THE EA.
 --
 -- Neither measures the gap, and no file in the corpus builds a family of
--- derivations indexed by ‚ï between fixed endpoints.  Two instances on one
+-- derivations indexed by ‚Ñï between fixed endpoints.  Two instances on one
 -- pair leave open whether the phenomenon is a feature of that pair.
 --
 -- IT IS NOT.  `reverse (add-zero a) : Step a (add a zero)` fires at EVERY
@@ -40,12 +40,12 @@
 --
 --   ¬ß1  inflate, inflate-len -- for every k, a derivation with the same
 --       endpoints and length (k + k) + len d.
---   ¬ß2  inflate-inj -- k is recoverable from the derivation, so ‚ï injects
+--   ¬ß2  inflate-inj -- k is recoverable from the derivation, so ‚Ñï injects
 --       into `Derivation a b` whenever that type is inhabited at all.
 --   ¬ß3  ananta -- the statement in the form the criterion above wants:
 --       no bound on the standpoints between two connected terms.
 --   ¬ß4  the-whole-family-means-one-thing -- and all of it is one bit
---       downstairs, through `Residue_‚¶`, forced by ‚ï being a set.
+--       downstairs, through `Residue_ÔøΩ`, forced by ÔøΩ being a set.
 --
 -- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
 -- exit 0 at the previous module path.  Module name and imports were renamed
@@ -114,7 +114,7 @@ ananta d k = inflate k d , inflate-len k d
 
 ------------------------------------------------------------------------
 -- ¬ß4.  AND ALL OF IT IS ONE BIT DOWNSTAIRS.  Not by choice of `eval`:
---      `Residue_‚¶` forces it from ‚ï being a set.  The order of the object and
+--      `Residue_ÔøΩ` forces it from ÔøΩ being a set.  The order of the object and
 --      the order of its meaning are not the same order, and the kernel
 --      keeps `eval` off the operational path entirely.
 ------------------------------------------------------------------------

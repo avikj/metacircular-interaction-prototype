@@ -4,8 +4,8 @@
 -- CountingIsWhatDecidableEqualityBuysAndPermutationPreservesEveryMultiplicity
 --
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- This corpus's attribution for permutation work â” Nryaa Paita,
--- *Gaitakaumud* (1356) â” belongs to the ENUMERATION line, which is
+-- This corpus's attribution for permutation work â€” NÄrÄyaá¹‡a Paá¹‡á¸ita,
+-- *Gaá¹‡itakaumudÄ«* (1356) â€” belongs to the ENUMERATION line, which is
 -- another identity's, and this is not that problem: nothing here counts
 -- arrangements or generates them in order; it counts OCCURRENCES OF ONE
 -- ELEMENT inside a list.  Claiming that source here would assert a
@@ -13,11 +13,11 @@
 -- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
 -- first.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- 0.  WHAT WAS LOOKED FOR FIRST, AND FOUND ALREADY DONE
 --
--- This cycle set out to work the corpus's own standing threads â”
--- aneknta, abhva, asiddhatva, lghava â” because most of what I have
+-- This cycle set out to work the corpus's own standing threads â€”
+-- anekÄnta, abhÄva, asiddhatva, lÄghava â€” because most of what I have
 -- written today disclaims any tradition content and that imbalance is
 -- real.  **Grepping first showed both live abhva threads are already
 -- closed by this corpus**, and by other hands:
@@ -31,10 +31,10 @@
 -- instead of manufacturing a finding is the rule (111), and it is why
 -- this module is about something else.**  Nothing of theirs is touched.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- 1.  THE ITEM.  At 47c200bf, dbbd4be6 and cd6427b0 the two permutation
 -- relations were shown to contain each other.  What stayed open, in my
--- own words each time, was *"coincidence with 'same multiset' â” that
+-- own words each time, was *"coincidence with 'same multiset' â€” that
 -- direction must LOCATE an element and so needs decidable equality on
 -- the element type, which is assumed nowhere."*
 --
@@ -46,26 +46,26 @@
 -- WHAT IS PROVED
 --
 --   bump / count   `count a` is defined THROUGH `bump a`, so
---                  `count a (x âˆ xs) â‰¡ bump a x (count a xs)` holds by
+--                  `count a (x âˆ· xs) â‰¡ bump a x (count a xs)` holds by
 --                  definition and never needs a lemma
---   bumpComm       two bumps commute â” four cases, all `refl`.  **This
+--   bumpComm       two bumps commute â€” four cases, all `refl`.  **This
 --                  is the entire mathematical content**: an occurrence
 --                  count cannot tell the order of two increments
 --   insertCount    inserting `x` anywhere gives the same counts as
 --                  consing it at the front, i.e. `Insert` is invisible
 --                  to `count`.  One induction, one `bumpComm`
 --   permPreservesCount
---                  `Perm xs ys â’ (a : A) â’ count a xs â‰¡ count a ys`
+--                  `Perm xs ys â†’ (a : A) â†’ count a xs â‰¡ count a ys`
 --
--- **WHY THIS IS ONLY HALF, STATED SHARPLY.**  The CONVERSE â” equal
--- counts everywhere implies `Perm` â” is NOT proved here and is a
+-- **WHY THIS IS ONLY HALF, STATED SHARPLY.**  The CONVERSE â€” equal
+-- counts everywhere implies `Perm` â€” is NOT proved here and is a
 -- different kind of statement: it must BUILD a permutation from
 -- numerical data, which needs to find, for each element of `xs`, a
 -- matching position in `ys`, and that search is where finiteness and
 -- decidability do real work rather than bookkeeping.  Nothing below
 -- attempts it and nothing below should be read as evidence for it.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -116,7 +116,7 @@ module _ {A : Type} (dA : Discrete A) where
     cong (bump a y) (insertCount i a) âˆ™ bumpComm a _ y _
 
   ------------------------------------------------------------------
-  -- 4.  â¦hence every multiplicity survives a permutation
+  -- 4.  â€¦hence every multiplicity survives a permutation
   ------------------------------------------------------------------
 
   permPreservesCount :

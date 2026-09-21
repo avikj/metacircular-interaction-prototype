@@ -3,14 +3,14 @@
 ------------------------------------------------------------------------
 -- KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition
 --
--- à•àà°à® / àà (à¯àà—àà¦à) â” krama, in sequence; saha or yugapad, at once.
+-- à¤•à¥à¤°à¤® / à¤¸à¤¹ (à¤¯à¥à¤—à¤ªà¤¦à¥) â€” krama, in sequence; saha or yugapad, at once.
 -- The distinction is the Jaina one, from the saptabhag literature
 -- (Umsvti, *Tattvrthastra*; Samantabhadra; Akalaka; Siddhasena
 -- Divkara), and in this repository it is `Saptabhangi` /
--- `SaptabhangiNaya` â” ANOTHER IDENTITY'S modules, written in
--- Devanagari â” that prove the theorem being used here as a lens:
+-- `SaptabhangiNaya` â€” ANOTHER IDENTITY'S modules, written in
+-- Devanagari â€” that prove the theorem being used here as a lens:
 --
---   ààà¯à¾àà-ààààà¿-à¨à¾àààà¿ â‰ ààà¯à¾àà-ààµà•àààµàà¯à®à
+--   à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿-à¤¨à¤¾à¤¸à¥à¤¤à¤¿ â‰¢ à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥
 --
 -- sequential assertion of asti and nsti is NOT the simultaneous
 -- position; avaktavya is a fourth, irreducibly distinct bhaga.  That
@@ -18,21 +18,21 @@
 -- here is a claim about their construction.  What is done here is to
 -- turn it on MY OWN objects, which is what a lens is for.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE FINDING, AND IT IS AGAINST MY OWN NAMING OF ONE CYCLE AGO.
 --
 -- My "fourth corner" is, by its definition,
 --
---   (Â àà¾à®à¯à¿à• (one Q)) — (Â à¨à¿ààà¯ (one Q))
+--   (Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤• (one Q)) Ã— (Â¬ à¤¨à¤¿à¤¤à¥à¤¯ (one Q))
 --
 -- a PRODUCT of two negations.  Three things are checked below:
 --
---   1. the two conjuncts are INDEPENDENT â” each is satisfiable while
+--   1. the two conjuncts are INDEPENDENT â€” each is satisfiable while
 --      the other fails, so the pair is genuinely "one, and also the
 --      other", which is krama;
 --   2. **the simultaneous denial collapses to the sequential pair**:
---      `Â (A âŠ B) â’ (Â A) — (Â B)` and back, constructively, with no
---      hypothesis â” so in this formalism "denying both at once" IS
+--      `Â¬ (A âŠ B) â†’ (Â¬ A) Ã— (Â¬ B)` and back, constructively, with no
+--      hypothesis â€” so in this formalism "denying both at once" IS
 --      "denying one and denying the other", and there is no room
 --      between them;
 --   3. hence my formalism, as it stands, cannot express avaktavya at
@@ -42,22 +42,22 @@
 -- wrong.**  `Avaktavya_*` was put on four files on the grounds that the
 -- fourth corner is the fourth bhaga.  By the theorem those modules'
 -- author proved, the fourth bhaga is exactly what a sequential
--- position is not â” and mine is a product, which is sequential.  On
+-- position is not â€” and mine is a product, which is sequential.  On
 -- present evidence my corner sits at the THIRD bhaga,
--- ààà¯à¾àà-ààààà¿-à¨à¾àààà¿, the krama position.
+-- à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿-à¤¨à¤¾à¤¸à¥à¤¤à¤¿, the krama position.
 --
 -- **THE RENAME IS NOT DONE IN THIS CYCLE**, by the standing rule that
 -- a record is not amended in the cycle that finds the gap in it.  It is
 -- the next cycle's named step, and the honest replacement is a term for
 -- the sequential position, not silence.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- Nothing here touches `AnuktaAvaktavya`, `Saptabhangi` or
--- `SaptabhangiNaya`; `àà¾à®à¯à¿à•` and `à¨à¿ààà¯` are imported as instances, as
+-- `SaptabhangiNaya`; `à¤¸à¤¾à¤®à¤¯à¤¿à¤•` and `à¤¨à¤¿à¤¤à¥à¤¯` are imported as instances, as
 -- they have been on this line throughout.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -86,7 +86,7 @@ kramaToSaha (na , nb) (inl a) = na a
 kramaToSaha (na , nb) (inr b) = nb b
 
 ------------------------------------------------------------------------
--- 2.  â¦and the corner is exactly that collapse, at my objects
+-- 2.  â€¦and the corner is exactly that collapse, at my objects
 ------------------------------------------------------------------------
 
 Corner : {R : Type} â†’ (R â†’ Type) â†’ Type
@@ -101,8 +101,8 @@ cornerIsDenyingBothAtOnce Q = sahaToKrama , kramaToSaha
 ------------------------------------------------------------------------
 -- 3.  The two conjuncts are independent
 --
--- `Â àà¾à®à¯à¿à• (one Q)` is pointwise non-refutability and
--- `Â à¨à¿ààà¯ (one Q)` is the absence of a uniform proof.  Each holds
+-- `Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤• (one Q)` is pointwise non-refutability and
+-- `Â¬ à¤¨à¤¿à¤¤à¥à¤¯ (one Q)` is the absence of a uniform proof.  Each holds
 -- while the other fails, so the corner really is a conjunction of two
 -- separately assertible positions.
 ------------------------------------------------------------------------
@@ -131,21 +131,21 @@ firstFailsThere k = k (Î» _ â†’ tt , (Î» e â†’ e))
 -- HERE.**  The block above says "this formalism, as it stands, cannot
 -- express avaktavya at all: every position it can name is reachable
 -- sequentially."  What is actually proved above is narrower: DENYING
--- BOTH collapses, because `Â (A âŠ B)` and `(Â A) — (Â B)` are
+-- BOTH collapses, because `Â¬ (A âŠ B)` and `(Â¬ A) Ã— (Â¬ B)` are
 -- interderivable.
 --
 -- The other De Morgan law runs only one way constructively, and I did
 -- not check it.  `Yugapat_TheDenialOfJointAssertionDoesNotDecompose`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
 -- cubical v0.5, NOT the declared pin) gives the position I said did not
--- exist: `Â (àà¾à®à¯à¿à• — à¨à¿ààà¯)` â” the denial of the JOINT assertion,
+-- exist: `Â¬ (à¤¸à¤¾à¤®à¤¯à¤¿à¤• Ã— à¤¨à¤¿à¤¤à¥à¤¯)` â€” the denial of the JOINT assertion,
 -- which says the two cannot hold together without saying which fails.
 -- `kramaGivesYugapat` shows the sequential position implies it, and
 -- `yugapatDecompositionGivesWeakExcludedMiddle` shows the converse, as
 -- a general principle, yields weak excluded middle.  So the gap is a
 -- named constructive taboo, not an accident of encoding.
 --
--- That module also imports their `àà°ààà` rather than rebuilding it, and
+-- That module also imports their `à¤†à¤°à¥à¤ªà¤£` rather than rebuilding it, and
 -- states plainly, syt, the position withheld: that this position IS avaktavya,
 -- or that it matches what `Saptabhangi` proves.  It is a position of my
 -- family that no product of denials reaches; the comparison with their

@@ -1,48 +1,48 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à•ààà²àà¯ â” skill, proficiency.
+-- à¤•à¥Œà¤¶à¤²à¥à¤¯ â€” skill, proficiency.
 --
 -- WHY THIS FILE EXISTS.  The abstract "IN A PROOF-CARRYING LEARNER,
 -- GENERALISATION AND SHAREABILITY ARE EXCLUSIVE" says, under WHAT IS
 --
 -- The process is built here with the stochasticity the earlier form
 -- lacks, and the separation becomes a quantitative theorem about a
--- learner: Â§à proves the covered set of a library is contained in the
+-- learner: Â§à¥« proves the covered set of a library is contained in the
 -- training states of its members, so CAPABILITY GROWS BY AT MOST ONE
--- STATE PER SKILL, and Â§à proves that no finite library covers an
--- infinite state space â” by producing the state it misses.
+-- STATE PER SKILL, and Â§à¥¬ proves that no finite library covers an
+-- infinite state space â€” by producing the state it misses.
 --
 -- The reward signal, the discounting and the optimisation are in
--- `Chala_â¦` (theorems/cost), which builds the decision process,
+-- `Chala_â€¦` (theorems/cost), which builds the decision process,
 -- policies, the discounted return at an arbitrary rate and optimality
 -- quantified over every policy.  This file adds the two things that one
 -- does not have: STOCHASTIC transitions, with the deterministic process
--- proved to be the Dirac special case (Â§à¨), and the SKILL LIBRARY.
+-- proved to be the Dirac special case (Â§à¥¨), and the SKILL LIBRARY.
 --
 -- WHAT IS CHECKED
 --
---   Â§à§  `Dist`, `expect`, `dirac`   finite distributions, â•-weighted.
---   Â§à¨  `SMDP`, `sret`              the stochastic process and its
+--   Â§à¥§  `Dist`, `expect`, `dirac`   finite distributions, â„•-weighted.
+--   Â§à¥¨  `SMDP`, `sret`              the stochastic process and its
 --       `sret-det`                  return; the deterministic process
 --                                   embeds, with equal returns.
---   Â§à©  `Trace`, `len`, `two-traces`  routes, and that a route is not
+--   Â§à¥©  `Trace`, `len`, `two-traces`  routes, and that a route is not
 --                                   determined by its endpoints.
---   Â§à  `Memo`, `enabled-isContr`   THE MEMORISING SKILL FIRES AT
+--   Â§à¥ª  `Memo`, `enabled-isContr`   THE MEMORISING SKILL FIRES AT
 --                                   EXACTLY ONE STATE: its enabled set
 --                                   is contractible, centred on the
 --                                   training state.
---   Â§à  `library-coverage`          so a library's covered set lies
+--   Â§à¥«  `library-coverage`          so a library's covered set lies
 --                                   inside its training states.
---   Â§à  `library-misses`            and no finite library covers â• â”
+--   Â§à¥¬  `library-misses`            and no finite library covers â„• â€”
 --                                   the missed state is constructed.
---   Â§à  `no-trace-from-endpoints`   the generalising form cannot be
---                                   installed: whatever it supplies â”
+--   Â§à¥­  `no-trace-from-endpoints`   the generalising form cannot be
+--                                   installed: whatever it supplies â€”
 --                                   endpoints and prop-valued outcome
---                                   families â” does not determine the
+--                                   families â€” does not determine the
 --                                   route the library demands.
 --
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
+-- CHECKED: Agda 2.8.0, agda/cubical v0.9 â€” the repository pin.
 -- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -63,7 +63,7 @@ private
   absurd ()
 
 ------------------------------------------------------------------------
--- à§ Â finite distributions, weighted by counts.
+-- à¥§ Â· finite distributions, weighted by counts.
 ------------------------------------------------------------------------
 
 Dist : Type â†’ Type
@@ -80,7 +80,7 @@ expect-dirac : {A : Type} (a : A) (f : A â†’ â„•) â†’ expect (dirac a) f â‰¡ f a
 expect-dirac a f = cong (_+ 0) (Â·-identityË¡ (f a)) âˆ™ +-zero (f a)
 
 ------------------------------------------------------------------------
--- à¨ Â the STOCHASTIC decision process, and the deterministic one inside it.
+-- à¥¨ Â· the STOCHASTIC decision process, and the deterministic one inside it.
 ------------------------------------------------------------------------
 
 record MDP (S A : Type) : Type where
@@ -118,7 +118,7 @@ sret-det M (suc n) Ï€ s =
     âˆ™ sret-det M n Ï€ (move M s (Ï€ s)) )
 
 ------------------------------------------------------------------------
--- à© Â routes, and that the endpoints do not determine one.
+-- à¥© Â· routes, and that the endpoints do not determine one.
 ------------------------------------------------------------------------
 
 data Trace {S : Type} : S â†’ S â†’ Type where
@@ -130,10 +130,10 @@ len stop        = 0
 len (step _ tr) = suc (len tr)
 
 ------------------------------------------------------------------------
--- à Â THE MEMORISING SKILL, AND WHERE IT FIRES.
+-- à¥ª Â· THE MEMORISING SKILL, AND WHERE IT FIRES.
 --
 -- It carries its endpoints, the route between them, the applicability
--- family its author supplied, and â” the field that does the damage â”
+-- family its author supplied, and â€” the field that does the damage â€”
 -- the projection of that family onto an identification with the single
 -- training state.  Whatever family the author wrote, the enabled set is
 -- then contractible and centred on that state.
@@ -159,7 +159,7 @@ snd (enabled-isContr sS k) (s , a) =
   Î£PathP (sym (pin k s a) , toPathP (appProp k s _ a))
 
 ------------------------------------------------------------------------
--- à Â SO COVERAGE GROWS BY AT MOST ONE STATE PER SKILL.
+-- à¥« Â· SO COVERAGE GROWS BY AT MOST ONE STATE PER SKILL.
 ------------------------------------------------------------------------
 
 data Any {S : Type} (P : Memo S â†’ Type) : List (Memo S) â†’ Typeâ‚ where
@@ -178,7 +178,7 @@ library-coverage (k âˆ· ks) s (hereA a)  = hereA (pin k s a)
 library-coverage (k âˆ· ks) s (thereA m) = thereA (library-coverage ks s m)
 
 ------------------------------------------------------------------------
--- à Â AND NO FINITE LIBRARY COVERS AN INFINITE STATE SPACE.
+-- à¥¬ Â· AND NO FINITE LIBRARY COVERS AN INFINITE STATE SPACE.
 --
 -- The missed state is constructed, not argued for: one past the largest
 -- training state in the library.
@@ -199,13 +199,13 @@ library-misses lib fires =
                    (library-coverage lib (suc (ceiling lib)) fires)))
 
 ------------------------------------------------------------------------
--- à Â AND THE GENERALISING FORM CANNOT BE INSTALLED.
+-- à¥­ Â· AND THE GENERALISING FORM CANNOT BE INSTALLED.
 --
 -- A generalising skill supplies its endpoints and a family of outcome
 -- equalities.  An outcome equality in a discrete domain is a
 -- proposition, so what it supplies is: two states, and a proof-
 -- irrelevant certificate.  The library demands a ROUTE, and the route
--- is not a function of the endpoints â” here are two skills sharing both
+-- is not a function of the endpoints â€” here are two skills sharing both
 -- endpoints whose routes have different lengths, and hence the
 -- statement in the form that admits no encoding: no function of the
 -- endpoints agrees with the route's length.

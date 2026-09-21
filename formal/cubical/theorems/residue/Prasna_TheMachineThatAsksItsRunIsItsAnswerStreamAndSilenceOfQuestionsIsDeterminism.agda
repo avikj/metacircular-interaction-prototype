@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡‡‡® ‚î the question.  THE MACHINE THAT ASKS: ITS RUN IS ITS ANSWER
+-- ‡§™‡•ç‡§∞‡§∂‡•ç‡§® ‚Äî the question.  THE MACHINE THAT ASKS: ITS RUN IS ITS ANSWER
 -- STREAM, AND SILENCE OF QUESTIONS IS DETERMINISM.
 --
--- Vishvamachine's ea ‚î the interactive generalisation ‚î was
+-- Vishvamachine's ea ÔøΩ the interactive generalisation ÔøΩ was
 -- concluded once in Prashna, where the freedom lives in the EVENT
 -- type: the ISC's respond chooses the successor, receipts collapse
 -- the space, and the collapse's squares are filled by Machine being a
 -- set.  This file is the ea's other face, where the freedom lives
 -- in the ANSWERS: the environment's answer determines the successor,
--- and the collapse comes out structural ‚î no set-ness of the state
+-- and the collapse comes out structural ‚Äî no set-ness of the state
 -- space is used anywhere, because of a theorem Prashna does not have:
 --
--- An interaction on X is a family of questions Q : X ‚í Type and an
--- answered step Œ¥ : (x : X) ‚í Q x ‚í X.  The guarded productive run
--- from x ‚î a now, a receipt, an answer to x's question, a rest from
--- the answered successor ‚î is `IExec`.  The environment's bare
--- contribution ‚î an answer now, answers forever after ‚î is `Answers`.
+-- An interaction on X is a family of questions Q : X ‚Üí Type and an
+-- answered step Œ¥ : (x : X) ‚Üí Q x ‚Üí X.  The guarded productive run
+-- from x ‚Äî a now, a receipt, an answer to x's question, a rest from
+-- the answered successor ‚Äî is `IExec`.  The environment's bare
+-- contribution ‚Äî an answer now, answers forever after ‚Äî is `Answers`.
 --
---   THEOREM (run-is-answers).   IExec I x ‚â Answers I x.
+--   THEOREM (run-is-answers).   IExec I x ‚âÉ Answers I x.
 --
 -- The history of an interactive run carries no information beyond the
 -- answers the environment supplied: the state components are receipts,
 -- and receipts are contractible.  This is the interactive face of
--- trace-is-fiber ‚î what the run keeps beyond its answers is forced.
+-- trace-is-fiber ‚Äî what the run keeps beyond its answers is forced.
 --
 --   THEOREM (silence-is-determinism).  If every Q x is contractible,
 --   IExec I x is contractible.
@@ -33,14 +33,14 @@
 -- that the machine has nothing to ask.  The closed universal machine
 -- is the interaction whose every question is trivial (`closed uStep`),
 -- and Niyati's one-execution returns as an instance
--- (one-execution-again) ‚î for the closed machine the whole space of
+-- (one-execution-again) ‚Äî for the closed machine the whole space of
 -- interactive runs is again a point.
 --
--- The other direction ‚î one genuine degree of freedom opens the
--- space ‚î is already checked on the event flank, in Prashna's
+-- The other direction ‚Äî one genuine degree of freedom opens the
+-- space ‚Äî is already checked on the event flank, in Prashna's
 -- interaction-is-strictly-wider, and is not repeated here.  What this
 -- file adds is the measurement: in every case the space of histories
--- is exactly the space of answer streams ‚î no more, no less.
+-- is exactly the space of answer streams ‚Äî no more, no less.
 ------------------------------------------------------------------------
 
 module Prasna_TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism where
@@ -134,9 +134,9 @@ module _ {X : Type ‚Ñì} (I : Interaction X) where
 -- ¬ß3  Silence of questions is determinism.
 --
 -- If every question is contractible the environment has no real
--- choice, and the space of answer streams ‚î hence of runs ‚î is a
+-- choice, and the space of answer streams ‚Äî hence of runs ‚Äî is a
 -- point.  The contraction is built coinductively OVER A PATH of
--- states: the answer components are collapsed by isProp‚íPathP, and
+-- states: the answer components are collapsed by isProp‚ÜíPathP, and
 -- the tails follow along the line the answers draw.
 ------------------------------------------------------------------------
 

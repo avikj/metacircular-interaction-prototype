@@ -1,37 +1,37 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-������ � the machine, constructed.
+-- नेरोड-यन्त्र — the machine, constructed.
 --
 -- RESOLUTION OF A FORMER SCOPE LINE.  Abstract 15 proved the
 -- indistinguishability relation of a modular sensor family equal to
 -- divisibility by the lcm, and its closing section said the automaton
--- itself was absent � the automata-theoretic reading was offered, not
+-- itself was absent — the automata-theoretic reading was offered, not
 -- proved.  This file ends that: THE AUTOMATON NOW EXISTS, and the
 -- reading is a theorem, in its strongest form:
 --
---   §1  A Moore machine is a transition function δ : S � S (unary
---       alphabet � the input letter is "advance") with an observation
---       out : S � O.  Its Nerode relation is agreement of the two
---       states' observations under EVERY word: � k, out (δ� s) ≡
---       out (δ� t).
+--   §1  A Moore machine is a transition function δ : S → S (unary
+--       alphabet — the input letter is "advance") with an observation
+--       out : S → O.  Its Nerode relation is agreement of the two
+--       states' observations under EVERY word: ∀ k, out (δᵏ s) ≡
+--       out (δᵏ t).
 --
 --   §2  THE COLLAPSE THEOREM, generic.  If the next observation
---       factors through the current one � out ∘ δ = g ∘ out for some
---       g : O � O, i.e. the observation is a coalgebra homomorphism,
+--       factors through the current one — out ∘ δ = g ∘ out for some
+--       g : O → O, i.e. the observation is a coalgebra homomorphism,
 --       the dashboard condition of UpakaranaVrddhi in coalgebraic form
---       � then the whole Nerode relation IS the kernel of one
---       observation: Nerode s t � (out s ≡ out t), an equivalence of
+--       — then the whole Nerode relation IS the kernel of one
+--       observation: Nerode s t ≃ (out s ≡ out t), an equivalence of
 --       types, for any set O.  Infinitely many experiments collapse to
 --       one, not approximately but as an equivalence, and the residue
 --       class is the whole Nerode class.
 --
---   §3  The instance abstract 15 promised: states �, advance = suc,
+--   §3  The instance abstract 15 promised: states ℕ, advance = suc,
 --       observation = (parity, residue mod 3).  The factoring is
 --       DEFINITIONAL (fac = refl): stepping the counter steps the
---       readout.  Hence its Nerode congruence is computed � two counts
---       are Nerode-equivalent exactly when one readout agrees � and
---       with abstract 15's own theorem (agreement � divisibility by 6)
+--       readout.  Hence its Nerode congruence is computed — two counts
+--       are Nerode-equivalent exactly when one readout agrees — and
+--       with abstract 15's own theorem (agreement ≃ divisibility by 6)
 --       the chain closes: Nerode class = residue mod lcm, now WITH the
 --       machine, not about a machine-shaped absence.
 --
@@ -41,12 +41,12 @@
 -- factoring, pointed along time instead of between instruments, is
 -- exactly what makes an observation FINITE-STATE-COMPLETE: the future
 -- adds no separation because the future's readout is post-processing
--- of the present's.  One law: factoring kills separation � across
+-- of the present's.  One law: factoring kills separation — across
 -- instruments, and now across time.
 --
 ------------------------------------------------------------------------
 
-module NerodeYantra_TheMooreMachineNowExistsAndWhenTheNextObservationFactorsThroughTheCurrentTheNerodeCongruenceIsOneObservationsKernel where
+module NerodeMachine_TheMooreMachineNowExistsAndWhenTheNextObservationFactorsThroughTheCurrentTheNerodeCongruenceIsOneObservationsKernel where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism
@@ -66,7 +66,7 @@ cakra δ zero    s = s
 cakra δ (suc k) s = δ (cakra δ k s)
 
 ------------------------------------------------------------------------
--- ��� � The machine, its Nerode relation, and the collapse theorem.
+-- १–२ · The machine, its Nerode relation, and the collapse theorem.
 ------------------------------------------------------------------------
 
 module Yantra {S : Type ℓ} {O : Type ℓ'}
@@ -83,11 +83,11 @@ module Yantra {S : Type ℓ} {O : Type ℓ'}
   bhaviṣya zero    s = refl
   bhaviṣya (suc k) s = fac (cakra δ k s) ∙ cong g (bhaviṣya k s)
 
-  -- Hence one agreement propagates to every word�
+  -- Hence one agreement propagates to every word…
   vistāra : ∀ s t → out s ≡ out t → Nerode s t
   vistāra s t p k = bhaviṣya k s ∙ cong (cakra g k) p ∙ sym (bhaviṣya k t)
 
-  -- �and the Nerode relation is the kernel of ONE observation, as an
+  -- …and the Nerode relation is the kernel of ONE observation, as an
   -- equivalence of types.
   nerode-saṅkoca : ∀ s t → Nerode s t ≃ (out s ≡ out t)
   nerode-saṅkoca s t = isoToEquiv
@@ -97,7 +97,7 @@ module Yantra {S : Type ℓ} {O : Type ℓ'}
          (λ nd → isPropΠ (λ k → setO _ _) _ nd))
 
 ------------------------------------------------------------------------
--- � � The instance abstract 15 promised: the (2,3) sensor counter.
+-- ३ · The instance abstract 15 promised: the (2,3) sensor counter.
 ------------------------------------------------------------------------
 
 data Tri : Type₀ where
@@ -148,5 +148,5 @@ open Yantra {S = ℕ} {O = Bool × Tri} suc darśana
 
 -- The machine exists; its Nerode congruence is the kernel of one joint
 -- readout, by nerode-of-the-sensor-counter; and abstract 15's checked
--- theorem (readout agreement � divisibility of the difference by 6)
+-- theorem (readout agreement ≃ divisibility of the difference by 6)
 -- composes with it to give: Nerode class = residue class mod lcm.

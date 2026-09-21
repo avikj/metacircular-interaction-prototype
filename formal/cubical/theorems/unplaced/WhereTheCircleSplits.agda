@@ -6,14 +6,14 @@
 -- A check that should have been run before `PythagoreanTransition` was
 -- celebrated, and is run now: **is the circle actually a circle?**
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE TRIVIALISING POSSIBILITY
 --
 -- `PythagoreanTransition` builds the conic over an arbitrary commutative
--- ring and finds that its additive law is multiplicative on norms â” the
+-- ring and finds that its additive law is multiplicative on norms â€” the
 -- exact opposite of `disjoint-support` on the line.  That is only
 -- interesting if the conic is a conic.  If âˆ’1 happens to be a square in
--- the ring, say iÂi = âˆ’1, then
+-- the ring, say iÂ·i = âˆ’1, then
 --
 --     aÂ² + bÂ²  =  (a + i b)(a âˆ’ i b)
 --
@@ -26,16 +26,16 @@
 -- commutative ring in which such an i exists.  So the trivialising case
 -- is real and must be excluded, not assumed away.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- IT IS EXCLUDED OVER â
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- IT IS EXCLUDED OVER â„¤
 --
--- `â-has-no-i`: no integer squares to âˆ’1, because every product of two
--- equal integers is `pos` of something â” two cases, both closed by
--- `posNotnegsuc`.  So over â the conic does not split, and every
+-- `â„¤-has-no-i`: no integer squares to âˆ’1, because every product of two
+-- equal integers is `pos` of something â€” two cases, both closed by
+-- `posNotnegsuc`.  So over â„¤ the conic does not split, and every
 -- statement in `PythagoreanTransition` and `IdempotenceForbidsDescent`
--- that was checked at â is a statement about a genuine circle.
+-- that was checked at â„¤ is a statement about a genuine circle.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- AND THAT IS THE DICHOTOMY THE WHOLE SUBJECT TURNS ON
 --
 -- Whether âˆ’1 is a square is exactly the split/inert question for the
@@ -45,12 +45,12 @@
 -- D in place of âˆ’1, and the cakravla's whole labour is at the values of
 -- D where the form does not degenerate.
 --
--- So the object `PythagoreanTransition` found â” an additive law visible
--- in the multiplicative chart â” is not free.  It exists exactly where the
+-- So the object `PythagoreanTransition` found â€” an additive law visible
+-- in the multiplicative chart â€” is not free.  It exists exactly where the
 -- norm form is irreducible, and where the form splits, the "additive law"
 -- was multiplication all along.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -89,7 +89,7 @@ module Split (R : CommRing â„“) where
     close : (a b : A) â†’ (a Â· a) - ((- 1r) Â· (b Â· b)) â‰¡ (a Â· a) + (b Â· b)
     close a b = solve! R
 
-  -- THE DEGENERATION.  With iÂi = âˆ’1 the circle is two lines.
+  -- THE DEGENERATION.  With iÂ·i = âˆ’1 the circle is two lines.
   norm-factors : (i : A) â†’ (i Â· i) â‰¡ (- 1r)
                â†’ (u : Pair) â†’ N u â‰¡ (fst u + (i Â· snd u)) Â· (fst u - (i Â· snd u))
   norm-factors i h u =
@@ -98,7 +98,7 @@ module Split (R : CommRing â„“) where
           âˆ™ close (fst u) (snd u) )
 
 ------------------------------------------------------------------------
--- 2.  Over â no such i exists, so the circle stays a circle
+-- 2.  Over â„¤ no such i exists, so the circle stays a circle
 ------------------------------------------------------------------------
 
 â„¤-has-no-i : (a : â„¤) â†’ Â¬ (a Â·â„¤ a â‰¡ negsuc 0)
@@ -112,7 +112,7 @@ module Split (R : CommRing â„“) where
 --
 -- An additive law that is multiplicative on norms is not a free gift of
 -- writing pairs.  It exists exactly where the norm form is irreducible.
--- Over â that holds, so `PythagoreanTransition`'s conic is a conic and
+-- Over â„¤ that holds, so `PythagoreanTransition`'s conic is a conic and
 -- its transition map is geometry.  Over a ring where âˆ’1 is a square the
 -- same construction returns ring multiplication wearing a costume.
 ------------------------------------------------------------------------

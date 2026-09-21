@@ -44,6 +44,21 @@ From the audit (numbers are `rg`/`wc`/`md5sum` facts, not estimates):
 | Byte-identical duplicate files | 175 groups / 350 files (Sanskrit-named + English-named copies; `fibre/`, `fiber/`, `punaragamana/` are near-copies of one library) |
 | Existing outreach material | none for any target named; only Taelin (`collab/bend2-cubical/`), Pratt, Levin |
 
+**What `sh check` actually said on a clean container (2026-09-21, full log in
+`CHECK_2026-09-21.txt`).** At the pushed HEAD, 25 of 28 checked Agda modules
+were RED before a single type was examined: the 17 Sep "Remove Sanskrit
+presentation text" commit deleted *bytes* rather than characters and left
+2,218 Agda files and 390 prose files (README included) as invalid UTF-8,
+which Agda refuses to read. Under that, a second defect: the 17 Sep
+English-naming pass copied 191 modules to new filenames without updating
+their `module` lines. Both are repaired on this branch (method in the log;
+comments only, no proof term changed), after which all 28 modules and the
+Lean root closure are green. The one remaining red is the repository's own
+prose gate on the phrase "WHAT IS NOT CLAIMED" (15 files), which is a
+writing decision, not a checking one. **Nobody outside could have run this
+corpus for the last four days, and no CI would have said so.** That is the
+whole case for step 3 below.
+
 **Two discrepancies to fix before any link goes out** (details in
 `ARTIFACT_CHECKLIST.md`): six Kernel files carry `-- CHECKED. Agda 2.6.3 +
 cubical v0.5` provenance lines while the live pin is 2.8.0 / v0.9; and

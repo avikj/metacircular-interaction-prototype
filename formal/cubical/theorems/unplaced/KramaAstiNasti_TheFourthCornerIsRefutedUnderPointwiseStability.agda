@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à®àà²àµà¾à•àà¯à®à Â PROVENANCE OF THE NAME.
+-- à¤®à¥‚à¤²à¤µà¤¾à¤•à¥à¤¯à¤®à¥ Â· PROVENANCE OF THE NAME.
 --
--- à•àà°à® Â à¨à¾àààà¿ â” two terms, one from each half of the àààààà™àà—à apparatus.
+-- à¤•à¥à¤°à¤® Â· à¤¨à¤¾à¤¸à¥à¤¤à¤¿ â€” two terms, one from each half of the à¤¸à¤ªà¥à¤¤à¤­à¤™à¥à¤—à¥€ apparatus.
 --
---   ààà¯à¾à¨àà¨à¾àààà¿, the second àà™àà—: in some respect, it is not.  **Samantabhadra,
+--   à¤¸à¥à¤¯à¤¾à¤¨à¥à¤¨à¤¾à¤¸à¥à¤¤à¤¿, the second à¤­à¤™à¥à¤—: in some respect, it is not.  **Samantabhadra,
 --   *ptamms* 14-24 (~6th c. CE); Akalaka, *Laghyastraya* (~8th c.);
 --   rooted in Umsvti, *Tattvrthastra* 5.31-32 (~2nd-5th c.).**
 --
---   à•àà°à®à¾à°ààà versus ààà¾à°ààà â” presentation in SUCCESSION versus SIMULTANEOUSLY.
+--   à¤•à¥à¤°à¤®à¤¾à¤°à¥à¤ªà¤£ versus à¤¸à¤¹à¤¾à¤°à¥à¤ªà¤£ â€” presentation in SUCCESSION versus SIMULTANEOUSLY.
 --   **Akalaka, *Laghyastraya* (~8th c.); Vidynandin,
 --   *Tattvrthalokavrttika* (~9th c.).**  This is the load-bearing one:
---   ààààà¿ and à¨à¾àààà¿ asserted in succession give the third àà™àà— and are
---   expressible; asserted together they give ààµà•àààµàà¯, the fourth, which is
+--   à¤…à¤¸à¥à¤¤à¤¿ and à¤¨à¤¾à¤¸à¥à¤¤à¤¿ asserted in succession give the third à¤­à¤™à¥à¤— and are
+--   expressible; asserted together they give à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯, the fourth, which is
 --   neither unknown nor undefined nor empty but a positive fourth position.
 --   The distinction is what makes seven positions and not four.
 --
 -- **No claim is made that Samantabhadra, Akalaka or Vidynandin proved
--- anything below.**  The sevenfold division and the à•àà°à®/àà distinction are
+-- anything below.**  The sevenfold division and the à¤•à¥à¤°à¤®/à¤¸à¤¹ distinction are
 -- theirs, stated as doctrine; the theorems here are about what the fourth
 -- corner can and cannot be over particular index types in cubical type
 -- theory, and they are this repository's.  The Jaina texts do not contain a
@@ -33,31 +33,31 @@
 -- and said of the fourth:
 --
 --   "NOT PROVED and NOT ASSERTED: that the fourth corner is impossible
---    in the PLAIN negated forms.  `Â àà¾à®à¯à¿à•` does not constructively
---    yield an instance no remedy removes, so `Â (Â àà¾à®à¯à¿à• bad — Â à¨à¿ààà¯
+--    in the PLAIN negated forms.  `Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•` does not constructively
+--    yield an instance no remedy removes, so `Â¬ (Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤• bad Ã— Â¬ à¤¨à¤¿à¤¤à¥à¤¯
 --    bad)` is NOT proved here and is not asserted."
 --
 -- It is refuted under one named hypothesis, and the hypothesis is
 -- exactly a stability, pointwise in the remedy:
 --
 --   fourthCornerRefutedUnderPointwiseStability :
---     ((r : R) â’ Stable (Î[ i âˆˆ I ] bad i r))
---     â’ Â ((Â àà¾à®à¯à¿à• bad) — (Â à¨à¿ààà¯ bad))
+--     ((r : R) â†’ Stable (Î£[ i âˆˆ I ] bad i r))
+--     â†’ Â¬ ((Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤• bad) Ã— (Â¬ à¤¨à¤¿à¤¤à¥à¤¯ bad))
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHERE THE CONSTRUCTIVE ARGUMENT STOPS, AND WHAT FILLS THE GAP
 --
 -- Â§2 is unconditional: if no single remedy clears every instance, then
--- for EVERY remedy some instance survives it â” under a double negation.
+-- for EVERY remedy some instance survives it â€” under a double negation.
 -- That is a one-line contrapositive and needs nothing.
 --
--- The double negation is the whole gap.  `à¨à¿ààà¯` asks for the surviving
--- instance itself, and Â§2 delivers only `Â Â Î`.  Â§3 closes it with
--- stability of that Î at each remedy â” which `Dec` supplies, and which
+-- The double negation is the whole gap.  `à¤¨à¤¿à¤¤à¥à¤¯` asks for the surviving
+-- instance itself, and Â§2 delivers only `Â¬ Â¬ Î£`.  Â§3 closes it with
+-- stability of that Î£ at each remedy â€” which `Dec` supplies, and which
 -- is precisely the "positive pole is a search" side of the axis this
 -- corpus keeps meeting.  Â§4 then refutes the fourth corner.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ universalRemedyGivesSamayika :
 universalRemedyGivesSamayika bad (r , clears) i = r , clears i
 
 ------------------------------------------------------------------------
--- 2.  No universal remedy â’ every remedy is survived, under ÂÂ
+-- 2.  No universal remedy â‡’ every remedy is survived, under Â¬Â¬
 ------------------------------------------------------------------------
 
 noUniversalRemedyGivesPointwiseDoubleNegation :
@@ -102,7 +102,7 @@ noUniversalRemedyGivesPointwiseDoubleNegation bad noUR r nn =
   noUR (r , Î» i b â†’ nn (i , b))
 
 ------------------------------------------------------------------------
--- 3.  Pointwise stability turns that into à¨à¿ààà¯
+-- 3.  Pointwise stability turns that into à¤¨à¤¿à¤¤à¥à¤¯
 ------------------------------------------------------------------------
 
 pointwiseStabilityGivesNitya :
@@ -115,8 +115,8 @@ pointwiseStabilityGivesNitya bad stab noUR r =
 ------------------------------------------------------------------------
 -- 4.  Hence the fourth corner is refuted
 --
--- `Â àà¾à®à¯à¿à•` kills any universal remedy (Â§1), Â§3 then produces `à¨à¿ààà¯`,
--- and that contradicts `Â à¨à¿ààà¯`.
+-- `Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•` kills any universal remedy (Â§1), Â§3 then produces `à¤¨à¤¿à¤¤à¥à¤¯`,
+-- and that contradicts `Â¬ à¤¨à¤¿à¤¤à¥à¤¯`.
 ------------------------------------------------------------------------
 
 fourthCornerRefutedUnderPointwiseStability :
@@ -130,13 +130,13 @@ fourthCornerRefutedUnderPointwiseStability bad stab (noSam , noNit) =
 ------------------------------------------------------------------------
 -- 5.  What this settles and what it does not
 --
--- SETTLED: with the Î stable at each remedy â” which a decision at each
--- remedy supplies â” the four corners are three.  So the fourth corner,
--- if it exists at all, exists only where some `Î[ i ] bad i r` is not
+-- SETTLED: with the Î£ stable at each remedy â€” which a decision at each
+-- remedy supplies â€” the four corners are three.  So the fourth corner,
+-- if it exists at all, exists only where some `Î£[ i ] bad i r` is not
 -- stable, i.e. where finding a surviving instance is a genuine search.
 --
 -- NOT SETTLED: whether it exists.  The hypothesis is not shown
--- necessary, and no model realising `Â àà¾à®à¯à¿à• — Â à¨à¿ààà¯` is exhibited.
+-- necessary, and no model realising `Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤• Ã— Â¬ à¤¨à¤¿à¤¤à¥à¤¯` is exhibited.
 -- The unconditional question is where it was, and this narrows where to
 -- look rather than answering it.
 ------------------------------------------------------------------------
@@ -150,15 +150,15 @@ fourthCornerRefutedUnderPointwiseStability bad stab (noSam , noNit) =
 --
 --   `TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`
 --   (--safe, no postulates, no holes; container green under Agda 2.6.3
---    + cubical v0.5, NOT the declared pin â” check.sh returns 1 and says
+--    + cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says
 --    so)
 --
---   Enumerated Ix = Î[ xs âˆˆ List Ix ] ((i : Ix) â’ Any (_â‰¡ i) xs)
+--   Enumerated Ix = Î£[ xs âˆˆ List Ix ] ((i : Ix) â†’ Any (_â‰¡ i) xs)
 --
--- â” a list of instances plus a proof that nothing is outside it, with
+-- â€” a list of instances plus a proof that nothing is outside it, with
 -- no cardinality, no `Fin`, and no decidable equality on Ix.  Then
 --
---   decÎOverEnumerated   Î[ i ] P i is DECIDABLE
+--   decÎ£OverEnumerated   Î£[ i ] P i is DECIDABLE
 --   fourthCornerRefutedOverEnumerableDecidable
 --                        so Â§4 applies with NOTHING assumed
 --
@@ -166,12 +166,12 @@ fourthCornerRefutedUnderPointwiseStability bad stab (noSam , noNit) =
 -- genuine search".  Over an enumerable family with decidable badness it
 -- is not a search, it is a scan.  So the fourth corner needs an
 -- instance family that is not enumerable, OR a badness that is not
--- decidable â” which is a much smaller place to look than "some Î is
+-- decidable â€” which is a much smaller place to look than "some Î£ is
 -- unstable".
 --
 -- STILL NOT SETTLED, exactly as Â§5 says: EXISTENCE.  The new module
 -- gives a second SUFFICIENT condition, sharper and checkable, and no
--- necessary one; it exhibits no model of `Â àà¾à®à¯à¿à• — Â à¨à¿ààà¯` either.
+-- necessary one; it exhibits no model of `Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤• Ã— Â¬ à¤¨à¤¿à¤¤à¥à¤¯` either.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -180,8 +180,8 @@ fourthCornerRefutedUnderPointwiseStability bad stab (noSam , noNit) =
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
 -- this line's "fourth corner" is a product of two independent
 -- negations and that simultaneous refusal collapses into the
--- sequential pair, so the position is the THIRD bhaga â”
--- ààà¯à¾àà-ààààà¿-à¨à¾àààà¿, asserted à•àà°à®àà â” and not avaktavya.  The full
+-- sequential pair, so the position is the THIRD bhaá¹…ga â€”
+-- à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿-à¤¨à¤¾à¤¸à¥à¤¤à¤¿, asserted à¤•à¥à¤°à¤®à¥‡à¤£ â€” and not avaktavya.  The full
 -- correction is recorded at
 -- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
 -- Only the `module` line changed here; no statement was touched.

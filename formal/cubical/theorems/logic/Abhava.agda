@@ -3,12 +3,12 @@
 ------------------------------------------------------------------------
 -- Abhava
 --
--- ààà¾àµ â” absence, with its counterpositive.  Navya-Nyya's apparatus,
+-- à¤…à¤­à¤¾à¤µ â€” absence, with its counterpositive.  Navya-NyÄya's apparatus,
 -- applied to the thing this repository is actually about.
 --
 -- THE DISCIPLINE.  In Navya-Nyya you may not assert a bare absence.
--- Every ààà¾àµ carries its ààà°àà¿à¯à‹à—à¿à¨à (pratiyogin, counterpositive) â” WHAT is
--- absent â” and its locus, and its ààµààààà¦à• (avacchedaka, delimitor) saying
+-- Every à¤…à¤­à¤¾à¤µ carries its à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ (pratiyogin, counterpositive) â€” WHAT is
+-- absent â€” and its locus, and its à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤• (avacchedaka, delimitor) saying
 -- under what qualification.  "Absent" alone is not a proposition.
 --
 -- This corpus has been asserting bare absences for weeks.  "The sieve
@@ -20,14 +20,14 @@
 --
 -- WHAT IS CHECKED HERE:
 --
---  1. `Abhva` â” absence packaged with its counterpositive, so that the
+--  1. `AbhÄva` â€” absence packaged with its counterpositive, so that the
 --     type of a blindness claim exhibits what is missing.
 --
 --  2. The ABSENCE HIERARCHY STABILISES AT THREE, not at two.
---     ÂÂÂP â” ÂP is derivable; ÂÂP â’ P is not.  So absence-of-absence is
+--     Â¬Â¬Â¬P â†” Â¬P is derivable; Â¬Â¬P â†’ P is not.  So absence-of-absence is
 --     a genuinely new entity and absence-of-absence-of-absence is not.
 --     That is a Navya-Nyya-shaped fact and it is **constructively true
---     and classically invisible** â” under excluded middle the hierarchy
+--     and classically invisible** â€” under excluded middle the hierarchy
 --     collapses at two and the distinction they argued about disappears.
 --
 --  3. And it collapses at two exactly when the counterpositive is
@@ -46,7 +46,7 @@
 -- vanishing of data.  One was available to Gagea; the other had to
 -- wait for Voevodsky.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -102,7 +102,7 @@ open AbhÄva public
 Â¬â†’Â¬Â¬Â¬ : {A : Type â„“} â†’ Â¬ A â†’ Â¬ (Â¬ (Â¬ A))
 Â¬â†’Â¬Â¬Â¬ Â¬a = Â¬Â¬-unit Â¬a
 
--- so the tower is: A , ÂA , ÂÂA , and then nothing new forever.
+-- so the tower is: A , Â¬A , Â¬Â¬A , and then nothing new forever.
 absence-hierarchy-stabilises :
   {A : Type â„“} â†’ (Â¬ (Â¬ (Â¬ A)) â†’ Â¬ A) Ã— (Â¬ A â†’ Â¬ (Â¬ (Â¬ A)))
 absence-hierarchy-stabilises = Â¬Â¬Â¬â†’Â¬ , Â¬â†’Â¬Â¬Â¬
@@ -113,7 +113,7 @@ absence-hierarchy-stabilises = Â¬Â¬Â¬â†’Â¬ , Â¬â†’Â¬Â¬Â¬
 -- If the counterpositive is decidable, absence-of-absence collapses to
 -- presence and the tower is two tall.  If it is not, the tower is three.
 -- So the SAME absence, delimited by decidability or not, is two
--- different objects â” which is precisely what an avacchedaka is for.
+-- different objects â€” which is precisely what an avacchedaka is for.
 ------------------------------------------------------------------------
 
 dec-collapses : {A : Type â„“} â†’ Dec A â†’ Â¬ (Â¬ A) â†’ A
@@ -124,8 +124,8 @@ dec-collapses (no Â¬a) Â¬Â¬a = Empty.rec (Â¬Â¬a Â¬a)
 -- 4.  The walk's blindness, well-formed at last
 --
 -- `disjoint-support` says: no prime divides two consecutive integers.
--- As a bare statement that is a negation floating free.  As an ààà¾àµ it
--- has a counterpositive â” "p divides both n and its successor" â” a
+-- As a bare statement that is a negation floating free.  As an à¤…à¤­à¤¾à¤µ it
+-- has a counterpositive â€” "p divides both n and its successor" â€” a
 -- locus, and a delimitor, and it is now a claim that could be false.
 ------------------------------------------------------------------------
 
@@ -148,27 +148,27 @@ walk-blindness-is-exact :
 walk-blindness-is-exact n p = Â¬Â¬Â¬â†’Â¬
 
 ------------------------------------------------------------------------
--- CORRECTION, 2026-08-18 â” Â§3's reading of the stabilisation level.
+-- CORRECTION, 2026-08-18 â€” Â§3's reading of the stabilisation level.
 --
 -- This module's header says "the level at which the hierarchy stabilises
--- measures the decidability of what is absent â¦ the same absence,
+-- measures the decidability of what is absent â€¦ the same absence,
 -- delimited by decidability or not, is two different objects."
 --
--- It does not, and `ÂÂÂâ’Â` above is the proof: it takes no hypothesis.
+-- It does not, and `Â¬Â¬Â¬â†’Â¬` above is the proof: it takes no hypothesis.
 -- The absence tower is two-tall for EVERY A, decidable or not, in every
 -- corpus there has ever been.  The level therefore measures nothing and
 -- cannot distinguish an exact obstruction from a genuine barrier.
 --
--- What decidability governs is `dec-collapses` â” a statement about the
--- PRATIYOGIN A, not about the absence ÂA.  The Navya-Nyya distinction
+-- What decidability governs is `dec-collapses` â€” a statement about the
+-- PRATIYOGIN A, not about the absence Â¬A.  The Navya-NyÄya distinction
 -- survives and lands one place over: the absence is always level-two, and
 -- it is the counterpositive whose own recoverability is at issue.
 --
 -- `DeflationaryTest` runs this out: every obstruction in
--- this lane is stable by SHAPE (ÂA, or a Î  of ÂA, or those under
--- hypotheses), stability is closed under Â / â’ / — / Î  but NOT under âŠ,
--- a gap between ÂÂA and A is contradictory, and so the only surviving
--- form of a barrier claim is Â(Dec A) â” which nothing here asserts.
+-- this lane is stable by SHAPE (Â¬A, or a Î  of Â¬A, or those under
+-- hypotheses), stability is closed under Â¬ / â†’ / Ã— / Î  but NOT under âŠ,
+-- a gap between Â¬Â¬A and A is contradictory, and so the only surviving
+-- form of a barrier claim is Â¬(Dec A) â€” which nothing here asserts.
 --
 -- Everything PROVED in this module stands.  The withdrawn sentence is the
 -- reading of the level, and it is left visible above rather than edited.
@@ -177,31 +177,31 @@ walk-blindness-is-exact n p = Â¬Â¬Â¬â†’Â¬
 ------------------------------------------------------------------------
 -- 6.  THE OTHER HALF OF THE DIVISION, appended 2026-08-18.
 --
--- Everything above is àààà°àà—à¾àà¾àµ â” the absence of a RELATION at a locus.
+-- Everything above is à¤¸à¤‚à¤¸à¤°à¥à¤—à¤¾à¤­à¤¾à¤µ â€” the absence of a RELATION at a locus.
 -- Praastapda's division (*Padrthadharmasagraha*, c. 6th c.) and every
 -- Nyya text after it hold a second kind irreducible to it:
 --
---     àà¨àà¯à‹à¨àà¯à¾àà¾àµ â” the absence of IDENTITY.  A cloth is not a pot.
+--     à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯à¤¾à¤­à¤¾à¤µ â€” the absence of IDENTITY.  A cloth is not a pot.
 --
 -- `AnyonyaAbhava` builds it, and finds that the `Abhva`
 -- record above was already general enough to carry it
--- (`anyonya-is-abhava`, with ààà°àà¿à¯à‹à—à¿à¨à the family `_â‰¡ b`).
+-- (`anyonya-is-abhava`, with à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ the family `_â‰¡ b`).
 --
 -- The dispute over whether one kind reduces to the other is a thousand
 -- years old and Navya-Nyya rejects both reductions.  Made exact:
 --
---   àà¨àà¯à‹à¨àà¯ âŸ àààà°àà—   free, no hypothesis
---   àààà°àà— âŸ àà¨àà¯à‹à¨àà¯   only up to ÂÂ, and only with a decidable
---                        ààà°àà¿à¯à‹à—à¿à¨à
+--   à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯ âŸ¹ à¤¸à¤‚à¤¸à¤°à¥à¤—   free, no hypothesis
+--   à¤¸à¤‚à¤¸à¤°à¥à¤— âŸ¹ à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯   only up to Â¬Â¬, and only with a decidable
+--                        à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥
 --
 -- So the reduction fails by EXACTLY ONE STEP OF THE TOWER Â§2 measures,
 -- and Â§3's `dec-collapses` is precisely what closes it when the
--- ààµààààà¦à• is decidable.  The two-fold division is therefore not a
+-- à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤• is decidable.  The two-fold division is therefore not a
 -- taxonomy of examples; it is indexed by decidability in the same way
 -- the tower's height is.
 --
--- Classically the distinction is invisible â” excluded middle makes the
+-- Classically the distinction is invisible â€” excluded middle makes the
 -- categories interderivable at every delimitor and the dispute a dispute
--- about nothing.  That is the second time the Nyya analysis of ààà¾àµ has
--- turned out to track constructive structure, Â§2â“3 being the first.
+-- about nothing.  That is the second time the NyÄya analysis of à¤…à¤­à¤¾à¤µ has
+-- turned out to track constructive structure, Â§2â€“3 being the first.
 ------------------------------------------------------------------------

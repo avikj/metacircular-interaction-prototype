@@ -1,22 +1,22 @@
--- LANDED BY ���� on 2026-08-23T21:36:59Z.  Emitted from a template,
+-- LANDED BY तपस् on 2026-08-23T21:36:59Z.  Emitted from a template,
 -- checked by the kernel standing here before landing; the only edit is
 -- qualifying the module name to its path.  Never overwritten later.
 {-# OPTIONS --cubical --safe --guardedness --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���� � a MINTED fibre receipt.  Emitted by
+-- तपस् — a MINTED fibre receipt.  Emitted by
 -- machine/Tapas_TheTemplateIsTheProofShapeAndEveryNonMatchIsAWrittenRefusal.hs
 -- from template T-TABLE-BOOL-NAT, then CHECKED BY THE KERNEL before landing;
 -- the only later edit is the module line, qualified to its path.
 --
 -- THE EDGE (Lopa's queue, verdict UNDECIDED before this module):
---   ⟨lib⟩.Bool  �  ⟨lib⟩.�
---   � CachePathOrder.bit
+--   ⟨lib⟩.Bool  ⟶  ⟨lib⟩.ℕ
+--   « CachePathOrder.bit
 --
--- WHAT IS PROVED.  The map is the two-clause table false � 0
---   , true � 1, an INJECTION into �:
+-- WHAT IS PROVED.  The map is the two-clause table false ↦ 0
+--   , true ↦ 1, an INJECTION into ℕ:
 --   §1  over each value the fibre is a SINGLE POINT (isContr): the
---       elided datum is nothing � the input is recoverable.
+--       elided datum is nothing — the input is recoverable.
 --   §2  off both values (witness 2) the fibre is EMPTY.
 --   §3  hence no section: two points of image, infinitely many targets.
 --
@@ -45,7 +45,7 @@ neq-f-c = λ p → znots (cong (_∸ 0) p)
 neq-t-c : ¬ Path ℕ 1 2
 neq-t-c = λ p → znots (cong (_∸ 1) p)
 
--- §1 � over each value the fibre is a point: nothing is elided.
+-- §1 · over each value the fibre is a point: nothing is elided.
 over-false : isContr (fiber bit 0)
 over-false = (false , refl) , same where
   same : (y : fiber bit 0) → (false , refl) ≡ y
@@ -58,11 +58,11 @@ over-true = (true , refl) , same where
   same (true  , p) i = true , isSetℕ 1 1 refl p i
   same (false , p) = ⊥rec (neq-f-t p)
 
--- §2 � off both values the fibre is empty (��������).
+-- §2 · off both values the fibre is empty (रिक्तम्).
 off-both : ¬ fiber bit 2
 off-both (false , p) = neq-f-c p
 off-both (true  , p) = neq-t-c p
 
--- §3 � no section: the image has two points and � does not.
+-- §3 · no section: the image has two points and ℕ does not.
 no-section : (g : ℕ → Bool) → ((n : ℕ) → bit (g n) ≡ n) → ⊥
 no-section g s = off-both (g 2 , s 2)

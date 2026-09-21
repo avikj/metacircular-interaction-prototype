@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- ğ”‰_Î© := Î¦ âˆ˜ Attack âˆ˜ Î“ âˆ˜ Class âˆ˜ ğ” âˆ˜ Î âˆ˜ R,     ğ’_{Î+1} = ğ”‰_Î© ğ’_Î.
+-- ğ”‰_Î© := Î¦ âˆ˜ Attack âˆ˜ Î“ âˆ˜ Class âˆ˜ ğ”‡ âˆ˜ Î· âˆ˜ R,     ğ’¬_{Î±+1} = ğ”‰_Î© ğ’¬_Î±.
 --
 -- Two theorems and their conjunction:
 --
---   halts                    contracting âˆâˆ˜ğ”‰  â’  every question resolves
---   never-final              any quotation of ğ’ leaves an observable outside
---   halting-does-not-close   both at once: ààà°àààà¾ â àà®à¾àààà¿
+--   halts                    contracting âˆ‚âˆ˜ğ”‰  â‡’  every question resolves
+--   never-final              any quotation of ğ’¬ leaves an observable outside
+--   halting-does-not-close   both at once: à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¾ â‡ à¤¸à¤®à¤¾à¤ªà¥à¤¤à¤¿
 --
--- à¨ ``ààà°ààà®à¾ààà¡ àà² àà‹ à—à¯à¾'' â” the flow reaching 0 is a theorem about âˆ and
--- Î´_end is a theorem about ââˆ’â; they do not compete, and the second survives
+-- à¤¨ ``à¤¬à¥à¤°à¤¹à¥à¤®à¤¾à¤£à¥à¤¡ à¤¹à¤² à¤¹à¥‹ à¤—à¤¯à¤¾'' â€” the flow reaching 0 is a theorem about âˆ‚ and
+-- Î´_end is a theorem about âŒœâˆ’âŒ; they do not compete, and the second survives
 -- the first.
 
 module QuestionMachine where
@@ -44,7 +44,7 @@ Contracting : {ğ’¬ : Typeâ‚€} â†’ Machine ğ’¬ â†’ Typeâ‚€
 Contracting {ğ’¬} M = (q : ğ’¬) â†’ 0 < âˆ‚ M q â†’ âˆ‚ M (ğ”‰ M q) < âˆ‚ M q
 
 --------------------------------------------------------------------------
--- ààà°àààà¾ : a contracting machine closes every question it is given
+-- à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¾ : a contracting machine closes every question it is given
 --------------------------------------------------------------------------
 
 private
@@ -74,7 +74,7 @@ halts : {ğ’¬ : Typeâ‚€} (M : Machine ğ’¬) â†’ Contracting M â†’ (q : ğ’¬) â†’
 halts M c q = halts-fuel M c (âˆ‚ M q) q (0 , refl)
 
 --------------------------------------------------------------------------
--- àà¨ààà¿à®à—àà°à¨ààà¿à : and it is still not finished
+-- à¤…à¤¨à¥à¤¤à¤¿à¤®à¤—à¥à¤°à¤¨à¥à¤¥à¤¿à¤ƒ : and it is still not finished
 --------------------------------------------------------------------------
 
 never-final :
@@ -82,7 +82,7 @@ never-final :
   â†’ Î£[ d âˆˆ Observable ğ’¬ ] ((q : ğ’¬) â†’ Â¬ (âŒœ q âŒ â‰¡ d))
 never-final âŒœ_âŒ = next-door âŒœ_âŒ
 
--- à‰àààà° â‰  àà¨àà; à‰àààà° = ààà°ààà¨àààà¾à¨àà°à¿àµà°ààà¨à®à
+-- à¤‰à¤¤à¥à¤¤à¤° â‰  à¤…à¤¨à¥à¤¤; à¤‰à¤¤à¥à¤¤à¤° = à¤ªà¥à¤°à¤¶à¥à¤¨à¤¸à¥à¤¥à¤¾à¤¨à¤ªà¤°à¤¿à¤µà¤°à¥à¤¤à¤¨à¤®à¥
 halting-does-not-close :
     {ğ’¬ : Typeâ‚€} (M : Machine ğ’¬) (âŒœ_âŒ : Quote ğ’¬) â†’ Contracting M
   â†’ (q : ğ’¬)

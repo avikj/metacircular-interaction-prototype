@@ -16,15 +16,15 @@
 --   full-separates/-sound   a family that separates every pair is
 --                           exactly the equality relation on a
 --                           three-element state type
---   partial-blind           a one-observation family merges s� and s�,
---                           which are apart (s��s�)
+--   partial-blind           a one-observation family merges s₁ and s₂,
+--                           which are apart (s₁≢s₂)
 --   dominates-ext-same      appending the SAME coordinate to both
 --                           profiles preserves a domination verdict
 --   myClaimIsFalse          appending DIFFERENT coordinates does not.
 --                           My own claim, killed by the check below
 --   small-verdict           dominates [1,1] [2,4] = true
 --   large-verdict           dominates [1,1,101] [2,4,0] = false
---   large-verdict-reverse   dominates [2,4,0] [1,1,101] = false �
+--   large-verdict-reverse   dominates [2,4,0] [1,1,101] = false —
 --                           incomparable, so the second route is not
 --                           merely undominated, it is back
 --   survivors-under-*       the survivor count on a FIXED pair of
@@ -38,27 +38,27 @@
 -- mine.  It is this repository's, from three artifacts:
 --
 --   * notes/DSO_QUERY_EXTENSION_BOUNDARY.md (codex-random-shannon-16,
---     2026-08-14) � the numbers [1,1] / [2,4] / [1,1,101] / [2,4,0] are
+--     2026-08-14) — the numbers [1,1] / [2,4] / [1,1,101] / [2,4,0] are
 --     that note's own, verbatim, from its two tables.  It states the
 --     phenomenon in prose and executes it as a GHC regression
 --     (`checkDSOQueryExtension` in machine/MathMachine.hs, returning
 --     `Left ["true/direct"]`).  It was never checked.  This module
 --     checks it.
 --   * collab/messages/workers/20260812T144712.509661Z--codex_quantum_process--0007.md
---     � "next action ≠ f(scalar remainder)": three states sharing one
+--     — "next action ≠ f(scalar remainder)": three states sharing one
 --     visible invariant carry three future-response laws.  §2 below is
 --     that shape at its smallest: `partial` is the visible invariant,
---     {s�,s�} is a fiber of it, and `full` splits the fiber.  That
+--     {s₁,s₂} is a fiber of it, and `full` splits the fiber.  That
 --     message fenced its own bound ("exact for this three-state
 --     witness, not for all Smith states"); §4 is why the fence was
 --     right.
---   * machinery/test_changed_domain_separation.py (codex-ananta) � the
+--   * machinery/test_changed_domain_separation.py (codex-ananta) — the
 --     minimal changed domain is not a function of the block graph, nor
 --     of the labelled block graph.  Same shape: a coarse invariant that
 --     is not a sufficient statistic for the question asked of it.
 --
--- ON THE NAME.  *vikaldea* � the partial statement, made from one
--- standpoint (naya) � against *sakaldea*, the total statement, which
+-- ON THE NAME.  *vikalādeśa* — the partial statement, made from one
+-- standpoint (naya) — against *sakalādeśa*, the total statement, which
 -- is prama.  Malliea, *Sydvdamajar*, 1292 CE; the distinction is
 -- already carried in this corpus by notes/ANEKANTA_THE_MACHINE_HAS_
 -- THREE_STANDPOINTS.md and formal/cubical/SaptabhangiNaya.agda, which
@@ -67,7 +67,7 @@
 -- standpoint.  Per CLAUDE.md's file-naming note 3, stated plainly:
 -- Malliea proved nothing about cost profiles, domination, or lists of
 -- observations, and no theorem below is attributed to him.  The word
--- names the object � a verdict that holds under one declared standpoint
+-- names the object — a verdict that holds under one declared standpoint
 -- and is not a property of what it is a verdict about.  If a reader
 -- judges the name as over-claiming, it is a rename away and the offer
 -- stands.  The received name for the order on profiles is Pareto's; it
@@ -96,19 +96,19 @@
 -- is used as an instance, not as a source.
 --
 -- What it did NOT give, stated plainly because a reported negative is a
--- result: nothing in §§1�4.  The 32 of the star compass is not used �
+-- result: nothing in §§1–4.  The 32 of the star compass is not used —
 -- §5 checks 1 point against 3, because the content is refinement and
 -- not the number.  Etak segments are equal in bearing-change and
 -- unequal in distance, with the navigator's judgement of speed and
 -- current an input this module has no slot for.  Reading wave
--- interference � refracted and reflected swell behind an island � was
+-- interference — refracted and reflected swell behind an island — was
 -- in the assigned field and produced nothing here whatever.  No
 -- navigator stated any theorem in this file and none is claimed for
 -- them.  A sibling module already carries etak
 -- (NaturalMachine.Prastara_TheGaugeStreamCostsZeroCarriedBitsAndInvisibilityIsWeakerThanGauge,
 -- cf-tessera-j-1, message 2156); this is not a restatement of it, and
--- that module's open question � how big a separating family has to be �
--- is not answered here either.  §§3�4 answer a different one: the
+-- that module's open question — how big a separating family has to be —
+-- is not answered here either.  §§3–4 answer a different one: the
 -- verdicts a family issues are not monotone in the family even though
 -- its separations are.
 --
@@ -205,7 +205,7 @@ isS₂ s₂ = true
 full : List (St → Bool)
 full = isS₀ ∷ isS₁ ∷ isS₂ ∷ []
 
--- The visible invariant: "is it s�?".
+-- The visible invariant: "is it s₀?".
 partial : List (St → Bool)
 partial = isS₀ ∷ []
 
@@ -229,11 +229,11 @@ full-sound : (x y : St) → sep full x y ≡ true → ¬ (x ≡ y)
 full-sound x y p q =
   true≢false (sym p ∙ sym (cong (sep full x) q) ∙ full-refl x)
 
--- s� and s� are apart �
+-- s₁ and s₂ are apart …
 s₁≢s₂ : ¬ (s₁ ≡ s₂)
 s₁≢s₂ p = true≢false (cong isS₁ p)
 
--- � and the visible invariant cannot see it.
+-- … and the visible invariant cannot see it.
 partial-blind : sep partial s₁ s₂ ≡ false
 partial-blind = refl
 
@@ -379,7 +379,7 @@ myClaimIsFalse H =
      ∙ large-verdict)
 
 -- The same thing as a count, so that "the verdict moved" is a number
--- and not a reading.  The archive is FIXED � the same two routes � and
+-- and not a reading.  The archive is FIXED — the same two routes — and
 -- only the declared family changes.
 anyDominates : Profile → List Profile → Bool
 anyDominates r []       = false

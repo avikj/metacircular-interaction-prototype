@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡µ‡Æ‡‡≤‡‡Ø‡Æ‡ ‚î the price of all of them.  Compound built here,
--- 2026-08-23, from ordinary  (‡‡∞‡‡µ, all; ‡Æ‡‡≤‡‡Ø, price); no source
+-- ‡§∏‡§∞‡•ç‡§µ‡§Æ‡•Ç‡§≤‡•ç‡§Ø‡§Æ‡•ç ‚Äî the price of all of them.  Compound built here,
+-- 2026-08-23, from ordinary Sanskrit (‡§∏‡§∞‡•ç‡§µ, all; ‡§Æ‡•Ç‡§≤‡•ç‡§Ø, price); no source
 -- is claimed for the term.
 --
--- WHY.  Mulyankana priced two of Jiva's five named Bool ‚ü ‚ï edges by
+-- WHY.  Mulyankana priced two of Jiva's five named Bool ‚ü∂ ‚Ñï edges by
 -- computing their spectra point by point, and handed the other three
 -- forward as ea because bellman is parameterized.  The ea dissolves:
 -- over a Bool source the fibre of ANY map decomposes, at every target,
--- as a sum of two path types ‚î
+-- as a sum of two path types ‚Äî
 --
---     ‡µ‡ø‡‡æ‡ó‡ :  fiber f b ‚â (f true ‚â° b) ‚ä (f false ‚â° b)
+--     ‡§µ‡§ø‡§≠‡§æ‡§ó‡§É :  fiber f b ‚âÉ (f true ‚â° b) ‚äé (f false ‚â° b)
 --
 -- with no hypothesis on the target type at all.  Every Bool-sourced
 -- edge in the corpus, present and future, parameterized or not, is
 -- priced by this one term: the three verdicts fall out by deciding two
 -- equalities, and over a discrete target the decision is a computation
--- (‡®‡ø‡∞‡‡‡Ø‡ below ‚î a trichotomy carrying its evidence, never a flag).
+-- (‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É below ‚Äî a trichotomy carrying its evidence, never a flag).
 --
 -- So the five edges Jiva named are closed:
---   asNat, prime, DSOBellmanFinite.K   ‚î instances, one line each;
---   bellman k v                        ‚î an instance AT EVERY PARAMETER,
+--   asNat, prime, DSOBellmanFinite.K   ‚Äî instances, one line each;
+--   bellman k v                        ‚Äî an instance AT EVERY PARAMETER,
 --                                        which is what pricing a family
 --                                        means and why the point-by-point
 --                                        road could never finish.
 --
--- The verdict discipline is Avaccheda's (‡∞‡ø‡ï‡‡‡Æ‡ / ‡‡ï‡Æ‡ / ‡‡‡) and the
--- refusal of a two-valued collapse is Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡; the fibre is
+-- The verdict discipline is Avaccheda's (‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç / ‡§è‡§ï‡§Æ‡•ç / ‡§¨‡§π‡•Å) and the
+-- refusal of a two-valued collapse is Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É; the fibre is
 -- Voevodsky's, the admitted substrate.  Nothing here is attributed to
 -- any source beyond that.
 ------------------------------------------------------------------------
@@ -53,7 +53,7 @@ private
 module _ {B : Type ‚Ñì} (f : Bool ‚Üí B) (b : B) where
 
   ----------------------------------------------------------------------
-  -- ‡µ‡ø‡‡æ‡ó‡ ‚î the decomposition.  No hypothesis on B.
+  -- ‡§µ‡§ø‡§≠‡§æ‡§ó‡§É ‚Äî the decomposition.  No hypothesis on B.
   ----------------------------------------------------------------------
 
   ‡§µ‡§ø‡§≠‡§æ‡§ó‡§É : fiber f b ‚âÉ ((f true ‚â° b) ‚äé (f false ‚â° b))
@@ -102,10 +102,10 @@ module _ {B : Type ‚Ñì} (f : Bool ‚Üí B) (b : B) where
     true‚â¢false (cong fst (sym (snd c (true , p)) ‚àô snd c (false , q)))
 
   ----------------------------------------------------------------------
-  -- ‡®‡ø‡∞‡‡‡Ø‡ ‚î over a discrete target the verdict is a computation, and
+  -- ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É ‚Äî over a discrete target the verdict is a computation, and
   -- it is returned WITH its evidence: an empty-fibre witness, or the
   -- contraction, or the two elements a collapse would identify.  Three
-  -- positions, no flag (Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡: a two-valued verdict on
+  -- positions, no flag (Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É: a two-valued verdict on
   -- three seeds must identify two of them).
   ----------------------------------------------------------------------
 
@@ -125,8 +125,8 @@ module _ {B : Type ‚Ñì} (f : Bool ‚Üí B) (b : B) where
 
 ------------------------------------------------------------------------
 -- The five named edges, closed.  asNat and bothNat's spectra are in
--- Mulyankana already; here every one of the five ‚î including the
--- parameterized family ‚î is priced by instantiation.
+-- Mulyankana already; here every one of the five ‚Äî including the
+-- parameterized family ‚Äî is priced by instantiation.
 ------------------------------------------------------------------------
 
 open import NaturalMachine.FiniteOccupancyChannelNoGo using (asNat)

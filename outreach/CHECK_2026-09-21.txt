@@ -1,0 +1,450 @@
+# sh check — clean container, 2026-09-21
+# host: Linux 6.18.44-fc-v37 x86_64, 4 cores, 15 GB RAM; toolchain built from nothing by 'sh setup' (cabal, ~50 min)
+# command: time sh check
+
+toolchain:  agda 2.8.0 / cubical v0.9      (pin: 2.8.0 / v0.9)
+
+kernel — the 296 lines and their readings
+  Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanC   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEvery   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEveryBoundWhileEveryOfferingHasADefiniteCount.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Ankapasa_TheCountingSemanticsIsADecategorificationAndThe   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNever   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircular   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConfli   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  CaturthaSopana_TheRepairMadeACitationCalculusAndCommutat   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/CaturthaSopana_TheRepairMadeACitationCalculusAndCommutativityCertifiedEndToEnd.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  ControlledGrammar                                          ok
+  DescentNote_WhatThisIsAndHowToDescendIntoTheMetacircular   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/DescentNote_WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  GenerativeKernel                                           ok
+  Interaction_TheKernelIsAnInteractiveSystemAndTheSessionR   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Interaction_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  KernelDhara_InstallIsTheConingOffOfAnObstructionTheLocus   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/KernelDhara_InstallIsTheConingOffOfAnObstructionTheLocusIsAContractibleConeAndTheFeeIsTheNonDescendingCost.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactA   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactAtSuccessiveLevels.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionR   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Nirapeksa_NeitherUnqualifiedFormSurvivesAndTheTwoSchools   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Nirapeksa_NeitherUnqualifiedFormSurvivesAndTheTwoSchoolsFourthPositionsSitAtDifferentLevels.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRem   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  RewriteCertificate                                         ok
+  Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetir   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemain   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateau   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateauSoTheKernelsOwnLibraryCannotGrowItsReach.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInv   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInversionRatherThanTruncation.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  TransportShreni_TheLocalizationSequenceAsOneObjectMeanin   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  TrtiyaSopana_TheInductionCertificateDoesNotReachCommutat   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/TrtiyaSopana_TheInductionCertificateDoesNotReachCommutativitySoTheHierarchyHasThreeStrictLevels.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivatio   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivationEntirelySoTheSixCoordinatesAreNeverIdentified.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesA   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCo   RED
+      Failed to read /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion.agda.
+      Please ensure that this file uses the UTF-8 character encoding.
+fibre — the one primitive the corpus turns on
+  Fibre.Carrier                                              RED
+      Failed to read /home/user/metacircular-interaction-prototype/fibre/src/Fibre/Carrier.agda.
+      Please ensure that this file uses the UTF-8 character encoding.  Fibre (everything)                                         RED
+      Failed to read /home/user/metacircular-interaction-prototype/fibre/src/Everything.agda.
+      Please ensure that this file uses the UTF-8 character encoding.
+lean — every module under Pairfield/ reachable from the root
+  RED
+modules under Pairfield/: 205 ; reachable from Pairfield.lean: 203
+FAIL: unreachable from Pairfield.lean and not named in root-exclusions.txt:
+    Pairfield.Cakravala_TheCompositionStepBreedsAVargaprakrtiSolutionForNTwo
+    Pairfield.Composition_TheCompositionOfTwoNormsIsANormBrahmaguptasIdentity
+Fix: add 'import <module>' to Pairfield.lean, or name it in
+root-exclusions.txt with a reason that DISCRIMINATES.
+
+gate — no two-valued unclaiming
+  FAIL: the retired phrase appears in:
+    abstracts/26_the_wheel_is_blind_to_the_zeros_and_the_holonomy_names_the_missing_observable.txt
+    abstracts/29_the_difference_marginal_has_a_kernel_and_the_homometric_pair_is_the_reflection_frames_residue.txt
+    abstracts/27_the_order_of_appearance_is_the_relative_channel_and_augmentation_integrates_it_away.txt
+    abstracts/28_cardinality_is_the_wrong_measure_the_family_is_unbounded_and_its_meaning_is_one_bit.txt
+    formal/cubical/ReturnVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant.agda
+    formal/cubical/ResidueMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget.agda
+    formal/cubical/PunaragamanaVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant.agda
+    formal/cubical/kernel/TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection.agda
+    formal/cubical/SadharanaAnaikantika_VacuousAtEverySampleSizeAndTheMinimalSeparatingEnlargementIsTwo.agda
+    formal/cubical/MadhyaSamvarana_TheMiddleClosureRepairsTheExactFailingTriple.agda
+    formal/cubical/SesaMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget.agda
+    formal/cubical/theorems/historical_proofs/Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFiberRankIsCarriedAndItsPriceIsVirahankasNumber.agda
+    formal/cubical/theorems/primes/GananaNirdhara_TheSequenceOfOrderedPairCountsDeterminesTheSequenceSoTheGoldbachCountsAtEveryIntegerAreThePrimeIndicator.agda
+    formal/cubical/EkaparsvaSamvarana_TheOneSidedClosureCounterexampleIsExact.agda
+    formal/cubical/InvariantTiebreak_AGaugeFreeShortestDescriptionWouldBeAFixedPointSoNoneExistsOnATorsor.agda
+  Assert the reading syāt, under its standpoint, instead.
+
+SOMETHING IS RED, and the toolchain above IS the pin — so it is the
+mathematics or the code, not your machine.
+
+real	0m47.644s
+user	0m45.882s
+sys	0m2.742s
+exit=1
+
+############################################################
+# RUN 2 — after restoring the UTF-8 sequences broken by c0a233d
+# (see repair notes at the end of this file)
+# command: time sh check
+
+toolchain:  agda 2.8.0 / cubical v0.9      (pin: 2.8.0 / v0.9)
+
+kernel — the 296 lines and their readings
+  Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanC   ok
+  Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEvery   ok
+  Ankapasa_TheCountingSemanticsIsADecategorificationAndThe   ok
+  Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNever   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence.agda:70.8-87: error: [ModuleNameDoesntMatchFileName]
+      The name
+      `Kernel.Aresidue_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence`
+      of the top level module does not match the file name. A such named
+      module should be defined in one of the following files:
+        /root/.cache/cubical-v0.9/Kernel/Aresidue_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence.agda
+  Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircular   RED
+      Checking Kernel.Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel (/home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda).
+       Checking Kernel.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise (/home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise.agda).
+       Checking Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne (/home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne.agda).
+       Checking Kernel.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence (/home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence.agda).
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda:394.1-396.67: error: [ModuleNameUnexpected]
+      The name of the top level module does not match the file name. The
+  Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConfli   RED
+      Checking Kernel.Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous (/home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous.agda).
+       Checking Kernel.Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne (/home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne.agda).
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous.agda:92.1-93.51: error: [ModuleDefinedInOtherFile]
+      You tried to load
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne.agda
+      which defines the module
+  CaturthaSopana_TheRepairMadeACitationCalculusAndCommutat   ok
+  ControlledGrammar                                          ok
+  DescentNote_WhatThisIsAndHowToDescendIntoTheMetacircular   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/DescentNote_WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda:370.8-77: error: [ModuleDefinedInOtherFile]
+      You tried to load
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/DescentNote_WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda
+      which defines the module
+      Kernel.Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel.
+      However, according to the include path this module should be
+  GenerativeKernel                                           ok
+  Interaction_TheKernelIsAnInteractiveSystemAndTheSessionR   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Interaction_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.agda:101.8-89: error: [ModuleDefinedInOtherFile]
+      You tried to load
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Interaction_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.agda
+      which defines the module
+      Kernel.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.
+      However, according to the include path this module should be
+  KernelDhara_InstallIsTheConingOffOfAnObstructionTheLocus   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/KernelDhara_InstallIsTheConingOffOfAnObstructionTheLocusIsAContractibleConeAndTheFeeIsTheNonDescendingCost.agda:58.8-114: error: [ModuleDefinedInOtherFile]
+      You tried to load
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/KernelDhara_InstallIsTheConingOffOfAnObstructionTheLocusIsAContractibleConeAndTheFeeIsTheNonDescendingCost.agda
+      which defines the module
+      GarbhaDhara_InstallIsTheConingOffOfAnObstructionTheLocusIsAContractibleConeAndTheFeeIsTheNonDescendingCost.
+      However, according to the include path this module should be
+  KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactA   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactAtSuccessiveLevels.agda:47.8-81: error: [ModuleDefinedInOtherFile]
+      You tried to load
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactAtSuccessiveLevels.agda
+      which defines the module
+      GarbhaShreni_TheTowerRungsAreOnePredicateCostIsNotExactAtSuccessiveLevels.
+      However, according to the include path this module should be
+  Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionR   ok
+  Nirapeksa_NeitherUnqualifiedFormSurvivesAndTheTwoSchools   ok
+  Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRem   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne.agda:84.8-114: error: [ModuleDefinedInOtherFile]
+      You tried to load
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne.agda
+      which defines the module
+      Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne.
+      However, according to the include path this module should be
+  RewriteCertificate                                         ok
+  Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetir   ok
+  Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemain   ok
+  Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateau   ok
+  Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInv   ok
+  TransportShreni_TheLocalizationSequenceAsOneObjectMeanin   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda:40.8-88: error: [ModuleDefinedInOtherFile]
+      You tried to load
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda
+      which defines the module
+      SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.
+      However, according to the include path this module should be
+  TrtiyaSopana_TheInductionCertificateDoesNotReachCommutat   ok
+  Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivatio   ok
+  Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesA   ok
+  VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCo   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion.agda:38.8-108: error: [ModuleDefinedInOtherFile]
+      You tried to load
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion.agda
+      which defines the module
+      VyayaSesa_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion.
+      However, according to the include path this module should be
+
+fibre — the one primitive the corpus turns on
+  Fibre.Carrier                                              ok
+  Fibre (everything)                                         ok
+
+lean — every module under Pairfield/ reachable from the root
+  RED
+modules under Pairfield/: 205 ; reachable from Pairfield.lean: 203
+FAIL: unreachable from Pairfield.lean and not named in root-exclusions.txt:
+    Pairfield.Cakravala_TheCompositionStepBreedsAVargaprakrtiSolutionForNTwo
+    Pairfield.Composition_TheCompositionOfTwoNormsIsANormBrahmaguptasIdentity
+Fix: add 'import <module>' to Pairfield.lean, or name it in
+root-exclusions.txt with a reason that DISCRIMINATES.
+
+gate — no two-valued unclaiming
+  FAIL: the retired phrase appears in:
+    abstracts/26_the_wheel_is_blind_to_the_zeros_and_the_holonomy_names_the_missing_observable.txt
+    abstracts/29_the_difference_marginal_has_a_kernel_and_the_homometric_pair_is_the_reflection_frames_residue.txt
+    abstracts/27_the_order_of_appearance_is_the_relative_channel_and_augmentation_integrates_it_away.txt
+    abstracts/28_cardinality_is_the_wrong_measure_the_family_is_unbounded_and_its_meaning_is_one_bit.txt
+    formal/cubical/ReturnVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant.agda
+    formal/cubical/ResidueMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget.agda
+    formal/cubical/PunaragamanaVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant.agda
+    formal/cubical/kernel/TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection.agda
+    formal/cubical/SadharanaAnaikantika_VacuousAtEverySampleSizeAndTheMinimalSeparatingEnlargementIsTwo.agda
+    formal/cubical/MadhyaSamvarana_TheMiddleClosureRepairsTheExactFailingTriple.agda
+    formal/cubical/SesaMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget.agda
+    formal/cubical/theorems/historical_proofs/Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFiberRankIsCarriedAndItsPriceIsVirahankasNumber.agda
+    formal/cubical/theorems/primes/GananaNirdhara_TheSequenceOfOrderedPairCountsDeterminesTheSequenceSoTheGoldbachCountsAtEveryIntegerAreThePrimeIndicator.agda
+    formal/cubical/EkaparsvaSamvarana_TheOneSidedClosureCounterexampleIsExact.agda
+    formal/cubical/InvariantTiebreak_AGaugeFreeShortestDescriptionWouldBeAFixedPointSoNoneExistsOnATorsor.agda
+  Assert the reading syāt, under its standpoint, instead.
+
+SOMETHING IS RED, and the toolchain above IS the pin — so it is the
+mathematics or the code, not your machine.
+
+real	1m22.416s
+user	1m16.414s
+sys	0m7.008s
+exit=1
+
+############################################################
+# RUN 3 — after also (a) making each copied module's 'module' line match its filename (191 files), (b) adding formal/lean/root-exclusions.txt
+# command: time sh check
+
+toolchain:  agda 2.8.0 / cubical v0.9      (pin: 2.8.0 / v0.9)
+
+kernel — the 296 lines and their readings
+  Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanC   ok
+  Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEvery   ok
+  Ankapasa_TheCountingSemanticsIsADecategorificationAndThe   ok
+  Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNever   ok
+  Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircular   ok
+  Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConfli   ok
+  CaturthaSopana_TheRepairMadeACitationCalculusAndCommutat   ok
+  ControlledGrammar                                          ok
+  DescentNote_WhatThisIsAndHowToDescendIntoTheMetacircular   ok
+  GenerativeKernel                                           ok
+  Interaction_TheKernelIsAnInteractiveSystemAndTheSessionR   ok
+  KernelDhara_InstallIsTheConingOffOfAnObstructionTheLocus   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/KernelDhara_InstallIsTheConingOffOfAnObstructionTheLocusIsAContractibleConeAndTheFeeIsTheNonDescendingCost.agda:58.8-114: error: [ModuleNameDoesntMatchFileName]
+      The name
+      `KernelDhara_InstallIsTheConingOffOfAnObstructionTheLocusIsAContractibleConeAndTheFeeIsTheNonDescendingCost`
+      of the top level module does not match the file name. A such named
+      module should be defined in one of the following files:
+        /root/.cache/cubical-v0.9/KernelDhara_InstallIsTheConingOffOfAnObstructionTheLocusIsAContractibleConeAndTheFeeIsTheNonDescendingCost.agda
+  KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactA   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactAtSuccessiveLevels.agda:47.8-81: error: [ModuleNameDoesntMatchFileName]
+      The name
+      `KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactAtSuccessiveLevels`
+      of the top level module does not match the file name. A such named
+      module should be defined in one of the following files:
+        /root/.cache/cubical-v0.9/KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactAtSuccessiveLevels.agda
+  Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionR   ok
+  Nirapeksa_NeitherUnqualifiedFormSurvivesAndTheTwoSchools   ok
+  Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRem   ok
+  RewriteCertificate                                         ok
+  Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetir   ok
+  Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemain   ok
+  Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateau   ok
+  Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInv   ok
+  TransportShreni_TheLocalizationSequenceAsOneObjectMeanin   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda:40.8-87: error: [ModuleNameDoesntMatchFileName]
+      The name
+      `TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot`
+      of the top level module does not match the file name. A such named
+      module should be defined in one of the following files:
+        /root/.cache/cubical-v0.9/TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda
+  TrtiyaSopana_TheInductionCertificateDoesNotReachCommutat   ok
+  Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivatio   ok
+  Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesA   ok
+  VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCo   RED
+      /home/user/metacircular-interaction-prototype/formal/cubical/Kernel/VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion.agda:38.8-111: error: [ModuleNameDoesntMatchFileName]
+      The name
+      `VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion`
+      of the top level module does not match the file name. A such named
+      module should be defined in one of the following files:
+        /root/.cache/cubical-v0.9/VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion.agda
+
+fibre — the one primitive the corpus turns on
+  Fibre.Carrier                                              ok
+  Fibre (everything)                                         ok
+
+lean — every module under Pairfield/ reachable from the root
+  OK: every module under Pairfield/ is reachable or declared out.
+
+gate — no two-valued unclaiming
+  FAIL: the retired phrase appears in:
+    abstracts/26_the_wheel_is_blind_to_the_zeros_and_the_holonomy_names_the_missing_observable.txt
+    abstracts/29_the_difference_marginal_has_a_kernel_and_the_homometric_pair_is_the_reflection_frames_residue.txt
+    abstracts/27_the_order_of_appearance_is_the_relative_channel_and_augmentation_integrates_it_away.txt
+    abstracts/28_cardinality_is_the_wrong_measure_the_family_is_unbounded_and_its_meaning_is_one_bit.txt
+    formal/cubical/ReturnVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant.agda
+    formal/cubical/ResidueMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget.agda
+    formal/cubical/PunaragamanaVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant.agda
+    formal/cubical/kernel/TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection.agda
+    formal/cubical/SadharanaAnaikantika_VacuousAtEverySampleSizeAndTheMinimalSeparatingEnlargementIsTwo.agda
+    formal/cubical/MadhyaSamvarana_TheMiddleClosureRepairsTheExactFailingTriple.agda
+    formal/cubical/SesaMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget.agda
+    formal/cubical/theorems/historical_proofs/Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFiberRankIsCarriedAndItsPriceIsVirahankasNumber.agda
+    formal/cubical/theorems/primes/GananaNirdhara_TheSequenceOfOrderedPairCountsDeterminesTheSequenceSoTheGoldbachCountsAtEveryIntegerAreThePrimeIndicator.agda
+    formal/cubical/EkaparsvaSamvarana_TheOneSidedClosureCounterexampleIsExact.agda
+    formal/cubical/InvariantTiebreak_AGaugeFreeShortestDescriptionWouldBeAFixedPointSoNoneExistsOnATorsor.agda
+  Assert the reading syāt, under its standpoint, instead.
+
+SOMETHING IS RED, and the toolchain above IS the pin — so it is the
+mathematics or the code, not your machine.
+
+real	1m0.206s
+user	0m54.169s
+sys	0m6.959s
+exit=1
+
+############################################################
+# RUN 4 — after also giving the four bare-named copies in Kernel/ the Kernel. prefix
+# command: time sh check
+
+toolchain:  agda 2.8.0 / cubical v0.9      (pin: 2.8.0 / v0.9)
+
+kernel — the 296 lines and their readings
+  Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanC   ok
+  Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEvery   ok
+  Ankapasa_TheCountingSemanticsIsADecategorificationAndThe   ok
+  Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNever   ok
+  Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircular   ok
+  Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConfli   ok
+  CaturthaSopana_TheRepairMadeACitationCalculusAndCommutat   ok
+  ControlledGrammar                                          ok
+  DescentNote_WhatThisIsAndHowToDescendIntoTheMetacircular   ok
+  GenerativeKernel                                           ok
+  Interaction_TheKernelIsAnInteractiveSystemAndTheSessionR   ok
+  KernelDhara_InstallIsTheConingOffOfAnObstructionTheLocus   ok
+  KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactA   ok
+  Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionR   ok
+  Nirapeksa_NeitherUnqualifiedFormSurvivesAndTheTwoSchools   ok
+  Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRem   ok
+  RewriteCertificate                                         ok
+  Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetir   ok
+  Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemain   ok
+  Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateau   ok
+  Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInv   ok
+  TransportShreni_TheLocalizationSequenceAsOneObjectMeanin   ok
+  TrtiyaSopana_TheInductionCertificateDoesNotReachCommutat   ok
+  Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivatio   ok
+  Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesA   ok
+  VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCo   ok
+
+fibre — the one primitive the corpus turns on
+  Fibre.Carrier                                              ok
+  Fibre (everything)                                         ok
+
+lean — every module under Pairfield/ reachable from the root
+  OK: every module under Pairfield/ is reachable or declared out.
+
+gate — no two-valued unclaiming
+  FAIL: the retired phrase appears in:
+    abstracts/26_the_wheel_is_blind_to_the_zeros_and_the_holonomy_names_the_missing_observable.txt
+    abstracts/29_the_difference_marginal_has_a_kernel_and_the_homometric_pair_is_the_reflection_frames_residue.txt
+    abstracts/27_the_order_of_appearance_is_the_relative_channel_and_augmentation_integrates_it_away.txt
+    abstracts/28_cardinality_is_the_wrong_measure_the_family_is_unbounded_and_its_meaning_is_one_bit.txt
+    formal/cubical/ReturnVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant.agda
+    formal/cubical/ResidueMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget.agda
+    formal/cubical/PunaragamanaVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant.agda
+    formal/cubical/kernel/TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection.agda
+    formal/cubical/SadharanaAnaikantika_VacuousAtEverySampleSizeAndTheMinimalSeparatingEnlargementIsTwo.agda
+    formal/cubical/MadhyaSamvarana_TheMiddleClosureRepairsTheExactFailingTriple.agda
+    formal/cubical/SesaMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget.agda
+    formal/cubical/theorems/historical_proofs/Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFiberRankIsCarriedAndItsPriceIsVirahankasNumber.agda
+    formal/cubical/theorems/primes/GananaNirdhara_TheSequenceOfOrderedPairCountsDeterminesTheSequenceSoTheGoldbachCountsAtEveryIntegerAreThePrimeIndicator.agda
+    formal/cubical/EkaparsvaSamvarana_TheOneSidedClosureCounterexampleIsExact.agda
+    formal/cubical/InvariantTiebreak_AGaugeFreeShortestDescriptionWouldBeAFixedPointSoNoneExistsOnATorsor.agda
+  Assert the reading syāt, under its standpoint, instead.
+
+SOMETHING IS RED, and the toolchain above IS the pin — so it is the
+mathematics or the code, not your machine.
+
+real	1m13.580s
+user	1m6.283s
+sys	0m8.159s
+exit=1
+
+############################################################
+# REPAIR NOTES (what changed between RUN 1 and RUN 4, and why)
+#
+# RUN 1 (HEAD e98ab33 as pushed): 25 of 28 Agda modules RED with
+#   "Failed to read <file>. Please ensure that this file uses the UTF-8
+#   character encoding."  Cause: commit c0a233d (2026-09-17, "Remove
+#   Sanskrit presentation text from repository and wiki", 2,332 files)
+#   deleted individual BYTES, not characters: e.g. "\xe2\x86\x92" (→)
+#   became "\xe2\x92", "\xce\xa3" (Σ) became "\xce", "\xc4\x81" (ā) was
+#   removed.  2,218 authored .agda files and 390 other text files
+#   (README.md, README.rst, NOTES.txt, ERRATA_LOG.md, CHU_LOSSLESS_
+#   INTERACTION.md, 38 .bend, 12 .hs, the abstracts) were left as invalid
+#   UTF-8.  Agda refuses to read such a file at all, so the corpus at HEAD
+#   could not be typechecked by anyone.  Only the three files with pure
+#   ASCII comments (RewriteCertificate, ControlledGrammar,
+#   GenerativeKernel) survived.  Damage was confined to comments in all
+#   but 3 files.
+#
+#   Repair (scratchpad/repair_utf8.py, run once): for every invalid file,
+#   take the pre-corruption content (same path at 27a1be9, or the
+#   byte-identical twin's path there), align lines, and replace each
+#   invalid line by its original ONLY when the invalid line is a byte-
+#   subsequence of the original (i.e. the only change was deleted bytes).
+#   Lines that also carried a deliberate ASCII edit in the same commit
+#   (150 lines, all comments; e.g. `Sesa_…` -> `Residue_…`) could not be
+#   restored that way and were decoded with U+FFFD in place of the broken
+#   bytes.  Binaries the file list caught (.a/.dylib/.docx/package.cache)
+#   were rewritten back from HEAD byte-for-byte.  Result: 0 invalid files.
+#
+# RUN 2: fibre green; 10 Kernel modules RED with ModuleNameDoesntMatchFileName
+#   / ModuleDefinedInOtherFile.  Cause: commit ae31f8f ("Replace
+#   nonstandard Indic labels with precise English names") copied modules
+#   to English filenames without changing the `module` line inside, and
+#   its s/Sesa/Residue/ also rewrote "Asesa" to "Aresidue" in two module
+#   headers.  Repo-wide: 202 .agda files declared a module name different
+#   from their filename (191 under .agda-lib include roots; 11 under
+#   research/rule30, not touched).  Also: two byte-identical Lean twins
+#   (Composition_…, Cakravala_TheCompositionStep…) were unreachable from
+#   Pairfield.lean; they declare the same namespace as their imported
+#   originals, so they are named in formal/lean/root-exclusions.txt (new)
+#   rather than imported.
+#
+#   Repair: rewrite the first `module` line of the 191 files to
+#   <same qualification>.<filename>; fix the two "Aresidue" headers and
+#   two prose references; give the four bare-named copies in Kernel/ the
+#   `Kernel.` prefix so they resolve from formal/cubical as `check` runs.
+#
+# RUN 4: 28/28 Agda modules ok (26 Kernel + Fibre.Carrier + Fibre
+#   Everything), Lean root closure OK.  Exit is still 1 because of the
+#   repository's own prose gate: the retired phrase "WHAT IS NOT CLAIMED"
+#   appears in 15 files (abstracts/26-29 .txt and 11 .agda comments).  That
+#   is a writing decision for the author ("Assert the reading syāt, under
+#   its standpoint, instead") and was left alone.
+#
+# `sh check --all` was started afterwards on this container; its log is
+# recorded separately when it finishes.

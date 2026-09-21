@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡‡‡‡æ‡µ-‡‡‡‡Ø ‚î the proposer's AC claim, judged.
+-- ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§µ-‡§∏‡§§‡•ç‡§Ø ‚Äî the proposer's AC claim, judged.
 --
 -- The checked proposer (formal/executable/Prastava.agda) refuses a pair
 -- whose sides are equal after AC-canonicalisation, ASSERTING they are
--- "equal modulo associativity-commutativity of +/¬".  Until this module
+-- "equal modulo associativity-commutativity of +/¬∑".  Until this module
 -- nothing had judged that assertion: the classifier was total and
 -- well-typed, but its semantic claim was prose.  Here the claim is a
 -- term: acCanon preserves denotation over every environment, so a
 -- classifier hit really is a true equation, kernel-said.
 --
--- The classifier's definitions are IMPORTED from PrastavaHrdaya ‚î the
--- one spelling shared with the executable proposer ‚î so nothing here
+-- The classifier's definitions are IMPORTED from PrastavaHrdaya ‚Äî the
+-- one spelling shared with the executable proposer ‚Äî so nothing here
 -- is a transcription and nothing is asserted to coincide; the theorems
 -- are the machine's, posed as holes and closed through the warm
 -- conduit by split/solve/give, the carrier emitting only mechanical
@@ -255,7 +255,7 @@ acCanon-sound e (Bin gcdS t t‚ÇÅ) =
 -- the bridge: a comparison verdict of eq IS a syntactic equality.
 -- The executable refuses when eqTm (acCanon l) (acCanon r) = true, i.e.
 -- cmpTm (acCanon l) (acCanon r) ‚â° 1.  Below, that numeral is judged to
--- carry a path ‚î so a classifier hit denotes one function, end to end.
+-- carry a path ‚Äî so a classifier hit denotes one function, end to end.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Empty using () renaming (rec to ‚ä•rec)
@@ -330,7 +330,7 @@ acShuffle-sound e l r p =
 ------------------------------------------------------------------------
 -- the normalizer, judged: nf (one erasure pass + AC canonicalisation)
 -- preserves denotation.  The syntactic tests inside simpB are eqTm,
--- and their truth becomes a path through the bridge above ‚î the
+-- and their truth becomes a path through the bridge above ‚Äî the
 -- machine's earlier landing is the tool that checks its next organ.
 -- With nf-sound, a pair whose sides share a normal form is provable by
 -- two soundness applications around a definitional middle; the checked
@@ -368,7 +368,7 @@ private
   gcd0l zero = refl
   gcd0l (suc n) = refl
 
--- `with ‚¶ in eq` desugars through builtin REFL, unavailable under
+-- `with ‚Ä¶ in eq` desugars through builtin REFL, unavailable under
 -- --cubical (2.6.3), so each if-ladder is walked by a helper that
 -- carries the scrutinised Bool NEXT TO its own equation, instantiated
 -- with refl at the call site.
@@ -491,8 +491,8 @@ simp-sound e (Bin s a b) =
   simpB-sound e s (simp a) (simp b)
   ‚àô binCong e s (simp-sound e a) (simp-sound e b)
 
--- the unfolding pass.  suc a + b and suc a ¬ b unfold definitionally;
--- a ¬ suc b needs the lemma the library does not carry:
+-- the unfolding pass.  suc a + b and suc a ¬∑ b unfold definitionally;
+-- a ¬∑ suc b needs the lemma the library does not carry:
 mulSuc : (m n : ‚Ñï) ‚Üí m ¬∑ suc n ‚â° m + m ¬∑ n
 mulSuc zero n = refl
 mulSuc (suc m) n = cong suc
@@ -590,9 +590,9 @@ nf-sound e t =
   ‚àô round-sound e t
 
 ------------------------------------------------------------------------
--- ‡Æ‡∞‡‡Ø‡æ‡¶‡æ.  What stands: acCanon preserves denotation, and a comparison
+-- ‡§Æ‡§∞‡•ç‡§Ø‡§æ‡§¶‡§æ.  What stands: acCanon preserves denotation, and a comparison
 -- verdict of 1 is a path, so a classifier hit means the two sides denote
--- one function (acShuffle-sound) ‚î the content of the refusal, judged
+-- one function (acShuffle-sound) ‚Äî the content of the refusal, judged
 -- end to end.  The transcription debt is PAID structurally, not by a
 -- proof: the classifier now has one spelling (PrastavaHrdaya, checked
 -- --cubical-compatible), imported both here and by the extracted

@@ -58,7 +58,7 @@
 --
 -- The instance is the ancient one: Ethiopian / Egyptian doubling
 -- multiplication.  Its three rules (`stop at zero`, `halve-and-double`,
--- `peel one`) have domains {0} � evens � � -- a chain -- so `chainRooted`
+-- `peel one`) have domains {0} ⊆ evens ⊆ ℕ -- a chain -- so `chainRooted`
 -- applies and the dispatch is total and deterministic with no tiebreak
 -- whatever (`dispatchZero`, `dispatchEven`, `dispatchOdd`).  The normal
 -- form it reaches is the product: `egyCorrect`.
@@ -116,7 +116,7 @@ _⋐_ {A = A} g h = (x : A) → Holds g x → Holds h x
 
 -- Membership in the rule book, as a recursive family rather than an
 -- inductive one: pattern matching on an inductive `_∈_` whose index is
--- `h � gs` would rest on injectivity of `_�_`, which Cubical Agda does not
+-- `h ∷ gs` would rest on injectivity of `_∷_`, which Cubical Agda does not
 -- support.  Recursion on the list avoids the issue entirely.
 _∈_ : {A : Type ℓ} → Guard A → List (Guard A) → Type ℓ
 _∈_ {ℓ} g [] = ⊥* {ℓ}
@@ -125,7 +125,7 @@ g ∈ (h ∷ gs) = (g ≡ h) ⊎ (g ∈ gs)
 pattern here p = inl p
 pattern there m = inr m
 
--- `g ∈ []` reduces to `�*`, so this eliminates any empty-book membership
+-- `g ∈ []` reduces to `⊥*`, so this eliminates any empty-book membership
 -- without needing to recover the carrier from the (carrier-free) type.
 ∉[] : {ℓ' : Level} {B : Type ℓ'} → ⊥* {ℓ} → B
 ∉[] m = ⊥.rec* m
@@ -494,8 +494,8 @@ gAgB-cross = (λ c → false≢true (c t0 refl)) , (λ c → false≢true (c t2 
 --   D  a even       -- halve a, double b
 --   S  otherwise    -- peel one b off and continue
 --
--- Their domains are {0} � evens � �: a chain.  So `chainRooted` gives a
--- total, deterministic dispatch at every �, with NO tiebreak -- neither
+-- Their domains are {0} ⊆ evens ⊆ ℕ: a chain.  So `chainRooted` gives a
+-- total, deterministic dispatch at every ℕ, with NO tiebreak -- neither
 -- para nor position.  The doubling algorithm is thus the (rare) case where
 -- utsarga/apavda is by itself a complete strategy.
 ------------------------------------------------------------------------
@@ -537,7 +537,7 @@ doublingChain = z , e , a , tt*
     a : (h : Guard ℕ) → h ∈ [] → gAny ⋐ h
     a h m = ∉[] m
 
--- every � has an applicable rule (gAny), so the dispatch is total
+-- every ℕ has an applicable rule (gAny), so the dispatch is total
 doublingRooted : (n : ℕ) → Σ[ g ∈ Guard ℕ ] IsLeast doubling n g
 doublingRooted n =
   chainRooted doubling doublingChain n (gAny , there (there (here refl)) , refl)

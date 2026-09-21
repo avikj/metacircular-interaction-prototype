@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà¾à—àà¾à°à â” àà°à àààµà àà¾à•ààà¿àà àµààà¿, àà¡ààà¿ààà àµà²à¯àˆà àà•àààµà®à à
+-- à¤­à¤¾à¤—à¤¹à¤¾à¤°à¤ƒ â€” à¤¹à¤°à¤ƒ à¤¸à¥à¤µà¤‚ à¤¸à¤¾à¤•à¥à¤·à¤¿à¤£à¤‚ à¤µà¤¹à¤¤à¤¿, à¤·à¤¡à¥à¤­à¤¿à¤¶à¥à¤š à¤µà¤²à¤¯à¥ˆà¤ƒ à¤à¤•à¤¤à¥à¤µà¤®à¥ à¥¤
 --
 -- (the exact division carries its own witness; and six turns of the
---  wheel, at ààà°à•ààà¿ àà§, reach à•àààà one.)
+--  wheel, at à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ à¥¬à¥§, reach à¤•à¥à¤·à¥‡à¤ª one.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT WAS MISSING, NAMED EXACTLY, AND WHAT IS NOW HERE.
 --
 -- Two modules in this repository refuse, in identical words, to call
--- anything "the àà•àà°àµà¾à²", and both name the SAME missing ingredient:
+-- anything "the à¤šà¤•à¥à¤°à¤µà¤¾à¤²", and both name the SAME missing ingredient:
 --
---   `loss/â¦/Bhavana_TheKsepaIsDeterminedByTheRootsAndâ¦`:
---     "It requires choosing m with k âˆ (a + bÂm), and then dividing the
---      composed row through by k â” exact division in â, which needs a
+--   `loss/â€¦/Bhavana_TheKsepaIsDeterminedByTheRootsAndâ€¦`:
+--     "It requires choosing m with k âˆ£ (a + bÂ·m), and then dividing the
+--      composed row through by k â€” exact division in â„¤, which needs a
 --      divisibility witness carried alongside and is not done here."
---   `Vargaprakrtitantu_ThePellFibreIsInfiniteâ¦`:
---     "the cyclic step needs a chosen m with k âˆ (a + bÂm) and an exact
+--   `Vargaprakrtitantu_ThePellFibreIsInfiniteâ€¦`:
+--     "the cyclic step needs a chosen m with k âˆ£ (a + bÂ·m) and an exact
 --      division carrying its divisibility witness, and none of that is
 --      done."
 --   `Cakravala.agda` says the same in ; `CakravalaDescent.agda`
@@ -25,99 +25,99 @@
 --     the three divisions as HYPOTHESES IN MULTIPLIED FORM, so no
 --     division is ever performed there either.
 --
--- That refusal was correct and the gap it names is one object.  Â§à¨ builds
--- it: `àà¾à—àà¾à°à j n` is the exact division of n by (suc j), presented as a
--- CARRIER â” base = the pair (dividend, divisor), carried = the à²ààà§à¿
--- (quotient), witness = n â‰¡ suc j Â à²ààà§à¿.  Â§à¨ proves the carried datum is
--- DETERMINED (`àà¾à—àà¾à°-àà•à` : the type is a proposition), which is what
+-- That refusal was correct and the gap it names is one object.  Â§à¥¨ builds
+-- it: `à¤­à¤¾à¤—à¤¹à¤¾à¤°à¤ƒ j n` is the exact division of n by (suc j), presented as a
+-- CARRIER â€” base = the pair (dividend, divisor), carried = the à¤²à¤¬à¥à¤§à¤¿
+-- (quotient), witness = n â‰¡ suc j Â· à¤²à¤¬à¥à¤§à¤¿.  Â§à¥¨ proves the carried datum is
+-- DETERMINED (`à¤­à¤¾à¤—à¤¹à¤¾à¤°-à¤à¤•à¤ƒ` : the type is a proposition), which is what
 -- makes carrying it free.
 --
--- AND THE DISTINCTION THAT MATTERS, which the à•àààà case hides.  For the
--- à•àààà the fibre is `singl` â” contractible â” because the roots determine
--- it TOTALLY: every pair has a à•àààà.  For the àà¾à—àà¾à° the fibre is a
+-- AND THE DISTINCTION THAT MATTERS, which the à¤•à¥à¤·à¥‡à¤ª case hides.  For the
+-- à¤•à¥à¤·à¥‡à¤ª the fibre is `singl` â€” contractible â€” because the roots determine
+-- it TOTALLY: every pair has a à¤•à¥à¤·à¥‡à¤ª.  For the à¤­à¤¾à¤—à¤¹à¤¾à¤° the fibre is a
 -- proposition and NOT in general inhabited: division by k is PARTIAL, and
 -- the inhabitant is exactly the divisibility.  So the missing ingredient
 -- is not "a carried datum" in the same sense at all; it is the one place
 -- in this whole construction where something must be SUPPLIED rather than
 -- computed, and Bhskara's choice of m is what supplies it.  Contractible
--- vs. merely propositional is the whole difference between the àà¾àµà¨à¾
--- (free) and the àà•àà°àµà¾à² (not free).
+-- vs. merely propositional is the whole difference between the à¤­à¤¾à¤µà¤¨à¤¾
+-- (free) and the à¤šà¤•à¥à¤°à¤µà¤¾à¤² (not free).
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED HERE.
 --
---   Â§à© `àà¦-ààà°à®à¾àà®à` â” THE TURN.  Given a row aÂ² âˆ’ D bÂ² = ÂK with K = suc j,
---     an m, a witness that mÂ² âˆ’ D = ÂE, and the THREE exact divisions
---     K âˆ (aÂm + DÂb), K âˆ (a + bÂm), K âˆ E, the new row (A , B) satisfies
---     AÂ² âˆ’ D BÂ² = ÂK' with the sign the product of the two.  All four sign
+--   Â§à¥© `à¤ªà¤¦-à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥` â€” THE TURN.  Given a row aÂ² âˆ’ D bÂ² = Â±K with K = suc j,
+--     an m, a witness that mÂ² âˆ’ D = Â±E, and the THREE exact divisions
+--     K âˆ£ (aÂ·m + DÂ·b), K âˆ£ (a + bÂ·m), K âˆ£ E, the new row (A , B) satisfies
+--     AÂ² âˆ’ D BÂ² = Â±K' with the sign the product of the two.  All four sign
 --     combinations, no case swept.  This is the step both modules refused
 --     to claim.
---   Â§à `àà¦à®à` â” the same as a total function on rows.  Total: once the
---     three àà¾à—àà¾à° are in hand there is no further obligation.
---   Â§à THE RUN AT D = 61, Bhskara's own example.  Six turns from (8,1,+3)
+--   Â§à¥ª `à¤ªà¤¦à¤®à¥` â€” the same as a total function on rows.  Total: once the
+--     three à¤­à¤¾à¤—à¤¹à¤¾à¤° are in hand there is no further obligation.
+--   Â§à¥« THE RUN AT D = 61, BhÄskara's own example.  Six turns from (8,1,+3)
 --     to (29718, 3805, âˆ’1), every divisibility witness discharged by
---     `refl` in the kernel â” the divisions are PERFORMED, not assumed.
---   Â§à `àà¾àµà¨à¾-à¦ààµà¿à—àà-à‹à` â” Brahmagupta's composition of a k = âˆ’1 row with
+--     `refl` in the kernel â€” the divisions are PERFORMED, not assumed.
+--   Â§à¥¬ `à¤­à¤¾à¤µà¤¨à¤¾-à¤¦à¥à¤µà¤¿à¤—à¥à¤£-à¤‹à¤£` â€” Brahmagupta's composition of a k = âˆ’1 row with
 --     itself, giving k = +1, and hence
 --
---        1766319049Â² âˆ’ 61 Â 226153980Â² = 1.
+--        1766319049Â² âˆ’ 61 Â· 226153980Â² = 1.
 --
---     Which is Bhskara's answer, and the case the naive àà¾àµà¨à¾ orbit
+--     Which is BhÄskara's answer, and the case the naive à¤­à¤¾à¤µà¤¨à¤¾ orbit
 --     inside the k=1 fibre cannot reach, because at D = 61 there is no
 --     small k=1 row to seed it with.
 --
 -- WHAT IS *NOT* PROVED, so nobody has to guess.
 --
 --   * TERMINATION.  Nothing here says the wheel comes round for every D.
---     `CakravalaBound.agda` proves the invariant kÂ² â‰ 4D that termination
+--     `CakravalaBound.agda` proves the invariant kÂ² â‰¤ 4D that termination
 --     would be built on; the step from a bounded state space to "the
---     wheel returns to k = Â1" is not taken, there or here.
---   * BHSKARA'S CHOICE RULE.  The six m's of Â§à are supplied as data.
+--     wheel returns to k = Â±1" is not taken, there or here.
+--   * BHÄ€SKARA'S CHOICE RULE.  The six m's of Â§à¥« are supplied as data.
 --     That each is the m his rule selects (minimise |mÂ² âˆ’ D| subject to
---     the congruence) is NOT checked here â” and `CakravalaBound.agda` Â§à
+--     the congruence) is NOT checked here â€” and `CakravalaBound.agda` Â§à¥­
 --     already records that at least one published D = 61 run in this
 --     repository gets that attribution wrong.  The turn is sound for ANY
---     m whose three divisions come out exact, which is what Â§à© states.
+--     m whose three divisions come out exact, which is what Â§à¥© states.
 --   * EXISTENCE.  Nothing here says a solution exists for a general D.
---   * The three àà¾à—àà¾à° of Â§à© are HYPOTHESES of the theorem.  Â§à discharges
+--   * The three à¤­à¤¾à¤—à¤¹à¤¾à¤° of Â§à¥© are HYPOTHESES of the theorem.  Â§à¥« discharges
 --     them by computation for the six particular turns; no general
 --     decision procedure for them is built.
 --
--- SO WHAT MAY THIS BE CALLED.  The àà•àà°àµà¾à² STEP is formalised, and one
--- complete àà•àà°àµà¾à² RUN is executed in the kernel.  The àà•àà°àµà¾à² as an
--- ALGORITHM â” a rule that chooses m and provably halts â” is not, and this
+-- SO WHAT MAY THIS BE CALLED.  The à¤šà¤•à¥à¤°à¤µà¤¾à¤² STEP is formalised, and one
+-- complete à¤šà¤•à¥à¤°à¤µà¤¾à¤² RUN is executed in the kernel.  The à¤šà¤•à¥à¤°à¤µà¤¾à¤² as an
+-- ALGORITHM â€” a rule that chooses m and provably halts â€” is not, and this
 -- module does not claim it.  The refusals quoted at the top are hereby
 -- narrowed, not withdrawn.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- SOURCES.
 --
---   BRAHMAGUPTA, ààà°à¾ààà®àààààŸàà¿à¦àà§à¾à¨ààà, àà§àà¯à¾à¯ à§à® (à•ààŸààŸà•à¾à§àà¯à¾à¯à), 628 CE â”
---   the àà¾àµà¨à¾ (Â§à here), with ààà°à•ààà¿ for the multiplier D, ààà¯àààà  for the
---   greater root, à•à¨à¿ààà  for the lesser, à•àààà for the interpolator, and
---   à§à¨ / à‹à (asset / debt) for the two signs, which is why Â§à§ names the
+--   BRAHMAGUPTA, à¤¬à¥à¤°à¤¾à¤¹à¥à¤®à¤¸à¥à¤«à¥à¤Ÿà¤¸à¤¿à¤¦à¥à¤§à¤¾à¤¨à¥à¤¤à¤ƒ, à¤…à¤§à¥à¤¯à¤¾à¤¯ à¥§à¥® (à¤•à¥à¤Ÿà¥à¤Ÿà¤•à¤¾à¤§à¥à¤¯à¤¾à¤¯à¤ƒ), 628 CE â€”
+--   the à¤­à¤¾à¤µà¤¨à¤¾ (Â§à¥¬ here), with à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ for the multiplier D, à¤œà¥à¤¯à¥‡à¤·à¥à¤  for the
+--   greater root, à¤•à¤¨à¤¿à¤·à¥à¤  for the lesser, à¤•à¥à¤·à¥‡à¤ª for the interpolator, and
+--   à¤§à¤¨ / à¤‹à¤£ (asset / debt) for the two signs, which is why Â§à¥§ names the
 --   sign type with his two words rather than with a Bool.
 --
---   JAYADEVA, c. 950 CE, surviving only inside UDAYADIVKARA's ààà¨àà¦à°à
---   (1073) â” the àà•àà°àµà¾à².
+--   JAYADEVA, c. 950 CE, surviving only inside UDAYADIVÄ€KARA's à¤¸à¥à¤¨à¥à¤¦à¤°à¥€
+--   (1073) â€” the à¤šà¤•à¥à¤°à¤µà¤¾à¤².
 --
---   BHSKARA II, àààà—àà¿àà®à, 1150 CE â” the àà•àà°àµà¾à² in full, and D = 61 as
---   his worked example, with the answer Â§à reaches.
+--   BHÄ€SKARA II, à¤¬à¥€à¤œà¤—à¤£à¤¿à¤¤à¤®à¥, 1150 CE â€” the à¤šà¤•à¥à¤°à¤µà¤¾à¤² in full, and D = 61 as
+--   his worked example, with the answer Â§à¥¬ reaches.
 --
---   àà¾à—àà¾à° (divisor / the act of dividing) and à²ààà§à¿ (the quotient, "what
---   is obtained") are the à•ààŸààŸà• vocabulary of the same chapter.
+--   à¤­à¤¾à¤—à¤¹à¤¾à¤° (divisor / the act of dividing) and à¤²à¤¬à¥à¤§à¤¿ (the quotient, "what
+--   is obtained") are the à¤•à¥à¤Ÿà¥à¤Ÿà¤• vocabulary of the same chapter.
 --
 -- CITATIONS ARE SECOND-HAND AND ARE OWED AT VERSE LEVEL. The author of this
 -- file has not opened these texts. What IS claimed is checkable: that the
 -- quantity aÂ² âˆ’ D bÂ² is what their algorithms carry beside the pair of roots,
 -- and that their step's three divisions are exactly the three hypotheses of
--- Â§à©.
+-- Â§à¥©.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.  â• throughout, never â: cubical's â product does
--- not reduce on numerals of this size, and Â§à needs numbers up to
--- 3 Â 10Ââ to actually compute in the kernel.  Signs are therefore
--- carried as à§à¨ / à‹à beside a magnitude, and every equation below is
+-- postulates, no holes.  â„• throughout, never â„¤: cubical's â„¤ product does
+-- not reduce on numerals of this size, and Â§à¥« needs numbers up to
+-- 3 Â· 10Â¹â¸ to actually compute in the kernel.  Signs are therefore
+-- carried as à¤§à¤¨ / à¤‹à¤£ beside a magnitude, and every equation below is
 -- subtraction-free.
 ------------------------------------------------------------------------
 
@@ -130,13 +130,13 @@ open import Cubical.Data.Sigma using (Î£-syntax ; _Ã—_ ; _,_ ; fst ; snd)
 open import Cubical.Tactics.NatSolver.Reflection using (solveâ„•!)
 
 ------------------------------------------------------------------------
--- à§ Â à§à¨ and à‹à â” Brahmagupta's two signs, and the equation split by them.
+-- à¥§ Â· à¤§à¤¨ and à¤‹à¤£ â€” Brahmagupta's two signs, and the equation split by them.
 --
--- àµà°àà—ààà°à•ààà¿à D a b à§à¨ K   is   aÂ² = D bÂ² + K      (aÂ² âˆ’ D bÂ² = +K)
--- àµà°àà—ààà°à•ààà¿à D a b à‹à K   is   aÂ² + K = D bÂ²      (aÂ² âˆ’ D bÂ² = âˆ’K)
+-- à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿à¤ƒ D a b à¤§à¤¨ K   is   aÂ² = D bÂ² + K      (aÂ² âˆ’ D bÂ² = +K)
+-- à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿à¤ƒ D a b à¤‹à¤£ K   is   aÂ² + K = D bÂ²      (aÂ² âˆ’ D bÂ² = âˆ’K)
 --
--- Both are subtraction-free, which is what lets â• state them and what
--- lets the kernel compute them at Â§à's magnitudes.
+-- Both are subtraction-free, which is what lets â„• state them and what
+-- lets the kernel compute them at Â§à¥«'s magnitudes.
 ------------------------------------------------------------------------
 
 data à¤šà¤¿à¤¹à¥à¤¨ : Typeâ‚€ where
@@ -151,7 +151,7 @@ data à¤šà¤¿à¤¹à¥à¤¨ : Typeâ‚€ where
 à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿à¤ƒ D a b à¤§à¤¨ K = a Â· a â‰¡ D Â· (b Â· b) + K
 à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿à¤ƒ D a b à¤‹à¤£ K = a Â· a + K â‰¡ D Â· (b Â· b)
 
--- the interpolator's own row, (m , 1): mÂ² âˆ’ D = ÂE
+-- the interpolator's own row, (m , 1): mÂ² âˆ’ D = Â±E
 à¤…à¤¨à¥à¤¤à¤°à¤®à¥ : à¤šà¤¿à¤¹à¥à¤¨ â†’ â„• â†’ â„• â†’ â„• â†’ Typeâ‚€
 à¤…à¤¨à¥à¤¤à¤°à¤®à¥ à¤§à¤¨ D m E = m Â· m â‰¡ D + E
 à¤…à¤¨à¥à¤¤à¤°à¤®à¥ à¤‹à¤£ D m E = m Â· m + E â‰¡ D
@@ -168,19 +168,19 @@ record à¤ªà¤™à¥à¤•à¥à¤¤à¤¿à¤ƒ (D : â„•) : Typeâ‚€ where
 open à¤ªà¤™à¥à¤•à¥à¤¤à¤¿à¤ƒ public
 
 ------------------------------------------------------------------------
--- à¨ Â àà¾à—àà¾à°à â” THE MISSING INGREDIENT, as a carrier.
+-- à¥¨ Â· à¤­à¤¾à¤—à¤¹à¤¾à¤°à¤ƒ â€” THE MISSING INGREDIENT, as a carrier.
 --
--- Base: the dividend n and the divisor suc j.  Carried: the à²ààà§à¿.
--- Witness: n â‰¡ suc j Â à²ààà§à¿.  The divisor is written `suc j` and not
+-- Base: the dividend n and the divisor suc j.  Carried: the à¤²à¤¬à¥à¤§à¤¿.
+-- Witness: n â‰¡ suc j Â· à¤²à¤¬à¥à¤§à¤¿.  The divisor is written `suc j` and not
 -- `k` with a side condition, because a zero divisor is not an omission
--- to be excluded later â” it is a divisor that was never one.
+-- to be excluded later â€” it is a divisor that was never one.
 --
--- `àà¾à—àà¾à°-àà•à`: the type is a PROPOSITION.  The quotient is determined
+-- `à¤­à¤¾à¤—à¤¹à¤¾à¤°-à¤à¤•à¤ƒ`: the type is a PROPOSITION.  The quotient is determined
 -- by the base, so carrying it costs nothing; that is the same statement
 -- as `Loss.Carrier`'s contractible fibre, one h-level weaker.
 --
--- And it is exactly one h-level weaker, which is the content: the à•àààà's
--- fibre is contractible because every pair HAS a à•àààà, and this one is
+-- And it is exactly one h-level weaker, which is the content: the à¤•à¥à¤·à¥‡à¤ª's
+-- fibre is contractible because every pair HAS a à¤•à¥à¤·à¥‡à¤ª, and this one is
 -- only propositional because not every n has a quotient.  The inhabitant
 -- IS the divisibility.  That is the thing Bhskara's choice of m buys and
 -- the thing no amount of carrying can produce for free.
@@ -196,7 +196,7 @@ open à¤­à¤¾à¤—à¤¹à¤¾à¤°à¤ƒ public
 
 -- the carried datum is determined: at most one quotient, always.  That is
 -- what makes carrying it free, and it is `Loss.Carrier`'s
--- contractible fibre one h-level weaker â” weaker exactly because the
+-- contractible fibre one h-level weaker â€” weaker exactly because the
 -- division is partial.
 à¤­à¤¾à¤—à¤¹à¤¾à¤°-à¤à¤•à¤ƒ : (j n : â„•) â†’ isProp (à¤­à¤¾à¤—à¤¹à¤¾à¤°à¤ƒ j n)
 à¤­à¤¾à¤—à¤¹à¤¾à¤°-à¤à¤•à¤ƒ j n (à¤¹à¥ƒà¤¤à¤®à¥ qâ‚ wâ‚) (à¤¹à¥ƒà¤¤à¤®à¥ qâ‚‚ wâ‚‚) i = à¤¹à¥ƒà¤¤à¤®à¥ (p i) (w i)
@@ -208,16 +208,16 @@ open à¤­à¤¾à¤—à¤¹à¤¾à¤°à¤ƒ public
   w = isPropâ†’PathP (Î» i â†’ isSetâ„• n (suc j Â· p i)) wâ‚ wâ‚‚
 
 ------------------------------------------------------------------------
--- à© Â THE TURN'S ARITHMETIC.
+-- à¥© Â· THE TURN'S ARITHMETIC.
 --
 -- The one identity everything rests on, with NO cancellation and NO
 -- division: for all D a b m,
 --
---   (aÂm + DÂb)Â² + (DÂaÂ² + (DÂbÂ²)ÂmÂ²) = DÂ(a + bÂm)Â² + (aÂ²ÂmÂ² + DÂ(DÂbÂ²))
+--   (aÂ·m + DÂ·b)Â² + (DÂ·aÂ² + (DÂ·bÂ²)Â·mÂ²) = DÂ·(a + bÂ·m)Â² + (aÂ²Â·mÂ² + DÂ·(DÂ·bÂ²))
 --
 -- which is the subtraction-free form of Brahmagupta's
 --
---   (aÂm + DÂb)Â² âˆ’ DÂ(a + bÂm)Â² = (aÂ² âˆ’ D bÂ²)Â(mÂ² âˆ’ D).
+--   (aÂ·m + DÂ·b)Â² âˆ’ DÂ·(a + bÂ·m)Â² = (aÂ² âˆ’ D bÂ²)Â·(mÂ² âˆ’ D).
 --
 -- Everything after it is bookkeeping of the two signs and one
 -- cancellation of KÂ².
@@ -229,9 +229,9 @@ open à¤­à¤¾à¤—à¤¹à¤¾à¤°à¤ƒ public
 à¤®à¥‚à¤²-à¤¸à¤®à¤¤à¤¾ D a b m = solveâ„•!
 
 -- the four sign combinations, each a polynomial identity after the two
--- hypotheses have been substituted in.  P stands for DÂbÂ², A2 for aÂ²,
+-- hypotheses have been substituted in.  P stands for DÂ·bÂ², A2 for aÂ²,
 -- M2 for mÂ²; each is opaque to the solver, which is why the same four
--- lines carry all of Â§à©.
+-- lines carry all of Â§à¥©.
 private
   à¤…à¤™à¥à¤•-à¤§à¤¨à¤§à¤¨ : (D P K E : â„•)
     â†’ (P + K) Â· (D + E) + D Â· P â‰¡ K Â· E + (D Â· (P + K) + P Â· (D + E))
@@ -249,7 +249,7 @@ private
     â†’ A2 Â· M2 + (M2 + E) Â· (A2 + K) â‰¡ K Â· E + ((M2 + E) Â· A2 + (A2 + K) Â· M2)
   à¤…à¤™à¥à¤•-à¤‹à¤£à¤‹à¤£ A2 M2 K E = solveâ„•!
 
-  -- pulling KÂ² out, so that `inj-smÂ` can put it back
+  -- pulling KÂ² out, so that `inj-smÂ·` can put it back
   à¤¸à¤™à¥à¤•à¥‹à¤š-à¤… : (K A : â„•) â†’ (K Â· A) Â· (K Â· A) â‰¡ K Â· (K Â· (A Â· A))
   à¤¸à¤™à¥à¤•à¥‹à¤š-à¤… K A = solveâ„•!
 
@@ -267,8 +267,8 @@ private
   à¤ªà¥à¤¨à¤°à¥à¤µà¤¿à¤¨à¥à¤¯à¤¾à¤¸ : (à¤µà¤¾à¤®à¤ƒ Q à¤­à¤¾à¤°à¤ƒ : â„•) â†’ (à¤µà¤¾à¤®à¤ƒ + Q) + à¤­à¤¾à¤°à¤ƒ â‰¡ (à¤µà¤¾à¤®à¤ƒ + à¤­à¤¾à¤°à¤ƒ) + Q
   à¤ªà¥à¤¨à¤°à¥à¤µà¤¿à¤¨à¥à¤¯à¤¾à¤¸ à¤µà¤¾à¤®à¤ƒ Q à¤­à¤¾à¤°à¤ƒ = solveâ„•!
 
--- the two shapes the conclusion can take.  `à°àà-à` produces a à§à¨ row,
--- `à°àà-à` an à‹à row; the last hypothesis of each is the sign-specific
+-- the two shapes the conclusion can take.  `à¤°à¥‚à¤ª-à¤…` produces a à¤§à¤¨ row,
+-- `à¤°à¥‚à¤ª-à¤¬` an à¤‹à¤£ row; the last hypothesis of each is the sign-specific
 -- arithmetic, and everything else is shared.
 private
   module _ (D j a b m E A B K' : â„•)
@@ -284,7 +284,7 @@ private
       à¤µà¤¾à¤®à¤ƒ = (K Â· A) Â· (K Â· A)
       à¤¦à¤•à¥à¤·à¤¿à¤£à¤ƒ = D Â· ((K Â· B) Â· (K Â· B))
 
-      -- the master identity, with both numerators replaced by KÂ(quotient)
+      -- the master identity, with both numerators replaced by KÂ·(quotient)
       à¤¸à¥à¤•à¤¨à¥à¤§ : à¤µà¤¾à¤®à¤ƒ + à¤­à¤¾à¤°à¤ƒ â‰¡ à¤¦à¤•à¥à¤·à¤¿à¤£à¤ƒ + à¤¶à¥‡à¤·à¤ƒ
       à¤¸à¥à¤•à¤¨à¥à¤§ = sym (cong (Î» z â†’ z Â· z + à¤­à¤¾à¤°à¤ƒ) hA)
              âˆ™ à¤®à¥‚à¤²-à¤¸à¤®à¤¤à¤¾ D a b m
@@ -314,11 +314,11 @@ private
       à¤¸à¤¾à¤° = sym (cong (Î» z â†’ à¤µà¤¾à¤®à¤ƒ + K Â· z) hE) âˆ™ à¤…à¤°à¥à¤§
 
 ------------------------------------------------------------------------
--- àà¦-ààà°à®à¾àà®à â” THE TURN.  All four sign combinations.
+-- à¤ªà¤¦-à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ â€” THE TURN.  All four sign combinations.
 --
---   aÂ² âˆ’ D bÂ² = ÂK,   mÂ² âˆ’ D = ÂE,   K âˆ (aÂm + DÂb),  K âˆ (a + bÂm),
---   K âˆ E
---   âŸ  AÂ² âˆ’ D BÂ² = ÂK'   with the sign the product of the two.
+--   aÂ² âˆ’ D bÂ² = Â±K,   mÂ² âˆ’ D = Â±E,   K âˆ£ (aÂ·m + DÂ·b),  K âˆ£ (a + bÂ·m),
+--   K âˆ£ E
+--   âŸ¹  AÂ² âˆ’ D BÂ² = Â±K'   with the sign the product of the two.
 --
 -- No m-choice rule is used, and none is needed: any m whose three
 -- divisions come out exact turns the wheel.  That is a weakening of
@@ -364,9 +364,9 @@ private
     âˆ™ cong (Î» p â†’ suc j Â· E + (D Â· (a Â· a) + p Â· (m Â· m))) ha )
 
 ------------------------------------------------------------------------
--- à Â àà¦à®à â” the turn as a TOTAL function on rows.
+-- à¥ª Â· à¤ªà¤¦à¤®à¥ â€” the turn as a TOTAL function on rows.
 --
--- Total, and that is the point.  The three àà¾à—àà¾à° are the whole of the
+-- Total, and that is the point.  The three à¤­à¤¾à¤—à¤¹à¤¾à¤° are the whole of the
 -- obligation; once they are in hand nothing else is owed, no side
 -- condition survives, and the new row is a row.
 ------------------------------------------------------------------------
@@ -384,16 +384,16 @@ private
       ha hm (à¤¸à¤¾à¤•à¥à¤·à¥€ à¤¹à¤¾) (à¤¸à¤¾à¤•à¥à¤·à¥€ à¤¹à¤¬) (à¤¸à¤¾à¤•à¥à¤·à¥€ à¤¹à¥‡))
 
 ------------------------------------------------------------------------
--- à Â àà•àà°àµà¾à²à®à at ààà°à•ààà¿ àà§ â” BHSKARA'S OWN EXAMPLE.
+-- à¥« Â· à¤šà¤•à¥à¤°à¤µà¤¾à¤²à¤®à¥ at à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ à¥¬à¥§ â€” BHÄ€SKARA'S OWN EXAMPLE.
 --
 -- Six turns.  Every `refl` below is a division actually carried out by
--- the kernel: `àà¾à—àà¾à°à 2 (8 Â 7 + 61 Â 1)` is inhabited by `39 , refl`
--- only because 8Â7 + 61Â1 and 3Â39 are the same numeral.
+-- the kernel: `à¤­à¤¾à¤—à¤¹à¤¾à¤°à¤ƒ 2 (8 Â· 7 + 61 Â· 1)` is inhabited by `39 , refl`
+-- only because 8Â·7 + 61Â·1 and 3Â·39 are the same numeral.
 --
--- D = 61 is the case the naive àà¾àµà¨à¾ orbit does not reach: there is no
--- small row with à•àààà 1 to seed it, and squaring a row multiplies its
--- à•àààà rather than reducing it.  The wheel gets there by going THROUGH
--- à•àààà 3, 4, 5, 5, 4, 3 and out at 1 â” which is what a cycle is for.
+-- D = 61 is the case the naive à¤­à¤¾à¤µà¤¨à¤¾ orbit does not reach: there is no
+-- small row with à¤•à¥à¤·à¥‡à¤ª 1 to seed it, and squaring a row multiplies its
+-- à¤•à¥à¤·à¥‡à¤ª rather than reducing it.  The wheel gets there by going THROUGH
+-- à¤•à¥à¤·à¥‡à¤ª 3, 4, 5, 5, 4, 3 and out at 1 â€” which is what a cycle is for.
 ------------------------------------------------------------------------
 
 à¤†à¤¦à¤¿ : à¤ªà¤™à¥à¤•à¥à¤¤à¤¿à¤ƒ 61                      -- 8Â² âˆ’ 61Â·1Â² = 64 âˆ’ 61 = +3
@@ -423,7 +423,7 @@ private
 à¤µà¤²à¤¯-à¥¬ = à¤ªà¤¦à¤®à¥ 61 2 5639 722 à¤‹à¤£ (à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ à¤µà¤²à¤¯-à¥«) à¤§à¤¨ 8 3 refl
           (à¤¹à¥ƒà¤¤à¤®à¥ 29718 refl) (à¤¹à¥ƒà¤¤à¤®à¥ 3805 refl) (à¤¹à¥ƒà¤¤à¤®à¥ 1 refl)
 
--- the wheel's own reading, turn by turn: (ààà¯àààà  , à•à¨à¿ààà  , à•àààà).
+-- the wheel's own reading, turn by turn: (à¤œà¥à¤¯à¥‡à¤·à¥à¤  , à¤•à¤¨à¤¿à¤·à¥à¤  , à¤•à¥à¤·à¥‡à¤ª).
 -- Each holds by `refl`, so these are the values the kernel computed and
 -- not values a comment asserts.
 à¤¦à¤°à¥à¤¶à¤¨à¤®à¥-à¥§ : Path (â„• Ã— â„• Ã— â„•) (à¤œà¥à¤¯à¥‡à¤·à¥à¤  à¤µà¤²à¤¯-à¥§ , à¤•à¤¨à¤¿à¤·à¥à¤  à¤µà¤²à¤¯-à¥§ , à¤•à¥à¤·à¥‡à¤ªà¤ƒ à¤µà¤²à¤¯-à¥§) (39 , 5 , 4)
@@ -444,25 +444,25 @@ private
 à¤¦à¤°à¥à¤¶à¤¨à¤®à¥-à¥¬ : Path (â„• Ã— â„• Ã— â„•) (à¤œà¥à¤¯à¥‡à¤·à¥à¤  à¤µà¤²à¤¯-à¥¬ , à¤•à¤¨à¤¿à¤·à¥à¤  à¤µà¤²à¤¯-à¥¬ , à¤•à¥à¤·à¥‡à¤ªà¤ƒ à¤µà¤²à¤¯-à¥¬) (29718 , 3805 , 1)
 à¤¦à¤°à¥à¤¶à¤¨à¤®à¥-à¥¬ = refl
 
--- and the sign at the exit is à‹à: 29718Â² + 1 = 61 Â 3805Â².
+-- and the sign at the exit is à¤‹à¤£: 29718Â² + 1 = 61 Â· 3805Â².
 à¤šà¤¿à¤¹à¥à¤¨-à¥¬ : à¤šà¤¿à¤¹à¥à¤¨à¤®à¥ à¤µà¤²à¤¯-à¥¬ â‰¡ à¤‹à¤£
 à¤šà¤¿à¤¹à¥à¤¨-à¥¬ = refl
 
 -- the exit row's equation, restated in its own numerals.  This is the
--- theorem of Â§à© applied six times, not a computation: it is `ààà°à®à¾àà®à`.
+-- theorem of Â§à¥© applied six times, not a computation: it is `à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥`.
 à¤µà¤²à¤¯-à¤·à¤·à¥à¤ -à¤¸à¤®à¥€à¤•à¤°à¤£à¤®à¥ : 29718 Â· 29718 + 1 â‰¡ 61 Â· (3805 Â· 3805)
 à¤µà¤²à¤¯-à¤·à¤·à¥à¤ -à¤¸à¤®à¥€à¤•à¤°à¤£à¤®à¥ = à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ à¤µà¤²à¤¯-à¥¬
 
 ------------------------------------------------------------------------
--- à Â àà¾àµà¨à¾ at the exit â” Brahmagupta closes what Jayadeva opened.
+-- à¥¬ Â· à¤­à¤¾à¤µà¤¨à¤¾ at the exit â€” Brahmagupta closes what Jayadeva opened.
 --
--- The wheel delivers à•àààà âˆ’1, not +1.  Composing that row with ITSELF is
--- Brahmagupta's àà¾àµà¨à¾, and the à•àààà multiplies: (âˆ’1)Â(âˆ’1) = +1.  So the
--- last move of the àà•àà°àµà¾à² is 522 years older than the àà•àà°àµà¾à².
+-- The wheel delivers à¤•à¥à¤·à¥‡à¤ª âˆ’1, not +1.  Composing that row with ITSELF is
+-- Brahmagupta's à¤­à¤¾à¤µà¤¨à¤¾, and the à¤•à¥à¤·à¥‡à¤ª multiplies: (âˆ’1)Â·(âˆ’1) = +1.  So the
+-- last move of the à¤šà¤•à¥à¤°à¤µà¤¾à¤² is 522 years older than the à¤šà¤•à¥à¤°à¤µà¤¾à¤².
 --
---   (aÂ² + D bÂ²)Â² âˆ’ DÂ(2ab)Â² = (aÂ² âˆ’ D bÂ²)Â² = KÂ²
+--   (aÂ² + D bÂ²)Â² âˆ’ DÂ·(2ab)Â² = (aÂ² âˆ’ D bÂ²)Â² = KÂ²
 --
--- proved here subtraction-free in the à‹à case, for any K.
+-- proved here subtraction-free in the à¤‹à¤£ case, for any K.
 ------------------------------------------------------------------------
 
 private
@@ -483,11 +483,11 @@ private
   âˆ™ sym (cong (_+ K Â· K) (à¤¤à¤¿à¤°à¥à¤¯à¤•à¥-à¤¸à¤®à¤¤à¤¾ D a b))
 
 ------------------------------------------------------------------------
--- àà®à¾à§à¾à¨à®à â” THE ANSWER.  1766319049Â² âˆ’ 61 Â 226153980Â² = 1.
+-- à¤¸à¤®à¤¾à¤§à¤¾à¤¨à¤®à¥ â€” THE ANSWER.  1766319049Â² âˆ’ 61 Â· 226153980Â² = 1.
 --
 -- Bhskara II's own stated answer to his own stated example.  Here it is
--- the exit row of Â§à composed with itself by Â§à: the numerals
--- 1766319049 = 29718Â² + 61Â3805Â² and 226153980 = 2Â29718Â3805 are not
+-- the exit row of Â§à¥« composed with itself by Â§à¥¬: the numerals
+-- 1766319049 = 29718Â² + 61Â·3805Â² and 226153980 = 2Â·29718Â·3805 are not
 -- written into the proof, they are what the two expressions reduce to.
 ------------------------------------------------------------------------
 
@@ -496,7 +496,7 @@ private
   à¤°à¥‚à¤ªà¤®à¥ 1766319049 226153980 à¤§à¤¨ 1
     (à¤­à¤¾à¤µà¤¨à¤¾-à¤¦à¥à¤µà¤¿à¤—à¥à¤£-à¤‹à¤£ 61 29718 3805 1 (à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ à¤µà¤²à¤¯-à¥¬))
 
--- stated in its own numerals, and it is `ààà°à®à¾àà®à àà®à¾à§à¾à¨à®à` â” derived,
+-- stated in its own numerals, and it is `à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ à¤¸à¤®à¤¾à¤§à¤¾à¤¨à¤®à¥` â€” derived,
 -- not normalised into existence.
 à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿-à¥¬à¥§ : 1766319049 Â· 1766319049 â‰¡ 61 Â· (226153980 Â· 226153980) + 1
 à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿-à¥¬à¥§ = à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ à¤¸à¤®à¤¾à¤§à¤¾à¤¨à¤®à¥

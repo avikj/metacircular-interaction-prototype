@@ -5,6 +5,23 @@ will raise in the first five. Items in §3 are what artifact evaluation
 committees (CPP, ITP) and library reviewers (agda/cubical, agda-unimath)
 actually score.
 
+## 0. Done on this branch on 2026-09-21 (verify, then merge)
+
+- [x] **UTF-8 repair.** 2,218 `.agda` and 390 prose files were invalid UTF-8
+      after c0a233d. Restored line-by-line from the pre-corruption commit
+      where the only change was deleted bytes; 150 comment lines that also
+      carried a deliberate ASCII edit got U+FFFD markers instead. Details:
+      `outreach/CHECK_2026-09-21.txt`.
+- [x] **Module names.** 191 copied modules declared their old name; the
+      first `module` line now matches the filename. Two `Aresidue` botches
+      fixed. Four bare-named copies in `Kernel/` given the `Kernel.` prefix.
+- [x] **`formal/lean/root-exclusions.txt`** created for the two Lean twins
+      that cannot be imported beside their originals.
+- [ ] **Decide the prose gate.** `sh check` still exits 1 on the phrase
+      "WHAT IS NOT CLAIMED" in 15 files. Rewrite those passages (the gate's
+      own instruction: assert the reading under its standpoint) or retire
+      the gate; either way `sh check` must exit 0 before anyone else runs it.
+
 ## 1. Ten-minute fixes (do before any link is sent)
 
 - [ ] **Stale provenance lines.** Seven `Kernel/` files say

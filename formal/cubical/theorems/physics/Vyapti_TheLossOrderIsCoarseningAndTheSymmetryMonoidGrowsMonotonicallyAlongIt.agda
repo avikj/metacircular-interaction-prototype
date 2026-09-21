@@ -1,63 +1,63 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àµàà¯à¾àààà¿ â” ààààà²àà°à à¦à°ààà¨à ààà°à•ààà•à¾àà¾à àµàà¦àà§à¿à à
+-- à¤µà¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿ â€” à¤¸à¥à¤¥à¥‚à¤²à¤¤à¤°à¥‡ à¤¦à¤°à¥à¤¶à¤¨à¥‡ à¤¸à¤‚à¤°à¤•à¥à¤·à¤•à¤¾à¤£à¤¾à¤‚ à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ à¥¤
 --
 -- (as the observation grows coarser, the conserving flows grow with it.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.  The corpus has the two poles of a scale and no scale.
 --
---   `Dhruva_â¦agda` Â§à¨ â” `isEquiv f â’ ààà°à•àààà®à f Î¦ â’ Î¦ a â‰¡ a`.  Nothing
+--   `Dhruva_â€¦agda` Â§à¥¨ â€” `isEquiv f â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f Î¦ â†’ Î¦ a â‰¡ a`.  Nothing
 --   hidden, so nothing conserved and nothing moves.
 --
---   `Khahara_â¦agda` Â§à© â” every endomorphism of A conserves f âŸº f is
+--   `Khahara_â€¦agda` Â§à¥© â€” every endomorphism of A conserves f âŸº f is
 --   constant.  Total loss is exactly total symmetry.
 --
 -- Between them the corpus says "how much is lost" and has no object for
--- it.  The obvious move is a NUMBER â” a fibre cardinality, an entropy â”
+-- it.  The obvious move is a NUMBER â€” a fibre cardinality, an entropy â€”
 -- and that move is unavailable here (A is not finite, not a set, and no
 -- measure is in sight) and would in any case be the fitted-constant
 -- error this repository is built against.  The quantity is not a number.
 -- **It is an ORDER, and getting the order right is the whole content.**
 --
---     f àµàà¯à¾ààà¨à‹àà¿ g   :=   Î[ h ] (a : A) â’ g a â‰¡ h (f a)
+--     f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ g   :=   Î£[ h ] (a : A) â†’ g a â‰¡ h (f a)
 --
--- "g factors through f" â” g sees only what f sees, possibly less; g is
+-- "g factors through f" â€” g sees only what f sees, possibly less; g is
 -- the COARSER observation, the one that loses at least as much.  This is
--- a preorder (Â§à¨), and along it:
+-- a preorder (Â§à¥¨), and along it:
 --
---   Â§à©  the conserving set GROWS:  f àµàà¯à¾ààà¨à‹àà¿ g â’ ààà°à•àààà®à f Î¦ â’
---       ààà°à•àààà®à g Î¦.  A flow invisible to a fine observation is
+--   Â§à¥©  the conserving set GROWS:  f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ g â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f Î¦ â†’
+--       à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ g Î¦.  A flow invisible to a fine observation is
 --       invisible to every coarsening of it.  Three rewrites, no
---       hypotheses on A, B, C, Î¦ â” not h-sets, not finite, not
+--       hypotheses on A, B, C, Î¦ â€” not h-sets, not finite, not
 --       equivalences.
---   Â§à  and so do the fibres: a fibre of f maps into the corresponding
+--   Â§à¥«  and so do the fibres: a fibre of f maps into the corresponding
 --       fibre of g.  The loss itself is monotone, not only its symmetry.
 --
--- Â§à is why this is a unification and not a definition.  `idfun A` is a
+-- Â§à¥ª is why this is a unification and not a definition.  `idfun A` is a
 -- bottom of the order and any constant map is a top, so **Dhruva's pole
--- and Khahara's pole are the two ends of this one order**, and Â§à©
--- REPROVES Dhruva Â§à¨ in one line: an equivalence lies at the bottom
--- (`f àµàà¯à¾ààà¨à‹àà¿ idfun A`, witnessed by `invEq`/`retEq`), and
--- `ààà°à•àààà®à (idfun A) Î¦` is definitionally `Î¦ a â‰¡ a`.  Dhruva's proof
+-- and Khahara's pole are the two ends of this one order**, and Â§à¥©
+-- REPROVES Dhruva Â§à¥¨ in one line: an equivalence lies at the bottom
+-- (`f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ idfun A`, witnessed by `invEq`/`retEq`), and
+-- `à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ (idfun A) Î¦` is definitionally `Î¦ a â‰¡ a`.  Dhruva's proof
 -- used contractibility of a fibre; this one uses no fibre at all.
 --
--- Â§à is the erasure half.  Landauer's bound is about a NON-INJECTIVE
+-- Â§à¥¬ is the erasure half.  Landauer's bound is about a NON-INJECTIVE
 -- step, and non-injectivity of `Î¦` is the failure of `Î¦` to be an
 -- equivalence.  The forgetting is made a TYPE and never a number:
 --
---     àµà¿ààà®ààà¿à Î¦  :=  Î[ a ] Î[ a' ] (Î¦ a â‰¡ Î¦ a') — Â (a â‰¡ a')
+--     à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ Î¦  :=  Î£[ a ] Î£[ a' ] (Î¦ a â‰¡ Î¦ a') Ã— Â¬ (a â‰¡ a')
 --
--- and three terms: an equivalence forgets nothing (Â§àÂà§); an inhabitant
--- of àµà¿ààà®ààà¿à exhibits a FIBRE OF Î¦ that fails to be a proposition
--- (Â§àÂà¨) â” so "what is forgotten is a fibre of Î¦" is a statement about
+-- and three terms: an equivalence forgets nothing (Â§à¥¬Â·à¥§); an inhabitant
+-- of à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ exhibits a FIBRE OF Î¦ that fails to be a proposition
+-- (Â§à¥¬Â·à¥¨) â€” so "what is forgotten is a fibre of Î¦" is a statement about
 -- h-levels, which is the only sense in which this vocabulary can say
--- "how much"; and (Â§àÂà©) a flow that conserves f can only forget INSIDE
--- a fibre of f â” the flow's loss is bounded by the observation's, which
+-- "how much"; and (Â§à¥¬Â·à¥©) a flow that conserves f can only forget INSIDE
+-- a fibre of f â€” the flow's loss is bounded by the observation's, which
 -- is the composite of the two halves of this file.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- **There is no thermodynamics here.  None.**  No entropy, no measure,
 -- no temperature, no Boltzmann constant, no Hilbert space, no unitarity,
@@ -65,30 +65,30 @@
 -- principle is named in this header as the MOTIVE for asking which step
 -- is non-injective; nothing below derives it, bounds it, or implies it,
 -- and no physical consequence follows from any term here.  What survives
--- the stripping is combinatorial and typal â” *the coarser observation
+-- the stripping is combinatorial and typal â€” *the coarser observation
 -- admits more invariant flows, and an erasing step is a fibre that is
--- not a proposition* â” and saying exactly that much, and no more, is
+-- not a proposition* â€” and saying exactly that much, and no more, is
 -- what the file is for.
 --
--- **The order is a preorder, not a partial order.**  `àµàà¯à¾ààà¨à‹àà¿` has
--- reflexivity and transitivity (Â§à¨) and antisymmetry is neither true nor
+-- **The order is a preorder, not a partial order.**  `à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿` has
+-- reflexivity and transitivity (Â§à¥¨) and antisymmetry is neither true nor
 -- claimed: two maps can factor through each other without being equal.
 -- Nothing below quotients by it.
 --
--- **Â§à© and Â§à are one direction only.**  That `ààà°à•àààà®à f âŠ ààà°à•àààà®à g`
--- implies `f àµàà¯à¾ààà¨à‹àà¿ g` is FALSE in general and no weakened converse is
--- offered.  Likewise Â§àÂà¨: `f a â‰¡ f a' â’ g a â‰¡ g a'` follows from the
+-- **Â§à¥© and Â§à¥« are one direction only.**  That `à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f âŠ† à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ g`
+-- implies `f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ g` is FALSE in general and no weakened converse is
+-- offered.  Likewise Â§à¥«Â·à¥¨: `f a â‰¡ f a' â†’ g a â‰¡ g a'` follows from the
 -- order; recovering the order from it would need a choice of section and
 -- is not attempted.
 --
--- **Â§à is not a characterisation of non-injectivity.**  `isEquiv Î¦ â’
--- Â àµà¿ààà®ààà¿à Î¦` is proved; the converse â” that a non-equivalence
--- exhibits a àµà¿ààà®ààà¿à â” is CLASSICAL (it needs a collision to be found,
--- and a Â(a â‰¡ a') to be produced from Â(a â‰¡ a') failing) and is not
+-- **Â§à¥¬ is not a characterisation of non-injectivity.**  `isEquiv Î¦ â†’
+-- Â¬ à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ Î¦` is proved; the converse â€” that a non-equivalence
+-- exhibits a à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ â€” is CLASSICAL (it needs a collision to be found,
+-- and a Â¬(a â‰¡ a') to be produced from Â¬(a â‰¡ a') failing) and is not
 -- available constructively.  It is not proved and not used.
 --
 -- **Everything lives at ONE universe level.**  Not for depth: `Dhruva`
--- declares `ààà°à•àààà®à` in a telescope `{A B : Type â“}` with a single â“,
+-- declares `à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥` in a telescope `{A B : Type â„“}` with a single â„“,
 -- and this file reuses that definition rather than restating it, so it
 -- inherits the restriction.  Nothing below depends on the levels being
 -- equal and the general statement is a mechanical widening of Dhruva's
@@ -98,16 +98,16 @@
 -- **No  source states anything below**, and no Nyya doctrine is
 -- being formalised: see the TERM note.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- TERM.  àµàà¯à¾àààà¿ Â vypti â” pervasion, the relation that makes an
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- TERM.  à¤µà¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿ Â· vyÄpti â€” pervasion, the relation that makes an
 -- inference go through: wherever the hetu is, the sdhya is.  Gautama,
--- *à¨àà¯à¾à¯ààààà°* (~2nd c. CE); the definitional apparatus, the
--- àµàà¯à¾àààà¿ààààà•, is à—à™àà—àà, *ààààààµàà¿à¨ààà¾à®àà¿* (~1325).
+-- *à¤¨à¥à¤¯à¤¾à¤¯à¤¸à¥‚à¤¤à¥à¤°* (~2nd c. CE); the definitional apparatus, the
+-- à¤µà¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿à¤ªà¤à¥à¤šà¤•, is à¤—à¤™à¥à¤—à¥‡à¤¶, *à¤¤à¤¤à¥à¤¤à¥à¤µà¤šà¤¿à¤¨à¥à¤¤à¤¾à¤®à¤£à¤¿* (~1325).
 --
 -- LIMIT, stated because the resemblance is close enough to mislead.  The
 -- Naiyyika relation holds between two PROPERTIES (sdhya pervades
--- hetu) and its whole difficulty is the à‰àà¾à§à¿, the defeating condition
--- â” Gagea's five definitions exist because the naive one fails.  What
+-- hetu) and its whole difficulty is the à¤‰à¤ªà¤¾à¤§à¤¿, the defeating condition
+-- â€” Gaá¹…geÅ›a's five definitions exist because the naive one fails.  What
 -- is defined below is a containment between two MAPS, it has no updhi,
 -- and it is not defeasible.  The word is borrowed for the shape
 -- "wherever the one identifies, the other identifies"; the doctrine is
@@ -115,7 +115,7 @@
 -- Naiyyika would also refuse the substrate outright: cubical type
 -- theory (Voevodsky) is this repository's one admitted non-Indian frame.
 --
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 â” the container, NOT the
+-- CHECKED: Agda 2.6.3 + agda/cubical v0.5 â€” the container, NOT the
 -- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
 -- holes, exit 0.
 ------------------------------------------------------------------------
@@ -136,7 +136,7 @@ open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â àµàà¯à¾ààà¨à‹àà¿ â” the loss order.  `f àµàà¯à¾ààà¨à‹àà¿ g` reads: g factors
+-- à¥§ Â· à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ â€” the loss order.  `f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ g` reads: g factors
 --     through f, i.e. g sees no more than f does, i.e. g loses at least
 --     as much.  The mediating h is data, not a property.
 ------------------------------------------------------------------------
@@ -147,7 +147,7 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
   Î£[ h âˆˆ (B â†’ C) ] ((a : A) â†’ g a â‰¡ h (f a))
 
 ------------------------------------------------------------------------
--- à¨ Â It is a preorder.  Antisymmetry is not claimed (see the fence).
+-- à¥¨ Â· It is a preorder.  Antisymmetry is not claimed (see the fence).
 ------------------------------------------------------------------------
 
 à¤µà¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿-à¤¸à¥à¤µà¤¤à¤ƒ : {A : Type â„“} {B : Type â„“} (f : A â†’ B) â†’ f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ f
@@ -159,9 +159,9 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
 à¤µà¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿-à¤¸à¤‚à¤•à¥à¤°à¤®à¤ƒ (h , p) (h' , q) = h' âˆ˜ h , Î» a â†’ q a âˆ™ cong h' (p a)
 
 ------------------------------------------------------------------------
--- à© Â THE MONOTONICITY.  The conserving set grows along the order.
+-- à¥© Â· THE MONOTONICITY.  The conserving set grows along the order.
 --
---     f àµàà¯à¾ààà¨à‹àà¿ g  â’  ààà°à•àààà®à f Î¦  â’  ààà°à•àààà®à g Î¦
+--     f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ g  â†’  à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f Î¦  â†’  à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ g Î¦
 --
 -- A flow that a fine observation cannot see, no coarsening of that
 -- observation can see either.  Note what is NOT assumed: A, B, C are
@@ -177,7 +177,7 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
 
 -- The conserving set is a submonoid of the endomorphisms, for every f:
 -- the identity conserves, and conservation is closed under composition.
--- (So "the symmetry MONOID grows" in Â§à© is a statement about monoids and
+-- (So "the symmetry MONOID grows" in Â§à¥© is a statement about monoids and
 -- not merely about sets of maps.)
 à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥-à¤¨à¥‹-à¤•à¤°à¥à¤® : {A : Type â„“} {B : Type â„“} (f : A â†’ B)
                   â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f (idfun A)
@@ -188,11 +188,11 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
 à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥-à¤¸à¤¨à¥à¤§à¤¿à¤ƒ {f = f} c d a = c (_) âˆ™ d a
 
 ------------------------------------------------------------------------
--- à Â THE TWO POLES ARE THE TWO ENDS OF THIS ORDER.
+-- à¥ª Â· THE TWO POLES ARE THE TWO ENDS OF THIS ORDER.
 --
 -- `idfun A` is a bottom and any constant map is a top.  So the scale
--- whose ends `Dhruva` Â§à¨ and `Khahara` Â§à© describe is this order, and
--- Â§à© is the interpolation neither file had.
+-- whose ends `Dhruva` Â§à¥¨ and `Khahara` Â§à¥© describe is this order, and
+-- Â§à¥© is the interpolation neither file had.
 ------------------------------------------------------------------------
 
 -- bottom: the identity loses nothing, and everything factors through it.
@@ -206,8 +206,8 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
 
 -- Khahara's easy half, at the top of the order: every endomorphism
 -- conserves a constant observation.  It is `refl`, and that is the
--- point â” at the top the conserving set is the FULL endomorphism monoid
--- with no hypothesis at all, which is the ceiling Â§à© climbs towards.
+-- point â€” at the top the conserving set is the FULL endomorphism monoid
+-- with no hypothesis at all, which is the ceiling Â§à¥© climbs towards.
 à¤¸à¤°à¥à¤µ-à¤¨à¤¾à¤¶à¤ƒ-à¤¸à¤°à¥à¤µ-à¤—à¤¤à¤¿à¤ƒ : {A : Type â„“} {C : Type â„“} (c : C) (Î¦ : A â†’ A)
                     â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ (Î» (_ : A) â†’ c) Î¦
 à¤¸à¤°à¥à¤µ-à¤¨à¤¾à¤¶à¤ƒ-à¤¸à¤°à¥à¤µ-à¤—à¤¤à¤¿à¤ƒ c Î¦ _ = refl
@@ -219,8 +219,8 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
                   â†’ f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ (idfun A)
 à¤¸à¤®à¤¤à¥à¤µà¤®à¥-à¤…à¤§à¤ƒà¤¸à¥à¤¥à¤®à¥ f e = invEq (f , e) , Î» a â†’ sym (retEq (f , e) a)
 
--- DHRUVA Â§à¨, REPROVED BY MONOTONICITY ALONE.  `ààà°à•àààà®à (idfun A) Î¦`
--- unfolds definitionally to `(a : A) â’ Î¦ a â‰¡ a`, so pushing conservation
+-- DHRUVA Â§à¥¨, REPROVED BY MONOTONICITY ALONE.  `à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ (idfun A) Î¦`
+-- unfolds definitionally to `(a : A) â†’ Î¦ a â‰¡ a`, so pushing conservation
 -- down to the bottom of the order IS the frozen-world theorem.  No fibre
 -- and no contractibility is used anywhere in this proof.
 à¤¨à¤·à¥à¤Ÿ-à¤…à¤­à¤¾à¤µà¥‡-à¤—à¤¤à¤¿-à¤…à¤­à¤¾à¤µà¤ƒ-à¤µà¥à¤¯à¤¾à¤ªà¥à¤¤à¥à¤¯à¤¾ :
@@ -230,11 +230,11 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
   à¤¸à¤‚à¤°à¤•à¥à¤·à¤•-à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ (à¤¸à¤®à¤¤à¥à¤µà¤®à¥-à¤…à¤§à¤ƒà¤¸à¥à¤¥à¤®à¥ f e)
 
 ------------------------------------------------------------------------
--- à Â THE LOSS ITSELF IS MONOTONE, not only its symmetry.
+-- à¥« Â· THE LOSS ITSELF IS MONOTONE, not only its symmetry.
 --
--- Â§àÂà§ every fibre of the finer map lands in the corresponding fibre of
--- the coarser one â” the coarsening never separates what f identified.
--- Â§àÂà¨ the same fact on identifications alone.
+-- Â§à¥«Â·à¥§ every fibre of the finer map lands in the corresponding fibre of
+-- the coarser one â€” the coarsening never separates what f identified.
+-- Â§à¥«Â·à¥¨ the same fact on identifications alone.
 ------------------------------------------------------------------------
 
 à¤¤à¤¨à¥à¤¤à¥-à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ : {A : Type â„“} {B : Type â„“} {C : Type â„“}
@@ -248,7 +248,7 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
 à¤¸à¤®à¤¤à¤¾-à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ (h , p) a a' q = p a âˆ™ cong h q âˆ™ sym (p a')
 
 ------------------------------------------------------------------------
--- à Â àµà¿ààà®ààà¿à â” FORGETTING AS A TYPE.
+-- à¥¬ Â· à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ â€” FORGETTING AS A TYPE.
 --
 -- Landauer's bound is about an erasing, i.e. non-injective, step.  Here
 -- the erasing is a type and never a number.  See the fence: nothing in
@@ -258,29 +258,29 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
 à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ : {A : Type â„“} â†’ (A â†’ A) â†’ Type â„“
 à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ {A = A} Î¦ = Î£[ a âˆˆ A ] Î£[ a' âˆˆ A ] (Î¦ a â‰¡ Î¦ a') Ã— (Â¬ (a â‰¡ a'))
 
--- àÂà§ Â A reversible flow forgets nothing.  (`Machine`'s groupoid is
+-- ï¿½ï¿½ï¿½ ï¿½ A reversible flow forgets nothing.  (`Machine`'s groupoid is
 -- exactly the case where this type is empty for every operation.)
 à¤¸à¤®à¤¤à¥à¤µà¥‡-à¤¨-à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ : {A : Type â„“} {Î¦ : A â†’ A} â†’ isEquiv Î¦ â†’ Â¬ à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ Î¦
 à¤¸à¤®à¤¤à¥à¤µà¥‡-à¤¨-à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ {Î¦ = Î¦} e (a , a' , q , n) =
   n (sym (retEq (Î¦ , e) a) âˆ™ cong (invEq (Î¦ , e)) q âˆ™ retEq (Î¦ , e) a')
 
--- àÂà¨ Â WHAT IS FORGOTTEN IS A FIBRE OF Î¦ â” and the "how much" is an
+-- à¥¬Â·à¥¨ Â· WHAT IS FORGOTTEN IS A FIBRE OF Î¦ â€” and the "how much" is an
 -- h-level, the only sense of magnitude this vocabulary owns.  An
--- inhabitant of àµà¿ààà®ààà¿à exhibits a point of A over which the fibre of
+-- inhabitant of à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ exhibits a point of A over which the fibre of
 -- Î¦ fails to be a proposition.  (For an equivalence every such fibre is
--- contractible, hence a proposition â” which is àÂà§ from the other side.)
+-- contractible, hence a proposition â€” which is à¥¬Â·à¥§ from the other side.)
 à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ-à¤¤à¤¨à¥à¤¤à¥à¤ƒ : {A : Type â„“} {Î¦ : A â†’ A}
                  â†’ à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ Î¦ â†’ Î£[ b âˆˆ A ] (Â¬ isProp (fiber Î¦ b))
 à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ-à¤¤à¤¨à¥à¤¤à¥à¤ƒ {Î¦ = Î¦} (a , a' , q , n) =
   Î¦ a , Î» pr â†’ n (cong fst (pr (a , refl) (a' , sym q)))
 
--- àÂà© Â A CONSERVING FLOW CAN ONLY FORGET INSIDE A FIBRE OF f.
+-- à¥¬Â·à¥© Â· A CONSERVING FLOW CAN ONLY FORGET INSIDE A FIBRE OF f.
 --
 -- The flow's loss is bounded by the observation's loss, in the only
 -- currency available: if Î¦ conserves f and Î¦ collides a with a', then f
--- had already identified a with a'.  So `Dhruva`'s fibre â” the room a
--- symmetry needs in order to exist â” is also the room an erasure needs.
--- Composed with àÂà¨: the forgotten fibre of Î¦ sits inside a fibre of f.
+-- had already identified a with a'.  So `Dhruva`'s fibre â€” the room a
+-- symmetry needs in order to exist â€” is also the room an erasure needs.
+-- Composed with à¥¬Â·à¥¨: the forgotten fibre of Î¦ sits inside a fibre of f.
 à¤µà¤¿à¤¸à¥à¤®à¤°à¤£à¤‚-à¤¤à¤¨à¥à¤¤à¥Œ : {A : Type â„“} {B : Type â„“} {f : A â†’ B} {Î¦ : A â†’ A}
                â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f Î¦ â†’ (a a' : A) â†’ Î¦ a â‰¡ Î¦ a' â†’ f a â‰¡ f a'
 à¤µà¤¿à¤¸à¥à¤®à¤°à¤£à¤‚-à¤¤à¤¨à¥à¤¤à¥Œ {f = f} cons a a' q =
@@ -293,21 +293,21 @@ _à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿_ {A = A} {B = B} {C = C} f g =
   a' , sym (à¤µà¤¿à¤¸à¥à¤®à¤°à¤£à¤‚-à¤¤à¤¨à¥à¤¤à¥Œ cons a a' q)
 
 ------------------------------------------------------------------------
--- à Â àààà â” what stays open, named so the next rung is not
+-- à¥­ Â· à¤¶à¥‡à¤·à¤ƒ â€” what stays open, named so the next rung is not
 --     over-specified.
 --
---  * ANTISYMMETRY.  `f àµàà¯à¾ààà¨à‹àà¿ g` and `g àµàà¯à¾ààà¨à‹àà¿ f` gives a pair of
+--  * ANTISYMMETRY.  `f à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ g` and `g à¤µà¥à¤¯à¤¾à¤ªà¥à¤¨à¥‹à¤¤à¤¿ f` gives a pair of
 --    maps between the images; whether they compose to identities is a
 --    genuine question and is not answered here.  The right object is
 --    probably the order on IMAGES rather than on maps, and this corpus
---    already types cost on the image (`ReflectionAggregate_â¦`).
---  * THE CONVERSE OF Â§à©, which is false as stated; what could be true is
---    a converse relative to the orbit relation of `SamanaKaksya_â¦` Â§à¨,
---    since that file's `ààµààà°ààà` already descends the charge.  Not
+--    already types cost on the image (`ReflectionAggregate_ï¿½`).
+--  * THE CONVERSE OF Â§à¥©, which is false as stated; what could be true is
+--    a converse relative to the orbit relation of `SamanaKaksya_â€¦` Â§à¥¨,
+--    since that file's `à¤…à¤µà¤¤à¥€à¤°à¥à¤£à¤ƒ` already descends the charge.  Not
 --    attempted.
---  * `àµà¿ààà®ààà¿à` uses a bare `Â (a â‰¡ a')`, which is the weak apartness.
---    `Vaidharmya_â¦agda` argues in this corpus that the answer type need
---    only be APART, and a positive apartness would make àÂà¨ constructive
+--  * `à¤µà¤¿à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤ƒ` uses a bare `Â¬ (a â‰¡ a')`, which is the weak apartness.
+--    `Vaidharmya_â€¦agda` argues in this corpus that the answer type need
+--    only be APART, and a positive apartness would make à¥¬Â·à¥¨ constructive
 --    in a stronger sense.  Not done here.
 --  * Nothing above says which fibres are BIG.  There is no size notion
 --    in this file at all, deliberately; supplying one (a cardinality, a

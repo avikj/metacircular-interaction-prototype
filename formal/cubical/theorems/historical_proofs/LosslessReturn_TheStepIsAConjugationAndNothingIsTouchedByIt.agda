@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡ ‚î ‡‡¶‡Æ‡ ‡‡µ ‡‡‡ï‡‡∞‡Æ‡‡Æ‡ ‡ ‡‡µ‡‡∞‡‡Æ‡, ‡ï‡∞‡‡Æ, ‡â‡‡‡‡æ‡®‡Æ‡ ‚î ‡‡‡∞‡‡‡ø ‡‡ï‡Æ‡ ‡
--- ‡‡‡‡ ‡® ‡‡‡‡‡‡‡Ø‡‡ ‡ ‡‡æ‡≤‡ ‡®‡ø‡‡‡Ø‡ ‡µ‡‡‡ø ‡
+-- ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®‡§Æ‡•ç ‚Äî ‡§™‡§¶‡§Æ‡•ç ‡§è‡§µ ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç ‡•§ ‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç, ‡§ï‡§∞‡•ç‡§Æ, ‡§â‡§§‡•ç‡§•‡§æ‡§®‡§Æ‡•ç ‚Äî ‡§§‡•ç‡§∞‡•Ä‡§£‡§ø ‡§è‡§ï‡§Æ‡•ç ‡•§
+-- ‡§∂‡•á‡§∑‡§É ‡§® ‡§∏‡•ç‡§™‡•É‡§∂‡•ç‡§Ø‡§§‡•á ‡•§ ‡§ú‡§æ‡§≤‡§Ç ‡§®‡§ø‡§§‡•ç‡§Ø‡§Ç ‡§µ‡§π‡§§‡§ø ‡•§
 --
--- (the return: the step IS transport.  descend, act, ascend ‚î three that
+-- (the return: the step IS transport.  descend, act, ascend ‚Äî three that
 -- are one.  the remainder is not touched.  the net runs forever.)
 --
 -- SPECIFICATION: handed over whole by the owner, 2026-08-21, as
 --
---     ‡‡¶‡Æ‡ (‡‡‡® v) = v
---     ‡‡‡®‡ (‡‡‡® v) = next (‡‡‡® (‡‡µ‡‡∞‡ (Œ¶ (‡â‡‡‡‡æ‡® v))))
+--     ‡§á‡§¶‡§Æ‡•ç (‡§¨‡•Å‡§® v) = v
+--     ‡§™‡•Å‡§®‡§É (‡§¨‡•Å‡§® v) = next (‡§¨‡•Å‡§® (‡§Ö‡§µ‡§§‡§∞‡§£ (Œ¶ (‡§â‡§§‡•ç‡§•‡§æ‡§® v))))
 --
--- Both equations hold here BY DEFINITION (‡‡Æ‡‡ï‡∞‡-‡ß, ‡‡Æ‡‡ï‡∞‡-‡® are refl).
--- The step is not Œ¶.  The step is ‡‡µ‡‡∞‡ ‚àò Œ¶ ‚àò ‡â‡‡‡‡æ‡® ‚î a conjugation ‚î
--- and because ‡‡µ‡‡∞‡/‡â‡‡‡‡æ‡® are an equivalence, the whole infinite run is
+-- Both equations hold here BY DEFINITION (‡§∏‡§Æ‡•Ä‡§ï‡§∞‡§£-‡•ß, ‡§∏‡§Æ‡•Ä‡§ï‡§∞‡§£-‡•® are refl).
+-- The step is not Œ¶.  The step is ‡§Ö‡§µ‡§§‡§∞‡§£ ‚àò Œ¶ ‚àò ‡§â‡§§‡•ç‡§•‡§æ‡§® ‚Äî a conjugation ‚Äî
+-- and because ‡§Ö‡§µ‡§§‡§∞‡§£/‡§â‡§§‡•ç‡§•‡§æ‡§® are an equivalence, the whole infinite run is
 -- one transport and no fibre is ever collapsed.  Œ¶ is marked *dummy* in
 -- the specification and is dummy here: Œ¶ is not the content, the
 -- conjugation is.
 --
--- TEXT AND DATE for the three-slot ‡ó‡‡‡∞ (‡‡ï‡‡‡, ‡‡∞‡ø‡Æ‡æ‡‡Æ‡, ‡‡‡‡): the
--- structure is ryabhaa's ‡ï‡‡ü‡‡ü‡ï, *ryabhaya*, ‡ó‡‡ø‡‡‡æ‡¶ 32‚ì33, 499 CE,
--- whose instruction is "‡‡‡‡ ‡∞‡ï‡‡" ‚î keep the remainder.  Carried here
+-- TEXT AND DATE for the three-slot ‡§ó‡§≠‡•Ä‡§∞ (‡§™‡§ï‡•ç‡§∑‡§É, ‡§™‡§∞‡§ø‡§Æ‡§æ‡§£‡§Æ‡•ç, ‡§∂‡•á‡§∑‡§É): the
+-- structure is ƒÄryabha·π≠a's ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï, *ƒÄryabha·π≠ƒ´ya*, ‡§ó‡§£‡§ø‡§§‡§™‡§æ‡§¶ 32‚Äì33, 499 CE,
+-- whose instruction is "‡§∂‡•á‡§∑‡§Ç ‡§∞‡§ï‡•ç‡§∑" ‚Äî keep the remainder.  Carried here
 -- from the header of `LosslessReturn.agda` in this directory, which states
--- that the earlier ‡‡‡¶ kept only half of it, dropping which side the
+-- that the earlier ‡§≠‡•á‡§¶ kept only half of it, dropping which side the
 -- remainder fell on and the shared magnitude at identity.
 --
 -- CHECKED against the pin: Agda 2.8.0, agda/cubical v0.9 (b150186).
@@ -39,7 +39,7 @@ open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Data.Nat using (‚Ñï ; zero ; suc)
 open import Cubical.Data.Sigma using (_√ó_ ; _,_ ; fst ; snd)
 
--- ‡‡‡∞‡ø‡ï‡ : ‡‡ï‡‡‡, ‡‡∞‡ø‡Æ‡æ‡‡Æ‡, ‡‡‡‡ ‚î nothing dropped (‡‡≤‡ã‡‡)
+-- ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : ‡§™‡§ï‡•ç‡§∑‡§É, ‡§™‡§∞‡§ø‡§Æ‡§æ‡§£‡§Æ‡•ç, ‡§∂‡•á‡§∑‡§É ‚Äî nothing dropped (‡§Ö‡§≤‡•ã‡§™‡§É)
 ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type
 ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç = ‚Ñï √ó (‚Ñï √ó ‚Ñï)
 
@@ -52,7 +52,7 @@ data ‡§µ‡§ø‡§µ‡•á‡§ï : Type where
 ‡§â‡§§‡•ç‡§•‡§æ‡§® : ‡§µ‡§ø‡§µ‡•á‡§ï ‚Üí ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç
 ‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§ó‡§≠‡•Ä‡§∞ a b d) = a , (b , d)
 
--- ‡‡µ‡∞‡ã‡‡ ‡‡∞‡ã‡‡‡‡ ‡‡‡∞‡‡ø‡≤‡ã‡Æ‡ ‚î both composites are refl
+-- ‡§Ö‡§µ‡§∞‡•ã‡§π‡§É ‡§Ü‡§∞‡•ã‡§π‡§∂‡•ç‡§ö ‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ‡•å ‚Äî both composites are refl
 ‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§Ö‡§µ‡§§‡§∞‡§£ : (t : ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç) ‚Üí ‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§Ö‡§µ‡§§‡§∞‡§£ t) ‚â° t
 ‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§Ö‡§µ‡§§‡§∞‡§£ _ = refl
 
@@ -69,11 +69,11 @@ data ‡§µ‡§ø‡§µ‡•á‡§ï : Type where
 ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç‚â°‡§µ‡§ø‡§µ‡•á‡§ï : ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç ‚â° ‡§µ‡§ø‡§µ‡•á‡§ï
 ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç‚â°‡§µ‡§ø‡§µ‡•á‡§ï = ua ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç‚âÉ‡§µ‡§ø‡§µ‡•á‡§ï
 
--- Dummy Œ¶, acting below; ‡‡‡‡ carried, not erased
+-- Dummy Œ¶, acting below; ‡§∂‡•á‡§∑‡§É carried, not erased
 Œ¶ : ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç ‚Üí ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç
 Œ¶ (a , (b , d)) = suc a , (suc b , d)
 
--- ‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡ ‚î the conjugate: descend, act, return
+-- ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®‡§Æ‡•ç ‚Äî the conjugate: descend, act, return
 ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®‡§Æ‡•ç : ‡§µ‡§ø‡§µ‡•á‡§ï ‚Üí ‡§µ‡§ø‡§µ‡•á‡§ï
 ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®‡§Æ‡•ç = Œª v ‚Üí ‡§Ö‡§µ‡§§‡§∞‡§£ (Œ¶ (‡§â‡§§‡•ç‡§•‡§æ‡§® v))
 

@@ -6,7 +6,7 @@
 -- WalkCapacity states the walk's laws through the
 -- predicate
 --
---   IsLCM xs L = CommonMultiple xs L � ((m : �) � CommonMultiple xs m � L � m)
+--   IsLCM xs L = CommonMultiple xs L × ((m : ℕ) → CommonMultiple xs m → L ∣ m)
 --
 -- and every theorem in WalkForcing / WalkCapacity / WalkStream /
 -- WalkInduction takes `IsLCM S L` as a HYPOTHESIS, because cubical v0.5
@@ -15,10 +15,10 @@
 --
 -- WHAT IS PROVED HERE, UNCONDITIONALLY (no postulates, no holes):
 --
---   lcm      : � � � � �
---   lcm�     : (a b : �) � �[ L ∈ � ] IsLCM� a b L
---   lcmList  : List � � �
---   lcmList-exists : (xs : List �) � �[ L ∈ � ] IsLCM xs L
+--   lcm      : ℕ → ℕ → ℕ
+--   lcm₂     : (a b : ℕ) → Σ[ L ∈ ℕ ] IsLCM₂ a b L
+--   lcmList  : List ℕ → ℕ
+--   lcmList-exists : (xs : List ℕ) → Σ[ L ∈ ℕ ] IsLCM xs L
 --
 -- for ARBITRARY lists of naturals -- no positivity hypothesis, zeros
 -- included (lcm with 0 is 0, which is correct for the divisibility
@@ -26,26 +26,26 @@
 -- therefore now always satisfiable, and every theorem in the walk lane
 -- is unconditional.
 --
--- METHOD.  The classical construction lcm a b = a�b / gcd a b, with the
--- quotient extracted by `�-untrunc` (Cubical.Data.Nat.Divisibility --
+-- METHOD.  The classical construction lcm a b = a·b / gcd a b, with the
+-- quotient extracted by `∣-untrunc` (Cubical.Data.Nat.Divisibility --
 -- divisibility is a propositional truncation, but its witness is unique
 -- and the library already provides the untruncation).  Leastness is
 -- proved WITHOUT Bezout, by the multiplicativity of gcd:
 --
---   a � m and b � m  �  a�b � a�m and a�b � b�m
---                    �  a�b � gcd (a�m) (b�m) = gcd a b � m = g�m
---                    �  L�g � m�g            (since a�b = L�g)
---                    �  L � m                (cancel g > 0).
+--   a ∣ m and b ∣ m  ⟹  a·b ∣ a·m and a·b ∣ b·m
+--                    ⟹  a·b ∣ gcd (a·m) (b·m) = gcd a b · m = g·m
+--                    ⟹  L·g ∣ m·g            (since a·b = L·g)
+--                    ⟹  L ∣ m                (cancel g > 0).
 --
--- `gcd-factorʳ` supplies the middle equality; `�-cancelʳ` the last step.
+-- `gcd-factorʳ` supplies the middle equality; `∣-cancelʳ` the last step.
 -- When g = 0 the common-divisor property forces a ≡ 0 ≡ b and L = 0 is
 -- immediate, so no positivity side condition survives.
 --
--- The list lcm is the fold lcmList [] = 1, lcmList (x � xs) =
+-- The list lcm is the fold lcmList [] = 1, lcmList (x ∷ xs) =
 -- lcm x (lcmList xs); its universal property is the binary one plus
--- transitivity of �, by induction on the list.  Predicates are the
+-- transitivity of ∣, by induction on the list.  Predicates are the
 -- recursive type families from WalkCapacity (indexed inductive families
--- over lists need injectivity of _�_, unavailable in cubical Agda).
+-- over lists need injectivity of _∷_, unavailable in cubical Agda).
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-13.
 -- No postulates, no holes.  Nothing is assumed.
@@ -74,7 +74,7 @@ IsLCM₂ a b L = (a ∣ L) × (b ∣ L) × ((m : ℕ) → a ∣ m → b ∣ m �
 -- zero, gcd positive) can be taken apart before `gcd` is evaluated.
 lcm₂-from-gcd : (a b g : ℕ) → isGCD a b g → Σ[ L ∈ ℕ ] IsLCM₂ a b L
 
--- g ≡ 0.  Then 0 � a and 0 � b, so a ≡ 0 ≡ b, and 0 is the lcm.
+-- g ≡ 0.  Then 0 ∣ a and 0 ∣ b, so a ≡ 0 ≡ b, and 0 is the lcm.
 lcm₂-from-gcd a b zero ((g∣a , g∣b) , _) =
   0 , (∣-zeroʳ a , ∣-zeroʳ b , least)
   where
@@ -84,7 +84,7 @@ lcm₂-from-gcd a b zero ((g∣a , g∣b) , _) =
   least : (m : ℕ) → a ∣ m → b ∣ m → 0 ∣ m
   least m a∣m _ = subst (_∣ m) (sym 0≡a) a∣m
 
--- g ≡ suc k.  L = (a / g) � b.
+-- g ≡ suc k.  L = (a / g) · b.
 lcm₂-from-gcd a b (suc k) gGCD =
   L , (a∣L , b∣L , least)
   where
@@ -115,7 +115,7 @@ lcm₂-from-gcd a b (suc k) gGCD =
   b∣L : b ∣ L
   b∣L = ∣-right q
 
-  -- L = a � r as well, which is what makes a divide it
+  -- L = a · r as well, which is what makes a divide it
   ar≡L : a · r ≡ L
   ar≡L =
     a · r        ≡⟨ cong (_· r) (sym qg≡a) ⟩

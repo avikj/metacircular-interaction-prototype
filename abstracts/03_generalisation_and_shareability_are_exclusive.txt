@@ -56,7 +56,7 @@ theorems/cost/PratiphalaAntara constructs both and proves the
 potential-shaped return a function of the endpoints alone, so the
 route-blindness results apply to shaped reward in full.  "Skill"
 names a record, "state" names a term, and "fires" names inhabitation
-of an applicability family â” that glossary is the claim, exactly.
+of an applicability family â€” that glossary is the claim, exactly.
 Stochasticity, discounting and optimisation remain constructions.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

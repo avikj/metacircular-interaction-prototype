@@ -1,133 +1,133 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ‡ó‡ã‡≤‡ï-‡Æ‡æ‡‡‡∞ ‚î the measure of the sphere (the contractions).
+-- ‡§ó‡•ã‡§≤‡§ï-‡§Æ‡§æ‡§§‡•ç‡§∞ ‚Äî the measure of the sphere (the contractions).
 --
 -- The spherical-moment algebra behind strain tomography (handoff ¬ß18,
 -- [S11]) and the pressure cross-effect (¬ß20, [S12]).  The only analytic
 -- input is the two moment tensors of the unit sphere,
 --
---     15¬‚ü®nµn‚º‚ü© = 5 Œ¥µ‚º,      15¬‚ü®nµn‚ºn‚ñn‚ó‚ü© = Œ¥µ‚ºŒ¥‚ñ‚ó + Œ¥µ‚ñŒ¥‚º‚ó + Œ¥µ‚óŒ¥‚º‚ñ ,
+--     15¬∑‚ü®n·µ¢n‚±º‚ü© = 5 Œ¥·µ¢‚±º,      15¬∑‚ü®n·µ¢n‚±ºn‚Çñn‚Çó‚ü© = Œ¥·µ¢‚±ºŒ¥‚Çñ‚Çó + Œ¥·µ¢‚ÇñŒ¥‚±º‚Çó + Œ¥·µ¢‚ÇóŒ¥‚±º‚Çñ ,
 --
 -- taken as the DEFINITION of the averaged tensors; everything else is
 -- finite index algebra over an arbitrary commutative ring:
 --
---   ‡ß  Œ‚º‚ñ (Œ¥µ‚ºŒ¥‚ñ‚ó + Œ¥µ‚ñŒ¥‚º‚ó + Œ¥µ‚óŒ¥‚º‚ñ) S‚º‚ñ ‚â° Sµ‚ó + S‚óµ + Œ¥µ‚ó tr S  (= 2Sµ‚ó + Œ¥µ‚ó tr S on symmetric S);
---   ‡®  for the cross-helicity symbol
---         q_u(n) = ‚àíP_n S P_n ‚àí ¬Ω (nµSn) P_n,      P_n = I ‚àí nnµ,
---      the averaged symbol is  30¬‚ü®q‚ü© ‚â° ‚àí12 S ‚àí 6 (tr S) I,  so on
+--   ‡•ß  Œ£‚±º‚Çñ (Œ¥·µ¢‚±ºŒ¥‚Çñ‚Çó + Œ¥·µ¢‚ÇñŒ¥‚±º‚Çó + Œ¥·µ¢‚ÇóŒ¥‚±º‚Çñ) S‚±º‚Çñ ‚â° S·µ¢‚Çó + S‚Çó·µ¢ + Œ¥·µ¢‚Çó tr S  (= 2S·µ¢‚Çó + Œ¥·µ¢‚Çó tr S on symmetric S);
+--   ‡•®  for the cross-helicity symbol
+--         q_u(n) = ‚àíP_n S P_n ‚àí ¬Ω (n·µÄSn) P_n,      P_n = I ‚àí nn·µÄ,
+--      the averaged symbol is  30¬∑‚ü®q‚ü© ‚â° ‚àí12 S ‚àí 6 (tr S) I,  so on
 --      trace-free S,  S = ‚àí(5/2) ‚ü®q_u‚ü©:  the strain is recovered from
 --      the spherical mean of its symbol;
---   ‡©  the pressure cross-effect: for a symmetric biadditive H,
---         H[u‚+u‚ä] = H[u‚] + 2H(u‚,u‚ä) + H[u‚ä],
---      so with 7H[u‚] = ‚àí2(S¬≤)‚:  7H[u] + 2(S¬≤)‚ = 7(2H(u‚,u‚ä) + H[u‚ä]).
+--   ‡•©  the pressure cross-effect: for a symmetric biadditive H,
+--         H[u‚ÇÇ+u‚ä•] = H[u‚ÇÇ] + 2H(u‚ÇÇ,u‚ä•) + H[u‚ä•],
+--      so with 7H[u‚ÇÇ] = ‚àí2(S¬≤)‚ÇÄ:  7H[u] + 2(S¬≤)‚ÇÄ = 7(2H(u‚ÇÇ,u‚ä•) + H[u‚ä•]).
 ------------------------------------------------------------------------
 module M16 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (‚ü®_‚ü©)
-open import Cubical.Data.Nat using (‚ï ; zero ; suc)
+open import Cubical.Data.Nat using (‚Ñï ; zero ; suc)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
-    ‚ì : Level
+    ‚Ñì : Level
 
 -- three indices
 data Ix : Type where
-  i‚ i‚ i‚ : Ix
+  i‚ÇÅ i‚ÇÇ i‚ÇÉ : Ix
 
 ------------------------------------------------------------------------
-module Contractions (R : CommRing ‚ì) where
+module Contractions (R : CommRing ‚Ñì) where
   open CommRingStr (snd R)
 
   private
     A = ‚ü® R ‚ü©
 
-  Œ : ‚ï ‚í A
-  Œ zero    = 0r
-  Œ (suc n) = 1r + Œ n
+  Œπ : ‚Ñï ‚Üí A
+  Œπ zero    = 0r
+  Œπ (suc n) = 1r + Œπ n
 
-  Œ¥ : Ix ‚í Ix ‚í A
-  Œ¥ i‚ i‚ = 1r
-  Œ¥ i‚ i‚ = 1r
-  Œ¥ i‚ i‚ = 1r
+  Œ¥ : Ix ‚Üí Ix ‚Üí A
+  Œ¥ i‚ÇÅ i‚ÇÅ = 1r
+  Œ¥ i‚ÇÇ i‚ÇÇ = 1r
+  Œ¥ i‚ÇÉ i‚ÇÉ = 1r
   Œ¥ _  _  = 0r
 
-  Œ‚ : (Ix ‚í A) ‚í A
-  Œ‚ f = (f i‚ + f i‚) + f i‚
+  Œ£‚ÇÉ : (Ix ‚Üí A) ‚Üí A
+  Œ£‚ÇÉ f = (f i‚ÇÅ + f i‚ÇÇ) + f i‚ÇÉ
 
-  Mat : Type ‚ì
-  Mat = Ix ‚í Ix ‚í A
+  Mat : Type ‚Ñì
+  Mat = Ix ‚Üí Ix ‚Üí A
 
   -- a matrix from nine entries (so each entry is its own ring atom)
-  mat : (a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ : A) ‚í Mat
-  mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = a‚‚
-  mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = a‚‚
-  mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = a‚‚
-  mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = a‚‚
-  mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = a‚‚
-  mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = a‚‚
-  mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = a‚‚
-  mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = a‚‚
-  mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = a‚‚
+  mat : (a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ : A) ‚Üí Mat
+  mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÅ = a‚ÇÅ‚ÇÅ
+  mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÇ = a‚ÇÅ‚ÇÇ
+  mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÉ = a‚ÇÅ‚ÇÉ
+  mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÅ = a‚ÇÇ‚ÇÅ
+  mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÇ = a‚ÇÇ‚ÇÇ
+  mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÉ = a‚ÇÇ‚ÇÉ
+  mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÅ = a‚ÇÉ‚ÇÅ
+  mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÇ = a‚ÇÉ‚ÇÇ
+  mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÉ = a‚ÇÉ‚ÇÉ
 
-  tr : Mat ‚í A
-  tr S = Œ‚ (Œª i ‚í S i i)
+  tr : Mat ‚Üí A
+  tr S = Œ£‚ÇÉ (Œª i ‚Üí S i i)
 
   -- a symmetric matrix from six entries
-  symm : (a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ : A) ‚í Mat
-  symm a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ = mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚
+  symm : (a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÉ : A) ‚Üí Mat
+  symm a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÉ = mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÅ‚ÇÇ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÉ
 
-  -- 15¬‚ü®nµn‚ºn‚ñn‚ó‚ü©
-  m4 : Ix ‚í Ix ‚í Ix ‚í Ix ‚í A
-  m4 i j k l = (Œ¥ i j ¬ Œ¥ k l + Œ¥ i k ¬ Œ¥ j l) + Œ¥ i l ¬ Œ¥ j k
-
-  ----------------------------------------------------------------
-  -- ‡ß ¬ the fourth-moment contraction
-  ----------------------------------------------------------------
-  fourth-contraction : (a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ : A) (i l : Ix)
-    ‚í let S = mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ in
-      Œ‚ (Œª j ‚í Œ‚ (Œª k ‚í m4 i j k l ¬ S j k)) ‚â° (S i l + S i l) + Œ¥ i l ¬ tr S
-  fourth-contraction a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  fourth-contraction a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  fourth-contraction a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  fourth-contraction a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  fourth-contraction a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  fourth-contraction a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  fourth-contraction a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  fourth-contraction a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  fourth-contraction a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
+  -- 15¬∑‚ü®n·µ¢n‚±ºn‚Çñn‚Çó‚ü©
+  m4 : Ix ‚Üí Ix ‚Üí Ix ‚Üí Ix ‚Üí A
+  m4 i j k l = (Œ¥ i j ¬∑ Œ¥ k l + Œ¥ i k ¬∑ Œ¥ j l) + Œ¥ i l ¬∑ Œ¥ j k
 
   ----------------------------------------------------------------
-  -- ‡® ¬ strain tomography
+  -- ‡•ß ¬∑ the fourth-moment contraction
   ----------------------------------------------------------------
-  -- the second-moment contractions, 15¬‚ü®nµn‚º‚ü© = 5Œ¥µ‚º
-  left5 : (a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ : A) (i l : Ix) ‚í let S = mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ in
-    Œ‚ (Œª j ‚í (Œ 5 ¬ Œ¥ i j) ¬ S j l) ‚â° Œ 5 ¬ S i l
-  left5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  left5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  left5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  left5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  left5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  left5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  left5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  left5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  left5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
+  fourth-contraction : (a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ : A) (i l : Ix)
+    ‚Üí let S = mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ in
+      Œ£‚ÇÉ (Œª j ‚Üí Œ£‚ÇÉ (Œª k ‚Üí m4 i j k l ¬∑ S j k)) ‚â° (S i l + S i l) + Œ¥ i l ¬∑ tr S
+  fourth-contraction a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÅ = solve! R
+  fourth-contraction a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÇ = solve! R
+  fourth-contraction a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÉ = solve! R
+  fourth-contraction a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÅ = solve! R
+  fourth-contraction a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÇ = solve! R
+  fourth-contraction a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÉ = solve! R
+  fourth-contraction a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÅ = solve! R
+  fourth-contraction a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÇ = solve! R
+  fourth-contraction a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÉ = solve! R
 
-  right5 : (a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ : A) (i l : Ix) ‚í let S = mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ in
-    Œ‚ (Œª k ‚í S i k ¬ (Œ 5 ¬ Œ¥ k l)) ‚â° Œ 5 ¬ S i l
-  right5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  right5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  right5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  right5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  right5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  right5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  right5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  right5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
-  right5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ i‚ i‚ = solve! R
+  ----------------------------------------------------------------
+  -- ‡•® ¬∑ strain tomography
+  ----------------------------------------------------------------
+  -- the second-moment contractions, 15¬∑‚ü®n·µ¢n‚±º‚ü© = 5Œ¥·µ¢‚±º
+  left5 : (a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ : A) (i l : Ix) ‚Üí let S = mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ in
+    Œ£‚ÇÉ (Œª j ‚Üí (Œπ 5 ¬∑ Œ¥ i j) ¬∑ S j l) ‚â° Œπ 5 ¬∑ S i l
+  left5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÅ = solve! R
+  left5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÇ = solve! R
+  left5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÉ = solve! R
+  left5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÅ = solve! R
+  left5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÇ = solve! R
+  left5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÉ = solve! R
+  left5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÅ = solve! R
+  left5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÇ = solve! R
+  left5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÉ = solve! R
 
-  trace5 : (a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ : A) ‚í let S = mat a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ in
-    Œ‚ (Œª j ‚í Œ‚ (Œª k ‚í S j k ¬ (Œ 5 ¬ Œ¥ j k))) ‚â° Œ 5 ¬ tr S
-  trace5 a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ a‚‚ = solve! R
+  right5 : (a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ : A) (i l : Ix) ‚Üí let S = mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ in
+    Œ£‚ÇÉ (Œª k ‚Üí S i k ¬∑ (Œπ 5 ¬∑ Œ¥ k l)) ‚â° Œπ 5 ¬∑ S i l
+  right5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÅ = solve! R
+  right5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÇ = solve! R
+  right5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÅ i‚ÇÉ = solve! R
+  right5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÅ = solve! R
+  right5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÇ = solve! R
+  right5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÇ i‚ÇÉ = solve! R
+  right5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÅ = solve! R
+  right5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÇ = solve! R
+  right5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ i‚ÇÉ i‚ÇÉ = solve! R
+
+  trace5 : (a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ : A) ‚Üí let S = mat a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ in
+    Œ£‚ÇÉ (Œª j ‚Üí Œ£‚ÇÉ (Œª k ‚Üí S j k ¬∑ (Œπ 5 ¬∑ Œ¥ j k))) ‚â° Œπ 5 ¬∑ tr S
+  trace5 a‚ÇÅ‚ÇÅ a‚ÇÅ‚ÇÇ a‚ÇÅ‚ÇÉ a‚ÇÇ‚ÇÅ a‚ÇÇ‚ÇÇ a‚ÇÇ‚ÇÉ a‚ÇÉ‚ÇÅ a‚ÇÉ‚ÇÇ a‚ÇÉ‚ÇÉ = solve! R
 

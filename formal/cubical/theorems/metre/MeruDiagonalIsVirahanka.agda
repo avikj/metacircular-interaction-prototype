@@ -6,47 +6,47 @@
 --
 --   > **2. Meru diagonal = Fibonacci.** Halyudha's observation that the
 --   > shallow diagonals of the meru-prastra (`Meru`) sum to the
---   > mtrmeru (`Matramerus`) â” `Fib(n+1) = âˆâ– C(nâˆ’k,k)`.  Would unify
+--   > mÄtrÄmeru (`Matramerus`) â€” `Fib(n+1) = âˆ‘â‚– C(nâˆ’k,k)`.  Would unify
 --   > the two combinatorics modules.  Open because the diagonal
---   > reindexing over the list representation is fiddly; a `à®àà°à n k`
+--   > reindexing over the list representation is fiddly; a `à¤®à¥‡à¤°à¥ n k`
 --   > *function* form (Pascal refl) plus a bounded diagonal sum is the
 --   > clean route.
 --
 -- The identity is already proved, in the other encoding, by exactly the
--- route that note names.  `PingalaPrastara.meru` IS the `à®àà°à n k`
+-- route that note names.  `PingalaPrastara.meru` IS the `à¤®à¥‡à¤°à¥ n k`
 -- function form, `Sankalita.antidiag` IS the bounded diagonal sum, and
 --
 --     DiagonalIsMatra.diagonal-is-matra : matra n â‰¡ antidiag n
 --
 -- is the identity.  What was missing was not the theorem but the BRIDGE
 -- between two encodings of the same count, and that is what this file
--- is â” four lines of induction, because both sides already carry the
+-- is â€” four lines of induction, because both sides already carry the
 -- Virahka recurrence.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE TWO COUNTS
 --
---   `Matramerus.àà°ààµ n`     the LIST of all n-à®à¾ààà°à¾ metres, with
+--   `Matramerus.à¤¸à¤°à¥à¤µ n`     the LIST of all n-à¤®à¤¾à¤¤à¥à¤°à¤¾ metres, with
 --                          soundness and completeness proved there, so
 --                          its length is the count and not a proxy;
 --   `PingalaPrastara.matra` the count by recurrence,
 --                          matra (n+2) = matra (n+1) + matra n.
 --
--- `Matramerus.à®à¾ààà°à¾à®àà°à` gives the same recurrence for the length.  Two
--- functions on â• with one recurrence and one pair of base cases are
+-- `Matramerus.à¤®à¤¾à¤¤à¥à¤°à¤¾à¤®à¥‡à¤°à¥` gives the same recurrence for the length.  Two
+-- functions on â„• with one recurrence and one pair of base cases are
 -- equal, and Â§2 is that induction.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS CLOSES
 --
 --     virahanka-is-the-diagonal :
---       length (àà°ààµ n) â‰¡ antidiag n
+--       length (à¤¸à¤°à¥à¤µ n) â‰¡ antidiag n
 --
--- The number of metres of n à®à¾ààà°à¾ â” Virahka's count, the àà¾à²à‹
--- diagonal's target â” IS the shallow-diagonal sum of the meru-prastra.
+-- The number of metres of n à¤®à¤¾à¤¤à¥à¤°à¤¾ â€” VirahÄá¹…ka's count, the à¤¶à¤¾à¤²à¥‹
+-- diagonal's target â€” IS the shallow-diagonal sum of the meru-prastÄra.
 -- Halyudha's observation, at the two modules the note wanted unified.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY IT LOOKED OPEN
 --
 -- Not because anyone was careless.  `Pingala.agda` was rewritten between
@@ -57,7 +57,7 @@
 -- is about ledgers, not about the ledger's author: an "open" list is
 -- only as good as the encoding it was surveyed in.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ open import DiagonalIsMatra using (diagonal-is-matra)
 ------------------------------------------------------------------------
 -- 1.  Both sides carry the Virahka recurrence
 --
--- `matra` by definition; `length (àà°ààµ _)` by `Matramerus.à®à¾ààà°à¾à®àà°à`,
+-- `matra` by definition; `length (à¤¸à¤°à¥à¤µ _)` by `Matramerus.à¤®à¤¾à¤¤à¥à¤°à¤¾à¤®à¥‡à¤°à¥`,
 -- which is proved there from soundness and completeness of the list.
 ------------------------------------------------------------------------
 
@@ -100,7 +100,7 @@ matra-is-sarva (suc (suc n)) =
 -- 3.  THE FRONTIER ITEM
 --
 -- Halyudha's identity, between the two modules the ledger wanted
--- unified: the count of n-à®à¾ààà°à¾ metres is the shallow diagonal of the
+-- unified: the count of n-à¤®à¤¾à¤¤à¥à¤°à¤¾ metres is the shallow diagonal of the
 -- meru-prastra.
 ------------------------------------------------------------------------
 
@@ -110,7 +110,7 @@ virahanka-is-the-diagonal n = sym (matra-is-sarva n) âˆ™ diagonal-is-matra n
 ------------------------------------------------------------------------
 -- 4.  It runs
 --
---   àà°ààµ 6 has 13 metres, and the antidiagonal a+b=6 of the meru is
+--   à¤¸à¤°à¥à¤µ 6 has 13 metres, and the antidiagonal a+b=6 of the meru is
 --   C(6,0)+C(5,1)+C(4,2)+C(3,3) = 1+5+6+1 = 13.
 ------------------------------------------------------------------------
 
@@ -123,15 +123,15 @@ check-9 = virahanka-is-the-diagonal 9
 ------------------------------------------------------------------------
 -- 5.  What is closed and what is not.
 --
--- CLOSED.  Frontier item 2.  Not by proving the identity â” it was
--- proved â” but by joining the two encodings, which is what the item
+-- CLOSED.  Frontier item 2.  Not by proving the identity â€” it was
+-- proved â€” but by joining the two encodings, which is what the item
 -- actually asked for ("would unify the two combinatorics modules").
 --
--- NOT CLOSED, and left alone deliberately: `Meru.à®àà°à-àà™àà•ààà¿`, the ROW
+-- NOT CLOSED, and left alone deliberately: `Meru.à¤®à¥‡à¤°à¥-à¤ªà¤™à¥à¤•à¥à¤¤à¤¿`, the ROW
 -- representation, is not connected here.  This bridges the two COUNTS
--- (`àà°ààµ` and `matra`) and inherits the diagonal identity from
+-- (`à¤¸à¤°à¥à¤µ` and `matra`) and inherits the diagonal identity from
 -- `DiagonalIsMatra`, which is stated over `PingalaPrastara.meru`.  A
--- second bridge, from `à®àà°à-àà™àà•ààà¿ n` to `Î» k â’ meru n k`, would connect
+-- second bridge, from `à¤®à¥‡à¤°à¥-à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ n` to `Î» k â†’ meru n k`, would connect
 -- the row module too and is not done here.  Named, not estimated.
 --
 -- A REQUEST recorded rather than acted on: the frontier ledger should

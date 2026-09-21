@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���������-������ � the fibre of a projection is exactly the discarded
+-- प्रक्षेप-तन्तुः — the fibre of a projection is exactly the discarded
 -- factor.  The proof-SHAPE for every fst/snd edge, landed once so each
--- such edge is a one-line citation rather than a re-minted copy � the
+-- such edge is a one-line citation rather than a re-minted copy — the
 -- enzyme, not the reaction repeated.
 --
--- A projection fst : A � B � A forgets B.  What it forgets is exactly
+-- A projection fst : A × B → A forgets B.  What it forgets is exactly
 -- what its fibre holds:
 --
---     fiber fst a  �  B        (the discarded second factor)
---     fiber snd b  �  A        (the discarded first factor)
+--     fiber fst a  ≃  B        (the discarded second factor)
+--     fiber snd b  ≃  A        (the discarded first factor)
 --
--- These are ��������� / ��μβολ�: the identification of the fibre with a
+-- These are अभिज्ञान / σύμβολα: the identification of the fibre with a
 -- STANDARD type (a factor already in hand), not an estimate of its size.
--- A projection is a lossy edge whose receipt is trivially exact � the
--- loss is a whole factor, named � which is why fst/snd were the cheapest
--- waiting mints in ����'s ledger.
+-- A projection is a lossy edge whose receipt is trivially exact — the
+-- loss is a whole factor, named — which is why fst/snd were the cheapest
+-- waiting mints in तपस्'s ledger.
 --
 -- No h-level hypothesis on A or B: singl (fst p) is contractible for any
 -- types, so these hold for arbitrary A, B (the same fact Carrier runs on).
@@ -25,7 +25,7 @@
 -- no holes.
 ------------------------------------------------------------------------
 
-module PraksepaTantu_TheFibreOfAProjectionIsTheDiscardedFactor where
+module PraksepaFiber_TheFibreOfAProjectionIsTheDiscardedFactor where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
@@ -37,7 +37,7 @@ private variable ℓ ℓ' : Level
 module _ {A : Type ℓ} {B : Type ℓ'} where
 
   ------------------------------------------------------------------------
-  -- � � ���-���������� � fst forgets B, and its fibre IS B.
+  -- १ · वाम-प्रक्षेपः — fst forgets B, and its fibre IS B.
   ------------------------------------------------------------------------
   वाम-तन्तुः : (a : A) → Iso (fiber (fst {A = A} {B = λ _ → B}) a) B
   Iso.fun (वाम-तन्तुः a) ((a' , b) , _) = b
@@ -50,7 +50,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} where
   वाम-तन्तुः-≃ a = isoToEquiv (वाम-तन्तुः a)
 
   ------------------------------------------------------------------------
-  -- � � �������-���������� � snd forgets A, and its fibre IS A.
+  -- २ · दक्षिण-प्रक्षेपः — snd forgets A, and its fibre IS A.
   ------------------------------------------------------------------------
   दक्षिण-तन्तुः : (b : B) → Iso (fiber (snd {A = A} {B = λ _ → B}) b) A
   Iso.fun (दक्षिण-तन्तुः b) ((a , b') , _) = a

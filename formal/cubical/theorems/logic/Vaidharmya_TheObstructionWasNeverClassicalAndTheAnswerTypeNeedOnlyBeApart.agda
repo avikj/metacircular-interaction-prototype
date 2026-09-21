@@ -1,65 +1,65 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àµàˆà§à°àà®àà¯ â” àµà¿à°àà¦àà§à§à°àà®à ààµ àà°àà¯à¾àààà, à¨ à¦ààµàˆàµà¿à§àà¯à®à à
+-- à¤µà¥ˆà¤§à¤°à¥à¤®à¥à¤¯ â€” à¤µà¤¿à¤°à¥à¤¦à¥à¤§à¤§à¤°à¥à¤®à¤ƒ à¤à¤µ à¤ªà¤°à¥à¤¯à¤¾à¤ªà¥à¤¤à¤ƒ, à¤¨ à¤¦à¥à¤µà¥ˆà¤µà¤¿à¤§à¥à¤¯à¤®à¥ à¥¤
 --
 -- (dissimilarity alone suffices; two-valuedness is not needed.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.  `QuotientFiberLaw` is this corpus's
--- general obstruction theorem â” an observation class sees exactly a
+-- general obstruction theorem â€” an observation class sees exactly a
 -- quotient, what it cannot see is the fibre, no post-processing
 -- manufactures the fibre.  It has essentially NO hypotheses on the state
--- space: `X : Type â“`, arbitrary, no `isSet`, no `Discrete`, no
+-- space: `X : Type â„“`, arbitrary, no `isSet`, no `Discrete`, no
 -- finiteness, and `Separates` quantifies over EVERY decoder, computable
 -- or not, deliberately.
 --
 -- AND IT IS TWO-VALUED IN THREE PLACES, WHICH NOBODY HAD SAID.
 --
---   Query   = X â’ Bool                        (a query IS a bit)
+--   Query   = X â†’ Bool                        (a query IS a bit)
 --   Charged o x y = o x â‰¡ not (o y)           (separation IS negation)
---   obs     : List Query â’ X â’ List Bool      (the transcript is bits)
+--   obs     : List Query â†’ X â†’ List Bool      (the transcript is bits)
 --
--- and `no-decision` runs on `not-fix : (b : Bool) â’ Â (b â‰¡ not b)`,
+-- and `no-decision` runs on `not-fix : (b : Bool) â†’ Â¬ (b â‰¡ not b)`,
 -- proved by case-splitting `true` and `false`.
 --
 -- So the corpus's general theorem about what a collapsed verdict cannot
--- see is itself stated in a collapsed verdict â” the register
--- `Saptabhangi.à¦àà°àà¨à¯à` proves must identify two of any three seeds.  It
+-- see is itself stated in a collapsed verdict â€” the register
+-- `Saptabhangi.à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ` proves must identify two of any three seeds.  It
 -- is not wrong.  It is a naya, and it cannot see its own limit from
 -- inside.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS PROVES, AND IT IS ONE LINE OF ACTUAL CONTENT.
 --
 -- Replace `Bool` by an arbitrary answer type `V`, and `â‰¡ not` by any
 -- relation `_#_` that is merely IRREFLEXIVE.  The negative half of the
--- law survives verbatim.  Â§à¨'s proof mentions no constructor, no
+-- law survives verbatim.  Â§à¥¨'s proof mentions no constructor, no
 -- decidability, no h-level, and no two-valuedness: blind queries give
 -- EQUAL transcripts, `cong decide` carries that equality to the
 -- decoder's output, and irreflexivity kills the separation.
 --
 -- **THE OBSTRUCTION WAS NEVER CLASSICAL.**  It holds for a spectral
 -- observable with an apartness relation, for a real-valued measurement
--- with `â‰`, for a complex amplitude â” for any answer type whatever, so
+-- with `â‰¢`, for a complex amplitude â€” for any answer type whatever, so
 -- long as a thing is not apart from itself.  The `Bool` in the original
 -- was carrying no weight and was hiding the theorem's reach.
 --
--- Â§à© recovers the original as the instance `V := Bool`,
+-- Â§à¥© recovers the original as the instance `V := Bool`,
 -- `a # b := a â‰¡ not b`, so nothing is lost and the old theorem is a
 -- corollary of this one.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- The POSITIVE half â” charge suffices, a separator can be BUILT â” does
+-- The POSITIVE half â€” charge suffices, a separator can be BUILT â€” does
 -- NOT generalise for free.  Over `Bool` it projects the transcript with
--- `hd`, which needs a value at the empty list.  So Â§à states it with `V`
+-- `hd`, which needs a value at the empty list.  So Â§à¥ª states it with `V`
 -- POINTED, and that hypothesis is real: to exhibit a separator you must
 -- be able to produce an answer, and over an arbitrary type you cannot.
 --
 -- **That asymmetry is the content, not a defect.**  Blindness is free and
 -- universal; separation costs a point.  Which is the same shape as
--- everything else here: ààà is cheap to be stuck in and expensive to get
+-- everything else here: à¤¬à¤¹à¥ is cheap to be stuck in and expensive to get
 -- out of, and `Tantujala` proves `isContr` merges the two ends.
 --
 -- Nothing below computes a rank, a PSD dimension, or an entropy.  The
@@ -67,20 +67,20 @@
 -- here and is not a consequence of this module.  What this removes is
 -- only the excuse that the obstruction was about bits.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- TERM.  àµàˆà§à°àà®àà¯ â” dissimilarity â” is the technical term of the Nyya
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- TERM.  à¤µà¥ˆà¤§à¤°à¥à¤®à¥à¤¯ â€” dissimilarity â€” is the technical term of the NyÄya
 -- and Buddhist logical traditions for the DISSIMILAR class, against
--- àà¾à§à°àà®àà¯ for the similar: the àµàˆà§à°àà®àà¯-à¦ààààŸà¾à¨àà is the negative
--- example, and Dignga's third condition of the ààà°àˆà°àààà¯ is exactly
+-- à¤¸à¤¾à¤§à¤°à¥à¤®à¥à¤¯ for the similar: the à¤µà¥ˆà¤§à¤°à¥à¤®à¥à¤¯-à¤¦à¥ƒà¤·à¥à¤Ÿà¤¾à¤¨à¥à¤¤ is the negative
+-- example, and DignÄga's third condition of the à¤¤à¥à¤°à¥ˆà¤°à¥‚à¤ªà¥à¤¯ is exactly
 -- absence of the reason throughout the dissimilar class.  Sources:
--- Gautama, à¨àà¯à¾à¯ààààà°à®à (the à¦ààààŸà¾à¨àà members); Dignga, ~5thâ“6th c.;
--- à§à°àà®à•àà°ààà¿, à¨àà¯à¾à¯àà¿à¨àà¦àà à¨.à, where the placement of the particle ààµ
+-- Gautama, à¤¨à¥à¤¯à¤¾à¤¯à¤¸à¥‚à¤¤à¥à¤°à¤®à¥ (the à¤¦à¥ƒà¤·à¥à¤Ÿà¤¾à¤¨à¥à¤¤ members); DignÄga, ~5thâ€“6th c.;
+-- à¤§à¤°à¥à¤®à¤•à¥€à¤°à¥à¤¤à¤¿, à¤¨à¥à¤¯à¤¾à¤¯à¤¬à¤¿à¤¨à¥à¤¦à¥à¤ƒ à¥¨.à¥«, where the placement of the particle à¤à¤µ
 -- fixes the scope of exactly this condition.
 --
 -- LIMIT: the term is used here for an irreflexive separation relation on
 -- an answer type.  No text states an apartness relation, no logician
 -- proved anything below, and the connection asserted is that both name
--- the same job â” the condition under which two things count as told
+-- the same job â€” the condition under which two things count as told
 -- apart.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
@@ -100,7 +100,7 @@ open import Cubical.Relation.Nullary using (Â¬_)
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â The law, over an arbitrary answer type.
+-- à¥§ Â· The law, over an arbitrary answer type.
 --
 -- `V` is what a query returns.  `_#_` is what it means to be told apart.
 -- The ONLY thing asked of `_#_` is that nothing is apart from itself.
@@ -131,9 +131,9 @@ module Law (X : Type â„“) (V : Type â„“)
     Î£[ decide âˆˆ (List V â†’ V) ] (decide (obs os x) # decide (obs os y))
 
 ------------------------------------------------------------------------
--- à¨ Â The negative half, and it never mentions a constructor.
+-- à¥¨ Â· The negative half, and it never mentions a constructor.
 --
--- Blind queries give EQUAL transcripts â” not close, equal â” so `cong`
+-- Blind queries give EQUAL transcripts â€” not close, equal â€” so `cong`
 -- carries the equality through any decoder whatever, and then the
 -- separation is a thing apart from itself.
 ------------------------------------------------------------------------
@@ -152,9 +152,9 @@ module Law (X : Type â„“) (V : Type â„“)
              sep)
 
 ------------------------------------------------------------------------
--- à© Â The original is the instance `V := Bool`, `a # b := a â‰¡ not b`.
+-- à¥© Â· The original is the instance `V := Bool`, `a # b := a â‰¡ not b`.
 --
--- So `QuotientFiberLaw`'s negative half is a corollary of Â§à¨ and nothing
+-- So `QuotientFiberLaw`'s negative half is a corollary of Â§à¥¨ and nothing
 -- has been given up.  The `Bool` was carrying no weight.
 ------------------------------------------------------------------------
 
@@ -169,7 +169,7 @@ module à¤ªà¥‚à¤°à¥à¤µà¤ƒ (X : Typeâ‚€) =
   Law X Bool à¤¦à¥à¤µà¤¿à¤®à¥‚à¤²-à¤µà¥ˆà¤§à¤°à¥à¤®à¥à¤¯à¤®à¥ à¤¦à¥à¤µà¤¿à¤®à¥‚à¤²-à¤…à¤¸à¥à¤µà¤µà¤¿à¤°à¥‹à¤§à¤ƒ
 
 ------------------------------------------------------------------------
--- à Â Any type at all, with `â‰` as the separation.
+-- à¥ª Â· Any type at all, with `â‰¢` as the separation.
 --
 -- Irreflexivity is then immediate, so EVERY answer type carries the
 -- obstruction with no structure supplied whatever.  This is the
@@ -186,9 +186,9 @@ module à¤¸à¤°à¥à¤µà¤¤à¥à¤° {â„“â‚€ : Level} (X : Type â„“â‚€) (V : Type â„“â‚€
   Law X V à¤…à¤­à¥‡à¤¦à¤ƒ à¤…à¤­à¥‡à¤¦-à¤…à¤¸à¥à¤µà¤µà¤¿à¤°à¥‹à¤§à¤ƒ
 
 ------------------------------------------------------------------------
--- à Â àààà â” blindness is free, separation costs a point.
+-- à¥« Â· à¤¶à¥‡à¤·à¤ƒ â€” blindness is free, separation costs a point.
 --
--- The positive half of `QuotientFiberLaw` (charge suffices â” a separator
+-- The positive half of `QuotientFiberLaw` (charge suffices â€” a separator
 -- can be exhibited) projects the transcript with a head function, which
 -- needs a value at `[]`.  Over `Bool` that is silent.  Over an arbitrary
 -- `V` it is a hypothesis: **to exhibit a separator you must be able to
@@ -196,7 +196,7 @@ module à¤¸à¤°à¥à¤µà¤¤à¥à¤° {â„“â‚€ : Level} (X : Type â„“â‚€) (V : Type â„“â‚€
 --
 -- The asymmetry is the finding.  Being unable to tell two things apart
 -- is universal and costs nothing to prove.  Telling them apart requires
--- an inhabitant of the answer type â” you must be able to SAY something.
+-- an inhabitant of the answer type â€” you must be able to SAY something.
 -- Nothing here supplies that, and no default is invented, because an
 -- arbitrary default on an unobservable value is precisely the move both
 -- lanes' `FactorsThrough` refuses by typing its decoder on the image.

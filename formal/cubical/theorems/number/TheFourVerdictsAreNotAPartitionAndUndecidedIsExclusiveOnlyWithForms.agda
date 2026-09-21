@@ -12,7 +12,7 @@
 -- the frame check's scope requires Indian material, of which this
 -- `--guardedness` is carried because `VacuityVerdict` declares it.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE AUDIT.  Target: `VacuityVerdict`, whose header
 -- says:
 --
@@ -21,19 +21,19 @@
 --    the difference between four types.**"
 --
 -- That is right, and it leaves the reader one inference short.  Four
--- constructors of one datatype read as a CLASSIFICATION â” four boxes,
+-- constructors of one datatype read as a CLASSIFICATION â€” four boxes,
 -- each object in one.  **`Verdict` is not a partition**, and which
 -- pairs collide is not incidental: it is the whole epistemic content of
 -- the fourth label.
 --
--- WHAT IS PROVED â” all six pairs, decided:
+-- WHAT IS PROVED â€” all six pairs, decided:
 --
 --   EXCLUSIVE (4).  Nothing can be `forms` and anything else, and
 --   nothing can be `genuine` and `vacuous`:
 --     formsExcludesUndecided   a local collision refutes the scoped
 --                              factorization every other verdict carries
 --     formsExcludesVacuous     hence this
---     formsExcludesGenuine     and this, through `globalâ’scoped` â”
+--     formsExcludesGenuine     and this, through `globalâ†’scoped` â€”
 --                              **the only one of the four needing a
 --                              lemma rather than a projection**
 --     genuineExcludesVacuous   an ambient collision refutes a global
@@ -41,7 +41,7 @@
 --
 --   COMPATIBLE (2), and BOTH involve `undecided`:
 --     vacuousGivesUndecided        `vacuous`'s payload CONTAINS
---                                  `undecided`'s â” projection, no work
+--                                  `undecided`'s â€” projection, no work
 --     genuineGivesUndecided        and a global factorization restricts
 --                                  to every scope
 --     bothVerdictsAtOnce           exhibited on the module's own finite
@@ -50,22 +50,22 @@
 --                                  `OnlyFalse` carries a
 --                                  `GlobalFactorization` AND a
 --                                  `ScopedFactorization` simultaneously,
---                                  so `genuine â¦` and `undecided â¦` are
+--                                  so `genuine â€¦` and `undecided â€¦` are
 --                                  both derivable for one triple
 --
 -- **AND THE ASYMMETRY IS EXACTLY THE POINT THE HEADER WAS MAKING.**
--- `forms` and `genuine` and `vacuous` are claims about the OBJECT â” a
+-- `forms` and `genuine` and `vacuous` are claims about the OBJECT â€” a
 -- collision exists, a descent exists, a descent exists but is
 -- ambiently worthless.  `undecided` is a claim about **what the checker
 -- was handed**: a scoped factorization and no ambient theorem either
 -- way.  A statement about the evidence cannot exclude a statement about
 -- the object, which is why it collides with two of the three, and it is
--- refuted only by `forms` â” the one verdict that destroys the very
+-- refuted only by `forms` â€” the one verdict that destroys the very
 -- payload `undecided` carries.  The header's own sentence, *"it remains
 -- `undecided` until an ambient theorem is supplied"*, says this; the
 -- theorems below are that sentence with its quantifiers.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -132,7 +132,7 @@ genuineGivesUndecided :
 genuineGivesUndecided = globalâ†’scoped
 
 ------------------------------------------------------------------------
--- 3.  â¦and the compatibility is inhabited, on the audited module's own
+-- 3.  â€¦and the compatibility is inhabited, on the audited module's own
 --     finite control
 ------------------------------------------------------------------------
 

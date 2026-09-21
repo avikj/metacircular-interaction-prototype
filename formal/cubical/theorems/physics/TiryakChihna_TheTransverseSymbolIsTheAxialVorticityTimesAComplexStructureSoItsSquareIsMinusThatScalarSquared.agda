@@ -1,42 +1,42 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��������-����� � the transverse symbol.
+-- तिर्यक्-चिह्न — the transverse symbol.
 --
 -- ON THE PLANE PERPENDICULAR TO A DIRECTION, THE CROSS PRODUCT WITH
 -- THAT DIRECTION SQUARES TO MINUS ONE.  SO THE TRANSVERSE SYMBOL OF
--- `a � a � ω` IS THE AXIAL COMPONENT `ω � n` TIMES A COMPLEX STRUCTURE,
+-- `a ↦ a × ω` IS THE AXIAL COMPONENT `ω · n` TIMES A COMPLEX STRUCTURE,
 -- AND ITS SQUARE IS MINUS THAT SCALAR SQUARED.
 --
 -- The statement usually made here is spectral: the two eigenvalues of
--- the transverse symbol are `� ω � n`, obtained by observing that
--- `a � a � n` has eigenvalues `� i` on the complexified transverse
+-- the transverse symbol are `± ω · n`, obtained by observing that
+-- `a ↦ a × n` has eigenvalues `± i` on the complexified transverse
 -- plane.  Complexification is a device.  What it is a device FOR is an
 -- algebraic identity that needs no complex numbers, no eigenvalues, and
 -- no field:
 --
---     (a � n) � n  ≡  - a           whenever  a � n ≡ 0  and  n � n ≡ 1 .
+--     (a × n) × n  ≡  - a           whenever  a · n ≡ 0  and  n · n ≡ 1 .
 --
 -- An operator squaring to `-1` IS the content of "its eigenvalues are
--- �i"; the eigenvalue language is a reading of it over �.  This module
+-- ±i"; the eigenvalue language is a reading of it over ℂ.  This module
 -- proves the identity, and the two facts that sit on it, over an
--- ARBITRARY commutative ring � so no order, no completeness, no
+-- ARBITRARY commutative ring — so no order, no completeness, no
 -- positivity, and in particular no analysis.
 --
 --   §1  THE ONE POLYNOMIAL FACT.  Everything below is a corollary of
 --
---         (X � Y) � Z  ≡  (X � Z) Y  -  (Y � Z) X ,
+--         (X × Y) × Z  ≡  (X · Z) Y  -  (Y · Z) X ,
 --
 --       proved componentwise by the commutative-ring solver.  There is
 --       no second computation anywhere in this file.
 --
 --   §2  THE TRANSVERSE PLANE CARRIES A COMPLEX STRUCTURE:
---       `(a � n) � n ≡ - a` on `a � n ≡ 0`, `n � n ≡ 1`.
+--       `(a × n) × n ≡ - a` on `a · n ≡ 0`, `n · n ≡ 1`.
 --
---   §3  THE TRANSVERSE SYMBOL.  With `P n x = x - (x � n) n` the
+--   §3  THE TRANSVERSE SYMBOL.  With `P n x = x - (x · n) n` the
 --       transverse projection at the direction `n`,
 --
---         P n (a � ω)  ≡  (ω � n) (a � n) .
+--         P n (a × ω)  ≡  (ω · n) (a × n) .
 --
 --       The part of `ω` perpendicular to `n` contributes NOTHING: it
 --       crosses with `a` into the `n` line, which `P n` deletes.  Only
@@ -44,7 +44,7 @@
 --
 --   §4  AND THEREFORE THE SYMBOL SQUARES TO A SCALAR:
 --
---         P n (P n (a � ω) � ω)  ≡  - (ω � n)² a .
+--         P n (P n (a × ω) × ω)  ≡  - (ω · n)² a .
 --
 --       That is the eigenvalue statement, stated as an identity.  It
 --       needs §3 twice, and between the two applications it needs that
@@ -62,17 +62,17 @@
 -- projection at one direction `n`: a pointwise linear map on triples.
 -- It is not an operator on a function space, there is no Fourier
 -- transform in this file, and nothing below is a statement about a
--- projection acting on fields.  §§2�5 are exactly the pointwise
+-- projection acting on fields.  §§2–5 are exactly the pointwise
 -- identities that a symbol calculation would need, and nothing more.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�5 over any commutative ring, for all
--- triples satisfying the displayed equations.  NOT claimed: any norm �
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–5 over any commutative ring, for all
+-- triples satisfying the displayed equations.  NOT claimed: any norm —
 -- no order relation occurs in this file; any spectrum, essential or
 -- otherwise, and no Weyl sequence, no limit, no wave packet; nothing
--- about `���_∞`, about L², or about any continuation criterion; nothing
+-- about `‖·‖_∞`, about L², or about any continuation criterion; nothing
 -- about a Leray projection as an operator; the eigenvalue reading of §2
 -- and §4, which is stated above as a reading of the identities and is
--- not itself proved (there is no � here to state it in); and no
+-- not itself proved (there is no ℂ here to state it in); and no
 -- injectivity of any representation, which needs a norm §5 does not
 -- supply.
 ------------------------------------------------------------------------
@@ -97,7 +97,7 @@ module _ (R : CommRing ℓ) where
     A = ⟨ R ⟩
 
   ------------------------------------------------------------------
-  -- � � Triples, and the three products.  Nothing here is a choice:
+  -- ० · Triples, and the three products.  Nothing here is a choice:
   --     these are the usual formulas.
   ------------------------------------------------------------------
 
@@ -140,7 +140,7 @@ module _ (R : CommRing ℓ) where
   P n x = x +v (-v ((x ·v n) *v n))
 
   ------------------------------------------------------------------
-  -- � � THE ONE POLYNOMIAL FACT, and the small book-keeping around it.
+  -- १ · THE ONE POLYNOMIAL FACT, and the small book-keeping around it.
   --     Every line in this block is closed by the ring solver; nothing
   --     below §1 computes with coordinates again.
   ------------------------------------------------------------------
@@ -192,9 +192,9 @@ module _ (R : CommRing ℓ) where
   zeroR s = solve! R
 
   ------------------------------------------------------------------
-  -- � � THE TRANSVERSE PLANE CARRIES A COMPLEX STRUCTURE.
+  -- २ · THE TRANSVERSE PLANE CARRIES A COMPLEX STRUCTURE.
   --
-  --     (a � n) � n  =  (a � n) n  -  (n � n) a  =  0 - a  =  - a .
+  --     (a × n) × n  =  (a · n) n  -  (n · n) a  =  0 - a  =  - a .
   ------------------------------------------------------------------
 
   complex-structure : (n a : V) → (a ·v n ≡ 0r) → (n ·v n ≡ 1r)
@@ -211,12 +211,12 @@ module _ (R : CommRing ℓ) where
       -v a ∎
 
   ------------------------------------------------------------------
-  -- � � THE TRANSVERSE SYMBOL IS THE AXIAL COMPONENT TIMES `� n`.
+  -- ३ · THE TRANSVERSE SYMBOL IS THE AXIAL COMPONENT TIMES `× n`.
   --
   --     the projection, on a unit direction, is a double cross:
-  --       P n X  =  - ((X � n) � n) ,
-  --     and the inner one collapses because a � n:
-  --       (a � ω) � n  =  (a � n) ω - (ω � n) a  =  - (ω � n) a .
+  --       P n X  =  - ((X × n) × n) ,
+  --     and the inner one collapses because a ⊥ n:
+  --       (a × ω) × n  =  (a · n) ω - (ω · n) a  =  - (ω · n) a .
   ------------------------------------------------------------------
 
   projection-is-double-cross : (n X : V) → (n ·v n ≡ 1r)
@@ -261,7 +261,7 @@ module _ (R : CommRing ℓ) where
           -v ((w ·v n) *v a) ∎
 
   ------------------------------------------------------------------
-  -- � � SO THE SYMBOL SQUARES TO MINUS THE AXIAL COMPONENT SQUARED.
+  -- ४ · SO THE SYMBOL SQUARES TO MINUS THE AXIAL COMPONENT SQUARED.
   --     Between the two applications of §3 the symbol must land back
   --     in the transverse plane; it does, because a cross product is
   --     perpendicular to both its factors.
@@ -299,7 +299,7 @@ module _ (R : CommRing ℓ) where
       -v (((w ·v n) · (w ·v n)) *v a) ∎
 
   ------------------------------------------------------------------
-  -- � � THE SYMBOL IS ADDITIVE IN THE SOURCE.
+  -- ५ · THE SYMBOL IS ADDITIVE IN THE SOURCE.
   ------------------------------------------------------------------
 
   symbol-additive : (n a w₁ w₂ : V)

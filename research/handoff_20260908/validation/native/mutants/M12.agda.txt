@@ -1,218 +1,218 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- à§àà°ààµ-à®àà² â” the fixed root.
+-- à¤§à¥à¤°à¥à¤µ-à¤®à¥‚à¤² â€” the fixed root.
 --
 -- Two derivation-ring facts that the RH cardinal/theta step and the NS
 -- free viscous response rest on.
 --
---   à§  (Handoff Â§51, [S13]/[S14].)  With  âˆE = zE  and  âˆt = 1, the
---      shifted derivative  â’ = âˆ âˆ’ z  acts on  EÂtµ  as a lowering
---      ladder,  â’(E tµâºÂ) = (k+1) E tµ,  â’(E) = 0.  Hence
---          â’µâºÂ (E tµ) â‰¡ 0        (EÂ(polynomials of degree < m) âŠ ker â’µ)
---          â’µ   (E tµ) â‰¡ k!ÂE     (the top coefficient survives),
+--   à¥§  (Handoff Â§51, [S13]/[S14].)  With  âˆ‚E = zE  and  âˆ‚t = 1, the
+--      shifted derivative  â„’ = âˆ‚ âˆ’ z  acts on  EÂ·táµ  as a lowering
+--      ladder,  â„’(E táµâºÂ¹) = (k+1) E táµ,  â„’(E) = 0.  Hence
+--          â„’áµâºÂ¹ (E táµ) â‰¡ 0        (EÂ·(polynomials of degree < m) âŠ‚ ker â„’áµ)
+--          â„’áµ   (E táµ) â‰¡ k!Â·E     (the top coefficient survives),
 --      which is the finite "Î-derivative polynomial" content of the
---      two-sided (D âˆ’ z)µ inverse difference.  The first ladder is the
+--      two-sided (D âˆ’ z)áµ inverse difference.  The first ladder is the
 --      general one already checked in Sopana, instantiated.
 --
---   à¨  (Handoff Â§22, [S13].)  The free viscous strain response
---          H5(q) = erf(q) âˆ’ (2/âˆÏ) e^{âˆ’qÂ²} (q + 2qÂ³/3)
---      is the antiderivative of a quartic Gaussian:  with Îº = 2/âˆÏ,
---          âˆ[3 erf âˆ’ Îº e (3q + 2qÂ³)] â‰¡ 4 Îº qâ´ e
---      given  âˆerf = Îºe,  âˆe = âˆ’2qe,  âˆq = 1,  âˆÎº = 0.
+--   à¥¨  (Handoff Â§22, [S13].)  The free viscous strain response
+--          H5(q) = erf(q) âˆ’ (2/âˆšÏ€) e^{âˆ’qÂ²} (q + 2qÂ³/3)
+--      is the antiderivative of a quartic Gaussian:  with Îº = 2/âˆšÏ€,
+--          âˆ‚[3 erf âˆ’ Îº e (3q + 2qÂ³)] â‰¡ 4 Îº qâ´ e
+--      given  âˆ‚erf = Îºe,  âˆ‚e = âˆ’2qe,  âˆ‚q = 1,  âˆ‚Îº = 0.
 ------------------------------------------------------------------------
 module M12 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â• ; zero ; suc) renaming (_Â_ to _Ââ•_ ; _+_ to _+â•_)
+open import Cubical.Data.Nat using (â„• ; zero ; suc) renaming (_Â·_ to _Â·â„•_ ; _+_ to _+â„•_)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 import Sopana_TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork as Sopana
 
 private
   variable
-    â“ : Level
+    â„“ : Level
 
 ------------------------------------------------------------------------
-module _ (R : CommRing â“) where
+module _ (R : CommRing â„“) where
   open CommRingStr (snd R)
 
   private
     A = âŸ¨ R âŸ©
 
-  Î : â• â’ A
-  Î = Sopana.Î R
+  Î¹ : â„• â†’ A
+  Î¹ = Sopana.Î¹ R
 
-  scale : â• â’ A â’ A
+  scale : â„• â†’ A â†’ A
   scale = Sopana.scale R
 
   private
-    scale-zero : (n : â•) â’ scale n 0r â‰¡ 0r
+    scale-zero : (n : â„•) â†’ scale n 0r â‰¡ 0r
     scale-zero zero    = refl
     scale-zero (suc n) = +IdL (scale n 0r) âˆ™ scale-zero n
 
-    scale-+ : (m n : â•) (x : A) â’ scale (m +â• n) x â‰¡ scale m x + scale n x
+    scale-+ : (m n : â„•) (x : A) â†’ scale (m +â„• n) x â‰¡ scale m x + scale n x
     scale-+ zero    n x = sym (+IdL (scale n x))
     scale-+ (suc m) n x = cong (x +_) (scale-+ m n x) âˆ™ +Assoc x (scale m x) (scale n x)
 
-    scale-Â : (m n : â•) (x : A) â’ scale (m Ââ• n) x â‰¡ scale m (scale n x)
-    scale-Â zero    n x = refl
-    scale-Â (suc m) n x = scale-+ n (m Ââ• n) x âˆ™ cong (scale n x +_) (scale-Â m n x)
+    scale-Â· : (m n : â„•) (x : A) â†’ scale (m Â·â„• n) x â‰¡ scale m (scale n x)
+    scale-Â· zero    n x = refl
+    scale-Â· (suc m) n x = scale-+ n (m Â·â„• n) x âˆ™ cong (scale n x +_) (scale-Â· m n x)
 
-    xÂscale : (n : â•) (x y : A) â’ x Â scale n y â‰¡ scale n (x Â y)
-    xÂscale zero    x y = zeroR x
-      where zeroR : (u : A) â’ u Â 0r â‰¡ 0r
+    xÂ·scale : (n : â„•) (x y : A) â†’ x Â· scale n y â‰¡ scale n (x Â· y)
+    xÂ·scale zero    x y = zeroR x
+      where zeroR : (u : A) â†’ u Â· 0r â‰¡ 0r
             zeroR u = solve! R
-    xÂscale (suc n) x y = ÂDistR+ x y (scale n y) âˆ™ cong ((x Â y) +_) (xÂscale n x y)
+    xÂ·scale (suc n) x y = Â·DistR+ x y (scale n y) âˆ™ cong ((x Â· y) +_) (xÂ·scale n x y)
 
-  module _ (âˆ : A â’ A)
-           (âˆ-add  : (x y : A) â’ âˆ (x + y) â‰¡ âˆ x + âˆ y)
-           (âˆ-leib : (x y : A) â’ âˆ (x Â y) â‰¡ âˆ x Â y + x Â âˆ y)
+  module _ (âˆ‚ : A â†’ A)
+           (âˆ‚-add  : (x y : A) â†’ âˆ‚ (x + y) â‰¡ âˆ‚ x + âˆ‚ y)
+           (âˆ‚-leib : (x y : A) â†’ âˆ‚ (x Â· y) â‰¡ âˆ‚ x Â· y + x Â· âˆ‚ y)
            where
 
     private
-      âˆ-zero : âˆ 0r â‰¡ 0r
-      âˆ-zero = sym ( sym (+InvR (âˆ 0r)) âˆ™ cong (_+ (- (âˆ 0r))) h âˆ™ cancelR (âˆ 0r) (âˆ 0r) )
+      âˆ‚-zero : âˆ‚ 0r â‰¡ 0r
+      âˆ‚-zero = sym ( sym (+InvR (âˆ‚ 0r)) âˆ™ cong (_+ (- (âˆ‚ 0r))) h âˆ™ cancelR (âˆ‚ 0r) (âˆ‚ 0r) )
         where
-          h : âˆ 0r â‰¡ âˆ 0r + âˆ 0r
-          h = cong âˆ (sym (+IdR 0r)) âˆ™ âˆ-add 0r 0r
-          cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
+          h : âˆ‚ 0r â‰¡ âˆ‚ 0r + âˆ‚ 0r
+          h = cong âˆ‚ (sym (+IdR 0r)) âˆ™ âˆ‚-add 0r 0r
+          cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
           cancelR x y = solve! R
 
-      âˆ-neg : (x : A) â’ âˆ (- x) â‰¡ - âˆ x
-      âˆ-neg x = negOf (âˆ x) (âˆ (- x)) (sym (âˆ-add x (- x)) âˆ™ cong âˆ (+InvR x) âˆ™ âˆ-zero)
+      âˆ‚-neg : (x : A) â†’ âˆ‚ (- x) â‰¡ - âˆ‚ x
+      âˆ‚-neg x = negOf (âˆ‚ x) (âˆ‚ (- x)) (sym (âˆ‚-add x (- x)) âˆ™ cong âˆ‚ (+InvR x) âˆ™ âˆ‚-zero)
         where
-          negOf : (a b : A) â’ a + b â‰¡ 0r â’ b â‰¡ - a
+          negOf : (a b : A) â†’ a + b â‰¡ 0r â†’ b â‰¡ - a
           negOf a b h = sym (+IdL b) âˆ™ cong (_+ b) (sym (+InvL a)) âˆ™ sym (+Assoc (- a) a b) âˆ™ cong ((- a) +_) h âˆ™ +IdR (- a)
 
-      âˆ-one : âˆ 1r â‰¡ 0r
-      âˆ-one = sym ( sym (+InvR (âˆ 1r)) âˆ™ cong (_+ (- (âˆ 1r))) h âˆ™ cancelR (âˆ 1r) (âˆ 1r) )
+      âˆ‚-one : âˆ‚ 1r â‰¡ 0r
+      âˆ‚-one = sym ( sym (+InvR (âˆ‚ 1r)) âˆ™ cong (_+ (- (âˆ‚ 1r))) h âˆ™ cancelR (âˆ‚ 1r) (âˆ‚ 1r) )
         where
-          h : âˆ 1r â‰¡ âˆ 1r + âˆ 1r
-          h = cong âˆ (sym (ÂIdR 1r)) âˆ™ âˆ-leib 1r 1r âˆ™ congâ _+_ (ÂIdR (âˆ 1r)) (ÂIdL (âˆ 1r))
-          cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
+          h : âˆ‚ 1r â‰¡ âˆ‚ 1r + âˆ‚ 1r
+          h = cong âˆ‚ (sym (Â·IdR 1r)) âˆ™ âˆ‚-leib 1r 1r âˆ™ congâ‚‚ _+_ (Â·IdR (âˆ‚ 1r)) (Â·IdL (âˆ‚ 1r))
+          cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
           cancelR x y = solve! R
 
-      âˆÎ : (n : â•) â’ âˆ (Î n) â‰¡ 0r
-      âˆÎ zero    = âˆ-zero
-      âˆÎ (suc n) = âˆ-add 1r (Î n) âˆ™ congâ _+_ âˆ-one (âˆÎ n) âˆ™ +IdR 0r
+      âˆ‚Î¹ : (n : â„•) â†’ âˆ‚ (Î¹ n) â‰¡ 0r
+      âˆ‚Î¹ zero    = âˆ‚-zero
+      âˆ‚Î¹ (suc n) = âˆ‚-add 1r (Î¹ n) âˆ™ congâ‚‚ _+_ âˆ‚-one (âˆ‚Î¹ n) âˆ™ +IdR 0r
 
-      âˆÎx : (n : â•) (x : A) â’ âˆ (Î n Â x) â‰¡ Î n Â âˆ x
-      âˆÎx n x = âˆ-leib (Î n) x âˆ™ cong (_+ Î n Â âˆ x) (cong (_Â x) (âˆÎ n) âˆ™ zeroL x) âˆ™ +IdL (Î n Â âˆ x)
-        where zeroL : (y : A) â’ 0r Â y â‰¡ 0r
+      âˆ‚Î¹x : (n : â„•) (x : A) â†’ âˆ‚ (Î¹ n Â· x) â‰¡ Î¹ n Â· âˆ‚ x
+      âˆ‚Î¹x n x = âˆ‚-leib (Î¹ n) x âˆ™ cong (_+ Î¹ n Â· âˆ‚ x) (cong (_Â· x) (âˆ‚Î¹ n) âˆ™ zeroL x) âˆ™ +IdL (Î¹ n Â· âˆ‚ x)
+        where zeroL : (y : A) â†’ 0r Â· y â‰¡ 0r
               zeroL y = solve! R
 
     ----------------------------------------------------------------
-    -- à§ Â the shifted derivative on  E Â tµ
+    -- à¥§ Â· the shifted derivative on  E Â· táµ
     ----------------------------------------------------------------
-    module _ (z E t : A) (âˆE : âˆ E â‰¡ z Â E) (âˆt : âˆ t â‰¡ 1r) where
+    module _ (z E t : A) (âˆ‚E : âˆ‚ E â‰¡ z Â· E) (âˆ‚t : âˆ‚ t â‰¡ 1r) where
 
-      pow : â• â’ A
+      pow : â„• â†’ A
       pow zero    = 1r
-      pow (suc k) = t Â pow k
+      pow (suc k) = t Â· pow k
 
-      G : â• â’ A
-      G k = E Â pow k
+      G : â„• â†’ A
+      G k = E Â· pow k
 
-      â’ : A â’ A
-      â’ x = âˆ x + (- (z Â x))
+      â„’ : A â†’ A
+      â„’ x = âˆ‚ x + (- (z Â· x))
 
       private
-        â’-add : (x y : A) â’ â’ (x + y) â‰¡ â’ x + â’ y
-        â’-add x y = cong (_+ (- (z Â (x + y)))) (âˆ-add x y) âˆ™ shape (âˆ x) (âˆ y) x y
+        â„’-add : (x y : A) â†’ â„’ (x + y) â‰¡ â„’ x + â„’ y
+        â„’-add x y = cong (_+ (- (z Â· (x + y)))) (âˆ‚-add x y) âˆ™ shape (âˆ‚ x) (âˆ‚ y) x y
           where
-            shape : (a b x y : A) â’ (a + b) + (- (z Â (x + y))) â‰¡ (a + (- (z Â x))) + (b + (- (z Â y)))
+            shape : (a b x y : A) â†’ (a + b) + (- (z Â· (x + y))) â‰¡ (a + (- (z Â· x))) + (b + (- (z Â· y)))
             shape a b x y = solve! R
 
-        -- t Â âˆ(tµ) = k tµ
-        tâˆpow : (k : â•) â’ t Â âˆ (pow k) â‰¡ scale k (pow k)
-        tâˆpow zero    = cong (t Â_) âˆ-one âˆ™ zeroR t
-          where zeroR : (u : A) â’ u Â 0r â‰¡ 0r
+        -- t Â· âˆ‚(táµ) = k táµ
+        tâˆ‚pow : (k : â„•) â†’ t Â· âˆ‚ (pow k) â‰¡ scale k (pow k)
+        tâˆ‚pow zero    = cong (t Â·_) âˆ‚-one âˆ™ zeroR t
+          where zeroR : (u : A) â†’ u Â· 0r â‰¡ 0r
                 zeroR u = solve! R
-        tâˆpow (suc k) =
-            cong (t Â_) (âˆ-leib t (pow k) âˆ™ cong (_+ t Â âˆ (pow k)) (cong (_Â pow k) âˆt âˆ™ ÂIdL (pow k)))
-          âˆ™ ÂDistR+ t (pow k) (t Â âˆ (pow k))
-          âˆ™ cong ((t Â pow k) +_) (cong (t Â_) (tâˆpow k) âˆ™ xÂscale k t (pow k))
+        tâˆ‚pow (suc k) =
+            cong (t Â·_) (âˆ‚-leib t (pow k) âˆ™ cong (_+ t Â· âˆ‚ (pow k)) (cong (_Â· pow k) âˆ‚t âˆ™ Â·IdL (pow k)))
+          âˆ™ Â·DistR+ t (pow k) (t Â· âˆ‚ (pow k))
+          âˆ™ cong ((t Â· pow k) +_) (cong (t Â·_) (tâˆ‚pow k) âˆ™ xÂ·scale k t (pow k))
 
-        base : â’ (G zero) â‰¡ 0r
-        base = cong (_+ (- (z Â (E Â 1r)))) (âˆ-leib E 1r âˆ™ congâ _+_ (cong (_Â 1r) âˆE) (cong (E Â_) âˆ-one)) âˆ™ shape
+        base : â„’ (G zero) â‰¡ 0r
+        base = cong (_+ (- (z Â· (E Â· 1r)))) (âˆ‚-leib E 1r âˆ™ congâ‚‚ _+_ (cong (_Â· 1r) âˆ‚E) (cong (E Â·_) âˆ‚-one)) âˆ™ shape
           where
-            shape : ((z Â E) Â 1r + E Â 0r) + (- (z Â (E Â 1r))) â‰¡ 0r
+            shape : ((z Â· E) Â· 1r + E Â· 0r) + (- (z Â· (E Â· 1r))) â‰¡ 0r
             shape = solve! R
 
-        step : (k : â•) â’ â’ (G (suc k)) â‰¡ scale (suc k) (G k)
+        step : (k : â„•) â†’ â„’ (G (suc k)) â‰¡ scale (suc k) (G k)
         step k =
-            cong (_+ (- (z Â (E Â (t Â pow k)))))
-                 (âˆ-leib E (t Â pow k)
-                  âˆ™ congâ _+_ (cong (_Â (t Â pow k)) âˆE)
-                              (cong (E Â_) (âˆ-leib t (pow k) âˆ™ cong (_+ t Â âˆ (pow k)) (cong (_Â pow k) âˆt))))
-          âˆ™ shape (pow k) (âˆ (pow k))
-          âˆ™ cong ((E Â pow k) +_) (cong (E Â_) (tâˆpow k) âˆ™ xÂscale k E (pow k))
+            cong (_+ (- (z Â· (E Â· (t Â· pow k)))))
+                 (âˆ‚-leib E (t Â· pow k)
+                  âˆ™ congâ‚‚ _+_ (cong (_Â· (t Â· pow k)) âˆ‚E)
+                              (cong (E Â·_) (âˆ‚-leib t (pow k) âˆ™ cong (_+ t Â· âˆ‚ (pow k)) (cong (_Â· pow k) âˆ‚t))))
+          âˆ™ shape (pow k) (âˆ‚ (pow k))
+          âˆ™ cong ((E Â· pow k) +_) (cong (E Â·_) (tâˆ‚pow k) âˆ™ xÂ·scale k E (pow k))
           where
             shape : (P Q : A)
-              â’ ((z Â E) Â (t Â P) + E Â (1r Â P + t Â Q)) + (- (z Â (E Â (t Â P)))) â‰¡ E Â P + E Â (t Â Q)
+              â†’ ((z Â· E) Â· (t Â· P) + E Â· (1r Â· P + t Â· Q)) + (- (z Â· (E Â· (t Â· P)))) â‰¡ E Â· P + E Â· (t Â· Q)
             shape P Q = solve! R
 
-      module L = Sopana.Ladder R â’ â’-add G 0r base step
+      module L = Sopana.Ladder R â„’ â„’-add G 0r base step
 
-      -- â’µâºÂ (E tµ) = 0 :  E Â (degree < m) lies in the kernel of â’µ
-      kills-below : (k : â•) â’ L.â’^ (suc k) (G k) â‰¡ 0r
+      -- â„’áµâºÂ¹ (E táµ) = 0 :  E Â· (degree < m) lies in the kernel of â„’áµ
+      kills-below : (k : â„•) â†’ L.â„’^ (suc k) (G k) â‰¡ 0r
       kills-below k = L.ladder k âˆ™ scale-zero (Sopana.fact k)
 
       private
-        â’-scale : (n : â•) (x : A) â’ â’ (scale n x) â‰¡ scale n (â’ x)
-        â’-scale zero    x = base' 
-          where base' : â’ 0r â‰¡ 0r
-                base' = cong (_+ (- (z Â 0r))) âˆ-zero âˆ™ shape
-                  where shape : 0r + (- (z Â 0r)) â‰¡ 0r
+        â„’-scale : (n : â„•) (x : A) â†’ â„’ (scale n x) â‰¡ scale n (â„’ x)
+        â„’-scale zero    x = base' 
+          where base' : â„’ 0r â‰¡ 0r
+                base' = cong (_+ (- (z Â· 0r))) âˆ‚-zero âˆ™ shape
+                  where shape : 0r + (- (z Â· 0r)) â‰¡ 0r
                         shape = solve! R
-        â’-scale (suc n) x = â’-add x (scale n x) âˆ™ cong (â’ x +_) (â’-scale n x)
+        â„’-scale (suc n) x = â„’-add x (scale n x) âˆ™ cong (â„’ x +_) (â„’-scale n x)
 
-        â’^-scale : (m n : â•) (x : A) â’ L.â’^ m (scale n x) â‰¡ scale n (L.â’^ m x)
-        â’^-scale zero    n x = refl
-        â’^-scale (suc m) n x = cong (L.â’^ m) (â’-scale n x) âˆ™ â’^-scale m n (â’ x)
+        â„’^-scale : (m n : â„•) (x : A) â†’ L.â„’^ m (scale n x) â‰¡ scale n (L.â„’^ m x)
+        â„’^-scale zero    n x = refl
+        â„’^-scale (suc m) n x = cong (L.â„’^ m) (â„’-scale n x) âˆ™ â„’^-scale m n (â„’ x)
 
-      -- â’µ (E tµ) = k! E :  the top coefficient survives
-      keeps-top : (k : â•) â’ L.â’^ k (G k) â‰¡ scale (Sopana.fact k) E
-      keeps-top zero    = ÂIdR E âˆ™ sym (+IdR E)
+      -- â„’áµ (E táµ) = k! E :  the top coefficient survives
+      keeps-top : (k : â„•) â†’ L.â„’^ k (G k) â‰¡ scale (Sopana.fact k) E
+      keeps-top zero    = Â·IdR E âˆ™ sym (+IdR E)
       keeps-top (suc k) =
-          cong (L.â’^ k) (step k)
-        âˆ™ â’^-scale k (suc k) (G k)
+          cong (L.â„’^ k) (step k)
+        âˆ™ â„’^-scale k (suc k) (G k)
         âˆ™ cong (scale (suc k)) (keeps-top k)
-        âˆ™ sym (scale-Â (suc k) (Sopana.fact k) E)
+        âˆ™ sym (scale-Â· (suc k) (Sopana.fact k) E)
 
     ----------------------------------------------------------------
-    -- à¨ Â the free viscous strain response is an antiderivative
+    -- à¥¨ Â· the free viscous strain response is an antiderivative
     ----------------------------------------------------------------
     module _ (Îº e erf q : A)
-             (âˆÎº : âˆ Îº â‰¡ 0r) (âˆq : âˆ q â‰¡ 1r)
-             (âˆe : âˆ e â‰¡ - (Î 2 Â (q Â e)))
-             (âˆerf : âˆ erf â‰¡ Îº Â e)
+             (âˆ‚Îº : âˆ‚ Îº â‰¡ 0r) (âˆ‚q : âˆ‚ q â‰¡ 1r)
+             (âˆ‚e : âˆ‚ e â‰¡ - (Î¹ 2 Â· (q Â· e)))
+             (âˆ‚erf : âˆ‚ erf â‰¡ Îº Â· e)
              where
 
-      -- 3ÂH5 = 3 erf âˆ’ Îº e (3q + 2qÂ³)
-      H5â : A
-      H5â = Î 3 Â erf + (- (Îº Â (e Â (Î 3 Â q + Î 2 Â (q Â (q Â q))))))
+      -- 3Â·H5 = 3 erf âˆ’ Îº e (3q + 2qÂ³)
+      H5â‚ƒ : A
+      H5â‚ƒ = Î¹ 3 Â· erf + (- (Îº Â· (e Â· (Î¹ 3 Â· q + Î¹ 2 Â· (q Â· (q Â· q))))))
 
-      h5-derivative : âˆ H5â â‰¡ Î 4 Â (Îº Â (((q Â q) Â q) Â e))
+      h5-derivative : âˆ‚ H5â‚ƒ â‰¡ Î¹ 4 Â· (Îº Â· (((q Â· q) Â· q) Â· e))
       h5-derivative =
-          âˆ-add _ _
-        âˆ™ congâ _+_ (âˆÎx 3 erf âˆ™ cong (Î 3 Â_) âˆerf)
-                    (âˆ-neg _ âˆ™ cong -_ (âˆ-leib Îº _ âˆ™ congâ _+_ (cong (_Â (e Â (Î 3 Â q + Î 2 Â (q Â (q Â q))))) âˆÎº)
-                                                             (cong (Îº Â_) (âˆ-leib e _ âˆ™ congâ _+_ (cong (_Â (Î 3 Â q + Î 2 Â (q Â (q Â q)))) âˆe)
-                                                                                                   (cong (e Â_) âˆP)))))
+          âˆ‚-add _ _
+        âˆ™ congâ‚‚ _+_ (âˆ‚Î¹x 3 erf âˆ™ cong (Î¹ 3 Â·_) âˆ‚erf)
+                    (âˆ‚-neg _ âˆ™ cong -_ (âˆ‚-leib Îº _ âˆ™ congâ‚‚ _+_ (cong (_Â· (e Â· (Î¹ 3 Â· q + Î¹ 2 Â· (q Â· (q Â· q))))) âˆ‚Îº)
+                                                             (cong (Îº Â·_) (âˆ‚-leib e _ âˆ™ congâ‚‚ _+_ (cong (_Â· (Î¹ 3 Â· q + Î¹ 2 Â· (q Â· (q Â· q)))) âˆ‚e)
+                                                                                                   (cong (e Â·_) âˆ‚P)))))
         âˆ™ shape
         where
-          âˆP : âˆ (Î 3 Â q + Î 2 Â (q Â (q Â q))) â‰¡ Î 3 Â 1r + Î 2 Â (1r Â (q Â q) + q Â (1r Â q + q Â 1r))
-          âˆP = âˆ-add _ _
-             âˆ™ congâ _+_ (âˆÎx 3 q âˆ™ cong (Î 3 Â_) âˆq)
-                         (âˆÎx 2 (q Â (q Â q))
-                          âˆ™ cong (Î 2 Â_) (âˆ-leib q (q Â q)
-                                           âˆ™ congâ _+_ (cong (_Â (q Â q)) âˆq)
-                                                       (cong (q Â_) (âˆ-leib q q âˆ™ congâ _+_ (cong (_Â q) âˆq) (cong (q Â_) âˆq)))))
-          shape : (1r + (1r + (1r + 0r))) Â (Îº Â e)
-                  + (- (0r Â (e Â ((1r + (1r + (1r + 0r))) Â q + (1r + (1r + 0r)) Â (q Â (q Â q))))
-                        + Îº Â ((- ((1r + (1r + 0r)) Â (q Â e))) Â ((1r + (1r + (1r + 0r))) Â q + (1r + (1r + 0r)) Â (q Â (q Â q)))
-                               + e Â ((1r + (1r + (1r + 0r))) Â 1r + (1r + (1r + 0r)) Â (1r Â (q Â q) + q Â (1r Â q + q Â 1r))))))
-                  â‰¡ (1r + (1r + (1r + (1r + 0r)))) Â (Îº Â (((q Â q) Â (q Â q)) Â e))
+          âˆ‚P : âˆ‚ (Î¹ 3 Â· q + Î¹ 2 Â· (q Â· (q Â· q))) â‰¡ Î¹ 3 Â· 1r + Î¹ 2 Â· (1r Â· (q Â· q) + q Â· (1r Â· q + q Â· 1r))
+          âˆ‚P = âˆ‚-add _ _
+             âˆ™ congâ‚‚ _+_ (âˆ‚Î¹x 3 q âˆ™ cong (Î¹ 3 Â·_) âˆ‚q)
+                         (âˆ‚Î¹x 2 (q Â· (q Â· q))
+                          âˆ™ cong (Î¹ 2 Â·_) (âˆ‚-leib q (q Â· q)
+                                           âˆ™ congâ‚‚ _+_ (cong (_Â· (q Â· q)) âˆ‚q)
+                                                       (cong (q Â·_) (âˆ‚-leib q q âˆ™ congâ‚‚ _+_ (cong (_Â· q) âˆ‚q) (cong (q Â·_) âˆ‚q)))))
+          shape : (1r + (1r + (1r + 0r))) Â· (Îº Â· e)
+                  + (- (0r Â· (e Â· ((1r + (1r + (1r + 0r))) Â· q + (1r + (1r + 0r)) Â· (q Â· (q Â· q))))
+                        + Îº Â· ((- ((1r + (1r + 0r)) Â· (q Â· e))) Â· ((1r + (1r + (1r + 0r))) Â· q + (1r + (1r + 0r)) Â· (q Â· (q Â· q)))
+                               + e Â· ((1r + (1r + (1r + 0r))) Â· 1r + (1r + (1r + 0r)) Â· (1r Â· (q Â· q) + q Â· (1r Â· q + q Â· 1r))))))
+                  â‰¡ (1r + (1r + (1r + (1r + 0r)))) Â· (Îº Â· (((q Â· q) Â· (q Â· q)) Â· e))
           shape = solve! R

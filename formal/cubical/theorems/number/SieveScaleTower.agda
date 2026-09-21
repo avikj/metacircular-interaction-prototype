@@ -3,12 +3,12 @@
 ------------------------------------------------------------------------
 -- SieveScaleTower
 --
--- DELTA 14, PROGRAM 14.75 � THE SCALE TOWER `O_z`, FINITE AND CONCRETE,
+-- DELTA 14, PROGRAM 14.75 — THE SCALE TOWER `O_z`, FINITE AND CONCRETE,
 -- WITH THE HOMOTOPY FIBRES OF ITS CHARGE-FORGETTING OBSERVATIONS.
 --
 -- Delta 14 §G asks for an inverse tower
 --
---     � � O_{n+1} � O_n � � � O_0
+--     … → O_{n+1} → O_n → … → O_0
 --
 -- of "what is visible below scale z", with forgetting maps, and for the
 -- homotopy fibres of the observations to be computed.  P14.39 warns
@@ -16,26 +16,26 @@
 --
 -- This file builds the tower for `SieveFiber`'s model
 -- (X = 30) at the four horizons z = 0, 2, 3, 5, i.e. at the four
--- initial segments of the primes below �30.  It is FINITE on purpose:
+-- initial segments of the primes below √30.  It is FINITE on purpose:
 -- no inverse limit is constructed and none is claimed (§6).
 --
 --
 -- THE TOWER
 --
---     O� = Unit        o� n = tt                     nothing visible
---     O� = �           o� n = v� n
---     O� = � � �       o� n = (v� n , v� n)
---     O� = � � � � �   o� n = (v� n , v� n , v� n)   = SieveFiber.q
+--     O₀ = Unit        o₀ n = tt                     nothing visible
+--     O₁ = ℕ           o₁ n = v₂ n
+--     O₂ = ℕ × ℕ       o₂ n = (v₂ n , v₃ n)
+--     O₃ = ℕ × ℕ × ℕ   o₃ n = (v₂ n , v₃ n , v₅ n)   = SieveFiber.q
 --
--- with `�` dropping the last coordinate.  Every square commutes by
+-- with `π` dropping the last coordinate.  Every square commutes by
 -- `refl` (§2): the tower is strict, not merely coherent.
 --
 --
 -- WHAT IS CHECKED (all exhaustive over the 30-element domain)
 --
---   §2  `tower-commutes-*`, `o�≡q`   the squares, and that the top of
+--   §2  `tower-commutes-*`, `o₃≡q`   the squares, and that the top of
 --                                    the tower IS SieveFiber's `q`.
---   §3  `fibre� � fibre�`          THE HOMOTOPY FIBRES OF THE
+--   §3  `fibre₀ᵇ … fibre₃ᵇ`          THE HOMOTOPY FIBRES OF THE
 --                                    OBSERVATIONS OVER THE TRIVIAL
 --                                    STATE, as explicit lists:
 --                                      z=0 : all 30
@@ -43,14 +43,14 @@
 --                                      z=3 : the 10 numbers coprime to 6
 --                                      z=5 : the 8 numbers coprime to 30
 --                                    Finite, strictly shrinking, and
---                                    never of constant size � which is
+--                                    never of constant size — which is
 --                                    the tower form of `SieveFiber`'s
 --                                    sizes 8/4/1 finding.
---       `25∉fibre�`, `3∉fibre�`      the shrinkage is STRICT, with
+--       `25∉fibre₃`, `3∉fibre₂`      the shrinkage is STRICT, with
 --                                    witnesses: 25 falls out at z=5,
 --                                    3 falls out at z=3.
 --
---   §4  `noChargeDescent� � �`       CHARGE-FORGETTING: the charge fails
+--   §4  `noChargeDescent₀ … ₂`       CHARGE-FORGETTING: the charge fails
 --                                    to descend at EVERY level, not just
 --                                    at the top.  1 and 7 are
 --                                    indistinguishable at every horizon
@@ -69,12 +69,12 @@
 --                                    z; this is the z-direction of it,
 --                                    at fixed X.
 --
---   §6  `s��`, `s��`, `sec-*`        P14.39, HONOURED.  Each forgetting
+--   §6  `s₃₂`, `s₂₁`, `sec-*`        P14.39, HONOURED.  Each forgetting
 --       `liftNotObservational`       map HAS a section (append 0), and
 --       `composedLiftNotObservational`  the sections compose.  They are
 --                                    still not lifts of the OBSERVATION:
---                                    `s�� (o� 25) = (0,0,0) ≠ (0,0,2) =
---                                    o� 25`.  Structural lifting at each
+--                                    `s₃₂ (o₂ 25) = (0,0,0) ≠ (0,0,2) =
+--                                    o₃ 25`.  Structural lifting at each
 --                                    adjacent stage buys nothing about
 --                                    the integers being observed, and
 --                                    that is the concrete shape P14.39's
@@ -259,7 +259,7 @@ fibre₃ᵇ = refl
 
 -- STRICTNESS, with witnesses.  25 survives to z = 3 and dies at z = 5;
 -- 3 survives to z = 2 and dies at z = 3.  So the tower really coarsens
--- at every stage, and the fibre sizes 30 � 15 � 10 � 8 are strict.
+-- at every stage, and the fibre sizes 30 ⊃ 15 ⊃ 10 ⊃ 8 are strict.
 25∈fibre₂ : Fibre₂ (0 , 0)
 25∈fibre₂ = 25 , memberOf→∈ domain 25 refl , refl
 
@@ -302,7 +302,7 @@ noChargeDescent₃ (c , agree) = false≢true (sym (agree 1∈) ∙ agree 7∈)
 -- §5  THE RESIDUAL BIT IS A PROPERTY OF THE TOP LEVEL ONLY
 --
 -- `SieveFiber.roughSplit` proves that at z = 5 the rough part of every
--- n � 30 is 1 or a single prime, so ε ∈ Bool.  One level down it is
+-- n ≤ 30 is 1 or a single prime, so ε ∈ Bool.  One level down it is
 -- false, and here is the witness rather than the assertion.
 ------------------------------------------------------------------------
 
@@ -314,7 +314,7 @@ level1ResidualNotABit :
   Σ[ n ∈ ℕ ] ((n ∈ domain) × (ltᵇ 1 (Ω (rough₁ n)) ≡ true))
 level1ResidualNotABit = 15 , memberOf→∈ domain 15 refl , refl
 
--- �and at the top it IS one, on the same two witnesses, so the contrast
+-- …and at the top it IS one, on the same two witnesses, so the contrast
 -- is between the levels and not between the numbers.
 level3ResidualIsSmall :
   (ltᵇ 1 (Ω (rough₃ 25)) ≡ false) × (ltᵇ 1 (Ω (rough₃ 15)) ≡ false)
@@ -323,7 +323,7 @@ level3ResidualIsSmall = refl , refl
 ------------------------------------------------------------------------
 -- §6  P14.39: ADJACENT LIFTS, AND WHAT THEY DO NOT BUY
 --
--- Each forgetting map has a section � append a zero valuation � and the
+-- Each forgetting map has a section — append a zero valuation — and the
 -- sections compose.  Neither fact lifts an OBSERVATION: applying the
 -- assembled section to what is visible at a coarse horizon does not
 -- return what is visible at a fine one, because the section invents

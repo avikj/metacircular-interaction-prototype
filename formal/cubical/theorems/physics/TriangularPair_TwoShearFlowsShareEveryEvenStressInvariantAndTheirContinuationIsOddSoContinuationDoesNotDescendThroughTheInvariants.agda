@@ -1,41 +1,41 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- TriangularPair � two shear flows u^� = (0 , a , � v), � = �1, share
--- every �-even reading of their stress and differ in the �-odd
+-- TriangularPair — two shear flows u^σ = (0 , a , σ v), σ = ±1, share
+-- every σ-even reading of their stress and differ in the σ-odd
 -- continuation, so the continuation does not descend through the
 -- invariants.  The prime-boundary document's Theorem 8, at the exact
 -- layer: its stress matrix and its continuation as ring terms.
 --
--- WHAT THIS IS.  The document exhibits the pair u^� with stress
+-- WHAT THIS IS.  The document exhibits the pair u^σ with stress
 --
---     R^� = (A²/2) � [[0,0,0],[0,1,� cos x�],[0,� cos x�,1]]
+--     R^σ = (A²/2) · [[0,0,0],[0,1,σ cos x₂],[0,σ cos x₂,1]]
 --
--- and continuation ��U^�(0) = (� A²/2) e� sin x�.  Here, over any
--- commutative ring, with c standing for the value cos x� and s for
--- sin x� at a point, and with the harmless factor 2 absorbed (we write
--- 2R^� so that no ½ is needed):
+-- and continuation ∂ₜU^σ(0) = (σ A²/2) e₃ sin x₂.  Here, over any
+-- commutative ring, with c standing for the value cos x₂ and s for
+-- sin x₂ at a point, and with the harmless factor 2 absorbed (we write
+-- 2R^σ so that no ½ is needed):
 --
---   §1  stress � A c : M3 as the matrix above;
---       cont � A s : K = � � A � A � s.
---   §2  the even law � tr, tr(R²), tr(R³) of stress � are unchanged by
---       � � −� (solver);  the odd law � cont (−�) ≡ −(cont �) (solver).
---   §3  over � at A = c = s = 1 and � = �1: the triple of invariants
+--   §1  stress σ A c : M3 as the matrix above;
+--       cont σ A s : K = σ · A · A · s.
+--   §2  the even law — tr, tr(R²), tr(R³) of stress σ are unchanged by
+--       σ ↦ −σ (solver);  the odd law — cont (−σ) ≡ −(cont σ) (solver).
+--   §3  over ℤ at A = c = s = 1 and σ = ±1: the triple of invariants
 --       agrees on the pair (by computation) and the continuation gives
 --       1 and −1, so by the corpus's descent lemma the continuation does
 --       not factor through (tr , tr R² , tr R³).  This is the same shape
 --       as StrainInvariants.charge-odd against magnitude-even and
---       QRClosure.c�-not-through-QR, now with the document's own pair.
+--       QRClosure.c₁-not-through-QR, now with the document's own pair.
 --
 -- READING.  The document's point: every reading that is a function of
--- the stress invariants � and, by the same parity, of |u|², |ω|², the
--- energy budget � sees one flow where there are two; the next instant
+-- the stress invariants — and, by the same parity, of |u|², |ω|², the
+-- energy budget — sees one flow where there are two; the next instant
 -- tells them apart.  So no such reading can be a continuation law.
 --
--- SYT � THE CLAIM, EXACTLY.  Ring identities in (� , A , c , s) and one
--- two-point witness over �.  The matrix is the document's stress written
+-- SYĀT — THE CLAIM, EXACTLY.  Ring identities in (σ , A , c , s) and one
+-- two-point witness over ℤ.  The matrix is the document's stress written
 -- down, not derived from a velocity field; the continuation is the
--- document's formula written down, not derived from Navier�Stokes.  The
+-- document's formula written down, not derived from Navier–Stokes.  The
 -- derivations (the pressure solve on the torus) are NOT here.
 ------------------------------------------------------------------------
 
@@ -56,7 +56,7 @@ open import DescentObstructionUnified using (FactorsThrough ; factorObstruction)
 open import QRClosure_TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt using (module Gradient)
 
 ------------------------------------------------------------------------
--- §1�§2  Over any commutative ring.
+-- §1–§2  Over any commutative ring.
 ------------------------------------------------------------------------
 
 module Pair {ℓ : Level} (R' : CommRing ℓ) where
@@ -68,14 +68,14 @@ module Pair {ℓ : Level} (R' : CommRing ℓ) where
     K : Type ℓ
     K = fst R'
 
-  -- 2R^� at a point where cos x� = c
+  -- 2R^σ at a point where cos x₂ = c
   stress : (σ A c : K) → M3
   stress σ A c = m3
     0r 0r 0r
     0r (A ·r A) (A ·r A ·r (σ ·r c))
     0r (A ·r A ·r (σ ·r c)) (A ·r A)
 
-  -- 2 e� � ��U^�(0) at a point where sin x� = s
+  -- 2 e₃ · ∂ₜU^σ(0) at a point where sin x₂ = s
   cont : (σ A s : K) → K
   cont σ A s = σ ·r (A ·r A ·r s)
 
@@ -97,7 +97,7 @@ module Pair {ℓ : Level} (R' : CommRing ℓ) where
   cont-odd : (σ A s : K) → cont (neg σ) A s ≡ neg (cont σ A s)
   cont-odd σ A s = solve! R'
 
-  -- the invariants in closed form: 2A², 2A�(1 + �²c²), 2A�(1 + 3�²c²)
+  -- the invariants in closed form: 2A², 2A⁴(1 + σ²c²), 2A⁶(1 + 3σ²c²)
   I₁-closed : (σ A c : K) → I₁ σ A c ≡ (1r +r 1r) ·r (A ·r A)
   I₁-closed σ A c = solve! R'
 
@@ -106,7 +106,7 @@ module Pair {ℓ : Level} (R' : CommRing ℓ) where
   I₂-closed σ A c = solve! R'
 
 ------------------------------------------------------------------------
--- §3  Over �: the pair � = �1 at A = c = s = 1.
+-- §3  Over ℤ: the pair σ = ±1 at A = c = s = 1.
 ------------------------------------------------------------------------
 
 open Pair ℤCommRing
@@ -119,11 +119,11 @@ private
   pos≢negsuc : {m n : ℕ} → pos m ≡ negsuc n → ⊥
   pos≢negsuc p = subst T p tt
 
--- the reading: all three invariants at once, as a function of �
+-- the reading: all three invariants at once, as a function of σ
 invariants : ℤ → (ℤ × ℤ) × ℤ
 invariants σ = (I₁ σ (pos 1) (pos 1) , I₂ σ (pos 1) (pos 1)) , I₃ σ (pos 1) (pos 1)
 
--- the continuation, as a function of �
+-- the continuation, as a function of σ
 continuation : ℤ → ℤ
 continuation σ = cont σ (pos 1) (pos 1)
 

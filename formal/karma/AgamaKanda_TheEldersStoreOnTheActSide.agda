@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- The elder's store, emitted on the act side so the compiled mouth can
 -- speak about it.  Generated from machine/library.terms by
--- machine/AgamaLekhaka_...awk â” the same 102 pairs the --cubical body
+-- machine/AgamaLekhaka_...awk â€” the same 102 pairs the --cubical body
 -- judged; one generator, two habitats, and the body's censuses are the
 -- knowledge-portion's warrant for whatever the binary reports.
 ------------------------------------------------------------------------

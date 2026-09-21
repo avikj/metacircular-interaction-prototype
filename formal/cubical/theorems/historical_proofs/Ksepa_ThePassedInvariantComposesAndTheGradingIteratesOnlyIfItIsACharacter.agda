@@ -1,47 +1,47 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à•àààà â” the interpolator.  à¯àà ààà°à•ààà¿àààà ààà à—ààà¨à à—ààà¿àà®à à
+-- à¤•à¥à¤·à¥‡à¤ª â€” the interpolator.  à¤¯à¤¤à¥ à¤ªà¥à¤°à¤•à¥à¤·à¤¿à¤ªà¥à¤¤à¤‚ à¤¤à¤¤à¥ à¤—à¥à¤£à¤¨à¥‡ à¤—à¥à¤£à¤¿à¤¤à¤®à¥ à¥¤
 --
 -- (what is thrown in is multiplied under composition.)
 --
--- SOURCE AND DATE.  à•àààà (kepa, "the thrown-in", the additive) is
--- Brahmagupta's own term for the k in xÂ² âˆ’ N yÂ² = k, and àà¾àµà¨à¾
+-- SOURCE AND DATE.  à¤•à¥à¤·à¥‡à¤ª (ká¹£epa, "the thrown-in", the additive) is
+-- Brahmagupta's own term for the k in xÂ² âˆ’ N yÂ² = k, and à¤­à¤¾à¤µà¤¨à¤¾
 -- (bhvan, "production, bringing-into-being") is his name for the
--- composition that multiplies it: ààà°à¾ààà®àààààŸàà¿à¦àà§à¾à¨àà à§à®.ààâ“àà, 628 CE.
+-- composition that multiplies it: à¤¬à¥à¤°à¤¾à¤¹à¥à¤®à¤¸à¥à¤«à¥à¤Ÿà¤¸à¤¿à¤¦à¥à¤§à¤¾à¤¨à¥à¤¤ à¥§à¥®.à¥¬à¥ªâ€“à¥¬à¥«, 628 CE.
 -- The identity itself is checked over a commutative ring in
--- `Bhavana.agda` and subtraction-free over â• in `BhavanaSemiring.agda`;
+-- `Bhavana.agda` and subtraction-free over â„• in `BhavanaSemiring.agda`;
 -- it is NOT re-proved here.  The descent that ITERATES it is the
--- cakravla â” Jayadeva ~950 CE, Bhskara II, àààà—àà¿à, 1150 CE.
+-- cakravÄla â€” Jayadeva ~950 CE, BhÄskara II, à¤¬à¥€à¤œà¤—à¤£à¤¿à¤¤, 1150 CE.
 --
 -- bilinear field from two Dirichlet characters whose atom weight is
--- W(Î³,Î³â²) = Î“(Â½+iÎ³)ÂÎ“(Â½+iÎ³â²) / Î“(3+i(Î³+Î³â²)), and calls its Â§1.1
+-- W(Î³,Î³â€²) = Î“(Â½+iÎ³)Â·Î“(Â½+iÎ³â€²) / Î“(3+i(Î³+Î³â€²)), and calls its Â§1.1
 -- crossing table a composition table.  That is bhvan's outward shape
--- â” a bilinear law whose invariant belongs to neither factor â” and this
+-- â€” a bilinear law whose invariant belongs to neither factor â€” and this
 -- module was written to decide whether it IS bhvan.  It is not, and
 -- the theorems below locate the exact place it stops being it.
 --
 -- WHAT IS CHECKED.  The skeleton the two objects share, and where they
--- part.  Fix a commutative monoid of frequencies (M, âŠ•, ğŸ˜) and a
+-- part.  Fix a commutative monoid of frequencies (M, âŠ•, ğŸ˜) and a
 -- commutative monoid of values (G, âŠ—).  With a per-INPUT invariant
--- u : M â’ G and a per-OUTPUT grading g : M â’ G, put
+-- u : M â†’ G and a per-OUTPUT grading g : M â†’ G, put
 --
 --     W a b  =  (u a âŠ— u b) âŠ— g (a âŠ• b)
 --
--- â” each input passes its own invariant; one further factor belongs to
+-- â€” each input passes its own invariant; one further factor belongs to
 -- the composite alone.  Then:
 --
---   à•àààà-à§  the input halves always split off (middle-four; no hypothesis)
---   à•àààà-à¨  "g x âŠ— g y depends only on x âŠ• y"  âŸ  g is a character
---            twisted by g ğŸ˜
---   à•àààà-à©  â¦and conversely, so the two are one condition
---   à•àààà-à  that condition MAKES the four-fold kernel iterate: it becomes
+--   à¤•à¥à¤·à¥‡à¤ª-à¥§  the input halves always split off (middle-four; no hypothesis)
+--   à¤•à¥à¤·à¥‡à¤ª-à¥¨  "g x âŠ— g y depends only on x âŠ• y"  âŸ¹  g is a character
+--            twisted by g ğŸ˜
+--   à¤•à¥à¤·à¥‡à¤ª-à¥©  â€¦and conversely, so the two are one condition
+--   à¤•à¥à¤·à¥‡à¤ª-à¥ª  that condition MAKES the four-fold kernel iterate: it becomes
 --            the product of two two-fold kernels times a factor of the
---            total frequency alone â” which is what cakravla consumes
---   à•àààà-à  and, under cancellation, iteration FORCES it back.
+--            total frequency alone â€” which is what cakravÄla consumes
+--   à¤•à¥à¤·à¥‡à¤ª-à¥«  and, under cancellation, iteration FORCES it back.
 --
 -- So iteration holds exactly when the grading is a character.  Brahmagupta
--- sits at g â‰¡ ğŸ™, where the condition is free â” and that freedom is the
+-- sits at g â‰¡ ğŸ™, where the condition is free â€” and that freedom is the
 -- whole of the cyclic method.
 --
 ------------------------------------------------------------------------

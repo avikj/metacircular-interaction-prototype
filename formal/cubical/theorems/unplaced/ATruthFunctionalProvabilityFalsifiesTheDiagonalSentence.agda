@@ -14,7 +14,7 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 --
 -- The open question from last cycle, answered on the negative side.
 --
--- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 -- THE QUESTION
 --
 -- `ASmallTheoryWithAnIndependentSentence` builds a theory with an
@@ -27,11 +27,11 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- With a TRUTH-FUNCTIONAL provability predicate, it does not, and the
 -- reason is two lines.
 --
--- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 -- WHAT IS PROVED
 --
--- Suppose the semantics interprets `prov` by some `f : Bool โ’ Bool`
--- applied to the value of its argument โ” that is what "truth-
+-- Suppose the semantics interprets `prov` by some `f : Bool โ’ Bool`
+-- applied to the value of its argument โ€” that is what "truth-
 -- functional" means and it is what every valuation semantics in this
 -- thread has done.  Suppose two soundness conditions the rules force:
 --
@@ -39,16 +39,16 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 --       (if `a` is true it must not make `prov a` false, since `a`
 --        derivable forces `prov a` derivable);
 --
---   the forward diagonal axiom `g โ’ ย prov g` is valid:
+--   the forward diagonal axiom `g โ’ ยฌ prov g` is valid:
 --       `impB x (not (f x)) โก true`, where `x` is the value of `g`.
 --
 -- Then `x โก false`: the diagonal sentence is FALSE in every such model
--- (ยง1).  Hence `ย g` is true in every such model (ยง2), so no model
+-- (ยง1).  Hence `ยฌ g` is true in every such model (ยง2), so no model
 -- refutes it, and the second premise of the two-model criterion is
 -- unavailable at `g` (ยง3).  Independence of the diagonal sentence
 -- cannot be obtained this way at all.
 --
--- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 -- WHAT IT SAYS ABOUT WHERE THE DIFFICULTY ACTUALLY IS
 --
 -- The obstruction is not about which rules are chosen.  ยง1 uses only
@@ -57,14 +57,14 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- backward half are all unused.  What it uses is that `prov` is
 -- interpreted as a function of a TRUTH VALUE.
 --
--- In a real theory it is not.  `Prov(โsโ)` is a statement about the
+-- In a real theory it is not.  `Prov(โsโ)` is a statement about the
 -- syntax of `s`, and two sentences with the same truth value in a model
 -- can have different provability status.  That is the exact property
 -- this thread's semantics has been unable to express, and ยง1 is the
 -- proof that no amount of rule-choosing repairs it while the
 -- interpretation stays truth-functional.
 --
--- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 --
 -- That `f true โก true` is the only value-level reading of HBL1; it is
 -- the one forced if `prov` is truth-functional and derivable sentences
@@ -73,13 +73,13 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- That the small theory of the previous module is affected: it has no
 -- `prov` worth the name and its independence result stands untouched.
 --
--- PRIOR ART, by the conclusion type โ” and the first draft of this
+-- PRIOR ART, by the conclusion type โ€” and the first draft of this
 -- paragraph was wrong, which is why it is stated as a checked result.
 -- A grep of `formal/cubical` for `truth-functional` returns ONE hit:
 -- `RepresentabilityIsNotEnoughForIndependence` line 32, a sentence of
 -- prose describing `wimp`, not a theorem.  A grep for `impB` outside
 -- the previous module returns nothing.  A version phrased over a valuation into a larger algebra
--- than `Bool` would evade that grep โ” and would also evade ยง1, which
+-- than `Bool` would evade that grep โ€” and would also evade ยง1, which
 -- is a fact about two-valued semantics.
 ------------------------------------------------------------------------
 
@@ -111,8 +111,8 @@ negDiagonalValueIsTrue f x hbl dfwd =
 ------------------------------------------------------------------------
 -- 3.  So the second premise of the two-model criterion is unavailable
 --
--- The criterion needs a model in which `ย g` FAILS.  ยง2 says every
--- model of this kind makes `ย g` hold, so no such model exists.
+-- The criterion needs a model in which `ยฌ g` FAILS.  ยง2 says every
+-- model of this kind makes `ยฌ g` hold, so no such model exists.
 ------------------------------------------------------------------------
 
 noModelRefutesNegDiagonal :

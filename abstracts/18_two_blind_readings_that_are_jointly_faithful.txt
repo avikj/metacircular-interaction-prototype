@@ -48,8 +48,8 @@ is not a substitute for it.
 
 RESOLVED IN PART.  The statistical vocabulary now exists:
 theorems/unplaced/VitaranaYugma constructs estimators and proves that
-no estimator from a blind sense is everywhere correct â” generically,
-with the failure point manufactured from the sense's own blind pair â”
+no estimator from a blind sense is everywhere correct â€” generically,
+with the failure point manufactured from the sense's own blind pair â€”
 and constructs distributions with their two marginals, proving the
 perfectly correlated and anti-correlated joints distinct while both
 marginals agree by reduction: the marginals do not determine the

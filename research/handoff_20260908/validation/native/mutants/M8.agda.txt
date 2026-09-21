@@ -1,184 +1,184 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ààà¡-à®à¾ààà° â” the measure of pressure.
+-- à¤ªà¥€à¤¡-à¤®à¤¾à¤¤à¥à¤° â€” the measure of pressure.
 --
 -- For a radial MATRIX profile G(r) the spherical pressure identity of
--- handoff Â§20 ([S12]) reads, with V = rGâ², W = rÂ²Gâ³ and Xâˆ˜Y = (XY+YX)/2,
+-- handoff Â§20 ([S12]) reads, with V = rGâ€², W = rÂ²Gâ€³ and Xâˆ˜Y = (XY+YX)/2,
 --
---     (1/4Ï)âˆ(3nnµ âˆ’ I) tr((âˆuâ)Â²) dÎ© = (12/35)[18 Gâˆ˜V + 3 Gâˆ˜W + 2VÂ² âˆ’ Vâˆ˜W]â ,
+--     (1/4Ï€)âˆ«(3nnáµ€ âˆ’ I) tr((âˆ‡uâ‚‚)Â²) dÎ© = (12/35)[18 Gâˆ˜V + 3 Gâˆ˜W + 2VÂ² âˆ’ Vâˆ˜W]â‚€ ,
 --
 -- and the bracket is r times the derivative of
 --
---     Î¦ = (15/2) GÂ² + 3r Gâˆ˜Gâ² âˆ’ (rÂ²/2) (Gâ²)Â² .
+--     Î¦ = (15/2) GÂ² + 3r Gâˆ˜Gâ€² âˆ’ (rÂ²/2) (Gâ€²)Â² .
 --
 -- Here that last fact is checked over an arbitrary (noncommutative)
--- ring with a derivation âˆ and a CENTRAL radius r, âˆr = 1: G, Gâ², Gâ³
+-- ring with a derivation âˆ‚ and a CENTRAL radius r, âˆ‚r = 1: G, Gâ€², Gâ€³
 -- need not commute.  Doubled to clear the halves,
 --
---     r Â âˆ(15 GÂ² + 3r(GGâ² + Gâ²G) âˆ’ rÂ² Gâ²Â²)
+--     r Â· âˆ‚(15 GÂ² + 3r(GGâ€² + Gâ€²G) âˆ’ rÂ² Gâ€²Â²)
 --       â‰¡ 18(GV + VG) + 3(GW + WG) + 4 VÂ² âˆ’ (VW + WV).
 --
 -- The proof expands with Leibniz and centrality into a sum of seven
 -- ordered monomials and closes with the commutative-monoid solver on
--- the additive structure â” the only rearrangement a noncommutative
+-- the additive structure â€” the only rearrangement a noncommutative
 -- product allows.
 ------------------------------------------------------------------------
 module M8 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â• ; zero ; suc)
+open import Cubical.Data.Nat using (â„• ; zero ; suc)
 open import Cubical.Algebra.Ring
-open import Cubical.Algebra.AbGroup using (AbGroupâ’CommMonoid)
+open import Cubical.Algebra.AbGroup using (AbGroupâ†’CommMonoid)
 open import Cubical.Algebra.CommMonoid
 open import Cubical.Tactics.MonoidSolver.Reflection using (solveCommMonoid)
 
 private
   variable
-    â“ : Level
+    â„“ : Level
 
 ------------------------------------------------------------------------
 -- The additive rearrangement, over an abstract commutative monoid.
 -- Atoms: a b c d e f g are the seven ordered monomials, nc nf ng stand
 -- for their negatives.
 ------------------------------------------------------------------------
-module AdditiveShape (M : CommMonoid â“) where
-  open CommMonoidStr (snd M) renaming (_Â_ to _âŠ•_)
+module AdditiveShape (M : CommMonoid â„“) where
+  open CommMonoidStr (snd M) renaming (_Â·_ to _âŠ•_)
 
   rearrange : (a b c d e f g nc nf ng : âŸ¨ M âŸ©)
-    â’ (((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• Îµ))))))))))))))) âŠ• (((a âŠ• b) âŠ• ((c âŠ• d) âŠ• (e âŠ• c))) âŠ• (((a âŠ• b) âŠ• ((c âŠ• d) âŠ• (e âŠ• c))) âŠ• (((a âŠ• b) âŠ• ((c âŠ• d) âŠ• (e âŠ• c))) âŠ• Îµ)))) âŠ• ((nc âŠ• nc) âŠ• (ng âŠ• nf))
+    â†’ (((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• ((b âŠ• a) âŠ• Îµ))))))))))))))) âŠ• (((a âŠ• b) âŠ• ((c âŠ• d) âŠ• (e âŠ• c))) âŠ• (((a âŠ• b) âŠ• ((c âŠ• d) âŠ• (e âŠ• c))) âŠ• (((a âŠ• b) âŠ• ((c âŠ• d) âŠ• (e âŠ• c))) âŠ• Îµ)))) âŠ• ((nc âŠ• nc) âŠ• (ng âŠ• nf))
       â‰¡ (((((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• ((a âŠ• b) âŠ• Îµ)))))))))))))))))) âŠ• ((d âŠ• e) âŠ• ((d âŠ• e) âŠ• ((d âŠ• e) âŠ• Îµ)))) âŠ• (c âŠ• (c âŠ• (c âŠ• (c âŠ• Îµ))))) âŠ• (nf âŠ• ng)) âŠ• ((c âŠ• c) âŠ• (nc âŠ• nc))
   rearrange = solveCommMonoid M
 
 ------------------------------------------------------------------------
-module _ (R : Ring â“) where
+module _ (R : Ring â„“) where
   open RingStr (snd R)
   open RingTheory R
 
   private
     A = âŸ¨ R âŸ©
 
-  scale : â• â’ A â’ A
+  scale : â„• â†’ A â†’ A
   scale zero    x = 0r
   scale (suc n) x = x + scale n x
 
-  module _ (âˆ : A â’ A)
-           (âˆ-add  : (x y : A) â’ âˆ (x + y) â‰¡ âˆ x + âˆ y)
-           (âˆ-leib : (x y : A) â’ âˆ (x Â y) â‰¡ âˆ x Â y + x Â âˆ y)
-           (r : A) (âˆr : âˆ r â‰¡ 1r)
-           (central : (x : A) â’ r Â x â‰¡ x Â r)
+  module _ (âˆ‚ : A â†’ A)
+           (âˆ‚-add  : (x y : A) â†’ âˆ‚ (x + y) â‰¡ âˆ‚ x + âˆ‚ y)
+           (âˆ‚-leib : (x y : A) â†’ âˆ‚ (x Â· y) â‰¡ âˆ‚ x Â· y + x Â· âˆ‚ y)
+           (r : A) (âˆ‚r : âˆ‚ r â‰¡ 1r)
+           (central : (x : A) â†’ r Â· x â‰¡ x Â· r)
            where
 
     private
-      âˆ-zero : âˆ 0r â‰¡ 0r
-      âˆ-zero = sym ( sym (+InvR (âˆ 0r)) âˆ™ cong (_+ (- (âˆ 0r))) h âˆ™ cancelR (âˆ 0r) (âˆ 0r) )
+      âˆ‚-zero : âˆ‚ 0r â‰¡ 0r
+      âˆ‚-zero = sym ( sym (+InvR (âˆ‚ 0r)) âˆ™ cong (_+ (- (âˆ‚ 0r))) h âˆ™ cancelR (âˆ‚ 0r) (âˆ‚ 0r) )
         where
-          h : âˆ 0r â‰¡ âˆ 0r + âˆ 0r
-          h = cong âˆ (sym (+IdR 0r)) âˆ™ âˆ-add 0r 0r
-          cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
+          h : âˆ‚ 0r â‰¡ âˆ‚ 0r + âˆ‚ 0r
+          h = cong âˆ‚ (sym (+IdR 0r)) âˆ™ âˆ‚-add 0r 0r
+          cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
           cancelR x y = sym (+Assoc x y (- y)) âˆ™ cong (x +_) (+InvR y) âˆ™ +IdR x
 
-      âˆ-neg : (x : A) â’ âˆ (- x) â‰¡ - âˆ x
-      âˆ-neg x = negOf (âˆ x) (âˆ (- x)) (sym (âˆ-add x (- x)) âˆ™ cong âˆ (+InvR x) âˆ™ âˆ-zero)
+      âˆ‚-neg : (x : A) â†’ âˆ‚ (- x) â‰¡ - âˆ‚ x
+      âˆ‚-neg x = negOf (âˆ‚ x) (âˆ‚ (- x)) (sym (âˆ‚-add x (- x)) âˆ™ cong âˆ‚ (+InvR x) âˆ™ âˆ‚-zero)
         where
-          negOf : (a b : A) â’ a + b â‰¡ 0r â’ b â‰¡ - a
+          negOf : (a b : A) â†’ a + b â‰¡ 0r â†’ b â‰¡ - a
           negOf a b h = sym (+IdL b) âˆ™ cong (_+ b) (sym (+InvL a)) âˆ™ sym (+Assoc (- a) a b) âˆ™ cong ((- a) +_) h âˆ™ +IdR (- a)
 
-      âˆ-scale : (n : â•) (x : A) â’ âˆ (scale n x) â‰¡ scale n (âˆ x)
-      âˆ-scale zero    x = âˆ-zero
-      âˆ-scale (suc n) x = âˆ-add x (scale n x) âˆ™ cong (âˆ x +_) (âˆ-scale n x)
+      âˆ‚-scale : (n : â„•) (x : A) â†’ âˆ‚ (scale n x) â‰¡ scale n (âˆ‚ x)
+      âˆ‚-scale zero    x = âˆ‚-zero
+      âˆ‚-scale (suc n) x = âˆ‚-add x (scale n x) âˆ™ cong (âˆ‚ x +_) (âˆ‚-scale n x)
 
-      rÂscale : (n : â•) (x : A) â’ r Â scale n x â‰¡ scale n (r Â x)
-      rÂscale zero    x = 0RightAnnihilates r
-      rÂscale (suc n) x = ÂDistR+ r x (scale n x) âˆ™ cong ((r Â x) +_) (rÂscale n x)
+      rÂ·scale : (n : â„•) (x : A) â†’ r Â· scale n x â‰¡ scale n (r Â· x)
+      rÂ·scale zero    x = 0RightAnnihilates r
+      rÂ·scale (suc n) x = Â·DistR+ r x (scale n x) âˆ™ cong ((r Â· x) +_) (rÂ·scale n x)
 
       -- centrality in the middle and on the left
-      mid : (x y : A) â’ x Â (r Â y) â‰¡ r Â (x Â y)
-      mid x y = ÂAssoc x r y âˆ™ cong (_Â y) (sym (central x)) âˆ™ sym (ÂAssoc r x y)
+      mid : (x y : A) â†’ x Â· (r Â· y) â‰¡ r Â· (x Â· y)
+      mid x y = Â·Assoc x r y âˆ™ cong (_Â· y) (sym (central x)) âˆ™ sym (Â·Assoc r x y)
 
-      left : (x y : A) â’ (r Â x) Â y â‰¡ r Â (x Â y)
-      left x y = sym (ÂAssoc r x y)
+      left : (x y : A) â†’ (r Â· x) Â· y â‰¡ r Â· (x Â· y)
+      left x y = sym (Â·Assoc r x y)
 
     module _ (G : A) where
       private
-        Gâ² Gâ³ : A
-        Gâ² = âˆ G
-        Gâ³ = âˆ Gâ²
+        Gâ€² Gâ€³ : A
+        Gâ€² = âˆ‚ G
+        Gâ€³ = âˆ‚ Gâ€²
 
       V W : A
-      V = r Â Gâ²
-      W = (r Â r) Â Gâ³
+      V = r Â· Gâ€²
+      W = (r Â· r) Â· Gâ€³
 
-      -- the doubled quadratic form  2Î¦ = 15 GÂ² + 3r(GGâ² + Gâ²G) âˆ’ rÂ² Gâ²Â²
-      Î¦â : A
-      Î¦â = (scale 15 (G Â G) + scale 3 (r Â (G Â Gâ² + Gâ² Â G))) + (- ((r Â r) Â (Gâ² Â G)))
+      -- the doubled quadratic form  2Î¦ = 15 GÂ² + 3r(GGâ€² + Gâ€²G) âˆ’ rÂ² Gâ€²Â²
+      Î¦â‚‚ : A
+      Î¦â‚‚ = (scale 15 (G Â· G) + scale 3 (r Â· (G Â· Gâ€² + Gâ€² Â· G))) + (- ((r Â· r) Â· (Gâ€² Â· G)))
 
       -- the doubled bracket  2[18 Gâˆ˜V + 3 Gâˆ˜W + 2VÂ² âˆ’ Vâˆ˜W]
       bracket : A
-      bracket = ((scale 18 (G Â V + V Â G) + scale 3 (G Â W + W Â G)) + scale 4 (V Â V)) + (- (V Â W + W Â V))
+      bracket = ((scale 18 (G Â· V + V Â· G) + scale 3 (G Â· W + W Â· G)) + scale 4 (V Â· V)) + (- (V Â· W + W Â· V))
 
       private
         -- the seven ordered monomials
         a b c d e f g : A
-        a = r Â (G Â Gâ²)
-        b = r Â (Gâ² Â G)
-        c = r Â (r Â (Gâ² Â Gâ²))
-        d = r Â (r Â (G Â Gâ³))
-        e = r Â (r Â (Gâ³ Â G))
-        f = r Â (r Â (r Â (Gâ² Â Gâ³)))
-        g = r Â (r Â (r Â (Gâ³ Â Gâ²)))
+        a = r Â· (G Â· Gâ€²)
+        b = r Â· (Gâ€² Â· G)
+        c = r Â· (r Â· (Gâ€² Â· Gâ€²))
+        d = r Â· (r Â· (G Â· Gâ€³))
+        e = r Â· (r Â· (Gâ€³ Â· G))
+        f = r Â· (r Â· (r Â· (Gâ€² Â· Gâ€³)))
+        g = r Â· (r Â· (r Â· (Gâ€³ Â· Gâ€²)))
 
         -- LHS pieces
-        L1 : r Â âˆ (scale 15 (G Â G)) â‰¡ scale 15 (b + a)
-        L1 = cong (r Â_) (âˆ-scale 15 (G Â G) âˆ™ cong (scale 15) (âˆ-leib G G))
-           âˆ™ rÂscale 15 (Gâ² Â G + G Â Gâ²)
-           âˆ™ cong (scale 15) (ÂDistR+ r (Gâ² Â G) (G Â Gâ²))
+        L1 : r Â· âˆ‚ (scale 15 (G Â· G)) â‰¡ scale 15 (b + a)
+        L1 = cong (r Â·_) (âˆ‚-scale 15 (G Â· G) âˆ™ cong (scale 15) (âˆ‚-leib G G))
+           âˆ™ rÂ·scale 15 (Gâ€² Â· G + G Â· Gâ€²)
+           âˆ™ cong (scale 15) (Â·DistR+ r (Gâ€² Â· G) (G Â· Gâ€²))
 
-        L2 : r Â âˆ (scale 3 (r Â (G Â Gâ² + Gâ² Â G))) â‰¡ scale 3 ((a + b) + ((c + d) + (e + c)))
-        L2 = cong (r Â_) (âˆ-scale 3 _ âˆ™ cong (scale 3) inner)
-           âˆ™ rÂscale 3 _
-           âˆ™ cong (scale 3) (ÂDistR+ r (G Â Gâ² + Gâ² Â G) (r Â ((Gâ² Â Gâ² + G Â Gâ³) + (Gâ³ Â G + Gâ² Â Gâ²)))
-                             âˆ™ congâ _+_ (ÂDistR+ r (G Â Gâ²) (Gâ² Â G))
-                                         (cong (r Â_) (ÂDistR+ r (Gâ² Â Gâ² + G Â Gâ³) (Gâ³ Â G + Gâ² Â Gâ²)
-                                                       âˆ™ congâ _+_ (ÂDistR+ r (Gâ² Â Gâ²) (G Â Gâ³)) (ÂDistR+ r (Gâ³ Â G) (Gâ² Â Gâ²)))
-                                          âˆ™ ÂDistR+ r (r Â (Gâ² Â Gâ²) + r Â (G Â Gâ³)) (r Â (Gâ³ Â G) + r Â (Gâ² Â Gâ²))
-                                          âˆ™ congâ _+_ (ÂDistR+ r (r Â (Gâ² Â Gâ²)) (r Â (G Â Gâ³))) (ÂDistR+ r (r Â (Gâ³ Â G)) (r Â (Gâ² Â Gâ²)))))
+        L2 : r Â· âˆ‚ (scale 3 (r Â· (G Â· Gâ€² + Gâ€² Â· G))) â‰¡ scale 3 ((a + b) + ((c + d) + (e + c)))
+        L2 = cong (r Â·_) (âˆ‚-scale 3 _ âˆ™ cong (scale 3) inner)
+           âˆ™ rÂ·scale 3 _
+           âˆ™ cong (scale 3) (Â·DistR+ r (G Â· Gâ€² + Gâ€² Â· G) (r Â· ((Gâ€² Â· Gâ€² + G Â· Gâ€³) + (Gâ€³ Â· G + Gâ€² Â· Gâ€²)))
+                             âˆ™ congâ‚‚ _+_ (Â·DistR+ r (G Â· Gâ€²) (Gâ€² Â· G))
+                                         (cong (r Â·_) (Â·DistR+ r (Gâ€² Â· Gâ€² + G Â· Gâ€³) (Gâ€³ Â· G + Gâ€² Â· Gâ€²)
+                                                       âˆ™ congâ‚‚ _+_ (Â·DistR+ r (Gâ€² Â· Gâ€²) (G Â· Gâ€³)) (Â·DistR+ r (Gâ€³ Â· G) (Gâ€² Â· Gâ€²)))
+                                          âˆ™ Â·DistR+ r (r Â· (Gâ€² Â· Gâ€²) + r Â· (G Â· Gâ€³)) (r Â· (Gâ€³ Â· G) + r Â· (Gâ€² Â· Gâ€²))
+                                          âˆ™ congâ‚‚ _+_ (Â·DistR+ r (r Â· (Gâ€² Â· Gâ€²)) (r Â· (G Â· Gâ€³))) (Â·DistR+ r (r Â· (Gâ€³ Â· G)) (r Â· (Gâ€² Â· Gâ€²)))))
           where
-            inner : âˆ (r Â (G Â Gâ² + Gâ² Â G)) â‰¡ (G Â Gâ² + Gâ² Â G) + r Â ((Gâ² Â Gâ² + G Â Gâ³) + (Gâ³ Â G + Gâ² Â Gâ²))
-            inner = âˆ-leib r (G Â Gâ² + Gâ² Â G)
-                  âˆ™ congâ _+_ (cong (_Â (G Â Gâ² + Gâ² Â G)) âˆr âˆ™ ÂIdL _)
-                              (cong (r Â_) (âˆ-add (G Â Gâ²) (Gâ² Â G) âˆ™ congâ _+_ (âˆ-leib G Gâ²) (âˆ-leib Gâ² G)))
+            inner : âˆ‚ (r Â· (G Â· Gâ€² + Gâ€² Â· G)) â‰¡ (G Â· Gâ€² + Gâ€² Â· G) + r Â· ((Gâ€² Â· Gâ€² + G Â· Gâ€³) + (Gâ€³ Â· G + Gâ€² Â· Gâ€²))
+            inner = âˆ‚-leib r (G Â· Gâ€² + Gâ€² Â· G)
+                  âˆ™ congâ‚‚ _+_ (cong (_Â· (G Â· Gâ€² + Gâ€² Â· G)) âˆ‚r âˆ™ Â·IdL _)
+                              (cong (r Â·_) (âˆ‚-add (G Â· Gâ€²) (Gâ€² Â· G) âˆ™ congâ‚‚ _+_ (âˆ‚-leib G Gâ€²) (âˆ‚-leib Gâ€² G)))
 
-        L3 : r Â âˆ (- ((r Â r) Â (Gâ² Â Gâ²))) â‰¡ ((- c) + (- c)) + ((- g) + (- f))
-        L3 = cong (r Â_) (âˆ-neg _ âˆ™ cong -_ inner)
-           âˆ™ -DistRÂ r _
-           âˆ™ cong -_ (ÂDistR+ r ((r Â (Gâ² Â Gâ²) + r Â (Gâ² Â Gâ²))) ((r Â r) Â (Gâ³ Â Gâ²) + (r Â r) Â (Gâ² Â Gâ³))
-                      âˆ™ congâ _+_ (ÂDistR+ r (r Â (Gâ² Â Gâ²)) (r Â (Gâ² Â Gâ²)))
-                                  (ÂDistR+ r ((r Â r) Â (Gâ³ Â Gâ²)) ((r Â r) Â (Gâ² Â Gâ³))
-                                   âˆ™ congâ _+_ (cong (r Â_) (sym (ÂAssoc r r (Gâ³ Â Gâ²)))) (cong (r Â_) (sym (ÂAssoc r r (Gâ² Â Gâ³))))))
+        L3 : r Â· âˆ‚ (- ((r Â· r) Â· (Gâ€² Â· Gâ€²))) â‰¡ ((- c) + (- c)) + ((- g) + (- f))
+        L3 = cong (r Â·_) (âˆ‚-neg _ âˆ™ cong -_ inner)
+           âˆ™ -DistRÂ· r _
+           âˆ™ cong -_ (Â·DistR+ r ((r Â· (Gâ€² Â· Gâ€²) + r Â· (Gâ€² Â· Gâ€²))) ((r Â· r) Â· (Gâ€³ Â· Gâ€²) + (r Â· r) Â· (Gâ€² Â· Gâ€³))
+                      âˆ™ congâ‚‚ _+_ (Â·DistR+ r (r Â· (Gâ€² Â· Gâ€²)) (r Â· (Gâ€² Â· Gâ€²)))
+                                  (Â·DistR+ r ((r Â· r) Â· (Gâ€³ Â· Gâ€²)) ((r Â· r) Â· (Gâ€² Â· Gâ€³))
+                                   âˆ™ congâ‚‚ _+_ (cong (r Â·_) (sym (Â·Assoc r r (Gâ€³ Â· Gâ€²)))) (cong (r Â·_) (sym (Â·Assoc r r (Gâ€² Â· Gâ€³))))))
            âˆ™ sym (-Dist (c + c) (g + f))
-           âˆ™ congâ _+_ (sym (-Dist c c)) (sym (-Dist g f))
+           âˆ™ congâ‚‚ _+_ (sym (-Dist c c)) (sym (-Dist g f))
           where
-            inner : âˆ ((r Â r) Â (Gâ² Â Gâ²)) â‰¡ (r Â (Gâ² Â Gâ²) + r Â (Gâ² Â Gâ²)) + ((r Â r) Â (Gâ³ Â Gâ²) + (r Â r) Â (Gâ² Â Gâ³))
-            inner = âˆ-leib (r Â r) (Gâ² Â Gâ²)
-                  âˆ™ congâ _+_ (cong (_Â (Gâ² Â Gâ²)) (âˆ-leib r r âˆ™ congâ _+_ (cong (_Â r) âˆr âˆ™ ÂIdL r) (cong (r Â_) âˆr âˆ™ ÂIdR r))
-                               âˆ™ ÂDistL+ r r (Gâ² Â Gâ²))
-                              (cong ((r Â r) Â_) (âˆ-leib Gâ² Gâ²) âˆ™ ÂDistR+ (r Â r) (Gâ³ Â Gâ²) (Gâ² Â Gâ³))
+            inner : âˆ‚ ((r Â· r) Â· (Gâ€² Â· Gâ€²)) â‰¡ (r Â· (Gâ€² Â· Gâ€²) + r Â· (Gâ€² Â· Gâ€²)) + ((r Â· r) Â· (Gâ€³ Â· Gâ€²) + (r Â· r) Â· (Gâ€² Â· Gâ€³))
+            inner = âˆ‚-leib (r Â· r) (Gâ€² Â· Gâ€²)
+                  âˆ™ congâ‚‚ _+_ (cong (_Â· (Gâ€² Â· Gâ€²)) (âˆ‚-leib r r âˆ™ congâ‚‚ _+_ (cong (_Â· r) âˆ‚r âˆ™ Â·IdL r) (cong (r Â·_) âˆ‚r âˆ™ Â·IdR r))
+                               âˆ™ Â·DistL+ r r (Gâ€² Â· Gâ€²))
+                              (cong ((r Â· r) Â·_) (âˆ‚-leib Gâ€² Gâ€²) âˆ™ Â·DistR+ (r Â· r) (Gâ€³ Â· Gâ€²) (Gâ€² Â· Gâ€³))
 
         -- RHS pieces
-        R1 : scale 18 (G Â V + V Â G) â‰¡ scale 18 (a + b)
-        R1 = cong (scale 18) (congâ _+_ (mid G Gâ²) (left Gâ² G))
+        R1 : scale 18 (G Â· V + V Â· G) â‰¡ scale 18 (a + b)
+        R1 = cong (scale 18) (congâ‚‚ _+_ (mid G Gâ€²) (left Gâ€² G))
 
-        R2 : scale 3 (G Â W + W Â G) â‰¡ scale 3 (d + e)
-        R2 = cong (scale 3) (congâ _+_ (cong (G Â_) (sym (ÂAssoc r r Gâ³)) âˆ™ mid G (r Â Gâ³) âˆ™ cong (r Â_) (mid G Gâ³))
-                                        (sym (ÂAssoc (r Â r) Gâ³ G) âˆ™ sym (ÂAssoc r r (Gâ³ Â G))))
+        R2 : scale 3 (G Â· W + W Â· G) â‰¡ scale 3 (d + e)
+        R2 = cong (scale 3) (congâ‚‚ _+_ (cong (G Â·_) (sym (Â·Assoc r r Gâ€³)) âˆ™ mid G (r Â· Gâ€³) âˆ™ cong (r Â·_) (mid G Gâ€³))
+                                        (sym (Â·Assoc (r Â· r) Gâ€³ G) âˆ™ sym (Â·Assoc r r (Gâ€³ Â· G))))
 
-        R3 : scale 4 (V Â V) â‰¡ scale 4 c
-        R3 = cong (scale 4) (left Gâ² (r Â Gâ²) âˆ™ cong (r Â_) (mid Gâ² Gâ²))
+        R3 : scale 4 (V Â· V) â‰¡ scale 4 c
+        R3 = cong (scale 4) (left Gâ€² (r Â· Gâ€²) âˆ™ cong (r Â·_) (mid Gâ€² Gâ€²))
 
-        R4 : - (V Â W + W Â V) â‰¡ (- f) + (- g)
-        R4 = cong -_ (congâ _+_ (left Gâ² ((r Â r) Â Gâ³) âˆ™ cong (r Â_) (cong (Gâ² Â_) (sym (ÂAssoc r r Gâ³)) âˆ™ mid Gâ² (r Â Gâ³) âˆ™ cong (r Â_) (mid Gâ² Gâ³)))
-                                (sym (ÂAssoc (r Â r) Gâ³ (r Â Gâ²)) âˆ™ cong ((r Â r) Â_) (mid Gâ³ Gâ²) âˆ™ sym (ÂAssoc r r (r Â (Gâ³ Â Gâ²)))))
+        R4 : - (V Â· W + W Â· V) â‰¡ (- f) + (- g)
+        R4 = cong -_ (congâ‚‚ _+_ (left Gâ€² ((r Â· r) Â· Gâ€³) âˆ™ cong (r Â·_) (cong (Gâ€² Â·_) (sym (Â·Assoc r r Gâ€³)) âˆ™ mid Gâ€² (r Â· Gâ€³) âˆ™ cong (r Â·_) (mid Gâ€² Gâ€³)))
+                                (sym (Â·Assoc (r Â· r) Gâ€³ (r Â· Gâ€²)) âˆ™ cong ((r Â· r) Â·_) (mid Gâ€³ Gâ€²) âˆ™ sym (Â·Assoc r r (r Â· (Gâ€³ Â· Gâ€²)))))
            âˆ™ sym (-Dist f g)
 
         RHSn : A
@@ -188,13 +188,13 @@ module _ (R : Ring â“) where
         cancel = cong ((c + c) +_) (-Dist c c) âˆ™ +InvR (c + c)
 
       -- THE THEOREM
-      pressure-bracket-is-exact : r Â âˆ Î¦â â‰¡ bracket
+      pressure-bracket-is-exact : r Â· âˆ‚ Î¦â‚‚ â‰¡ bracket
       pressure-bracket-is-exact =
-          cong (r Â_) (âˆ-add _ _ âˆ™ cong (_+ âˆ (- ((r Â r) Â (Gâ² Â Gâ²)))) (âˆ-add _ _))
-        âˆ™ ÂDistR+ r _ _
-        âˆ™ cong (_+ r Â âˆ (- ((r Â r) Â (Gâ² Â Gâ²)))) (ÂDistR+ r _ _)
-        âˆ™ congâ _+_ (congâ _+_ L1 L2) L3
-        âˆ™ AdditiveShape.rearrange (AbGroupâ’CommMonoid (Ringâ’AbGroup R)) a b c d e f g (- c) (- f) (- g)
+          cong (r Â·_) (âˆ‚-add _ _ âˆ™ cong (_+ âˆ‚ (- ((r Â· r) Â· (Gâ€² Â· Gâ€²)))) (âˆ‚-add _ _))
+        âˆ™ Â·DistR+ r _ _
+        âˆ™ cong (_+ r Â· âˆ‚ (- ((r Â· r) Â· (Gâ€² Â· Gâ€²)))) (Â·DistR+ r _ _)
+        âˆ™ congâ‚‚ _+_ (congâ‚‚ _+_ L1 L2) L3
+        âˆ™ AdditiveShape.rearrange (AbGroupâ†’CommMonoid (Ringâ†’AbGroup R)) a b c d e f g (- c) (- f) (- g)
         âˆ™ cong (RHSn +_) cancel
         âˆ™ +IdR RHSn
-        âˆ™ sym (congâ _+_ (congâ _+_ (congâ _+_ R1 R2) R3) R4)
+        âˆ™ sym (congâ‚‚ _+_ (congâ‚‚ _+_ (congâ‚‚ _+_ R1 R2) R3) R4)

@@ -3,28 +3,28 @@
 ------------------------------------------------------------------------
 -- TheCountingSemanticsIsTheCardinalityOfTheTypeSemantics
 --
--- Closes the bridge that `TheCountingSemanticsIsADecategorification�`
+-- Closes the bridge that `TheCountingSemanticsIsADecategorification…`
 -- explicitly left open ("No theorem here relates ⟦t⟧ to eval t by
--- cardinality � that would need finiteness and is not proved").
+-- cardinality — that would need finiteness and is not proved").
 --
 -- THE CLAIM, made precise: `eval` is the CARDINALITY of `⟦_⟧`. Interpret
 -- each of the six variable coordinates not by a number but by a finite type
--- OF that number's cardinality � `canonical �` sends `var` to `Fin (x �)`,
+-- OF that number's cardinality — `canonical ρ` sends `var` to `Fin (x ρ)`,
 -- etc. Then the categorified semantics of any term is a finite type, and its
 -- size is exactly the counting semantics:
 --
---     ⟦ t ⟧ (canonical �)  �  Fin (eval t �).
+--     ⟦ t ⟧ (canonical ρ)  ≃  Fin (eval t ρ).
 --
--- So `eval = |�| ∘ ⟦_⟧` at finite environments: the counting semantics is
+-- So `eval = |·| ∘ ⟦_⟧` at finite environments: the counting semantics is
 -- the decategorified shadow (the cardinality realization) of the type
 -- semantics, and the bijection `⟦_⟧` keeps is exactly the structure the
 -- cardinality forgets. Read against the motive picture: `⟦_⟧` is the middle,
 -- `eval` is a realization, and `Fin (eval t)` is that realization named.
 --
 -- The proof is short because cubical's `SumFin.Fin` is DEFINED with the same
--- clauses as `⟦_⟧`: `Fin 0 = �`, `Fin (suc n) = � � Fin n`. So `zero` and
--- `suc` are definitional and only `add` needs a lemma � `SumFin��`, the
--- library's `(Fin m � Fin n) � Fin (m + n)`.
+-- clauses as `⟦_⟧`: `Fin 0 = ⊥`, `Fin (suc n) = ⊤ ⊎ Fin n`. So `zero` and
+-- `suc` are definitional and only `add` needs a lemma — `SumFin⊎≃`, the
+-- library's `(Fin m ⊎ Fin n) ≃ Fin (m + n)`.
 ------------------------------------------------------------------------
 
 module TheCountingSemanticsIsTheCardinalityOfTheTypeSemantics where

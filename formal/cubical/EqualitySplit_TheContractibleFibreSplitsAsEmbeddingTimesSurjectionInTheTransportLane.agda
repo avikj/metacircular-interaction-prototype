@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ����-������, in the transport lane.
+-- समता-द्विधा, in the transport lane.
 --
 -- The punaragamana library (Agda 2.6.3 + cubical v0.5) carries
--- `Punaragamana.SamataDvidha_�`: for any f : A � B,
+-- `Punaragamana.SamataDvidha_…`: for any f : A → B,
 --
---   ((b : B) � isContr (��� f b))  �  embedding f � split-surjection f
+--   ((b : B) → isContr (शेष f b))  ≃  embedding f × split-surjection f
 --
--- where ��� f b = fiber f b, embedding = (b � isProp (��� f b)) =
--- hasPropFibers f, split-surjection = (b � ��� f b).  "Every genuinely
+-- where शेष f b = fiber f b, embedding = (b → isProp (शेष f b)) =
+-- hasPropFibers f, split-surjection = (b → शेष f b).  "Every genuinely
 -- independent distinction must survive" (Carrier's law) is a PRODUCT of two
 -- orthogonal obligations, and the two ways a residual refuses contractibility
--- � CROWDED (������) and EMPTY (�����������) � are the two factors failing apart.
+-- — CROWDED (नष्टि) and EMPTY (अवक्तव्यम्) — are the two factors failing apart.
 --
 -- This module carries the same split into the TRANSPORT lane
 -- (`NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual`), where the
--- identical residual `��� r = fiber r` already sits under `�����-��������`
--- (loss-free ⟺ every residual contractible) � but that lane never split the
--- hypothesis.  Now it is split, on the nose, beside `�����-��������`.
+-- identical residual `शेष r = fiber r` already sits under `अलोप-लक्षणम्`
+-- (loss-free ⟺ every residual contractible) — but that lane never split the
+-- hypothesis.  Now it is split, on the nose, beside `अलोप-लक्षणम्`.
 --
--- CHECKED: loaded warm through the ���� conduit against the container's agda
--- (2.8.0-lane cubical) � ������ ������, no open goals.  --cubical --safe, no
+-- CHECKED: loaded warm through the नाडी conduit against the container's agda
+-- (2.8.0-lane cubical) — छिद्रं नास्ति, no open goals.  --cubical --safe, no
 -- postulates, no holes.  The formal/cubical `Everything.agda` closure is
--- pin-blocked elsewhere on this container (solve�! skew, a catalogued fiber),
+-- pin-blocked elsewhere on this container (solveℕ! skew, a catalogued fiber),
 -- which is a fact about that closure and not about this module.
 ------------------------------------------------------------------------
 
-module SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane where
+module EqualitySplit_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
@@ -42,7 +42,7 @@ private
   variable
     ℓ : Level
 
--- 1.  isContr X � (isProp X � X): contractible = an inhabited proposition.
+-- 1.  isContr X ≃ (isProp X × X): contractible = an inhabited proposition.
 isContr≃isProp×inhab : {X : Type ℓ} → isContr X ≃ (isProp X × X)
 isContr≃isProp×inhab {X = X} =
   propBiimpl→Equiv isPropIsContr rhs-prop to fro
@@ -54,7 +54,7 @@ isContr≃isProp×inhab {X = X} =
     rhs-prop : isProp (isProp X × X)
     rhs-prop = isPropΣ isPropIsProp (λ p → p)
 
--- 2.  Π distributes over a pointwise product; pure �.
+-- 2.  Π distributes over a pointwise product; pure η.
 module _ {A : Type ℓ} {P Q : A → Type ℓ} where
   Π×Iso : Iso ((a : A) → (P a × Q a)) (((a : A) → P a) × ((a : A) → Q a))
   Iso.fun      Π×Iso g       = (λ a → fst (g a)) , (λ a → snd (g a))
@@ -83,18 +83,18 @@ module _ {A B : Type ℓ} (f : A → B) where
   समता≃भेद×छादन : isEquiv f ≃ (भेदः × छादनम्)
   समता≃भेद×छादन = compEquiv समता-census समता-द्विधा
 
-  -- the left factor IS "f is an embedding", definitionally (��� f = fiber f).
+  -- the left factor IS "f is an embedding", definitionally (शेष f = fiber f).
   भेदः→embedding : भेदः → isEmbedding f
   भेदः→embedding = hasPropFibers→isEmbedding
 
   embedding→भेदः : isEmbedding f → भेदः
   embedding→भेदः = isEmbedding→hasPropFibers
 
-  -- THE COROLLARY, tying the split to the lane's headline �����-��������
+  -- THE COROLLARY, tying the split to the lane's headline अलोप-लक्षणम्
   -- (loss-free ⟺ every residual contractible).  Its hypothesis IS the split
-  -- product, so: a map that is BOTH an embedding (����) AND split-surjective
-  -- (������) is a transport-equivalence A � B � the exact fibre-census form
-  -- of (mono ∧ epi � iso).  No new proof: invert the split and feed
-  -- �����-��������.
+  -- product, so: a map that is BOTH an embedding (भेदः) AND split-surjective
+  -- (छादनम्) is a transport-equivalence A ≃ B — the exact fibre-census form
+  -- of (mono ∧ epi ⟹ iso).  No new proof: invert the split and feed
+  -- अलोप-लक्षणम्.
   भेद×छादन→समता : भेदः → छादनम् → A ≃ B
   भेद×छादन→समता e s = अलोप-लक्षणम् f (invEq समता-द्विधा (e , s))

@@ -58,7 +58,7 @@ RESOLVED IN PART.  The broker vocabulary now exists:
 theorems/unplaced/PunahPrapti gives offsets, the received-set, and
 delivery, and proves redelivery idempotent and deliveries at every
 pair of offsets commuting, so duplicates collapse and adjacent swaps
-are free â” at-least-once has the effect exactly-once was purchased
+are free â€” at-least-once has the effect exactly-once was purchased
 for, with the dedup store's absence now algebraic on the model.
 Partitions, checkpoints and watermarks remain constructions.
 

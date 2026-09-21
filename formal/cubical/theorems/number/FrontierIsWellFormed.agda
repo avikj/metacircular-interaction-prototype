@@ -6,21 +6,21 @@
 -- `FrontierList.countAt` gives the frontier's residue count only at a
 -- `k` you name:
 --
---     countAt : (k : â•)
---             â’ isYes (decAllPrime (frontierList k)) â‰¡ true
---             â’ isYes (decDistinct (frontierList k)) â‰¡ true
---             â’ Fin (prodOf (frontierList k)) â‰ VecOf (frontierList k)
+--     countAt : (k : â„•)
+--             â†’ isYes (decAllPrime (frontierList k)) â‰¡ true
+--             â†’ isYes (decDistinct (frontierList k)) â‰¡ true
+--             â†’ Fin (prodOf (frontierList k)) â‰ƒ VecOf (frontierList k)
 --
 -- Both hypotheses are supplied by `refl` at each concrete `k`.  That is
 -- about, one level up: a decision procedure run at one input standing in
 -- for a theorem about all of them.  Here it is the theorem.
 --
---     frontier-allPrime : (k : â•) â’ AllPrime  (frontierList k)
---     frontier-distinct : (k : â•) â’ Distinct  (frontierList k)
---     frontier-count-at : (k : â•)
---                       â’ Fin (prodOf (frontierList k)) â‰ VecOf (frontierList k)
+--     frontier-allPrime : (k : â„•) â†’ AllPrime  (frontierList k)
+--     frontier-distinct : (k : â„•) â†’ Distinct  (frontierList k)
+--     frontier-count-at : (k : â„•)
+--                       â†’ Fin (prodOf (frontierList k)) â‰ƒ VecOf (frontierList k)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY IT IS SHORT NOW
 --
 -- Because `FrontierMember` already had to lift `keepPrimes` and
@@ -34,10 +34,10 @@
 --               every tail element, and both the filter and the tagging
 --               preserve "not in".
 --
--- No arithmetic beyond `Âm<m`.  The two auxiliary families `NotIn` and
+-- No arithmetic beyond `Â¬m<m`.  The two auxiliary families `NotIn` and
 -- `NoDup` are recursive over the list, this lane's standing idiom.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -62,7 +62,7 @@ open import FrontierList
   using (downFrom ; keepPrimes ; primesUpTo ; entriesAt ; frontierList ; logOf)
 
 ------------------------------------------------------------------------
--- 1.  Two recursive families over â•-lists
+-- 1.  Two recursive families over â„•-lists
 ------------------------------------------------------------------------
 
 AllP : List â„• â†’ Type
@@ -167,14 +167,14 @@ frontier-count-at k =
 -- Together with `FrontierDividesHard`, the frontier at every k now has
 -- both of its properties as theorems:
 --
---   prodOf (frontierList k) is lcm(1 â¦ k)      universal property
---   Fin (prodOf (frontierList k)) â‰ VecOf â¦    residue count
+--   prodOf (frontierList k) is lcm(1 â€¦ k)      universal property
+--   Fin (prodOf (frontierList k)) â‰ƒ VecOf â€¦    residue count
 --
 -- and neither rests on a computed instance any more.
 --
 -- The general shape, third instance in this thread: a decision
 -- procedure run at one input is the same kind of stand-in as a fuelled
 -- computation checked at one input.  `Dec` at least cannot lie about
--- the input it was run on â” which is exactly why this one was harmless
+-- the input it was run on â€” which is exactly why this one was harmless
 -- and the fuel ones were not.
 ------------------------------------------------------------------------

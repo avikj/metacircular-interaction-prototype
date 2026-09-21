@@ -23,8 +23,8 @@ the type former **at runtime**. Nothing is erased and nothing is
 pre-normalised. The evaluator underneath is HVM4: an interaction net with
 optimal reduction and native duplication/superposition.
 
-So the identification the README asks for â” trace = path = data = program =
-execution = proof = transport â” is not a slogan about the type system. It
+So the identification the README asks for â€” trace = path = data = program =
+execution = proof = transport â€” is not a slogan about the type system. It
 is the runtime representation. A path is a value you can pass around. A
 proof of equivalence is a function that moves data. Transport is an
 ordinary reduction.
@@ -39,7 +39,7 @@ on interaction nets":
 Observed: `pcompH(...) @ #IVar{0}` evaluates to a stuck `#HCm` carrying its
 faces; the same term at `#I0` is `#Zer` and at `#I1` the tube's top. That is
 partial knowledge as a computational object, with the Kan conditions as its
-correctness criterion â” compute now with what is known, and the shape of
+correctness criterion â€” compute now with what is known, and the shape of
 what is not known is a face. I am not aware of another runtime where
 "undetermined" has that structure.
 
@@ -47,12 +47,12 @@ what is not known is a face. I am not aware of another runtime where
 
 | claim | evidence |
 |---|---|
-| Full Kan structure | `coe` for Î /Î/Path/ua/Glue/composite lines, `hcomp` with face algebra, `hcomp` in `Set` reducing to `Glue` â” in the checker and in the full runtime |
-| Univalence computes | `uaG_beta` definitional for an *abstract* equivalence; coherent reverse round trip (`uaequiv.bend`, 17 â“) |
-| The lossless step | `A â‰ Î B (fiber f)` as a coherent `Equiv`, `present`/`retrieve` run (`fibrelaw.bend`, 35 â“) |
-| Genuine coinduction | corecursive records and corecursive bisimulation paths, `[productive]` under `--total` (`coinduction.bend` 13 â“, `streams.bend` 10 â“) |
-| Prasna, in general | `isContr(IExec x)` for any interaction with contractible questions, contraction a corecursive `PathP` over a path of states (`silence.bend` 25 â“, runs to 4 on HVM) |
-| The braid fabric | braid and distant-commutation relations pointwise (`braid.bend` 16 â“) |
+| Full Kan structure | `coe` for Î /Î£/Path/ua/Glue/composite lines, `hcomp` with face algebra, `hcomp` in `Set` reducing to `Glue` â€” in the checker and in the full runtime |
+| Univalence computes | `uaG_beta` definitional for an *abstract* equivalence; coherent reverse round trip (`uaequiv.bend`, 17 âœ“) |
+| The lossless step | `A â‰ƒ Î£ B (fiber f)` as a coherent `Equiv`, `present`/`retrieve` run (`fibrelaw.bend`, 35 âœ“) |
+| Genuine coinduction | corecursive records and corecursive bisimulation paths, `[productive]` under `--total` (`coinduction.bend` 13 âœ“, `streams.bend` 10 âœ“) |
+| Prasna, in general | `isContr(IExec x)` for any interaction with contractible questions, contraction a corecursive `PathP` over a path of states (`silence.bend` 25 âœ“, runs to 4 on HVM) |
+| The braid fabric | braid and distant-commutation relations pointwise (`braid.bend` 16 âœ“) |
 | Soundness probes | every theorem file has a must-fail sibling; the suite is 53 files, bad = 0 |
 
 ## 3. Measured: transport is paid once under sharing
@@ -74,7 +74,7 @@ transport itself (~136) is paid exactly once regardless of `k`.
 
 Honest framing: call-by-need gives this too. This measurement establishes
 that keeping the cubical apparatus at runtime does *not* cost a rerun per
-use â” which is the thing that would have killed the approach â” not that the
+use â€” which is the thing that would have killed the approach â€” not that the
 interaction net is doing something a lazy language could not.
 
 ## 4. Measured: when superposed transport wins, and when it loses
@@ -87,7 +87,7 @@ right (`supline.bend` proves it definitionally; every run below agrees).
 Whether it is *cheaper* has two regimes, and the rule is simple:
 **superposition pays exactly when the branches share work.**
 
-**It wins when the line is shared** â” one transport, N values, which is the
+**It wins when the line is shared** â€” one transport, N values, which is the
 fibre-routing case and the one that matters for applications:
 
 | N values, one shared line | superposed | separate | ratio |
@@ -101,7 +101,7 @@ Marginal cost of one more transported value: **38 interactions superposed,
 done once for the whole batch. One proved equivalence moving a batch of
 values is genuinely sublinear in the batch size.
 
-**It loses when the lines differ** â” N values down N *different* lines,
+**It loses when the lines differ** â€” N values down N *different* lines,
 where there is nothing to share:
 
 | N values, N different lines | superposed | separate | ratio |
@@ -112,8 +112,8 @@ where there is nothing to share:
 **A correction to an earlier draft of this section.** I first measured only
 the losing regime and explained it by saying each branch re-enters `@coe`
 and re-runs the dispatch, making it an emitter problem. That explanation is
-false. Applying a one-line `neg` to a superposition â” a function with
-essentially no dispatch â” shows a *larger* penalty than `coe` does:
+false. Applying a one-line `neg` to a superposition â€” a function with
+essentially no dispatch â€” shows a *larger* penalty than `coe` does:
 
 | function applied to `&0{True,False}` | superposed | separate | ratio |
 |---|---|---|---|
@@ -133,7 +133,7 @@ Reproduce: `bench_same{2,4,8}_{sup,sep}.bend`, `bench_iso_*.bend`,
 ## 5. Immediately realizable, ranked by value over effort
 
 1. **Proof-carrying data migration.** `ua(e) : A = B` transported over a
-   value *is* the migration, and it runs. The Glue rules mean Ï-restricted
+   value *is* the migration, and it runs. The Glue rules mean Ï†-restricted
    (partial) migrations work too. Everything needed is in place; what is
    missing is a demo on a record type with more than two fields.
 2. **Hot-swap by bisimulation.** Two corecursive machines and a proved
@@ -144,7 +144,7 @@ Reproduce: `bench_same{2,4,8}_{sup,sep}.bend`, `bench_iso_*.bend`,
 3. **Contractibility as an optimisation.** `silence-is-determinism` says
    that when the choice space is trivial the whole space of runs is a point.
    The checker can see this. Operationally that licenses collapsing an
-   entire interaction to a value â” a deterministic-collapse pass justified
+   entire interaction to a value â€” a deterministic-collapse pass justified
    by a theorem rather than by analysis.
 4. **Speculation on undecided faces.** Build on the stuck `#HCm`: compute
    under a face nobody has decided, decide it, watch the dead branches drop.
@@ -153,7 +153,7 @@ Reproduce: `bench_same{2,4,8}_{sup,sep}.bend`, `bench_iso_*.bend`,
    one `ua(e)` transport applied to a superposition of N values costs 38
    interactions per value against 139 done separately, improving with N.
    This is the DUP-SUP story in its computational form, and it composes
-   directly with item 1 â” a schema migration over a batch of records is
+   directly with item 1 â€” a schema migration over a batch of records is
    exactly "one shared line, many values".
 
 ## 6. What is not proved
@@ -177,7 +177,7 @@ Reproduce: `bench_same{2,4,8}_{sup,sep}.bend`, `bench_iso_*.bend`,
 
 ## 7. Prior art: agda2hvm, and why it does not overlap
 
-`github.com/matteo-meluzzi/agda2hvm` â” Meluzzi, TU Delft BSc thesis, 17 June
+`github.com/matteo-meluzzi/agda2hvm` â€” Meluzzi, TU Delft BSc thesis, 17 June
 2022, supervised by Jesper Cockx (Agda core developer) and Lucas Escot. It
 compiles Agda to HVM. Read in full before writing this section.
 
@@ -193,7 +193,7 @@ from exponentially faster to exponentially slower.
 *transp*, *hcomp*, *Glue*, *univalence*, or *interval*. That is not an
 oversight. `toTreeless` hands a backend a term whose types are already gone,
 so a backend built on it cannot keep the cubical apparatus alive even in
-principle â” there is nothing left to keep.
+principle â€” there is nothing left to keep.
 
 **Why this matters here, in both directions.**
 
@@ -201,7 +201,7 @@ principle â” there is nothing left to keep.
   interaction net*, and Â§1's claim is scoped accordingly: the novel part is
   not Agda-or-Bend on HVM, it is declining to erase.
 - It retroactively justifies the route this project took. The natural first
-  idea â” put the Agda corpus on HVM directly through Agda's backend API â”
+  idea â€” put the Agda corpus on HVM directly through Agda's backend API â€”
   cannot work for Cubical Agda, because that API's entry point is an
   already-erased term. Keeping `coe`, `hcomp`, `Glue` and the interval as
   runtime values requires a compiler whose source representation still

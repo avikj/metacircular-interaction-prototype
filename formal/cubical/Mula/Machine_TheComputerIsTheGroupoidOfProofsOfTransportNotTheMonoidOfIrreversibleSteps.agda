@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡Ø‡®‡‡‡‡∞ ‚î what the computer is: the groupoid of proofs-of-transport, not
+-- ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞ ‚Äî what the computer is: the groupoid of proofs-of-transport, not
 -- the monoid of irreversible steps.
 --
--- The owner asked, flatly: WHAT'S THE COMPUTER.  Not a metaphor ‚î the
+-- The owner asked, flatly: WHAT'S THE COMPUTER.  Not a metaphor ‚Äî the
 -- machine.  This file answers it as a checked term, and the answer is one
 -- word with a proof: a GROUPOID.
 --
@@ -15,8 +15,8 @@
 -- but pays per EXECUTION).  A monoid has composition and identity and NO
 -- inverse.  That missing inverse is the heat.
 --
--- THIS COMPUTER's operations are PROOFS OF TRANSPORT ‚î equivalences
--- e : A ‚â B, equivalently paths ua e : A ‚â° B (`PramanaSankramana`).  And
+-- THIS COMPUTER's operations are PROOFS OF TRANSPORT ‚Äî equivalences
+-- e : A ‚âÉ B, equivalently paths ua e : A ‚â° B (`PramanaSankramana`).  And
 -- those form a GROUPOID: composition, identity, AND a two-sided inverse,
 -- with the laws holding definitionally (the library proves each by
 -- `equivEq refl`).  Every program is invertible; every run can be run
@@ -30,52 +30,52 @@
 -- leaving the thermodynamic one standing.  "Nothing is erased" is
 -- checked below (¬ß2's inverse laws) and is a statement about types;
 -- "nothing dissipates" is a statement about a physical implementation,
--- of which there is none here ‚î no energy, no temperature, no entropy,
+-- of which there is none here ‚Äî no energy, no temperature, no entropy,
 -- no measure appears in this file.  Landauer's principle is the MOTIVE
 -- for asking which step is non-injective, and the precise typal content
--- of "erases nothing" is `Vyapti_TheLossOrderIsCoarsening‚¶agda` ¬ß‡: the
--- collision type `‡µ‡ø‡‡‡Æ‡‡‡ø‡ Œ¶` is empty when `Œ¶` is an equivalence.
+-- of "erases nothing" is `Vyapti_TheLossOrderIsCoarsening‚Ä¶agda` ¬ß‡•¨: the
+-- collision type `‡§µ‡§ø‡§∏‡•ç‡§Æ‡•É‡§§‡§ø‡§É Œ¶` is empty when `Œ¶` is an equivalence.
 -- That is the whole of it.  No heat is derived and no physical constant
 -- is on this page.]
 --
 -- The groupoid IS the computer, and the presence of the
--- inverse ‚î the one thing the monoid lacks ‚î is the whole difference.
+-- inverse ‚Äî the one thing the monoid lacks ‚Äî is the whole difference.
 --
--- ‡Ø‡®‡‡‡‡∞ (yantra) is the corpus's word for the machine (`Yantra_The-
+-- ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞ (yantra) is the corpus's word for the machine (`Yantra_The-
 -- OrgansAreOneMachineOnOneWire`).  No stra claimed.
 --
 -- WHAT IS PROVED (all reusing the library's checked equivalence laws, so
 -- these are the machine's instruction-set laws, not new mathematics):
 --
---   ¬ß2  the five groupoid laws on Receipt = _‚â_:
---       ‡‡ï‡æ‡ó‡‡∞‡‡æ-‡µ‡æ‡Æ / -‡¶‡ï‡‡‡ø‡   identity is a two-sided no-op
---       ‡‡‡∞‡‡ø‡≤‡ã‡Æ‡-‡¶‡ï‡‡‡ø‡ / -‡µ‡æ‡Æ   inverse is two-sided (the run undoes)
---       ‡‡æ‡‡‡∞‡‡Ø‡Æ‡                composition is associative (sequencing)
---   ¬ß3  ‡‡æ‡≤‡®‡Æ‡ : running a program IS transport along its path.
---       ‡‡æ‡≤‡®‡-‡‡‡∞‡‡ø‡≤‡ã‡Æ‡‡Ø‡Æ‡ : every run has an inverse run ‚î reversible.
---       ‡‡æ‡≤‡®-‡‡®‡‡ß‡ø‡ : composing programs, then running, = running each in
+--   ¬ß2  the five groupoid laws on Receipt = _‚âÉ_:
+--       ‡§è‡§ï‡§æ‡§ó‡•ç‡§∞‡§§‡§æ-‡§µ‡§æ‡§Æ / -‡§¶‡§ï‡•ç‡§∑‡§ø‡§£   identity is a two-sided no-op
+--       ‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ‡§É-‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ / -‡§µ‡§æ‡§Æ   inverse is two-sided (the run undoes)
+--       ‡§∏‡§æ‡§π‡§ö‡§∞‡•ç‡§Ø‡§Æ‡•ç                composition is associative (sequencing)
+--   ¬ß3  ‡§ö‡§æ‡§≤‡§®‡§Æ‡•ç : running a program IS transport along its path.
+--       ‡§ö‡§æ‡§≤‡§®‡§Ç-‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ‡•ç‡§Ø‡§Æ‡•ç : every run has an inverse run ‚Äî reversible.
+--       ‡§ö‡§æ‡§≤‡§®-‡§∏‡§®‡•ç‡§ß‡§ø‡§É : composing programs, then running, = running each in
 --       turn (the machine is a functor from the groupoid to functions).
 --   ¬ß4  the contrast, as types: a MONOID interface has ‚àò and id and no
---       inverse field; the groupoid adds ‡‡‡∞‡‡ø‡≤‡ã‡Æ‡.  The added field is
---       the reversibility.  (NOT the heat ‚î see the correction inset.)
+--       inverse field; the groupoid adds ‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ‡§É.  The added field is
+--       the reversibility.  (NOT the heat ‚Äî see the correction inset.)
 --
 -- WHY THIS IS THE RIGHT COMPUTER FOR COMPUTATIONAL SPACETIME.  Physics is
 -- reversible (unitary evolution, time-symmetric microdynamics); its state
 -- moves by PARALLEL TRANSPORT along paths, and indistinguishable
 -- configurations are genuinely identified (gauge / general covariance).
 -- A groupoid of transports is exactly that structure: paths compose and
--- invert, and univalence (`ua`) makes equivalent types EQUAL ‚î so the
+-- invert, and univalence (`ua`) makes equivalent types EQUAL ‚Äî so the
 -- machine cannot even express a difference between physically
 -- indistinguishable states.  General covariance is not imposed on this
 -- computer; it is what its equality IS.  (Stated as motivation, not
--- proved here ‚î the proved content is ¬ß¬ß2‚ì4, the groupoid.)
+-- proved here ‚Äî the proved content is ¬ß¬ß2‚Äì4, the groupoid.)
 --
 -- WHAT IS **NOT** CLAIMED:
---   * The physics correspondence (unitarity, gauge) as a theorem ‚î it is
+--   * The physics correspondence (unitarity, gauge) as a theorem ‚Äî it is
 --     the reading; the checked content is the groupoid structure.
 --   * That the repository's RUNNING apparatus (the kernel exit-0/42 gate,
 --     the git stream, the disposable minds, the Rust evolve loop) is
---     literally this groupoid ‚î that apparatus is the SUBSTRATE that
+--     literally this groupoid ‚Äî that apparatus is the SUBSTRATE that
 --     CHECKS these terms; this file names the machine those terms form.
 --   * Univalence itself (imported, checked in the library).
 --   * ANY THERMODYNAMICS.  No heat, energy, temperature, entropy, measure
@@ -88,7 +88,7 @@
 -- repository pin), --cubical --safe, exit 0, re-checked 2026-08-23.
 ------------------------------------------------------------------------
 
-module Mula.Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where
+module Mula.Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
@@ -119,7 +119,7 @@ _‚à•_ = compEquiv
 ‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ‡§É = invEquiv
 
 ------------------------------------------------------------------------
--- ¬ß2  The five groupoid laws ‚î the machine's instruction-set identities.
+-- ¬ß2  The five groupoid laws ‚Äî the machine's instruction-set identities.
 --     Each is a library term; that they hold is what makes this a
 --     groupoid and not merely a monoid-with-a-partial-undo.
 ------------------------------------------------------------------------
@@ -151,7 +151,7 @@ _‚à•_ = compEquiv
 ‡§ö‡§æ‡§≤‡§®‡§Æ‡•ç : Program A B ‚Üí A ‚Üí B
 ‡§ö‡§æ‡§≤‡§®‡§Æ‡•ç p = equivFun p
 
--- every run has an inverse run ‚î this is the field a monoid lacks
+-- every run has an inverse run ‚Äî this is the field a monoid lacks
 ‡§ö‡§æ‡§≤‡§®‡§Ç-‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ‡•ç‡§Ø‡§Æ‡•ç : Program A B ‚Üí B ‚Üí A
 ‡§ö‡§æ‡§≤‡§®‡§Ç-‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ‡•ç‡§Ø‡§Æ‡•ç p = equivFun (‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ‡§É p)
 
@@ -166,7 +166,7 @@ _‚à•_ = compEquiv
 
 ------------------------------------------------------------------------
 -- ¬ß4  The contrast made into types: a monoid interface has sequencing and
---     a no-op and no inverse; the groupoid adds ‡‡‡∞‡‡ø‡≤‡ã‡Æ‡ with its two
+--     a no-op and no inverse; the groupoid adds ‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ‡§É with its two
 --     laws.  The added field is the reversibility.  (NOT the heat: see the
 --     correction inset at the top.  Records, so the difference is structural.)
 ------------------------------------------------------------------------
@@ -191,8 +191,8 @@ record GroupoidMachine (Op : Type ‚Ñì) : Type ‚Ñì where
     invR : (x : Op) ‚Üí seq x (inv x) ‚â° noop
     invL : (x : Op) ‚Üí seq (inv x) x ‚â° noop
 
--- the endo-programs A ‚â A ARE a groupoid-machine: the added `inv` field
--- is populated by ‡‡‡∞‡‡ø‡≤‡ã‡Æ‡, the field a MonoidMachine cannot fill.
+-- the endo-programs A ‚âÉ A ARE a groupoid-machine: the added `inv` field
+-- is populated by ‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ‡§É, the field a MonoidMachine cannot fill.
 ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç : (A : Type ‚Ñì) ‚Üí GroupoidMachine (Program A A)
 ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç A = record
   { mon = record

@@ -11,7 +11,7 @@
 --
 --     BoundedOrbit e  ⟺  BoundedOffset e c        (for every offset c).
 --
--- Hence the receiver is harmless � the observed boundedness of B(t) reflects
+-- Hence the receiver is harmless — the observed boundedness of B(t) reflects
 -- exactly the mode exponents, not the receiver's damping.  "The damping is in
 -- the receiver; it changes modal amplitudes, not the scale-growth exponent."
 ------------------------------------------------------------------------

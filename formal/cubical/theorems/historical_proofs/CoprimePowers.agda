@@ -5,28 +5,28 @@
 --
 -- `CRTChain` names the one missing piece: that the walk's installed prime
 -- powers are pairwise coprime.  This is that piece's algebra, and the
--- algebra is all of it â” no primality is needed, only that the BASES are
+-- algebra is all of it â€” no primality is needed, only that the BASES are
 -- coprime.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STATEMENT
 --
--- Coprimality is carried as a B©zout pair, which is what ryabhaa's
+-- Coprimality is carried as a BÃ©zout pair, which is what Ä€ryabhaá¹­a's
 -- kuaka produces (`Kuttaka.bezout`, 499 CE, already checked here):
 --
---     Bez a b  =  Î x, Î y,  aÂx + bÂy â‰¡ 1
+--     Bez a b  =  Î£ x, Î£ y,  aÂ·x + bÂ·y â‰¡ 1
 --
 -- and then
 --
---     bez-mul       :  Bez a b â’ Bez a c â’ Bez a (b Â c)
---     bez-pow       :  Bez a b â’ (n : â•) â’ Bez a (b ^ n)
---     coprime-powers:  Bez a b â’ (m n : â•) â’ Bez (a ^ m) (b ^ n)
+--     bez-mul       :  Bez a b â†’ Bez a c â†’ Bez a (b Â· c)
+--     bez-pow       :  Bez a b â†’ (n : â„•) â†’ Bez a (b ^ n)
+--     coprime-powers:  Bez a b â†’ (m n : â„•) â†’ Bez (a ^ m) (b ^ n)
 --
 -- `bez-mul` is one polynomial identity:
 --
---     (ax + by)(au + cv)  =  aÂ(axu + cxv + byu)  +  (bc)Â(yv)
+--     (ax + by)(au + cv)  =  aÂ·(axu + cxv + byu)  +  (bc)Â·(yv)
 --
--- so a B©zout certificate for `(a, bc)` is assembled from the two given
+-- so a BÃ©zout certificate for `(a, bc)` is assembled from the two given
 -- ones by multiplication.  Everything else is two inductions and a
 -- symmetry.
 --
@@ -34,8 +34,8 @@
 -- because 2 and 3 are**, with the certificate computed rather than
 -- guessed (`bez-8-9`).
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHY B‰ZOUT AND NOT `gcd`
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHY BÃ‰ZOUT AND NOT `gcd`
 --
 -- Because the kuaka produces a certificate, not a predicate.  ryabhaa's
 -- procedure returns the multipliers; `Kuttaka.bezout` returns them as a
@@ -47,13 +47,13 @@
 -- That is the kuaka's own design: *"keep the remainder and recurse on
 -- it"* returns a construction, and the construction is what composes.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS STILL MISSING, PRECISELY
 --
--- The bridge from `Bez` over â to `isGCD m n 1` over â•, which is what
--- `CRTChain.Coprimes` asks for.  It is the standard argument â” a common
--- divisor of m and n divides `mx + ny = 1` â” and it needs divisibility
--- transfer between â• and â that this lane does not carry.  Named here so
+-- The bridge from `Bez` over â„¤ to `isGCD m n 1` over â„•, which is what
+-- `CRTChain.Coprimes` asks for.  It is the standard argument â€” a common
+-- divisor of m and n divides `mx + ny = 1` â€” and it needs divisibility
+-- transfer between â„• and â„¤ that this lane does not carry.  Named here so
 -- the gap is one lemma with a name rather than a vague "number theory".
 --
 -- Also missing, and separately: that distinct PRIMES are coprime.  This
@@ -61,7 +61,7 @@
 -- for the walk's actual moduli they are computed one gcd at a time
 -- (`CRTChain.walk8-coprimes`).
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -142,17 +142,17 @@ module Bezout (R : CommRing â„“) where
   bez-pow {a} _   zero    = bez-one a
   bez-pow     bab (suc n) = bez-mul bab (bez-pow bab n)
 
-  -- THE STATEMENT `CRTChain` asked for, modulo the â• bridge.
+  -- THE STATEMENT `CRTChain` asked for, modulo the â„• bridge.
   coprime-powers : {a b : A} â†’ Bez a b â†’ (m n : â„•) â†’ Bez (pow a m) (pow b n)
   coprime-powers bab m n =
     bez-sym (bez-pow (bez-sym (bez-pow bab n)) m)
 
 ------------------------------------------------------------------------
--- 4.  The walk's own case, computed over â.
+-- 4.  The walk's own case, computed over â„¤.
 --
---   2Â(âˆ’1) + 3Â1 = 1, so Bez 2 3;  hence Bez (2Â³) (3Â²), i.e. 8 and 9.
+--   2Â·(âˆ’1) + 3Â·1 = 1, so Bez 2 3;  hence Bez (2Â³) (3Â²), i.e. 8 and 9.
 --
--- The certificate for 8 and 9 is not guessed â” it is what
+-- The certificate for 8 and 9 is not guessed â€” it is what
 -- `coprime-powers` builds out of the certificate for 2 and 3.
 ------------------------------------------------------------------------
 
@@ -176,11 +176,11 @@ pow-3-2-is-9 = refl
 --
 -- CLOSED: the composition law.  Coprimality of powers follows from
 -- coprimality of bases by one ring identity plus two inductions, with the
--- B©zout witness carried throughout â” which is the kuaka's output, not
+-- BÃ©zout witness carried throughout â€” which is the kuá¹­á¹­aka's output, not
 -- a predicate reconstructed after the fact.
 --
 -- OPEN, and now named as one lemma each:
---   * `Bez a b â’ isGCD a b 1` over â•, to feed `CRTChain.Coprimes`;
+--   * `Bez a b â†’ isGCD a b 1` over â„•, to feed `CRTChain.Coprimes`;
 --   * distinct primes are coprime, which no part of this module needs but
 --     the walk's general frontier does.
 ------------------------------------------------------------------------

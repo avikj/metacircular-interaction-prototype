@@ -46,7 +46,7 @@ cone-r (suc t) k =
         (cong (x t) (cong pos (cong suc (cong suc (sym (+-suc t k)) ∙ sym (+-suc t (suc k))))) ∙ cone-r t (suc (suc k)))
   ∙ cong (_⊕ false) (cone-r t k)
 
--- §2  pred� commutes with pred�, and suc� undoes one step of it
+-- §2  predⁿ commutes with predℤ, and sucℤ undoes one step of it
 predⁿ-pred : (k : ℕ) (i : ℤ) → predℤ (predⁿ k i) ≡ predⁿ k (predℤ i)
 predⁿ-pred zero    i = refl
 predⁿ-pred (suc k) i = predⁿ-pred k (predℤ i)

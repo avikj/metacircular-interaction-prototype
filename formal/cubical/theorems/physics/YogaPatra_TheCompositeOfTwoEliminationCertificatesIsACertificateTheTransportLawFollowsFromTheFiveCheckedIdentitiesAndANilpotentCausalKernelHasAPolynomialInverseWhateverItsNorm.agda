@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ‡Ø‡ã‡ó-‡‡‡‡∞ ‚î the composite certificate.
+-- ‡§Ø‡•ã‡§ó-‡§™‡§§‡•ç‡§∞ ‚Äî the composite certificate.
 --
 -- A source-aware elimination certificate for  M x = b  carries
 -- (E, S, T, R, Z) with  y = E x,  S y = T b,  x = R y + Z b,  and the
 -- checker demands the five identities
 --
---     E R = 1,   E Z = 0,   M R = Eµ S,   M Z + Eµ T = 1,   R E + Z M = 1.
+--     E R = 1,   E Z = 0,   M R = E·µÄ S,   M Z + E·µÄ T = 1,   R E + Z M = 1.
 --
 -- Three things are checked here, over any ring with an anti-
--- multiplicative additive map  µ  fixing 1 (a transpose):
+-- multiplicative additive map  ·µÄ  fixing 1 (a transpose):
 --
---   ‡ß  the transport law  T M = S E  is a consequence of the five
+--   ‡•ß  the transport law  T M = S E  is a consequence of the five
 --      identities, not a sixth axiom;
---   ‡®  composition  E = E‚E‚, S = S‚, T = T‚T‚, R = R‚R‚,
---      Z = Z‚ + R‚Z‚T‚  of a certificate for M with a certificate for
---      its reduced operator S‚ is again a certificate for M ‚î so the
+--   ‡•®  composition  E = E‚ÇÇE‚ÇÅ, S = S‚ÇÇ, T = T‚ÇÇT‚ÇÅ, R = R‚ÇÅR‚ÇÇ,
+--      Z = Z‚ÇÅ + R‚ÇÅZ‚ÇÇT‚ÇÅ  of a certificate for M with a certificate for
+--      its reduced operator S‚ÇÅ is again a certificate for M ‚Äî so the
 --      whole session installs from its steps (handoff ¬ß45, [S18]);
---   ‡©  a causal kernel with K¬≥ = 0 has  (1 ‚àí zK)‚ª¬ = 1 + zK + z¬≤K¬≤  for
+--   ‡•©  a causal kernel with K¬≥ = 0 has  (1 ‚àí zK)‚Åª¬π = 1 + zK + z¬≤K¬≤  for
 --      every z, whatever its norm: large norm is not a causal-inverse
 --      failure.
 ------------------------------------------------------------------------
@@ -57,7 +57,7 @@ module _ (R : Ring ‚Ñì) where
         reconstructs : Rc ¬∑ E + Z ¬∑ M ‚â° 1r
 
     ----------------------------------------------------------------
-    -- ‡ß ¬ THE TRANSPORT LAW IS DERIVED.
+    -- ‡•ß ¬∑ THE TRANSPORT LAW IS DERIVED.
     ----------------------------------------------------------------
 
     module _ {M : A} (c : Cert M) where
@@ -101,7 +101,7 @@ module _ (R : Ring ‚Ñì) where
       transport-law = sym (peel (T ¬∑ M)) ‚àô cong (t Rc ¬∑_) (sym same-under-tE) ‚àô peel (S ¬∑ E)
 
     ----------------------------------------------------------------
-    -- ‡® ¬ COMPOSITION.
+    -- ‡•® ¬∑ COMPOSITION.
     ----------------------------------------------------------------
 
     module _ {M : A} (c‚ÇÅ : Cert M) (c‚ÇÇ : Cert (Cert.S c‚ÇÅ)) where
@@ -202,7 +202,7 @@ module _ (R : Ring ‚Ñì) where
         ; reconstructs = compose-reconstructs }
 
 ------------------------------------------------------------------------
--- ‡© ¬ A NILPOTENT CAUSAL KERNEL INVERTS POLYNOMIALLY, WHATEVER ITS NORM.
+-- ‡•© ¬∑ A NILPOTENT CAUSAL KERNEL INVERTS POLYNOMIALLY, WHATEVER ITS NORM.
 ------------------------------------------------------------------------
 module _ (R : CommRing ‚Ñì) where
   open CommRingStr (snd R)

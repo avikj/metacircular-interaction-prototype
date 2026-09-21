@@ -1,47 +1,47 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Vyavya � three attested pratyhras force a twice-recited sound, in
+-- Vyavāya — three attested pratyāhāras force a twice-recited sound, in
 -- every possible line; Pini's choice of that sound is ha.
 --
 -- SOURCE for the term.  Pini, *Adhyy* 8.4.2 (~500 BCE):
 --
 --     a-ku-pu--num-vyavye 'pi
 --
--- *vyavya* is intervention � the stra says atva goes through EVEN WITH
+-- *vyavāya* is intervention — the sūtra says ṇatva goes through EVEN WITH
 -- certain sounds standing between.  Nothing of 8.4.2's content is claimed
 -- here; the term is taken for the phenomenon this file is about, a sound
 -- standing between two others and blocking what contiguity would give.
--- And the stra opens with a � which is one of the three classes below.
+-- And the sūtra opens with aṬ — which is one of the three classes below.
 -- The class that names the interveners is itself a party to the
 -- obstruction this file checks.
 --
 -- WHAT WAS ALREADY CHECKED, in this lane, by others.  `NaturalMachine/
 -- PratyaharaBuysTotalityWithLocality` proved that repeating a letter
--- DESTROYS locality of naming � repetition as a cost.  `NaturalMachine/
+-- DESTROYS locality of naming — repetition as a cost.  `NaturalMachine/
 -- TheSecondNaIsTheCollision` computed the doubled A-marker's ambiguity
--- at a � repetition as a collision.  `Krama_NoRecitationOrderSeats-
--- TheCycle�` proved on three abstract sounds that the three pair-classes
--- are unnameable in any recited-once line, and its header records � as a
--- correction of its own first draft � that the ATTESTED family contains
+-- at aṆ — repetition as a collision.  `Krama_NoRecitationOrderSeats-
+-- TheCycle…` proved on three abstract sounds that the three pair-classes
+-- are unnameable in any recited-once line, and its header records — as a
+-- correction of its own first draft — that the ATTESTED family contains
 -- that cycle on {h y }, owing the checked bridge.  This file pays it.
 --
 -- WHAT IS PROVED, on the actual fourteen Mhevara-stras, all 57 tokens:
 --
---   §5  the line is encoded whole (`�����`, length 57, checked), and the
+--   §5  the line is encoded whole (`रेखा`, length 57, checked), and the
 --       three attested pratyhras compute by refl:
---         a  (a�M)  = a i u   e o ai au h y v r     (13 sounds)
---         aL (�Ml)  =   s h                          (4 sounds)
---         yaR (y�Mr)  = the 32 consonants without h
+--         aṬ  (a…Mṭ)  = a i u ṛ ḷ e o ai au h y v r     (13 sounds)
+--         śaL (ś…Ml)  = ś ṣ s h                          (4 sounds)
+--         yaR (y…Mr)  = the 32 consonants without h
 --       and their restrictions to {h y } are the three pairs
---       {h y}, { h}, {y } � the Krama cycle, attested.
+--       {h y}, {ś h}, {y ś} — the Krama cycle, attested.
 --
---   §6  `���������-������-��������` � for ANY line � over this alphabet
+--   §6  `एकश्रुतौ-त्रयम्-असाध्यम्` — for ANY line ℓ over this alphabet
 --       whose {h y }-subsequence is one of the six permutations (i.e.
 --       h, y,  each recited exactly once), NO choice of three
 --       start/marker pairs names classes restricting to those three
 --       pairs.  Not an enumeration of lines: the proof is
---         class � contiguous factor of �        (§3, list induction)
+--         class ⟹ contiguous factor of ℓ        (§3, list induction)
 --         factor restricts to factor              (keep-++, §2)
 --         factor of a 3-permutation never has the outer pair as its
 --         {h y }-content                          (§4, the ten splits of
@@ -50,15 +50,15 @@
 --                                                  completeness proof)
 --       So the theorem quantifies over infinitely many lines and closes.
 --
---   §7  `�����-���������` � the real line's {h y }-subsequence is
---       h y  h: NOT one of the six.  `�����-�-����������` checks it is
---       outside the theorem's hypothesis � as it must be, since (§5) it
+--   §7  `हयशाः-रेखायाम्` — the real line's {h y ś}-subsequence is
+--       h y ś h: NOT one of the six.  `रेखा-न-एकश्रुतिः` checks it is
+--       outside the theorem's hypothesis — as it must be, since (§5) it
 --       names the trio.
 --
 -- READ TOGETHER: the attested trio cannot exist over any line reciting
 -- h, y,  once each.  Some one of the three must be said twice.  Pini
--- said ha � stra 5, ha ya va ra , and stra 14, ha L � one seat before
--- ya for a, one seat after a for aL, and the stretch y�Mr between
+-- said ha — sūtra 5, ha ya va ra Ṭ, and sūtra 14, ha L — one seat before
+-- ya for aṬ, one seat after śa for śaL, and the stretch y…Mr between
 -- them h-free for yaR.  Three constraints, one repetition.  So the
 -- doubled ha, whose COST the modules above measured (locality lost,
 -- naming collides), is not thrift and not accident: it is the price of
@@ -68,15 +68,15 @@
 --     That the repeated one is ha is Pini's choice; whether repeating
 --     y or  instead could carry the FULL attested classes (not just the
 --     restrictions) is not examined here.
---   * That the tradition argued this.  The doubled ha is an old topic �
---     Patajali's Mahbhya discusses the ivastras at length � but no
+--   * That the tradition argued this.  The doubled ha is an old topic —
+--     Patañjali's Mahābhāṣya discusses the śivasūtras at length — but no
 --     passage is claimed: egress is blocked from this environment and a
 --     citation nobody checked is an error of the same kind as a fitted
 --     constant.  What is proved is the mathematics, not the philology.
 --   * Convention-independence, beyond what the proof actually uses.  The
 --     extractor here takes the stretch before the FIRST occurrence of
 --     the marker, from the LAST occurrence of the start inside it.  For
---     the three attested classes the choice is invisible � a, , y, M,
+--     the three attested classes the choice is invisible — a, ś, y, Mṭ,
 --     Ml, Mr each stand ONCE in the line.  For the hypothetical lines of
 --     §6 the obstruction rests only on class-is-a-contiguous-factor
 --     (§3), which any occurrence convention satisfies; but §6 as a term
@@ -84,7 +84,7 @@
 --   * μ_k in general, Petersen 2004, the consecutive-ones theory: all
 --     still open or owed, as recorded in `PratyaharaLaghava` and `Krama`.
 --
--- No postulates, no holes, --safe.  §§2�4 are inductions; every concrete
+-- No postulates, no holes, --safe.  §§2–4 are inductions; every concrete
 -- claim is refl.
 ------------------------------------------------------------------------
 
@@ -229,7 +229,7 @@ allSplits-complete us qs ws =
 ------------------------------------------------------------------------
 -- §3  The extractor over an abstract alphabet, and: whatever it returns
 --     is a contiguous factor of the line.  No occurrence of the start or
---     marker is identified � only the SHAPE of the result is used, so no
+--     marker is identified — only the SHAPE of the result is used, so no
 --     soundness of the boolean equality is ever needed.
 ------------------------------------------------------------------------
 
@@ -312,7 +312,7 @@ module Kartana (Aₖ : Type₀) (eqₖ : Aₖ → Aₖ → Bool) where
 -- §4  The alphabet: all forty-two sounds and all fourteen it-occurrences
 --     of the Mhevara-stras.  ha is ONE constructor; its two seats are
 --     two positions in the line.  The two A-markers are two occurrences
---     (M�, M�) � the granularity `TheSecondNaIsTheCollision` computed.
+--     (Mṇ₁, Mṇ₂) — the granularity `TheSecondNaIsTheCollision` computed.
 ------------------------------------------------------------------------
 
 data Varṇa : Type where
@@ -417,7 +417,7 @@ eqSig₃ (sg₃ p₁ p₂ p₃) (sg₃ r₁ r₂ r₃) = eqB p₁ r₁ and (eqB 
            ≡ a ∷ i ∷ u ∷ ṛ ∷ ḷ ∷ e ∷ o ∷ ai ∷ au ∷ h ∷ y ∷ v ∷ r ∷ []
 अट्-वर्णाः = refl
 
--- aL: a of stra 13 up to the L of stra 14 � crossing the second ha
+-- śaL: śa of sūtra 13 up to the L of sūtra 14 — crossing the second ha
 शल्-आयामः : List Varṇa
 शल्-आयामः = ś ∷ ṣ ∷ s ∷ Mr ∷ h ∷ []
 
@@ -427,7 +427,7 @@ eqSig₃ (sg₃ p₁ p₂ p₃) (sg₃ r₁ r₂ r₃) = eqB p₁ r₁ and (eqB 
 शल्-वर्णाः : keep isSound शल्-आयामः ≡ ś ∷ ṣ ∷ s ∷ h ∷ []
 शल्-वर्णाः = refl
 
--- yaR: ya of stra 5 up to the R of stra 13 � between the two ha-s
+-- yaR: ya of sūtra 5 up to the R of sūtra 13 — between the two ha-s
 यर्-आयामः : List Varṇa
 यर्-आयामः = y ∷ v ∷ r ∷ Mṭ ∷ l ∷ Mṇ₂ ∷ ñ ∷ m ∷ ṅ ∷ ṇ ∷ n ∷ Mm
           ∷ jh ∷ bh ∷ Mñ ∷ gh ∷ ḍh ∷ dh ∷ Mṣ ∷ j ∷ b ∷ g ∷ ḍ ∷ d ∷ Mś
@@ -455,7 +455,7 @@ eqSig₃ (sg₃ p₁ p₂ p₃) (sg₃ r₁ r₂ r₃) = eqB p₁ r₁ and (eqB 
 
 ------------------------------------------------------------------------
 -- §6  The impossibility.  Six permutations; for each, no split's middle
---     part has the permutation's outer pair as its {h y }-content � and
+--     part has the permutation's outer pair as its {h y ś}-content — and
 --     every named class of every once-reciting line IS such a middle
 --     part, by §3 + §2.
 ------------------------------------------------------------------------
@@ -492,7 +492,7 @@ eqSig₃ (sg₃ p₁ p₂ p₃) (sg₃ r₁ r₂ r₃) = eqB p₁ r₁ and (eqB 
 
 -- THE THEOREM.  h, y,  each recited once (the {h y }-subsequence is one
 -- of the six orders): no three classes restrict to the three pairs.  The
--- three sig�-hypotheses are exactly ����-������, ���-������, ���-������ �
+-- three sig₃-hypotheses are exactly अट्-हयशेषु, शल्-हयशेषु, यर्-हयशेषु —
 -- so a line naming classes with the attested restrictions is refuted.
 एकश्रुतौ-त्रयम्-असाध्यम् :
     (ℓ₀ : List Varṇa)
@@ -517,7 +517,7 @@ eqSig₃ (sg₃ p₁ p₂ p₃) (sg₃ r₁ r₂ r₃) = eqB p₁ r₁ and (eqB 
 एकश्रुतौ-त्रयम्-असाध्यम् ℓ₀ (inr (inr (inr (inr (inr (inr ())))))) st₁ mk₁ st₂ mk₂ st₃ mk₃ q₁ q₂ q₃ k₁ g₁ k₂ g₂ k₃ g₃
 
 ------------------------------------------------------------------------
--- §7  And the real line stands outside the hypothesis � as it must.
+-- §7  And the real line stands outside the hypothesis — as it must.
 ------------------------------------------------------------------------
 
 हयशाः-रेखायाम् : keep tHYŚ रेखा ≡ h ∷ y ∷ ś ∷ h ∷ []
@@ -542,14 +542,14 @@ private
 ------------------------------------------------------------------------
 -- §8  Minimality, added the same night.  §6 proved repetition count zero
 --     impossible for the trio.  Here: the real line's repetition count is
---     exactly ONE � ha twice, every other sound once.  Zero impossible,
+--     exactly ONE — ha twice, every other sound once.  Zero impossible,
 --     one attained: in the repetition dimension, for this trio, the
 --     Mhevara line is minimal.  (For the full attested family the
 --     attainment side rests on the Haskell decision procedure's reading
 --     of all ~30 classes, which is not kernel-checked; the NECESSITY side
 --     needs only the trio and is §6.  The doubled marker-letter A is a
---     different doubling � two occurrences of an it, priced in
---     `TheSecondNaIsTheCollision` � and is not counted here, where the
+--     different doubling — two occurrences of an it, priced in
+--     `TheSecondNaIsTheCollision` — and is not counted here, where the
 --     count is of SOUNDS.)
 ------------------------------------------------------------------------
 
@@ -593,9 +593,9 @@ eqℕ (suc m₀) (suc n₀) = eqℕ m₀ n₀
 -- on {h y } (by refl, from this file's own stretches), and proves the
 -- impossibility parametrically over any triple.  Case on the doubled
 -- sound: ya-doubling dies on {h v }, a-doubling on {h y }, anything
--- else on {h y }; only ha survives � a ∩ aL = {h} exactly, the sole
+-- else on {h y ś}; only ha survives — aṬ ∩ śaL = {h} exactly, the sole
 -- articulation point, checked over the whole inventory.  Within single-
--- doubling lines, ha is forced, not chosen.  The counting�permutation
--- bridge and k � 2 remain owed, and are said so there.  Nothing above
+-- doubling lines, ha is forced, not chosen.  The counting→permutation
+-- bridge and k ≥ 2 remain owed, and are said so there.  Nothing above
 -- is altered.
 ------------------------------------------------------------------------

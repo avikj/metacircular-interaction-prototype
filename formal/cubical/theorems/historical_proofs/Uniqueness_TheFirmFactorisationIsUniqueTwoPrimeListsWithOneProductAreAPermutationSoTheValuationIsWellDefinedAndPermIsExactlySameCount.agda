@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- àà•àààµà®à â” the uniqueness half that `Drdha` said was absent.
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ the uniqueness half that `Drdha` said was absent.
 --
 -- `Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIs
--- DecidedByDivision` proved existence (every n â‰ 1 is SOME product of
+-- DecidedByDivision` proved existence (every n ï¿½ 1 is SOME product of
 -- firm numbers), Euclid's lemma, and that the SUPPORT is determined by n.
 -- Its own ledger said, at the same grain:
 --
---     Â UNIQUENESS IS NOT PROVED. â¦ nothing here says two such lists are
---       permutations of each other. â¦ HOW MANY times each occurs is not
+--     ï¿½ UNIQUENESS IS NOT PROVED. ï¿½ nothing here says two such lists are
+--       permutations of each other. ï¿½ HOW MANY times each occurs is not
 --       settled.
---     Â v_p IS NOT DEFINED HERE at all.
+--     ï¿½ v_p IS NOT DEFINED HERE at all.
 --
--- and `TheUsualReasonsMadeExplicitâ¦` said of the walks module's `Perm`:
+-- and `TheUsualReasonsMadeExplicitï¿½` said of the walks module's `Perm`:
 --
---     Â it is not proved to coincide with "same multiset";
---       the CONVERSE containment `â‰ˆ â’ Perm` is also not proved.
+--     ï¿½ it is not proved to coincide with "same multiset";
+--       the CONVERSE containment `â‰ˆ ï¿½ Perm` is also not proved.
 --
 -- Both absences are the same absence, and it is a composition of what is
 -- already there.  Nothing new is assumed; the only tools are Euclid's
 -- lemma from Drdha, the `Insert`/`Perm` relation from the walks module,
--- and cancellation in â• from the library.
+-- and cancellation in ï¿½ from the library.
 --
---   à§  Over any discrete type: `Perm xs ys` and `xs â‰ˆ ys` (the corpus's
+--   ï¿½  Over any discrete type: `Perm xs ys` and `xs â‰ˆ ys` (the corpus's
 --      four-constructor relation) each give "same count of every element",
 --      and same-count gives `Perm` back.  So Perm, â‰ˆ and same-multiset are
---      one relation â” the equivalence `TheUsualReasons` left open.
---   à¨  Two lists of firm numbers with the same product are a `Perm` of
---      each other (àà•àààµà®à).  Proof: the head of one divides the product
---      of the other, so it OCCURS there (Drdha Â§à); remove it with an
+--      one relation ï¿½ the equivalence `TheUsualReasons` left open.
+--   ï¿½  Two lists of firm numbers with the same product are a `Perm` of
+--      each other (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½).  Proof: the head of one divides the product
+--      of the other, so it OCCURS there (Drdha Â§ï¿½); remove it with an
 --      `Insert`; cancel it from the product; recurse.
---   à©  Hence the valuation à®à¾à¨à®à p n := count of p in Drdha's list is
+--   ï¿½  Hence the valuation ï¿½ï¿½ï¿½ï¿½ï¿½ p n := count of p in Drdha's list is
 --      WELL DEFINED: every factorisation of n has that count of p.
---   à  The fibre of àµà§à over n on firm lists is Perm-connected: that is the
---      exact sense in which Drdha's Â§à¯ fibre is "unique".  On raw lists it
+--   ï¿½  The fibre of ï¿½ï¿½ï¿½ over n on firm lists is Perm-connected: that is the
+--      exact sense in which Drdha's Â§ï¿½ fibre is "unique".  On raw lists it
 --      is not contractible (order), and this module does not say it is.
 --
--- The kernel runs the valuation: à®à¾à¨à®à 2 12 â‰¡ 2, à®à¾à¨à®à 3 12 â‰¡ 1,
--- à®à¾à¨à®à 5 12 â‰¡ 0 are refl.
+-- The kernel runs the valuation: ï¿½ï¿½ï¿½ï¿½ï¿½ 2 12 â‰¡ 2, ï¿½ï¿½ï¿½ï¿½ï¿½ 3 12 â‰¡ 1,
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ 5 12 â‰¡ 0 are refl.
 ------------------------------------------------------------------------
 module Uniqueness_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount where
 
@@ -57,7 +57,7 @@ open import TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAd
   using (Insert ; here ; there ; Perm ; pnil ; pcons ; _â‰ˆ_ ; â‰ˆnil ; â‰ˆcons ; â‰ˆswap ; â‰ˆtrans ; permIsAnAdjacentChain)
 
 ------------------------------------------------------------------------
--- à§ Â à—àà¨à¾ â” counting over a discrete type, and the three relations
+-- ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ counting over a discrete type, and the three relations
 ------------------------------------------------------------------------
 
 module Bahulya {A : Type} (_â‰Ÿ_ : Discrete A) where
@@ -127,7 +127,7 @@ module Bahulya {A : Type} (_â‰Ÿ_ : Discrete A) where
     h' : (z : A) â†’ à¤—à¤£à¤¨à¤¾ z xs â‰¡ à¤—à¤£à¤¨à¤¾ z (fst rem)
     h' z = inj-m+ {m = à¤à¤•à¤ƒ z x} (h z âˆ™ insert-count (snd rem) z)
 
-  -- the three relations are one:  Perm â’ â‰ˆ â’ same-count â’ Perm
+  -- the three relations are one:  Perm ï¿½ â‰ˆ ï¿½ same-count ï¿½ Perm
   â‰ˆâ†’Perm : {xs ys : List A} â†’ xs â‰ˆ ys â†’ Perm xs ys
   â‰ˆâ†’Perm {xs} {ys} h = count-perm xs ys (â‰ˆ-count h)
 
@@ -137,7 +137,7 @@ module Bahulya {A : Type} (_â‰Ÿ_ : Discrete A) where
 open Bahulya discreteâ„•
 
 ------------------------------------------------------------------------
--- à¨ Â àà•àààµà®à â” two firm lists with one product are a Perm
+-- ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ two firm lists with one product are a Perm
 ------------------------------------------------------------------------
 
 -- a firm list has positive product
@@ -154,7 +154,7 @@ open Bahulya discreteâ„•
   yâ‰¤1 : y â‰¤ 1
   yâ‰¤1 = subst (y â‰¤_) (Â·-comm (à¤µà¤§à¤ƒ ys) y âˆ™ e)
           (subst (_â‰¤ à¤µà¤§à¤ƒ ys Â· y) (Â·-identityË¡ y) (â‰¤-Â·k {k = y} (à¤µà¤§-à¤§à¤¨à¤ƒ ys hs)))
-  -- 1 â‰ àµà§à ys gives 1Ây â‰ àµà§à ys Â y, i.e. y â‰ y Â àµà§à ys, and that product is 1.
+  -- 1 ï¿½ ï¿½ï¿½ï¿½ ys gives 1ï¿½y ï¿½ ï¿½ï¿½ï¿½ ys ï¿½ y, i.e. y ï¿½ y ï¿½ ï¿½ï¿½ï¿½ ys, and that product is 1.
 
 -- membership locates an insertion
 à¤¸à¤¦à¤¸à¥à¤¯-à¤¨à¤¿à¤·à¥à¤•à¤¾à¤¸à¤¨à¤®à¥ : (x : â„•) (M : List â„•) â†’ x à¤¸à¤¦à¤¸à¥à¤¯à¤ƒ M â†’ Î£[ M' âˆˆ List â„• ] Insert x M' M
@@ -205,7 +205,7 @@ Insert-à¤¸à¤°à¥à¤µà¥‡ (there ins) (h , hs) = h , Insert-à¤¸à¤°à¥à¤µà¥‡ ins hs
 à¤à¤•à¤¤à¥à¤µ-à¤—à¤£à¤¨à¤¾ L M à¤¦à¥ƒL à¤¦à¥ƒM e = perm-count (à¤à¤•à¤¤à¥à¤µà¤®à¥ L M à¤¦à¥ƒL à¤¦à¥ƒM e)
 
 ------------------------------------------------------------------------
--- à© Â à®à¾à¨à®à â” the valuation, well defined
+-- ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ the valuation, well defined
 ------------------------------------------------------------------------
 
 à¤®à¤¾à¤¨à¤®à¥ : â„• â†’ (n : â„•) â†’ 0 < n â†’ â„•
@@ -224,7 +224,7 @@ Insert-à¤¸à¤°à¥à¤µà¥‡ (there ins) (h , hs) = h , Insert-à¤¸à¤°à¥à¤µà¥‡ ins hs
   à¤®à¤¾à¤¨-à¤¨à¤¿à¤¶à¥à¤šà¤¯à¤ƒ p n pos' (fst (à¤µà¤¿à¤­à¤¾à¤œà¤¨à¤®à¥ n pos)) (fst (snd (à¤µà¤¿à¤­à¤¾à¤œà¤¨à¤®à¥ n pos))) (snd (snd (à¤µà¤¿à¤­à¤¾à¤œà¤¨à¤®à¥ n pos)))
 
 ------------------------------------------------------------------------
--- à Â àà°àà•ààà¾ â” the kernel runs the valuation
+-- ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ the kernel runs the valuation
 ------------------------------------------------------------------------
 
 private

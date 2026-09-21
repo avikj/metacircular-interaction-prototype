@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ChargeIsStrictRefinement
 --
--- THE W2 ADAPTER, AS A TERM � what it buys, and the exact reason it does
+-- THE W2 ADAPTER, AS A TERM — what it buys, and the exact reason it does
 -- not buy the whole of W2 by itself.
 --
 -- smallest of its four: "one Lean/Agda transport; after it, 'is this
@@ -11,13 +11,13 @@
 -- transport.  It has three parts, and the middle one is the merge:
 --
 --   §3  the transported Lean iff is EXACTLY the annihilator statement of
---       `GaugeOrbitClasses` � two theorems in two lanes that were the
+--       `GaugeOrbitClasses` — two theorems in two lanes that were the
 --       same theorem and did not know it;
 --   §4  the parity charge criterion is that iff EVALUATED AT ONE GROUP
---       ELEMENT, ��; and the audit it licenses is made total, so the
+--       ELEMENT, τ₋; and the audit it licenses is made total, so the
 --       reader supplies a query list and nothing else;
 --   §5  therefore the transport alone does NOT deliver a charge
---       criterion � a typed negative whose witness is not mine.
+--       criterion — a typed negative whose witness is not mine.
 --
 --
 -- WHAT IS BEING TRANSPORTED.
@@ -27,9 +27,9 @@
 --
 --     experimentPartition M (insert suffix tests)
 --         < experimentPartition M tests
---   � � left right : State M,
---        (� test ∈ tests, test ∈ left.val � test ∈ right.val)
---      ∧ �(suffix ∈ left.val � suffix ∈ right.val)
+--   ↔ ∃ left right : State M,
+--        (∀ test ∈ tests, test ∈ left.val ↔ test ∈ right.val)
+--      ∧ ¬(suffix ∈ left.val ↔ suffix ∈ right.val)
 --
 -- "Inserting a test is strictly informative iff it separates a pair of
 -- states which every installed test identifies."  The dictionary the
@@ -37,9 +37,9 @@
 --
 --     Lean                                 here
 --     ------------------------------------ ---------------------------
---     State M            (DFA residuals)   Signs = � � Bool
+--     State M            (DFA residuals)   Signs = ℕ → Bool
 --                                          (sign assignments on primes)
---     List A             (a suffix/test)   Number = List �
+--     List A             (a suffix/test)   Number = List ℕ
 --                                          (a factor multiset; Ω = length)
 --     test ∈ (s.val : Language A) : Prop   val s t : Bool
 --     tests : Finset (List A)              qs : List Number
@@ -54,14 +54,14 @@
 --
 -- WHY AGDA AND NOT LEAN.
 --
--- Every object the transport lands on � `Signs`, `Number`, `Ω`, `val`,
--- `flip`, `sgn`, the gauge group `Gauge` with its action `_�_`, the
--- annihilator `AllNeutral`, `HasOdd`, `AllEven` � is already Agda, in
+-- Every object the transport lands on — `Signs`, `Number`, `Ω`, `val`,
+-- `flip`, `sgn`, the gauge group `Gauge` with its action `_⋆_`, the
+-- annihilator `AllNeutral`, `HasOdd`, `AllEven` — is already Agda, in
 -- this directory, and so are the three theorems the adapter has to reach
 -- (`ParitySeparator.no-decision`, `ChargeCriterion.charge-criterion`,
--- `GaugeOrbitClasses.classes-�/�`).  Going the other way would mean
--- presenting sign assignments as DFAs over the infinite alphabet � with
--- `Fintype (State M)` � manufacturing exactly the finiteness the parity
+-- `GaugeOrbitClasses.classes-⇐/⇒`).  Going the other way would mean
+-- presenting sign assignments as DFAs over the infinite alphabet ℕ with
+-- `Fintype (State M)` — manufacturing exactly the finiteness the parity
 -- side does not have, in order to import a theorem whose statement is
 -- four lines.  Second reason: §4's audit must COMPUTE, since `refl` is
 -- what supplies the index a reader used to supply by hand.
@@ -70,20 +70,20 @@
 -- PRIOR ART IN THIS CORPUS, consumed and credited (searched BEFORE
 -- writing, per `CLAUDE.md`).
 --
---   `NaturalMachine/GaugeOrbitClasses.agda` � the character law `val-�`,
---     the annihilator subgroup qs^� = `AllNeutral � qs`, and the class
---     theorem (transcript fibres = cosets of qs^�).  §3 below is the
+--   `NaturalMachine/GaugeOrbitClasses.agda` — the character law `val-⋆`,
+--     the annihilator subgroup qs^⊥ = `AllNeutral · qs`, and the class
+--     theorem (transcript fibres = cosets of qs^⊥).  §3 below is the
 --     statement that the Lean iff transports to precisely that
 --     annihilator; every lemma §3 uses is from there.
---   THE WITNESS OF §5 IS NOT NEW.  It is `GaugeOrbitClasses` §6's ��,
+--   THE WITNESS OF §5 IS NOT NEW.  It is `GaugeOrbitClasses` §6's τ₀,
 --     the single-prime flip, and that module already states the scope
 --     correction ("`AllEven` is not 'sees no gauge structure'; it is
 --     'annihilated by the total flip'").  What §5 adds is only its
---     CONSEQUENCE FOR THIS TRANSPORT � that the Lean iff, transported,
+--     CONSEQUENCE FOR THIS TRANSPORT — that the Lean iff, transported,
 --     is a statement about the whole annihilator and therefore cannot
 --     by itself be a charge criterion.  Translation is not a result;
 --     the result is §3 and §4, and §5 is the typed limit on them.
---   `NaturalMachine/ChargeCriterion.agda`, `ParitySeparator.agda` � the
+--   `NaturalMachine/ChargeCriterion.agda`, `ParitySeparator.agda` — the
 --     criterion and the no-go it converses.  §4 does not reprove them;
 --     it removes the hand step in front of them.
 --
@@ -136,7 +136,7 @@ private
   notFalse→true false p = ⊥.rec (true≢false p)
 
   -- Two Bools differ exactly when their product is −1.  This is where
-  -- the Lean "�(� � �)" turns into an element of the annihilator's
+  -- the Lean "¬(… ↔ …)" turns into an element of the annihilator's
   -- complement, and it is the only step of §3 that is not bookkeeping.
   ·-distinct : (a b : Bool) → ¬ (a ≡ b) → b · a ≡ false
   ·-distinct true  true  p = ⊥.rec (p refl)
@@ -148,15 +148,15 @@ private
 -- §2  The Lean statement, transported.
 --
 -- `Test` is the transported `List A` (a suffix); `State` the transported
--- `State M`.  The transported `test ∈ s.val` is `val s t` � a Bool, not
+-- `State M`.  The transported `test ∈ s.val` is `val s t` — a Bool, not
 -- a Prop, because the observation here is an evaluation and not a
 -- membership; the biconditional of the Lean statement becomes a path of
 -- Bools and its negation becomes `SeparatesPair`.
 --
 -- Note what happens to the Lean typeclass burden.  `Finset (List A)`
--- becomes a plain `List Test` � nothing below deduplicates, so
+-- becomes a plain `List Test` — nothing below deduplicates, so
 -- `DecidableEq A` is not needed.  `Fintype (State M)` has NO image at
--- all: `State` here is the free space {�1}^P of `TARGET.md` §3.  That
+-- all: `State` here is the free space {±1}^P of `TARGET.md` §3.  That
 -- missing hypothesis is not an oversight; §5 is what it costs.
 ------------------------------------------------------------------------
 
@@ -172,11 +172,11 @@ _∈_ : Test → List Test → Type
 t ∈ []       = ⊥
 t ∈ (u ∷ ts) = (t ≡ u) ⊎ (t ∈ ts)
 
--- "� test ∈ tests, test ∈ left.val � test ∈ right.val"
+-- "∀ test ∈ tests, test ∈ left.val ↔ test ∈ right.val"
 Identifies : List Test → State → State → Type
 Identifies ts s₁ s₂ = (t : Test) → t ∈ ts → val s₁ t ≡ val s₂ t
 
--- "�(suffix ∈ left.val � suffix ∈ right.val)"
+-- "¬(suffix ∈ left.val ↔ suffix ∈ right.val)"
 SeparatesPair : Test → State → State → Type
 SeparatesPair t s₁ s₂ = ¬ (val s₁ t ≡ val s₂ t)
 
@@ -217,23 +217,23 @@ allEven→pointwise (u ∷ ts) (_ , rest) t (inr m) = allEven→pointwise ts res
 --     a probe t is strictly informative over an installed set qs
 --   ⟺ some gauge element annihilated by every installed query is
 --     NOT annihilated by t
---   ⟺ qs^� � {t}^�,  i.e. inserting t shrinks the annihilator.
+--   ⟺ qs^⊥ ⊄ {t}^⊥,  i.e. inserting t shrinks the annihilator.
 --
 -- This is what "the merge, not the program" meant.  `GaugeOrbitClasses`
--- §5 proves that transcript fibres are the cosets of qs^�; the Lean
+-- §5 proves that transcript fibres are the cosets of qs^⊥; the Lean
 -- theorem proves that inserting a test strictly refines the experiment
 -- partition iff an identified pair is separated.  A partition into
 -- cosets is strictly refined exactly when the subgroup shrinks, and
 -- `annihilator-iff` below is that sentence as a term.
 --
 -- The two directions are the two halves of "the state space is a torsor
--- over the gauge group": � turns a group element into a pair by acting
--- on the base point ��, and � turns a pair back into a group element by
--- taking its difference s� � s� (which is a difference because G has
--- exponent 2 � `GaugeOrbitClasses.ann-self-inverse`).
+-- over the gauge group": ⇐ turns a group element into a pair by acting
+-- on the base point σ₊, and ⇒ turns a pair back into a group element by
+-- taking its difference s₂ ⋆ s₁ (which is a difference because G has
+-- exponent 2 — `GaugeOrbitClasses.ann-self-inverse`).
 ------------------------------------------------------------------------
 
--- The right-hand side: qs^� is not contained in {t}^�.
+-- The right-hand side: qs^⊥ is not contained in {t}^⊥.
 ShrinksAnnihilator : List Test → Test → Type
 ShrinksAnnihilator ts t = Σ[ τ ∈ Gauge ] (AllNeutral τ ts × (val τ t ≡ false))
 
@@ -264,26 +264,26 @@ annihilator-iff : (ts : List Test) (t : Test)
 annihilator-iff ts t = agreeSeparate→shrinks ts t , shrinks→agreeSeparate ts t
 
 ------------------------------------------------------------------------
--- §4  CHARGE IS THAT IFF AT ONE GROUP ELEMENT � and the audit runs.
+-- §4  CHARGE IS THAT IFF AT ONE GROUP ELEMENT — and the audit runs.
 --
--- Specialise §3's witness to � = ��, the diagonal element (−1,−1,�)
--- whose character is the parity grading (`GaugeOrbitClasses.val-��`).
+-- Specialise §3's witness to τ = τ₋, the diagonal element (−1,−1,…)
+-- whose character is the parity grading (`GaugeOrbitClasses.val-τ₋`).
 -- Then `ShrinksAnnihilator` becomes, coordinate by coordinate:
 --
---     AllNeutral �� qs   ⟺  AllEven qs        (`ParitySeparator`)
---     val �� t ≡ false   ⟺  sgn (Ω t) ≡ false (`ChargeCriterion.HasOdd`
+--     AllNeutral τ₋ qs   ⟺  AllEven qs        (`ParitySeparator`)
+--     val τ₋ t ≡ false   ⟺  sgn (Ω t) ≡ false (`ChargeCriterion.HasOdd`
 --                                              at a single query)
 --
 -- so `Charged` below is `ChargeCriterion`'s criterion arrived at as an
--- instance rather than posited � which is what W2's adapter was for.
+-- instance rather than posited — which is what W2's adapter was for.
 -- `charged?` decides it, and that is where the audit stops being manual.
 --
 -- `ChargeCriterion`'s own worked instances show the manual step:
 --
---     probe-2-separates = odd�separator probe-2 (inl refl)
---     probe-6-cannot    = neutral�no-separator probe-6 (refl , tt)
+--     probe-2-separates = odd⇒separator probe-2 (inl refl)
+--     probe-6-cannot    = neutral⇒no-separator probe-6 (refl , tt)
 --
--- `inl refl` and `(refl , tt)` are the reader performing the audit �
+-- `inl refl` and `(refl , tt)` are the reader performing the audit —
 -- invisible on a one-element list, and the whole job on a real one.
 -- `audit` is total: query list in, verdict-with-proof out.
 ------------------------------------------------------------------------
@@ -317,7 +317,7 @@ odd→τ₋charged t o = val-τ₋ t ∙ o
 τ₋charged→odd : (t : Test) → val τ₋ t ≡ false → sgn (Ω t) ≡ false
 τ₋charged→odd t c = sym (val-τ₋ t) ∙ c
 
--- The adapter, as one statement: charge is the ��-instance of §3, and it
+-- The adapter, as one statement: charge is the τ₋-instance of §3, and it
 -- is the odd-Ω criterion.
 charge-is-odd-Ω : (ts : List Test) (t : Test)
                 → (Charged ts t → (AllEven ts × (sgn (Ω t) ≡ false)))
@@ -355,7 +355,7 @@ reflect-false (t ∷ ts) p =
   , reflect-false ts (orFalse-r (charged? t) (anyCharged ts) p)
 
 -- THE DELIVERABLE.  `Separates` is `ChargeCriterion`'s: a decision
--- procedure accepting �� and rejecting its gauge flip.  Nothing about
+-- procedure accepting σ₊ and rejecting its gauge flip.  Nothing about
 -- the query list has to be known in advance, and no index is supplied.
 private
   auditOn : (ts : List Test) (b : Bool) → anyCharged ts ≡ b
@@ -376,8 +376,8 @@ private
       neutral-not-charged τ₋ ts n
         (chargeOf ts (reflect-true ts p)))
     where
-      -- an odd installed query is a charged one for ��, so the
-      -- installed set does not annihilate �� and no probe is strictly
+      -- an odd installed query is a charged one for τ₋, so the
+      -- installed set does not annihilate τ₋ and no probe is strictly
       -- informative about that orbit any more.
       chargeOf : (qs : List Test) → HasOdd qs → HasCharge τ₋ qs
       chargeOf (u ∷ qs) (inl o) = inl (odd→τ₋charged u o)
@@ -429,9 +429,9 @@ probe-neutral-not-charged (_ , c) = true≢false (τ₋charged→odd (0 ∷ 1 �
 ------------------------------------------------------------------------
 -- §5  THE TYPED LIMIT ON §3.
 --
--- checked term of �P at a stated locus, with the refuting instance
--- exhibited).  THE WITNESS IS NOT NEW � it is `GaugeOrbitClasses` §6's
--- ��, the single-prime flip, and that module already draws the
+-- checked term of ¬P at a stated locus, with the refuting instance
+-- exhibited).  THE WITNESS IS NOT NEW — it is `GaugeOrbitClasses` §6's
+-- τ₀, the single-prime flip, and that module already draws the
 -- distinction it certifies.  What is stated here is only its
 -- consequence for this transport, which is the thing a successor could
 -- otherwise assume the Lean term already supplies.
@@ -439,25 +439,25 @@ probe-neutral-not-charged (_ , c) = true≢false (τ₋charged→odd (0 ∷ 1 �
 -- The tempting reading of "transport the Lean iff and the charge
 -- criterion is DEFINITIONAL" is: charge = strict refinement of the
 -- experiment partition.  It is not.  By §3 the transported iff says the
--- ANNIHILATOR SUBGROUP shrinks � a statement about all of qs^� � while
--- charge is that statement's value at the single element ��.  A probe
--- can shrink the annihilator without touching ��.
+-- ANNIHILATOR SUBGROUP shrinks — a statement about all of qs^⊥ — while
+-- charge is that statement's value at the single element τ₋.  A probe
+-- can shrink the annihilator without touching τ₋.
 --
--- Locus: `Signs = � � Bool` with the full gauge group acting, i.e. the
--- free state space of `TARGET.md` §3.  Instance: t = p�p� (Ω = 2, hence
--- parity-neutral) and � = ��.
+-- Locus: `Signs = ℕ → Bool` with the full gauge group acting, i.e. the
+-- free state space of `TARGET.md` §3.  Instance: t = p₀p₁ (Ω = 2, hence
+-- parity-neutral) and τ = τ₀.
 --
 -- WHAT EXACTLY FAILS TO TRANSPORT, named.  In Lean, `State M` is the
--- residual state space of the automaton under study � canonical,
+-- residual state space of the automaton under study — canonical,
 -- `Fintype`, determined by the object.  On the parity side the states
 -- are a torsor under a gauge group, and "is this probe informative?"
 -- has no answer until a SUBGROUP of that gauge group is named.  The
 -- gauge group is the structure with no counterpart in the Lean
--- statement; §4's restriction to �� is where it enters, and it is not a
+-- statement; §4's restriction to τ₋ is where it enters, and it is not a
 -- convenience but the entire specificity of W2.
 --
 -- CONSEQUENCE, stated so it can be checked against.  The adapter of
--- §3�§4 is real and its scope is the subgroup ⟨��⟩.  A charge criterion
+-- §3–§4 is real and its scope is the subgroup ⟨τ₋⟩.  A charge criterion
 -- phrased as strict refinement over the full state space is refuted
 -- below; anyone extending this to W3 must carry the subgroup with them.
 ------------------------------------------------------------------------
@@ -468,21 +468,21 @@ neutralProbe = 0 ∷ 1 ∷ []
 neutralProbe-is-neutral : sgn (Ω neutralProbe) ≡ true
 neutralProbe-is-neutral = refl
 
--- �� is `GaugeOrbitClasses`' single-prime flip, and it is not
+-- τ₀ is `GaugeOrbitClasses`' single-prime flip, and it is not
 -- annihilated by a query the parity grading cannot see.
 τ₀-charged-here : val τ₀ neutralProbe ≡ false
 τ₀-charged-here = refl
 
--- So the probe shrinks the annihilator with nothing installed�
+-- So the probe shrinks the annihilator with nothing installed…
 neutral-but-strictly-informative : ShrinksAnnihilator [] neutralProbe
 neutral-but-strictly-informative = τ₀ , tt , τ₀-charged-here
 
--- �hence is strictly informative in the transported Lean sense�
+-- …hence is strictly informative in the transported Lean sense…
 neutral-but-agreeSeparating : AgreeSeparate [] neutralProbe
 neutral-but-agreeSeparating =
   shrinks→agreeSeparate [] neutralProbe neutral-but-strictly-informative
 
--- �while carrying no parity charge.
+-- …while carrying no parity charge.
 T1-strict-refinement-is-not-charge :
   ¬ ((ts : List Test) (t : Test) → AgreeSeparate ts t → sgn (Ω t) ≡ false)
 T1-strict-refinement-is-not-charge h =

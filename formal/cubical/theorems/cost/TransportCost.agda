@@ -2,8 +2,8 @@
 
 -- Does the natural machine RUN, and at what complexity?
 --
--- `Transport` proves `transport-+-is-⊕`: transporting �'s
--- addition along `ua ��CanWord` yields *literally* the schoolbook
+-- `Transport` proves `transport-+-is-⊕`: transporting ℕ's
+-- addition along `ua ℕ≃CanWord` yields *literally* the schoolbook
 -- ripple-carry algorithm.  That is a proved PATH.  A path between two
 -- functions says nothing about how the two TERMS reduce, so two separate
 -- questions remain, and both are decided by execution rather than by proof:
@@ -14,7 +14,7 @@
 --   (1) YES.  Every `refl` below forces evaluation and typechecks.
 --   (2) NO.  Native is flat in the number of chained operations; the
 --       transported term is quadratic, because transport across `ua e`
---       *is* `e�� ∘ f ∘ (e � e)` � a full round trip through � per
+--       *is* `e⁻¹ ∘ f ∘ (e × e)` — a full round trip through ℕ per
 --       operation, and `valueC`/`digitsC` are unary.
 --
 -- This file is the small reproducible witness.  The scaling runs that
@@ -36,7 +36,7 @@ transported = transport (λ i → ℕ≡CanWord i → ℕ≡CanWord i → ℕ≡
 transported-computes : valueC (transported (digitsC 1) (digitsC 1)) ≡ 2
 transported-computes = refl
 
--- Full carry cascade, base two: 111� + 1 = 1000�.
+-- Full carry cascade, base two: 111₂ + 1 = 1000₂.
 transported-cascade : valueC (transported (digitsC 7) (digitsC 1)) ≡ 8
 transported-cascade = refl
 

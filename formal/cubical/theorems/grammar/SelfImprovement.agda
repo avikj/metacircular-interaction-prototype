@@ -61,7 +61,7 @@
 --   * The Merkle-DAG: inheritance by hash reuse, recombination of
 --     subgraphs, phylogeny, and gene-level fitness attribution ("#84ab ...
 --     correlates +11%").  There is no provenance edge in this file.
---   * The quotient hierarchy h‚ -> h_Œ -> h_norm -> h_obs and the claim
+--   * The quotient hierarchy h‚ÇÄ -> h_Œ± -> h_norm -> h_obs and the claim
 --     that keeping every level preserves neutral variation.
 --   * "Convergent evolution ... IS a fitness signal": nothing here about
 --     independent replication.
@@ -298,7 +298,7 @@ module Population
   -- ¬ß2.  identity-is-not-performance
   --
   -- The statement: for EVERY edit E, every store s, and every evaluation
-  -- surviving in `apply E s`, there is an evaluation ev‚ -- already in s,
+  -- surviving in `apply E s`, there is an evaluation ev‚ÇÄ -- already in s,
   -- or written down in E itself -- with the SAME identity.  Adding,
   -- removing and re-scoring therefore cannot alter a genotype, and cannot
   -- produce one that no one supplied.  Scores are read (the `discard` and
@@ -390,9 +390,9 @@ module Population
   ------------------------------------------------------------------------
   -- ¬ß3.  transport-needs-a-witness (positive half)
   --
-  -- `œ : Scoring` is the ground truth an evaluator is trying to report; an
+  -- `œÉ : Scoring` is the ground truth an evaluator is trying to report; an
   -- evaluation is `Faithful` when its recorded score is that truth.
-  -- Transport relabels an evaluation of g‚ as an evaluation of g‚.  The
+  -- Transport relabels an evaluation of g‚ÇÄ as an evaluation of g‚ÇÅ.  The
   -- theorem says relabelling preserves faithfulness given (a) a Bridge
   -- between the two presentations and (b) an invariance hypothesis.
   --
@@ -401,7 +401,7 @@ module Population
   -- witness is what the protocol requires you to exhibit; the invariance
   -- theorem is what discharges the obligation; and the negative half below
   -- shows the first cannot be made to do the second's job.  (Compare
-  -- Residual's `no-invariant-response-sees-œ`: the maps of a bridge do not
+  -- Residual's `no-invariant-response-sees-œ±`: the maps of a bridge do not
   -- determine the weights riding alongside them.)
   ------------------------------------------------------------------------
 
@@ -497,7 +497,7 @@ module Population
 -- presentation exposes, and a HIDDEN coordinate, which the score reads.
 -- The two genes below have
 --
---   * the SAME presentation (definitionally: both are `pres ‚ï (Œª x y ‚í
+--   * the SAME presentation (definitionally: both are `pres ‚Ñï (Œª x y ‚Üí
 --     x + 0)`), hence a Bridge between them with identity maps;
 --   * agreeing observations on a NONEMPTY declared environment list --
 --     the empty-test escape of `ChuAdvance.no-tests-no-defect` is closed;

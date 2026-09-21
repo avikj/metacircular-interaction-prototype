@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡µ‡‡‡‡ü‡®-‡‡‡‡‡∞ ‚î the writhe.
+-- ‡§µ‡•á‡§∑‡•ç‡§ü‡§®-‡§∏‡•Ç‡§§‡•ç‡§∞ ‚Äî the writhe.
 --
 -- A global charge emerges from the normal form:
 --
 --   ¬ß1  THE WRITHE IS THE CROSSING COUNT: every crossing deposits
 --       exactly one twist, so the deposited twist word has the length
---       of the braid word ‚î the total phase of a braid IS its number
+--       of the braid word ‚Äî the total phase of a braid IS its number
 --       of crossings, by one induction and the length of a
 --       concatenation.
 --
 --   ¬ß2  THE RELATIONS CONSERVE IT: both sides of the braid relation
 --       have three crossings, both sides of the distant commutation
---       two ‚î each conservation a refl ‚î so the writhe is well-defined
+--       two ‚Äî each conservation a refl ‚Äî so the writhe is well-defined
 --       on the group, not merely on words.
 --
 --   ¬ß3  NO BOUNDED OBSERVER READS IT: for every depth n there is a
 --       single crossing (at position beyond n) that agrees with the
---       identity on every reader below n ‚î the locality theorem,
---       instantiated ‚î while carrying writhe one.  Truncated
+--       identity on every reader below n ‚Äî the locality theorem,
+--       instantiated ‚Äî while carrying writhe one.  Truncated
 --       observation at any depth is compatible with every writhe.
 --
 -- A conserved global quantity invisible to every local observer: the
 -- rope has a charge sector.  The light-cone theorem said information
 -- moves at unit speed; the writhe says some information never
--- arrives anywhere in particular ‚î it is carried by the word as a
+-- arrives anywhere in particular ‚Äî it is carried by the word as a
 -- whole, distributed beyond every horizon, exactly the shape of a
 -- gauge charge.  Total phase is real, conserved, and everywhere
 -- locally unreadable.
@@ -51,7 +51,7 @@ open import AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPo
 open DhƒÅrƒÅ
 
 ------------------------------------------------------------------------
--- ‡ß ¬ The writhe is the crossing count.
+-- ‡•ß ¬∑ The writhe is the crossing count.
 ------------------------------------------------------------------------
 
 ve·π£·π≠ana : (w : List ‚Ñï) ‚Üí length (T w) ‚â° length w
@@ -62,7 +62,7 @@ ve·π£·π≠ana (i ‚à∑ w) =
   ‚àô cong suc (ve·π£·π≠ana w)
 
 ------------------------------------------------------------------------
--- ‡® ¬ The relations conserve the count.
+-- ‡•® ¬∑ The relations conserve the count.
 ------------------------------------------------------------------------
 
 s≈´tra-sama : (i : ‚Ñï)
@@ -75,7 +75,7 @@ d≈´ra-sama : (i j : ‚Ñï)
 d≈´ra-sama i j = refl
 
 ------------------------------------------------------------------------
--- ‡© ¬ No bounded observer reads it: a far crossing has writhe one and
+-- ‡•© ¬∑ No bounded observer reads it: a far crossing has writhe one and
 -- is invisible below its position.
 ------------------------------------------------------------------------
 

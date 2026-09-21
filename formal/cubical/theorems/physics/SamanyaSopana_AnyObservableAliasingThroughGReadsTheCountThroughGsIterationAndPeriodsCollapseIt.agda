@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������-������ � the ladder, generalized.
+-- सामान्य-सोपान — the ladder, generalized.
 --
 -- The resolution ladder's rungs were instances.  Here is the ladder
 -- itself, and it is the campaign's one factoring law pointed along
 -- the twist:
 --
---   §1  ANY observable O that aliases through some g � O ∘ turn =
+--   §1  ANY observable O that aliases through some g — O ∘ turn =
 --       g ∘ O, the coalgebra-homomorphism condition of the Nerode
---       collapse, now on the fibre � reads the twist count through
+--       collapse, now on the fibre — reads the twist count through
 --       g's iteration: after any twist word, at every depth, on
 --       every rope,
 --
@@ -17,16 +17,16 @@
 --
 --       by two lines over the reading theorem.
 --
---   §2  ANY period of g collapses the reading by that period: if g��
+--   §2  ANY period of g collapses the reading by that period: if gᵈ
 --       is pointwise the identity then counts differing by d read
---       identically � iteration is additive, the period cancels.
+--       identically — iteration is additive, the period cancels.
 --
 -- Corollaries by instantiation: the identity observable with g = the
--- quarter turn (period four � the mod-four reading); the xor
+-- quarter turn (period four — the mod-four reading); the xor
 -- observable with g = not (period two); any constant observable with
 -- g = id (period one).  The full ladder is one theorem: RESOLUTION IS
 -- THE ORDER OF THE ALIAS, and every observable sits at the divisor
--- its own factoring dictates.  Factoring kills separation � across
+-- its own factoring dictates.  Factoring kills separation — across
 -- instruments, across time, across value, and now across resolution.
 --
 ------------------------------------------------------------------------
@@ -59,7 +59,7 @@ private
 āvartana g (suc n) a = g (āvartana g n a)
 
 ------------------------------------------------------------------------
--- � � The general reading law.
+-- १ · The general reading law.
 ------------------------------------------------------------------------
 
 module _ {A : Type ℓ} (O : Sūtra → A) (g : A → A)
@@ -79,7 +79,7 @@ module _ {A : Type ℓ} (O : Sūtra → A) (g : A → A)
     ∙ cakra-pravāha (gaṇanā j w) (gāḍha j s)
 
 ------------------------------------------------------------------------
--- � � Periods collapse the reading.
+-- २ · Periods collapse the reading.
 ------------------------------------------------------------------------
 
 āvartana-yoga : {A : Type ℓ} (g : A → A) (m n : ℕ) (a : A)

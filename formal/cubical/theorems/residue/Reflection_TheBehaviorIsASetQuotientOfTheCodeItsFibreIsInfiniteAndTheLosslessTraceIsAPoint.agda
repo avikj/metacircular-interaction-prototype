@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà°àà¿àà¿à®àà â” the reflected image.  THE BEHAVIOR IS A SET-QUOTIENT OF
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ the reflected image.  THE BEHAVIOR IS A SET-QUOTIENT OF
 -- THE CODE; ITS FIBRE IS INFINITE, AND THE LOSSLESS TRACE IS A POINT.
 --
 -- The machine is a quotient computer, and this file makes the
@@ -14,22 +14,22 @@
 -- Running descends to the quotient (`visible`), because the target of
 -- running is a set.  And the quotient genuinely collapses: a rule
 -- APPENDED BEHIND a table it duplicates is shadowed by first-match
--- lookup â” unconditionally, at every configuration, with no
--- boundedness hypothesis at all â” so duplicating a table any number
+-- lookup ï¿½ unconditionally, at every configuration, with no
+-- boundedness hypothesis at all ï¿½ so duplicating a table any number
 -- of times never changes a run (`shadow-run`), while it changes the
 -- code every time.  For any non-empty table this yields an injection
--- â• â’ Code whose image is one single point of Beh
+-- ï¿½ ï¿½ Code whose image is one single point of Beh
 -- (`one-point-many-codes`).
 --
 -- Against Uniqueness the picture closes: the lossless completion of the
--- step is contractible â” a point of structure, forced; the behavioral
--- quotient of the code is infinite-to-one â” a fibre of programs,
+-- step is contractible ï¿½ a point of structure, forced; the behavioral
+-- quotient of the code is infinite-to-one ï¿½ a fibre of programs,
 -- free.  What is unique is the trace; what is multiple is the
 -- expression; the machine computes in the quotient and the fibre
 -- carries what the quotient forgot.
 ------------------------------------------------------------------------
 
-module Pratibimba_TheBehaviorIsASetQuotientOfTheCodeItsFibreIsInfiniteAndTheLosslessTraceIsAPoint where
+module Reflection_TheBehaviorIsASetQuotientOfTheCodeItsFibreIsInfiniteAndTheLosslessTraceIsAPoint where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function using (idfun)

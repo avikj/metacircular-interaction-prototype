@@ -6,7 +6,7 @@
 -- about this repository's own sync rule read as a consistency model:
 --
 --   "Causal consistency is only as strong as the dependency graph you
---    record. â¦ The corpus records none â” no note declares which other
+--    record. â€¦ The corpus records none â€” no note declares which other
 --    notes its claims depend on.  Its happens-before relation is
 --    therefore the discrete order, in which every pair of writes is
 --    concurrent, and causal consistency degenerates to eventual
@@ -18,17 +18,17 @@
 -- makes "lacks the metadata" the right diagnosis rather than a
 -- complaint about latency.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- Only the delivery constraint.  A causal-delivery discipline says: an
 -- order may deliver `b` after `a` whenever nothing forbids it, and must
 -- deliver `a` before `b` when `a` happens-before `b`.  Â§2 says an empty
 -- happens-before forbids nothing, so EVERY order satisfies the
--- discipline â” the constraint has no content.  Â§3 says one recorded edge
+-- discipline â€” the constraint has no content.  Â§3 says one recorded edge
 -- already rules an order out, so the emptiness is doing all the work.
 --
 -- NOT formalised: CRDTs, G-Sets, strong eventual convergence, FLP, the
--- 60-second period, or the staleness bound â” all of which that note
+-- 60-second period, or the staleness bound â€” all of which that note
 -- treats and none of which appears below.  NOT claimed: that eventual
 -- and causal consistency are the same in general; the claim is about the
 -- degenerate case, which is the case the note identifies.
@@ -38,7 +38,7 @@
 -- `6e9fffd8  2026-08-14` for that note.  Its "the corpus records none"
 -- was written five days ago, and it is one of the two premises here.
 -- One thing HAS changed since, and it is small and must not be
--- overstated: this session added 26 pointer edges â” appended
+-- overstated: this session added 26 pointer edges â€” appended
 -- back-references from a corrected file to its corrector.  By Â§3 an
 -- inhabited relation is no longer vacuous, so those edges DO constrain
 -- some orders.  That is all they do.  Twenty-six edges are not a
@@ -46,7 +46,7 @@
 -- claim-level dependencies, and Â§3 says nothing about how many edges
 -- would suffice for anything.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -77,8 +77,8 @@ module _ (Write : Type) (hb : Write â†’ Write â†’ Type) where
   emptyDeclarationIsRespectedByEveryOrder empty ord a b h =
     âŠ¥.rec (empty a b h)
 
-  -- in particular the order that delivers nothing before anything â”
-  -- which is what "every pair of writes is concurrent" means â” is
+  -- in particular the order that delivers nothing before anything â€”
+  -- which is what "every pair of writes is concurrent" means â€” is
   -- admissible, so the discipline excludes no execution at all
   theConcurrentOrderIsAdmissible :
     ((a b : Write) â†’ Â¬ hb a b) â†’ Respects (Î» _ _ â†’ âŠ¥)
@@ -112,7 +112,7 @@ module _ (Write : Type) (hb : Write â†’ Write â†’ Type) where
 -- "The corpus cannot be run causally-consistent by tuning `sync`" is
 -- exactly Â§2: no setting of a delivery process can make a vacuous
 -- constraint bite.  And Â§3 says the repair is not a better process but a
--- recorded edge â” which is why that note calls the missing thing
+-- recorded edge â€” which is why that note calls the missing thing
 -- METADATA rather than latency.
 --
 -- KEPT SEPARATE, deliberately.  This session has a distinct finding

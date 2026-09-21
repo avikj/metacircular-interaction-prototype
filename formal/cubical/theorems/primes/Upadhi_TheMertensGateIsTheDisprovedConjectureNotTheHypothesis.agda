@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ������ � the defeating condition, and a gate that has one.
+-- उपाधि — the defeating condition, and a gate that has one.
 --
--- TEXT AND DATE.  ������ / *updhi*, the adventitious condition under
+-- TEXT AND DATE.  उपाधि / *upādhi*, the adventitious condition under
 -- which a pervasion fails: Gagea, *Tattvacintmai*, c. 1325, and the
 -- Navya-Nyya schools after him.  The rule the term carries is that a
 -- universal claim is licensed not by the number of confirming instances
@@ -12,10 +12,10 @@
 -- knowledge, however many instances stand behind it.
 --
 --   The gate is the MERTENS CONJECTURE, in its non-strict form: Mertens
---   stated |M(x)| < �x, the gate here asks |M(k)|² � k.  It was DISPROVED
---   � Odlyzko and te Riele, "Disproof of the Mertens conjecture",
---   *Journal f�r die reine und angewandte Mathematik* 357 (1985),
---   138�160, which shows limsup M(x)/�x > 1 and so refutes the
+--   stated |M(x)| < √x, the gate here asks |M(k)|² ≤ k.  It was DISPROVED
+--   — Odlyzko and te Riele, "Disproof of the Mertens conjecture",
+--   *Journal für die reine und angewandte Mathematik* 357 (1985),
+--   138–160, which shows limsup M(x)/√x > 1 and so refutes the
 --   non-strict form as well.  There is a k at which the gate fails.  No walk anybody can run will reach it, which is
 --   exactly why a walk returning `true` at 60 and at 400 carries no
 --   information: the updhi is known to exist and is known to be out of
@@ -23,7 +23,7 @@
 --
 --   The gate is also not the hypothesis.  RH is equivalent to
 --   M(x) = O(x^(1/2+ε)) for every ε > 0, which is strictly weaker than
---   |M(k)| � �k and is not expressible in this file, having no reals in
+--   |M(k)| ≤ √k and is not expressible in this file, having no reals in
 --   it.  Calling the strong false statement a fragment of the weaker open
 --   one runs the implication backwards.
 --
@@ -69,7 +69,7 @@ Mcount : ℕ → ℕ × ℕ
 Mcount zero    = 0 , 0
 Mcount (suc k) = bump (μ̂ (suc k) (suc-≤-suc zero-≤)) (Mcount k)
 
--- |M(k)|, without leaving �: one of the two differences is zero
+-- |M(k)|, without leaving ℕ: one of the two differences is zero
 absM : ℕ → ℕ
 absM k = (fst (Mcount k) ∸ snd (Mcount k)) + (snd (Mcount k) ∸ fst (Mcount k))
 
@@ -81,12 +81,12 @@ decGate : (k : ℕ) → Dec (Gate k)
 decGate k = dec≤ (absM k · absM k) k
 
 -- the universal statement.  THIS IS THE MERTENS CONJECTURE, AND IT IS FALSE
--- (Odlyzko�te Riele 1985).  It is written down so that the finite check
+-- (Odlyzko–te Riele 1985).  It is written down so that the finite check
 -- below cannot be mistaken for it.
 MertensConjecture : Type₀
 MertensConjecture = (k : ℕ) → Gate k
 
--- the finite check: the gate at every k � n
+-- the finite check: the gate at every k ≤ n
 AllGate : ℕ → Type₀
 AllGate zero    = Unit
 AllGate (suc k) = Gate (suc k) × AllGate k
@@ -123,7 +123,7 @@ _ = refl
 _ : absM 60 ≡ 1
 _ = refl
 
--- μ� agrees with the published values on the standard checks
+-- μ̂ agrees with the published values on the standard checks
 _ : μ̂ 30 (suc-≤-suc zero-≤) ≡ 2     -- μ(2·3·5) = −1
 _ = refl
 _ : μ̂ 12 (suc-≤-suc zero-≤) ≡ 0     -- μ(4·3) = 0

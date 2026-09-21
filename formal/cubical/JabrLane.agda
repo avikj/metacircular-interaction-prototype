@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- JabrLane â” a gate for modules whose named source tradition is the
+-- JabrLane â€” a gate for modules whose named source tradition is the
 -- Arabic algebraic one (al-Khwrizm, al-Karaj, al-SamawÊ¾al).
 --
 -- ON THE NAME.  *al-jabr* is al-Khwrizm's own word, from the title of
@@ -14,14 +14,14 @@
 -- green on a container off the 2.8.0 pin, so the pull is to put every new
 -- module under it.  Doing that here would file Arabic algebra as Indian
 -- material, which is the flattening CLAUDE.md's mining directive is about
--- one level up â” different traditions with different texts, sorted into
+-- one level up â€” different traditions with different texts, sorted into
 -- one bucket because one bucket happened to have a working gate.  A gate
 -- is cheap; the misfiling is not.
 --
 -- WHY NOT `Everything.agda`.  It is red on this container for reasons in
 -- another lane (cubical v0.9 names `SymGroup` / `solve!` that v0.5 does
 -- not have; BUILD.md Â§280).  Its `import` of a module is bookkeeping, not
--- guarding â” `IndianLane.agda`'s founding argument.  The module below is
+-- guarding â€” `IndianLane.agda`'s founding argument.  The module below is
 -- listed there too, and that listing guards nothing here.
 --
 -- KNOWN GAP, stated rather than left for someone to discover.
@@ -48,7 +48,7 @@ module JabrLane where
 
 ------------------------------------------------------------------------
 -- The antidiagonal sector pairing of an odd-character family: which
--- (â/2)^k-isotypic sectors can pair at all.  Isolates the algebra of
+-- (â„¤/2)^k-isotypic sectors can pair at all.  Isolates the algebra of
 -- collab/messages/goldbach-machine/direct-minor-shadow.md Thm 4.1 /
 -- Prop 4.2 and mixed-sector-prescribed-center.md Thm 5.1 at k characters.
 ------------------------------------------------------------------------

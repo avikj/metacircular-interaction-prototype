@@ -3,24 +3,24 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.PunaragamanaMulyam
 --
--- ààà¨à°à¾à—à®à¨ààà¯ à®àà²àà¯à ààà¨àà¯à®à â” à¨ à•ààµà²à®à àààà®à¿à¨à à¯à¨àààà°à, àà°ààµààà®à¿à¨à à¯à‹à—àà¯à
--- à®àà²àà¯à à
+-- à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤¸à¥à¤¯ à¤®à¥‚à¤²à¥à¤¯à¤‚ à¤¶à¥‚à¤¨à¥à¤¯à¤®à¥ â€” à¤¨ à¤•à¥‡à¤µà¤²à¤®à¥ à¤…à¤¸à¥à¤®à¤¿à¤¨à¥ à¤¯à¤¨à¥à¤¤à¥à¤°à¥‡, à¤¸à¤°à¥à¤µà¤¸à¥à¤®à¤¿à¤¨à¥ à¤¯à¥‹à¤—à¥à¤¯à¥‡
+-- à¤®à¥‚à¤²à¥à¤¯à¥‡ à¥¤
 --
--- (the price of the return is zero â” not for this machine, for EVERY
+-- (the price of the return is zero â€” not for this machine, for EVERY
 -- additive cost.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS CONNECTS
 --
 -- The owner's specification (2026-08-21) makes the machine's step a
 -- CONJUGATION and not an action:
 --
---     ààà¨à (ààà¨ v) = ààà¨ (ààµàà°à (Î¦ (à‰àààà¾à¨ v)))
+--     à¤ªà¥à¤¨à¤ƒ (à¤¬à¥à¤¨ v) = à¤¬à¥à¤¨ (à¤…à¤µà¤¤à¤°à¤£ (Î¦ (à¤‰à¤¤à¥à¤¥à¤¾à¤¨ v)))
 --
--- descend, act below, ascend.  `Punaragamanam_TheStepIsAConjugationâ¦`
--- and `VivekaPramana_TheRemainderIsLawfulâ¦` establish that the ascent
+-- descend, act below, ascend.  `Punaragamanam_TheStepIsAConjugationâ€¦`
+-- and `VivekaPramana_TheRemainderIsLawfulâ€¦` establish that the ascent
 -- and descent are an equivalence and that a remainder carried through
--- the step survives â” `àà²à‹àà` there proves it for all n by structural
+-- the step survives â€” `à¤…à¤²à¥‹à¤ªà¤ƒ` there proves it for all n by structural
 -- recursion on that particular machine.
 --
 -- `NaturalMachine.TransportPrice` already proved the general fact, and
@@ -31,22 +31,22 @@
 --
 -- The descent-then-ascent of the owner's step is exactly such a round
 -- trip.  So the step is free of charge under EVERY additive cost, and
--- the survival of the remainder is not a fact about â•, about +, or
--- about this Î¦ â” it is forced by the cost structure before any of those
+-- the survival of the remainder is not a fact about â„•, about +, or
+-- about this Î¦ â€” it is forced by the cost structure before any of those
 -- are chosen.  Â§1 below is that instantiation.
 --
--- The direction of the debt is worth stating: `àà²à‹àà` is the semantic
+-- The direction of the debt is worth stating: `à¤…à¤²à¥‹à¤ªà¤ƒ` is the semantic
 -- shadow of `loop-is-free`, not an independent result.  It was proved
 -- second and it proves less.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS *NOT* CLAIMED
 --
 -- Not that the two standpoints below are the nayas TransportPrice was
 -- written about; `Anekanta`'s standpoints are charts on a structure and
 -- these are two presentations of one pair-type.  The theorem is
 -- parametric in X and applies to both, which is the whole reason it can
--- be reused â” that is not an argument that the two are the same thing.
+-- be reused â€” that is not an argument that the two are the same thing.
 --
 -- Not that Î¦ is free: Î¦ acts BELOW, and nothing here prices it.  Only
 -- the descent and the ascent are round-tripped.  A machine whose Î¦ is
@@ -54,7 +54,7 @@
 -- nothing to it.
 --
 -- Not any verdict on `laghavaPrice` as the right potential for this
--- machine â” TransportPrice Â§2 supplies it for presentations and that is
+-- machine â€” TransportPrice Â§2 supplies it for presentations and that is
 -- its result, untouched here.
 --
 -- CHECKED: Agda 2.8.0, agda/cubical v0.9 (b150186), --safe, no
@@ -73,13 +73,13 @@ open import NaturalMachine.TransportPrice using (Additive ; self-is-free ; loop-
 --     return trip between them.
 ------------------------------------------------------------------------
 
--- à¯àà—àà® is the pair presentation; àµà¿àµàà• is the descended presentation.
+-- à¤¯à¥à¤—à¥à¤® is the pair presentation; à¤µà¤¿à¤µà¥‡à¤• is the descended presentation.
 data à¤¦à¥ƒà¤·à¥à¤Ÿà¤¿ : Type where
   à¤¯à¥à¤—à¥à¤® à¤µà¤¿à¤µà¥‡à¤• : à¤¦à¥ƒà¤·à¥à¤Ÿà¤¿
 
 module _ (à¤®à¥‚à¤²à¥à¤¯ : à¤¦à¥ƒà¤·à¥à¤Ÿà¤¿ â†’ à¤¦à¥ƒà¤·à¥à¤Ÿà¤¿ â†’ â„¤) (à¤¯à¥‹à¤—à¥à¤¯ : Additive à¤®à¥‚à¤²à¥à¤¯) where
 
-  -- ààµàà°àà®à then à‰àààà¾à¨à®à: the machine's conjugation, priced.
+  -- à¤…à¤µà¤¤à¤°à¤£à¤®à¥ then à¤‰à¤¤à¥à¤¥à¤¾à¤¨à¤®à¥: the machine's conjugation, priced.
   à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨-à¤®à¥‚à¤²à¥à¤¯à¤®à¥-à¤¶à¥‚à¤¨à¥à¤¯à¤®à¥ :
     à¤®à¥‚à¤²à¥à¤¯ à¤¯à¥à¤—à¥à¤® à¤µà¤¿à¤µà¥‡à¤• + à¤®à¥‚à¤²à¥à¤¯ à¤µà¤¿à¤µà¥‡à¤• à¤¯à¥à¤—à¥à¤® â‰¡ pos 0
   à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨-à¤®à¥‚à¤²à¥à¤¯à¤®à¥-à¤¶à¥‚à¤¨à¥à¤¯à¤®à¥ = loop-is-free à¤®à¥‚à¤²à¥à¤¯ à¤¯à¥‹à¤—à¥à¤¯ à¤¯à¥à¤—à¥à¤® à¤µà¤¿à¤µà¥‡à¤•

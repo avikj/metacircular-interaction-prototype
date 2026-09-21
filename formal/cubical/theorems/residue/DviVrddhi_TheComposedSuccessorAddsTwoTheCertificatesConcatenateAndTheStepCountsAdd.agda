@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡¶‡‡µ‡ø‡µ‡‡¶‡‡ß‡ø ‚î twice-increment.  THE COMPOSED SUCCESSOR ADDS TWO, THE
+-- ‡§¶‡•ç‡§µ‡§ø‡§µ‡•É‡§¶‡•ç‡§ß‡§ø ‚Äî twice-increment.  THE COMPOSED SUCCESSOR ADDS TWO, THE
 -- CERTIFICATES CONCATENATE, AND THE STEP COUNTS ADD.
 --
 -- Samsa proved that tables compose; Vddhi proved one table correct.
 -- This file runs the two through each other: the compound of the
--- successor machine with itself computes n ‚¶ n + 2, and its
+-- successor machine with itself computes n ‚Ü¶ n + 2, and its
 -- correctness certificate is MANUFACTURED from the two phase
--- certificates by compose-runs ‚î no new induction over the compound
+-- certificates by compose-runs ‚Äî no new induction over the compound
 -- is performed.  The first phase is Vddhi's increment-correct; the
 -- second phase is two steps the kernel computes outright; the prefix
 -- bound is the walk invariant, made pointwise.
@@ -18,7 +18,7 @@
 --     halted, for every n.
 --
 -- Composition of verified programs is itself verified, once, in
--- general ‚î and then instantiated, not re-proved.
+-- general ‚Äî and then instantiated, not re-proved.
 ------------------------------------------------------------------------
 
 module DviVrddhi_TheComposedSuccessorAddsTwoTheCertificatesConcatenateAndTheStepCountsAdd where

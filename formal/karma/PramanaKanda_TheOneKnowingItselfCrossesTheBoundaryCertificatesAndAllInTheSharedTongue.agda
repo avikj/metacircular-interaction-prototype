@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������������� � the instrument-portion.  Compound built here,
+-- प्रमाणकाण्डम् — the instrument-portion.  Compound built here,
 -- 2026-08-24, on the ka division already carried by KarmaKanda
 -- (the Veda's act/knowledge portions, the split Prva- and
--- Uttara-Mms stand on); ������ as in Tattvrthastra 1.6 (Umsvti,
--- c. 2nd�5th c. CE, school Jaina), the complete knowing against its
--- partial organs � the frame PramanaNaya and PurnaPramana already
+-- Uttara-Mīmāṃsā stand on); प्रमाण as in Tattvārthasūtra 1.6 (Umāsvāti,
+-- c. 2nd–5th c. CE, school Jaina), the complete knowing against its
+-- partial organs — the frame PramanaNaya and PurnaPramana already
 -- check.  Nothing below is claimed for any source.
 --
--- WHAT THIS IS.  The one prover � eyes, instruments, record exchange,
+-- WHAT THIS IS.  The one prover — eyes, instruments, record exchange,
 -- single and paired ascents, the breath that digests the elder's
--- store � carried whole across the compilation boundary, CERTIFICATES
+-- store — carried whole across the compilation boundary, CERTIFICATES
 -- AND ALL, in the shared tongue: builtin equality, --cubical-compatible,
 -- so the --cubical body imports every theorem here with full use
 -- (lifting paths by eqToPath where it wants them) and the compiled
@@ -19,9 +19,9 @@
 -- agreement theorem owed: the definitions are one.
 --
 -- The only surgery against the body's text: funExt does not exist for
--- builtin equality, and it was never needed � every use was a function
+-- builtin equality, and it was never needed — every use was a function
 -- path fed to eval, and eval respects pointwise-equal environments
--- (��-��� below).  The ascents are restated with that congruence and
+-- (एव-सम् below).  The ascents are restated with that congruence and
 -- are otherwise verbatim.
 ------------------------------------------------------------------------
 
@@ -141,7 +141,7 @@ A × B = Σ A (λ _ → B)
 0≡m·0 (suc m) = 0≡m·0 m
 
 ------------------------------------------------------------------------
--- §2  eval respects pointwise-equal environments � the whole of what
+-- §2  eval respects pointwise-equal environments — the whole of what
 --     funExt was doing in the body, said without extensionality.
 ------------------------------------------------------------------------
 
@@ -189,7 +189,7 @@ record नियमः : Type where
     साक्षी  : ⊨ (lhs , rhs)
 
 ------------------------------------------------------------------------
--- §4  Soundness of the simplifiers and of norm � the same clauses the
+-- §4  Soundness of the simplifiers and of norm — the same clauses the
 --     body checks, in the shared tongue.
 ------------------------------------------------------------------------
 
@@ -1131,7 +1131,7 @@ suc a ≤? suc b = a ≤? b
                  (द्विः ρ k m (suc m))
 
 ------------------------------------------------------------------------
--- §11  The one knowing: eye, instrument, record, fuel � and the breath
+-- §11  The one knowing: eye, instrument, record, fuel — and the breath
 --     that digests the elder's store to quiet.  Verbatim PurnaPramana,
 --     in the shared tongue.
 ------------------------------------------------------------------------
@@ -1273,7 +1273,7 @@ module _ (E : दृक्) (Y : यन्त्रम्) (Γ : List निय�
 ------------------------------------------------------------------------
 -- §12  The breath.  Digest the stream cumulatively; re-breathe only
 --     the residue; a quiet breath is a fixpoint.  The breath is a
---     STANDPOINT'S breath � eye and instrument are parameters � and
+--     STANDPOINT'S breath — eye and instrument are parameters — and
 --     the un-parameterized names keep the full setting, so nothing
 --     downstream moves.
 ------------------------------------------------------------------------

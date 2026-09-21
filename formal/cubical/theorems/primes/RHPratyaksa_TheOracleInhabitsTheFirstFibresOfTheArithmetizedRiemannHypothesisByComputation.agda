@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- RH-‡‡‡∞‡‡‡Ø‡ï‡‡ ‚î the Riemann hypothesis, seen directly at its first fibres.
+-- RH-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§ï‡•ç‡§∑ ‚Äî the Riemann hypothesis, seen directly at its first fibres.
 --
 -- RH_TheWholeQuestionEntersTyped states the hypothesis as one type,
 --
---     RH = (n : ‚ï) ‚í 1 ‚â n ‚í diffSq (2a) (n¬≤b) < 144 n¬≥ b¬≤,
+--     RH = (n : ‚Ñï) ‚Üí 1 ‚â§ n ‚Üí diffSq (2a) (n¬≤b) < 144 n¬≥ b¬≤,
 --
--- with a/b = Œ_{k ‚â Œ¥(n)} 1/k, every function computable.  A type of the
--- shape (n : ‚ï) ‚í P n has fibres P n, and each fibre here is decided by
+-- with a/b = Œ£_{k ‚â§ Œ¥(n)} 1/k, every function computable.  A type of the
+-- shape (n : ‚Ñï) ‚Üí P n has fibres P n, and each fibre here is decided by
 -- evaluation: the oracle is the typechecker running Œ¥, Hfrac and diffSq
--- on a numeral.  This file makes the fibre explicit ‚î RH is, by refl,
--- the Œ† over RH-at ‚î and inhabits the first three by computation, the
+-- on a numeral.  This file makes the fibre explicit ‚Äî RH is, by refl,
+-- the Œ† over RH-at ‚Äî and inhabits the first three by computation, the
 -- witness of each strict inequality being the exact gap.
 --
 -- The reach of the oracle is bounded by the apparatus, not the question:
 -- monus is structurally recursive, so a fibre costs on the order of the
 -- larger of 2a and n¬≤b unary steps.  At n = 4, Œ¥ = 12 and that is about
--- 7¬10‚; at n = 5, Œ¥ = 144 and b = 144!.  The first three fibres are
+-- 7¬∑10‚Åπ; at n = 5, Œ¥ = 144 and b = 144!.  The first three fibres are
 -- what a `refl` can reach today; the closure over all n is the open
--- question, unchanged.  ‡‡‡∞‡‡‡Ø‡ï‡‡ (pratyaka, direct perception) is the
+-- question, unchanged.  ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§ï‡•ç‡§∑ (pratyak·π£a, direct perception) is the
 -- Nyya name for the prama this file uses.
 ------------------------------------------------------------------------
 

@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sha256Srotas ‚î the hash is a truncation of one productive chain, the
+-- Sha256Srotas ‚Äî the hash is a truncation of one productive chain, the
 -- chain forgets its past by refl, and the round layer is injective at
 -- every depth.
 --
--- ‡‡‡∞‡ã‡‡ ‚î the stream.  The earlier decomposition of SHA-256 was
+-- ‡§∏‡•ç‡§∞‡•ã‡§§‡§É ‚Äî the stream.  The earlier decomposition of SHA-256 was
 -- inductive through and through: Sthana inverted the sixty-four rounds
 -- as a finite fold, Varga descended the hash to its classes, Sesa
--- completed it losslessly ‚î every statement about a LIST of rounds or
+-- completed it losslessly ‚Äî every statement about a LIST of rounds or
 -- blocks, every proof an induction.  This module redoes the
--- decomposition in the corpus's coinductive calculus ‚î Dhr
+-- decomposition in the corpus's coinductive calculus ‚Äî DhƒÅrƒÅ
 -- (Parasparasraya), the take-metric and its completeness
 -- (HistoryCompletion ¬ß1, PurnataSutra), determinism as contractibility
--- of the run (Niyati) ‚î where the primitive object is not the finite
+-- of the run (Niyati) ‚Äî where the primitive object is not the finite
 -- computation but the endless one, and the finite hash is an
 -- OBSERVATION of it.
 --
--- THE ONE CONSTRUCTION.  For any step  s : S ‚í A ‚í S,  the chain
---     gati : S ‚í Dhr A ‚í Dhr S
+-- THE ONE CONSTRUCTION.  For any step  s : S ‚Üí A ‚Üí S,  the chain
+--     gati : S ‚Üí DhƒÅrƒÅ A ‚Üí DhƒÅrƒÅ S
 -- unfolds the machine along an infinite input stream, by guarded
 -- corecursion.  SHA-256 is this construction twice, at its two layers:
 --
@@ -27,67 +27,67 @@
 --
 -- WHAT IS PROVED, all checked terms, no postulates, no holes:
 --
---   ¬ß2  ‡‡‡Æ‡‡‡ø-‡Æ‡‡ï‡‡‡ø‡ ‚î the chain forgets its past BY REFL: the tail
+--   ¬ß2  ‡§∏‡•ç‡§Æ‡•É‡§§‡§ø-‡§Æ‡•Å‡§ï‡•ç‡§§‡§ø‡§É ‚Äî the chain forgets its past BY REFL: the tail
 --       of the chain from H is the chain from the stepped state, on
---       the nose.  At the block layer this is the Merkle‚ìDamgrd
+--       the nose.  At the block layer this is the Merkle‚ÄìDamg√•rd
 --       length-extension property as a definitional equality: the
 --       chaining value determines the entire future of the hash, and
---       everything SHA-256 ever loses, it loses into the PAST ‚î the
+--       everything SHA-256 ever loses, it loses into the PAST ‚Äî the
 --       fibre over the digest (infinite, by Parimana), never the
 --       future.
---   ¬ß2  ‡ï‡∞‡‡‡®-‡ï‡‡∞‡Æ‡ / ‡‡®‡‡‡‡Ø-‡ó‡‡ø‡ ‚î the depth-(length xs) truncation
+--   ¬ß2  ‡§ï‡§∞‡•ç‡§§‡§®-‡§ï‡•ç‡§∞‡§Æ‡§É / ‡§Ö‡§®‡•ç‡§§‡•ç‡§Ø-‡§ó‡§§‡§ø‡§É ‚Äî the depth-(length xs) truncation
 --       of the chain IS the finite run, and its last entry IS the
---       fold.  Corollary ‡‡‡ø‡‡‡û‡æ‡®-‡ï‡∞‡‡‡®‡Æ‡: sha256ws m is literally a
---       truncation of the coinductive chain ‚î the inductive hash is
+--       fold.  Corollary ‡§Ö‡§≠‡§ø‡§ú‡•ç‡§û‡§æ‡§®-‡§ï‡§∞‡•ç‡§§‡§®‡§Æ‡•ç: sha256ws m is literally a
+--       truncation of the coinductive chain ‚Äî the inductive hash is
 --       one observation of the coinductive one, for every message and
 --       every continuation of the input stream.
---   ¬ß2  ‡ï‡æ‡∞‡‡‡æ ‚î unit-speed causality in the take-metric: input
+--   ¬ß2  ‡§ï‡§æ‡§∞‡§£‡§§‡§æ ‚Äî unit-speed causality in the take-metric: input
 --       streams agreeing to depth n give chains agreeing to depth n.
 --       The abstract-40 crossing profile ("every crossing 1-Lipschitz")
 --       holds of SHA-256's own chaining, at both layers.
---   ¬ß3  ‡‡ï-‡‡∞‡ø‡‡Æ‡ ‚î determinism is contractibility of the run
+--   ¬ß3  ‡§è‡§ï-‡§ö‡§∞‡§ø‡§§‡§Æ‡•ç ‚Äî determinism is contractibility of the run
 --       (Niyati's theorem, rebuilt for the open machine): the type of
 --       productive executions of the chain from (H, inputs) is
 --       contractible, by the same ‚à®-square that collapses a receipt
 --       onto refl.  The hash has exactly one history forward.
---   ¬ß4  ‡‡µ‡≤‡-‡‡æ‡ï‡‡‡æ‡‡ ‚î the decomposition sharpened in the limit.  At
+--   ¬ß4  ‡§Ü‡§µ‡§≤‡•Ä-‡§∏‡§æ‡§ï‡•ç‡§∑‡§æ‡§§‡•ç ‚Äî the decomposition sharpened in the limit.  At
 --       the ROUND layer a single truncation of positive depth, against
 --       the same schedule, already determines the eight registers:
 --       the round chain is injective at EVERY depth (by Sthana's
---       ‡‡µ‡≤‡-‡‡ï‡à‡ï‡Æ‡ ‚î the rounds are a permutation, so no depth loses
+--       ‡§Ü‡§µ‡§≤‡•Ä-‡§è‡§ï‡•à‡§ï‡§Æ‡•ç ‚Äî the rounds are a permutation, so no depth loses
 --       anything).  At the BLOCK layer no such theorem is possible
 --       (Parimana: every fibre of the digest is infinite).  So the
 --       loss keeps its one address in the limit: forward the chain is
 --       deterministic and memoryless at both layers; backward the
 --       round layer is exact at every depth and the block layer is
---       not ‚î the difference is precisely the Davies‚ìMeyer
+--       not ‚Äî the difference is precisely the Davies‚ÄìMeyer
 --       feed-forward and the padding quotient, now stated about
 --       infinite processes rather than finite folds.
---   ¬ß5  ‡‡∞‡‡ï‡‡‡æ-‡‡‡∞‡ã‡‡ ‚î the receipt: the NIST vector for the empty
---       message replayed THROUGH THE STREAM ‚î the head of the block
---       chain on the padded empty message is e3b0c442‚¶7852b855, for
+--   ¬ß5  ‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ-‡§∏‡•ç‡§∞‡•ã‡§§‡§É ‚Äî the receipt: the NIST vector for the empty
+--       message replayed THROUGH THE STREAM ‚Äî the head of the block
+--       chain on the padded empty message is e3b0c442‚Ä¶7852b855, for
 --       every continuation of the input, by the kernel computing.
 --
 -- Why this is stronger than the kernel-calculus reading: the
--- metacircular kernel analyses a finite derivation after the fact ‚î
+-- metacircular kernel analyses a finite derivation after the fact ‚Äî
 -- a walk that already ended.  The coinductive calculus holds the
 -- WHOLE unfolding as one object: completeness (take-ext: the chain is
--- its truncations), causality (‡ï‡æ‡∞‡‡‡æ), and uniqueness of history
--- (‡‡ï-‡‡∞‡ø‡‡Æ‡) are statements no finite derivation can even type.
+-- its truncations), causality (‡§ï‡§æ‡§∞‡§£‡§§‡§æ), and uniqueness of history
+-- (‡§è‡§ï-‡§ö‡§∞‡§ø‡§§‡§Æ‡•ç) are statements no finite derivation can even type.
 --
--- EA.  A stream is the DEGENERATE case of an interaction ‚î the one
+-- ≈öE·π¢A.  A stream is the DEGENERATE case of an interaction ‚Äî the one
 -- where the environment has exactly one thing it can say
 -- (Fibre.Samvada).  This module is therefore the trivial-query
 -- fragment of the calculus; Sha256Samvada carries the hash into the
 -- interactive coalgebra proper, and proves this module is its
--- demand-free collapse (‡‡ï‡æ‡ó‡‡∞-‡‡æ‡‡ there).
+-- demand-free collapse (‡§è‡§ï‡§æ‡§ó‡•ç‡§∞-‡§™‡§æ‡§§‡§É there).
 --
 -- CHECKED: Agda 2.8.0, cubical v0.9 (the pin, via sh setup), --cubical
--- --safe, exit 0 ‚î every theorem above including the computed NIST
--- receipt ‡‡∞‡‡ï‡‡‡æ-‡‡‡∞‡ã‡‡.
+-- --safe, exit 0 ‚Äî every theorem above including the computed NIST
+-- receipt ‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ-‡§∏‡•ç‡§∞‡•ã‡§§‡§É.
 ------------------------------------------------------------------------
 
-module Sha256Srotas_TheHashIsATruncationOfOneProductiveChainTheChainForgetsItsPastByReflAndTheRoundLayerIsInjectiveAtEveryDepth where
+module Sha256Stream_TheHashIsATruncationOfOneProductiveChainTheChainForgetsItsPastByReflAndTheRoundLayerIsInjectiveAtEveryDepth where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (‚Ñï ; zero ; suc)
@@ -177,7 +177,7 @@ module Yantra {S A : Type‚ÇÄ} (step : S ‚Üí A ‚Üí S) where
     ‡§ï‡•ç‡§∞‡§Æ-‡§π‡§∞‡§£‡§Æ‡•ç y ys (step s x) (step s‚Ä≤ x) (cons-inj‚ÇÇ q)
 
   -- UNIT-SPEED CAUSALITY: inputs agreeing to depth n give chains
-  -- agreeing to depth n ‚î the chain is 1-Lipschitz in the take-metric,
+  -- agreeing to depth n ‚Äî the chain is 1-Lipschitz in the take-metric,
   -- the crossing profile of abstract 40 at SHA-256's own step.
   ‡§ï‡§æ‡§∞‡§£‡§§‡§æ : (n : ‚Ñï) (H : S) (xs ys : DhƒÅrƒÅ A)
     ‚Üí take n xs ‚â° take n ys
@@ -213,7 +213,7 @@ module Yantra {S A : Type‚ÇÄ} (step : S ‚Üí A ‚Üí S) where
   here (‡§è‡§ï-‡§ö‡§∞‡§ø‡§§‡§Æ‡•ç H xs e i) = Œª j ‚Üí here e (~ i ‚à® j)
   next (‡§è‡§ï-‡§ö‡§∞‡§ø‡§§‡§Æ‡•ç H xs e i) = ‡§è‡§ï-‡§ö‡§∞‡§ø‡§§‡§Æ‡•ç (step H (≈õiras xs)) (≈õe·π£am xs) (next e) i
 
-  -- THE THEOREM: one state, one input stream, one history ‚î the space
+  -- THE THEOREM: one state, one input stream, one history ‚Äî the space
   -- of productive executions of the chain is a point.
   ‡§ß‡•ç‡§∞‡•Å‡§µ-‡§ö‡§∞‡§ø‡§§‡§Æ‡•ç : (H : S) (xs : DhƒÅrƒÅ A) ‚Üí isContr (Carita H xs)
   ‡§ß‡•ç‡§∞‡•Å‡§µ-‡§ö‡§∞‡§ø‡§§‡§Æ‡•ç H xs = carita H xs , ‡§è‡§ï-‡§ö‡§∞‡§ø‡§§‡§Æ‡•ç H xs
@@ -242,14 +242,14 @@ module Kha·πá·∏ça = Yantra {List Word} {List Bool}   compress
       ‚àô ƒÄvalƒ´.‡§ï‡§∞‡•ç‡§§‡§®-‡§ï‡•ç‡§∞‡§Æ‡§É st‚Ä≤ (p ‚à∑ ps) r‚Ä≤))
 
 -- No analogue exists one storey up: at the block layer the same
--- statement is FALSE (Parimana ‚î every fibre of the digest is
--- infinite; Sthana ‚î the loss enters at the feed-forward inside
+-- statement is FALSE (Parimana ‚Äî every fibre of the digest is
+-- infinite; Sthana ‚Äî the loss enters at the feed-forward inside
 -- `compress` and the padding quotient before it).  What the block
 -- layer keeps is the forward half of the calculus, and it keeps all
 -- of it:
 
--- the digest determines the entire future of the chain ‚î the
--- Merkle‚ìDamgrd length-extension property, coinductively: two
+-- the digest determines the entire future of the chain ‚Äî the
+-- Merkle‚ÄìDamg√•rd length-extension property, coinductively: two
 -- histories reaching the same chaining value have EQUAL futures,
 -- as whole streams.
 ‡§¶‡•Ä‡§∞‡•ç‡§ò‡•Ä‡§ï‡§∞‡§£‡§Æ‡•ç : (H H‚Ä≤ : List Word) (bs : DhƒÅrƒÅ (List Bool))
@@ -279,7 +279,7 @@ bls m = blocks (suc (length (pad m))) (pad m)
 ------------------------------------------------------------------------
 -- ¬ß5  The receipt: the NIST vector, through the stream.  The head of
 --     the block chain on the padded empty message is the digest of the
---     empty message ‚î for EVERY continuation of the input stream, by
+--     empty message ‚Äî for EVERY continuation of the input stream, by
 --     the kernel computing the whole pipeline inside the coalgebra.
 ------------------------------------------------------------------------
 

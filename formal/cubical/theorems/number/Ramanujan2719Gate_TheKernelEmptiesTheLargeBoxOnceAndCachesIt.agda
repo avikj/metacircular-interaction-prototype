@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- The 2719 gate: the kernel empties the 53 — 53 — 17 box once, and
+-- The 2719 gate: the kernel empties the 53 Ã— 53 Ã— 17 box once, and
 -- the interface caches it.  2719 is the last and largest of
 -- Ramanujan's eighteen; with this scan the entire soundness half of
 -- his 1916 assertion becomes kernel-signed in the theorem layer.

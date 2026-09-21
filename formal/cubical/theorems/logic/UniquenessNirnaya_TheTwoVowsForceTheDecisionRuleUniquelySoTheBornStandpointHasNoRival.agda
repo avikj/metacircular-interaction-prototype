@@ -2,26 +2,26 @@
 
 -- UniquenessNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival
 --
--- àà•àààµ-à¨à¿à°ààà¯à â” uniqueness, uniqueness; niraya, the decision.  Compound
--- built here, 2026-08-23, for program à of YugaParivartana (measurement
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ uniqueness, uniqueness; niraya, the decision.  Compound
+-- built here, 2026-08-23, for program ï¿½ of YugaParivartana (measurement
 -- as conflict resolution).  Sources as AvaktavyaPrasava's header gives
 -- them, and nothing further claimed of any: Ktyyana's vrttika on
 -- 1.4.2 (the configuration), Umsvti 5.31 (asserted/unasserted),
--- Siddhasena, Sanmatitarka 1.21 (durnaya â” the vow this theorem shows
+-- Siddhasena, Sanmatitarka 1.21 (durnaya ï¿½ the vow this theorem shows
 -- is load-bearing).
 --
 -- WHAT IS PROVED.  AvaktavyaPrasava checks two laws of the birth's
--- assertion function eka : List R â’ Maybe R:
+-- assertion function eka : List R ï¿½ Maybe R:
 --
---     (1) IT DECIDES on unanimity: all contenders saying a âŸ just a.
---     (2) IT TAKES NOTHING: two contenders differing âŸ nothing.
+--     (1) IT DECIDES on unanimity: all contenders saying a ï¿½ just a.
+--     (2) IT TAKES NOTHING: two contenders differing ï¿½ nothing.
 --
 -- This module proves the theorem that makes those laws a FOUNDATION
 -- rather than a design choice: **on nonempty contention lists over any
 -- discrete result type, the two laws determine the function COMPLETELY.
 -- Any two rules satisfying them agree everywhere.**  There is no room
--- for a tie-breaker, a weighting, a hidden preference â” the vows leave
--- zero freedom.  In program à's reading: the Born-standpoint decision
+-- for a tie-breaker, a weighting, a hidden preference ï¿½ the vows leave
+-- zero freedom.  In program ï¿½'s reading: the Born-standpoint decision
 -- rule has no rival within its vows; whatever satisfies ahis-of-
 -- assertion (take nothing not unanimously given) and decision-on-
 -- unanimity IS it.  The proof is a decidable dichotomy: every nonempty

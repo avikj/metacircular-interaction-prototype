@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- ������������������ � the dea state space is exactly eighty-one, and
+-- स्थानिवत्सङ्ख्या — the ādeśa state space is exactly eighty-one, and
 -- the join to the number component is checked.
 --
--- TERM.  ��������� (count, number) is ordinary  and the ordinary
+-- TERM.  सङ्ख्या (count, number) is ordinary Sanskrit and the ordinary
 -- word of the Indian mathematical tradition for number; the compound
--- ���������-���������, "the count of the sthnivat", is built HERE and no
+-- स्थानिवत्-सङ्ख्या, "the count of the sthānivat", is built HERE and no
 -- source is claimed for it.
 --
--- SEED.  The machine asked for this itself.  ���'s mass map
+-- SEED.  The machine asked for this itself.  जीव's mass map
 -- (machine/Jiva_TheMachineComputesItsOwnMetric.hs, run 2026-08-23 in
 -- this container) scored the join of the component at
--- `Punaragamana.Sthanivadbhava�.���������` to the number component at
--- 2970 � its second-highest curvature-removal candidate.  A join, in
+-- `Punaragamana.Sthanivadbhava….स्थानिवत्` to the number component at
+-- 2970 — its second-highest curvature-removal candidate.  A join, in
 -- the graph's own terms, is a checked identification.  Here it is:
 --
---     ������� � Fin 3        (three forms)
---     ������������� � Fin 3     (three designations)
---     ���� � Fin 27          (a vara is form � sthnin � designation)
---     ���� � Fin 81          (the dea's base: vara � substituted form)
---     ��������� � Fin 81      (composing with the module's own Carrier
---                             equivalence � the carried datum rides free,
+--     वर्णरूप ≃ Fin 3        (three forms)
+--     वर्णसञ्ज्ञा ≃ Fin 3     (three designations)
+--     वर्ण ≃ Fin 27          (a varṇa is form × sthānin × designation)
+--     आधार ≃ Fin 81          (the ādeśa's base: varṇa × substituted form)
+--     स्थानिवत् ≃ Fin 81      (composing with the module's own Carrier
+--                             equivalence — the carried datum rides free,
 --                             so the state space does not grow: 81, not
---                             81 � 9)
+--                             81 · 9)
 --
 -- The last line is the point, and it is the punargamana law seen as a
--- COUNT: `Carrier �����������` adds two fields (carried, witness) and
+-- COUNT: `Carrier निर्धारितम्` adds two fields (carried, witness) and
 -- adds NOTHING to the cardinality, because the fibre is contractible.
 -- A reader who trusts only numbers can now check ahis by counting.
 --
@@ -47,7 +47,7 @@ open import Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignat
         ; आधार ; निर्धारितम् ; स्थानिवत् ; आधार≃स्थानिवत्)
 
 ------------------------------------------------------------------------
--- � � the two three-element inventories.
+-- १ · the two three-element inventories.
 ------------------------------------------------------------------------
 
 रूप≃३ : वर्णरूप ≃ Fin 3
@@ -89,7 +89,7 @@ open import Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignat
   ret कित्   = refl
 
 ------------------------------------------------------------------------
--- � � a vara is its three fields (record eta), hence Fin 27.
+-- २ · a varṇa is its three fields (record eta), hence Fin 27.
 ------------------------------------------------------------------------
 
 वर्ण-त्रिक : वर्ण ≃ (वर्णरूप × (वर्णरूप × वर्णसञ्ज्ञा))
@@ -106,14 +106,14 @@ open import Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignat
              (SumFin×≃ 3 9))
 
 ------------------------------------------------------------------------
--- � � the base, and � by the Carrier law � the sthnivat itself.
+-- ३ · the base, and — by the Carrier law — the sthānivat itself.
 ------------------------------------------------------------------------
 
 आधार≃८१ : आधार ≃ Fin 81
 आधार≃८१ = compEquiv (≃-× वर्ण≃२७ रूप≃३) (SumFin×≃ 27 3)
 
--- THE JOIN.  Carrier� ����������� : ���� � ���������, so the state space
--- of the dea operation � base AND carried datum AND witness � is
+-- THE JOIN.  Carrier≃ निर्धारितम् : आधार ≃ स्थानिवत्, so the state space
+-- of the ādeśa operation — base AND carried datum AND witness — is
 -- exactly the 81 states of the base.  Nothing was added by carrying:
 -- the count IS the ahis, read as a number.
 स्थानिवत्≃८१ : स्थानिवत् ≃ Fin 81

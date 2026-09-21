@@ -27,25 +27,25 @@
 -- THE THEOREM THAT SETTLES IT (all statements below are checked,
 -- --safe, no postulates, no holes):
 --
---  1. `selectAgree` � a first-applicable rule system's output is a
+--  1. `selectAgree` — a first-applicable rule system's output is a
 --     function of the CONDITION SIGNATURE alone.  Hence
---  2. `requisiteVariety` � if such a system computes `act`, then
+--  2. `requisiteVariety` — if such a system computes `act`, then
 --     conditions that cannot separate two states force equal actions.
 --     Ashby's law, for rule systems, with the conditions (not the
 --     actions and not the order) as the regulator's variety.
 --  3. `metarulesAreVarietyFree` / `swapAgree` / `actionsAreVarietyFree`
---     � reordering rules and rewriting their operations changes WHICH
+--     — reordering rules and rewriting their operations changes WHICH
 --     action is emitted but never WHICH STATES CAN BE TOLD APART.  So
 --     Pini's metarules are free in the Ashby ledger; only pattern
 --     matching is paid for.
---  4. `paniniObservableOnly` � if every pattern reads only the visible
+--  4. `paniniObservableOnly` — if every pattern reads only the visible
 --     observable, the whole system factors through it.  So the
 --     Pinian reply fails exactly as Ashby says, no matter how many
 --     rules or metarules are added.
---  5. `smithNoObservableRuleSystem` � the instance: no rule system
+--  5. `smithNoObservableRuleSystem` — the instance: no rule system
 --     whose patterns read only the scalar residual computes the Smith
 --     descent's next action.
---  6. `smithNeedsTwoConditions` + `twoRulesSuffice` � the sharp count.
+--  6. `smithNeedsTwoConditions` + `twoRulesSuffice` — the sharp count.
 --     One rule is impossible; two rules, reading the full matrix state,
 --     succeed.  The realized signature set has exactly THREE elements
 --     (`sigDistinct01/02/12`), reproducing the drawn message's
@@ -104,7 +104,7 @@ select ((p , a) ∷ rs) d x = if p x then a else select rs d x
 -- 2.  The regulator's variety: the condition signature
 --
 --   `Agree ps x y` says the patterns `ps` cannot tell `x` from `y`.
---   It is the kernel of the joint signature map x � (p x)_{p ∈ ps},
+--   It is the kernel of the joint signature map x ↦ (p x)_{p ∈ ps},
 --   written as a relation so that no cardinal arithmetic is needed.
 ------------------------------------------------------------------------
 
@@ -177,8 +177,8 @@ actionsAreVarietyFree [] f g = refl
 actionsAreVarietyFree (p ∷ ps) f g = cong (p ∷_) (actionsAreVarietyFree ps f g)
 
 -- The statement in the form that matters: two rule systems built on the
--- SAME condition list � any reordering-with-reassignment of operations
--- included � have literally the same separating power.
+-- SAME condition list — any reordering-with-reassignment of operations
+-- included — have literally the same separating power.
 metarulesAreVarietyFree : {X : Type ℓ} {A : Type ℓ'}
                           (rs ss : List (Rule X A))
                         → conds rs ≡ conds ss
@@ -191,7 +191,7 @@ metarulesAreVarietyFree rs ss e x y = subst (λ l → Agree l x y) e
 --   This is the precise form of Pini's reply to Ashby: "let the rules
 --   look at the surface form and let the metarules order them."  If
 --   every pattern factors through the observable `obs`, so does the
---   whole system � the ordering buys nothing.
+--   whole system — the ordering buys nothing.
 ------------------------------------------------------------------------
 
 FactorsThrough : {X : Type ℓ} {V : Type ℓ''}
@@ -247,7 +247,7 @@ oneCondCannotSeparateThree p x0 x1 x2 n01 n02 n12 with twoOfThree (p x0) (p x1) 
 ------------------------------------------------------------------------
 -- 8.  The Smith witness (codex-quantum-process, broadcast 0007)
 --
---   Three Smith states � (2 0 ; 1 7), (2 1 ; 0 7), diag(2,3) � all
+--   Three Smith states — (2 0 ; 1 7), (2 1 ; 0 7), diag(2,3) — all
 --   exposing scalar residual 1, and the proved descent machine's three
 --   different lawful next moves.
 ------------------------------------------------------------------------
@@ -289,7 +289,7 @@ row≢div e = t≢f (cong tagRow e)
 
 ------------------------------------------------------------------------
 -- 8a.  No rule system reading only the scalar residual computes the
---      next action � however long, however ordered, whatever metarules.
+--      next action — however long, however ordered, whatever metarules.
 ------------------------------------------------------------------------
 
 smithNoObservableRuleSystem :
@@ -340,8 +340,8 @@ twoRulesSuffice div2State = refl
 --
 --   This is the Ashby number of the drawn broadcast (three classical
 --   hidden states / Hilbert dimension three), recovered here as the
---   image of the two-pattern signature � while the Pinian rule count
---   is 2 = �log� 3�.  The two vocabularies differ by a logarithm.
+--   image of the two-pattern signature — while the Pāṇinian rule count
+--   is 2 = ⌈log₂ 3⌉.  The two vocabularies differ by a logarithm.
 ------------------------------------------------------------------------
 
 sig : SmithState → Bool × Bool
@@ -361,8 +361,8 @@ sigDistinct12 e = t≢f (cong snd e)
 --
 --   `requisiteVariety` is the injection form of Ashby's law: it says
 --   the signature map separates whatever the action map separates.  The
---   counting form � n binary patterns cannot compute an action with
---   more than 2� classes on a single observable fibre � follows by
+--   counting form — n binary patterns cannot compute an action with
+--   more than 2ⁿ classes on a single observable fibre — follows by
 --   pigeonhole on Bool^n and is NOT formalized here; only its n = 1
 --   instance (`oneCondCannotSeparateThree`) is.  Nothing below depends
 --   on the unformalized version.

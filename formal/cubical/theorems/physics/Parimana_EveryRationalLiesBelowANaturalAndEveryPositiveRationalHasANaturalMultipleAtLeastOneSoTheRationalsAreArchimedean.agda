@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������ � measure.  The Archimedean property of �.
+-- परिमाण — measure.  The Archimedean property of ℚ.
 --
 -- The finite growth theorem (Vrddhi) needs the modes to outrun every
 -- bound, and that needs the Archimedean property, which the library does
 -- not state.  Here it is, read off on representatives:
 --
---   §1  � n = [n/1]: the natural embedding computes to the representative.
---   §2  EVERY RATIONAL LIES BELOW A NATURAL: [a/b] < � (1 + |a|).
+--   §1  ι n = [n/1]: the natural embedding computes to the representative.
+--   §2  EVERY RATIONAL LIES BELOW A NATURAL: [a/b] < ι (1 + |a|).
 --   §3  EVERY POSITIVE RATIONAL HAS A NATURAL MULTIPLE AT LEAST ONE:
---       for x = [c/d] with c > 0, 1 � � d � x.
+--       for x = [c/d] with c > 0, 1 ≤ ι d · x.
 --   §4  ARCHIMEDES: for x > 0 and any K there merely exists t with
---       K < � t � x, namely t = n � q with the n and q of §2, §3.
+--       K < ι t · x, namely t = n · q with the n and q of §2, §3.
 --
 -- The existentials are propositionally truncated: the witness is read
 -- off a representative, and different representatives give different
--- witnesses.  ������ (parima, measure) is ordinary .
+-- witnesses.  परिमाण (parimāṇa, measure) is ordinary Sanskrit.
 ------------------------------------------------------------------------
 
 module Parimana_EveryRationalLiesBelowANaturalAndEveryPositiveRationalHasANaturalMultipleAtLeastOneSoTheRationalsAreArchimedean where
@@ -42,31 +42,31 @@ open import Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostO
 open ℤ using (ℤ ; pos ; negsuc)
 
 ------------------------------------------------------------------------
--- � � � n computes to [n/1].
+-- १ · ι n computes to [n/1].
 ------------------------------------------------------------------------
 
 ι-rep : (n : ℕ) → ι n ≡ [ pos n / 1 ]
 ι-rep zero    = refl
 ι-rep (suc n) = cong (_+ 1) (ι-rep n) ∙ eq/ _ _ sākṣī
   where
-  -- (pos n � 1 + 1 � 1) � 1 ≡ pos (suc n) � 1
+  -- (pos n · 1 + 1 · 1) · 1 ≡ pos (suc n) · 1
   sākṣī : (pos n ℤ.· pos 1 ℤ.+ pos 1 ℤ.· pos 1) ℤ.· pos 1 ≡ pos (suc n) ℤ.· pos 1
   sākṣī = ℤ.·IdR _ ∙ cong (ℤ._+ pos 1) (ℤ.·IdR (pos n)) ∙ sym (ℤ.·IdR (pos (suc n)))
 
 ------------------------------------------------------------------------
--- � � Every rational lies below a natural.
+-- २ · Every rational lies below a natural.
 ------------------------------------------------------------------------
 
--- a < 1 + |a| in �
+-- a < 1 + |a| in ℤ
 abs-upari : (a : ℤ) → a ℤO.< pos (suc (ℤ.abs a))
 abs-upari (pos k)    = 0 , refl
 abs-upari (negsuc k) = ℤO.negsuc<pos
 
--- 1 � pos (suc k)
+-- 1 ≤ pos (suc k)
 eka-≤ : (k : ℕ) → pos 1 ℤO.≤ pos (suc k)
 eka-≤ k = k , sym (ℤ.pos+ 1 k)
 
--- pos s � pos s � pos (suc k)
+-- pos s ≤ pos s · pos (suc k)
 guṇa-upari : (s k : ℕ) → pos s ℤO.≤ pos s ℤ.· pos (suc k)
 guṇa-upari s k = subst2 ℤO._≤_ (ℤ.·IdL (pos s)) (ℤ.·Comm (pos (suc k)) (pos s)) (ℤO.≤-·o {k = s} (eka-≤ k))
 
@@ -82,7 +82,7 @@ upari K = PT.rec squash₁
   ([]surjective K)
 
 ------------------------------------------------------------------------
--- � � Every positive rational has a natural multiple at least one.
+-- ३ · Every positive rational has a natural multiple at least one.
 ------------------------------------------------------------------------
 
 -- a positive integer is a successor
@@ -91,7 +91,7 @@ dhana-suc (pos zero)    lt = ⊥-elim (ℤO.isIrrefl< lt)
 dhana-suc (pos (suc k)) _  = k , refl
 dhana-suc (negsuc k)    lt = ⊥-elim (ℤO.isAsym< lt (ℤO.<-weaken ℤO.negsuc<-zero))
 
--- pos (suc d�) � pos (suc d�) � c for c = pos (suc k)
+-- pos (suc d₀) ≤ pos (suc d₀) · c for c = pos (suc k)
 rep-guṇaka : (d₀ k : ℕ) → pos 1 ℤ.· ℕ₊₁→ℤ ((1+ 0) ·₊₁ (1+ d₀)) ℤO.≤ (pos (suc d₀) ℤ.· pos (suc k)) ℤ.· pos 1
 rep-guṇaka d₀ k =
   subst2 ℤO._≤_ (sym (ℤ.·IdL _ ∙ cong (λ z → pos (suc z)) (+-zero d₀)))
@@ -113,7 +113,7 @@ guṇaka x 0<x = PT.rec squash₁ go ([]surjective x)
     lemma = subst (1 ≤_) (cong₂ _·_ (sym (ι-rep (suc d₀))) p) base′
 
 ------------------------------------------------------------------------
--- � � Archimedes.
+-- ४ · Archimedes.
 ------------------------------------------------------------------------
 
 ι-yoga : (m n : ℕ) → ι (m +ℕ n) ≡ ι m + ι n

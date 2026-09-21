@@ -3,40 +3,40 @@
 ------------------------------------------------------------------------
 -- RnaDhana_TheMixedStratificationTerminatesAndCovers
 --
--- à‹àà§à¨ Â a-dhana â” Brahmagupta, *Brhmasphuasiddhnta* (628): one
+-- à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana â€” Brahmagupta, *BrÄhmasphuá¹­asiddhÄnta* (628): one
 -- magnitude read as *dhana* (asset) or *a* (debt).  The sign rules
 -- are his; nothing else here is.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- A CORRECTION FIRST, AND IT IS ABOUT MY OWN INSTRUMENT, NOT A THEOREM.
 --
 -- Last cycle I recorded that mixed coverage was blocked because "the
--- LENGTH argument is not transported â” `nonEmptyFilterShortensThe-
--- Complement` is stated for `List (List â•)` and the mixed side needs it
+-- LENGTH argument is not transported â€” `nonEmptyFilterShortensThe-
+-- Complement` is stated for `List (List â„•)` and the mixed side needs it
 -- for `List (Vec ds)`".  **I had not looked.**  That lemma, and
 -- `partitionLength`, and `lengthL` itself, are all stated over a
--- `variable A : Type` â” generic in the element type since the cycle
+-- `variable A : Type` â€” generic in the element type since the cycle
 -- they were written.  Nothing needed transporting; they apply to
 -- `List (Vec ds)` unchanged.
 --
 -- That is the ninth wrong estimate on this branch and the second whose
 -- subject was my OWN earlier work rather than a piece of mathematics.
--- The rule already written â” "do not write an estimate into a record;
--- try the proof" â” extends: **do not record an obstruction in your own
+-- The rule already written â€” "do not write an estimate into a record;
+-- try the proof" â€” extends: **do not record an obstruction in your own
 -- corpus without grepping the signature.**
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   mixedStratumIsNonEmpty     a non-empty bounded archive has a
---                              non-empty mixed layer â” the one place
+--                              non-empty mixed layer â€” the one place
 --                              the caps and the flip enter
 --   theMixedRemainderIsStrictlyShorter
 --                              hence the mixed remainder is shorter
 --   mixedLeftover / mixedFuelSuffices / theMixedStratificationTerminates
 --                              the peeling stops, at fuel `lengthL vs`
 --   mixedCoverageStep          every archive member is in some mixed
---                              stratum or in the leftover â” for every
+--                              stratum or in the leftover â€” for every
 --                              fuel, and WITHOUT the caps
 --   theMixedStratificationCovers
 --                              so at full fuel, in some mixed stratum
@@ -44,7 +44,7 @@
 -- **THE ASYMMETRY, ONE LEVEL DEEPER THAN LAST CYCLE'S.**  Coverage's
 -- INDUCTION needs nothing: it is `mixedLayerCovers` threaded through
 -- the recursion, and `mixedLayerCovers` is a generic filter fact.  What
--- needs the caps â” and with them the whole a-dhana transport â” is
+-- needs the caps â€” and with them the whole á¹›á¹‡a-dhana transport â€” is
 -- killing the leftover, because that runs on the MEASURE, and the
 -- measure runs on non-emptiness of the layer, and non-emptiness is
 -- `mixedMaximalExists`, which is where the flip lives.  So the caps are
@@ -58,7 +58,7 @@
 -- NO NOVELTY.  Iterated non-dominated sorting terminates and partitions
 -- (Goldberg 1989; Deb et al. 2002).
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ open import RnaDhana_TheMixedStrataArePairwiseDisjointAndOrdered
   using (MemSomeM)
 
 ------------------------------------------------------------------------
--- 1.  The layer is non-empty â” the caps and the flip enter here only
+-- 1.  The layer is non-empty â€” the caps and the flip enter here only
 ------------------------------------------------------------------------
 
 mixedStratumIsNonEmpty :
@@ -149,7 +149,7 @@ theMixedStratificationTerminates ds cs vs ab =
   mixedFuelSuffices (lengthL vs) ds cs vs ab â‰¤-refl
 
 ------------------------------------------------------------------------
--- 3.  Coverage â” the induction needs no caps at all
+-- 3.  Coverage â€” the induction needs no caps at all
 ------------------------------------------------------------------------
 
 mixedCoverageStep :

@@ -1,36 +1,36 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- Perm-àà™àà•àà°à®àà®à â” the transitivity `TheConverseContainmentReducesTo
--- PermTransitivityâ¦` left as a hypothesis.
+-- Perm-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ the transitivity `TheConverseContainmentReducesTo
+-- PermTransitivityï¿½` left as a hypothesis.
 --
 -- That module said, exactly: "Transitivity of `Perm` is NOT proved and
--- NOT refuted â” it is true and standard â¦ it needs an exchange lemma
+-- NOT refuted ï¿½ it is true and standard ï¿½ it needs an exchange lemma
 -- moving an `Insert` past a `Perm`, which is NOT written here and is
 -- NOT assumed to be hard."  Here is the exchange lemma, and it rests on
 -- one fact: two insertions commute.  Nothing about the element type is
--- assumed â” no decidable equality, no set-ness.
+-- assumed ï¿½ no decidable equality, no set-ness.
 --
---   à§  insert-comm : Insert y vs ws â’ Insert x us vs
---                    â’ Î ts. Insert x ts ws — Insert y us ts
---   à¨  exchange    : Insert x ys zs â’ Perm zs ws
---                    â’ Î ws'. Insert x ws' ws — Perm ys ws'
---   à©  perm-trans  : Perm xs ys â’ Perm ys zs â’ Perm xs zs
---   à  â‰ˆâ’Perm      : the four-constructor relation is contained in Perm,
+--   ï¿½  insert-comm : Insert y vs ws ï¿½ Insert x us vs
+--                    ï¿½ ï¿½ ts. Insert x ts ws ï¿½ Insert y us ts
+--   ï¿½  exchange    : Insert x ys zs ï¿½ Perm zs ws
+--                    ï¿½ ï¿½ ws'. Insert x ws' ws ï¿½ Perm ys ws'
+--   ï¿½  perm-trans  : Perm xs ys ï¿½ Perm ys zs ï¿½ Perm xs zs
+--   ï¿½  â‰ˆï¿½Perm      : the four-constructor relation is contained in Perm,
 --                    the converse of `permIsAnAdjacentChain`; so the two
 --                    relations are logically the same.
---   à  both are equivalence relations: refl, sym, trans for each.
+--   ï¿½  both are equivalence relations: refl, sym, trans for each.
 --
 -- CHECKED at the pin.  Agda warns `UnsupportedIndexedMatch` on
--- `insert-comm` and `exchange`: the clauses rely on injectivity of `_âˆ_`
+-- `insert-comm` and `exchange`: the clauses rely on injectivity of `_ï¿½_`
 -- in an indexed match, so those two functions will not COMPUTE on
 -- transports.  They type-check; the relations are used only logically
 -- here, as in the corpus's other modules that carry the same warning.
 --
--- With `Uniqueness_â¦` (which adds decidable equality and gets "same count of
+-- With `Uniqueness_ï¿½` (which adds decidable equality and gets "same count of
 -- every element"), the three presentations of "same list up to order" in
 -- the corpus are now one relation.
 ------------------------------------------------------------------------
-module PermSankramana_ThePermutationRelationIsTransitiveBecauseTwoInsertionsCommuteSoTheFourConstructorRelationIsContainedInPermAndBothAreEquivalenceRelations where
+module PermTransport_ThePermutationRelationIsTransitiveBecauseTwoInsertionsCommuteSoTheFourConstructorRelationIsContainedInPermAndBothAreEquivalenceRelations where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List ; [] ; _âˆ·_)
@@ -42,7 +42,7 @@ open import TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAd
 
 module _ {A : Type} where
 
-  -- à§ Â two insertions commute
+  -- ï¿½ ï¿½ two insertions commute
   insert-comm : {x y : A} {us vs ws : List A}
               â†’ Insert y vs ws â†’ Insert x us vs
               â†’ Î£[ ts âˆˆ List A ] (Insert x ts ws Ã— Insert y us ts)
@@ -52,7 +52,7 @@ module _ {A : Type} where
     let (tsâ‚€ , insx , insy) = insert-comm insâ‚ insâ‚‚
     in  (z âˆ· tsâ‚€) , there insx , there insy
 
-  -- à¨ Â an insertion moves past a Perm
+  -- ï¿½ ï¿½ an insertion moves past a Perm
   exchange : {x : A} {ys zs ws : List A}
            â†’ Insert x ys zs â†’ Perm zs ws
            â†’ Î£[ ws' âˆˆ List A ] (Insert x ws' ws Ã— Perm ys ws')
@@ -62,14 +62,14 @@ module _ {A : Type} where
         (ts , insx' , insy)  = insert-comm ins' insx
     in  ts , insx' , pcons rest insy
 
-  -- à© Â transitivity
+  -- ï¿½ ï¿½ transitivity
   perm-trans : {xs ys zs : List A} â†’ Perm xs ys â†’ Perm ys zs â†’ Perm xs zs
   perm-trans pnil          q = q
   perm-trans (pcons p ins) q =
     let (zs' , ins' , p') = exchange ins q
     in  pcons (perm-trans p p') ins'
 
-  -- à Â the four-constructor relation is contained in Perm
+  -- ï¿½ ï¿½ the four-constructor relation is contained in Perm
   perm-refl : (xs : List A) â†’ Perm xs xs
   perm-refl []       = pnil
   perm-refl (x âˆ· xs) = pcons (perm-refl xs) here
@@ -86,7 +86,7 @@ module _ {A : Type} where
   Permâ†’â‰ˆ : {xs ys : List A} â†’ Perm xs ys â†’ xs â‰ˆ ys
   Permâ†’â‰ˆ = permIsAnAdjacentChain
 
-  -- à Â both are equivalence relations
+  -- ï¿½ ï¿½ both are equivalence relations
   â‰ˆ-sym : {xs ys : List A} â†’ xs â‰ˆ ys â†’ ys â‰ˆ xs
   â‰ˆ-sym â‰ˆnil         = â‰ˆnil
   â‰ˆ-sym (â‰ˆcons h)    = â‰ˆcons (â‰ˆ-sym h)

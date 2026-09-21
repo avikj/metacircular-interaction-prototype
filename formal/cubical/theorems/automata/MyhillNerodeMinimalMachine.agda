@@ -5,7 +5,7 @@
 --
 -- The future-behavior quotient, checked in Cubical Agda.
 --
--- This is the corpus's one central construction (Myhill�Nerode /
+-- This is the corpus's one central construction (Myhill–Nerode /
 -- sufficient statistic / observability): for an observed transition
 -- system (X, A, step, observe), two states are future-equivalent when
 -- every finite action word yields the same observation.  The quotient
@@ -13,15 +13,15 @@
 -- behavior.
 --
 -- Ported from the Lean development `formal/lean/Pairfield/
--- (equations (1)�(2)), with the set-quotient realized as the HIT
+-- (equations (1)–(2)), with the set-quotient realized as the HIT
 -- `Cubical.HITs.SetQuotients._/_` instead of Lean's `Quotient`.
 --
 -- This module also absorbs the parallel port that briefly lived in
 -- §4; the two landed the same day from two directions).  Everything
--- PortQueue proved is here under this module's names � its liftQ is
+-- PortQueue proved is here under this module's names — its liftQ is
 -- `factor`, its runQ ledger is `run quotStep` / `quotRun-[]`, its
 -- stepQ/observeQ/behaviorQ(-inj) are quotStep/quotObserve/
--- quotBehavior(-injective) � plus its one genuinely new statement, the
+-- quotBehavior(-injective) — plus its one genuinely new statement, the
 -- effectivity ISO `nerodeCongruence-effectiveIso` (the univalent strengthening of
 -- Lean's Quotient.exact/Quotient.sound pair).
 --
@@ -31,11 +31,11 @@
 --                                  NerodeCongruence), its equivalence proofs,
 --                                  and the step congruence
 --   nerodeCongruence-of-finer,             refinement and product laws for
---   nerodeCongruence-pair�/�               observations (Lean: nerodeCongruence_of_finer,
+--   nerodeCongruence-pair→/←               observations (Lean: nerodeCongruence_of_finer,
 --                                  nerodeCongruence_pair_iff)
 --   isBehavioralCongruence         behavioral congruences; NerodeCongruence is
 --                                  one, and is the GREATEST one
---                                  (congruence�nerodeCongruence)
+--                                  (congruence→nerodeCongruence)
 --   MinimalMachine                 Meaning = X / NerodeCongruence with:
 --     quotStep, quotObserve          descent of step and observation
 --     quotRun-[]                     execution commutes with quotienting
@@ -134,7 +134,7 @@ nerodeCongruence-trans : (step : X → A → X) (observe : X → O) {x y z : X}
 nerodeCongruence-trans step observe hxy hyz w = hxy w ∙ hyz w
 
 -- Future equality is preserved when the same action is taken on both
--- sides: the future (a � w) of the parents is the future w of the
+-- sides: the future (a ∷ w) of the parents is the future w of the
 -- children, definitionally.
 nerodeCongruence-step : (step : X → A → X) (observe : X → O) {x y : X}
   → NerodeCongruence step observe x y → (a : A)
@@ -191,7 +191,7 @@ record isBehavioralCongruence {ℓX ℓA ℓO ℓR : Level}
     respects-observe : {x y : X} → S x y → observe x ≡ observe y
     respects-step    : {x y : X} (a : A) → S x y → S (step x a) (step y a)
 
--- NerodeCongruence itself is a behavioral congruence �
+-- NerodeCongruence itself is a behavioral congruence …
 nerodeCongruence-isCongruence : (step : X → A → X) (observe : X → O)
   → isBehavioralCongruence step observe (NerodeCongruence step observe)
 nerodeCongruence-isCongruence step observe = record
@@ -199,9 +199,9 @@ nerodeCongruence-isCongruence step observe = record
   ; respects-step    = λ a h → nerodeCongruence-step step observe h a
   }
 
--- � and it is the GREATEST one: every behavioral congruence is
+-- … and it is the GREATEST one: every behavioral congruence is
 -- contained in it.  (Induction on the future word: the empty word is
--- the observation clause, and a � w steps both sides and recurses.)
+-- the observation clause, and a ∷ w steps both sides and recurses.)
 congruence→nerodeCongruence :
     {X : Type ℓX} {A : Type ℓA} {O : Type ℓO} {S : X → X → Type ℓR}
     {step : X → A → X} {observe : X → O}
@@ -223,11 +223,11 @@ module MinimalMachine {ℓX ℓA ℓO : Level}
   _≈_ : X → X → Type (ℓ-max ℓA ℓO)
   _≈_ = NerodeCongruence step observe
 
-  -- Because O is a set, future equality is a proposition �
+  -- Because O is a set, future equality is a proposition …
   isProp≈ : BinaryRelation.isPropValued _≈_
   isProp≈ x y = isPropΠ (λ w → setO _ _)
 
-  -- � and an equivalence relation.
+  -- … and an equivalence relation.
   ≈-isEquivRel : BinaryRelation.isEquivRel _≈_
   ≈-isEquivRel = BinaryRelation.equivRel
     (nerodeCongruence-refl step observe)
@@ -284,7 +284,7 @@ module MinimalMachine {ℓX ℓA ℓO : Level}
   nerodeCongruence-effective = SQ.effective isProp≈ ≈-isEquivRel
 
   -- Strictly more: the path space of the quotient at two named states
-  -- IS future equality � an isomorphism of types, not just a function
+  -- IS future equality — an isomorphism of types, not just a function
   -- (the univalent form of Lean's Quotient.exact / Quotient.sound).
   nerodeCongruence-effectiveIso : (x y : X) → Iso (Path Meaning [ x ] [ y ]) (x ≈ y)
   nerodeCongruence-effectiveIso = SQ.isEquivRel→effectiveIso isProp≈ ≈-isEquivRel
@@ -333,7 +333,7 @@ module MinimalMachine {ℓX ℓA ℓO : Level}
   ----------------------------------------------------------------------
 
   -- Every quantity valued in a set and constant on future-equivalence
-  -- classes factors through meaning (Lean: quotientLift) �
+  -- classes factors through meaning (Lean: quotientLift) …
   factor : (setT : isSet T) (target : X → T)
     → ({x y : X} → x ≈ y → target x ≡ target y)
     → Meaning → T
@@ -344,7 +344,7 @@ module MinimalMachine {ℓX ℓA ℓO : Level}
     → factor setT target const [ x ] ≡ target x
   factor-[] setT target const x = refl
 
-  -- � and the factorization is unique.
+  -- … and the factorization is unique.
   factor-unique : (setT : isSet T) (target : X → T)
       (const : {x y : X} → x ≈ y → target x ≡ target y)
       (g : Meaning → T)
@@ -387,16 +387,16 @@ module MinimalMachine {ℓX ℓA ℓO : Level}
       [_]
       (λ x y s → eq/ x y (congruence→nerodeCongruence isC s))
 
-    -- It commutes with the two projections �
+    -- It commutes with the two projections …
     mediate-[] : (x : X) → mediate [ x ] ≡ [ x ]
     mediate-[] x = refl
 
-    -- � with the descended step �
+    -- … with the descended step …
     mediate-step : (a : A) (q : Q)
       → mediate (stepQ q a) ≡ quotStep (mediate q) a
     mediate-step a = SQ.elimProp (λ q → squash/ _ _) (λ x → refl)
 
-    -- � and with the descended observation: mediate is a machine
+    -- … and with the descended observation: mediate is a machine
     -- morphism.
     mediate-observe : (q : Q) → observeQ q ≡ quotObserve (mediate q)
     mediate-observe = SQ.elimProp (λ q → setO _ _) (λ x → refl)

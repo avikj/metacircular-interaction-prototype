@@ -1,45 +1,45 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡µ-‡Æ‡‡®‡Æ‡ ‚î the silence, universal.  Mauna's descent proved more than
+-- ‡§∏‡§∞‡•ç‡§µ-‡§Æ‡•å‡§®‡§Æ‡•ç ‚Äî the silence, universal.  Mauna's descent proved more than
 -- Mauna stated, and this module states it.
 --
 -- THE QUESTION, asked because its answer was not known to the asker.
--- Mauna: a GROUPOID falls silent above the krama's stratum.  But ‡‡µ‡∞‡ã‡‡
+-- Mauna: a GROUPOID falls silent above the krama's stratum.  But ‡§Ö‡§µ‡§∞‡•ã‡§π‡§É
 -- (k loops peel k levels) never used level three specifically.  What is
--- the actual law?  And does the torus ‚î the UNTWISTED ring, whose
--- stratum-3 charge ‚ ó ‚ ArpanaSopana already uttered ‚î also fall
+-- the actual law?  And does the torus ‚Äî the UNTWISTED ring, whose
+-- stratum-3 charge ‚Ñ§ √ó ‚Ñ§ ArpanaSopana already uttered ‚Äî also fall
 -- silent forever above it, so that BOTH rings are bells struck once and
 -- the two surfaces differ only in what the single strike says?
 --
 -- ANSWERED HERE.
 --
---   ‡‡∞‡‡µ‡Æ‡‡®‡Æ‡  : a space of h-level (3+n) has EVERY stratum above its own
---              level silent: Œ©¬≤‚∫‚ø‚∫µê(‚àA‚à‚‚ä‚ô‚ä‚ò) is contractible for all m.
+--   ‡§∏‡§∞‡•ç‡§µ‡§Æ‡•å‡§®‡§Æ‡•ç  : a space of h-level (3+n) has EVERY stratum above its own
+--              level silent: Œ©¬≤‚Å∫‚Åø‚Å∫·µê(‚à•A‚à•‚ÇÑ‚Çä‚Çô‚Çä‚Çò) is contractible for all m.
 --              The ladder of a truncated space ends exactly at its own
 --              level; only untruncated spaces (the spheres) speak
---              forever.  Mauna's ‡Æ‡‡®‡Æ‡ is the n = 0 face.
---   ‡‡Æ‡µ‡≤‡Ø‡    : the torus is a groupoid ‚î carried across Torus‚â°S¬óS¬
---              from isGroupoidS¬ twice, by isOfHLeveló.
---   ‡‡Æ‡Æ‡‡®‡Æ‡    : therefore the untwisted ring is ALSO a bell struck once:
+--              forever.  Mauna's ‡§Æ‡•å‡§®‡§Æ‡•ç is the n = 0 face.
+--   ‡§∏‡§Æ‡§µ‡§≤‡§Ø‡§É    : the torus is a groupoid ‚Äî carried across Torus‚â°S¬π√óS¬π
+--              from isGroupoidS¬π twice, by isOfHLevel√ó.
+--   ‡§∏‡§Æ‡§Æ‡•å‡§®‡§Æ‡•ç    : therefore the untwisted ring is ALSO a bell struck once:
 --              every stratum above 3 is a point.
 --
 -- THE PICTURE, now closed on both sides.  Torus and Klein bottle: one
--- stratum-3 carrier ‚ ó ‚ (ArpanaSopana, VakraValaya), one strike each,
--- silence above (this module) ‚î and the entire difference between the
+-- stratum-3 carrier ‚Ñ§ √ó ‚Ñ§ (ArpanaSopana, VakraValaya), one strike each,
+-- silence above (this module) ‚Äî and the entire difference between the
 -- orientable and non-orientable surface is what the strike SAYS: whether
--- the two successions agree (‡‡Æ‡) or differ (‡‡‡¶‡).  The krama is not
+-- the two successions agree (‡§∏‡§Æ‡§É) or differ (‡§≠‡•á‡§¶‡§É).  The krama is not
 -- one voice among strata; for both rings it is the whole voice, said
 -- once.  The sphere ladder (ArpanaSopana) stands alone as the shape
--- that never finishes speaking ‚î and ‡‡∞‡‡µ‡Æ‡‡®‡Æ‡ says why: it is not
+-- that never finishes speaking ‚Äî and ‡§∏‡§∞‡•ç‡§µ‡§Æ‡•å‡§®‡§Æ‡•ç says why: it is not
 -- truncated at any level.
 --
--- SOURCES AND SCOPE.  ‡‡µ‡∞‡ã‡‡ is imported from Mauna (this corpus,
--- 2026-08-23); isGroupoidS¬ (Cubical.HITs.S1.Properties), Torus‚â°S¬óS¬
--- (Cubical.HITs.Torus.Base), isOfHLeveló, isOfHLevelPlus',
+-- SOURCES AND SCOPE.  ‡§Ö‡§µ‡§∞‡•ã‡§π‡§É is imported from Mauna (this corpus,
+-- 2026-08-23); isGroupoidS¬π (Cubical.HITs.S1.Properties), Torus‚â°S¬π√óS¬π
+-- (Cubical.HITs.Torus.Base), isOfHLevel√ó, isOfHLevelPlus',
 -- isOfHLevelRespectEquiv, truncIdempotentIso are the library's.  This
 -- module's content is the generalisation and the two torus terms.
--- ‡‡∞‡‡µ (all), ‡‡Æ (even/level, for the untwisted), ‡µ‡≤‡Ø (ring) are
+-- ‡§∏‡§∞‡•ç‡§µ (all), ‡§∏‡§Æ (even/level, for the untwisted), ‡§µ‡§≤‡§Ø (ring) are
 -- ordinary  labels; no source is claimed for the mathematics,
 -- and, as in StaraArpana, arpita/anarpita as a READING of strata is
 -- Umsvti (Tattvrthastra 5.31) with no claim that any source grades
@@ -69,7 +69,7 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡µ‡Æ‡‡®‡Æ‡ ‚î the ladder of a (3+n)-truncated space ends at its own
+-- ‡§∏‡§∞‡•ç‡§µ‡§Æ‡•å‡§®‡§Æ‡•ç ‚Äî the ladder of a (3+n)-truncated space ends at its own
 -- level: every stratum above it, at every depth, is a point.
 ------------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ private
           levelA)
 
 ------------------------------------------------------------------------
--- ‡‡Æ‡µ‡≤‡Ø‡ ‚î the untwisted ring is a groupoid, carried across its own
+-- ‡§∏‡§Æ‡§µ‡§≤‡§Ø‡§É ‚Äî the untwisted ring is a groupoid, carried across its own
 -- splitting into two circles.
 ------------------------------------------------------------------------
 
@@ -103,7 +103,7 @@ private
            (isOfHLevel√ó 3 isGroupoidS¬π isGroupoidS¬π)
 
 ------------------------------------------------------------------------
--- ‡‡Æ‡Æ‡‡®‡Æ‡ ‚î and therefore also a bell struck once: silence at every
+-- ‡§∏‡§Æ‡§Æ‡•å‡§®‡§Æ‡•ç ‚Äî and therefore also a bell struck once: silence at every
 -- stratum above the krama's.
 ------------------------------------------------------------------------
 

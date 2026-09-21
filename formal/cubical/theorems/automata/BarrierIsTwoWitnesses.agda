@@ -5,14 +5,14 @@
 --
 -- The witness thread has been measuring absences of its own choosing.
 -- This applies it to the corpus's own headline open problem, and the fit
--- is not an analogy â” it is the same shape.
+-- is not an analogy â€” it is the same shape.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- **Proposition B3 (nonlinear closure).** *Any O = Î¦(Q_{wâ},â¦,Q_{w_r})
--- with arbitrary â” even non-computable â” post-processing Î¦ is a function
+-- **Proposition B3 (nonlinear closure).** *Any O = Î¦(Q_{wâ‚},â€¦,Q_{w_r})
+-- with arbitrary â€” even non-computable â€” post-processing Î¦ is a function
 -- of r numbers each of which factors as in B1.  Hence the entire class
--- WL_d(L,r) factors through the blurred measure Ï_k * K_L.
+-- WL_d(L,r) factors through the blurred measure Ïƒ_k * K_L.
 -- Post-processing cannot recover information the windows did not pass.*
 --
 -- That is the PROBE structure of `TheCeilingIsAboutReading`, arrived at
@@ -23,27 +23,27 @@
 --
 -- > **The barrier problem (precise).** Exhibit, or rule out, a pair of
 -- > admissible zero configurations indistinguishable to all
--- > WL_d(L,poly) observables â¦ but with different pair-correlation
+-- > WL_d(L,poly) observables â€¦ but with different pair-correlation
 -- > statistics.
 --
 -- A PAIR.  The note reached the number 2 on its own, from the
 -- mathematics, before any of this measure existed.  What the measure
 -- adds is why it is 2 and not 1 and not more.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED HERE
 --
--- Schematically, over abstract `Config`, `Blur`, `Stat` â” which is the
+-- Schematically, over abstract `Config`, `Blur`, `Stat` â€” which is the
 -- right generality, because B3's content is precisely that Î¦ is
 -- arbitrary:
 --
---     Recovers Î¦  =  (c : Config) â’ Î¦ (blur c) â‰¡ stat c
---     Barrier     =  Â Î[ Î¦ âˆˆ (Blur â’ Stat) ] Recovers Î¦
+--     Recovers Î¦  =  (c : Config) â†’ Î¦ (blur c) â‰¡ stat c
+--     Barrier     =  Â¬ Î£[ Î¦ âˆˆ (Blur â†’ Stat) ] Recovers Î¦
 --
---   one-config-never-suffices : Â Refutes (FullLaw blur stat) (c âˆ [])
---   barrier-from-a-pair       : blur c â‰¡ blur c' â’ Â (stat c â‰¡ stat c')
---                             â’ Barrier
---   barrier-witness-number-2  : â¦and the witness number is exactly 2
+--   one-config-never-suffices : Â¬ Refutes (FullLaw blur stat) (c âˆ· [])
+--   barrier-from-a-pair       : blur c â‰¡ blur c' â†’ Â¬ (stat c â‰¡ stat c')
+--                             â†’ Barrier
+--   barrier-witness-number-2  : â€¦and the witness number is exactly 2
 --
 -- The first is the methodological content and it holds with no
 -- hypothesis whatever: **no single admissible configuration can
@@ -52,23 +52,23 @@
 -- statement about two objects.
 --
 -- The second says the pair the note asks for is not merely sufficient
--- evidence â” it is the entire content.  Given it, every post-processing
+-- evidence â€” it is the entire content.  Given it, every post-processing
 -- dies at once, non-computable ones included, which is what B3's
 -- "arbitrary Î¦" was for.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- Nothing analytic.  No claim that such a pair exists, that the zeros of
--- Î admit one, that the counting law and functional equation can be met,
--- is explicit that B1â“B3 do *not* establish a barrier against inferring
--- Î's correlations, and this module establishes strictly less than B3.
+-- Î¶ admit one, that the counting law and functional equation can be met,
+-- is explicit that B1â€“B3 do *not* establish a barrier against inferring
+-- Î¶'s correlations, and this module establishes strictly less than B3.
 --
 -- What it establishes is the SHAPE: that the open problem is a
 -- two-witness problem, that one witness is provably never enough, and
 -- that "exhibit a pair" is not a convenient route to the barrier but its
 -- exact statement.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -117,7 +117,7 @@ module Barrier
   -- 2.  ONE CONFIGURATION IS NEVER ENOUGH
   --
   -- Whatever a single admissible configuration does, the constant
-  -- post-processing `Î» _ â’ stat c` answers it.  So no barrier of this
+  -- post-processing `Î» _ â†’ stat c` answers it.  So no barrier of this
   -- kind is ever established by exhibiting one object.
   ----------------------------------------------------------------------
 
@@ -131,7 +131,7 @@ module Barrier
   -- 3.  A PAIR IS THE WHOLE CONTENT
   --
   -- Two configurations the blur identifies and the statistic separates
-  -- kill every post-processing at once â” which is exactly what B3's
+  -- kill every post-processing at once â€” which is exactly what B3's
   -- "arbitrary, even non-computable Î¦" is there to make meaningful.
   ----------------------------------------------------------------------
 
@@ -167,7 +167,7 @@ module Barrier
   -- 5.  The converse, on any finite family of configurations
   --
   -- If a listed family contains NO such pair, a post-processing
-  -- answering the whole family exists â” so on that family the barrier
+  -- answering the whole family exists â€” so on that family the barrier
   -- fails.  This needs the blur values to be comparable, which is the
   -- `Discrete Blur` of `TheCeilingIsAboutReading`, and it is a statement
   -- about the listed family only, not about all of `Config`.
@@ -203,18 +203,18 @@ module Barrier
 -- already located correctly and without a reason:
 --
 --   * one configuration can never establish a barrier of this shape, no
---     matter how extreme â” the constant post-processing answers it.  So
+--     matter how extreme â€” the constant post-processing answers it.  So
 --     any programme of the form "construct a single spectrum with
 --     property P" is looking at the wrong kind of object;
 --   * a pair with equal blur and different statistic is not evidence for
 --     the barrier, it IS the barrier, killing arbitrary Î¦ at once;
 --   * and on any finite family with no such pair, the barrier provably
---     fails â” so the search cannot be narrowed to a family that has been
+--     fails â€” so the search cannot be narrowed to a family that has been
 --     checked pairwise.
 --
--- The note's phrase "exhibit â¦ a pair" is therefore exact rather than
--- idiomatic, and its own honesty ledger â” that B1â“B3 do not establish
--- the barrier â” is confirmed from the other side: B3 gives the probe
+-- The note's phrase "exhibit â€¦ a pair" is therefore exact rather than
+-- idiomatic, and its own honesty ledger â€” that B1â€“B3 do not establish
+-- the barrier â€” is confirmed from the other side: B3 gives the probe
 -- structure, and the probe structure is what makes the cost exactly 2.
 --
 -- OPEN, and it is the note's own open problem, untouched here: whether

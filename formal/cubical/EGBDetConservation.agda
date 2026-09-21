@@ -3,37 +3,37 @@
 ------------------------------------------------------------------------
 -- EGBDetConservation
 --
--- The determinant conservation law det(PQ) = det(P) Â det(Q) in its
--- cleanest sector: upper-triangular 2—2 matrices over â•.
+-- The determinant conservation law det(PQ) = det(P) Â· det(Q) in its
+-- cleanest sector: upper-triangular 2Ã—2 matrices over â„•.
 --
--- An upper-triangular 2—2 matrix  [[a,b],[0,d]]  is carried by the
+-- An upper-triangular 2Ã—2 matrix  [[a,b],[0,d]]  is carried by the
 -- triple (a, b, d).  In this sector:
 --
 --   * multiplication is subtraction-free:
---       [[a,b],[0,d]] Â [[a',b'],[0,d']]
---         = [[aÂa', aÂb' + bÂd'], [0, dÂd']]
---   * the determinant is subtraction-free:  det = aÂd
---   * the conservation law is pure â• algebra:
---       detConserve : detUT (mulUT p q) â‰¡ detUT p Â detUT q
+--       [[a,b],[0,d]] Â· [[a',b'],[0,d']]
+--         = [[aÂ·a', aÂ·b' + bÂ·d'], [0, dÂ·d']]
+--   * the determinant is subtraction-free:  det = aÂ·d
+--   * the conservation law is pure â„• algebra:
+--       detConserve : detUT (mulUT p q) â‰¡ detUT p Â· detUT q
 --
 -- We check more than the bare equation: (UT, mulUT, ut 1 0 1) is a
 -- MONOID (associativity + both identity laws, all closed by the
--- NatSolver reflection tactic), (â•, Â, 1) is a monoid, and detUT is a
+-- NatSolver reflection tactic), (â„•, Â·, 1) is a monoid, and detUT is a
 -- MONOID MORPHISM between them (detHom below, in the sense of
--- Cubical.Algebra.Monoid.IsMonoidHom: presÎµ = refl, presÂ =
+-- Cubical.Algebra.Monoid.IsMonoidHom: presÎµ = refl, presÂ· =
 -- detConserve).  Conservation is not an isolated identity; it is
 -- functoriality of det on this sector.
 --
--- THE FULL 2—2 CONTRAST (why the sector restriction matters).
--- For a full matrix [[a,b],[c,d]] the determinant is aÂd âˆ’ bÂc: it
--- NEEDS subtraction, so over the rig â• (no additive inverses) "det"
--- of a full matrix is not even defined â” aÂd âˆ’ bÂc is not an â•-term.
+-- THE FULL 2Ã—2 CONTRAST (why the sector restriction matters).
+-- For a full matrix [[a,b],[c,d]] the determinant is aÂ·d âˆ’ bÂ·c: it
+-- NEEDS subtraction, so over the rig â„• (no additive inverses) "det"
+-- of a full matrix is not even defined â€” aÂ·d âˆ’ bÂ·c is not an â„•-term.
 -- No claim about full matrices is made or checkable in this module;
 -- what IS checked is the upper-triangular witness that explains the
--- sector choice: with c = 0 the would-be subtracted term bÂc is
--- b Â 0 â‰¡ 0 (crossTermVanishes below), so the â-determinant,
--- restricted to the sector, collapses to the subtraction-free aÂd
--- and the whole conservation law lives inside â•.  The sector
+-- sector choice: with c = 0 the would-be subtracted term bÂ·c is
+-- b Â· 0 â‰¡ 0 (crossTermVanishes below), so the â„¤-determinant,
+-- restricted to the sector, collapses to the subtraction-free aÂ·d
+-- and the whole conservation law lives inside â„•.  The sector
 -- restriction is exactly what makes the law subtraction-free.
 ------------------------------------------------------------------------
 
@@ -51,14 +51,14 @@ open import Cubical.Algebra.Monoid
 -- Cubical.Tactics.NatSolver.Reflection exports neither `solve` nor
 -- `natSolve`: its line 34 is `open EqualityToNormalform renaming (solve to
 -- natSolve)` WITHOUT `public`, so both names stop at that module's boundary.
--- The public entry point is the macro `solveâ•!`, re-exported by
+-- The public entry point is the macro `solveâ„•!`, re-exported by
 -- Cubical.Tactics.NatSolver, and the library's own Examples.agda gives the
 -- idiom: the macro fills the goal, so the variables must be bound on the
 -- left-hand side rather than the point-free `f = solve` used below before.
 open import Cubical.Tactics.NatSolver using (solveâ„•!)
 
 ------------------------------------------------------------------------
--- The carrier: upper-triangular 2—2 matrices over â•
+-- The carrier: upper-triangular 2Ã—2 matrices over â„•
 
 record UT : Type where
   constructor ut
@@ -72,7 +72,7 @@ open UT
 utPath : {p q : UT} â†’ a p â‰¡ a q â†’ b p â‰¡ b q â†’ d p â‰¡ d q â†’ p â‰¡ q
 utPath pa pb pd i = ut (pa i) (pb i) (pd i)
 
--- UT is a set (retract of â• — â• — â•).
+-- UT is a set (retract of â„• Ã— â„• Ã— â„•).
 isSetUT : isSet UT
 isSetUT = isSetRetract
   (Î» p â†’ a p , b p , d p) (Î» (x , y , z) â†’ ut x y z) (Î» _ â†’ refl)
@@ -92,10 +92,10 @@ idUT : UT
 idUT = ut 1 0 1
 
 ------------------------------------------------------------------------
--- (b) THE CONSERVATION LAW: det(PQ) = det(P) Â det(Q)
+-- (b) THE CONSERVATION LAW: det(PQ) = det(P) Â· det(Q)
 
 private
-  -- (aÂa')Â(dÂd') â‰¡ (aÂd)Â(a'Âd'): the middle-four interchange for Â.
+  -- (aÂ·a')Â·(dÂ·d') â‰¡ (aÂ·d)Â·(a'Â·d'): the middle-four interchange for Â·.
   interchange : (x y z w : â„•) â†’ (x Â· y) Â· (z Â· w) â‰¡ (x Â· z) Â· (y Â· w)
   interchange x y z w = solveâ„•!
 
@@ -147,19 +147,19 @@ UTMonoid = makeMonoid idUT mulUT isSetUT mulUT-assoc mulUT-idR mulUT-idL
 detUT-id : detUT idUT â‰¡ 1
 detUT-id = refl
 
--- THE MORPHISM: detUT : (UT, mulUT, idUT) â’ (â•, Â, 1).
+-- THE MORPHISM: detUT : (UT, mulUT, idUT) â†’ (â„•, Â·, 1).
 detHom : MonoidHom UTMonoid â„•Â·Monoid
 detHom = detUT , monoidequiv detUT-id detConserve
 
 ------------------------------------------------------------------------
 -- (d) The sector witness for the full-matrix contrast
 --
--- Over â, det [[a,b],[c,d]] = aÂd âˆ’ bÂc.  Over â• that subtraction is
+-- Over â„¤, det [[a,b],[c,d]] = aÂ·d âˆ’ bÂ·c.  Over â„• that subtraction is
 -- unavailable, so a full-matrix det is not stated here at all.  The
 -- checked fact below is the upper-triangular witness: in this sector
 -- c = 0, so the term the subtraction would remove is already zero,
--- and the â-determinant restricted to the sector IS the
--- subtraction-free detUT = aÂd.
+-- and the â„¤-determinant restricted to the sector IS the
+-- subtraction-free detUT = aÂ·d.
 
 crossTermVanishes : (p : UT) â†’ b p Â· 0 â‰¡ 0
 crossTermVanishes p = sym (0â‰¡mÂ·0 (b p))

@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- Yamala â” the two-orb coupling is a SWAP; the entangler is its half.
+-- Yamala â€” the two-orb coupling is a SWAP; the entangler is its half.
 --
--- TERM.  à¯à®à² Â yamala â” a twin, a paired couple; here the two evanescently
+-- TERM.  à¤¯à¤®à¤² Â· yamala â€” a twin, a paired couple; here the two evanescently
 -- coupled orbs.  Common  word, no technical-source claim.  Physics
--- (evanescent/frustrated-TIR coupling, SWAP, âˆSWAP) modern; reading built
+-- (evanescent/frustrated-TIR coupling, SWAP, âˆšSWAP) modern; reading built
 -- here, 2026-08-25.
 --
--- THE READING (checked terms below).  Bring two ààààŸà¿à• orbs close: the
+-- THE READING (checked terms below).  Bring two à¤¸à¥à¤«à¤Ÿà¤¿à¤• orbs close: the
 -- evanescent tail of one whispering-gallery mode leaks into the other
--- (frustrated TIR), and an excitation can hop orb â” orb.  Full transfer is
+-- (frustrated TIR), and an excitation can hop orb â†” orb.  Full transfer is
 -- the SWAP.  SWAP is lossless (an involution: a full hop and back returns)
 -- and NON-LOCAL (its output on one orb depends on the OTHER orb's input), so
 -- it is not a product of per-orb gates.  But SWAP by itself is not an
--- entangler â” it merely relabels.  The entangling gate is its SQUARE ROOT:
--- âˆSWAP (half a hop) is universal with single-qubit gates.  And âˆSWAP stands
--- to SWAP exactly as âˆNOT stands to NOT (`Mani_â¦`, `VargamulaViparyaya_â¦`):
+-- entangler â€” it merely relabels.  The entangling gate is its SQUARE ROOT:
+-- âˆšSWAP (half a hop) is universal with single-qubit gates.  And âˆšSWAP stands
+-- to SWAP exactly as âˆšNOT stands to NOT (`Mani_â€¦`, `VargamulaViparyaya_â€¦`):
 -- the root does not exist on the bare two-point label set, it exists only on
--- the â-enrichment of the mode amplitudes.  So the tunable orb gap sets the
--- coupling fraction, and tuning it to HALF is what mints the entangler â” the
--- seam where the Indra's net stops being abelian (`Bandha_â¦`).  The genuine
+-- the â„‚-enrichment of the mode amplitudes.  So the tunable orb gap sets the
+-- coupling fraction, and tuning it to HALF is what mints the entangler â€” the
+-- seam where the Indra's net stops being abelian (`Bandha_â€¦`).  The genuine
 -- two-qubit controlled phase still needs the occupation-dependent
--- nonlinearity; âˆSWAP is the linear-coupling entangler.
+-- nonlinearity; âˆšSWAP is the linear-coupling entangler.
 --
--- WHAT IS CHECKED.  `swapÂ²` â” SWAP is an involution (full coupling returns),
--- so `swapEq` is an equivalence (lossless).  `non-local` â” a hard Â: SWAP is
--- not `(a,b) â¦ (u a , v b)` for any per-orb u, v.
+-- WHAT IS CHECKED.  `swapÂ²` â€” SWAP is an involution (full coupling returns),
+-- so `swapEq` is an equivalence (lossless).  `non-local` â€” a hard Â¬: SWAP is
+-- not `(a,b) â†¦ (u a , v b)` for any per-orb u, v.
 --
 -- Checked: --cubical --safe; loads clean on the wire.
 ------------------------------------------------------------------------
@@ -40,18 +40,18 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; trueâ‰¢false)
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (Â¬_)
 
--- two coupled orbs; an excitation can hop orb â” orb. SWAP = full transfer.
+-- two coupled orbs; an excitation can hop orb â†” orb. SWAP = full transfer.
 swap : Bool Ã— Bool â†’ Bool Ã— Bool
 swap (a , b) = (b , a)
 
--- FULL COUPLING RETURNS: swap is an involution â’ an equivalence (lossless).
+-- FULL COUPLING RETURNS: swap is an involution â†’ an equivalence (lossless).
 swapÂ² : (x : Bool Ã— Bool) â†’ swap (swap x) â‰¡ x
 swapÂ² (a , b) = refl
 
 swapEq : (Bool Ã— Bool) â‰ƒ (Bool Ã— Bool)
 swapEq = isoToEquiv (iso swap swap swapÂ² swapÂ²)
 
--- NON-LOCAL: not a product of per-orb gates â” the output on one orb depends
+-- NON-LOCAL: not a product of per-orb gates â€” the output on one orb depends
 -- on the OTHER orb's input.
 non-local : Â¬ (Î£[ u âˆˆ (Bool â†’ Bool) ] Î£[ v âˆˆ (Bool â†’ Bool) ]
                ((a b : Bool) â†’ swap (a , b) â‰¡ (u a , v b)))

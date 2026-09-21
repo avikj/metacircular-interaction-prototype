@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- �������-����� � the measure of the sphere (the contractions).
+-- गोलक-मात्र — the measure of the sphere (the contractions).
 --
 -- The spherical-moment algebra behind strain tomography (handoff §18,
 -- [S11]) and the pressure cross-effect (§20, [S12]).  The only analytic
 -- input is the two moment tensors of the unit sphere,
 --
---     15�⟨n�n�⟩ = 5 δ��,      15�⟨n�n�n�n�⟩ = δ��δ�� + δ��δ�� + δ��δ�� ,
+--     15·⟨nᵢnⱼ⟩ = 5 δᵢⱼ,      15·⟨nᵢnⱼnₖnₗ⟩ = δᵢⱼδₖₗ + δᵢₖδⱼₗ + δᵢₗδⱼₖ ,
 --
 -- taken as the DEFINITION of the averaged tensors; everything else is
 -- finite index algebra over an arbitrary commutative ring:
 --
---   �  ��� (δ��δ�� + δ��δ�� + δ��δ��) S�� ≡ S�� + S◵ + δ�� tr S  (= 2S�� + δ�� tr S on symmetric S);
---   �  for the cross-helicity symbol
---         q_u(n) = −P_n S P_n − ½ (n�Sn) P_n,      P_n = I − nn�,
---      the averaged symbol is  30�⟨q⟩ ≡ −12 S − 6 (tr S) I,  so on
+--   १  Σⱼₖ (δᵢⱼδₖₗ + δᵢₖδⱼₗ + δᵢₗδⱼₖ) Sⱼₖ ≡ Sᵢₗ + Sₗᵢ + δᵢₗ tr S  (= 2Sᵢₗ + δᵢₗ tr S on symmetric S);
+--   २  for the cross-helicity symbol
+--         q_u(n) = −P_n S P_n − ½ (nᵀSn) P_n,      P_n = I − nnᵀ,
+--      the averaged symbol is  30·⟨q⟩ ≡ −12 S − 6 (tr S) I,  so on
 --      trace-free S,  S = −(5/2) ⟨q_u⟩:  the strain is recovered from
 --      the spherical mean of its symbol;
---   �  the pressure cross-effect: for a symmetric biadditive H,
---         H[u�+u�] = H[u�] + 2H(u�,u�) + H[u�],
---      so with 7H[u�] = −2(S²)�:  7H[u] + 2(S²)� = 7(2H(u�,u�) + H[u�]).
+--   ३  the pressure cross-effect: for a symmetric biadditive H,
+--         H[u₂+u⊥] = H[u₂] + 2H(u₂,u⊥) + H[u⊥],
+--      so with 7H[u₂] = −2(S²)₀:  7H[u] + 2(S²)₀ = 7(2H(u₂,u⊥) + H[u⊥]).
 ------------------------------------------------------------------------
 module GolakaMatra_TheFourthMomentOfTheSphereContractsToTheSymmetrizedEntryPlusTraceTimesIdentityAndTheSecondMomentContractsToFiveTimesTheEntry where
 
@@ -79,12 +79,12 @@ module Contractions (R : CommRing ℓ) where
   symm : (a₁₁ a₁₂ a₁₃ a₂₂ a₂₃ a₃₃ : A) → Mat
   symm a₁₁ a₁₂ a₁₃ a₂₂ a₂₃ a₃₃ = mat a₁₁ a₁₂ a₁₃ a₁₂ a₂₂ a₂₃ a₁₃ a₂₃ a₃₃
 
-  -- 15�⟨n�n�n�n�⟩
+  -- 15·⟨nᵢnⱼnₖnₗ⟩
   m4 : Ix → Ix → Ix → Ix → A
   m4 i j k l = (δ i j · δ k l + δ i k · δ j l) + δ i l · δ j k
 
   ----------------------------------------------------------------
-  -- � � the fourth-moment contraction
+  -- १ · the fourth-moment contraction
   ----------------------------------------------------------------
   fourth-contraction : (a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ : A) (i l : Ix)
     → let S = mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ in
@@ -100,9 +100,9 @@ module Contractions (R : CommRing ℓ) where
   fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₃ = solve! R
 
   ----------------------------------------------------------------
-  -- � � strain tomography
+  -- २ · strain tomography
   ----------------------------------------------------------------
-  -- the second-moment contractions, 15�⟨n�n�⟩ = 5δ��
+  -- the second-moment contractions, 15·⟨nᵢnⱼ⟩ = 5δᵢⱼ
   left5 : (a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ : A) (i l : Ix) → let S = mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ in
     Σ₃ (λ j → (ι 5 · δ i j) · S j l) ≡ ι 5 · S i l
   left5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₁ = solve! R

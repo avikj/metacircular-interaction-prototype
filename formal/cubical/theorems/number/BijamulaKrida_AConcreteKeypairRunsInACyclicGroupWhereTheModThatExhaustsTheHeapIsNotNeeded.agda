@@ -1,44 +1,44 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡Æ‡‡≤-‡ï‡‡∞‡‡°‡æ ‚î a concrete RSA keypair, executed and checked, in the
+-- ‡§¨‡•Ä‡§ú‡§Æ‡•Ç‡§≤-‡§ï‡•ç‡§∞‡•Ä‡§°‡§æ ‚Äî a concrete RSA keypair, executed and checked, in the
 -- cyclic group where the exponentiation actually computes.
 --
--- `Bijamula_‚¶agda` proved RSA correctness abstractly and recorded the
+-- `Bijamula_‚Ä¶agda` proved RSA correctness abstractly and recorded the
 -- boundary: the concrete keypair (n=33) exhausts the heap under the
 -- library's `_mod_`, which is well-founded +induction and does not reduce
 -- by refl.  This file pays the concrete instance a different way, and the
--- way is not a workaround ‚î it is where RSA actually lives.
+-- way is not a workaround ‚Äî it is where RSA actually lives.
 --
 -- WHY A CYCLIC GROUP IS THE HONEST GROUND.  RSA operates on the units
--- (‚/n)À.  For a semiprime n = p¬q that group is (‚/p)À ó (‚/q)À, a
+-- (‚Ñ§/n)À£.  For a semiprime n = p¬∑q that group is (‚Ñ§/p)À£ √ó (‚Ñ§/q)À£, a
 -- product of two CYCLIC groups (a classical fact; here cited, and it is
--- why the ‡ï‡‡ü‡‡ü‡ï-‡‡‡®-‡‡‡‡ / CRT decryption in `KuttakaCRT` is faster).
--- On each cyclic factor the message is a power of a generator, and ‡ò‡æ‡ of
+-- why the ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§ö‡•Ä‡§®-‡§∂‡•á‡§∑‡§É / CRT decryption in `KuttakaCRT` is faster).
+-- On each cyclic factor the message is a power of a generator, and ‡§ò‡§æ‡§§ of
 -- a generator is a pure fold that computes without any modular reduction:
 -- the group law already carries the mod.  So instantiating `Bijamula`'s
--- monoid at a concrete cyclic group is not a toy standing in for RSA ‚î it
+-- monoid at a concrete cyclic group is not a toy standing in for RSA ‚Äî it
 -- is one CRT-component of a real RSA decryption, executed by the kernel.
 --
--- WHAT IS CHECKED.  The cyclic group C‚ = ‚ü®g‚ü©, g¬≥ = Œµ, as a CMonoid;
--- a keypair on it ‚î order œ = 3, public e = 5, private d = 5, since
--- 5¬5 = 25 = 3¬8 + 1 (the pulverizer's witness, by refl) ‚î and:
+-- WHAT IS CHECKED.  The cyclic group C‚ÇÉ = ‚ü®g‚ü©, g¬≥ = Œµ, as a CMonoid;
+-- a keypair on it ‚Äî order œÜ = 3, public e = 5, private d = 5, since
+-- 5¬∑5 = 25 = 3¬∑8 + 1 (the pulverizer's witness, by refl) ‚Äî and:
 --
---   ¬ß3  ‡Ø‡‡≤‡∞-‡‡ø‡¶‡‡ß‡ø‡   :  ‡ò‡æ‡ C‚ g 3 ‚â° Œµ          (by refl: g¬≥ = Œµ)
---   ¬ß3  ‡ï‡‡û‡‡‡-‡‡ø‡¶‡‡ß‡ø‡  :  5 ¬ 5 ‚â° 3 ¬ 8 + 1        (by refl: ‡‡‡‡‡ø‡¶‡‡ß‡ø g=1)
---   ¬ß4  ‡Æ‡æ‡∞‡‡ó‡-‡‡‡∞‡‡Æ‡  :  ‡ò‡æ‡ (‡ò‡æ‡ g 5) 5 ‚â° g       via ‡‡‡‡Æ‡‡≤-‡‡ø‡¶‡‡ß‡ø
---   ¬ß4  ‡Æ‡æ‡∞‡‡ó‡-‡¶‡‡µ‡ø‡‡‡Ø‡ :  ‡ò‡æ‡ (‡ò‡æ‡ g 5) 5 ‚â° g       by refl (direct fold)
---   ¬ß4  ‡Æ‡æ‡∞‡‡ó‡-‡‡ï‡    :  the two roads are the same term
+--   ¬ß3  ‡§Ø‡•Ç‡§≤‡§∞-‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø‡§É   :  ‡§ò‡§æ‡§§ C‚ÇÉ g 3 ‚â° Œµ          (by refl: g¬≥ = Œµ)
+--   ¬ß3  ‡§ï‡•Å‡§û‡•ç‡§ú‡•Ä-‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø‡§É  :  5 ¬∑ 5 ‚â° 3 ¬∑ 8 + 1        (by refl: ‡§¨‡•Ä‡§ú‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø g=1)
+--   ¬ß4  ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É-‡§™‡•ç‡§∞‡§•‡§Æ‡§É  :  ‡§ò‡§æ‡§§ (‡§ò‡§æ‡§§ g 5) 5 ‚â° g       via ‡§¨‡•Ä‡§ú‡§Æ‡•Ç‡§≤-‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø
+--   ¬ß4  ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É-‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø‡§É :  ‡§ò‡§æ‡§§ (‡§ò‡§æ‡§§ g 5) 5 ‚â° g       by refl (direct fold)
+--   ¬ß4  ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•å-‡§è‡§ï‡•å    :  the two roads are the same term
 --
 -- The two roads are the repository's recurring shape: the theorem's route
 -- (structure) and the computation's route (refl) meet.  That they agree
--- is `‡Æ‡æ‡∞‡‡ó‡-‡‡ï‡`, and it needs no proof beyond that both have the same
--- type ‚î but it is stated so the meeting is a term.
+-- is `‡§Æ‡§æ‡§∞‡•ç‡§ó‡•å-‡§è‡§ï‡•å`, and it needs no proof beyond that both have the same
+-- type ‚Äî but it is stated so the meeting is a term.
 --
 -- Checked also, so decryption is not vacuously reversing the identity:
---   ¬ß5  the ciphertext ‡ò‡æ‡ g 5 is NOT g (it is g¬≤, i.e. e genuinely
+--   ¬ß5  the ciphertext ‡§ò‡§æ‡§§ g 5 is NOT g (it is g¬≤, i.e. e genuinely
 --       scrambles), and every one of the three group elements decrypts
---       back to itself (`‡‡∞‡‡µ‡-‡‡®‡‡¶‡‡‡æ‡`) ‚î RSA on the whole message space.
+--       back to itself (`‡§∏‡§∞‡•ç‡§µ‡•á-‡§∏‡§®‡•ç‡§¶‡•á‡§∂‡§æ‡§É`) ‚Äî RSA on the whole message space.
 --
 -- No postulates, no holes, --safe.  Every claim is refl or the abstract
 -- theorem applied to refls.
@@ -55,7 +55,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Bijamula_TheRSAPrivateKeyIsThePulverizersWitnessAndDecryptionIsPingalasExponentiation
 
 ------------------------------------------------------------------------
--- ¬ß1  C‚ = { e‚ , g , g¬≤ }, the cyclic group of order three.
+-- ¬ß1  C‚ÇÉ = { e‚ÇÄ , g , g¬≤ }, the cyclic group of order three.
 ------------------------------------------------------------------------
 
 data C‚ÇÉ : Type where
@@ -111,7 +111,7 @@ C‚ÇÉ-mon = record
 open CMonoid C‚ÇÉ-mon using (Œµ)
 
 ------------------------------------------------------------------------
--- ¬ß2  ‡ò‡æ‡ at this group is a computing fold.  ‡ò‡æ‡ g 3 = g‚àòg‚àòg‚àòe‚.
+-- ¬ß2  ‡§ò‡§æ‡§§ at this group is a computing fold.  ‡§ò‡§æ‡§§ g 3 = g‚àòg‚àòg‚àòe‚ÇÄ.
 ------------------------------------------------------------------------
 
 pow : C‚ÇÉ ‚Üí ‚Ñï ‚Üí C‚ÇÉ
@@ -119,7 +119,7 @@ pow = ‡§ò‡§æ‡§§ C‚ÇÉ-mon
 
 ------------------------------------------------------------------------
 -- ¬ß3  The keypair, and its two defining facts, by refl.
---     order œ = 3, public e = 5, private d = 5, 5¬5 = 3¬8 + 1.
+--     order œÜ = 3, public e = 5, private d = 5, 5¬∑5 = 3¬∑8 + 1.
 ------------------------------------------------------------------------
 
 ‡§Ø‡•Ç‡§≤‡§∞-‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø‡§É : pow g 3 ‚â° Œµ
@@ -143,7 +143,7 @@ pow = ‡§ò‡§æ‡§§ C‚ÇÉ-mon
 
 ------------------------------------------------------------------------
 -- ¬ß5  The encryption genuinely scrambles, and the whole message space
---     round-trips ‚î so decryption is not vacuously undoing nothing.
+--     round-trips ‚Äî so decryption is not vacuously undoing nothing.
 ------------------------------------------------------------------------
 
 -- the ciphertext of g is g¬≤, not g

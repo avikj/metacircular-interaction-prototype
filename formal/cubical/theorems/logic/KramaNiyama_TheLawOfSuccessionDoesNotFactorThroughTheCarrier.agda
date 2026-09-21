@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���������� � the law of succession does not factor through the carrier.
+-- क्रमनियमः — the law of succession does not factor through the carrier.
 --
--- TERM.  ����� (succession, sequence) is carried from the corpus's
+-- TERM.  क्रम (succession, sequence) is carried from the corpus's
 -- saptabhag lane (Umsvti, *Tattvrthastra*; Samantabhadra;
--- Akalaka; Siddhasena Divkara � as cited by `Saptabhangi.agda` and
+-- Akalaṅka; Siddhasena Divākara — as cited by `Saptabhangi.agda` and
 -- `KramaSaha_TheOrderOfStandpointsIsTheChargeItself.agda`, whose
 -- theorems this file uses as a lens and does not restate).  The
--- compound �����-����, "the rule of succession", is built HERE, for this
+-- compound क्रम-नियम, "the rule of succession", is built HERE, for this
 -- object; no source is claimed for the compound (CLAUDE.md, naming
 -- rule, note 2).
 --
@@ -17,14 +17,14 @@
 -- terms:
 --
 --     same carrier + different commutator
---       �  the law does not factor through the carrier alone.
+--       ⟹  the law does not factor through the carrier alone.
 --
 -- UPSTREAM, in this corpus, same day:
--- `VakraValaya_TheSameCarrierTwoLawsOfSuccession�` proved ���/���� at
--- �� itself � torus loops commute, Klein loops do not, through
--- `windingKlein` � over the ONE stratum-3 carrier � � �.  This module
+-- `VakraValaya_TheSameCarrierTwoLawsOfSuccession…` proved समः/भेदः at
+-- π₁ itself — torus loops commute, Klein loops do not, through
+-- `windingKlein` — over the ONE stratum-3 carrier ℤ × ℤ.  This module
 -- is the structure-fibre PACKAGING of that separation: the two group
--- operations are transported onto the one carrier � � �, and the
+-- operations are transported onto the one carrier ℤ × ℤ, and the
 -- separation is then fed to `QuotientFiberLaw`, the
 -- corpus's one theorem, so that "the law is invisible to any
 -- carrier-only observation" is not prose but `collision-obstructs`
@@ -32,22 +32,22 @@
 --
 -- WHAT IS PROVED.
 --
---   ����     the torus law commutes at the generators � refl.
---   ������   the Klein law does not � the two orders differ in the
+--   समम्     the torus law commutes at the generators — refl.
+--   विषमम्   the Klein law does not — the two orders differ in the
 --            first coordinate, pos 1 against negsuc 0.
---   ������������   the pair (torus law , Klein law) is blind to the
+--   अन्धयुग्मम्   the pair (torus law , Klein law) is blind to the
 --            carrier-only observation: the carrier is FIXED, so every
 --            query that factors through it alone is constant, and the
 --            constant query represents the whole class.
---   ������������   the succession receptor � "do the two orders of the
---            generators agree?" � separates the blind pair.  This is
+--   क्रमप्रश्नः   the succession receptor — "do the two orders of the
+--            generators agree?" — separates the blind pair.  This is
 --            the AprvaIndriyam shape at the level of structured
 --            objects: a genuinely new sense coordinate.
---   �����������-�-��������   the packaged no-go: NO post-processing of the
+--   क्रमनियमो-न-वाहकात्   the packaged no-go: NO post-processing of the
 --            carrier-only transcript computes the succession receptor.
 --            One application of `collision-obstructs`.
---   �-�������-�������   and generally: for ANY query list blind on the
---            pair, no analysis separates it � `no-decision`.
+--   न-कोऽपि-निर्णयः   and generally: for ANY query list blind on the
+--            pair, no analysis separates it — `no-decision`.
 --
 ------------------------------------------------------------------------
 
@@ -65,7 +65,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import QuotientFiberLaw using (module Law)
 
 ------------------------------------------------------------------------
--- � � one carrier, two laws of succession.
+-- १ · one carrier, two laws of succession.
 ------------------------------------------------------------------------
 
 वाहकः : Type
@@ -78,7 +78,7 @@ open import QuotientFiberLaw using (module Law)
 μT : नियमः
 μT (a , b) (c , d) = (a + c , b + d)
 
--- parity of the acting coordinate, on its underlying �.
+-- parity of the acting coordinate, on its underlying ℕ.
 विषम-ℕ : ℕ → Bool
 विषम-ℕ zero    = false
 विषम-ℕ (suc n) = not (विषम-ℕ n)
@@ -92,8 +92,8 @@ open import QuotientFiberLaw using (module Law)
 ... | true  = - c
 ... | false = c
 
--- the Klein law: the second generator acts on the first by inversion �
--- (a , b) � (c , d) = (a + (−1)^b c , b + d), written on the carrier.
+-- the Klein law: the second generator acts on the first by inversion —
+-- (a , b) · (c , d) = (a + (−1)^b c , b + d), written on the carrier.
 μK : नियमः
 μK (a , b) (c , d) = (a + आवर्तः b c , b + d)
 
@@ -103,7 +103,7 @@ g₁ = (pos 1 , pos 0)
 g₂ = (pos 0 , pos 1)
 
 ------------------------------------------------------------------------
--- � � the separation, computed.
+-- २ · the separation, computed.
 ------------------------------------------------------------------------
 
 समम् : μT g₁ g₂ ≡ μT g₂ g₁
@@ -113,14 +113,14 @@ g₂ = (pos 0 , pos 1)
 विषमम् h = negsucNotpos 0 1 (sym (cong fst h))
 
 ------------------------------------------------------------------------
--- � � the packaging: the corpus's one theorem, instantiated at the
+-- ३ · the packaging: the corpus's one theorem, instantiated at the
 -- state space of LAWS on the fixed carrier.
 ------------------------------------------------------------------------
 
 open Law नियमः
 
 -- the carrier-only observation.  The carrier is fixed, so any query
--- that reads the carrier alone is constant on �����; the constant
+-- that reads the carrier alone is constant on नियमः; the constant
 -- query is the class's representative.
 वाहक-प्रश्नः : Query
 वाहक-प्रश्नः _ = true
@@ -134,7 +134,7 @@ open Law नियमः
 
 -- the succession receptor: do the two orders of the generators agree
 -- in the first coordinate?  (true on the commuting law, false on the
--- twisted one � the sign of the twist is the whole reading.)
+-- twisted one — the sign of the twist is the whole reading.)
 धनम् : ℤ → Bool
 धनम् (pos _)    = true
 धनम् (negsuc _) = false
@@ -154,6 +154,6 @@ open Law नियमः
   collision-obstructs वाहक-दृष्टिः क्रमप्रश्नः μT μK अन्धयुग्मम् क्रमप्रश्न-भेदः
 
 -- And generally: ANY query list blind on the pair admits no analysis
--- that separates it � the negative half of the law, at this instance.
+-- that separates it — the negative half of the law, at this instance.
 न-कोऽपि-निर्णयः : (os : List Query) → AllBlind os μT μK → ¬ Separates os μT μK
 न-कोऽपि-निर्णयः os bs = no-decision os μT μK bs

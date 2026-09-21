@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡∞‡æ‡Æ‡æ‡®‡‡‡®‡, ‡‡ø‡¶‡‡ß‡æ‡®‡‡ ‚î THE PAPER IN ONE MODULE: EVERY CLAIM, ONE TERM.
+-- ‡§∞‡§æ‡§Æ‡§æ‡§®‡•Å‡§ú‡§®‡•ç, ‡§∏‡§ø‡§¶‡•ç‡§ß‡§æ‡§®‡•ç‡§§ ‚Äî THE PAPER IN ONE MODULE: EVERY CLAIM, ONE TERM.
 --
 -- Abstract 26 makes claims; this module binds each to its checked
 -- term by name, so the paper's table of contents is itself checked.

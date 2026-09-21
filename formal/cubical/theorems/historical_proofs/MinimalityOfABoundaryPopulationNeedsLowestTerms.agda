@@ -5,62 +5,62 @@
 --
 -- `EveryThresholdHasABoundaryPopulationOfItsOwnDenominator` produced a
 -- boundary population of length `suc q` for every threshold p/(suc q)
--- with p â‰ suc q, and closed with:
+-- with p â‰¤ suc q, and closed with:
 --
 -- The length produced is suc q, and whether a SHORTER boundary population
--- exists is the divisibility question after all â” for p/(suc q) in lowest
--- terms it does not â” and that is unproved, because lowest terms are not
+-- exists is the divisibility question after all â€” for p/(suc q) in lowest
+-- terms it does not â€” and that is unproved, because lowest terms are not
 -- defined anywhere here."
 --
--- That parenthesis â” "for p/(suc q) in lowest terms it does not" â” was
+-- That parenthesis â€” "for p/(suc q) in lowest terms it does not" â€” was
 -- an assertion.  Its CONTRAPOSITIVE is checked here, which is the half
 -- that decides whether the parenthesis was doing any work: **without
 -- lowest terms, minimality is false**, and a two-element population
 -- witnesses it at 2/4.  So the coprimality condition is not a technical
 -- convenience; dropping it breaks the theorem.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   Boundary p q bs        p Â length bs â‰¡ suc q Â count bs
+--   Boundary p q bs        p Â· length bs â‰¡ suc q Â· count bs
 --   boundaryDividesAtNumeratorOne
---                          at p = 1: suc q âˆ length bs, outright
+--                          at p = 1: suc q âˆ£ length bs, outright
 --   minimalityAtNumeratorOne
 --                          hence a non-empty boundary population at
---                          1/(suc q) has length â‰ suc q â” the pop of
+--                          1/(suc q) has length â‰¥ suc q â€” the pop of
 --                          Â§3 there is minimal, for p = 1
 --   twoOverFourHasAShortBoundaryPopulation
---                          at 2/4 the population `true âˆ false âˆ []` is
+--                          at 2/4 the population `true âˆ· false âˆ· []` is
 --                          a boundary population of length 2 < 4
 --   soMinimalityFailsWithoutLowestTerms
 --                          the two together: the same statement that
 --                          holds at 1/(suc q) is FALSE at 2/4
 --
--- 2/4 and 1/2 are the same rate.  The threshold order `âŠ` of
+-- 2/4 and 1/2 are the same rate.  The threshold order `âŠ‘` of
 -- `TheThresholdOrderIsTotalAndTheClaimIsAntitone` is a total PREORDER
 -- and is not quotiented by that, and this is the first place where the
 -- missing quotient has visible consequences: minimality is not a
 -- property of the RATE, only of the PAIR.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- The general case â” gcd p (suc q) â‰¡ 1 â’ every non-empty boundary
--- population has length â‰ suc q â” is NOT proved.  It needs exactly one
+-- The general case â€” gcd p (suc q) â‰¡ 1 â‡’ every non-empty boundary
+-- population has length â‰¥ suc q â€” is NOT proved.  It needs exactly one
 -- missing lemma, Euclid's:
 --
---   gcd a b â‰¡ 1  â’  a âˆ b Â c  â’  a âˆ c
+--   gcd a b â‰¡ 1  â†’  a âˆ£ b Â· c  â†’  a âˆ£ c
 --
 -- and cubical v0.5 does not ship it: `Cubical.Data.Nat.GCD` has the
 -- Euclidean ALGORITHM (`euclid`, `gcd`, `isGCD`) and `Divisibility` has
 -- cancellation, but the lemma itself is absent, and it is not derivable
--- from those without a B©zout identity.  The B©zout coefficients are
--- what the kuaka computes â” ryabhaa, *ryabhaya*, gaitapda 32â“33
--- (499 CE), the vall descent â” and that line is ANOTHER IDENTITY'S work
+-- from those without a BÃ©zout identity.  The BÃ©zout coefficients are
+-- what the kuá¹­á¹­aka computes â€” Ä€ryabhaá¹­a, *Ä€ryabhaá¹­Ä«ya*, gaá¹‡itapÄda 32â€“33
+-- (499 CE), the vallÄ« descent â€” and that line is ANOTHER IDENTITY'S work
 -- in this repository (`KuttakaValli.agda`).  This module therefore
 -- names the obligation and points at where it lives rather than
 -- rebuilding it.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -91,8 +91,8 @@ Boundary p q bs = p Â· length bs â‰¡ suc q Â· count bs
 ------------------------------------------------------------------------
 -- 2.  At numerator one, the denominator divides the length
 --
--- `1 Â L â‰¡ suc q Â C` is `L â‰¡ suc q Â C` once `Â-identityË¡` is used,
--- and that is already a divisibility witness â” no Euclid needed,
+-- `1 Â· L â‰¡ suc q Â· C` is `L â‰¡ suc q Â· C` once `Â·-identityË¡` is used,
+-- and that is already a divisibility witness â€” no Euclid needed,
 -- because there is nothing to cancel.
 ------------------------------------------------------------------------
 
@@ -120,7 +120,7 @@ minimalityAtNumeratorOne q bs b pos =
 -- 3.  Without lowest terms it is false
 --
 -- 2/4 is the same RATE as 1/2 and a different PAIR.  One true and one
--- false is a boundary population there â” 2 Â 2 â‰¡ 4 â‰¡ 4 Â 1 â” of length
+-- false is a boundary population there â€” 2 Â· 2 â‰¡ 4 â‰¡ 4 Â· 1 â€” of length
 -- 2, which is strictly less than the denominator 4.
 ------------------------------------------------------------------------
 

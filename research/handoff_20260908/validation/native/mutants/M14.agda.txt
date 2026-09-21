@@ -1,106 +1,106 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- à—àà°à¾àà• â” the receiver.
+-- à¤—à¥à¤°à¤¾à¤¹à¤• â€” the receiver.
 --
--- The fixed two-packet autocorrelation receiver of handoff Â§46â“47
+-- The fixed two-packet autocorrelation receiver of handoff Â§46â€“47
 -- ([S02]):  H(z) = 16 (1 âˆ’ e^{âˆ’(z+4)/4})Â² / (z+4)Â²  and  G = H(z)H(âˆ’z).
 -- Its finite identities:
 --
---   à§  the packet product: with  w = e^{z/4},  wÌ = e^{âˆ’z/4} (w wÌ = 1)
+--   à¥§  the packet product: with  w = e^{z/4},  wÌ„ = e^{âˆ’z/4} (w wÌ„ = 1)
 --      and  E = e^{âˆ’1},
---         (1 âˆ’ E wÌ)(1 âˆ’ E w) â‰¡ 1 âˆ’ E (w + wÌ) + EÂ²
+--         (1 âˆ’ E wÌ„)(1 âˆ’ E w) â‰¡ 1 âˆ’ E (w + wÌ„) + EÂ²
 --                              = 1 âˆ’ 2 e^{âˆ’1} cosh(z/4) + e^{âˆ’2},
 --      and  (z + 4)(4 âˆ’ z) â‰¡ 16 âˆ’ zÂ²,  so
 --         G(z) = 256 (1 âˆ’ 2e^{âˆ’1}cosh(z/4) + e^{âˆ’2})Â² / (16 âˆ’ zÂ²)Â²;
---   à¨  the two-packet Weil matrix [[Mâ, Z],[Z, Mâ]] has
---         det â‰¡ (Mâ âˆ’ Z)(Mâ + Z)   and   trace â‰¡ 2Mâ,
---      and its quadratic form on (1, Â1) is 2(Mâ Â Z): positive
---      semidefiniteness is exactly |Z| â‰ Mâ (given Mâ > 0);
---   à©  the tail identity rearranged: Z = e^{t/2}G(Â½) âˆ’ S âˆ’ J_arch is
---      |S âˆ’ e^{t/2}G(Â½) + J_arch| â‰ Mâ, i.e. the closing inequality is
---      the same statement as |Z| â‰ Mâ (a sign identity).
+--   à¥¨  the two-packet Weil matrix [[Mâ‚€, Z],[Z, Mâ‚€]] has
+--         det â‰¡ (Mâ‚€ âˆ’ Z)(Mâ‚€ + Z)   and   trace â‰¡ 2Mâ‚€,
+--      and its quadratic form on (1, Â±1) is 2(Mâ‚€ Â± Z): positive
+--      semidefiniteness is exactly |Z| â‰¤ Mâ‚€ (given Mâ‚€ > 0);
+--   à¥©  the tail identity rearranged: Z = e^{t/2}G(Â½) âˆ’ S âˆ’ J_arch is
+--      |S âˆ’ e^{t/2}G(Â½) + J_arch| â‰¤ Mâ‚€, i.e. the closing inequality is
+--      the same statement as |Z| â‰¤ Mâ‚€ (a sign identity).
 ------------------------------------------------------------------------
 module M14 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â• ; zero ; suc)
-open import Cubical.Data.Sigma using (_—_ ; _,_)
+open import Cubical.Data.Nat using (â„• ; zero ; suc)
+open import Cubical.Data.Sigma using (_Ã—_ ; _,_)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
-    â“ : Level
+    â„“ : Level
 
 ------------------------------------------------------------------------
-module _ (R : CommRing â“) where
+module _ (R : CommRing â„“) where
   open CommRingStr (snd R)
 
   private
     A = âŸ¨ R âŸ©
 
-  Î : â• â’ A
-  Î zero    = 0r
-  Î (suc n) = 1r + Î n
+  Î¹ : â„• â†’ A
+  Î¹ zero    = 0r
+  Î¹ (suc n) = 1r + Î¹ n
 
   ----------------------------------------------------------------
-  -- à§ Â the packet product
+  -- à¥§ Â· the packet product
   ----------------------------------------------------------------
-  packet-product : (E w wÌ : A) â’ w Â wÌ â‰¡ 1r
-    â’ (1r + (- (E Â wÌ))) Â (1r + (- (E Â w))) â‰¡ (1r + (- (E Â (w + wÌ)))) + E Â E
-  packet-product E w wÌ h = shape E w wÌ âˆ™ cong (Î» u â’ (1r + (- (E Â (w + wÌ)))) + (E Â E) Â u) h âˆ™ cong ((1r + (- (E Â (w + wÌ)))) +_) (ÂIdR (E Â E))
+  packet-product : (E w wÌ„ : A) â†’ w Â· wÌ„ â‰¡ 1r
+    â†’ (1r + (- (E Â· wÌ„))) Â· (1r + (- (E Â· w))) â‰¡ (1r + (- (E Â· (w + wÌ„)))) + E Â· E
+  packet-product E w wÌ„ h = shape E w wÌ„ âˆ™ cong (Î» u â†’ (1r + (- (E Â· (w + wÌ„)))) + (E Â· E) Â· u) h âˆ™ cong ((1r + (- (E Â· (w + wÌ„)))) +_) (Â·IdR (E Â· E))
     where
-      shape : (E w wÌ : A) â’ (1r + (- (E Â wÌ))) Â (1r + (- (E Â w))) â‰¡ (1r + (- (E Â (w + wÌ)))) + (E Â E) Â (w Â wÌ)
-      shape E w wÌ = solve! R
+      shape : (E w wÌ„ : A) â†’ (1r + (- (E Â· wÌ„))) Â· (1r + (- (E Â· w))) â‰¡ (1r + (- (E Â· (w + wÌ„)))) + (E Â· E) Â· (w Â· wÌ„)
+      shape E w wÌ„ = solve! R
 
-  denominator : (z : A) â’ (z + Î 4) Â (Î 4 + (- z)) â‰¡ Î 16 + (- (z Â z))
+  denominator : (z : A) â†’ (z + Î¹ 4) Â· (Î¹ 4 + (- z)) â‰¡ Î¹ 16 + (- (z Â· z))
   denominator z = shape z
     where
-      shape : (z : A) â’ (z + (1r + (1r + (1r + (1r + 0r))))) Â ((1r + (1r + (1r + (1r + 0r)))) + (- z)) â‰¡ (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))))))))))) + (- (z Â z))
+      shape : (z : A) â†’ (z + (1r + (1r + (1r + (1r + 0r))))) Â· ((1r + (1r + (1r + (1r + 0r)))) + (- z)) â‰¡ (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))))))))))) + (- (z Â· z))
       shape z = solve! R
 
-  -- the squared symbol assembles:  H(z)H(âˆ’z) = 256Â(product)Â²/((z+4)(4âˆ’z))Â²
-  symbol-assembles : (E w wÌ z : A) â’ w Â wÌ â‰¡ 1r
-    â’ let p = (1r + (- (E Â wÌ))) Â (1r + (- (E Â w))) ; c = (1r + (- (E Â (w + wÌ)))) + E Â E in
-      (Î 16 Â (p Â p)) Â ((z + Î 4) Â (Î 4 + (- z))) â‰¡ (Î 16 Â (c Â c)) Â (Î 16 + (- (z Â z)))
-  symbol-assembles E w wÌ z h = congâ (Î» u v â’ (Î 16 Â (u Â u)) Â v) (packet-product E w wÌ h) (denominator z)
+  -- the squared symbol assembles:  H(z)H(âˆ’z) = 256Â·(product)Â²/((z+4)(4âˆ’z))Â²
+  symbol-assembles : (E w wÌ„ z : A) â†’ w Â· wÌ„ â‰¡ 1r
+    â†’ let p = (1r + (- (E Â· wÌ„))) Â· (1r + (- (E Â· w))) ; c = (1r + (- (E Â· (w + wÌ„)))) + E Â· E in
+      (Î¹ 16 Â· (p Â· p)) Â· ((z + Î¹ 4) Â· (Î¹ 4 + (- z))) â‰¡ (Î¹ 16 Â· (c Â· c)) Â· (Î¹ 16 + (- (z Â· z)))
+  symbol-assembles E w wÌ„ z h = congâ‚‚ (Î» u v â†’ (Î¹ 16 Â· (u Â· u)) Â· v) (packet-product E w wÌ„ h) (denominator z)
 
   ----------------------------------------------------------------
-  -- à¨ Â the two-packet Weil matrix
+  -- à¥¨ Â· the two-packet Weil matrix
   ----------------------------------------------------------------
-  weil-determinant : (Mâ Z : A) â’ Mâ Â Mâ + (- (Z Â Z)) â‰¡ (Mâ + (- Z)) Â (Mâ + (- Z))
-  weil-determinant Mâ Z = solve! R
+  weil-determinant : (Mâ‚€ Z : A) â†’ Mâ‚€ Â· Mâ‚€ + (- (Z Â· Z)) â‰¡ (Mâ‚€ + (- Z)) Â· (Mâ‚€ + (- Z))
+  weil-determinant Mâ‚€ Z = solve! R
 
-  weil-trace : (Mâ : A) â’ Mâ + Mâ â‰¡ Î 2 Â Mâ
-  weil-trace Mâ = shape Mâ
-    where shape : (Mâ : A) â’ Mâ + Mâ â‰¡ (1r + (1r + 0r)) Â Mâ
-          shape Mâ = solve! R
+  weil-trace : (Mâ‚€ : A) â†’ Mâ‚€ + Mâ‚€ â‰¡ Î¹ 2 Â· Mâ‚€
+  weil-trace Mâ‚€ = shape Mâ‚€
+    where shape : (Mâ‚€ : A) â†’ Mâ‚€ + Mâ‚€ â‰¡ (1r + (1r + 0r)) Â· Mâ‚€
+          shape Mâ‚€ = solve! R
 
-  -- the quadratic form  (x y) [[Mâ,Z],[Z,Mâ]] (x y)µ  on (1, 1) and (1, âˆ’1)
-  weil-form : (Mâ Z x y : A) â’ A
-  weil-form Mâ Z x y = (x Â (Mâ Â x + Z Â y)) + (y Â (Z Â x + Mâ Â y))
+  -- the quadratic form  (x y) [[Mâ‚€,Z],[Z,Mâ‚€]] (x y)áµ€  on (1, 1) and (1, âˆ’1)
+  weil-form : (Mâ‚€ Z x y : A) â†’ A
+  weil-form Mâ‚€ Z x y = (x Â· (Mâ‚€ Â· x + Z Â· y)) + (y Â· (Z Â· x + Mâ‚€ Â· y))
 
-  weil-form-on-sum : (Mâ Z : A) â’ weil-form Mâ Z 1r 1r â‰¡ Î 2 Â (Mâ + Z)
-  weil-form-on-sum Mâ Z = shape Mâ Z
-    where shape : (Mâ Z : A) â’ (1r Â (Mâ Â 1r + Z Â 1r)) + (1r Â (Z Â 1r + Mâ Â 1r)) â‰¡ (1r + (1r + 0r)) Â (Mâ + Z)
-          shape Mâ Z = solve! R
+  weil-form-on-sum : (Mâ‚€ Z : A) â†’ weil-form Mâ‚€ Z 1r 1r â‰¡ Î¹ 2 Â· (Mâ‚€ + Z)
+  weil-form-on-sum Mâ‚€ Z = shape Mâ‚€ Z
+    where shape : (Mâ‚€ Z : A) â†’ (1r Â· (Mâ‚€ Â· 1r + Z Â· 1r)) + (1r Â· (Z Â· 1r + Mâ‚€ Â· 1r)) â‰¡ (1r + (1r + 0r)) Â· (Mâ‚€ + Z)
+          shape Mâ‚€ Z = solve! R
 
-  weil-form-on-difference : (Mâ Z : A) â’ weil-form Mâ Z 1r (- 1r) â‰¡ Î 2 Â (Mâ + (- Z))
-  weil-form-on-difference Mâ Z = shape Mâ Z
-    where shape : (Mâ Z : A) â’ (1r Â (Mâ Â 1r + Z Â (- 1r))) + ((- 1r) Â (Z Â 1r + Mâ Â (- 1r))) â‰¡ (1r + (1r + 0r)) Â (Mâ + (- Z))
-          shape Mâ Z = solve! R
+  weil-form-on-difference : (Mâ‚€ Z : A) â†’ weil-form Mâ‚€ Z 1r (- 1r) â‰¡ Î¹ 2 Â· (Mâ‚€ + (- Z))
+  weil-form-on-difference Mâ‚€ Z = shape Mâ‚€ Z
+    where shape : (Mâ‚€ Z : A) â†’ (1r Â· (Mâ‚€ Â· 1r + Z Â· (- 1r))) + ((- 1r) Â· (Z Â· 1r + Mâ‚€ Â· (- 1r))) â‰¡ (1r + (1r + 0r)) Â· (Mâ‚€ + (- Z))
+          shape Mâ‚€ Z = solve! R
 
-  -- the form is a sum of the two diagonal readings:  2Âform(x,y) = (Mâ+Z)(x+y)Â² + (Mââˆ’Z)(xâˆ’y)Â²
-  weil-form-diagonalizes : (Mâ Z x y : A)
-    â’ Î 2 Â weil-form Mâ Z x y â‰¡ (Mâ + Z) Â ((x + y) Â (x + y)) + (Mâ + (- Z)) Â ((x + (- y)) Â (x + (- y)))
-  weil-form-diagonalizes Mâ Z x y = shape Mâ Z x y
-    where shape : (Mâ Z x y : A) â’ (1r + (1r + 0r)) Â ((x Â (Mâ Â x + Z Â y)) + (y Â (Z Â x + Mâ Â y)))
-                                    â‰¡ (Mâ + Z) Â ((x + y) Â (x + y)) + (Mâ + (- Z)) Â ((x + (- y)) Â (x + (- y)))
-          shape Mâ Z x y = solve! R
+  -- the form is a sum of the two diagonal readings:  2Â·form(x,y) = (Mâ‚€+Z)(x+y)Â² + (Mâ‚€âˆ’Z)(xâˆ’y)Â²
+  weil-form-diagonalizes : (Mâ‚€ Z x y : A)
+    â†’ Î¹ 2 Â· weil-form Mâ‚€ Z x y â‰¡ (Mâ‚€ + Z) Â· ((x + y) Â· (x + y)) + (Mâ‚€ + (- Z)) Â· ((x + (- y)) Â· (x + (- y)))
+  weil-form-diagonalizes Mâ‚€ Z x y = shape Mâ‚€ Z x y
+    where shape : (Mâ‚€ Z x y : A) â†’ (1r + (1r + 0r)) Â· ((x Â· (Mâ‚€ Â· x + Z Â· y)) + (y Â· (Z Â· x + Mâ‚€ Â· y)))
+                                    â‰¡ (Mâ‚€ + Z) Â· ((x + y) Â· (x + y)) + (Mâ‚€ + (- Z)) Â· ((x + (- y)) Â· (x + (- y)))
+          shape Mâ‚€ Z x y = solve! R
 
   ----------------------------------------------------------------
-  -- à© Â the tail identity is the closing inequality's argument
+  -- à¥© Â· the tail identity is the closing inequality's argument
   ----------------------------------------------------------------
-  closing-argument : (L S J : A) â’ let Z = (L + (- S)) + (- J) in (S + (- L)) + J â‰¡ - Z
+  closing-argument : (L S J : A) â†’ let Z = (L + (- S)) + (- J) in (S + (- L)) + J â‰¡ - Z
   closing-argument L S J = solve! R

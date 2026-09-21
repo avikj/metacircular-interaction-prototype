@@ -13,20 +13,20 @@
 -- Take the instance set to be a SINGLE instance (`Unit`) and let the
 -- remedies be arbitrary.  Then, writing `bad _ r = Q r`:
 --
---   Â àà¾à®à¯à¿à• bad  â‰  (r : R) â’ Â Â Q r
---   Â à¨à¿ààà¯   bad  â‰  Â ((r : R) â’ Q r)
+--   Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤• bad  â‰ƒ  (r : R) â†’ Â¬ Â¬ Q r
+--   Â¬ à¤¨à¤¿à¤¤à¥à¤¯   bad  â‰ƒ  Â¬ ((r : R) â†’ Q r)
 --
 -- so the fourth corner IS
 --
---   ((r : R) â’ Â Â Q r)  —  Â ((r : R) â’ Q r)
+--   ((r : R) â†’ Â¬ Â¬ Q r)  Ã—  Â¬ ((r : R) â†’ Q r)
 --
 -- which is exactly a counterexample to the DOUBLE-NEGATION SHIFT,
--- `(âˆx ÂÂA x) â’ ÂÂ (âˆx A x)` â” the principle isolated by Spector's
+-- `(âˆ€x Â¬Â¬A x) â†’ Â¬Â¬ (âˆ€x A x)` â€” the principle isolated by Spector's
 -- bar-recursion interpretation of analysis (`Provably recursive
 -- functionals of analysis`, 1962) and by Kreisel before him.  DNS
--- refutes the configuration outright: from `ÂÂ Î ` and `Â Î `.
+-- refutes the configuration outright: from `Â¬Â¬ Î ` and `Â¬ Î `.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   notSamayikaIsPointwiseDoubleNegation   both directions
@@ -40,12 +40,12 @@
 -- The last one is the point.  Two modules gave sufficient conditions and
 -- said no necessary one was known.  Here the condition is necessary, so
 -- the search for the fourth corner is not "look for an exotic instance
--- family" â” a ONE-element instance family already suffices, and the
+-- family" â€” a ONE-element instance family already suffices, and the
 -- whole question is whether the BADNESS is stable.  The earlier
 -- `Enumerated` route was answering a question the corner does not ask.
 --
 -- EXISTENCE IS STILL OPEN. DNS is not provable in this substrate and NOT
--- refutable in it either â” exhibiting a failure needs a model, and no model
+-- refutable in it either â€” exhibiting a failure needs a model, and no model
 -- is constructed here, nor can one be from inside `--safe` cubical without
 -- postulates. What changes is the STATUS of the question: it is no longer "is
 -- there an exotic configuration?" but "does this substrate validate DNS?",
@@ -55,21 +55,21 @@
 --
 -- The `Unit` instance set is a specialisation: the equivalence is
 -- proved for it and NOT for a general instance family, where
--- `Â àà¾à®à¯à¿à•` does not reduce this way.
+-- `Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•` does not reduce this way.
 --
--- School named before the term: àà¾à®à¯à¿à• and à¨à¿ààà¯ are `AnuktaAvaktavya`'s,
+-- School named before the term: à¤¸à¤¾à¤®à¤¯à¤¿à¤• and à¤¨à¤¿à¤¤à¥à¤¯ are `AnuktaAvaktavya`'s,
 -- another identity's, imported unchanged; the fourth corner is the
 -- position in the saptabhag reading that module sets up.  The
 -- double-negation shift is not a Jaina notion and no claim is made that
--- it is â” the identification is between a configuration this repository
+-- it is â€” the identification is between a configuration this repository
 -- wrote down and a principle from proof theory, and it is an
 -- identification of the FORMULA, not of the two traditions' concerns.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module NaturalMachine.KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
+module NaturalMachine.OrderAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Unit using (Unit ; tt)
@@ -135,9 +135,9 @@ dnsFailureGivesFourthCorner Q (pw , np) =
 ------------------------------------------------------------------------
 -- 4.  Hence the earlier hypothesis is NECESSARY here, not just sufficient
 --
--- Pointwise stability turns `(r) â’ Â Â Q r` into `(r) â’ Q r`, which the
+-- Pointwise stability turns `(r) â†’ Â¬ Â¬ Q r` into `(r) â†’ Q r`, which the
 -- second component forbids.  So at a one-instance family the corner
--- exists ONLY where the badness fails to be stable â” the instance set
+-- exists ONLY where the badness fails to be stable â€” the instance set
 -- has nothing to do with it.
 ------------------------------------------------------------------------
 
@@ -158,17 +158,17 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 -- Enumerability of the REMEDY set is a different matter and is NOT
 -- inert.  In `NaturalMachine.AnEnumerableRemedySetKillsTheFourthCorner`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so):
 --
---   finiteDNSList   `All (ÂÂ P) xs â’ Â Â All P xs`, by induction â” no
+--   finiteDNSList   `All (Â¬Â¬ P) xs â†’ Â¬ Â¬ All P xs`, by induction â€” no
 --                   decidability, no choice
---   finiteDNS       hence `((r) â’ ÂÂ Q r) â’ Â Â ((r) â’ Q r)` for an
+--   finiteDNS       hence `((r) â†’ Â¬Â¬ Q r) â†’ Â¬ Â¬ ((r) â†’ Q r)` for an
 --                   ENUMERATED remedy set
 --   theFourthCornerNeedsANonEnumerableRemedySet
 --                   so the corner refutes `Enumerated R`
 --
 -- **THE TWO ENUMERABILITY HYPOTHESES ARE NOT SYMMETRIC.**  Enumerating
--- the INSTANCES buys nothing â” one instance suffices for the corner and
+-- the INSTANCES buys nothing â€” one instance suffices for the corner and
 -- one instance is enumerable.  Enumerating the REMEDIES buys
 -- everything: DNS becomes a theorem and the corner cannot exist.  An
 -- earlier module reached for `Enumerated` on the wrong side of the pair;
@@ -185,8 +185,8 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
 -- this line's "fourth corner" is a product of two independent
 -- negations and that simultaneous refusal collapses into the
--- sequential pair, so the position is the THIRD bhaga â”
--- ààà¯à¾àà-ààààà¿-à¨à¾àààà¿, asserted à•àà°à®àà â” and not avaktavya.  The full
+-- sequential pair, so the position is the THIRD bhaá¹…ga â€”
+-- à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿-à¤¨à¤¾à¤¸à¥à¤¤à¤¿, asserted à¤•à¥à¤°à¤®à¥‡à¤£ â€” and not avaktavya.  The full
 -- correction is recorded at
 -- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
 -- Only the `module` line changed here; no statement was touched.

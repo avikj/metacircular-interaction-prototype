@@ -5,45 +5,45 @@
 --
 -- Two modules left the same half-sentence open.
 -- `TheThresholdChainIsDenseAndTheMediantWitnessesIt` says density "is
--- proved for pairs, and âŠ is a preorder, so nothing is said about
+-- proved for pairs, and âŠ‘ is a preorder, so nothing is said about
 -- density of the RATES", and
 -- `TheRateQuotientExistsAndMinimalityCannotLiveOnIt` says "DENSITY OF
--- THE RATES is NOT proved: the mediant module's `âŠ` is not lifted here,
--- and lifting it needs `âŠ` to respect `â‰ˆ` on BOTH sides, which is not
+-- THE RATES is NOT proved: the mediant module's `âŠ` is not lifted here,
+-- and lifting it needs `âŠ` to respect `â‰ˆ` on BOTH sides, which is not
 -- checked."
 --
 -- Both are closed here, and the second sentence turns out to describe
 -- the harder half correctly: the lifting is the work, and the density
 -- then follows WITHOUT the mediant itself having to descend.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   âŠâŠ-trans / âŠâŠ-trans   the mixed transitivities, by the same
---                         multiplyâ“rearrangeâ“cancel as `âŠ-trans`, with
---                         `â‰<-trans` / `<â‰-trans` at the join
---   âŠ-respects-â‰ˆ          hence `âŠ` respects `â‰ˆ` on BOTH sides
---   _âŠR_                  the strict order LIFTED to `Rate`, by
+--   âŠ‘âŠ-trans / âŠâŠ‘-trans   the mixed transitivities, by the same
+--                         multiplyâ€“rearrangeâ€“cancel as `âŠ‘-trans`, with
+--                         `â‰¤<-trans` / `<â‰¤-trans` at the join
+--   âŠ-respects-â‰ˆ          hence `âŠ` respects `â‰ˆ` on BOTH sides
+--   _âŠR_                  the strict order LIFTED to `Rate`, by
 --                         `SetQuotients.rec2` into `hProp`
---   âŠR-computes           agreeing with `âŠ` on representatives, by refl
+--   âŠR-computes           agreeing with `âŠ` on representatives, by refl
 --   theRatesAreDense      between two rates lies a third
 --
 -- **The mediant never has to descend.**  That is the point worth
 -- keeping: `mediant` is a function on PAIRS and nothing here shows it
--- respects `â‰ˆ` â” it may or may not.  Density is a MERE EXISTENCE
+-- respects `â‰ˆ` â€” it may or may not.  Density is a MERE EXISTENCE
 -- statement, so its target is a proposition, so `elimProp2` reduces the
 -- whole claim to representatives, where the pair-level mediant is
 -- already available.  A witness that need not be canonical does not
 -- need to be well-defined on the quotient.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  Density of the rationals via the mediant is classical
 -- (Haros 1802; Farey 1816; Stern 1858; Brocot 1861), and lifting a
 -- respectful relation along a set-quotient is standard cubical
 -- practice.  What is contributed is that this corpus's own two open
 -- half-sentences are closed, and the observation about the witness.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ open import TheRateQuotientExistsAndMinimalityCannotLiveOnIt
   âŠâŠ‘-trans a' b b' (âŠ‘âŠ-trans a' a b (snd aa) h) (fst bb)
 
 ------------------------------------------------------------------------
--- 2.  So âŠ lifts to the rates
+-- 2.  So âŠ lifts to the rates
 ------------------------------------------------------------------------
 
 âŠP : â„• Ã— â„• â†’ â„• Ã— â„• â†’ hProp â„“-zero
@@ -145,7 +145,7 @@ _âŠR_ = SQ.rec2 isSetHProp âŠP âŠ-respectsË¡ âŠ-respectsÊ³
 -- 3.  And the rates are dense
 --
 -- The target is a mere existence, hence a proposition, hence
--- `elimProp2` puts us at representatives â” where the PAIR-level
+-- `elimProp2` puts us at representatives â€” where the PAIR-level
 -- mediant is already a witness.  Nothing requires `mediant` itself to
 -- descend.
 ------------------------------------------------------------------------
@@ -165,24 +165,24 @@ theRatesAreDense =
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
 -- line above.  The NOT-CLAIMED section says:
 --
---   "`âŠR` is a relation into `hProp`, not an order: irreflexivity,
+--   "`âŠR` is a relation into `hProp`, not an order: irreflexivity,
 --    transitivity, and its relation to `AtLeastOnRate`/`AboveOnRate`
 --    are unproved on `Rate`."
 --
 -- All three in
 -- `TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so):
 --
---   âŠ-irrefl-pair / âŠ-trans-pair   at the pair level; transitivity is
---                                  `âŠâŠ-trans` composed with `<-weaken`,
+--   âŠ-irrefl-pair / âŠ-trans-pair   at the pair level; transitivity is
+--                                  `âŠ‘âŠ-trans` composed with `<-weaken`,
 --                                  so the MIXED transitivity proved
 --                                  here for the lifting is what makes
 --                                  the plain one free
---   âŠR-irrefl / âŠR-trans           the same on `Rate`, by `elimProp`
+--   âŠR-irrefl / âŠR-trans           the same on `Rate`, by `elimProp`
 --                                  and `elimProp3`
 --   aboveIsAntitoneOnRates         the strict claim is antitone along
---                                  `âŠR`, stated entirely on `Rate`
+--                                  `âŠR`, stated entirely on `Rate`
 --
 -- NONE OF IT NEEDED A NEW IDEA, and that is the payoff of having lifted
 -- along `rec2`: every statement is a PROPOSITION, so `elimProp` puts it
@@ -195,21 +195,21 @@ theRatesAreDense =
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
 -- line above.  The open item stated above and repeated in
--- `TheRateQuotientExistsAndMinimalityCannotLiveOnIt` â” "whether
--- `mediant` DESCENDS is open" â” is now CLOSED, and the answer is NO:
+-- `TheRateQuotientExistsAndMinimalityCannotLiveOnIt` â€” "whether
+-- `mediant` DESCENDS is open" â€” is now CLOSED, and the answer is NO:
 -- `TheMediantDoesNotDescendToTheRate` exhibits
 -- (1,1) â‰ˆ (2,3) whose mediants with (1,2) are 2/5 and 3/7 (--safe, no
 -- postulates, no holes; container green under Agda 2.6.3 + cubical
--- v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
 --
 -- Nothing above is affected.  The density theorem is stated with
--- `âˆ_âˆâ` and eliminates into a proposition, so the witness only ever
--- lived at the level of representatives â” which is what "the mediant
+-- `âˆ¥_âˆ¥â‚` and eliminates into a proposition, so the witness only ever
+-- lived at the level of representatives â€” which is what "the mediant
 -- never has to descend" says.  What the refutation removes is the
 -- possibility of upgrading that truncated existence to a CANONICAL
--- between-rate by this route: no `Rate â’ Rate â’ Rate` extends the
+-- between-rate by this route: no `Rate â†’ Rate â†’ Rate` extends the
 -- mediant, and the classical fix is reduced representatives (Haros
 -- 1802, Farey 1816, Stern 1858, Brocot 1861), which needs coprimality
--- and hence another identity's kuaka line â” to be asked for, not
+-- and hence another identity's kuá¹­á¹­aka line â€” to be asked for, not
 -- rebuilt.
 ------------------------------------------------------------------------

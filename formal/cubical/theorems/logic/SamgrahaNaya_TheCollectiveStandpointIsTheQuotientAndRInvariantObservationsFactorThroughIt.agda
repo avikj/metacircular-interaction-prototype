@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������������ � the collective standpoint IS the quotient: an R-invariant
+-- सङ्ग्रहनयः — the collective standpoint IS the quotient: an R-invariant
 -- observation is exactly a map out of A/R.  The universal property of
 -- quotients, read as one of the seven nayas.
 --
@@ -11,26 +11,26 @@
 -- chosen relation makes the same.  In mathematics that operation is the
 -- QUOTIENT.  And the quotient's universal property is exactly the naya's
 -- character: an observation that RESPECTS the relation R (identifies
--- R-related things � sees only the collected universal, blind to the
+-- R-related things — sees only the collected universal, blind to the
 -- within-class distinction) is precisely a map out of A / R.
 --
---     (A � B) respecting R    �    (A / R � B)          [B a set]
+--     (A → B) respecting R    ≃    (A / R → B)          [B a set]
 --
 -- So the sagraha-naya is not a metaphor for the quotient; it is the
 -- quotient's universal property.  The fibre of the quotient map over a
--- class is the class itself � exactly what the collective standpoint
+-- class is the class itself — exactly what the collective standpoint
 -- cannot separate (the fibre law, `SarvavibhagaH`, `QuotientFiberLaw`).
 --
 -- WHAT IS PROVED:
---   §2  ���������-������������� : (A � B respecting R) � (A/R � B), for B a
---       set � the universal property (library's `setQuotUniversal`), named
+--   §2  सङ्ग्रह-सार्वत्रिकम् : (A → B respecting R) ≃ (A/R → B), for B a
+--       set — the universal property (library's `setQuotUniversal`), named
 --       as the naya: an R-invariant observation IS a factoring through the
 --       collective standpoint, and uniquely.
---   §3  ��������-��������� : the quotient map [_] : A � A/R is surjective
---       � prama (all of A) covers every collected class; no class is
+--   §3  प्रमाणम्-आच्छादयति : the quotient map [_] : A → A/R is surjective
+--       — pramāṇa (all of A) covers every collected class; no class is
 --       unseen.
---   §4  ���������-����� : the collective standpoint is genuinely BLIND within
---       a class: if R a b then [ a ] ≡ [ b ] � R-related particulars are
+--   §4  कक्ष्या-लोपः : the collective standpoint is genuinely BLIND within
+--       a class: if R a b then [ a ] ≡ [ b ] — R-related particulars are
 --       identified, their difference is the fibre the naya forgets.
 --
 -- No postulates, no holes, --safe.
@@ -51,7 +51,7 @@ private
 module _ {A : Type ℓ} {B : Type ℓ'} (R : A → A → Type ℓ'') where
 
   ------------------------------------------------------------------------
-  -- §2  ���������-������������� � an R-invariant observation is exactly a map
+  -- §2  सङ्ग्रह-सार्वत्रिकम् — an R-invariant observation is exactly a map
   --     out of the collective standpoint (the quotient).
   ------------------------------------------------------------------------
 
@@ -64,8 +64,8 @@ module _ {A : Type ℓ} {B : Type ℓ'} (R : A → A → Type ℓ'') where
   सङ्ग्रह-सार्वत्रिकम् Bset = setQuotUniversal Bset
 
 ------------------------------------------------------------------------
--- §3  ��������-��������� � the quotient map covers every class.
--- §4  ���������-����� � R-related particulars are identified (the blindness).
+-- §3  प्रमाणम्-आच्छादयति — the quotient map covers every class.
+-- §4  कक्ष्या-लोपः — R-related particulars are identified (the blindness).
 ------------------------------------------------------------------------
 
 module _ {A : Type ℓ} {R : A → A → Type ℓ'} where
@@ -74,7 +74,7 @@ module _ {A : Type ℓ} {R : A → A → Type ℓ'} where
   सङ्ग्रहः a = [ a ]
 
   -- prama covers: every class is [ a ] for some a (surjectivity, as the
-  -- image-inhabitation of SarvavibhagaH.���������, propositionally)
+  -- image-inhabitation of SarvavibhagaH.आच्छादकः, propositionally)
   open import Cubical.HITs.SetQuotients using (elimProp)
   open import Cubical.Foundations.HLevels using (isPropΠ)
   open import Cubical.HITs.PropositionalTruncation using (∥_∥₁ ; isPropPropTrunc)
@@ -82,6 +82,6 @@ module _ {A : Type ℓ} {R : A → A → Type ℓ'} where
   प्रमाणम्-आच्छादयति : (x : A / R) → ∥ Σ[ a ∈ A ] (सङ्ग्रहः a ≡ x) ∥₁
   प्रमाणम्-आच्छादयति = elimProp (λ _ → isPropPropTrunc) (λ a → ∣ a , refl ∣₁)
 
-  -- the blindness: R a b � the collective standpoint identifies a and b
+  -- the blindness: R a b ⟹ the collective standpoint identifies a and b
   कक्ष्या-लोपः : (a b : A) → R a b → सङ्ग्रहः a ≡ सङ्ग्रहः b
   कक्ष्या-लोपः a b r = eq/ a b r

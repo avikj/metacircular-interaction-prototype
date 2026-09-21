@@ -4,7 +4,7 @@
 -- CenterRelativeWeightTransport
 --
 -- The pair product is transported contravariantly along the checked
--- equivalence Pair â‰ CR.  On the parity sublattice, that transported
+-- equivalence Pair â‰ƒ CR.  On the parity sublattice, that transported
 -- evaluator is exactly the unique division-free quarter of Q:
 --
 --   four (nativeWeight y) = Q y.

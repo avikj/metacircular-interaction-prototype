@@ -10,11 +10,11 @@
 -- `.claude/hooks/european-frame.txt` before naming; no row applies and
 -- the frame check does not fire on a module with no Indian material.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `TheMeetIsMaxAndTheProfileCutIsAGaloisConnection` closed with:
 --
 --   "ONE SIDE IS STILL SCALAR: burdens form a profile, residuals are a
---    single value, because that is what makes `up` land in â•.  A cut
+--    single value, because that is what makes `up` land in â„•.  A cut
 --    with profiles on BOTH sides needs `up` to produce a residual
 --    profile, i.e. a meet per residual index, and is not built."
 --
@@ -24,38 +24,38 @@
 -- WHAT IS PROVED
 --
 --   upV / dnV        the one-sided cut with the BURDENS TAKEN AS A
---                    PROFILE rather than read off the index list â”
---                    `upV ks b Ï = maxâ¼ (bâ¼ âˆ Ïâ¼)`, `dnV ks b Ïˆ =
---                    (bâ¼ âˆ Ïˆ)â¼`
+--                    PROFILE rather than read off the index list â€”
+--                    `upV ks b Ï† = maxâ±¼ (bâ±¼ âˆ¸ Ï†â±¼)`, `dnV ks b Ïˆ =
+--                    (bâ±¼ âˆ¸ Ïˆ)â±¼`
 --   goFwdV / goBwdV  and it is still a Galois connection, by the same
 --                    two monus adjunctions
 --   VProfileCut      packaged through the existing `Galois` module
 --   maxP + three laws
---                    componentwise max on profiles, with `âŠp`'s two
+--                    componentwise max on profiles, with `âŠ‘p`'s two
 --                    bounds and leastness
 --   Rows / UpP       a matrix of burdens as a profile of profiles, and
 --                    the residual PROFILE it produces
 --
 -- **WHY `upV` IS THE STEP THAT MATTERS.**  In the one-sided module the
--- burdens are the â• payloads of the index list, so a second residual
--- index would need a second index list carrying different payloads â”
+-- burdens are the â„• payloads of the index list, so a second residual
+-- index would need a second index list carrying different payloads â€”
 -- there is no room for a matrix.  Taking the burdens as a profile frees
 -- the index list to be pure shape, and then a matrix is just a profile
 -- of profiles (`Rows`), which is what `UpP` consumes.
 --
 -- **AND THE OBSTRUCTION IS THE EMPTY ROW SET, PRECISELY.**  The right
 -- adjoint must send a residual profile Ïˆ to the LARGEST burden profile
--- Ï with `UpP bs Ï âŠp Ïˆ`; componentwise that is `maxµ (bµâ¼ âˆ Ïˆµ)`.
--- With no rows the constraint is vacuous, so the largest such Ï is
--- unbounded â” **the empty meet is `âˆž`, which â• does not have.**  The
+-- Ï† with `UpP bs Ï† âŠ‘p Ïˆ`; componentwise that is `maxáµ¢ (báµ¢â±¼ âˆ¸ Ïˆáµ¢)`.
+-- With no rows the constraint is vacuous, so the largest such Ï† is
+-- unbounded â€” **the empty meet is `âˆž`, which â„• does not have.**  The
 -- one-sided module recorded this from the other side ("the empty
--- burden list gives `up ks Ï = 0` â¦ with `âˆž` present the empty meet
+-- burden list gives `up ks Ï† = 0` â€¦ with `âˆž` present the empty meet
 -- would be `âˆž`"); here it is the same fact obstructing the right
 -- adjoint rather than a convention about the left one.  So a two-sided
--- cut exists over a NON-EMPTY residual index set or over `â• âŠ âˆž`, and
--- not over â• with an arbitrary index set.
+-- cut exists over a NON-EMPTY residual index set or over `â„• âŠŽ âˆž`, and
+-- not over â„• with an arbitrary index set.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -149,29 +149,29 @@ UpP (j âˆ· js) ks (b , bs) Ï† = upV ks b Ï† , UpP js ks bs Ï†
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The step named above â” "assemble the non-empty-row right
--- adjoint: fold `maxP` over `Rows (j âˆ js)` and prove the two halves
--- against `UpP`" â” is done in
+-- line above.  The step named above â€” "assemble the non-empty-row right
+-- adjoint: fold `maxP` over `Rows (j âˆ· js)` and prove the two halves
+-- against `UpP`" â€” is done in
 -- `TheTwoSidedCutExistsOverANonEmptyResidualIndex`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
 -- cubical v0.5, NOT the declared pin): `dnNE`, `goFwdNE`, `goBwdNE`.
 --
 -- Three things that cycle settled and this one could not:
 --
---   * The residual side needs its OWN order, `_â‰¼p_`, pointwise `â‰` â”
---     NOT `_âŠp_`, which is reverse pointwise `â‰` because more burden
+--   * The residual side needs its OWN order, `_â‰¼p_`, pointwise `â‰¤` â€”
+--     NOT `_âŠ‘p_`, which is reverse pointwise `â‰¤` because more burden
 --     absorbed is lower.  Writing both with one symbol is how the sign
 --     error on this line happened once before.
 --   * No accumulator is needed: structural recursion on `Rows` gives
 --     the fold, and with it the obvious induction.
---   * `maxP`'s three laws do all the work â” the two bounds split a
+--   * `maxP`'s three laws do all the work â€” the two bounds split a
 --     hypothesis about the fold into per-row hypotheses, leastness
 --     reassembles the conclusion, and each row is `goFwdV`/`goBwdV`
 --     unchanged.
 --
 -- The empty residual index remains the only gap, and it is a type-level
--- one: `dnNE` takes its rows in `j âˆ js` form, so the restriction is
--- recorded in the signature rather than in a comment.  Over `â• âŠ âˆž` it
+-- one: `dnNE` takes its rows in `j âˆ· js` form, so the restriction is
+-- recorded in the signature rather than in a comment.  Over `â„• âŠŽ âˆž` it
 -- would lift.
 ------------------------------------------------------------------------
 
@@ -184,11 +184,11 @@ UpP (j âˆ· js) ks (b , bs) Ï† = upV ks b Ï† , UpP js ks bs Ï†
 --
 -- **THE PARAGRAPH ABOVE IS WRONG, AND SO IS THE ONE IN Â§"WHAT IS STILL
 --
--- The burden side is ordered by `_âŠp_`, which is REVERSE pointwise `â‰`.
--- The right adjoint must return the `âŠp`-GREATEST burden profile
--- satisfying the constraint; `âŠp`-greatest is `â‰`-LEAST; â•'s least
--- element is `0`.  The empty meet is `zeroProfile`, and â• has it.  No
--- `âˆž`, no `â• âŠ âˆž`, and no restriction on the residual index: `dnAll`,
+-- The burden side is ordered by `_âŠ‘p_`, which is REVERSE pointwise `â‰¤`.
+-- The right adjoint must return the `âŠ‘p`-GREATEST burden profile
+-- satisfying the constraint; `âŠ‘p`-greatest is `â‰¤`-LEAST; â„•'s least
+-- element is `0`.  The empty meet is `zeroProfile`, and â„• has it.  No
+-- `âˆž`, no `â„• âŠŽ âˆž`, and no restriction on the residual index: `dnAll`,
 -- `goFwdAll`, `goBwdAll` at the recording site are the unrestricted
 -- adjunction.
 --

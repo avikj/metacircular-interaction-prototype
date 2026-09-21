@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рррр░рр╡-ррирржрр░р┐рпрор тФ рпрр ррр░р╡ррр┐ ррр рриррр рриррзрор ; ррр рр┐риррир рпррЧррор ррр░рор╛ррор р
+-- рдЕрдкреВрд░реНрд╡-рдЗрдиреНрджреНрд░рд┐рдпрдореН тАФ рдпрддреН рдкреНрд░рд╡рд╣рддрд┐ рддрддреН рддрдиреНрддреМ рдЕрдиреНрдзрдореН ; рдЕрддрдГ рднрд┐рдиреНрдирдВ рдпреБрдЧреНрдордВ рдкреНрд░рдорд╛рдгрдореН ред
 --
 -- (a map that FACTORS is blind on the fibers of what it factors through;
 -- so a blind pair it separates is the certificate that it is a new sense.)
 --
--- ррррр░ р рррр░, рррир : рХр ррХрррЛ рржррз ррр┐ р  ррр░р╡ррр (factoring) ррзррир╛рр┐
--- **O**-ррХрррор ; ррррп рриррр╡р рриррзр╛р р  ррржр рриррр = ри ррр░р╡рррор р
+-- рд╕реВрддреНрд░ рел рдЕрддреНрд░, рдкреБрдирдГ : рдХрдГ рдкрдХреНрд╖реЛ рдмрджреНрдз рдЗрддрд┐ ред  рдкреНрд░рд╡рд╣рдгрдВ (factoring) рдмрдзреНрдирд╛рддрд┐
+-- **O**-рдкрдХреНрд╖рдореН ; рддрд╕реНрдп рддрдиреНрддрд╡рдГ рдЕрдиреНрдзрд╛рдГ ред  рднреЗрджрдГ рддрдиреНрддреМ = рди рдкреНрд░рд╡рд╣рдгрдореН ред
 --
 -- WHAT THIS IS.  The owner's sensorium reading gives the criterion for when
 -- a proposed organ is a SENSE rather than a DASHBOARD:
 --
---     q : X тТ Q is genuinely new only when it separates something inside a
---     fiber of the present sensorium S : X тТ O тФ  S x тЙб S y  but  q x тЙ q y.
+--     q : X тЖТ Q is genuinely new only when it separates something inside a
+--     fiber of the present sensorium S : X тЖТ O тАФ  S x тЙб S y  but  q x тЙв q y.
 --     If instead q = h тИШ S, it is another reading computed from the same
 --     transcript; useful compression, but it perceives nothing new.
 --
@@ -23,12 +23,12 @@
 --
 -- AND IT IS THE SAME LAW AS `SamacaranaNityam`.  That module proves a
 -- transitive symmetry flattens every invariant observable, and reads an
--- unequal split as the certificate that no transitive symmetry acts.  ┬зр below
+-- unequal split as the certificate that no transitive symmetry acts.  ┬зрек below
 -- exhibits flattening as factoring THROUGH A POINT, so both certificates are
 -- one statement seen at two codomains:
 --
---     factoring through S      тТ blind on S's fibers тТ dashboard
---     factoring through Unit   тТ blind everywhere    тТ flattened
+--     factoring through S      тЖТ blind on S's fibers тЖТ dashboard
+--     factoring through Unit   тЖТ blind everywhere    тЖТ flattened
 --
 -- The organ criterion and the index criterion were never two criteria.
 --
@@ -46,11 +46,11 @@ private
     тДУ тДУ' тДУ'' : Level
 
 ------------------------------------------------------------------------
--- рз ┬ ррр░р╡рррор тФ what it is for one reading to be computed from another
+-- рез ┬╖ рдкреНрд░рд╡рд╣рдгрдореН тАФ what it is for one reading to be computed from another
 --
 -- No propositional truncation: the factoring map is DATA.  An organ that
 -- claims to be derived must hand over the h that derives it, which is the
--- honest form of the claim and is what makes ┬зрй usable as an admission gate.
+-- honest form of the claim and is what makes ┬зрей usable as an admission gate.
 ------------------------------------------------------------------------
 
 рдкреНрд░рд╡рд╣рддрд┐ : {X : Type тДУ} {O : Type тДУ'} {Q : Type тДУ''}
@@ -58,7 +58,7 @@ private
 рдкреНрд░рд╡рд╣рддрд┐ {X = X} S q = ╬г[ h тИИ (_ тЖТ _) ] ((x : X) тЖТ q x тЙб h (S x))
 
 ------------------------------------------------------------------------
--- ри ┬ рриррр-рриррзррр╡рор тФ a derived reading is blind inside its source's fibers
+-- реи ┬╖ рддрдиреНрддреБ-рдЕрдиреНрдзрддреНрд╡рдореН тАФ a derived reading is blind inside its source's fibers
 --
 -- The whole content, and it is `cong` twice.  This is the repository's
 -- quotient/fiber law at the level of instruments: no post-processing of the
@@ -72,7 +72,7 @@ private
 рддрдиреНрддреМ-рдЕрдиреНрдзрдГ S q (h , fac) x y p = fac x тИЩ cong h p тИЩ sym (fac y)
 
 ------------------------------------------------------------------------
--- рй ┬ рррр░рр╡-ррр░рор╛ррор тФ THE ADMISSION CERTIFICATE
+-- рей ┬╖ рдЕрдкреВрд░реНрд╡-рдкреНрд░рдорд╛рдгрдореН тАФ THE ADMISSION CERTIFICATE
 --
 -- A blind pair of the present sensorium, separated by the proposal, proves
 -- no derivation exists.  This is what an organ must carry to be admitted as a
@@ -91,22 +91,22 @@ private
 рдЕрдкреВрд░реНрд╡рдореН S q x y blind sep fac = sep (рддрдиреНрддреМ-рдЕрдиреНрдзрдГ S q fac x y blind)
 
 ------------------------------------------------------------------------
--- р ┬ ррХрИр╡ р╡р┐рзр┐р тФ flattening IS factoring through a point
+-- рек ┬╖ рдПрдХреИрд╡ рд╡рд┐рдзрд┐рдГ тАФ flattening IS factoring through a point
 --
 -- `SamacaranaNityam` proves: a symmetry carrying every index to every other
 -- makes an invariant observable constant.  Constant is exactly "factors
--- through Unit" тФ every index is one orbit, so the orbit space is a point and
+-- through Unit" тАФ every index is one orbit, so the orbit space is a point and
 -- the observable is a reading OF THAT POINT.
 --
 -- So the two certificates this corpus now holds are one law at two codomains,
 -- and each is the contrapositive of the same two rewrites:
 --
---   blind pair separated   тЯ no factoring through S      (a real sense)
---   unequal split          тЯ no factoring through Unit   (a real index)
+--   blind pair separated   тЯ╣ no factoring through S      (a real sense)
+--   unequal split          тЯ╣ no factoring through Unit   (a real index)
 ------------------------------------------------------------------------
 
 -- Factoring through a point is constancy.  The point of X is a HYPOTHESIS,
--- not an oversight: `h : Unit тТ Q` must produce a Q, and with X empty there is
+-- not an oversight: `h : Unit тЖТ Q` must produce a Q, and with X empty there is
 -- no q x to produce it from.  A constant map on the empty type factors through
 -- Unit only if Q is inhabited, and saying so costs one argument.
 рдмрд┐рдиреНрджреБ-рдкреНрд░рд╡рд╣рдгрдореН : {X : Type тДУ} {Q : Type тДУ'} (q : X тЖТ Q) (xтВА : X)
@@ -114,31 +114,31 @@ private
                тЖТ рдкреНрд░рд╡рд╣рддрд┐ (╬╗ (_ : X) тЖТ tt) q
 рдмрд┐рдиреНрджреБ-рдкреНрд░рд╡рд╣рдгрдореН q xтВА const = (╬╗ _ тЖТ q xтВА) , (╬╗ x тЖТ const x xтВА)
 
--- рФр░ the direction the certificate actually uses, which needs no point at
--- all: anything factoring through a point is constant.  This is ┬зри at O = Unit,
--- so `SamacaranaNityam`'s flattening and ┬зрй's dashboard are the same rewrite.
+-- рдФрд░ the direction the certificate actually uses, which needs no point at
+-- all: anything factoring through a point is constant.  This is ┬зреи at O = Unit,
+-- so `SamacaranaNityam`'s flattening and ┬зрей's dashboard are the same rewrite.
 рдмрд┐рдиреНрджреЛрдГ-рдирд┐рддреНрдпрдореН : {X : Type тДУ} {Q : Type тДУ'} (q : X тЖТ Q)
                тЖТ рдкреНрд░рд╡рд╣рддрд┐ (╬╗ (_ : X) тЖТ tt) q
                тЖТ (x y : X) тЖТ q x тЙб q y
 рдмрд┐рдиреНрджреЛрдГ-рдирд┐рддреНрдпрдореН q fac x y = рддрдиреНрддреМ-рдЕрдиреНрдзрдГ _ q fac x y refl
 
 ------------------------------------------------------------------------
--- р ┬ рор░ррпр╛ржр╛ тФ stated at the site
+-- рел ┬╖ рдорд░реНрдпрд╛рджрд╛ тАФ stated at the site
 --
--- * ┬зр splits into an asymmetric pair and the asymmetry is real, not a
---   defect.  `рр┐рирржрЛр-рир┐рррпрор` (factors through a point тЯ constant) needs
---   NOTHING тФ it is ┬зри at O = Unit, where every fiber is the whole type, so
---   the blindness is total.  `рр┐рирржр-ррр░р╡рррор` (constant тЯ factors through a
---   point) needs a point of X, because `h : Unit тТ Q` must produce a Q and an
+-- * ┬зрек splits into an asymmetric pair and the asymmetry is real, not a
+--   defect.  `рдмрд┐рдиреНрджреЛрдГ-рдирд┐рддреНрдпрдореН` (factors through a point тЯ╣ constant) needs
+--   NOTHING тАФ it is ┬зреи at O = Unit, where every fiber is the whole type, so
+--   the blindness is total.  `рдмрд┐рдиреНрджреБ-рдкреНрд░рд╡рд╣рдгрдореН` (constant тЯ╣ factors through a
+--   point) needs a point of X, because `h : Unit тЖТ Q` must produce a Q and an
 --   empty X supplies no q x to produce it from.  The certificate direction is
 --   the free one; the representation direction is the one that costs an
---   argument.  This was written into the рор░ррпр╛ржр╛ before the kernel was asked,
+--   argument.  This was written into the рдорд░реНрдпрд╛рджрд╛ before the kernel was asked,
 --   and the first attempt came back from the kernel owing exactly this point.
--- * `ррр░р╡ррр┐` is DATA, not a truncated existence.  An organ that cannot hand
---   over its h has not shown it is derived, and ┬зрй refutes derivability
+-- * `рдкреНрд░рд╡рд╣рддрд┐` is DATA, not a truncated existence.  An organ that cannot hand
+--   over its h has not shown it is derived, and ┬зрей refutes derivability
 --   outright rather than refuting a particular h.
 -- * No organ is admitted or built here.  This is the certificate's type.
---   The rule the owner states тФ no new sense without a blind pair it
---   demonstrably separates тФ becomes: an organ ships an `рррр░рр╡рор` term or it
+--   The rule the owner states тАФ no new sense without a blind pair it
+--   demonstrably separates тАФ becomes: an organ ships an `рдЕрдкреВрд░реНрд╡рдореН` term or it
 --   ships as a dashboard, and both are honest.
 ------------------------------------------------------------------------

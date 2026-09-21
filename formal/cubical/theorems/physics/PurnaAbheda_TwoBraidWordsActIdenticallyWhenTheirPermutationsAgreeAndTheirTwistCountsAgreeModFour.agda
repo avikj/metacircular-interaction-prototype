@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �����-���� � the complete identification.
+-- पूर्ण-अभेद — the complete identification.
 --
 -- From triviality to identity.  The kernel theorem said which words
 -- act trivially; this file upgrades it to which words act THE SAME:
 --
 --   §1  TWIST WORDS WITH EQUAL COUNTS MOD FOUR ACT IDENTICALLY, on
---       every rope � the reading theorem routes both through their
+--       every rope — the reading theorem routes both through their
 --       residues, and reader extensionality closes the streams.
 --
 --   §2  BRAID WORDS WITH EQUAL PERMUTATION ACTIONS AND EQUAL DEPOSITED
---       COUNTS MOD FOUR ACT IDENTICALLY � the normal form on each
+--       COUNTS MOD FOUR ACT IDENTICALLY — the normal form on each
 --       side, the swap hypothesis in the middle, §1 to finish.
 --
 -- The memory account is thereby COMPLETE as an upper bound: the pair
 -- (permutation action, twist counts mod four) determines the braid's
--- action outright.  With the kernel theorem giving the lower bound �
--- distinct invariants are detected by the two ropes � the braid's
+-- action outright.  With the kernel theorem giving the lower bound —
+-- distinct invariants are detected by the two ropes — the braid's
 -- observational identity IS the pair of invariants: what a braid is,
 -- to every possible observer, is where it sends the strands and what
 -- it deposited on them, to the fourth turn.
@@ -44,7 +44,7 @@ open import AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPo
   using (gāḍha)
 
 ------------------------------------------------------------------------
--- � � Equal counts mod four, equal twist actions.
+-- १ · Equal counts mod four, equal twist actions.
 ------------------------------------------------------------------------
 
 samāna-gaṇa : (t t' : List ℕ)
@@ -58,7 +58,7 @@ samāna-gaṇa t t' h x = pāṭha-sāmya λ j →
   ∙ sym (pāṭha-gaṇanā t' j x)
 
 ------------------------------------------------------------------------
--- � � Equal invariants, equal braid actions.
+-- २ · Equal invariants, equal braid actions.
 ------------------------------------------------------------------------
 
 pūrṇa-abheda : (w v : List ℕ)

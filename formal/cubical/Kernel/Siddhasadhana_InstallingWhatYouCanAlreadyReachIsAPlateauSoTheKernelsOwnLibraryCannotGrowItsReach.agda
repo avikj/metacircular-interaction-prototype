@@ -4,10 +4,10 @@
 -- Kernel.Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateau
 --                      SoTheKernelsOwnLibraryCannotGrowItsReach
 --
--- TERM.  ‡‡ø‡¶‡‡ß‡‡æ‡ß‡® ¬ siddhasdhana -- establishing what is already
+-- TERM.  ‡§∏‡§ø‡§¶‡•ç‡§ß‡§∏‡§æ‡§ß‡§® ¬∑ siddhasƒÅdhana -- establishing what is already
 -- established; in the Nyya debate literature a defect of a would-be proof,
 -- because the sdhya is already siddha for the opponent, so the inference
--- accomplishes nothing.  Discussed under the ‡®‡ø‡ó‡‡∞‡‡‡‡‡æ‡® / ‡‡æ‡‡ø apparatus
+-- accomplishes nothing.  Discussed under the ‡§®‡§ø‡§ó‡•ç‡§∞‡§π‡§∏‡•ç‡§•‡§æ‡§® / ‡§ú‡§æ‡§§‡§ø apparatus
 -- descending from Gautama's *Nyyastra* (~2nd c. CE) book 5 and developed
 -- in the later Naiyyika manuals; I have not established a first use of the
 -- compound with a date I checked, and I am not supplying one.
@@ -18,7 +18,7 @@
 -- `NaturalMachine.Obstruction` proves a separation on ITS substrate (unary
 -- terms, a vocabulary of head shapes):
 --
---   plateau : FreqChain V W ‚í Matches W ‚â° Matches V
+--   plateau : FreqChain V W ‚Üí Matches W ‚â° Matches V
 --
 -- A proposer that installs what it can already match leaves the matcher
 -- EQUAL AS A FUNCTION, after any number of steps; and `obs-step-strict`
@@ -29,8 +29,8 @@
 -- THIS FILE ANSWERS THE FIRST HALF: the plateau transfers, and it is not a
 -- port.  Obstruction's proof runs through `extend-absorbed` on a Bool
 -- membership test.  The kernel's runs through `control-sound`, which is a
--- different fact about a different object: the control of `install d` at t‚≤
--- IS an identification t‚≤ ‚â° t, so a library extended by a theorem it could
+-- different fact about a different object: the control of `install d` at t‚Ä≤
+-- IS an identification t‚Ä≤ ‚â° t, so a library extended by a theorem it could
 -- already reach enables nothing it could not already enable.
 --
 ------------------------------------------------------------------------
@@ -43,7 +43,7 @@
 --       corollary, on the kernel's OWN library.  Exact analogue of
 --       Obstruction.frequency-cannot-reach.
 --
--- THE FRONTIER THIS OPENS ‚î the live questions it makes precise:
+-- THE FRONTIER THIS OPENS ‚Äî the live questions it makes precise:
 --   * NO ANTI-PLATEAU IS PROVED HERE.  Obstruction's separation has two
 --     halves and this is one.  What escapes the plateau on the kernel side
 --     is Vyapti_'s `SchematicOperation` -- `no-native-operation-does-this`
@@ -53,7 +53,7 @@
 --     schema would need; the record change does not exist.
 --   * NOTHING HERE IS AN OBSTRUCTION, and the scope of that is narrow.
 --     `InstallChain`'s step is restricted to `install`, whose control is the
---     trivial family `t ‚â° lhs`.  `Control : Tm ‚í Type‚` is a FIELD and the
+--     trivial family `t ‚â° lhs`.  `Control : Tm ‚Üí Type‚ÇÄ` is a FIELD and the
 --     caller may supply ANY type family, so this plateau is a theorem about
 --     the one trivial instance and says nothing about what an arbitrary
 --     control can enable.  Obstruction's own residual-reading is a
@@ -103,8 +103,8 @@ data InstallChain (L : List NativeOperation) : List NativeOperation ‚Üí Type‚ÇÅ 
        ‚Üí InstallChain L (install d ‚à∑ M)
 
 ------------------------------------------------------------------------
--- ¬ß2.  THE PLATEAU.  One step first: the control of `install d` at t‚≤ is an
---      identification t‚≤ ‚â° t, and t was already enabled, so transporting
+-- ¬ß2.  THE PLATEAU.  One step first: the control of `install d` at t‚Ä≤ is an
+--      identification t‚Ä≤ ‚â° t, and t was already enabled, so transporting
 --      the old evidence backwards along it discharges the new branch.
 ------------------------------------------------------------------------
 

@@ -6,7 +6,7 @@
 -- Prime-Pair Atlas Delta 20, T20.4: behavioural apartness, machine-checked.
 --
 -- The repository's kernel (formal/lean/Pairfield/MyhillNerodeMinimalMachine.lean)
--- formalises SAMENESS: NerodeCongruence x y = � w, behavior x w = behavior y w.
+-- formalises SAMENESS: NerodeCongruence x y = ∀ w, behavior x w = behavior y w.
 -- It contains no notion of distinction beyond the negation of that.
 --
 -- But README.md describes the machine as keeping, "for every distinction
@@ -59,7 +59,7 @@ module System {St : Type ℓ} {Act : Type ℓ'} {Obs : Type ℓ''}
   NerodeCongruence : St → St → Type (ℓ-max ℓ' ℓ'')
   NerodeCongruence x y = (w : List Act) → behavior x w ≡ behavior y w
 
-  -- Delta 20 T20.4.  Apartness is a �: its inhabitant IS the experiment.
+  -- Delta 20 T20.4.  Apartness is a Σ: its inhabitant IS the experiment.
   Apart : St → St → Type (ℓ-max ℓ' ℓ'')
   Apart x y = Σ[ w ∈ List Act ] (¬ (behavior x w ≡ behavior y w))
 
@@ -72,7 +72,7 @@ module System {St : Type ℓ} {Act : Type ℓ'} {Obs : Type ℓ''}
   apart→¬nerodeCongruence (w , sep) fe = sep (fe w)
 
   -- The converse is NOT provable here, and that is the point: from
-  -- � NerodeCongruence one cannot extract a word without a search principle.
+  -- ¬ NerodeCongruence one cannot extract a word without a search principle.
   -- Delta 20's "the witness is not merely that x and y differ; it is a
   -- CONTEXT that distinguishes them" is exactly this gap.
 
@@ -190,7 +190,7 @@ module Minimal where
 -- proved in §4 for EVERY (step, obs) with `isSet Obs`.
 --
 -- The second is NOT general, and cannot be: `ApartNotProp` lives in
--- `module Minimal` and has type `� (isProp (Apart false true))` � one
+-- `module Minimal` and has type `¬ (isProp (Apart false true))` — one
 -- system (two states, one action, identity dynamics, state-as-
 -- observation) at one pair of states.  Read as a statement about every
 -- system it is false, not merely unproved: whenever `NerodeCongruence x y`
@@ -205,8 +205,8 @@ module Minimal where
 --     sameness is ALWAYS a proposition; distinction is NOT always one,
 --     and `Minimal` is the witness that it can fail to be.
 --
--- That is still the asymmetry the module is for � one side is a
--- theorem about all systems, the other is a counterexample � and it is
+-- That is still the asymmetry the module is for — one side is a
+-- theorem about all systems, the other is a counterexample — and it is
 -- what the terms prove.  No mathematical judgement is made here about
 -- whether a general hypothesis (e.g. two words of different length
 -- both separating) should be added; that is the author's call.

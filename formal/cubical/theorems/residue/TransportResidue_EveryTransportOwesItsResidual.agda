@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- SankramanaSesa ‚î ‡‡‡ï‡‡∞‡Æ‡‡Æ‡ ‡‡‡‡‡Æ‡ ‡
+-- SankramanaSesa ‚Äî ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç ‡§∏‡§∂‡•á‡§∑‡§Æ‡•ç ‡•§
 -- (transport, with its remainder: the transport layer of the machine.)
 --
--- ‡‡‡ï‡‡∞‡Æ‡‡Æ‡, ‡® ‡‡‡∞‡‡ø‡≤‡ø‡‡ø‡ ‚î transported, not copied.
+-- ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç, ‡§® ‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡§ø‡§™‡§ø‡§É ‚Äî transported, not copied.
 --
--- THE OBJECT.  When a result moves between representations ‚î a derivation
+-- THE OBJECT.  When a result moves between representations ‚Äî a derivation
 -- from the Haskell runtime to the Agda core, a form between two
--- vocabularies, a rule set between two presentations ‚î three moves are
+-- vocabularies, a rule set between two presentations ‚Äî three moves are
 -- conceivable and only two exist:
 --
 --   1. move it along an explicit identification.  Nothing is dropped and
---      nothing is re-described: `‡‡‡ï‡‡∞‡Æ‡‡Æ‡ e = transport (ua e)`, and
---      `‡‡≤‡ã‡‡ = uaŒ≤` says the transported value is the equivalence's value
+--      nothing is re-described: `‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç e = transport (ua e)`, and
+--      `‡§Ö‡§≤‡•ã‡§™‡§É = uaŒ≤` says the transported value is the equivalence's value
 --      on the nose.  The original is not duplicated; it is gone from the
 --      source coordinates and present in the target's.
 --   2. move it along a map that is NOT an identification, and carry what
 --      the target forgets.  ¬ß2: the residual over a target point b is
---      exactly `fiber r b`, and `‡‡‡‡‡Æ‡` proves the source is the target
+--      exactly `fiber r b`, and `‡§∏‡§∂‡•á‡§∑‡§Æ‡•ç` proves the source is the target
 --      paired with its residual, with no slack.
---   3. copy the unknown.  ¬ß4: this does not exist.  `‚à_‚à‚` is the
---      destroying operation (`squash‚` equates every inhabitant); it has
+--   3. copy the unknown.  ¬ß4: this does not exist.  `‚à•_‚à•‚ÇÅ` is the
+--      destroying operation (`squash‚ÇÅ` equates every inhabitant); it has
 --      no section at `Bool`, so what it forgets is not recoverable and
---      `‚à_‚à‚` is not an equivalence.  The prohibition is a theorem, not a
+--      `‚à£_‚à£‚ÇÅ` is not an equivalence.  The prohibition is a theorem, not a
 --      policy laid over one.
 --
 -- A transport reporting no loss is reporting that nobody looked, UNLESS
--- it exhibits the contraction: `‡‡≤‡ã‡-‡≤‡ï‡‡‡‡Æ‡` (¬ß2) says loss-free is
+-- it exhibits the contraction: `‡§Ö‡§≤‡•ã‡§™-‡§≤‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç` (¬ß2) says loss-free is
 -- precisely "every residual is contractible", which is `isEquiv`'s own
 -- definition in this substrate.  So "no residual" is a claim with a proof
 -- obligation attached, and the obligation is stated in the same breath.
@@ -40,16 +40,16 @@
 -- Read from the Jaina side (Umsvti, *Tattvrthastra*; Siddhasena
 -- Divkara, *Sanmatitarka*), the same `ua` is aneknta held by prama:
 -- two nayas, both retained, joined by a bridge that carries and drops
--- nothing.  These schools refute each other ‚î Jaina logicians reject the
--- emptying, Madhyamikas reject a many-natured object ‚î and the dispute is
+-- nothing.  These schools refute each other ‚Äî Jaina logicians reject the
+-- emptying, Madhyamikas reject a many-natured object ‚Äî and the dispute is
 -- content, not noise.
 --
 -- **The machine takes the retentive branch, and here is why, at the site.**
 -- A transport layer whose job is to name what the target forgets needs the
 -- residual to be an OBJECT it can hold, store, and hand back.  On the
 -- emptying reading the residual has no own-being to record either, and the
--- honest statement of a lossy boundary ‚î "this much did not cross, and
--- here it is" ‚î has nothing to be about.  ¬ß2 requires `‡‡‡` to be a type
+-- honest statement of a lossy boundary ‚Äî "this much did not cross, and
+-- here it is" ‚Äî has nothing to be about.  ¬ß2 requires `‡§∂‡•á‡§∑` to be a type
 -- with inhabitants that get carried; ¬ß6 requires the residual family to
 -- resist being summarised.  That is aneknta's retention, not nyat's
 -- emptying.  The Madhyamaka reading is not refuted by this file and is not
@@ -59,17 +59,17 @@
 -- proves plurality-blocks-collapse: where standpoints disagree there is NO
 -- single object equivalent to every fibre.  Applied to a residual family:
 -- when a boundary forgets different amounts over different target points,
--- **the loss cannot be summarised by one object at all** ‚î "the residual"
+-- **the loss cannot be summarised by one object at all** ‚Äî "the residual"
 -- as a single thing does not exist, and the record must stay pointwise.
 -- `LosslessReturn` supplies the machine's proved-lossless boundary,
--- `(‚ï ó ‚ï) ‚â ‡µ‡ø‡µ‡‡ï`, whose residual ¬ß5b computes to be contractible
--- everywhere ‚î a "no loss" report that did look.
+-- `(‚Ñï √ó ‚Ñï) ‚âÉ ‡§µ‡§ø‡§µ‡•á‡§ï`, whose residual ¬ß5b computes to be contractible
+-- everywhere ‚Äî a "no loss" report that did look.
 --
 -- CHECKED: Agda 2.8.0, cubical library as installed by the container.
 -- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module SankramanaSesa_EveryTransportOwesItsResidual where
+module TransportResidue_EveryTransportOwesItsResidual where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
@@ -98,12 +98,12 @@ private
     C : Type ‚Ñì''
 
 ------------------------------------------------------------------------
--- 1.  ‡‡‡ï‡‡∞‡Æ‡‡Æ‡ ‚î the move that exists, along an explicit identification.
+-- 1.  ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç ‚Äî the move that exists, along an explicit identification.
 --
 -- The identification is `ua e`: not "these look alike", but the
--- equivalence itself, entered as a path.  ‡‡≤‡ã‡‡ (non-erasure) says the
--- transported value is `equivFun e a` exactly ‚î nothing is re-described on
--- the way.  ‡‡‡∞‡‡‡Ø‡æ‡ó‡Æ‡®‡Æ‡ says the passage is reversible: the source value is
+-- equivalence itself, entered as a path.  ‡§Ö‡§≤‡•ã‡§™‡§É (non-erasure) says the
+-- transported value is `equivFun e a` exactly ‚Äî nothing is re-described on
+-- the way.  ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§ó‡§Æ‡§®‡§Æ‡•ç says the passage is reversible: the source value is
 -- recoverable from the target one.  Together: the state moved, and it
 -- moved whole.
 ------------------------------------------------------------------------
@@ -119,12 +119,12 @@ private
 ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§ó‡§Æ‡§®‡§Æ‡•ç e = transport‚ÅªTransport (ua e)
 
 ------------------------------------------------------------------------
--- 2.  ‡‡‡ ‚î the residual, and the theorem that every map owes one.
+-- 2.  ‡§∂‡•á‡§∑ ‚Äî the residual, and the theorem that every map owes one.
 --
--- Given ANY representation change r : A ‚í B, the exact thing B forgets at
+-- Given ANY representation change r : A ‚Üí B, the exact thing B forgets at
 -- a target point b is the type of source points r sends to b, with the
 -- witness.  That is `fiber r b`, and it is not a metaphor for the loss:
--- ‡‡‡‡‡Æ‡ proves the source is the target paired with it.
+-- ‡§∏‡§∂‡•á‡§∑‡§Æ‡•ç proves the source is the target paired with it.
 ------------------------------------------------------------------------
 
 ‡§∂‡•á‡§∑ : (r : A ‚Üí B) ‚Üí B ‚Üí Type _
@@ -134,7 +134,7 @@ private
 ‡§∏‡§∂‡•á‡§∑‡§Æ‡•ç : (r : A ‚Üí B) ‚Üí A ‚âÉ (Œ£[ b ‚àà B ] ‡§∂‡•á‡§∑ r b)
 ‡§∏‡§∂‡•á‡§∑‡§Æ‡•ç r = totalEquiv r
 
--- ‡‡≤‡ã‡-‡≤‡ï‡‡‡‡Æ‡ ‚î the mark of a genuinely loss-free boundary.  "Reports no
+-- ‡§Ö‡§≤‡•ã‡§™-‡§≤‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç ‚Äî the mark of a genuinely loss-free boundary.  "Reports no
 -- loss" is exactly "every residual is contractible": the residual is a
 -- single point and its being so is proved, not assumed.  Both directions,
 -- because a no-loss claim must be checkable and a proved identification
@@ -154,9 +154,9 @@ private
   x‚â¢y (isContr‚ÜíisProp (ise .equiv-proof b) x y)
 
 ------------------------------------------------------------------------
--- 3.  ‡‡‡-‡‡ô‡‡ò‡æ‡‡ ‚î residuals compose; nothing vanishes between stages.
+-- 3.  ‡§∂‡•á‡§∑-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É ‚Äî residuals compose; nothing vanishes between stages.
 --
--- A result crossing two boundaries (runtime ‚í core ‚í vocabulary) has one
+-- A result crossing two boundaries (runtime ‚Üí core ‚Üí vocabulary) has one
 -- residual per stage, and the residual of the composite is exactly the two
 -- of them stacked.  So a chain of transports loses nothing that no single
 -- stage lost: the loss is accounted stage by stage, and the total is the
@@ -190,15 +190,15 @@ module _ (f : A ‚Üí B) (g : B ‚Üí C) (c : C) where
   ‡§∂‡•á‡§∑-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É = isoToEquiv (iso fwd bwd fwd-bwd bwd-fwd)
 
 ------------------------------------------------------------------------
--- 4.  ‡® ‡‡‡∞‡‡ø‡≤‡ø‡‡ø‡ ‚î the third move does not exist.
+-- 4.  ‡§® ‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡§ø‡§™‡§ø‡§É ‚Äî the third move does not exist.
 --
--- `‚à_‚à‚` is the operation that destroys: `squash‚` makes every inhabitant
+-- `‚à•_‚à•‚ÇÅ` is the operation that destroys: `squash‚ÇÅ` makes every inhabitant
 -- equal, so the truncation of `Bool` remembers that something was there
--- and not which.  It has NO section ‚î no map back returning what went in ‚î
--- and therefore `‚à_‚à‚` is not an equivalence and the loss is not
+-- and not which.  It has NO section ‚Äî no map back returning what went in ‚Äî
+-- and therefore `‚à£_‚à£‚ÇÅ` is not an equivalence and the loss is not
 -- recoverable by any later cleverness.  The proof is the whole
--- prohibition: a would-be section must agree on `‚à false ‚à‚` and
--- `‚à true ‚à‚`, because those are equal, and then `false ‚â° true`.
+-- prohibition: a would-be section must agree on `‚à£ false ‚à£‚ÇÅ` and
+-- `‚à£ true ‚à£‚ÇÅ`, because those are equal, and then `false ‚â° true`.
 ------------------------------------------------------------------------
 
 ‡§®-‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡§ø‡§™‡§ø‡§É : (s : ‚à• Bool ‚à•‚ÇÅ ‚Üí Bool) ‚Üí ¬¨ ((x : Bool) ‚Üí s ‚à£ x ‚à£‚ÇÅ ‚â° x)
@@ -214,7 +214,7 @@ module _ (f : A ‚Üí B) (g : B ‚Üí C) (c : C) where
 -- A boundary in the machine is not "a function between representations".
 -- It is a function TOGETHER WITH the type of what the target forgets, and
 -- a proof that the two together reconstitute the source.  The canonical
--- constructor supplies `fiber` ‚î so "I did not look" is not expressible as
+-- constructor supplies `fiber` ‚Äî so "I did not look" is not expressible as
 -- an instance.
 ------------------------------------------------------------------------
 
@@ -242,7 +242,7 @@ open ‡§∏‡§∂‡•á‡§∑‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç public
 --
 -- `LosslessReturn` proves the pair of magnitudes and the descent-record are
 -- equivalent both ways.  Read as a boundary: the residual over every
--- ‡µ‡ø‡µ‡‡ï is contractible ‚î exactly one (‚ï ó ‚ï) sits over it, and that is a
+-- ‡§µ‡§ø‡§µ‡•á‡§ï is contractible ‚Äî exactly one (‚Ñï √ó ‚Ñï) sits over it, and that is a
 -- fact, not an absence of inspection.  This is what a "no residual" report
 -- costs.
 ------------------------------------------------------------------------
@@ -251,15 +251,15 @@ open ‡§∏‡§∂‡•á‡§∑‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç public
 ‡§Ö‡§µ‡§§‡§∞‡§£-‡§∂‡•á‡§∑‡§É = ‡§∏‡§Æ‡§§‡§æ‚Üí‡§®‡§ø‡§É‡§∂‡•á‡§∑‡§Æ‡•ç ‡§Ø‡•Å‡§ó‡•ç‡§Æ‚âÉ‡§µ‡§ø‡§µ‡•á‡§ï
 
 ------------------------------------------------------------------------
--- 6.  The residual may have no summary ‚î Aneknta applied to a boundary.
+-- 6.  The residual may have no summary ‚Äî AnekƒÅnta applied to a boundary.
 --
--- Take a boundary that forgets unevenly: `Unit ‚í Bool` hitting only
+-- Take a boundary that forgets unevenly: `Unit ‚Üí Bool` hitting only
 -- `true`.  Over `true` the residual is inhabited; over `false` it is
--- empty.  So the residual family is ‡‡‡Ø‡æ‡¶‡‡‡‡ø and ‡‡‡Ø‡æ‡®‡‡®‡æ‡‡‡‡ø together, and by
+-- empty.  So the residual family is ‡§∏‡•ç‡§Ø‡§æ‡§¶‡§∏‡•ç‡§§‡§ø and ‡§∏‡•ç‡§Ø‡§æ‡§®‡•ç‡§®‡§æ‡§∏‡•ç‡§§‡§ø together, and by
 -- `plurality-blocks-collapse` NO type Q is equivalent to every residual.
 --
 -- The consequence for the transport layer: a lossy boundary does not in
--- general have "a residual" ‚î a single object naming what it forgets.  It
+-- general have "a residual" ‚Äî a single object naming what it forgets.  It
 -- has a residual AT EACH TARGET POINT, and replacing the family by one
 -- summary object is not merely lossy, it is unavailable.  The permitted
 -- moves stay the two Anekanta names: transport along an identification, or
@@ -286,7 +286,7 @@ open ‡§∏‡§∂‡•á‡§∑‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç public
 ‡§∂‡•á‡§∑‡§É-‡§®-‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡§ø‡§™‡•ç‡§Ø‡§§‡•á = plurality-blocks-collapse ‡§µ‡§ø‡§∑‡§Æ-‡§∂‡•á‡§∑‡§É ‡§µ‡§ø‡§∑‡§Æ-‡§∂‡•á‡§∑‡§É-‡§Ö‡§®‡•á‡§ï‡§æ‡§®‡•ç‡§§‡§É
 
 -- and the boundary is lossy in the ¬ß2 sense too: over `true` the residual
--- is a point, over `false` it is empty, so the map is not an equivalence ‚î
+-- is a point, over `false` it is empty, so the map is not an equivalence ‚Äî
 -- recorded, not dropped.
 ‡§µ‡§ø‡§∑‡§Æ-‡§∏‡•á‡§§‡•Å‡§É-‡§®-‡§∏‡§Æ‡§§‡§æ : ¬¨ (isEquiv ‡§µ‡§ø‡§∑‡§Æ-‡§∏‡•á‡§§‡•Å‡§É)
 ‡§µ‡§ø‡§∑‡§Æ-‡§∏‡•á‡§§‡•Å‡§É-‡§®-‡§∏‡§Æ‡§§‡§æ ise with ise .equiv-proof false

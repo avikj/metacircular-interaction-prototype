@@ -6,31 +6,31 @@
 -- THE RESIDUE BRIDGE, CHECKED.  `SensorNerode` proves the
 -- Nerode theorem for a family `S` of moduli in the form
 --
---     Ind S a b  ⟺  lcm S � dist a b
+--     Ind S a b  ⟺  lcm S ∣ dist a b
 --
 -- and its header names, as the FIRST of its two open gaps:
 --
 --     "**The residue bridge is not proved here.**  The note writes the
 --      observation as `profile_S(n) = (n mod m)_{m∈S}`, and this file
---      works with `m � dist a b` instead.  These agree � that is the
---      standard characterisation of congruence � but `_mod_` does not
+--      works with `m ∣ dist a b` instead.  These agree — that is the
+--      standard characterisation of congruence — but `_mod_` does not
 --      appear below, so a reader should take §3 as a theorem about
 --      divisibility of the distance, and the identification with equal
 --      residues as an unchecked (if entirely standard) step."
 --
 -- This module is that step, checked.  It closes gap (i).  It does NOT
--- close gap (ii) � the divisor lattice � and §7 says exactly what is
+-- close gap (ii) — the divisor lattice — and §7 says exactly what is
 -- missing there and why the tools that arrived since do not supply it.
 --
 --
 -- WHAT IS CHECKED
 --
 --   §1  `mult-diff`      the one piece of arithmetic the bridge needs:
---                        `c + m�q ≡ m�q�` forces `c` to be a multiple of
+--                        `c + m·q ≡ m·q′` forces `c` to be a multiple of
 --                        `m`.  Pure induction on the two quotients; no
 --                        subtraction, no order theory, no Bezout.
---       `shift-mod`      `m � c � (x + c) mod m ≡ x mod m`.
---       `mod-shift��`    its converse for a positive modulus, by
+--       `shift-mod`      `m ∣ c → (x + c) mod m ≡ x mod m`.
+--       `mod-shift→∣`    its converse for a positive modulus, by
 --                        `≡remainder+quotient` on both sides and
 --                        `mult-diff` on the difference of the quotients.
 --
@@ -38,17 +38,17 @@
 --                        shift, and §1 applies to it.
 --       `residue-bridge` **THE BRIDGE.**  For every modulus `suc n`,
 --
---                          (a mod suc n ≡ b mod suc n) ≡ (suc n � dist a b)
+--                          (a mod suc n ≡ b mod suc n) ≡ (suc n ∣ dist a b)
 --
 --                        as a PATH OF TYPES (both sides are props).  The
---                        two directions are `mod≡��dist` and
---                        `�dist�mod≡`, and they are not symmetric in
---                        their hypotheses � see §4.
+--                        two directions are `mod≡→∣dist` and
+--                        `∣dist→mod≡`, and they are not symmetric in
+--                        their hypotheses — see §4.
 --
 --   §3  `SameProfile`    the note's own datum: `(a mod m)_{m∈S}` agrees
 --                        with `(b mod m)_{m∈S}`, pointwise.
 --       `profile≡Ind`    `SameProfile S a b ≡ Ind S a b` for a family of
---                        POSITIVE moduli � SensorNerode's `Ind`, in the
+--                        POSITIVE moduli — SensorNerode's `Ind`, in the
 --                        note's words, as an equality of types.
 --       `profile-list`   and the same for the profiles read as LISTS,
 --                        `map (a mod_) S ≡ map (b mod_) S`, which is
@@ -62,21 +62,21 @@
 --                              SameProfile S a b ≡ (a mod lcm S ≡ b mod lcm S).
 --
 --                            This is `WALK_STATE_IS_ITS_LCM.md` §1's
---                            headline � "the sensor list is a redundant
---                            presentation of one number" � in the
+--                            headline — "the sensor list is a redundant
+--                            presentation of one number" — in the
 --                            presentation the note uses and SensorNerode
 --                            avoided.  It needs `0 < lcm S`, proved here
 --                            (`lcm-positive`) against the product.
---       `same-lcm�same-profile`  two families with the same lcm have the
+--       `same-lcm→same-profile`  two families with the same lcm have the
 --                            same profile relation.
 --
 --   §5  `zero-sensor-splits-the-readings`
 --                        **THE CAVEAT, AS A COUNTEREXAMPLE.**  The
---                        positivity hypothesis in §3�§4 is not
+--                        positivity hypothesis in §3–§4 is not
 --                        decoration and the identification is NOT
 --                        unconditional: cubical's `_mod_` sets
 --                        `x mod 0 = 0`, so a sensor at modulus 0 reads
---                        every number alike, while `0 � dist a b` says
+--                        every number alike, while `0 ∣ dist a b` says
 --                        `a ≡ b`.  For `S = [0]`, `a = 0`, `b = 1`:
 --                        profiles agree, `Ind` fails.  SensorNerode's
 --                        `Ind` admits such families (`lcmList` has no
@@ -94,46 +94,46 @@
 --                        `chart-nerode` says that vector is determined
 --                        by one division:
 --
---                          ChartProfile S w v ≡ (lcm S � dist (value w) (value v)).
+--                          ChartProfile S w v ≡ (lcm S ∣ dist (value w) (value v)).
 --
 --                        `decInd` and `decInd-chart` then DECIDE
---                        indistinguishability � the second by
---                        `WalkResidueBridge.decDivides�`, i.e. by
+--                        indistinguishability — the second by
+--                        `WalkResidueBridge.decDividesℕ`, i.e. by
 --                        inspecting one automaton state and never the
---                        value.  (`WalkResidueBridge.decDivides�-agrees`
+--                        value.  (`WalkResidueBridge.decDividesℕ-agrees`
 --                        says the two decisions are equal, not merely
 --                        both correct.)
 --
 --
 -- SCOPE
 --
---  * **SensorNerode's SECOND gap is not closed.**  Its §2 � the divisor
+--  * **SensorNerode's SECOND gap is not closed.**  Its §2 — the divisor
 --    lattice, "the reachable states at frontier k are exactly the
---    divisors of cap k" � stays open, and this file does not touch it.
+--    divisors of cap k" — stays open, and this file does not touch it.
 --    The tools that arrived since (`CoprimeSplitting.primeDivisor` and
 --    `strip`) supply the two ingredients its header named as missing
 --    (existence of a prime divisor; the p-part/p-free split), but they
---    are not what the (�) direction turns on.  That direction needs
+--    are not what the (⊇) direction turns on.  That direction needs
 --
---        p prime, p^e � lcm(1..k)  �  p^e � k,
+--        p prime, p^e ∣ lcm(1..k)  ⟹  p^e ≤ k,
 --
 --    which is a statement about the VALUATION of an lcm, and neither
 --    `strip` nor `primeDivisor` gives it: `strip` splits ONE number at a
 --    prime, and says nothing about how the exponent behaves under `lcm`.
---    What is needed first is `p^e � lcm (x � xs) � (p^e � x) � (p^e �
---    lcm xs)` � the max-of-valuations law, provable from `strip` on both
---    arguments plus Euclid, but a module's worth of work � and after it a
+--    What is needed first is `p^e ∣ lcm (x ∷ xs) → (p^e ∣ x) ⊎ (p^e ∣
+--    lcm xs)` — the max-of-valuations law, provable from `strip` on both
+--    arguments plus Euclid, but a module's worth of work — and after it a
 --    well-founded recursion on the divisor that reassembles it as an lcm
 --    of a family in [1,k].  That is a piece of work, not an oversight,
 --    exactly as SensorNerode's header says; naming its first lemma is
 --    the whole of the progress this file makes on it.
 --
 --  * Nothing here is novel.  "Congruent modulo every element of S iff
---    congruent modulo lcm S" is elementary, and so is the m � a−b
+--    congruent modulo lcm S" is elementary, and so is the m ∣ a−b
 --    characterisation of congruence.  What is new is that the two
 --    presentations are now the SAME TYPE in this development, so the
 --    note's `profile_S` sentences and SensorNerode's `dist` theorems can
---    be quoted interchangeably without an unchecked step in between �
+--    be quoted interchangeably without an unchecked step in between —
 --    and that the boundary case where they are NOT the same type (§5) is
 --    on the record.
 --
@@ -188,7 +188,7 @@ open import CoprimeSplitting using (∣-from-mod ; mod-from-∣ ; dec∣)
 -- multiple of `m`.
 ------------------------------------------------------------------------
 
--- `c + m�q ≡ m�q�` � `c` is a multiple of `m`.  Induction on the two
+-- `c + m·q ≡ m·q′` ⟹ `c` is a multiple of `m`.  Induction on the two
 -- quotients simultaneously; the successor case cancels one `m` off both
 -- sides, which is `inj-m+` and nothing else.
 mult-diff : (m q q′ c : ℕ) → c + m · q ≡ m · q′ → Σ[ e ∈ ℕ ] c ≡ e · m
@@ -223,7 +223,7 @@ shift-mod m x c h =
   ∙ cong (λ z → (x + z) mod m) (∣→mod0 m c h)
   ∙ cong (_mod m) (+-zero x)
 
--- �and, at a positive modulus, only multiples of `m` fail to move it.
+-- …and, at a positive modulus, only multiples of `m` fail to move it.
 -- Both numbers are decomposed by `≡remainder+quotient`; the shared
 -- residue cancels and `mult-diff` reads off the multiple.
 mod-shift→∣ : (n x c : ℕ) → (x + c) mod (suc n) ≡ x mod (suc n) → (suc n) ∣ c
@@ -275,7 +275,7 @@ dist-shift x c =
 dist-sym : (a b : ℕ) → dist a b ≡ dist b a
 dist-sym a b = +-comm (a ∸ b) (b ∸ a)
 
--- Divisibility of the distance � equal residues.  TRUE AT EVERY
+-- Divisibility of the distance ⟹ equal residues.  TRUE AT EVERY
 -- MODULUS, 0 included: this half of the bridge needs no hypothesis.
 ∣dist→mod≡ : (m a b : ℕ) → m ∣ dist a b → a mod m ≡ b mod m
 ∣dist→mod≡ m a b h with splitℕ-≤ b a
@@ -299,7 +299,7 @@ dist-sym a b = +-comm (a ∸ b) (b ∸ a)
             ∙ cong (λ z → dist z a) (sym a+c≡b)
             ∙ dist-shift a c
 
--- Equal residues � divisibility of the distance, at a POSITIVE modulus.
+-- Equal residues ⟹ divisibility of the distance, at a POSITIVE modulus.
 mod≡→∣dist : (n a b : ℕ) → a mod (suc n) ≡ b mod (suc n) → (suc n) ∣ dist a b
 mod≡→∣dist n a b h with splitℕ-≤ b a
 ... | inl (c , cb≡a) =
@@ -376,9 +376,9 @@ profile≡Ind S pos a b =
   hPropExt (isPropSameProfile S a b) (isPropInd S a b)
     (sameProfile→ind S pos a b) (ind→sameProfile S a b)
 
--- �and the profile read literally, as the note writes it: the LIST
+-- …and the profile read literally, as the note writes it: the LIST
 -- `(n mod m)_{m∈S}`.  Equality of the two lists is the pointwise
--- statement, by `cons-inj�`/`cons-inj�` one way and `cong�` the other.
+-- statement, by `cons-inj₁`/`cons-inj₂` one way and `cong₂` the other.
 profile : List ℕ → ℕ → List ℕ
 profile S n = map (n mod_) S
 
@@ -405,7 +405,7 @@ profile-list S a b =
 -- Positivity of the lcm.  The product of a family of positive numbers
 -- is a positive common multiple, and the lcm divides it, so the lcm
 -- cannot be 0.  (`lcmList` has no positivity restriction, which is why
--- this has to be proved rather than assumed � see §5.)
+-- this has to be proved rather than assumed — see §5.)
 prod : List ℕ → ℕ
 prod []       = 1
 prod (x ∷ xs) = x · prod xs
@@ -456,7 +456,7 @@ profile-collapses S pos a b =
     nerode-residue S pos a b
   ∙ sym (residue-bridge⁺ (lcmList S) a b (lcm-positive S pos))
 
--- �hence two families with the same lcm have the same profile relation,
+-- …hence two families with the same lcm have the same profile relation,
 -- which is SensorNerode §4 with `Ind` replaced by the note's datum.
 same-lcm→same-profile : (S T : List ℕ) → Positive S → Positive T
                       → lcmList S ≡ lcmList T
@@ -466,7 +466,7 @@ same-lcm→same-profile S T pS pT p a b =
   ∙ (λ i → (a mod p i) ≡ (b mod p i))
   ∙ sym (profile-collapses T pT a b)
 
--- �and conversely the profile relation determines the lcm, by
+-- …and conversely the profile relation determines the lcm, by
 -- SensorNerode's `nerode-unique!` composed with §3.
 profile-determines-lcm : (S T : List ℕ) → Positive S → Positive T
                        → ((a b : ℕ) → SameProfile S a b ≡ SameProfile T a b)
@@ -482,7 +482,7 @@ profile-determines-lcm S T pS pT h =
 -- identification is conditional.  cubical's `_mod_` is total by the
 -- convention `x mod 0 = 0` (Cubical.Data.Nat.Mod, first comment), so a
 -- sensor at modulus 0 reads every number as 0 and distinguishes
--- nothing; `Ind` at modulus 0 says `0 � dist a b`, i.e. `a ≡ b`, and
+-- nothing; `Ind` at modulus 0 says `0 ∣ dist a b`, i.e. `a ≡ b`, and
 -- distinguishes everything.  `SensorNerode.Ind` admits the family [0]
 -- (nothing there excludes it, and `lcmList [0] = 0`), so this is a real
 -- boundary of the bridge and not a convention artefact.
@@ -499,7 +499,7 @@ zero-sensor-splits-the-readings =
 -- `TransportDiv.modw` is the Horner residue automaton on digit words
 -- and `value-modw` proves `modw n w ≡ value w mod n`.  So the sensor
 -- family's reading of a numeral is literally the vector of the family's
--- automata's final states � one state per modulus, one pass per digit �
+-- automata's final states — one state per modulus, one pass per digit —
 -- and §4 says that vector is determined by a single division.
 ------------------------------------------------------------------------
 
@@ -516,7 +516,7 @@ module Chart (k : ℕ) where
   ChartProfile : List ℕ → Word → Word → Type
   ChartProfile S w v = All (λ m → modw m w ≡ modw m v) S
 
-  -- �is the family's reading of the number it denotes.  Pointwise
+  -- …is the family's reading of the number it denotes.  Pointwise
   -- `value-modw`, transported through the list: the two `All`s are
   -- connected by a path, not by a pair of implications.
   chart≡profile : (S : List ℕ) (w v : Word)
@@ -537,11 +537,11 @@ module Chart (k : ℕ) where
       chart-nerode S pos (digits a) (digits b)
     ∙ (λ i → lcmList S ∣ dist (value-digits a i) (value-digits b i))
 
-  -- Indistinguishability is DECIDED on the chart: `decDivides�` inspects
+  -- Indistinguishability is DECIDED on the chart: `decDividesℕ` inspects
   -- the automaton's final state on the numeral of `dist a b` and never
   -- the value.  The `IsLCM S (suc n)` argument is where the family's
-  -- state is named; `WalkResidueBridge.decDivides�-agrees` says this is
-  -- the same decision as `dec�`, so nothing downstream is disturbed.
+  -- state is named; `WalkResidueBridge.decDividesℕ-agrees` says this is
+  -- the same decision as `dec∣`, so nothing downstream is disturbed.
   decInd-chart : (S : List ℕ) (n : ℕ) → IsLCM S (suc n)
                → (a b : ℕ) → Dec (Ind S a b)
   decInd-chart S n isL a b =

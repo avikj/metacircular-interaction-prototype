@@ -9,18 +9,18 @@
 -- inverse limit.
 --
 -- The checked content here is the correction the run produced: the Clay
--- difficulty is NOT a lim� class in the finite-dimensional residual
+-- difficulty is NOT a lim¹ class in the finite-dimensional residual
 -- kernels.  A tower of finite-rank kernels is automatically
 -- Mittag--Leffler, because a non-increasing rank sequence cannot strictly
 -- descend forever.  So the obstruction cannot live in the set-theoretic
 -- inverse limit; it lives in the renormalized transport ALONG the tower.
 --
 -- `no-infinite-descent` is that fact, exact and --safe: there is no
--- strictly decreasing �-chain.  `rank-plateaus` is its tower form: any
+-- strictly decreasing ℕ-chain.  `rank-plateaus` is its tower form: any
 -- non-increasing rank sequence has a stabilization step (Mittag--Leffler).
 --
 -- The two realizations of the tower are then, as GOALS (types to inhabit,
--- not inhabited here � they are the frontier):
+-- not inhabited here — they are the frontier):
 --
 --   RH : the transport spectrum is neutral      (all exponents Re = 0),
 --   NS : no bad recurrent orbit exists          (Type-I already excluded
@@ -54,13 +54,13 @@ record ObserverTower (ℓ : Level) : Type (ℓ-suc ℓ) where
 open ObserverTower public
 
 ------------------------------------------------------------------------
--- §2  The Mittag--Leffler engine: no strictly descending �-chain.
---     This is what kills the lim� interpretation.
+-- §2  The Mittag--Leffler engine: no strictly descending ℕ-chain.
+--     This is what kills the lim¹ interpretation.
 ------------------------------------------------------------------------
 
 private
   -- a strictly descending chain has dropped by at least its index:
-  --     f k + k � f 0.
+  --     f k + k ≤ f 0.
   descend : (f : ℕ → ℕ) → ((n : ℕ) → f (suc n) < f n)
           → (k : ℕ) → (f k + k) ≤ f 0
   descend f dec zero =
@@ -87,7 +87,7 @@ no-infinite-descent (f , dec) = ¬m<m bad
 ------------------------------------------------------------------------
 -- §3  Tower form: a non-increasing rank sequence stabilises (ML).
 --     Hence the residual obstruction is not a finite-dimensional
---     inverse-limit class � it is renormalized transport along the tower.
+--     inverse-limit class — it is renormalized transport along the tower.
 ------------------------------------------------------------------------
 
 -- If a rank sequence never plateaued, it would strictly descend forever.
@@ -99,7 +99,7 @@ rank-plateaus :
 rank-plateaus r noninc never =
   no-infinite-descent (r , strict)
   where
-  -- non-increasing and never-equal � strictly decreasing.
+  -- non-increasing and never-equal ⟹ strictly decreasing.
   strict : (n : ℕ) → r (suc n) < r n
   strict n with noninc n
   ... | (zero  , p) = Empty.rec (never n p)

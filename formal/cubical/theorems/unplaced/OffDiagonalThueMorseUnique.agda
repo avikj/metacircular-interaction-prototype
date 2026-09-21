@@ -17,15 +17,15 @@
 -- term":
 --
 --     the recursion  ε(2m) = ε(m),  ε(2m+1) = −ε(m)  determines the entire
---     sequence from ε� alone; there are exactly two solutions, ε� = �1.
+--     sequence from ε₀ alone; there are exactly two solutions, ε₀ = ±1.
 --
--- This file certifies exactly the non-obvious half � UNIQUENESS.
--- Coefficients �1 are modelled as `Bool` (+1 � true, −1 � false);
--- negation `−` � `not`.  "exactly two solutions" is:
+-- This file certifies exactly the non-obvious half — UNIQUENESS.
+-- Coefficients ±1 are modelled as `Bool` (+1 ↦ true, −1 ↦ false);
+-- negation `−` ↦ `not`.  "exactly two solutions" is:
 --   * uniqueGivenHead (certified here): any two solutions agreeing at 0
---       agree everywhere, so the solution set injects into Bool = {ε�};
---   * existence of a solution for each ε� (the classical Thue�Morse
---       sequence, cf-prouhet's explicit p = ��(1 − x^{2�})): its formal
+--       agree everywhere, so the solution set injects into Bool = {ε₀};
+--   * existence of a solution for each ε₀ (the classical Thue–Morse
+--       sequence, cf-prouhet's explicit p = ∏ₖ(1 − x^{2ᵏ})): its formal
 --       function-definition is a separable WF-recursion landing and is
 --
 -- The obstruction "is one bit wide" (drishti): uniqueGivenHead says the
@@ -45,13 +45,13 @@ open import Cubical.Data.Sum
 open import Cubical.Data.Empty as ⊥
 
 ------------------------------------------------------------------------
--- The functional-equation recursion, on �1 � Bool.
+-- The functional-equation recursion, on ±1 ≅ Bool.
 --
---   Sat ε  ≡  (�m. ε(2�m) ≡ ε m)  �  (�m. ε(1+2�m) ≡ not (ε m))
+--   Sat ε  ≡  (∀m. ε(2·m) ≡ ε m)  ×  (∀m. ε(1+2·m) ≡ not (ε m))
 --
 -- This is (FE) p = (1−x) p(x²) read off coefficient-by-coefficient, once
--- q = 1/(1−x) is forced by "A ⊔ B is a partition of ��0" (every coefficient
--- of p is �1).  See the source note §"The derivation".
+-- q = 1/(1−x) is forced by "A ⊔ B is a partition of ℤ≥0" (every coefficient
+-- of p is ±1).  See the source note §"The derivation".
 ------------------------------------------------------------------------
 
 Sat : (ℕ → Bool) → Type
@@ -61,7 +61,7 @@ Sat ε = (∀ m → ε (2 · m) ≡ ε m) × (∀ m → ε (suc (2 · m)) ≡ no
 -- Arithmetic: the half of a positive n is strictly smaller than n.
 ------------------------------------------------------------------------
 
--- m � 2�m, always.
+-- m ≤ 2·m, always.
 m≤2m : (m : ℕ) → m ≤ 2 · m
 m≤2m m = m , cong (m +_) (sym (+-zero m))
 
@@ -70,20 +70,20 @@ lt-plus-suc : (x y : ℕ) → x < x + suc y
 lt-plus-suc x y =
   subst (suc x ≤_) (sym (+-suc x y)) (suc-≤-suc (y , +-comm y x))
 
--- 0 < m � m < 2�m.
+-- 0 < m → m < 2·m.
 half< : (m : ℕ) → 0 < m → m < 2 · m
 half< (suc m') _ =
   subst (suc m' <_) (cong (suc m' +_) (sym (+-zero (suc m'))))
         (lt-plus-suc (suc m') m')
 half< zero p = ⊥.rec (¬-<-zero p)
 
--- Given a witness that suc n is even (= 2�m), its half m is below suc n.
+-- Given a witness that suc n is even (= 2·m), its half m is below suc n.
 half<even : (n m : ℕ) → suc n ≡ 2 · m → m < suc n
 half<even n zero     p = ⊥.rec (snotz p)
 half<even n (suc m') p =
   subst (suc m' <_) (sym p) (half< (suc m') (suc-≤-suc zero-≤))
 
--- Given a witness that suc n is odd (= suc (2�m)), its half m is below suc n.
+-- Given a witness that suc n is odd (= suc (2·m)), its half m is below suc n.
 half<odd : (n m : ℕ) → suc n ≡ suc (2 · m) → m < suc n
 half<odd n m p = subst (m <_) (sym p) (≤<-trans (m≤2m m) ≤-refl)
 
@@ -125,8 +125,8 @@ uniqueUpTo ε δ sε sδ h0 (suc k) (suc n') n<sk
         ∙ cong δ (sym p)      -- δ (suc 2·m)≡ δ (suc n')
 
 ------------------------------------------------------------------------
--- The exported theorem: the recursion + the head ε� determine everything.
--- Hence solutions � Bool by ε � ε 0, i.e. at most two � the two Thue�Morse
+-- The exported theorem: the recursion + the head ε₀ determine everything.
+-- Hence solutions ↪ Bool by ε ↦ ε 0, i.e. at most two — the two Thue–Morse
 -- labellings of one partition.
 ------------------------------------------------------------------------
 

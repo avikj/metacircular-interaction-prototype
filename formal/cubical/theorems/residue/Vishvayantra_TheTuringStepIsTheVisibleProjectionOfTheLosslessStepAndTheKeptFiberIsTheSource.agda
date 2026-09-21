@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡µ‡ø‡‡‡µ‡Ø‡®‡‡‡‡∞‡Æ‡ ‚î the universal machine, inside the lossless one.
+-- ‡§µ‡§ø‡§∂‡•ç‡§µ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç ‚Äî the universal machine, inside the lossless one.
 --
 -- CLAIM, in one sentence: the ordinary universal Turing machine is the
 -- visible projection of a lossless, proof-relevant step, and the fiber
@@ -15,7 +15,7 @@
 --
 -- WHAT IS CONSTRUCTED, all checked, no postulates, no holes, --safe:
 --
---  1. `Code`, `Conf`, `uStep` ‚î an encoded universal one-step
+--  1. `Code`, `Conf`, `uStep` ‚Äî an encoded universal one-step
 --     evaluator.  `Code` is the type of finite transition tables, so an
 --     effectively presented single-tape machine IS an element of
 --     `Code`; there is no separate encoding step to trust.  `uStep` is
@@ -25,18 +25,18 @@
 --     The rule lookup returns a WITNESS of the match, `Maybe (m ‚â° n)`,
 --     never a boolean: keep the slot and the branch does not exist.
 --
---  2. `lossless` ‚î for ANY map f : A ‚í B,   A ‚â Œ b (fiber f b),
---     with forward map  a ‚¶ (f a , a , refl)  and visible projection
+--  2. `lossless` ‚Äî for ANY map f : A ‚Üí B,   A ‚âÉ Œ£ b (fiber f b),
+--     with forward map  a ‚Ü¶ (f a , a , refl)  and visible projection
 --     literally f (`visible-projection` is `refl`).  Every computable
 --     transition admits a canonical lossless, proof-relevant
 --     completion; the irreversible map is the projection of it.
 --
---  3. `LawfulStep` ‚î the lossless-step interface WITH THE COMMUTING
---     EQUATION.  A bare equivalence  e : A ‚â Œ a' T(a')  need not have
---     visible projection `step`; the field `visible : œ‚ ‚àò e ‚àº step`
+--  3. `LawfulStep` ‚Äî the lossless-step interface WITH THE COMMUTING
+--     EQUATION.  A bare equivalence  e : A ‚âÉ Œ£ a' T(a')  need not have
+--     visible projection `step`; the field `visible : œÄ‚ÇÅ ‚àò e ‚àº step`
 --     is load-bearing, and `trace-is-fiber` proves it is exactly
 --     strong enough: any lawful trace family is fiberwise equivalent
---     to `fiber step` ‚î the trace carries no data beyond the step, and
+--     to `fiber step` ‚Äî the trace carries no data beyond the step, and
 --     losslessness is canonical, not chosen.
 --
 --  4. The operational correspondence for the universal machine:
@@ -44,17 +44,17 @@
 --     `refl` and induction), `run-lossless` (every n-step visible run
 --     is itself the projection of a lossless run), `halted-is-fixed`,
 --     and two computed witnesses: the empty table halts at once, and a
---     one-rule machine is proved divergent (`loop-diverges`) ‚î the
+--     one-rule machine is proved divergent (`loop-diverges`) ‚Äî the
 --     halting observation refuted at every depth by computation.
 --
--- The interactive generalisation ‚î states with question types Q(s),
--- environment-indexed events E(s,q,s',o), the guarded ‚ñ ‚î is a wider
+-- The interactive generalisation ‚Äî states with question types Q(s),
+-- environment-indexed events E(s,q,s',o), the guarded ‚ñπ ‚Äî is a wider
 -- machine than this file's closed deterministic fragment, and it is
 -- handed forward as a ea through the machine's own `residue.arpana`,
 -- where the next step will find it.
 ------------------------------------------------------------------------
 
-module Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFiberIsTheSource where
+module Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFiberIsTheSource where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism
@@ -78,7 +78,7 @@ private
 --
 -- For every f, the domain is equivalent to the total space of f's
 -- fibers, the forward map keeps the source and the witness, and the
--- visible projection of the completed step is f ‚î definitionally.
+-- visible projection of the completed step is f ‚Äî definitionally.
 ------------------------------------------------------------------------
 
 module _ (f : A ‚Üí B) where
@@ -98,7 +98,7 @@ module _ (f : A ‚Üí B) where
 ------------------------------------------------------------------------
 -- ¬ß2  LawfulStep, with the commuting equation.
 --
--- The equivalence alone is not the law: `e : A ‚â Œ a' T(a')` could
+-- The equivalence alone is not the law: `e : A ‚âÉ Œ£ a' T(a')` could
 -- shuffle A arbitrarily and `step` would be decorative.  `visible`
 -- ties the projection of the completed event to the step, and
 -- `trace-is-fiber` shows the tie leaves no slack: T is then the fiber
@@ -133,7 +133,7 @@ module _ {X : Type ‚Ñì} (L : LawfulStep X) where
     total (x' , t) = x' , traceToFiber x' t
 
     -- `total` is homotopic to the composite equivalence
-    -- Œ X Trace ‚â X ‚â Œ X (fiber step); the homotopy slides the base
+    -- Œ£ X Trace ‚âÉ X ‚âÉ Œ£ X (fiber step); the homotopy slides the base
     -- point along the very witness `traceToFiber` constructed.
     composite : Œ£ X Trace ‚âÉ Œ£ X (fiber step)
     composite = compEquiv (invEquiv complete) (lossless step)

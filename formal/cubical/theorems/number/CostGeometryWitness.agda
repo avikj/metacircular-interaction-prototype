@@ -7,7 +7,7 @@
 -- something, kept separate so each is falsifiable on its own.
 --
 --   (W1) the repo's OWN measured edge, as a NEGATIVE instance: transporting
---        `+` from unary � to binary words is not a speedup, and T1 says so
+--        `+` from unary ℕ to binary words is not a speedup, and T1 says so
 --        without rerunning the 35.8-second benchmark;
 --
 --   (W2) a POSITIVE instance: a residue-style presentation where the work
@@ -46,7 +46,7 @@ step c = edge (λ _ → tt) c
 -- (W1)  THE MEASURED EDGE IS A NEGATIVE INSTANCE
 --
 -- TransportCost: native ripple-carry is FLAT in the number of chained
--- operations; the transported term pays a full round trip through unary �
+-- operations; the transported term pays a full round trip through unary ℕ
 -- per operation.  So the far side's work is not smaller -- take them equal
 -- and even then, by T1, no detour can win.  The measurement said 3.5s /
 -- 12.2s / 35.8s; the theorem says "never", for free.

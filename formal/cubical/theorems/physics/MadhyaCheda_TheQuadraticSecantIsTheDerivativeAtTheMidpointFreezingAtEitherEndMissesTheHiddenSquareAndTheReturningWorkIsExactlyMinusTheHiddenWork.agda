@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-��� � the midpoint secant.
+-- मध्य-छेद — the midpoint secant.
 --
 -- FOR A QUADRATIC MAP, THE SECANT FROM `a` TO `a + b` IS THE DERIVATIVE
 -- AT THE MIDPOINT, EXACTLY.  Freezing the derivative at `a` loses the
 -- square of the hidden part; freezing it at `a + b` counts it twice.
 -- And the work the returning force does on the visible part is exactly
--- minus the nonlinear work on the hidden part � for every split, with no
+-- minus the nonlinear work on the hidden part — for every split, with no
 -- projection in sight.
 --
 -- This is the identity the source-dependent memory representation
@@ -21,7 +21,7 @@
 --
 --   §1  THE SECANT IS THE MIDPOINT DERIVATIVE:
 --
---         DN (2a + b) b  ≡  2 � ( N (a + b) - N a ) ,
+--         DN (2a + b) b  ≡  2 · ( N (a + b) - N a ) ,
 --
 --       which is `N(a+b) - N(a) = DN(a + b/2) b` with the half cleared.
 --       The midpoint is not a modelling choice; it is what the
@@ -37,10 +37,10 @@
 --       sign, which is why the midpoint is exact.
 --
 --   §3  THE RETURNING WORK IS MINUS THE HIDDEN WORK.  If `N` conserves a
---       pairing � � v , N v � ≡ 0 for every `v` � then for every split
+--       pairing — ⟪ v , N v ⟫ ≡ 0 for every `v` — then for every split
 --       `u = a + b`,
 --
---         � a , N (a + b) - N a �  +  � b , N (a + b) �  ≡  0 .
+--         ⟪ a , N (a + b) - N a ⟫  +  ⟪ b , N (a + b) ⟫  ≡  0 .
 --
 --       The force returned to the visible part performs exactly the
 --       negative of the work the full nonlinearity performs on the
@@ -49,22 +49,22 @@
 --       algebra on the split alone.
 --
 --   §4  AND HIDDEN AMPLIFICATION DOES NOT CONTRADICT §3.  The retained
---       finite control � visible input fixed at one, hidden equation
---       y� = 1 + (1 − ν) y with an amplifying homogeneous part when
---       ν < 1, returned force r = −y − y² � satisfies
+--       finite control — visible input fixed at one, hidden equation
+--       y′ = 1 + (1 − ν) y with an amplifying homogeneous part when
+--       ν < 1, returned force r = −y − y² — satisfies
 --
---         x�r  +  y�y�  +  ν y²  ≡  0 ,
+--         x·r  +  y·y′  +  ν y²  ≡  0 ,
 --
 --       i.e. the returned work is exactly minus the hidden storage rate
 --       minus dissipation, however the hidden part grows.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�2 for every biadditive `B` on the
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–2 for every biadditive `B` on the
 -- additive group of any ring and every `a`, `b`.  §3 additionally for
 -- every biadditive pairing conserved by `N`.  §4 in any commutative
 -- ring.  NOT claimed: that any particular `N` conserves any particular
--- pairing � that is the incompressibility identity ⟨v, N v⟩ = 0 and it
+-- pairing — that is the incompressibility identity ⟨v, N v⟩ = 0 and it
 -- is a hypothesis here; anything about a projection, an evolution, a
--- propagator, or an integral in time � `a` and `b` are two elements, not
+-- propagator, or an integral in time — `a` and `b` are two elements, not
 -- two histories; and no bound on anything: §3 is an exchange, not an
 -- estimate.
 ------------------------------------------------------------------------
@@ -96,7 +96,7 @@ module _ (R : Ring ℓ) where
     cancelL p w = cong (_+ (- p)) (+Comm p w) ∙ cancelR w p
 
   ------------------------------------------------------------------
-  -- � � A biadditive map, its diagonal, and its actual derivative.
+  -- ० · A biadditive map, its diagonal, and its actual derivative.
   ------------------------------------------------------------------
 
   module _ (B : A → A → A)
@@ -144,7 +144,7 @@ module _ (R : Ring ℓ) where
             ∙ cong (λ z → Y + (Y + (Z + z))) (+Assoc-comm1 W Z W)
 
     ----------------------------------------------------------------
-    -- � � THE SECANT IS THE MIDPOINT DERIVATIVE, halves cleared.
+    -- १ · THE SECANT IS THE MIDPOINT DERIVATIVE, halves cleared.
     ----------------------------------------------------------------
 
     secant-is-midpoint-derivative : (a b : A)
@@ -156,7 +156,7 @@ module _ (R : Ring ℓ) where
       ∙ sym (cong (λ d → d + d) (diff a b))
 
     ----------------------------------------------------------------
-    -- � � FREEZING AT EITHER END IS WRONG BY THE HIDDEN SQUARE.
+    -- २ · FREEZING AT EITHER END IS WRONG BY THE HIDDEN SQUARE.
     ----------------------------------------------------------------
 
     frozen-at-source-loses-the-square : (a b : A)
@@ -177,7 +177,7 @@ module _ (R : Ring ℓ) where
       ∙ cancelL (B a b + (B b a + B b b)) (B b b)
 
     ----------------------------------------------------------------
-    -- � � THE RETURNING WORK IS MINUS THE HIDDEN WORK.
+    -- ३ · THE RETURNING WORK IS MINUS THE HIDDEN WORK.
     ----------------------------------------------------------------
 
     module _ (K : Ring ℓ') (⟪_,_⟫ : A → A → ⟨ K ⟩)
@@ -219,15 +219,15 @@ module _ (R : Ring ℓ) where
           negZero = sym (K.+IdL (K.- K.0r)) ∙ K.+InvR K.0r
 
 ------------------------------------------------------------------------
--- � � HIDDEN AMPLIFICATION DOES NOT CONTRADICT THE EXCHANGE.
+-- ४ · HIDDEN AMPLIFICATION DOES NOT CONTRADICT THE EXCHANGE.
 --     The retained finite control, in any commutative ring.
 ------------------------------------------------------------------------
 
 module _ (C : CommRing ℓ) where
   open CommRingStr (snd C)
 
-  -- visible input x ≡ 1r; hidden law y� = 1 + (1 − ν) y; returned force
-  -- r = −y − y².  Then x�r + y�y� + ν�y² ≡ 0 identically.
+  -- visible input x ≡ 1r; hidden law y′ = 1 + (1 − ν) y; returned force
+  -- r = −y − y².  Then x·r + y·y′ + ν·y² ≡ 0 identically.
   passive-despite-amplification : (y ν : ⟨ C ⟩)
     → (1r · ((- y) + (- (y · y))))
       + ((y · (1r + ((1r + (- ν)) · y))) + (ν · (y · y)))

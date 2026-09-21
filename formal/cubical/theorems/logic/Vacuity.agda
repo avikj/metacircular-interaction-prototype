@@ -10,7 +10,7 @@
 --
 --   FORMS              the claim has an instance at all              (x)
 --   GENUINE            a pair the invariant really separates
---                                              (x , y , apart , �)
+--                                              (x , y , apart , ≢)
 --   VACUOUS            a COLLISION PAIR: apart, yet the invariant
 --                      reports the same value  (x , y , apart , ≡)
 --   UNDECIDED-VACUOUS  neither witness is available yet, together
@@ -21,7 +21,7 @@
 -- `genuine` without exhibiting the separated pair, cannot write
 -- `vacuous` without exhibiting the collision pair, and cannot park a
 -- claim in `undecided-vacuous` without naming the decision that would
--- settle it � `Dec P � Verdict` is a resolver, so the obligation is
+-- settle it — `Dec P → Verdict` is a resolver, so the obligation is
 -- carried in the type and discharged by supplying the decision.
 --
 -- The last theorem is the seam with `Descent`: a claim
@@ -139,13 +139,13 @@ module _ (c : Claim ℓ) (isSetVal : isSet (Val c)) where
     Q : Type ℓ
     Q = Obj c / apart c
 
-  -- � : a claim that collides everywhere factors through the quotient.
+  -- ⇒ : a claim that collides everywhere factors through the quotient.
   --     Its invariant sees nothing the quotient has not already
   --     identified, which is what "carries no information" means.
   totallyVacuous→factors : TotallyVacuous c → Factors [_] (inv c)
   totallyVacuous→factors tv = SQ.rec isSetVal (inv c) tv , λ _ → refl
 
-  -- � : and conversely.  So the vacuity verdict, taken over all pairs,
+  -- ⇐ : and conversely.  So the vacuity verdict, taken over all pairs,
   --     is not a report about the invariant; it is the invariant's
   --     descent datum.
   factors→totallyVacuous : Factors [_] (inv c) → TotallyVacuous c

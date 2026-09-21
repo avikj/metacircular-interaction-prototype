@@ -5,9 +5,9 @@
 --
 -- ON THE NAME.  The object is the *mtr-vtta*: a metre fixed by its
 -- total duration in mtr rather than by its syllable count.  Pigala,
--- *Chandastra* (c. 300â“200 BCE), ch. 8, fixes the two per-syllable
--- weights â” laghu = 1 mtr, guru = 2 â” and the six *pratyaya* on the
--- resulting patterns.  Virahka, *Vttajtisamuccaya* (c. 600â“800 CE),
+-- *Chandaá¸¥Å›Ästra* (c. 300â€“200 BCE), ch. 8, fixes the two per-syllable
+-- weights â€” laghu = 1 mÄtrÄ, guru = 2 â€” and the six *pratyaya* on the
+-- resulting patterns.  VirahÄá¹…ka, *Vá¹›ttajÄtisamuccaya* (c. 600â€“800 CE),
 -- ch. 6, states the addition rule for mtr-vtta explicitly; Halyudha,
 -- *Mtasajvan* (10th c.), writes the array out.  The Syllable/Pattern/
 -- mora/matraOf/varna vocabulary below is imported, not redefined, from
@@ -21,7 +21,7 @@
 -- object is named here for the first time; `Metre n` in `PingalaPrastara`
 -- is that object under an English gloss and is what is reused.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ITEM.  Fix the total mtr count `m` of a pattern.  Two questions:
 --
 --   (A)  What is the least number of syllables (vara) among patterns of
@@ -31,39 +31,39 @@
 -- (A) is answered by `m` alone and the answer is unique.  (B) is not
 -- answered by `m` at all, and the failure is not a gap in technique: at
 -- `m = 3` the two least patterns are laghu-guru and guru-laghu, which are
--- each other's retrograde, so any chooser that respects retrogradation â”
--- a symmetry of BOTH statistics, proved below as `rev-least` â” has no
+-- each other's retrograde, so any chooser that respects retrogradation â€”
+-- a symmetry of BOTH statistics, proved below as `rev-least` â€” has no
 -- value to take.
 --
 -- WHAT SPLITS.  `varna` is not a function of `matraOf` (`noDecoder-instance`,
 -- Â§3.1): two laghu have the duration of one guru.  So the duration forgets
 -- the syllable count outright.  But the LEAST syllable count survives, and
 -- the reason it survives is an h-level fact and nothing about metre:
--- `IsLeast e n` has its attainment clause under `âˆ_âˆâ` (it must, or it
+-- `IsLeast e n` has its attainment clause under `âˆ¥_âˆ¥â‚` (it must, or it
 -- would carry a chosen pattern), and the uniqueness proof `leastUnique`
 -- gets past that truncation only because its goal `m â‰¡ n` is a proposition
--- (`isSetâ•`), so `PT.rec2` applies.  Had the goal been the WITNESS â” a
--- pattern, which is structure â” the same argument is blocked.  Â§3.2 shows
+-- (`isSetâ„•`), so `PT.rec2` applies.  Had the goal been the WITNESS â€” a
+-- pattern, which is structure â€” the same argument is blocked.  Â§3.2 shows
 -- it is not merely blocked but false-under-symmetry.
 --
--- This is the step `NaturalMachine.TheOpenPigeonholeâ¦` isolates for
+-- This is the step `NaturalMachine.TheOpenPigeonholeâ€¦` isolates for
 -- `isEquiv obs`, met again on a different object; that module is cited,
 -- not used, and nothing of it is amended.
 --
 -- APOLLONIUS, named because the distinction is his and predates every
 -- Indian source cited above.  *Conics* (c. 200 BCE) classifies a section
 -- by its *symptma*, the area relation its ordinate satisfies against a
--- fixed diameter, and Book I.11â“13 establishes it before any coordinate
+-- fixed diameter, and Book I.11â€“13 establishes it before any coordinate
 -- system exists to state it in.  The *symptma* is what survives change of
 -- diameter; the particular diameter is a choice.  That is the shape of Â§3
 -- and the mathematics of the distinction is Apollonius's, not this
--- corpus's and not an Indian source's â” hence no  label is
+-- corpus's and not an Indian source's â€” hence no Sanskrit label is
 -- attached to the general layer in Â§1, which carries the English name
--- only (CLAUDE.md file-naming note 2).  Books Vâ“VII of the *Conics*
+-- only (CLAUDE.md file-naming note 2).  Books Vâ€“VII of the *Conics*
 -- survive only in the Arabic of Thbit ibn Qurra and the Ban Ms
 -- (Baghdad, 9th c.); Book VIII is lost.  Named because that is the
 -- transmission chain, and because the grep above found Thbit ibn Qurra
--- and the Ban Ms at 0 occurrences repo-wide against Apollonius at 8 â”
+-- and the BanÅ« MÅ«sÄ at 0 occurrences repo-wide against Apollonius at 8 â€”
 -- the author cited, the transmitters not.
 --
 -- WHAT IS PROVED
@@ -71,11 +71,11 @@
 --       noDecoder             cost is not a function of the endpoint, from
 --                             any two same-endpoint different-cost histories
 --       isPropIsLeast         "n is the least cost at e" is a proposition
---       leastUnique           â¦and therefore determines n uniquely â” the
---                             `PT.rec2`-into-`isSetâ•` step
---       Ï-preserves-least     a symmetry of ev and c acts on least witnesses
+--       leastUnique           â€¦and therefore determines n uniquely â€” the
+--                             `PT.rec2`-into-`isSetâ„•` step
+--       Ïƒ-preserves-least     a symmetry of ev and c acts on least witnesses
 --       noEquivariantLeastChoice
---                             â¦so an equivariant chooser is a fixed point of
+--                             â€¦so an equivariant chooser is a fixed point of
 --                             that action, and dies where there is none
 --   Â§2  the mtr-vtta instance, with `rev` (retrogradation) as symmetry
 --   Â§3.1 varna is not a function of matraOf              (two laghu = one guru)
@@ -88,7 +88,7 @@
 --   Â§3.4 both negated types are inhabitable on other formations, so neither
 --        negation is vacuous by typing
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 -- `--guardedness` is carried from `PingalaPrastara` and is infective.
 ------------------------------------------------------------------------
@@ -141,7 +141,7 @@ module Formation {W E : Type} (ev : W â†’ E) (c : W â†’ â„•) where
     differ (sym (decodes u) âˆ™ cong d same âˆ™ decodes v)
 
   ------------------------------------------------------------------
-  -- 1.2  â¦but the LEAST cost does, and it is an h-level fact that it does.
+  -- 1.2  â€¦but the LEAST cost does, and it is an h-level fact that it does.
   --
   -- The attainment clause is truncated deliberately.  Untruncated it
   -- would carry a chosen history, and Â§3.2 shows that datum is not
@@ -157,7 +157,7 @@ module Formation {W E : Type} (ev : W â†’ E) (c : W â†’ â„•) where
     isPropÃ— isPropPropTrunc (isPropÎ  Î» w â†’ isPropÎ  Î» _ â†’ isPropâ‰¤)
 
   -- The step the module is named for.  `PT.rec2` is legal here for one
-  -- reason and one only: the goal `m â‰¡ n` lies in â•, which is a set, so
+  -- reason and one only: the goal `m â‰¡ n` lies in â„•, which is a set, so
   -- the goal is a proposition.  Both anonymous minimisers may therefore be
   -- named at once, and neither name escapes.
   leastUnique : (e : E) (m n : â„•) â†’ IsLeast e m â†’ IsLeast e n â†’ m â‰¡ n
@@ -317,7 +317,7 @@ leastVarnaAt3 : IsLeast 3 2
 leastVarnaAt3 = âˆ£ laghuGuru , refl , refl âˆ£â‚ , twoIsALowerBound
 
 -- The number is fixed by the mtr count alone.  This is `leastUnique`,
--- whose only non-formal step is `PT.rec2` into `isSetâ•`.
+-- whose only non-formal step is `PT.rec2` into `isSetâ„•`.
 leastVarnaAt3-unique : (n : â„•) â†’ IsLeast 3 n â†’ n â‰¡ 2
 leastVarnaAt3-unique n isLeast = leastUnique 3 n 2 isLeast leastVarnaAt3
 
@@ -331,7 +331,7 @@ twoLeastPatterns (guru  âˆ· laghu âˆ· [])        _       = inr refl
 twoLeastPatterns (guru  âˆ· guru  âˆ· [])        (m , _) = âŠ¥rec (Â¬4â‰¡3 m)
 twoLeastPatterns (s âˆ· t âˆ· u âˆ· p)             (_ , v) = âŠ¥rec (snotz (injSuc (injSuc v)))
 
--- â¦and they are each other's retrograde, so neither is retrograde-fixed.
+-- â€¦and they are each other's retrograde, so neither is retrograde-fixed.
 noLeastPatternIsRetrogradeFixed : (p : Pattern) â†’ Witness 3 2 p â†’ Â¬ (rev p â‰¡ p)
 noLeastPatternIsRetrogradeFixed p w fixed with twoLeastPatterns p w
 ... | inl q = guruLaghuâ‰¢laghuGuru (sym (cong rev q) âˆ™ fixed âˆ™ q)
@@ -348,7 +348,7 @@ noRetrogradeChooser =
 --
 -- Writing Â§1.2 I formed this: *since `IsLeast e n` is a proposition and
 -- `leastUnique` gets the number past the truncation, the whole
--- minimisation descends to the endpoint â” the least witness too, because
+-- minimisation descends to the endpoint â€” the least witness too, because
 -- least witnesses at one endpoint all have the same cost, and cost is what
 -- distinguishes histories.*  The second half is false, and it is false for
 -- a reason that is visible without any symmetry argument: cost is NOT what
@@ -358,8 +358,8 @@ noRetrogradeChooser =
 -- uniqueness claim outright.  The second says exactly which hypothesis of
 -- `PT.rec` fails, so the failure is located rather than merely exhibited:
 -- the goal in the witness case is not a proposition, and that is the same
--- boundary `NaturalMachine.TheOpenPigeonholeâ¦` reports for `isEquiv obs`
--- against `X â‰ Y`.
+-- boundary `NaturalMachine.TheOpenPigeonholeâ€¦` reports for `isEquiv obs`
+-- against `X â‰ƒ Y`.
 ------------------------------------------------------------------------
 
 -- CONTRAST, the surviving half: the least-cost NUMBER question is
@@ -384,7 +384,7 @@ leastPatternsAt3-notProp isP =
 ------------------------------------------------------------------------
 -- 3.4  THE NEGATIONS ARE NOT VACUOUS.
 --
--- A `Â T` whose `T` is uninhabitable by construction says nothing.  Both
+-- A `Â¬ T` whose `T` is uninhabitable by construction says nothing.  Both
 -- negated types above are inhabitable, exhibited on formations where the
 -- endpoint does carry what is asked of it.
 ------------------------------------------------------------------------

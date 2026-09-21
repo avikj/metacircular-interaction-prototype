@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- ���������� � ����� ���������� �����-�����-������ ���� �������� �������� �������� �
+-- मेरुतन्तुः — शिरसा भिद्यमानो गुरु-गणना-तन्तुः द्वे समीपस्थे कोष्ठे प्रविशति ।
 --
 -- Halyudha's meru-prastra (Mtasajvan, ~10th c., commentary on
 -- Pigala's Chandastra ch. 8, c. 300-200 BCE): the staircase array
@@ -9,13 +9,13 @@
 -- restatement six centuries later.
 --
 -- Meru.agda states the array's construction rule and row sums as COUNTS.
--- Virahanka_�agda splits the DURATION fiber by head into a two-step
+-- Virahanka_…agda splits the DURATION fiber by head into a two-step
 -- recurrence.  Neither splits the two-index meru cell itself.  This module
--- does: the JOINT map (vara , guru) : List Syllable � � � � counts a word's
+-- does: the JOINT map (varṇa , guru) : List Syllable → ℕ × ℕ counts a word's
 -- syllables and its heavy syllables at once, and its fiber over the cell
 -- (suc n , suc k) splits BY THE HEAD into the two cells directly above it --
 --
---   fiber μ (suc n , suc k)  �  fiber μ (n , k)  �  fiber μ (n , suc k)
+--   fiber μ (suc n , suc k)  ≃  fiber μ (n , k)  ⊎  fiber μ (n , suc k)
 --
 -- a heavy head lands in the (n , k) cell (one fewer of each), a light head
 -- in the (n , suc k) cell (one fewer syllable, same heavies).  That IS
@@ -36,22 +36,22 @@ open import Cubical.Foundations.HLevels using (isSet×)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd ; Σ≡Prop)
 open import Cubical.Data.Empty as Empty using (⊥)
 
--- a syllable is ���� (light) or ����� (heavy) and nothing else
+-- a syllable is लघु (light) or गुरु (heavy) and nothing else
 data Syllable : Type where
   laghu guru : Syllable
 
--- ����-����� : count (all syllables , heavy syllables) at once.  The first
--- component is ���� (the syllable count), the second ����� (the heavy count).
+-- मेरु-गणना : count (all syllables , heavy syllables) at once.  The first
+-- component is वर्ण (the syllable count), the second गुरु (the heavy count).
 मेरु : List Syllable → ℕ × ℕ
 मेरु []           = (0 , 0)
 मेरु (laghu ∷ xs) = (suc (fst (मेरु xs)) ,      snd (मेरु xs))
 मेरु (guru  ∷ xs) = (suc (fst (मेरु xs)) , suc (snd (मेरु xs)))
 
--- the fiber witness is a proposition, because � � � is a set
+-- the fiber witness is a proposition, because ℕ × ℕ is a set
 कोष्ठ-साक्षी : {c : ℕ × ℕ} (l : List Syllable) → isProp (मेरु l ≡ c)
 कोष्ठ-साक्षी _ = isSet× isSetℕ isSetℕ _ _
 
--- ������������-����� � the meru-prastra rule, as an equivalence of fibers.
+-- मेरुप्रस्तार-नियमः — the meru-prastāra rule, as an equivalence of fibers.
 मेरुप्रस्तार-नियमः : (n k : ℕ)
   → fiber मेरु (suc n , suc k) ≃ (fiber मेरु (n , k) ⊎ fiber मेरु (n , suc k))
 मेरुप्रस्तार-नियमः n k = isoToEquiv (iso भङ्गः सङ्घातः निवृत्तिः प्रत्यावृत्तिः)

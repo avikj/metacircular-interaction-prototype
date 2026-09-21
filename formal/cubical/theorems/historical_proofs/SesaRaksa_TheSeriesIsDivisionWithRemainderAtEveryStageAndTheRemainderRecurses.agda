@@ -1,26 +1,26 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- рррр░рХррр╛ тФ keep the remainder.  The Kerala chapter's essence, stated
--- exactly where Madhava.agda fenced it: "ррр-рржрор рр╡ рр╛р░р; ррр рр рриррХрррор,
--- ри рор┐рррпр╛-рр┐ржррзрор" тФ the remainder term is the essence, there unstated.
--- Its т-native form IS statable, and it is DIVISION WITH REMAINDER at
+-- рд╢реЗрд╖рд░рдХреНрд╖рд╛ тАФ keep the remainder.  The Kerala chapter's essence, stated
+-- exactly where Madhava.agda fenced it: "рд╢реЗрд╖-рдкрджрдореН рдПрд╡ рд╕рд╛рд░рдГ; рддрддреН рдЗрд╣ рдЕрдиреБрдХреНрддрдореН,
+-- рди рдорд┐рдереНрдпрд╛-рд╕рд┐рджреНрдзрдореН" тАФ the remainder term is the essence, there unstated.
+-- Its тДд-native form IS statable, and it is DIVISION WITH REMAINDER at
 -- every finite stage, the remainder first-class:
 --
---     pos 1  тЙб  (pos 1 тИТ r) ┬ ррЩррХр▓р┐ррор r n  +  рШр╛р r n
+--     pos 1  тЙб  (pos 1 тИТ r) ┬╖ рд╕рдЩреНрдХрд▓рд┐рддрдореН r n  +  рдШрд╛рдд r n
 --
--- one = divisor ┬ quotient + remainder, for every n тФ the exact identity
--- the Yuktibh's iterated division (1/(1+x) = 1 тИТ x┬(1/(1+x)))
+-- one = divisor ┬╖ quotient + remainder, for every n тАФ the exact identity
+-- the Yuktibh─Бс╣г─Б's iterated division (1/(1+x) = 1 тИТ x┬╖(1/(1+x)))
 -- unrolls, with no limit taken and nothing false at any stage.  And the
--- remainder RECURSES: рШр╛р r (suc n) тЙб рШр╛р r n ┬ r, definitionally тФ each
+-- remainder RECURSES: рдШрд╛рдд r (suc n) тЙб рдШрд╛рдд r n ┬╖ r, definitionally тАФ each
 -- stage's remainder is the previous remainder carried once more.
 --
--- The convergence statement (remainder тТ 0 for |r| < 1) still needs
--- т/т and remains where Madhava.agda left it: unstated, not falsely
+-- The convergence statement (remainder тЖТ 0 for |r| < 1) still needs
+-- тДЭ/тДЪ and remains where Madhava.agda left it: unstated, not falsely
 -- proven.  What this module adds is that the FINITE essence needs no
 -- limit at all.
 --
--- Composed through рир╛рбр against the warm kernel.
+-- Composed through рдирд╛рдбреА against the warm kernel.
 ------------------------------------------------------------------------
 
 module SesaRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecurses where
@@ -34,8 +34,8 @@ open import Cubical.Data.Int.Properties using (minusPlus)
 open import Madhava using (рдШрд╛рдд ; рд╕рдЩреНрдХрд▓рд┐рддрдореН ; рдЧреБрдгрд╢реНрд░реЗрдвреА-рдпреЛрдЧрдГ)
 
 ------------------------------------------------------------------------
--- р╡р┐рр╛ррирор тФ one is divisor times quotient plus remainder, at EVERY
--- stage.  The remainder рШр╛р r n is first-class: kept, not discarded.
+-- рд╡рд┐рднрд╛рдЬрдирдореН тАФ one is divisor times quotient plus remainder, at EVERY
+-- stage.  The remainder рдШрд╛рдд r n is first-class: kept, not discarded.
 ------------------------------------------------------------------------
 
 рд╡рд┐рднрд╛рдЬрдирдореН : (r : тДд) (n : тДХ)
@@ -44,7 +44,7 @@ open import Madhava using (рдШрд╛рдд ; рд╕рдЩреНрдХрд▓рд┐рддрдореН ; рдЧреБрдгрд
   sym (cong (_+тДд рдШрд╛рдд r n) (рдЧреБрдгрд╢реНрд░реЗрдвреА-рдпреЛрдЧрдГ r n) тИЩ minusPlus (рдШрд╛рдд r n) (pos 1))
 
 ------------------------------------------------------------------------
--- ррр-рр░роррр░р╛ тФ the remainder recurses: each stage's remainder is the
+-- рд╢реЗрд╖-рдкрд░рдореНрдкрд░рд╛ тАФ the remainder recurses: each stage's remainder is the
 -- previous one carried once more.  Definitional, pinned by name so the
 -- recursion is a stated fact and not an accident of the definition.
 ------------------------------------------------------------------------

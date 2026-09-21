@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���� � the equivalence is exactly the two KNOWING-veils lifted, and
+-- आवरण — the equivalence is exactly the two KNOWING-veils lifted, and
 -- that is NECESSARY but NOT SUFFICIENT for kevala.
 --
--- WHAT THIS REPAIRS.  Jiva_�agda mapped TWO fibre-defects of a cognition
--- f : ����� � ����� to karma and then wrote "�������/�������� = shed both =
--- isEquiv = kevalajna."  KarmaPrakrti_�agda (Tattvrthastra 8.5, 10.1)
--- shows kevala is the destruction of the FOUR ght, not two � so that line
+-- WHAT THIS REPAIRS.  Jiva_…agda mapped TWO fibre-defects of a cognition
+-- f : धारणा → विषयः to karma and then wrote "निर्जरा/मोक्षः = shed both =
+-- isEquiv = kevalajñāna."  KarmaPrakrti_…agda (Tattvārthasūtra 8.5, 10.1)
+-- shows kevala is the destruction of the FOUR ghātī, not two — so that line
 -- typed a resemblance as an arrow it had not earned.  A correction removes
 -- exactly what the counterexample reached: isEquiv is the two VARAA
 -- (veils on cognition) lifted, which is two of the four ght.
 --
 -- THE EARNED MAP.  The two varaa karmas are veils on KNOWING and are
 -- fibre-properties of the cognition map:
---   ����������  (knowledge-obscuring)  destroyed  =  �������� f   (surjective:
---        no object is un-known � no empty fibre, no ������)
---   ���������  (perception-obscuring)  destroyed  =  ����� f     (injective:
---        no two are seen as one � every fibre a prop, no ���������, the
+--   ज्ञानावरण  (knowledge-obscuring)  destroyed  =  अन्यूनता f   (surjective:
+--        no object is un-known — no empty fibre, no रिक्त)
+--   दर्शनावरण  (perception-obscuring)  destroyed  =  अहानि f     (injective:
+--        no two are seen as one — every fibre a prop, no विकलादेश, the
 --        durnaya/sakepa destroyed)
 -- and `isEquiv f` is exactly the conjunction (§2, both directions, the
--- backward one is literally Kevalajnana.�������).  So isEquiv = samyag-jna
+-- backward one is literally Kevalajnana.केवलम्).  So isEquiv = samyag-jñāna
 -- + samyag-darana OF THE COGNITION: the map is a perfect mirror.
 --
--- WHY NOT SUFFICIENT.  kevala needs also ������� (deluding) and �������
--- (obstructive) gone � the karmas of WILL and CONDUCT (samyak-critra),
+-- WHY NOT SUFFICIENT.  kevala needs also मोहनीय (deluding) and अन्तराय
+-- (obstructive) gone — the karmas of WILL and CONDUCT (samyak-cāritra),
 -- which are NOT properties of the cognition map.  §4 exhibits a state whose
--- two varaa are lifted (from isEquiv) while ������� is not, and proves it
--- is not kevala.  §3 proves the converse: kevala � isEquiv (necessary).
+-- two āvaraṇa are lifted (from isEquiv) while मोहनीय is not, and proves it
+-- is not kevala.  §3 proves the converse: kevala ⟹ isEquiv (necessary).
 -- Avik's own frame: "Right seeing, right knowing, right conduct and
--- nonviolence are one problem" � isEquiv gives the first two; the third is
+-- nonviolence are one problem" — isEquiv gives the first two; the third is
 -- beyond the map.
 --
 -- CHECKED: Agda 2.8.0 / cubical-0.9, --cubical --safe, no postulates, no
@@ -53,7 +53,7 @@ private
     A B : Type
 
 ------------------------------------------------------------------------
--- � � the two VARAA, as fibre-properties of a cognition.
+-- १ · the two ĀVARAṆA, as fibre-properties of a cognition.
 ------------------------------------------------------------------------
 
 -- knowledge-veil destroyed: nothing un-known (surjective)
@@ -65,7 +65,7 @@ private
 दर्शनावरण-क्षीण f = K.अहानि f
 
 ------------------------------------------------------------------------
--- � � isEquiv IS exactly the two veils lifted � both directions.
+-- २ · isEquiv IS exactly the two veils lifted — both directions.
 ------------------------------------------------------------------------
 
 -- forward: an equivalence has both veils lifted
@@ -76,17 +76,17 @@ private
   where h : (b : _) → isContr (fiber f b)
         h = K.समानता→सर्वसकलम् e
 
--- backward: both veils lifted give an equivalence (this is Kevalajnana.�������)
+-- backward: both veils lifted give an equivalence (this is Kevalajnana.केवलम्)
 द्वि-आवरण-क्षीण→समानता :
   {f : A → B} → ज्ञानावरण-क्षीण f → दर्शनावरण-क्षीण f → isEquiv f
 द्वि-आवरण-क्षीण→समानता nl ng = K.केवलम् ng nl
 
 ------------------------------------------------------------------------
--- � � a cognition induces a karma-state, and kevala on it � isEquiv
+-- ३ · a cognition induces a karma-state, and kevala on it ⟹ isEquiv
 --     (isEquiv is NECESSARY for kevala).
 --
--- The two vara� are read off f; the other two ght (�������, �������)
--- and the aght are carried as independent inputs � because they are NOT
+-- The two āvaraṇा are read off f; the other two ghātī (मोहनीय, अन्तराय)
+-- and the aghātī are carried as independent inputs — because they are NOT
 -- properties of the cognition map.
 ------------------------------------------------------------------------
 
@@ -105,8 +105,8 @@ private
     (k KP.ज्ञानावरण tt)     -- घातिन् ज्ञानावरण = Unit, so क्षीण ज्ञानावरण = अन्यूनता f
     (k KP.दर्शनावरण tt)     -- likewise दर्शनावरण
 ------------------------------------------------------------------------
--- � � but isEquiv does NOT give kevala: with ������� unremoved the state
---     is not kevala, though both vara� are lifted (isEquiv NOT SUFFICIENT).
+-- ४ · but isEquiv does NOT give kevala: with मोहनीय unremoved the state
+--     is not kevala, though both āvaraṇा are lifted (isEquiv NOT SUFFICIENT).
 ------------------------------------------------------------------------
 
 समानता-न-केवलम् :
@@ -115,8 +115,8 @@ private
   → ¬ KP.केवलम् (अवस्थाOf f ⊥ antaraya rest)
 समानता-न-केवलम् _ k = k KP.मोहनीय tt   -- kevala ⟹ क्षीण मोहनीय = ⊥, absurd
 
--- and the two vara� really are lifted in that same state � so the
--- failure is exactly at conduct (�������), not at knowing:
+-- and the two āvaraṇा really are lifted in that same state — so the
+-- failure is exactly at conduct (मोहनीय), not at knowing:
 समानता→आवरणे-क्षीणे :
   {f : A → B} {antaraya rest : Type}
   → isEquiv f

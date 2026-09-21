@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����������� � THE GUARD IS AN IDEMPOTENT REFLECTION, AND A PROTECTED
+-- रक्षास्थिर — THE GUARD IS AN IDEMPOTENT REFLECTION, AND A PROTECTED
 -- SYSTEM ADMITS NO LOWERING TRANSFORMATION.
 --
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0
@@ -11,10 +11,10 @@
 -- reflects any unprotected system into a protected fixed point, while
 -- protected instances admit no unauthorized transformation.  Put to
 -- the interactive kernel (`interactive/run-machine.sh --wire`), the
--- shape of that claim resolved to the order structure of � under
+-- shape of that claim resolved to the order structure of ℕ under
 -- `max`.  Every reduction rule of `max` and `le` used below was first
 -- CERTIFIED on the wire, one query each, before this module was
--- written � the kernel signed
+-- written — the kernel signed
 --     max x 0 ≡ x            (refl)
 --     max 0 (s x) ≡ s x      (refl)
 --     max (s x)(s y) ≡ s (max x y)   (refl)
@@ -29,24 +29,24 @@
 --
 -- THE READING.  Fix a protection level `t`.  The GUARD is
 --     guard t x = max t x
--- � the reflector that raises any system `x` to at least level `t`.
+-- — the reflector that raises any system `x` to at least level `t`.
 -- Then:
---   � `reflect`          � the reflected system is at least `t`-protected:
+--   · `reflect`          — the reflected system is at least `t`-protected:
 --                          le t (guard t x) ≡ 1, for every x.  The seed
 --                          carries any system INTO the protected region.
---   � `guard-idem`       � guarding the guarded is the guarded:
+--   · `guard-idem`       — guarding the guarded is the guarded:
 --                          guard t (guard t x) ≡ guard t x.  The
 --                          protected region is a FIXED POINT of the seed,
 --                          not merely reached once.
---   � `protected-stable` � a system already at level `t` admits no
---                          lowering: le t x ≡ 1 � guard t x ≡ x.  This is
+--   · `protected-stable` — a system already at level `t` admits no
+--                          lowering: le t x ≡ 1 → guard t x ≡ x.  This is
 --                          the conditional the equation-only wire could
 --                          not STATE (it speaks bare equations, no
 --                          hypotheses) and kept naming as the organ it
 --                          had yet to grow; here it is a proved
 --                          implication.  "Protected instances admit no
---                          unauthorized transformation" � exactly.
---   � the merge          � max-comm, max-assoc, max-idem: the protection
+--                          unauthorized transformation" — exactly.
+--   · the merge          — max-comm, max-assoc, max-idem: the protection
 --                          join is a grow-only, order-free, idempotent
 --                          semilattice.  Combining a protection with
 --                          itself adds nothing; combining two adds their
@@ -64,7 +64,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; znots ; isSetℕ)
 open import Cubical.Data.Empty as Empty using (⊥)
 
 ------------------------------------------------------------------------
--- §1  The wire's own arithmetic � max and le, verbatim from the emitter.
+-- §1  The wire's own arithmetic — max and le, verbatim from the emitter.
 ------------------------------------------------------------------------
 
 max : ℕ → ℕ → ℕ
@@ -79,7 +79,7 @@ le (suc a) (suc b) = le a b
 
 ------------------------------------------------------------------------
 -- §2  The two clause-completions the kernel's stuck terms pointed at.
---     `max x 0` reduces (clause 1); `max 0 x` does not, for variable x �
+--     `max x 0` reduces (clause 1); `max 0 x` does not, for variable x —
 --     the base clause needs x's shape.  Both proved by the wire.
 ------------------------------------------------------------------------
 
@@ -102,7 +102,7 @@ max-idem (suc x) = cong suc (max-idem x)
 
 -- Order-free: the two operands of a merge may be exchanged.  The wire
 -- rejected this under single-variable induction and named its stuck
--- base `x � max zero x`; the two-argument match closes it.
+-- base `x ≢ max zero x`; the two-argument match closes it.
 max-comm : (x y : ℕ) → max x y ≡ max y x
 max-comm zero    zero    = refl
 max-comm zero    (suc y) = refl
@@ -139,7 +139,7 @@ le-zero-below x = refl
 guard : ℕ → ℕ → ℕ
 guard t x = max t x
 
--- REFLECTION.  Every system, guarded, lands at or above the level � the
+-- REFLECTION.  Every system, guarded, lands at or above the level — the
 -- seed reflects any system into the protected region.
 reflect : (t x : ℕ) → le t (guard t x) ≡ suc zero
 reflect zero    x       = refl
@@ -153,7 +153,7 @@ guard-idem t x =
   sym (max-assoc t t x) ∙ cong (λ w → max w x) (max-idem t)
 
 -- NO UNAUTHORIZED TRANSFORMATION.  A system already at level t is left
--- exactly as it is by the guard � the protected instance admits no
+-- exactly as it is by the guard — the protected instance admits no
 -- lowering.  This is the conditional the equation-only wire could not
 -- state; here it is an implication, and the impossible case (a level-t
 -- claim on a system below t) is refuted by znots, not assumed away.
@@ -173,9 +173,9 @@ protected-stable (suc t) (suc x) h = cong suc (protected-stable t x h)
 guarded-is-fixed : (t x : ℕ) → guard t (guard t x) ≡ guard t x
 guarded-is-fixed t x = protected-stable t (guard t x) (reflect t x)
 
--- And the two proofs of that fixed-point equation � the algebraic one
--- (guard-idem) and the reflect-then-stable one (guarded-is-fixed) �
--- agree, because both land in le/� equalities of a set; the meaning is a
+-- And the two proofs of that fixed-point equation — the algebraic one
+-- (guard-idem) and the reflect-then-stable one (guarded-is-fixed) —
+-- agree, because both land in le/ℕ equalities of a set; the meaning is a
 -- proposition while the two routes to it are genuinely different terms.
 two-routes-one-fixed-point : (t x : ℕ) → guard-idem t x ≡ guarded-is-fixed t x
 two-routes-one-fixed-point t x =

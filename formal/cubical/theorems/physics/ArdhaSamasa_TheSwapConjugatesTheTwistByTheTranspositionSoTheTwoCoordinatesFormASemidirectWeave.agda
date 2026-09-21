@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-���� � the semidirect weave.
+-- अर्ध-समास — the semidirect weave.
 --
 -- THE CAPSTONE OF THE COORDINATES.  AnantaVinimaya presented the base
--- motion (S∞); GhurnaGana presented the cargo (⊕�/4, totally
+-- motion (S∞); GhurnaGana presented the cargo (⊕ℤ/4, totally
 -- commuting).  What binds them into the braid is proved here:
 --
---   THE SWAP CONJUGATES THE TWIST BY THE TRANSPOSITION �
---       swap� ∘ twist� = twist_{ϵ(j)} ∘ swap�
---   for every i and j, where ϵ is the transposition i � i+1, itself
+--   THE SWAP CONJUGATES THE TWIST BY THE TRANSPOSITION —
+--       swapᵢ ∘ twistⱼ = twist_{τᵢ(j)} ∘ swapᵢ
+--   for every i and j, where τᵢ is the transposition i ↔ i+1, itself
 --   DEFINED BY DOUBLE RECURSION (no comparison, no case split on
 --   order), and the law proved by one double induction whose five
 --   base shapes are one- and two-level stream paths with definitional
@@ -19,11 +19,11 @@
 -- symmetric group acts on the twist lattice by permuting coordinates,
 -- and the exchange law IS the action.  Every braid word now normalises
 -- in principle to (swap word, twist word) by pushing twists rightward
--- with this law � base motion transports residue, position by
+-- with this law — base motion transports residue, position by
 -- position, which is the trilaw's generativity clause running as a
 -- rewriting system.  The braid group is the weave of a memoryless
--- carrier and an abelian cargo, and the weave itself � this
--- conjugation � is where the memory lives.
+-- carrier and an abelian cargo, and the weave itself — this
+-- conjugation — is where the memory lives.
 --
 ------------------------------------------------------------------------
 
@@ -44,7 +44,7 @@ open import VibhagaSutra_EveryCrossingFactorsAsPureSwapAfterPureTwistAndTheSwapT
 open Dhārā
 
 ------------------------------------------------------------------------
--- � � The transposition, by double recursion.
+-- १ · The transposition, by double recursion.
 ------------------------------------------------------------------------
 
 τ : ℕ → ℕ → ℕ
@@ -55,7 +55,7 @@ open Dhārā
 τ (suc i) (suc j)       = suc (τ i j)
 
 ------------------------------------------------------------------------
--- � � The conjugation law.
+-- २ · The conjugation law.
 ------------------------------------------------------------------------
 
 saṃvahana : (i j : ℕ) (s : Rajju)

@@ -3,53 +3,53 @@
 ------------------------------------------------------------------------
 -- MeanStandardRep
 --
--- DELTA 14, PROGRAM 14.73: `R� � R � V_k` and the `S_k` action, at
+-- DELTA 14, PROGRAM 14.73: `Rᵏ ≃ R × V_k` and the `S_k` action, at
 -- k = 2 and k = 3.
 --
---   T14.8   for `k` invertible in `R` and `V_k = {x ∈ R� : �x� = 0}`,
---           `R� � R � V_k` by `x � (mean x, x − mean x�1)`.
+--   T14.8   for `k` invertible in `R` and `V_k = {x ∈ Rᵏ : Σxᵢ = 0}`,
+--           `Rᵏ ≃ R × V_k` by `x ↦ (mean x, x − mean x·1)`.
 --   T14.9   `S_k` fixes the centre coordinate and acts on `V_k` by the
 --           standard representation.
 --   C14.10  k = 2 gives the one-dimensional sign representation.
---   T14.11  for k � 3 a transposition on `V_k` is not scalar �
+--   T14.11  for k ≥ 3 a transposition on `V_k` is not scalar —
 --           eigenvalue −1 with multiplicity 1, +1 with multiplicity k−2.
---   T14.12  `�_{j�0} tr(�|Symʲ V_k) tʲ = 1/((1−t)^{k−2}(1+t))`.
---   T14.13  (char 0, `R[V_k]^{S_k}` polynomial on degrees 2..k) � Delta
+--   T14.12  `Σ_{j≥0} tr(τ|Symʲ V_k) tʲ = 1/((1−t)^{k−2}(1+t))`.
+--   T14.13  (char 0, `R[V_k]^{S_k}` polynomial on degrees 2..k) — Delta
 --           14 labels this a **Known anchor**; it is CITED here and is
---           deliberately NOT re-proved.  It is Chevalley�Shephard�Todd
+--           deliberately NOT re-proved.  It is Chevalley–Shephard–Todd
 --           for the symmetric group, i.e. the fundamental theorem of
 --           symmetric polynomials.  Nothing below depends on it.
 --
 -- `CenterRelative` is imported, not edited; §2 proves that
 -- its `Φ` **is** the k = 2 mean-split followed by the identification
--- `V� � R`, so C14.10 is that file's `�` and is not a second object.
+-- `V₂ ≅ R`, so C14.10 is that file's `ρ` and is not a second object.
 --
 --
 -- WHAT IS A TERM HERE, AND WHAT IS NOT
 --
---   T14.8    k = 2 (`split�`), k = 3 (`split�`), and **GENERAL `k`**
---            (`split�`, §4), with "`k` invertible" presented as the
+--   T14.8    k = 2 (`split₂`), k = 3 (`split₃`), and **GENERAL `k`**
+--            (`splitₖ`, §4), with "`k` invertible" presented as the
 --            hypothesis the proof consumes: an element `kinv` with
---            `�_{i<k} kinv ≡ 1r`.
---   T14.11    non-scalarity also at **every `k � 3`** (`sw01�-scalar�char2`,
+--            `Σ_{i<k} kinv ≡ 1r`.
+--   T14.11    non-scalarity also at **every `k ≥ 3`** (`sw01ₖ-scalar→char2`,
 --            §4.1); the eigenvalue MULTIPLICITIES stay at k = 3, since
 --            they need a basis of `V_k` and not one vector pair.
---   T14.9    k = 2 (`mean�-inv`, `dev�-equivariant`) and k = 3 for all
---            three transpositions, which generate `S�`
---            (`mean�-inv-*`, `dev�-equivariant-*`).  The statement is
+--   T14.9    k = 2 (`mean₂-inv`, `dev₂-equivariant`) and k = 3 for all
+--            three transpositions, which generate `S₃`
+--            (`mean₃-inv-*`, `dev₃-equivariant-*`).  The statement is
 --            proved for the generators; it is NOT lifted to a
---            homomorphism out of an abstract `S�`, because no group
---            object is built.  Saying "the `S�` action" of the three
+--            homomorphism out of an abstract `S₃`, because no group
+--            object is built.  Saying "the `S₃` action" of the three
 --            checked transpositions would overstate by exactly that gap.
---   C14.10   `sign-rep�` � the swap acts on `V� � R` by `x � −x`.
+--   C14.10   `sign-rep₂` — the swap acts on `V₂ ≅ R` by `x ↦ −x`.
 --   T14.11   k = 3, in the STRONG form: an explicit basis change
---            `V� � R � R` in which the transposition is `diag(−1,+1)`
+--            `V₃ ≃ R × R` in which the transposition is `diag(−1,+1)`
 --            (`sw01-diagonalised`), which IS "eigenvalue −1 with
 --            multiplicity 1, +1 with multiplicity k−2 = 1"; plus the two
 --            eigenvectors exhibited (`sw01-u`, `sw01-v`) and the
 --            non-scalarity corollary in its sharp form: a transposition
---            on `V�` is scalar ONLY in characteristic 2
---            (`sw01-scalar�char2`), hence never when 2 is invertible in
+--            on `V₃` is scalar ONLY in characteristic 2
+--            (`sw01-scalar→char2`), hence never when 2 is invertible in
 --            a nontrivial ring (`sw01-not-scalar`).
 --   T14.12   **NOT PROVED, AND NOT FAKED.**  See §5 for the three
 --            missing objects.  What is a term is the arithmetic the
@@ -59,16 +59,16 @@
 --
 -- HYPOTHESIS STRATIFICATION, deliberately
 --
--- Each result is stated under exactly the arithmetic it needs � the
+-- Each result is stated under exactly the arithmetic it needs — the
 -- point `CenterRelative` makes about `half+half ≡ 1r`, kept:
 --
---   §3.1  no `half`, no `third`  � `V�`, the transpositions, the two
---                                  eigenvectors, and `sw01-scalar�char2`.
+--   §3.1  no `half`, no `third`  — `V₃`, the transpositions, the two
+--                                  eigenvectors, and `sw01-scalar→char2`.
 --                                  **T14.11's obstruction needs no
 --                                  invertibility hypothesis at all.**
---   §3.2  `half` only            � the diagonalising basis `V� � R � R`,
+--   §3.2  `half` only            — the diagonalising basis `V₃ ≃ R × R`,
 --                                  `sw01-diagonalised`, `sw01-not-scalar`.
---   §3.3  `third` only           � T14.8 and T14.9 at k = 3.  The mean
+--   §3.3  `third` only           — T14.8 and T14.9 at k = 3.  The mean
 --                                  needs `3` invertible and nothing else.
 --
 -- That `k` invertible is needed for the SPLIT while it is NOT needed for
@@ -82,14 +82,14 @@
 -- `UnsupportedIndexedMatch` warnings, all from §4.1, all of the form
 --
 --   "It relies on injectivity of the data constructor suc, which is not
---    yet supported � will not compute when applied to transports."
+--    yet supported … will not compute when applied to transports."
 --
 -- This is a property of the PINNED TOOLCHAIN, not of the mathematics,
 -- and it is unavoidable here: in Agda 2.6.3 + cubical v0.5, **every**
 -- definition by pattern matching on `Cubical.Data.FinData`'s `Fin`
 -- raises it as soon as the length index is a constructor applied to a
--- variable � verified at depth one (a bare `cons`) as well as depth two.
--- cubical v0.5's own `Cubical.Algebra.Ring.BigOps.�Mulr1` matches `Fin`
+-- variable — verified at depth one (a bare `cons`) as well as depth two.
+-- cubical v0.5's own `Cubical.Algebra.Ring.BigOps.∑Mulr1` matches `Fin`
 -- the same way.  §4.1 needs the transposition of the first two
 -- coordinates of a length-`(n+3)` vector, and that map cannot be built
 -- from the library's warning-free combinators (`rec`, `replicateFinVec`,
@@ -98,15 +98,15 @@
 --
 -- The warning says the function may fail to REDUCE under a transport.
 -- It does not weaken any statement: every theorem below is a checked
--- term under `--safe`, with no postulate, hole, or `TERMINATING`.  §§1�4
+-- term under `--safe`, with no postulate, hole, or `TERMINATING`.  §§1–4
 -- and §5 are warning-free; deleting §4.1 would remove five warnings and
--- one theorem (T14.11's obstruction at every `k � 3`).  It is kept, and
+-- one theorem (T14.11's obstruction at every `k ≥ 3`).  It is kept, and
 -- disclosed here, rather than dropped to make a log look cleaner.
 --
 -- For calibration, since a bare warning count invites the wrong
 -- inference: `agda agda` (the root aggregate, exit 0)
 -- already prints this SAME warning at ~57 sites across five modules
--- already in the tree � `PMTorus`, `PayloadMorphism`, `DigitTowerLimit`,
+-- already in the tree — `PMTorus`, `PayloadMorphism`, `DigitTowerLimit`,
 -- `SmithPathCountedExecution`, `PMCokernel`.  Five more is not a new
 -- category of defect in this corpus; it is the pinned toolchain's
 -- standing cost for indexed families, and `BUILD.md`'s version-skew list
@@ -122,7 +122,7 @@
 -- modules, and no permutation-module decomposition (grep for "standard
 -- representation", "standardRep", "Specht": zero hits across
 -- `Mathlib/`).  agda-unimath has `finite-group-theory/sign-homomorphism`
--- � the sign CHARACTER, not the sign representation as a module � and no
+-- — the sign CHARACTER, not the sign representation as a module — and no
 -- representation theory above it.  cubical v0.5 has
 -- `Algebra/SymmetricGroup.agda`, `Algebra/Module`, `Algebra/Matrix`, and
 -- no representation theory whatsoever.  Hand-rolling at k = 2, 3 is
@@ -156,13 +156,13 @@ module _ (R : CommRing ℓ) where
  open CommRingStr (snd R)
 
  private
-   -- `�x� ≡ 0r` is a path in a set, hence a proposition; this is what
-   -- lets `V�`/`V�` be compared by their vector components alone.
+   -- `Σxᵢ ≡ 0r` is a path in a set, hence a proposition; this is what
+   -- lets `V₂`/`V₃` be compared by their vector components alone.
    isPropEq : (x y : ⟨ R ⟩) → isProp (x ≡ y)
    isPropEq x y = is-set x y
 
  ---------------------------------------------------------------------
- -- 1.  k = 2:  `V� = {(a,b) : a + b = 0}`, T14.8, `V� � R`, C14.10.
+ -- 1.  k = 2:  `V₂ = {(a,b) : a + b = 0}`, T14.8, `V₂ ≅ R`, C14.10.
  ---------------------------------------------------------------------
 
  Vec2 : Type ℓ
@@ -184,14 +184,14 @@ module _ (R : CommRing ℓ) where
  swap2-sum : (x : Vec2) → sum2 (swap2 x) ≡ sum2 x
  swap2-sum (a , b) = sw2sum a b
 
- -- the `S�`-action on `V�`
+ -- the `S₂`-action on `V₂`
  swap2V : V₂ → V₂
  swap2V (x , p) = (swap2 x , swap2-sum x ∙ p)
 
  swap2V-invol : (x : V₂) → swap2V (swap2V x) ≡ x
  swap2V-invol ((a , b) , p) = Σ≡Prop (λ v → isPropEq (sum2 v) 0r) refl
 
- -- `V� � R`, by the second coordinate: `a` is determined, `a = −b`.
+ -- `V₂ ≅ R`, by the second coordinate: `a` is determined, `a = −b`.
  private
    negFromSum : (a b : ⟨ R ⟩) → a + b ≡ 0r → (- b) ≡ a
    negFromSum a b p = sym (sym (e1 a b) ∙ cong (_+ (- b)) p ∙ e2 b)
@@ -220,8 +220,8 @@ module _ (R : CommRing ℓ) where
  V₂≃R : V₂ ≃ ⟨ R ⟩
  V₂≃R = isoToEquiv V₂Iso
 
- -- C14.10.  THE SIGN REPRESENTATION at k = 2: under `V� � R` the
- -- transposition is multiplication by `−1`.  One line, because `V�` is
+ -- C14.10.  THE SIGN REPRESENTATION at k = 2: under `V₂ ≅ R` the
+ -- transposition is multiplication by `−1`.  One line, because `V₂` is
  -- the line `{(−b, b)}` and swapping its entries negates `b`.
  sign-rep₂ : (x : V₂) → V₂→R (swap2V x) ≡ - (V₂→R x)
  sign-rep₂ ((a , b) , p) = sym (negFromSum a b p)
@@ -258,7 +258,7 @@ module _ (R : CommRing ℓ) where
     ∙ cong (λ u → (a + b) - u · (a + b)) half+half
     ∙ d2b (a + b)
 
-  -- T14.8 at k = 2:  `R² � R � V�`, by `x � (mean x , x − mean x � 1)`.
+  -- T14.8 at k = 2:  `R² ≃ R × V₂`, by `x ↦ (mean x , x − mean x · 1)`.
   split₂-fun : Vec2 → ⟨ R ⟩ × V₂
   split₂-fun x = (mean₂ x , (dev₂ x , dev₂-sum x))
 
@@ -287,22 +287,22 @@ module _ (R : CommRing ℓ) where
   split₂ : Vec2 ≃ (⟨ R ⟩ × V₂)
   split₂ = isoToEquiv split₂Iso
 
-  -- T14.9 at k = 2: the centre coordinate is `S�`-invariant �
+  -- T14.9 at k = 2: the centre coordinate is `S₂`-invariant …
   mean₂-inv : (x : Vec2) → mean₂ (swap2 x) ≡ mean₂ x
   mean₂-inv x = cong (half ·_) (swap2-sum x)
 
-  -- � and the deviation is equivariant, so `split�` intertwines the
-  -- `S�`-action on `R²` with (trivial on the centre) � (sign on `V�`).
+  -- … and the deviation is equivariant, so `split₂` intertwines the
+  -- `S₂`-action on `R²` with (trivial on the centre) × (sign on `V₂`).
   dev₂-equivariant : (x : Vec2) → dev₂ (swap2 x) ≡ swap2 (dev₂ x)
   dev₂-equivariant (a , b) = cong (λ u → shift₂ u (b , a)) (mean₂-inv (a , b))
 
   ------------------------------------------------------------------
   -- 2.  THE BRIDGE TO `CenterRelative`.
   --
-  -- The k = 2 mean-split, followed by `V� � R`, IS that file's `Φ`.
-  -- So C14.10's sign representation is `CenterRelative.�`'s second
-  -- component, and `CenterRelative.Φ∘�≡�∘Φ` is already the intertwining
-  -- statement � neither is a second object and neither is re-proved here.
+  -- The k = 2 mean-split, followed by `V₂ ≅ R`, IS that file's `Φ`.
+  -- So C14.10's sign representation is `CenterRelative.ρ`'s second
+  -- component, and `CenterRelative.Φ∘τ≡ρ∘Φ` is already the intertwining
+  -- statement — neither is a second object and neither is re-proved here.
   ------------------------------------------------------------------
 
   private
@@ -330,7 +330,7 @@ module _ (R : CommRing ℓ) where
  V₃ : Type ℓ
  V₃ = Σ[ x ∈ Vec3 ] (sum3 x ≡ 0r)
 
- -- the three transpositions, which generate `S�`
+ -- the three transpositions, which generate `S₃`
  sw01 sw12 sw02 : Vec3 → Vec3
  sw01 (a , b , c) = (b , a , c)
  sw12 (a , b , c) = (a , c , b)
@@ -351,7 +351,7 @@ module _ (R : CommRing ℓ) where
  sw02-sum : (x : Vec3) → sum3 (sw02 x) ≡ sum3 x
  sw02-sum (a , b , c) = p02 a b c
 
- -- the transpositions restrict to `V�`: the standard representation, as
+ -- the transpositions restrict to `V₃`: the standard representation, as
  -- maps.  (No group object; see the header.)
  sw01V sw12V sw02V : V₃ → V₃
  sw01V (x , p) = (sw01 x , sw01-sum x ∙ p)
@@ -425,15 +425,15 @@ module _ (R : CommRing ℓ) where
      lem : (x : ⟨ R ⟩) → (- (x + x)) ≡ 1r · (- (x + x))
      lem _ = solve! R
 
- -- T14.11, the exhibition: `(0 1)` scales `u` by `−1` �
+ -- T14.11, the exhibition: `(0 1)` scales `u` by `−1` …
  sw01-u : sw01V uVec ≡ scaleV (- 1r) uVec
  sw01-u = Σ≡Prop (λ v → isPropEq (sum3 v) 0r) (≡-× uc0 (≡-× uc1 uc2))
 
- -- � and fixes `v`.
+ -- … and fixes `v`.
  sw01-v : sw01V vVec ≡ scaleV 1r vVec
  sw01-v = Σ≡Prop (λ v → isPropEq (sum3 v) 0r) (≡-× vc0 (≡-× vc0 vc2))
 
- -- "the transposition acts on `V�` by a scalar", as a type to be refuted
+ -- "the transposition acts on `V₃` by a scalar", as a type to be refuted
  Scalar01 : Type ℓ
  Scalar01 = Σ[ c ∈ ⟨ R ⟩ ] ((x : V₃) → sw01V x ≡ scaleV c x)
 
@@ -448,7 +448,7 @@ module _ (R : CommRing ℓ) where
    selfSub : (x : ⟨ R ⟩) → x - x ≡ 0r
    selfSub _ = solve! R
 
- -- **T14.11, SHARP.**  If the transposition (0 1) acts on `V�` by a
+ -- **T14.11, SHARP.**  If the transposition (0 1) acts on `V₃` by a
  -- scalar then `1 + 1 ≡ 0`.  No invertibility hypothesis of any kind:
  -- the two eigenvectors force the scalar to be both `−1` and `+1`, and
  -- that is already the whole content.
@@ -494,7 +494,7 @@ module _ (R : CommRing ℓ) where
     negOfSum3 a b c p =
       sym (sym (r4 a b c) ∙ cong (_+ (- (a + b))) p ∙ r5 (a + b))
 
-  -- coordinates in the basis `u = (1,−1,0)`, `v = (1,1,−2)` of `V�`
+  -- coordinates in the basis `u = (1,−1,0)`, `v = (1,1,−2)` of `V₃`
   coords₃ : V₃ → ⟨ R ⟩ × ⟨ R ⟩
   coords₃ ((a , b , _) , _) = (half · (a - b) , half · (a + b))
 
@@ -515,7 +515,7 @@ module _ (R : CommRing ℓ) where
                  ∙ cong (λ u → - u) (·IdL (a + b))
                  ∙ negOfSum3 a b c p)))
 
-  -- `V�` is free of rank 2 � the companion of T14.8 that makes the
+  -- `V₃` is free of rank 2 — the companion of T14.8 that makes the
   -- multiplicity statement below meaningful.
   V₃≃R² : V₃ ≃ (⟨ R ⟩ × ⟨ R ⟩)
   V₃≃R² = isoToEquiv V₃Iso
@@ -540,8 +540,8 @@ module _ (R : CommRing ℓ) where
     z : (h : ⟨ R ⟩) → h · 0r ≡ 0r
     z _ = solve! R
 
-  -- � and hence, when 2 is invertible in a NONTRIVIAL ring, the
-  -- transposition is not scalar � Delta 14 T14.11's own phrasing.
+  -- … and hence, when 2 is invertible in a NONTRIVIAL ring, the
+  -- transposition is not scalar — Delta 14 T14.11's own phrasing.
   sw01-not-scalar : (1r ≡ 0r → ⊥) → Scalar01 → ⊥
   sw01-not-scalar nz s =
     nz (sym half+half ∙ g half ∙ cong (half ·_) (sw01-scalar→char2 s) ∙ z half)
@@ -584,7 +584,7 @@ module _ (R : CommRing ℓ) where
     ∙ cong (λ u → (a + b + c) - u · (a + b + c)) third3
     ∙ g2 (a + b + c)
 
-  -- T14.8 at k = 3:  `R³ � R � V�`,  `x � (mean x , x − mean x � 1)`.
+  -- T14.8 at k = 3:  `R³ ≃ R × V₃`,  `x ↦ (mean x , x − mean x · 1)`.
   split₃-fun : Vec3 → ⟨ R ⟩ × V₃
   split₃-fun x = (mean₃ x , (dev₃ x , dev₃-sum x))
 
@@ -615,7 +615,7 @@ module _ (R : CommRing ℓ) where
   split₃ = isoToEquiv split₃Iso
 
   -- T14.9 at k = 3.  The centre coordinate is fixed by every generator
-  -- of `S�` �
+  -- of `S₃` …
   mean₃-inv-01 : (x : Vec3) → mean₃ (sw01 x) ≡ mean₃ x
   mean₃-inv-01 x = cong (third ·_) (sw01-sum x)
   mean₃-inv-12 : (x : Vec3) → mean₃ (sw12 x) ≡ mean₃ x
@@ -623,8 +623,8 @@ module _ (R : CommRing ℓ) where
   mean₃-inv-02 : (x : Vec3) → mean₃ (sw02 x) ≡ mean₃ x
   mean₃-inv-02 x = cong (third ·_) (sw02-sum x)
 
-  -- � and the deviation is equivariant, so under `split�` the action on
-  -- `R³` is (trivial on the centre) � (the action on `V�`), which by
+  -- … and the deviation is equivariant, so under `split₃` the action on
+  -- `R³` is (trivial on the centre) × (the action on `V₃`), which by
   -- §3.2 is `diag(−1,+1)` for a transposition.  That is the standard
   -- representation at k = 3.
   dev₃-equivariant-01 : (x : Vec3) → dev₃ (sw01 x) ≡ sw01 (dev₃ x)
@@ -640,19 +640,19 @@ module _ (R : CommRing ℓ) where
  ---------------------------------------------------------------------
  -- 4.  T14.8 AT GENERAL k.
  --
- -- `V� k = {x : Fin k � R | �x� = 0}` and `R� � R � V� k` by
- -- `x � (mean x , x − mean x � 1)`, for EVERY `k`, given `k` invertible.
+ -- `Vₖ k = {x : Fin k → R | Σxᵢ = 0}` and `Rᵏ ≃ R × Vₖ k` by
+ -- `x ↦ (mean x , x − mean x · 1)`, for EVERY `k`, given `k` invertible.
  --
  -- "`k` invertible" is presented in the form the proof actually consumes:
- -- an element `kinv` with `�_{i<k} kinv ≡ 1r`.  That is the same shape as
- -- `CenterRelative`'s `half + half ≡ 1r` and is the honest statement �
- -- `k�kinv = 1` needs a ring map from �, which this avoids.
+ -- an element `kinv` with `Σ_{i<k} kinv ≡ 1r`.  That is the same shape as
+ -- `CenterRelative`'s `half + half ≡ 1r` and is the honest statement —
+ -- `k·kinv = 1` needs a ring map from ℕ, which this avoids.
  --
  -- Note what this does NOT give.  **T14.9 at general `k` is NOT here**,
- -- and the reason is precise: it needs `�` to be invariant under
+ -- and the reason is precise: it needs `Σ` to be invariant under
  -- permutation of the index, and cubical v0.5's
- -- `Cubical.Algebra.Ring.BigOps` has `�Ext`, `�Split`, `�Mulrdist`,
- -- `�Mulldist`, `�Dist-` and NO permutation-invariance lemma at all
+ -- `Cubical.Algebra.Ring.BigOps` has `∑Ext`, `∑Split`, `∑Mulrdist`,
+ -- `∑Mulldist`, `∑Dist-` and NO permutation-invariance lemma at all
  -- (not even for a transposition of two indices).  Proving it is an
  -- induction over `FinData` positions and is a module of its own.  So
  -- T14.9 stands at k = 2, 3 (§1, §3.3), where the permutations are
@@ -738,21 +738,21 @@ module _ (R : CommRing ℓ) where
   splitₖ = isoToEquiv splitₖIso
 
  ---------------------------------------------------------------------
- -- 4.1  T14.11's OBSTRUCTION AT GENERAL k � 3.
+ -- 4.1  T14.11's OBSTRUCTION AT GENERAL k ≥ 3.
  --
- -- The same two eigenvectors as §3.1, now inside `V� (n+3)`:
- -- `u = e� − e�` and `v = e� + e� − 2e�`.  The transposition `(0 1)`
+ -- The same two eigenvectors as §3.1, now inside `Vₖ (n+3)`:
+ -- `u = e₀ − e₁` and `v = e₀ + e₁ − 2e₂`.  The transposition `(0 1)`
  -- scales `u` by `−1` and fixes `v`, so it is scalar only if `−1 ≡ 1`.
  --
- -- No invertibility hypothesis, and no `mean` � this section does not
+ -- No invertibility hypothesis, and no `mean` — this section does not
  -- use `kinv` at all, which is the point: the SPLIT needs `k` invertible,
  -- the non-scalarity does not.
  --
- -- Note that `�`-invariance is proved HERE only for this one
- -- transposition, and by unfolding `�` twice rather than by any general
- -- permutation lemma (v0.5 has none � see §4).  That is why the
+ -- Note that `∑`-invariance is proved HERE only for this one
+ -- transposition, and by unfolding `∑` twice rather than by any general
+ -- permutation lemma (v0.5 has none — see §4).  That is why the
  -- multiplicity half of T14.11 stays at k = 3 (§3.2): it needs a basis
- -- of `V�`, not one vector pair.
+ -- of `Vₖ`, not one vector pair.
  ---------------------------------------------------------------------
 
  module _ (n : ℕ) where
@@ -790,7 +790,7 @@ module _ (R : CommRing ℓ) where
   scaleₖ c (x , p) =
     ((λ i → c · x i) , sym (∑Mulrdist c x) ∙ cong (c ·_) p ∙ scale-zero c)
 
-  -- `u = e� − e�`
+  -- `u = e₀ − e₁`
   uK : Vecₖ K
   uK fzero           = 1r
   uK (fsuc fzero)    = - 1r
@@ -799,7 +799,7 @@ module _ (R : CommRing ℓ) where
   uK-sum : ∑ uK ≡ 0r
   uK-sum = cong (λ s → 1r + ((- 1r) + s)) (∑0r (suc n)) ∙ us 1r
 
-  -- `v = e� + e� − 2e�`
+  -- `v = e₀ + e₁ − 2e₂`
   vK : Vecₖ K
   vK fzero                  = 1r
   vK (fsuc fzero)           = 1r
@@ -833,7 +833,7 @@ module _ (R : CommRing ℓ) where
   Scalar01ₖ : Type ℓ
   Scalar01ₖ = Σ[ c ∈ ⟨ R ⟩ ] ((x : Vₖ K) → sw01ₖV x ≡ scaleₖ c x)
 
-  -- **T14.11's obstruction, at every k � 3.**
+  -- **T14.11's obstruction, at every k ≥ 3.**
   sw01ₖ-scalar→char2 : Scalar01ₖ → 1r + 1r ≡ 0r
   sw01ₖ-scalar→char2 (c , h) =
     char2lem 1r ∙ cong (λ u → 1r - u) neg1≡1 ∙ selfSub 1r
@@ -852,7 +852,7 @@ module _ (R : CommRing ℓ) where
  --
  -- Delta 14 T14.12 asserts
  --
- --     �_{j�0} tr(� | Symʲ V_k) tʲ  =  1 / ((1−t)^{k−2} (1+t)),
+ --     Σ_{j≥0} tr(τ | Symʲ V_k) tʲ  =  1 / ((1−t)^{k−2} (1+t)),
  --
  -- with `(−1)ʲ` at k = 2 and `1 / 0` alternating at k = 3.  It is NOT
  -- proved here and NOT approximated here.  The missing objects are
@@ -865,19 +865,19 @@ module _ (R : CommRing ℓ) where
  --     v0.5's `Cubical.Algebra.Matrix` has matrices but no trace or
  --     determinant theory for module endomorphisms.
  --   * the fact that `Symʲ` of a diagonalised rank-2 module has the
- --     monomial eigenbasis `{u� v^{j−i}}`.  This is the actual content
+ --     monomial eigenbasis `{uⁱ v^{j−i}}`.  This is the actual content
  --     of T14.12 at k = 3, and it is a theorem ABOUT `Symʲ`, hence
  --     downstream of the first bullet.
  --
  -- Building all three is a module of its own.  Hand-rolling
  -- `Symʲ := free module on monomials, acting diagonally` and computing
- -- its trace would be MODELLING the answer rather than proving it �
+ -- its trace would be MODELLING the answer rather than proving it —
  -- exactly the promotion `PerspectiveCore` refuses for T14.6's iff.
  --
  -- What CAN be checked, and is, is the arithmetic the trace reduces to
  -- at k = 3 once the eigenbasis is GRANTED: by §3.2 the diagonal entries
- -- on `Symʲ` are `(−1)�` for `i = 0 � j`, so the trace would be
- -- `�_{i�j} (−1)�`, which is `1` for `j` even and `0` for `j` odd � the
+ -- on `Symʲ` are `(−1)ⁱ` for `i = 0 … j`, so the trace would be
+ -- `Σ_{i≤j} (−1)ⁱ`, which is `1` for `j` even and `0` for `j` odd — the
  -- coefficients of `1/((1−t)(1+t)) = 1/(1−t²)`.  The two lemmas below
  -- are that identity in `R`.  They are terms; T14.12 is not.
  ---------------------------------------------------------------------
@@ -887,7 +887,7 @@ module _ (R : CommRing ℓ) where
  negPow zero    = 1r
  negPow (suc j) = (- 1r) · negPow j
 
- -- `�_{i=0}^{j} (−1)�`
+ -- `Σ_{i=0}^{j} (−1)ⁱ`
  altSum : ℕ → ⟨ R ⟩
  altSum zero    = 1r
  altSum (suc j) = altSum j + negPow (suc j)
@@ -907,7 +907,7 @@ module _ (R : CommRing ℓ) where
  negPow-two : (j : ℕ) → negPow (suc (suc j)) ≡ negPow j
  negPow-two j = np1 (negPow j)
 
- -- the two-step recursion: `�_{i�j+2} (−1)� = �_{i�j} (−1)�`
+ -- the two-step recursion: `Σ_{i≤j+2} (−1)ⁱ = Σ_{i≤j} (−1)ⁱ`
  altSum-two : (j : ℕ) → altSum (suc (suc j)) ≡ altSum j
  altSum-two j =
    cong (λ u → (altSum j + (- 1r) · negPow j) + u) (negPow-two j)

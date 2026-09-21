@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- SetBaseNoMonodromy
 --
--- DELTA 14, PROGRAM 14.76 â” THE KILL TEST, ANSWERED.
+-- DELTA 14, PROGRAM 14.76 â€” THE KILL TEST, ANSWERED.
 --
 -- Delta 14 Â§D asks, verbatim:
 --
@@ -12,10 +12,10 @@
 --
 -- `PerspectiveCore` supplies the type to inhabit,
 --
---   MonodromyOf F b p = Î[ x âˆˆ F b ] (subst F p x â‰¡ x â’ âŠ)
+--   MonodromyOf F b p = Î£[ x âˆˆ F b ] (subst F p x â‰¡ x â†’ âŠ¥)
 --
 -- and its C14.25 warning: a two-element fibre plus a section is NOT an
--- obstruction, because `B — Bool â’ B` has both and trivial transport.
+-- obstruction, because `B Ã— Bool â†’ B` has both and trivial transport.
 -- An obstruction needs SHEET EXCHANGE, exhibited separately.
 --
 --
@@ -26,13 +26,13 @@
 --
 --   `setNoMonodromy` : if the BASE is a set (a 0-type), then
 --   `MonodromyOf F b p` is uninhabited for EVERY family `F`, EVERY
---   point `b`, and EVERY loop `p` â” not because the transport happens
+--   point `b`, and EVERY loop `p` â€” not because the transport happens
 --   to be trivial, but because `p â‰¡ refl`.
 --
 -- And every base in the sieve lane is a set:
---   * `Vis = â• — â• — â•` â” `SieveFiber.isSetVis`;
---   * `Sieve = Dom / âˆ¼`  â” `SQ.squash/`, a set by construction;
---   * `Bool` (the charge index) â” `isSetBool`.
+--   * `Vis = â„• Ã— â„• Ã— â„•` â€” `SieveFiber.isSetVis`;
+--   * `Sieve = Dom / âˆ¼`  â€” `SQ.squash/`, a set by construction;
+--   * `Bool` (the charge index) â€” `isSetBool`.
 --
 -- So there is no loop for monodromy to be about.  This is NOT the
 -- statement "we looked for a nontrivial loop action and found none";
@@ -43,7 +43,7 @@
 -- requires FIRST exhibiting an index object that is not a set.
 --
 -- This strictly generalises `PerspectiveCore.constNoMonodromy`, which
--- covers only CONSTANT families (over any base) â” including the sieve
+-- covers only CONSTANT families (over any base) â€” including the sieve
 -- fibration's own varying families, which that lemma explicitly does
 -- not reach (see its `SCOPE` paragraph).  Over a set base, varying is
 -- as harmless as constant.
@@ -54,12 +54,12 @@
 -- A negative result about an uninhabitable type would be worthless, so
 -- Â§3 exhibits a genuine inhabitant: the Bool double cover of the
 -- circle, `Cover base = Bool`, `Cover (loop i) = notEq i`.  Transport
--- along `loop` exchanges the two sheets, so `sÂMonodromy` inhabits
+-- along `loop` exchanges the two sheets, so `sÂ¹Monodromy` inhabits
 -- `MonodromyOf Cover base loop`.  Consequences, both checked:
 --
---   * the definition has content â” sheet exchange is a real phenomenon
+--   * the definition has content â€” sheet exchange is a real phenomenon
 --     that a family CAN have;
---   * `SÂNotSet` â” `isSet SÂ â’ âŠ`, derived from the two results above,
+--   * `SÂ¹NotSet` â€” `isSet SÂ¹ â†’ âŠ¥`, derived from the two results above,
 --     which is the contrapositive reading: the ONLY way to get
 --     monodromy is a base that is not a set.
 --
@@ -109,7 +109,7 @@ setLoopIsRefl hB b p = hB b b p refl
 -- terminates immediately at each of them.
 ------------------------------------------------------------------------
 
--- The visible sieve state `Vis = â• — â• — â•` (SieveFiber Â§3).
+-- The visible sieve state `Vis = â„• Ã— â„• Ã— â„•` (SieveFiber Â§3).
 visNoMonodromy :
   (F : Vis â†’ Type â„“) (v : Vis) (p : v â‰¡ v) â†’ MonodromyOf F v p â†’ âŠ¥
 visNoMonodromy = setNoMonodromy isSetVis
@@ -130,13 +130,13 @@ chargeNoMonodromy = setNoMonodromy isSetBool
 ------------------------------------------------------------------------
 -- Â§3  THE CONTROL: `MonodromyOf` IS INHABITABLE
 --
--- Without this section Â§Â§1â“2 would be compatible with `MonodromyOf`
+-- Without this section Â§Â§1â€“2 would be compatible with `MonodromyOf`
 -- being empty for silly reasons.  It is not.
 ------------------------------------------------------------------------
 
 -- The Bool double cover of the circle.  `notEq : Bool â‰¡ Bool` is
 -- cubical v0.5's involution path for `not`, and it computes:
--- `transp (Î» i â’ notEq i) i0 true` reduces to `false`.
+-- `transp (Î» i â†’ notEq i) i0 true` reduces to `false`.
 Cover : SÂ¹ â†’ Type
 Cover base       = Bool
 Cover (loop i)   = notEq i
@@ -145,7 +145,7 @@ Cover (loop i)   = notEq i
 coverTransport : subst Cover loop true â‰¡ false
 coverTransport = refl
 
--- â¦ and therefore an inhabitant of `MonodromyOf`: the loop acts
+-- â€¦ and therefore an inhabitant of `MonodromyOf`: the loop acts
 -- non-identically on the fibre.  This is exactly what C14.25 demands of
 -- anyone claiming a binary obstruction, and exactly what the sieve
 -- lane cannot supply.

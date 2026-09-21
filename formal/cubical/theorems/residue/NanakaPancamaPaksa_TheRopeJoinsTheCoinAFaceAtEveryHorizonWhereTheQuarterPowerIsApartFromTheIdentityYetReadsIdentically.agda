@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡®‡æ‡‡ï, ‡‡û‡‡‡Æ ‡‡ï‡‡ ‚î the rope joins the coin.
+-- ‡§®‡§æ‡§£‡§ï, ‡§™‡§û‡•ç‡§ö‡§Æ ‡§™‡§ï‡•ç‡§∑ ‚Äî the rope joins the coin.
 --
 -- Nanaka minted the type: a face = a projection, two carried points,
 -- apart upstairs, together downstairs.  The rope lane proved, months
 -- apart from the others, that its charge is conserved and read by no
--- bounded observer.  Here that lane is minted into the same coin ‚î
+-- bounded observer.  Here that lane is minted into the same coin ‚Äî
 -- and it contributes something no earlier face had: A FACE AT EVERY
 -- HORIZON.  The parameter k is the observer's depth, i the crossing's
 -- excess beyond it, and for EVERY k and i the record inhabits:
 --
 --   Carried    the rope's endomaps (braid actions),
---   x          the fourth power of a crossing beyond the horizon ‚î
+--   x          the fourth power of a crossing beyond the horizon ‚Äî
 --              a pure twist, charge-bearing,
 --   y          the identity,
 --   apart      na-catuka‚àû: the fourth power is NOT the identity
@@ -22,7 +22,7 @@
 --              actions read identically, pointwise, hence as maps.
 --
 -- So the writhe sector is a Paksa family: the charge is real (apart),
--- locally unreadable (together), at every depth at once ‚î and the one
+-- locally unreadable (together), at every depth at once ‚Äî and the one
 -- no-retraction lemma of Nanaka applies uniformly: no reader at any
 -- horizon reconstructs both the twist and the identity from what it
 -- reads.  The topological memory of the rope and the P/NP gap of the
@@ -49,7 +49,7 @@ open import Nanaka_OneNoRetractionLemmaFourCheckedFacesTheGapTheRouteTheSchedule
 open Paksa
 
 ------------------------------------------------------------------------
--- ‡ß ¬ Below the crossing, the fourth power reads as the identity.
+-- ‡•ß ¬∑ Below the crossing, the fourth power reads as the identity.
 ------------------------------------------------------------------------
 
 adha·∏•-sthira‚Å¥ : (k i : ‚Ñï) (s : Rajju)
@@ -62,7 +62,7 @@ adha·∏•-sthira‚Å¥ k i s =
   where n = suc (k + i)
 
 ------------------------------------------------------------------------
--- ‡® ¬ The face, at every horizon.
+-- ‡•® ¬∑ The face, at every horizon.
 ------------------------------------------------------------------------
 
 ropeFace : (k i : ‚Ñï) ‚Üí Paksa
@@ -75,7 +75,7 @@ ropeFace k i .apart e   = na-catu·π£ka‚àû (suc (k + i)) (Œª s ‚Üí cong (Œª F ‚Üí
 ropeFace k i .together  = funExt (adha·∏•-sthira‚Å¥ k i)
 
 ------------------------------------------------------------------------
--- ‡© ¬ And the one lemma applies at every horizon: no reader at depth
+-- ‡•© ¬∑ And the one lemma applies at every horizon: no reader at depth
 --     k reconstructs both the twist and the identity from its reading.
 ------------------------------------------------------------------------
 

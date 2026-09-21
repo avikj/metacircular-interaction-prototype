@@ -6,7 +6,7 @@
 -- Whether a definition asks a decision is a property of the definition,
 -- not of the function the definition computes.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT PROVOKED THIS
 --
 -- calls it mechanical:
@@ -14,39 +14,39 @@
 --   "installed cognition reduces to `refl`; description needs a proof
 --    from outside"
 --
--- and its exhibit is `BhedaAvatarana.àà•àà¦à : ààà¦ (suc a)(suc b) â‰¡
--- à—ààà° (ààà¦ a b)`, which is `refl`, where the same equation for a
--- `discreteâ•`-driven descent is not.  I read that note and this module
+-- and its exhibit is `BhedaAvatarana.à¤à¤•à¤ªà¤¦à¥‡ : à¤­à¥‡à¤¦ (suc a)(suc b) â‰¡
+-- à¤—à¤­à¥€à¤° (à¤­à¥‡à¤¦ a b)`, which is `refl`, where the same equation for a
+-- `discreteâ„•`-driven descent is not.  I read that note and this module
 -- is what it made available.
 --
--- The criterion is real and I am not disputing the exhibit â” `àà•àà¦à`
--- IS `refl`, I read the file (line 82â“83).  What is proved here is where
+-- The criterion is real and I am not disputing the exhibit â€” `à¤à¤•à¤ªà¤¦à¥‡`
+-- IS `refl`, I read the file (line 82â€“83).  What is proved here is where
 -- the criterion lives.  It is a predicate on PRESENTATIONS, and no
 -- invariant of the computed function can report it.  So it cannot be
 -- checked by a type, and this is why `Jiva.agda` had to be read rather
 -- than type-checked to establish that the lane is decisionless.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE TWO PRESENTATIONS
 --
---   peel  : â• â’ â• â’ â•     falls by structure, never asks
---   askâ•  : â• â’ â• â’ â•     `verdict (discreteâ• a b)`, asks once
+--   peel  : â„• â†’ â„• â†’ â„•     falls by structure, never asks
+--   askâ„•  : â„• â†’ â„• â†’ â„•     `verdict (discreteâ„• a b)`, asks once
 --
--- `sameFunction : peel â‰¡ askâ•` (funext, twice).  They are one function.
+-- `sameFunction : peel â‰¡ askâ„•` (funext, twice).  They are one function.
 -- `asks byStructure â‰¡ false`, `asks byDecision â‰¡ true`.  Hence the
 -- collision, hence the obstruction.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- IN WHICH RESPECT EACH ASKS LESS â” no ranking, both directions checked
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- IN WHICH RESPECT EACH ASKS LESS â€” no ranking, both directions checked
 --
 -- `peel` asks less of the PROVER: its step law `peel (suc a)(suc b) â‰¡
 -- peel a b` is `refl`.  This is the note's criterion, and it holds.
 --
 -- `ask` asks less of the AUTHOR: it is ONE definition, uniform in
--- `Discrete A`, and is instantiated below at both â• and Bool from the
--- same line.  `peel` is a case tree over â•'s constructors and has to be
--- rewritten for every new carrier.  The step law `askâ• (suc a)(suc b) â‰¡
--- askâ• a b` is still available â” `ask-step` proves it â” but its proof
+-- `Discrete A`, and is instantiated below at both â„• and Bool from the
+-- same line.  `peel` is a case tree over â„•'s constructors and has to be
+-- rewritten for every new carrier.  The step law `askâ„• (suc a)(suc b) â‰¡
+-- askâ„• a b` is still available â€” `ask-step` proves it â€” but its proof
 -- routes through `peel`, which is the honest form of the note's point:
 -- not "the decided version lacks the law", but "the decided version's
 -- law is a theorem where the structural version's is a reduction."
@@ -54,9 +54,9 @@
 -- These two are incomparable.  A carrier with decidable equality and no
 -- useful induction principle favours `ask`; an open term favours `peel`.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” container pin.  --safe, no
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” container pin.  --safe, no
 -- postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -102,7 +102,7 @@ askBool : Bool â†’ Bool â†’ â„•
 askBool = ask discreteBool
 
 ------------------------------------------------------------------------
--- 2.  The structural presentation: â• only, falls by constructors
+-- 2.  The structural presentation: â„• only, falls by constructors
 ------------------------------------------------------------------------
 
 peel : â„• â†’ â„• â†’ â„•
@@ -191,32 +191,32 @@ no-invariant-of-the-function-reports-asking (f , h) =
 ------------------------------------------------------------------------
 -- 6.  The consequence for the decisionless discipline
 --
--- "proclaimed 'no checking' yet used `discreteâ•`", was flagged, and was
+-- "proclaimed 'no checking' yet used `discreteâ„•`", was flagged, and was
 -- kept out of the `Jiva` closure.  Â§5 says why that had to be caught by
 -- reading and could not have been caught by the build: the closure
 -- type-checks the functions, and asking is invisible to every invariant
 -- of a function.
 --
--- So the discipline is enforceable only at the site of the write â” which
+-- So the discipline is enforceable only at the site of the write â€” which
 -- is exactly the conclusion `CLAUDE.md` reached for the Python ban, in
 -- the same words: "enforced mechanically because prose failed", by a
--- hook, not by a paragraph.  A grep for `discreteâ•`, `Dec` and `Bool`
+-- hook, not by a paragraph.  A grep for `discreteâ„•`, `Dec` and `Bool`
 -- over a lane's own files is the check; a proof obligation cannot be.
 --
 -- I ran that grep rather than asserting it.  Over the eleven Lane-1
 -- modules the index names, counting only lines that are not comments:
 --
---   grep -n 'discreteâ•\|\bDec\b\|\bBool\b' M.agda | grep -v '^[0-9]*: *--'
+--   grep -n 'discreteâ„•\|\bDec\b\|\bBool\b' M.agda | grep -v '^[0-9]*: *--'
 --
 --   BhedaAvatarana 0   LosslessReturn 0   Gati 0      Gurutama 0
 --   GurutamaSiddha 0   Sthairya 0       Purnata 0   Bija 0
 --   Yuti 0             Sadhyata 0
---   Anekanta 5         (lines 90, 227, 328, 361, 368 â” the import and
---                       four `with discreteâ•`)
+--   Anekanta 5         (lines 90, 227, 328, 361, 368 â€” the import and
+--                       four `with discreteâ„•`)
 --
 -- Every raw hit in the other ten is inside a comment: the modules discuss
 -- the decision they do not take.  So the lane's own claim survives an
 -- independent check, and the one module that fails it is the one already
 -- flagged and already excluded from the closure.  That is the check
--- working â” by grep, at the file, which is where Â§5 says it has to be.
+-- working â€” by grep, at the file, which is where Â§5 says it has to be.
 ------------------------------------------------------------------------

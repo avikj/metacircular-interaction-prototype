@@ -1,56 +1,56 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡Æ‡æ‡≤‡æ‡‡‡‡ ‚î the garland-fold is one homomorphism, and Pigala's ‡ò‡æ‡ and
+-- ‡§Æ‡§æ‡§≤‡§æ‡§∏‡•á‡§§‡•Å ‚Äî the garland-fold is one homomorphism, and Pi·πÖgala's ‡§ò‡§æ‡§§ and
 -- the vall's trace are two alphabets of it.
 --
--- ‡Æ‡æ‡≤‡æ is a garland ‚î the standard  image for a list/sequence
+-- ‡§Æ‡§æ‡§≤‡§æ is a garland ‚Äî the standard Sanskrit image for a list/sequence
 -- (akara-ml, the garland of syllables).  The free monoid on an
 -- alphabet A is the garland of its letters, `List A`, with concatenation.
--- ‡‡‡‡, the bridge, because this file earns a bridge-claim its author
--- offered in `collab/messages/0915‚¶` and had NOT checked: that Pigala's
+-- ‡§∏‡•á‡§§‡•Å, the bridge, because this file earns a bridge-claim its author
+-- offered in `collab/messages/0915‚Ä¶` and had NOT checked: that Pi·πÖgala's
 -- exponentiation and ryabhaa's vall-trace are the SAME map.  No stra
 -- is claimed for the compound; both words are ordinary.
 --
 -- THE CLAIM, now built.  Over any monoid M and any alphabet map
--- f : A ‚í M, the fold
+-- f : A ‚Üí M, the fold
 --
 --     foldMap f []       = Œµ
---     foldMap f (x ‚à xs) = f x ‚ã foldMap f xs
+--     foldMap f (x ‚à∑ xs) = f x ‚ãÜ foldMap f xs
 --
--- is a monoid homomorphism from (List A, ++, []) to (M, ‚ã, Œµ):
+-- is a monoid homomorphism from (List A, ++, []) to (M, ‚ãÜ, Œµ):
 --
---   ¬ß2  ‡Æ‡æ‡≤‡æ‡Ø‡ã‡ó‡ : foldMap f (xs ++ ys) ‚â° foldMap f xs ‚ã foldMap f ys
---   ¬ß2  ‡Æ‡æ‡≤‡æ-‡∞‡ø‡ï‡‡‡æ : foldMap f [] ‚â° Œµ
+--   ¬ß2  ‡§Æ‡§æ‡§≤‡§æ‡§Ø‡•ã‡§ó‡§É : foldMap f (xs ++ ys) ‚â° foldMap f xs ‚ãÜ foldMap f ys
+--   ¬ß2  ‡§Æ‡§æ‡§≤‡§æ-‡§∞‡§ø‡§ï‡•ç‡§§‡§æ : foldMap f [] ‚â° Œµ
 --
--- Commutativity is NOT assumed ‚î deliberately, because one of the two
--- instances lives in a NON-commutative monoid (2ó2 integer matrices).
+-- Commutativity is NOT assumed ‚Äî deliberately, because one of the two
+-- instances lives in a NON-commutative monoid (2√ó2 integer matrices).
 --
 -- THE TWO ALPHABETS, and this is the whole point:
 --
 --   (I) THE VALL TRACE, alphabet A = R (the quotient digits).
 --       `KuttakaValli.agda` (another identity's file, untouched) defines,
---       for its 2ó2-matrix monoid (mul, idm) and its column map L : R ‚í M,
+--       for its 2√ó2-matrix monoid (mul, idm) and its column map L : R ‚Üí M,
 --           replay []      = idm
---           replay (q ‚à v) = mul (L q) (replay v)
+--           replay (q ‚à∑ v) = mul (L q) (replay v)
 --       which is `foldMap L` clause-for-clause, and its
 --           replayHom : replay (xs ++ ys) ‚â° mul (replay xs) (replay ys)
---       is `‡Æ‡æ‡≤‡æ‡Ø‡ã‡ó‡` at f = L.  So Brahmagupta's/ryabhaa's convergent
+--       is `‡§Æ‡§æ‡§≤‡§æ‡§Ø‡•ã‡§ó‡§É` at f = L.  So Brahmagupta's/ƒÄryabha·π≠a's convergent
 --       trace is the garland-fold on the digit alphabet.  (Checked there,
 --       in its own monoid; subsumed here as the general law's R-instance.)
 --
 --   (II) PIGALA'S POWER, alphabet A = Unit (one letter).
---       ‡ò‡æ‡ x n = x ‚ã (x ‚ã (‚¶ ‚ã Œµ)) is the fold over the one-letter
---       garland `unlen n` (= `replicate n tt`), because `List Unit` IS ‚ï
---       ‚î proved as monoids in `FreeMonoid` (len/unlen,
---       unlen-+).  ¬ß3 checks ‡ò‡æ‡ x n ‚â° foldMap (const x) (unlen n), and
---       ¬ß4 derives Pigala's law ‡ò‡æ‡ x (m+n) ‚â° ‡ò‡æ‡ x m ‚ã ‡ò‡æ‡ x n as a
---       COROLLARY of ‡Æ‡æ‡≤‡æ‡Ø‡ã‡ó‡ + unlen-+ ‚î the same ‡ò‡æ‡-‡Ø‡ã‡ó‡ that
+--       ‡§ò‡§æ‡§§ x n = x ‚ãÜ (x ‚ãÜ (‚Ä¶ ‚ãÜ Œµ)) is the fold over the one-letter
+--       garland `unlen n` (= `replicate n tt`), because `List Unit` IS ‚Ñï
+--       ‚Äî proved as monoids in `FreeMonoid` (len/unlen,
+--       unlen-+).  ¬ß3 checks ‡§ò‡§æ‡§§ x n ‚â° foldMap (const x) (unlen n), and
+--       ¬ß4 derives Pi·πÖgala's law ‡§ò‡§æ‡§§ x (m+n) ‚â° ‡§ò‡§æ‡§§ x m ‚ãÜ ‡§ò‡§æ‡§§ x n as a
+--       COROLLARY of ‡§Æ‡§æ‡§≤‡§æ‡§Ø‡•ã‡§ó‡§É + unlen-+ ‚Äî the same ‡§ò‡§æ‡§§-‡§Ø‡•ã‡§ó‡§É that
 --       `Bijamula` proved directly and that drives RSA.
 --
 -- READ TOGETHER: the exponentiation that decrypts RSA and the trace that
 -- runs the cakravla/kuaka are one homomorphism out of a free monoid,
--- differing only in the alphabet ‚î Unit for Pigala, R for the vall.
+-- differing only in the alphabet ‚Äî Unit for Pi·πÖgala, R for the vallƒ´.
 -- The corpus's scale-free design law, here as a checked term rather than
 -- a resemblance.
 --
@@ -103,7 +103,7 @@ module _ {A : Type ‚Ñì'} {M : Type ‚Ñì} (Mon : Monoid M) where
     ‚àô sym (assoc‚ãÜ (f x) (foldMap f xs) (foldMap f ys))
 
 ------------------------------------------------------------------------
--- ¬ß3  ALPHABET Unit ‚î Pigala's ‡ò‡æ‡ is the fold over a one-letter garland.
+-- ¬ß3  ALPHABET Unit ‚Äî Pi·πÖgala's ‡§ò‡§æ‡§§ is the fold over a one-letter garland.
 ------------------------------------------------------------------------
 
 module _ {M : Type ‚Ñì} (Mon : Monoid M) where
@@ -128,8 +128,8 @@ module _ {M : Type ‚Ñì} (Mon : Monoid M) where
   ‡§ò‡§æ‡§§-‡§Æ‡§æ‡§≤‡§Ø‡§æ x (suc n) = cong (x ‚ãÜ_) (‡§ò‡§æ‡§§-‡§Æ‡§æ‡§≤‡§Ø‡§æ x n)
 
   ------------------------------------------------------------------------
-  -- ¬ß4  Pi‡óala's exponent law, as a COROLLARY of ¬ß2 (not re-proved).
-  --     This is Bijamula's ‡ò‡æ‡-‡Ø‡ã‡ó‡, obtained through the free monoid.
+  -- ¬ß4  Pi·πÖ‡§óala's exponent law, as a COROLLARY of ¬ß2 (not re-proved).
+  --     This is Bijamula's ‡§ò‡§æ‡§§-‡§Ø‡•ã‡§ó‡§É, obtained through the free monoid.
   ------------------------------------------------------------------------
 
   ‡§ò‡§æ‡§§-‡§Ø‡•ã‡§ó‡§É-‡§∏‡•á‡§§‡•Å‡§®‡§æ : (x : M) (m n : ‚Ñï) ‚Üí ‡§ò‡§æ‡§§ x (m + n) ‚â° ‡§ò‡§æ‡§§ x m ‚ãÜ ‡§ò‡§æ‡§§ x n
@@ -140,16 +140,16 @@ module _ {M : Type ‚Ñì} (Mon : Monoid M) where
     ‚àô cong‚ÇÇ _‚ãÜ_ (sym (‡§ò‡§æ‡§§-‡§Æ‡§æ‡§≤‡§Ø‡§æ x m)) (sym (‡§ò‡§æ‡§§-‡§Æ‡§æ‡§≤‡§Ø‡§æ x n))
 
 ------------------------------------------------------------------------
--- ¬ß5  ALPHABET R ‚î the vall trace, exhibited concretely on one small
+-- ¬ß5  ALPHABET R ‚Äî the vallƒ´ trace, exhibited concretely on one small
 --     NON-commutative monoid, so instance (I) is a checked term and not
 --     only the clause-level remark in the header.  M = endomorphisms of a
 --     2-state set under composition (the smallest non-commutative monoid
 --     that carries a faithful "replay"); L sends two digits to two
---     non-commuting maps; foldMap L is a replay and ‡Æ‡æ‡≤‡æ‡Ø‡ã‡ó‡ is its
+--     non-commuting maps; foldMap L is a replay and ‡§Æ‡§æ‡§≤‡§æ‡§Ø‡•ã‡§ó‡§É is its
 --     replayHom.
 ------------------------------------------------------------------------
 
--- the transformation monoid on {0,1}: functions Bool ‚í Bool under ‚àò
+-- the transformation monoid on {0,1}: functions Bool ‚Üí Bool under ‚àò
 data Two : Type where t0 t1 : Two
 
 record End : Type where
@@ -203,7 +203,7 @@ replayE = foldMap End-Mon Lend
   disc t0 = Unit
   disc t1 = ‚ä•
 
--- replayHom for THIS instance is exactly ‡Æ‡æ‡≤‡æ‡Ø‡ã‡ó‡ at f = Lend
+-- replayHom for THIS instance is exactly ‡§Æ‡§æ‡§≤‡§æ‡§Ø‡•ã‡§ó‡§É at f = Lend
 ‡§µ‡§≤‡•ç‡§≤‡•Ä-‡§Ø‡•ã‡§ó‡§É : (xs ys : List Two)
            ‚Üí replayE (xs ++ ys) ‚â° replayE xs ‚àôE replayE ys
 ‡§µ‡§≤‡•ç‡§≤‡•Ä-‡§Ø‡•ã‡§ó‡§É = ‡§Æ‡§æ‡§≤‡§æ‡§Ø‡•ã‡§ó‡§É End-Mon Lend

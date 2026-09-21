@@ -6,43 +6,43 @@
 -- Pythagoras and Voevodsky in one statement, with the arithmetic doing
 -- the work and univalence saying what it means.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE OBJECT
 --
 -- `PythagoreanTransition` builds the circle `xÂ² + yÂ² = 1` over any
 -- commutative ring and turns each norm-one point into an EQUIVALENCE of
--- the pair-type, hence â” by `ua` â” into a PATH `Pair â‰¡ Pair`.  Over â the
+-- the pair-type, hence â€” by `ua` â€” into a PATH `Pair â‰¡ Pair`.  Over â„¤ the
 -- norm-one points are the four units, and the interesting one is
 -- `i = (0,1)`.
 --
--- Rotation by `i` is `(a,b) â¦ (âˆ’b,a)`, the quarter turn.  Four of them
+-- Rotation by `i` is `(a,b) â†¦ (âˆ’b,a)`, the quarter turn.  Four of them
 -- are the identity, and the identity's path is `refl`:
 --
---     rot-i-order-4  :  (u : Pair) â’ rot i (rot i (rot i (rot i u))) â‰¡ u
---     loopâ´-is-refl  :  rotPath i âˆ™ rotPath i âˆ™ rotPath i âˆ™ rotPath i â‰¡ refl
+--     rot-i-order-4  :  (u : Pair) â†’ rot i (rot i (rot i (rot i u))) â‰¡ u
+--     loopâ´-is-refl  :  rotPath i âˆ™ rotPath i âˆ™ rotPath i âˆ™ rotPath i â‰¡ refl
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THE SECOND LINE SAYS
 --
--- `Î©SÂ â‰ â` â” the topological circle's loop space is the integers, and
--- `loopâ¿` is never `refl` for `n â‰  0`.  The ARITHMETIC circle over â has
+-- `Î©SÂ¹ â‰ƒ â„¤` â€” the topological circle's loop space is the integers, and
+-- `loopâ¿` is never `refl` for `n â‰  0`.  The ARITHMETIC circle over â„¤ has
 -- the same generator-and-loop shape and the loop is **4-periodic**: the
--- map `â â’ (Pair â‰¡ Pair)`, `n â¦ rotPath i` composed `n` times, factors
--- through `â/4`.
+-- map `â„¤ â†’ (Pair â‰¡ Pair)`, `n â†¦ rotPath i` composed `n` times, factors
+-- through `â„¤/4`.
 --
---     the topological circle    Ïâ = â
---     the arithmetic circle /â  four rotations, and the loop closes at 4
+--     the topological circle    Ï€â‚ = â„¤
+--     the arithmetic circle /â„¤  four rotations, and the loop closes at 4
 --
 -- The gap between them is exactly the gap `DescentCostsTheIntegers`
--- charts: over â the norm-one points are four, and it is only on passing
--- to ratios â” every Pythagorean triple becoming a rotation,
--- `EveryTripleIsARotation` â” that the family becomes infinite.  The
--- arithmetic circle over â is a four-point approximation to a circle, and
+-- charts: over â„¤ the norm-one points are four, and it is only on passing
+-- to ratios â€” every Pythagorean triple becoming a rotation,
+-- `EveryTripleIsARotation` â€” that the family becomes infinite.  The
+-- arithmetic circle over â„¤ is a four-point approximation to a circle, and
 -- its loop group says so.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -133,15 +133,15 @@ iÂ²â‰¢one p = negsucNotpos 0 1 (cong fst p)
 ------------------------------------------------------------------------
 -- 5.  The reading, with its boundary.
 --
--- `Î©SÂ â‰ â`: the topological circle's loop never closes.  The arithmetic
--- circle over â has four norm-one points, its quarter turn generates
--- them, and `loopâ´-is-refl` says the corresponding path in the universe
+-- `Î©SÂ¹ â‰ƒ â„¤`: the topological circle's loop never closes.  The arithmetic
+-- circle over â„¤ has four norm-one points, its quarter turn generates
+-- them, and `loopâ´-is-refl` says the corresponding path in the universe
 -- closes at four.
 --
--- The difference is the one `DescentCostsTheIntegers` charts: over â the
+-- The difference is the one `DescentCostsTheIntegers` charts: over â„¤ the
 -- norm-one points are the units, four of them; on passing to ratios every
 -- Pythagorean triple becomes a rotation (`EveryTripleIsARotation`) and
 -- the family is infinite.  A four-point circle has a 4-periodic loop, and
--- that is what the arithmetic over â is.
+-- that is what the arithmetic over â„¤ is.
 --
 ------------------------------------------------------------------------

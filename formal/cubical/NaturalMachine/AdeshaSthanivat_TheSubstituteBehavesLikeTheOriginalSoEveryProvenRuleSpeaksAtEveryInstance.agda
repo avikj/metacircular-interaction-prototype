@@ -1,44 +1,44 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ���� / ��������� � Pini, Adhyy (~500 BCE): 1.1.49 �����
--- ������������ (the genitive in a rule designates the ��������, that in
--- whose place the substitute comes) and 1.1.56 ����������������������
--- (the ���� � substitute � behaves like the original).  The
--- classification is his; the mathematics here � a substitution lemma
--- for a term algebra over � � is not claimed to be in the source.
+-- आदेश / स्थानिवत् — Pāṇini, Aṣṭādhyāyī (~500 BCE): 1.1.49 षष्ठी
+-- स्थानेयोगा (the genitive in a rule designates the स्थानिन्, that in
+-- whose place the substitute comes) and 1.1.56 स्थानिवदादेशोऽनल्विधौ
+-- (the आदेश — substitute — behaves like the original).  The
+-- classification is his; the mathematics here — a substitution lemma
+-- for a term algebra over ℕ — is not claimed to be in the source.
 --
 -- WHAT THIS CLOSES, in the machine's own ledger: EkaTantra's prover
--- face spoke only at the ROOT instance (������ tested lhs ≟T t �
+-- face spoke only at the ROOT instance (शासनम् tested lhs ≟T t —
 -- syntactic identity), and its header declared the general matcher as
 -- the next slice, still living in the elder Haskell (Sanghatta's
 -- match).  Under the nonduality directive that split is the lossy
 -- implementation.  This module migrates it: matching lives HERE, and
--- � the step the Haskell could never take � every utterance of every
+-- — the step the Haskell could never take — every utterance of every
 -- rule at every instance is born WITH its proof over the standard
 -- model.  Not audited after.  Born with.
 --
 -- The chain, each link checked:
---   ���������   eval (������� � t) � ≡ eval t (eval∘�) � 1.1.56 as a
+--   स्थानिवत्   eval (आदेशनम् σ t) ρ ≡ eval t (eval∘σ) — 1.1.56 as a
 --               term: reading the substituted form is reading the
 --               original in the substituted environment.
---   ⊨-�����    truth over the standard model is closed under
---               substitution � so a �����'s ������� covers its whole
---               orbit of instances, and ����-����� mints any instance
+--   ⊨-आदेशः    truth over the standard model is closed under
+--               substitution — so a नियमः's साक्षी covers its whole
+--               orbit of instances, and आदेश-नियमः mints any instance
 --               as a store value, proven by inheritance.
---   ����������    the matcher returns its certificate: not "matched" but
---               the substitution WITH the path ������� � p ≡ t.  The
---               test is the certificate � no correctness audit exists
+--   साक्ष्यम्    the matcher returns its certificate: not "matched" but
+--               the substitution WITH the path आदेशनम् σ p ≡ t.  The
+--               test is the certificate — no correctness audit exists
 --               apart from the object.
---   �����       a rule's voice at an arbitrary site: Maybe (� utterance
+--   वदनम्       a rule's voice at an arbitrary site: Maybe (Σ utterance
 --               with ⊨ (site , utterance)).  The gate is the type.
---   �������-������  the EkaTantra ��� this induces � the prover face's
+--   सर्वत्र-शासनम्  the EkaTantra नयः this induces — the prover face's
 --               standpoints now speak at every instance, so the one
 --               contention structure runs on whole orbits.
 --
--- Demonstrated on the machine's own material: ����� (le(0, s x) =
--- le(0, x), born from the ������ gap) speaking at the non-root
--- instance le(0, s(s 0)) � matched, certified, uttered, all by refl.
+-- Demonstrated on the machine's own material: नियम₄ (le(0, s x) =
+-- le(0, x), born from the सिद्धि gap) speaking at the non-root
+-- instance le(0, s(s 0)) — matched, certified, uttered, all by refl.
 ------------------------------------------------------------------------
 
 module NaturalMachine.AdeshaSthanivat_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance where
@@ -53,7 +53,7 @@ open import NaturalMachine.EkaTantra_TheSchedulerAndTheProverAreOneContentionStr
   using (नयः)
 
 ------------------------------------------------------------------------
--- §1  ������� � carrying out the substitution � and ���������.
+-- §1  आदेशनम् — carrying out the substitution — and स्थानिवत्.
 ------------------------------------------------------------------------
 
 आदेशनम् : (ℕ → Tm) → Tm → Tm
@@ -81,13 +81,13 @@ open import NaturalMachine.EkaTantra_TheSchedulerAndTheProverAreOneContentionStr
 स्थानिवत् σ (lq a b) ρ = cong₂ lqℕ (स्थानिवत् σ a ρ) (स्थानिवत् σ b ρ)
 स्थानिवत् σ (gc a b) ρ = cong₂ गच्छℕ (स्थानिवत् σ a ρ) (स्थानिवत् σ b ρ)
 
--- truth is closed under substitution: one ������� covers the orbit.
+-- truth is closed under substitution: one साक्षी covers the orbit.
 ⊨-आदेशः : {l r : Tm} → ⊨ (l , r) → (σ : ℕ → Tm)
   → ⊨ (आदेशनम् σ l , आदेशनम् σ r)
 ⊨-आदेशः {l} {r} pf σ ρ =
   स्थानिवत् σ l ρ ∙ pf (λ i → eval (σ i) ρ) ∙ sym (स्थानिवत् σ r ρ)
 
--- any instance of a proven rule is a proven rule � minted, not audited.
+-- any instance of a proven rule is a proven rule — minted, not audited.
 आदेश-नियमः : नियमः → (ℕ → Tm) → नियमः
 आदेश-नियमः s σ =
   niyama (आदेशनम् σ (नियमः.lhs s)) (आदेशनम् σ (नियमः.rhs s))
@@ -95,9 +95,9 @@ open import NaturalMachine.EkaTantra_TheSchedulerAndTheProverAreOneContentionStr
 
 ------------------------------------------------------------------------
 -- §2  The matcher, and its certificate.  Bindings are partial; a
---     repeated variable must meet itself (the ≟T check in �������);
+--     repeated variable must meet itself (the ≟T check in बन्धनम्);
 --     the certificate is the path, produced by the same ≟T that
---     decided � the test IS the certificate.
+--     decided — the test IS the certificate.
 ------------------------------------------------------------------------
 
 बन्धाः : Type
@@ -132,7 +132,7 @@ nothing ≫= f = nothing
 मेलनम् (gc p q) (gc t u) b = मेलनम् p t b ≫= मेलनम् q u
 मेलनम् _        _        _ = nothing
 
--- unbound variables stand for themselves � the identity reading.
+-- unbound variables stand for themselves — the identity reading.
 पूरणम् : बन्धाः → (ℕ → Tm)
 पूरणम् b i with b i
 ... | just t  = t
@@ -164,9 +164,9 @@ nothing ≫= f = nothing
 सर्वत्र-शासनम् s t = mmap fst (वदनम् s t)
 
 ------------------------------------------------------------------------
--- §4  Demonstration on the machine's own material.  ����� �
---     le(0, s x) = le(0, x), a member of the ������ gap, born proven
---     in EkaBhasha � speaking at a NON-root instance, and at the root.
+-- §4  Demonstration on the machine's own material.  नियम₄ —
+--     le(0, s x) = le(0, x), a member of the सिद्धि gap, born proven
+--     in EkaBhasha — speaking at a NON-root instance, and at the root.
 ------------------------------------------------------------------------
 
 स्थलम् : Tm
@@ -178,6 +178,6 @@ nothing ≫= f = nothing
 मूल-दृष्टम् : सर्वत्र-शासनम् नियम₄ (lq ze (su (var 0))) ≡ just (lq ze (var 0))
 मूल-दृष्टम् = refl
 
--- and off its orbit, silence � syt: nothing outside the scope.
+-- and off its orbit, silence — syāt: nothing outside the scope.
 मौन-दृष्टम् : सर्वत्र-शासनम् नियम₄ (mx ze ze) ≡ nothing
 मौन-दृष्टम् = refl

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àààµ-àà¨ààà¾à¨ â” the thread of the living: identity through time is a
+-- à¤œà¥€à¤µ-à¤¸à¤¨à¥à¤¤à¤¾à¤¨ â€” the thread of the living: identity through time is a
 -- SECTION through a changing family of worlds, not equality of
 -- snapshots.  The transitions need not be equalities; the worlds
 -- themselves may change type (retyping, splitting, enrichment).  Yet
@@ -10,39 +10,39 @@
 -- annihilate continuity, and continuity does not forbid change.
 -- (Owner's temporal-body message; the exact structure as a term.)
 --
--- THE ZIGZAG.  Life having occurred means Mâ™ â‰  Mâ™âŠâ.  The union is
+-- THE ZIGZAG.  Life having occurred means Mâ‚™ â‰  Mâ‚™â‚Šâ‚.  The union is
 -- wrong (a correction may RETYPE an earlier claim).  So a transition is
 -- a span
 --
---     Mâ™  ââ”  Câ™  â”â’  Mâ™âŠâ
+--     Mâ‚™  â†â€”  Câ‚™  â€”â†’  Mâ‚™â‚Šâ‚
 --
--- with Câ™ the conserved world that transports lawfully across the
--- change.  What cannot cross is not deleted â” its failed transport
+-- with Câ‚™ the conserved world that transports lawfully across the
+-- change.  What cannot cross is not deleted â€” its failed transport
 -- becomes the transition fibre, and its FATE is recorded.  Here the
--- worlds are types Wâ™ and the transition is a map Ïâ™ : Wâ™ â’ Wâ™âŠâ (an
--- equivalence, a refinement, a restriction â” ANY map; W changes type),
+-- worlds are types Wâ‚™ and the transition is a map Ï„â‚™ : Wâ‚™ â†’ Wâ‚™â‚Šâ‚ (an
+-- equivalence, a refinement, a restriction â€” ANY map; W changes type),
 -- which is one leg of the span with the conserved core as its domain.
 --
--- THE JVA is a section jâ™ : Wâ™ with Ïâ™(jâ™) â‰ jâ™âŠâ â” the coherence that
--- makes it ONE thread rather than a sequence of unrelated states.  Ïâ™
--- need not be equality; the â‰¡ below is the coherence witness, and Wâ™,
--- Wâ™âŠâ may be genuinely different types.
+-- THE JÄªVA is a section jâ‚™ : Wâ‚™ with Ï„â‚™(jâ‚™) â‰ƒ jâ‚™â‚Šâ‚ â€” the coherence that
+-- makes it ONE thread rather than a sequence of unrelated states.  Ï„â‚™
+-- need not be equality; the â‰¡ below is the coherence witness, and Wâ‚™,
+-- Wâ‚™â‚Šâ‚ may be genuinely different types.
 --
 -- THE BIOGRAPHY THEOREM (Â§2).  For a jva, the value at time n is
 -- EXACTLY what the transitions generate from the origin:
 --
---     jâ™  â‰¡  (Ïâ™â‹â âˆ˜ â‹¯ âˆ˜ Ïâ)(jâ).
+--     jâ‚™  â‰¡  (Ï„â‚™â‚‹â‚ âˆ˜ â‹¯ âˆ˜ Ï„â‚€)(jâ‚€).
 --
 -- Identity through change is the recoverability of the whole biography
--- from the origin along the transitions â” "a coherent capacity to
+-- from the origin along the transitions â€” "a coherent capacity to
 -- transport its own biography", as a checked path.  Proof: induction
--- through the coherence, the Ï^-index shape of `VanaSetu`.
+-- through the coherence, the Ïƒ^-index shape of `VanaSetu`.
 --
 -- THE FIVE FATES (Â§3).  A single claim, under a transition, meets one
--- of five fates â” the owner's anatomy of a lossless correction.  They
+-- of five fates â€” the owner's anatomy of a lossless correction.  They
 -- are the constructors of the transition fibre; the datatype is their
 -- codomain.  FENCE: classifying a SPECIFIC claim's fate needs the
--- actual span maps and is not done here â” this supplies the type a
+-- actual span maps and is not done here â€” this supplies the type a
 -- lossless correction must land in, so that no claim silently vanishes.
 ------------------------------------------------------------------------
 
@@ -60,8 +60,8 @@ private
 module _ (W : â„• â†’ Type â„“) (Ï„ : (n : â„•) â†’ W n â†’ W (suc n)) where
 
   -- THE JVA: a section with the coherence that makes it one thread.
-  -- Ï n (j n) â‰¡ j (suc n) â” the transition carries this life's present
-  -- to (a witness of) its next.  Ï is an arbitrary map: the worlds may
+  -- Ï„ n (j n) â‰¡ j (suc n) â€” the transition carries this life's present
+  -- to (a witness of) its next.  Ï„ is an arbitrary map: the worlds may
   -- change type, and the â‰¡ is the only thing making the thread single.
   Jiva : Type â„“
   Jiva = Î£[ j âˆˆ ((n : â„•) â†’ W n) ] ((n : â„•) â†’ Ï„ n (j n) â‰¡ j (suc n))
@@ -72,7 +72,7 @@ module _ (W : â„• â†’ Type â„“) (Ï„ : (n : â„•) â†’ W n â†’ W (suc n)) where
   chase aâ‚€ (suc n) = Ï„ n (chase aâ‚€ n)
 
 ------------------------------------------------------------------------
--- Â§2 Â THE BIOGRAPHY THEOREM.  A jva's value at every time is exactly
+-- Â§2 Â· THE BIOGRAPHY THEOREM.  A jÄ«va's value at every time is exactly
 -- what the transitions generate from its origin.  Identity through
 -- change = transportability of the whole biography.
 
@@ -83,9 +83,9 @@ module _ (W : â„• â†’ Type â„“) (Ï„ : (n : â„•) â†’ W n â†’ W (suc n)) where
     âˆ™ snd J n                    -- â‰¡ j (suc n), by the coherence
 
 ------------------------------------------------------------------------
--- Â§3 Â THE FIVE FATES of a claim under a correction (the owner's
+-- Â§3 Â· THE FIVE FATES of a claim under a correction (the owner's
 -- anatomy of a lossless transition).  A lossless correction is one
--- whose transition assigns EVERY old claim one of these â” nothing
+-- whose transition assigns EVERY old claim one of these â€” nothing
 -- silently vanishes.
 
 data Fate : Type where
@@ -103,7 +103,7 @@ Lossless Claims = Claims â†’ Fate
 
 -- the five fates are genuinely distinct (a Fate is not a Bool: a
 -- boolean "survived?" would merge restricted/split/transported and
--- refuted/unresolved â” the durnaya the whole corpus refuses).  Witness:
+-- refuted/unresolved â€” the durnaya the whole corpus refuses).  Witness:
 open import Cubical.Data.Bool using (Bool; true; false; trueâ‰¢false)
 open import Cubical.Data.Empty using (âŠ¥)
 

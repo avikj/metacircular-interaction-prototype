@@ -4,13 +4,13 @@ This is the top-level working locus for the Vaughan Pratt / Chu-spaces expositio
 
 ## Current working documents
 
-1. **`CHU_LOSSLESS_INTERACTION.md`** â” the long-form mathematical exposition beginning from Chu evaluation and deriving forced lossless completion, higher/cubical interaction, univalent transport, productive continuation, metacircular closure, and the universal family. This is currently the strongest prose+mathematics exposition.
-2. **`PRATT_PLATE_V2.md`** â” equation-dense Pratt-facing mathematical plate; current front-page seed.
-3. **`PRATT_PLATE.md`** â” earlier full plate; preserve because it contains formulations/details that may be recovered during synthesis.
-4. **`WIKI_BUILD_SPEC.md`** â” first complete website/wiki graph and page-inventory handoff.
-5. **`MATHEMATICAL_WIKI_BUILD_SPEC.md`** â” expanded canonical build specification, including page ontology, identity/near-identity clustering, typed relations, canonical-Agda-per-page requirement, and build sequence.
+1. **`CHU_LOSSLESS_INTERACTION.md`** ï¿½ the long-form mathematical exposition beginning from Chu evaluation and deriving forced lossless completion, higher/cubical interaction, univalent transport, productive continuation, metacircular closure, and the universal family. This is currently the strongest prose+mathematics exposition.
+2. **`PRATT_PLATE_V2.md`** ï¿½ equation-dense Pratt-facing mathematical plate; current front-page seed.
+3. **`PRATT_PLATE.md`** ï¿½ earlier full plate; preserve because it contains formulations/details that may be recovered during synthesis.
+4. **`WIKI_BUILD_SPEC.md`** ï¿½ first complete website/wiki graph and page-inventory handoff.
+5. **`MATHEMATICAL_WIKI_BUILD_SPEC.md`** ï¿½ expanded canonical build specification, including page ontology, identity/near-identity clustering, typed relations, canonical-Agda-per-page requirement, and build sequence.
 
-The newer [Bend2 — Unison reading and synthesis](../research/wiki/BEND2_UNISON_READING_AND_SYNTHESIS.md) updates the technology direction: the mathematical codebase and full cubical Bend2/HVM4 runtime are the computational center, and the wiki is a view into them. The Agda-per-page language in the earlier specs is historical while the corpus is ported.
+The newer [Bend2 ï¿½ Unison reading and synthesis](../research/wiki/BEND2_UNISON_READING_AND_SYNTHESIS.md) updates the technology direction: the mathematical codebase and full cubical Bend2/HVM4 runtime are the computational center, and the wiki is a view into them. The Agda-per-page language in the earlier specs is historical while the corpus is ported.
 
 ## Working rule
 

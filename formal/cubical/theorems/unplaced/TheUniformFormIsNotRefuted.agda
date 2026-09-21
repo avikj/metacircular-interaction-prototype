@@ -13,14 +13,14 @@ open import TheUnstableGroundCannotBeExhibited using (DNS)
 -- in its own words: "If a real barrier is wanted, the lane has to
 -- change, and saying which lane is the next question."
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHERE THIS COMES FROM, AND WHAT WAS ALREADY DONE
 --
 -- That note runs the deflationary thread to a close.  Read in full
 -- before this file was written.  Its result: every absence is stable
--- unconditionally, every obstruction in the lane is `Â`-headed or a Î 
--- of such, `Â ((Â Â A) — (Â A))` is contradictory, and the last
--- candidate barrier form `Â (Dec A)` is itself contradictory
+-- unconditionally, every obstruction in the lane is `Â¬`-headed or a Î 
+-- of such, `Â¬ ((Â¬ Â¬ A) Ã— (Â¬ A))` is contradictory, and the last
+-- candidate barrier form `Â¬ (Dec A)` is itself contradictory
 -- (`DeflationaryTest.no-barrier-claim`).  It then states the boundary
 -- exactly:
 --
@@ -28,24 +28,24 @@ open import TheUnstableGroundCannotBeExhibited using (DNS)
 --      constructive development can assert at all.  What genuinely
 --      undecidable results assert is something else: independence FROM
 --      A THEORY, or non-existence of an algorithm UNIFORM IN A
---      PARAMETER.  Neither is `Â (Dec A)` for a fixed A."
+--      PARAMETER.  Neither is `Â¬ (Dec A)` for a fixed A."
 --
 -- The second of those two IS expressible here, and this file writes it
 -- down and says exactly what separates it from the refuted forms.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THREE FORMS, AND ONLY ONE SURVIVES
 --
--- For a family `P : X â’ Type`:
+-- For a family `P : X â†’ Type`:
 --
---   (a)  `Â (Dec (P n))` at a fixed `n`     â” refuted, Â§1.
---   (b)  `(n : X) â’ Â (Dec (P n))`          â” refuted, Â§2, given a
+--   (a)  `Â¬ (Dec (P n))` at a fixed `n`     â€” refuted, Â§1.
+--   (b)  `(n : X) â†’ Â¬ (Dec (P n))`          â€” refuted, Â§2, given a
 --                                             point of X.
---   (c)  `Â ((n : X) â’ Dec (P n))`          â” NOT refuted here, Â§3.
+--   (c)  `Â¬ ((n : X) â†’ Dec (P n))`          â€” NOT refuted here, Â§3.
 --
 -- (c) is where the quantifier sits inside the negation: not "this
 -- proposition is undecidable" but "there is no procedure deciding the
--- family".  Â§4 says precisely what would be needed to refute it â” a
+-- family".  Â§4 says precisely what would be needed to refute it â€” a
 -- double-negation shift at that family, and nothing weaker will do,
 -- because Â§4's implication is an equivalence.
 --
@@ -53,11 +53,11 @@ open import TheUnstableGroundCannotBeExhibited using (DNS)
 -- quantified inside the negation.  The corpus's deflation is complete
 -- for the pointwise forms and says nothing about the uniform one.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- That (c) is undecidability in the recursion-theoretic sense.  Without
 -- a notion of algorithm distinct from "term of this type theory", `(n :
--- X) â’ Dec (P n)` is a function, not a procedure, and the two notions
+-- X) â†’ Dec (P n)` is a function, not a procedure, and the two notions
 -- coincide here only because the lane has no other.  Saying whether
 -- that is the right lane is exactly what the note left open, and this
 -- file does not settle it.
@@ -70,28 +70,28 @@ open import TheUnstableGroundCannotBeExhibited using (DNS)
 -- ONE RESEMBLANCE, WITH ITS LIMIT STATED, BECAUSE THE ALTERNATIVE IS
 -- DRESSING.
 --
--- "a universal statement applied outside its ààµààààà¦à•", and observes
+-- "a universal statement applied outside its à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤•", and observes
 -- that the tradition has both a word for it and a slot in its data
 -- structure to prevent it.  Forms (a)/(b) and form (c) above differ in
 -- where the quantifier sits, which is a difference of the same
--- FAMILY â” a claim and its delimitor coming apart.
+-- FAMILY â€” a claim and its delimitor coming apart.
 --
 -- That is a resemblance and I am not claiming it is an identity.  An
--- ààµààààà¦à• limits a ààà°àà¿à¯à‹à—à¿àà¾ â” it fixes under what description the
--- counterpositive is absent â” and quantifier scope in a type theory is
+-- à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤• limits a à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¤à¤¾ â€” it fixes under what description the
+-- counterpositive is absent â€” and quantifier scope in a type theory is
 -- not that.  Naming Â§3 an avacchedaka distinction would be exactly the
 -- move withdrawn at `b18ca12b`: an imported notion in the tradition's
 -- clothes.  The note is cited because it names the failure mode this
 -- file is about; nothing here translates it.
 --
 -- PRIOR ART, checked by grepping the conclusion type rather than the
--- thread name.  `(n : â•) â’ Dec (P n)` occurs as a HYPOTHESIS in
+-- thread name.  `(n : â„•) â†’ Dec (P n)` occurs as a HYPOTHESIS in
 -- `LeastWitnessFactory` and `CakravalaBound` (least-witness search).  A
 -- grep of `formal/cubical` for its negation, and for `DNS` or
 -- "double-negation shift" outside
 -- `TheUnstableGroundCannotBeExhibited`, returns nothing.  A
--- differently-phrased equivalent â” say, a `Â Î` over decision
--- procedures â” would evade that grep.
+-- differently-phrased equivalent â€” say, a `Â¬ Î£` over decision
+-- procedures â€” would evade that grep.
 ------------------------------------------------------------------------
 
 private
@@ -126,7 +126,7 @@ NoUniformProcedure : {X : Type â„“x} (P : X â†’ Type â„“) â†’ Type _
 NoUniformProcedure P = Â¬ (UniformlyDecidable P)
 
 -- it implies each pointwise decision, so it is genuinely stronger than
--- what Â§1 refutes â” and Â§1 does not touch it.
+-- what Â§1 refutes â€” and Â§1 does not touch it.
 uniformâ†’pointwise :
   {X : Type â„“x} {P : X â†’ Type â„“}
   â†’ UniformlyDecidable P â†’ (n : X) â†’ Dec (P n)

@@ -1,37 +1,37 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡∞‡æ‡‡ø‡ ‚î the heap, the quantity: the standard term of the
+-- ‡§∞‡§æ‡§∂‡§ø‡§É ‚Äî the heap, the quantity: the standard term of the
 -- gaita tradition for a quantity under operation (Bhskara II,
 -- Llvat and Bjagaita, c. 1150, where ri names the quantity
--- worked upon).  The classification ‚î a sum as a heap of atoms, not a
--- sequence ‚î is the tradition's; the mathematics here is not claimed
+-- worked upon).  The classification ‚Äî a sum as a heap of atoms, not a
+-- sequence ‚Äî is the tradition's; the mathematics here is not claimed
 -- for the source.
 --
 -- WHY THE EIGHT SURVIVED EVERYTHING.  The head of the residue is
--- y + x¬y = (sx)¬y, and its inductive step dies in every prior
+-- y + x¬∑y = (sx)¬∑y, and its inductive step dies in every prior
 -- machinery for one reason: after the step substitution the
 -- hypothesis's atoms sit INSIDE su-nodes and BETWEEN other summands,
 -- so neither syntactic subterm exchange nor the sequence-free eye can
 -- see the hypothesis in the goal.  The sum must be read as a HEAP:
--- su is the unit atom (+1), ze is the empty heap, ‚äï is heap union ‚î
+-- su is the unit atom (+1), ze is the empty heap, ‚äï is heap union ‚Äî
 -- and the hypothesis speaks by SUB-MULTISET surgery: its own heap is
 -- removed from the goal's heap and its other face's heap is put in
 -- its place, each deletion carrying its arithmetic witness.  This is
--- rewriting modulo the commutative monoid (‚ï, +, 0) with successor
--- absorbed ‚î the move completion theory knows is required, arrived at
+-- rewriting modulo the commutative monoid (‚Ñï, +, 0) with successor
+-- absorbed ‚Äî the move completion theory knows is required, arrived at
 -- here from the machine's own residue.
 --
---   ‡∞‡æ‡‡ø‡        the heap of a term (‚äï flattened, su a unit, ze gone)
---   ‡ó‡æ‡-‡‡Æ‡‡®‡æ‡Ø‡  the deep eye: every sum-cluster rebuilt from its
+--   ‡§∞‡§æ‡§∂‡§ø‡§É        the heap of a term (‚äï flattened, su a unit, ze gone)
+--   ‡§ó‡§æ‡§¢-‡§Ü‡§Æ‡•ç‡§®‡§æ‡§Ø‡§É  the deep eye: every sum-cluster rebuilt from its
 --                sorted heap, everything else by congruence
---   ‡®‡ø‡‡‡ï‡æ‡‡     deletion of one atom, with the sum-path it owes
---   ‡‡‡‡‡‡∞‡Æ‡     the surgery: hypothesis-heap out, other-face-heap in
---   ‡∞‡æ‡‡ø-‡‡æ‡ß‡®‡Æ‡  the examination with the deep eye and the surgical
+--   ‡§®‡§ø‡§∑‡•ç‡§ï‡§æ‡§∏‡§É     deletion of one atom, with the sum-path it owes
+--   ‡§∂‡§∏‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç     the surgery: hypothesis-heap out, other-face-heap in
+--   ‡§∞‡§æ‡§∂‡§ø-‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç  the examination with the deep eye and the surgical
 --                exchange, record and descent as ever
 --
 -- The verdict on the eight, computed by the kernel at the end of this
--- file, is whatever it is ‚î the numbers were learned by asserting
+-- file, is whatever it is ‚Äî the numbers were learned by asserting
 -- them wrong and reading the refusal.
 ------------------------------------------------------------------------
 

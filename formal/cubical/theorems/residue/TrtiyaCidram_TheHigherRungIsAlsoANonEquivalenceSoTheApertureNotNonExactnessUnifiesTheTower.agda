@@ -1,42 +1,42 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ààààà¯-àà¿à¦àà°à®à â” the third aperture, and a correction I owe the ladder.
+-- à¤¤à¥ƒà¤¤à¥€à¤¯-à¤›à¤¿à¤¦à¥à¤°à¤®à¥ â€” the third aperture, and a correction I owe the ladder.
 --
 -- GarbhaShreni claimed the tower's rungs are ONE predicate, "cost is not
--- exact" (NotExact âˆ V), instanced at Ïâ and Ïâ.  That is TRUE for those
+-- exact" (NotExact âˆ‚ V), instanced at Ï€â‚€ and Ï€â‚.  That is TRUE for those
 -- two rungs and FALSE as the general rung-relation, and the second claim
 -- is the one that matters.  NotExact is abelian-flavoured: it needs the
--- invariant to be a coboundary-valued cochain (â•, â).  The higher
--- k-invariants of this corpus are not of that kind â” VakraValayaSanketa's
--- rung is an ORIENTATION BIT (â/2 at HÂ²), the double-twist the Klein
+-- invariant to be a coboundary-valued cochain (â„•, â„¤).  The higher
+-- k-invariants of this corpus are not of that kind â€” VakraValayaSanketa's
+-- rung is an ORIENTATION BIT (â„¤/2 at HÂ²), the double-twist the Klein
 -- bottle costs and the torus does not.  "Cost is not exact at every
 -- degree" is therefore the WRONG induction: cost is a degree-1 object;
 -- there is no natural degree-2 cost.
 --
 -- What DOES span the rungs is the aperture EkamChidram already named:
--- the level-n forgetful map is NOT AN EQUIVALENCE.  Â isEquiv is
--- degree-blind and lane-blind â” it is the type of "a fibre survived",
--- the ea itself â” and it swallows the HÂ² rung too:
+-- the level-n forgetful map is NOT AN EQUIVALENCE.  Â¬ isEquiv is
+-- degree-blind and lane-blind â€” it is the type of "a fibre survived",
+-- the Å›eá¹£a itself â€” and it swallows the HÂ² rung too:
 --
 --   Â§1  THE HIGHER RUNG IS A NON-EQUIVALENCE.  For ANY map f between the
---       two second-cohomology carriers âŸ¨HÂ²(ğ•Â²)âŸ© and âŸ¨HÂ²(TÂ²)âŸ©,
---       Â isEquiv f â” because an equivalence would hand back the very
---       type-equivalence àà™àà•ààà refutes.  One line, every f at once.
---   Â§2  SO THE TOWER'S UNIFIER IS Â isEquiv, NOT NotExact.  The two
---       cost rungs (EkamChidram.costIsNonEquiv, at Ïâ) and this
+--       two second-cohomology carriers âŸ¨HÂ²(ğ•‚Â²)âŸ© and âŸ¨HÂ²(TÂ²)âŸ©,
+--       Â¬ isEquiv f â€” because an equivalence would hand back the very
+--       type-equivalence à¤¸à¤™à¥à¤•à¥‡à¤¤à¤ƒ refutes.  One line, every f at once.
+--   Â§2  SO THE TOWER'S UNIFIER IS Â¬ isEquiv, NOT NotExact.  The two
+--       cost rungs (EkamChidram.costIsNonEquiv, at Ï€â‚) and this
 --       orientation rung (Â§1, at HÂ²) are the SAME predicate at different
---       degrees â” heterogeneous invariants, one obstruction type.
+--       degrees â€” heterogeneous invariants, one obstruction type.
 --       NotExact is retired to what it is: the abelian special case,
 --       true only where the invariant is a group-valued cochain.
 --
--- SYT â” THE CLAIM, EXACTLY.  Â§1 for every map between the HÂ² carriers,
--- from àà™àà•ààà; Â§2 the identification of this rung with EkamChidram's
--- cost rung under Â isEquiv.  NOT claimed: that Â isEquiv is the k-
+-- SYÄ€T â€” THE CLAIM, EXACTLY.  Â§1 for every map between the HÂ² carriers,
+-- from à¤¸à¤™à¥à¤•à¥‡à¤¤à¤ƒ; Â§2 the identification of this rung with EkamChidram's
+-- cost rung under Â¬ isEquiv.  NOT claimed: that Â¬ isEquiv is the k-
 -- invariant in the technical Postnikov sense (it is the obstruction's
--- INHABITANT â” a surviving fibre â” not the cohomology class as such);
+-- INHABITANT â€” a surviving fibre â€” not the cohomology class as such);
 -- nor the full âˆ-tower.  What IS corrected: GarbhaShreni's "one
--- predicate for all rungs" â” that predicate is Â isEquiv, and NotExact
+-- predicate for all rungs" â€” that predicate is Â¬ isEquiv, and NotExact
 -- was only the abelian shadow of it.
 ------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ private
   âŸ¨ G âŸ© = fst G
 
 ------------------------------------------------------------------------
--- à§ Â The higher rung is a non-equivalence â” for every candidate map.
+-- à¥§ Â· The higher rung is a non-equivalence â€” for every candidate map.
 ------------------------------------------------------------------------
 
 rungâ‚‚ : (f : âŸ¨ coHomGr 2 KleinBottle âŸ© â†’ âŸ¨ coHomGr 2 (Sâ‚Š 1 Ã— Sâ‚Š 1) âŸ©)
@@ -69,7 +69,7 @@ rungâ‚‚ : (f : âŸ¨ coHomGr 2 KleinBottle âŸ© â†’ âŸ¨ coHomGr 2 (Sâ‚Š 1 Ã— Sâ‚Š 1
 rungâ‚‚ f ie = à¤¸à¤™à¥à¤•à¥‡à¤¤à¤ƒ (f , ie)
 
 ------------------------------------------------------------------------
--- à¨ Â The tower's unifier is Â isEquiv.  This rung and EkamChidram's
+-- à¥¨ Â· The tower's unifier is Â¬ isEquiv.  This rung and EkamChidram's
 --     cost rung are the same predicate at different degrees; carried
 --     here to state them together.
 ------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 --
--- TERM.  ‡‡‡µ‡æ‡¶ ¬ savda -- dialogue; and, technically, the CONCORDANCE of a
+-- TERM.  ‡§∏‡§Ç‡§µ‡§æ‡§¶ ¬∑ sa·πÉvƒÅda -- dialogue; and, technically, the CONCORDANCE of a
 -- cognition with what it is about, the corroboration by which a cognition is
 -- held valid.  Both senses are load-bearing here: ¬ß1 is the interface across
 -- which a caller and the machine must concord, ¬ß2 is the dialogue itself.
@@ -17,11 +17,11 @@
 ------------------------------------------------------------------------
 -- WHAT THE ADJACENT THEOREMS ESTABLISH, READ FORWARD.
 --
--- `TheInstalledOperationHasNoPervasion‚¶`, `TheDerivationCarriesNoMeaning‚¶`
--- and `WhatThisIsAndHowToDescend‚¶` ¬ß7 read forward as the interactive
+-- `TheInstalledOperationHasNoPervasion‚Ä¶`, `TheDerivationCarriesNoMeaning‚Ä¶`
+-- and `WhatThisIsAndHowToDescend‚Ä¶` ¬ß7 read forward as the interactive
 -- design of this kernel:
 --
---    `Control : Tm ‚í Type‚` is a FIELD the caller supplies, and may be ANY
+--    `Control : Tm ‚Üí Type‚ÇÄ` is a FIELD the caller supplies, and may be ANY
 --    type family whatsoever.  `install` is its trivial instance.  So
 --    `enabled-set-is-subsingleton` is THE SAFETY THEOREM OF AN OPEN
 --    EXTENSION POINT: whatever evidence type a caller invents, it cannot
@@ -35,7 +35,7 @@
 --    error) and `Uttara`'s (never a bare verdict).
 --
 --    That no semantic criterion selects the short proof is a GUARANTEE OF
---    NON-DISPLACEMENT: `TheDerivationCarriesNoMeaning‚¶` proves the machine
+--    NON-DISPLACEMENT: `TheDerivationCarriesNoMeaning‚Ä¶` proves the machine
 --    can never take the choice from you on semantic grounds.  The system is
 --    interactive by theorem.
 --
@@ -52,12 +52,12 @@
 --              arbitrary user-supplied `Control` is not decidable by the
 --              machine.  That is the price of the interface being open, not
 --              a missing feature.
---   result     `execute` : `EnabledFuture` (Type‚) ‚í `CheckedFuture` (Type‚).
+--   result     `execute` : `EnabledFuture` (Type‚ÇÅ) ‚Üí `CheckedFuture` (Type‚ÇÄ).
 --              THE UNIVERSE DESCENT IS THE POINT.  The result drops the
 --              operation and drops the caller's evidence, keeping only the
 --              new term and the derivation that reached it -- so it is small,
 --              replayable, and free of who asked.
---   learning   `install : Derivation lhs rhs ‚í NativeOperation` accepts
+--   learning   `install : Derivation lhs rhs ‚Üí NativeOperation` accepts
 --              exactly what `CheckedFuture` carries.
 --
 --     learn = install ‚àò CheckedFuture.derivation
@@ -83,7 +83,7 @@
 --       machine anything false, no matter what the caller does.
 --
 -- ¬ß0 explains why there cannot be one for an open interface.  No policy over
--- the offered list; that is the caller's and `TheDerivationCarriesNoMeaning‚¶` proves it must be.
+-- the offered list; that is the caller's and `TheDerivationCarriesNoMeaning‚Ä¶` proves it must be.
 -- `Session` records a library but nothing here consults it when stepping;
 -- the caller supplies the `EnabledFuture`.  Nothing here is concurrent, and
 -- `step` is a function, not a protocol.
@@ -169,7 +169,7 @@ then-step p d ‚äï e = then-step p (d ‚äï e)
 
 -- Concatenation means what it should: the composite's meaning is the
 -- composite of the meanings, so a transcript is never re-verified when it is
--- extended.  THE PROOF IS `isSet‚ï`, and that is `TheDerivationCarriesNoMeaning‚¶` PAYING FOR ITSELF --
+-- extended.  THE PROOF IS `isSet‚Ñï`, and that is `TheDerivationCarriesNoMeaning‚Ä¶` PAYING FOR ITSELF --
 -- the meaning type is a proposition, so any two proofs of it agree and this
 -- lemma costs nothing.  The same fact that makes the semantics blind to route
 -- is what makes transcripts free to concatenate.  Read as a limitation it was

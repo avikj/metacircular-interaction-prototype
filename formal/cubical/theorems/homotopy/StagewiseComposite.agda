@@ -6,11 +6,11 @@
 -- The two-valued composite-defect theorem, and its sharp boundary.
 --
 -- Setting.  For a type R of response values with decidable equality,
--- write ind a b : Bool for the indicator of a � b.  A composable pair of
+-- write ind a b : Bool for the indicator of a ≢ b.  A composable pair of
 -- observer revisions produces, pointwise, a span (a , b , c) : R³, whose
 -- two STAGEWISE defects are ind a b and ind b c and whose COMPOSITE
 -- defect is ind a c.  The stagewise family DETERMINES the composite iff
--- there is a single decoder f : Bool � Bool � Bool with
+-- there is a single decoder f : Bool → Bool → Bool with
 -- f (ind a b) (ind b c) ≡ ind a c for every span.  This is the decoder
 -- formulation: a rule that works for every span, not for one span.
 --
@@ -18,7 +18,7 @@
 --   * R is an arbitrary type at an arbitrary universe level.
 --   * R carries `Discrete R` (decidable equality).  This is the only
 --     hypothesis; in particular NO set-truncation and NO finiteness is
---     assumed � `Discrete R` already forces `isSet R` (Hedberg), and that
+--     assumed — `Discrete R` already forces `isSet R` (Hedberg), and that
 --     is used nowhere below.
 --
 -- HEADLINE STATEMENTS (all checked, no postulates, no holes, --safe):
@@ -33,25 +33,25 @@
 --     threeStagewise/     the span (t0 , t1 , t2) has both stagewise
 --     threeComposite      defects true and composite defect true, while
 --                         true ⊕ true = false.
---     �DeterminesThree    ... and no decoder whatever exists over a
+--     ¬DeterminesThree    ... and no decoder whatever exists over a
 --                         three-element type.
 --
 --  3. THE GENERAL THEOREM, both directions closed.  For (R , d) with
 --     decidable equality, define
 --
 --       TwoValued R = every triple contains a repeat
---                     ((a b c : R) � (a ≡ b) � (b ≡ c) � (a ≡ c))
+--                     ((a b c : R) → (a ≡ b) ⊎ (b ≡ c) ⊎ (a ≡ c))
 --
---     � the constructive rendering of |R| � 2 for a discrete type.  Then
+--     — the constructive rendering of |R| ≤ 2 for a discrete type.  Then
 --
---       twoValued�Determines : TwoValued R � Determines R d
---       Determines�twoValued : Determines R d � TwoValued R
+--       twoValued→Determines : TwoValued R → Determines R d
+--       Determines→twoValued : Determines R d → TwoValued R
 --       determinesIffTwoValued : the two implications packaged.
 --
 --     So the codomains over which the stagewise family determines the
 --     composite are EXACTLY the ones with at most two inhabitants, and
 --     over those the decoder is xor.  (Uniqueness of the decoder on the
---     reachable fibers is `decoderUnique�` below.)
+--     reachable fibers is `decoderUnique…` below.)
 --
 --  4. Neither direction needs the cardinality of R to be finite: the
 --     forward direction is the fiberwise argument and the backward one
@@ -134,12 +134,12 @@ Determines R d =
 
 -- "At most two inhabitants", constructively: any three elements contain a
 -- repeated pair.  For a discrete type this is the right rendering of
--- |R| � 2 (it is exactly the failure of a pairwise-distinct triple).
+-- |R| ≤ 2 (it is exactly the failure of a pairwise-distinct triple).
 TwoValued : Type ℓ → Type ℓ
 TwoValued R = (a b c : R) → (a ≡ b) ⊎ ((b ≡ c) ⊎ (a ≡ c))
 
 ------------------------------------------------------------------------
--- 3.  Forward direction:  at most two values  �  xor is a decoder
+-- 3.  Forward direction:  at most two values  ⟹  xor is a decoder
 ------------------------------------------------------------------------
 
 -- The Z/2 additivity law, in the generality it actually holds.
@@ -168,7 +168,7 @@ xorAdd d tv a b c =
       cong₂ _⊕_ (ind-neq d ¬p) (ind-eq d q)
         ∙ sym (ind-neq d (λ r → ¬p (r ∙ sym q)))
 
-    -- a ≠ b, b ≠ c: the ONLY fiber where the sandwich A △ B � D � A � B
+    -- a ≠ b, b ≠ c: the ONLY fiber where the sandwich A △ B ⊆ D ⊆ A ∪ B
     -- leaves room, and the only place the hypothesis is used.  With at
     -- most two values a ≠ b and b ≠ c force a = c.  1 ⊕ 1 = 0.
     caseNN : ¬ (a ≡ b) → ¬ (b ≡ c) → ind d a b ⊕ ind d b c ≡ ind d a c
@@ -185,7 +185,7 @@ twoValued→Determines : (d : Discrete R) → TwoValued R → Determines R d
 twoValued→Determines d tv = _⊕_ , xorAdd d tv
 
 ------------------------------------------------------------------------
--- 4.  Backward direction:  a decoder exists  �  at most two values
+-- 4.  Backward direction:  a decoder exists  ⟹  at most two values
 ------------------------------------------------------------------------
 
 -- The engine: a pairwise-distinct triple defeats every decoder, because
@@ -351,7 +351,7 @@ threeCancellation : ind discreteThree t0 t0 ≡ false
 threeCancellation = refl
 
 -- (2') Stronger, and the statement that actually matters: NO decoder at
--- all exists over Three � not merely that xor fails.
+-- all exists over Three — not merely that xor fails.
 ¬DeterminesThree : ¬ (Determines Three discreteThree)
 ¬DeterminesThree D =
   noDecoderAtDistinctTriple discreteThree D t0≢t1 t1≢t2 t0≢t2

@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������ � the diagonal.
+-- कर्णः — the diagonal.
 --
 -- The right diagonals of Rule 30 from a single seed, d k t = x t (t − k),
 -- close on themselves: the rule read along a diagonal is
 --     d (k+2) (t+1) = d (k+2) t ⊕ (d (k+1) t ∨ d k t),
 -- with d 0 ≡ 1 (the right edge) and d 1 alternating (§3, definitionally
--- from the rule once pred� commutes with the neighbours).  So d (k+2) is
+-- from the rule once predⁿ commutes with the neighbours).  So d (k+2) is
 -- the running parity of a sequence built from d (k+1) and d k, and a
 -- running parity of an L-periodic sequence is 2L-periodic (§4, `drive`,
 -- `xorRange-shift`, `driven-periodic`): by induction every right diagonal
@@ -18,7 +18,7 @@
 -- the exact shape of the absence of a closed recurrence for the column.
 --
 -- Stated in research/rule30/ORACLE_RULE30.md §3.3 (Theorem R, with the
--- computed periods 1,2,2,4,8,8,16,32,32,64,�); submitted to the yantra
+-- computed periods 1,2,2,4,8,8,16,32,32,64,…); submitted to the yantra
 -- (sadhana.patra) and accepted by its kernel, 2026-09-11.
 ------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ cone-r (suc t) k =
         (cong (x t) (cong pos (cong suc (cong suc (sym (+-suc t k)) ∙ sym (+-suc t (suc k))))) ∙ cone-r t (suc (suc k)))
   ∙ cong (_⊕ false) (cone-r t k)
 
--- §2  pred� commutes with pred�, and suc� undoes one step of it
+-- §2  predⁿ commutes with predℤ, and sucℤ undoes one step of it
 predⁿ-pred : (k : ℕ) (i : ℤ) → predℤ (predⁿ k i) ≡ predⁿ k (predℤ i)
 predⁿ-pred zero    i = refl
 predⁿ-pred (suc k) i = predⁿ-pred k (predℤ i)

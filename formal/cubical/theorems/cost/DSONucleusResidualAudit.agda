@@ -11,7 +11,7 @@
 -- 64 times per output cell and `rawConvolution` a further 6, with no
 -- memoization anywhere, so each `middleSeed x ⊙M middleSeed y` costs
 -- 64*6*64*16 ~ 4e5 leaf evaluations per cell -- each leaf a unary-recursive
--- � min/max/+/- from `Cubical.Data.Int`.  `tab` forces a profile into a
+-- ℤ min/max/+/- from `Cubical.Data.Int`.  `tab` forces a profile into a
 -- four-argument application whose arguments are computed once and shared;
 -- `tab-eq : tab f ≡ f` holds for every f by four reflexivities and
 -- normalizes nothing.  Statements, scope and fail-visibility are unchanged.
@@ -410,7 +410,7 @@ private
 -- the value -3 at e and 0 at a, so it is not middleSeed genZero (which is 0
 -- at e); it is not any of the four generated middle profiles.  These are
 -- consistent with each other and with `middle-left-residuation` above: the
--- residual R satisfies (middleSeed y �P R) exactly for y = genA, which is
+-- residual R satisfies (middleSeed y ≤P R) exactly for y = genA, which is
 -- exactly the set of admissible y.  The residuation theorem is intact; only
 -- the guess that the synthesized residual is the family's top element was
 -- wrong.  `example-greatest` survives unchanged.

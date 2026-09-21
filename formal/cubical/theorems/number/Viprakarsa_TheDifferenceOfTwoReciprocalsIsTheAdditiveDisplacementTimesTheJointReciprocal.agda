@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���������� � dispersion.  The message's climax as a term, and with NO
+-- विप्रकर्ष — dispersion.  The message's climax as a term, and with NO
 -- coprimality fence: the joint reciprocal itself supplies the inverse.
 --
---   � − �  ≡  (u� − u�) � w   (mod v),      w = (u��u�)�� mod v.
+--   ū₁ − ū₂  ≡  (u₂ − u₁) · w   (mod v),      w = (u₁·u₂)⁻¹ mod v.
 --
 -- Squaring the reciprocal form in one wall variable produces the phase
--- e(−2ak(�−�)/v); this identity rewrites �−� as the ADDITIVE
--- displacement h = u�−u� times the joint reciprocal.  Goldbach's additive
--- displacement is regenerated inside the multiplicative reciprocal form �
+-- e(−2ak(ū₁−ū₂)/v); this identity rewrites ū₁−ū₂ as the ADDITIVE
+-- displacement h = u₂−u₁ times the joint reciprocal.  Goldbach's additive
+-- displacement is regenerated inside the multiplicative reciprocal form —
 -- "addition reappears after multiplication is differentiated against
 -- itself."  (Owner's dispersion step; exact, no fence.)
 --
--- HYPOTHESES (all mod v, as �-divisibilities):
---   h1 : v � (��u� − 1) ;  h2 : v � (��u� − 1) ;  h3 : v � (w�(u�u�) − 1).
--- CONCLUSION:  v � ((� − �) − (u� − u�)�w).
+-- HYPOTHESES (all mod v, as ℤ-divisibilities):
+--   h1 : v ∣ (ū₁·u₁ − 1) ;  h2 : v ∣ (ū₂·u₂ − 1) ;  h3 : v ∣ (w·(u₁u₂) − 1).
+-- CONCLUSION:  v ∣ ((ū₁ − ū₂) − (u₂ − u₁)·w).
 --
--- WHY NO FENCE.  h3 gives w with w�u�u� ≡ 1, so the cancellation of u�u�
--- is INTERNAL: v � A�(u�u�) plus w�u�u� ≡ 1 give v � A directly.  The
+-- WHY NO FENCE.  h3 gives w with w·u₁u₂ ≡ 1, so the cancellation of u₁u₂
+-- is INTERNAL: v ∣ A·(u₁u₂) plus w·u₁u₂ ≡ 1 give v ∣ A directly.  The
 -- inverse being present is exactly what the reciprocal form provides.
 --
 -- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
@@ -54,8 +54,8 @@ module _ (u₁ u₂ ū₁ ū₂ w v : ℤ) where
     h2t = ū₂ · u₂ + (- pos 1)
     h3t = w · (u₁ · u₂) + (- pos 1)
 
-    -- A�(u�u�) is an explicit �-combination of the three residues
-    -- (constant 1 kept as `one`; the +one�0 bookkeeping cancels).
+    -- A·(u₁u₂) is an explicit ℤ-combination of the three residues
+    -- (constant 1 kept as `one`; the +one·0 bookkeeping cancels).
     prodIsCombo : (one : ℤ)
       → A · (u₁ · u₂)
         ≡ ( u₂ · (ū₁ · u₁ + (- one))
@@ -72,7 +72,7 @@ module _ (u₁ u₂ ū₁ ū₂ w v : ℤ) where
             (∣-scale v h2t (- u₁) h2)
             (∣-scale v h3t (- (u₂ + (- u₁))) h3)))
 
-  -- w�(u�u�) ≡ 1 (mod v) cancels u�u� internally: v � A.
+  -- w·(u₁u₂) ≡ 1 (mod v) cancels u₁u₂ internally: v ∣ A.
   disp : v ∣ h1t → v ∣ h2t → v ∣ h3t → v ∣ A
   disp h1 h2 h3 =
     subst (v ∣_) (sym cancel)
@@ -80,8 +80,8 @@ module _ (u₁ u₂ ū₁ ū₂ w v : ℤ) where
          (∣-scale v (A · (u₁ · u₂)) w (disp-prod h1 h2 h3))
          (∣-scale v h3t (- A) h3))
     where
-    -- generic in the unit `one`: the u�u� factors cancel by commutativity,
-    -- leaving A�one (valid for ALL one � no pred� literal in the solver).
+    -- generic in the unit `one`: the u₁u₂ factors cancel by commutativity,
+    -- leaving A·one (valid for ALL one — no predℤ literal in the solver).
     cancelGen : (one : ℤ)
       → w · (A · (u₁ · u₂)) + (- A) · (w · (u₁ · u₂) + (- one)) ≡ A · one
     cancelGen one = solve! ℤCommRing

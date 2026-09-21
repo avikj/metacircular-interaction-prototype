@@ -32,7 +32,7 @@ The resulting closed law is the **coinductive fibre**: equality as path, fibre, 
 }
 \]
 
-This is simultaneously the universal identity of constructive mathematics, the conservative dynamics of information, the executable law of transformation, andâ”on the physical carriers derived belowâ”the law of reversible physical interaction. Its execution is metacircular: what the law produces remains inside the law.
+This is simultaneously the universal identity of constructive mathematics, the conservative dynamics of information, the executable law of transformation, andï¿½on the physical carriers derived belowï¿½the law of reversible physical interaction. Its execution is metacircular: what the law produces remains inside the law.
 
 ---
 
@@ -449,8 +449,8 @@ R:A\times X\to\mathcal U
 
 returns directly to the universal classifier.
 
-Pratt's dynamic logic and Action Logic restrict interaction to action/interval reasoning; Fischerâ“Ladner/Hintikka structure chooses a finite observation sufficient for a decision. Pomsets remove artificial total order; solid automata expose concurrent dimension; monoidal homotopy exposes process deformation. Types as Processes, transformational mathematics, dialectic lambda calculus, Rational Mechanics, the Stone gamut, communes/Yoneda, final-coalgebraic continuum and generalized quantum semantics are further coordinates in which portions of the same law were already visible.
+Pratt's dynamic logic and Action Logic restrict interaction to action/interval reasoning; Fischerï¿½Ladner/Hintikka structure chooses a finite observation sufficient for a decision. Pomsets remove artificial total order; solid automata expose concurrent dimension; monoidal homotopy exposes process deformation. Types as Processes, transformational mathematics, dialectic lambda calculus, Rational Mechanics, the Stone gamut, communes/Yoneda, final-coalgebraic continuum and generalized quantum semantics are further coordinates in which portions of the same law were already visible.
 
 The direction is always the same: establish the exact restriction/equivalence, then inherit the complete structure by transport. The specialization remains an inhabitant of the universal object and therefore becomes another route back into it.
 
-[Chu Spaces Completed](pages/03-chu-spaces-completed.md) Â [Concurrency Is Geometry](pages/04-concurrency-is-geometry.md) Â [Action, Logic, and Optimal Inference
+[Chu Spaces Completed](pages/03-chu-spaces-completed.md) ï¿½ [Concurrency Is Geometry](pages/04-concurrency-is-geometry.md) ï¿½ [Action, Logic, and Optimal Inference

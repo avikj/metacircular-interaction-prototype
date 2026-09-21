@@ -13,12 +13,12 @@
 -- its own (it is a function of the cut, not of the things cut), and
 -- ceases when the cut is replaced by one that no longer separates.
 --
--- THE RECEPTION.  prattyasamutpda � "this being, that becomes; this
+-- THE RECEPTION.  pratītyasamutpāda — "this being, that becomes; this
 -- ceasing, that ceases."  Nothing arises from its own side; everything
 -- arises dependent on conditions, and when the conditions are gone it is
 -- gone (anicca).  The condition of a knot is a DISTINCTION: an observation
--- that, at two places, either factors through (sees them as one �
--- absorbed, nothing arises) or splits (sees them as two � a knot forms).
+-- that, at two places, either factors through (sees them as one —
+-- absorbed, nothing arises) or splits (sees them as two — a knot forms).
 -- This is the corpus's own descent law, which `runtime/CRYSTAL.md` §3.2
 -- states as "a collision is not a failure; it is a specification of the
 -- missing distinction," and it is the Buddha's arising said in the same
@@ -27,25 +27,25 @@
 --
 -- The knot's emptiness (nisvabhva, from NisvabhavaNet) is exact here:
 -- the SAME two places arise a knot under one observation and none under
--- another.  So the knot is not in the places � it is in the cut, and the
+-- another.  So the knot is not in the places — it is in the cut, and the
 -- cut is a condition, not an essence.  Seeing this is the knot's
 -- cessation: replace the separating sight with one that factors through,
 -- and the knot cannot be.  That replacement, when the two places in fact
--- reflect alike, is exactly `NisvabhavaNet.liberation` � the false cut
+-- reflect alike, is exactly `NisvabhavaNet.liberation` — the false cut
 -- dissolving.
 --
 -- Contents (no holes, no postulates, --safe):
 --
 --   FactorsThrough, Splits     the two faces of a distinction at a pair
 --   descent-dichotomy          every observation, at every pair, either
---                              factors through or splits � and only one
+--                              factors through or splits — and only one
 --                              (formation IS descent)
 --   split-not-factor           the two faces are exclusive: no vacuity
 --   Knot                       the arisen: a pair a distinction splits
 --   conditioned                the SAME pair: a knot under one cut, none
 --                              under another.  Nisvabhva, exhibited.
 --   cessation                  a cut that factors through cannot sustain
---                              the knot � anicca, the arising undone when
+--                              the knot — anicca, the arising undone when
 --                              its condition ceases
 --
 ------------------------------------------------------------------------
@@ -73,7 +73,7 @@ module _ {X : Type ℓ} where
 
   ----------------------------------------------------------------------
   -- Formation is descent.  Every observation, at every pair, either sees
-  -- the two as one (factors through) or as two (splits) � and never both.
+  -- the two as one (factors through) or as two (splits) — and never both.
   ----------------------------------------------------------------------
 
   descent-dichotomy : (o : X → Bool) (x y : X)
@@ -90,7 +90,7 @@ module _ {X : Type ℓ} where
 
   ----------------------------------------------------------------------
   -- The arisen: a knot is a pair the distinction splits.  It exists
-  -- dependent on the cut � dropping the cut drops the knot.
+  -- dependent on the cut — dropping the cut drops the knot.
   ----------------------------------------------------------------------
 
   Knot : (X → Bool) → Type ℓ
@@ -108,7 +108,7 @@ module _ {X : Type ℓ} where
 ------------------------------------------------------------------------
 -- The knot has no being of its own: the SAME two places arise a knot
 -- under one observation and none under another.  Nisvabhva, exhibited
--- on the smallest net � the two Boolean places, split by the identity
+-- on the smallest net — the two Boolean places, split by the identity
 -- sight, absorbed by the constant one.
 ------------------------------------------------------------------------
 

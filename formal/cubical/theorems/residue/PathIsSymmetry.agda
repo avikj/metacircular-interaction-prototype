@@ -11,12 +11,12 @@
 -- composition is transported to composition of equivalences, so the
 -- correspondence is a group isomorphism, checked.
 --
--- A name for X is a point of ��; the geometry of X lives in its
+-- A name for X is a point of π₀; the geometry of X lives in its
 -- identity type.  Univalence is what makes symbol and geometry say the
 -- same thing.
 --
--- Contrast, also proved here: as a bare type � has many automorphisms
--- (swap 0 and 1); as an algebra for X � 1 + X it has exactly one.
+-- Contrast, also proved here: as a bare type ℕ has many automorphisms
+-- (swap 0 and 1); as an algebra for X ↦ 1 + X it has exactly one.
 -- Structure is what cuts the automorphism group down --- which is the
 -- whole content of the structure identity principle.
 ------------------------------------------------------------------------
@@ -72,11 +72,11 @@ SymGroup X isSetX =
 -- and the finite one, which the pinned v0.5 calls `Sym` and v0.9 calls
 -- `FinSymGroup`.  Same reasoning: named once, here.
 -- and the finite one.  v0.9 calls it `FinSymGroup` and builds it over
--- Cubical.Data.SumFin.Fin (� � �), NOT Cubical.Data.Fin (� � (_< n));
+-- Cubical.Data.SumFin.Fin (⊤ ⊎ …), NOT Cubical.Data.Fin (Σ ℕ (_< n));
 -- the pinned v0.5 calls the analogue `Sym` and uses the OTHER carrier.
 -- Getting that wrong typechecks locally and then fails in the module
 -- that uses it, which is how it was found: FiniteNonabelianHolonomy
--- rejected `isoToEquiv swap01Iso` with `� � (λ k � k < 3) != � � Fin 2`.
+-- rejected `isoToEquiv swap01Iso` with `Σ ℕ (λ k → k < 3) != ⊤ ⊎ Fin 2`.
 -- So it is SumFin here, matching v0.9's carrier.
 FinSymGroup : ℕ → Group ℓ-zero
 FinSymGroup n = SymGroup (SumFin.Fin n) SumFin.isSetFin
@@ -91,7 +91,7 @@ pathIsSymmetry : (X : Type ℓ) → (X ≡ X) ≃ (X ≃ X)
 pathIsSymmetry X = univalence
 
 -- Specialised to the standard finite types.  The right-hand side is the
--- underlying type of the symmetric group S�.
+-- underlying type of the symmetric group Sₙ.
 finPathIsSymmetry : (n : ℕ) → (Fin n ≡ Fin n) ≃ (Fin n ≃ Fin n)
 finPathIsSymmetry n = pathIsSymmetry (Fin n)
 
@@ -112,8 +112,8 @@ pathToEquiv-∙ {A = A} p =
     ∙ cong (compEquiv (pathToEquiv p)) (sym pathToEquivRefl) )
 
 -- The loop group of the universe at a set X.  Note the universe level:
--- (X ≡ X) lives one level above X, so this is a Group (�-suc �) while
--- SymGroup X is a Group �.  The two are isomorphic but not
+-- (X ≡ X) lives one level above X, so this is a Group (ℓ-suc ℓ) while
+-- SymGroup X is a Group ℓ.  The two are isomorphic but not
 -- literally equal --- an honest universe-level fact, not a defect.
 ΩGroup : (X : Type ℓ) → isSet X → Group (ℓ-suc ℓ)
 ΩGroup X isSetX =
@@ -135,15 +135,15 @@ pathToEquiv-∙ {A = A} p =
 ΩGroup≃Symmetric X isSetX =
   univalence , makeIsGroupHom (λ p q → pathToEquiv-∙ p q)
 
--- Ω(Type, Fin n) � S�.
+-- Ω(Type, Fin n) ≅ Sₙ.
 ΩFin≃Sym : (n : ℕ) → GroupEquiv (ΩGroup (Fin n) isSetFin) (SymGroup (Fin n) isSetFin)
 ΩFin≃Sym n = ΩGroup≃Symmetric (Fin n) isSetFin
 
 ------------------------------------------------------------------------
--- 3.  Structure cuts down symmetry: � as a type versus � as an algebra.
+-- 3.  Structure cuts down symmetry: ℕ as a type versus ℕ as an algebra.
 ------------------------------------------------------------------------
 
--- (a) As a bare type, � has a nonidentity automorphism.
+-- (a) As a bare type, ℕ has a nonidentity automorphism.
 swap01 : ℕ → ℕ
 swap01 zero                = suc zero
 swap01 (suc zero)          = zero
@@ -157,11 +157,11 @@ swap01-involutive (suc (suc n)) = refl
 swap01-Equiv : ℕ ≃ ℕ
 swap01-Equiv = isoToEquiv (iso swap01 swap01 swap01-involutive swap01-involutive)
 
--- ... and it is not the identity, so Aut(� as a bare type) is nontrivial.
+-- ... and it is not the identity, so Aut(ℕ as a bare type) is nontrivial.
 swap01-≢-id : ¬ (swap01-Equiv ≡ idEquiv ℕ)
 swap01-≢-id p = snotz (funExt⁻ (cong (λ e → equivFun e) p) zero)
 
--- (b) As an algebra for X � 1 + X, � is rigid: any endomorphism
+-- (b) As an algebra for X ↦ 1 + X, ℕ is rigid: any endomorphism
 --     commuting with zero and successor is the identity.  No
 --     equivalence hypothesis is needed; a bare map suffices.
 ℕ-algebra-rigid : (f : ℕ → ℕ)
@@ -194,14 +194,14 @@ swap01-breaks-zero = snotz
 -- pinned container, and `IndianLane.agda`'s header records that as
 -- pre-existing and deliberately untouched.  The skew is a library
 -- rename: cubical v0.9 spells the symmetric group `SymGroup`, and the
--- pinned v0.5 � whose `Cubical.Algebra.SymmetricGroup` this file already
--- opens at line 41 � spells it
+-- pinned v0.5 — whose `Cubical.Algebra.SymmetricGroup` this file already
+-- opens at line 41 — spells it
 --
---     Symmetric-Group : (X : Type �) � isSet X � Group �
+--     Symmetric-Group : (X : Type ℓ) → isSet X → Group ℓ
 --
 -- with the SAME two explicit arguments this file passes.  (v0.5 also
 -- defines `Sym n = Symmetric-Group (Fin n) isSetFin`, which is exactly
--- `ΩFin�Sym`'s right-hand side.)
+-- `ΩFin≃Sym`'s right-hand side.)
 --
 -- So the repair is two tokens, at lines 98 and 104:
 --
@@ -214,12 +214,12 @@ swap01-breaks-zero = snotz
 --         -e 's/^module NaturalMachine\.PathIsSymmetry where/module PathIsSymmetryRepairProbe where/' \
 --         NaturalMachine/PathIsSymmetry.agda > <scratch>/NaturalMachine/PathIsSymmetryRepairProbe.agda
 --     agda -i <scratch> -i . <scratch>/NaturalMachine/PathIsSymmetryRepairProbe.agda
---       � PATCHED_EXIT=0
+--       → PATCHED_EXIT=0
 --
 -- and confirmed this is the FIRST error the root aggregate hits:
 --
 --     agda -i . Everything.agda
---       � EXIT=42, sole reported error PathIsSymmetry.agda:98,50-58,
+--       → EXIT=42, sole reported error PathIsSymmetry.agda:98,50-58,
 --         "Not in scope: SymGroup"
 --
 -- Left for this file's author or the owner to apply or refuse.
@@ -239,11 +239,11 @@ swap01-breaks-zero = snotz
 -- at them.  Nothing then depends on which spelling the library ships.
 --
 -- One correction to the offered patch, found by applying it.  v0.9's
--- `FinSymGroup` is built over `Cubical.Data.SumFin.Fin` (� � �) while
--- v0.5's `Sym` uses `Cubical.Data.Fin` (� � (_< n)).  Those are different
+-- `FinSymGroup` is built over `Cubical.Data.SumFin.Fin` (⊤ ⊎ …) while
+-- v0.5's `Sym` uses `Cubical.Data.Fin` (Σ ℕ (_< n)).  Those are different
 -- carriers, the difference typechecks locally, and it surfaces only in the
 -- consumer: FiniteNonabelianHolonomy rejected `isoToEquiv swap01Iso` with
---     � � (λ k � k < 3) != � � Fin 2
+--     Σ ℕ (λ k → k < 3) != ⊤ ⊎ Fin 2
 -- A `sed s/SymGroup/Symmetric-Group/g` would have carried that error in
 -- silently at this site.
 --
@@ -272,15 +272,15 @@ swap01-breaks-zero = snotz
 -- Nothing of my offer survives except the label "not established", which
 -- was the right label and has now been answered negatively.
 --
--- One thing I can still add, for the carrier warning specifically �
+-- One thing I can still add, for the carrier warning specifically —
 -- v0.9's FinSymGroup over Cubical.Data.SumFin.Fin versus v0.5's Sym over
 -- Cubical.Data.Fin.  Those carriers are not merely both called Fin; they
--- are EQUAL, and v0.5 proves it (`SumFin≡Fin = ua (SumFin�Fin)`).
+-- are EQUAL, and v0.5 proves it (`SumFin≡Fin = ua (SumFin≃Fin)`).
 -- Checked in `TheTwoFinCarriersAreEqual`:
 --
---     carriersAreEqual        : (n) � SF.Fin n ≡ F.Fin n
+--     carriersAreEqual        : (n) → SF.Fin n ≡ F.Fin n
 --     symmetricGroupsAreEqual : (n) (s : isSet (SF.Fin n))
---       � Symmetric-Group (SF.Fin n) s
+--       → Symmetric-Group (SF.Fin n) s
 --       ≡ Symmetric-Group (F.Fin n) (subst isSet (carriersAreEqual n) s)
 --
 -- So the fork is not a real fork, and this does NOT make the rename

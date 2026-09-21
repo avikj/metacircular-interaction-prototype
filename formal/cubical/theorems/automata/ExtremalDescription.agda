@@ -10,14 +10,14 @@
 -- an additive constant, and the reason is structural: the family of
 -- machines has no maximum under simulation, so the optimum is a limit
 -- of a family rather than a member of it.  Wherever the corresponding
--- family DOES have an extremum, the constant is not "small" � it is
+-- family DOES have an extremum, the constant is not "small" — it is
 -- exactly 0, and quoting a numeric optimum instead of the extremal
 -- object is a category error that hides which cost measure was used.
 -- Both sections below exhibit that extremum and prove it.
 --
 --   §2  `greatest-safe`   The greatest relation you may quotient by
 --                         without ever losing an observation is
---                         `ForeverEq` (= N_obs = �� ker(P T�)).
+--                         `ForeverEq` (= N_obs = ⋂ₙ ker(P Tⁿ)).
 --                         `ObservabilityQuotient` proves
 --                         `ForeverEq` is safe (refines `InstantEq`,
 --                         invariant under the step) and that `InstantEq`
@@ -26,13 +26,13 @@
 --                         maximal safe compression" in its own header
 --                         assert.  Three lines supply it.  Consequence
 --                         `safe-maximum-unique`: any two greatest safe
---                         relations coincide � the invariance constant
+--                         relations coincide — the invariance constant
 --                         here is 0, with no parameter to be hidden in.
 --
 --       `instant-not-invariant`  sharpens C19.13: it is *invariance*,
 --                         not soundness, that `ker P` fails.
 --
---   §3  `certifies�contains` / `contains�certifies`
+--   §3  `certifies→contains` / `contains→certifies`
 --                         the minimum number of ORACLE BITS certifying
 --                         soundness of a target set equals the MIN CUT
 --                         of its repair network (Theorem O3).  It does
@@ -40,12 +40,12 @@
 --                         has a LEAST element under inclusion, namely
 --                         `R` = the open obligations that reach the
 --                         target, and the proof is two lines because
---                         "� is sound" IS "R � �".  `least-cost` then
+--                         "α is sound" IS "R ⊆ α".  `least-cost` then
 --                         says the minimiser is the same for EVERY
 --                         monotone cost measure.
 --
 --   §4  A four-vertex graph on which the min cut is 1 and the least
---                         certificate has 2 elements: `severing-works�/�`
+--                         certificate has 2 elements: `severing-works₁/₂`
 --                         (one severing kills every contamination route)
 --                         against `both-bits-needed` (no single oracle
 --                         bit certifies).  A repair action is WORK; an
@@ -91,8 +91,8 @@ module _ {X : Type ℓ} {Y : Type ℓ'} (T : X → X) (p : X → Y) where
   Inv≈ _≈_ = {x y : X} → x ≈ y → T x ≈ T y
 
   -- The whole proof is that `obsAt (suc n) x` and `obsAt n (T x)` are
-  -- DEFINITIONALLY equal � the bracketing `ObservabilityQuotient` chose
-  -- for `iterT` � so one step of invariance is one step of induction.
+  -- DEFINITIONALLY equal — the bracketing `ObservabilityQuotient` chose
+  -- for `iterT` — so one step of invariance is one step of induction.
   greatest-safe : {_≈_ : X → X → Type ℓ''}
                 → Sound≈ _≈_ → Inv≈ _≈_
                 → {x y : X} → x ≈ y → OQ.ForeverEq T p x y
@@ -123,7 +123,7 @@ module _ {X : Type ℓ} {Y : Type ℓ'} (T : X → X) (p : X → Y) where
 ------------------------------------------------------------------------
 -- 2a.  Sharpening C19.13's witness.
 --
--- `ObservabilityQuotient.instant�forever` shows `InstantEq` � `ForeverEq`.
+-- `ObservabilityQuotient.instant↛forever` shows `InstantEq` ⊄ `ForeverEq`.
 -- With maximality that says something sharper and more useful: `ker P`
 -- fails safety at the SECOND clause.  It is trivially sound for itself;
 -- what it is not is invariant under the step.  So the defect in "quotient
@@ -141,23 +141,23 @@ instant-not-invariant i =
 ------------------------------------------------------------------------
 -- 3.  The least certifying set of oracle bits.
 --
--- oracle assignment is `� : L � Bool` ("has this obligation been
+-- oracle assignment is `α : L → Bool` ("has this obligation been
 -- discharged?"), and the target set `T` is sound exactly when every
 -- open obligation that REACHES `T` has been discharged.  Write `R` for
 -- the reaching ones.  Then:
 --
---     Sound �   =   R � �                                       (by definition)
---     Certifies Q  =  � �, Q � � � R � �
+--     Sound α   =   R ⊆ α                                       (by definition)
+--     Certifies Q  =  ∀ α, Q ⊆ α → R ⊆ α
 --
 -- and the theorem is the Yoneda-flavoured triviality that a principal
 -- up-set determines its generator.  It is stated here because the note
--- reached for max-flow/min-cut to answer it and got a different � and
--- strictly smaller � number.
+-- reached for max-flow/min-cut to answer it and got a different — and
+-- strictly smaller — number.
 ------------------------------------------------------------------------
 
 module Certificate {L : Type ℓ} (R : L → Bool) where
 
-  -- `A � B`, as functions to Bool.
+  -- `A ⊆ B`, as functions to Bool.
   Agrees : (L → Bool) → (L → Bool) → Type ℓ
   Agrees A B = (u : L) → A u ≡ true → B u ≡ true
 
@@ -178,7 +178,7 @@ module Certificate {L : Type ℓ} (R : L → Bool) where
   R-certifies = contains→certifies R (λ _ h → h)
 
   -- Hence `R` is the LEAST certifying set, and therefore the minimiser
-  -- of every monotone cost � cardinality, weighted audit hours, anything.
+  -- of every monotone cost — cardinality, weighted audit hours, anything.
   -- The extremal object is the theorem; any number attached to it is a
   -- property of the chosen cost function and not of the corpus.
   module _ (cost : (L → Bool) → ℕ)
@@ -190,22 +190,22 @@ module Certificate {L : Type ℓ} (R : L → Bool) where
 ------------------------------------------------------------------------
 -- 4.  The counterexample to O5(3): min cut 1, least certificate 2.
 --
---        o� ��┐
---             ���� mid ��� tgt
---        o� ��┘
+--        o₁ ──┐
+--             ├──▶ mid ──▶ tgt
+--        o₂ ──┘
 --
---   O = {o� , o�} (both carry an open obligation),  T = {tgt}.
+--   O = {o₁ , o₂} (both carry an open obligation),  T = {tgt}.
 --   Unit costs: every discharge costs 1, every severing costs 1.
 --
---   * Severing the single edge `mid � tgt` is a valid repair of cost 1
---     (`severing-works�`, `severing-works�`), and the empty repair is
---     invalid (`o��tgt`).  So the min cut of Theorem O3 is exactly 1.
+--   * Severing the single edge `mid → tgt` is a valid repair of cost 1
+--     (`severing-works₁`, `severing-works₂`), and the empty repair is
+--     invalid (`o₁⇝tgt`).  So the min cut of Theorem O3 is exactly 1.
 --   * Every set of oracle bits that certifies soundness must contain
---     BOTH `o�` and `o�` (`both-bits-needed`), which are distinct
---     (`o��o�`).  So the least certificate has 2 elements.
+--     BOTH `o₁` and `o₂` (`both-bits-needed`), which are distinct
+--     (`o₁≢o₂`).  So the least certificate has 2 elements.
 --
 --   2 ≠ 1, and replacing the fan-in by n sources makes it n ≠ 1.  O5(3)
---   therefore understates the external information required � the same
+--   therefore understates the external information required — the same
 --   direction of error Cor. O2.4 warns about ("it errs by believing
 --   claims too strongly"), committed one level up.
 ------------------------------------------------------------------------
@@ -220,7 +220,7 @@ E o₂  mid = true
 E mid tgt = true
 E _   _   = false
 
--- The same graph after severing `mid � tgt` (an independent re-derivation
+-- The same graph after severing `mid → tgt` (an independent re-derivation
 -- at `tgt` of what it was importing from `mid`).
 E′ : Vtx → Vtx → Bool
 E′ mid tgt = false
@@ -295,7 +295,7 @@ both-bits-needed Q cert =
     certifies→contains Q cert o₁ refl
   , certifies→contains Q cert o₂ refl
 
--- �and, concretely, neither single bit is enough.  This is the exact
+-- …and, concretely, neither single bit is enough.  This is the exact
 -- statement O5(3) denies when it equates the certificate with the min cut.
 only-o₁ : Vtx → Bool
 only-o₁ o₁ = true

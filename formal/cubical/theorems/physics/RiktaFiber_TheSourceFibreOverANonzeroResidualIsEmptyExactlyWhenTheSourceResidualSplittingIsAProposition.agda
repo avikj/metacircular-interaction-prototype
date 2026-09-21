@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts --lossy-unification #-}
 
 ------------------------------------------------------------------------
--- ������-����� � the empty fibre.
+-- रिक्त-तन्तु — the empty fibre.
 --
 -- THE SOURCE FIBRE OVER A NONZERO RESIDUAL IS EMPTY EXACTLY WHEN THE
 -- SOURCE-PLUS-RESIDUAL SPLITTING IS A PROPOSITION.  The two are the same
@@ -13,8 +13,8 @@
 -- question about the image of the source map, and it is the question on
 -- which the whole decomposition's uniqueness turns.
 --
--- The setting is a ring, a source map `Π : U � A`, and a predicate `Res`
--- picking out the residual elements � closed under difference, and
+-- The setting is a ring, a source map `Π : U → A`, and a predicate `Res`
+-- picking out the residual elements — closed under difference, and
 -- containing zero.  `Res` is an arbitrary proposition-valued predicate:
 -- no ideal axioms are imposed, no topology, no compactness.  Only what
 -- is used appears.
@@ -24,13 +24,13 @@
 --
 --   §2  A RESIDUAL THAT IS A SOURCE IS ZERO, and therefore the fibre of
 --       `Π` over a nonzero residual is empty.  Applied to a commutator
---       of two source tensors � which is what `SarvaMula` §4 leaves
---       behind � this says the tangent can move a source tensor in a
+--       of two source tensors — which is what `SarvaMula` §4 leaves
+--       behind — this says the tangent can move a source tensor in a
 --       direction that NO source variation realizes.
 --
 --   §3  THE SPLITTING IS A PROPOSITION.  For each x, the type
 --
---         Split x = �[ (a , k) ] Res k � (x ≡ Π a + k)
+--         Split x = Σ[ (a , k) ] Res k × (x ≡ Π a + k)
 --
 --       has at most one element.  So "x is a source plus a residual" is
 --       not extra structure that must be chosen: the source part and the
@@ -38,7 +38,7 @@
 --
 --   §4  AND CONVERSELY.  If every `Split` is a proposition then `Π` is
 --       faithful.  The witness is the pair of splittings a residual
---       source admits of itself � `(w , 0)` and `(0 , Π w)` � which the
+--       source admits of itself — `(w , 0)` and `(0 , Π w)` — which the
 --       proposition must identify.
 --
 --       So §3 and §4 together: uniqueness of the splitting IS the empty
@@ -46,26 +46,26 @@
 --
 -- WHAT IS CARRIED AND WHAT IS PROVED.  Faithfulness is a HYPOTHESIS
 -- here, not a theorem.  In the intended reading it comes from a norm
--- identity � a source's residual class has the same norm as the source
--- � and no norm exists anywhere in this corpus, so that derivation is
+-- identity — a source's residual class has the same norm as the source
+-- — and no norm exists anywhere in this corpus, so that derivation is
 -- not available and is not attempted.  What is proved is that
 -- faithfulness is exactly equivalent to uniqueness of the splitting,
 -- which is the step that would otherwise be waved through.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�4 in any ring, for any source type at all
--- � no set-truncation is imposed on it � any additive-on-differences `Π`, and any
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–4 in any ring, for any source type at all
+-- — no set-truncation is imposed on it — any additive-on-differences `Π`, and any
 -- proposition-valued `Res` closed under difference and containing zero.
--- NOT claimed: that the residuals form an ideal � closure under
+-- NOT claimed: that the residuals form an ideal — closure under
 -- multiplication is never used and never assumed; that any particular
 -- class of operators (compact or otherwise) satisfies the hypotheses;
 -- any norm, any inequality, any separation between a residual and the
--- source image � §2 gives emptiness, not distance; that a splitting
+-- source image — §2 gives emptiness, not distance; that a splitting
 -- EXISTS for any given x, which is a different statement and is proved
--- nowhere below; and nothing about limits � a family of residuals need
+-- nowhere below; and nothing about limits — a family of residuals need
 -- not have a residual limit, and no limit is taken here.
 ------------------------------------------------------------------------
 
-module RiktaTantu_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition where
+module RiktaFiber_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
@@ -143,7 +143,7 @@ module _ (R : Ring ℓ) where
            where
 
     ------------------------------------------------------------------
-    -- � � The source map kills nothing beyond zero: `Π 0 ≡ 0` needs no
+    -- ० · The source map kills nothing beyond zero: `Π 0 ≡ 0` needs no
     --     hypothesis of its own, it is `⊟-refl` and the ring.
     ------------------------------------------------------------------
 
@@ -157,7 +157,7 @@ module _ (R : Ring ℓ) where
     module _ (faithful : (w : U) → Res (Π w) → w ≡ 0u) where
 
       ----------------------------------------------------------------
-      -- � � Π IS INJECTIVE MODULO THE RESIDUALS.
+      -- १ · Π IS INJECTIVE MODULO THE RESIDUALS.
       ----------------------------------------------------------------
 
       injective-mod-Res : (a b : U) → Res (Π a + (- Π b)) → a ≡ b
@@ -165,7 +165,7 @@ module _ (R : Ring ℓ) where
         ⊟-zero a b (faithful (a ⊟ b) (subst Res (sym (Π-⊟ a b)) r))
 
       ----------------------------------------------------------------
-      -- � � A RESIDUAL THAT IS A SOURCE IS ZERO, so a nonzero residual
+      -- २ · A RESIDUAL THAT IS A SOURCE IS ZERO, so a nonzero residual
       --     has an empty source fibre.
       ----------------------------------------------------------------
 
@@ -189,7 +189,7 @@ module _ (R : Ring ℓ) where
         nonzero-residual-has-empty-fibre (comm (Π u) (Π w))
 
     ------------------------------------------------------------------
-    -- � � THE SPLITTING.  Source part and residual part are both
+    -- ३ · THE SPLITTING.  Source part and residual part are both
     --     determined by what they add up to.
     ------------------------------------------------------------------
 
@@ -218,7 +218,7 @@ module _ (R : Ring ℓ) where
             (sym (cong (λ z → Π z + k) aEq) ∙ h)
 
     ------------------------------------------------------------------
-    -- � � AND CONVERSELY: uniqueness of the splitting forces the empty
+    -- ४ · AND CONVERSELY: uniqueness of the splitting forces the empty
     --     fibre.  A residual source splits itself in two ways.
     ------------------------------------------------------------------
 

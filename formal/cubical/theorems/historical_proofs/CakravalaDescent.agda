@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- CakravalaDescent � the cyclic method's step, and why ONE congruence
+-- CakravalaDescent — the cyclic method's step, and why ONE congruence
 -- suffices.
 --
 -- SOURCE AND PRIORITY.  The cakravla ("cycle", "wheel") is stated by
@@ -9,7 +9,7 @@
 -- given in full by BHSKARA II, Bjagaita, 1150 CE.  It solves
 -- x² − D y² = 1 for every non-square D, terminating, by a descent that
 -- never leaves the integers.  Brouncker and Wallis reach the problem in
--- 1657 and Lagrange proves termination in 1768 � six hundred years later.
+-- 1657 and Lagrange proves termination in 1768 — six hundred years later.
 -- "Pell's equation" is Euler's misattribution to a man who never worked
 -- on it, and the name has outlived every correction since.
 --
@@ -17,7 +17,7 @@
 -- line 287 says, of the step where coprimality enters: "that step is in
 -- CakravalaDescent".  There was no `CakravalaDescent`.  Line 14 says
 -- pointing at work that was never done, in a form a reader takes as
--- "it is handled over there" � a claim carrying no evidence, which is the
+-- "it is handled over there" — a claim carrying no evidence, which is the
 -- same defect this repository has spent the day removing from its verdict
 -- types.  A dangling citation is a bare label.  The repair is to make the
 -- reference true, not to delete it.
@@ -26,12 +26,12 @@
 --
 --     a' = (am + Db)/k        b' = (a + bm)/k        k' = (m² − D)/k
 --
--- and then a'² − D b'² = k'.  Bhskara's choice rule � choose, among the m
--- satisfying the congruence, one minimising |m² − D| � is what makes the
+-- and then a'² − D b'² = k'.  Bhāskara's choice rule — choose, among the m
+-- satisfying the congruence, one minimising |m² − D| — is what makes the
 -- cycle terminate; it is NOT proved here and is not claimed.
 --
 -- HOW IT IS STATED HERE.  The three divisions are given as HYPOTHESES in
--- multiplied form (a�m + D�b ≡ k � a', and so on).  That is not a
+-- multiplied form (a·m + D·b ≡ k · a', and so on).  That is not a
 -- weakening: it is exactly the algorithm's own situation, since the whole
 -- force of Bhskara's choice is that all three divisions come out exact.
 -- Stating them multiplied keeps the theorem over an arbitrary commutative
@@ -41,27 +41,27 @@
 --
 --   cakravalaScaled   the step's identity in k²-scaled form, over ANY
 --                     commutative ring and with NO cancellation:
---                        k � (k � k') ≡ (k � k) � N D a' b'
+--                        k · (k · k') ≡ (k · k) · N D a' b'
 --   cakravalaStep     the step itself, given that k is a non-zero-divisor:
 --                        N D a' b' ≡ k'
 --   oneCongruence     Bhskara needs only k | (a + bm): the other two
 --                     divisibilities follow, up to the factor b.  This is
 --                     `Composition.choiceToNumerator` and
 --                     `choiceToDiscriminant` read as divisibility.
---   coprimeCancel     k | b�x and gcd(k,b) = 1 give k | x, constructively:
+--   coprimeCancel     k | b·x and gcd(k,b) = 1 give k | x, constructively:
 --                     the cofactor is written out of the hypothesis's
---                     cofactor and the two B�zout coefficients.
+--                     cofactor and the two Bézout coefficients.
 --   oneCongruenceCoprime
 --                     THE JOIN.  One congruence plus the pulverizer's
---                     coefficients give ALL THREE exact divisions �
+--                     coefficients give ALL THREE exact divisions —
 --                     k | (am + Db) and k | (m² − D) with no b left over.
 --                     Brahmagupta (628) makes the descent a descent;
 --                     ryabhaa (499) makes each step exact.  The cakravla
 --                     is the two turning together, which is what its name
 --                     says.
 --
---   runToCoprime      the bridge: a `Kuttaka.Run k b 1` � ryabhaa's
---                     descent as inductive evidence � yields `Coprime k b`
+--   runToCoprime      the bridge: a `Kuttaka.Run k b 1` — Āryabhaṭa's
+--                     descent as inductive evidence — yields `Coprime k b`
 --                     via `bezout`, so the pair `coprimeCancel` consumes is
 --                     produced by an actual pulverizer run and not assumed.
 --
@@ -93,7 +93,7 @@ module Descent (CR : CommRing ℓ) where
   ----------------------------------------------------------------------
   -- 0.  Divisibility, carrying its cofactor
   --
-  -- `d � x` is the cofactor together with the equation, not a proposition
+  -- `d ∣ x` is the cofactor together with the equation, not a proposition
   -- about which one it is.  Same rule as everywhere else here: acceptance
   -- yields a witness.
   ----------------------------------------------------------------------
@@ -125,7 +125,7 @@ module Descent (CR : CommRing ℓ) where
 
   ----------------------------------------------------------------------
   -- 2.  THE STEP.  Cancelling k² needs k to be a non-zero-divisor, which
-  -- over � is k ≠ 0 � and k = 0 would say a² = D b², i.e. the descent had
+  -- over ℤ is k ≠ 0 — and k = 0 would say a² = D b², i.e. the descent had
   -- already produced a square root of D and there is nothing to descend.
   --
   -- The hypothesis is taken as the cancellation property itself rather
@@ -153,7 +153,7 @@ module Descent (CR : CommRing ℓ) where
   -- The algorithm asks the solver to find m with k | (a + bm) and nothing
   -- else.  The other two exactness conditions are consequences, up to the
   -- factor b: `Composition`'s two polynomial identities say precisely that
-  -- b�(am + Db) and b²�(m² − D) are combinations of (a + bm) and k.
+  -- b·(am + Db) and b²·(m² − D) are combinations of (a + bm) and k.
   --
   -- This is what makes the cakravla an algorithm rather than a search.
   -- The remaining factor b is removed by gcd(k, b) = 1, which is a
@@ -184,19 +184,19 @@ module Descent (CR : CommRing ℓ) where
             ∙ sym (·DistR+ k (c · (b · m - a)) 1r) )
 
   ----------------------------------------------------------------------
-  -- 3b.  THE FACTOR b REMOVED � the join with the kuaka.
+  -- 3b.  THE FACTOR b REMOVED — the join with the kuṭṭaka.
   --
-  -- `oneCongruence` above leaves b in the way: it gives k | b�(am + Db) and
-  -- k | b²�(m² − D), not the exactness the step needs.  The commit that
+  -- `oneCongruence` above leaves b in the way: it gives k | b·(am + Db) and
+  -- k | b²·(m² − D), not the exactness the step needs.  The commit that
   -- landed §3 said so and left it open.  Closing it is one lemma, and the
   -- lemma is ryabhaa's, because what removes b is exactly the pulverizer's
-  -- output: coefficients u, v with u�k + v�b = 1.
+  -- output: coefficients u, v with u·k + v·b = 1.
   --
   -- RYABHAA, ryabhaya, Gaitapda 32-33 (499) for the coefficients;
   -- `Kuttaka.bezout` builds them by back-substitution up the vall.  The
   -- cancellation below is then three lines of ring algebra, and it is
   -- CONSTRUCTIVE: the cofactor of the conclusion is written out of the
-  -- cofactor of the hypothesis and the two B�zout coefficients, so nothing
+  -- cofactor of the hypothesis and the two Bézout coefficients, so nothing
   -- here needs primality, a domain, or a choice principle.
   --
   -- This is the join the two traditions' own chronology already asserts:
@@ -208,7 +208,7 @@ module Descent (CR : CommRing ℓ) where
 
   -- Coprimality AS THE PULVERIZER LEAVES IT: not "no common factor", which
   -- is a negative statement one cannot compute with, but the two
-  -- coefficients themselves.  ��������� ���������� � the affirmation carries
+  -- coefficients themselves.  स्वीकारः साक्षिणम् — the affirmation carries
   -- its witness, and here the witness is what does all the work.
   Coprime : R → R → Type ℓ
   Coprime k b = Σ[ u ∈ R ] Σ[ v ∈ R ] (u · k + v · b ≡ 1r)
@@ -216,18 +216,18 @@ module Descent (CR : CommRing ℓ) where
   coprimeCancel : (k b x : R) → Coprime k b → k ∣ (b · x) → k ∣ x
   coprimeCancel k b x (u , v , huv) (c , hc) = x · u + v · c , path
     where
-    -- x�(u�k) ≡ k�(x�u)
+    -- x·(u·k) ≡ k·(x·u)
     e1 : x · (u · k) ≡ k · (x · u)
     e1 = ·Assoc x u k ∙ ·Comm (x · u) k
 
-    -- x�(v�b) ≡ v�(b�x)
+    -- x·(v·b) ≡ v·(b·x)
     e2 : x · (v · b) ≡ v · (b · x)
     e2 = ·Assoc x v b
        ∙ cong (λ w → w · b) (·Comm x v)
        ∙ sym (·Assoc v x b)
        ∙ cong (λ w → v · w) (·Comm x b)
 
-    -- v�(k�c) ≡ k�(v�c)
+    -- v·(k·c) ≡ k·(v·c)
     e3 : v · (k · c) ≡ k · (v · c)
     e3 = ·Assoc v k c ∙ cong (λ w → w · c) (·Comm v k) ∙ sym (·Assoc k v c)
 
@@ -259,15 +259,15 @@ module Descent (CR : CommRing ℓ) where
 -- 4.  ONE STEP AT D = 13, COMPUTED.
 --
 -- Bhskara's own worked example in the Bjagaita.  Start from the
--- trivial triple 3² − 13�1² = −4, and take m = 1, which satisfies the
--- congruence −4 | (3 + 1�1) = 4.  Then
+-- trivial triple 3² − 13·1² = −4, and take m = 1, which satisfies the
+-- congruence −4 | (3 + 1·1) = 4.  Then
 --
---     a' = (3�1 + 13�1)/(−4) = 16/(−4) = −4
---     b' = (3 + 1�1)/(−4)    =  4/(−4) = −1
+--     a' = (3·1 + 13·1)/(−4) = 16/(−4) = −4
+--     b' = (3 + 1·1)/(−4)    =  4/(−4) = −1
 --     k' = (1 − 13)/(−4)     = −12/(−4) =  3
 --
--- and indeed (−4)² − 13�(−1)² = 16 − 13 = 3.  The three hypotheses are
--- each `refl` � the kernel performs the multiplications � so this exhibits
+-- and indeed (−4)² − 13·(−1)² = 16 − 13 = 3.  The three hypotheses are
+-- each `refl` — the kernel performs the multiplications — so this exhibits
 -- the step's premises being met by actual integers rather than asserting
 -- that they can be.
 ------------------------------------------------------------------------
@@ -283,8 +283,8 @@ open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 -- done, and "not done here" is how the two dangling references at the top
 -- of this file started.  So: done.
 --
--- `Kuttaka.Run k b g` is ryabhaa's descent as inductive evidence � one
--- constructor per division a ≡ q�b + r, the quotients forming the vall,
+-- `Kuttaka.Run k b g` is Āryabhaṭa's descent as inductive evidence — one
+-- constructor per division a ≡ q·b + r, the quotients forming the vallī,
 -- termination carried by the evidence rather than by a measure.  A run
 -- bottoming out at 1 IS coprimality, and `bezout` climbs the vall to
 -- produce the pair.  Nothing is assumed: hand this a run and it hands back
@@ -298,7 +298,7 @@ module KuttakaCoprime where
   open Descent ℤCommRing using (Coprime)
   open CommRingStr (snd ℤCommRing) using (_·_ ; _+_ ; 1r)
 
-  -- A pulverizer run bottoming out at 1 yields the B�zout pair, i.e.
+  -- A pulverizer run bottoming out at 1 yields the Bézout pair, i.e.
   -- coprimality in the only form the cancellation lemma can use.
   runToCoprime : (k b : ℤ) → Run k b 1r → Coprime k b
   runToCoprime k b run =
@@ -312,29 +312,29 @@ module StepAtThirteen where
   open CommRingStr (snd ℤCommRing) using (_·_ ; _-_ ; _+_)
   open Composition.Form ℤCommRing using (N)
 
-  -- 3² − 13�1² = −4
+  -- 3² − 13·1² = −4
   premiseNorm : N (pos 13) (pos 3) (pos 1) ≡ negsuc 3
   premiseNorm = refl
 
-  -- a�m + D�b = 3�1 + 13�1 = 16 = (−4)�(−4)
+  -- a·m + D·b = 3·1 + 13·1 = 16 = (−4)·(−4)
   premiseA : pos 3 · pos 1 + pos 13 · pos 1 ≡ negsuc 3 · negsuc 3
   premiseA = refl
 
-  -- a + b�m = 3 + 1�1 = 4 = (−4)�(−1)
+  -- a + b·m = 3 + 1·1 = 4 = (−4)·(−1)
   premiseB : pos 3 + pos 1 · pos 1 ≡ negsuc 3 · negsuc 0
   premiseB = refl
 
-  -- m² − D = 1 − 13 = −12 = (−4)�3
+  -- m² − D = 1 − 13 = −12 = (−4)·3
   premiseK : pos 1 · pos 1 - pos 13 ≡ negsuc 3 · pos 3
   premiseK = refl
 
   -- and the conclusion the step delivers, which the kernel also computes:
-  -- (−4)² − 13�(−1)² = 3.
+  -- (−4)² − 13·(−1)² = 3.
   descended : N (pos 13) (negsuc 3) (negsuc 0) ≡ pos 3
   descended = refl
 
   -- The scaled identity at these numbers, obtained from the general
-  -- theorem rather than recomputed � so this is the theorem being applied,
+  -- theorem rather than recomputed — so this is the theorem being applied,
   -- not a coincidence of arithmetic.
   scaledHere : negsuc 3 · (negsuc 3 · pos 3)
              ≡ (negsuc 3 · negsuc 3) · N (pos 13) (negsuc 3) (negsuc 0)

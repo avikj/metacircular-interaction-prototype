@@ -7,7 +7,7 @@
 --
 --   "Is there a mechanizable predicate on a note's *text* that decides
 --    whether its principal object is outside arithmetic, and hence
---    whether a `SEARCH` flag is mandatory â” one that would have fired on
+--    whether a `SEARCH` flag is mandatory â€” one that would have fired on
 --    SEED-05 and SEED-09 and not on the 47 declared-classical files?"
 --
 -- This does not close it.  It relocates it, exactly: a text predicate
@@ -15,10 +15,10 @@
 -- decidable of the text's denotation.  So no amount of work on the
 -- FEATURES can produce one, and the question is not about text.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT Â§2 SAYS, AND WHY IT IS NOT A RESTATEMENT
 --
--- Set-theoretically the question has a trivial affirmative answer â” the
+-- Set-theoretically the question has a trivial affirmative answer â€” the
 -- composite `Outside âˆ˜ denotes` IS a predicate on texts.  The word doing
 -- the work in Â§6 is MECHANIZABLE, and Â§2 is that word made exact in the
 -- one form this substrate has for it: `Dec`.  The two directions are
@@ -27,7 +27,7 @@
 --
 -- WHAT IT DOES NOT DO, said plainly because Â§6 asked for something else.
 -- Â§6 licenses "a finite exhaustive check against a fixed, stated corpus
--- snapshot â” provided the checker states the snapshot and does not
+-- snapshot â€” provided the checker states the snapshot and does not
 -- report the result as a property of the corpus".  I did NOT run that
 -- check.  Nothing below is evidence about SEED-05, SEED-09, or the 47
 -- declared-classical files; no corpus was scanned and no snapshot is
@@ -37,7 +37,7 @@
 -- Nor does it say the property IS or IS NOT decidable.  It says where to
 -- look: at `Outside âˆ˜ denotes`, not at the text.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -105,7 +105,7 @@ module _
 --
 -- SEED-83's question therefore stands, relocated.  What would settle it
 -- is a decision procedure for `Outside` on the denotations, or a proof
--- there is none â” and, separately, the finite exhaustive check Â§6
+-- there is none â€” and, separately, the finite exhaustive check Â§6
 -- licenses against a stated snapshot, which is an empirical question
 -- about this corpus and is NOT what Â§2 addresses.
 --

@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����������-����� � the reflection circuit.
+-- प्रतिबिम्ब-भ्रमण — the reflection circuit.
 --
--- THE FOUR-STEP CYCLE  scale�� � reflect � scale � reflect  IS NOT THE
+-- THE FOUR-STEP CYCLE  scale⁻¹ → reflect → scale → reflect  IS NOT THE
 -- IDENTITY.  It is an explicit multiplicative holonomy, it is trivial
 -- exactly on the reflection-fixed pair, and its midpoint defect is a
 -- perfect square.
@@ -21,9 +21,9 @@
 --   §1  THE CYCLE IS A DIAGONAL MULTIPLICATION.  Composing the four
 --       steps on any state gives
 --
---         swap ∘ act (u,v) ∘ swap ∘ act (u��,v��)  ≡  act ( v�u�� , u�v�� )
+--         swap ∘ act (u,v) ∘ swap ∘ act (u⁻¹,v⁻¹)  ≡  act ( v·u⁻¹ , u·v⁻¹ )
 --
---       � the holonomy is the element `hol = (v�u�� , u�v��)`, and it is
+--       — the holonomy is the element `hol = (v·u⁻¹ , u·v⁻¹)`, and it is
 --       computed, not posited.  In the intended reading `u` and `v` are
 --       the two members of a reflected pair, so `hol` is the pair's
 --       displacement doubled; that reading is not needed below.
@@ -31,12 +31,12 @@
 --   §2  IT IS TRIVIAL EXACTLY ON THE FIXED PAIR:  hol ≡ (1,1) ⟺ u ≡ v.
 --       Both directions, in any commutative ring.
 --
---   §3  ITS REFLECTION IS ITS INVERSE:  swap(hol) � hol ≡ (1,1), for
---       every unit pair whatsoever.  So � exactly as in the additive
---       case � that relation is AUTOMATIC and separates nothing; §2 is
+--   §3  ITS REFLECTION IS ITS INVERSE:  swap(hol) · hol ≡ (1,1), for
+--       every unit pair whatsoever.  So — exactly as in the additive
+--       case — that relation is AUTOMATIC and separates nothing; §2 is
 --       the statement with content.
 --
---   §4  AND IT IS MULTIPLICATIVE in the scale: hol(w�w') ≡ hol w � hol w'.
+--   §4  AND IT IS MULTIPLICATIVE in the scale: hol(w·w') ≡ hol w · hol w'.
 --       So the holonomies of the one-parameter scale family form a
 --       homomorphic image of it, and one nontrivial value forces all of
 --       them nontrivial.
@@ -46,8 +46,8 @@
 --         (x² + y²) - 2  ≡  (x - y)² ,
 --
 --       which is the two-sided scale probe minus twice the centre.  It
---       is a square with no hypothesis beyond `x�y ≡ 1`, so it can never
---       be negative in any ordered instance � the probe is midpoint
+--       is a square with no hypothesis beyond `x·y ≡ 1`, so it can never
+--       be negative in any ordered instance — the probe is midpoint
 --       convex, exactly.
 --
 --   §6  AND ITS VANISHING FORCES THE HOLONOMY TO BE AN INVOLUTION:
@@ -56,17 +56,17 @@
 -- WHERE THE ANALYSIS ENTERS, NAMED PRECISELY.  §6 gives `x² ≡ 1`, not
 -- `x ≡ 1`.  Over an ordered field where `x` is a positive exponential
 -- the two coincide, because the only positive square root of one is one.
--- That single step � POSITIVITY OF THE SCALE FACTOR � is the whole of
+-- That single step — POSITIVITY OF THE SCALE FACTOR — is the whole of
 -- what an ordered structure is needed for here, and it is the only thing
 -- in this circuit that this corpus cannot supply.  Everything else, the
 -- cycle, its triviality criterion, its cocycle relation, its
 -- multiplicativity and its convexity, is ring algebra and is proved.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�6 in any commutative ring, for every
--- unit pair.  NOT claimed: that `x ≡ 1r` follows from `x � x ≡ 1r` �
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–6 in any commutative ring, for every
+-- unit pair.  NOT claimed: that `x ≡ 1r` follows from `x · x ≡ 1r` —
 -- see above, and it is false in general (take x ≡ -1r); anything about
 -- exponentials, zeros, or a spectral measure; that the holonomy is
--- bounded, or that a supremum of displacements exists � no order
+-- bounded, or that a supremum of displacements exists — no order
 -- relation occurs in this file; and nothing about summing over a family,
 -- which is `VyarthaCakra` §6 and needs positive weights.
 ------------------------------------------------------------------------
@@ -91,7 +91,7 @@ module _ (R : CommRing ℓ) where
     A = ⟨ R ⟩
 
   ------------------------------------------------------------------
-  -- � � One reflected pair: states, the reflection, the scale action.
+  -- ० · One reflected pair: states, the reflection, the scale action.
   ------------------------------------------------------------------
 
   Pair : Type ℓ
@@ -124,7 +124,7 @@ module _ (R : CommRing ℓ) where
       H = hol u ū v v̄
 
     ----------------------------------------------------------------
-    -- � � THE CYCLE IS EXACTLY MULTIPLICATION BY `hol`.
+    -- १ · THE CYCLE IS EXACTLY MULTIPLICATION BY `hol`.
     ----------------------------------------------------------------
 
     cycle : Pair → Pair
@@ -135,7 +135,7 @@ module _ (R : CommRing ℓ) where
       ΣPathP ( ·Assoc v ū (fst p) , ·Assoc u v̄ (snd p) )
 
     ----------------------------------------------------------------
-    -- � � TRIVIAL EXACTLY ON THE FIXED PAIR.
+    -- २ · TRIVIAL EXACTLY ON THE FIXED PAIR.
     ----------------------------------------------------------------
 
     private
@@ -156,7 +156,7 @@ module _ (R : CommRing ℓ) where
           ∙ ·IdL u )
 
     ----------------------------------------------------------------
-    -- � � ITS REFLECTION IS ITS INVERSE � automatically, for every
+    -- ३ · ITS REFLECTION IS ITS INVERSE — automatically, for every
     --     unit pair.  This relation is the vacuous one.
     ----------------------------------------------------------------
 
@@ -169,7 +169,7 @@ module _ (R : CommRing ℓ) where
         regroup a b c d = solve! R
 
     ----------------------------------------------------------------
-    -- � � THE MIDPOINT DEFECT IS A SQUARE.
+    -- ५ · THE MIDPOINT DEFECT IS A SQUARE.
     ----------------------------------------------------------------
 
     probe : A → A → A
@@ -187,7 +187,7 @@ module _ (R : CommRing ℓ) where
         expand p q = solve! R
 
     ----------------------------------------------------------------
-    -- � � AND ITS VANISHING MAKES THE HOLONOMY AN INVOLUTION.
+    -- ६ · AND ITS VANISHING MAKES THE HOLONOMY AN INVOLUTION.
     ----------------------------------------------------------------
 
     hol-units : fst H · snd H ≡ 1r
@@ -218,7 +218,7 @@ module _ (R : CommRing ℓ) where
             cancel p q = solve! R
 
   ------------------------------------------------------------------
-  -- � � THE HOLONOMY IS MULTIPLICATIVE IN THE SCALE.
+  -- ४ · THE HOLONOMY IS MULTIPLICATIVE IN THE SCALE.
   ------------------------------------------------------------------
 
   holonomy-multiplicative :

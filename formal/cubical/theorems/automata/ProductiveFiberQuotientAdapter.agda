@@ -32,7 +32,7 @@ private
   variable
     Root Jewel : Type₀
 
--- TotalView Root Jewel = Root � Root � Jewel, so set-valued jewels are the
+-- TotalView Root Jewel = Root → Root → Jewel, so set-valued jewels are the
 -- exact hypothesis needed by the set-quotient consumer.  Root need not be a
 -- set because function types into a set are sets.
 isSetTotalView : isSet Jewel → isSet (FIW.TotalView Root Jewel)

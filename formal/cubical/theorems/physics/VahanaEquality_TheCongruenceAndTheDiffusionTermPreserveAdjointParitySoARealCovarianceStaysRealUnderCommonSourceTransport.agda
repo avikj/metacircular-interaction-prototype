@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --safe --no-import-sorts --lossy-unification #-}
 
 ------------------------------------------------------------------------
--- ���-���� � evenness of the carrying.
+-- वहन-समता — evenness of the carrying.
 --
 -- CONJUGATION AND CONGRUENCE PRESERVE ADJOINT PARITY, SO A COVARIANCE
 -- STAYS A COVARIANCE UNDER TRANSPORT FROM A COMMON SOURCE.
 --
--- A covariance is not an arbitrary operator: it is a REAL one, `� Π ≡ Π`.
--- Every statement that says a covariance evolves � a Lyapunov generator
+-- A covariance is not an arbitrary operator: it is a REAL one, `† Π ≡ Π`.
+-- Every statement that says a covariance evolves — a Lyapunov generator
 --
---     L � Π  +  Π � L�        (the drift congruence)
+--     L · Π  +  Π · L†        (the drift congruence)
 --
--- a diffusion term �� D� � Π � D��, a transport Π � �[ R � Π � R� ] �
+-- a diffusion term Σⱼ Dⱼ · Π · Dⱼ†, a transport Π ↦ 𝔼[ R · Π · R† ] —
 -- is only a statement ABOUT COVARIANCES if realness survives it.  That
 -- survival is usually left implicit.  It is an algebraic fact, it needs
 -- no analysis, and it is what this module proves.
@@ -19,36 +19,36 @@
 -- Everything holds in `LeakageCommutator`'s bare ring with involution:
 -- no scalars, no positivity, no trace, no idempotence, no topology.
 --
---   §1  CONJUGATION `conj a x = (a � x) � � a` preserves parity in both
---       rows: real � real, and skew � skew.  `a` is completely free �
+--   §1  CONJUGATION `conj a x = (a · x) · † a` preserves parity in both
+--       rows: real ↦ real, and skew ↦ skew.  `a` is completely free —
 --       no hypothesis on it at all, which is what makes the diffusion
 --       term's directions arbitrary.
 --
---   §2  CONGRUENCE `lyap a x = (a � x) + (x � � a)` likewise, in both
+--   §2  CONGRUENCE `lyap a x = (a · x) + (x · † a)` likewise, in both
 --       rows, again with `a` free.
 --
 --   §3  a finite sum of real elements is real (the base case is
---       `� 0r ≡ 0r`, imported rather than reproved).
+--       `† 0r ≡ 0r`, imported rather than reproved).
 --
 --   §4  and therefore the whole generator
 --
---         x  �  lyap L x  +  �_{j<k} conj (D�) x
+--         x  ↦  lyap L x  +  Σ_{j<k} conj (Dⱼ) x
 --
 --       carries real to real, for every drift `L`, every family of
 --       directions `D`, and every `k`.  Nothing about the family is
 --       assumed: not commutation, not self-adjointness, not a dimension.
 --
 --   §5  the same lemma reads the transport form: a finite average
---       �_{j<k} conj (V�) x of conjugations by a shared lift is real
+--       Σ_{j<k} conj (Vⱼ) x of conjugations by a shared lift is real
 --       whenever `x` is.  An expectation over a common source is, at
---       this level, a sum over its branches � and §3 does not care how
+--       this level, a sum over its branches — and §3 does not care how
 --       many branches there are or what weights they would carry, since
 --       weights are conjugations too.
 --
 --   §6  and the parity table of `Vyatikrama` is completed.  That module
---       displays four cells and proves three; its remaining cell �
---       both elements self-adjoint, ANTIcommutator self-adjoint � is
---       §2's real row at `� a ≡ a`, and is discharged here.
+--       displays four cells and proves three; its remaining cell —
+--       both elements self-adjoint, ANTIcommutator self-adjoint — is
+--       §2's real row at `† a ≡ a`, and is discharged here.
 --
 -- WHAT THE TWO ROWS SAY TOGETHER.  Conjugation and congruence do not
 -- MIX the two parities: they act diagonally on the real/skew split.  So
@@ -58,19 +58,19 @@
 -- statement than "the flow preserves realness", and both rows are needed
 -- to make it.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�6 in any ring with involution, for all
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–6 in any ring with involution, for all
 -- elements satisfying the displayed parity equations, for every family
--- and every finite `k`.  NOT claimed: positivity � `� 0` is not
+-- and every finite `k`.  NOT claimed: positivity — `≥ 0` is not
 -- expressible here and no cone beyond the real/skew split is mentioned;
 -- nothing about the SOLUTION of any evolution equation, only that its
 -- right-hand side lands where its left-hand side lives; nothing about
--- expectations, measures, or probability � §5's "average" is a finite
+-- expectations, measures, or probability — §5's "average" is a finite
 -- fold and is named as one; no trace, no rank, no spectrum; and nothing
 -- about which `Π` arises from which source, which is the modelling step
 -- and is carried out in `SamanaMula` under its own hypothesis.
 ------------------------------------------------------------------------
 
-module VahanaSamata_TheCongruenceAndTheDiffusionTermPreserveAdjointParitySoARealCovarianceStaysRealUnderCommonSourceTransport where
+module VahanaEquality_TheCongruenceAndTheDiffusionTermPreserveAdjointParitySoARealCovarianceStaysRealUnderCommonSourceTransport where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
@@ -97,7 +97,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
     †-0 = VY.†-pres-0' R †_ inv
 
   --------------------------------------------------------------------
-  -- � � The two ways an operator is carried.
+  -- ० · The two ways an operator is carried.
   --------------------------------------------------------------------
 
   conj : A → A → A                        -- a · x · a†
@@ -107,9 +107,9 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
   lyap a x = (a · x) + (x · († a))
 
   --------------------------------------------------------------------
-  -- � � CONJUGATION IS PARITY-DIAGONAL.  No hypothesis on `a`.
+  -- १ · CONJUGATION IS PARITY-DIAGONAL.  No hypothesis on `a`.
   --
-  --     �((a�x)�a�) = a�� � (a�x)�  =  a � (x� � a�) ,
+  --     †((a·x)·a†) = a†† · (a·x)†  =  a · (x† · a†) ,
   --
   -- and then the parity of `x` passes straight through.
   --------------------------------------------------------------------
@@ -143,8 +143,8 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
       - ((a · x) · († a)) ∎
 
   --------------------------------------------------------------------
-  -- � � CONGRUENCE IS PARITY-DIAGONAL.  Again `a` is free: the two
-  --     summands swap places under `�`, and the parity of `x` decides
+  -- २ · CONGRUENCE IS PARITY-DIAGONAL.  Again `a` is free: the two
+  --     summands swap places under `†`, and the parity of `x` decides
   --     whether the swapped sum is the original or its negation.
   --------------------------------------------------------------------
 
@@ -177,7 +177,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
       - ((a · x) + (x · († a))) ∎
 
   --------------------------------------------------------------------
-  -- � � A FINITE SUM OF REAL ELEMENTS IS REAL.
+  -- ३ · A FINITE SUM OF REAL ELEMENTS IS REAL.
   --------------------------------------------------------------------
 
   sum : ℕ → (ℕ → A) → A
@@ -191,9 +191,9 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
     †-+ (f k) (sum k f) ∙ cong₂ _+_ (h k) (sum-real k f h)
 
   --------------------------------------------------------------------
-  -- � � THE GENERATOR CARRIES REAL TO REAL.
+  -- ४ · THE GENERATOR CARRIES REAL TO REAL.
   --
-  --     x � L�x + x�L�  +  �_{j<k} D��x�D��
+  --     x ↦ L·x + x·L†  +  Σ_{j<k} Dⱼ·x·Dⱼ†
   --------------------------------------------------------------------
 
   generator : A → (ℕ → A) → ℕ → A → A
@@ -207,7 +207,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
                 (sum-real k (λ j → conj (D j) x) (λ j → conj-real (D j) x hx))
 
   --------------------------------------------------------------------
-  -- � � AND THE TRANSPORT FORM.  A finite average of conjugations by a
+  -- ५ · AND THE TRANSPORT FORM.  A finite average of conjugations by a
   --     shared lift is real whenever what it carries is real.
   --------------------------------------------------------------------
 
@@ -220,14 +220,14 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
     sum-real k (λ j → conj (V j) x) (λ j → conj-real (V j) x hx)
 
   --------------------------------------------------------------------
-  -- � � THE FOURTH CELL OF `Vyatikrama`'s PARITY TABLE.  That module
+  -- ६ · THE FOURTH CELL OF `Vyatikrama`'s PARITY TABLE.  That module
   --     proves three of the four and displays the fourth:
   --
-  --                        [p,a]�            {p,a}�
+  --                        [p,a]†            {p,a}†
   --       a self-adjoint   -[p,a]  (its §2)   {p,a}   (here)
   --       a skew-adjoint   +[p,a]  (its §1)  -{p,a}  (its §3)
   --
-  --     With `� p ≡ p`, `lyap p a` IS the anticommutator, so §2's real
+  --     With `† p ≡ p`, `lyap p a` IS the anticommutator, so §2's real
   --     row discharges it directly.
   --------------------------------------------------------------------
 

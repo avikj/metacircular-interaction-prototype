@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������� � the breaking, the split.
+-- भङ्गि — the breaking, the split.
 --
 -- WHY THIS FILE EXISTS.
 --
 -- The order-finding step is proved here, and so is the split it feeds.
 --
---   §�  `order�sqrt1`   if a has order dividing 2s modulo N, then a^s is
+--   §२  `order→sqrt1`   if a has order dividing 2s modulo N, then a^s is
 --                       a square root of 1 modulo N.  That is the
 --                       order-finding step, and it is two rewrites: the
 --                       power law and 2s = s + s.
 --
---   §�  `sqrt1-splits`  a square root of 1 that is neither 1 nor −1
---                       modulo N yields a NONTRIVIAL DIVISOR of N � one
+--   §३  `sqrt1-splits`  a square root of 1 that is neither 1 nor −1
+--                       modulo N yields a NONTRIVIAL DIVISOR of N — one
 --                       that divides N and is neither 1 nor N.  The
 --                       proof is Euclid's lemma applied to the two ways
 --                       the greatest common divisor can be trivial, and
 --                       each way is one of the two excluded values.
 --
---   §�  `fifteen-splits`  and it is not vacuous: N = 15, a = 2, whose
+--   §४  `fifteen-splits`  and it is not vacuous: N = 15, a = 2, whose
 --                       order is 4, giving the square root 4 and the
 --                       factor 3, all computed rather than asserted.
 --
@@ -29,7 +29,7 @@
 -- theorems/cost; this file supplies the arithmetic the reduction needs
 -- and nothing about the price of running it.
 --
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 � the repository pin.
+-- CHECKED: Agda 2.8.0, agda/cubical v0.9 — the repository pin.
 -- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -48,7 +48,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import WalkJumps using (coprime-cancel)
 
 ------------------------------------------------------------------------
--- � � the arithmetic the step needs.
+-- १ · the arithmetic the step needs.
 ------------------------------------------------------------------------
 
 pow-+ : (a m n : ℕ) → a ^ (m + n) ≡ (a ^ m) · (a ^ n)
@@ -58,7 +58,7 @@ pow-+ a (suc m) n = cong (a ·_) (pow-+ a m n) ∙ ·-assoc a (a ^ m) (a ^ n)
 double : (s : ℕ) → 2 · s ≡ s + s
 double s = cong (s +_) (·-identityˡ s)
 
--- (y+1)² − 1 = y � (y+2), inside �, with no subtraction on the right.
+-- (y+1)² − 1 = y · (y+2), inside ℕ, with no subtraction on the right.
 sq∸1 : (y : ℕ) → (suc y · suc y) ∸ 1 ≡ y · (y + 2)
 sq∸1 y = cong (_∸ 1) step₁ ∙ step₂
   where
@@ -70,7 +70,7 @@ sq∸1 y = cong (_∸ 1) step₁ ∙ step₂
     step₂ = sym (·-suc y (suc y)) ∙ cong (y ·_) (sym y+2)
 
 ------------------------------------------------------------------------
--- � � THE ORDER-FINDING STEP.
+-- २ · THE ORDER-FINDING STEP.
 --
 -- An exponent that returns a to 1 and is even hands you a square root of
 -- 1: halve it.  Nothing here is about how the exponent was obtained.
@@ -83,7 +83,7 @@ order→sqrt1 N a s h =
   subst (λ z → N ∣ (z ∸ 1)) (cong (a ^_) (double s) ∙ pow-+ a s s) h
 
 ------------------------------------------------------------------------
--- � � A NONTRIVIAL SQUARE ROOT OF ONE SPLITS THE MODULUS.
+-- ३ · A NONTRIVIAL SQUARE ROOT OF ONE SPLITS THE MODULUS.
 --
 -- The greatest common divisor of x−1 with N can be trivial in exactly
 -- two ways, and each of them is one of the two values the hypothesis
@@ -110,7 +110,7 @@ sqrt1-splits N y sq notOne notMinusOne =
   , (λ d≡N → notOne (subst (_∣ y) d≡N (gcdIsGCD y N .fst .fst)))
 
 ------------------------------------------------------------------------
--- � � AND IT IS NOT VACUOUS.
+-- ४ · AND IT IS NOT VACUOUS.
 --
 -- N = 15, a = 2.  Two has order four modulo fifteen, so s = 2 and the
 -- square root is 4; 4 is neither 1 nor −1 modulo 15, and the greatest
@@ -149,16 +149,16 @@ gcd-3-15 : gcd 3 15 ≡ 3
 gcd-3-15 = refl
 
 ------------------------------------------------------------------------
--- � � AND NEITHER EXCLUSION CAN BE DROPPED.
+-- ५ · AND NEITHER EXCLUSION CAN BE DROPPED.
 --
--- §� excludes x ≡ 1 and x ≡ −1.  Both are genuine square roots of one,
--- and at both the construction returns a trivial divisor � so the two
+-- §३ excludes x ≡ 1 and x ≡ −1.  Both are genuine square roots of one,
+-- and at both the construction returns a trivial divisor — so the two
 -- hypotheses mark the boundary rather than a gap in the proof.
 --
 --   at x = 1  (y = 0)   the greatest common divisor is N itself
 --   at x = −1 (y = N−2) it is 1
 --
--- Both are computed below at N = 15, where 14² = 196 = 13�15 + 1, so 14
+-- Both are computed below at N = 15, where 14² = 196 = 13·15 + 1, so 14
 -- really is a square root of one there.
 ------------------------------------------------------------------------
 

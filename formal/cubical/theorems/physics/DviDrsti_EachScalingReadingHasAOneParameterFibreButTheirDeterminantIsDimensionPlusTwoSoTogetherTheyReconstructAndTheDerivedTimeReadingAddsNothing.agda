@@ -1,75 +1,75 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-������� � the two sights.
+-- द्वि-दृष्टि — the two sights.
 --
 -- PEAK NORMALIZATION AND ENERGY PRESERVATION ARE EACH BLIND, WITH AN
 -- EXPLICIT ONE-PARAMETER FIBRE.  TOGETHER THEY RECONSTRUCT, AND THE
 -- FACTOR BY WHICH THEY DO IS `d + 2`.
 --
--- In logarithmic scaling coordinates a = log A, λ = log �, the two
+-- In logarithmic scaling coordinates a = log A, λ = log ℓ, the two
 -- readings a rescaling can be asked for are
 --
---     peak   a λ  =  a + λ                (A � M = 1)
---     energy a λ  =  2a - dλ              (A² �^{-d} = 1) .
+--     peak   a λ  =  a + λ                (A ℓ M = 1)
+--     energy a λ  =  2a - dλ              (A² ℓ^{-d} = 1) .
 --
 -- The determinant of that pair is -(d+2), and this module carries the
--- consequences of that one number without ever dividing by it � every
+-- consequences of that one number without ever dividing by it — every
 -- statement below is an identity in an arbitrary commutative ring, with
 -- integer coefficients as iterated addition imported from `SesaDvaya`.
 --
 --   §1  EACH READING ALONE IS BLIND, and the fibre is exhibited rather
---       than asserted: `peak` is unchanged along (a,λ) � (a+t, λ-t),
---       and `energy` along (a,λ) � (a + d�t, λ + t + t).  These are the
+--       than asserted: `peak` is unchanged along (a,λ) ↦ (a+t, λ-t),
+--       and `energy` along (a,λ) ↦ (a + d·t, λ + t + t).  These are the
 --       kernels of the two rows, written out.
 --
 --   §2  BUT THE PAIR RECONSTRUCTS, up to exactly the determinant:
 --
---         d�(peak) + (energy)          ≡  (d+2)�a ,
---         (peak + peak) - (energy)     ≡  (d+2)�λ .
+--         d·(peak) + (energy)          ≡  (d+2)·a ,
+--         (peak + peak) - (energy)     ≡  (d+2)·λ .
 --
---       This is the adjugate of a 2�2 matrix, written without matrices,
+--       This is the adjugate of a 2×2 matrix, written without matrices,
 --       and it is the left inverse that certifies joint faithfulness.
 --
 --   §3  SO THE TWO READINGS ARE JOINTLY FAITHFUL, up to `d+2` in
---       general, and exactly when `d+2` is cancellable � which is
+--       general, and exactly when `d+2` is cancellable — which is
 --       carried as a hypothesis, since a general ring need not admit it.
 --
 --   §4  AND THE DERIVED TIME READING ADDS NOTHING: the Euler balance
---       �� = A � reads `a + λ`, which IS the peak reading, by `refl`.
+--       τ₀ = A ℓ reads `a + λ`, which IS the peak reading, by `refl`.
 --       A reading in the span of the ones already taken cuts no fibre
---       the earlier ones left � the identity is the sharpest possible
+--       the earlier ones left — the identity is the sharpest possible
 --       form of that, since the third row is not merely dependent but
 --       equal to the first.
 --
--- AND THE SAME `d + 2` GOVERNS THE JET THRESHOLDS, over � where the
+-- AND THE SAME `d + 2` GOVERNS THE JET THRESHOLDS, over ℕ where the
 -- order lives.  An invisible harmonic velocity m-jet and a remote
 -- pressure k-jet have observer thresholds (d-2)/(2m+d) and (d-2)/(d+k);
 -- comparing them at velocity-derivative order q is comparing the
 -- denominators 2q+d and d+q+1:
 --
---   §5  AT q = 1 THEY AGREE: d + 1 + 1 ≡ 2�1 + d, so there is NO gap at
---       the first derivative � the two readings threshold together,
+--   §5  AT q = 1 THEY AGREE: d + 1 + 1 ≡ 2·1 + d, so there is NO gap at
+--       the first derivative — the two readings threshold together,
 --       which is exactly why the first-order picture looks flat.
 --
---   §6  AT q � 2 THE PRESSURE DENOMINATOR IS STRICTLY SMALLER, for every
+--   §6  AT q ≥ 2 THE PRESSURE DENOMINATOR IS STRICTLY SMALLER, for every
 --       d, so the pressure threshold is strictly larger: the gap opens
 --       at the second jet and is dimension-uniform.
 --
 --   §7  and the difference of the two thresholds, cross-multiplied so
---       that no division occurs, is a product with `q - 1` as a factor �
+--       that no division occurs, is a product with `q - 1` as a factor —
 --       which is why §5 is exactly the case where it vanishes.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�4 in any commutative ring, for every
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–4 in any commutative ring, for every
 -- dimension `d` as a natural number and every pair of coordinates.
--- §§5�7 in �.  NOT claimed: that the readings correspond to any
--- particular physical normalization � `peak` and `energy` are two linear
+-- §§5–7 in ℕ.  NOT claimed: that the readings correspond to any
+-- particular physical normalization — `peak` and `energy` are two linear
 -- forms and the module never leaves that; anything about M, about
 -- logarithms, or about the exponents -2/(d+2) and -d/(d+2), which are
 -- what §2 becomes after dividing by d+2 and are therefore NOT stated
 -- here; that `d+2` is cancellable, which §3 carries as a hypothesis;
 -- and nothing about jets, harmonic velocities, or pressure beyond the
--- comparison of two natural numbers � §§5�7 are about denominators, and
+-- comparison of two natural numbers — §§5–7 are about denominators, and
 -- the thresholds they came from are not constructed.
 ------------------------------------------------------------------------
 
@@ -92,7 +92,7 @@ private
     ℓ : Level
 
 ------------------------------------------------------------------------
--- PART ONE � Two linear readings and their determinant.
+-- PART ONE · Two linear readings and their determinant.
 ------------------------------------------------------------------------
 
 module _ (R : CommRing ℓ) (d : ℕ) where
@@ -111,7 +111,7 @@ module _ (R : CommRing ℓ) (d : ℕ) where
   time   a l = a + l
 
   --------------------------------------------------------------------
-  -- � � EACH READING ALONE IS BLIND, along an exhibited direction.
+  -- १ · EACH READING ALONE IS BLIND, along an exhibited direction.
   --------------------------------------------------------------------
 
   peak-blind : (a l t : A) → peak (a + t) (l + (- t)) ≡ peak a l
@@ -130,7 +130,7 @@ module _ (R : CommRing ℓ) (d : ℕ) where
       shape p u v = solve! R
 
   --------------------------------------------------------------------
-  -- � � BUT THE PAIR RECONSTRUCTS, up to exactly the determinant.
+  -- २ · BUT THE PAIR RECONSTRUCTS, up to exactly the determinant.
   --------------------------------------------------------------------
 
   reconstruct-amplitude : (a l : A)
@@ -165,7 +165,7 @@ module _ (R : CommRing ℓ) (d : ℕ) where
       collapse p q s = solve! R
 
   --------------------------------------------------------------------
-  -- � � SO THE PAIR IS JOINTLY FAITHFUL, up to the determinant.
+  -- ३ · SO THE PAIR IS JOINTLY FAITHFUL, up to the determinant.
   --------------------------------------------------------------------
 
   jointly-faithful : (a l a' l' : A)
@@ -190,7 +190,7 @@ module _ (R : CommRing ℓ) (d : ℕ) where
     , cancels l l' (jointly-faithful a l a' l' hp he .snd)
 
   --------------------------------------------------------------------
-  -- � � AND THE DERIVED TIME READING ADDS NOTHING.
+  -- ४ · AND THE DERIVED TIME READING ADDS NOTHING.
   --------------------------------------------------------------------
 
   time-is-the-peak-reading : (a l : A) → time a l ≡ peak a l
@@ -201,7 +201,7 @@ module _ (R : CommRing ℓ) (d : ℕ) where
   time-cuts-no-fibre a l a' l' hp = hp
 
 ------------------------------------------------------------------------
--- PART TWO � The same `d + 2` in the jet thresholds.
+-- PART TWO · The same `d + 2` in the jet thresholds.
 --
 -- Threshold denominators at velocity-derivative order q:
 --   vorticity-first : 2q + d       pressure-first : d + q + 1

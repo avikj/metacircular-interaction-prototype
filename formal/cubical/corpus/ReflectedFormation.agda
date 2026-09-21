@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ReflectedFormation â” the reflection-to-formation bridge, and ONLY it.
+-- ReflectedFormation â€” the reflection-to-formation bridge, and ONLY it.
 --
 -- This is the single genuinely missing piece named in the cold-start
 -- handoff: the adapter that turns an ARBITRARY CHECKED DECLARATION into
@@ -20,7 +20,7 @@
 --     enumerates the whole global environment, which is exactly why the
 --     handoff calls for a (semantics-free) name enumeration; see
 --     CorpusNames.  This module makes no claim to reach "the whole
---     corpus" mechanically â” it forms whatever names it is given.
+--     corpus" mechanically â€” it forms whatever names it is given.
 --   * `normalView`/`reducedView` are OBSERVATIONS in the TC monad, never
 --     destructive ingestion: the raw term is retained; normalisation is
 --     something one may ask for, not something done to the stored datum.
@@ -39,7 +39,7 @@ open import Cubical.Foundations.Prelude using (Type)
 
 ------------------------------------------------------------------------
 -- Â§0  small list plumbing on the reflection List (Agda.Builtin.List),
---     which is NOT Cubical.Data.List â” reflected args use this one.
+--     which is NOT Cubical.Data.List â€” reflected args use this one.
 ------------------------------------------------------------------------
 
 private
@@ -76,7 +76,7 @@ decl n =
   returnTC (mkDecl n ty df)
 
 ------------------------------------------------------------------------
--- Â§2  Structural helpers â” the reference graph, as pure data.
+-- Â§2  Structural helpers â€” the reference graph, as pure data.
 --
 -- These are structural, not semantic: `refsTerm`/`refsDefinition` read
 -- off which names a term/definition mentions.  Storage/provenance, the
@@ -135,7 +135,7 @@ normalView d = normalise (rawView d)
 -- definition kind it elaborated to (a small set-valued read: 0 function,
 -- 1 data, 2 record, 3 constructor, 4 axiom, 5 primitive).  The `_ :`
 -- tests below fix the outputs by refl, so a green here is proof the
--- getType/getDefinition path actually executed and produced data â” on
+-- getType/getDefinition path actually executed and produced data â€” on
 -- the declarations of the very module doing the reflection.
 ------------------------------------------------------------------------
 

@@ -13,12 +13,12 @@
 --   digit, then normalize
 --
 -- There is a real typing obstruction before the square can commute.
--- Endian.`�` acts on raw words, but it does NOT preserve `Canonical`:
+-- Endian.`π` acts on raw words, but it does NOT preserve `Canonical`:
 -- deleting the last digit may expose a zero as the new leading digit.
--- `raw�-does-not-restrict` is the three-digit counterexample.  Therefore
+-- `rawπ-does-not-restrict` is the three-digit counterexample.  Therefore
 -- the correct operation on `CanWord` is
 --
---     normalizeMSD = digitsC ∘ value ∘ �.
+--     normalizeMSD = digitsC ∘ value ∘ π.
 --
 -- For a word whose lower part has exactly n digits, `red-chart-truncates`
 -- proves that reducing its b^(n+1)-chart coordinate is exactly the b^n-chart
@@ -46,7 +46,7 @@ import Endian
 import CarryObstruction
 
 ------------------------------------------------------------------------
--- One adjacent pair of levels b^(n+1) � b^n, with n = 1 + n'.
+-- One adjacent pair of levels b^(n+1) → b^n, with n = 1 + n'.
 ------------------------------------------------------------------------
 
 module Bridge (k n' : ℕ) where
@@ -56,7 +56,7 @@ module Bridge (k n' : ℕ) where
   module C = CarryObstruction.BasePower k n'
 
   ----------------------------------------------------------------------
-  -- The na�ve translation is ill-typed: raw MSD deletion is not closed
+  -- The naïve translation is ill-typed: raw MSD deletion is not closed
   -- on canonical words.
   ----------------------------------------------------------------------
 

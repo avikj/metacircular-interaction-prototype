@@ -7,24 +7,24 @@
 -- theorem in vocabularies that do not cite each other:
 --
 --   notes/LEAN_SMITH_CERTIFICATE_GATE.md
---     an untrusted producer submits A, L, R, d�, d�; the checker
---     accepts exactly when diag(d�,d�) = L A R, |det L| = |det R| = 1,
---     0 � d�, d� � d�.
+--     an untrusted producer submits A, L, R, d₁, d₂; the checker
+--     accepts exactly when diag(d₁,d₂) = L A R, |det L| = |det R| = 1,
+--     0 ≤ dᵢ, d₁ ∣ d₂.
 --
---   collab/messages/workers/�--codex_arithmetic_life--0002.md
+--   collab/messages/workers/…--codex_arithmetic_life--0002.md
 --     for a z ≡ b (mod m), g = gcd(a,m) is the COMPLETE obstruction:
---     g � b � unsolvable, g � b � solvable, and the residue lifts
+--     g ∤ b ⇒ unsolvable, g ∣ b ⇒ solvable, and the residue lifts
 --     exactly g ways.
 --
 -- The gate note never says what its certificate BUYS.  This module
--- says it, in the 1�2 case, and proves it: the Smith invariant of the
--- 1�2 matrix [a m] is the complete obstruction of the kuaka, and the
--- certificate alone � no gcd algorithm, no Euclidean descent, no
--- appeal to a producer � already yields both directions with explicit
+-- says it, in the 1×2 case, and proves it: the Smith invariant of the
+-- 1×2 matrix [a m] is the complete obstruction of the kuṭṭaka, and the
+-- certificate alone — no gcd algorithm, no Euclidean descent, no
+-- appeal to a producer — already yields both directions with explicit
 -- integer witnesses.
 --
---   repToDiv    a z + m k = b  �  d � b        (obstruction is necessary)
---   divToRep    d � b          �  a z + m k = b (obstruction is sufficient,
+--   repToDiv    a z + m k = b  →  d ∣ b        (obstruction is necessary)
+--   divToRep    d ∣ b          →  a z + m k = b (obstruction is sufficient,
 --                                                witnesses z = u p t,
 --                                                          k = u r t)
 --
@@ -36,9 +36,9 @@
 -- Method note.  Every proof below is (i) one polynomial identity
 -- discharged by the commutative-ring solver and (ii) exactly three
 -- hypothesis rewrites: eq1, eq2, and the two unit conditions.  No
--- division, no case split, no ordering of �, no decidability.  The
+-- division, no case split, no ordering of ℤ, no decidability.  The
 -- statement is therefore true over any commutative ring with the same
--- certificate shape; � is not used.
+-- certificate shape; ℤ is not used.
 ------------------------------------------------------------------------
 
 module Swarm.S09SmithKuttaka where
@@ -68,9 +68,9 @@ Rep a m b = Σ[ z ∈ R ] Σ[ k ∈ R ] a · z + m · k ≡ b
 
 ------------------------------------------------------------------------
 -- The certificate.  This is the gate note's `Valid`, specialised to a
--- 1�2 matrix A = [a m]:  L = (u) with u² = 1, R = (p q / r s) with
--- det R = ε, ε² = 1, and L A R = [d 0].  d� = 0 makes the note's
--- conditions 0 � d� and d� � d� automatic, so they carry no content
+-- 1×2 matrix A = [a m]:  L = (u) with u² = 1, R = (p q / r s) with
+-- det R = ε, ε² = 1, and L A R = [d 0].  d₂ = 0 makes the note's
+-- conditions 0 ≤ d₂ and d₁ ∣ d₂ automatic, so they carry no content
 -- here and are omitted; nothing else is dropped.
 ------------------------------------------------------------------------
 
@@ -87,8 +87,8 @@ record Cert (a m : R) : Type where
 ------------------------------------------------------------------------
 -- Ring identities.  Each is a single polynomial identity; the solver
 -- is the whole proof.  keyA and keyM are the two adjugate contractions
---       s�(row 1) − r�(row 2)   and   −q�(row 1) + p�(row 2),
--- which extract a�det R and m�det R from the certificate equations.
+--       s·(row 1) − r·(row 2)   and   −q·(row 1) + p·(row 2),
+-- which extract a·det R and m·det R from the certificate equations.
 ------------------------------------------------------------------------
 
 private
@@ -128,7 +128,7 @@ module _ {a m : R} (C : Cert a m) where
 
   -- The invariant divides both entries.  This is the direction the
   -- gate note's checker does NOT obviously give you: it says d is the
-  -- (1,1) entry of a normal form, and we recover d � a, d � m from
+  -- (1,1) entry of a normal form, and we recover d ∣ a, d ∣ m from
   -- unimodularity alone, without inverting R.
 
   aFromD : (ε · u · s) · d ≡ a
@@ -149,7 +149,7 @@ module _ {a m : R} (C : Cert a m) where
     ∙ cong (λ X → 1r · X · m) εε
     ∙ tidy m
 
-  -- d is itself an a,m-combination: the B�zout direction, read off eq1.
+  -- d is itself an a,m-combination: the Bézout direction, read off eq1.
 
   dFromAM : a · (u · p) + m · (u · r) ≡ d
   dFromAM = dSum a m u p r ∙ eq1
@@ -176,7 +176,7 @@ module _ {a m : R} (C : Cert a m) where
   obstructionComplete b = divToRep b , repToDiv b
 
   -- The false branch of the broadcast: "12 z ≡ 5 (mod 30) stops at
-  -- 6 � 5".  Non-divisibility is a complete refutation, not a heuristic.
+  -- 6 ∤ 5".  Non-divisibility is a complete refutation, not a heuristic.
 
   falseBranch : (b : R) → (d Divides b → ⊥) → Rep a m b → ⊥
   falseBranch b nd rep = nd (repToDiv b rep)
@@ -184,9 +184,9 @@ module _ {a m : R} (C : Cert a m) where
 ------------------------------------------------------------------------
 -- A closed instance, so the certificate type is not vacuously stated.
 --
---   A = [12  30],  L = (1),  R = ( 3   5 )   det R = 3�(-2) - 5�(-1) = -1
+--   A = [12  30],  L = (1),  R = ( 3   5 )   det R = 3·(-2) - 5·(-1) = -1
 --                                 (-1  -2)
---   L A R = [12�3 + 30�(-1),  12�5 + 30�(-2)] = [6, 0].
+--   L A R = [12·3 + 30·(-1),  12·5 + 30·(-2)] = [6, 0].
 --
 -- and the broadcast's own example 12 z ≡ 18 (mod 30) is then SOLVED by
 -- `divToRep`, which returns z = 9, k = -3.  Note 9 ≡ 4 (mod 5): the

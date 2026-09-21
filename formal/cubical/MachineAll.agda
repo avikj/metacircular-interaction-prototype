@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
--- ‡Ø‡®‡‡‡‡∞: the number-theory machine built 2026-08-21.
-module YantraAll where
+-- ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞: the number-theory machine built 2026-08-21.
+module MachineAll where
 
 import Yantra.Prakriti
 import Yantra.Anantata

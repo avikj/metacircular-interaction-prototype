@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡∞‡æ‡Æ‡æ‡®‡‡‡®‡, ‡‡‡∞‡ø‡ï ‚î BELOW 720 THE ODD EXCEPTIONS ARE EXACTLY HIS
+-- ‡§∞‡§æ‡§Æ‡§æ‡§®‡•Å‡§ú‡§®‡•ç, ‡§§‡•ç‡§∞‡§ø‡§ï ‚Äî BELOW 720 THE ODD EXCEPTIONS ARE EXACTLY HIS
 -- SEVENTEEN: A KERNEL WITNESS FOR THE OPEN LIST.
 --
 -- Ramanujan (1916) asserted that the odd numbers NOT of the form
@@ -13,14 +13,14 @@
 -- The full assertion remains unproved without GRH.  This file makes
 -- the kernel a witness for the list below 720, both directions:
 --
---   `represented-or-listed` ‚î every odd n < 720 either sits in the
+--   `represented-or-listed` ‚Äî every odd n < 720 either sits in the
 --     seventeen-entry prefix or carries an explicit representation
 --     (x, y, z) with its equation, produced by the scan itself and
 --     handed out as data.
 --
---   `listed-not-represented` ‚î none of the seventeen is represented
+--   `listed-not-represented` ‚Äî none of the seventeen is represented
 --     by ANY x, y, z, unbounded: square growth confines candidates
---     to x, y ‚â 26 and z ‚â 8 (27¬≤ = 729 and 10¬9¬≤ = 810 overshoot
+--     to x, y ‚â§ 26 and z ‚â§ 8 (27¬≤ = 729 and 10¬∑9¬≤ = 810 overshoot
 --     everything below 720), and the kernel refutes every triple in
 --     the box.
 --

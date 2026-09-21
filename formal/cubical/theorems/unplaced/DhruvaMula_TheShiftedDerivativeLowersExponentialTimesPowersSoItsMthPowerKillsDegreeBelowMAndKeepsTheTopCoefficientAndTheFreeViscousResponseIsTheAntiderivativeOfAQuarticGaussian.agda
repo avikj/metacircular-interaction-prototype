@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- �����-��� � the fixed root.
+-- ध्रुव-मूल — the fixed root.
 --
 -- Two derivation-ring facts that the RH cardinal/theta step and the NS
 -- free viscous response rest on.
 --
---   �  (Handoff §51, [S13]/[S14].)  With  �E = zE  and  �t = 1, the
---      shifted derivative  � = � − z  acts on  E�t�  as a lowering
---      ladder,  �(E t���) = (k+1) E t�,  �(E) = 0.  Hence
---          ⒵�� (E t�) ≡ 0        (E�(polynomials of degree < m) � ker ⒵�)
---          ⒵   (E t�) ≡ k!�E     (the top coefficient survives),
+--   १  (Handoff §51, [S13]/[S14].)  With  ∂E = zE  and  ∂t = 1, the
+--      shifted derivative  ℒ = ∂ − z  acts on  E·tᵏ  as a lowering
+--      ladder,  ℒ(E tᵏ⁺¹) = (k+1) E tᵏ,  ℒ(E) = 0.  Hence
+--          ℒᵏ⁺¹ (E tᵏ) ≡ 0        (E·(polynomials of degree < m) ⊂ ker ℒᵐ)
+--          ℒᵏ   (E tᵏ) ≡ k!·E     (the top coefficient survives),
 --      which is the finite "Ξ-derivative polynomial" content of the
---      two-sided (D − z)�� inverse difference.  The first ladder is the
+--      two-sided (D − z)ᵐ inverse difference.  The first ladder is the
 --      general one already checked in Sopana, instantiated.
 --
---   �  (Handoff §22, [S13].)  The free viscous strain response
---          H5(q) = erf(q) − (2/��) e^{−q²} (q + 2q³/3)
---      is the antiderivative of a quartic Gaussian:  with κ = 2/��,
---          �[3 erf − κ e (3q + 2q³)] ≡ 4 κ q� e
---      given  �erf = κe,  �e = −2qe,  �q = 1,  �κ = 0.
+--   २  (Handoff §22, [S13].)  The free viscous strain response
+--          H5(q) = erf(q) − (2/√π) e^{−q²} (q + 2q³/3)
+--      is the antiderivative of a quartic Gaussian:  with κ = 2/√π,
+--          ∂[3 erf − κ e (3q + 2q³)] ≡ 4 κ q⁴ e
+--      given  ∂erf = κe,  ∂e = −2qe,  ∂q = 1,  ∂κ = 0.
 ------------------------------------------------------------------------
 module DhruvaMula_TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian where
 
@@ -103,7 +103,7 @@ module _ (R : CommRing ℓ) where
               zeroL y = solve! R
 
     ----------------------------------------------------------------
-    -- � � the shifted derivative on  E � t�
+    -- १ · the shifted derivative on  E · tᵏ
     ----------------------------------------------------------------
     module _ (z E t : A) (∂E : ∂ E ≡ z · E) (∂t : ∂ t ≡ 1r) where
 
@@ -124,7 +124,7 @@ module _ (R : CommRing ℓ) where
             shape : (a b x y : A) → (a + b) + (- (z · (x + y))) ≡ (a + (- (z · x))) + (b + (- (z · y)))
             shape a b x y = solve! R
 
-        -- t � �(t�) = k t�
+        -- t · ∂(tᵏ) = k tᵏ
         t∂pow : (k : ℕ) → t · ∂ (pow k) ≡ scale k (pow k)
         t∂pow zero    = cong (t ·_) ∂-one ∙ zeroR t
           where zeroR : (u : A) → u · 0r ≡ 0r
@@ -155,7 +155,7 @@ module _ (R : CommRing ℓ) where
 
       module L = Sopana.Ladder R ℒ ℒ-add G 0r base step
 
-      -- ⒵�� (E t�) = 0 :  E � (degree < m) lies in the kernel of ⒵�
+      -- ℒᵏ⁺¹ (E tᵏ) = 0 :  E · (degree < m) lies in the kernel of ℒᵐ
       kills-below : (k : ℕ) → L.ℒ^ (suc k) (G k) ≡ 0r
       kills-below k = L.ladder k ∙ scale-zero (Sopana.fact k)
 
@@ -172,7 +172,7 @@ module _ (R : CommRing ℓ) where
         ℒ^-scale zero    n x = refl
         ℒ^-scale (suc m) n x = cong (L.ℒ^ m) (ℒ-scale n x) ∙ ℒ^-scale m n (ℒ x)
 
-      -- ⒵ (E t�) = k! E :  the top coefficient survives
+      -- ℒᵏ (E tᵏ) = k! E :  the top coefficient survives
       keeps-top : (k : ℕ) → L.ℒ^ k (G k) ≡ scale (Sopana.fact k) E
       keeps-top zero    = ·IdR E ∙ sym (+IdR E)
       keeps-top (suc k) =
@@ -182,7 +182,7 @@ module _ (R : CommRing ℓ) where
         ∙ sym (scale-· (suc k) (Sopana.fact k) E)
 
     ----------------------------------------------------------------
-    -- � � the free viscous strain response is an antiderivative
+    -- २ · the free viscous strain response is an antiderivative
     ----------------------------------------------------------------
     module _ (κ e erf q : A)
              (∂κ : ∂ κ ≡ 0r) (∂q : ∂ q ≡ 1r)
@@ -190,7 +190,7 @@ module _ (R : CommRing ℓ) where
              (∂erf : ∂ erf ≡ κ · e)
              where
 
-      -- 3�H5 = 3 erf − κ e (3q + 2q³)
+      -- 3·H5 = 3 erf − κ e (3q + 2q³)
       H5₃ : A
       H5₃ = ι 3 · erf + (- (κ · (e · (ι 3 · q + ι 2 · (q · (q · q))))))
 

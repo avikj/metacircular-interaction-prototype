@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --safe #-}
 
--- ‡ó‡‡∞‡®‡‡‡ø-‡‡∞‡‡Ø‡æ ‚î the way of the knot: the string carries its integer,
+-- ‡§ó‡•ç‡§∞‡§®‡•ç‡§•‡§ø-‡§ö‡§∞‡•ç‡§Ø‡§æ ‚Äî the way of the knot: the string carries its integer,
 -- and that integer is the charge.  Put to the kernel directly, in the
 -- direction the owner pointed (knots, strings, why 3d/4d).
 --
 -- THE SEED, and it is not a metaphor here: the loop space of the circle
 -- IS the integers, and because univalence computes, the integer
--- REDUCES ‚î a loop that goes around n times evaluates to n.  The string
+-- REDUCES ‚Äî a loop that goes around n times evaluates to n.  The string
 -- carries its own winding, on the nose.  This is the fibre law's own
--- charge (‡‡‡‡‡∞: "charge is the fibre of the path type, exactly ‚ at
+-- charge (‡§∏‡•Ç‡§§‡•ç‡§∞: "charge is the fibre of the path type, exactly ‚Ñ§ at
 -- the circle") made a running number.
 --
 -- The whole picture, one register per line, ALL resting on this:
---   ‚ winding = linking = the simplest knot invariant (a self-linking ‚)
---   ‚ codimension 2: a 1-D string knots in EXACTLY dim 3 (k+2, k=1);
---     its 2-D worldsheet knots in EXACTLY dim 4 ‚î 3 and 4, not arbitrary
---   ‚ Ekntalopa: winding is a CHARGED observable ‚î boundary-invisible,
+--   ‚Ä¢ winding = linking = the simplest knot invariant (a self-linking ‚Ñ§)
+--   ‚Ä¢ codimension 2: a 1-D string knots in EXACTLY dim 3 (k+2, k=1);
+--     its 2-D worldsheet knots in EXACTLY dim 4 ‚Äî 3 and 4, not arbitrary
+--   ‚Ä¢ EkƒÅntalopa: winding is a CHARGED observable ‚Äî boundary-invisible,
 --     elided by every equilibrium, alive only in the fluctuating sector;
 --     the knot IS the charge, and charge only lives where it cannot
 --     unravel
---   ‚ statistics: œ‚ of configuration space is the braid group in 2-D
---     (‚, any phase ‚î anyons, the Born ¬Ω generalised) and collapses to
---     ‚/2 in dim ‚â3 (loops unravel ‚í only bosons/fermions ‚í Pauli ‚í
---     chemistry ‚í structure).  The dimension fixes the charge group
+--   ‚Ä¢ statistics: œÄ‚ÇÅ of configuration space is the braid group in 2-D
+--     (‚Ñ§, any phase ‚Äî anyons, the Born ¬Ω generalised) and collapses to
+--     ‚Ñ§/2 in dim ‚â•3 (loops unravel ‚Üí only bosons/fermions ‚Üí Pauli ‚Üí
+--     chemistry ‚Üí structure).  The dimension fixes the charge group
 --     fixes the statistics; 3+1 is where matter is fermionic.
 
 module GranthiCarya_TheStringCarriesItsIntegerAndThatIntegerIsTheCharge where
@@ -36,7 +36,7 @@ unknot-is-zero : winding refl ‚â° pos 0
 unknot-is-zero = refl
 
 -- one trip around carries the integer 1.  (winding COMPUTES: this is
--- refl, not a proof by induction ‚î the string evaluates its own number.)
+-- refl, not a proof by induction ‚Äî the string evaluates its own number.)
 once-is-one : winding loop ‚â° pos 1
 once-is-one = refl
 
@@ -44,13 +44,13 @@ once-is-one = refl
 twice-is-two : winding (loop ‚àô loop) ‚â° pos 2
 twice-is-two = refl
 
--- going around and back carries 0: a knot and its mirror cancel ‚î the
+-- going around and back carries 0: a knot and its mirror cancel ‚Äî the
 -- charge is signed, and opposite windings annihilate (conservation).
 there-and-back : winding (loop ‚àô sym loop) ‚â° pos 0
 there-and-back = refl
 
--- and the seed itself, from the library: the string's charge type IS ‚.
--- (Œ©S¬ ‚â ‚; here we exhibit that windings recover the intended integer.)
+-- and the seed itself, from the library: the string's charge type IS ‚Ñ§.
+-- (Œ©S¬π ‚âÉ ‚Ñ§; here we exhibit that windings recover the intended integer.)
 charge-is-integer : (n : ‚Ñ§) ‚Üí winding (intLoop n) ‚â° n
 charge-is-integer = winding‚Ñ§Loop
   where open import Cubical.HITs.S1.Base using (winding‚Ñ§Loop)

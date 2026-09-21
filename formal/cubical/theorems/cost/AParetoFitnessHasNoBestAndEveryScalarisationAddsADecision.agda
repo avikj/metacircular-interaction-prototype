@@ -9,30 +9,30 @@
 --
 -- It is forced, and the two halves are checked here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   â‰¼-refl / â‰¼-trans / â‰¼-antisym
 --       the pointwise (product) order on fitness vectors is a partial
---       order â” antisymmetry included, so it really is an order and not
---       merely a preorder, unlike the threshold âŠ elsewhere in this
+--       order â€” antisymmetry included, so it really is an order and not
+--       merely a preorder, unlike the threshold âŠ‘ elsewhere in this
 --       corpus
 --   incomparable
 --       (2,0) and (0,3) dominate each other in neither direction, so
 --       the order is NOT total and "the best node" does not denote
 --   sumIsMonotone
---       a scalarisation cannot CONTRADICT dominance â¦
+--       a scalarisation cannot CONTRADICT dominance â€¦
 --   scalarisationDecidesAnIncomparablePair
---       â¦ but it does DECIDE the incomparable pair above: sum says
+--       â€¦ but it does DECIDE the incomparable pair above: sum says
 --       2 < 3 where the objectives say nothing
 --   monotoneStrictnessRefutesDominance
 --       and generally, for any monotone f, `f v < f w` refutes `w â‰¼ v`
---       â” which is exactly the strength a scalarisation has and no more
+--       â€” which is exactly the strength a scalarisation has and no more
 --
 -- **So a scalar fitness is a strict extension of the objective order,
 -- and every such extension is a CHOICE that the objectives do not
--- license.**  That is why Â§5.2's two-stage shape â” pick a stratum, then
--- sample inside it â” is not a refinement of "pick the best": there is
+-- license.**  That is why Â§5.2's two-stage shape â€” pick a stratum, then
+-- sample inside it â€” is not a refinement of "pick the best": there is
 -- no best to pick, and any rule that produces one has smuggled in a
 -- preference ordering under the name of a measurement.
 --
@@ -41,18 +41,18 @@
 -- branch that assumes a TOTAL order on accuracy.  Â§5.2 says the fitness
 -- is a vector.  Those two facts sit in one note: the seam is in code
 -- selecting by a scalar, and the design section says the scalar does not
--- exist.  Nothing here claims the released code implements Â§5.2 â” it
--- does not, Â§5.2 is this repository's proposed controller â” only that
+-- exist.  Nothing here claims the released code implements Â§5.2 â€” it
+-- does not, Â§5.2 is this repository's proposed controller â€” only that
 -- the two sections are about the same missing total order.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  The product order, its failure of totality, and the fact
 -- that monotone scalarisations are strict extensions are standard
 -- multi-objective optimisation, going back to Pareto (`Cours
--- d'©conomie politique`, 1896) and Edgeworth before him; the Agda is
+-- d'Ã©conomie politique`, 1896) and Edgeworth before him; the Agda is
 -- attached to Â§5.2, not discovered.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -155,9 +155,9 @@ scalarisationDecidesAnIncomparablePair =
 -- The decision is now proved, in
 -- `TheParetoStratumIsDecidableAndTheFilterIsExact`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so):
 --
---   decâ‰ / decâ‰¼            from `splitâ•-â‰` alone
+--   decâ‰¤ / decâ‰¼            from `splitâ„•-â‰¤` alone
 --   decStrictlyDominates
 --   decIsParetoMaximal     against a finite archive, reusing `decAny`
 --   stratum                the maximal layer, as a COMPUTED list
@@ -166,8 +166,8 @@ scalarisationDecidesAnIncomparablePair =
 --                          and the specified one have the same members
 --
 -- What that adds to Â§5.2 is the half this module could not say.  Here:
--- there is no best to pick.  There: the thing Â§5.2 picks INSTEAD â” "the
--- controller first selects a Pareto stratum S" â” is constructible, and
+-- there is no best to pick.  There: the thing Â§5.2 picks INSTEAD â€” "the
+-- controller first selects a Pareto stratum S" â€” is constructible, and
 -- a controller cannot select what it cannot compute.
 --
 ------------------------------------------------------------------------
@@ -186,20 +186,20 @@ scalarisationDecidesAnIncomparablePair =
 -- the flip was given its own theorem, in
 -- `FlippingACostCoordinateIsSoundButNotFaithful`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
 --
 --   Vec ds / Dom ds   vectors over a DIRECTION list, and MIXED
---                     dominance: `â‰` at a benefit coordinate, `â‰` at a
---                     cost coordinate â” what Â§5.2 actually means
---   âˆ-antitone        from the monus adjunction on the min-plus line
---   flipWith cap      `cap âˆ x` at a cost coordinate
+--                     dominance: `â‰¤` at a benefit coordinate, `â‰¥` at a
+--                     cost coordinate â€” what Â§5.2 actually means
+--   âˆ¸-antitone        from the monus adjunction on the min-plus line
+--   flipWith cap      `cap âˆ¸ x` at a cost coordinate
 --   flipIsSound       mixed dominance IMPLIES ordinary `â‰¼` of the
---                     flipped vectors, so Â§Â§1â“4 above transfer
+--                     flipped vectors, so Â§Â§1â€“4 above transfer
 --   flipIsNotFaithful and the CONVERSE FAILS: at `cap = 3` the costs
 --                     `5` and `7` both flip to `0`
 --
 -- **The sentence quoted above is half true.**  Flipping suffices to
--- APPLY these theorems â” soundness is the only direction that needs.
+-- APPLY these theorems â€” soundness is the only direction that needs.
 -- It does NOT suffice to transport a conclusion back, because the cap
 -- identifies every cost above it.  The honest form is "negate the
 -- costs, and pick a cap above every cost you will ever compare", which

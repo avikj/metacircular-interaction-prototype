@@ -9,7 +9,7 @@
 -- equivariance is a sufficient certificate for balance, not a necessary
 -- process structure.
 --
--- Source = Bool — Bool, quotient = first coordinate.  Both fibres are Bool.
+-- Source = Bool Ã— Bool, quotient = first coordinate.  Both fibres are Bool.
 -- The second coordinate is an attaining environment certificate.  A mark on
 -- the unique point (false,false) prevents any mark-preserving map from lifting
 -- negation on the target.  Erasing the mark restores the evident swap, which

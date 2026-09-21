@@ -3,15 +3,15 @@
 ------------------------------------------------------------------------
 -- RnaDhana_TheStrongerFormIsUpstreamOfTheFlipAndOnlyItsImageWasPublished
 --
--- à‹àà§à¨ Â a-dhana â” Brahmagupta, *Brhmasphuasiddhnta* (628): one
+-- à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana â€” Brahmagupta, *BrÄhmasphuá¹­asiddhÄnta* (628): one
 -- magnitude read as *dhana* (asset) or *a* (debt).  The term is the
 -- audited module's and is kept unchanged; his are the sign rules, and
 -- the caps, filters, strata and the statement below are NOT his and are
 -- not claimed to be.  Ledger and frame file checked before naming.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE AUDIT.  Target: `RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum`,
--- an `IsExactly` â” and the LAST actionable target of the title sweep.
+-- an `IsExactly` â€” and the LAST actionable target of the title sweep.
 --
 -- **THE TITLE IS EARNED IN THE STRONGEST READING AVAILABLE TO IT.**
 -- `theMixedStratumIsTheFlippedStratum` is a LIST equality, not a
@@ -24,32 +24,32 @@
 -- PUBLISHED.**  The proof is one `âˆ™` of two steps, and its FIRST step
 -- is an equality UPSTREAM of the flip:
 --
---     mixedStratum ds vs â‰¡ filterDec (paretoMaximal âˆ˜ flip â¦) â¦ vs
+--     mixedStratum ds vs â‰¡ filterDec (paretoMaximal âˆ˜ flip â€¦) â€¦ vs
 --
--- â” the mixed layer IS the sublist of `vs` that the flipped test
+-- â€” the mixed layer IS the sublist of `vs` that the flipped test
 -- selects.  The published theorem is the image of that under
 -- `map flip`, obtained by `cong` and `filterMapCommutes`.  The stronger
 -- form is inlined as an anonymous argument and discarded.
 --
 -- **AND THE DIFFERENCE IS EXACTLY THE NON-INJECTIVITY THE MODULE
--- NAMES.**  It observes that `flip` is not injective â” that is why
+-- NAMES.**  It observes that `flip` is not injective â€” that is why
 -- element-level reasoning would not give the lists.  The same fact
 -- means an equality DOWNSTREAM of `map flip` does not determine what
 -- stood upstream: from `map flip A â‰¡ map flip B` one cannot conclude
 -- `A â‰¡ B`.  So the published form is genuinely weaker than what the
 -- proof establishes, and the gap is measured by the very map the module
--- warns about.  Â§"SYT â” THE CLAIM, EXACTLY" there lists the iterated
--- stratification, the remainder half and the existence of caps â” not
+-- warns about.  Â§"SYÄ€T â€” THE CLAIM, EXACTLY" there lists the iterated
+-- stratification, the remainder half and the existence of caps â€” not
 -- this.
 --
 -- **THE SWEEP'S PATTERN, ONE LAST TIME AND INVERTED.**  Nine earlier
 -- targets had a title claiming more than the file proved.  This one
 -- proves more than its title claims, and the surplus is thrown away
--- mid-proof.  Both are the same defect â” a mismatch between the
--- strongest available statement and the recorded one â” and only the
+-- mid-proof.  Both are the same defect â€” a mismatch between the
+-- strongest available statement and the recorded one â€” and only the
 -- first is caught by reading titles.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   mixedStratumIsSelectedByTheFlippedTest
@@ -59,10 +59,10 @@
 --       re-derived.
 --   thePublishedFormIsItsImage
 --       and `theMixedStratumIsTheFlippedStratum` follows from it by
---       `cong (map flip)` and `filterMapCommutes` â” so nothing is lost
+--       `cong (map flip)` and `filterMapCommutes` â€” so nothing is lost
 --       and the published statement is visibly the image.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

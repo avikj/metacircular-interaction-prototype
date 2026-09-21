@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ���� � the shadow, and what is actually impossible about it.
+-- छाया — the shadow, and what is actually impossible about it.
 --
 -- SCOPE.  This module supplies the term that `Yantra.Prakasha` asserts in
 -- prose and does not contain, and it corrects the assertion in the same
 -- act.  944676e4's message says, of the collapse from the witnessed
 -- statement to the truncated one: "the collapse ... exists while the
 -- reverse provably does not."  The reverse, read as a bare map
--- � A �� � A, EXISTS whenever A is inhabited, and this file exhibits one.
--- What does not exist is a SECTION � a map that returns the witness it
+-- ∥ A ∥₁ → A, EXISTS whenever A is inhabited, and this file exhibits one.
+-- What does not exist is a SECTION — a map that returns the witness it
 -- was given.  That is proved below, unconditionally, for any A carrying
 -- two distinct elements, and then instantiated at the Goldbach fibre of
 -- 10, which carries 3+7 and 5+5.
 --
--- TERM.  ���� / *chy*, shadow, is `Yantra.Prakasha`'s own coinage in
+-- TERM.  छाया / *chāyā*, shadow, is `Yantra.Prakasha`'s own coinage in
 -- this corpus for the truncated form (`G-chaya`), and is carried here for
 -- continuity.  It is NOT a sourced technical term and nothing in any
 -- tradition is cited for it.  The mathematics is propositional
--- truncation � Voevodsky's h-levels, the substrate this repository names
--- as its one exception � and is claimed for nobody else.
+-- truncation — Voevodsky's h-levels, the substrate this repository names
+-- as its one exception — and is claimed for nobody else.
 --
 ------------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ noSection a b a≢b (s , sec) =
   a≢b (sym (sec a) ∙ cong s (squash₁ ∣ a ∣₁ ∣ b ∣₁) ∙ sec b)
 
 -- ═══ and the map the overclaim confused it with ═══
--- inhabited A: a map � A �� � A exists, trivially.  so "no reverse map"
+-- inhabited A: a map ∥ A ∥₁ → A exists, trivially.  so "no reverse map"
 -- is false, and "no section" is what is true.
 mapFromInhabited : {A : Type₀} → A → (∥ A ∥₁ → A)
 mapFromInhabited a _ = a

@@ -4,7 +4,7 @@
 -- TheSharedPreambleIsACommonPrefixNotACommonSet
 --
 -- `interactive/TraceLibrary.hs` computes the shared helper preamble of its
--- trace records as `foldr1 lcp` â” the longest common PREFIX â” after its
+-- trace records as `foldr1 lcp` â€” the longest common PREFIX â€” after its
 -- own `selfTest` refuted the first version, which had assumed the whole
 -- preamble was shared ("records disagree on the helper preamble: 16 of
 -- 17", the module catching its own author).
@@ -13,7 +13,7 @@
 --
 --   * the common prefix IS the greatest common prefix (Â§2), so `lcp` is
 --     a meet and not a heuristic;
---   * the common SET is not a preamble at all (Â§3) â” two records can
+--   * the common SET is not a preamble at all (Â§3) â€” two records can
 --     share every declaration and have empty common prefix, and any
 --     ordering of the shared set fails to be a prefix of one of them.
 --
@@ -22,23 +22,23 @@
 -- earlier ones, so a set of declarations is not a preamble until it is
 -- ordered, and no single ordering serves two records that disagree.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT I READ FIRST
 --
 -- `interactive/TraceLibrary.hs` end to end, including
 -- `sharedPreamble recs = Right (foldr1 lcp (map (fst . splitAtCandidate
--- . recBody) recs))` and its `selfTest`.  The declaration names below â”
--- `addZero`, `addSuc` â” are that file's own, and `addZero : (a : â•) â’
+-- . recBody) recs))` and its `selfTest`.  The declaration names below â€”
+-- `addZero`, `addSuc` â€” are that file's own, and `addZero : (a : â„•) â†’
 -- (a + zero) â‰¡ a` is the lemma its header says every record carries.
 --
 -- ADJACENT AND NOT MERGED.  `Anuvrtti` proves that a
 -- measure sensitive to inheritance does not descend to the rule SET, and
--- Â§3 here is the same shape one level down â” order carrying what the set
+-- Â§3 here is the same shape one level down â€” order carrying what the set
 -- does not.  They are different statements about different objects and
 -- neither derives the other: Anuvrtti is about a cost failing to factor
 -- through `asSet`; Â§3 is about a common set failing to BE a preamble.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -147,8 +147,8 @@ neitherOrderingServesBoth =
 -- 4.  The reading
 --
 -- Â§2 says `foldr1 lcp` is not a conservative guess: it computes the
--- greatest object of the right kind.  Â§3 says the tempting alternative â”
--- take the declarations both records share â” is not an object of that
+-- greatest object of the right kind.  Â§3 says the tempting alternative â€”
+-- take the declarations both records share â€” is not an object of that
 -- kind at all, because a preamble is a SEQUENCE and a set has to be
 -- ordered before it can be one.  Two records sharing every declaration
 -- can share no prefix.
@@ -156,5 +156,5 @@ neitherOrderingServesBoth =
 -- So the first version of that module was not merely optimistic; the
 -- notion it reached for does not exist.  Its `selfTest` caught the
 -- symptom (16 of 17 disagree) and the choice of `lcp` is the cure, and
--- Â§2â“Â§3 are why the cure is forced.
+-- Â§2â€“Â§3 are why the cure is forced.
 ------------------------------------------------------------------------

@@ -8,14 +8,14 @@
 --
 --   (1) proved that the two coordinatewise compiler composites are equal
 --       as equivalences;
---   (2) drew the two-dimensional family (i , j) â¦ ua e i — ua f j.
+--   (2) drew the two-dimensional family (i , j) â†¦ ua e i Ã— ua f j.
 --
 -- It did not identify the family as a Square whose four boundary paths are
 -- the compiler paths.  That missing identification is the actual receipt.
 --
 -- Closed below without holes:
 --   * the explicit product square;
---   * its boundary-composition equality by Squareâ’compPath;
+--   * its boundary-composition equality by Squareâ†’compPath;
 --   * the equality of compiler composites;
 --   * the compiler-boundary equality via uaCompEquiv;
 --   * a Square whose boundaries are exactly the four compiler paths.

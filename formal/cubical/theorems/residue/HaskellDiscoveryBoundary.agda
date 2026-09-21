@@ -69,14 +69,14 @@ z = var 2
 -- [2026-08-23.  THE MACHINE GOT BETTER AND THIS LIST DID NOT, so the
 --  button reported FAILED for a search that had improved.  It now finds
 --  EIGHT identities where this pin held four; the four added are
---  x ≡ 1�x, x ≡ x+0, x+y ≡ y+x, and suc x + y ≡ suc (y+x) -- i.e. it
+--  x ≡ 1·x, x ≡ x+0, x+y ≡ y+x, and suc x + y ≡ suc (y+x) -- i.e. it
 --  discovered COMMUTATIVITY OF ADDITION and the two unit laws it had been
 --  missing.  The bridge was right to refuse: it certifies only what has a
 --  soundness proof, and those four had none.  They have one now.
 --
 --  Note which are refl and which are not.  The original four were all
---  definitional in cubical � (0+n, suc n+m, 0�n, 1+n all reduce).  THREE
---  OF THE FOUR NEW ONES ARE NOT: n ≡ n+0 and n ≡ 1�n need +-zero, and
+--  definitional in cubical ℕ (0+n, suc n+m, 0·n, 1+n all reduce).  THREE
+--  OF THE FOUR NEW ONES ARE NOT: n ≡ n+0 and n ≡ 1·n need +-zero, and
 --  commutativity needs +-comm.  So this is the first time the bridge
 --  carries a discovery whose soundness is a THEOREM rather than a
 --  computation -- which is the boundary the header calls the next one.]

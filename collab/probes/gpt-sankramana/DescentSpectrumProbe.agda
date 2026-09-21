@@ -11,13 +11,13 @@
 -- descends.  The receipt is the library's checked
 --
 --   truncOfTruncEq n m :
---     âˆAâˆâ™ â‰ âˆ âˆAâˆ_(m+n) âˆâ™
+--     âˆ¥Aâˆ¥â‚™ â‰ƒ âˆ¥ âˆ¥Aâˆ¥_(m+n) âˆ¥â‚™
 --
 -- followed by truncating the descended-family path.  Contrapositively, once
 -- descent fails at level n, it fails at every finer level m+n.  Therefore an
 -- adjacent pair
 --
---   descends at n  —  does not descend at suc n
+--   descends at n  Ã—  does not descend at suc n
 --
 -- is an exact threshold: every level above suc n is excluded automatically.
 -- No sphere, charge, or finite example is used in the generic theorem.

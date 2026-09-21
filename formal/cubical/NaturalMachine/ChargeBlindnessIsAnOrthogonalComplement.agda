@@ -4,26 +4,26 @@
 -- NaturalMachine.ChargeBlindnessIsAnOrthogonalComplement
 --
 -- `ChargeCriterion` decides ONE charge.  This decides all of them, and the
--- answer is linear algebra over ��: blindness is an orthogonal complement,
+-- answer is linear algebra over 𝔽₂: blindness is an orthogonal complement,
 -- and the parity barrier is a RANK.
 --
--- THE SETTING.  A completely multiplicative �1 function is a sign vector
--- s on the primes.  The gauge group is (��)^� acting by s � s ⊞ S.  A
+-- THE SETTING.  A completely multiplicative ±1 function is a sign vector
+-- s on the primes.  The gauge group is (𝔽₂)^𝒫 acting by s ↦ s ⊞ S.  A
 -- query is an integer n, and all a query contributes is its exponent
 -- parity vector ω(n) = (v_p(n) mod 2)_p, since
 --
---     val_s(n) = ⟨ s , ω(n) ⟩          (the �� pairing, xor of ands).
+--     val_s(n) = ⟨ s , ω(n) ⟩          (the 𝔽₂ pairing, xor of ands).
 --
--- `ChargeCriterion` is the case S = � (flip every prime): then
--- ⟨ � , ω(n) ⟩ = Ω(n) mod 2, and its criterion "some query of odd Ω" is
+-- `ChargeCriterion` is the case S = 𝟏 (flip every prime): then
+-- ⟨ 𝟏 , ω(n) ⟩ = Ω(n) mod 2, and its criterion "some query of odd Ω" is
 -- exactly "some query with ⟨ S , ω(n) ⟩ = 1".  This module drops the
--- restriction to S = �.
+-- restriction to S = 𝟏.
 --
 -- WHAT IS PROVED.
 --
 --   bilinear      ⟨ s ⊞ S , v ⟩ ≡ ⟨ s , v ⟩ xor ⟨ S , v ⟩
 --                 the whole content; everything else is a corollary
---   blind         if every query kills S, the two transcripts are EQUAL �
+--   blind         if every query kills S, the two transcripts are EQUAL —
 --                 an equality of lists, so no decision procedure whatever
 --                 separates s from s ⊞ S
 --   sighted       if some query does not kill S, the transcripts differ
@@ -32,19 +32,19 @@
 --
 -- THE READING, which is the point.  `Sees Q S` is "S is not orthogonal to
 -- the span of ω(Q)".  So the set of charges a method is blind to is the
--- ANNIHILATOR of the ��-span of the exponent-parity vectors it reads.
+-- ANNIHILATOR of the 𝔽₂-span of the exponent-parity vectors it reads.
 -- Consequences, immediate and quantitative, where `ChargeCriterion` gave
 -- only a yes/no on one charge:
 --
 --   * a method reading k queries sees at most 2^k charges and is blind to
---     a subspace of codimension � k, however much it computes;
---   * two query sets with the same ��-span are equally blind � the
+--     a subspace of codimension ≤ k, however much it computes;
+--   * two query sets with the same 𝔽₂-span are equally blind — the
 --     transcript's separating power is a function of the span alone, not
 --     of the size, the values, or the arithmetic of the queries;
 --   * to see a specific charge S you must read an n with ⟨S,ω(n)⟩ = 1,
 --     and no amount of post-processing manufactures one.
 --
--- That last is `ParitySeparator`'s no-go recovered as the S = � instance,
+-- That last is `ParitySeparator`'s no-go recovered as the S = 𝟏 instance,
 -- and the first is what it never said: the barrier has a dimension.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.7 with the `notes/CUBICAL_PATCH.md`
@@ -121,7 +121,7 @@ and-xor false false false = refl
 Vec : Type₀
 Vec = List Bool
 
--- � s , v � � the �� pairing.  `val_s(n) = � s , ω(n) �`.
+-- ⟪ s , v ⟫ — the 𝔽₂ pairing.  `val_s(n) = ⟪ s , ω(n) ⟫`.
 ⟪_,_⟫ : Vec → Vec → Bool
 ⟪ [] , _ ⟫ = false
 ⟪ _ ∷ _ , [] ⟫ = false
@@ -161,9 +161,9 @@ transcript s Q = map (λ v → ⟪ s , v ⟫) Q
 -- `ChargeCriterion`'s header gives the reason and it is load-bearing: an
 -- indexed family here matches on constructor injectivity, which Cubical
 -- Agda does not support, so the predicate would not compute under
--- transport � and a criterion that does not compute under transport is
+-- transport — and a criterion that does not compute under transport is
 -- not a test.  The kernel said exactly this on the first pass of this
--- file, in two `-WUnsupportedIndexedMatch` warnings naming `[]` and `_�_`.
+-- file, in two `-WUnsupportedIndexedMatch` warnings naming `[]` and `_∷_`.
 
 -- "some query in Q is not orthogonal to the charge S"
 Sees : List Vec → Vec → Type₀
@@ -176,7 +176,7 @@ Blind [] S = Unit
 Blind (v ∷ Q) S = (⟪ S , v ⟫ ≡ false) × Blind Q S
 
 ------------------------------------------------------------------------
--- 3a.  BLIND � the transcripts are EQUAL.  Not close: equal, as lists.
+-- 3a.  BLIND ⇒ the transcripts are EQUAL.  Not close: equal, as lists.
 --      So no decision procedure of any strength separates s from s ⊞ S.
 ------------------------------------------------------------------------
 
@@ -199,7 +199,7 @@ no-decision :
 no-decision s S Q b decide = cong decide (blind-transcripts-agree s S Q b)
 
 ------------------------------------------------------------------------
--- 3b.  SIGHTED � a query at which the two readings differ, exhibited.
+-- 3b.  SIGHTED ⇒ a query at which the two readings differ, exhibited.
 ------------------------------------------------------------------------
 
 sighted-separates :
@@ -216,7 +216,7 @@ sighted-separates s S (v ∷ Q) (inr t) = sighted-separates s S Q t
 ------------------------------------------------------------------------
 -- 4.  The two together: for EVERY charge, blindness is orthogonality.
 --
---     `ChargeCriterion` is the instance S = �, where � � , ω(n) � is
+--     `ChargeCriterion` is the instance S = 𝟏, where ⟪ 𝟏 , ω(n) ⟫ is
 --     Ω(n) mod 2 and `Sees` reads "contains a query of odd Ω".
 ------------------------------------------------------------------------
 
@@ -231,7 +231,7 @@ criterion s S Q = no-decision s S Q , sighted-separates s S Q
 -- 5.  Non-vacuity: both sides are inhabited, so neither half is empty.
 --
 --     One prime.  The charge that flips it is seen by the query with odd
---     exponent there and not by the query with even exponent � and the
+--     exponent there and not by the query with even exponent — and the
 --     second query is the LARGER number, which is `ChargeCriterion`'s
 --     `probe-2` / `probe-6` observation recovered.
 ------------------------------------------------------------------------

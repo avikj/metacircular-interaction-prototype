@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àµààà-àà â” the crossing's reader profile, complete.
+-- à¤µà¥‡à¤£à¥€-à¤ªà¤¥ â€” the crossing's reader profile, complete.
 --
 -- AnantaVeniMatra proved the two locality families (readers below and
 -- readers above the crossing pair are unmoved).  This file adds the
@@ -12,14 +12,14 @@
 --
 -- each by an induction whose base is refl.  With the two locality
 -- families, every reader of a crossed rope is now a NAMED function of
--- at most one reader of the uncrossed rope â” the crossing's full
+-- at most one reader of the uncrossed rope â€” the crossing's full
 -- causal signature: what it reads (the pair), what it writes (the
 -- pair, swapped, one turned), what it cannot touch (everything else).
 --
 -- This is the continuity data of the coming topology in reader form,
 -- modulus-free: output reader j depends on input reader j (off the
 -- pair), on input reader i+1 (at i), on input reader i (at i+1), and
--- on nothing else â” causality as four checked equations rather than a
+-- on nothing else â€” causality as four checked equations rather than a
 -- bound.
 --
 ------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- ���������� � ������-������ ����-��-�������� ������ �
+-- विरहाङ्क — मात्रा-तन्तुः द्वि-पद-आवृत्तिं पालयति ।
 --
 -- Virahka (c. 600-800 CE, Vttajtisamuccaya) on Pigala's
 -- Chandastra: mtr-sequences of total n number those at n-1 plus
@@ -31,7 +31,7 @@ open import Cubical.Relation.Nullary using (¬_)
 छन्दः []       = 0
 छन्दः (x ∷ xs) = मात्रा x + छन्दः xs
 
--- the fiber's witness is a proposition, because � is a set
+-- the fiber's witness is a proposition, because ℕ is a set
 तन्तु-साक्षी : {n : ℕ} (l : List Bool) → isProp (छन्दः l ≡ n)
 तन्तु-साक्षी _ = isSetℕ _ _
 
@@ -108,7 +108,7 @@ snd आदि-एकम् (false ∷ xs , p) = Empty.rec (snotz (injSuc p))
 तन्तुः-न-एकः : (n : ℕ) → ¬ (isContr (fiber छन्दः (suc (suc n))))
 तन्तुः-न-एकः n c = मात्रा-क्षयः n (sym (c .snd (द्वि-लघु n)) ∙ c .snd (द्वि-गुरु n))
 
--- and the instance is the shadow of the law: ����� IS the general weighted
+-- and the instance is the shadow of the law: छन्दः IS the general weighted
 -- counting map at Pigala's weight, on the nose.
 open import Bharavrtti_TheWeightedCountingMapsFiberDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand
   using (भारः)

@@ -4,13 +4,13 @@
 -- M2Unimodular
 --
 -- The 2x2 toolkit the torsor theorems need, constructively: adjugate
--- identities (adj�H = H�adj = det�I, by solver, entrywise), det
+-- identities (adj·H = H·adj = det·I, by solver, entrywise), det
 -- multiplicativity (Binet at n=2, one polynomial identity), and the
--- nonvanishing of unimodular determinants (ε² = 1 � ε ≠ 0, the only
--- place discreteness of � enters: 1 ≠ 0).
+-- nonvanishing of unimodular determinants (ε² = 1 → ε ≠ 0, the only
+-- place discreteness of ℤ enters: 1 ≠ 0).
 --
--- Next on top of this: freeness and transitivity of the Γ� action on
--- normalization events � the torsor of R0033, over all of �.
+-- Next on top of this: freeness and transitivity of the Γ₀ action on
+-- normalization events — the torsor of R0033, over all of ℤ.
 ------------------------------------------------------------------------
 
 module M2Unimodular where

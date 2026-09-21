@@ -19,11 +19,11 @@
 -- sample from, which is a live failure mode for a scheduler and not a
 -- pedantic gap.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   âŠ-irrefl            nothing strictly dominates itself
---   âŠ-trans             strict domination is transitive â” needed, and
+--   âŠ-irrefl            nothing strictly dominates itself
+--   âŠ-trans             strict domination is transitive â€” needed, and
 --                       NOT implied by `â‰¼-trans` alone: the negative
 --                       half is what does the work
 --   anyMap              a pointwise implication maps over `Any`
@@ -35,17 +35,17 @@
 --
 -- The induction is the whole content: given a maximal `m` of the tail,
 -- DECIDE whether `m` strictly dominates the head.  If not, `m` is still
--- maximal.  If it does, the HEAD is maximal â” because anything beating
+-- maximal.  If it does, the HEAD is maximal â€” because anything beating
 -- the head would beat `m` by transitivity, contradicting `m`'s
--- maximality.  That second branch is why `âŠ-trans` is needed at all.
+-- maximality.  That second branch is why `âŠ-trans` is needed at all.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  "A finite non-empty set has a maximal element for a
 -- decidable partial order" is elementary; it is proved here because the
 -- previous module named its absence, and because the constructive proof
 -- needs the decision that module supplies rather than excluded middle.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -139,7 +139,7 @@ stratumIsNonEmpty x xs with maximalExists x xs
 -- in
 -- `TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so):
 --
 --   filterOut / partitionLength   the filter and its complement
 --                                 PARTITION the list, so their lengths
@@ -159,13 +159,13 @@ stratumIsNonEmpty x xs with maximalExists x xs
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The admission this line has carried since it began â”
+-- line above.  The admission this line has carried since it began â€”
 -- that its theorems are about a vector all of whose coordinates point
 -- the same way, while Â§5.2's objectives include quantities to be
--- MINIMISED â” is DISCHARGED for `maximalExists` in
+-- MINIMISED â€” is DISCHARGED for `maximalExists` in
 -- `RnaDhana_TheParetoMaximumTransfersToCostCoordinates`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
 --
 -- `mixedMaximalExists` proves that a non-empty archive of MIXED
 -- benefit/cost vectors has a member nothing beats, by calling
@@ -174,7 +174,7 @@ stratumIsNonEmpty x xs with maximalExists x xs
 --
 -- Two things that cycle established about the price:
 --
---   * The bound is needed only in the NEGATIVE half â” soundness of the
+--   * The bound is needed only in the NEGATIVE half â€” soundness of the
 --     flip is unconditional, and it is turning "the flipped z does not
 --     beat the flipped u" back into "z does not beat u" that needs a
 --     cap on u.  Since u is a member, an archive-wide bound suffices.
@@ -183,7 +183,7 @@ stratumIsNonEmpty x xs with maximalExists x xs
 --     recovers a member of the ORIGINAL archive whose flip is the
 --     maximal element found.
 --
--- STILL NOT TRANSFERRED: the stratification itself â” `strata`,
+-- STILL NOT TRANSFERRED: the stratification itself â€” `strata`,
 -- `theStratificationCovers`, `theStrataArePairwiseDisjoint`,
 -- `theStrataAreOrdered`.  Those need the peeling run on flipped
 -- vectors and pulled back layer by layer, and that is a separate

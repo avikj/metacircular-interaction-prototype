@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-��� � the invisible gauge.
+-- अदृश्य-मान — the invisible gauge.
 --
 -- THE KERNEL OF THE DISCRETE SECOND DIFFERENCE IS EXACTLY THE AFFINE
--- SEQUENCES.  Not "contains" � exactly, in both directions.  So a
+-- SEQUENCES.  Not "contains" — exactly, in both directions.  So a
 -- potential recovered from its second difference is determined only up
 -- to two constants, and a receiver that is additive and blind to those
 -- two constants descends to the quotient.
 --
 -- The shape is the corpus's recurring one:
 --
---     potential  �  quotient by an invisible gauge  �  observable ,
+--     potential  ⟶  quotient by an invisible gauge  ⟶  observable ,
 --
 -- and this module supplies its arithmetic instance in full.  If `A` is
--- any sequence with prescribed second difference, so is `A + � + βn`,
+-- any sequence with prescribed second difference, so is `A + α + βn`,
 -- and NOTHING ELSE IS.  §3 is the "contains" half and §4 the "nothing
 -- else" half; the second is the one that makes the fibre a torsor rather
 -- than merely a coset of something bigger.
 --
---   §1  Δ (aff a b) ≡ b, constantly � the first difference of an affine
+--   §1  Δ (aff a b) ≡ b, constantly — the first difference of an affine
 --       sequence is its slope, everywhere.
 --
 --   §2  hence Δ² (aff a b) ≡ 0: every affine sequence is in the kernel.
@@ -30,21 +30,21 @@
 --
 --   §4  THE CONVERSE.  If Δ² f ≡ 0 everywhere then
 --
---         f n  ≡  f 0  +  n � (Δ f 0)     for every n,
+--         f n  ≡  f 0  +  n · (Δ f 0)     for every n,
 --
---       where `n � x` is iterated addition, so no division by n and no
+--       where `n · x` is iterated addition, so no division by n and no
 --       characteristic assumption.  The two constants are read off the
 --       sequence itself: its value and its first difference at zero.
 --
 --   §5  THEREFORE THE FIBRE IS A TRANSLATE.  Two sequences with the same
 --       second difference differ by an affine sequence, exactly:
 --
---         Δ² f ≡ Δ² g  �  f n ≡ g n + aff (f 0 - g 0) (Δ f 0 - Δ g 0) n .
+--         Δ² f ≡ Δ² g  ⟹  f n ≡ g n + aff (f 0 - g 0) (Δ f 0 - Δ g 0) n .
 --
 --   §6  AND A BLIND RECEIVER DESCENDS.  Any `Φ` that is additive and
 --       annihilates every affine sequence takes the same value on any
 --       two sequences with the same second difference.  So such a `Φ` is
---       a function of the second difference alone � it never sees which
+--       a function of the second difference alone — it never sees which
 --       representative of the fibre it was handed.
 --
 -- WHAT IS CARRIED IN §6 AND WHY.  That a particular receiver annihilates
@@ -53,14 +53,14 @@
 -- against a compactly supported packet, which is an analytic fact about
 -- that packet and has no carrier in this corpus.  What is proved is that
 -- annihilation is exactly what descent requires, and that the fibre it
--- must be blind to is exactly two-dimensional � neither more nor less.
+-- must be blind to is exactly two-dimensional — neither more nor less.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�6 over any commutative ring, for every
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–6 over any commutative ring, for every
 -- sequence and every pair of constants.  NOT claimed: that any
 -- particular receiver is additive or blind; that a sequence with a
--- prescribed second difference EXISTS � §§4�5 are about the fibre's
+-- prescribed second difference EXISTS — §§4–5 are about the fibre's
 -- shape, never its inhabitation; anything about sums, convergence, or
--- boundary terms � there is no summation in this file, so no summation
+-- boundary terms — there is no summation in this file, so no summation
 -- by parts either; and nothing about primes, zeta, or any specific
 -- second difference: `Δ² f` is whatever it is.
 ------------------------------------------------------------------------
@@ -112,7 +112,7 @@ module _ (R : CommRing ℓ) where
     moveR x y z h = sym (sub-cancel x y) ∙ cong (_+ y) h ∙ +Comm z y
 
   --------------------------------------------------------------------
-  -- � � The difference operator, iterated addition, and the affine
+  -- ० · The difference operator, iterated addition, and the affine
   --     sequences it is blind to.
   --------------------------------------------------------------------
 
@@ -127,14 +127,14 @@ module _ (R : CommRing ℓ) where
   aff a b n = a + scale n b
 
   --------------------------------------------------------------------
-  -- � � The first difference of an affine sequence is its slope.
+  -- १ · The first difference of an affine sequence is its slope.
   --------------------------------------------------------------------
 
   Δ-aff : (a b : A) (n : ℕ) → Δ (aff a b) n ≡ b
   Δ-aff a b n = affShape a b (scale n b)
 
   --------------------------------------------------------------------
-  -- � � So every affine sequence is in the kernel of Δ².
+  -- २ · So every affine sequence is in the kernel of Δ².
   --------------------------------------------------------------------
 
   Δ²-aff : (a b : A) (n : ℕ) → Δ (Δ (aff a b)) n ≡ 0r
@@ -143,7 +143,7 @@ module _ (R : CommRing ℓ) where
     ∙ +InvR b
 
   --------------------------------------------------------------------
-  -- � � Δ is additive, and additive on differences.
+  -- ३ · Δ is additive, and additive on differences.
   --------------------------------------------------------------------
 
   Δ-add : (f g : ℕ → A) (n : ℕ)
@@ -155,7 +155,7 @@ module _ (R : CommRing ℓ) where
   Δ-sub f g n = subShape (f (suc n)) (g (suc n)) (f n) (g n)
 
   --------------------------------------------------------------------
-  -- � � THE CONVERSE: the kernel contains nothing else.
+  -- ४ · THE CONVERSE: the kernel contains nothing else.
   --------------------------------------------------------------------
 
   module _ (f : ℕ → A) (flat : (n : ℕ) → Δ (Δ f) n ≡ 0r) where
@@ -177,7 +177,7 @@ module _ (R : CommRing ℓ) where
         f 0 + (Δ f 0 + scale n (Δ f 0)) ∎
 
   --------------------------------------------------------------------
-  -- � � SO THE FIBRE OF Δ² IS A TRANSLATE BY AN AFFINE SEQUENCE.
+  -- ५ · SO THE FIBRE OF Δ² IS A TRANSLATE BY AN AFFINE SEQUENCE.
   --------------------------------------------------------------------
 
   module _ (f g : ℕ → A) (same : (n : ℕ) → Δ (Δ f) n ≡ Δ (Δ g) n) where
@@ -199,7 +199,7 @@ module _ (R : CommRing ℓ) where
             (kernel-is-affine h h-flat n)
 
   --------------------------------------------------------------------
-  -- � � AND A BLIND ADDITIVE RECEIVER DESCENDS TO THE FIBRE.
+  -- ६ · AND A BLIND ADDITIVE RECEIVER DESCENDS TO THE FIBRE.
   --------------------------------------------------------------------
 
   module _ (Φ : (ℕ → A) → A)

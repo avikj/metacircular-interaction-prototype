@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡ ‚î hull is a 6-to-1-per-tile compression and none of the
+-- ‡§Ö‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§ ‚Äî hull is a 6-to-1-per-tile compression and none of the
 -- four probed pairings inverts it.  The queue's four remaining rows
--- (notes/SADHYA_OPEN_OBLIGATIONS.md: Qs ‚ hull, Xs ‚ hull at rung ‡,
--- and the two ‡ñ‡‡‡°‡ø‡‡Æ‡ self-refuted rows N ‚ hull, SQ ‚ hull) all guess
+-- (notes/SADHYA_OPEN_OBLIGATIONS.md: Qs ‚áÑ hull, Xs ‚áÑ hull at rung ‡•´,
+-- and the two ‡§ñ‡§£‡•ç‡§°‡§ø‡§§‡§Æ‡•ç self-refuted rows N ‚áÑ hull, SQ ‚áÑ hull) all guess
 -- that a scalar census of a configuration determines the configuration,
 -- or that hull's output censuses back to its input.  The host's own
--- theorems price the tile: hullN says N (hull t) = t ¬ 6, hullSQ says
--- SQ (hull t) = t ¬ 8 ‚î the hull of t is five cells per unit, never one,
+-- theorems price the tile: hullN says N (hull t) = t ¬∑ 6, hullSQ says
+-- SQ (hull t) = t ¬∑ 8 ‚Äî the hull of t is five cells per unit, never one,
 -- so every section guess dies at t = 1.  Four verdicts, one witness
 -- each, all by refl + a decidable discriminator.  Road two, four times.
 --
--- (The two ‡ñ‡‡‡°‡ø‡‡Æ‡ rows had already refuted themselves ‚î the probe's
--- induction reached x ‚â° suc‚µ x and x ‚â° suc‚ x, which ‚ï forbids; this
+-- (The two ‡§ñ‡§£‡•ç‡§°‡§ø‡§§‡§Æ‡•ç rows had already refuted themselves ‚Äî the probe's
+-- induction reached x ‚â° suc‚Åµ x and x ‚â° suc‚Å∑ x, which ‚Ñï forbids; this
 -- module states the same fact positively, as the smallest witnesses.)
 --
 -- Toolchain: the PIN (Agda 2.8.0 + cubical v0.9); the host uses the
--- v0.9 ‚ï ring solver.
+-- v0.9 ‚Ñï ring solver.
 ------------------------------------------------------------------------
 
 module Ratri.Anirdharita_IntegerHullMultiplicity_AllFourSections where
@@ -45,7 +45,7 @@ Xs-NOT-DETERMINED p = true‚â¢false (cong isSingleton1 (sym p))
 Qs-NOT-DETERMINED : hull (Qs singleton1) ‚â° singleton1 ‚Üí ‚ä•
 Qs-NOT-DETERMINED p = true‚â¢false (cong isSingleton1 (sym p))
 
--- N ‚àò hull is ¬6, never the identity: N (hull 1) = 6 ‚â 1.
+-- N ‚àò hull is ¬∑6, never the identity: N (hull 1) = 6 ‚â¢ 1.
 N-NOT-DETERMINED : N (hull 1) ‚â° 1 ‚Üí ‚ä•
 N-NOT-DETERMINED p = snotz (cong pred‚Ñï p)
   where
@@ -53,7 +53,7 @@ N-NOT-DETERMINED p = snotz (cong pred‚Ñï p)
   pred‚Ñï 0 = 0
   pred‚Ñï (suc n) = n
 
--- SQ ‚àò hull is ¬8, never the identity: SQ (hull 1) = 8 ‚â 1.
+-- SQ ‚àò hull is ¬∑8, never the identity: SQ (hull 1) = 8 ‚â¢ 1.
 SQ-NOT-DETERMINED : SQ (hull 1) ‚â° 1 ‚Üí ‚ä•
 SQ-NOT-DETERMINED p = snotz (cong pred‚Ñï p)
   where

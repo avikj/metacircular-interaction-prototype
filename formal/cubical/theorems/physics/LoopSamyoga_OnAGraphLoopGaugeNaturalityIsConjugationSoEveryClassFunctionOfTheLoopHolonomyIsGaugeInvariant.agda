@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡µ‡≤‡Ø-‡‡‡Ø‡ã‡ó ‚î the loop's conjugation.
+-- ‡§µ‡§≤‡§Ø-‡§∏‡§Ç‡§Ø‡•ã‡§ó ‚Äî the loop's conjugation.
 --
 -- FiniteGraphHolonomyGroupoid realises a gauge transformation as a
 -- natural transformation between connection functors, GaugeNatural, and
 -- proves loop-gauge-square: on a loop, naturality reads
 --
---     hol B p ¬ g  ‚â°  g ¬ hol A p        (g the gauge at the base point)
+--     hol B p ¬∑ g  ‚â°  g ¬∑ hol A p        (g the gauge at the base point)
 --
--- ‚î "endpoint conjugacy before any trace-like quotient is taken."  This
+-- ‚Äî "endpoint conjugacy before any trace-like quotient is taken."  This
 -- file takes the quotient's worth of consequences without a quotient.
 --
---   ¬ß1  THE SQUARE SOLVED.  Multiply by g‚ª¬ on the right and cancel:
---       hol B p ‚â° g ¬ hol A p ¬ g‚ª¬.  The transformed loop holonomy IS
+--   ¬ß1  THE SQUARE SOLVED.  Multiply by g‚Åª¬π on the right and cancel:
+--       hol B p ‚â° g ¬∑ hol A p ¬∑ g‚Åª¬π.  The transformed loop holonomy IS
 --       the conjugate, as a term, for any connection pair, any natural
 --       transformation, any loop in any graph.
 --
@@ -30,10 +30,10 @@
 -- With AvinimayaSetu the picture closes from both ends: the lattice
 -- chain telescopes to the endpoint law, the graph groupoid's naturality
 -- squares to the same law, and on a closed loop both are conjugation.
--- ‡µ‡≤‡Ø (valaya, ring/loop) is ordinary .
+-- ‡§µ‡§≤‡§Ø (valaya, ring/loop) is ordinary Sanskrit.
 ------------------------------------------------------------------------
 
-module ValayaSamyoga_OnAGraphLoopGaugeNaturalityIsConjugationSoEveryClassFunctionOfTheLoopHolonomyIsGaugeInvariant where
+module LoopSamyoga_OnAGraphLoopGaugeNaturalityIsConjugationSoEveryClassFunctionOfTheLoopHolonomyIsGaugeInvariant where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (‚ü®_‚ü©)
@@ -59,7 +59,7 @@ module _ {G : Group ‚Ñìg} {V : Type ‚Ñìv} where
     open G using (_¬∑_ ; inv)
 
   ----------------------------------------------------------------------
-  -- ‡ß ¬ The square solved: the transformed loop holonomy is the conjugate.
+  -- ‡•ß ¬∑ The square solved: the transformed loop holonomy is the conjugate.
   ----------------------------------------------------------------------
 
   valaya-sa·πÉyoga : {A B : Connection G V} (Œ∑ : GaugeNatural A B)
@@ -80,7 +80,7 @@ module _ {G : Group ‚Ñìg} {V : Type ‚Ñìv} where
   valaya-endpoint = valaya-sa·πÉyoga
 
   ----------------------------------------------------------------------
-  -- ‡® ¬ Every class function of the loop holonomy is gauge invariant.
+  -- ‡•® ¬∑ Every class function of the loop holonomy is gauge invariant.
   ----------------------------------------------------------------------
 
   varga-avikƒÅra : {O : Type ‚Ñìo} (f : ‚ü® G ‚ü© ‚Üí O)
@@ -93,7 +93,7 @@ module _ {G : Group ‚Ñìg} {V : Type ‚Ñìv} where
     ‚àô RHR.closedLoopGaugeInvariant G f invariant (gauge Œ∑ x) (hol A p)
 
 ------------------------------------------------------------------------
--- ‡© ¬ On the fork-and-loop graph, at its own loop, for flatness.
+-- ‡•© ¬∑ On the fork-and-loop graph, at its own loop, for flatness.
 ------------------------------------------------------------------------
 
 module _ (G : Group ‚Ñìg) where

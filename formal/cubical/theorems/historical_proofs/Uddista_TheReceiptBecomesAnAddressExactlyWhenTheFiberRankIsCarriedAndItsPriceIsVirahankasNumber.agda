@@ -1,90 +1,90 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à‰à¦àà¦à¿àààŸà®à â” à®à¾ààà°à¾ àà•à¾à•à¿à¨à ààà¾ à¨ ààµàà¿, à®à¾ààà°à¾ àà àààµ-àà¨ààà-à‰à¦àà¦à¿àààŸàà¨ àà ààà¾ à
+-- à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥ â€” à¤®à¤¾à¤¤à¥à¤°à¤¾ à¤à¤•à¤¾à¤•à¤¿à¤¨à¥€ à¤ªà¤¤à¤¾ à¤¨ à¤­à¤µà¤¤à¤¿, à¤®à¤¾à¤¤à¥à¤°à¤¾ à¤¸à¤¹ à¤¸à¥à¤µ-à¤¤à¤¨à¥à¤¤à¥-à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¥‡à¤¨ à¤¤à¥ à¤ªà¤¤à¤¾ à¥¤
 --
 -- (the pointed-at one: the mtr alone is not an address; the mtr
---  together with the rank inside its own fiber is one â” and the number
+--  together with the rank inside its own fiber is one â€” and the number
 --  of ranks it must carry at weight n is Virahka's number.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- RECOGNITION FIRST, because this repository keeps rebuilding what it
 -- already owns.  Everything this module needs was ALREADY PROVED here
 -- and nothing of it is reproved:
 --
---   `PingalaPrastara.matrameruIso`  Metre (2+n) â‰ Metre (1+n) âŠ Metre n
---   `PingalaPrastara.matraCount`    Metre n â‰ Fin (matra n)
+--   `PingalaPrastara.matrameruIso`  Metre (2+n) â‰ƒ Metre (1+n) âŠ Metre n
+--   `PingalaPrastara.matraCount`    Metre n â‰ƒ Fin (matra n)
 --   `PingalaPrastara.matraRecurrence`  matra (2+n) â‰¡ matra (1+n) + matra n
---   `Chandomudra_â¦`                 fiber matraOf n â‰¡ Metre n, on the nose
---   `Virahanka_â¦`                   the same recurrence as an EQUIVALENCE
+--   `Chandomudra_â€¦`                 fiber matraOf n â‰¡ Metre n, on the nose
+--   `Virahanka_â€¦`                   the same recurrence as an EQUIVALENCE
 --                                   on `List Bool`, with both base cases
 --                                   contractible and the loss theorem
---   `Bharavrtti_â¦`                  the generic weighted-fiber split
---   `Pata_â¦`                        àµàà¨à®à (receipt, unconditional) and
---                                   ààà¾ (address, iff identification)
+--   `Bharavrtti_â€¦`                  the generic weighted-fiber split
+--   `Pata_â€¦`                        à¤µà¤¹à¤¨à¤®à¥ (receipt, unconditional) and
+--                                   à¤ªà¤¤à¤¾ (address, iff identification)
 --
 -- So "the mtr fiber's recurrence, as an equivalence and not a count"
 -- is DONE, twice, and was done before this file was opened.  What was
 -- NOT anywhere is the statement those files jointly set up and none of
--- them makes: the exact repair of `Pata_â¦`'s denial.
+-- them makes: the exact repair of `Pata_â€¦`'s denial.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED HERE.
 --
--- `Pata_â¦` Â§à proves `Â ààà¾ à®à¾ààà°à¾`: the weight is a receipt and cannot
--- be an address, because à²à˜à à²à˜à and à—àà°à both weigh 2.  It stops
+-- `Pata_â€¦` Â§à¥ª proves `Â¬ à¤ªà¤¤à¤¾ à¤®à¤¾à¤¤à¥à¤°à¤¾`: the weight is a receipt and cannot
+-- be an address, because à¤²à¤˜à¥ à¤²à¤˜à¥ and à¤—à¥à¤°à¥ both weigh 2.  It stops
 -- there.  It does not say what is missing, and "what is missing" is a
 -- theorem, not a gloss:
 --
---   Â§à¨  àà®àààŸà¿à    Pattern â‰ Î[ n âˆˆ â• ] Metre n
---                 â” carrying the whole fiber is ALWAYS an address, for
+--   Â§à¥¨  à¤¸à¤®à¤·à¥à¤Ÿà¤¿à¤ƒ    Pattern â‰… Î£[ n âˆˆ â„• ] Metre n
+--                 â€” carrying the whole fiber is ALWAYS an address, for
 --                   the same reason the receipt is always free: the
---                   inner Î is a `singl`.  No hypothesis on matraOf.
+--                   inner Î£ is a `singl`.  No hypothesis on matraOf.
 --
---   Â§à©  à®à¾ààà°à‹à¦àà¦à¿àààŸà®à Pattern â‰ Î[ n âˆˆ â• ] Fin (matra n)
---                 â” and the fiber may be replaced by a NUMBER below
+--   Â§à¥©  à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥ Pattern â‰… Î£[ n âˆˆ â„• ] Fin (matra n)
+--                 â€” and the fiber may be replaced by a NUMBER below
 --                   Virahka's, via `matraCount`, whose proof is
 --                   `matrameruIso`: the two-step recurrence is what
 --                   supplies the in-fiber rank.
 --
---   Â§à  àµà¿àààà¾à°à    fst âˆ˜ fun à®à¾ààà°à‹à¦àà¦à¿àààŸà®à â‰¡ matraOf, definitionally
---                 â” this is why it is a REPAIR of matraOf and not merely
+--   Â§à¥ª  à¤µà¤¿à¤¸à¥à¤¤à¤¾à¤°à¤ƒ    fst âˆ˜ fun à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥ â‰¡ matraOf, definitionally
+--                 â€” this is why it is a REPAIR of matraOf and not merely
 --                   some other bijection.  The address EXTENDS the
 --                   receipt; its first component IS the weight.
 --
---   Â§à  à®à¾ààà°à¾-à¨-ààà¾  Â ààà¾ matraOf, and  à‰à¦àà¦à¿àààŸ-ààà¾  ààà¾ of the extended
+--   Â§à¥«  à¤®à¤¾à¤¤à¥à¤°à¤¾-à¤¨-à¤ªà¤¤à¤¾  Â¬ à¤ªà¤¤à¤¾ matraOf, and  à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿ-à¤ªà¤¤à¤¾  à¤ªà¤¤à¤¾ of the extended
 --                 map.  The two stand side by side over one weight
 --                 function, which is the whole arc: **the second
 --                 component cannot be dropped, and with it nothing else
 --                 is needed.**
 --
---   Â§à  à®àà²àà¯à®à     matra (2+n) â‰¡ matra (1+n) + matra n
---                 â” the price, quoted from `matraRecurrence`.  The
+--   Â§à¥¬  à¤®à¥‚à¤²à¥à¤¯à¤®à¥     matra (2+n) â‰¡ matra (1+n) + matra n
+--                 â€” the price, quoted from `matraRecurrence`.  The
 --                   number of ranks the address must carry at weight n
 --                   is exactly the fiber's cardinality, and that
 --                   cardinality obeys Virahka's rule.  So the
 --                   recurrence is not decoration on this statement; it
 --                   is the size of the field that had to be added.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- SOURCES, and what is NOT claimed of them.
 --
--- Pigala, àà¨àà¦ààà¾ààààà°à®à à®.à¨à©â“à©à (~300 BCE), the ààà°ààà¯à¯à¾à: ààà°àààà¾à° (lay the
--- table out by a rule, do not store it), à¨àààŸ (given a place, recover the
--- pattern), à‰à¦àà¦à¿àààŸ (given the pattern, recover its place, à®.à¨àâ“à¨à), and
--- àà™àà–àà¯à¾ (how many).  à®à¾ààà°à¾ is his weight, à²à˜à = 1 and à—àà°à = 2.  The
--- two-step recurrence on à®à¾ààà°à¾-totals is Virahka, àµàààààà¾àà¿àà®ààààà¯,
--- c. 600â“800 CE (the range is H. D. Velankar's, from his 1962 edition).
--- The array is worked with in àà²à¾à¯àà§, à®ààààààààµà¨à, 10th c. CE.  The
+-- Piá¹…gala, à¤›à¤¨à¥à¤¦à¤ƒà¤¶à¤¾à¤¸à¥à¤¤à¥à¤°à¤®à¥ à¥®.à¥¨à¥©â€“à¥©à¥« (~300 BCE), the à¤ªà¥à¤°à¤¤à¥à¤¯à¤¯à¤¾à¤ƒ: à¤ªà¥à¤°à¤¸à¥à¤¤à¤¾à¤° (lay the
+-- table out by a rule, do not store it), à¤¨à¤·à¥à¤Ÿ (given a place, recover the
+-- pattern), à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿ (given the pattern, recover its place, à¥®.à¥¨à¥ªâ€“à¥¨à¥«), and
+-- à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ (how many).  à¤®à¤¾à¤¤à¥à¤°à¤¾ is his weight, à¤²à¤˜à¥ = 1 and à¤—à¥à¤°à¥ = 2.  The
+-- two-step recurrence on à¤®à¤¾à¤¤à¥à¤°à¤¾-totals is VirahÄá¹…ka, à¤µà¥ƒà¤¤à¥à¤¤à¤œà¤¾à¤¤à¤¿à¤¸à¤®à¥à¤šà¥à¤šà¤¯,
+-- c. 600â€“800 CE (the range is H. D. Velankar's, from his 1962 edition).
+-- The array is worked with in à¤¹à¤²à¤¾à¤¯à¥à¤§, à¤®à¥ƒà¤¤à¤¸à¤à¥à¤œà¥€à¤µà¤¨à¥€, 10th c. CE.  The
 -- recurrence is usually cited under Fibonacci's name (1202); that is a
 -- restatement, named here after the source and as one.
 --
 -- SECOND-HAND, and marked as such.  None of these texts has been opened
 -- by the author of this file.  Every citation above is carried from
 -- `formal/cubical/PingalaPrastara.agda`,
--- `formal/cubical/Chandomudra_â¦agda` and this repository's ledger
+-- `formal/cubical/Chandomudra_â€¦agda` and this repository's ledger
 -- `.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
--- (row `Nasta|Uddista`, àà¨àà¦ààà¾ààààà°à®à à®.à¨àâ“à¨à), and is owed at verse
+-- (row `Nasta|Uddista`, à¤›à¤¨à¥à¤¦à¤ƒà¤¶à¤¾à¤¸à¥à¤¤à¥à¤°à¤®à¥ à¥®.à¥¨à¥ªâ€“à¥¨à¥«), and is owed at verse
 -- level.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
@@ -113,12 +113,12 @@ open import Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentifica
 open Iso
 
 ------------------------------------------------------------------------
--- à§ Â The two things already known, restated in one place so the arc is
+-- à¥§ Â· The two things already known, restated in one place so the arc is
 --     readable without opening four files.  Neither line is new.
 --
---     `matraCount n` is `Metre n â‰ Fin (matra n)`, proved in
---     `PingalaPrastara` BY `matrameruIso` â” Virahka's argument on the
---     first syllable â” with the two contractible base cases.  That is
+--     `matraCount n` is `Metre n â‰… Fin (matra n)`, proved in
+--     `PingalaPrastara` BY `matrameruIso` â€” VirahÄá¹…ka's argument on the
+--     first syllable â€” with the two contractible base cases.  That is
 --     where the recurrence enters this module, and it enters as the
 --     construction of the rank, not as a count quoted afterwards.
 ------------------------------------------------------------------------
@@ -127,14 +127,14 @@ open Iso
 à¤…à¤™à¥à¤•à¤¨à¤®à¥ = matraCount
 
 ------------------------------------------------------------------------
--- à¨ Â àà®àààŸà¿à â” THE TOTAL SPACE.  Carrying the whole fiber is always an
+-- à¥¨ Â· à¤¸à¤®à¤·à¥à¤Ÿà¤¿à¤ƒ â€” THE TOTAL SPACE.  Carrying the whole fiber is always an
 --     address, with no hypothesis whatsoever on matraOf.
 --
---     This is `Pata_â¦` Â§à¨'s àµàà¨à®à one step further along: there the
---     receipt was free because `Î[ b ] (f a â‰¡ b)` is contractible; here
+--     This is `Pata_â€¦` Â§à¥¨'s à¤µà¤¹à¤¨à¤®à¥ one step further along: there the
+--     receipt was free because `Î£[ b ] (f a â‰¡ b)` is contractible; here
 --     the pattern is recovered from the pair because the pair still
 --     CONTAINS it.  Trivial as a construction, and it is the exact
---     hinge â” the defect of a receipt is measured by its fiber and by
+--     hinge â€” the defect of a receipt is measured by its fiber and by
 --     nothing else.
 ------------------------------------------------------------------------
 
@@ -146,9 +146,9 @@ rightInv à¤¸à¤®à¤·à¥à¤Ÿà¤¿à¤ƒ (n , (p , e)) =
   Î£PathP (e , Î£PathP (refl , Î» i j â†’ e (i âˆ§ j)))
 
 ------------------------------------------------------------------------
--- à© Â à®à¾ààà°à‹à¦àà¦à¿àààŸà®à â” the fiber replaced by a rank below Virahka's
+-- à¥© Â· à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥ â€” the fiber replaced by a rank below VirahÄá¹…ka's
 --     number.  A prosodic pattern IS a weight together with a place in
---     the à®à¾ààà°à¾-ààà°àààà¾à° of that weight, and nothing has been lost.
+--     the à¤®à¤¾à¤¤à¥à¤°à¤¾-à¤ªà¥à¤°à¤¸à¥à¤¤à¤¾à¤° of that weight, and nothing has been lost.
 ------------------------------------------------------------------------
 
 à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥ : Iso Pattern (Î£[ n âˆˆ â„• ] Fin (matra n))
@@ -158,12 +158,12 @@ rightInv à¤¸à¤®à¤·à¥à¤Ÿà¤¿à¤ƒ (n , (p , e)) =
 à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿ-à¤¸à¤®à¤¤à¤¾ = isoToEquiv à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥
 
 ------------------------------------------------------------------------
--- à Â àµà¿àààà¾à°à â” and it EXTENDS the receipt: the first component of the
+-- à¥ª Â· à¤µà¤¿à¤¸à¥à¤¤à¤¾à¤°à¤ƒ â€” and it EXTENDS the receipt: the first component of the
 --     address is the mtr itself, definitionally.
 --
---     Without this line Â§à© would only say that Pattern happens to be in
+--     Without this line Â§à¥© would only say that Pattern happens to be in
 --     bijection with a graded family, which is a much weaker and much
---     less interesting statement.  With it, Â§à© says that matraOf's
+--     less interesting statement.  With it, Â§à¥© says that matraOf's
 --     failure is repaired IN PLACE: keep the number you already had,
 --     add the rank, stop.
 ------------------------------------------------------------------------
@@ -178,13 +178,13 @@ rightInv à¤¸à¤®à¤·à¥à¤Ÿà¤¿à¤ƒ (n , (p , e)) =
 à¤®à¤¾à¤¤à¥à¤°à¤¾-à¤ªà¤ à¤¨à¤®à¥ a = cong fst (rightInv à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥ a)
 
 ------------------------------------------------------------------------
--- à Â The arc, both signs over one weight function.
+-- à¥« Â· The arc, both signs over one weight function.
 --
---     `Pata_â¦` proved the denial on its own copy of the alphabet.  It
+--     `Pata_â€¦` proved the denial on its own copy of the alphabet.  It
 --     is proved again here on `PingalaPrastara.Pattern`, three lines,
---     rather than moved across an identification nobody has written â”
---     the same choice `Avrtti_â¦` Â§à© made for `varna` against `length`,
---     and for the same reason.  What IS imported is the PREDICATE ààà¾,
+--     rather than moved across an identification nobody has written â€”
+--     the same choice `Avrtti_â€¦` Â§à¥© made for `varna` against `length`,
+--     and for the same reason.  What IS imported is the PREDICATE à¤ªà¤¤à¤¾,
 --     so the two verdicts are verdicts about the same notion.
 ------------------------------------------------------------------------
 
@@ -216,14 +216,14 @@ rightInv à¤¸à¤®à¤·à¥à¤Ÿà¤¿à¤ƒ (n , (p , e)) =
 à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿ-à¤ªà¤¤à¤¾ = inv à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥ , leftInv à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥ , rightInv à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥
 
 -- and therefore the pattern may be DROPPED and recomputed from the pair,
--- which is what makes ààà°àààà¾à° storage-free in the mtr lane too.
+-- which is what makes à¤ªà¥à¤°à¤¸à¥à¤¤à¤¾à¤° storage-free in the mÄtrÄ lane too.
 à¤ªà¥à¤¨à¤°à¥à¤—à¤£à¤¨à¤¾ : (p : Pattern) â†’ inv à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥ (fun à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥ p) â‰¡ p
 à¤ªà¥à¤¨à¤°à¥à¤—à¤£à¤¨à¤¾ = à¤ªà¥à¤¨à¤°à¥à¤¦à¥à¤§à¤¾à¤°à¤ƒ (fun à¤®à¤¾à¤¤à¥à¤°à¥‹à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤®à¥) à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿ-à¤ªà¤¤à¤¾
 
 ------------------------------------------------------------------------
--- à Â à®àà²àà¯à®à â” THE PRICE.  How many ranks the address must be able to
+-- à¥¬ Â· à¤®à¥‚à¤²à¥à¤¯à¤®à¥ â€” THE PRICE.  How many ranks the address must be able to
 --     carry at weight n: exactly `matra n`, the cardinality of the fiber
---     Â§à¨ showed to be the whole defect.  And that number obeys
+--     Â§à¥¨ showed to be the whole defect.  And that number obeys
 --     Virahka's two-step rule, quoted from `PingalaPrastara`.
 --
 --     So the recurrence is not adjacent to this statement.  It is the
@@ -236,27 +236,27 @@ rightInv à¤¸à¤®à¤·à¥à¤Ÿà¤¿à¤ƒ (n , (p , e)) =
 à¤®à¥‚à¤²à¥à¤¯à¤®à¥ = matraRecurrence
 
 ------------------------------------------------------------------------
--- à Â What is NOT shown, said rather than left to be assumed.
+-- à¥­ Â· What is NOT shown, said rather than left to be assumed.
 --
---     (a) No claim that this address is Pigala's own à®à¾ààà°à¾-ààà°àààà¾à°
+--     (a) No claim that this address is Piá¹…gala's own à¤®à¤¾à¤¤à¥à¤°à¤¾-à¤ªà¥à¤°à¤¸à¥à¤¤à¤¾à¤°
 --         ORDER.  `matraCount` is built from `matrameruIso` and
---         `Fin+â‰FinâŠFin`, so the rank it assigns is determined by that
+--         `Fin+â‰…FinâŠFin`, so the rank it assigns is determined by that
 --         composite and is a rank; whether it agrees row-for-row with
---         the order the tradition lays the à®à¾ààà°à¾-ààà°àààà¾à° out in is a
---         separate question and is not answered here.  Â§à pins only the
+--         the order the tradition lays the à¤®à¤¾à¤¤à¥à¤°à¤¾-à¤ªà¥à¤°à¤¸à¥à¤¤à¤¾à¤° out in is a
+--         separate question and is not answered here.  Â§à¥ª pins only the
 --         FIRST component.
 --
 --     (b) No claim of minimality beyond cardinality.  `matra n` is the
 --         exact size of the fiber, so no smaller rank type can do; that
 --         is `matraCount` and needs nothing further.  It is not a claim
---         about bits, encodings, or the cost of computing à¨àààŸ.
+--         about bits, encodings, or the cost of computing à¤¨à¤·à¥à¤Ÿ.
 --
 --     (c) No closed form for `matra`, and none is wanted here.
 --
---     (d) The general statement â” that Â§à¨ holds for ANY map and so every
---         receipt is completed to an address by its own fiber â” is true
+--     (d) The general statement â€” that Â§à¥¨ holds for ANY map and so every
+--         receipt is completed to an address by its own fiber â€” is true
 --         and is one line, and is deliberately not stated as a lemma
---         here because `Pata_â¦` is where the general law belongs and
+--         here because `Pata_â€¦` is where the general law belongs and
 --         this file is the instance that shows what the general law
 --         costs at Pigala's weight.
 ------------------------------------------------------------------------

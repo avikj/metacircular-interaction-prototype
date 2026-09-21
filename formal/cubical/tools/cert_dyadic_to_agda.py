@@ -17,7 +17,7 @@ def t2(name,M):
     return f"{name}-rows : List (List 𝕊)\n{name}-rows =\n  {rows} ∷ []\n{name} : ℕ → ℕ → 𝕊\n{name} i j = at𝕊 (atL {name}-rows i) j"
 print(f"""{{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}}
 module {mod} where
--- dyadic slack certificate: A� = 2^{c['k']}�A, L� = 2^{c.get('kL','?')}�L, D� = 2^{c.get('kD','?')}�D, c� = 2^{c['k']}�c
+-- dyadic slack certificate: A′ = 2^{c['k']}·A, L′ = 2^{c.get('kL','?')}·L, D′ = 2^{c.get('kD','?')}·D, c′ = 2^{c['k']}·c
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Bool using (true)

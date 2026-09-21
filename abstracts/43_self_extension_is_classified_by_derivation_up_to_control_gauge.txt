@@ -7,8 +7,8 @@ did not already license
 The metacircular kernel / moduli of self-extensions / the fixed point
 of the tower
 
-The kernel closes its loop with one line â” install : Derivation lhs
-rhs â’ NativeOperation â” a theorem of the object becomes a structure
+The kernel closes its loop with one line â€” install : Derivation lhs
+rhs â†’ NativeOperation â€” a theorem of the object becomes a structure
 map of the object.  This night the loop itself is classified.
 
 INSTALLATION LOSES NOTHING.  Extracting the certificate of an
@@ -17,34 +17,34 @@ section of extract, and the round trip on the theorem side is the
 identity.
 
 THE MODULI.  A native operation is exactly a certificate together
-with a control gauge â” a predicate on terms and the soundness witness
+with a control gauge â€” a predicate on terms and the soundness witness
 pinning every satisfying term to the source.  The equivalence
-NativeOperation â‰ Î certificate . gauge is exhibited with both round
+NativeOperation â‰ƒ Î£ certificate . gauge is exhibited with both round
 trips refl.  What an operation is, over and above the theorem it
 installs, has an exact answer: a choice of gauge, nothing else.
 
 THE FACTORIZATION.  Every operation factors through the installation
 of its own certificate: reindexing controls along their soundness
 witness carries its applicability into the canonical one, and both
-apply and apply-checked commute with the reindexing â” each agreement
+apply and apply-checked commute with the reindexing â€” each agreement
 definitional.  Capability grows by one term per theorem is here a
 factorization theorem, not a slogan: no gauge, however written,
 licenses an application the bare certificate does not.
 
 THE LOCUS.  The canonical gauge's applicability space is contractible
-with centre the source â” one theorem, one point to fire at â” and
+with centre the source â€” one theorem, one point to fire at â€” and
 every gauge's applicability space maps into that contractible locus
 over the identity of terms.  However permissive a control looks, it
 is a shadow of the one point.
 
 Read together with the moduli conversation that prompted it: the
-kernel is a fixed point of the spec â’ moduli â’ motive tower, and its
-deformation theory arrives already solved â” the coherence equation of
+kernel is a fixed point of the spec â†’ moduli â†’ motive tower, and its
+deformation theory arrives already solved â€” the coherence equation of
 conservative self-rewrite is control-sound, its solutions are the
 gauges, and the gauge classes of solutions are the derivations
 themselves.
 
-SYT â” THE CLAIM, EXACTLY.  The section, the equivalence, the two
+SYÄ€T â€” THE CLAIM, EXACTLY.  The section, the equivalence, the two
 definitional factorizations, the contractible locus, and the map of
 every applicability space into it, for this kernel's NativeOperation
 as it stands.  NOT claimed: that install is an equivalence onto

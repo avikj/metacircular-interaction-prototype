@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- ���-������, the checked half.  Parent note:
+-- शेष-सञ्चय, the checked half.  Parent note:
 -- notes/SesaSancaya_TheAlignmentNumberIsAMinimalTotalRemainderAndTheKnobGainIsAWrapCount.md
 -- (compound built there; ea is ryabhaa's kept remainder,
--- ryabhaya gaita 32�33, 499 CE � the kuaka's disposal rule; what
+-- Āryabhaṭīya gaṇita 32–33, 499 CE — the kuṭṭaka's disposal rule; what
 -- is claimed of the source is the NAME and the rule "keep the
 -- remainder", not these theorems).
 --
 -- The alignment number of the twin field's position side is
--- A = |S|(1 − 1/P) − (2/P)�min_u T(u), where T(u) is the total
--- remainder �_{c∈S} ((u−c) mod P).  This module makes the two small
+-- A = |S|(1 − 1/P) − (2/P)·min_u T(u), where T(u) is the total
+-- remainder Σ_{c∈S} ((u−c) mod P).  This module makes the two small
 -- rows of the witness table kernel-fact:
 --
 --   z = 5:  P = 30,  S = {0,12,18},   min T = 24,   at u = 18
@@ -17,11 +17,11 @@
 --
 -- each as (i) the witness value by refl, and (ii) minimality by a
 -- boolean exhaustion over the full period that a soundness lemma
--- lifts to a � � the PMNoSection pattern: the typechecker runs the
+-- lifts to a ∀ — the PMNoSection pattern: the typechecker runs the
 -- search, the lemma converts the fold to the quantifier, and no bare
 -- boolean is the deliverable.
 
-module SesaSancaya_TheMinimalTotalRemainderIsWitnessedAndBoundedAtThirtyAndTwoHundredTen where
+module ResidueSancaya_TheMinimalTotalRemainderIsWitnessedAndBoundedAtThirtyAndTwoHundredTen where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_)
@@ -77,7 +77,7 @@ soundRange f (suc n) p u u< with splitBelow u n u<
 
 -- the remainder-behind, decision-free ---------------------------------
 -- gap P c u = (u − c) mod P for u, c < P, computed as a conditional
--- subtraction; both branches name the same residue � the if chooses
+-- subtraction; both branches name the same residue — the if chooses
 -- the representative, it does not destroy a distinction (u and c are
 -- still in hand).
 

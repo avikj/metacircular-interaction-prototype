@@ -80,7 +80,7 @@ module SwapBoundary where
 
   -- Identity state action versus the coordinate-swap response predictor.
   -- In the sign group inverse equals itself, so the relative phase and the
-  -- first character of the response residual are both a�b.
+  -- first character of the response residual are both a·b.
   relativePhase : State → Sign
   relativePhase x = currentPhase x ·s predictedPhase x
 

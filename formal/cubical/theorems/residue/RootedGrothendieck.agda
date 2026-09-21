@@ -4,12 +4,12 @@
 -- RootedGrothendieck
 --
 -- The synchronic rooted whole associated to a dependent family.  This is the
--- type-theoretic Grothendieck total space � r , Jewel r and its projection.
+-- type-theoretic Grothendieck total space Σ r , Jewel r and its projection.
 -- It does not by itself supply a category of roots, a functor, an infinite
 -- reflective net, or the diachronic history of a weaving process.
 --
 -- Repository prior: IndraNet.Rooted (origin commit f5314e9) already checks
--- the �/projection/fiberEquiv core under the pinned Agda 2.6.3 toolchain.
+-- the Σ/projection/fiberEquiv core under the pinned Agda 2.6.3 toolchain.
 -- This Agda 2.8 extension exposes inverse/round-trip equations, totalization
 -- by actual fibers, and two-sided rooted-versus-fiber controls.  It does not
 -- claim the first T25.B formalization.
@@ -35,7 +35,7 @@ RootedTotal : {ℓR ℓJ : Level}
   (Root : Type ℓR) → (Root → Type ℓJ) → Type (ℓ-max ℓR ℓJ)
 RootedTotal Root Jewel = Σ Root Jewel
 
--- Delta 25's notation: U� = � (x : U) , View x.
+-- Delta 25's notation: U₂ = Σ (x : U) , View x.
 U₂ : {ℓU ℓV : Level}
   (U : Type ℓU) → (U → Type ℓV) → Type (ℓ-max ℓU ℓV)
 U₂ = RootedTotal

@@ -1,26 +1,26 @@
 {-# OPTIONS --cubical --safe #-}
 ------------------------------------------------------------------------------
--- Gamma0Index : the index of the divisor-flag congruence group in GL�(�)
+-- Gamma0Index : the index of the divisor-flag congruence group in GLᵣ(ℤ)
 --
 -- Author: genius-06 (RAMANUJAN draw, 2026-08-14).
 --
 -- stabilizer
 --
---     Γ�(D) = GL�(�) ∩ D�GL�(�)�D�� = { A : (d�/d�) � A�� for i > j }
+--     Γ₀(D) = GLᵣ(ℤ) ∩ D·GLᵣ(ℤ)·D⁻¹ = { A : (dᵢ/dⱼ) ∣ Aᵢⱼ for i > j }
 --
--- for a divisor chain D = diag(d� � d� � � � d�), and R0037
+-- for a divisor chain D = diag(d₁ ∣ d₂ ∣ … ∣ dᵣ), and R0037
 -- computed its INDEX.  The note proves
 --
---     [GL�(�) : Γ�(D)]  =  �_p  p^(G_p − E_p) � [ r ; r�,�,r_k ]_p ,
+--     [GLᵣ(ℤ) : Γ₀(D)]  =  ∏_p  p^(G_p − E_p) · [ r ; r₁,…,r_k ]_p ,
 --
---     G_p = �_{i>j} (e� − e�),  e� = v_p(d�),
---     E_p = �_{u<t} r_u r_t,    r�,�,r_k = multiplicities of the distinct e�,
---     [ r ; r�,�,r_k ]_p = �_{s=1}^{r}(p^s−1) / �_t �_{s=1}^{r_t}(p^s−1)
---                          (the Gaussian multinomial: |GL�(�_p)/P| ).
+--     G_p = Σ_{i>j} (eᵢ − eⱼ),  eᵢ = v_p(dᵢ),
+--     E_p = Σ_{u<t} r_u r_t,    r₁,…,r_k = multiplicities of the distinct eᵢ,
+--     [ r ; r₁,…,r_k ]_p = ∏_{s=1}^{r}(p^s−1) / ∏_t ∏_{s=1}^{r_t}(p^s−1)
+--                          (the Gaussian multinomial: |GLᵣ(𝔽_p)/P| ).
 --
 -- This module VERIFIES that formula exhaustively, in the kernel, by counting
--- every matrix over �/n for r = 2, 3, 4 in the cases listed in §4.  Every test
--- is `refl`: the counters below really enumerate n^(r²) matrices (up to 4� =
+-- every matrix over ℤ/n for r = 2, 3, 4 in the cases listed in §4.  Every test
+-- is `refl`: the counters below really enumerate n^(r²) matrices (up to 4⁹ =
 -- 262144) and the numbers are computed, not asserted.
 --
 -- Nothing is postulated and nothing is floating point.  The verification is
@@ -35,7 +35,7 @@ open import Agda.Builtin.Nat using (mod-helper; div-helper; _==_)
 open import Agda.Builtin.Bool using (Bool; true; false)
 
 ------------------------------------------------------------------------------
--- 1.  Exact machine arithmetic on � (builtin, so the kernel evaluates fast)
+-- 1.  Exact machine arithmetic on ℕ (builtin, so the kernel evaluates fast)
 ------------------------------------------------------------------------------
 
 ite : {A : Type₀} → Bool → A → A → A
@@ -56,7 +56,7 @@ _//_ : ℕ → ℕ → ℕ
 n // zero  = 0
 n // suc m = div-helper 0 m n m
 
--- `d �? x` : does d divide x?   (only used with d � 1)
+-- `d ∣? x` : does d divide x?   (only used with d ≥ 1)
 _∣?_ : ℕ → ℕ → Bool
 d ∣? x = (x % d) == 0
 
@@ -69,7 +69,7 @@ gcdF (suc k) a (suc b) = gcdF k (suc b) (a % suc b)
 gcd! : ℕ → ℕ → ℕ
 gcd! a b = gcdF (suc (a + b)) a b
 
--- x is a unit of �/n  ⟺  gcd(x,n) = 1
+-- x is a unit of ℤ/n  ⟺  gcd(x,n) = 1
 isU : ℕ → ℕ → Bool
 isU n x = gcd! x n == 1
 
@@ -77,7 +77,7 @@ pow : ℕ → ℕ → ℕ
 pow p zero    = 1
 pow p (suc k) = p · pow p k
 
--- �_{k<m} f k
+-- Σ_{k<m} f k
 Σ< : ℕ → (ℕ → ℕ) → ℕ
 Σ< zero    f = 0
 Σ< (suc k) f = f k + Σ< k f
@@ -85,7 +85,7 @@ pow p (suc k) = p · pow p k
 ------------------------------------------------------------------------------
 -- 2.  The predicted index, as a function of p and the valuation vector
 --
--- `exps` is (v_p d� , � , v_p d�), sorted ascending (the divisor chain).
+-- `exps` is (v_p d₁ , … , v_p dᵣ), sorted ascending (the divisor chain).
 ------------------------------------------------------------------------------
 
 lenL : List ℕ → ℕ
@@ -96,12 +96,12 @@ sumL : List ℕ → ℕ
 sumL []       = 0
 sumL (x ∷ xs) = x + sumL xs
 
--- �_{y ∈ ys} (y � x)   (used with ys the tail of a sorted list, so y � x)
+-- Σ_{y ∈ ys} (y ∸ x)   (used with ys the tail of a sorted list, so y ≥ x)
 minusAll : ℕ → List ℕ → ℕ
 minusAll x []       = 0
 minusAll x (y ∷ ys) = (y ∸ x) + minusAll x ys
 
--- G = �_{i>j} (e� − e�)
+-- G = Σ_{i>j} (eᵢ − eⱼ)
 pairGaps : List ℕ → ℕ
 pairGaps []       = 0
 pairGaps (x ∷ xs) = minusAll x xs + pairGaps xs
@@ -115,12 +115,12 @@ runLens : List ℕ → List ℕ
 runLens []       = []
 runLens (x ∷ xs) = runsGo x 1 xs
 
--- E = �_{u<t} r_u r_t
+-- E = Σ_{u<t} r_u r_t
 crossE : List ℕ → ℕ
 crossE []       = 0
 crossE (x ∷ xs) = x · sumL xs + crossE xs
 
--- �_{s=1}^{k} (p^s − 1)
+-- ∏_{s=1}^{k} (p^s − 1)
 qfac : ℕ → ℕ → ℕ
 qfac p zero    = 1
 qfac p (suc k) = (pow p (suc k) ∸ 1) · qfac p k
@@ -129,17 +129,17 @@ qfacProd : ℕ → List ℕ → ℕ
 qfacProd p []       = 1
 qfacProd p (r ∷ rs) = qfac p r · qfacProd p rs
 
--- the local index  p^(G−E) � [ r ; r�,�,r_k ]_p , written as one exact division
+-- the local index  p^(G−E) · [ r ; r₁,…,r_k ]_p , written as one exact division
 idxLocal : ℕ → List ℕ → ℕ
 idxLocal p exps =
   (pow p (pairGaps exps) · qfac p (lenL exps))
-    // (pow p (crossE (runLens exps)) � qfacProd p (runLens exps))
+    // (pow p (crossE (runLens exps)) · qfacProd p (runLens exps))
 
 ------------------------------------------------------------------------------
--- 3.  Exhaustive counters over �/n
+-- 3.  Exhaustive counters over ℤ/n
 --
--- `cnt2 n m��`      counts A ∈ GL�(�/n) with m�� � A��.
--- `cnt3 n m�� m�� m��` and `cnt4 �` likewise.  All masks 1 gives |GL�(�/n)|.
+-- `cnt2 n m₂₁`      counts A ∈ GL₂(ℤ/n) with m₂₁ ∣ A₂₁.
+-- `cnt3 n m₂₁ m₃₁ m₃₂` and `cnt4 …` likewise.  All masks 1 gives |GLᵣ(ℤ/n)|.
 --
 -- Determinants are computed mod n with a padding constant large enough that
 -- the truncated subtraction never truncates.
@@ -166,7 +166,7 @@ cnt3 n m21 m31 m32 =
     ind (isU n (det3 n a b c d e f g h i))
       · (ind (m21 ∣? d) · (ind (m31 ∣? g) · ind (m32 ∣? h)))
 
--- 4�4 determinant by cofactor expansion along the first row, all mod n.
+-- 4×4 determinant by cofactor expansion along the first row, all mod n.
 det4 : ℕ → ℕ → ℕ → ℕ → ℕ
          → ℕ → ℕ → ℕ → ℕ
          → ℕ → ℕ → ℕ → ℕ
@@ -192,16 +192,16 @@ cnt4 n m21 m31 m41 m32 m42 m43 =
 ------------------------------------------------------------------------------
 -- 4.  Exhaustive verification
 --
--- For each divisor chain D = diag(d�,�,d�), with n = d�/d� the level, the test
+-- For each divisor chain D = diag(d₁,…,dᵣ), with n = dᵣ/d₁ the level, the test
 --
---     cnt n 1�1  ≡  idxLocal p exps  �  cnt n (ratios)
+--     cnt n 1…1  ≡  idxLocal p exps  ·  cnt n (ratios)
 --
--- says exactly:  |GL�(�/n)| = [GL�(�):Γ�(D)] � |image of Γ�(D) in GL�(�/n)|,
+-- says exactly:  |GLᵣ(ℤ/n)| = [GLᵣ(ℤ):Γ₀(D)] · |image of Γ₀(D) in GLᵣ(ℤ/n)|,
 -- with the index supplied by the closed formula and nothing else.
 ------------------------------------------------------------------------------
 
 -- 4a.  r = 2, D = diag(1, p^m).  Index = ψ(p^m) = p^(m−1)(p+1).
---      (This is the classical [SL�(�):Γ�(N)] specialisation.)
+--      (This is the classical [SL₂(ℤ):Γ₀(N)] specialisation.)
 
 r2p2m1 : cnt2 2 1 ≡ idxLocal 2 (0 ∷ 1 ∷ []) · cnt2 2 2
 r2p2m1 = refl
@@ -237,8 +237,8 @@ r2p11m1 = refl
 ψ9 : idxLocal 3 (0 ∷ 2 ∷ []) ≡ 12
 ψ9 = refl
 
--- 4b.  Multiplicativity over coprime levels � the Chinese-remainder half of
---      the theorem, verified rather than assumed.  12 = 4�3, 10 = 2�5.
+-- 4b.  Multiplicativity over coprime levels — the Chinese-remainder half of
+--      the theorem, verified rather than assumed.  12 = 4·3, 10 = 2·5.
 
 crtGL12 : cnt2 12 1 ≡ cnt2 4 1 · cnt2 3 1
 crtGL12 = refl
@@ -252,7 +252,7 @@ crtGL10 = refl
 crtΓ10 : cnt2 10 10 ≡ cnt2 2 2 · cnt2 5 5
 crtΓ10 = refl
 
--- hence the composite index really is ψ(12) = 24 = 6�4 and ψ(10) = 18 = 3�6
+-- hence the composite index really is ψ(12) = 24 = 6·4 and ψ(10) = 18 = 3·6
 idx12 : cnt2 12 1 ≡ 24 · cnt2 12 12
 idx12 = refl
 
@@ -260,14 +260,14 @@ idx10 : cnt2 10 1 ≡ 18 · cnt2 10 10
 idx10 = refl
 
 -- 4c.  r = 3.  Repeated valuations (blocks of size 2) and, at level 4, three
---      distinct valuations � the first case where the p-power prefactor
+--      distinct valuations — the first case where the p-power prefactor
 --      p^(G−E) is not forced to 1 by the Gaussian multinomial alone.
 
--- D = diag(1,1,2):  exps (0,0,1),  index [3;2,1]� = 7
+-- D = diag(1,1,2):  exps (0,0,1),  index [3;2,1]₂ = 7
 r3a : cnt3 2 1 1 1 ≡ idxLocal 2 (0 ∷ 0 ∷ 1 ∷ []) · cnt3 2 1 2 2
 r3a = refl
 
--- D = diag(1,2,2):  exps (0,1,1),  index [3;1,2]� = 7
+-- D = diag(1,2,2):  exps (0,1,1),  index [3;1,2]₂ = 7
 r3b : cnt3 2 1 1 1 ≡ idxLocal 2 (0 ∷ 1 ∷ 1 ∷ []) · cnt3 2 2 2 1
 r3b = refl
 
@@ -278,15 +278,15 @@ r3c = refl
 r3d : cnt3 3 1 1 1 ≡ idxLocal 3 (0 ∷ 1 ∷ 1 ∷ []) · cnt3 3 3 3 1
 r3d = refl
 
--- D = diag(1,2,4):  exps (0,1,2), G = 4, E = 3, index = 2�[3;1,1,1]� = 2�21 = 42
+-- D = diag(1,2,4):  exps (0,1,2), G = 4, E = 3, index = 2·[3;1,1,1]₂ = 2·21 = 42
 r3e : cnt3 4 1 1 1 ≡ idxLocal 2 (0 ∷ 1 ∷ 2 ∷ []) · cnt3 4 2 4 2
 r3e = refl
 
--- D = diag(1,1,4):  exps (0,0,2), G = 4, E = 2, index = 4�[3;2,1]� = 4�7 = 28
+-- D = diag(1,1,4):  exps (0,0,2), G = 4, E = 2, index = 4·[3;2,1]₂ = 4·7 = 28
 r3f : cnt3 4 1 1 1 ≡ idxLocal 2 (0 ∷ 0 ∷ 2 ∷ []) · cnt3 4 1 4 4
 r3f = refl
 
--- D = diag(1,4,4):  exps (0,2,2), G = 4, E = 2, index = 4�[3;1,2]� = 4�7 = 28
+-- D = diag(1,4,4):  exps (0,2,2), G = 4, E = 2, index = 4·[3;1,2]₂ = 4·7 = 28
 r3g : cnt3 4 1 1 1 ≡ idxLocal 2 (0 ∷ 2 ∷ 2 ∷ []) · cnt3 4 4 4 1
 r3g = refl
 
@@ -299,19 +299,19 @@ idx124 = refl
 idx114 : idxLocal 2 (0 ∷ 0 ∷ 2 ∷ []) ≡ 28
 idx114 = refl
 
--- 4d.  r = 4 at p = 2.  [4;2,2]� = 35 is the first Gaussian multinomial in the
+-- 4d.  r = 4 at p = 2.  [4;2,2]₂ = 35 is the first Gaussian multinomial in the
 --      suite that is not of the form (pʳ−1)/(p−1), so this is the sharpest
 --      test of the flag-variety factor.
 
--- D = diag(1,1,1,2):  exps (0,0,0,1),  index [4;3,1]� = 15
+-- D = diag(1,1,1,2):  exps (0,0,0,1),  index [4;3,1]₂ = 15
 r4a : cnt4 2 1 1 1 1 1 1 ≡ idxLocal 2 (0 ∷ 0 ∷ 0 ∷ 1 ∷ []) · cnt4 2 1 1 2 1 2 2
 r4a = refl
 
--- D = diag(1,1,2,2):  exps (0,0,1,1),  index [4;2,2]� = 35
+-- D = diag(1,1,2,2):  exps (0,0,1,1),  index [4;2,2]₂ = 35
 r4b : cnt4 2 1 1 1 1 1 1 ≡ idxLocal 2 (0 ∷ 0 ∷ 1 ∷ 1 ∷ []) · cnt4 2 1 2 2 2 2 1
 r4b = refl
 
--- D = diag(1,2,2,2):  exps (0,1,1,1),  index [4;1,3]� = 15
+-- D = diag(1,2,2,2):  exps (0,1,1,1),  index [4;1,3]₂ = 15
 r4c : cnt4 2 1 1 1 1 1 1 ≡ idxLocal 2 (0 ∷ 1 ∷ 1 ∷ 1 ∷ []) · cnt4 2 2 2 2 1 1 1
 r4c = refl
 
@@ -322,9 +322,9 @@ idx1122 : idxLocal 2 (0 ∷ 0 ∷ 1 ∷ 1 ∷ []) ≡ 35
 idx1122 = refl
 
 ------------------------------------------------------------------------------
--- 5.  Degenerate corner: no p divides the level.  Then every e� is equal, the
+-- 5.  Degenerate corner: no p divides the level.  Then every eᵢ is equal, the
 --     run-length list is the single block (r), G = E = 0, the Gaussian
---     multinomial is 1, and the index is 1 � i.e. Γ�(D) = GL�(�).
+--     multinomial is 1, and the index is 1 — i.e. Γ₀(D) = GLᵣ(ℤ).
 ------------------------------------------------------------------------------
 
 triv2 : idxLocal 2 (0 ∷ 0 ∷ []) ≡ 1
@@ -333,7 +333,7 @@ triv2 = refl
 triv3 : idxLocal 5 (3 ∷ 3 ∷ 3 ∷ []) ≡ 1
 triv3 = refl
 
--- and the formula depends only on the RATIOS d�/d�, as Γ�(D) itself does:
+-- and the formula depends only on the RATIOS dᵢ/dⱼ, as Γ₀(D) itself does:
 shiftInv : idxLocal 2 (0 ∷ 1 ∷ 2 ∷ []) ≡ idxLocal 2 (5 ∷ 6 ∷ 7 ∷ [])
 shiftInv = refl
 
@@ -341,11 +341,11 @@ shiftInv = refl
 -- 6.  Independent cross-check against the classical sublattice count.
 --
 -- Summing the index over ALL divisor chains of a fixed level p^k must give the
--- total number of sublattices of �^r of index p^k, which is classically
+-- total number of sublattices of ℤ^r of index p^k, which is classically
 --
---     �_{i�+�+i_r = k}  p^(i� + 2i� + � + (r−1)i_r)
+--     Σ_{i₁+…+i_r = k}  p^(i₂ + 2i₃ + … + (r−1)i_r)
 --
--- (the p-part of �(s)�(s−1)��(s−r+1)).  That identity is proved by a route
+-- (the p-part of ζ(s)ζ(s−1)…ζ(s−r+1)).  That identity is proved by a route
 -- entirely disjoint from §4's matrix counting, so agreement is real evidence.
 ------------------------------------------------------------------------------
 
@@ -355,7 +355,7 @@ subLat2 p k = Σ< (suc k) λ i₂ → pow p i₂
 subLat3 : ℕ → ℕ → ℕ
 subLat3 p k = Σ< (suc k) λ i₃ → Σ< (suc (k ∸ i₃)) λ i₂ → pow p (i₂ + (2 · i₃))
 
--- r = 2:  cotypes of index p^k are the chains (e� � e�) with e�+e� = k
+-- r = 2:  cotypes of index p^k are the chains (e₁ ≤ e₂) with e₁+e₂ = k
 cot2k1₂ : idxLocal 2 (0 ∷ 1 ∷ []) ≡ subLat2 2 1
 cot2k1₂ = refl
 
@@ -389,16 +389,16 @@ cot3k3₃ = refl
 -- 7.  A conjecture of mine, and the kernel's counterexample to it.
 --
 -- The formula is manifestly invariant under the involution
---     e = (e�,�,e_r)  �  e* = (e_r − e_r, e_r − e_{r−1}, �, e_r − e�),
--- which is the duality A � w� A⻵ w� on Γ�(D).  I conjectured that this is the
+--     e = (e₁,…,e_r)  ↦  e* = (e_r − e_r, e_r − e_{r−1}, …, e_r − e₁),
+-- which is the duality A ↦ w₀ A⁻ᵀ w₀ on Γ₀(D).  I conjectured that this is the
 -- ONLY coincidence: that at fixed r and fixed level p^m, normalised chains with
 -- equal index are equal or dual.
 --
 -- FALSIFIER (stated before the check): any p, r, m and two normalised chains
--- e ≠ e� with e� ≠ e* and idxLocal p e ≡ idxLocal p e�.
+-- e ≠ e′ with e′ ≠ e* and idxLocal p e ≡ idxLocal p e′.
 --
 -- REFUTED at r = 3, p = 2, m = 4.  (0,1,4)* = (0,3,4) and (0,2,4)* = (0,2,4),
--- so (0,1,4) and (0,2,4) are not dual � yet both have index 672.
+-- so (0,1,4) and (0,2,4) are not dual — yet both have index 672.
 ------------------------------------------------------------------------------
 
 dual-invariance : idxLocal 2 (0 ∷ 0 ∷ 4 ∷ []) ≡ idxLocal 2 (0 ∷ 4 ∷ 4 ∷ [])
@@ -408,8 +408,8 @@ conjecture-refuted : idxLocal 2 (0 ∷ 1 ∷ 4 ∷ []) ≡ idxLocal 2 (0 ∷ 2 �
 conjecture-refuted = refl
 
 -- and it is not an accident of small numbers: for r = 3 the exponent
--- G = �_{i>j}(e�−e�) = ε (2i−1−r) e� = 2(e� − e�) does not see e� at all, so
--- the index at a fixed level takes exactly TWO values � whether the interior
+-- G = Σ_{i>j}(eᵢ−eⱼ) = Σᵢ (2i−1−r) eᵢ = 2(e₃ − e₁) does not see e₂ at all, so
+-- the index at a fixed level takes exactly TWO values — whether the interior
 -- valuation is at an endpoint or strictly between.
 degeneracy-interior : idxLocal 2 (0 ∷ 1 ∷ 4 ∷ []) ≡ 672
 degeneracy-interior = refl
@@ -417,7 +417,7 @@ degeneracy-interior = refl
 degeneracy-endpoint : idxLocal 2 (0 ∷ 0 ∷ 4 ∷ []) ≡ 448
 degeneracy-endpoint = refl
 
--- same refutation at p = 3, and stable under the shift e � e + c
+-- same refutation at p = 3, and stable under the shift e ↦ e + c
 degeneracy-p3 : idxLocal 3 (0 ∷ 1 ∷ 4 ∷ []) ≡ idxLocal 3 (0 ∷ 2 ∷ 4 ∷ [])
 degeneracy-p3 = refl
 

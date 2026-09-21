@@ -9,7 +9,7 @@
 -- another identity's module.
 --
 -- The two terms are the names of the two positions in the Mms
--- dispute over bdabodha â” how the cognition of a sentence stands to
+-- dispute over Å›Äbdabodha â€” how the cognition of a sentence stands to
 -- the cognitions of its words:
 --
 --   ABHIHITNVAYA, the Bha position.  Kumrila Bhaa,
@@ -31,21 +31,21 @@
 -- a word would have to denote differently in every sentence, so there
 -- is no single akti to be fixed by usage.  The Prbhkara objection is
 -- that abhihitnvaya must posit a SECOND capacity, over and above
--- denotation, to do the connecting â” ttparya â” and that this is an
+-- denotation, to do the connecting â€” tÄtparya â€” and that this is an
 -- unneeded entity purchased to repair a stage that was never observed;
 -- their evidence is the child learning language from commands, where
 -- what is grasped is the connected injunction and never a bare
 -- word-meaning.  Neither concedes.  The dispute is live in the sources
 -- and is not resolved here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE SETTING, AND WHAT WAS MISSING.
 --
 -- `FullAbstractionIsAConditionOnTheContextFamilyAndCurvatureIsWitnessedInIt`
--- (c63b9f53) has `CtxEq` â” agreement of `obs` under every context in a
--- family â” and `FullyAbstract`, which is ONE implication:
+-- (c63b9f53) has `CtxEq` â€” agreement of `obs` under every context in a
+-- family â€” and `FullyAbstract`, which is ONE implication:
 --
---     CtxEq p q  â’  C p â‰¡ C q.
+--     CtxEq p q  â†’  C p â‰¡ C q.
 --
 -- The converse was never stated there, and that module's "WHAT IS NOT
 -- CLAIMED" did not list it, which is the gap this closes.  The converse
@@ -59,25 +59,25 @@
 --   Factors        obs t â‰¡ obsD (C t)
 --                  what is observed of a term is read off that meaning
 --
--- Given those, `C p â‰¡ C q â’ CtxEq p q` is `cong` three times.
+-- Given those, `C p â‰¡ C q â†’ CtxEq p q` is `cong` three times.
 --
 -- **AND THE SIDE IS TAKEN IN THE SIGNATURE, NOT IN THE PROOF.**  Writing
--- `C : Tm â’ D` at all already grants a meaning to a term in isolation.
--- On the Prbhkara account there is no such map to write â” only the
--- connected form `Ctx â’ Tm â’ D` is ever given, and `Compositional` is
+-- `C : Tm â†’ D` at all already grants a meaning to a term in isolation.
+-- On the PrÄbhÄkara account there is no such map to write â€” only the
+-- connected form `Ctx â†’ Tm â†’ D` is ever given, and `Compositional` is
 -- not false there but UNSTATABLE, having no `C t` to be an equation
 -- about.  So this module does not adjudicate the dispute; it locates
 -- where a formalisation commits to a side, which is one line above the
 -- first theorem.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   soundness        `C p â‰¡ C q â’ CtxEq p q`, from `Compositional` and
+--   soundness        `C p â‰¡ C q â†’ CtxEq p q`, from `Compositional` and
 --                    `Factors`.  No decidability, no enumerability, no
 --                    `FullyAbstract`.
 --   separatingContextForcesSemanticDifference
---                    a separating context gives `Â (C p â‰¡ C q)` â”
+--                    a separating context gives `Â¬ (C p â‰¡ C q)` â€”
 --                    FREE.  Compare `curvatureExhibitsAContext` in
 --                    c63b9f53, which goes the other way and PAYS
 --                    `Enumerated K` + `Discrete O` + `FullyAbstract`.
@@ -85,16 +85,16 @@
 --                    congruence, the other is a search.
 --   kernelIsExactlyContextualEquivalence
 --                    with `FullyAbstract` as well, `CtxEq p q` and
---                    `C p â‰¡ C q` imply each other â” `CtxEq` IS the
+--                    `C p â‰¡ C q` imply each other â€” `CtxEq` IS the
 --                    kernel of `C`, not merely contained in it
 --   connectedOf / connectedAgrees
 --                    the abhihitnvaya-shaped data DETERMINES the
 --                    connected form: `act c (C t) â‰¡ C (plug c t)`.
---                    The reverse construction â” recovering `C` from a
---                    connected semantics alone â” is NOT built, and
+--                    The reverse construction â€” recovering `C` from a
+--                    connected semantics alone â€” is NOT built, and
 --                    nothing here says it is impossible either.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

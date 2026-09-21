@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡ò‡æ‡-‡‡‡¶-‡‡ô‡‡ó ‚î WHICH factor of ‡‡Æ‡‡æ-‡¶‡‡µ‡ø‡ß‡æ the discrete log breaks.
+-- ‡§ò‡§æ‡§§-‡§≠‡•á‡§¶-‡§≠‡§ô‡•ç‡§ó ‚Äî WHICH factor of ‡§∏‡§Æ‡§§‡§æ-‡§¶‡•ç‡§µ‡§ø‡§ß‡§æ the discrete log breaks.
 --
--- `Sesa_TheOneWayFunction‚¶` proves the discrete log `powg` is a
--- NON-equivalence (`‡ò‡æ‡‡-‡®-‡‡‡≤‡‡Ø‡‡æ : ¬ isEquiv powg`), via
--- `GhataTantu.‡‡®‡‡‡‡-‡¶‡‡µ‡ø‡‡¶‡ : ¬ isContr (fiber powg ŒµC)`.
+-- `Sesa_TheOneWayFunction‚Ä¶` proves the discrete log `powg` is a
+-- NON-equivalence (`‡§ò‡§æ‡§§‡§É-‡§®-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ : ¬¨ isEquiv powg`), via
+-- `GhataTantu.‡§§‡§®‡•ç‡§§‡•Å‡§É-‡§¶‡•ç‡§µ‡§ø‡§™‡§¶‡§É : ¬¨ isContr (fiber powg ŒµC)`.
 --
--- `SamataDvidha‚¶InTheTransportLane` splits being an equivalence, on the
--- nose, into TWO orthogonal factors: ‡‡‡¶‡ (embedding ‚î every residual a
--- prop) and ‡‡æ‡¶‡®‡Æ‡ (split surjection ‚î every residual inhabited).  So the
--- natural question the split poses, that ¬ isEquiv alone cannot answer:
+-- `SamataDvidha‚Ä¶InTheTransportLane` splits being an equivalence, on the
+-- nose, into TWO orthogonal factors: ‡§≠‡•á‡§¶‡§É (embedding ‚Äî every residual a
+-- prop) and ‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç (split surjection ‚Äî every residual inhabited).  So the
+-- natural question the split poses, that ¬¨ isEquiv alone cannot answer:
 -- WHICH factor does `powg` fail?
 --
 -- ANSWER, proved here.  `powg` fails the embedding factor, and it fails it
--- in the CROWDED way (‡®‡‡‡ü‡ø), NOT the empty way (‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡):
+-- in the CROWDED way (‡§®‡§∑‡•ç‡§ü‡§ø), NOT the empty way (‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç):
 --
---   ‡ò‡æ‡-Œµ-‡µ‡‡‡ø   : ‡‡‡ powg ŒµC          -- the residual over Œµ is INHABITED
---                                          (‡‡‡®‡‡Ø‡: exponent 0 lands on Œµ), so
+--   ‡§ò‡§æ‡§§-Œµ-‡§µ‡§∏‡§§‡§ø   : ‡§∂‡•á‡§∑ powg ŒµC          -- the residual over Œµ is INHABITED
+--                                          (‡§∂‡•Ç‡§®‡•ç‡§Ø‡§É: exponent 0 lands on Œµ), so
 --                                          this is not the empty arm.
---   ‡ò‡æ‡-‡‡‡¶‡-‡‡ô‡‡ó‡ : ¬ (‡‡‡¶‡ powg)         -- and it is CROWDED ‚î ‡‡‡®‡‡Ø‡ and
---                                          ‡‡‡∞‡Ø‡ are two DISTINCT points over
---                                          the same Œµ ‚î so powg is not an
+--   ‡§ò‡§æ‡§§-‡§≠‡•á‡§¶‡§É-‡§≠‡§ô‡•ç‡§ó‡§É : ¬¨ (‡§≠‡•á‡§¶‡§É powg)         -- and it is CROWDED ‚Äî ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§É and
+--                                          ‡§§‡•ç‡§∞‡§Ø‡§É are two DISTINCT points over
+--                                          the same Œµ ‚Äî so powg is not an
 --                                          embedding.
 --
 -- So the ea univalence cannot erase (the crypto residual) is precisely a
--- ‡®‡‡‡ü‡ø failure of the FIRST factor of ‡‡Æ‡‡æ-‡¶‡‡µ‡ø‡ß‡æ: the discrete log MERGES
--- distinct exponents onto one power.  One-wayness is a merge, not a gap ‚î
+-- ‡§®‡§∑‡•ç‡§ü‡§ø failure of the FIRST factor of ‡§∏‡§Æ‡§§‡§æ-‡§¶‡•ç‡§µ‡§ø‡§ß‡§æ: the discrete log MERGES
+-- distinct exponents onto one power.  One-wayness is a merge, not a gap ‚Äî
 -- the fibre is full, not empty; two points sit where an equivalence would
 -- allow one.  This is exactly the arm `Sesa`'s struck "two opposite ways"
--- paragraph named `‡®‡‡‡ü‡ø`/`‡‡ø‡‡‡æ`, and it is the arm `‡‡‡-‡¶‡‡µ‡Ø‡Æ‡‚í‡®-‡‡Æ‡‡æ`
+-- paragraph named `‡§®‡§∑‡•ç‡§ü‡§ø`/`‡§π‡§ø‡§Ç‡§∏‡§æ`, and it is the arm `‡§∂‡•á‡§∑-‡§¶‡•ç‡§µ‡§Ø‡§Æ‡•ç‚Üí‡§®-‡§∏‡§Æ‡§§‡§æ`
 -- was built for, now stated against the crypto instance.
 --
--- The COMPLEMENT is now proved too (‡ò‡æ‡-‡‡æ‡¶‡®‡Æ‡): powg IS surjective onto C‚,
--- because powg reduces on the nose (powg 0 = e‚, powg 1 = g, powg 2 = g¬≤), so
+-- The COMPLEMENT is now proved too (‡§ò‡§æ‡§§-‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç): powg IS surjective onto C‚ÇÉ,
+-- because powg reduces on the nose (powg 0 = e‚ÇÄ, powg 1 = g, powg 2 = g¬≤), so
 -- it fails the embedding factor ALONE.  The kernel gave those three
 -- reductions on the wire; the section only records them.
 --
--- CHECKED warm through ‡®‡æ‡°‡ against the container's agda ‚î ‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø.
+-- CHECKED warm through ‡§®‡§æ‡§°‡•Ä against the container's agda ‚Äî ‡§õ‡§ø‡§¶‡•ç‡§∞‡§Ç ‡§®‡§æ‡§∏‡•ç‡§§‡§ø.
 -- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -58,7 +58,7 @@ open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhau
   using (C‚ÇÉ ; e‚ÇÄ ; g ; g¬≤)
 
 -- The residual over Œµ is INHABITED: exponent 0 lands on Œµ.  So this is not
--- the empty (‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡) arm.
+-- the empty (‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç) arm.
 ‡§ò‡§æ‡§§-Œµ-‡§µ‡§∏‡§§‡§ø : ‡§∂‡•á‡§∑ powg ŒµC
 ‡§ò‡§æ‡§§-Œµ-‡§µ‡§∏‡§§‡§ø = ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§É
 
@@ -67,8 +67,8 @@ open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhau
 ‡§ò‡§æ‡§§-‡§≠‡•á‡§¶‡§É-‡§≠‡§ô‡•ç‡§ó‡§É : ¬¨ (‡§≠‡•á‡§¶‡§É powg)
 ‡§ò‡§æ‡§§-‡§≠‡•á‡§¶‡§É-‡§≠‡§ô‡•ç‡§ó‡§É pr = znots (cong fst (pr ŒµC ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§É ‡§§‡•ç‡§∞‡§Ø‡§É))
 
--- ‚¶and the SURJECTION factor HOLDS: every element of C‚ has a preimage,
--- because powg reduces on the nose ‚î powg 0 = e‚, powg 1 = g, powg 2 = g¬≤ ‚î
+-- ‚Ä¶and the SURJECTION factor HOLDS: every element of C‚ÇÉ has a preimage,
+-- because powg reduces on the nose ‚Äî powg 0 = e‚ÇÄ, powg 1 = g, powg 2 = g¬≤ ‚Äî
 -- so `refl` witnesses each.  (The kernel gave these three reductions; the
 -- section only writes them down.)  So powg fails the embedding factor ALONE.
 ‡§ò‡§æ‡§§-‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç : ‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç powg
@@ -76,10 +76,10 @@ open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhau
 ‡§ò‡§æ‡§§-‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç g  = 1 , refl
 ‡§ò‡§æ‡§§-‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç g¬≤ = 2 , refl
 
--- THE ORGAN REGENERATES THE CRYPTO THEOREM.  Sesa proved ¬ isEquiv powg the
--- hard way (GhataTantu's non-contractible fibre).  ‡‡Æ‡‡æ-‡¶‡‡µ‡ø‡ß‡æ makes it a
--- mode: isEquiv powg ‚â (‡‡‡¶‡ powg ó ‡‡æ‡¶‡®‡Æ‡ powg), so an equivalence would
--- hand back ‡‡‡¶‡ powg ‚î which ‡ò‡æ‡-‡‡‡¶‡-‡‡ô‡‡ó‡ refutes.  No re-derivation; the
+-- THE ORGAN REGENERATES THE CRYPTO THEOREM.  Sesa proved ¬¨ isEquiv powg the
+-- hard way (GhataTantu's non-contractible fibre).  ‡§∏‡§Æ‡§§‡§æ-‡§¶‡•ç‡§µ‡§ø‡§ß‡§æ makes it a
+-- mode: isEquiv powg ‚âÉ (‡§≠‡•á‡§¶‡§É powg √ó ‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç powg), so an equivalence would
+-- hand back ‡§≠‡•á‡§¶‡§É powg ‚Äî which ‡§ò‡§æ‡§§-‡§≠‡•á‡§¶‡§É-‡§≠‡§ô‡•ç‡§ó‡§É refutes.  No re-derivation; the
 -- non-equivalence is the embedding-failure carried across the split.
 ‡§ò‡§æ‡§§-‡§®-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ-‡§ú‡§®‡§ø‡§§‡§Æ‡•ç : ¬¨ isEquiv powg
 ‡§ò‡§æ‡§§-‡§®-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ-‡§ú‡§®‡§ø‡§§‡§Æ‡•ç eq = ‡§ò‡§æ‡§§-‡§≠‡•á‡§¶‡§É-‡§≠‡§ô‡•ç‡§ó‡§É (fst (equivFun (‡§∏‡§Æ‡§§‡§æ‚âÉ‡§≠‡•á‡§¶√ó‡§õ‡§æ‡§¶‡§® powg) eq))

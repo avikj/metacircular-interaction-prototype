@@ -1,52 +1,52 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà°à•ààà•à—àà â” ààà°à•ààà•à¾à ààà°àµà¾àà¾à à—àà à°àà¯à¨ààà¿, àààµàà¨ààààµà¾àààà àà à—àà
--- à¯àà¾àµàà àµààà¿ â” refl-à®à¾ààà°àà à
+-- à¤¸à¤‚à¤°à¤•à¥à¤·à¤•à¤—à¤£à¤ƒ â€” à¤¸à¤‚à¤°à¤•à¥à¤·à¤•à¤¾à¤ƒ à¤ªà¥à¤°à¤µà¤¾à¤¹à¤¾à¤ƒ à¤—à¤£à¤‚ à¤°à¤šà¤¯à¤¨à¥à¤¤à¤¿, à¤¸à¥à¤µà¤¤à¤¨à¥à¤¤à¥à¤µà¤¾à¤¸à¤¶à¥à¤š à¤¤à¤‚ à¤—à¤£à¤‚
+-- à¤¯à¤¥à¤¾à¤µà¤¤à¥ à¤µà¤¹à¤¤à¤¿ â€” refl-à¤®à¤¾à¤¤à¥à¤°à¥‡à¤£ à¥¤
 --
 -- (the gaa of conservers: the conserving flows form a monoid, and the
---  section identification carries the monoid â” by refl.)
+--  section identification carries the monoid â€” by refl.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THIS IS.  `SvaTantuVasa_â¦.agda`, landed earlier today, closes the
--- lossâ“symmetry scale's middle with the identification
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHAT THIS IS.  `SvaTantuVasa_â€¦.agda`, landed earlier today, closes the
+-- lossâ€“symmetry scale's middle with the identification
 --
---     ààà°àµà¾àà f  =  (Î[ Î¦ ] ààà°à•àààà®à f Î¦)  â‰  ((a : A) â’ fiber f (f a))
+--     à¤ªà¥à¤°à¤µà¤¾à¤¹à¤ƒ f  =  (Î£[ Î¦ ] à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f Î¦)  â‰ƒ  ((a : A) â†’ fiber f (f a))
 --
--- and its Â§à(a) hands one remainder forward in its own words: "the flow
+-- and its Â§à¥¬(a) hands one remainder forward in its own words: "the flow
 -- SPACE is identified; the flow MONOID is not.  Composition of
--- conserving flows corresponds, across àµà¾àà, to a convolution of
--- sections â¦ and it is not given here."  This module gives it, and the
+-- conserving flows corresponds, across à¤µà¤¾à¤¸à¤ƒ, to a convolution of
+-- sections â€¦ and it is not given here."  This module gives it, and the
 -- finding is better than the ea asked: the convolution
 --
---     (s â‹ t) a  =  ( s (t a .fst) .fst , s (t a .fst) .snd âˆ™ t a .snd )
+--     (s â‹† t) a  =  ( s (t a .fst) .fst , s (t a .fst) .snd âˆ™ t a .snd )
 --
--- â” move by t, then move by s from where t landed, composing the
--- witnesses â” is carried onto flow composition BY refl, in both the
--- operation and the unit (Â§à§, à—à-à—à®à¨à®à / àà•-à—à®à¨à®à).  The identification
+-- â€” move by t, then move by s from where t landed, composing the
+-- witnesses â€” is carried onto flow composition BY refl, in both the
+-- operation and the unit (Â§à¥§, à¤—à¤£-à¤—à¤®à¤¨à¤®à¥ / à¤à¤•-à¤—à¤®à¤¨à¤®à¥).  The identification
 -- of the spaces was already an identification of the DYNAMICS, and the
 -- cost of seeing it is zero.
 --
--- At set level (Â§à¨â“Â§à©) both sides are genuine `Monoid`s of the library's
--- own algebra and àµà¾àà is a `MonoidEquiv`, with both preservation fields
--- refl.  Â§à prices the poles: at zero loss the gaa is trivial â” every
--- conserving flow IS the unit, no h-level needed (à§àà°ààµ-àà¿à¨àà¦àà consumed);
+-- At set level (Â§à¥¨â€“Â§à¥©) both sides are genuine `Monoid`s of the library's
+-- own algebra and à¤µà¤¾à¤¸à¤ƒ is a `MonoidEquiv`, with both preservation fields
+-- refl.  Â§à¥ª prices the poles: at zero loss the gaá¹‡a is trivial â€” every
+-- conserving flow IS the unit, no h-level needed (à¤§à¥à¤°à¥à¤µ-à¤¬à¤¿à¤¨à¥à¤¦à¥à¤ƒ consumed);
 -- at total loss the gaa is the FULL transformation monoid of the
 -- domain, as monoids, again by refl on the homomorphism.  So the scale
 -- of `Dhruva`/`Khahara` is now a scale of MONOIDS: trivial at the near
 -- pole, everything at the far pole, and in between exactly the sections
--- of one's own fibres under â‹.
+-- of one's own fibres under â‹†.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- TERM.  à—à â” the class, the troop; in the grammatical tradition the
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- TERM.  à¤—à¤£ â€” the class, the troop; in the grammatical tradition the
 -- gaapha is the appended list of items that BEHAVE ALIKE under a rule
 -- (Pini, Adhyy, ~500 BCE, whose stras cite gaas by their first
 -- member; the gaapha is transmitted beside the strapha).  A
 -- conserving flow is exactly an item that behaves alike toward the
--- observable â” f cannot tell it acted â” so the monoid of all of them is
--- named the gaa of conservers.  LIMIT: à—à is attested as the
+-- observable â€” f cannot tell it acted â€” so the monoid of all of them is
+-- named the gaá¹‡a of conservers.  LIMIT: à¤—à¤£ is attested as the
 -- tradition's own device for "the class behaving alike under a rule";
--- the compound ààà°à•ààà•à—à and the application to a monoid of flows are
+-- the compound à¤¸à¤‚à¤°à¤•à¥à¤·à¤•à¤—à¤£ and the application to a monoid of flows are
 -- built here, and no text is claimed for them.  "Monoid" itself is
 -- modern (the structure is used from the library, not re-derived).
 --
@@ -75,11 +75,11 @@ private variable â„“ : Level
 module _ {A B : Type â„“} (f : A â†’ B) where
 
   ------------------------------------------------------------------
-  -- Â§à§ Â THE OPERATIONS, AND THE refl-TRANSPORT.
+  -- Â§à¥§ Â· THE OPERATIONS, AND THE refl-TRANSPORT.
   --
-  -- Conserving flows are closed under composition â” the witness of the
-  -- composite is the composite of the witnesses â” and the identity flow
-  -- conserves everything.  Sections carry the convolution â‹: act by t,
+  -- Conserving flows are closed under composition â€” the witness of the
+  -- composite is the composite of the witnesses â€” and the identity flow
+  -- conserves everything.  Sections carry the convolution â‹†: act by t,
   -- then act by s from where t landed, and compose the two receipts.
   ------------------------------------------------------------------
 
@@ -101,7 +101,7 @@ module _ {A B : Type â„“} (f : A â†’ B) where
   à¤›à¥‡à¤¦-à¤à¤•à¤ƒ : à¤›à¥‡à¤¦à¤ƒ
   à¤›à¥‡à¤¦-à¤à¤•à¤ƒ a = a , refl
 
-  -- THE JEWEL.  `àµà¾àà` does not merely identify the two spaces: it
+  -- THE JEWEL.  `à¤µà¤¾à¤¸à¤ƒ` does not merely identify the two spaces: it
   -- carries the operation and the unit, definitionally.  The dynamics
   -- was in the identification all along, at no cost.
   à¤—à¤£-à¤—à¤®à¤¨à¤®à¥ : (Ïƒ Ï„ : à¤ªà¥à¤°à¤µà¤¾à¤¹à¤ƒ)
@@ -113,8 +113,8 @@ module _ {A B : Type â„“} (f : A â†’ B) where
   à¤à¤•-à¤—à¤®à¤¨à¤®à¥ = refl
 
 ------------------------------------------------------------------------
--- Â§à¨ Â THE GAA, AT SET LEVEL.  Over set carriers the witness component
--- is proposition-valued, so every law is a Îâ‰¡Prop away from refl and
+-- Â§à¥¨ Â· THE GAá¹†A, AT SET LEVEL.  Over set carriers the witness component
+-- is proposition-valued, so every law is a Î£â‰¡Prop away from refl and
 -- both sides are `Monoid`s of the library's own algebra.
 ------------------------------------------------------------------------
 
@@ -142,21 +142,21 @@ module à¤—à¤£à¥‡ {A B : Type â„“} (setA : isSet A) (setB : isSet B) (f : A â†’ B
     (Î» s â†’ à¤›à¥‡à¤¦-à¤¸à¤®à¤¤à¤¾ _ _ (Î» _ â†’ refl))
 
   ------------------------------------------------------------------
-  -- Â§à© Â àµà¾àà IS A MONOID EQUIVALENCE, and both preservation fields
-  -- are the refl theorems of Â§à§.
+  -- Â§à¥© Â· à¤µà¤¾à¤¸à¤ƒ IS A MONOID EQUIVALENCE, and both preservation fields
+  -- are the refl theorems of Â§à¥§.
   ------------------------------------------------------------------
 
   à¤—à¤£-à¤¸à¤®à¤¤à¤¾ : MonoidEquiv à¤ªà¥à¤°à¤µà¤¾à¤¹à¤—à¤£à¤ƒ à¤›à¥‡à¤¦à¤—à¤£à¤ƒ
   à¤—à¤£-à¤¸à¤®à¤¤à¤¾ = à¤µà¤¾à¤¸à¤ƒ f , monoidequiv refl (Î» _ _ â†’ refl)
 
 ------------------------------------------------------------------------
--- Â§à Â THE POLES, AS MONOIDS.
+-- Â§à¥ª Â· THE POLES, AS MONOIDS.
 ------------------------------------------------------------------------
 
 module _ {A B : Type â„“} (f : A â†’ B) where
 
-  -- Near pole: zero loss, trivial gaa.  No h-level hypothesis â” the
-  -- flow space is contractible (SvaTantuVasa's à§àà°ààµ-àà¿à¨àà¦àà), so every
+  -- Near pole: zero loss, trivial gaá¹‡a.  No h-level hypothesis â€” the
+  -- flow space is contractible (SvaTantuVasa's à¤§à¥à¤°à¥à¤µ-à¤¬à¤¿à¤¨à¥à¤¦à¥à¤ƒ), so every
   -- conserving flow already IS the unit.
   à¤¤à¥à¤šà¥à¤›à¤¤à¤¾ : isEquiv f â†’ (Ïƒ : à¤ªà¥à¤°à¤µà¤¾à¤¹à¤ƒ f) â†’ Ïƒ â‰¡ à¤à¤•à¤ƒ f
   à¤¤à¥à¤šà¥à¤›à¤¤à¤¾ e Ïƒ = isContrâ†’isProp (à¤§à¥à¤°à¥à¤µ-à¤¬à¤¿à¤¨à¥à¤¦à¥à¤ƒ f e) Ïƒ (à¤à¤•à¤ƒ f)
@@ -167,7 +167,7 @@ module à¤…à¤¨à¥à¤§à¥‡ {A B : Type â„“} (setA : isSet A) (setB : isSet B)
   open à¤—à¤£à¥‡ setA setB f
 
   -- Far pole: total loss, and the gaa is the FULL transformation
-  -- monoid of the domain.  The forward map is the bare projection â”
+  -- monoid of the domain.  The forward map is the bare projection â€”
   -- which is a monoid homomorphism by refl, since the map component of
   -- a flow composite is the composite of the map components.
   à¤¸à¤®à¤¾à¤ªà¤•à¤—à¤£à¤ƒ : Monoid â„“
@@ -185,19 +185,19 @@ module à¤…à¤¨à¥à¤§à¥‡ {A B : Type â„“} (setA : isSet A) (setB : isSet B)
     Iso.leftInv i Ïƒ = à¤ªà¥à¤°à¤µà¤¾à¤¹-à¤¸à¤®à¤¤à¤¾ _ _ refl
 
 ------------------------------------------------------------------------
--- Â§à Â àààà â” what this opens and does not close.
+-- Â§à¥« Â· à¤¶à¥‡à¤·à¤ƒ â€” what this opens and does not close.
 --
--- (a) THE FIBREWISE LEG.  Currying along `Avaccheda`'s A â‰ Î B (fibre)
---     identifies the section CARRIER with (b : B) â’ fiber f b â’ fiber
---     f b â” the product over the codomain of each fibre's endomorphism
---     type â” but carrying â‹ onto pointwise composition needs the
+-- (a) THE FIBREWISE LEG.  Currying along `Avaccheda`'s A â‰ƒ Î£ B (fibre)
+--     identifies the section CARRIER with (b : B) â†’ fiber f b â†’ fiber
+--     f b â€” the product over the codomain of each fibre's endomorphism
+--     type â€” but carrying â‹† onto pointwise composition needs the
 --     transport coherence of that currying, and it is not given here.
 --     With it, the slogan becomes exact: the gaa of an observable is
 --     the product of its fibres' own endomorphism monoids, which is the
 --     typal shadow of "the commutant decomposes over the spectrum."
 --
--- (b) THE GROUP INSIDE.  The invertible elements of the gaa â” flows
---     with conserving inverses â” are the observable's symmetry GROUP,
+-- (b) THE GROUP INSIDE.  The invertible elements of the gaá¹‡a â€” flows
+--     with conserving inverses â€” are the observable's symmetry GROUP,
 --     and at the far pole they are the symmetric group of the domain.
 --     Not constructed.
 --
@@ -206,9 +206,9 @@ module à¤…à¤¨à¥à¤§à¥‡ {A B : Type â„“} (setA : isSet A) (setB : isSet B)
 --     âˆ-monoid (an Aâˆ-structure this substrate can in principle state).
 --     Named, not built.
 --
--- (d) THE INSTANCES.  Across `YogaKsetra.àà®àà¾` the gaa of addition
---     induces a monoid on the shear fields (k âŠ k' = act by k' then by
+-- (d) THE INSTANCES.  Across `YogaKsetra.à¤¸à¤®à¤¤à¤¾` the gaá¹‡a of addition
+--     induces a monoid on the shear fields (k âŠ› k' = act by k' then by
 --     k from where k' landed); across `GaugeOrbitClasses` the gaa of a
 --     transcript map is the section monoid of its coset fibres.  Both
---     are transports of Â§à© and neither is written out.
+--     are transports of Â§à¥© and neither is written out.
 ------------------------------------------------------------------------

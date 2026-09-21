@@ -24,7 +24,7 @@ No proof of RH or unrestricted 3D Navier-Stokes regularity is claimed.
 
 ---
 
-# I. RH ‚î work directly on the quantitative Goldbach square
+# I. RH ‚Äî work directly on the quantitative Goldbach square
 
 ## 1. The actual Goldbach Laplace field
 
@@ -189,7 +189,7 @@ No triangular reconstruction of Lambda is needed on this route.
 
 ---
 
-# II. Navier-Stokes ‚î the quadratic PDE is already a self-generated linear dynamics
+# II. Navier-Stokes ‚Äî the quadratic PDE is already a self-generated linear dynamics
 
 ## 6. Quadratic metacircular identity
 
@@ -369,7 +369,7 @@ So ultra-fine content has only two components:
 1. a transient inherited tail, rapidly diffused;
 2. a freshly cascade-generated tail, Gaussian-small in octave distance from the matching band.
 
-The previous phrase ‚fresh regeneration at arbitrarily fine frequency‚ was too loose. Quadratic Fourier support does not permit a jump: regeneration must traverse the intervening frequency graph, and every step past matching pays an increasingly strong diffusive ratio.
+The previous phrase ‚Äúfresh regeneration at arbitrarily fine frequency‚Äù was too loose. Quadratic Fourier support does not permit a jump: regeneration must traverse the intervening frequency graph, and every step past matching pays an increasingly strong diffusive ratio.
 
 ## 12. Consequence for the exact memory kernel
 

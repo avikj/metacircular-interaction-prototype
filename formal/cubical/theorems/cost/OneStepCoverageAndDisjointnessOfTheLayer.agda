@@ -11,21 +11,21 @@
 --    some layer of `strata`.  (2) DISJOINTNESS: nothing says the layers
 --    share no member."
 --
--- Both hold AT ONE STEP â” layer versus remainder â” and one step is what
+-- Both hold AT ONE STEP â€” layer versus remainder â€” and one step is what
 -- the iterated statement needs, since `strata` peels a layer and
 -- recurses on exactly the complement proved here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   memberOfFilterSatisfies / memberOfFilterOutFails
 --                     what membership in each half tells you, proved
 --                     directly by induction rather than through an
---                     `All` â” this corpus now has THREE `All`s in three
+--                     `All` â€” this corpus now has THREE `All`s in three
 --                     modules and routing through any of them would
 --                     have meant a fourth
 --   memberSplits      COVERAGE at one step: every member of `xs` is in
---                     `filterDec â¦ xs` or in `filterOut â¦ xs`
+--                     `filterDec â€¦ xs` or in `filterOut â€¦ xs`
 --   noMemberInBoth    DISJOINTNESS at one step: no member is in both
 --   layerCovers / layerIsDisjoint
 --                     the same at the Pareto stratum and its remainder
@@ -34,12 +34,12 @@
 -- once, which is why they are three lines each: nothing about Pareto
 -- maximality is used, only that the two filters are complementary.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  A decidable filter and its complement partition a list;
 -- the length version of this was already proved on this line
 -- (`partitionLength`), and this is its membership counterpart.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -135,22 +135,22 @@ layerIsDisjoint xs =
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The first item of the remainder named above â” "the
+-- line above.  The first item of the remainder named above â€” "the
 -- ITERATED coverage/disjointness (thread the one-step facts through the
--- recursion alongside `theStratificationTerminates`)" â” is done in
+-- recursion alongside `theStratificationTerminates`)" â€” is done in
 -- `TheStratificationCoversAndItsStrataArePairwiseDisjoint`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so):
 -- `theStratificationCovers` and `theStrataArePairwiseDisjoint`.
 --
 -- The threading turned out ASYMMETRIC, which was not visible from one
 -- step: coverage needs `theStratificationTerminates` to kill the
--- leftover branch, and disjointness needs no measure at all â” it holds
+-- leftover branch, and disjointness needs no measure at all â€” it holds
 -- at every fuel, so a stratification cut short is still a partition of
 -- what it reached.  The joint is `strataSound` (every member of every
 -- later stratum was already a member of the remainder), which is what
 -- makes the head-vs-all-later case a consequence of `layerIsDisjoint`.
 --
--- The second item â” ORDER's second half â” is untouched and still needs
--- a well-founded measure on âŠ over a finite list.
+-- The second item â€” ORDER's second half â€” is untouched and still needs
+-- a well-founded measure on âŠ over a finite list.
 ------------------------------------------------------------------------

@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- àà•àààµ-à®à¾ààà°à¾ â” uniqueness (uniqueness) of the mtr (measure/weight).
--- Compound built here, 2026-08-23, for program à of YugaParivartana
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ uniqueness (uniqueness) of the mtr (measure/weight).
+-- Compound built here, 2026-08-23, for program ï¿½ of YugaParivartana
 -- (Born as the ethics of information).  Sources as UniquenessNirnaya /
 -- AvaktavyaPrasava give them; nothing further claimed.
 --
 -- THE NEXT STONE, taken.  UniquenessNirnaya proved the QUALITATIVE skeleton:
--- a rule `e : List A â’ Maybe A` obeying the two vows (decide-on-unanimity,
+-- a rule `e : List A ï¿½ Maybe A` obeying the two vows (decide-on-unanimity,
 -- take-nothing-on-disagreement) is forced uniquely on nonempty
 -- contentions.  That lives on the all-or-nothing carrier `Maybe A`.  This
--- module lifts the uniqueness to an actual WEIGHT carrier `W` â” the first
--- move of the quantitative layer â” and states the full Born conjecture as
+-- module lifts the uniqueness to an actual WEIGHT carrier `W` ï¿½ the first
+-- move of the quantitative layer ï¿½ and states the full Born conjecture as
 -- a precise type, unproved and marked as such.
 --
 -- WHAT IS PROVED (kernel-checked, no postulates, no holes):
 --   the SUPPORT layer of the weights is forced.  A weight rule
---   `q : List A â’ A â’ W` obeying the quantitative vows
---     â ààà-à®à¾ààà°à¾   â” unanimity for a gives a the unit weight ðŸ™;
---     â àà¨àà¯-à®à¾ààà°à¾  â” unanimity for a gives every OTHER result ðŸ˜
+--   `q : List A ï¿½ A ï¿½ W` obeying the quantitative vows
+--     ï¿½ ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½   ï¿½ unanimity for a gives a the unit weight ï¿½;
+--     ï¿½ ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ unanimity for a gives every OTHER result ï¿½
 --                      (ahis of assertion: no weight on the unasserted);
---     â ààà¨àà¯-à®à¾ààà°à¾ â” any disagreement gives every result ðŸ˜
+--     ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ any disagreement gives every result ï¿½
 --                      (take nothing not unanimously given)
 --   is determined COMPLETELY on nonempty contentions: any two such rules
---   agree at every result (àà•àààµà®à-à®à¾ààà°à¾), by the same decidable
---   dichotomy UniquenessNirnaya used.  So the {ðŸ˜,ðŸ™}-valued (support) part of
---   the Born weights has no rival within the vows â” exactly as the
+--   agree at every result (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), by the same decidable
+--   dichotomy UniquenessNirnaya used.  So the {ï¿½,ï¿½}-valued (support) part of
+--   the Born weights has no rival within the vows ï¿½ exactly as the
 --   qualitative layer, now on weights.
 --
 -- CHECKED under the pin (Agda 2.8.0 + cubical library).
@@ -103,10 +103,10 @@ module _ {A : Type â„“} (disc : Discrete A) where
   -- the interior, stated honestly as a conjecture type (not inhabited)
   ----------------------------------------------------------------------
 
-  -- A quantitative interior rule assigns weights that need not be {ðŸ˜,ðŸ™}.
+  -- A quantitative interior rule assigns weights that need not be {ï¿½,ï¿½}.
   -- The conjecture: under normalisation + additivity (ahis) +
   -- permutation invariance (aneknta) on a carrier rich enough to be
-  -- amplitudes, any two such rules agree â” Born uniqueness.  Stated over
+  -- amplitudes, any two such rules agree ï¿½ Born uniqueness.  Stated over
   -- an abstract weight ring `W` with the vow-record supplied by the
   -- caller; NOT proved here (Gleason wall, see header).  It is a Type, so
   -- writing it costs nothing and asserts nothing until inhabited.

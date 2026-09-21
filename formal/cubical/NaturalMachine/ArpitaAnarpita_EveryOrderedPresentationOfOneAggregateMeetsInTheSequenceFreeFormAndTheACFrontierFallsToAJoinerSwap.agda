@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- �������������������� � Umsvti, Tattvrthastra 5.31 (c. 2nd�5th
+-- अर्पितानर्पितसिद्धेः — Umāsvāti, Tattvārthasūtra 5.31 (c. 2nd–5th
 -- c. CE): what seems contradictory is established according to
--- emphasis (arpita) and non-emphasis (anarpita) � the presented
+-- emphasis (arpita) and non-emphasis (anarpita) — the presented
 -- aspect and the thing free of the presentation are one existent.
 -- The classification is his; the mathematics is not claimed for the
 -- source.  School named: Jaina.
 --
 -- THE AC FRONTIER, AND WHERE IT FALLS.  Twice tonight the same wall
--- arose: ������ measured plain completion going generative on the
--- external store (387�411), and the internal store's own turn birthed
--- MIRROR pairs � su(x ⊕ w) against w ⊕ su x � that the one-pass
+-- arose: सिद्धि measured plain completion going generative on the
+-- external store (387→411), and the internal store's own turn birthed
+-- MIRROR pairs — su(x ⊕ w) against w ⊕ su x — that the one-pass
 -- exchange flip-flops apart, because commutativity as an ORIENTED
 -- rewrite is poison: it rewrites v0⊕v3 one way on one side and
 -- v3⊕v0 the other way on the other.  The defect is not in the facts;
 -- it is in the SEQUENCE OF THE PRESENTATION.  An ⊕-aggregate carries
--- an arpita � an order of summands the syntax forces � and two
+-- an arpita — an order of summands the syntax forces — and two
 -- arpitas of one aggregate were being compared as if the emphasis
 -- were the thing.
 --
 -- The repair: the anarpita representative.  Flatten the ⊕-spine,
--- order the summands under a fixed comparison, rebuild � every
+-- order the summands under a fixed comparison, rebuild — every
 -- ordered presentation of one aggregate meets in the sequence-free
 -- form, and the soundness is carried by the ambient substrate's own
 -- +-comm and +-assoc (the checked ground this lane already stands
@@ -30,11 +30,11 @@
 -- AND THE REPAIR IS A JOINER SWAP AND NOTHING ELSE.  EkaTantra's
 -- theorem was: scheduler and prover are one contention structure and
 -- every difference is the joiner parameter.  Here that thesis meets
--- its hardest test and holds: the Peterson�Stickel move � rewriting
--- modulo AC � enters this body as ��-�������, a third joiner handed to
--- the SAME �������, and the mirror births are ��������� where they
--- were �����������.  Commutativity and associativity � yesterday's
--- boundary, held by refl � fall FLAT: no induction, no store, one
+-- its hardest test and holds: the Peterson–Stickel move — rewriting
+-- modulo AC — enters this body as सम-योजकः, a third joiner handed to
+-- the SAME निर्णयः, and the mirror births are निर्णीतम् where they
+-- were अवक्तव्यम्.  Commutativity and associativity — yesterday's
+-- boundary, held by refl — fall FLAT: no induction, no store, one
 -- normalize-to-anarpita and the path-returning test.
 ------------------------------------------------------------------------
 
@@ -86,7 +86,7 @@ open import NaturalMachine.EkaTantra_TheSchedulerAndTheProverAreOneContentionStr
 
 ------------------------------------------------------------------------
 -- §2  The fixed comparison and the ordering.  The comparison owes no
---     laws � soundness rests only on the sum being indifferent to
+--     laws — soundness rests only on the sum being indifferent to
 --     insertion, which +-comm and +-assoc carry.
 ------------------------------------------------------------------------
 
@@ -207,13 +207,13 @@ suc a ≤? suc b = a ≤? b
     ∙ आम्नाय-सत्यम् (norm r) ρ
     ∙ norm-sound r ρ
 
--- the third joiner, for the SAME ������� as the other two.
+-- the third joiner, for the SAME निर्णयः as the other two.
 सम-योजकः : Tm → Tm → Maybe Tm
 सम-योजकः a b =
   mmap (λ _ → आम्नायः (norm a)) (आम्नायः (norm a) ≟T आम्नायः (norm b))
 
 ------------------------------------------------------------------------
--- §5  The frontier falls.  Yesterday's boundary � held by refl � is
+-- §5  The frontier falls.  Yesterday's boundary — held by refl — is
 --     flat today; the store-turn's mirror births are one; and it all
 --     entered as a parameter.
 ------------------------------------------------------------------------
@@ -232,8 +232,8 @@ suc a ≤? suc b = a ≤? b
 दर्पण-मेलनम् = tt
 
 -- and in the one contention structure: the same two voices that the
--- raw joiner holds apart are ��������� under the anarpita joiner �
--- the Peterson�Stickel move, located as EkaTantra's parameter.
+-- raw joiner holds apart are निर्णीतम् under the anarpita joiner —
+-- the Peterson–Stickel move, located as EkaTantra's parameter.
 सम-निर्णयः :
   निर्णयः सम-योजकः ( (su ((var 0) ⊕ (var 3))) ∷ ((var 3) ⊕ (su (var 0))) ∷ [] )
   ≡ निर्णीतम् (su ((var 0) ⊕ ((var 3) ⊕ ze)))

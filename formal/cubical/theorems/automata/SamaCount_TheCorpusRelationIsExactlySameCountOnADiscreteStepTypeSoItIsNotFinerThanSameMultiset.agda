@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- àà®-àà™àà–àà¯à¾ â” the corpus's `_~_` is same-multiset wherever that is
+-- ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ the corpus's `_~_` is same-multiset wherever that is
 -- statable.
 --
 -- `CommutationPreservesEveryPredicateAndMultiplicityWhereItIsStatable`
--- proved `_~_` â’ same count and said, exactly: "The CONVERSE is not
--- proved. â¦ `_~_` may be strictly finer than same-multiset even on
+-- proved `_~_` ï¿½ same count and said, exactly: "The CONVERSE is not
+-- proved. ï¿½ `_~_` may be strictly finer than same-multiset even on
 -- discrete step types, and nothing here settles it."  `PairwiseCommutation
 -- GivesEveryOrder` said the same: whether `_~_` "coincides with 'same
--- multiset' â¦ is not proved to be."
+-- multiset' ï¿½ is not proved to be."
 --
 -- Settled: on a discrete step type, `_~_` is EXACTLY equal counts.  The
--- proof is composition â” `_~_` and `_â‰ˆ_` have the same four constructors
+-- proof is composition ï¿½ `_~_` and `_â‰ˆ_` have the same four constructors
 -- (walked both ways), `_â‰ˆ_` gives equal counts (`Uniqueness`), equal counts
 -- build a `Perm` (`Uniqueness`, using the decidable equality), and a `Perm`
 -- is an adjacent chain (`TheUsualReasons`).  So the relation is not finer
 -- than same-multiset: it is same-multiset.
 ------------------------------------------------------------------------
-module SamaSankhya_TheCorpusRelationIsExactlySameCountOnADiscreteStepTypeSoItIsNotFinerThanSameMultiset where
+module SamaCount_TheCorpusRelationIsExactlySameCountOnADiscreteStepTypeSoItIsNotFinerThanSameMultiset where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List)

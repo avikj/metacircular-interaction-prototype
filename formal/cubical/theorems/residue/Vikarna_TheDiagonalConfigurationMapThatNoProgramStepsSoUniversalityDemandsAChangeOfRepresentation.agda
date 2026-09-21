@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡µ‡ø‡ï‡∞‡‡ ‚î the diagonal.  A CONFIGURATION MAP THAT NO PROGRAM STEPS,
+-- ‡§µ‡§ø‡§ï‡§∞‡•ç‡§£ ‚Äî the diagonal.  A CONFIGURATION MAP THAT NO PROGRAM STEPS,
 -- SO UNIVERSALITY DEMANDS A CHANGE OF REPRESENTATION.
 --
 -- Vishvamachine's uStep is a universal evaluator AS A FUNCTION.  The
@@ -9,7 +9,7 @@
 -- Code whose runs simulate every machine.  This file proves the two
 -- theorems that pin down what such a U can and cannot be.
 --
---  1. `no-native-universal-table` ‚î there is no table that is every
+--  1. `no-native-universal-table` ‚Äî there is no table that is every
 --     table ON THE NOSE: no U whose one-step action on raw
 --     configurations agrees with every machine's.  Two machines that
 --     disagree at one configuration kill every candidate.  So a
@@ -17,16 +17,16 @@
 --     some encoding on the tape: the change of representation is not
 --     an implementation convenience but a theorem.
 --
---  2. `diagonal-escapes` ‚î and the encoding is exactly where the
+--  2. `diagonal-escapes` ‚Äî and the encoding is exactly where the
 --     diagonal lives.  Fix any tape-reading of codes (`decode`, here
 --     five naturals per rule off the right tape, with `encode` its
---     section ‚î decode ‚àò encode = id, proved).  Lawvere's fixed-point
+--     section ‚Äî decode ‚àò encode = id, proved).  Lawvere's fixed-point
 --     argument then constructs a concrete map of configurations,
 --
 --         diag c  =  bump (uStep-conf (decode c) c),
 --
 --     the state-successor of what the machine READ OFF THE TAPE would
---     do ‚î and diag is realized by NO program: a table M evaluated at
+--     do ‚Äî and diag is realized by NO program: a table M evaluated at
 --     its own encoding would have to equal its own successor.  The
 --     universal function exists (it is uStep); the diagonal shows the
 --     family of table-behaviors cannot exhaust the configuration
@@ -123,7 +123,7 @@ bump-moves (q , t) p = n‚â¢sucn q (cong fst p)
   n‚â¢sucn zero    e = znots e
   n‚â¢sucn (suc n) e = n‚â¢sucn n (injSuc e)
 
--- What the machine read off the tape would do ‚î bumped.
+-- What the machine read off the tape would do ‚Äî bumped.
 diag : Conf ‚Üí Conf
 diag c = bump (snd (uStep (decode c , c)))
 

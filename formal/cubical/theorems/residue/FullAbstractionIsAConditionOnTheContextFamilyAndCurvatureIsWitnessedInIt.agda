@@ -10,7 +10,7 @@
 -- `.claude/hooks/european-frame.txt` before naming; no row applies and
 -- the frame check does not fire on a module with no Indian material.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 --   "**Theorem 28.14 (flat compression):** fully abstract compression
 --    for all arising contexts preserves semantics for every order.
@@ -19,7 +19,7 @@
 --    updates."
 --
 -- and the curvature module already in this corpus recorded the gap:
--- "**Theorem 28.14 is not formalised** â” full abstraction is a
+-- "**Theorem 28.14 is not formalised** â€” full abstraction is a
 -- condition on the context *family*, and no context family appears."
 --
 -- A context family appears here, and with it the theorem.
@@ -28,7 +28,7 @@
 --
 --   CtxEq p q        contextual equivalence RELATIVE TO A FAMILY: the
 --                    family is a type `K` of indices with `ctxOf :
---                    K â’ Ctx`, so "too small" and "all arising" are
+--                    K â†’ Ctx`, so "too small" and "all arising" are
 --                    both expressible, which is the whole point
 --   FullyAbstract C  the compression identifies whatever the family
 --                    cannot separate
@@ -36,19 +36,19 @@
 --                    **Theorem 28.14**: if two elimination orders are
 --                    contextually equivalent at every input, a fully
 --                    abstract compression sends them to the SAME value
---                    â” "for every order" being an arbitrary pair of
+--                    â€” "for every order" being an arbitrary pair of
 --                    composites, not two fixed steps
 --   curvatureIsWitnessedInTheFamily
 --                    the contrapositive, and the sharper reading of
---                    Â§36â“38's causal list: if the images differ, the
+--                    Â§36â€“38's causal list: if the images differ, the
 --                    family already separates the two orders
 --   curvatureExhibitsAContext
 --                    and when the family is ENUMERATED and the
 --                    observation type is DISCRETE, the separating
---                    context can be produced â” a Î, not a double
+--                    context can be produced â€” a Î£, not a double
 --                    negation
 --
--- **WHY THE FAMILY BEING A PARAMETER IS THE CONTENT.**  Â§36â“38 blames
+-- **WHY THE FAMILY BEING A PARAMETER IS THE CONTENT.**  Â§36â€“38 blames
 -- curvature on "too-small context families" without a family in the
 -- statement; once `K` is a parameter, "fully abstract for all arising
 -- contexts" and "fully abstract for a small family" are the SAME
@@ -56,15 +56,15 @@
 -- visible: a smaller `K` makes `CtxEq` easier, hence `FullyAbstract`
 -- harder, hence the hypothesis of 28.14 stronger.  The note's causal
 -- claim is, in this reading, the observation that shrinking `K` breaks
--- the hypothesis â” not that it creates curvature by some other route.
+-- the hypothesis â€” not that it creates curvature by some other route.
 --
 -- **AND THE WITNESS COSTS EXACTLY WHAT IT COST ON THE FOURTH-CORNER
--- LINE.**  `curvatureIsWitnessedInTheFamily` gives `Â CtxEq`, a double
+-- LINE.**  `curvatureIsWitnessedInTheFamily` gives `Â¬ CtxEq`, a double
 -- negation; turning it into a context needs the same two hypotheses
--- that line found â” enumerability of the index and decidability of the
--- observation â” through the same lemma, `decÎOverEnumerated`.
+-- that line found â€” enumerability of the index and decidability of the
+-- observation â€” through the same lemma, `decÎ£OverEnumerated`.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -138,8 +138,8 @@ module _ {Tm O : Type} (Ctx : Type) (plug : Ctx â†’ Tm â†’ Tm) (obs : Tm â†’ O)
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
 -- cubical v0.5, NOT the declared pin).
 --
--- **THE OMISSION.**  Everything above states ONE implication â”
--- `CtxEq p q â’ C p â‰¡ C q` â” and the Â§"SYT â” THE CLAIM, EXACTLY" above does
+-- **THE OMISSION.**  Everything above states ONE implication â€”
+-- `CtxEq p q â†’ C p â‰¡ C q` â€” and the Â§"SYÄ€T â€” THE CLAIM, EXACTLY" above does
 -- not list the CONVERSE among what is missing.  It should have.  The
 -- section names a term language, contexts, compression, "arising",
 -- approximation, dropped witnesses, incoherent updates and holonomy,
@@ -151,15 +151,15 @@ module _ {Tm O : Type} (Ctx : Type) (plug : Ctx â†’ Tm â†’ Tm) (obs : Tm â†’ O)
 --   Compositional   C (plug c t) â‰¡ act c (C t)
 --   Factors         obs t â‰¡ obsD (C t)
 --
--- so `C p â‰¡ C q â’ CtxEq p q` costs no decidability, no enumerability,
+-- so `C p â‰¡ C q â†’ CtxEq p q` costs no decidability, no enumerability,
 -- and does not use `FullyAbstract`.  Together with `FullyAbstract` it
 -- gives that `CtxEq` IS the kernel of `C`, not merely contained in it.
 --
 -- **WHAT THAT MAKES VISIBLE ABOUT THIS MODULE, AND IT IS THE POINT.**
 -- `curvatureExhibitsAContext` above pays `Enumerated K` + `Discrete O`
--- + `FullyAbstract` to produce a separating context from `Â (C p â‰¡ C q)`.
--- The OPPOSITE direction â” a separating context yielding
--- `Â (C p â‰¡ C q)` â” is free at the recording site.  The header above
+-- + `FullyAbstract` to produce a separating context from `Â¬ (C p â‰¡ C q)`.
+-- The OPPOSITE direction â€” a separating context yielding
+-- `Â¬ (C p â‰¡ C q)` â€” is free at the recording site.  The header above
 -- says the witness "costs exactly what it cost on the fourth-corner
 -- line" and is right about the cost; what it could not see, having only
 -- one implication, is that **the cost is not the statement's, it is the

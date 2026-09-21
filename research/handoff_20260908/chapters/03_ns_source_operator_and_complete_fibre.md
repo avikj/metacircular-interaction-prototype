@@ -178,7 +178,7 @@ dS=M_uS\,dt+\sqrt{2\nu}\sum_jD_jS\circ dW_j,
 dR=J_uR\,dt+\sqrt{2\nu}\sum_jD_jR\circ dW_j.
 \]
 
-Their It¥ drifts add \(\nu\Delta\). Noise removal by a common spatial translation reduces the pathwise construction to smooth-coefficient transport equations. In the stated periodic smooth interval, forward and reverse transport give bounded invertible propagators; this is not inversion of the deterministic heat semigroup.
+Their It√¥ drifts add \(\nu\Delta\). Noise removal by a common spatial translation reduces the pathwise construction to smooth-coefficient transport equations. In the stated periodic smooth interval, forward and reverse transport give bounded invertible propagators; this is not inversion of the deterministic heat semigroup.
 
 The exact source-preserving identities are
 
@@ -206,7 +206,7 @@ The source-plus-compact decomposition is unique. On the actual physical source,
 \mathbb E K_{t,s}(u(s))=0.
 \]
 
-Differentiating \(\mathbb E[S[u]u(s)]\) differentiates both the initial source and the coefficient \(S[u]\). The term \(M_vu=\Pi_uv\) restores the omitted half and gives the true tangent equation. That calculation is a central regression test for every future claimed ‚self-generated propagator.‚
+Differentiating \(\mathbb E[S[u]u(s)]\) differentiates both the initial source and the coefficient \(S[u]\). The term \(M_vu=\Pi_uv\) restores the omitted half and gives the true tangent equation. That calculation is a central regression test for every future claimed ‚Äúself-generated propagator.‚Äù
 
 ### 16.1 Complete positivity does not give physical contraction
 
@@ -261,7 +261,7 @@ For smooth finite-energy whole-space sources,
 [\nabla u]_{BMO}\le C\|\omega\|_\infty.
 \]
 
-The local/far Calder≥n‚ìZygmund proof subtracts the remote kernel value at the ball centre. The estimate controls mean oscillation, **not mean strain**. It is invariant under the normalized scaling in the appropriate degree.
+The local/far Calder√≥n‚ÄìZygmund proof subtracts the remote kernel value at the ball centre. The estimate controls mean oscillation, **not mean strain**. It is invariant under the normalized scaling in the appropriate degree.
 
 In the realized endpoint class
 
@@ -289,7 +289,7 @@ one gets a canonical realized-image completion
 \boxed{\mathcal X\simeq\operatorname{curl}(\mathcal X)\times\operatorname{Sym}_0(3)\times\mathbb R^3.}
 \]
 
-The inverse is the unique normalized Biot‚ìSavart representative plus \(Ax+b\). It is over the actual vorticity image, not arbitrary independent data. After translation, five scalar linear readings are minimal on this fibre.
+The inverse is the unique normalized Biot‚ÄìSavart representative plus \(Ax+b\). It is over the actual vorticity image, not arbitrary independent data. After translation, five scalar linear readings are minimal on this fibre.
 
 For finite \(p,R\),
 

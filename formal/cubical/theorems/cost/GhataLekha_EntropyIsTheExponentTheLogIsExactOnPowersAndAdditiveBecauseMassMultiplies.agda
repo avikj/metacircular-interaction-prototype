@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-���� � the exponent record.
+-- घात-लेख — the exponent record.
 --
 -- THE LOGARITHM, DISCHARGED WITHOUT A REAL NUMBER.  The weighted
 -- second law left one residue: "the logarithm turning products into
--- sums."  On the powers of two � the masses of uniform binary
--- systems, which is what counting distinctions produces � the
+-- sums."  On the powers of two — the masses of uniform binary
+-- systems, which is what counting distinctions produces — the
 -- logarithm is EXACT and needs no analysis:
 --
---   §1  THE HOM LAW: 2^(m+n) = 2^m � 2^n � sums of exponents are
+--   §1  THE HOM LAW: 2^(m+n) = 2^m · 2^n — sums of exponents are
 --       products of masses, by induction and associativity.
 --
---   §2  THE LOG IS WELL-DEFINED: the exponential is injective �
---       equal masses, equal exponents � via positivity and the
+--   §2  THE LOG IS WELL-DEFINED: the exponential is injective —
+--       equal masses, equal exponents — via positivity and the
 --       doubling cancellation, so on its image the logarithm is a
 --       function, not a choice.
 --
 --   §3  ENTROPY ADDS: for weights of masses 2^m and 2^n, the
---       independent product has mass 2^(m+n) � the weight calculus's
+--       independent product has mass 2^(m+n) — the weight calculus's
 --       multiplication composed with the hom law.  The entropy OF a
 --       uniform system IS its exponent; joining independent systems
---       adds exponents; and this is a theorem of �, with the real
+--       adds exponents; and this is a theorem of ℕ, with the real
 --       logarithm a later interpolation of what is already exact on
 --       every system counting distinguishes.
 --
@@ -45,7 +45,7 @@ open import BharaGana_MassIsConservedPermutedAndMultipliedThePreLogarithmicSecon
   using (Bhāra ; māna ; māna² ; _⊠_ ; svātantrya-guṇa ; guṇa-viṣama)
 
 ------------------------------------------------------------------------
--- � � The exponential and its hom law.
+-- १ · The exponential and its hom law.
 ------------------------------------------------------------------------
 
 ghāta : ℕ → ℕ
@@ -62,7 +62,7 @@ dvi-ghāta (suc m) n =
                 (cong (_· ghāta n) (+-zero (ghāta m))))
 
 ------------------------------------------------------------------------
--- � � The log is well-defined on powers.
+-- २ · The log is well-defined on powers.
 ------------------------------------------------------------------------
 
 dhana : (n : ℕ) → Σ[ j ∈ ℕ ] ghāta n ≡ suc j
@@ -90,7 +90,7 @@ ghāta-inj (suc m) (suc n) p =
       (sym (cong₂ _+_ refl (+-zero (ghāta m))) ∙ p ∙ cong₂ _+_ refl (+-zero (ghāta n)))))
 
 ------------------------------------------------------------------------
--- � � Entropy adds.
+-- ३ · Entropy adds.
 ------------------------------------------------------------------------
 
 entropy-yoga : (w v : Bhāra) (m n : ℕ)

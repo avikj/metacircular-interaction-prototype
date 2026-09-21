@@ -6,60 +6,60 @@
 -- `TransportPrice` closed the aneknta thread with a theorem and a
 -- deflation:
 --
---     cocycleâ’coboundary : c p q â‰¡ c b q âˆ’ c b p
+--     cocycleâ†’coboundary : c p q â‰¡ c b q âˆ’ c b p
 --
 -- every additive transport price is the difference of a potential, so
--- there is no path-dependence, no cheapest route, no holonomy â” "all
+-- there is no path-dependence, no cheapest route, no holonomy â€” "all
 -- the content is in the potential, a number attached to each standpoint
 -- on its own".
 --
 -- That theorem says where to look and does not say what to find.  This
 -- module supplies a potential: the witness number.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE NUMBER, AND THAT TRANSPORT DOES NOT MOVE IT
 --
 --     WitnessNumberIs law n  =  some length-n list refutes
---                             — no shorter list does
+--                             Ã— no shorter list does
 --
 --     witness-invariant  : isSurjection f
---                        â’ WitnessNumberIs law n
---                        â’ WitnessNumberIs (reindex f law) n
+--                        â†’ WitnessNumberIs law n
+--                        â†’ WitnessNumberIs (reindex f law) n
 --     witness-invariant' : the converse, same hypothesis
 --
 -- So along any surjective reindexing of the decoder space the number is
 -- unchanged: its transport price is identically zero.  That is what a
--- potential looks like when you have one â” the price between two nayas
+-- potential looks like when you have one â€” the price between two nayas
 -- related by a reindexing is 0, and every nonzero price is between
 -- systems no reindexing connects.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE THREE THREADS, MET
 --
 --   aneknta      collapse is settled; the remaining question was price
 --                 (`Anekanta`, `TransportPrice`)
 --   deflation     every absence here is exact, and now measured
 --                 (`WitnessNumberIsTwo`, `WhyTheSitesAreTwo`)
---   à²à¾à˜àµ          is there a measure stable under reformulation
+--   à¤²à¤¾à¤˜à¤µ          is there a measure stable under reformulation
 --                 (`Laghava`: not on presentations)
 --
 -- The witness number answers the third affirmatively for absences, is
 -- the second's measure, and has the first's price identically zero.
--- The one place it does NOT go is à²à¾à˜àµ's own question: it measures
+-- The one place it does NOT go is à¤²à¤¾à¤˜à¤µ's own question: it measures
 -- absences, not presentations, and `Laghava` still answers that no.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NOT A COINCIDENCE, AND NOT A TRIUMPH
 --
--- The price is zero because the number is defined by âˆ over the decoder
+-- The price is zero because the number is defined by âˆ€ over the decoder
 -- space, and reindexing does not change what is quantified over.  A
 -- potential with identically zero price is the DEGENERATE case of
 -- `TransportPrice`'s theorem, not a rich instance of it: it says the
 -- nayas related by reindexing are all at one height.  The theorem's
--- content â” that no additive price can do better than a potential â” is
+-- content â€” that no additive price can do better than a potential â€” is
 -- what makes that unimprovable rather than disappointing.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -167,8 +167,8 @@ three-is-three = (triple , refl , three-refute) , least
 -- observation.
 --
 -- NOT CLOSED, and it is the interesting residue.  Two decoder systems
--- NOT related by a reindexing can have different witness numbers â” 2
--- and 3 both occur â” so the potential is not constant, and the price
+-- NOT related by a reindexing can have different witness numbers â€” 2
+-- and 3 both occur â€” so the potential is not constant, and the price
 -- between such systems is not zero.  What is missing is a notion of
 -- transport general enough to connect them, at which point the price
 -- would become visible.  Named, not estimated: nothing here says such

@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ï‡µ‡æ‡ï‡‡Ø‡‡æ ‚î five collapses, one theorem, and each tradition says it in
+-- ‡§è‡§ï‡§µ‡§æ‡§ï‡•ç‡§Ø‡§§‡§æ ‚Äî five collapses, one theorem, and each tradition says it in
 -- its own words.
 --
 -- TERM.  ekavkyat, "the state of being one sentence": the Mms
 -- device by which utterances standing apart in a text are shown to
 -- constitute a single sentence, so that none of them is complete alone.
--- Prva-Mms ‚î Jaimini's stras with abara's bhya, developed by
+-- P≈´rva-Mƒ´mƒÅ·πÉsƒÅ ‚Äî Jaimini's s≈´tras with ≈öabara's bhƒÅ·π£ya, developed by
 -- Kumrila and Prabhkara.
 --
 -- LIMIT ON THE CITATION, stated rather than glossed: I have not opened
@@ -26,7 +26,7 @@
 --   A rule, an observer, a sieve, or a score is blind exactly to what its
 --   own collapse identifies.  The blindness is FORCED by the collapse: it
 --   is not a choice, not an approximation, and not a resolution limit.
---   The invisible quantity is not small ‚î it is complementary ‚î and it is
+--   The invisible quantity is not small ‚Äî it is complementary ‚Äî and it is
 --   recoverable only by changing place, never by refining the instrument.
 --
 -- Each section below is that sentence in the vocabulary of a tradition
@@ -36,25 +36,25 @@
 module Ekavakyata_FiveCollapsesOneTheoremAndEachTraditionSaysItInItsOwnWords where
 
 ------------------------------------------------------------------------
--- I.  VYKARAA ‚î Pini, Adhyy, c. 500 BCE.
+-- I.  VYƒÄKARA·πÜA ‚Äî PƒÅ·πáini, A·π£·π≠ƒÅdhyƒÅyƒ´, c. 500 BCE.
 --
---   8.2.1  ‡‡‡∞‡‡µ‡‡‡∞‡æ‡‡ø‡¶‡‡ß‡Æ‡ ‚î from this stra to the end of the text a rule is
+--   8.2.1  ‡§™‡•Ç‡§∞‡•ç‡§µ‡§§‡•ç‡§∞‡§æ‡§∏‡§ø‡§¶‡•ç‡§ß‡§Æ‡•ç ‚Äî from this s≈´tra to the end of the text a rule is
 --          asiddha, "as if not having taken effect", with respect to
 --          everything preceding it.
---   8.2.39 ‡‡≤‡æ‡ ‡‡‡ã‡Ω‡®‡‡‡ ; 8.4.56 ‡µ‡æ‡Ω‡µ‡‡æ‡®‡ ‚î the operational stras at issue.
+--   8.2.39 ‡§ù‡§≤‡§æ‡§Ç ‡§ú‡§∂‡•ã‡§Ω‡§®‡•ç‡§§‡•á ; 8.4.56 ‡§µ‡§æ‡§Ω‡§µ‡§∏‡§æ‡§®‡•á ‚Äî the operational s≈´tras at issue.
 --
 -- THE COLLAPSE: 8.4.56 sends two forms that DISAGREE about 8.2.39's
 --   applicability to one and the same form.
 -- WHAT GOES BLIND: that applicability itself.
 --
--- `‡‡µ‡∞‡ã‡‡‡æ‡‡æ‡µ‡` ‚î there is NO Bool-valued function on the later forms
+-- `‡§Ö‡§µ‡§∞‡•ã‡§π‡§£‡§æ‡§≠‡§æ‡§µ‡§É` ‚Äî there is NO Bool-valued function on the later forms
 -- agreeing with it.  Not "a different answer there": no value there.
--- Asiddhatva is therefore not a device against looping ‚î that is
--- `Asiddhatva.agda`, proved separately ‚î it registers that an earlier
+-- Asiddhatva is therefore not a device against looping ‚Äî that is
+-- `Asiddhatva.agda`, proved separately ‚Äî it registers that an earlier
 -- rule's condition is a function on a fibre which the later rule's
 -- collapse destroys.  8.2.1 IS A DESCENT CONDITION.
 --
--- `‡‡®‡‡‡‡‡‡¶‡` exhibits the two points of that fibre, so the fibre is not a
+-- `‡§§‡§®‡•ç‡§§‡•Å‡§≠‡•á‡§¶‡§É` exhibits the two points of that fibre, so the fibre is not a
 -- figure of speech for the invisible part: it is that set.
 ------------------------------------------------------------------------
 
@@ -65,9 +65,9 @@ open import Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotS
 -- II.  GAUGE THEORY / LOOP QUANTUM GRAVITY.
 --
 -- THE COLLAPSE: an observable invariant under the holonomy.
--- WHAT GOES BLIND: the holonomy ‚î exactly, and in both directions.
+-- WHAT GOES BLIND: the holonomy ‚Äî exactly, and in both directions.
 --
--- `invisibleExactlyWhenInvariant` ‚î a semantics is unmoved by transport
+-- `invisibleExactlyWhenInvariant` ‚Äî a semantics is unmoved by transport
 -- along `ua h` IFF it is invariant under h.  Invisibility and invariance
 -- are one condition read from two sides, not two facts about the
 -- observable.  `invisibleIsInvariantAsTypes` upgrades it, when the value
@@ -77,7 +77,7 @@ open import Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotS
 -- sides are joined by `uaŒ≤`, which is a PATH, walkable in either
 -- orientation.  One cycle earlier the same audit found a converse costing
 -- `Enumerated K` + `Discrete O`, because there the sides were joined by an
--- implication assumed.  A PATH HAS AN INVERSE; AN IMPLICATION DOES NOT ‚î
+-- implication assumed.  A PATH HAS AN INVERSE; AN IMPLICATION DOES NOT ‚Äî
 -- so "is the converse free?" is answerable from the shape of what
 -- connects the two sides, before either direction is attempted.
 ------------------------------------------------------------------------
@@ -86,17 +86,17 @@ open import HolonomyIsInvisibleExactlyToAnInvariantConsumerAndExactlyIsNowEarned
   using (invisibleExactlyWhenInvariant ; invisibleIsInvariantAsTypes)
 
 ------------------------------------------------------------------------
--- III.  ANALYTIC NUMBER THEORY ‚î the parity barrier, with no sieve in it.
+-- III.  ANALYTIC NUMBER THEORY ‚Äî the parity barrier, with no sieve in it.
 --
 -- THE COLLAPSE: idempotence.  Knowing something twice is knowing it once,
---   so ANY state law that accumulates ‚î observations, constraints,
---   standpoints, congruences, installed primes ‚î is idempotent.  That is
+--   so ANY state law that accumulates ‚Äî observations, constraints,
+--   standpoints, congruences, installed primes ‚Äî is idempotent.  That is
 --   not a fact about lcm and not a fact about divisibility.
 -- WHAT GOES BLIND: sign.
 --
--- `sign-is-not-accumulable` ‚î there is no accumulative law and no
--- multiplicative f into ‚ taking the value ‚àí1.  Ever.  Not "hard to
--- accumulate."  Over ‚ the units are ¬1, so this rules out Œª everywhere
+-- `sign-is-not-accumulable` ‚Äî there is no accumulative law and no
+-- multiplicative f into ‚Ñ§ taking the value ‚àí1.  Ever.  Not "hard to
+-- accumulate."  Over ‚Ñ§ the units are ¬±1, so this rules out Œª everywhere
 -- and Œº off the squares, FOR EVERY ACCUMULATIVE LAW AT ONCE, with no
 -- domain hypothesis and no arithmetic in the proof.
 --
@@ -108,21 +108,21 @@ open import SignIsNotAccumulable
   using (sign-is-not-accumulable ; Accumulative)
 
 ------------------------------------------------------------------------
--- IV.  THE KERNEL'S SEMANTICS ‚î and the statement about reward.
+-- IV.  THE KERNEL'S SEMANTICS ‚Äî and the statement about reward.
 --
--- ‡‡ô‡‡ï‡‡æ‡, akapa, "the net of digits", is Bhskara II's Llvat
+-- ‡§Ö‡§ô‡•ç‡§ï‡§™‡§æ‡§∂, a·πÖkapƒÅ≈õa, "the net of digits", is BhƒÅskara II's Lƒ´lƒÅvatƒ´
 -- section on permutations (~1150): the ARRANGEMENT, as against the count
 -- of arrangements.  No verse number: editions differ in numbering there.
 --
--- THE COLLAPSE: `eval : Tm ‚í Env ‚í ‚ï`, a readout into a set.
--- WHAT GOES BLIND: a transposition ‚î one ‚/2 of holonomy.
+-- THE COLLAPSE: `eval : Tm ‚Üí Env ‚Üí ‚Ñï`, a readout into a set.
+-- WHAT GOES BLIND: a transposition ‚Äî one ‚Ñ§/2 of holonomy.
 --
--- `no-counting-criterion-separates` ‚î for ANY type C at ANY level and ANY
--- function œ of the counting meaning, œ cannot distinguish performing the
+-- `no-counting-criterion-separates` ‚Äî for ANY type C at ANY level and ANY
+-- function œÜ of the counting meaning, œÜ cannot distinguish performing the
 -- commutation from doing nothing.  Universally quantified over every
 -- possible readout, not over the ones anyone has tried.
 --
--- `comm-loop-is-a-nontrivial-loop-in-the-universe` ‚î and the categorified
+-- `comm-loop-is-a-nontrivial-loop-in-the-universe` ‚Äî and the categorified
 -- semantics DOES see it: the path is not refl, proved through `uaŒ≤`, i.e.
 -- by univalence's Œ≤-rule COMPUTING.  Calculated, not asserted.
 --
@@ -137,19 +137,19 @@ open import TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
   using (no-counting-criterion-separates ; comm-loop-is-a-nontrivial-loop-in-the-universe)
 
 ------------------------------------------------------------------------
--- V.  THE KERNEL AS A DISTRIBUTED SYSTEM ‚î the same law as a capability.
+-- V.  THE KERNEL AS A DISTRIBUTED SYSTEM ‚Äî the same law as a capability.
 --
--- THE COLLAPSE: `derivation-sound` lands in an identity type of ‚ï, and ‚ï
+-- THE COLLAPSE: `derivation-sound` lands in an identity type of ‚Ñï, and ‚Ñï
 --   is a set, so that type is a PROPOSITION.
 -- WHAT GOES BLIND: which route was taken.
 --
--- `two-nodes-cannot-disagree` ‚î any two derivations between the same
+-- `two-nodes-cannot-disagree` ‚Äî any two derivations between the same
 -- terms have EQUAL meanings.  Not compatible, not both acceptable: equal,
 -- as terms.  A consensus protocol over meaning would range over a
 -- proposition, and a proposition has no second position to elect.
 -- CONSENSUS ON MEANING IS NOT FORBIDDEN HERE.  IT IS VACUOUS.
 --
--- `merge-is-idempotent` ‚î and the library join is grow-only, commutative
+-- `merge-is-idempotent` ‚Äî and the library join is grow-only, commutative
 -- and idempotent with no failure mode: `merge` has no `Maybe`, because a
 -- NativeOperation cannot be constructed without a checked derivation, so
 -- a merge has nothing to validate.  Validity is local and travels with
@@ -185,6 +185,6 @@ open import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMe
 --   interpretation, and is stated as one.
 --
 -- WHAT IS CLAIMED: the named terms exist, are checked, say what is
--- written above them, and are imported here ‚î so this file is false the
+-- written above them, and are imported here ‚Äî so this file is false the
 -- moment any of them is.
 ------------------------------------------------------------------------

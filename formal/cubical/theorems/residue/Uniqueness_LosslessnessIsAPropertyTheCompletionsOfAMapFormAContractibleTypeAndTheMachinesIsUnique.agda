@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà•àààµ â” oneness.  LOSSLESSNESS IS A PROPERTY, NOT A STRUCTURE.
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ oneness.  LOSSLESSNESS IS A PROPERTY, NOT A STRUCTURE.
 --
 -- Vishvamachine's trace-is-fiber says any lawful trace family is
 -- fiberwise equivalent to the fibre family.  This file proves the
 -- sharpest possible strengthening: the TYPE of lossless completions of
 -- a fixed map,
 --
---   Lossless f  =  Î (T : B â’ Type). Î (e : A â‰ Î B T). Ïâ âˆ˜ e âˆ¼ f
+--   Lossless f  =  ï¿½ (T : B ï¿½ Type). ï¿½ (e : A ï¿½ ï¿½ B T). ï¿½ï¿½ âˆ˜ e âˆ¼ f
 --
 -- is CONTRACTIBLE.  There is, up to a path, exactly one way to
 -- complete a computation losslessly; the completion is not a choice a
@@ -18,19 +18,19 @@
 -- The proof is a chain of eight equivalences, each explicit:
 --
 --   Lossless f
---     â‰ Î T. Î (w : sections-over-f). isEquiv w          (regroup)
---     â‰ Î T. Î (s : Î  a. T (f a)). isEquiv (a â¦ (f a, s a))
+--     ï¿½ ï¿½ T. ï¿½ (w : sections-over-f). isEquiv w          (regroup)
+--     ï¿½ ï¿½ T. ï¿½ (s : Î  a. T (f a)). isEquiv (a ï¿½ (f a, s a))
 --                                          (a map over f IS a section)
---     â‰ Î T. Î (Ï : Î  b. fib f b â’ T b). isEquiv (tot Ï âˆ˜ e_f)
+--     ï¿½ ï¿½ T. ï¿½ (ï¿½ : Î  b. fib f b ï¿½ T b). isEquiv (tot ï¿½ âˆ˜ e_f)
 --                                          (a section IS a fiberwise map)
---     â‰ Î T. Î Ï. Î  b. isEquiv (Ï b)      (total â” fiberwise, both props)
---     â‰ Î T. Î  b. (fib f b â‰ T b)         (choice, definitionally)
---     â‰ Î T. Î  b. (T b â‰ fib f b)         (flip through univalence)
---     â‰ Î  b. Î X. (X â‰ fib f b)           (choice again)
---     â” and the last is a product of equivalence-singletons,
+--     ï¿½ ï¿½ T. ï¿½ ï¿½. Î  b. isEquiv (ï¿½ b)      (total ï¿½ fiberwise, both props)
+--     ï¿½ ï¿½ T. Î  b. (fib f b ï¿½ T b)         (choice, definitionally)
+--     ï¿½ ï¿½ T. Î  b. (T b ï¿½ fib f b)         (flip through univalence)
+--     ï¿½ Î  b. ï¿½ X. (X ï¿½ fib f b)           (choice again)
+--     ï¿½ and the last is a product of equivalence-singletons,
 --       contractible by univalence (EquivContr).
 --
--- Instantiated at the machine: `machine-lossless-unique` â” the
+-- Instantiated at the machine: `machine-lossless-unique` ï¿½ the
 -- universal step has exactly one lossless completion, the one
 -- Vishvamachine built.
 ------------------------------------------------------------------------
@@ -82,7 +82,7 @@ Iso.inv Î Î£-swap (h , k) x = h x , k x
 Iso.rightInv Î Î£-swap _ = refl
 Iso.leftInv  Î Î£-swap _ = refl
 
--- Independent components of a Î commute.
+-- Independent components of a ï¿½ commute.
 Î£-flip23 : {X : Type â„“} {P Q : X â†’ Type â„“} â†’
   Iso (Î£ X (Î» x â†’ P x Ã— Q x)) (Î£ X (Î» x â†’ Q x Ã— P x))
 Iso.fun Î£-flip23 (x , p , q) = x , q , p
@@ -109,12 +109,12 @@ flipEquiv {X = X} {Y = Y} =
 
 module _ {A B : Type â„“} (f : A â†’ B) (T : B â†’ Type â„“) where
 
-  -- Maps A â’ Î B T lying over f, with the lying-over datum carried.
+  -- Maps A ï¿½ ï¿½ B T lying over f, with the lying-over datum carried.
   Over : Type â„“
   Over = Î£[ g âˆˆ (A â†’ Î£ B T) ] ((a : A) â†’ fst (g a) â‰¡ f a)
 
   -- A map over f is exactly a section of T along f, and the forward
-  -- direction is definitional: s â¦ (a â¦ (f a , s a), a â¦ refl).
+  -- direction is definitional: s ï¿½ (a ï¿½ (f a , s a), a ï¿½ refl).
   sectionIso : Iso ((a : A) â†’ T (f a)) Over
   Iso.fun sectionIso s = (Î» a â†’ f a , s a) , (Î» a â†’ refl)
   Iso.inv sectionIso (g , v) a = subst T (v a) (snd (g a))
@@ -139,7 +139,7 @@ module _ {A B : Type â„“} (f : A â†’ B) (T : B â†’ Type â„“) where
   tot : ((b : B) â†’ fiber f b â†’ T b) â†’ Î£ B (fiber f) â†’ Î£ B T
   tot Ï† (b , w) = b , Ï† b w
 
-  -- The section's map-over-f is definitionally tot Ï âˆ˜ e_f, so
+  -- The section's map-over-f is definitionally tot ï¿½ âˆ˜ e_f, so
   -- invertibility of the one is invertibility of the other, and both
   -- are propositions.
   overEquiv-is-fiberwiseEquiv : (Ï† : (b : B) â†’ fiber f b â†’ T b) â†’
@@ -225,7 +225,7 @@ module _ {A B : Type â„“} (f : A â†’ B) where
 -- Â§4  At the machine.
 ------------------------------------------------------------------------
 
--- The universal step has exactly one lossless completion â” the one
+-- The universal step has exactly one lossless completion ï¿½ the one
 -- Vishvamachine built is not an example, it is the inhabitant.
 machine-lossless-unique : isContr (Lossless uStep)
 machine-lossless-unique = losslessness-is-a-property uStep

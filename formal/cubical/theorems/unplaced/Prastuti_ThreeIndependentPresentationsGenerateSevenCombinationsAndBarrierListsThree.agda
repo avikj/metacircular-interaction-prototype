@@ -1,79 +1,79 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà°àààààà¿à â” ààà°à¿ààà°à ààà°àààààà¯à àààà ààà¯à‹à—à¾à¨à àà¨à¯à¨ààà¿, ààààµà¾à°ààà à¨ à²à¿à–à¿àà¾à à
+-- à¤ªà¥à¤°à¤¸à¥à¤¤à¥à¤¤à¤¿à¤ƒ â€” à¤¤à¥à¤°à¤¿à¤¸à¥à¤°à¤ƒ à¤ªà¥à¤°à¤¸à¥à¤¤à¥à¤¤à¤¯à¤ƒ à¤¸à¤ªà¥à¤¤ à¤¸à¤‚à¤¯à¥‹à¤—à¤¾à¤¨à¥ à¤œà¤¨à¤¯à¤¨à¥à¤¤à¤¿, à¤šà¤¤à¥à¤µà¤¾à¤°à¤¶à¥à¤š à¤¨ à¤²à¤¿à¤–à¤¿à¤¤à¤¾à¤ƒ à¥¤
 --
 -- (presentations: three independent presentations generate seven
 --  combinations, and four of them are unwritten.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE QUESTION THIS ANSWERS, AND WHO ASKED IT.
 --
 -- question I have found", and states of it: **"I cannot check any of
 -- this."**  This checks the part that is checkable.
 --
 -- the interface a method consumes, not by the difficulty of its
--- estimates â” and lists three:
+-- estimates â€” and lists three:
 --
 --   finite-multiplicative   divisibility data.  Probe class SIEVE_d.
 --                           Parity-protected: Î» and Î¼ exactly invisible,
 --                           by the gauge no-go (`GAUGE.md` Theorem F).
 --   additive-windowed       windowed-linear, WL_d(L,r).  Bulk-blind.
 --   global-multiplicative   the functional equation used as a CONSTRAINT
---                           rather than as a value â” Tao's entropy
+--                           rather than as a value â€” Tao's entropy
 --                           decrement, the one known access to
 --                           Chowla-grade content.
 --
 -- and asks, as its Problem 3, whether those three are EXHAUSTIVE.
 --
--- Â§àd's observation is that the third is provably not reachable from the
--- other two BY THE INTERFACE IT CONSUMES â” the decrement step eats
+-- Â§à¥ªd's observation is that the third is provably not reachable from the
+-- other two BY THE INTERFACE IT CONSUMES â€” the decrement step eats
 -- Î»(pn) = âˆ’Î»(n), which is outside WL's black-box-sequence interface by
--- construction â” so the escape was by CHANGING THE INTERFACE, never by
+-- construction â€” so the escape was by CHANGING THE INTERFACE, never by
 -- computing harder inside one.  That is `QuotientFiberLaw`'s "visibility
--- returns only by a separating query", and it is ààà¿à¦àà§àààµ read from the
+-- returns only by a separating query", and it is à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ read from the
 -- other side: WHAT A RULE MAY OBSERVE DECIDES WHAT IT CAN DERIVE.
 --
 -- And then the question: **three independent presentations, and only
 -- three rows?**  The Jaina apparatus says three seeds generate 2Â³âˆ’1 = 7
--- positions and a void, and `Saptabhangi.àà®à¾àµàà-ààà¦à` proves exactly that
+-- positions and a void, and `Saptabhangi.à¤¸à¤®à¤¾à¤µà¥‡à¤¶-à¤­à¥‡à¤¦à¤ƒ` proves exactly that
 -- as an equivalence.  So four combinations are missing from the table.
 --
--- Â§à¨ below is that transported onto the presentations.  It is a
+-- Â§à¥¨ below is that transported onto the presentations.  It is a
 -- TRANSPORT and not a new theorem: the counting is Akalaka's shape and
 -- the checked term is `Saptabhangi`'s.  What is new here is only the
--- identification of the index â” that BARRIER's three presentations ARE
--- three independent seeds â” and the consequence, which nobody had drawn
+-- identification of the index â€” that BARRIER's three presentations ARE
+-- three independent seeds â€” and the consequence, which nobody had drawn
 -- because neither file knew the other existed.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS **NOT** PROVED, and the first of these is the load-bearing one.
 --
 -- 1. THAT THE THREE PRESENTATIONS ARE INDEPENDENT.  That is BARRIER's
 --    empirical classification and is assumed here, exactly as a seed's
---    independence is assumed in the saptabhag.  Â§à¨ is conditional on
+--    independence is assumed in the saptabhaá¹…gÄ«.  Â§à¥¨ is conditional on
 --    it and says so in its own name: IF three independent, THEN seven.
 --    A fourth independent presentation would make it fifteen, and the
---    same transport would give that â” which is itself the answer to
+--    same transport would give that â€” which is itself the answer to
 --    Problem 3's real content: exhaustiveness is not a fact about three,
 --    it is a fact about how many seeds there are.
 -- 2. THAT ANY PARTICULAR MISSING COMBINATION IS INHABITED BY A METHOD.
---    Â§à© names the four the counting forces.  Whether a method exists at
+--    Â§à¥© names the four the counting forces.  Whether a method exists at
 --    each is mathematics, not bookkeeping, and none is claimed.
--- 3. THAT TAO'S METHOD IS àà RATHER THAN à•àà°à®.  Â§àd reads it that way â”
+-- 3. THAT TAO'S METHOD IS à¤¸à¤¹ RATHER THAN à¤•à¥à¤°à¤®.  Â§à¥ªd reads it that way â€”
 --    entropy decrement compares empirical distributions ACROSS SCALES
 --    using the functional equation, which is simultaneous rather than
---    sequential â” and that reading is marked MINE there.  It is repeated
+--    sequential â€” and that reading is marked MINE there.  It is repeated
 --    here as the note's reading and is NOT checked.  What IS checked,
 --    elsewhere and cited not restated, is that the distinction is real:
---    `Saptabhangi.à•àà°à®-àà-ààà¦à` (successive â‰ simultaneous) and
---    `Arpitanarpita_â¦.àà-ààà™àà—àà¿à-àŠà°àà§ààµà®à` (simultaneous is NOT
+--    `Saptabhangi.à¤•à¥à¤°à¤®-à¤¸à¤¹-à¤­à¥‡à¤¦à¤ƒ` (successive â‰¢ simultaneous) and
+--    `Arpitanarpita_â€¦.à¤¸à¤¹-à¤…à¤¸à¤™à¥à¤—à¤¤à¤¿à¤ƒ-à¤Šà¤°à¥à¤§à¥à¤µà¤®à¥` (simultaneous is NOT
 --    associative), so "combination" is not one operation and the four
 --    below are not the iterated pairwise ones.
 --
 -- SOURCES. The sevenfold and its 2Â³âˆ’1 counting: the Jaina sydvda tradition
--- â” Umsvti, ààààààµà¾à°ààààààà° (~2ndâ“5th c.); Samantabhadra, ààààà®àà®à¾ààà¾; the
--- à•àà°à®/àà distinction fixed by Akalaka and Vidynandin. Second-hand
+-- â€” UmÄsvÄti, à¤¤à¤¤à¥à¤¤à¥à¤µà¤¾à¤°à¥à¤¥à¤¸à¥‚à¤¤à¥à¤° (~2ndâ€“5th c.); Samantabhadra, à¤†à¤ªà¥à¤¤à¤®à¥€à¤®à¤¾à¤‚à¤¸à¤¾; the
+-- à¤•à¥à¤°à¤®/à¤¸à¤¹ distinction fixed by Akalaá¹…ka and VidyÄnandin. Second-hand
 -- throughout, owed at verse level. What is taken is the counting of positions
 -- generated by independent seeds, which is theirs, and its checked form,
 -- which is `Saptabhangi.agda`'s.
@@ -100,12 +100,12 @@ open import Saptabhangi
         )
 
 ------------------------------------------------------------------------
--- à§ Â ààà°àààààà¿à â” the three presentations of BARRIER.md Â§2, as a type,
+-- à¥§ Â· à¤ªà¥à¤°à¤¸à¥à¤¤à¥à¤¤à¤¿à¤ƒ â€” the three presentations of BARRIER.md Â§2, as a type,
 --     and the identification of each with a seed.
 --
 --     The names are the interfaces, not the methods: a presentation is
---     WHAT A METHOD MAY READ.  That is the whole content of Â§àd's
---     reading and of ààà¿à¦àà§àààµ â” what a rule may observe decides what it
+--     WHAT A METHOD MAY READ.  That is the whole content of Â§à¥ªd's
+--     reading and of à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ â€” what a rule may observe decides what it
 --     can derive.
 ------------------------------------------------------------------------
 
@@ -116,23 +116,23 @@ data à¤ªà¥à¤°à¤¸à¥à¤¤à¥à¤¤à¤¿ : Type where
                             --   used as a CONSTRAINT (entropy decrement)
 
 -- A COMBINATION is a selection: for each presentation, whether the
--- method reads it.  That is literally àà®à¾àµàà â” the seed-selection triple.
+-- method reads it.  That is literally à¤¸à¤®à¤¾à¤µà¥‡à¤¶ â€” the seed-selection triple.
 à¤¸à¤‚à¤¯à¥‹à¤—à¤ƒ : Type
 à¤¸à¤‚à¤¯à¥‹à¤—à¤ƒ = à¤¸à¤®à¤¾à¤µà¥‡à¤¶
 
--- the three singletons, named, so Â§à¨'s content is legible
+-- the three singletons, named, so Â§à¥¨'s content is legible
 à¤•à¥‡à¤µà¤²-à¤¸à¤¾à¤¨à¥à¤¤ à¤•à¥‡à¤µà¤²-à¤—à¤µà¤¾à¤•à¥à¤· à¤•à¥‡à¤µà¤²-à¤¸à¤¾à¤°à¥à¤µ : à¤¸à¤‚à¤¯à¥‹à¤—à¤ƒ
 à¤•à¥‡à¤µà¤²-à¤¸à¤¾à¤¨à¥à¤¤  = à¤†à¤®à¥ , à¤¨   , à¤¨
 à¤•à¥‡à¤µà¤²-à¤—à¤µà¤¾à¤•à¥à¤· = à¤¨   , à¤†à¤®à¥ , à¤¨
 à¤•à¥‡à¤µà¤²-à¤¸à¤¾à¤°à¥à¤µ  = à¤¨   , à¤¨   , à¤†à¤®à¥
 
 ------------------------------------------------------------------------
--- à¨ Â àààà ààà¯à‹à—à¾à â” THREE INDEPENDENT PRESENTATIONS GENERATE SEVEN.
+-- à¥¨ Â· à¤¸à¤ªà¥à¤¤ à¤¸à¤‚à¤¯à¥‹à¤—à¤¾à¤ƒ â€” THREE INDEPENDENT PRESENTATIONS GENERATE SEVEN.
 --
---     Transported, not re-derived: `Saptabhangi.àà®à¾àµàà-ààà¦à` is the
+--     Transported, not re-derived: `Saptabhangi.à¤¸à¤®à¤¾à¤µà¥‡à¤¶-à¤­à¥‡à¤¦à¤ƒ` is the
 --     checked 2Â³ = 7 + 1 equivalence, and a combination of presentations
---     IS a seed-selection.  The Unit summand is the void â” reading none
---     of them, which is à-ààà°àà¿àà¾à¦à¨à®à, no predication at all, and is not
+--     IS a seed-selection.  The Unit summand is the void â€” reading none
+--     of them, which is à¤…-à¤ªà¥à¤°à¤¤à¤¿à¤ªà¤¾à¤¦à¤¨à¤®à¥, no predication at all, and is not
 --     an eighth position.
 ------------------------------------------------------------------------
 
@@ -144,7 +144,7 @@ data à¤ªà¥à¤°à¤¸à¥à¤¤à¥à¤¤à¤¿ : Type where
 à¤¸à¤‚à¤¯à¥‹à¤—-à¤¨à¤¾à¤® = à¤ªà¥à¤°à¤¤à¥à¤¯à¤¨à¥à¤¤à¤°à¥à¤­à¤¾à¤µ
 
 ------------------------------------------------------------------------
--- à© Â ààààµà¾à°à‹ à¨ à²à¿à–à¿àà¾à â” THE FOUR THE TABLE DOES NOT LIST.
+-- à¥© Â· à¤šà¤¤à¥à¤µà¤¾à¤°à¥‹ à¤¨ à¤²à¤¿à¤–à¤¿à¤¤à¤¾à¤ƒ â€” THE FOUR THE TABLE DOES NOT LIST.
 --
 --     BARRIER.md's table has three rows, one per singleton.  The
 --     counting forces four more, and here they are as terms.  Each is
@@ -176,40 +176,40 @@ data à¤ªà¥à¤°à¤¸à¥à¤¤à¥à¤¤à¤¿ : Type where
 à¤…à¤²à¤¿à¤–à¤¿à¤¤-à¥ª = refl
 
 ------------------------------------------------------------------------
--- à Â The reading that makes Â§à© worth having, stated as the note's and
+-- à¥ª Â· The reading that makes Â§à¥© worth having, stated as the note's and
 --     not as a theorem.
 --
---     `SamagraDarsana` Â§àd observes that the global-multiplicative
---     presentation sits where ààµà•àààµàà¯à®à sits â” the position NOT reachable
---     from the other two by à•àà°à® â” and that Tao's entropy decrement
+--     `SamagraDarsana` Â§à¥ªd observes that the global-multiplicative
+--     presentation sits where à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥ sits â€” the position NOT reachable
+--     from the other two by à¤•à¥à¤°à¤® â€” and that Tao's entropy decrement
 --     compares empirical distributions ACROSS SCALES using the functional
 --     equation, i.e. simultaneously rather than in succession.  If that
 --     reading holds, the one method that broke through did so by taking
---     two presentations at once, and Â§à© says which further combinations
+--     two presentations at once, and Â§à¥© says which further combinations
 --     exist.
 --
 --     THAT READING IS NOT CHECKED HERE and is not checkable here: it is a
 --     claim about a proof in the literature, not about a type.  What IS
 --     checked, elsewhere and cited rather than restated, is that the
---     distinction it turns on is real â” successive is not simultaneous
---     (`Saptabhangi.à•àà°à®-àà-ààà¦à`) and simultaneous is not associative
---     (`Arpitanarpita_â¦.àà-ààà™àà—àà¿à-àŠà°àà§ààµà®à`).  So "combine two
+--     distinction it turns on is real â€” successive is not simultaneous
+--     (`Saptabhangi.à¤•à¥à¤°à¤®-à¤¸à¤¹-à¤­à¥‡à¤¦à¤ƒ`) and simultaneous is not associative
+--     (`Arpitanarpita_â€¦.à¤¸à¤¹-à¤…à¤¸à¤™à¥à¤—à¤¤à¤¿à¤ƒ-à¤Šà¤°à¥à¤§à¥à¤µà¤®à¥`).  So "combine two
 --     presentations" names two different operations, and the four above
 --     are not the iterated pairwise ones.
 --
---     Â§à is the one further thing that IS a theorem here.
+--     Â§à¥« is the one further thing that IS a theorem here.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- à Â àà¨à¨àà¯-à—à®à¨à®à â” the void is not a position, and that is the answer
+-- à¥« Â· à¤…à¤¨à¤¨à¥à¤¯-à¤—à¤®à¤¨à¤®à¥ â€” the void is not a position, and that is the answer
 --     to Problem 3's real content.
 --
---     `Saptabhangi.ààà°àà¿-àµààààà®à` proves no bhaga maps to the empty
+--     `Saptabhangi.à¤ªà¥à¤°à¤¤à¤¿-à¤µà¥ƒà¤¤à¥à¤¤à¤®à¥` proves no bhaá¹…ga maps to the empty
 --     selection: reading NO presentation is not a fourth kind of method,
 --     it is no method.  So the table's exhaustiveness question is not
---     "are there other presentations?" â” it is "how many independent
+--     "are there other presentations?" â€” it is "how many independent
 --     seeds are there?", and the counting answers it uniformly: n seeds
---     give 2â¿ âˆ’ 1 positions and one void.  Three gives seven.  A fourth
+--     give 2â¿ âˆ’ 1 positions and one void.  Three gives seven.  A fourth
 --     independent presentation would give fifteen, by the same transport
 --     and with no new mathematics.
 ------------------------------------------------------------------------
@@ -233,7 +233,7 @@ private
   à¤¤à¥ƒà¤¤à¥€à¤¯à¤®à¥ (_ , _ , c) = c
 
 -- No position selects nothing.  Proved by cases: every bhaga.s selection
--- carries àà®à in at least one slot, and àà®à â‰ à¨.
+-- carries à¤†à¤®à¥ in at least one slot, and à¤†à¤®à¥ â‰¢ à¤¨.
 à¤…à¤²à¤¿à¤–à¤¿à¤¤-à¤°à¤¿à¤•à¥à¤¤à¤®à¥ : (b : à¤¸à¤ªà¥à¤¤à¤­à¤™à¥à¤—à¥€) â†’ (à¤…à¤¨à¥à¤¤à¤°à¥à¤­à¤¾à¤µ b â‰¡ à¤°à¤¿à¤•à¥à¤¤-à¤¸à¤‚à¤¯à¥‹à¤—à¤ƒ) â†’ âŠ¥
 à¤…à¤²à¤¿à¤–à¤¿à¤¤-à¤°à¤¿à¤•à¥à¤¤à¤®à¥ à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿                    p = à¤†à¤®à¥â‰¢à¤¨ (cong à¤ªà¥à¤°à¤¥à¤®à¤®à¥ p)
 à¤…à¤²à¤¿à¤–à¤¿à¤¤-à¤°à¤¿à¤•à¥à¤¤à¤®à¥ à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤¨à¤¾à¤¸à¥à¤¤à¤¿                   p = à¤†à¤®à¥â‰¢à¤¨ (cong à¤¦à¥à¤µà¤¿à¤¤à¥€à¤¯à¤®à¥ p)

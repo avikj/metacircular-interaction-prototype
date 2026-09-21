@@ -2,29 +2,29 @@
 
 -- ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose
 --
--- àµà²àà²à: ryabhaa, ryabhaya, Gaitapda 32â“33 (499).  àà¾àµà¨à¾: Brahmagupta,
--- Brhmasphuasiddhnta 18.64â“65 (628).  àà¨àà§à¿à: junction; the compound
--- àµà²àà²à-àà¾àµà¨à¾-àà¨àà§à¿à is built in this corpus (2026-08-23, and no source is
+-- à¤µà¤²à¥à¤²à¥€: Ä€ryabhaá¹­a, Ä€ryabhaá¹­Ä«ya, Gaá¹‡itapÄda 32â€“33 (499).  à¤­à¤¾à¤µà¤¨à¤¾: Brahmagupta,
+-- BrÄhmasphuá¹­asiddhÄnta 18.64â€“65 (628).  à¤¸à¤¨à¥à¤§à¤¿à¤ƒ: junction; the compound
+-- à¤µà¤²à¥à¤²à¥€-à¤­à¤¾à¤µà¤¨à¤¾-à¤¸à¤¨à¥à¤§à¤¿à¤ƒ is built in this corpus (2026-08-23, and no source is
 -- claimed for it. What is claimed of the sources is exactly what the machine
--- lane already claims: the vall is the quotient column, the àà¾àµà¨à¾ is the
+-- lane already claims: the vallÄ« is the quotient column, the à¤­à¤¾à¤µà¤¨à¤¾ is the
 -- composition rule (xx'+Dyy', xy'+x'y).
 --
 -- WHAT THIS MODULE CHECKS, checked forms of the note's derivation:
 --
---   1. ààà°àà¿à²à‹à®-à®àà•ààà®à â” the generator column M(a) = [[a,1],[1,0]] is its
+--   1. à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®-à¤®à¥à¤•à¥à¤¤à¤®à¥ â€” the generator column M(a) = [[a,1],[1,0]] is its
 --      own transpose (refl), so reversal of a garland is transposition.
---   2. ààà°àà¿à²à‹à®à â” transpose is an anti-automorphism of the matrix monoid:
---      (AÂB)µ = BµÂAµ, proved componentwise from ÂComm alone.
---   3. àà¨àà§à¿-àààà®à (D = 2, the seed instance of the note's Theorem):
---      M(1)ÂM(2)ÂM(1)ÂM(0) â‰¡ Î(3 + 2âˆ2), where Î x y = [[x, Dy],[y, x]]
---      is the regular representation on the basis (1, âˆD).  One refl:
---      both sides compute to [[3,4],[2,3]].  det bookkeeping: 9 âˆ’ 2Â4 = 1.
+--   2. à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®à¤ƒ â€” transpose is an anti-automorphism of the matrix monoid:
+--      (AÂ·B)áµ€ = Báµ€Â·Aáµ€, proved componentwise from Â·Comm alone.
+--   3. à¤¸à¤¨à¥à¤§à¤¿-à¤¬à¥€à¤œà¤®à¥ (D = 2, the seed instance of the note's Theorem):
+--      M(1)Â·M(2)Â·M(1)Â·M(0) â‰¡ Î¹(3 + 2âˆš2), where Î¹ x y = [[x, Dy],[y, x]]
+--      is the regular representation on the basis (1, âˆšD).  One refl:
+--      both sides compute to [[3,4],[2,3]].  det bookkeeping: 9 âˆ’ 2Â·4 = 1.
 --
 -- OWED, said here so nobody mistakes scope: the general theorem
--- PÂM(aâ)ÂM(0) â‰¡ Î(x + yâˆD) for every non-square D (its proof is the two
+-- PÂ·M(aâ‚€)Â·M(0) â‰¡ Î¹(x + yâˆšD) for every non-square D (its proof is the two
 -- matching equations of the note, per-D a finite computation); and
--- àà¾àµà¨à¾-as-matrix-multiplication in general, mm (Î x y) (Î x' y') â‰¡
--- Î (xx'+D yy') (xy'+x'y), which needs ÂAssoc and distributivity and is
+-- à¤­à¤¾à¤µà¤¨à¤¾-as-matrix-multiplication in general, mm (Î¹ x y) (Î¹ x' y') â‰¡
+-- Î¹ (xx'+D yy') (xy'+x'y), which needs Â·Assoc and distributivity and is
 -- left as the next term so this module's import surface stays two lemmas.
 --
 -- ~~DEFECT, WRITTEN AT THE MOMENT OF THE ACT: this module was authored in a
@@ -45,7 +45,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int
 open import Cubical.Data.Int.Properties using (Â·Comm)
 
--- â”â” the matrix monoid, four slots, no list and no vector â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ the matrix monoid, four slots, no list and no vector â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 record Mat : Type where
   constructor mat
@@ -68,17 +68,17 @@ infixl 20 _â‹†_
 à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®à¤®à¥ : Mat â†’ Mat
 à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®à¤®à¥ A = mat (m00 A) (m10 A) (m01 A) (m11 A)
 
--- the regular representation of x + yâˆD on the basis (1, âˆD)
+-- the regular representation of x + yâˆšD on the basis (1, âˆšD)
 Î¹ : (D x y : â„¤) â†’ Mat
 Î¹ D x y = mat x (D Â· y) y x
 
--- â”â” à§ Â the generator is its own reverse â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ à¥§ Â· the generator is its own reverse â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®-à¤®à¥à¤•à¥à¤¤à¤®à¥ : (a : â„¤) â†’ à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®à¤®à¥ (à¤—à¤£à¤•à¤ƒ a) â‰¡ à¤—à¤£à¤•à¤ƒ a
 à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®-à¤®à¥à¤•à¥à¤¤à¤®à¥ a = refl
 
--- â”â” à¨ Â transpose is an anti-automorphism: (Aâ‹B)µ â‰¡ Bµâ‹Aµ â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- Componentwise; each slot is two applications of ÂComm under _+_.
+-- â”€â”€ à¥¨ Â· transpose is an anti-automorphism: (Aâ‹†B)áµ€ â‰¡ Báµ€â‹†Aáµ€ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- Componentwise; each slot is two applications of Â·Comm under _+_.
 
 à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®à¤ƒ : (A B : Mat) â†’ à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®à¤®à¥ (A â‹† B) â‰¡ à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®à¤®à¥ B â‹† à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®à¤®à¥ A
 à¤ªà¥à¤°à¤¤à¤¿à¤²à¥‹à¤®à¤ƒ A B i =
@@ -87,10 +87,10 @@ infixl 20 _â‹†_
       (congâ‚‚ _+_ (Â·Comm (m00 A) (m01 B)) (Â·Comm (m01 A) (m11 B)) i)
       (congâ‚‚ _+_ (Â·Comm (m10 A) (m01 B)) (Â·Comm (m11 A) (m11 B)) i)
 
--- â”â” à© Â the seed sandhi, D = 2 â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- Digits of âˆ2 across the closed period: 1, 2, 1; dressed with M(0).
--- The garland lands on Î 2 3 2 â” the regular representation of 3 + 2âˆ2,
--- Brahmagupta's fundamental for D = 2, norm 9 âˆ’ 2Â4 = 1.
+-- â”€â”€ à¥© Â· the seed sandhi, D = 2 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- Digits of âˆš2 across the closed period: 1, 2, 1; dressed with M(0).
+-- The garland lands on Î¹ 2 3 2 â€” the regular representation of 3 + 2âˆš2,
+-- Brahmagupta's fundamental for D = 2, norm 9 âˆ’ 2Â·4 = 1.
 
 à¤¸à¤¨à¥à¤§à¤¿-à¤¬à¥€à¤œà¤®à¥ :
     à¤—à¤£à¤•à¤ƒ (pos 1) â‹† à¤—à¤£à¤•à¤ƒ (pos 2) â‹† à¤—à¤£à¤•à¤ƒ (pos 1) â‹† à¤—à¤£à¤•à¤ƒ (pos 0)

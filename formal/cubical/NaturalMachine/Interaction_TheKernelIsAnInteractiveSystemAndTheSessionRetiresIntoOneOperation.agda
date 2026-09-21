@@ -4,7 +4,7 @@
 -- NaturalMachine.Samvada_TheKernelIsAnInteractiveSystem
 --                        AndTheSessionRetiresIntoOneOperation
 --
--- TERM.  ‡‡‡µ‡æ‡¶ ¬ savda -- dialogue; and, technically, the CONCORDANCE of a
+-- TERM.  ‡§∏‡§Ç‡§µ‡§æ‡§¶ ¬∑ sa·πÉvƒÅda -- dialogue; and, technically, the CONCORDANCE of a
 -- cognition with what it is about, the corroboration by which a cognition is
 -- held valid.  Both senses are load-bearing here: ¬ß1 is the interface across
 -- which a caller and the machine must concord, ¬ß2 is the dialogue itself.
@@ -18,11 +18,11 @@
 ------------------------------------------------------------------------
 -- A CORRECTION FIRST, BECAUSE IT IS MINE AND IT IS LOAD-BEARING.
 --
--- `Vyapti_‚¶`, `Sesa_‚¶` and `Avataranika_‚¶` ¬ß7 read this kernel as a static
+-- `Vyapti_‚Ä¶`, `Sesa_‚Ä¶` and `Avataranika_‚Ä¶` ¬ß7 read this kernel as a static
 -- artifact and reported its limits.  The theorems there are true and the
 -- READING WAS BACKWARDS.  Three claims are struck here, in place:
 --
---  ~~"the kernel memorises"~~  `Control : Tm ‚í Type‚` is a FIELD.  The
+--  ~~"the kernel memorises"~~  `Control : Tm ‚Üí Type‚ÇÄ` is a FIELD.  The
 --    caller supplies it, and may supply ANY type family whatsoever.
 --    `install` is one instance -- the trivial one -- and until now the only
 --    one anybody had ever constructed:
@@ -41,7 +41,7 @@
 --    theorem-grade error) and `Uttara`'s (never a bare verdict).
 --
 --  ~~"no semantic criterion selects the short proof -- a no-go"~~  It is a
---    GUARANTEE OF NON-DISPLACEMENT.  `Sesa_‚¶` proves the machine can never
+--    GUARANTEE OF NON-DISPLACEMENT.  `Sesa_‚Ä¶` proves the machine can never
 --    take the choice from you on semantic grounds.  The system is
 --    interactive by theorem, not by omission.
 --
@@ -59,12 +59,12 @@
 --              arbitrary user-supplied `Control` is not decidable by the
 --              machine.  That is the price of the interface being open, not
 --              a missing feature.
---   result     `execute` : `EnabledFuture` (Type‚) ‚í `CheckedFuture` (Type‚).
+--   result     `execute` : `EnabledFuture` (Type‚ÇÅ) ‚Üí `CheckedFuture` (Type‚ÇÄ).
 --              THE UNIVERSE DESCENT IS THE POINT.  The result drops the
 --              operation and drops the caller's evidence, keeping only the
 --              new term and the derivation that reached it -- so it is small,
 --              replayable, and free of who asked.
---   learning   `install : Derivation lhs rhs ‚í NativeOperation` accepts
+--   learning   `install : Derivation lhs rhs ‚Üí NativeOperation` accepts
 --              exactly what `CheckedFuture` carries.
 --
 --     learn = install ‚àò CheckedFuture.derivation
@@ -90,7 +90,7 @@
 --       machine anything false, no matter what the caller does.
 --
 -- ¬ß0 explains why there cannot be one for an open interface.  No policy over
--- the offered list; that is the caller's and `Sesa_‚¶` proves it must be.
+-- the offered list; that is the caller's and `Sesa_‚Ä¶` proves it must be.
 -- `Session` records a library but nothing here consults it when stepping;
 -- the caller supplies the `EnabledFuture`.  Nothing here is concurrent, and
 -- `step` is a function, not a protocol.
@@ -98,7 +98,7 @@
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
-module NaturalMachine.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation where
+module NaturalMachine.Interaction_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (‚Ñï ; isSet‚Ñï)
@@ -176,7 +176,7 @@ then-step p d ‚äï e = then-step p (d ‚äï e)
 
 -- Concatenation means what it should: the composite's meaning is the
 -- composite of the meanings, so a transcript is never re-verified when it is
--- extended.  THE PROOF IS `isSet‚ï`, and that is `Sesa_‚¶` PAYING FOR ITSELF --
+-- extended.  THE PROOF IS `isSet‚Ñï`, and that is `Sesa_‚Ä¶` PAYING FOR ITSELF --
 -- the meaning type is a proposition, so any two proofs of it agree and this
 -- lemma costs nothing.  The same fact that makes the semantics blind to route
 -- is what makes transcripts free to concatenate.  Read as a limitation it was

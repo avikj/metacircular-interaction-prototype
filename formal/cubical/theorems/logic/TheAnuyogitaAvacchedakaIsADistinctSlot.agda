@@ -10,11 +10,11 @@
 -- And the one-limitor presentation loses absences: there is an absence
 -- that HOLDS under a delimited locus and FAILS on the whole one.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT PROVOKED THIS, AND THE GREP THAT CONFIRMED IT WAS STILL OPEN
 --
 --
---   "the limitor is a *dependent binder over the relatum* â” and,
+--   "the limitor is a *dependent binder over the relatum* â€” and,
 --    separately, that the avacchedaka of the `pratiyogit` and the
 --    avacchedaka of the `anuyogit` are distinct slots.  Neither of
 --    these is used anywhere in the repo."
@@ -24,7 +24,7 @@
 -- `ExclusionInstantiatesAbhavaWithALoadBearingLimitor`
 -- uses it.  I READ `AbhavaAvacchedaka.agda` before writing this: its
 -- record has ONE limitor field, delimiting `pratiyogin` only, and
--- `holds A Î = (x : A .anuyogin) â’ Â (A .pratiyogin Î x)` quantifies
+-- `holds A Î± = (x : A .anuyogin) â†’ Â¬ (A .pratiyogin Î± x)` quantifies
 -- over the whole locus with nothing delimiting it.
 --
 -- The second part was still open, and I checked rather than assumed:
@@ -32,19 +32,19 @@
 --   grep -rn 'pratiyogit\|anuyogit' --include=*.agda --include=*.md
 --            --include=*.hs .        (excluding .git)
 --
--- returned exactly two lines, BOTH prose, NEITHER formal â”
+-- returned exactly two lines, BOTH prose, NEITHER formal â€”
 -- `INDIC_FORMAL_TRADITIONS_MAP.md:292` (the sentence above) and
 -- `SEED53_PRATIYOGIN_OF_THE_PRIMITIVE_PROJECTOR.md:22`.  Zero `.agda`
 -- files.  Output not truncated.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE SCHOOL, AND ITS TERMS, NAMED BEFORE USE
 --
 -- Navya-Nyya (Gagea, *Tattvacintmai*, 14th c.; Raghuntha).  An
 -- abhva is specified by its relata and by the modes under which each
 -- relatum is taken:
 --
---   pratiyogin              the counterpositive â” what is absent
+--   pratiyogin              the counterpositive â€” what is absent
 --   pratiyogitvacchedaka   the mode under which the counterpositive is
 --                           taken (pot-absence *qua pot-ness*, not qua
 --                           blue-pot-ness)
@@ -55,14 +55,14 @@
 -- The slot doctrine is carried from this repository's own exactly as
 -- `AbhavaAvacchedaka.agda`'s own header records for itself. The concrete
 -- example in
--- Â§3 is MINE â” a two-point locus, not a tradition example â” and it is
+-- Â§3 is MINE â€” a two-point locus, not a tradition example â€” and it is
 -- offered as a separating instance, not as an exegesis.
 --
 -- WHAT RIVAL SCHOOLS WOULD SAY TO EACH OTHER, unadjudicated.  The
 -- Prbhkara Mmsakas deny that abhva is a distinct padrtha at all:
 -- for them what is reported as apprehending an absence is apprehending
 -- the bare locus, so the whole slot apparatus is machinery for an entity
--- they do not admit â” and on that view Â§3 below separates two readings
+-- they do not admit â€” and on that view Â§3 below separates two readings
 -- of one bare floor, not two absences.  The Buddhist apoha theorists
 -- (Dignga, Dharmakrti) take exclusion as primitive rather than
 -- built from a positive relatum, so the question "which limitor
@@ -72,9 +72,9 @@
 -- settled elsewhere in this corpus: MAP Â§2.3 refutes the reading of
 -- apoha as Boolean complementation.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” container pin.  --safe, no
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” container pin.  --safe, no
 -- postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -107,7 +107,7 @@ record Abhavaâ‚‚ : Typeâ‚ where
 open Abhavaâ‚‚ public
 
 -- the absence, taken under BOTH modes: nothing in the locus-under-Î½
--- bears the counterpositive-under-Ï.
+-- bears the counterpositive-under-Ï€.
 holdsâ‚‚ : (A : Abhavaâ‚‚) â†’ A .pratiyogitavacchedaka â†’ A .anuyogitavacchedaka â†’ Type
 holdsâ‚‚ A Ï€ Î½ = (x : A .anuyoginâ‚‚) â†’ A .locus Î½ x â†’ Â¬ (A .pratiyoginâ‚‚ Ï€ x)
 
@@ -118,13 +118,13 @@ reduct A .avacchedaka = A .pratiyogitavacchedaka
 reduct A .pratiyogin  = A .pratiyoginâ‚‚
 
 ------------------------------------------------------------------------
--- 2.  How the two verdicts stand to each other â” both directions, so
+-- 2.  How the two verdicts stand to each other â€” both directions, so
 --     neither is called simply stronger
 --
 -- The one-slot verdict demands more: it quantifies over the bare locus,
 -- so it implies the two-slot verdict at EVERY Î½, with no hypothesis.
 -- The two-slot verdict returns the one-slot one only when the locus
--- limitor is total â” i.e. exactly when the limitor was doing nothing.
+-- limitor is total â€” i.e. exactly when the limitor was doing nothing.
 ------------------------------------------------------------------------
 
 oneSlotâ†’twoSlot :
@@ -141,9 +141,9 @@ twoSlotâ†’oneSlot-when-the-limitor-is-inert A Ï€ Î½ total h x = h x (total x)
 ------------------------------------------------------------------------
 -- 3.  A separating absence, and both slots load-bearing on it
 --
--- Locus = Bool (two points).  The counterpositive under Ï at x holds iff
--- Ï is `true` and x is `true`.  The locus under Î½ contains x iff, should
--- Î½ be `true`, x is `false` â” so Î½ = `true` keeps only the point
+-- Locus = Bool (two points).  The counterpositive under Ï€ at x holds iff
+-- Ï€ is `true` and x is `true`.  The locus under Î½ contains x iff, should
+-- Î½ be `true`, x is `false` â€” so Î½ = `true` keeps only the point
 -- `false`, and Î½ = `false` keeps both.
 ------------------------------------------------------------------------
 
@@ -158,7 +158,7 @@ separating .locus       Î½ x = (Î½ â‰¡ true) â†’ (x â‰¡ false)
 locusFalseIsTotal : (x : Bool) â†’ separating .locus false x
 locusFalseIsTotal x p = âŠ¥.rec (falseâ‰¢true p)
 
--- â”â” the LOCUS limitor is load-bearing: Ï fixed at `true`, Î½ moves â”â”â”â”â”
+-- â”€â”€ the LOCUS limitor is load-bearing: Ï€ fixed at `true`, Î½ moves â”€â”€â”€â”€â”€
 
 absenceHoldsOnTheDelimitedLocus : holdsâ‚‚ separating true true
 absenceHoldsOnTheDelimitedLocus x inLocus bears =
@@ -167,8 +167,8 @@ absenceHoldsOnTheDelimitedLocus x inLocus bears =
 absenceFailsOnTheWholeLocus : Â¬ (holdsâ‚‚ separating true false)
 absenceFailsOnTheWholeLocus h = h true (locusFalseIsTotal true) (refl , refl)
 
--- â”â” the COUNTERPOSITIVE limitor is load-bearing: Î½ fixed at `false`,
---    Ï moves.  This half is the one `AbhavaAvacchedaka` already had; it
+-- â”€â”€ the COUNTERPOSITIVE limitor is load-bearing: Î½ fixed at `false`,
+--    Ï€ moves.  This half is the one `AbhavaAvacchedaka` already had; it
 --    is redone here only so both slots are separated on ONE object.
 
 absenceHoldsUnderTheOtherCounterpositiveLimitor : holdsâ‚‚ separating false false
@@ -178,8 +178,8 @@ absenceHoldsUnderTheOtherCounterpositiveLimitor x _ bears =
 ------------------------------------------------------------------------
 -- 4.  THE STATEMENT.  One limitor slot loses an absence.
 --
--- The very same locus and the very same counterpositive family â” that
--- is, identical one-slot data â” give an absence that holds under a
+-- The very same locus and the very same counterpositive family â€” that
+-- is, identical one-slot data â€” give an absence that holds under a
 -- delimited locus and fails on the bare one.  So the anuyogit's
 -- limitor is not recoverable from the one-slot record, and dropping it
 -- is not a simplification but a change of subject.
@@ -203,9 +203,9 @@ bothSlotsAreLoadBearing =
 ------------------------------------------------------------------------
 -- 5.  What this closes, and what it does not
 --
--- MAP Â§3.3's second clause â” "the avacchedaka of the pratiyogit and the
--- avacchedaka of the anuyogit are distinct slots â¦ not used anywhere in
--- the repo" â” is now used, and the distinctness is a theorem rather than
+-- MAP Â§3.3's second clause â€” "the avacchedaka of the pratiyogitÄ and the
+-- avacchedaka of the anuyogitÄ are distinct slots â€¦ not used anywhere in
+-- the repo" â€” is now used, and the distinctness is a theorem rather than
 -- a report of the doctrine.
 --
 -- What it does NOT close is Â§3.3's recommendation, which was about the

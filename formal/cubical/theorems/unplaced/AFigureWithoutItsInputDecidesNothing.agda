@@ -8,17 +8,17 @@
 -- guard is weaker than it looks:
 --
 --   "a disagreement between a bracket and its number is not evidence of
---    a regression in `triage`, it is evidence that the log moved â¦
+--    a regression in `triage`, it is evidence that the log moved â€¦
 --    a count without its input is the same defect as a constant without
 --    its scaling."
 --
--- Its input, `interactive/machine.log`, is excluded by `.gitignore:16` â” no
+-- Its input, `interactive/machine.log`, is excluded by `.gitignore:16` â€” no
 -- clone has it, no reader reproduces it, and it grows whenever the
 -- engine runs.  Â§2 is that sentence as a theorem, and Â§3 is the exact
 -- amount the guard recovers once the input IS shared, which is less than
 -- one might assume.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- NOT the container-versus-pin finding again
 -- about which TOOLCHAIN produced an exit code.  This is about an INPUT
@@ -30,7 +30,7 @@
 -- on every run is not obviously a repository artefact, and nothing below
 -- says what to do about it.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -56,7 +56,7 @@ reportsDiffer : Â¬ (asPublished â‰¡ asChanged)
 reportsDiffer p = znots (funExtâ» p 0)
 
 ------------------------------------------------------------------------
--- 2.  With the input unknown, the figure decides nothing â” both ways
+-- 2.  With the input unknown, the figure decides nothing â€” both ways
 --
 -- The reader sees a number.  It is consistent with the report being
 -- unchanged and with the report having changed, and so is its negation.
@@ -105,12 +105,12 @@ matchAtSharedInputEstablishesNothing =
 --
 -- Â§2: an untracked input makes the published-versus-recomputed
 -- comparison uninformative in BOTH directions, which is stronger than
--- "the guard is weak" â” it is not a guard at all.
+-- "the guard is weak" â€” it is not a guard at all.
 --
 -- Â§3: sharing the input buys a one-sided test.  Mismatch refutes;
 -- match establishes nothing.  That is the correct shape for a regression
--- guard and it is worth saying, because the natural summary â” "the
--- numbers agree, so nothing changed" â” is the half Â§3's second theorem
+-- guard and it is worth saying, because the natural summary â€” "the
+-- numbers agree, so nothing changed" â€” is the half Â§3's second theorem
 -- refutes.
 --
 -- Both halves are about the same object the census module already names:

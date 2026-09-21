@@ -2,28 +2,28 @@
 
 ## What the object is (read from the corpus)
 
-- **Interaction** (`Prasna`): `Q : X â’ Type`, `Î´ : (x : X) â’ Q x â’ X` â” every
+- **Interaction** (`Prasna`): `Q : X â†’ Type`, `Î´ : (x : X) â†’ Q x â†’ X` â€” every
   state *asks*, the environment answers, the step consumes the answer. A
   history `IExec x` is now / receipt `now â‰¡ x` / answer / rest; the
   environment's bare contribution `Answers x` is answer / more.
-  **`run-is-answers`: `IExec x â‰ Answers x`** â” a history is exactly its
+  **`run-is-answers`: `IExec x â‰ƒ Answers x`** â€” a history is exactly its
   answer stream, receipts weigh nothing (the interactive face of
   `trace-is-fiber`). **`silence-is-determinism`**: every question
-  contractible â’ one history; the Turing machine is the interaction with
+  contractible â‡’ one history; the Turing machine is the interaction with
   nothing to ask (`Prashna`: receipts collapse the ISC to a point, a free
   event opens it, and the *event type* is what measures the gap).
 - **Braid fabric** (`VeniBandha`, `AnantaVeni`): strands are coinductive
-  streams of interdependent pairs `Stra = Bool — Bool`; a crossing Ïµ is the
-  twisted swap with the quarter turn `(a,b) â¦ (Âb, a)`; every relation of
+  streams of interdependent pairs `SÅ«tra = Bool Ã— Bool`; a crossing Ïƒáµ¢ is the
+  twisted swap with the quarter turn `(a,b) â†¦ (Â¬b, a)`; every relation of
   every braid group holds at every position by a path of streams built field
-  by field. Independent interactions commute (ÏµÏâ¼, |iâˆ’j| â‰ 2); dependent
-  ones cross (ÏµÏµâŠâÏµ = ÏµâŠâÏµÏµâŠâ).
+  by field. Independent interactions commute (Ïƒáµ¢Ïƒâ±¼, |iâˆ’j| â‰¥ 2); dependent
+  ones cross (Ïƒáµ¢Ïƒáµ¢â‚Šâ‚Ïƒáµ¢ = Ïƒáµ¢â‚Šâ‚Ïƒáµ¢Ïƒáµ¢â‚Šâ‚).
 - **On the net** these are the interaction rules themselves: a question with
   two answers is a superposition; the environment's answer is a dup; two
   questions on independent labels commute, two on the same label are
   correlated by the dup (below, measured).
 
-## What is carried (`interaction.bend` 36 â“, `braid.bend` 16 â“)
+## What is carried (`interaction.bend` 36 âœ“, `braid.bend` 16 âœ“)
 
 Bend2 has no coinduction, so the coinductive records are carried at every
 finite depth `n` (their Ï‰-limit is exactly the corpus's
@@ -32,11 +32,11 @@ the unfolding is lazy, so any depth is reachable on demand.
 
 | corpus | Bend | status |
 |---|---|---|
-| `IExec`, `Answers` | `IExec(X,Q,Î´,n,x)`, `Answers(X,Q,Î´,n,x)` (Î-chains by recursion on `n`) | â“ |
-| `forgetStates`, `replay` | same | â“ |
-| `run-is-answers` | `runIsAnswers(n) : Equiv(IExec, Answers)` â” a **coherent** equivalence (contractible fibres via `lemIso`), round trips by the same âˆ¨-square that collapses a receipt onto refl | â“ definitional |
-| `silence-is-determinism` (closed machine) | `silenceIsDeterminism(f, n, x) : isContr(Answers â¦)` for `Q x = Unit` | â“ |
-| `veâˆ`, `ve-stra`, `dra-stra` | `veni(i, s)`, `veniRel(i, s, n)`, `duraRel(i, k, s, n)` â” pointwise paths by the same induction (peel to the base at i = 0; head preserved, tail recurses) | â“ definitional at every leaf |
+| `IExec`, `Answers` | `IExec(X,Q,Î´,n,x)`, `Answers(X,Q,Î´,n,x)` (Î£-chains by recursion on `n`) | âœ“ |
+| `forgetStates`, `replay` | same | âœ“ |
+| `run-is-answers` | `runIsAnswers(n) : Equiv(IExec, Answers)` â€” a **coherent** equivalence (contractible fibres via `lemIso`), round trips by the same âˆ¨-square that collapses a receipt onto refl | âœ“ definitional |
+| `silence-is-determinism` (closed machine) | `silenceIsDeterminism(f, n, x) : isContr(Answers â€¦)` for `Q x = Unit` | âœ“ |
+| `veá¹‡Ä«âˆ`, `veá¹‡Ä«-sÅ«tra`, `dÅ«ra-sÅ«tra` | `veni(i, s)`, `veniRel(i, s, n)`, `duraRel(i, k, s, n)` â€” pointwise paths by the same induction (peel to the base at i = 0; head preserved, tail recurses) | âœ“ definitional at every leaf |
 
 ## Run on HVM (`--to-hvm4-full`, values identical to the normaliser)
 
@@ -44,23 +44,23 @@ the unfolding is lazy, so any depth is reachable on demand.
 |---|---|---|
 | closed counter from 0, unique history replayed, `now` at step 2 | `2` | 114 |
 | open machine from 1, answers `True,False,True` (`+1`, reset, `+1`), last state | `1` | 85 |
-| open machine, answers `True,True,&L{True,False}` (the last answer a **superposition**) | `4` and `0` â” two histories | 117 / 120 |
-| answers `&L{â¦},True,&M{â¦}` (two **independent** labels) | `{0, 4, 2}` over four histories | 107â“139 |
-| answers `&L{â¦},True,&L{â¦}` (the **same** label: the dup correlates them) | `4` and `0` â” two histories | 125 / 128 |
-| braid: `ÏâÏâÏâ` vs `ÏâÏâÏâ` on the rope `n â¦ (even n, True)`, depth 0..3 | `(0,0)/(0,0)`, `(0,0)/(0,0)`, `(1,1)/(1,1)`, `(0,1)/(0,1)` â” equal | 350â“1163 |
+| open machine, answers `True,True,&L{True,False}` (the last answer a **superposition**) | `4` and `0` â€” two histories | 117 / 120 |
+| answers `&L{â€¦},True,&M{â€¦}` (two **independent** labels) | `{0, 4, 2}` over four histories | 107â€“139 |
+| answers `&L{â€¦},True,&L{â€¦}` (the **same** label: the dup correlates them) | `4` and `0` â€” two histories | 125 / 128 |
+| braid: `Ïƒâ‚€Ïƒâ‚Ïƒâ‚€` vs `Ïƒâ‚Ïƒâ‚€Ïƒâ‚` on the rope `n â†¦ (even n, True)`, depth 0..3 | `(0,0)/(0,0)`, `(0,0)/(0,0)`, `(1,1)/(1,1)`, `(0,1)/(0,1)` â€” equal | 350â€“1163 |
 
 The superposition rows are the thesis measured: a question is a
 superposition, an answer is a dup, and whether two answers are independent
-or one is decided by their labels â” the net's own DUP-SUP rule.
+or one is decided by their labels â€” the net's own DUP-SUP rule.
 
 ## Checker changes this needed (in `cubical-paths.patch`)
 
 - `rewrite` descends into the *head* of an application: after a Nat
   refinement a goal can sit as `(Î»p. body)(p)` (Soft whnf keeps the
-  application when the body is a stuck match) and the matched Î-variable
+  application when the body is a stuck match) and the matched Î£-variable
   lives inside `body`; previously only arguments were rewritten, so
-  `match s: case (a, b)` never refined goals mentioning `f(â¦, s)`.
+  `match s: case (a, b)` never refined goals mentioning `f(â€¦, s)`.
 - conversion tries **same-head applications with convertible arguments**
-  before unfolding: unfolding a recursive type family (a depth-indexed Î) on
+  before unfolding: unfolding a recursive type family (a depth-indexed Î£) on
   a variable depth regressed forever, one fresh variable per level (the
   checker hung on `mute`).

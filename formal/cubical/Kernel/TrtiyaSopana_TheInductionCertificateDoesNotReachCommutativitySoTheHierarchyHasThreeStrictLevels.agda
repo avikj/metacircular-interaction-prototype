@@ -4,35 +4,35 @@
 -- Kernel.TrtiyaSopana_TheInductionCertificateDoesNotReach
 --            CommutativitySoTheHierarchyHasThreeStrictLevels
 --
--- ‡‡‡‡‡Ø-‡‡ã‡‡æ‡®‡Æ‡ ¬ the third step of the stair.  The compound is assembled
+-- ‡§§‡•É‡§§‡•Ä‡§Ø-‡§∏‡•ã‡§™‡§æ‡§®‡§Æ‡•ç ¬∑ the third step of the stair.  The compound is assembled
 -- here for this module and no textual source is claimed for it.
 --
--- WHERE THIS STANDS.  `Naya_‚¶` proved two things and left one question
+-- WHERE THIS STANDS.  `Naya_‚Ä¶` proved two things and left one question
 -- between them, named in its own WHAT-IS-NOT-PROVED block by omission:
 --
 --   ¬ß3 there   commutativity of `add` is UNDERIVABLE          (W-model)
 --   ¬ß4 there   the induction rule is STRICTLY STRONGER than
 --              the rewrite closure                            (0 + x = x)
 --
--- Open between them: whether the induction apparatus ‚î the strongest
--- thing in the kernel's three files ‚î reaches commutativity.  This
+-- Open between them: whether the induction apparatus ‚Äî the strongest
+-- thing in the kernel's three files ‚Äî reaches commutativity.  This
 -- module answers: IT DOES NOT.  The same W-standpoint that decided ¬ß3
 -- decides this, one level up, with no new machinery: an
 -- `InductionCertificate (add var yvar) (add yvar var)` carries a `base`
 -- field of type `Derivation (add zero yvar) (add yvar zero)`, and the
--- W-values of those endpoints differ at the head ‚î
+-- W-values of those endpoints differ at the head ‚Äî
 --
---     ‚ü¶ add zero yvar ‚üß = aM ‚à aY ‚à []        (the marker survives)
---     ‚ü¶ add yvar zero ‚üß = aY ‚à []             (right unit, by refl)
+--     ‚ü¶ add zero yvar ‚üß = aM ‚à∑ aY ‚à∑ []        (the marker survives)
+--     ‚ü¶ add yvar zero ‚üß = aY ‚à∑ []             (right unit, by refl)
 --
 -- so `derivation-model` refutes the base, hence the certificate.
 --
 -- THE CONSEQUENCE, stated as one object below.  Commutativity is TRUE at
 -- every environment (`+-comm`), certifiable by nothing the kernel has,
--- installable a fortiori by nothing the kernel has.  With `Naya_‚¶`'s ¬ß4
+-- installable a fortiori by nothing the kernel has.  With `Naya_‚Ä¶`'s ¬ß4
 -- this closes a three-level strictness:
 --
---     rewrite closure  ‚ää  induction closure  ‚ää  truth in ‚ï
+--     rewrite closure  ‚ää  induction closure  ‚ää  truth in ‚Ñï
 --
 -- first strictness witnessed by `0 + x = x` (there), second by
 -- `x + y = y + x` (here).  The kernel certifies more than it can
@@ -41,8 +41,8 @@
 -- WHAT THIS MEANS FOR THE APPARATUS, read forward not backward: the
 -- certificate form does induction on ONE coordinate (`var`), and
 -- commutativity's classical proof needs a nested induction whose base
--- `0 + y = y` is itself only induction-certifiable ‚î but `base` demands
--- a `Derivation`, and by `Naya_‚¶`'s `not-left-unital` argument none
+-- `0 + y = y` is itself only induction-certifiable ‚Äî but `base` demands
+-- a `Derivation`, and by `Naya_‚Ä¶`'s `not-left-unital` argument none
 -- exists.  The wall is exactly the type of the `base` field.  A
 -- certificate whose base may itself be a certificate is the repair this
 -- names and does not make; whether to make it is a design decision and
@@ -90,7 +90,7 @@ not-comm-certifiable cert =
 
 ------------------------------------------------------------------------
 -- ¬ß3.  THE THEOREM, one object: true at every environment, and beyond
---      the certificate's reach.  With Naya_‚¶'s ¬ß4 this is the third
+--      the certificate's reach.  With Naya_‚Ä¶'s ¬ß4 this is the third
 --      level of the stair.
 ------------------------------------------------------------------------
 

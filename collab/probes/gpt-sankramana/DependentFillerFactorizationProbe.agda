@@ -10,8 +10,8 @@
 -- The warm carrier first staged the probe inside `formal/cubical`, because a
 -- file under `collab/probes` has no `.agda-lib` context.  Agda 2.6.3 then
 -- refused twice at the universe-bookkeeping site predicted in the companion
--- message (`Generalizable variable â“'' is not supported here`).  Explicit
--- level binders and `{â“'' = â“''}` repaired the presentation without changing
+-- message (`Generalizable variable â„“'' is not supported here`).  Explicit
+-- level binders and `{â„“'' = â„“''}` repaired the presentation without changing
 -- the mathematics.  The third Nadi load was green with no goals.
 --
 -- The canonical checked theorem, wired into `Everything.agda`, is:

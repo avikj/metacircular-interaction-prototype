@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡∞‡‡ï-‡‡‡‡‡∞ ‚î the five fours are one.
+-- ‡§ö‡§§‡•Å‡§∞‡•á‡§ï-‡§∏‡•Ç‡§§‡•ç‡§∞ ‚Äî the five fours are one.
 --
 -- The night's structures each produced a four: the TWIST VECTOR is
--- exact in a per-strand ‚/4; the KERNEL is decided by counts mod
+-- exact in a per-strand ‚Ñ§/4; the KERNEL is decided by counts mod
 -- four; the resolution LADDER tops at the mod-four reading; the
--- CHARGE is a homomorphism onto ‚/4; the CENTRALIZER of the causal
+-- CHARGE is a homomorphism onto ‚Ñ§/4; the CENTRALIZER of the causal
 -- class is the four uniform powers.  This file exhibits the object
 -- they all measure: THE SINGLE ORBIT OF ONE STRAND under the quarter
--- turn, with its position function ‚î
+-- turn, with its position function ‚Äî
 --
 --   ¬ß1  pos and the iterated turn are inverse: the turn iterated n
 --       times from the base sits at position n mod four, and every
 --       value is the turn iterated its own position from the base.
---       The orbit IS ‚/4, canonically, with the base point (the
+--       The orbit IS ‚Ñ§/4, canonically, with the base point (the
 --       blank strand) as origin.
 --
 -- Every four of the theory is a reading of this one orbit: counts
 -- measure how far a strand has been carried around it; the kernel
 -- asks whether every strand came home; the ladder's rungs are its
 -- quotients; the charge is its global winding; the centralizer is
--- its deck group.  One torsor, five shadows ‚î the ea trilaw's
+-- its deck group.  One torsor, five shadows ‚Äî the ≈õe·π£a trilaw's
 -- final appearance tonight: a single local structure, conserved,
 -- inaccessible to coarser readings, generating every level above.
 --
@@ -46,7 +46,7 @@ open import KendraNirvahana_EveryCentralCellwiseSymmetryIsAUniformPowerOfTheQuar
   using (pos ; orbit)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ The inverse pair: the orbit is canonically ‚/4.
+-- ‡•ß ¬∑ The inverse pair: the orbit is canonically ‚Ñ§/4.
 ------------------------------------------------------------------------
 
 -- Every value is the turn iterated its own position (imported: orbit).
@@ -65,7 +65,7 @@ sthƒÅna n =
     ≈õe·π£a-punar (suc (suc (suc zero)))    = refl
     ≈õe·π£a-punar (suc (suc (suc (suc m)))) = ≈õe·π£a-punar m
 
-    -- On the four residues, position of the iterate is the residue ‚î
+    -- On the four residues, position of the iterate is the residue ‚Äî
     -- and catuea is idempotent on its own outputs, case by case.
     catu·π£·π≠aya : (r : ‚Ñï) ‚Üí pos (cakrƒÅvartana r (true , true)) ‚â° catu·∏•≈õe·π£a r
     catu·π£·π≠aya zero                      = refl

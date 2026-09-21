@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡ ‚î neither channel inverts the sign section, and the host
+-- ‡§Ö‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§ ‚Äî neither channel inverts the sign section, and the host
 -- already held the reason as theorems.  The probe's two open rows
--- (notes/SADHYA_OPEN_OBLIGATIONS.md, "library lemma on ‚", rung ‡ß)
+-- (notes/SADHYA_OPEN_OBLIGATIONS.md, "library lemma on ‚Ñ§", rung ‡•ß)
 -- guessed augment (sign b) ‚â° b and relative (sign b) ‚â° b; the host's own
 -- `augment-sign` proves the first composite is CONSTANTLY zero, and
 -- `relative-sign` proves the second is the doubling map.  So both rows
 -- close as road two, each with its smallest witness at b = pos 1:
 -- the composites hit 0 and 2 respectively, never 1.
 --
--- (The library lemma the probe wanted was never missing ‚î it was present
+-- (The library lemma the probe wanted was never missing ‚Äî it was present
 -- in the host under the correct statement.  The queue row was a probe
--- guessing the wrong invariant, which is what the ladder's rung ‡ß is
+-- guessing the wrong invariant, which is what the ladder's rung ‡•ß is
 -- for: refl fails exactly where the guess is not the theorem.)
 --
 -- Toolchain note: checked under the PIN (Agda 2.8.0 + cubical v0.9),
@@ -33,11 +33,11 @@ open import NaturalMachine.ChargeTwoHistories
 one : ‚Ñ§
 one = pos 1
 
--- augment ‚àò sign is constantly zero (host theorem), and 0 ‚â 1 in ‚:
+-- augment ‚àò sign is constantly zero (host theorem), and 0 ‚â¢ 1 in ‚Ñ§:
 augment-NOT-DETERMINED : augment (sign one) ‚â° one ‚Üí ‚ä•
 augment-NOT-DETERMINED p = znots (injPos (sym (augment-sign one) ‚àô p))
 
--- relative ‚àò sign doubles (host theorem), and 2 ‚â 1 in ‚:
+-- relative ‚àò sign doubles (host theorem), and 2 ‚â¢ 1 in ‚Ñ§:
 pred‚Ñï : ‚Ñï ‚Üí ‚Ñï
 pred‚Ñï 0 = 0
 pred‚Ñï (suc n) = n

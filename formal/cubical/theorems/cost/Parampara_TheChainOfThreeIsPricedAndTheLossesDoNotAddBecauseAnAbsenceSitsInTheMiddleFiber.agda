@@ -1,110 +1,110 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡Æ‡‡‡∞‡æ ‚î ‡‡µ‡ ‡‡∞‡Æ‡‡‡∞‡æ‡‡‡∞‡æ‡‡‡‡Æ‡ø‡Æ‡ ‡∞‡æ‡‡∞‡‡‡Ø‡ã ‡µ‡ø‡¶‡‡ ‡
---            ‡ ‡ï‡æ‡≤‡‡®‡‡ ‡Æ‡‡‡æ ‡Ø‡ã‡ó‡ã ‡®‡‡‡ü‡ ‡‡∞‡®‡‡‡ ‡
+-- ‡§™‡§∞‡§Æ‡•ç‡§™‡§∞‡§æ ‚Äî ‡§è‡§µ‡§Ç ‡§™‡§∞‡§Æ‡•ç‡§™‡§∞‡§æ‡§™‡•ç‡§∞‡§æ‡§™‡•ç‡§§‡§Æ‡§ø‡§Æ‡§Ç ‡§∞‡§æ‡§ú‡§∞‡•ç‡§∑‡§Ø‡•ã ‡§µ‡§ø‡§¶‡•Å‡§É ‡•§
+--            ‡§∏ ‡§ï‡§æ‡§≤‡•á‡§®‡•á‡§π ‡§Æ‡§π‡§§‡§æ ‡§Ø‡•ã‡§ó‡•ã ‡§®‡§∑‡•ç‡§ü‡§É ‡§™‡§∞‡§®‡•ç‡§§‡§™ ‡••
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
+-- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
 -- THE TERM, ITS TEXT AND ITS DATE.
 --
--- **‡‡∞‡Æ‡‡‡∞‡æ** ¬ parampar ‚î transmission through a SUCCESSION OF LINKS,
+-- **‡§™‡§∞‡§Æ‡•ç‡§™‡§∞‡§æ** ¬∑ paramparƒÅ ‚Äî transmission through a SUCCESSION OF LINKS,
 -- each receiving from the one before and handing on to the one after.
 -- *Bhagavadgt* **4.2** (in the *Bhmaparvan* of the *Mahbhrata*;
--- the verse as it stands is conventionally placed c. 200 BCE ‚ì 200 CE,
+-- the verse as it stands is conventionally placed c. 200 BCE ‚Äì 200 CE,
 -- and the date is contested, which is why it is stated as a range).
 -- The verse is quoted above in full because BOTH of its halves are the
 -- subject of this module and the second half is usually dropped when the
 -- word is quoted: 4.2a says the thing was received *parampar-prptam*,
--- by succession, and 4.2b says *sa kleneha mahat yogo naa* ‚î by the
+-- by succession, and 4.2b says *sa kƒÅleneha mahatƒÅ yogo na·π£·π≠a·∏•* ‚Äî by the
 -- long lapse of time that yoga was LOST here.  A chain of links, and a
 -- loss along the chain, in one verse.
 --
--- A SECOND TERM, AND ITS SCHOOL, NAMED BEFORE IT IS USED.  ¬ß‡ß and ¬ß‡
--- turn on an **‡‡‡æ‡µ** (abhva) ‚î an absence.  That is
--- **Nyya‚ìVaieika**, not a neutral technical word: Kada,
--- *Vaieikastra* 9.1 (~2nd c. BCE ‚ì 2nd c. CE), systematised in
+-- A SECOND TERM, AND ITS SCHOOL, NAMED BEFORE IT IS USED.  ¬ß‡•ß and ¬ß‡•≠
+-- turn on an **‡§Ö‡§≠‡§æ‡§µ** (abhƒÅva) ‚Äî an absence.  That is
+-- **NyƒÅya‚ÄìVai≈õe·π£ika**, not a neutral technical word: Ka·πáƒÅda,
+-- *Vai≈õe·π£ikas≈´tra* 9.1 (~2nd c. BCE ‚Äì 2nd c. CE), systematised in
 -- Praastapda's *Padrthadharmasagraha* (~6th c.) and stated compactly
 -- at Annabhaa, *Tarkasagraha* ¬ß¬ß57, 80 (~1600).  The one feature of
 -- on: an absence is a RELATION with named slots, never a bare negative
--- verdict ‚î it is the absence OF something (its **pratiyogin**,
--- counterpositive) IN something (its **anuyogin**, locus).  ¬ß‡ names both
+-- verdict ‚Äî it is the absence OF something (its **pratiyogin**,
+-- counterpositive) IN something (its **anuyogin**, locus).  ¬ß‡•≠ names both
 -- slots, and that is the whole difference between this module's result
 -- and a report that a number came out smaller than expected.
 --
 -- The Jaina logicians would not accept that treatment of negation, and
 -- this module does not pretend otherwise; syd-nsti grounds a negation
 -- fourfold and would not read the missing point as one relational entity
--- with two slots.  Nothing here is a joint Nyya‚ìJaina construction.  One
+-- with two slots.  Nothing here is a joint NyƒÅya‚ÄìJaina construction.  One
 -- school's instrument is used, and it is named.
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
+-- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
 -- WHY THIS MODULE EXISTS.
 --
--- The corpus can price ONE cut.  `YugmaPurana_‚¶` prices a replay that
--- recovers its length exactly mod 2.  `Lopa_‚¶` prices addition: `fiber
--- ‡Ø‡ã‡ó n ‚â SumFin (suc n)`, defect exactly n+1, and no left inverse.  In
+-- The corpus can price ONE cut.  `YugmaPurana_‚Ä¶` prices a replay that
+-- recovers its length exactly mod 2.  `Lopa_‚Ä¶` prices addition: `fiber
+-- ‡§Ø‡•ã‡§ó n ‚âÉ SumFin (suc n)`, defect exactly n+1, and no left inverse.  In
 -- both, a lossy map is paid for by NAMING ITS FIBER, never by bounding
 -- it.
 --
 -- It has never priced a CHAIN, and the composition law
--- `Residue_‚¶‡‡‡` ‚î fiber (g ‚àò f) z ‚â Œ[ p ‚àà fiber g z ] fiber f (fst p) ‚î
+-- `Residue_ÔøΩÔøΩÔøΩÔøΩ` ÔøΩ fiber (g ‚àò f) z ÔøΩ ÔøΩ[ p ‚àà fiber g z ] fiber f (fst p) ÔøΩ
 -- has never been instantiated at a chain whose every fiber is written
 -- out by hand.  Until it is, nothing downstream is entitled to add
 -- losses along a route, and there is a standing reason to think adding
--- is WRONG: `Unit ‚í Bool ‚í Unit` loses a bit in the middle and the
--- composite is the identity (¬ß‡Æ below, where it is derived from the same
+-- is WRONG: `Unit ‚Üí Bool ‚Üí Unit` loses a bit in the middle and the
+-- composite is the identity (¬ß‡•Æ below, where it is derived from the same
 -- mechanism as the main result rather than left as an anomaly).
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
+-- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
 -- THE CHAIN, AND WHAT IS PROVED OF IT.
 --
---     Bool ‚ä Unit  --‡‡‡∞‡µ‡‡-->  Bool ó Bool  --‡‡‡∞‡‡Æ‡æ‡‡-->  Bool  --‡µ‡ø‡‡‡Æ‡∞‡-->  Unit
+--     Bool ‚äé Unit  --‡§™‡•ç‡§∞‡§µ‡•á‡§∂-->  Bool √ó Bool  --‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂-->  Bool  --‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£-->  Unit
 --            (3)                    (4)                (2)             (1)
 --
---   ‡‡‡∞‡µ‡‡ (inl b) = (b , false)      ‡‡‡∞‡‡Æ‡æ‡‡ = fst        ‡µ‡ø‡‡‡Æ‡∞‡ _ = tt
---   ‡‡‡∞‡µ‡‡ (inr tt) = (true , true)
+--   ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ (inl b) = (b , false)      ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ = fst        ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ _ = tt
+--   ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ (inr tt) = (true , true)
 --
---  ¬ß‡ß  the four fibers of ‡‡‡∞‡µ‡‡, each named AS A TYPE, not as a count:
---         fiber ‡‡‡∞‡µ‡‡ (b , false) ‚â Unit   for both b
---         fiber ‡‡‡∞‡µ‡‡ (true , true) ‚â Unit
---         fiber ‡‡‡∞‡µ‡‡ (false , true) ‚â ‚ä   ‚ê‚î THE ABSENCE
---  ¬ß‡®  fiber ‡‡‡∞‡‡Æ‡æ‡‡ c ‚â Bool, UNIFORMLY in c.  One bit, everywhere.
---  ¬ß‡©  fiber ‡µ‡ø‡‡‡Æ‡∞‡ tt ‚â Bool.  One bit.
---  ¬ß‡  the middle composite ‡Æ‡ß‡‡Ø‡Æ = ‡‡‡∞‡‡Æ‡æ‡‡ ‚àò ‡‡‡∞‡µ‡‡:
---         fiber ‡Æ‡ß‡‡Ø‡Æ false ‚â Unit      (contractible ‚î proved)
---         fiber ‡Æ‡ß‡‡Ø‡Æ true  ‚â Bool      (NOT contractible ‚î proved)
---      so the composite's fiber is NOT uniform, and ¬ß‡®'s uniformity has
+--  ¬ß‡•ß  the four fibers of ‡§™‡•ç‡§∞‡§µ‡•á‡§∂, each named AS A TYPE, not as a count:
+--         fiber ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ (b , false) ‚âÉ Unit   for both b
+--         fiber ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ (true , true) ‚âÉ Unit
+--         fiber ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ (false , true) ‚âÉ ‚ä•   ‚Üê‚Äî THE ABSENCE
+--  ¬ß‡•®  fiber ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ c ‚âÉ Bool, UNIFORMLY in c.  One bit, everywhere.
+--  ¬ß‡•©  fiber ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ tt ‚âÉ Bool.  One bit.
+--  ¬ß‡•™  the middle composite ‡§Æ‡§ß‡•ç‡§Ø‡§Æ = ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ ‚àò ‡§™‡•ç‡§∞‡§µ‡•á‡§∂:
+--         fiber ‡§Æ‡§ß‡•ç‡§Ø‡§Æ false ‚âÉ Unit      (contractible ‚Äî proved)
+--         fiber ‡§Æ‡§ß‡•ç‡§Ø‡§Æ true  ‚âÉ Bool      (NOT contractible ‚Äî proved)
+--      so the composite's fiber is NOT uniform, and ¬ß‡•®'s uniformity has
 --      been destroyed by composing with a map that loses nothing.
---  ¬ß‡  ‡‡‡ INSTANTIATED at (‡‡‡∞‡‡Æ‡æ‡‡ , ‡‡‡∞‡µ‡‡), the RHS computed by hand
---      independently of it, and the two shown to AGREE ‚î pointwise, and
+--  ¬ß‡•´  ‡§∂‡•á‡§∑ INSTANTIATED at (‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ , ‡§™‡•ç‡§∞‡§µ‡•á‡§∂), the RHS computed by hand
+--      independently of it, and the two shown to AGREE ‚Äî pointwise, and
 --      at `true` the agreement is `refl`, which is the sharpest form the
 --      statement can take.  THE LAW SURVIVES THE CHAIN.
---  ¬ß‡  the whole chain.  fiber ‡‡‡∞‡‡ tt ‚â Bool ‚ä Unit ‚î THREE.  The
---      additive ledger predicts Unit ó Bool ó Bool ‚â Bool ó Bool ‚î FOUR.
---      And ¬ ((Bool ‚ä Unit) ‚â (Bool ó Bool)), proved by `Fin-inj`.
+--  ¬ß‡•¨  the whole chain.  fiber ‡§™‡•Ç‡§∞‡•ç‡§£ tt ‚âÉ Bool ‚äé Unit ‚Äî THREE.  The
+--      additive ledger predicts Unit √ó Bool √ó Bool ‚âÉ Bool √ó Bool ‚Äî FOUR.
+--      And ¬¨ ((Bool ‚äé Unit) ‚âÉ (Bool √ó Bool)), proved by `Fin-inj`.
 --      **THE LEDGER IS NOT ADDITIVE.**
---  ¬ß‡  and the defect is not a number.  There is no uniform Œ¶ for ‡‡‡∞‡µ‡‡
---      (proved), so ¬ß‡® of `Residue_‚¶` ‚î the one clause under which logs add
---      ‚î has a FALSE HYPOTHESIS here, and the witness of its falsity is
---      the absence of ¬ß‡ß: pratiyogin `(false , true)`, anuyogin
---      `image ‡‡‡∞‡µ‡‡`.  The missing 1 = 4 ‚àí 3 is that absence, and it is
+--  ¬ß‡•≠  and the defect is not a number.  There is no uniform Œ¶ for ‡§™‡•ç‡§∞‡§µ‡•á‡§∂
+--      (proved), so ¬ßÔøΩ of `Residue_ÔøΩ` ÔøΩ the one clause under which logs add
+--      ‚Äî has a FALSE HYPOTHESIS here, and the witness of its falsity is
+--      the absence of ¬ß‡•ß: pratiyogin `(false , true)`, anuyogin
+--      `image ‡§™‡•ç‡§∞‡§µ‡•á‡§∂`.  The missing 1 = 4 ‚àí 3 is that absence, and it is
 --      exhibited as a type.
---  ¬ß‡Æ  `Unit ‚í Bool ‚í Unit` ‚î the cancelling chain ‚î DERIVED from the
+--  ¬ß‡•Æ  `Unit ‚Üí Bool ‚Üí Unit` ‚Äî the cancelling chain ‚Äî DERIVED from the
 --      same mechanism.  Same shape, same absence, opposite-looking
 --      arithmetic.  So "losses cancel" and "losses fail to add" are one
---      phenomenon, and ¬ß‡ prices both.
+--      phenomenon, and ¬ß‡•´ prices both.
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
+-- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
 --
 -- No general theorem about chains is proved here; this is ONE chain,
 -- every map explicit, every fiber written out.  Nothing here says the
--- ledger fails for every chain ‚î ¬ß‡'s agreement is exactly the statement
--- that `‡‡‡` covers this case correctly, so the composition law is NOT
+-- ledger fails for every chain ‚Äî ¬ß‡•´'s agreement is exactly the statement
+-- that `‡§∂‡•á‡§∑` covers this case correctly, so the composition law is NOT
 -- refuted and no repair to it is needed.  What is refuted is the weaker
 -- and more tempting thing: that the per-step fibers determine the
--- composite's fiber.  They do not; the alignment term does, and ¬ß‡ names
+-- composite's fiber.  They do not; the alignment term does, and ¬ß‡•≠ names
 -- it.  Nothing here is about rank, dimension, entropy, area or
--- shadow of ¬ß‡ and is not used.
+-- shadow of ¬ß‡•´ and is not used.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
 -- no holes.  Exit code reported in the session log.
@@ -147,7 +147,7 @@ private
     , isSetBool b b' (cong snd p) (cong snd q) i j )
 
 ------------------------------------------------------------------------
--- ‡¶ ¬ the chain.  Three maps, written out, nothing implicit.
+-- ‡•¶ ¬∑ the chain.  Three maps, written out, nothing implicit.
 ------------------------------------------------------------------------
 
 ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ : Bool ‚äé Unit ‚Üí Bool √ó Bool
@@ -160,8 +160,8 @@ private
 ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ : Bool ‚Üí Unit
 ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ _ = tt
 
--- the two composites, written in exactly the shape `‡‡‡` composes in
--- (`Œª x ‚í g (f x)`), so the instantiation in ¬ß‡ needs no coercion.
+-- the two composites, written in exactly the shape `‡§∂‡•á‡§∑` composes in
+-- (`Œª x ‚Üí g (f x)`), so the instantiation in ¬ß‡•´ needs no coercion.
 ‡§Æ‡§ß‡•ç‡§Ø‡§Æ : Bool ‚äé Unit ‚Üí Bool
 ‡§Æ‡§ß‡•ç‡§Ø‡§Æ x = ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ (‡§™‡•ç‡§∞‡§µ‡•á‡§∂ x)
 
@@ -174,15 +174,15 @@ private
 ‡§≠‡•á‡§¶‡§É (inr _) = true
 
 ------------------------------------------------------------------------
--- ‡ß ¬ the four fibers of ‡‡‡∞‡µ‡‡.
+-- ‡•ß ¬∑ the four fibers of ‡§™‡•ç‡§∞‡§µ‡•á‡§∂.
 --
--- ‡‡‡∞‡µ‡‡ is injective ‚î three points into four ‚î so every fiber is a
--- proposition, and each is EITHER Unit OR ‚ä.  Which one, at which point,
--- is the entire content of ¬ß‡ and ¬ß‡, so all four are written out and
+-- ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ is injective ‚Äî three points into four ‚Äî so every fiber is a
+-- proposition, and each is EITHER Unit OR ‚ä•.  Which one, at which point,
+-- is the entire content of ¬ß‡•¨ and ¬ß‡•≠, so all four are written out and
 -- none is left to a general lemma.
 --
--- The second component of a `fiber ‡‡‡∞‡µ‡‡ y` is a path in `Bool ó Bool`,
--- which is a set, so `Œ‚â°Prop` reduces every uniqueness obligation below
+-- The second component of a `fiber ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ y` is a path in `Bool √ó Bool`,
+-- which is a set, so `Œ£‚â°Prop` reduces every uniqueness obligation below
 -- to a statement about the FIRST components only.
 ------------------------------------------------------------------------
 
@@ -217,12 +217,12 @@ snd ‡§™‡•ç‡§∞‡§µ‡•á‡§∂-‡§∏‡§§‡•ç‡§Ø‡•á-‡§∏‡§§‡•ç‡§Ø‡§Æ‡•ç (inr tt , r) =
 ‡§™‡•ç‡§∞‡§µ‡•á‡§∂-‡§§‡§®‡•ç‡§§‡•Å‡§É-‡§∞‡§ø‡§ï‡•ç‡§§‡§É = ‚ä•‚âÉ ‡§Ö‡§≠‡§æ‡§µ‡§É
 
 ------------------------------------------------------------------------
--- ‡® ¬ the fiber of ‡‡‡∞‡‡Æ‡æ‡‡, and it is UNIFORM.
+-- ‡•® ¬∑ the fiber of ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂, and it is UNIFORM.
 --
--- fiber fst c = Œ[ y ‚àà Bool ó Bool ] (fst y ‚â° c), and the second
+-- fiber fst c = Œ£[ y ‚àà Bool √ó Bool ] (fst y ‚â° c), and the second
 -- coordinate of y is free.  One bit lost, at every c alike.  This is the
--- hypothesis of `Residue_‚¶‡‡‡‡‡Æ‡‡æ` holding, for this map; ¬ß‡ shows it
--- FAILING for ‡‡‡∞‡µ‡‡, which is why the chain does not simply multiply.
+-- hypothesis of `Residue_ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ` holding, for this map; ¬ßÔøΩ shows it
+-- FAILING for ‡§™‡•ç‡§∞‡§µ‡•á‡§∂, which is why the chain does not simply multiply.
 ------------------------------------------------------------------------
 
 ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂-‡§§‡§®‡•ç‡§§‡•Å‡§É : (c : Bool) ‚Üí fiber ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ c ‚âÉ Bool
@@ -239,7 +239,7 @@ snd ‡§™‡•ç‡§∞‡§µ‡•á‡§∂-‡§∏‡§§‡•ç‡§Ø‡•á-‡§∏‡§§‡•ç‡§Ø‡§Æ‡•ç (inr tt , r) =
     Œ£‚â°Prop (Œª y ‚Üí isSetBool (‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ y) c) (Œ£PathP (sym q , refl))
 
 ------------------------------------------------------------------------
--- ‡© ¬ the fiber of ‡µ‡ø‡‡‡Æ‡∞‡.  One bit, and the only point of the base.
+-- ‡•© ¬∑ the fiber of ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£.  One bit, and the only point of the base.
 ------------------------------------------------------------------------
 
 ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£-‡§§‡§®‡•ç‡§§‡•Å‡§É : fiber ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ tt ‚âÉ Bool
@@ -247,13 +247,13 @@ snd ‡§™‡•ç‡§∞‡§µ‡•á‡§∂-‡§∏‡§§‡•ç‡§Ø‡•á-‡§∏‡§§‡•ç‡§Ø‡§Æ‡•ç (inr tt , r) =
   (Œª p ‚Üí Œ£‚â°Prop (Œª _ ‚Üí isSetUnit tt tt) refl))
 
 ------------------------------------------------------------------------
--- ‡ ¬ the middle composite, and the loss it actually carries.
+-- ‡•™ ¬∑ the middle composite, and the loss it actually carries.
 --
---   ‡Æ‡ß‡‡Ø‡Æ (inl b)  = b        ‡Æ‡ß‡‡Ø‡Æ (inr tt) = true
+--   ‡§Æ‡§ß‡•ç‡§Ø‡§Æ (inl b)  = b        ‡§Æ‡§ß‡•ç‡§Ø‡§Æ (inr tt) = true
 --
 -- so `true` is hit twice and `false` once.  THE COMPOSITE'S FIBER IS NOT
--- UNIFORM, although ‡‡‡∞‡µ‡‡'s failure of uniformity is a failure between
--- Unit and ‚ä and ‡‡‡∞‡‡Æ‡æ‡‡'s fiber is uniform.  Both halves proved: the
+-- UNIFORM, although ‡§™‡•ç‡§∞‡§µ‡•á‡§∂'s failure of uniformity is a failure between
+-- Unit and ‚ä• and ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂'s fiber is uniform.  Both halves proved: the
 -- fiber over `false` is contractible, the fiber over `true` is not.
 ------------------------------------------------------------------------
 
@@ -294,7 +294,7 @@ snd ‡§Æ‡§ß‡•ç‡§Ø‡§Æ-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á (inr tt , p) = ‚ä•-rec (true‚â¢false p)
                    (isContr‚ÜíisProp c (inl true , refl) (inr tt , refl)))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡, INSTANTIATED, AND CHECKED AGAINST THE HAND COMPUTATION.
+-- ‡•´ ¬∑ ‡§∂‡•á‡§∑, INSTANTIATED, AND CHECKED AGAINST THE HAND COMPUTATION.
 --
 -- The general law, at this junction, with nothing supplied but the two
 -- maps:
@@ -304,17 +304,17 @@ snd ‡§Æ‡§ß‡•ç‡§Ø‡§Æ-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á (inr tt , p) = ‚ä•-rec (true‚â¢false p)
           ‚Üí fiber ‡§Æ‡§ß‡•ç‡§Ø‡§Æ z ‚âÉ (Œ£[ p ‚àà fiber ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ z ] fiber ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ (fst p))
 ‡§∂‡•á‡§∑-‡§Æ‡§ß‡•ç‡§Ø‡•á = ‡§∂‡•á‡§∑ ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ ‡§™‡•ç‡§∞‡§µ‡•á‡§∂
 
--- ‚î‚î and now the right-hand side computed BY HAND, without ‡‡‡. ‚î‚î‚î‚î‚î‚î‚î‚î
+-- ‚îÄ‚îÄ and now the right-hand side computed BY HAND, without ‡§∂‡•á‡§∑. ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
 --
--- Over `false` the base `fiber ‡‡‡∞‡‡Æ‡æ‡‡ false` has two points ‚î
--- ((false , false) , refl) and ((false , true) , refl) ‚î and ¬ß‡ß says the
--- ‡‡‡∞‡µ‡‡-fiber over the first is Unit and over the SECOND IS ‚ä.  So the
--- Œ has one inhabitant, not two: the second branch of the base
+-- Over `false` the base `fiber ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ false` has two points ‚Äî
+-- ((false , false) , refl) and ((false , true) , refl) ‚Äî and ¬ß‡•ß says the
+-- ‡§™‡•ç‡§∞‡§µ‡•á‡§∂-fiber over the first is Unit and over the SECOND IS ‚ä•.  So the
+-- Œ£ has one inhabitant, not two: the second branch of the base
 -- contributes nothing.  That is the alignment term, and it is here
 -- PROVABLY NON-ZERO.
 --
 -- The uniqueness argument needs the only non-formal step in the module:
--- a point of `Bool ó Bool` that is in the image of ‡‡‡∞‡µ‡‡ and has first
+-- a point of `Bool √ó Bool` that is in the image of ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ and has first
 -- coordinate `false` IS `(false , false)`.  It is stated separately
 -- because it is exactly the statement that the absence is where it is.
 
@@ -347,9 +347,9 @@ snd ‡§Æ‡§ß‡•ç‡§Ø‡§Æ-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á (inr tt , p) = ‚ä•-rec (true‚â¢false p)
     ‡§Ü‡§ß‡§æ‡§∞‡§É = Œ£‚â°Prop (Œª y ‚Üí isSetBool (‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ y) false)
                    (sym (‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨‡§É (fst p) e (snd p)))
 
--- Over `true` the base again has two points ‚î ((true , false) , refl)
--- and ((true , true) , refl) ‚î and ¬ß‡ß says BOTH ‡‡‡∞‡µ‡‡-fibers are Unit.
--- So the Œ has two inhabitants and the alignment term is zero here.  The
+-- Over `true` the base again has two points ‚Äî ((true , false) , refl)
+-- and ((true , true) , refl) ‚Äî and ¬ß‡•ß says BOTH ‡§™‡•ç‡§∞‡§µ‡•á‡§∂-fibers are Unit.
+-- So the Œ£ has two inhabitants and the alignment term is zero here.  The
 -- alignment defect is therefore a function of the base point, not a
 -- constant of the pair of maps.
 
@@ -369,7 +369,7 @@ snd ‡§Æ‡§ß‡•ç‡§Ø‡§Æ-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á (inr tt , p) = ‚ä•-rec (true‚â¢false p)
   ri false = refl
   ri true  = refl
 
-  -- every ‡‡‡∞‡µ‡‡-fiber over a point of this base is a proposition:
+  -- every ‡§™‡•ç‡§∞‡§µ‡•á‡§∂-fiber over a point of this base is a proposition:
   -- over (true , false) it is Unit, over (true , true) it is Unit.
   ‡§Ü‡§ß‡§æ‡§∞-‡§™‡•ç‡§∞‡•ã‡§™‡•ç : (p : fiber ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ true) ‚Üí isProp (fiber ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ (fst p))
   ‡§Ü‡§ß‡§æ‡§∞-‡§™‡•ç‡§∞‡•ã‡§™‡•ç ((a , false) , q) =
@@ -396,16 +396,16 @@ snd ‡§Æ‡§ß‡•ç‡§Ø‡§Æ-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á (inr tt , p) = ‚ä•-rec (true‚â¢false p)
     ‡§Ü‡§ß‡§æ‡§∞‡§É = Œ£‚â°Prop (Œª y ‚Üí isSetBool (‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ y) true)
                    (Œ£PathP (sym q , refl))
 
--- ‚î‚î THE AGREEMENT. ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
+-- ‚îÄ‚îÄ THE AGREEMENT. ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
 --
--- ¬ß‡ computed the left side by hand; the two paragraphs above computed
--- the right side by hand; `‡‡‡-‡Æ‡ß‡‡Ø‡` connects them without either.
+-- ¬ß‡•™ computed the left side by hand; the two paragraphs above computed
+-- the right side by hand; `‡§∂‡•á‡§∑-‡§Æ‡§ß‡•ç‡§Ø‡•á` connects them without either.
 -- Over `true` the composite of the general law with the hand-computed
 -- right side is POINTWISE EQUAL to the hand-computed left side, and the
--- proof is `refl` at each of the two points: ‡‡‡ sends `(x , q)` to
--- `((‡‡‡∞‡µ‡‡ x , q) , (x , refl))`, and reading the second coordinate of
--- `‡‡‡∞‡µ‡‡ x` returns `false` for `inl b` and `true` for `inr tt` ‚î which
--- is what ¬ß‡'s `to` returns, on the nose.
+-- proof is `refl` at each of the two points: ‡§∂‡•á‡§∑ sends `(x , q)` to
+-- `((‡§™‡•ç‡§∞‡§µ‡•á‡§∂ x , q) , (x , refl))`, and reading the second coordinate of
+-- `‡§™‡•ç‡§∞‡§µ‡•á‡§∂ x` returns `false` for `inl b` and `true` for `inr tt` ‚Äî which
+-- is what ¬ß‡•™'s `to` returns, on the nose.
 --
 -- This is the check the whole module exists to make, and it PASSES.  The
 -- composition law covers this chain.
@@ -425,9 +425,9 @@ snd ‡§Æ‡§ß‡•ç‡§Ø‡§Æ-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á (inr tt , p) = ‚ä•-rec (true‚â¢false p)
 ‡§∏‡§Ç‡§ó‡§§‡§ø‡§É-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á w = refl
 
 ------------------------------------------------------------------------
--- ‡ ¬ THE WHOLE CHAIN, AND THE LEDGER FAILING.
+-- ‡•¨ ¬∑ THE WHOLE CHAIN, AND THE LEDGER FAILING.
 --
--- The total fiber, by hand: ‡‡‡∞‡‡ is constant, so its fiber over the
+-- The total fiber, by hand: ‡§™‡•Ç‡§∞‡•ç‡§£ is constant, so its fiber over the
 -- single point of Unit is the whole source.
 ------------------------------------------------------------------------
 
@@ -435,15 +435,15 @@ snd ‡§Æ‡§ß‡•ç‡§Ø‡§Æ-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á (inr tt , p) = ‚ä•-rec (true‚â¢false p)
 ‡§™‡•Ç‡§∞‡•ç‡§£-‡§§‡§®‡•ç‡§§‡•Å‡§É = isoToEquiv (iso fst (Œª x ‚Üí (x , refl)) (Œª _ ‚Üí refl)
   (Œª w ‚Üí Œ£‚â°Prop (Œª _ ‚Üí isSetUnit tt tt) refl))
 
--- THE ADDITIVE PREDICTION.  ‡‡‡∞‡µ‡‡ is injective, so the naive ledger
--- charges it nothing (Unit); ‡‡‡∞‡‡Æ‡æ‡‡ costs one bit (¬ß‡®, uniformly);
--- ‡µ‡ø‡‡‡Æ‡∞‡ costs one bit (¬ß‡©).  Multiply the fibers ‚î which is exactly
--- what `Residue_‚¶‡‡‡‡‡Æ‡‡æ` licenses WHEN ITS HYPOTHESIS HOLDS ‚î and the
+-- THE ADDITIVE PREDICTION.  ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ is injective, so the naive ledger
+-- charges it nothing (Unit); ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ costs one bit (¬ß‡•®, uniformly);
+-- ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ costs one bit (¬ß‡•©).  Multiply the fibers ‚Äî which is exactly
+-- what `Residue_ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ` licenses WHEN ITS HYPOTHESIS HOLDS ÔøΩ and the
 -- prediction for the total fiber is:
 --
---     Unit ó Bool ó Bool  ‚â  Bool ó Bool          (four)
+--     Unit √ó Bool √ó Bool  ‚âÉ  Bool √ó Bool          (four)
 --
--- The truth is `Bool ‚ä Unit` (three).  And three is not four:
+-- The truth is `Bool ‚äé Unit` (three).  And three is not four:
 
 ‡§§‡•ç‡§∞‡§Ø‡•ã-‡§®-‡§ö‡§§‡•ç‡§µ‡§æ‡§∞‡§É : ¬¨ ((Bool ‚äé Unit) ‚âÉ (Bool √ó Bool))
 ‡§§‡•ç‡§∞‡§Ø‡•ã-‡§®-‡§ö‡§§‡•ç‡§µ‡§æ‡§∞‡§É e = znots (injSuc (injSuc (injSuc (Fin-inj 3 4 ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É))))
@@ -514,28 +514,28 @@ snd ‡§Æ‡§ß‡•ç‡§Ø‡§Æ-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á (inr tt , p) = ‚ä•-rec (true‚â¢false p)
 ‡§≤‡•á‡§ñ‡§æ-‡§®-‡§Ø‡•ã‡§ú‡•ç‡§Ø‡§æ e = ‡§§‡•ç‡§∞‡§Ø‡•ã-‡§®-‡§ö‡§§‡•ç‡§µ‡§æ‡§∞‡§É (compEquiv (invEquiv ‡§™‡•Ç‡§∞‡•ç‡§£-‡§§‡§®‡•ç‡§§‡•Å‡§É) e)
 
 ------------------------------------------------------------------------
--- ‡ ¬ WHERE THE MISSING ONE WENT, AND WHY IT IS NOT A NUMBER.
+-- ‡•≠ ¬∑ WHERE THE MISSING ONE WENT, AND WHY IT IS NOT A NUMBER.
 --
--- `Residue_‚¶‡‡‡‡‡Æ‡‡æ` ‚î the clause under which the fibers multiply and the
--- logs add ‚î has as its hypothesis that the first map has a UNIFORM
--- fiber: some Œ¶ with fiber f y ‚â Œ¶ for every y.  ‡‡‡∞‡µ‡‡ does not.  The
--- refutation needs both of ¬ß‡ß's ends at once and nothing else:
+-- `Residue_ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ` ÔøΩ the clause under which the fibers multiply and the
+-- logs add ‚Äî has as its hypothesis that the first map has a UNIFORM
+-- fiber: some Œ¶ with fiber f y ‚âÉ Œ¶ for every y.  ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ does not.  The
+-- refutation needs both of ¬ß‡•ß's ends at once and nothing else:
 ------------------------------------------------------------------------
 
 ‡§®-‡§∏‡§Æ‡§§‡§æ : (Œ¶ : Type‚ÇÄ) ‚Üí ((y : Bool √ó Bool) ‚Üí fiber ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ y ‚âÉ Œ¶) ‚Üí ‚ä•
 ‡§®-‡§∏‡§Æ‡§§‡§æ Œ¶ u = ‡§Ö‡§≠‡§æ‡§µ‡§É (invEq (u (false , true))
                           (equivFun (u (true , true)) (inr tt , refl)))
 
--- THE ABSENCE, WITH BOTH ITS SLOTS FILLED (Nyya‚ìVaieika; see header).
+-- THE ABSENCE, WITH BOTH ITS SLOTS FILLED (NyƒÅya‚ÄìVai≈õe·π£ika; see header).
 --
---   pratiyogin (counterpositive ‚î what is absent):  (false , true)
---   anuyogin   (locus ‚î where it is absent):        the image of ‡‡‡∞‡µ‡‡
+--   pratiyogin (counterpositive ‚Äî what is absent):  (false , true)
+--   anuyogin   (locus ‚Äî where it is absent):        the image of ‡§™‡•ç‡§∞‡§µ‡•á‡§∂
 --
 -- and the third slot, the avacchedaka (limitor), is what keeps this from
 -- being the useless claim that something is missing somewhere: the
--- absence is limited to the fiber of ‡‡‡∞‡‡Æ‡æ‡‡ over `false`, and ¬ß‡'s two
+-- absence is limited to the fiber of ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂ over `false`, and ¬ß‡•´'s two
 -- hand computations are exactly the statement that under the OTHER
--- limitor ‚î the fiber over `true` ‚î there is no absence at all.  A bare
+-- limitor ‚Äî the fiber over `true` ‚Äî there is no absence at all.  A bare
 -- "the count came out short by one" carries none of that.
 
 ‡§™‡•ç‡§∞‡§§‡§ø‡§Ø‡•ã‡§ó‡•Ä : Bool √ó Bool
@@ -548,17 +548,17 @@ snd ‡§Æ‡§ß‡•ç‡§Ø‡§Æ-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á (inr tt , p) = ‚ä•-rec (true‚â¢false p)
 ‡§Ö‡§µ‡§ö‡•ç‡§õ‡•á‡§¶‡§ï‡§É = refl
 
 ------------------------------------------------------------------------
--- ‡Æ ¬ THE CANCELLING CHAIN IS THE SAME PHENOMENON.
+-- ‡•Æ ¬∑ THE CANCELLING CHAIN IS THE SAME PHENOMENON.
 --
---     Unit --‡‡‡‡æ‡‡®‡æ--> Bool --‡µ‡ø‡‡‡Æ‡∞‡--> Unit
+--     Unit --‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ--> Bool --‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£--> Unit
 --
 -- The first map loses nothing, the second loses a bit, and the composite
 -- is the identity: the losses CANCEL.  This counterexample already sits
 -- in the corpus as an anomaly that refuted a sequential diagnostic.  It
--- is not an anomaly.  It is ¬ß‡ again, with the same alignment term:
--- `fiber ‡µ‡ø‡‡‡Æ‡∞‡ tt` has two points and ‡‡‡‡æ‡‡®‡æ's fiber over one of them
--- is EMPTY, so the Œ collapses to one ‚î exactly as it did over `false`
--- in ¬ß‡.
+-- is not an anomaly.  It is ¬ß‡•´ again, with the same alignment term:
+-- `fiber ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ tt` has two points and ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ's fiber over one of them
+-- is EMPTY, so the Œ£ collapses to one ‚Äî exactly as it did over `false`
+-- in ¬ß‡•´.
 ------------------------------------------------------------------------
 
 ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ : Unit ‚Üí Bool
@@ -575,42 +575,42 @@ snd ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ-‡§§‡§®‡•ç‡§§‡•Å‡§É-‡§∏‡§§‡•ç‡§Ø‡•á (tt , r) =
 ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ-‡§Ö‡§≠‡§æ‡§µ‡§É : ¬¨ fiber ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ false
 ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ-‡§Ö‡§≠‡§æ‡§µ‡§É (tt , r) = true‚â¢false r
 
--- the composite loses nothing ‚¶
+-- the composite loses nothing ‚Ä¶
 ‡§∏‡§Æ‡§∑‡•ç‡§ü‡§ø‡§É-‡§∞‡§ø‡§ï‡•ç‡§§‡§æ : isContr (fiber (Œª u ‚Üí ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ (‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ u)) tt)
 fst ‡§∏‡§Æ‡§∑‡•ç‡§ü‡§ø‡§É-‡§∞‡§ø‡§ï‡•ç‡§§‡§æ = (tt , refl)
 snd ‡§∏‡§Æ‡§∑‡•ç‡§ü‡§ø‡§É-‡§∞‡§ø‡§ï‡•ç‡§§‡§æ (tt , r) = Œ£‚â°Prop (Œª _ ‚Üí isSetUnit tt tt) refl
 
--- ‚¶ and ‡‡‡ says where the bit went: into a base point whose fiber is
+-- ‚Ä¶ and ‡§∂‡•á‡§∑ says where the bit went: into a base point whose fiber is
 -- the absence.  Instantiated, not asserted.
 ‡§∂‡•á‡§∑-‡§®‡§ø‡§µ‡•É‡§§‡•ç‡§§‡•å : fiber (Œª u ‚Üí ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ (‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ u)) tt
              ‚âÉ (Œ£[ p ‚àà fiber ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ tt ] fiber ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ (fst p))
 ‡§∂‡•á‡§∑-‡§®‡§ø‡§µ‡•É‡§§‡•ç‡§§‡•å = ‡§∂‡•á‡§∑ ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ tt
 
 ------------------------------------------------------------------------
--- ‡Ø ¬ ‡‡‡‡ ‚î what this leaves open.
+-- ‡•Ø ¬∑ ‡§∂‡•á‡§∑‡§É ‚Äî what this leaves open.
 --
--- (a) ONE chain is priced.  The result that generalises is ¬ß‡'s, and it
+-- (a) ONE chain is priced.  The result that generalises is ¬ß‡•≠'s, and it
 --     is a NEGATIVE one: the per-step fibers do not determine the
 --     composite's fiber unless the earlier map's fiber is uniform.  What
 --     a general POSITIVE ledger would need is a way to carry the
---     alignment term ‚î the family `Œª p ‚í fiber f (fst p)` over `fiber g
---     z` ‚î as data, and no module in this corpus does that yet.
+--     alignment term ‚Äî the family `Œª p ‚Üí fiber f (fst p)` over `fiber g
+--     z` ‚Äî as data, and no module in this corpus does that yet.
 --
--- (b) Everything here is finite, decidable and a set.  `Lopa_‚¶` prices an
+-- (b) Everything here is finite, decidable and a set.  `Lopa_‚Ä¶` prices an
 --     edge with an unbounded fiber; nothing here says the composite of
---     two such edges behaves like ¬ß‡, and the ‚ï-indexed case is the next
---     honest step.  `YugmaPurana_‚¶`'s ‚/2 cut composed with `‡Ø‡ã‡ó` is the
+--     two such edges behaves like ¬ß‡•´, and the ‚Ñï-indexed case is the next
+--     honest step.  `YugmaPurana_‚Ä¶`'s ‚Ñ§/2 cut composed with `‡§Ø‡•ã‡§ó` is the
 --     nearest chain in the corpus whose middle is not enumerable.
 --
--- (c) The absence in ¬ß‡ was FOUND, not derived: the chain was chosen so
---     that ‡‡‡∞‡µ‡‡ would miss a point of ‡‡‡∞‡‡Æ‡æ‡‡'s fiber over `false`.
+-- (c) The absence in ¬ß‡•≠ was FOUND, not derived: the chain was chosen so
+--     that ‡§™‡•ç‡§∞‡§µ‡•á‡§∂ would miss a point of ‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§Ç‡§∂'s fiber over `false`.
 --     Whether a route through the corpus's directed graph can be
---     SEARCHED for its alignment terms ‚î which points of which fiber a
---     given edge misses ‚î is open, and it is the question that decides
+--     SEARCHED for its alignment terms ‚Äî which points of which fiber a
+--     given edge misses ‚Äî is open, and it is the question that decides
 --     whether the ledger is computable or only checkable.
 --
 -- (d) Not attempted: any claim that the arithmetic 4 ‚àí 3 = 1 is the
---     "size" of the absence.  ¬ß‡ proves a non-equivalence of types; the
+--     "size" of the absence.  ¬ß‡•¨ proves a non-equivalence of types; the
 --     subtraction is a reading, and the corpus has been burned before by
 --     a number that looked like knowledge.
 ------------------------------------------------------------------------

@@ -9,30 +9,30 @@
 -- in the form that needs no counting: distinct members of a fooling set
 -- are assigned DISTINCT rectangles by any sound cover.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED, AND WHAT "AS FAR AS IT GOES" MEANS
 --
 -- A fooling family is an index type `I` with cells `(r i , c i)` such
--- that for `i â‰  j` at least one exchanged corner is 0 â” the standard
+-- that for `i â‰  j` at least one exchanged corner is 0 â€” the standard
 -- condition, in its either-corner form.  Given any assignment of a sound
 -- rectangle to each cell, covering that cell, Â§2 shows the assignment is
 -- injective.
 --
--- INJECTIVITY IS NOT "â‰ k".  Turning "distinct cells get distinct
+-- INJECTIVITY IS NOT "â‰¥ k".  Turning "distinct cells get distinct
 -- rectangles" into "at least k rectangles" is a COUNTING step: it needs
 -- `I` finite with k elements and a pigeonhole over the cover.  Neither
 -- finiteness nor counting appears below, so the cardinality statement is
 -- NOT proved and NOT claimed.  What is proved is the part that carries
--- the content â” the injectivity â” and the counting step is standard and
+-- the content â€” the injectivity â€” and the counting step is standard and
 -- separate.
 --
 -- WHY THE EITHER-CORNER FORM.  `DSOCutCalibration`'s instance has the
 -- 0 at one specific corner, and the pair lemma took that corner as its
 -- hypothesis.  For a set, which corner is 0 can differ per pair, so the
--- hypothesis is a `âŠ` and Â§2 does both cases.  That is the only thing
+-- hypothesis is a `âŠŽ` and Â§2 does both cases.  That is the only thing
 -- the generalisation costs.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -89,7 +89,7 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- is that, quantified: a cover cannot reuse a rectangle across the
 -- family at all.  The step from there to a numeric lower bound is
 -- pigeonhole over a finite index, and it is deliberately outside this
--- module â” the corpus's standing rule is that a count is not a
+-- module â€” the corpus's standing rule is that a count is not a
 -- classification, and injectivity is the classification.
 --
 -- Note again what the proof uses: only the 0 at ONE exchanged corner per
@@ -102,7 +102,7 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- line above.
 --
 -- Â§"WHAT IS PROVED, AND WHAT 'AS FAR AS IT GOES' MEANS" says:
--- "INJECTIVITY IS NOT 'â‰ k'.  Turning 'distinct cells get distinct
+-- "INJECTIVITY IS NOT 'â‰¥ k'.  Turning 'distinct cells get distinct
 -- rectangles' into 'at least k rectangles' is a COUNTING step: it needs
 -- `I` finite with k elements and a pigeonhole over the cover."
 --
@@ -111,12 +111,12 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- pinned library carries):
 --
 --   nRectanglesCannotCoverSucNFoolingCells :
---     (n : â•) (r : Fin (suc n) â’ Row) (c : Fin (suc n) â’ Col)
---     â’ Fooling (Fin (suc n)) r c
---     â’ (rects : Fin n â’ Rect) (pick : Fin (suc n) â’ Fin n)
---     â’ ((i) â’ Sound (rects (pick i)))
---     â’ ((i) â’ Covers (rects (pick i)) (r i) (c i))
---     â’ âŠ
+--     (n : â„•) (r : Fin (suc n) â†’ Row) (c : Fin (suc n) â†’ Col)
+--     â†’ Fooling (Fin (suc n)) r c
+--     â†’ (rects : Fin n â†’ Rect) (pick : Fin (suc n) â†’ Fin n)
+--     â†’ ((i) â†’ Sound (rects (pick i)))
+--     â†’ ((i) â†’ Covers (rects (pick i)) (r i) (c i))
+--     â†’ âŠ¥
 --
 -- IN THE CONTRAPOSITIVE, DELIBERATELY.  "At least k rectangles" is a
 -- statement about a cardinal, and a cardinal needs the cover's index

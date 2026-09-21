@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ����-������� � the sequence of ordered pair counts determines the sequence.
+-- गणन-निर्धार — the sequence of ordered pair counts determines the sequence.
 --
 -- SOURCE 1 (formal/lean/Pairfield/SumRigidity.lean, header), quoted:
 --
---     Theorem A(i) � Sum-marginal rigidity (V3 target 1).
+--     Theorem A(i) — Sum-marginal rigidity (V3 target 1).
 --
 --     sequences, the additive (sum) convolution square determines the sequence:
---     a ∗ a = b ∗ b � a = b.
+--     a ∗ a = b ∗ b ⟹ a = b.
 --
---     * `sumMarginal_inj`     � the literal Goldbach-marginal statement for
---                               finitely supported a b : � �� �:
---                               (� N, �_{m+n=N} a m � a n = �_{m+n=N} b m � b n) � a = b.
+--     * `sumMarginal_inj`     — the literal Goldbach-marginal statement for
+--                               finitely supported a b : ℕ →₀ ℕ:
+--                               (∀ N, ∑_{m+n=N} a m · a n = ∑_{m+n=N} b m · b n) ⟹ a = b.
 --
---     Proof idea (as in REPORT): embed into the integral domain �[X] (resp. work in
---     �[X]); A² = B² forces A = B or A = −B, and nonnegativity of the coefficients
+--     Proof idea (as in REPORT): embed into the integral domain ℤ[X] (resp. work in
+--     ℝ[X]); A² = B² forces A = B or A = −B, and nonnegativity of the coefficients
 --     kills the second branch (both sides must then vanish identically).
 --
 -- SOURCE 2 (formal/lean/Pairfield/YugmaPurana_TheEvenPaddingIsForcedAnd
@@ -25,43 +25,43 @@
 --       proofs are independent, and their agreeing is the content.
 --
 -- WHAT IS PROVED HERE, exactly.  The same rigidity theorem, composed a
--- second time in this lane, directly over �: no polynomial ring, no �[X],
+-- second time in this lane, directly over ℕ: no polynomial ring, no ℤ[X],
 -- no finite-support hypothesis, no transport from the Lean lane.  For any
--- f : � � � the ordered pair count at N is the Cauchy square
+-- f : ℕ → ℕ the ordered pair count at N is the Cauchy square
 --
---     sq f N := �_{m=0}^{N} f m � f (N � m)
+--     sq f N := Σ_{m=0}^{N} f m · f (N ∸ m)
 --
--- (the �� of EkaBija; at f = a, the prime indicator, and N = 2w this is
--- EkaBija's ordered Goldbach count � w 0 + 2 � �_{r=1}^{w} � w r, and
+-- (the Σ≤ of EkaBija; at f = a, the prime indicator, and N = 2w this is
+-- EkaBija's ordered Goldbach count 𝒦 w 0 + 2 · Σ_{r=1}^{w} 𝒦 w r, and
 -- `sq-even-is-kernel` below records that identification).
 --
 --   rigidity :
---     (f g : � � �) � ((N : �) � sq f N ≡ sq g N) � (n : �) � f n ≡ g n
+--     (f g : ℕ → ℕ) → ((N : ℕ) → sq f N ≡ sq g N) → (n : ℕ) → f n ≡ g n
 --
---   The hypothesis is the equality of the counts at EVERY N � odd N
+--   The hypothesis is the equality of the counts at EVERY N — odd N
 --   included.  The counts at 2w for all w do NOT determine the sequence:
---   §5 exhibits � = x³ + 2x� + x� and ψ = x³ + 2x� + x� with the same
+--   §5 exhibits φ = x³ + 2x⁵ + x⁶ and ψ = x³ + 2x⁴ + x⁶ with the same
 --   count at every even N and different at 4 (`even-counts-do-not-
 --   determine`).  So the odd N are load-bearing.
 --
 --   counts-are-the-primes :
---     (f : � � �) � ((N : �) � sq f N ≡ sq a N) � (n : �) � f n ≡ a n
+--     (f : ℕ → ℕ) → ((N : ℕ) → sq f N ≡ sq a N) → (n : ℕ) → f n ≡ a n
 --
 --   so a sequence whose ordered pair counts agree with those of the prime
 --   indicator at every integer IS the prime indicator; and through
 --   EkaBija's one-source-two-readers, f j ≡ 1 ⟺ primeb j ≡ true ⟺
---   (1 < j) � (� j ≡ j), f j ≡ 0 ⟺ primeb j ≡ false.
+--   (1 < j) × (η j ≡ j), f j ≡ 0 ⟺ primeb j ≡ false.
 --
 -- HOW.  Strong induction on n.  To get f n ≡ g n from f i ≡ g i below n,
--- a bounded search (decidable, since � has decidable equality) either
--- finds that f vanishes below n � then sq f (n + n) collapses to the
--- single term f n � f n, likewise for g, and squares are injective on � �
+-- a bounded search (decidable, since ℕ has decidable equality) either
+-- finds that f vanishes below n — then sq f (n + n) collapses to the
+-- single term f n · f n, likewise for g, and squares are injective on ℕ —
 -- or finds the least m < n with 0 < f m; then sq f (m + n) has exactly two
--- surviving terms that involve index n, namely f m � f n + f n � f m, all
+-- surviving terms that involve index n, namely f m · f n + f n · f m, all
 -- other terms agree with those of g by the induction hypothesis, and
--- (f m + f m) � f n ≡ (f m + f m) � g n cancels because 0 < f m + f m.
--- The two extractions are the finite-sum lemmas ��-remove (pull one term
--- out of a sum by zeroing it in place) and ��-single (a sum with one
+-- (f m + f m) · f n ≡ (f m + f m) · g n cancels because 0 < f m + f m.
+-- The two extractions are the finite-sum lemmas Σ≤-remove (pull one term
+-- out of a sum by zeroing it in place) and Σ≤-single (a sum with one
 -- possibly nonzero term is that term).
 --
 ------------------------------------------------------------------------
@@ -93,7 +93,7 @@ open import SamastaPrasna_TheOpenConstellationEntersTypedAndTheOracleAnswersEver
   using ( primeb )
 
 ------------------------------------------------------------------------
--- §0 � the ordered pair count of a sequence at N: its Cauchy square
+-- §0 · the ordered pair count of a sequence at N: its Cauchy square
 ------------------------------------------------------------------------
 
 sq : (ℕ → ℕ) → ℕ → ℕ
@@ -104,7 +104,7 @@ sq-even-is-kernel : (w : ℕ) → sq a (2 · w) ≡ 𝒦 w 0 + 2 · Σ₁ w (�
 sq-even-is-kernel = ordered-goldbach-count
 
 ------------------------------------------------------------------------
--- §1 � finite-sum toolkit for �� (�� zero f = f 0, �� (suc k) f = �� k f + f (suc k))
+-- §1 · finite-sum toolkit for Σ≤ (Σ≤ zero f = f 0, Σ≤ (suc k) f = Σ≤ k f + f (suc k))
 ------------------------------------------------------------------------
 
 -- (L1) pointwise equal summands on 0..k give equal sums
@@ -117,7 +117,7 @@ sq-even-is-kernel = ordered-goldbach-count
 Σ≤-zeros zero    = refl
 Σ≤-zeros (suc k) = +-zero (Σ≤ k (λ _ → 0)) ∙ Σ≤-zeros k
 
--- zeroing one position of a sequence, by the decision discrete� i j
+-- zeroing one position of a sequence, by the decision discreteℕ i j
 pick : {A : Type} → Dec A → ℕ → ℕ
 pick (yes _) _ = 0
 pick (no _)  x = x
@@ -139,7 +139,7 @@ zeroAt-at j h i i≡j = pick-yes (discreteℕ i j) (h i) i≡j
 zeroAt-off : (j : ℕ) (h : ℕ → ℕ) (i : ℕ) → ¬ (i ≡ j) → zeroAt j h i ≡ h i
 zeroAt-off j h i i≢j = pick-no (discreteℕ i j) (h i) i≢j
 
--- (L3) pull the term at j � k out of the sum
+-- (L3) pull the term at j ≤ k out of the sum
 Σ≤-remove : (k j : ℕ) (h : ℕ → ℕ) → j ≤ k → Σ≤ k h ≡ Σ≤ k (zeroAt j h) + h j
 Σ≤-remove zero j h j≤0 =
   subst (λ x → h 0 ≡ zeroAt x h 0 + h x) (sym (≤0→≡0 j≤0))
@@ -177,7 +177,7 @@ zeroAt-off j h i i≢j = pick-no (discreteℕ i j) (h i) i≢j
   ... | no  i≢j = vanish i i≤k i≢j
 
 ------------------------------------------------------------------------
--- §2 � arithmetic: squares are injective, positive factors cancel
+-- §2 · arithmetic: squares are injective, positive factors cancel
 ------------------------------------------------------------------------
 
 sq-mono : (x y : ℕ) → x < y → x · x < y · y
@@ -202,14 +202,14 @@ positive : (n : ℕ) → ¬ (n ≡ 0) → 0 < n
 positive zero    ne = E.rec (ne refl)
 positive (suc k) _  = suc-≤-suc zero-≤
 
--- truncated subtraction: for i � N,  N < c + i  gives  N � i < c
+-- truncated subtraction: for i ≤ N,  N < c + i  gives  N ∸ i < c
 ∸-< : (N i c : ℕ) → i ≤ N → N < c + i → N ∸ i < c
 ∸-< N i c i≤N N<c+i =
   ≤-+k-cancel {m = suc (N ∸ i)} {k = i} {n = c}
     (subst (_≤ c + i) (cong suc (sym (≤-∸-+-cancel i≤N))) N<c+i)
 
 ------------------------------------------------------------------------
--- §3 � bounded search: below n, f vanishes or has a least positive index
+-- §3 · bounded search: below n, f vanishes or has a least positive index
 ------------------------------------------------------------------------
 
 Below : (ℕ → ℕ) → ℕ → Type
@@ -232,10 +232,10 @@ below f (suc n) = extend (below f n) (discreteℕ (f n) 0)
     ... | inr i≡n = subst (λ x → f x ≡ 0) (sym i≡n) e
 
 ------------------------------------------------------------------------
--- §4 � the inductive step
+-- §4 · the inductive step
 ------------------------------------------------------------------------
 
--- when f vanishes below n, the count at n + n is the single term f n � f n
+-- when f vanishes below n, the count at n + n is the single term f n · f n
 single-square : (f : ℕ → ℕ) (n : ℕ) → ((i : ℕ) → i < n → f i ≡ 0)
   → sq f (n + n) ≡ f n · f n
 single-square f n z =
@@ -336,7 +336,7 @@ step-found f g e n m m<n ih zf pos = cancel (f m + f m) (f n) (g n) pos2 key
     ∙ sym (+-assoc R' (h' n) (h' m))
     ∙ cong (_+ (h' n + h' m)) (sym R≡R') )
 
-  -- and they are (f m + f m) � f n, resp. (g m + g m) � g n = (f m + f m) � g n
+  -- and they are (f m + f m) · f n, resp. (g m + g m) · g n = (f m + f m) · g n
   hn+hm : h n + h m ≡ (f m + f m) · f n
   hn+hm =
       cong₂ _+_ (cong (f n ·_) (cong f (+∸ m n)) ∙ ·-comm (f n) (f m))
@@ -364,7 +364,7 @@ step f g e n ih with below f n
 ... | inr (m , m<n , z , pos) = step-found f g e n m m<n ih z pos
 
 ------------------------------------------------------------------------
--- §5 � the theorem: the ordered pair counts at every N determine the sequence
+-- §5 · the theorem: the ordered pair counts at every N determine the sequence
 ------------------------------------------------------------------------
 
 rigidity-below : (f g : ℕ → ℕ) → ((N : ℕ) → sq f N ≡ sq g N)
@@ -378,7 +378,7 @@ rigidity : (f g : ℕ → ℕ) → ((N : ℕ) → sq f N ≡ sq g N) → (n : �
 rigidity f g e n = step f g e n (rigidity-below f g e n)
 
 ------------------------------------------------------------------------
--- §6 � at the prime indicator: the Goldbach counts at every integer are
+-- §6 · at the prime indicator: the Goldbach counts at every integer are
 --      the primes
 ------------------------------------------------------------------------
 
@@ -407,7 +407,7 @@ counts-read-composite f e j =
     (λ h → ind-zero (primeb j) (sym (counts-are-the-primes f e j) ∙ h))
   , (λ p → counts-are-the-primes f e j ∙ cong ind p)
 
--- f j ≡ 1  ⟺  (1 < j) � (� j ≡ j)   (through EkaBija's two readers)
+-- f j ≡ 1  ⟺  (1 < j) × (η j ≡ j)   (through EkaBija's two readers)
 counts-read-η : (f : ℕ → ℕ) → ((N : ℕ) → sq f N ≡ sq a N) → (j : ℕ)
   → (f j ≡ 1 → (1 < j) × (η j ≡ j)) × ((1 < j) × (η j ≡ j) → f j ≡ 1)
 counts-read-η f e j =
@@ -415,11 +415,11 @@ counts-read-η f e j =
   , (λ r → snd (counts-read-primeb f e j) (snd (one-source-two-readers j) r))
 
 ------------------------------------------------------------------------
--- §5 � the even-N counts alone do NOT determine the sequence: a witness
+-- §5 · the even-N counts alone do NOT determine the sequence: a witness
 --
--- � = x³ + 2x� + x� and ψ = x³ + 2x� + x� have the same ordered pair
+-- φ = x³ + 2x⁵ + x⁶ and ψ = x³ + 2x⁴ + x⁶ have the same ordered pair
 -- count at every even N (the even part of both squares is
--- x� + 4x� + 4x�� + x�²) and differ at 4; their counts differ at the odd
+-- x⁶ + 4x⁸ + 4x¹⁰ + x¹²) and differ at 4; their counts differ at the odd
 -- N = 7 (0 against 4).  So the hypothesis "at EVERY N" in `rigidity` is
 -- not a convenience: dropping the odd N loses the theorem.
 ------------------------------------------------------------------------
@@ -448,7 +448,7 @@ counts-read-η f e j =
 ψ-vanish : (m : ℕ) → 7 ≤ m → ψ m ≡ 0
 ψ-vanish m (d , p) = cong ψ (sym p ∙ +-comm d 7) ∙ ψ-tail d
 
--- 7 � 13 � m for m < 7
+-- 7 ≤ 13 ∸ m for m < 7
 seven : (m : ℕ) → m < 7 → 7 ≤ 13 ∸ m
 seven zero _ = 6 , refl
 seven (suc zero) _ = 5 , refl
@@ -473,7 +473,7 @@ sq-tail : (h : ℕ → ℕ) → ((m : ℕ) → 7 ≤ m → h m ≡ 0)
 sq-tail h van N N≥13 =
   Σ≤-ext N (λ m → h m · h (N ∸ m)) (λ _ → 0) (λ m _ → tail-term h van N N≥13 m) ∙ Σ≤-zeros N
 
--- 13 � 2 � (7 + k)
+-- 13 ≤ 2 · (7 + k)
 big-even : (k : ℕ) → 13 ≤ 2 · (7 + k)
 big-even k =
   ≤-trans (≤-suc ≤-refl)

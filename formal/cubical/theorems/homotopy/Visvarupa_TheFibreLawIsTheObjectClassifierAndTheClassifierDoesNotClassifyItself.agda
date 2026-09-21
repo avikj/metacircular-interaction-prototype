@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àµà¿àààµà°ààà®à â” the fibre law is the object classifier, and the classifier
+-- à¤µà¤¿à¤¶à¥à¤µà¤°à¥‚à¤ªà¤®à¥ â€” the fibre law is the object classifier, and the classifier
 -- does not classify itself.
 --
 -- TERM.  vivarpa, "the all-form": the one form in which every form is
 -- seen.  Bhagavad-gt 11, Arjuna's vision.  No claim is made that the
 -- Gt says anything about universes; the word is borrowed for its
--- OPERATION â” one object exhibited as containing every other â” and that
--- operation is what Â§1â“Â§3 below make a term.
+-- OPERATION â€” one object exhibited as containing every other â€” and that
+-- operation is what Â§1â€“Â§3 below make a term.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS FILE IS FOR
 --
 -- `Ekavakyata_FiveCollapsesOneTheoremAndEachTraditionSaysItInItsOwnWords`
@@ -26,91 +26,91 @@
 -- What it does is name the AMBIENT FACT the five lanes are all speaking
 -- inside of, and make it a checked term rather than a motif:
 --
---     A FAMILY IS A MAP INTO THE UNIVERSE.  Î IS ITS TOTAL SPACE.
---     TRANSPORT IS ITS PARALLEL TRANSPORT.  ONE OBJECT â” the universe â”
+--     A FAMILY IS A MAP INTO THE UNIVERSE.  Î£ IS ITS TOTAL SPACE.
+--     TRANSPORT IS ITS PARALLEL TRANSPORT.  ONE OBJECT â€” the universe â€”
 --     CLASSIFIES EVERY FAMILY WHOSE FIBRES IT CONTAINS, AND EVERY SUCH
 --     FAMILY IS A PULLBACK OF ONE FIBRATION.
 --
 -- That is HoTT Theorem 4.8.3, the object classifier. It is standard, it is
 -- already in agda/cubical as `fibrationEquiv`, and NO NOVELTY IS CLAIMED FOR
--- IT. What is contributed here is the IDENTIFICATION â” that the corpus's
+-- IT. What is contributed here is the IDENTIFICATION â€” that the corpus's
 -- fibre law and the object classifier are the same object, checked by
 -- importing the corpus's own decomposition and the library's and finding them
--- equal on the nose (Â§0) â” together with the three places where reading the
+-- equal on the nose (Â§0) â€” together with the three places where reading the
 -- identification as "the shape of the universe, iterated, makes arbitrary
 -- form"
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   Â§0  àà°ààµàµà¿àà¾à—à-ààµ-totalEquiv â” the corpus's own decomposition
+--   Â§0  à¤¸à¤°à¥à¤µà¤µà¤¿à¤­à¤¾à¤—à¤ƒ-à¤à¤µ-totalEquiv â€” the corpus's own decomposition
 --       (`SarvavibhagaH`, every map is the sum of its fibres) and HoTT
 --       Lemma 4.8.2 are the SAME EQUIVALENCE, by `equivEq refl`: their
 --       underlying maps are definitionally identical and only the
 --       packaging of the round-trips differs.  `refl` alone does NOT
---       typecheck â” the two Isos are built by different copattern
---       clauses and Agda will not identify them â” and that failure is
+--       typecheck â€” the two Isos are built by different copattern
+--       clauses and Agda will not identify them â€” and that failure is
 --       recorded here rather than hidden, because it is the exact size
 --       of the claim.  So the fibre law was never a reading of the
 --       classifier; it is the classifier's second half, written down
 --       independently.
 --
---   Â§1  àµà¿àààµà°ààà®à â” for every base A,
---           (Î[ E âˆˆ Type â“ ] (E â’ A))  â‰  (A â’ Type â“).
---       Fibrations over A, and maps A â’ ğ’°, are the same thing.  This is
+--   Â§1  à¤µà¤¿à¤¶à¥à¤µà¤°à¥‚à¤ªà¤®à¥ â€” for every base A,
+--           (Î£[ E âˆˆ Type â„“ ] (E â†’ A))  â‰ƒ  (A â†’ Type â„“).
+--       Fibrations over A, and maps A â†’ ğ’°, are the same thing.  This is
 --       the object classifier, imported.
 --
---   Â§2  àµà¿àààµà°àà-àà¨àààà â” the universal fibration is `fst` on the type of
+--   Â§2  à¤µà¤¿à¤¶à¥à¤µà¤°à¥‚à¤ª-à¤¤à¤¨à¥à¤¤à¥à¤ƒ â€” the universal fibration is `fst` on the type of
 --       POINTED types, and ITS FIBRE OVER X IS X.  The universe carries
 --       one fibration whose fibre over each point is that point.
 --       `the-universal-total-space-is-the-pointed-types` checks, by
---       `refl`, that Î[ X âˆˆ Type â“ ] X is the pointed types on the nose.
+--       `refl`, that Î£[ X âˆˆ Type â„“ ] X is the pointed types on the nose.
 --
---   Â§3  every-family-is-a-pullback-of-the-universal-one â” for any
---       B : A â’ Type â“, the pullback of the universal fibration along B
---       is Î A B.  "Pulling ğ’° back gives you any shape you name",
+--   Â§3  every-family-is-a-pullback-of-the-universal-one â€” for any
+--       B : A â†’ Type â„“, the pullback of the universal fibration along B
+--       is Î£ A B.  "Pulling ğ’° back gives you any shape you name",
 --       as a term.
 --
---   Â§4  àà¨ààµààààà¿à / -à°à¿à•ààà / -à¯à‹à—à / -àà®à¾à¨àà¾ â” transport in a family is a
+--   Â§4  à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ / -à¤°à¤¿à¤•à¥à¤¤à¥‡ / -à¤¯à¥‹à¤—à¥‡ / -à¤¸à¤®à¤¾à¤¨à¤¤à¤¾ â€” transport in a family is a
 --       CONNECTION: identity over refl, composition over âˆ™, and an
 --       equivalence over every path.  A classifying map is therefore a
---       functor from the fundamental groupoid of the base into ğ’°, and
+--       functor from the fundamental groupoid of the base into ğ’°, and
 --       its holonomy around a loop is `subst B` around that loop.  This
---       is the exact sense in which "Î + transport = parallel transport
+--       is the exact sense in which "Î£ + transport = parallel transport
 --       = holonomy" is not a metaphor.
 --
---   Â§5  holonomy-of-the-universal-family â” the holonomy of the universal
---       fibration at X is EXACTLY the automorphisms of X: (X â‰¡ Y) â‰
---       (X â‰ Y).  That is univalence, read as a statement about one
+--   Â§5  holonomy-of-the-universal-family â€” the holonomy of the universal
+--       fibration at X is EXACTLY the automorphisms of X: (X â‰¡ Y) â‰ƒ
+--       (X â‰ƒ Y).  That is univalence, read as a statement about one
 --       fibration.  And `the-universal-familys-transport-is-the-
 --       equivalence` (uaÎ²) is the computation rule that makes it bite:
 --       transport in the universal family along `ua e` IS `e`.
 --       `HolonomyIsInvisibleExactlyToAnInvariantSemantics` (README Â§II)
 --       is a statement about this one fibration's holonomy.
 --
---   Â§6  ààµà°à‹ààà®à-àà¨ààà-àààà¿à°à®à â” a family that DESCENDS along f is constant
+--   Â§6  à¤…à¤µà¤°à¥‹à¤¹à¤£à¤®à¥-à¤¤à¤¨à¥à¤¤à¥Œ-à¤¸à¥à¤¥à¤¿à¤°à¤®à¥ â€” a family that DESCENDS along f is constant
 -- on the fibres of f. This is the general lemma under Pini's 8.2.1 as the
 -- corpus reads it (README Â§I): to refute descent it suffices to exhibit one
 -- fibre with two points the family separates, which is exactly what
--- `àà¨àààààà¦à` does.
+-- `à¤¤à¤¨à¥à¤¤à¥à¤­à¥‡à¤¦à¤ƒ` does.
 --
---   Â§7  the-universal-fibration-is-classified-one-level-up â” the
---       classifying map of the universal fibration over Type â“ is a map
---       Type â“ â’ Type (â“-suc â“).  THE CLASSIFIER DOES NOT CLASSIFY
+--   Â§7  the-universal-fibration-is-classified-one-level-up â€” the
+--       classifying map of the universal fibration over Type â„“ is a map
+--       Type â„“ â†’ Type (â„“-suc â„“).  THE CLASSIFIER DOES NOT CLASSIFY
 --       ITSELF.  There is no one object classifying every fibration
 --       there is; there is one per level, and the tower is forced, not
 --       a bookkeeping artefact.  Read in the corpus's own idiom this is
 --       the fibre law applied to the classifier: the universe is blind
 --       to its own total space, and the blindness is recovered only by
---       changing place â” one level up.
+--       changing place â€” one level up.
 --
---   Â§8  àµààààŸà¨à®à-àà¨ààµààààà¿à-ààµ, àà•à¾àµààààà¿à â” ONE TURN of the fibre law is not
---       vacuous.  `helix : SÂ â’ Typeâ` is one family over one circle;
+--   Â§8  à¤µà¥‡à¤·à¥à¤Ÿà¤¨à¤®à¥-à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ-à¤à¤µ, à¤à¤•à¤¾à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ â€” ONE TURN of the fibre law is not
+--       vacuous.  `helix : SÂ¹ â†’ Typeâ‚€` is one family over one circle;
 --       `winding` is, by `refl`, parallel transport in it; and
---       `Î©SÂIsoâ` says that transport is an isomorphism onto â.  A group
+--       `Î©SÂ¹Isoâ„¤` says that transport is an isomorphism onto â„¤.  A group
 --       that was not put in comes out of one application of Â§4.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS **NOT** CLAIMED.  This section is load-bearing.
 --
 -- * NOT that the five collapses of `Ekavakyata` are instances of one
@@ -120,36 +120,36 @@
 --
 -- * NOT that ONE object classifies every fibration.  Â§7 is the
 --   refutation of that reading, and it is proved here rather than
---   conceded: the universal fibration over Type â“ has total space in
---   Type (â“-suc â“).  A universe classifying its own fibrations would be
+--   conceded: the universal fibration over Type â„“ has total space in
+--   Type (â„“-suc â„“).  A universe classifying its own fibrations would be
 --   Type : Type, which is inconsistent (Girard; Hurkens).  The level
---   discipline that makes Â§7 unstatable at Type â“ is Agda's, enforced
+--   discipline that makes Â§7 unstatable at Type â„“ is Agda's, enforced
 --   on this file at typecheck time, and is not itself a theorem IN this
---   file â” it is a constraint ON it.
+--   file â€” it is a constraint ON it.
 --
 -- * NOT anything about physical spacetime, gauge fields, the Standard
---   Model, or SU(3)—SU(2)—U(1).  Â§4 and Â§5 are about transport in a
+--   Model, or SU(3)Ã—SU(2)Ã—U(1).  Â§4 and Â§5 are about transport in a
 --   type family.  That the connection of a principal bundle is an
 --   instance is standard differential geometry and is not formalised
 --   here; no smooth structure, no Lie group, and no bundle over a
 --   manifold appears in this file.  README Â§II's disclaimer stands.
 --
 -- * NOT that iterating the fibre law generates every homotopy type.
---   Â§8 is ONE application producing â.  That every type arises from
+--   Â§8 is ONE application producing â„¤.  That every type arises from
 --   iterated suspensions, Postnikov stages or cell attachments is not
 --   proved here and is not a corollary of the object classifier.
 --
 --   THE LOOKING, stated because the claim is an ABSENCE, and an absence
 --   asserted without a search is silence rather than a finding
---   (Kumrila, lokavrttika, Abhvapariccheda: yogya-anupalabdhi â”
+--   (KumÄrila, ÅšlokavÄrttika, AbhÄvapariccheda: yogya-anupalabdhi â€”
 --   non-perception is evidence only when the looking was fit to have
 --   found the thing).  The search was run.  agda/cubical v0.9 DOES
---   formalise CW complexes, in `Cubical/CW/` â” Base, Approximation,
+--   formalise CW complexes, in `Cubical/CW/` â€” Base, Approximation,
 --   Connected, Homology, Homotopy, Map, Properties, Subcomplex.  What it
---   defines there is `isCW X = Î[ X' âˆˆ CWskel â“ ] X â‰ realise X'`, a
+--   defines there is `isCW X = Î£[ X' âˆˆ CWskel â„“ ] X â‰ƒ realise X'`, a
 --   PREDICATE a type may or may not satisfy, and
---   `CW â“ = Î[ A âˆˆ Type â“ ] âˆ isCW A âˆâ`, the subtype of those that do
---   (CW/Base.agda:89â“96).  Nothing there claims every type satisfies it,
+--   `CW â„“ = Î£[ A âˆˆ Type â„“ ] âˆ¥ isCW A âˆ¥â‚`, the subtype of those that do
+--   (CW/Base.agda:89â€“96).  Nothing there claims every type satisfies it,
 --   and this file does not either.  So the limit is not that CW
 --   complexes are absent; it is that being CW is a PROPERTY, held by
 --   some types, and the generation claim would need it to be universal.
@@ -158,7 +158,7 @@
 --   does not make the tower of homotopy groups of spheres computable in
 --   any usable sense, and most of them are unknown.
 --
--- * Â§6 proves DESCENT â’ CONSTANT ON FIBRES only.  The converse needs
+-- * Â§6 proves DESCENT â†’ CONSTANT ON FIBRES only.  The converse needs
 --   surjectivity of f and a truncation, is a different theorem, and is
 --   not attempted here.  The forward direction is the one the grammar
 --   lane uses, because it is refutation that lane performs.
@@ -199,8 +199,8 @@ open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheH
 ------------------------------------------------------------------------
 -- Â§0  The corpus's fibre law and the library's classifier are one term.
 --
--- `SarvavibhagaH` proves A â‰ Î[ b âˆˆ B ] fiber f b and reads it as the
--- first isomorphism theorem, rankâ“nullity, dravya/paryya and nayavda.
+-- `SarvavibhagaH` proves A â‰ƒ Î£[ b âˆˆ B ] fiber f b and reads it as the
+-- first isomorphism theorem, rankâ€“nullity, dravya/paryÄya and nayavÄda.
 -- `Cubical.Functions.Fibration.totalEquiv` is HoTT Lemma 4.8.2.  They
 -- are not analogous and not isomorphic.  They are the same term.
 ------------------------------------------------------------------------
@@ -211,7 +211,7 @@ open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheH
 à¤¸à¤°à¥à¤µà¤µà¤¿à¤­à¤¾à¤—à¤ƒ-à¤à¤µ-totalEquiv f = equivEq refl
 
 ------------------------------------------------------------------------
--- Â§1  àµà¿àààµà°ààà®à â” the object classifier.  A fibration over A, and a map
+-- Â§1  à¤µà¤¿à¤¶à¥à¤µà¤°à¥‚à¤ªà¤®à¥ â€” the object classifier.  A fibration over A, and a map
 --     from A into the universe, are the same thing.  (HoTT Thm 4.8.3.)
 ------------------------------------------------------------------------
 
@@ -221,8 +221,8 @@ open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheH
 ------------------------------------------------------------------------
 -- Â§2  The universal fibration, and the fibre over X is X.
 --
--- Its total space is Î[ X âˆˆ Type â“ ] X â” a type together with a point of
--- it â” which is on the nose the type of POINTED types, and the fibration
+-- Its total space is Î£[ X âˆˆ Type â„“ ] X â€” a type together with a point of
+-- it â€” which is on the nose the type of POINTED types, and the fibration
 -- is "forget the point".
 ------------------------------------------------------------------------
 
@@ -246,8 +246,8 @@ the-universal-total-space-is-the-pointed-types = refl
 Pullback : {â„“ â„“' : Level} {A : Type â„“} (B : A â†’ Type â„“') â†’ Type (â„“-max â„“ (â„“-suc â„“'))
 Pullback {â„“' = â„“'} {A = A} B = Î£[ a âˆˆ A ] fiber (universal {â„“'}) (B a)
 
--- Plumbing only.  `Cubical.Data.Sigma`'s Î-cong-equiv-snd holds the two
--- fibre families at ONE level, and here they sit at â“' and â“-suc â“' â”
+-- Plumbing only.  `Cubical.Data.Sigma`'s Î£-cong-equiv-snd holds the two
+-- fibre families at ONE level, and here they sit at â„“' and â„“-suc â„“' â€”
 -- the pullback's fibre is a fibre of the universal fibration, which is
 -- exactly one level up.  Same proof, levels separated.
 private
@@ -270,7 +270,7 @@ every-family-is-a-pullback-of-the-universal-one B =
   isoToEquiv (Î£-cong-snd-across-levels (Î» a â†’ à¤µà¤¿à¤¶à¥à¤µà¤°à¥‚à¤ª-à¤¤à¤¨à¥à¤¤à¥à¤ƒ (B a)))
 
 ------------------------------------------------------------------------
--- Â§4  àà¨ààµààààà¿à â” "carrying over".  Transport in a family is a connection:
+-- Â§4  à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ â€” "carrying over".  Transport in a family is a connection:
 --     it is the identity over refl, it composes over âˆ™, and it is an
 --     equivalence over every path.  So a classifying map is a functor
 --     from the fundamental groupoid of the base into the universe, and
@@ -299,7 +299,7 @@ every-family-is-a-pullback-of-the-universal-one B =
 --
 -- Univalence, read as a statement about ONE fibration: the loops of the
 -- base at X are the self-equivalences of the fibre over X.  `uaÎ²` is the
--- computation rule that keeps this from being an assumed bijection â”
+-- computation rule that keeps this from being an assumed bijection â€”
 -- transport in the universal family along `ua e` is `e` itself.
 ------------------------------------------------------------------------
 
@@ -313,9 +313,9 @@ the-universal-familys-transport-is-the-equivalence :
 the-universal-familys-transport-is-the-equivalence e x = uaÎ² e x
 
 ------------------------------------------------------------------------
--- Â§6  ààµà°à‹ààà®à â” descent, and the fibre as the obstruction to it.
+-- Â§6  à¤…à¤µà¤°à¥‹à¤¹à¤£à¤®à¥ â€” descent, and the fibre as the obstruction to it.
 --
--- A family on A descends along f : A â’ B when it is the pullback of a
+-- A family on A descends along f : A â†’ B when it is the pullback of a
 -- family on B.  A descended family is CONSTANT ON THE FIBRES of f, so
 -- one fibre carrying two points the family separates refutes descent.
 -- That refutation is what Pini's 8.2.1 performs on 8.4.56's two-point
@@ -335,15 +335,15 @@ the-universal-familys-transport-is-the-equivalence e x = uaÎ² e x
 ------------------------------------------------------------------------
 -- Â§7  The classifier does not classify itself.
 --
--- The classifying map of the universal fibration over Type â“ is, by Â§2,
--- pointwise the identity â” and it lands in Type (â“-suc â“).  There is no
+-- The classifying map of the universal fibration over Type â„“ is, by Â§2,
+-- pointwise the identity â€” and it lands in Type (â„“-suc â„“).  There is no
 -- single object classifying every fibration there is: there is one per
 -- level, and the tower is forced.  A universe classifying its own
 -- fibrations would be Type : Type, which is inconsistent.
 --
 -- Agda's level discipline is what makes the alternative unstatable here,
 -- so this section is a WITNESS of the level shift, not a proof of its
--- necessity â” the type of the term is the content.
+-- necessity â€” the type of the term is the content.
 ------------------------------------------------------------------------
 
 the-universal-fibration : (â„“ : Level) â†’ Î£[ E âˆˆ Type (â„“-suc â„“) ] (E â†’ Type â„“)
@@ -356,9 +356,9 @@ the-universal-fibration-is-classified-one-level-up â„“ = fiber (universal {â„“})
 ------------------------------------------------------------------------
 -- Â§8  One turn of the fibre law is not vacuous.
 --
--- `helix : SÂ â’ Typeâ` is a single family over a single circle.  The
--- winding number is, definitionally, Â§4's transport in it â” and that
--- transport is an isomorphism onto â.  A group nobody put in comes out
+-- `helix : SÂ¹ â†’ Typeâ‚€` is a single family over a single circle.  The
+-- winding number is, definitionally, Â§4's transport in it â€” and that
+-- transport is an isomorphism onto â„¤.  A group nobody put in comes out
 -- of one application of the law.  ONE application; see WHAT IS NOT
 -- CLAIMED for what does not follow.
 ------------------------------------------------------------------------
@@ -370,7 +370,7 @@ the-universal-fibration-is-classified-one-level-up â„“ = fiber (universal {â„“})
 à¤à¤•à¤¾à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ = Î©SÂ¹Isoâ„¤
 
 -- and the corpus already priced ONE loop of it.  `Pradakshina_` computes
--- the same family's transport at the generator; Â§4's `àà¨ààµààààà¿à` at `loop`
+-- the same family's transport at the generator; Â§4's `à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ` at `loop`
 -- IS that map, so the two are one theorem read at one loop and at all of
 -- them.  Imported rather than restated: if it moves, this goes red.
 à¤ªà¥à¤°à¤¦à¤•à¥à¤·à¤¿à¤£à¤¾-à¤à¤µ-à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ : (x : â„¤) â†’ à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ helix loop x â‰¡ sucâ„¤ x

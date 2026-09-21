@@ -3,12 +3,12 @@
 ------------------------------------------------------------------------
 -- ChargeGrading
 --
--- Delta 15 §§15.6�15.7 (charge grading, parity as truncation of charge)
+-- Delta 15 §§15.6–15.7 (charge grading, parity as truncation of charge)
 -- and the structural half of Delta 18 T18.7 (charge-one composition).
 --
 -- WHY THESE TOGETHER.  Delta 18 T18.7 says charge-one effective
 -- propagation is closed under composition iff every off-sector
--- excursion�return contribution vanishes, and calls it "the exact
+-- excursion–return contribution vanishes, and calls it "the exact
 -- canonical-sector instance of T18.4".  That is a statement about a
 -- GRADED dynamics, so it cannot even be typed until the grading is.
 -- §15.6 supplies the grading, §15.7 supplies parity as its truncation,
@@ -23,25 +23,25 @@
 --
 -- Contents (all proved, no holes, no postulates, --safe):
 --
---   Graded, Total              D15.21: X = �_{c:C} X_c
+--   Graded, Total              D15.21: X = Σ_{c:C} X_c
 --   Shift                      D15.21: a degree-δ map
 --   shift-comp                 T15.22: shifts ADD under composition
 --   shift-restricts            T15.24: a degree-δ map sends X_c to X_{c+δ}
 --   degree-zero-preserves      C15.23: the degree-zero maps are exactly
 --                              the sector-preserving ones
 --   sector-closed              C15.25: X_c is closed under a degree-δ
---   sector-closed�δ≡0          map exactly when c + δ ≡ c � and over �,
+--   sector-closed→δ≡0          map exactly when c + δ ≡ c — and over ℕ,
 --                              which is cancellative, only when δ = 0
 --   parity, parity-shift       D15.26/T15.27: parity is a truncation of
 --                              charge and a degree-δ map changes it by
 --                              δ mod 2
 --   parity-blind               C15.28: retaining parity while forgetting
---                              charge is strictly coarser � an explicit
+--                              charge is strictly coarser — an explicit
 --                              pair of charges with equal parity
 --   parity-moving-shifts       P15.29: the two sources of a parity
 --   parity-preserving-shifts   obstruction get different witnesses, so
 --                              they are distinguished, not merged
---   no-cancellation            T18.7 structural: � has no inverses, so a
+--   no-cancellation            T18.7 structural: ℕ has no inverses, so a
 --                              later charge cannot cancel an earlier one
 --
 ------------------------------------------------------------------------
@@ -63,8 +63,8 @@ private
 ------------------------------------------------------------------------
 -- §15.6  Charge grading
 --
--- The charge monoid is � under addition.  Delta 15 allows any commutative
--- monoid; � is the case the corpus actually uses (Ω, the number of prime
+-- The charge monoid is ℕ under addition.  Delta 15 allows any commutative
+-- monoid; ℕ is the case the corpus actually uses (Ω, the number of prime
 -- factors with multiplicity), it is cancellative, and cancellativity is
 -- exactly what turns C15.25 from a condition into "δ = 0".
 ------------------------------------------------------------------------
@@ -72,7 +72,7 @@ private
 Graded : (ℓ : Level) → Type (ℓ-suc ℓ)
 Graded ℓ = ℕ → Type ℓ
 
--- D15.21.  The total space X = �_{c} X_c, with its base projection.
+-- D15.21.  The total space X = Σ_{c} X_c, with its base projection.
 Total : Graded ℓ → Type ℓ
 Total X = Σ[ c ∈ ℕ ] X c
 
@@ -85,8 +85,8 @@ base = fst
 Shift : {ℓ : Level} → Graded ℓ → ℕ → Type ℓ
 Shift X δ = (c : ℕ) → X c → X (c + δ)
 
--- T15.24.  A degree-δ map restricts X_c � X_{c+δ}.  This is the type of
--- `Shift`, so it holds by construction � which is the point of choosing
+-- T15.24.  A degree-δ map restricts X_c → X_{c+δ}.  This is the type of
+-- `Shift`, so it holds by construction — which is the point of choosing
 -- the fibrewise formulation.
 shift-restricts : {X : Graded ℓ} {δ : ℕ}
                 → Shift X δ → (c : ℕ) → X c → X (c + δ)
@@ -107,7 +107,7 @@ degree-zero-preserves : {X : Graded ℓ}
 degree-zero-preserves {X = X} S c x = subst X (+-zero c) (S c x)
 
 -- C15.25.  The sector X_c is closed under a degree-δ map exactly when
--- c + δ ≡ c.  Over � that forces δ ≡ 0, so canonical fixed-charge
+-- c + δ ≡ c.  Over ℕ that forces δ ≡ 0, so canonical fixed-charge
 -- dynamics is closed ONLY under degree-zero operations.
 --
 -- This is the machine's reopening condition in charge language: an
@@ -123,8 +123,8 @@ sector-closed→δ≡0 δ (suc c) p = sector-closed→δ≡0 δ c (injSuc p)
 ------------------------------------------------------------------------
 -- §15.7  Parity as a truncation of charge
 --
--- D15.26: parity = � ∘ �, with � the length and � : � � �/2.  Here � is
--- the identity on the �-grading and � is evenness.
+-- D15.26: parity = π ∘ ℓ, with ℓ the length and π : ℤ → ℤ/2.  Here ℓ is
+-- the identity on the ℕ-grading and π is evenness.
 ------------------------------------------------------------------------
 
 parity : ℕ → Bool
@@ -163,10 +163,10 @@ parity-blind = 0 , 2 , refl , znots
 --
 -- The distinction is typed, not rhetorical:
 --
---   * RECONSTRUCTION failure � the observation is `parity`, and two
+--   * RECONSTRUCTION failure — the observation is `parity`, and two
 --     distinct charges share it.  `parity-blind` above is a witness.
 --
---   * DYNAMICAL sensitivity � the shift δ itself has odd parity, so the
+--   * DYNAMICAL sensitivity — the shift δ itself has odd parity, so the
 --     operation moves the parity sector no matter how much charge
 --     information the observer retains.
 --
@@ -233,11 +233,11 @@ parity-action-complete δ ε = at-zero , from-shift-parity
 -- off-sector contribution vanishes.  In the graded setting that is not an
 -- extra hypothesis: by T15.22 a composite of shifts δ and ε has shift
 -- δ + ε, and by C15.25 it preserves the installed sector only when
--- δ + ε ≡ 0.  Over � that forces BOTH to vanish � the intermediate charge
+-- δ + ε ≡ 0.  Over ℕ that forces BOTH to vanish — the intermediate charge
 -- cannot be cancelled by a later one.
 --
 -- So the prime-pair block "remembers all intermediate factorization
--- charges" for a reason internal to the grading: � has no inverses.  A
+-- charges" for a reason internal to the grading: ℕ has no inverses.  A
 -- charge group WOULD allow cancellation, and that is exactly the
 -- structural difference between the canonical and grand-canonical
 -- settings.

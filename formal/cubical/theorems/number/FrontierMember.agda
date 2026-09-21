@@ -5,15 +5,15 @@
 --
 -- The second of the three pieces `PFreePart` named:
 --
---     frontier-member : IsPrime p â’ p â‰ k
---                     â’ Mem (p , logOf p k) (frontierList k)
+--     frontier-member : IsPrime p â†’ p â‰¤ k
+--                     â†’ Mem (p , logOf p k) (frontierList k)
 --
 -- Every prime up to k appears in the frontier, paired with the exponent
 -- `ExponentBound` just specified.  With that specification in hand this
--- is pure list structure â” three inductions, no arithmetic beyond
--- `â‰-split`.
+-- is pure list structure â€” three inductions, no arithmetic beyond
+-- `â‰¤-split`.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT HAD TO CHANGE UPSTREAM, AND WHY IT IS SAFE
 --
 -- `FrontierList` defined both filters in `where` blocks, so nothing
@@ -24,19 +24,19 @@
 -- The lift is a rename, not a change: `primesUpTo`'s `go` captured
 -- nothing, and `frontierList`'s captured only `k`, which `entriesAt`
 -- now takes explicitly.  `frontier8 = refl` and `frontier8-is-840 =
--- refl` in that module still check, which is the test that matters â”
+-- refl` in that module still check, which is the test that matters â€”
 -- they would have broken instantly on any semantic drift.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- MEMBERSHIP AS A RECURSIVE FAMILY
 --
--- `Mem x [] = âŠ`, `Mem x (y âˆ ys) = (x â‰¡ y) âŠ Mem x ys`, which is this
--- lane's standing idiom: cubical v0.5 gives no `_âˆ_` injectivity for
+-- `Mem x [] = âŠ¥`, `Mem x (y âˆ· ys) = (x â‰¡ y) âŠŽ Mem x ys`, which is this
+-- lane's standing idiom: cubical v0.5 gives no `_âˆ·_` injectivity for
 -- indexed inductive membership, so the family is written by recursion on
 -- the list and every proof is a case split rather than a constructor
 -- inversion.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ Mem x []       = âŠ¥
 Mem x (y âˆ· ys) = (x â‰¡ y) âŠŽ Mem x ys
 
 ------------------------------------------------------------------------
--- 2.  Every positive p â‰ k is in `downFrom k`
+-- 2.  Every positive p â‰¤ k is in `downFrom k`
 ------------------------------------------------------------------------
 
 âˆˆ-downFrom : (p k : â„•) â†’ 0 < p â†’ p â‰¤ k â†’ Mem p (downFrom k)
@@ -127,9 +127,9 @@ frontier-member p k pr pâ‰¤k =
 ------------------------------------------------------------------------
 -- 6.  It runs, against the list `FrontierList` computes
 --
---   frontierList 8 = (7,1) âˆ (5,1) âˆ (3,1) âˆ (2,3) âˆ []
+--   frontierList 8 = (7,1) âˆ· (5,1) âˆ· (3,1) âˆ· (2,3) âˆ· []
 --
--- so (2 , logâ 8) = (2 , 3) is the fourth entry, and the derived
+-- so (2 , logâ‚‚ 8) = (2 , 3) is the fourth entry, and the derived
 -- membership must land there.
 ------------------------------------------------------------------------
 
@@ -157,12 +157,12 @@ seven-in-8 = frontier-member 7 8 prime7 (1 , refl)
 -- it hiding a fuel-adequacy theorem).  This closes the second.  What
 -- remains is
 --
---     gcd (p ^ a) m' = 1   from   Â (p âˆ m')   with p prime,
+--     gcd (p ^ a) m' = 1   from   Â¬ (p âˆ£ m')   with p prime,
 --
 -- which is the only one of the three that needs Euclid rather than
--- structure: `CoprimePowers.bez-pow` lifts a B©zout certificate for
+-- structure: `CoprimePowers.bez-pow` lifts a BÃ©zout certificate for
 -- (p , m') to one for (p^a , m'), but producing the base certificate
--- from `p âˆ m'` is where primality finally has to be used.
+-- from `p âˆ¤ m'` is where primality finally has to be used.
 --
 -- No estimate, per the rule this thread earned.
 ------------------------------------------------------------------------
@@ -175,9 +175,9 @@ seven-in-8 = frontier-member 7 8 prime7 (1 , refl)
 -- Euclid rather than structure".  `NaturalMachine/PrimeCofactorCoprime.agda`
 -- shows it needs no Euclid at all: with this lane's own definition
 --
---     IsPrime p = (1 < p) — ((d : â•) â’ d âˆ p â’ (d â‰¡ 1) âŠ (d â‰¡ p))
+--     IsPrime p = (1 < p) Ã— ((d : â„•) â†’ d âˆ£ p â†’ (d â‰¡ 1) âŠŽ (d â‰¡ p))
 --
--- a common divisor of `p` and `m` is 1 or `p`, and the hypothesis `p âˆ m`
+-- a common divisor of `p` and `m` is 1 or `p`, and the hypothesis `p âˆ¤ m`
 -- discharges the second branch by itself.  Three lines.  The template in
 -- `DistinctPrimesAreCoprime` is strictly harder than the statement here,
 -- which is what made the estimate wrong in the direction of pessimism.

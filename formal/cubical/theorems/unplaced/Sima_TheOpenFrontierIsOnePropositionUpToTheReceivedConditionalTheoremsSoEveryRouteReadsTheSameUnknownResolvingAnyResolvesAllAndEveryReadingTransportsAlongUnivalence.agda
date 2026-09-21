@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ���� � the frontier.
+-- सीमा — the frontier.
 --
 -- Everything the repository knows about the two endpoints, composed
 -- and applied to itself.  The received claim graph (handoff §68,
@@ -12,14 +12,14 @@
 -- by their graph nodes, and the unknowns are propositions.  What is
 -- then a THEOREM, in --safe cubical Agda:
 --
---   �  every route's unknown is equivalent to RH  (propBiimpl�Equiv),
+--   १  every route's unknown is equivalent to RH  (propBiimpl→Equiv),
 --       so by univalence  Bounded ≡ OneSided ≡ Lower ≡ Lift ≡ Dyadic
 --       ≡ Goldbach ≡ RH  as types, and they are ONE point of hProp;
---   �  resolving any one of them resolves all, refuting any refutes all;
---   �  any reading P of one unknown transports to every other along the
+--   २  resolving any one of them resolves all, refuting any refutes all;
+--   ३  any reading P of one unknown transports to every other along the
 --       univalence path:  a strategy for "one dyadic order bounded" IS a
 --       strategy for "every-ε Goldbach rate", literally by subst;
---   �  for NS the peak-work integrability O-NPEAK is equivalent to the
+--   ४  for NS the peak-work integrability O-NPEAK is equivalent to the
 --       global endpoint, given the ledger, BKM and the definition of a
 --       maximal solution.
 --
@@ -28,7 +28,7 @@
 -- the hypotheses are exactly the received conditional theorems; what
 -- the checker certifies is the SHAPE of the frontier.  The finite
 -- algebra under each hypothesis is in: Grahaka (two-packet matrix,
--- PSD � |Z| � M�), AbelaRupa / ResidueDvaya (Abel inverse, dyadic
+-- PSD � |Z| � M�), AbelaRupa / ResidueDvaya (Abel inverse, dyadic
 -- residual), ArdhaTala / DviSthana / DviMana (Weil geometry, reflection
 -- block, holonomy), ReflectionFiber / RiktaFiber (reflection fibre),
 -- Pratirodha (Goldbach normalization), Sikhara (peak ledger).
@@ -72,7 +72,7 @@ module RH-Frontier
   where
 
   ----------------------------------------------------------------
-  -- � � each unknown is equivalent to RH; by univalence, equal to it
+  -- १ · each unknown is equivalent to RH; by univalence, equal to it
   ----------------------------------------------------------------
   Bounded≃RH : Bounded ≃ RH
   Bounded≃RH = propBiimpl→Equiv Bounded-prop RH-prop R-TWOPACKET-sufficiency R-TWOPACKET-necessity
@@ -129,7 +129,7 @@ module RH-Frontier
     , Σ≡Prop (λ _ → isPropIsProp) Goldbach≡RH
 
   ----------------------------------------------------------------
-  -- � � resolving any resolves all; refuting any refutes all
+  -- २ · resolving any resolves all; refuting any refutes all
   ----------------------------------------------------------------
   All : Type ℓ
   All = (RH × Bounded) × ((OneSided × Lower) × ((Lift × Dyadic) × Goldbach))
@@ -161,9 +161,9 @@ module RH-Frontier
   refuting-any-refutes-all nrh a = nrh (to-RH a)
 
   ----------------------------------------------------------------
-  -- � � every reading transports along univalence
+  -- ३ · every reading transports along univalence
   --     (P is any property of a proposition-as-type: a proof strategy,
-  --      a cost, a certificate shape �)
+  --      a cost, a certificate shape …)
   ----------------------------------------------------------------
   transport-reading : (P : Type ℓ → Type ℓ') → P Bounded → P Dyadic
   transport-reading P = subst P (Bounded≡RH ∙ sym Dyadic≡RH)
@@ -186,8 +186,8 @@ module NS-Frontier
   (Global Maximal PeakWork VortBounded Continuation : Type ℓ)
   -- Global      : every admissible datum has a global smooth solution (END-NS)
   -- Maximal     : some admissible maximal classical solution has finite lifetime
-  -- PeakWork    : for every such solution ��^{T*} b_u dt < ∞          (O-NPEAK)
-  -- VortBounded : �ω�_{L∞�L∞�} < ∞ on every such solution
+  -- PeakWork    : for every such solution ∫₀^{T*} b_u dt < ∞          (O-NPEAK)
+  -- VortBounded : ‖ω‖_{L∞ₜL∞ₓ} < ∞ on every such solution
   -- Continuation: every such solution continues past T*
   (Global-prop : isProp Global) (PeakWork-prop : isProp PeakWork)
   (ledger       : PeakWork → VortBounded)       -- α = M′/M + ν|∇ξ|² + ν(−Δm)/M integrated (Sikhara is the identity)

@@ -83,7 +83,7 @@ private
     ℓ ℓ' : Level
 
 ------------------------------------------------------------------------
--- 1. A sum lemma: pointwise � with equal sums forces pointwise equality
+-- 1. A sum lemma: pointwise ≤ with equal sums forces pointwise equality
 ------------------------------------------------------------------------
 
 -- The arithmetic core, isolated so the hypotheses are visible.
@@ -136,7 +136,7 @@ sum-pointwise𝔽in {ℓ = ℓ} (suc n) g h le e = goal
     goal (inl tt*) = both .fst
     goal (inr y) = sum-pointwise𝔽in n (g ∘ inr) (h ∘ inr) (le ∘ inr) (both .snd) y
 
--- Pointwise � plus equal sums forces pointwise equality, on any finite set.
+-- Pointwise ≤ plus equal sums forces pointwise equality, on any finite set.
 sum-pointwise : (X : FinSet ℓ) (g h : X .fst → ℕ)
   → ((x : X .fst) → g x ≤ h x)
   → sum X g ≡ sum X h
@@ -196,7 +196,7 @@ module _
 -- 3. Number theory for CRT: congruence, divisibility, Gauss
 ------------------------------------------------------------------------
 
--- x mod k ≡ 0 gives k � x.
+-- x mod k ≡ 0 gives k ∣ x.
 -- (Stated only for a positive modulus: `x mod 0` is defined to be 0 in this
 -- library, so the statement is FALSE at k = 0 unless x ≡ 0.  The positivity is
 -- an argument, not a comment.)
@@ -346,10 +346,10 @@ crtEquiv m n cop =
 -- 5. The payoff: multiplicativity of a counting function along CRT
 ------------------------------------------------------------------------
 
--- A "counting function" on Fin (m�n) given by independent finite data at each
+-- A "counting function" on Fin (m·n) given by independent finite data at each
 -- of the two coprime moduli.  For P, Q propositional this is exactly
--- #{x < mn : P(x mod m) and Q(x mod n)} = #P � #Q, the shape of the
--- multiplicativity step (Lemma 3.2) in the Γ�(N) index argument.
+-- #{x < mn : P(x mod m) and Q(x mod n)} = #P · #Q, the shape of the
+-- multiplicativity step (Lemma 3.2) in the Γ₀(N) index argument.
 module _ (m n : ℕ) (cop : isGCD (suc m) (suc n) 1)
   (P : Fin (suc m) → FinSet ℓ-zero) (Q : Fin (suc n) → FinSet ℓ-zero) where
 
@@ -392,20 +392,20 @@ module _ (m n : ℕ) (cop : isGCD (suc m) (suc n) 1)
 --    non-trivial instance where it holds.
 ------------------------------------------------------------------------
 
--- (a) `split+` needs BOTH order hypotheses: dropping `A � B` falsifies it.
+-- (a) `split+` needs BOTH order hypotheses: dropping `A ≤ B` falsifies it.
 --     Witness a = 0, b = 1, A = 2, B = 1.
 control-split+-needs-A≤B :
   ¬ ({a b A B : ℕ} → a ≤ b → a + A ≡ b + B → a ≡ b)
 control-split+-needs-A≤B h = znots (h {0} {1} {2} {1} (1 , refl) refl)
 
--- (b) The moduli 2 and 2 are not coprime � the hypothesis of `crtEquiv`
+-- (b) The moduli 2 and 2 are not coprime — the hypothesis of `crtEquiv`
 --     genuinely fails there.
 control-2-2-not-coprime : ¬ isGCD 2 2 1
 control-2-2-not-coprime cop =
   ¬m<m (≤<-trans (m∣n→m≤n snotz (cop .snd 2 (∣-refl refl , ∣-refl refl)))
                  (0 , refl))
 
--- (c) �and there the residue-pair map is NOT injective, so `crtEquiv` is false
+-- (c) …and there the residue-pair map is NOT injective, so `crtEquiv` is false
 --     without coprimality: 0 and 2 in Fin 4 have the same pair of residues.
 control-crt-needs-coprime :
   ¬ ((x y : Fin (2 · 2)) → resPair 1 1 x ≡ resPair 1 1 y → x ≡ y)
@@ -427,7 +427,7 @@ control-crt-needs-coprime h = znots (cong fst (h (0 , 0<4) (2 , 2<4) same))
     same i = c i , c i
 
 -- (d) The counting principle needs the cardinalities to agree: the injection
---     Fin 1 � Fin 2 is injective and is NOT an equivalence.
+--     Fin 1 → Fin 2 is injective and is NOT an equivalence.
 control-injSameCard-needs-sameCard :
   Σ[ f ∈ (Fin 1 → Fin 2) ] ((x y : Fin 1) → f x ≡ f y → x ≡ y) × (¬ isEquiv f)
 control-injSameCard-needs-sameCard = f , inj , noteq
@@ -443,7 +443,7 @@ control-injSameCard-needs-sameCard = f , inj , noteq
       znots (injSuc (cardEquiv (FinSetFin 1) (FinSetFin 2) ∣ f , e ∣₁))
 
 -- (e) Non-vacuity, positive: the theorem does fire.  2 and 3 are coprime, so
---     Fin 6 � Fin 2 � Fin 3 by the residue-pair map itself.
+--     Fin 6 ≃ Fin 2 × Fin 3 by the residue-pair map itself.
 control-coprime-2-3 : isGCD 2 3 1
 control-coprime-2-3 = gcd≡→isGCD refl
 

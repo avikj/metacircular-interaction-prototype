@@ -14,7 +14,7 @@
 --   * the NET is not determined at any depth, so observation never
 --     reaches the object.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT WAS ALREADY THERE, READ BEFORE WRITING
 --
 -- `RootedIndraTotal` already proves the ONE-STEP root
@@ -25,7 +25,7 @@
 -- half the Haskell shelf's disclaimer is about and which neither module
 -- had.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -89,8 +89,8 @@ propagatePreservesRootAtEveryDepth action (suc n) net =
 --
 -- `delay d v net` shows the fixed view `v` for the first `d`
 -- observations and then `net`.  Two nets so delayed agree at every depth
--- BELOW `d` â” expressed as `suc k + n`, so the bound is structural and
--- no order relation is needed â” and at depth `d` they show their own
+-- BELOW `d` â€” expressed as `suc k + n`, so the bound is structural and
+-- no order relation is needed â€” and at depth `d` they show their own
 -- heads, which may differ.
 ------------------------------------------------------------------------
 
@@ -152,14 +152,14 @@ theNetIsNotDeterminedAtAnyDepth k n =
 ------------------------------------------------------------------------
 -- 5.  The two halves, side by side
 --
--- Â§2: the ROOT is reached by observation â” at every depth, and the base
+-- Â§2: the ROOT is reached by observation â€” at every depth, and the base
 -- case is `RootedIndraTotal`'s own `refl`.
--- Â§3â“Â§4: the NET is not â” for every depth there are two nets agreeing
+-- Â§3â€“Â§4: the NET is not â€” for every depth there are two nets agreeing
 -- everywhere below it and differing at it.
 --
 -- Which is the exact content of the shelf's disclaimer: a finite/
 -- productive bridge gives you the invariants and not the object.  The
--- remaining direction â” that agreement at ALL depths gives equality â”
+-- remaining direction â€” that agreement at ALL depths gives equality â€”
 -- is a bisimulation principle, is what that shelf's `Bisim` type is for,
 -- and is not proved here.
 ------------------------------------------------------------------------

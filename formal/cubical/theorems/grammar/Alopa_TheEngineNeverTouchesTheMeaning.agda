@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡≤‡ã‡‡ ‚î ‡Ø‡®‡‡‡‡∞‡Æ‡ ‡‡∞‡‡‡ ‡® ‡‡‡‡‡‡‡ø ‡
+-- ‡§Ö‡§≤‡•ã‡§™‡§É ‚Äî ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç ‡§Ö‡§∞‡•ç‡§•‡§Ç ‡§® ‡§∏‡•ç‡§™‡•É‡§∂‡§§‡§ø ‡•§
 --
 -- (nothing dropped: the engine never touches the meaning.)
 --
--- THE JOIN.  `Calana_TheRunAndTheInvariantForAllN` proves ‡‡‡‡ invariant
--- under the whole run ‚î for EVERY n, by structural recursion, nothing
+-- THE JOIN.  `Calana_TheRunAndTheInvariantForAllN` proves ‡§∂‡•á‡§∑‡§É invariant
+-- under the whole run ‚Äî for EVERY n, by structural recursion, nothing
 -- sampled:
 --
---     ‡‡≤‡ã‡‡ : (n : ‚ï) (v : ‡µ‡ø‡µ‡‡ï) ‚í ‡‡‡‡ (‡ï‡‡∞‡Æ n (‡‡‡® v)) ‚â° ‡‡‡‡ v
+--     ‡§Ö‡§≤‡•ã‡§™‡§É : (n : ‚Ñï) (v : ‡§µ‡§ø‡§µ‡•á‡§ï) ‚Üí ‡§∂‡•á‡§∑‡§É (‡§ï‡•ç‡§∞‡§Æ n (‡§¨‡•Å‡§® v)) ‚â° ‡§∂‡•á‡§∑‡§É v
 --
 -- `interactive/MathMachine.hs` makes a claim of the same shape and has no
 -- such theorem.  Its round installs proved equations as rewrite rules and
 -- re-normalises its whole term space with them; its entire argument for
--- why that is safe is per-rule ‚î each rule passed a kernel.  Nothing says
--- the RUN preserves anything.  ¬ß4 says it, in ‡‡≤‡ã‡‡'s form.
+-- why that is safe is per-rule ‚Äî each rule passed a kernel.  Nothing says
+-- the RUN preserves anything.  ¬ß4 says it, in ‡§Ö‡§≤‡•ã‡§™‡§É's form.
 --
 -- AND IT REMOVES THE SAMPLING.  The engine's conjecture step is "these
 -- two terms agreed on forty random assignments, so guess they are equal".
@@ -26,14 +26,14 @@
 --   ¬ß6  a single disagreeing assignment refutes.  One point is enough,
 --       and one point is all it can ever do.
 --   ¬ß7  and the sampler cannot be fixed by sampling more: `var 0` and
---       `var 1` agree on every CONSTANT environment ‚î infinitely many
---       samples, all confirming ‚î and they are not equal.  What a sample
+--       `var 1` agree on every CONSTANT environment ‚Äî infinitely many
+--       samples, all confirming ‚Äî and they are not equal.  What a sample
 --       confirms is a property of the distribution it was drawn from.
 --
 -- THE FIELD IS THE OWNER'S MOVE.  `VivekaPramana_TheUpadhiIsCarriedAsA
 -- Field` carries the defeating condition as a field instead of asserting
 -- an equivalence that is false; the third pass sharpens the field to
--- ‡‡‡∞‡Æ‡æ‡ : ‡¶‡ï‡‡‡ø‡ ‚â° ‡‡Æ + ‡µ‡æ‡Æ, which makes the record the graph of + and
+-- ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ : ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ ‚â° ‡§∏‡§Æ + ‡§µ‡§æ‡§Æ, which makes the record the graph of + and
 -- the equivalence contentful.  `Rule` below is that move applied to the
 -- engine: a rewrite rule is not two terms with a certificate recorded in
 -- a log elsewhere, it is two terms CARRYING their certificate as a
@@ -80,7 +80,7 @@ eval œÅ (var i)  = œÅ i
 eval œÅ (op a b) = eval œÅ a + eval œÅ b
 
 --------------------------------------------------------------------------
--- 2.  A rule carries its certificate.  ‡â‡‡æ‡ß‡ø‡ ‡ï‡‡‡‡‡‡∞‡Æ‡ ‡‡µ.
+-- 2.  A rule carries its certificate.  ‡§â‡§™‡§æ‡§ß‡§ø‡§É ‡§ï‡•ç‡§∑‡•á‡§§‡•ç‡§∞‡§Æ‡•ç ‡§è‡§µ.
 --------------------------------------------------------------------------
 
 record Rule : Type‚ÇÄ where
@@ -148,7 +148,7 @@ normalize zero    _  t = t
 normalize (suc n) rs t = normalize n rs (step rs t)
 
 --------------------------------------------------------------------------
--- 5.  ‡‡≤‡ã‡‡ : for every n, the run leaves every meaning where it was
+-- 5.  ‡§Ö‡§≤‡•ã‡§™‡§É : for every n, the run leaves every meaning where it was
 --------------------------------------------------------------------------
 
 pick-sound : (b : Bool) (r : Rule) (rest : List Rule) (œÅ : Env) (t : Term)
@@ -181,7 +181,7 @@ step-sound rs œÅ (op a b) =
 -- 6.  What the sampler was for, done exactly
 --------------------------------------------------------------------------
 
--- Same normal form ‚ü equal under EVERY environment.  Nothing is sampled;
+-- Same normal form ‚üπ equal under EVERY environment.  Nothing is sampled;
 -- no environment appears in the proof except the one being asked about.
 same-normal-form‚Üíequal :
     (n : ‚Ñï) (rs : List Rule) (s t : Term)
@@ -208,12 +208,12 @@ one-witness-refutes s t œÅ h k = h (k œÅ)
 constEnv : ‚Ñï ‚Üí Env
 constEnv c _ = c
 
--- infinitely many samples, every one of them agreeing ‚¶
+-- infinitely many samples, every one of them agreeing ‚Ä¶
 agree-on-every-constant-environment :
     (c : ‚Ñï) ‚Üí eval (constEnv c) (var 0) ‚â° eval (constEnv c) (var 1)
 agree-on-every-constant-environment _ = refl
 
--- ‚¶ and the two terms are not equal.
+-- ‚Ä¶ and the two terms are not equal.
 not-equal : ¬¨ ((œÉ : Env) ‚Üí eval œÉ (var 0) ‚â° eval œÉ (var 1))
 not-equal k = znots (k (Œª i ‚Üí i))
 

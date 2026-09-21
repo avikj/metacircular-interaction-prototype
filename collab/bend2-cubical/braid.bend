@@ -1,12 +1,12 @@
 # THE BRAID FABRIC (VeniBandha / AnantaVeni), carried to Bend and run.
 #
-# Strands are interdependent pairs Stra = Bool � Bool; the crossing ϵ is the
+# Strands are interdependent pairs Sūtra = Bool × Bool; the crossing σᵢ is the
 # twisted swap: the strand that passes over is turned by the quarter turn
 # caturaa (a, b) = (not b, a).  The rope is the coinductive stream Dhr of
 # strands; Bend2 has no coinduction, so the rope is carried as its observation
 # function Nat -> Stra (bisimilar = equal at every depth: the
 # ProductiveObservabilityBridge), on which every ϵ is total and every braid
-# relation holds at every position � pointwise, by the same induction as the
+# relation holds at every position — pointwise, by the same induction as the
 # Agda (peel to the base at i = 0, then the head is preserved and the tail
 # recurses).
 def neg(x: Bool) -> Bool:
@@ -44,7 +44,7 @@ def veni(i: Nat, s: Rajju, n: Nat) -> Sutra:
           veni(j, lambda k. s(1n + k), m)
 
 # ---------------------------------------------------------------------------
-# The braid relation ϵ ϵ�� ϵ = ϵ�� ϵ ϵ�� at every position, pointwise.
+# The braid relation σᵢ σᵢ₊₁ σᵢ = σᵢ₊₁ σᵢ σᵢ₊₁ at every position, pointwise.
 # The base i = 0 is definitional at every depth after splitting n into
 # 0 / 1 / 2+ (both sides compute to the same strand); the step preserves the
 # head and recurses on the tail.
@@ -74,7 +74,7 @@ def veniRel(i: Nat, s: Rajju, n: Nat) -> Path(Sutra, veni(i, lambda k. veni(1n +
         case 1n + m:
           veniRel(j, lambda k. s(1n + k), m)
 
-# The distant commutation ϵ �� = �� ϵ for j � i + 2, at every gap, pointwise.
+# The distant commutation σᵢ σⱼ = σⱼ σᵢ for j ≥ i + 2, at every gap, pointwise.
 def duraBase(k: Nat, s: Rajju, n: Nat) -> Path(Sutra, veni(0n, lambda m. veni(2n + k, s, m), n), veni(2n + k, lambda m. veni(0n, s, m), n)):
   match n:
     case 0n:
@@ -104,7 +104,7 @@ def duraRel(i: Nat, k: Nat, s: Rajju, n: Nat) -> Path(Sutra, veni(i, lambda m. v
 
 # ---------------------------------------------------------------------------
 # A concrete rope, run: strand n = (n even?, True); observe the rope after
-# ������ and after ������ at depth 0..3 � equal, as the relation says.
+# σ₀σ₁σ₀ and after σ₁σ₀σ₁ at depth 0..3 — equal, as the relation says.
 # ---------------------------------------------------------------------------
 def even(n: Nat) -> Bool:
   match n:

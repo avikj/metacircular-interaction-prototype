@@ -6,7 +6,7 @@
 -- THE SEARCH, IN THE CHART.  Two modules of this lane name the same
 -- remaining gap in their own headers.  `WalkResidueBridge`:
 --
---     "`cap` is still a �.  Nothing here builds lcm's in the chart, so
+--     "`cap` is still a ℕ.  Nothing here builds lcm's in the chart, so
 --      `WalkBridge.next` is unchanged and `next 8` still exhausts the
 --      heap."
 --
@@ -14,12 +14,12 @@
 -- fast walk step still needs:
 --
 --     "(a) `findND` re-typed against `Word`, using `WalkResidueBridge`'s
---      `decDivides` in place of `dec�` -- the mathematics is done, the
+--      `decDivides` in place of `dec∣` -- the mathematics is done, the
 --      rewrite is not."
 --
 -- (a) is what this file is.  The two halves it stands on are already
--- proved: `WalkResidueBridge.decDivides�-agrees` says the charted
--- divisibility test IS `dec�`'s decision (`Dec` of a proposition is a
+-- proved: `WalkResidueBridge.decDividesℕ-agrees` says the charted
+-- divisibility test IS `dec∣`'s decision (`Dec` of a proposition is a
 -- proposition), so it substitutes without disturbing a downstream proof;
 -- `WalkChartedCap.value-capw` says the charted capacity IS the capacity.
 -- What was missing is the search between them: a `findND` that consumes
@@ -30,17 +30,17 @@
 --   1. `decDvd` -- `WalkResidueBridge.decDivides` re-indexed by the
 --      candidate itself rather than by its predecessor, so the search
 --      may case on it with no transport on the computed path; and
---      `decDvd-agrees`, that this is `dec�`'s decision, by
---      `decDivides�-agrees`'s own argument (`isPropDec isProp�`).
+--      `decDvd-agrees`, that this is `dec∣`'s decision, by
+--      `decDividesℕ-agrees`'s own argument (`isPropDec isProp∣`).
 --
---   2. `findNDw` -- `WalkBridge.findND` with `L : �` replaced by
---      `w : Word` and `dec�` replaced by `decDvd`.  Specification
---      unchanged: it returns the least q � 2 with q � value w, as a
+--   2. `findNDw` -- `WalkBridge.findND` with `L : ℕ` replaced by
+--      `w : Word` and `dec∣` replaced by `decDvd`.  Specification
+--      unchanged: it returns the least q ≥ 2 with q ∤ value w, as a
 --      `LeastNonDivisor (value w) q`.  `leastNDw` supplies the bound.
 --
---   3. `nextw : � � �`, the walk's step computed through `capw`, and
+--   3. `nextw : ℕ → ℕ`, the walk's step computed through `capw`, and
 --
---        nextw≡next : (m : �) � nextw m ≡ next m
+--        nextw≡next : (m : ℕ) → nextw m ≡ next m
 --
 --      for EVERY m, with no side hypothesis.  It is not proved by
 --      matching the two searches clause for clause; it is proved from
@@ -65,20 +65,20 @@
 --      an endpoint strictly above a positive number cannot divide it --
 --      from
 --
---        value-<-pow : (w : Word) � value w < b ^ length w
+--        value-<-pow : (w : Word) → value w < b ^ length w
 --
---      one induction, valid for every word, canonical or not (`to� d < b`
+--      one induction, valid for every word, canonical or not (`toℕ d < b`
 --      is its only input).
 --
---   5. THE COST CLAIM, exactly and no more.  Per candidate s � 2 the
+--   5. THE COST CLAIM, exactly and no more.  Per candidate s ≥ 2 the
 --      test is one pass of `TransportDiv.run`: the number the decision
 --      inspects is that run's final state (`candidate-state`), and the
 --      run's own step count is `suc (length w)` (`candidate-cost`, i.e.
 --      `run-is-the-automaton`), against `usteps (value w) ≡ suc (value w)`
---      for the recursion `dec�` performs on the numeral
+--      for the recursion `dec∣` performs on the numeral
 --      (`candidate-cost-gap`).  The capacity is never materialised as a
 --      numeral: `value w` occurs in `leastNDw` only inside the proof
---      `pow-endpoint-�`, which the search carries and never evaluates.
+--      `pow-endpoint-∤`, which the search carries and never evaluates.
 --
 --   6. `capws` AND THE KERNEL WITNESSES.  `nextw!` is `nextw` with the
 --      capacity THREADED AS AN ARGUMENT instead of re-called, and
@@ -95,7 +95,7 @@
 --      chart, in the one form that cannot be argued with.
 --      Also `next 9 ≡ 11`, `next 13 ≡ 16`, `next 16 ≡ 17` -- prime
 --      powers, §(c) firing at frontiers past the wall.  (No superlative
---      is claimed for 16 = 2�: `WalkBridge`'s own `next 3 ≡ 4` is
+--      is claimed for 16 = 2⁴: `WalkBridge`'s own `next 3 ≡ 4` is
 --      already a non-prime install.)
 --
 -- WHAT IS *NOT* DELIVERED.  The walk is not fast, and nothing here says
@@ -177,13 +177,13 @@ module Step (k : ℕ) where
   ----------------------------------------------------------------------
   -- 1.  THE TEST, INDEXED BY THE CANDIDATE.
   --
-  -- `decDivides n w : Dec (suc n � value w)` is indexed by the modulus'
-  -- predecessor.  The search's candidate is a variable s with 2 � s, so
+  -- `decDivides n w : Dec (suc n ∣ value w)` is indexed by the modulus'
+  -- predecessor.  The search's candidate is a variable s with 2 ≤ s, so
   -- the two must be reconciled.  Doing it with `subst` would put a
   -- transport of a `Dec` on the path the kernel actually runs; matching
   -- s as `suc (suc s')` instead gives `decDivides (suc s') w` the
   -- required type on the nose, and the two impossible shapes of s are
-  -- refuted from `2 � s`.
+  -- refuted from `2 ≤ s`.
   ----------------------------------------------------------------------
 
   decDvd : (s : ℕ) → 2 ≤ s → (w : Word) → Dec (s ∣ value w)
@@ -191,10 +191,10 @@ module Step (k : ℕ) where
   decDvd (suc zero)    2≤s w = Empty.rec (¬-<-zero (pred-≤-pred 2≤s))
   decDvd (suc (suc s)) _   w = decDivides (suc s) w
 
-  -- �and it is `dec�`'s decision, not merely another correct one.  Same
-  -- argument as `WalkResidueBridge.decDivides�-agrees`: `_�_` is a
-  -- proposition, so `Dec (s � value w)` is one.  This is the licence to
-  -- substitute the charted test for `dec�` inside `findND` without
+  -- …and it is `dec∣`'s decision, not merely another correct one.  Same
+  -- argument as `WalkResidueBridge.decDividesℕ-agrees`: `_∣_` is a
+  -- proposition, so `Dec (s ∣ value w)` is one.  This is the licence to
+  -- substitute the charted test for `dec∣` inside `findND` without
   -- touching a downstream proof.
   decDvd-agrees :
     (s : ℕ) (2≤s : 2 ≤ s) (w : Word) (0<s : 0 < s)
@@ -236,8 +236,8 @@ module Step (k : ℕ) where
     big = <≤-trans (value-<-pow w) ≤SumRight
 
   ----------------------------------------------------------------------
-  -- 3.  THE SEARCH.  `WalkBridge.findND` with `L : �` replaced by
-  --     `w : Word` and `dec�` replaced by `decDvd`.  Nothing else moves:
+  -- 3.  THE SEARCH.  `WalkBridge.findND` with `L : ℕ` replaced by
+  --     `w : Word` and `dec∣` replaced by `decDvd`.  Nothing else moves:
   --     the two `where` clauses below are its two, verbatim.
   ----------------------------------------------------------------------
 
@@ -306,7 +306,7 @@ module Step (k : ℕ) where
   ----------------------------------------------------------------------
   -- 6.  COST, per candidate.  Read it as exactly what it says.
   --
-  -- `decDvd s 2�s w` is `decDivides`, which decides by comparing
+  -- `decDvd s 2≤s w` is `decDivides`, which decides by comparing
   -- `modw s w` with 0.  `candidate-state` says that number is the final
   -- state of `TransportDiv.run`; `candidate-cost` is
   -- `run-is-the-automaton`: that run takes `suc (length w)` transitions.
@@ -411,14 +411,14 @@ module Step (k : ℕ) where
 -- Base ten, as in `TransportDivWitness`.  Each `refl` below is the
 -- charted walk taking a step in the kernel: build the capacity in the
 -- chart, then decide each candidate by one pass of the residue
--- automaton over its digits.  `next-8 � next-16` are then the WALK's own
+-- automaton over its digits.  `next-8 … next-16` are then the WALK's own
 -- installs, obtained from §7's `nextw!≡next` -- `next m` itself is never
 -- evaluated, which is the whole point: `WalkBridge` records `next 8`
 -- exhausting a 3.5 GB heap, and its computed stream stops at `next 5`.
 --
 -- 9, 11, 16, 17: prime powers, in increasing order, skipping 10, 12, 14,
 -- 15 -- §(c) of the note, on the stream §(b) identifies, at frontiers
--- the unary walk could not reach.  (Nothing is claimed about 16 = 2�
+-- the unary walk could not reach.  (Nothing is claimed about 16 = 2⁴
 -- being the first non-prime install: `WalkBridge.next-3 : next 3 ≡ 4`
 -- is one already.  What is new is only the range.)
 --
@@ -447,7 +447,7 @@ nextw-13 = refl
 nextw-16 : Base10.nextw! 16 ≡ 17
 nextw-16 = refl
 
--- �and therefore, without evaluating `next` anywhere:
+-- …and therefore, without evaluating `next` anywhere:
 --
 -- WHY EACH INSTALL IS WRITTEN TWICE.  Attaching the signature directly,
 --

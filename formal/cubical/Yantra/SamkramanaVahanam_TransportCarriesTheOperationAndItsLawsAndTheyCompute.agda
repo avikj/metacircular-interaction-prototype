@@ -1,38 +1,38 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡ï‡‡∞‡Æ‡-‡µ‡‡®‡Æ‡ ‚î the concurrence carries the WHOLE structure, and the
+-- ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£-‡§µ‡§π‡§®‡§Æ‡•ç ‚Äî the concurrence carries the WHOLE structure, and the
 -- carried structure COMPUTES.
 --
--- `Machine.Samorderna` identified the pair ‚ï ó ‚ï with the triple
--- ri-traya by univalence ‚î `yugma‚â°ri-traya = ua (anuloma , viloma)` ‚î
+-- `Machine.Samorderna` identified the pair ÔøΩ ÔøΩ ÔøΩ with the triple
+-- rƒÅ≈õi-traya by univalence ‚Äî `yugma‚â°rƒÅ≈õi-traya = ua (anuloma , viloma)` ‚Äî
 -- and carried the successor `Œ¶` across it.  A point rode the return.
 --
 -- This module rides an ALGEBRA across the same identity:
 --
---   * a commutative monoid on ‚ï ó ‚ï (componentwise addition, unit (0,0)),
+--   * a commutative monoid on ‚Ñï √ó ‚Ñï (componentwise addition, unit (0,0)),
 --   * `transport`ed along `yugma‚â°ri-traya` to an operation on
---     ri-traya, `_‚äûµ_`;
---   * whose value is the anuloma/viloma-conjugated operation `_‚ä_`
+--     rƒÅ≈õi-traya, `_‚äû·µ£_`;
+--   * whose value is the anuloma/viloma-conjugated operation `_‚äõ_`
 --     (`carried-is-conjugate`), so it acts on the triples exactly as
---     Brahmagupta's saordera would demand ‚î and on concrete numerals it
+--     Brahmagupta's saordera would demand ÔøΩ and on concrete numerals it
 --     REDUCES (`_ = refl`), which is cubical transport = uaŒ≤ made to run;
 --   * and its associativity, commutativity and unit laws, transported
 --     along the SAME path, so the laws on ri-traya are NOT reproved by
---     induction on the triple: they are the ‚ï proofs MOVED.
+--     induction on the triple: they are the ‚Ñï proofs MOVED.
 --
 -- This is NisvabhavaNet's `liberation` (transport of a predicate) raised
 -- to a structure: where two standpoints are equivalent, everything
--- transports ‚î the points, the operations on them, AND the equations they
--- satisfy.  ‡‡‡®‡∞‡‡ï‡‡‡ø‡∞‡ ‡® ‚î the theorem is carried, not copied; that is
--- the ‡‡‡ø‡‡‡æ move (‡‡‡ø‡‡‡æ-‡‡‡‡‡∞ ¬ß‡: transport carrying its equivalence),
+-- transports ‚Äî the points, the operations on them, AND the equations they
+-- satisfy.  ‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§‡§ø‡§∞‡•ç ‡§® ‚Äî the theorem is carried, not copied; that is
+-- the ‡§Ö‡§π‡§ø‡§Ç‡§∏‡§æ move (‡§Ö‡§π‡§ø‡§Ç‡§∏‡§æ-‡§∏‡•Ç‡§§‡•ç‡§∞ ¬ß‡•¨: transport carrying its equivalence),
 -- made total over an algebra.
 --
 -- CHECKED: Agda 2.8.0, cubical v0.9, --cubical --safe, no postulates,
 -- no holes.
 ------------------------------------------------------------------------
 
-module Machine.SamordernaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute where
+module Machine.SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Transport using (transport‚ÅªTransport)
@@ -48,7 +48,7 @@ private
 
 ------------------------------------------------------------------------
 -- The shapes a monoid is built from, as families over a type.  Each is
--- transported along `P` below; that is the whole point ‚î one path, and
+-- transported along `P` below; that is the whole point ‚Äî one path, and
 -- the operation and every law ride it.
 ------------------------------------------------------------------------
 
@@ -65,10 +65,10 @@ LUnit : (T : Type) ‚Üí Op T ‚Üí T ‚Üí Type
 LUnit T _¬∑_ e = (x : T) ‚Üí (e ¬∑ x) ‚â° x
 
 ------------------------------------------------------------------------
--- The monoid on the PAIR side ‚î plain componentwise addition on ‚ï ó ‚ï.
--- Associativity and commutativity are ‚ï's, componentwise; the unit is
+-- The monoid on the PAIR side ‚Äî plain componentwise addition on ‚Ñï √ó ‚Ñï.
+-- Associativity and commutativity are ‚Ñï's, componentwise; the unit is
 -- (0 , 0) and the left-unit law is +-zero-free (0 + x ‚â° x is `refl` in
--- this library's ‚ï, so LUnit holds by ŒPathP of two refls).
+-- this library's ‚Ñï, so LUnit holds by Œ£PathP of two refls).
 ------------------------------------------------------------------------
 
 _‚äû_ : Op (‚Ñï √ó ‚Ñï)
@@ -103,7 +103,7 @@ _‚äû·µ£_ = transport (Œª i ‚Üí Op (P i)) _‚äû_
 Œµ-path : PathP (Œª i ‚Üí P i) (zero , zero) Œµ·µ£
 Œµ-path = transport-filler (Œª i ‚Üí P i) (zero , zero)
 
--- the laws, MOVED ‚î no induction on ri-traya anywhere below.
+-- the laws, MOVED ‚Äî no induction on rƒÅ≈õi-traya anywhere below.
 ‚äû·µ£-assoc : Assoc rƒÅ≈õi-traya _‚äû·µ£_
 ‚äû·µ£-assoc = transport (Œª i ‚Üí Assoc (P i) (‚äû-path i)) ‚äû-assoc
 
@@ -114,9 +114,9 @@ _‚äû·µ£_ = transport (Œª i ‚Üí Op (P i)) _‚äû_
 ‚äû·µ£-lunit = transport (Œª i ‚Üí LUnit (P i) (‚äû-path i) (Œµ-path i)) ‚äû-lunit
 
 ------------------------------------------------------------------------
--- The carried operation IS the conjugated one.  `_‚ä_` is what one writes
+-- The carried operation IS the conjugated one.  `_‚äõ_` is what one writes
 -- by hand: pull both triples back to pairs with viloma, add, push forward
--- with anuloma.  The transported `_‚äûµ_` equals it ‚î the transport did the
+-- with anuloma.  The transported `_‚äû·µ£_` equals it ‚Äî the transport did the
 -- conjugation itself.
 ------------------------------------------------------------------------
 
@@ -128,7 +128,7 @@ carried-is-conjugate u v = refl
 
 ------------------------------------------------------------------------
 -- And it RUNS.  The carried operation applied to concrete triples reduces
--- to the concrete answer by `refl` ‚î the type-checker normalises the
+-- to the concrete answer by `refl` ‚Äî the type-checker normalises the
 -- transport, so this is uaŒ≤ computing, not a lemma invoked.
 ------------------------------------------------------------------------
 
@@ -139,32 +139,32 @@ _ : (anuloma (3 , 4) ‚äõ anuloma (1 , 2)) ‚â° anuloma (4 , 6)
 _ = refl
 
 -- the transported unit really is a left unit, on a concrete triple, by the
--- MOVED law ‚î not a fresh computation:
+-- MOVED law ‚Äî not a fresh computation:
 _ : (Œµ·µ£ ‚äû·µ£ anuloma (5 , 6)) ‚â° anuloma (5 , 6)
 _ = ‚äû·µ£-lunit (anuloma (5 , 6))
 
 ------------------------------------------------------------------------
--- ‡‡‡‡‡∞ ‡ß‡ ‚î ‡‡‡®‡∞‡æ‡ó‡Æ‡®‡ ‡‡‡®‡‡Ø-‡µ‡‡Ø‡Ø‡‡® ‡‡µ : the return is only at zero cost.
+-- ‡§∏‡•Ç‡§§‡•ç‡§∞ ‡•ß‡•¨ ‚Äî ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®‡§Ç ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§µ‡•ç‡§Ø‡§Ø‡•á‡§® ‡§è‡§µ : the return is only at zero cost.
 --
 -- Carry the operation FORWARD along P to ri-traya, then BACK along
--- sym P, and it returns EXACTLY ‚î `‚äû-return` is a `refl`-free identity
+-- sym P, and it returns EXACTLY ‚Äî `‚äû-return` is a `refl`-free identity
 -- proving the whole round trip is the identity on the operation.  The
 -- identification is lossless: no receipt is owed for going across and
--- back.  This is ‡Æ‡‡ï‡‡‡ø‡ ‡‡‡®‡‡Ø-‡µ‡‡Ø‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ (‡‡‡‡‡∞ ‡ß‡) at the level of the
--- structure ‚î transport is the null path, and the null path conserves.
+-- back.  This is ‡§Æ‡•Å‡§ï‡•ç‡§§‡§ø‡§É ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§µ‡•ç‡§Ø‡§Ø‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É (‡§∏‡•Ç‡§§‡•ç‡§∞ ‡•ß‡•≠) at the level of the
+-- structure ‚Äî transport is the null path, and the null path conserves.
 ------------------------------------------------------------------------
 
 ‚äû-return : transport (Œª i ‚Üí Op (P (~ i))) _‚äû·µ£_ ‚â° _‚äû_
 ‚äû-return = transport‚ÅªTransport (Œª i ‚Üí Op (P i)) _‚äû_
 
 ------------------------------------------------------------------------
--- The identification is a STRICT monoid isomorphism ‚î on the nose.
+-- The identification is a STRICT monoid isomorphism ‚Äî on the nose.
 --
--- Because `_‚äûµ_` is the conjugate DEFINITIONALLY, `anuloma` and `viloma`
+-- Because `_‚äû·µ£_` is the conjugate DEFINITIONALLY, `anuloma` and `viloma`
 -- are monoid homomorphisms with `refl` proofs: they do not merely respect
--- the operation up to a path, they respect it up to nothing.  So ‚ï ó ‚ï
--- and ri-traya are not two isomorphic monoids ‚î they are the SAME
--- commutative monoid in two presentations (‡‡‡‡‡∞ ‡®‡Æ: everything is proven
+-- the operation up to a path, they respect it up to nothing.  So ‚Ñï √ó ‚Ñï
+-- and rƒÅ≈õi-traya are not two isomorphic monoids ‚Äî they are the SAME
+-- commutative monoid in two presentations (‡§∏‡•Ç‡§§‡•ç‡§∞ ‡•®‡•Æ: everything is proven
 -- somewhere, and import is identity).  This is the structure identity
 -- principle at zero altitude: the equivalence carried the algebra, and
 -- the carry left no residue to correct.

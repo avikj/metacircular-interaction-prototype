@@ -7,19 +7,19 @@
 --
 -- Delta 16 asks for four things in Cubical Agda:
 --
---   1. the integral equivalence  Pair � CR  (parity-compatible lattice);
---   2. the one-leg reflection    J� (W , R) = (- R , - W);
---   3. positivity  W > |R|  and a proof that J� leaves it;
---   4. the quadratic invariant  Q = W² - R² = 4pq  with  Q ∘ J� = - Q.
+--   1. the integral equivalence  Pair ≃ CR  (parity-compatible lattice);
+--   2. the one-leg reflection    J₂ (W , R) = (- R , - W);
+--   3. positivity  W > |R|  and a proof that J₂ leaves it;
+--   4. the quadratic invariant  Q = W² - R² = 4pq  with  Q ∘ J₂ = - Q.
 --
 -- All four are below.  The mathematical content Delta 16 flags as its
 -- "strongest new compression" is thm16-8: the founding additive
 -- center/gap geometry and multiplication meet in one quadratic form.
 --
 -- The delta's own Corollary 16.5 is the correction this module pins
--- down: the positive-cone obstruction is NOT the exchange � (which
+-- down: the positive-cone obstruction is NOT the exchange τ (which
 -- preserves the cone, exchangePreservesCone) but the one-leg reflection
--- J� (which cannot preserve it, thm16-4).
+-- J₂ (which cannot preserve it, thm16-4).
 ------------------------------------------------------------------------
 
 module CenterRelative where
@@ -113,7 +113,7 @@ private
   e-shift _ _ = solve! ℤCommRing
 
 ------------------------------------------------------------------------
--- 3.  Target 2 � Theorem 16.1: J� swaps center and relative coordinates
+-- 3.  Target 2 — Theorem 16.1: J₂ swaps center and relative coordinates
 ------------------------------------------------------------------------
 
 -- Exchange acts on (W , R) by negating the relative coordinate only.
@@ -144,7 +144,7 @@ J₂CR-involutive (W , R) i = -Invol W i , -Invol R i
   -Invol (negsuc n) = refl
 
 ------------------------------------------------------------------------
--- 4.  Target 4 � the quadratic invariant Q = W² - R²
+-- 4.  Target 4 — the quadratic invariant Q = W² - R²
 ------------------------------------------------------------------------
 
 Q : ℤ × ℤ → ℤ
@@ -165,10 +165,10 @@ thm16-8 : (p q : ℤ) → Q (Φraw (p , q)) ≡ (p · q) + (p · q) + ((p · q) 
 thm16-8 p q = e-Q4 p q
 
 ------------------------------------------------------------------------
--- 5.  Target 3 � the positive cone, and that J� leaves it
+-- 5.  Target 3 — the positive cone, and that J₂ leaves it
 ------------------------------------------------------------------------
 
--- Strict positivity, constructor-based (cubical v0.5 has no � order module).
+-- Strict positivity, constructor-based (cubical v0.5 has no ℤ order module).
 Pos : ℤ → Type
 Pos n = Σ[ m ∈ ℕ ] n ≡ pos (suc m)
 
@@ -199,7 +199,7 @@ thm16-3-sum : (p q : ℤ) → (p + q) + (q - p) ≡ q + q
 thm16-3-sum = e-sum
 
 -- Corollary 16.5, positive half: exchange PRESERVES the cone.
--- (�CR negates R, which swaps the two cone coordinates.)
+-- (τCR negates R, which swaps the two cone coordinates.)
 exchangePreservesCone : (x : ℤ × ℤ) → InCone x → InCone (τCR x)
 exchangePreservesCone (W , R) (d , s) =
   subst Pos (sym (e1 W R)) s , subst Pos (sym (e2 W R)) d
@@ -220,7 +220,7 @@ thm16-4 (W , R) (_ , s) (_ , s') =
   e _ _ = solve! ℤCommRing
 
 ------------------------------------------------------------------------
--- 6.  Target 1 � the integral equivalence Pair � CR
+-- 6.  Target 1 — the integral equivalence Pair ≃ CR
 ------------------------------------------------------------------------
 
 -- The parity constraint W ≡ R (mod 2).  Because `isEven` is a decidable
@@ -231,7 +231,7 @@ EvenT n = isEven n ≡ true
 isPropEvenT : (n : ℤ) → isProp (EvenT n)
 isPropEvenT n = isSetBool (isEven n) true
 
--- L = {(W , R) ∈ �² : W ≡ R mod 2}, as a �-type.
+-- L = {(W , R) ∈ ℤ² : W ≡ R mod 2}, as a Σ-type.
 CR : Type
 CR = Σ[ W ∈ ℤ ] Σ[ R ∈ ℤ ] EvenT (W - R)
 
@@ -240,7 +240,7 @@ CR = Σ[ W ∈ ℤ ] Σ[ R ∈ ℤ ] EvenT (W - R)
   where
   open import Cubical.Data.Nat using (snotz)
 
--- Doubling is injective on �.
+-- Doubling is injective on ℤ.
 doubleInj : (m n : ℤ) → pos 2 · m ≡ pos 2 · n → m ≡ n
 doubleInj m n h = ·lCancel (pos 2) m n h 2≢0
 
@@ -305,23 +305,23 @@ Pair≡CR = ua Pair≃CR
 -- 7.  Controls (PROTOCOL.md §7: a claim ships with its own falsifiers)
 ------------------------------------------------------------------------
 
--- Control 1 � the cone is inhabited, so thm16-4 is not vacuous.
+-- Control 1 — the cone is inhabited, so thm16-4 is not vacuous.
 -- The pair (1 , 1) has centre 2 and gap 0.
 coneInhabited : InCone (Φraw (pos 1 , pos 1))
 coneInhabited = (1 , refl) , (1 , refl)
 
--- Control 2 � Pos is a real constraint: zero is not positive.
+-- Control 2 — Pos is a real constraint: zero is not positive.
 notPosZero : ¬ Pos (pos 0)
 notPosZero (m , p) = snotz (sym (injPos p))
   where
   open import Cubical.Data.Nat using (snotz)
 
--- Control 3 � a worked instance of the quadratic compression, by refl:
--- the pair (2 , 3) has W = 5, R = 1, and 5² - 1² = 24 = 4�2�3.
+-- Control 3 — a worked instance of the quadratic compression, by refl:
+-- the pair (2 , 3) has W = 5, R = 1, and 5² - 1² = 24 = 4·2·3.
 thm16-8-instance : Q (Φraw (pos 2 , pos 3)) ≡ pos 24
 thm16-8-instance = refl
 
--- Control 4 � the two involutions genuinely differ on the cone.
+-- Control 4 — the two involutions genuinely differ on the cone.
 -- Exchange preserves it (exchangePreservesCone); the one-leg reflection
 -- provably cannot (thm16-4).  This pair is Delta 16's Corollary 16.5,
 -- and it is the correction the delta says should replace any earlier
@@ -332,16 +332,16 @@ corollary16-5 :
 corollary16-5 = exchangePreservesCone , thm16-4
 
 ------------------------------------------------------------------------
--- 8.  Delta 17 � the same cone at every place
+-- 8.  Delta 17 — the same cone at every place
 --
--- Delta 17 §17.1 names u� = W - R and u� = W + R the "light-cone
+-- Delta 17 §17.1 names u₋ = W - R and u₊ = W + R the "light-cone
 -- coordinates" and observes they are the original factors doubled.
 -- That is thm16-3-diff / thm16-3-sum above; it is restated here under
 -- Delta 17's names and reused, not reproved.
 --
--- The new content is T17.13 and C17.14: at every finite place � the
--- valuation pair (v_� p , v_� q) carries its own centre-relative cone,
---   s = v_� p + v_� q,   d = v_� q - v_� p,   s � |d|,  s ≡ d mod 2,
+-- The new content is T17.13 and C17.14: at every finite place ℓ the
+-- valuation pair (v_ℓ p , v_ℓ q) carries its own centre-relative cone,
+--   s = v_ℓ p + v_ℓ q,   d = v_ℓ q - v_ℓ p,   s ≥ |d|,  s ≡ d mod 2,
 -- which Delta 17 calls "a genuine self-similarity" with the archimedean
 -- pair geometry.  Section 8.3 makes precise in what sense it is one.
 ------------------------------------------------------------------------
@@ -358,14 +358,14 @@ thm17-1-lower = thm16-3-diff
 thm17-1-upper : (p q : ℤ) → u₊ (Φraw (p , q)) ≡ q + q
 thm17-1-upper = thm16-3-sum
 
--- 8.2  T17.13 � the quadrant is exactly the closed cone
+-- 8.2  T17.13 — the quadrant is exactly the closed cone
 
--- Valuations are non-negative, so the relevant cone is closed (s � |d|),
+-- Valuations are non-negative, so the relevant cone is closed (s ≥ |d|),
 -- not open (W > |R|) as in Delta 16's archimedean case.
 NonNeg : ℤ → Type
 NonNeg n = Σ[ m ∈ ℕ ] n ≡ pos m
 
--- s � |d| without an absolute value: both light-cone coordinates � 0.
+-- s ≥ |d| without an absolute value: both light-cone coordinates ≥ 0.
 ConeNN : ℤ × ℤ → Type
 ConeNN x = NonNeg (u₋ x) × NonNeg (u₊ x)
 
@@ -396,7 +396,7 @@ thm17-13-bwd a b (cl , cu) =
   nonNegUndouble a (subst NonNeg (thm17-1-lower a b) cl) ,
   nonNegUndouble b (subst NonNeg (thm17-1-upper a b) cu)
 
--- 8.3  C17.14 � in what sense the self-similarity is real
+-- 8.3  C17.14 — in what sense the self-similarity is real
 --
 -- Delta 17 reads the repetition of (sum , difference) at the archimedean
 -- place and at every finite place as a self-similarity between additive
@@ -407,13 +407,13 @@ thm17-13-bwd a b (cl , cu) =
 -- integers, used twice.  The two instantiations below are the SAME TERM;
 -- Agda accepts them by definition, with no proof in between.
 --
---   archimedeanCone � a and b are the two legs (p , q);
---   localCone       � a and b are the two valuations (v_� p , v_� q).
+--   archimedeanCone — a and b are the two legs (p , q);
+--   localCone       — a and b are the two valuations (v_ℓ p , v_ℓ q).
 --
 -- So C17.14 is earned, but what it earns is a re-use, not a coincidence.
 -- The parity constraint s ≡ d mod 2 that Delta 17 states alongside is
 -- likewise not new here: it is exactly the sublattice CR of section 6,
--- and Pair�CR already gives the equivalence for arbitrary integers.
+-- and Pair≃CR already gives the equivalence for arbitrary integers.
 
 archimedeanCone : (p q : ℤ) → NonNeg p × NonNeg q → ConeNN (Φraw (p , q))
 archimedeanCone = thm17-13-fwd
@@ -424,7 +424,7 @@ localCone = thm17-13-fwd
 sameTheorem : archimedeanCone ≡ localCone
 sameTheorem = refl
 
--- Control � the closed cone is strictly larger than Delta 16's open one:
+-- Control — the closed cone is strictly larger than Delta 16's open one:
 -- the zero valuation pair is in ConeNN and not in InCone.
 zeroInClosedCone : ConeNN (Φraw (pos 0 , pos 0))
 zeroInClosedCone = (0 , refl) , (0 , refl)

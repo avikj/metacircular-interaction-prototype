@@ -6,28 +6,28 @@
 -- `AsymmetryOnTheRateIsFreeAndTheWeakClaimIsAntitoneToo` closed the
 -- first two thirds of the rate-order item and named the third with a
 -- measurement rather than a proof: an untruncated trichotomy on
--- `Rate` â” `âŸ¨ x âŠR y âŸ© âŠ ((x â‰¡ y) âŠ âŸ¨ y âŠR x âŸ©)` with a nine-case
--- `isProp` â” was typechecking for over twelve minutes of CPU on this
+-- `Rate` â€” `âŸ¨ x âŠR y âŸ© âŠ ((x â‰¡ y) âŠ âŸ¨ y âŠR x âŸ©)` with a nine-case
+-- `isProp` â€” was typechecking for over twelve minutes of CPU on this
 -- container and was stopped.  The named next attempt was: prove
 -- trichotomy AT THE PAIR LEVEL and lift only what is cheap.  That is
 -- what is here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   TriP a b            the three-way disjunction on PAIRS
---   pairTrichotomy      it holds, by `_â‰Ÿ_` on the two cross products â”
+--   pairTrichotomy      it holds, by `_â‰Ÿ_` on the two cross products â€”
 --                       and it COMPUTES: no quotient, no eliminator
 --   triPExcludesEquality / triPExcludesReverse
 --                       the two exclusivity facts, also at the pair
---                       level: `a âŠ b` rules out `a â‰ˆ b` and rules out
---                       `b âŠ a`
+--                       level: `a âŠ b` rules out `a â‰ˆ b` and rules out
+--                       `b âŠ a`
 --   TriR x y            the trichotomy on rates, TRUNCATED
 --   rateTrichotomyTruncated
---                       it holds, by `elimProp2` into `âˆ_âˆâ`
+--                       it holds, by `elimProp2` into `âˆ¥_âˆ¥â‚`
 --
--- **WHAT THE TRUNCATION COSTS, EXACTLY.**  `âˆ_âˆâ` is a proposition for
--- free, so `elimProp2` applies without any `isProp` obligation â” that
+-- **WHAT THE TRUNCATION COSTS, EXACTLY.**  `âˆ¥_âˆ¥â‚` is a proposition for
+-- free, so `elimProp2` applies without any `isProp` obligation â€” that
 -- is the whole difference from the stopped draft, which had to prove
 -- the untruncated sum was a proposition before it could eliminate.
 -- The price is that `TriR` carries no computation: from `TriR x y` one
@@ -41,21 +41,21 @@
 -- that are proved here at the PAIR level, where they are three lines
 -- each.  So what remains is transporting THOSE to the quotient, not
 -- re-proving trichotomy.  And this run NARROWS WHERE THE COST WAS:
--- `TriR` forces exactly the same `âŠR` reductions as the stopped draft
--- (`âŸ¨ [ a ] âŠR [ b ] âŸ©` is `a âŠ b` by `refl`) and eliminates over the
+-- `TriR` forces exactly the same `âŠR` reductions as the stopped draft
+-- (`âŸ¨ [ a ] âŠR [ b ] âŸ©` is `a âŠ b` by `refl`) and eliminates over the
 -- same quotient, yet checks in seconds.  So the twelve minutes were
--- NOT the elimination and NOT `âŠR`; they were in the nine-case
+-- NOT the elimination and NOT `âŠR`; they were in the nine-case
 -- `isProp` block with its `subst`s along quotient paths.  That is a
--- comparison of two runs on this container and nothing more â” it does
+-- comparison of two runs on this container and nothing more â€” it does
 -- not say the block is unprovable, and says nothing about the pin.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  Trichotomy of the rationals is classical, and `_â‰Ÿ_` on
--- â• is library.  The one thing worth recording is the shape: an
+-- â„• is library.  The one thing worth recording is the shape: an
 -- untruncated statement over a set-quotient costs its own `isProp`
 -- proof, and the truncated one does not.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -97,7 +97,7 @@ pairTrichotomy (p , q) (p' , q') with (p Â· suc q') â‰Ÿ (p' Â· suc q)
 ... | gt h = inr (inr h)
 
 ------------------------------------------------------------------------
--- 2.  â¦and the three cases exclude each other, at the pair level
+-- 2.  â€¦and the three cases exclude each other, at the pair level
 ------------------------------------------------------------------------
 
 triPExcludesEquality : (a b : â„• Ã— â„•) â†’ a âŠ b â†’ Â¬ (a â‰ˆ b)
@@ -107,7 +107,7 @@ triPExcludesReverse : (a b : â„• Ã— â„•) â†’ a âŠ b â†’ Â¬ (b âŠ a)
 triPExcludesReverse a b h k = âŠ-irrefl-pair a (âŠ-trans-pair a b a h k)
 
 ------------------------------------------------------------------------
--- 3.  On the rates, truncated â” the eliminator is free
+-- 3.  On the rates, truncated â€” the eliminator is free
 ------------------------------------------------------------------------
 
 TriR : Rate â†’ Rate â†’ Type

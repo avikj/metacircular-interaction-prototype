@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- PMRelationalNoFit
 --
--- The Peres--Mermin no-section theorem does NOT instantiate the SÂ
+-- The Peres--Mermin no-section theorem does NOT instantiate the SÂ¹
 -- RelativeProcess obstruction by simply taking measurement contexts as the
 -- base and contextwise satisfying assignments as fibres.
 --

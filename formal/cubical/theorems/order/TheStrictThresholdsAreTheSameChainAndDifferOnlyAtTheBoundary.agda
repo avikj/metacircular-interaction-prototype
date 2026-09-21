@@ -7,39 +7,39 @@
 -- `TheThresholdOrderIsTotalAndTheClaimIsAntitone`:
 --
 --   "STRICT thresholds (the `Majority` of the previous module is
---    strict: length < 2 Â count) are NOT in this family; `AtLeast 1 1`
+--    strict: length < 2 Â· count) are NOT in this family; `AtLeast 1 1`
 --    is the non-strict 'at least half', which is weaker, and the
 --    strict/non-strict gap is not analysed."
 --
 -- The gap is analysed here, and it is exactly one point.
 --
---   Above p q bs  =  p Â length bs < suc q Â count bs
+--   Above p q bs  =  p Â· length bs < suc q Â· count bs
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   Âsk-cancel-<     the strict counterpart of last cycle's
---                    Âsk-cancel-â‰, from splitâ•-< + <-asym + â‰-Âk
---   aboveAntitone    the STRICT family is antitone along the SAME âŠ â”
---                    so `âŠ-total` orders it too, with no second order
+--   Â·sk-cancel-<     the strict counterpart of last cycle's
+--                    Â·sk-cancel-â‰¤, from splitâ„•-< + <-asym + â‰¤-Â·k
+--   aboveAntitone    the STRICT family is antitone along the SAME âŠ‘ â€”
+--                    so `âŠ‘-total` orders it too, with no second order
 --                    and no second totality proof
---   aboveGivesAtLeast     strict â’ non-strict, at each threshold
+--   aboveGivesAtLeast     strict â‡’ non-strict, at each threshold
 --   majorityIsAboveHalf / aboveHalfIsMajority
 --                    the earlier module's `Majority` IS `Above 1 1`,
---                    definitionally up to `1 Â n â‰¡ n`
+--                    definitionally up to `1 Â· n â‰¡ n`
 --   atLeastWithoutAbove   and the converse of the third fails, at a
 --                    population sitting exactly ON the threshold
 --
 -- The shape of the answer is worth naming because it is not the shape
 -- the question invited.  "Two families" would have needed a second
 -- order, a second totality theorem, and a comparison between the two
--- orders.  There is one order: âŠ is stated on thresholds alone, with no
+-- orders.  There is one order: âŠ‘ is stated on thresholds alone, with no
 -- population in it, so a second claim-family over the same thresholds
 -- inherits it for free.  What distinguishes the families is not their
--- ordering but their behaviour at a single population per threshold â”
+-- ordering but their behaviour at a single population per threshold â€”
 -- the one that meets it exactly.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -68,10 +68,10 @@ open import TheThresholdOrderIsTotalAndTheClaimIsAntitone
 ------------------------------------------------------------------------
 -- 1.  Strict cancellation
 --
--- Last cycle needed `m Â suc k â‰ n Â suc k â’ m â‰ n` and derived it,
+-- Last cycle needed `m Â· suc k â‰¤ n Â· suc k â†’ m â‰¤ n` and derived it,
 -- cubical v0.5 having no such lemma.  The strict version is the same
--- argument with the branches exchanged: `splitâ•-<` supplies the case
--- split, and the wrong branch dies because â‰-Âk turns `n â‰ m` into a
+-- argument with the branches exchanged: `splitâ„•-<` supplies the case
+-- split, and the wrong branch dies because â‰¤-Â·k turns `n â‰¤ m` into a
 -- contradiction with the strict hypothesis.
 ------------------------------------------------------------------------
 
@@ -91,12 +91,12 @@ aboveGivesAtLeast : (p q : â„•) (bs : List Bool) â†’ Above p q bs â†’ AtLeast p 
 aboveGivesAtLeast p q bs = <-weaken
 
 ------------------------------------------------------------------------
--- 3.  Antitone along âŠ â” the same order, no second totality proof
+-- 3.  Antitone along âŠ‘ â€” the same order, no second totality proof
 --
 -- Identical scaffolding to `atLeastAntitone`: multiply by the positive
 -- denominator suc q', rearrange twice, cancel it again.  The only
--- change is that the second step is `<-Âsk` rather than `â‰-Âk`, and the
--- two are stitched with `â‰<-trans`.
+-- change is that the second step is `<-Â·sk` rather than `â‰¤-Â·k`, and the
+-- two are stitched with `â‰¤<-trans`.
 ------------------------------------------------------------------------
 
 aboveAntitone :
@@ -137,10 +137,10 @@ aboveAntitone p q p' q' bs cross high =
 ------------------------------------------------------------------------
 -- 4.  `Majority` was already a member of this family
 --
--- The earlier module wrote `Majority bs = length bs < 2 Â count bs` and
+-- The earlier module wrote `Majority bs = length bs < 2 Â· count bs` and
 -- did not connect it to any threshold.  It is `Above 1 1`, and the only
--- thing between the two statements is that `1 Â n` is not definitionally
--- `n` in cubical's â•.
+-- thing between the two statements is that `1 Â· n` is not definitionally
+-- `n` in cubical's â„•.
 ------------------------------------------------------------------------
 
 majorityIsAboveHalf : (bs : List Bool) â†’ Majority bs â†’ Above 1 1 bs
@@ -154,7 +154,7 @@ aboveHalfIsMajority bs = subst (_< 2 Â· count bs) (Â·-identityË¡ (length bs))
 --
 -- One `true`, one `false`: the rate is exactly 1/2, so the non-strict
 -- claim at 1/2 holds and the strict one does not.  This is the whole
--- difference between the families â” not a different order, a different
+-- difference between the families â€” not a different order, a different
 -- verdict at the boundary.
 ------------------------------------------------------------------------
 
@@ -177,24 +177,24 @@ atLeastWithoutAbove = boundaryMeetsHalf , boundaryIsNotAboveHalf
 --
 --   "that every threshold has such a population is NOT proved, and
 --    would need a construction of a population realising an arbitrary
---    p/(suc q), which is a divisibility statement about â• and not a
+--    p/(suc q), which is a divisibility statement about â„• and not a
 --    statement about lists."
 --
 -- Proved now, in
 -- `EveryThresholdHasABoundaryPopulationOfItsOwnDenominator`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
 --
--- It is a statement about â•, and the guess that divisibility enters it
--- was wrong: the DENOMINATOR IS THE LENGTH.  For p â‰ suc q the
--- population `pop p k` â” p trues then k falses, where cubical's `â‰`
--- hands over the k with `k + p â‰¡ suc q` â” has length exactly suc q and
--- count exactly p, so `p Â length â‰¡ suc q Â count` on the nose.  No
+-- It is a statement about â„•, and the guess that divisibility enters it
+-- was wrong: the DENOMINATOR IS THE LENGTH.  For p â‰¤ suc q the
+-- population `pop p k` â€” p trues then k falses, where cubical's `â‰¤`
+-- hands over the k with `k + p â‰¡ suc q` â€” has length exactly suc q and
+-- count exactly p, so `p Â· length â‰¡ suc q Â· count` on the nose.  No
 -- subtraction, no gcd, no lowest terms.
 --
 -- One thing the earlier statement did not notice and the new module
 -- makes load-bearing: the EMPTY population meets every threshold and
--- refutes every strict one, since `p Â 0 â‰¡ 0 â‰¡ suc q Â 0`.  So the
+-- refutes every strict one, since `p Â· 0 â‰¡ 0 â‰¡ suc q Â· 0`.  So the
 -- sentence quoted above is TRUE VACUOUSLY as stated, and a proof of it
 -- in that form would say nothing about the gap between the families.
 -- The new theorem therefore returns `length bs â‰¡ suc q` as part of the

@@ -6,7 +6,7 @@ The numerical run labels are not a total ordering: branches ran in parallel, som
 
 **Foundation and source audit.** The earlier six-September handoff [S00] preserves the broad theorem organism. The user-supplied common-source note [S03] corrects frozen quadratic variations and independent CRT-history counting. The initial practical endpoint discipline is that the actual arithmetic/PDE source, not an abstraction with similar names, must be transported.
 
-**Faithful receivers and complete fibres.** [S01] constructs the delayed quartic receiver and actual NS future-separation examples. [S02] constructs the autocorrelation packet, strict sector positivity, complete two-packet criterion, finite-height transfer, and triangular exact viscous memory. [S04â“S07] derive source spectra, source-preserving stochastic transport, compact tangent residuals, the complete affine harmonic fibre and concrete continuation interfaces.
+**Faithful receivers and complete fibres.** [S01] constructs the delayed quartic receiver and actual NS future-separation examples. [S02] constructs the autocorrelation packet, strict sector positivity, complete two-packet criterion, finite-height transfer, and triangular exact viscous memory. [S04â€“S07] derive source spectra, source-preserving stochastic transport, compact tangent residuals, the complete affine harmonic fibre and concrete continuation interfaces.
 
 **Weil and strain signatures.** [S08] joins actual Weil-space realizations, cyclic source observations and the finite-strain coordinate. [S09] computes the cross-helicity principal symbol, exact essential norm/tomography, direct Hardy-kernel source inverse and individual Hardy-atom residuals with nonuniform conditioning. [S10] identifies toroidal multipole blindness and supplied-work passivity versus squared-output positivity.
 
@@ -16,7 +16,7 @@ The numerical run labels are not a total ordering: branches ran in parallel, som
 
 **Whole metacircular evaluator.** [S17] replaces angular enumeration by a single source-sharing quadratic/mild/observable evaluator, exact elimination, Catalan certificates and finite proof controls. [S18] removes the artificial smallness boundary with causal Volterra powers, gives analytic source reconstruction on its existence domain, finite elimination-order/time-rebase invariance, and a standalone source-retaining proof-carrying matrix kernel.
 
-**Recovered parallel strengthening.** [S19] supplies an all-depth midpoint propagator and exact kinetic storage law and repairs high-order arithmetic inversion by Abel convergence. [S20â“S22] preserve dyadic source residuals, general radial angular spectra and direct Goldbach quadratic-scale criteria. Some proposed NS dynamic matching consequences in [S21â“S22] remain under independent audit and are not required by the stronger rigorous causal/storage route.
+**Recovered parallel strengthening.** [S19] supplies an all-depth midpoint propagator and exact kinetic storage law and repairs high-order arithmetic inversion by Abel convergence. [S20â€“S22] preserve dyadic source residuals, general radial angular spectra and direct Goldbach quadratic-scale criteria. Some proposed NS dynamic matching consequences in [S21â€“S22] remain under independent audit and are not required by the stronger rigorous causal/storage route.
 
 **Execution reality.** [S23] assembles actual endpoint deductions. [S24] establishes that this ChatGPT environment did not have the native runtime; this prompted the present transfer to agents with proper infrastructure. This archive is a continuation package, not evidence that the native runtime was exercised after that discovery.
 
@@ -51,12 +51,12 @@ The original notes include citations and URLs, retained in their source context.
 * Weil explicit formula/positivity for the actual completed zeta source; standard theta transform, functional equation, zero count and Euler-product half-plane.
 * Conrey (1989), positive proportion of simple critical-line zeros, used only for compact-source uniqueness and density/conditioning consequences.
 * Classical pseudodifferential essential-symbol norm on compact manifolds, used for the periodic Poisson and cross-helicity carrier.
-* Constantinâ“Fefferman geometric vorticity-direction cancellation as background, not a supplied universal depletion condition.
-* Fujitaâ“Kato, vorticity/Lipschitz/BMO continuation theory, and critical Sobolev embeddings for the named NS endpoint deductions.
-* Hardy/Bergman spaces, Cauchy determinants, Blaschke/minimal-system distances, Herglotz/Stieltjes/passivity, Schur complements and nonlinear Moriâ“Zwanzig for exact representation language.
+* Constantinâ€“Fefferman geometric vorticity-direction cancellation as background, not a supplied universal depletion condition.
+* Fujitaâ€“Kato, vorticity/Lipschitz/BMO continuation theory, and critical Sobolev embeddings for the named NS endpoint deductions.
+* Hardy/Bergman spaces, Cauchy determinants, Blaschke/minimal-system distances, Herglotz/Stieltjes/passivity, Schur complements and nonlinear Moriâ€“Zwanzig for exact representation language.
 * Volterra weak-singularity estimates and the analytic implicit-function theorem for the causal history chart.
 
-The conversation also cited 2026 work by Suzuki, Seregin, Gruji, Constantinâ“Ignatovaâ“Vicol and other authors. Their exact versions, statements and scenario assumptions must be verified from primary sources before being made an imported proof dependency. No conclusion in this canonical synthesis is strengthened merely by the mention of a current paper. Most of the useful finite identities and source-dependent calculations are proved directly in the archive.
+The conversation also cited 2026 work by Suzuki, Seregin, GrujiÄ‡, Constantinâ€“Ignatovaâ€“Vicol and other authors. Their exact versions, statements and scenario assumptions must be verified from primary sources before being made an imported proof dependency. No conclusion in this canonical synthesis is strengthened merely by the mention of a current paper. Most of the useful finite identities and source-dependent calculations are proved directly in the archive.
 
 ## 77. Final transfer invariant
 

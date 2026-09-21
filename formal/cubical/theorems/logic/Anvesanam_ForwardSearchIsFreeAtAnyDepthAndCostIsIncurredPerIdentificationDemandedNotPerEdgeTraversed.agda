@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà¨ààµàààà®à â” àà—àà°à à—à®à¨à à®àà•ààà®à; àµàà¯à¯à àà¾à¦à¾ààà®àà¯à, à¨ àà¦à à
+-- à¤…à¤¨à¥à¤µà¥‡à¤·à¤£à¤®à¥ â€” à¤…à¤—à¥à¤°à¥‡ à¤—à¤®à¤¨à¤‚ à¤®à¥à¤•à¥à¤¤à¤®à¥; à¤µà¥à¤¯à¤¯à¤ƒ à¤¤à¤¾à¤¦à¤¾à¤¤à¥à¤®à¥à¤¯à¥‡, à¤¨ à¤ªà¤¦à¥‡ à¥¤
 --
 -- (going forward is free; the cost is at identification, not at the step.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ROUTING CONSEQUENCE OF THE OTHER FILES, ASSEMBLED.  A search over a
 -- graph of maps normally pays per EDGE.  Here it does not, and the three
 -- facts that say so are already terms:
 --
---   Â `Lekha_â¦agda` Â§à© â” the full trail of `n` steps, every intermediate
+--   Â· `Lekha_â€¦agda` Â§à¥© â€” the full trail of `n` steps, every intermediate
 --     and every witness, is CONTRACTIBLE at every `n`.  Depth is free.
---   Â `LosslessReturn_â¦agda` Â§à¨ â” out and back in the CODOMAIN is free at
+--   Â· `LosslessReturn_â€¦agda` Â§à¥¨ â€” out and back in the CODOMAIN is free at
 --     any loss: take a lossy edge, pick any preimage, return, and you are
 --     exactly where you started.
---   Â `LosslessReturn_â¦agda` Â§à© â” out and back in the DOMAIN is not
+--   Â· `LosslessReturn_â€¦agda` Â§à¥© â€” out and back in the DOMAIN is not
 --     available at all when a bit is destroyed.
 --
--- Â§à¨ below is the statement those three make together: **an arbitrarily
+-- Â§à¥¨ below is the statement those three make together: **an arbitrarily
 -- deep forward exploration, carrying its whole trail, costs nothing; and
 -- what costs is a demanded return to the THING.**  So the frontier of a
 -- search here is not the set of nodes reached.  It is the set of
 -- identifications owed.
 --
--- AND THE ROUTER'S CORRECTNESS CONDITION, which is `Anupalabdhi_â¦agda`
+-- AND THE ROUTER'S CORRECTNESS CONDITION, which is `Anupalabdhi_â€¦agda`
 -- read at a search: a router that reports "unreachable" because it did
 -- not find a route has produced no term.  Absence of a route is a Î  over
 -- the whole field, not a failed traversal, so the only verdicts a search
 -- may return are a route, a written defect, or UNDECIDED.  That is what
--- `interactive/Lopa_â¦hs` already does by counting UNDECIDED separately rather
+-- `interactive/Lopa_â€¦hs` already does by counting UNDECIDED separately rather
 -- than guessing, on the stated ground that a verdict guessed is worse
 -- than a verdict withheld.
 --
@@ -50,7 +50,7 @@ private variable â„“ : Level
 module _ {A : Type â„“} (step : A â†’ A) where
 
 ------------------------------------------------------------------------
--- à§ Â àà¨ààµàààà®à â” a forward exploration of depth n from a, carrying every
+-- à¥§ Â· à¤…à¤¨à¥à¤µà¥‡à¤·à¤£à¤®à¥ â€” a forward exploration of depth n from a, carrying every
 --     intermediate and every witness that it IS the intermediate.
 ------------------------------------------------------------------------
 
@@ -59,11 +59,11 @@ module _ {A : Type â„“} (step : A â†’ A) where
   à¤…à¤¨à¥à¤µà¥‡à¤·à¤£à¤®à¥ (suc n) a = Î£[ p âˆˆ singl (step a) ] à¤…à¤¨à¥à¤µà¥‡à¤·à¤£à¤®à¥ n (p .fst)
 
 ------------------------------------------------------------------------
--- à¨ Â àà—àà°à-à—à®à¨à-à®àà•ààà®à â” AND IT IS FREE AT EVERY DEPTH.
+-- à¥¨ Â· à¤…à¤—à¥à¤°à¥‡-à¤—à¤®à¤¨à¤‚-à¤®à¥à¤•à¥à¤¤à¤®à¥ â€” AND IT IS FREE AT EVERY DEPTH.
 --
 -- Not cheap, not amortized: contractible.  The exploration and its
 -- entire audit trail contribute zero degrees of freedom, for every `n`,
--- with no hypothesis on `A` or on `step` â” however much `step` destroys.
+-- with no hypothesis on `A` or on `step` â€” however much `step` destroys.
 --
 -- So depth is not what a search here pays for.  What it pays for is
 -- named in the header and is the other binding entirely.
@@ -75,12 +75,12 @@ module _ {A : Type â„“} (step : A â†’ A) where
     isContrÎ£ (isContrSingl (step a)) (Î» p â†’ à¤…à¤—à¥à¤°à¥‡-à¤—à¤®à¤¨à¤‚-à¤®à¥à¤•à¥à¤¤à¤®à¥ n (p .fst))
 
 ------------------------------------------------------------------------
--- à© Â àààà â” what a search still owes.
+-- à¥© Â· à¤¶à¥‡à¤·à¤ƒ â€” what a search still owes.
 --
--- Â§à¨ says nothing about whether any particular target is REACHED; it
+-- Â§à¥¨ says nothing about whether any particular target is REACHED; it
 -- prices the exploration, not the answer.  Reachability is a fibre
--- question, its three verdicts are `Tantutrayam_â¦agda`'s, and its empty
--- case is `Anupalabdhi_â¦agda`'s Î  over the whole field.  A search that
+-- question, its three verdicts are `Tantutrayam_â€¦agda`'s, and its empty
+-- case is `Anupalabdhi_â€¦agda`'s Î  over the whole field.  A search that
 -- conflates "I explored and did not arrive" with "there is no route" has
 -- produced the one verdict this corpus has no witness for.
 ------------------------------------------------------------------------

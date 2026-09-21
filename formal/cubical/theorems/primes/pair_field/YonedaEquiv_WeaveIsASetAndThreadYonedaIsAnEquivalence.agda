@@ -6,25 +6,25 @@
 -- Closes the absence stated in `ThreadYoneda` (header, "WHAT IS NOT",
 -- and §7):
 --
---     The round trips give a bijection, not a `�`: upgrading needs
+--     The round trips give a bijection, not a `≃`: upgrading needs
 --     `isSet (Weave i j)` so that naturality is a proposition and two
 --     transformations agreeing pointwise are equal.  That is true
---     (Thread is built from equalities in �, which is a set) and it is
---     not proved here.  Said plainly because "�" is what T25.A asks for
---     and this is "�".
+--     (Thread is built from equalities in ℕ, which is a set) and it is
+--     not proved here.  Said plainly because "≃" is what T25.A asks for
+--     and this is "↔".
 --
 -- WHAT IS PROVED (all `--safe`, no postulates, no holes):
 --
---   * `isSetJewel`  : Jewel is a set (retract of � � �).
+--   * `isSetJewel`  : Jewel is a set (retract of ℕ × ℕ).
 --   * `isSetThread` : every `Thread i j` is a set (retract of a sum of
---                     two propositions, namely paths in �).
+--                     two propositions, namely paths in ℕ).
 --   * `isSetWeave`  : every `Weave i j` is a set.  `Weave` is an
 --                     indexed inductive family, so its h-level is not
 --                     read off by a single library lemma; it is shown
---                     to be a retract of `�[ n ∈ � ] Code n i j`, where
+--                     to be a retract of `Σ[ n ∈ ℕ ] Code n i j`, where
 --                     `Code n i j` is the type of length-n chains of
 --                     threads from i to j, and that type is a set by
---                     `isSet�`, `isSet�`, `isProp�isSet`, `isSet�`.
+--                     `isSetΣ`, `isSet×`, `isProp→isSet`, `isSetℕ`.
 --   * `isPropNatural` : the naturality predicate of `ThreadYoneda` is
 --                     a proposition (`isPropImplicitΠ2` + `isPropΠ2`
 --                     over path types in the set `Weave l j`).
@@ -34,13 +34,13 @@
 --                     exactly `yonedaTo` / `yonedaFrom` of `ThreadYoneda`
 --                     and whose round trips are `yoneda-from-to` (on the
 --                     nose) and `yoneda-to-from` (made into a path of
---                     �-types by `funExt` twice and `�≡Prop
+--                     Σ-types by `funExt` twice and `Σ≡Prop
 --                     isPropNatural`).
---   * `yonedaEquiv` : `Weave i j � NatTrans i j`, i.e. T25.A's
---                     `Map(x,y) � Nat(y x, y y)` for this net, obtained
+--   * `yonedaEquiv` : `Weave i j ≃ NatTrans i j`, i.e. T25.A's
+--                     `Map(x,y) ≃ Nat(y x, y y)` for this net, obtained
 --                     by `isoToEquiv`.
 --   * `yonedaPath`  : the corresponding path of types, by univalence
---                     (`isoToPath`), so the "�" is also an "≡".
+--                     (`isoToPath`), so the "≃" is also an "≡".
 --
 -- WHAT IS NOT.  Nothing in this file adds relations to `Weave`; it is
 -- still the free category of `ThreadYoneda` §1, and the other two
@@ -64,8 +64,8 @@ open import ThreadYoneda
 -- §1  Jewel and Thread are sets
 ------------------------------------------------------------------------
 
--- A jewel is a pair of naturals; the record has �, so the retraction
--- onto � � � is definitionally split.
+-- A jewel is a pair of naturals; the record has η, so the retraction
+-- onto ℕ × ℕ is definitionally split.
 isSetJewel : isSet Jewel
 isSetJewel = isSetRetract
   (λ j → centre j , radius j)
@@ -73,7 +73,7 @@ isSetJewel = isSetRetract
   (λ _ → refl)
   (isSet× isSetℕ isSetℕ)
 
--- A thread is one of two witnesses, each a path in �.  Paths in a set
+-- A thread is one of two witnesses, each a path in ℕ.  Paths in a set
 -- are propositions, hence sets, and a sum of sets is a set.
 ThreadCode : Jewel → Jewel → Type
 ThreadCode i j = (trueCentre i ≡ trueCentre j) ⊎ (radius i ≡ radius j)
@@ -164,12 +164,12 @@ isSetNatTrans : (i j : Jewel) → isSet (NatTrans i j)
 isSetNatTrans i j = isSetΣSndProp (isSetTransformation i j) isPropNatural
 
 ------------------------------------------------------------------------
--- §4  The upgrade: � becomes �
+-- §4  The upgrade: ↔ becomes ≃
 --
 -- The maps are those of `ThreadYoneda` §4 unchanged.  The only new
 -- content is that the pointwise round trip `yoneda-to-from` becomes an
 -- honest path in `NatTrans`: `funExt` twice for the transformation and
--- `�≡Prop isPropNatural` to dispose of the naturality component.
+-- `Σ≡Prop isPropNatural` to dispose of the naturality component.
 ------------------------------------------------------------------------
 
 yonedaIso : (i j : Jewel) → Iso (Weave i j) (NatTrans i j)
@@ -179,7 +179,7 @@ Iso.rightInv (yonedaIso i j) (η , nat) =
   Σ≡Prop isPropNatural (funExt (λ k → funExt (λ p → yoneda-to-from η nat k p)))
 Iso.leftInv (yonedaIso i j) t = yoneda-from-to t
 
--- T25.A for this net:  Map(i,j) � Nat(y i, y j).
+-- T25.A for this net:  Map(i,j) ≃ Nat(y i, y j).
 yonedaEquiv : (i j : Jewel) → Weave i j ≃ NatTrans i j
 yonedaEquiv i j = isoToEquiv (yonedaIso i j)
 

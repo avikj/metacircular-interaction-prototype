@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
--- Punargamana � Orbit
+-- Punarāgamana · Orbit
 --
 -- The infinite trajectory of an endomorphism, coinductively.  `unfold Φ a` is
--- a, Φ a, Φ² a, � as a single object rather than as a family indexed by �.
+-- a, Φ a, Φ² a, … as a single object rather than as a family indexed by ℕ.
 --
 -- The result here is that path equality of orbits IS bisimulation:
 --
---   (x ≡ y)  �  (x ≈ y)     and hence     (x ≡ y)  ≡  (x ≈ y).
+--   (x ≡ y)  ≃  (x ≈ y)     and hence     (x ≡ y)  ≡  (x ≈ y).
 --
 -- Both directions are corecursive and both round trips are, so the Iso is
 -- built from four coinductive definitions rather than from a transport.

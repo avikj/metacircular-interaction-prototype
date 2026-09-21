@@ -21,27 +21,27 @@ open import Kuttaka using (solutionFamily)
 -- and from `formal/cubical/Kuttaka.agda`'s own header, line 47: the ia
 -- section "needs a mod/section convention and is not supplied here."
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED, AND WHAT IS STILL NOT
 --
 -- Â§5.2(ii) asked for "the ia reduction as an explicitly IMPORTED
--- section".  Â§1 below takes that literally: a section is a PARAMETER â”
--- any function on the solution index that lands in the family â” and Â§2
+-- section".  Â§1 below takes that literally: a section is a PARAMETER â€”
+-- any function on the solution index that lands in the family â€” and Â§2
 -- proves that importing one costs nothing, since the reduced solution
 -- still solves the equation.
 --
 -- That is the *convention* half, and it is the half
--- "the section is a declared convention".  Declared, not derived â” so the
+-- "the section is a declared convention".  Declared, not derived â€” so the
 -- honest formalisation makes it a parameter and proves the equation is
 -- indifferent to it.
 --
 -- STILL NOT DONE, and narrowed rather than closed: the LEAST-NON-NEGATIVE
 -- property.  Nothing below says the section lands in `[0, b)`; that needs
--- an order and a division algorithm on `â`, neither of which `Kuttaka`
+-- an order and a division algorithm on `â„¤`, neither of which `Kuttaka`
 -- carries.  So Â§5.2's remaining item is now two items, one discharged and
 -- one open, and the open one is minimality, not the section.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- That the section is unique or canonical.  Â§1's type admits many
 -- sections, and that multiplicity is the point: the equation does not pick
@@ -56,7 +56,7 @@ open import Kuttaka using (solutionFamily)
 -- 1.  A section, as an imported convention
 --
 -- `sec` moves a solution's x-component somewhere in the family: for each
--- `x` there is a shift `t` with `sec x â‰¡ x + t Â b`.  Nothing else is
+-- `x` there is a shift `t` with `sec x â‰¡ x + t Â· b`.  Nothing else is
 -- required, and in particular no minimality.
 ------------------------------------------------------------------------
 

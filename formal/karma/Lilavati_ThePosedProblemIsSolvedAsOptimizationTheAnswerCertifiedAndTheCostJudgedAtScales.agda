@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������� � Bhskara II's problem-book (1150 CE): mathematics posed as
+-- लीलावती — Bhāskara II's problem-book (1150 CE): mathematics posed as
 -- problems to a reader, solved by method, answers checkable.  School
--- and text named; claimed of the source: the genre and its name �
--- problems POSED, then SOLVED � nothing else.
+-- and text named; claimed of the source: the genre and its name —
+-- problems POSED, then SOLVED — nothing else.
 --
 -- WHAT THIS IS.  The machine solves posed problems as optimization
 -- problems: a problem is a SPEC term (what to compute, over named
 -- inputs); the machine searches its vocabulary for programs, admits
 -- only candidates it can PROVE equal to the spec (the certificate is
--- the admission ticket � no answer enters on a test-pass), and among
+-- the admission ticket — no answer enters on a test-pass), and among
 -- the certified it judges by the clock AT RELATIVE SCALES of the
--- inputs (������ at growing probe magnitudes � in the unary model the
+-- inputs (कालम् at growing probe magnitudes — in the unary model the
 -- input's value IS its size, so scale-relative cost is literal).
--- Where it can, it additionally PROVES dominance � le(cost answer,
+-- Where it can, it additionally PROVES dominance — le(cost answer,
 -- cost spec) = 1 over EVERY input, stronger than any asymptotic claim
--- � and where it cannot, the verdict says "measured at scales", syt,
+-- — and where it cannot, the verdict says "measured at scales", syāt,
 -- claiming exactly what was earned.
 --
 -- The search is bounded by the posed spec (candidates no larger than
 -- the problem): targeted solving, not a survey.  What stays outside
--- honestly: problems needing loops or arrays � the recursor frontier
+-- honestly: problems needing loops or arrays — the recursor frontier
 -- named in Svarupa.
 ------------------------------------------------------------------------
 
@@ -114,7 +114,7 @@ open import KalaDravya_TimeIsASubstanceInTheSameTongueAndTheMachineProvesCostAsI
   (समℕ (eval s π₂) (eval t π₂) ∧ समℕ (eval s π₃) (eval t π₃))
 
 -- the cost criterion: the clock at three RELATIVE SCALES of the
--- inputs � small, medium, large � summed with the large scale
+-- inputs — small, medium, large — summed with the large scale
 -- dominant simply because its numbers dominate the sum.
 σ-लघु σ-मध्य σ-महा : Nat → Nat
 σ-लघु _ = 3

@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- ChuDefect � the quantitative form of ChuAdvance.
+-- ChuDefect — the quantitative form of ChuAdvance.
 --
 -- ChuAdvance states the guard qualitatively: `agree-drop` says that dropping
 -- tests never creates a distinction, and `zero-defect-is-not-truth` exhibits a
@@ -8,16 +8,16 @@
 -- space.  Here the defect is a natural number and the slogan becomes an
 -- inequality:
 --
---     δ(e, �, xs)  �  δ(e, � ++ �, xs)          defect-mono
+--     δ(e, 𝒯, xs)  ≤  δ(e, 𝒯 ++ 𝒮, xs)          defect-mono
 --     δ(e, [], xs) ≡ 0                            defect-[]
---     δ(e, �, xs) ≡ #pairs(xs) � � separates xs  defect-separates
+--     δ(e, 𝒯, xs) ≡ #pairs(xs) ⇒ 𝒯 separates xs  defect-separates
 --
 -- **The content is the monotonicity, not the counting.**  Counting is a choice
 -- of bookkeeping; nothing here depends on which bookkeeping is chosen.  What is
--- proved is (i) that the bookkeeping is monotone in � � so "Shrink(�) � δ�" is
--- an inequality between numbers, not a slogan � and (ii) that it saturates
--- exactly when � separates the points it was measured on.  Together these say
--- that δ = 0 is a statement about � (it is *forced* when � = [], for every
+-- proved is (i) that the bookkeeping is monotone in 𝒯 — so "Shrink(𝒯) ⇒ δ↓" is
+-- an inequality between numbers, not a slogan — and (ii) that it saturates
+-- exactly when 𝒯 separates the points it was measured on.  Together these say
+-- that δ = 0 is a statement about 𝒯 (it is *forced* when 𝒯 = [], for every
 -- space whatever) while δ = #pairs is a statement about X.
 --
 -- Conventions, stated once:
@@ -86,7 +86,7 @@ sum-mono : (f g : A → ℕ) → ((a : A) → f a ≤ g a) → (l : List A) → 
 sum-mono f g h []       = ≤-refl
 sum-mono f g h (a ∷ as) = ≤-trans (≤-+k (h a)) (≤-k+ (sum-mono f g h as))
 
--- A sum that is pointwise � another and equal to it is pointwise equal to it.
+-- A sum that is pointwise ≤ another and equal to it is pointwise equal to it.
 -- This is the whole arithmetic content of `defect-separates`.
 +-split : {a b c d : ℕ} → a ≤ c → b ≤ d → a + b ≡ c + d → (a ≡ c) × (b ≡ d)
 +-split {a} {b} {c} {d} ac bd eq =
@@ -111,7 +111,7 @@ sum-pointwise f g h (b ∷ l) eq a (inr m) =
   sum-pointwise f g h l (snd (+-split (h b) (sum-mono f g h l) eq)) a m
 
 --------------------------------------------------------------------------
--- "some test in � separates x from y", as a Bool
+-- "some test in 𝒯 separates x from y", as a Bool
 --------------------------------------------------------------------------
 
 diff : Bool → Bool → Bool
@@ -127,12 +127,12 @@ diff-refl false = refl
 agree→diff-false : (b c : Bool) → b ≡ c → diff b c ≡ false
 agree→diff-false b c p = cong (diff b) (sym p) ∙ diff-refl b
 
--- sep e ts x y ≡ true  �  some t ∈ ts has e x t ≠ e y t.
+-- sep e ts x y ≡ true  ⇔  some t ∈ ts has e x t ≠ e y t.
 sep : Obs X T → List T → X → X → Bool
 sep e []       x y = false
 sep e (t ∷ ts) x y = diff (e x t) (e y t) or sep e ts x y
 
--- Agreement on � is exactly the vanishing of sep on � (the direction used).
+-- Agreement on 𝒯 is exactly the vanishing of sep on 𝒯 (the direction used).
 agree→sep-false :
     (e : Obs X T) (ts : List T) (x y : X) → Agree e ts x y → sep e ts x y ≡ false
 agree→sep-false e []       x y a       = refl
@@ -145,7 +145,7 @@ agree→sep-false e (t ∷ ts) x y (p , a) =
 ≡→Agree e (t ∷ ts) x y p = cong (λ z → e z t) p , ≡→Agree e ts x y p
 
 --------------------------------------------------------------------------
--- Shrink(�) � δ� : the pointwise step
+-- Shrink(𝒯) ⇒ δ↓ : the pointwise step
 --------------------------------------------------------------------------
 
 private
@@ -168,8 +168,8 @@ sep-mono e (t ∷ ts) ss x y s =
 row : Obs X T → List T → List X → X → ℕ
 row e ts xs x = sumL (λ y → b2n (sep e ts x y)) xs
 
--- δ(e, �, xs) : the number of ordered pairs of positions in xs that some test
--- in � separates.
+-- δ(e, 𝒯, xs) : the number of ordered pairs of positions in xs that some test
+-- in 𝒯 separates.
 defect : Obs X T → List T → List X → ℕ
 defect e ts xs = sumL (row e ts xs) xs
 
@@ -178,7 +178,7 @@ defect e ts xs = sumL (row e ts xs) xs
 defect-[] : (e : Obs X T) (xs : List X) → defect e [] xs ≡ 0
 defect-[] e xs = sumL-zero (row e [] xs) xs (λ x → sumL-zero _ xs (λ y → refl))
 
--- 2.  Shrink(�) � δ�, as an inequality between numbers.
+-- 2.  Shrink(𝒯) ⇒ δ↓, as an inequality between numbers.
 defect-mono :
     (e : Obs X T) (ts ss : List T) (xs : List X)
   → defect e ts xs ≤ defect e (ts ++ ss) xs
@@ -189,7 +189,7 @@ defect-mono e ts ss xs =
     xs
 
 --------------------------------------------------------------------------
--- Saturation : δ = #pairs � separation on xs
+-- Saturation : δ = #pairs ⇒ separation on xs
 --------------------------------------------------------------------------
 
 private
@@ -205,7 +205,7 @@ private
   decB-cases (yes p) = inr p
   decB-cases (no ¬p) = inl refl
 
--- dist d x y ≡ true  �  x ≠ y.
+-- dist d x y ≡ true  ⇔  x ≠ y.
 dist : Discrete X → X → X → Bool
 dist d x y = decB (d x y)
 
@@ -280,8 +280,8 @@ private
   points = true ∷ false ∷ []
 
 -- zero-defect-is-not-truth, with numbers: on two genuinely distinct points the
--- saturation bound is 2, and the empty test list scores 0 � the gap is a
--- property of �, and one honest test closes it.
+-- saturation bound is 2, and the empty test list scores 0 — the gap is a
+-- property of 𝒯, and one honest test closes it.
 gap-[] : defect read [] points ≡ 0
 gap-[] = refl
 

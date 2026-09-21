@@ -8,29 +8,29 @@
 -- `notes/REFINING_DILATION.md` (Theorem Q) prices the coherent
 -- environment register of a refining organism at
 --
---     d_E(t) = âˆ t / p^D(t) â‰ ,   D(t) = âŠ log_p t â‹ ,
+--     d_E(t) = âŒˆ t / p^D(t) âŒ‰ ,   D(t) = âŒŠ log_p t âŒ‹ ,
 --
--- and squeezes it:  1 â‰ d_E(t) â‰ p  for every t (Archimedes' lens).
+-- and squeezes it:  1 â‰¤ d_E(t) â‰¤ p  for every t (Archimedes' lens).
 --
 -- This module isolates what d_E actually IS, with no division, no
 -- logarithm and no floating point anywhere:
 --
---   `Bracket q t e`  says   eÂq < t â‰ (e+1)Âq ,  i.e.  âˆt/qâ‰ = e+1.
+--   `Bracket q t e`  says   eÂ·q < t â‰¤ (e+1)Â·q ,  i.e.  âŒˆt/qâŒ‰ = e+1.
 --
---   * `bracket-unique`  â” the index e is unique, so `Bracket` really is
+--   * `bracket-unique`  â€” the index e is unique, so `Bracket` really is
 --                         a function of (q,t): the ceiling quotient.
---   * `dE-squeeze`      â” from q â‰ t < pÂq,  1 â‰ e+1 â‰ p.  (Theorem Q.)
---   * `bracket-exact`   â” t = aÂq  â’  index a-1, i.e. d_E = a.
---   * `bracket-roundup` â” t = aÂq+s, 0<sâ‰q  â’  index a, i.e. d_E = a+1.
+--   * `dE-squeeze`      â€” from q â‰¤ t < pÂ·q,  1 â‰¤ e+1 â‰¤ p.  (Theorem Q.)
+--   * `bracket-exact`   â€” t = aÂ·q  â‡’  index a-1, i.e. d_E = a.
+--   * `bracket-roundup` â€” t = aÂ·q+s, 0<sâ‰¤q  â‡’  index a, i.e. d_E = a+1.
 --     Together: WITH q = p^D, d_E(t) is the leading base-p digit of t,
 --     rounded up by one iff any lower digit is nonzero.
---   * `bracket-reset`   â” at t = q (a power of p) the index is 0, so
+--   * `bracket-reset`   â€” at t = q (a power of p) the index is 0, so
 --                         d_E = 1: the register is empty.
---   * `scale-inv`       â” Bracket q t e â’ Bracket (qÂp) (tÂp) e.
---                         d_E is invariant under t â¦ pÂt.  This is the
+--   * `scale-inv`       â€” Bracket q t e â†’ Bracket (qÂ·p) (tÂ·p) e.
+--                         d_E is invariant under t â†¦ pÂ·t.  This is the
 --                         bubble (Uhlenbeck's lens): the statistic is a
 --                         function on the multiplicative scale circle
---                         â/(log p)â, which is exactly why its NATURAL
+--                         â„/(log p)â„¤, which is exactly why its NATURAL
 --                         density does not converge and its LOGARITHMIC
 --                         density does (Benford in base p).
 --
@@ -50,7 +50,7 @@ private
     p q t a s e e' : â„•
 
 ------------------------------------------------------------------------
--- 0.  The bracket:  âˆ t / q â‰ = e + 1, stated without division.
+-- 0.  The bracket:  âŒˆ t / q âŒ‰ = e + 1, stated without division.
 ------------------------------------------------------------------------
 
 Bracket : â„• â†’ â„• â†’ â„• â†’ Type
@@ -77,8 +77,8 @@ bracket-unique {q} {t} {e} {e'} (lo , hi) (lo' , hi') with e â‰Ÿ e'
 ... | gt r = âŠ¥rec (Â¬m<m (â‰¤<-trans (â‰¤-trans hi' (â‰¤-Â·k r)) lo))
 
 ------------------------------------------------------------------------
--- 3.  Theorem Q, exactly:  q â‰ t < pÂq  â’  1 â‰ d_E â‰ p, d_E = e+1.
---     (Only the upper hypothesis is needed; q â‰ t is what makes the
+-- 3.  Theorem Q, exactly:  q â‰¤ t < pÂ·q  â‡’  1 â‰¤ d_E â‰¤ p, d_E = e+1.
+--     (Only the upper hypothesis is needed; q â‰¤ t is what makes the
 --      leading digit nonzero, recorded separately as `digit-lower`.)
 ------------------------------------------------------------------------
 
@@ -93,7 +93,7 @@ dE-squeeze b h = dE-lower , dE-upper b h
 
 ------------------------------------------------------------------------
 -- 4.  d_E is the leading base-p digit, rounded up iff the tail is â‰  0.
---     Write t = aÂq + s with s < q and q = p^D.
+--     Write t = aÂ·q + s with s < q and q = p^D.
 ------------------------------------------------------------------------
 
 Â·-lt-suc : 0 < q â†’ a Â· q < suc a Â· q
@@ -114,7 +114,7 @@ bracket-roundup {s} {q} {t} {a} h0 hq teq =
   , subst (_â‰¤ suc a Â· q) (sym teq)
       (subst (a Â· q + s â‰¤_) (+-comm (a Â· q) q) (â‰¤-k+ hq))
 
--- the leading digit really is a digit: q â‰ t < pÂq and t = aÂq+s give 1 â‰ a < p
+-- the leading digit really is a digit: q â‰¤ t < pÂ·q and t = aÂ·q+s give 1 â‰¤ a < p
 digit-lower : 0 < q â†’ q â‰¤ t â†’ t â‰¡ a Â· q + s â†’ s < q â†’ 0 < a
 digit-lower {q} {t} {a} {s} hq hqt teq hs with a â‰Ÿ 0
 ... | eq r = âŠ¥rec (Â¬m<m (â‰¤<-trans hqt
@@ -134,11 +134,11 @@ bracket-reset : 0 < q â†’ Bracket q q 0
 bracket-reset {q} h = h , subst (q â‰¤_) (sym (+-zero q)) â‰¤-refl
 
 ------------------------------------------------------------------------
--- 6.  THE BUBBLE.  d_E is invariant under the scaling t â¦ pÂt.
+-- 6.  THE BUBBLE.  d_E is invariant under the scaling t â†¦ pÂ·t.
 --     Hence d_E is a function on the scale circle, its empirical
 --     distribution over {1..N} depends on N only through {log_p N},
---     and no natural density exists (p â‰ 3).  The logarithmic density
---     is the Haar average over this invariance â” that is Theorem 3 of
+--     and no natural density exists (p â‰¥ 3).  The logarithmic density
+--     is the Haar average over this invariance â€” that is Theorem 3 of
 --     collab/swarm/2026-08-14/swarm-0814-07-leading-digit-bubble.md.
 ------------------------------------------------------------------------
 

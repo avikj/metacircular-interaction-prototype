@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Jala where
--- ���: the infinite prime stream, every state carrying its certificate.
+-- जाल: the infinite prime stream, every state carrying its certificate.
 
 open import Yantra.Prakriti
 open import Yantra.Anantata
@@ -11,7 +11,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Empty as Empty using (⊥)
 import Cubical.Codata.Stream.Base as S
 
--- Euclid with the bound explicit: the next prime is � n! + 1
+-- Euclid with the bound explicit: the next prime is ≤ n! + 1
 effectiveEuclid : (n : ℕ)
                 → Σ[ p ∈ ℕ ] IsPrime p × (n < p) × (p ≤ suc (fact n))
 effectiveEuclid n = p , pr , above , bound

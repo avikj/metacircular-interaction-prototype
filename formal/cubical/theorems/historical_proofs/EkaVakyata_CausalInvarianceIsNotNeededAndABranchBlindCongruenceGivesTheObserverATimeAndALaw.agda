@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe #-}
 --
--- ‡‡ï‡µ‡æ‡ï‡‡Ø‡‡æ ‚î construal as a single utterance.  In Prva-Mms, ekavkyat
+-- ‡§è‡§ï‡§µ‡§æ‡§ï‡•ç‡§Ø‡§§‡§æ ‚Äî construal as a single utterance.  In P≈´rva-Mƒ´mƒÅ·πÉsƒÅ, ekavƒÅkyatƒÅ
 -- is the principle that statements scattered across a text must be construed
 -- as ONE injunction where they can be: different routes through the corpus
 -- must come to one reading.  Jaimini, *Mmsstra*, with abara's *Bhya*
--- (the stras c. 200 BCE ‚ì 200 CE, abara c. 5th c.); the principle is
+-- (the s≈´tras c. 200 BCE ‚Äì 200 CE, ≈öabara c. 5th c.); the principle is
 -- standard in that hermeneutics.  The word is taken for what it names.
 -- Nothing below is attributed to those texts.
 --
--- WHAT THIS IS ABOUT.  A multiway rule ‚î one state, many successors ‚î is the
+-- WHAT THIS IS ABOUT.  A multiway rule ‚Äî one state, many successors ‚Äî is the
 -- shape of a rewriting system, and the standard demand made of it is
 -- CONFLUENCE: any two branches can be brought back together.  In the
 -- computational-physics reading, confluence is what is called causal
@@ -20,17 +20,17 @@
 -- property of the OBSERVER rather than of the rule:
 --
 --     if the observer's reading of a successor is determined by its reading
---     of the predecessor ‚î the same reading in, the same reading out, NO
---     MATTER WHICH BRANCH IS TAKEN ‚î then any two runs of the same length
+--     of the predecessor ‚Äî the same reading in, the same reading out, NO
+--     MATTER WHICH BRANCH IS TAKEN ‚Äî then any two runs of the same length
 --     from equally-read starts are equally read at every step.
 --
 -- The observer then has a deterministic law AND a well-defined time (the step
 -- count), inside a rule that may branch without limit and need not be
 -- confluent anywhere.  No confluence hypothesis appears in the proof, and
--- there is none to appear: `‡‡ï‡µ‡æ‡ï‡‡Ø‡‡æ` below assumes only the congruence.
+-- there is none to appear: `‡§è‡§ï‡§µ‡§æ‡§ï‡•ç‡§Ø‡§§‡§æ` below assumes only the congruence.
 --
 -- And the converse bite, as everywhere in this corpus: ONE pair of branches
--- the observer can tell apart destroys it ‚î not the schedulers anyone tried,
+-- the observer can tell apart destroys it ‚Äî not the schedulers anyone tried,
 -- every reading-level law at once.
 --
 -- This is the multiway face of `Anuvrtti_...`, which did the deterministic
@@ -98,20 +98,20 @@ module _ {X : Type ‚Ñì} (R : X ‚Üí X ‚Üí Type ‚Ñì') where
     ‚Üí ¬¨ (‡§≠‡§æ‡§µ‡•ç‡§Ø‡§Æ‡•ç o)
   ‡§Ö‡§≠‡§æ‡§µ‡•ç‡§Ø‡§Æ‡•ç o r s d h = d (‡§≠‡§æ‡§µ‡•ç‡§Ø-‡§∂‡§æ‡§ñ‡§æ‡§®‡•ç‡§ß‡§Æ‡•ç o h refl r s)
 
--- --------------------------------------------------------------- ‡Æ‡∞‡‡Ø‡æ‡¶‡æ
+-- --------------------------------------------------------------- ‡§Æ‡§∞‡•ç‡§Ø‡§æ‡§¶‡§æ
 --
 -- WHAT IS CLAIMED, and it is the whole of it: the global hypothesis is
 -- replaceable by a local one about the observer, and the replacement is not
--- an approximation.  `‡‡ï‡µ‡æ‡ï‡‡Ø‡‡æ` has no confluence premise in its statement
+-- an approximation.  `‡§è‡§ï‡§µ‡§æ‡§ï‡•ç‡§Ø‡§§‡§æ` has no confluence premise in its statement
 -- or its proof.
 
   -- ------------------------------------------------------------ the tower
   -- A frame is not a number; it is a rung.  Given a branch-blind observer
   -- with its predictor g, ask which COARSENINGS of it are still branch-blind
-  -- ‚î every observer that throws away more but still sees one world.  The
+  -- ‚Äî every observer that throws away more but still sees one world.  The
   -- answer collapses the multiway question onto a deterministic one:
   --
-  --     h ‚àò o is branch-blind  ‚ü  h is a congruence for g
+  --     h ‚àò o is branch-blind  ‚ü∏  h is a congruence for g
   --
   -- and g is a FUNCTION.  So the tower of worlds a branching rule can present
   -- is the congruence structure of the single deterministic system living on

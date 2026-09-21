@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe --no-import-sorts --lossy-unification #-}
 
 ------------------------------------------------------------------------
--- ���-��� � the remainder at one.
+-- एक-शेष — the remainder at one.
 --
 -- THE COMMON-NOISE GENERATOR APPLIED TO THE IDENTITY IS EXACTLY THE
--- SYMMETRIC PART OF THE DRIFT.  NOT BOUNDED BY IT � EQUAL TO IT.
+-- SYMMETRIC PART OF THE DRIFT.  NOT BOUNDED BY IT — EQUAL TO IT.
 --
 -- `VahanaSamata` proves that the generator
 --
---     � (x)  =  L�x + x�L�  +  2 �� D��x�D��
+--     𝒢 (x)  =  L·x + x·L†  +  2 Σⱼ Dⱼ·x·Dⱼ†
 --
 -- carries real to real: a covariance stays a covariance.  Positivity of
 -- a map is not contractivity, though, and the missing half is what the
@@ -16,42 +16,42 @@
 --
 -- Write the drift as a skew part plus the Laplacian it carries,
 --
---     L  =  J + � ,        �  =  �_{j<k} D� � D� ,
+--     L  =  J + Λ ,        Λ  =  Σ_{j<k} Dⱼ · Dⱼ ,
 --
--- with every direction SKEW, `� D� ≡ - D�`.  Then:
+-- with every direction SKEW, `† Dⱼ ≡ - Dⱼ`.  Then:
 --
---   §1  conj D� 1 ≡ - (D� � D�) � each diffusion term at the unit is
+--   §1  conj Dⱼ 1 ≡ - (Dⱼ · Dⱼ) — each diffusion term at the unit is
 --       MINUS a square, because skewness turns the right factor over.
 --
---   §2  so the whole diffusion term at the unit is `- �`.
+--   §2  so the whole diffusion term at the unit is `- Λ`.
 --
---   §3  � is real: a square of a skew element is real, so the drift's
---       Laplacian part contributes to `L + L�` twice, not once.
+--   §3  Λ is real: a square of a skew element is real, so the drift's
+--       Laplacian part contributes to `L + L†` twice, not once.
 --
---   §4  lyap L 1 ≡ L + L� � the congruence at the unit is the
+--   §4  lyap L 1 ≡ L + L† — the congruence at the unit is the
 --       symmetrization, with no residue.
 --
---   §5  THE DEFECT.  Putting §§2�4 together, the `�` from the drift and
---       the doubled `-�` from the noise cancel EXACTLY:
+--   §5  THE DEFECT.  Putting §§2–4 together, the `Λ` from the drift and
+--       the doubled `-Λ` from the noise cancel EXACTLY:
 --
---         � (1)  =  (J + �) + (J� + �)  +  (-�) + (-�)  =  J + J� .
+--         𝒢 (1)  =  (J + Λ) + (J† + Λ)  +  (-Λ) + (-Λ)  =  J + J† .
 --
 --       There is no unspecified correction in that formula.  Whatever
---       the family of directions is � however many, in whatever order,
---       commuting or not � it contributes nothing at the unit beyond
+--       the family of directions is — however many, in whatever order,
+--       commuting or not — it contributes nothing at the unit beyond
 --       cancelling the Laplacian it generated.
 --
 --   §6  and therefore UNITALITY IS SKEW-ADJOINTNESS OF THE DRIFT, in
 --       both directions:
 --
---         � (1) ≡ 0   ⟺   J� ≡ - J .
+--         𝒢 (1) ≡ 0   ⟺   J† ≡ - J .
 --
 --       The channel preserves the unit exactly when the drift has no
 --       symmetric part at all.  This is the algebraic half of the
 --       rigidity statement; which flows have vanishing symmetric part is
 --       a question about a model and is not asked here.
 --
---   §7  the defect is REAL � `� (J + J�) ≡ J + J�` � which is why it can
+--   §7  the defect is REAL — `† (J + J†) ≡ J + J†` — which is why it can
 --       be read as a strain and compared against the unit at all.
 --
 -- WHAT §5 SAYS ABOUT THE TWO OBJECTS.  The map is positive and its
@@ -59,22 +59,22 @@
 -- symmetric part of the drift and nothing else.  A bound on the
 -- normalization is therefore NOT a bound on what the map does to a
 -- particular real element: the two differ already in first order, by
--- exactly `J + J�`.  Replacing the second by the first discards that
+-- exactly `J + J†`.  Replacing the second by the first discards that
 -- difference.  §5 is the identity that makes the discarding visible;
 -- it does not estimate either side.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�7 in any ring with involution, for
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–7 in any ring with involution, for
 -- every drift `J`, every family `D` of skew directions, and every finite
 -- `k`.  NOT claimed: positivity, which is not expressible here beyond
 -- the real/skew split `VahanaSamata` establishes; anything about norms,
--- spectra, or contractivity � no order relation appears in this file;
+-- spectra, or contractivity — no order relation appears in this file;
 -- anything about SOLVING the evolution, only about its right-hand side
 -- at one point; that any particular drift is or is not skew, which is
 -- the modelling step; and nothing about the exponential or the
 -- stochastic lift, which are not constructed anywhere in this corpus.
 ------------------------------------------------------------------------
 
-module EkaSesa_TheIdentityDefectOfTheCommonNoiseGeneratorIsExactlyTheSymmetricPartOfTheDriftBecauseTheDiffusionCancelsTheLaplacian where
+module EkaResidue_TheIdentityDefectOfTheCommonNoiseGeneratorIsExactlyTheSymmetricPartOfTheDriftBecauseTheDiffusionCancelsTheLaplacian where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
@@ -98,7 +98,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
     A = ⟨ R ⟩
 
   --------------------------------------------------------------------
-  -- � � The pieces, taken from `VahanaSamata` rather than restated.
+  -- ० · The pieces, taken from `VahanaSamata` rather than restated.
   --------------------------------------------------------------------
 
   conj : A → A → A
@@ -122,7 +122,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
     lyap L x + (sum k (λ j → conj (D j) x) + sum k (λ j → conj (D j) x))
 
   --------------------------------------------------------------------
-  -- � � A SKEW DIRECTION CONJUGATES THE UNIT TO MINUS ITS SQUARE.
+  -- १ · A SKEW DIRECTION CONJUGATES THE UNIT TO MINUS ITS SQUARE.
   --------------------------------------------------------------------
 
   conj-one : (D : A) → († D ≡ - D) → conj D 1r ≡ - (D · D)
@@ -134,7 +134,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
       - (D · D) ∎
 
   --------------------------------------------------------------------
-  -- � � SO THE WHOLE DIFFUSION TERM AT THE UNIT IS MINUS THE LAPLACIAN.
+  -- २ · SO THE WHOLE DIFFUSION TERM AT THE UNIT IS MINUS THE LAPLACIAN.
   --------------------------------------------------------------------
 
   diffusion-one : (D : ℕ → A) (k : ℕ)
@@ -149,8 +149,8 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
       - ((D k · D k) + Λ D k) ∎
 
   --------------------------------------------------------------------
-  -- � � THE LAPLACIAN IS REAL.  A square of a skew element is real:
-  --     (-D)�(-D) ≡ D�D, and `�` reverses the order of a product of
+  -- ३ · THE LAPLACIAN IS REAL.  A square of a skew element is real:
+  --     (-D)·(-D) ≡ D·D, and `†` reverses the order of a product of
   --     two copies of the same thing to no effect.
   --------------------------------------------------------------------
 
@@ -175,15 +175,15 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
     VS.sum-real R †_ inv k (λ j → D j · D j) (λ j → square-real (D j) (hD j))
 
   --------------------------------------------------------------------
-  -- � � THE CONGRUENCE AT THE UNIT IS THE SYMMETRIZATION.
+  -- ४ · THE CONGRUENCE AT THE UNIT IS THE SYMMETRIZATION.
   --------------------------------------------------------------------
 
   lyap-one : (L : A) → lyap L 1r ≡ L + († L)
   lyap-one L = cong₂ _+_ (·IdR L) (·IdL († L))
 
   --------------------------------------------------------------------
-  -- � � THE IDENTITY DEFECT, EXACTLY.  The `�` the drift carries and
-  --     the doubled `-�` the noise produces cancel with nothing over.
+  -- ५ · THE IDENTITY DEFECT, EXACTLY.  The `Λ` the drift carries and
+  --     the doubled `-Λ` the noise produces cancel with nothing over.
   --------------------------------------------------------------------
 
   generator-at-one : (J : A) (D : ℕ → A) (k : ℕ)
@@ -209,7 +209,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
       J + († J) ∎
 
   --------------------------------------------------------------------
-  -- � � UNITALITY IS SKEW-ADJOINTNESS OF THE DRIFT, BOTH WAYS.
+  -- ६ · UNITALITY IS SKEW-ADJOINTNESS OF THE DRIFT, BOTH WAYS.
   --------------------------------------------------------------------
 
   unital→skew : (J : A) (D : ℕ → A) (k : ℕ)
@@ -229,7 +229,7 @@ module _ (R : Ring ℓ) (†_ : ⟨ R ⟩ → ⟨ R ⟩) (inv : IsInvolution R �
     ∙ +InvR J
 
   --------------------------------------------------------------------
-  -- � � AND THE DEFECT IS REAL.
+  -- ७ · AND THE DEFECT IS REAL.
   --------------------------------------------------------------------
 
   defect-real : (J : A) → † (J + († J)) ≡ J + († J)

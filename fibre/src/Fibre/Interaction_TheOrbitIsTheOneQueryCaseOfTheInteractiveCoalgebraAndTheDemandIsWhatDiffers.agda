@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- Punargamana � Savda  (�����, dialogue)
+-- Punarāgamana · Saṃvāda  (संवाद, dialogue)
 --
 -- WHAT `Fibre.Orbit` IS AND IS NOT.  An Orbit is an unbounded future
--- computed on demand � but a future with no INPUT.  Its whole trajectory
+-- computed on demand — but a future with no INPUT.  Its whole trajectory
 -- is fixed at the moment it is unfolded; asking for the n-th element
 -- cannot change the (n+1)-st.  That is a stream, and a stream is the
 -- degenerate case of an interaction: the one where the environment has
@@ -12,12 +12,12 @@
 --
 -- THE COALGEBRA.  Generalise the query type from a point to a family:
 --
---   ISC w  �  (q : Q w) � �[ w' ∈ W ] �[ o ∈ O w q w' ] E w q w' o � ISC w'
+--   ISC w  ≃  (q : Q w) → Σ[ w' ∈ W ] Σ[ o ∈ O w q w' ] E w q w' o × ISC w'
 --
 --   Q  what the environment may ask at this state
 --   O  what it observes when it does
 --   E  the proof-relevant event datum of that transition
---   �  the continuation, guarded � productivity, not totality
+--   ▹  the continuation, guarded — productivity, not totality
 --
 -- Nothing is globally normalised.  A finite demand of length n asks n
 -- questions and gets n answers; the object is never completed, and that
@@ -26,7 +26,7 @@
 -- THE TWO THEOREMS, and they are a pair on purpose:
 --
 --   det-observe               the deterministic orbit IS the trivial-query
---                             case � observing the embedded stream returns
+--                             case — observing the embedded stream returns
 --                             exactly the prefix of `unfold Φ`, in Orbit's
 --                             own vocabulary, so this is a generalisation
 --                             and not a replacement.
@@ -39,7 +39,7 @@
 -- computably disagree at the very first step.  So the generalisation is
 -- proper: the extra structure is not bookkeeping around a stream.
 --
--- THE OTHER SAVDA.  formal/cubical/kernel/TheKernelIsAnInteractiveSystem�
+-- THE OTHER SAṂVĀDA.  formal/cubical/kernel/TheKernelIsAnInteractiveSystem…
 -- carries the same word for the same reason, and is a different object:
 -- a term-rewriting kernel whose caller disposes of the offered futures.
 -- This module is the coalgebra, in the `fibre` library, which does not
@@ -51,7 +51,7 @@
 -- from fibre/src/Everything.agda, so `sh check` drives it.
 ------------------------------------------------------------------------
 
-module Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers where
+module Fibre.Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
@@ -90,11 +90,11 @@ module _ {W : Type ℓ} {Q : W → Type ℓ}
          {O : (w : W) → Q w → W → Type ℓ}
          {E : (w : W) (q : Q w) (w' : W) → O w q w' → Type ℓ} where
 
-  -- the visible successor under one question�
+  -- the visible successor under one question…
   visit : {w : W} → Strategy Q → ISC Q O E w → W
   visit {w} σ p = fst (react p (σ w))
 
-  -- �and the continuation, which is a different process, at a different
+  -- …and the continuation, which is a different process, at a different
   -- state, because a question was asked.
   continue : {w : W} (σ : Strategy Q) (p : ISC Q O E w) → ISC Q O E (visit σ p)
   continue {w} σ p = snd (snd (snd (react p (σ w))))
@@ -131,7 +131,7 @@ module _ {W : Type ℓ} where
   prefix zero    o = []
   prefix (suc n) o = here o ∷ prefix n (next o)
 
-  -- THEOREM.  Observing the embedded stream returns the orbit's prefix �
+  -- THEOREM.  Observing the embedded stream returns the orbit's prefix —
   -- for any strategy, since there is nothing to choose.
   det-observe : (σ : Strategy Trivial) (Φ : W → W) (n : ℕ) (w : W)
               → observe σ n (det Φ w)
@@ -147,7 +147,7 @@ module _ {W : Type ℓ} where
     det-observe σ Φ n w ∙ sym (det-observe τ Φ n w)
 
 ------------------------------------------------------------------------
--- �and an interaction where it is not.  Two strategies, one step, two
+-- …and an interaction where it is not.  Two strategies, one step, two
 -- different answers: the coalgebra is properly more than a stream.
 ------------------------------------------------------------------------
 

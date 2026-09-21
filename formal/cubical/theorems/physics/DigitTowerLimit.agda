@@ -12,7 +12,7 @@ module DigitTowerLimit where
 --
 --   * The WARNING is a `Vec` artefact, not mathematics.
 --     `DigitTowerFin` restates the same base-two carry
---     obstruction with digit words presented as `Fin n â’ Digit`.  A
+--     obstruction with digit words presented as `Fin n â†’ Digit`.  A
 --     function type has no index to match on, and the count goes 28
 --     `UnsupportedIndexedMatch` warnings -> 0 with the two proved facts
 --     unchanged (LSD deletion is not additive; it is a homomorphism for
@@ -21,7 +21,7 @@ module DigitTowerLimit where
 --
 --   * The INVERSE LIMIT is ported, and only that far.
 --     `DigitTowerFinLimit` carries the MSD tower over
---     `Fin n â’ A` and proves `MSDLimit A â‰ (â• â’ A)` for any set A, using
+--     `Fin n â†’ A` and proves `MSDLimit A â‰ƒ (â„• â†’ A)` for any set A, using
 --     `FinTopSplit` for the top-splitting eliminator that
 --     `Cubical.Data.Fin` does not supply.
 --
@@ -279,7 +279,7 @@ carry-defect-decomposition base d e r carry x y column =
   âˆ™ cong (Î» z â†’ z + base Â· x + base Â· y) column
   âˆ™ rearrange-right base r carry x y
   where
-    -- cubical 2.8: the solver macro is `solveâ•!`, applied to the INTRO'D goal â”
+    -- cubical 2.8: the solver macro is `solveâ„•!`, applied to the INTRO'D goal â€”
     -- so the helpers are stated over fresh variables and
     -- instantiated at the enclosing ones.
     rearrange-left

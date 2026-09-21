@@ -1,57 +1,57 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà¿àààà¾à¨ â” àà¾à¦à¾ààà®àà¯à à²à‹àààà àà²à à¨ àà¿à¦àà¯ààà, àà¨ààà ààµ àà¿à¦àà¯ààà à
+-- à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨ â€” à¤¤à¤¾à¤¦à¤¾à¤¤à¥à¤®à¥à¤¯à¤‚ à¤²à¥‹à¤ªà¤¶à¥à¤š à¤«à¤²à¥‡ à¤¨ à¤­à¤¿à¤¦à¥à¤¯à¥‡à¤¤à¥‡, à¤¤à¤¨à¥à¤¤à¥Œ à¤à¤µ à¤­à¤¿à¤¦à¥à¤¯à¥‡à¤¤à¥‡ à¥¤
 --
 -- (an identification and an elision do not differ in the result;
 --  they differ only in the fibre.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS, and it is one sentence.
 --
 -- A short proof can be short two ways: because a vast fibre was
--- IDENTIFIED, or because a step was DROPPED.  From inside â” from the
--- result â” those are the same experience, and no aesthetic has ever had
+-- IDENTIFIED, or because a step was DROPPED.  From inside â€” from the
+-- result â€” those are the same experience, and no aesthetic has ever had
 -- access to the difference, because the difference is not in the result.
 -- It is in whether a term exists.
 --
--- Â§à§ prices the two bindings of one equation and shows the asymmetry is
+-- Â§à¥§ prices the two bindings of one equation and shows the asymmetry is
 -- not a matter of degree: one side is contractible with NO hypothesis,
--- and the other is exhibited non-contractible.  Â§à¨ is the sentence
+-- and the other is exhibited non-contractible.  Â§à¥¨ is the sentence
 -- above, as a term: the codomain does not determine losslessness.
 --
--- WHY Â§à§'s SECOND HALF IS THE POINT.  `fibre/src/Loss/
--- Carrier.agda` proves the free half â” `fibre a = singl (f a)`,
--- contractible, "the datum rides free" â” and its header states the
+-- WHY Â§à¥§'s SECOND HALF IS THE POINT.  `fibre/src/Loss/
+-- Carrier.agda` proves the free half â€” `fibre a = singl (f a)`,
+-- contractible, "the datum rides free" â€” and its header states the
 -- converse in prose: "a NON-contractible fibre cannot be declared
 -- equivalent to its base."  Stated, and not exhibited.  A one-sided
 -- asymmetry lets a reader believe the other binding is merely usually
--- harder.  `àà¨àààà-à¨-à®àà•ààà` is the witness that it is not the same kind
+-- harder.  `à¤¤à¤¨à¥à¤¤à¥à¤ƒ-à¤¨-à¤®à¥à¤•à¥à¤¤à¤ƒ` is the witness that it is not the same kind
 -- of object at all.
 --
--- WHY Â§à¨ IS NOT `QuotientFiberLaw` AGAIN.  That law says an observation
+-- WHY Â§à¥¨ IS NOT `QuotientFiberLaw` AGAIN.  That law says an observation
 -- class sees a quotient and no post-processing manufactures the fibre.
 -- This says something smaller and sharper about the LOSSLESS case: two
 -- maps into ONE codomain, one an equivalence and one not, and the
 -- codomain is literally the same type.  Nothing about the result
--- distinguishes a receipt from an elision â” which is why a checker, and
+-- distinguishes a receipt from an elision â€” which is why a checker, and
 -- not a reader, is what tells them apart.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- No claim is made about mathematical practice, aesthetics, or history.
 -- IdenticalFromInsideAndTheKernelIsTheFirstInstrumentThatSeparatesThem.md`
 -- and are marked MINE there.  This file is the checkable residue of them
 -- and nothing more.
 --
--- TERM.  ààà¿àààà¾à¨ â” recognition, and the token by which what was lost is
--- known again; Klidsa's ààà¿àààà¾à¨àà¾à•àà¨ààà²à®à (c. 4thâ“5th c.) turns on such
--- a token, the ring.  à²à‹à â” elision; Pini, ààààŸà¾à§àà¯à¾à¯à 1.1.60, àà¦à°ààà¨à
--- à²à‹àà, and 1.1.62, where the operations conditioned by the elided affix
+-- TERM.  à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨ â€” recognition, and the token by which what was lost is
+-- known again; KÄlidÄsa's à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤¶à¤¾à¤•à¥à¤¨à¥à¤¤à¤²à¤®à¥ (c. 4thâ€“5th c.) turns on such
+-- a token, the ring.  à¤²à¥‹à¤ª â€” elision; PÄá¹‡ini, à¤…à¤·à¥à¤Ÿà¤¾à¤§à¥à¤¯à¤¾à¤¯à¥€ 1.1.60, à¤…à¤¦à¤°à¥à¤¶à¤¨à¤‚
+-- à¤²à¥‹à¤ªà¤ƒ, and 1.1.62, where the operations conditioned by the elided affix
 -- still apply.  LIMIT: both words are used in their plain senses and
 -- neither source states anything below.
 --
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 â” the container, NOT the
+-- CHECKED: Agda 2.6.3 + agda/cubical v0.5 â€” the container, NOT the
 -- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
 -- holes, exit 0.
 ------------------------------------------------------------------------
@@ -69,10 +69,10 @@ open import Cubical.Relation.Nullary using (Â¬_)
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â àà¨àà§-àµàˆàà®àà¯à®à â” the two bindings of one equation, priced.
+-- à¥§ Â· à¤¬à¤¨à¥à¤§-à¤µà¥ˆà¤·à¤®à¥à¤¯à¤®à¥ â€” the two bindings of one equation, priced.
 --
 -- `f a â‰¡ b`.  Bind `b` and the total space is `singl (f a)`: contractible
--- for every `f`, every `a`, arbitrary types, NO hypothesis â” because
+-- for every `f`, every `a`, arbitrary types, NO hypothesis â€” because
 -- `f a` was never separate from `a`.  Bind `a` and it is the fibre, and
 -- the fibre is not that kind of object: below is one that is not
 -- the fibre is not that kind of object: below is one that is not
@@ -84,13 +84,13 @@ private variable â„“ : Level
 --     isContrSingl a .fst = (a , refl)          -- Cubical/Foundations/Prelude.agda:457
 --
 -- The centre of the free receipt is the image PAIRED WITH THE ASSERTION
--- THAT IT IS THE IMAGE â” and that assertion asserts nothing.  That is the
+-- THAT IT IS THE IMAGE â€” and that assertion asserts nothing.  That is the
 -- whole reason carrying costs zero: there was never a second object to
 -- carry.  Non-rivalry, per-edge amortization, a route being free at any
--- length, `ua` crossing without charge â” all of it is this line held up.
+-- length, `ua` crossing without charge â€” all of it is this line held up.
 --
--- Two files landed tonight contain the token `refl` ZERO times â”
--- `Lekha_â¦agda` (the trail is free at every depth) and `Anvesanam_â¦agda`
+-- Two files landed tonight contain the token `refl` ZERO times â€”
+-- `Lekha_â€¦agda` (the trail is free at every depth) and `Anvesanam_â€¦agda`
 -- (forward search is free at every depth).  They never write it because
 -- they are built out of `isContrSingl` and inherit it.  That is what it
 -- looks like for a floor to be load-bearing: the things standing on it do
@@ -115,13 +115,13 @@ private variable â„“ : Level
   falseâ‰¢true (cong fst (sym (c .snd à¤…à¤¨à¥à¤¯à¤ƒ) âˆ™ c .snd à¤¦à¥à¤µà¤¿à¤ªà¤¦à¤ƒ))
 
 ------------------------------------------------------------------------
--- à¨ Â àà²à à¨ à¨à¿à°ààà¾à¯à•à®à â” THE RESULT DOES NOT DECIDE.
+-- à¥¨ Â· à¤«à¤²à¤‚ à¤¨ à¤¨à¤¿à¤°à¥à¤£à¤¾à¤¯à¤•à¤®à¥ â€” THE RESULT DOES NOT DECIDE.
 --
--- `idfun Unit : Unit â’ Unit` is an equivalence: an identification, losing
--- nothing.  `à²à‹àà : Bool â’ Unit` is not: an elision, losing exactly one
+-- `idfun Unit : Unit â†’ Unit` is an equivalence: an identification, losing
+-- nothing.  `à¤²à¥‹à¤ªà¤ƒ : Bool â†’ Unit` is not: an elision, losing exactly one
 -- bit.  Their codomains are the same type.  So no rule reading only the
--- codomain can separate a receipt from an elision â” the witness is that
--- such a rule would make `à²à‹àà` an equivalence, and Â§à§ forbids it.
+-- codomain can separate a receipt from an elision â€” the witness is that
+-- such a rule would make `à¤²à¥‹à¤ªà¤ƒ` an equivalence, and Â§à¥§ forbids it.
 --
 -- This is the whole of why the kernel is the instrument: what tells the
 -- two apart is not in the result and is not available to inspection of
@@ -132,7 +132,7 @@ private variable â„“ : Level
 à¤«à¤²à¤‚-à¤¨-à¤¨à¤¿à¤°à¥à¤£à¤¾à¤¯à¤•à¤®à¥ h = à¤¤à¤¨à¥à¤¤à¥à¤ƒ-à¤¨-à¤®à¥à¤•à¥à¤¤à¤ƒ (isEquiv.equiv-proof (h Bool à¤²à¥‹à¤ªà¤ƒ) tt)
 
 ------------------------------------------------------------------------
--- à© Â àààà â” what this does not reach.
+-- à¥© Â· à¤¶à¥‡à¤·à¤ƒ â€” what this does not reach.
 --
 -- It does not say that a short proof is USUALLY an elision, and it says
 -- nothing about which of the two any particular argument is.  It says

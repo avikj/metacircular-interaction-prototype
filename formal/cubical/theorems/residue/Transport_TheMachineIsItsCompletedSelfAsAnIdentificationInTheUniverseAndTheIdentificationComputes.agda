@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà™àà•àà°à®à â” the crossing.  THE MACHINE IS ITS COMPLETED SELF, AS AN
--- IDENTIFICATION IN THE UNIVERSE â” AND THE IDENTIFICATION COMPUTES.
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ the crossing.  THE MACHINE IS ITS COMPLETED SELF, AS AN
+-- IDENTIFICATION IN THE UNIVERSE ï¿½ AND THE IDENTIFICATION COMPUTES.
 --
 -- Univalence turns the lossless completion into a PATH between types:
 --
---     machineâ‰¡completed : Machine â‰¡ Î Machine (fiber uStep)
+--     machineâ‰¡completed : Machine â‰¡ ï¿½ Machine (fiber uStep)
 --
 -- The space of machines and the space of completed one-step histories
 -- are not merely equivalent; in cubical type theory they are EQUAL,
--- and â” this is the point of doing it cubically â” the equality is not
+-- and ï¿½ this is the point of doing it cubically ï¿½ the equality is not
 -- an axiom to cite but an operation that runs.  Transporting a
 -- machine across the identification COMPUTES its completed step
 -- (`crossing-computes`, by the computation rule for ua, evaluating,
@@ -22,13 +22,13 @@
 -- This is the corpus's sakramaa discipline applied to the machine
 -- itself: every transport carries an object, an exhibited
 -- identification, and the identification is priced by what it
--- forgets â” here, nothing, which is Uniqueness's theorem.  The visible
+-- forgets ï¿½ here, nothing, which is Uniqueness's theorem.  The visible
 -- machine and the proof-carrying machine are one type in two
 -- presentations, and univalence is the vehicle that carries
 -- computation between them without loss.
 ------------------------------------------------------------------------
 
-module Sankramana_TheMachineIsItsCompletedSelfAsAnIdentificationInTheUniverseAndTheIdentificationComputes where
+module Transport_TheMachineIsItsCompletedSelfAsAnIdentificationInTheUniverseAndTheIdentificationComputes where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (fiber ; equivFun ; invEq)

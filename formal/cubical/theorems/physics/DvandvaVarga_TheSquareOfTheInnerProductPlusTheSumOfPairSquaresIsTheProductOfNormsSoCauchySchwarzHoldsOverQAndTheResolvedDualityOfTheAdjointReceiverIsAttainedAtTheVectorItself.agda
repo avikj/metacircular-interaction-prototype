@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��������-����� � the pair squares.
+-- द्वन्द्व-वर्ग — the pair squares.
 --
 -- The proof note's adjoint receiver identity (9):
 --
---     sup_{w ∈ H_K, �w� � 1} |� R : �w|  =  �� P_{�K} ��R��,
+--     sup_{w ∈ H_K, ‖w‖ ≤ 1} |∫ R : ∇w|  =  ‖ℙ P_{≤K} ∇·R‖₂,
 --
 -- is integration by parts followed by Hilbert-space duality on a
--- finite-dimensional space.  The duality is Cauchy�Schwarz with its
--- equality case, and over �, where there is no square root, it reads
--- in squares: ⟨v,w⟩² � ⟨v,v⟩⟨w,w⟩ for all w, with equality at w = v.
+-- finite-dimensional space.  The duality is Cauchy–Schwarz with its
+-- equality case, and over ℚ, where there is no square root, it reads
+-- in squares: ⟨v,w⟩² ≤ ⟨v,v⟩⟨w,w⟩ for all w, with equality at w = v.
 -- Behind it is Lagrange's identity, exact over any commutative ring:
 --
---     (� v_i w_i)² + �_{i<j} (v_i w_j − v_j w_i)²  =  (� v_i²)(� w_i²).
+--     (Σ v_i w_i)² + Σ_{i<j} (v_i w_j − v_j w_i)²  =  (Σ v_i²)(Σ w_i²).
 --
---   §1  SUM ALGEBRA over � for right-recursive range sums.
+--   §1  SUM ALGEBRA over ℚ for right-recursive range sums.
 --   §2  LAGRANGE'S IDENTITY, by induction on the range, the new index
---       entering through �_i (v_i w − v w_i)² = w²V + v²W − 2vwS.
---   §3  CAUCHY�SCHWARZ: the pair-square sum is nonnegative.
+--       entering through Σ_i (v_i w − v w_i)² = w²V + v²W − 2vwS.
+--   §3  CAUCHY–SCHWARZ: the pair-square sum is nonnegative.
 --   §4  THE DUALITY ATTAINED: at w = v the inequality is an equality, so
---       the supremum of ⟨v,w⟩²/⟨w,w⟩ is ⟨v,v⟩ � the receiver reads the
+--       the supremum of ⟨v,w⟩²/⟨w,w⟩ is ⟨v,v⟩ — the receiver reads the
 --       full resolved force, not a fraction of it.
 --
--- �������� (dvandva, pair) and ����� (varga, square) are ordinary .
+-- द्वन्द्व (dvandva, pair) and वर्ग (varga, square) are ordinary Sanskrit.
 ------------------------------------------------------------------------
 
 module DvandvaVarga_TheSquareOfTheInnerProductPlusTheSumOfPairSquaresIsTheProductOfNormsSoCauchySchwarzHoldsOverQAndTheResolvedDualityOfTheAdjointReceiverIsAttainedAtTheVectorItself where
@@ -60,7 +60,7 @@ open import VrddhiSima_ADiscreteGronwallWithASummableWeightClosesWithoutExponent
   using (Σ⟨_⟩ ; Σ-guṇa)
 
 ------------------------------------------------------------------------
--- � � Sum algebra.
+-- १ · Sum algebra.
 ------------------------------------------------------------------------
 
 Σ-ext : (f g : ℕ → ℚ) (n : ℕ) → ((i : ℕ) → f i ≡ g i) → Σ⟨ n ⟩ f ≡ Σ⟨ n ⟩ g
@@ -86,7 +86,7 @@ open import VrddhiSima_ADiscreteGronwallWithASummableWeightClosesWithoutExponent
 Σ-anṛṇa f 0≤f (suc n) = anṛṇa-yoga {Σ⟨ n ⟩ f} {f n} (Σ-anṛṇa f 0≤f n) (0≤f n)
 
 ------------------------------------------------------------------------
--- � � Lagrange's identity.
+-- २ · Lagrange's identity.
 ------------------------------------------------------------------------
 
 module _ (v w : ℕ → ℚ) where
@@ -100,7 +100,7 @@ module _ (v w : ℕ → ℚ) where
   D : ℕ → ℚ
   D n = Σ⟨ n ⟩ (λ j → Σ⟨ j ⟩ (λ i → ((v i · w j) - (v j · w i)) · ((v i · w j) - (v j · w i))))
 
-  -- the new index's pair squares: �_i (v_i w − v w_i)² = w² V + v² W − 2 v w S
+  -- the new index's pair squares: Σ_i (v_i w − v w_i)² = w² V + v² W − 2 v w S
   nava : (n : ℕ) → Σ⟨ n ⟩ (λ i → ((v i · w n) - (v n · w i)) · ((v i · w n) - (v n · w i)))
                  ≡ ((w n · w n) · V n + (v n · v n) · W n) - (((1 + 1) · (v n · w n)) · S n)
   nava n =
@@ -118,7 +118,7 @@ module _ (v w : ℕ → ℚ) where
     ∙ Sama.antya ℚRing (V n) (W n) (v n) (w n)
 
   ----------------------------------------------------------------------
-  -- � � Cauchy�Schwarz.
+  -- ३ · Cauchy–Schwarz.
   ----------------------------------------------------------------------
 
   D-anṛṇa : (n : ℕ) → 0 ≤ D n
@@ -129,7 +129,7 @@ module _ (v w : ℕ → ℚ) where
     (subst (_≤ S n · S n + D n) (+IdR (S n · S n)) (≤-o+ 0 (D n) (S n · S n) (D-anṛṇa n)))
 
 ------------------------------------------------------------------------
--- � � The duality attained at w = v: ⟨v,v⟩² = ⟨v,v⟩ ⟨v,v⟩.
+-- ४ · The duality attained at w = v: ⟨v,v⟩² = ⟨v,v⟩ ⟨v,v⟩.
 ------------------------------------------------------------------------
 
 sama-sīmā : (v : ℕ → ℚ) (n : ℕ) → S v v n · S v v n ≡ V v v n · W v v n

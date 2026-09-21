@@ -1,34 +1,34 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡ü‡ø‡ï‡ ‚î the local crystal, complete: decidable which regime, walls
+-- ‡§∏‡•ç‡§´‡§ü‡§ø‡§ï‡§É ‚Äî the local crystal, complete: decidable which regime, walls
 -- merging exactly when twice the center vanishes, and the census an
 -- equivalence either way.
 --
 -- THE CHART OF THE TWO-WALL FIELD, INTERNAL TO THE RESIDUE WHEEL.
--- ‡ï‡‡®‡‡¶‡‡∞‡Æ‡ proved the merge criterion on the ‚ side (p ‚à a + a, both
--- directions); ‡¶‡‡µ‡ø-‡≤‡ã‡‡ counted survivors of abstract walls.  This module
+-- ‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡§Æ‡•ç proved the merge criterion on the ‚Ñ§ side (p ‚à£ a + a, both
+-- directions); ‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É counted survivors of abstract walls.  This module
 -- closes the chart from inside Fin p with the wheel's own arithmetic
--- (+‚ò, -‚ò ‚î the library's):
+-- (+‚Çò, -‚Çò ‚Äî the library's):
 --
---   ‡‡ô‡‡ó‡Æ-‡‡®‡‡‡∞‡ : (a ‚â° -‚ò a) ‚â (a +‚ò a ‚â° ‡‡‡®‡‡Ø‡Æ‡)
---       the walls coincide exactly when twice the center vanishes ‚î
---       ‡ï‡‡®‡‡¶‡‡∞‡Æ‡'s iff, now a statement the wheel can pronounce itself;
---   ‡‡‡‡ü‡ø‡ï‡ : for every center a, EITHER (a +‚ò a ‚â° ‡‡‡®‡‡Ø‡Æ‡ and the survivor
---       type of the field is ‚â Fin (p‚àí1)) OR (a +‚ò a ‚â 0 and it is
---       ‚â Fin (p‚àí2)) ‚î the disjunction DECIDED, not assumed, and the
+--   ‡§∏‡§ô‡•ç‡§ó‡§Æ-‡§Ü‡§®‡•ç‡§§‡§∞‡§É : (a ‚â° -‚Çò a) ‚âÉ (a +‚Çò a ‚â° ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç)
+--       the walls coincide exactly when twice the center vanishes ‚Äî
+--       ‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡§Æ‡•ç's iff, now a statement the wheel can pronounce itself;
+--   ‡§∏‡•ç‡§´‡§ü‡§ø‡§ï‡§É : for every center a, EITHER (a +‚Çò a ‚â° ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç and the survivor
+--       type of the field is ‚âÉ Fin (p‚àí1)) OR (a +‚Çò a ‚â¢ 0 and it is
+--       ‚âÉ Fin (p‚àí2)) ‚Äî the disjunction DECIDED, not assumed, and the
 --       census in both branches an identification, never a count.
 --
 -- With this the local layer of the program is complete as terms: the
--- centering (‡ï‡‡®‡‡¶‡‡∞‡Æ‡), the elision engine (‡¶‡‡µ‡ø-‡≤‡ã‡‡), the merge
+-- centering (‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡§Æ‡•ç), the elision engine (‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É), the merge
 -- criterion internal (here), the regime decision (here), and the
--- charge that must survive the boundary (‡‡æ‡‡‡ï‡æ‡≤‡ø‡ï‡ ‡ó‡‡ø‡ / Yamala).
+-- charge that must survive the boundary (‡§§‡§æ‡§§‡•ç‡§ï‡§æ‡§≤‡§ø‡§ï‡•Ä ‡§ó‡§§‡§ø‡§É / Yamala).
 -- What remains above the chart is the atlas: the CRT tensor across
--- charts (‚à(p ‚àí œâ_p) per period, ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡ Lemma 3) and the cone
+-- charts (‚àè(p ‚àí œâ_p) per period, ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§ï‡•ã‡§£ Lemma 3) and the cone
 -- restriction where the whole difficulty lives (¬ß3 there).  Named, not
 -- built.
 --
--- ON THE NAME.  ‡‡‡‡ü‡ø‡ï ‚î crystal, rock-crystal ‚î ordinary ,
+-- ON THE NAME.  ‡§∏‡•ç‡§´‡§ü‡§ø‡§ï ‚Äî crystal, rock-crystal ‚Äî ordinary Sanskrit,
 -- prominent in the traditions this corpus reads (the sphaika of
 -- Nyya's optics examples; the owner's "local prime Fourier crystal"
 -- names the same object one instrument later).  The compound use is
@@ -62,7 +62,7 @@ private
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç : Fin (suc m)
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç = fzero
 
--- ‡ß ¬ small wheel lemmas: a +‚ò (-‚ò a) ‚â° ‡‡‡®‡‡Ø‡Æ‡, and the merge iff.
+-- ‡•ß ¬∑ small wheel lemmas: a +‚Çò (-‚Çò a) ‚â° ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç, and the merge iff.
 ------------------------------------------------------------------------
 
 +‚Çò-rCancel' : (a : Fin (suc m)) ‚Üí a +‚Çò (-‚Çò a) ‚â° ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç
@@ -94,7 +94,7 @@ private
         a ‚àé )
 
 ------------------------------------------------------------------------
--- ‡® ¬ the survivor type of the centered field at center a, and the
+-- ‡•® ¬∑ the survivor type of the centered field at center a, and the
 -- merged-regime collapse: when the walls coincide, the two conditions
 -- are one proposition.
 ------------------------------------------------------------------------
@@ -122,7 +122,7 @@ private
     (‡§è‡§ï-‡§≤‡•ã‡§™‡§É a)
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡‡‡‡ü‡ø‡ï‡ ‚î the whole chart, decided.  Fin p for p = 2 + m, so the
+-- ‡•© ¬∑ ‡§∏‡•ç‡§´‡§ü‡§ø‡§ï‡§É ‚Äî the whole chart, decided.  Fin p for p = 2 + m, so the
 -- distinct regime lands in Fin m = Fin (p‚àí2) and the merged regime in
 -- Fin (suc m) = Fin (p‚àí1).
 ------------------------------------------------------------------------
@@ -136,12 +136,12 @@ private
                   , ‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É a (-‚Çò a) ¬¨p )
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  The chart is closed; the atlas is not: the product over
--- charts (CRT), the cone restriction, and the identification of -‚ò a
--- with the ‚-side ‚àía under a reduction map ‚ ‚í Fin p are all named and
--- not built.  ‡‡‡‡ü‡ø‡ï‡ decides by discreteFin on the WALLS; deciding on
--- the criterion (a +‚ò a ‚â° ‡‡‡®‡‡Ø‡Æ‡) instead is the same decision through
--- ‡‡ô‡‡ó‡Æ-‡‡®‡‡‡∞‡.  Nothing here asserts anything about primes: p = 2 + m
--- is any modulus ‚â 2, and primality enters only at the atlas level,
--- where ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡ needs the charts at prime moduli.
+-- ‡•™ ¬∑ ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É.  The chart is closed; the atlas is not: the product over
+-- charts (CRT), the cone restriction, and the identification of -‚Çò a
+-- with the ‚Ñ§-side ‚àía under a reduction map ‚Ñ§ ‚Üí Fin p are all named and
+-- not built.  ‡§∏‡•ç‡§´‡§ü‡§ø‡§ï‡§É decides by discreteFin on the WALLS; deciding on
+-- the criterion (a +‚Çò a ‚â° ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç) instead is the same decision through
+-- ‡§∏‡§ô‡•ç‡§ó‡§Æ-‡§Ü‡§®‡•ç‡§§‡§∞‡§É.  Nothing here asserts anything about primes: p = 2 + m
+-- is any modulus ‚â• 2, and primality enters only at the atlas level,
+-- where ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§ï‡•ã‡§£ needs the charts at prime moduli.
 ------------------------------------------------------------------------

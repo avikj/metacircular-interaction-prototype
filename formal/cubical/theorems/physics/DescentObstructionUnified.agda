@@ -3,14 +3,14 @@
 ------------------------------------------------------------------------
 -- DescentObstructionUnified
 --
--- "THE SAME DESCENT LEMMA, CHECKED THREE TIMES, NEVER UNIFIED" �
+-- "THE SAME DESCENT LEMMA, CHECKED THREE TIMES, NEVER UNIFIED" —
 -- CHECKED, AND THE COUNT IS WRONG.
 --
 --
 --     ProjectionChargeAudit.noChargeDescent
 --   = SieveFiber "no section is charge-preserving"
---   = 0593 "novel-outcome�no-square"
---       � same descent lemma, checked three times, never unified
+--   = 0593 "novel-outcome→no-square"
+--       — same descent lemma, checked three times, never unified
 --
 -- The corpus's own standing guard is that an identity between objects of
 -- different types is its recurring failure mode, so the claim needs the
@@ -24,12 +24,12 @@
 --
 --   * THE THIRD NAMED RESULT INSIDE `SieveFiber` IS NOT AN INDEPENDENT
 --     PROOF.  `noChargePreservingSection` is a one-line corollary of
---     that file's own §7 `noChargeDescent` � take the descended map to
+--     that file's own §7 `noChargeDescent` — take the descended map to
 --     be `charge ∘ s`.  `section-from-descent` below is that derivation,
 --     stated abstractly.  Two of the synthesis's three entries therefore
 --     live in one file and one of them is downstream of the other.
 --
---   * 0593's `novel-outcome�no-square` IS NOT THIS LEMMA, and the
+--   * 0593's `novel-outcome→no-square` IS NOT THIS LEMMA, and the
 --     synthesis's "=" is wrong there.  See §3: its certificate is a
 --     MISSED POINT of a codomain, not a SEPARATED PAIR in a domain; it
 --     needs no quotient, no identification, and no set-truncation
@@ -44,9 +44,9 @@
 --
 -- CHECKED ON THE PIN.  `formal/cubical/check.sh` with NM_MODULES set to
 -- this module printed "RUNNING AGAINST THE PIN" (agda 2.8.0 at
--- /root/Agda-2.8.0/�, cubical /root/agda-libs/cubical-v0.9), EXIT=0
+-- /root/Agda-2.8.0/…, cubical /root/agda-libs/cubical-v0.9), EXIT=0
 -- (errors: 0, warning lines: 0), CHECKSH_EXIT=0 read unpiped.  Scope,
--- verdict on THIS module and its import closure � which here includes
+-- verdict on THIS module and its import closure — which here includes
 -- `ProjectionChargeAudit` and `SieveFiber`, since §2.3
 -- instantiates against them.  `--safe`, no postulates, no holes.
 ------------------------------------------------------------------------
@@ -68,14 +68,14 @@ private
 ------------------------------------------------------------------------
 -- §1  THE LEMMA, once.
 --
--- A datum `c : A � B` descends along the quotient A � A/R only if it is
+-- A datum `c : A → B` descends along the quotient A → A/R only if it is
 -- R-invariant.  A single related pair on which c differs refutes every
--- candidate � not "we found none": the �-type quantifies over all of
+-- candidate — not "we found none": the Σ-type quantifies over all of
 -- them.  This is `NEGATIVE_KNOWLEDGE_IS_TYPED` §1's T1 certificate form.
 --
 -- The proof is the composite path
---     c a� ≡ c� [a�] ≡ c� [a�] ≡ c a�
--- whose middle step is `cong c�` applied to `eq/`.  Both files below have
+--     c a₀ ≡ c̄ [a₀] ≡ c̄ [a₁] ≡ c a₁
+-- whose middle step is `cong c̄` applied to `eq/`.  Both files below have
 -- exactly this term; nothing else about their settings is used, which is
 -- the content of the claim that they are one lemma.
 ------------------------------------------------------------------------
@@ -91,8 +91,8 @@ module _ {A : Type ℓ} {R : A → A → Type ℓR} {B : Type ℓB} where
     sep (sym (agrees a₀) ∙ cong c̄ (eq/ a₀ a₁ r) ∙ agrees a₁)
 
 -- The non-quotient form the two files also use: no factorisation of c
--- through any map that identifies a� with a�.  Stated outside the
--- relation-indexed module above, because no relation appears in it �
+-- through any map that identifies a₀ with a₁.  Stated outside the
+-- relation-indexed module above, because no relation appears in it —
 -- which is itself the observation that the quotient in
 -- `ProjectionChargeAudit` and `SieveFiber` §7 is presentation, not
 -- content.
@@ -109,8 +109,8 @@ module _ {A : Type ℓ} {V : Type ℓR} {B : Type ℓB} where
 ------------------------------------------------------------------------
 -- §1.1  The corollary the synthesis counted as a third proof.
 --
--- "No section is charge-preserving" � `SieveFiber.noChargePreservingSection`
--- � asks for `s : V � A` with `c (s (q a)) ≡ c a`.  Compose: `c ∘ s` is
+-- "No section is charge-preserving" — `SieveFiber.noChargePreservingSection`
+-- — asks for `s : V → A` with `c (s (q a)) ≡ c a`.  Compose: `c ∘ s` is
 -- a factorisation of c through q.  So the section statement is the
 -- factorisation statement pre-composed, and carries no extra content.
 ------------------------------------------------------------------------
@@ -128,8 +128,8 @@ module _ {A : Type ℓ} {V : Type ℓ} {B : Type ℓB} where
 ------------------------------------------------------------------------
 -- §2  THE TWO INSTANCES, with the map exhibited.
 --
--- Each `recover-�` below is stated at the ORIGINAL type of the theorem
--- it recovers, so that the typechecker � not this comment � certifies
+-- Each `recover-…` below is stated at the ORIGINAL type of the theorem
+-- it recovers, so that the typechecker — not this comment — certifies
 -- that the general lemma covers it.  §2.1/§2.2 give the shapes; §2.3
 -- then IMPORTS the two original modules and applies the general lemma to
 -- their actual objects, so the identification is checked against
@@ -154,7 +154,7 @@ recover-ProjectionChargeAudit =
 --   separated pair is (1 , 7).  Abstracted over the arithmetic, since
 --   nothing in the descent argument uses it: what SieveFiber supplies is
 --   exactly the two hypotheses below, `q 1 ≡ q 7` (`refl`, there) and
---   `� (charge 1 ≡ charge 7)` (`false�true`, there).
+--   `¬ (charge 1 ≡ charge 7)` (`false≢true`, there).
 module SieveFiberShape
   {Dom : Type} {Vis : Type}
   (q : Dom → Vis) (charge : Dom → Bool)
@@ -175,7 +175,7 @@ module SieveFiberShape
   recover-SieveFiber-bare =
     factorObstruction q charge d₀ d₁ sameVis oppositeCharge
 
-  -- �and the "third proof" is this, one line downstream.
+  -- …and the "third proof" is this, one line downstream.
   recover-SieveFiber-noSection :
     ¬ (Σ[ s ∈ (Vis → Dom) ] ((x : Dom) → charge (s (q x)) ≡ charge x))
   recover-SieveFiber-noSection =
@@ -205,7 +205,7 @@ instance-ProjectionChargeAudit =
 
 -- The two SieveFiber facts, from the same lemma.  The hypotheses are
 -- SieveFiber's own: `q 1 ≡ q 7` is `refl` there and here, and the
--- opposite-charge fact is `false�true` there and here.
+-- opposite-charge fact is `false≢true` there and here.
 private
   SF-1 SF-7 : SF-Dom
   SF-1 = 1 , SF.1∈
@@ -238,8 +238,8 @@ instance-SieveFiber-quot :
        ((x : SF-Dom) → cbar [ x ] ≡ SF-charge (fst x)))
 instance-SieveFiber-quot = SF-instance.recover-SieveFiber-quot
 
--- `SieveFiber.noChargePreservingSection` (§8) � the entry the synthesis
--- counted as a third proof � AT ITS EXACT ORIGINAL TYPE, `s : Vis � �`
+-- `SieveFiber.noChargePreservingSection` (§8) — the entry the synthesis
+-- counted as a third proof — AT ITS EXACT ORIGINAL TYPE, `s : Vis → ℕ`
 -- with agreement only on the domain.  It costs one composition: the
 -- candidate section is turned into a candidate factorisation by
 -- post-composing with `charge`, and `instance-SieveFiber-bare` kills it.
@@ -254,20 +254,20 @@ instance-SieveFiber-noSection (s , agree) =
 ------------------------------------------------------------------------
 -- §3  0593 IS A DIFFERENT LEMMA.
 --
--- `ProstheticImageAdapter.novel-outcome�no-square` reads
+-- `ProstheticImageAdapter.novel-outcome→no-square` reads
 --
---     (q : Q) (y : Y q) � isInImage (r� q) y � � isInImage (r q) y
---                       � � ResponseSquare
+--     (q : Q) (y : Y q) → isInImage (r′ q) y → ¬ isInImage (r q) y
+--                       → ¬ ResponseSquare
 --
--- with `Square = (q : Q) (x� : X�) � r q (stateMap x�) ≡ r� q x�`.
--- Stripped of the propositional truncation (which is bookkeeping � the
+-- with `Square = (q : Q) (x′ : X′) → r q (stateMap x′) ≡ r′ q x′`.
+-- Stripped of the propositional truncation (which is bookkeeping — the
 -- proof is `PT.map`), it is the lemma below: a commuting square pushes
 -- the image of the revised response into the image of the old one, so a
 -- point present after and absent before refutes the square.
 --
 -- WHY IT IS NOT §1.  Compare the two certificates:
 --
---   §1  needs  a PAIR a� a� IN THE DOMAIN, identified by the quotient and
+--   §1  needs  a PAIR a₀ a₁ IN THE DOMAIN, identified by the quotient and
 --              separated by the datum.  Obstruction to a map OUT of a
 --              coequaliser; the content is that c is not R-invariant.
 --   §3  needs  a POINT y IN THE CODOMAIN, hit after and missed before.
@@ -280,7 +280,7 @@ instance-SieveFiber-noSection (s , agree) =
 -- instance of the other: §1 requires an identification (and gives none
 -- of a codomain point), §3 requires a codomain point (and identifies
 -- nothing).  `imageObstruction` below uses no quotient, no relation, and
--- no separated pair � the absence is the argument.
+-- no separated pair — the absence is the argument.
 ------------------------------------------------------------------------
 
 module _ {X X′ Y : Type ℓ} (r : X → Y) (r′ : X′ → Y) (stateMap : X′ → X) where

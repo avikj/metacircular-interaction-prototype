@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- Punargamana � Krama  (�����, order/succession)
+-- Punarāgamana · Krama  (क्रम, order/succession)
 --
 -- WHAT A TOTAL ORDER COSTS.  A machine that records only the final state
 -- discards the fact that two events were independent.  A machine that
 -- imposes one global sequence INVENTS an order that may not be there.
 -- Neither is honest.  What is honest is to keep the difference between
 --
---   genuine dependence          � the order is data, and survives
---   arbitrary serialisation     � the order is an artefact, and is not
+--   genuine dependence          — the order is data, and survives
+--   arbitrary serialisation     — the order is an artefact, and is not
 --
 -- and to have a proof that says which one is in front of you.
 --
 -- THE PROOF IS THE COMMUTATION.  For two steps f and g, a term of
 --
---   Commutes = (a : A) � f (g a) ≡ g (f a)
+--   Commutes = (a : A) → f (g a) ≡ g (f a)
 --
 -- is exactly the certificate that the serialisation between them is
 -- removable.  The theorem below turns that certificate into the normal
@@ -23,7 +23,7 @@
 --
 --   apply w a  ≡  iterate f (countL w) (iterate g (countR w) a)
 --
--- so the result depends on the two COUNTS and not on the order � the
+-- so the result depends on the two COUNTS and not on the order — the
 -- word's residue is the pair of counts, and its sequence is discarded
 -- with a proof rather than by assumption.  (This is the Mazurkiewicz
 -- quotient: words modulo the swap of independent events.)
@@ -36,7 +36,7 @@
 -- fails, which is why the theorem is not vacuous.
 --
 -- THE SAME SEAM ELSEWHERE IN THE CORPUS.
--- formal/cubical/theorems/grammar/AvaktavyaTheYugapatContentIsOrderFree�
+-- formal/cubical/theorems/grammar/AvaktavyaTheYugapatContentIsOrderFree…
 -- makes the krama/yugapat distinction for the fourth bhaga: the joint
 -- content is order-free, every successive expression of it must pick an
 -- order.  That is the same seam in the logical lane; this module is the
@@ -110,7 +110,7 @@ module _ {A : Type ℓ} (f g : A → A) where
     serialisation c w (f a) ∙ cong (iterate f (countL w)) (push c (countR w) a)
   serialisation c (R ∷ w) a = serialisation c w (g a)
 
-  -- �so any two schedules of the same independent events agree, and the
+  -- …so any two schedules of the same independent events agree, and the
   -- synchronisation that would have forced one of them is unnecessary.
   interleavings-agree : Commutes → (w v : List Side)
                       → countL w ≡ countL v → countR w ≡ countR v
@@ -121,7 +121,7 @@ module _ {A : Type ℓ} (f g : A → A) where
     ∙ sym (serialisation c v a)
 
 ------------------------------------------------------------------------
--- A pair that does commute � and the certificate is refl.
+-- A pair that does commute — and the certificate is refl.
 ------------------------------------------------------------------------
 
 shift : ℕ → ℕ
@@ -136,7 +136,7 @@ shift-independent : (w v : List Side)
 shift-independent = interleavings-agree suc shift suc-shift-commute
 
 ------------------------------------------------------------------------
--- A pair that does not � and then the order is data.
+-- A pair that does not — and then the order is data.
 ------------------------------------------------------------------------
 
 double : ℕ → ℕ
@@ -145,14 +145,14 @@ double n = n + n
 suc-double-not-commuting : ¬ Commutes suc double
 suc-double-not-commuting c = znots (injSuc (c 0))
 
--- equal counts�
+-- equal counts…
 same-counts-L : countL (L ∷ R ∷ []) ≡ countL (R ∷ L ∷ [])
 same-counts-L = refl
 
 same-counts-R : countR (L ∷ R ∷ []) ≡ countR (R ∷ L ∷ [])
 same-counts-R = refl
 
--- �different results.  2 and 1.  The sequence survives in the answer, so
+-- …different results.  2 and 1.  The sequence survives in the answer, so
 -- discarding it would not be compression; it would be an error.
 order-survives : ¬ (apply suc double (L ∷ R ∷ []) 0 ≡ apply suc double (R ∷ L ∷ []) 0)
 order-survives p = snotz (injSuc p)

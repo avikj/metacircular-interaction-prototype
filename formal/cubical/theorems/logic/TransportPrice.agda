@@ -10,43 +10,43 @@
 -- It has an answer, and the answer is that the question is smaller than
 -- it looks.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE THEOREM
 --
 -- Suppose a cost `c p q` on transports, subject only to the one thing any
--- cost must satisfy â” that going by way of a third standpoint costs the
+-- cost must satisfy â€” that going by way of a third standpoint costs the
 -- sum:
 --
 --     c p q + c q r â‰¡ c p r.
 --
 -- Then, fixing any base standpoint b,
 --
---     cocycleâ’coboundary :  c p q â‰¡ c b q âˆ’ c b p.
+--     cocycleâ†’coboundary :  c p q â‰¡ c b q âˆ’ c b p.
 --
 -- **Every additive transport price is the difference of a potential.**
 -- There is no path-dependence to discover, no cheapest route between two
 -- standpoints, no holonomy around a loop (`loop-is-free`).  All the
--- content is in the potential â” a number attached to each standpoint on
--- its own â” and choosing well means choosing an endpoint, never a route.
+-- content is in the potential â€” a number attached to each standpoint on
+-- its own â€” and choosing well means choosing an endpoint, never a route.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THE POTENTIAL IS
 --
 -- `Laghava` supplies it and also says what it cannot be:
 --
 --   * `size` is a potential: the price of a reformulation is the change
---     in à²à¾à˜àµ (`laghava-price` below);
+--     in à¤²à¤¾à¤˜à¤µ (`laghava-price` below);
 --   * `laghava-is-not-semantic` proves no function of the DENOTATION
 --     computes `size`.
 --
 -- Together: the price of a transport between two nayas is real, is
--- path-independent, and is invisible to every semantic invariant â” so a
+-- path-independent, and is invisible to every semantic invariant â€” so a
 -- corpus that checks only denotations has no access to it at all, while
 -- a grammarian working on presentations has complete access.  That is the
 -- whole of Pini's lghava discipline, in two theorems.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- AND WHY "PRICE" IS THE WRONG WORD FOR IT â” recorded, owner 2026-08-18
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- AND WHY "PRICE" IS THE WRONG WORD FOR IT â€” recorded, owner 2026-08-18
 --
 -- The potential is not a fee anyone pays.  It is a coordinate on
 -- presentations, and "the price of getting from p to q" is nothing but
@@ -58,7 +58,7 @@
 -- asked the question used it, and `loop-is-free` is the theorem that
 -- makes the objection precise.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -146,7 +146,7 @@ laghava-loop-free = loop-is-free laghavaPrice laghava-additive
 -- says, and nothing else.  Additivity alone kills every path structure:
 -- no route matters, no loop accumulates, and the reverse is the negation.
 -- The question "what is the price of this transport" is therefore not a
--- question about the transport at all â” it is a question about the two
+-- question about the transport at all â€” it is a question about the two
 -- endpoints, asked in a roundabout way.
 --
 -- And by `Laghava.laghava-is-not-semantic`, the potential this corpus

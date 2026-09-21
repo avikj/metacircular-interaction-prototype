@@ -333,7 +333,7 @@ def accepted_soundM(r: Env) -> Path(Nat, evalM(@add_m{@var_m, @suc_m{@zero_m}}, 
   derivation_soundM(@add_m{@var_m, @suc_m{@zero_m}}, @suc_m{@var_m}, acceptedM(), r)
 
 # ---- 5a. a ground multiplicative computation: 1 * 1 = 1
-# 1 * 1 â’ 1 * 0 + 1 â’ 0 + 1 â’ s (0 + 0) â’ s 0; the second move's redex sits in
+# 1 * 1 â†’ 1 * 0 + 1 â†’ 0 + 1 â†’ s (0 + 0) â†’ s 0; the second move's redex sits in
 # the LEFT argument of an add, so add_left carries it.
 def one_times_one() -> DerivationM(@mul_m{@suc_m{@zero_m}, @suc_m{@zero_m}}, @suc_m{@zero_m}):
   @then_m{@add_m{@mul_m{@suc_m{@zero_m}, @zero_m}, @suc_m{@zero_m}}, @mul_suc_m{@suc_m{@zero_m}, @zero_m, {==}, {==}},
@@ -366,7 +366,7 @@ def x_times_one() -> InductionCertificateM(@mul_m{@var_m, @suc_m{@zero_m}}, @var
                 @hyp_suc_m{@mul_m{@var_m, @suc_m{@zero_m}}, @var_m, @hypothesis_m{{==}, {==}}, {==}, {==}},
                 @hyp_done_m{{==}}}}}}}}}
 
-# x Â 1 â‰¡ x is now a theorem OF THE MACHINE'S CALCULUS, by a checked trace
+# x Â· 1 â‰¡ x is now a theorem OF THE MACHINE'S CALCULUS, by a checked trace
 def x_times_one_sound(r: Env) -> Path(Nat, evalM(@mul_m{@var_m, @suc_m{@zero_m}}, r), evalM(@var_m, r)):
   induction_soundM(@mul_m{@var_m, @suc_m{@zero_m}}, @var_m, x_times_one(), r)
 

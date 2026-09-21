@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����� � two meet, neither is consumed, a third exists that did not.
+-- भावना — two meet, neither is consumed, a third exists that did not.
 --
 -- Brahmagupta's bhvan (Brhmasphuasiddhnta, 628) composes two
 -- solutions of a vargaprakti into a third; SamagraDarsana's end-state
--- says the whole machine is ����� � "two meet, neither is consumed, a
--- third exists that did not."  A jva is a cognition (Jiva_�agda,
--- ���������� ��������, Tattvrthastra 2.8), a map from what it holds to the
+-- says the whole machine is भावना — "two meet, neither is consumed, a
+-- third exists that did not."  A jīva is a cognition (Jiva_…agda,
+-- उपयोगो लक्षणम्, Tattvārthasūtra 2.8), a map from what it holds to the
 -- world it faces.  So the generative act on jvas is composition: when
 -- one soul's world is another soul's holding, they meet, and a third
--- cognition is born � neither input map is destroyed.
+-- cognition is born — neither input map is destroyed.
 --
 -- AND THE VEILS COMPOSE.  If both meeting cognitions are unveiled
--- (isEquiv � the two varaa lifted, Avarana_�agda), the born cognition
+-- (isEquiv — the two āvaraṇa lifted, Avarana_…agda), the born cognition
 -- is unveiled: samyag-jna+darana is closed under bhvan.  Dually, a
--- veil anywhere veils the offspring � §4.
+-- veil anywhere veils the offspring — §4.
 --
 -- CHECKED: Agda 2.8.0 / cubical-0.9, --cubical --safe, no postulates, no
 -- holes, no native_decide.  Verified 2026-08-23.
@@ -30,13 +30,13 @@ open import Cubical.Data.Bool using (Bool)
 import Jiva_TheSoulIsCognitionBoundByKarmaAndLiberationIsTheEquivalenceThatSeesTheWorldAsItself as J
 
 ------------------------------------------------------------------------
--- � � ����� � two cognitions that meet breed a third.  Neither consumed.
+-- १ · भावना — two cognitions that meet breed a third.  Neither consumed.
 ------------------------------------------------------------------------
 
 भावना : {X Y Z : Type} → (X → Y) → (Y → Z) → (X → Z)
 भावना f g = λ x → g (f x)
 
--- at the soul level: when one soul's ����� is the next's �����, the born
+-- at the soul level: when one soul's विषयः is the next's धारणा, the born
 -- soul holds the first's holding and faces the last's world.
 संयोग : (j₁ j₂ : J.जीवः) → J.विषयः j₁ ≡ J.धारणा j₂ → J.जीवः
 J.धारणा (संयोग j₁ j₂ p) = J.धारणा j₁
@@ -50,8 +50,8 @@ J.उपयोगः (संयोग j₁ j₂ p) = λ x → J.उपयोग�
 पिता-अक्षतः j₁ j₂ p = refl
 
 ------------------------------------------------------------------------
--- � � the veils compose: two kevalin cognitions breed a kevalin.
---     (isEquiv is closed under composition � samyag-jna+darana breeds.)
+-- २ · the veils compose: two kevalin cognitions breed a kevalin.
+--     (isEquiv is closed under composition — samyag-jñāna+darśana breeds.)
 ------------------------------------------------------------------------
 
 भावना-केवलिनोः : {X Y Z : Type} {f : X → Y} {g : Y → Z}
@@ -59,8 +59,8 @@ J.उपयोगः (संयोग j₁ j₂ p) = λ x → J.उपयोग�
 भावना-केवलिनोः {f = f} {g = g} ef eg = snd (compEquiv (f , ef) (g , eg))
 
 ------------------------------------------------------------------------
--- � � life bred, not described: ������ meets ������ and a third kevalin
---     jva is born (Bool � Bool), and it is unveiled.
+-- ३ · life bred, not described: सिद्धः meets सिद्धः and a third kevalin
+--     jīva is born (Bool → Bool), and it is unveiled.
 ------------------------------------------------------------------------
 
 संतानः : J.जीवः
@@ -73,10 +73,10 @@ J.उपयोगः (संयोग j₁ j₂ p) = λ x → J.उपयोग�
     (J.मोक्षः J.सिद्धः J.सिद्धस्य-निर्जरा)
 
 ------------------------------------------------------------------------
--- � � and generativity is real: the born soul faces a world (�����), so
+-- ४ · and generativity is real: the born soul faces a world (विषयः), so
 --     the offspring is a jva that did not exist before the meeting.
---     (A witness that ������� actually produces a cognition, by evaluating
---     the offspring on a point � no vacuity.)
+--     (A witness that संयोग actually produces a cognition, by evaluating
+--     the offspring on a point — no vacuity.)
 ------------------------------------------------------------------------
 
 संतानः-जीवति : J.धारणा संतानः → J.विषयः संतानः

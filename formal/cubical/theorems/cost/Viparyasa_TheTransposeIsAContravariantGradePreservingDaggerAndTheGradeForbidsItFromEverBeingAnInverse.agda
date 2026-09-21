@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������� � transposition.  The kernel is a DAGGER, not a groupoid.
+-- विपर्यास — transposition.  The kernel is a DAGGER, not a groupoid.
 --
 -- WHAT THIS IS.  The kernel's `reverse` is a constructor of Step, which
 -- is the passage from functions to CORRESPONDENCES: a function has no
 -- transpose, a correspondence does.  This file constructs the transpose
 -- on whole derivations and proves the three laws that make it a dagger
--- structure on the strict category of derivations �
+-- structure on the strict category of derivations —
 --
---   §2  daa : Derivation x y � Derivation y x, with daa (done) = done
+--   §2  daṇḍa : Derivation x y → Derivation y x, with daṇḍa (done) = done
 --       and CONTRAVARIANT functoriality proved:
 --       daa (d ⊕ e) ≡ daa e ⊕ daa d.
 --   §3  daa PRESERVES THE GRADE: dairghya (daa d) ≡ dairghya d.
 --       The transpose costs what the route cost; it forgets nothing.
---   §4  daa is NOT an involution on the nose � the double transpose of
---       a one-step derivation is refuted by counting its reversal marks �
+--   §4  daṇḍa is NOT an involution on the nose — the double transpose of
+--       a one-step derivation is refuted by counting its reversal marks —
 --       and, the wall: NO function whatsoever is an inverse for ⊕.  Not
 --       daa, not a cleverer candidate: the grade is additive and
 --       detects the unit, so `d ⊕ f d ≡ done` dies at a length-one
@@ -28,8 +28,8 @@
 -- motives are correspondences closed under transpose; a category of
 -- correspondences is self-dual and NOT a groupoid, and its linearisation
 -- is what discards the route.  Here the same shape is a theorem: the
--- derivation category carries its transpose as structure (§2�§3) and is
--- forbidden its inverse by its own grading (§4) � dagger yes, groupoid
+-- derivation category carries its transpose as structure (§2–§3) and is
+-- forbidden its inverse by its own grading (§4) — dagger yes, groupoid
 -- never, and the gap between the two is where every unit of cost in the
 -- corpus lives (abstract 13).  The identification of `reverse` with the
 -- transpose of a Chow correspondence is asserted syt: true under the named standpoint, with the checked shape as its warrant.
@@ -48,7 +48,7 @@ private
     x y z w : Tm
 
 ------------------------------------------------------------------------
--- � � Concatenation: strict on the nose, as data.
+-- १ · Concatenation: strict on the nose, as data.
 ------------------------------------------------------------------------
 
 _⊕_ : Derivation x y → Derivation y z → Derivation x z
@@ -65,7 +65,7 @@ then-step s d ⊕ e = then-step s (d ⊕ e)
 ⊕-unitr (then-step s d) = cong (then-step s) (⊕-unitr d)
 
 ------------------------------------------------------------------------
--- � � The transpose, and its contravariance.
+-- २ · The transpose, and its contravariance.
 ------------------------------------------------------------------------
 
 daṇḍa : Derivation x y → Derivation y x
@@ -80,7 +80,7 @@ daṇḍa-anti (then-step s d) e =
   ∙ ⊕-assoc (daṇḍa e) (daṇḍa d) (then-step (reverse s) (done _))
 
 ------------------------------------------------------------------------
--- � � The grade, its additivity, and its preservation by the dagger.
+-- ३ · The grade, its additivity, and its preservation by the dagger.
 ------------------------------------------------------------------------
 
 dairghya : Derivation x y → N.ℕ
@@ -101,16 +101,16 @@ daṇḍa-mātrā (then-step s d) =
   ∙ cong N.suc (daṇḍa-mātrā d)
 
 ------------------------------------------------------------------------
--- � � The wall.  Not an involution on the nose; never an inverse.
+-- ४ · The wall.  Not an involution on the nose; never an inverse.
 ------------------------------------------------------------------------
 
 -- The one-step witness, README-draft-2 §3's own first rule.
 d₀ : Derivation (add var zero) var
 d₀ = then-step (add-zero var) (done var)
 
--- Counting the reversal marks on the head step separates d� from its
+-- Counting the reversal marks on the head step separates d₀ from its
 -- double transpose: the dagger is weak, syntactically, exactly as the
--- master abstract says � and the count is the residue.
+-- master abstract says — and the count is the residue.
 revGaṇana : Step x y → N.ℕ
 revGaṇana (reverse s) = N.suc (revGaṇana s)
 revGaṇana _           = N.zero
@@ -133,17 +133,17 @@ na-vilomaḥ : (f : ∀ {x y} → Derivation x y → Derivation y x)
 na-vilomaḥ f h = N.snotz (cong dairghya (h d₀))
 
 -- The dagger itself survives the prohibition it is subject to: daa is
--- total, contravariant, grade-preserving � and by na-viloma it is not,
+-- total, contravariant, grade-preserving — and by na-vilomaḥ it is not,
 -- and can never be completed to, an inverse.  Self-dual and irreversibly
 -- graded at once: a category of correspondences, not a groupoid.
 
 ------------------------------------------------------------------------
--- � � The semantic collapse.  The interpretation sends the dagger to
--- path inversion � up to a filler that exists because the meaning lives
+-- ५ · The semantic collapse.  The interpretation sends the dagger to
+-- path inversion — up to a filler that exists because the meaning lives
 -- in a set.  Syntactically the dagger is weak (§4); semantically its
 -- whole weakness is quotiented in one stroke: every route and its
 -- transpose interpret to inverse paths, with no case analysis, because
--- an identity type over � is a proposition.  This is the master
+-- an identity type over ℕ is a proposition.  This is the master
 -- abstract's "one order-two redundancy the interpretation divides out",
 -- exhibited on the dagger itself.
 ------------------------------------------------------------------------

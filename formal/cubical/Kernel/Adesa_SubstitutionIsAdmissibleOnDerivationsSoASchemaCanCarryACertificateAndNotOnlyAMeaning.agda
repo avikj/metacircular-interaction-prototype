@@ -4,29 +4,29 @@
 -- Kernel.Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCan
 --               CarryACertificateAndNotOnlyAMeaning
 --
--- TERM.  ‡‡¶‡‡ ¬ dea -- in Pini, *Adhyy* (~500 BCE), the SUBSTITUTE
--- that takes the place of a ‡‡‡‡æ‡®‡ø‡®‡ (sthnin, the substituend); the
--- machinery around it includes ‡‡‡‡æ‡®‡‡Ω‡®‡‡‡∞‡‡Æ‡ (1.1.50, the nearest
--- substitute) and the sthnivadbhva rule ‡‡‡‡æ‡®‡ø‡µ‡¶‡æ‡¶‡‡‡ã‡Ω‡®‡≤‡‡µ‡ø‡ß‡ (1.1.56),
+-- TERM.  ‡§Ü‡§¶‡•á‡§∂ ¬∑ ƒÅde≈õa -- in PƒÅ·πáini, *A·π£·π≠ƒÅdhyƒÅyƒ´* (~500 BCE), the SUBSTITUTE
+-- that takes the place of a ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§®‡•ç (sthƒÅnin, the substituend); the
+-- machinery around it includes ‡§∏‡•ç‡§•‡§æ‡§®‡•á‡§Ω‡§®‡•ç‡§§‡§∞‡§§‡§Æ‡§É (1.1.50, the nearest
+-- substitute) and the sthƒÅnivadbhƒÅva rule ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§¶‡§æ‡§¶‡•á‡§∂‡•ã‡§Ω‡§®‡§≤‡•ç‡§µ‡§ø‡§ß‡•å (1.1.56),
 -- which says an dea behaves LIKE its sthnin for the purposes of further
 -- rules, with a stated exception.
 --
 ------------------------------------------------------------------------
 -- WHAT WAS OPEN.
 --
--- `Avataranika_‚¶` ¬ß8(b) names the frontier item: raise Vyapti_'s schema and
+-- `Avataranika_‚Ä¶` ¬ß8(b) names the frontier item: raise Vyapti_'s schema and
 -- replace `install` with `install-schema`, "so that generalisation is the
 -- kernel's default rather than a companion module's."  This is the missing
 -- map underneath that.
 --
 -- Vyapti_.SchematicOperation carries `apply-sound`, an EVAL EQUALITY:
 --
---     apply-sound : (t : Tm) (c : Control t) (œ : Env)
---                 ‚í eval t œ ‚â° eval (apply t c) œ
+--     apply-sound : (t : Tm) (c : Control t) (œÅ : Env)
+--                 ‚Üí eval t œÅ ‚â° eval (apply t c) œÅ
 --
 -- ControlledGrammar.NativeOperation carries `apply-checked`, a DERIVATION:
 --
---     apply-checked : (t : Tm) (c : Control t) ‚í Derivation t (apply t c)
+--     apply-checked : (t : Tm) (c : Control t) ‚Üí Derivation t (apply t c)
 --
 -- So a schema has the semantics of its instances and not their
 -- certificates, and cannot presently become a kernel operation.
@@ -45,9 +45,9 @@
 -- on a whole walk; ¬ß3 the consequence for schemas; ¬ß4 exhibited at the two
 -- contexts Vyapti_ proves no single NativeOperation can both fire at.
 --
--- THE REMAINDER, LOCATED ‚î each a named next construction, not a gap:
+-- THE REMAINDER, LOCATED ‚Äî each a named next construction, not a gap:
 --   * `install-schema` itself.  `NativeOperation.control-sound : Control t
---     ‚í t ‚â° source` FORCES the subsingleton property Vyapti_ measures, so
+--     ‚Üí t ‚â° source` FORCES the subsingleton property Vyapti_ measures, so
 --     no schema can inhabit that record as it stands; the record's
 --     `apply`/`apply-checked` would have to become fields.  This file
 --     supplies the certificate a schema would need, not the record change.
@@ -109,7 +109,7 @@ schema-instance-is-certified d u = subDeriv u d
 ------------------------------------------------------------------------
 -- ¬ß4.  Exhibited on the kernel's own accepted theorem
 --      `accepted : Derivation (add var (suc zero)) (suc var)`
---      at the two contexts of Vyapti_.ctx‚ and Vyapti_.ctx‚, which
+--      at the two contexts of Vyapti_.ctx‚ÇÄ and Vyapti_.ctx‚ÇÅ, which
 --      `no-native-operation-does-this` proves no single NativeOperation can
 --      both fire at.  One derivation, two certified instances.
 ------------------------------------------------------------------------

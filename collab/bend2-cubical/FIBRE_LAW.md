@@ -1,30 +1,30 @@
-# The fibre law as a coherent equivalence, transported natively â” `fibrelaw.bend`
+# The fibre law as a coherent equivalence, transported natively â€” `fibrelaw.bend`
 
-The object is `A â‰ Î B (fiber f)` (`Cubical.Functions.Fibration.totalEquiv`,
-HoTT 4.8.2): an interaction step `f : A â’ B` factored losslessly into its
+The object is `A â‰ƒ Î£ B (fiber f)` (`Cubical.Functions.Fibration.totalEquiv`,
+HoTT 4.8.2): an interaction step `f : A â†’ B` factored losslessly into its
 visible projection and its fibre. Until now the Bend2 side carried it only at
-the `Eql`/Î level (`corpus_lossless.bend`) and `ua` only over raw `Iso`.
-`fibrelaw.bend` (32 â“, 0 â—) carries it at the strongest level the prototype
+the `Eql`/Î£ level (`corpus_lossless.bend`) and `ua` only over raw `Iso`.
+`fibrelaw.bend` (32 âœ“, 0 âœ—) carries it at the strongest level the prototype
 has:
 
-1. **`isoToIsEquiv`** â” `Cubical.Foundations.Isomorphism.lemIso` transcribed
+1. **`isoToIsEquiv`** â€” `Cubical.Foundations.Isomorphism.lemIso` transcribed
    line for line (`fill0/fill2/sq/sq1/lemIso`). `hfill` is inlined as
    `hcompN` with the extra `(inot j)` face; every 4-face system typechecks
    with boundary and adjacency conditions. So an isomorphism has contractible
-   fibres â” the coherent `Equiv`, not the raw record.
-2. **`totalEquiv : Equiv(A, Î b:B. fiber f b)`** for every `A, B, f`, from the
+   fibres â€” the coherent `Equiv`, not the raw record.
+2. **`totalEquiv : Equiv(A, Î£ b:B. fiber f b)`** for every `A, B, f`, from the
    iso `tot a = (f a, a, refl)`, `untot`, `tot_sec = <i>(q@i, a, <j> q@(iâˆ§j))`,
    `tot_ret = refl`.
-3. **`losslessPath : Path(Set, A, Total f) = uaE(totalEquiv f)`** â” the
+3. **`losslessPath : Path(Set, A, Total f) = uaE(totalEquiv f)`** â€” the
    coherent `uaE` from `uaequiv.bend`, so this path's reverse trip closes
    (`uaEquivRoundTrip`), unlike raw-Iso `ua`.
-4. **`present a = coe(losslessPath, i0â’i1, a)`** and
-   **`retrieve = coe(â¦, i1â’i0)`**; `present_is_tot` and `retrieve_present`
+4. **`present a = coe(losslessPath, i0â†’i1, a)`** and
+   **`retrieve = coe(â€¦, i1â†’i0)`**; `present_is_tot` and `retrieve_present`
    are **refl** (uaÎ² on the coherent path + regularity).
 
 ## Runtime (path as data, no pre-normalisation)
 
-`main` instantiated at `f = neg : Bool â’ Bool`, emitted with `--to-hvm4-raw`
+`main` instantiated at `f = neg : Bool â†’ Bool`, emitted with `--to-hvm4-raw`
 (the net performs the `coe`/`ua`/pair reduction itself) and `--to-hvm`:
 
 | term | HVM4-raw | HVM3 | expected |
@@ -36,13 +36,13 @@ has:
 
 ## The contraction itself, executed
 
-`contrFib` is the `isContr` witness â” the path from the centre `(neg y, refl)`
+`contrFib` is the `isContr` witness â€” the path from the centre `(neg y, refl)`
 to any fibre point. Over `y = True` the fibre of `neg` is `{False}`, and both
 ends of the path observed on the net are `0` (False): HVM4-raw 18 itrs, HVM3
 23 (`contrNeg0`, `contrNeg1`). The emitters resolve the literal endpoint of this value-level path at
 compile time (`force`) and the net reduces the rest; before this fix the
 erased body (the hcomp cap) was emitted for `p @ i1`. Universe-level
-composites are a different matter â” they now run on the net: RUNTIME_ALGEBRA.md.
+composites are a different matter â€” they now run on the net: RUNTIME_ALGEBRA.md.
 
 ## Checker changes needed (in `cubical-paths.patch`)
 
@@ -51,8 +51,8 @@ composites are a different matter â” they now run on the net: RUNTIME_ALGEBRA.md
   one `hcompN` call *other* lemmas (`fill0`, `fill2`) whose bodies contain
   `t(x0) @ i1`; conversion unfolds the Ref itself and would never apply the
   typed endpoint law. Path-typed lemma applications are **not** unfolded
-  (their endpoint law is the point â” `isPropIsContr(...) @ i0 â‰¡ h0`), nor
+  (their endpoint law is the point â€” `isPropIsContr(...) @ i0 â‰¡ h0`), nor
   are partial applications. `spineTy` is factored out for this.
-- Side effect: `equiv.bend`'s former â— probe now checks too (10 â“ 0 â—).
+- Side effect: `equiv.bend`'s former âœ— probe now checks too (10 âœ“ 0 âœ—).
 
-Must-fail guard unchanged: `uaequiv_mustfail.bend` `wrong1`/`wrong2` still â—.
+Must-fail guard unchanged: `uaequiv_mustfail.bend` `wrong1`/`wrong2` still âœ—.

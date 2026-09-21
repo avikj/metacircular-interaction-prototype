@@ -3,16 +3,16 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.Pati_HomometricCachesAreAnArtifactOfTheDeclaredFamily
 --
--- àà¾àŸà (p) â” the working board.
+-- à¤ªà¤¾à¤Ÿà¥€ (pÄá¹­Ä«) â€” the working board.
 --
 --
---   rdhara, *Pgaita* â” also *Bhat-P*, also *Navaat* ("having
+--   ÅšrÄ«dhara, *PÄá¹­Ä«gaá¹‡ita* â€” also *Bá¹›hat-PÄá¹­Ä«*, also *NavaÅ›atÄ«* ("having
 --   900", for its 900 stanzas, of which 251 are extant).  rdhara is
---   dated 8thâ“9th century; the dating is disputed and MacTutor gives
---   870â“930, so no single year is asserted here.  The same genre runs on
+--   dated 8thâ€“9th century; the dating is disputed and MacTutor gives
+--   870â€“930, so no single year is asserted here.  The same genre runs on
 --   through Bhskara II's *Llvat* (1150).
 --
---   *P* is the board â” and is itself a non- loanword, which
+--   *PÄá¹­Ä«* is the board â€” and is itself a non-Sanskrit loanword, which
 --   is worth saying in a repository whose file-naming rule asks for the
 --   source language rather than for  specifically.  Calculation
 --   was done on dust or sand spread over that board, the operation
@@ -27,12 +27,12 @@
 --   boundary": if the runtime discards every intermediate, both
 --   histories become (6,{6}) and no probe separates them).
 --   `ls notes/ | grep -i 'cache\|chain'` returns 22 files, but that is
---   a name match and not a subject count â” at least three of the 22
+--   a name match and not a subject count â€” at least three of the 22
 --   (TOOLCHAIN_SKEW_AND_COVERAGE, NATURAL_MACHINE_TOOLCHAIN_DRIFT,
 --   SEED85_FORMAL_LANE_STATUS_WITHOUT_A_TOOLCHAIN) are about the Agda
 --   and Lean toolchain.  No count of the lane is asserted here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS CHECKED HERE
 --
 --   notes/FLEET_BREAKER_PASS_2026_08_14.md Â§6.4 refutes the
@@ -53,8 +53,8 @@
 --     D = {1,2,3,4}   reached by  1+1, 1+2, 1+3     (legality checked)
 --
 --     d_C(11) = 2 = d_D(11)                          homometric at {11}
---     uââ C = C âˆ {10},  d(11) = 1                   control fires on C
---     uââ D = D,          d(11) = 2                   control inert on D
+--     uâ‚â‚€ C = C âˆª {10},  d(11) = 1                   control fires on C
+--     uâ‚â‚€ D = D,          d(11) = 2                   control inert on D
 --
 --   And one thing Â§6.4 does not say, which is the reason the witness
 --   had to look like that:
@@ -65,7 +65,7 @@
 --   The general statement, proved in the companion note and not here
 --   (it quantifies over all caches, which this finite module does not):
 --
---     if C â–³ D âŠ T then Î”_T(C) = Î”_T(D) implies C = D,
+--     if C â–³ D âŠ† T then Î”_T(C) = Î”_T(D) implies C = D,
 --
 --   because d_X(t) = 0 exactly when t âˆˆ X.  So every homometric pair of
 --   caches has a separating element OUTSIDE the declared family, and
@@ -124,7 +124,7 @@ twoStep C = twoStepFrom (oneStep C) C
 ------------------------------------------------------------------------
 -- 3.  Legality.  A board is a cache only if it was actually formed from
 --     {1}: every operand of every step must already be present when the
---     step is taken.  This is the non-vacuity control â” an unreachable
+--     step is taken.  This is the non-vacuity control â€” an unreachable
 --     pair of sets would refute nothing about caches.
 
 Step : Typeâ‚€
@@ -204,7 +204,7 @@ D-11-in-2 : 11 âˆˆ? twoStep D â‰¡ true
 D-11-in-2 = refl
 
 ------------------------------------------------------------------------
--- 6.  The control uââ : X â¦ X âˆ {10} if 10 âˆˆ X + X.  It fires on C and
+-- 6.  The control uâ‚â‚€ : X â†¦ X âˆª {10} if 10 âˆˆ X + X.  It fires on C and
 --     is inert on D, and it drives the profiles apart.
 
 ten-adjoinable-to-C : 10 âˆˆ? oneStep C â‰¡ true
@@ -222,8 +222,8 @@ uC-11-not-0 = refl
 uC-11-in-1 : 11 âˆˆ? oneStep uC â‰¡ true
 uC-11-in-1 = refl
 
--- uââ D = D, so Â§5's D-facts already give d_{uââD}(11) = 2.
--- Hence 1 = d_{uââC}(11) â‰  d_{uââD}(11) = 2: the profile quotient at
+-- uâ‚â‚€ D = D, so Â§5's D-facts already give d_{uâ‚â‚€D}(11) = 2.
+-- Hence 1 = d_{uâ‚â‚€C}(11) â‰  d_{uâ‚â‚€D}(11) = 2: the profile quotient at
 -- T = {11} is not a congruence for this control.
 
 ------------------------------------------------------------------------
@@ -276,7 +276,7 @@ oneStep-D-has-8 : 8 âˆˆ? oneStep D â‰¡ true       -- 4 + 4, the maximum
 oneStep-D-has-8 = refl
 
 -- 8.2  `twoStep` likewise: it reaches strictly past `oneStep`, and stops
---      where two steps must stop (max 2Âmax(C + C) = 24).
+--      where two steps must stop (max 2Â·max(C + C) = 24).
 
 twoStep-C-has-9 : 9 âˆˆ? twoStep C â‰¡ true       -- 3 = 1+2, then 3 + 6
 twoStep-C-has-9 = refl

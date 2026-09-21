@@ -1,26 +1,26 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ����-������� � the non-set at which `EffectiveDescent` §4 fails.
+-- असत्-छिद्रम् — the non-set at which `EffectiveDescent` §4 fails.
 --
 -- `EffectiveDescent` says, exactly: "`isSet C` is not shown necessary.
--- � Exhibiting a non-set `C` at which §4 fails would need `��(S�)` and is
+-- … Exhibiting a non-set `C` at which §4 fails would need `π₁(S¹)` and is
 -- not done."  Done here, with the library's winding number.
 --
--- §4's map is  restrictAlong g = (g ∘ q , λ x y p � cong g p)  from
--- (B � C) to the descent data  �[ f ∈ (A � C) ] Coequalizes q f.  Take
--- A = B = Unit, q = id (a surjection), C = S�.  The descent datum
+-- §4's map is  restrictAlong g = (g ∘ q , λ x y p → cong g p)  from
+-- (B → C) to the descent data  Σ[ f ∈ (A → C) ] Coequalizes q f.  Take
+-- A = B = Unit, q = id (a surjection), C = S¹.  The descent datum
 --
---     loopDatum = (const base , λ _ _ _ � loop)
+--     loopDatum = (const base , λ _ _ _ → loop)
 --
--- is a perfectly good datum � it coequalises id � but it is not in the
+-- is a perfectly good datum — it coequalises id — but it is not in the
 -- image: any g with restrictAlong g ≡ loopDatum would give loop ≡ refl,
 -- and winding separates them (winding loop = 1, winding refl = 0).  So
 -- the map is not an equivalence, not even surjective, and the ONLY
--- hypothesis of §4 that fails is `isSet S�`, which indeed fails for the
+-- hypothesis of §4 that fails is `isSet S¹`, which indeed fails for the
 -- same reason.
 --
 -- What this settles: the set hypothesis in §4's `descentEquiv` is
--- necessary, not a convenience � `descends-split` needs a section,
+-- necessary, not a convenience — `descends-split` needs a section,
 -- `descends` needs a set, and neither hypothesis can be dropped.
 ------------------------------------------------------------------------
 module AsetChidra_TheDescentEquivalenceFailsAtANonSetTheWitnessIsTheLoopOfTheCircleSoTheSetHypothesisOfRepresentabilityIsNecessary where
@@ -43,7 +43,7 @@ open import Cubical.HITs.S1 using (S¹ ; base ; loop ; winding ; intLoop ; ΩS¹
 
 open import DefectCalculus using (Coequalizes)
 
--- � � ��(S�) separates loop from refl
+-- १ · π₁(S¹) separates loop from refl
 loop≢refl : ¬ (loop ≡ refl)
 loop≢refl p = snotz (injPos one≡zero)
   where
@@ -56,7 +56,7 @@ loop≢refl p = snotz (injPos one≡zero)
 ¬isSetS¹ : ¬ isSet S¹
 ¬isSetS¹ s = loop≢refl (s base base loop refl)
 
--- � � the descent problem of §4 at A = B = Unit, q = id, C = S�
+-- २ · the descent problem of §4 at A = B = Unit, q = id, C = S¹
 q : Unit → Unit
 q = idfun Unit
 
@@ -74,7 +74,7 @@ restrictAlong g = g ∘ q , λ x y p → cong g p
 loopDatum : DescentData
 loopDatum = (λ _ → base) , λ _ _ _ → loop
 
--- � � it is not in the image
+-- ३ · it is not in the image
 private
   D : (f : Unit → S¹) → Coequalizes q f
   D f x y p = cong f p
@@ -85,6 +85,6 @@ not-in-image (g , e) = loop≢refl (sym (λ i → both i tt tt refl))
   both : D (λ _ → base) ≡ (λ _ _ _ → loop)
   both = sym (fromPathP (λ i → D (fst (e i)))) ∙ fromPathP (λ i → snd (e i))
 
--- � � so §4's equivalence fails at this non-set, though q is a surjection
+-- ४ · so §4's equivalence fails at this non-set, though q is a surjection
 not-equiv : ¬ isEquiv restrictAlong
 not-equiv eq = not-in-image (fst (eq .equiv-proof loopDatum))

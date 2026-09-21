@@ -1,11 +1,11 @@
-# Source-preserving transport beneath the Navierâ“Stokes tangent lift
+# Source-preserving transport beneath the Navierâ€“Stokes tangent lift
 
 Date: 2026-09-06 (America/Los_Angeles).
 Repository snapshot read: `avikj/metacircular-interaction-prototype`, commit `168ea8e240524f898af4b0e9cf70297c38422f08`.
 
 ## Scope
 
-The results concern smooth mean-zero divergence-free fields on a flat three-torus. Stochastic constructions are restricted to a closed interval inside the classical lifetime of a prescribed deterministic Navierâ“Stokes solution. The linear Lieâ“Poisson/coadjoint structure and the stochastic Weber representation are classical. This note composes those structures with the previously established exact Poisson-source essential norm to obtain an operator-source/compact-residual decomposition. No originality-priority claim, proof-assistant compilation, global regularity theorem, or RH proof is asserted.
+The results concern smooth mean-zero divergence-free fields on a flat three-torus. Stochastic constructions are restricted to a closed interval inside the classical lifetime of a prescribed deterministic Navierâ€“Stokes solution. The linear Lieâ€“Poisson/coadjoint structure and the stochastic Weber representation are classical. This note composes those structures with the previously established exact Poisson-source essential norm to obtain an operator-source/compact-residual decomposition. No originality-priority claim, proof-assistant compilation, global regularity theorem, or RH proof is asserted.
 
 ## 1. Definitions and the essential-norm input
 
@@ -75,7 +75,7 @@ More generally, any nonzero compact K lies at positive operator-norm distance fr
 
     inf_w ||K-Pi_w|| >= ||K||/2.
 
-Indeed, ||Pi_w||=||q(Pi_w-K)||<=||Pi_w-K||, and the triangle inequality gives the conclusion. For the displayed commutator the lower bound is at least 1/(2 sqrt(6)). This is an operator-source exclusion, not an exclusion of a Navierâ“Stokes singularity.
+Indeed, ||Pi_w||=||q(Pi_w-K)||<=||Pi_w-K||, and the triangle inequality gives the conclusion. For the displayed commutator the lower bound is at least 1/(2 sqrt(6)). This is an operator-source exclusion, not an exclusion of a Navierâ€“Stokes singularity.
 
 ## 4. The actual derivative and the coadjoint generator
 
@@ -248,7 +248,7 @@ Repository source read at the stated snapshot:
 
 Classical ancestry:
 
-- J. E. Marsden and A. Weinstein, *Coadjoint orbits, vortices, and Clebsch variables for incompressible fluids*, Physica D 7 (1983), 305â“323.
-- P. Constantin and G. Iyer, *A stochastic Lagrangian representation of the three-dimensional incompressible Navierâ“Stokes equations*, Communications on Pure and Applied Mathematics 61 (2008), 330â“345; arXiv:math/0511067, especially Theorem 2.2 and Propositions 2.7 and 2.9.
+- J. E. Marsden and A. Weinstein, *Coadjoint orbits, vortices, and Clebsch variables for incompressible fluids*, Physica D 7 (1983), 305â€“323.
+- P. Constantin and G. Iyer, *A stochastic Lagrangian representation of the three-dimensional incompressible Navierâ€“Stokes equations*, Communications on Pure and Applied Mathematics 61 (2008), 330â€“345; arXiv:math/0511067, especially Theorem 2.2 and Propositions 2.7 and 2.9.
 
 The RH theorem graph is unchanged by these NS constructions: positivity of the actual continuous arithmetic moment kernel supplies its unique real spectral source and the receiver bound. A positive covariance map for NS is not a proof of that arithmetic positivity.

@@ -47,7 +47,7 @@ rank-one-exact = funExt λ { false → funExt λ { false → refl ; true → ref
 
 -- Finite saturation: every row and column coordinate is tight against the
 -- relation.  This is the concrete nucleus condition needed here: neither
--- dual profile can be lowered at any coordinate while preserving K � x+y.
+-- dual profile can be lowered at any coordinate while preserving K ≤ x+y.
 record SaturatedMode : Type₀ where
   constructor mode
   field

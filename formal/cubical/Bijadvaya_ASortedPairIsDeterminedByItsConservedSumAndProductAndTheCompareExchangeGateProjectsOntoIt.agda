@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- ���-���� � the two roots.  A sorted pair of naturals is determined by its
+-- बीज-द्वय — the two roots.  A sorted pair of naturals is determined by its
 -- sum and product, and the compare-exchange gate (min, max) is the
 -- projection onto sorted pairs that conserves both.
 --
 -- Source of the name: Brahmagupta, Brhmasphuasiddhnta 18.44 (628 CE),
--- the rule for the quadratic in one unknown � the pair with a given sum
+-- the rule for the quadratic in one unknown — the pair with a given sum
 -- and product is the pair of roots; rdhara's rule (Pgaita, c. 750)
 -- is the completed-square restatement.  What is claimed of the sources:
 -- the NAME and the problem shape (recover the two from their sum and
--- product), not the theorems below, which are checked here over �.
+-- product), not the theorems below, which are checked here over ℕ.
 --
 -- The reading this module adds to the a-dhana thread
--- (RnaDhanaSandhi_�, whose pairSum/pairProd are imported as the
+-- (RnaDhanaSandhi_…, whose pairSum/pairProd are imported as the
 -- conservation half): sorting a pair is not a rearrangement that happens
--- to preserve sum and product � over a sorted target it is the ONLY map
+-- to preserve sum and product — over a sorted target it is the ONLY map
 -- with those invariants.  The compare-exchange gate of a sorting network
--- is exactly "conserve e� and e�, forget the order"; bijadvayaNiyama
+-- is exactly "conserve e₁ and e₂, forget the order"; bijadvayaNiyama
 -- below is the uniqueness that makes that a definition rather than a
 -- property.  Entered through the god-language channel 2026-08-23.
 
@@ -55,9 +55,9 @@ gateIdemMax : ∀ x y → max (min x y) (max x y) ≡ max x y
 gateIdemMax x y = ≤→max _ _ (min≤max x y)
 
 -- The kernel of the uniqueness: with a below x and x below y, equal sums
--- and equal products force a ≡ x.  The witness d of a � x is the debt;
--- the product equation cancels to d � a ≡ d � y, so either the debt is
--- zero or a ≡ y pins the whole chain a � x � y ≡ a.
+-- and equal products force a ≡ x.  The witness d of a ≤ x is the debt;
+-- the product equation cancels to d · a ≡ d · y, so either the debt is
+-- zero or a ≡ y pins the whole chain a ≤ x ≤ y ≡ a.
 private
   half' : ∀ d a b x y → d + a ≡ x → x ≤ y
         → a + b ≡ x + y → a · b ≡ x · y → a ≡ x
@@ -85,7 +85,7 @@ private
        → a + b ≡ x + y → a · b ≡ x · y → a ≡ x
   half a b x y (d , dp) = half' d a b x y dp
 
--- ���-����-����: a sorted pair is determined by its sum and product.
+-- बीज-द्वय-नियम: a sorted pair is determined by its sum and product.
 bijadvayaNiyama : ∀ a b x y → a ≤ b → x ≤ y
                 → a + b ≡ x + y → a · b ≡ x · y
                 → (a ≡ x) × (b ≡ y)

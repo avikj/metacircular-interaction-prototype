@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
--- ‡Ø‡®‡‡‡‡∞: the number-theory machine built 2026-08-21.
+-- ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞: the number-theory machine built 2026-08-21.
 module YantraAll where
 
 import Yantra.Prakriti

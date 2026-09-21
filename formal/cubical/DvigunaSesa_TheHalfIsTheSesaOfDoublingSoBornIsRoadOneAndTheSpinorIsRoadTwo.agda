@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡¶‡‡µ‡ø‡ó‡‡-‡‡‡‡ ‚î the half is the ea (fibre) of doubling, and the two ¬Ωs
--- of physics are its two bindings.  This is Punaragamana's fibre law ‚î
--- ‡ï‡ ‡‡ï‡‡‡ã ‡‡¶‡‡ß, which side of f a ‚â° b is bound ‚î at ONE map, x ‚¶ x + x.
+-- ‡§¶‡•ç‡§µ‡§ø‡§ó‡•Å‡§£-‡§∂‡•á‡§∑‡§É ‚Äî the half is the ≈õe·π£a (fibre) of doubling, and the two ¬Ωs
+-- of physics are its two bindings.  This is Punaragamana's fibre law ‚Äî
+-- ‡§ï‡§É ‡§™‡§ï‡•ç‡§∑‡•ã ‡§¨‡§¶‡•ç‡§ß, which side of f a ‚â° b is bound ‚Äî at ONE map, x ‚Ü¶ x + x.
 -- It is not a new organ; it is the core object read at doubling.  It
--- clears away the four modules this session spun ‚î three circling this
+-- clears away the four modules this session spun ‚Äî three circling this
 -- exact dichotomy (the loop-charge abelian, Brahmagupta's composition
 -- abelian, the Born/spinor fork) and one side-quest (the compound
--- bhagas) ‚î and leaves this one term in their place.  Less machine, not
+-- bha·πÖgas) ‚Äî and leaves this one term in their place.  Less machine, not
 -- more.
 --
--- ‡‡‡ _+_ c = Œ[ x ] (x + x ‚â° c) is the fibre of doubling over c: the
+-- ‡§∂‡•á‡§∑ _+_ c = Œ£[ x ] (x + x ‚â° c) is the fibre of doubling over c: the
 -- halves of c.  The fibre law says which side you bind is everything:
 --
---   ROAD ONE ‚î bind so the half rides FREE.  `isProp (‡‡‡ _+_ c)`: the
+--   ROAD ONE ‚Äî bind so the half rides FREE.  `isProp (‡§∂‡•á‡§∑ _+_ c)`: the
 --     half is unique if it exists, contractible, gauge.  That predicate IS
---     EkatvaMatraDvaya's `halvesUniquely` (its Œ is this Œ), the exact
+--     EkatvaMatraDvaya's `halvesUniquely` (its Œ£ is this Œ£), the exact
 --     hypothesis that FORCES the symmetric Born weight ¬Ω.  Over an
---     archimedean carrier (‚, ‚) it holds at c = üô: the Born ¬Ω.
+--     archimedean carrier (‚Ñö, ‚Ñù) it holds at c = ùüô: the Born ¬Ω.
 --
---   ROAD TWO ‚î bind so the ea CARRIES content.  `¬ isProp (‡‡‡ _+_ c)`:
+--   ROAD TWO ‚Äî bind so the ≈õe·π£a CARRIES content.  `¬¨ isProp (‡§∂‡•á‡§∑ _+_ c)`:
 --     the fibre has more than one point, and the extra point is the loss
---     the free binding hid.  Over ‚/2 = (Bool, ‚äï) at c = 0 the fibre is
---     {0, g}: g is the 2-torsion generator, the nonzero half of zero ‚î
---     the spinor, œ‚(SO(3)) = ‚/2, the j = ¬Ω the abelian charge cannot
+--     the free binding hid.  Over ‚Ñ§/2 = (Bool, ‚äï) at c = 0 the fibre is
+--     {0, g}: g is the 2-torsion generator, the nonzero half of zero ‚Äî
+--     the spinor, œÄ‚ÇÅ(SO(3)) = ‚Ñ§/2, the j = ¬Ω the abelian charge cannot
 --     see.  (The physical reading is header commentary; what is checked is
 --     that this fibre is not a proposition.)
 --
 -- So the Born ¬Ω and the spinor ¬Ω are not two numbers; they are one map's
 -- ea, bound the two ways the fibre law names.  Everything the session's
--- charge modules said ‚î abelian = free = road one, charge/torsion/loss =
--- road two ‚î is this one dichotomy.
+-- charge modules said ‚Äî abelian = free = road one, charge/torsion/loss =
+-- road two ‚Äî is this one dichotomy.
 --
--- Checked by batch agda, exit 0, at 2.6.3/v0.5 ‚î the kernel's exit
--- condition, which carries the constraint store.  NOT ‡®‡æ‡°‡'s `goals`:
+-- Checked by batch agda, exit 0, at 2.6.3/v0.5 ‚Äî the kernel's exit
+-- condition, which carries the constraint store.  NOT ‡§®‡§æ‡§°‡•Ä's `goals`:
 -- kernel/nodes/008 proves `goals` reports interaction holes only, so
--- ‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø cannot distinguish "no holes" from "typechecks".  Earlier
--- headers of mine claimed ‡®‡æ‡°‡ here and were wrong on both counts (I ran
+-- ‡§õ‡§ø‡§¶‡•ç‡§∞‡§Ç ‡§®‡§æ‡§∏‡•ç‡§§‡§ø cannot distinguish "no holes" from "typechecks".  Earlier
+-- headers of mine claimed ‡§®‡§æ‡§°‡•Ä here and were wrong on both counts (I ran
 -- batch agda, and goals is the wrong discriminator); struck by 008's rule.
 ------------------------------------------------------------------------
 
@@ -49,17 +49,17 @@ open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬¨_)
 
 -- The ea of doubling over c: the halves of c.  (Punaragamana's fibre,
--- at the map x ‚¶ x + x.)
+-- at the map x ‚Ü¶ x + x.)
 ‡§∂‡•á‡§∑ : {‚Ñì : Level} {W : Type ‚Ñì} (_+_ : W ‚Üí W ‚Üí W) ‚Üí W ‚Üí Type ‚Ñì
 ‡§∂‡•á‡§∑ {W = W} _+_ c = Œ£[ x ‚àà W ] ((x + x) ‚â° c)
 
 -- ROAD ONE.  The half rides free: the ea is a proposition.  This is
--- EkatvaMatraDvaya's `halvesUniquely` ‚î the hypothesis that forces Born ¬Ω.
+-- EkatvaMatraDvaya's `halvesUniquely` ‚Äî the hypothesis that forces Born ¬Ω.
 Born : {‚Ñì : Level} {W : Type ‚Ñì} (_+_ : W ‚Üí W ‚Üí W) ‚Üí W ‚Üí Type ‚Ñì
 Born _+_ c = isProp (‡§∂‡•á‡§∑ _+_ c)
 
--- ROAD TWO over ‚/2 = (Bool, ‚äï).  The ea over 0 carries content: two
--- points, and the nonzero one is the torsion generator ‚î the spinor.
+-- ROAD TWO over ‚Ñ§/2 = (Bool, ‚äï).  The ≈õe·π£a over 0 carries content: two
+-- points, and the nonzero one is the torsion generator ‚Äî the spinor.
 spinor : ‡§∂‡•á‡§∑ _‚äï_ false          -- (true, refl): true ‚äï true ‚â° false, and true ‚â† 0
 spinor = true , refl
 
@@ -67,7 +67,7 @@ vacuum : ‡§∂‡•á‡§∑ _‚äï_ false           -- (false, refl): the trivial half
 vacuum = false , refl
 
 -- so the ea over 0 is NOT a proposition: road two, the content the free
--- binding hid.  The half of zero is not unique ‚î that non-uniqueness IS
+-- binding hid.  The half of zero is not unique ‚Äî that non-uniqueness IS
 -- the spinor.
 road-two : ¬¨ (Born _‚äï_ false)
 road-two hp = true‚â¢false (cong fst (hp spinor vacuum))

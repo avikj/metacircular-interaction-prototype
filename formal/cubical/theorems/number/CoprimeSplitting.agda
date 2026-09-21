@@ -8,12 +8,12 @@
 --
 -- WHAT IS PROVED.
 --
---   (A) `two-primes�coprime-split` -- the brief's recommended target, in
+--   (A) `two-primes→coprime-split` -- the brief's recommended target, in
 --       its positive form, needing no negative hypothesis and no
 --       definition of "not a prime power":
 --
 --         p ≠ r primes, both dividing n > 0
---           �  n = a�b with gcd a b = 1 and 1 < a, 1 < b.
+--           ⟹  n = a·b with gcd a b = 1 and 1 < a, 1 < b.
 --
 --       The splitting is explicit: a = p^e is the full p-part of n and
 --       b its p-free cofactor, both produced by
@@ -25,13 +25,13 @@
 --   (C) `leastNonDivisor-isPrimePower` -- the full form, which turned out
 --       to be reachable after all:
 --
---         q > 1 a least non-divisor of L  �  q = p^a, p prime, a � 1.
+--         q > 1 a least non-divisor of L  ⟹  q = p^a, p prime, a ≥ 1.
 --
 --       The missing ingredient was the EXISTENCE of a prime divisor of an
---       arbitrary n > 1.  That needs `Dec (d � n)`, which cubical v0.5
+--       arbitrary n > 1.  That needs `Dec (d ∣ n)`, which cubical v0.5
 --       does not provide -- but it is derivable in ten lines from
 --       `Cubical.Data.Nat.Mod` (`≡remainder+quotient` one way,
---       `zero-charac-gen` the other), and `dec�` below does so.  With it,
+--       `zero-charac-gen` the other), and `dec∣` below does so.  With it,
 --       a bounded search (`searchDiv`) plus a fuel recursion
 --       (`primeDivisor`) give the prime divisor, and the argument closes:
 --       strip q at p, and if the p-free cofactor u exceeded 1 it would
@@ -41,15 +41,15 @@
 --   Also recorded: `leastNonDivisor-prime-divisors-agree` (any two prime
 --   divisors of a least non-divisor are equal -- the weaker statement
 --   that needs no prime-divisor existence) and
---   `two-primes��prime-power` (two distinct prime divisors really do
+--   `two-primes→¬prime-power` (two distinct prime divisors really do
 --   refute prime-power-ness, so form (A)'s hypothesis is exactly the
 --   negation of form (C)'s).
 --
 --   NON-VACUITY.  Both theorems are fired on inhabited hypotheses, not
---   left as implications: `split-6` splits 6 = 2�3 (hence
+--   left as implications: `split-6` splits 6 = 2·3 (hence
 --   `6-not-least-non-divisor`: the walk never installs 6), and
---   `lnd-4 : LeastNonDivisor 6 4` � 4 really is the least non-divisor of
---   lcm(1,2,3) = 6, the walk's third install � is pushed through form (C)
+--   `lnd-4 : LeastNonDivisor 6 4` — 4 really is the least non-divisor of
+--   lcm(1,2,3) = 6, the walk's third install — is pushed through form (C)
 --   to give `4-is-prime-power`.
 --
 -- WHAT REMAINS OPEN -- ORIGINAL WORDING (2026-08-13), WITH THE
@@ -57,7 +57,7 @@
 -- other two are not.  Nothing is deleted: the confession is the record
 -- of what the closure cost.
 --
---   * The other direction of §(c), (�), is WalkJumps
+--   * The other direction of §(c), (⇐), is WalkJumps
 --     (`prime-power-not-covered`), already checked.  Together with this
 --     file, §(c) is now closed in both directions -- but note the two
 --     halves are phrased against different objects: WalkJumps works with
@@ -71,32 +71,32 @@
 --     CLOSED, 2026-08-14.  The bridge is WalkBridge:
 --     `cap` is flat across the interval the walk skips, so the install
 --     event IS the jump point and no jump point is passed over; the same
---     file makes the step total as `next : � � �`.  The composition this
+--     file makes the step total as `next : ℕ → ℕ`.  The composition this
 --     paragraph asks for -- "the installs are exactly the prime powers,
 --     in increasing order" -- is WalkPrimePowers
 --     (`installs-are-prime-powers`, `prime-powers-are-installed`,
 --     with `WalkBridge.install-mono` for the ordering).  Worth recording
---     against this paragraph's expectation: the (�) half of the
+--     against this paragraph's expectation: the (⇒) half of the
 --     composition does NOT use the bridge at all -- it is this file's
 --     `leastNonDivisor-isPrimePower` applied to `WalkBridge.next-lnd`.
---     Only the (�) half needs §(b), and it needs one genuinely new
+--     Only the (⇐) half needs §(b), and it needs one genuinely new
 --     induction (`WalkPrimePowers.locate`) on top of it.
 --
---   * No decision procedure for PRIMALITY is provided; `dec�` decides
+--   * No decision procedure for PRIMALITY is provided; `dec∣` decides
 --     divisibility only.  `primeDivisor` produces a prime together with
 --     its primality proof, which is all that is needed here.
 --
 --     STILL TRUE, 2026-08-15.  There is still no `Dec (IsPrime n)` in
 --     NaturalMachine/.  What was added since is
---     `WalkFast.decIsPrimePower : (n : �) �
+--     `WalkFast.decIsPrimePower : (n : ℕ) →
 --     Dec (IsPrimePower n)`, built from this file's `primeDivisor` and
 --     `WalkJumps.strip` and refuting the two-prime case by this file's
---     `two-primes��prime-power`.  So prime-POWER-hood is now decidable
+--     `two-primes→¬prime-power`.  So prime-POWER-hood is now decidable
 --     at size n; primality itself is not decided anywhere.
 --
 --     CLOSED, 2026-08-18: primality IS now decided, by
 --     `PrimalityDecision.decIsPrime`, and it is built from
---     THIS file -- `searchDiv` at bound n-1 plus `noDiv�prime` -- with no
+--     THIS file -- `searchDiv` at bound n-1 plus `noDiv→prime` -- with no
 --     new number theory.
 --
 --   * `searchDiv` and `primeDivisor` are linear searches with fuel; they
@@ -148,8 +148,8 @@ coprime-∣ʳ a c d g d∣c =
   least d' cd = g .snd d' (cd .fst , ∣-trans (cd .snd) d∣c)
 
 -- coprimality is multiplicative in the first argument.  Proof: a common
--- divisor d of a�b and c is coprime to a (because it divides c), hence
--- divides b by `coprime-cancel`; but it is coprime to b too, so d � 1.
+-- divisor d of a·b and c is coprime to a (because it divides c), hence
+-- divides b by `coprime-cancel`; but it is coprime to b too, so d ∣ 1.
 coprime-·ˡ : (a b c : ℕ) → isGCD a c 1 → isGCD b c 1 → isGCD (a · b) c 1
 coprime-·ˡ a b c ga gb =
   (∣-oneˡ (a · b) , ∣-oneˡ c) , least
@@ -189,7 +189,7 @@ pos-≢1→1< (suc (suc u)) 0<u h = suc-≤-suc (suc-≤-suc zero-≤)
 -- coprime splitting
 ------------------------------------------------------------------------
 
--- n = (p-part of n) � (p-free part of n).  The p-part is > 1 because p
+-- n = (p-part of n) · (p-free part of n).  The p-part is > 1 because p
 -- divides it; the p-free part is > 1 because otherwise n would be a pure
 -- power of p, and then the second prime r would divide p, forcing r ≡ p.
 two-primes→coprime-split :
@@ -224,7 +224,7 @@ two-primes→coprime-split n p r 0<n pp pr p≢r p∣n r∣n =
   cop : isGCD (p ^ e) u 1
   cop = coprime-^ˡ p u gpu e
 
-  -- p divides the p-part: it divides n = p^e � u, but not u
+  -- p divides the p-part: it divides n = p^e · u, but not u
   p∣pe : p ∣ (p ^ e)
   p∣pe with prime-∣-· p (p ^ e) u pp (subst (p ∣_) (sym peu) p∣n)
   ... | inl h = h
@@ -292,7 +292,7 @@ two-primes→¬prime-power n p r pp pr p≢r p∣n r∣n (s , a , ps , _ , sa≡
 -- Decidable divisibility (absent from cubical v0.5, derivable from Mod)
 ------------------------------------------------------------------------
 
--- `Cubical.Data.Nat.Divisibility` defines _�_ as a propositional
+-- `Cubical.Data.Nat.Divisibility` defines _∣_ as a propositional
 -- truncation and supplies no decision procedure; `Cubical.Data.Nat.Mod`
 -- supplies the two halves of the specification of _mod_ needed to build
 -- one.  This is the only place in the file where divisibility is decided,
@@ -331,7 +331,7 @@ extendNoDiv n k none ¬sk d 1<d d≤sk d∣n with ≤-split d≤sk
 ... | inl d<sk = none d 1<d (pred-≤-pred d<sk) d∣n
 ... | inr d≡sk = ¬sk (subst (_∣ n) d≡sk d∣n)
 
--- bounded search for a nontrivial divisor � k
+-- bounded search for a nontrivial divisor ≤ k
 searchDiv : (n k : ℕ) → DivBelow n k ⊎ NoDivBelow n k
 searchDiv n zero =
   inr (λ d 1<d d≤0 → Empty.rec (¬-<-zero (<≤-trans 1<d d≤0)))
@@ -382,10 +382,10 @@ primeDivisor n 1<n = primeDivisor-fuel n n 1<n ≤-refl
 ^-exp-pos p zero    q 1<q pe≡q = Empty.rec (¬m<m (subst (1 <_) (sym pe≡q) 1<q))
 ^-exp-pos p (suc e) q 1<q pe≡q = suc-≤-suc zero-≤
 
--- Direction (�) of WALK_INSTALLS_ARE_JUMPS §(c), in full.  Take a prime
--- divisor p of q and strip q at p, q = p^e � u with p � u.  If u were
+-- Direction (⇒) of WALK_INSTALLS_ARE_JUMPS §(c), in full.  Take a prime
+-- divisor p of q and strip q at p, q = p^e · u with p ∤ u.  If u were
 -- > 1 it would have a prime divisor r, necessarily ≠ p, and then q would
--- have two distinct prime divisors, hence a proper coprime splitting �
+-- have two distinct prime divisors, hence a proper coprime splitting —
 -- which WalkForcing forbids.  So u = 1 and q = p^e.
 leastNonDivisor-isPrimePower :
   (L q : ℕ) → 1 < q → LeastNonDivisor L q → IsPrimePower q
@@ -452,18 +452,18 @@ leastNonDivisor-isPrimePower L q 1<q lnd =
 0<6 : 0 < 6
 0<6 = suc-≤-suc zero-≤
 
--- 6 = 2 � 3 splits properly and coprimely.
+-- 6 = 2 · 3 splits properly and coprimely.
 split-6 : ProperCoprimeSplit 6
 split-6 =
   two-primes→coprime-split 6 2 3 0<6 isPrime2 isPrime3 2≢3
     (∣-left 3) (∣-right 2)
 
--- �hence 6 is never a least non-divisor: the walk never installs it.
+-- …hence 6 is never a least non-divisor: the walk never installs it.
 6-not-least-non-divisor : (L : ℕ) → ¬ (LeastNonDivisor L 6)
 6-not-least-non-divisor L lnd =
   leastNonDivisor-no-coprime-split L 6 lnd split-6
 
--- �and 6 is not a prime power, by the form-(C) corollary.
+-- …and 6 is not a prime power, by the form-(C) corollary.
 6-not-prime-power : ¬ (IsPrimePower 6)
 6-not-prime-power =
   two-primes→¬prime-power 6 2 3 isPrime2 isPrime3 2≢3 (∣-left 3) (∣-right 2)
@@ -473,8 +473,8 @@ split-6 =
 ------------------------------------------------------------------------
 
 -- Everything above is stated under hypotheses; nothing so far exhibits a
--- LeastNonDivisor at all.  Here is one � 4 is the least non-divisor of
--- lcm(1,2,3) = 6, the walk's third install � and the form-(C) theorem
+-- LeastNonDivisor at all.  Here is one — 4 is the least non-divisor of
+-- lcm(1,2,3) = 6, the walk's third install — and the form-(C) theorem
 -- applied to it, so the implication is fired on an inhabited hypothesis.
 
 ¬4∣6 : ¬ (4 ∣ 6)

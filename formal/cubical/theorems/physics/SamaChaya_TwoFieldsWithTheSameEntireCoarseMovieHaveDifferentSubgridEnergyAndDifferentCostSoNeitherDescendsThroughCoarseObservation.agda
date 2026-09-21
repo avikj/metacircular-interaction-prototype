@@ -1,37 +1,37 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��-���� � the same shadow.
+-- सम-छाया — the same shadow.
 --
--- An exact smooth Navier�Stokes pair on the torus: u_k = A e^{−ν|k|²t}
--- a sin(k�x) with a�k = 0 and |k| > K, against u� = 0.  Because a�k = 0
--- the field is divergence-free and (u��)u = 0, so with constant pressure
+-- An exact smooth Navier–Stokes pair on the torus: u_k = A e^{−ν|k|²t}
+-- a sin(k·x) with a·k = 0 and |k| > K, against u₀ = 0.  Because a·k = 0
+-- the field is divergence-free and (u·∇)u = 0, so with constant pressure
 -- it solves the equations exactly; its whole low-frequency history
--- P_{�K}u_k(t) is zero, the same as u�'s, at every time.  Yet the
--- subgrid covariance R_K[u] = P_{�K}(u⊗u) − P_{�K}u ⊗ P_{�K}u is
--- (A²/2)e^{−2ν|k|²t} a⊗a for u_k and 0 for u�, because sin² = ½ − ½cos 2k�x
+-- P_{≤K}u_k(t) is zero, the same as u₀'s, at every time.  Yet the
+-- subgrid covariance R_K[u] = P_{≤K}(u⊗u) − P_{≤K}u ⊗ P_{≤K}u is
+-- (A²/2)e^{−2ν|k|²t} a⊗a for u_k and 0 for u₀, because sin² = ½ − ½cos 2k·x
 -- and the projection keeps the zero mode; and the dissipation cost
--- ν���u�² is A²|a|²/4 against 0.  Same entire coarse meaning, different
+-- ν∫‖∇u‖² is A²|a|²/4 against 0.  Same entire coarse meaning, different
 -- physical cost.
 --
--- This file is that pair's amplitude bookkeeping � the part the
--- localization theorem consumes � as a term.  A field is an amplitude
--- per mode per time; the coarse observation keeps modes � K; the
+-- This file is that pair's amplitude bookkeeping — the part the
+-- localization theorem consumes — as a term.  A field is an amplitude
+-- per mode per time; the coarse observation keeps modes ≤ K; the
 -- zero-mode of a product of mode-k waves is the sum of squares, so the
 -- subgrid energy is the energy above K.  The plane wave sits at one
--- mode above K with amplitude A�d��.
+-- mode above K with amplitude A·dᵗ.
 --
 --   §1  FIELDS, THE COARSE MOVIE, SUBGRID ENERGY, COST.
 --   §2  THE PAIR.  The plane wave and zero have the same coarse movie
---       at every time and every mode � K � because k > K.
+--       at every time and every mode ≤ K — because k > K.
 --   §3  ENERGY DISTINGUISHES.  Subgrid energy A² against 0; cost A²
 --       against 0.  By SankramanaShreni's localization, neither descends
 --       through the coarse observation: no function of the resolved
 --       movie alone reconstructs them.
 --
 -- The atomic instance of the joint-observer ladder: velocity, active
--- pressure and resolved flux are blind to it; energy is not.  ��
--- (sama, same) and ���� (chy, shadow) are ordinary .
+-- pressure and resolved flux are blind to it; energy is not.  सम
+-- (sama, same) and छाया (chāyā, shadow) are ordinary Sanskrit.
 ------------------------------------------------------------------------
 
 module SamaChaya_TwoFieldsWithTheSameEntireCoarseMovieHaveDifferentSubgridEnergyAndDifferentCostSoNeitherDescendsThroughCoarseObservation where
@@ -49,14 +49,14 @@ open import SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAn
   using (module Localization)
 
 ------------------------------------------------------------------------
--- � � Fields, the coarse movie, subgrid energy, cost.
+-- १ · Fields, the coarse movie, subgrid energy, cost.
 ------------------------------------------------------------------------
 
 -- amplitude at time t, mode m
 Field : Type₀
 Field = ℕ → ℕ → ℕ
 
--- the coarse observation keeps modes � K, at every time
+-- the coarse observation keeps modes ≤ K, at every time
 module _ (K : ℕ) where
 
   chāyā : Field → ℕ → ℕ → ℕ
@@ -64,13 +64,13 @@ module _ (K : ℕ) where
   ... | yes _ = u t m
   ... | no  _ = zero
 
-  -- energy in modes m � M at time t (sum of squares; the zero-mode of
+  -- energy in modes m ≤ M at time t (sum of squares; the zero-mode of
   -- the product of two mode-m waves is half the square, scaled away)
   ūrjā : Field → ℕ → ℕ → ℕ
   ūrjā u t zero    = u t zero · u t zero
   ūrjā u t (suc M) = u t (suc M) · u t (suc M) + ūrjā u t M
 
-  -- subgrid energy at time t, for fields supported in modes � M:
+  -- subgrid energy at time t, for fields supported in modes ≤ M:
   -- everything above K
   module _ (M : ℕ) where
     upaśeṣa : Field → ℕ → ℕ
@@ -81,12 +81,12 @@ module _ (K : ℕ) where
       zero ∸ suc b = zero
       suc a ∸ suc b = a ∸ b
 
-  -- cost: total energy at time zero over modes � M
+  -- cost: total energy at time zero over modes ≤ M
   mūlya : ℕ → Field → ℕ
   mūlya M u = ūrjā u zero M
 
 ------------------------------------------------------------------------
--- � � The pair: a plane wave one mode above K, and zero.
+-- २ · The pair: a plane wave one mode above K, and zero.
 ------------------------------------------------------------------------
 
 module _ (K : ℕ) (A : ℕ) where
@@ -112,10 +112,10 @@ module _ (K : ℕ) (A : ℕ) where
   ...   | yes m≡k = ⊥-elim (¬m<m (<≤-trans (subst (K <_) (sym m≡k) (zero , refl)) m≤K))
 
 ------------------------------------------------------------------------
--- � � Energy distinguishes, so neither energy nor cost descends.
+-- ३ · Energy distinguishes, so neither energy nor cost descends.
 ------------------------------------------------------------------------
 
--- the concrete instance: K = 0, amplitude 1, modes � 1
+-- the concrete instance: K = 0, amplitude 1, modes ≤ 1
 module Udāharaṇa where
 
   K = zero

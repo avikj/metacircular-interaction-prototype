@@ -4,84 +4,84 @@
 -- HomometricMinimality_NoHomometricPairHasDiameterAtMostTen
 --
 -- THE ABSENCE THIS MODULE CLOSES.  HomometricPair.agda certifies the
--- existence half of Theorem A(ii) � the 6-element sets
+-- existence half of Theorem A(ii) — the 6-element sets
 --
 --     A = {0,1,2,6,8,11}      B = {0,1,6,7,9,11}
 --
--- are homometric and not congruent � and states its own scope thus:
+-- are homometric and not congruent — and states its own scope thus:
 --
 --     "THE SCOPE, EXACTLY: minimality ("no homometric pair of diameter
---      � 10", "6 distinct pairs across 12 collision events").  That is
+--      ≤ 10", "6 distinct pairs across 12 collision events").  That is
 --      a 2^14-subset sweep, a separate and larger kernel run;
 --      REPORT.md's minimality clause still rests on the legacy Python
 --      search.  This module discharges the existence half only."
 --
 -- This module discharges the first minimality clause, "no homometric
--- pair of diameter � 10", as a kernel-checked theorem:
+-- pair of diameter ≤ 10", as a kernel-checked theorem:
 --
---   `no-homometric-pair-of-diameter-�10`
---     for ALL finite subsets V, W � � of diameter � 10, given in the
---     translation-normal form min = 0 (as 0-1 vectors over {0,�,d},
+--   `no-homometric-pair-of-diameter-≤10`
+--     for ALL finite subsets V, W ⊆ ℤ of diameter ≤ 10, given in the
+--     translation-normal form min = 0 (as 0-1 vectors over {0,…,d},
 --     first and last entry true), if V and W have the same interval
---     vector � `HomometricPair.iv` applied to their sorted member lists,
---     i.e. the very function of the existence half � then V and W are
+--     vector — `HomometricPair.iv` applied to their sorted member lists,
+--     i.e. the very function of the existence half — then V and W are
 --     congruent, in the sense of `HomometricPair.Congruent`: W = V + 0
 --     or W = (reflection of V) + 0.
 --
 -- HOW.  The normal form makes the sweep small: a set of diameter d in
--- normal form is {0} � U � {d} for an arbitrary U � {1,�,d−1}, so the
--- sets of diameter � 10 are {0} together with one set per Bool-list of
--- length � 9: 1 + �_{e � 9} 2^e = 1024 sets.  `sweep 9` (§3) tabulates
+-- normal form is {0} ∪ U ∪ {d} for an arbitrary U ⊆ {1,…,d−1}, so the
+-- sets of diameter ≤ 10 are {0} together with one set per Bool-list of
+-- length ≤ 9: 1 + Σ_{e ≤ 9} 2^e = 1024 sets.  `sweep 9` (§3) tabulates
 -- each with its interval vector, then for every ordered pair with equal
 -- vectors checks that the indicator vectors are equal or reverses of
--- each other (reversal of the indicator over {0,�,d} IS the reflection
--- x � d − x).  `sweep-ok : sweep 9 ≡ true` is `refl`: the kernel runs
--- the whole 1024 � 1024 comparison.
+-- each other (reversal of the indicator over {0,…,d} IS the reflection
+-- x ↦ d − x).  `sweep-ok : sweep 9 ≡ true` is `refl`: the kernel runs
+-- the whole 1024 × 1024 comparison.
 --
--- SOUNDNESS is proved as ordinary Agda, not computed (§4�§6):
---   * `nfUpTo-complete`  every normal form of diameter � 10 occurs in
+-- SOUNDNESS is proved as ordinary Agda, not computed (§4–§6):
+--   * `nfUpTo-complete`  every normal form of diameter ≤ 10 occurs in
 --                        the enumeration (enumeration completeness);
 --   * `nf-form`          every 0-1 vector with first and last entry
 --                        true is a normal form (the decomposition
---                        v = true � u ++ [true], or v = [true]);
+--                        v = true ∷ u ++ [true], or v = [true]);
 --   * `pairs-sound`, `ok-sound`, `eqL-sound`, `eqN-sound`  the Boolean
 --                        tests imply the propositions they test;
 --   * `congruent-bridge` "equal or reversed" gives HomometricPair's
 --                        `Congruent` with translation parameter 0.
 --
 -- CONTROLS (§8), so that none of this is vacuous:
---   * `sweep-fails-at-11 : sweep 10 ≡ false` � the same sweep one
+--   * `sweep-fails-at-11 : sweep 10 ≡ false` — the same sweep one
 --     diameter further DOES find a violation; and
---   * `A-B-violate` � the violating pair is exactly HomometricPair's
+--   * `A-B-violate` — the violating pair is exactly HomometricPair's
 --     A and B: `ok` returns false on their table entries, and their
 --     indicator vectors have `support` equal to A and B (by refl).
 --
 -- CHECKED FACTS ABOUT THE RANGE (§7), each an exhaustion over the 1024
--- normal forms and each therefore a theorem for diameter � 10 only:
+-- normal forms and each therefore a theorem for diameter ≤ 10 only:
 --   * `iv-total`     the interval vector counts every pairwise
 --                    difference (no difference escapes the window
 --                    1..11), so equality of `iv` is equality of the
 --                    whole difference multiset;
 --   * `reflect-iv`   reflection preserves the interval vector;
 --   * `reflect-support`  the support of the reversed indicator is the
---                    sorted list of d � x over the support � reversal
+--                    sorted list of d ∸ x over the support — reversal
 --                    of indicators is the reflection of HomometricPair
 --                    (`reflect11` there, with 11 replaced by d).
 --
 -- WHAT IS NOT PROVED.  (i) `reflect-iv` and `reflect-support` are
--- established by exhaustion for diameter � 10, not as general lemmas
--- for all d; the minimality theorem does not depend on them � the sweep
--- compares every pair directly, without symmetry reduction � they are
+-- established by exhaustion for diameter ≤ 10, not as general lemmas
+-- for all d; the minimality theorem does not depend on them — the sweep
+-- compares every pair directly, without symmetry reduction — they are
 -- consistency checks tying reversal to the reflection of the existence
--- half.  (ii) The reduction of �-congruence to the normal-form shapes is
+-- half.  (ii) The reduction of ℤ-congruence to the normal-form shapes is
 -- inherited from HomometricPair, where it is a definition, not a
 -- theorem.  (iii) The second minimality clause ("6 distinct pairs across
 -- 12 collision events", a statement about diameter 11) is not touched.
 --
 -- TIMINGS (Agda 2.8.0, --safe, this machine): the whole file with the
--- sweep bound at diameter � 6 (64 sets) checks in about 3 s; at
--- diameter � 10 (1024 sets, 2^20 ordered pairs) in about 30 s.  The
--- diameter-�-11 control is cheap because `all` stops at the first
+-- sweep bound at diameter ≤ 6 (64 sets) checks in about 3 s; at
+-- diameter ≤ 10 (1024 sets, 2^20 ordered pairs) in about 30 s.  The
+-- diameter-≤-11 control is cheap because `all` stops at the first
 -- failing pair.
 ------------------------------------------------------------------------
 
@@ -101,8 +101,8 @@ open import HomometricPair using (A ; B ; iv ; diffs ; eqb ; shift ; Congruent ;
 ------------------------------------------------------------------------
 -- 1.  Sets in normal form, as 0-1 vectors
 --
---   A finite subset of � with least element 0 and greatest element d is
---   recorded as its indicator over {0,�,d}: a Bool-list of length d+1
+--   A finite subset of ℤ with least element 0 and greatest element d is
+--   recorded as its indicator over {0,…,d}: a Bool-list of length d+1
 --   whose first and last entries are true.  `support` recovers the
 --   sorted member list, the representation of HomometricPair.
 ------------------------------------------------------------------------
@@ -128,8 +128,8 @@ lst (_ ∷ c ∷ bs) = lst (c ∷ bs)
 diameter : List Bool → ℕ
 diameter v = predℕ (length v)
 
--- the normal forms, by their shape: {0} alone, or {0} � U � {d} with
--- U � {1,�,d−1} given by its indicator u (so d = 1 + length u)
+-- the normal forms, by their shape: {0} alone, or {0} ∪ U ∪ {d} with
+-- U ⊆ {1,…,d−1} given by its indicator u (so d = 1 + length u)
 data NF : Type where
   point : NF
   span  : List Bool → NF
@@ -154,12 +154,12 @@ allLists : ℕ → List (List Bool)
 allLists zero = [] ∷ []
 allLists (suc n) = map (true ∷_) (allLists n) ++ map (false ∷_) (allLists n)
 
--- all Bool-lists of length � n
+-- all Bool-lists of length ≤ n
 allUpTo : ℕ → List (List Bool)
 allUpTo zero = allLists zero
 allUpTo (suc n) = allLists (suc n) ++ allUpTo n
 
--- all normal forms of diameter � suc e
+-- all normal forms of diameter ≤ suc e
 nfUpTo : ℕ → List NF
 nfUpTo e = point ∷ map span (allUpTo e)
 
@@ -202,8 +202,8 @@ eqN [] (_ ∷ _) = false
 eqN (_ ∷ _) [] = false
 eqN (x ∷ xs) (y ∷ ys) = if eqb x y then eqN xs ys else false
 
--- the test on one ordered pair: same interval vector � same indicator,
--- or reversed indicator (reversal over {0,�,d} is x � d − x)
+-- the test on one ordered pair: same interval vector ⇒ same indicator,
+-- or reversed indicator (reversal over {0,…,d} is x ↦ d − x)
 ok : Entry → Entry → Bool
 ok (a , p) (b , q) = if eqN p q then (eqL a b or eqL (rev a) b) else true
 
@@ -214,11 +214,11 @@ all f (x ∷ xs) = if f x then all f xs else false
 pairs : {X : Type} → (X → X → Bool) → List X → Bool
 pairs f t = all (λ p → all (f p) t) t
 
--- the sweep over all normal forms of diameter � suc e
+-- the sweep over all normal forms of diameter ≤ suc e
 sweep : ℕ → Bool
 sweep e = pairs ok (table e)
 
--- THE KERNEL RUN: all 1024 � 1024 ordered pairs of diameter � 10
+-- THE KERNEL RUN: all 1024 × 1024 ordered pairs of diameter ≤ 10
 sweep-ok : sweep 9 ≡ true
 sweep-ok = refl
 
@@ -322,8 +322,8 @@ allUpTo-complete : (k : ℕ) (u : List Bool) → Mem u (allUpTo (k + length u))
 allUpTo-complete zero u = allUpTo-at (length u) u refl
 allUpTo-complete (suc k) u = Mem-++ʳ _ _ (allUpTo-complete k u)
 
--- ENUMERATION COMPLETENESS: every normal form of diameter � suc e is in
--- nfUpTo e.  (m � n is �[ k ∈ � ] k + m ≡ n in the library.)
+-- ENUMERATION COMPLETENESS: every normal form of diameter ≤ suc e is in
+-- nfUpTo e.  (m ≤ n is Σ[ k ∈ ℕ ] k + m ≡ n in the library.)
 nfUpTo-complete : (e : ℕ) (s : NF) → diam s ≤ suc e → Mem s (nfUpTo e)
 nfUpTo-complete e point _ = inl refl
 nfUpTo-complete e (span u) (k , p) =
@@ -394,7 +394,7 @@ congruent-bridge : (v w : List Bool) → (v ≡ w) ⊎ (rev v ≡ w)
 congruent-bridge v w (inl p) = inl (0 , shift0 (support v) ∙ cong support p)
 congruent-bridge v w (inr p) = inr (inr (inl (0 , shift0 (support (rev v)) ∙ cong support p)))
 
--- THE MINIMALITY CLAUSE: no homometric pair of diameter � 10
+-- THE MINIMALITY CLAUSE: no homometric pair of diameter ≤ 10
 no-homometric-pair-of-diameter-≤10 :
     (v w : List Bool)
   → hd v ≡ true → lst v ≡ true → hd w ≡ true → lst w ≡ true
@@ -435,7 +435,7 @@ reflect-iv : (s : NF) → diam s ≤ 10
            → ivL (support (rev (toList s))) ≡ ivL (support (toList s))
 reflect-iv s hs = eqN-sound _ _ (all-sound reflect-test (nfUpTo 9) reflect-sweep s (nfUpTo-complete 9 s hs))
 
--- (c) reversing the indicator is the reflection x � d � x of the
+-- (c) reversing the indicator is the reflection x ↦ d ∸ x of the
 --     member list (listed in increasing order), as in HomometricPair
 reflectL : ℕ → List ℕ → List ℕ
 reflectL d xs = rev (map (λ x → d ∸ x) xs)
@@ -470,10 +470,10 @@ A-B-diameter-11 : (diam (span uA) ≡ 11) × (diam (span uB) ≡ 11)
 A-B-diameter-11 = refl , refl
 
 -- the pair test itself rejects (A, B): same vector, neither equal nor
--- reversed � this is what `not-congruent` in HomometricPair proves
+-- reversed — this is what `not-congruent` in HomometricPair proves
 A-B-violate : ok (entry (span uA)) (entry (span uB)) ≡ false
 A-B-violate = refl
 
--- and the full sweep over diameter � 11 reports the failure
+-- and the full sweep over diameter ≤ 11 reports the failure
 sweep-fails-at-11 : sweep 10 ≡ false
 sweep-fails-at-11 = refl

@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- TheThresholdChainIsDenseAndTheMediantWitnessesIt
 --
--- "Density of âŠ is untouched" has been the last line of the NOT-CLAIMED
--- section of three modules on the threshold line â”
+-- "Density of âŠ‘ is untouched" has been the last line of the NOT-CLAIMED
+-- section of three modules on the threshold line â€”
 -- `TheThresholdOrderIsTotalAndTheClaimIsAntitone`,
 -- `TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary`, and
--- `WhichThresholdStatementsDescendToTheRate` â” and it is touched here.
+-- `WhichThresholdStatementsDescendToTheRate` â€” and it is touched here.
 --
 -- The chain IS dense, and the witness is not constructed by a search:
 -- it is the MEDIANT.  Between p/(suc q) and p'/(suc q') lies
@@ -18,37 +18,37 @@
 -- SAME inequality that was assumed.  No case analysis, no ordering
 -- lemmas beyond additive cancellation.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   _âŠ_               strict threshold order, p Â suc q' < p' Â suc q
+--   _âŠ_               strict threshold order, p Â· suc q' < p' Â· suc q
 --   mediant           (p + p' , q + suc q'), which is a threshold pair
---                     with denominator suc q + suc q' â” definitionally,
+--                     with denominator suc q + suc q' â€” definitionally,
 --                     since `suc q + suc q'` IS `suc (q + suc q')`
---   mediantIsAbove    (p , q) âŠ mediant
---   mediantIsBelow    mediant âŠ (p' , q')
+--   mediantIsAbove    (p , q) âŠ mediant
+--   mediantIsBelow    mediant âŠ (p' , q')
 --   thresholdsAreDense    the two together
---   âŠ-gives-âŠ         and âŠ refines the âŠ chain the other threshold
+--   âŠ-gives-âŠ‘         and âŠ refines the âŠ‘ chain the other threshold
 --                     modules use, so this is density OF THAT CHAIN and
 --                     not of a relation introduced for the occasion
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY, and the attribution is worth getting right.  The mediant
 -- and its betweenness property are classical: they organise the Farey
--- dissection (Haros 1802; Farey 1816) and the Sternâ“Brocot tree (Stern
+-- dissection (Haros 1802; Farey 1816) and the Sternâ€“Brocot tree (Stern
 -- 1858; Brocot 1861).  Nothing here is new; what is new to this corpus
 -- is only that the threshold chain's density is now checked rather than
 -- listed as untouched.
 --
 -- Also worth recording rather than mining: the mediant is the same
 -- operation the vall/kuaka tradition uses when it forms a new pair
--- from two convergents â” `KuttakaValli.agda` and the convergent modules
+-- from two convergents â€” `KuttakaValli.agda` and the convergent modules
 -- on that line are ANOTHER IDENTITY'S here, and this module does not
 -- enter them.  It is NOT claimed that the mediant is "really" the
 -- kuaka's step; that would need the two constructions compared, which
 -- is their author's to do.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -108,7 +108,7 @@ thresholdsAreDense p q p' q' h =
   mediantIsAbove p q p' q' h , mediantIsBelow p q p' q' h
 
 ------------------------------------------------------------------------
--- 4.  And âŠ refines the chain the other modules use
+-- 4.  And âŠ refines the chain the other modules use
 ------------------------------------------------------------------------
 
 âŠ-gives-âŠ‘ : (a b : â„• Ã— â„•) â†’ a âŠ b â†’ a âŠ‘ b

@@ -54,7 +54,7 @@ from why it was permitted.
 
 RESOLVED IN PART.  The return and the shaping side now exist:
 theorems/cost/PratiphalaAntara constructs debits and credits from a
-potential and proves the telescoping identity â” a potential-shaped
+potential and proves the telescoping identity â€” a potential-shaped
 return is a function of the two endpoints alone, so every no-go above
 applies to it in full, and a reward that separates two same-endpoint
 histories is thereby certified non-potential.  Stochasticity,

@@ -3,13 +3,13 @@
 ------------------------------------------------------------------------
 -- SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3
 --
--- The nonabelian holonomy census for Sâ by fixed-point counting.
+-- The nonabelian holonomy census for Sâ‚ƒ by fixed-point counting.
 --
 -- sthira-bindu = fixed point, gaan = count; the  terms are
 -- used in their plain mathematical senses, and no text is claimed as a
 -- source.
 --
--- WHAT IS PROVED.  For Sâ = FinSymGroup 3 (the group of equivalences of
+-- WHAT IS PROVED.  For Sâ‚ƒ = FinSymGroup 3 (the group of equivalences of
 -- Cubical.Data.SumFin's Fin 3, from Cubical.Algebra.SymmetricGroup),
 -- the fixed-point count
 --
@@ -18,25 +18,25 @@
 -- computed by decidable equality at the three points, is
 --
 --   * evaluated by refl on six named elements: the identity (3), the
---     three transpositions sââ sââ sââ (1 each), and the two 3-cycles
---     Ï ÏÂ² (0 each) â” the character of the permutation representation,
+--     three transpositions sâ‚€â‚ sâ‚â‚‚ sâ‚€â‚‚ (1 each), and the two 3-cycles
+--     Ï ÏÂ² (0 each) â€” the character of the permutation representation,
 --     one value per conjugacy class;
---   * conjugation invariant for ALL elements of Sâ (not merely the six
+--   * conjugation invariant for ALL elements of Sâ‚ƒ (not merely the six
 --     named ones), proved abstractly: h carries fixed points of g
---     bijectively onto fixed points of hÂgÂhâ»Â, rendered here as a
+--     bijectively onto fixed points of hÂ·gÂ·hâ»Â¹, rendered here as a
 --     Boolean transport lemma (eqF-inj) plus a finite orbit-sum
 --     rearrangement (orbitSum) discharged by exhaustion over the 27
---     value-triples of an injection Fin 3 â’ Fin 3;
+--     value-triples of an injection Fin 3 â†’ Fin 3;
 --   * therefore closed-loop gauge invariant, by instantiating
 --     closedLoopGaugeInvariant from
---     RelationalHolonomyRefinement at Sâ.
+--     RelationalHolonomyRefinement at Sâ‚ƒ.
 --
 -- ABELIAN / NONABELIAN CONTRAST.  PMGaugeCohomology is
--- the abelian census: cycleParity is ğ”½â-linear in the edge signs and
--- descends to HÂ.  Over a nonabelian structure group no linear
+-- the abelian census: cycleParity is ğ”½â‚‚-linear in the edge signs and
+-- descends to HÂ¹.  Over a nonabelian structure group no linear
 -- functional is available; the gauge residue of a closed loop is a
 -- conjugacy class, and the observable must be a class function.
--- countFix is such a class function, and on Sâ it takes the three
+-- countFix is such a class function, and on Sâ‚ƒ it takes the three
 -- values 3, 1, 0 on the three classes' named representatives.
 --
 ------------------------------------------------------------------------
@@ -74,7 +74,7 @@ f0 = fzero
 f1 = fsuc fzero
 f2 = fsuc (fsuc fzero)
 
--- Point-wise eliminator: the deep branch of SumFin's Fin 3 is âŠ.
+-- Point-wise eliminator: the deep branch of SumFin's Fin 3 is âŠ¥.
 cases3 : âˆ€ {â„“} {P : Fin 3 â†’ Type â„“} â†’ P f0 â†’ P f1 â†’ P f2 â†’ (x : Fin 3) â†’ P x
 cases3 p0 p1 p2 fzero                  = p0
 cases3 p0 p1 p2 (fsuc fzero)           = p1
@@ -123,7 +123,7 @@ boolNotTrue false _ = refl
 boolNotTrue true  k = Empty.rec (k refl)
 
 ------------------------------------------------------------------------
--- Six named elements of Sâ
+-- Six named elements of Sâ‚ƒ
 ------------------------------------------------------------------------
 
 swap01fun swap12fun swap02fun cycFun cycInvFun : Fin 3 â†’ Fin 3
@@ -286,7 +286,7 @@ module _ (e : âŸ¨ Sâ‚ƒ âŸ©) (u : Fin 3 â†’ â„•) where
            â‰¡ (u f0 + u f1) + u f2
   orbitSum = sumLem (fst e f0) (fst e f1) (fst e f2) refl refl refl
 
--- Per-point transport: x is fixed by hÂgÂhâ»Â exactly when h x is fixed
+-- Per-point transport: x is fixed by hÂ·gÂ·hâ»Â¹ exactly when h x is fixed
 -- by g, at the level of the Boolean test.
 conj-point : (h g : âŸ¨ Sâ‚ƒ âŸ©) (x : Fin 3)
   â†’ eqF x (invEq h (fst g (fst h x))) â‰¡ eqF (fst h x) (fst g (fst h x))

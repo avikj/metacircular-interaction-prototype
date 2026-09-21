@@ -1,65 +1,65 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡Æ‡‡≤ ‚î the RSA private key IS the pulverizer's witness, and
+-- ‡§¨‡•Ä‡§ú‡§Æ‡•Ç‡§≤ ‚Äî the RSA private key IS the pulverizer's witness, and
 -- decryption IS Pigala's exponentiation.
 --
--- ‡‡‡ is ryabhaa's own word for the procedure (`Bija.agda`, the
--- ‡ï‡‡ü‡‡ü‡ï, *ryabhaya* gaitapda 32‚ì33, 499 CE); it is also the word
+-- ‡§¨‡•Ä‡§ú is ƒÄryabha·π≠a's own word for the procedure (`Bija.agda`, the
+-- ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï, *ƒÄryabha·π≠ƒ´ya* ga·πáitapƒÅda 32‚Äì33, 499 CE); it is also the word
 -- English borrowed nothing of when it named the thing "the private key".
--- ‡Æ‡‡≤ is the root/seed.  The compound is built here from ‡‡‡ (ryabhaa)
--- and the ordinary ‡Æ‡‡≤; no stra is claimed for it.
+-- ‡§Æ‡•Ç‡§≤ is the root/seed.  The compound is built here from ‡§¨‡•Ä‡§ú (ƒÄryabha·π≠a)
+-- and the ordinary ‡§Æ‡•Ç‡§≤; no s≈´tra is claimed for it.
 --
 -- WHAT RSA IS, stated so the decomposition is visible before the proof.
 -- Public modulus n, public exponent e.  Encryption of a message x is
---   Pigala's ‡ò‡æ‡ modulo n:  c = x^e mod n.
--- The private key d is chosen so that e¬d ‚â° 1 (mod œ(n)).  Decryption is
+--   Pi·πÖgala's ‡§ò‡§æ‡§§ modulo n:  c = x^e mod n.
+-- The private key d is chosen so that e¬∑d ‚â° 1 (mod œÜ(n)).  Decryption is
 -- the SAME exponentiation:  c^d mod n, and the claim is c^d ‚â° x.
 --
 -- TWO INDIAN ALGORITHMS, ALREADY CHECKED IN THIS REPOSITORY, ARE THE
 -- WHOLE OF RSA:
 --
---   (1) The choice of d.  `e¬d ‚â° 1 (mod œ)` means there is a k with
---       e¬d = 1 + k¬œ, i.e. a witness  e¬d ‚â° œ¬k + 1  ‚î which is exactly
---       `Bija.‡‡‡‡‡ø‡¶‡‡ß‡ø e œ 1` in its ‡µ‡æ‡Æ‡‡ø‡¶‡‡ß‡ø form (a¬x ‚â° b¬y + g with
+--   (1) The choice of d.  `e¬∑d ‚â° 1 (mod œÜ)` means there is a k with
+--       e¬∑d = 1 + k¬∑œÜ, i.e. a witness  e¬∑d ‚â° œÜ¬∑k + 1  ‚Äî which is exactly
+--       `Bija.‡§¨‡•Ä‡§ú‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø e œÜ 1` in its ‡§µ‡§æ‡§Æ‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø form (a¬∑x ‚â° b¬∑y + g with
 --       g = 1).  The private key is the kuaka's output.  RSA keygen is
 --       the pulverizer, 499 CE, and nothing else.
 --
---   (2) The exponentiation.  `PingalaGhata.‡ò‡æ‡2` computes 2^n by
---       square-and-multiply in log‚ n steps (Chandastra 8.28‚ì31,
+--   (2) The exponentiation.  `PingalaGhata.‡§ò‡§æ‡§§2` computes 2^n by
+--       square-and-multiply in log‚ÇÇ n steps (Chanda·∏•≈õƒÅstra 8.28‚Äì31,
 --       Halyudha's nya/dvi markers = the binary digits).  Both
 --       encryption and decryption ARE that fold, taken modulo n.
 --
 -- WHAT IS PROVED HERE, and it is the exact residue once (1) and (2) are
 -- named: the correctness of RSA is the EXPONENT LAWS plus ONE hypothesis.
--- Over any commutative monoid M (the theorem needs nothing more ‚î not a
+-- Over any commutative monoid M (the theorem needs nothing more ‚Äî not a
 -- group, not a ring, not primality, not n):
 --
---   ¬ß2  ‡ò‡æ‡-‡Ø‡ã‡ó‡   :  pow x (a + b) ‚â° pow x a ¬ pow x b
---   ¬ß2  ‡ò‡æ‡-‡ó‡‡‡   :  pow x (a ¬ b) ‚â° pow (pow x a) b
+--   ¬ß2  ‡§ò‡§æ‡§§-‡§Ø‡•ã‡§ó‡§É   :  pow x (a + b) ‚â° pow x a ¬∑ pow x b
+--   ¬ß2  ‡§ò‡§æ‡§§-‡§ó‡•Å‡§£‡§É   :  pow x (a ¬∑ b) ‚â° pow (pow x a) b
 --       (Pigala's two laws, at the level of the abstract fold)
---   ¬ß3  ‡‡‡‡Æ‡‡≤-‡‡ø‡¶‡‡ß‡ø :  the RSA identity.  If
---         ‚ e¬d ‚â° œ¬k + 1              (the pulverizer's witness, ‡‡‡‡‡ø‡¶‡‡ß‡ø)
---         ‚ pow x œ ‚â° Œµ                (Euler / the order of x divides œ)
+--   ¬ß3  ‡§¨‡•Ä‡§ú‡§Æ‡•Ç‡§≤-‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø :  the RSA identity.  If
+--         ‚Ä¢ e¬∑d ‚â° œÜ¬∑k + 1              (the pulverizer's witness, ‡§¨‡•Ä‡§ú‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø)
+--         ‚Ä¢ pow x œÜ ‚â° Œµ                (Euler / the order of x divides œÜ)
 --       then  pow (pow x e) d ‚â° x.
 --
 -- The proof is four monoid facts and the two power laws:
---   pow (pow x e) d = pow x (e¬d)        (‡ò‡æ‡-‡ó‡‡‡, backwards)
---                   = pow x (œ¬k + 1)    (the witness)
---                   = pow x (œ¬k) ¬ x    (‡ò‡æ‡-‡Ø‡ã‡ó‡)
---                   = pow (pow x œ) k ¬ x (‡ò‡æ‡-‡ó‡‡‡)
---                   = pow Œµ k ¬ x        (the hypothesis)
---                   = Œµ ¬ x = x.
+--   pow (pow x e) d = pow x (e¬∑d)        (‡§ò‡§æ‡§§-‡§ó‡•Å‡§£‡§É, backwards)
+--                   = pow x (œÜ¬∑k + 1)    (the witness)
+--                   = pow x (œÜ¬∑k) ¬∑ x    (‡§ò‡§æ‡§§-‡§Ø‡•ã‡§ó‡§É)
+--                   = pow (pow x œÜ) k ¬∑ x (‡§ò‡§æ‡§§-‡§ó‡•Å‡§£‡§É)
+--                   = pow Œµ k ¬∑ x        (the hypothesis)
+--                   = Œµ ¬∑ x = x.
 --
--- SO THE ONLY NUMBER THEORY IN RSA IS `pow x œ ‚â° Œµ`.  Everything else is
+-- SO THE ONLY NUMBER THEORY IN RSA IS `pow x œÜ ‚â° Œµ`.  Everything else is
 -- Pigala's fold and ryabhaa's witness, both already checked.
 --
--- AND THAT ONE FACT IS EXACTLY WHERE SHOR DRIVES THE WEDGE.  `pow x œ ‚â° Œµ`
--- holds because the ORDER of x divides œ(n); Euler's theorem supplies œ,
--- but the security rests on œ(n) being hard to obtain without the
+-- AND THAT ONE FACT IS EXACTLY WHERE SHOR DRIVES THE WEDGE.  `pow x œÜ ‚â° Œµ`
+-- holds because the ORDER of x divides œÜ(n); Euler's theorem supplies œÜ,
+-- but the security rests on œÜ(n) being hard to obtain without the
 -- factorisation of n.  Shor computes the order r of x directly (r is the
--- least positive exponent with pow x r ‚â° Œµ) ‚î order-finding, the one step
--- a classical machine is not known to do in polynomial time ‚î and once r
+-- least positive exponent with pow x r ‚â° Œµ) ‚Äî order-finding, the one step
+-- a classical machine is not known to do in polynomial time ‚Äî and once r
 -- is in hand the factor of n falls out by a gcd, which is the kuaka
 -- again.  ¬ß4 states the classical half of that reduction as a hypothesis
 -- and marks the quantum half as the owed frontier; it is NOT proved here.
@@ -79,7 +79,7 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- ¬ß1  A commutative monoid, as a record ‚î the only structure the RSA
+-- ¬ß1  A commutative monoid, as a record ‚Äî the only structure the RSA
 --     identity uses.  (Kept local; the repository's group modules carry
 --     more than is needed and the point is how LITTLE is needed.)
 ------------------------------------------------------------------------
@@ -96,7 +96,7 @@ record CMonoid (M : Type ‚Ñì) : Type ‚Ñì where
 module _ {M : Type ‚Ñì} (CM : CMonoid M) where
   open CMonoid CM
 
-  -- Pigala's fold at the abstract level: ‡ò‡æ‡ x n = x ‚àô x ‚àô ‚¶ (n times)
+  -- Pi·πÖgala's fold at the abstract level: ‡§ò‡§æ‡§§ x n = x ‚àô x ‚àô ‚Ä¶ (n times)
   ‡§ò‡§æ‡§§ : M ‚Üí ‚Ñï ‚Üí M
   ‡§ò‡§æ‡§§ x zero    = Œµ
   ‡§ò‡§æ‡§§ x (suc n) = x ‚ãÜ ‡§ò‡§æ‡§§ x n
@@ -126,8 +126,8 @@ module _ {M : Type ‚Ñì} (CM : CMonoid M) where
 
   ------------------------------------------------------------------------
   -- ¬ß3  The RSA identity.  Hypotheses named exactly as (1) and (2) above.
-  --     witness :  e ¬ d ‚â° œ ¬ k + 1     (the pulverizer, ‡‡‡‡‡ø‡¶‡‡ß‡ø g=1)
-  --     euler   :  ‡ò‡æ‡ x œ ‚â° Œµ            (order of x divides œ)
+  --     witness :  e ¬∑ d ‚â° œÜ ¬∑ k + 1     (the pulverizer, ‡§¨‡•Ä‡§ú‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø g=1)
+  --     euler   :  ‡§ò‡§æ‡§§ x œÜ ‚â° Œµ            (order of x divides œÜ)
   ------------------------------------------------------------------------
 
   ‡§¨‡•Ä‡§ú‡§Æ‡•Ç‡§≤-‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø :
@@ -145,16 +145,16 @@ module _ {M : Type ‚Ñì} (CM : CMonoid M) where
 
   ------------------------------------------------------------------------
   -- ¬ß4  Shor's classical half, as a reduction with the quantum step held
-  --     as a hypothesis.  ORDER: r is an order of x when ‡ò‡æ‡ x r ‚â° Œµ.
+  --     as a hypothesis.  ORDER: r is an order of x when ‡§ò‡§æ‡§§ x r ‚â° Œµ.
   --     The quantum machine PRODUCES such an r (least positive); classical
-  --     machines are not known to.  Given r, RSA's ‡ò‡æ‡ x œ ‚â° Œµ follows for
-  --     ANY œ that r divides ‚î so an attacker with the order needs no œ,
+  --     machines are not known to.  Given r, RSA's ‡§ò‡§æ‡§§ x œÜ ‚â° Œµ follows for
+  --     ANY œÜ that r divides ‚Äî so an attacker with the order needs no œÜ,
   --     no factorisation.  This is the wedge: the one hypothesis ¬ß3 rests
   --     on is exactly what order-finding hands you for free.
   ------------------------------------------------------------------------
 
-  -- if r divides œ and ‡ò‡æ‡ x r ‚â° Œµ, then ‡ò‡æ‡ x œ ‚â° Œµ ‚î so the order
-  -- suffices in place of Euler's œ.  (œ ‚â° r ¬ j is "r divides œ".)
+  -- if r divides œÜ and ‡§ò‡§æ‡§§ x r ‚â° Œµ, then ‡§ò‡§æ‡§§ x œÜ ‚â° Œµ ‚Äî so the order
+  -- suffices in place of Euler's œÜ.  (œÜ ‚â° r ¬∑ j is "r divides œÜ".)
   ‡§ï‡•ç‡§∞‡§Æ‡§æ‡§§‡•ç-‡§Ø‡•Ç‡§≤‡§∞‡§É :
       (x : M) (r œÜ j : ‚Ñï)
     ‚Üí œÜ ‚â° r ¬∑ j
@@ -167,8 +167,8 @@ module _ {M : Type ‚Ñì} (CM : CMonoid M) where
     ‚àô ‡§ò‡§æ‡§§-Œµ j
 
   -- CONSEQUENCE: order-finding replaces Euler in ¬ß3 outright.  Whoever
-  -- holds the order r of x (with r ‚à œ, automatic since ord ‚à œ) and the
-  -- pulverizer witness for e against œ decrypts ‚î no œ needed beyond
+  -- holds the order r of x (with r ‚à£ œÜ, automatic since ord ‚à£ œÜ) and the
+  -- pulverizer witness for e against œÜ decrypts ‚Äî no œÜ needed beyond
   -- knowing SOME multiple of the order.  The classical reduction is total
   -- once r is in hand; only obtaining r is the (quantum) frontier.
   ‡§∂‡•ã‡§∞-‡§Æ‡•Ç‡§≤‡§Æ‡•ç :

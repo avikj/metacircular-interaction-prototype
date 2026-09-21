@@ -3,7 +3,7 @@
 -- A finite, proof-relevant DSO obstruction.
 --
 -- The random batch-02 anchor was a raw SVG fragment from the carry-cocycle
--- display.  It exposes named intermediate cells (w,L,zâ™), but its bytes do
+-- display.  It exposes named intermediate cells (w,L,zâ‚™), but its bytes do
 -- not certify a semantic cost or a complete transition relation.  We
 -- therefore use it only as a generative prompt for the exact question below:
 -- can a materialised intermediate architecture lose an endpoint witness?

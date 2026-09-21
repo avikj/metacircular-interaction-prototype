@@ -3,16 +3,16 @@
 ------------------------------------------------------------------------
 -- Pratyahara
 --
--- ààà°ààà¯à¾àà¾à° â” Pini's abbreviation device, and a fourth level of the
+-- à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° â€” PÄá¹‡ini's abbreviation device, and a fourth level of the
 -- tower `Anuvrtti` built.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE DEVICE
 --
--- The iva-stras list the phonemes in a chosen order with markers (ààà)
+-- The Å›iva-sÅ«tras list the phonemes in a chosen order with markers (à¤‡à¤¤à¥)
 -- placed between groups.  A pratyhra names a set of phonemes in TWO
--- symbols â” a first element and a marker â” and it names exactly the
--- CONTIGUOUS RUN between them.  ààà, àà²à, àà²à, à¯àà are all of this form.
+-- symbols â€” a first element and a marker â€” and it names exactly the
+-- CONTIGUOUS RUN between them.  à¤…à¤šà¥, à¤…à¤²à¥, à¤¹à¤²à¥, à¤¯à¤£à¥ are all of this form.
 -- The whole of the Adhyy's brevity rests on it: a rule that would
 -- have to list twenty phonemes lists two.
 --
@@ -26,20 +26,20 @@
 -- The first three separations are `Laghava` and `Anuvrtti`.  This module
 -- is the fourth, and it is the one with a hard obstruction in it.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE OBSTRUCTION
 --
 -- Not every family of sets can be made intervals at once.  Over three
 -- letters, the three two-element subsets cannot:
 --
 --     no-order-makes-all-intervals :
---       (o : Ord) â’ Î[ s âˆˆ Pair ] (isInterval o s â‰¡ false)
+--       (o : Ord) â†’ Î£[ s âˆˆ Pair ] (isInterval o s â‰¡ false)
 --
 -- For any ordering (a, b, c), the set {a, c} skips the middle and is not
--- a run.  All six orderings are checked, each by `refl` â” finite
+-- a run.  All six orderings are checked, each by `refl` â€” finite
 -- exhaustive verification, which CLAUDE.md admits as proof.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THAT PREDICTS ABOUT THE IVA-STRAS, AND IT IS TRUE OF THEM
 --
 -- If the grammatically required sets do not all fit one linear order,
@@ -47,15 +47,15 @@
 -- needed pratyhra.  The way out is to let a phoneme occur twice, so it
 -- can sit in two different runs.
 --
--- Pini does exactly this.  à appears twice in the iva-stras â” once in
--- àà¯àµà°àŸà and once in àà²à â” and the doubling is what lets both àà²à and àà²à
+-- PÄá¹‡ini does exactly this.  à¤¹ appears twice in the Å›iva-sÅ«tras â€” once in
+-- à¤¹à¤¯à¤µà¤°à¤Ÿà¥ and once in à¤¹à¤²à¥ â€” and the doubling is what lets both à¤…à¤²à¥ and à¤¹à¤²à¥
 -- be single runs.  It has been read as redundancy or as a transmission
 -- artefact.  It is neither: **repetition is forced**, and the obstruction
 -- above is the reason, in its smallest instance.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -141,7 +141,7 @@ consecutive-ones-can-fail (o , all) with no-order-makes-all-intervals o
 ------------------------------------------------------------------------
 -- 4.  And each ordering does name the other two pairs in two symbols
 --
--- So the obstruction is exactly one set short, not a general failure â”
+-- So the obstruction is exactly one set short, not a general failure â€”
 -- which is why the repair is one repetition and not a redesign.
 ------------------------------------------------------------------------
 
@@ -154,26 +154,26 @@ xyz-names-YZ = refl
 ------------------------------------------------------------------------
 -- 5.  The sentence.
 --
--- à²à¾à˜àµ descends one further level than `Anuvrtti` reached: past the
+-- à¤²à¤¾à¤˜à¤µ descends one further level than `Anuvrtti` reached: past the
 -- ordered rule text to the ordering of the ALPHABET, because that order
 -- decides which sets cost two symbols and which cost their cardinality.
 -- And at that level, unlike the ones above it, there is a genuine
 -- obstruction: some families of sets fit no linear order at all.
 --
--- Pini's response â” repeat a phoneme so it can lie in two runs â” is not
+-- PÄá¹‡ini's response â€” repeat a phoneme so it can lie in two runs â€” is not
 -- untidiness.  It is the only available response, and the smallest
 -- instance of the obstruction is checked above.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  ONE REPETITION SUFFICES â” proving what Â§3's prose asserted.
+-- 6.  ONE REPETITION SUFFICES â€” proving what Â§3's prose asserted.
 --
 -- Â§3 says "the repair is one repetition and not a redesign" and does not
 -- prove it.  It is proved here.
 --
 -- With a letter allowed to occur twice, "nameable" changes meaning: a set
 -- is nameable when SOME contiguous run of positions has exactly that set
--- of letters â” not when every occurrence of every member is inside one
+-- of letters â€” not when every occurrence of every member is inside one
 -- run.  That distinction is the whole point of repeating a phoneme, and
 -- it is why the naive contiguity test of Â§2 does not apply here.
 --
@@ -216,7 +216,7 @@ nameable4 a b c d S =
    eqSet (single a âˆª (single b âˆª (single c âˆª single d))) S))))))))
   where open import Cubical.Data.Bool using (_or_)
 
--- x y z x â” the iva-stra move, at its smallest
+-- x y z x â€” the Å›iva-sÅ«tra move, at its smallest
 repaired-XY : nameable4 x y z x (mem XY) â‰¡ true
 repaired-XY = refl
 
@@ -236,17 +236,17 @@ one-repetition-suffices = repaired-XY , repaired-YZ , repaired-XZ
 -- So the pair of facts is complete, and they are the two halves of one
 -- design decision:
 --
---   Â§3  repetition is FORCED   â” no single-occurrence order names all
+--   Â§3  repetition is FORCED   â€” no single-occurrence order names all
 --                                three, all six checked;
---   Â§6  one repetition SUFFICES â” x y z x names all three.
+--   Â§6  one repetition SUFFICES â€” x y z x names all three.
 --
--- Which is the shape of the iva-stras: à twice, and not three times.
--- Not carelessness, not corruption â” the minimum a real obstruction
+-- Which is the shape of the Å›iva-sÅ«tras: à¤¹ twice, and not three times.
+-- Not carelessness, not corruption â€” the minimum a real obstruction
 -- allows.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 7.  THE OBSTRUCTION, QUANTIFIED.  Three positions never suffice â”
+-- 7.  THE OBSTRUCTION, QUANTIFIED.  Three positions never suffice â€”
 --     including lists that repeat a letter or omit one.
 --
 -- Â§3 rules out the six PERMUTATIONS.  That leaves the twenty-one other
@@ -320,6 +320,6 @@ three-is-not-enough ((a , b , c) , all) with no-3-list a b c
 --   Â§7  three positions:  impossible, all 27 checked
 --   Â§6  four positions:   x y z x works
 --
--- The iva-stras repeat à once.  Not carelessness, not corruption: the
+-- The Å›iva-sÅ«tras repeat à¤¹ once.  Not carelessness, not corruption: the
 -- exact increment a real obstruction forces.
 ------------------------------------------------------------------------

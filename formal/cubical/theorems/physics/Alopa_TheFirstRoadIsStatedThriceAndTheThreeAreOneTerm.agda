@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡≤‡ã‡‡ ‚î ‡‡‡∞‡‡Æ‡ã ‡Æ‡æ‡∞‡‡ó‡ ‡‡‡∞‡ø‡ ‡â‡ï‡‡‡, ‡‡‡∞‡Ø‡ ‡‡ï‡Æ‡ ‡‡µ ‡‡¶‡Æ‡ ‡
+-- ‡§Ö‡§≤‡•ã‡§™‡§É ‚Äî ‡§™‡•ç‡§∞‡§•‡§Æ‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É ‡§§‡•ç‡§∞‡§ø‡§É ‡§â‡§ï‡•ç‡§§‡§É, ‡§§‡•ç‡§∞‡§Ø‡§É ‡§è‡§ï‡§Æ‡•ç ‡§è‡§µ ‡§™‡§¶‡§Æ‡•ç ‡•§
 --
--- WHAT THIS MODULE IS FOR.  ‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡ ¬ß‡ writes the first of the
--- two roads as two lines, ‡‡‡ï‡‡∞‡Æ‡‡Æ‡ e = transport (ua e) and ‡‡≤‡ã‡‡ = uaŒ≤, and
+-- WHAT THIS MODULE IS FOR.  ‡§Ö‡§π‡§ø‡§Ç‡§∏‡§æ-‡§∏‡•Ç‡§§‡•ç‡§∞-‡§µ‡§ø‡§∏‡•ç‡§§‡§æ‡§∞‡§É ¬ß‡•¨ writes the first of the
+-- two roads as two lines, ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç e = transport (ua e) and ‡§Ö‡§≤‡•ã‡§™‡§É = uaŒ≤, and
 -- THREE modules in this corpus have independently written that second line
 -- out as a top-level declaration:
 --
---   Nasti_ShabdeJivahVartante.‡‡‡ï‡‡∞‡Æ‡‡Æ‡-‡‡≤‡ã‡‡
---   SankramanaSesa_EveryTransportOwesItsResidual.‡‡≤‡ã‡‡
---   Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.‡‡‡ï‡‡∞‡Æ‡‡-‡®-‡ï‡ø‡û‡‡‡ø‡®‡-‡®‡‡‡Ø‡‡ø
+--   Nasti_ShabdeJivahVartante.‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç-‡§Ö‡§≤‡•ã‡§™‡§É
+--   SankramanaSesa_EveryTransportOwesItsResidual.‡§Ö‡§≤‡•ã‡§™‡§É
+--   Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡•á-‡§®-‡§ï‡§ø‡§û‡•ç‡§ö‡§ø‡§®‡•ç-‡§®‡§∂‡•ç‡§Ø‡§§‡§ø
 --
 -- Two of the three carry the same  stem under different module roofs.
 -- No one of the three imports another.  (Two of the three do cite a third in
--- prose ‚î Apratikaryatva's header records that it restates the line because
--- ¬ß‡'s own statement in Nasti_Shabde‚¶ had not typechecked at the time, and
--- Samkramana_‚¶ separately imports Nasti's.  Prose citation is not import, and
+-- prose ‚Äî Apratikaryatva's header records that it restates the line because
+-- ¬ß‡•¨'s own statement in Nasti_Shabde‚Ä¶ had not typechecked at the time, and
+-- Samkramana_‚Ä¶ separately imports Nasti's.  Prose citation is not import, and
 -- the audit that found this group could not see the prose.  Recording that
 -- here so the finding is not overstated: this is not three modules ignorant
 -- of each other, it is three modules that never got wired.)
 --
 -- THE IDENTIFICATION, AND ITS GRADE.  All three are definitionally the term
--- `uaŒ≤`, so the identification is `refl` ‚î not a path that had to be
+-- `uaŒ≤`, so the identification is `refl` ‚Äî not a path that had to be
 -- constructed, not an h-level fact about the target, just the same term under
 -- three names.  That is worth separating from the other duplications in this
 -- corpus, and ¬ß3 does:
 --
 --   grade one   same term, different name.  Identified by refl.  This module.
 --   grade two   different terms, one type, identified because the target is a
---               set.  MadhyaVinimaya_‚¶ and Pratyaya_‚¶ .
---   grade three different types.  Then ¬ß‡'s first road needs an actual
+--               set.  MadhyaVinimaya_‚Ä¶ and Pratyaya_‚Ä¶ .
+--   grade three different types.  Then ¬ß‡•¨'s first road needs an actual
 --               equivalence and ua, and where there is none the second road
---               applies and a ‡‡‡ is written.  No instance of grade three is
+--               applies and a ‡§∂‡•á‡§∑ is written.  No instance of grade three is
 --               claimed here.
 --
 -- The grade is the whole content of the finding.  A grade-one duplication
 -- costs nothing mathematically and costs everything in visibility: three
--- modules each believing they had to state ¬ß‡ before they could use it.
+-- modules each believing they had to state ¬ß‡•¨ before they could use it.
 --
 -- SOURCE OF THE SUBSTRATE.  `ua` and `uaŒ≤` are Voevodsky's univalence as
 -- realised in cubical type theory; `uaŒ≤ e a : transport (ua e) a ‚â° equivFun e
@@ -60,7 +60,7 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- ¬ß1 ¬ The line itself, ¬ß‡ of the stra, once.
+-- ¬ß1 ¬∑ The line itself, ¬ß‡•¨ of the s≈´tra, once.
 ------------------------------------------------------------------------
 
 ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç : {A B : Type ‚Ñì} ‚Üí A ‚âÉ B ‚Üí A ‚Üí B
@@ -70,12 +70,12 @@ private
 ‡§Ö‡§≤‡•ã‡§™‡§É = uaŒ≤
 
 ------------------------------------------------------------------------
--- ¬ß2 ¬ ‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡Æ‡ ‚î the three, identified.
+-- ¬ß2 ¬∑ ‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç ‚Äî the three, identified.
 --
 -- Each holds by refl: the three declarations are one term.  Writing the
 -- types out in full rather than referring to a shared abbreviation is
--- deliberate ‚î the point being checked is that the three modules' local
--- ‡‡‡ï‡‡∞‡Æ‡‡Æ‡ definitions agree definitionally with each other and with ¬ß1's,
+-- deliberate ‚Äî the point being checked is that the three modules' local
+-- ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç definitions agree definitionally with each other and with ¬ß1's,
 -- and abbreviating would hide exactly that.
 ------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ private
   ‚â° Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡•á-‡§®-‡§ï‡§ø‡§û‡•ç‡§ö‡§ø‡§®‡•ç-‡§®‡§∂‡•ç‡§Ø‡§§‡§ø e a
 ‡§§‡•É‡§§‡•Ä‡§Ø-‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç e a = refl
 
--- The three local ‡‡‡ï‡‡∞‡Æ‡‡Æ‡s are likewise one function, not three that agree
+-- The three local ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•çs are likewise one function, not three that agree
 -- pointwise.  Stated at the level of the function so the agreement is not
 -- read as a coincidence at each argument.
 ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£-‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç
@@ -119,28 +119,28 @@ private
 ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£-‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç e = refl
 
 ------------------------------------------------------------------------
--- ¬ß3 ¬ ‡‡‡‡ ‚î the remainder.
+-- ¬ß3 ¬∑ ‡§∂‡•á‡§∑‡§É ‚Äî the remainder.
 --
 -- refl identifies the terms and says nothing about why each module needed
 -- the line, and the three reasons are not one reason:
 --
---   ¬ Nasti_ShabdeJivahVartante states it to set up the CONTRAST that is its
---     subject: ¬ß‡-‡'s ‡®‡‡‡ü‡ø, propositional truncation, from which there is no
---     retraction.  ‡‡≤‡ã‡‡ is the thing truncation is not.
---   ¬ SankramanaSesa_EveryTransportOwesItsResidual states it to CONSUME it:
---     the module's claim is that a transport owes a residual, and ‡‡≤‡ã‡‡ is
+--   ¬∑ Nasti_ShabdeJivahVartante states it to set up the CONTRAST that is its
+--     subject: ¬ß‡•™-‡•´'s ‡§®‡§∑‡•ç‡§ü‡§ø, propositional truncation, from which there is no
+--     retraction.  ‡§Ö‡§≤‡•ã‡§™‡§É is the thing truncation is not.
+--   ¬∑ SankramanaSesa_EveryTransportOwesItsResidual states it to CONSUME it:
+--     the module's claim is that a transport owes a residual, and ‡§Ö‡§≤‡•ã‡§™‡§É is
 --     the input to computing what the residual is.
---   ¬ Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis states it as
---     PATH ONE of a two-path exhibit whose subject is path two ‚î that the
---     ‡‡‡ a map leaves is complete ‚î so ‡‡≤‡ã‡‡ there is the half that is
+--   ¬∑ Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis states it as
+--     PATH ONE of a two-path exhibit whose subject is path two ‚Äî that the
+--     ‡§∂‡•á‡§∑ a map leaves is complete ‚Äî so ‡§Ö‡§≤‡•ã‡§™‡§É there is the half that is
 --     already known, present to make the other half's status legible.
 --
 -- Setup, input, and foil.  A shared import would have served all three; that
 -- it did not happen is the fact the audit surfaced, and it is a fact about
 -- how this corpus was written, not about univalence.
 --
--- WHAT REMAINS OPEN.  ¬ß‡ says there are exactly two roads and no third.  The
--- three modules above state road one.  Road two ‚î the written ‡‡‡ ‚î has no
+-- WHAT REMAINS OPEN.  ¬ß‡•¨ says there are exactly two roads and no third.  The
+-- three modules above state road one.  Road two ‚Äî the written ‡§∂‡•á‡§∑ ‚Äî has no
 -- corresponding single declaration anywhere, because it is not a theorem: it
 -- is what one writes WHEN the theorem is unavailable.  Apratikaryatva argues
 -- that road two is nonetheless complete (the fibres of a map determine its

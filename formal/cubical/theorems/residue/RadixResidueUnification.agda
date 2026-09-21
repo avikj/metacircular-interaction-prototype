@@ -8,11 +8,11 @@
 -- two independent formalisations of the base-`b` digit action:
 --
 --   * `RadixSymptoma`, module `Radix`, over an ARBITRARY
---     digit alphabet `D` with weight `dig : D � �`:
+--     digit alphabet `D` with weight `dig : D → ℕ`:
 --
---         step r d = b � r + dig d          (NO reduction)
---         val (d � w) = b ^ length w � dig d + val w
---         run≡ : run step r w ≡ b ^ length w � r + val w
+--         step r d = b · r + dig d          (NO reduction)
+--         val (d ∷ w) = b ^ length w · dig d + val w
+--         run≡ : run step r w ≡ b ^ length w · r + val w
 --
 --     The state is a full numeral; it grows without bound as digits are
 --     consumed.  The modulus `M` enters only through the OBSERVATION
@@ -23,14 +23,14 @@
 --   * `TransportDiv`, on the `Digits` chart:
 --
 --         modw n []      = 0 mod n
---         modw n (d � w) = (to� d + b � modw n w) mod n
+--         modw n (d ∷ w) = (toℕ d + b · modw n w) mod n
 --
---     One reduction PER DIGIT, so the state never leaves `{0,�,n−1}`.
+--     One reduction PER DIGIT, so the state never leaves `{0,…,n−1}`.
 --     `Digits.Word` is LITTLE-ENDIAN (`Digits.agda` §0: "the head is the
---     *least* significant digit"), matching `value (d � w) = to� d +
---     b � value w`.
+--     *least* significant digit"), matching `value (d ∷ w) = toℕ d +
+--     b · value w`.
 --
--- Same shadow, two objects, no theorem between them � the homometry
+-- Same shadow, two objects, no theorem between them — the homometry
 -- hazard.  This module is the theorem.
 --
 -- WHAT IS PROVED HERE.
@@ -45,7 +45,7 @@
 --
 --           (run Radix.step 0 (rev w)) mod n  ≡  modw n w
 --
---       � the unreduced run, reduced once at the end, IS the reduced
+--       — the unreduced run, reduced once at the end, IS the reduced
 --       run.  Proved through `Radix.run≡` (unreduced, exact) composed
 --       with `TransportDiv.value-modw` (reduced, congruent), so it is
 --       the composite of the two modules' own correctness theorems and
@@ -56,29 +56,29 @@
 --   §3  ONE DECISION, NOT TWO.  `decDividesRadix` reads the unreduced
 --       final state; `WalkResidueBridge.decDivides` reads the reduced
 --       one.  `decisions-agree` proves them EQUAL as inhabitants of
---       `Dec ((suc n) � value w)` via `isPropDec isProp�`, the argument
---       `WalkResidueBridge.decDivides�-agrees` uses.  This is equality
+--       `Dec ((suc n) ∣ value w)` via `isPropDec isProp∣`, the argument
+--       `WalkResidueBridge.decDividesℕ-agrees` uses.  This is equality
 --       of decisions, not agreement of extensions: either may be
 --       substituted for the other under any predicate whatsoever.
 --
 --   §4  THE COST DIFFERENCE, WHICH IS THE WHOLE REMAINING CONTENT.
---       `reduced-bounded : modw (suc n) w < suc n` � for every word,
+--       `reduced-bounded : modw (suc n) w < suc n` — for every word,
 --       uniformly, the state is below the modulus.  Against it
---       `unreduced-grows : suc (length w) � run Radix.step 1 (rev w)`,
---       through `unreduced-below : b ^ length w � run Radix.step 1
---       (rev w)` and `pow-lb : suc m � b ^ m` (which needs `2 � b`, and
+--       `unreduced-grows : suc (length w) ≤ run Radix.step 1 (rev w)`,
+--       through `unreduced-below : b ^ length w ≤ run Radix.step 1
+--       (rev w)` and `pow-lb : suc m ≤ b ^ m` (which needs `2 ≤ b`, and
 --       has it: `Digits.b = suc (suc k)`).  So the unreduced state is
 --       bounded below by a function of `length w` alone and above by
 --       nothing depending on `n`, while the reduced state is bounded by
 --       `n` alone and by nothing depending on `w`.
 --
--- ON `Residual`.  This is the `Residual` shape � one object, two
--- presentations, δ ≡ 0 (§2 is the bridge) and � � 0 (§4 is the gap) �
+-- ON `Residual`.  This is the `Residual` shape — one object, two
+-- presentations, δ ≡ 0 (§2 is the bridge) and ϱ ≢ 0 (§4 is the gap) —
 -- and it is NOT instantiated here, deliberately.  `CostGeometry.Presentation`
--- requires `op : Carrier � Carrier � Carrier`; the digit action is
--- `State � Digit � State`, a heterogeneous action with no binary
+-- requires `op : Carrier → Carrier → Carrier`; the digit action is
+-- `State → Digit → State`, a heterogeneous action with no binary
 -- operation to offer, so `Residual.respond` could only be reached by
--- fabricating an `op` and two edge costs, and the resulting `�` would
+-- fabricating an `op` and two edge costs, and the resulting `↝` would
 -- be a restatement of numbers put in by hand rather than a theorem.
 -- §4's two bounds are the honest form of the same claim.  Read this
 -- paragraph as an unproved framing remark, which is what it is.
@@ -87,12 +87,12 @@
 -- `TransportDiv.scale-mod` are DIFFERENT theorems sharing a name in one
 -- directory:
 --
---     RadixSymptoma:  (b n j k r s : �) � (b ^ k � r) mod n ≡ (b ^ k � s) mod n
---                   � (b ^ (j + k) � r) mod n ≡ (b ^ (j + k) � s) mod n
---     TransportDiv:   (n x : �) � (b � x) mod n ≡ (b � (x mod n)) mod n
+--     RadixSymptoma:  (b n j k r s : ℕ) → (b ^ k · r) mod n ≡ (b ^ k · s) mod n
+--                   → (b ^ (j + k) · r) mod n ≡ (b ^ (j + k) · s) mod n
+--     TransportDiv:   (n x : ℕ) → (b · x) mod n ≡ (b · (x mod n)) mod n
 --
 -- Neither is renamed here (both are load-bearing).  RECOMMENDATION:
--- rename the RadixSymptoma one, to `scale-mod-deep` � it is the
+-- rename the RadixSymptoma one, to `scale-mod-deep` — it is the
 -- statement that a congruence survives every DEEPER scaling, which the
 -- current name does not say, and `RadixSymptoma` is imported by exactly
 -- one module (`agda`, the index) against `TransportDiv`'s
@@ -116,8 +116,8 @@
 -- not exist in the installed Agda 2.6.3, where the same effect is
 -- `dontReduceDefs`.  Consequence, which is not this module's fault and
 -- is worth flagging on its own: EVERY module in this directory that
--- uses `solve�!` is currently unbuildable here, `RadixSymptoma`
--- INCLUDED � there is no `RadixSymptoma.agdai` in `_build/2.6.3/`, so
+-- uses `solveℕ!` is currently unbuildable here, `RadixSymptoma`
+-- INCLUDED — there is no `RadixSymptoma.agdai` in `_build/2.6.3/`, so
 -- its own header's green claim has never been reproduced in this
 -- environment.  Same caveat as `TransportDiv`: NOT verified against the
 -- pin in `formal/cubical/BUILD.md` (Agda 2.8.0, cubical v0.9), where
@@ -151,7 +151,7 @@ import RadixSymptoma as RS
 -- 0.  The two machines, side by side.
 --
 -- `R n` is `RadixSymptoma.Radix` instantiated on THIS lane's alphabet:
--- digits `Fin b` weighted by `to�`, base `b = suc (suc k)`, modulus `n`.
+-- digits `Fin b` weighted by `toℕ`, base `b = suc (suc k)`, modulus `n`.
 -- The instantiation is the point: RadixSymptoma's alphabet is arbitrary,
 -- so `Digits.Digit` is one of its instances and no generality is lost.
 ------------------------------------------------------------------------
@@ -203,7 +203,7 @@ val-snoc n (e ∷ u) d =
   ∙ snocStep (b ^ length u) b (toℕ e) (R.val n u) (toℕ d)
 
 -- THE ENDIAN THEOREM.  The two positional evaluations are the same
--- function up to reversal � and only up to reversal.
+-- function up to reversal — and only up to reversal.
 val-rev : (n : ℕ) (w : Word) → R.val n (rev w) ≡ value w
 val-rev n []      = refl
 val-rev n (d ∷ w) =
@@ -257,7 +257,7 @@ radix-obs≡ n w = cong isZero (radix-mod≡modw n w)
 --
 -- `Radix.Accepts r u` is "`u` carries `r` to a multiple of the modulus".
 -- At `r = 0` on `rev w` it is the divisibility test RadixSymptoma's
--- automaton induces; `modw � ≡ 0` is TransportDiv's.  They are
+-- automaton induces; `modw … ≡ 0` is TransportDiv's.  They are
 -- interchangeable, then equal.
 ------------------------------------------------------------------------
 
@@ -281,16 +281,16 @@ radix-accepts→∣ n w a = modw-zero→∣ n w (accepts→modw-zero (suc n) w a
   → (suc n) ∣ value w → R.Accepts (suc n) 0 (rev w)
 ∣→radix-accepts n w d = modw-zero→accepts (suc n) w (∣→modw-zero n w d)
 
--- The divisibility test induced by the UNREDUCED automaton �
+-- The divisibility test induced by the UNREDUCED automaton …
 decDividesRadix : (n : ℕ) (w : Word) → Dec ((suc n) ∣ value w)
 decDividesRadix n w with discreteℕ ((uns (suc n) 0 w) mod (suc n)) 0
 ... | yes p = yes (radix-accepts→∣ n w p)
 ... | no ¬p = no  (λ d → ¬p (∣→radix-accepts n w d))
 
--- � and the theorem that it is not a second test.  `_�_` is a
+-- … and the theorem that it is not a second test.  `_∣_` is a
 -- proposition, so `Dec` of it is a proposition, so the two decisions are
--- equal � not merely both correct.  (The argument is
--- `WalkResidueBridge.decDivides�-agrees`, applied one level up.)
+-- equal — not merely both correct.  (The argument is
+-- `WalkResidueBridge.decDividesℕ-agrees`, applied one level up.)
 decisions-agree : (n : ℕ) (w : Word)
   → decDividesRadix n w ≡ decDivides n w
 decisions-agree n w = isPropDec isProp∣ _ _
@@ -315,7 +315,7 @@ unreduced-below n w =
   subst (b ^ length w ≤_) (sym (uns≡ n 1 w))
         (value w , oneStart (b ^ length w) (value w))
 
--- `2 � b` is definitional here (`Digits.b = suc (suc k)`), so the
+-- `2 ≤ b` is definitional here (`Digits.b = suc (suc k)`), so the
 -- exponential really is unbounded and this is a theorem, not a gesture.
 pow-lb : (m : ℕ) → suc m ≤ b ^ m
 pow-lb zero    = ≤-refl

@@ -1,7 +1,7 @@
 THE RESIDUE OF A PROJECTION IS CONSERVED, INACCESSIBLE FROM BELOW, AND
 IS THE STRUCTURE OF THE LEVEL ABOVE
 One law in three clauses, each checked at full generality, whose
-instances are the corpus â” and whose own status obeys it
+instances are the corpus â€” and whose own status obeys it
 
 Foundations / the ea trilaw
 
@@ -10,9 +10,9 @@ remainder cannot be recovered from its image.  This abstract states
 what the remainder does instead, as three clauses, each a theorem.
 
 CONSERVED.  Reversibility conserves distinctions: an injective
-dynamics on system — environment that merges two system states must
-separate them in the environment â” erasure is displacement, never
-destruction, in four lines â” and the displaced ledger persists:
+dynamics on system Ã— environment that merges two system states must
+separate them in the environment â€” erasure is displacement, never
+destruction, in four lines â€” and the displaced ledger persists:
 content at any depth of the environment tape is content at the
 corresponding depth at every later time; the run deepens addresses
 and never touches them.  Downstream, dually, a collapsed distinction
@@ -20,7 +20,7 @@ never returns: merged by any stage, merged under every later stage.
 The two monotonicities are the counting form of the second law, and
 their sum is the conservation the trilaw asserts.
 
-INACCESSIBLE.  No section â” of the propositional truncation, of the
+INACCESSIBLE.  No section â€” of the propositional truncation, of the
 boolean shadow of counting (no additive section, dying on one
 idempotence), of the pair of marginals (correlation escapes), of the
 working tree (the overwritten writer escapes).  Each inaccessibility
@@ -32,7 +32,7 @@ residue families: every family of fibre endomaps acts over the base
 by refl; every over-map is such an assembly, pointwise, with no
 hypothesis on base or family; the extraction retracts the assembly;
 and fibre inverses assemble to inverses.  The fibres are not what the
-level above forgets â” they are what the level above is made of.
+level above forgets â€” they are what the level above is made of.
 Correlation is the residue of the marginals and is the structure of
 joint distributions; the quarter turn is the residue of descent and
 is the structure of braiding; the route is the residue of the meaning
@@ -42,13 +42,13 @@ the environment's ledger.
 Put to the corpus's own verdict organs as one question, the law
 answered as itself: the standpoints agree in truth and differ in
 content (no flattening); the law is not a separate object above the
-kernel (the kernel's three governing theorems are its three clauses â”
+kernel (the kernel's three governing theorems are its three clauses â€”
 advance conserves, soundness truncates without section, retire turns
 the session's remainder into the next operation); and the garbha
 carries it as the seed of every birth.  The law is not stated by the
 corpus.  It is enacted by it.
 
-SYT â” THE CLAIM, EXACTLY.  The three clauses are checked at the
+SYÄ€T â€” THE CLAIM, EXACTLY.  The three clauses are checked at the
 generality stated; the identification of every future residue with a
 next level is the corpus's method, demonstrated per instance, not
 quantified over instances.

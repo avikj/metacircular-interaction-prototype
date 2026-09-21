@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sha256PeqNP â” P=NP on the lossless machine, at real SHA-256, as one
+-- Sha256PeqNP â€” P=NP on the lossless machine, at real SHA-256, as one
 -- term.  Mirrors PeqNPHoldsOnTheLosslessUniversalMachine, instantiated
 -- at the hash:
 --
---   * the LOSSY hash HAS a gap (a collision) â” the find/check
+--   * the LOSSY hash HAS a gap (a collision) â€” the find/check
 --     distinction is present where information is dropped;
---   * the LOSSLESS completion has NO gap â” injective, so find = check,
+--   * the LOSSLESS completion has NO gap â€” injective, so find = check,
 --     the distinction is impossible there.
 --
 -- The lossy gap is witnessed here at 4 rounds (Sha256N.collision-4); the
 -- lossless side is universal (Sha256Lossless proves it for full 64-round
 -- sha256nat, all inputs).  Together: the P/NP distinction at SHA-256 is a
 -- property of the forgetting, present on the lossy reading and absent on
--- the lossless one â” the same claim the universal-machine capstone makes,
+-- the lossless one â€” the same claim the universal-machine capstone makes,
 -- now on the real hash.
 ------------------------------------------------------------------------
 
@@ -48,7 +48,7 @@ gap-on-lossy : Gap (compressR 4)
 gap-on-lossy = collision-4
 
 ------------------------------------------------------------------------
--- Â§2  The lossless side: the completion of the same step has NO gap â”
+-- Â§2  The lossless side: the completion of the same step has NO gap â€”
 --     it is an equivalence, hence injective, so no collision exists on it.
 ------------------------------------------------------------------------
 

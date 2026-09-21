@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- Punargamana ¬ LawfulStep
+-- PunarƒÅgamana ¬∑ LawfulStep
 --
 -- THE DISTINCTION THIS MODULE EXISTS TO KEEP.
 --
 -- `Fibre.Carrier` and `Fibre.Trace` are about a change of PRESENTATION.
 -- A heartbeat is a change of STATE, and the two are not the same claim:
 --
---   losslessness of re-presentation  ‚  invertibility of the transition.
+--   losslessness of re-presentation  ‚áè  invertibility of the transition.
 --
 -- The corpus's own heartbeat (Fibre.Viveka's Œ¶) happens to be injective,
 -- which makes it easy to forget that nothing in the machinery required it
 -- to be.  A lawful step is therefore NOT "an invertible step".  It is a
 -- step whose residue is typed:
 --
---   next         : A ‚í A                        the visible successor
---   Residue      : A ‚í Type                     what the successor omits
---   materialises : A ‚â Œ[ a' ‚àà A ] Residue a'   the source is the sum
+--   next         : A ‚Üí A                        the visible successor
+--   Residue      : A ‚Üí Type                     what the successor omits
+--   materialises : A ‚âÉ Œ£[ a' ‚àà A ] Residue a'   the source is the sum
 --   visible      : the equivalence's first projection IS `next`
 --
 -- THE FOURTH FIELD IS NOT DECORATION.  Without `visible`, `next` is
 -- unconstrained by the other three and the record asserts nothing about
--- the step it names ‚î one could pair an arbitrary transition with the
+-- the step it names ‚Äî one could pair an arbitrary transition with the
 -- identity's factorisation and satisfy the type.  Tying the projection to
 -- `next` is what makes the residue the residue OF THIS STEP, and it is
 -- what `residue-is-the-fibre` below consumes.
@@ -30,20 +30,20 @@
 -- THE THEOREM.  Given that tie, the residue of a lawful step is exactly
 -- the homotopy fibre of the step:
 --
---   Residue a'  ‚â  fiber next a'
+--   Residue a'  ‚âÉ  fiber next a'
 --
 -- and so, by Fibre.Trace's two corollaries transported along it,
 --
 --   contractible residue  ‚ü∫  the step is invertible.
 --
--- THE WITNESS.  `collapse` (n ‚¶ 0) forgets its entire input.  It is
--- provably not an equivalence; its residue over 0 is provably ‚ï, hence
--- provably not contractible; and ‚ï ‚â Œ[ n ] fiber collapse n all the same,
+-- THE WITNESS.  `collapse` (n ‚Ü¶ 0) forgets its entire input.  It is
+-- provably not an equivalence; its residue over 0 is provably ‚Ñï, hence
+-- provably not contractible; and ‚Ñï ‚âÉ Œ£[ n ] fiber collapse n all the same,
 -- with the source recovered by refl.  That triple is the whole point: the
 -- factorisation is lossless BECAUSE the residue is large, not despite it.
 --
 -- THE THIRD CASE.  Non-invertibility has two shapes, not one.  `collapse`
--- is the crowded fibre; `suc` is the EMPTY one ‚î nothing steps to 0 ‚î and
+-- is the crowded fibre; `suc` is the EMPTY one ‚Äî nothing steps to 0 ‚Äî and
 -- `isContr` alone cannot tell those apart.  That is exactly the census
 -- point already made in
 -- Fibre.WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic,
@@ -145,11 +145,11 @@ collapse-not-invertible : ¬¨ isEquiv collapse
 collapse-not-invertible e =
   znots (sym (retEq (collapse , e) 0) ‚àô retEq (collapse , e) 1)
 
--- 2.  Its residue over 0 is the whole of ‚ï ‚î every source is still there.
+-- 2.  Its residue over 0 is the whole of ‚Ñï ‚Äî every source is still there.
 collapse-residue : fiber collapse 0 ‚âÉ ‚Ñï
 collapse-residue = Œ£-contractSnd (Œª _ ‚Üí refl , isSet‚Ñï 0 0 refl)
 
--- 3.  ‚¶hence not contractible.  This is the same fact as (1), seen from
+-- 3.  ‚Ä¶hence not contractible.  This is the same fact as (1), seen from
 --     the other side, and Fibre.Trace's corollaries are what connect them.
 collapse-residue-not-contractible : ¬¨ isContr (fiber collapse 0)
 collapse-residue-not-contractible c =

@@ -4,9 +4,9 @@
 -- TheEmptyListWasNeverCheckedAndItRefutesExactlyWhenTheDecoderSpaceIsEmpty
 --
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- The audited module belongs to the standing à²à¾à˜àµ (lghava) thread and
--- names its sites ààµà•àààµàà¯ (avaktavya), àà¨ààµààààà¿ (anuvtti),
--- ààà°ààà¯à¾àà¾à° (pratyhra), àààµà¾à¦ (apavda) â” Jaina and Pinian terms
+-- The audited module belongs to the standing à¤²à¤¾à¤˜à¤µ (lÄghava) thread and
+-- names its sites à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯ (avaktavya), à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿ (anuvá¹›tti),
+-- à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° (pratyÄhÄra), à¤…à¤ªà¤µà¤¾à¤¦ (apavÄda) â€” Jaina and PÄá¹‡inian terms
 -- respectively, and **the school is named before the term** as the
 -- naming rule requires.  This module touches none of that material: its
 -- subject is the LIST-LENGTH bookkeeping of a measure defined in that
@@ -16,15 +16,15 @@
 -- first.  **No claim whatever is made about avaktavya, anuvtti,
 -- pratyhra or apavda.**
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE AUDIT.  `WitnessNumberIsTwo` defines a measure â”
--- the least list of points on which no decoder survives â” and concludes
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- THE AUDIT.  `WitnessNumberIsTwo` defines a measure â€”
+-- the least list of points on which no decoder survives â€” and concludes
 --
 --   "so the witness number at any collision site is **exactly 2**:
 --    2 suffices (above) and 1 does not (Â§3)"
 --
--- with `collision-witness-number-2` pairing `Refutes â¦ (x âˆ x' âˆ [])`
--- against `(z : X) â’ Â Refutes â¦ (z âˆ [])`.
+-- with `collision-witness-number-2` pairing `Refutes â€¦ (x âˆ· x' âˆ· [])`
+-- against `(z : X) â†’ Â¬ Refutes â€¦ (z âˆ· [])`.
 --
 -- **A LEAST OVER LIST LENGTHS HAS THREE CASES BELOW 3, AND ONLY TWO
 -- WERE CHECKED.**  Lengths 2 and 1 are settled; **length 0 is not
@@ -32,37 +32,37 @@
 -- definition does not make it vacuous:
 --
 --     AllHold law d []  =  Unit*
---     Refutes law []    =  (d : D) â’ Â Unit*
+--     Refutes law []    =  (d : D) â†’ Â¬ Unit*
 --
--- so `Refutes law []` is `Â D` up to the unit â” **the empty list
+-- so `Refutes law []` is `Â¬ D` up to the unit â€” **the empty list
 -- refutes exactly when the DECODER SPACE IS EMPTY.**  Â§1 proves both
--- directions; Â§3 exhibits an inhabited instance at `D = âŠ`, where the
+-- directions; Â§3 exhibits an inhabited instance at `D = âŠ¥`, where the
 -- witness number is 0 and not 2.
 --
 -- WHAT IS PROVED
 --
 --   nilRefutesGivesNoDecoder / noDecoderGivesNilRefutes
 --        the two directions.  Neither needs anything of `law`, `X` or
---        the universes â” `law` is not even applied, which is the point:
+--        the universes â€” `law` is not even applied, which is the point:
 --        at length 0 the measure stops seeing the law at all
 --   aDecoderKeepsTheEmptyListSilent
 --        the usable form: any `d : D` refutes the refutation
 --   factorLawEmptyNeverRefutes
 --        and at the audited module's own `factorLaw`, ONE point of `X`
---        supplies the decoder (`Î» _ â’ t x`), exactly as
---        `singleton-never-refutes` does â” so on that line the gap is
+--        supplies the decoder (`Î» _ â†’ t x`), exactly as
+--        `singleton-never-refutes` does â€” so on that line the gap is
 --        closable, and closing it is this
 --   collisionWitnessNumberIsTwoAtAllThreeLengths
 --        the audited conclusion with its third case attached
 --   witnessNumberZeroIsAttained
---        at `D = âŠ` the empty list refutes for EVERY law, so "the
+--        at `D = âŠ¥` the empty list refutes for EVERY law, so "the
 --        answer is 2 everywhere" is a statement about lines with
 --        inhabited decoder spaces, and that hypothesis was silent
 --
 -- **WHAT THIS SAYS ABOUT THE MEASURE, AND IT IS THE FINDING.**  The
 -- audited module's own Â§6 diagnoses its two predecessors: *"a quantity
 -- was named before a measure was fixed."*  The measure IS fixed here,
--- and the residue is subtler â” **a minimum was reported without its
+-- and the residue is subtler â€” **a minimum was reported without its
 -- whole range being examined.**  Length 0 is where the measure degrades
 -- from a fact about the obstruction to a fact about the decoder space,
 -- which is precisely the distinction that module's own closing lines
@@ -70,7 +70,7 @@
 -- a property of the mathematics obstructed").  The omitted case is the
 -- extreme point of the distinction it had already found.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -134,7 +134,7 @@ collisionWitnessNumberIsTwoAtAllThreeLengths q t {x = x} same differ =
   , factorLawEmptyNeverRefutes q t x
 
 ------------------------------------------------------------------------
--- 3.  â¦and the omitted case is inhabited, so the hypothesis was real
+-- 3.  â€¦and the omitted case is inhabited, so the hypothesis was real
 ------------------------------------------------------------------------
 
 witnessNumberZeroIsAttained :

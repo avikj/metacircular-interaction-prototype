@@ -6,75 +6,75 @@
 -- THE THIRD LEG OF R0033, AND THE ONE THAT MAKES THE OTHER TWO A SIGN.
 --
 -- `Gamma0Partner` builds a two-sided stabilizer K from a divisibility
--- witness k (c = k�q).  `Gamma0Converse` reads a witness back off any
+-- witness k (c = k·q).  `Gamma0Converse` reads a witness back off any
 -- stabilizer.  Two functions in opposite directions is not yet an
 -- identification: nothing so far says they are inverse, and nothing
 -- says the partner built in `Gamma0Partner` is the ONLY one.
 --
--- It is.  Over �, with d� ≠ 0 and q ≠ 0, the two-sided stabilizer of
--- D = diag(d�, q�d�) by a unimodular H = (a b / c e) is a SINGLE
+-- It is.  Over ℤ, with d₁ ≠ 0 and q ≠ 0, the two-sided stabilizer of
+-- D = diag(d₁, q·d₁) by a unimodular H = (a b / c e) is a SINGLE
 -- matrix, and it is exactly the one `Gamma0Partner` writes down:
 --
---     K  =  ( ε�e   -ε�b�q )        ε = det H,  ε² = 1,  c = k�q.
---           ( -ε�k   ε�a   )
+--     K  =  ( ε·e   -ε·b·q )        ε = det H,  ε² = 1,  c = k·q.
+--           ( -ε·k   ε·a   )
 --
 -- Consequences, all checked below:
 --
---   §2 `canonical`     � every partner equals that matrix, entrywise.
---   §3 `isPropPartner` � so the type of partners is a PROPOSITION;
+--   §2 `canonical`     — every partner equals that matrix, entrywise.
+--   §3 `isPropPartner` — so the type of partners is a PROPOSITION;
 --      `isPropWitness`   so is the type of witnesses (q ≠ 0);
---      `partner�witness` and the two are EQUIVALENT.  Γ�-membership and
+--      `partner≃witness` and the two are EQUIVALENT.  Γ₀-membership and
 --      two-sided stabilization are not two facts that imply each other,
 --      they are one type presented twice, and the transition is the
 --      content.
---      `isContrPartner` � given a witness the partner type is
+--      `isContrPartner` — given a witness the partner type is
 --      contractible: the partner is not a choice.
 --
--- TORSOR.md` Theorem 1 gets uniqueness from "over �, HDK = D forces
--- K = D��H��D".  That step leaves �, inverts D and inverts H.  §2 below
+-- TORSOR.md` Theorem 1 gets uniqueness from "over ℚ, HDK = D forces
+-- K = D⁻¹H⁻¹D".  That step leaves ℤ, inverts D and inverts H.  §2 below
 -- reaches the same conclusion with NO division, NO inverse and NO
--- passage to �: it eliminates one unknown between two entries of the
--- product, and cancels d� and q by integrality of � (`�lCancel`).  The
+-- passage to ℚ: it eliminates one unknown between two entries of the
+-- product, and cancels d₁ and q by integrality of ℤ (`·lCancel`).  The
 -- rational formula is replaced by four integer polynomials.
 --
 -- §4 is the other half of "a sign is a relation, not a label": the
 -- witness COMPOSES, and not additively.
 --
---   `stabAnti`   � stabilizing pairs are closed under the GL � GL���� law
---                  (H,K)�(H',K') = (H�H', K'�K).  Pure associativity,
+--   `stabAnti`   — stabilizing pairs are closed under the GL × GLᵒᵖ law
+--                  (H,K)·(H',K') = (H·H', K'·K).  Pure associativity,
 --                  no hypotheses on D or on unimodularity at all.  This
 --                  is the precision that `collab/messages/0440-fleet-
 --                  blind-r0033-audit-verdict.md` recorded in prose from
 --                  a Python audit ("the pair set is a group under the
---                  GL�GL���� law, not the componentwise product"); here it
+--                  GL×GLᵒᵖ law, not the componentwise product"); here it
 --                  is a checked term.
---   `gamma0Mul`  � Γ�(q) is closed, WITH the witness of the product
+--   `gamma0Mul`  — Γ₀(q) is closed, WITH the witness of the product
 --                  computed rather than searched for:
---                      k(H�H')  =  k(H)�a'  +  e�k(H').
+--                      k(H·H')  =  k(H)·a'  +  e·k(H').
 --                  A crossed homomorphism (1-cocycle) for the action of
---                  Γ� through the diagonal entries.  Standard object,
+--                  Γ₀ through the diagonal entries.  Standard object,
 --                  no novelty claimed (searched: "crossed homomorphism",
---                  nLab / Encyclopedia of Mathematics � the general
---                  notion �(ab) = �(a)�(a��(b)) is classical; the Γ�
+--                  nLab / Encyclopedia of Mathematics — the general
+--                  notion φ(ab) = φ(a)·(a·φ(b)) is classical; the Γ₀
 --                  instance is the (2,1) entry of a matrix product).
---   `twistNeeded`� the twist is not decoration.  At q = 1, k = 1, e = 1,
+--   `twistNeeded`— the twist is not decoration.  At q = 1, k = 1, e = 1,
 --                  a' = 2, k' = 1 the cocycle gives 3 and the additive
 --                  law gives 2.  So the witness, as a map from the
---                  monoid (Γ�(q), �, I) to the monoid (�, +, 0), is NOT
---                  a monoid homomorphism.  Contrast � the comparison is
---                  a contrast, not an application, the domains differ �
+--                  monoid (Γ₀(q), ·, I) to the monoid (ℤ, +, 0), is NOT
+--                  a monoid homomorphism.  Contrast — the comparison is
+--                  a contrast, not an application, the domains differ —
 --                  `TermFreeMonoid.rec-additive`: every
 --                  measure defined by the free-monoid recursion into a
---                  monoid IS automatically additive.  The Γ� witness
+--                  monoid IS automatically additive.  The Γ₀ witness
 --                  falls outside that class, and the thing it carries
 --                  that a rec-measure does not is the index (a', e').
 --
 -- Pointer, in-flight and not consumed here.  A sibling module landing
 -- in the same block, `Gamma0ConverseSharp`, claims (its §2) that on
--- d� ≠ 0, q ≠ 0 the stabilization equation ITSELF forces det H�det H
+-- d₁ ≠ 0, q ≠ 0 the stabilization equation ITSELF forces det H·det H
 -- ≡ 1.  If that stands, the `hε` hypothesis of §2's inner `hstab`
--- module below is redundant � derivable from the other hypotheses
--- already present there � and §2 would hold with one fewer assumption.
+-- module below is redundant — derivable from the other hypotheses
+-- already present there — and §2 would hold with one fewer assumption.
 -- It is NOT redundant in `toPartner` (§3), which is handed a witness
 -- and no stabilizer, so nothing there can supply it.  Recorded as
 -- theirs, unverified here.
@@ -105,10 +105,10 @@ open import Gamma0Freeness using (mulAssoc)
 open CommRingStr (ℤCommRing .snd)
 
 ------------------------------------------------------------------------
--- 1.  Solver lemmas: pure polynomial regroupings over �.
+-- 1.  Solver lemmas: pure polynomial regroupings over ℤ.
 --
 -- `sXY` eliminates one unknown between two entries of the product
--- H�D�K; `tXY` normalises the right-hand side after the two entry
+-- H·D·K; `tXY` normalises the right-hand side after the two entry
 -- equations are substituted.  Nothing here knows what a matrix is.
 ------------------------------------------------------------------------
 
@@ -164,7 +164,7 @@ private
   negOut : (ε k : R) → ε · (- k) ≡ - (ε · k)
   negOut _ _ = solve! ℤCommRing
 
-  -- ε�x ≡ y  and  ε² = 1  give  x ≡ ε�y.  Used four times.
+  -- ε·x ≡ y  and  ε² = 1  give  x ≡ ε·y.  Used four times.
   scaleBack : (ε x y : R) → ε · ε ≡ 1r → ε · x ≡ y → x ≡ ε · y
   scaleBack ε x y hε p =
     sym (oneMul x) ∙ cong (_· x) (sym hε) ∙ sqAssoc ε x ∙ cong (ε ·_) p
@@ -214,7 +214,7 @@ module _ (a b c e d1 q ε : R)
     q22 : (c · d1 + e · 0r) · k12 + (c · 0r + e · (q · d1)) · k22 ≡ q · d1
     q22 i = snd (snd (snd (hstab i)))
 
-    -- K�� : eliminate k21 between rows, then cancel d�
+    -- K₁₁ : eliminate k21 between rows, then cancel d₁
     c11 : d1 · (ε · k11) ≡ d1 · e
     c11 = cong (λ x → d1 · (x · k11)) (sym hdet)
           ∙ s11 a b c e d1 q k11 k21
@@ -224,7 +224,7 @@ module _ (a b c e d1 q ε : R)
     p11 : k11 ≡ ε · e
     p11 = scaleBack ε k11 e hε (·lCancel d1 (ε · k11) e c11 d1n)
 
-    -- K�� : same elimination on the second column
+    -- K₁₂ : same elimination on the second column
     c12 : d1 · (ε · k12) ≡ d1 · (- (b · q))
     c12 = cong (λ x → d1 · (x · k12)) (sym hdet)
           ∙ s12 a b c e d1 q k12 k22
@@ -236,7 +236,7 @@ module _ (a b c e d1 q ε : R)
             (·lCancel d1 (ε · k12) (- (b · q)) c12 d1n)
           ∙ negOut ε (b · q)
 
-    -- K�� : eliminate k12, cancel d�, then cancel q
+    -- K₂₂ : eliminate k12, cancel d₁, then cancel q
     c22 : d1 · (ε · (q · k22)) ≡ d1 · (q · a)
     c22 = cong (λ x → d1 · (x · (q · k22))) (sym hdet)
           ∙ s22 a b c e d1 q k12 k22
@@ -249,7 +249,7 @@ module _ (a b c e d1 q ε : R)
     p22 : k22 ≡ ε · a
     p22 = scaleBack ε k22 a hε (·lCancel q (ε · k22) a c22' qn)
 
-    -- K�� : eliminate k11, cancel d�; the witness enters here and only
+    -- K₂₁ : eliminate k11, cancel d₁; the witness enters here and only
     -- here, because the (2,1) entry is where the level lives
     c21 : d1 · (ε · (q · k21)) ≡ d1 · (- c)
     c21 = cong (λ x → d1 · (x · (q · k21))) (sym hdet)
@@ -275,7 +275,7 @@ module _ (a b c e d1 q ε : R)
       canonical i = (p11 i , p12 i , p21 i , p22 i)
 
 ------------------------------------------------------------------------
--- 3.  Hence the two presentations of Γ�-membership are one type.
+-- 3.  Hence the two presentations of Γ₀-membership are one type.
 ------------------------------------------------------------------------
 
   isPropWitness : isProp Witness
@@ -330,7 +330,7 @@ module _ (a b c e d1 q ε : R)
 -- 4.  The witness composes, and the composition is twisted.
 ------------------------------------------------------------------------
 
--- Stabilizing pairs are closed under the GL � GL���� law.  Associativity
+-- Stabilizing pairs are closed under the GL × GLᵒᵖ law.  Associativity
 -- only: D is arbitrary, no determinant hypothesis anywhere.
 stabAnti : (X Y Dm K L : M)
          → mul (mul X Dm) K ≡ Dm
@@ -349,8 +349,8 @@ private
        → (k · q) · a' + e · (k' · q) ≡ (k · a' + e · k') · q
   cocy _ _ _ _ _ _ _ = solve! ℤCommRing
 
--- Γ�(q) is closed under multiplication, and the witness of the product
--- is  k�a' + e�k'  � a crossed homomorphism, not a homomorphism.
+-- Γ₀(q) is closed under multiplication, and the witness of the product
+-- is  k·a' + e·k'  — a crossed homomorphism, not a homomorphism.
 gamma0Mul : (a b e k a' b' e' k' q : R)
           → mul (a , b , k · q , e) (a' , b' , k' · q , e')
             ≡ ( a · a' + b · (k' · q)
@@ -363,7 +363,7 @@ gamma0Mul a b e k a' b' e' k' q i =
   , cocy a e k a' e' k' q i
   , (k · q) · b' + e · e' )
 
--- the inverse's witness (ε�adj is the inverse of a unimodular matrix)
+-- the inverse's witness (ε·adj is the inverse of a unimodular matrix)
 gamma0InvWitness : (k q ε : R) → ε · (- (k · q)) ≡ (- (ε · k)) · q
 gamma0InvWitness _ _ _ = solve! ℤCommRing
 
@@ -383,7 +383,7 @@ additiveValue = refl
 twistNeeded : (pos 3 ≡ pos 2) → ⊥
 twistNeeded p = snotz (injSuc (injSuc (injPos p)))
 
--- the same, in matrix form: (1 0 / 1 1)�(2 1 / 1 1) = (2 1 / 3 2),
+-- the same, in matrix form: (1 0 / 1 1)·(2 1 / 1 1) = (2 1 / 3 2),
 -- whose (2,1) entry is 3, not 1 + 1.
 productExample : mul (pos 1 , pos 0 , pos 1 , pos 1) (pos 2 , pos 1 , pos 1 , pos 1)
                ≡ (pos 2 , pos 1 , pos 3 , pos 2)
@@ -399,8 +399,8 @@ productExample = refl
 -- matrix must fail to stabilize, and here it does.
 ------------------------------------------------------------------------
 
--- H = (1 0 / 2 1) ∈ Γ�(2), det = 1, D = diag(1, 2�1).  The partner
--- predicted by §2 with ε = 1, k = 1 is (ε�e, -ε�b�q, -ε�k, ε�a)
+-- H = (1 0 / 2 1) ∈ Γ₀(2), det = 1, D = diag(1, 2·1).  The partner
+-- predicted by §2 with ε = 1, k = 1 is (ε·e, -ε·b·q, -ε·k, ε·a)
 -- = (1, 0, -1, 1), and it stabilizes.
 exampleStab : mul (mul (pos 1 , pos 0 , pos 2 , pos 1) (dia (pos 1) (pos 2 · pos 1)))
                   (pos 1 , pos 0 , - (pos 1) , pos 1)

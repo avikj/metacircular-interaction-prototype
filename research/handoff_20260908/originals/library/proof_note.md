@@ -6,7 +6,7 @@ Repository snapshot inspected: `avikj/metacircular-interaction-prototype`, commi
 
 This note proves two application-specific completion results. For whole-space incompressible velocity fields with bounded vorticity and globally bounded mean oscillation of the velocity gradient, the kernel of the vorticity reading consists exactly of affine harmonic velocities. After fixing translations, the unresolved source fibre has dimension five and has a canonical linear section given by mean strain. The bounded-mean-oscillation condition is inherited, with a scale-independent seminorm bound, from the smooth finite-energy sources used in vorticity normalization. The note also proves that all spectral coordinates of the Weil form are generated densely by translations of the previously fixed packet, identifies the full completed form as a reflection form on a weighted sequence Hilbert space, and computes its negative index exactly.
 
-The endpoint singular-integral estimate, the Johnâ“Nirenberg theorem, classical zeta continuation and zero counting, and the Weil explicit formula are classical inputs. The proofs below spell out their application. No originality-priority claim, proof of global Navierâ“Stokes regularity, proof of RH, numerical zeta certificate, or Agda/Lean compilation is asserted. The attached script verifies algebraic identities and finite signature controls; it does not verify the analytical density and compactness arguments.
+The endpoint singular-integral estimate, the Johnâ€“Nirenberg theorem, classical zeta continuation and zero counting, and the Weil explicit formula are classical inputs. The proofs below spell out their application. No originality-priority claim, proof of global Navierâ€“Stokes regularity, proof of RH, numerical zeta certificate, or Agda/Lean compilation is asserted. The attached script verifies algebraic identities and finite signature controls; it does not verify the analytical density and compactness arguments.
 
 The inspected repository modules `Pairfield/LinearObservabilityKernel.lean` and `Pairfield/InvariantCorrectiveClosure.lean` provide the abstract observability-kernel transport and least corrective-channel closure. The results below supply concrete analytical kernels, sections, and dense realizations. The generic module statements do not themselves prove these application hypotheses.
 
@@ -30,7 +30,7 @@ For a smooth divergence-free finite-energy velocity u on R3 with bounded vortici
 \tag{1}
 \]
 
-The gradient is an order-zero Calder³nâ“Zygmund transform of the vorticity:
+The gradient is an order-zero CalderÃ³nâ€“Zygmund transform of the vorticity:
 
 \[
 \partial_j u_i=\epsilon_{i\ell k}\partial_j\partial_\ell(-\Delta)^{-1}\omega_k.
@@ -53,7 +53,7 @@ The estimate is scale independent. For \(u_r(x)=r u(x_0+rx)\),
 \qquad \|\operatorname{curl}u_r\|_\infty=r^2\|\omega\|_\infty.
 \]
 
-Thus a global vorticity normalization to at most one also gives a uniform BMO seminorm bound on the velocity gradient. For periodic sources on expanding tori, the periodic Calder³nâ“Zygmund estimate has the same dilation-independent constant. On balls larger than a period, the zero-mean gradient and its cell L2 bound control the mean oscillation; on smaller balls the periodic singular-integral argument applies. Every local whole-space limit therefore inherits the global BMO bound, provided the local gradient limit exists. This is not a bound on the mean strain.
+Thus a global vorticity normalization to at most one also gives a uniform BMO seminorm bound on the velocity gradient. For periodic sources on expanding tori, the periodic CalderÃ³nâ€“Zygmund estimate has the same dilation-independent constant. On balls larger than a period, the zero-mean gradient and its cell L2 bound control the mean oscillation; on smaller balls the periodic singular-integral argument applies. Every local whole-space limit therefore inherits the global BMO bound, provided the local gradient limit exists. This is not a bound on the mean strain.
 
 ## 2. Harmonic BMO functions are constant
 
@@ -76,7 +76,7 @@ Let
 \ [\nabla u]_{\mathrm{BMO}}<\infty\}.
 \]
 
-All gradients in this class belong locally to every finite Lp space by Johnâ“Nirenberg. Let \(S_u=(\nabla u+\nabla u^T)/2\).
+All gradients in this class belong locally to every finite Lp space by Johnâ€“Nirenberg. Let \(S_u=(\nabla u+\nabla u^T)/2\).
 
 ### Theorem 1
 
@@ -134,9 +134,9 @@ Five additional real linear strain readings are minimal after translation is fix
 
 ## 5. Stability of the completed inverse
 
-The estimate (1) also holds for every u in \(\mathcal X\). To see this, form the Calder³nâ“Zygmund gradient transform of its bounded vorticity modulo constants. The difference from \(\nabla u\) is a harmonic BMO matrix, hence constant. Thus their BMO seminorms coincide up to the universal transform estimate.
+The estimate (1) also holds for every u in \(\mathcal X\). To see this, form the CalderÃ³nâ€“Zygmund gradient transform of its bounded vorticity modulo constants. The difference from \(\nabla u\) is a harmonic BMO matrix, hence constant. Thus their BMO seminorms coincide up to the universal transform estimate.
 
-Johnâ“Nirenberg controls every finite Lp mean oscillation. The mean of the skew part of \(\nabla u\) is fixed by the mean vorticity, while the symmetric part is A(u). Comparing means over nested balls gives at most logarithmic growth in the radius ratio. Poincar©, with the mean velocity fixed on B, then yields, for every finite R and \(1<p<\infty\),
+Johnâ€“Nirenberg controls every finite Lp mean oscillation. The mean of the skew part of \(\nabla u\) is fixed by the mean vorticity, while the symmetric part is A(u). Comparing means over nested balls gives at most logarithmic growth in the radius ratio. PoincarÃ©, with the mean velocity fixed on B, then yields, for every finite R and \(1<p<\infty\),
 
 \[
 \boxed{
@@ -405,11 +405,11 @@ No conclusion that either global target is nearly solved follows just from these
 
 ## References and exact repository loci
 
-F. John and L. Nirenberg, On functions of bounded mean oscillation, Communications on Pure and Applied Mathematics 14 (1961), 415â“426, DOI 10.1002/cpa.3160140317.
+F. John and L. Nirenberg, On functions of bounded mean oscillation, Communications on Pure and Applied Mathematics 14 (1961), 415â€“426, DOI 10.1002/cpa.3160140317.
 
-C. Fefferman and E. M. Stein, H^p spaces of several variables, Acta Mathematica 129 (1972), 137â“193, DOI 10.1007/BF02392215. Classical singular-integral endpoint theory; the relevant near/far argument is included above.
+C. Fefferman and E. M. Stein, H^p spaces of several variables, Acta Mathematica 129 (1972), 137â€“193, DOI 10.1007/BF02392215. Classical singular-integral endpoint theory; the relevant near/far argument is included above.
 
-J. B. Conrey, More than two fifths of the zeros of the Riemann zeta function are on the critical line, Journal f¼r die reine und angewandte Mathematik 399 (1989), 1â“26, DOI 10.1515/crll.1989.399.1. Used only for an unconditional positive proportion of distinct simple critical-line zeros.
+J. B. Conrey, More than two fifths of the zeros of the Riemann zeta function are on the critical line, Journal fÃ¼r die reine und angewandte Mathematik 399 (1989), 1â€“26, DOI 10.1515/crll.1989.399.1. Used only for an unconditional positive proportion of distinct simple critical-line zeros.
 
 M. Suzuki, Weil's quadratic form via the screw function, arXiv:2606.09096v2 (2026). Used for the localized closed Weil form, its core and self-adjoint discrete-spectrum realization. No conjectural large-support operator convergence is used.
 

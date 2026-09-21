@@ -7,7 +7,7 @@
 -- was in the corpus, and in the latch this thread typechecks every
 -- cycle, the whole time.
 --
--- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 -- WHAT HAPPENED
 --
 -- "The deflationary test" has been a named live thread in every
@@ -15,7 +15,7 @@
 -- been in `RootsThreadLatch` for longer than that.  It was never
 -- opened.  Its ยง4 is
 --
---     ฮ -stable, โ’-stable, —-stable, ย-always-stable
+--     ฮ -stable, โ’-stable, ร—-stable, ยฌ-always-stable
 --
 -- and its ยง5 instantiates them at the corpus's obstruction shapes.
 -- That is `WhyTheSamePriceKeepsAppearing` ยง1 and ยง3, written again.
@@ -24,7 +24,7 @@
 -- thread name and the module name were the same word for many cycles
 -- and no one grepped one against the other.
 --
--- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 -- WHAT IS PROVED HERE
 --
 -- Not new mathematics.  ยง1 makes the duplication CHECKED rather than
@@ -33,52 +33,52 @@
 -- typechecks as `refl` against its own prior art is not a matter of
 -- opinion about who said what.
 --
--- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 -- THE LEDGER, EACH LINE READ FROM BOTH FILES
 --
--- REDISCOVERED โ” prior art is `DeflationaryTest`:
+-- REDISCOVERED โ€” prior art is `DeflationaryTest`:
 --
---   `WhyTheSamePriceKeepsAppearing` ยง1  โ  its ยง4, term for term (ยง1
+--   `WhyTheSamePriceKeepsAppearing` ยง1  โ  its ยง4, term for term (ยง1
 --       below).
---   `WhyTheSamePriceKeepsAppearing` ยง3  โ  its ยง5, which already
+--   `WhyTheSamePriceKeepsAppearing` ยง3  โ  its ยง5, which already
 --       instantiates the closure lemmas at obstruction shapes.
---   `WhyTheSamePriceKeepsAppearing` ยง2  โ  its ยง4 heading and ยง8: it
---       already states stability does not pass through `โ`.
---   `TheDomainThatIsAnAbsence`'s `ยยDec`  โ  its `no-barrier-claim`,
---       `ย (BarrierClaim A)` with `BarrierClaim A = ย (Dec A)`.
---   `TheDeflationaryTestIsVacuous`'s central point  โ  its ยง7: "the
---       stabilisation level measures nothing".  My ยง4 there โ” that
---       `Stable โ` and `Stable Unit` both hold, so stability
---       discriminates nothing โ” is a sharper form of the same claim and
+--   `WhyTheSamePriceKeepsAppearing` ยง2  โ  its ยง4 heading and ยง8: it
+--       already states stability does not pass through `โ`.
+--   `TheDomainThatIsAnAbsence`'s `ยฌยฌDec`  โ  its `no-barrier-claim`,
+--       `ยฌ (BarrierClaim A)` with `BarrierClaim A = ยฌ (Dec A)`.
+--   `TheDeflationaryTestIsVacuous`'s central point  โ  its ยง7: "the
+--       stabilisation level measures nothing".  My ยง4 there โ€” that
+--       `Stable โฅ` and `Stable Unit` both hold, so stability
+--       discriminates nothing โ€” is a sharper form of the same claim and
 --       not an independent one.
 --
 -- NOT IN THE PRIOR MODULE, checked by reading its signature list:
 --
---   `tripleNegationโ` as an EQUIVALENCE.  `DeflationaryTest` proves the
---       two implications as a product; the equivalence needs `isPropย`
+--   `tripleNegationโ` as an EQUIVALENCE.  `DeflationaryTest` proves the
+--       two implications as a product; the equivalence needs `isPropยฌ`
 --       and is not there.
---   `noMiddleCollapse : ย ((ย A) โ (ย ย A))`.
---   `(A โ ย ย A) โบ Stable A` for propositions.
---   `Stable-โ”`, stability along a bare logical equivalence.
+--   `noMiddleCollapse : ยฌ ((ยฌ A) โ (ยฌ ยฌ A))`.
+--   `(A โ ยฌ ยฌ A) โบ Stable A` for propositions.
+--   `Stable-โ”`, stability along a bare logical equivalence.
 --   the whole ground/exclusion/shadow development
 --       (`ExclusionRecoversGroundAtAPrice`), which shares no statement
 --       with it.
---   `A โ’ isContr (ย A โ’ Y)` and `ย A โ’ ((ย A โ’ Y) โ Y)`.
+--   `A โ’ isContr (ยฌ A โ’ Y)` and `ยฌ A โ’ ((ยฌ A โ’ Y) โ Y)`.
 --
 -- CLOSELY RELATED, and I will not call it independent:
---   `ย ย Stable A` (`TheUnstableGroundCannotBeExhibited` ยง1) follows
---   from its `no-barrier-claim` in two lines, since `Dec A โ’ Stable A`.
+--   `ยฌ ยฌ Stable A` (`TheUnstableGroundCannotBeExhibited` ยง1) follows
+--   from its `no-barrier-claim` in two lines, since `Dec A โ’ Stable A`.
 --   It was proved here without noticing that.
 --
 -- AND WHAT THE PRIOR MODULE HAS THAT THIS THREAD NEVER REACHED, which
 -- belongs in the same ledger:
---   its ยง8 โ” in a `--safe`, postulate-free development every inhabited
---   `โ` is a decision, since there is no way to write a term of `A โ B`
---   without producing `inl` or `inr`.  So the โ-sites close for a
+--   its ยง8 โ€” in a `--safe`, postulate-free development every inhabited
+--   `โ` is a decision, since there is no way to write a term of `A โ B`
+--   without producing `inl` or `inr`.  So the โ-sites close for a
 --   reason about the SUBSTRATE, not about the types.  Nothing in this
---   thread's โ/ฮ discussion gets near that.
+--   thread's โ/ฮฃ discussion gets near that.
 --
--- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 -- THE MECHANISM, PROPOSED AND NOT BUILT
 --
 -- This corpus's standing answer to a repeated violation is a mechanism
@@ -93,12 +93,12 @@
 -- was rejected for being built before it was agreed.  It is written
 -- down as a proposal, at the site where its absence cost something.
 --
--- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 -- ONE THING THIS IS NOT
 --
 -- Not a claim that the rediscovered modules should be deleted.  They
 -- are marked, and the marks point here.  A record that deletes its own
--- errors is not a record โ” and the duplicated proofs are now the
+-- errors is not a record โ€” and the duplicated proofs are now the
 -- evidence for ยง1, which is the only reason this file can prove
 -- anything at all.
 --
@@ -150,9 +150,9 @@ dup-ร— = refl
 -- 2.  And the one this thread proved without noticing it was a
 --     two-line corollary of the prior module
 --
--- `no-barrier-claim` says `ย (ย (Dec A))`.  Since a decision gives
+-- `no-barrier-claim` says `ยฌ (ยฌ (Dec A))`.  Since a decision gives
 -- stability, a refutation of stability refutes decidability, so
--- `ย ย Stable A` follows.  `TheUnstableGroundCannotBeExhibited` ยง1
+-- `ยฌ ยฌ Stable A` follows.  `TheUnstableGroundCannotBeExhibited` ยง1
 -- proves it directly instead; the direct proof is not wrong, it is
 -- unaware.
 ------------------------------------------------------------------------

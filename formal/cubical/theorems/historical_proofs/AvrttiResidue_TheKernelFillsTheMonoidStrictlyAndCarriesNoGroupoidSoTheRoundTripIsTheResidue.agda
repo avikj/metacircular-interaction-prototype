@@ -1,63 +1,63 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡µ‡‡‡‡‡ø‡‡‡‡ ‚î the remainder of the turning-back.
+-- ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§∂‡•á‡§∑‡§É ‚Äî the remainder of the turning-back.
 --
--- TERM.  ‡‡µ‡‡‡‡‡ø (vtti), repetition / a turning back over the same
--- ground, and ‡‡‡ (ea), what is left over.  Both are used in their
+-- TERM.  ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø (ƒÅv·πõtti), repetition / a turning back over the same
+-- ground, and ‡§∂‡•á‡§∑ (≈õe·π£a), what is left over.  Both are used in their
 -- ordinary technical senses and NO STRA IS CLAIMED for anything proved
--- here.  ‡‡‡ in the sense this file uses ‚î the remainder is kept and is
--- the material of the next step ‚î is ryabhaa, ryabhaya, ‡ó‡‡ø‡‡‡æ‡¶
--- 32‚ì33 (499 CE), the kuaka; the mathematics below is not his and the
+-- here.  ‡§∂‡•á‡§∑ in the sense this file uses ‚Äî the remainder is kept and is
+-- the material of the next step ‚Äî is ƒÄryabha·π≠a, ƒÄryabha·π≠ƒ´ya, ‡§ó‡§£‡§ø‡§§‡§™‡§æ‡§¶
+-- 32‚Äì33 (499 CE), the ku·π≠·π≠aka; the mathematics below is not his and the
 -- header says so rather than borrowing his authority for it.
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
+-- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
 -- WHAT THIS SETTLES, and it was previously settled only by a length.
 --
 -- Three files in this repository state one fact about the kernel and
 -- none of them cites another:
 --
---   Yantra_‚¶            the computer is a GROUPOID: `A ‚â A` fills the
+--   Yantra_‚Ä¶            the computer is a GROUPOID: `A ‚âÉ A` fills the
 --                       monoid interface AND the inverse field, and every
---                       law holds by `equivEq refl` ‚î strictly.
---   Avirodha_‚¶          the kernel is "strictly a category, weakly a
+--                       law holds by `equivEq refl` ‚Äî strictly.
+--   Avirodha_‚Ä¶          the kernel is "strictly a category, weakly a
 --                       groupoid", and "the gap between the two is the
---                       ea" ‚î but the weakness is exhibited only by
+--                       ≈õe·π£a" ‚Äî but the weakness is exhibited only by
 --                       `the-round-trip-is-not-nothing`, an observation
 --                       about `len`, not a statement in the path type.
---   Asesa_‚¶             `Meaning a b` is a PROPOSITION, so the fibre of
+--   Asesa_‚Ä¶             `Meaning a b` is a PROPOSITION, so the fibre of
 --                       soundness over any meaning is the WHOLE
 --                       derivation type, and soundness is refutably not
 --                       an equivalence at the kernel's own seed.
 --
 -- A remark about `len` is weaker than it looks: `len` is a function of
 -- the derivation, so "the round trip has positive length" leaves open
--- that SOME OTHER inverse ‚î not `rev` ‚î might close it on the nose.
+-- that SOME OTHER inverse ‚Äî not `rev` ‚Äî might close it on the nose.
 -- ¬ß3 removes that.  It quantifies over every function whatsoever:
 --
 --     the-kernel-carries-no-inverse :
---       (inv : Derivation A A ‚í Derivation A A)
---       ‚í ((d : Derivation A A) ‚í d ‚äï inv d ‚â° done A) ‚í ‚ä
+--       (inv : Derivation A A ‚Üí Derivation A A)
+--       ‚Üí ((d : Derivation A A) ‚Üí d ‚äï inv d ‚â° done A) ‚Üí ‚ä•
 --
 -- so the failure is a property OF THE KERNEL'S COMPOSITION, not a defect
 -- of the particular `rev` that Avirodha_ happens to define.
 --
 -- ¬ß4 puts the two sides on ONE interface, `MonoidMachine` imported from
--- `Yantra_‚¶` rather than restated, so the comparison is between the same
+-- `Yantra_‚Ä¶` rather than restated, so the comparison is between the same
 -- record and not between two spellings of it:
 --
---     equivalences-carry-an-inverse : (A : Type ‚ì) ‚í GroupoidOver (‡‡ï‡‡‡µ‡Æ‡ A)
---     the-kernel-carries-none       : ¬ GroupoidOver ‡‡µ‡‡‡‡‡ø‡
+--     equivalences-carry-an-inverse : (A : Type ‚Ñì) ‚Üí GroupoidOver (‡§è‡§ï‡§§‡•ç‡§µ‡§Æ‡•ç A)
+--     the-kernel-carries-none       : ¬¨ GroupoidOver ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É
 --
 -- SAME INTERFACE.  One side fills it; the other provably cannot.  That
--- difference is the whole of what the kernel keeps and `_‚â_` throws away,
--- and by `Asesa_‚¶` it is invisible to meaning: the two derivations that
+-- difference is the whole of what the kernel keeps and `_‚âÉ_` throws away,
+-- and by `Asesa_‚Ä¶` it is invisible to meaning: the two derivations that
 -- separate the fibre have EQUAL meanings, because the meaning type is a
 -- proposition and has no two positions in it.
 --
 ------------------------------------------------------------------------
 
-module AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue where
+module AvrttiResidue_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
@@ -89,7 +89,7 @@ private
 ------------------------------------------------------------------------
 -- ¬ß1  THE INVERSE, AS A STRUCTURE OVER A GIVEN MONOID.
 --
--- Not a fresh record.  `Yantra_‚¶`'s `GroupoidMachine` bundles its monoid
+-- Not a fresh record.  `Yantra_‚Ä¶`'s `GroupoidMachine` bundles its monoid
 -- as a field, which makes "does THIS monoid admit an inverse?" awkward to
 -- ask.  Asking it is the whole business here, so the inverse is indexed
 -- by the monoid it would extend.
@@ -102,9 +102,9 @@ GroupoidOver {Op = Op} M =
     √ó ((x : Op) ‚Üí MonoidMachine.seq M (inv x) x ‚â° MonoidMachine.noop M) )
 
 ------------------------------------------------------------------------
--- ¬ß2  THE KERNEL'S DERIVATIONS FILL THE MONOID INTERFACE ‚î STRICTLY.
+-- ¬ß2  THE KERNEL'S DERIVATIONS FILL THE MONOID INTERFACE ‚Äî STRICTLY.
 --
--- Every field is `Avirodha_‚¶`'s term, unchanged.  Nothing is reproved;
+-- Every field is `Avirodha_‚Ä¶`'s term, unchanged.  Nothing is reproved;
 -- the point of the record is that the SAME interface is offered to both
 -- sides in ¬ß4, so what ¬ß3 excludes is excluded on it.
 ------------------------------------------------------------------------
@@ -121,11 +121,11 @@ A = add var zero
   ; assoc = ‚äï-assoc }
 
 ------------------------------------------------------------------------
--- ¬ß3  AND CARRY NO INVERSE ‚î FOR EVERY CANDIDATE, NOT ONLY FOR `rev`.
+-- ¬ß3  AND CARRY NO INVERSE ‚Äî FOR EVERY CANDIDATE, NOT ONLY FOR `rev`.
 --
 -- The measure first: concatenation adds lengths.  This is the lemma the
--- `len` remark in `Avirodha_‚¶` needed and did not have; with it, the
--- refutation quantifies over all of `Derivation A A ‚í Derivation A A`.
+-- `len` remark in `Avirodha_‚Ä¶` needed and did not have; with it, the
+-- refutation quantifies over all of `Derivation A A ‚Üí Derivation A A`.
 ------------------------------------------------------------------------
 
 len-‚äï :
@@ -143,7 +143,7 @@ len-‚äï (then-step p d) e = cong N.suc (len-‚äï d e)
 ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§Æ‡•ç : Derivation A A
 ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§Æ‡•ç = then-step ‡§∏‡•ã‡§™‡§æ‡§®‡§Æ‡•ç (then-step (reverse ‡§∏‡•ã‡§™‡§æ‡§®‡§Æ‡•ç) (done A))
 
--- and its length is not zero ‚î the round trip is not nothing.
+-- and its length is not zero ‚Äî the round trip is not nothing.
 ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§∏‡•ç‡§Ø-‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ : len ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§Æ‡•ç ‚â° N.suc (N.suc N.zero)
 ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§∏‡•ç‡§Ø-‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ = refl
 
@@ -159,7 +159,7 @@ the-kernel-carries-no-inverse inv law =
 ------------------------------------------------------------------------
 -- ¬ß4  THE TWO SIDES, ON ONE INTERFACE.
 --
--- `A ‚â A` fills the inverse field; the kernel's derivations cannot.  The
+-- `A ‚âÉ A` fills the inverse field; the kernel's derivations cannot.  The
 -- monoid structure is the same record in both cases, so this is a
 -- comparison and not an analogy.
 ------------------------------------------------------------------------
@@ -183,17 +183,17 @@ the-kernel-carries-none (inv , rinv , _) =
 ------------------------------------------------------------------------
 -- ¬ß5  WHAT THE DIFFERENCE IS.
 --
--- `_‚â_` composes and inverts and keeps nothing: `invEquiv-is-rinv` says
+-- `_‚âÉ_` composes and inverts and keeps nothing: `invEquiv-is-rinv` says
 -- the round trip IS the no-op, on the nose, so an equivalence groupoid
 -- cannot record that a route was taken.  `Derivation` composes and cannot
 -- invert: every route it takes is still in the term, and ¬ß3 says no
 -- function can remove it.
 --
--- That surplus is exactly the object `Asesa_‚¶` shows the semantics cannot
+-- That surplus is exactly the object `Asesa_‚Ä¶` shows the semantics cannot
 -- see.  `Meaning a b` is a proposition; the fibre of soundness over any
 -- meaning is the whole derivation type; the two routes that separate it
--- have equal meanings by `isSet‚ï`.  So the kernel carries a distinction
--- that is real in the term, invisible in the value, and ‚î by ¬ß3 ‚î
+-- have equal meanings by `isSet‚Ñï`.  So the kernel carries a distinction
+-- that is real in the term, invisible in the value, and ‚Äî by ¬ß3 ‚Äî
 -- irremovable by any post-processing of the term.
 --
 -- The interface consequence, stated because it is mechanical and not a

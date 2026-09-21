@@ -4,7 +4,7 @@
 -- The acceptance test, as one checked term.
 --
 -- North Star (Vajra's proof-relevant compiler): adding ONE theorem makes
--- a task compile to a strictly better program, replayably â” or the
+-- a task compile to a strictly better program, replayably â€” or the
 -- theorem is an archive.  This module lands one complete instance.
 --
 -- Task.  Produce the canonical base-(2+k) digit word of m + n, given
@@ -28,8 +28,8 @@
 --
 -- earlier version of this header claimed: "delete T and `replay` has no
 -- proof, hence no `betterProgram`".  That claim is (i) not an Agda
--- judgement â” unprovability-after-deletion is not something the checker
--- decides â” and (ii) FALSE.  `digitsC-resume` is itself three lines of
+-- judgement â€” unprovability-after-deletion is not something the checker
+-- decides â€” and (ii) FALSE.  `digitsC-resume` is itself three lines of
 -- renaming over `CountedComposition.run-+`, and `replay-without-T`
 -- below re-proves `replay` from `run-+` and `run-is-digitsC` without
 -- mentioning T at all.  What is true, and all that is claimed now: the
@@ -42,10 +42,10 @@
 --
 --   betterProgram m n :
 --       (exec (resume m (suc n)) â‰¡ exec (restart m (suc n)))
---     — (cost (resume m (suc n)) < cost (restart m (suc n)))
+--     Ã— (cost (resume m (suc n)) < cost (restart m (suc n)))
 --
--- i.e. on the whole nonempty range { (m , nâ²) : nâ² = suc n } â” every
--- input whose checkpoint holds at least one tick of prior work â” the
+-- i.e. on the whole nonempty range { (m , nâ€²) : nâ€² = suc n } â€” every
+-- input whose checkpoint holds at least one tick of prior work â€” the
 -- resumed plan computes the SAME answer (replay) at STRICTLY smaller
 -- counted cost.  Both components are closed proofs; nothing is measured.
 -- The restriction to `suc n` is sharp, not an artefact:
@@ -107,7 +107,7 @@ replay-observed : (m n : â„•) â†’ valueC (exec (resume m n)) â‰¡ m + n
 replay-observed = observe-resume
 
 -- THE DELETION CLAIM, REFUTED.  `replay` re-proved without T: `run-+`
--- (counted time composes along sequential execution â” the three-line
+-- (counted time composes along sequential execution â€” the three-line
 -- induction) plus the instantiation theorem, and no `digitsC-resume`.
 -- `digitsC-resume` is itself exactly this composite in CountedComposition,
 -- so what T contributes to the acceptance test is a name, not a step.
@@ -118,8 +118,8 @@ replay-without-T m n =
 
 ------------------------------------------------------------------------
 -- STRICTLY BETTER.  On every input with a nonempty checkpoint (n = suc
--- nâ²), the resumed plan is strictly cheaper: m < m + suc nâ².  The
--- witness is closed-form â” the gap is exactly the checkpointed prefix.
+-- nâ€²), the resumed plan is strictly cheaper: m < m + suc nâ€².  The
+-- witness is closed-form â€” the gap is exactly the checkpointed prefix.
 ------------------------------------------------------------------------
 
 resume-cheaper : (m n : â„•) â†’ cost (resume m (suc n)) < cost (restart m (suc n))

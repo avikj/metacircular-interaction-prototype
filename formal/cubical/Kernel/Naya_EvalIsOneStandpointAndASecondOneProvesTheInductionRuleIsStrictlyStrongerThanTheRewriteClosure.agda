@@ -6,37 +6,37 @@
 --
 -- TERM, AND THE SCHOOL IS JAINA, NAMED BEFORE THE TERM IS USED.
 --
--- ‡®‡Ø ¬ naya -- a standpoint: a determination of an object from one aspect,
+-- ‡§®‡§Ø ¬∑ naya -- a standpoint: a determination of an object from one aspect,
 -- valid within its scope and never exhausting the object.  Umsvti's
 -- *Tattvrthastra* gives the list, and I give the words rather than the
 -- number because the recensions disagree on the numbering (vetmbara 1.34
 -- against Digambara 1.33) and because a stra's number propagates through
 -- citation while its words appear only where someone opened the text:
 --
---     ‡®‡à‡ó‡Æ‡‡‡ó‡‡∞‡‡µ‡‡Ø‡µ‡‡æ‡∞‡∞‡‡‡‡‡‡‡‡∞‡‡‡‡¶‡‡Æ‡‡ø‡∞‡‡‡à‡µ‡‡‡‡‡æ ‡®‡Ø‡æ‡
+--     ‡§®‡•à‡§ó‡§Æ‡§∏‡§Ç‡§ó‡•ç‡§∞‡§π‡§µ‡•ç‡§Ø‡§µ‡§π‡§æ‡§∞‡§∞‡•ç‡§ú‡•Å‡§∏‡•Ç‡§§‡•ç‡§∞‡§∂‡§¨‡•ç‡§¶‡§∏‡§Æ‡§≠‡§ø‡§∞‡•Ç‡§¢‡•à‡§µ‡§Ç‡§≠‡•Ç‡§§‡§æ ‡§®‡§Ø‡§æ‡§É
 --     naigama-sagraha-vyavahra-justra-abda-samabhirha-evabht nay
 --
 -- Siddhasena Divkara, *Sanmatitarka*, reduces them to two roots,
 -- dravyrthika and paryyrthika; Mallavdin's *Dvdaranayacakra*
 -- (~6th c.) runs twelve of them against each other.  The governing rule is
--- that a naya asserting itself by DENYING the others becomes a ‡¶‡‡∞‡‡®‡Ø ¬
+-- that a naya asserting itself by DENYING the others becomes a ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø ¬∑
 -- durnaya.  No date of first use is established here.
 --
--- `eval` INTO ‚ï IS ONE STANDPOINT AMONG MANY, not THE semantics.
--- `Ankapasa_‚¶` builds
+-- `eval` INTO ‚Ñï IS ONE STANDPOINT AMONG MANY, not THE semantics.
+-- `Ankapasa_‚Ä¶` builds
 --
---     ‚ü¶_‚üß : Tm ‚í TEnv ‚í Type‚     zero ‚¶ ‚ä, suc ‚¶ Unit ‚ä ‚àí, add ‚¶ ‚ä
+--     ‚ü¶_‚üß : Tm ‚Üí TEnv ‚Üí Type‚ÇÄ     zero ‚Ü¶ ‚ä•, suc ‚Ü¶ Unit ‚äé ‚àí, add ‚Ü¶ ‚äé
 --
 -- a UNIVERSE-valued semantics of this same calculus, in which every `Step`
 -- constructor becomes an equivalence and `reverse` becomes `invEquiv`; it
 -- proves `counting-semantics-cannot-see-it` against
--- `univalent-semantics-does-see-it`, and names the diagnosis ‡®‡Ø-‡®‡ø‡∞‡ã‡ß‡.
--- It reaches the fact from the akapa side; `grep -rlE ': *Tm *‚í'
+-- `univalent-semantics-does-see-it`, and names the diagnosis ‡§®‡§Ø-‡§®‡§ø‡§∞‡•ã‡§ß‡§É.
+-- It reaches the fact from the a·πÖkapƒÅ≈õa side; `grep -rlE ': *Tm *‚Üí'
 -- formal/cubical` returns twenty files reading `Tm` into other codomains.
 --
 -- THE MATHEMATICAL CONTENT, bracketed by the two standpoints:
---   * `Ankapasa_`'s model VALIDATES commutativity -- `add ‚¶ ‚ä` and
---     `‚ä-swap-‚â` -- and separates it from the identity.  ¬ß3 below REFUTES
+--   * `Ankapasa_`'s model VALIDATES commutativity -- `add ‚Ü¶ ‚äé` and
+--     `‚äé-swap-‚âÉ` -- and separates it from the identity.  ¬ß3 below REFUTES
 --     it: no derivation exists at all.  Non-triviality and underivability
 --     are different theorems and neither implies the other.
 --   * Nothing in `Ankapasa_` bears on left-unitality or on induction, and
@@ -48,14 +48,14 @@
 --     consolation.
 --
 -- So the diagnosis this file offers is narrower than the struck sentence:
--- not that the corpus had one standpoint, but that ‚ï was the standpoint
+-- not that the corpus had one standpoint, but that ‚Ñï was the standpoint
 -- from which the questions in ¬ß3 and ¬ß4 had not been asked, and that a
 -- second one three lines long decides them.
 --
 ------------------------------------------------------------------------
 -- WHAT WAS OPEN.
 --
--- `Vyabhicara_‚¶` gives the instrument for underivability that ‚ï supports:
+-- `Vyabhicara_‚Ä¶` gives the instrument for underivability that ‚Ñï supports:
 -- deviation at one environment forbids a derivation.  Its own header names
 -- what it cannot reach -- a pair TRUE AT EVERY ENVIRONMENT and still
 -- underivable, with commutativity of `add` as the candidate.
@@ -74,7 +74,7 @@
 --       by `refl` -- and is neither commutative nor left-unital.
 --   ¬ß2  Soundness at that standpoint, all six `Step` constructors.
 --   ¬ß3  not-commutative, not-left-unital.  Two underivabilities, neither
---       reachable from ‚ï, both of statements TRUE in ‚ï.
+--       reachable from ‚Ñï, both of statements TRUE in ‚Ñï.
 --   ¬ß4  THE GAP, AS A THEOREM.  `leftZero-cert` is an induction
 --       certificate for `0 + x = x`; `induction-sound` discharges it at
 --       every environment; and ¬ß3 says no derivation exists.  Therefore
@@ -102,7 +102,7 @@ open import RewriteCertificate
 -- ¬ß1.  THE SECOND STANDPOINT.
 --
 -- The two axioms constrain `add` only where the right argument is `zero`
--- or a `suc`.  At an opaque right argument they say nothing at all, and ‚ï
+-- or a `suc`.  At an opaque right argument they say nothing at all, and ‚Ñï
 -- silently fills that freedom with commutativity.  Here it is filled
 -- differently: a marker is dropped between the two sides.
 ------------------------------------------------------------------------
@@ -150,8 +150,8 @@ derivation-model (done _)        = refl
 derivation-model (then-step q d) = step-model q ‚àô derivation-model d
 
 ------------------------------------------------------------------------
--- ¬ß3.  TWO UNDERIVABILITIES ‚ï CANNOT REACH.  Both statements are TRUE at
---      every environment, so `Vyabhicara_‚¶`'s instrument has no grip on
+-- ¬ß3.  TWO UNDERIVABILITIES ‚Ñï CANNOT REACH.  Both statements are TRUE at
+--      every environment, so `Vyabhicara_‚Ä¶`'s instrument has no grip on
 --      either; this standpoint decides both.
 ------------------------------------------------------------------------
 

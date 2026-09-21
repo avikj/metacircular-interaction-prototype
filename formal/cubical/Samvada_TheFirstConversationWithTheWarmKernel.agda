@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --safe #-}
--- ‡‡‡µ‡æ‡¶‡ ‚î a conversation.  Written live against the warm kernel (‡®‡æ‡°‡,
+-- ‡§∏‡§Ç‡§µ‡§æ‡§¶‡§É ‚Äî a conversation.  Written live against the warm kernel (‡§®‡§æ‡§°‡•Ä,
 -- stdin mode) 2026-08-23: the batch gate refused (+ x y) ‚â° (+ y x) because
 -- its step shapes cannot reach it; here the same claim is put to the kernel
 -- hole by hole, each proposal judged in the warm process.  The terms below

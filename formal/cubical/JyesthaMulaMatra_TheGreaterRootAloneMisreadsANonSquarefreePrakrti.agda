@@ -3,34 +3,34 @@
 ------------------------------------------------------------------------
 -- JyesthaMulaMatra_TheGreaterRootAloneMisreadsANonSquarefreePrakrti
 --
--- àµà°àà—ààà°à•ààà¿ (varga-prakti), `xÂ² âˆ’ N yÂ² = 1`.  Brahmagupta,
+-- à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ (varga-praká¹›ti), `xÂ² âˆ’ N yÂ² = 1`.  Brahmagupta,
 -- *Brhmasphuasiddhnta*, ch. 18 (Kuakdhyya), 628 CE, states the
--- àà¾àµà¨à¾ (bhvan) composition law and names the parts:
+-- à¤­à¤¾à¤µà¤¨à¤¾ (bhÄvanÄ) composition law and names the parts:
 --
---   ààà°à•ààà¿    prakti       the multiplier N
---   ààà¯àààà à®àà²  jyeha-mla  the GREATER root, x
---   à•à¨à¿ààà à®àà²  kaniha-mla the LESSER root, y
---   à•àààà      kepa         the interpolator (here 1)
+--   à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿    praká¹›ti       the multiplier N
+--   à¤œà¥à¤¯à¥‡à¤·à¥à¤ à¤®à¥‚à¤²  jyeá¹£á¹­ha-mÅ«la  the GREATER root, x
+--   à¤•à¤¨à¤¿à¤·à¥à¤ à¤®à¥‚à¤²  kaniá¹£á¹­ha-mÅ«la the LESSER root, y
+--   à¤•à¥à¤·à¥‡à¤ª      ká¹£epa         the interpolator (here 1)
 --
--- The cyclic method àà•àà°àµà¾à² (cakravla), which produces a least solution
+-- The cyclic method à¤šà¤•à¥à¤°à¤µà¤¾à¤² (cakravÄla), which produces a least solution
 -- for every non-square prakti: Jayadeva (~950, surviving only in
 -- Udayadivkara's commentary *Sundar*), in full with worked praktis
 -- 61, 67, 103 in Bhskara II, *Bjagaita*, 1150.  "Pell's equation" is
 -- Euler's misattribution, ~1730; see notes/NOT_PELL_IT_IS_VARGAPRAKRITI.md.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS MODULE IS FOR
 --
 -- `collab/swarm/2026-08-14/swarm-0814-08-chebyshev-weight-pell.md` Â§3
 -- gives a search-free test for whether a solution is the least one:
 --
---   (x,y) is least  âŸº  for no prime p < B is there an integer u â‰ 2
+--   (x,y) is least  âŸº  for no prime p < B is there an integer u â‰¥ 2
 --                       with T_p(u) = x AND (uÂ²âˆ’1)/N a perfect square,
---   where B = log(2x)/log(2+âˆN).
+--   where B = log(2x)/log(2+âˆšN).
 --
 -- Its Â§8 leaves one item open, tagged PROVE:
 --
---   "is the side condition `(uÂ²âˆ’1)/N a perfect square` redundant? â¦
+--   "is the side condition `(uÂ²âˆ’1)/N a perfect square` redundant? â€¦
 --    the missing step is integrality.  If N | uÂ²âˆ’1 always follows, the
 --    criterion becomes a pure one-variable root extraction with no
 --    arithmetic side condition.  I could not close it."
@@ -38,53 +38,53 @@
 -- IT DOES NOT FOLLOW, and the counterexample lies INSIDE the criterion's
 -- own bound, so it is not repaired by tightening B.
 --
---   prakti N = 28 = 2Â²Â7,  jyeha 127, kaniha 24,  p = 2,  u = 8.
+--   praká¹›ti N = 28 = 2Â²Â·7,  jyeá¹£á¹­ha 127, kaniá¹£á¹­ha 24,  p = 2,  u = 8.
 --
---   127Â² = 28Â24Â² + 1;  Tâ(8) = 127;  28 âˆ 63 = 8Â²âˆ’1;  and (127,24) is
---   the LEAST solution.  B = log(254)/log(2+âˆ28) = 2.7872â¦, so p = 2 is
+--   127Â² = 28Â·24Â² + 1;  Tâ‚‚(8) = 127;  28 âˆ¤ 63 = 8Â²âˆ’1;  and (127,24) is
+--   the LEAST solution.  B = log(254)/log(2+âˆš28) = 2.7872â€¦, so p = 2 is
 --   admissible.  The criterion with the side condition deleted answers
 --   NOT LEAST on a solution that IS least.
 --
 -- Two further instances are carried so the phenomenon is not read off
 -- one number, and so that it cannot be dismissed as a p = 2 artifact:
 --
---   N = 45 = 3Â²Â5,  jyeha 161,  kaniha 24,  p = 2, u = 9, B = 2.6681â¦
---   N = 175 = 5Â²Â7, jyeha 2024, kaniha 153, p = 3, u = 8, B = 3.0500â¦
+--   N = 45 = 3Â²Â·5,  jyeá¹£á¹­ha 161,  kaniá¹£á¹­ha 24,  p = 2, u = 9, B = 2.6681â€¦
+--   N = 175 = 5Â²Â·7, jyeá¹£á¹­ha 2024, kaniá¹£á¹­ha 153, p = 3, u = 8, B = 3.0500â€¦
 --
 -- WHY, exhibited: the p-th root is not missing, it is in a LARGER order.
--- âˆ28 = 2âˆ7, so â[âˆ28] = â + 2â[âˆ7] has conductor 2 in â[âˆ7]; and
--- âˆ45 = 3âˆ5, conductor 3 in â[âˆ5].
+-- âˆš28 = 2âˆš7, so â„¤[âˆš28] = â„¤ + 2â„¤[âˆš7] has conductor 2 in â„¤[âˆš7]; and
+-- âˆš45 = 3âˆš5, conductor 3 in â„¤[âˆš5].
 --
---   8Â² = 7Â3Â² + 1                     (8+3âˆ7 has norm 1 in â[âˆ7])
---   8Â8 + 7Â(3Â3) = 127               bhvan, greater root
---   8Â3 + 3Â8    = 48 = 2Â24          bhvan, lesser root
+--   8Â² = 7Â·3Â² + 1                     (8+3âˆš7 has norm 1 in â„¤[âˆš7])
+--   8Â·8 + 7Â·(3Â·3) = 127               bhÄvanÄ, greater root
+--   8Â·3 + 3Â·8    = 48 = 2Â·24          bhÄvanÄ, lesser root
 --
--- so (8+3âˆ7)Â² = 127 + 48âˆ7 = 127 + 24âˆ28.  The root 8+3âˆ7 lies in â[âˆ7]
--- and NOT in â[âˆ28].  Its trace 16 is an integer either way â” which is
+-- so (8+3âˆš7)Â² = 127 + 48âˆš7 = 127 + 24âˆš28.  The root 8+3âˆš7 lies in â„¤[âˆš7]
+-- and NOT in â„¤[âˆš28].  Its trace 16 is an integer either way â€” which is
 -- the mechanism: `T_p(u) = x` constrains the TRACE alone, and a trace
 -- cannot see which order its element inhabits.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED HERE
 --
---   ==refl, â‰from, and-fst/snd, Allâ‰, Allâ‰-sound
+--   ==refl, â‰¢from, and-fst/snd, Allâ‰¤, Allâ‰¤-sound
 --                        a bounded universal quantifier WITH its
 --                        soundness lemma, so a `refl` on the fold is a
 --                        proof over the whole range and not a sample
---   sq-mono              m â‰ n â’ mÂm â‰ nÂn
---   target-mono          y â‰ Y â’ N yÂ² + 1 â‰ N YÂ² + 1
---   root-bound           a square equal to a target with y â‰ Y has root
---                        â‰ xmax, given (xmax+1)Â² > target N Y
+--   sq-mono              m â‰¤ n â†’ mÂ·m â‰¤ nÂ·n
+--   target-mono          y â‰¤ Y â†’ N yÂ² + 1 â‰¤ N YÂ² + 1
+--   root-bound           a square equal to a target with y â‰¤ Y has root
+--                        â‰¤ xmax, given (xmax+1)Â² > target N Y
 --   least-solution       the generic statement: grid true + range bound
---                        â’ no solution with 1 â‰ y â‰ Y
---   âˆ-scan, âˆ-from       non-divisibility, certified once and reused:
---                        NÂn â‰¡ M with N â‰ 1 forces n â‰ M, so the
+--                        â‡’ no solution with 1 â‰¤ y â‰¤ Y
+--   âˆ¤-scan, âˆ¤-from       non-divisibility, certified once and reused:
+--                        NÂ·n â‰¡ M with N â‰¥ 1 forces n â‰¤ M, so the
 --                        cofactor search is finite and exhaustive
 --   least-28/45/175      the three instances
 --   vargaprakrti-*       the solutions themselves
---   chebyshev-*          T over â by its own recurrence, at the
---                        witnesses: Tâ(8)=127, Tâ(9)=161, Tâ(8)=2024
---   prakrti-âˆ-*          28 âˆ 63, 45 âˆ 80, 175 âˆ 63, so the side
+--   chebyshev-*          T over â„¤ by its own recurrence, at the
+--                        witnesses: Tâ‚‚(8)=127, Tâ‚‚(9)=161, Tâ‚ƒ(8)=2024
+--   prakrti-âˆ¤-*          28 âˆ¤ 63, 45 âˆ¤ 80, 175 âˆ¤ 63, so the side
 --                        condition fails non-integrally, not merely
 --                        non-squarely
 --   lesser-1/2-not-in    at N = 175 the CUBE is the first power to enter
@@ -93,11 +93,11 @@
 --                        solution the same search returns `false`, so
 --                        the `true` above is not vacuous
 --
--- The complementary positive half â” a SQUAREFREE prakti makes the side
--- condition redundant â” is a three-line valuation argument, written out
+-- The complementary positive half â€” a SQUAREFREE praká¹›ti makes the side
+-- condition redundant â€” is a three-line valuation argument, written out
 -- in collab/messages/2093 and not formalized here.
 --
--- CHECKED: Agda 2.6.3 + cubical v0.5, `agda <file>` â’ EXIT 0.  --safe,
+-- CHECKED: Agda 2.6.3 + cubical v0.5, `agda <file>` â†’ EXIT 0.  --safe,
 -- no postulates, no holes, no TERMINATING pragma.
 ------------------------------------------------------------------------
 
@@ -135,7 +135,7 @@ and-snd true  b p = p
 and-snd false b p = âŠ¥.rec (trueâ‰¢false (sym p))
 
 -- A bounded universal quantifier, and the fact that its `true` really
--- means "at every point of the range".  Without Allâ‰-sound a `refl` on
+-- means "at every point of the range".  Without Allâ‰¤-sound a `refl` on
 -- the fold would be a sample; with it, the fold is a finite exhaustive
 -- verification, which CLAUDE.md counts as proof.
 Allâ‰¤ : (â„• â†’ Bool) â†’ â„• â†’ Bool
@@ -153,7 +153,7 @@ Allâ‰¤-sound f (suc n) h k kâ‰¤sn with â‰¤-split kâ‰¤sn
 -- 1.  Order scaffolding
 ------------------------------------------------------------------------
 
--- `a â‰ b` for literals, from a witness the caller supplies
+-- `a â‰¤ b` for literals, from a witness the caller supplies
 litâ‰¤ : (a b k : â„•) â†’ k + a â‰¡ b â†’ a â‰¤ b
 litâ‰¤ a b k p = k , p
 
@@ -169,7 +169,7 @@ sq-mono m n h =
 -- 1Â½.  Non-divisibility, certified once and reused
 ------------------------------------------------------------------------
 
--- If N â‰ 1 and NÂn â‰¡ M then n â‰ M, so the cofactor search is finite.
+-- If N â‰¥ 1 and NÂ·n â‰¡ M then n â‰¤ M, so the cofactor search is finite.
 âˆ¤-scan : â„• â†’ â„• â†’ Bool
 âˆ¤-scan N M = Allâ‰¤ (Î» n â†’ not ((N Â· n) == M)) M
 
@@ -195,7 +195,7 @@ target N y = N Â· (y Â· y) + 1
 row : â„• â†’ â„• â†’ â„• â†’ Bool
 row N xmax y = Allâ‰¤ (Î» x â†’ not ((x Â· x) == target N y)) xmax
 
--- y runs over 1 â¦ suc m
+-- y runs over 1 â€¦ suc m
 grid : â„• â†’ â„• â†’ â„• â†’ Bool
 grid N xmax m = Allâ‰¤ (Î» y â†’ row N xmax (suc y)) m
 
@@ -216,7 +216,7 @@ root-bound N xmax Y x y wide hy p with splitâ„•-â‰¤ x xmax
                           (target-mono N Y y hy))))
 
 -- THE STATEMENT: a true grid plus a range bound is a proof that no
--- lesser root in 1 â¦ suc m solves the equation.
+-- lesser root in 1 â€¦ suc m solves the equation.
 least-solution : (N xmax m : â„•)
                â†’ grid N xmax m â‰¡ true
                â†’ target N (suc m) < (suc xmax) Â· (suc xmax)
@@ -233,18 +233,18 @@ least-solution N xmax m g wide x (suc y) h1 h2 p = trueâ‰¢false (sym q âˆ™ cong 
     r = cong ((x Â· x) ==_) (sym p) âˆ™ ==refl (x Â· x)
 
 ------------------------------------------------------------------------
--- 3.  Chebyshev of the first kind, over â, by its own recurrence
+-- 3.  Chebyshev of the first kind, over â„¤, by its own recurrence
 ------------------------------------------------------------------------
 
--- Tâ = 1, Tâ = u, T_{n+2} = 2uÂT_{n+1} âˆ’ T_n.  No norm-one hypothesis
--- enters the definition; the recurrence is a fact about â[X].
+-- Tâ‚€ = 1, Tâ‚ = u, T_{n+2} = 2uÂ·T_{n+1} âˆ’ T_n.  No norm-one hypothesis
+-- enters the definition; the recurrence is a fact about â„¤[X].
 cheb : â„¤ â†’ â„• â†’ â„¤
 cheb u zero          = pos 1
 cheb u (suc zero)    = u
 cheb u (suc (suc n)) = ((pos 2 Â·â„¤ u) Â·â„¤ cheb u (suc n)) -â„¤ cheb u n
 
 ------------------------------------------------------------------------
--- 4.  ààà°à•ààà¿ 28 = 2Â²Â7 â” the witness
+-- 4.  à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ 28 = 2Â²Â·7 â€” the witness
 ------------------------------------------------------------------------
 
 vargaprakrti-28 : 127 Â· 127 â‰¡ target 28 24
@@ -263,12 +263,12 @@ wide-28 = litâ‰¤ 14814 14884 70 refl
 least-28 : (x y : â„•) â†’ 1 â‰¤ y â†’ y â‰¤ 23 â†’ Â¬ (x Â· x â‰¡ target 28 y)
 least-28 = least-solution 28 121 22 grid-28 wide-28
 
--- the side condition: (uÂ²âˆ’1)/N is not even an integer, since 28 âˆ 63
+-- the side condition: (uÂ²âˆ’1)/N is not even an integer, since 28 âˆ¤ 63
 prakrti-âˆ¤-28 : Â¬ (Î£[ n âˆˆ â„• ] 28 Â· n â‰¡ 63)
 prakrti-âˆ¤-28 = âˆ¤-from 28 63 (litâ‰¤ 1 28 27 refl) refl
 
 ------------------------------------------------------------------------
--- 5.  ààà°à•ààà¿ 45 = 3Â²Â5 â” the second instance
+-- 5.  à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ 45 = 3Â²Â·5 â€” the second instance
 ------------------------------------------------------------------------
 
 vargaprakrti-45 : 161 Â· 161 â‰¡ target 45 24
@@ -291,13 +291,13 @@ prakrti-âˆ¤-45 : Â¬ (Î£[ n âˆˆ â„• ] 45 Â· n â‰¡ 80)
 prakrti-âˆ¤-45 = âˆ¤-from 45 80 (litâ‰¤ 1 45 44 refl) refl
 
 ------------------------------------------------------------------------
--- 5Â½.  ààà°à•ààà¿ 175 = 5Â²Â7 at p = 3 â” the failure is not a p = 2 artifact
+-- 5Â½.  à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ 175 = 5Â²Â·7 at p = 3 â€” the failure is not a p = 2 artifact
 ------------------------------------------------------------------------
 
--- 8 + 3âˆ7 again, but now it is the CUBE that lands in the small order:
+-- 8 + 3âˆš7 again, but now it is the CUBE that lands in the small order:
 -- the lesser roots of its powers are 3, 48, 765, and 5 divides only the
--- third.  So Îµâ(175) = (8+3âˆ7)Â³ = 2024 + 765âˆ7 = 2024 + 153âˆ175.
--- B = log(4048)/log(2+âˆ175) = 3.0500â¦, so p = 3 is admissible.
+-- third.  So Îµâ‚(175) = (8+3âˆš7)Â³ = 2024 + 765âˆš7 = 2024 + 153âˆš175.
+-- B = log(4048)/log(2+âˆš175) = 3.0500â€¦, so p = 3 is admissible.
 
 vargaprakrti-175 : 2024 Â· 2024 â‰¡ target 175 153
 vargaprakrti-175 = refl
@@ -315,11 +315,11 @@ wide-175 = litâ‰¤ 4043202 4044121 919 refl
 least-175 : (x y : â„•) â†’ 1 â‰¤ y â†’ y â‰¤ 152 â†’ Â¬ (x Â· x â‰¡ target 175 y)
 least-175 = least-solution 175 2010 151 grid-175 wide-175
 
--- 175 âˆ 63 for the trivial reason that 175 > 63 > 0
+-- 175 âˆ¤ 63 for the trivial reason that 175 > 63 > 0
 prakrti-âˆ¤-175 : Â¬ (Î£[ n âˆˆ â„• ] 175 Â· n â‰¡ 63)
 prakrti-âˆ¤-175 = âˆ¤-from 175 63 (litâ‰¤ 1 175 174 refl) refl
 
--- the lesser root of the cube: bâ = bÂUâ(a), with Uâ(8) = 4Â8Â²âˆ’1 = 255
+-- the lesser root of the cube: bâ‚ƒ = bÂ·Uâ‚‚(a), with Uâ‚‚(8) = 4Â·8Â²âˆ’1 = 255
 U2-at-8 : 4 Â· (8 Â· 8) â‰¡ 255 + 1
 U2-at-8 = refl
 
@@ -327,7 +327,7 @@ cube-lesser-7 : 3 Â· 255 â‰¡ 5 Â· 153
 cube-lesser-7 = refl
 
 -- and 5 divides neither of the two earlier lesser roots, which is why
--- the cube and not the square is the first to enter â[âˆ175]
+-- the cube and not the square is the first to enter â„¤[âˆš175]
 lesser-1-not-in : Â¬ (Î£[ n âˆˆ â„• ] 5 Â· n â‰¡ 3)
 lesser-1-not-in = âˆ¤-from 5 3 (litâ‰¤ 1 5 4 refl) refl
 
@@ -335,12 +335,12 @@ lesser-2-not-in : Â¬ (Î£[ n âˆˆ â„• ] 5 Â· n â‰¡ 48)
 lesser-2-not-in = âˆ¤-from 5 48 (litâ‰¤ 1 5 4 refl) refl
 
 ------------------------------------------------------------------------
--- 6.  KNOWN-FALSE CONTROL â” the search is not vacuous
+-- 6.  KNOWN-FALSE CONTROL â€” the search is not vacuous
 ------------------------------------------------------------------------
 
 -- Widen the row until it can reach the real greater root and the same
 -- fold returns `false`.  A search that could only ever say `true` would
--- prove nothing; these two lines are what make Â§4â“Â§5 informative.
+-- prove nothing; these two lines are what make Â§4â€“Â§5 informative.
 grid-is-live-28 : Allâ‰¤ (Î» x â†’ not ((x Â· x) == target 28 24)) 127 â‰¡ false
 grid-is-live-28 = refl
 
@@ -357,15 +357,15 @@ grid-is-live-45â€² = refl
 -- 7.  The p-th root, exhibited in the larger order
 ------------------------------------------------------------------------
 
--- 8 + 3âˆ7 has norm one in â[âˆ7]; 9 + 4âˆ5 has norm one in â[âˆ5].
+-- 8 + 3âˆš7 has norm one in â„¤[âˆš7]; 9 + 4âˆš5 has norm one in â„¤[âˆš5].
 root-order-7 : 8 Â· 8 â‰¡ 7 Â· (3 Â· 3) + 1
 root-order-7 = refl
 
 root-order-5 : 9 Â· 9 â‰¡ 5 Â· (4 Â· 4) + 1
 root-order-5 = refl
 
--- Brahmagupta's àà¾àµà¨à¾ of a root with itself:
---   greater â¦ ac + N bd,   lesser â¦ ad + bc
+-- Brahmagupta's à¤­à¤¾à¤µà¤¨à¤¾ of a root with itself:
+--   greater â†¦ ac + N bd,   lesser â†¦ ad + bc
 -- and the lesser root comes out divisible by the conductor.
 bhavana-square-7-greater : 8 Â· 8 + 7 Â· (3 Â· 3) â‰¡ 127
 bhavana-square-7-greater = refl

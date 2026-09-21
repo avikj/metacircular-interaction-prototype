@@ -1,36 +1,36 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �����-���� � the endless braid.
+-- अनन्त-वेणी — the endless braid.
 --
 -- THE STEP.  VeniBandha braided two strands; VeniTraya three;
--- VeniCatustaya verified the relations of B�.  This file takes all of
+-- VeniCatustaya verified the relations of B₄.  This file takes all of
 -- them at once: the INFINITE braid group B∞, every generator ϵ for
 -- every i, acting on an infinite rope of interdependent-pair strands
--- � and proves BOTH defining relation families of every braid group
+-- — and proves BOTH defining relation families of every braid group
 -- simultaneously:
 --
 --   §2  THE BRAID RELATION AT EVERY POSITION:
---       ϵ ϵ�� ϵ = ϵ�� ϵ ϵ��, for all i, by one induction whose
+--       σᵢ σᵢ₊₁ σᵢ = σᵢ₊₁ σᵢ σᵢ₊₁, for all i, by one induction whose
 --       base is a two-level path of streams with definitional leaves
 --       and whose step is head-preservation plus recursion.
 --
 --   §3  THE DISTANT COMMUTATION AT EVERY GAP:
---       ϵ �� = �� ϵ whenever j � i + 2, for all i and all gaps, by
+--       σᵢ σⱼ = σⱼ σᵢ whenever j ≥ i + 2, for all i and all gaps, by
 --       the same induction shape.
 --
--- Every finite braid group B� embeds by using only its generators, so
--- every relation of every B� is an instance: the three finite files
+-- Every finite braid group Bₙ embeds by using only its generators, so
+-- every relation of every Bₙ is an instance: the three finite files
 -- become corollaries of one module.
 --
--- THE ROPE IS THE STREAM.  The carrier is Dhr � the coinductive
+-- THE ROPE IS THE STREAM.  The carrier is Dhārā — the coinductive
 -- stream type introduced in the Parasparasraya module, where the
 -- campaign began: the type born to show mutual dependence is
 -- generative now carries the fully general braiding, whose coherence
 -- (the quarter turn) exists only on interdependent pairs.  First
 -- module and last theorem are one object: interdependence supplies
 -- the strands, the coherence, and the room for every crossing at
--- once.  No length conditions, no padding, no partiality � on the
+-- once.  No length conditions, no padding, no partiality — on the
 -- infinite rope every generator is total and every relation is
 -- unconditional, which no finite list of strands can offer.
 --
@@ -51,7 +51,7 @@ open import CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndE
 open Dhārā
 
 ------------------------------------------------------------------------
--- � � The rope, the cons, and the crossing at every position.
+-- १ · The rope, the cons, and the crossing at every position.
 ------------------------------------------------------------------------
 
 Rajju : Type₀
@@ -69,7 +69,7 @@ veṇī∞ : ℕ → Rajju → Rajju
 śeṣam (veṇī∞ (suc i) s) = veṇī∞ i (śeṣam s)
 
 ------------------------------------------------------------------------
--- � � The braid relation, at every position at once.
+-- २ · The braid relation, at every position at once.
 ------------------------------------------------------------------------
 
 -- The base: a two-level path of streams whose depth-two tails agree
@@ -92,7 +92,7 @@ veṇī-sūtra zero    s = veṇī-mūla s
 śeṣam (veṇī-sūtra (suc i) s j) = veṇī-sūtra i (śeṣam s) j
 
 ------------------------------------------------------------------------
--- � � The distant commutation, at every gap at once.
+-- ३ · The distant commutation, at every gap at once.
 ------------------------------------------------------------------------
 
 dūra-mūla : (k : ℕ) (s : Rajju)

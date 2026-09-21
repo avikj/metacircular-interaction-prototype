@@ -1,7 +1,7 @@
 {-# OPTIONS --erased-cubical --erasure --guardedness --no-import-sorts #-}
--- third sitting: feeding alone, normal fuel, the plain ‡ó‡‡ eye ‚î which
+-- third sitting: feeding alone, normal fuel, the plain ‡§ó‡•Ç‡§¢ eye ‚Äî which
 -- ingredient was the binding one?
-module Samvada3_run where
+module Interaction3_run where
 open import Agda.Builtin.IO using (IO)
 open import Agda.Builtin.Unit using (‚ä§)
 open import Agda.Builtin.String using (String ; primStringAppend)

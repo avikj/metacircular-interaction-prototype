@@ -12,15 +12,15 @@
 --   every member of the remainder is beaten by a member of the
 --   STRATUM.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- A CORRECTION FIRST, because it is the substance of this module.
 --
--- I recorded twice â” in `TheStrictRateOrderIsAnOrderAndTheClaimIs-
--- AntitoneOnIt` and again in the stratification work â” that this step
--- "needs a well-founded measure on âŠ over a finite list" and is
+-- I recorded twice â€” in `TheStrictRateOrderIsAnOrderAndTheClaimIs-
+-- AntitoneOnIt` and again in the stratification work â€” that this step
+-- "needs a well-founded measure on âŠ over a finite list" and is
 -- therefore not cheap.  **That was wrong.**  No well-founded induction
--- is needed.  The chain-climbing argument it was imagining â” v is
--- beaten by u, u may be beaten by uâ², iterate and hope it stops â” is
+-- is needed.  The chain-climbing argument it was imagining â€” v is
+-- beaten by u, u may be beaten by uâ€², iterate and hope it stops â€” is
 -- not the only route, and the shorter one was already in the corpus:
 --
 --   apply `maximalExists` to the SUBLIST of elements that beat v.
@@ -28,11 +28,11 @@
 -- `maximalExists` already performs the finite induction, once, for the
 -- non-empty-stratum theorem; it costs nothing to point it at a
 -- different list.  The maximal element OF THAT SUBLIST is maximal in
--- the whole archive â” because anything beating it would, by
+-- the whole archive â€” because anything beating it would, by
 -- transitivity, also beat v and hence lie in the sublist.  That is the
 -- whole proof.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   above v xs        the elements of xs that strictly dominate v
@@ -42,7 +42,7 @@
 --   maximalOfNonEmpty `maximalExists` with the non-emptiness supplied
 --                     by a membership rather than by a cons pattern
 --   aboveMaximalIsGloballyMaximal
---                     maximal in `above v xs` â’ maximal in xs
+--                     maximal in `above v xs` â‡’ maximal in xs
 --   theDominatorCanBeChosenMaximal
 --                     any dominator of v can be replaced by one in the
 --                     stratum
@@ -53,8 +53,8 @@
 -- stratum 1 beats every member of the remainder, and since the next
 -- stratum is computed from that remainder, each stratum beats
 -- everything below it AT ITS OWN LEVEL.  The transitive statement over
--- `strata` â” that stratum i beats every member of stratum j for every
--- j > i â” is NOT proved here and does not follow from this alone by
+-- `strata` â€” that stratum i beats every member of stratum j for every
+-- j > i â€” is NOT proved here and does not follow from this alone by
 -- the argument used for coverage: it needs the members of later strata
 -- to be compared against the ORIGINAL archive, not the peeled one, and
 -- `IsParetoMaximal` is relative to the list it is computed in.  That
@@ -65,7 +65,7 @@
 -- of a finite set dominates everything else in it (Goldberg 1989; Deb
 -- et al. 2002), and the sublist argument is the usual one.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -100,7 +100,7 @@ private
     A : Type
 
 ------------------------------------------------------------------------
--- 1.  Into the filtrate â” the converse of memberOfFilterSatisfies
+-- 1.  Into the filtrate â€” the converse of memberOfFilterSatisfies
 ------------------------------------------------------------------------
 
 memberIntoFilter :
@@ -188,14 +188,14 @@ everyRemainderMemberIsBeatenByAStratumMember xs v mem
 -- to domination in `xs`; that is a real object, not a rearrangement."
 --
 -- **THAT WAS WRONG.**  The argument never needs the later strata's
--- maximality â” only their MEMBERSHIP in the remainder, which
+-- maximality â€” only their MEMBERSHIP in the remainder, which
 -- `strataSound` already supplies.
 -- `TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma`
 -- proves `theStrataAreOrdered` by composing `strataSound` with
 -- `everyRemainderMemberIsBeatenByAStratumMember` and the same
--- recursive bookkeeping used for pairwise disjointness â” no new lemma
+-- recursive bookkeeping used for pairwise disjointness â€” no new lemma
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
 --
 -- With coverage and disjointness, DARWIN Â§5.2's three output
 -- properties are now all checked.

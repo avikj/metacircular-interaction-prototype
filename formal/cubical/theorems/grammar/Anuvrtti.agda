@@ -3,25 +3,25 @@
 ------------------------------------------------------------------------
 -- Anuvrtti
 --
--- àà¨ààµààààà¿ â” the continuation of material from a stra into the ones that
+-- à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿ â€” the continuation of material from a sÅ«tra into the ones that
 -- follow it, the Adhyy's principal compression device.  A rule need
 -- state only what its predecessor did not already supply.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS MODULE EXISTS
 --
 -- `TransportPrice` proves every ADDITIVE cost is the difference of a
--- potential â” no route matters, no loop accumulates.  That result is a
+-- potential â€” no route matters, no loop accumulates.  That result is a
 -- constraint on what a cost can be, and the obvious next question is
 -- where a non-trivial cost could still live.
 --
 -- Anuvtti is the answer, and it lives one level down from where
--- `Laghava` looked.  `Laghava` showed à²à¾à˜àµ is not a function of the
+-- `Laghava` looked.  `Laghava` showed à¤²à¤¾à¤˜à¤µ is not a function of the
 -- DENOTATION.  Anuvtti shows it is not even a function of the SET OF
 -- RULES:
 --
 --     anuvrtti-is-not-a-set-function :
---       Â Î[ f ] ((rs : List Rule) â’ f (asSet rs) â‰¡ cost rs)
+--       Â¬ Î£[ f ] ((rs : List Rule) â†’ f (asSet rs) â‰¡ cost rs)
 --
 -- because reordering the same rules changes what each one has to state.
 -- Checked witnesses: with A = {1,2}, B = {2}, C = {1},
@@ -29,14 +29,14 @@
 --     cost [A,B,C] = 3        cost [C,A,B] = 2
 --
 -- and `asSet [A,B,C] â‰¡ asSet [C,A,B]` by `refl`.  Same rules, same
--- language generated, different à²à¾à˜àµ, decided entirely by the order.
+-- language generated, different à¤²à¤¾à¤˜à¤µ, decided entirely by the order.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE TOWER, NOW THREE TALL
 --
---   denotation      what the rules mean         â” coarsest
+--   denotation      what the rules mean         â€” coarsest
 --   rule set        which rules are present
---   ordered text    the strapha itself       â” finest
+--   ordered text    the sÅ«trapÄá¹­ha itself       â€” finest
 --
 -- `Laghava.laghava-is-not-semantic` separates the first from the rest;
 -- `anuvrtti-is-not-a-set-function` separates the second from the third.
@@ -45,12 +45,12 @@
 --
 -- And this is why the Adhyy is a *text in an order* and not a
 -- collection: the order is carrying information that no set of rules
--- carries, and `vipratiedhe para kryam` â” "of two conflicting rules,
--- the later prevails" â” is only sayable because the sequence is the
+-- carries, and `vipratiá¹£edhe paraá¹ kÄryam` â€” "of two conflicting rules,
+-- the later prevails" â€” is only sayable because the sequence is the
 -- object.  A grammar handed to you as an unordered set has already lost
 -- something measurable.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS DOES NOT OVERTURN
 --
 -- `TransportPrice` still applies, with the standpoint taken to be the
@@ -61,7 +61,7 @@
 -- standpoint was working with a quotient that the measure does not
 -- descend to.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -127,7 +127,7 @@ asSet rs = memb (true  , true)  rs
          , memb (false , false) rs
 
 ------------------------------------------------------------------------
--- 3.  Two texts, one rule set, different à²à¾à˜àµ
+-- 3.  Two texts, one rule set, different à¤²à¤¾à¤˜à¤µ
 --
 --   A = {1,2}   B = {2}   C = {1}
 ------------------------------------------------------------------------
@@ -181,7 +181,7 @@ occurrence-descends = (Î» s â†’ fst s) , (Î» _ â†’ refl)
 -- 5.  The sentence.
 --
 -- Inheritance makes the text, not the rule set, the standpoint.  Two
--- grammars with identical rules and identical output differ in à²à¾à˜àµ by an
+-- grammars with identical rules and identical output differ in à¤²à¤¾à¤˜à¤µ by an
 -- amount fixed entirely by their order, and no invariant of the set can
 -- report it.
 --
@@ -195,9 +195,9 @@ occurrence-descends = (Î» s â†’ fst s) , (Î» _ â†’ refl)
 --
 -- Â§4's proof is `TranscriptDescent.collisionObstructsDecoder` inlined at
 -- (q, t) = (asSet, cost), against `FiniteInformation.FactorsThrough`.
--- Three modules of this corpus now carry the same argument â”
+-- Three modules of this corpus now carry the same argument â€”
 -- `CarryBorrowObservation.borrowCountDoesNotDecodeWord`, `Laghava` Â§3,
--- and Â§4 here â” and only the first knew the general lemma existed.
+-- and Â§4 here â€” and only the first knew the general lemma existed.
 --
 -- The content is isolated below as a collision, which is all any of these
 -- theorems ever is: two objects the coarse map identifies, that the fine
@@ -217,8 +217,8 @@ anuvrtti-collision =
 --   Laghava   :  eval  identifies  short , long   ;  size separates them
 --   Anuvrtti  :  asSet identifies  abc  , cab     ;  cost separates them
 --
--- and `Pratyahara`'s obstruction is NOT of this shape â” it is an
--- exhaustive impossibility, not a collision â” which is why it was the one
+-- and `Pratyahara`'s obstruction is NOT of this shape â€” it is an
+-- exhaustive impossibility, not a collision â€” which is why it was the one
 -- thing in the thread that obstructed rather than deflated.
 ------------------------------------------------------------------------
 
@@ -229,10 +229,10 @@ anuvrtti-collision =
 -- applied to the collision isolated above.
 --
 -- `TheTwoCollisionsAreOneInstantiation` adds a second
--- route, through `AnyonyaAbhava.anyonyaâ’samsarga`, notes that the
+-- route, through `AnyonyaAbhava.anyonyaâ†’samsarga`, notes that the
 -- isolated collision is already a term of the parametric type
 -- `AnyonyaAbhava.Collision` at this module's own presentation type, and
--- proves the two routes equal â” negations being propositions.
+-- proves the two routes equal â€” negations being propositions.
 --
 -- The private proof above is not removed.  It is the record of how the
 -- result was first obtained.

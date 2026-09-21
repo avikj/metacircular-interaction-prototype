@@ -1,50 +1,50 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ó‡∞‡‡-‡‡‡∞‡‡‡ ‚î the womb-ladder: the tower's rungs are ONE predicate.
+-- ‡§ó‡§∞‡•ç‡§≠-‡§∂‡•ç‡§∞‡•á‡§£‡•Ä ‚Äî the womb-ladder: the tower's rungs are ONE predicate.
 --
 -- GarbhaDhara built one Postnikov step: install cones off an obstruction
 -- (contractible locus), and the fee it precipitates one level up is the
--- non-descending cost.  The note then flagged the ITERATION ‚î that the
--- fee at level n is the carrier at level n+1, endlessly ‚î as the single
+-- non-descending cost.  The note then flagged the ITERATION ‚Äî that the
+-- fee at level n is the carrier at level n+1, endlessly ‚Äî as the single
 -- named-open construction.  This module does not build the full ‚àû-tower;
 -- it builds the RUNG RELATION, as a term: it exhibits two consecutive
 -- rungs already in the corpus as literal instances of ONE predicate,
 --
---     "cost is not exact" ‚î ¬ Œ potential, cost = coboundary of it,
+--     "cost is not exact" ‚Äî ¬¨ Œ£ potential, cost = coboundary of it,
 --
 -- so that "climbing a level" is re-instantiating the SAME type one
 -- degree up, not a new phenomenon each time.  That is the self-
 -- generation, made a pattern rather than an anecdote.
 --
---   ¬ß0  THE PREDICATE.  NotExact ‚à V = ¬ Œ[ œ ] (‚à i ‚í ‚à œ i ‚â° V i):
---       the invariant V is not the coboundary ‚à of any potential œ.
+--   ¬ß0  THE PREDICATE.  NotExact ‚àÇ V = ¬¨ Œ£[ œÜ ] (‚àÄ i ‚Üí ‚àÇ œÜ i ‚â° V i):
+--       the invariant V is not the coboundary ‚àÇ of any potential œÜ.
 --       This is one k-invariant type, degree-agnostic.
---   ¬ß1  RUNG 0 (œ‚).  V = len, œ ranges over functions  ‚í ‚ï on the
---       localization, ‚à œ d = œ (L d).  "cost is not a FUNCTION on the
---       set-quotient" ‚î SankramanaShreni.kernelCostDoesNotDescend ‚î is
+--   ¬ß1  RUNG 0 (œÄ‚ÇÄ).  V = len, œÜ ranges over functions ƒú ‚Üí ‚Ñï on the
+--       localization, ‚àÇ œÜ d = œÜ (L d).  "cost is not a FUNCTION on the
+--       set-quotient" ‚Äî SankramanaShreni.kernelCostDoesNotDescend ‚Äî is
 --       NotExact on the nose (definitionally: the pass-through is refl).
---   ¬ß2  RUNG 1 (œ‚).  V = ‡ó‡‡‡∞‡‡æ (the depth evaluator), œ ranges over
---       state potentials Tm ‚í ‚, ‚à œ = d‚≤ œ (the coboundary).  "cost is
---       not the COBOUNDARY of a potential" ‚î MulyaVinimaya
---       .depthHasNoPotential, whose loop integrates to pos 3 ‚â† 0 ‚î is
+--   ¬ß2  RUNG 1 (œÄ‚ÇÅ).  V = ‡§ó‡§≠‡•Ä‡§∞‡§§‡§æ (the depth evaluator), œÜ ranges over
+--       state potentials Tm ‚Üí ‚Ñ§, ‚àÇ œÜ = d‚Ä≤ œÜ (the coboundary).  "cost is
+--       not the COBOUNDARY of a potential" ‚Äî MulyaVinimaya
+--       .depthHasNoPotential, whose loop integrates to pos 3 ‚â† 0 ‚Äî is
 --       NotExact one level up (bridged by sym; same predicate).
---   ¬ß3  THE LADDER.  theTower : NotExact‚ ó NotExact‚ ‚î the two rungs as
+--   ¬ß3  THE LADDER.  theTower : NotExact‚ÇÄ √ó NotExact‚ÇÅ ‚Äî the two rungs as
 --       one type at two degrees.  Rung 0 says cost has no 0-potential
---       (is not a function on œ‚); rung 1 says cost has no 1-potential
---       (is not exact on œ‚); coning off rung n (install) is what makes
+--       (is not a function on œÄ‚ÇÄ); rung 1 says cost has no 1-potential
+--       (is not exact on œÄ‚ÇÅ); coning off rung n (install) is what makes
 --       rung n+1's failure visible.
 --
--- SYT ‚î THE CLAIM, EXACTLY.  ¬ß0 the predicate; ¬ß¬ß1‚ì2 the two corpus
+-- SYƒÄT ‚Äî THE CLAIM, EXACTLY.  ¬ß0 the predicate; ¬ß¬ß1‚Äì2 the two corpus
 -- obstructions AS instances of it (rung 0 definitional, rung 1 up to
 -- sym); ¬ß3 the pair.  NOT claimed: the full ‚àû-tower (that every rung n
--- precipitates rung n+1 for all n) ‚î that induction is the construction
+-- precipitates rung n+1 for all n) ‚Äî that induction is the construction
 -- GarbhaDhara's note still names open.  What IS claimed: two consecutive
 -- rungs are the SAME predicate at successive degrees, so the tower's
 -- step is one type re-instantiated, not a sequence of coincidences.
 ------------------------------------------------------------------------
 
-module GarbhaShreni_TheTowerRungsAreOnePredicateCostIsNotExactAtSuccessiveLevels where
+module Kernel.KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactAtSuccessiveLevels where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (‚Ñï)
@@ -59,7 +59,7 @@ open import GenerativeKernel using (seed ; target‚ÇÄ)
 private variable ‚Ñì ‚Ñì' ‚Ñì'' : Level
 
 ------------------------------------------------------------------------
--- ‡¶ ¬ The one predicate: V is not the coboundary ‚à of any potential.
+-- ‡•¶ ¬∑ The one predicate: V is not the coboundary ‚àÇ of any potential.
 ------------------------------------------------------------------------
 
 NotExact : {P : Type ‚Ñì} {I : Type ‚Ñì'} {A : Type ‚Ñì''}
@@ -67,7 +67,7 @@ NotExact : {P : Type ‚Ñì} {I : Type ‚Ñì'} {A : Type ‚Ñì''}
 NotExact {P = P} {I} ‚àÇ V = ¬¨ (Œ£[ œÜ ‚àà P ] ((i : I) ‚Üí ‚àÇ œÜ i ‚â° V i))
 
 ------------------------------------------------------------------------
--- ‡ß ¬ Rung 0 (œ‚): cost is not a function on the localization.
+-- ‡•ß ¬∑ Rung 0 (œÄ‚ÇÄ): cost is not a function on the localization.
 ------------------------------------------------------------------------
 
 open import SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
@@ -81,7 +81,7 @@ costNotExact‚ÇÄ : NotExact ‚àÇ‚ÇÄ len
 costNotExact‚ÇÄ = kernelCostDoesNotDescend   -- definitionally the same type
 
 ------------------------------------------------------------------------
--- ‡® ¬ Rung 1 (œ‚): cost is not the coboundary of a state potential.
+-- ‡•® ¬∑ Rung 1 (œÄ‚ÇÅ): cost is not the coboundary of a state potential.
 ------------------------------------------------------------------------
 
 open import MulyaVinimaya_TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsTelescopeAndADepthEvaluatorHasNonzeroCycleIntegral
@@ -100,7 +100,7 @@ costNotExact‚ÇÅ : NotExact ‚àÇ‚ÇÅ V‚ÇÅ
 costNotExact‚ÇÅ (œÜ , h) = depthHasNoPotential (œÜ , Œª {a} {b} s ‚Üí sym (h (a , b , s)))
 
 ------------------------------------------------------------------------
--- ‡© ¬ The ladder: two consecutive rungs, one predicate, two degrees.
+-- ‡•© ¬∑ The ladder: two consecutive rungs, one predicate, two degrees.
 ------------------------------------------------------------------------
 
 theTower : NotExact ‚àÇ‚ÇÄ len √ó NotExact ‚àÇ‚ÇÅ V‚ÇÅ

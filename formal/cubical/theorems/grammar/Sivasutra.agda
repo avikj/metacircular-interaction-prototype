@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sivasutra � Pini's pratyhra as an interval, checked.
+-- Sivasutra — Pāṇini's pratyāhāra as an interval, checked.
 --
 -- SOURCE.  The Adhyy opens with the fourteen Mhevara / iva-stras:
 -- the sounds of  laid out in ONE linear order, each stra ending in
@@ -12,14 +12,14 @@
 -- is why INDIC_FORMAL_TRADITIONS_MAP.md §1.1 records the iva-stra
 -- ordering as an interval representation of an intersection-closed family
 -- (Petersen's optimality theorem is that deeper object; it is NOT proved
--- here � see below).
+-- here — see below).
 --
 -- The first four stras, with their it-markers  K  C:
 --   1.  a  i  u  
 --   2.      K
 --   3.  e  o  
 --   4.  ai au C
--- (These four give the entire vowel system; the consonant stras 5�14 are
+-- (These four give the entire vowel system; the consonant sūtras 5–14 are
 -- not encoded here.)
 --
 -- WHAT IS CHECKED.  The interval mechanism itself, on the vowel prefix:
@@ -113,8 +113,8 @@ aK = refl
 aC : upto C sivasutra ≡ a ∷ i ∷ u ∷ ṛ ∷ ḷ ∷ e ∷ o ∷ ai ∷ au ∷ []
 aC = refl
 
--- The three nest as intervals of the one order: a � aK � aC, each a
--- prefix of the next (visible directly in the refls above � the shorter
+-- The three nest as intervals of the one order: aṆ ⊂ aK ⊂ aC, each a
+-- prefix of the next (visible directly in the refls above — the shorter
 -- class is a prefix of the longer, since they share the same left endpoint
 -- `a` and only the right marker moves outward).  That the class is named by
 -- moving ONE endpoint along ONE linear order is the iva-stra device.
@@ -122,15 +122,15 @@ aC = refl
 ------------------------------------------------------------------------
 -- EXTENDED 2026-08-19, another thread:
 -- `NonInitialPratyaharasAndOneIntersectionInstance` adds
--- the start-search this module says it does not need � "All pratyhras
--- here begin at `a`, the head, so no start-search is needed" � and with
+-- the start-search this module says it does not need — "All pratyāhāras
+-- here begin at `a`, the head, so no start-search is needed" — and with
 -- it the two-endpoint extractor `between`.  It checks `iK`, `e`, `aiC`,
 -- `iC` by refl, verifies `between a C ≡ upto C` so the extension agrees
 -- with `upto` at the head, and gives one intersection instance:
 -- `aK ∩ iC ≡ iK`, a named class again.
 --
 -- Nothing here is altered, and this module's own NOT-claimed list is
--- inherited there unchanged � in particular Petersen's optimality theorem
+-- inherited there unchanged — in particular Petersen's optimality theorem
 -- is still not proved, and is still unread: egress is blocked from that
 -- environment.
 ------------------------------------------------------------------------
@@ -139,15 +139,15 @@ aC = refl
 -- EXTENDED 2026-08-20, another thread: PART OF THE OWED OPTIMALITY IS PAID.
 -- `PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain.agda` proves, for
 -- ANY linear order of the sounds and ANY placement of markers, that two
--- classes ending at the same anubandha are �-comparable � so the classes
--- carried by one marker are a chain, and a �-ANTICHAIN of classes forces that
+-- classes ending at the same anubandha are ⊆-comparable — so the classes
+-- carried by one marker are a chain, and a ⊆-ANTICHAIN of classes forces that
 -- many distinct markers.  a, iK, e, aiC are pairwise incomparable as sets,
 -- hence four markers are forced; the iva-stra order names all four with
 --  K  C and has no fifth, so four is the minimum and this order attains it.
 --
 -- The NOT-claimed list above is unchanged in its main entry: Petersen's
--- theorem � that the order is essentially UNIQUE for the full family, and 14
--- markers minimal � is still not proved and Petersen is still unread.  What
+-- theorem — that the order is essentially UNIQUE for the full family, and 14
+-- markers minimal — is still not proved and Petersen is still unread.  What
 -- is now proved is a lower bound and its attainment on the vowel subfamily.
 -- `interactive/Pratyahara_TheIntervalDecisionProcedure.hs` decides nameability
 -- against the line (no table) and computes the bound over all fourteen

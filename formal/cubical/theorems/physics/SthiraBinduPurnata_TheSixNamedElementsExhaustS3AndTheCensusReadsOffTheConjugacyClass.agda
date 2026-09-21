@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- SthiraBinduPurnata_TheSixNamedElementsExhaustS3AndTheCensusReadsOffTheConjugacyClass
 --
--- Completeness of the six-element enumeration of S�, and the census
+-- Completeness of the six-element enumeration of S₃, and the census
 -- corollary that follows from it.
 --
 -- prat = completeness; sthira-bindu = fixed point.  The 
@@ -14,51 +14,51 @@
 -- SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3
 -- says, in its SYT section:
 --
---   * That the six named elements exhaust S�.  Completeness of the
+--   * That the six named elements exhaust S₃.  Completeness of the
 --     six-element enumeration (every equivalence of Fin 3 is equal to
 --     one of the six) is NOT proved in this module; the per-element
 --     census values are statements about the named representatives.
 --
--- That module represents S� = FinSymGroup 3 = SymGroup (Fin 3) with
--- Cubical.Data.SumFin's Fin 3 = � � (� � (� � �)), so an element is an
--- equivalence Fin 3 � Fin 3; the six named elements are S3.1g (the
--- identity equivalence), the transpositions s�� s�� s�� and the
--- 3-cycles � �², each built by isoToEquiv from an explicit function.
+-- That module represents S₃ = FinSymGroup 3 = SymGroup (Fin 3) with
+-- Cubical.Data.SumFin's Fin 3 = ⊤ ⊎ (⊤ ⊎ (⊤ ⊎ ⊥)), so an element is an
+-- equivalence Fin 3 ≃ Fin 3; the six named elements are S3.1g (the
+-- identity equivalence), the transpositions s₀₁ s₁₂ s₀₂ and the
+-- 3-cycles ρ ρ², each built by isoToEquiv from an explicit function.
 --
 -- WHAT IS PROVED.
 --
---   * sixComplete : every g : ⟨ S� ⟩ is EQUAL (as an element of the
+--   * sixComplete : every g : ⟨ S₃ ⟩ is EQUAL (as an element of the
 --     carrier, i.e. as an equivalence) to one of the six named
 --     elements.  Route: an equivalence is determined by its underlying
---     function (equivEq); a function Fin 3 � Fin 3 is determined by its
+--     function (equivEq); a function Fin 3 → Fin 3 is determined by its
 --     three values (funExt over the point-wise eliminator cases3); the
 --     27 value-triples are split by pattern matching on SumFin's
 --     inl/inr; the 6 injective triples each yield the path to the
 --     matching named element, and the 21 repeating triples contradict
 --     injectivity of the equivalence (equivInj, i.e. invEq/retEq).
 --
---   * censusValues : on ALL of S� the fixed-point count takes exactly
---     the values 3, 1, 0 �
---       (� : ⟨ S� ⟩) � (countFix � ≡ 3) � ((countFix � ≡ 1) � (countFix � ≡ 0)).
+--   * censusValues : on ALL of S₃ the fixed-point count takes exactly
+--     the values 3, 1, 0 —
+--       (σ : ⟨ S₃ ⟩) → (countFix σ ≡ 3) ⊎ ((countFix σ ≡ 1) ⊎ (countFix σ ≡ 0)).
 --
 --   * censusReadsOffClass : the value determines the conjugacy class,
 --     in the conjugation convention of the earlier module
---     (conj h g = (h � g) � inv h, from ConjugationInvariant):
---       countFix � ≡ 3 together with � ≡ 1g, or
---       countFix � ≡ 1 together with some h and � ≡ conj h s��, or
---       countFix � ≡ 0 together with some h and � ≡ conj h �.
+--     (conj h g = (h · g) · inv h, from ConjugationInvariant):
+--       countFix σ ≡ 3 together with σ ≡ 1g, or
+--       countFix σ ≡ 1 together with some h and σ ≡ conj h s₀₁, or
+--       countFix σ ≡ 0 together with some h and σ ≡ conj h ρ.
 --     The conjugators are exhibited explicitly:
---       s�� = conj �² s��,  s�� = conj s�� s��,  �² = conj s�� �.
+--       s₁₂ = conj ρ² s₀₁,  s₀₂ = conj s₁₂ s₀₁,  ρ² = conj s₀₁ ρ.
 --
---   * The three value-specific readings countFix � ≡ 3 � � ≡ 1g,
---     countFix � ≡ 1 � � is a conjugate of s��,
---     countFix � ≡ 0 � � is a conjugate of �, derived from the above by
+--   * The three value-specific readings countFix σ ≡ 3 → σ ≡ 1g,
+--     countFix σ ≡ 1 → σ is a conjugate of s₀₁,
+--     countFix σ ≡ 0 → σ is a conjugate of ρ, derived from the above by
 --     discriminating the natural numbers 3, 1, 0.
 --
 -- WHAT IS NOT PROVED.  That the six named elements are pairwise
 -- distinct (the enumeration is complete; its irredundancy is not
 -- stated here, although it would follow by the same census values
--- and refl computations).  Nothing about S� for n ≠ 3.
+-- and refl computations).  Nothing about Sₙ for n ≠ 3.
 ------------------------------------------------------------------------
 
 module SthiraBinduPurnata_TheSixNamedElementsExhaustS3AndTheCensusReadsOffTheConjugacyClass where
@@ -88,7 +88,7 @@ private
 ------------------------------------------------------------------------
 
 -- "g is one of the six named elements", as a six-fold disjunction of
--- paths in the carrier ⟨ S� ⟩ = (Fin 3 � Fin 3).
+-- paths in the carrier ⟨ S₃ ⟩ = (Fin 3 ≃ Fin 3).
 IsOneOfSix : ⟨ S₃ ⟩ → Type
 IsOneOfSix g =
   (g ≡ S3.1g) ⊎ ((g ≡ s₀₁) ⊎ ((g ≡ s₁₂) ⊎ ((g ≡ s₀₂) ⊎ ((g ≡ ρ) ⊎ (g ≡ ρ²)))))
@@ -162,12 +162,12 @@ module _ (g : ⟨ S₃ ⟩) where
     valueLem (fsuc (fsuc fzero)) (fsuc fzero) (fsuc fzero) _ pb pc =
       Empty.rec (f1≢f2 (equivInj g (pb ∙ sym pc)))
 
-  -- THE COMPLETENESS THEOREM: the six named elements exhaust S�.
+  -- THE COMPLETENESS THEOREM: the six named elements exhaust S₃.
   sixComplete : IsOneOfSix g
   sixComplete = valueLem (fst g f0) (fst g f1) (fst g f2) refl refl refl
 
 ------------------------------------------------------------------------
--- Corollary 1: the census takes exactly the values 3, 1, 0 on all of S�
+-- Corollary 1: the census takes exactly the values 3, 1, 0 on all of S₃
 ------------------------------------------------------------------------
 
 censusValues : (σ : ⟨ S₃ ⟩)
@@ -187,8 +187,8 @@ censusValues σ = go (sixComplete σ)
 ------------------------------------------------------------------------
 
 -- Conjugation in the convention of ConjugationInvariant (and of the
--- earlier module): conj h g = (h � g) � inv h, whose underlying
--- function is x � invEq h (fst g (fst h x)).
+-- earlier module): conj h g = (h · g) · inv h, whose underlying
+-- function is x ↦ invEq h (fst g (fst h x)).
 conj : ⟨ S₃ ⟩ → ⟨ S₃ ⟩ → ⟨ S₃ ⟩
 conj h g = (h S3.· g) S3.· S3.inv h
 
@@ -210,8 +210,8 @@ s₀₂-conj = equivEq (funExt (cases3 refl refl refl))
 self-conj : (r : ⟨ S₃ ⟩) → r ≡ conj S3.1g r
 self-conj r = equivEq (funExt (cases3 refl refl refl))
 
--- The class statement: value 3 � identity, value 1 � the transposition
--- class, value 0 � the 3-cycle class.
+-- The class statement: value 3 ↔ identity, value 1 ↔ the transposition
+-- class, value 0 ↔ the 3-cycle class.
 ClassReading : ⟨ S₃ ⟩ → Type
 ClassReading σ =
     ((countFix σ ≡ 3) × (σ ≡ S3.1g))
@@ -236,7 +236,7 @@ censusReadsOffClass σ = go (sixComplete σ)
     inr (inr (cong countFix p ∙ census-ρ² , s₀₁ , p ∙ ρ²-conj))
 
 ------------------------------------------------------------------------
--- The value-specific readings, by discriminating 3, 1, 0 in �
+-- The value-specific readings, by discriminating 3, 1, 0 in ℕ
 ------------------------------------------------------------------------
 
 private

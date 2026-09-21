@@ -5,45 +5,45 @@
 --
 -- `SignIsNotAccumulable` left a conditional with two open antecedents and
 -- said promoting it would be the fitted-constant error one level up.  The
--- second antecedent is false, and this module kills it â” then keeps what
+-- second antecedent is false, and this module kills it â€” then keeps what
 -- the death exposes, which is better than the rhyme was.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE REFUTATION
 --
 -- Sieve weights are multiplicative across COPRIME arguments.  In the
 -- derivation chart coprime means DISJOINT SUPPORT, and on disjoint
 -- supports the two operations of this whole thread coincide:
 --
---     disjoint-agree :  Disjoint u v  â’  u âŠ” v â‰¡ u âŠ• v
+--     disjoint-agree :  Disjoint u v  â†’  u âŠ” v â‰¡ u âŠ• v
 --
 -- The join and the sum are the same operation there.  And nothing is
 -- disjoint from itself except the trivial state:
 --
---     self-disjoint-is-trivial :  Disjoint u u  â’  u â‰¡ 0
+--     self-disjoint-is-trivial :  Disjoint u u  â†’  u â‰¡ 0
 --
--- So on the coprime locus idempotence has no purchase at all â” you cannot
--- form `u â‹ u` and stay inside it â” and `SignIsNotAccumulable`'s
+-- So on the coprime locus idempotence has no purchase at all â€” you cannot
+-- form `u â‹† u` and stay inside it â€” and `SignIsNotAccumulable`'s
 -- hypothesis is unsatisfiable except at the unit.  The theorem is true
 -- and simply does not reach Î¼ or Î».  The rhyme is dead.  It was recorded
 -- as a rhyme, and this is what recording it that way is for.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THE DEATH EXPOSES
 --
 -- `NoNormOnAJoin` proved a multiplicative norm for a join is two-valued.
 -- But `val` IS multiplicative for the join on disjoint arguments:
 --
---     val-âŠ”-disjoint :  Disjoint u v  â’  val (u âŠ” v) â‰¡ val u Â val v
+--     val-âŠ”-disjoint :  Disjoint u v  â†’  val (u âŠ” v) â‰¡ val u Â· val v
 --
--- â” an unrestricted, faithful, wildly-many-valued multiplicative weight
+-- â€” an unrestricted, faithful, wildly-many-valued multiplicative weight
 -- for the join, defined exactly on the coprime pairs.  So the earlier
 -- theorem's strength comes entirely from quantifying over ALL pairs.  The
 -- obstruction is not the join.  **The obstruction is overlap.**
 --
 -- And that relocates the walk's cost precisely.  A sieve only ever
 -- combines coprime data, so it lives on the locus where join = sum and a
--- faithful weight exists.  The walk combines 1,2,3,4,â¦, and 2, 4, 8 all
+-- faithful weight exists.  The walk combines 1,2,3,4,â€¦, and 2, 4, 8 all
 -- touch the prime 2: its data overlap constantly.  Every overlap is a
 -- place where the join discards what the sum would have kept, and the
 -- discarded amount is the whole difference between k! and lcm(1..k).
@@ -51,7 +51,7 @@
 --     the walk's cost is its overlap, and overlap is exactly the locus
 --     where the two operations disagree.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -106,7 +106,7 @@ self-disjoint-is-trivial (b âˆ· bs) (x , xs) (d , ds) i =
   selfâ„• x d i , self-disjoint-is-trivial bs xs ds i
 
 ------------------------------------------------------------------------
--- 4.  THE POINT.  A faithful multiplicative weight for the join exists â”
+-- 4.  THE POINT.  A faithful multiplicative weight for the join exists â€”
 --     on the coprime locus.  So `NoNormOnAJoin`'s two-valuedness is a
 --     statement about OVERLAP, not about the join.
 ------------------------------------------------------------------------
@@ -136,12 +136,12 @@ weight-is-faithful = val-âŠ”-disjoint primes4 two three two-three-disjoint
 ------------------------------------------------------------------------
 -- 5.  Where this leaves the thread.
 --
--- Idempotence forbids inverses, norms, and forgetting â” but only because
+-- Idempotence forbids inverses, norms, and forgetting â€” but only because
 -- those were demanded at EVERY pair.  Restricted to coprime pairs the
 -- join is the sum, carries `val` faithfully, and has none of the three
 -- pathologies, because no state is coprime to itself.
 --
--- A sieve stays on that locus.  The walk does not: it joins 1,2,3,4,â¦,
+-- A sieve stays on that locus.  The walk does not: it joins 1,2,3,4,â€¦,
 -- and 2, 4, 8 share the prime 2.  Its cost is what the join discards at
 -- the overlaps, and lcm(1..k) versus k! is the quantity that measures it.
 --
@@ -149,7 +149,7 @@ weight-is-faithful = val-âŠ”-disjoint primes4 two three two-three-disjoint
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  CORRECTION, same session â” this module's TITLE is wrong.
+-- 6.  CORRECTION, same session â€” this module's TITLE is wrong.
 --
 -- Â§5 above says "the walk's cost is what the join discards at the
 -- overlaps".  Discarding makes the state SMALLER.  lcm(1..k) = e^Ïˆ(k) â‰ˆ
@@ -160,12 +160,12 @@ weight-is-faithful = val-âŠ”-disjoint primes4 two three two-three-disjoint
 --
 -- `JoinSavesTheMeet` proves how much, exactly:
 --
---     lcm-gcd :  val (u âŠ” v) Â val (u âŠ“ v) â‰¡ val u Â val v
+--     lcm-gcd :  val (u âŠ” v) Â· val (u âŠ“ v) â‰¡ val u Â· val v
 --
--- â” the join's compression ratio against the sum is the meet, i.e. the
+-- â€” the join's compression ratio against the sum is the meet, i.e. the
 -- gcd, and in the tropical chart the whole identity is max + min = x + y.
 --
--- Everything PROVED in Â§Â§1â“4 stands: `disjoint-agree`,
+-- Everything PROVED in Â§Â§1â€“4 stands: `disjoint-agree`,
 -- `self-disjoint-is-trivial`, and `val-âŠ”-disjoint` are unaffected, and the
 -- refutation of the parity rhyme is unaffected.  What is withdrawn is the
 -- sign of Â§5's reading, and with it the module's name.

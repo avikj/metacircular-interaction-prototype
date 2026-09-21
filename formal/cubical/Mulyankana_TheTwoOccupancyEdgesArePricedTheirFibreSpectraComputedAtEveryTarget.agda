@@ -1,40 +1,40 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡Æ‡‡≤‡‡Ø‡æ‡ô‡‡ï‡®‡Æ‡ ‚î the pricing.  Compound built here, 2026-08-23, from
--- ordinary  (‡Æ‡‡≤‡‡Ø, price; ‡‡ô‡‡ï‡®, marking); no source is claimed
+-- ‡§Æ‡•Ç‡§≤‡•ç‡§Ø‡§æ‡§ô‡•ç‡§ï‡§®‡§Æ‡•ç ‚Äî the pricing.  Compound built here, 2026-08-23, from
+-- ordinary Sanskrit (‡§Æ‡•Ç‡§≤‡•ç‡§Ø, price; ‡§Ö‡§ô‡•ç‡§ï‡§®, marking); no source is claimed
 -- for the term.  The mathematics is the fibre of a map (cubical, the one
 -- admitted non-Indian substrate); the three-verdict discipline is
--- Avaccheda's (‡∞‡ø‡ï‡‡‡Æ‡ / ‡‡ï‡Æ‡ / ‡‡‡ ‚î a target nothing reaches, a
+-- Avaccheda's (‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç / ‡§è‡§ï‡§Æ‡•ç / ‡§¨‡§π‡•Å ‚Äî a target nothing reaches, a
 -- contractible fibre, a fibre that IS the memory required), and the
--- refusal to collapse three verdicts into two is Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡.
+-- refusal to collapse three verdicts into two is Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É.
 --
 -- WHY THIS MODULE EXISTS.  The machine asked for it.  Jiva's top-10
 -- frontier (JIVA-HEARTBEAT 2026-08-23, unpriced=1203) names five
--- Bool ‚ü ‚ï edges to price first; two of them live in
+-- Bool ‚ü∂ ‚Ñï edges to price first; two of them live in
 -- NaturalMachine.FiniteOccupancyChannelNoGo: `asNat` and `bothNat`.
--- Lopa's deciding rules R1‚ìR4 cannot reach them (target ‚ï is neither
--- contractible nor ‚ä nor a truncation), so they sat UNDECIDED ‚î withheld,
+-- Lopa's deciding rules R1‚ÄìR4 cannot reach them (target ‚Ñï is neither
+-- contractible nor ‚ä• nor a truncation), so they sat UNDECIDED ‚Äî withheld,
 -- correctly, because no type expression forced a verdict.  This module
 -- forces the verdicts by computation: the COMPLETE fibre spectrum of both
 -- maps, at every target, so the edges are priced rather than graded.
 --
 -- THE PRICES.
 --
---   asNat : Bool ‚í ‚ï          0 ‚¶ ‡‡ï‡Æ‡, 1 ‚¶ ‡‡ï‡Æ‡, n+2 ‚¶ ‡∞‡ø‡ï‡‡‡Æ‡.
---     No ‡‡‡ anywhere: the elision loses nothing ‚î the WHICH survives
+--   asNat : Bool ‚Üí ‚Ñï          0 ‚Ü¶ ‡§è‡§ï‡§Æ‡•ç, 1 ‚Ü¶ ‡§è‡§ï‡§Æ‡•ç, n+2 ‚Ü¶ ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç.
+--     No ‡§¨‡§π‡•Å anywhere: the elision loses nothing ‚Äî the WHICH survives
 --     at every reached target.  A left inverse exists on the image; the
 --     map fails only to reach, never to remember.
 --
---   bothNat (uncurried) : Bool ó Bool ‚í ‚ï
---     1 ‚¶ ‡‡ï‡Æ‡ (only (true,true)), n+2 ‚¶ ‡∞‡ø‡ï‡‡‡Æ‡, and 0 ‚¶ ‡‡‡ with the
---     fibre computed EXACTLY: three points, Unit ‚ä Unit ‚ä Unit ‚î the
+--   bothNat (uncurried) : Bool √ó Bool ‚Üí ‚Ñï
+--     1 ‚Ü¶ ‡§è‡§ï‡§Æ‡•ç (only (true,true)), n+2 ‚Ü¶ ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç, and 0 ‚Ü¶ ‡§¨‡§π‡•Å with the
+--     fibre computed EXACTLY: three points, Unit ‚äé Unit ‚äé Unit ‚Äî the
 --     memory destroyed at 0 is precisely the distinction among
 --     (true,false), (false,true), (false,false).  This is the amount,
 --     not a flag (Avaccheda: the fibre IS the amount).
 --
 -- Together the two maps are the sharpest small contrast the verdict
--- lane owns: one Bool‚í‚ï edge that never forgets and one that forgets
+-- lane owns: one Bool‚Üí‚Ñï edge that never forgets and one that forgets
 -- exactly two bits' worth at exactly one target.
 ------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ open import Cubical.Relation.Nullary using (¬¨_)
 open import NaturalMachine.FiniteOccupancyChannelNoGo using (asNat ; bothNat)
 
 ------------------------------------------------------------------------
--- ‡‡‡‡ñ‡‡Ø‡æ-‡‡ô‡‡ï‡‡‡ asNat ‚î the edge that never forgets.
+-- ‡§Ö‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡§∏‡§ô‡•ç‡§ï‡•á‡§§‡§É asNat ‚Äî the edge that never forgets.
 ------------------------------------------------------------------------
 
 ‡§è‡§ï‡§Æ‡•ç-‡§Ö‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡•¶ : isContr (fiber asNat 0)
@@ -76,7 +76,7 @@ open import NaturalMachine.FiniteOccupancyChannelNoGo using (asNat ; bothNat)
 ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç-‡§Ö‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ n (true  , p) = znots (injSuc p)
 
 ------------------------------------------------------------------------
--- ‡â‡‡Ø-‡‡ô‡‡ï‡‡‡ bothNat, uncurried ‚î the edge that forgets exactly once.
+-- ‡§â‡§≠‡§Ø-‡§∏‡§ô‡•ç‡§ï‡•á‡§§‡§É bothNat, uncurried ‚Äî the edge that forgets exactly once.
 ------------------------------------------------------------------------
 
 g : Bool √ó Bool ‚Üí ‚Ñï
@@ -97,7 +97,7 @@ g xy = bothNat (fst xy) (snd xy)
 ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç-‡§â‡§≠‡§Ø n ((false , true ) , p) = znots p
 ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç-‡§â‡§≠‡§Ø n ((false , false) , p) = znots p
 
--- ‡‡‡ at 0, and the fibre computed exactly: three points, no more.
+-- ‡§¨‡§π‡•Å at 0, and the fibre computed exactly: three points, no more.
 ‡§¨‡§π‡•Å-‡§â‡§≠‡§Ø-‡•¶ : fiber g 0 ‚âÉ (Unit ‚äé (Unit ‚äé Unit))
 ‡§¨‡§π‡•Å-‡§â‡§≠‡§Ø-‡•¶ = isoToEquiv (iso fun inv rightInv leftInv)
   where
@@ -123,7 +123,7 @@ g xy = bothNat (fst xy) (snd xy)
   leftInv ((false , true ) , p) = Œ£PathP (refl , isSet‚Ñï 0 0 refl p)
   leftInv ((false , false) , p) = Œ£PathP (refl , isSet‚Ñï 0 0 refl p)
 
--- and ‡‡‡ said as Avaccheda's verdict demands ‚î not merely "not ‡‡ï‡Æ‡"
+-- and ‡§¨‡§π‡•Å said as Avaccheda's verdict demands ‚Äî not merely "not ‡§è‡§ï‡§Æ‡•ç"
 -- but the memory exhibited: two elements the collapse would identify.
 ‡§¨‡§π‡•Å-‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§®‡•ç : ¬¨ isContr (fiber g 0)
 ‡§¨‡§π‡•Å-‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§®‡•ç c =

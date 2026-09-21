@@ -5,7 +5,7 @@ Repository source read at 168ea8e240524f898af4b0e9cf70297c38422f08.
 
 ## Scope
 
-This note changes the mathematical description to passive input-output systems and spherical multipole analysis. It proves a finite-energy vorticity-shell separation result and the exact angular selection rule for central strain. It also translates the established fixed-receiver RH criterion into causal passivity. It does not prove RH or global Navierâ“Stokes regularity. No Agda/Lean build or numerical PDE evolution is claimed. The separate script checks finite polynomial identities; the infinite and PDE arguments below are analytic proofs.
+This note changes the mathematical description to passive input-output systems and spherical multipole analysis. It proves a finite-energy vorticity-shell separation result and the exact angular selection rule for central strain. It also translates the established fixed-receiver RH criterion into causal passivity. It does not prove RH or global Navierâ€“Stokes regularity. No Agda/Lean build or numerical PDE evolution is claimed. The separate script checks finite polynomial identities; the infinite and PDE arguments below are analytic proofs.
 
 ## 1. Exactly which spherical polarization generates central strain
 
@@ -13,7 +13,7 @@ On R^3 use
 u(x)=(4 pi)^(-1) integral omega(y) cross (x-y) / |x-y|^3 dy.
 Assume initially smooth sufficiently decaying divergence-free vorticity and the corresponding finite-energy velocity. The derivative and angular identities may also be used with radial cutoffs on individual shells.
 
-Writing y=r n, n in S^2, differentiation of Biotâ“Savart and symmetrization give
+Writing y=r n, n in S^2, differentiation of Biotâ€“Savart and symmetrization give
 S(0) = (3/(8 pi)) p.v. integral_0^infinity dr/r integral_S2
 [n tensor (n cross omega(r n)) + (n cross omega(r n)) tensor n] dOmega(n).
 
@@ -159,5 +159,5 @@ The RH translation identifies the signed quantity whose positivity is required: 
 
 Primary background:
 J. C. Willems, "Dissipative dynamical systems, Part I", 1972.
-P. Constantin and C. Fefferman, "Direction of Vorticity and the Problem of Global Regularity for the Navierâ“Stokes Equations", 1993.
+P. Constantin and C. Fefferman, "Direction of Vorticity and the Problem of Global Regularity for the Navierâ€“Stokes Equations", 1993.
 J. Novak, J.-L. Cornou, N. Vasset, "A spectral method for the wave equation of divergence-free vectors and symmetric tensors inside a sphere", arXiv:0905.2048.

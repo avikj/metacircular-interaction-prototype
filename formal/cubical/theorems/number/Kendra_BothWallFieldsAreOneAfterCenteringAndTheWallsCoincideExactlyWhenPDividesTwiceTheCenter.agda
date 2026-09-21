@@ -1,39 +1,39 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ï‡‡®‡‡¶‡‡∞‡Æ‡ ‚î both wall fields are one after centering, and the two walls
+-- ‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡§Æ‡•ç ‚Äî both wall fields are one after centering, and the two walls
 -- coincide exactly when p divides twice the center.
 --
--- THE CENTERING, checked as type equality ‚î not equivalence, EQUALITY.
+-- THE CENTERING, checked as type equality ‚Äî not equivalence, EQUALITY.
 -- Goldbach's local condition at an odd prime p for the even number
 -- N = 2m is two walls on the summand x:
 --
---     x ‚â 0 (mod p)   and   x ‚â N (mod p).
+--     x ‚â¢ 0 (mod p)   and   x ‚â¢ N (mod p).
 --
--- Substitute x = m + y ‚î measure from the center ‚î and the two walls
--- become the SYMMETRIC pair y ‚â ¬m (mod p).  The twin condition
--- n ‚â 0, ‚àí2 (mod p) under y = n + 1 becomes y ‚â ¬1 (mod p).  Both
+-- Substitute x = m + y ‚Äî measure from the center ‚Äî and the two walls
+-- become the SYMMETRIC pair y ‚â¢ ¬±m (mod p).  The twin condition
+-- n ‚â¢ 0, ‚àí2 (mod p) under y = n + 1 becomes y ‚â¢ ¬±1 (mod p).  Both
 -- problems inhabit the one two-wall field
 --
---     ‡ï‡‡‡‡‡‡∞‡Æ‡ p a y  =  ¬ p ‚à (y ‚àí a)  ó  ¬ p ‚à (y + a),
+--     ‡§ï‡•ç‡§∑‡•á‡§§‡•ç‡§∞‡§Æ‡•ç p a y  =  ¬¨ p ‚à£ (y ‚àí a)  √ó  ¬¨ p ‚à£ (y + a),
 --
 -- Goldbach at a = m = N/2, twins at a = 1.  Here the two substitutions
--- are PATHS between the wall types (‡ó‡ã‡≤-‡ï‡‡®‡‡¶‡‡∞‡‡ï‡∞‡‡Æ‡, ‡Ø‡Æ‡≤-‡ï‡‡®‡‡¶‡‡∞‡‡ï‡∞‡‡Æ‡):
+-- are PATHS between the wall types (‡§ó‡•ã‡§≤-‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡•Ä‡§ï‡§∞‡§£‡§Æ‡•ç, ‡§Ø‡§Æ‡§≤-‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡•Ä‡§ï‡§∞‡§£‡§Æ‡•ç):
 -- the centered field is not analogous to the uncentered conditions, it
--- is the same type transported along ring identities of ‚.
+-- is the same type transported along ring identities of ‚Ñ§.
 --
--- AND THE DEGENERACY IS AN IFF (‡‡ø‡‡‡‡ø-‡‡ô‡‡ó‡Æ‡ / ‡‡ø‡‡‡‡ø-‡‡‡¶‡): the two walls
--- impose the same condition for every y exactly when p ‚à 2a = a + a.
--- Forward: if p ‚à a+a, each wall shifts onto the other by that multiple.
--- Converse: instantiate y = a; the lower wall is p ‚à 0, trivially
--- inhabited, so wall-agreement at that point forces p ‚à a+a.  This is
+-- AND THE DEGENERACY IS AN IFF (‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡§ô‡•ç‡§ó‡§Æ‡§É / ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§≠‡•á‡§¶‡§É): the two walls
+-- impose the same condition for every y exactly when p ‚à£ 2a = a + a.
+-- Forward: if p ‚à£ a+a, each wall shifts onto the other by that multiple.
+-- Converse: instantiate y = a; the lower wall is p ‚à£ 0, trivially
+-- inhabited, so wall-agreement at that point forces p ‚à£ a+a.  This is
 -- the exact support of the mean-field dichotomy: the local factor is
 -- (1 ‚àí 2/p) where the walls are distinct and (1 ‚àí 1/p) where they merge
--- ‚î the numerators p‚àí2 and p‚àí1 count survivors per period.
+-- ‚Äî the numerators p‚àí2 and p‚àí1 count survivors per period.
 --
--- ON THE NAME.  ‡ï‡‡®‡‡¶‡‡∞ (kendra) is the siddhntas' own technical term for
--- the anomaly ‚î the angular coordinate measured FROM THE CENTER (a Greek
--- loan, Œ∫ŒŒΩœœŒøŒΩ, fully absorbed: Sryasiddhnta; Brahmagupta's
+-- ON THE NAME.  ‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞ (kendra) is the siddhƒÅntas' own technical term for
+-- the anomaly ‚Äî the angular coordinate measured FROM THE CENTER (a Greek
+-- loan, Œ∫Œ≠ŒΩœÑœÅŒøŒΩ, fully absorbed: S≈´ryasiddhƒÅnta; Brahmagupta's
 -- manda-kendra, Brhmasphuasiddhnta, 628).  It names exactly this
 -- module's move: replace the raw coordinate by the deviation from the
 -- mean point and the symmetry appears.  No claim that any siddhnta
@@ -41,11 +41,11 @@
 -- content.  The centered field was stated by the owner this session,
 -- 2026-08-23; the type-level identities are built here.
 --
--- ‡¶‡ã‡‡≤‡‡ñ‡, scope.  Exact and local: the affine normalization and the
--- wall dichotomy, over ‚ with divisibility as data (Œ, untruncated).
+-- ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É, scope.  Exact and local: the affine normalization and the
+-- wall dichotomy, over ‚Ñ§ with divisibility as data (Œ£, untruncated).
 -- NOT built: the per-period survivor counts p‚àí2 / p‚àí1 as cardinality
 -- theorems, the Fourier crystal r_{p,a}, the CRT ray decomposition, and
--- the signed inequality over rays ‚î named as the open frame, in order.
+-- the signed inequality over rays ‚Äî named as the open frame, in order.
 ------------------------------------------------------------------------
 
 module Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter where
@@ -59,7 +59,7 @@ open import Cubical.Data.Sigma using (Œ£-syntax ; _√ó_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬¨_)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ divisibility as data, and the universal two-wall field.
+-- ‡•ß ¬∑ divisibility as data, and the universal two-wall field.
 ------------------------------------------------------------------------
 
 _‚à£_ : ‚Ñ§ ‚Üí ‚Ñ§ ‚Üí Type
@@ -69,7 +69,7 @@ d ‚à£ k = Œ£[ c ‚àà ‚Ñ§ ] c ¬∑ d ‚â° k
 ‡§ï‡•ç‡§∑‡•á‡§§‡•ç‡§∞‡§Æ‡•ç p a y = (¬¨ p ‚à£ (y - a)) √ó (¬¨ p ‚à£ (y + a))
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡ó‡ã‡≤-‡ï‡‡®‡‡¶‡‡∞‡‡ï‡∞‡‡Æ‡ ‚î Goldbach's two walls at N = m + m, centered.
+-- ‡•® ¬∑ ‡§ó‡•ã‡§≤-‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡•Ä‡§ï‡§∞‡§£‡§Æ‡•ç ‚Äî Goldbach's two walls at N = m + m, centered.
 -- The uncentered condition on the summand x = m + y IS the field at
 -- center m: a path of types, componentwise along ring identities.
 ------------------------------------------------------------------------
@@ -93,7 +93,7 @@ d ‚à£ k = Œ£[ c ‚àà ‚Ñ§ ] c ¬∑ d ‚â° k
     ‡§Ö‡§ß‡§ø‡§ï = +Comm m y
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡Ø‡Æ‡≤-‡ï‡‡®‡‡¶‡‡∞‡‡ï‡∞‡‡Æ‡ ‚î the twin walls n ‚â 0, ‚àí2, centered at y = n + 1.
+-- ‡•© ¬∑ ‡§Ø‡§Æ‡§≤-‡§ï‡•á‡§®‡•ç‡§¶‡•ç‡§∞‡•Ä‡§ï‡§∞‡§£‡§Æ‡•ç ‚Äî the twin walls n ‚â¢ 0, ‚àí2, centered at y = n + 1.
 -- The same field at center 1.
 ------------------------------------------------------------------------
 
@@ -112,10 +112,10 @@ d ‚à£ k = Œ£[ c ‚àà ‚Ñ§ ] c ¬∑ d ‚â° k
     ‡§Ö‡§ß‡§ø‡§ï = +Assoc n (pos 1) (pos 1)
 
 ------------------------------------------------------------------------
--- ‡ ¬ the dichotomy: the walls coincide for every y iff p ‚à a + a.
+-- ‡•™ ¬∑ the dichotomy: the walls coincide for every y iff p ‚à£ a + a.
 ------------------------------------------------------------------------
 
--- forward: p ‚à a + a lets each wall slide onto the other.
+-- forward: p ‚à£ a + a lets each wall slide onto the other.
 ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡§ô‡•ç‡§ó‡§Æ‡§É : (p a : ‚Ñ§) ‚Üí p ‚à£ (a + a)
              ‚Üí (y : ‚Ñ§) ‚Üí (p ‚à£ (y - a) ‚Üí p ‚à£ (y + a)) √ó (p ‚à£ (y + a) ‚Üí p ‚à£ (y - a))
 ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡§ô‡•ç‡§ó‡§Æ‡§É p a (c , cp) y = ‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ‡§Æ‡•ç , ‡§Ö‡§ß‡§É
@@ -144,11 +144,11 @@ d ‚à£ k = Œ£[ c ‚àà ‚Ñ§ ] c ¬∑ d ‚â° k
                     ‚àô +Assoc (y + a) (- a) (- a)
                     ‚àô cong (_+ (- a)) (plusMinus a y) )
 
--- converse: agreement at the single point y = a already forces p ‚à a + a.
+-- converse: agreement at the single point y = a already forces p ‚à£ a + a.
 ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§≠‡•á‡§¶‡§É : (p a : ‚Ñ§) ‚Üí ((y : ‚Ñ§) ‚Üí p ‚à£ (y - a) ‚Üí p ‚à£ (y + a)) ‚Üí p ‚à£ (a + a)
 ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§≠‡•á‡§¶‡§É p a slide =
   slide a (pos 0 , ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç)
   where
-    -- 0 ¬ p ‚â° a ‚àí a
+    -- 0 ¬∑ p ‚â° a ‚àí a
     ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç : pos 0 ¬∑ p ‚â° a - a
     ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç = sym (-Cancel a)

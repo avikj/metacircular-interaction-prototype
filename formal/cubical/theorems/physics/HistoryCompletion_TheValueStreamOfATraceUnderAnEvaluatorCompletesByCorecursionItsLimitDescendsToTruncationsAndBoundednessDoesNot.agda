@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- HistoryCompletion � the one construction under both frontiers, made
+-- HistoryCompletion — the one construction under both frontiers, made
 -- from parts the corpus already holds:
 --
 --   the coinductive stream Dhr (Parasparasraya), its truncation
@@ -13,7 +13,7 @@
 --
 -- THE CONSTRUCTION.  A history is a stream of steps; an evaluator
 -- assigns each step a value; the VALUE STREAM of the history is the
--- stream of its partial pairings � the finite blocks.  Value streams
+-- stream of its partial pairings — the finite blocks.  Value streams
 -- live in the take-metric: two are n-close when their first n blocks
 -- agree.  In that metric they are complete by corecursion, with no
 -- precision representation anywhere: depth is a natural number.  So
@@ -26,21 +26,21 @@
 --       (the proofs are the corpus's, only the carrier is freed);
 --   §2  the value stream of a history under an evaluator, and the fact
 --       that it is determined by its truncations (meaning descends);
---   §3  □ � "at every depth" � as a coinductive predicate on streams;
+--   §3  □ — "at every depth" — as a coinductive predicate on streams;
 --       a failing truncation refutes it; and NO DEPTH DECIDES IT: for
 --       every n there are two value streams agreeing to depth n, one
 --       bounded forever and one not (cost does not descend);
 --   §4  the two readings.  RH: the sampled trace is a value stream and
---       RH is □(|κ| � κ(0)) � a single finite separator refutes it, no
+--       RH is □(|κ| ≤ κ(0)) — a single finite separator refutes it, no
 --       depth confirms it.  NS: the Taylor jets of GalerkinJets form a
 --       value stream, the Galerkin truncation is a stream map, and its
 --       unit lookahead (agreement to depth M+1 in, depth M out) is the
 --       SthairyaSutra crossing profile; §3 says regularity, a bound on
 --       every jet, is likewise a □-predicate no depth decides.
 --
--- SYT.  §§1�3 are theorems for every carrier and every evaluator; §4
+-- SYĀT.  §§1–3 are theorems for every carrier and every evaluator; §4
 -- instantiates the shape with the corpus's own exact objects and does
--- not compute � or solve Navier�Stokes.  The completion here is of
+-- not compute ζ or solve Navier–Stokes.  The completion here is of
 -- value streams in the take-metric, not of the reals: what it buys is
 -- that the limit object exists and is unique, and that the two
 -- Millennium statements are, exactly, □-predicates on it.
@@ -112,7 +112,7 @@ module Value {S V : Type₀} (_⊕_ : V → V → V) (v₀ : V) where
   open Take
 
   -- a history is a stream of steps; an evaluator values each step;
-  -- the value stream carries the running pairing (MulyaVinimaya's �,
+  -- the value stream carries the running pairing (MulyaVinimaya's ∫,
   -- along the stream instead of along a finite derivation)
   values : (S → V) → V → Dhārā S → Dhārā V
   śiras (values ω acc h) = acc ⊕ ω (śiras h)
@@ -128,7 +128,7 @@ module Value {S V : Type₀} (_⊕_ : V → V → V) (v₀ : V) where
   valueStream-ext ω = take-ext
 
 ------------------------------------------------------------------------
--- §3  □ � at every depth � and that no depth decides it
+-- §3  □ — at every depth — and that no depth decides it
 ------------------------------------------------------------------------
 
 record □ {A : Type₀} (P : A → Type₀) (s : Dhārā A) : Type₀ where
@@ -153,7 +153,7 @@ module Refute {A : Type₀} (P : A → Type₀) where
   separator : {s : Dhārā A} (n : ℕ) → ¬ P (at n s) → ¬ □ P s
   separator n np b = np (□-at b n)
 
--- NO DEPTH DECIDES □: two �-streams agreeing to depth n, one bounded
+-- NO DEPTH DECIDES □: two ℤ-streams agreeing to depth n, one bounded
 -- by 0 forever, one exceeding it at depth n
 module NoDepth where
   open Take
@@ -176,7 +176,7 @@ module NoDepth where
   now zeros-bounded = zero-≤pos
   later zeros-bounded = zeros-bounded
 
-  -- 1 � 0 is false
+  -- 1 ≤ 0 is false
   one≰0 : ¬ (pos 1 ≤ pos 0)
   one≰0 (k , p) = snotz-lemma k p
     where
@@ -204,8 +204,8 @@ module NoDepth where
 ------------------------------------------------------------------------
 
 -- RH reading.  The finite explicit formula's trace is the stream of
--- power sums p_k = � �_i� (FiniteExplicitFormula); RH's finite form is
--- that all roots lie on the unit circle, i.e. □(|p_k| � p_0).
+-- power sums p_k = Σ α_iᵏ (FiniteExplicitFormula); RH's finite form is
+-- that all roots lie on the unit circle, i.e. □(|p_k| ≤ p_0).
 module PowerSumTrace where
   open Take
   open import Cubical.Data.Int using (abs ; _·_) renaming (_+_ to _+i_)
@@ -222,7 +222,7 @@ module PowerSumTrace where
   BoundedBy : ℕ → ℤ → Type₀
   BoundedBy M z = abs z ≤ℕ M
 
-  -- roots (1, −1, 1), all on the unit circle: |p_k| � 3 forever
+  -- roots (1, −1, 1), all on the unit circle: |p_k| ≤ 3 forever
   onCircle : □ (BoundedBy 3) (powerSums (pos 1) (negsuc 0) (pos 1))
   onCircle = go (pos 1) (pos 1) (pos 1) (inl refl)
     where
@@ -268,11 +268,11 @@ module JetStream where
   agreeList (f ∷ fs) (g ∷ gs) = eqBox4 f g and agreeList fs gs
   agreeList _ _ = false
 
-  -- window 3: the truncated stream agrees with the exact one to depth 3 �
+  -- window 3: the truncated stream agrees with the exact one to depth 3 …
   agree-to-window : agreeList (take 3 (galerkin 3 0)) (take 3 (jets 0)) ≡ true
   agree-to-window = refl
 
-  -- � and the boundary row of the residual at depth 3 is nonzero
+  -- … and the boundary row of the residual at depth 3 is nonzero
   residual-beyond : residual₃ (pos 4) (pos 1) ≡ (pos 0 , pos 1)
   residual-beyond = refl
 

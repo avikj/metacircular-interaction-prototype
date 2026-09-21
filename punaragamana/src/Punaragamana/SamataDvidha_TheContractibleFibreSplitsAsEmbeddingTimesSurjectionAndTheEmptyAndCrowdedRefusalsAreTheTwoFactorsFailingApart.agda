@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- Punargamana � ����-������
+-- Punarāgamana · समता-द्विधा
 --
--- ���� (samat) � sameness, the state of being an equivalence.  ������
--- (dvidh) � in two, split.  The compound is CHOSEN here, descriptively;
+-- समता (samatā) — sameness, the state of being an equivalence.  द्विधा
+-- (dvidhā) — in two, split.  The compound is CHOSEN here, descriptively;
 -- no source is claimed for it (the same standing as `Carrier`'s own name).
 --
 ------------------------------------------------------------------------
@@ -14,25 +14,25 @@
 -- sentence "there is no third reading", and left in the header the reason,
 -- as prose:
 --
---     `isContr (��� f b)` fails in two OPPOSITE ways �
---       the fibre is EMPTY   � nothing was lost, �����������, ����������;
---       the fibre is CROWDED � two points not identified, ������, �����.
---     � and this module calls both of them "not an equivalence".
+--     `isContr (शेष f b)` fails in two OPPOSITE ways —
+--       the fibre is EMPTY   — nothing was lost, अवक्तव्यम्, धनात्मकम्;
+--       the fibre is CROWDED — two points not identified, नष्टि, हिंसा.
+--     — and this module calls both of them "not an equivalence".
 --
 -- §4/§5 of that module then handle the CROWDED arm only.  The two arms are
 -- named in prose and never separated in a type.  This module separates
 -- them, as a checked equivalence, and shows they are ORTHOGONAL: neither
 -- implies the other, each exhibited failing while the other holds.
 --
--- THE SPLIT.  For any f : A � B, being an equivalence is, fibrewise,
--- `(b : B) � isContr (��� f b)`.  And for any type X,
+-- THE SPLIT.  For any f : A → B, being an equivalence is, fibrewise,
+-- `(b : B) → isContr (शेष f b)`.  And for any type X,
 --
---     isContr X  �  (isProp X � X).
+--     isContr X  ≃  (isProp X × X).
 --
 -- Distribute that over the b, and the Π over the product:
 --
---     ((b : B) � isContr (��� f b))
---       �  ((b : B) � isProp (��� f b))   �   ((b : B) � ��� f b).
+--     ((b : B) → isContr (शेष f b))
+--       ≃  ((b : B) → isProp (शेष f b))   ×   ((b : B) → शेष f b).
 --        \___________________________/       \__________________/
 --          NO TWO POINTS COLLAPSED             NOTHING MISSING
 --          = hasPropFibers f = f is an         = a source point over every
@@ -43,17 +43,17 @@
 -- law) is literally a PRODUCT of two independent obligations, and the two
 -- ways a residual refuses contractibility are the two factors failing:
 --
---   * CROWDED  (������)      = the LEFT factor fails � some fibre is not a
---                            prop � f is not an embedding.
---   * EMPTY    (�����������)  = the RIGHT factor fails � some fibre is
---                            uninhabited � f is not surjective.
+--   * CROWDED  (नष्टि)      = the LEFT factor fails — some fibre is not a
+--                            prop — f is not an embedding.
+--   * EMPTY    (अवक्तव्यम्)  = the RIGHT factor fails — some fibre is
+--                            uninhabited — f is not surjective.
 --
 -- §4 witnesses the orthogonality with two smallest maps:
---   ���������� : Bool � Unit   collapses (crowded), yet covers    � only LEFT fails
---   �������  : Unit � Bool    embeds (all fibres prop), misses false � only RIGHT fails
+--   सर्वैकम् : Bool → Unit   collapses (crowded), yet covers    → only LEFT fails
+--   बिन्दुः  : Unit → Bool    embeds (all fibres prop), misses false → only RIGHT fails
 -- Each is a checked term, so the independence is proved, not asserted.
 --
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 � the library's declared pin.
+-- CHECKED: Agda 2.6.3, agda/cubical v0.5 — the library's declared pin.
 -- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ private
 ------------------------------------------------------------------------
 -- 1.  The per-point lemma.  Contractible = a proposition that is
 --     inhabited.  Both sides are propositions, so a bi-implication is an
---     equivalence � nothing to cohere.
+--     equivalence — nothing to cohere.
 ------------------------------------------------------------------------
 
 isContr≃isProp×inhab : {X : Type ℓ} → isContr X ≃ (isProp X × X)
@@ -96,7 +96,7 @@ isContr≃isProp×inhab {X = X} =
     rhs-prop = isPropΣ isPropIsProp (λ p → p)
 
 ------------------------------------------------------------------------
--- 2.  Π distributes over a pointwise product.  Pure �; both round trips
+-- 2.  Π distributes over a pointwise product.  Pure η; both round trips
 --     are refl.
 ------------------------------------------------------------------------
 
@@ -109,16 +109,16 @@ module _ {A : Type ℓ} {P Q : A → Type ℓ} where
   Iso.leftInv  Π×Iso _       = refl
 
 ------------------------------------------------------------------------
--- 3.  THE SPLIT, for an arbitrary f : A � B.
+-- 3.  THE SPLIT, for an arbitrary f : A → B.
 ------------------------------------------------------------------------
 
 module _ {A B : Type ℓ} (f : A → B) where
 
   -- being an equivalence, read fibrewise: a census of contractibilities.
   -- (`isEquiv f` is the record wrapping exactly this, so the two are
-  -- equivalent by record-�; the fibrewise form is the one that splits.)
+  -- equivalent by record-η; the fibrewise form is the one that splits.)
   -- both sides are propositions (`isPropIsEquiv`; a Π of `isPropIsContr`),
-  -- so the bi-implication IS the equivalence � no � on `isEquiv` needed.
+  -- so the bi-implication IS the equivalence — no η on `isEquiv` needed.
   समता-census : isEquiv f ≃ ((b : B) → isContr (शेष f b))
   समता-census = propBiimpl→Equiv (isPropIsEquiv f) (isPropΠ (λ _ → isPropIsContr))
                                   equiv-proof (λ c → record { equiv-proof = c })
@@ -131,7 +131,7 @@ module _ {A B : Type ℓ} (f : A → B) where
   छादनम्  = (b : B) → शेष f b
 
   -- THE THEOREM.  Contractible-fibred (= equivalence) splits, on the nose,
-  -- into embedding � split-surjection.
+  -- into embedding × split-surjection.
   समता-द्विधा : ((b : B) → isContr (शेष f b)) ≃ (भेदः × छादनम्)
   समता-द्विधा =
     compEquiv (equivΠCod (λ _ → isContr≃isProp×inhab))
@@ -141,8 +141,8 @@ module _ {A B : Type ℓ} (f : A → B) where
   समता≃भेद×छादन : isEquiv f ≃ (भेदः × छादनम्)
   समता≃भेद×छादन = compEquiv समता-census समता-द्विधा
 
-  -- the LEFT factor is exactly "f is an embedding".  `����` unfolds to
-  -- `hasPropFibers f` definitionally (��� f = fiber f), so the bridge is
+  -- the LEFT factor is exactly "f is an embedding".  `भेदः` unfolds to
+  -- `hasPropFibers f` definitionally (शेष f = fiber f), so the bridge is
   -- the library's characterisation, no reshaping.
   भेदः→embedding : भेदः → isEmbedding f
   भेदः→embedding = hasPropFibers→isEmbedding
@@ -156,7 +156,7 @@ module _ {A B : Type ℓ} (f : A → B) where
 --     checked terms, so "two OPPOSITE ways" is now proved, not narrated.
 ------------------------------------------------------------------------
 
--- (a)  CROWDED only.  ���������� : Bool � Unit collapses two points onto tt
+-- (a)  CROWDED only.  सर्वैकम् : Bool → Unit collapses two points onto tt
 --      (LEFT factor fails) but covers its single target (RIGHT holds).
 
 सर्वैकम् : Bool → Unit
@@ -168,8 +168,8 @@ module _ {A B : Type ℓ} (f : A → B) where
 सर्वैकम्-न-भेदः : ¬ (भेदः सर्वैकम्)
 सर्वैकम्-न-भेदः pr = false≢true (cong fst (pr tt (false , refl) (true , refl)))
 
--- (b)  EMPTY only.  ������� : Unit � Bool picks `true`; every fibre is a
---      prop (RIGHT... LEFT factor holds � it embeds), but the fibre over
+-- (b)  EMPTY only.  बिन्दुः : Unit → Bool picks `true`; every fibre is a
+--      prop (RIGHT... LEFT factor holds — it embeds), but the fibre over
 --      false is empty, so it misses (RIGHT factor fails).
 
 बिन्दुः : Unit → Bool

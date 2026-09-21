@@ -3,33 +3,33 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.MixedCornerDescent
 --
--- Factory IV §X, Theorem 70 � "mixed-corner descent" � as a checked
+-- Factory IV §X, Theorem 70 — "mixed-corner descent" — as a checked
 -- well-founded descent, i.e. as the SPECIFICATION its compiler would
 -- have to meet, with nothing arithmetic smuggled in.
 --
 -- WHERE THIS COMES FROM.  The owner's delta
 -- `collab/upstream/library/raw/ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_IV_2026-08-14.md`
--- §X ("The mixed radius�charge compiler") sets e = Ω − 1 ∈ {0,1}, takes
--- the state space V_R = {1,�,R} � {0,1} with (r,0) an exact prime pair at
--- radius r and (r,1) a prime�semiprime pair at radius r, target (1,0),
+-- §X ("The mixed radius–charge compiler") sets e = Ω − 1 ∈ {0,1}, takes
+-- the state space V_R = {1,…,R} × {0,1} with (r,0) an exact prime pair at
+-- radius r and (r,1) a prime–semiprime pair at radius r, target (1,0),
 -- and defines the boxed rank
 --
 --     κ(r,e) = 2(r−1) + e,          unique zero (1,0).
 --
 -- Theorem 70 then reads: if every reachable non-target state has a
--- bounded proof-carrying transition v � v� with κ(v�) < κ(v) and the
+-- bounded proof-carrying transition v → v′ with κ(v′) < κ(v) and the
 -- center strictly increasing, then twin primes are infinite.  Its whole
--- mathematical content is the descent � "the natural-number rank
+-- mathematical content is the descent — "the natural-number rank
 -- strictly decreases; the process terminates at its unique rank-zero
--- state" � and that content is finite, decidable, and belongs in a
+-- state" — and that content is finite, decidable, and belongs in a
 -- proof assistant rather than in prose.  Receiving audit:
 -- `notes/FACTORY_IV_CHEN_CORNER_AUDIT.md` §3, which grades Theorem 70
 -- "correct as stated and content-free until a single mixed edge
--- (r,0) � (s,1) has an arithmetic instance; none exists in the
+-- (r,0) → (s,1) has an arithmetic instance; none exists in the
 -- literature known here."  This module is written to that grade: the
 -- descent half is discharged completely, the arithmetic half is
 -- declared missing, and the interface between them is a type, so that
--- an edge theorem � if one is ever proved � composes with this for
+-- an edge theorem — if one is ever proved — composes with this for
 -- free.  Sibling formalizations of the same §: `ChenProjector.agda`
 -- (Theorem 58, the charge projector), `CornerProjectors.agda` (§XI,
 -- P_r P_c = P_c P_r together with the marginal-to-joint counterexample),
@@ -38,33 +38,33 @@
 -- THE HILBERT MOVE.  Axiomatize, then decide.  Everything Theorem 70
 -- says about *arithmetic* is quarantined into one abstract datum
 --
---     Descent = (s : State) � � (κ s ≡ 0) � �[ t ∈ State ] (κ t < κ s)
+--     Descent = (s : State) → ¬ (κ s ≡ 0) → Σ[ t ∈ State ] (κ t < κ s)
 --
--- � "every non-corner state has a next state, carrying a proof that the
--- rank drops" � and everything it says about *termination* is then a
--- theorem with no hypotheses left to argue about.  The � is the point:
+-- — "every non-corner state has a next state, carrying a proof that the
+-- rank drops" — and everything it says about *termination* is then a
+-- theorem with no hypotheses left to argue about.  The Σ is the point:
 -- the transition and its certificate travel together, so the compiler
 -- cannot emit an edge it has not justified.  Factory IV's own gain over
 -- Factory III is visible in this type and only here: Factory III
--- admitted (r,0) � (s,0) with s < r; the mixed datum admits
--- (r,0) � (r−1,1), trading one unit of charge for one unit of radius and
--- purifying later through (1,1) � (1,0).  Both are instances of the same
+-- admitted (r,0) → (s,0) with s < r; the mixed datum admits
+-- (r,0) → (r−1,1), trading one unit of charge for one unit of radius and
+-- purifying later through (1,1) → (1,0).  Both are instances of the same
 -- Descent, which is why the mixed compiler is strictly more permissive
 -- and terminates just as surely.
 --
--- COORDINATES.  State = � � Bool with the first coordinate r � 1 (so
+-- COORDINATES.  State = ℕ × Bool with the first coordinate r ∸ 1 (so
 -- Factory IV's radius-one target is our 0) and the second coordinate the
--- charge defect e as a Bool.  Then κ(r,e) = 2�r + e is `rank`, defined by
+-- charge defect e as a Bool.  Then κ(r,e) = 2·r + e is `rank`, defined by
 -- structural recursion so that it computes, and the corner is (0,false).
--- Reindexing by r � 1 is not cosmetic: it makes "unique zero" a statement
--- about �'s own zero, so rank-zero uniqueness is three pattern matches
+-- Reindexing by r ∸ 1 is not cosmetic: it makes "unique zero" a statement
+-- about ℕ's own zero, so rank-zero uniqueness is three pattern matches
 -- rather than an inequality argument, and it removes the bound R, which
--- Theorem 70 never uses (the descent is well-founded on all of � � Bool;
+-- Theorem 70 never uses (the descent is well-founded on all of ℕ × Bool;
 -- R is a bookkeeping convenience in the source).
 --
 -- WHY FUEL, AND NOT WELL-FOUNDED RECURSION.  The trajectory is built by
--- structural recursion on a fuel argument k with the invariant κ s � k,
--- started at k = κ s and closed by �-refl � the choice, and the discipline
+-- structural recursion on a fuel argument k with the invariant κ s ≤ k,
+-- started at k = κ s and closed by ≤-refl — the choice, and the discipline
 -- of *proving that the chosen fuel suffices* rather than assuming it,
 -- is taken from `formal/pairfield/Pairfield/WalkFalsifier.lean`, whose
 -- header states it exactly: "everything here is written by structural
@@ -83,15 +83,15 @@
 -- WHAT THIS MODULE PROVES (no holes, no postulates, --safe):
 --
 --   State, corner, rank, κ   the mixed state space and Factory IV's rank
---   rank-zero-unique         κ s ≡ 0 � s ≡ (0,false): the corner is the
---                            unique zero of the rank � Theorem 70's
+--   rank-zero-unique         κ s ≡ 0 → s ≡ (0,false): the corner is the
+--                            unique zero of the rank — Theorem 70's
 --                            "its unique rank-zero state"
 --   corner-rank              κ corner ≡ 0, the converse half
 --   rank-zero-contr          the two together, sharpened: the fiber of κ
 --                            over 0 is CONTRACTIBLE, so "the target" is
 --                            well-defined as a type, not merely as a
 --                            named element
---   Descent                  the proof-carrying transition datum (�-data:
+--   Descent                  the proof-carrying transition datum (Σ-data:
 --                            next state ⊗ certificate that κ drops)
 --   Reaches                  the reachability predicate generated by a
 --                            Descent: arrived at rank 0, or one certified
@@ -106,18 +106,18 @@
 --                            trajectory is the corner (0,false)
 --   steps-bound              at most κ(start) transitions
 --   traj-length, traj-bound  hence the trajectory has at most κ(start)+1
---                            states � the bound is attained, see the
+--                            states — the bound is attained, see the
 --                            example
 --   mixedStep, mixedDescent  Factory IV's own edges as an INHABITANT of
---                            Descent: (r,0) � (r−1,1) mixed, (r,1) � (r,0)
+--                            Descent: (r,0) → (r−1,1) mixed, (r,1) → (r,0)
 --                            purifying.  The specification is non-vacuous
 --                            as a specification; see the next paragraph
 --                            for what that does and does not mean
---   example-trajectory       (2,true) � radius 3, charge defect 1, κ = 5:
+--   example-trajectory       (2,true) ↦ radius 3, charge defect 1, κ = 5:
 --                            the six-state trajectory computes by refl,
 --                            saturating traj-bound
 --
--- WHAT IS *NOT* CLAIMED � read this before citing anything above.
+-- WHAT IS *NOT* CLAIMED — read this before citing anything above.
 --
 --   1. No twin-prime statement, and no step toward one.  Theorem 70's
 --      conclusion ("then twin primes are infinite") is NOT formalized and
@@ -125,13 +125,13 @@
 --      formalized either: the hypothesis is arithmetic and this module is
 --      combinatorial.
 --   2. NO ARITHMETIC INSTANCE OF ANY EDGE EXISTS.  `mixedDescent` inhabits
---      `Descent` on the *abstract* state space � � Bool; it moves labels,
+--      `Descent` on the *abstract* state space ℕ × Bool; it moves labels,
 --      not prime pairs.  A real edge would be a theorem of the form "from
 --      a prime pair at radius r there is a bounded, proof-carrying
---      construction of a prime�semiprime pair at radius r−1 with center
+--      construction of a prime–semiprime pair at radius r−1 with center
 --      strictly larger", and the audit records that no such theorem is
 --      known here, on either the mixed leg or the purifying leg
---      (1,1) � (1,0) � the latter being, in Factory IV §XII's own words,
+--      (1,1) → (1,0) — the latter being, in Factory IV §XII's own words,
 --      the full problem.  So the inhabitant witnesses that the SPEC is
 --      satisfiable, not that ARITHMETIC satisfies it.  Nothing in this
 --      file is evidence about the integers.
@@ -140,12 +140,12 @@
 --      infinitude rather than a single pair); it is orthogonal to the
 --      descent and would be carried as a second component of the datum
 --      once an edge exists to carry it.  Declaring it absent is cheaper
---      than pretending a �-valued center adds content while the edges are
+--      than pretending a ℕ-valued center adds content while the edges are
 --      empty.
 --   4. Therefore, per the `DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing/`
 --      discipline and `notes/FACTORY_IV_CHEN_CORNER_AUDIT.md` §3's grading
 --      of exactly this theorem: THIS MODULE IS SCAFFOLDING, LABELLED AS
---      SUCH.  Its value is entirely conditional and entirely explicit �
+--      SUCH.  Its value is entirely conditional and entirely explicit —
 --      when an edge theorem arrives, it is applied to `descend` and the
 --      trajectory, its length bound, and its endpoint are obtained with
 --      no further work.  That is a real saving of exactly one page, and
@@ -153,7 +153,7 @@
 --
 -- Checked: cd /home/user/math/formal/cubical &&
 --          LC_ALL=C.UTF-8 agda NaturalMachine/MixedCornerDescent.agda
---          � exit 0  (Agda 2.6.3, cubical v0.5)
+--          → exit 0  (Agda 2.6.3, cubical v0.5)
 --
 -- cf-swarm-hilbert, 2026-08-16
 ------------------------------------------------------------------------
@@ -175,13 +175,13 @@ open import Cubical.Relation.Nullary using (¬_)
 ------------------------------------------------------------------------
 -- §1  The mixed state space and Factory IV's rank.
 --
--- Factory IV's V_R = {1,�,R} � {0,1} is reindexed by r � r � 1 and
+-- Factory IV's V_R = {1,…,R} × {0,1} is reindexed by r ↦ r ∸ 1 and
 -- unbounded (the bound R plays no role in the descent).  The charge
 -- defect e = Ω − 1 is a Bool because it is a two-valued coordinate and
 -- nothing here does arithmetic with it beyond "is it set".
 --
--- κ(r,e) = 2�r + e is defined by structural recursion rather than as
--- `2 * r + �` so that it computes on constructors: every statement below
+-- κ(r,e) = 2·r + e is defined by structural recursion rather than as
+-- `2 * r + …` so that it computes on constructors: every statement below
 -- about a concrete state is then closed by refl, which is the whole
 -- reason the fuel discipline is worth its cost (see the header).
 ------------------------------------------------------------------------
@@ -203,14 +203,14 @@ rank (suc r) e     = suc (suc (rank r e))
 
 -- The one arithmetic fact about the rank that the descent needs: raising
 -- the charge defect costs exactly one, which is why a mixed edge
--- (r,0) � (r−1,1) is a strict gain (two units of radius bought, one unit
+-- (r,0) → (r−1,1) is a strict gain (two units of radius bought, one unit
 -- of charge spent).  Everything else follows from this by pattern match.
 rank-true : (r : ℕ) → rank r true ≡ suc (rank r false)
 rank-true zero    = refl
 rank-true (suc r) = cong (λ n → suc (suc n)) (rank-true r)
 
 ------------------------------------------------------------------------
--- §2  Rank-zero uniqueness � Theorem 70's "unique rank-zero state".
+-- §2  Rank-zero uniqueness — Theorem 70's "unique rank-zero state".
 --
 -- Stated in three forms of increasing strength: the implication, the
 -- converse, and the two combined as contractibility of the fiber.  The
@@ -228,7 +228,7 @@ corner-rank : κ corner ≡ 0
 corner-rank = refl
 
 -- The fiber of κ over 0 is contractible: the corner exists, is unique,
--- and its rank-zero certificate is unique too (� is a set).
+-- and its rank-zero certificate is unique too (ℕ is a set).
 rank-zero-contr : isContr (Σ[ s ∈ State ] (κ s ≡ 0))
 rank-zero-contr = (corner , corner-rank) , contract
   where
@@ -249,7 +249,7 @@ non-corner s ne h = ne (rank-zero-unique s h)
 --
 -- Theorem 70's hypothesis, and nothing else: to every non-corner state,
 -- a next state TOGETHER WITH a certificate that the rank strictly drops.
--- Carried as �-data so the two cannot be separated � an edge without its
+-- Carried as Σ-data so the two cannot be separated — an edge without its
 -- certificate is not an element of this type, which is the formal content
 -- of "proof-carrying transition".
 --
@@ -289,12 +289,12 @@ data Reaches (D : Descent) : State → Type where
 ------------------------------------------------------------------------
 -- §5  The descent theorem, by fuel.
 --
--- `rankDec` is the decision "am I at the corner", by pattern match � it
+-- `rankDec` is the decision "am I at the corner", by pattern match — it
 -- computes, which is what lets §7's example reduce.  `descend` recurses
--- structurally on the fuel k under the invariant κ s � k; the fuel-zero
+-- structurally on the fuel k under the invariant κ s ≤ k; the fuel-zero
 -- non-corner case is impossible and is discharged, which is precisely the
 -- statement that the invariant is doing work.  `fuel-suffices` then feeds
--- κ(start) and �-refl: the chosen fuel is PROVED sufficient, never
+-- κ(start) and ≤-refl: the chosen fuel is PROVED sufficient, never
 -- assumed (WalkFalsifier.lean's discipline, cited in the header).
 ------------------------------------------------------------------------
 
@@ -313,7 +313,7 @@ descend D (suc k) s h (inr nz) =
        (pred-≤-pred (<≤-trans (dropOf D s nz) h))
        (rankDec (nextOf D s nz)))
 
--- κ(start) units of fuel suffice.  (The invariant closes with �-refl;
+-- κ(start) units of fuel suffice.  (The invariant closes with ≤-refl;
 -- that this is the *least* sufficient fuel is §6's steps-bound.)
 fuel-suffices : (D : Descent) (s : State) → Reaches D s
 fuel-suffices D s = descend D (κ s) s ≤-refl (rankDec s)
@@ -329,7 +329,7 @@ descent-theorem = fuel-suffices
 ------------------------------------------------------------------------
 -- §6  The trajectory, its endpoint, and its bound.
 --
--- Read off the reachability witness by structural recursion � no fuel
+-- Read off the reachability witness by structural recursion — no fuel
 -- needed here, because the witness is already the finite object.  The
 -- bound is proved on the witness too, so it holds for EVERY descent, not
 -- only the one fuel produced.
@@ -354,7 +354,7 @@ endpoint-corner : {D : Descent} {s : State} (r : Reaches D s)
 endpoint-corner {s = s} (arrived z)  = rank-zero-unique s z
 endpoint-corner         (onward _ r) = endpoint-corner r
 
--- �and the endpoint really is the last entry of the trajectory list.
+-- …and the endpoint really is the last entry of the trajectory list.
 -- (`lastOf` takes a default; the lemma is proved for an arbitrary
 -- default, which is what makes the induction go through, since the
 -- trajectory of the tail starts at the successor state.)
@@ -372,19 +372,19 @@ traj-ends-at-corner : {D : Descent} {s : State} (r : Reaches D s)
                     → lastOf s (traj r) ≡ corner
 traj-ends-at-corner {s = s} r = traj-last s r ∙ endpoint-corner r
 
--- Trajectory bound.  At most κ(start) transitions�
+-- Trajectory bound.  At most κ(start) transitions…
 steps-bound : {D : Descent} {s : State} (r : Reaches D s) → steps r ≤ κ s
 steps-bound (arrived _) = zero-≤
 steps-bound {D = D} {s = s} (onward nz r) =
   ≤-trans (suc-≤-suc (steps-bound r)) (dropOf D s nz)
 
--- �and the list has exactly one more entry than there are transitions�
+-- …and the list has exactly one more entry than there are transitions…
 traj-length : {D : Descent} {s : State} (r : Reaches D s)
             → length (traj r) ≡ suc (steps r)
 traj-length (arrived _)  = refl
 traj-length (onward _ r) = cong suc (traj-length r)
 
--- �so the trajectory has at most κ(start) + 1 states.  This is the
+-- …so the trajectory has at most κ(start) + 1 states.  This is the
 -- quantitative form of Theorem 70's "the process terminates".
 traj-bound : {D : Descent} {s : State} (r : Reaches D s)
            → length (traj r) ≤ suc (κ s)
@@ -394,17 +394,17 @@ traj-bound r =
 ------------------------------------------------------------------------
 -- §7  Factory IV's own edges, as an inhabitant of the specification.
 --
---   (r,1) � (r,0)     purification: spend the charge defect, keep the
+--   (r,1) → (r,0)     purification: spend the charge defect, keep the
 --                     radius.  At r = 0 this is Factory IV's
---                     (1,1) � (1,0), the step its §XII calls the full
+--                     (1,1) → (1,0), the step its §XII calls the full
 --                     problem.
---   (r+1,0) � (r,1)   the MIXED edge, the one Factory III forbade: buy
+--   (r+1,0) → (r,1)   the MIXED edge, the one Factory III forbade: buy
 --                     one unit of radius by incurring one unit of charge.
 --                     κ drops by exactly one (rank-true), which is why
 --                     the trade is admissible at all.
 --
 -- The corner has no outgoing edge, and the clause that would need one is
--- discharged from its own non-corner hypothesis � so `mixedDescent` is
+-- discharged from its own non-corner hypothesis — so `mixedDescent` is
 -- total without ever pretending the corner steps anywhere.
 --
 -- AGAIN, AND LAST: this inhabits the specification on LABELS.  It is not
@@ -434,7 +434,7 @@ mixedDescent-step (suc r , false) nz = refl
 --
 -- Start at (2,true): radius 3 with charge defect 1, κ = 5.  The mixed
 -- compiler purifies, then alternates buy/purify down to the corner.  The
--- trajectory is obtained BY EVALUATION � the proof below is `refl` � and
+-- trajectory is obtained BY EVALUATION — the proof below is `refl` — and
 -- has six states, saturating `traj-bound` at κ + 1 = 6.  That the bound
 -- is attained (not merely valid) is the check that the fuel is the right
 -- fuel rather than a generous one.

@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- ‡ï‡‡ü‡‡ü‡ï‡µ‡≤‡‡≤‡ ‚î ‡‡ï‡‡‡ ‡‡‡µ‡‡®‡‡‡‡∞‡, ‡‡‡® ‡‡¶‡ ‡®‡ø‡∞‡‡µ‡ø‡‡æ‡∞‡Æ‡ ‡
+-- ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï‡§µ‡§≤‡•ç‡§≤‡•Ä ‚Äî ‡§™‡§ï‡•ç‡§∑‡§É ‡§∏‡•ç‡§µ‡§§‡§®‡•ç‡§§‡•ç‡§∞‡§É, ‡§§‡•á‡§® ‡§™‡§¶‡§Ç ‡§®‡§ø‡§∞‡•ç‡§µ‡§ø‡§ö‡§æ‡§∞‡§Æ‡•ç ‡•§
 -- (the pulveriser's creeper: the side is a free slot, and keeping it is
 --  what makes the step decision-free.)
 --
--- SOURCE.  ryabhaa, *ryabhaya*, ‡ó‡‡ø‡‡‡æ‡¶ 32‚ì33, 499 CE ‚î the ‡ï‡‡ü‡‡ü‡ï,
--- whose instruction is "‡‡‡‡ ‡∞‡ï‡‡", keep the remainder, and whose result
--- is read back by climbing the ‡µ‡≤‡‡≤‡ (the creeper, the column of
--- quotients).  The three slots named here ‚î ‡‡ï‡‡‡ (side), ‡‡∞‡ø‡Æ‡æ‡‡Æ‡
--- (magnitude), ‡‡‡‡ (remainder) ‚î are the quantities that survive one
+-- SOURCE.  ƒÄryabha·π≠a, *ƒÄryabha·π≠ƒ´ya*, ‡§ó‡§£‡§ø‡§§‡§™‡§æ‡§¶ 32‚Äì33, 499 CE ‚Äî the ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï,
+-- whose instruction is "‡§∂‡•á‡§∑‡§Ç ‡§∞‡§ï‡•ç‡§∑", keep the remainder, and whose result
+-- is read back by climbing the ‡§µ‡§≤‡•ç‡§≤‡•Ä (the creeper, the column of
+-- quotients).  The three slots named here ‚Äî ‡§™‡§ï‡•ç‡§∑‡§É (side), ‡§™‡§∞‡§ø‡§Æ‡§æ‡§£‡§Æ‡•ç
+-- (magnitude), ‡§∂‡•á‡§∑‡§É (remainder) ‚Äî are the quantities that survive one
 -- round of the descent.
 --
 -- WHAT IS *NOT* CLAIMED.  Not that ryabhaa proved any theorem below.
@@ -18,54 +18,54 @@
 -- `formal/cubical/theorems/walks/LosslessReturn.agda` in the parent repository and is
 -- owed at verse level.  What IS claimed is only this: side, magnitude
 -- and remainder are the quantities his algorithm carries from one row of
--- the ‡µ‡≤‡‡≤‡ to the next, and dropping any one of them is what breaks it.
+-- the ‡§µ‡§≤‡•ç‡§≤‡•Ä to the next, and dropping any one of them is what breaks it.
 --
 ------------------------------------------------------------------------
--- WHICH SLOTS ARE BASE AND WHICH ARE CARRIED ‚î the question the task
+-- WHICH SLOTS ARE BASE AND WHICH ARE CARRIED ‚Äî the question the task
 -- asks, answered by the mathematics rather than by preference.
 --
 -- The honest answer is that ALL THREE SLOTS ARE BASE.  None of the three
 -- is a function of the other two, and this is not an opinion here: it is
--- three theorems, `‡‡ï‡‡‡-‡®-‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡`, `‡‡∞‡ø‡Æ‡æ‡‡Æ‡-‡®-‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡`,
--- `‡‡‡‡-‡®-‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡`, each exhibiting two ‡‡‡∞‡ø‡ï‡ that agree on two slots,
+-- three theorems, `‡§™‡§ï‡•ç‡§∑‡§É-‡§®-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§É`, `‡§™‡§∞‡§ø‡§Æ‡§æ‡§£‡§Æ‡•ç-‡§®-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç`,
+-- `‡§∂‡•á‡§∑‡§É-‡§®-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§É`, each exhibiting two ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç that agree on two slots,
 -- disagree on the third, and are provably distinct.  So there is no
 -- Carrier whose base is two of the slots and whose carried datum is the
 -- third.  Attempting one does not typecheck, and that is the law working.
 --
--- What IS determined is the PAIR.  ‡â‡‡‡‡æ‡® : ‡‡‡∞‡ø‡ï‡ ‚í ‚ï ó ‚ï reads the pair
+-- What IS determined is the PAIR.  ‡§â‡§§‡•ç‡§•‡§æ‡§® : ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç ‚Üí ‚Ñï √ó ‚Ñï reads the pair
 -- (a , b) back out of the record, and the pair is a function of the
 -- record.  So the instance is
 --
---     ‡ï‡‡ü‡‡ü‡ï = Carrier ‡â‡‡‡‡æ‡® ,     base = ‡‡‡∞‡ø‡ï‡ ,     carried = ‚ï ó ‚ï.
+--     ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï = Carrier ‡§â‡§§‡•ç‡§•‡§æ‡§® ,     base = ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç ,     carried = ‚Ñï √ó ‚Ñï.
 --
--- and the fiber Œ[ p ‚àà ‚ï ó ‚ï ] (‡â‡‡‡‡æ‡® t ‚â° p) = singl (‡â‡‡‡‡æ‡® t) is
--- contractible, so ‡‡‡∞‡ø‡ï‡ ‚â ‡ï‡‡ü‡‡ü‡ï and, by univalence, ‡‡‡∞‡ø‡ï‡ ‚â° ‡ï‡‡ü‡‡ü‡ï.
+-- and the fiber Œ£[ p ‚àà ‚Ñï √ó ‚Ñï ] (‡§â‡§§‡•ç‡§•‡§æ‡§® t ‚â° p) = singl (‡§â‡§§‡•ç‡§•‡§æ‡§® t) is
+-- contractible, so ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç ‚âÉ ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï and, by univalence, ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç ‚â° ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï.
 --
--- WHY THIS IS THE INTERESTING DIRECTION.  `‡µ‡≤‡‡≤‡`, the step, is a total
--- function ‡‡‡∞‡ø‡ï‡ ‚í ‡‡‡∞‡ø‡ï‡ written with NO comparison, NO `Dec`, NO `Bool`
--- ‚î because ‡‡ï‡‡‡ has already recorded which side the remainder fell on.
+-- WHY THIS IS THE INTERESTING DIRECTION.  `‡§µ‡§≤‡•ç‡§≤‡•Ä`, the step, is a total
+-- function ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç ‚Üí ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç written with NO comparison, NO `Dec`, NO `Bool`
+-- ‚Äî because ‡§™‡§ï‡•ç‡§∑‡§É has already recorded which side the remainder fell on.
 -- The subtractive Euclidean step needs a decision only for a base that
--- has thrown that slot away.  `‡µ‡≤‡‡≤‡-‡µ‡æ‡Æ` / `‡µ‡≤‡‡≤‡-‡¶‡ï‡‡‡ø‡` below prove that
+-- has thrown that slot away.  `‡§µ‡§≤‡•ç‡§≤‡•Ä-‡§µ‡§æ‡§Æ` / `‡§µ‡§≤‡•ç‡§≤‡•Ä-‡§¶‡§ï‡•ç‡§∑‡§ø‡§£` below prove that
 -- this decision-free step IS the Euclidean one in pair coordinates:
--- (a , b) ‚¶ (a ‚àí b , b) when a > b, and (a , b ‚àí a) when b > a.
+-- (a , b) ‚Ü¶ (a ‚àí b , b) when a > b, and (a , b ‚àí a) when b > a.
 --
--- DEFECT, written rather than hidden.  `‡â‡‡‡‡æ‡®-‡‡‡¶` (the round trip
--- ‡â‡‡‡‡æ‡® (‡‡‡¶ a b) ‚â° (a , b)) is the same statement as `‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡` in
+-- DEFECT, written rather than hidden.  `‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§≠‡•á‡§¶` (the round trip
+-- ‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§≠‡•á‡§¶ a b) ‚â° (a , b)) is the same statement as `‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®‡§Æ‡•ç` in
 -- `formal/cubical/theorems/walks/LosslessReturn.agda`, and is reproved here.  That is a
 -- duplication.  It is deliberate: this library takes no dependency
--- outside itself, and the alternative ‚î importing across the repository
--- ‚î would make `check.sh` no longer check what it says it checks.
+-- outside itself, and the alternative ‚Äî importing across the repository
+-- ‚Äî would make `check.sh` no longer check what it says it checks.
 --
--- SECOND DEFECT.  `‡µ‡≤‡‡≤‡` is the SUBTRACTIVE step (anthyphairesis), not
--- the division step a ‚¶ a mod b.  The division step needs ‚äa/b‚ã, and
--- getting it without a decision procedure is not done here.  The ‡µ‡≤‡‡≤‡
+-- SECOND DEFECT.  `‡§µ‡§≤‡•ç‡§≤‡•Ä` is the SUBTRACTIVE step (anthyphairesis), not
+-- the division step a ‚Ü¶ a mod b.  The division step needs ‚åäa/b‚åã, and
+-- getting it without a decision procedure is not done here.  The ‡§µ‡§≤‡•ç‡§≤‡•Ä
 -- of the *ryabhaya* is the column of QUOTIENTS; what is formalised
 -- below is the column of subtractions that produces them.  Anything
--- below that says "‡µ‡≤‡‡≤‡" means the subtractive column.
+-- below that says "‡§µ‡§≤‡•ç‡§≤‡•Ä" means the subtractive column.
 --
--- ~~THIRD DEFECT ‚î WHAT THE GREEN ACTUALLY COVERS.  ‚¶ It has NOT been
+-- ~~THIRD DEFECT ‚Äî WHAT THE GREEN ACTUALLY COVERS.  ‚Ä¶ It has NOT been
 -- checked under this library's declared pin (Agda 2.6.3, agda/cubical
--- v0.5) ‚¶~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the pin itself
+-- v0.5) ‚Ä¶~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the pin itself
 -- (fresh container, no agda on PATH) and this module checked under
 -- Agda 2.6.3 + cubical v0.5, exit 0.  The defect was a fact about one
 -- host, not about this file.  See README, "Toolchain".
@@ -89,7 +89,7 @@ private
   ¬¨ A = A ‚Üí ‚ä•
 
 ------------------------------------------------------------------------
--- ‡‡ï‡‡‡ ‚î the side, as a type of its own, so that "which side" is a
+-- ‡§™‡§ï‡•ç‡§∑‡§É ‚Äî the side, as a type of its own, so that "which side" is a
 -- projectable coordinate and not an implicit fact about a constructor.
 ------------------------------------------------------------------------
 
@@ -110,8 +110,8 @@ data ‡§™‡§ï‡•ç‡§∑ : Type where
 ‡§µ‡§æ‡§Æ‡§É‚â¢‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§É p = subst ‡§™‡§ï‡•ç‡§∑-‡§ï‡•ã‡§°' p tt
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡ø‡ï‡ ‚î the three slots, one record.  ‡‡ï‡‡‡ is the constructor,
--- ‡‡∞‡ø‡Æ‡æ‡‡Æ‡ is d, ‡‡‡‡ is the excess.  ‡‡Æ carries no excess because there
+-- ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç ‚Äî the three slots, one record.  ‡§™‡§ï‡•ç‡§∑‡§É is the constructor,
+-- ‡§™‡§∞‡§ø‡§Æ‡§æ‡§£‡§Æ‡•ç is d, ‡§∂‡•á‡§∑‡§É is the excess.  ‡§∏‡§Æ carries no excess because there
 -- is none: equality is not "remainder zero on a side", it is no side.
 ------------------------------------------------------------------------
 
@@ -140,8 +140,8 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 --
 -- Each theorem exhibits two records agreeing on two coordinates by refl,
 -- disagreeing on the third, and provably distinct.  Together they say:
--- ‡‡‡∞‡ø‡ï‡ is not `Carrier g` for any g out of a two-slot base, because the
--- fiber of the forgetful map is not contractible ‚î it has two points that
+-- ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç is not `Carrier g` for any g out of a two-slot base, because the
+-- fiber of the forgetful map is not contractible ‚Äî it has two points that
 -- are not joined.
 ------------------------------------------------------------------------
 
@@ -164,9 +164,9 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 ‡§∂‡•á‡§∑‡§É-‡§®-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§É = refl , (refl , Œª p ‚Üí znots (injSuc (cong ‡§∂‡•á‡§∑‡§É p)))
 
 ------------------------------------------------------------------------
--- ‡â‡‡‡‡æ‡® ‚î the pair IS a function of the record.  This is the f of the
--- law.  a = d + ‡‡‡‡ on the ‡µ‡æ‡Æ side, b = d + ‡‡‡‡ on the ‡¶‡ï‡‡‡ø‡ side,
--- a = b = d at ‡‡Æ.
+-- ‡§â‡§§‡•ç‡§•‡§æ‡§® ‚Äî the pair IS a function of the record.  This is the f of the
+-- law.  a = d + ‡§∂‡•á‡§∑‡§É on the ‡§µ‡§æ‡§Æ side, b = d + ‡§∂‡•á‡§∑‡§É on the ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ side,
+-- a = b = d at ‡§∏‡§Æ.
 ------------------------------------------------------------------------
 
 ‡§â‡§§‡•ç‡§•‡§æ‡§® : ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç ‚Üí ‚Ñï √ó ‚Ñï
@@ -181,7 +181,7 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï : Type
 ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï = Carrier ‡§â‡§§‡•ç‡§•‡§æ‡§®
 
--- the four coordinates of a ‡ï‡‡ü‡‡ü‡ï: three from the base, one carried
+-- the four coordinates of a ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï: three from the base, one carried
 ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§™‡§ï‡•ç‡§∑‡§É : ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï ‚Üí ‡§™‡§ï‡•ç‡§∑
 ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§™‡§ï‡•ç‡§∑‡§É c = ‡§™‡§ï‡•ç‡§∑‡§É (base c)
 
@@ -223,7 +223,7 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 ‡§™‡§∞‡§ø‡§µ‡§π‡§®-‡§Ö‡§µ‡§§‡§∞‡§£ = carry-transport-descend ‡§â‡§§‡•ç‡§•‡§æ‡§®
 
 ------------------------------------------------------------------------
--- ‡‡‡¶ ‚î the descent that manufactures the record from a pair.  Decisionless:
+-- ‡§≠‡•á‡§¶ ‚Äî the descent that manufactures the record from a pair.  Decisionless:
 -- it falls by structure, deepening the shared magnitude one head at a time,
 -- and at zero the side that outlasted names itself.
 ------------------------------------------------------------------------
@@ -245,7 +245,7 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 ‡§ó‡§≠‡•Ä‡§∞-‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§µ‡§æ‡§Æ d k)   = refl
 ‡§ó‡§≠‡•Ä‡§∞-‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ d k) = refl
 
--- the round trip.  See DEFECT in the header: this is `‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡` of
+-- the round trip.  See DEFECT in the header: this is `‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®‡§Æ‡•ç` of
 -- formal/cubical/theorems/walks/LosslessReturn.agda, reproved so the library stays standalone.
 ‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§≠‡•á‡§¶ : (a b : ‚Ñï) ‚Üí ‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§≠‡•á‡§¶ a b) ‚â° (a , b)
 ‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§≠‡•á‡§¶ zero    zero    = refl
@@ -256,10 +256,10 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
   ‚àô cong (Œª p ‚Üí (suc (fst p) , suc (snd p))) (‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§≠‡•á‡§¶ a b)
 
 ------------------------------------------------------------------------
--- ‡µ‡≤‡‡≤‡ ‚î THE STEP, as a Œ¶ on the base.
+-- ‡§µ‡§≤‡•ç‡§≤‡•Ä ‚Äî THE STEP, as a Œ¶ on the base.
 --
--- Written with no comparison, because ‡‡ï‡‡‡ already says which way to
--- subtract.  At ‡‡Æ the algorithm has terminated and the step is the
+-- Written with no comparison, because ‡§™‡§ï‡•ç‡§∑‡§É already says which way to
+-- subtract.  At ‡§∏‡§Æ the algorithm has terminated and the step is the
 -- identity: the shared magnitude IS the gcd, and nothing further is done
 -- to it.  A fixed point is the honest encoding of "stop" for a total
 -- endomorphism, and it is what lets the orbit be infinite without lying.
@@ -270,7 +270,7 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 ‡§µ‡§≤‡•ç‡§≤‡•Ä (‡§µ‡§æ‡§Æ d k)   = ‡§≠‡•á‡§¶ (suc k) d
 ‡§µ‡§≤‡•ç‡§≤‡•Ä (‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ d k) = ‡§≠‡•á‡§¶ d (suc k)
 
--- ‚¶and it IS the subtractive Euclidean step, in pair coordinates.
+-- ‚Ä¶and it IS the subtractive Euclidean step, in pair coordinates.
 ‡§µ‡§≤‡•ç‡§≤‡•Ä-‡§µ‡§æ‡§Æ : (d k : ‚Ñï) ‚Üí ‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§µ‡§≤‡•ç‡§≤‡•Ä (‡§µ‡§æ‡§Æ d k)) ‚â° (suc k , d)
 ‡§µ‡§≤‡•ç‡§≤‡•Ä-‡§µ‡§æ‡§Æ d k = ‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§≠‡•á‡§¶ (suc k) d
 
@@ -280,7 +280,7 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 ‡§µ‡§≤‡•ç‡§≤‡•Ä-‡§∏‡§Æ : (d : ‚Ñï) ‚Üí ‡§µ‡§≤‡•ç‡§≤‡•Ä (‡§∏‡§Æ d) ‚â° ‡§∏‡§Æ d
 ‡§µ‡§≤‡•ç‡§≤‡•Ä-‡§∏‡§Æ d = refl
 
--- The magnitude at ‡‡Æ is the common value of the pair, and it is fixed
+-- The magnitude at ‡§∏‡§Æ is the common value of the pair, and it is fixed
 -- by every further step: the gcd, once reached, is carried forever.
 ‡§∏‡§Æ-‡§∏‡•ç‡§•‡§ø‡§∞‡§Æ‡•ç : (d : ‚Ñï) (n : ‚Ñï) ‚Üí iterate ‡§µ‡§≤‡•ç‡§≤‡•Ä n (‡§∏‡§Æ d) ‚â° ‡§∏‡§Æ d
 ‡§∏‡§Æ-‡§∏‡•ç‡§•‡§ø‡§∞‡§Æ‡•ç d zero    = refl
@@ -290,8 +290,8 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 -- THE LIFT, AND THE SQUARE.
 --
 -- Œ¶-square is `refl`: it closes DEFINITIONALLY, for an opaque variable,
--- because Œ has eta and `descend` does not pattern match.  Neither the
--- lift nor the square is proved here ‚î they are instances of the law.
+-- because Œ£ has eta and `descend` does not pattern match.  Neither the
+-- lift nor the square is proved here ‚Äî they are instances of the law.
 ------------------------------------------------------------------------
 
 ‡§µ‡§≤‡•ç‡§≤‡•Ä-‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï : ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï ‚Üí ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï
@@ -324,8 +324,8 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 ------------------------------------------------------------------------
 -- Each holds by refl, so Agda must actually execute the descent.
 --
---   (137,60) ‚í (77,60) ‚í (17,60) ‚í (17,43) ‚í (17,26) ‚í (17,9)
---          ‚í (8,9) ‚í (8,1) ‚í (7,1) ‚í ‚¶ ‚í (1,1) = ‡‡Æ 1
+--   (137,60) ‚Üí (77,60) ‚Üí (17,60) ‚Üí (17,43) ‚Üí (17,26) ‚Üí (17,9)
+--          ‚Üí (8,9) ‚Üí (8,1) ‚Üí (7,1) ‚Üí ‚Ä¶ ‚Üí (1,1) = ‡§∏‡§Æ 1
 --
 -- gcd(137,60) = 1, which is why 137 is invertible mod 60 at all.
 ------------------------------------------------------------------------

@@ -6,11 +6,11 @@
 --
 -- TERM, AND THE SCHOOL IS NYYA, NAMED BEFORE THE TERM IS USED.
 --
--- ‡µ‡‡Ø‡‡ø‡‡æ‡∞ ¬ vyabhicra -- straying, deviation.  A hetu that is found where
--- the sdhya is absent is ‡‡µ‡‡Ø‡‡ø‡‡æ‡∞, and Gautama's *Nyyastra* (~2nd c. CE)
+-- ‡§µ‡•ç‡§Ø‡§≠‡§ø‡§ö‡§æ‡§∞ ¬∑ vyabhicƒÅra -- straying, deviation.  A hetu that is found where
+-- the sƒÅdhya is absent is ‡§∏‡§µ‡•ç‡§Ø‡§≠‡§ø‡§ö‡§æ‡§∞, and Gautama's *NyƒÅyas≈´tra* (~2nd c. CE)
 -- lists it first among the hetvbhsas and defines it in three words:
 --
---     ‡‡®‡à‡ï‡æ‡®‡‡‡ø‡ï‡ ‡‡µ‡‡Ø‡‡ø‡‡æ‡∞‡     anaikntika savyabhicra
+--     ‡§Ö‡§®‡•à‡§ï‡§æ‡§®‡•ç‡§§‡§ø‡§ï‡§É ‡§∏‡§µ‡•ç‡§Ø‡§≠‡§ø‡§ö‡§æ‡§∞‡§É     anaikƒÅntika·∏• savyabhicƒÅra·∏•
 --
 -- CORRECTED 2026-08-25 against the e-text.  I first wrote this as
 -- ~~savyabhicro 'naikntika~~, THE WORDS IN REVERSE ORDER, from memory.
@@ -27,14 +27,14 @@
 -- is in the hetvbhsa passage of adhyya 1, pda 2; I do not pin it.  The
 -- definitional apparatus for vypti and its defeat is much later --
 -- Gagea, *Tattvacintmai*, vyptivda (~1325) -- and none of it is
--- claimed for anything proved below.  `Vyapti_‚¶` in this directory is the
+-- claimed for anything proved below.  `Vyapti_‚Ä¶` in this directory is the
 -- sibling module and uses the same school's vocabulary.
 --
 -- AND THE DISPUTE, WHICH IS THE POINT AND MUST NOT BE FLATTENED.
 --
--- Gautama's name for the fault is ‡‡®‡à‡ï‡æ‡®‡‡‡ø‡ï ¬ anaikntika -- literally
+-- Gautama's name for the fault is ‡§Ö‡§®‡•à‡§ï‡§æ‡§®‡•ç‡§§‡§ø‡§ï ¬∑ anaikƒÅntika -- literally
 -- not-one-endedness.  The Jainas' name for their central doctrine is
--- ‡‡®‡‡ï‡æ‡®‡‡ ¬ aneknta, the same root, and they mean it as the structure of
+-- ‡§Ö‡§®‡•á‡§ï‡§æ‡§®‡•ç‡§§ ¬∑ anekƒÅnta, the same root, and they mean it as the structure of
 -- the real.  So the SAME CONFIGURATION -- a claim that holds under one
 -- updhi and fails under another -- is for the Naiyyika a defect that
 -- destroys the inference, and for the Jaina the first two bhagas of the
@@ -69,7 +69,7 @@
 --   ¬ß1  vyabhicara -- ONE environment at which the meanings differ forbids
 --       a derivation entirely.  It is `derivation-sound` read backwards,
 --       and it is one line, which is the whole reason the kernel's
---       soundness quantifies over every œ instead of holding at one.
+--       soundness quantifies over every œÅ instead of holding at one.
 --   ¬ß2  var is derivably identified with none of the other five
 --       coordinates; and yvar with zvar, so the fact is not about `var`.
 --   ¬ß3  the same pair, asti at one updhi and nsti at another, both

@@ -3,86 +3,86 @@
 ------------------------------------------------------------------------
 -- SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext
 --
--- ‡‡‡‡‡‡ô‡‡ó‡ ‚î the sevenfold predication, as the machine's return type, with
+-- ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚Äî the sevenfold predication, as the machine's return type, with
 -- every position carrying the standpoints that produced it.
 --
 -- SOURCES, EARLIEST FIRST.  The classification is theirs.  The two
 -- operations below are named for a distinction they draw; the algebra
--- (‡ï‡‡∞‡Æ‡æ‡∞‡‡‡‡Æ‡, ‡‡‡æ‡∞‡‡‡‡Æ‡, ‡‡‡∞‡∞‡ã‡‡, ‡‡‡∞‡‡µ‡) is not claimed to be in any of them.
+-- (‡§ï‡•ç‡§∞‡§Æ‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç, ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç, ‡§™‡•ç‡§∞‡§∞‡•ã‡§π‡§É, ‡§™‡•ç‡§∞‡§∏‡§µ‡§É) is not claimed to be in any of them.
 --
 --   Bhagavat Stra (Viyha-pannatti), fifth Aga of the vetmbara canon;
---     oldest strata pre-Common-Era, redacted at Valabh c. 5th c. CE ‚î
+--     oldest strata pre-Common-Era, redacted at Valabhƒ´ c. 5th c. CE ‚Äî
 --     a sevenfold predication applied to the jva.
---   Umsvti, Tattvrthastra, c. 2nd‚ì5th c. CE.
---     5.29  utpda-vyaya-dhrauvya-yukta sat ‚î arising, perishing and
+--   UmƒÅsvƒÅti, TattvƒÅrthas≈´tra, c. 2nd‚Äì5th c. CE.
+--     5.29  utpƒÅda-vyaya-dhrauvya-yukta·πÉ sat ‚Äî arising, perishing and
 --           persisting held AT ONCE: the saha mode.
---     5.31  arpitnarpita-siddhe ‚î apparently contradictory attributes are
---           established through the distinction of the ASSERTED (‡‡∞‡‡‡ø‡) and
---           the UNASSERTED (‡‡®‡∞‡‡‡ø‡) aspect.  ¬ß6 below is this stra and
---           nothing else: it is the operation that takes a ‡‡‡ and gives the
---           next ‡®‡Ø.
---   Siddhasena Divkara, Sanmatitarka 1.21, c. 5th c. CE ‚î a naya taken
---     alone (nirapeka) is mithy; the ‡¶‡‡∞‡‡®‡Ø is the naya that has forgotten
+--     5.31  arpitƒÅnarpita-siddhe·∏• ‚Äî apparently contradictory attributes are
+--           established through the distinction of the ASSERTED (‡§Ö‡§∞‡•ç‡§™‡§ø‡§§) and
+--           the UNASSERTED (‡§Ö‡§®‡§∞‡•ç‡§™‡§ø‡§§) aspect.  ¬ß6 below is this s≈´tra and
+--           nothing else: it is the operation that takes a ‡§∂‡•á‡§∑ and gives the
+--           next ‡§®‡§Ø.
+--   Siddhasena DivƒÅkara, Sanmatitarka 1.21, c. 5th c. CE ‚Äî a naya taken
+--     alone (nirapek·π£a) is mithyƒÅ; the ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø is the naya that has forgotten
 --     it is one.
---   Samantabhadra, ptamms, c. 6th c. CE ‚î the saptabhag as a fixed
---     seven-membered scheme, each member prefixed ‡‡‡Ø‡æ‡‡.
---   Akalaka, Laghyastraya / Aaat, c. 720‚ì780 CE ‚î ‡ï‡‡∞‡Æ‡æ‡∞‡‡‡ (in
---     succession) against ‡‡‡æ‡∞‡‡‡ / ‡Ø‡‡ó‡‡‡ (at once).  That distinction is the
+--   Samantabhadra, ƒÄptamƒ´mƒÅ·πÉsƒÅ, c. 6th c. CE ‚Äî the saptabha·πÖgƒ´ as a fixed
+--     seven-membered scheme, each member prefixed ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç.
+--   Akala·πÖka, Laghƒ´yastraya / A·π£·π≠a≈õatƒ´, c. 720‚Äì780 CE ‚Äî ‡§ï‡•ç‡§∞‡§Æ‡§æ‡§∞‡•ç‡§™‡§£ (in
+--     succession) against ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£ / ‡§Ø‡•Å‡§ó‡§™‡§§‡•ç (at once).  That distinction is the
 --     entire content of ¬ß3 and ¬ß4.
---   Mallisena, Sydvdamajar, 1292 CE ‚î sakaldea (total statement,
+--   Mallisena, SyƒÅdvƒÅdama√±jarƒ´, 1292 CE ‚Äî sakalƒÅde≈õa (total statement,
 --     prama) against vikaldea (partial statement, naya).
 --
 -- WHAT THIS FILE CHANGES, against `Saptabhangi.agda`,
 -- `SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`, and
 -- `machine/Saptabhangi_TheSevenfoldVerdict.hs`, all of which are label
--- types ‚î seven nullary constructors and a presence-profile in {‡‡Æ‡, ‡®}¬≥.
+-- types ‚Äî seven nullary constructors and a presence-profile in {‡§Ü‡§Æ‡•ç, ‡§®}¬≥.
 --
---   1.  Here no position is a label.  ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø carries the standpoint that
---       affirmed and the term by which it affirmed; ‡‡‡Ø‡æ‡®‡-‡®‡æ‡‡‡‡ø carries the
---       standpoint that denied and its refutation; the fourth carries a ‡‡‡
+--   1.  Here no position is a label.  ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø carries the standpoint that
+--       affirmed and the term by which it affirmed; ‡§∏‡•ç‡§Ø‡§æ‡§®‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø carries the
+--       standpoint that denied and its refutation; the fourth carries a ‡§∂‡•á‡§∑
 --       holding BOTH, so the fourth position is informative and not an
 --       error code.
 --
---   2.  `machine/Saptabhangi_TheSevenfoldVerdict.hs` says of its ‡‡:
+--   2.  `machine/Saptabhangi_TheSevenfoldVerdict.hs` says of its ‡§∏‡§π:
 --       "after the collapse the fourth position does not record which two
 --       seeds produced it, and that is not a modelling artefact but the
 --       doctrine's claim."  The first half was true of that type.  The
---       second half is withdrawn here: ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ is the failure of ONE
+--       second half is withdrawn here: ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç is the failure of ONE
 --       UTTERANCE to carry the joint content (Mallisena: sakaldea
 --       demanded of a vikaldea-shaped medium), and a failure of
 --       expression is not a loss of what was to be expressed.
---       `‡‡‡‡∞‡‡‡æ‡‡-‡‡‡‡‡Ø‡` (¬ß5) recovers the third position from the fourth by
---       `refl` ‚î nothing was destroyed.
+--       `‡§ö‡§§‡•Å‡§∞‡•ç‡§•‡§æ‡§§‡•ç-‡§§‡•É‡§§‡•Ä‡§Ø‡§É` (¬ß5) recovers the third position from the fourth by
+--       `refl` ‚Äî nothing was destroyed.
 --
 --   3.  And the price, stated because it is a real loss and it is the
---       honest one: ‡ï‡‡∞‡Æ-‡µ‡ø‡®‡ø‡Æ‡Ø‡ ‚î commutativity of succession ‚î is FALSE
---       once the positions carry evidence (`‡ï‡‡∞‡Æ-‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡`, ¬ß7, a checked
+--       honest one: ‡§ï‡•ç‡§∞‡§Æ-‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É ‚Äî commutativity of succession ‚Äî is FALSE
+--       once the positions carry evidence (`‡§ï‡•ç‡§∞‡§Æ-‡§Ö-‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É`, ¬ß7, a checked
 --       refutation).  Two nayas that affirm the same claim by different
 --       terms are two nayas.  The old law was a property of the erasure,
 --       not of succession.  What survives is that the first to speak keeps
---       its witness (‡‡‡∞‡‡Æ‡æ‡∞‡‡‡), which is what a succession IS.
+--       its witness (‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§∞‡•ç‡§™‡§£), which is what a succession IS.
 --
 -- THE THIRD AND THE FOURTH.  Not distinguished by a comment and not by a
--- tag passed in: ‡ï‡‡∞‡Æ‡æ‡∞‡‡‡‡Æ‡ and ‡‡‡æ‡∞‡‡‡‡Æ‡ are two different functions.
--- ‡ï‡‡∞‡Æ‡æ‡∞‡‡‡‡Æ‡ accumulates and, off its inputs, never manufactures a ‡‡‡
--- (`‡ï‡‡∞‡Æ-‡®-‡‡®‡Ø‡‡ø-‡‡‡‡Æ‡`).  ‡‡‡æ‡∞‡‡‡‡Æ‡ demands one utterance and, wherever an
--- affirmation and a denial are both in hand, returns the ‡‡‡ instead
--- (`‡‡-‡‡®‡Ø‡‡ø-‡‡‡‡Æ‡`).  `‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡` is then the instance, not the claim.
+-- tag passed in: ‡§ï‡•ç‡§∞‡§Æ‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç and ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç are two different functions.
+-- ‡§ï‡•ç‡§∞‡§Æ‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç accumulates and, off its inputs, never manufactures a ‡§∂‡•á‡§∑
+-- (`‡§ï‡•ç‡§∞‡§Æ-‡§®-‡§ú‡§®‡§Ø‡§§‡§ø-‡§∂‡•á‡§∑‡§Æ‡•ç`).  ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç demands one utterance and, wherever an
+-- affirmation and a denial are both in hand, returns the ‡§∂‡•á‡§∑ instead
+-- (`‡§∏‡§π-‡§ú‡§®‡§Ø‡§§‡§ø-‡§∂‡•á‡§∑‡§Æ‡•ç`).  `‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§π-‡§≠‡•á‡§¶‡§É` is then the instance, not the claim.
 --
--- THE FOURTH POSITION DOES NOT END THE COMPUTATION.  ¬ß6: a ‡‡‡ over P is a
--- ‡‡‡ over the born family ‡‡‡∞‡∞‡ã‡‡ P, whose standpoints are the old ones
--- under ‡‡∞‡‡‡ø‡ / ‡‡®‡∞‡‡‡ø‡ (TS 5.31).  The born third position needs only ONE
--- old standpoint (`‡ó‡∞‡‡-‡‡ï‡æ‡ß‡ø‡‡‡†‡æ‡®‡Æ‡`), while at the root every third
--- position needs two distinct ones (`‡Æ‡‡≤‡-‡¶‡‡µ‡-‡®‡Ø‡`).  So what no single
+-- THE FOURTH POSITION DOES NOT END THE COMPUTATION.  ¬ß6: a ‡§∂‡•á‡§∑ over P is a
+-- ‡§∂‡•á‡§∑ over the born family ‡§™‡•ç‡§∞‡§∞‡•ã‡§π‡§É P, whose standpoints are the old ones
+-- under ‡§Ö‡§∞‡•ç‡§™‡§ø‡§§ / ‡§Ö‡§®‡§∞‡•ç‡§™‡§ø‡§§ (TS 5.31).  The born third position needs only ONE
+-- old standpoint (`‡§ó‡§∞‡•ç‡§≠-‡§è‡§ï‡§æ‡§ß‡§ø‡§∑‡•ç‡§†‡§æ‡§®‡§Æ‡•ç`), while at the root every third
+-- position needs two distinct ones (`‡§Æ‡•Ç‡§≤‡•á-‡§¶‡•ç‡§µ‡•å-‡§®‡§Ø‡•å`).  So what no single
 -- utterance carried at level n is uttered in succession at level n+1, by
--- `refl` (`‡ó‡∞‡‡-‡ï‡‡∞‡Æ‡‡`), and ‡‡‡∞‡‡µ‡ iterates.
+-- `refl` (`‡§ó‡§∞‡•ç‡§≠-‡§ï‡•ç‡§∞‡§Æ‡§ú‡§É`), and ‡§™‡•ç‡§∞‡§∏‡§µ‡§É iterates.
 --
--- AGAINST COLLAPSE.  A ‡‡‡ is exactly a sydastinsti, so it is a
--- certificate that the standpoint index cannot be dropped ‚î via
+-- AGAINST COLLAPSE.  A ‡§∂‡•á‡§∑ is exactly a syƒÅdastinƒÅsti, so it is a
+-- certificate that the standpoint index cannot be dropped ‚Äî via
 -- `Durnaya_CollapseIffEveryNayaAgrees`, which corrected
 -- `Anekanta.agda` ¬ß5: collapse is available exactly when EVERY pair of
 -- fibres agrees, and a denial is merely the cheapest way to prove that
--- permission absent.  ¬ß5 below carries the ‡‡‡ into that theorem, so the
+-- permission absent.  ¬ß5 below carries the ‡§∂‡•á‡§∑ into that theorem, so the
 -- fourth position is a written obstruction and not a shrug.
 --
 -- CHECKED: Agda 2.8.0, cubical (homebrew), --cubical --safe, exit 0.
@@ -110,11 +110,11 @@ private
     ‚Ñì ‚Ñì' : Level
 
 ------------------------------------------------------------------------
--- ¬ß1  ‡‡‡ ‚î the residue an ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ retains.
+-- ¬ß1  ‡§∂‡•á‡§∑ ‚Äî the residue an ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç retains.
 --
 -- Not "the two seeds were consumed".  The two nayas are still here, each
--- with the term by which it spoke: ‡‡æ‡ß‡ï‡ is a sydasti (a standpoint and
--- a proof), ‡‡æ‡ß‡ï‡ a sydnsti (a standpoint and a refutation).  Nothing
+-- with the term by which it spoke: ‡§∏‡§æ‡§ß‡§ï‡§É is a syƒÅdasti (a standpoint and
+-- a proof), ‡§¨‡§æ‡§ß‡§ï‡§É a syƒÅdnƒÅsti (a standpoint and a refutation).  Nothing
 -- in this record is a flag.
 ------------------------------------------------------------------------
 
@@ -126,7 +126,7 @@ record ‡§∂‡•á‡§∑ {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') : Type (‚Ñì-max ‚Ñì ‚Ñì') 
 
 open ‡§∂‡•á‡§∑ public
 
--- ‡µ‡ø‡µ‡‡ï‡ ‚î the two standpoints are DERIVED to be distinct.  Not asserted:
+-- ‡§µ‡§ø‡§µ‡•á‡§ï‡§É ‚Äî the two standpoints are DERIVED to be distinct.  Not asserted:
 -- if they were one standpoint, its own proof would refute it.  This is
 -- what the record buys that a label cannot: a fact about the object.
 ‡§µ‡§ø‡§µ‡•á‡§ï‡§É : {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') (œÉ : ‡§∂‡•á‡§∑ P)
@@ -134,7 +134,7 @@ open ‡§∂‡•á‡§∑ public
 ‡§µ‡§ø‡§µ‡•á‡§ï‡§É P œÉ e = snd (‡§¨‡§æ‡§ß‡§ï‡§É œÉ) (subst P e (snd (‡§∏‡§æ‡§ß‡§ï‡§É œÉ)))
 
 ------------------------------------------------------------------------
--- ¬ß2  ‡‡‡‡‡‡ô‡‡ó‡ ‚î the seven positions, each carrying its nayas.
+-- ¬ß2  ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚Äî the seven positions, each carrying its nayas.
 ------------------------------------------------------------------------
 
 data ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') : Type (‚Ñì-max ‚Ñì ‚Ñì') where
@@ -175,11 +175,11 @@ data ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') : Type (‚Ñ
 ‡§∂‡•á‡§∑‡§æ‡§Ç‡§∂‡§É (‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç _ _ v) = just v
 
 ------------------------------------------------------------------------
--- ¬ß3  ‡ï‡‡∞‡Æ‡æ‡∞‡‡‡‡Æ‡ ‚î assertion IN SUCCESSION.
+-- ¬ß3  ‡§ï‡•ç‡§∞‡§Æ‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç ‚Äî assertion IN SUCCESSION.
 --
--- One after the other.  What is already in hand stands (‡‡‡∞‡‡Æ‡æ‡∞‡‡‡: the
+-- One after the other.  What is already in hand stands (‡§™‡•ç‡§∞‡§•‡§Æ‡§æ‡§∞‡•ç‡§™‡§£: the
 -- first speaker keeps its witness); what is new is added beside it.  The
--- three ‡‡ß‡ø- operations are the whole of it, and they are the reason
+-- three ‡§Ö‡§ß‡§ø- operations are the whole of it, and they are the reason
 -- succession never manufactures a residue.
 ------------------------------------------------------------------------
 
@@ -220,12 +220,12 @@ data ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') : Type (‚Ñ
 ‡§ï‡•ç‡§∞‡§Æ‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç x (‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç a n v) = ‡§Ö‡§ß‡§ø-‡§∂‡•á‡§∑ v (‡§Ö‡§ß‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø n (‡§Ö‡§ß‡§ø-‡§Ö‡§∏‡•ç‡§§‡§ø a x))
 
 ------------------------------------------------------------------------
--- ¬ß4  ‡‡‡æ‡∞‡‡‡‡Æ‡ ‚î assertion AT ONCE, and it is a different function.
+-- ¬ß4  ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç ‚Äî assertion AT ONCE, and it is a different function.
 --
--- ‡Ø‡‡ó‡‡‡ is where the tongue breaks: given an affirmation and a denial
+-- ‡§Ø‡•Å‡§ó‡§™‡§§‡•ç is where the tongue breaks: given an affirmation and a denial
 -- together, no single utterance carries the pair, and what is returned is
--- the ‡‡‡ holding both.  Everywhere else there is nothing to break, and
--- ‡‡‡æ‡∞‡‡‡‡Æ‡ agrees with succession.
+-- the ‡§∂‡•á‡§∑ holding both.  Everywhere else there is nothing to break, and
+-- ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç agrees with succession.
 ------------------------------------------------------------------------
 
 ‡§Ø‡•Å‡§ó‡§™‡§§‡•ç : {S : Type ‚Ñì} {P : S ‚Üí Type ‚Ñì'}
@@ -256,7 +256,7 @@ data ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') : Type (‚Ñ
                  ‚â° ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç (‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø a) (‡§∏‡•ç‡§Ø‡§æ‡§®‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø n))
 ‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§π-‡§≠‡•á‡§¶‡§É a n e = subst ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø? e tt
 
--- The structural difference, so that ‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡ is an instance of
+-- The structural difference, so that ‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§π-‡§≠‡•á‡§¶‡§É is an instance of
 -- something and not the whole content.  First: succession introduces no
 -- residue it was not given.
 ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§Æ‡§æ‡§®? : {A : Type ‚Ñì} ‚Üí Maybe A ‚Üí Type
@@ -295,7 +295,7 @@ data ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') : Type (‚Ñ
 ‡§ï‡•ç‡§∞‡§Æ-‡§®-‡§ú‡§®‡§Ø‡§§‡§ø-‡§∂‡•á‡§∑‡§Æ‡•ç x (‡§∏‡•ç‡§Ø‡§æ‡§®‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç _ _)         h = Empty.rec (subst ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§Æ‡§æ‡§®? h tt)
 ‡§ï‡•ç‡§∞‡§Æ-‡§®-‡§ú‡§®‡§Ø‡§§‡§ø-‡§∂‡•á‡§∑‡§Æ‡•ç x (‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç _ _ _) h = Empty.rec (subst ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§Æ‡§æ‡§®? h tt)
 
--- Second: simultaneity DOES manufacture one, wherever the two seeds meet ‚î
+-- Second: simultaneity DOES manufacture one, wherever the two seeds meet ‚Äî
 -- and the residue it manufactures is exactly the pair it could not utter.
 ‡§∏‡§π-‡§ú‡§®‡§Ø‡§§‡§ø-‡§∂‡•á‡§∑‡§Æ‡•ç : {S : Type ‚Ñì} {P : S ‚Üí Type ‚Ñì'} (x y : ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä P)
                  (a : syƒÅdasti P) (n : syƒÅdnƒÅsti P)
@@ -306,12 +306,12 @@ data ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') : Type (‚Ñ
   cong‚ÇÇ (Œª p q ‚Üí ‡§Ø‡•Å‡§ó‡§™‡§§‡•ç p q (‡§ï‡•ç‡§∞‡§Æ‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç x y)) ea en
 
 ------------------------------------------------------------------------
--- ¬ß5  ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ is informative.
+-- ¬ß5  ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç is informative.
 --
 -- Nothing was destroyed: the third position is recovered from the fourth
--- by refl.  And the ‡‡‡ is a certificate against collapse ‚î via
+-- by refl.  And the ‡§∂‡•á‡§∑ is a certificate against collapse ‚Äî via
 -- `Durnaya_CollapseIffEveryNayaAgrees`, collapse is
--- available exactly when every pair of standpoints agrees, and a ‡‡‡
+-- available exactly when every pair of standpoints agrees, and a ‡§∂‡•á‡§∑
 -- exhibits a pair that does not.
 ------------------------------------------------------------------------
 
@@ -336,16 +336,16 @@ data ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') : Type (‚Ñ
   snd (‡§¨‡§æ‡§ß‡§ï‡§É œÉ) (equivFun (agree (fst (‡§∏‡§æ‡§ß‡§ï‡§É œÉ)) (fst (‡§¨‡§æ‡§ß‡§ï‡§É œÉ))) (snd (‡§∏‡§æ‡§ß‡§ï‡§É œÉ)))
 
 ------------------------------------------------------------------------
--- ¬ß6  ‡ó‡∞‡‡‡ ‚î the residue is the seed of the next derivation.
+-- ¬ß6  ‡§ó‡§∞‡•ç‡§≠‡§É ‚Äî the residue is the seed of the next derivation.
 --
 -- Tattvrthastra 5.31, arpitnarpita-siddhe, as an operation.  The born
--- standpoint space is the old one under two aspects: ‡‡∞‡‡‡ø‡, the aspect
--- asserted, and ‡‡®‡∞‡‡‡ø‡, the aspect held back.  The born family reads a
+-- standpoint space is the old one under two aspects: ‡§Ö‡§∞‡•ç‡§™‡§ø‡§§, the aspect
+-- asserted, and ‡§Ö‡§®‡§∞‡•ç‡§™‡§ø‡§§, the aspect held back.  The born family reads a
 -- standpoint's affirmation under the first and its denial under the second.
 --
--- ‡‡∞‡‡‡‡æ's two constructors are not labels: ‡‡‡∞‡∞‡ã‡‡ is their definition, and
+-- ‡§Ö‡§∞‡•ç‡§™‡§£‡§æ's two constructors are not labels: ‡§™‡•ç‡§∞‡§∞‡•ã‡§π‡§É is their definition, and
 -- the two aspects of one naya carry evidence that refutes each other
--- (`‡‡‡∞‡‡µ‡`), which is what the aspect distinction IS.
+-- (`‡§™‡•ç‡§∞‡§∏‡§µ‡§É`), which is what the aspect distinction IS.
 ------------------------------------------------------------------------
 
 data ‡§Ö‡§∞‡•ç‡§™‡§£‡§æ : Type where
@@ -355,7 +355,7 @@ data ‡§Ö‡§∞‡•ç‡§™‡§£‡§æ : Type where
 ‡§™‡•ç‡§∞‡§∞‡•ã‡§π‡§É P (u , ‡§Ö‡§∞‡•ç‡§™‡§ø‡§§‡§Æ‡•ç)  = P u
 ‡§™‡•ç‡§∞‡§∞‡•ã‡§π‡§É P (u , ‡§Ö‡§®‡§∞‡•ç‡§™‡§ø‡§§‡§Æ‡•ç) = ¬¨ P u
 
--- ‡‡‡∞‡‡µ‡ ‚î the birth.  A residue over P is a residue over the born family,
+-- ‡§™‡•ç‡§∞‡§∏‡§µ‡§É ‚Äî the birth.  A residue over P is a residue over the born family,
 -- and BOTH its standpoints have the same base naya: the affirmation of s
 -- under the asserted aspect, and the denial of s-under-the-unasserted-aspect,
 -- which is that same affirmation read from the other side.
@@ -381,7 +381,7 @@ data ‡§Ö‡§∞‡•ç‡§™‡§£‡§æ : Type where
 ‡§ó‡§∞‡•ç‡§≠-‡§è‡§ï‡§æ‡§ß‡§ø‡§∑‡•ç‡§†‡§æ‡§®‡§Æ‡•ç P œÉ = refl
 
 -- which the root level cannot do: there, a third position always has two
--- distinct standpoints (this is ‡µ‡ø‡µ‡‡ï‡ again, and it is the measure of
+-- distinct standpoints (this is ‡§µ‡§ø‡§µ‡•á‡§ï‡§É again, and it is the measure of
 -- what the birth bought).
 ‡§Æ‡•Ç‡§≤‡•á-‡§¶‡•ç‡§µ‡•å-‡§®‡§Ø‡•å : {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') (d : syƒÅdastinƒÅsti P)
               ‚Üí ¬¨ (fst (fst d) ‚â° fst (snd d))
@@ -394,7 +394,7 @@ data ‡§Ö‡§∞‡•ç‡§™‡§£‡§æ : Type where
 ------------------------------------------------------------------------
 -- ¬ß7  The price, checked.
 --
--- ‡ï‡‡∞‡Æ-‡µ‡ø‡®‡ø‡Æ‡Ø‡ (`SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`, and
+-- ‡§ï‡•ç‡§∞‡§Æ-‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É (`SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`, and
 -- `krama commutative` in `machine/Saptabhangi_TheSevenfoldVerdict.hs`)
 -- holds of the label type and FAILS here.  Two nayas affirming the same
 -- claim by different terms are two nayas; succession keeps the first, and
@@ -418,7 +418,7 @@ private
 --
 -- This module and `Saptabhangi.agda` / `SaptabhangiSamyoga_TheComposition
 -- OfVerdicts.agda` were left deliberately unreconciled, and both headers
--- named one open question: is the forgetful map records ‚í labels a
+-- named one open question: is the forgetful map records ‚Üí labels a
 -- homomorphism for krama, for saha, or for neither?
 --
 -- Checked in
@@ -426,33 +426,33 @@ private
 --     LabelsAreARetractNotAnEquivalence.agda
 --   (--cubical --guardedness --safe, exit 0, no postulates, no holes):
 --
---   * BOTH.  ‡‡®‡∞‡‡‡‡Æ‡ (this file's positions, read with the naya UNASSERTED
---     ‚î Tattvrthastra 5.31's ‡‡®‡∞‡‡‡ø‡) commutes with ‡ï‡‡∞‡Æ‡æ‡∞‡‡‡‡Æ‡ and with
---     ‡‡‡æ‡∞‡‡‡‡Æ‡ alike, exhaustively, for every S and every P.
---   * It has a section ‡‡∞‡‡‡‡Æ‡ which is also a homomorphism for both, with
---     ‡‡®‡∞‡‡‡‡Æ‡ ‚àò ‡‡∞‡‡‡‡Æ‡ ‚â° id.  The label lane is a RETRACT of this one: a
+--   * BOTH.  ‡§Ö‡§®‡§∞‡•ç‡§™‡§£‡§Æ‡•ç (this file's positions, read with the naya UNASSERTED
+--     ‚Äî TattvƒÅrthas≈´tra 5.31's ‡§Ö‡§®‡§∞‡•ç‡§™‡§ø‡§§) commutes with ‡§ï‡•ç‡§∞‡§Æ‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç and with
+--     ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç alike, exhaustively, for every S and every P.
+--   * It has a section ‡§Ö‡§∞‡•ç‡§™‡§£‡§Æ‡•ç which is also a homomorphism for both, with
+--     ‡§Ö‡§®‡§∞‡•ç‡§™‡§£‡§Æ‡•ç ‚àò ‡§Ö‡§∞‡•ç‡§™‡§£‡§Æ‡•ç ‚â° id.  The label lane is a RETRACT of this one: a
 --     subalgebra and a quotient at once.  It is not a rival account.
---   * It has no inverse (`‡®-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡`): two standpoints that both affirm
---     give two positions with one label.  So there is no equivalence, ¬ß‡
---     path one is unavailable AS A THEOREM, and ¬ß‡ of
---     AHIMSA_SUTRA_VISTARA applies literally ‚î the collapse does not
+--   * It has no inverse (`‡§®-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§®‡§Ø‡§®‡§Æ‡•ç`): two standpoints that both affirm
+--     give two positions with one label.  So there is no equivalence, ¬ß‡•¨
+--     path one is unavailable AS A THEOREM, and ¬ß‡•≠ of
+--     AHIMSA_SUTRA_VISTARA applies literally ‚Äî the collapse does not
 --     exist.
 --
--- AND ONE LAW OF THIS FILE IS WEAKER THAN IT LOOKED.  ¬ß7's ‡ï‡‡∞‡Æ-‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡
--- is confirmed and sharpened (`‡ï‡‡∞‡Æ-‡µ‡ø‡®‡ø‡Æ‡Ø‡-‡®-‡ä‡∞‡‡ß‡‡µ‡Æ‡`: identities descend
--- along ‡‡®‡∞‡‡‡‡Æ‡ and do not lift).  But distinctness LIFTS, and the label
--- lane's ‡‡-‡‡‡ô‡‡ó‡‡ø‡ lifts with it: `‡‡-‡‡‡ô‡‡ó‡‡ø‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡` proves ‡‡‡æ‡∞‡‡‡‡Æ‡ is
--- NOT associative HERE, on the three positions ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø,
--- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø, ‡‡‡Ø‡æ‡®‡-‡®‡æ‡‡‡‡ø, with every naya and every witness retained and
--- `‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡-‡-‡≤‡‡‡‡‡Æ‡` in force throughout.  Retaining the ‡‡‡ does not buy
+-- AND ONE LAW OF THIS FILE IS WEAKER THAN IT LOOKED.  ¬ß7's ‡§ï‡•ç‡§∞‡§Æ-‡§Ö-‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É
+-- is confirmed and sharpened (`‡§ï‡•ç‡§∞‡§Æ-‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É-‡§®-‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ‡§Æ‡•ç`: identities descend
+-- along ‡§Ö‡§®‡§∞‡•ç‡§™‡§£‡§Æ‡•ç and do not lift).  But distinctness LIFTS, and the label
+-- lane's ‡§∏‡§π-‡§Ö‡§∏‡§ô‡•ç‡§ó‡§§‡§ø‡§É lifts with it: `‡§∏‡§π-‡§Ö‡§∏‡§ô‡•ç‡§ó‡§§‡§ø‡§É-‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ‡§Æ‡•ç` proves ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç is
+-- NOT associative HERE, on the three positions ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø,
+-- ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø, ‡§∏‡•ç‡§Ø‡§æ‡§®‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø, with every naya and every witness retained and
+-- `‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç-‡§Ö-‡§≤‡•Å‡§™‡•ç‡§§‡§Æ‡•ç` in force throughout.  Retaining the ‡§∂‡•á‡§∑ does not buy
 -- associativity back, and the label lane's explanation of its own failure
--- (that ‡‡ø‡‡‡µ‡æ‡‡‡¶‡ destroys the seeds) is refuted by that ‚î the failure
--- survives the retention.  What breaks the law in both lanes is that ‡‡
--- tests the JOINED position for an asti‚ìnsti pair, and whether that pair
+-- (that ‡§ú‡§ø‡§π‡•ç‡§µ‡§æ‡§≠‡•á‡§¶‡§É destroys the seeds) is refuted by that ‚Äî the failure
+-- survives the retention.  What breaks the law in both lanes is that ‡§∏‡§π
+-- tests the JOINED position for an asti‚ÄìnƒÅsti pair, and whether that pair
 -- is present depends on the grouping.
 --
--- So this module's withdrawal ‚î that consumption is the model's and not
--- the doctrine's ‚î is not supported by the non-associativity, and was not
+-- So this module's withdrawal ‚Äî that consumption is the model's and not
+-- the doctrine's ‚Äî is not supported by the non-associativity, and was not
 -- refuted by it either.  The Malliea question (Sydvdamajar, 1292)
 -- it turns on is untouched by the composition laws in either direction.
 ------------------------------------------------------------------------

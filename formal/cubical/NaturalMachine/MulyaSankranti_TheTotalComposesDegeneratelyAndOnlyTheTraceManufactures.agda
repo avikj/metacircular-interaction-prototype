@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Mlya-sakrnti ‚î the passage of value, from the total to the trace.
+-- M≈´lya-sa·πÖkrƒÅnti ‚Äî the passage of value, from the total to the trace.
 --
--- TERM.  ‡‡ô‡‡ï‡‡∞‡æ‡®‡‡‡ø, passage / crossing over; attested for the sun's
--- passage between signs (makara-sakrnti).  ‡Æ‡‡≤‡‡Ø, value or price, is the
+-- TERM.  ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§æ‡§®‡•ç‡§§‡§ø, passage / crossing over; attested for the sun's
+-- passage between signs (makara-sa·πÖkrƒÅnti).  ‡§Æ‡•Ç‡§≤‡•ç‡§Ø, value or price, is the
 -- ordinary word.  THE COMPOUND IS BUILT HERE and no source is claimed for
 -- it; nothing below is anyone's theorem but what the citations name.
 --
@@ -13,19 +13,19 @@
 --     "The unit of value moves from weights to traces."
 --
 -- A weight is a TOTAL: what a readout returns, a map into a set.  A trace
--- is the FIBRE over it ‚î how the readout was arrived at.  The sentence is
+-- is the FIBRE over it ‚Äî how the readout was arrived at.  The sentence is
 -- an economic claim, and its content is exactly two facts about
 -- composition, which is where value is manufactured in any system.
 --
---   ¬ß2  THE TOTAL COMPOSES DEGENERATELY.  Two totals compose ‚î that much
---       is fine ‚î but the composite is EQUAL TO EVERY OTHER INHABITANT of
+--   ¬ß2  THE TOTAL COMPOSES DEGENERATELY.  Two totals compose ‚Äî that much
+--       is fine ‚Äî but the composite is EQUAL TO EVERY OTHER INHABITANT of
 --       its type, because the meaning type is a proposition.  So the
 --       composition manufactures nothing: the object you get by composing
 --       is indistinguishable from one you could have written without ever
 --       seeing the parts.
 --
 --   ¬ß3  THE TRACE COMPOSES AND MANUFACTURES.  Two traces compose, and the
---       composite carries a quantity that is the SUM of the parts ‚î
+--       composite carries a quantity that is the SUM of the parts ‚Äî
 --       `len-‚äï : len (d ‚äï e) ‚â° len d + len e`, and it holds by `refl`.
 --       An additive invariant on the composite is precisely what "the
 --       composite is worth more than either part" means when stated
@@ -33,16 +33,16 @@
 --       because any two inhabitants of its type are equal.
 --
 --   ¬ß4  AND THE TRACE IS NON-RIVAL.  One trace enters two different
---       composites and both stand ‚î a term, one `d` used twice.  Money is
+--       composites and both stand ‚Äî a term, one `d` used twice.  Money is
 --       linear: spending consumes.  A proof term carries no linear
---       restriction.  (`PramanaSankramana_‚¶`'s `‡‡ï‡‡‡Ø‡`, restated at the
+--       restriction.  (`PramanaSankramana_‚Ä¶`'s `‡§Ö‡§ï‡•ç‡§∑‡§Ø‡§É`, restated at the
 --       kernel's own derivations rather than at abstract equivalences.)
 --
 --   ¬ß5  DISTILLATION, EXACTLY.  The total is a FREE FUNCTION of the trace
 --       (`derivation-sound`).  The converse is where the asymmetry lives,
 --       and the honest statement is sharper than "you cannot recover it":
---       a recovery map EXISTS ‚î `Visranti_‚¶`'s `same-nf‚íderivable` builds
---       one ‚î and it is NOT an inverse, because `Asesa_‚¶` proves soundness
+--       a recovery map EXISTS ‚Äî `Visranti_‚Ä¶`'s `same-nf‚Üíderivable` builds
+--       one ‚Äî and it is NOT an inverse, because `Asesa_‚Ä¶` proves soundness
 --       is not an equivalence at the kernel's own seed.  So:
 --
 --           RECOVERY FROM THE TOTAL RETURNS *A* ROUTE, NEVER *THE* ROUTE,
@@ -52,11 +52,11 @@
 --       observation about model economics.  A student trained on a
 --       teacher's outputs recovers a map that agrees on totals; which
 --       route it recovers is decided by the student's own economy, and
---       `Sesa_‚¶`'s no-go says nothing in the teacher's outputs could have
+--       `Sesa_‚Ä¶`'s no-go says nothing in the teacher's outputs could have
 --       told it otherwise.
 --
 -- WHY THE ECONOMICS FOLLOWS AND IS NOT AN ANALOGY.  Value in a total is
--- copyable by observing totals ‚î that is ¬ß5's free direction, and it is
+-- copyable by observing totals ‚Äî that is ¬ß5's free direction, and it is
 -- why a model whose worth is a function of its outputs commoditises.
 -- Value in a trace is not copyable that way, because ¬ß5's reverse
 -- direction recovers a different fibre member and ¬ß2 says no function of
@@ -67,11 +67,11 @@
 -- WHAT IS **NOT** CLAIMED.  Not that `len` is the right measure of a
 -- trace's worth; it is one additive invariant and the point is that the
 -- total admits NONE, not that this one is correct.  Not that model weights
--- literally are `Total` ‚î the claim is that a readout into a set has the
+-- literally are `Total` ‚Äî the claim is that a readout into a set has the
 -- structure ¬ß2 gives, and a weight consulted through its outputs is such a
 -- readout.  Nothing here concerns training dynamics, optimisation, or any
 -- empirical fact about neural networks; the terms are about this kernel.
--- `Visranti_‚¶` and `Asesa_‚¶` are cited in ¬ß5, not imported: the recovery
+-- `Visranti_‚Ä¶` and `Asesa_‚Ä¶` are cited in ¬ß5, not imported: the recovery
 -- map and the non-equivalence live there and are not re-proved.
 --
 -- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
@@ -175,7 +175,7 @@ total-from-trace : {a b : Tm} ‚Üí Derivation a b ‚Üí Total a b
 total-from-trace d = derivation-sound d
 
 -- AND THE TOTAL CANNOT SEE WHICH TRACE PRODUCED IT.  Any function of the
--- total whatsoever agrees on the kernel's two histories ‚î which have
+-- total whatsoever agrees on the kernel's two histories ‚Äî which have
 -- lengths 2 and 4, computed here so the gap is in front of the reader.
 the-two-lengths : (len direct-history ‚â° nsuc (nsuc nzero))
                 √ó (len detour-history ‚â° nsuc (nsuc (nsuc (nsuc nzero))))

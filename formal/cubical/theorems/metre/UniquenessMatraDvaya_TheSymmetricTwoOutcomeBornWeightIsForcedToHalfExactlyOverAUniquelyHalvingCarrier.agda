@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- àà•àààµ-à®à¾ààà°à¾-à¦ààµà¯à®à â” uniqueness of the two-outcome measure: the FIRST
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ uniqueness of the two-outcome measure: the FIRST
 -- step into the interior of the Born weights, past UniquenessMatra's support
--- layer.  Program à of YugaParivartana.  2026-08-23.
+-- layer.  Program ï¿½ of YugaParivartana.  2026-08-23.
 --
 -- WHAT IS PROVED (kernel-checked).  On a symmetric two-outcome contention
 -- (Bool), a weight rule obeying
---   â à¯à‹à—à   â” normalisation: w(true) + w(false) â‰¡ ğŸ™
---   â àà¾à®àà¯à®à â” permutation invariance (aneknta: neither outcome
+--   ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½   ï¿½ normalisation: w(true) + w(false) â‰¡ ï¿½
+--   ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ permutation invariance (aneknta: neither outcome
 --              absolutised): w(true) â‰¡ w(false)
--- is UNIQUE â” any two agree at both outcomes â” PROVIDED the weight
--- carrier halves ğŸ™ uniquely.  The forced value is the unique y with
--- y + y â‰¡ ğŸ™: the Born weight Â½ of the symmetric qubit, forced, not
+-- is UNIQUE ï¿½ any two agree at both outcomes ï¿½ PROVIDED the weight
+-- carrier halves ï¿½ uniquely.  The forced value is the unique y with
+-- y + y â‰¡ ï¿½: the Born weight Â½ of the symmetric qubit, forced, not
 -- assumed.  This is the interior, not the support: it pins a genuine
 -- weight VALUE.
 --
 -- WHAT THE PROOF REVEALS, and it is the point.  The forcing needs
--- `halvesUniquely` â” unique 2-divisibility of the carrier.  That is
+-- `halvesUniquely` ï¿½ unique 2-divisibility of the carrier.  That is
 -- exactly the char-0 / archimedean structure `README` C5 isolates
--- ("in characteristic 0 â¦ the receipt is arithmetic"): over â or â the
+-- ("in characteristic 0 ï¿½ the receipt is arithmetic"): over ï¿½ or ï¿½ the
 -- half exists and is unique, so the symmetric Born weight is forced; over
--- a carrier where ğŸ™ has two distinct halves or none, it is not.  So the
--- interior opens exactly over the archimedean carrier â” and the general
--- (asymmetric, higher-outcome) interior remains Gleason (dim â‰ 3), the
+-- a carrier where ï¿½ has two distinct halves or none, it is not.  So the
+-- interior opens exactly over the archimedean carrier ï¿½ and the general
+-- (asymmetric, higher-outcome) interior remains Gleason (dim ï¿½ 3), the
 -- wall UniquenessMatra names.  Symmetric interior: reached.  General interior:
 -- still walled, honestly.
 ------------------------------------------------------------------------
@@ -46,7 +46,7 @@ module _ {W : Type â„“} (_+áµ‚_ : W â†’ W â†’ W) (ğŸ™ : W)
 
   open à¤¦à¥à¤µà¤¿à¤®à¤¾à¤¤à¥à¤°à¤¿à¤¨à¥
 
-  -- each vow-obeying rule exhibits w(true) as a half of ğŸ™
+  -- each vow-obeying rule exhibits w(true) as a half of ï¿½
   halfOf : (w : Bool â†’ W) â†’ à¤¦à¥à¤µà¤¿à¤®à¤¾à¤¤à¥à¤°à¤¿à¤¨à¥ w â†’ Î£[ y âˆˆ W ] (y +áµ‚ y â‰¡ ğŸ™)
   halfOf w d = w true , (cong (w true +áµ‚_) (à¤¸à¤¾à¤®à¥à¤¯à¤®à¥ d) âˆ™ à¤¯à¥‹à¤—à¤ƒ d)
 

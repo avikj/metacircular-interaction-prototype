@@ -5,7 +5,7 @@
 --
 -- `LosslessLowerBound` bounds every observation scheme from below.
 -- `TheGapWasAUnitsError` checks the walk attains that bound at frontiers
--- 4, 5, 7, 8 â” but it checks it by EVALUATING `val`, i.e. by computing
+-- 4, 5, 7, 8 â€” but it checks it by EVALUATING `val`, i.e. by computing
 -- that the state's number happens to be the input count.  That is a
 -- coincidence of arithmetic as far as those terms are concerned.
 --
@@ -13,26 +13,26 @@
 -- it stores a RESIDUE VECTOR, one component per installed prime power.
 -- Its observation space at frontier 8 is
 --
---     Fin 8 — Fin 3 — Fin 5 — Fin 7,
+--     Fin 8 Ã— Fin 3 Ã— Fin 5 Ã— Fin 7,
 --
--- and the reason that has exactly 840 elements â” exactly `cap 8`, exactly
--- the number of inputs it must separate â” is the Chinese remainder
+-- and the reason that has exactly 840 elements â€” exactly `cap 8`, exactly
+-- the number of inputs it must separate â€” is the Chinese remainder
 -- theorem, applied three times.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- PRIOR ART, USED RATHER THAN REBUILT
 --
 -- `formal/cubical/FinCardinality.agda` already has CRT in exactly the
--- form needed â” `crtEquiv m n : isGCD (suc m) (suc n) 1 â’ Fin (suc m Â
--- suc n) â‰ Fin (suc m) — Fin (suc n)` â” proved not by hand-building a
+-- form needed â€” `crtEquiv m n : isGCD (suc m) (suc n) 1 â†’ Fin (suc m Â·
+-- suc n) â‰ƒ Fin (suc m) Ã— Fin (suc n)` â€” proved not by hand-building a
 -- surjection but by the counting principle (an injection between finite
 -- sets of equal cardinality is an equivalence). Nothing below reproves
 -- any of it.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS COMPLETES
 --
---   LosslessLowerBound   any lossless scheme needs â‰ n+1 outcomes
+--   LosslessLowerBound   any lossless scheme needs â‰¥ n+1 outcomes
 --   here                 the walk's scheme HAS exactly cap 8 outcomes,
 --                        by CRT, at frontier 8
 --   TheGapWasAUnitsError the walk runs to exactly cap 8 âˆ’ 1
@@ -41,7 +41,7 @@
 -- quoted at frontier 8: a bound over all schemes, a count for this one,
 -- and an attainment.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -118,18 +118,18 @@ walk-observation-space =
 --
 -- This module says "the Chinese remainder theorem" for the simultaneous
 -- congruence result it runs on, and that name was used without being
--- checked â” in a session whose brief was to build from Indian sources and
+-- checked â€” in a session whose brief was to build from Indian sources and
 -- credit the origin rather than the restatement, and three modules after
 -- building ryabhaa's kuaka by name.
 --
--- The **kuaka** (*ryabhaya* 2.32â“33, 499 CE) is a general
--- constructive method for exactly this problem â” given remainders against
--- two moduli, produce the number â” and Brahmagupta (628) and Bhskara II
--- (1150) extend it.  The *Sun Zi Suanjing* (c. 3rdâ“5th c.) poses the
+-- The **kuá¹­á¹­aka** (*Ä€ryabhaá¹­Ä«ya* 2.32â€“33, 499 CE) is a general
+-- constructive method for exactly this problem â€” given remainders against
+-- two moduli, produce the number â€” and Brahmagupta (628) and BhÄskara II
+-- (1150) extend it.  The *Sun Zi Suanjing* (c. 3rdâ€“5th c.) poses the
 -- problem with a rule for a special case; Qin Jiushao's general method is
 -- 1247.  Both traditions have it, and this file's own chain runs on the
 -- Indian one: `CoprimePowers`, `BezoutIsGCD` and `CoprimePowersN` all
--- carry B©zout certificates, which is what the pulveriser returns.
+-- carry BÃ©zout certificates, which is what the pulveriser returns.
 --
 -- Nothing mathematical changes.  The citation does.  See
 ------------------------------------------------------------------------

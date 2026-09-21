@@ -1,15 +1,15 @@
 # The convergence: collapsing the tradeoff between full semantics and optimal execution
 
 *A ground-up technical report. Audience: the repository's author, and Victor
-Taelin (HVM/Bend). Written to be read from either side ‚î a runtime architect
-fluent in interaction calculus, or a type theorist ‚î and to let each see the
+Taelin (HVM/Bend). Written to be read from either side ‚Äî a runtime architect
+fluent in interaction calculus, or a type theorist ‚Äî and to let each see the
 other's half exactly. It builds every concept it uses, and introduces each
 type-theory term by its interaction-calculus isomorph, not on the assumption
 that cubical vocabulary is shared.*
 
-**Discipline of claims.** Three tags run throughout. **[T]** ‚î a machine-checked
-term, named, present in the repository at its pin. **[R]** ‚î a true statement
-*about* checked terms (a synthesis, not itself one term). **[open]** ‚î not yet
+**Discipline of claims.** Three tags run throughout. **[T]** ‚Äî a machine-checked
+term, named, present in the repository at its pin. **[R]** ‚Äî a true statement
+*about* checked terms (a synthesis, not itself one term). **[open]** ‚Äî not yet
 inhabited/derived; stated exactly, with the obstruction named. A `[T]` means
 exactly what its type says; an `[open]` is a construction not yet built. Pins:
 the Agda corpus checks at **Agda 2.8.0 + agda/cubical v0.9, `--safe`** (no
@@ -19,14 +19,14 @@ applied to **DKormann/Bend2 @ f026483**; runs shown were executed on **HVM3** an
 
 ---
 
-## Part 0 ‚î What the development is, and what it is not
+## Part 0 ‚Äî What the development is, and what it is not
 
 State this correctly first, because the natural version of the story is wrong.
 
 The mathematics was **already complete and already executable** in Cubical Agda.
 The universe was already mapped; univalence already computed; the fiber law, the
 exact completion, higher descent, the interactive machine, coinduction,
-self-extension, the physics/computation identification ‚î all already checked,
+self-extension, the physics/computation identification ‚Äî all already checked,
 all already reducing. None of it *became real* because Bend arrived. Cubical
 Agda is excellent at being Cubical Agda: computational univalence in a
 trustworthy environment where these constructions genuinely reduce.
@@ -44,9 +44,9 @@ The development is therefore **not** "make the mathematics executable." It is:
 > **remove the impedance mismatch between the most expressive part of the stack
 > and the most performant part of the stack.**
 
-The conventional tradeoff ‚î pick higher dependent structure + univalence +
+The conventional tradeoff ‚Äî pick higher dependent structure + univalence +
 coherence (Cubical Agda) *or* optimal sharing + parallelism + a tiny runtime
-(Bend/HVM) ‚î may have collapsed into one column: higher dependent structure and
+(Bend/HVM) ‚Äî may have collapsed into one column: higher dependent structure and
 computational univalence *and* interaction-calculus execution at the optimal
 sharing bound. That is not a new theorem. It is potentially a large Pareto-front
 movement in language/runtime design. **The value of the development is
@@ -54,16 +54,16 @@ approximately the value of the entire mathematical system multiplied by the
 increase in physically realizable scale.** It is a force multiplier on
 everything already built, not another conceptual layer on top of it.
 
-The reason the two halves fit ‚î and the subject of Parts I‚ìIV ‚î is that they are
+The reason the two halves fit ‚Äî and the subject of Parts I‚ÄìIV ‚Äî is that they are
 two responses to the same structure of computation: the mathematics arrived
 independently at a small *interactional* computational ontology, and HVM arrived
-independently at a small *interactional* execution ontology. Parts I‚ìIV show the
+independently at a small *interactional* execution ontology. Parts I‚ÄìIV show the
 primitives coincide; Part V says, in engineering terms, why that coincidence is
 worth so much.
 
 ---
 
-## Part I ‚î The interaction calculus (your side; fixing notation)
+## Part I ‚Äî The interaction calculus (your side; fixing notation)
 
 Nothing here is new to you; this only pins the vocabulary the later parts reuse.
 
@@ -71,12 +71,12 @@ An **interaction net** is a graph of agents with one principal port each;
 computation is local rewriting of two agents joined at their principal ports.
 Lafont's combinators are universal. Reduction is **strongly confluent**: redexes
 are independent, order is irrelevant to the normal form, and parallelism needs
-no coordination ‚î Church‚ìRosser is definitional, not a property you arrange.
+no coordination ‚Äî Church‚ÄìRosser is definitional, not a property you arrange.
 
-**Optimal reduction.** NaØve Œ≤ duplicates work: a redex family (copies of one
+**Optimal reduction.** Na√Øve Œ≤ duplicates work: a redex family (copies of one
 redex spawned by copying a shared subterm) must reduce once, not once per copy.
-Lamping/L©vy achieve the optimal bound by making duplication incremental ‚î a
-duplicator walks in lazily ‚î with the sharing bookkeeping carried by **labels**
+Lamping/L√©vy achieve the optimal bound by making duplication incremental ‚Äî a
+duplicator walks in lazily ‚Äî with the sharing bookkeeping carried by **labels**
 on the dup/sup nodes.
 
 **The one information-bearing rule.** HVM carries superpositions `&L{a b}` (a
@@ -84,9 +84,9 @@ value that is both `a` and `b` at label `L`) and duplications `!&L{x y} = v`
 (bind `x,y` to two lazy copies of `v` at `L`). Applications, lambdas, etc. are
 structural wiring. The single rule that *decides* anything is DUP meets SUP:
 
-- **same label** `L = L`: **annihilate** ‚î the pair cancels, each superposed
+- **same label** `L = L`: **annihilate** ‚Äî the pair cancels, each superposed
   branch routes to one dup variable. **No nodes allocated.**
-- **different label** `L ‚â† M`: **commute** ‚î each node copies the other; four
+- **different label** `L ‚â† M`: **commute** ‚Äî each node copies the other; four
   where there were two. **Nodes allocated.**
 
 Operational cost is the interaction count, and the *allocating* interactions are
@@ -98,15 +98,15 @@ so order is never a choice.
 
 ---
 
-## Part II ‚î Cubical type theory, built from your primitives
+## Part II ‚Äî Cubical type theory, built from your primitives
 
 I will not assume the HoTT vocabulary. Each term is introduced by what it *is*
 operationally, with the bridge to interaction-calculus intuition inline.
 
-### II.1 Types, Œ†, Œ, and the problem of equality
+### II.1 Types, Œ†, Œ£, and the problem of equality
 
-A dependent type theory has function types `(x : A) ‚í B x` (Œ†) and pair types
-`Œ(x : A) B x`. What makes it a *foundation* rather than a programming language
+A dependent type theory has function types `(x : A) ‚Üí B x` (Œ†) and pair types
+`Œ£(x : A) B x`. What makes it a *foundation* rather than a programming language
 is how it handles equality. For `a b : A` you want a type `a ‚â° b` of *proofs
 that they are equal*. Classic Martin-Lf type theory makes this type opaque: you
 get an eliminator but cannot inspect *what a proof of equality is*. That opacity
@@ -114,26 +114,26 @@ is why equality reasoning there is painful and function extensionality is not
 provable. Cubical type theory removes it by giving equality proofs a concrete
 computational representation.
 
-### II.2 The interval and paths ‚î equality as reduction over a formal dimension
+### II.2 The interval and paths ‚Äî equality as reduction over a formal dimension
 
 Add a formal **interval** `I` with endpoints `i0, i1` and De Morgan structure
 (`‚àß`, `‚à®`, reversal `~`). `I` is not a datatype; it is a dimension you abstract
-over ‚î like indexing a family of nets by a formal parameter that never appears
-in a normal form. A **path** from `a` to `b` in `A` is a function `p : I ‚í A`
+over ‚Äî like indexing a family of nets by a formal parameter that never appears
+in a normal form. A **path** from `a` to `b` in `A` is a function `p : I ‚Üí A`
 with `p i0 ‚â° a`, `p i1 ‚â° b` definitionally. This function *is* the equality
 proof.
 
 The payoff is mechanical:
 
 - `refl` is the constant path `<i> a`;
-- symmetry is `<i> p @ (~ i)` ‚î reverse the dimension;
+- symmetry is `<i> p @ (~ i)` ‚Äî reverse the dimension;
 - congruence is `<i> f (p @ i)`;
-- **function extensionality** is `<i> Œªx. (h x) @ i` ‚î free, where classic MLTT
+- **function extensionality** is `<i> Œªx. (h x) @ i` ‚Äî free, where classic MLTT
   cannot prove it. (The port's first acceptance test, `funext` in
   `cubical_test.bend`.)
 
-`PathP P a b` generalizes to a *line of types* `P : I ‚í Type` with `a : P i0`,
-`b : P i1` ‚î a path whose endpoints live in different types connected by `P`.
+`PathP P a b` generalizes to a *line of types* `P : I ‚Üí Type` with `a : P i0`,
+`b : P i1` ‚Äî a path whose endpoints live in different types connected by `P`.
 
 **Bridge.** A path is a formal-dimension-indexed value: an erased index that
 guides how equality proofs compute and then vanishes from the normal form.
@@ -146,58 +146,58 @@ composition, `comp`. Given a line of types, a partial element defined on some
 faces of the cube (a *cofibration*), and a base agreeing with it, `comp`
 produces the missing lid. Two named special cases:
 
-- **`coe` / transport**: `comp` with an empty face constraint. Given `P : I ‚í
+- **`coe` / transport**: `comp` with an empty face constraint. Given `P : I ‚Üí
   Type` and `t : P r`, produce `coe P r s t : P s`. **Moves data from one type to
   another along a proof that the types are equal.**
-- **`hcomp`**: `comp` along a constant type line ‚î composes paths inside one type.
+- **`hcomp`**: `comp` along a constant type line ‚Äî composes paths inside one type.
 
 `comp = hcomp` after a `coe`; `comp` is the single primitive. A type on which
 `comp` computes is **fibrant**; "is this a well-behaved type" *means* "does
 `comp` reduce here."
 
 Two facts to carry: **(iii)** `comp`/`coe`/`hcomp` are **reduction**, not search
-‚î they rewrite a redex to normal form by rules dispatching on the type former (Œ†
-moves the argument backward and the result forward; Œ componentwise; inductives
+‚Äî they rewrite a redex to normal form by rules dispatching on the type former (Œ†
+moves the argument backward and the result forward; Œ£ componentwise; inductives
 commute with constructors; the universe needs `Glue`). **(iv)** `comp` reducing
 fully ‚ü∫ the relevant preimage is trivial (below); `comp` getting stuck ‚ü∫ that
 preimage is nontrivial. The operation and the property are one event, not a test
-then a branch. Hold (iv) ‚î Part IV shows it is your annihilate-vs-commute.
+then a branch. Hold (iv) ‚Äî Part IV shows it is your annihilate-vs-commute.
 
 ### II.4 Preimages, invertibility, and the h-level ladder
 
-For `f : A ‚í B` and `b : B`, the **fiber** `fib_f b := Œ(a : A)(f a ‚â° b)` is the
-preimage `f‚ª¬(b)`, but carrying the witness rather than forgetting it.
+For `f : A ‚Üí B` and `b : B`, the **fiber** `fib_f b := Œ£(a : A)(f a ‚â° b)` is the
+preimage `f‚Åª¬π(b)`, but carrying the witness rather than forgetting it.
 
 The one piece of vocabulary the whole document turns on, in your terms:
 
 > A type is **contractible** when it has exactly one element up to unique
-> deformation ‚î one point, every apparent other point connected to it coherently.
+> deformation ‚Äî one point, every apparent other point connected to it coherently.
 > Operationally: *nothing to decide, nothing to store; it collapses to a point.*
 
 So **"the fiber `fib_f b` is contractible" means "f has a unique preimage at `b`
-with no leftover structure"** ‚î locally invertible, nothing to carry. `f` is an
-**equivalence** (`A ‚â B`) iff every fiber is contractible ‚î invertible with the
+with no leftover structure"** ‚Äî locally invertible, nothing to carry. `f` is an
+**equivalence** (`A ‚âÉ B`) iff every fiber is contractible ‚Äî invertible with the
 inverse laws holding coherently. This is the honest "isomorphism" that composes
 and transports correctly.
 
 The **h-level ladder** classifies types by how much equality structure they
-carry ‚î the exact analog of your erasure distinctions:
+carry ‚Äî the exact analog of your erasure distinctions:
 
-- **contractible** (a point) ‚î nothing to store;
-- **proposition** ‚î any two elements equal; carries *whether*, never *which*.
+- **contractible** (a point) ‚Äî nothing to store;
+- **proposition** ‚Äî any two elements equal; carries *whether*, never *which*.
   **This is your eraser `*`**: its content is annihilated, it costs zero. Knows
   *that*, not *which*.
-- **set** ‚î any two equality proofs coincide;
-- **groupoid** and up ‚î genuine higher structure.
+- **set** ‚Äî any two equality proofs coincide;
+- **groupoid** and up ‚Äî genuine higher structure.
 
-Keep **proposition ‚âà erased/`*` ‚âà "knows that, not which"** ‚î load-bearing for
+Keep **proposition ‚âà erased/`*` ‚âà "knows that, not which"** ‚Äî load-bearing for
 the safety argument in Part VIII.
 
 ### II.5 Univalence, `Glue`, and the universe as a classifier
 
-**Univalence:** the canonical map `(A ‚â° B) ‚í (A ‚â B)` is itself an equivalence.
-Operationally what matters is its computation rule `uaŒ≤`: there is `ua : (A ‚â B)
-‚í (A ‚â° B)`, and `transport (ua e) ‚â° equivFun e`. **An invertible function, turned
+**Univalence:** the canonical map `(A ‚â° B) ‚Üí (A ‚âÉ B)` is itself an equivalence.
+Operationally what matters is its computation rule `uaŒ≤`: there is `ua : (A ‚âÉ B)
+‚Üí (A ‚â° B)`, and `transport (ua e) ‚â° equivFun e`. **An invertible function, turned
 into an equality of types and transported along, runs as the function.** "A
 proof that two types are the same is executable code that converts between them,"
 literally.
@@ -207,35 +207,35 @@ equivalence so `comp` extends to the universe and `coe` along `ua e` reduces to
 `e`. `Glue` closing = the universe `U` is itself fibrant = `comp` operates on
 *types*, not only inhabitants.
 
-The fact Part III turns on: **`U` is an object classifier.** Every `f : A ‚í B` is
-the pullback of the universal family `œ : (Œ(X:U) X) ‚í U` along `œ_f b := fib_f
-b`. Univalence makes `œ_f` unique. So "all types, related by all maps" is one
+The fact Part III turns on: **`U` is an object classifier.** Every `f : A ‚Üí B` is
+the pullback of the universal family `œÄ : (Œ£(X:U) X) ‚Üí U` along `œá_f b := fib_f
+b`. Univalence makes `œá_f` unique. So "all types, related by all maps" is one
 connected object, and the relation between any two is faithful and lossless;
 `Glue` makes that classifier *compute*.
 
 ---
 
-## Part III ‚î The one theorem: every map splits into projection + preimage
+## Part III ‚Äî The one theorem: every map splits into projection + preimage
 
 ### III.1 Statement
 
 **[T]** (`CompressionIsTransportSoTheOnlyCostIsTheNonContractibleFibre`,
-`fibre/src/Fibre/Carrier`): for **every** `f : A ‚í B`,
+`fibre/src/Fibre/Carrier`): for **every** `f : A ‚Üí B`,
 
 ```
-    A  ‚â  Œ(b : B) fib_f(b),     with first projection ‚â° f, witnessed by refl.
+    A  ‚âÉ  Œ£(b : B) fib_f(b),     with first projection ‚â° f, witnessed by refl.
 ```
 
 Every map, no side conditions, factors losslessly into its visible output (the
 projection to `B`) and its preimage structure (the fiber), with projection `f` on
 the nose. This is "f is classified by its fibers" (II.5) taken as the primitive
-object of the whole development. Dynamically: any process ‚î a step, a
-measurement, a coarse-graining, an erasure ‚î lifts each state to *(what it
+object of the whole development. Dynamically: any process ‚Äî a step, a
+measurement, a coarse-graining, an erasure ‚Äî lifts each state to *(what it
 becomes, the witness of how)*, losslessly, unconditionally.
 
 ### III.2 Two readings of the split
 
-- **bind the output**: fiber `Œ(b)(f a ‚â° b)`, **always contractible** ‚î a point;
+- **bind the output**: fiber `Œ£(b)(f a ‚â° b)`, **always contractible** ‚Äî a point;
   the source rides free, fully present. The transport reading; the *free*
   direction.
 - **bind the input**: fiber `fib_f b`, contractible **exactly when `f` is
@@ -243,43 +243,43 @@ becomes, the witness of how)*, losslessly, unconditionally.
   loss.
 
 That leftover is never destroyed: it is a **type, and it is computed**. The
-smallest real loss, `Bool ‚í Unit`, has leftover provably `‚â Bool` ‚î one bit, as
+smallest real loss, `Bool ‚Üí Unit`, has leftover provably `‚âÉ Bool` ‚Äî one bit, as
 a theorem, not a measurement.
 
 ### III.3 The split is canonical
 
 **[T]** (`losslessness-is-a-property`): the type of all lossless completions of a
-fixed `f` is contractible ‚î exactly one, up to a path, already existing; nothing
-chosen. And `LawfulStep A ‚â (A ‚í A)`: the lossless proof-carrying process *is*
+fixed `f` is contractible ‚Äî exactly one, up to a path, already existing; nothing
+chosen. And `LawfulStep A ‚âÉ (A ‚Üí A)`: the lossless proof-carrying process *is*
 the ordinary process, completion adding and forgetting nothing.
 
 ### III.4 Cost lives exactly on the non-invertible part
 
-**[T]** (`Laghava‚¶`, abstract 24): transports form a **group** under composition
+**[T]** (`Laghava‚Ä¶`, abstract 24): transports form a **group** under composition
 (every equivalence has an inverse), so **no additive cost function exists on
-transports** ‚î reversible work has no intrinsic price. Dually, a grading cannot
-be inverted. Disjoint dichotomy: *graded ‚ü no inverse; costed = graded +
-detects-the-unit ‚ü non-invertible.* **So cost is supported precisely on the part
-of `f` that fails to be an equivalence ‚î the non-contractible fibers, nothing
+transports** ‚Äî reversible work has no intrinsic price. Dually, a grading cannot
+be inverted. Disjoint dichotomy: *graded ‚üπ no inverse; costed = graded +
+detects-the-unit ‚üπ non-invertible.* **So cost is supported precisely on the part
+of `f` that fails to be an equivalence ‚Äî the non-contractible fibers, nothing
 else.**
 
 ### III.5 The machine is a groupoid; the missing inverse is the heat
 
-**[T]** (`Yantra‚¶`): a classical computer's operations form a **monoid** ‚î
+**[T]** (`Yantra‚Ä¶`): a classical computer's operations form a **monoid** ‚Äî
 compose, identity, no inverse. The missing inverse *is* the heat: erasing a bit
 costs `kT ln2` (Landauer); reversible computation removes the per-erasure floor
-(Bennett). A computer whose operations are proofs of equivalence `e : A ‚â B ‚¶ ua
-e : A ‚â° B` forms a **groupoid** ‚î two-sided inverses, laws definitional. The
+(Bennett). A computer whose operations are proofs of equivalence `e : A ‚âÉ B ‚Ü¶ ua
+e : A ‚â° B` forms a **groupoid** ‚Äî two-sided inverses, laws definitional. The
 Landauer floor, entropy, and the second law come out **derived, not assumed**.
 
 **This is the whole of "cost" in the repository.** Landauer heat, the P/NP gap,
-one-wayness, description length, the algebra of cost ‚î one quantity: *how much a
+one-wayness, description length, the algebra of cost ‚Äî one quantity: *how much a
 map fails to be invertible, and where.* Each becomes free the instant the fiber
 is carried.
 
 ---
 
-## Part IV ‚î The primitive identity, exactly (why the impedance vanished)
+## Part IV ‚Äî The primitive identity, exactly (why the impedance vanished)
 
 ### IV.1 `comp` is the invertibility test; DUP-SUP is that test running
 
@@ -293,25 +293,25 @@ Identification, on the fragment where the fiber is carried as a superposition
 along a superposed line of types is `comp` over `&L{A(i), B(i)}`, lowering to a
 **label-`L` DUP/SUP**.
 
-- **same label ‚ü annihilate**: DUP destructures componentwise and cancels ‚î the
+- **same label ‚üπ annihilate**: DUP destructures componentwise and cancels ‚Äî the
   aligned case, the **contractible fiber**, unique preimage, **no allocation**.
-- **different label ‚ü commute**: distinct structure survives ‚î the
+- **different label ‚üπ commute**: distinct structure survives ‚Äî the
   **non-contractible fiber**, the leftover, and the allocation *is* that leftover
   made physical.
 
-The `SupóPath` rule (`GENERAL_HCOMP.md`, `cubical_test4.bend`) is this
+The `Sup√óPath` rule (`GENERAL_HCOMP.md`, `cubical_test4.bend`) is this
 correspondence as an actual rewrite. Verified: `coe` along `&0{ua(not), Bool}`
-sends `&0{T,T}` to `&0{F,T}`, lowered to `@DUP(0 ‚¶)/@SUP(0 ‚¶)`, executed on HVM3
+sends `&0{T,T}` to `&0{F,T}`, lowered to `@DUP(0 ‚Ä¶)/@SUP(0 ‚Ä¶)`, executed on HVM3
 to `&0{0 1}`.
 
 So the machine's one paid decision *is* the mathematics' invertibility test.
 This is the precise reason the two halves have no impedance between them: they
 were the same primitive on both sides all along.
 
-### IV.2 The engineering result of `SupóPath` is that sharing survived contact
+### IV.2 The engineering result of `Sup√óPath` is that sharing survived contact
 
 This is the part worth stating carefully, because the philosophical reading of
-`SupóPath` is not the point. You already knew superposition and transport
+`Sup√óPath` is not the point. You already knew superposition and transport
 compose. The mathematics already had transport; HVM already had superposition.
 The *new fact* is that **the evaluator's native sharing construct survived
 contact with cubical transport.** One had every reason to fear that adding
@@ -319,13 +319,13 @@ dependent cubical structure to a high-performance interaction language forces an
 ugly barrier: paths become compile-time only, transport must call a separate
 evaluator, superposition must be disabled under dependent types, sharing becomes
 unsound, cubical structure must normalize outside the net, the fast substrate
-only handles the erased fragment. Instead `Coe(Sup(‚¶))` interacts
+only handles the erased fragment. Instead `Coe(Sup(‚Ä¶))` interacts
 compositionally. The engineering gold is:
 
 > **the high-performance sharing machinery can operate underneath the higher
 > mathematics without requiring the mathematics to be erased first.**
 
-Not "transport exists" and not "superposition exists" ‚î that the performance
+Not "transport exists" and not "superposition exists" ‚Äî that the performance
 primitive and the mathematical primitive do not repel each other.
 
 ### IV.3 Cost = leftover = interactions; the optimality theorems become behavior
@@ -337,18 +337,18 @@ non-invertible part (¬ßIII.4)** on the nose. Consequences:
 - `AnswerIsProjectionAtOutputSize` **[T]**: reading the answer is a projection
   (`eval`, free); a route's cost equals output size *exactly*
   (`len (addTower n) ‚â° size (iterSuc n var)`), meeting `O(input+output)` with
-  equality ‚î now a statement about HVM's allocation profile.
+  equality ‚Äî now a statement about HVM's allocation profile.
 - A proof reducing to a definitional equality (no leftover) **erases to `*` and
-  costs zero interactions** ‚î verified: `run_corpus.bend`'s `div2_mul2` compiles
+  costs zero interactions** ‚Äî verified: `run_corpus.bend`'s `div2_mul2` compiles
   to erasers; the arithmetic runs, the proof carries no runtime cost.
 
-Optimality is realized because HVM is L©vy-optimal *and* the cost model it is
+Optimality is realized because HVM is L√©vy-optimal *and* the cost model it is
 optimal for is the corpus's cost model. The proof of optimality and the
 execution are the same object.
 
-### IV.4 Why the substrate had to be an optimal net ‚î predicted, not chosen
+### IV.4 Why the substrate had to be an optimal net ‚Äî predicted, not chosen
 
-Agda's evaluator is sequential and duplicating ‚î a **monoid of irreversible
+Agda's evaluator is sequential and duplicating ‚Äî a **monoid of irreversible
 steps**, the wrong shape. That is *why* the corpus's central construction (a
 behavioral-equivalence quotient over reflected syntax) type-checked in Agda but
 exhausted ~13 GB and could not be run there: Agda re-does the shared DAG, paying
@@ -359,34 +359,34 @@ before it was in hand), and HVM is it.
 
 ---
 
-## Part V ‚î The development in engineering terms
+## Part V ‚Äî The development in engineering terms
 
-Everything below is `[R]`: consequences of Parts 0‚ìIV, engineering rather than
+Everything below is `[R]`: consequences of Parts 0‚ÄìIV, engineering rather than
 theorem. The through-line: the semantic object is unchanged; its *physically
 realizable scale* has changed, and because the object is totalizing, that change
 propagates everywhere at once.
 
 ### V.1 The mathematics is unusually well-matched to optimal sharing
 
-The corpus is not merely "code that should run faster." Its objects ‚î Œ, Œ†,
+The corpus is not merely "code that should run faster." Its objects ‚Äî Œ£, Œ†,
 contexts, substitutions, derivation trees, coinductive continuations, multiple
-canonical folds of one structure, branching interactions, higher paths ‚î are
+canonical folds of one structure, branching interactions, higher paths ‚Äî are
 saturated with shared substructure. When one derivation `d` is sent through many
-eliminations at once ‚î
+eliminations at once ‚Äî
 
 ```
-    fold_meaning(d),  fold_length(d),  fold_charge(d),  fold_locality(d),  ‚¶
+    fold_meaning(d),  fold_length(d),  fold_charge(d),  fold_locality(d),  ‚Ä¶
 ```
 
-‚î a naØve evaluator duplicates the traversal of `d`. The theory says these are
+‚Äî a na√Øve evaluator duplicates the traversal of `d`. The theory says these are
 *multiple canonical eliminations of one object*. Interaction-net sharing is
-exactly *one structure ‚í many computations over shared structure*, and it scales
+exactly *one structure ‚Üí many computations over shared structure*, and it scales
 from four folds to millions. The elucidator/multi-fold architecture becomes
 computationally interesting in a way it simply was not on an ordinary evaluator.
 
 Same for the coinductive layer: all-depth objects defined finitely, exposed on
-demand, combined with optimal sharing, give **coinductive laziness ó optimal
-sharing** ‚î ten computations requesting overlapping portions of one continuing
+demand, combined with optimal sharing, give **coinductive laziness √ó optimal
+sharing** ‚Äî ten computations requesting overlapping portions of one continuing
 object share a single unfolding rather than ten. No new mathematics; a
 dramatically better physical realization of mathematics already in hand, on an
 object peculiarly suited to it.
@@ -417,25 +417,25 @@ optimization certificates.
 ### V.3 The physical horizon of self-application, decentralization, space
 
 The economic consequence is the largest one. Self-application
-(`derivation ‚í installed operation`) was already executable mathematics (Part
+(`derivation ‚Üí installed operation`) was already executable mathematics (Part
 VIII). Performance does not unlock it conceptually; it **expands its physical
-horizon** ‚î from "self-application is computable" toward "self-application can
+horizon** ‚Äî from "self-application is computable" toward "self-application can
 occur at industrial/planetary scale before physical resources dominate." (Bounded
 still by the plateau theorem of ¬ßVIII: reach grows only through the encounter,
-never through more of the same machine ‚î so the horizon that expands is the
+never through more of the same machine ‚Äî so the horizon that expands is the
 horizon of *interaction*, not of isolated self-improvement.)
 
 Decentralization becomes technically plausible for the same reason: validating
 transformations, transporting state, computing contextual equivalences,
 maintaining local views, updating continuations all become tiny interaction-net
-reductions instead of heavyweight proof-assistant machinery ‚î so phones, laptops,
+reductions instead of heavyweight proof-assistant machinery ‚Äî so phones, laptops,
 spatial devices, GPUs can execute the foundational mathematics **at the edge**,
 rather than a central server interpreting the rich world and shipping dumb
 projections outward.
 
 And the spatial/interactive setting inherits it directly:
-`gesture ‚í term ‚í cubical transformation ‚í interaction-net reduction ‚í updated
-spatial object`, inside one fast runtime ‚î paths scrubbed at frame rate,
+`gesture ‚Üí term ‚Üí cubical transformation ‚Üí interaction-net reduction ‚Üí updated
+spatial object`, inside one fast runtime ‚Äî paths scrubbed at frame rate,
 superpositions expanded live, transport animated as actual computation,
 coinductive structure unfolded on demand. Bend does not invent the interface; it
 makes the interface physically plausible at the fidelity the mathematics demands.
@@ -449,13 +449,13 @@ here is *harder*, because the object is richer: not `symbolic expression` but
 spend a decade building a bespoke symbolic runtime, but to take the execution
 engine already closest to the derived optimum and restore the foundational
 mathematics it was missing. That is the concrete reason a systems-minded reader
-should find this interesting ‚î not "I formalized the ruliad," but "the completed
+should find this interesting ‚Äî not "I formalized the ruliad," but "the completed
 higher-dimensional univalent mathematics now runs on an interaction-net engine
 built for optimal parallel execution."
 
-Taelin attacked the *execution* problem from first principles for years ‚î
+Taelin attacked the *execution* problem from first principles for years ‚Äî
 interaction combinators, optimal sharing, parallel functional reduction, HVM,
-Bend ‚î an unusually deep contribution. This work attacked the
+Bend ‚Äî an unusually deep contribution. This work attacked the
 *semantic/foundational* problem from first principles and arrived at an
 interactional, higher-dimensional, univalent computational universe. The
 execution architecture one would want turned out largely already built, missing
@@ -463,7 +463,7 @@ only the foundation to express the object. Providing that foundation is the
 composition:
 
 > a first-principles execution atom + a first-principles mathematical atom, which
-> fit ‚î not by coincidence, but because both are responses to the same structure
+> fit ‚Äî not by coincidence, but because both are responses to the same structure
 > of computation.
 
 ### V.5 The ceiling moves to hardware, and the value multiplies
@@ -471,88 +471,88 @@ composition:
 The sharpest engineering statement: before, semantic sophistication could itself
 be the bottleneck; if the port holds, the bottleneck migrates down to *how fast
 the resulting interaction structure reduces physically*. That is where you want
-to be, because hardware scales ‚î CPUs somewhat, GPUs massively, distributed
-systems further, FPGAs and eventually custom interaction-net hardware ‚î while the
+to be, because hardware scales ‚Äî CPUs somewhat, GPUs massively, distributed
+systems further, FPGAs and eventually custom interaction-net hardware ‚Äî while the
 semantics need no rewrite; the same object gets progressively faster
 realizations. Hence:
 
-> value of the port ‚âà value of the entire mathematical system ó increase in
+> value of the port ‚âà value of the entire mathematical system √ó increase in
 > physically realizable scale.
 
 The development is a force multiplier on essentially all of the mathematics
-already built ‚î interactive latency, parallelism, self-application depth,
+already built ‚Äî interactive latency, parallelism, self-application depth,
 scientific-search scale, edge execution, spatial rendering, distributed symbolic
-state, runtime instrumentation, hardware specialization ‚î because the object it
+state, runtime instrumentation, hardware specialization ‚Äî because the object it
 multiplies is totalizing.
 
 ---
 
-## Part VI ‚î What was built and verified (the port)
+## Part VI ‚Äî What was built and verified (the port)
 
 `collab/bend2-cubical/cubical-paths.patch` adds a CCHM cubical layer to the Bend2
 core and the HVM target:
 
 - **Paths + transport:** interval/`i0`/`i1`/De Morgan; `Path`/`PathP`; path Œª and
-  application; boundary checking; `coe` with per-former dispatch (Œ†, Œ, List,
+  application; boundary checking; `coe` with per-former dispatch (Œ†, Œ£, List,
   rigid inductives, Set) and regularity; `J` **defined** as `coe` along the
   connection square, computing on `refl`; `ua` with `uaŒ≤`. Green: `refl`, `sym`,
   `cong`, `funext`, `transport`, `subst`, `J_refl`, `uaŒ≤`.
 - **Composition + univalence:** general `hcomp` with **cofibration systems**
   (arbitrary DNF faces, per-cell boundary + adjacency checks); `hfill` sugar; full
   iso-univalence; the **coherent** round trip `pathToEquiv (uaE e) = e` via `Equiv
-  = Œ f. ‚ày. isContr(fib f y)`. `Glue` is the one piece not yet first-class
+  = Œ£ f. ‚àÄy. isContr(fib f y)`. `Glue` is the one piece not yet first-class
   (`hcomp` in `Set` beyond the composite shape stays stuck), per `RUNTIME_FULL.md`.
 - **Native lowering:** transport **executes into its value-changing function**
-  rather than being erased ‚î `coe` along `ua(not)` compiles to boolean negation
-  (`applyNeg(True) ‚í 0`), `SupóPath` to a label-matched DUP/SUP (`supRoute ‚í
+  rather than being erased ‚Äî `coe` along `ua(not)` compiles to boolean negation
+  (`applyNeg(True) ‚Üí 0`), `Sup√óPath` to a label-matched DUP/SUP (`supRoute ‚Üí
   &0{0 1}`); a genuinely stuck transport is refused loudly. `--to-hvm4-full` makes
   intervals/paths/types/`coe`/`hcomp` runtime objects.
 - **Sound totality classifier + `--total` gate:** reads the real eliminator
   representation, tags `[total]` only when a single argument position strictly
   decreases in every recursive call; the gate refuses non-total files.
-- **The fiber law on the net [T]:** `fibrelaw.bend` (35 checks) ‚î `isoToIsEquiv`,
+- **The fiber law on the net [T]:** `fibrelaw.bend` (35 checks) ‚Äî `isoToIsEquiv`,
   `totalEquiv` for every `f`, `losslessPath = uaE(totalEquiv)`, present/retrieve
-  by `coe`, laws by `refl`; runs on HVM4 and HVM3. `chain.bend` ‚î transport across
+  by `coe`, laws by `refl`; runs on HVM4 and HVM3. `chain.bend` ‚Äî transport across
   chains of equivalences performed by the net. The **census** ran: the corpus
-  computing its own behavioral-equivalence structure by evaluation ‚î the thing
+  computing its own behavioral-equivalence structure by evaluation ‚Äî the thing
   Agda could not run.
 - **`Glue` and the universe's Kan rules [T]** (the report's asks #1/#2, since
-  landed): `Glue A [(œ,T,e)]` as a sound former with checked boundary laws;
+  landed): `Glue A [(œÜ,T,e)]` as a sound former with checked boundary laws;
   **transport through `Glue`**, **`hcomp` in `Set` = `Glue` with `transpEquiv`**,
-  and **`ua` derived from `Glue` with `uaŒ≤` definitional** (`uaglue.bend` 26‚ì,
-  `hcompset.bend` 10‚ì, `glue.bend`, `glue_mustfail` 3‚ó). In the checker/normaliser
+  and **`ua` derived from `Glue` with `uaŒ≤` definitional** (`uaglue.bend` 26‚úì,
+  `hcompset.bend` 10‚úì, `glue.bend`, `glue_mustfail` 3‚úó). In the checker/normaliser
   *nothing cubical is stuck any more*; the full runtime (`--to-hvm4-full`) carries
-  the same rules (`@coeGlue`, `hcomp` at `#Set ‚í #Glue`).
-- **The fibre is forced [T]** (`forcing.bend` 62‚ì, `forcing_run.bend` 82‚ì on
-  HVM4-full): the `Fibre.Trace` core ‚î `fiberFst` (the fibre of the projection IS
+  the same rules (`@coeGlue`, `hcomp` at `#Set ‚Üí #Glue`).
+- **The fibre is forced [T]** (`forcing.bend` 62‚úì, `forcing_run.bend` 82‚úì on
+  HVM4-full): the `Fibre.Trace` core ‚Äî `fiberFst` (the fibre of the projection IS
   the family), `traceIsForced` (a factorization cannot retain *less* than the
-  fibre and stay a factorization ‚î the residue is not negotiable),
+  fibre and stay a factorization ‚Äî the residue is not negotiable),
   `exactWhenContractible`/`contractibleWhenExact`. With `fibrelaw.bend` and
-  `roundtrip.bend` (univalence, both round trips, 21‚ì), **every theorem that
+  `roundtrip.bend` (univalence, both round trips, 21‚úì), **every theorem that
   *constitutes* the object now has a green, executable counterpart on the net.**
 - **The `SetQuotient` HIT and the minimal machine computing [T]** (`quotient.bend`,
   `minmachine.bend`): `Quot`/`qcl`/`qeq`/`qsquash`/`qrec` with the recursor
-  computing (`qrec(qcl a,‚¶) ‚â° f a` definitional) and commuting through `Sup`;
-  `MyhillNerodeMinimalMachine`'s `Meaning = S / Nerode` runs ‚î `quotObserve(qcl 0)
-  ‚í True`, `(qcl 1) ‚í False`, Nerode-equivalent states collapsed via `eq/`.
+  computing (`qrec(qcl a,‚Ä¶) ‚â° f a` definitional) and commuting through `Sup`;
+  `MyhillNerodeMinimalMachine`'s `Meaning = S / Nerode` runs ‚Äî `quotObserve(qcl 0)
+  ‚áí True`, `(qcl 1) ‚áí False`, Nerode-equivalent states collapsed via `eq/`.
 - **Behavioral equivalence = path equality, both directions, no residual
-  hypothesis [T]** (`effective.bend`, `hset.bend` 25‚ì, `nerode_effective_closed.bend`
-  46‚ì): the generic set-quotient effectivity `effective : Path(Quot(A,R),[a],[b])
-  ‚í R(a,b)` (encode‚ìdecode over a `Code : Quot ‚í hProp` family), instantiated at
+  hypothesis [T]** (`effective.bend`, `hset.bend` 25‚úì, `nerode_effective_closed.bend`
+  46‚úì): the generic set-quotient effectivity `effective : Path(Quot(A,R),[a],[b])
+  ‚Üí R(a,b)` (encode‚Äìdecode over a `Code : Quot ‚Üí hProp` family), instantiated at
   the Nerode congruence (`nerodeEffective`); its one hypothesis `isSet hProp` is
-  **proved from scratch** ‚î `isPropIso5` ‚í `isPropPathSet` (via the univalence
-  round trip `uaEta`) ‚í `isSetHProp = isPropSigPath`. So the `‚ü` direction is
+  **proved from scratch** ‚Äî `isPropIso5` ‚Üí `isPropPathSet` (via the univalence
+  round trip `uaEta`) ‚Üí `isSetHProp = isPropSigPath`. So the `‚üπ` direction is
   discharged and computes (`nerodeEffComputes` definitional), and with `eq/` (the
-  `‚ü`) the equality of meaning = observational equivalence holds on the net, the
-  only remaining input being `setO : isSet Bool` ‚î a genuine parameter the corpus
+  `‚ü∏`) the equality of meaning = observational equivalence holds on the net, the
+  only remaining input being `setO : isSet Bool` ‚Äî a genuine parameter the corpus
   itself carries (`FutureQuotient`'s `isSet O`), not a gap.
 - **Genuine coinduction, and determinism as one fact [T]** (`coinduction.bend`
-  13‚ì, `streams.bend` 10‚ì, `silence.bend` 25‚ì, `interaction.bend` 36‚ì,
-  `braid.bend` 16‚ì): `Answers`/`IExec` as corecursive records, `run-is-answers` as
+  13‚úì, `streams.bend` 10‚úì, `silence.bend` 25‚úì, `interaction.bend` 36‚úì,
+  `braid.bend` 16‚úì): `Answers`/`IExec` as corecursive records, `run-is-answers` as
   corecursive-path round trips, all `[productive]` under `--total`; unguarded /
   destructor-recursive "proofs" refused; false bisimulations fail *finitely*.
-  `silence.bend` runs `answersUnique : PathP(Œªi. Answers(p @ i))` ‚î determinism as
-  contractibility of the whole unfolding ‚î on HVM. The braid relations hold
+  `silence.bend` runs `answersUnique : PathP(Œªi. Answers(p @ i))` ‚Äî determinism as
+  contractibility of the whole unfolding ‚Äî on HVM. The braid relations hold
   pointwise on the net.
 
 **Honest boundary:** a verified proof-of-splice, not yet a platform, but the
@@ -561,7 +561,7 @@ univalence both round trips, the forced fibre, the set-quotient minimal machine,
 the coinductive/interactive calculus and braid fabric) checks and *runs* on the
 interaction net. The remaining runtime frontier is a single primitive, and it is
 by design not a bug: `coe`/`comp` to a **symbolic** interval endpoint stays stuck
-as `#HCm` data (edge 2) ‚î which is exactly "the trace is the path, knowledge is
+as `#HCm` data (edge 2) ‚Äî which is exactly "the trace is the path, knowledge is
 partial," the residue held as a runtime value until the interval is decided.
 "Cost = fiber pointwise for every program" remains `[R]`, demonstrated in the
 cases run; the analysis-layer "cost" is a syntactic count, runtime cost the
@@ -569,39 +569,39 @@ interaction count, and the established coincidence is still the narrow one.
 
 ---
 
-## Part VII ‚î The coinductive / interactive layer
+## Part VII ‚Äî The coinductive / interactive layer
 
 ### VII.1 Streams, corecursion, completeness
 
-A **stream** is a coinductive record (`head`, `tail`) by guarded corecursion ‚î
+A **stream** is a coinductive record (`head`, `tail`) by guarded corecursion ‚Äî
 every observation answered in finite time. Two streams are `n`-close when their
 depth-`n` prefixes agree. **[T]** (`PurnataSutra`): the stream space is
-**metrically complete** ‚î every Cauchy sequence converges to a corecursive limit,
+**metrically complete** ‚Äî every Cauchy sequence converges to a corecursive limit,
 unique by prefixes. The completion's *new points* (uniform limits no finite
-prefix reaches) are where genuinely infinitary structure ‚î and, `[R]`, the open
-problems ‚î live.
+prefix reaches) are where genuinely infinitary structure ‚Äî and, `[R]`, the open
+problems ‚Äî live.
 
 ### VII.2 The interactive symbolic computer; determinism as one fact
 
 **[T]** (`Fibre/Samvada`): the interactive machine is the coalgebra
 
 ```
-    react : (q : Q w) ‚í Œ(w' : W) Œ(o : O w q w') (E w q w' o ó Machine w').
+    react : (q : Q w) ‚Üí Œ£(w' : W) Œ£(o : O w q w') (E w q w' o √ó Machine w').
 ```
 
 At each state, per question: a successor, an observation, a proof-carrying
 receipt `E`, a continuation. **[T]** (`Niyati`, `SamvadaPrasna`): the space of
-productive runs is **contractible exactly when `E` is a proposition** ‚î so
+productive runs is **contractible exactly when `E` is a proposition** ‚Äî so
 **determinism is "the whole unfolding collapses to a point," and it holds iff the
-receipt carries no information of its own.** Proof-relevant `E` ‚ü the process
-branches ‚ü generativity. The universal Turing machine is the *output-reading* of
+receipt carries no information of its own.** Proof-relevant `E` ‚üπ the process
+branches ‚üπ generativity. The universal Turing machine is the *output-reading* of
 the lossless universal step (`turing-is-the-projection = refl`).
 
 ### VII.3 On HVM: lazy reduction *is* corecursion; stuck `hcomp` is partial
 knowledge
 
-Lazy net reduction is corecursion natively ‚î demand-driven unfolding, forced
-prefix shared, `O(1)` amortized per demand ‚î so the interactive machine runs as
+Lazy net reduction is corecursion natively ‚Äî demand-driven unfolding, forced
+prefix shared, `O(1)` amortized per demand ‚Äî so the interactive machine runs as
 the substrate's native mode. An `hcomp` on symbolic faces reduces its known-face
 parts and **holds the rest as stuck data `#HCm`** until a later application pins
 the interval: the leftover as a runtime value, "partially known local state" as
@@ -609,44 +609,44 @@ an operational primitive.
 
 ---
 
-## Part VIII ‚î The metacircular kernel and safety
+## Part VIII ‚Äî The metacircular kernel and safety
 
 **The kernel** (296 lines; `RewriteCertificate`/`ControlledGrammar`/
 `GenerativeKernel`): a syntax `Tm`, a step relation `Step` including `reverse`
-(groupoid), `Derivation` = proof-carrying walks. `eval : Tm ‚í Env ‚í ‚ï` is one
+(groupoid), `Derivation` = proof-carrying walks. `eval : Tm ‚Üí Env ‚Üí ‚Ñï` is one
 evaluation standpoint. Soundness lands in an equality of a set, hence a
 proposition.
 
-**Self-extension:** `install : Derivation lhs rhs ‚í NativeOperation` promotes a
+**Self-extension:** `install : Derivation lhs rhs ‚Üí NativeOperation` promotes a
 *proved* lawful rewrite to a native move; a `NativeOperation` cannot exist without
 a checked `Derivation` (unforgeable by type). **[T]:**
 `every-operation-that-exists-is-sound`; `advance-preserves-branch-count`
 (non-coercion as a theorem).
 
 **Safety, as one fact about erasure [R]:** soundness *factors through the
-propositional truncation* `‚ñDerivation‚ñ‚` ‚î it knows *that*, never *which* (a
+propositional truncation* `‚ÄñDerivation‚Äñ‚ÇÅ` ‚Äî it knows *that*, never *which* (a
 proposition; zero bits; **your eraser `*`**). Generativity is the *untruncated*
-`Derivation` ‚î the "which" ‚î and that is exactly what makes self-extension
+`Derivation` ‚Äî the "which" ‚Äî and that is exactly what makes self-extension
 branch. Soundness and generativity are **the same object at two erasure levels**:
 the erased view is the safe, collapsed service projection; the un-erased body is
 generative. A guardrail deletes generativity; erasing the witness keeps both.
 
 **Dynamics [T] (`Siddhasadhana`):** the reachable orbit strictly grows and never
-returns, **but installing what you can already reach is a plateau ‚î self-
+returns, **but installing what you can already reach is a plateau ‚Äî self-
 application cannot grow reach.** The only generative operation is the **encounter**
-`K_A ‚äó K_B ‚í K_C` with `K_C` in neither `K_A` nor `K_B`. Unbounded self-
+`K_A ‚äó K_B ‚Üí K_C` with `K_C` in neither `K_A` nor `K_B`. Unbounded self-
 improvement in isolation is structurally impossible; growth requires interaction
 computing what neither party held. The "singularity" here is relational and
-provably safe ‚î why the substrate's primitive is certified interaction, not
+provably safe ‚Äî why the substrate's primitive is certified interaction, not
 consensus, and why this is a *metacircular interaction* prototype.
 
 ---
 
-## Part IX ‚î Complexity, in every form (all one quantity)
+## Part IX ‚Äî Complexity, in every form (all one quantity)
 
 Each reads "how much a map fails to be invertible, and where."
 
-- **Cost = the non-invertible part**, invertible ‚ü costless (¬ßIII.4);
+- **Cost = the non-invertible part**, invertible ‚üπ costless (¬ßIII.4);
   reversible-XOR-graded; second law/entropy/Landauer derived.
 - **P vs NP = the find/check gap = a non-invertible preimage = forgetting.**
   `Sha256PeqNP`, `Sha256Lossless`: the lossy map has a gap (a collision = a
@@ -655,24 +655,24 @@ Each reads "how much a map fails to be invertible, and where."
   preimage and it is gone. **Complexity is the cost of forgetting.**
 - **One-wayness = the exact leftover, located.** `Sha256Sesa`;
   `GhataBhedaBhanga` (discrete log fails *exactly* the embedding factor);
-  `HidingAndHardnessAreOneFibre`. SHA-256's loss has one address ‚î Davies‚ìMeyer
+  `HidingAndHardnessAreOneFibre`. SHA-256's loss has one address ‚Äî Davies‚ÄìMeyer
   feed-forward + the padding quotient; 64 rounds are a permutation; 256-bit digest
-  ‚ü unconditionally non-invertible; the completion inverts it freely.
+  ‚üπ unconditionally non-invertible; the completion inverts it freely.
 - **Verification is a free projection; search is what a lossless machine never
-  needs.** `SubsetSumOverKernel` ‚î verify one pass, `O(input)`, total; the
+  needs.** `SubsetSumOverKernel` ‚Äî verify one pass, `O(input)`, total; the
   witness-producer is not carried.
 - **No score on the output ranks the route; reward-hacking is a theorem.**
-  Abstract 12 + `every-semantic-criterion-is-blind` + `Chala` + `AParetoFitness‚¶`.
+  Abstract 12 + `every-semantic-criterion-is-blind` + `Chala` + `AParetoFitness‚Ä¶`.
   This is *why* traces, not scalars, are the unit of value.
 - **Kolmogorov / description length is presentation-bound, not an invariant.**
   `Laghava.agda`.
-- **Actual subword complexity, computed.** `Sankirnata` ‚î `p(n)` of Rule 30's
+- **Actual subword complexity, computed.** `Sankirnata` ‚Äî `p(n)` of Rule 30's
   center column over its first 4096 bits: `p(9)=512`, `p(10)=1017`, `p(11)=1791`,
-  `p(12)=2599` (Morse‚ìHedlund). Executable NKS.
+  `p(12)=2599` (Morse‚ÄìHedlund). Executable NKS.
 
 ---
 
-## Part X ‚î Concurrency, in every form (the fiber law on order)
+## Part X ‚Äî Concurrency, in every form (the fiber law on order)
 
 - **Confluence = order-independence, native.** Strategy-independence *is*
   confluence; no matcher, no critical pairs (abstract 04). Its only cost is the
@@ -685,12 +685,12 @@ Each reads "how much a map fails to be invertible, and where."
   consistency with no clocks/quorum/leader; Byzantine unforgeability from the
   value type. `Avirodha`; `Coordination.Serialization` (Merkle dependency DAG +
   consensus **only per declared conflict domain**).
-- **Exactly-once = semilattice algebra, not a delivery guarantee.** `Srotas` ‚î
+- **Exactly-once = semilattice algebra, not a delivery guarantee.** `Srotas` ‚Äî
   the consumer's state depends only on the *set* of records; the dedup store
   disappears.
 - **Branching histories = the fiber of the merge.** Abstract 07 + the ruliad
   reading: co-terminal runs are residents of the merge's fiber; the merge admits
-  **no section** ‚î computational irreducibility as that fiber.
+  **no section** ‚Äî computational irreducibility as that fiber.
 - **Determinism = contractibility of the run** (¬ßVII.2); concurrency is its
   positive-dimensional failure.
 - **Non-interference definitionally** (abstract 11); **mutual recursion as
@@ -698,38 +698,38 @@ Each reads "how much a map fails to be invertible, and where."
 
 ---
 
-## Part XI ‚î The frontier, stated exactly
+## Part XI ‚Äî The frontier, stated exactly
 
 **[open]** The corpus poses its open problems as *types built from computable
 functions* (`FRONTIER.md`, `SamastaSima`):
 
-- `rh-dec` ‚î the RH preimage is decided; `DMR.RH ‚â (‚à m. rhb (suc m) ‚â° true)`.
-- `Frontier = RH ó Goldbach ‚â (‚à n. frontierb n ‚â° true)` ‚î the entire typed
+- `rh-dec` ‚Äî the RH preimage is decided; `DMR.RH ‚âÉ (‚àÄ m. rhb (suc m) ‚â° true)`.
+- `Frontier = RH √ó Goldbach ‚âÉ (‚àÄ n. frontierb n ‚â° true)` ‚Äî the entire typed
   frontier is the **section of one decided Boolean family**; refutation finite; a
-  prefix check certifies the first k stages; the kernel computed stages 0‚ì2.
+  prefix check certifies the first k stages; the kernel computed stages 0‚Äì2.
 
 Exact: one object, every stage terminating, the only open thing the **function
-inhabiting all stages at once**. Not inhabited ‚î the DMR preimage is decidable but
-its cost explodes (`Œ¥(4)=12`), the DMR‚îŒ equivalence is classical and cited,
-Navier‚ìStokes has no computable-preimage form. **No endpoint status changes.**
+inhabiting all stages at once**. Not inhabited ‚Äî the DMR preimage is decidable but
+its cost explodes (`Œ¥(4)=12`), the DMR‚ÜîŒ∂ equivalence is classical and cited,
+Navier‚ÄìStokes has no computable-preimage form. **No endpoint status changes.**
 `ANALYTIC_INTERFACE.md` is the honesty model: each module discharges an exact
 algebraic core and lists the analytic hypotheses left outside the checker.
 
-**The port's own frontier, updated.** The two edges this report first listed ‚î
-`Glue` first-class, and general `hcomp` in the universe ‚î have since **landed**
+**The port's own frontier, updated.** The two edges this report first listed ‚Äî
+`Glue` first-class, and general `hcomp` in the universe ‚Äî have since **landed**
 (`uaglue.bend`, `hcompset.bend`, `glue.bend`; Part VI). The
 computer-over-equivalences is lifted from terms to types: transport through
 `Glue`, `hcomp`-in-`Set` = `Glue`, and `ua` from `Glue` with `uaŒ≤` definitional
 all compute, in the checker and the full runtime. The single remaining runtime
 primitive is `comp`/`coe` to a **symbolic** interval endpoint (edge 2), and that
-is the intended partial-knowledge behavior ‚î the residue held as `#HCm` until the
-interval is decided ‚î not a soundness gap. Quotient **effectivity**
-(`[x]‚â°[y] ‚ü x‚âày`) is now **closed**, `isSet hProp` proved from scratch
+is the intended partial-knowledge behavior ‚Äî the residue held as `#HCm` until the
+interval is decided ‚Äî not a soundness gap. Quotient **effectivity**
+(`[x]‚â°[y] ‚üπ x‚âày`) is now **closed**, `isSet hProp` proved from scratch
 (`hset.bend`); it is no longer an open task.
 
 ---
 
-## Part XII ‚î The readings (physics, life, language, the ruliad)
+## Part XII ‚Äî The readings (physics, life, language, the ruliad)
 
 Instantiations of the fiber law, marked as such; the physics is
 representation-independent, derived not fitted (Levin paper, all `[T]`):
@@ -742,56 +742,56 @@ representation-independent, derived not fitted (Levin paper, all `[T]`):
 - **Life = the native regime** where the dynamics is not projected away: the self
   as a section through a changing family of worlds; goal-directedness as an
   attractor; the parts-list provably blind to the pattern-control law.
-- **The ruliad's load-bearing sentences are theorems** ‚î coordinatization =
+- **The ruliad's load-bearing sentences are theorems** ‚Äî coordinatization =
   univalence, merge-without-section = irreducibility. The exact bounded claim.
 - **Language is the general object; formal language its invertible special case
   [R]:** an utterance is the projection, meaning the fiber, translation transport
   through the meaning-middle, ambiguity a non-contractible fiber, context/vagueness
   partial knowledge (stuck `#HCm`). Current LLMs compute over token surfaces
-  (`weight = œ(trace)`); the meaning-object is the lossless carrier.
+  (`weight = œÄ(trace)`); the meaning-object is the lossless carrier.
 
 ---
 
-## Part XIII ‚î For a runtime architect: the correspondence and the asks
+## Part XIII ‚Äî For a runtime architect: the correspondence and the asks
 
-Dictionary, runtime ‚ü mathematics, checkable against HVM's actual rules:
+Dictionary, runtime ‚ü∑ mathematics, checkable against HVM's actual rules:
 
 | HVM / interaction calculus | cubical / the fiber law |
 |---|---|
 | lazy net reduction | demand-driven corecursion; the interactive machine |
-| L©vy-optimal sharing (redex families once) | transport at the optimal bound |
-| DUP-SUP **same label ‚í annihilate**, no alloc | contractible fiber = unique preimage; free; `comp` reduces |
-| DUP-SUP **different label ‚í commute**, alloc | non-contractible fiber = the leftover; the cost |
-| confluence (Church‚ìRosser) | strategy-independence; order-is-a-fiber |
+| L√©vy-optimal sharing (redex families once) | transport at the optimal bound |
+| DUP-SUP **same label ‚Üí annihilate**, no alloc | contractible fiber = unique preimage; free; `comp` reduces |
+| DUP-SUP **different label ‚Üí commute**, alloc | non-contractible fiber = the leftover; the cost |
+| confluence (Church‚ÄìRosser) | strategy-independence; order-is-a-fiber |
 | interaction count | cost = the non-invertible part = information content |
 | erasers `*` | propositions; "knows that, not which"; soundness's zero bits |
 | labeled superposition `&L{ }` | the carried fiber |
-| `SupóPath` (patch) | `comp` over a superposed line = preimage-exact routing |
+| `Sup√óPath` (patch) | `comp` over a superposed line = preimage-exact routing |
 | stuck `#HCm` on symbolic faces | partial knowledge as a value, resolved on demand |
 | program is invertible / reversible | the machine is a groupoid, not a monoid |
 
-**The asks, in order ‚î all three since delivered; stated here as what to check,
+**The asks, in order ‚Äî all three since delivered; stated here as what to check,
 and what is genuinely still open.**
 
-1. **`Glue` as a first-class type former** ‚î *delivered.* `coe` along `ua e`
+1. **`Glue` as a first-class type former** ‚Äî *delivered.* `coe` along `ua e`
    computes at the universe level, `U` is fibrant; transport-through-`Glue`,
    `hcomp`-in-`Set` = `Glue`, `ua`-from-`Glue` with `uaŒ≤` definitional, in checker
    and full runtime. The computer-over-equivalences is lifted from *terms* to
-   *types*. What to check: the soundness discipline ‚î `Glue` at a *false* face
-   must not collapse to its partial type (`glue_mustfail` ‚ó), and the Kan rule
+   *types*. What to check: the soundness discipline ‚Äî `Glue` at a *false* face
+   must not collapse to its partial type (`glue_mustfail` ‚úó), and the Kan rule
    uses `e`'s contractible-fibre data only off the faces.
-2. **General `hcomp` in `Set`/the universe** ‚î *delivered* (`hcompset.bend`),
-   built as `Glue A [œ ‚¶ (T i1, transpEquiv)]`, each rule verified against its
+2. **General `hcomp` in `Set`/the universe** ‚Äî *delivered* (`hcompset.bend`),
+   built as `Glue A [œÜ ‚Ü¶ (T i1, transpEquiv)]`, each rule verified against its
    definitional laws.
-3. **A faithful HVM4 emitter for the cubical constructors** ‚î *delivered* as
+3. **A faithful HVM4 emitter for the cubical constructors** ‚Äî *delivered* as
    `--to-hvm4-full`: intervals, paths, types, `coe`, `hcomp` are runtime objects,
-   transport lowers to its value-changing function, `SupóPath` to label-matched
-   DUP/SUP with native routing confirmed (`supline.bend` ‚í `&0{0 1}`). Your eye is
+   transport lowers to its value-changing function, `Sup√óPath` to label-matched
+   DUP/SUP with native routing confirmed (`supline.bend` ‚Üí `&0{0 1}`). Your eye is
    still wanted on the label discipline, since the entire cost identity rides on
    same-vs-different label being annihilate-vs-commute.
 
 **What is genuinely still open** (small, and named exactly): `comp`/`coe` to a
-**symbolic** interval endpoint ‚î deliberately left stuck as `#HCm`, since that
+**symbolic** interval endpoint ‚Äî deliberately left stuck as `#HCm`, since that
 *is* the partial-knowledge semantics (the residue as a runtime value); closing it
 where a symbolic endpoint should compute is edge 2. Quotient effectivity, listed
 here in an earlier draft, is now closed: `isSet hProp` is proved from scratch
@@ -800,17 +800,17 @@ behavioral-equivalence-as-path-equality is complete on the net in both direction
 
 **The one thing to see, in your terms:** the mathematics was already complete and
 already executing; it was paying an execution tax on a substrate not built for
-it. Your reducer already realizes the cost model it proves optimal ‚î cost is the
+it. Your reducer already realizes the cost model it proves optimal ‚Äî cost is the
 non-invertible part of a map, which is precisely the commutations you already pay
 for and cannot avoid, while everything the mathematics calls "free" is exactly the
 annihilations you already do for free. So the port did not add semantics to a
 runtime, nor speed to a proof language. It removed the impedance between them,
-and thereby the execution penalty on an already-total mathematical object ‚î which
+and thereby the execution penalty on an already-total mathematical object ‚Äî which
 is why its value is that object's value times the scale it can now reach.
 
 ---
 
-## Appendix A ‚î Reproduction and pins
+## Appendix A ‚Äî Reproduction and pins
 
 - Corpus: `sh setup` builds Agda 2.8.0 + agda/cubical v0.9; `sh check` runs kernel
   + fiber law + gate; `sh check --all` runs every theorem module. `--safe`, no
@@ -819,39 +819,39 @@ is why its value is that object's value times the scale it can now reach.
   DKormann/Bend2 @ f026483; build with GHC 9.12.2; `bend <file.bend>` checks and
   runs; `bend <file.bend> --to-hvm` / `--to-hvm4-raw` / `--to-hvm4-full` emits
   (the last is the full cubical runtime, nothing erased). `LC_ALL=C.utf8`
-  mandatory. Suite (final binary): `fibrelaw.bend` (35‚ì), `roundtrip.bend` (21‚ì),
-  `forcing.bend` (62‚ì) / `forcing_run.bend` (82‚ì), `uaglue.bend` (26‚ì),
-  `hcompset.bend` (10‚ì), `quotient.bend`/`minmachine.bend`, `coinduction.bend`
-  (13‚ì), `streams.bend` (10‚ì), `silence.bend` (25‚ì), `interaction.bend` (36‚ì),
-  `braid.bend` (16‚ì), `chain.bend` (19‚ì), plus the deliberate must-fails; stock
+  mandatory. Suite (final binary): `fibrelaw.bend` (35‚úì), `roundtrip.bend` (21‚úì),
+  `forcing.bend` (62‚úì) / `forcing_run.bend` (82‚úì), `uaglue.bend` (26‚úì),
+  `hcompset.bend` (10‚úì), `quotient.bend`/`minmachine.bend`, `coinduction.bend`
+  (13‚úì), `streams.bend` (10‚úì), `silence.bend` (25‚úì), `interaction.bend` (36‚úì),
+  `braid.bend` (16‚úì), `chain.bend` (19‚úì), plus the deliberate must-fails; stock
   `examples/` 2/2.
 - HVM3 runtime: build `HigherOrderCO/HVM3` (`exe:hvm`); `hvm run <file.hvm> -s`
   for interaction counts.
-- Verified for this convergence: `applyNeg(True) ‚í 0`; `supRoute(&0{T,T}) ‚í
-  &0{0 1}`; `run_corpus`'s `div2(mul2 21) ‚í 21` with the proof erased to `*`; the
+- Verified for this convergence: `applyNeg(True) ‚Üí 0`; `supRoute(&0{T,T}) ‚Üí
+  &0{0 1}`; `run_corpus`'s `div2(mul2 21) ‚Üí 21` with the proof erased to `*`; the
   census run.
 
-## Appendix B ‚î Named terms ‚í files (index)
+## Appendix B ‚Äî Named terms ‚Üí files (index)
 
 *(Module identifiers are the repository's actual filenames; the descriptions are
 the content, so the index is usable without reading the names as words.)*
 
 Fiber law: `theorems/CompressionIsTransportSoTheOnlyCostIsTheNonContractibleFibre`,
 `fibre/src/Fibre/Carrier`, the uniqueness/`Ekatva` module. Cost & thermodynamics:
-`theorems/cost/{Yantra‚¶, AvarohaNisedha‚¶, BharaGana‚¶, GhataLekha‚¶}`,
-`NaturalMachine/Laghava`, `kernel/{AnswerIsProjectionAtOutputSize, VyayaSesa‚¶}`.
+`theorems/cost/{Yantra‚Ä¶, AvarohaNisedha‚Ä¶, BharaGana‚Ä¶, GhataLekha‚Ä¶}`,
+`NaturalMachine/Laghava`, `kernel/{AnswerIsProjectionAtOutputSize, VyayaSesa‚Ä¶}`.
 SHA/complexity: `Sha256`, `Sha256{Lossless,PeqNP,Parimana,Sesa,Sthana,Varga,N}`,
-`GhataBhedaBhanga‚¶`, `kernel/{SubsetSumOverKernel, HidingAndHardnessAreOneFibre‚¶}`,
-`Kernel/Syat‚¶`, `theorems/cost/{Chala‚¶, AParetoFitness‚¶}`,
-`theorems/automata/{Sankirnata‚¶, Ganana‚¶}`. Concurrency: `fibre/src/Fibre/Krama‚¶`,
-`theorems/automata/{PairwiseCommutationGivesEveryOrder, Kosa‚¶, Srotas‚¶}`,
-`Coordination/Serialization`, `kernel/Avirodha‚¶`, abstracts 02/04/07/11/14/20.
-Coinductive/interactive: `Parasparasraya‚¶`, `PurnataSutra‚¶`, `HistoryCompletion‚¶`,
-`fibre/src/Fibre/Samvada‚¶`, `theorems/residue/{Niyati‚¶, Prashna‚¶, Vishvayantra‚¶}`,
-`SamvadaPrasna‚¶`, `Sha256Srotas‚¶`, `Sha256Samvada‚¶`. Kernel/safety:
-`kernel/{RewriteCertificate, ControlledGrammar, GenerativeKernel}`, `Apunaragamana‚¶`,
-`run-corpus-calculus/Siddhasadhana‚¶`, `NayaPramana‚¶`. Frontier: `research/FRONTIER.md`,
-`research/ANALYTIC_INTERFACE.md`, `SamastaSima‚¶`. Physics/life:
-`papers/for_michael_levin‚¶`. Convergence: `collab/bend2-cubical/{cubical-paths.patch,
+`GhataBhedaBhanga‚Ä¶`, `kernel/{SubsetSumOverKernel, HidingAndHardnessAreOneFibre‚Ä¶}`,
+`Kernel/Syat‚Ä¶`, `theorems/cost/{Chala‚Ä¶, AParetoFitness‚Ä¶}`,
+`theorems/automata/{Sankirnata‚Ä¶, Ganana‚Ä¶}`. Concurrency: `fibre/src/Fibre/Krama‚Ä¶`,
+`theorems/automata/{PairwiseCommutationGivesEveryOrder, Kosa‚Ä¶, Srotas‚Ä¶}`,
+`Coordination/Serialization`, `kernel/Avirodha‚Ä¶`, abstracts 02/04/07/11/14/20.
+Coinductive/interactive: `Parasparasraya‚Ä¶`, `PurnataSutra‚Ä¶`, `HistoryCompletion‚Ä¶`,
+`fibre/src/Fibre/Samvada‚Ä¶`, `theorems/residue/{Niyati‚Ä¶, Prashna‚Ä¶, Vishvayantra‚Ä¶}`,
+`SamvadaPrasna‚Ä¶`, `Sha256Srotas‚Ä¶`, `Sha256Samvada‚Ä¶`. Kernel/safety:
+`kernel/{RewriteCertificate, ControlledGrammar, GenerativeKernel}`, `Apunaragamana‚Ä¶`,
+`run-corpus-calculus/Siddhasadhana‚Ä¶`, `NayaPramana‚Ä¶`. Frontier: `research/FRONTIER.md`,
+`research/ANALYTIC_INTERFACE.md`, `SamastaSima‚Ä¶`. Physics/life:
+`papers/for_michael_levin‚Ä¶`. Convergence: `collab/bend2-cubical/{cubical-paths.patch,
 STATUS.md, GENERAL_HCOMP.md, RUNTIME_FULL.md, FIBRE_LAW.md, RUNTIME_ALGEBRA.md,
 census/}`, `research/HLEVEL_OF_INTERACTION_20260913.md`.

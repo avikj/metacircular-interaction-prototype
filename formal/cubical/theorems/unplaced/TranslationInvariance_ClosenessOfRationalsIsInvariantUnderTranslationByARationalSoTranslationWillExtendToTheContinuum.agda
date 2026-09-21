@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- TranslationInvariance � on the continuum module's rationals,
+-- TranslationInvariance — on the continuum module's rationals,
 --
 --     Close ε (p + s) (q + s)  ⟺  Close ε p q,
 --
 -- for every ε, p, q, s.  This is the rational lemma from which
--- translation by a rational extends to the continuum �: the extension
+-- translation by a rational extends to the continuum ℝ: the extension
 -- is by the HIIT's own recursion (the next module), and its only
 -- arithmetic input is this invariance, which is what makes the map
 -- respect the closeness relation and hence the path constructor.
 --
 -- HOW.  Through ContinuumBridge, closeness is the library-integer
--- statement |D| � (1 + den ε) < num ε � (1 + den(p − q)).  Translating
+-- statement |D| · (1 + den ε) < num ε · (1 + den(p − q)).  Translating
 -- both p and q by s multiplies D by (1 + den s)² and multiplies the
 -- denominator factor by the same square (a ring identity, by the
 -- solver), and the strict order is invariant under scaling by a
 -- positive integer, in both directions.
 --
---   §1  addition on the continuum module's �, and its numerator and
+--   §1  addition on the continuum module's ℚ, and its numerator and
 --       denominator read through the bridge;
---   §2  the scaling identity D(p+s, q+s) ≡ (1+ds)² � D(p, q);
+--   §2  the scaling identity D(p+s, q+s) ≡ (1+ds)² · D(p, q);
 --   §3  strict order is invariant under positive scaling (both ways),
---       and |k�z| = k�|z|;
+--       and |k·z| = k·|z|;
 --   §4  THE INVARIANCE, both directions.
 --
 -- SYT.  Rational arithmetic and one order lemma; the continuum itself
@@ -49,7 +49,7 @@ open S.ℚ⁺ using (num⁺ ; den⁺)
 open import ContinuumBridge_TheContinuumModulesOwnIntegersAreReflectedIntoTheLibrarysWithAdditionMultiplicationAndOrderSoClosenessIsAnOrderStatement
 
 ------------------------------------------------------------------------
--- §1  addition on �
+-- §1  addition on ℚ
 ------------------------------------------------------------------------
 
 _+ℚ_ : S.ℚ → S.ℚ → S.ℚ
@@ -59,7 +59,7 @@ p +ℚ s = ((num p S.·ℤ S.pos (suc (den s))) S.+ℤ (num s S.·ℤ S.pos (suc
 sum-num : (p s : S.ℚ) → toℤ (num (p +ℚ s)) ≡ toℤ (num p) ·i pos (suc (den s)) +i toℤ (num s) ·i pos (suc (den p))
 sum-num p s = toℤ-+ (num p S.·ℤ S.pos (suc (den s))) (num s S.·ℤ S.pos (suc (den p))) ∙ cong₂ _+i_ (toℤ-· (num p) (S.pos (suc (den s)))) (toℤ-· (num s) (S.pos (suc (den p))))
 
--- 1 + (a + b + a�b) = (1 + a)(1 + b)
+-- 1 + (a + b + a·b) = (1 + a)(1 + b)
 suc-mul : (a b : ℕ) → suc (a + b + a · b) ≡ suc a · suc b
 suc-mul a b = solveℕ!
 
@@ -103,7 +103,7 @@ abs-scale k (negsuc n) = cong abs (pos·negsuc k n) ∙ abs- (pos k ·i pos (suc
 
 private
   -- the square (1 + ds)², as pos of a successor: definitionally
-  -- suc ds � suc ds = suc (ds + ds � suc ds)
+  -- suc ds · suc ds = suc (ds + ds · suc ds)
   K : ℕ → ℕ
   K ds = ds + ds · suc ds
 
@@ -128,7 +128,7 @@ private
       regroup : (a s b : ℤ) → (a ·i s) ·i (b ·i s) ≡ (s ·i s) ·i (a ·i b)
       regroup a s b = solve! ℤCommRing
 
-  -- the two sides of close� after translation, in scaled form
+  -- the two sides of closeℤ after translation, in scaled form
   lhs-scaled : (ε : S.ℚ⁺) (p q s : S.ℚ)
              → pos (abs (D (p +ℚ s) (q +ℚ s))) ·i pos (suc (den⁺ ε))
              ≡ (pos (abs (D p q)) ·i pos (suc (den⁺ ε))) ·i pos (suc (K (den s)))

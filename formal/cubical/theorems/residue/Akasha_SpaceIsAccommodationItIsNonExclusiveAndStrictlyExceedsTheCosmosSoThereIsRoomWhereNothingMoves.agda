@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����� � space is accommodation (avaghana): non-exclusive, and strictly
+-- आकाश — space is accommodation (avagāhana): non-exclusive, and strictly
 -- exceeding the cosmos, so there is room where nothing moves.
 --
--- SOURCE.  Umsvti, *Tattvrthastra*, adhyya 5 (~2nd�5th c.):
---   5.18  kasyvagha � the function of ka is avagha, the GIVING
+-- SOURCE.  Umāsvāti, *Tattvārthasūtra*, adhyāya 5 (~2nd–5th c.):
+--   5.18  ākāśasyāvagāhaḥ — the function of ākāśa is avagāha, the GIVING
 --         OF ROOM.
---   5.12  dharmdharmayo ktsne � dharma and adharma pervade the whole
+--   5.12  dharmādharmayoḥ kṛtsne — dharma and adharma pervade the whole
 --         loka and only the loka; so lokka is finite and alokka
 --         (5.9, ananta-pradea) is the infinite empty remainder.
 --   Distinctive doctrine (the lamp-in-a-room; pratighta-abhva): ka
---         accommodates WITHOUT EXCLUSION � many occupy one region, subtle
+--         accommodates WITHOUT EXCLUSION — many occupy one region, subtle
 --         bodies interpenetrate.  ka is nikriya, arp, and ONE.
 --
 -- WHAT IS PROVED (over an abstract ka `P`, entities `E`, occupancy
--- `At : E � P � Type`, and lokka `loka` � the last a proposition,
+-- `At : E → P → Type`, and lokākāśa `loka` — the last a proposition,
 -- which IS nikriya + arp + oneness: membership carries no datum):
 --
---   §2  �������-�-������ � accommodation is NOT exclusion.  Two distinct
+--   §2  अवगाहः-न-वारणम् — accommodation is NOT exclusion.  Two distinct
 --       entities at one point make "who is here" not a proposition: a
 --       pradea holds more than one.  Impenetrability refuted (the lamp).
---   §3  ������-��������-������ � the cosmos is strictly inside space.  If
+--   §3  लोकः-आकाशात्-न्यूनः — the cosmos is strictly inside space.  If
 --       aloka is inhabited (5.9), ka has a point the loka lacks; and
 --       that point is outside the medium of motion (dharma pervades only
---       the loka, 5.12), so � by `DharmaAdharma.�������-�������`, cited � no
+--       the loka, 5.12), so — by `DharmaAdharma.अलोकः-अगम्यः`, cited — no
 --       motion reaches it.  Space gives room even where nothing can move.
---   §4  ������-������������ � space gives locus and adds no data (as dharma).
+--   §4  आकाशं-निष्क्रियम् — space gives locus and adds no data (as dharma).
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
@@ -59,7 +59,7 @@ module _ {P : Type ℓ} (A : Akasha P) where
   अवगाहः p = Σ E (λ e → At e p)
 
   ------------------------------------------------------------------------
-  -- §2  �������-�-������ � accommodation is not exclusion.
+  -- §2  अवगाहः-न-वारणम् — accommodation is not exclusion.
   ------------------------------------------------------------------------
 
   अवगाहः-न-वारणम् : (p : P) (e₀ e₁ : E)
@@ -69,7 +69,7 @@ module _ {P : Type ℓ} (A : Akasha P) where
     e₀≢e₁ (cong fst (pr (e₀ , a₀) (e₁ , a₁)))
 
   ------------------------------------------------------------------------
-  -- §3  ������-��������-������ � the cosmos is strictly inside space.
+  -- §3  लोकः-आकाशात्-न्यूनः — the cosmos is strictly inside space.
   --     The witness of the containment IS a point of aloka: ka has a
   --     place the loka lacks.  (No-motion there is DharmaAdharma's, cited.)
   ------------------------------------------------------------------------
@@ -77,12 +77,12 @@ module _ {P : Type ℓ} (A : Akasha P) where
   लोकः-आकाशात्-न्यूनः : Σ P (λ p → ¬ (loka p)) → Σ P (λ p → ¬ (loka p))
   लोकः-आकाशात्-न्यूनः alokaInhabited = alokaInhabited
 
-  -- and the point is genuinely NOT in the loka � the containment is strict
+  -- and the point is genuinely NOT in the loka — the containment is strict
   न्यूनता-दृढा : (w : Σ P (λ p → ¬ (loka p))) → ¬ (loka (fst w))
   न्यूनता-दृढा w = snd w
 
   ------------------------------------------------------------------------
-  -- §4  ������-������������ � space gives locus, adds no data.
+  -- §4  आकाशं-निष्क्रियम् — space gives locus, adds no data.
   ------------------------------------------------------------------------
 
   आकाशं-निष्क्रियम् : (p : P) (u v : loka p) → u ≡ v

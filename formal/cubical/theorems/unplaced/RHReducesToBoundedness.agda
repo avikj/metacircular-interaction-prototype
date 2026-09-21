@@ -11,12 +11,12 @@
 --   * receiver harmless (Prop 1)       : ReceiverExponentFaithful, proved.
 --   * criticality (the FE modus tollens): ScaleTransportCriticality, proved.
 --
--- Composite: if the observed RECEIVED signal is bounded on every mode â” i.e.
--- B(t) = O(1), the quantity computable from the Goldbach prefix â” then every
+-- Composite: if the observed RECEIVED signal is bounded on every mode â€” i.e.
+-- B(t) = O(1), the quantity computable from the Goldbach prefix â€” then every
 -- exponent is 0, i.e. every nontrivial zero lies on the critical line.
 --
 --     RH-from-received-bounded :
---         (âˆ mode. received orbit bounded)  â’  (âˆ mode. exp â‰¡ 0).
+--         (âˆ€ mode. received orbit bounded)  â†’  (âˆ€ mode. exp â‰¡ 0).
 --
 -- The sole remaining input is the hypothesis `bo`: boundedness of the received
 -- signal, proved from the arithmetic side.  That is D, and nothing else stands

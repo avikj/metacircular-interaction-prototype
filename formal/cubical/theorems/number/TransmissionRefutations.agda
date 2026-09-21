@@ -12,40 +12,40 @@
 -- re-derived from the archive's displays, quoted verbatim in each
 -- section, before the ledger's reasoning was reused.
 --
--- SECTION A  §8's Π_� identity.  Archive line 393:
+-- SECTION A  §8's Π_∂ identity.  Archive line 393:
 --
---     1 � Ω(ν) � 2  �  Π_�(ν) = (1 − λ(ν))/2 − 1_�(ν)
---     Π_�(ν) := μ(ν)² − ��(ν),      ��(ν) := ω(ν) − 1
+--     1 ≤ Ω(ν) ≤ 2  ⇒  Π_∂(ν) = (1 − λ(ν))/2 − 1_℘(ν)
+--     Π_∂(ν) := μ(ν)² − π₁(ν),      π₁(ν) := ω(ν) − 1
 --
 --   Refuted.  Smallest witness ν = 2 (the smallest prime), found here,
 --   not taken from the ledger: LHS = 1, RHS = 0.  The failure is by
 --   exactly 1 on every prime; the UNIVERSAL half is proved as
 --   `prime-row-fails-by-one`, from the values the four arithmetic
---   functions take at a prime � see the scope note at that theorem for
+--   functions take at a prime — see the scope note at that theorem for
 --   exactly what is and is not a theorem there.
 --
 -- SECTION B  §1's Mbius display.  Archive line 83:
 --
---     �_{δ | ν} μ(δ) �ν/δ� = 1
+--     Σ_{δ | ν} μ(δ) ⌊ν/δ⌋ = 1
 --
 --   Refuted at ν = 3 by computation with a Mbius function DEFINED here
 --   (trial division with fuel), not tabulated: the sum is 2.  The value
---   is �(ν), also computed here from an independent definition
+--   is φ(ν), also computed here from an independent definition
 --   (counting coprime residues), agreeing at ν = 1..12; and the
 --   classical identity the display is one character from,
---   �_{δ � ν} μ(δ) �ν/δ� = 1, is verified at ν = 1..12.
+--   Σ_{δ ≤ ν} μ(δ) ⌊ν/δ⌋ = 1, is verified at ν = 1..12.
 --
--- SECTION C  §0's tower.  Archive lines 33�36:
+-- SECTION C  §0's tower.  Archive lines 33–36:
 --
---     κ(Θ) := � { � � Θ | � closed under the nine operations }
---     Θ_{ν+1} := κ(Θ_ν),   Θ_λ := �_{ν<λ} Θ_ν,   Θ_∞ := �_λ Θ_λ
+--     κ(Θ) := ⋂ { Υ ⊇ Θ | Υ closed under the nine operations }
+--     Θ_{ν+1} := κ(Θ_ν),   Θ_λ := ⋃_{ν<λ} Θ_ν,   Θ_∞ := ⋃_λ Θ_λ
 --
 --   The collapse is formalised in the form the ledger's §5.1 argument
 --   actually uses: ANY operator that is extensive, produces closed
 --   sets, and is least among closed supersets is idempotent, and its
 --   tower is constant from stage one.  The intersection itself is NOT
 --   formalised, and cannot be: the archive supplies no ambient set, so
---   `�` ranges over a class (ledger row 0.2, "not supplied � the
+--   `⋂` ranges over a class (ledger row 0.2, "not supplied — the
 --   ambient").  What is supplied instead is (i) the abstract theorem
 --   and (ii) a witness that its hypotheses are satisfiable, namely the
 --   inductively generated closure over an arbitrary sign type with
@@ -70,7 +70,7 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
--- 0.  Elementary computable arithmetic on �.
+-- 0.  Elementary computable arithmetic on ℕ.
 --
 -- Written out rather than imported so that the refutations do not
 -- depend on which of the two pinned cubical versions is in use, and so
@@ -101,7 +101,7 @@ eqb (suc _) zero = false
 eqb (suc m) (suc n) = eqb m n
 
 -- remainder and quotient, fuel-bounded so that they are structurally
--- recursive; called only with fuel � the dividend, where they are exact.
+-- recursive; called only with fuel ≥ the dividend, where they are exact.
 remF : ℕ → ℕ → ℕ → ℕ
 remF zero n _ = n
 remF (suc f) n d = if ltb n d then n else remF f (sub n d) d
@@ -119,8 +119,8 @@ n div d = quoF n n d
 dividesb : ℕ → ℕ → Bool     -- d ∣ n
 dividesb d n = eqb (n mod d) zero
 
--- least divisor � k of n (returns n if none below n); with k = 2 and
--- n � 2 this is the least prime factor.
+-- least divisor ≥ k of n (returns n if none below n); with k = 2 and
+-- n ≥ 2 this is the least prime factor.
 spfF : ℕ → ℕ → ℕ → ℕ
 spfF zero _ n = n
 spfF (suc f) k n =
@@ -135,8 +135,8 @@ isPrimeb n = (leb 2 n) and eqb (spf n) n
 
 ------------------------------------------------------------------------
 -- 1.  The arithmetic functions of the two displays, DEFINED (not
---     tabulated): μ, �, ω (distinct prime factors), Ω (with
---     multiplicity), λ = (−1)^Ω, and the primality indicator 1_�.
+--     tabulated): μ, φ, ω (distinct prime factors), Ω (with
+--     multiplicity), λ = (−1)^Ω, and the primality indicator 1_℘.
 ------------------------------------------------------------------------
 
 negZ : ℤ → ℤ
@@ -183,7 +183,7 @@ lambdaL n = parity (bigOmega n)
 indP : ℕ → ℤ
 indP n = if isPrimeb n then pos 1 else pos zero
 
--- gcd and �, for the independent identification of the divisor sum.
+-- gcd and φ, for the independent identification of the divisor sum.
 gcdF : ℕ → ℕ → ℕ → ℕ
 gcdF zero a _ = a
 gcdF (suc f) a b = if eqb b zero then a else gcdF f b (a mod b)
@@ -218,12 +218,12 @@ isPos0 _ = false
 1≢0 p = true≢false (cong (λ z → not (isPos0 z)) p)
 
 ------------------------------------------------------------------------
--- SECTION A.  §8's Π_� identity (archive line 393; ledger rows 8.5, 5.3)
+-- SECTION A.  §8's Π_∂ identity (archive line 393; ledger rows 8.5, 5.3)
 --
 -- The display, verbatim from the archive:
 --
---     Π_�(ν) := μ(ν)² − ��(ν),      ��(ν) := ω(ν) − 1
---     1 � Ω(ν) � 2  �  Π_�(ν) = (1 − λ(ν))/2 − 1_�(ν)
+--     Π_∂(ν) := μ(ν)² − π₁(ν),      π₁(ν) := ω(ν) − 1
+--     1 ≤ Ω(ν) ≤ 2  ⇒  Π_∂(ν) = (1 − λ(ν))/2 − 1_℘(ν)
 --
 -- Both sides are transcribed as functions of ν below, with (1−λ)/2
 -- given by an explicit halving whose correctness is itself certified
@@ -234,11 +234,11 @@ isPos0 _ = false
 mu² : ℕ → ℤ
 mu² n = mu n · mu n
 
--- ��(ν) := ω(ν) − 1
+-- π₁(ν) := ω(ν) − 1
 pi1 : ℕ → ℤ
 pi1 n = pos (smallOmega n) - pos 1
 
--- Π_�(ν) := μ(ν)² − ��(ν)
+-- Π_∂(ν) := μ(ν)² − π₁(ν)
 PiPartial : ℕ → ℤ
 PiPartial n = mu² n - pi1 n
 
@@ -259,7 +259,7 @@ half-is-half-minus = refl
 RHS : ℕ → ℤ
 RHS n = halfOneMinus (lambdaL n) - indP n
 
--- the ledger's proposed repair: the same display with 1_� deleted
+-- the ledger's proposed repair: the same display with 1_℘ deleted
 RHS-repaired : ℕ → ℤ
 RHS-repaired n = halfOneMinus (lambdaL n)
 
@@ -294,7 +294,7 @@ Pi-gap-at-2 = refl
 ------------------------------------------------------------------------
 -- A.2  Further instances: the next primes fail identically; the two
 --      Ω = 2 shapes hold.  Finite exhaustive verification over every
---      ν � 25 with 1 � Ω(ν) � 2 is given in A.3.
+--      ν ≤ 25 with 1 ≤ Ω(ν) ≤ 2 is given in A.3.
 ------------------------------------------------------------------------
 
 Pi-gap-at-3 : PiPartial 3 ≡ RHS 3 + pos 1
@@ -321,11 +321,11 @@ Pi-holds-at-15 = refl
 ------------------------------------------------------------------------
 -- A.3  Exhaustive check over an explicit range.
 --
---   `gapOK n` says: EITHER the display's hypothesis 1 � Ω(n) � 2 fails
---   at n (so n is out of scope), OR Π_�(n) = RHS(n) + 1_�(n) � that is,
+--   `gapOK n` says: EITHER the display's hypothesis 1 ≤ Ω(n) ≤ 2 fails
+--   at n (so n is out of scope), OR Π_∂(n) = RHS(n) + 1_℘(n) — that is,
 --   the display is off by exactly the indicator it should not carry.
 --   Checking `allGapOK 25 ≡ true` therefore verifies, at one stroke and
---   over every ν � 25 in scope, both the refutation and its exact size.
+--   over every ν ≤ 25 in scope, both the refutation and its exact size.
 ------------------------------------------------------------------------
 
 inScope : ℕ → Bool
@@ -343,9 +343,9 @@ allGapOK : ℕ → Bool
 allGapOK zero = true
 allGapOK (suc k) = (gapOK (suc k)) and allGapOK k
 
--- Every ν � 25 with 1 � Ω(ν) � 2 satisfies Π_�(ν) = RHS(ν) + 1_�(ν):
+-- Every ν ≤ 25 with 1 ≤ Ω(ν) ≤ 2 satisfies Π_∂(ν) = RHS(ν) + 1_℘(ν):
 -- the display is exactly one indicator wrong, and wrong precisely on
--- the primes (where 1_� = 1) and nowhere else in range.
+-- the primes (where 1_℘ = 1) and nowhere else in range.
 exhaustive-to-25 : allGapOK 25 ≡ true
 exhaustive-to-25 = refl
 
@@ -363,8 +363,8 @@ repair-holds-to-25 = refl
 ------------------------------------------------------------------------
 -- A.4  The universal half: "false on every prime".
 --
---   * "the display fails by 1 at ν, given the prime values" � THEOREM.
---   * "every prime has those values"                        � checked
+--   * "the display fails by 1 at ν, given the prime values" — THEOREM.
+--   * "every prime has those values"                        — checked
 --     here only at ν = 2, 3, 5, 7, 11, 13, 17, 19, 23 (A.5), by
 --     computation with the definitions of §1.
 --
@@ -431,10 +431,10 @@ prime-values-to-25 = refl
 ------------------------------------------------------------------------
 -- SECTION B.  §1's Mbius display (archive line 83; ledger rows 1.5, 5.2)
 --
--- The display, verbatim: �_{δ | ν} μ(δ) �ν/δ� = 1.
+-- The display, verbatim: Σ_{δ | ν} μ(δ) ⌊ν/δ⌋ = 1.
 ------------------------------------------------------------------------
 
--- � over the divisors δ � k of n, of μ(δ)��n/δ�.
+-- Σ over the divisors δ ≤ k of n, of μ(δ)·⌊n/δ⌋.
 divSumTo : ℕ → ℕ → ℤ
 divSumTo zero _ = pos zero
 divSumTo (suc k) n =
@@ -446,7 +446,7 @@ mobiusDivSum : ℕ → ℤ
 mobiusDivSum n = divSumTo n n
 
 -- the classical identity's left-hand side: the SAME summand over ALL
--- δ � ν, not only the divisors.
+-- δ ≤ ν, not only the divisors.
 allSumTo : ℕ → ℕ → ℤ
 allSumTo zero _ = pos zero
 allSumTo (suc k) n = (mu (suc k) · pos (n div (suc k))) + allSumTo k n
@@ -472,7 +472,7 @@ mobius-display-false : ¬ (mobiusDivSum 3 ≡ pos 1)
 mobius-display-false p = 2≢1 (sym mobius-at-3 ∙ p)
 
 -- ν = 3 is the smallest witness: at ν = 1 and ν = 2 the display holds,
--- since �(1) = �(2) = 1.
+-- since φ(1) = φ(2) = 1.
 mobius-at-1 : mobiusDivSum 1 ≡ pos 1
 mobius-at-1 = refl
 
@@ -480,8 +480,8 @@ mobius-at-2 : mobiusDivSum 2 ≡ pos 1
 mobius-at-2 = refl
 
 ------------------------------------------------------------------------
--- B.2  What the divisor sum actually is: �, on an independent
---      definition of � (counting coprime residues, §1).
+-- B.2  What the divisor sum actually is: φ, on an independent
+--      definition of φ (counting coprime residues, §1).
 ------------------------------------------------------------------------
 
 phiAgrees : ℕ → Bool
@@ -491,12 +491,12 @@ allPhiAgrees : ℕ → Bool
 allPhiAgrees zero = true
 allPhiAgrees (suc k) = phiAgrees (suc k) and allPhiAgrees k
 
--- �_{δ | ν} μ(δ)�ν/δ� = �(ν) for every ν � 12.
+-- Σ_{δ | ν} μ(δ)⌊ν/δ⌋ = φ(ν) for every ν ≤ 12.
 divsum-is-phi-to-12 : allPhiAgrees 12 ≡ true
 divsum-is-phi-to-12 = refl
 
 ------------------------------------------------------------------------
--- B.3  The repair: the classical identity, over ALL δ � ν.
+-- B.3  The repair: the classical identity, over ALL δ ≤ ν.
 ------------------------------------------------------------------------
 
 fullIsOne : ℕ → Bool
@@ -506,13 +506,13 @@ allFullIsOne : ℕ → Bool
 allFullIsOne zero = true
 allFullIsOne (suc k) = fullIsOne (suc k) and allFullIsOne k
 
--- �_{δ � ν} μ(δ) �ν/δ� = 1 for every ν � 12: the display with the
+-- Σ_{δ ≤ ν} μ(δ) ⌊ν/δ⌋ = 1 for every ν ≤ 12: the display with the
 -- range of summation corrected.  (Classical; checked, not proved.)
 full-sum-is-one-to-12 : allFullIsOne 12 ≡ true
 full-sum-is-one-to-12 = refl
 
--- The companion display of the same archive line, �_{δ|ν} μ(δ) = [ν=1],
--- which the ledger reports as correct � checked here too.
+-- The companion display of the same archive line, Σ_{δ|ν} μ(δ) = [ν=1],
+-- which the ledger reports as correct — checked here too.
 divSumMu : ℕ → ℕ → ℤ
 divSumMu zero _ = pos zero
 divSumMu (suc k) n =
@@ -531,7 +531,7 @@ companion-display-holds-to-12 = refl
 ------------------------------------------------------------------------
 -- SECTION C.  §0's tower collapses at stage one (ledger rows 0.3, 5.1)
 --
--- The archive's κ is  κ(Θ) := � { � � Θ | � closed under the nine
+-- The archive's κ is  κ(Θ) := ⋂ { Υ ⊇ Θ | Υ closed under the nine
 -- operations }.  As the ledger's row 0.2 records, no ambient set is
 -- supplied, so this intersection ranges over a class and κ does not
 -- denote as written.  A missing definition is not invented here.  What
@@ -550,15 +550,15 @@ companion-display-holds-to-12 = refl
 --          and binary operations satisfies all three.
 --
 -- MISSING DEFINITIONS, named rather than supplied:
---   * the ambient set � (row 0.2);
---   * the meaning of the nine operations ⊕, ⊗, ∘, �, δ, Γ, Φ, (−)^∨,
---     �−� as operations on signs.  Here they are only assumed to be
---     unary or binary relations � which is all §5.1's finitary-arity
+--   * the ambient set 𝒮 (row 0.2);
+--   * the meaning of the nine operations ⊕, ⊗, ∘, ∂, δ, Γ, Φ, (−)^∨,
+--     ⌜−⌝ as operations on signs.  Here they are only assumed to be
+--     unary or binary relations — which is all §5.1's finitary-arity
 --     step uses, and all the display's own bracketing determines.
 --     In particular Γ is NOT assumed to be a function: ledger row 0.6
 --     refutes exactly that, and the arity-only treatment below is
 --     compatible with Γ being multivalued.
---   * ordinals.  The tower is formalised at stages indexed by �, with
+--   * ordinals.  The tower is formalised at stages indexed by ℕ, with
 --     the ω-stage union treated explicitly (C.4).  Stages beyond ω are
 --     NOT formalised; the collapse at stage one makes them constant
 --     for the same reason, but that is prose here, not a term.
@@ -582,7 +582,7 @@ module Collapse {ℓ : Level} (S : Type ℓ)
   open Closed public
 
   ----------------------------------------------------------------
-  -- C.1  The abstract theorem: least closed superset � idempotent.
+  -- C.1  The abstract theorem: least closed superset ⇒ idempotent.
   ----------------------------------------------------------------
 
   record ClosureOp (K : Subset → Subset) : Type (ℓ-suc ℓ) where
@@ -601,7 +601,7 @@ module Collapse {ℓ : Level} (S : Type ℓ)
     idem← : (A : Subset) → K A ⊑ K (K A)
     idem← A = ext κ (K A)
 
-    -- the tower Θ_{ν+1} := κ(Θ_ν), at stages indexed by �
+    -- the tower Θ_{ν+1} := κ(Θ_ν), at stages indexed by ℕ
     tower : Subset → ℕ → Subset
     tower A zero = A
     tower A (suc n) = K (tower A n)
@@ -627,7 +627,7 @@ module Collapse {ℓ : Level} (S : Type ℓ)
 
   ----------------------------------------------------------------
   -- C.4  Non-vacuity: the inductively generated closure is such a K.
-  --      (This is the same object as �{closed supersets} whenever the
+  --      (This is the same object as ⋂{closed supersets} whenever the
   --      latter denotes; that equivalence is classical and is not
   --      needed for the collapse, which only uses leastness.)
   ----------------------------------------------------------------

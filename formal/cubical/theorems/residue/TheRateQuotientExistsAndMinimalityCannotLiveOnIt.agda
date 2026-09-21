@@ -5,26 +5,26 @@
 --
 -- Two results on this line now end at the same sentence.
 -- `WhichThresholdStatementsDescendToTheRate` says "no quotient TYPE is
--- formed â” `â‰ˆ` is a relation, with no set-quotient, no truncation and
+-- formed â€” `â‰ˆ` is a relation, with no set-quotient, no truncation and
 -- no univalence", and
 -- `TheThresholdChainIsDenseAndTheMediantWitnessesIt` says density "is
--- proved for pairs â¦ nothing is said about density of the RATES â”
+-- proved for pairs â€¦ nothing is said about density of the RATES â€”
 -- that needs the quotient Â§4 above explicitly does not form."
 --
 -- When the SAME limitation ends two different results, that limitation
 -- is the object, not either result.  The quotient is formed here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   Rate = (â• — â•) / _â‰ˆ_        the set-quotient, a genuine HIT
+--   Rate = (â„• Ã— â„•) / _â‰ˆ_        the set-quotient, a genuine HIT
 --   AtLeastOnRate               `AtLeast` LIFTS: a function of the RATE,
 --                               not of the pair
 --   AboveOnRate                 and so does `Above`
 --   atLeastOnRateComputes       the lift agrees with the old definition
 --                               on every representative, by `refl`
 --   noMinimalityOnTheRate       and NO function on `Rate` can agree with
---                               `Minimal` on all representatives â” an
+--                               `Minimal` on all representatives â€” an
 --                               impossibility, not an absence
 --
 -- The last one is what the earlier modules could not state.  They
@@ -34,24 +34,24 @@
 -- definition does, because `[ oneHalf ] â‰¡ [ twoQuarters ]` is a PATH,
 -- `cong` transports along it, and the two verdicts would have to agree.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHERE THE UNIVALENCE IS, since this corpus's remit names it.  The
 -- lift is by `SetQuotients.rec`, which needs the target to be a set;
--- the target is `List Bool â’ hProp`, a set because `hProp` is
--- (`isSetHProp`), and THAT is propositional univalence â” `â”toPath`
+-- the target is `List Bool â†’ hProp`, a set because `hProp` is
+-- (`isSetHProp`), and THAT is propositional univalence â€” `â‡”toPath`
 -- turns a two-way implication between propositions into a path, and it
 -- is what makes `atLeastRespects` a path rather than a pair of
--- functions.  `AtLeast p q bs` is a proposition because cubical's `â‰`
--- is (`isPropâ‰`), so nothing had to be truncated.
+-- functions.  `AtLeast p q bs` is a proposition because cubical's `â‰¤`
+-- is (`isPropâ‰¤`), so nothing had to be truncated.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  Set-quotients, lifting along a respectful map, and
 -- propositional extensionality are standard cubical practice; the
 -- rationals are built this way in the library itself.  What is
 -- contributed is only which of THIS corpus's threshold predicates
 -- survive the quotient, and the proof that one provably does not.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -123,7 +123,7 @@ atLeastOnRateComputes p q bs = refl
 ------------------------------------------------------------------------
 -- 3.  And minimality provably cannot
 --
--- Not "the obvious definition fails to descend" â” NO function on the
+-- Not "the obvious definition fails to descend" â€” NO function on the
 -- quotient agrees with `Minimal` on representatives, because
 -- `[ oneHalf ] â‰¡ [ twoQuarters ]` is a path and `cong` transports along
 -- it.
@@ -149,21 +149,21 @@ noMinimalityOnTheRate M agrees =
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
 -- line above.  The NOT-CLAIMED section says:
 --
---   "DENSITY OF THE RATES is NOT proved: the mediant module's `âŠ` is
---    not lifted here, and lifting it needs `âŠ` to respect `â‰ˆ` on BOTH
+--   "DENSITY OF THE RATES is NOT proved: the mediant module's `âŠ` is
+--    not lifted here, and lifting it needs `âŠ` to respect `â‰ˆ` on BOTH
 --    sides, which is unchecked."
 --
 -- Both halves closed in
 -- `TheRatesAreDenseAndTheMediantSurvivesTheQuotient`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so),
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so),
 -- and the sentence above named the harder half correctly: the LIFTING
 -- is the work.
 --
---   âŠâŠ-trans / âŠâŠ-trans   mixed transitivities, by the same
---                         multiplyâ“rearrangeâ“cancel as `âŠ-trans`
---   âŠ-respects-â‰ˆ          hence `âŠ` respects `â‰ˆ` on both sides
---   _âŠR_                  `âŠ` lifted by `SetQuotients.rec2` into hProp
+--   âŠ‘âŠ-trans / âŠâŠ‘-trans   mixed transitivities, by the same
+--                         multiplyâ€“rearrangeâ€“cancel as `âŠ‘-trans`
+--   âŠ-respects-â‰ˆ          hence `âŠ` respects `â‰ˆ` on both sides
+--   _âŠR_                  `âŠ` lifted by `SetQuotients.rec2` into hProp
 --   theRatesAreDense      between two rates lies a third
 --
 -- **AND THE MEDIANT NEVER HAS TO DESCEND.**  `mediant` is a function on
@@ -171,7 +171,7 @@ noMinimalityOnTheRate M agrees =
 -- density is a MERE EXISTENCE, so its target is a proposition, so
 -- `elimProp2` puts the whole claim at representatives, where the
 -- pair-level mediant is already a witness.  A witness that need not be
--- canonical need not be well-defined on the quotient â” which is worth
+-- canonical need not be well-defined on the quotient â€” which is worth
 -- keeping, because the instinct after building a quotient is to lift
 -- everything in sight.
 --

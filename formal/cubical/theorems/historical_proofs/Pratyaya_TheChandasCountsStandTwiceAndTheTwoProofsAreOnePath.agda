@@ -1,46 +1,46 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡‡‡Ø‡Ø‡ ‚î ‡‡®‡‡¶‡ã-‡ó‡‡®‡ ‡¶‡‡µ‡ø‡ ‡‡‡‡ø‡‡, ‡‡ï‡ ‡‡®‡‡‡æ‡ ‡
+-- ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø‡§É ‚Äî ‡§õ‡§®‡•ç‡§¶‡•ã-‡§ó‡§£‡§®‡•á ‡§¶‡•ç‡§µ‡§ø‡§É ‡§∏‡•ç‡§•‡§ø‡§§‡•á, ‡§è‡§ï‡§É ‡§™‡§®‡•ç‡§•‡§æ‡§É ‡•§
 --
--- WHAT THIS MODULE IS FOR.  Two of Pigala's ‡‡‡∞‡‡‡Ø‡Ø results are proved twice
+-- WHAT THIS MODULE IS FOR.  Two of Pi·πÖgala's ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø results are proved twice
 -- in this corpus, once in a Devanagari-named module and once in a
 -- Latin-named one, with no import between the two:
 --
---   (n : ‚ï) ‚í matra n ‚â° length (‡‡∞‡‡µ n)
---     PrastaraPankti.‡Æ‡æ‡‡‡∞‡æ-‡‡∞‡‡µ‡
+--   (n : ‚Ñï) ‚Üí matra n ‚â° length (‡§∏‡§∞‡•ç‡§µ n)
+--     PrastaraPankti.‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§∏‡§∞‡•ç‡§µ‡§É
 --     MeruDiagonalIsVirahanka.matra-is-sarva
 --
---   (p : Pattern) ‚í matraOf p ‚â° varna p + guruOf p
---     MatraVarnaGuru.‡Æ‡æ‡‡‡∞‡æ-‡µ‡∞‡‡-‡ó‡‡∞‡
+--   (p : Pattern) ‚Üí matraOf p ‚â° varna p + guruOf p
+--     MatraVarnaGuru.‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§µ‡§∞‡•ç‡§£-‡§ó‡•Å‡§∞‡•Å
 --     DurationIsSyllablesPlusGuru.matra-split
 --
--- In both pairs the two modules share the SAME definitions ‚î matra, Pattern,
--- matraOf, varna and guruOf all come from PingalaPrastara, and ‡‡∞‡‡µ from
--- Matramerus ‚î so the two types are one type and not merely two types that
+-- In both pairs the two modules share the SAME definitions ‚Äî matra, Pattern,
+-- matraOf, varna and guruOf all come from PingalaPrastara, and ‡§∏‡§∞‡•ç‡§µ from
+-- Matramerus ‚Äî so the two types are one type and not merely two types that
 -- print alike.  That has to be checked and not assumed: elsewhere in this
 -- corpus the same printed type is two different types over two local
--- definitions, and there the honest move is an equivalence or a ‡‡‡, not an
+-- definitions, and there the honest move is an equivalence or a ‡§∂‡•á‡§∑, not an
 -- identification.  Here it is an identification, and ¬ß3 gives it.
 --
--- ‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡ ¬ß‡ ¬ ‡¶‡‡µ‡ ‡Æ‡æ‡∞‡‡ó‡.  This is the first road, and the
--- carry is exact: the target of each of the four proofs is a path in ‚ï, and
--- ‚ï is a set, so any two proofs of one of these statements are themselves
+-- ‡§Ö‡§π‡§ø‡§Ç‡§∏‡§æ-‡§∏‡•Ç‡§§‡•ç‡§∞-‡§µ‡§ø‡§∏‡•ç‡§§‡§æ‡§∞‡§É ¬ß‡•¨ ¬∑ ‡§¶‡•ç‡§µ‡•å ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•å.  This is the first road, and the
+-- carry is exact: the target of each of the four proofs is a path in ‚Ñï, and
+-- ‚Ñï is a set, so any two proofs of one of these statements are themselves
 -- equal.  Nothing between the two proofs is lost in identifying them because
 -- there was nothing between them to lose.
 --
--- THE ‡‡‡, which ¬ß4 writes out and which the identification cannot carry: the
+-- THE ‡§∂‡•á‡§∑, which ¬ß4 writes out and which the identification cannot carry: the
 -- two lanes are asking different questions and the coincidence of the
 -- theorem does not make them one enquiry.  See ¬ß4.
 --
--- ‚î the ‡‡‡∞‡‡‡Ø‡Ø‡æ‡, the six enumeration procedures on metrical patterns
--- (‡‡‡∞‡‡‡‡æ‡∞‡, ‡®‡‡‡ü‡Æ‡, ‡â‡¶‡‡¶‡ø‡‡‡ü‡Æ‡, ‡≤‡ò‡‡ï‡‡∞‡ø‡Ø‡æ, ‡‡ô‡‡ñ‡‡Ø‡æ, ‡‡ß‡‡µ‡Ø‡ã‡ó‡).  ‡Æ‡æ‡‡‡∞‡æ
--- (duration), ‡µ‡∞‡‡ (syllable count) and ‡ó‡‡∞‡ (heavy syllable) are his
--- categories; the relation ‡Æ‡æ‡‡‡∞‡æ = ‡µ‡∞‡‡ + ‡ó‡‡∞‡ is immediate in them, because
--- a ‡ó‡‡∞‡ is worth two ‡Æ‡æ‡‡‡∞‡æs and a ‡≤‡ò‡ one. ¬ ‡µ‡ø‡∞‡‡æ‡ô‡‡ï‡ (c. 700),
--- ‡µ‡‡‡‡‡‡æ‡‡ø‡‡Æ‡‡‡‡‡Ø‡ ‚î the count of patterns of a given ‡Æ‡æ‡‡‡∞‡æ total,
--- satisfying M(n+2) = M(n+1) + M(n); ‡‡≤‡æ‡Ø‡‡ß‡ (c. 10th c., ‡Æ‡‡‡‡û‡‡‡‡µ‡®‡) reads
--- the same numbers off the shallow diagonals of ‡‡ø‡ô‡‡ó‡≤'s ‡Æ‡‡∞‡-‡‡‡∞‡‡‡‡æ‡∞‡. ¬
+-- ‚Äî the ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø‡§æ‡§É, the six enumeration procedures on metrical patterns
+-- (‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞‡§É, ‡§®‡§∑‡•ç‡§ü‡§Æ‡•ç, ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü‡§Æ‡•ç, ‡§≤‡§ò‡•Å‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ, ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ, ‡§Ö‡§ß‡•ç‡§µ‡§Ø‡•ã‡§ó‡§É).  ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ
+-- (duration), ‡§µ‡§∞‡•ç‡§£ (syllable count) and ‡§ó‡•Å‡§∞‡•Å (heavy syllable) are his
+-- categories; the relation ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ = ‡§µ‡§∞‡•ç‡§£ + ‡§ó‡•Å‡§∞‡•Å is immediate in them, because
+-- a ‡§ó‡•Å‡§∞‡•Å is worth two ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æs and a ‡§≤‡§ò‡•Å one. ¬∑ ‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï‡§É (c. 700),
+-- ‡§µ‡•É‡§§‡•ç‡§§‡§ú‡§æ‡§§‡§ø‡§∏‡§Æ‡•Å‡§ö‡•ç‡§ö‡§Ø‡§É ‚Äî the count of patterns of a given ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ total,
+-- satisfying M(n+2) = M(n+1) + M(n); ‡§π‡§≤‡§æ‡§Ø‡•Å‡§ß‡§É (c. 10th c., ‡§Æ‡•É‡§§‡§∏‡§û‡•ç‡§ú‡•Ä‡§µ‡§®‡•Ä) reads
+-- the same numbers off the shallow diagonals of ‡§™‡§ø‡§ô‡•ç‡§ó‡§≤'s ‡§Æ‡•á‡§∞‡•Å-‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞‡§É. ¬∑
 -- Neither text states an Agda theorem, and neither is claimed to. What is
 -- claimed is that the two mechanised statements below are their content, and
 -- that this corpus proved each of them twice without noticing.
@@ -62,7 +62,7 @@ import MatraVarnaGuru
 import DurationIsSyllablesPlusGuru
 
 ------------------------------------------------------------------------
--- ¬ß1 ¬ ‡Æ‡æ‡‡‡∞‡æ-‡‡‡∞‡‡‡Ø‡Ø‡ ‚î Pigala's mtr count is Virahka's enumeration.
+-- ¬ß1 ¬∑ ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø‡§É ‚Äî Pi·πÖgala's mƒÅtrƒÅ count is VirahƒÅ·πÖka's enumeration.
 --
 -- The statement, restated here once so the identification below has a named
 -- centre rather than pointing one module at the other and thereby ranking
@@ -78,7 +78,7 @@ import DurationIsSyllablesPlusGuru
 ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§µ‡§∞‡•ç‡§£-‡§ó‡•Å‡§∞‡•Å-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø‡§É = MatraVarnaGuru.‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§µ‡§∞‡•ç‡§£-‡§ó‡•Å‡§∞‡•Å
 
 ------------------------------------------------------------------------
--- ¬ß2 ¬ ‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡Æ‡ ‚î the identification.
+-- ¬ß2 ¬∑ ‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç ‚Äî the identification.
 ------------------------------------------------------------------------
 
 -- Virahka's count: the two proofs are one path.
@@ -111,42 +111,42 @@ import DurationIsSyllablesPlusGuru
 ‡§µ‡§∞‡•ç‡§£-‡§ó‡•Å‡§∞‡•Å-‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç-‡§µ‡•ç‡§Ø‡§§‡•ç‡§Ø‡§Ø‡•á‡§® p = sym (‡§µ‡§∞‡•ç‡§£-‡§ó‡•Å‡§∞‡•Å-‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç p)
 
 ------------------------------------------------------------------------
--- ¬ß3 ¬ What the identification is made of, stated so it is not mistaken for
+-- ¬ß3 ¬∑ What the identification is made of, stated so it is not mistaken for
 -- more than it is.
 --
--- isSet‚ï is doing all the work, and it is worth being explicit about how
+-- isSet‚Ñï is doing all the work, and it is worth being explicit about how
 -- little that means and how much.  It means: the four proofs live in identity
--- types of ‚ï, those are propositions, and a proposition has at most one
+-- types of ‚Ñï, those are propositions, and a proposition has at most one
 -- inhabitant up to a path.  It does NOT mean the four programs are the same
--- program ‚î they are visibly not; two recurse on n through Matramerus's
--- ‡‡∞‡‡µ-step lemma and two do not.  The h-level fact identifies the values, not
+-- program ‚Äî they are visibly not; two recurse on n through Matramerus's
+-- ‡§∏‡§∞‡•ç‡§µ-step lemma and two do not.  The h-level fact identifies the values, not
 -- the derivations, and the derivations are exactly what ¬ß4 records.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- ¬ß4 ¬ ‡‡‡‡ ‚î the remainder.
+-- ¬ß4 ¬∑ ‡§∂‡•á‡§∑‡§É ‚Äî the remainder.
 --
 -- Both pairs are one theorem and two enquiries, and the second half does not
 -- transport.
 --
---   ¬ PrastaraPankti sits in the ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞ lane.  ‡Æ‡æ‡‡‡∞‡æ-‡‡∞‡‡µ‡ is a step
---     inside it, immediately consumed by ‡Æ‡æ‡‡‡∞‡æ-‡ï‡∞‡‡‡, which composes it with
---     MeruKarna.‡‡Æ‡‡æ-‡ï‡∞‡‡‡ to reach Halyudha's shallow diagonal.  The
---     question there is a question about Pigala's ‡Æ‡‡∞‡: do three different
---     ‡‡‡∞‡‡‡Ø‡Ø readings of the same array agree.
---   ¬ MeruDiagonalIsVirahanka sits in the machine lane.
+--   ¬∑ PrastaraPankti sits in the ‡§õ‡§®‡•ç‡§¶‡§É‡§∂‡§æ‡§∏‡•ç‡§§‡•ç‡§∞ lane.  ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§∏‡§∞‡•ç‡§µ‡§É is a step
+--     inside it, immediately consumed by ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§ï‡§∞‡•ç‡§£‡§É, which composes it with
+--     MeruKarna.‡§∏‡§Æ‡§§‡§æ-‡§ï‡§∞‡•ç‡§£‡§É to reach HalƒÅyudha's shallow diagonal.  The
+--     question there is a question about Pi·πÖgala's ‡§Æ‡•á‡§∞‡•Å: do three different
+--     ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø readings of the same array agree.
+--   ¬∑ MeruDiagonalIsVirahanka sits in the machine lane.
 --     matra-is-sarva is consumed by virahanka-is-the-diagonal, composed with
 --     DiagonalIsMatra, and the question there is whether the
 --     machine's antidiagonal construction computes what the prosody says.
 --     One lane is asking about a text; the other is asking about a machine.
---   ¬ MatraVarnaGuru consumes ‡Æ‡æ‡‡‡∞‡æ-‡µ‡∞‡‡-‡ó‡‡∞‡ into ‡‡®‡‡¶‡ã-‡Æ‡æ‡‡‡∞‡æ, ‡Æ‡æ‡‡‡∞‡æ-‡‡ß‡
---     and a ‡≤‡ò‡-‡‡ô‡‡ñ‡‡Ø‡æ decomposition ‚î the arithmetic of the metre itself.
---   ¬ DurationIsSyllablesPlusGuru consumes matra-split into a
---     Œ-type factorisation and an Iso, i.e. into a statement about what a
+--   ¬∑ MatraVarnaGuru consumes ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§µ‡§∞‡•ç‡§£-‡§ó‡•Å‡§∞‡•Å into ‡§õ‡§®‡•ç‡§¶‡•ã-‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ, ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§Ö‡§ß‡§É
+--     and a ‡§≤‡§ò‡•Å-‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ decomposition ‚Äî the arithmetic of the metre itself.
+--   ¬∑ DurationIsSyllablesPlusGuru consumes matra-split into a
+--     Œ£-type factorisation and an Iso, i.e. into a statement about what a
 --     duration determines: the module is about information, not about metre.
 --
--- The theorem is one.  The four uses are four.  ¬ß‡ of the stra ‚î
--- ‡‡ô‡‡ï‡‡‡‡‡‡‡Ø ‡‡®‡‡‡≤‡‡‡ß‡ø‡ ‚î is exact about this case: where the ‡®‡Øs differ
+-- The theorem is one.  The four uses are four.  ¬ß‡•≠ of the s≈´tra ‚Äî
+-- ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡§∏‡•ç‡§Ø ‡§Ö‡§®‡•Å‡§™‡§≤‡§¨‡•ç‡§ß‡§ø‡§É ‚Äî is exact about this case: where the ‡§®‡§Øs differ
 -- there is no single object common to all threads to collapse onto, so the
 -- collapse is not forbidden, it is UNAVAILABLE.  Consequently none of the
 -- four declarations is deleted or rewritten to import this module.

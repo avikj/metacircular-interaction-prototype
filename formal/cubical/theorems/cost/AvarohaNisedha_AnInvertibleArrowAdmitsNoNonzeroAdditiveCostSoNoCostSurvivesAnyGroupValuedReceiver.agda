@@ -1,26 +1,26 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡µ‡∞‡ã‡-‡®‡ø‡‡‡ß ‚î the descent refused.
+-- ‡§Ö‡§µ‡§∞‡•ã‡§π-‡§®‡§ø‡§∑‡•á‡§ß ‚Äî the descent refused.
 --
 -- THE CLAIM, in the language of the moduli conversation (2026-09-03):
 -- every layer of the motivic tower above the implementation stack
--- demands invertibility somewhere ‚î a groupoid completion, a Morita
+-- demands invertibility somewhere ‚Äî a groupoid completion, a Morita
 -- localization, a stabilization.  Cost is additive along composition
--- and valued in ‚ï.  These two demands cannot meet: an arrow that has
--- become invertible in ANY receiver of an additive ‚ï-valued cost has
+-- and valued in ‚Ñï.  These two demands cannot meet: an arrow that has
+-- become invertible in ANY receiver of an additive ‚Ñï-valued cost has
 -- cost zero there, so the cost functional that was faithful upstream
 -- is killed by the very passage the semantic column requires.  The
 -- implementation fiber must therefore remain attached beside the
--- motive ‚î not as a design preference but as arithmetic.
+-- motive ‚Äî not as a design preference but as arithmetic.
 --
 --   ¬ß1  An element with an inverse admits no nonzero additive cost:
---       h g + h g‚ª¬ = h 0 = 0 in ‚ï forces h g = 0.  (In ‚ï a sum is
+--       h g + h g‚Åª¬π = h 0 = 0 in ‚Ñï forces h g = 0.  (In ‚Ñï a sum is
 --       zero only when both summands are; there is the whole proof.)
 --
 --   ¬ß2  The receipt, stated as the impossibility it is: there is NO
---       triple (a receiver G, a hom Œ : ‚ï ‚í G, a hom h : G ‚í ‚ï) with
---       Œ 1 invertible and h ‚àò Œ ‚â° id.  For then 1 = h (Œ 1) = 0.
+--       triple (a receiver G, a hom Œπ : ‚Ñï ‚Üí G, a hom h : G ‚Üí ‚Ñï) with
+--       Œπ 1 invertible and h ‚àò Œπ ‚â° id.  For then 1 = h (Œπ 1) = 0.
 --       Group completion is one such receiver; so is every other.
 --
 -- Nothing here mentions categories: the one-object case carries the
@@ -44,7 +44,7 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- ‡¶ ¬ In ‚ï a vanishing sum has vanishing summands.
+-- ‡•¶ ¬∑ In ‚Ñï a vanishing sum has vanishing summands.
 ------------------------------------------------------------------------
 
 sum‚â°0‚Üíleft‚â°0 : (m n : ‚Ñï) ‚Üí m + n ‚â° 0 ‚Üí m ‚â° 0
@@ -52,7 +52,7 @@ sum‚â°0‚Üíleft‚â°0 zero    n p = refl
 sum‚â°0‚Üíleft‚â°0 (suc m) n p = Empty.rec (snotz p)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ An invertible element admits no nonzero additive cost.
+-- ‡•ß ¬∑ An invertible element admits no nonzero additive cost.
 --
 -- G is any type with an operation and a zero; h is additive and sends
 -- the zero to zero.  No associativity, no commutativity, no laws on G
@@ -70,15 +70,15 @@ module _ (G : Type ‚Ñì) (_‚äï_ : G ‚Üí G ‚Üí G) (0g : G)
       (sym (h-add g g') ‚àô cong h inv ‚àô h-zero)
 
 ------------------------------------------------------------------------
--- ‡® ¬ Therefore no additive ‚ï-cost factors through any receiver that
+-- ‡•® ¬∑ Therefore no additive ‚Ñï-cost factors through any receiver that
 --     inverts the generator.  The unit cost of one step upstream is 1;
---     any factorization computes it to 0; suc ‚â zero closes the door.
+--     any factorization computes it to 0; suc ‚â¢ zero closes the door.
 ------------------------------------------------------------------------
 
 -- A receiver through which the cost of steps would descend: a carrier,
 -- an interpretation of step-counts, a read-back, additivity of the
 -- read-back, an inverse for the image of the single step, and the
--- factorization h ‚àò Œ ‚â° id on the generator 1.
+-- factorization h ‚àò Œπ ‚â° id on the generator 1.
 Receiver : Type (‚Ñì-suc ‚Ñì-zero)
 Receiver =
   Œ£ (Type ‚Ñì-zero) Œª G ‚Üí

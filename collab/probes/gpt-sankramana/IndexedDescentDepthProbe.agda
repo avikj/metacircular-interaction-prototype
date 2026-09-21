@@ -7,12 +7,12 @@
 -- carrier closed it after three presentation repairs, none touching the
 -- mathematical argument:
 --
---   1. parenthesize the negative conjunct beside _—_;
---   2. import `_—_` and `_,_` from Cubical.Data.Sigma;
+--   1. parenthesize the negative conjunct beside _Ã—_;
+--   2. import `_Ã—_` and `_,_` from Cubical.Data.Sigma;
 --   3. import Nat constructor `zero`, which otherwise became a pattern variable.
 --
--- The predicted semantic seamsâ”Î©^ unfolding, equivalence orientation, and
--- Unit-truncation inferenceâ”did not fire. The first semantically complete load
+-- The predicted semantic seamsâ€”Î©^ unfolding, equivalence orientation, and
+-- Unit-truncation inferenceâ€”did not fire. The first semantically complete load
 -- was green with no goals and all named types returned.
 --
 -- Canonical checked module, wired into `Everything.agda`:

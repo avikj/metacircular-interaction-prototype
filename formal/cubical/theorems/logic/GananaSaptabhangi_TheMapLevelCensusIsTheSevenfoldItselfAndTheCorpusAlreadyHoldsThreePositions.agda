@@ -1,44 +1,44 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ó‡‡®‡æ-‡‡‡‡‡‡ô‡‡ó‡ ‚î the map-level census IS the sevenfold, and the corpus
+-- ‡§ó‡§£‡§®‡§æ-‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚Äî the map-level census IS the sevenfold, and the corpus
 -- already holds witnesses of three distinct positions.
 --
--- THE IMPURITY REPAIRED.  `SakalaVikalaDesa` made the census a term ‚î but
--- PER POINT: three constructors (‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ / ‡‡ï‡≤‡æ‡¶‡‡ / ‡µ‡ø‡ï‡≤‡æ‡¶‡‡) at each b.
+-- THE IMPURITY REPAIRED.  `SakalaVikalaDesa` made the census a term ‚Äî but
+-- PER POINT: three constructors (‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç / ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ / ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂) at each b.
 -- A MAP's character is which of the three kinds occur anywhere across its
--- codomain ‚î a selection from three seeds ‚î and the non-empty selections
--- number 2¬≥ ‚àí 1 = 7, which is `Saptabhangi`'s own ‡ï‡‡‡-‡‡‡‡: the sevenfold
+-- codomain ‚Äî a selection from three seeds ‚Äî and the non-empty selections
+-- number 2¬≥ ‚àí 1 = 7, which is `Saptabhangi`'s own ‡§ï‡•Å‡§§‡§É-‡§∏‡§™‡•ç‡§§: the sevenfold
 -- is exactly the selection algebra of the three seeds.  So the pointwise
 -- census was the seed layer, and the map-level classification is the
--- sevenfold itself ‚î not an analogy: the same 2¬≥‚àí1, with the same three
+-- sevenfold itself ‚Äî not an analogy: the same 2¬≥‚àí1, with the same three
 -- seeds, in the correspondence
 --
---     ‡‡ï‡≤‡æ‡¶‡‡ somewhere   ‚î  ‡‡‡‡‡ø       (something carried whole)
---     ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ somewhere   ‚î  ‡®‡æ‡‡‡‡ø      (something lost, exhibited)
---     ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ somewhere  ‚î  ‡‡µ‡ï‡‡‡µ‡‡Ø    (something the source cannot utter)
+--     ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ somewhere   ‚Üî  ‡§Ö‡§∏‡•ç‡§§‡§ø       (something carried whole)
+--     ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ somewhere   ‚Üî  ‡§®‡§æ‡§∏‡•ç‡§§‡§ø      (something lost, exhibited)
+--     ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç somewhere  ‚Üî  ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø    (something the source cannot utter)
 --
--- following the note's own readings (empty fibre = avaktavya, ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡;
+-- following the note's own readings (empty fibre = avaktavya, ‡§ß‡§®‡§æ‡§§‡•ç‡§Æ‡§ï‡§Æ‡•ç;
 -- crowded = the loss).
 --
 -- THE THREE WITNESSES, all already in the corpus, now classified:
 --
---   id : Bool ‚í Bool     every fibre contractible          ‚í pure ‡‡‡‡‡ø
---   ‡‡ï‡Æ‡ : Bool ‚í Unit    every fibre crowded               ‚í pure ‡®‡æ‡‡‡‡ø
---   asNat : Bool ‚í ‚ï     contractible at 0,1; empty above;
---                        NEVER crowded (injectivity ‚ü the
---                        fibres are propositions)          ‚í ‡‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø
+--   id : Bool ‚Üí Bool     every fibre contractible          ‚Üí pure ‡§Ö‡§∏‡•ç‡§§‡§ø
+--   ‡§è‡§ï‡§Æ‡•ç : Bool ‚Üí Unit    every fibre crowded               ‚Üí pure ‡§®‡§æ‡§∏‡•ç‡§§‡§ø
+--   asNat : Bool ‚Üí ‚Ñï     contractible at 0,1; empty above;
+--                        NEVER crowded (injectivity ‚üπ the
+--                        fibres are propositions)          ‚Üí ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø
 --
 -- Three maps, three DIFFERENT bhagas, each coordinate a term.  The
 -- remaining four positions are combinations awaiting their canonical
--- witnesses; they exist (e.g. Bool ‚í Bool ‚ä Unit hitting one point
--- doubly and one not at all is ‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø) and are left as the open
+-- witnesses; they exist (e.g. Bool ‚Üí Bool ‚äé Unit hitting one point
+-- doubly and one not at all is ‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø) and are left as the open
 -- frame, stated not smuggled.
 --
 -- GRADE.  The classification records below are MINE (built 2026-08-23);
 -- the sevenfold count and the seed reading are Saptabhangi's and
 -- SakalaVikalaDesa's respectively; Malliea (Sydvdamajar, 1292, at
--- ‡‡‡‡¶ grade via the note) for sakaldea/vikaldea.  No claim that any
+-- ‡§∂‡§¨‡•ç‡§¶ grade via the note) for sakalƒÅde≈õa/vikalƒÅde≈õa.  No claim that any
 -- Jain author classified functions; the claim is that their selection
 -- algebra is this classification's type, on the nose.
 ------------------------------------------------------------------------
@@ -62,7 +62,7 @@ private
   ‡§∂‡•á‡§∑ {A = A} f b = Œ£[ a ‚àà A ] (f a ‚â° b)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ the three seed predicates OF A MAP ‚î the selection coordinates.
+-- ‡•ß ¬∑ the three seed predicates OF A MAP ‚Äî the selection coordinates.
 -- Witness-carrying (the b that witnesses is the standpoint's locus).
 ------------------------------------------------------------------------
 
@@ -88,7 +88,7 @@ private
 ‡§®-‡§ï‡•ç‡§µ‡§ö‡§ø‡§§‡•ç-‡§¨‡§π‡•Å {B = B} f = (b : B) ‚Üí (x y : ‡§∂‡•á‡§∑ f b) ‚Üí x ‚â° y
 
 ------------------------------------------------------------------------
--- ‡® ¬ WITNESS ONE ‚î pure ‡‡‡‡‡ø: the identity.  Every fibre contractible;
+-- ‡•® ¬∑ WITNESS ONE ‚Äî pure ‡§Ö‡§∏‡•ç‡§§‡§ø: the identity.  Every fibre contractible;
 -- this is `isEquiv id`, read as the first bhaga.
 ------------------------------------------------------------------------
 
@@ -97,7 +97,7 @@ fst (‡§è‡§ï‡§§‡•ç‡§µ-‡§Ö‡§∏‡•ç‡§§‡§ø b) = b , refl
 snd (‡§è‡§ï‡§§‡•ç‡§µ-‡§Ö‡§∏‡•ç‡§§‡§ø b) (a , p) i = p (~ i) , Œª j ‚Üí p (~ i ‚à® j)
 
 ------------------------------------------------------------------------
--- ‡© ¬ WITNESS TWO ‚î pure ‡®‡æ‡‡‡‡ø: ‡‡ï‡Æ‡ : Bool ‚í Unit.  Every fibre crowded,
+-- ‡•© ¬∑ WITNESS TWO ‚Äî pure ‡§®‡§æ‡§∏‡•ç‡§§‡§ø: ‡§è‡§ï‡§Æ‡•ç : Bool ‚Üí Unit.  Every fibre crowded,
 -- the two points named, their distinctness a term.
 ------------------------------------------------------------------------
 
@@ -117,10 +117,10 @@ snd (‡§è‡§ï‡§§‡•ç‡§µ-‡§Ö‡§∏‡•ç‡§§‡§ø b) (a , p) i = p (~ i) , Œª j ‚Üí p (~ i ‚à
         ‡§ï‡•ã‡§° true  = ‚ä•
 
 ------------------------------------------------------------------------
--- ‡ ¬ WITNESS THREE ‚î ‡‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø, the FIFTH bhaga: asNat.
--- Contractible somewhere (‡‡‡‡‡ø), empty somewhere (‡‡µ‡ï‡‡‡µ‡‡Ø), and NEVER
--- crowded ‚î injectivity into a set makes every fibre a proposition, so
--- the ‡®‡æ‡‡‡‡ø coordinate is refuted, not merely unexhibited.
+-- ‡•™ ¬∑ WITNESS THREE ‚Äî ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø, the FIFTH bha·πÖga: asNat.
+-- Contractible somewhere (‡§Ö‡§∏‡•ç‡§§‡§ø), empty somewhere (‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø), and NEVER
+-- crowded ‚Äî injectivity into a set makes every fibre a proposition, so
+-- the ‡§®‡§æ‡§∏‡•ç‡§§‡§ø coordinate is refuted, not merely unexhibited.
 ------------------------------------------------------------------------
 
 asNat-‡§Ö‡§∏‡•ç‡§§‡§ø : ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§ï‡•ç‡§µ‡§ö‡§ø‡§§‡•ç asNat
@@ -140,9 +140,9 @@ asNat-‡§Ö‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç :
 asNat-‡§Ö‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç = asNat-‡§Ö‡§∏‡•ç‡§§‡§ø , asNat-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø , asNat-‡§®-‡§®‡§æ‡§∏‡•ç‡§§‡§ø
 
 ------------------------------------------------------------------------
--- ‡ ¬ the three witnesses occupy three DISTINCT selections ‚î stated as
+-- ‡•´ ¬∑ the three witnesses occupy three DISTINCT selections ‚Äî stated as
 -- terms, so the classification genuinely separates them:
--- the identity has no empty fibre; ‡‡ï‡Æ‡ has no contractible fibre.
+-- the identity has no empty fibre; ‡§è‡§ï‡§Æ‡•ç has no contractible fibre.
 ------------------------------------------------------------------------
 
 ‡§è‡§ï‡§§‡•ç‡§µ-‡§®-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø : ¬¨ ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø-‡§ï‡•ç‡§µ‡§ö‡§ø‡§§‡•ç (Œª (b : Bool) ‚Üí b)
@@ -154,10 +154,10 @@ asNat-‡§Ö‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç = asNat-‡§Ö‡§∏‡•ç‡§§‡§ø , a
     (isContr‚ÜíisProp c (fst (‡§è‡§ï‡§Æ‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø tt)) (fst (snd (‡§è‡§ï‡§Æ‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø tt))))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  Four positions lack canonical witnesses here (‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø,
--- ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, pure ‡‡µ‡ï‡‡‡µ‡‡Ø ‚î which needs an EMPTY source against an
--- inhabited codomain ‚î and the full triple).  They exist; they are left
+-- ‡•¨ ¬∑ ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É.  Four positions lack canonical witnesses here (‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø,
+-- ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø, pure ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø ‚Äî which needs an EMPTY source against an
+-- inhabited codomain ‚Äî and the full triple).  They exist; they are left
 -- as the open frame.  And the selection "none of the three" is the empty
--- selection, excluded for inhabited B exactly as Saptabhangi's ‡ï‡‡‡-‡‡‡‡
+-- selection, excluded for inhabited B exactly as Saptabhangi's ‡§ï‡•Å‡§§‡§É-‡§∏‡§™‡•ç‡§§
 -- excludes the empty combination: 2¬≥ ‚àí 1.  The count is the theorem.
 ------------------------------------------------------------------------

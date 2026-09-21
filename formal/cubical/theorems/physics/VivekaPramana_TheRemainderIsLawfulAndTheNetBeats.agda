@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ ‚î ‡¶‡ï‡‡‡ø‡‡ ‡®‡ø‡Ø‡Æ‡‡® ‡‡¶‡‡ß‡ ; ‡‡æ‡≤‡ ‡‡‡‡®‡‡¶‡‡ ‡
+-- ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ ‚Äî ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§É ‡§®‡§ø‡§Ø‡§Æ‡•á‡§® ‡§¨‡§¶‡•ç‡§ß‡§É ; ‡§ú‡§æ‡§≤‡§Ç ‡§∏‡•ç‡§™‡§®‡•ç‡§¶‡§§‡•á ‡•§
 --
 -- (the remainder is bound by a law, not merely by membership; and the
 -- net beats.)
@@ -9,35 +9,35 @@
 -- SPECIFICATION handed over whole by the owner, 2026-08-21, third pass.
 -- The advance over the second pass is one line and it is his:
 --
---     ‡‡‡∞‡Æ‡æ‡ : ‡¶‡ï‡‡‡ø‡ ‚â° (‡‡Æ + ‡µ‡æ‡Æ)
+--     ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ : ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ ‚â° (‡§∏‡§Æ + ‡§µ‡§æ‡§Æ)
 --
--- The previous ‡rma field said only "this ‡µ‡ø‡µ‡‡ï is in the image of
--- ‡‡µ‡‡∞‡".  This one says WHAT THE REMAINDER IS.  So ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ is no
--- longer a subtype carved out by membership ‚î it is the GRAPH OF +, and
--- ‚ï ó ‚ï ‚â graph(+) because a graph is a family of singletons.  The
+-- The previous ‡§™rƒÅmƒÅ·πáa field said only "this ‡§µ‡§ø‡§µ‡•á‡§ï is in the image of
+-- ‡§Ö‡§µ‡§§‡§∞‡§£".  This one says WHAT THE REMAINDER IS.  So ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ is no
+-- longer a subtype carved out by membership ‚Äî it is the GRAPH OF +, and
+-- ‚Ñï √ó ‚Ñï ‚âÉ graph(+) because a graph is a family of singletons.  The
 -- equivalence is now contentful rather than definitional, and
--- ‚ïó‚ï‚â°‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ is that content transported by univalence.
+-- ‚Ñï√ó‚Ñï‚â°‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ is that content transported by univalence.
 --
 -- TWO THINGS THE CHECKER SAID, kept because they are where the content
 -- is and not typos:
 --
--- 1. `isPropNat` does not exist and CANNOT: ‚ï is not a proposition.
---    The two ‡¶‡ï‡‡‡ø‡ values in rightInv are equal ‚î but by ‡‡‡∞‡Æ‡æ‡ itself,
---    not by any propositionality of ‚ï.  Discharged here by transporting
---    ‡¶‡ï‡‡‡ø‡ along (v .‡‡‡∞‡Æ‡æ‡), with the ‡‡‡∞‡Æ‡æ‡ component filled by
---    isProp‚íPathP over isSet‚ï.  The field pays for its own coherence.
+-- 1. `isPropNat` does not exist and CANNOT: ‚Ñï is not a proposition.
+--    The two ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ values in rightInv are equal ‚Äî but by ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ itself,
+--    not by any propositionality of ‚Ñï.  Discharged here by transporting
+--    ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ along (v .‡§™‡•ç‡§∞‡§Æ‡§æ‡§£), with the ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ component filled by
+--    isProp‚ÜíPathP over isSet‚Ñï.  The field pays for its own coherence.
 --
--- 2. `data Clock where tick : Clock ‚í Clock` has no base constructor, so
---    Clock was EMPTY and `heartbeat : Clock ‚í ‡‡æ‡≤ ‚ï` could never be
---    applied ‚î a machine specified and unreachable.  ‡‡¶‡ø added, and
---    ‡ß‡°‡º‡ï‡® = heartbeat ‡‡¶‡ø is the actual beating stream, with ‡‡‡‡∞‡‡‡Æ‡
+-- 2. `data Clock where tick : Clock ‚Üí Clock` has no base constructor, so
+--    Clock was EMPTY and `heartbeat : Clock ‚Üí ‡§ú‡§æ‡§≤ ‚Ñï` could never be
+--    applied ‚Äî a machine specified and unreachable.  ‡§Ü‡§¶‡§ø added, and
+--    ‡§ß‡§°‡§º‡§ï‡§® = heartbeat ‡§Ü‡§¶‡§ø is the actual beating stream, with ‡§ö‡§§‡•Å‡§∞‡•ç‡§•‡§Æ‡•ç
 --    computing a value out of it by refl.
 --
--- ‚ñ HERE IS NOT THE LATER MODALITY.  It is a record with `force : A`,
+-- ‚ñπ HERE IS NOT THE LATER MODALITY.  It is a record with `force : A`,
 -- i.e. the identity functor; the guarding is done by --guardedness on
--- ‡‡æ‡≤, not by ‚ñ.  Said plainly because calling it ‚ñ asserts Nakano's
--- modality and this is not that.  The real ‚ñ needs --guarded and a clock
--- (Cubical.Later), which is ABSENT FROM THE PIN (v0.9) ‚î checked, not
+-- ‡§ú‡§æ‡§≤, not by ‚ñπ.  Said plainly because calling it ‚ñπ asserts Nakano's
+-- modality and this is not that.  The real ‚ñπ needs --guarded and a clock
+-- (Cubical.Later), which is ABSENT FROM THE PIN (v0.9) ‚Äî checked, not
 -- assumed.
 --
 -- CHECKED: Agda 2.8.0, agda/cubical v0.9 (b150186), --safe, no

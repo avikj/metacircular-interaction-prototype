@@ -7,13 +7,13 @@
 -- says why it is hard: it needs EXISTENCE OF PRIME FACTORISATION, which
 -- no certificate-composition produces.  Here it is.
 --
---     factorise : (n : â•) â’ 0 < n â’ Î[ ps ] (AllPrimeL ps — (prodL ps â‰¡ n))
+--     factorise : (n : â„•) â†’ 0 < n â†’ Î£[ ps ] (AllPrimeL ps Ã— (prodL ps â‰¡ n))
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- PRIOR ART, SEARCHED FIRST
 --
 -- `CoprimeSplitting.primeDivisor` already provides the
--- atom â” `(n : â•) â’ 1 < n â’ Î[ p ] (IsPrime p — (p âˆ n))`, a fuelled
+-- atom â€” `(n : â„•) â†’ 1 < n â†’ Î£[ p ] (IsPrime p Ã— (p âˆ£ n))`, a fuelled
 -- linear search with the fuel accounted for honestly in that module's
 -- header.  Factorisation is that atom plus a descent, and the descent is
 -- the only new thing here.
@@ -21,29 +21,29 @@
 -- Seven rediscoveries were logged in this session by finding prior art at
 -- audit time.  This is the fourth in a row found before writing.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE DESCENT
 --
--- Peel a prime divisor `p` off `n`, leaving `c` with `c Â p â‰¡ n`.  Then
--- `c < n`, because `1 < p` and `0 < c` give `c < 2Âc â‰ pÂc â‰¡ n` â” and the
+-- Peel a prime divisor `p` off `n`, leaving `c` with `c Â· p â‰¡ n`.  Then
+-- `c < n`, because `1 < p` and `0 < c` give `c < 2Â·c â‰¤ pÂ·c â‰¡ n` â€” and the
 -- recursion is on `c`.  Fuel carries the termination, in the same style
 -- as `primeDivisor-fuel`, because that is this lane's idiom for searches
 -- whose bound is obvious and whose well-foundedness is not worth a
 -- separate development.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS DOES AND DOES NOT UNLOCK
 --
 -- DOES: every positive `n` is a product of primes, with the list as data.
 --
--- DOES NOT: `m âˆ prodOf (frontierList k)` for `m â‰ k`, which is the
+-- DOES NOT: `m âˆ£ prodOf (frontierList k)` for `m â‰¤ k`, which is the
 -- statement `FrontierDivides` wanted.  Getting there from a factorisation
 -- needs the list GROUPED BY PRIME with exponents compared against
--- `âŠlog_p kâ‹` â” bookkeeping, not a new idea, and not done here.  The
+-- `âŒŠlog_p kâŒ‹` â€” bookkeeping, not a new idea, and not done here.  The
 -- distinction is worth keeping sharp: the mathematical obstacle is gone,
 -- the assembly is not.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -97,7 +97,7 @@ private
   cofactor-pos (suc c) p n _   _  = suc-â‰¤-suc zero-â‰¤
 
 ------------------------------------------------------------------------
--- 3.  THE THEOREM, by fuel â” this lane's idiom for a bounded search
+-- 3.  THE THEOREM, by fuel â€” this lane's idiom for a bounded search
 ------------------------------------------------------------------------
 
 factorise-fuel : (fuel n : â„•) â†’ 0 < n â†’ n â‰¤ fuel â†’ Factorisation n
@@ -146,8 +146,8 @@ fact-12-product = fact-12 .snd .snd
 --   `FrontierDivides`                 coprime divisors multiply (Gauss)
 --   `FrontierCount`                   and the residue count is CRT
 --
--- The remaining assembly â” grouping a factorisation by prime and
--- comparing exponents to `âŠlog_p kâ‹` â” is the last thing between this
+-- The remaining assembly â€” grouping a factorisation by prime and
+-- comparing exponents to `âŒŠlog_p kâŒ‹` â€” is the last thing between this
 -- chain and `prodOf (frontierList k) â‰¡ lcm(1..k)`.  It is bookkeeping,
 -- and saying so is not the same as doing it.
 ------------------------------------------------------------------------

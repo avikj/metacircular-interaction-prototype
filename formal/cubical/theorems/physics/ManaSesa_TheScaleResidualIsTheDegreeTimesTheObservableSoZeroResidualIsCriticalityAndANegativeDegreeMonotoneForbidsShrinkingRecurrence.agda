@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���-��� � the measure's remainder.
+-- मान-शेष — the measure's remainder.
 --
 -- THE SCALE RESIDUAL OF A HOMOGENEOUS OBSERVABLE IS ITS DEGREE, TIMES
 -- ITSELF.  So "critical" is not a name for a coincidence of exponents:
@@ -15,18 +15,18 @@
 --
 -- and is careful that without a declared predictor there is behaviour
 -- but no preferred origin for its second coordinate.  This module
--- declares the naive predictor � `predict = id`, "the action changes
--- nothing" � and asks what the residual is when the action instead
+-- declares the naive predictor — `predict = id`, "the action changes
+-- nothing" — and asks what the residual is when the action instead
 -- scales the observable by a fixed factor `c`:
 --
---   §1  residual x  ≡  (c - 1) � q x .
+--   §1  residual x  ≡  (c - 1) · q x .
 --
 --       The residual is supported entirely on the observable itself,
 --       with the whole content of the action in one ring element.  For
---       a quantity of scaling degree � under one contraction by q, that
---       element is `q^� - 1`, which is what makes §2 say what it says.
+--       a quantity of scaling degree α under one contraction by q, that
+--       element is `q^α - 1`, which is what makes §2 say what it says.
 --
---   §2  c ≡ 1  �  the residual vanishes identically;
+--   §2  c ≡ 1  ⟹  the residual vanishes identically;
 --
 --   §3  and conversely, at any state where the observable is nonzero and
 --       in a ring without zero divisors, a vanishing residual forces
@@ -39,36 +39,36 @@
 --       else.  Both hypotheses in §3 are necessary and both are carried:
 --       at `q x ≡ 0` the residual vanishes for every `c` whatsoever.
 --
--- AND THE CONSEQUENCE FOR A SHRINKING RECURRENCE, over � where the order
+-- AND THE CONSEQUENCE FOR A SHRINKING RECURRENCE, over ℕ where the order
 -- lives:
 --
---   §4  if the observable is EXACTLY recurrent under the action �
---       q (step x) ≡ k � q x � and also nonincreasing along it, then at
+--   §4  if the observable is EXACTLY recurrent under the action —
+--       q (step x) ≡ k · q x — and also nonincreasing along it, then at
 --       any state where it is positive, `k` cannot exceed 1.
 --
 --       Read at a renormalization step: a positive functional that never
 --       increases in physical time cannot have a scale degree that makes
 --       it grow under rescaling.  A cascade recurring at ever smaller
---       scale is killed by ANY such functional of the wrong degree � one
+--       scale is killed by ANY such functional of the wrong degree — one
 --       does not need it to be an energy, an invariant, or a norm.
 --
 --   §5  and at degree exactly one, the same pair of hypotheses forbids
 --       STRICT decrease: exact recurrence and strict monotonicity cannot
 --       both hold.
 --
--- WHY THIS IS NOT A METAPHOR.  §§1�3 are `ActionResidual`'s residual,
--- imported and computed, not a rephrasing of it; §§4�5 are the order
+-- WHY THIS IS NOT A METAPHOR.  §§1–3 are `ActionResidual`'s residual,
+-- imported and computed, not a rephrasing of it; §§4–5 are the order
 -- statements the residual's sign would carry if the ring were ordered,
--- stated over � where it is.
+-- stated over ℕ where it is.
 --
--- SYT � THE CLAIM, EXACTLY.  §1 and §2 in any ring, for any state type,
+-- SYĀT — THE CLAIM, EXACTLY.  §1 and §2 in any ring, for any state type,
 -- observable, action, and factor satisfying the homogeneity equation.
 -- §3 additionally under absence of zero divisors and nonvanishing of the
--- observable at the state in question.  §§4�5 over �, for every state
+-- observable at the state in question.  §§4–5 over ℕ, for every state
 -- type, observable, action and factor.  NOT claimed: that any concrete
--- functional is homogeneous, monotone, or positive � all three are
--- hypotheses; anything about �, about exponents `�` as numbers, or about
--- `q^�` � `c` is a ring element and no exponentiation occurs; anything
+-- functional is homogeneous, monotone, or positive — all three are
+-- hypotheses; anything about ℝ, about exponents `α` as numbers, or about
+-- `q^α` — `c` is a ring element and no exponentiation occurs; anything
 -- about existence of a recurrent orbit, which §4 refutes only under its
 -- hypotheses and never constructs; and nothing about which functionals a
 -- particular dynamics admits, which is the whole remaining question and
@@ -132,7 +132,7 @@ module _ (R : Ring ℓ) where
       using (residual)
 
     ------------------------------------------------------------------
-    -- � � THE RESIDUAL IS THE DEGREE TIMES THE OBSERVABLE.
+    -- १ · THE RESIDUAL IS THE DEGREE TIMES THE OBSERVABLE.
     ------------------------------------------------------------------
 
     residual-is-the-degree : (x : X) → residual x ≡ (c + (- 1r)) · q x
@@ -146,7 +146,7 @@ module _ (R : Ring ℓ) where
         (c + (- 1r)) · q x ∎
 
     ------------------------------------------------------------------
-    -- � � DEGREE ZERO KILLS THE RESIDUAL EVERYWHERE.
+    -- २ · DEGREE ZERO KILLS THE RESIDUAL EVERYWHERE.
     ------------------------------------------------------------------
 
     critical→no-residual : c ≡ 1r → (x : X) → residual x ≡ 0r
@@ -157,7 +157,7 @@ module _ (R : Ring ℓ) where
       ∙ 0LeftAnnihilates (q x)
 
     ------------------------------------------------------------------
-    -- � � AND CONVERSELY, AWAY FROM THE OBSERVABLE'S ZERO LOCUS.
+    -- ३ · AND CONVERSELY, AWAY FROM THE OBSERVABLE'S ZERO LOCUS.
     ------------------------------------------------------------------
 
     no-residual→critical :
@@ -178,7 +178,7 @@ module _ {X : Type ℓ'} (q : X → ℕ) (step : X → X) (k : ℕ)
          where
 
   --------------------------------------------------------------------
-  -- � � A POSITIVE NONINCREASING OBSERVABLE FORBIDS k > 1.
+  -- ४ · A POSITIVE NONINCREASING OBSERVABLE FORBIDS k > 1.
   --------------------------------------------------------------------
 
   wrong-degree-forbids-recurrence : (x : X) → 0 < q x → ¬ (1 < k)
@@ -195,7 +195,7 @@ module _ {X : Type ℓ'} (q : X → ℕ) (step : X → X) (k : ℕ)
                  (<-·sk {k = fst w} h))
 
   --------------------------------------------------------------------
-  -- � � AND AT DEGREE ONE, STRICT DECREASE IS EXCLUDED TOO.
+  -- ५ · AND AT DEGREE ONE, STRICT DECREASE IS EXCLUDED TOO.
   --------------------------------------------------------------------
 
   critical-degree-forbids-strict-decrease :

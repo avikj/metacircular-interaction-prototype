@@ -52,7 +52,7 @@ module _ {X : Type ℓ} {C : Type ℓ'} (α : X ≃ X) (P : X → C) where
   act : X → X
   act = equivFun α
 
-  -- ��, written so that `step (suc n) x` is `step n (act x)`.
+  -- αⁿ, written so that `step (suc n) x` is `step n (act x)`.
   step : ℕ → X → X
   step zero    x = x
   step (suc n) x = step n (act x)
@@ -68,11 +68,11 @@ module _ {X : Type ℓ} {C : Type ℓ'} (α : X ≃ X) (P : X → C) where
   ~-refines : (x y : X) → x ~ y → P x ≡ P y
   ~-refines x y h = h zero
 
-  -- (ii) it is �-invariant
+  -- (ii) it is α-invariant
   ~-invariant : (x y : X) → x ~ y → act x ~ act y
   ~-invariant x y h n = h (suc n)
 
-  -- (iii) it is the coarsest such: any �-invariant relation refining P
+  -- (iii) it is the coarsest such: any α-invariant relation refining P
   --       is contained in it.
   ~-coarsest : (R : X → X → Type ℓ'')
     → ((u v : X) → R u v → P u ≡ P v)
@@ -98,11 +98,11 @@ module _ {X : Type ℓ} {C : Type ℓ'} (α : X ≃ X) (P : X → C) where
   -- the separating-point condition
   ------------------------------------------------------------------
 
-  -- "{x�} is a singleton class of P"
+  -- "{x₀} is a singleton class of P"
   isSeparating : X → Type (ℓ-max ℓ ℓ')
   isSeparating x₀ = (x : X) → P x ≡ P x₀ → x ≡ x₀
 
-  -- Theorem G�.  Every state whose �-orbit meets a separating point is a
+  -- Theorem G′.  Every state whose α-orbit meets a separating point is a
   -- ~-singleton.  No transitivity, no finiteness, no decidability.
   orbit-separates :
       (x₀ : X) → isSeparating x₀
@@ -112,12 +112,12 @@ module _ {X : Type ℓ} {C : Type ℓ'} (α : X ≃ X) (P : X → C) where
   orbit-separates x₀ sing x y x~y n hit =
     step-inj n (hit ∙ sym (sing (step n y) (sym (x~y n) ∙ cong P hit)))
 
-  -- "⟨�⟩ reaches x� from every state" � for a bijection of a finite set this
-  -- is exactly transitivity of the cyclic group ⟨�⟩.
+  -- "⟨α⟩ reaches x₀ from every state" — for a bijection of a finite set this
+  -- is exactly transitivity of the cyclic group ⟨α⟩.
   reaches : X → Type ℓ
   reaches x₀ = (x : X) → Σ ℕ (λ n → step n x ≡ x₀)
 
-  -- Corollary.  Singleton class + transitive invertible action � the
+  -- Corollary.  Singleton class + transitive invertible action ⇒ the
   -- persistent carrier is discrete: maximal correction cost.
   discrete-of-transitive :
       (x₀ : X) → isSeparating x₀ → reaches x₀
@@ -129,7 +129,7 @@ module _ {X : Type ℓ} {C : Type ℓ'} (α : X ≃ X) (P : X → C) where
   -- the opposite pole: cost zero
   ------------------------------------------------------------------
 
-  -- If P is already an �-congruence ("� is sound"), the closure is P.
+  -- If P is already an α-congruence ("α is sound"), the closure is P.
   sound-collapses :
       ((u v : X) → P u ≡ P v → P (act u) ≡ P (act v))
     → (x y : X) → P x ≡ P y → x ~ y

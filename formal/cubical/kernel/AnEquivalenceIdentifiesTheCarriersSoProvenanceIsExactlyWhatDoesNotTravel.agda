@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- AnEquivalenceIdentifiesTheCarriersSoProvenanceIsExactlyWhatDoesNotTravel
 --
--- TERM.  ‡‡‡ï‡‡∞‡Æ‡ ¬ sakramaa -- a crossing over, a passing from one place
+-- TERM.  ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£ ¬∑ sa·πÉkrama·πáa -- a crossing over, a passing from one place
 -- to another.  Ordinary ; no technical stra is claimed and the
 -- provenance ledger has no row for it.  It is used here because it is the
 -- word `interactive/`'s running machine already uses for this exact act,
--- and the second word below, ‡µ‡‡Ø‡Ø ¬ vyaya (expenditure, what is spent), is
+-- and the second word below, ‡§µ‡•ç‡§Ø‡§Ø ¬∑ vyaya (expenditure, what is spent), is
 -- that machine's word for the other half.
 --
 ------------------------------------------------------------------------
@@ -15,7 +15,7 @@
 --
 -- The task text asked for `transport (ua e)` between two peers holding one
 -- object in different representations, retaining the triple (a , e , b).
--- Written from that alone this file would have had ONE relation, `A ‚â B`,
+-- Written from that alone this file would have had ONE relation, `A ‚âÉ B`,
 -- and would have been wrong in a way that is invisible from inside it.
 --
 -- Turning the machine instead -- `sh interactive/run-yantra.sh --wire` --
@@ -35,9 +35,9 @@
 --
 --   2. IDENTIFICATION IS GRADED, IN THREE, AND THE COARSEST IS NEARLY
 --      EMPTY.  `interactive/StandpointStore.hs` lines 36-42:
---          ‡‡‡‡Ø  satya  -- inhabited or not.  Coarsest.
---          ‡‡∞‡‡  artha  -- the set of witness labels.
---          ‡Æ‡‡≤   mla   -- the same labels FROM THE SAME SOURCES.
+--          ‡§∏‡§§‡•ç‡§Ø  satya  -- inhabited or not.  Coarsest.
+--          ‡§Ö‡§∞‡•ç‡§•  artha  -- the set of witness labels.
+--          ‡§Æ‡•Ç‡§≤   m≈´la   -- the same labels FROM THE SAME SOURCES.
 --      and the store, asked to relate two representations, answered
 --      `satyaikya` and said why it reports that as a COUNT and not as an
 --      index: "truth-value agreement is nearly universal and therefore
@@ -52,9 +52,9 @@
 -- SO THE CONTENT OF THIS FILE IS THE MIDDLE FACT, AND IT IS EXACT IN TYPE
 -- THEORY.  The three grades are three strengths of identification:
 --
---     Satya A B   =  ‚à A ‚à‚ ‚â ‚à B ‚à‚        both inhabited, or neither
---     Artha A B   =  A ‚â B                   the carriers identified
---     Mula  pA pB e = (a : A) ‚í pB (e a) ‚â° pA a    and the SOURCES agree
+--     Satya A B   =  ‚à• A ‚à•‚ÇÅ ‚âÉ ‚à• B ‚à•‚ÇÅ        both inhabited, or neither
+--     Artha A B   =  A ‚âÉ B                   the carriers identified
+--     Mula  pA pB e = (a : A) ‚Üí pB (e a) ‚â° pA a    and the SOURCES agree
 --
 -- `ua` and `transport` deliver ARTHA.  ¬ß3 proves satya is strictly weaker
 -- than artha, and ¬ß4 proves ARTHA IS STRICTLY WEAKER THAN MLA -- one
@@ -79,7 +79,7 @@
 --   ¬ß6  NO THIRD ROAD.  `Uttara` has two constructors and the interaction
 --       is total; there is no `Maybe`, no error, and no silent case.
 --   ¬ß7  the fixed-representation encounter is the identity instance, so
---       `TheEncounterOfTwoPeers‚¶` is this file at `e = idEquiv`.
+--       `TheEncounterOfTwoPeers‚Ä¶` is this file at `e = idEquiv`.
 --
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0.
 ------------------------------------------------------------------------
@@ -128,7 +128,7 @@ Mula : {A : Type ‚Ñì} {B : Type ‚Ñì'} {G : Type ‚Ñì''}
   ‚Üí (A ‚Üí G) ‚Üí (B ‚Üí G) ‚Üí Artha A B ‚Üí Type (‚Ñì-max ‚Ñì ‚Ñì'')
 Mula {A = A} pA pB e = (a : A) ‚Üí pB (equivFun e a) ‚â° pA a
 
--- MLA ‚í ARTHA is by construction: `Mula` is a field OVER an `Artha`, and
+-- M≈™LA ‚áí ARTHA is by construction: `Mula` is a field OVER an `Artha`, and
 -- that is not an accident of the encoding -- there is nothing for sources
 -- to correspond along until the carriers are identified.
 mula-carries-its-artha :
@@ -136,7 +136,7 @@ mula-carries-its-artha :
   (pA : A ‚Üí G) (pB : B ‚Üí G) (e : Artha A B) ‚Üí Mula pA pB e ‚Üí Artha A B
 mula-carries-its-artha pA pB e _ = e
 
--- ARTHA ‚í SATYA, and it costs nothing: an equivalence descends to the
+-- ARTHA ‚áí SATYA, and it costs nothing: an equivalence descends to the
 -- truncations because both sides are propositions.
 artha-gives-satya : {A : Type ‚Ñì} {B : Type ‚Ñì'} ‚Üí Artha A B ‚Üí Satya A B
 artha-gives-satya e =
@@ -278,10 +278,10 @@ carrying-is-faithful :
 carrying-is-faithful e a = refl
 
 -- THE ENDS DO NOT DETERMINE THE MIDDLE, and the sharp form is that even
--- KNOWING a route exists does not give you one.  `HidingAndHardness‚¶` ¬ß6:
+-- KNOWING a route exists does not give you one.  `HidingAndHardness‚Ä¶` ¬ß6:
 -- extraction from an existence forces the witness to be unique.  Routes
 -- between two representations are not unique -- `Bool` has two -- so the
--- extraction fails, and a peer holding `‚à Artha A B ‚à‚` holds strictly less
+-- extraction fails, and a peer holding `‚à• Artha A B ‚à•‚ÇÅ` holds strictly less
 -- than a peer holding the equivalence.
 routes-are-not-unique : (idEquiv Bool ‚â° notEquiv) ‚Üí ‚ä•
 routes-are-not-unique p = true‚â¢false (cong (Œª q ‚Üí equivFun q true) p)
@@ -339,7 +339,7 @@ no-third-road (dosalekha d)  = inr (d , refl)
 ------------------------------------------------------------------------
 -- ¬ß7.  THE FIXED-REPRESENTATION CASE IS THE IDENTITY INSTANCE.
 --
--- `TheEncounterOfTwoPeers‚¶` has both peers holding `Tm`.  That is this file
+-- `TheEncounterOfTwoPeers‚Ä¶` has both peers holding `Tm`.  That is this file
 -- at `e = idEquiv`, which is why nothing there mentions transport: the
 -- transport was there, and it was trivial, and a trivial transport is
 -- exactly the one whose `vyaya` is invisible.

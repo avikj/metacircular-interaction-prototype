@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-��� � the common source.
+-- समान-मूल — the common source.
 --
 -- IF THE COMMUTATOR WITH A DIRECTION MOVES THE SOURCE, THEN IT MOVES IT
 -- AGAIN, AND SUMMING THE DOUBLED COMMUTATOR OVER THE DIRECTIONS PUTS THE
@@ -11,29 +11,29 @@
 -- differentiating it in a direction is the same as differentiating the
 -- state it was built from:
 --
---     [ D , Π u ]  ≡  Π (� u) .
+--     [ D , Π u ]  ≡  Π (∂ u) .
 --
 -- That single equation is the whole hypothesis of this module.  It is
--- not derived here � it is what a source-linear construction supplies,
+-- not derived here — it is what a source-linear construction supplies,
 -- and it is carried in the open as a parameter.
 --
 -- What is proved is that the equation ITERATES, and what iteration buys:
 --
---   §1  the inner commutator `ad D` is a derivation of the ring � it is
+--   §1  the inner commutator `ad D` is a derivation of the ring — it is
 --       additive, and it satisfies Leibniz for the ring product.  Both
 --       from the ring axioms, with no hypothesis on `D` whatsoever.
 --
---   §2  ad D ^ n (Π u) ≡ Π (� ^ n u) , every n .
+--   §2  ad D ^ n (Π u) ≡ Π (∂ ^ n u) , every n .
 --
---   §3  in particular [ D , [ D , Π u ] ] ≡ Π (� (� u)) : the doubled
+--   §3  in particular [ D , [ D , Π u ] ] ≡ Π (∂ (∂ u)) : the doubled
 --       commutator sees the SECOND derivative of the source and nothing
---       else.  No first-order term survives, and no cross term appears �
+--       else.  No first-order term survives, and no cross term appears —
 --       the source slot is linear, so there is no product to cross.
 --
---   §4  and therefore, summing over a family of directions D� with
---       matching ��, and with `Π` additive,
+--   §4  and therefore, summing over a family of directions Dⱼ with
+--       matching ∂ⱼ, and with `Π` additive,
 --
---         �� [ D� , [ D� , Π u ] ]  ≡  Π ( �� �� (�� u) ) ,
+--         Σⱼ [ Dⱼ , [ Dⱼ , Π u ] ]  ≡  Π ( Σⱼ ∂ⱼ (∂ⱼ u) ) ,
 --
 --       which is the Laplacian statement: the second-order transport of
 --       the operator is the operator at the Laplacian of its source.
@@ -42,11 +42,11 @@
 --
 --   §5  the PRODUCT is where a cross term does appear, and §1 hands the
 --       computation straight to `DvitiyaLeibniz`.  Instantiating that
---       module's second-order defect at `d := ad D` and `br := _�_`, and
+--       module's second-order defect at `d := ad D` and `br := _·_`, and
 --       then rewriting every occurrence by covariance:
 --
---         ( ad² (Π u � Π v)  ⊖  Π u � Π (� (� v)) )  ⊖  Π (� (� u)) � Π v
---           ≡  Π (� u) � Π (� v)  +  Π (� u) � Π (� v) .
+--         ( ad² (Π u · Π v)  ⊖  Π u · Π (∂ (∂ v)) )  ⊖  Π (∂ (∂ u)) · Π v
+--           ≡  Π (∂ u) · Π (∂ v)  +  Π (∂ u) · Π (∂ v) .
 --
 --       So the whole second-order defect of a product of two covariant
 --       operators is carried by the pair of ONCE-differentiated sources,
@@ -58,20 +58,20 @@
 -- nothing about where such a `d` comes from.  §1 supplies one: in ANY
 -- ring, every element `D` generates a derivation by commutation.  So the
 -- second-order defect theorem applies to transport by a direction with
--- no further hypothesis � the derivation property is not an assumption
+-- no further hypothesis — the derivation property is not an assumption
 -- about the physics, it is a fact about rings.
 --
--- SYT � THE CLAIM, EXACTLY.  §1 in an arbitrary ring, for every `D`.
--- §§2�3 for every state type, every `Π`, every `�`, and every `D`
+-- SYĀT — THE CLAIM, EXACTLY.  §1 in an arbitrary ring, for every `D`.
+-- §§2–3 for every state type, every `Π`, every `∂`, and every `D`
 -- satisfying the displayed covariance equation.  §4 additionally for a
 -- family of directions each with its own covariance, and for `Π`
--- additive � additivity is a hypothesis, carried, not discharged.  §5
+-- additive — additivity is a hypothesis, carried, not discharged.  §5
 -- for every pair of states.  NOT claimed: that any particular `Π` is
 -- covariant, which is the modelling step and happens elsewhere; nothing
--- about the Jacobi identity, about Lie�Poisson structure, or about any
--- naturality of `Π` under a flow; nothing about �, positivity, or any
--- analytic estimate; no self-adjointness � `�` does not appear in this
--- file; and no equation of motion � `�` here is a direction, not time.
+-- about the Jacobi identity, about Lie–Poisson structure, or about any
+-- naturality of `Π` under a flow; nothing about ℝ, positivity, or any
+-- analytic estimate; no self-adjointness — `†` does not appear in this
+-- file; and no equation of motion — `∂` here is a direction, not time.
 ------------------------------------------------------------------------
 
 module SamanaMula_TranslationCovarianceIteratesSoTheSummedDoubleCommutatorIsTheSourcesLaplacianAndTheProductDefectIsTheDifferentiatedPair where
@@ -113,14 +113,14 @@ module _ (R : Ring ℓ) where
         a + (- b) ∎
 
   --------------------------------------------------------------------
-  -- � � Transport in a direction: the inner commutator.
+  -- ० · Transport in a direction: the inner commutator.
   --------------------------------------------------------------------
 
   ad : A → A → A                          -- ad D x = [ D , x ]
   ad D x = (D · x) ⊖ (x · D)
 
   --------------------------------------------------------------------
-  -- � � EVERY DIRECTION IS A DERIVATION.  No hypothesis on `D`.
+  -- १ · EVERY DIRECTION IS A DERIVATION.  No hypothesis on `D`.
   --------------------------------------------------------------------
 
   ad-+ : (D x y : A) → ad D (x + y) ≡ ad D x + ad D y
@@ -183,7 +183,7 @@ module _ (R : Ring ℓ) where
       ∂Pow (suc n) u = ∂ (∂Pow n u)
 
       ----------------------------------------------------------------
-      -- � � COVARIANCE ITERATES, at every order.
+      -- २ · COVARIANCE ITERATES, at every order.
       ----------------------------------------------------------------
 
       covariance-iterates : (n : ℕ) (u : U) → adPow n (Π u) ≡ Π (∂Pow n u)
@@ -192,14 +192,14 @@ module _ (R : Ring ℓ) where
         cong (ad D) (covariance-iterates n u) ∙ cov (∂Pow n u)
 
       ----------------------------------------------------------------
-      -- � � THE DOUBLED COMMUTATOR IS THE SECOND MOTION OF THE SOURCE.
+      -- ३ · THE DOUBLED COMMUTATOR IS THE SECOND MOTION OF THE SOURCE.
       ----------------------------------------------------------------
 
       doubled-commutator : (u : U) → ad D (ad D (Π u)) ≡ Π (∂ (∂ u))
       doubled-commutator u = covariance-iterates 2 u
 
       ----------------------------------------------------------------
-      -- � � THE PRODUCT DEFECT.  §1 makes `ad D` a derivation, so
+      -- ५ · THE PRODUCT DEFECT.  §1 makes `ad D` a derivation, so
       --     `DvitiyaLeibniz` applies verbatim; covariance then converts
       --     every term into the source language.
       ----------------------------------------------------------------
@@ -251,7 +251,7 @@ module _ (R : Ring ℓ) where
       double-at j u = cong (ad (D j)) (cov j u) ∙ cov j (∂ j u)
 
       ----------------------------------------------------------------
-      -- � � THE SUMMED DOUBLE COMMUTATOR IS THE SOURCE'S LAPLACIAN.
+      -- ४ · THE SUMMED DOUBLE COMMUTATOR IS THE SOURCE'S LAPLACIAN.
       ----------------------------------------------------------------
 
       laplacian-covariance : (k : ℕ) (u : U)

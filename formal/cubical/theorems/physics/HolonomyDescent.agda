@@ -12,21 +12,21 @@
 --                 orbit quotient X / OrbitRel erases the path by which
 --                 a presentation was reached.  A set-valued task
 --                 descends iff it is invariant under every generated
---                 holonomy, and the descent is unique � stated here as
+--                 holonomy, and the descent is unique — stated here as
 --                 an isContr, fusing Lean's factors_through_orbit_iff
 --                 with orbit_factor_unique.  Effectivity: the path
 --                 space of the quotient at two named presentations IS
 --                 the mere orbit relation (orbitPathTruncIso; the
---                 group laws enter only here and in orbitMk-�).
+--                 group laws enter only here and in orbitMk-▸).
 --
 --   Coinvariants  the additive half.  Lean builds
 --                 `differenceSubgroup := AddSubgroup.closure
---                 {g � x - x}` and quotients the group by it, spending
+--                 {g • x - x}` and quotients the group by it, spending
 --                 its whole second half on closure_le / ker /
 --                 QuotientAddGroup.lift / addMonoidHom_ext.  Here the
 --                 HIT set quotient by the RAW generator relation
---                    DiffRel a b = � g x. a ≡ b + ((g � x) - x)
---                 (not an equivalence relation � transitivity fails,
+--                    DiffRel a b = Σ g x. a ≡ b + ((g ▸ x) - x)
+--                 (not an equivalence relation — transitivity fails,
 --                 and none is needed) generates the closure for free:
 --                 eq/ on generators is the subgroup, _+Q_ descends by
 --                 SQ.rec2 because DiffRel is translation-invariant,
@@ -34,29 +34,29 @@
 --                 SQ.elimProp each.  Success test from the port map
 --                 holds: NO closure lemma appears anywhere below.
 --
--- Signature ledger (Lean name � this module):
---   orbitSetoid                        � OrbitRel (raw �, no setoid)
---   OrbitSet / orbitMk                 � OrbitSet / orbitMk
---   orbitMk_smul                       � orbitMk-�
---   factors_through_orbit_iff          � factors�invariant,
---                                        invariant�factors (descend)
---   orbit_factor_unique                � descend-contr   (isContr � �!)
---   �  (unstated in Lean)              � orbitPathTruncIso (effectivity)
---   differenceSubgroup + quotient      � DiffRel, Coinv (one HIT)
---   coinvariantMk (�+)                 � coinvMk, coinvMkHom
---   coinvariantMk_smul                 � coinvMk-�
---   addHom_factors_through_�_iff       � homFactors�invariant,
---                                        invariant�homFactors (descendHom)
---   coinvariant_factor_unique          � descendHom-contr (isContr � �!)
---   �  (Lean: instance resolution)     � CoinvAbGroup, 0Q/_+Q_/-Q_
+-- Signature ledger (Lean name → this module):
+--   orbitSetoid                        → OrbitRel (raw Σ, no setoid)
+--   OrbitSet / orbitMk                 → OrbitSet / orbitMk
+--   orbitMk_smul                       → orbitMk-▸
+--   factors_through_orbit_iff          → factors→invariant,
+--                                        invariant→factors (descend)
+--   orbit_factor_unique                → descend-contr   (isContr ≥ ∃!)
+--   —  (unstated in Lean)              → orbitPathTruncIso (effectivity)
+--   differenceSubgroup + quotient      → DiffRel, Coinv (one HIT)
+--   coinvariantMk (→+)                 → coinvMk, coinvMkHom
+--   coinvariantMk_smul                 → coinvMk-▸
+--   addHom_factors_through_…_iff       → homFactors→invariant,
+--                                        invariant→homFactors (descendHom)
+--   coinvariant_factor_unique          → descendHom-contr (isContr ≥ ∃!)
+--   —  (Lean: instance resolution)     → CoinvAbGroup, 0Q/_+Q_/-Q_
 --
 -- Deltas against the port-map spec (§3.2), all strengthenings:
---   * The coinvariants half needs ONLY the additivity axiom �-hom
---     (g � (x + y) ≡ g � x + g � y): the unit and composition laws of
+--   * The coinvariants half needs ONLY the additivity axiom ▸-hom
+--     (g ▸ (x + y) ≡ g ▸ x + g ▸ y): the unit and composition laws of
 --     the action are never used, so they are not hypotheses.  Lean's
 --     [DistribMulAction G A] carries both; the port drops them.
 --   * descend/descendHom uniqueness is stated as isContr of the full
---     factorization data, which is strictly stronger than Lean's �!
+--     factorization data, which is strictly stronger than Lean's ∃!
 --     (it includes uniqueness of the commuting homotopy).
 --   * The AbGroup structure on the coinvariants is exhibited
 --     (CoinvAbGroup), where Lean leaves it to instance resolution.
@@ -66,9 +66,9 @@
 -- Honesty note on the map's "port is shorter" thesis: the CLOSURE
 -- APPARATUS is gone as predicted (this file contains no subgroup, no
 -- closure, no ker, no lift), but the raw file is ~194 code lines vs
--- Lean's ~99.  The excess is (i) content Lean does not prove �
+-- Lean's ~99.  The excess is (i) content Lean does not prove —
 -- CoinvAbGroup with its laws, coinvMkHom, effectivity, the isContr
--- strengthenings, �-0/�-neg � and (ii) a real cost the map missed:
+-- strengthenings, ▸-0/▸-neg — and (ii) a real cost the map missed:
 -- Lean's AddSubgroup.closure is closed under negation FOR FREE, while
 -- the raw generator relation needs the explicit diffNeg lemma before
 -- -Q_ descends.  Statement-for-statement against Lean's theorem set
@@ -163,7 +163,7 @@ module Orbit {ℓg ℓx : Level} (G : Group ℓg) {X : Type ℓx}
       → Invariant task → Factors task
     invariant→factors setY task tinv = descend setY task tinv , λ x → refl
 
-    -- Lean: orbit_factor_unique, strengthened from �! to isContr of the
+    -- Lean: orbit_factor_unique, strengthened from ∃! to isContr of the
     -- full factorization data.
     descend-contr : (setY : isSet Y) (task : X → Y) → Invariant task
       → isContr (Factors task)
@@ -304,7 +304,7 @@ module Coinvariants {ℓg ℓa : Level} (G : Group ℓg) (A : AbGroup ℓa)
     (SQ.elimProp (λ _ → squash/ _ _) (λ a → cong [_] (+InvR a)))
     (SQ.elimProp2 (λ _ _ → squash/ _ _) (λ a b → cong [_] (+Comm a b)))
 
-  -- The projection is an additive map (Lean: coinvariantMk : A �+ �);
+  -- The projection is an additive map (Lean: coinvariantMk : A →+ …);
   -- here its homomorphism law is refl.
   coinvMkHom : AbGroupHom A CoinvAbGroup
   coinvMkHom .fst = coinvMk
@@ -335,7 +335,7 @@ module Coinvariants {ℓg ℓa : Level} (G : Group ℓg) (A : AbGroup ℓa)
     homFactors→invariant f (d , comm) g x =
       sym (comm (g ▸ x)) ∙ cong (d .fst) (coinvMk-▸ g x) ∙ comm x
 
-    -- An invariant additive map kills each generator � this single
+    -- An invariant additive map kills each generator — this single
     -- computation replaces Lean's closure_le-into-ker argument.
     private
       kills : (f : AbGroupHom A B) → HomInvariant f
@@ -351,7 +351,7 @@ module Coinvariants {ℓg ℓa : Level} (G : Group ℓg) (A : AbGroup ℓa)
         where open IsGroupHom (f .snd)
 
     -- Lean: addHom_factors_through_coinvariants_iff, backward
-    -- (QuotientAddGroup.lift � SQ.rec; the β-rule is refl).
+    -- (QuotientAddGroup.lift → SQ.rec; the β-rule is refl).
     descendHom : (f : AbGroupHom A B) → HomInvariant f
       → AbGroupHom CoinvAbGroup B
     descendHom f finv .fst = SQ.rec isSetB (f .fst) (kills f finv)
@@ -366,8 +366,8 @@ module Coinvariants {ℓg ℓa : Level} (G : Group ℓg) (A : AbGroup ℓa)
       → HomInvariant f → HomFactors f
     invariant→homFactors f finv = descendHom f finv , λ x → refl
 
-    -- Lean: coinvariant_factor_unique (addMonoidHom_ext � SQ.elimProp),
-    -- strengthened from �! to isContr of the factorization data.
+    -- Lean: coinvariant_factor_unique (addMonoidHom_ext → SQ.elimProp),
+    -- strengthened from ∃! to isContr of the factorization data.
     descendHom-contr : (f : AbGroupHom A B) → HomInvariant f
       → isContr (HomFactors f)
     descendHom-contr f finv .fst = invariant→homFactors f finv
@@ -379,7 +379,7 @@ module Coinvariants {ℓg ℓa : Level} (G : Group ℓg) (A : AbGroup ℓa)
     -- The universal property as a reversible machine interface.  A
     -- factorisation program and a holonomy-invariance certificate contain
     -- exactly the same information: each side is proposition-valued, while
-    -- invariant�homFactors constructs the unique executable factor.
+    -- invariant→homFactors constructs the unique executable factor.
     isPropHomInvariant : (f : AbGroupHom A B) → isProp (HomInvariant f)
     isPropHomInvariant f = isPropΠ (λ g → isPropΠ (λ x → isSetB _ _))
 

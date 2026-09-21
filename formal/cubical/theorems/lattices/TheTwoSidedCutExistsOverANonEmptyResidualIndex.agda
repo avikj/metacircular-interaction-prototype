@@ -8,40 +8,40 @@
 -- term applies and none is invented, per CLAUDE.md's naming guard.
 -- Checked the priority ledger and the frame file before naming.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `TheTwoSidedProfileCutNeedsTheBurdensAsAProfile` built the left
 -- adjoint for a matrix of burdens (`UpP`) and located the obstruction
 -- to the right adjoint: with NO rows the constraint is vacuous and the
--- required meet is `âˆž`.  It named the remaining step â” fold `maxP`
+-- required meet is `âˆž`.  It named the remaining step â€” fold `maxP`
 -- over a non-empty row list and prove the two halves.  Done here.
 --
 -- WHAT IS PROVED
 --
---   _â‰¼p_        pointwise `â‰` on the RESIDUAL side.  It is NOT `_âŠp_`:
---               the burden side is ordered by reverse pointwise `â‰`
+--   _â‰¼p_        pointwise `â‰¤` on the RESIDUAL side.  It is NOT `_âŠ‘p_`:
+--               the burden side is ordered by reverse pointwise `â‰¤`
 --               (more burden absorbed is lower), and writing both sides
 --               with the same symbol is exactly how the sign error on
 --               this line happened once before
 --   dnNE        the right adjoint over a non-empty residual index:
---               componentwise `maxµ (bµâ¼ âˆ Ïˆµ)`, by structural
---               recursion on the row list â” no accumulator, so the
+--               componentwise `maxáµ¢ (báµ¢â±¼ âˆ¸ Ïˆáµ¢)`, by structural
+--               recursion on the row list â€” no accumulator, so the
 --               induction is the obvious one
---   goFwdNE     `Ï âŠp dnNE bs Ïˆ â’ UpP bs Ï â‰¼p Ïˆ`
+--   goFwdNE     `Ï† âŠ‘p dnNE bs Ïˆ â†’ UpP bs Ï† â‰¼p Ïˆ`
 --   goBwdNE     and back
 --
 -- **SO THE TWO-SIDED CUT EXISTS, AND THE EMPTY CASE IS THE ONLY THING
--- MISSING.**  `dnNE` takes the row list in `j âˆ js` form, so the type
--- itself records that a residual index must exist; over `â• âŠ âˆž` the
+-- MISSING.**  `dnNE` takes the row list in `j âˆ· js` form, so the type
+-- itself records that a residual index must exist; over `â„• âŠŽ âˆž` the
 -- empty case would be `âˆž` and the restriction would lift.  Nothing
 -- here adjoins `âˆž`.
 --
 -- **WHAT MADE IT ROUTINE**: `maxP`'s three laws, proved last cycle.
--- `maxP-âŠË¡`/`maxP-âŠÊ³` split a hypothesis about the fold into per-row
+-- `maxP-âŠ‘Ë¡`/`maxP-âŠ‘Ê³` split a hypothesis about the fold into per-row
 -- hypotheses, `maxP-least` reassembles the conclusion, and each row is
 -- then the one-sided `goFwdV`/`goBwdV` unchanged.  The fold direction
 -- never had to be chosen: structural recursion on `Rows` gives it.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -80,7 +80,7 @@ dnNE j (i âˆ· js) ks (b , bs) (Ïˆ , Ïˆs) =
   maxP ks (dnV ks b Ïˆ) (dnNE i js ks bs Ïˆs)
 
 ------------------------------------------------------------------------
--- 3.  â¦and it is adjoint to UpP
+-- 3.  â€¦and it is adjoint to UpP
 ------------------------------------------------------------------------
 
 goFwdNE :
@@ -117,16 +117,16 @@ goBwdNE j (i âˆ· js) ks (b , bs) Ï† (Ïˆ , Ïˆs) (le , rest) =
 --
 -- **THE NON-EMPTINESS HYPOTHESIS THIS MODULE PUTS IN ITS SIGNATURES IS
 -- NOT NEEDED.**  `dnNE`, `goFwdNE`, `goBwdNE` take their rows as
--- `Rows (j âˆ js) ks` because the module it was built on claimed the
--- empty meet was `âˆž`.  That claim is false: `_âŠp_` is reverse pointwise
--- `â‰`, so the `âŠp`-greatest profile under a vacuous constraint is the
--- `â‰`-least, i.e. all zeros, which â• has.  `dnAll`/`goFwdAll`/
+-- `Rows (j âˆ· js) ks` because the module it was built on claimed the
+-- empty meet was `âˆž`.  That claim is false: `_âŠ‘p_` is reverse pointwise
+-- `â‰¤`, so the `âŠ‘p`-greatest profile under a vacuous constraint is the
+-- `â‰¤`-least, i.e. all zeros, which â„• has.  `dnAll`/`goFwdAll`/
 -- `goBwdAll` at the recording site are the same adjunction over an
 -- ARBITRARY residual index list.
 --
 -- The irony is exact and is worth leaving in place: method shape (lxix)
--- â” "when a restriction is real, put it in the SIGNATURE, not in a
--- comment" â” was applied correctly to a restriction that was not real.
+-- â€” "when a restriction is real, put it in the SIGNATURE, not in a
+-- comment" â€” was applied correctly to a restriction that was not real.
 -- Encoding a hypothesis in a type makes it unforgettable; it does not
 -- make it true.  The shape stands; what it needed alongside it was a
 -- check that the restriction was an obstruction and not a sign error.

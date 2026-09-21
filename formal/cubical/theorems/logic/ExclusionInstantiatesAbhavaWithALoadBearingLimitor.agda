@@ -16,27 +16,27 @@ open import AbhavaAvacchedaka using (Abhava ; anuyogin ; avacchedaka ; pratiyogi
 -- avacchedaka is a type-level BINDER, not an optional field, and the
 -- `weaver` lane's limitor layer is inert.  Its 2026-08-18 CORE SUPPLIED
 -- block records `formal/cubical/AbhavaAvacchedaka.agda` (cf-sakshi), where
--- `Abhava` is a dependent record with `pratiyogin : avacchedaka â’ anuyogin
--- â’ Type` and `limitor-load-bearing` proves an absence that holds under one
+-- `Abhava` is a dependent record with `pratiyogin : avacchedaka â†’ anuyogin
+-- â†’ Type` and `limitor-load-bearing` proves an absence that holds under one
 -- limitor and fails under another.
 --
 -- Read after this thread's absence modules were written, and it bears on
 -- them directly.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED, AND WHY IT IS THE SHORT VERSION
 --
 -- Â§1 exhibits this thread's exclusion as an `Abhava`: the locus is the one
 -- distinguishable pair of states, the LIMITORS ARE THE OBSERVABLES, and the
--- counterpositive under limitor Î is "the pair is identified by Î".  Â§2 is
+-- counterpositive under limitor Î± is "the pair is identified by Î±".  Â§2 is
 -- the `limitor-load-bearing` statement in that instance: the same pair and
 -- the same counterpositive-family give an absence that HOLDS under one
 -- observable and FAILS under another.
 --
 -- The proof is two lines because the content was already there.  That is
--- the finding, not a shortcut â” see below.
+-- the finding, not a shortcut â€” see below.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE WEAK-VERSION CRITIQUE DOES NOT APPLY TO THESE MODULES, AND HERE IS
 -- THE CHECK
 --
@@ -45,16 +45,16 @@ open import AbhavaAvacchedaka using (Abhava ; anuyogin ; avacchedaka ; pratiyogi
 -- the observable `q` is a PARAMETER of the absence:
 --
 --     Ground   q x x'  =  q x â‰¡ q x'
---     Excludes q x x'  =  Â (Ground q x x')
+--     Excludes q x x'  =  Â¬ (Ground q x x')
 --
 -- so the absence is a family dependent on `q`, which is what Â§6.3 asks
--- for â” and every transfer theorem in that module (`coIdentifyâ’coExclude`,
--- `coExcludeâ’coIdentify-stable`, the shadow necessities) is a
+-- for â€” and every transfer theorem in that module (`coIdentifyâ†’coExclude`,
+-- `coExcludeâ†’coIdentify-stable`, the shadow necessities) is a
 -- change-the-limitor statement, relating the absence under `q` to the
 -- absence under `q'`.  That is the same shape as `limitor-load-bearing`,
 -- proved for arbitrary observables rather than for two.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- LIMITS
 --
 -- `avacchedaka` here is `Bool`: two observables, chosen. That is a
@@ -62,7 +62,7 @@ open import AbhavaAvacchedaka using (Abhava ; anuyogin ; avacchedaka ; pratiyogi
 -- locus is `Unit`: the single pair that can be separated on two points.
 --
 -- Inherited from `AbhavaAvacchedaka` and repeated: this is the
--- avacchedaka/abhva core only. The full Pandayâ“Ghosh simultaneous
+-- avacchedaka/abhÄva core only. The full Pandayâ€“Ghosh simultaneous
 -- treatment adds tdtmya and parampar-sambandha and is not here.
 --
 -- arXiv:2605.12548 is the located prior art for typed abhva in cubical
@@ -91,7 +91,7 @@ obs true  _ = true
 
 -- locus: the one pair of states a two-point space can separate, so a
 -- single point suffices to name it.
--- counterpositive under Î: "Î identifies the pair".
+-- counterpositive under Î±: "Î± identifies the pair".
 exclusionAbhava : Abhava
 exclusionAbhava .anuyogin      = Unit
 exclusionAbhava .avacchedaka   = Bool

@@ -3,27 +3,27 @@
 ------------------------------------------------------------------------
 -- Pratyabhijna_TheNetworkSeesOnlyTheUnionOfItsQueries
 --
--- à®àà²àµà¾à•àà¯à®à Â the term and where it is stated.
+-- à¤®à¥‚à¤²à¤µà¤¾à¤•à¥à¤¯à¤®à¥ Â· the term and where it is stated.
 --
---   ààà°ààà¯àà¿àààà¾ Â pratyabhij â” RECOGNITIVE cognition, the judgement
---   "àà‹à½à¯à à¦ààµà¦àààà", *this is that same Devadatta*: the claim that a
+--   à¤ªà¥à¤°à¤¤à¥à¤¯à¤­à¤¿à¤œà¥à¤à¤¾ Â· pratyabhijÃ±Ä â€” RECOGNITIVE cognition, the judgement
+--   "à¤¸à¥‹à¤½à¤¯à¤‚ à¤¦à¥‡à¤µà¤¦à¤¤à¥à¤¤à¤ƒ", *this is that same Devadatta*: the claim that a
 --   thing now presented is the SAME as one presented before.  The term
 --   and the stock sentence are common property of the daranas and the
 --   dispute over them is live:
 --
---     Â Naiyyikas class it under pratyaka qualified by memory and use
+--     Â· NaiyÄyikas class it under pratyaká¹£a qualified by memory and use
 --       it against momentariness.  Jayanta Bhaa, *Nyyamajar*,
 --       c. 9th c.; Vtsyyana, *Nyyabhya*, c. 450, on the tman
 --       section of the *Nyyastra*.
---     Â Buddhist prama-vda DENIES that it is a prama at all: the
+--     Â· Buddhist pramÄá¹‡a-vÄda DENIES that it is a pramÄá¹‡a at all: the
 --       two particulars are momentary and distinct, and the "same" is
 --       a vikalpa laid over them.  Dharmakrti, *Pramavrttika*,
 --       7th c.
---     Â Utpaladeva, *varapratyabhijkrik*, c. 900-950, is the term
+--     Â· Utpaladeva, *ÄªÅ›varapratyabhijÃ±ÄkÄrikÄ*, c. 900-950, is the term
 --       used as the title of a system; Abhinavagupta's *Vimarin*,
 --       c. 1000, is its commentary.
 --
---   à—àà°àà¡ Â abda, declared: no critical edition was opened for this
+--   à¤—à¥à¤°à¥‡à¤¡ Â· Å›abda, declared: no critical edition was opened for this
 --   module.  Author, work and century above are reported at second
 --   hand; NO stra or verse number is given here, because I have not
 --   opened the text to fix one and a guessed number is a fabricated
@@ -31,7 +31,7 @@
 --   `.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
 --   carries the same limit.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED HERE.  Two things, both short, neither new machinery.
 --
 -- Â§1  POOLING VALIDATORS ADDS NOTHING.  `QuotientFiberLaw`
@@ -41,8 +41,8 @@
 --     concatenation of theirs.  `blind-++` says blindness is closed
 --     under append; `network-no-decision` therefore says: if EVERY
 --     validator is blind on (x , y), then no post-processing of the
---     pooled transcript separates them â” and `Separates` quantifies
---     over EVERY function `List Bool â’ Bool`, computable or not, so
+--     pooled transcript separates them â€” and `Separates` quantifies
+--     over EVERY function `List Bool â†’ Bool`, computable or not, so
 --     "post-processing" includes every consensus rule: majority,
 --     stake-weighting, reputation, a second round, an appeal.
 --
@@ -53,13 +53,13 @@
 -- Â§2  `sees-exactly` upgrades QuotientFiberLaw's `obs-agree` to an IFF.
 --     Blindness of the whole list is EQUIVALENT to equality of
 --     transcripts, so the relation a network can see is exactly the
---     kernel of `obs (pool oss)` â” the word "exactly" in the law is a
+--     kernel of `obs (pool oss)` â€” the word "exactly" in the law is a
 --     theorem here and not an emphasis.
 --
--- Â§3  ABHIJNA â” which side of `f a â‰¡ b` is bound, for a digest.
---     Bind `b`: `Î[ b ] (f a â‰¡ b)` is contractible, so "what is the
+-- Â§3  ABHIJÃ‘Ä€NA â€” which side of `f a â‰¡ b` is bound, for a digest.
+--     Bind `b`: `Î£[ b ] (f a â‰¡ b)` is contractible, so "what is the
 --     address of this object" needs no consensus and never disagrees.
---     Bind `a`: `Address b = Î[ a ] (f a â‰¡ b)` is the PREIMAGE and is
+--     Bind `a`: `Address b = Î£[ a ] (f a â‰¡ b)` is the PREIMAGE and is
 --     arbitrary.  Content addressing is the assertion that THIS fibre
 --     is contractible, and `addressed` decomposes that assertion into
 --     its two independent halves: `Address b` inhabited is
@@ -69,7 +69,7 @@
 --     The empty / one / many trichotomy this exposes is NOT graded here
 --     vyamNotNasti.md already grades it in five levels and shows that
 --     `isContr`'s two-valued verdict merges the two ENDS.  This module
---     supplies only the network instance of its rows à¦ and à§.
+--     supplies only the network instance of its rows à¥¦ and à¥§.
 ------------------------------------------------------------------------
 
 module Pratyabhijna_TheNetworkSeesOnlyTheUnionOfItsQueries where
@@ -88,7 +88,7 @@ private
     â„“ : Level
 
 ------------------------------------------------------------------------
--- Â§1-2  àà™àà˜ â” the assembly.  Many validators, one pooled transcript.
+-- Â§1-2  à¤¸à¤™à¥à¤˜ â€” the assembly.  Many validators, one pooled transcript.
 ------------------------------------------------------------------------
 
 module Sangha (X : Type â„“) where
@@ -97,7 +97,7 @@ module Sangha (X : Type â„“) where
 
   -- A decentralized network, as far as identity is concerned, is just a
   -- list of read-sets.  Who runs them, in what order, under what stake,
-  -- does not appear â” and that absence is the content of Â§1.
+  -- does not appear â€” and that absence is the content of Â§1.
   Validators : Type â„“
   Validators = List (List Query)
 
@@ -120,7 +120,7 @@ module Sangha (X : Type â„“) where
   blind-pool (os âˆ· oss) x y (b , bs) =
     blind-++ os (pool oss) x y b (blind-pool oss x y bs)
 
-  -- THE STATEMENT.  Every validator blind â’ the ASSEMBLY is blind, and
+  -- THE STATEMENT.  Every validator blind â‡’ the ASSEMBLY is blind, and
   -- `Separates` quantifies over every possible reading of the pooled
   -- transcript, so no consensus rule whatsoever recovers the difference.
   network-no-decision : (oss : Validators) (x y : X)
@@ -128,9 +128,9 @@ module Sangha (X : Type â„“) where
   network-no-decision oss x y bs =
     no-decision (pool oss) x y (blind-pool oss x y bs)
 
-  -- â¦and the only repair is a NEW READ.  Adding a validator helps
+  -- â€¦and the only repair is a NEW READ.  Adding a validator helps
   -- exactly when its query list is charged on the pair; this is
-  -- `chargedâ’separator` applied to the pooled list, i.e. the assembly's
+  -- `chargedâ‡’separator` applied to the pooled list, i.e. the assembly's
   -- power is the union of its members' queries and nothing else.
   --
   -- The converse half, `blind-of-obs`, is what makes "exactly" a
@@ -147,7 +147,7 @@ module Sangha (X : Type â„“) where
   sees-exactly os x y = obs-agree os x y , blind-of-obs os x y
 
 ------------------------------------------------------------------------
--- Â§3  ààà¿àààà¾à¨ â” the token of recognition.  A digest, read as a fibre.
+-- Â§3  à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨ â€” the token of recognition.  A digest, read as a fibre.
 ------------------------------------------------------------------------
 
 module Abhijnana {A B : Type â„“} (f : A â†’ B) where

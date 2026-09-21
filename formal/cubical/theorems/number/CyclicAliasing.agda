@@ -6,10 +6,10 @@
 -- The exact aliasing condition of
 -- coefficient extraction and aliasing"), as checked terms.
 --
--- WHAT THE NOTE SAYS.  For a polynomial A(z) = �_{r=0}^{R} A_r z^r and
--- � = e^{2�i/M}, finite Fourier inversion gives (note (2.1))
+-- WHAT THE NOTE SAYS.  For a polynomial A(z) = Σ_{r=0}^{R} A_r z^r and
+-- ζ = e^{2πi/M}, finite Fourier inversion gives (note (2.1))
 --
---     (1/M) �_{ν=0}^{M-1} �^{-sν} A(�^ν)  =  �_{0�r�R, r≡s (mod M)} A_r.
+--     (1/M) Σ_{ν=0}^{M-1} ζ^{-sν} A(ζ^ν)  =  Σ_{0≤r≤R, r≡s (mod M)} A_r.
 --
 -- The note calls this "the exact aliasing theorem": the cyclic
 -- projector returns not the coefficient A_s but the SUM OF THE WHOLE
@@ -18,11 +18,11 @@
 -- sufficient condition.
 --
 -- Thm 4.3 computes the absolute condition number of the root-of-unity
--- (DFT) charge-atom extractor and finds κ_DFT = 1 � perfect
+-- (DFT) charge-atom extractor and finds κ_DFT = 1 — perfect
 -- conditioning, the best of the three routes it compares, and the basis
 -- of that note's operational recommendation.  That computation is done
 -- for n = R+1 phase samples.  **Conditioning is not exactness.**  If
--- n � R the very same inverse-DFT row is still perfectly conditioned
+-- n ≤ R the very same inverse-DFT row is still perfectly conditioned
 -- and still returns the wrong functional: aliasing is a MODEL error
 -- (the projector targets a different linear functional of the
 -- coefficient vector), not noise amplification, and no condition number
@@ -41,11 +41,11 @@
 --     the supported endpoint charges to {1,2}".
 --   * M = 2 is the standard trap.  `parity-*` below certifies the
 --     note's remark that the parity phase "is not primality in
---     general": at M = 2 the s = 1 projector returns �_{r odd} κ_r, and
---     for d = p²q that is 2, not κ� = 1.
+--     general": at M = 2 the s = 1 projector returns Σ_{r odd} κ_r, and
+--     for d = p²q that is 2, not κ₁ = 1.
 --
 -- WHAT IS FORMALIZED, AND WHAT IS NOT.  The step from the left side of
--- (2.1) to the right side is character orthogonality over � � inherited
+-- (2.1) to the right side is character orthogonality over ℂ — inherited
 -- elementary harmonic analysis, and the note claims no novelty for it.
 -- It is NOT reproved here; no root of unity and no complex number
 -- occurs in this module.  What IS formalized is everything (2.1)
@@ -53,58 +53,58 @@
 -- content lives: the right-hand side of (2.1) is taken as the
 -- DEFINITION of the projector (`aliasSum`), over a discrete carrier
 -- with coefficient-index arithmetic mod n, and the exact/aliased
--- dichotomy is proved about it.  Coefficients live in �; sums are �
+-- dichotomy is proved about it.  Coefficients live in ℤ; sums are ℤ
 -- sums; the whole module is finite index combinatorics.
 --
 -- What is proved, and how:
 --
---   * `classInjective` � GENERAL in n and R.  If R < n then r � r mod n
+--   * `classInjective` — GENERAL in n and R.  If R < n then r ↦ r mod n
 --     is injective on the index window [0,R]: each residue class mod n
---     contains at most one index � R.  This is the combinatorial heart
---     of "no aliasing", and it is one line once `modIndBase` (x < n �
+--     contains at most one index ≤ R.  This is the combinatorial heart
+--     of "no aliasing", and it is one line once `modIndBase` (x < n ⟹
 --     x mod n = x) is in hand.
 --
---   * `exact` � GENERAL in A, n, R, j.  R < n and j � R imply
+--   * `exact` — GENERAL in A, n, R, j.  R < n and j ≤ R imply
 --     aliasSum A n j R ≡ A j.  Exact recovery of the charge atom, no
 --     hypothesis on A whatsoever.  Proof: `classInjective` kills every
 --     other index in the window, and `sumSupport` (a sum whose summand
 --     vanishes off one point equals its value there) collapses the sum.
 --
---   * `collisionIndices` � GENERAL in n, R, j.  If 0 < n and j+n � R
+--   * `collisionIndices` — GENERAL in n, R, j.  If 0 < n and j+n ≤ R
 --     then j and j+n are DISTINCT indices, both in the window, both in
 --     the same class mod n.  This is the aliasing witness in the form
---     the dichotomy needs: as soon as n � R (take j = 0) the projector
+--     the dichotomy needs: as soon as n ≤ R (take j = 0) the projector
 --     has two supported indices it cannot separate.  `collisionAtZero`
 --     is that specialization, stated as the literal negation of
---     `exact`'s hypothesis.  Note both are general � the note's n � R
+--     `exact`'s hypothesis.  Note both are general — the note's n ≤ R
 --     case never needs an instance to exhibit a collision.
 --
---   * `firstShell` � GENERAL.  For n � R < 2n and j < n, the only
+--   * `firstShell` — GENERAL.  For n ≤ R < 2n and j < n, the only
 --     indices in the window congruent to j mod n are j and j+n.
 --
---   * `aliased` � GENERAL in A, n, j, R.  For j < n, j+n � R, R < 2n:
+--   * `aliased` — GENERAL in A, n, j, R.  For j < n, j+n ≤ R, R < 2n:
 --
 --         aliasSum A n j R  ≡  A (j+n) + A j,
 --
---     the EXACT aliased value, i.e. the note's �_{r≡j} A_r written out
---     on the first aliasing shell.  So the failure at n � R is not
+--     the EXACT aliased value, i.e. the note's Σ_{r≡j} A_r written out
+--     on the first aliasing shell.  So the failure at n ≤ R is not
 --     "approximate"; the projector exactly computes a different
 --     functional, and `aliased` names it.
 --
 --   * Instances (refl, i.e. exact finite computation, which CLAUDE.md
 --     rates as proof).  The coefficients come from the note's §1: from
---     a_z(d) = z^� (z-1)^j with � = Ω(d)-ω(d), j = ω(d), the module
+--     a_z(d) = z^ρ (z-1)^j with ρ = Ω(d)-ω(d), j = ω(d), the module
 --     defines `kappa` by the structural recursion of (z-1)^{j+1} =
---     z�(z-1)^j - (z-1)^j � no binomials, no monus, and `kappa-*`
+--     z·(z-1)^j - (z-1)^j — no binomials, no monus, and `kappa-*`
 --     certifies the resulting coefficient vectors against (1.2).
---     For d = p²q (�=1, j=2, R=Ω=3, κ = (0,1,-2,1)):
---         M = 4 > R   �  projector returns 1 = κ�      (exact)
---         M = 2 � R   �  projector returns 2 = κ�+κ�   (aliased)
---     For d = pqr (�=0, j=3, R=3, κ = (-1,3,-3,1)):
---         M = 4 � 3 = κ� ;  M = 2 � 4 = κ�+κ�.
+--     For d = p²q (ρ=1, j=2, R=Ω=3, κ = (0,1,-2,1)):
+--         M = 4 > R   →  projector returns 1 = κ₁      (exact)
+--         M = 2 ≤ R   →  projector returns 2 = κ₁+κ₃   (aliased)
+--     For d = pqr (ρ=0, j=3, R=3, κ = (-1,3,-3,1)):
+--         M = 4 → 3 = κ₁ ;  M = 2 → 4 = κ₁+κ₃.
 --     Both M=2 values are cross-checked against the note's independent
---     closed form (2.3), �_{r odd} κ_r = -½(-1)^{�}(-2)^{ω}, in the
---     cleared form 2��_odd ≡ -((-1)^� � (-2)^ω) (`parity-23-*`).  The
+--     closed form (2.3), Σ_{r odd} κ_r = -½(-1)^{ρ}(-2)^{ω}, in the
+--     cleared form 2·Σ_odd ≡ -((-1)^ρ · (-2)^ω) (`parity-23-*`).  The
 --     two derivations of these numbers are independent: one runs the
 --     index-class sum, the other evaluates the note's formula.
 --
@@ -135,8 +135,8 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
--- 0.  Order scraps.  Two facts about � that the library states in the
---     � direction only.
+-- 0.  Order scraps.  Two facts about ℕ that the library states in the
+--     ≤ direction only.
 
 <→≢ : (a b : ℕ) → a < b → ¬ (a ≡ b)
 <→≢ a b a<b e = <-asym (subst (λ x → suc a ≤ x) (sym e) a<b) ≤-refl
@@ -167,12 +167,12 @@ eqℕ-neq (suc m) (suc k) p = eqℕ-neq m k (λ q → p (cong suc q))
 ------------------------------------------------------------------------
 -- 2.  The divisor charge polynomial of note §1.
 --
---     a_z(d) = z^{�(d)} (z-1)^{j(d)},   � = Ω-ω,  j = ω        (1.1)
+--     a_z(d) = z^{ρ(d)} (z-1)^{j(d)},   ρ = Ω-ω,  j = ω        (1.1)
 --
 --     κ_r(d) = coefficient of z^r.                              (1.2)
 --
--- (z-1)^{j+1} = z�(z-1)^j − (z-1)^j, so with P = (z-1)^j:
---     [z^0]   = −P�,      [z^{k+1}] = P_k − P_{k+1}.
+-- (z-1)^{j+1} = z·(z-1)^j − (z-1)^j, so with P = (z-1)^j:
+--     [z^0]   = −P₀,      [z^{k+1}] = P_k − P_{k+1}.
 -- Purely structural: no binomial coefficients and no truncated
 -- subtraction enter, and the vectors are certified against (1.2) below.
 
@@ -187,7 +187,7 @@ kappa zero    j r       = shellCoeff j r
 kappa (suc _) _ zero    = pos 0
 kappa (suc ρ) j (suc r) = kappa ρ j r
 
--- (1.2) at � = 1, j = 2 (d = p²q, Ω = 3):  a_z = z(z-1)² = z³−2z²+z.
+-- (1.2) at ρ = 1, j = 2 (d = p²q, Ω = 3):  a_z = z(z-1)² = z³−2z²+z.
 kappa-p2q-0 : kappa 1 2 0 ≡ pos 0
 kappa-p2q-0 = refl
 kappa-p2q-1 : kappa 1 2 1 ≡ pos 1
@@ -197,7 +197,7 @@ kappa-p2q-2 = refl
 kappa-p2q-3 : kappa 1 2 3 ≡ pos 1
 kappa-p2q-3 = refl
 
--- (1.2) at � = 0, j = 3 (d = pqr, Ω = 3):  a_z = (z-1)³ = z³−3z²+3z−1.
+-- (1.2) at ρ = 0, j = 3 (d = pqr, Ω = 3):  a_z = (z-1)³ = z³−3z²+3z−1.
 kappa-pqr-0 : kappa 0 3 0 ≡ negsuc 0        -- −1
 kappa-pqr-0 = refl
 kappa-pqr-1 : kappa 0 3 1 ≡ pos 3
@@ -260,7 +260,7 @@ sumSupport2 f (suc k) j₁ j₂ j₁<j₂ j₂<sk h with <-split j₂<sk
 ------------------------------------------------------------------------
 -- 4.  The cyclic projector, as the right-hand side of note (2.1).
 --
---     Π^cyc_{s,n} A  :=  �_{0 � r � R,  r ≡ s (mod n)}  A_r .
+--     Π^cyc_{s,n} A  :=  Σ_{0 ≤ r ≤ R,  r ≡ s (mod n)}  A_r .
 --
 -- `pick` is the indicator-weighted summand; `aliasSum` sums it over the
 -- window [0,R].  No root of unity appears: by (2.1) this IS the value
@@ -286,12 +286,12 @@ pick-miss : (A : ℕ → ℤ) (n s r : ℕ) → ¬ (r mod n ≡ s mod n)
 pick-miss A n s r p =
   cong (λ b → if b then A r else pos 0) (eqℕ-neq (r mod n) (s mod n) p)
 
--- x < n � x mod n = x, spelled for n in successor form.
+-- x < n ⟹ x mod n = x, spelled for n in successor form.
 modSmall : (n' x : ℕ) → x < suc n' → x mod (suc n') ≡ x
 modSmall n' x p = modIndBase n' x p
 
 ------------------------------------------------------------------------
--- 5.  (a)  n > R  �  NO ALIASING, and exact recovery.
+-- 5.  (a)  n > R  ⟹  NO ALIASING, and exact recovery.
 
 -- Each residue class mod n contains at most one index of the window.
 -- GENERAL in n and R.
@@ -319,11 +319,11 @@ exact A n R j R<n j≤R =
       (λ q → r≢j (classInjective n R R<n r j (pred-≤-pred r<sR) j≤R q))
 
 ------------------------------------------------------------------------
--- 6.  (b)  n � R  �  a collision, and the exact aliased functional.
+-- 6.  (b)  n ≤ R  ⟹  a collision, and the exact aliased functional.
 
 -- The collision witness, GENERAL in n, R, j: j and j+n are two
 -- DISTINCT indices of the window lying in the SAME class mod n.  Taking
--- j = 0 this fires whenever n � R, which is the exact negation of the
+-- j = 0 this fires whenever n ≤ R, which is the exact negation of the
 -- hypothesis of `exact`.
 collisionIndices : (n R j : ℕ) → 0 < n → (j +ℕ n) ≤ R
                  → (j ≤ R)                          -- j is in the window
@@ -337,7 +337,7 @@ collisionIndices n R j 0<n j+n≤R =
     ¬-<-zero (subst (λ x → 0 < x) (sym (inj-m+ (+-zero j ∙ e))) 0<n)
 
 -- The dichotomy's other side, stated as the literal negation of the
--- hypothesis of `exact`: as soon as n � R the window carries a
+-- hypothesis of `exact`: as soon as n ≤ R the window carries a
 -- collision (take j = 0), so no argument of the form "the projector is
 -- perfectly conditioned" can rescue exactness.
 collisionAtZero : (n R : ℕ) → 0 < n → n ≤ R
@@ -348,7 +348,7 @@ collisionAtZero n R 0<n n≤R = collisionIndices n R 0 0<n n≤R
 j<j+n : (j n' : ℕ) → j < (j +ℕ suc n')
 j<j+n j n' = subst (λ x → suc j ≤ x) (sym (+-suc j n')) (suc-≤-suc ≤SumLeft)
 
--- On the FIRST aliasing shell n � R < 2n the class of j (with j < n)
+-- On the FIRST aliasing shell n ≤ R < 2n the class of j (with j < n)
 -- meets the window in exactly {j , j+n}.  GENERAL.
 firstShell : (n' j r R : ℕ) → j < suc n' → r ≤ R → R < (suc n' +ℕ suc n')
            → r mod (suc n') ≡ j mod (suc n')
@@ -363,7 +363,7 @@ firstShell n' j r R j<n r≤R R<2n p with splitℕ-< r (suc n')
   t+n≡r : (t +ℕ suc n') ≡ r
   t+n≡r = n≤r .snd
 
-  -- t + n � R < n + n, and suc (t + n) is definitionally (suc t) + n,
+  -- t + n ≤ R < n + n, and suc (t + n) is definitionally (suc t) + n,
   -- so left-cancelling the common summand n gives t < n.
   t<n : t < suc n'
   t<n = ≤-+k-cancel {m = suc t} {k = suc n'} {n = suc n'}
@@ -376,8 +376,8 @@ firstShell n' j r R j<n r≤R R<2n p with splitℕ-< r (suc n')
         ∙ p
         ∙ modSmall n' j j<n
 
--- THE ALIASING THEOREM.  GENERAL in A, n, j, R.  Once n � R (first
--- shell: j < n, j+n � R, R < 2n) the projector does not fail softly �
+-- THE ALIASING THEOREM.  GENERAL in A, n, j, R.  Once n ≤ R (first
+-- shell: j < n, j+n ≤ R, R < 2n) the projector does not fail softly —
 -- it computes exactly the wrong functional, and this names it:
 --
 --     Π^cyc_{j,n} A  =  A_{j+n} + A_j.
@@ -405,25 +405,25 @@ aliased A n' j R j<n j+n≤R R<2n =
     ⊎rec (inr e) = r≢j+n e
 
 ------------------------------------------------------------------------
--- 7.  Instances: the dichotomy on the note's own kernels � each side
+-- 7.  Instances: the dichotomy on the note's own kernels — each side
 --     first as an application of the general theorem above, then as the
 --     concrete integer it evaluates to (refl).
 --
--- d = p²q  (� = 1, j = 2, R = Ω(d) = 3, κ = (0, 1, −2, 1), κ� = 1).
+-- d = p²q  (ρ = 1, j = 2, R = Ω(d) = 3, κ = (0, 1, −2, 1), κ₁ = 1).
 
--- M = 4 > R = 3: exact, by the general theorem�
+-- M = 4 > R = 3: exact, by the general theorem…
 p2q-exact-general : aliasSum (kappa 1 2) 4 1 3 ≡ kappa 1 2 1
 p2q-exact-general = exact (kappa 1 2) 4 3 1 (0 , refl) (2 , refl)
 
--- �and the value is κ� = 1.
+-- …and the value is κ₁ = 1.
 p2q-exact-value : aliasSum (kappa 1 2) 4 1 3 ≡ pos 1
 p2q-exact-value = refl
 
--- M = 2 � R = 3: aliased.  The general theorem predicts κ� + κ��
+-- M = 2 ≤ R = 3: aliased.  The general theorem predicts κ₃ + κ₁…
 p2q-aliased-general : aliasSum (kappa 1 2) 2 1 3 ≡ kappa 1 2 3 + kappa 1 2 1
 p2q-aliased-general = aliased (kappa 1 2) 1 1 3 ≤-refl ≤-refl ≤-refl
 
--- �and that value is 2, NOT κ� = 1.  This is the note's "the parity
+-- …and that value is 2, NOT κ₁ = 1.  This is the note's "the parity
 -- phase M = 2 is not primality in general".
 p2q-parity-value : aliasSum (kappa 1 2) 2 1 3 ≡ pos 2
 p2q-parity-value = refl
@@ -431,7 +431,7 @@ p2q-parity-value = refl
 p2q-parity-wrong : ¬ (aliasSum (kappa 1 2) 2 1 3 ≡ kappa 1 2 1)
 p2q-parity-wrong e = snotz (injSuc (injPos e))
 
--- d = pqr  (� = 0, j = 3, R = 3, κ = (−1, 3, −3, 1), κ� = 3).
+-- d = pqr  (ρ = 0, j = 3, R = 3, κ = (−1, 3, −3, 1), κ₁ = 3).
 
 pqr-exact-general : aliasSum (kappa 0 3) 4 1 3 ≡ kappa 0 3 1
 pqr-exact-general = exact (kappa 0 3) 4 3 1 (0 , refl) (2 , refl)
@@ -448,16 +448,16 @@ pqr-parity-value = refl
 ------------------------------------------------------------------------
 -- 8.  Cross-check against the note's independent closed form (2.3).
 --
---     �_{r odd} κ_r(d) = −½ a_{−1}(d) = −½ (−1)^{�(d)} (−2)^{ω(d)}.
+--     Σ_{r odd} κ_r(d) = −½ a_{−1}(d) = −½ (−1)^{ρ(d)} (−2)^{ω(d)}.
 --
--- Cleared of the ½ (� has no division):
+-- Cleared of the ½ (ℤ has no division):
 --
---     2 � �_{r odd} κ_r  ≡  −( (−1)^� � (−2)^ω ).
+--     2 · Σ_{r odd} κ_r  ≡  −( (−1)^ρ · (−2)^ω ).
 --
 -- The two sides run through disjoint code: the left is the index-class
 -- sum of §4 at n = 2, s = 1 over the coefficient vector; the right
 -- never touches `kappa` at all, being the note's closed form evaluated
--- from (� , ω) alone.  Agreement therefore checks both.
+-- from (ρ , ω) alone.  Agreement therefore checks both.
 
 negOnePow : ℕ → ℤ
 negOnePow zero    = pos 1

@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Bhajaka where
--- �����: euclid's lemma from the gcd, and a prime dividing a product
+-- भाजक: euclid's lemma from the gcd, and a prime dividing a product
 -- divides one of its factors.  The uniqueness pillar.
 
 open import Yantra.Prakriti
@@ -19,7 +19,7 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 open import Cubical.Relation.Nullary
 
--- bridge: my untruncated divides � library �
+-- bridge: my untruncated divides ↔ library ∣
 to∣ : {d n : ℕ} → divides d n → d ∣ n
 to∣ dv = ∣ dv ∣₁
 

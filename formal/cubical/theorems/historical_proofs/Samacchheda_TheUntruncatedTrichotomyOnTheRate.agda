@@ -3,17 +3,17 @@
 ------------------------------------------------------------------------
 -- Samacchheda_TheUntruncatedTrichotomyOnTheRate
 --
--- àà®ààààà¦ Â samacchheda â” "equal divisor": bringing two fractions to a
+-- à¤¸à¤®à¤šà¥à¤›à¥‡à¤¦ Â· samacchheda â€” "equal divisor": bringing two fractions to a
 -- common denominator, which is how the  arithmetic tradition
--- compares and combines them (bhinna-parikarma â” Brahmagupta,
+-- compares and combines them (bhinna-parikarma â€” Brahmagupta,
 -- *Brhmasphuasiddhnta* 628; Bhskara II, *Llvat*, c. 1150).
 -- Every comparison underneath this module is that operation:
--- `p Â suc q'` against `p' Â suc q` is the pair of numerators once the
+-- `p Â· suc q'` against `p' Â· suc q` is the pair of numerators once the
 -- divisors are equalised.  **No claim is made that trichotomy, or the
--- propositionality of a three-way sum, is stated in those texts** â” the
+-- propositionality of a three-way sum, is stated in those texts** â€” the
 -- operation is theirs, the type theory is not.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation` left the
 -- untruncated trichotomy open with a route: prove the exclusivity
 -- facts, get `isProp` of the sum, strip the truncation with `PT.rec`.
@@ -27,34 +27,34 @@
 --     after twelve minutes.
 --   * I recorded that the `subst`s along quotient paths were the cost.
 --     **That was wrong.**  This cycle a version factoring those substs
---     into named top-level lemmas â” but still nine cases â” was killed
+--     into named top-level lemmas â€” but still nine cases â€” was killed
 --     by a 600-second timeout.
 --   * A probe with ONLY the exclusivity lemma checked in seconds.  A
 --     probe replacing the nine cases by a generic
---     `isPropSum : isProp A â’ isProp B â’ (A â’ B â’ âŠ) â’ isProp (A âŠ B)`
+--     `isPropSum : isProp A â†’ isProp B â†’ (A â†’ B â†’ âŠ¥) â†’ isProp (A âŠ B)`
 --     applied twice also checked in seconds.  That is the version
 --     below.
 --
 -- So the expensive object was **the nine-case pattern match on a sum
 -- whose summands are quotient-typed**, not the `subst`s and not the
 -- elimination.  Moving the case analysis into a generic lemma over
--- abstract `A` and `B` â” where there is no quotient in scope to unfold
--- â” removes it.  Four runs on this container; nothing about the pin.
+-- abstract `A` and `B` â€” where there is no quotient in scope to unfold
+-- â€” removes it.  Four runs on this container; nothing about the pin.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   isPropSum         `isProp` for a binary sum from the two component
 --                     propositions and a separator, for ARBITRARY types
---   âŠR-excludes-â‰¡     `âŸ¨ x âŠR y âŸ© â’ Â (x â‰¡ y)`, on the quotient
+--   âŠR-excludes-â‰¡     `âŸ¨ x âŠR y âŸ© â†’ Â¬ (x â‰¡ y)`, on the quotient
 --   isPropTriR        hence the three-way sum is a proposition
---   rateTrichotomy    `âŸ¨ x âŠR y âŸ© âŠ ((x â‰¡ y) âŠ âŸ¨ y âŠR x âŸ©)`,
+--   rateTrichotomy    `âŸ¨ x âŠR y âŸ© âŠ ((x â‰¡ y) âŠ âŸ¨ y âŠR x âŸ©)`,
 --                     UNTRUNCATED
 --
 -- NO NOVELTY.  Trichotomy of the rationals is classical; `isPropSum` is
 -- standard and cubical v0.5 happens not to export it.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -98,7 +98,7 @@ isPropSum pa pb sep (inr b) (inr b') = cong inr (pb b b')
 âŠR-excludes-â‰¡ x y h e = âŠR-irrefl y (subst (Î» z â†’ âŸ¨ z âŠR y âŸ©) e h)
 
 ------------------------------------------------------------------------
--- 3.  â¦so the sum is a proposition and the truncation comes off
+-- 3.  â€¦so the sum is a proposition and the truncation comes off
 ------------------------------------------------------------------------
 
 Tri : Rate â†’ Rate â†’ Type

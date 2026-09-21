@@ -1,39 +1,39 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡Æ‡æ‡‡‡∞‡æ-‡‡ô‡‡ñ‡‡Ø‡æ ‚î the mtr-fiber over n is Fin of the Virahka number.
+-- ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ ‚Äî the mƒÅtrƒÅ-fiber over n is Fin of the VirahƒÅ·πÖka number.
 --
 -- Virahka (c. 600-800 CE, Vttajtisamuccaya), on Pigala's
 -- Chandastra (c. 300 BCE): counting the mtr-vttas of total duration n
--- ‚î sequences of laghu (1 mtr) and guru (2 mtr) summing to n ‚î obeys the
+-- ‚Äî sequences of laghu (1 mƒÅtrƒÅ) and guru (2 mƒÅtrƒÅ) summing to n ‚Äî obeys the
 -- two-step recurrence, and the resulting COUNT is the mtr-meru sequence
 -- 1,1,2,3,5,8,... (the recurrence usually cited under Fibonacci's name, five
 -- centuries later, though Virahka states it, and Pigala's meru-prastra
--- already tabulates it).  The sibling module `Virahanka_‚¶` proved the fiber
+-- already tabulates it).  The sibling module `Virahanka_‚Ä¶` proved the fiber
 -- RECURRENCE as an equivalence
---     fiber ‡‡®‡‡¶‡ (2+n) ‚â (fiber ‡‡®‡‡¶‡ (1+n) ‚ä fiber ‡‡®‡‡¶‡ n)
+--     fiber ‡§õ‡§®‡•ç‡§¶‡§É (2+n) ‚âÉ (fiber ‡§õ‡§®‡•ç‡§¶‡§É (1+n) ‚äé fiber ‡§õ‡§®‡•ç‡§¶‡§É n)
 -- and anchored it with two contractible base fibers.  This module consumes
 -- exactly those three facts and closes the count: the fiber over n is a
--- STANDARD finite type, `Fin (‡Æ‡æ‡‡‡∞‡æ-‡‡ô‡‡ñ‡‡Ø‡æ n)`, with the census computed
--- by the same recurrence.  No new mathematics on the mtr side ‚î the census
--- of a fiber minted with a standard type, never estimated (‡‡‡‡‡∞ ‡Æ).
+-- STANDARD finite type, `Fin (‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ n)`, with the census computed
+-- by the same recurrence.  No new mathematics on the mƒÅtrƒÅ side ‚Äî the census
+-- of a fiber minted with a standard type, never estimated (‡§∏‡•Ç‡§§‡•ç‡§∞ ‡•Æ).
 --
 -- The chaining is entirely of already-checked equivalences: the corpus's own
--- `‡µ‡ø‡∞‡‡æ‡ô‡‡ï-‡‡µ‡‡‡‡‡ø‡`, `‡‡¶‡ø-‡‡‡®‡‡Ø‡Æ‡`, `‡‡¶‡ø-‡‡ï‡Æ‡`, composed with the library's
--- `isContr‚í‚âUnit`, `Unit‚âFin1`, `‚ä-equiv`, and `Fin+‚âFin‚äFin` (the last read
--- backwards, so a sum of two Fins is one Fin of the sum ‚î which is why the
+-- `‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï-‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É`, `‡§Ü‡§¶‡§ø-‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç`, `‡§Ü‡§¶‡§ø-‡§è‡§ï‡§Æ‡•ç`, composed with the library's
+-- `isContr‚Üí‚âÉUnit`, `Unit‚âÉFin1`, `‚äé-equiv`, and `Fin+‚âÖFin‚äéFin` (the last read
+-- backwards, so a sum of two Fins is one Fin of the sum ‚Äî which is why the
 -- census ADDS, exactly the meru's building rule).
 --
 -- Scope: this does NOT claim Virahka wrote a bijection to Fin; it claims
 -- the mtr-count he named is the cardinality of this fiber, made a type.
--- TERM ‡Æ‡æ‡‡‡∞‡æ-‡‡ô‡‡ñ‡‡Ø‡æ (mtr-sakhy), the count of mtr-metres;
+-- TERM ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ (mƒÅtrƒÅ-sa·πÖkhyƒÅ), the count of mƒÅtrƒÅ-metres;
 -- substrate cubical (Voevodsky).  Written 2026-08-23.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates, no
 -- holes.
 ------------------------------------------------------------------------
 
-module Matracount_TheMatraFiberIsFinOfTheVirahankaNumber where
+module Matrasankhya_TheMatraFiberIsFinOfTheVirahankaNumber where
 
 open import Cubical.Foundations.Prelude using (isContr)
 open import Cubical.Foundations.Equiv using (_‚âÉ_ ; fiber ; compEquiv ; invEquiv)

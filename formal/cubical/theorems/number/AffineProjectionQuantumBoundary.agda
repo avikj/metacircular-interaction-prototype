@@ -9,7 +9,7 @@
 --
 -- Arithmetic elimination identifies six admitted x residues and ten y lifts
 -- above each one.  Once that proved solution chart is encoded as
--- `Fin 6 — Fin 10`, projection to the actual x coordinate needs and attains a
+-- `Fin 6 Ã— Fin 10`, projection to the actual x coordinate needs and attains a
 -- `Fin 10` certificate.  Overwriting every solution by the single symbolic
 -- statement `x = 4 mod 5` is a different, constant map: its certificate must
 -- retain the whole sixty-state solution chart.

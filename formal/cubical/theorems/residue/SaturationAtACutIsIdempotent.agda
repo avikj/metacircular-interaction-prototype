@@ -5,9 +5,9 @@
 --
 -- nucleus at a cut") describes an elimination procedure:
 --
---   "Nuc(K_e): saturated dual pairs (x, y) with y = Kâx, x = Kâ“y â”
+--   "Nuc(K_e): saturated dual pairs (x, y) with y = Kâ†‘x, x = Kâ†“y â€”
 --    exact burden profile and exact residual profile, a tight separable
---    majorant. â¦ Elimination via nucleus generators: compute, cover,
+--    majorant. â€¦ Elimination via nucleus generators: compute, cover,
 --    pass generator coefficients, compose by min-plus convolution,
 --    re-saturate.  No tractability theorem claimed."
 --
@@ -16,58 +16,58 @@
 -- gap this module fills, at the level of generality where it is a
 -- theorem rather than an assertion.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY IS CLAIMED FOR ANY THEOREM BELOW.  This is the Galois
--- connection induced by a relation â” Birkhoff's polarities (`Lattice
+-- connection induced by a relation â€” Birkhoff's polarities (`Lattice
 -- Theory`, 1940, Â§V on polarities); the same adjunction is the basis of
 -- formal concept analysis (Ganter & Wille, `Formale Begriffsanalyse`,
 -- 1996 / `Formal Concept Analysis`, 1999), where the saturated pairs
 -- are the *concepts* of a context and the closure below is the concept
 -- closure; and Isbell's construction (`Adequate subcategories`, 1960;
 -- the conjugation of 1966) is the enriched form the note's name points
--- at.  All that is contributed here is that the step Î” 28 Â§31â“32 calls
+-- at.  All that is contributed here is that the step Î” 28 Â§31â€“32 calls
 -- "re-saturate" is checked to be idempotent, so the procedure does not
 -- loop.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS PROVED, for an arbitrary K : X â’ Y â’ Type
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHAT IS PROVED, for an arbitrary K : X â†’ Y â†’ Type
 --
---   â-antitone / â“-antitone   the two polarities reverse inclusion
---   unit / counit             A âŠ â“(â A) and B âŠ â(â“ B)
---   triangleâ / triangleâ'    â A and â(â“(â A)) contain each other â”
+--   â†‘-antitone / â†“-antitone   the two polarities reverse inclusion
+--   unit / counit             A âŠ† â†“(â†‘ A) and B âŠ† â†‘(â†“ B)
+--   triangleâ†‘ / triangleâ†‘'    â†‘ A and â†‘(â†“(â†‘ A)) contain each other â€”
 --                             saturating a profile that came from a
 --                             saturation changes nothing
 --   c-inflationary / c-monotone / c-idempotent
---                             so c = â“ âˆ˜ â is a closure operator, and
+--                             so c = â†“ âˆ˜ â†‘ is a closure operator, and
 --                             re-saturation is idempotent
 --   fixedGivesSaturated / saturatedGivesFixed
 --                             the saturated dual pairs of Â§31 are
 --                             EXACTLY the fixed points of c
 --
--- The content for Â§31â“32 is the last two together with idempotence: an
+-- The content for Â§31â€“32 is the last two together with idempotence: an
 -- implementation may re-saturate once after each composition and stop,
--- and "saturated pair" is not an extra condition to maintain â” it is
+-- and "saturated pair" is not an extra condition to maintain â€” it is
 -- what being a fixed point of the closure means.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- The note's â and â“ are min-plus RESIDUATIONS over a semiring-valued
--- kernel, taking burden profiles to residual profiles.  The â and â“
+-- The note's â†‘ and â†“ are min-plus RESIDUATIONS over a semiring-valued
+-- kernel, taking burden profiles to residual profiles.  The â†‘ and â†“
 -- below are the two-valued polarities of a RELATION.  That the former
 -- is an instance of the latter is NOT proved here and is not obvious:
 -- it needs the kernel's values to form a quantale and the residuations
 -- to be its adjoints, none of which is set up in this repository.  So
 -- what is established is that the SATURATION discipline is sound
--- wherever the adjunction holds â” not that Î” 28's particular â/â“ satisfy
+-- wherever the adjunction holds â€” not that Î” 28's particular â†‘/â†“ satisfy
 -- it.  Reading this as a theorem about min-plus convolution would be
 -- exactly the error of quoting a figure without its input.
 --
--- Inclusion is used, not equality: `A âŠ B` and `B âŠ A` are proved
+-- Inclusion is used, not equality: `A âŠ† B` and `B âŠ† A` are proved
 -- separately and never combined into a path.  Turning them into `A â‰¡ B`
 -- needs the predicates to be proposition-valued and funExt, neither of
 -- which is assumed, and nothing below needs it.
 --
--- No tractability theorem is claimed here either â” Â§31â“32 says it
+-- No tractability theorem is claimed here either â€” Â§31â€“32 says it
 -- claims none, and computing c is no cheaper for being idempotent.
 --
 -- On the two-slot shape: this repository already carries a distinct
@@ -75,12 +75,12 @@
 -- `NaturalMachine/TheAnuyogitaAvacchedakaIsADistinctSlot`, from
 -- Nyya-Vaieika's treatment of absence, where the pratiyogin and the
 -- anuyogin occupy separate delimitor slots.  It is NOT claimed that
--- that is a Galois connection or that these are the same structure â”
+-- that is a Galois connection or that these are the same structure â€”
 -- the Naiyyika slots are not required to be adjoint and nothing here
 -- checks that they are.  The pointer is so a later reader compares them
 -- rather than assuming either way.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -105,8 +105,8 @@ _âŠ†_ {A} P Q = (a : A) â†’ P a â†’ Q a
 ------------------------------------------------------------------------
 -- 1.  The two polarities of a cut
 --
--- K x y reads "burden x is discharged by residual y".  â A collects the
--- residuals discharging every burden in A; â“ B the burdens discharged
+-- K x y reads "burden x is discharged by residual y".  â†‘ A collects the
+-- residuals discharging every burden in A; â†“ B the burdens discharged
 -- by every residual in B.
 ------------------------------------------------------------------------
 
@@ -177,18 +177,18 @@ module _ {X Y : Type} (K : X â†’ Y â†’ Type) where
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section names a gap â”
+-- line above.  The NOT-CLAIMED section names a gap â€”
 --
 --   "what is established is that the SATURATION discipline is sound
---    wherever the adjunction holds â” not that Î” 28's particular â/â“
+--    wherever the adjunction holds â€” not that Î” 28's particular â†‘/â†“
 --    satisfy it"
 --
--- â” without saying what would close it.  Now said, in
+-- â€” without saying what would close it.  Now said, in
 -- `TheSaturationClosureNeedsOnlyAGaloisConnection`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
 --
--- Everything above uses NOTHING about `Type`, `âŠ`, or the relation K.
+-- Everything above uses NOTHING about `Type`, `âŠ†`, or the relation K.
 -- It uses two preorders, two maps, and the two directions of a
 -- contravariant Galois connection.  Antitonicity, unit, counit, the
 -- triangles, idempotence, and the fixed-point characterisation are all
@@ -199,10 +199,10 @@ module _ {X Y : Type} (K : X â†’ Y â†’ Type) where
 --
 --   a preorder on burden profiles, a preorder on residual profiles, and
 --
---     galFwd : a â‰¼ d b â’ b âŠ u a
---     galBwd : b âŠ u a â’ a â‰¼ d b
+--     galFwd : a â‰¼ d b â†’ b âŠ‘ u a
+--     galBwd : b âŠ‘ u a â†’ a â‰¼ d b
 --
---   for the min-plus â and â“ â” and nothing else.
+--   for the min-plus â†‘ and â†“ â€” and nothing else.
 --
 -- Â§5 there checks that THIS module is one instance: `galFwdPred` and
 -- `galBwdPred` are a line each, and the closure theory transports with

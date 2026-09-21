@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �����-������ � growth of many.
+-- अनेक-वृद्धि — growth of many.
 --
--- B(t) = � �(n)/�n � h(t − log n) − e^{t/2} H(½): the prime side of the
--- proof note's signal carries POSITIVE weights �(n)/�n.  Atikrama read
+-- B(t) = Σ Λ(n)/√n · h(t − log n) − e^{t/2} H(½): the prime side of the
+-- proof note's signal carries POSITIVE weights Λ(n)/√n.  Atikrama read
 -- one mode; this file reads a finite positively weighted sum of modes
--- B(t) = �_{i<n} c_i m_i^t with c_i � 0, m_i � 0:
+-- B(t) = Σ_{i<n} c_i m_i^t with c_i ≥ 0, m_i ≥ 0:
 --
 --   §1  A TERM IS AT MOST THE SUM when every term is nonnegative.
---   §2  BOUNDED � EVERY POSITIVELY WEIGHTED MODE HAS RATIO � 1: if some
---       c_i > 0 had m_i > 1, Archimedes supplies q with 1 � q c_i, and
---       Atikrama a t with q K < m_i^t, so c_i m_i^t > K � cancelling the
---       positive q � against the bound.
---   §3  EVERY POSITIVELY WEIGHTED MODE HAS RATIO � 1 � BOUNDED by � c_i.
+--   §2  BOUNDED ⇒ EVERY POSITIVELY WEIGHTED MODE HAS RATIO ≤ 1: if some
+--       c_i > 0 had m_i > 1, Archimedes supplies q with 1 ≤ q c_i, and
+--       Atikrama a t with q K < m_i^t, so c_i m_i^t > K — cancelling the
+--       positive q — against the bound.
+--   §3  EVERY POSITIVELY WEIGHTED MODE HAS RATIO ≤ 1 ⇒ BOUNDED by Σ c_i.
 --   §4  THE CRITERION, both directions.
 --
--- ����� (aneka, many) is ordinary .
+-- अनेक (aneka, many) is ordinary Sanskrit.
 ------------------------------------------------------------------------
 
 module AnekaVrddhi_ASumOfModesWithNonnegativeWeightsIsBoundedExactlyWhenEveryPositivelyWeightedModeHasRatioAtMostOneSoThePrimeSideOfBIsReadModeByMode where
@@ -46,14 +46,14 @@ open import VrddhiSima_ADiscreteGronwallWithASummableWeightClosesWithoutExponent
   using (Σ⟨_⟩ ; ≤-yoga)
 
 ------------------------------------------------------------------------
--- � � A term is at most the sum, for nonnegative terms.
+-- १ · A term is at most the sum, for nonnegative terms.
 ------------------------------------------------------------------------
 
 Σ-anṛṇa : (f : ℕ → ℚ) → ((i : ℕ) → 0 ≤ f i) → (n : ℕ) → 0 ≤ Σ⟨ n ⟩ f
 Σ-anṛṇa f 0≤f zero    = isRefl≤ 0
 Σ-anṛṇa f 0≤f (suc n) = anṛṇa-yoga {Σ⟨ n ⟩ f} {f n} (Σ-anṛṇa f 0≤f n) (0≤f n)
 
--- i < suc n and i � n give i < n
+-- i < suc n and i ≢ n give i < n
 suc-le : (i n : ℕ) → i <ℕ suc n → ¬ (i ≡ n) → i <ℕ n
 suc-le i n i<sn ne with pred-≤-pred i<sn
 ... | (zero  , e) = ⊥-elim (ne e)
@@ -87,10 +87,10 @@ module _ (n : ℕ) (c m : ℕ → ℚ) (0≤c : (i : ℕ) → 0 ≤ c i) (0≤m 
   Sīmita = Σ[ K ∈ ℚ ] ((t : ℕ) → B t ≤ K)
 
   --------------------------------------------------------------------
-  -- � � Bounded � every positively weighted mode has ratio � 1.
+  -- २ · Bounded ⇒ every positively weighted mode has ratio ≤ 1.
   --------------------------------------------------------------------
 
-  -- a natural q with 1 � q � c is positive
+  -- a natural q with 1 ≤ q · c is positive
   dhana-ι : (q : ℕ) (x : ℚ) → 1 ≤ ι q · x → 0 < ι q
   dhana-ι zero    x le = ⊥-elim (≤→≯ 1 0 (subst (1 ≤_) (·AnnihilL x) le) (0 , refl))
   dhana-ι (suc q) x _  = isTrans≤< 0 (ι q) (ι q + 1) (ι-anṛṇa q)
@@ -112,7 +112,7 @@ module _ (n : ℕ) (c m : ℕ → ℚ) (0≤c : (i : ℕ) → 0 ≤ c i) (0≤m 
                           (isTrans≤ (c i · (m i ^ t)) (B t) K (pada-≤ (λ j → c j · (m j ^ t)) (pada-anṛṇa t) i n i<n) (bd t))
                           K<cmt
         where
-        -- m^t � (q c) m^t = q (c m^t)
+        -- m^t ≤ (q c) m^t = q (c m^t)
         mt≤ : m i ^ t ≤ ι q · (c i · (m i ^ t))
         mt≤ = subst2 _≤_ (·IdL (m i ^ t)) (sym (·Assoc (ι q) (c i) (m i ^ t)))
                 (≤-·o 1 (ι q · c i) (m i ^ t) (anṛṇa-ghāta i t) 1≤qc)
@@ -123,7 +123,7 @@ module _ (n : ℕ) (c m : ℕ → ℚ) (0≤c : (i : ℕ) → 0 ≤ c i) (0≤m 
                     (isTrans<≤ (ι q · K) (m i ^ t) (ι q · (c i · (m i ^ t))) qK<mt mt≤))
 
   --------------------------------------------------------------------
-  -- � � Every positively weighted mode has ratio � 1 � bounded by � c.
+  -- ३ · Every positively weighted mode has ratio ≤ 1 ⇒ bounded by Σ c.
   --------------------------------------------------------------------
 
   Σ-mono : (f g : ℕ → ℚ) (k : ℕ) → ((i : ℕ) → i <ℕ k → f i ≤ g i) → Σ⟨ k ⟩ f ≤ Σ⟨ k ⟩ g
@@ -146,7 +146,7 @@ module _ (n : ℕ) (c m : ℕ → ℚ) (0≤c : (i : ℕ) → 0 ≤ c i) (0≤m 
   eka→sīmita crit = Σ⟨ n ⟩ c , λ t → Σ-mono (λ i → c i · (m i ^ t)) c n (λ i i<n → pada-sīmā crit t i i<n)
 
   --------------------------------------------------------------------
-  -- � � The criterion.
+  -- ४ · The criterion.
   --------------------------------------------------------------------
 
   aneka-vṛddhi : (Sīmita → (i : ℕ) → i <ℕ n → 0 < c i → m i ≤ 1)

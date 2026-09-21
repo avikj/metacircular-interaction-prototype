@@ -7,7 +7,7 @@
 --
 -- explicitly flagged `[MINE]` and unsourced there: that the shape
 -- nearest to Dignga's `anypoha` is "a relative pseudo-complement in a
--- lattice" rather than `�` in a Boolean algebra.  This module settles
+-- lattice" rather than `¬` in a Boolean algebra.  This module settles
 -- that conjecture on the repository's OWN meaning-carriers, and the
 -- answer is negative.
 --
@@ -26,18 +26,18 @@
 --     implication.  So the failure below is not a failure of relations.
 --
 --   Theorem 2 (`no-exclusion`).  A general obstruction: if two
---     admissible exclusions T�, T� connect u and v through a common
---     third point w, then {� : � ⊓ P � S} has no greatest element.
+--     admissible exclusions T₁, T₂ connect u and v through a common
+--     third point w, then {τ : τ ⊓ P ⊑ S} has no greatest element.
 --     The single mechanism is TRANSITIVITY.
 --
 --   Theorem 3 (`three-coordinates`).  Instance on three points: with
 --     P the term "a,b" and S equality, no exclusion exists.  Three
 --     pairwise-incompatible coordinate terms are already enough.
 --
---   Theorem 4 (`declared-vocabulary`).  Instance on X = Bool � Bool
+--   Theorem 4 (`declared-vocabulary`).  Instance on X = Bool × Bool
 --     with two declared coordinates: RELATIVE TO the declared
---     four-element vocabulary {Δ, kfst, ksnd, �} the exclusion of
---     `kfst` relative to Δ exists and IS `ksnd` � literally set
+--     four-element vocabulary {Δ, kfst, ksnd, ⊤} the exclusion of
+--     `kfst` relative to Δ exists and IS `ksnd` — literally set
 --     difference on the vocabulary index.  `no-vocabulary-extension`
 --     then shows this operator does NOT survive admitting one further
 --     equivalence (parity) that the vocabulary did not list.
@@ -45,7 +45,7 @@
 -- Theorem 4 is the formal content of `INDIC_FORMAL_TRADITIONS_MAP.md`
 -- §2.3's warning about `Obstruction.agda`: a residual drawn from a
 -- fixed finite vocabulary IS an exclusion operator, but only on the
--- Boolean algebra of that vocabulary's index set � the pre-given
+-- Boolean algebra of that vocabulary's index set — the pre-given
 -- universe.  §2.3 said "do not call it apoha"; Theorem 3 + Theorem 4
 -- say why, exactly: the operator does not extend past the list.
 --
@@ -77,7 +77,7 @@ record IsEq {X : Type₀} (R : Rel X) : Type₀ where
 
 open IsEq public
 
--- Refinement: R � S says R separates at least as much as S, i.e. R is
+-- Refinement: R ⊑ S says R separates at least as much as S, i.e. R is
 -- the finer partition.  This is the ONLY comparison used below.
 _⊑_ : {X : Type₀} → Rel X → Rel X → Type₀
 _⊑_ {X} R S = (x y : X) → R x y → S x y
@@ -152,7 +152,7 @@ top-excludes-id =
   , (λ T _ m x y t → m x y (t , tt))
 
 ------------------------------------------------------------------------
--- 2. Theorem 1 � on unrestricted relations, exclusion always exists
+-- 2. Theorem 1 — on unrestricted relations, exclusion always exists
 --
 -- Pointwise implication is the exclusion operator on Rel X, for EVERY
 -- X.  This is the control: whatever goes wrong in §4 is not caused by
@@ -169,7 +169,7 @@ Imp-greatest : {X : Type₀} (P S T : Rel X) → (T ⊓ P) ⊑ S → T ⊑ Imp P
 Imp-greatest P S T h x y t p = h x y (t , p)
 
 ------------------------------------------------------------------------
--- 3. Theorem 2 � the general obstruction, in positive form
+-- 3. Theorem 2 — the general obstruction, in positive form
 --
 -- The load-bearing lemma is `joins-through`, and it contains no
 -- negation at all: any equivalence lying above two admissible
@@ -197,7 +197,7 @@ no-exclusion P S T₁ T₂ u v w e₁ e₂ m₁ m₂ t₁ t₂ p ns (E , eE , mE
        , p ))
 
 ------------------------------------------------------------------------
--- 4. Theorem 3 � three coordinate terms already destroy the operator
+-- 4. Theorem 3 — three coordinate terms already destroy the operator
 ------------------------------------------------------------------------
 
 data Three : Type₀ where
@@ -254,7 +254,7 @@ Tac = ker fac
 Tbc : Rel Three
 Tbc = ker fbc
 
--- Both rival exclusions are admissible: each meets P� only in equality.
+-- Both rival exclusions are admissible: each meets P₃ only in equality.
 Tac-adm : (Tac ⊓ P₃) ⊑ Δ₃
 Tac-adm pa pa h = refl
 Tac-adm pa pb h = Empty.rec (a≢b (fst h))
@@ -283,14 +283,14 @@ three-coordinates-collapse :
 three-coordinates-collapse E eE h₁ h₂ =
   joins-through E Tac Tbc pa pb pc eE h₁ h₂ refl refl
 
--- Corollary: the exclusion of P� relative to equality does not exist.
+-- Corollary: the exclusion of P₃ relative to equality does not exist.
 three-coordinates : ¬ (HasExclusion P₃ Δ₃)
 three-coordinates =
   no-exclusion P₃ Δ₃ Tac Tbc pa pb pc
     (ker-IsEq fac) (ker-IsEq fbc) Tac-adm Tbc-adm refl refl refl a≢b
 
 ------------------------------------------------------------------------
--- 5. Theorem 4 � exclusion IS definable, relative to a declared
+-- 5. Theorem 4 — exclusion IS definable, relative to a declared
 --    vocabulary, and does not survive leaving it
 ------------------------------------------------------------------------
 
@@ -330,14 +330,14 @@ ksnd-adm x y h = ΣPathP (snd h , fst h)
 Δ₄-adm : (Δ₄ ⊓ kfst) ⊑ Δ₄
 Δ₄-adm x y h = fst h
 
--- ksnd is above every admissible member of the declared vocabulary �
+-- ksnd is above every admissible member of the declared vocabulary …
 Δ₄⊑ksnd : Δ₄ ⊑ ksnd
 Δ₄⊑ksnd x y h = cong snd h
 
 ksnd⊑ksnd : ksnd ⊑ ksnd
 ksnd⊑ksnd x y h = h
 
--- � and the other two members of the vocabulary are NOT admissible.
+-- … and the other two members of the vocabulary are NOT admissible.
 u₀ v₀ w₀ : Pt
 u₀ = (false , false)
 v₀ = (false , true)
@@ -352,9 +352,9 @@ kfst-inadm h = u₀≢v₀ (h u₀ v₀ (refl , refl))
 top₄-inadm : ¬ ((top₄ ⊓ kfst) ⊑ Δ₄)
 top₄-inadm h = u₀≢v₀ (h u₀ v₀ (tt , refl))
 
--- THEOREM 4a.  Relative to the declared vocabulary {Δ�, kfst, ksnd,
--- top�}, the exclusion of kfst relative to Δ� exists and is ksnd: the
--- admissible members are exactly Δ� and ksnd, and ksnd dominates both.
+-- THEOREM 4a.  Relative to the declared vocabulary {Δ₄, kfst, ksnd,
+-- top₄}, the exclusion of kfst relative to Δ₄ exists and is ksnd: the
+-- admissible members are exactly Δ₄ and ksnd, and ksnd dominates both.
 -- On the index side this is the set difference {1,2} ∖ {1} = {2}.
 declared-vocabulary :
     ((Δ₄ ⊓ kfst) ⊑ Δ₄)
@@ -395,9 +395,9 @@ kpar-adm x y h =
              (fst h ∙ cong (λ t → par (t , snd y)) (sym (snd h))) )
 
 -- THEOREM 4b.  Admitting parity destroys the operator: `ksnd` and
--- `kpar` are both admissible and reach the common third point w�, so
+-- `kpar` are both admissible and reach the common third point w₀, so
 -- nothing above both is admissible.  The exclusion of kfst relative to
--- Δ� does not exist in Eq(Bool � Bool).
+-- Δ₄ does not exist in Eq(Bool × Bool).
 no-vocabulary-extension : ¬ (HasExclusion kfst Δ₄)
 no-vocabulary-extension =
   no-exclusion kfst Δ₄ ksnd kpar u₀ v₀ w₀
@@ -407,7 +407,7 @@ no-vocabulary-extension =
 -- 6. What the two theorems jointly say
 --
 -- `declared-vocabulary` and `no-vocabulary-extension` are about the
--- SAME pair (kfst , Δ�).  The exclusion exists relative to the declared
+-- SAME pair (kfst , Δ₄).  The exclusion exists relative to the declared
 -- list and fails absolutely.  So "the other" is not a function of the
 -- term; it is a function of the term AND the declared scope, and the
 -- absolute scope has no answer at all.  That is the exact sense in

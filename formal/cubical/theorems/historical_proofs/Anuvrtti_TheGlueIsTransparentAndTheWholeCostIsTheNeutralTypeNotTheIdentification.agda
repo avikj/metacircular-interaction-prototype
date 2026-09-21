@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --safe --guardedness --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��������� � where definitional computation stops and propositional
+-- अनुवृत्ति — where definitional computation stops and propositional
 -- computation takes over, for transport along an identification.
 --
--- ON THE NAME.  ��������� (anuvtti) is the Adhyy's carrying-over: a
+-- ON THE NAME.  अनुवृत्ति (anuvṛtti) is the Aṣṭādhyāyī's carrying-over: a
 -- word stated once in a stra continues into the following stras, unstated,
--- until it is cancelled � Pini, *Adhyy* (~500 BCE), throughout;
+-- until it is cancelled — Pāṇini, *Aṣṭādhyāyī* (~500 BCE), throughout;
 -- analysed as a device by Patajali, *Mahbhya* (~150 BCE).  It is used
 -- here for the carrying-over of a term along a path at no cost.  WHAT IS NOT
 -- CLAIMED: Pini stated no theorem about transport, and the mathematics
--- below originates in cubical type theory (Cohen�Coquand�Huber�Mrtberg, and
+-- below originates in cubical type theory (Cohen–Coquand–Huber–Mörtberg, and
 -- Voevodsky's univalence), not in the grammatical tradition.  The compound
 -- names the phenomenon; it does not assert a source for the theorem.
 --
@@ -23,7 +23,7 @@
 -- That is a correct observation of a stuck term and a WRONG attribution of
 -- the cause, and the difference is the whole content here.  Under Agda 2.8.0
 -- with agda/cubical v0.9, `transport (ua e) x ≡ equivFun e x` holds BY refl
--- for an arbitrary equivalence `e : � � �` and an arbitrary `x : �` � both
+-- for an arbitrary equivalence `e : ℕ ≃ ℕ` and an arbitrary `x : ℕ` — both
 -- neutral variables, nothing canonical anywhere (§1).  The Glue is
 -- transparent.  What is left over in the failing case is not the unglue: it
 -- is the residual `transp` in the CODOMAIN, and it is stuck for a reason that
@@ -34,18 +34,18 @@
 --   §1  Transport along ua reduces definitionally on neutral input, and the
 --       cost does NOT accumulate under composition: a two-fold and a
 --       three-fold composite of ua's still close by refl.
---   §2  It stops at a NEUTRAL TYPE.  `transp (λ i � A) i0 x` has no reduction
+--   §2  It stops at a NEUTRAL TYPE.  `transp (λ i → A) i0 x` has no reduction
 --       rule when A is a type variable, and that single stuck step is the
 --       entire cost.  It stays ONE uaβ under composition in the equivalence
 --       lane; it becomes one `transportComposite` plus n uaβ's in the path
---       lane; and `uaCompEquiv` identifies the two paths � so the cost is a
+--       lane; and `uaCompEquiv` identifies the two paths — so the cost is a
 --       property of the PRESENTATION of the identification, not of the
 --       identification.
---   §3  It also stops at the TOP of a �, and there the stuckness is empty:
---       every projection of the stuck term reduces, so `�PathP (refl , refl)`
+--   §3  It also stops at the TOP of a Σ, and there the stuckness is empty:
+--       every projection of the stuck term reduces, so `ΣPathP (refl , refl)`
 --       closes it and no transport lemma is used.  The transported packet is
 --       stuck as a term and free at every observation.  Π does not stop at
---       all, so this is not "�" in general.
+--       all, so this is not "η" in general.
 --   §4  Consequently the uaβ in `Loss.Carrier` is removable: the same
 --       law written monomorphically computes by refl, and a NON-THEOREM
 --       records that the module-parameterized form does not.
@@ -105,8 +105,8 @@ open import Cubical.Data.Bool
 -- about _∙_.  Transport along a composite of ARBITRARY paths does not reduce:
 --
 --   (A B C : Type) (p : A ≡ B) (q : B ≡ C) (x : A)
---     � transport (p ∙ q) x ≡ transport q (transport p x)
---   �  transp (λ i � doubleComp-faces (λ _ � A) q i0 (~ i) _) i0 x != x
+--     → transport (p ∙ q) x ≡ transport q (transport p x)
+--   ✗  transp (λ i → doubleComp-faces (λ _ → A) q i0 (~ i) _) i0 x != x
 --
 -- So `_∙_` is opaque to transport in general, and the composites above close
 -- by refl anyway.  The propositional statement, uniform in p and q, is:
@@ -118,7 +118,7 @@ open import Cubical.Data.Bool
 ------------------------------------------------------------------------
 -- §2  Where it stops: a neutral type.
 --
--- `transp (λ i � A) i0 x` has no reduction rule when A is a type VARIABLE.
+-- `transp (λ i → A) i0 x` has no reduction rule when A is a type VARIABLE.
 -- That one step is the entire cost, and the Glue has already vanished before
 -- it is reached.
 ------------------------------------------------------------------------
@@ -129,8 +129,8 @@ open import Cubical.Data.Bool
 
 -- NON-THEOREM, at a neutral type, with no ua anywhere in sight:
 --
---   {A : Type} (x : A) � transport (λ _ � A) x ≡ x
---   �  transp (λ i � A) i0 x != x of type A
+--   {A : Type} (x : A) → transport (λ _ → A) x ≡ x
+--   ✗  transp (λ i → A) i0 x != x of type A
 --
 -- The propositional statement is `transportRefl`.
 
@@ -138,10 +138,10 @@ open import Cubical.Data.Bool
 -- the unglue is applied and gone, and what is left is exactly the constant
 -- transport at the neutral type above.
 --
---   {A : Type} (e : A � A) (x : A) � transport (ua e) x ≡ equivFun e x
---   �  transp (λ i � A) i0 (prim^unglue x) != fst e x of type A
+--   {A : Type} (e : A ≃ A) (x : A) → transport (ua e) x ≡ equivFun e x
+--   ✗  transp (λ i → A) i0 (prim^unglue x) != fst e x of type A
 --
--- Compare §1: the same statement at A := � is refl.  Instantiating the type
+-- Compare §1: the same statement at A := ℕ is refl.  Instantiating the type
 -- removes the cost; the identification was never the cost.
 
 module _ {A : Type} where
@@ -161,26 +161,26 @@ module _ {A : Type} where
   मूल्य-पथ e f x =
     समासः (ua e) (ua f) x ∙ cong (transport (ua f)) (uaβ e x) ∙ uaβ f _
 
-  -- �and the two are the SAME PATH.  So the difference between one β and
+  -- …and the two are the SAME PATH.  So the difference between one β and
   -- three steps is a difference of presentation, not of identification.
   मूल्य-अभेद : (e f : A ≃ A) → ua (compEquiv e f) ≡ ua e ∙ ua f
   मूल्य-अभेद e f = uaCompEquiv e f
 
 ------------------------------------------------------------------------
--- §3  Where it also stops: the top of a � � and there the stuckness is empty.
+-- §3  Where it also stops: the top of a Σ — and there the stuckness is empty.
 --
 -- transp at a Π type produces a λ immediately, so it is never stuck.  transp
--- at a � type would have to �-expand a neutral argument, and does not; the
+-- at a Σ type would have to η-expand a neutral argument, and does not; the
 -- term is stuck.  But every ELIMINATION of the stuck term reduces, so the
--- residue is exactly one �-step and no transport lemma is consumed.
+-- residue is exactly one η-step and no transport lemma is consumed.
 ------------------------------------------------------------------------
 
 -- NON-THEOREM, with no ua and no non-constant family:
 --
---   (x : � � �) � transport (λ _ � � � �) x ≡ x
---   �  transp (λ i � � � �) i0 x != x of type � � (λ _ � �)
+--   (x : ℕ × ℕ) → transport (λ _ → ℕ × ℕ) x ≡ x
+--   ✗  transp (λ i → ℕ × ℕ) i0 x != x of type Σ ℕ (λ _ → ℕ)
 --
--- Contrast �����-� above, which is refl.  Now the eliminations:
+-- Contrast स्थिर-ℕ above, which is refl.  Now the eliminations:
 
 क्षेत्र-प्रथम : (x : ℕ × ℕ) → fst (transport (λ _ → ℕ × ℕ) x) ≡ fst x
 क्षेत्र-प्रथम x = refl
@@ -188,33 +188,33 @@ module _ {A : Type} where
 क्षेत्र-द्वितीय : (x : ℕ × ℕ) → snd (transport (λ _ → ℕ × ℕ) x) ≡ snd x
 क्षेत्र-द्वितीय x = refl
 
--- �so the non-theorem above costs exactly one �-step to repair, and the
+-- …so the non-theorem above costs exactly one η-step to repair, and the
 -- components are refl.  Nothing is computed here that was not already
 -- computed.
 क्षेत्र-सन्धि : (x : ℕ × ℕ) → transport (λ _ → ℕ × ℕ) x ≡ x
 क्षेत्र-सन्धि x = ΣPathP (refl , refl)
 
--- The same, uniformly over an ARBITRARY path of types � and here even the
+-- The same, uniformly over an ARBITRARY path of types — and here even the
 -- top closes by refl, because the right-hand side is a PAIR, and a
--- constructor on one side makes the checker �-expand the stuck term.
+-- constructor on one side makes the checker η-expand the stuck term.
 क्षेत्र-वितरण : (A : ℕ ≡ ℕ) (x : ℕ × ℕ)
               → transport (λ i → A i × A i) x
               ≡ (transport A (fst x) , transport A (snd x))
 क्षेत्र-वितरण A x = refl
 
--- which locates the � stuckness exactly: it appears ONLY when both sides are
+-- which locates the Σ stuckness exactly: it appears ONLY when both sides are
 -- neutral.  Writing the right-hand side as `(fst x , snd x)` is not an
--- escape � the checker �-contracts that back to `x` and the comparison is
+-- escape — the checker η-contracts that back to `x` and the comparison is
 -- neutral-against-neutral again:
 --
---   (x : � � �) � transport (λ _ � � � �) x ≡ (fst x , snd x)
---   �  transp (λ i � � � �) i0 x != x of type � � (λ _ � �)
+--   (x : ℕ × ℕ) → transport (λ _ → ℕ × ℕ) x ≡ (fst x , snd x)
+--   ✗  transp (λ i → ℕ × ℕ) i0 x != x of type Σ ℕ (λ _ → ℕ)
 --
 -- So the residue of §3 is not a computation left unperformed.  It is the
--- checker declining to �-expand two neutral terms against each other, and
--- `�PathP (refl , refl)` is the instruction to do it.
+-- checker declining to η-expand two neutral terms against each other, and
+-- `ΣPathP (refl , refl)` is the instruction to do it.
 
--- Π does not stop at all � so §3 is not a statement about � in general.
+-- Π does not stop at all — so §3 is not a statement about η in general.
 प्रत्यय-स्थिर : (h : ℕ → ℕ) → transport (λ _ → ℕ → ℕ) h ≡ h
 प्रत्यय-स्थिर h = refl
 
@@ -224,8 +224,8 @@ module _ {A : Type} where
 ------------------------------------------------------------------------
 -- §4  The consequence for Loss.Carrier: the uaβ is removable.
 --
--- Written monomorphically � the record not a family, the map a top-level
--- definition � the law's transport reduces to `descend` BY refl, on a
+-- Written monomorphically — the record not a family, the map a top-level
+-- definition — the law's transport reduces to `descend` BY refl, on a
 -- neutral variable.  `carry-transport-descend` is then not load-bearing; it
 -- is `refl`.
 ------------------------------------------------------------------------
@@ -262,17 +262,17 @@ open वाहकः public
 -- NON-THEOREM, and it is the measurement that locates the cost.  The SAME
 -- construction written as a module-parameterized family
 --
---   module _ {A B : Type} (f : A � B) where record C � ; P : A ≡ C
+--   module _ {A B : Type} (f : A → B) where record C … ; P : A ≡ C
 --
--- and then INSTANTIATED at A := �, B := �, f := �����-���� does NOT reduce:
+-- and then INSTANTIATED at A := ℕ, B := ℕ, f := योग-द्वि does NOT reduce:
 --
---   (x : �) � transport (P �����-����) x ≡ des �����-���� x
---   �  hcomp (λ i .o � transp (λ i� � �) i
---              (primPOr i0 (i� ∨ ~ i�) (λ .o� � prim^unglue x .witness i�) �))
---        (x + x)  !=  x + x  of type �
+--   (x : ℕ) → transport (P योग-द्वि) x ≡ des योग-द्वि x
+--   ✗  hcomp (λ i .o → transp (λ i₁ → ℕ) i
+--              (primPOr i0 (i₁ ∨ ~ i₁) (λ .o₁ → prim^unglue x .witness i₁) …))
+--        (x + x)  !=  x + x  of type ℕ
 --
 -- The residue is the WITNESS field: transp over the path family
--- `λ i � f (base i) ≡ carried i` becomes an hcomp whose cap is the neutral
+-- `λ i → f (base i) ≡ carried i` becomes an hcomp whose cap is the neutral
 -- path `prim^unglue x .witness`.  Two constructions that differ only by
 -- whether the record is a module-parameterized family reduce differently
 -- after the parameters are supplied.  I have no derivation of why the
@@ -283,8 +283,8 @@ open वाहकः public
 -- §5  What a machine actually pays, at LosslessReturn's own instance.
 --
 -- Faithful mini-copy of the parameterized law and of the orbit, instantiated
--- at A := � � �, B := �, f := (s , l) � s + l � exactly Loss.Viveka.
--- There the packet-level identity is stuck (§3's �-�, reached through the
+-- at A := ℕ × ℕ, B := ℕ, f := (s , l) ↦ s + l — exactly Loss.Viveka.
+-- There the packet-level identity is stuck (§3's Σ-η, reached through the
 -- Glue), and the price is one β per head of a corecursive proof.
 --
 -- Every READING is refl at every head, and refl at every depth.
@@ -359,12 +359,12 @@ open _≈_ public
 
 -- NON-THEOREM, the one Loss.Compute records:
 --
---   (x : � � �) � �������� x ≡ �������� x
---   �  transp (λ i � � � �) i0 (prim^unglue x .base) != x
---                                            of type � � (λ _ � �)
+--   (x : ℕ × ℕ) → परिवहनम् x ≡ अवतरणम्′ x
+--   ✗  transp (λ i → ℕ × ℕ) i0 (prim^unglue x .base) != x
+--                                            of type Σ ℕ (λ _ → ℕ)
 --
 -- and the residual names the cause precisely: the unglue is applied and
--- gone, and what is stuck is §3's constant transport at a �, at the `base`
+-- gone, and what is stuck is §3's constant transport at a Σ, at the `base`
 -- field.  Not univalence.  Every reading of the transported packet is refl:
 
 पठनम्-प्रथम : (x : ℕ × ℕ) → fst (base (परिवहनम् x)) ≡ fst x
@@ -376,7 +376,7 @@ open _≈_ public
 पठनम्-वाहितम् : (x : ℕ × ℕ) → carried (परिवहनम् x) ≡ fst x + snd x
 पठनम्-वाहितम् x = refl
 
--- �so the packet-level identity costs exactly one �-step, as in §3, and no
+-- …so the packet-level identity costs exactly one η-step, as in §3, and no
 -- uaβ.  This is a strictly cheaper proof than `carry-transport-descend`.
 मूलम्-सन्धिः : (x : ℕ × ℕ) → base (परिवहनम् x) ≡ x
 मूलम्-सन्धिः x = ΣPathP (refl , refl)
@@ -384,7 +384,7 @@ open _≈_ public
 -- AT INFINITE DEPTH.  The orbit of READINGS closes by refl at every head:
 -- corecursive, unbounded, and no β is consumed at any depth.  This is the
 -- exact contrast with Loss.Nucleus's `transport-orbit≈`, whose head
--- is `carry-transport-descend` � one β per head, forever.
+-- is `carry-transport-descend` — one β per head, forever.
 अनुवृत्ति-जालम् : (x : ℕ × ℕ)
                 → mapO carried (mapO परिवहनम् (unfold Φ x))
                 ≈ mapO carried (mapO अवतरणम्′ (unfold Φ x))
@@ -399,7 +399,7 @@ open _≈_ public
 ≈next (अनुवृत्ति-जालम्-मूलम् x) = अनुवृत्ति-जालम्-मूलम् (Φ x)
 
 -- The packet-level orbit, for the contrast, closing at each head by the
--- �-step of §3 rather than by uaβ � still one head, but a strictly cheaper
+-- η-step of §3 rather than by uaβ — still one head, but a strictly cheaper
 -- one, and it uses no univalence lemma at all.
 अनुवृत्ति-जालम्-पूर्णम् : (x : ℕ × ℕ)
                         → mapO (λ v → base v) (mapO परिवहनम् (unfold Φ x))
@@ -411,20 +411,20 @@ open _≈_ public
 -- THE ANSWER, stated plainly.
 --
 -- Transport along an identification does no work.  At a type in canonical
--- form the whole thing � including composites of arbitrarily many ua's �
+-- form the whole thing — including composites of arbitrarily many ua's —
 -- reduces by refl on neutral input, and no β is consumed (§1).  The cost
 -- appears at exactly two places, neither of them the identification:
 --
---   * a NEUTRAL TYPE, where `transp (λ i � A) i0` has no rule at all.  Cost:
+--   * a NEUTRAL TYPE, where `transp (λ i → A) i0` has no rule at all.  Cost:
 --     one uaβ, and it does not grow with the number of equivalences composed
 --     provided they are composed as equivalences (§2).
---   * the TOP OF A RECORD, where the cost is one �-step and every projection
+--   * the TOP OF A RECORD, where the cost is one η-step and every projection
 --     is already refl (§3).
 --
 -- Both vanish on instantiation, and the second is free even before it
 -- vanishes.  A machine that reads its transported data pays nothing at any
 -- depth (§5); a machine that demands the transported packet back as a whole
--- pays one �-step per demand, and one uaβ per demand only if it is working
+-- pays one η-step per demand, and one uaβ per demand only if it is working
 -- under an abstract type it has not yet instantiated.  The cost is charged
 -- per identification DEMANDED, never per step travelled.
 ------------------------------------------------------------------------

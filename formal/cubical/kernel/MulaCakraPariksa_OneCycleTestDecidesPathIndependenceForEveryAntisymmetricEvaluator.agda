@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���-�����-�������� � the basis-cycle test.
+-- मूल-चक्र-परीक्षा — the basis-cycle test.
 --
 -- THE CLAIM (2026-09-03, the synthesis): exhaustive path testing
--- compresses to a homology basis � to certify that an additive edge
+-- compresses to a homology basis — to certify that an additive edge
 -- effect is path-independent, it suffices to verify zero integral on
 -- basis cycles.  Here is the pairwise instance of that theorem, in the
 -- kernel, for every evaluator that respects orientation:
 --
 --   §1  INTEGRATION IS ADDITIVE over concatenation, and on a reversed
 --       derivation the integral of an antisymmetric evaluator cancels
---       against the original: �(revD d) + � d ≡ 0 � proved without
+--       against the original: ∫(revD d) + ∫ d ≡ 0 — proved without
 --       ever distributing negation, by cancelling one step at a time.
 --
 --   §2  THE ONE-CYCLE TEST: for any two coterminal derivations p, q
 --       and any antisymmetric evaluator ω, if ω integrates to zero on
 --       the single cycle p ++ revD q, then ω agrees on p and q.  One
---       loop tested, every pair of schedules certified � the
+--       loop tested, every pair of schedules certified — the
 --       fundamental cycle IS the test suite.
 --
 --   §3  EVERY EXACT EVALUATOR IS ANTISYMMETRIC (a potential's
---       coboundary reverses sign with the step, proved from the �
+--       coboundary reverses sign with the step, proved from the ℤ
 --       lemmas), so §2 applies to the whole protected class of
 --       MulyaVinimaya/Vyakhya for free.  And the depth evaluator
---       ������� is NOT antisymmetric � it counts wrappers through
---       `reverse` positively � which is exactly why its nonzero loop
+--       गभीरता is NOT antisymmetric — it counts wrappers through
+--       `reverse` positively — which is exactly why its nonzero loop
 --       integral (pos 3) escapes this test and lives as a class.  The
 --       hypothesis of §2 is not a convenience: it is the boundary
 --       between value that one cycle can certify and value that no
@@ -46,7 +46,7 @@ open import MulyaVinimaya_TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsT
   using (Evaluator ; ∫ ; d′)
 
 ------------------------------------------------------------------------
--- � � Two � facts, assembled from the pinned lemmas.
+-- ० · Two ℤ facts, assembled from the pinned lemmas.
 ------------------------------------------------------------------------
 
 -- (x − y) + (y − x) ≡ 0
@@ -66,7 +66,7 @@ negSwap x y =
   ∙ sym (pos0+ (- (y - x)))
 
 ------------------------------------------------------------------------
--- � � Additivity, and step-by-step cancellation on the reverse.
+-- १ · Additivity, and step-by-step cancellation on the reverse.
 ------------------------------------------------------------------------
 
 Antisymmetric : Evaluator → Type₀
@@ -96,7 +96,7 @@ Antisymmetric ω = {a b : Tm} (s : Step a b) → ω (reverse s) ≡ - ω s
   ∙ ∫-revD-cancel ω anti d
 
 ------------------------------------------------------------------------
--- � � The one-cycle test.
+-- २ · The one-cycle test.
 ------------------------------------------------------------------------
 
 oneCycleTest : (ω : Evaluator) (anti : Antisymmetric ω)
@@ -110,14 +110,14 @@ oneCycleTest ω anti p q cycle0 =
   ∙ sym (pos0+ (∫ ω q))
 
 ------------------------------------------------------------------------
--- � � The whole exact class satisfies the hypothesis for free.
+-- ३ · The whole exact class satisfies the hypothesis for free.
 ------------------------------------------------------------------------
 
 exactIsAntisymmetric : (φ : Tm → ℤ) → Antisymmetric (d′ φ)
 exactIsAntisymmetric φ {a} {b} s = negSwap (φ a) (φ b)
 
 -- so, in particular: for any potential and any pair of coterminal
--- schedules, one vanishing cycle certifies agreement � the test suite
+-- schedules, one vanishing cycle certifies agreement — the test suite
 -- for the protected observers of Vyakhya is a single loop.
 exactOneCycle : (φ : Tm → ℤ) {x y : Tm} (p q : Derivation x y)
   → ∫ (d′ φ) (p ++ revD q) ≡ pos 0

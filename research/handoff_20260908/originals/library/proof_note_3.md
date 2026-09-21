@@ -6,7 +6,7 @@ Read snapshot: `168ea8e240524f898af4b0e9cf70297c38422f08`.
 
 ## Scope and provenance
 
-This is a completed set of analytic statements in declared source classes. It is not a proof of the Riemann hypothesis or global three-dimensional Navierâ“Stokes regularity. No proof-assistant build, numerical off-critical-zero certificate, or nonlinear PDE evolution is claimed.
+This is a completed set of analytic statements in declared source classes. It is not a proof of the Riemann hypothesis or global three-dimensional Navierâ€“Stokes regularity. No proof-assistant build, numerical off-critical-zero certificate, or nonlinear PDE evolution is claimed.
 
 The saved note **Explicit spectral-source interpolation and the renormalized strain current**, dated 2026-09-07 (library file `proof_note(6).md`), already supplies: entire cardinal interpolation using the actual completed zeta function; compactification with a retained error; a negative localized-Weil spectral-bottom alternative; and the exact same-source evolution of the toroidal quadrupole under moving rescaling. Those results are inputs, not inventions of this pass.
 
@@ -345,7 +345,7 @@ For `f` supported in `(-a,a)`, `h=f*tilde f` is supported in `(-2a,2a)`, so only
 
 ## 5. The strain-bearing observer already supplied by the handoff
 
-Use a smooth whole-space, divergence-free vorticity `omega`, with its finite-energy Biotâ“Savart velocity and sufficient decay for the formulas below. For `B` trace-free symmetric, define
+Use a smooth whole-space, divergence-free vorticity `omega`, with its finite-energy Biotâ€“Savart velocity and sufficient decay for the formulas below. For `B` trace-free symmetric, define
 
 \[
 T_B(n)=n\times Bn,\qquad n\in S^2.
@@ -410,7 +410,7 @@ The heat-regularized Newton potential is
 \Phi_t(r)=\frac{\operatorname{erf}(r/(2\sqrt{\nu t}))}{4\pi r}.
 \]
 
-In its Hessian the isotropic term disappears on symmetrizing the Biotâ“Savart strain kernel. The coefficient of `n tensor n` is
+In its Hessian the isotropic term disappears on symmetrizing the Biotâ€“Savart strain kernel. The coefficient of `n tensor n` is
 
 \[
 \Phi_t''(r)-\Phi_t'(r)/r
@@ -563,7 +563,7 @@ c_0=\frac35\int_1^2\frac{\phi(q)}q\,dq>0.
 \tag{37}
 \]
 
-Let `u_j` be its actual Biotâ“Savart velocity. Its `L2` norm is proportional to `R_j^(5/2)`, so
+Let `u_j` be its actual Biotâ€“Savart velocity. Its `L2` norm is proportional to `R_j^(5/2)`, so
 
 \[
 \left\|\sum_{j=1}^N u_j\right\|_2
@@ -677,7 +677,7 @@ Other retrieved source:
 - Saved **Work balance and toroidal quadrupole selection**, 2026-09-07, mounted under `passivity_toroidal_quadrupole`.
 - M. Suzuki, **Weil's quadratic form via the screw function**, arXiv:2606.09096v2, manuscript dated 24 August 2026. Used only for the actual classical Weil form, its compact smooth core, and the localized operator interpretation.
 - NIST DLMF Â§Â§25.4 and 8.2, for completed-zeta reflection conventions and incomplete-gamma definitions.
-- The theta functional equation, heat kernel, Biotâ“Savart formula, and elementary spherical-harmonic calculus are classical analytic inputs; their needed calculations are given above.
+- The theta functional equation, heat kernel, Biotâ€“Savart formula, and elementary spherical-harmonic calculus are classical analytic inputs; their needed calculations are given above.
 
 ## Executed verification
 

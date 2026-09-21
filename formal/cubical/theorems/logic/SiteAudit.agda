@@ -6,7 +6,7 @@
 -- CORRECTION TO `WhyTheSitesAreTwo` Â§6 AND TO
 --
 -- Both say: *"Every site in this corpus satisfies both hypotheses:
--- function-space decoders, and Y one of â•, Bool, lists of â•.  So 2 was
+-- function-space decoders, and Y one of â„•, Bool, lists of â„•.  So 2 was
 -- never contingent here."*
 --
 -- The second half of that is false.  The audit, done properly:
@@ -15,46 +15,46 @@
 --   PowModHasTheSameShape          FiniteInformation.FactorsThrough
 --   FuelAdequacyIsACollision       FiniteInformation.FactorsThrough
 --   ExhaustionIsSystematic         (three sites, same)
---   QuotientFiberLaw               Î[ g âˆˆ (List Bool â’ Bool) ] â¦
---   Laghava                        Î[ f âˆˆ (Denotation â’ â•) ] â¦
---   AvaktavyaDoesNotFactor         Î[ v âˆˆ Vacana ] â¦          six atoms
+--   QuotientFiberLaw               Î£[ g âˆˆ (List Bool â†’ Bool) ] â€¦
+--   Laghava                        Î£[ f âˆˆ (Denotation â†’ â„•) ] â€¦
+--   AvaktavyaDoesNotFactor         Î£[ v âˆˆ Vacana ] â€¦          six atoms
 --
 -- Two things went unchecked.
 --
--- ONE.  `Laghava`'s observation space is `Denotation = â• â’ â•`.  That is
--- NOT discrete, and its witnesses are not locatable either â” equality of
--- functions â• â’ â• is not decidable.  So neither `WhyTheSitesAreTwo` nor
--- `LocatingIsEnough` applies at the site the whole à²à¾à˜àµ thread is about.
+-- ONE.  `Laghava`'s observation space is `Denotation = â„• â†’ â„•`.  That is
+-- NOT discrete, and its witnesses are not locatable either â€” equality of
+-- functions â„• â†’ â„• is not decidable.  So neither `WhyTheSitesAreTwo` nor
+-- `LocatingIsEnough` applies at the site the whole à¤²à¤¾à¤˜à¤µ thread is about.
 --
 -- TWO.  `Laghava` and `QuotientFiberLaw` quantify over decoders on the
--- WHOLE CODOMAIN â” `Denotation â’ â•`, `List Bool â’ Bool` â” not over
--- `Image q â’ T`.  The ceiling theorem was stated for the image-restricted
+-- WHOLE CODOMAIN â€” `Denotation â†’ â„•`, `List Bool â†’ Bool` â€” not over
+-- `Image q â†’ T`.  The ceiling theorem was stated for the image-restricted
 -- space, so it did not literally cover them.  Â§1 below fixes that, and
 -- the fix is simpler than the original, not harder.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT SURVIVES, AND ON WHAT GROUND
 --
 -- Every site is still exactly 2.  But the ground differs, and conflating
 -- the two is what produced the overstatement:
 --
---   ACHIEVABILITY (â‰ 2)  from an exhibited collision.  Holds at every
+--   ACHIEVABILITY (â‰¤ 2)  from an exhibited collision.  Holds at every
 --                        site, needs no hypothesis, is what each module
 --                        already proved.
---   THE FLOOR (â‰ 2)      from the constant decoder.  Needs only that the
+--   THE FLOOR (â‰¥ 2)      from the constant decoder.  Needs only that the
 --                        decoder space contain constants.  Holds at
 --                        every site here including `Laghava`.
---   THE CEILING (â‰ 2 for
+--   THE CEILING (â‰¤ 2 for
 --   ANY absence of that
 --   shape)               from `WhyTheSitesAreTwo`.  Needs discreteness
 --                        or locatability.  Does NOT hold at `Laghava`.
 --
--- So `Laghava` is 2 â” proved outright in Â§3 â” but not BECAUSE of the
+-- So `Laghava` is 2 â€” proved outright in Â§3 â€” but not BECAUSE of the
 -- ceiling theorem.  The claim "2 was never contingent here" is right at
 -- the discrete sites and unproved at `Laghava`, where for all this
 -- corpus knows some other absence over the same q could cost more.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ONE CONSTRAINED SITE
 --
 -- Exactly one: `AvaktavyaDoesNotFactor`, whose decoders are six atoms.
@@ -64,7 +64,7 @@
 -- non-discrete observation space, and each of those two was proved
 -- individually rather than by the general theorem.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -89,7 +89,7 @@ private
     â„“x â„“y â„“t : Level
 
 ------------------------------------------------------------------------
--- 1.  Decoders on the whole codomain â” the shape two sites actually use
+-- 1.  Decoders on the whole codomain â€” the shape two sites actually use
 ------------------------------------------------------------------------
 
 FullLaw : {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
@@ -129,7 +129,7 @@ law-is-laghava :
 law-is-laghava = refl
 
 ------------------------------------------------------------------------
--- 3.  SO `Laghava`'s WITNESS NUMBER IS EXACTLY 2 â” on its own ground,
+-- 3.  SO `Laghava`'s WITNESS NUMBER IS EXACTLY 2 â€” on its own ground,
 --     with no discreteness anywhere
 ------------------------------------------------------------------------
 
@@ -158,9 +158,9 @@ laghava-is-two =
 --
 -- SETTLED.  Every factorisation site in this corpus has witness number
 -- exactly 2, and the list of sites is the one in the header.  Two of
--- them are not covered by the general ceiling theorem â” `Laghava`
--- because `Denotation = â• â’ â•` is neither discrete nor locatable, and
--- `AvaktavyaDoesNotFactor` because its decoders are six atoms â” and both
+-- them are not covered by the general ceiling theorem â€” `Laghava`
+-- because `Denotation = â„• â†’ â„•` is neither discrete nor locatable, and
+-- `AvaktavyaDoesNotFactor` because its decoders are six atoms â€” and both
 -- were proved individually, here and in `WitnessNumberIsTwo` Â§5
 -- respectively.
 --
@@ -171,9 +171,9 @@ laghava-is-two =
 -- `eval`.
 --
 -- OPEN, named and not estimated.  Whether the ceiling holds at
--- `Laghava` â” i.e. whether every absence over `eval : Expr â’ (â• â’ â•)`
+-- `Laghava` â€” i.e. whether every absence over `eval : Expr â†’ (â„• â†’ â„•)`
 -- costs 2.  `LocatingIsEnough` says what would suffice: that the
--- witnesses be locatable.  Equality of functions â• â’ â• is not decidable,
+-- witnesses be locatable.  Equality of functions â„• â†’ â„• is not decidable,
 -- but locating finitely many SPECIFIC denotations against an arbitrary
 -- one is a weaker demand, and this module does not settle whether it can
 -- be met.
@@ -191,12 +191,12 @@ laghava-is-two =
 -- `TheCeilingIsAboutReading` settles the useful half.  The
 -- ceiling was never about discreteness of the OBSERVATIONS; it is about
 -- the decoders having something discrete to READ.  Give them a probe
--- `p : Y â’ Z` with Z discrete and restrict them to `Z â’ T`, and the
--- ceiling returns with no hypothesis on Y at all â” the table is built
+-- `p : Y â†’ Z` with Z discrete and restrict them to `Z â†’ T`, and the
+-- ceiling returns with no hypothesis on Y at all â€” the table is built
 -- over Z, and Y is never compared with anything.
 --
--- At `Laghava` one evaluation point does it: `probe1 d = d 1`, Z = â•.
--- The à²à¾à˜àµ pair survives probing, since `short` and `long` share a
+-- At `Laghava` one evaluation point does it: `probe1 d = d 1`, Z = â„•.
+-- The à¤²à¤¾à¤˜à¤µ pair survives probing, since `short` and `long` share a
 -- denotation and so agree at 1, and
 --
 --     laghava-probe-is-two :
@@ -207,7 +207,7 @@ laghava-is-two =
 -- `Laghava`'s own theorem implies it.
 --
 -- The unsettled half is now unsettled for a reason.  A decoder in the
--- full space `Denotation â’ â•` must recognise an arbitrary `d : â• â’ â•` as
+-- full space `Denotation â†’ â„•` must recognise an arbitrary `d : â„• â†’ â„•` as
 -- a listed denotation, which is a decision of function equality.  This
 -- lane builds no such decision and refutes none; the type contains what
 -- it contains.  That is the only open item in this thread whose

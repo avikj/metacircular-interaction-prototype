@@ -8,11 +8,11 @@
 -- ====================================================================
 -- THE TWO SOURCES, WHAT IS CLAIMED OF THEM, AND WHAT IS NOT.
 --
---   DIGNGA, *Pramasamuccaya* V (c. 480-540).  ‡‡®‡‡Ø‡æ‡‡ã‡ / anypoha:
+--   DIGNƒÄGA, *PramƒÅ·πáasamuccaya* V (c. 480-540).  ‡§Ö‡§®‡•ç‡§Ø‡§æ‡§™‡•ã‡§π / anyƒÅpoha:
 --   a general term carries no positive shared feature.  Its content is
 --   the exclusion of what it is not.  A term is fixed by its contrast.
 --
---   DHARMAKRTI, *Pramavrttika* (c. 600-660).  ‡‡∞‡‡‡ï‡‡∞‡ø‡Ø‡æ /
+--   DHARMAKƒ™RTI, *PramƒÅ·πáavƒÅrttika* (c. 600-660).  ‡§Ö‡§∞‡•ç‡§•‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ /
 --   arthakriy: effect-performing capacity.  Dharmakrti keeps apoha
 --   and puts a causal ground under it -- particulars fall together
 --   because they do the same work, and the exclusion is downstream of
@@ -57,7 +57,7 @@
 --                distinct response laws must coexist.  How much work
 --                the states do.  ARTHAKRIY'S NUMBER.
 --
--- and proves `Q ‚â m^k` (m the observation-alphabet size), with an
+-- and proves `Q ‚â§ m^k` (m the observation-alphabet size), with an
 -- equality family attaining it.  The note's own instruction is to
 -- report the pair and never to call cdim a memory dimension.
 --
@@ -68,7 +68,7 @@
 --       is equality -- so the effect quotient does not depend on which
 --       separating family was offered.  General, any carrier.
 --
---   ¬ß4-¬ß5  ANYPOHA.  On ONE carrier, Bool ó Bool, with the SAME
+--   ¬ß4-¬ß5  ANYƒÄPOHA.  On ONE carrier, Bool √ó Bool, with the SAME
 --       quotient throughout, three separating families whose minimum
 --       sizes are 1, 2 and 3.  The exclusion count is a function of the
 --       contrast class offered, not of the thing individuated.
@@ -77,18 +77,18 @@
 -- and Dignga's does not, for the reason Dharmakrti gave.
 --
 -- ====================================================================
--- ¬ß2 REFUTES A CLAIM OF MINE.  I read `Q ‚â m^k` together with its
+-- ¬ß2 REFUTES A CLAIM OF MINE.  I read `Q ‚â§ m^k` together with its
 -- equality family and formed
 --
---     CLAIM R:  cdim = ‚àlog_m Q‚â, i.e. Q and m determine k.
+--     CLAIM R:  cdim = ‚åàlog_m Q‚åâ, i.e. Q and m determine k.
 --
 -- It is false, and `Ind-needs-three` below kills it: m = 2, Q = 4,
--- ‚àlog‚ 4‚â = 2, cdim = 3.  The equality family in the note is not
+-- ‚åàlog‚ÇÇ 4‚åâ = 2, cdim = 3.  The equality family in the note is not
 -- generic; equality there was obtained by CHOOSING the admitted
--- contexts.  `Q ‚â m^k` prices the best alphabet, never the one in hand.
+-- contexts.  `Q ‚â§ m^k` prices the best alphabet, never the one in hand.
 -- My first witness attempt is also recorded dead, in ¬ß5.
 --
--- CLAIM R WAS MINE AND 0313 NEVER MADE IT.  The note states `Q ‚â m^k`
+-- CLAIM R WAS MINE AND 0313 NEVER MADE IT.  The note states `Q ‚â§ m^k`
 -- and exhibits ONE family attaining equality; it does not say equality
 -- is generic, and its "changed motion" says the opposite.  There is
 -- also a modelling gap I do not close: the note's admitted contexts are
@@ -114,7 +114,7 @@ open import Cubical.Relation.Nullary using (¬¨_)
 -- object: a probe is a total response map (`machinery/
 -- active_observer_design.py`), a channel's content is its fibre
 -- partition (`runtime/render/channel.py`), and a standpoint is an
--- observable `q : X ‚í Y` (`NaturalMachine.ExclusionRecoversGround-
+-- observable `q : X ‚Üí Y` (`NaturalMachine.ExclusionRecoversGround-
 -- AtAPrice`).  The one addition is that the INDEX is part of the data,
 -- because the whole question below is whether the size of the index is
 -- determined by anything other than itself.
@@ -308,7 +308,7 @@ Ind-needs-three = Ind-sep , ind‚ÇÄ‚ÇÅ-fails , ind‚ÇÄ‚ÇÇ-fails , ind‚ÇÅ‚ÇÇ-fails
 ------------------------------------------------------------------------
 -- 5'.  MY FIRST WITNESS, RECORDED DEAD.
 --
--- Before the indicators I tried {p‚ , p‚ , parity} as the three-context
+-- Before the indicators I tried {p‚ÇÄ , p‚ÇÅ , parity} as the three-context
 -- family, on the reasoning that parity is "a context the coordinates do
 -- not name".  It witnesses nothing: any two of its three members
 -- already separate, because parity plus either coordinate recovers the
@@ -334,7 +334,7 @@ reconPar-ok (false , true)  = refl
 reconPar-ok (true  , false) = refl
 reconPar-ok (true  , true)  = refl
 
--- so a two-member subfamily of {p‚ , p‚ , par} already separates:
+-- so a two-member subfamily of {p‚ÇÄ , p‚ÇÅ , par} already separates:
 p‚ÇÄ-par-sep : Separating (Pair p‚ÇÄ par)
 p‚ÇÄ-par-sep x y u =
   sym (reconPar-ok x)
@@ -346,8 +346,8 @@ p‚ÇÄ-par-sep x y u =
 --
 -- Same carrier, same effect quotient throughout (¬ß3 applied to the
 -- three separating families of ¬ß4).  Minimum admitted-context counts:
--- one for `Whole`, two for `Coord` (¬ß4, `p‚-alone-fails`,
--- `p‚-alone-fails`), three for `Ind` (¬ß5).
+-- one for `Whole`, two for `Coord` (¬ß4, `p‚ÇÄ-alone-fails`,
+-- `p‚ÇÅ-alone-fails`), three for `Ind` (¬ß5).
 --
 -- So: the effect count is an invariant of the carrier; the exclusion
 -- count is a function of the contrast class handed to you, and not of
@@ -370,7 +370,7 @@ p‚ÇÄ-par-sep x y u =
 -- NOT SETTLED HERE: the minimum over ALL families on a carrier (that is
 -- a quantity, and ¬ß4 gives one at 1 for `St`); whether `Whole`'s
 -- alphabet-size 4 should be charged against its context count, which is
--- the trade `Q ‚â m^k` prices and which no theorem above bounds from
+-- the trade `Q ‚â§ m^k` prices and which no theorem above bounds from
 -- below for a GIVEN family; and Dignga's own scope analysis of "the
 -- other" (synonyms, sub- and superordinates), which
 -- `notes/EXCLUSION_IS_NOT_AN_OPERATOR.md` ¬ß3 also records as OPEN.

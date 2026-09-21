@@ -138,13 +138,13 @@ even (suc zero)    = false
 even (suc (suc n)) = even n
 
 -- The exhaustive check: green iff every listed object has the property.
--- This is the object the prompt's hazard is about � `allB p [] ≡ true`
+-- This is the object the prompt's hazard is about — `allB p [] ≡ true`
 -- typechecks for every `p`.
 allB : {A : Type₀} → (A → Bool) → List A → Bool
 allB p []       = true
 allB p (x ∷ xs) = p x and allB p xs
 
--- `upTo n = n-1 � � � 1 � 0`, the ambient range: n objects.
+-- `upTo n = n-1 ∷ … ∷ 1 ∷ 0`, the ambient range: n objects.
 upTo : ℕ → List ℕ
 upTo zero    = []
 upTo (suc n) = n ∷ upTo n
@@ -176,7 +176,7 @@ length-upTo zero    = refl
 length-upTo (suc n) = cong suc (length-upTo n)
 
 -- THE ENUMERATION-SIZE GUARD, DISCHARGED.  The class enumeration at
--- sample size n has exactly n members � not "at least one", not
+-- sample size n has exactly n members — not "at least one", not
 -- "presumably nonempty": exactly n, for every n, kernel-checked.  This is
 -- the guard the prompt requires, and §3 shows it does not save the check.
 sizeOfClassEnum : (n : ℕ) → length (classEnum n) ≡ n
@@ -202,8 +202,8 @@ classEnum-zero = refl
 --
 --     The hypothesis under test is H := "every object has the property".
 --     H is FALSE, with witness 3.  The two worlds are:
---       world false � the predicate `even`: H fails here (`even 3 ≡ false`);
---       world true  � the constantly-true predicate: H holds here.
+--       world false — the predicate `even`: H fails here (`even 3 ≡ false`);
+--       world true  — the constantly-true predicate: H holds here.
 --     The observation at sample size n is the exhaustive check over the
 --     class enumeration.  Theorem V: it is the same in both worlds, for
 --     every n.
@@ -219,7 +219,7 @@ H h = (m : ℕ) → world h m ≡ true
 
 -- IT HOLDS IN ONE WORLD AND FAILS IN THE OTHER.  This is the load-bearing
 -- non-vacuity check for everything below.  If the two worlds agreed, or if
--- H held in both, Theorem V would be an identity dressed as a result � the
+-- H held in both, Theorem V would be an identity dressed as a result — the
 -- precise failure the module is about, committed by the module.  Both
 -- halves are therefore exhibited, not assumed.
 H-holds-in-world-true : H true
@@ -232,7 +232,7 @@ worldsDiffer : world false 3 ≡ world true 3 → ⊥
 worldsDiffer p = false≢true p
 
 -- Every member of the class has the property, by the class's own
--- definition � this is 1867's "edge-type plus maximal contexts *implies*
+-- definition — this is 1867's "edge-type plus maximal contexts *implies*
 -- triangle-free", the fact that made the evidence vacuous.
 even-double : (n : ℕ) → even (double n) ≡ true
 even-double zero    = refl
@@ -256,7 +256,7 @@ observe : ℕ → Bool → Bool
 observe n h = allB (world h) (classEnum n)
 
 -- THEOREM V.  The observation is identical in the world where the
--- hypothesis fails and the world where it holds � at every sample size.
+-- hypothesis fails and the world where it holds — at every sample size.
 theoremV : (n : ℕ) → observe n false ≡ observe n true
 theoremV n = classEnumIsGreen n ∙ sym (constWorldIsGreen (classEnum n))
 
@@ -268,7 +268,7 @@ Val   (veiled n)     = Bool
 inv   (veiled n) h   = observe n h
 apart (veiled n) x y = (x ≡ false) × (y ≡ true)
 
--- �and it is a CollisionPair for every n: apart, yet the invariant agrees.
+-- …and it is a CollisionPair for every n: apart, yet the invariant agrees.
 vacuousAtEverySampleSize : (n : ℕ) → CollisionPair (veiled n)
 vacuousAtEverySampleSize n = false , true , (refl , refl) , theoremV n
 
@@ -341,14 +341,14 @@ sizeIsNotTheDiagnostic n =
 -- §6  A CLAIM OF MY OWN, REFUTED.
 --
 --     Before checking, I held: widening the enumeration from the class to
---     the ambient range restores discrimination for every n � 1.  The
+--     the ambient range restores discrimination for every n ≥ 1.  The
 --     reasoning was that the class condition was the whole obstruction, so
 --     removing it must remove the vacuity.
 --
---     It is FALSE at n = 1.  `upTo 1 = 0 � []`, and 0 has the property, so
+--     It is FALSE at n = 1.  `upTo 1 = 0 ∷ []`, and 0 has the property, so
 --     the widened check is green in both worlds there too.  What is proved
 --     below is not merely that a collision exists at n = 1 but that
---     separation at n = 1 is IMPOSSIBLE � the stronger statement, since a
+--     separation at n = 1 is IMPOSSIBLE — the stronger statement, since a
 --     collision witness alone would leave open that some other apart-pair
 --     separates.
 --
@@ -379,7 +379,7 @@ no-separation-at-zero (x , y , (px , py) , ¬eq) =
 --
 --     `no-separation-at-one` and `no-separation-at-zero` are negative
 --     results proved by consuming an inhabitant of `SeparatedPair`.  A
---     negative result over an EMPTY domain is green and says nothing �
+--     negative result over an EMPTY domain is green and says nothing —
 --     which is the hazard this whole module is about, so leaving it
 --     unchecked here would be the exact error under study.  The domain in
 --     question is the apart-relation: if `apart` were uninhabited, both

@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- CorpusNames â” the finite enumeration of declaration Names, and NOTHING
+-- CorpusNames â€” the finite enumeration of declaration Names, and NOTHING
 -- ELSE.  ZERO SEMANTIC SIGNIFICANCE: not a hierarchy, graph, taxonomy,
 -- or root set; names survive only as provenance/navigation handles.
 --
 -- The list is EVERY public top-level declaration of EVERY `--safe`
--- module in the corpus â” i.e. all of it except the must_fail lane, which
+-- module in the corpus â€” i.e. all of it except the must_fail lane, which
 -- carries no `--safe` pragma (a vicious circle a --safe module cannot
 -- contain) and is therefore excluded mechanically, not by taste.
 --

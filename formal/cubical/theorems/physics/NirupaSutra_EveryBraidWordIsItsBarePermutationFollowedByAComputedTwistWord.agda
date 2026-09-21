@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �����-����� � the normal form, assembled.
+-- निरूप-सूत्र — the normal form, assembled.
 --
 -- THE STANDING CONSTRUCTION, discharged.  Every braid word acts as
 -- its bare permutation followed by a twist word computed from the
@@ -9,17 +9,17 @@
 --
 --   §1  Word-level conjugation: pushing one twist through a whole
 --       word relocates it by the word's accumulated transposition
---       (�s, a fold of �), by list induction over the
+--       (τs, a fold of τ), by list induction over the
 --       crossing-conjugation law.
 --
 --   §2  THE NORMAL FORM: for every word w,
 --           act(w) = twists(T w) ∘ swaps(w)
---       where T w is computed by recursion � each crossing deposits
+--       where T w is computed by recursion — each crossing deposits
 --       its quarter turn, relocated by the remainder of the word.
 --       The proof is one list induction: factor the head crossing,
 --       push its twist through the tail, recurse.
 --
--- With both coordinate groups presented (S∞, ⊕�/4) and this
+-- With both coordinate groups presented (S∞, ⊕ℤ/4) and this
 -- factorization of arbitrary words, the braid's memory is fully
 -- accounted: what a word does = where it sends the strands (its
 -- symmetric shadow) + what phases it deposits (its twist word), and
@@ -46,7 +46,7 @@ open import VeniSamvahana_TheCrossingItselfConjugatesTheTwistByTheSameTransposit
   using (τ-nivartana ; veṇī-saṃvahana)
 
 ------------------------------------------------------------------------
--- � � Word actions, the accumulated transposition, and word-level
+-- १ · Word actions, the accumulated transposition, and word-level
 -- conjugation.
 ------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ svap-gaṇa (i ∷ w) s = svap-gaṇa w (svap∞ i s)
 τs []       j = j
 τs (i ∷ w) j = τs w (τ i j)
 
--- One crossing moves a leading twist to its relocated address�
+-- One crossing moves a leading twist to its relocated address…
 eka-saṃvahana : (i j : ℕ) (s : Rajju)
               → veṇī∞ i (ghūrṇa∞ j s) ≡ ghūrṇa∞ (τ i j) (veṇī∞ i s)
 eka-saṃvahana i j s =
@@ -68,7 +68,7 @@ eka-saṃvahana i j s =
              (τ-nivartana i j)
              (veṇī-saṃvahana i (τ i j) s))
 
--- �and a whole word moves it by the accumulated transposition.
+-- …and a whole word moves it by the accumulated transposition.
 śabda-saṃvahana : (w : List ℕ) (j : ℕ) (s : Rajju)
                 → vēṇī-gaṇa w (ghūrṇa∞ j s)
                 ≡ ghūrṇa∞ (τs w j) (vēṇī-gaṇa w s)
@@ -78,7 +78,7 @@ eka-saṃvahana i j s =
   ∙ śabda-saṃvahana w (τ i j) (veṇī∞ i s)
 
 ------------------------------------------------------------------------
--- � � The computed twist word, and the normal form.
+-- २ · The computed twist word, and the normal form.
 ------------------------------------------------------------------------
 
 -- Applying a twist word at the outside is appending at its end.

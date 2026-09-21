@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà¨ààà•ààà¾ â” à®à¾à¨à à¯à àà•ààà à¨ àààà¯àà¿, àààà° àà°ààµà àà¦à àààµà¯à®ààµ ààà°à•àààà¿ à
+-- à¤…à¤¨à¤ªà¥‡à¤•à¥à¤·à¤¾ â€” à¤®à¤¾à¤¨à¤‚ à¤¯à¤‚ à¤ªà¤•à¥à¤·à¤‚ à¤¨ à¤ªà¤¶à¥à¤¯à¤¤à¤¿, à¤¤à¤¤à¥à¤° à¤¸à¤°à¥à¤µà¤‚ à¤ªà¤¦à¤‚ à¤¸à¥à¤µà¤¯à¤®à¥‡à¤µ à¤¸à¤‚à¤°à¤•à¥à¤·à¤¤à¤¿ à¥¤
 --
 -- (non-dependence: the coordinate an invariant cannot see is the one in
 --  which every step conserves it by itself.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHERE THIS COMES FROM.  `loss/â¦/AntyaSamskara_â¦` instantiates
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHERE THIS COMES FROM.  `loss/â€¦/AntyaSamskara_â€¦` instantiates
 -- the carrier law at Mdhava's end-correction: base = (index of the
 -- correction , the point it is evaluated at), carried = that convergent's
--- ààààà²àà¯, coarseness.  Its finding is the exact mirror of the ààà°àààà¾à°
--- module in the same library â” there the carried datum sees the WHOLE
+-- à¤¸à¥à¤¥à¥Œà¤²à¥à¤¯, coarseness.  Its finding is the exact mirror of the à¤ªà¥à¤°à¤¸à¥à¤¤à¤¾à¤°
+-- module in the same library â€” there the carried datum sees the WHOLE
 -- base and the base may be dropped; here the base has a coordinate the
 -- carried datum CANNOT SEE:
 --
---     ààààà²àà¯-à®àà²-àà¦àààà¯à®à : (k : â•) (n n' : â) â’ ààààà²àà¯ (k , n) â‰¡ ààààà²àà¯ (k , n')
+--     à¤¸à¥à¤¥à¥Œà¤²à¥à¤¯-à¤®à¥‚à¤²-à¤…à¤¦à¥ƒà¤¶à¥à¤¯à¤®à¥ : (k : â„•) (n n' : â„¤) â†’ à¤¸à¥à¤¥à¥Œà¤²à¥à¤¯ (k , n) â‰¡ à¤¸à¥à¤¥à¥Œà¤²à¥à¤¯ (k , n')
 --
 -- and it reads that blindness as the correctness criterion itself:
 --
@@ -26,40 +26,40 @@
 --      could find them without any analysis: they were solving a
 --      difference equation in closed form."
 --
--- Â§à¨â“Â§à below are that as a law rather than an instance.
+-- Â§à¥¨â€“Â§à¥ª below are that as a law rather than an instance.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IT BUYS, and it is an operational thing, not a tidier statement.
 --
--- `Dhruva_â¦.ààà°à•àààà®à` is the per-step condition `(a : A) â’ f (Î¦ a) â‰¡ f a`,
--- and `Kaksya_â¦` carries a conserved quantity along a whole orbit from
+-- `Dhruva_â€¦.à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥` is the per-step condition `(a : A) â†’ f (Î¦ a) â‰¡ f a`,
+-- and `Kaksya_â€¦` carries a conserved quantity along a whole orbit from
 -- it.  Both take conservation as a HYPOTHESIS about the step, to be
 -- checked for each Î¦ one meets.
 --
 -- Blindness is checked ONCE, about the invariant, and then EVERY step
--- that moves only the invisible coordinate conserves â” automatically, for
--- all of them at once, with nothing to verify per step (Â§à©).  That is the
+-- that moves only the invisible coordinate conserves â€” automatically, for
+-- all of them at once, with nothing to verify per step (Â§à¥©).  That is the
 -- difference between a property re-established at each move and a
 -- property of the design, and it is what "uniform in a parameter" means
 -- when it is made precise: an algorithm is uniform in a coordinate
 -- exactly when its invariant does not read that coordinate.
 --
--- Â§à is the converse, so the criterion is not merely sufficient: an
+-- Â§à¥ª is the converse, so the criterion is not merely sufficient: an
 -- invariant blind to a coordinate FACTORS through the rest, and one that
 -- factors is blind.  Blindness and factorisation are the same property,
 -- which is why it can be checked once.
 --
--- Â§à is the contrast that makes it a distinction: the second projection
+-- Â§à¥« is the contrast that makes it a distinction: the second projection
 -- is NOT blind to its own coordinate, and a step moving that coordinate
--- provably fails to conserve.  Without it, Â§à© would be true and empty.
+-- provably fails to conserve.  Without it, Â§à¥© would be true and empty.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- SOURCES. Mdhava of Sagamagrma (c. 1340â“1425), transmitted in Nlakaha,
--- àà¨àààà°àà™àà—àà°àà à¨.à¨àà§â“à¨àà (1501) and Jyehadeva, à¯àà•ààà¿àà¾àà¾ (c. 1530) â” the
--- àà¨àààà¯ààààà•à¾à° and ààààà²àà¯. Nothing here is about Ï, and there is no limit,
--- no â and no error bound in this file.
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- SOURCES. MÄdhava of Saá¹…gamagrÄma (c. 1340â€“1425), transmitted in NÄ«lakaá¹‡á¹­ha,
+-- à¤¤à¤¨à¥à¤¤à¥à¤°à¤¸à¤™à¥à¤—à¥à¤°à¤¹à¤ƒ à¥¨.à¥¨à¥­à¥§â€“à¥¨à¥­à¥ª (1501) and Jyeá¹£á¹­hadeva, à¤¯à¥à¤•à¥à¤¤à¤¿à¤­à¤¾à¤·à¤¾ (c. 1530) â€” the
+-- à¤…à¤¨à¥à¤¤à¥à¤¯à¤¸à¤‚à¤¸à¥à¤•à¤¾à¤° and à¤¸à¥à¤¥à¥Œà¤²à¥à¤¯. Nothing here is about Ï€, and there is no limit,
+-- no â„ and no error bound in this file.
 --
--- àà¨ààà•ààà¾ is ordinary  for non-dependence and no text is claimed
+-- à¤…à¤¨à¤ªà¥‡à¤•à¥à¤·à¤¾ is ordinary Sanskrit for non-dependence and no text is claimed
 -- for the compound.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
@@ -81,26 +81,26 @@ private
 module _ {A C B : Type â„“} (f : A Ã— C â†’ B) where
 
   ------------------------------------------------------------------------
-  -- à§ Â àà¨ààà•ààà¾ â” the invariant does not read the second coordinate.
+  -- à¥§ Â· à¤…à¤¨à¤ªà¥‡à¤•à¥à¤·à¤¾ â€” the invariant does not read the second coordinate.
   ------------------------------------------------------------------------
 
   à¤…à¤¨à¤ªà¥‡à¤•à¥à¤·à¤¾ : Type â„“
   à¤…à¤¨à¤ªà¥‡à¤•à¥à¤·à¤¾ = (a : A) (c c' : C) â†’ f (a , c) â‰¡ f (a , c')
 
   ------------------------------------------------------------------------
-  -- à¨ Â àààà¿àà¿-àà¦à®à â” a step that moves ONLY the invisible coordinate.
+  -- à¥¨ Â· à¤¸à¥à¤¥à¤¿à¤¤à¤¿-à¤ªà¤¦à¤®à¥ â€” a step that moves ONLY the invisible coordinate.
   --     The first coordinate is untouched, which is the only thing the
-  --     invariant can see, so Â§à© needs nothing about Ïˆ at all.
+  --     invariant can see, so Â§à¥© needs nothing about Ïˆ at all.
   ------------------------------------------------------------------------
 
   à¤ªà¤¾à¤°à¥à¤¶à¥à¤µ-à¤ªà¤¦à¤®à¥ : (C â†’ C) â†’ (A Ã— C â†’ A Ã— C)
   à¤ªà¤¾à¤°à¥à¤¶à¥à¤µ-à¤ªà¤¦à¤®à¥ Ïˆ x = fst x , Ïˆ (snd x)
 
   ------------------------------------------------------------------------
-  -- à© Â àà°ààµ-àà¦à ààà°à•àààà¿ â” EVERY SUCH STEP CONSERVES, for free.
+  -- à¥© Â· à¤¸à¤°à¥à¤µ-à¤ªà¤¦à¤‚ à¤¸à¤‚à¤°à¤•à¥à¤·à¤¤à¤¿ â€” EVERY SUCH STEP CONSERVES, for free.
   --
   --     Quantified over Ïˆ: one blindness proof discharges the conservation
-  --     condition for all of them simultaneously.  `Dhruva`'s ààà°à•àààà®à is
+  --     condition for all of them simultaneously.  `Dhruva`'s à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ is
   --     a hypothesis per step; here it is a conclusion, once.
   ------------------------------------------------------------------------
 
@@ -121,7 +121,7 @@ module _ {A C B : Type â„“} (f : A Ã— C â†’ B) where
     âˆ™ à¤…à¤¨à¤ªà¥‡à¤•à¥à¤·à¤¾â†’à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ blind Ïˆ x
 
   ------------------------------------------------------------------------
-  -- à Â àà¨ààà•ààà¾ IS FACTORISATION, both directions.  This is why the check
+  -- à¥ª Â· à¤…à¤¨à¤ªà¥‡à¤•à¥à¤·à¤¾ IS FACTORISATION, both directions.  This is why the check
   --     is once and not per step: there is one property here, not two.
   ------------------------------------------------------------------------
 
@@ -135,9 +135,9 @@ module _ {A C B : Type â„“} (f : A Ã— C â†’ B) where
   à¤•à¤¾à¤°à¤£à¤®à¥â†’à¤…à¤¨à¤ªà¥‡à¤•à¥à¤·à¤¾ (g , h) a c c' = h (a , c) âˆ™ sym (h (a , c'))
 
 ------------------------------------------------------------------------
--- à Â à¦àààà¯à®à â” the contrast, so Â§à© is a distinction and not a vacuity.
+-- à¥« Â· à¤¦à¥ƒà¤¶à¥à¤¯à¤®à¥ â€” the contrast, so Â§à¥© is a distinction and not a vacuity.
 --
---     The second projection reads exactly the coordinate Â§à§ forbids
+--     The second projection reads exactly the coordinate Â§à¥§ forbids
 --     reading.  It is not blind, and `not` moving that coordinate
 --     provably fails to conserve it.
 ------------------------------------------------------------------------

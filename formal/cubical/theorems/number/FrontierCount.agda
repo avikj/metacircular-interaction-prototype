@@ -7,27 +7,27 @@
 -- a GENERAL frontier, as one term.
 --
 --     frontier-count :
---       (es : List Entry) â’ AllPrime es â’ Distinct es
---       â’ Fin (prodOf es) â‰ VecOf es
+--       (es : List Entry) â†’ AllPrime es â†’ Distinct es
+--       â†’ Fin (prodOf es) â‰ƒ VecOf es
 --
 -- Given a list of (prime, exponent) pairs with distinct primes, the
 -- residue vector against those prime powers has exactly as many values as
 -- their product.  No frontier is named; `WalkObservationCount`'s
 -- hand-composed three steps at frontier 8 were the special case.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT MAKES IT GO
 --
 -- `CoprimePowers.bez-mul`.  Coprimality to each factor gives coprimality
--- to the product, by one ring identity and no primality â” so the head's
+-- to the product, by one ring identity and no primality â€” so the head's
 -- coprimality to the whole tail product (`bezHead`) is a fold, and the
 -- CRT chain is then an induction with nothing arithmetic left in it.
 --
--- Primality enters exactly once, at `primesâ’coprime-powers`, to produce
+-- Primality enters exactly once, at `primesâ†’coprime-powers`, to produce
 -- the base certificate for two distinct primes.  Everything after that is
 -- the certificate composing.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- That the walk's installs, as a list, satisfy `AllPrime` and `Distinct`
 -- at every frontier.  `WalkPrimePowers.installs-are-prime-powers` says
@@ -36,7 +36,7 @@
 -- arithmetic, and is not proved here.  What is closed is that the count
 -- follows from those hypotheses with no further arithmetic input.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -119,7 +119,7 @@ pos-prod ((p , i) âˆ· es) (pp , rest) =
   pos-Â· (p ^ i) (prodOf es) (pos-^ p (primeâ†’Pos p pp) i) (pos-prod es rest)
 
 ------------------------------------------------------------------------
--- 3.  The head is coprime to the whole tail product â” a fold of `bez-mul`
+-- 3.  The head is coprime to the whole tail product â€” a fold of `bez-mul`
 ------------------------------------------------------------------------
 
 bezHead : (p i : â„•) â†’ IsPrime p â†’ (es : List Entry)
@@ -166,7 +166,7 @@ frontier-count ((p , i) âˆ· es) (pp , rest) (fresh , dist) =
 ------------------------------------------------------------------------
 -- 5.  Frontier 8 again, now as an instance rather than a construction.
 --
---   2Â³ Â 3 Â 5 Â 7 = 840
+--   2Â³ Â· 3 Â· 5 Â· 7 = 840
 ------------------------------------------------------------------------
 
 open import PrimalityDecision using (decIsPrime)
@@ -229,7 +229,7 @@ frontier8-count =
 -- frontier.  Here the frontier is data: a list of (prime, exponent)
 -- pairs, primality read off `decIsPrime`, distinctness by computation,
 -- and the count follows.  The arithmetic that made this impossible in the
--- earlier module â” coprimality of prime powers â” is `CoprimePowers` plus
+-- earlier module â€” coprimality of prime powers â€” is `CoprimePowers` plus
 -- `DistinctPrimesAreCoprime`, and it enters here exactly once.
 ------------------------------------------------------------------------
 
@@ -238,18 +238,18 @@ frontier8-count =
 --
 -- This module says "the Chinese remainder theorem" for the simultaneous
 -- congruence result it runs on, and that name was used without being
--- checked â” in a session whose brief was to build from Indian sources and
+-- checked â€” in a session whose brief was to build from Indian sources and
 -- credit the origin rather than the restatement, and three modules after
 -- building ryabhaa's kuaka by name.
 --
--- The **kuaka** (*ryabhaya* 2.32â“33, 499 CE) is a general
--- constructive method for exactly this problem â” given remainders against
--- two moduli, produce the number â” and Brahmagupta (628) and Bhskara II
--- (1150) extend it.  The *Sun Zi Suanjing* (c. 3rdâ“5th c.) poses the
+-- The **kuá¹­á¹­aka** (*Ä€ryabhaá¹­Ä«ya* 2.32â€“33, 499 CE) is a general
+-- constructive method for exactly this problem â€” given remainders against
+-- two moduli, produce the number â€” and Brahmagupta (628) and BhÄskara II
+-- (1150) extend it.  The *Sun Zi Suanjing* (c. 3rdâ€“5th c.) poses the
 -- problem with a rule for a special case; Qin Jiushao's general method is
 -- 1247.  Both traditions have it, and this file's own chain runs on the
 -- Indian one: `CoprimePowers`, `BezoutIsGCD` and `CoprimePowersN` all
--- carry B©zout certificates, which is what the pulveriser returns.
+-- carry BÃ©zout certificates, which is what the pulveriser returns.
 --
 -- Nothing mathematical changes.  The citation does.  See
 ------------------------------------------------------------------------

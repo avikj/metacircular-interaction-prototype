@@ -1,41 +1,41 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- CorpusPresentation â” the corpus running the corpus's own mathematics
+-- CorpusPresentation â€” the corpus running the corpus's own mathematics
 -- on its own checked declarations.
 --
 -- The cold-start handoff's flow, realised with EXISTING machinery only:
 --
 --   checked declaration
---     â”â” reflection only (ReflectedFormation) â”â”â– formed presentation
---     â”â” native checked actions/observations   â”â”â– MyhillNerodeMinimalMachine machine
---     â”â” greatest behavioural congruence        â”â”â– Meaning
+--     â”€â”€ reflection only (ReflectedFormation) â”€â”€â–¶ formed presentation
+--     â”€â”€ native checked actions/observations   â”€â”€â–¶ MyhillNerodeMinimalMachine machine
+--     â”€â”€ greatest behavioural congruence        â”€â”€â–¶ Meaning
 --
---   and losslessly     formed presentations â‰ Î_{m : Meaning} RealizationFiber(m).
+--   and losslessly     formed presentations â‰ƒ Î£_{m : Meaning} RealizationFiber(m).
 --
--- WHAT IS FORMED.  A formed presentation is a reflected `Term` â” inert,
+-- WHAT IS FORMED.  A formed presentation is a reflected `Term` â€” inert,
 -- first-class data after elaboration.  No second execution/certificate
 -- representation is created; the states ARE the reflected syntax.
 --
 -- THE ACTIONS ARE CHECKED, NOT SYNTHETIC.  The only action is structural
 -- descent into an argument position (`step t n` = the n-th argument's
--- term).  It is a total pure function of the reflected syntax â” a
+-- term).  It is a total pure function of the reflected syntax â€” a
 -- checked observation context, in the spirit of IntrinsicRewrite's
--- Locus/plug â” NOT a similarity metric or an invented distance.
+-- Locus/plug â€” NOT a similarity metric or an invented distance.
 --
 -- THE OBSERVATION IS SET-VALUED.  `headCode` reads the outermost shape
--- of a term as a natural number (a set), so `isSetâ•` discharges
+-- of a term as a natural number (a set), so `isSetâ„•` discharges
 -- MyhillNerodeMinimalMachine's `isSetObs`.
 --
 -- MEANING IS THE EXISTING QUOTIENT.  `Meaning = Term / NerodeCongruence`, from
--- MyhillNerodeMinimalMachine.MinimalMachine â” the greatest behavioural congruence.
+-- MyhillNerodeMinimalMachine.MinimalMachine â€” the greatest behavioural congruence.
 -- No new minimiser, no MDL objective.  Two reflected terms are one
 -- meaning exactly when every finite descent word yields the same head
 -- shape: same observable syntactic unfolding.
 --
 -- THE REMAINDER IS AN EXACT FIBRE.  `RealizationFiber m = fiber pres m`,
--- and `lossless : Term â‰ Î Meaning RealizationFiber` is the library's
--- `totalEquiv` â” the fibre law (Carrier) for the presentation map.  No
+-- and `lossless : Term â‰ƒ Î£ Meaning RealizationFiber` is the library's
+-- `totalEquiv` â€” the fibre law (Carrier) for the presentation map.  No
 -- distinction is erased: what the compact meaning drops sits, exactly,
 -- in the fibre.  Effectivity (`realization-is-future-equality`) gives the
 -- proof-relevant form: a path of meanings IS future equality.
@@ -71,7 +71,7 @@ open import ReflectedFormation using (Decl ; decl ; declType ; rawView)
 -- Â§1  Reflected syntax as formed state; the checked descent action.
 ------------------------------------------------------------------------
 
--- The observation: the outermost shape of a term, as a set (â•).
+-- The observation: the outermost shape of a term, as a set (â„•).
 headCode : Term â†’ â„•
 headCode (var _ _)     = 0
 headCode (con _ _)     = 1
@@ -119,19 +119,19 @@ presentationMachine = record
 
 open FB.MinimalMachine step isSetâ„• headCode public
   -- brings: Meaning, _â‰ˆ_, quotStep, quotObserve, nerodeCongruence-effective,
-  --         nerodeCongruence-effectiveIso, quotBehavior, factor, factor-unique, â¦
+  --         nerodeCongruence-effectiveIso, quotBehavior, factor, factor-unique, â€¦
 
 -- The presentation map: a formed state to its compact meaning.
 pres : Term â†’ Meaning
 pres x = [ x ]
 
 ------------------------------------------------------------------------
--- Â§3  The lossless decomposition â” the fibre law for the presentation.
+-- Â§3  The lossless decomposition â€” the fibre law for the presentation.
 --
---   formed presentations â‰ Î_{m : Meaning} RealizationFiber(m)
+--   formed presentations â‰ƒ Î£_{m : Meaning} RealizationFiber(m)
 --
 -- via the library's totalEquiv (HoTT 4.8.2), which is exactly Carrier's
--- Î-law for the map `pres`.  Nothing is lost: the meaning is the base,
+-- Î£-law for the map `pres`.  Nothing is lost: the meaning is the base,
 -- the residual proof-relevant choice is the fibre.
 ------------------------------------------------------------------------
 
@@ -144,7 +144,7 @@ lossless = totalEquiv pres
 ------------------------------------------------------------------------
 -- Â§4  The proof-relevant future fibre: a path of meanings IS future
 --     equality (effectivity), the checked analogue of
---     BisimClass(x) â‰ FutureViewFiber(x).
+--     BisimClass(x) â‰ƒ FutureViewFiber(x).
 ------------------------------------------------------------------------
 
 realization-is-future-equality :
@@ -163,7 +163,7 @@ headCode-fiberConstant x y p = nerodeCongruence-effective x y p []
 
 -- Therefore it factors through the compact presentation: no refinement
 -- of the demanded present view is needed.  (A finer target would need
--- refinement exactly when this fails â” FiniteInformation's dichotomy.)
+-- refinement exactly when this fails â€” FiniteInformation's dichotomy.)
 headCode-factors : FI.FactorsThrough pres headCode
 headCode-factors =
   FI.fiberConstantâ†’factorsThrough isSetâ„• pres headCode headCode-fiberConstant
@@ -181,7 +181,7 @@ presentObserve-[] x = refl
 --
 -- `observeDecl ref` forms the named declaration by reflection, takes its
 -- type as the formed state, and returns that state's present observation
--- in the machine â” checked declaration â– formed presentation â– Obs of
+-- in the machine â€” checked declaration â–¶ formed presentation â–¶ Obs of
 -- MyhillNerodeMinimalMachine.  The refl tests fix the outputs, so a green proves the
 -- pipeline executed on the corpus's own checked declarations.
 ------------------------------------------------------------------------
@@ -193,7 +193,7 @@ private
   headName _         = typeError (strErr "expected a defined-name reference" âˆ· bnil)
 
 macro
-  -- checked declaration â’ reflected type Term (formed state) â’ headCode
+  -- checked declaration â†’ reflected type Term (formed state) â†’ headCode
   observeDecl : Term â†’ Term â†’ TC âŠ¤
   observeDecl ref hole =
     bindTC (headName ref)                         Î» n â†’
@@ -201,9 +201,9 @@ macro
     bindTC (quoteTC (headCode (rawView d)))       Î» r â†’
     unify hole r
 
--- RewriteCertificate.Tm is a datatype â’ its TYPE is a sort (headCode 6);
--- MyhillNerodeMinimalMachine.behavior is a function â’ its type is a pi (headCode 5).
--- Distinct outputs, both computed through the reflectionâ’formationâ’observe
+-- RewriteCertificate.Tm is a datatype â‡’ its TYPE is a sort (headCode 6);
+-- MyhillNerodeMinimalMachine.behavior is a function â‡’ its type is a pi (headCode 5).
+-- Distinct outputs, both computed through the reflectionâ†’formationâ†’observe
 -- pipeline on the corpus's own checked declarations.
 Tm-type-is-sort : observeDecl RC.Tm â‰¡ 6
 Tm-type-is-sort = refl
@@ -218,7 +218,7 @@ behavior-type-is-pi = refl
 -- module (all of it minus must_fail).  `observeAll` folds the reflection
 -- bridge over the entire list: for each name it forms the declaration
 -- (getType), takes its type as the formed state, reads the machine's
--- present observation (headCode), and accumulates.  The single â• it
+-- present observation (headCode), and accumulates.  The single â„• it
 -- returns therefore DEPENDS ON observing every declaration; a green check
 -- is proof the whole flow ran end-to-end over the entire corpus at once.
 ------------------------------------------------------------------------

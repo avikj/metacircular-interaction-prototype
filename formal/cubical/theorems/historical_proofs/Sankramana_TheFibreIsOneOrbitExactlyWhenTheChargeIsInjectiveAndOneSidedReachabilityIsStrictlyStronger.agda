@@ -1,50 +1,50 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ррЩррХрр░роррор тФ рХржр╛ ррирррр ррХр╛ рр╡ рХрХррррпр╛ р
+-- рд╕рдЩреНрдХреНрд░рдордгрдореН тАФ рдХрджрд╛ рддрдиреНрддреБрдГ рдПрдХрд╛ рдПрд╡ рдХрдХреНрд╖реНрдпрд╛ ред
 --
--- (when is the fibre exhausted by one orbit тФ the converse of descent.)
+-- (when is the fibre exhausted by one orbit тАФ the converse of descent.)
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- WHAT THIS IS, and it is a CORRECTION before it is an addition.
 --
--- `SamanaKaksya_тжagda` ┬зр ("рррр") says, of its descended charge
--- `рр╡ррр░ррр : A / ррор╛рирХрХррррпр╛ ╬ж тТ B`:
+-- `SamanaKaksya_тАжagda` ┬зрем ("рд╢реЗрд╖рдГ") says, of its descended charge
+-- `рдЕрд╡рддреАрд░реНрдгрдГ : A / рд╕рдорд╛рдирдХрдХреНрд╖реНрдпрд╛ ╬ж тЖТ B`:
 --
---     "The converse of ┬зр тФ that `рр╡ррр░ррр` is injective, i.e. equal
---      charge implies one orbit тФ is `Kaksya` ┬зр's `ррЩррХрр░роррор` and is a
+--     "The converse of ┬зрек тАФ that `рдЕрд╡рддреАрд░реНрдгрдГ` is injective, i.e. equal
+--      charge implies one orbit тАФ is `Kaksya` ┬зрен's `рд╕рдЩреНрдХреНрд░рдордгрдореН` and is a
 --      genuine hypothesis about the flow, not a missing definition."
 --
 -- and its WHAT-IS-NOT-CLAIMED fence says the same: "that it is
--- INJECTIVE тж is exactly the transitivity hypothesis `ррЩррХрр░роррор` of
--- `Kaksya` ┬зр".
+-- INJECTIVE тАж is exactly the transitivity hypothesis `рд╕рдЩреНрдХреНрд░рдордгрдореН` of
+-- `Kaksya` ┬зрен".
 --
 -- **That sentence is FALSE, in the direction it is used.**  `Kaksya`
--- ┬зр's `ррЩррХрр░роррор b` is ONE-SIDED reachability тФ `╬[ n ] ╬жт┐ x тЙб y` for
--- every ordered pair in the fibre тФ and `ррор╛рирХрХррррпр╛` is the TWO-SIDED
--- meeting relation.  One-sided is SUFFICIENT for injectivity (┬зрй, via
--- ┬зрз) and is NOT necessary: ┬зр exhibits `f = ╬╗ _ тТ tt : Bool тТ Unit`
--- with `╬ж = ╬╗ _ тТ true`, where `рр╡ррр░ррр` is injective (indeed an
+-- ┬зрен's `рд╕рдЩреНрдХреНрд░рдордгрдореН b` is ONE-SIDED reachability тАФ `╬г[ n ] ╬жтБ┐ x тЙб y` for
+-- every ordered pair in the fibre тАФ and `рд╕рдорд╛рдирдХрдХреНрд╖реНрдпрд╛` is the TWO-SIDED
+-- meeting relation.  One-sided is SUFFICIENT for injectivity (┬зрей, via
+-- ┬зрез) and is NOT necessary: ┬зрем exhibits `f = ╬╗ _ тЖТ tt : Bool тЖТ Unit`
+-- with `╬ж = ╬╗ _ тЖТ true`, where `рдЕрд╡рддреАрд░реНрдгрдГ` is injective (indeed an
 -- equivalence, the fibre being one orbit in the meeting sense) while
--- `ррЩррХрр░роррор tt` is refuted outright тФ nothing reaches `false`.
+-- `рд╕рдЩреНрдХреНрд░рдордгрдореН tt` is refuted outright тАФ nothing reaches `false`.
 --
 -- The hypothesis that IS equivalent to injectivity is named here:
 --
---     рЙррп-ррЩррХрр░роррор b  :=  (x y : fiber f b) тТ тИ ррор╛рирХрХррррпр╛ ╬ж x.fst y.fst тИт
+--     рдЙрднрдп-рд╕рдЩреНрдХреНрд░рдордгрдореН b  :=  (x y : fiber f b) тЖТ тИе рд╕рдорд╛рдирдХрдХреНрд╖реНрдпрд╛ ╬ж x.fst y.fst тИетВБ
 --
 -- two-sided, and propositionally truncated.  Both amendments are
 -- forced, and by the same fact: `[ a ] тЙб [ b ]` in a set quotient
--- recovers the relation only up to `тИ_тИт` (`isEquivRelтТTruncIso`), and
--- `ррор╛рирХрХррррпр╛` is NOT prop-valued тФ the meeting stations are data,
--- which is exactly the openness `SamanaKaksya` ┬зр flagged in its last
+-- recovers the relation only up to `тИе_тИетВБ` (`isEquivRelтЖТTruncIso`), and
+-- `рд╕рдорд╛рдирдХрдХреНрд╖реНрдпрд╛` is NOT prop-valued тАФ the meeting stations are data,
+-- which is exactly the openness `SamanaKaksya` ┬зрем flagged in its last
 -- paragraph.  So the truncation is not a technicality bolted on; it is
 -- the same observation, arriving as the reason the naive converse
 -- cannot hold.
 --
--- With the hypothesis corrected, both directions go through (┬зрй, ┬зр),
--- and then the theorem worth having (┬зр):
+-- With the hypothesis corrected, both directions go through (┬зрей, ┬зрек),
+-- and then the theorem worth having (┬зрел):
 --
---     **`рр╡ррр░ррр` is an equivalence  тЯ║  `f` is surjective and the flow
+--     **`рдЕрд╡рддреАрд░реНрдгрдГ` is an equivalence  тЯ║  `f` is surjective and the flow
 --       is fibrewise transitive.**
 --
 -- Stated as an equivalence of PROPOSITIONS, not a pair of implications.
@@ -52,36 +52,36 @@
 -- the level sets of `f` are exactly the gauge orbits, with nothing left
 -- over (injectivity) and nothing missing (surjectivity).
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 --
 -- **Nothing here says the two-sided hypothesis is CHEAP.**  It is a real
--- hypothesis about the flow; ┬зр only shows it is strictly weaker than
+-- hypothesis about the flow; ┬зрем only shows it is strictly weaker than
 -- the one-sided one, not that it is free.
 --
--- **┬зр refutes a hypothesis, not a theorem.**  `Kaksya` ┬зр proves that
--- `ррЩррХрр░роррор b` implies no invariant separates the fibre; that theorem
--- is untouched and true.  What is refuted is `SamanaKaksya` ┬зр's claim
--- that `ррЩррХрр░роррор` is *the* content of injectivity.
+-- **┬зрем refutes a hypothesis, not a theorem.**  `Kaksya` ┬зрен proves that
+-- `рд╕рдЩреНрдХреНрд░рдордгрдореН b` implies no invariant separates the fibre; that theorem
+-- is untouched and true.  What is refuted is `SamanaKaksya` ┬зрем's claim
+-- that `рд╕рдЩреНрдХреНрд░рдордгрдореН` is *the* content of injectivity.
 --
 -- **No claim about the untruncated relation.**  Whether `[ a ] тЙб [ b ]`
--- yields `ррор╛рирХрХррррпр╛` itself (rather than its truncation) is not
+-- yields `рд╕рдорд╛рдирдХрдХреНрд╖реНрдпрд╛` itself (rather than its truncation) is not
 -- addressed and is false in general for relations carrying data.
 --
--- TERMS.  ррЩррХрр░роррор тФ "passing over, transition"; in jyotia the sun's
+-- TERMS.  рд╕рдЩреНрдХреНрд░рдордгрдореН тАФ "passing over, transition"; in jyotiс╣гa the sun's
 -- sakrnti, its passage from one ri into the next (standard in the
 -- siddhntic tradition following the ryabhaya, 499); in Jaina karma
 -- theory, sakrama, the transition of one karma-prakti into another
 -- (akhagama with Vrasena's Dhaval, ~816).  LIMIT: neither sense
 -- is a claim about endomorphisms of a type; the use of the word for
--- "the flow carries one point of a fibre to another" is `Kaksya_тжagda`'s
--- and is carried in unchanged from there.  рЙррп тФ "both, two-sided",
--- ordinary ; the compound рЙррп-ррЩррХрр░роррор is BUILT HERE and no
--- text is claimed for it.  рХрХррррпр╛ тФ orbit, as in `Kaksya_тжagda`, with
+-- "the flow carries one point of a fibre to another" is `Kaksya_тАжagda`'s
+-- and is carried in unchanged from there.  рдЙрднрдп тАФ "both, two-sided",
+-- ordinary Sanskrit; the compound рдЙрднрдп-рд╕рдЩреНрдХреНрд░рдордгрдореН is BUILT HERE and no
+-- text is claimed for it.  рдХрдХреНрд╖реНрдпрд╛ тАФ orbit, as in `Kaksya_тАжagda`, with
 -- its limit unchanged (attested for a planet's orbit; its use for the
 -- orbit of an endomorphism is this corpus's).  NO SOURCE STATES ANYTHING
 -- BELOW.
 --
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 тФ the container, NOT the
+-- CHECKED: Agda 2.6.3 + agda/cubical v0.5 тАФ the container, NOT the
 -- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
 -- holes, exit 0.
 ------------------------------------------------------------------------
@@ -119,16 +119,16 @@ open import SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseA
 private variable тДУ : Level
 
 ------------------------------------------------------------------------
--- рз ┬ ррорр╛-ррр░рор╛ррор тФ the orbit relation packaged as `isEquivRel`, and
+-- рез ┬╖ рд╕рдорддрд╛-рдкреНрд░рдорд╛рдгрдореН тАФ the orbit relation packaged as `isEquivRel`, and
 --     the truncated characterisation of paths in the quotient.
 --
--- `SamanaKaksya` ┬зри proves the three laws separately.  The library's
--- effectivity result wants them in one record, and `isEquivRelтТTruncIso`
+-- `SamanaKaksya` ┬зреи proves the three laws separately.  The library's
+-- effectivity result wants them in one record, and `isEquivRelтЖТTruncIso`
 -- then gives, for a relation that need NOT be prop-valued:
 --
---     [ a ] тЙб [ b ]   тЙ   тИ ррор╛рирХрХррррпр╛ ╬ж a b тИт
+--     [ a ] тЙб [ b ]   тЙЕ   тИе рд╕рдорд╛рдирдХрдХреНрд╖реНрдпрд╛ ╬ж a b тИетВБ
 --
--- This is where the truncation in ┬зри's hypothesis comes from.  It is
+-- This is where the truncation in ┬зреи's hypothesis comes from.  It is
 -- not a choice.
 ------------------------------------------------------------------------
 
@@ -137,7 +137,7 @@ module _ {A : Type тДУ} (╬ж : A тЖТ A) where
   рд╕рдорд╛рди-рдкреНрд░рдорд╛рдгрдореН : isEquivRel (рд╕рдорд╛рдирдХрдХреНрд╖реНрдпрд╛ ╬ж)
   рд╕рдорд╛рди-рдкреНрд░рдорд╛рдгрдореН = equivRel (рд╕рдорд╛рди-рд╕реНрд╡ ╬ж) (рд╕рдорд╛рди-рд╡реНрдпрддреНрдпрдпрдГ ╬ж) (рд╕рдорд╛рди-рд╕рдВрдХреНрд░рдордГ ╬ж)
 
-  -- [ a ] тЙб [ b ]  тЯ  тИ a тЙИ b тИт .  The library's `isEquivRelтТTruncIso`
+  -- [ a ] тЙб [ b ]  тЯ╢  тИе a тЙИ b тИетВБ .  The library's `isEquivRelтЖТTruncIso`
   -- is stated for `_/_` with the relation implicit; we name only the
   -- direction we use.
   рдкрдерд╛рддреН-рд╕рдорддрд╛ : (a b : A) тЖТ [ a ] тЙб [ b ] тЖТ тИе рд╕рдорд╛рдирдХрдХреНрд╖реНрдпрд╛ ╬ж a b тИетВБ
@@ -145,16 +145,16 @@ module _ {A : Type тДУ} (╬ж : A тЖТ A) where
     Iso.fun (Cubical.HITs.SetQuotients.isEquivRelтЖТTruncIso рд╕рдорд╛рди-рдкреНрд░рдорд╛рдгрдореН a b)
 
 ------------------------------------------------------------------------
--- ри ┬ рЙррп-ррЩррХрр░роррор тФ THE CORRECTED HYPOTHESIS: the flow is transitive
+-- реи ┬╖ рдЙрднрдп-рд╕рдЩреНрдХреНрд░рдордгрдореН тАФ THE CORRECTED HYPOTHESIS: the flow is transitive
 --     on the fibre in the TWO-SIDED, truncated sense.
 --
--- Compare `Kaksya` ┬зр:
+-- Compare `Kaksya` ┬зрен:
 --
---     ррЩррХрр░роррор b = (x y : fiber f b) тТ ╬[ n тИИ тХ ] ╬жт┐ (fst x) тЙб fst y
+--     рд╕рдЩреНрдХреНрд░рдордгрдореН b = (x y : fiber f b) тЖТ ╬г[ n тИИ тДХ ] ╬жтБ┐ (fst x) тЙб fst y
 --
--- тФ ordered, untruncated, and carrying the number of steps as data.
+-- тАФ ordered, untruncated, and carrying the number of steps as data.
 -- Below is the same sentence with "reaches" replaced by "meets" and the
--- witness forgotten.  ┬зр shows the two are NOT equivalent.
+-- witness forgotten.  ┬зрем shows the two are NOT equivalent.
 ------------------------------------------------------------------------
 
 module _ {A B : Type тДУ} (f : A тЖТ B) (╬ж : A тЖТ A) where
@@ -162,25 +162,25 @@ module _ {A B : Type тДУ} (f : A тЖТ B) (╬ж : A тЖТ A) where
   рдЙрднрдп-рд╕рдЩреНрдХреНрд░рдордгрдореН : B тЖТ Type тДУ
   рдЙрднрдп-рд╕рдЩреНрдХреНрд░рдордгрдореН b = (x y : fiber f b) тЖТ тИе рд╕рдорд╛рдирдХрдХреНрд╖реНрдпрд╛ ╬ж (fst x) (fst y) тИетВБ
 
-  -- it is a proposition, which is why ┬зр can be an equivalence rather
+  -- it is a proposition, which is why ┬зрел can be an equivalence rather
   -- than a pair of implications
   рдЙрднрдп-рд╕рдЩреНрдХреНрд░рдордгрдореН-рдкреНрд░рдорд╛рдгрдореН : (b : B) тЖТ isProp (рдЙрднрдп-рд╕рдЩреНрдХреНрд░рдордгрдореН b)
   рдЙрднрдп-рд╕рдЩреНрдХреНрд░рдордгрдореН-рдкреНрд░рдорд╛рдгрдореН b = isProp╬а2 ╬╗ _ _ тЖТ PT.isPropPropTrunc
 
   -- ONE-SIDED IMPLIES TWO-SIDED.  Stay put on the right, forget the
-  -- step count.  (The converse is refuted in ┬зр.)
+  -- step count.  (The converse is refuted in ┬зрем.)
   рдПрдХрдкрд╛рд░реНрд╢реНрд╡рд╛рддреН-рдЙрднрдпрдореН : (b : B) тЖТ рд╕рдЩреНрдХреНрд░рдордгрдореН f ╬ж b тЖТ рдЙрднрдп-рд╕рдЩреНрдХреНрд░рдордгрдореН b
   рдПрдХрдкрд╛рд░реНрд╢реНрд╡рд╛рддреН-рдЙрднрдпрдореН b tr x y = тИг fst (tr x y) , zero , snd (tr x y) тИгтВБ
 
 ------------------------------------------------------------------------
--- рй ┬ ррирррр ррХр╛ рХрХррррпр╛ ррр┐ рр╡ррр░рррррп ррХррр╡рор тФ TRANSITIVITY IMPLIES
+-- рей ┬╖ рддрдиреНрддреБрдГ рдПрдХрд╛ рдХрдХреНрд╖реНрдпрд╛ рдЗрддрд┐ рдЕрд╡рддреАрд░реНрдгрд╕реНрдп рдПрдХрддреНрд╡рдореН тАФ TRANSITIVITY IMPLIES
 --     THE DESCENDED CHARGE IS INJECTIVE.
 --
--- Equal charge тТ one orbit тТ one class.  The proof is `elimProp` twice,
+-- Equal charge тЗТ one orbit тЗТ one class.  The proof is `elimProp` twice,
 -- legitimate because a path in a set quotient is a proposition, and
 -- then `eq/` under the truncation, legitimate for the same reason.
 --
--- Note `рр╡ррр░ррр [ a ] тЙб f a` holds on the nose (`SamanaKaksya` ┬зр), so
+-- Note `рдЕрд╡рддреАрд░реНрдгрдГ [ a ] тЙб f a` holds on the nose (`SamanaKaksya` ┬зрек), so
 -- the hypothesis `p` below IS `f a тЙб f b` with no coercion.
 ------------------------------------------------------------------------
 
@@ -197,7 +197,7 @@ module _ {A B : Type тДУ} (f : A тЖТ B) (╬ж : A тЖТ A)
   рдПрдХрддреНрд╡рдореН-рдкреНрд░рдорд╛рдгрдореН : isProp рдПрдХрддреНрд╡рдореН
   рдПрдХрддреНрд╡рдореН-рдкреНрд░рдорд╛рдгрдореН = isProp╬а3 ╬╗ q q' _ тЖТ squash/ q q'
 
-  -- тЯ : the fibre is one orbit, so the charge separates classes
+  -- тЯ╕ : the fibre is one orbit, so the charge separates classes
   рд╕рдЩреНрдХреНрд░рдордгрд╛рддреН-рдПрдХрддреНрд╡рдореН : ((b : B) тЖТ рдЙрднрдп-рд╕рдЩреНрдХреНрд░рдордгрдореН f ╬ж b) тЖТ рдПрдХрддреНрд╡рдореН
   рд╕рдЩреНрдХреНрд░рдордгрд╛рддреН-рдПрдХрддреНрд╡рдореН tr =
     elimProp (╬╗ q тЖТ isProp╬а2 ╬╗ q' _ тЖТ squash/ q q')
@@ -206,9 +206,9 @@ module _ {A B : Type тДУ} (f : A тЖТ B) (╬ж : A тЖТ A)
                    (tr (f a) (a , refl) (b , sym p))))
 
 ------------------------------------------------------------------------
--- р ┬ р╡ррпрррпрпр тФ AND THE CONVERSE.  Injectivity implies the corrected
+-- рек ┬╖ рд╡реНрдпрддреНрдпрдпрдГ тАФ AND THE CONVERSE.  Injectivity implies the corrected
 --     transitivity, and this is the direction that forces the two
---     amendments: `[ a ] тЙб [ b ]` gives back only `тИ a тЙИ b тИт`, and `тЙИ`
+--     amendments: `[ a ] тЙб [ b ]` gives back only `тИе a тЙИ b тИетВБ`, and `тЙИ`
 --     is the meeting relation, not reachability.
 ------------------------------------------------------------------------
 
@@ -217,13 +217,13 @@ module _ {A B : Type тДУ} (f : A тЖТ B) (╬ж : A тЖТ A)
     рдкрдерд╛рддреН-рд╕рдорддрд╛ ╬ж x y (inj [ x ] [ y ] (px тИЩ sym py))
 
 ------------------------------------------------------------------------
--- р ┬ рр╡ррр░ррр ррорр╛ тФ THE THEOREM.  The observable IS the quotient
+-- рел ┬╖ рдЕрд╡рддреАрд░реНрдгрдГ рд╕рдорддрд╛ тАФ THE THEOREM.  The observable IS the quotient
 --     exactly when it is onto and its level sets are single orbits.
 --
---     isEquiv рр╡ррр░ррр  тЙ  isSurjection f Ч (fibrewise transitivity)
+--     isEquiv рдЕрд╡рддреАрд░реНрдгрдГ  тЙГ  isSurjection f ├Ч (fibrewise transitivity)
 --
 -- Both sides are propositions, so this is an equivalence of types and
--- not merely a pair of implications тФ `propBiimplтТEquiv`.
+-- not merely a pair of implications тАФ `propBiimplтЖТEquiv`.
 --
 -- Read at the physics: the gauge-invariant observable is a faithful
 -- coordinate on the space of physical states precisely when (a) every
@@ -260,25 +260,25 @@ module _ {A B : Type тДУ} (f : A тЖТ B) (╬ж : A тЖТ A)
                , рд╕рд░реНрд╡рддреНрд░ s ) })
 
 ------------------------------------------------------------------------
--- р ┬ ррХрр╛р░рррр╡р рЧрр░ррр░рор тФ ONE-SIDED REACHABILITY IS STRICTLY STRONGER,
+-- рем ┬╖ рдПрдХрдкрд╛рд░реНрд╢реНрд╡рдВ рдЧреБрд░реБрддрд░рдореН тАФ ONE-SIDED REACHABILITY IS STRICTLY STRONGER,
 --     AND THIS IS THE CORRECTION.
 --
 -- Two points, one collapsing flow, and the whole gap in four lines.
 --
---     A = Bool,  B = Unit,  f = ╬╗ _ тТ tt,  ╬ж = ╬╗ _ тТ true.
+--     A = Bool,  B = Unit,  f = ╬╗ _ тЖТ tt,  ╬ж = ╬╗ _ тЖТ true.
 --
 -- Conservation is `refl`.  The single fibre is all of `Bool`.
 --
---   ┬ TWO-SIDED holds: both trajectories are at `true` after one step,
---     so any two points meet at stations `(1 , 1)`.  Hence by ┬зр the
---     descended charge `Bool / ррор╛рирХрХррррпр╛ ╬ж тТ Unit` is an equivalence:
+--   ┬╖ TWO-SIDED holds: both trajectories are at `true` after one step,
+--     so any two points meet at stations `(1 , 1)`.  Hence by ┬зрел the
+--     descended charge `Bool / рд╕рдорд╛рдирдХрдХреНрд╖реНрдпрд╛ ╬ж тЖТ Unit` is an equivalence:
 --     the fibre IS one orbit in the only sense the quotient can see.
 --
---   ┬ ONE-SIDED FAILS: `╬жт┐ true тЙб true` for every `n`, so `false` is
---     reachable from nothing.  `ррЩррХрр░роррор tt` is refuted outright.
+--   ┬╖ ONE-SIDED FAILS: `╬жтБ┐ true тЙб true` for every `n`, so `false` is
+--     reachable from nothing.  `рд╕рдЩреНрдХреНрд░рдордгрдореН tt` is refuted outright.
 --
--- Therefore `SamanaKaksya` ┬зр's "is exactly `Kaksya` ┬зр's `ррЩррХрр░роррор`"
--- is false as an identification, and ┬зритУ┬зр above give the hypothesis
+-- Therefore `SamanaKaksya` ┬зрем's "is exactly `Kaksya` ┬зрен's `рд╕рдЩреНрдХреНрд░рдордгрдореН`"
+-- is false as an identification, and ┬зреитАУ┬зрел above give the hypothesis
 -- that is exact.  The flow here is not invertible, and that is not
 -- incidental: it is what lets a point be departed from and never
 -- returned to.
@@ -316,26 +316,26 @@ private
   ... | suc n , p = trueтЙвfalse (sym (рд╕реНрдерд┐рд░рдореН n true) тИЩ p)
 
 ------------------------------------------------------------------------
--- р ┬ рррр тФ what stays open.
+-- рен ┬╖ рд╢реЗрд╖рдГ тАФ what stays open.
 --
--- **The truncation is not shown to be necessary.**  ┬зр produces
--- `тИ a тЙИ b тИт` because that is all `isEquivRelтТTruncIso` gives.  Whether
--- some flow makes the untruncated statement fail тФ two points whose
--- classes agree but with no CHOSEN pair of meeting stations тФ is not
--- settled here.  `SamanaKaksya` ┬зр's last paragraph is the same
+-- **The truncation is not shown to be necessary.**  ┬зрек produces
+-- `тИе a тЙИ b тИетВБ` because that is all `isEquivRelтЖТTruncIso` gives.  Whether
+-- some flow makes the untruncated statement fail тАФ two points whose
+-- classes agree but with no CHOSEN pair of meeting stations тАФ is not
+-- settled here.  `SamanaKaksya` ┬зрем's last paragraph is the same
 -- question and it is still open.
 --
--- **Sufficient conditions are not surveyed.**  ┬зр reduces "the fibre is
+-- **Sufficient conditions are not surveyed.**  ┬зрел reduces "the fibre is
 -- one orbit" to a checkable hypothesis but does not exhibit a family of
--- flows satisfying it beyond ┬зр's collapse and the one-sided case.  The
--- torsor of `YogaDhruva_тжagda` is the natural next instance: a free
+-- flows satisfying it beyond ┬зрем's collapse and the one-sided case.  The
+-- torsor of `YogaDhruva_тАжagda` is the natural next instance: a free
 -- transitive action gives one-sided reachability by construction, hence
--- ┬зри's implication, hence ┬зрй.  Whether it gives it with `╬ж` a single
--- endomorphism тФ rather than a whole group тФ is the actual question,
+-- ┬зреи's implication, hence ┬зрей.  Whether it gives it with `╬ж` a single
+-- endomorphism тАФ rather than a whole group тАФ is the actual question,
 -- and iterating ONE translation on a torsor is a cyclic-subgroup
 -- condition, not a torsor condition.  Not addressed.
 --
 -- **Nothing here is about the h-level of `A`.**  `A` is never assumed to
--- be a set; `isSet B` is used only where `SamanaKaksya` ┬зр used it, plus
+-- be a set; `isSet B` is used only where `SamanaKaksya` ┬зрек used it, plus
 -- once in `injEmbedding`.
 ------------------------------------------------------------------------

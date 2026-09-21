@@ -1,40 +1,40 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡‡æ‡ñ‡æ ‚î the dependent refinement sums branchwise, and the books
+-- ‡§¨‡§π‡•Å‡§∂‡§æ‡§ñ‡§æ ‚Äî the dependent refinement sums branchwise, and the books
 -- balance.
 --
--- TERM.  ‡‡‡ (many) and ‡‡æ‡ñ‡æ (branch ‚î also the word for a recension
--- of a Veda, a branch of the one text).  The compound ‡‡‡-‡‡æ‡ñ‡æ, "the
+-- TERM.  ‡§¨‡§π‡•Å (many) and ‡§∂‡§æ‡§ñ‡§æ (branch ‚Äî also the word for a recension
+-- of a Veda, a branch of the one text).  The compound ‡§¨‡§π‡•Å-‡§∂‡§æ‡§ñ‡§æ, "the
 -- many-branched", is built HERE and no source is claimed for it
 -- (CLAUDE.md, naming rule, note 2).
 --
 -- SEED.  The owner's transmission of 2026-08-23, the Born ladder,
--- steps 3‚ì4, taken at their arithmetic floor.  `SthulaBhara_‚¶` did the
+-- steps 3‚Äì4, taken at their arithmetic floor.  `SthulaBhara_‚Ä¶` did the
 -- BINARY split (two branches, sizes a+1 and b+1).  This module does
 -- the general dependent family: a coarse outcome space Fin (suc c),
--- each outcome y refining into suc (k y) microbranches ‚î sizes vary
+-- each outcome y refining into suc (k y) microbranches ‚Äî sizes vary
 -- per branch, which is exactly what "replace an outcome by equally
 -- weighted microbranches" needs when different outcomes refine
 -- differently.
 --
--- WHAT IS PROVED (over a bare magma _+µ_; the ledger of algebra spent
+-- WHAT IS PROVED (over a bare magma _+·µÇ_; the ledger of algebra spent
 -- continues from SamaVibhaga (none) and SthulaBhara (assoc): this
--- module spends NONE ‚î every step is total-ext and total-const).
+-- module spends NONE ‚Äî every step is total-ext and total-const).
 --
---   ‡‡æ‡ñ‡æ‡Ø‡ã‡ó‡     the nested total of a branchwise-constant refinement
+--   ‡§∂‡§æ‡§ñ‡§æ‡§Ø‡•ã‡§ó‡§É     the nested total of a branchwise-constant refinement
 --                is the coarse total of the multiplicities:
---                nested (Œª y _ ‚í h y) ‚â° total (Œª y ‚í (k y + 1)¬(h y)).
---   ‡‡‡∞‡‡ø‡‡‡†‡æ     refinement preserves the books: if each branch's
+--                nested (Œª y _ ‚Üí h y) ‚â° total (Œª y ‚Üí (k y + 1)¬∑(h y)).
+--   ‡§™‡•ç‡§∞‡§§‡§ø‡§∑‡•ç‡§†‡§æ     refinement preserves the books: if each branch's
 --                equal microweights recompose to the coarse weight
---                ((k y + 1)¬(h y) ‚â° wC y), then the nested micro total
---                IS the coarse total ‚î so normalization transfers,
+--                ((k y + 1)¬∑(h y) ‚â° wC y), then the nested micro total
+--                IS the coarse total ‚Äî so normalization transfers,
 --                both ways, along refl-composition.
---   ‡‡Æ‡‡æ‡ñ‡æ      the equal-amplitude case (one h for every branch of
+--   ‡§∏‡§Æ‡§∂‡§æ‡§ñ‡§æ      the equal-amplitude case (one h for every branch of
 --                every outcome): the coarse weight of y is forced to
---                its multiplicity (k y + 1)¬h ‚î the exact
+--                its multiplicity (k y + 1)¬∑h ‚Äî the exact
 --                division-free form of "rational weights by branch
---                multiplicity": m/(m+n) is a name for m¬h under total
+--                multiplicity": m/(m+n) is a name for m¬∑h under total
 --                normalization, now over ANY finite family.
 --
 ------------------------------------------------------------------------
@@ -79,7 +79,7 @@ module _ {W : Type ‚Ñì} (_+·µÇ_ : W ‚Üí W ‚Üí W) where
     ‚àô total-ext _+·µÇ_ c (Œª y ‚Üí ‡§ó‡•Å‡§£‡§É _+·µÇ_ (k y) (h y)) wC branch
 
   -- the equal-amplitude case: one h everywhere forces every coarse
-  -- weight to its multiplicity, under any normalization üô of the
+  -- weight to its multiplicity, under any normalization ùüô of the
   -- micro space.
   ‡§∏‡§Æ‡§∂‡§æ‡§ñ‡§æ : (ùüô : W) (c : ‚Ñï) (k : Fin (suc c) ‚Üí ‚Ñï) (h : W)
          ‚Üí ‡§∂‡§æ‡§ñ‡§ø‡§§‡§Ø‡•ã‡§ó‡§É c k (Œª _ _ ‚Üí h) ‚â° ùüô

@@ -6,20 +6,20 @@
 -- The vall of ryabhaa's pulverizer as SYNTAX, its replay as
 -- evaluation, and the two structural laws of the trace, typed:
 --
---   replayHom   replay (xs ++ ys) ≡ replay xs � replay ys
---               � concatenating traces IS multiplying their payloads;
+--   replayHom   replay (xs ++ ys) ≡ replay xs · replay ys
+--               — concatenating traces IS multiplying their payloads;
 --                 the vall is a monoid morphism from lists of
---                 quotients to 2�2 matrices.  (R0035's "the trace
+--                 quotients to 2×2 matrices.  (R0035's "the trace
 --                 composes", as a theorem about syntax.)
 --
 --   detReplay   det (replay v) ≡ sgn v      (sgn = (-1)^length)
---               � the sign of a replay is the parity of the vall;
+--               — the sign of a replay is the parity of the vallī;
 --                 each division step L q = (q 1 / 1 0) reverses
 --                 orientation exactly once.
 --
 -- The vall is a term, replay is an evaluator, and the laws are
 -- structural inductions whose entry obligations the ring solver
--- discharges � the trace calculus of the corpus, native in the
+-- discharges — the trace calculus of the corpus, native in the
 -- constructive lane.
 ------------------------------------------------------------------------
 
@@ -91,10 +91,10 @@ detReplay (q ∷ v) =
 
 -- law 3: appending a quotient IS the kuaka recurrence ---------------
 --
---   p_n = p_{n-1} � q_n + p_{n-2}
+--   p_n = p_{n-1} · q_n + p_{n-2}
 --
 -- the classical convergent computation is the right-append case of
--- the trace law: new first column = old first column � q + old
+-- the trace law: new first column = old first column · q + old
 -- second column; new second column = old first column.
 
 step : R → M → M
@@ -128,7 +128,7 @@ convergent xs q =
 --
 -- A repeated block replays to the power of its compiled matrix, so
 -- "compile b once, invoke r times" is CERTIFIED equal to the full
--- expansion � the typed foundation under KUTTAKA_TRACE_MACRO.md,
+-- expansion — the typed foundation under KUTTAKA_TRACE_MACRO.md,
 -- whose exact gain law (m-1)(r-1) > 1 prices when to install it.
 
 rep : ℕ → Valli → Valli

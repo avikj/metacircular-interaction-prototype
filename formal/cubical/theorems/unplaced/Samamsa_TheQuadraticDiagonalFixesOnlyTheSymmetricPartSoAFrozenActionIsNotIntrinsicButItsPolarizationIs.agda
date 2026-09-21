@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����� � the symmetric part.
+-- समांश — the symmetric part.
 --
 -- THE QUADRATIC DIAGONAL DOES NOT DETERMINE ITS BILINEAR REALIZATION.
 -- WHAT IT DETERMINES IS THE POLARIZATION, AND THAT IS THE DERIVATIVE.
@@ -13,30 +13,30 @@
 -- map, where the same thing happens and the preferred origin exists.
 --
 -- Given a two-argument map `b`, its DIAGONAL `diag b x = b x x` is the
--- autonomous object � the quadratic field.  Two facts, in opposite
+-- autonomous object — the quadratic field.  Two facts, in opposite
 -- directions:
 --
 --   §1  THE SYMMETRIZATION IS DETERMINED BY THE DIAGONAL.
 --         b x y + b y x ≡ diag b (x + y) - (diag b x + diag b y) .
 --       Every realization of one diagonal has the SAME symmetrization,
---       so the polarization � hence the derivative of the quadratic
---       field, which is that symmetrization � is intrinsic.  §1 needs
+--       so the polarization — hence the derivative of the quadratic
+--       field, which is that symmetrization — is intrinsic.  §1 needs
 --       no division by two: it is stated on `b x y + b y x` rather than
---       on half of it, so it holds over any ring, � and �-graded ones
+--       on half of it, so it holds over any ring, ℤ and ℕ-graded ones
 --       included.
 --
 --   §2  THE FROZEN ACTION IS NOT.  Two realizations of one diagonal
 --       differ by an ALTERNATING map (§2a), and alternating maps are
---       exactly those with vanishing diagonal � which is why they are
+--       exactly those with vanishing diagonal — which is why they are
 --       invisible to the autonomous field.  §2b is the sharp form: at
---       any point x� and for ANY additive `G` annihilating x�, there is
+--       any point x₀ and for ANY additive `G` annihilating x₀, there is
 --       an alternating `a` with
 --
---         a x� y ≡ G y ,
+--         a x₀ y ≡ G y ,
 --
---       built explicitly from a functional � with � x� ≡ 1.  So `b + a`
---       has the same diagonal as `b` � the same autonomous equation �
---       while its frozen action at x� is `b x� - + G`, with G arbitrary
+--       built explicitly from a functional ℓ with ℓ x₀ ≡ 1.  So `b + a`
+--       has the same diagonal as `b` — the same autonomous equation —
+--       while its frozen action at x₀ is `b x₀ - + G`, with G arbitrary
 --       on the complement.  Freezing one argument of a realization and
 --       reading off its response to arbitrary test inputs is therefore
 --       reading a coordinate that the autonomous field does not fix.
@@ -46,13 +46,13 @@
 -- source and still differ off it; only their SUM is the variation of
 -- the common source.  §1 is why the sum is the invariant one.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�2 in an arbitrary ring, with the
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–2 in an arbitrary ring, with the
 -- carrier taken as the ring itself, `additive` meaning preservation of
 -- `+`, and bilinearity assumed only in the slots each statement uses.
 -- NOT claimed: anything about the affine-space structure of the
--- realization fibre over `Hom(�² V , W)` (that needs the exterior
+-- realization fibre over `Hom(Λ² V , W)` (that needs the exterior
 -- square, which is not built here); anything about vector spaces,
--- topology, or any particular equation; and nothing about halving �
+-- topology, or any particular equation; and nothing about halving —
 -- every statement is on the symmetrized quantity, never on a half of
 -- it, so no invertibility of 2 is used anywhere.
 ------------------------------------------------------------------------
@@ -81,7 +81,7 @@ module _ (R : Ring ℓ') where
     x ⊖ y = x + (- y)
 
   --------------------------------------------------------------------
-  -- � � Additivity in each slot, and the diagonal.
+  -- ० · Additivity in each slot, and the diagonal.
   --------------------------------------------------------------------
 
   Additive : (A → A) → Type ℓ'
@@ -97,7 +97,7 @@ module _ (R : Ring ℓ') where
   diag b x = b x x
 
   --------------------------------------------------------------------
-  -- � � THE SYMMETRIZATION IS A FUNCTION OF THE DIAGONAL ALONE.
+  -- १ · THE SYMMETRIZATION IS A FUNCTION OF THE DIAGONAL ALONE.
   --
   --   diag b (x + y) = b x x + b x y + b y x + b y y ,
   --
@@ -152,7 +152,7 @@ module _ (R : Ring ℓ') where
             (diag b (x + y) ⊖ diag b y) ∎
 
   --------------------------------------------------------------------
-  -- �a � TWO REALIZATIONS OF ONE DIAGONAL DIFFER BY AN ALTERNATING MAP.
+  -- २a · TWO REALIZATIONS OF ONE DIAGONAL DIFFER BY AN ALTERNATING MAP.
   --
   -- Vanishing diagonal forces antisymmetry, with no division: expanding
   -- `d (x+y) (x+y) ≡ 0r` leaves `d x y + d y x ≡ 0r` directly.
@@ -179,19 +179,19 @@ module _ (R : Ring ℓ') where
         0r ∎
 
   --------------------------------------------------------------------
-  -- �b � AND THE FROZEN ACTION CAN BE MOVED ARBITRARILY OFF THE SOURCE.
+  -- २b · AND THE FROZEN ACTION CAN BE MOVED ARBITRARILY OFF THE SOURCE.
   --
-  -- Given � with � x� ≡ 1 and any G with G x� ≡ 0, put
+  -- Given ℓ with ℓ x₀ ≡ 1 and any G with G x₀ ≡ 0, put
   --
-  --     a x y = (� x � G y) ⊖ (� y � G x) .
+  --     a x y = (ℓ x · G y) ⊖ (ℓ y · G x) .
   --
-  -- Then a has vanishing diagonal � so `b + a` and `b` have the same
-  -- diagonal, the same autonomous field � and yet
+  -- Then a has vanishing diagonal — so `b + a` and `b` have the same
+  -- diagonal, the same autonomous field — and yet
   --
-  --     a x� y ≡ G y ,
+  --     a x₀ y ≡ G y ,
   --
-  -- so the frozen action at x� has been shifted by G, which was
-  -- arbitrary subject only to killing x�.
+  -- so the frozen action at x₀ has been shifted by G, which was
+  -- arbitrary subject only to killing x₀.
   --------------------------------------------------------------------
 
   shift : (A → A) → (A → A) → (A → A → A)
@@ -212,7 +212,7 @@ module _ (R : Ring ℓ') where
     ≡⟨ +IdR (b x x) ⟩
       b x x ∎
 
-  -- and at x� it IS G
+  -- and at x₀ it IS G
   shift-at-source :
       (ℓ G : A → A) (x₀ : A)
     → (ℓ x₀ ≡ 1r) → (G x₀ ≡ 0r)

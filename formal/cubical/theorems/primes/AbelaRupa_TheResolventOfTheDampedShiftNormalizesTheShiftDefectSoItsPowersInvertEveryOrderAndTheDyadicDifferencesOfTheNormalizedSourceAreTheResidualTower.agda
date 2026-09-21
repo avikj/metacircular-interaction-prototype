@@ -1,55 +1,55 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-��� � the Abel normal form.
+-- आबेल-रूप — the Abel normal form.
 --
 -- THE RESOLVENT OF THE DAMPED SHIFT TURNS THE SHIFT DEFECT INTO A
 -- CONTRACTION, SO ITS POWERS INVERT THE DEFECT AT EVERY ORDER; AND THE
 -- ITERATED DIFFERENCES OF THE NORMALIZED SOURCE ARE EXACTLY THE
 -- RESIDUAL TOWER, RESCALED.
 --
--- Two identities from the repaired arithmetic inverse [S19 §§8�10],
--- both pure algebra, both stated so that the analytic step � the strong
--- limit � � 1 � is visibly the only thing not here.
+-- Two identities from the repaired arithmetic inverse [S19 §§8–10],
+-- both pure algebra, both stated so that the analytic step — the strong
+-- limit ρ ↑ 1 — is visibly the only thing not here.
 --
---   §1  THE NORMAL FORM.  With `T` the shift, `�` the damping, and `c`
---       the resolvent  c � (1 - � T) ≡ 1 , put  B = (1 - �) T c .  Then
+--   §1  THE NORMAL FORM.  With `T` the shift, `ρ` the damping, and `c`
+--       the resolvent  c · (1 - ρ T) ≡ 1 , put  B = (1 - ρ) T c .  Then
 --
---         1 - B  ≡  c � (1 - T) ,
+--         1 - B  ≡  c · (1 - T) ,
 --
 --       so the shift defect `1 - T` and the contraction defect `1 - B`
---       differ by the invertible factor `c` � nothing else.
+--       differ by the invertible factor `c` — nothing else.
 --
---   §2  AT EVERY ORDER:  (1 - B)^m ≡ c^m � (1 - T)^m .  This is
---       `(I - �T)^{-m}(I - T)^m = (I - B_�)^m` with the negative power
+--   §2  AT EVERY ORDER:  (1 - B)^m ≡ c^m · (1 - T)^m .  This is
+--       `(I - ρT)^{-m}(I - T)^m = (I - B_ρ)^m` with the negative power
 --       written as the power of the resolvent.  The right side is what
---       tends to the identity as � � 1; the left side is the m-th order
+--       tends to the identity as ρ ↑ 1; the left side is the m-th order
 --       inverse applied to the m-th order defect.  Both sides are
 --       finite ring elements here, and equal.
 --
 --   §3  THE RESIDUAL TOWER.  For a source `S` on the lattice, the
---       normalized readings  Y k = c�^k � S k  (c� the inverse of the
+--       normalized readings  Y k = c̄^k · S k  (c̄ the inverse of the
 --       scale character c) have iterated forward differences
 --
---         Δ^m Y k  ≡  c�^{k+m} � (A m) k ,      A m = (shift - c)^m S ,
+--         Δ^m Y k  ≡  c̄^{k+m} · (A m) k ,      A m = (shift - c)^m S ,
 --
 --       exactly, for every m and k.  So the m-th residual of the actual
 --       source and the m-th difference of the normalized source are one
---       object read at two normalizations � which is why an inverse for
+--       object read at two normalizations — which is why an inverse for
 --       differences is an inverse for residuals.
 --
--- WHERE THE ANALYSIS ENTERS, NAMED.  §§1�3 are what the Abel inverse
--- uses; what it adds is that `B` is a contraction on c� and `B x � 0`
--- strongly, hence `(1-B)^m � 1`.  That is a statement about a limit in
+-- WHERE THE ANALYSIS ENTERS, NAMED.  §§1–3 are what the Abel inverse
+-- uses; what it adds is that `B` is a contraction on c₀ and `B x → 0`
+-- strongly, hence `(1-B)^m → 1`.  That is a statement about a limit in
 -- a Banach space and is not made here.  Everything up to it is ring
 -- algebra, checked.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�2 in any commutative ring, for every
--- `T`, `�`, and every resolvent `c` of `1 - �T`.  §3 in any commutative
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–2 in any commutative ring, for every
+-- `T`, `ρ`, and every resolvent `c` of `1 - ρT`.  §3 in any commutative
 -- ring, for every source, every invertible scale character, every order
 -- and every lattice point.  NOT claimed: existence of the resolvent
--- (carried); anything about norms, c�, contractions, or limits; that the
--- actual arithmetic source's normalized readings converge � which is
+-- (carried); anything about norms, c₀, contractions, or limits; that the
+-- actual arithmetic source's normalized readings converge — which is
 -- (32) there and needs the explicit formula; and nothing about zeta.
 ------------------------------------------------------------------------
 
@@ -86,7 +86,7 @@ module _ (R : CommRing ℓ) where
       shuffle a b p q = solve! R
 
   ------------------------------------------------------------------
-  -- � � THE NORMAL FORM.
+  -- १ · THE NORMAL FORM.
   ------------------------------------------------------------------
 
   module _ (T ρ c : A) (resolvent : c · (1r + (- (ρ · T))) ≡ 1r) where
@@ -105,7 +105,7 @@ module _ (R : CommRing ℓ) where
         shape a r t = solve! R
 
     ----------------------------------------------------------------
-    -- � � AT EVERY ORDER.
+    -- २ · AT EVERY ORDER.
     ----------------------------------------------------------------
 
     normal-form-power : (m : ℕ) → pow (1r + (- B)) m ≡ pow c m · pow (1r + (- T)) m
@@ -113,7 +113,7 @@ module _ (R : CommRing ℓ) where
       cong (λ z → pow z m) normal-form ∙ pow-· c (1r + (- T)) m
 
   ------------------------------------------------------------------
-  -- � � THE RESIDUAL TOWER.
+  -- ३ · THE RESIDUAL TOWER.
   ------------------------------------------------------------------
 
   module _ (S : ℕ → A) (c c̄ : A) (cc̄ : c · c̄ ≡ 1r) where

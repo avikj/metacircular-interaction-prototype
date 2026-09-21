@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà®à¾à¨-àµà°àà— â” the same class.
+-- à¤¸à¤®à¤¾à¤¨-à¤µà¤°à¥à¤— â€” the same class.
 --
 -- LoopSamyoga solved the gauge square on a loop: the transformed
--- holonomy is the conjugate g Â W Â gâ»Â.  FiniteGraphHolonomyGroupoid
+-- holonomy is the conjugate g Â· W Â· gâ»Â¹.  FiniteGraphHolonomyGroupoid
 -- called this "conjugacy before any trace-like quotient is taken."  This
--- file takes the quotient â” the conjugacy class â” and shows it is the
+-- file takes the quotient â€” the conjugacy class â€” and shows it is the
 -- gauge invariant, in the universal sense.
 --
---   Â§1  THE CLASS.  Conjugacy on a group is the relation h ~ (kÂh)Âkâ»Â;
+--   Â§1  THE CLASS.  Conjugacy on a group is the relation h ~ (kÂ·h)Â·kâ»Â¹;
 --       the set quotient âŸ¨GâŸ© / ~ is the type of conjugacy classes, and
 --       [_] sends an element to its class.
 --
 --   Â§2  THE LOOP'S CLASS IS GAUGE INVARIANT.  On any graph loop, for any
 --       connection pair and natural transformation, [hol B p] â‰¡ [hol A p]
---       â” one step of eq/ from the solved square.  No trace, no matrix,
+--       â€” one step of eq/ from the solved square.  No trace, no matrix,
 --       no representation: the class itself is the invariant.
 --
 --   Â§3  EVERY CLASS FUNCTION FACTORS THROUGH THE CLASS.  A conjugation-
@@ -28,7 +28,7 @@
 --
 -- The lattice (AvinimayaSetu) and the graph (LoopSamyoga) both land
 -- here: on a closed loop the connection is coordinates, the class is the
--- observable.  àà®à¾à¨ (samna, same) and àµà°àà— (varga, class) are ordinary
+-- observable.  à¤¸à¤®à¤¾à¤¨ (samÄna, same) and à¤µà¤°à¥à¤— (varga, class) are ordinary
 -- .
 ------------------------------------------------------------------------
 
@@ -62,7 +62,7 @@ module _ (G : Group â„“g) where
     open G using (_Â·_ ; inv)
 
   ----------------------------------------------------------------------
-  -- à§ Â Conjugacy and the type of classes.
+  -- à¥§ Â· Conjugacy and the type of classes.
   ----------------------------------------------------------------------
 
   -- h is a conjugate of g.
@@ -76,7 +76,7 @@ module _ (G : Group â„“g) where
   varga = [_]
 
   ----------------------------------------------------------------------
-  -- à¨ Â The class of a graph loop's holonomy is gauge invariant.
+  -- à¥¨ Â· The class of a graph loop's holonomy is gauge invariant.
   ----------------------------------------------------------------------
 
   loop-varga : {V : Type â„“v} {A B : Connection G V} (Î· : GaugeNatural A B)
@@ -86,7 +86,7 @@ module _ (G : Group â„“g) where
     eq/ (hol A p) (hol B p) (gauge Î· x , sym (loop-saá¹ƒyoga Î· p))
 
   ----------------------------------------------------------------------
-  -- à© Â Every class function factors through the class, computably.
+  -- à¥© Â· Every class function factors through the class, computably.
   ----------------------------------------------------------------------
 
   module _ {O : Type â„“o} (setO : isSet O)
@@ -108,7 +108,7 @@ module _ (G : Group â„“g) where
     varga-avikÄra Î· p = cong varga-f (loop-varga Î· p)
 
 ------------------------------------------------------------------------
--- à Â The fork-and-loop graph, at its root loop.
+-- à¥ª Â· The fork-and-loop graph, at its root loop.
 ------------------------------------------------------------------------
 
 mÅ«la-varga : (G : Group â„“g) (A B : Connection G BranchLoop) (Î· : GaugeNatural A B)
@@ -116,7 +116,7 @@ mÅ«la-varga : (G : Group â„“g) (A B : Connection G BranchLoop) (Î· : GaugeNatura
 mÅ«la-varga G A B Î· = loop-varga G Î· loop
 
 ------------------------------------------------------------------------
--- à Â The lattice lands in the same class.  A closed chain's Wilson loop,
+-- à¥« Â· The lattice lands in the same class.  A closed chain's Wilson loop,
 --     gauge-transformed link by link, has the same conjugacy class as
 --     the original: AvinimayaSetu's conjugation read through eq/.
 ------------------------------------------------------------------------

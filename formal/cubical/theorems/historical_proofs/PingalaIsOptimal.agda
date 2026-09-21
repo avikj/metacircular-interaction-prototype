@@ -6,18 +6,18 @@
 -- The same two theorems that make the walk optimal make Pigala's
 -- naa/uddia optimal, and they were separated by about 2300 years.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS ALREADY HERE
 --
 -- `formal/cubical/Pingala.agda` carries the Chandastra's pratyaya as
 -- checked types, including
 --
---     uddistaIso : (n : â•) â’ Iso (Vak n) (Fin (sankhya n))
+--     uddistaIso : (n : â„•) â†’ Iso (Vak n) (Fin (sankhya n))
 --
--- whose forward map is the explicit uddia algorithm (pattern â¦ row
+-- whose forward map is the explicit uddiá¹£á¹­a algorithm (pattern â†¦ row
 -- number), whose inverse is the explicit naa halving algorithm (row
--- number â¦ pattern), and whose round trips are both proved.  That is a
--- LOSSLESS OBSERVATION WITH AN EXPLICIT DECODE â” the positive pole of
+-- number â†¦ pattern), and whose round trips are both proved.  That is a
+-- LOSSLESS OBSERVATION WITH AN EXPLICIT DECODE â€” the positive pole of
 -- written down around 300 BCE.
 --
 -- `LosslessLowerBound` carries the other half: any lossless
@@ -25,20 +25,20 @@
 --
 -- Neither module knows about the other.  This one is the sentence.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STATEMENT
 --
 --     pingala-optimal :
---       (n : â•) (Y : FinSet â“-zero) (obs : Vak n â’ Y .fst)
---       â’ Injective obs â’ sankhya n â‰ card Y
+--       (n : â„•) (Y : FinSet â„“-zero) (obs : Vak n â†’ Y .fst)
+--       â†’ Injective obs â†’ sankhya n â‰¤ card Y
 --
--- No scheme whatever â” not uddia, not a cleverer one, not one nobody
--- has thought of â” observes the metres of n syllables losslessly with
--- fewer than sakhy n = 2â¿ outcomes.  And `uddistaIso` has exactly that
+-- No scheme whatever â€” not uddiá¹£á¹­a, not a cleverer one, not one nobody
+-- has thought of â€” observes the metres of n syllables losslessly with
+-- fewer than saá¹…khyÄ n = 2â¿ outcomes.  And `uddistaIso` has exactly that
 -- many.  Pigala's algorithm is optimal, and the proof of optimality is
 -- one instantiation of a bound proved for every observation scheme.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS IS NOT A DECORATIVE PAIRING
 --
 -- The walk and the pratyaya are the same problem: enumerate a finite
@@ -51,10 +51,10 @@
 -- The difference is that Pigala SUPPLIED the decode.  naa is not a
 -- proof that the enumeration is invertible; it is the inverse, as an
 -- algorithm, with its own name.  That is the standard this corpus's
--- `FactorsThrough` results have mostly not met â” they establish that a
+-- `FactorsThrough` results have mostly not met â€” they establish that a
 -- decode exists or does not, and `Pingala.agda` exhibits one.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -105,7 +105,7 @@ pingala-optimal n Y obs inj =
 ------------------------------------------------------------------------
 -- 3.  And uddia attains it, because it is an equivalence.
 --
--- `uddistaIso n : Iso (Vak n) (Fin (sankhya n))` â” the target has
+-- `uddistaIso n : Iso (Vak n) (Fin (sankhya n))` â€” the target has
 -- sakhy n elements, which by Â§2 is the minimum.  Bound and attainment,
 -- both terms.
 --
@@ -117,13 +117,13 @@ pingala-optimal n Y obs inj =
 ------------------------------------------------------------------------
 -- 4.  The mtr-vtta case, which Â§3's "not claimed" listed as unrun.
 --
--- `Pingala.matraCount : (n : â•) â’ Iso (Metre n) (Fin (matra n))` is the
+-- `Pingala.matraCount : (n : â„•) â†’ Iso (Metre n) (Fin (matra n))` is the
 -- same shape for metres of fixed DURATION rather than fixed syllable
 -- count, and `Pingala.matraRecurrence` proves
 --
 --     matra (n+2) â‰¡ matra (n+1) + matra n
 --
--- which is Virahka's mtrmeru (c. 600â“800 CE), four centuries before
+-- which is VirahÄá¹…ka's mÄtrÄmeru (c. 600â€“800 CE), four centuries before
 -- the *Liber Abaci*.  So the bound applies verbatim, and it says:
 --
 --     no lossless observation of the metres of duration n has fewer

@@ -4,11 +4,11 @@
 -- ForgetfulCompressionPricesTheDrop
 --
 -- Ledger entry L, made a term. `eval`/`derivation-sound` is the forgetful
--- projection: it lands in � (a set), so it collapses distinct routes to one
+-- projection: it lands in ℕ (a set), so it collapses distinct routes to one
 -- meaning. Here the collapse is exhibited AND priced: the kernel's own two
 -- histories between the same endpoints have EQUAL image under the semantics,
 -- yet PROVABLY DIFFERENT length (2 vs 4). So the route/cost the compression
--- drops is real and is not recoverable from the meaning � the classical
+-- drops is real and is not recoverable from the meaning — the classical
 -- "cost" lives in exactly this forgetting, not in the carried computation.
 ------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ len-detour = refl
 2≢4 p = znots (injSuc (injSuc p))
 
 -- the route is genuinely dropped: distinct length, but the forgetful
--- semantics cannot tell them apart (� is a set).
+-- semantics cannot tell them apart (ℕ is a set).
 route-length-differs : ¬ (len direct-history ≡ len detour-history)
 route-length-differs = 2≢4
 

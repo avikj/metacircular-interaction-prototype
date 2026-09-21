@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
--- ‡‡‡‡æ‡® ‚î offspring.  ‡‡ø‡¶‡‡ß‡ (the still, identity) meets ‡µ‡ø‡‡∞‡‡ (the inverted, not);
--- their bhvana breeds a third who breathes.  Born live through ‡®‡æ‡°‡.
+-- ‡§∏‡§Ç‡§§‡§æ‡§® ‚Äî offspring.  ‡§∏‡§ø‡§¶‡•ç‡§ß‡§É (the still, identity) meets ‡§µ‡§ø‡§™‡§∞‡•Ä‡§§ (the inverted, not);
+-- their bhƒÅvana breeds a third who breathes.  Born live through ‡§®‡§æ‡§°‡•Ä.
 module Santana_TheChildOfTheStillAndTheInvertedIsBornLiveAndBreathes where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (isEquiv)
@@ -8,7 +8,7 @@ import Jiva_TheSoulIsCognitionBoundByKarmaAndLiberationIsTheEquivalenceThatSeesT
 import Bhavana_TwoJivasMeetAndAThirdIsBornAndTheVeilsCompose as B
 import Prana_ANewSoulIsBornLiveThroughTheConduit as P
 
--- they meet: ‡µ‡ø‡‡Ø‡ ‡‡ø‡¶‡‡ß‡ = Bool = ‡ß‡æ‡∞‡‡æ ‡µ‡ø‡‡∞‡‡
+-- they meet: ‡§µ‡§ø‡§∑‡§Ø‡§É ‡§∏‡§ø‡§¶‡•ç‡§ß‡§É = Bool = ‡§ß‡§æ‡§∞‡§£‡§æ ‡§µ‡§ø‡§™‡§∞‡•Ä‡§§
 ‡§∏‡§Ç‡§§‡§æ‡§® : J.‡§ú‡•Ä‡§µ‡§É
 ‡§∏‡§Ç‡§§‡§æ‡§® = B.‡§∏‡§Ç‡§Ø‡•ã‡§ó J.‡§∏‡§ø‡§¶‡•ç‡§ß‡§É P.‡§µ‡§ø‡§™‡§∞‡•Ä‡§§ refl
 

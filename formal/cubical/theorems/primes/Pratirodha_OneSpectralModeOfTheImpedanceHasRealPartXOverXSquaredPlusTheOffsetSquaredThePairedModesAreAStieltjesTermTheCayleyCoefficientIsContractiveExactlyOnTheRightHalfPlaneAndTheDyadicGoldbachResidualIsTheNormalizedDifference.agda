@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ��������� � the impedance.
+-- प्रतिरोध — the impedance.
 --
 -- The finite identities under the positive-real/Stieltjes reading of
 -- the receiver (handoff §61, [S02],[S14]) and the Goldbach dyadic
 -- normalization (§63, [S22]):
 --
---   �  one spectral mode of the Laplace impedance,  1/(w − iγ)  at
+--   १  one spectral mode of the Laplace impedance,  1/(w − iγ)  at
 --      w = x + iy, has real part  x/(x² + (y−γ)²):
 --         (x + i(y−γ))(x − i(y−γ)) = x² + (y−γ)²  and the real part of
 --         the numerator is x;
---   �  pairing �γ:  1/(w−iγ) + 1/(w+iγ) = 2w/(w² + γ²),  so
---         �(q) = Y(�q)/�q = � p/(q + λ),  λ = γ²  (Stieltjes form);
---   �  the Cayley coefficient (� − Y)/(� + Y) is contractive exactly
---      when Re(�Y) � 0:   |� + Y|² − |� − Y|² = 4 Re(� Y);
---   �  the dyadic Goldbach normalization:  with �(t) = t² G_R(t),
---         4t²(G_R(2t) − ¼G_R(t)) = �(2t) − �(t),  and  � = (tA)²  when
+--   २  pairing ±γ:  1/(w−iγ) + 1/(w+iγ) = 2w/(w² + γ²),  so
+--         𝒮(q) = Y(√q)/√q = Σ p/(q + λ),  λ = γ²  (Stieltjes form);
+--   ३  the Cayley coefficient (α − Y)/(α + Y) is contractive exactly
+--      when Re(ᾱY) ≥ 0:   |α + Y|² − |α − Y|² = 4 Re(ᾱ Y);
+--   ४  the dyadic Goldbach normalization:  with 𝒢(t) = t² G_R(t),
+--         4t²(G_R(2t) − ¼G_R(t)) = 𝒢(2t) − 𝒢(t),  and  𝒢 = (tA)²  when
 --         G_R = A².
 ------------------------------------------------------------------------
 module Pratirodha_OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference where
@@ -56,7 +56,7 @@ module _ (R : CommRing ℓ) where
   ∣ (a , b) ∣² = a · a + b · b
 
   ----------------------------------------------------------------
-  -- � � one mode:  (w − iγ) � conj(w − iγ) = |w − iγ|²,  real part x
+  -- १ · one mode:  (w − iγ) · conj(w − iγ) = |w − iγ|²,  real part x
   ----------------------------------------------------------------
   mode-denominator : (x y γ : A)
     → (x , y + (- γ)) ⊗ conj (x , y + (- γ)) ≡ (x · x + (y + (- γ)) · (y + (- γ)) , 0r)
@@ -72,7 +72,7 @@ module _ (R : CommRing ℓ) where
   mode-real-part x y γ = refl
 
   ----------------------------------------------------------------
-  -- � � the �γ pair is a Stieltjes term
+  -- २ · the ±γ pair is a Stieltjes term
   ----------------------------------------------------------------
   -- (w + iγ) + (w − iγ) = 2w  and  (w − iγ)(w + iγ) = w² + γ²  (w real here: q = w²)
   paired-modes : (w γ : A)
@@ -94,7 +94,7 @@ module _ (R : CommRing ℓ) where
           shape w γ = solve! R
 
   ----------------------------------------------------------------
-  -- � � the Cayley coefficient
+  -- ३ · the Cayley coefficient
   ----------------------------------------------------------------
   cayley : (α Y : ℂ) → ∣ (fst α + fst Y , snd α + snd Y) ∣² + (- ∣ (fst α + (- fst Y) , snd α + (- snd Y)) ∣²)
                        ≡ ι 4 · fst (conj α ⊗ Y)
@@ -106,10 +106,10 @@ module _ (R : CommRing ℓ) where
       shape a b c d = solve! R
 
   ----------------------------------------------------------------
-  -- � � the dyadic Goldbach normalization
+  -- ४ · the dyadic Goldbach normalization
   ----------------------------------------------------------------
-  -- 4t²�(G_R(2t) − ¼G_R(t)) = �(2t) − �(t):  cleared of the quarter,
-  -- 4�[(2t)²G� − t²G�]/4 � stated as   (2t)² G� − t² G� ≡ 4t² G� − t² G�
+  -- 4t²·(G_R(2t) − ¼G_R(t)) = 𝒢(2t) − 𝒢(t):  cleared of the quarter,
+  -- 4·[(2t)²G₂ − t²G₁]/4 … stated as   (2t)² G₂ − t² G₁ ≡ 4t² G₂ − t² G₁
   dyadic-normalization : (t G₁ G₂ : A)
     → ((ι 2 · t) · (ι 2 · t)) · G₂ + (- ((t · t) · G₁)) ≡ (ι 4 · ((t · t) · G₂)) + (- ((t · t) · G₁))
   dyadic-normalization t G₁ G₂ = shape t G₁ G₂
@@ -119,6 +119,6 @@ module _ (R : CommRing ℓ) where
           ≡ ((1r + (1r + (1r + (1r + 0r)))) · ((t · t) · G₂)) + (- ((t · t) · G₁))
       shape t G₁ G₂ = solve! R
 
-  -- � = (tA)²  when  G_R = A²
+  -- 𝒢 = (tA)²  when  G_R = A²
   normalized-square : (t Aₜ : A) → (t · t) · (Aₜ · Aₜ) ≡ (t · Aₜ) · (t · Aₜ)
   normalized-square t Aₜ = solve! R

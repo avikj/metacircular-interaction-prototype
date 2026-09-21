@@ -14,10 +14,10 @@
 --
 -- The audit's finding: being fixed by both actions makes `{0}` CLOSED;
 -- unreachability of the rest follows only if the start state IS `0`.
--- The message never says so.  It is true â”
+-- The message never says so.  It is true â€”
 -- `formal/lean/Pairfield/AdaptiveObservableHorizon.lean:80` reads
 -- `start := 0`, which I re-read tonight rather than trusting the audit
--- â” so the verdict stands on a premise the argument omits.  That is the
+-- â€” so the verdict stands on a premise the argument omits.  That is the
 -- corpus's dominant genre: a false ground under a true verdict, with NO
 -- LEXICAL SIGNATURE.  Nothing in the sentence is a wrong word; a clause
 -- is simply not there, and grep cannot see a clause that is not there.
@@ -34,7 +34,7 @@
 --   closed-from-s0       the conclusion, for runs that start at s0
 --   closed-from-start    the theorem with `start â‰¡ s0` IN THE TYPE
 --   escape-from-s1       one action leaves the closed set from s1
---   dropped-premise-false  so the start-free reading implies âŠ
+--   dropped-premise-false  so the start-free reading implies âŠ¥
 --
 -- The companion control is
 -- `NaturalMachine/Control/ReachabilityWithoutStart.agda`, which asserts

@@ -3,23 +3,23 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.HolonomyIsInvisibleExactlyToAnInvariantSemantics
 --
--- `notes/DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_28.md` Â§36â“38 closes:
+-- `notes/DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_28.md` Â§36â€“38 closes:
 --
---   "Even flat architectures can carry interface holonomy h : Z â‰ Z
---    around loops in architecture space â” harmless for boundary
+--   "Even flat architectures can carry interface holonomy h : Z â‰ƒ Z
+--    around loops in architecture space â€” harmless for boundary
 --    semantics, load-bearing for caches, provenance, optimizer state,
 --    proofs."
 --
 -- That sentence reports TWO observations.  They are one, and saying
 -- which one needs the loop to be an actual PATH rather than a metaphor
--- â” which is the one place in this section where the cubical substrate
+-- â€” which is the one place in this section where the cubical substrate
 -- earns its keep rather than merely hosting the argument.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   invariantSemanticsIsUnmoved
---       a consumer `sem : Z â’ B` satisfying `sem âˆ˜ h â‰¡ sem` sees
+--       a consumer `sem : Z â†’ B` satisfying `sem âˆ˜ h â‰¡ sem` sees
 --       nothing after transport along `ua h`.  This is the "harmless
 --       for boundary semantics" half, and the hypothesis is exactly
 --       what "boundary semantics" has to mean for it to hold.
@@ -30,22 +30,22 @@
 --       consumer is invariant only if `h` is.
 --   notIsGenuineHolonomy / theCacheIsMoved
 --       and non-trivial holonomy exists: `notEquiv` on `Bool`, where
---       `transport (ua notEquiv) true â‰ true`
+--       `transport (ua notEquiv) true â‰¢ true`
 --
--- **So the two halves of Â§36â“38's sentence are one theorem read at two
+-- **So the two halves of Â§36â€“38's sentence are one theorem read at two
 -- consumers.**  Holonomy is invisible exactly to consumers invariant
 -- under it, and the list "caches, provenance, optimizer state, proofs"
--- is a list of consumers that are NOT â” they are keyed by the raw
+-- is a list of consumers that are NOT â€” they are keyed by the raw
 -- interface, which is the identity consumer, and the identity consumer
 -- is invariant only when the holonomy is trivial.  There is no separate
 -- fact about caches to establish.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHY UNIVALENCE IS DOING WORK HERE.  Without it, `h : Z â‰ Z` and a
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHY UNIVALENCE IS DOING WORK HERE.  Without it, `h : Z â‰ƒ Z` and a
 -- loop in architecture space are different objects and the sentence
 -- above is an analogy.  `ua` makes the loop a path, `uaÎ²` computes
 -- transport along it back to `h`, and the two theorems are then about
--- the SAME `h` â” the invariance hypothesis and the transport are
+-- the SAME `h` â€” the invariance hypothesis and the transport are
 -- connected rather than merely parallel.  `notEquiv` is the standard
 -- witness that this content is not vacuous: a self-equivalence with no
 -- fixed point at `true`.
@@ -53,21 +53,21 @@
 -- NO NOVELTY WHATSOEVER.  `ua`, `uaÎ²` and the `not` automorphism of
 -- `Bool` are the first examples in every cubical development, and
 -- Voevodsky's univalence axiom is the substrate this repository already
--- runs on.  What is contributed is the identification of Â§36â“38's two
+-- runs on.  What is contributed is the identification of Â§36â€“38's two
 -- clauses as one statement.
 --
--- Â§36â“38 says such a loop YIELDS, not what it is.  So this is a theorem
+-- Â§36â€“38 says such a loop YIELDS, not what it is.  So this is a theorem
 -- about interface holonomy taken as given, and the step from "loop in
--- architecture space" to "h : Z â‰ Z" is assumed, not built.  FLATNESS
+-- architecture space" to "h : Z â‰ƒ Z" is assumed, not built.  FLATNESS
 -- is not used: nothing here needs the architecture to be flat, so this
--- says nothing about Â§36â“38's claim that flat architectures can still
--- carry holonomy â” only about what holonomy does once present.  No
+-- says nothing about Â§36â€“38's claim that flat architectures can still
+-- carry holonomy â€” only about what holonomy does once present.  No
 -- claim that "boundary semantics" in Î” 28's sense IS invariant; that is
 -- a hypothesis here and a modelling question there.  Nothing is said
 -- about composing loops, so no group structure, no fundamental group,
 -- and no claim that holonomies compose to a holonomy.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -139,16 +139,16 @@ oneLoopTwoVerdicts =
 -- cubical v0.5, NOT the declared pin).
 --
 -- **THE WORD `EXACTLY` IS IN THIS MODULE'S NAME AND WAS IN NONE OF ITS
--- THEOREMS.**  Â§2 proves invariant âŸ unmoved. The same holds of Â§3:
+-- THEOREMS.**  Â§2 proves invariant âŸ¹ unmoved. The same holds of Â§3:
 -- `nonTrivialHolonomyMovesTheRawInterface` goes one way only.
 --
 -- **AND BOTH CONVERSES COST NOTHING.**  `uaÎ² h z` is a PATH, so it may
 -- be walked in either orientation; each backward direction is the
 -- forward one composed with `sym`.  At the recording site:
--- `invisibleâ’invariant`, `invisibleExactlyWhenInvariant`, and â”
--- given `isSet B` â” `invisibleIsInvariantAsTypes`, an EQUIVALENCE of
+-- `invisibleâ†’invariant`, `invisibleExactlyWhenInvariant`, and â€”
+-- given `isSet B` â€” `invisibleIsInvariantAsTypes`, an EQUIVALENCE of
 -- the two conditions rather than a two-way implication.  `Invariant`
--- and `Invisible` are named there; `invariantâ’invisible` is
+-- and `Invisible` are named there; `invariantâ†’invisible` is
 -- `invariantSemanticsIsUnmoved` REUSED, not restated.
 --
 -- **WHY THIS WAS WORTH A CYCLE RATHER THAN A ONE-LINE FIX.**  One cycle

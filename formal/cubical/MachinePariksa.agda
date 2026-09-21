@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡ï‡‡‡æ ‚î the examination of ‡Ø‡®‡‡‡‡∞ (944676e4), as terms rather than as
+-- ‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ ‚Äî the examination of ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞ (944676e4), as terms rather than as
 -- a review.  Four objections, each turned into something the kernel can
 -- reject.
 --
@@ -25,14 +25,14 @@
 --               recursion on the remainder, and the divisor comes back
 --               carrying proofs that it divides both inputs.
 --
---   Upadhi      `Shodhita`/`Ekam` call `|M(k)|¬≤ ‚â k` a fragment of the
+--   Upadhi      `Shodhita`/`Ekam` call `|M(k)|¬≤ ‚â§ k` a fragment of the
 --               Riemann Hypothesis.  It is the Mertens conjecture, which
 --               was disproved in 1985.  The universal statement and the
 --               finite check are separated into two types with a map in
 --               one direction only.
 ------------------------------------------------------------------------
 
-module YantraPariksa where
+module MachinePariksa where
 
 import Yantra.Chaya_TheShadowHasNoSectionThoughItHasAMap
 import Yantra.Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof

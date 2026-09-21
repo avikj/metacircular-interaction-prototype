@@ -10,16 +10,16 @@
 --
 -- WHAT IS NEW HERE: determination is relativised to a SET OF REALIZED
 -- SPANS.  Theorem A is a statement about the codomain R; Theorem B is a
--- statement about the family T � R³ of spans a given composable pair
+-- statement about the family T ⊆ R³ of spans a given composable pair
 -- actually realizes.  The note's own warning (§3, Cor B.1) is that
--- "|R| � 3 � non-determination" is a REALIZABILITY claim wearing the
+-- "|R| ≥ 3 ⟹ non-determination" is a REALIZABILITY claim wearing the
 -- clothes of a pointwise one, the same error shape as quoting a constant
 -- without its scaling.  So the relativisation is the content, and it is
 -- made first, before anything is proved.
 --
 -- HYPOTHESES (nothing else is assumed):
 --   * R an arbitrary type at an arbitrary level, with `Discrete R`.
---   * T : R � R � R � Type �'  an arbitrary predicate ("the realized
+--   * T : R → R → R → Type ℓ'  an arbitrary predicate ("the realized
 --     spans"), at an arbitrary, independent level.  NO decidability of T
 --     is assumed except where a statement explicitly takes `Dec` as a
 --     hypothesis (see `theoremB-iff`, and the scope note on it).
@@ -30,43 +30,43 @@
 -- HEADLINE STATEMENTS (all checked, no postulates, no holes, --safe):
 --
 --  §2 Theorem B.
---     both��DeterminesOn     both cells realized � no decoder on T
---     �Cancellation�Det      cancellation cell unrealized � decoder ∨
---     �Persistence�Det       persistence cell unrealized  � decoder ⊕
+--     both→¬DeterminesOn     both cells realized ⟹ no decoder on T
+--     ¬Cancellation→Det      cancellation cell unrealized ⟹ decoder ∨
+--     ¬Persistence→Det       persistence cell unrealized  ⟹ decoder ⊕
 --     theoremB-iff           the packaged equivalence, with the one
 --                            constructive hypothesis it needs (Dec of
 --                            the cancellation cell) named in the type.
---     determinesOnTotal�     T = all of R³ recovers Theorem A's
+--     determinesOnTotal↔     T = all of R³ recovers Theorem A's
 --                            `Determines`, in both directions.
 --
 --  §3 Corollary B.1.
 --     Defeating R d          = a span set realizing BOTH cells.
 --     ThreeValued R          = a pairwise-distinct triple (constructive
---                              |R| � 3).
---     threeValued�Defeating  sufficiency: an EXPLICIT two-span set.
---     Defeating�threeValued  necessity.
+--                              |R| ≥ 3).
+--     threeValued→Defeating  sufficiency: an EXPLICIT two-span set.
+--     Defeating→threeValued  necessity.
 --     corB1                  the two packaged.
---     twoValued��Persistence  and hence
---     twoValued�allDetermined  EVERY span set over a two-valued R is
+--     twoValued→¬Persistence  and hence
+--     twoValued→allDetermined  EVERY span set over a two-valued R is
 --                              determined (reusing Theorem A's
 --                              `TwoValued`, not a new notion).
---     spanwiseTwoValued�DeterminesOn , emptyMeet�DeterminesOn  the
+--     spanwiseTwoValued→DeterminesOn , emptyMeet→DeterminesOn  the
 --                              pointwise refutation the note asks for: a
 --                              span set landing in a two-element subset,
---                              or with A ∩ B = �, is determined however
+--                              or with A ∩ B = ∅, is determined however
 --                              large R is.
---     determinesOnOneSpan     the same, concretely, over Three � whose
+--     determinesOnOneSpan     the same, concretely, over Three — whose
 --                              TOTAL span set is defeating
 --                              (threeIsDefeating) and for which
---                              StagewiseComposite.�DeterminesThree holds.
+--                              StagewiseComposite.¬DeterminesThree holds.
 --     cancellationOverBool    the asymmetry of the two cells: only the
---                              persistence cell carries |R| � 3.
+--                              persistence cell carries |R| ≥ 3.
 --
 --  §4 Corollary B.2 (G abelian, carried explicitly).
 --     telescope              (b − a) + (c − b) ≡ c − a, over ANY G.
 --     SupportDetermines G    a decoder for the SUPPORTS 1_{g≠0}.
---     twoValued�Support / Support�twoValued : supports compose iff
---                            |G| � 2.  So only the passage to supports
+--     twoValued→Support / Support→twoValued : supports compose iff
+--                            |G| ≤ 2.  So only the passage to supports
 --                            costs; the G-valued ledger never does.
 --
 ------------------------------------------------------------------------
@@ -124,17 +124,17 @@ DeterminesOn R d T =
   Σ[ f ∈ (Bool → Bool → Bool) ]
     ((a b c : R) → T a b c → f (ind d a b) (ind d b c) ≡ ind d a c)
 
--- The two cells inside the single ambiguous fiber δ��(1,1).  Everything
--- outside this fiber is pinned by the sandwich A △ B � D � A � B
+-- The two cells inside the single ambiguous fiber δ⁻¹(1,1).  Everything
+-- outside this fiber is pinned by the sandwich A △ B ⊆ D ⊆ A ∪ B
 -- (Proposition 1 of the note), which is why only these two matter.
 
--- {a ≠ b , b ≠ c , a = c} � the stage defects cancel.
+-- {a ≠ b , b ≠ c , a = c} — the stage defects cancel.
 Cancellation : (R : Type ℓ) → SpanSet R ℓ' → Type (ℓ-max ℓ ℓ')
 Cancellation R T =
   Σ[ a ∈ _ ] Σ[ b ∈ _ ] Σ[ c ∈ _ ]
     (T a b c × ((¬ (a ≡ b)) × ((¬ (b ≡ c)) × (a ≡ c))))
 
--- {a ≠ b , b ≠ c , a ≠ c} � the stage defects persist.
+-- {a ≠ b , b ≠ c , a ≠ c} — the stage defects persist.
 Persistence : (R : Type ℓ) → SpanSet R ℓ' → Type (ℓ-max ℓ ℓ')
 Persistence R T =
   Σ[ a ∈ _ ] Σ[ b ∈ _ ] Σ[ c ∈ _ ]
@@ -144,7 +144,7 @@ Persistence R T =
 -- 2.  Theorem B
 ------------------------------------------------------------------------
 
--- (� of the note's "fails iff both are met")  Two realized spans sharing
+-- (⇒ of the note's "fails iff both are met")  Two realized spans sharing
 -- the summary (1,1) and disagreeing on the composite defeat EVERY
 -- decoder.  Note the decoder is defeated at the single argument
 -- (true , true); nothing else in T is looked at.
@@ -168,7 +168,7 @@ both→¬DeterminesOn d T
         ∙ eq x y z txyz
         ∙ ind-neq d ¬xz
 
--- (�, first half)  If the cancellation cell is unrealized, the decoder is
+-- (⇐, first half)  If the cancellation cell is unrealized, the decoder is
 -- OR: on the ambiguous fiber the composite defect is always present.
 ¬Cancellation→DeterminesOn :
     (d : Discrete R) (T : SpanSet R ℓ')
@@ -201,8 +201,8 @@ both→¬DeterminesOn d T
           cong₂ orB (ind-neq d ¬p) (ind-neq d ¬q)
             ∙ sym (ind-neq d (λ r → ¬canc (a , b , c , t , ¬p , ¬q , r)))
 
--- (�, second half)  If the persistence cell is unrealized, the decoder is
--- XOR � the decoder of Theorem A, now available over an arbitrary
+-- (⇐, second half)  If the persistence cell is unrealized, the decoder is
+-- XOR — the decoder of Theorem A, now available over an arbitrary
 -- codomain because it is only asked about realized spans.
 ¬Persistence→DeterminesOn :
     (d : Discrete R) (T : SpanSet R ℓ')
@@ -228,7 +228,7 @@ both→¬DeterminesOn d T
         ny ¬p q = cong₂ _⊕_ (ind-neq d ¬p) (ind-eq d q)
                     ∙ sym (ind-neq d (λ r → ¬p (r ∙ sym q)))
 
-        -- Here a � c would put this span in the persistence cell.
+        -- Here a ≢ c would put this span in the persistence cell.
         nn : ¬ (a ≡ b) → ¬ (b ≡ c) → ind d a b ⊕ ind d b c ≡ ind d a c
         nn ¬p ¬q =
           decRec
@@ -237,7 +237,7 @@ both→¬DeterminesOn d T
             (d a c)
 
 -- Theorem B, packaged.  The reverse implication is stated with the
--- hypothesis it genuinely needs: constructively, �(P � Q) does not split,
+-- hypothesis it genuinely needs: constructively, ¬(P × Q) does not split,
 -- so one decidability assumption on ONE cell is carried in the type.
 theoremB-iff :
     (d : Discrete R) (T : SpanSet R ℓ')
@@ -274,7 +274,7 @@ restrictDeterminesOn :
 restrictDeterminesOn d T S sub (f , eq) = f , (λ a b c s → eq a b c (sub a b c s))
 
 ------------------------------------------------------------------------
--- 3.  Corollary B.1:  what |R| � 3 does and does not buy
+-- 3.  Corollary B.1:  what |R| ≥ 3 does and does not buy
 ------------------------------------------------------------------------
 
 -- A DEFEATING span set: one realizing both cells, i.e. (by Theorem B) one
@@ -282,12 +282,12 @@ restrictDeterminesOn d T S sub (f , eq) = f , (λ a b c s → eq a b c (sub a b 
 Defeating : (R : Type ℓ) (ℓ' : Level) → Type (ℓ-max ℓ (ℓ-suc ℓ'))
 Defeating R ℓ' = Σ[ T ∈ SpanSet R ℓ' ] (Cancellation R T × Persistence R T)
 
--- Constructive |R| � 3: an explicit pairwise-distinct triple.
+-- Constructive |R| ≥ 3: an explicit pairwise-distinct triple.
 ThreeValued : Type ℓ → Type ℓ
 ThreeValued R =
   Σ[ a ∈ R ] Σ[ b ∈ R ] Σ[ c ∈ R ] ((¬ (a ≡ b)) × ((¬ (b ≡ c)) × (¬ (a ≡ c))))
 
--- SUFFICIENCY.  Three distinct values produce a defeating span set � and
+-- SUFFICIENCY.  Three distinct values produce a defeating span set — and
 -- an explicit, minimal one: the two-element set {(a,b,a) , (a,b,c)},
 -- which is precisely the note's §4 table (rows I and II).
 twoSpan : {R : Type ℓ} (a b c : R) → SpanSet R ℓ
@@ -304,8 +304,8 @@ threeValued→Defeating {R = R} (a , b , c , ¬ab , ¬bc , ¬ac) =
 
 -- NECESSITY.  A defeating span set contains, in its persistence cell, a
 -- pairwise-distinct triple.  The asymmetry is worth recording: the
--- CANCELLATION cell alone does not force |R| � 3 � over Bool the span
--- (true , false , true) lies in it � so it is the persistence cell that
+-- CANCELLATION cell alone does not force |R| ≥ 3 — over Bool the span
+-- (true , false , true) lies in it — so it is the persistence cell that
 -- carries the cardinality, and the failure of determination that needs
 -- both.  (`cancellationOverBool` below witnesses this.)
 Defeating→threeValued : Defeating R ℓ' → ThreeValued R
@@ -325,13 +325,13 @@ threeValued→¬TwoValued (a , b , c , ¬ab , ¬bc , ¬ac) tv = step (tv a b c)
     step (inr (inl q)) = ¬bc q
     step (inr (inr r)) = ¬ac r
 
--- Over a two-valued codomain the persistence cell cannot be realized �
+-- Over a two-valued codomain the persistence cell cannot be realized …
 twoValued→¬Persistence :
     (T : SpanSet R ℓ') → TwoValued R → ¬ (Persistence R T)
 twoValued→¬Persistence T tv (a , b , c , _ , ¬ab , ¬bc , ¬ac) =
   threeValued→¬TwoValued (a , b , c , ¬ab , ¬bc , ¬ac) tv
 
--- � and hence EVERY span set over it is determined, with decoder xor.
+-- … and hence EVERY span set over it is determined, with decoder xor.
 -- (This re-derives Theorem A's forward direction as the T = Total case.)
 twoValued→allDetermined :
     (d : Discrete R) (T : SpanSet R ℓ')
@@ -340,10 +340,10 @@ twoValued→allDetermined d T tv =
   ¬Persistence→DeterminesOn d T (twoValued→¬Persistence T tv)
 
 ------------------------------------------------------------------------
--- 3'.  The pointwise refutation:  |R| � 3 does NOT defeat a GIVEN pair
+-- 3'.  The pointwise refutation:  |R| ≥ 3 does NOT defeat a GIVEN pair
 ------------------------------------------------------------------------
 
--- R is arbitrary � of any size � and only the REALIZED spans are
+-- R is arbitrary — of any size — and only the REALIZED spans are
 -- constrained.  These are the two cases the note names explicitly.
 
 -- (i) "the responses land in a two-element subset": every realized span
@@ -363,7 +363,7 @@ spanwiseTwoValued→DeterminesOn d T h =
     step ¬ab ¬bc ¬ac (inr (inl q)) = ¬bc q
     step ¬ab ¬bc ¬ac (inr (inr r)) = ¬ac r
 
--- (ii) "A ∩ B = �": no realized span has both stage defects.  Then both
+-- (ii) "A ∩ B = ∅": no realized span has both stage defects.  Then both
 -- cells are unrealized a fortiori, and the pair is determined.
 emptyMeet→DeterminesOn :
     (d : Discrete R) (T : SpanSet R ℓ')
@@ -384,9 +384,9 @@ cancellationOverBool =
   true , false , true , tt
     , (λ p → false≢true (sym p)) , (false≢true , refl)
 
--- Over Three, `Determines` FAILS (�DeterminesThree of StagewiseComposite)
+-- Over Three, `Determines` FAILS (¬DeterminesThree of StagewiseComposite)
 -- while a pair realizing only the persistence span is determined.  This
--- is Corollary B.1's negative half, machine-checked: |R| � 3 does not
+-- is Corollary B.1's negative half, machine-checked: |R| ≥ 3 does not
 -- make a given pair non-determined.
 oneSpan : SpanSet Three ℓ-zero
 oneSpan x y z = (x ≡ t0) × ((y ≡ t1) × (z ≡ t2))
@@ -430,7 +430,7 @@ record AbGroupStr (G : Type ℓ) : Type ℓ where
   linv : (x : G) → neg x + x ≡ zero
   linv x = comm+ (neg x) x ∙ rinv x
 
-  -- difference: the G-VALUED defect of the step x � y
+  -- difference: the G-VALUED defect of the step x → y
   _−_ : G → G → G
   y − x = y + neg x
 
@@ -470,7 +470,7 @@ SupportDetermines G d A =
 module _ {G : Type ℓ} (d : Discrete G) (A : AbGroupStr G) where
   open AbGroupStr A
 
-  -- (B.2, second half, �)  |G| � 2 � supports compose, decoder xor.
+  -- (B.2, second half, ⇐)  |G| ≤ 2 ⟹ supports compose, decoder xor.
   twoValued→SupportDetermines : TwoValued G → SupportDetermines G d A
   twoValued→SupportDetermines tv = _⊕_ , goal
     where
@@ -501,8 +501,8 @@ module _ {G : Type ℓ} (d : Discrete G) (A : AbGroupStr G) where
                           (λ r → ¬p (r ∙ cong (g₁ +_) (sym q) ∙ rid g₁)))
 
           -- the only fiber with content: with at most two values,
-          -- g� ≠ 0 and g� ≠ 0 force g� + g� = 0, via the triple
-          -- (0 , g� , g� + g�).
+          -- g₁ ≠ 0 and g₂ ≠ 0 force g₁ + g₂ = 0, via the triple
+          -- (0 , g₁ , g₁ + g₂).
           nn : ¬ (zero ≡ g₁) → ¬ (zero ≡ g₂)
              → ind d zero g₁ ⊕ ind d zero g₂ ≡ ind d zero (g₁ + g₂)
           nn ¬p ¬q = step (tv zero g₁ (g₁ + g₂))
@@ -512,7 +512,7 @@ module _ {G : Type ℓ} (d : Discrete G) (A : AbGroupStr G) where
               step (inl p) = ⊥.rec (¬p p)
               step (inr (inl q)) = ⊥.rec (¬q cancel)
                 where
-                  -- g� ≡ g� + g� cancels to 0 ≡ g�
+                  -- g₁ ≡ g₁ + g₂ cancels to 0 ≡ g₂
                   cancel : zero ≡ g₂
                   cancel =
                     sym (linv g₁)
@@ -524,7 +524,7 @@ module _ {G : Type ℓ} (d : Discrete G) (A : AbGroupStr G) where
                 cong₂ _⊕_ (ind-neq d ¬p) (ind-neq d ¬q)
                   ∙ sym (ind-eq d r)
 
-  -- (B.2, second half, �)  supports compose � |G| � 2.  The defeating
+  -- (B.2, second half, ⇒)  supports compose ⟹ |G| ≤ 2.  The defeating
   -- pair is (g , −g) against (g , h): both have nonzero summands, the
   -- first sums to 0 and the second does not.
   SupportDetermines→twoValued : SupportDetermines G d A → TwoValued G

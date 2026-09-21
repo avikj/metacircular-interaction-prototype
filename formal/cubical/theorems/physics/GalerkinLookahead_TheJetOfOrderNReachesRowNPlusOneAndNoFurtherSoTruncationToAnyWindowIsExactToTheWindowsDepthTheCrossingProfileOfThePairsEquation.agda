@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- GalerkinLookahead � for every window M, the Galerkin-truncated jet
+-- GalerkinLookahead — for every window M, the Galerkin-truncated jet
 -- stream of the pair agrees with the exact jet stream to depth M:
 --
---     take j (galerkin M i) ≡ take j (jets i)     whenever i + j � M.
+--     take j (galerkin M i) ≡ take j (jets i)     whenever i + j ≤ M.
 --
 -- This is SthairyaSutra's crossing profile at the pair's own equation:
--- the advection by a = 2 cos(N x�) reads one row beyond what it writes,
+-- the advection by a = 2 cos(N x₁) reads one row beyond what it writes,
 -- so each jet reaches exactly one more row, Jet n vanishing beyond
--- |k�| = n + 1, and a truncation to |k�| � M loses nothing until the
+-- |k₁| = n + 1, and a truncation to |k₁| ≤ M loses nothing until the
 -- jets reach it.  GalerkinJets checked this at M = 2, 3; here it is
 -- proved for every M from the support lemma of convolution with a.
 --
---   §1  ring facts on �[i] and the row-support predicate Rows n f
---       (f vanishes on the rows |k�| > n);
---   §2  THE SUPPORT LEMMA: Rows n g � Rows (n+1) ((c � a) ∗ g), by
---       cases on the mode of a � only (�1, 0) carries weight, and there
+--   §1  ring facts on ℤ[i] and the row-support predicate Rows n f
+--       (f vanishes on the rows |k₁| > n);
+--   §2  THE SUPPORT LEMMA: Rows n g → Rows (n+1) ((c · a) ∗ g), by
+--       cases on the mode of a — only (±1, 0) carries weight, and there
 --       g is read one row further out;
 --   §3  Rows is closed under the field operations, so every jet has
 --       Rows (n+1) (Jet n), by induction through the jet table;
 --   §4  truncation fixes a field within its rows, so the truncated table
---       equals the exact table while n + 1 � M, and the streams agree.
+--       equals the exact table while n + 1 ≤ M, and the streams agree.
 --
 -- SYT.  Exact, for every window, for the pair's equation at ν = 1 and
 -- N = 2 as GalerkinJets fixes them.  Convergence of the jets is not here.
@@ -51,7 +51,7 @@ open Dhārā
 -- §1  ring facts and row support
 ------------------------------------------------------------------------
 
--- z � 0 = 0 (0 � z = 0 is definitional, multiplication recursing on its
+-- z · 0 = 0 (0 · z = 0 is definitional, multiplication recursing on its
 -- first argument)
 z·0c : (z : ℤi) → z ·c 0c ≡ 0c
 z·0c (x , y) = cong₂ _,_ (cong₂ (λ u w → u +i (-i w)) (·Comm x (pos 0)) (·Comm y (pos 0)))
@@ -80,7 +80,7 @@ abs-suc n (pos m) h = ≤-suc (<-weaken h)
 abs-suc n (negsuc zero) h = ⊥-rec (¬-<-zero (pred-≤-pred h))
 abs-suc n (negsuc (suc m)) h = pred-≤-pred h
 
--- k − pos 1 is pred� k and k − negsuc 0 is suc� k, definitionally
+-- k − pos 1 is predℤ k and k − negsuc 0 is sucℤ k, definitionally
 
 -- every term of the convolution vanishes on the far rows
 term-zero : (c : ℤi) (n : ℕ) (g : Field) → Rows n g → (k₁ k₂ : ℤ) → suc n < abs k₁
@@ -129,7 +129,7 @@ rows-∂₂ n f rf k₁ k₂ h = cong ((i ·c ι k₂) ·c_) (rf k₁ k₂ h) �
 rows-Δ : (n : ℕ) (f : Field) → Rows n f → Rows n (Δ f)
 rows-Δ n f rf k₁ k₂ h = cong (negc (ι (N ·i k₁ ·i (N ·i k₁) +i k₂ ·i k₂)) ·c_) (rf k₁ k₂ h) ∙ z·0c (negc (ι (N ·i k₁ ·i (N ·i k₁) +i k₂ ·i k₂)))
 
--- the initial datum v lives on the rows |k�| � 1
+-- the initial datum v lives on the rows |k₁| ≤ 1
 rows-v : Rows 1 v
 rows-v (pos zero) k₂ h = ⊥-rec (¬-<-zero h)
 rows-v (pos (suc zero)) k₂ h = ⊥-rec (¬m<m h)
@@ -139,7 +139,7 @@ rows-v (negsuc zero) k₂ h = ⊥-rec (¬m<m h)
 rows-v (negsuc (suc m)) (pos k) h = refl
 rows-v (negsuc (suc m)) (negsuc k) h = refl
 
--- a table correct on orders � n: each entry k � n has Rows (k + 1)
+-- a table correct on orders ≤ n: each entry k ≤ n has Rows (k + 1)
 Good : ℕ → (ℕ → Field) → Type₀
 Good n G = (k : ℕ) → k ≤ n → Rows (suc k) (G k)
 
@@ -180,7 +180,7 @@ T-fixes M f rf k₁ k₂ with ≤Dec (abs k₁) M
 T-fixes-ext : (M : ℕ) (f : Field) → Rows M f → T M f ≡ f
 T-fixes-ext M f rf = funExt λ k₁ → funExt λ k₂ → T-fixes M f rf k₁ k₂
 
--- the truncated table equals the exact table while n + 1 � M
+-- the truncated table equals the exact table while n + 1 ≤ M
 tableT-eq : (M n : ℕ) → suc n ≤ M → tableT M n ≡ table n
 tableT-eq M zero _ = refl
 tableT-eq M (suc n) h =

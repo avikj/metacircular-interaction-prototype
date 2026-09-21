@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà®à®à¾à¨ â” equal measure.  Isometry.
+-- à¤¸à¤®à¤®à¤¾à¤¨ â€” equal measure.  Isometry.
 --
 --
 -- That is a real gap and it is closed here.  Invertibility is strictly
@@ -13,13 +13,13 @@
 -- the strengthening: they are unitary, and they still carry no braid.
 --
 -- AND THE CONVERSE, which the earlier file does not state.  A pair
--- SATISFYING Yangâ“Baxter need not be unitary either â” Â§à exhibits one
+-- SATISFYING Yangâ€“Baxter need not be unitary either â€” Â§à¥­ exhibits one
 -- that is not even injective.  So the two conditions are logically
 -- independent in both directions, and that is the precise form of "an
 -- architecture whose gates are certified unitary has certified nothing
 -- about exchange statistics".
 --
--- WHAT THE SPACE IS, exactly.  The free â-module on the eight basis
+-- WHAT THE SPACE IS, exactly.  The free â„¤-module on the eight basis
 -- states, with the counting inner product.  That is the integral
 -- lattice inside the eight-dimensional real Hilbert space with the
 -- computational basis declared orthonormal, and every operator in this
@@ -27,7 +27,7 @@
 -- completion, a limit, or a real number.  A permutation operator is
 -- unitary exactly when it is an isometry, and that is what is proved.
 --
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
+-- CHECKED: Agda 2.8.0, agda/cubical v0.9 â€” the repository pin.
 -- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ open import BraidCoherenceBoundary
         ; flipFirst-involutive ; swapâ‚ ; swapâ‚‚ ; adjacent-swaps-yang-baxter)
 
 ------------------------------------------------------------------------
--- à§ Â the space.  Vectors are â-valued functions on the basis states.
+-- à¥§ Â· the space.  Vectors are â„¤-valued functions on the basis states.
 ------------------------------------------------------------------------
 
 Vec : Type
@@ -67,7 +67,7 @@ basis : List Triple
 basis = lowerHalf ++ upperHalf
 
 ------------------------------------------------------------------------
--- à¨ Â the inner product.
+-- à¥¨ Â· the inner product.
 ------------------------------------------------------------------------
 
 total : List â„¤ â†’ â„¤
@@ -82,7 +82,7 @@ total-++ (x âˆ· xs) ys = cong (x +_) (total-++ xs ys) âˆ™ +Assoc x (total xs) (t
 âŸª u , v âŸ« = total (map (Î» q â†’ u q Â· v q) basis)
 
 ------------------------------------------------------------------------
--- à© Â the basis is orthonormal â” which is what makes âŸ_,_âŸ an inner
+-- à¥© Â· the basis is orthonormal â€” which is what makes âŸª_,_âŸ« an inner
 -- product and not merely a bilinear form.  Each basis vector has norm
 -- one, so the enumeration hits every state exactly once: no state is
 -- missing and none is counted twice.
@@ -110,7 +110,7 @@ basis-is-unit (true  , true  , false) = refl
 basis-is-unit (true  , true  , true ) = refl
 
 ------------------------------------------------------------------------
--- à Â operators, and what it is to be unitary.
+-- à¥ª Â· operators, and what it is to be unitary.
 --
 -- A map of basis states induces the operator that permutes coordinates.
 -- An isometry preserves the inner product; on a finite-dimensional space
@@ -131,11 +131,11 @@ Unitary : Op â†’ Type
 Unitary T = Isometry T Ã— (Î£[ Tâ» âˆˆ Op ] ((v : Vec) â†’ T (Tâ» v) â‰¡ v) Ã— ((v : Vec) â†’ Tâ» (T v) â‰¡ v))
 
 ------------------------------------------------------------------------
--- à Â THE COUNTERMODEL OPERATORS ARE UNITARY.
+-- à¥« Â· THE COUNTERMODEL OPERATORS ARE UNITARY.
 --
 -- The identity is one for nothing.  The first-strand flip is one
 -- because it carries the enumeration to itself with the two halves
--- exchanged â” so the same eight products are summed in the other order,
+-- exchanged â€” so the same eight products are summed in the other order,
 -- and one commutation of the two half-sums closes it.  The halves-swap
 -- is `refl`: both lists are concrete, and they normalise to the same
 -- eight terms.
@@ -168,9 +168,9 @@ identity-unitary =
   (Î» v â†’ refl)
 
 ------------------------------------------------------------------------
--- à Â â¦AND THEY STILL CARRY NO BRAID.
+-- à¥¬ Â· â€¦AND THEY STILL CARRY NO BRAID.
 --
--- The Yangâ“Baxter condition, now on the operators of the space rather
+-- The Yangâ€“Baxter condition, now on the operators of the space rather
 -- than on the maps of basis states.  The separating vector is the one
 -- that reads the first strand, and the separating state is the one the
 -- earlier file names.
@@ -191,11 +191,11 @@ unitary-crossings-fail-yang-baxter h =
   zeroâ‰¢one (funExtâ» (h probe) (false , false , false))
 
 ------------------------------------------------------------------------
--- à Â THE CONVERSE INDEPENDENCE.
+-- à¥­ Â· THE CONVERSE INDEPENDENCE.
 --
--- Yangâ“Baxter does not give unitarity either.  The constant crossing
--- satisfies the relation definitionally â” every side of it is the same
--- constant â” and it is not unitary, because it is not even injective:
+-- Yangâ€“Baxter does not give unitarity either.  The constant crossing
+-- satisfies the relation definitionally â€” every side of it is the same
+-- constant â€” and it is not unitary, because it is not even injective:
 -- it collapses the whole space onto one coordinate, and the norm it
 -- reports for a unit vector is eight rather than one.
 ------------------------------------------------------------------------
@@ -218,12 +218,12 @@ konst-not-isometry iso =
              âˆ™ basis-is-unit (false , false , false))
 
 ------------------------------------------------------------------------
--- à® Â THE INDEPENDENCE, packaged.
+-- à¥® Â· THE INDEPENDENCE, packaged.
 --
 -- Neither condition implies the other, and both witnesses are terms.
 -- This is the exact content of "certified unitary certifies nothing
--- about exchange statistics", with the converse â” "satisfying the braid
--- relation certifies nothing about unitarity" â” as well.
+-- about exchange statistics", with the converse â€” "satisfying the braid
+-- relation certifies nothing about unitarity" â€” as well.
 ------------------------------------------------------------------------
 
 unitary-does-not-give-yang-baxter :

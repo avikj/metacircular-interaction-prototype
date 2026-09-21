@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �����-����� � the marked rope.
+-- चिह्न-रज्जु — the marked rope.
 --
 -- THE PERMUTATION HALF'S WITNESSES, and a return of the campaign's
 -- signature shape at the detector level:
 --
 --   §1  THE CONSTANT ROPE IS BLIND TO EVERY SWAP: all strands equal,
---       so base motion is invisible � svap� fixes it, at every
+--       so base motion is invisible — svapᵢ fixes it, at every
 --       position, by a two-level path with definitional leaves.  The
 --       rope that detected the twist vector exactly (mod four) cannot
 --       see permutations at all.
 --
 --   §2  THE MARKED ROPE SEES EACH SWAP: mark one strand and the swap
---       moves the mark � the reader at the crossing position changes
---       value, by an induction whose base is refl � so no bare swap
+--       moves the mark — the reader at the crossing position changes
+--       value, by an induction whose base is refl — so no bare swap
 --       acts trivially.
 --
 -- The two detectors are complementary blindnesses with joint
 -- coverage: the constant rope reads only cargo, the marked rope reads
 -- motion, and the kernel theorem's two coordinates are separated by
 -- exactly this interdependent pair OF ROPES.  The record that opened
--- the campaign � two senses, a named blind pair each, jointly
--- faithful � reappears as the measurement apparatus of its deepest
+-- the campaign — two senses, a named blind pair each, jointly
+-- faithful — reappears as the measurement apparatus of its deepest
 -- theorem.  What detects everything alone does not exist; what
 -- detects everything jointly is two blindnesses facing each other.
 --
@@ -48,7 +48,7 @@ open import AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPo
 open Dhārā
 
 ------------------------------------------------------------------------
--- � � The constant rope is blind to every swap.
+-- १ · The constant rope is blind to every swap.
 ------------------------------------------------------------------------
 
 svap-andha : (i : ℕ) → svap∞ i sthira ≡ sthira
@@ -59,7 +59,7 @@ svap-andha : (i : ℕ) → svap∞ i sthira ≡ sthira
 śeṣam (svap-andha (suc i) k) = svap-andha i k
 
 ------------------------------------------------------------------------
--- � � The marked rope, and detection.
+-- २ · The marked rope, and detection.
 ------------------------------------------------------------------------
 
 -- Mark (false , true) at one depth, (true , true) elsewhere.
@@ -69,12 +69,12 @@ aṅkita : ℕ → Rajju
 śiras (aṅkita (suc k)) = true , true
 śeṣam (aṅkita (suc k)) = aṅkita k
 
--- Before the swap, the reader at the crossing sees the blank�
+-- Before the swap, the reader at the crossing sees the blank…
 aṅkita-pūrva : (i : ℕ) → gāḍha i (aṅkita (suc i)) ≡ (true , true)
 aṅkita-pūrva zero    = refl
 aṅkita-pūrva (suc i) = aṅkita-pūrva i
 
--- �after it, the mark: the swap moved it into view.
+-- …after it, the mark: the swap moved it into view.
 cihna-calana : (i : ℕ) → gāḍha i (svap∞ i (aṅkita (suc i))) ≡ (false , true)
 cihna-calana zero    = refl
 cihna-calana (suc i) = cihna-calana i

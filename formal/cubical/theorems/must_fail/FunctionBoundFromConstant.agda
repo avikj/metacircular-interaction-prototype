@@ -9,15 +9,15 @@
 -- `ConstantBoundNotFunctionBound` (exit 0 under the pin).
 --
 -- `collab/messages/workers/20260812T144712.509661Z--claude_aime_body--
--- 0003.md` concludes from two Mersenne witnesses that "Y‚â1 is sharp,
+-- 0003.md` concludes from two Mersenne witnesses that "Y‚â•1 is sharp,
 -- **no function of (b,n) improves it**".  Asserted below is exactly
 -- that sentence's universal over functions, together with the
 -- constant-sharpness statement its two witnesses actually establish.
 --
 -- WHY IT MUST FAIL.  Two points bound the CONSTANT, not every FUNCTION.
--- At (2,11), Œ¶‚‚(2) = 2047 = 23¬89, so the yield there is 2, and the
+-- At (2,11), Œ¶‚ÇÅ‚ÇÅ(2) = 2047 = 23¬∑89, so the yield there is 2, and the
 -- valid bound `Y` itself exceeds 1 there:
--- `ConstantBoundNotFunctionBound.dropped-scope-false` derives ‚ä from
+-- `ConstantBoundNotFunctionBound.dropped-scope-false` derives ‚ä• from
 -- precisely the type asserted here.
 --
 -- NO LEXICAL SIGNATURE.  The sentence is true up to one quantifier
@@ -35,12 +35,12 @@
 --
 --   NaturalMachine/Control/FunctionBoundFromConstant.agda:66.19-23:
 --   error: [UnequalTerms]
---   2 != 1 of type ‚ï
+--   2 != 1 of type ‚Ñï
 --   when checking that the expression refl has type
 --   0 Cubical.Data.Nat.+ Y 2 11 ‚â° 1
 --
 -- Read it: the machine prints the value the two-witness argument never
--- looked at.  `2 != 1` is Œ¶‚‚(2) = 2047 = 23¬89 against the bound the
+-- looked at.  `2 != 1` is Œ¶‚ÇÅ‚ÇÅ(2) = 2047 = 23¬∑89 against the bound the
 -- sentence claimed no function could beat.
 --
 -- If a future edit makes this file compile, a two-point computation has

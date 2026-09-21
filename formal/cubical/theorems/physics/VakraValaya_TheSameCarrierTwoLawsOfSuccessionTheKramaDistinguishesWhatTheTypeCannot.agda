@@ -1,50 +1,50 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡µ‡ï‡‡∞-‡µ‡≤‡Ø‡Æ‡ ‚î the twisted ring.  KramaSaha's doctrine ‚î the order of
--- standpoints IS the charge ‚î arriving at the fundamental group.
+-- ‡§µ‡§ï‡•ç‡§∞-‡§µ‡§≤‡§Ø‡§Æ‡•ç ‚Äî the twisted ring.  KramaSaha's doctrine ‚Äî the order of
+-- standpoints IS the charge ‚Äî arriving at the fundamental group.
 --
 -- THE QUESTION, asked because its answer was not known to the asker.
 -- ArpanaSopana showed the charge is whatever the space holds.  The
--- torus's stratum-3 charge is ‚ ó ‚.  The KLEIN BOTTLE's loop space has
--- the SAME carrier (Œ©Klein‚â°‚¬≤, library) ‚î so the charge AS A TYPE
+-- torus's stratum-3 charge is ‚Ñ§ √ó ‚Ñ§.  The KLEIN BOTTLE's loop space has
+-- the SAME carrier (Œ©Klein‚â°‚Ñ§¬≤, library) ‚Äî so the charge AS A TYPE
 -- cannot tell the orientable surface from the non-orientable one.  Is
--- the difference then invisible at the stratum ‚î or does it live
+-- the difference then invisible at the stratum ‚Äî or does it live
 -- somewhere the type does not reach?
 --
--- ANSWERED HERE: it lives in the KRAMA ‚î the law of succession.  Both
--- spaces are generated at œ‚ by two lines and a square; the two squares
--- differ by one interval reversal (torus: PathP (Œª i ‚í line1 i ‚â°
--- line1 i) line2 line2; Klein: PathP (Œª i ‚í line1 (~ i) ‚â° line1 i)
+-- ANSWERED HERE: it lives in the KRAMA ‚Äî the law of succession.  Both
+-- spaces are generated at œÄ‚ÇÅ by two lines and a square; the two squares
+-- differ by one interval reversal (torus: PathP (Œª i ‚Üí line1 i ‚â°
+-- line1 i) line2 line2; Klein: PathP (Œª i ‚Üí line1 (~ i) ‚â° line1 i)
 -- line2 line2), and that single ~ decides everything:
 --
---   ‡‡Æ‡    in the TORUS the two orders of succession are EQUAL ‚î
---          line1 ‚àô line2 ‚â° line2 ‚àô line1, one term (Square‚ícompPath on
+--   ‡§∏‡§Æ‡§É    in the TORUS the two orders of succession are EQUAL ‚Äî
+--          line1 ‚àô line2 ‚â° line2 ‚àô line1, one term (Square‚ÜícompPath on
 --          the torus's own square).
---   ‡‡‡¶‡   in the KLEIN BOTTLE they are DISTINCT ‚î ¬ (line1 ‚àô line2 ‚â°
+--   ‡§≠‡•á‡§¶‡§É   in the KLEIN BOTTLE they are DISTINCT ‚Äî ¬¨ (line1 ‚àô line2 ‚â°
 --          line2 ‚àô line1), and the witness is COMPUTED: windingKlein
 --          sends the two composites to (‚àí1, ‚àí1) and (‚àí1, +1), and
---          negsuc ‚â† pos by constructor.  Nonabelianness of œ‚(K),
+--          negsuc ‚â† pos by constructor.  Nonabelianness of œÄ‚ÇÅ(K),
 --          exhibited by normalization, not asserted.
---   ‡µ‡ï‡‡∞‡µ‡≤‡Ø‡Æ‡  and the stratum-3 carrier is nonetheless ‚ ó ‚, the
---          torus's exactly (same three terms as ArpanaSopana's ‡µ‡≤‡Ø‡Æ‡).
+--   ‡§µ‡§ï‡•ç‡§∞‡§µ‡§≤‡§Ø‡§Æ‡•ç  and the stratum-3 carrier is nonetheless ‚Ñ§ √ó ‚Ñ§, the
+--          torus's exactly (same three terms as ArpanaSopana's ‡§µ‡§≤‡§Ø‡§Æ‡•ç).
 --
 -- So two spaces share one charge-type at the stratum and are separated
 -- by the composition law alone.  The saptabhag reading (per KramaSaha,
 -- and it is a reading, not a claim about the sources): what krama
--- distinguishes, no profile of presences can ‚î the succession is not
+-- distinguishes, no profile of presences can ‚Äî the succession is not
 -- recoverable from the carrier, exactly as the record lane is not
 -- recoverable from the label lane (Arpitanarpita's retract).
 --
--- The winding pairs were computed against the warm kernel through ‡®‡æ‡°‡
+-- The winding pairs were computed against the warm kernel through ‡§®‡§æ‡§°‡•Ä
 -- (milliseconds per answer) before this file was written; the check
--- below re-derives them definitionally ‚î cong under a function turns
+-- below re-derives them definitionally ‚Äî cong under a function turns
 -- the computed disagreement into the inequality.
 --
--- SOURCES: Œ©Klein‚â°‚¬≤ and windingKlein, Cubical.HITs.KleinBottle
--- .Properties; Square‚ícompPath, Cubical.Foundations.Path;
--- negsucNotpos, Cubical.Data.Int.Properties.  ‡µ‡ï‡‡∞ (twisted), ‡µ‡≤‡Ø
--- (ring), ‡‡Æ/‡‡‡¶ (same/distinct) are ordinary  labels; no
+-- SOURCES: Œ©Klein‚â°‚Ñ§¬≤ and windingKlein, Cubical.HITs.KleinBottle
+-- .Properties; Square‚ÜícompPath, Cubical.Foundations.Path;
+-- negsucNotpos, Cubical.Data.Int.Properties.  ‡§µ‡§ï‡•ç‡§∞ (twisted), ‡§µ‡§≤‡§Ø
+-- (ring), ‡§∏‡§Æ/‡§≠‡•á‡§¶ (same/distinct) are ordinary Sanskrit labels; no
 -- source is claimed for the mathematics, which is the library's,
 -- composed.
 ------------------------------------------------------------------------
@@ -75,7 +75,7 @@ open import ArpanaSopana_EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSp
   using (‡§∏‡§æ‡§Æ‡§æ‡§®‡•ç‡§Ø‡§Æ‡•ç)
 
 ------------------------------------------------------------------------
--- ‡‡Æ‡ ‚î in the torus, succession commutes, and the proof is the
+-- ‡§∏‡§Æ‡§É ‚Äî in the torus, succession commutes, and the proof is the
 -- torus's own square read as a composition identity.
 ------------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ open import ArpanaSopana_EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSp
 ‡§∏‡§Æ‡§É = Square‚ÜícompPath T.square
 
 ------------------------------------------------------------------------
--- ‡‡‡¶‡ ‚î in the Klein bottle, the two orders are DISTINCT.  The
+-- ‡§≠‡•á‡§¶‡§É ‚Äî in the Klein bottle, the two orders are DISTINCT.  The
 -- windings of the composites disagree in the second coordinate
 -- ((‚àí1,‚àí1) against (‚àí1,+1), computed), and a function cannot separate
 -- equal paths.
@@ -93,8 +93,8 @@ open import ArpanaSopana_EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSp
 ‡§≠‡•á‡§¶‡§É h = negsucNotpos 0 1 (cong (Œª p ‚Üí snd (windingKlein p)) h)
 
 ------------------------------------------------------------------------
--- ‡µ‡ï‡‡∞‡µ‡≤‡Ø‡Æ‡ ‚î and yet the stratum-3 carrier is the torus's exactly:
--- ‚ ó ‚.  The type cannot tell the two spaces apart; the krama can.
+-- ‡§µ‡§ï‡•ç‡§∞‡§µ‡§≤‡§Ø‡§Æ‡•ç ‚Äî and yet the stratum-3 carrier is the torus's exactly:
+-- ‚Ñ§ √ó ‚Ñ§.  The type cannot tell the two spaces apart; the krama can.
 ------------------------------------------------------------------------
 
 ‡§µ‡§ï‡•ç‡§∞‡§µ‡§≤‡§Ø‡§Æ‡•ç : typ (Œ© (hLevelTrunc‚àô 3 (K.KleinBottle , K.point))) ‚âÉ (‚Ñ§ √ó ‚Ñ§)

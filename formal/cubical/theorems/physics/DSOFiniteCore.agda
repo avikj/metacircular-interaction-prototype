@@ -20,7 +20,7 @@
 --                                M(ab,c) + M(a,b) = M(a,bc) + M(b,c)
 --                              proved GENERALLY: any type with an
 --                              associative composition and a measurement
---                              p into �.  Both sides are shown equal to
+--                              p into ℤ.  Both sides are shown equal to
 --                              the ternary defect
 --                                M3(x,y,z) = p(xyz) − p x − p y − p z,
 --                              which yields §2.5's two displayed
@@ -28,44 +28,44 @@
 --                              the proof.  No unit is used: the trefoil
 --                              is a semigroup fact, so it holds for any
 --                              monoid a fortiori.
---   §3  D4, _�F_               D0026 §2.4's four-element carrier {e,a,c,d}
+--   §3  D4, _·F_               D0026 §2.4's four-element carrier {e,a,c,d}
 --                              as Fin 4 (Cubical.Data.SumFin), with the
 --                              multiplication table explicit, the full
 --                              16-entry table certified by refl, unit
 --                              laws, and associativity by 64-case
---                              exhaustion � all kernel reductions.
+--                              exhaustion — all kernel reductions.
 --   §4  pF, F.M                the declared measurement p = (0,−3,1,4)
 --                              and its derived execution defect M; the
 --                              complete M table certified by refl; the
 --                              finite trefoil now a COROLLARY of §2
 --                              (where the prior in-repo treatment,
 --                              DSONucleusExecutionCalibration, needed 64
---                              refl clauses � the general proof replaces
+--                              refl clauses — the general proof replaces
 --                              them, which is queue Q2's own point:
 --                              "provable generally, not just finitely").
 --   §5  Mstar/Msub/clL/star/⊙L D0026 §2.4's left Isbell closure and
---                              one-sided product on profiles Fin 4 � �,
+--                              one-sided product on profiles Fin 4 → ℤ,
 --                              every extremum over the full finite fiber
 --                              dictated by the table; the two calibration
 --                              profiles, their closedness, both binary
 --                              products, and the exact associativity
 --                              FAILURE
---                                ((�c ⊙L �a) ⊙L �c) e = −8
---                                (�c ⊙L (�a ⊙L �c)) e = −5,
---                              hence � (left ≡ right).
+--                                ((ℓc ⊙L ℓa) ⊙L ℓc) e = −8
+--                                (ℓc ⊙L (ℓa ⊙L ℓc)) e = −5,
+--                              hence ¬ (left ≡ right).
 --
 -- TRANSMISSION-NUMBER AUDIT (the queue's standing worry: chat-mangled
 -- source).  Every table below was recomputed by hand from the
 -- definitions before being written down, and NO transmitted output
--- vector is inserted into any definition � the definitions consume only
+-- vector is inserted into any definition — the definitions consume only
 -- the multiplication table, p, and the two profile vectors; every
 -- output is a kernel reduction.  The hand recomputation AGREES with
 -- D0026 §2.4's displayed values at every entry:
 --
 --     M rows                  (0,0,0,0) (0,6,3,3) (0,6,−1,−1) (0,0,−4,−4)
---     �c ⊙L �a = �a ⊙L �c     (−6,−3,−3,−6)
---     (�c ⊙L �a) ⊙L �c        (−8,−2,−2,−8)
---     �c ⊙L (�a ⊙L �c)        (−5,−2,−2,−5)
+--     ℓc ⊙L ℓa = ℓa ⊙L ℓc     (−6,−3,−3,−6)
+--     (ℓc ⊙L ℓa) ⊙L ℓc        (−8,−2,−2,−8)
+--     ℓc ⊙L (ℓa ⊙L ℓc)        (−5,−2,−2,−5)
 --
 -- and also agrees with the independent in-repo kernel-checked
 -- reproduction (Delta 29 lane, see below).  No discrepancy to report.
@@ -77,7 +77,7 @@
 -- and the middle/ternary repair lane lives in
 -- `DSONucleusMiddleProduct` + `DSONucleusMiddleAssociativityAudit`.
 -- What is NEW here: (i) the trefoil proved generally, for every
--- associative execution with a �-measurement, rather than by finite
+-- associative execution with a ℤ-measurement, rather than by finite
 -- exhaustion; (ii) the finite §2.4 instance derived from that general
 -- theorem on a Fin 4 encoding, making this module a self-contained
 -- discharge of D0026 §14.1's named finite core against D0026's own
@@ -85,9 +85,9 @@
 -- duplicated here; consumers should import the modules above for it.
 --
 -- Rigor boundary: everything below is exact finite/symbolic
--- computation or algebra � the kind of object CLAUDE.md licenses
+-- computation or algebra — the kind of object CLAUDE.md licenses
 -- unconditionally.  Nothing here is a measurement, and no claim about
--- �-valued profiles, infinite carriers, or the middle nucleus is made.
+-- ℝ-valued profiles, infinite carriers, or the middle nucleus is made.
 ------------------------------------------------------------------------
 
 module DSOFiniteCore where
@@ -115,7 +115,7 @@ private
 -- §1  Subtraction and the two telescope identities
 --
 -- ⊖ is spelled out as +/negation so that the variable-ring lemmas below
--- apply definitionally; on � it is the usual subtraction.
+-- apply definitionally; on ℤ it is the usual subtraction.
 ------------------------------------------------------------------------
 
 infixl 6 _⊖_
@@ -152,11 +152,11 @@ private
 -- §2  D0026 §2.2, proved generally
 --
 -- Any composition _∙_ that is associative, and any declared measurement
--- p into � (additivity NOT assumed).  The unit of a monoid is never
+-- p into ℤ (additivity NOT assumed).  The unit of a monoid is never
 -- used, so this covers every monoid and every semigroup.
 ------------------------------------------------------------------------
 
--- The execution operation is named _�X_ rather than _∙_ so that the
+-- The execution operation is named _·X_ rather than _∙_ so that the
 -- Prelude's path composition _∙_ stays visible inside the proofs.
 module General (X : Type ℓ)
                (_·X_ : X → X → X)
@@ -332,7 +332,7 @@ pF kd = pos 4
 -- Instantiate the general development of §2 on the finite monoid.
 module F = General D4 _·F_ ·F-assoc pF
 
--- The finite trefoil is now a corollary of the GENERAL theorem � no
+-- The finite trefoil is now a corollary of the GENERAL theorem — no
 -- 64-case exhaustion (contrast DSONucleusExecutionCalibration.trefoil).
 trefoilF : (x y z : D4)
   → F.M (x ·F y) z +ℤ F.M x y ≡ F.M x (y ·F z) +ℤ F.M y z
@@ -340,7 +340,7 @@ trefoilF = F.trefoil
 
 -- Complete derived M table, recomputed by hand and certified by the
 -- kernel, in row/column order e,a,c,d.  Derived, never transcribed:
--- F.M consumes only _�F_ and pF.
+-- F.M consumes only _·F_ and pF.
 M-e-row : (F.M ke ke ≡ pos 0) × (F.M ke ka ≡ pos 0)
         × (F.M ke kc ≡ pos 0) × (F.M ke kd ≡ pos 0)
 M-e-row = refl , refl , refl , refl
@@ -358,10 +358,10 @@ M-d-row : (F.M kd ke ≡ pos 0) × (F.M kd ka ≡ pos 0)
 M-d-row = refl , refl , refl , refl
 
 ------------------------------------------------------------------------
--- §5  D0026 §2.4: one-sided closure destroys associativity � exactly
+-- §5  D0026 §2.4: one-sided closure destroys associativity — exactly
 --
--- Profiles are total functions Fin 4 � �, so on this finite carrier
--- every inf/sup of §2.3�§2.4 is a finite min/max and no ��, no −∞, and
+-- Profiles are total functions Fin 4 → ℤ, so on this finite carrier
+-- every inf/sup of §2.3–§2.4 is a finite min/max and no ℝ̄, no −∞, and
 -- no convention for empty fibers is needed (every fiber is inhabited,
 -- by the §3 table certificates).
 ------------------------------------------------------------------------
@@ -391,7 +391,7 @@ Msub g x =
 clL : Profile → Profile
 clL f = Msub (Mstar f)
 
--- Profile convolution (f � g)(y) = sup_{ab=y} ( f(a) + g(b) − M(a,b) ),
+-- Profile convolution (f ⋆ g)(y) = sup_{ab=y} ( f(a) + g(b) − M(a,b) ),
 -- the sup taken over the exact multiplication fibers certified in §3.
 term : Profile → Profile → D4 → D4 → ℤ
 term f g x z = (f x +ℤ g z) ⊖ F.M x z
@@ -413,7 +413,7 @@ _⊙L_ : Profile → Profile → Profile
 f ⊙L g = clL (star f g)
 
 -- The two calibration profiles of §2.4, in carrier order (e,a,c,d):
---   �c = (−6, 0, 0, −6),   �a = (−6, 0, −4, −7).
+--   ℓc = (−6, 0, 0, −6),   ℓa = (−6, 0, −4, −7).
 ell-c ell-a : Profile
 ell-c ke = negsuc 5
 ell-c ka = pos 0
@@ -426,7 +426,7 @@ ell-a kc = negsuc 3
 ell-a kd = negsuc 6
 
 -- Both really lie in the left nucleus for the derived M
--- (hand-recomputed: M*�c = (0,6,−1,−1), M*�a = (0,6,3,3)).
+-- (hand-recomputed: M*ℓc = (0,6,−1,−1), M*ℓa = (0,6,3,3)).
 ell-c-closed : clL ell-c ≡ ell-c
 ell-c-closed = funExt λ { ke → refl ; ka → refl ; kc → refl ; kd → refl }
 
@@ -476,7 +476,7 @@ minus-eight≢minus-five path = subst distinguish path tt
   distinguish (negsuc _) = Unit
 
 -- D0026 §2.4, boxed conclusion, as an exact finite computation: the
--- one-sided closure product on an ASSOCIATIVE execution (�F-assoc,
+-- one-sided closure product on an ASSOCIATIVE execution (·F-assoc,
 -- trefoilF above) is itself NOT associative.  Premature one-sided
 -- closure, not execution, creates the path dependence.
 one-sided-product-not-associative :
@@ -492,7 +492,7 @@ one-sided-product-not-associative equality =
 --
 -- Checked (pending kernel): the two telescope identities at a variable
 -- CommRing; the trefoil identity and both §2.5 decompositions of M3 for
--- EVERY associative execution with a �-measurement; the Fin 4 table,
+-- EVERY associative execution with a ℤ-measurement; the Fin 4 table,
 -- its unit laws and 64-case associativity; the derived M table; nuclear
 -- closedness of both calibration profiles; both binary products; both
 -- associations of the triple product; and the −8 ≠ −5 defect at e.

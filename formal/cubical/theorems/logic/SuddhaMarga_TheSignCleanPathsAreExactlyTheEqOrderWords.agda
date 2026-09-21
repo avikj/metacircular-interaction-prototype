@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �����-������� � the clean route.  The CONVERSE of the blindness theorem:
+-- शुद्ध-मार्गः — the clean route.  The CONVERSE of the blindness theorem:
 -- a path of transports conserves sign exactly when EVERY step is Eq or
 -- Order.  SamraksanaJala proved a Quotient anywhere kills sign; this
--- module closes the characterization � the sign-clean paths are precisely
+-- module closes the characterization — the sign-clean paths are precisely
 -- the words in the two-letter alphabet {Eq, Order}.  Together they are the
 -- machine's full statement of what can and cannot see parity:
 --
---     pathPreserves ks sign ≡ true   ⟺   � k ∈ ks, k ≡ eq � k ≡ order.
+--     pathPreserves ks sign ≡ true   ⟺   ∀ k ∈ ks, k ≡ eq ⊎ k ≡ order.
 --
--- (First conversation-built term through ����, the warm conduit: skeleton
+-- (First conversation-built term through नाडी, the warm conduit: skeleton
 -- with holes, each hole answered by the elaborator at ~60ms, the kernel
 -- speaking instead of verdicting.)
 --
@@ -37,7 +37,7 @@ CleanWord []       = Unit*
 CleanWord (k ∷ ks) = ((k ≡ eq) ⊎ (k ≡ order)) × CleanWord ks
 
 ------------------------------------------------------------------------
--- §1 � SOUNDNESS: a clean word conserves sign.
+-- §1 · SOUNDNESS: a clean word conserves sign.
 clean→preserves : (ks : List Kind) → CleanWord ks → pathPreserves ks sign ≡ true
 clean→preserves []       _          = refl
 clean→preserves (k ∷ ks) (c , rest) =
@@ -50,7 +50,7 @@ clean→preserves (k ∷ ks) (c , rest) =
   step (inr p) = cong (λ j → (j ⊨ sign) & pathPreserves ks sign) p
 
 ------------------------------------------------------------------------
--- §2 � COMPLETENESS: a word that conserves sign is clean.  The head must
+-- §2 · COMPLETENESS: a word that conserves sign is clean.  The head must
 -- itself carry sign (else the & is false), so by onlyEqAndOrderCarrySign
 -- it is eq or order, and the tail follows by induction.
 &-true-left : (a b : Bool) → a & b ≡ true → a ≡ true
@@ -68,9 +68,9 @@ preserves→clean (k ∷ ks) p =
   , preserves→clean ks (&-true-right (k ⊨ sign) (pathPreserves ks sign) p)
 
 ------------------------------------------------------------------------
--- §3 � THE CHARACTERIZATION, both directions in one place: the sign-clean
+-- §3 · THE CHARACTERIZATION, both directions in one place: the sign-clean
 -- paths are exactly the {Eq, Order}-words.  Parity is visible along
--- identity and order, and along nothing else � the two-letter language of
+-- identity and order, and along nothing else — the two-letter language of
 -- sight.
 signClean⇔cleanWord : (ks : List Kind)
   → (pathPreserves ks sign ≡ true → CleanWord ks)

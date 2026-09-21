@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Krama ‚î what a recitation order cannot seat at any price.
+-- Krama ‚Äî what a recitation order cannot seat at any price.
 --
 -- Dvipha showed a family whose cost falls from three anubandhas to two
 -- when a sound may be recited twice.  That reads as an economy: repetition
@@ -11,7 +11,7 @@
 -- SOURCE.  Pini, *Adhyy* 1.1.71 dir antyena sahet, over the
 -- fourteen Mhevara-stras: the sounds in one recited line, classes named
 -- as the stretch from a sound to an antya.  *Krama* is the tradition's word
--- for sequence ‚î the krama-pha is the first of the vikti recitations
+-- for sequence ‚Äî the krama-pƒÅ·π≠ha is the first of the vik·πõti recitations
 -- (Prtikhya literature, ~500 BCE), where the order itself is the object
 -- under discipline.  Here the object is likewise the order, and the
 -- question is what orders can hold.
@@ -20,16 +20,16 @@
 --
 --     C = { {a b}, {b c}, {a c} }
 --
--- pairwise ‚ä-incomparable (¬ß2), so width 3 and
+-- pairwise ‚äÜ-incomparable (¬ß2), so width 3 and
 -- `PratyaharaLaghava.markersDistinct` forces three anubandhas.
 --
---   ¬ß3  `‡ï‡¶‡æ‡‡ø-‡®-‡‡‡‡¶‡‡ø` ‚î NO recitation order seats C, at ANY number of
+--   ¬ß3  `‡§ï‡§¶‡§æ‡§™‡§ø-‡§®-‡§Ü‡§∏‡•Ä‡§¶‡§§‡§ø` ‚Äî NO recitation order seats C, at ANY number of
 --       anubandhas, when each sound is recited once.  Exhaustive over the
 --       six orders in their marker-saturated form.
---   ¬ß4  `‡‡µ‡‡‡‡‡‡Ø‡æ-‡‡‡‡¶‡‡ø` ‚î with repetition, three anubandhas seat C:
---       a b M‚ c a M‚ b c M‚.  Exactly the width.  The bound is attained.
+--   ¬ß4  `‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡•ç‡§Ø‡§æ-‡§Ü‡§∏‡•Ä‡§¶‡§§‡§ø` ‚Äî with repetition, three anubandhas seat C:
+--       a b M‚ÇÅ c a M‚ÇÇ b c M‚ÇÉ.  Exactly the width.  The bound is attained.
 --
--- So on this family Œº‚ = ‚àû and Œº_‚àû = 3 = width.  Repetition is not a
+-- So on this family Œº‚ÇÄ = ‚àû and Œº_‚àû = 3 = width.  Repetition is not a
 -- discount on the marker count.  It is the difference between nameable and
 -- not nameable at all.
 --
@@ -38,7 +38,7 @@
 -- sounds occur in L, each once, so L's sounds are one of six orders, and
 -- every anubandha of L sits in one of the four gaps that order leaves.
 -- Now: ADDING an anubandha never removes a class.  Inserting a marker into
--- L leaves the sound content of every stretch untouched ‚î `prefixBefore m'`
+-- L leaves the sound content of every stretch untouched ‚Äî `prefixBefore m'`
 -- for an existing m' gains at most an interleaved marker, `suffixFromLast s`
 -- likewise, and a class is recorded by which SOUNDS it meets, markers being
 -- boundaries and never members.  So every class of L is a class of the
@@ -48,13 +48,13 @@
 -- all six.  A marker in the first gap precedes no sound and names nothing;
 -- it is kept so the saturation is visibly complete rather than pruned.
 --
--- WHY, underneath the exhaustion.  `Antya.‚¶` proves that a class is always
+-- WHY, underneath the exhaustion.  `Antya.‚Ä¶` proves that a class is always
 -- the suffix, from the nearest preceding recitation, of the stretch before
--- its antya ‚î hence a contiguous factor of the line.  Recited once, the
+-- its antya ‚Äî hence a contiguous factor of the line.  Recited once, the
 -- sounds of a contiguous factor are an INTERVAL of the order, and {a c} is
 -- an interval of no order in which b lies between them, which every order
 -- seating {a b} and {b c} must be.  Repetition breaks this because a sound
--- gets a second position: `Antya.‡‡‡µ‡‡‡‡æ‡¶‡ø‡-‡‡®‡‡‡‡Ø‡‡®` asks freshness only
+-- gets a second position: `Antya.‡§∏‡•ç‡§µ‡§ö‡•ç‡§õ‡§æ‡§¶‡§ø‡§É-‡§Ö‡§®‡•ç‡§§‡•ç‡§Ø‡•á‡§®` asks freshness only
 -- to the RIGHT of the start, and never asks anything of what stands left.
 -- That is the whole mechanism, and it is why the obstruction is not a cost.
 --
@@ -62,20 +62,20 @@
 --     first draft of this header said the opposite.  Three ATTESTED
 --     pratyhras, restricted to the three sounds h y , are exactly C:
 --
---        a  = a i u   e o ai au h y v r      ‚æ {h y } = {h y}
---        aL =   s h                          ‚æ {h y } = { h}
---        yaR = y v r l ‚¶ k p   s              ‚æ {h y } = {y }
+--        a·π¨  = a i u ·πõ ·∏∑ e o ai au h y v r      ‚Üæ {h y ≈õ} = {h y}
+--        ≈õaL = ≈õ ·π£ s h                          ‚Üæ {h y ≈õ} = {≈õ h}
+--        yaR = y v r l ‚Ä¶ k p ≈õ ·π£ s              ‚Üæ {h y ≈õ} = {y ≈õ}
 --
 --     (sets recomputed from the fourteen stras, `machine/Astadhyayi.hs`
 --     sivasutraTable; names from the attested list in
 --     `machine/Pratyahara_TheIntervalDecisionProcedure.hs`.)  h stands in
---     stra 5 (ha ya va ra ) and again in stra 14 (ha L) ‚î before y, and
---     after  ‚î which is precisely the seat no single order provides.  So
+--     s≈´tra 5 (ha ya va ra ·π¨) and again in s≈´tra 14 (ha L) ‚Äî before y, and
+--     after ≈õ ‚Äî which is precisely the seat no single order provides.  So
 --     the second h is not economy.  It is what makes the list nameable at
 --     all.  That claim is NOT checked in this file: it needs the
---     restriction step, class ‚ü contiguous factor ‚ü interval after
+--     restriction step, class ‚üπ contiguous factor ‚üπ interval after
 --     restriction, and that is owed as the successor to this one.
---   * The interval / consecutive-ones characterisation in general (Booth‚ì
+--   * The interval / consecutive-ones characterisation in general (Booth‚Äì
 --     Lueker PQ-trees; Kornai, Kiparsky).  `PratyaharaLaghava` lists that
 --     as owed and it stays owed; ¬ß3 is one witness, not a theory.
 --   * Œº_k for 0 < k < ‚àû, still open, still where Pini's line sits.
@@ -172,7 +172,7 @@ names line t =
   anyL (Œª s ‚Üí anyL (Œª m ‚Üí mbRec false (Œª u ‚Üí eqSig u t) (klass s m line)) antyas) sounds
 
 ------------------------------------------------------------------------
--- ¬ß2  The cycle, and its ‚ä-width is three: all three pairwise
+-- ¬ß2  The cycle, and its ‚äÜ-width is three: all three pairwise
 --     incomparable, so three anubandhas are forced and no fewer.
 ------------------------------------------------------------------------
 
@@ -202,7 +202,7 @@ seats line = allL (names line) ‡§ö‡§ï‡•ç‡§∞‡§Æ‡•ç
 
 ------------------------------------------------------------------------
 -- ¬ß3  The six recitation orders, saturated with anubandhas in all four
---     gaps.  Not one of them seats the cycle ‚î so no recited-once line
+--     gaps.  Not one of them seats the cycle ‚Äî so no recited-once line
 --     does, at any marker count.  (The WLOG that makes these six the whole
 --     space is in the header, and the saturation is why "at any marker
 --     count" is not an overreach: adding markers never removes a class.)
@@ -235,10 +235,10 @@ seats line = allL (names line) ‡§ö‡§ï‡•ç‡§∞‡§Æ‡•ç
 ‡§§‡•É‡§§‡•Ä‡§Ø‡§Ç-‡§® = refl
 
 ------------------------------------------------------------------------
--- ¬ß4  Recited twice, three anubandhas seat it ‚î and three is the width,
+-- ¬ß4  Recited twice, three anubandhas seat it ‚Äî and three is the width,
 --     so the antichain bound is attained exactly.  a, b and c are each
 --     recited a second time; each second recitation is the fresh start
---     that `Antya.‡‡‡µ‡‡‡‡æ‡¶‡ø‡-‡‡®‡‡‡‡Ø‡‡®` asks for, and nothing is asked of
+--     that `Antya.‡§∏‡•ç‡§µ‡§ö‡•ç‡§õ‡§æ‡§¶‡§ø‡§É-‡§Ö‡§®‡•ç‡§§‡•ç‡§Ø‡•á‡§®` asks for, and nothing is asked of
 --     the earlier ones.
 ------------------------------------------------------------------------
 
@@ -269,9 +269,9 @@ seats line = allL (names line) ‡§ö‡§ï‡•ç‡§∞‡§Æ‡•ç
 -- PAID.  `Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninis-
 -- ChoiceIsHa.agda` does the restriction step this header owed: on the
 -- full fourteen-stra line (all 57 tokens, encoded), a, aL, yaR
--- compute by refl and restrict to exactly the cycle above ‚î and the
+-- compute by refl and restrict to exactly the cycle above ‚Äî and the
 -- impossibility is proved over ALL lines reciting h y  once each, via
--- class ‚ü contiguous factor ‚ü factor of the restriction, with the
+-- class ‚üπ contiguous factor ‚üπ factor of the restriction, with the
 -- split-enumeration carrying a completeness proof.  Not an exhaustion
 -- over lines.  Nothing here is altered.
 ------------------------------------------------------------------------

@@ -7,64 +7,64 @@
 -- GLOSS.
 --
 -- identifies D0020 §5's apoha display and §7's two-sided evaluation
--- Prop. 6.3 � the ANTITONE one, A(S) = {t : ∼_S � ∼_{t}}, the
--- derivation closure of the formal context (X � X, T, R).  It is NOT
--- Theorem B's monotone redundancy closure C_�; §3 of that note corrects
+-- Prop. 6.3 — the ANTITONE one, A(S) = {t : ∼_S ⊆ ∼_{t}}, the
+-- derivation closure of the formal context (X × X, T, Rᶜ).  It is NOT
+-- Theorem B's monotone redundancy closure C_σ; §3 of that note corrects
 -- D0020 §J3's pointer on exactly this point, and it is the antitone one
 -- that is formalised below.  Every map called `perp` here reverses
 -- inclusion, which is the check that the right closure is in hand.
 --
 -- Sibling module: `ExclusionScope.agda` (genius-02, 2026-08-14), which
--- settles exclusion on Eq(X) � the repository's actual meaning-carriers
--- � and finds the relative pseudo-complement repair FAILS for |X| � 3.
+-- settles exclusion on Eq(X) — the repository's actual meaning-carriers
+-- — and finds the relative pseudo-complement repair FAILS for |X| ≥ 3.
 -- That module is about Eq(X); this one is about the powerset P(X) and
 -- about polarities of an arbitrary relation.  They are the two halves of
 -- APOHA_AND_POLARITY §4.1's pairing ("the gloss is either vacuous or
 -- unavailable"): ExclusionScope owns "unavailable", this module owns
--- "vacuous".  Nothing here duplicates it � no statement of
+-- "vacuous".  Nothing here duplicates it — no statement of
 -- ExclusionScope is restated and no lattice of equivalence relations
 -- appears below.
 --
 -- CONTENTS (all --safe, no postulates, no holes):
 --
---   §1  `Polarity`.  For an arbitrary ε : A � B � Type, the two polarity
---       maps perp�, perp� are antitone (`perp�-anti`, `perp�-anti`),
---       form a Galois connection (`galois-�`, `galois-�`), and
---       cl = perp� ∘ perp� is extensive (`cl-ext`), monotone
+--   §1  `Polarity`.  For an arbitrary ε : A → B → Type, the two polarity
+--       maps perp⁺, perp⁻ are antitone (`perp⁺-anti`, `perp⁻-anti`),
+--       form a Galois connection (`galois-→`, `galois-←`), and
+--       cl = perp⁻ ∘ perp⁺ is extensive (`cl-ext`), monotone
 --       (`cl-mono`) and idempotent (`cl-idem`).  UNCONDITIONALLY: no
 --       hypothesis whatever on ε, on A, on B, or on the subsets.  This
 --       is APOHA_AND_POLARITY §2's "yes, unconditionally" as a term,
 --       and answers D0020 §J3's question.  The mirror closure `cl'` on
---       the �� side � which the note flags as never used by the
---       repository � comes free by symmetry.
+--       the χ⁺ side — which the note flags as never used by the
+--       repository — comes free by symmetry.
 --
 --   §2  THE SHARP FINDING.  Read D0020 §5's Boolean gloss
---       ⟦����⟧ = �⟦�����⟧ as the DEFINITION of � � i.e. A = B = X and
+--       ⟦गो⟧ = ¬⟦अगो⟧ as the DEFINITION of ⊥ — i.e. A = B = X and
 --       ε = inequality.  Then
---         `perp-is-complement` : �^� is the complement of �, and
---         `cl-is-��`          : �^�� is the DOUBLE COMPLEMENT ���,
+--         `perp-is-complement` : α^⊥ is the complement of α, and
+--         `cl-is-¬¬`          : α^⊥⊥ is the DOUBLE COMPLEMENT ¬¬α,
 --       both unconditionally, and
---         `cl-identity-on-Dec`: �^�� = � whenever � is pointwise
+--         `cl-identity-on-Dec`: α^⊥⊥ = α whenever α is pointwise
 --                               decidable, in particular
---         `boolean-gloss-vacuous` for � given by a characteristic
---                               function X � Bool.
---       So the boxed display � � �^�� is the IDENTITY MAP and carries
+--         `boolean-gloss-vacuous` for α given by a characteristic
+--                               function X → Bool.
+--       So the boxed display α ↦ α^⊥⊥ is the IDENTITY MAP and carries
 --       zero content: every set is closed, the concept lattice is the
 --       whole powerset.
 --
 --       CONSTRUCTIVE REFINEMENT, not in the note.  What holds for EVERY
---       � is cl � = ���; that is the identity exactly when � is
---       decidable.  The note's "�^�� = X \ (X \ �) = �" silently uses
---       excluded middle.  The vacuity claim survives � a subset of a
+--       α is cl α = ¬¬α; that is the identity exactly when α is
+--       decidable.  The note's "α^⊥⊥ = X \ (X \ α) = α" silently uses
+--       excluded middle.  The vacuity claim survives — a subset of a
 --       "pre-given universe" in the classical reading is a decidable
---       one, and the Bool-valued corollary is the honest form of it �
+--       one, and the Bool-valued corollary is the honest form of it —
 --       but the unrestricted identity is NOT constructively provable,
 --       and this module states which of the two it proves.
 --
 --   §3  THE CONTRAST.  Vacuity is a property of the Boolean gloss, not
 --       of the construction.  `cl-not-identity` exhibits a specific ε
 --       (one point, the total relation) with cl ≠ id, as a term of type
---       � ((� : Pow Unit) � cl � � �).  A one-point contrast is the
+--       ¬ ((α : Pow Unit) → cl α ⊑ α).  A one-point contrast is the
 --       smallest possible and needs no finite search.
 --
 --   §3b THE CONTRAST, NON-DEGENERATE.  §3's witness has the constant
@@ -76,11 +76,11 @@
 --       (so cl is not the identity).  A genuine closure, strictly
 --       between the two degenerate ones, at |X| = 2.
 --
---   §4  THE OPEN EDGE of the note, settled.  For an indexed family ε_�,
---       the flattening ε�(ξ,(�,κ)) := ε_�(ξ,κ) gives
---         `flatten` : cl_ε� � = �_� cl_{ε_�} �    (both inclusions),
---       matching Def. B.3's C(S) = �_� C_�(S), and therefore
---         `intersection-idem` : that intersection IS idempotent �
+--   §4  THE OPEN EDGE of the note, settled.  For an indexed family ε_ι,
+--       the flattening ε̂(ξ,(ι,κ)) := ε_ι(ξ,κ) gives
+--         `flatten` : cl_ε̂ α = ⋂_ι cl_{ε_ι} α    (both inclusions),
+--       matching Def. B.3's C(S) = ⋂_σ C_σ(S), and therefore
+--         `intersection-idem` : that intersection IS idempotent —
 --       not because intersections of closure operators are (they are
 --       not, which is what Def. B.3 flags), but because this
 --       particular intersection is itself a double polar.  The note
@@ -139,21 +139,21 @@ module _ {ℓ} {T : Type ℓ} where
 ------------------------------------------------------------------------
 -- §1.  The polarity of an arbitrary relation.
 --
---   ε : A � B � Type �   is D0020 §7's two-sided evaluation
---   (�� = A, the witnesses �������; �� = B, the counter-witnesses
---   ������������), equivalently the incidence I = ε��(1) of the formal
+--   ε : A → B → Type ℓ   is D0020 §7's two-sided evaluation
+--   (χ⁺ = A, the witnesses साक्षी; χ⁻ = B, the counter-witnesses
+--   प्रतिसाक्षी), equivalently the incidence I = ε⁻¹(1) of the formal
 --   context (A , B , I) of Wille 1982.  Under APOHA_AND_POLARITY §2's
---   dictionary: A = X � X, B = T, ε = R = "t does not separate the
+--   dictionary: A = X × X, B = T, ε = Rᶜ = "t does not separate the
 --   pair", and `cl` on the B-side is Prop. 6.3's A(S).
 ------------------------------------------------------------------------
 
 module Polarity {ℓ} {A B : Type ℓ} (ε : A → B → Type ℓ) where
 
-  -- � � �^� for � � A: the counter-witnesses ε-related to all of �.
+  -- α ↦ α^⊥ for α ⊆ A: the counter-witnesses ε-related to all of α.
   perp⁺ : Pow A → Pow B
   perp⁺ α b = (a : A) → α a → ε a b
 
-  -- β � β^� for β � B: the mirror half.
+  -- β ↦ β^⊥ for β ⊆ B: the mirror half.
   perp⁻ : Pow B → Pow A
   perp⁻ β a = (b : B) → β b → ε a b
 
@@ -164,7 +164,7 @@ module Polarity {ℓ} {A B : Type ℓ} (ε : A → B → Type ℓ) where
   perp⁻-anti : {β β' : Pow B} → β ⊑ β' → perp⁻ β' ⊑ perp⁻ β
   perp⁻-anti s a h b βb = h b (s b βb)
 
-  -- The GALOIS CONNECTION (antitone form): � � β^� ⟺ β � �^�.
+  -- The GALOIS CONNECTION (antitone form): α ⊆ β^⊥ ⟺ β ⊆ α^⊥.
   -- Both directions are the same swap of two universal quantifiers,
   -- which is why no hypothesis on ε is ever needed.
   galois-→ : {α : Pow A} {β : Pow B} → α ⊑ perp⁻ β → β ⊑ perp⁺ α
@@ -180,7 +180,7 @@ module Polarity {ℓ} {A B : Type ℓ} (ε : A → B → Type ℓ) where
   unit⁻ : (β : Pow B) → β ⊑ perp⁺ (perp⁻ β)
   unit⁻ β = galois-→ (⊑-refl (perp⁻ β))
 
-  -- THE CLOSURE OPERATOR � � �^�� on the A-side.
+  -- THE CLOSURE OPERATOR α ↦ α^⊥⊥ on the A-side.
   cl : Pow A → Pow A
   cl α = perp⁻ (perp⁺ α)
 
@@ -193,7 +193,7 @@ module Polarity {ℓ} {A B : Type ℓ} (ε : A → B → Type ℓ) where
   cl-cong : {α α' : Pow A} → α ≐ α' → cl α ≐ cl α'
   cl-cong (f , g) = cl-mono f , cl-mono g
 
-  -- The triple-polar identity �^� = �^���, whence idempotence.
+  -- The triple-polar identity α^⊥ = α^⊥⊥⊥, whence idempotence.
   triple : (α : Pow A) → perp⁺ (cl α) ≐ perp⁺ α
   triple α = perp⁺-anti (cl-ext α) , unit⁻ (perp⁺ α)
 
@@ -201,7 +201,7 @@ module Polarity {ℓ} {A B : Type ℓ} (ε : A → B → Type ℓ) where
   cl-idem : (α : Pow A) → cl (cl α) ≐ cl α
   cl-idem α = perp⁻-anti (snd (triple α)) , perp⁻-anti (fst (triple α))
 
-  -- The mirror closure on the �� side, free by symmetry.
+  -- The mirror closure on the χ⁺ side, free by symmetry.
   cl' : Pow B → Pow B
   cl' β = perp⁺ (perp⁻ β)
 
@@ -219,8 +219,8 @@ module Polarity {ℓ} {A B : Type ℓ} (ε : A → B → Type ℓ) where
 ------------------------------------------------------------------------
 -- §2.  THE BOOLEAN GLOSS, AND ITS VACUITY.
 --
--- D0020 §5 writes ⟦����⟧ = �⟦�����⟧ (Boolean complement in a pre-given
--- universe) in the same breath as the boxed � � �^��.  Read the first
+-- D0020 §5 writes ⟦गो⟧ = ¬⟦अगो⟧ (Boolean complement in a pre-given
+-- universe) in the same breath as the boxed α ↦ α^⊥⊥.  Read the first
 -- as the definition of the second: A = B = X and ε(ξ,κ) = (ξ ≠ κ).
 ------------------------------------------------------------------------
 
@@ -232,13 +232,13 @@ module BooleanGloss {ℓ} (X : Type ℓ) where
 
   open Polarity ε≠ public
 
-  -- �^� IS the complement.  Unconditional.
+  -- α^⊥ IS the complement.  Unconditional.
   perp-is-complement : (α : Pow X) → perp⁺ α ≐ (λ x → ¬ (α x))
   perp-is-complement α =
       (λ y h αy → h y αy refl)
     , (λ y n a αa p → n (subst α p αa))
 
-  -- �^�� IS the double complement.  Unconditional.
+  -- α^⊥⊥ IS the double complement.  Unconditional.
   cl-is-¬¬ : (α : Pow X) → cl α ≐ (λ x → ¬ ¬ (α x))
   cl-is-¬¬ α =
       (λ x h n → h x (λ a αa p → n (subst α p αa)) refl)
@@ -256,8 +256,8 @@ module BooleanGloss {ℓ} (X : Type ℓ) where
       (λ x h → ¬¬-out α x (d x) (fst (cl-is-¬¬ α) x h))
     , cl-ext α
 
--- The Bool-valued corollary, at �-zero to keep the characteristic
--- function's fibres literally Unit and �: a subset given by a
+-- The Bool-valued corollary, at ℓ-zero to keep the characteristic
+-- function's fibres literally Unit and ⊥: a subset given by a
 -- characteristic function is decidable, so for it the closure is the
 -- identity map.  This is the vacuity of D0020 §5's boxed display as a
 -- term.
@@ -296,7 +296,7 @@ module Contrast where
   ∅ : Pow Unit
   ∅ _ = ⊥
 
-  -- The closure of � is inhabited at the point, while � is not.
+  -- The closure of ∅ is inhabited at the point, while ∅ is not.
   cl-∅-full : cl ∅ tt
   cl-∅-full _ _ = tt
 
@@ -316,14 +316,14 @@ module Contrast where
 --
 --     ε(x , y) := (x ≡ true)
 --
--- � a legitimate two-sided evaluation in the sense of D0020 §7: the
+-- — a legitimate two-sided evaluation in the sense of D0020 §7: the
 -- witness ξ is ε-related to a counter-witness κ iff ξ is `true`,
 -- irrespective of κ.  For this ε:
 --
 --   * `cl-T-closed`   : the subset {true} IS closed, so cl is not the
 --                       constant full map; and
---   * `cl-F-true`     : the subset {false} is NOT closed � its double
---                       polar contains `true` � so cl is not the
+--   * `cl-F-true`     : the subset {false} is NOT closed — its double
+--                       polar contains `true` — so cl is not the
 --                       identity either.
 --
 -- Hence on a universe of size 2 the closure operator can be a genuine,
@@ -345,7 +345,7 @@ module Contrast2 where
   T x = x ≡ true
   F x = x ≡ false
 
-  -- {true} is closed: cl T � T (and T � cl T is `cl-ext`).
+  -- {true} is closed: cl T ⊑ T (and T ⊑ cl T is `cl-ext`).
   cl-T-closed : cl T ⊑ T
   cl-T-closed a h = h true (λ x p → p)
 
@@ -369,14 +369,14 @@ module Contrast2 where
 ------------------------------------------------------------------------
 -- §4.  THE INDEXED CASE, AND THE OPEN EDGE.
 --
--- D0020 §6 carries an indexed family ε_� � genuinely three-place.
--- APOHA_AND_POLARITY §2 flattens it: ε�(ξ,(�,κ)) := ε_�(ξ,κ) on
--- A � (I � B).  The claim to check is
---     �^���� = �_� �^�_��_�,
--- matching Def. B.3's C(S) = �_� C_�(S), together with the note's
+-- D0020 §6 carries an indexed family ε_ι — genuinely three-place.
+-- APOHA_AND_POLARITY §2 flattens it: ε̂(ξ,(ι,κ)) := ε_ι(ξ,κ) on
+-- A × (I × B).  The claim to check is
+--     α^⊥̂⊥̂ = ⋂_ι α^⊥_ι⊥_ι,
+-- matching Def. B.3's C(S) = ⋂_σ C_σ(S), together with the note's
 -- remark that idempotence of an intersection of closures is not
 -- automatic.  Both are settled here: the identity is two inclusions of
--- pure quantifier reassociation (�-eta does the rest), and idempotence
+-- pure quantifier reassociation (Σ-eta does the rest), and idempotence
 -- follows because the intersection is itself a double polar, so §1's
 -- `cl-idem` applies to it directly.
 ------------------------------------------------------------------------
@@ -390,11 +390,11 @@ module Indexed {ℓ} {I A B : Type ℓ} (ε : I → A → B → Type ℓ) where
   open Polarity ε̂ using ()
     renaming (cl to clHat; cl-idem to clHat-idem; cl-cong to clHat-cong)
 
-  -- the closure at index �
+  -- the closure at index ι
   clAt : I → Pow A → Pow A
   clAt i = Polarity.cl (ε i)
 
-  -- the intersection of the indexed closures � Def. B.3's shape
+  -- the intersection of the indexed closures — Def. B.3's shape
   ⋂cl : Pow A → Pow A
   ⋂cl α a = (i : I) → clAt i α a
 
@@ -405,8 +405,8 @@ module Indexed {ℓ} {I A B : Type ℓ} (ε : I → A → B → Type ℓ) where
     , (λ a h ib hb → h (fst ib) (snd ib) hb)
 
   -- IDEMPOTENCE OF THE INTERSECTION.  Not inherited from "intersection
-  -- of closures" � that inference is invalid in general, which is
-  -- exactly what Def. B.3 flags � but from the fact that this
+  -- of closures" — that inference is invalid in general, which is
+  -- exactly what Def. B.3 flags — but from the fact that this
   -- particular intersection IS a double polar.
   intersection-idem : (α : Pow A) → ⋂cl (⋂cl α) ≐ ⋂cl α
   intersection-idem α =

@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡-‡‡‡∞‡‡‡ø ‚î the filling of a remainder the machine asked for itself.
+-- ‡§∂‡•á‡§∑-‡§™‡•Ç‡§∞‡•ç‡§§‡§ø ‚Äî the filling of a remainder the machine asked for itself.
 --
 -- PROVENANCE OF THE ASK.  interactive/sanghatta-report-latest.txt, regenerated
 -- 2026-08-23: 403 non-joining critical pairs of the installed rules, the
--- library's own incompleteness, smallest first ‚î and the top row is
+-- library's own incompleteness, smallest first ‚Äî and the top row is
 --     x    max(x,0)
 -- i.e. the rewriter cannot join x with max x 0.  This module is that pair
--- fed back as a term, and it was built THROUGH the warm conduit (‡®‡æ‡°‡,
+-- fed back as a term, and it was built THROUGH the warm conduit (‡§®‡§æ‡§°‡•Ä,
 -- Cmd_make_case then Cmd_give): the kernel wrote the case split, the
--- carrier offered refl to each clause, the kernel answered ‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø.
+-- carrier offered refl to each clause, the kernel answered ‡§õ‡§ø‡§¶‡•ç‡§∞‡§Ç ‡§®‡§æ‡§∏‡•ç‡§§‡§ø.
 -- Coprocessing as Nadi.hs's header specifies it, performed rather than
 -- described.
 --
--- TERM.  ‡‡‡-‡‡‡∞‡‡‡ø, "filling of the remainder" ‚î ordinary ,
+-- TERM.  ‡§∂‡•á‡§∑-‡§™‡•Ç‡§∞‡•ç‡§§‡§ø, "filling of the remainder" ‚Äî ordinary Sanskrit,
 -- compound built here, no text claimed (CLAUDE.md naming rule, note 2).
 -- The mathematics is one recursion clause of Cubical.Data.Nat.max.
 --

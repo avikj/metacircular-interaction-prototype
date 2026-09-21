@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��-���� � the bridge into the forest.  The Liouville/parity program's
+-- वन-सेतु — the bridge into the forest.  The Liouville/parity program's
 -- Lean-lane since the pair-field days; this is its exact arithmetic
 -- interface as a checked cubical term, orthogonal to the fibre/transport
 -- spine.  Two facts, both exact, no numerics:
 --
---   §1  THE SHIFT�DILATION INTERFACE.  On sequences X = � � A with the
---       shift (� x)(n) = x(n+1) and the dilations (D_m x)(n) = x(m�n),
+--   §1  THE SHIFT–DILATION INTERFACE.  On sequences X = ℕ → A with the
+--       shift (σ x)(n) = x(n+1) and the dilations (D_m x)(n) = x(m·n),
 --       FOREST.md §1 states the exact commutation that governs the whole
---       program � the multiplicative dilations do NOT preserve the
+--       program — the multiplicative dilations do NOT preserve the
 --       additive shift, and the exact defect is:
 --
---           � ∘ D_m  ≡  D_m ∘ �^m                    (checked here)
+--           σ ∘ D_m  ≡  D_m ∘ σ^m                    (checked here)
 --
 --       i.e. shifting a dilated sequence by one is dilating a sequence
---       shifted by m.  This is the � D_m = D_m �^m of FOREST.md/DIRECT.md,
+--       shifted by m.  This is the σ D_m = D_m σ^m of FOREST.md/DIRECT.md,
 --       and it is the reason M (the multiplicative eigenvectors) is not
---       shift-invariant � the interface the whole Liouville question
+--       shift-invariant — the interface the whole Liouville question
 --       turns on.
 --
 --   §2  THE LIOUVILLE POINT IS AN EIGENVECTOR OF EVERY DILATION.  For a
---       completely multiplicative sign sequence (x(m�n) = x(m)�x(n),
+--       completely multiplicative sign sequence (x(m·n) = x(m)·x(n),
 --       here over the sign group (Bool, xor) with -1 = true), FOREST.md's
 --       characterisation D_p λ = -λ becomes, exactly: if x(m) = -1 then
 --       D_m x = -x pointwise.  The Liouville function is the point with
@@ -46,22 +46,22 @@ private
   variable
     ℓ : Level
 
--- sequences over a value type A, indexed by �.
+-- sequences over a value type A, indexed by ℕ.
 Seq : Type ℓ → Type ℓ
 Seq A = ℕ → A
 
 module _ {A : Type ℓ} where
 
-  -- the additive shift �.
+  -- the additive shift σ.
   σ : Seq A → Seq A
   σ x n = x (suc n)
 
-  -- its iterate �^m.
+  -- its iterate σ^m.
   σ^ : ℕ → Seq A → Seq A
   σ^ zero    x = x
   σ^ (suc m) x = σ (σ^ m x)
 
-  -- �^m reads m steps ahead: (�^ m x) k = x (m + k).
+  -- σ^m reads m steps ahead: (σ^ m x) k = x (m + k).
   σ^-index : (m : ℕ) (x : Seq A) (k : ℕ) → σ^ m x k ≡ x (m + k)
   σ^-index zero    x k = refl
   σ^-index (suc m) x k = σ^-index m x (suc k) ∙ cong x (+-suc m k)
@@ -71,25 +71,25 @@ module _ {A : Type ℓ} where
   D m x n = x (m · n)
 
 ------------------------------------------------------------------------
--- §1 � THE INTERFACE:  � ∘ D_m ≡ D_m ∘ �^m.
+-- §1 · THE INTERFACE:  σ ∘ D_m ≡ D_m ∘ σ^m.
 
   interface : (m : ℕ) (x : Seq A) → σ (D m x) ≡ D m (σ^ m x)
   interface m x i n = pf n i
     where
     pf : (n : ℕ) → σ (D m x) n ≡ D m (σ^ m x) n
     pf n =
-      -- � (D m x) n = x (m � suc n)
+      -- σ (D m x) n = x (m · suc n)
       cong x (·-suc m n)                       -- x (m · suc n) ≡ x (m + m · n)
       ∙ sym (σ^-index m x (m · n))             -- ≡ σ^ m x (m · n) = D m (σ^ m x) n
 
 ------------------------------------------------------------------------
--- §2 � THE LIOUVILLE EIGEN-RELATION, over the sign group (Bool, ⊕).
+-- §2 · THE LIOUVILLE EIGEN-RELATION, over the sign group (Bool, ⊕).
 -- false = +1, true = −1; sign multiplication is ⊕; negation is `not`.
 
 Sign : Type
 Sign = Bool
 
--- a sequence is completely multiplicative if x(m�n) = x(m) ⊕ x(n).
+-- a sequence is completely multiplicative if x(m·n) = x(m) ⊕ x(n).
 CompletelyMult : Seq Sign → Type
 CompletelyMult x = (m n : ℕ) → x (m · n) ≡ (x m) ⊕ (x n)
 

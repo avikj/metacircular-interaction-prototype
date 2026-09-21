@@ -6,37 +6,37 @@
 -- The machine-checked fragment of `papers/hieroglyphics_ii.tex`.
 --
 -- The document's central structural claim is that Î¦ does not change the
--- object -- `Î¦ â‰  àµàààààà°à¿àµà°ààà¨à®à` -- but widens the field of visible
--- distinctions, `Î¦ = à¦àààà¯ààà¦à•àààààà°àµà¿àààà¾à°à`, and that consequently
+-- object -- `Î¦ â‰  à¤µà¤¸à¥à¤¤à¥à¤ªà¤°à¤¿à¤µà¤°à¥à¤¤à¤¨à¤®à¥` -- but widens the field of visible
+-- distinctions, `Î¦ = à¤¦à¥ƒà¤¶à¥à¤¯à¤­à¥‡à¤¦à¤•à¥à¤·à¥‡à¤¤à¥à¤°à¤µà¤¿à¤¸à¥à¤¤à¤¾à¤°à¤ƒ`, and that consequently
 --
---     Obs_{ğ’Î}(X) = 0   â   Obs_{ğ’Î+1}(X) = 0.
+--     Obs_{ğ’ªÎ±}(X) = 0   â‡   Obs_{ğ’ªÎ±+1}(X) = 0.
 --
 -- That non-implication is the part with content, it is the part this
 -- repository has twice been bitten by, and it is provable here rather than
 -- asserted.  Sections A--C do it.
 --
--- Section D is the discipline `ààà°àà®à àµà°àà—àà•àà°à; ààààà¾àà Î“` -- classify the
+-- Section D is the discipline `à¤ªà¥à¤°à¤¥à¤®à¤‚ à¤µà¤°à¥à¤—à¥€à¤•à¥à¤°à¥; à¤ªà¤¶à¥à¤šà¤¾à¤¤à¥ Î“` -- classify the
 -- defect before repairing it -- encoded the only way a proof assistant can
 -- encode a methodological rule: the classification is an *argument* to the
 -- repair, so an unclassified repair does not typecheck.
 --
--- Section E is `àà¨à¨àà¯àà¾ â‰ ààà¨à°àà¨à¿à°àà®àà¯àà¾`: generability and
+-- Section E is `à¤œà¤¨à¤¨à¥€à¤¯à¤¤à¤¾ â‰¢ à¤ªà¥à¤¨à¤°à¥à¤¨à¤¿à¤°à¥à¤®à¥‡à¤¯à¤¤à¤¾`: generability and
 -- reconstructibility are independent, with both witnesses.
 --
 -- WHAT IS NOT HERE, and why.  This module is 0-truncated and finite.  It is
 -- the decategorified shadow of the document, not the document:
 --
---   * `Î´â— = cofib(hocolim ğ”µ â’ X)` and `Î´â– = fib(X â’ holim ğ”µ)` appear only
+--   * `Î´â— = cofib(hocolim ğ”áµ¢ â†’ X)` and `Î´â–· = fib(X â†’ holim ğ”áµ¢)` appear only
 --     as "is this map split-surjective / injective".  The homotopy-theoretic
 --     content is discarded; what survives is the independence.
---   * Of the four repair kinds `Î“âˆ, Î“â, Î“âº, Î“^`, only `Î“âˆ` and `Î“^` are
+--   * Of the four repair kinds `Î“âˆ…, Î“â‡‘, Î“â†º, Î“^`, only `Î“âˆ…` and `Î“^` are
 --     distinguishable at this truncation, and Section D proves the one
---     implication that holds between them.  `Î“â` (promote the defect to a
---     2-cell) and `Î“âº` (keep it as a class) need genuine higher structure to
---     differ from `Î“âˆ`.  That is not a defect of the schema -- it is the
+--     implication that holds between them.  `Î“â‡‘` (promote the defect to a
+--     2-cell) and `Î“â†º` (keep it as a class) need genuine higher structure to
+--     differ from `Î“âˆ…`.  That is not a defect of the schema -- it is the
 --     schema's own point, that the higher structure is what tells the repairs
 --     apart -- but it does mean this module cannot see them.
---   * `Ï = Î”Reach/Î”Kill` is absent.  It needs a cost model, and this
+--   * `Ï‡ = Î”Reach/Î”Kill` is absent.  It needs a cost model, and this
 --     repository has none: see `CountedDigits`' cost boundary.
 --     A ratio of two unmeasured rates is exactly the kind of number
 --     `CLAUDE.md` forbids.
@@ -63,7 +63,7 @@ private
 ------------------------------------------------------------------------
 -- A.  Observation fields, and the two things one can say about a pair.
 
--- A field of observations on `X` with values in `V`.  This is `ğ’`.
+-- A field of observations on `X` with values in `V`.  This is `ğ’ª`.
 record Obs (X V : Typeâ‚€) : Typeâ‚ where
   constructor obs
   field
@@ -72,14 +72,14 @@ record Obs (X V : Typeâ‚€) : Typeâ‚ where
 
 open Obs
 
--- `Sep ğ’ x y` is a *witness* that the field distinguishes `x` from `y`: a
+-- `Sep ğ’ª x y` is a *witness* that the field distinguishes `x` from `y`: a
 -- named observation together with a proof that its two readings differ.  This
 -- is the repository's own notion -- `natural_crystal` keeps exactly this
 -- witness, and keeps the shortest one.
 Sep : Obs X V â†’ X â†’ X â†’ Typeâ‚€
 Sep O x y = Î£[ i âˆˆ O .Index ] (Â¬ (O .read i x â‰¡ O .read i y))
 
--- Blindness is the *absence* of such a witness.  `Obs_ğ’(X) = 0` in the
+-- Blindness is the *absence* of such a witness.  `Obs_ğ’ª(X) = 0` in the
 -- document's notation, for the pair `x , y`.
 Blind : Obs X V â†’ X â†’ X â†’ Typeâ‚€
 Blind O x y = Â¬ Sep O x y
@@ -87,7 +87,7 @@ Blind O x y = Â¬ Sep O x y
 ------------------------------------------------------------------------
 -- B.  Î¦: widening the field, not changing the object.
 
--- `O âŠ P` says `P` sees everything `O` sees, reading it the same way.  Note
+-- `O âŠ‘ P` says `P` sees everything `O` sees, reading it the same way.  Note
 -- that `X` is fixed: the object does not move.
 record _âŠ‘_ (O P : Obs X V) : Typeâ‚€ where
   constructor widen
@@ -116,13 +116,13 @@ extend-âŠ’ O f .push = inl
 extend-âŠ’ O f .keep _ _ = refl
 
 ------------------------------------------------------------------------
--- C.  `Obs_ğ’ = 0 â Obs_{ğ’âº} = 0`, twice: once concretely, once in general.
+-- C.  `Obs_ğ’ª = 0 â‡ Obs_{ğ’ªâº} = 0`, twice: once concretely, once in general.
 
 -- C1.  The live instance, and the reason this module exists.
 --
 -- `diag(1,-6)` where the Lean gate demands nonnegative invariants.  Under the
--- field the divisibility theory actually uses -- absolute value, because `âˆ`
--- over â factors through `abs` -- the two answers are indistinguishable.  Add
+-- field the divisibility theory actually uses -- absolute value, because `âˆ£`
+-- over â„¤ factors through `abs` -- the two answers are indistinguishable.  Add
 -- the identity observation and they separate.  Nothing about the object
 -- changed; the field did.
 
@@ -149,12 +149,12 @@ sign-seen = inr tt , posNotnegsuc 6 5
               ((absField âŠ‘ P) Ã— (Blind absField (pos 6) (negsuc 5) Ã— Sep P (pos 6) (negsuc 5)))
 Î¦-creates = signField , absFieldâŠ‘signField , sign-blind , sign-seen
 
--- C2.  `0 â àà¨ààà`, in general.
+-- C2.  `0 â‡ à¤…à¤¨à¥à¤¤à¤ƒ`, in general.
 --
 -- PRIOR ART.  `ChuAdvance` states this content first and states
 -- it better: "the defect of a Chu space is monotone in the test list ... a
--- vanishing defect is a statement about ğ’¯, never about X".  It carries
--- `Shrink(ğ’¯) â’ Î´â“` and the base-flat/fibre-curved separation, neither of which
+-- vanishing defect is a statement about ğ’¯, never about X".  It carries
+-- `Shrink(ğ’¯) â‡’ Î´â†“` and the base-flat/fibre-curved separation, neither of which
 -- is here.  I did not check the directory before writing this and only found
 --
 -- What `break-blindness` adds is small and worth keeping distinct: `ChuAdvance`
@@ -203,7 +203,7 @@ break-blindness O dec a b aâ‰¢b x y yâ‰¢x =
              âˆ™ charAt-there dec x y a b yâ‰¢x) )
 
 ------------------------------------------------------------------------
--- D.  `ààà°àà®à àµà°àà—àà•àà°à; ààààà¾àà Î“` -- classify, then repair.
+-- D.  `à¤ªà¥à¤°à¤¥à¤®à¤‚ à¤µà¤°à¥à¤—à¥€à¤•à¥à¤°à¥; à¤ªà¤¶à¥à¤šà¤¾à¤¤à¥ Î“` -- classify, then repair.
 
 data Kind : Typeâ‚€ where
   Î“âˆ… Î“â‡‘ Î“â†º Î“^ : Kind
@@ -220,7 +220,7 @@ record Classified (O : Obs X V) (x y : X) : Typeâ‚€ where
 
 open Classified
 
--- `Î“âˆ`: identify the two, keeping no representative.
+-- `Î“âˆ…`: identify the two, keeping no representative.
 record Collapse (x y : X) : Typeâ‚ where
   constructor collapse
   field
@@ -229,8 +229,8 @@ record Collapse (x y : X) : Typeâ‚ where
     identifies : quot x â‰¡ quot y
 
 -- `Î“^`: complete to a chosen representative.  Idempotence is what makes it a
--- choice of representatives rather than a further move -- `âˆXÌ â‰ 0` in the
--- document, `absâ-idem` in ours.
+-- choice of representatives rather than a further move -- `âˆ‚XÌ‚ â‰ƒ 0` in the
+-- document, `absâ„¤-idem` in ours.
 record Completion (x y : X) : Typeâ‚€ where
   constructor complete
   field
@@ -244,8 +244,8 @@ Repair : {O : Obs X V} {x y : X} â†’ Classified O x y â†’ Typeâ‚
 Repair {x = x} {y = y} c with c .kind
 ... | Î“âˆ… = Collapse x y
 ... | Î“^ = Lift (Completion x y)
--- `Î“â` promotes the defect to a 2-cell and `Î“âº` retains it as a class.  Both
--- are `Î“âˆ` after 0-truncation; distinguishing them is what the higher
+-- `Î“â‡‘` promotes the defect to a 2-cell and `Î“â†º` retains it as a class.  Both
+-- are `Î“âˆ…` after 0-truncation; distinguishing them is what the higher
 -- structure is for, and this module has none.  They are not silently
 -- collapsed -- they are given the same repair type, openly.
 ... | Î“â‡‘ = Collapse x y
@@ -259,7 +259,7 @@ Completionâ†’Collapse {X = X} co =
 
 -- The converse is not provided, and the omission is the content: a collapse
 -- gives the quotient, a completion gives a section of it.  `Î“^` is strictly
--- more information than `Î“âˆ`, which is why the document orders them and why
+-- more information than `Î“âˆ…`, which is why the document orders them and why
 -- `SmithSignNormal` implements `Î“^`.
 
 -- The sign defect, classified and repaired.
@@ -273,11 +273,11 @@ signRepair : Repair signDefect
 signRepair = lift signCompletion
 
 ------------------------------------------------------------------------
--- E.  `àà¨à¨àà¯àà¾ â‰ ààà¨à°àà¨à¿à°àà®àà¯àà¾`.
+-- E.  `à¤œà¤¨à¤¨à¥€à¤¯à¤¤à¤¾ â‰¢ à¤ªà¥à¤¨à¤°à¥à¤¨à¤¿à¤°à¥à¤®à¥‡à¤¯à¤¤à¤¾`.
 --
--- For a view `q : X â’ Y`, the document's two obstructions are
--- `Î´â— = cofib(hocolim ğ”µ â’ X)` and `Î´â– = fib(X â’ holim ğ”µ)`.  Decategorified,
--- `Î´â— = 0` is "the relations generate" and `Î´â– = 0` is "the relations
+-- For a view `q : X â†’ Y`, the document's two obstructions are
+-- `Î´â— = cofib(hocolim ğ”áµ¢ â†’ X)` and `Î´â–· = fib(X â†’ holim ğ”áµ¢)`.  Decategorified,
+-- `Î´â— = 0` is "the relations generate" and `Î´â–· = 0` is "the relations
 -- reconstruct".  They are independent, and both witnesses are below.
 
 Generates : {X Y : Typeâ‚€} â†’ (X â†’ Y) â†’ Typeâ‚€

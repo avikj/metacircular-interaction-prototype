@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡â‡‡ï‡∞‡-‡µ‡‡¶‡‡ß‡ø‡ ‚î instrument-growth.  Two theorems that close the gap
+-- ‡§â‡§™‡§ï‡§∞‡§£-‡§µ‡•É‡§¶‡•ç‡§ß‡§ø‡§É ‚Äî instrument-growth.  Two theorems that close the gap
 -- between ApurvaIndriyam's admission gate and the Parasparraya record.
 --
 -- ¬ß1  A DERIVED SENSE ADDS NO SEPARATION, AS AN EQUALITY OF TYPES.
---     For a sensorium S : X ‚í O and a dashboard q = h ‚àò S landing in a
+--     For a sensorium S : X ‚Üí O and a dashboard q = h ‚àò S landing in a
 --     set, the agreement type of the extended family {S, q} at any pair
---     is EQUAL ‚î by univalence, not merely equivalent ‚î to the agreement
+--     is EQUAL ‚Äî by univalence, not merely equivalent ‚Äî to the agreement
 --     type of S alone:
 --
---         (S x ‚â° S y)  ‚â°  (S x ‚â° S y) ó (q x ‚â° q y).
+--         (S x ‚â° S y)  ‚â°  (S x ‚â° S y) √ó (q x ‚â° q y).
 --
 --     The Nerode relation of the family with the dashboard adjoined is
 --     the same type as without it (the abstract-15 idiom, "computed, not
@@ -22,19 +22,19 @@
 --     refuted outright.  Joint faithfulness plus a named blind pair for
 --     the first sense forces the second to separate that pair
 --     (dvitya-payati), while factoring forces it blind there
---     (‡‡®‡‡‡-‡‡®‡‡ß‡) ‚î so the record and the derivation cannot coexist.
+--     (‡§§‡§®‡•ç‡§§‡•å-‡§Ö‡§®‡•ç‡§ß‡§É) ‚Äî so the record and the derivation cannot coexist.
 --     Contrapositively: EVERY interdependent pair's second member passes
 --     ApurvaIndriyam's admission gate.  The second sense of an
 --     interdependent type is necessarily a new sense; interdependence
 --     certifies independence.
 --
 -- THE MOTIVIC SENTENCE, stated as the reading it is.  A comparison map
--- derived from realizations already held adds no conservativity ‚î the
+-- derived from realizations already held adds no conservativity ‚Äî the
 -- indistinguishability of motives under the extended family is the same
 -- type (¬ß1).  And a jointly faithful family in which each member has a
 -- named blind pair is thereby proved to contain no derived member: each
 -- realization is a genuinely new sense of the motive (¬ß2).  Crystalline
--- is not a function of the ‚ì-adic readings ‚î that instance is a reading
+-- is not a function of the ‚Ñì-adic readings ‚Äî that instance is a reading
 -- and is not proved; the shape of it is ¬ß2 and is.
 --
 -- ¬ß2 is generic in all three types.
@@ -59,7 +59,7 @@ private
     ‚Ñì ‚Ñì' ‚Ñì'' : Level
 
 ------------------------------------------------------------------------
--- ‡ß ¬ The dashboard adjoined: the same agreement type, as a path.
+-- ‡•ß ¬∑ The dashboard adjoined: the same agreement type, as a path.
 ------------------------------------------------------------------------
 
 module _ {X : Type ‚Ñì} {O Q : Type ‚Ñì'}
@@ -88,7 +88,7 @@ module _ {X : Type ‚Ñì} {O Q : Type ‚Ñì'}
   v·πõddhi-abheda x y = ua (v·πõddhi x y)
 
 ------------------------------------------------------------------------
--- ‡® ¬ The collision: interdependence refuses derivation.
+-- ‡•® ¬∑ The collision: interdependence refuses derivation.
 ------------------------------------------------------------------------
 
 open ParasparƒÅ≈õraya
@@ -117,6 +117,6 @@ na-pra·πáƒÅlƒ´' P der =
                (snd (snd (snd (andha‚ÇÇ P)))))
 
 -- Read together: an interdependent pair is irreducible in BOTH
--- directions ‚î neither member is a post-processing of the other, and
+-- directions ‚Äî neither member is a post-processing of the other, and
 -- the record itself is the certificate.  Interdependence is proved
 -- mutual novelty, not shared redundancy.

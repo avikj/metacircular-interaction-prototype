@@ -7,7 +7,7 @@
 -- records the dissolution, and the dissolution came from reading a note
 -- that has been in this repository since 2026-08-12.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ERROR
 --
 -- Those sections compare "the walk carries Ïˆ(k) â‰ˆ k bits" against
@@ -16,19 +16,19 @@
 -- candidate explanations for it.
 --
 -- The two quantities are not in the same units.  `k` is the walk's
--- FRONTIER â” the sensor value it has reached â” and is not the number of
+-- FRONTIER â€” the sensor value it has reached â€” and is not the number of
 -- inputs it has processed.
 --
--- injectivity: the observation n â¦ (n mod m)_{mâˆˆS} is lossless on the
+-- injectivity: the observation n â†¦ (n mod m)_{mâˆˆS} is lossless on the
 -- prefix [0,n] exactly when
 --
 --     lcm(S) > n.
 --
 -- The walk installs a new sensor precisely when n reaches lcm(S).  So at
 -- frontier k it has walked from 0 to cap(k) âˆ’ 1, and the number of inputs
--- it has distinguished is cap(k) = lcm(1..k) = e^{Ïˆ(k)} â” not k.
+-- it has distinguished is cap(k) = lcm(1..k) = e^{Ïˆ(k)} â€” not k.
 --
--- Therefore logâ(inputs distinguished) = Ïˆ(k)/ln 2 = logâ(state), and the
+-- Therefore logâ‚‚(inputs distinguished) = Ïˆ(k)/ln 2 = logâ‚‚(state), and the
 -- comparison that generated the "gap" was
 --
 --     Ïˆ(k) bits of state   versus   log k bits,
@@ -38,7 +38,7 @@
 --     **The walk's storage is the logarithm of its workload, exactly.
 --     There is no gap.  The walk is information-theoretically optimal.**
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS CHECKED HERE, AND WHAT IS QUOTED
 --
 -- CHECKED: the tightness, at the frontiers the pinned basis can express.
@@ -47,18 +47,18 @@
 -- frontiers 4, 5, 7.
 --
 -- QUOTED, not re-proved here:
---   * the losslessness criterion lcm(S) > n (CRT) â” `WALK_FORCING_LAW.md`;
+--   * the losslessness criterion lcm(S) > n (CRT) â€” `WALK_FORCING_LAW.md`;
 --   * that an injective map out of a set of n+1 elements needs at least
 --     n+1 targets (pigeonhole), which is what makes lcm(S) > n a LOWER
 --     bound and hence makes "optimal" mean something.
 -- Both are standard and neither is formalised in this lane.  Saying which
 -- is which is the point of this paragraph.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT SURVIVES OF Â§Â§15â“18
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHAT SURVIVES OF Â§Â§15â€“18
 --
--- Every theorem.  `lcm-gcd`, `chain-join-absorbs`, `sucâ‰^`, `cap-is-dense`
--- are unaffected â” they are statements about joins, chains, exponentials
+-- Every theorem.  `lcm-gcd`, `chain-join-absorbs`, `sucâ‰¤^`, `cap-is-dense`
+-- are unaffected â€” they are statements about joins, chains, exponentials
 -- and supports, and none of them mentions a workload.  What is withdrawn
 -- is the FRAMING that made them answers: they were presented as
 -- eliminating or identifying explanations for a cost, and there was no
@@ -68,11 +68,11 @@
 --
 --     the walk's state is its workload, its bit-size is that workload's
 --     logarithm, and the interesting question was never "why so big" but
---     "why does losslessness force lcm at all" â” which
+--     "why does losslessness force lcm at all" â€” which
 --     `WALK_FORCING_LAW.md` answers by CRT and which nothing in this
 --     thread improved on.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE METHOD FAILURE, RECORDED PLAINLY
 --
 -- Four modules and four note sections were spent on a quantity that a
@@ -82,7 +82,7 @@
 -- This is a fourth, and it is worse than a rediscovery: not a result
 -- found twice, but a question that had already been dissolved.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -133,7 +133,7 @@ frontier-8 :
 frontier-8 = refl , refl
 
 -- and the frontier index is nothing like either of them: 8 versus 840.
--- That is the entire error Â§Â§15â“18 were built on.
+-- That is the entire error Â§Â§15â€“18 were built on.
 frontier-index-is-not-the-workload : Â¬ (state 8 â‰¡ 8)
 frontier-index-is-not-the-workload p = snotz (injSuc (injSuc (injSuc (injSuc
   (injSuc (injSuc (injSuc (injSuc p)))))))) 

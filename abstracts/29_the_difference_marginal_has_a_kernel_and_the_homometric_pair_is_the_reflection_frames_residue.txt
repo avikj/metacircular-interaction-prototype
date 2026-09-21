@@ -3,7 +3,7 @@ WITH ONE AUTOCORRELATION AND NO CONGRUENCE, AND WHY IT IS THE SAME
 LOSSINESS AS THE REFLECTION FRAME AND THE COHOMOLOGICAL SIDE INFORMATION
 A kernel-checked homometric pair, and the observation that reconstructing
 a set from its pairwise differences is the same lossy transport as
-reconstructing a field from its local data â” the residue is the same
+reconstructing a field from its local data â€” the residue is the same
 object at two scales
 
 Number theory / the map from a set to its difference multiset, and its
@@ -12,7 +12,7 @@ kernel
 Take the transport that sends a finite set of integers to the multiset of
 its pairwise differences.  This development exhibits, with a machine-
 checked certificate, that this transport is LOSSY: two sets carry the same
-differences and are not the same set up to the symmetries of â.
+differences and are not the same set up to the symmetries of â„¤.
 
 The witness.  A = {0,1,2,6,8,11} and B = {0,1,6,7,9,11}, normalized to
 least element 0 and greatest 11.  `diffs` forms the 15 positive pairwise
@@ -24,11 +24,11 @@ for inside the window, so equality of the vectors is equality of the whole
 difference multisets, not of a truncation.  `not-congruent` then proves,
 by finite exhaustion over the four congruence shapes (translation either
 way, reflection-then-translation either way, the translation parameter
-pinned by the sorted head), that NO symmetry of â carries A to B.  Same
+pinned by the sorted head), that NO symmetry of â„¤ carries A to B.  Same
 autocorrelation, different set: the marginal has a genuine kernel.
 
 The mathematics is classical -- homometric (Patterson-equivalent) sets,
-Patterson 1944; the polynomial characterization, Rosenblattâ“Seymour 1982;
+Patterson 1944; the polynomial characterization, Rosenblattâ€“Seymour 1982;
 the music-theoretic Z-relation, Lewin 1959.  What is new is the
 certificate: a kernel-checked term in place of an uncertified search, with
 the non-congruence discharged by exhaustion rather than asserted.
@@ -42,7 +42,7 @@ difference data does not determine the set -- the encoding has a kernel,
 and the kernel is exhibited, minimal, at six points.  This is the same
 statement, in the integers, as the fibre law's lossy binding and as
 SankramanaSesa's every-transport-owes-its-residual: the transport
-set â¦ autocorrelation is not injective, and the homometric ambiguity IS
+set â†¦ autocorrelation is not injective, and the homometric ambiguity IS
 its residue.  It is also the number-theoretic incarnation of the
 cohomological reading in which a field is reconstructed from its local
 data only up to global side information: the autocorrelation is the local
@@ -60,9 +60,9 @@ what is lost by it is the same accounting the corpus performs everywhere
 else, now at the scale of a six-element set of integers.
 
 WHAT IS NOT CLAIMED.  Minimality is not formalized here -- that no
-homometric pair has diameter â‰ 10 is a larger subset sweep and still rests
+homometric pair has diameter â‰¤ 10 is a larger subset sweep and still rests
 on the legacy search; this module discharges existence only.  The
-reduction of â-congruence to the four normalized shapes is a definition in
+reduction of â„¤-congruence to the four normalized shapes is a definition in
 the module, elementary and assumed, not a theorem of it.  No claim is made
 that homometry and cohomological side information are related by more than
 the shared shape of a non-injective transport with an exhibited residue;
