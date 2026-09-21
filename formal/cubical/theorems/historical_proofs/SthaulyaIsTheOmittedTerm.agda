@@ -59,8 +59,8 @@
 --     can carry a law and this one can.
 --
 -- The order statement ‚î that the ‡‡‡‡‡≤‡‡Ø drops by two orders in n at each
--- step ‚î is the analytic gloss on the second bullet and is NOT proved
--- here.  It cannot be: see the closing section.
+-- step ‚î is the analytic gloss on the second bullet; see the closing
+-- section.
 --
 -- The proof is the determinant recurrence and nothing else.  The form
 --

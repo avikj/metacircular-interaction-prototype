@@ -7,25 +7,17 @@
 -- cyclic assumption.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- THE ABSENCE THIS FILE CLOSES, QUOTED FROM THE MODULE THAT STATES IT.
---
 -- `Avarta_TheGeneratorsOrderAnnihilatesEveryPowerSoEulersHypothesisIs
 -- DischargedOnACyclicGroup.agda` proves `‡Ø‡‡≤‡∞-‡‡ø‡¶‡‡ß‡ø‡` for a group GIVEN
--- as cyclic and lists, under WHAT IS **NOT** CLAIMED:
---
---     "LAGRANGE, or Euler's theorem for a general finite group.  Not
---      proved, not approached.  The general case needs cosets and
---      cardinality; nothing below counts anything.  ¬ß‡® is the cyclic
---      case and is stated as the cyclic case."
---
--- Lagrange, however, IS in this corpus: `theorems/unplaced/
+-- as cyclic.
+-- Lagrange is in this corpus: `theorems/unplaced/
 -- SubgroupIndex.agda` proves, for a group `G` with `finG : isFinSet ‚ü® G ‚ü©`
 -- and a subgroup `H` with decidable membership,
 --
 --     lagrange : card FG ‚â° index ¬‚ï order        (order = card of H).
 --
 -- This file supplies the two things SubgroupIndex does not have and
--- Avarta says are needed ‚î the cyclic subgroup of an element, and the
+-- Avarta's theorem needs ‚î the cyclic subgroup of an element, and the
 -- count of its elements ‚î and then reads Euler's theorem off Lagrange.
 --
 -- WHAT IS PROVED.  For every group `G : Group ‚ì` (the library's
@@ -63,16 +55,11 @@
 -- arithmetic Avarta's `‡‡®‡ï-‡‡µ‡∞‡‡‡` used, now with `e` supplied by
 -- counting rather than assumed of a generator.
 --
--- WHAT IS **NOT** CLAIMED.
---   * Nothing about ANY particular (‚/n)À being finite-as-a-`FinSet`,
---     abelian, or cyclic is proved here; ¬ß7 takes the abelian finite
---     group as its hypotheses, exactly as Avarta takes the cyclic one.
---   * Nothing about order-finding, Shor, or the security of RSA; as in
---     Avarta, discharging the hypothesis bears on CORRECTNESS only.
---   * The order `e` is characterised as the least positive annihilating
---     exponent and shown equal to the cardinality of the cyclic
---     subgroup; no further structure of cyclic groups (e.g. that the
---     cyclic subgroup is isomorphic to ‚/e as a GROUP) is stated.
+-- ¬ß7 takes the abelian finite
+-- group as its hypotheses, exactly as Avarta takes the cyclic one.
+-- The order `e` is characterised as the least positive annihilating
+-- exponent and shown equal to the cardinality of the cyclic
+-- subgroup.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- ON THE NAME.  ‡‡∞‡‡µ (all) + ‡‡µ‡∞‡‡ (a turning; the word Avarta chose for

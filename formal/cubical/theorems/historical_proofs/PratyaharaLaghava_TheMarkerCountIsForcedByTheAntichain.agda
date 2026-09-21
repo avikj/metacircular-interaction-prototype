@@ -40,30 +40,28 @@
 --   four: for this family Pini's arrangement is optimal, and the proof of
 --   the lower half quantifies over all orders, not over the traditional one.
 --
--- SCOPE, so that nothing here is mistaken for Petersen's theorem:
+-- Petersen's theorem is that for the FULL family the grammar
+-- denotes over all 42 phonemes, the iva-stra order is essentially
+-- UNIQUE, and 14 markers minimal.  This file proves a lower
+-- bound (the antichain bound) and matches it on the vowel subfamily.
 --
---   * Petersen's actual statement â” that for the FULL family the grammar
---     denotes over all 42 phonemes, the iva-stra order is essentially
---     UNIQUE, and 14 markers minimal.  Not here.  This file proves a lower
---     bound (the antichain bound) and matches it on the vowel subfamily only.
---   * That the antichain bound is TIGHT in general.  `markersDistinct` gives
---     markers â‰ width(F) and no more.  Where it stands for the full inventory
---     is a finite computation, and it is done rather than guessed:
---     `machine/Pratyahara_TheIntervalDecisionProcedure.hs` runs Dilworth (via
---     bipartite matching and Knig, antichain returned and re-checked) on the
---     classes of all fourteen stras and reports â”
---        all 294 classes the line can name : width 14, the anubandha count
---        the ~30 pratyhras the grammar uses : width 11
---     So the bound is met exactly on the family the device EXPRESSES, and the
---     attested classes alone leave three markers unforced by this argument.
---     That residue is where Petersen's theorem is needed and this one is not
---     enough, and it is not formalised here â” the 14-antichain is a computed
---     witness in Haskell, not a checked term.
---   * That the order can be RECOVERED from the family (the consecutive-ones
---     direction, Boothâ“Lueker PQ-trees; Kornai and Kiparsky bear on it).
---     Not here.  Only the forward direction â” this order does realise these
---     classes as intervals â” is checked.
---   * Any claim that Pini stated the optimality.  He stated the order.
+-- `markersDistinct` gives
+-- markers â‰ width(F) and no more.  Where it stands for the full inventory
+-- is a finite computation, and it is done rather than guessed:
+-- `machine/Pratyahara_TheIntervalDecisionProcedure.hs` runs Dilworth (via
+-- bipartite matching and Knig, antichain returned and re-checked) on the
+-- classes of all fourteen stras and reports â”
+--    all 294 classes the line can name : width 14, the anubandha count
+--    the ~30 pratyhras the grammar uses : width 11
+-- So the bound is met exactly on the family the device EXPRESSES, and the
+-- attested classes alone leave three markers unforced by this argument.
+-- That residue is where Petersen's theorem is needed; the 14-antichain is a
+-- computed witness in Haskell.
+--
+-- Only the forward direction â” this order does realise these
+-- classes as intervals â” is checked.
+--
+-- Pini stated the order.
 --
 -- MODELLING NOTE, stated because it is the one place a reader could be
 -- misled: `pos` enumerates the SOUNDS only, markers being boundaries and
@@ -413,9 +411,8 @@ lowerBound = fourMarkersForced sivasutraEncoding
 -- survives that (classes ending at one marker are still a âŠ-chain when
 -- the nearest preceding recitation is meant), but the MINIMUM does not.
 --
--- What this does NOT do:
--- it does not explain the residue of three between width 11 and Pini's
--- 14.  His line DOES recite ha twice â” stras 5 and 14 â” so total absence
+-- The residue of three between width 11 and Pini's
+-- 14 stands.  His line DOES recite ha twice â” stras 5 and 14 â” so total absence
 -- of repetition cannot be the cause.  What is removed is only the reading
 -- under which the bound is tight and the residue therefore spurious.
 ------------------------------------------------------------------------

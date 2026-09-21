@@ -65,7 +65,7 @@
 --   fiber is contractible then EVERY predicate descends, so asiddhatva
 --   would be doing nothing.  Hence `‡‡‡ø‡¶‡‡ß‡‡‡µ‡‡‡‡‡`: the necessity of 8.2.1
 --   at this site is precisely that some later rule collapses two forms
---   into one.  It is derived from the two halves, not asserted.  At this
+--   into one.  It is derived from the two halves.  At this
 --   site both later rules collapse, and both witnesses are exhibited.
 --
 -- PRIOR ART, searched.  Asiddhatva read as rule suspension / level
@@ -79,14 +79,14 @@
 -- stated somewhere I did not reach, this is a re-derivation and the
 -- citation is owed.
 --
--- SCOPE OF THE CARRIER, so the model is not read as more than it is.  The
+-- THE CARRIER.  The
 -- carrier is the pada-final consonant of `vc` ("speech") along the
 -- trajectory the derivation actually takes, exactly as in
 -- `Asiddhatva.agda`, and the rules are their restrictions to it.  `ca` is
 -- never presented to 8.2.39 in a real derivation because 8.2.30 has
 -- already removed it; that is not assumed, it is `‡ï‡‡‡Ø‡æ‡‡ø-‡®-‡‡` below.
 --
--- No postulates, no holes, --safe.  2026-08-22.
+-- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 
 module Purvatrasiddham_TheLaterRulesFiberIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse where
@@ -284,20 +284,3 @@ punar-ga = refl
 ‡§∏‡§ô‡•ç‡§ï‡•ã‡§ö‡§É-‡•Æ-‡•®-‡•©‡•Ø c =
   ka‚â¢ga (cong fst (isContr‚ÜíisProp c (ka , refl) (ga , refl)))
 
-------------------------------------------------------------------------
--- ‡Ø.  WHAT THIS DOES NOT SAY.
---
--- It does not say the later form is "less informative" in general ‚î the
--- tripd is deterministic and the final form is a function of the
--- earlier one.  The asymmetry is the other way: the earlier form is not a
--- function of the later one, and 8.2.39's condition lives on the earlier.
---
--- It does not say 8.2.1 is derivable from the collapse.  ¬ß‡Æ gives one
--- direction only: collapse is NECESSARY for the blindness to have content
--- at this site.  Pini states 8.2.1 as a metarule over the whole tripd
--- and nothing here bears on why he stated it in that generality.
---
--- It does not model 6.4.22 ‡‡‡ø‡¶‡‡ß‡µ‡¶‡‡‡∞‡æ‡‡æ‡‡, the simultaneous regime.  That
--- is `AsiddhavatRegime.agda`, and the two are different devices; reading
--- them as one is the misattribution that file was written to correct.
-------------------------------------------------------------------------

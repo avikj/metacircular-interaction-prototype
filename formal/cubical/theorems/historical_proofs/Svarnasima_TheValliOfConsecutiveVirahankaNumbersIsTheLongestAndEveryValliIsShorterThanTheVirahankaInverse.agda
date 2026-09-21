@@ -62,12 +62,10 @@
 --                   rows and column 1 1 1 1 2, and for (89, 55) has 9 rows;
 --                   these agree with `‡‡‡µ‡∞‡‡-‡µ‡≤‡‡≤‡ 4` and `‡‡‡µ‡∞‡‡-‡µ‡≤‡‡≤‡ 8`.
 --
--- SCOPE.  A statement with a real-valued logarithm ‚î there is
+-- There is
 -- no `log` in cubical v0.9 and the corpus does not define one.  The
 -- Virahka-inverse form and the 2^k form above are what "O(log b)" means
--- over ‚ï, and both are checked; nothing sharper is claimed.  Nothing here
--- touches the ‡‡‡‡ü section or the cakravla, which stay as the earlier
--- module leaves them.
+-- over ‚ï, and both are checked.
 ------------------------------------------------------------------------
 
 module Svarnasima_TheValliOfConsecutiveVirahankaNumbersIsTheLongestAndEveryValliIsShorterThanTheVirahankaInverse where

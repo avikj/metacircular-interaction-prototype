@@ -451,44 +451,6 @@ durnaya-false kernel-ind  d = falseâ‰¢true (d kernel-refl)
 sapeksa : Î£[ Ï† âˆˆ Profile ] ((Ï† rewriter â‰¡ true) Ã— (Ï† kernel-refl â‰¡ false))
 sapeksa = machine-profile , refl , refl
 
-------------------------------------------------------------------------
--- Â§8  WHAT THIS FILE DOES NOT MODEL â” stated, not implied
---
--- 1. The seven NAYAS of Tattvrthastra 1.33 (naigama â¦ evabhta) are not
---    formalised.  Â§1's `Naya` has three constructors taken from the
---    machine's tactic log; it is a different partition (of provers, not of
---    modes of reference) and no claim is made that they correspond.  The
---    abda-nayas in particular â” which turn on grammatical form and
---    etymology â” have no analogue here.
---
--- 2. `syt` has no independent formal content in this file.  It is carried
---    entirely by the standpoint index on `P`, `denotes`, and `Profile`.
---    Whether the particle does more than index is a question this file
---    does not answer.
---
--- 3. Bhagas 5 and 7 are DEFINABLE (they are in `saptabhangi-iso`) but no
---    instance of either is constructed here, and none was found in the
---    machine's data â” see the census in `machine/Obstruction.hs`.  They
---    would need a claim simultaneously affirmed, denied, and inexpressible.
---    Their emptiness in the data is reported there as a measured fact and
---    is not evidence that they are incoherent.
---
--- 4. Avaktavya is modelled as non-denotability by a single atom of a fixed
---    finite language (Mallisena's vikaldea reading).  The stronger
---    reading on which avaktavya is a distinct ONTOLOGICAL mode of the
---    object, independent of any language, is not modelled, and this file
---    should not be cited as formalising it.
---
--- 5. Utpda-vyaya-dhrauvya (TS 5.29) is NOT formalised here.  A type-level
---    statement of it would be a function â• â’ Profile that is non-constant,
---    which is trivially inhabited and would prove nothing.  Its content in
---    this repository is empirical â” some claims in `machine/machine.log`
---    appear in BOTH the accept and the reject stream â” and it is recorded
---    where empirical facts belong, in the census.
---    The claim
---    Â§5 actually rests on is only that the overlap is NON-EMPTY: the same
---    claim is both accepted and rejected somewhere in the stream.
-------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 -- RELATION TO `Saptabhangi.agda`.

@@ -7,8 +7,7 @@
 -- every position carrying the standpoints that produced it.
 --
 -- SOURCES, EARLIEST FIRST.  The classification is theirs.  The two
--- operations below are named for a distinction they draw; the algebra
--- (‡ï‡‡∞‡Æ‡æ‡∞‡‡‡‡Æ‡, ‡‡‡æ‡∞‡‡‡‡Æ‡, ‡‡‡∞‡∞‡ã‡‡, ‡‡‡∞‡‡µ‡) is not claimed to be in any of them.
+-- operations below are named for a distinction they draw.
 --
 --   Bhagavat Stra (Viyha-pannatti), fifth Aga of the vetmbara canon;
 --     oldest strata pre-Common-Era, redacted at Valabh c. 5th c. CE ‚î
@@ -123,7 +122,7 @@ record ‡§∂‡•á‡§∑ {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') : Type (‚Ñì-max ‚Ñì ‚Ñì') 
 
 open ‡§∂‡•á‡§∑ public
 
--- ‡µ‡ø‡µ‡‡ï‡ ‚î the two standpoints are DERIVED to be distinct.  Not asserted:
+-- ‡µ‡ø‡µ‡‡ï‡ ‚î the two standpoints are DERIVED to be distinct.:
 -- if they were one standpoint, its own proof would refute it.  This is
 -- what the record buys that a label cannot: a fact about the object.
 ‡§µ‡§ø‡§µ‡•á‡§ï‡§É : {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') (œÉ : ‡§∂‡•á‡§∑ P)

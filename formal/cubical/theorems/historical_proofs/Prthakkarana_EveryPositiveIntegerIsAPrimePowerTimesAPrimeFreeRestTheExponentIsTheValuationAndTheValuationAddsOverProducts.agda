@@ -65,24 +65,6 @@
 --       identity 2 = à®à¾à¨à®à 2 12 = à®à¾à¨à®à 2 4 + à®à¾à¨à®à 2 3 is refl on both
 --       sides.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS **NOT** CLAIMED.
---
---   Â à¦ààà®à is Drdha's predicate ("1 < p and every divisor is 1 or p"),
---     and IsPrime / IsPrimePower are theorems/number's.  This module does
---     NOT identify them.
---     The bridge à¦ààà®à p â” IsPrime p is not
---     written here.
---   Â The SIMULTANEOUS splitting n â‰¡ smooth n Â rough n over several
---     primes at once (the (vâ , vâ , vâ) of SieveRoughBridge) is not
---     stated; it is three applications of Â§à¨ and Â§à, and the extra
---     bookkeeping is not done here.
---   Â Nothing is said about the walk's installs (WalkInduction); this is
---     the arithmetic it asks for, not the induction along the walk.
---   Â `à®à¾à¨à®à p n pos` for p NOT firm is a count in a list of firm numbers
---     and is therefore 0; that is true but not stated, since the
---     valuation is meaningful only at firm p.
---
 ------------------------------------------------------------------------
 
 module Prthakkarana_EveryPositiveIntegerIsAPrimePowerTimesAPrimeFreeRestTheExponentIsTheValuationAndTheValuationAddsOverProducts where

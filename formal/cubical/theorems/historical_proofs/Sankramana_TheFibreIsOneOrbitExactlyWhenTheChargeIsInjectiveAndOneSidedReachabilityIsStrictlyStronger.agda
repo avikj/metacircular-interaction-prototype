@@ -54,18 +54,10 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
--- **Nothing here says the two-sided hypothesis is CHEAP.**  It is a real
--- hypothesis about the flow; ¬ß‡ only shows it is strictly weaker than
--- the one-sided one, not that it is free.
---
 -- **¬ß‡ refutes a hypothesis, not a theorem.**  `Kaksya` ¬ß‡ proves that
 -- `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ b` implies no invariant separates the fibre; that theorem
 -- is untouched and true.  What is refuted is `SamanaKaksya` ¬ß‡'s claim
 -- that `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡` is *the* content of injectivity.
---
--- **No claim about the untruncated relation.**  Whether `[ a ] ‚â° [ b ]`
--- yields `‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ` itself (rather than its truncation) is not
--- addressed and is false in general for relations carrying data.
 --
 -- TERMS.  ‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ ‚î "passing over, transition"; in jyotia the sun's
 -- sakrnti, its passage from one ri into the next (standard in the
@@ -312,9 +304,7 @@ private
   ... | suc n , p = true‚â¢false (sym (‡§∏‡•ç‡§•‡§ø‡§∞‡§Æ‡•ç n true) ‚àô p)
 
 ------------------------------------------------------------------------
--- SCOPE.
---
--- **Nothing here is about the h-level of `A`.**  `A` is never assumed to
+-- `A` is never assumed to
 -- be a set; `isSet B` is used only where `SamanaKaksya` ¬ß‡ used it, plus
 -- once in `injEmbedding`.
 ------------------------------------------------------------------------
