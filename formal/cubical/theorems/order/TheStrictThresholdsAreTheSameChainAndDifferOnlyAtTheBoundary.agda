@@ -168,14 +168,8 @@ atLeastWithoutAbove :
 atLeastWithoutAbove = boundaryMeetsHalf , boundaryIsNotAboveHalf
 
 ------------------------------------------------------------------------
--- The NOT-CLAIMED section says:
---
---   "that every threshold has such a population is NOT proved, and
---    would need a construction of a population realising an arbitrary
---    p/(suc q), which is a divisibility statement about â• and not a
---    statement about lists."
---
--- Proved in
+-- That every threshold has such a population, realising an arbitrary
+-- p/(suc q), is proved in
 -- `EveryThresholdHasABoundaryPopulationOfItsOwnDenominator`
 --
 -- It is a statement about â•: the DENOMINATOR IS THE LENGTH.  For p â‰ suc q the
@@ -184,12 +178,9 @@ atLeastWithoutAbove = boundaryMeetsHalf , boundaryIsNotAboveHalf
 -- count exactly p, so `p Â length â‰¡ suc q Â count` on the nose.  No
 -- subtraction, no gcd, no lowest terms.
 --
--- One thing the earlier statement did not notice and the new module
--- makes load-bearing: the EMPTY population meets every threshold and
--- refutes every strict one, since `p Â 0 â‰¡ 0 â‰¡ suc q Â 0`.  So the
--- sentence quoted above is TRUE VACUOUSLY as stated, and a proof of it
--- in that form would say nothing about the gap between the families.
--- The new theorem therefore returns `length bs â‰¡ suc q` as part of the
+-- The EMPTY population meets every threshold and
+-- refutes every strict one, since `p Â 0 â‰¡ 0 â‰¡ suc q Â 0`.
+-- The theorem returns `length bs â‰¡ suc q` as part of the
 -- claim, which the empty witness fails.  `emptyMeetsEveryThreshold` and
 -- `emptyIsAboveNoThreshold` are checked there too, precisely so the
 -- vacuous reading cannot be mistaken for the theorem.

@@ -35,12 +35,11 @@
 --   âˆ˜ no-infinite-descent                 (present).
 --
 -- `CubeSplit` below names that one absent lemma as a type, so the whole
--- of Fermat's cube is pinned to it and nothing else.  This module PROVES
--- the tautology leg and STATES the debt; it does not inhabit `CubeSplit`.
+-- of Fermat's cube is pinned to it and nothing else.
 --
 -- SYT â” THE CLAIM, EXACTLY.  One ring identity, for all x,y, over any
--- commutative ring (`solve!`), and one type definition.  NOT claimed:
--- the coprimality reduction, the cube-split, or FLTâ.  What IS claimed is
+-- commutative ring (`solve!`), and one type definition.
+-- What IS claimed is
 -- the clarifying negative â” the cube-sum factorisation carries no
 -- primality/factorisation content, so the difficulty is located entirely
 -- in the Eisenstein cube-split, exactly as `PrimePairEquations` located

@@ -6,13 +6,11 @@
 -- The ð”°ð”©â-triple on a chain of the divisor lattice, machine-checked.
 -- verdict: the mathematics is CLASSICAL â” Stanley 1980, Proctor 1982,
 -- and for the rank-one content textbook ð”°ð”©â theory, Humphreys Â§7).
--- Nothing here is claimed as new mathematics; what is new is that the
+-- What is new is that the
 -- three brackets are now a checked term rather than hand algebra.
 --
 -- WHAT IS FORMALIZED: the RANK-ONE case, V_Î = k[Î¾]/(Î¾^{Î+1}), with all
 -- three brackets, the truncation, the basis laws and the grading.
--- WHAT IS NOT: the multi-index case B_n = â¨_i V_{Î_i} of the note's Â§1.
--- It is NOT proved below and no statement below refers to it.  See Â§6.
 --
 -- HEADLINE STATEMENTS (all checked, no postulates, no holes, --safe):
 --

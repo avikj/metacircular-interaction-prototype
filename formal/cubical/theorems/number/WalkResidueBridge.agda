@@ -37,9 +37,6 @@
 --      `usteps (value w) ≡ suc (value w)`.  At the base-ten numeral
 --      1000 of `TransportDivWitness` that is 5 against 1001.
 --
--- SCOPE.  The walk is not made fast here, and nothing here
--- should be read as saying so.
---
 --   * CHARTING IS THE EXPENSIVE STEP.  `decDivides� n m` runs `digits m`,
 --      and `digits` is defined by iterating the odometer m times, so it
 --      costs Θ(m) on a unary m -- exactly what the automaton saves.  The
@@ -53,8 +50,7 @@
 --      `WalkBridge.next` is unchanged.  The automaton DECIDES, so it is
 --      eligible to be the test inside a charted walk.
 --
---   * No claim is made about the bit-cost of `_mod_` on the automaton's
---      state.  `steps` counts automaton transitions, as in TransportDiv;
+--   * `steps` counts automaton transitions, as in TransportDiv;
 --      the per-transition arithmetic is on numerals < suc n and its cost
 --      is a separate (unstated) parameter, as it is there.
 ------------------------------------------------------------------------

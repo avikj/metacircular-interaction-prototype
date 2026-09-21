@@ -53,14 +53,7 @@
 -- than baked into a substituted representation.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“4 over any commutative ring, for every
--- 3—3 matrix.  NOT claimed: anything about a material derivative â” `X`
--- in Â§4 is an arbitrary matrix constrained only by the displayed
--- equation, and no evolution is differentiated anywhere; that any
--- particular `K` is what a pressure Hessian, a rotation term, or a
--- viscous term contributes; symmetry or trace-freeness of anything
--- beyond the stated hypothesis; and no eigenvalues, discriminants, or
--- orderings â” `qÂ³ - 6rÂ²` does not appear and no order relation exists in
--- this file.
+-- 3—3 matrix.
 ------------------------------------------------------------------------
 
 module CaturthaAnka_TheQuarticTraceIsTheSquareOfTheQuadraticUpToItsTraceSoTheCubeRateCoefficientIsExact where

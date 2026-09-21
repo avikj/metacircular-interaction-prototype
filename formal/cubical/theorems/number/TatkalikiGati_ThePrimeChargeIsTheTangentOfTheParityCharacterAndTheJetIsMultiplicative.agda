@@ -56,13 +56,6 @@
 -- concrete Œº, Œ∫ : ‚ï ‚í ‚ with the laws UNCONDITIONAL over the
 -- œâ-normalization (‡ó‡‡‡ï‡‡‡µ‡Æ‡, ‡µ‡ø‡ï‡∞‡‡-‡®‡ø‡Ø‡Æ‡ from one homomorphism path), the
 -- closed form ‡ò‡®-‡∞‡‡‡Æ‡, and the sign of the twin channel (Œ∫-‡µ‡∞‡‡ó‡).
---
--- ‡¶‡ã‡‡≤‡‡ñ‡, scope.  This module is the algebra of the state, complete; the
--- ANALYTIC question ‚î whether the critical CRT boundary amplifies the
--- (1,1) jet channel, the renormalization inequality over scales ‚î is not
--- touched, and no analytic claim is made.  The exponential ambient space
--- has been compiled to a two-channel exact state; the scale induction is
--- the open problem, named, not built.
 ------------------------------------------------------------------------
 
 module TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative where

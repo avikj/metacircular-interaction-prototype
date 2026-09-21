@@ -62,7 +62,7 @@
 --                    of indicators is the reflection of HomometricPair
 --                    (`reflect11` there, with 11 replaced by d).
 --
--- SCOPE.  (i) `reflect-iv` and `reflect-support` are
+-- (i) `reflect-iv` and `reflect-support` are
 -- established by exhaustion for diameter â‰ 10, not as general lemmas
 -- for all d; the minimality theorem does not depend on them â” the sweep
 -- compares every pair directly, without symmetry reduction â” they are

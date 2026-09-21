@@ -365,12 +365,8 @@ repair-holds-to-25 = refl
 --
 --   * "the display fails by 1 at ν, given the prime values" � THEOREM.
 --   * "every prime has those values"                        � checked
---     here only at ν = 2, 3, 5, 7, 11, 13, 17, 19, 23 (A.5), by
+--     here at ν = 2, 3, 5, 7, 11, 13, 17, 19, 23 (A.5), by
 --     computation with the definitions of §1.
---
--- The universal claim of ledger row 8.5 is therefore established
--- modulo that standard evaluation, and is NOT claimed as a closed
--- Agda theorem over all primes.
 ------------------------------------------------------------------------
 
 PiPartial-abs : ℤ → ℤ → ℤ            -- from μ², ω

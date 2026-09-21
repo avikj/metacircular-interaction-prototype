@@ -29,17 +29,17 @@
 -- arrives whole or not at all.  (At strata BELOW the silence boundary
 -- the truncation is contractible a fortiori by the same connectivity.)
 --
--- SOURCES AND SCOPE (the six rules).  The engines are the LIBRARY's:
+-- SOURCES (the six rules).  The engines are the LIBRARY's:
 -- sphereConnected (Cubical.HITs.Sn.Properties) for the silence;
 -- œTruncIso and isSetŒ©Trunc (Cubical.Homotopy.Group.Base) and
 -- œ‚ôS‚ø‚â‚ (Cubical.Homotopy.Group.PinSn) for the utterance.  This
 -- module's content is their COMPOSITION into the adjacency statement.
 -- The reading-word ‡‡∞‡‡‡ø‡/‡‡®‡∞‡‡‡ø‡ is Umsvti, Tattvrthastra 5.31
 -- (‡‡∞‡‡‡ø‡‡æ‡®‡∞‡‡‡ø‡‡‡ø‡¶‡‡ß‡‡), as in StaraArpana: the stra names
--- establishment from the emphasized and the non-emphasized aspect and
--- is NOT claimed to grade truncations by h-level.  ‡‡®‡®‡‡‡∞ (without
+-- establishment from the emphasized and the non-emphasized aspect.
+-- ‡‡®‡®‡‡‡∞ (without
 -- interval, immediately adjacent) is ordinary ; the compound
--- ‡‡®‡®‡‡‡∞-‡‡∞‡‡‡ is built here and claimed of no source.
+-- ‡‡®‡®‡‡‡∞-‡‡∞‡‡‡ is built here.
 ------------------------------------------------------------------------
 
 module AnantaraArpana_TheStratumAboveSilenceCarriesTheWholeChargeForEverySphere where

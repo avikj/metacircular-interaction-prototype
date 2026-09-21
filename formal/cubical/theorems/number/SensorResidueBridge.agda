@@ -11,7 +11,6 @@
 -- with `m ∣ dist a b` in place of equal residues `(n mod m)_{m∈S}`.
 -- This module is the identification of the two.
 --
---
 -- WHAT IS CHECKED
 --
 --   §1  `mult-diff`      the one piece of arithmetic the bridge needs:
@@ -93,10 +92,7 @@
 --                        says the two decisions are equal, not merely
 --                        both correct.)
 --
---
--- SCOPE
---
---  * Nothing here is novel.  "Congruent modulo every element of S iff
+--  * "Congruent modulo every element of S iff
 --    congruent modulo lcm S" is elementary, and so is the m � a−b
 --    characterisation of congruence.  What is new is that the two
 --    presentations are now the SAME TYPE in this development, so the
@@ -104,9 +100,6 @@
 --    be quoted interchangeably without an unchecked step in between �
 --    and that the boundary case where they are NOT the same type (§5) is
 --    on the record.
---
---  * No cost claim.  §6 exhibits the automaton form; the step counts are
---    `TransportDiv.steps` and are not re-derived here.
 ------------------------------------------------------------------------
 
 import Digits            as Dg

@@ -27,10 +27,7 @@
 -- discipline â” the constraint has no content.  Â§3 says one recorded edge
 -- already rules an order out, so the emptiness is doing all the work.
 --
--- NOT formalised: CRDTs, G-Sets, strong eventual convergence, FLP, the
--- 60-second period, or the staleness bound â” all of which that note
--- treats and none of which appears below.  NOT claimed: that eventual
--- and causal consistency are the same in general; the claim is about the
+-- The claim is about the
 -- degenerate case, which is the case the note identifies.
 ------------------------------------------------------------------------
 

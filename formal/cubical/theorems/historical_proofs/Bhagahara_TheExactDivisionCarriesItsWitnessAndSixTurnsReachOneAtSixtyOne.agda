@@ -56,7 +56,7 @@
 -- them by computation for the six particular turns.
 --
 -- The ‡‡ï‡‡∞‡µ‡æ‡≤ STEP is formalised, and one
--- complete ‡‡ï‡‡∞‡µ‡æ‡≤ RUN is executed in the kernel..
+-- complete ‡‡ï‡‡∞‡µ‡æ‡≤ RUN is executed in the kernel.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- SOURCES.
