@@ -1,6 +1,6 @@
 # What the cubical core gives an engineer
 
-`README.md` says what the port is and `REPORT.md` says how every line of
+`README.md` says what the port is and `TECHNICAL_REPORT.md` says how every line of
 it works. This document says what it is *for*: what a Bend programmer can
 now write that they could not, what can no longer go wrong, and what it
 costs. Each point names the test in `tests/cubical/` that demonstrates it,
