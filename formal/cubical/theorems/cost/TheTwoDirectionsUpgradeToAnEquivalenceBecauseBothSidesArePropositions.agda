@@ -22,9 +22,7 @@
 -- assumed, nothing is smuggled, and neither direction is more expensive
 -- than the other â” which is what diagnostic (1) predicts when the two
 -- sides are joined by an INDUCTION rather than by an implication
--- assumed or a path given.  Recorded plainly: three of this sweep's
--- findings were faults and two were not, and a sweep that only finds
--- faults is not auditing.
+-- assumed or a path given.
 --
 -- **BUT THE MODULE SAYS SOMETHING STRONGER THAN IT PROVES, AND IT IS
 -- TRUE, AND IT IS FREE.**  Its Â§2 heading is *"The universal claim and
@@ -58,9 +56,6 @@
 --   allIsRateOne     hence `All bs â‰ (count bs â‰¡ length bs)`, with the
 --                    audited module's two functions REUSED, not
 --                    restated
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheTwoDirectionsUpgradeToAnEquivalenceBecauseBothSidesArePropositions where

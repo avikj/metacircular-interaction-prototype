@@ -33,9 +33,6 @@
 -- norm-preserving (lossless) automorphism: ahis over â, exactly as a
 -- permutation is ahis over a set.  NONE of that â / U(2) content is checked
 -- here; only the impossibility that forces it.
---
--- Checked at the pin: --cubical --safe, agda 2.6.3 + cubical (loads clean);
--- uses no v0.9-only construct.
 ------------------------------------------------------------------------
 
 module VargamulaViparyaya_TheSwapHasNoSquareRootOnTheSetSoTheQubitIsForced where

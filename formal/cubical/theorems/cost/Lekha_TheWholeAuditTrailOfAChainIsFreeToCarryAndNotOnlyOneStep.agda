@@ -27,9 +27,6 @@
 -- the reversible computer's garbage tape and the constructive proof's
 -- carried witness are one object โ” is that sentence, and ยงเจ is the part
 -- of it that has to be true for the economics to work.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
--- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Lekha_TheWholeAuditTrailOfAChainIsFreeToCarryAndNotOnlyOneStep where

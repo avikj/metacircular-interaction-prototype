@@ -6,14 +6,13 @@
 -- (the fiber of a weighted counting map splits by the head's weight.)
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- `Avrtti_â¦agda` Â§à names this as its next rung, in its own words:
+-- `Avrtti_â¦agda` Â§à names this as its next rung:
 -- `length` charges one per constructor so its fiber recurrence has no
--- guard, while a WEIGHTED map does, "and the general weighted emitter is
--- not written here."  It even gives the shape it would have.  This writes
--- it.
+-- guard, while a WEIGHTED map does.  This writes the general weighted
+-- emitter.
 --
--- THE CORRECTION TO THAT SHAPE, and it is why the rung is a rung.  Â§à
--- proposes
+-- THE SHAPE, and it is why the rung is a rung.  A first guess
+-- is
 --
 --     fiber f n â‰ Î[ x âˆˆ X ] Î[ m âˆˆ â• ] (w x + m â‰¡ n) — fiber f m
 --
@@ -30,9 +29,6 @@
 -- contract away and the form collapses to Â§à¨'s.  The intermediate value
 -- rides free â” `fiber/src/Fiber/Carrier.agda`, and `Lekha_â¦agda` for the
 -- same fact at length.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
--- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Bharavrtti_TheWeightedCountingMapsFiberDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand where

@@ -60,9 +60,6 @@
 -- no source states a fiber, a type, or an equivalence.  What is claimed
 -- is that the objects the pratyayas enumerate ARE the fibers of the
 -- counting maps â” a fact about the definitions in `PingalaPrastara.agda`.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Avrtti_TheFiberOfACountingMapSatisfiesARecurrenceAndThatRecurrenceIsSankhya where
@@ -166,35 +163,20 @@ module _ {X : Type â„“} where
 -- charges 1 for à²à˜à and 2 for à—àà°à, so its fiber over `n` decomposes as
 -- the fiber over `n âˆ 1` plus the fiber over `n âˆ 2`, and each summand
 -- needs a proof that the weight fits.  That is exactly
--- `PingalaPrastara.matrameruIso`, proved by hand, and the general
--- weighted emitter is not written here.
+-- `PingalaPrastara.matrameruIso`, proved by hand; the general
+-- weighted emitter is `Bharavrtti_TheWeightedCountingMapsFiberDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand.agda`.
 --
--- ~~The general shape it would have: for `f : List X â’ â•` with
+-- The general shape: for `f : List X â’ â•` with
 -- `f [] = 0` and `f (x âˆ xs) = w x + f xs`,
---
---     fiber f n  â‰  Î[ x âˆˆ X ] Î[ m âˆˆ â• ] (w x + m â‰¡ n) — fiber f m
---
--- with the base at `n â‰¡ 0`.  Every summand carries its own fitting
--- proof, which is why the weighted case is a rung above Â§à§ and not a
--- corollary of it.~~
---
--- **STRUCK 2026-08-23 â” THE SHAPE CANNOT HOLD AS STATED, and the rung is
--- written.**  The empty list inhabits `fiber f 0` and has no head `x` to
--- produce, so the right-hand side is uninhabited where the left is not.
--- "The base at `n â‰¡ 0`" names the gap without closing it: the nil case is
--- not a base condition on `n`, it is a SEPARATE SUMMAND, and the honest
--- decomposition is a coproduct:
+-- the nil case is a SEPARATE SUMMAND and the decomposition is a coproduct:
 --
 --     fiber f n â‰ (0 â‰¡ n) âŠ (Î[ x âˆˆ X ] Î[ xs âˆˆ List X ] (w x + f xs â‰¡ n))
 --
--- And the second sentence is wrong in the other direction: no summand
--- constructs a fitting proof.  `f (x âˆ xs)` REDUCES to `w x + f xs`, so
+-- `f (x âˆ xs)` REDUCES to `w x + f xs`, so
 -- the path is carried across unchanged and both round trips close by
--- `refl` â” the guard this paragraph anticipated does not appear.  The
--- `Î[ m ]` form above is equivalent anyway, since `Î[ m ] (f xs â‰¡ m) — â¦`
+-- `refl`.  The cons summand is equivalently
+--     Î[ x âˆˆ X ] Î[ m âˆˆ â• ] (w x + m â‰¡ n) — fiber f m
+-- since `Î[ m ] (f xs â‰¡ m) — â¦`
 -- carries a contractible `singl (f xs)`.
---
--- Written and checked at
--- `Bharavrtti_TheWeightedCountingMapsFiberDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand.agda`,
--- exit 0.  The rung IS above Â§à§ â” that part stands â” but for the reason
--- that the codomain splits, not because fitting proofs must be built.
+-- The rung is above Â§à§ because the codomain splits, not because
+-- fitting proofs must be built.

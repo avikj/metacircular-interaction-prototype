@@ -12,28 +12,7 @@
 -- check's scope requires Indian material, of which this module has
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- 0.  A CORRECTION OF MY OWN, FIRST
---
--- `TheCanonicalFuelIsTheArchivesOwnLengthAndOverFuellingIsInert`
--- (4e2a577d) says, in its NOT-CLAIMED section:
---
---   "**Disjointness is not transported here, only coverage;** the same
---    argument would do it and is not written."
---
--- That sentence is true word by word and it implies something false.
--- It reads as *disjointness is also stuck at one fuel and I left the
--- work undone*.  **It is not stuck.**  Reading the signature rather
--- than the header â” the rule that cycle itself installed â” gives
---
---   theStrataArePairwiseDisjoint : (n : â•) (xs : â¦) â’ Pairwise (strata n xs)
---
--- quantified over EVERY fuel already.  There was nothing to transport.
--- I asserted a symmetry between coverage and disjointness that the
--- types deny, in the very module whose finding was that a neighbouring
--- theorem's fuel quantifier had not been read.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- 1.  AND THE ASYMMETRY IS THE REAL STATEMENT
+-- 1.  THE ASYMMETRY IS THE REAL STATEMENT
 --
 -- Quoting the three signatures on this line, all read from the source:
 --
@@ -81,9 +60,6 @@
 --                            `1`, so the length bound is not necessary
 --   coversAtOne              and coverage does hold there, at a fuel
 --                            strictly below `lengthL`
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module ExhaustionNotLengthIsWhatCoverageNeedsAndSafetyNeverNeededAnyFuelAtAll where

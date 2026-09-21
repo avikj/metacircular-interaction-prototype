@@ -49,10 +49,6 @@
 -- claimed for the term or for any statement below, per CLAUDE.md's
 -- naming rule note 2.  The mathematics is cubical type theory
 -- (Voevodsky), this repository's one admitted non-Indian frame.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 â” the container, NOT the
--- repository pin (2.8.0 + v0.9); the same standing `Vyapti` itself
--- declares.  --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Agamya_TheLossOrderReadsTheUnreachedAndTheConservingFlowsCannotSoVyaptisFenceIsATerm where

@@ -30,16 +30,11 @@
 -- away.**  `IsParetoMaximal v xs` is `Â Any (StrictlyDominates v) xs`,
 -- so failing it gives `Â Â Any â¦`, not `Any â¦`.  The dominator is
 -- recovered only because `decAny decStrictlyDominates` makes that `Any`
--- DECIDABLE, hence stable.  This is the fourth cycle on this line to
--- turn on the same decision, and it is the reason the decision was
--- worth proving first.
+-- DECIDABLE, hence stable.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NO NOVELTY.  A filter's complement keeps the non-satisfiers, and a
 -- decidable proposition is stable; both elementary.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module EveryRemainderMemberIsStrictlyDominated where

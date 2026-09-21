@@ -28,9 +28,6 @@
 -- words are "the projections ‡µ‡æ‡Æ and ‡¶‡ï‡‡‡ø‡ do not match".  It is
 -- discharged below BY THE ‡‡‡∞‡Æ‡æ‡ FIELD (path in `v` is sym ‡‡‡∞‡Æ‡æ‡; the
 -- ‡‡‡∞‡Æ‡æ‡ component by isSet ‡µ‡ø‡µ‡‡ï), which is what that field is for.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 (b150186), --safe, no
--- postulates, no holes.  EXIT 0.
 ------------------------------------------------------------------------
 
 module VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal where

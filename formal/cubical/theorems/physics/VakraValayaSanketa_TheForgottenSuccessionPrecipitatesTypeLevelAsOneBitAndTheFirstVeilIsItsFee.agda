@@ -5,14 +5,14 @@
 -- up, as exactly one bit: HÂ² separates what the stratum cannot, and the
 -- first veil is the fee.
 --
--- THE QUESTION, asked because its answer was not known to the asker.
--- VakraValaya (this tree, earlier today) proved the torus and the Klein
+-- THE QUESTION.
+-- VakraValaya proved the torus and the Klein
 -- bottle share one stratum-3 charge carrier â” â — â, the same three
 -- library terms â” and are separated by the KRAMA alone: succession
 -- commutes on the torus (àà®à, the torus's own square) and provably does
 -- not on the Klein bottle (ààà¦à, windingKlein computing (âˆ’1,âˆ’1) â‰ 
 -- (âˆ’1,+1)).  Its header concludes "the succession is not recoverable
--- from the carrier."  The question that leaves open: is the difference
+-- from the carrier."  The question: is the difference
 -- then invisible to EVERY type-level utterance â” or does some functor
 -- utter it?
 --
@@ -47,13 +47,6 @@
 -- presentation and the identification of the two torus presentations
 -- is carried by the library, not re-landed.  What is claimed is only
 -- what is checked: the two HÂ² carriers are inequivalent as types.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 (bootstrap toolchain of the
--- loss lane, standalone library file), exit 0, no postulates,
--- no holes.  HÂ²-ð•Â²â‰Bool and HÂ²-TÂ²â‰â are present with identical names
--- and statements in v0.5 and v0.9 (grep-verified against a fresh v0.9
--- clone, 2026-08-23) â” the Bhavana precedent: a reason to expect the
--- tree's pin to accept it, recorded next to the check that ran.
 --
 -- SOURCES: HÂ²-ð•Â²â‰Bool, Cubical.ZCohomology.Groups.KleinBottle (the
 -- Brunerieâ“Ljungstrm line); HÂ²-TÂ²â‰â, Cubical.ZCohomology.Groups.Torus.

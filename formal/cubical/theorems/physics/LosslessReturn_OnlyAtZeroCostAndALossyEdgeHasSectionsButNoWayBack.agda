@@ -25,9 +25,6 @@
 -- a description.  It stops you returning to the THING.  ยงเฉ is that, and
 -- ยงเ is its converse: at zero defect the way back exists and is the
 -- equivalence's own inverse.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
--- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module LosslessReturn_OnlyAtZeroCostAndALossyEdgeHasSectionsButNoWayBack where

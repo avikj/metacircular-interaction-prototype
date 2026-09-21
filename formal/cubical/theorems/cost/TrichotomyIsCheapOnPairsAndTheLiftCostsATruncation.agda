@@ -54,9 +54,6 @@
 -- â• is library.  The one thing worth recording is the shape: an
 -- untruncated statement over a set-quotient costs its own `isProp`
 -- proof, and the truncated one does not.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation where

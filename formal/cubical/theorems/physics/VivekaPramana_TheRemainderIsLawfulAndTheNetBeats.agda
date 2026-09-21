@@ -39,9 +39,6 @@
 -- modality and this is not that.  The real â– needs --guarded and a clock
 -- (Cubical.Later), which is ABSENT FROM THE PIN (v0.9) â” checked, not
 -- assumed.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 (b150186), --safe, no
--- postulates, no holes.  EXIT 0.
 ------------------------------------------------------------------------
 
 module VivekaPramana_TheRemainderIsLawfulAndTheNetBeats where

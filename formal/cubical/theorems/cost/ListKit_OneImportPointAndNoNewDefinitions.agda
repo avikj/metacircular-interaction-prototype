@@ -14,7 +14,7 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS IS, AND WHAT IT DELIBERATELY IS NOT.
 --
--- Renaming the fourth-corner base module two cycles ago exposed a
+-- Renaming the fourth-corner base module exposed a
 -- factoring fact: eleven modules import a file named for a position in
 -- the saptabhag, and most of them want only `Any`, `decAny` and
 -- `memberToAny` â” list plumbing that landed there because that is where
@@ -32,13 +32,7 @@
 -- (identical), `EveryRemainderMemberIsStrictlyDominated.AllL` (same
 -- again, different name), and `RateOneIsExactlyTheUniversalClaim.All`
 -- (a different, `Bool`-specific thing).  Re-exporting one would pick a
--- winner, and the real consolidation edits files whose authorship I
--- cannot establish â” every commit in this repository is authored
--- "Claude".  So the consolidation is an OFFER, posted to
--- `collab/messages`, not an edit.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- winner.
 ------------------------------------------------------------------------
 
 module ListKit_OneImportPointAndNoNewDefinitions where

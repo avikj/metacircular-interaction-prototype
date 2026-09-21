@@ -55,10 +55,6 @@
 -- ‡≤‡ã‡‡, and 1.1.62, where the operations conditioned by the elided affix
 -- still apply.  LIMIT: both words are used in their plain senses and
 -- neither source states anything below.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 ‚î the container, NOT the
--- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
--- holes, exit 0.
 ------------------------------------------------------------------------
 
 module Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFiber where

@@ -9,14 +9,7 @@
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- `RnaDhana_TheParetoMaximumTransfersToCostCoordinates` transferred
--- maximal EXISTENCE and named what it could not:
---
---   "the stratification is NOT transferred here â” that needs the whole
---    peeling to be run on flipped vectors and pulled back layer by
---    layer, and it is a separate cycle."
---
--- The first layer is transferred here, and the result is stronger than
--- the membership correspondence I expected to have to settle for: the
+-- maximal EXISTENCE.  The first layer is transferred here, and the
 -- two layers are the SAME LIST.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -59,9 +52,6 @@
 -- NO NOVELTY.  Filter/map commutation and "equal filters from
 -- pointwise-equivalent predicates" are standard list lemmas; the
 -- Pareto layer is Goldberg/Deb non-dominated sorting.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum where

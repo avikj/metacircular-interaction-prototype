@@ -95,9 +95,6 @@
 --      phenomenon, and ¬ß‡ prices both.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.  Exit code reported in the session log.
 ------------------------------------------------------------------------
 
 module Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre where
@@ -577,30 +574,15 @@ snd ‡§∏‡§Æ‡§∑‡•ç‡§ü‡§ø‡§É-‡§∞‡§ø‡§ï‡•ç‡§§‡§æ (tt , r) = Œ£‚â°Prop (Œª _ ‚Üí isSe
 ‡§∂‡•á‡§∑-‡§®‡§ø‡§µ‡•É‡§§‡•ç‡§§‡•å = ‡§∂‡•á‡§∑ ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£ ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ tt
 
 ------------------------------------------------------------------------
--- ‡Ø ¬ ‡‡‡‡ ‚î what this leaves open.
+-- ‡Ø ¬ ‡‡‡‡ ‚î scope.
 --
--- (a) ONE chain is priced.  The result that generalises is ¬ß‡'s, and it
---     is a NEGATIVE one: the per-step fibres do not determine the
---     composite's fibre unless the earlier map's fibre is uniform.  What
---     a general POSITIVE ledger would need is a way to carry the
---     alignment term ‚î the family `Œª p ‚í fiber f (fst p)` over `fiber g
---     z` ‚î as data, and no module in this corpus does that yet.
+-- The result that generalises is ¬ß‡'s, and it
+-- is a NEGATIVE one: the per-step fibres do not determine the
+-- composite's fibre unless the earlier map's fibre is uniform.
 --
--- (b) Everything here is finite, decidable and a set.  `Lopa_‚¶` prices an
---     edge with an unbounded fibre; nothing here says the composite of
---     two such edges behaves like ¬ß‡, and the ‚ï-indexed case is the next
---     honest step.  `YugmaPurana_‚¶`'s ‚/2 cut composed with `‡Ø‡ã‡ó` is the
---     nearest chain in the corpus whose middle is not enumerable.
+-- Everything here is finite, decidable and a set.
 --
--- (c) The absence in ¬ß‡ was FOUND, not derived: the chain was chosen so
---     that ‡‡‡∞‡µ‡‡ would miss a point of ‡‡‡∞‡‡Æ‡æ‡‡'s fibre over `false`.
---     Whether a route through the corpus's directed graph can be
---     SEARCHED for its alignment terms ‚î which points of which fibre a
---     given edge misses ‚î is open, and it is the question that decides
---     whether the ledger is computable or only checkable.
---
--- (d) Not attempted: any claim that the arithmetic 4 ‚àí 3 = 1 is the
---     "size" of the absence.  ¬ß‡ proves a non-equivalence of types; the
---     subtraction is a reading, and the corpus has been burned before by
---     a number that looked like knowledge.
+-- No claim is made that the arithmetic 4 ‚àí 3 = 1 is the
+-- "size" of the absence.  ¬ß‡ proves a non-equivalence of types; the
+-- subtraction is a reading.
 ------------------------------------------------------------------------

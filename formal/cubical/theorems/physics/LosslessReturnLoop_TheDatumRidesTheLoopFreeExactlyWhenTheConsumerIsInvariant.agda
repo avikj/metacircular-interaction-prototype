@@ -42,9 +42,6 @@
 -- added `isSet`.  That refusal is the boundary between the two roads, and
 -- it falls on this side: holonomy is joined to its consumer by a PATH,
 -- and a path inverts.  **Holonomy is road one, not road two.**
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module LosslessReturnLoop_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant where

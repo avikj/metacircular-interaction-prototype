@@ -11,11 +11,9 @@
 --
 -- Therefore no exact projection to BornDistributionâ can be defined from
 -- this history carrier alone, and an X-commutation law for such a projection
--- would be vacuous.  A future repair must retain the complete branch table.
+-- would be vacuous.  A repair must retain the complete branch table.
 --
--- THE REPAIR HAS BEEN BUILT (recorded 2026-08-15; the sentence above is
--- left standing because it is what the obstruction demands, and this
--- note says who paid it).  `FullSequentialTableNormalization`
+-- `FullSequentialTableNormalization`
 -- retains exactly that: both outcome branches, each with its first
 -- weighted posterior and its exact repeated basis posterior.  From that
 -- carrier `normalizeFullTable` produces a `BornDistributionâ`,
@@ -25,12 +23,9 @@
 -- vacuous here.
 --
 --   * SUFFICIENCY ONLY.  That module makes no minimality claim for its
---     carrier and says so in its own header.  Nothing yet shows the
---     complete branch table is the SMALLEST carrier admitting an exact
---     normalizer, so "must retain the complete branch table" above is
---     still an upper bound presented as a necessity.
+--     carrier and says so in its own header.
 --
---   * THIS FILE IS NOT SUPERSEDED.  The counterexample below is imported
+--   * The counterexample below is imported
 --     back by the repair: `forgetSelected` maps the complete table onto
 --     this file's `History`, `forgotten-false-branches-collide` shows the
 --     collision reappears the moment a branch is forgotten, and

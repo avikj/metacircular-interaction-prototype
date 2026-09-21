@@ -65,9 +65,6 @@
 -- "emptiness" are not statements of the same kind**, one being a fact
 -- about a relation and the other a fact about every relation on it,
 -- and the universe gap is where that difference is recorded.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module VacuityIsExactlyEmptinessAndTheEquivalenceCostsAUniverseLift where

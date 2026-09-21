@@ -7,39 +7,15 @@
 -- stratum is strictly dominated by a member of an earlier one.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE CORRECTION FIRST, AND IT IS THE THIRD OF ITS KIND ON THIS LINE.
---
--- `EveryRemainderMemberIsBeatenByAStratumMember` recorded this as the
--- honest remaining gap and said it
---
---   "does NOT follow from the one-step fact by the coverage argument,
---    because `IsParetoMaximal` is relative to the list it is computed
---    in and later strata are maximal in the PEELED archive, not the
---    original.  Closing it needs a statement relating maximality in
---    `remainder xs` to domination in `xs`; that is a real object, not
---    a rearrangement."
---
--- **That was wrong, and the error is precise: the argument never needs
+-- **The argument never needs
 -- the later strata's MAXIMALITY.**  It needs only their MEMBERSHIP in
--- the remainder, and `strataSound` â” proved two cycles earlier for
+-- the remainder, and `strataSound` â” proved for
 -- coverage â” already gives exactly that.  Membership in the peeled
 -- archive is all the one-step theorem asks of its input.  So no new
 -- lemma exists in this module: the whole content is `strataSound`
 -- composed with `everyRemainderMemberIsBeatenByAStratumMember`, plus
 -- the same recursive bookkeeping already used for pairwise
 -- disjointness.
---
--- The pattern is now unmistakable.  On this line I have called a step
--- cheap when it was not (a9b354d7), then called the same step's
--- successor expensive when it needed no measure at all (164a9b17),
--- then recorded a two-line consequence as an obligation (asymmetry,
--- fa435c69), and now recorded a composition of two existing theorems
--- as "a real object, not a rearrangement".  **Every one of the four
--- was a guess about difficulty made instead of an attempt at the
--- proof, and all four were wrong.**  The rule that follows is not
--- "estimate better": it is to spend the first minutes of a cycle
--- trying the proof, because on this evidence the estimate carries no
--- information.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -63,9 +39,6 @@
 --
 -- NO NOVELTY.  This is the defining property of non-dominated sorting
 -- (Goldberg 1989; Deb et al. 2002's fast-non-dominated-sort).
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma where

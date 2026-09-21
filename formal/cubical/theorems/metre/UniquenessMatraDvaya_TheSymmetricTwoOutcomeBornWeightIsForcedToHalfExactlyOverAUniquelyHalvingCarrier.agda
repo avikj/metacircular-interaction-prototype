@@ -5,7 +5,7 @@
 -- step into the interior of the Born weights, past UniquenessMatra's support
 -- layer.  Program à of YugaParivartana.  2026-08-23.
 --
--- WHAT IS PROVED (kernel-checked).  On a symmetric two-outcome contention
+-- WHAT IS PROVED.  On a symmetric two-outcome contention
 -- (Bool), a weight rule obeying
 --   â à¯à‹à—à   â” normalisation: w(true) + w(false) â‰¡ ðŸ™
 --   â àà¾à®àà¯à®à â” permutation invariance (aneknta: neither outcome
@@ -23,9 +23,8 @@
 -- half exists and is unique, so the symmetric Born weight is forced; over
 -- a carrier where ðŸ™ has two distinct halves or none, it is not.  So the
 -- interior opens exactly over the archimedean carrier â” and the general
--- (asymmetric, higher-outcome) interior remains Gleason (dim â‰ 3), the
--- wall UniquenessMatra names.  Symmetric interior: reached.  General interior:
--- still walled, honestly.
+-- (asymmetric, higher-outcome) interior is Gleason's (dim â‰ 3), the
+-- wall UniquenessMatra names.
 ------------------------------------------------------------------------
 
 module UniquenessMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier where

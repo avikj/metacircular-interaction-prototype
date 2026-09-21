@@ -36,9 +36,6 @@
 -- edited (‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‚î ¬ß7 of the ahis-stra: no collapsing
 -- of a standpoint by deletion).  This is a new road laid beside theirs,
 -- carrying the derivation their road only gestured at.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
--- no holes, no native_decide.  Verified 2026-08-23.
 ------------------------------------------------------------------------
 
 module SamanaMarga_TheHandPathAndTheTransportPathAreOnePath where

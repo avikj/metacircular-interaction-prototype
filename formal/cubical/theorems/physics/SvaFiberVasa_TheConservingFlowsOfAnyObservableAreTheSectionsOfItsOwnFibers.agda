@@ -69,9 +69,6 @@
 -- (declared in `Tantujala_â¦.agda`'s header; no source text claims it),
 -- and the compound àààµàà¨ààààµà¾à is built here.  LIMIT: no text is claimed
 -- for the term or for any statement below.
---
--- CHECKED: Agda 2.8.0 + agda/cubical (installed bundle), --cubical
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibers where
@@ -206,25 +203,13 @@ module _ {A B B' : Type â„“} (f : A â†’ B) (g : A â†’ B') where
   à¤—à¤¾à¤®à¤¿à¤¨à¥€ h Ïƒ = invEq (à¤µà¤¾à¤¸à¤ƒ g) (Î» a â†’ h a (equivFun (à¤µà¤¾à¤¸à¤ƒ f) Ïƒ a))
 
 ------------------------------------------------------------------------
--- Â§à Â àààà â” what this opens and does not close.
+-- Â§à Â àààà â” the receipt-economy reading.
 --
--- (a) The flow SPACE is identified; the flow MONOID is not.  Composition
---     of conserving flows corresponds, across àµà¾àà, to a convolution of
---     sections (s âˆ— t) a = s applied at the point t chose â” stating that
---     as a monoid identification needs the section space given its
---     composite structure, and it is not given here.  Named, not done.
---
--- (b) `à—à¾à®à¿à¨à` is a map, not an embedding; when every h a is an
---     embedding the induced map is one too, which would make the scale a
---     genuine order.  Also not done: it needs fiber-wise embeddings to
---     induce Î -embeddings, which is a library fact this file does not
---     yet consume.
---
--- (c) The receipt-economy reading, recorded because it prices symmetry
---     itself: a conserving flow of f is EXACTLY one fiber-point per
---     point, so the "amount of symmetry" of an observable is its fiber
---     census summed over the domain â” the same census `Tantujala_â¦agda`
---     grades and `interactive/Lopa_â¦hs` queues.  Every unpriced fiber in the
---     dark-matter queue is, by this law, also an unpriced quantity of
---     symmetry.
+-- The receipt-economy reading, recorded because it prices symmetry
+-- itself: a conserving flow of f is EXACTLY one fiber-point per
+-- point, so the "amount of symmetry" of an observable is its fiber
+-- census summed over the domain â” the same census `Tantujala_â¦agda`
+-- grades and `interactive/Lopa_â¦hs` queues.  Every unpriced fiber in the
+-- dark-matter queue is, by this law, also an unpriced quantity of
+-- symmetry.
 ------------------------------------------------------------------------

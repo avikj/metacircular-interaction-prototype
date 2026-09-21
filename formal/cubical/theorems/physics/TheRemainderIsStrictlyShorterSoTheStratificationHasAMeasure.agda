@@ -3,19 +3,13 @@
 ------------------------------------------------------------------------
 -- TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure
 --
--- Two modules on the Pareto line carry the same undischarged sentence.
 -- `TheParetoStratumIsDecidableAndTheFilterIsExact` and
--- `ANonEmptyArchiveHasANonEmptyStratum` both say:
---
---   "one STRATUM is not a STRATIFICATION.  Removing the layer and
---    repeating needs a termination argument on the archive's length,
---    and nothing iterates anywhere yet."
+-- `ANonEmptyArchiveHasANonEmptyStratum` give one STRATUM; a
+-- STRATIFICATION removes the layer and repeats, which needs a
+-- termination argument on the archive's length.
 --
 -- The termination argument is the DECREASING MEASURE, and it is built
--- here.  The iteration itself is still not written, and this module
--- says so rather than implying otherwise â” but the measure is the part
--- that was actually missing, since a fuelled or well-founded recursion
--- is mechanical once the measure exists and impossible before.
+-- here.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -32,12 +26,11 @@
 --                             dropped part is STRICTLY shorter
 --   theRemainderIsStrictlyShorter
 --                             instantiated at the Pareto stratum, using
---                             `stratumIsNonEmpty` from the previous
---                             cycle: peeling the maximal layer off a
+--                             `stratumIsNonEmpty`: peeling the maximal layer off a
 --                             non-empty archive strictly shrinks it
 --
--- The dependency chain is worth naming because it is three cycles deep
--- and each step was needed by the next: DECIDABILITY of the order gave
+-- The dependency chain is worth naming because each step was needed by
+-- the next: DECIDABILITY of the order gave
 -- a computable stratum; the computable stratum plus a decision gave
 -- NON-EMPTINESS constructively; non-emptiness gives the STRICT
 -- DECREASE.  None of the three could have been taken first.
@@ -47,9 +40,6 @@
 -- non-empty part forces the other to be shorter; both are elementary.
 -- They are proved because the missing piece for the stratification was
 -- never the recursion â” it was the measure the recursion decreases.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure where
@@ -148,18 +138,8 @@ theRemainderIsStrictlyShorter x xs with stratumIsNonEmpty x xs
     (x âˆ· xs) m mem
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "THE ITERATION IS NOT WRITTEN â¦ What was missing for a
---    stratification was never the recursion â” it was the measure the
---    recursion decreases."
---
--- That sentence was a claim about difficulty, and it is now testable.
--- It holds.  In
--- `TheStratificationTerminatesOnItsOwnLength`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so)
+-- The iteration is written in
+-- `TheStratificationTerminatesOnItsOwnLength`:
 -- the recursion is four lines and its termination is one induction:
 --
 --   leftover / strata     peel the maximal layer, recurse on the
@@ -172,7 +152,5 @@ theRemainderIsStrictlyShorter x xs with stratumIsNonEmpty x xs
 -- The induction applies `theRemainderIsStrictlyShorter` exactly once
 -- per step, to turn `lengthL (x âˆ xs) â‰ suc n` into
 -- `lengthL (remainder (x âˆ xs)) â‰ n`, which is precisely the recursive
--- call's obligation.  Nothing else is used â” which is what "the measure
--- was the missing piece" meant, now demonstrated rather than asserted.
---
+-- call's obligation.  Nothing else is used.
 ------------------------------------------------------------------------

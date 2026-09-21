@@ -26,9 +26,6 @@
 -- file is a permutation of that basis, so nothing here needs a
 -- completion, a limit, or a real number.  A permutation operator is
 -- unitary exactly when it is an isometry, and that is what is proved.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module SamaMana_TheCrossingsAreUnitaryOnAnInnerProductSpaceAndUnitarityIsIndependentOfYangBaxter where

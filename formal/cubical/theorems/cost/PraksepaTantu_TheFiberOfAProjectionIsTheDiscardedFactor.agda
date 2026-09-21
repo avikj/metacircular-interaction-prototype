@@ -20,9 +20,6 @@
 --
 -- No h-level hypothesis on A or B: singl (fst p) is contractible for any
 -- types, so these hold for arbitrary A, B (the same fact Carrier runs on).
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module PraksepaTantu_TheFiberOfAProjectionIsTheDiscardedFactor where

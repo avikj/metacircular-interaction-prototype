@@ -45,9 +45,6 @@
 -- for a QUANTITY ASSIGNED OVER A DOMAIN (the sense physics gives
 -- "field") is this corpus's, and no text is claimed for the compound
 -- ‡Ø‡ã‡ó‡ï‡‡‡‡‡‡∞.
---
--- CHECKED: Agda 2.8.0 + agda/cubical (installed version), --cubical
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module YogaKsetra_TheConservingFlowsOfAdditionAreExactlyTheShearFields where

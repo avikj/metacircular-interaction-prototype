@@ -32,8 +32,6 @@
 -- Sources for the mathematics: runtime/atlas/residual.py (Torsor,
 -- law set (residual.py's FiniteGroup checks closure/associativity/
 -- inverse); the right-hand laws are not re-derived from the left here.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical library).
 ------------------------------------------------------------------------
 
 module EkaSankramana_AFreeTransitiveActionsTranslationIsUniqueSoTheTorsorIsAnEquivalence where

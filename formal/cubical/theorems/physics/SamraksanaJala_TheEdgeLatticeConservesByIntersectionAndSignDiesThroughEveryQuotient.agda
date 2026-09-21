@@ -38,8 +38,6 @@
 -- witnesses; that an Iso genuinely loses sign (not vacuously) is the โ
 -- witness in RnaDhanaKrama and the โ(โ2) certificate in
 -- table: runtime/kernel/edges.py, runtime/CRYSTAL.md ยง1.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module SamraksanaJala_TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient where

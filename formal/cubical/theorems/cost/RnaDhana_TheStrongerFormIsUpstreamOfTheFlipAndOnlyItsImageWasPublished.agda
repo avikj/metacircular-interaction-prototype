@@ -11,7 +11,7 @@
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE AUDIT.  Target: `RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum`,
--- an `IsExactly` â” and the LAST actionable target of the title sweep.
+-- an `IsExactly`.
 --
 -- **THE TITLE IS EARNED IN THE STRONGEST READING AVAILABLE TO IT.**
 -- `theMixedStratumIsTheFlippedStratum` is a LIST equality, not a
@@ -42,13 +42,6 @@
 -- stratification, the remainder half and the existence of caps â” not
 -- this.
 --
--- **THE SWEEP'S PATTERN, ONE LAST TIME AND INVERTED.**  Nine earlier
--- targets had a title claiming more than the file proved.  This one
--- proves more than its title claims, and the surplus is thrown away
--- mid-proof.  Both are the same defect â” a mismatch between the
--- strongest available statement and the recorded one â” and only the
--- first is caught by reading titles.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
@@ -61,9 +54,6 @@
 --       and `theMixedStratumIsTheFlippedStratum` follows from it by
 --       `cong (map flip)` and `filterMapCommutes` â” so nothing is lost
 --       and the published statement is visibly the image.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module RnaDhana_TheStrongerFormIsUpstreamOfTheFlipAndOnlyItsImageWasPublished where

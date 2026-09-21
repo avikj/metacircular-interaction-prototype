@@ -38,8 +38,6 @@
 -- ordering, so this is the minimal faithful model of the Order edge, not
 -- the fork.  Sources: Brahmagupta, Brhmasphuasiddhnta 18 (628), the
 -- a/dhana sign rules; Artinâ“Schreier 1927 (formally real fields), via
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module RnaDhanaKrama_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheConjugationReversesIt where

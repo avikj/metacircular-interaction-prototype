@@ -8,7 +8,7 @@
 -- proof is not redone here; this module is its finite kernel-checked
 -- shadow.
 --
--- HEADLINE STATEMENTS (all checked, no postulates, no holes, --safe):
+-- HEADLINE STATEMENTS:
 --
 --  1. holonomy-dup      Prop. 2, degeneracy invariance, BY EQUALITY.
 --     defect-dup        s_j preserves the first and the last vertex and

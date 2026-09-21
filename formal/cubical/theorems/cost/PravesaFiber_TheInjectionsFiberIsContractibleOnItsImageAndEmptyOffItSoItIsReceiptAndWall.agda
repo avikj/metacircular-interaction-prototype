@@ -37,9 +37,6 @@
 -- source is claimed for it.  ‡‡‡∞‡µ‡‡ is ordinary  for entering /
 -- insertion, the dual reading to ‡‡‡∞‡ï‡‡‡‡ (throwing / projection) already used
 -- in the corpus; the compound is built here, 2026-08-22.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module PravesaTantu_TheInjectionsFiberIsContractibleOnItsImageAndEmptyOffItSoItIsReceiptAndWall where

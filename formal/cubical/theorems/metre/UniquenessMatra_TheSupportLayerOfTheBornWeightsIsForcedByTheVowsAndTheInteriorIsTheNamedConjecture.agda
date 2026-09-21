@@ -6,7 +6,7 @@
 -- (Born as the ethics of information).  Sources as UniquenessNirnaya /
 -- AvaktavyaPrasava give them; nothing further claimed.
 --
--- THE NEXT STONE, taken.  UniquenessNirnaya proved the QUALITATIVE skeleton:
+-- UniquenessNirnaya proved the QUALITATIVE skeleton:
 -- a rule `e : List A â’ Maybe A` obeying the two vows (decide-on-unanimity,
 -- take-nothing-on-disagreement) is forced uniquely on nonempty
 -- contentions.  That lives on the all-or-nothing carrier `Maybe A`.  This
@@ -14,7 +14,7 @@
 -- move of the quantitative layer â” and states the full Born conjecture as
 -- a precise type, unproved and marked as such.
 --
--- WHAT IS PROVED (kernel-checked, no postulates, no holes):
+-- WHAT IS PROVED:
 --   the SUPPORT layer of the weights is forced.  A weight rule
 --   `q : List A â’ A â’ W` obeying the quantitative vows
 --     â ààà-à®à¾ààà°à¾   â” unanimity for a gives a the unit weight ðŸ™;
@@ -27,8 +27,6 @@
 --   dichotomy UniquenessNirnaya used.  So the {ðŸ˜,ðŸ™}-valued (support) part of
 --   the Born weights has no rival within the vows â” exactly as the
 --   qualitative layer, now on weights.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical library).
 ------------------------------------------------------------------------
 
 module UniquenessMatra_TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInteriorIsTheNamedConjecture where

@@ -37,9 +37,6 @@
 -- does not.  They are different statements about different objects and
 -- neither derives the other: Anuvrtti is about a cost failing to factor
 -- through `asSet`; ยง3 is about a common set failing to BE a preamble.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 โ” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheSharedPreambleIsACommonPrefixNotACommonSet where
