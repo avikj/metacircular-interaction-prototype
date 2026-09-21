@@ -1,5 +1,5 @@
 /-
-Checked adapter for the cyclotomic routing operation in
+Checked adapter for the cyclotomic routing operation.
 
 The native organ routes `a^n - 1` through every evaluated cyclotomic piece
 whose index divides `n`.  Mathlib already proves the corresponding polynomial
@@ -65,13 +65,11 @@ theorem zero_index_control :
   norm_num
 
 /-!
-## Continuation from the native return
+## The primitive branch
 
-The return accepts the product route and identifies the next exact seam: when
+The primitive branch: when
 the prime characteristic does not divide the cyclotomic index, a prime divisor
 of one evaluated piece makes the base a *primitive* root modulo that prime.
-This is only the primitive branch of the native prime-classification theorem;
-the exceptional branch `p ∣ m` is deliberately absent.
 -/
 
 /-- In the coprime-characteristic branch, divisibility of `Phi_m(a)` by `p`

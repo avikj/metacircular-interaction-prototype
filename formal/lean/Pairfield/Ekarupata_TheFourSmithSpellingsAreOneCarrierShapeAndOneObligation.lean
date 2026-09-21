@@ -9,17 +9,7 @@ import Pairfield.ComputableSmith2x2
 ## On the name
 
 *Ekarūpatā* (एकरूपता), "having one form / uniformity of form", is ordinary
-Sanskrit and is used here in its plain sense. **The application of it as a
-module name is made here; no text and no technical sense from any śāstra is
-claimed for it.** See `LosslessReturn_TheDeterminedFieldRidesFree.lean` for the
-same declaration about the head term of that family.
-
-## Added, not edited
-
-`GeneralSmith2x2.lean`, `DirectSmith2x2.lean`, `ComputableSmith2x2.lean` and
-`SmithPresentation.lean` are untouched. Four seats wrote four structures around
-the same map; this file says what the four are, from outside, by `Equiv`. §६ of
-spellings of one object is a stated equivalence, not three deletions.
+Sanskrit and is used here in its plain sense.
 
 ## The shape
 
@@ -47,21 +37,18 @@ preimage is not a singleton and need not be inhabited at all:
 sentence as a theorem, and it is exactly the Carrier-as-Σ reading — summing the
 indexed family over its index recovers the Carrier, which recovers the base.
 
-## What is NOT true, said plainly
+## The four are not equivalent
 
 The four are **not** equivalent to each other. They live over three different
 matrix carriers (`Pairfield.IntMat2`, `Matrix (Fin 2) (Fin 2) ℤ`,
 `ComputableSmith2x2.Mat2`) and impose three different side conditions
 (`natAbs det = 1`, two-sided integral inverse, `det = 1`). What is shared is
-the *shape*: one map, one determined field, one replay witness. Claiming more
-than that would be the flattening this repository's own protocol warns about.
+the *shape*: one map, one determined field, one replay witness.
 
-One thing fell out that is not about Carriers at all, and is recorded because
-finding it was free: in `UnitDetCapability`, `rightInverse` reads
+In `UnitDetCapability`, `rightInverse` reads
 `A * left = 1`, not `A * right = 1`. So the `right` field is constrained by
 nothing except the replay equation it feeds, and the equivalence below shows it
-as a bare `Mat2` factor — full degrees of freedom. This is reported, not
-touched.
+as a bare `Mat2` factor — full degrees of freedom.
 -/
 
 namespace Pairfield.LosslessReturn.Smith

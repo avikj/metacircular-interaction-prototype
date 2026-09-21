@@ -19,7 +19,7 @@
 -- and what is formalised below is the subtractive column that produces those
 -- quotients â” the same distinction `KuttakaValli_TheSideIsAFreeSlotâ¦` in the
 -- `loss` library records as its SECOND DEFECT.  "The greater loses the lesser, the lesser
--- stands" is the movement their pair undergoes, and that its common measure
+-- stands" is the movement their pair undergoes, and its common measure
 -- is what their procedure keeps.
 --
 ------------------------------------------------------------------------

@@ -7,7 +7,7 @@
 --    used in exactly one place -- `no-jump-skipped`, to produce `2 â‰ suc
 --    i` from `m â‰ i` so that `LeastNonDivisor`'s minimality clause
 --    (which only speaks about `r â‰ 2`) applies.  The `r = 1` case is not
---    a gap in the mathematics: `1` divides everything.  Their
+--    a gap in the mathematics: `1` divides everything.  `WalkBridge`'s
 --    `frontier-flat` already handles precisely this, in the line
 --
 --        ... | inr 1â‰¡r = subst (_âˆ cap m) 1â‰¡r (âˆ-oneË¡ (cap m))

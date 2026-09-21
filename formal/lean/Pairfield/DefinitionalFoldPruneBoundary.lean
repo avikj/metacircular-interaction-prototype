@@ -1,8 +1,7 @@
 /-
-The finite cardinality kernel behind the concept-gate argument in
+The finite cardinality kernel behind the concept-gate argument.
 
-This file deliberately does not model the repository's Haskell rewrite
-engine.  Its load-bearing premise is an explicit decoder on the selected
+The load-bearing premise is an explicit decoder on the selected
 finite probe: unfolding the fresh normal form must recover the old one.  Once
 that map is supplied, finite-image monotonicity is pure data processing.
 -/

@@ -1,5 +1,5 @@
 /-
-Checked adapter for the held-prime transport operation in
+Checked adapter for the held-prime transport operation.
 
 The native organ re-expresses an already held prime in the exponent
 coordinates of a new base.  In the branch where the prime characteristic does
@@ -81,10 +81,9 @@ theorem exceptional_branch_refutes_unqualified_iff :
   exact horder (hiff.mp hdiv)
 
 /-!
-## Continuation from the native return
+## The order no-go
 
-The native lineage accepts the primitive-branch transport predicate and points
-to Theorem 10 as the strongest exact residual: multiplicative order does not
+Theorem 10 is the strongest exact residual: multiplicative order does not
 compose from the two component orders.  The following theorem states the
 no-go at the interface level, not only as a table of four computed values.
 -/

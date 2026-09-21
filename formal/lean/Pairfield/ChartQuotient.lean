@@ -11,8 +11,8 @@ that decision into a native finite state carrier.
 -- (`…quotientCard_eq_three._native.native_decide.ax_1_1`, Lean 4.33's
 -- per-declaration form of `Lean.ofReduceBool`), i.e. on the Lean compiler
 -- rather than the kernel.  It is the ONLY such declaration in the
--- lane; see `formal/lean/axiom-allowlist.txt` for the observed reason and
--- the removal path.  Nothing else in this file uses it, and no other module in
+-- lane; see `formal/lean/axiom-allowlist.txt` for
+-- the allowlist entry.  Nothing else in this file uses it, and no other module in
 -- `Pairfield/` carries this header.  `lake exe yogyanupalabdhi` is what keeps that
 -- true, and `scripts/check-lean-example-oracles.sh` is what keeps the
 -- declaration named, so the gate can see it at all.

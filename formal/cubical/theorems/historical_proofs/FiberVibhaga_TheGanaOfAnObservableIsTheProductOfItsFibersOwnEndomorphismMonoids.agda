@@ -8,8 +8,8 @@
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS IS.  `SvaTantuVasa` Â§à(a) and `SamraksakaGana` Â§à(a) both
--- identify, by currying along A â‰ Î B (fiber f)
--- identifies the section CARRIER with (b : B) â’ fiber f b â’ fiber f b.
+-- identify, by currying along A â‰ Î B (fiber f),
+-- the section CARRIER with (b : B) â’ fiber f b â’ fiber f b.
 -- Carrying â‹ onto pointwise composition needs the transport coherence of
 -- that currying, and this module gives it, over set carriers:
 --
