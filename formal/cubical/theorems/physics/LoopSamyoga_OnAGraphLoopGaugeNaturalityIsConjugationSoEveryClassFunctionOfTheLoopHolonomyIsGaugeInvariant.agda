@@ -62,10 +62,10 @@ module _ {G : Group ℓg} {V : Type ℓv} where
   -- १ · The square solved: the transformed loop holonomy is the conjugate.
   ----------------------------------------------------------------------
 
-  valaya-saṃyoga : {A B : Connection G V} (η : GaugeNatural A B)
+  loop-saṃyoga : {A B : Connection G V} (η : GaugeNatural A B)
                    {x : V} (p : x ≡ x)
                  → hol B p ≡ (gauge η x · hol A p) · inv (gauge η x)
-  valaya-saṃyoga {A} {B} η {x} p =
+  loop-saṃyoga {A} {B} η {x} p =
       sym (G.·IdR (hol B p))
     ∙ cong (hol B p ·_) (sym (G.·InvR g))
     ∙ G.·Assoc (hol B p) g (inv g)
@@ -74,10 +74,10 @@ module _ {G : Group ℓg} {V : Type ℓv} where
     g = gauge η x
 
   -- and that conjugate is the endpoint law at a closed loop, verbatim.
-  valaya-endpoint : {A B : Connection G V} (η : GaugeNatural A B)
+  loop-endpoint : {A B : Connection G V} (η : GaugeNatural A B)
                     {x : V} (p : x ≡ x)
                   → hol B p ≡ RHR.endpointGauge G (P._,_ (gauge η x) (gauge η x)) (hol A p)
-  valaya-endpoint = valaya-saṃyoga
+  loop-endpoint = loop-saṃyoga
 
   ----------------------------------------------------------------------
   -- २ · Every class function of the loop holonomy is gauge invariant.
@@ -89,7 +89,7 @@ module _ {G : Group ℓg} {V : Type ℓv} where
                   {x : V} (p : x ≡ x)
                 → f (hol B p) ≡ f (hol A p)
   varga-avikāra f invariant {A} {B} η {x} p =
-      cong f (valaya-saṃyoga η p)
+      cong f (loop-saṃyoga η p)
     ∙ RHR.closedLoopGaugeInvariant G f invariant (gauge η x) (hol A p)
 
 ------------------------------------------------------------------------
@@ -104,7 +104,7 @@ module _ (G : Group ℓg) where
               ≡ GroupStr._·_ (snd G)
                   (GroupStr._·_ (snd G) (gauge η root) (hol A loop))
                   (GroupStr.inv (snd G) (gauge η root))
-  mūla-valaya A B η = valaya-saṃyoga η loop
+  mūla-valaya A B η = loop-saṃyoga η loop
 
   -- Whether the root loop is flat is a gauge-invariant question.
   flat-valaya : (A B : Connection G BranchLoop) (η : GaugeNatural A B)
