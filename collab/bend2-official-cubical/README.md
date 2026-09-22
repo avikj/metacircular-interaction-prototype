@@ -4,9 +4,17 @@ This directory gives the official public Bend 2 (bendlang/bend `2.0.21`,
 commit `6018e28`) a cubical core: paths, transport, composition, Glue and
 univalence, higher inductive types, coinduction, and transport that runs
 on the compiled C and JavaScript lanes. The equality the language already
-has, `{a == b : T}`, is re-read as a path type; nothing that checked
-before stops checking, and a program that uses none of it compiles to the
-same code at the same speed.
+has, `{a == b : T}`, is re-read as a path type.
+
+Two facts locate it. Upstream ships a test, `proof/no_funext_000`,
+asserting that function extensionality is **unprovable**; here it is four
+lines, and the function it identifies runs. Upstream 2.0.21 **faults with
+a memory error** on the matrix program filed as issue #901; here that
+program prints its answer on the C lane, because the rule that faulted is
+replaced by one the checker's own kinds decide.
+
+Nothing that checked before stops checking, and a program that uses none
+of this compiles to the same code at the same speed.
 
 ```
 ./run.sh        # clones upstream at 6018e28, applies cubical.patch, runs every test, checks the Lean file
@@ -21,67 +29,16 @@ numbers, and the mechanization.
 
 ## Three programs
 
-**Function extensionality.** Upstream's own test `proof/no_funext_000`
-asserts this is unprovable. It is four lines, and the transported function
-runs.
+**Function extensionality.** Two functions that agree at every argument
+are equal, and the identification computes. `add_zero` is the ordinary
+inductive proof that `add(n, Z{}) == n`; the path below turns it into an
+equality of the two functions, and applying that equality at `i0` runs.
 
 ```
-# function extensionality is a path lambda: a path between functions is a
-# function of the dimension whose faces are the two functions
-type N is Data:
-  Z{}
-  S{p: N}
-
-law add:
-  for n: N
-  for m: N
-  N
-
-def add(n, m):
-  match n:
-    case Z{}:
-      m
-    case S{k}:
-      S{add(k, m)}
-
-law add_zero:
-  for n: N
-  {add(n, Z{}) == n : N}
-
-def add_zero(n):
-  match n:
-    case Z{}:
-      {==}
-    case S{k}:
-      %add_zero(k) : {S{add(k, Z{})} == S{_} : N}; {==}
-
 law add_zero_eta:
   {(x => add(x, Z{})) == (x => x) : N -> N}
 
 def add_zero_eta(): i => x => add_zero(x)(i)
-
-law sym:
-  for -A: Type
-  for -a: A
-  for -b: A
-  for p: {a == b : A}
-  {b == a : A}
-
-def sym(A, a, b, p): i => p(-i)
-
-law cong:
-  for -A: Type
-  for -B: Type
-  for f: A -> B
-  for -a: A
-  for -b: A
-  for p: {a == b : A}
-  {f(a) == f(b) : B}
-
-def cong(A, B, f, a, b, p): i => f(p(i))
-
-law main:
-  N
 
 def main(): add_zero_eta()(i0)(S{S{Z{}}})
 ```
@@ -89,6 +46,9 @@ prints
 ```
 S{S{Z{}}}
 ```
+
+The same file derives symmetry as `i => p(-i)` and congruence as
+`i => f(p(i))`, each one line (`funext.bend`, shown in full there).
 
 **Transport along univalence, compiled.** `ua` turns the equivalence
 `not : Bool ≃ Bool` into a path between types; transport along a list of
@@ -188,79 +148,86 @@ stuck projection of a variable equivalence is the term the user writes.
 
 ## What you can now write
 
-Each item says what upstream lacks and why, then the rule, then the test.
-Every "upstream" claim was run on pristine `2.0.21`; `j_index.bend` pins
-the one thing upstream already had (J transports a value along an index
-proof, and still does).
+Each item says what upstream lacks and why, then the rule that supplies
+it, where that rule is written down, and the tests. Every claim about
+upstream was run on pristine `2.0.21`. `j_index.bend` pins the one thing
+upstream already had: J transports a value along an index proof, and
+still does.
 
 **Equations built by abstraction, computing on every path.** Upstream's
 only way to introduce an equation is `{==}` (check-rfl is the sole
 introduction rule for `Eql`), so every equation is reflexivity up to J, and
 J is stuck on an open proof. Here `i => t` introduces a path with its faces
 checked by conversion, `p(r)` eliminates it, and J steps on every path as
-transport along the connection square. `j.bend`, `coe.bend`.
+transport along the connection square. The rules are in Evidence 1.2 and
+1.3; the tests are `j.bend` and `coe.bend`.
 
 **Function extensionality.** An equation between functions can only be
 `{==}`, and two syntactically different functions are not convertible;
-there is no way to build the equation from pointwise evidence. Funext is a four-line path: `i => x => p(x)(i)`, checked
-by its faces. `funext.bend`. Cost: none; the path is
-erased. Verified: upstream's `proof/no_funext_000` asserts
-unprovability and is the one intended divergence of the suite.
+there is no way to build the equation from pointwise evidence. Here funext
+is a four-line path, `i => x => p(x)(i)`, checked by its faces
+(`funext.bend`, check-path in Evidence 1.2). It costs nothing at runtime:
+the path is erased. Upstream's `proof/no_funext_000` asserts
+unprovability, and is one of the four suite answers this port changes on
+purpose.
 
 **Univalence.** `{A == B : Type}` has one inhabitant, `{==}`,
 which requires `A` and `B` convertible; transport along it is the
 identity. There is no term that turns two functions and two round-trip
-proofs into an equation of types. `ua(e) : {A == B : Kind(q)}` is a definition (a `Glue`
-line), transport along it runs `e`'s function, and `Equiv.of_path(ua(e))`
-is `e` again. `ua.bend`, `ua_round.bend`, `fibre.bend`,
-`compiled_coe.bend`, `compiled_path.bend`. Cost: a universe path is a
-pair of closures at runtime; a transport along it is one call, along a
-list of them one map, which is the hand-written conversion. Verified:
-upstream refuses `coe` and `ua` as undefined names.
+proofs into an equation of types. Here `ua(e) : {A == B : Kind(q)}` is a
+definition in Base (a `Glue` line, Evidence 4), transport along it runs
+`e`'s function, and `Equiv.of_path(ua(e))` is `e` again: `ua.bend`,
+`ua_round.bend`, `fibre.bend`, `compiled_coe.bend`, `compiled_path.bend`.
+A universe path costs a pair of closures at runtime; transporting along it
+is one call, and along a list of them one map, which is the conversion you
+would have written. Upstream refuses `coe` and `ua` as undefined names.
 
 **Quotients and truncation.** A `type` declares constructors whose tip is the
 family; there is no way to declare an equation as a constructor, so a
 quotient can only be simulated by a chosen normal form nothing enforces.
-`path c{fields}: {a == b : K<..>}` declares a path
-constructor; `match` on the family must supply its arm at the path over
-the motive, so a function out of the quotient is refused unless it
-respects the relation. `hit_quot.bend`, `hit_circle.bend`,
-`hit_trunc.bend`, `hit_susp_torus.bend`, `hit_mustfail_loop.bend`.
-Cost: none at runtime; a path constructor is erased, so a quotient is
-represented by its underlying data. Verified: upstream's parser
-rejects `path` in a `type` block.
+Here `path c{fields}: {a == b : K<..>}` declares a path constructor, and a
+`match` on the family must supply its arm at the path over the motive, so
+a function out of the quotient is refused unless it respects the relation
+(check-mat in Evidence 1.2, the eliminator rules in Evidence 1.3). Tests:
+`hit_quot.bend`, `hit_circle.bend`, `hit_trunc.bend`,
+`hit_susp_torus.bend`, `hit_mustfail_loop.bend`. It costs nothing at
+runtime: a path constructor is erased, so a quotient is represented by its
+underlying data. Upstream's parser rejects `path` in a `type` block.
 
-**Coinduction.** Every live self-call must descend on a column
-of the definition's case tree (`term_descend`); a self-call under a
-constructor's lambda descends on nothing and is refused. A self-call under a constructor's delayed field, observed
-only through dimensions, is productive: each observation unfolds one
-constructor. The definition is marked corecursive, stays folded while
-printed or compared, and a bisimulation is a corecursive path checked
-one unfolding at a time. `stream.bend`,
-`stream_mustfail.bend`. Cost: none; the closure is the same closure.
-Verified: upstream refuses `ones = mk{1n, _ => ones}` with its descent
-error, and its own `halt/strict_descent` pins that refusal (the second
-intended divergence).
+**Coinduction.** Every live self-call must descend on a column of the
+definition's case tree (`term_descend`); a self-call under a constructor's
+lambda descends on nothing and is refused. Here a self-call under a
+constructor's delayed field, observed only through dimensions, is
+productive: each observation unfolds one constructor. The definition is
+marked corecursive, stays folded while printed or compared, and a
+bisimulation is a corecursive path checked one unfolding at a time
+(`stream.bend`, `stream_mustfail.bend`; the guard is in Evidence 2.7). It
+costs nothing: the closure is the same closure. Upstream refuses `ones =
+mk{1n, _ => ones}` with its descent error, and its own `halt/strict_descent`
+pins that refusal.
 
 **Copyable proof functions.** No function type is `Data` (`infer-all` gives
 every `All` the kind `Type`), so a proof-valued function is affine: not a
-`+` binder, not a field of a `Data` type. A function into an equation is `Data`, whatever its
-domain, since it has no runtime content to copy; the omega attack this
-could open (a copyable function inside its own domain) is closed by a
-positivity check on datatype fields. `isContr`, `isEquiv`, `Equiv` are
-ordinary Base definitions. `proof_fn_copy.bend`,
-`proof_fn_kind.bend` (a proof function over closures, used twice and
-stored in a record), `positivity_mustfail.bend`. Cost: none; the function is erased.
-Verified: upstream refuses `+h: @x:Nat -> {x == x : Nat}` and a `Data`
-field of that type, both with "expected Data, observed Type".
+`+` binder, not a field of a `Data` type. Here a function into an equation
+is `Data` whatever its domain, since it has no runtime content to copy, and
+the omega attack this could open (a copyable function inside its own domain)
+is closed by a positivity check on datatype fields (infer-all in Evidence
+1.2, the check in Evidence 2.9). That is what makes `isContr`, `isEquiv` and
+`Equiv` ordinary Base definitions. Tests: `proof_fn_copy.bend`,
+`proof_fn_kind.bend` (a proof function over closures, used twice and stored
+in a record), `positivity_mustfail.bend`. It costs nothing: the function is
+erased. Upstream refuses `+h: @x:Nat -> {x == x : Nat}` and a `Data` field
+of that type, both with "expected Data, observed Type".
 
 **Transport on the native lanes.** Upstream has nothing to transport: its only
-type path is `{==}`. A universe path compiles to its equivalence; `coe` along a
-datatype line to a minted structural map; along a function line to a
-wrapper; a path applied to an endpoint to that endpoint; a path
+type path is `{==}`. Here a universe path compiles to its equivalence;
+`coe` along a datatype line to a minted structural map; along a function
+line to a wrapper; a path applied to an endpoint to that endpoint; a path
 constructor at literal dimensions to its boundary. The C, JS and
-interpreter lanes agree. `compiled*.bend`,
-`hit_susp_torus.bend` on all lanes.
+interpreter lanes agree. The elaboration is Evidence 2.5 and the emitter
+changes are Evidence 3. Tests: `compiled.bend`, `compiled_coe.bend`,
+`compiled_fibre.bend`, `compiled_path.bend`, `hit_susp_torus.bend`,
+built and run on both lanes.
 
 ## What can no longer go wrong
 
@@ -271,19 +238,27 @@ interpreter lanes agree. `compiled*.bend`,
   handle, a kind, a callback that returns data, or an equation the checker
   can already close; never a path with distinct ends, a universe path, a
   dependent codomain or an empty type. Checked at the declaration and at
-  every call that instantiates a type parameter. `issue_874*.bend`.
+  every call that instantiates a type parameter. The rule is
+  `term_transportable` (Evidence 2.9); the tests are `issue_874.bend`,
+  `issue_874_false.bend`, `issue_874_empty.bend`, `issue_874_poly.bend`.
 - **Template binder names cannot collide** (#905). `def cast(~T, ~x: T,
-  ~T)` no longer typechecks as an unsafe cast. `issue_905.bend`.
+  ~T)` no longer typechecks as an unsafe cast (Evidence 2.9,
+  `issue_905.bend`).
 - **A raw read of a shared node cannot be emitted** (#901). Any program
   over an indexed family (matrices, sized vectors, protocol states) that
   the C emitter's ownership analysis mishandles now runs or stops with an
   error; it cannot corrupt memory. The reporter's matrix product runs at
-  every depth. `issue_901.bend`, `issue_853.bend`.
-- **The interval decision procedure is mechanized** (`bend2/cubical.lean`).
-  Stating the decision procedure in Lean showed that a two-valued table
-  decides a Boolean algebra, not the free De Morgan algebra the theory
-  requires; the procedure evaluates in the four-element De Morgan algebra
-  and is proved sound and strictly finer. `demorgan.bend`.
+  every depth, on the C lane. The rule is the take rule and the completed
+  hot walk (Evidence 3); the tests are `issue_901.bend` and
+  `issue_853.bend`.
+- **Interval conversion cannot silently decide the wrong algebra**
+  (`bend2/cubical.lean`). The interval is the free De Morgan algebra, not
+  a Boolean one: a two-valued table would accept `{==}` at
+  `{i /\ -i == i0 : Interval}`, which is not a law. Conversion evaluates
+  in the four-element De Morgan algebra, which generates the variety, and
+  the Lean file proves the folds sound, the relation a congruence with
+  every De Morgan law, and the two-valued table strictly coarser with that
+  counterexample (Evidence 7, `demorgan.bend`).
 
 ## What it costs
 
@@ -302,11 +277,14 @@ the closures it holds. It constrains nothing that existed before.
 
 ## Verification
 
+How each number was obtained is Evidence 6; every test is listed in
+Evidence 5.
+
 | what | result |
 | --- | --- |
 | `tests/cubical` | 33 of 33, the compiled ones on the C and JS lanes |
 | `bend2/cubical.lean` | checks under Lean 4.34, no `sorry` |
-| upstream interpreter suite, 931 files | 923 pass; 4 fail on unpatched upstream too; 4 change on purpose (below) |
+| upstream interpreter suite, 931 files | 923 pass; the 8 that do not are 4 that fail on unpatched upstream too and 4 this port changes on purpose (below) |
 | upstream io suite, 139 files | identical output |
 | upstream compiled lanes, every Base program with a `main` in `run compile io check eval base spec` | identical output, one added refusal (a universe-path `main` cannot be printed) |
 | upstream benches `bfs`, `queens`, `tree-matmul`, sequential | within 1% |
@@ -334,6 +312,8 @@ host may deliver a value only when its runtime representation is its
 meaning, data or an equation the checker already closes, whose null is
 exactly `{==}` (the foreign rule); and the C lane takes a node through its
 refcount tag exactly when its kind says it may be copied (the read rule).
+Four rules, one question. The wall below is where the question is asked
+of evidence itself.
 
 ### The wall, kept
 
@@ -991,7 +971,7 @@ checked at depth `def.x` so that `def_body` can close the tree over the
 binders. `term_refsub` replaces each opaque constant `Ref` by the variable
 of its binder.
 
-**`@-3780` (patch:2733) — `term_transportable`.** The rule of the design section,
+**`@-3780` (patch:2733) — `term_transportable`.** The foreign-payload rule,
 case by case: a kind is transportable; a function is when its codomain
 does not depend on the argument and is transportable; an equation is when
 its carrier is not a kind and its ends are convertible; a datatype is when
@@ -1140,9 +1120,9 @@ every file on check + interpret; the ones marked C/JS also compiled.
 | `issue_852.bend` | a nat-literal pattern with fields is refused (upstream's fix, pinned) | error | interp |
 | `issue_853.bend` | the reporter's program prints 5 on the C lane (upstream's fix, pinned) | `5` | interp, JS, C |
 | `issue_901.bend` | the reporter's matrix product at depth 2 (upstream faults) | `64` | interp, JS, C |
-| `j_index.bend` | what upstream already had: J transports a value along an index proof, on both trees (pinned so the README does not overclaim) | `V{[7n, 8n]}` | interp |
+| `j_index.bend` | what upstream already had, pinned as such: J transports a value along an index proof, and prints the same on both trees | `V{[7n, 8n]}` | interp |
 | `proof_fn_copy.bend` | a proof-valued function over `Nat` is a `+` binder and a `Data` field (upstream: "expected Data, observed Type") | `Unit{}` | interp |
-| `proof_fn_kind.bend` | a proof function over a domain of closures is `Data`: used twice and stored in a record (refused by upstream and by the first cubical rule) | `Unit{}` | interp |
+| `proof_fn_kind.bend` | a proof function over a domain of closures is `Data`: used twice and stored in a record (upstream refuses both) | `Unit{}` | interp |
 | `demorgan.bend` | the De Morgan, absorption, idempotence and involution laws hold by conversion; `{==}` at `{i /\ -i == i0 : Interval}` is refused | error, `expected i /\ -i / observed i0` | interp |
 
 `issue_874.js` is the whole host side of #874: `function forge_eql(kont) {
@@ -1155,9 +1135,11 @@ code is consulted.
 
 ## Evidence 6. How the numbers were obtained
 
-**Cubical tests.** 29 of 29 from a fresh clone through `run.sh`
-(`compiled*`, `issue_901`, `issue_853` and `hit_susp_torus` also on the JS
-and C lanes).
+**Cubical tests.** 33 of 33 from a fresh clone through `run.sh`. Seven of
+them are built and run on the JS lane, and on the C lane when clang is
+present: `compiled`, `compiled_coe`, `compiled_fibre`, `compiled_path`,
+`hit_susp_torus`, `issue_853`, `issue_901`. The rest are checked and
+interpreted.
 
 **Upstream's interpreter-lane suite** (`proof check eval stuck halt grade
 spec comptime flatten parse show printer base rfc state`, 931 files): 923
@@ -1220,8 +1202,9 @@ applies in its `Ineg`, `Imin`, `Imax` cases; `fold_sound` proves each is an
 **§4 Why DM4.** `EqBool` is agreement under `{0, 1}` valuations only.
 `Eq.toBool`: `Eq` refines `EqBool`. `eq_strictly_finer`: `i /\ -i` and
 `i0` are `EqBool` but not `Eq` (the valuation sending the atom to `a`
-separates them). This is the theorem that changed the checker: the first
-version of `itv_eq` was the two-valued table.
+separates them). This is why the procedure evaluates in DM4: a two-valued
+table would accept `{==}` at `{i /\ -i == i0 : Interval}`, an unsound
+judgemental equality.
 
 **§5 Canonicity of the interval.** `Fold1` is a fold anywhere under the
 operators and `Folds` its reflexive-transitive closure, both proved sound.
@@ -1231,8 +1214,8 @@ computes when it normalizes a face or a coe's endpoints.
 
 **§6 The fragment.** `CTerm` (the fragment's nodes over opaque core
 terms, dimensions de Bruijn), dimension substitution, faces with `Holds`
-and `Dead` (`holds_not_dead`: exclusive), `Step` with the rules of Part
-III.3 that need only the fragment (path beta, the endpoint rules off an
+and `Dead` (`holds_not_dead`: exclusive), `Step` with the rules of Evidence 1.3
+that need only the fragment (path beta, the endpoint rules off an
 annotation, J on the constant path and J as transport along the
 connection square, `coe` at equal endpoints or along a constant line,
 `hcomp`/`Glue`/`glue` at a face that holds or with every face dead,

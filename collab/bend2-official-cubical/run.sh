@@ -17,7 +17,10 @@ git checkout -q -- bend2/bend.ts bend2/comp.ts bend2/base.bend
 patch -p1 < "$HERE/cubical.patch"
 (cd bend2/pack && bun install >/dev/null)
 mkdir -p tests/cubical && cp "$HERE"/tests/cubical/*.bend "$HERE"/tests/cubical/*.js tests/cubical/
-tidy() { sed 's/[ \t]*$//' | sed -e :a -e '/^\n*$/{$d;N;ba' -e '}'; }
+# upstream's CLI prints a release notice on stdout when a newer version
+# exists, which would otherwise make every expected-output comparison fail
+tidy() { grep -v '^bend [0-9.]* is available: run bend update$' \
+  | sed 's/[ \t]*$//' | sed -e :a -e '/^\n*$/{$d;N;ba' -e '}'; }
 pass=0; fail=0
 for f in tests/cubical/*.bend; do
   want=$(grep '^#|' "$f" | sed 's/^#|//; s/^exit [0-9]$//' | tidy)
