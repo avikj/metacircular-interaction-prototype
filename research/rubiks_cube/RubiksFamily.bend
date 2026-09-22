@@ -353,6 +353,14 @@ type QueryObservation:
     specificationCount: U64
     recovered: TwistyPuzzleSpecification
 
+type CubeReadout:
+  # The map supplied to the fibre.  It returns the complete typed result,
+  # including every proposition and its proof-bearing derivation map.
+  case @cubeReadout:
+    object: PuzzleFamilyPresentation
+    specifications: ReachabilityProposition[]
+    readouts: RequestedObservation[]
+
 def canonicalScramble(n: U64) -> Word:
   # Use the outer layer for every order, including 2x2.  The same typed move
   # word therefore denotes a valid concrete scramble at every requested N.
@@ -517,6 +525,14 @@ def evaluateSpecification(m: TwistyPuzzleSpecification) -> QueryEvaluation:
         case @familyObject{family, constructions, questions}:
           @rubikEvaluation{object, propositions(questions), readouts}
 
+def cubeReadout(m: TwistyPuzzleSpecification) -> CubeReadout:
+  match evaluateSpecification(m):
+    case @rubikEvaluation{object, specifications, readouts}:
+      @cubeReadout{object, specifications, readouts}
+
+def readoutResidual(c: FibreElement(TwistyPuzzleSpecification, CubeReadout, cubeReadout)) -> CubeReadout:
+  observedValue(FibreElement(TwistyPuzzleSpecification, CubeReadout, cubeReadout), CubeReadout, cubeReadout, c)
+
 # The complete construction and all demands are one source object.  The
 # executable Rubik proposition below is the operation supplied to the generic
 # fibre process; no host-side solver is interposed.
@@ -551,15 +567,17 @@ def reconstructSpecification(c: FibreElement(TwistyPuzzleSpecification, QueryEva
   ascend(TwistyPuzzleSpecification, QueryEvaluation, evaluateSpecification, c)
 
 def evaluateTwistySpecification(x: TwistyPuzzleSpecification) -> QueryObservation:
-  match observeSpecification(x):
+  match observe(TwistyPuzzleSpecification, x, fibreCoalgebra(TwistyPuzzleSpecification, x),
+                CubeReadout, cubeReadout):
     case @fibreObservation{value, source, next}:
-      match observe(FibreElement(TwistyPuzzleSpecification, QueryEvaluation, evaluateSpecification), value, next,
-                     TwistyPuzzleSpecification, reconstructSpecification):
-        case @fibreObservation{second, receipt, more}:
-          @masterReading{
-            match observedValue(FibreElement(TwistyPuzzleSpecification, QueryEvaluation, evaluateSpecification), QueryEvaluation, evaluateSpecification, value):
-              case @rubikEvaluation{object, specifications, readouts}: propositionCount(specifications),
-            observedValue(FibreElement(TwistyPuzzleSpecification, QueryEvaluation, evaluateSpecification), TwistyPuzzleSpecification, reconstructSpecification, second)}
+      match observedValue(FibreElement(TwistyPuzzleSpecification, CubeReadout, cubeReadout), CubeReadout, cubeReadout, value):
+        case @cubeReadout{object, specifications, readouts}:
+          match observe(FibreElement(TwistyPuzzleSpecification, CubeReadout, cubeReadout), value, next,
+                        CubeReadout, readoutResidual):
+            case @fibreObservation{second, receipt, more}:
+              match observedValue(FibreElement(TwistyPuzzleSpecification, CubeReadout, cubeReadout), CubeReadout, readoutResidual, second):
+                case @cubeReadout{objectAgain, specificationsAgain, readoutsAgain}:
+                  @masterReading{propositionCount(specificationsAgain), x}
 
 def main() -> QueryObservation:
   evaluateTwistySpecification(masterQuery())
