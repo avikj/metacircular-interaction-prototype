@@ -312,6 +312,15 @@ type RequestedObservation:
   case @exactReconstruction:
   case @continuingInteraction:
 
+type CubeDerivation:
+  # A shortest-derivation readout and a minimum-distance readout share this
+  # exact witness: the word, its declared unit-cost length, and its Path.
+  source: CubeState
+  target: CubeState
+  word: Word
+  length: U64
+  proof: Set
+
 type TwistyPuzzleSpecification:
   # Complete typed query specification: family presentation plus maps/readouts.
   case @masterQuery:
@@ -321,16 +330,16 @@ type TwistyPuzzleSpecification:
 type ReachabilityProposition:
   case @minimumDistanceSpec:
     question: CubeQuestion
-    reachesTarget: Word -> Set
+    derivation: Word -> CubeDerivation
   case @shortestDerivationSpec:
     question: CubeQuestion
-    reachesTarget: Word -> Set
+    derivation: Word -> CubeDerivation
   case @diameterSpec:
     family: PuzzleFamily
-    reachesTarget: CubeState -> CubeState -> Word -> Set
+    derivation: CubeState -> CubeState -> Word -> CubeDerivation
   case @conditionSpec:
     family: PuzzleFamily
-    reachesTarget: CubeState -> CubeState -> Word -> Set
+    derivation: CubeState -> CubeState -> Word -> CubeDerivation
 
 type QueryEvaluation:
   case @rubikEvaluation:
@@ -466,14 +475,29 @@ def reaches(source: CubeState, target: CubeState, w: Word) -> Set:
   match source:
     case @cubeState{size, stickers}: Path(CubeState, executeWord(size, source, w), target)
 
+def wordLength(xs: Move[]) -> U64:
+  match xs:
+    case []: 0
+    case x <> rest: 1 + wordLength(rest)
+
+def derivationFor(q: CubeQuestion, w: Word) -> CubeDerivation:
+  match q:
+    case @cubeQuestion{family, source, target, moveAlphabet, scramble, propositionForm}:
+      match w:
+        case @word{moves}: @cubeDerivation{source, target, w, wordLength(moves), reachesTarget(q, w)}
+
+def derivationBetween(source: CubeState, target: CubeState, w: Word) -> CubeDerivation:
+  match w:
+    case @word{moves}: @cubeDerivation{source, target, w, wordLength(moves), reaches(source, target, w)}
+
 def propositionFor(q: CubeQuestion) -> ReachabilityProposition:
   match q:
     case @cubeQuestion{family, source, target, moveAlphabet, scramble, propositionForm}:
       match propositionForm:
-        case @minimumDistance: @minimumDistanceSpec{q, lambda w. reachesTarget(q, w)}
-        case @shortestDerivation: @shortestDerivationSpec{q, lambda w. reachesTarget(q, w)}
-        case @familyDiameter: @diameterSpec{family(), lambda source. lambda target. lambda w. reaches(source, target, w)}
-        case @truthAndFalseConditions: @conditionSpec{family(), lambda source. lambda target. lambda w. reaches(source, target, w)}
+        case @minimumDistance: @minimumDistanceSpec{q, lambda w. derivationFor(q, w)}
+        case @shortestDerivation: @shortestDerivationSpec{q, lambda w. derivationFor(q, w)}
+        case @familyDiameter: @diameterSpec{family(), lambda source. lambda target. lambda w. derivationBetween(source, target, w)}
+        case @truthAndFalseConditions: @conditionSpec{family(), lambda source. lambda target. lambda w. derivationBetween(source, target, w)}
 
 def propositions(qs: CubeQuestion[]) -> ReachabilityProposition[]:
   match qs:
