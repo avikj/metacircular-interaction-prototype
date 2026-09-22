@@ -28,6 +28,24 @@ def is_valid(b):
     except UnicodeDecodeError:
         return False
 
+def originals(path, limit=40):
+    """Every version of this file in history that decoded, newest first."""
+    names = [path]
+    if "bend2-interactive-cubical" in path:
+        names.append(path.replace("bend2-interactive-cubical", "bend2-cubical"))
+    seen = set()
+    log = subprocess.run(["git", "log", "--follow", "--format=%H", "--", path],
+                         capture_output=True, text=True)
+    revs = [f"{CORRUPTING}^", CORRUPTING + "~2"] + log.stdout.split()
+    for rev in revs[:limit]:
+        for n in names:
+            b = git_show(rev, n)
+            if b is None or b in seen or not is_valid(b):
+                continue
+            seen.add(b)
+            yield b
+
+
 def original_of(path):
     """The last version of this file that was valid UTF-8, following renames."""
     names = [path]
@@ -90,6 +108,94 @@ def repair(cur, orig):
             i = i + e.end
     return bytes(out)
 
+def strip_intended(b):
+    """Drop the characters c0a233d64 meant to remove, as whole characters."""
+    return "".join(c for c in b.decode("utf-8") if not intended(c)).encode("utf-8")
+
+
+def is_subseq(small, big):
+    i = 0
+    for byte in big:
+        if i < len(small) and small[i] == byte:
+            i += 1
+    return i == len(small)
+
+
+def deleted_set(cur, orig):
+    """The byte values that turn `orig` into `cur`, or None if none does.
+
+    This is the whole corruption stated as a check: it removed every
+    occurrence of certain byte VALUES and changed nothing else. If some set
+    of values reproduces the damaged file from a candidate original exactly,
+    that candidate is the pre-damage version -- proved, not guessed. If no
+    set does, the two differ by a real edit and must not be conflated with
+    the damage.
+    """
+    gone = set(orig) - set(cur)
+    if not gone:
+        return None
+    if bytes(b for b in orig if b not in gone) != cur:
+        return None
+    return gone
+
+
+def repair_exact(cur, orig):
+    """Exact reconstruction, when the damage is the only difference."""
+    if deleted_set(cur, orig) is None:
+        return None
+    return strip_intended(orig)
+
+
+def repair_lines(cur, orig):
+    """Per-line reconstruction, for files edited after they were damaged.
+
+    A later edit breaks the whole-file subsequence, but each individual
+    damaged line is still a subsequence of the original line it came from.
+    Lines that decode are kept exactly as they are; only damaged ones are
+    matched back, and only against a line that is not itself ambiguous.
+    """
+    olines = orig.split(b"\n")
+    out = []
+    for line in cur.split(b"\n"):
+        if is_valid(line):
+            out.append(line); continue
+        hits = [o for o in olines if o != line and is_subseq(line, o) and is_valid(o)]
+        # require agreement: several candidate originals must repair alike
+        fixed = {strip_intended(o) for o in hits}
+        out.append(fixed.pop() if len(fixed) == 1 else None)
+    if any(o is None for o in out):
+        return None
+    return b"\n".join(out)
+
+
+COMMENT_STARTS = ("--", "{-", "#", "|", "*", "%")
+PROSE = (".md", ".txt", ".tex")
+
+
+def code_drops(path, cur, fixed):
+    """Lines of code where a character was lost rather than restored.
+
+    Dropping a stranded byte inside a comment costs nothing. Dropping one
+    inside code turns `_\u00b7_` into `__`: still valid UTF-8, silently wrong.
+    A file with any such line is left untouched and reported, because a
+    readable file that no longer means what it said is worse than an
+    unreadable one.
+    """
+    if path.endswith(PROSE):
+        return []
+    a = cur.decode("utf-8", "replace").split("\n")
+    b = fixed.decode("utf-8").split("\n")
+    if len(a) != len(b):
+        return ["<line count changed>"]
+    out = []
+    for x, y in zip(a, b):
+        if x == y or "\ufffd" not in x or y.lstrip().startswith(COMMENT_STARTS):
+            continue
+        if len(y) < len(x) - x.count("\ufffd") + 1:
+            out.append(y)
+    return out
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     check = "--check" in sys.argv
@@ -126,9 +232,24 @@ def main():
             # such site in this repository falls inside a comment.
             orig = b""
             note = "  (no original; stranded bytes removed)"
-        fixed = repair(cur, orig)
+        # Prefer a candidate the byte-value check PROVES is the pre-damage
+        # version; only then fall back to reconstructing line by line, and
+        # only then to locating characters by context.
+        fixed = None
+        for cand in originals(p):
+            fixed = repair_exact(cur, cand)
+            if fixed is not None:
+                note = "  (exact)"
+                break
+        if fixed is None:
+            fixed = repair_lines(cur, orig) or repair(cur, orig)
         if not is_valid(fixed):
             print(f"STILL BROKEN {p}"); failed += 1; continue
+        lost = code_drops(p, cur, fixed)
+        if lost:
+            print(f"SKIPPED      {p}  ({len(lost)} code lines would lose a "
+                  f"character; repair by hand)")
+            failed += 1; continue
         open(p, "wb").write(fixed); done += 1
         print(f"repaired     {p}{note}")
     print(f"\n{done} repaired, {failed} failed")
