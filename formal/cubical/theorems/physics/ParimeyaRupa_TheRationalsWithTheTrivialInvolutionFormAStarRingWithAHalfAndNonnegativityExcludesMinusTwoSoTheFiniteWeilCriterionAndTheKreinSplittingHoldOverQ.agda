@@ -20,7 +20,7 @@
 --       configuration with an off-line mode, n = 2 with τ the swap,
 --       whose negative vector δ₀ − δ₁ has τ-form −2.
 --
--- ������ (parimeya, measurable/rational) is the ordinary  word.
+-- परिमेय (parimeya, measurable/rational) is the ordinary  word.
 ------------------------------------------------------------------------
 
 module ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAHalfAndNonnegativityExcludesMinusTwoSoTheFiniteWeilCriterionAndTheKreinSplittingHoldOverQ where

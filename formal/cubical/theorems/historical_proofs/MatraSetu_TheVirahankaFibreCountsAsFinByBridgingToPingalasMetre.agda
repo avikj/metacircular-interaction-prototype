@@ -13,7 +13,7 @@
 --
 --   Virahanka_….agda  proves the RECURRENCE on its own fibre —
 --       fiber छन्दः (2+n) ≃ fiber छन्दः (1+n) ⊎ fiber छन्दः n
---     over `List Bool` weighted ������(true)=1, ������(false)=2.
+--     over `List Bool` weighted मात्रा(true)=1, मात्रा(false)=2.
 --
 --   PingalaPrastara.agda  proves the CLOSED FORM —
 --       matraCount : Metre n ≃ Fin (matra n)
@@ -27,7 +27,7 @@
 -- built from the alphabet identification and the fact that both fibre
 -- witnesses are propositions (ℕ is a set).  COMPOSING that bridge with
 -- PingalaPrastara.matraCount — the corpus's own equivalence, transported
--- through, not re-proved — supplies the count of ����������'s fibre:
+-- through, not re-proved — supplies the count विरहाङ्कof 's fibre:
 --     fiber छन्दः n ≃ Fin (matra n).
 --
 -- This is विवेकसेतु's move ("the two remainder records are one pair and

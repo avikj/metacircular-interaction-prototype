@@ -8,7 +8,7 @@
 -- holds exactly where the प्रमाण holds, and the type says so.)
 --
 -- THE MOVE THAT MATTERS:
--- ����� d k = mk������ d k k hits only the diagonal, so
+-- अवतरण d k = mkविवेक d k k hits only the diagonal, so
 -- ℕ × ℕ is NOT equivalent to विवेक.  Rather than assert the equivalence,
 -- the defeating condition is carried as a FIELD — विवेक-प्रमाण is the
 -- subtype on which अवतरण/उत्थान are mutually inverse — and the
@@ -71,7 +71,7 @@ open विवेक-प्रमाण
 विवेक-प्रमाण-अवतरण : ℕ × ℕ → विवेक-प्रमाण
 विवेक-प्रमाण-अवतरण (d , k) = mkविवेक-प्रमाण (अवतरण d k) refl
 
--- the claim, discharged BY THE ������ FIELD rather than by refl
+-- the claim, discharged BY THE प्रमाण FIELD rather than by refl
 अवतरण-उत्थान : (p : विवेक-प्रमाण) → विवेक-प्रमाण-अवतरण (विवेक-प्रमाण-उत्थान p) ≡ p
 अवतरण-उत्थान p i .v       = प्रमाण p (~ i)
 अवतरण-उत्थान p i .प्रमाण  =

@@ -52,11 +52,11 @@
 -- The six m's of §� are supplied as data.
 -- The turn is sound for ANY
 -- m whose three divisions come out exact, which is what §३ states.
--- The three ������� of §� are HYPOTHESES of the theorem.  §� discharges
+-- The three भागहार of §३ are HYPOTHESES of the theorem.  §५ discharges
 -- them by computation for the six particular turns.
 --
 -- The �������� STEP is formalised, and one
--- complete �������� RUN is executed in the kernel.
+-- complete चक्रवाल RUN is executed in the kernel.चक्रवाल
 --
 -- ────────────────────────────────────────────────────────────────────
 -- SOURCES.
@@ -80,7 +80,7 @@
 -- and that their step's three divisions are exactly the three hypotheses of
 -- §३.
 --
--- � throughout, never �: cubical's � product does
+-- ℕ throughout, never ℤ: cubical's ℤ product does
 -- not reduce on numerals of this size, and §५ needs numbers up to
 -- 3 · 10¹⁸ to actually compute in the kernel.  Signs are therefore
 -- carried as धन / ऋण beside a magnitude, and every equation below is

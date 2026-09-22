@@ -9,7 +9,7 @@
 -- tax on agency", is built here.
 --
 -- SEED.  The no-go
--- (‡‡ß‡ø‡ï‡æ‡∞‡‡ô‡‡ó‡) says no controller on the quotient can be
+-- (‡§Ö‡§ß‡§ø‡§ï‡§æ‡§∞‡§≠‡§ô‡•ç‡§ó‡§É) says no controller on the quotient can be
 -- COMPLETE ‚Äî but the richer distinction is between two action spaces
 -- over an observed state:
 --

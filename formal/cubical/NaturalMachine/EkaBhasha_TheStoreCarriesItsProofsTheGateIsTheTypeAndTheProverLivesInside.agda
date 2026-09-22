@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ������� — one language.  Compound built here (���, one;
+-- एकभाषा — one language.  Compound built here (एक, one;
 -- भाषा, language); not a source term.
 --
 -- THE DIRECTIVE THIS ANSWERS, the owner's: the machine must not
@@ -141,7 +141,7 @@ a ≟T b = उद्धार-मा eqToPath (a प्र.≟T b)
 ------------------------------------------------------------------------
 -- §5  The machine's own missing theorems, proven internally and
 --     installed as typed store values.  Each pair below is a member of
---     Sanghatta's non-joining list, this container (the ������
+--     Sanghatta's non-joining list, this container (the सिद्धि
 --     runs' ledger).  `fromJust … tt` compiles exactly when the prover
 --     succeeds — a failed proof is a TYPE ERROR here, not a log line.
 ------------------------------------------------------------------------

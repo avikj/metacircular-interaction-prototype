@@ -29,7 +29,7 @@
 --       by SankramanaShreni no function of the displacement recovers the
 --       window action.
 --
--- ‡‡‡Æ‡æ (sm, boundary) and ‡‡‡ (ea, residual) are ordinary .
+-- ‡§∏‡•Ä‡§Æ‡§æ (sƒ´mƒÅ, boundary) and ‡§∂‡•á‡§∑ (≈õe·π£a, residual) are ordinary .
 ------------------------------------------------------------------------
 
 module SimaSesa_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDifferOnTheBoundaryStripsSoDisplacementDescendsAndBoundaryHistoryDoesNot where

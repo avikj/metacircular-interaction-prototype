@@ -65,8 +65,8 @@ z = var 2
 -- or ordering changes the generated AST and breaks the refl bridge.
 
 -- Note which are refl and which are not.  Four of the eight are
--- definitional in cubical � (0+n, suc n+m, 0�n, 1+n all reduce).  THREE
--- OF THE OTHER FOUR ARE NOT: n ≡ n+0 and n ≡ 1�n need +-zero, and
+-- definitional in cubical ℕ (0+n, suc n+m, 0·n, 1+n all reduce).  THREE
+-- OF THE OTHER FOUR ARE NOT: n ≡ n+0 and n ≡ 1·n need +-zero, and
 -- commutativity needs +-comm.  So the bridge
 -- carries a discovery whose soundness is a THEOREM rather than a
 -- computation.

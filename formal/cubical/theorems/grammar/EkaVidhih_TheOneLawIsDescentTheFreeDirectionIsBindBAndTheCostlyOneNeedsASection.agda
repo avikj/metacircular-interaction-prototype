@@ -14,7 +14,7 @@
 --   SamacaranaNityam  सङ्क्रमण-नित्यम्   — S = the orbit projection
 --   ApurvaIndriyam    अपूर्वम्          — S = the present sensorium
 --   ParimanaAndha     परिमाणात्-न-योगः  — S = |·|
---   TiryakFiber       ����-�-������      — S = the residue class
+--   TiryakFiber       म्यू-न-शेषात्      — S = the residue class
 --                     शेषः-न-म्यूतः      — S = the Möbius sign
 --
 -- Five statements, one rewrite, and §२ below is the rewrite.

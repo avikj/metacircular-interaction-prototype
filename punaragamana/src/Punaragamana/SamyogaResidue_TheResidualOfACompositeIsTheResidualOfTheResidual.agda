@@ -12,7 +12,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- Punargamana ┬ рррпрЛрЧррр
+-- Punar─Бgamana ┬╖ рдкреНрд░рддрд┐рдмрд┐рдореНрдм
 --
 -- ON THE NAME.  рд╕рдВрдпреЛрдЧ (saс╣Гyoga), "conjunction / composition", is a
 -- standard technical term across  grammar and Nyya-Vaieika

@@ -43,7 +43,7 @@
 -- invariance and not merely uncounted structure.
 --
 -- ‡‡‡‡∞‡‡ø‡≤‡ã‡Æ is ordinary
---  (‡‡‡∞‡‡ø‡≤‡ã‡Æ, inverse/reverse, is LosslessReturn's own word for the
+--  (‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ, inverse/reverse, is LosslessReturn's own word for the
 -- ascent), and the compound is built here.
 ------------------------------------------------------------------------
 

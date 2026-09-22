@@ -4,7 +4,7 @@ Thesis under test: every open solution is latent composition, and expressing exa
 
 ## The composition
 
-**SamastaSima.** The corpus already holds the open problems as types built from computable functions: RH as the Davis�Matiyasevich�Robinson inequality at every n � 1, Goldbach as GoldbachAt at every even number, with the Goldbach fibre proved decided (KotiNirnaya). SamastaSima adds the same fact for the RH fibre and the single type that holds both:
+**SamastaSima.** The corpus already holds the open problems as types built from computable functions: RH as the Davis–Matiyasevich–Robinson inequality at every n ≥ 1, Goldbach as GoldbachAt at every even number, with the Goldbach fibre proved decided (KotiNirnaya). SamastaSima adds the same fact for the RH fibre and the single type that holds both:
 
 - `rh-dec`: the RH fibre is decided; `rhb` is its Boolean, sound and complete; `DMR.RH ≃ (∀ m. rhb (suc m) ≡ true)`.
 - `Frontier = RH × Goldbach ≃ (∀ n. frontierb n ≡ true)`: the whole typed frontier of the corpus is the section of one decided Boolean family.

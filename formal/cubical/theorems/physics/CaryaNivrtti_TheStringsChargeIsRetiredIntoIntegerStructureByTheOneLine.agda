@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- चर्या-निवृत्ति — the string's charge retires into ℤ.  Not a new proof:
--- an INSTANTIATION of ��������'s retirement operator (���������).  The
+-- an INSTANTIATION of एकसूत्र's retirement operator (निवृत्तिः).  The
 -- winding facts are hand-proved in GranthiCarya.  The one line
 -- retires the author: ΩS¹ ≃ ℤ, so EVERY property of ℤ holds of the loop
 -- space with no further proof — the charge is not proved to be ℤ, it IS
--- �, issued.  This is the pattern for retiring the physics into the
+-- ℤ, issued.  This is the pattern for retiring the physics into the
 -- single primitive.
 
 module CaryaNivrtti_TheStringsChargeIsRetiredIntoIntegerStructureByTheOneLine where

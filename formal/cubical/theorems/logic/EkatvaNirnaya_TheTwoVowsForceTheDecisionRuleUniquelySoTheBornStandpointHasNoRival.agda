@@ -2,7 +2,7 @@
 
 -- EkatvaNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival
 --
--- ‡‡ï‡‡‡µ-‡®‡ø‡∞‡‡‡Ø‡ ‚Äî ekatva, uniqueness; niraya, the decision.
+-- ‡§è‡§ï‡§§‡•ç‡§µ-‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É ‚Äî ekatva, uniqueness; nir·πáaya, the decision.
 -- For program ‡ of YugaParivartana (measurement
 -- as conflict resolution).  Sources as AvaktavyaPrasava's header gives
 -- them: Ktyyana's vrttika on

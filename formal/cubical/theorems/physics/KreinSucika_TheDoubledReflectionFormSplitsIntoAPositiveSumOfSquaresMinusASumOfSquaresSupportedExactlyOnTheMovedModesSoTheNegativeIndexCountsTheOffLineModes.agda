@@ -23,7 +23,7 @@
 --   ¬ß4  THE NEGATIVE PART.  Its summand is 0 at a fixed mode; on a fixed
 --       configuration the whole negative part is 0.
 --
--- ‡‡‡‡ø‡ï‡æ (scik, index/pointer) is ordinary .
+-- ‡§∏‡•Ç‡§ö‡§ø‡§ï‡§æ (s≈´cikƒÅ, index/pointer) is ordinary .
 ------------------------------------------------------------------------
 
 module KreinSucika_TheDoubledReflectionFormSplitsIntoAPositiveSumOfSquaresMinusASumOfSquaresSupportedExactlyOnTheMovedModesSoTheNegativeIndexCountsTheOffLineModes where

@@ -9,7 +9,7 @@
 --   पूर्णता  — पर्याप्तानुदाने अवश्यम् उक्तम् (complete) ।
 -- अनुक्तं न मिथ्या, न ⊥ — तृतीयं पदम्, बूलियन्-रहितम् ।
 --
---  The third position is real and is neither falsity nor �.
+--  The third position is real and is neither falsity nor ⊥⊥.—
 --  `Purnata.agda` proves this
 --  un-said is सामयिक, temporary: पूर्णता gives, for every instance, a
 --  grant at which it is gone.  `SaptabhangiNaya.no-single-vacana`

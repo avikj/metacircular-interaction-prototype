@@ -139,7 +139,7 @@ defect→¬isEquiv f (b , nc) e = nc (e .equiv-proof b)
 ------------------------------------------------------------------------
 -- §2.  THE CONVERSE COSTS AT LEAST MARKOV.S PRINCIPLE.
 --
--- What is proved below is `writable�MP` and only that: Writable � MP.
+-- What is proved below is `writable→MP` and only that: Writable ⟹ MP.
 -- That is a LOWER BOUND -- writing defects costs AT LEAST MP -- and it
 -- is not an identification.  `Apoha` carries `MP→Witnessed` AND
 -- `Witnessed�MP`, and `FalsifierAsymmetry` cites that pair; so
@@ -171,7 +171,7 @@ MP = (α : ℕ → Bool)
    → ¬ ((n : ℕ) → ¬ (α n ≡ true))
    → Σ[ n ∈ ℕ ] (α n ≡ true)
 
--- The reading of §�: that path two is AVAILABLE whenever
+-- The reading of §६: that path two is AVAILABLE whenever
 -- path one fails, rather than OWED by whoever failed to transport.
 Writable : Type₁
 Writable = {A B : Type₀} (f : A → B) → ¬ isEquiv f → Defect f

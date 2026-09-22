@@ -41,7 +41,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHY THIS IS THE अनेकान्त POINT AND NOT A METAPHOR
 --
--- The standing ��������� law is that a collapse exists IFF every
+-- The standing अनेकान्त law is that a collapse exists IFF every
 -- pair of नयs agrees.  Plurality is one way to fail that, not the only one.  Here two नयs — obstruction and orbit — disagree
 -- about the same configuration, and neither is wrong.  A नय that denied
 -- the other would be a दुर्नय: "the norm fails to determine the pair" is
@@ -154,7 +154,7 @@ rotated-differs e = true≢false (cong isNegℤ (cong fst e))
 -- §3 is a statement about decoders and §4 about an action, and it is the
 -- same two pairs both times.
 --
--- What this changes for the rest of the line: `� FactorsThrough` has
+-- What this changes for the rest of the line: `¬ FactorsThrough` has
 -- been read throughout as a deficiency — a barrier, a cost, a witness
 -- count.  It is equally a presentation of the fibre, and where the fibre
 -- carries an action the second reading is the productive one.  चक्रवाल

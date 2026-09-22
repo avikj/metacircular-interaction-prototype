@@ -388,7 +388,7 @@ cot3k3₃ = refl
 --
 -- The formula is manifestly invariant under the involution
 --     e = (e₁,…,e_r)  ↦  e* = (e_r − e_r, e_r − e_{r−1}, …, e_r − e₁),
--- which is the duality A � w� A⻵ w� on Γ�(D).  One might conjecture that this is the
+-- which is the duality A ↦ w₀ A⁻ᵀ w₀ on Γ₀(D).  One might conjecture that this is the
 -- ONLY coincidence: that at fixed r and fixed level p^m, normalised chains with
 -- equal index are equal or dual.
 --

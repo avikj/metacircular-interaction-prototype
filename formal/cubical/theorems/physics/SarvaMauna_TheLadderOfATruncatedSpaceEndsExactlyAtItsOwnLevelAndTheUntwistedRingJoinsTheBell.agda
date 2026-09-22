@@ -34,7 +34,7 @@
 -- that never finishes speaking — and सर्वमौनम् says why: it is not
 -- truncated at any level.
 --
--- SOURCES.  ������� is imported from Mauna (this corpus,
+-- SOURCES.  अवरोहः is imported from Mauna (this corpus,
 -- 2026-08-23); isGroupoidS¹ (Cubical.HITs.S1.Properties), Torus≡S¹×S¹
 -- (Cubical.HITs.Torus.Base), isOfHLevel×, isOfHLevelPlus',
 -- isOfHLevelRespectEquiv, truncIdempotentIso are the library's.  This

@@ -4,7 +4,7 @@
 -- प्रतिबिम्ब — the reflection.  The rooted fibre over a jewel IS that
 -- jewel's local datum together with all its reflections.
 --
--- SOURCE.  The metaphor is ���������, Indra's net: at every knot
+-- SOURCE.  The metaphor is इन्द्रजाल, Indra's net: at every knot
 -- a jewel, and in each jewel the reflection of every other (the net of
 -- Indra, Atharvaveda 8.8.6–8; the interpenetration reading is Huayan,
 -- Fazang 643ℓ712).  The MATHEMATICS is

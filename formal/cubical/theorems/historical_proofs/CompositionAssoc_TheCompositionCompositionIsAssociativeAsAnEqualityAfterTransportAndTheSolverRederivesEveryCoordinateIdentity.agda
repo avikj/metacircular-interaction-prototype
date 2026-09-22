@@ -11,7 +11,7 @@
 --
 -- WHAT IS ALREADY THERE.  Section 7 of `BhavanaGenerative` assembles
 -- `âŠAssoc`, `âŠComm`,
--- `âŠIdR`, `âŠIdL` as PathPs over `ÂAssoc`/`ÂComm`/`ÂIdR`/`ÂIdL`.
+-- `âŠ›IdR`, `âŠ›IdL` as PathPs over `Â·Assoc`/`Â·Comm`/`Â·IdR`/`Â·IdL`.
 -- Those are DEPENDENT paths.  What that file does NOT
 -- state, for general norm indices, is the non-dependent form the Â§7 note
 -- describes as the obstacle â€” an equality in ONE type, after transporting one

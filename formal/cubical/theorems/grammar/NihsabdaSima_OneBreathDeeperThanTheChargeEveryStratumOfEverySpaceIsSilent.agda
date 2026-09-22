@@ -35,7 +35,7 @@
 -- assumed of A — the level lives in the truncation itself.
 --
 -- SOURCES.  isOfHLevelTrunc, isOfHLevelPlus',
--- inhProp�isContr are the library's; ������� is Mauna's;
+-- inhProp→isContr are the library's; अवरोहः is Mauna's;
 -- this module's content is the composition and the
 -- sharpness reading.  निःशब्द (soundless) and सीमा (boundary) are
 -- ordinary  used as labels; the compound is built here; the arpita/anarpita

@@ -10,7 +10,7 @@
 --    files?"
 --
 -- Two candidates have been killed by measurement in §9 and §10 of that
--- note (�P� at a 77.3% base rate; P� firing on neither).  Both
+-- note (¬P₁ at a 77.3% base rate; P₂ firing on neither).  Both
 -- hunted a THIRD candidate.  This one does not.
 --
 -- ────────────────────────────────────────────────────────────────────

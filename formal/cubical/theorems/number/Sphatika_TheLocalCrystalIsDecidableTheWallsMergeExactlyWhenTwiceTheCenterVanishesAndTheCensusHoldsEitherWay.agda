@@ -24,7 +24,7 @@
 -- criterion internal (here), the regime decision (here), and the
 -- charge that must survive the boundary (‡§§‡§æ‡§§‡•ç‡§ï‡§æ‡§≤‡§ø‡§ï‡•Ä ‡§ó‡§§‡§ø‡§É / Yamala).
 --
--- ON THE NAME.  ‡‡‡‡ü‡ø‡ï ‚Äî crystal, rock-crystal ‚Äî ordinary ,
+-- ON THE NAME.  ‡§∏‡•ç‡§´‡§ü‡§ø‡§ï ‚Äî crystal, rock-crystal ‚Äî ordinary ,
 -- prominent in the traditions this corpus reads (the sphaika of
 -- Nyya's optics examples; the owner's "local prime Fourier crystal"
 -- names the same object one instrument later).
@@ -132,7 +132,7 @@ private
 
 ------------------------------------------------------------------------
 -- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.
--- ‡‡‡‡ü‡ø‡ï‡ decides by discreteFin on the WALLS; deciding on
+-- ‡§∏‡•ç‡§´‡§ü‡§ø‡§ï‡§É decides by discreteFin on the WALLS; deciding on
 -- the criterion (a +‚Çò a ‚â° ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç) instead is the same decision through
 -- ‡‡ô‡‡ó‡Æ-‡‡®‡‡‡∞‡.  p = 2 + m
 -- is any modulus ‚â• 2, and primality enters only at the atlas level,

@@ -445,7 +445,7 @@ chart-is-better-e13 = canonical-chart-is-better 3 3 fzero t13 can13 long-enough
 -- base supplies and the kernel checks it — a fitted threshold would be
 -- strictly worse than either.
 --
--- COST OF CHECKING.  All of §3 — including value e6 ≡ 10� and value e13 ≡ 10�³ by `refl` �
+-- COST OF CHECKING.  All of §3 — including value e6 ≡ 10⁶ and value e13 ≡ 10¹³ by `refl` ——
 -- is cheap to check, because `Cubical.Data.Nat` is
 -- `Agda.Builtin.Nat` and its `+` and `·` are GMP-backed on closed
 -- literals; the numerals are never walked in unary.  One practical

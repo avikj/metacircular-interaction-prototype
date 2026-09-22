@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- एकत्व-मात्रा-द्वयम् — uniqueness of the two-outcome measure: the FIRST
 -- step into the interior of the Born weights, past EkatvaMatra's support
--- layer.  Program � of YugaParivartana.
+-- layer.  Program ४ of YugaParivartana.
 --
 -- WHAT IS PROVED.  On a symmetric two-outcome contention
 -- (Bool), a weight rule obeying
@@ -23,7 +23,7 @@
 -- half exists and is unique, so the symmetric Born weight is forced; over
 -- a carrier where 𝟙 has two distinct halves or none, it is not.  So the
 -- interior opens exactly over the archimedean carrier — and the general
--- (asymmetric, higher-outcome) interior is Gleason's (dim � 3), the
+-- (asymmetric, higher-outcome) interior is Gleason's (dim ≥ 3), the
 -- wall EkatvaMatra names.
 ------------------------------------------------------------------------
 

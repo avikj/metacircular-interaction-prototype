@@ -132,7 +132,7 @@ arises.
 | `--to-hvm` (HVM3) | `freeVars` fixed; the target still erases | no |
 | JavaScript | **now fails loudly** — erasing a path silently produced wrong code, so every cubical constructor raises a clear error pointing at `--to-hvm4-full` | no |
 
-The full runtime carries the Π, PathP and � rules too (§B). Every rule is
+The full runtime carries the Π, PathP and Σ rules too (§B). Every rule is
 written **twice**, once in `whnfHCm` and once in `Target/HVM4Full.hs`.
 
 ---

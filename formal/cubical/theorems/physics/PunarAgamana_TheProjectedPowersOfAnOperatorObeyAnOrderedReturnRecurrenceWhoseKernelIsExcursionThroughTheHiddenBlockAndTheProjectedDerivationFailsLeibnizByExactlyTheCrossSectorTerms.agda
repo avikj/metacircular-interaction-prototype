@@ -51,7 +51,7 @@
 --
 -- SYĀT — THE CLAIM, EXACTLY.  §§1–4 in any ring, for every `L` and every
 -- idempotent `P`.  §5 in any commutative ring, for every additive
--- Leibniz `�` and every additive multiplicative idempotent `�`.
+-- Leibniz `𝓛` and every additive multiplicative idempotent `𝒫`.
 ------------------------------------------------------------------------
 
 module PunarAgamana_TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms where

@@ -4,7 +4,7 @@
 -- मूल्यम् — the price readout and the symmetry readout are ONE FUNCTION,
 -- and both merge the fully-held with the never-asked.
 --
--- ����� (price, value) is ordinary  and the compound here is built
+-- मूल्य (price, value) is ordinary  and the compound here is built
 -- here.  The economic vocabulary this module
 -- points at — ऋण / धन, debt and asset as two readings of one magnitude —
 -- is Brahmagupta, *Brāhmasphuṭasiddhānta* 18 (628 CE), carried at ग्रेड·शब्द

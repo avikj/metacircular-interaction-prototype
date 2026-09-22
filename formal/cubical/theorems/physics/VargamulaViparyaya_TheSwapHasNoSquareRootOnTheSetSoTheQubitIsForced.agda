@@ -4,7 +4,7 @@
 -- VargamulaViparyaya_TheSwapHasNoSquareRootOnTheSet
 --                     SoTheQubitIsForced
 --
--- TERMS.  �������� � varga-mla — "square root", the standard term of 
+-- TERMS.  वर्गमूल · varga-mūla — "square root", the standard term of 
 -- mathematics (ryabhaa, *ryabhaya*, Gaitapda, 499 CE, gives the
 -- digit-by-digit वर्गमूल algorithm; Brahmagupta continues it).  विपर्यय ·
 -- viparyaya — reversal, inversion, exchange; a common word, here the swap /

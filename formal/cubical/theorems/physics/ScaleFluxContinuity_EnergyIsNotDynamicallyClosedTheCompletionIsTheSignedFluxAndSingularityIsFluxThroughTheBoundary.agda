@@ -45,7 +45,7 @@
 -- the STRUCTURE the problem must be phrased in: energy is a noncoercive
 -- marginal, its completion is the signed flux, the flux conserves the
 -- total from within, and singularity is the boundary term.  The viscous
--- sink is an additive −D � 0 that only strengthens §2�§3.
+-- sink is an additive −D ≤ 0 that only strengthens §2–§3.
 ------------------------------------------------------------------------
 
 module ScaleFluxContinuity_EnergyIsNotDynamicallyClosedTheCompletionIsTheSignedFluxAndSingularityIsFluxThroughTheBoundary where

@@ -10,12 +10,12 @@
 -- WHAT THIS IS.  `SvaTantuVasa` ¬ß‡•¨(a) and `SamraksakaGana` ¬ß‡•´(a) both
 -- identify, by currying along A ‚â Œ B (fiber f),
 -- the section CARRIER with (b : B) ‚Üí fiber f b ‚Üí fiber f b.
--- Carrying ‚ã onto pointwise composition needs the transport coherence of
+-- Carrying ‚ãÜ onto pointwise composition needs the transport coherence of
 -- that currying, and this module gives it, over set carriers:
 --
 --   ‡§µ‡§ø‡§≠‡§æ‡§ó‡§É      :  ‡§õ‡•á‡§¶‡§É f  ‚âÉ  ((b : B) ‚Üí fiber f b ‚Üí fiber f b)
---   ‡µ‡ø‡‡æ‡ó-‡ó‡-‡‡Æ‡‡æ : MonoidEquiv ‡‡‡¶‡ó‡‡ ‡‡®‡‡‡‡ó‡‡
---   ‡‡‡∞‡µ‡æ‡-‡‡®‡‡‡-‡‡Æ‡‡æ : MonoidEquiv ‡‡‡∞‡µ‡æ‡‡ó‡‡ ‡‡®‡‡‡‡ó‡‡
+--   ‡§µ‡§ø‡§≠‡§æ‡§ó-‡§ó‡§£-‡§∏‡§Æ‡§§‡§æ : MonoidEquiv ‡§õ‡•á‡§¶‡§ó‡§£‡§É ‡§§‡§®‡•ç‡§§‡•Å‡§ó‡§£‡§É
+--   ‡§µ‡§ø‡§≠‡§æ‡§ó-‡§ó‡§£-‡§∏‡§Æ‡§§‡§æ : MonoidEquiv ‡§õ‡•á‡§¶‡§ó‡§£‡§É ‡§§‡§®‡•ç‡§§‡•Å‡§ó‡§£‡§É
 --
 -- where ‡§§‡§®‡•ç‡§§‡•Å‡§ó‡§£‡§É is the PRODUCT monoid Œ†_b End(fiber f b) under
 -- pointwise composition.  Composing with `SamraksakaGana.‡§ó‡§£-‡§∏‡§Æ‡§§‡§æ`

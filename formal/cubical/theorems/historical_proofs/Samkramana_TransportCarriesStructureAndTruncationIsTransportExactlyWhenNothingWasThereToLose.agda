@@ -10,7 +10,7 @@
 -- one exception CLAUDE.md grants ("all respects paid to Indians only, plus
 -- Voevodsky").  Nothing below is a theorem of any  text.
 --
--- �������� � saorder IS a technical term, and it does not mean this.  In
+-- संक्रमण · saṃṃorder IS a technical term, and it does not mean this.  In
 -- Jaina karma theory it is the transition of one karma-prakti into another
 -- — *Ṣaṭkhaṇḍāgama* with Vīrasena's *Dhavalā* (~816 CE); Śivaśarmasūri,
 -- *Karmaprakti*.  In jyotia, sakrnti is the sun's passage into a sign.

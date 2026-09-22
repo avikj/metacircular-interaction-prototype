@@ -520,7 +520,7 @@ sample-E₅ = refl
 
 -- ---- check FREQUENCY-PHASE-DIAGRAM. -------------------------------------
 -- The threshold ρ*(φ) = min{1/3, (1+φ)/5}: the note's (0.5) also lists 1/2
--- and (1+3�)/2, both of which are redundant for � >= 0.  The report's samples
+-- and (1+3φ)/2, both of which are redundant for φ >= 0.  The report's samples
 -- are ρ*(0) = 1/5, ρ*(1/5) = 6/25, ρ*(1) = 1/3.
 --
 -- φ = 0, ρ = 1/5: E₃ = 0 (fifth-E₃ above) and E₁ < 0, so E₃ binds.
@@ -542,7 +542,7 @@ phase-φ1-E₁ = refl
 phase-φ1-E₃ : isNeg (evalAt 3 1 3 S₃)
 phase-φ1-E₃ = 1 , refl
 
--- SUPPLEMENT (not in the note): the crossover is exactly � = 2/3,
+-- SUPPLEMENT (not in the note): the crossover is exactly φ = 2/3,
 -- where (1+φ)/5 = 1/3 and E₁, E₃ vanish simultaneously.  q = 3, r = 1, f = 2.
 crossover-E₁ : isZer (evalAt 3 1 2 S₁)
 crossover-E₁ = refl

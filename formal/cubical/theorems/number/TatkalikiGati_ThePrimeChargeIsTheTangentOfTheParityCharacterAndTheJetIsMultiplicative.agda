@@ -52,7 +52,7 @@
 -- is its parity-point complement, neither subsumed nor subsuming: the
 -- concrete μ, κ : ℕ → ℤ with the laws UNCONDITIONAL over the
 -- ω-normalization (गुणकत्वम्, विकर्ण-नियमः from one homomorphism path), the
--- closed form ���-�����, and the sign of the twin channel (κ-������).
+-- closed form घन-रूपम्, and the sign of the twin channel (κ-वर्गः).
 ------------------------------------------------------------------------
 
 module TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative where

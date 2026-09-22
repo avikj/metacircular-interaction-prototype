@@ -9,7 +9,7 @@
 --
 -- THIS IS THE LOOP, closed in the one language.  The store receives
 -- proofs and GIVES them back to the prover:
--- the store's entries — each already carrying its ������� by
+-- the store's entries — each already carrying its साक्षी by
 -- type — speak inside the ascent's step as unconditional voices,
 -- through the certified matcher, at every instance (आदेश).  मति
 -- (स्वार्थ-साधनम्) mints a rule; the rule becomes श्रुत; and

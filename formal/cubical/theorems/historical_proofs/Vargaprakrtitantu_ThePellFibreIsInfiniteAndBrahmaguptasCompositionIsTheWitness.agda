@@ -9,7 +9,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS, AND WHY IT IS THE CRITERION AND NOT AN EXAMPLE.
 --
--- `fibre/src/Loss/Composition_�` builds ������������� as
+-- `fibre/src/Loss/Composition_…` builds वर्गप्रकृति as
 -- `Carrier (क्षेपः D)`: base = the two roots, carried = the क्षेप, because
 -- the roots DETERMINE it.  Its fibre `Σ[ k ] (क्षेपः D x ≡ k)` is
 -- `singl`, contractible, and (ℤ × ℤ) ≃ वर्गप्रकृति D.  The carried datum
@@ -27,7 +27,7 @@
 --
 -- SO THIS FILE IS THE TWO HALVES JOINED, and neither half says it alone:
 --
---   � `Composition_�.�����-�������` proves the carried datum MULTIPLIES:
+--   · `Composition_….भावना-क्षेपः` proves the carried datum MULTIPLIES:
 --     क्षेप(compose) = क्षेप · क्षेप.  Hence composing a k=1 row with the
 --     fundamental k=1 row stays at k=1 — the orbit never leaves the
 --     fibre.  §१ below is that invariance, over ℕ and independently.

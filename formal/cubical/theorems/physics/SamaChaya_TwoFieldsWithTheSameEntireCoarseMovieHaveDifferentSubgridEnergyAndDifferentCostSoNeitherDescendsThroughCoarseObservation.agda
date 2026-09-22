@@ -31,7 +31,7 @@
 --
 -- The atomic instance of the joint-observer ladder: velocity, active
 -- pressure and resolved flux are blind to it; energy is not.  सम
--- (sama, same) and ���� (chy, shadow) are ordinary .
+-- (sama, same) and छाया (chāyā, shadow) are ordinary .
 ------------------------------------------------------------------------
 
 module SamaChaya_TwoFieldsWithTheSameEntireCoarseMovieHaveDifferentSubgridEnergyAndDifferentCostSoNeitherDescendsThroughCoarseObservation where

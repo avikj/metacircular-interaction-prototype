@@ -58,7 +58,7 @@
 --
 -- SYĀT — THE CLAIM, EXACTLY.  §§1–5 for any three types with the
 -- displayed maps and the two displayed hypotheses, with the spectrum
--- type a set (§§2�4 only).
+-- type a set (§§2ℓ4 only).
 ------------------------------------------------------------------------
 
 module PratibimbaTantu_TheReflectedFibreIsASingletonOrEmptySoALiftOfTheReflectionThroughTheSourceForcesItToBeTheIdentityOnTheImage where

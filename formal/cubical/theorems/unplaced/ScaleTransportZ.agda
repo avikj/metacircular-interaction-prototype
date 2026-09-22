@@ -4,7 +4,7 @@
 -- ScaleTransportZ
 --
 -- Discharging the abstract order/analytic fields of ScaleTransportCriticality
--- over the concrete ordered group â.  This turns obligations B and C into
+-- over the concrete ordered group â„¤.  This turns obligations B and C into
 -- checked terms:
 --
 --   B  (functional equation, dual-exp)  : the exponent pairing exp(dual m) =

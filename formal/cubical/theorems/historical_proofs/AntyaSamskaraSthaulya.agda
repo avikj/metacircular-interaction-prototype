@@ -66,7 +66,7 @@
 -- (Nīlakaṇṭha, 1501) — and attributed there to Mādhava (c. 1340–1425).
 -- The three forms above are the ones standardly reported, and GIVEN
 -- those forms the identities below hold.
--- f� is not transmitted; it is the next convergent of the
+-- f₄ is not transmitted; it is the next convergent of the
 -- continued fraction the three are convergents of, and it is derived
 -- here, in §3b, as a checked term.
 --
@@ -321,7 +321,7 @@ open Correction ℤCommRing
 -- `SthaulyaIsTheOmittedTerm`.  The exact statement that does hold for
 -- every k is the step law D_{k+1} = −a_{k+2}·D_k, proved there.
 --
--- The four identities above are for k � 4.  The general claim: for
+-- The four identities above are for k ≤ 4.  The general claim:— for
 -- EVERY convergent of that continued fraction the स्थौल्य numerator is
 -- constant in n.
 -- It is proved in `SthaulyaIsTheOmittedTerm`, from

@@ -117,7 +117,7 @@
 --    ¬¬(some off-sector component is nonzero), not the component.  The
 --    price is genuine: a sum of n ring elements being nonzero does not
 --    constructively locate a nonzero summand unless equality in R is
---    decidable (`off�0�witness`) or otherwise stable.
+--    decidable (`off≢0→witness`) or otherwise stable.
 --
 --  * DynamicDescent is not imported (its module carries a different
 --    option set); §3 restates its three scalars as matrix entries and

@@ -4,7 +4,7 @@
 -- ‡§ï‡•ç‡§∑‡•á‡§§‡•ç‡§∞-‡§∏‡§Æ‡§æ‡§∏‡§É ‚Äî the survivor census composes across charts: over two
 -- charts with distinct walls the joint survivor set is Fin (m ¬∑ m'),
 -- i.e. (p‚àí2)¬∑(q‚àí2).  The singular series' LOCAL PRODUCT, as a checked
--- equivalence ‚Äî the two-chart case of the atlas ‡¶‡ã‡‡≤‡‡ñ that
+-- equivalence ‚Äî‚Äî the two-chart case of the atlas ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ that
 -- ‡¶‡‡µ‡ø-‡≤‡ã‡ and ‡‡‡‡ü‡ø‡ï name.
 --
 -- ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§ï‡•ã‡§£ Lemma 3 (prose): the joint congruence system has exactly
@@ -30,7 +30,7 @@
 --
 -- Here p = 2+m is any modulus ‚â 2 with two
 -- distinct walls; primality and coprimality enter only when this product
--- is read as the singular series, which ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡ does.
+-- is read as the singular series, which ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§ï‡•ã‡§£ does.‡§ï‡•ç‡§∑‡•á‡§§‡•ç‡§∞‡§∏‡§Æ‡§æ‡§∏‡§É
 ------------------------------------------------------------------------
 
 module KsetraSamasa_TheTwoChartSurvivorCensusIsTheProductPMinusTwoTimesQMinusTwo where
@@ -69,7 +69,7 @@ private
   compEquiv (‚âÉ-√ó (‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É a‚ÇÅ b‚ÇÅ ne‚ÇÅ) (‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É a‚ÇÇ b‚ÇÇ ne‚ÇÇ)) factorEquiv
 
 ------------------------------------------------------------------------
--- ‡¶‡ã‡‡≤‡‡ñ‡.  Two charts, both at distinct-wall count p‚àí2.  What is proved:
+-- ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É.  Two charts, both at distinct-wall count p‚àí2.  What is proved:
 -- the elided-two-residue counts
 -- MULTIPLY across charts, exactly, as an equivalence ‚Äî the local product
 -- of the singular series is now a term.

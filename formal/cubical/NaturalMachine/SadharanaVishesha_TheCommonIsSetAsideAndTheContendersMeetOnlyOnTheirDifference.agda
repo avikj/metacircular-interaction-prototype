@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡æ‡ß‡æ‡∞‡-‡µ‡ø‡‡‡‡ ‚Äî the common and the distinctive: ordinary ,
+-- ‡§∏‡§æ‡§ß‡§æ‡§∞‡§£-‡§µ‡§ø‡§∂‡•á‡§∑‡§É ‚Äî the common and the distinctive: ordinary ,
 -- compound built here; no source is claimed for the
 -- mathematics.
 --

@@ -87,7 +87,7 @@ module _ (R : Receiver ℓ) (g : {a b : Tm} → Derivation a b → Motion R a b)
   fold-unique (then-step s d) = g-step s d ∙ cong (R ◂ s) (fold-unique d)
 
 ------------------------------------------------------------------------
--- � � The analyzers are all this one fold.
+-- ३ · The analyzers are all this one fold.
 ------------------------------------------------------------------------
 
 -- (a) SOUNDNESS is the fold at the receiver whose motion is "the two

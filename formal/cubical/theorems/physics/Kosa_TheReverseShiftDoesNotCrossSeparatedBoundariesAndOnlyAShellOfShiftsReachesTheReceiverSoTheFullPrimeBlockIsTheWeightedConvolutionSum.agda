@@ -25,7 +25,7 @@
 --
 -- On the arithmetic side, with f = e^{-s}(q*q)(s âˆ’ Â½) at both ends,
 -- h = f*f and this coefficient minus its rank-one pole term is B(t).
--- à•à‹à (koa, shell/sheath) is ordinary .
+-- à¤•à¥‹à¤¶ (koÅ›a, shell/sheath) is ordinary .
 ------------------------------------------------------------------------
 
 module Kosa_TheReverseShiftDoesNotCrossSeparatedBoundariesAndOnlyAShellOfShiftsReachesTheReceiverSoTheFullPrimeBlockIsTheWeightedConvolutionSum where

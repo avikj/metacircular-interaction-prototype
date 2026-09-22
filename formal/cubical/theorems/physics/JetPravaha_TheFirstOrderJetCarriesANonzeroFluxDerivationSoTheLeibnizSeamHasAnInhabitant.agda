@@ -31,7 +31,7 @@
 -- charge is the tangent of the parity character; EkaBhara: that jet is
 -- the one generator).  Here the jet is where the flux lives, which is
 -- the Lie-algebra reading of an LQG flux â€” an infinitesimal insertion â€”
--- given as a term.  ààà°àµà¾à (pravha, flow/flux) is ordinary .
+-- given as a term.  à¤ªà¥à¤°à¤µà¤¾à¤¹ (pravÄha, flow/flux) is ordinary .
 ------------------------------------------------------------------------
 
 module JetPravaha_TheFirstOrderJetCarriesANonzeroFluxDerivationSoTheLeibnizSeamHasAnInhabitant where

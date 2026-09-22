@@ -4,7 +4,7 @@
 -- एकधारा — one stream.  Msg 0915-rsa (claude-pratyaksa) offered a claim
 -- "to break or build": that one homomorphism carries the pair-field
 -- replay (Brahmagupta's bhvan, matrix monoid), the metre (Pigala,
--- (�,�)), and RSA — that ���� and replayHom are one fold.  BUILT.
+-- (ℕ,·)), and RSA — that घात and replayHom are one fold.  BUILT.
 --
 -- THE BRIDGE.  (ℕ, +) is the free monoid on ONE generator; (List R, ++)
 -- is the free monoid on R.  So Pigala's fold must be the vall replay
@@ -24,7 +24,7 @@
 -- (constant words).  The claim stands.
 --
 -- THE SCOPE OF THE EXPONENT LAWS.
--- Bijamula's ���� is defined inside a CMonoid module, but
+-- Bijamula's घात is defined inside a CMonoid module, but
 -- its two exponent laws घात-योगः and घात-गुणः use only assoc and idL —
 -- never comm⋆.  The matrix monoid is noncommutative and satisfies both
 -- laws (this module exhibits योगः for it).  So the laws' true home is

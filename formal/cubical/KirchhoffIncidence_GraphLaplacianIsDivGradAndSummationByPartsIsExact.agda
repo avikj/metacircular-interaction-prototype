@@ -291,7 +291,7 @@ module Triangle where
 ------------------------------------------------------------------------
 -- 3.  THE REFUTATION.
 --
---   The claim: "Δ � ≡ 0 forces � constant" — the discrete maximum
+--   The claim: "Δ φ ≡ 0 forces φ constant" — the discrete maximum
 --   principle, the statement that the kernel of the Laplacian is exactly
 --   the constants.
 --
@@ -347,7 +347,7 @@ module Refutation where
 -- matrix B Bᵀ; constants are harmonic; every column of B sums to zero and
 -- hence total divergence vanishes; the Dirichlet identity.
 --
--- Proved concretely over �: the 3-cycle Laplacian is D − A.
+-- Proved concretely over ℤ: the 3-cycle Laplacian is D − A.
 --
 -- Refuted: that the kernel of Δ is the constants.
 --

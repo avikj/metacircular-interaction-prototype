@@ -23,7 +23,7 @@
 --   goFwdNE     `φ ⊑p dnNE bs ψ → UpP bs φ ≼p ψ`
 --   goBwdNE     and back
 --
--- **SO THE TWO-SIDED CUT EXISTS.**  `dnNE` takes the row list in `j � js` form, so the type
+-- **SO THE TWO-SIDED CUT EXISTS.**  `dnNE` takes the row list in `j ∷ js` form, so the type
 -- itself records that a residual index must exist.
 --
 -- **WHAT MADE IT ROUTINE**: `maxP`'s three laws.

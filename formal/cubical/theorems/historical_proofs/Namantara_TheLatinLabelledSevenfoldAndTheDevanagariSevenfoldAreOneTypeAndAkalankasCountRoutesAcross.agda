@@ -23,7 +23,7 @@
 -- The corpus carries FOUR encodings of the sevenfold predication.  Three
 -- are named `सप्तभङ्गी`, and `Punarukti_TwoOfTheThreeSevenfolds…` settled
 -- all three: `Anekanta.सप्तभङ्गी` ≡ `Saptabhangi.सप्तभङ्गी` (a causeway),
--- and `SaptabhangiKernel.����������� P` is a DIFFERENT question (a witness
+-- and `SaptabhangiKernel.सप्तभङ्गी P` is a DIFFERENT question (a witness
 -- family, proved NOT one type).
 --
 -- The FOURTH escaped that reckoning because it does not carry the name.

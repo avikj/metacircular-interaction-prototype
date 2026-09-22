@@ -5,7 +5,7 @@
 -- source is claimed for the mathematics.
 --
 -- WHY EQUAL VISION.  If in a step-pervasion
--- the GOAL is processed by the record (‡‡‡∞‡‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡) but the
+-- the GOAL is processed by the record (‡§∂‡•ç‡§∞‡•Å‡§§-‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É) but the
 -- HYPOTHESIS's faces are not ‚Äî so when the record helpfully
 -- simplifies the goal, it destroys the exact match the hypothesis
 -- is about to make: the record's assistance sabotages the exchange.

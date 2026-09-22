@@ -12,7 +12,7 @@
 -- (An indexed binomial C(n,k) by the Pascal recurrence alone — no factorials.
 -- Main result: Nryaa's vra-sakalita in closed form is the hockey-stick
 -- identity, V_r(n) = C(n+r, r+1).
--- So the figurate numbers (triangular V�, tetrahedral V�, �) are
+-- So the figurate numbers (triangular V₁, tetrahedral V₂, …) are
 -- exactly the meru diagonals, established from the recurrence, not the factorial.)
 --
 -- स्रोतांसि : पिङ्गलः/हलायुधः (मेरु-प्रस्तारः) ; नारायणः (वार-सङ्कलितम्) ।

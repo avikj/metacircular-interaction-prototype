@@ -77,7 +77,7 @@
 --   by `refl`: sakhy 16 (oaa), gaps 15 (pacadaa), adhvan 31
 --   (ekatriat).
 --
--- ‡µ‡æ‡ï‡ and ‡‡‡‡ are both defined BY RECURSION ON ‚ï rather
+-- ‡§µ‡§æ‡§ï‡•ç and ‡§∂‡•á‡§∑‡§É are both defined BY RECURSION ON ‚Ñï rather
 -- than as inductive families, because matching an indexed family at a
 -- constructor index needs injectivity of suc, which Cubical Agda
 -- rejects ‚Äî such a definition still typechecks but does not compute

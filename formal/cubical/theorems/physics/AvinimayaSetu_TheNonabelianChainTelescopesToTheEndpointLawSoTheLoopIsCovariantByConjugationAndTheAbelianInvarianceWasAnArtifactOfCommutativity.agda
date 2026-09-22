@@ -50,7 +50,7 @@
 --       observable.  The witness is FiniteNonabelianHolonomy's
 --       noncommuting, moved across one inverse.
 --
--- ‡‡µ‡ø‡®‡ø‡Æ‡Ø (a-vinimaya, non-exchange) is ordinary ; SetuKsetra's
+-- ‡§Ö‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø (a-vinimaya, non-exchange) is ordinary ; SetuKsetra's
 -- own trika-vinimaya is the exchange this file does without.
 ------------------------------------------------------------------------
 

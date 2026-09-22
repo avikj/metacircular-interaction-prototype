@@ -320,7 +320,7 @@ sfe-is-one-charged-value σ p n =
 -- by the parity element does not move its full transcript.  So the
 -- observable class of the neutral sector identifies σ with τ₋ ⋆ σ, and
 -- §5's separation says the specialized-FE oracle splits exactly that
--- identification — one coset coordinate, the ⟨�,1⟩ bit.
+-- identification — one coset coordinate, the ⟨·,1⟩ bit.
 ------------------------------------------------------------------------
 
 collapse-is-coset : (σ : Signs) → neuTr (τ₋ ⋆ σ) ≡ neuTr σ

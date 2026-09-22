@@ -31,7 +31,7 @@
 -- step of one loop, and every census that forgets it is off by exactly
 -- this quantum, everywhere, forever.
 --
--- ‡‡ï‡‡æ‡∞ is built here; each face's instrument is its own
+-- ‡§è‡§ï‡§≠‡§æ‡§∞ is built here; each face's instrument is its own
 -- module's, imported, never copied.
 ------------------------------------------------------------------------
 

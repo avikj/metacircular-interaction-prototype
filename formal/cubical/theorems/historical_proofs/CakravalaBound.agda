@@ -93,7 +93,7 @@
 --     HYPOTHESIS.
 --   * The constant 36 is 4�(1 + 1/2)², the
 --     value of the classical |k'| ≤ √D + K/4 at K = 2√D; iterating the
---     same estimate drives it toward 4�(4/3)² = 64/9.
+--     same estimate drives it toward 4·(4/3)² = 64/9.
 --     All §4 needs is 36 < 64.
 --   * `1 ≤ r ≤ K` is a normalisation of the congruence class, not a
 --     restriction: every class mod K has such a representative.  That
@@ -605,7 +605,7 @@ seedBound D n E hlo hhi hE =
 -- That reading is `abs·`, one line, and it is done here rather than
 -- asserted in a comment.
 --
--- `stepAbs` below takes the � equation as a hypothesis.
+-- `stepAbs` below takes the ℤ equation as a hypothesis.
 ------------------------------------------------------------------------
 
 module ZBridge where

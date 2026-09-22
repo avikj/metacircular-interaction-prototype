@@ -4,7 +4,7 @@
 -- घाततन्तु — the discrete log is the fibre of Piṅgala's power, and Shor's
 -- period query is the separating query that reads it.
 --
--- This is the floor under the crypto modules.  ���� g is EASY
+-- This is the floor under the crypto modules.  घात g is EASY
 -- (Pigala's fold, log-time); its inverse is HARD (the discrete log).
 -- That asymmetry is all of public-key cryptography, and it is this
 -- repository's ONE theorem — the quotient/fibre law (`

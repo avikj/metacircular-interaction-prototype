@@ -15,7 +15,7 @@
 --       The ‚áí direction is by trichotomy and ¬ß1; the truncation is
 --       eliminated into ‚ä•.
 --
--- ‡‡‡ø‡ï‡‡∞‡Æ (atikrama, overstepping/transgression) is ordinary .
+-- ‡§Ö‡§§‡§ø‡§ï‡•ç‡§∞‡§Æ (atikrama, overstepping/transgression) is ordinary .
 ------------------------------------------------------------------------
 
 module Atikrama_TheModeOfRatioAboveOneOverstepsEveryBoundAndTheModeOfRatioAtMostOneStaysWithinOneSoAModeIsBoundedExactlyWhenItsRatioIsAtMostOne where

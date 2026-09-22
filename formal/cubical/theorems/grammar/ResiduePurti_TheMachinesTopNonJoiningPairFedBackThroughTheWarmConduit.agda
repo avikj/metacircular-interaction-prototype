@@ -9,7 +9,7 @@
 -- i.e. the rewriter cannot join x with max x 0.  This module is that pair
 -- fed back as a term.
 --
--- TERM.  ‡‡‡-‡‡‡∞‡‡‡ø, "filling of the remainder" ‚Äî ordinary ,
+-- TERM.  ‡§∂‡•á‡§∑-‡§™‡•Ç‡§∞‡•ç‡§§‡§ø, "filling of the remainder" ‚Äî ordinary ,
 -- compound built here.
 -- The mathematics is one recursion clause of Cubical.Data.Nat.max.
 ------------------------------------------------------------------------

@@ -13,7 +13,7 @@
 --
 -- and both decompose ℕ × ℕ, so composing the two organs' equivalences IS the
 -- causeway.
--- ����� �, one map two bindings — and here the two bindings, long
+-- सूत्र ५, one map two bindings — and here the two bindings, long
 -- proved apart, are shown to be one.
 --
 -- TERM.  सेतु — a causeway built so others may cross (Ṛgveda 10.53.8), as in

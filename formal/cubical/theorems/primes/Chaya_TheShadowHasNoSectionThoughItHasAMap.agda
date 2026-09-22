@@ -35,7 +35,7 @@ noSection a b a≢b (s , sec) =
   a≢b (sym (sec a) ∙ cong s (squash₁ ∣ a ∣₁ ∣ b ∣₁) ∙ sec b)
 
 -- ═══ and the map that does exist ═══
--- inhabited A: a map � A �� � A exists, trivially;
+-- inhabited A: a map ∥ A ∥₁ → A exists, trivially;
 -- what fails is the section, not the map.
 mapFromInhabited : {A : Type₀} → A → (∥ A ∥₁ → A)
 mapFromInhabited a _ = a

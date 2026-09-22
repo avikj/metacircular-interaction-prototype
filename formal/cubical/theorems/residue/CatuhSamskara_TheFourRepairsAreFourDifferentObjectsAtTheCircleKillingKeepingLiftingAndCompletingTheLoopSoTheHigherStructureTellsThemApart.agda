@@ -3,7 +3,7 @@
 -- चतुः-संस्कारः — the four repairs, told apart.
 --
 -- `ObstructionCalculus`, the checked fragment of Hieroglyphics II, names
--- the document's four repair kinds  Γ�, Γ�, Γ�, Γ^ : Γ� (promote the
+-- the document's four repair kinds  Γ∅, Γ⇑, Γ↺, Γ^ :  Γ⇑(promote the
 -- defect to a 2-cell) and Γ↺ (keep it as a class) need genuine higher
 -- structure to differ from Γ∈.
 --

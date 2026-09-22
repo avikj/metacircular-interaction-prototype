@@ -223,7 +223,7 @@ noDescentS¹ r = S¹NotSet (retract→isSet r)
 insideViewS¹ : (a : S¹) → isContr (Σ[ x ∈ S¹ ] (a ≡ x))
 insideViewS¹ = insideView
 
--- `Retracts�` is not a global section of the contractible `insideView`
+-- `Retracts₀` is not a global section of the contractible `insideView`
 -- fibres; those are different data types.
 -- The actual dependent section space `(a : A) → Σ[ x ∈ A ] (a ≡ x)` is
 -- contractible for every A; `Retracts₀ A` is left-inverse data for the

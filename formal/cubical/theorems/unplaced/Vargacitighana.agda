@@ -16,7 +16,7 @@
 -- ≡ 2·n(n+1)(n+2), equivalent to ∑k² = n(n+1)(2n+1)/6.  The key is k²+k =
 -- k(k+1) = 2Tₖ, so ∑k²+∑k ≡ 2·citighana — an ADDITIVE identity, dodging the
 -- cubic crux — then assembled from Citighana.चितिघनः and the doubling law.
--- Reuses Sankalita's �, �������� and Citighana's ����, ��������.)
+-- Reuses Sankalita's ∑, द्विगुण and Citighana's चिति, चितिघनः.)
 --
 -- स्रोतांसि : आर्यभटः, आर्यभटीयम्, गणितपादः २२ (वर्गचितिघन-सूत्रम्) ।
 ------------------------------------------------------------------------

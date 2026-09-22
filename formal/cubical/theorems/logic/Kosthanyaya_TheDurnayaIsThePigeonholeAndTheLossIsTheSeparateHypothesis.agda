@@ -44,7 +44,7 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 --
--- §� recovers `Saptabhangi.�������` exactly, by instantiation.
+-- §४ recovers `Saptabhangi.दुर्नयः` exactly, by instantiation.
 -- `�����-�������` lives in the loss
 -- library, whose agda-lib this tree does not include, so §५ RESTATES its
 -- four-name case as an instance rather than importing it.

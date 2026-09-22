@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- рдкрд░рд┐рдХреНрд░рдорд╛-рдЕрдиреНрдзрддрд╛ тАФ blindness to the circumambulation.  Compound built
--- here (рр░р┐рХрр░рор╛, the walk around; рриррзрр╛, blindness); not a
+-- here (рдкрд░рд┐рдХреНрд░рдорд╛, the walk around; рдЕрдиреНрдзрддрд╛, blindness); not a
 -- source term.  The reading is the temple practice: what you acquire by
 -- walking the loop around the shrine is real and is invisible at every
 -- single point of the path.

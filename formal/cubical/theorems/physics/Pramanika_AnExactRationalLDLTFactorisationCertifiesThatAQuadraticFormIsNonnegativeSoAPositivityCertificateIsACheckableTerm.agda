@@ -18,7 +18,7 @@
 --   ┬з2  THE QUADRATIC FORM and its diagonalisation through the factors.
 --   ┬з3  POSITIVITY from a nonnegative diagonal.
 --
--- ррр░р╛рор╛рр┐рХ (prmika, authoritative/certified) is ordinary .
+-- рдкреНрд░рд╛рдорд╛рдгрд┐рдХ (pr─Бm─Бс╣Зika, authoritative/certified) is ordinary .
 ------------------------------------------------------------------------
 
 module Pramanika_AnExactRationalLDLTFactorisationCertifiesThatAQuadraticFormIsNonnegativeSoAPositivityCertificateIsACheckableTerm where

@@ -32,7 +32,7 @@
 -- (isOfHLevelPath', isOfHLevelPlus', isOfHLevelRespectEquiv,
 -- truncIdempotentIso, isOfHLevelTrunc) are the library's; this module's
 -- content is ‡§Ö‡§µ‡§∞‡•ã‡§π‡§É (the descent of levels through iterated Œ©) and the
--- composition.  ‡Æ‡‡® (silence) and ‡‡µ‡∞‡ã‡ (descent) are ordinary 
+-- composition.  ‡§Æ‡•å‡§® (silence) and ‡§Ö‡§µ‡§∞‡•ã‡§π (descent) are ordinary 
 -- labels.  Umsvti's
 -- arpita/anarpita reading of strata is inherited from StaraArpana and,
 -- as there, is a reading.

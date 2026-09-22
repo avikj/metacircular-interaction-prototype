@@ -229,7 +229,7 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 -- reading is a 2,500-year misreading.
 --
 -- Nothing in this module's THEOREMS depends on the reading ‚Äî ¬ß2 and ¬ß3
--- are about ‡‡®‡‡µ‡‡‡‡‡ø, not about conflict resolution.
+-- are about ‡§Ö‡§®‡•Å‡§µ‡•É‡§§‡•ç‡§§‡§ø, not about conflict resolution.
 --
 -- SECOND.  `Pratyahara.agda` does not claim that Pini's ordering is
 -- optimal.  The theorem exists: Petersen 2004, *A Mathematical

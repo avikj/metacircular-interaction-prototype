@@ -22,7 +22,7 @@
 --
 -- WHY, in the census's own vocabulary, which is the point of writing it:
 -- a conserving flow is a section of the fibre family AT REACHED POINTS
--- (`SvaFiberVasa`: flows � (a : A) � fiber f (f a) — every index is an
+-- (`SvaFiberVasa`: flows ≃ (a : A) → fiber f (f a) — every index is an
 -- f a).  The mediator h of `f व्याप्नोति g` is typed on the WHOLE
 -- codomain.  A point of B outside f's image — a रिक्तम् fibre, the
 -- census's अवक्तव्यम् — is invisible to every flow and every conservation
@@ -35,7 +35,7 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 --
--- TERM.  ������ — "not to be gone to", unreachable; ordinary 
+-- TERM.  अगम्य — "not to be gone to", unreachable; ordinary 
 -- (गम् with negative prefix, gerundive).  The compound and its use here
 -- for a codomain point outside the image are THIS FILE's.
 -- The mathematics is cubical type theory

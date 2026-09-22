@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- Punargamana � ����������
+-- Punarāgamana · प्रतिबिम्ब
 --
 -- प्रतिबिम्ब (pratibimba) — reflection, image.  The compound is CHOSEN
 -- here, descriptively; no source is claimed for it (the same standing as

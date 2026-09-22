@@ -16,7 +16,7 @@
 --   ¬ß3  ADDITION, sound: like signs add, unlike signs subtract with the
 --       sign decided by a builtin monus.
 --
--- ‡‡‡ñ‡‡Ø‡æ (sakhy, number/count) is ordinary .
+-- ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ (sa·πÖkhyƒÅ, number/count) is ordinary .
 ------------------------------------------------------------------------
 
 module Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed where

@@ -53,7 +53,7 @@
 -- is what destroys it.  This holds for a bare endomorphism; no inverse.
 --
 -- ────────────────────────────────────────────────────────────────────
--- TERMS.  ������ — "coming together, meeting", ordinary ,
+-- TERMS.  समागम — "coming together, meeting", ordinary ,
 -- classical and standard.  स्थान — "station, place"; used in the
 -- siddhāntic astronomical texts for a position on an orbit (कक्ष्या,
 -- Āryabhaṭa, आर्यभटीयम्, 499; and standard in the Sūryasiddhānta after),

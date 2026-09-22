@@ -21,7 +21,7 @@
 --   पूर्व-पङ्क्तेः पार्श्व-योगैः, the next row from the adjacent sums of the
 --   previous — is stated by हलायुध, *मृतसञ्जीवनी*, 10th c. CE.
 --
---   �.����� is cited for the ARRAY, which is what is used
+--   ८.३४–३५ is cited for the ARRAY, which is what is used
 --   below; the name is the commentarial tradition's name for the fourth
 --   pratyaya and is used here in that sense.
 --
@@ -59,7 +59,7 @@
 --       instantiated at (वर्ण, गुरु), joined to
 --       `Chandomudra_….युग्म-तन्तुः` which prices the joint fibre.
 --
---   §�  ���������-������  ������� (��������� n) ≡ count n.  The same statement
+--   §५  पङ्क्ति-योगः  योगफल (पङ्क्ति n) ≡ count n.  The same statement
 --       at the level of NUMBERS: the n-th row of the मेरुप्रस्तार sums to
 --       the सङ्ख्या 2ⁿ, proved from हलायुध's adjacent-sums rule as it is
 --       written in `NastaUddista_….पङ्क्ति` — one row held in memory, no
@@ -70,7 +70,7 @@
 --       (`PingalaPrastara.uddistaIso`).  Summing the लगक्रिया over every
 --       guru-count returns the सङ्ख्या, and no summand is ever examined.
 --
--- RELATION TO WHAT IS ALREADY HERE.  `Residue_�.���` gives the COMPOSITION
+-- RELATION TO WHAT IS ALREADY HERE.  `Residue_….शेष` gives the COMPOSITION
 -- half — fiber (g ∘ f) z ≃ Σ[ p ∈ fiber g z ] fiber f (fst p) — for two
 -- maps run in series.  §१ is the PAIRING half, for two maps run on the
 -- same source.  They are different fibrations of a fibration and neither
@@ -233,10 +233,10 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''} (f : A → B) (g : A �
 ------------------------------------------------------------------------
 -- ६ · §४ AND §५ JOINED BY A TERM, not by a paragraph.
 --
--- The route runs the other way round: §� says the
+-- The route runs the other way round: §४ says the
 -- sum of the conditional fibres IS the वर्णवृत्त, and Piṅgala's own
 -- नष्ट/उद्दिष्ट pair already counts THAT (`PingalaPrastara.uddistaIso`,
--- Vak n � Fin (count n)).  §� then rewrites the count as the row sum.
+-- Vak n ≃ Fin (count n)).  §५ then rewrites the count as the row sum.
 --
 -- So: the सङ्ख्या is recovered by summing the लगक्रिया over every guru
 -- count, as an equivalence, with no summand ever examined.

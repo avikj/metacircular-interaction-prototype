@@ -4,7 +4,7 @@
 -- SquareClass
 --
 -- `GaugeOrbitClasses` (theorems/physics) Â§7 proves the concatenated
--- form `val Ï (m ++ (k ++ k)) â‰¡ val Ï m`, which is the core and avoids
+-- form `val Ïƒ (m ++ (k ++ k)) â‰¡ val Ïƒ m`, which is the core and avoids
 -- permutation machinery.  The full square-class theorem â€” that
 -- val Ï m = val Ï n whenever m and n differ by a square in any
 -- arrangement â€” needs invariance of `val` under permutation of the

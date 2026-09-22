@@ -16,7 +16,7 @@
 --
 -- The existentials are propositionally truncated: the witness is read
 -- off a representative, and different representatives give different
--- witnesses.  ‡‡∞‡ø‡Æ‡æ‡ (parima, measure) is ordinary .
+-- witnesses.  ‡§™‡§∞‡§ø‡§Æ‡§æ‡§£ (parimƒÅ·πáa, measure) is ordinary .
 ------------------------------------------------------------------------
 
 module Parimana_EveryRationalLiesBelowANaturalAndEveryPositiveRationalHasANaturalMultipleAtLeastOneSoTheRationalsAreArchimedean where

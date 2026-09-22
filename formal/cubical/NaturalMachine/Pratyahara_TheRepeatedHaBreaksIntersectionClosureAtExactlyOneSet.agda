@@ -7,7 +7,7 @@
 --
 --   Pini, *Adhyy*, c. 500 BCE.  The fourteen stras standing at
 --   its head (iva-stri / mhevara-stri) lay every sound of
---    in ONE linear order, each stra closing in an �������
+--    in ONE linear order, each sūtra closing in an अनुबन्ध
 --   (it-marker).  The abbreviation is licensed by A 1.1.71
 --   आदिरन्तेन सहेता — *ādir antyena sahetā*, "an initial [sound] together
 --   with a final इत् [denotes the sounds in between]"; the it-status of
@@ -514,7 +514,7 @@ claimR-half-true = refl
 claimR-ha-nameable : nameableLast (ha ∷ []) ≡ true
 claimR-ha-nameable = refl
 
--- 6b.  ��� and ��� are lost outright.
+-- 6b.  हल् and हश् are lost outright.
 claimR-loses-haL : nameableLast (between ha L sivasutra14) ≡ false
 claimR-loses-haL = refl
 

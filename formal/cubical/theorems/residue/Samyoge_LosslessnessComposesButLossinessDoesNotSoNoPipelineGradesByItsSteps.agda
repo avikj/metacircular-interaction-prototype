@@ -110,7 +110,7 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 --
--- ������� is ordinary  for conjunction/composition and is the word
+-- संयोग is ordinary  for conjunction/composition and is the word
 -- सूत्र १३ of the corpus's root text uses; no source is claimed for
 -- anything below.
 ------------------------------------------------------------------------

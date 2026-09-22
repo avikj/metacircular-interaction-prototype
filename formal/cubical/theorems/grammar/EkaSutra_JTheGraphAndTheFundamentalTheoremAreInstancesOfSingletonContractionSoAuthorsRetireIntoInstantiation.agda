@@ -34,7 +34,7 @@
 -- instance ‚Äî which is the corpus's thesis about all knowledge work,
 -- landed on its own foundations.
 --
--- TERM.  ‡‡ï‡‡‡‡‡∞ ‚Äî "one thread / one aphorism"; ordinary ,
+-- TERM.  ‡§è‡§ï‡§∏‡•Ç‡§§‡•ç‡§∞ ‚Äî "one thread / one aphorism"; ordinary ,
 -- compound built here.
 ------------------------------------------------------------------------
 

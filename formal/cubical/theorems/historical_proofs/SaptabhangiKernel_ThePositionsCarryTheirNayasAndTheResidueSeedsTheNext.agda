@@ -50,7 +50,7 @@
 --       `refl` — nothing was destroyed.
 --
 --   3.  And the price:
---       �����-������� — commutativity of succession — is FALSE
+--       क्रम-विनिमयः — commutativity of succession — is FALSE
 --       once the positions carry evidence (`क्रम-अ-विनिमयः`, §7, a checked
 --       refutation).  Two nayas that affirm the same claim by different
 --       terms are two nayas.  The old law was a property of the erasure,
@@ -118,7 +118,7 @@ record शेष {S : Type ℓ} (P : S → Type ℓ') : Type (ℓ-max ℓ ℓ') 
 
 open शेष public
 
--- ������� — the two standpoints are DERIVED to be distinct.:
+-- विवेकः — the two standpoints are DERIVED to be distinct.:
 -- if they were one standpoint, its own proof would refute it.  This is
 -- what the record buys that a label cannot: a fact about the object.
 विवेकः : {S : Type ℓ} (P : S → Type ℓ') (σ : शेष P)
@@ -428,7 +428,7 @@ private
 --     exist.
 --
 -- §7's �����-�-�������
--- is sharpened (`�����-�������-�-���������`: identities descend
+-- is sharpened (`क्रम-विनिमयः-न-ऊर्ध्वम्`: identities descend
 -- along अनर्पणम् and do not lift).  But distinctness LIFTS, and the label
 -- lane's सह-असङ्गतिः lifts with it: `सह-असङ्गतिः-ऊर्ध्वम्` proves सहार्पणम् is
 -- NOT associative HERE, on the three positions स्यात्-अस्ति-नास्ति,

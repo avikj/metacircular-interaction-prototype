@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- à—àà°à-ààà®à¾ â€” the summand-wise statement of `Lagakriya_â¦` Â§à®: `Chosen n k` is
+-- à¤—à¥à¤°à¥-à¤¸à¥€à¤®à¤¾ â€” the summand-wise statement of `Lagakriya_â€¦` Â§à¥®: `Chosen n k` is
 -- empty for k > n, which lets the infinite `Î[ k âˆˆ â• ]` be replaced by a
 -- finite one over `Fin (suc n)`.
 --

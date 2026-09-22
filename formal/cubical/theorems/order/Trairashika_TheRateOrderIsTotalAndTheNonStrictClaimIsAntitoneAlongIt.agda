@@ -4,7 +4,7 @@
 -- Trairashika_TheRateOrderIsTotalAndTheNonStrictClaimIsAntitoneAlongIt
 --
 -- `TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt` proved
--- irreflexivity and transitivity of `�R` on `Rate`.
+-- irreflexivity and transitivity of `⊏R` on `Rate`.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED

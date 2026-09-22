@@ -44,7 +44,7 @@
 -- dressed; and the technical sense descends from "concerning form rather
 -- than content", i.e. Hilbert's formalism, a contested position of the 1920s
 -- rather than a neutral word for exactness.  Rendered into Hindi it is
--- ���������, from ������ — courtesy, ceremony, and in  rhetoric
+-- औपचारिक, from उपचार — courtesy, ceremony, and in  rhetoric
 -- FIGURATIVE usage, explicitly not the primary sense.  औपचारिकता is the
 -- ordinary word for empty formality.  And उपचार is a technical term inside
 -- the naya system: नैगम, the figurative standpoint, is the one classified as

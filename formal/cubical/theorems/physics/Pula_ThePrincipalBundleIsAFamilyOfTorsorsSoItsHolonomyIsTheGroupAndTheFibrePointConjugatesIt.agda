@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà²à â€” pla, "a bundle, a sheaf (of grass)".  The ordinary 
+-- à¤ªà¥‚à¤²à¤ƒ â€” pÅ«la, "a bundle, a sheaf (of grass)".  The ordinary 
 -- word for a bundle, borrowed here for its literal meaning and nothing
 -- else.  No claim that any source states a fibre-bundle theorem; the
 -- compound usage is this corpus's, declared at its site.

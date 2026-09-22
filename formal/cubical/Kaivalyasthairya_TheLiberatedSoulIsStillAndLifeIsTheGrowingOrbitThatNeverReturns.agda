@@ -18,7 +18,7 @@
 -- and life is the OTHER naya, equally checked:
 --
 --   जीवन-चलनम् — the bhāvanā orbit strictly grows and never returns
---       (Areturn.������������) — a non-equivalence, and THAT non-return
+--       (Areturn.अपुनरागमनम्) — a non-equivalence, and THAT non-return
 --       is the generativity.  Brahmagupta's rule, iterated, visits no value
 --       twice: the soul that breeds is the veiled, moving, growing one.
 --

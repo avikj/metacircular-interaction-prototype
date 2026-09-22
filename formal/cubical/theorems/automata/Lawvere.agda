@@ -12,7 +12,7 @@
 --   * Cantor      : B = Bool, f = not              (no fixed point)
 --   * Russell     : B = Prop, f = ¬                (no fixed point)
 --   * Tarski      : B = truth values, f = ¬        (undefinability)
---   * Gdel       : B = provability, f = �         (diagonal lemma)
+--   * Gödel       : B = provability, f = ¬         (diagonal lemma)
 --   * Turing      : B = halting behaviour, f = flip (undecidability)
 --
 -- The single content of the theorem is: a point-surjective

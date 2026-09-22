@@ -39,7 +39,7 @@
 -- SOURCES: ΩKlein≡ℤ² and windingKlein, Cubical.HITs.KleinBottle
 -- .Properties; Square→compPath, Cubical.Foundations.Path;
 -- negsucNotpos, Cubical.Data.Int.Properties.  वक्र (twisted), वलय
--- (ring), ��/��� (same/distinct) are ordinary  labels.
+-- (ring), सम/भेद (same/distinct) are ordinary  labels.
 ------------------------------------------------------------------------
 
 module VakraValaya_TheSameCarrierTwoLawsOfSuccessionTheKramaDistinguishesWhatTheTypeCannot where

@@ -330,7 +330,7 @@ does-not-annihilate-v : ¬ (Ann₃ tMinus2 vThree)
 does-not-annihilate-v h = Int.negsucNotpos 1 0 (h p₀)
 
 -- Both supports have two places.  That is read off the definitions
--- above — `vThree` is non-void at p�,p� and `wThree` at p�,p�.
+-- above — `vThree` is non-void at p₀,p₁ and `wThree` at p₁,p₂₂.—
 -- The two vectors have different annihilators.  So the number of non-void
 -- places does not determine the annihilator, while (below) the SET of
 -- non-void places does.

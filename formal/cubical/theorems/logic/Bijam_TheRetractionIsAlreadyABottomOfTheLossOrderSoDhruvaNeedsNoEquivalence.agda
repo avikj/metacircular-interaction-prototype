@@ -235,7 +235,7 @@ open import Cubical.Relation.Nullary using (¬¨_)
 -- the isEquiv form from ¬ß‡•´ so the containment is a term and not a remark.
 --
 -- AND ONE OF THAT FILE'S TWO IS SHARP, which is the distinction worth
--- keeping.  `SvaFiberVasa.‡ß‡‡∞‡‡µ-‡‡ø‡®‡‡¶‡‡ : isEquiv f ‚í isContr (Œ[Œ¶] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶)`
+-- keeping.  `SvaFiberVasa.‡§ß‡•ç‡§∞‡•Å‡§µ-‡§¨‡§ø‡§®‡•ç‡§¶‡•Å‡§É : isEquiv f ‚Üí isContr (Œ£[Œ¶] ‡§∏‡§Ç‡§∞‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç f Œ¶)`
 -- CANNOT weaken: the flow space is `Œ†[a] fiber f (f a)` (its own ‡§µ‡§æ‡§∏‡§É),
 -- contractible exactly when every fibre is ‚Äî which IS `isEquiv f`.  So in
 -- one module one theorem needs the equivalence essentially and the other

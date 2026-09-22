@@ -19,7 +19,7 @@
 -- not a global order, discharges detection.
 --
 -- ON THE MODEL.  If a spend is modelled as
--- `Spend src = �[snk] (spend src ≡ snk) = singl (spend src)`, it is ALWAYS
+-- `Spend src = Σ[snk] (spend src ≡ snk) = singl (spend src)`, it is ALWAYS
 -- contractible (एकसूत्र: isContr (singl x)); so its `Exclusive` is
 -- unconditionally true and `MergeExhibitsConflict` is inhabited by `inl` for
 -- the wrong reason — it is the graph of a function, not the set of SUBMITTED

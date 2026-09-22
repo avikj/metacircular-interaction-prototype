@@ -57,7 +57,7 @@
 --    same transport would give that ‚Äî which is itself the answer to
 --    Problem 3's real content: exhaustiveness is not a fact about three,
 --    it is a fact about how many seeds there are.
--- 2. THAT TAO'S METHOD IS ‡‡ RATHER THAN ‡ï‡‡∞‡Æ.  ¬ß‡d reads it that way ‚î
+-- 2. THAT TAO'S METHOD IS ‡§∏‡§π RATHER THAN ‡§ï‡•ç‡§∞‡§Æ.  ¬ß‡•™d reads it that way ‚Äî‚Äî
 --    entropy decrement compares empirical distributions ACROSS SCALES
 --    using the functional equation, which is simultaneous rather than
 --    sequential.  It is repeated

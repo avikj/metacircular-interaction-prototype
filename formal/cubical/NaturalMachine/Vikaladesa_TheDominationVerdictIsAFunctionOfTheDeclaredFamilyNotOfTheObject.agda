@@ -47,7 +47,7 @@
 --     — "next action ≠ f(scalar remainder)": three states sharing one
 --     visible invariant carry three future-response laws.  §2 below is
 --     that shape at its smallest: `partial` is the visible invariant,
---     {s�,s�} is a fiber of it, and `full` splits the fiber.
+--     {s₁,s₂} is a fiber of it, and `full` splits the fiber.
 --     The bound is exact for this three-state witness, not for all
 --     Smith states; §4 is why.
 --   * machinery/test_changed_domain_separation.py: the

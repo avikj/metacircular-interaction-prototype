@@ -43,7 +43,7 @@
 --       entry and the continuation are negated.
 --
 -- SYĀT — THE CLAIM, EXACTLY.  Every statement is a computation at t = 0
--- over �[i], decided on the box and reflected.
+-- over ℤ[i], decided on the box and reflected.
 -- What the document's
 -- Theorem 8 uses — the t = 0 stress, the t = 0 coarse acceleration, and
 -- the constancy of the pressure — is derived, not written down.

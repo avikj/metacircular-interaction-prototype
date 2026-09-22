@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡ï‡‡®‡‡‡‡∞‡Æ‡ ‚Äî one loom.  Compound built here; not a source
+-- ‡§è‡§ï‡§§‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç ‚Äî one loom.  Compound built here; not a source
 -- term.
 --
 -- THE OWNER'S SENTENCE, taken as a theorem: "scheduler and

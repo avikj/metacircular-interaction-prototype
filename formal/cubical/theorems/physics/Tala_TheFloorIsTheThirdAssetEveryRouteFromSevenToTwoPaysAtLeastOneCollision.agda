@@ -29,7 +29,7 @@
 --
 -- The wall is now a one-line corollary (an equivalence is injective),
 -- which is the right dependency direction: barriers are prior to
--- impossibilities.  �� is built here; the load-bearing
+-- impossibilities.  तल is built here; the load-bearing
 -- pigeonhole is Saptabhangi's दुर्नयः, used not reproved.
 ------------------------------------------------------------------------
 

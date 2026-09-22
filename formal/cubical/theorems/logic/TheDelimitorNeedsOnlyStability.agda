@@ -7,7 +7,7 @@
 -- THE SITE
 --
 -- `AnyonyaAbhava` §5 assumes `Dec (Collision q t)` to
--- close the gap between the two Vaieika categories of ����.
+-- close the gap between the two Vaiśeṣika categories of अभाव.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED

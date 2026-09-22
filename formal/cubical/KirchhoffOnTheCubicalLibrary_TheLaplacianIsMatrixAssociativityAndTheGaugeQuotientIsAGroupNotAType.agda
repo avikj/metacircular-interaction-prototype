@@ -202,7 +202,7 @@ module Graph (R' : Ring ℓ) (n m : ℕ) (src tgt : Fin m → Fin n) where
         ∙ cong -_ (∑Mul1r n (λ v → φ v k) (src e)) )
 
   ----------------------------------------------------------------------
-  -- THEOREM 2 (KirchhoffIncidence's Theorem 3).  Δ = B B�.
+  -- THEOREM 2 (KirchhoffIncidence's Theorem 3).  Δ = B Bᵀ.
   --
   --   The hand-rolled proof is five ∑-steps (∑Ext, ∑Mulrdist, ∑Swap, ∑Ext,
   --   ∑Ext) over a CommRing.  Here it is `mulFinMatrixAssoc`, over a Ring.

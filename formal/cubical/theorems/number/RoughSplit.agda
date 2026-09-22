@@ -74,7 +74,7 @@
 --
 --   n≤X-necessary        SHARPNESS.  49 has all prime factors > isqrt 30
 --                        = 5, is neither 1 nor prime, and the only
---                        hypothesis it violates is 49 � 30.
+--                        hypothesis it violates is 49 ≤ 30.
 --
 --   isqrt-30, isqrt-49, isqrt-100  the horizon computes.
 --
@@ -328,7 +328,7 @@ roughSplitSelf n 0<n none = roughSplitSqrtDiv n n 0<n ≤-refl none
 ------------------------------------------------------------------------
 -- §6  SHARPNESS:  n ≤ X cannot be dropped
 --
--- 49 = 7 � 7 has isqrt 30 = 5 < 7, so every prime factor of
+-- 49 = 7 · 7 has isqrt 30 = 5 < 7, so every prime factor of
 -- 49 clears the X = 30 horizon; 49 is neither 1 nor prime; and the sole
 -- hypothesis of `roughSplitSqrt` that it fails is 49 ≤ 30.
 ------------------------------------------------------------------------

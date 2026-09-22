@@ -11,7 +11,7 @@
 --     constructors carrying their evidence: अवक्तव्यम् (empty fibre, nothing
 --     lost, धनात्मकम्), सकलादेश (contractible), विकलादेश (two points, exhibited).
 --
--- WHAT IS BUILT HERE.  The �-law is about FIBRES.  Its
+-- WHAT IS BUILT HERE.  The Σ-law is about FIBRES.  Its
 -- lift to the CENSUS is the whole content of "what does
 -- a route cost".  `SakalaVikalaDesa` §3 exhibits the cancellation as three
 -- hand-computed instances on Unit/Bool and reads the moral off them.  Here

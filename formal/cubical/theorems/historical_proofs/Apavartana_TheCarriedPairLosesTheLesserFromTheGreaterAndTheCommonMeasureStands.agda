@@ -262,7 +262,7 @@ data त्रिक् : Type where
 ------------------------------------------------------------------------
 -- §2 · अन्तरकरण — THE STEP, AS A MAP OF PAIRS.
 --
--- The name is a compound BUILT HERE (�����, difference, + ����, making).  The
+-- The name is a compound BUILT HERE (अन्तर, difference, + करण, making).  The
 -- object is: run the pair down into its row, step the row, read
 -- the pair back.  §3 is the theorem that this is the same thing as stepping
 -- the carrier.

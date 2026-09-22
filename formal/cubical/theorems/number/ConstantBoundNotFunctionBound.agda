@@ -18,7 +18,7 @@
 -- Φ₁₁(2) = 2047 = 23·89, where the yield is 2, so the function equal to
 -- 2 at (2,11) and 1 elsewhere is a valid bound strictly better than the
 -- constant.  The three arithmetic facts:
--- 2�−1 = 127 and 2��−1 = 131071 are prime, 2��−1 = 2047
+-- 2⁷−1 = 127 and 2¹⁷−1 = 131071 are prime, 2¹¹−1 = 2047
 -- = 23·89, and for prime n the primitive part Φ_n(2) is all of 2ⁿ−1.
 --
 -- NO LEXICAL SIGNATURE.  "No function of (b,n) improves it" and "the

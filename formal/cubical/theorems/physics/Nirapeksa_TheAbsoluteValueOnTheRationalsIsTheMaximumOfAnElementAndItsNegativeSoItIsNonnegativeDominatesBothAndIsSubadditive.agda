@@ -11,7 +11,7 @@
 --       arms of the max.
 --   ¬ß3  |x| = x for x ‚â• 0 and |x| = ‚àíx for x ‚â§ 0.
 --
--- ‡®‡ø‡∞‡‡‡ï‡‡ (nirapeka, absolute/independent) is ordinary .
+-- ‡§®‡§ø‡§∞‡§™‡•á‡§ï‡•ç‡§∑ (nirapek·π£a, absolute/independent) is ordinary .
 ------------------------------------------------------------------------
 
 module Nirapeksa_TheAbsoluteValueOnTheRationalsIsTheMaximumOfAnElementAndItsNegativeSoItIsNonnegativeDominatesBothAndIsSubadditive where

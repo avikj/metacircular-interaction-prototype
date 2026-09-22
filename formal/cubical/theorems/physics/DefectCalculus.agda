@@ -305,7 +305,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''} (q : A → B) (f : A �
 -- supplies `g` directly.  Delta 15 states it for a surjection; the
 -- general surjection is `EffectiveDescent`, where the set hypothesis on
 -- `C` is needed and `SetQuotients` is not.  `PT.rec→Set` (a 2-Constant
--- map into a set factors through `�_��`) builds `g` with no quotient
+-- map into a set factors through `∥_∥₁`) builds `g` with no quotient——
 -- constructed — the same argument `FiniteInformation`'s
 -- `fiberConstant→factorsThrough` runs for `Image q`.
 -- That module also proves the factorisation UNIQUE, packages the pair

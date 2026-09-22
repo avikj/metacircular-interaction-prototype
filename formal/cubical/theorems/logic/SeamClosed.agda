@@ -70,7 +70,7 @@ flagshipResidual x = sym (addZero x)
 -- The goal the kernel handed back was `x ≡ 1 · x`.  Agda unfolds `1 · x` to
 -- `x + 0 · x`, which is where it stopped.  With the residual in hand the
 -- parent is immediate — which is the property `Obstruction.hs`'s header
--- claims for a residual ("prove `x + 0 � x ≡ x` and the parent closes").
+-- claims for a residual ("prove `x + 0 · x ≡ x` and the parent closes").
 ------------------------------------------------------------------------
 
 parentClosed : (x : ℕ) → x ≡ (suc zero) · x

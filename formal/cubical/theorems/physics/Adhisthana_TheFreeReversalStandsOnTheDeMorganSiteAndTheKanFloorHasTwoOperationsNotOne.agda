@@ -38,7 +38,7 @@
 --     The consequence, in the lane's own frame: choosing the cube category
 --     is itself the act, because it decides whether the return is free.
 --
--- ‡‡ß‡ø‡‡‡†‡æ‡® is ordinary  (substratum, ground stood upon).
+-- ‡§Ö‡§ß‡§ø‡§∑‡•ç‡§†‡§æ‡§® is ordinary  (substratum, ground stood upon).
 ------------------------------------------------------------------------
 
 module Adhisthana_TheFreeReversalStandsOnTheDeMorganSiteAndTheKanFloorHasTwoOperationsNotOne where

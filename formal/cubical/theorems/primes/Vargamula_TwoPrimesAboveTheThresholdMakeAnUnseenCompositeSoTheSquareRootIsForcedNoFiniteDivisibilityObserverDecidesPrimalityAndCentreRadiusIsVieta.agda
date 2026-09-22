@@ -76,12 +76,12 @@
 -- "Observer" is formalised as the family of divisibility readings (d ‚à£ n for
 -- d in a finite list, or for primes d ‚â§ z), and "decides primality" as: some
 -- property that depends on n ONLY through those readings coincides with
--- ‡¶‡‡‡Æ‡. The separator refutes every such property at once.
+-- ‡§¶‡•É‡§¢‡§Æ‡•ç. The separator refutes every such property at once.
 -- The sentence "growth of the
 -- sufficient observer with task scale" is illustrated (T22.3 gives a
 -- sufficient observer of size ‚àöX; T22.4 shows z < ‚àöX does not suffice when
 -- two primes sit in (z, ‚ààX]).
--- T22.5 over ‚ uses no ordering; the ‚ï chart needs r ‚â w and says so.
+--¬∑¬∑ T22.5 over ‚Ñ§ uses no ordering; the ‚Ñï chart needs r ‚â§ w and says so.
 ------------------------------------------------------------------------
 
 module Vargamula_TwoPrimesAboveTheThresholdMakeAnUnseenCompositeSoTheSquareRootIsForcedNoFiniteDivisibilityObserverDecidesPrimalityAndCentreRadiusIsVieta where

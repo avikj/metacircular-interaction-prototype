@@ -16,7 +16,7 @@
 --   pair is the point: the प्रस्तार is never written down, because
 --   either direction can be run from the other end in log n steps.
 --
---   �������� ("examination") is ordinary , standard in the
+--   परीक्षा ("examination") is ordinary , standard in the
 --   Nyya lane for the testing of a thesis.  The compound
 --   नष्टोद्दिष्ट-परीक्षा is BUILT HERE and is not attested in any text.
 --

@@ -28,7 +28,7 @@
 -- holds for a bare endomorphism.  So the equivalence relation needs no
 -- inverse at all: `Φ` stays a bare endomorphism throughout §१ℓ§�.
 --
--- With that, §� is the genuine descent statement:
+-- With that, §४ is the genuine descent statement:
 -- for `B` a set, `f` factors as `f̄ ∘ [_]` through `A / ≈`, and the
 -- factorisation triangle is `refl` because `SetQuotients.rec` computes
 -- on `[ a ]`.  That is "the charge is a function on the quotient, not
@@ -39,7 +39,7 @@
 -- if `Φ` IS an equivalence, its inverse conserves automatically —
 -- conservation of `Φ` propagates backwards, one `sym` and one `cong`
 -- — and `Φ⁻¹ a ≈ a` holds by `(1, 0, secEq)`.  So the group of
--- `SamraksakaSamuha_�` sits inside this, and §��§� do not use it.
+-- `SamraksakaSamuha_…` sits inside this, and  do not use it.§१–§४
 --
 -- ────────────────────────────────────────────────────────────────────
 --
@@ -51,7 +51,7 @@
 -- the Sryasiddhnta after); the term is carried in unchanged from
 -- `Kaksya_…agda`, with its limit unchanged: attested for a planet's
 -- orbit, and its use for the orbit of an endomorphism is this
--- corpus's.  ���� — "same, equal", ordinary .  The compound
+-- corpus's.  समान — "same, equal", ordinary .  The compound
 -- समानकक्ष्या, "same-orbit-ness", is BUILT HERE; no text is claimed for
 -- it.  No source states anything below.
 ------------------------------------------------------------------------
@@ -203,14 +203,14 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) (e : isEquiv Φ) where
 ------------------------------------------------------------------------
 -- � � ���� — the converse, and the h-level of the relation.
 --
--- The converse of §� — that `��������` is injective, i.e. equal charge
+-- The converse of §४ — that `अवतीर्णः` is injective, i.e. equal charge
 -- implies one orbit — is the subject of
 -- `Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIs
 -- InjectiveAndOneSidedReachabilityIsStrictlyStronger.agda`.  `Kaksya`
 -- §�'s one-sided `������������` is SUFFICIENT and NOT NECESSARY:
 -- `A = Bool`, `B = Unit`, `f = λ _ → tt`, `Φ = λ _ → true`.  Every pair
 -- meets at stations `(1,1)`, so `अवतीर्णः` is an equivalence, while
--- `������������ tt � �` — nothing ever reaches `false`.  The exact
+-- `सङ्क्रमणम् tt → ⊥` — nothing ever reaches `false`.  The exact
 -- hypothesis is the truncated two-sided one, and that module proves the
 -- ⟺ and the equivalence
 -- `isEquiv f̄ ≃ (isSurjection f × ∀ b → ∥two-sided∥₁)`.

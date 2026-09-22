@@ -4,7 +4,7 @@
 -- TransportDiv
 --
 -- DIVISION ON THE CHART.  `Transport` carries `+`, `TransportMul` carries
--- `�`, and both end with the same remark: the walk
+-- `·`, and both end with the same remark: the walk
 -- (`WalkBridge`) stalls at frontier m ≈ 8 because its
 -- divisibility test is UNARY, costing Θ(cap m) with cap m = e^{ψ(m)}.
 -- The test is the blocker, not the arithmetic around it.

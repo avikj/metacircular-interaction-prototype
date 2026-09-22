@@ -4,7 +4,7 @@
 -- स्थानिवत्सङ्ख्या — the ādeśa state space is exactly eighty-one, and
 -- the join to the number component is checked.
 --
--- TERM.  ��������� (count, number) is ordinary  and the ordinary
+-- TERM.  सङ्ख्या (count, number) is ordinary  and the ordinary
 -- word of the Indian mathematical tradition for number; the compound
 -- स्थानिवत्-सङ्ख्या, "the count of the sthānivat", is built HERE and no
 -- source is claimed for it.

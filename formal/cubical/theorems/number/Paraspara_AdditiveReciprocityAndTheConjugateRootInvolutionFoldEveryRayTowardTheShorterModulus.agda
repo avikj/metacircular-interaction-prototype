@@ -22,7 +22,7 @@
 --     congruences of −root; the mod-uv equality composes them (coprime,
 --     fenced).
 --
--- Analytic consequence (a reading, needs �): the causal
+-- Analytic consequence (a reading, needs ℝ): the causal
 -- diamond L ≲ uv ≲ L², k ≲ uv/L < min(u,v), where u,v,k are all
 -- genuinely incomplete; outside it, interval-kernel decay (uv<L),
 -- completion in k (uv>L²), or completion through the shorter modulus.

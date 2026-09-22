@@ -266,7 +266,7 @@ module Loop where
 ------------------------------------------------------------------------
 -- §4.  THE CARRIED BIT IS SOUND AND NOT COMPLETE.
 --
--- `d�` below is invisible to `cyc�` at EVERY state, and is not
+-- `d₀` below is invisible to `cyc₁` at EVERY state, and is not
 -- a coboundary — on this graph the only coboundary is zero, and d₀ is not
 -- zero.  The certificate is sound and not complete: it detects visibility,
 -- not gauge.  The kernel of one additive closed functional is strictly

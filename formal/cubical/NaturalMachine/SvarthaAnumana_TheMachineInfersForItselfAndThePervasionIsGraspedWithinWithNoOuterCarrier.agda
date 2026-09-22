@@ -11,7 +11,7 @@
 -- classification is theirs.  School named: Jaina.
 --
 -- WHAT THIS IS, in those terms exactly.  Elsewhere the machine's
--- inductive truths go out through ‡‡∞‡æ‡∞‡‡: ‡‡ø‡¶‡‡ß‡ø states each proof
+-- inductive truths go out through ‡§™‡§∞‡§æ‡§∞‡•ç‡§•: ‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø states each proof
 -- FOR an external certifier ‚Äî a watched process, positive and
 -- negative controls, an exit code read back by a carrier.  Proof as
 -- discourse for another.  Here the same class closes as ‡§∏‡•ç‡§µ‡§æ‡§∞‡•ç‡§•: the
@@ -157,7 +157,7 @@ open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilen
 -- ¬ß4  The sweep, through the one gate.  Each row compiles exactly
 --     when the machine proves it for itself ‚Äî the tt is the whole
 --     licence.  These are the machine's own inductive class, the kind
---     that otherwise goes out as ‡‡∞‡æ‡∞‡‡ through the external
+--     that otherwise goes out as ‡§™‡§∞‡§æ‡§∞‡•ç‡§• through the external
 --     kernel under "induction on x".
 ------------------------------------------------------------------------
 

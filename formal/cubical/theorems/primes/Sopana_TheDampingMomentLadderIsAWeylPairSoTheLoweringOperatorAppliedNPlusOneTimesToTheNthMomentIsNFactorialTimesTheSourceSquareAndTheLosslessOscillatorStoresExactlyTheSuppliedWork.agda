@@ -3,7 +3,7 @@
 -- सोपान — the ladder.
 --
 -- The damping-moment kernels  G_n = ∫ tⁿ e^{−2st} Z(T+t) Z̄(U+t) dt
--- obey, with  � = 2s − �_T − �_U  and  R = −½�_s,
+--§ obey, with  ℒ = 2s − ∂_T − ∂_U  and  R = −½∂_s,
 --
 --     R G_n = G_{n+1},   ℒ G_0 = Z⊗Z̄,   ℒ G_n = n G_{n−1},   [ℒ, R] = I,
 --

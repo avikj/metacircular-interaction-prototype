@@ -80,7 +80,7 @@ import Asiddhatva
 -- 6.4.22–6.4.129, rules applying as if simultaneously), against 8.2.1's
 -- ordered regime at the one site where the difference is visible: three
 -- tripādī rules offer at the same position in tat + jalam, and क्रम gives
--- the attested tajjalam while �� gives tadjalam, which  has not.
+-- the attested tajjalam while सह gives tadjalam, which  has not.
 -- Both regimes COMPUTED from one act table.  So पूर्वत्रासिद्धम् is
 -- load-bearing and is the ordered device -- evidence reached from the
 -- rules, not from the stra text.
@@ -137,7 +137,7 @@ import AmshaSatyayantra
 import AnuktaAvaktavya
 
 -- The two saptabhag modules:
--- Saptabhangi.agda (�����-��-����, that the sequential bhaga is
+-- Saptabhangi.agda (क्रम-सह-भेदः, that the sequential bhaṅga is
 -- not the simultaneous one, and दुर्नयः, that ANY two-valued verdict
 -- identifies two of the three seeds by pigeonhole) and
 -- SaptabhangiNaya.agda.  AnuktaAvaktavya §7 holds both and draws

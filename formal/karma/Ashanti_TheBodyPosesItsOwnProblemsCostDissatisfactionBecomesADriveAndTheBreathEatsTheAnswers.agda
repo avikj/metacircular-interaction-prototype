@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡æ‡®‡‡‡ø‡ ‚Äî unquiet.  Ordinary  (the negation of nti);
+-- ‡§Ö‡§∂‡§æ‡§®‡•ç‡§§‡§ø‡§É ‚Äî unquiet.  Ordinary  (the negation of ≈õƒÅnti);
 -- the compound title is built here, 2026-08-24.  No source is claimed
 -- for the mathematics; the DIAGNOSIS this module repairs is the
 -- corpus's own (THE_BARRIER_IS_A_MIRROR ¬ß4.3): the organism's only

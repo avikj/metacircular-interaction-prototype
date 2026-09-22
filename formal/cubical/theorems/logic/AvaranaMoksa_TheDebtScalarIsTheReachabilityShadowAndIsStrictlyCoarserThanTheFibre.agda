@@ -5,8 +5,8 @@
 -- only the reachability shadow, and it is strictly coarser than the
 -- fibre.  The scalar can read "settled" while curvature remains.
 --
--- ‡®‡Ø-‡‡µ‡∞‡‡Æ‡: each standpoint conflates a pair the
--- other separates.  ‡‡Æ‡æ‡‡∞‡-‡®‡ø‡‡‡Ø‡Æ‡: a transitive verdict
+-- ‡§®‡§Ø-‡§Ü‡§µ‡§∞‡§£‡§Æ‡•ç: each standpoint conflates a pair the
+-- other separates.  ‡§∏‡§Æ‡§æ‡§ö‡§∞‡§£-‡§®‡§ø‡§§‡•ç‡§Ø‡§Æ‡•ç: a transitive verdict
 -- flattens, and a typed spectrum does not escape it merely by having
 -- more coordinates.  MoksaLosslessReturn proved a fixed-point theorem for
 -- the debt COUNT (a ‚Ñï).  A count is a set-valued observable of the

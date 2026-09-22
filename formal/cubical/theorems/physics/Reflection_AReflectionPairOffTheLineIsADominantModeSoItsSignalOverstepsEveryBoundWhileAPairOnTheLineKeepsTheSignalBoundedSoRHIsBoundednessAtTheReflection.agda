@@ -16,7 +16,7 @@
 --   ¬ß3  ON THE LINE ‚áí BOUNDED: with m = m‚Ä≤ = 1 the signal is at most
 --       |c| + |c‚Ä≤| (Prabala ¬ß5).
 --
--- ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡ (pratibimba, reflection/mirror image) is ordinary .
+-- ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨ (pratibimba, reflection/mirror image) is ordinary .
 ------------------------------------------------------------------------
 
 module Pratibimba_AReflectionPairOffTheLineIsADominantModeSoItsSignalOverstepsEveryBoundWhileAPairOnTheLineKeepsTheSignalBoundedSoRHIsBoundednessAtTheReflection where

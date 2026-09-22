@@ -25,7 +25,7 @@ open import Cubical.Data.Fin using (Fin ; toℕ ; toℕ-injective ; inject< ; fl
 -- the library has is
 --   inject< : ∀ {m n} → m < n → Fin m → Fin n
 -- and since `_<_` is `suc m ≤ n`, the instance `n < suc n` is `≤-refl`.
--- `inject<` keeps the first �-component, so `to�-injectSuc` is
+-- `inject<` keeps the first Σ-component, so `toℕ-injectSuc` is
 -- `refl`.
 ------------------------------------------------------------------------
 

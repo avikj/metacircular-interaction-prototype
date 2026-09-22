@@ -21,7 +21,7 @@
 --       of n, i.e. of the scale.  This is the exact shape of Theorem C's
 --       K(C_*), with the dyadic weight 2^{‚àík/2} C_* in the role of w.
 --
--- ‡‡‡Æ‡æ (sm, bound/limit) is ordinary .
+-- ‡§∏‡•Ä‡§Æ‡§æ (sƒ´mƒÅ, bound/limit) is ordinary .
 ------------------------------------------------------------------------
 
 module VrddhiSima_ADiscreteGronwallWithASummableWeightClosesWithoutExponentialsSoTheTypeIEnergyBoundIsScaleInvariantAsATerm where

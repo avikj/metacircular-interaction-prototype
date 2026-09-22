@@ -5,7 +5,7 @@
 --
 -- The checked proposer (formal/executable/Prastava.agda) refuses a pair
 -- whose sides are equal after AC-canonicalisation, ASSERTING they are
--- "equal modulo associativity-commutativity of +/Â".
+-- "equal modulo associativity-commutativity of +/Â·".
 -- Here the claim is a
 -- term: acCanon preserves denotation over every environment, so a
 -- classifier hit really is a true equation, kernel-said.

@@ -59,7 +59,7 @@
 -- अन्त्यसंस्कार and स्थौल्य. Nothing here is about π, and there is no limit,
 -- no ℝ and no error bound in this file.
 --
--- ��������� is ordinary  for non-dependence and no text is claimed
+-- अनपेक्षा is ordinary  for non-dependence and no text is claimed
 -- for the compound.
 ------------------------------------------------------------------------
 

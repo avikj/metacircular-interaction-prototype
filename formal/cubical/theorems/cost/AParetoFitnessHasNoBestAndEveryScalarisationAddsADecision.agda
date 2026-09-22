@@ -47,7 +47,7 @@
 -- The product order, its failure of totality, and the fact
 -- that monotone scalarisations are strict extensions are standard
 -- multi-objective optimisation, going back to Pareto (`Cours
--- d'©conomie politique`, 1896) and Edgeworth before him.
+-- d'Ã©conomie politique`, 1896) and Edgeworth before him.
 ------------------------------------------------------------------------
 
 module AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision where
@@ -143,7 +143,7 @@ scalarisationDecidesAnIncomparablePair =
 -- stratification for an arbitrary archive, are proved in
 -- `TheParetoStratumIsDecidableAndTheFilterIsExact`:
 --
---   decâ‰ / decâ‰¼           from `splitâ•-â‰` alone
+--   decâ‰¤ / decâ‰¼â‰¼           from `splitâ„•-â‰¤` alone
 --   decStrictlyDominates
 --   decIsParetoMaximal     against a finite archive, reusing `decAny`
 --   stratum                the maximal layer, as a COMPUTED list

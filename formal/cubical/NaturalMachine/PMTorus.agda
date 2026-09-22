@@ -34,7 +34,7 @@
 --      E ≤ 2V − 4), together with its contrapositive packaging
 --      `not-K33 : (v e : ℕ) → e + 4 ≤ℕ 2 · v → ¬ ((v ≡ V) × (e ≡ E))`.
 --      The Euler-bound theorem itself — "a simple planar bipartite graph
---      satisfies E � 2V − 4" — is a topological input.
+--      satisfies E ≤ 2V − 4" — is a topological input.
 --      Read (b) as: any graph obeying that bound is not this
 --      one.
 --

@@ -50,7 +50,7 @@
 -- गुरु = 2) is the weight. Worked with the array in Halāyudha, मृतसञ्जीवनी
 -- (10th c. CE). What is claimed is that मात्रा is the weight his enumeration
 -- uses and that two distinct patterns share a weight, which §४ exhibits
--- rather than asserts.  ��� is ordinary modern /Hindi for an address
+-- rather than asserts.  पता is ordinary modern /Hindi for an address
 -- and no text is claimed for it.
 ------------------------------------------------------------------------
 

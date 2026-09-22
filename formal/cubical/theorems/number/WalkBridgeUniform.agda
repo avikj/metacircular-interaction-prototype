@@ -2,7 +2,7 @@
 
 -- WalkBridge's bridge, restated hypothesis-free in `m`.
 --
--- THE `1 â‰ m` HYPOTHESIS IS REMOVABLE.  `WalkBridge`'s bridge module
+-- THE `1 â‰¤ m` HYPOTHESIS IS REMOVABLE.  `WalkBridge`'s bridge module
 --    takes `1â‰m : 1 â‰ m` as a parameter.  It is
 --    used in exactly one place -- `no-jump-skipped`, to produce `2 â‰¤ suc
 --    i` from `m â‰¤ i` so that `LeastNonDivisor`'s minimality clause

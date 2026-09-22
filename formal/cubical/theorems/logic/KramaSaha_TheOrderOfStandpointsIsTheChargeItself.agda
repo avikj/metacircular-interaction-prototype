@@ -33,7 +33,7 @@
 -- along: not unknown, not undefined ‚Äî held whole because either order of
 -- utterance loses.
 --
--- Their ‡ï‡‡∞‡Æ/‡‡ distinction is this non-commutation's
+-- Their ‡§ï‡•ç‡§∞‡§Æ/‡§∏‡§π distinction is this non-commutation's
 -- exact shape, and the fourth bhaga is its exact repair.
 -- Œ©S¬Iso‚ and setTruncIdempotent are the
 -- library's.

@@ -23,7 +23,7 @@
 --       EVERY type by `yes`, so "every inhabited X is a decision" is a
 --       statement about inhabitation, not about sums.  Instantiated at
 --       `Î`:
---       an inhabited Î is a decision, one line, same as for âŠ.
+--       an inhabited Î£ is a decision, one line, same as for âŠ.
 --
 --   Â§2  and the argument delivers something STRICTLY STRONGER than
 --       stability, which is why it cannot be traded for it.  `Stable âŠ¥`

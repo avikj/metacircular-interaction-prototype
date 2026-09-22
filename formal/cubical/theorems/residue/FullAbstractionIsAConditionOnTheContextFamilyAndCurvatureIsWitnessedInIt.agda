@@ -52,7 +52,7 @@
 -- the hypothesis — not that it creates curvature by some other route.
 --
 -- **THE COST OF THE WITNESS.**
--- `curvatureIsWitnessedInTheFamily` gives `� CtxEq`, a double
+-- `curvatureIsWitnessedInTheFamily` gives `¬ CtxEq`, a double
 -- negation; turning it into a context needs two hypotheses:
 -- enumerability of the index and decidability of the
 -- observation — through the same lemma, `decΣOverEnumerated`.
@@ -140,7 +140,7 @@ module _ {Tm O : Type} (Ctx : Type) (plug : Ctx → Tm → Tm) (obs : Tm → O)
 -- `curvatureExhibitsAContext` above pays `Enumerated K` + `Discrete O`
 -- + `FullyAbstract` to produce a separating context from `¬ (C p ≡ C q)`.
 -- The OPPOSITE direction — a separating context yielding
--- `� (C p ≡ C q)` — is free at the recording site.
+-- `¬ (C p ≡ C q)` — is free at the recording site.
 -- **The cost is not the statement's, it is the
 -- DIRECTION's.**  One way is a congruence.  The other is a search.
 ------------------------------------------------------------------------

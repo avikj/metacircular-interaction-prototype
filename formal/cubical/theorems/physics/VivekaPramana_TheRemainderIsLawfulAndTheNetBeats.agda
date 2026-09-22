@@ -10,7 +10,7 @@
 --
 --     प्रमाण : दक्षिण ≡ (सम + वाम)
 --
--- The field says WHAT THE REMAINDER IS.  So ������-������ is
+-- अवतरणThe field says WHAT THE REMAINDER IS.  So विवेक-प्रमाण is
 -- the GRAPH OF +, and
 -- ℕ × ℕ ≃ graph(+) because a graph is a family of singletons.  The
 -- equivalence is contentful rather than definitional, and

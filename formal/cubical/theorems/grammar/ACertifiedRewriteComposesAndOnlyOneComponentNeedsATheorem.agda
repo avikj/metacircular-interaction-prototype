@@ -134,7 +134,7 @@ module _ {Sys B Prov : Type}
 ------------------------------------------------------------------------
 -- The law is added to the record in
 -- `TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain`.
--- The Î above is unchanged: the five-component `LCertified` is a
+-- The Î£ above is unchanged: the five-component `LCertified` is a
 -- separate definition there, and this record continues to admit
 -- certificates with a lawless migration.
 --

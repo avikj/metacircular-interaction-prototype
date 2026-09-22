@@ -169,14 +169,14 @@ atLeastWithoutAbove = boundaryMeetsHalf , boundaryIsNotAboveHalf
 -- p/(suc q), is proved in
 -- `EveryThresholdHasABoundaryPopulationOfItsOwnDenominator`
 --
--- It is a statement about �: the DENOMINATOR IS THE LENGTH.  For p � suc q the
+-- It is a statement about : the DENOMINATOR IS THE LENGTH.  For p ≤ suc q the
 -- population `pop p k` — p trues then k falses, where cubical's `≤`
 -- hands over the k with `k + p ≡ suc q` — has length exactly suc q and
 -- count exactly p, so `p · length ≡ suc q · count` on the nose.  No
 -- subtraction, no gcd, no lowest terms.
 --
 -- The EMPTY population meets every threshold and
--- refutes every strict one, since `p � 0 ≡ 0 ≡ suc q � 0`.
+-- refutes every strict one, since `p · 0 ≡ 0 ≡ suc q · 0`.
 -- The theorem returns `length bs ≡ suc q` as part of the
 -- claim, which the empty witness fails.  `emptyMeetsEveryThreshold` and
 -- `emptyIsAboveNoThreshold` are checked there too, precisely so the

@@ -14,7 +14,7 @@
 -- trace-as-syntax) but not "kuṭṭaka" — it has no gcd, no Bézout, no
 -- back-substitution.  This module supplies the missing theorem.
 --
--- (It is self-contained over � — no matrix/continuant dependency.)
+-- (It is self-contained over ℤ — no matrix/continuant dependency.)
 --
 -- WHAT IS PROVED.  No postulates, no holes, --safe.
 --

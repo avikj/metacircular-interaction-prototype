@@ -10,7 +10,7 @@
 -- `SamaVibhaga_‚Ä¶`: at X = Fin 2 the iterate
 -- ‡ó‡‡‡ 1 y is y +µ y, so `SamaVibhaga`'s `divideUniquely` hypothesis is
 -- EXACTLY UniquenessMatraDvaya's halvesUniquely.
--- The wire is a term, and the instantiation is definitional ‚Äî ‡ó‡‡‡ 1 y and y +µ y
+-- The wire is a term, and the instantiation is definitional ‚Äî ‡§ó‡•Å‡§£‡§É 1 y and y +·µÇ y
 -- are the SAME normal form, so `halvesUniquely` is passed to
 -- `divideUniquely` with no coercion at all.
 --

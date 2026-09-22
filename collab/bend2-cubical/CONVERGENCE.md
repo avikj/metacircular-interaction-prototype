@@ -542,7 +542,7 @@ core and the HVM target:
   **proved from scratch** — `isPropIso5` → `isPropPathSet` (via the univalence
   round trip `uaEta`) → `isSetHProp = isPropSigPath`. So the `⟹` direction is
   discharged and computes (`nerodeEffComputes` definitional), and with `eq/` (the
-  `�`) the equality of meaning = observational equivalence holds on the net, with
+  `⟸`) the equality of meaning = observational equivalence holds on the net, with
   `setO : isSet Bool` a parameter the corpus itself carries (`FutureQuotient`'s
   `isSet O`).
 - **Genuine coinduction, and determinism as one fact [T]** (`coinduction.bend`
@@ -771,7 +771,7 @@ Dictionary, runtime ⟷ mathematics, checkable against HVM's actual rules:
    must not collapse to its partial type (`glue_mustfail` ✗), and the Kan rule
    uses `e`'s contractible-fibre data only off the faces.
 2. **General `hcomp` in `Set`/the universe** (`hcompset.bend`), built as
-   `Glue A [� � (T i1, transpEquiv)]`, each rule verified against its
+   `Glue A [φ ↦ (T i1, transpEquiv)]`, each rule verified against its
    definitional laws.
 3. **A faithful HVM4 emitter for the cubical constructors**, `--to-hvm4-full`:
    intervals, paths, types, `coe`, `hcomp` are runtime objects,

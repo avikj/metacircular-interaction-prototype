@@ -69,7 +69,7 @@
 -- with itself gives kÂ², and dividing through by it is what the à¤šà¤•à¥à¤°à¤µà¤¾à¤² is
 -- driving at.
 --
--- What is formalised is the àà¾àµà¨à¾ the àà•àà°àµà¾à² is built out of.
+-- What is formalised is the à¤­à¤¾à¤µà¤¨à¤¾ the à¤šà¤•à¥à¤°à¤µà¤¾à¤² is built out of.
 --
 -- DEFECT.  Brahmagupta's identity is proved by hand, from
 -- +Assoc / +Comm / Â·Assoc / Â·Comm / Â·DistL+ / Â·DistR+ / -Dist+ /

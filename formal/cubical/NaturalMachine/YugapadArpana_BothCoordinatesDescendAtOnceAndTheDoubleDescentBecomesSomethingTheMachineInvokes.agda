@@ -26,7 +26,7 @@
 --            its own recursion and the step by the exchange.
 --
 -- Demonstrated, all through the one prover, no hand proofs:
---   � commutativity of the machine's own maximum — SyatWholedesha's hand
+--   · commutativity of the machine's own maximum — SyatWholedesha's hand
 --     theorem, here automatic (norm eye, empty record);
 --   · (x−y)·(y−x) = 0 — a theorem needing the record AND the pair
 --     descent together: its zero-edge needs 0·x = 0, which the

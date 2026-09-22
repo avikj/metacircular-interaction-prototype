@@ -19,7 +19,7 @@
 --
 --   C3 (separate, and deliberately NOT part of the checked build)
 --              `NaturalMachine/Control/WrongEquivalence.agda` asserts
---              the equivalence â• â‰ Word without canonicity.
+--              the equivalence â„• â‰ƒ Word without canonicity.
 --
 -- A fourth control is the type-checker itself: every module carries
 -- --safe.

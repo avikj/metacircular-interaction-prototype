@@ -7,7 +7,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS.  `Dhruva_….agda` proves the frame (conservation acts
 -- inside the fibres; lossless forces Φ ≡ id) and `YogaDhruva_….agda`
--- instantiates it (fiber ����� n is a �-torsor under the shears).
+-- instantiates it (fiber योग n is a ℤ-torsor under the shears).—
 -- This module classifies the conserving endomorphisms, for this
 -- observable, over an ARBITRARY commutative ring:
 --
@@ -30,7 +30,7 @@
 --
 -- PROOF-SHAPE NOTE: everything below is parametric in the CommRing, and
 -- every ring fact is discharged by the solver.
--- The � instance is taken at the end in one line.
+-- The ℤ instance is taken at the end in one line.
 --
 -- ────────────────────────────────────────────────────────────────────
 --

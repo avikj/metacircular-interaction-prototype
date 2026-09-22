@@ -8,7 +8,7 @@
 --   PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder.agda
 --
 -- For arbitrary `A`, `w : A → W`, and two reversible encoders
--- `e e' : A � Fin (suc n)`, the theorem proves the two induced totals
+-- `e e' : A ≃ Fin (suc n)`, the theorem proves the two induced totals
 -- equal. The change of encoder is itself a finite permutation; `retEq`,
 -- `total-ext`, and checked `KramaNairapeksya` close the path.
 --

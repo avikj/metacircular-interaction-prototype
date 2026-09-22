@@ -5,9 +5,9 @@
 --                  AndSatisfiesTheBraidRelation
 --
 -- TERMS.  à¤µà¥‡à¤£à¥€ Â· veá¹‡Ä« â€” a braid, a plait (of three strands); a common
---  word, used here for the braid on three points.  à¯à™àà—à-àà•ààà° Â
+--  word, used here for the braid on three points.  à¤¯à¤™à¥à¤—à¥-à¤¬à¤•à¥à¤¸à¤° Â·Â·
 -- "Yangâ€“Baxter" is transliterated, not translated: the braid relation
--- ÏÏÏ = ÏÏÏ is named for C. N. Yang and R. J. Baxter (20th c.).
+-- ÏƒÏ„Ïƒ = Ï„ÏƒÏ„ is named for C. N. Yang and R. J. Baxter (20th c.).
 -- The compound and the framing below are built
 -- here.
 --

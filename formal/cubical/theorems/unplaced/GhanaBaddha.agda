@@ -12,7 +12,7 @@
 -- relational ∑k³ = (∑k)²; here the closed 4·∑k³ = (n(n+1))², since 4·(∑k)² =
 -- (2·∑k)² = (n(n+1))² by the doubling law.  This completes the closed forms of
 -- Āryabhaṭa's three saṅkalitas.  Reuses Sankalita's ∑, ∑³, घन-सङ्कलितम्,
--- ��������-�����������.  The only new step, 4(a�a)=(2a)(2a) over a
+-- द्विगुण-सङ्कलितम्.  The only new step, 4(a·a)=(2a)(2a) over a
 -- bare variable, is a certified symbolic identity via the Nat ring solver —
 -- which works here precisely because no suc-of-variable appears.)
 --

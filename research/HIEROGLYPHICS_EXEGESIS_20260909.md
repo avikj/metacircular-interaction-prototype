@@ -441,7 +441,7 @@ they must pass. Note the name collision: TARGET's W3/W4 (interface
 separation; coupling theorem) are not Lean's `W₃`/`W₄` (tensor ranks).
 
 **Smith/kuaka.** `SmithContent.lean` proves
-`GeneralSmith2x2` (`d� = gcd` of the four entries);
+`GeneralSmith2x2` (`d₁ = gcd` of the four entries);
 `RankOneWitness` computes a rank-one witness from `det = 0` with kernel
 `decide`; `Ekarupata` shows the four Smith spellings are one carrier shape.
 `SarvatraApavartana` records that the rank-on-Spec-ℤ it decides is the

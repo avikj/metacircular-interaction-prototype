@@ -245,7 +245,7 @@ apohaForEquivalences→DNE ac P nnp =
 ------------------------------------------------------------------------
 -- 6.  The drawn module, and REFUTATION 2.
 --
---     CLAIM B: `SameInterval` over � � � is an
+--     CLAIM B: `SameInterval` over ℕ × ℕ is an
 --     equivalence relation — the drawn module proves reflexivity and
 --     symmetry in its §4 and calls the interval "a genuine object" — so
 --     both apoha directions apply to it.

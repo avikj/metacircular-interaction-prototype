@@ -42,7 +42,7 @@
 -- (HITs.Bouquet.FundamentalGroupProof).  This module's content is the
 -- COMPOSITION into the generic law and its three new charge readings.
 -- सोपान (staircase), वलय (ring/torus), गुच्छ (bunch/bouquet) are
--- ordinary  used as labels; ������/������� is Umsvti,
+-- ordinary  used as labels; अर्पित/अनर्पित is Umāsvāti,
 -- Tattvrthastra 5.31, as the READING of stratum-graded establishment
 -- (per StaraArpana).
 ------------------------------------------------------------------------

@@ -20,7 +20,7 @@
 --
 -- This is why the two snapshots (Setu, Bhitti) close under each other:
 -- the candidate list shrinks quadratically in what is landed, not
--- linearly in what is proved.  ‡‡ø‡‡‡‡ø-‡‡‡ï‡‡∞‡Æ is built here.
+-- linearly in what is proved.  ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ is built here.
 ------------------------------------------------------------------------
 
 module BhittiSanorder_WallsTransportAlongFordsSoEveryFordRetiresCandidatesForFree where

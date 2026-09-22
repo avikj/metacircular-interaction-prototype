@@ -4,7 +4,7 @@
 -- मूलवाक्यम् · PROVENANCE OF THE NAME.
 --
 -- **अप्रतिकार्यत्व is a compound built HERE and is not a source term.**  It is
--- assembled from ordinary  (���������, remedy; the privative and the
+-- assembled from ordinary  (प्रतिकार, remedy; the privative and the
 -- listed in the UNSOURCED block of .claude/hooks/MulaVakya_SourceStatements-
 -- ForTheTermsInOurFileNames.txt for exactly this reason.  Building a
 -- compound is legitimate; letting it pass as a citation is not — "a

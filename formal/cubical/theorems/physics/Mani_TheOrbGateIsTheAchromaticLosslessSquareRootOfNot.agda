@@ -6,7 +6,7 @@
 -- TERM.  मणि · maṇi — a jewel, an orb; the jewel of इन्द्रजाल (Indra's net),
 -- each reflecting all the others.  A common  word, used here for the
 -- optical orb.  The physics names (Fresnel rhomb, quarter-wave plate,
--- Poincar�/Bloch sphere, total internal reflection) are modern.
+-- Poincaré/Bloch sphere, total internal reflection) are modern.
 --
 -- THE DEVICE (this paragraph is the READING; the checked terms are below).
 -- An orb of high-index glass reflects light losslessly by TOTAL INTERNAL

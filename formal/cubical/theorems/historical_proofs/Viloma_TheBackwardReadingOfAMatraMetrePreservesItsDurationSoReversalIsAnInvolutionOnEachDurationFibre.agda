@@ -16,7 +16,7 @@
 -- WHY THIS IS NOT ALREADY IN THE CORPUS.  `Virahanka_…TheTwoStepRecurrence`
 -- splits `fiber छन्दः (2+n)` into two smaller fibres; it never touches the
 -- order of the syllables inside a metre.  No file proves छन्दः invariant
--- under `rev` (����� never meets `rev`).  The mtr of a metre is a
+-- under `rev` (छन्दः never meets `rev`).  The mātrā of a metre is a
 -- SUM, and a sum forgets order — so the palindromic symmetry of the
 -- prastra is a fact the recurrence cannot see, and it is landed here as
 -- an equivalence, not a count.

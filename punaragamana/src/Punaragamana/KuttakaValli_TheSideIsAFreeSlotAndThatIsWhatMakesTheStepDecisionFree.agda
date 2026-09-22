@@ -53,7 +53,7 @@
 -- — would make `check.sh` no longer check what it says it checks.
 --
 -- SECOND DEFECT.  `वल्ली` is the SUBTRACTIVE step (anthyphairesis), not
--- the division step a � a mod b.  The �����
+-- the division step a … a mod b.  The 
 -- of the *ryabhaya* is the column of QUOTIENTS; what is formalised
 -- below is the column of subtractions that produces them.  Anything
 -- below that says "वल्ली" means the subtractive column.

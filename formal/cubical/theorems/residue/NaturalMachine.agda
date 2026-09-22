@@ -459,7 +459,7 @@ import TransportInstance
 import Controls
 import CountedDigits
 import ResidueTransport
--- multiplication survives the transport: `_�_` carried
+-- multiplication survives the transport: `_·_` carried
 -- along `ua ℕ≃CanWord` IS native shift-and-add on digit words, by the
 -- same mechanism `transport-+-is-⊕` uses for addition.  The witness
 -- module runs the multiplier at bases 10 and 2.

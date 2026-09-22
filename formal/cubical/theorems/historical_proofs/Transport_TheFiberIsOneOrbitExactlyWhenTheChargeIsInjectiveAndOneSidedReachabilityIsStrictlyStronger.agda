@@ -43,7 +43,7 @@
 -- is a claim about endomorphisms of a type; the use of the word for
 -- "the flow carries one point of a fiber to another" is `Kaksya_‚Ä¶agda`'s
 -- and is carried in unchanged from there.  ‡§â‡§≠‡§Ø ‚Äî "both, two-sided",
--- ordinary ; the compound ‡â‡‡Ø-‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ is BUILT HERE and no
+-- ordinary ; the compound ‡§â‡§≠‡§Ø-‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç is BUILT HERE and no
 -- text is claimed for it.  ‡§ï‡§ï‡•ç‡§∑‡•ç‡§Ø‡§æ ‚Äî orbit, as in `Kaksya_‚Ä¶agda`, with
 -- its limit unchanged (attested for a planet's orbit; its use for the
 -- orbit of an endomorphism is this corpus's).  NO SOURCE STATES ANYTHING
@@ -109,7 +109,7 @@ module _ {A : Type ‚Ñì} (Œ¶ : A ‚Üí A) where
     Iso.fun (Cubical.HITs.SetQuotients.isEquivRel‚ÜíTruncIso ‡§∏‡§Æ‡§æ‡§®-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç a b)
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡â‡‡Ø-‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ ‚Äî THE HYPOTHESIS: the flow is transitive
+-- ‡•® ¬∑ ‡§â‡§≠‡§Ø-‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç ‚Äî THE HYPOTHESIS: the flow is transitive
 --     on the fiber in the TWO-SIDED, truncated sense.
 --
 -- Compare `Kaksya` ¬ß‡•≠:
@@ -170,9 +170,9 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A)
                    (tr (f a) (a , refl) (b , sym p))))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡µ‡‡Ø‡‡‡Ø‡Ø‡ ‚Äî AND THE CONVERSE.  Injectivity implies the
+-- ‡•™ ¬∑ ‡§µ‡•ç‡§Ø‡§§‡•ç‡§Ø‡§Ø‡§É ‚Äî AND THE CONVERSE.  Injectivity implies the
 --     transitivity, and this is the direction that forces both
---     features: `[ a ] ‚â° [ b ]` gives back only `‚à a ‚âà b ‚à‚`, and `‚âà`
+--     features: `[ a ] ‚â° [ b ]` gives back only `‚à• a ‚âà b ‚à•‚ÇÅ`, and `‚âà`
 --     is the meeting relation, not reachability.
 ------------------------------------------------------------------------
 
@@ -224,7 +224,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A)
                , ‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞ s ) })
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡ï‡‡æ‡∞‡‡‡‡µ‡ ‡ó‡‡∞‡‡‡∞‡Æ‡ ‚Äî ONE-SIDED REACHABILITY IS STRICTLY STRONGER.
+-- ‡•¨ ¬∑ ‡§è‡§ï‡§™‡§æ‡§∞‡•ç‡§∂‡•ç‡§µ‡§Ç ‡§ó‡•Å‡§∞‡•Å‡§§‡§∞‡§Æ‡•ç ‚Äî ONE-SIDED REACHABILITY IS STRICTLY STRONGER.
 --
 -- Two points, one collapsing flow, and the whole gap in four lines.
 --

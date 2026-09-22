@@ -16,7 +16,7 @@
 --   ¬ß3  THE DOMINANT MODE OVERSTEPS: for M < m_0, |c_0| m_0^t exceeds
 --       K + (Œ£|c_i|) M^t for some t, so |B(t)| > K.
 --
--- ‡‡‡∞‡‡≤ (prabala, dominant/strong) is ordinary .
+-- ‡§™‡•ç‡§∞‡§¨‡§≤ (prabala, dominant/strong) is ordinary .
 ------------------------------------------------------------------------
 
 module Prabala_TheDominantModeWinsSoASignedSumOfModesWithADominantRatioAboveOneOverstepsEveryBoundAndTheGrowthRateIsTheDominantRatio where

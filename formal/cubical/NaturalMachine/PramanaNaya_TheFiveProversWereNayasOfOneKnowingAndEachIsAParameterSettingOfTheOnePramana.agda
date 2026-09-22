@@ -9,7 +9,7 @@
 -- THE FOUR PROVERS ARE ONE.
 -- EkaTantra proved that all voices are one contention structure
 -- differing by a parameter.  The corpus carries four voices, each a
--- SEPARATE function: the flat prover (������), the
+-- SEPARATE function: the flat prover (साधनम्), the
 -- sequence-free-eyed prover (सम-साधनम्), the self-inferring prover
 -- (स्वार्थ-साधनम्), the record-fed prover (सश्रुत-साधनम्).  Four
 -- knowings where the theorem says there is one.  Each is a naya ≔

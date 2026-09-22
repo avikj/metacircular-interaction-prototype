@@ -44,7 +44,7 @@
 --
 -- THE ONLY WORK IS §१, four lines, and everything after it is transport.
 --
--- TERM.  ��� — twin-born; the ordinary  word, used for the
+-- TERM.  यमज — twin-born; the ordinary  word, used for the
 -- relation the census reports.
 -- The mathematics — path,
 -- transport, `ua` — is cubical type theory, Voevodsky's, this

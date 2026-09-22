@@ -198,10 +198,10 @@ module Generative (CR : CommRing ℓ) where
   ----------------------------------------------------------------------
   -- 7.  The composition is commutative and associative, with unit: a monoid,
   -- as paths between `Sol` values.
-  -- ASSOCIATIVITY OF `_�_` at the coordinate level is proved (
+  -- ASSOCIATIVITY OF `_⊛_` at the coordinate level is proved (
   -- ⊛AssocA/⊛AssocB below, from bhA-assoc/bhB-assoc in Bhavana.Form — abstract
   -- R, solver-free).  Together with commutativity (⊛CommA/⊛CommB) and the unit
-  -- laws (�UnitA/�UnitB), ALL THREE monoid axioms hold at the level of the
+  -- laws (⊛UnitA/⊛UnitB), ALL THREE monoid axioms hold at the level of the
   -- two coordinates.  And the Sol-LEVEL associativity is assembled
   -- (⊛Assoc below): a PathP between the two `Sol` records over the norm index
   -- `·Assoc k₁ k₂ k₃`, built from the two coordinate paths and a `hasNorm`
@@ -327,7 +327,7 @@ module Generative (CR : CommRing ℓ) where
 
   ----------------------------------------------------------------------
   -- Sol-level COMMUTATIVITY: `s ⊛ t ≡ t ⊛ s` as a path over the norm index
-  -- `�Comm k� k�`, from the coordinate commutativities.
+  -- `·Comm k₁ k₂`, from the coordinate commutativities.
   -- With it the graded family is a
   -- commutative monoid and the norm-1 solutions an ABELIAN group — the whole
   -- of Brahmagupta's bhvan structure, as paths between `Sol` values.
@@ -345,7 +345,7 @@ module Generative (CR : CommRing ℓ) where
   -- The group laws in the form §5b names: PLAIN paths in `Sol D 1r` for the
   -- retyped operation `_∙₁_` (= subst along ·IdR 1r of `_⊛_`).  Each is the
   -- corresponding ⊛-path read through `fromPathP`, since `subst B p` is exactly
-  -- `transport (λ i � B (p i))`.
+  -- `transport (λ i → B (p i))`.
   ----------------------------------------------------------------------
 
   ∙₁-idR : {D : R} (s : Sol D 1r) → s ∙₁ unit D ≡ s

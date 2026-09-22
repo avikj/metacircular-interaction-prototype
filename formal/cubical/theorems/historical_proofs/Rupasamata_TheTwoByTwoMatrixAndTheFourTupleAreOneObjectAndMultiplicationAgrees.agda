@@ -8,7 +8,7 @@
 --  the two multiplications are carried onto each other by it.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- TERM, TEXT, DATE.  ���-���� is a plain descriptive  compound �
+-- TERM, TEXT, DATE.  रूप-समता is a plain descriptive  compound ——
 -- रूप (rūpa, "form") + समता (samatā, "sameness") — and is BUILT HERE, not
 -- attributed to a source: the object it names (an equivalence of two type
 -- encodings) is not an Indian-source result and none is claimed for it.

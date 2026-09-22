@@ -149,5 +149,5 @@ fourthCornerRefutedUnderPointwiseStability bad stab (noSam , noNit) =
 -- this line's "fourth corner" is a product of two independent
 -- negations and that simultaneous refusal collapses into the
 -- sequential pair, so the position is the THIRD bha·πÖga ‚Äî
--- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚Äî and not avaktavya.
+-- ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø, asserted ‡§ï‡•ç‡§∞‡§Æ‡•á‡§£ ‚Äî and not avaktavya.
 ------------------------------------------------------------------------

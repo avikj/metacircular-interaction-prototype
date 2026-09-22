@@ -46,7 +46,7 @@
 -- bound (the antichain bound) and matches it on the vowel subfamily.
 --
 -- `markersDistinct` gives
--- markers â‰ width(F) and no more.  Where it stands for the full inventory
+-- markers â‰¥ width(F) and no more.  Where it stands for the full inventory
 -- is a finite computation, and it is done rather than guessed:
 -- `machine/Pratyahara_TheIntervalDecisionProcedure.hs` runs Dilworth (via
 -- bipartite matching and Knig, antichain returned and re-checked) on the

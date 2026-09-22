@@ -44,7 +44,7 @@
 --       identity parima (no change) transports as the identity (nothing
 --       moves when nothing changes — `Dhruva`'s ध्रुव read here), and every
 --       transport is reversible (the parima has an inverse: vyaya and
---       utpda exchange).  Persistence � a groupoid of changes (`Machine`).
+--       utpāda exchange).  Persistence ⟹ a groupoid of changes (`Machine`).
 --   §5  नानाद्रव्ये-न-संक्रमणम् — across DISTINCT substances there is no free
 --       road: transport is exactly what a single dravya's persistence
 --       affords, and nothing affords it between two.  (Stated: a carry

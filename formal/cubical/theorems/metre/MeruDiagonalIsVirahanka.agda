@@ -5,7 +5,7 @@
 --
 -- MERU DIAGONAL = FIBONACCI.  Halyudha's observation that the
 -- shallow diagonals of the meru-prastra (`Meru`) sum to the
--- mtrmeru (`Matramerus`) â€” `Fib(n+1) = âˆâ– C(nâˆ’k,k)` â€” unifying
+-- mÄtrÄmeru (`Matramerus`) â€” `Fib(n+1) = âˆ‘â‚– C(nâˆ’k,k)`  unifying
 -- the two combinatorics modules.
 --
 -- The identity is proved, in the other encoding, by the `à®àà°à n k`

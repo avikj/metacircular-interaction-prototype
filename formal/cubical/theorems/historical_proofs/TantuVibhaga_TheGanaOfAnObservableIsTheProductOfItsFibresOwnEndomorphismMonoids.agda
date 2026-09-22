@@ -10,7 +10,7 @@
 -- WHAT THIS IS.
 -- Currying along A â‰ Î B (fiber f)
 -- identifies the section CARRIER with (b : B) â†’ fiber f b â†’ fiber f b,
--- and carrying â‹ onto pointwise composition needs the transport
+-- and carrying â‹† onto pointwise composition needs the transport
 -- coherence of that currying.  This module
 -- gives it, over set carriers:
 --

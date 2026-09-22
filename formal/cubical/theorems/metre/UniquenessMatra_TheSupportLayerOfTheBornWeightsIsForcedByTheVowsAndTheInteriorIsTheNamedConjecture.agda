@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- एकत्व-मात्रा — uniqueness (uniqueness) of the mātrā (measure/weight).
--- Compound built here for program � of YugaParivartana
+-- Compound built here for program ४ of YugaParivartana
 -- (Born as the ethics of information).  Sources as UniquenessNirnaya /
 -- AvaktavyaPrasava give them.
 --

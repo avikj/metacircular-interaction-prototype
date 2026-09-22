@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡∞‡ï‡‡‡æ ‚Äî keep the remainder.  The Kerala chapter's essence.
+-- ‡§∂‡•á‡§∑‡§∞‡§ï‡•ç‡§∑‡§æ ‚Äî keep the remainder.  The Kerala chapter's essence.
 -- Its ‚Ñ§-native form IS statable, and it is DIVISION WITH REMAINDER at
 -- every finite stage, the remainder first-class:
 --

@@ -2,7 +2,7 @@
 
 -- ShunyaParikrama_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance
 --
--- ‡‡‡®‡‡Ø-‡‡∞‡ø‡ï‡‡∞‡Æ‡æ ‚Äî the circuit walked and found empty.
+-- ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§™‡§∞‡§ø‡§ï‡•ç‡§∞‡§Æ‡§æ ‚Äî the circuit walked and found empty.
 --
 -- WHAT THIS DECIDES.  interactive/Parikrama enumerated the complete cycle
 -- basis of road one: dimension E ‚àí V + C = 36, every

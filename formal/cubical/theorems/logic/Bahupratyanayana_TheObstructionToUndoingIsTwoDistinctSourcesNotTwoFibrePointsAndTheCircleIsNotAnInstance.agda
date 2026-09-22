@@ -167,7 +167,7 @@ private
 वृत्त-मूल-अभेदः = refl
 
 ------------------------------------------------------------------------
--- � � ���� — why `noDescentS�` is a different theorem.
+-- ६ · शेषः — why `noDescentS¹` is a different theorem.
 --
 -- §२ needs two points of A that are provably distinct.  S¹ is connected,
 -- so it has none: `base ≡ base` is inhabited by `refl`, and the law

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- पूर्णसप्तभङ्गी — the map-level sevenfold, completed on the nose.
 --
--- WHAT THIS PROVES.  `GananaSaptabhangi_�agda` §6 (���������) shows the
+-- WHAT THIS PROVES.  `GananaSaptabhangi_…agda` §6 (दोषलेखः) shows the
 -- map-level classification IS the sevenfold — the non-empty selections of
 -- three fibre seeds, 2³ − 1 = 7 — and supplies canonical witnesses for
 -- THREE positions:

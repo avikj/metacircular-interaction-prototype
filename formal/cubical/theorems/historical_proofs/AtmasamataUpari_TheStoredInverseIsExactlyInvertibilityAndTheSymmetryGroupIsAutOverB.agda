@@ -60,11 +60,11 @@
 -- already this corpus's own name for Aut(A) (`SamraksakaSamuha` ┬зрекb),
 -- and it is MODERN mathematical : no classical text is claimed
 -- for it, there and not here either.  рдЙрдкрд░рд┐ тАФ "above, over", ordinary
--- , used here for the slice: "over B".  ррр░рХрррХ, ррр░р╡р╛р, рЧр, ррорр,
+-- , used here for the slice: "over B".  рд╕рдВрд░рдХреНрд╖рдХ, рдкреНрд░рд╡рд╛рд╣, рдЧрдг, рд╕рдореВрд╣,
 -- рд╡реНрдпреБрддреНрдХреНрд░рдо as in `SamraksakaGana`/`SamraksakaSamuha`, with their limits
 -- unchanged (рдЧрдг attested as the gaс╣Зap─Бс╣нha's device, P─Бс╣Зini,
 -- рдЕрд╖реНрдЯрд╛рдзреНрдпрд╛рдпреА, ~500 BCE; the application to flows is this corpus's).
--- The compound рррроррорр╛-рЙрр░р┐ is BUILT HERE; no source states
+-- The compound рдЖрддреНрдорд╕рдорддрд╛-рдЙрдкрд░рд┐ is BUILT HERE; no source states
 -- anything below.
 ------------------------------------------------------------------------
 

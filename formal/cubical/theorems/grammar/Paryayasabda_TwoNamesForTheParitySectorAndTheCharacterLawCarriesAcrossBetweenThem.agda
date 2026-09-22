@@ -11,7 +11,7 @@
 -- and Vykaraa traditions use the term in the same plain sense.
 --
 -- ────────────────────────────────────────────────────────────────────
--- THE TWO ENCODINGS.  This corpus encodes the �/2 PARITY SUPERSELECTION
+-- THE TWO ENCODINGS.  This corpus encodes the ℤ/2 PARITY SUPERSELECTION
 -- SECTOR — the "charge mod 2" whose neutral half is the parity barrier —
 -- TWICE, in two modules that never meet:
 --

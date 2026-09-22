@@ -224,7 +224,7 @@ universalImpliesEveryLowerThreshold p q bs cross a =
 --   ⊑-trans : (a b c) → a ⊑ b → b ⊑ c → a ⊑ c
 --
 -- by the same multiply–rearrange–cancel as §3's `atLeastAntitone`,
--- using `�sk-cancel-�` and `swapOuter` from this module.
+-- using `·sk-cancel-≤` and `swapOuter` from this module.
 --
 -- With it, the same-rate relation `_≈_ = mutual ⊑` is an equivalence
 -- relation, and that module shows, in both directions, which statements descend

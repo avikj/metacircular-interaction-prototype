@@ -21,11 +21,11 @@
 | historical_proofs/Sarvavarta_â€¦ | a^|G| = 1 for every finite group, via SubgroupIndex's Lagrange |
 | number/MobiusPhi_â¦ | the identity for every n â‰ 1 in that module's own definitions |
 | order/Trairashika_â€¦ | untruncated trichotomy on Rate; total non-strict order; antitonicity |
-| historical_proofs/KuttakaIsta_â¦ | Euclidean division on â; least non-negative member; uniqueness at g = 1 |
-| primes/pair_field/PairCompositionSeed_â¦ | isPrime (aÂb) â‰¡ false for a, b â‰ 2; no composed pair is a prime pair |
+á¹£á¹­â€¦| historical_proofs/KuttakaIsta_â€¦ | Euclidean division on â„¤; least non-negative member; uniqueness at g = 1 |
+| primes/pair_field/PairCompositionSeed_â€¦ | isPrime (aÂ·b) â‰¡ false for a, b â‰¥ 2; no composed pair is a prime pair |
 | order/HomometricMinimality_â€¦ | 1024-form kernel sweep with completeness and soundness proofs |
 | residue/CatuhSamskara_â¦ | at SÂ: âˆSÂâˆâ contractible (Î“âˆ); winding loop = 1 (Î“âº); loopDatum â‰ any restricted constant (Î“â, the descent defect); helix with fixed-point-free sucâ and Î©SÂ â‰¡ â (Î“^); four-are-four |
 | automata/Ekasutra_â¦ | Section (Torus e) â‰ FixedPoint (equivFun e) via ua-glue/unglue; point-surjection gives sections; a free monodromy (notEquiv) has no section |
-| primes/EkaBija_â¦, historical_proofs/Svarnasima_â¦ | one kernel ğ’¦ w r = a(wâˆr)Âa(w+r); Goldbach is the centre marginal, twins the radius marginal, ordered Goldbach count is the Cauchy square; the vall of consecutive Virahka numbers is the longest, every vall is shorter than the Virahka inverse |
+Â§â€¦Ã©| primes/EkaBija_â€¦, historical_proofs/Svarnasima_â€¦ | one kernel ğ’¦ w r = a(wâˆ¸r)Â·a(w+r); Goldbach is the centre marginal, twins the radius marginal, ordered Goldbach count is the Cauchy square; the vallÄ« of consecutive VirahÄá¹…ka numbers is the longest, every vallÄ« is shorter than the VirahÄá¹…ka inverse |
 | fibre/Fibre/Avaccheda_â¦ | fiber âˆ_âˆâ x â‰ A for every x : âˆ A âˆâ |
 | number/Sarani_â€¦ | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |

@@ -71,7 +71,7 @@
 -- none of them cited another:
 --
 --   AvrttiResidue_…  `the-kernel-carries-no-inverse` — §2 at `len`.
---   Machine_�      `�������� : GroupoidMachine (X � X)` — §3's hypothesis.
+--   Machine_…      `यन्त्रम् : GroupoidMachine (X ≃ X)` — §3's hypothesis.
 --   Avirodha_…    "strictly a category, weakly a groupoid; the gap is
 --                 the śeṣa" — §2 and §3 are what the gap IS.
 --   Laghava

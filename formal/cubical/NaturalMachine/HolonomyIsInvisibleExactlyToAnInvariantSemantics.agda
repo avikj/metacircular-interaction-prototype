@@ -118,7 +118,7 @@ oneLoopTwoVerdicts =
   , theCacheIsMoved
 
 ------------------------------------------------------------------------
--- §2 proves invariant � unmoved. The same holds of §3:
+-- §2 proves invariant ⟹ unmoved. The same holds of §3:
 -- `nonTrivialHolonomyMovesTheRawInterface` goes one way only.
 --
 -- **BOTH CONVERSES COST NOTHING.**  `uaβ h z` is a PATH, so it may

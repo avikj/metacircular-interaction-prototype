@@ -5,7 +5,7 @@
 -- рд╡рд▓реНрд▓реА: ─Аryabhaс╣нa, ─Аryabhaс╣н─лya, Gaс╣Зitap─Бda 32тАУ33 (499).  рднрд╛рд╡рдирд╛: Brahmagupta,
 -- Br─Бhmasphuс╣нasiddh─Бnta 18.64тАУ65 (628).  рд╕рдиреНрдзрд┐рдГ: junction; the compound
 -- р╡р▓рр▓р-рр╛р╡рир╛-рриррзр┐р is built in this corpus.
--- The vall is the quotient column, the рр╛р╡рир╛ is the
+-- The vall─л is the quotient column, the рднрд╛рд╡рдирд╛ is the
 -- composition rule (xx'+Dyy', xy'+x'y).
 --
 -- WHAT THIS MODULE CHECKS, checked forms of the note's derivation:

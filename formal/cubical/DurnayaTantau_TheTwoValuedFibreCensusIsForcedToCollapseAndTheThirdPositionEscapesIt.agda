@@ -6,7 +6,7 @@
 -- (durnaya at the fibre: a two-valued fibre census is FORCED to collapse,
 --  and the third position escapes it.)
 --
--- `Tantujala_�agda` §� re-exports `S.�������` under a fibre-flavoured name and asks the reader to
+-- `Tantujala_agda`  re-exports `S.दुर्नयः` under a fibre-flavoured name and asks the reader to
 -- *read* रिक्तम्/एकम्/बहु as अवक्तव्य/अस्ति/नास्ति —
 --
 --     द्विपद-निर्णयो-मेलयति = S.दुर्नयः
@@ -103,7 +103,7 @@ private
 ------------------------------------------------------------------------
 -- २ · THE INSTANTIATION.  Every two-valued verdict on types collapses.
 --
--- It is not a new proof: it is `S.�������` applied to `V ∘ �������`, and the whole content
+-- It is not a new proof: it is `S.दुर्नयः` applied to `V ∘ साक्षी`, and the whole content
 -- is that the composite typechecks — the three seeds have become three
 -- types, so the pigeonhole on bhagas IS a pigeonhole on fibres.
 --

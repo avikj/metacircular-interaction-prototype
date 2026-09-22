@@ -28,7 +28,7 @@
 -- the received conditional theorems; what
 -- the checker certifies is the SHAPE of the frontier.  The finite
 -- algebra under each hypothesis is in: Grahaka (two-packet matrix,
--- PSD — |Z| � M�), AbelaRupa / ResidueDvaya (Abel inverse, dyadic
+-- PSD ⇔ |Z| ≤ M₀), AbelaRupa / ResidueDvaya (Abel inverse, dyadic
 -- residual), ArdhaTala / DviSthana / DviMana (Weil geometry, reflection
 -- block, holonomy), ReflectionFiber / RiktaFiber (reflection fibre),
 -- Pratirodha (Goldbach normalization), Sikhara (peak ledger).

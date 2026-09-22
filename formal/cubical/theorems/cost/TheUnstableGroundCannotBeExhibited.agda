@@ -86,7 +86,7 @@
 -- "Is every absence in this corpus stable?"  §1 says that question is
 -- ONE-SIDED.  It can be settled affirmatively at any site where
 -- stability is provable, and it can never be settled negatively
--- anywhere, because `� Stable A` is refuted for every A.  A test that
+-- anywhere, because `¬ Stable A` is refuted for every A.  A test that
 -- admits confirmations and admits no refutations is not thereby
 -- answered — it is a different kind of question from the one it looked
 -- like.

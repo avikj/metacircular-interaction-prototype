@@ -43,7 +43,7 @@
 --        so the total native carry work C(n) of the first n increments
 --        satisfies (b−1)·C(n) + digitSum (digits n) = n·b EXACTLY, with no
 --        error term to hide and no scale at which the constant changes.
---        Corollaries: n � C(n) and (b−1)�C(n) � n�b.
+--        Corollaries: n ≤ C(n) and (b−1)·C(n) ≤ n·b.
 --
 -- §6     THE LANE'S DECLARED COST.  `AcceptanceTest.cost` prices
 --        a tick at 1.  §5 says that price is a LOWER bound that is never

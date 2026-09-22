@@ -49,11 +49,11 @@
 --     `w guru = 2`.
 --
 -- ────────────────────────────────────────────────────────────────────
--- TERM.  ��� — weight, load, that which is carried.  Ordinary ;
+-- TERM.  भार — weight, load, that which is carried.  Ordinary ;
 -- in the prosodic tradition the weight of a syllable is its मात्रा
--- (Pigala, ��������������, ~300 BCE: ���� one mtr, ����� two).
+-- (Piṅgala, छन्दःशास्त्रम्, ~300 BCE: लघु one mātrā, गुरु two).
 -- भार is used here in its plain sense for the cost a constructor
--- charges; the prosodists' term for the syllable's own weight is ������.
+-- charges; the prosodists' term for the syllable's own weight is मात्रा.
 --
 ------------------------------------------------------------------------
 

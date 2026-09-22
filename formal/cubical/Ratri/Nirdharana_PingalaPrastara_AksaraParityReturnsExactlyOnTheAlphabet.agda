@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ï‡‡‡∞-‡‡∞‡‡‡µ ‚Äî the bit returns exactly on the alphabet.  The guess
+-- ‡§Ö‡§ï‡•ç‡§∑‡§∞-‡§™‡§∞‡§§‡•ç‡§µ ‚Äî the bit returns exactly on the alphabet.  The guess
 -- aksara (parity w) ‚â° w, that a number is determined
 -- by its syllable.  Pigala's own machinery says what is true instead
 -- (Chandastra, ~300 BCE, the laghu/guru binary; the host module is

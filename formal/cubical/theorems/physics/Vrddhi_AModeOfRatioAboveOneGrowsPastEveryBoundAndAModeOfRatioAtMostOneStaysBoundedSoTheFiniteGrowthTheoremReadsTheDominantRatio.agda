@@ -15,7 +15,7 @@
 --   ¬ß3  A MODE OF RATIO > 1 GROWS PAST EVERY BOUND; a mode of ratio in
 --       [0,1] stays in [0,1].
 --
--- ‡µ‡‡¶‡‡ß‡ø (vddhi, growth) is ordinary  and Pini's own term.
+-- ‡§µ‡•É‡§¶‡•ç‡§ß‡§ø (v·πõddhi, growth) is ordinary  and PƒÅ·πáini's own term.
 ------------------------------------------------------------------------
 
 module Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostOneStaysBoundedSoTheFiniteGrowthTheoremReadsTheDominantRatio where

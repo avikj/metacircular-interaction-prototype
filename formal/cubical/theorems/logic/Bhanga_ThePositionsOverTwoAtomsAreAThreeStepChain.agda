@@ -8,7 +8,7 @@
 -- Samantabhadra; Akalaka; Siddhasena Divkara).  The seven, and the
 -- proof that the fourth is irreducible, are in
 -- `Saptabhangi` and `SaptabhangiNaya`.  This
--- module is about two atoms only — `�������` and `�����`, imported
+-- module is about two atoms only — `सामयिक` and `नित्य`, imported
 -- as instances from `AnuktaAvaktavya`.
 --
 -- ────────────────────────────────────────────────────────────────────
@@ -51,7 +51,7 @@
 -- character is a more informative object than a count of positions.
 --
 -- ────────────────────────────────────────────────────────────────────
--- The De Morgan chain `(�A) � (�B) � (�A) � (�B) �
+-- The De Morgan chain `(¬A) × (¬B) → (¬A) ⊎ (¬B) →→
 -- ¬ (A × B)` and the taboo status of its converses are standard
 -- intuitionistic logic.
 ------------------------------------------------------------------------

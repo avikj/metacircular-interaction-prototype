@@ -9,7 +9,7 @@
 -- गणितं वलय-साधकेन (solve ℤCommRing) ; भाजकत्वं pos 1-रहितं, bz-प्रतिस्थापनेन ।
 --
 -- (The existence direction of CRT, needing
--- r�−r� (signed), proved over �: given a B�zout witness b�u+c�v=1 (the
+-- r₂−r₁ (signed), proved over ℤ: given a Bézout witness b·u+c·v=1 (the
 -- kuṭṭaka's coprimality certificate), X = r₁·(c·v)+r₂·(b·u) simultaneously
 -- solves X ≈ r₁ [b] and X ≈ r₂ [c].  The algebra is the ℤ ring solver, kept
 -- free of bare `pos 1` by substituting pos 1 ↦ b·u+c·v via the witness — the

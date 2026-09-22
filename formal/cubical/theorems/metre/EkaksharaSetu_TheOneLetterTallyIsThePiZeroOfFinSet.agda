@@ -27,7 +27,7 @@
 -- the corpus's own `len` and `cardœÄ‚ÇÄ`, that the finite set a tally word
 -- is sent to has cardinality equal to the length of the word.
 --
--- PROVENANCE.  ‡‡ï‡æ‡ï‡‡‡∞ ("single-syllable / single-letter") names
+-- PROVENANCE.  ‡§è‡§ï‡§æ‡§ï‡•ç‡§∑‡§∞ ("single-syllable / single-letter") names
 -- `Tally` honestly: it is the set of words over a one-symbol alphabet,
 -- which is exactly a tally of single marks.  ‡§∏‡•á‡§§‡•Å ("ford / bridge") is
 -- the tirtha-graph vocabulary `SetuYugma` established for this region.

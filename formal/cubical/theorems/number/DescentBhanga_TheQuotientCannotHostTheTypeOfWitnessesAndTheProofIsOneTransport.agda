@@ -9,7 +9,7 @@
 -- its positions).  The compound ‡§Ö‡§µ‡§§‡§∞‡§£-‡§≠‡§ô‡•ç‡§ó, "the break of descent", is
 -- built here.
 --
--- The "dependent novelty" generalization ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ ‚Äî the
+-- The "dependent novelty" generalization ‡§Ö‡§µ‡§§‡§∞‡§£-‡§≠‡§ô‡•ç‡§ó-‡§∏‡§æ‡§Æ‡§æ‡§®‡•ç‡§Ø‡§Æ‡•ç ‚Äî the
 -- inhabited/empty contrast weakened to mere non-equivalence of the
 -- fibres, via pathToEquiv.  The inhabited/empty theorem becomes the
 -- cheapest instance of it.

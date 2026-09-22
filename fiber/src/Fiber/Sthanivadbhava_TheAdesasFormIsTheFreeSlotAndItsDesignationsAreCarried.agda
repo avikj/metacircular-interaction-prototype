@@ -145,7 +145,7 @@
 --    6.1.78 would produce from e: the ones the derivation of नयन passes
 --    through, taken from the parent-repository module.
 --
--- 5. Nothing here imports outside `Fiber`: the vocabulary ���� /
+-- 5. Nothing here imports outside `Fiber`: the vocabulary वर्ण /
 --    आदेश / AnalVidhi is redefined rather than imported from
 --    `formal/cubical`, so the library stays standalone and `check.sh`
 --    keeps checking what it says it checks.  That duplication is

@@ -4,7 +4,7 @@
 -- समानमार्गः — the hand road and the transport road are ONE path.
 --
 -- THE CLAIM.  `LosslessReturn_TheHandProofWasUnnecessary…agda` §5
--- states that its transport-built path (╗�) ≡ ������-������
+-- states that its transport-built path (ℕ×ℕ) ≡ विवेक-प्रमाण
 -- is the same path the hand proof produced.  This module proves it.
 --
 -- HOW.  `ua` is (one leg of) an equivalence, hence injective; so it is

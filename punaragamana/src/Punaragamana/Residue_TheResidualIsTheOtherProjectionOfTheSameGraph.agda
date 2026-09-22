@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- Punargamana � ���
+-- Punarāgamana · प्रतिबिम्ब
 --
 -- शेष (śeṣa) — the remainder that is KEPT and made the material of the
 -- next step, rather than discarded.  ryabhaa, *ryabhaya*,

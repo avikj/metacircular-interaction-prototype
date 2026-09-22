@@ -48,7 +48,7 @@
 -- flows themselves — `(Σ[ Φ ] संरक्षणम् f Φ) ≃ ((a : A) → fiber f (f a))`.
 -- That identification is ITS result and is not redone here; §२b instead
 -- derives only the contractibility, directly through the library's
--- `�-Π-Iso`, so that this module does not depend on it.
+-- `Σ-Π-Iso`, so that this module does not depend on it.
 --
 -- So the whole conserving-flow monoid — the object `Apratiloma_…` and
 -- `SamraksakaGana_…` are about — is the price of flipping which side of
@@ -198,5 +198,5 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 -- point.  There is no hypothesis on `f` that makes §१ fail: the
 -- output-bound side is contractible for every map, which is why
 -- road one is free and why `Carrier.agda` needs no hypothesis to
--- state `A � Carrier f`.
+-- state `A ≃ Carrier f`.
 ------------------------------------------------------------------------

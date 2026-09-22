@@ -26,7 +26,7 @@
 -- any other merging bank-pair would compose with the intra-component
 -- fords into ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚âÉ Bool.
 --
--- ‡‡ø‡‡‡‡ø-‡‡‡‡‡‡ô‡‡ó‡ is built here; the load-bearing theorem is
+-- ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä is built here; the load-bearing theorem is
 -- Saptabhangi's, used not reproved.
 ------------------------------------------------------------------------
 

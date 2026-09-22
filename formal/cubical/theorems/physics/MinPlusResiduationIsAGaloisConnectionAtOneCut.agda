@@ -41,7 +41,7 @@
 -- genuine min-plus data: saturate once and stop.
 --
 -- ────────────────────────────────────────────────────────────────────
--- `(_� b) � (_+ b)` is the standard residuation in � and
+-- `(_∸ b) ⊣ (_+ b)` is the standard residuation in ℕ and
 -- makes it a residuated monoid; that Isbell conjugation over a quantale
 -- is a Galois connection is likewise standard (Lawvere's metric-space
 -- reading of enriched categories, `Metric spaces, generalized logic,

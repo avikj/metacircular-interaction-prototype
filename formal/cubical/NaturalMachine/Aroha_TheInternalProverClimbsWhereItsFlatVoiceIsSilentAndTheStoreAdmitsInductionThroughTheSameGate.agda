@@ -10,7 +10,7 @@
 -- provenance.
 --
 -- WHAT THIS DOES.  The proposer's
--- vocabulary is bounded by the flat normalizer — ������ proves
+-- vocabulary is bounded by the flat normalizer — साधनम् proves
 -- exactly what norm identifies, and the machine's inductive truths
 -- (max(x,x)=x, le(x,x)=1, the whole class सिद्धि routes to the
 -- EXTERNAL kernel under "induction on x") lie outside

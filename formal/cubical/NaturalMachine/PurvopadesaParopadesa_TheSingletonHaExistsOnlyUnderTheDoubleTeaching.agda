@@ -51,7 +51,7 @@
 --       lacks and needs.  `upto` returns the truncated tail when the
 --       marker is absent, so `between` MANUFACTURES a denotation for a
 --       name that does not exist; on the *para* string it reports
---       ��� = � � [] — the unnameable singleton itself.
+--       हश् = ह ∷ [] — the unnameable singleton itself.§
 --
 --   §4  Ktyyana's list in the *prva* branch is exactly the classes
 --       that begin after the earlier ह and close at ल्.  Four of them
@@ -227,7 +227,7 @@ haŚ-under-pūrva = refl
 -- teaching and empty (or nameless) under either single teaching.
 ------------------------------------------------------------------------
 
--- as given: nonempty, and equal to { � } (Pratyahara §5).
+-- as given: nonempty, and equal to { ह } (Pratyahara §5).
 inter-double : isNil (inter (between ha Ś sivasutra14)
                             (between śa L sivasutra14)) ≡ false
 inter-double = refl

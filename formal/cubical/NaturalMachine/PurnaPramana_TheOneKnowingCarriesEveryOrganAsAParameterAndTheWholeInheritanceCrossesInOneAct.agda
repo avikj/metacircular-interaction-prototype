@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ррр░рр-ррр░рор╛ррор тАФ the complete instrument (of THIS knowing, not kevala:
+-- рдкреВрд░реНрдг-рдкреНрд░рдорд╛рдгрдореН тАФ the complete instrument (of THIS knowing, not kevala:
 -- the boundary of the knowing is part
 -- of the object).  Compound built here.  The frame is
 -- Tattvrthastra 1.6 as checked in PramanaNaya: the one knowing and

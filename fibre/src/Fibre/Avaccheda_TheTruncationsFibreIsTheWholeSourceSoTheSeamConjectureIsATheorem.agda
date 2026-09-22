@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- Punargamana Â ààµààààà¦à â€” the seam.
+-- PunarÄgamana Â· à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤ƒ â€” the seam.
 --
 -- The fibre of the truncation map over any point is the
 -- whole source: a point of the fibre is a source element together with

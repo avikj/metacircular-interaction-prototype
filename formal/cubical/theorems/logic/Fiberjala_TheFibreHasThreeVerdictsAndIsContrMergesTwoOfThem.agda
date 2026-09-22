@@ -56,7 +56,7 @@
 --
 -- The exchange claim is that at each rs the space of
 -- stored patterns and the range of indices are equal AS TYPES, so keeping the
--- рр╛р░рр and running the рХрр░р┐рпр╛ are one object.  ┬зррз is an identity.
+-- рд╕рд╛рд░рдгреА and running the рдХреНрд░рд┐рдпрд╛ are one object.  ┬зрекрез is an identity.
 ------------------------------------------------------------------------
 
 module Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem where

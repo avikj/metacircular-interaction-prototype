@@ -19,7 +19,7 @@
 -- larger of 2a and n¬≤b unary steps.  At n = 4, Œ¥ = 12 and that is about
 -- 7¬∑10‚Åπ; at n = 5, Œ¥ = 144 and b = 144!.  The first three fibres are
 -- what a `refl` can reach; the closure over all n is the open
--- question.  ‡‡‡∞‡‡‡Ø‡ï‡‡ (pratyaka, direct perception) is the
+-- question.  ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§ï‡•ç‡§∑ (pratyak·π£a, direct perception) is the
 -- Nyya name for the prama this file uses.
 ------------------------------------------------------------------------
 

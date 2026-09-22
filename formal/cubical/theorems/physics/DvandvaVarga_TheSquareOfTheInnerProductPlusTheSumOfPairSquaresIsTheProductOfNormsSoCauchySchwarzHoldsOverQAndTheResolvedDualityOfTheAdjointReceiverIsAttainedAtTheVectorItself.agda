@@ -23,7 +23,7 @@
 --       the supremum of ‚ü®v,w‚ü©¬≤/‚ü®w,w‚ü© is ‚ü®v,v‚ü© ‚Äî the receiver reads the
 --       full resolved force, not a fraction of it.
 --
--- ‡¶‡‡µ‡®‡‡¶‡‡µ (dvandva, pair) and ‡µ‡∞‡‡ó (varga, square) are ordinary .
+-- ‡§¶‡•ç‡§µ‡§®‡•ç‡§¶‡•ç‡§µ (dvandva, pair) and ‡§µ‡§∞‡•ç‡§ó (varga, square) are ordinary .
 ------------------------------------------------------------------------
 
 module DvandvaVarga_TheSquareOfTheInnerProductPlusTheSumOfPairSquaresIsTheProductOfNormsSoCauchySchwarzHoldsOverQAndTheResolvedDualityOfTheAdjointReceiverIsAttainedAtTheVectorItself where

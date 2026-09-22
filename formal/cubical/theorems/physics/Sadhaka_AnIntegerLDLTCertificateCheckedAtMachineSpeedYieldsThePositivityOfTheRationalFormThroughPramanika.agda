@@ -14,7 +14,7 @@
 --   §2  toℚ and its homomorphisms; sums in Saṅkhyā versus sums in ℚ.
 --   §3  THE CHECK and the theorem it returns.
 --
--- ����� (sdhaka, the one who accomplishes/proves) is ordinary .
+-- साधक (sādhaka, the one who accomplishes/proves) is ordinary .
 ------------------------------------------------------------------------
 
 module Sadhaka_AnIntegerLDLTCertificateCheckedAtMachineSpeedYieldsThePositivityOfTheRationalFormThroughPramanika where

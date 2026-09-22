@@ -14,7 +14,7 @@
 -- cannot see which form was substituted BY refl.
 --
 -- Blindness between a substitute and its original needs one hypothesis:
--- `������ v ≡ ����� v` — v stands in place of itself.
+-- `स्थानी v ≡ रूपम् v` — v stands in place of itself.
 --
 -- This file asks what that hypothesis is, and the answer is not a
 -- technicality.  §२: for a SUBSTITUTE, it holds exactly when the
@@ -36,7 +36,7 @@
 -- Ktyyana's vrttikas on the stra are for.
 --
 -- Pāṇini, अष्टाध्यायी १.१.५६ (स्थानिवदादेशोऽनल्विधौ), ~500 BCE; Kātyāyana's
--- vrttikas ~250 BCE; Patajali's �������� ~150 BCE.
+-- vārttikas ~250 BCE; Patañjali's महाभाष्य ~150 BCE.
 ------------------------------------------------------------------------
 
 module Svasthani_TheHypothesisThatClosesSthanivadbhavaFailsAtTheFirstSubstitutionAndReturnsAtTheSecond where

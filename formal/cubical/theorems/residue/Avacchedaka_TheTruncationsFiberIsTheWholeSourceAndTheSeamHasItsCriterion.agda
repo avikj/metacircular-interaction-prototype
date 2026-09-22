@@ -76,7 +76,7 @@ private
 ‡§§‡•ç‡§∞‡•Å‡§ü‡§ø-‡§§‡§®‡•ç‡§§‡•Å‡§É {A = A} x = Œ£[ a ‚àà A ] (‚à£ a ‚à£‚ÇÅ ‚â° x)
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡‡∞‡‡µ-‡‡®‡‡‡‡ ‚Äî THE THEOREM.
+--   ¬ß¬ß-  THE THEOREM.
 --
 --     Every fiber of ‚à£_‚à£‚ÇÅ is equivalent to the whole source.
 --
@@ -106,7 +106,7 @@ private
 --
 --     "The loss is total at b" := the residual over b is the whole source.
 --
--- ‡‡∞‡‡µ‡‡æ‡®‡ø‡ does NOT separate the levels.  It holds of `‡‡∞‡‡µ‡à‡ï‡Æ‡ : Bool ‚í Unit`, the
+-- ‡§∏‡§∞‡•ç‡§µ‡§π‡§æ‡§®‡§ø‡§É does NOT separate the levels.  It holds of `‡§∏‡§∞‡•ç‡§µ‡•à‡§ï‡§Æ‡•ç : Bool ‚Üí Unit`, the
 -- map that drops exactly one bit ‚Äî `Residue_‚Ä¶` ¬ß5, at level
 -- ‡§® of a five-level scale.  `Unit` is a proposition,
 -- so the path component of the fiber contracts and the fiber is `Bool`,

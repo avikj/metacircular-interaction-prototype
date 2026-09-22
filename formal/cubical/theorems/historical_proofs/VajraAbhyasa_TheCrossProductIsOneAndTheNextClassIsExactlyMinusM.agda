@@ -17,7 +17,7 @@
 --
 -- No pulverizer run is
 -- needed: gcd(b', k') = 1 is a CONSEQUENCE of the step's own three exact
--- divisions, with both B©zout coefficients written out of a, b, a', b'.
+-- divisions, with both BÃ©zout coefficients written out of a, b, a', b'.
 --
 -- THE MECHANISM, in one line each.
 --

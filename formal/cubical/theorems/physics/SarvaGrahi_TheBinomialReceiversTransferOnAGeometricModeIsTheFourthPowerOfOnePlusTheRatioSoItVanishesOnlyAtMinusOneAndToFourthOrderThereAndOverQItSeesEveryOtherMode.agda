@@ -21,7 +21,7 @@
 --       positive, its square is positive, and the square of that is
 --       positive.  No zero-product law is used; the order does it.
 --
--- ‡ó‡‡∞‡æ‡‡ (grh, receiver) and ‡‡∞‡‡µ (sarva, all) are ordinary .
+-- ‡§ó‡•ç‡§∞‡§æ‡§π‡•Ä (grƒÅhƒ´, receiver) and ‡§∏‡§∞‡•ç‡§µ (sarva, all) are ordinary .
 ------------------------------------------------------------------------
 
 module SarvaGrahi_TheBinomialReceiversTransferOnAGeometricModeIsTheFourthPowerOfOnePlusTheRatioSoItVanishesOnlyAtMinusOneAndToFourthOrderThereAndOverQItSeesEveryOtherMode where

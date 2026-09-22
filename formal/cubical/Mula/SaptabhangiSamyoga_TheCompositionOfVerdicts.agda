@@ -415,7 +415,7 @@ x न्यूनः y = क्रम-योग x y ≡ y
 -- ९ · यत् एतत् वदति, यन्त्रे ।
 --
 -- machine/Saptabhangi_TheSevenfoldVerdict.hs एतान् एव नियमान् वहति, तत्रैव
--- ���������� ��������� �  ���� `order`, `saha`, `Sthana` — ���������� ������ �
+-- स्रोतांसि लिखित्वा ।  तत्र `order`, `saha`, `Sthana` — अत्रत्यानि नामानि ।।
 -- यत् तत्र न अस्ति : मेलनम् ।  यतो न विद्यते — तत् एव अत्र प्रमाणितम् ।
 --
 -- (machine/Saptabhangi_TheSevenfoldVerdict.hs carries these same laws.

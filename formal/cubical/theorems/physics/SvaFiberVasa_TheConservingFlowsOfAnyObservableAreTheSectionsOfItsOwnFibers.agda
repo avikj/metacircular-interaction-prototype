@@ -52,7 +52,7 @@
 -- "invariance means moving within the level sets", finished.
 --
 -- TERM.  स्व (own), तन्तु (thread, fiber), वास (dwelling) are ordinary
--- .  ����� for the fiber of a map is THIS CORPUS's rendering
+-- .  तन्तु for the fiber of a map is THIS CORPUS's rendering
 -- (declared in `Tantujala_….agda`'s header),
 -- and− the compound संरक्षकसमूह is built here.
 ------------------------------------------------------------------------

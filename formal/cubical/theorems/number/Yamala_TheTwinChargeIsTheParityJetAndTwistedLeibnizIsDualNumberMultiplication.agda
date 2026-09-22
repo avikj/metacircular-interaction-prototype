@@ -82,7 +82,7 @@ twistedLeibniz-is-⊛ :
   → ((μa , κa) ⊛ (μb , κb)) ≡ (μa · μb , μa · κb + κa · μb)
 twistedLeibniz-is-⊛ μa κa μb κb = refl
 
--- so: if μ and κ satisfy μ(ab)=μa�μb and κ(ab)=μa�κb+κa�μb (the
+-- so: if μ and κ satisfy μ(ab)=μa·μb and κ(ab)=μa·κb+κa·μb (the
 -- twisted derivation law), then J(ab) = J(a) ⊛ J(b) exactly.
 J-hom :
     (μab κab μa κa μb κb : ℤ)

@@ -67,7 +67,7 @@
 --                            rewritten (ROUTES KEPT).
 --
 -- §३ is a checked no-return theorem the corpus did not have, and that §५
--- is a counterexample separating it from `Fiberjala`'s ���.  No physics.
+-- is a counterexample separating it from `Fiberjala`'s बहु.  No physics.
 -- No computational hardness: §३ is about a three-element group and says
 -- nothing about difficulty.  प्रत्यानयन is the corpus's existing word
 -- (AHIMSA_SUTRA §५); no text is claimed for the compound or for any
@@ -192,7 +192,7 @@ private
 वृत्त-मूल-अभेदः = refl
 
 ------------------------------------------------------------------------
--- � � ���� — why `noDescentS�` is a different theorem.
+-- ६ · शेषः — why `noDescentS¹` is a different theorem.
 --
 -- §२ needs two points of A that are provably distinct.  S¹ is connected,
 -- so it has none: `base ≡ base` is inhabited by `refl`, and the law

@@ -18,7 +18,7 @@
 -- built ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç is the ford its wall arrives over.  A bank's own
 -- construction receipt is what its impossibilities travel on.
 --
--- ‡‡ø‡‡‡‡ø-‡‡‡‡æ‡®‡ø‡µ‡‡ is built here; the distinctness of ‡/‡ is
+-- ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç is built here; the distinctness of ‡§è/‡§Ö is
 -- proved here in the source module's own coding style (its ‡§à‚â¢‡§è pattern).
 ------------------------------------------------------------------------
 

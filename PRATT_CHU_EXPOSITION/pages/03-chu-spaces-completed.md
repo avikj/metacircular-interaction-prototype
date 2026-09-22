@@ -10,7 +10,7 @@ Pratt's Rational Mechanics begins from the same heterogeneous interaction and de
 
 The fixed value object `K` is itself a restriction. A universe-valued interaction `R : A × X → U` assigns a complete interaction type to every state/observation pair. Its total space is classified by the universal family `π : Σ T : U , T → U`; finite dependent towers flatten to one family. This is the direct bridge from Pratt's Stone-gamut/universal-mathematics program to the classifier in [Lossless Interdependent Interaction](01-lossless-interdependent-interaction.md).
 
-Pratt's `Chu� � Chu� � Chu�` program should be read together with [Concurrency Is Geometry](04-concurrency-is-geometry.md) and the four-phase carrier in [State/Event — Time/Information](06-state-event-time-information.md).
+Pratt's `Chu₂ → Chu₃ → Chu₄` program should be read together with [Concurrency Is Geometry](04-concurrency-is-geometry.md) and the four-phase carrier in [State/Event — Time/Information](06-state-event-time-information.md).
 
 ## Canonical checked construction
 

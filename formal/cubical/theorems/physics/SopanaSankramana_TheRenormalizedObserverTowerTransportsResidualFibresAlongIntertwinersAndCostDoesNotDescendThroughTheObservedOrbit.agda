@@ -36,7 +36,7 @@
 -- A tower of finite-dimensional linear kernels is automatically
 -- Mittag-Leffler, so the content is never a lim¹ class of the inverse
 -- system: it is the transport R itself.  सोपान (sopāna, ladder) and
--- �������� (sakramaa, transport) are ordinary .
+-- संक्रमण (saṅkramaṇa, transport) are ordinary .
 ------------------------------------------------------------------------
 
 module SopanaSankramana_TheRenormalizedObserverTowerTransportsResidualFibresAlongIntertwinersAndCostDoesNotDescendThroughTheObservedOrbit where

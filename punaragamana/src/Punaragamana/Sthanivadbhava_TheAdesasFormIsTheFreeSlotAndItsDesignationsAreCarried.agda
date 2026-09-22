@@ -150,7 +150,7 @@
 --    advertisement; the step is called पदम् and प्रक्रिया occurs as a type
 --    abbreviation and in this header, never as a claim.
 --
--- 4. Nothing here imports outside `Punaragamana`: the vocabulary ���� /
+-- 4. Nothing here imports outside `Punaragamana`: the vocabulary वर्ण /
 --    आदेश / AnalVidhi is redefined rather than imported from
 --    `formal/cubical`, so the library stays standalone and `check.sh`
 --    keeps checking what it says it checks.  That duplication is

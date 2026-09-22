@@ -11,12 +11,12 @@
 -- theorems are composed and the composite is instantiated once.  The
 -- whole file is the composition.
 --
---   `Machine_�`          Program A B = A � B — every instruction of this
+--   `Machine_…`          Program A B = A ≃ B — every instruction of this
 --                       computer is an equivalence.
---   `SvaFiberVasa_�`    �����-������� : isEquiv f � isContr (�[ Φ ] ���������� f Φ)
+--   `SvaFiberVasa_…`    ध्रुव-बिन्दुः : isEquiv f → isContr (Σ[ Φ ] संरक्षणम् f Φ)
 --                       — a lossless observable's conserving-flow space
 --                       is a POINT (itself `invIso Σ-Π-Iso` evaluated).
---   `GhataFiber_�`      powg = ���� g in C�, whose fibre over ε is not
+--   `GhataFiber_…`      powg = घात g in C₃, whose fibre over ε is not
 --                       contractible: 0, 3 and 6 all land there.
 --
 -- §१ composes the first two: **every instruction of the machine has a
@@ -144,12 +144,12 @@ private variable ℓ : Level
            (यन्त्र-शून्य-भारः p))
 
 ------------------------------------------------------------------------
--- � � ���� — the reading in the header.
+-- ५ · शेषः —— the reading in the header.
 --
 -- `वासः powg` carries आवृत्ति-प्रवाह-युग्मम् to the section
 -- `a ↦ (3 + a , आवृत्तिः a)`: at every exponent, the next exponent with
 -- the same public value.  That section is a point of the same fibre
--- family whose non-contractibility at ε is `GhataFiber.������-�������`.
+-- family whose non-contractibility at ε is `GhataFiber.तन्तुः-द्विपदः`.
 -- The two are the same family; the sentence "the ambiguity and the
 -- symmetry are one object" says that and no more.
 ------------------------------------------------------------------------

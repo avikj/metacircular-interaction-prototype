@@ -27,7 +27,7 @@
 --   §4  THE CRITERION.  For any positivity predicate that excludes −2:
 --       (∀ c → Dhana [c,c])  ⇔  (∀ i < n → τ i ≡ i).
 --
--- ����� (dhanatva, positivity) is ordinary .
+-- धनत्व (dhanatva, positivity) is ordinary .
 ------------------------------------------------------------------------
 
 module WeilDhanatva_TheReflectionFormIsPositiveOnEveryVectorExactlyWhenEveryModeIsFixedByTheReflectionSoFiniteWeilPositivityIsFiniteRH where

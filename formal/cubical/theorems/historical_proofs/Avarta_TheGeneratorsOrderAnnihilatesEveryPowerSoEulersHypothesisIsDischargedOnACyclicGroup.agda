@@ -38,7 +38,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- ON THE NAME.  आवर्त — a turning, a revolution, a whirl; ordinary
 -- , used here in its plain sense for a group that comes back to
--- where it started.  The compound in the title is built here.  ���� (exponentiation as a
+-- where it started.  The compound in the title is built here.  घात (exponentiation as a
 -- fold) is Piṅgala's procedure, छन्दःशास्त्रम् ८ (~300 BCE), and the
 -- kuṭṭaka whose witness supplies e·d ≡ φ·k+1 is Āryabhaṭa's,
 -- ����������� ��������� ����� (499).

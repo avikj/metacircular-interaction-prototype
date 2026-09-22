@@ -58,7 +58,7 @@
 --
 -- **WHAT THIS SETTLES ABOUT THE EARLIER MODULE.**
 -- `oneDeclaredEdgeExcludesTheConcurrentOrder` is the instance of
--- `admissibilityIsFaithful` at `hb = âˆ`, `ord = Î» _ _ â’ âŠ`.  It is
+-- `admissibilityIsFaithful` at `hb = âˆ…`, `ord = Î» _ _ â†’ âŠ¥`.  It is
 -- not the first point of a sequence; it is one corner of a lattice
 -- statement.
 ------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���-�������� — the twin pair.  The 4-channel jet transfer
+-- यमल-युग्मम् — the twin pair.  The 4-channel jet transfer
 -- (μ⊗μ / κ⊗μ / μ⊗κ / κ⊗κ), as the algebra
 --
 --     ℤ[ε₁,ε₂] / (ε₁², ε₂²)  =  (value, leg₁, leg₂, pair),

@@ -36,7 +36,7 @@
 --            they need a basis of `V_k` and not one vector pair.
 --   T14.9    k = 2 (`mean₂-inv`, `dev₂-equivariant`) and k = 3 for all
 --            three transpositions, which generate `S₃`
---            (`mean�-inv-*`, `dev�-equivariant-*`).
+--            (`mean₃-inv-*`, `dev₃-equivariant-*`).
 --   C14.10   `sign-rep₂` — the swap acts on `V₂ ≅ R` by `x ↦ −x`.
 --   T14.11   k = 3, in the STRONG form: an explicit basis change
 --            `V₃ ≃ R × R` in which the transposition is `diag(−1,+1)`

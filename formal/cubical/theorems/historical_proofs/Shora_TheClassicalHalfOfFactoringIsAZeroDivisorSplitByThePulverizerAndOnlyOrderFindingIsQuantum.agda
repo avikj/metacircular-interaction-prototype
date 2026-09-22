@@ -40,7 +40,7 @@
 --       (y·y ≡ घात a r is `Bijamula.घात-योगः`; here taken as hypothesis
 --       `sq` so this module stays ring-only and does not re-import.)
 --
--- WHY THIS MATTERS.  RSA and DH break because ���� is
+-- WHY THIS MATTERS.  RSA and DH break because घात is
 -- one-way (`GhataViparyaya`).  Factoring — RSA's own foundation — breaks
 -- the same way: the ONLY non-classical, non-ancient step is recovering
 -- the exponent (the order).  Everything else in Shor is a probability
@@ -137,7 +137,7 @@ module _ {A : Type ℓ} (R : CRing A) where
   --     ≡ 𝟙, then y⊗y ≡ 𝟙 (that step is Bijamula.घात-योगः, here the
   --     hypothesis `sq` so this file stays ring-only), and §2 delivers
   --     the zero-divisor.  The factor of N is then gcd(y ⊝ 𝟙, N) — the
-  --     kuaka, the �/N instance.
+  --     kuṭṭaka, the ℤ/N instance.
   ------------------------------------------------------------------------
 
   विपर्यय-भेदः : (y : A) → y ⊗ y ≡ 𝟙

@@ -4,9 +4,9 @@
 -- ‡§∏‡•ç‡§•‡•Ç‡§≤‡§≠‡§æ‡§∞‡§É ‚Äî the coarse weight is the sum over the observation fibre,
 -- and branch multiplicity is the whole of it.
 --
--- TERM.  ‡‡‡‡‡≤ / ‡‡‡ï‡‡‡‡Æ (gross / subtle) is the standard  pair
+-- TERM.  ‡§∏‡•ç‡§•‡•Ç‡§≤ / ‡§∏‡•Ç‡§ï‡•ç‡§∑‡•ç‡§Æ (gross / subtle) is the standard  pair
 -- for the coarse and the fine grain of an object; ‡§≠‡§æ‡§∞ is weight, load.
--- The compound ‡‡‡‡‡≤-‡‡æ‡∞, "the coarse weight", is built HERE.
+-- The compound ‡§∏‡•ç‡§•‡•Ç‡§≤-‡§≠‡§æ‡§∞, "the coarse weight", is built HERE.
 --
 -- SEED.  The Born ladder, step 2 (fibre additivity) together with the
 -- "rational coarse weights" observation:

@@ -8,7 +8,7 @@
 -- repository forbids *measured* numbers, not *counted* ones.
 --
 --   A.  `Γ⇑` and `Γ↺` are separated here, by S¹: two repairs of one defect
---       that `Γ�` distinguishes and `Γ�` identifies.
+--       that `Γ⇑` distinguishes and `Γ↺` identifies.
 --
 --   B.  `χ = 1` is proved for the sign defect --- not as a ratio of two
 --       measured rates, but as a biconditional: Φ newly separates a pair

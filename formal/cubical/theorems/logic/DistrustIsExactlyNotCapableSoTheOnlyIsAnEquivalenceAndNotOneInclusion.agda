@@ -40,7 +40,7 @@
 --
 --   notCapableGivesDistrust    the converse, by case analysis
 --   distrustIsExactlyNotCapable
---                              hence `(trusted s ≡ false) � � (s ≡ capable)`
+--                              hence `(trusted s ≡ false) ≃ ¬ (s ≡ capable)`
 --   verdictIsConstantOnTheDistrustFibre
 --                              any two non-`capable` states get the same
 --                              verdict — one line from the converse, no
