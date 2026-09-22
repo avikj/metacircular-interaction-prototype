@@ -21,7 +21,7 @@
 --                       â’ Fin (prodOf (frontierList k)) â‰ VecOf (frontierList k)
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHY IT IS SHORT NOW
+-- WHY IT IS SHORT
 --
 -- Because `FrontierMember` already had to lift `keepPrimes` and
 -- `entriesAt` out of their `where` blocks to state membership.  With
@@ -156,7 +156,7 @@ frontier-count-at k =
 ------------------------------------------------------------------------
 -- 8.  What this removes.
 --
--- `countAt` still exists and still works; nothing about it was wrong.
+-- `countAt` still exists and still works.
 -- What it could not do was be applied to a `k` nobody had evaluated,
 -- because its hypotheses were `refl`s about a decision procedure's
 -- output.  `frontier-count-at` takes only `k`.

@@ -7,14 +7,10 @@
 --
 -- TERM.  ààµàà°àà¿à•à¾ Â avataraik -- the short passage a commentator supplies
 -- to bring a reader DOWN into the section that follows; from ààµàà°à, descent.
--- It is standard across the bhya/k tradition and I attribute it to no
--- single author or text, because I have not established a first use and a
--- date I did not check would be a fabricated provenance.  The term is used
--- here in its ordinary technical sense and nothing below is claimed to be
--- any commentator's mathematics.
+-- It is standard across the bhya/k tradition.
 --
 -- WHY THIS FILE IS AGDA AND NOT PROSE.  Markdown is banned in this
--- repository (owner, 2026-08-24).  More to the point: every structural claim
+-- repository.  More to the point: every structural claim
 -- this file makes about the kernel is a LIVE DEPENDENCY below the fold --
 -- the imports and the terms in Â§B.  If a claim here stops being true, this
 -- file goes red.  A document that cannot go red is a document nobody has to
@@ -166,15 +162,15 @@
 --               cardinality and drops the bijection.  The categorified
 --               semantics is built there -- zero â¦ âŠ, suc â¦ Unit âŠ âˆ’,
 --               add â¦ âŠ, every Step an equivalence, `reverse` â¦ `invEquiv`.
---               The calculus always admitted it; nobody had written it.  Add
+--               The calculus always admitted it.  Add
 --               commutativity (sound, by +-comm) and at `add var var` it is a
 --               LOOP: â• is forced to call it refl, the universe calls it the
 --               swap, and `ua` of it is not refl -- proved by transporting
 --               along it and getting `inr tt` back.  The bit a counting
 --               readout provably cannot hold is a transposition.
 --
---   Samvada_â¦   AND THEN WHAT IT IS FOR, which the four above missed by
---               reading a live interface as a finished artifact.  THE KERNEL
+--   Samvada_â¦   AND THEN WHAT IT IS FOR.
+--               THE KERNEL
 --               IS AN INTERACTIVE SYSTEM.  State is a term; `advance` offers
 --               every enabled future with multiplicity conserved and nothing
 --               filtered; the CALLER chooses and supplies the control;
@@ -265,7 +261,6 @@
 --     closes the loop.
 --
 --   * NO MULTIPLICATION in the kernel's `Tm`.
---       grep -n 'mul' NaturalMachine/RewriteCertificate.agda -> nothing
 --
 ------------------------------------------------------------------------
 

@@ -7,16 +7,6 @@
 --  target â” not two points of the fibre; and the circle is not an
 --  instance of it.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- sector, found exactly ONE theorem of the form "this loss cannot be
--- undone" â” `SetTruncationDescentBoundary.noDescentSÂ` â” and closed with
--- the instruction that the next build should not be a better extractor
--- but *more theorems of that kind*, because "the bottleneck is the
--- mathematics, not the extraction."
---
--- This file is the GENERATOR of that kind, at the level of points, plus
--- the exact statement of what it cannot reach.
---
 --   Â§à¨  the law   : two points of one fibre WITH DISTINCT SOURCES kill
 --                   every retraction.  Four lines, no h-level, no
 --                   decidability, no finiteness, arbitrary A and B.
@@ -33,8 +23,7 @@
 --       fibre over `base` is `Î©SÂ â‰ â`, so ààà holds of it.  Its two
 --       fibre points differ only in their WITNESS; their sources are
 --       equal.  So ààà does not obstruct undoing, and Â§à¨'s hypothesis is
---       strictly stronger than ààà â” which no module in this corpus had
---       said.
+--       strictly stronger than ààà.
 --   Â§à  therefore `noDescentSÂ` is NOT an instance of Â§à¨ and cannot be
 --       made one: SÂ is connected, so it has no two distinct points to
 --       feed the law.  Its obstruction is Ïâ â” one level up.  **The
@@ -42,19 +31,17 @@
 --       the other**, and Â§à is the witness that the reduction fails.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- RELATION TO WHAT IS ALREADY HERE, so nothing is silently re-proved.
+-- RELATION TO WHAT IS ALREADY HERE.
 --
 --   `Tantujala_â¦`            ààà as one of three fibre verdicts.  Â§à
 --                            sharpens it: ààà is not the obstruction to
---                            undoing.  The three-verdict codomain is
---                            untouched and remains correct for what it
---                            classifies.
+--                            undoing.
 --   `Sesa_â¦` Â§5              prices `àà°ààµàˆà•à®à`'s loss at one bit and proves
 --                            `Â isEquiv`.  Â§à here is the RETRACTION
 --                            statement, which is different and weaker
 --                            than `Â isEquiv` in general.
 --   `GhataTantu_â¦`           exhibits the two exponents.  Â§à© consumes
---                            them; the fibre analysis is not re-done.
+--                            them.
 --   `Nirdharana_TheReturnLocusâ¦`  the SECTION side: with `q âˆ˜ s â‰¡ id` the
 --                            return locus is `im s`.  This file is the
 --                            other side: when no RETRACTION exists at
@@ -62,19 +49,7 @@
 --                            neither implies the other.
 --   `Arpitanarpita_â¦.à¨-ààà°ààà¯à¾à¨à¯à¨à®à` and `AHIMSA_SUTRA`'s
 --   `à¨à¾àààà¿-ààà°ààà¯à¾à¨à¯à¨à®à`      are two hand-proved instances of the same
---                            shape.  Â§à¨ is the law they are instances of;
---                            both are left standing and neither is
---                            rewritten (ROUTES KEPT).
---
--- Â§à© is a checked no-return theorem the corpus did not have, and that Â§à
--- is a counterexample separating it from `Tantujala`'s ààà.  No physics.
--- No computational hardness: Â§à© is about a three-element group and says
--- nothing about difficulty.  ààà°ààà¯à¾à¨à¯à¨ is the corpus's existing word
--- (AHIMSA_SUTRA Â§à); no text is claimed for the compound or for any
--- statement below.
---
--- CHECKED: exit code in the session log; --cubical --safe, no postulates,
--- no holes.
+--                            shape.  Â§à¨ is the law they are instances of.
 ------------------------------------------------------------------------
 
 module Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance where

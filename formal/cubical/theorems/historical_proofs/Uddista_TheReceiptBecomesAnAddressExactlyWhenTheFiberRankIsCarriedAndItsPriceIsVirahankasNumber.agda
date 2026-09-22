@@ -74,12 +74,6 @@
 -- The array is worked with in ‡‡≤‡æ‡Ø‡‡ß, ‡Æ‡‡‡‡û‡‡‡‡µ‡®‡, 10th c. CE.  The
 -- recurrence is usually cited under Fibonacci's name (1202); that is a
 -- restatement, named here after the source and as one.
---
--- SECOND-HAND.  Every citation above is carried from
--- `formal/cubical/PingalaPrastara.agda`,
--- `formal/cubical/Chandomudra_‚¶agda` and this repository's ledger
--- `.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
--- (row `Nasta|Uddista`, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ.‡®‡‚ì‡®‡).
 ------------------------------------------------------------------------
 
 module Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFiberRankIsCarriedAndItsPriceIsVirahankasNumber where
@@ -105,7 +99,7 @@ open Iso
 
 ------------------------------------------------------------------------
 -- ‡ß ¬ The two things already known, restated in one place so the arc is
---     readable without opening four files.  Neither line is new.
+--     readable without opening four files.
 --
 --     `matraCount n` is `Metre n ‚â Fin (matra n)`, proved in
 --     `PingalaPrastara` BY `matrameruIso` ‚î Virahka's argument on the
@@ -173,7 +167,7 @@ rightInv ‡§∏‡§Æ‡§∑‡•ç‡§ü‡§ø‡§É (n , (p , e)) =
 --
 --     `Pata_‚¶` proved the denial on its own copy of the alphabet.  It
 --     is proved again here on `PingalaPrastara.Pattern`, three lines,
---     rather than moved across an identification nobody has written ‚î
+--     rather than moved across an identification ‚î
 --     the same choice `Avrtti_‚¶` ¬ß‡© made for `varna` against `length`,
 --     and for the same reason.  What IS imported is the PREDICATE ‡‡‡æ,
 --     so the two verdicts are verdicts about the same notion.

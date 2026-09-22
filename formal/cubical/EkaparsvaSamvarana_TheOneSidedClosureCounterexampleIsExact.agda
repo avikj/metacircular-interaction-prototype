@@ -5,14 +5,7 @@
 --
 -- ON THE NAME.  Descriptive  for the operation D0026 ¬ß2.4 calls
 -- one-sided closure (‡‡ï eka "one" + ‡‡æ‡∞‡‡‡‡µ prva "side" + ‡‡‡µ‡∞‡
--- savaraa "closing, shutting"); NO classical source is claimed for it
--- and none exists ‚î the mathematics is 20th/21st century.  CLAUDE.md's
--- naming rule forbids DEFAULTING to English where a real term exists;
--- it also forbids fabricating a term to assert a provenance nobody
--- checked.  This label asserts no provenance: it is a gloss, and the
--- owner's own constitutional maxim for the corpus ‚î ‡‡Æ‡‡æ ‡‡‡∞‡Æ‡æ‡‡‡®,
--- equivalence by proof, not resemblance (D0026 ¬ß10.6) ‚î is the standard
--- the file is written to, not an ancestry claim.
+-- savaraa "closing, shutting").
 --
 -- SOURCE.  collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md
 -- ¬ß2.4 "One-sided closure can destroy associativity", captured

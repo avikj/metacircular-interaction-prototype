@@ -18,10 +18,10 @@
 -- non-finite results that a boolean "undefined" collapses into one.)
 ------------------------------------------------------------------------
 
--- The identification of 00 with ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡,
---  the saptabhag's fourth position, does not hold ‚î and it fails by
---  SaptabhangiNaya.agda's own criterion, in this same directory, not
---  by an outside standard.  ¬ß5 there defines avaktavyam as the case
+-- 00 is not ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡,
+--  the saptabhag's fourth position, by
+--  SaptabhangiNaya.agda's own criterion:
+--  ¬ß5 there defines avaktavyam as the case
 --  where NO SINGLE UTTERANCE denotes the content, proved exhaustively
 --  over the six atoms of its language.  00's situation IS denotable
 --  in one utterance: every x whatsoever satisfies 0¬x = 0, which is
@@ -32,15 +32,14 @@
 --  EXPRESSIBILITY failure.  00: the content is perfectly expressible
 --  and the solution set is not a singleton ‚î a UNIQUENESS failure.
 --
---  Everything else in this module stands.  Brahmagupta's 00 = 0
+--  Brahmagupta's 00 = 0
 --  (Brhmasphuasiddhnta, 628) is a durnaya; Bhskara II's khahara
 --  (Llvat, 1150) is a genuinely different non-finite result from
 --  it; and a boolean "undefined" collapsing them is the disease.
---  Only the name of the second thing is wrong.  See
+--  See
 --  AnuktaAvaktavya.agda ¬ß6, where 00's defect is checked.
 --
---  Three modules here now call three different structures
---  avaktavyam ‚î Satyayantra, Khahara, Shunya.  Using one third
+--  Using one third
 --  position as a catch-all for "not a clean single answer" is the
 --  boolean collapse this corpus exists to fight, one level up.
 module Khahara where
@@ -124,9 +123,7 @@ _‚äñ_ : ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞
 ‡§¨‡•ç‡§∞‡§π‡•ç‡§Æ‡§ó‡•Å‡§™‡•ç‡§§-‡§¶‡•ã‡§∑‡§É n = ‡§Ö‡§®‡§®‡•ç‡§§-‡§®-‡§∏‡§∏‡•Ä‡§Æ‡§É (pos 0)
 
 ------------------------------------------------------------------------
--- The correction above separates two defects and warns that using
--- one third position as a catch-all is the boolean collapse this corpus
--- fights, one level up.  Their INDEPENDENCE is checked, over four
+-- The two defects' INDEPENDENCE is checked, over four
 -- realised corners, in
 -- `NonUniquenessAndInexpressibilityAreIndependent`:
 --
@@ -139,8 +136,4 @@ _‚äñ_ : ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞
 -- negation.  The types say why: non-uniqueness is a property of the
 -- CONTENT alone, inexpressibility of the content AND the MEDIUM ‚î which
 -- is the asymmetry that makes one word for both lossy.
---
--- That module deliberately does NOT bring Satyayantra's ‡‡®‡‡ï‡‡‡Æ‡ onto
--- the same carrier: it is temporal, and d909db0d already says the two
--- third-positions' remedies live in different types.
 ------------------------------------------------------------------------

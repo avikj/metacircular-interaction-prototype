@@ -22,11 +22,8 @@
 -- mathematical content is the descent โ” "the natural-number rank
 -- strictly decreases; the process terminates at its unique rank-zero
 -- state" โ” and that content is finite, decidable, and belongs in a
--- proof assistant rather than in prose.  Receiving audit:
--- `notes/FACTORY_IV_CHEN_CORNER_AUDIT.md` ยง3, which grades Theorem 70
--- "correct as stated and content-free until a single mixed edge
--- (r,0) โ’ (s,1) has an arithmetic instance; none exists in the
--- literature known here."  This module is written to that grade: the
+-- proof assistant rather than in prose.
+-- In this module the
 -- descent half is proved, the arithmetic half is a hypothesis, and the
 -- interface between them is a type, so that an edge theorem composes
 -- with this for free.  Sibling formalizations of the same ยง: `ChenProjector.agda`

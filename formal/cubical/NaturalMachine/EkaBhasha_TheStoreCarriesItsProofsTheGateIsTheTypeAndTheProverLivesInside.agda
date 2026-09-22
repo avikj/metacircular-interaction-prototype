@@ -60,9 +60,6 @@ open import Cubical.Data.Sigma using (_Ã—_ ; _,_ ; fst ; snd)
 --     --cubical-compatible --safe), which both worlds import with full
 --     use: this --cubical body proves paths about the very definitions
 --     the compiled mouth runs.  The Veda's two portions read one text.
---     (Cubical's _Â_ is Agda's builtin _*_ renamed, so the act-side
---     eval and the one that stood here are the same function symbol
---     for symbol.)
 --     Variables are names over â•; an environment is total, so no
 --     finite-context bureaucracy.  The machine's own max and le, ITS
 --     clause order (library.terms' world):

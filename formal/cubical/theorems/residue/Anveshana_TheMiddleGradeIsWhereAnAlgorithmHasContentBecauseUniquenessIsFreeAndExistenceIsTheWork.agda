@@ -40,8 +40,6 @@
 -- strictly stronger than ‡‡‡, and that is its ¬ß‡® ‚î four lines, no h-level,
 -- no decidability, no finiteness, arbitrary A and B.  ¬ß‡ below uses
 -- `Bool ‚í Unit`, whose two fibre points DO have distinct sources.
--- This grade says what its name
--- says and no more, and what a search can recover is answered by sources.
 --
 -- AND THE MIDDLE GRADE IS WHERE AN ALGORITHM HAS CONTENT.  At the top
 -- there is nothing to do; at the bottom there is nothing an algorithm
@@ -59,11 +57,9 @@
 -- one object, not a coarser and a finer version of one cut.  ¬ß‡ is that,
 -- both directions.
 --
--- ‡‡®‡‡µ‡‡‡ is ordinary  for searching/seeking and no text is
--- claimed for it.  ‡‡æ‡ó‡‡æ‡∞ and ‡≤‡‡‡ß‡ø are the ‡ï‡‡ü‡‡ü‡ï vocabulary of
--- ‡‡‡∞‡æ‡‡‡Æ‡‡‡‡‡ü‡‡ø‡¶‡‡ß‡æ‡®‡‡‡ ‡ß‡Æ; the citation is carried from the module quoted
--- above.
---
+-- ‡‡®‡‡µ‡‡‡ is ordinary  for searching/seeking
+-- ‡‡æ‡ó‡‡æ‡∞ and ‡≤‡‡‡ß‡ø are the ‡ï‡‡ü‡‡ü‡ï vocabulary of
+-- ‡‡‡∞‡æ‡‡‡Æ‡‡‡‡‡ü‡‡ø‡¶‡‡ß‡æ‡®‡‡‡ ‡ß‡Æ.
 ------------------------------------------------------------------------
 
 module Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork where

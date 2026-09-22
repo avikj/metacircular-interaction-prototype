@@ -12,18 +12,9 @@
 -- by that relation is the minimal fully abstract machine with the same
 -- behavior.
 --
--- Ported from the Lean development `formal/lean/Pairfield/
+-- Ported from the Lean development `formal/lean/Pairfield/`
 -- (equations (1)â“(2)), with the set-quotient realized as the HIT
 -- `Cubical.HITs.SetQuotients._/_` instead of Lean's `Quotient`.
---
--- This module also absorbs the parallel port that briefly lived in
--- Â§4; the two landed the same day from two directions).  Everything
--- PortQueue proved is here under this module's names â” its liftQ is
--- `factor`, its runQ ledger is `run quotStep` / `quotRun-[]`, its
--- stepQ/observeQ/behaviorQ(-inj) are quotStep/quotObserve/
--- quotBehavior(-injective) â” plus its one genuinely new statement, the
--- effectivity ISO `nerodeCongruence-effectiveIso` (the univalent strengthening of
--- Lean's Quotient.exact/Quotient.sound pair).
 --
 -- Contents (all proved, no holes, --safe):
 --
@@ -59,9 +50,6 @@
 --   Machine, MooreMachineBehavior packaging: the quotient of a machine
 --                                  is again a machine (`crystal`), with
 --                                  the same behavior on every word
---
--- The descent obligations are exactly those audited in
--- only through a proof that it respects the relation.
 ------------------------------------------------------------------------
 
 module MyhillNerodeMinimalMachine where

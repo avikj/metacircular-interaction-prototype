@@ -48,8 +48,6 @@
 -- in โ” no more, and, by the constructed separator, no less.
 --
 --
--- WHAT THIS CORRECTS, AND IT IS THE POINT OF THE MODULE
---
 -- `ChargeCriterion` reads, as a test on a method: *all even ฮฉ โ’ provably
 -- parity-blind.*  Sound, and sound for the intended adversary.  But the
 -- criterion `HasOdd` is the evaluation of the character at ONE group
@@ -89,8 +87,6 @@
 --   scope correction of ยง6, are contributed.
 -- * ยง7 proves the concatenated form `val ฯ (m ++ (k ++ k)) โก val ฯ m`,
 --   which is the core and avoids permutation machinery.
--- * `ChargeCriterion` is NOT refuted.  Every statement in it is true as
---   written; ยง6 refutes only an over-reading its wording invites.
 --
 -- Contents (no holes, no postulates, --safe):
 --

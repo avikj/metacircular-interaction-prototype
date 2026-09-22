@@ -5,21 +5,7 @@
 --
 -- (when is the fibre exhausted by one orbit ‚î the converse of descent.)
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS IS, and it is a CORRECTION before it is an addition.
---
--- `SamanaKaksya_‚¶agda` ¬ß‡ ("‡‡‡‡") says, of its descended charge
--- `‡‡µ‡‡‡∞‡‡‡ : A / ‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ Œ¶ ‚í B`:
---
---     "The converse of ¬ß‡ ‚î that `‡‡µ‡‡‡∞‡‡‡` is injective, i.e. equal
---      charge implies one orbit ‚î is `Kaksya` ¬ß‡'s `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡` and is a
---      genuine hypothesis about the flow, not a missing definition."
---
--- and its WHAT-IS-NOT-CLAIMED fence says the same: "that it is
--- INJECTIVE ‚¶ is exactly the transitivity hypothesis `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡` of
--- `Kaksya` ¬ß‡".
---
--- **That sentence is FALSE, in the direction it is used.**  `Kaksya`
+-- `Kaksya`
 -- ¬ß‡'s `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ b` is ONE-SIDED reachability ‚î `Œ[ n ] Œ¶‚ø x ‚â° y` for
 -- every ordered pair in the fibre ‚î and `‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ` is the TWO-SIDED
 -- meeting relation.  One-sided is SUFFICIENT for injectivity (¬ß‡©, via
@@ -32,16 +18,13 @@
 --
 --     ‡â‡‡Ø-‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ b  :=  (x y : fiber f b) ‚í ‚à ‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ Œ¶ x.fst y.fst ‚à‚
 --
--- two-sided, and propositionally truncated.  Both amendments are
+-- two-sided, and propositionally truncated.  Both features are
 -- forced, and by the same fact: `[ a ] ‚â° [ b ]` in a set quotient
 -- recovers the relation only up to `‚à_‚à‚` (`isEquivRel‚íTruncIso`), and
 -- `‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ` is NOT prop-valued ‚î the meeting stations are data,
--- which is exactly the openness `SamanaKaksya` ¬ß‡ flagged in its last
--- paragraph.  So the truncation is not a technicality bolted on; it is
--- the same observation, arriving as the reason the naive converse
--- cannot hold.
+-- which is why the truncation is not a technicality bolted on.
 --
--- With the hypothesis corrected, both directions go through (¬ß‡©, ¬ß‡),
+-- With this hypothesis both directions go through,
 -- and then the theorem worth having (¬ß‡):
 --
 --     **`‡‡µ‡‡‡∞‡‡‡` is an equivalence  ‚ü∫  `f` is surjective and the flow
@@ -51,13 +34,6 @@
 -- That is the precise sense in which "the observable IS the quotient":
 -- the level sets of `f` are exactly the gauge orbits, with nothing left
 -- over (injectivity) and nothing missing (surjectivity).
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- **¬ß‡ refutes a hypothesis, not a theorem.**  `Kaksya` ¬ß‡ proves that
--- `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ b` implies no invariant separates the fibre; that theorem
--- is untouched and true.  What is refuted is `SamanaKaksya` ¬ß‡'s claim
--- that `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡` is *the* content of injectivity.
 --
 -- TERMS.  ‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ ‚î "passing over, transition"; in jyotia the sun's
 -- sakrnti, its passage from one ri into the next (standard in the
@@ -133,7 +109,7 @@ module _ {A : Type ‚Ñì} (Œ¶ : A ‚Üí A) where
     Iso.fun (Cubical.HITs.SetQuotients.isEquivRel‚ÜíTruncIso ‡§∏‡§Æ‡§æ‡§®-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç a b)
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡â‡‡Ø-‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ ‚î THE CORRECTED HYPOTHESIS: the flow is transitive
+-- ‡® ¬ ‡â‡‡Ø-‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ ‚î THE HYPOTHESIS: the flow is transitive
 --     on the fibre in the TWO-SIDED, truncated sense.
 --
 -- Compare `Kaksya` ¬ß‡:
@@ -194,9 +170,9 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A)
                    (tr (f a) (a , refl) (b , sym p))))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡µ‡‡Ø‡‡‡Ø‡Ø‡ ‚î AND THE CONVERSE.  Injectivity implies the corrected
---     transitivity, and this is the direction that forces the two
---     amendments: `[ a ] ‚â° [ b ]` gives back only `‚à a ‚âà b ‚à‚`, and `‚âà`
+-- ‡ ¬ ‡µ‡‡Ø‡‡‡Ø‡Ø‡ ‚î AND THE CONVERSE.  Injectivity implies the
+--     transitivity, and this is the direction that forces both
+--     features: `[ a ] ‚â° [ b ]` gives back only `‚à a ‚âà b ‚à‚`, and `‚âà`
 --     is the meeting relation, not reachability.
 ------------------------------------------------------------------------
 
@@ -248,8 +224,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A)
                , ‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞ s ) })
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡ï‡‡æ‡∞‡‡‡‡µ‡ ‡ó‡‡∞‡‡‡∞‡Æ‡ ‚î ONE-SIDED REACHABILITY IS STRICTLY STRONGER,
---     AND THIS IS THE CORRECTION.
+-- ‡ ¬ ‡‡ï‡‡æ‡∞‡‡‡‡µ‡ ‡ó‡‡∞‡‡‡∞‡Æ‡ ‚î ONE-SIDED REACHABILITY IS STRICTLY STRONGER.
 --
 -- Two points, one collapsing flow, and the whole gap in four lines.
 --
@@ -265,9 +240,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A)
 --   ¬ ONE-SIDED FAILS: `Œ¶‚ø true ‚â° true` for every `n`, so `false` is
 --     reachable from nothing.  `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ tt` is refuted outright.
 --
--- Therefore `SamanaKaksya` ¬ß‡'s "is exactly `Kaksya` ¬ß‡'s `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡`"
--- is false as an identification, and ¬ß‡®‚ì¬ß‡ above give the hypothesis
--- that is exact.  The flow here is not invertible, and that is not
+-- The flow here is not invertible, and that is not
 -- incidental: it is what lets a point be departed from and never
 -- returned to.
 ------------------------------------------------------------------------

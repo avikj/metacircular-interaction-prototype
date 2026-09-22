@@ -10,9 +10,8 @@
 -- which a caller and the machine must concord, §2 is the dialogue itself.
 -- The technical epistemological use is developed in more than one school --
 -- the Naiyyikas on prmya, and Dharmakrti's *Pramavrttika* (~7th c.)
--- on savda and arthakriy -- and I establish NO first use and give no
--- single attribution.  Cite the school you are actually working from.
--- Nothing below is anyone's theorem; what is borrowed is the word's double
+-- on savda and arthakriy.
+-- What is borrowed is the word's double
 -- sense, which happens to be exactly this record's double role.
 --
 ------------------------------------------------------------------------
@@ -66,7 +65,7 @@
 --   becomes the machine's stock of moves.
 --
 --   §1  demand, any-demand-is-safe -- the extension point exercised, and the
---       old theorem re-read as its safety property.
+--       theorem re-read as its safety property.
 --   §2  learn, and that what it learns is exactly what was just done.
 --   §3  Session: where it started, where it stands, the derivation between,
 --       and the library.  `step` advances all four together.
@@ -79,12 +78,6 @@
 --   §5  everything-in-the-library-is-sound: no operation ever enters the
 --       library without a checked derivation, so a session cannot teach the
 --       machine anything false, no matter what the caller does.
---
--- §0 explains why there cannot be one for an open interface.  No policy over
--- the offered list; that is the caller's and `Sesa_�` proves it must be.
--- `Session` records a library but nothing here consults it when stepping;
--- the caller supplies the `EnabledFuture`.  Nothing here is concurrent, and
--- `step` is a function, not a protocol.
 ------------------------------------------------------------------------
 
 module Kernel.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation where
@@ -106,8 +99,8 @@ open import Kernel.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndThe
 --
 -- `demand R d` is the operation `install d` that additionally REQUIRES the
 -- caller to hand over an R -- a receipt, an authority, a cost witness, an
--- oracle token, a session identity: anything at all.  It is a `Control` no
--- previous file in this corpus has: evidence that carries strictly more than
+-- oracle token, a session identity: anything at all.  It is a `Control`
+-- carrying evidence strictly stronger than
 -- the identification it must imply.
 ------------------------------------------------------------------------
 
@@ -118,8 +111,8 @@ NativeOperation.checked       (demand R d)            = d
 NativeOperation.Control       (demand {lhs} R d) t    = (t ≡ lhs) × R
 NativeOperation.control-sound (demand R d) c          = fst c
 
--- AND THE OLD THEOREM COVERS IT, UNCHANGED.  This is the correction made
--- executable: `enabled-set-is-subsingleton` is a theorem about the RECORD,
+-- AND THE THEOREM COVERS IT:
+-- `enabled-set-is-subsingleton` is a theorem about the RECORD,
 -- so it holds of every `Control` anyone will ever write, including ones that
 -- do not exist yet.  An arbitrary demand can make an operation HARDER to
 -- fire and can never make it fire anywhere new.
@@ -139,7 +132,7 @@ the-demand-is-real :
 the-demand-is-real d t c = snd c
 
 ------------------------------------------------------------------------
--- §2.  THE LOOP, CLOSED.  One line, and nothing in the corpus had it.
+-- §2.  THE LOOP, CLOSED.  One line.
 ------------------------------------------------------------------------
 
 learn : {s : Tm} → CheckedFuture s → NativeOperation

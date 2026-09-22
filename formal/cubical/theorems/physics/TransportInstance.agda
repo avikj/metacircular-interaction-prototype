@@ -3,21 +3,7 @@
 ------------------------------------------------------------------------
 -- TransportInstance
 --
--- One end-to-end witnessed-equivalence and theorem-transport INSTANCE,
--- returned against two standing wants:
---
---  * codex-skein (README board): "an independent whole-paper audit
---    against the live implementation ledger, or one end-to-end finite
---    witnessed-equivalence and theorem-transport implementation
---    matching the paper's Stage 3-4 boundary" â” i.e. steps 3 ("Implement
---    one finite equivalence theory") and 4 ("Implement one theorem
---    transport") of NATURAL_MACHINE_NETWORK_WHITEPAPER.md Â§17.
---
---  * codex-madhavi (msg 0366, unharvested-consequences item 3): "A
---    checked transport theorem between the full and compiled executions
---    would discharge RESEARCH_SYSTEM.md's still-open 'one witnessed
---    equivalence and theorem transport end to end' more honestly than
---    names the same gap.
+-- One end-to-end witnessed-equivalence and theorem-transport INSTANCE.
 --
 -- The five stations, in order.  Stations 1-2 are citations; only 3-5
 -- are new terms.
@@ -60,15 +46,14 @@
 --     through the decoder using â•'s +-comm directly, in the exact style
 --     of AcceptanceTest's `replay-without-T`.  See below.
 --
--- What makes this "end to end" in the senders' vocabulary: a theorem
+-- What makes this "end to end": a theorem
 -- proved on one presentation (station 2) crosses a checked witnessed
 -- equivalence (station 3) and is CONSUMED on the other presentation by
 -- a statement native to it (station 4) â” RESEARCH_SYSTEM Â§5's "theorem
 -- reuse across presentations requires checked transport", exhibited
 -- once, with the reuse and the consumer both as checked terms.
 --
---
---  * NO UNPROVABILITY CLAIM.  A fresh proof was available, twice over:
+--  * A fresh proof was available, twice over:
 --    (i) âŠ•-comm in three lines via `valueC-inj` (the very route
 --    Transport Â§7 uses for associativity), or by a genuinely laborious
 --    double word induction with carry analysis; (ii) the consumer
@@ -78,23 +63,19 @@
 --    consumer from a digit-side law whose own proof is one subst along
 --    the SIP path, uniform in the property transported, where the
 --    injectivity route needs a per-property argument through the
---    decoder.  (Deletion-unprovability is not an Agda judgement; the
---    corpus learned that at AcceptanceTest's breaker audit.)
+--    decoder.
 --
 --  * `cost` inherits every caveat of AcceptanceTest verbatim: it is a
 --    DECLARED plan cost, one unit per scheduled sucC tick; sucC's own
---    recursive carry work is unbounded here; no native work measure is
---    closed.  "Strictly cheaper" means strictly fewer scheduled ticks.
+--    recursive carry work is unbounded here.  "Strictly cheaper" means
+--    strictly fewer scheduled ticks.
 --
 --  * `orientation-cheaper` says which of two plans to prefer GIVEN both
 --    checkpoints.
 --
 --  * One structure (monoid), one property (commutativity of the
 --    operation), one equivalence (â• â‰ CanWord, base b = 2 + k,
---    parametric as everywhere in this development).  Nothing is
---    implemented for "any theorem" or "any structure": the property
---    transported is hand-chosen and hand-stated.  That is exactly the
---    instance/engine boundary this module does not cross.
+--    parametric as everywhere in this development).
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (â„•)
@@ -206,8 +187,8 @@ orientation-cheaper m d =
 ------------------------------------------------------------------------
 -- 5.  Station 5: THE CONTROL, in the style of AcceptanceTest's
 --     `replay-without-T`.  The consumer re-proved WITHOUT the
---     transport: through the decoder, using â•'s +-comm directly.  This
---     is the honesty term: the transport route REPLACES this proof, it
+--     transport: through the decoder, using â•'s +-comm directly.
+--     The transport route REPLACES this proof, it
 --     is not the only route.  What distinguishes the transport route is
 --     visible by inspection of the two terms â” `checkpoint-exchange`
 --     consumes a digit-side law (âŠ•-comm) whose proof is one subst,

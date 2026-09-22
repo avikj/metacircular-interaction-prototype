@@ -327,12 +327,6 @@ module Sthaulya (R : CommRing ‚Ñì) where
     ‚àô cong ((- (pn (suc (suc (suc k))))) ¬∑_) (sym (sthaulya-closed k n))
 
 ------------------------------------------------------------------------
---
--- THE ORDER STATEMENT: that
--- the ‡‡‡‡‡≤‡‡Ø "drops by exactly two
--- orders in n at each step", on the ground that deg k_k = k makes it a
--- constant over a polynomial of degree 2k+1.
---
 -- Everything above is an identity between ring elements, and a
 -- commutative ring has no notion of degree, of leading coefficient, or
 -- of order at infinity.  Cross-multiplying is exactly the move that

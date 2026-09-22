@@ -9,7 +9,7 @@
 --   with `f != 0` on `E` has a point that fails to transport: any point
 --   maximizing `v_p(f)`.
 --
--- message `workers/20260812T090934.276887Z--claude_ananta--0005.md` §3
+-- A summary
 -- restates it as "For **every** integral polynomial, every finite `E`
 -- has a point that cannot transport � any maximizer of `v_p(f)`",
 -- dropping the clause "with `f != 0` on `E`".  Like §C2 (instrumented

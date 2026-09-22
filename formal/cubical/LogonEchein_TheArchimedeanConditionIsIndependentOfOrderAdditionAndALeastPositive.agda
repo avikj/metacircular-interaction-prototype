@@ -15,12 +15,7 @@
 --
 -- The file therefore leads with the source's own term for the object,
 -- λ�γον ���ε�ν / *logon echein*, "to have a ratio", transliterated.  Greek,
--- not , because Greek is the source language here.  **No 
--- label is invented for this**, and no Indian text is claimed as its
--- origin; note 2 of the file-naming rule forbids exactly that, and the
--- section "THE OTHER DIRECTION" below runs the provenance search in the
--- other direction and reports a negative result plainly rather than
--- manufacturing a lineage.
+-- not , because Greek is the source language here.
 --
 -- What is claimed of Eudoxus: definition V.4 is his, it states a condition
 -- on *which magnitudes are admitted*, and it is the hypothesis under which
@@ -52,7 +47,7 @@
 -- definition V.4 is consumed.
 --
 ------------------------------------------------------------------------
--- THE OTHER DIRECTION, RUN, WITH A NEGATIVE RESULT REPORTED PLAINLY.
+-- THE OTHER DIRECTION.
 --
 -- Baudhyana *ulbastra*, c. 800 BCE.  1.9 (the square on the diagonal:
 -- *drghacaturarasykay rajju prvamn tiryagmn ca yatpthagbhte
@@ -69,7 +64,7 @@
 -- residual, and no reductio.  A one-shot rational rule with no error term
 -- is not a double reduction, and reading one into it would be the
 -- invented lineage note 2 forbids.  (This corpus already carries
--- `Dvikarani.agda` on 2.12 and does not claim otherwise there.)
+-- `Dvikarani.agda` on 2.12.)
 --
 -- Jyehadeva, *Gaita-yukti-bh*, Malayalam, c. 1530, giving *yukti* for
 -- results of Nlakaha's *Tantrasagraha* (1501).  Here the answer changes
@@ -85,7 +80,7 @@
 -- Plainly, and both halves are facts: the *Yuktibh* does not run the
 -- double-reduction schema and does not state definition V.4's admission
 -- condition; and it does state, quantitatively, what a double reduction
--- discards.  Neither text is scored against the other here.
+-- discards.
 --
 ------------------------------------------------------------------------
 -- WHAT IS CHECKED.
@@ -108,7 +103,7 @@
 -- Positive control, so the failure is located rather than blamed on the
 -- construction: within a single level, R3 holds.
 --
--- SCOPE, NARROWED BY A CHECK IN §9 AND NOT BY A CAVEAT.  Euclid's magnitudes
+-- Euclid's magnitudes
 -- admit taking a lesser from a greater (common notion 3, used throughout
 -- Book V).  §9 checks that **this witness does not**: ε � Ω, and yet no z
 -- satisfies ε ⊕ z ≡ Ω.  So `logon-echein-is-independent` is independence
@@ -278,9 +273,9 @@ logon-echein-is-independent =
   , logon-echein-fails
 
 ------------------------------------------------------------------------
--- 8.  TWO CLAIMS OF MY OWN, KILLED HERE
+-- 8.  TWO CLAIMS REFUTED HERE
 --
--- CLAIM A, which is what I set out to prove when I opened this file:
+-- CLAIM A:
 --   "A totally ordered, cancellative magnitude system with a least
 --    positive element is Archimedean � repeated addition of the least
 --    positive element eventually passes any magnitude."
@@ -297,7 +292,7 @@ claim-A-refuted :
 claim-A-refuted = ε-least-positive , logon-echein-fails
 
 ------------------------------------------------------------------------
--- CLAIM B, which I wrote down second and believed for longer:
+-- CLAIM B:
 --   "Double reduction is what carries an exhaustion proof; the
 --    Archimedean condition is bookkeeping in front of it."
 --
@@ -315,7 +310,7 @@ claim-B-refuted :
 claim-B-refuted = double-reduction , logon-echein-fails
 
 ------------------------------------------------------------------------
--- 9.  CLAIM C, the one that cost something, killed here
+-- 9.  CLAIM C, REFUTED HERE
 --
 --   "� � � lex is a magnitude system in Euclid's sense, so §7 refutes the
 --    classification for magnitudes."
@@ -334,7 +329,5 @@ no-difference-of-ε-from-Ω (z , p) = snotz (cong snd p)
 claim-C-refuted : (ε ⊏ Ω) × (¬ (Σ Mag (λ z → (ε ⊕ z) ≡ Ω)))
 claim-C-refuted = ε-⊏-Ω , no-difference-of-ε-from-Ω
 
--- What survives the refutation, stated as a type rather than as a caveat:
--- §7 is independence over ordered commutative monoids.  Extending it to
--- ordered abelian groups requires a witness this module does not build.
+-- §7 is independence over ordered commutative monoids.
 ------------------------------------------------------------------------

@@ -52,33 +52,6 @@
 --     isomorphism ... Homometric examples are the reason, not an edge
 --     case".
 --
--- WHICH ECOLOGY.md CLAIMS THIS DOES *NOT* COVER (still prose)
---
---   * Content addressing itself.  `Genotype` is abstract and its identity
---     is a supplied `Discrete`; nothing here is a hash, a canonicalizer, or
---     a collision argument, and the I0-I3 strata of
---     "identity is the content hash" is exactly the part left to prose.
---   * The Merkle-DAG: inheritance by hash reuse, recombination of
---     subgraphs, phylogeny, and gene-level fitness attribution ("#84ab ...
---     correlates +11%").  There is no provenance edge in this file.
---   * The quotient hierarchy h� -> h_� -> h_norm -> h_obs and the claim
---     that keeping every level preserves neutral variation.
---   * "Convergent evolution ... IS a fitness signal": nothing here about
---     independent replication.
---   * The "explicit discount" on transported fitness.  §3 proves only the
---     zero-discount case (invariant transport); a lossy or discounted
---     transport law is not modelled.
---   * Append-onlyness of the ledger as a physical guarantee.  The `Edit`
---     grammar deliberately PERMITS discard; §2 proves only that discarding
---     cannot alter or invent a genotype, not that a record cannot be
---     deleted.
---   * That a `Bridge` is a checked equivalence.  Residual's `Bridge` is a
---     pair of edges, not a proof of equivalence; §3 uses it as the
---     interface token the design requires, and that is precisely why the
---     invariance hypothesis has to be a SEPARATE argument there.
---   * Any dynamics at all: no population turnover, no co-evolution, no
---     epochs, no selection, no Red Queen.
---
 -- Related checked work: `EvaluatorTransport` proves that
 -- inverse precomposition is the UNIQUE evaluator transport conserving every
 -- paired result along an equivalence.  That is the invariance law for a
@@ -148,9 +121,7 @@ isYes-refuted (no _) _ = refl
 -- §1.  A population
 --
 -- `Genotype` is abstract and its identity is a PARAMETER: a supplied
--- decision procedure, not a hash this module pretends to compute.  Whether
--- that procedure is byte equality, an I1 presentation digest, or a checked
--- canonical form is a question this file does not answer and must not.
+-- decision procedure, not a hash this module pretends to compute.
 ------------------------------------------------------------------------
 
 module Population
@@ -428,8 +399,6 @@ module Population
     faithful ∙ cong (λ g → σ g (under ev)) at ∙ inv (under ev)
 
   -- Transport writes a new observation; it never overwrites the old one.
-  -- (Half of ECOLOGY.md's "append-only"; the other half -- that a record
-  -- cannot be deleted -- is deliberately not claimed, see the header.)
   transport-is-append-only :
       (g : Genotype) (ev : Evaluation) (s : Store) (x : Evaluation)
     → x ∈ s → x ∈ apply (append (relabel g ev)) s

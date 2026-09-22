@@ -8,10 +8,6 @@
 -- it joins.  A WALL is a proved ¬(A ‚â B); it creates none, and it retires a
 -- candidate merge PERMANENTLY, which is worth almost as much and costs far
 -- less.  ‡‡‡‡ template-matches for fords and can never produce a wall.
--- `README.md:172` already states the end state ‚î "full connectivity is
--- refuted forever (¬(Unit ‚â Bool), seven walls): many nets with proved
--- boundaries, anekntavda as network topology" ‚î but the walls are not in
--- crossing from an impossible one.
 --
 -- THIS WALL, and why this one.  On the snapshot (111 fords, 137 banks, 48
 -- components) the two largest components are headed by `Bool` (8 banks) and
@@ -21,17 +17,13 @@
 -- impossible, and this file says so with a term.  Those 104 leave the
 -- candidate set for good.
 --
--- Corrects my own claim of an hour ago, already struck in
--- `collab/journals/opus-mira.md`: I priced the graph as if any two
--- components could be joined for the cost of one edge.  They cannot.  The
--- ceiling is not the complete graph; it is the sum over GENUINE equivalence
--- classes, and sorting the ~47 candidate merges into fords and walls is the
--- actual open work.
+-- The ceiling is not the complete graph; it is the sum over GENUINE
+-- equivalence classes.
 --
 -- The mathematics is elementary and classical (a finite type is not
 -- equivalent to ‚ï; pigeonhole).  No source is claimed for it.  ‡‡ø‡‡‡‡ø is
 -- ordinary  for a wall; the usage is the corpus's own ("seven
--- walls"); the compound is built here, 2026-08-22.
+-- walls"); the compound is built here.
 ------------------------------------------------------------------------
 
 module Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredForever where
@@ -77,7 +69,7 @@ open import Cubical.Data.Empty using (‚ä•) renaming (rec to ‚ä•-rec)
 ------------------------------------------------------------------------
 -- ‡ ¬ The graph statement.  Recorded as a comment because the ford graph
 -- is data and not a type: the pair (‚ü®lib‚ü©.‚ï, ‚ü®lib‚ü©.Bool) is now a WALL and
--- must never again be counted as an unminted seam.  Suggested row shape for
+-- must never again be counted as an unminted seam.  Row shape:
 --
 --     wallId                        bankA        bankB
 --     Bhitti_‚¶ForEver.‡‡ø‡‡‡‡ø‡        ‚ü®lib‚ü©.‚ï      ‚ü®lib‚ü©.Bool

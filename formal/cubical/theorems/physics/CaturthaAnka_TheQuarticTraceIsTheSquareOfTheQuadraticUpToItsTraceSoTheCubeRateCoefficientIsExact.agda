@@ -43,8 +43,7 @@
 --
 --       Dividing by 42 and using âˆ(tr SÂ³) = 3Âtr(SÂ²ÂX) this is the
 --       -5/14 law; the division is left to the reader because the ring
---       need not admit it.  `K` is arbitrary â” it is never assumed to be
---       a pressure term, and Â§4 says nothing about what it contains.
+--       need not admit it.  `K` is arbitrary.
 --
 -- WHY Â§1 AND NOT ONLY Â§2.  Carrying the trace correction costs one
 -- solver call and buys the identity for every matrix, so a later use at

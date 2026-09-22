@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡‡µ‡∞‡‡‡Æ‡ ‚î own-form.  The capability map of this model of
 -- computation, stated where a claim can be checked and refused where
--- it cannot.  Ordinary ; the compound is built here,
--- 2026-08-24.
+-- it cannot.  Ordinary ; the compound is built here.
 --
 -- WHAT THE MODEL IS.  Certificate-carrying rewriting with self-grown
 -- control: a first-order vocabulary over ‚ï (now +, ¬, ‚à, max, le,
@@ -28,7 +27,7 @@
 --   Capabilities?     Value laws: the whole store, 108/108, breathed
 --                     to quiet with certificates (‡‡‡æ‡‡‡ü‡ï-‡‡æ‡ï‡‡‡‡Ø‡Æ‡
 --                     below re-checks it).  Novel theorems beyond the
---                     store: nine in the first sitting, milliseconds
+--                     store: nine
 --                     (Samvada).  Laws of time through the same gate
 --                     (KalaDravya ¬ß5).  Organ birth from attainment
 --                     (Gunasthana; climb 103/108 with no agent).

@@ -17,8 +17,7 @@
 -- Chen's side) do not imply recurrence of the JOINT corner P_r P_c ð’ž,
 -- because "a nonnegative field may place all exact-prime mass at radius
 -- two and all radius-one mass at charge two."  The true problem is a
--- marginal-to-joint lower-bound problem.  Receiving audit:
--- `notes/FACTORY_IV_CHEN_CORNER_AUDIT.md`.  Factory I sibling
+-- marginal-to-joint lower-bound problem.  Factory I sibling
 -- (`UNIVALENT_PERSPECTIVAL_THEOREM_FACTORY_DELTA_14_2026-08-13.md` Â§A,
 -- T14.6/C14.7) carries the same shape one level up: an ambient
 -- equivalence restricts to a sector precisely when the sector predicate

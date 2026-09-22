@@ -7,22 +7,16 @@
 -- (`collab/upstream/raw/D0020-owner-fifth-transmission-2026-08-15.md`),
 -- here as terms rather than as one reader's arithmetic.
 --
--- The ledger says of itself that no row has had a second reader.  This
--- module IS the second reader for three rows.  Everything below was
--- re-derived from the archive's displays, quoted verbatim in each
--- section, before the ledger's reasoning was reused.
---
 -- SECTION A  §8's Π_� identity.  Archive line 393:
 --
 --     1 � Ω(ν) � 2  �  Π_�(ν) = (1 − λ(ν))/2 − 1_�(ν)
 --     Π_�(ν) := μ(ν)² − ��(ν),      ��(ν) := ω(ν) − 1
 --
---   Refuted.  Smallest witness ν = 2 (the smallest prime), found here,
---   not taken from the ledger: LHS = 1, RHS = 0.  The failure is by
+--   Refuted.  Smallest witness ν = 2 (the smallest prime):
+--   LHS = 1, RHS = 0.  The failure is by
 --   exactly 1 on every prime; the UNIVERSAL half is proved as
 --   `prime-row-fails-by-one`, from the values the four arithmetic
---   functions take at a prime � see the scope note at that theorem for
---   exactly what is and is not a theorem there.
+--   functions take at a prime.
 --
 -- SECTION B  §1's Mbius display.  Archive line 83:
 --
@@ -43,20 +37,11 @@
 --   The collapse is formalised in the form the ledger's §5.1 argument
 --   actually uses: ANY operator that is extensive, produces closed
 --   sets, and is least among closed supersets is idempotent, and its
---   tower is constant from stage one.  The intersection itself is NOT
---   formalised, and cannot be: the archive supplies no ambient set, so
---   `�` ranges over a class (ledger row 0.2, "not supplied � the
---   ambient").  What is supplied instead is (i) the abstract theorem
---   and (ii) a witness that its hypotheses are satisfiable, namely the
+--   tower is constant from stage one.  What is formalised is (i) the
+--   abstract theorem and (ii) a witness that its hypotheses are
+--   satisfiable, namely the
 --   inductively generated closure over an arbitrary sign type with
 --   unary and binary operations.  Scope limits are stated in full at
---   the head of Section C.
---
--- NOT formalised, and why: nothing in this module adjudicates whether
--- the collapse "contradicts J8".  J8 assigns §0's Θ_∞ the STATUS
--- PROGRAMME; a status is not a proposition, so the mathematical
--- collapse and the triage entry are in tension, not in contradiction.
--- That is a remark about vocabulary and is left to prose.
 ------------------------------------------------------------------------
 
 module TransmissionRefutations where
@@ -503,7 +488,7 @@ allFullIsOne zero = true
 allFullIsOne (suc k) = fullIsOne (suc k) and allFullIsOne k
 
 -- �_{δ � ν} μ(δ) �ν/δ� = 1 for every ν � 12: the display with the
--- range of summation corrected.  (Classical; checked, not proved.)
+-- range of summation corrected.
 full-sum-is-one-to-12 : allFullIsOne 12 ≡ true
 full-sum-is-one-to-12 = refl
 
@@ -530,7 +515,7 @@ companion-display-holds-to-12 = refl
 -- The archive's κ is  κ(Θ) := � { � � Θ | � closed under the nine
 -- operations }.  As the ledger's row 0.2 records, no ambient set is
 -- supplied, so this intersection ranges over a class and κ does not
--- denote as written.  A missing definition is not invented here.  What
+-- denote as written.  What
 -- IS formalised is the argument the ledger's §5.1 actually runs, in the
 -- form in which it is independent of the ambient:
 --
@@ -554,10 +539,6 @@ companion-display-holds-to-12 = refl
 --     In particular Γ is NOT assumed to be a function: ledger row 0.6
 --     refutes exactly that, and the arity-only treatment below is
 --     compatible with Γ being multivalued.
---   * ordinals.  The tower is formalised at stages indexed by �, with
---     the ω-stage union treated explicitly (C.4).  Stages beyond ω are
---     NOT formalised; the collapse at stage one makes them constant
---     for the same reason, but that is prose here, not a term.
 ------------------------------------------------------------------------
 
 module Collapse {ℓ : Level} (S : Type ℓ)

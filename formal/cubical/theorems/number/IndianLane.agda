@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- IndianLane ‚î a gate that is actually green on the pinned toolchain.
+-- IndianLane ‚î the lane aggregate.
 --
 -- This aggregate runs:
 --
@@ -58,7 +58,6 @@ import Pingala
 -- PINI, Adhyy (~500 BCE): the ivastras as a pratyhra machine,
 -- and the rule-conflict machinery -- utsarga/apavda, the elsewhere
 -- condition, asiddhatva, anuvtti.
--- Everything.agda, which cannot go green on this container.
 import Sivasutra
 -- Optimality for Sivasutra.agda, the lower-bound half: classes sharing
 -- one anubandha are a ‚ä-chain, so a ‚ä-antichain of classes forces that many
@@ -199,7 +198,7 @@ import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
 --
 -- ApohaParyaya_‚¶ makes the Bauddha argue against a Jaina construction
 -- already in this corpus, and exhibits the incompatibility WITHOUT
--- resolving it.  Every modern treatment I know of blends the two schools
+-- resolving it.  Modern treatments blend the two schools
 -- into one "Indic" toolkit, which discards the dispute, and the dispute
 -- is the content ‚î CLAUDE.md's mining directive, one level up.
 --

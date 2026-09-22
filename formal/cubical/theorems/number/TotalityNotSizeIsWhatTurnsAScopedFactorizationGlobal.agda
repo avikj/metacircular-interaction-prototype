@@ -3,15 +3,8 @@
 ------------------------------------------------------------------------
 -- TotalityNotSizeIsWhatTurnsAScopedFactorizationGlobal
 --
--- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- Scoped descent and factorization through a quotient are this corpus's
--- own construction; there is no source to cite, and a fabricated
---  label would assert a provenance nobody checked.  Checked
--- before naming: `.claude/hooks/priority-ledger.txt` (CURRENT header)
--- and `.claude/hooks/european-frame.txt`; no row applies, and the frame
--- check's scope requires Indian material, of which this module has
--- carried because `VacuityVerdict` declares it and the option is
--- infective.
+-- `--guardedness` is carried because `VacuityVerdict` declares it and the
+-- option is infective.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE CLAIM
@@ -58,15 +51,6 @@
 -- was already had.  "A larger finite sample never constructs
 -- `GlobalFactorization`" is the corollary of those, at every scope that
 -- is not total.
---
--- **AND THIS IS THE THIRD INSTANCE OF ONE PATTERN IN SIX CYCLES.**
--- 4e2a577d: coverage needs the fuel to EXHAUST, not to exceed the
--- archive's length.  a5881b77: a delivery discipline's strength is the
--- RELATION, not the number of its edges.  Here: a scope yields a global
--- descent by being TOTAL, not by being large.  Each time the quantity
--- reached for was a proxy that happens to imply the real hypothesis in
--- the easy direction and is not equivalent to it.  **The proxy is
--- always the one that can be counted.**
 ------------------------------------------------------------------------
 
 module TotalityNotSizeIsWhatTurnsAScopedFactorizationGlobal where

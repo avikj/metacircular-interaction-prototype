@@ -37,7 +37,7 @@
 --
 -- For any ordering (a, b, c), the set {a, c} skips the middle and is not
 -- a run.  All six orderings are checked, each by `refl` â” finite
--- exhaustive verification, which CLAUDE.md admits as proof.
+-- exhaustive verification.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THAT PREDICTS ABOUT THE IVA-STRAS, AND IT IS TRUE OF THEM
@@ -163,10 +163,7 @@ xyz-names-YZ = refl
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  ONE REPETITION SUFFICES â” proving what Â§3's prose asserted.
---
--- Â§3 says "the repair is one repetition and not a redesign" and does not
--- prove it.  It is proved here.
+-- 6.  ONE REPETITION SUFFICES.
 --
 -- With a letter allowed to occur twice, "nameable" changes meaning: a set
 -- is nameable when SOME contiguous run of positions has exactly that set

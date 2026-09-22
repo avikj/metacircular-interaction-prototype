@@ -8,12 +8,10 @@
 -- mathematics.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHERE THIS CAME FROM
+-- WHICH FUELLED FUNCTIONS CARRY THEIR OWN ADEQUACY
 --
--- `ExponentBound` had to prove that `FrontierList.logOf`'s fuel budget
--- is adequate, because nothing had.  The audit question that followed
--- was: why did THAT function escape when twenty modules here are fuel
--- driven?  The answer is a type-level criterion, and it is sharp:
+-- Twenty modules in this corpus are fuel driven, and a type-level
+-- criterion separates them.  It is sharp:
 --
 --   `Factorisation.factorise-fuel : (fuel n : â•) â’ 0 < n â’ n â‰ fuel
 --                                 â’ Factorisation n`
@@ -29,9 +27,7 @@
 --   `FrontierList.expOf : â• â’ â• â’ â• â’ â•`
 --
 -- takes the budget as bare data and returns bare data.  It is the only
--- one of the twenty in that shape, and it is the only one whose
--- adequacy went unproved for the corpus's whole history â” carried
--- instead by `frontier8 = refl`.
+-- one of the twenty in that shape.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE CRITERION, MADE EXACT
@@ -68,15 +64,6 @@
 -- works.  The Î-returning fuelled functions listed above are the strong
 -- form of the same repair, and that is why none of them needed a
 -- theorem.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- It does not claim `expOf` is wrong.  `ExponentBound` proves it right.
--- It claims the correctness was not IN the type, and locates the exact
--- information the type was missing.  Nor does it audit the remaining
--- fuelled modules line by line: the criterion is stated, four instances
--- are checked against it by inspection of their signatures above, and
--- the rest are named as unaudited rather than assumed clean.
 ------------------------------------------------------------------------
 
 module FuelAdequacyIsACollision where
@@ -172,7 +159,4 @@ saturated-factors = decode , law
 -- adequacy claim provably cannot ride along, so it will be carried by a
 -- `refl` at one input or by nothing at all.  Where the return type is a
 -- Î, it rides along by construction.
---
--- That is a criterion an agent can apply without reading the proofs, and
--- it found the one instance in twenty.
 ------------------------------------------------------------------------

@@ -14,7 +14,6 @@
 -- field � the Liouville sign (1−λ)/2 is EXACTLY the charge-one projector:
 -- parity, which forgets almost everything on unrestricted integers, is
 -- informationally complete once the charge support has two points.
--- Receiving audit: `notes/FACTORY_IV_CHEN_CORNER_AUDIT.md`.
 --
 -- WHAT THIS MODULE PROVES (no holes, no postulates, --safe):
 --

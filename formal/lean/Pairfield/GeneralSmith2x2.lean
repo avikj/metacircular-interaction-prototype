@@ -5,7 +5,7 @@ import Mathlib.Data.Int.Basic
 # A total executable 2×2 integer Smith producer, proved correct in Lean
 
 `SmithCertificate.lean` supplies the checker and proves it sound and complete;
-`SmithPresentation.lean` supplies composable exact presentation arrows.  What
+`SmithPresentation.lean` supplies composable exact presentation arrows.  A
 **producer**: a total function taking an arbitrary integral `2×2` matrix to a
 Smith presentation, together with a proof that its certificate is accepted.
 
@@ -482,9 +482,9 @@ def SmithResult.toPresentation {A : IntMat2} (s : SmithResult A) :
   right_unimodular := s.red.right_unimodular
 
 /-!
-### The capability graph's open-joint type, and its repaired package
+### The capability graph's joint type and its package
 
-`Pairfield/CapabilityGraph.lean` names the open joint as
+`Pairfield/CapabilityGraph.lean` names the joint as
 
     def ArbitrarySmithPresentation :=
       (A : IntMat2) -> Sigma d1 d2 : Int,
@@ -493,11 +493,11 @@ def SmithResult.toPresentation {A : IntMat2} (s : SmithResult A) :
 
 That spelling does **not** elaborate on a source-clean pinned build: `Prod`
 expects both factors in `Type`, while the side conditions inhabit `Prop`.
-`CapabilityGraph.lean` now uses the subtype below, which preserves exactly a
-presentation together with the four side conditions. See
+`CapabilityGraph.lean` uses the subtype below, which preserves exactly a
+presentation together with the four side conditions.
 -/
 
-/-- The intended open-joint type, repaired. -/
+/-- The intended joint type. -/
 def ArbitrarySmithPresentation' :=
   (A : IntMat2) ->
     Σ d₁ d₂ : Int,
@@ -538,7 +538,7 @@ theorem smithCertificate_check (A : IntMat2) :
 statement that prices the certificate: the *last* elementary operation the
 descent performs is a shear whose quotient is of order `d₂/d₁`, so certificate
 entries are bounded by the determinant's bit-length, not by the input entries'.
-certificate entry exceeds every input entry by a factor of 9444. -/
+-/
 theorem smith_det (A : IntMat2) :
     ((smith A).d₁ * (smith A).d₂).natAbs = A.det.natAbs := by
   have hrep : IntMat2.diagonal (smith A).d₁ (smith A).d₂

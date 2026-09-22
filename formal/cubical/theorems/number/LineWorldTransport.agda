@@ -15,7 +15,7 @@
 -- which is nonzero for every slope, so every line world transports and
 -- the criterion `s â‰ -1` names the wrong set.
 --
--- THIS IS A MODEL, NOT THE FULL SETTING.  The full setting is `p`-adic
+-- The full setting is `p`-adic
 -- encountered worlds over an arbitrary integral polynomial.  What is
 -- formalized here is the smallest finite model that still distinguishes
 -- `f = X+Y` from `f = X`, at the single prime `p = 5` that the note

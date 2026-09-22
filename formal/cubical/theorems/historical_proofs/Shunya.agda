@@ -16,7 +16,7 @@
 -- under addition, subtraction, multiplication.  His correct rules are ring
 -- truths.  But he made ONE error: he declared 00 = 0 ‚î a durnaya.  For
 -- every x, 0¬x = 0, so 00 is NOT a single value but indeterminate ‚î
--- avaktavya, the sevenfold's fourth position, NOT zero.  Bhskara II (1150)
+-- NOT zero.  Bhskara II (1150)
 -- corrected division by zero via khahara.  Brahmagupta's one slip ‚î a
 -- definite verdict where the answer is un-said ‚î is exactly the disease this
 -- whole effort removes.)
@@ -36,11 +36,7 @@
 -- EXPRESSIBILITY failure.  00: the content is perfectly expressible
 -- and the solution set is not a singleton ‚î a UNIQUENESS failure.
 --
--- Everything else in this module stands.  Brahmagupta's 00 = 0
--- (Brhmasphuasiddhnta, 628) is a durnaya; Bhskara II's khahara
--- (Llvat, 1150) is a genuinely different non-finite result from
--- it; and a boolean "undefined" collapsing them is the disease.
--- Only the name of the second thing is wrong.  See
+-- See
 -- AnuktaAvaktavya.agda ¬ß6, where 00's defect is checked.
 --
 -- Three modules here now call three different structures
@@ -106,8 +102,6 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 -- alone, inexpressibility of the content AND the medium.
 --
 -- The third structure, Satyayantra's ‡‡®‡‡ï‡‡‡Æ‡, is deliberately NOT
--- brought onto that carrier: it is temporal, and d909db0d already says
--- the two third-positions' remedies live in different types.  No verdict
--- is offered there on which module should keep the word ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, nor
--- on the saptabhag, nor on Brahmagupta's or Bhskara II's texts.
+-- brought onto that carrier: it is temporal, and
+-- the two third-positions' remedies live in different types.
 ------------------------------------------------------------------------

@@ -3,11 +3,7 @@
 ------------------------------------------------------------------------
 -- ���� � the shadow, and what is actually impossible about it.
 --
--- This module supplies the term that `Yantra.Prakasha` asserts in
--- prose and does not contain, and it corrects the assertion in the same
--- act.  944676e4's message says, of the collapse from the witnessed
--- statement to the truncated one: "the collapse ... exists while the
--- reverse provably does not."  The reverse, read as a bare map
+-- A bare map
 -- � A �� � A, EXISTS whenever A is inhabited, and this file exhibits one.
 -- What does not exist is a SECTION � a map that returns the witness it
 -- was given.  That is proved below, unconditionally, for any A carrying
@@ -45,9 +41,7 @@ noSection : {A : Type₀} (a b : A) → ¬ (a ≡ b) → ¬ Section A
 noSection a b a≢b (s , sec) =
   a≢b (sym (sec a) ∙ cong s (squash₁ ∣ a ∣₁ ∣ b ∣₁) ∙ sec b)
 
--- ═══ and the map the overclaim confused it with ═══
--- inhabited A: a map � A �� � A exists, trivially.  so "no reverse map"
--- is false, and "no section" is what is true.
+-- ═══ and the map, which does exist for inhabited A ═══
 mapFromInhabited : {A : Type₀} → A → (∥ A ∥₁ → A)
 mapFromInhabited a _ = a
 
@@ -89,7 +83,7 @@ fibrePlural e = 3≢5 (cong fst e)
 noSectionAt10 : ¬ Section (Fibre 10)
 noSectionAt10 = noSection three+seven five+five fibrePlural
 
--- and the map does exist there, which is the half that was overstated
+-- and the map does exist there
 mapAt10 : ∥ Fibre 10 ∥₁ → Fibre 10
 mapAt10 = mapFromInhabited three+seven
 

@@ -4,7 +4,7 @@
 -- TransportDiv
 --
 -- DIVISION ON THE CHART.  `Transport` carries `+`, `TransportMul` carries
--- `Â`, and both end with the same open remark: the walk
+-- `Â`, and both end with the same remark: the walk
 -- (`WalkBridge`) stalls at frontier m â‰ˆ 8 because its
 -- divisibility test is UNARY, costing Î˜(cap m) with cap m = e^{Ïˆ(m)}.
 -- The test is the blocker, not the arithmetic around it.
@@ -23,12 +23,11 @@
 -- by `Digits`' equivalence) and the residual Ï is nonzero, so no
 -- equivalence-invariant response could have found it.
 --
--- The chart map itself is NOT free, and nothing here pretends it is: the
+-- The chart map itself is NOT free: the
 -- edge costs stay explicit parameters, discharged with numbers only in
 -- `TransportDivWitness`.
 --
--- and not discovered by the author, which is the failure this repository's
--- protocol names first.  The object is classical and has a name: Sutner,
+-- The object is classical and has a name: Sutner,
 -- "Divisibility and State Complexity", Mathematica Journal 11:3 (2010),
 -- calls r â¦ (bÂr + d) mod m the HORNER AUTOMATON and states
 -- Î´(0,w) = val(w) mod m â” which is `value-modw` verbatim.  Alexeev, JCSS
@@ -36,12 +35,10 @@
 -- modulus" is an upper bound and not the minimum.  mathlib's `Nat.ofDigits`
 -- is definitionally this file's `value` and carries the surrounding API
 -- (`ofDigits_modEq`, `dvd_iff_dvd_ofDigits`); the Agda standard library's
--- `Data.Digit.fromDigits` is `value` too.  No library found declares the
+-- `Data.Digit.fromDigits` is `value` too.  No library declares the
 -- REDUCING fold, which is one induction wide.
 --
--- THAT AUDIT WAS ITSELF INCOMPLETE, and the omission is the interesting
--- cited nineteen sources, all northwestern, for three objects with three
--- different provenances:
+-- The three objects this file composes have three different provenances:
 --
 --   the reduction step   Euclidean descent, older than Euclid as
 --                        anthyphairesis.  Correctly attributed to nobody
@@ -59,11 +56,10 @@
 -- KUAKA, ryabhaya, Gaitapda 32-33, 499 CE, which is a CHECKED
 -- THEOREM in this repository at `formal/cubical/Kuttaka.agda` (`bezout`,
 -- `inhomogeneous`), with `NaturalMachine/CakravalaNeedsKuttaka.agda` in
--- this very directory.  The audit searched the web and found a 2010 paper;
--- it did not search one directory up.
+-- this very directory.
 --
 -- In this repository: `RadixSymptoma` already has the digit
--- action and its run law (`Radix.step`, `Radix.runâ‰¡`) in cubical Agda in
+-- action and its run law (`Radix.step`, `Radix.runâ‰¡`) in cubical Agda, and
 -- carries the Alexeev citation.  Note also that `scale-mod` below collides
 -- in NAME with a different `scale-mod` there.  What is this file's own is
 -- the reduce-at-every-digit variant that keeps the state bounded, its
@@ -156,10 +152,7 @@ steps-is-length (d âˆ· w) = cong suc (steps-is-length w)
 ------------------------------------------------------------------------
 -- 5.  The count is the algorithm's own recursion.
 --
--- Â§4 as first written was a definitional identity about a function
--- connected to `modw` by nothing at all: `steps` counted its own clauses,
--- and no theorem said those clauses were the automaton's.  That objection
--- is correct and this section answers it.  `run` executes the automaton
+-- `run` executes the automaton
 -- and carries the count in the same recursion, so the two projections are
 -- the state and the number of transitions that produced it.
 ------------------------------------------------------------------------

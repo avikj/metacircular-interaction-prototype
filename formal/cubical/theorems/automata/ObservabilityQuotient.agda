@@ -23,7 +23,7 @@
 -- *proved* unsound as a compression rule.
 --
 --
--- WHAT THIS CORRECTS IN THIS REPOSITORY
+-- RELATION TO `SensorNerode`
 --
 -- `SensorNerode` proves that a sensor family sees a pair
 -- only through `lcm S`, and that the relation determines the lcm â” a
@@ -33,7 +33,7 @@
 -- cannot later expose it.  For that lane the two happen to coincide
 -- (installing a sensor only ever refines the profile, never coarsens
 -- it), but the coincidence is a fact about the walk and **not** about
--- observation in general, and `SensorNerode` does not state it.
+-- observation in general.
 --
 -- WHAT IS CHECKED
 --
@@ -68,8 +68,8 @@
 --  * **Not novel, and Delta 19 says so first**: S19.14 â” "this is
 --    classical minimal realization/observability theory in the linear
 --    case.  Do not reinvent it."  S19.31 identifies the same skeleton as
---    Moriâ“Zwanzig.  Nothing here claims otherwise; the contribution is
---    that the core now has the congruence lemma and the strictness
+--    Moriâ“Zwanzig.  The contribution is
+--    that the core has the congruence lemma and the strictness
 --    witness as terms.
 ------------------------------------------------------------------------
 

@@ -6,33 +6,15 @@
 -- ������ � a standpoint that asserts itself by denying the others.
 -- Collapsing a standpoint-indexed proposition to a single type IS that
 -- act, so the question "when may the index be dropped?" is the question
--- of when a naya is a durnaya.  This module answers it exactly, and in
--- doing so corrects one sentence of `Anekanta`.
+-- of when a naya is a durnaya.  This module answers it exactly.
 --
--- WHAT IS BEING CLAIMED OF THE SOURCE, precisely.  Siddhasena Divkara
+-- PROVENANCE OF THE NAME.  Siddhasena Divkara
 -- (*Sanmatitarka*) and Akalaka use `durnaya` for a naya asserted to the
 -- exclusion of the rest; that a naya so asserted is defective is theirs.
 -- The characterisation below � collapse is available iff every pair of
 -- fibres is equivalent � is
 -- this corpus's mathematics, named for the act the tradition already
 -- named, in the sense `Anekanta.agda` argues for at length.
---
--- THE CORRECTION.  `Anekanta.agda` §5 proves two true theorems:
---
---     plurality-blocks-collapse   : disagreement (sydastinsti) � no collapse
---     agreement-permits-collapse  : uniform equivalence to one fibre � collapse
---
--- and then its header says of the pair: "the two together characterise
--- erasure completely", "There is no third option".  ~~That is false.~~
--- The two hypotheses are not complementary.  A family may be neither
--- sydastinsti (no standpoint denies) nor uniformly equivalent, and
--- then NEITHER theorem applies � yet collapse is still unavailable.
--- `third-option-exists` below is an explicit checked witness.
---
--- What replaces the gloss is the honest characterisation, §1, of which
--- `plurality-blocks-collapse` is a corollary (§2).  The mathematics of
--- `Anekanta.agda` is untouched; only its claim to exhaustiveness is
--- withdrawn.  Transport, or keep the residue � including here.
 ------------------------------------------------------------------------
 
 module Durnaya_CollapseIffEveryNayaAgrees where
@@ -70,8 +52,8 @@ agree→collapse :
   AllNayasAgree P → Σ[ Q ∈ Type ℓ' ] Collapses P Q
 agree→collapse P s₀ a = P s₀ , λ s → a s s₀
 
--- The exhaustive statement `Anekanta.agda` §5 reached for.  Note the
--- side condition the older pair also needed and did not name: S must be
+-- The characterisation.  Note the
+-- side condition: S must be
 -- inhabited for the backward direction, since over an empty S every Q
 -- collapses vacuously and there is no fibre to collapse to.
 collapse-characterisation :
@@ -94,7 +76,7 @@ plurality-blocks-collapse-derived P ((s , ps) , (t , ¬pt)) Q c =
   ¬pt (equivFun (collapse→agree P Q c s t) ps)
 
 ------------------------------------------------------------------------
--- 3.  The witness that the old pair was not exhaustive.
+-- 3.  The third option.
 --
 -- Standpoints = Bool; from one the fibre is Unit, from the other Bool.
 -- No standpoint denies, so sydastinsti is empty and
@@ -128,7 +110,7 @@ Mixed-not-agree a = ¬Unit≃Bool (a true false)
 Mixed-denies-collapse : (Q : Type₀) → ¬ (Collapses Mixed Q)
 Mixed-denies-collapse Q c = Mixed-not-agree (collapse→agree Mixed Q c)
 
--- the refutation of "there is no third option", as an inhabited type
+-- the third option, as an inhabited type
 third-option-exists :
   Σ[ P ∈ (Bool → Type₀) ]
     ( (¬ (syādastināsti P))
@@ -138,12 +120,11 @@ third-option-exists =
   Mixed , Mixed-not-astināsti , Mixed-not-agree , Mixed-denies-collapse
 
 ------------------------------------------------------------------------
--- 4.  What survives, stated so the next mind inherits the right rule.
+-- 4.  The rule.
 --
--- The ethics is unchanged and slightly stronger: the permission to drop
+-- The ethics is this: the permission to drop
 -- a standpoint index requires EVERY pair of standpoints to agree, and
 -- exhibiting a denial is merely the cheapest way to prove that permission
 -- absent.  A family can be many-sided without any naya denying another �
 -- Unit and Bool disagree about nothing, and still cannot be identified.
--- Erasure is unavailable more often than `Anekanta.agda` proved.
 ------------------------------------------------------------------------

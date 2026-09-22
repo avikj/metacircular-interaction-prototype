@@ -3,13 +3,12 @@
 ------------------------------------------------------------------------
 -- OneLemmaFiveSites
 --
--- lemma has been independently reinvented five times in this repository.
--- Reinvention is cheap to describe and cheap to keep describing; this
--- file removes it, by deriving the instances FROM
--- `TranscriptDescent.collisionObstructsDecoder` instead of beside it.
+-- One lemma stands at five sites in this repository.  This
+-- file derives the instances FROM
+-- `TranscriptDescent.collisionObstructsDecoder`.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- AND A DISTINCTION THE "ONE LEMMA" STORY WAS HIDING
+-- A DISTINCTION BETWEEN TWO ROUTES
 --
 -- Not all five sites are collisions.  Two routes reach the same
 -- conclusion, and which one is available depends on the DECODER SPACE:
@@ -21,12 +20,9 @@
 --
 --   EXHAUSTION  ‚î when the decoders form a small finite set, refute each
 --                 in turn.  `Saptabhangi.no-single-vacana` does this over
---                 six utterances, and it must: no single pair of profiles
---                 separates the joint content from every utterance,
---                 because different utterances fail on different profiles.
+--                 six utterances.
 --
--- The conclusion `¬ FactorsThrough` is shared; the route is not, and
--- reading five sites as "one lemma" would have flattened that.
+-- The conclusion is shared; the route is not.
 ------------------------------------------------------------------------
 
 module OneLemmaFiveSites where
@@ -66,27 +62,14 @@ anuvrtti-noFactor =
 ------------------------------------------------------------------------
 -- 3.  What this leaves.
 --
--- `Laghava` and `Anuvrtti` no longer need private copies of the argument:
+-- `Laghava` and `Anuvrtti` need no private copy of the argument:
 -- their collisions are the data, and the corpus's own lemma is the proof.
--- `CarryBorrowObservation` already did it this way, which is why it is
--- the one of the five that got it right first.
---
--- `AvaktavyaDoesNotFactor` stays as it is, and the header says why: its
--- route is exhaustion, not collision, because its decoder space is six
--- utterances and no single pair of profiles separates the joint content
--- from all of them.  Filing it under "the same lemma" would have been
--- tidier and wrong.
+-- `CarryBorrowObservation` is stated this way too.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 4.  CORRECTION.
+-- 4.  TWO PROFILES SUFFICE.
 --
--- ¬ß3 above and the header say `AvaktavyaDoesNotFactor` "stays as it is,
--- and the header says why: its route is exhaustion, not collision,
--- because its decoder space is six utterances and no single pair of
--- profiles separates the joint content from all of them."
---
--- The DISTINCTION is real.  The REASON is false.
 -- `TwoProfilesSuffice` exhibits the pair:
 --
 --     œ‚ = (‚ä,‚ä,‚ä)   œ‚ = (‚ä,‚ä,‚ä)
@@ -96,22 +79,15 @@ anuvrtti-noFactor =
 -- disjoint and together exhaustive ‚î so the pair refutes every
 -- utterance and avaktavya follows from two witnesses, not six cases.
 --
--- What survives, now as theorems rather than as a reading:
+-- As theorems:
 --
 --   * ONE profile never suffices (`every-profile-is-said`,
---     `no-single-separator`) ‚î that half of the prose was right;
+--     `no-single-separator`);
 --   * TWO do (`pair-separates`).
 --
--- So the invariant is not collision-versus-exhaustion.  It is the
+-- The invariant is the
 -- NUMBER OF WITNESSES: 1 for ‡≤‡æ‡ò‡µ, ‡‡®‡‡µ‡‡‡‡‡ø, carry/borrow and the fuel
 -- obstructions; 2 for ‡‡µ‡ï‡‡‡µ‡‡Ø.  Six was the size of the decoder space,
 -- which is an upper bound anyone can read off a finite type, not a
 -- measure of the absence.
---
--- The error's shape is worth keeping: this file was written to remove a
--- reinvented lemma, noticed a genuine distinction the "one lemma" story
--- was flattening, and then asserted a LOWER BOUND on witness count
--- ("no single pair") by reading an upper bound off the decoder space.
--- A lower bound needs its own proof.  ¬ß2 of the new module is that
--- proof for the bound 1.
 ------------------------------------------------------------------------

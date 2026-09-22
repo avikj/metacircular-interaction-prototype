@@ -18,7 +18,7 @@
 -- redacted at Valabh c. 5th c. CE; fixed at seven with ‡‡‡Ø‡æ‡‡ prefixed
 -- throughout by Samantabhadra, ‡‡‡‡‡Æ‡‡Æ‡æ‡‡‡æ, c. 6th c. CE.
 --
--- WHY THIS MODULE EXISTS, AND WHAT IT CORRECTS.
+-- WHY THIS MODULE EXISTS.
 --
 -- `SaptabhangiNaya` fixes THREE standpoints and SIX utterances, and proves
 -- `no-single-vacana` by listing all six.  `AvaktavyaDoesNotFactor`
@@ -133,8 +133,7 @@ module _ {S : Type ‚Ñì} where
   -- krama-expresses` is this at one fixed two-element demand.
   --
   -- NOTE WHAT THIS SETTLES.  The content is a fold of the binary
-  -- conjunction, so at the level of CONTENT the n-ary total statement is
-  -- The header records the conflation this refutes.
+  -- conjunction, so at the level of CONTENT the n-ary total statement is exactly the iterated binary one.
   ----------------------------------------------------------------------
 
   Adesa : Type ‚Ñì
@@ -273,7 +272,7 @@ data ‡§¶‡•ç‡§µ‡§ø : Type‚ÇÄ where
 ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç-‡§¶‡•ç‡§µ‡§ø = ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‡•ã-‡§®-‡§∏‡§ô‡•ç‡§ó‡§ö‡•ç‡§õ‡§§‡•á ‡§Ü‡§¶‡•á‡§∂‡§É-‡§¶‡•ç‡§µ‡§ø ‡§Æ‡§ø‡§∂‡•ç‡§∞‡§É-‡§Ö‡§∏‡•ç‡§§‡§ø ‡§Æ‡§ø‡§∂‡•ç‡§∞‡§É-‡§®‡§æ‡§∏‡•ç‡§§‡§ø
 
 ------------------------------------------------------------------------
--- ‡ ¬ What this does NOT license.
+-- ‡ ¬ What the fourth position says.
 --
 -- It does not say the total statement is impossible ‚î ‡ï‡‡∞‡Æ-‡‡ô‡‡ï‡≤‡®‡Æ‡ says
 -- succession expresses it exactly, and ¬ß6 exhibits a profile meeting the
@@ -281,8 +280,4 @@ data ‡§¶‡•ç‡§µ‡§ø : Type‚ÇÄ where
 -- entire content of ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ in the sources and it is easy to lose in
 -- translation: the position is about EXPRESSION, not about truth, not
 -- about knowledge, and not about a third truth value.
---
--- Nor does it bear on which of the seven positions a given object
--- occupies, on the exhaustiveness of the seven, or on whether the record
--- lane and the label lane of `Arpitanarpita_‚¶` can be reconciled.
 ------------------------------------------------------------------------

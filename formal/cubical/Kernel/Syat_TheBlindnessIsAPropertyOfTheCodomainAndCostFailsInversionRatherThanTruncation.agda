@@ -13,21 +13,19 @@
 -- The apparatus is laid out in Samantabhadra's *ptamms* (~6th c.) and
 -- developed by Akalaka (~8th c.) and Vidynanda; the governing rule taken
 -- here is the older one, that a naya asserting itself by denying the
--- others becomes a à¦àà°àà¨à¯ Â durnaya.  No first use is established.
+-- others becomes a à¦àà°àà¨à¯ Â durnaya.
 --
 ------------------------------------------------------------------------
--- WHAT THIS REVISES, AND IT IS NOT A REFUTATION.
+-- THE BLINDNESS IS A PROPERTY OF THE CODOMAIN.
 --
--- `Sesa_â¦` proves `every-semantic-criterion-is-blind` and states it
--- unqualified -- "No semantic criterion -- none, at any h-level, of any
--- complexity -- selects the short proof."  THE THEOREM IS TRUE AND THE
+-- `Sesa_â¦` proves `every-semantic-criterion-is-blind`:
 --
 --     syt: FROM A 0-TRUNCATED STANDPOINT, no criterion selects.
 --
--- and "at any h-level" is the clause that does not survive -- the h-level
+-- The h-level
 -- of the CRITERION is unrestricted in `Sesa_`'s statement, but the h-level
 -- of the CODOMAIN is what does the work, and it is fixed at 0 by â•.
--- `Sesa_` is not edited here; the general form is supplied beside it.
+-- The general form is supplied beside it.
 --
 ------------------------------------------------------------------------
 -- AND THE OBVIOUS REPAIR DOES NOT WORK, WHICH IS THE SHARPER HALF.
@@ -56,8 +54,7 @@
 -- identity in any groupoid whatsoever.  The proof uses `assoc`, `rCancel`
 -- and `lUnit` and mentions no h-level anywhere.
 --
--- SO THE READING IN Â§1 IS RIGHT ABOUT THE GENERAL CASE AND WRONG ABOUT
--- SEA_'S OWN WITNESSES.  Truncation is what identifies parallel
+-- Truncation is what identifies parallel
 -- derivations in general; it is NOT what identifies THOSE TWO.  Those two
 -- are identified by inversion, which Â§2 already names as the deeper
 -- obstruction -- and `Sesa_`'s exhibited proof-relevance, `len` 2 against
@@ -152,7 +149,7 @@ round-trip d = âŠ•-len d (rev d) âˆ™ cong (len d +_) (rev-len d)
 -- `detour-history` and `direct-history` get the SAME path.  They differ by
 -- `s ; reverse s`, and a round trip is the identity in any groupoid.
 --
--- No `isSet` appears below.  This is the correction recorded in the header.
+-- No `isSet` appears below.
 ------------------------------------------------------------------------
 
 module _ {X : Type â„“} (P : Tm â†’ X)

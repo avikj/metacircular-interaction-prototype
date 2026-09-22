@@ -44,15 +44,14 @@
 --   * the numerical statement, once the fibres happen to be finite
 --     (Â§4, `fiberCardâ‰`): `card (fiber f y) â‰ card E`.
 --
--- WHAT THIS CORRECTS, AND IT IS NOT A QUIBBLE.  The note's sentence is
+-- The note's sentence is
 -- symmetric â” "the minimum â¦ IS the maximum fiber cardinality" â” and
 -- Â§3 shows the two halves are not symmetric.  The lower bound is a
 -- theorem about `f` alone.  The attainment is a DATUM: a family
 -- `(y : Y) â’ fiber f y â E`, uniform in `y`.  A pointwise cardinality
 -- bound `âˆ y â’ card (fiber f y) â‰ n` does NOT produce that family;
 -- producing it is choosing an enumeration of each fibre, i.e. choosing
--- a trivialisation of the fibration `f`.  Nothing in this module
--- constructs one from a bound, and nothing below claims to.  In the
+-- a trivialisation of the fibration `f`.  In the
 -- corpus's own instance the trivialisation is canonical â” the emitted
 -- row coefficient `-q` IS the fibre coordinate â” which is exactly why
 -- that example works and why it proves nothing about the general case.
@@ -71,11 +70,7 @@
 -- common nominal endpoint" of `collab/messages/
 -- 0285-codex-quantum-process-fixed-domain-memory-result.md`, is that
 -- message's `3^k` lower bound; Â§4 is the step that turns the embedding
--- into the number.  Not instantiated here: doing so adds a finite
--- enumeration and no mathematics.
---
---
--- RELATION TO WHAT IS ALREADY CHECKED â” no duplication, by inspection.
+-- into the number.
 --
 -- `NaturalMachine.FiniteInformation` (ported from the Lean lane) already
 -- has `Completes q c` = injectivity of `âŸ¨q,câŸ©`, and
@@ -109,13 +104,6 @@
 -- both round trips are `refl` and `fiberIso` computes.  The derived
 -- version is available and is strictly weaker in computational
 -- content.
---
--- Also searched, under the standard names: `isEmbedding`,
--- `hasPropFibers`, `fiber`, `totalEquiv`, `fibrationEquiv`,
--- `cardâInequality'` in `~/agda-libs/cubical` v0.5; `Completes`,
--- `SeparatesFibers` in this corpus.  Â§2â“Â§4 (the embedding transfer, the
--- certificate/trivialisation Iso, the cardinality corollary) are not in
--- the library under any of them.
 ------------------------------------------------------------------------
 
 module NaturalMachine.CertificateFibration where

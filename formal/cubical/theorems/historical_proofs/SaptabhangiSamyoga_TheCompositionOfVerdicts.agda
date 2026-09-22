@@ -459,7 +459,7 @@ x ‡§®‡•ç‡§Ø‡•Ç‡§®‡§É y = ‡§ï‡•ç‡§∞‡§Æ-‡§Ø‡•ã‡§ó x y ‚â° y
 -- with ‡‡®‡∞‡‡‡‡Æ‡ ‚àò ‡‡∞‡‡‡‡Æ‡ ‚â° id ‚î so this lane's seven are a subalgebra AND a
 -- quotient of the record lane's, i.e. a RETRACT of it ‚î and it has NO
 -- inverse (`‡®-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡`), so no equivalence exists and ¬ß‡ path one is
--- unavailable as a theorem rather than as a failure to find one.
+-- unavailable as a theorem.
 --
 -- The tradition's question is untouched by the composition laws: whether
 -- ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ is failure of expression only or consumption of what was to be

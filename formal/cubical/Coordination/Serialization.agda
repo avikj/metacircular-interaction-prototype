@@ -6,8 +6,7 @@
 -- **K2, the local serialization theorem** � the load-bearing proposition
 -- of the owner's Coordination Kernel v0.1
 -- (`collab/upstream/library/raw/COORDINATION_KERNEL_V0_1_2026-08-13(1).md`
--- §7), machine-checked, together with the hypothesis this repository's
--- own audit found the spec omits.
+-- §7), machine-checked, together with the hypothesis the spec omits.
 --
 -- WHY THIS THEOREM.  Every "no global sequencer" claim in the kernel is a
 -- corollary of K2: invariants K4 (no mandatory total-order field), K15
@@ -19,9 +18,7 @@
 --     if two schedules differ only by transpositions of adjacent
 --     INDEPENDENT events, they compute the same final state.
 --
--- THE CORRECTION THIS MODULE CARRIES.  `notes/RELATIONAL_CONTRACTS_AUDIT.md`
--- audited the upstream Delta's coordination-decomposition and returned
--- SCOPED/CORRECTED: uninformative cross-boundary messages do not by
+-- THE HYPOTHESIS.  Uninformative cross-boundary messages do not by
 -- themselves license removing synchronisation, because "a protocol whose
 -- control flow branches on an uninformative bit still changes its
 -- composite map when the bit is withheld", and the conclusion becomes
@@ -30,8 +27,7 @@
 -- `run` is applied to a FIXED event word, so the event structure is held
 -- constant by construction, and the reordering theorem is proved only in
 -- that regime.  A protocol that chooses its next event from the state is
--- not an inhabitant of this statement, which is precisely the audit's
--- point made unignorable.
+-- not an inhabitant of this statement.
 --
 -- WHAT THIS MODULE PROVES (no holes, no postulates, --safe):
 --

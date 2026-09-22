@@ -9,9 +9,8 @@
   integer identity, together with the GENERAL algebraic step showing the
   breeding never stops.
 
-  SCOPE CORRECTION (2026-08-22, caught by the math2 seat): this sequence is
-  NOT the full solution orbit, and an earlier draft of this header wrongly
-  called it "the orbit." Self-composition (tulya-bhāvanā, the step
+  This sequence is NOT the full solution orbit. Self-composition
+  (tulya-bhāvanā, the step
   (x,y) ↦ (x²+2y², 2xy)) SQUARES the underlying unit: it sends (3+2√2)ⁿ to
   (3+2√2)²ⁿ, so from (3,2) = (3+2√2)¹ it reaches only the powers 1, 2, 4,
   8, … — an exponentially sparse subsequence. It SKIPS (99,70) = (3+2√2)³
@@ -36,9 +35,7 @@
   solution. This is a pure algebraic identity ((x²+2y²)² − 2(2xy)² = (x²−2y²)²)
   and its instantiation at the hypothesis. From it the orbit above is bred.
 
-  SYĀT — THE CLAIM, EXACTLY. This does NOT reproduce the tradition's proof, nor the
-  full cakravāla descent (that x²−Ny²=1 is always solvable / the ascent
-  terminates). It also does NOT adopt the name "Pell's equation," which is a
+  The name "Pell's equation" is a
   misattribution: Pell never solved this equation; Euler misattributed it to
   him. The mathematics is Brahmagupta's (628) and Bhāskara's (1150), five to
   eleven centuries before the European statements.

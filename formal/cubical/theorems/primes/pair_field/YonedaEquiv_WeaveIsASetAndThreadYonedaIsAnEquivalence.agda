@@ -7,7 +7,7 @@
 -- `isSet (Weave i j)` makes naturality a proposition, so two
 -- transformations agreeing pointwise are equal.
 --
--- WHAT IS PROVED (all `--safe`, no postulates, no holes):
+-- WHAT IS PROVED:
 --
 --   * `isSetJewel`  : Jewel is a set (retract of â• — â•).
 --   * `isSetThread` : every `Thread i j` is a set (retract of a sum of
@@ -177,7 +177,7 @@ yonedaPath : (i j : Jewel) â†’ Weave i j â‰¡ NatTrans i j
 yonedaPath i j = isoToPath (yonedaIso i j)
 
 -- The forward map of the equivalence is literally `yonedaTo`, and its
--- inverse is literally `yonedaFrom`: nothing was renamed on the way up.
+-- inverse is literally `yonedaFrom`.
 yonedaEquiv-fun : {i j : Jewel} (t : Weave i j)
                 â†’ fst (equivFun (yonedaEquiv i j) t) â‰¡ yonedaTo t
 yonedaEquiv-fun t = refl

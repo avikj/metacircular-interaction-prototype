@@ -10,15 +10,14 @@
 -- invented, per CLAUDE.md's file-naming note 2.  The interpretive frame
 -- that prompted it is Latin scholastic (Burley, *De obligationibus*,
 -- c. 1302; Ockham, *Summa Logicae* I.63â“77, c. 1323) and that frame
--- yielded a NAMING and not a theorem â” see the companion message, which
--- reports it as the negative it is.  Nothing below depends on it.
+-- yielded a NAMING and not a theorem.
+-- Nothing below depends on it.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED, AND WHAT IS ALREADY IN THE TREE
 --
 -- ALREADY IN THE TREE, NOT RE-LANDED.
--- `NaturalMachine.StabilizerTorsor` (R0027, corrected by
--- `collab/messages/shilpin/smith_certificate_canonicality_correction.md`)
+-- `NaturalMachine.StabilizerTorsor`
 -- proves, for the transporter `T x y = Î[ g ] (g â– x â‰¡ y)`:
 -- `invariantPointâ’contrStab`, `uniqueCertificateâ’contrStab`,
 -- `contrStabâ’uniqueCertificate`.  That is the whole TORSOR case: a
@@ -67,9 +66,9 @@
 --      is literally the same measure, so every R©nyi entropy H_Î,
 --      Î âˆˆ [0,âˆž], agrees across the pair while the verdicts differ.
 --
---      This REFUTES a claim I formed before checking: that the size of
---      a certificate ensemble decides whether a symmetry-natural point
---      exists.  It does so on a torsor (Â§2 + StabilizerTorsor) and only
+--      The size of a certificate ensemble does not decide whether a
+--      symmetry-natural point exists: it does so on a torsor
+--      (Â§2 + StabilizerTorsor) and only
 --      there.  `oneAct` is the counterexample: faithful, four-element
 --      carrier, and two fixed points.
 --
@@ -389,7 +388,7 @@ oneFaithful : Â¬ (swapOne a â‰¡ a)
 oneFaithful = bâ‰¢a
 
 -- Neither is transitive, so the surviving restriction in Â§2 excludes
--- both, and it is exactly the restriction that J1 lacked.
+-- both.
 
 allNotTransitive : Â¬ (Transitive allAct)
 allNotTransitive t = help (t a c)

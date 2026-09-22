@@ -23,10 +23,10 @@
 --   * `TransmissionRefutations` computes on â• itself, so its witnesses
 --     are witnesses about actual numbers and need no model;
 --   * this module proves the universal statement, at the price of the
---     model â” see SCOPE at the foot of the file for exactly what the
+--     model â” Â§6 records what the
 --     model assumes (unique factorisation, and nothing else).
 --
--- Archive re-read at source before writing (lines 390, 393 of
+-- The source displays (lines 390, 393 of
 -- `collab/upstream/raw/D0020-owner-fifth-transmission-2026-08-15.md`):
 --
 --     Î _âˆ(Î½) := Î¼(Î½)Â² âˆ’ Ïâ(Î½),      Ïâ(Î½) := Ï‰(Î½) âˆ’ 1

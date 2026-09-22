@@ -3,17 +3,13 @@
 ------------------------------------------------------------------------
 -- TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeedDifferentAxioms
 --
--- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
--- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- invented.**  The abstract order-theoretic form used here â” two
+-- ON THE NAME.  The abstract order-theoretic form used here â” two
 -- preorders, two antitone maps, one adjunction â” is Ore's ("Galois
 -- connexions", *Trans. AMS* 55, 1944), after Birkhoff (*Lattice
--- Theory*, 1940, Â§V); the module being audited already cites both.  I
--- have not established an Indian source for it and will not attach a
--- label I cannot defend.
+-- Theory*, 1940, Â§V); the module being audited already cites both.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE AUDIT, AND WHAT IT FOUND AND DID NOT FIND.
+-- THE AUDIT.
 --
 -- Target: `TheSaturationClosureNeedsOnlyAGaloisConnection`, whose title
 -- is a MINIMALITY claim and whose Â§1 is headed "The only assumptions:
@@ -24,12 +20,6 @@
 -- `â‰¼-trans` in `u-antitone` and `saturatedGivesFixed`, `âŠ-refl` in
 -- `unit` and `fixedGivesSaturated`, `âŠ-trans` in `d-antitone`, and both
 -- adjunction directions throughout.  Nothing is assumed and unused.
---
--- **WHAT IT DOES NOT SHOW IS THAT ITS PACKAGE IS THE ONLY SUFFICIENT ONE**,
--- and "needs only X" invites exactly that reading. A reader who already has
--- antitone maps with a unit and a counit â” the other standard presentation,
--- and the one a construction usually hands you first â” has no statement to
--- appeal to.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED

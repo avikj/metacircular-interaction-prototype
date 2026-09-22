@@ -3,16 +3,9 @@
 ------------------------------------------------------------------------
 -- TheSeamIsVisibleTheMomentSomebodyIsPerfectSoExactlyWhenIsNowBothDirections
 --
--- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
--- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- invented.**  The subject is a seam recorded in this corpus's own
---
--- **GRADE, INHERITED AND UNCHANGED: I DID NOT READ THE DGM CODE.**  The
--- audited module says so and this says so again â” no request to
--- github.com was made, here or there.  What is checked is the
--- order-theoretic content of Â§2's sentence, on the assumption that the
--- sentence describes the released function correctly.  If Â§2 misread
--- it, nothing here is affected and nothing here defends Â§2.
+-- What is checked is the order-theoretic content of Â§2's sentence, on the
+-- assumption that the sentence describes the released function
+-- correctly.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE AUDIT.  Target: `ExcludingPerfectScorersRemovesOnlyGainlessCandidates`.
@@ -22,9 +15,7 @@
 -- is exactly `noStrictImprovementAtTheCap`.  The reverse reading â”
 -- every gainless candidate is removed â” is false in general, and that
 -- module's Â§"SYT â” THE CLAIM, EXACTLY" says so in its own words: the cap
--- bounds the score, it does not populate it.  **This is the first
--- target in the sweep whose `Only` was already guarded against its own
--- second reading**, and it is worth recording as such.
+-- bounds the score, it does not populate it.
 --
 -- **THE FAULT IS ONE LEVEL DOWN, IN A THEOREM NAME.**  Â§3 is called
 -- `theSeamIsInvisibleExactlyWhenNobodyIsPerfect` and proves ONE
@@ -36,8 +27,8 @@
 -- attains the cap, feed the invisibility statement `a âˆ []`.  It
 -- returns `a` as a member of `eligible (a âˆ [])`; every member of a
 -- filtered list satisfies the predicate (`filterDecOnlyKeepsSatisfiers`);
--- so `Imperfect a`, which contradicts `AtCap a`.  Diagnostic (1) placed
--- it before it was written: the two sides are joined by a FILTER whose
+-- so `Imperfect a`, which contradicts `AtCap a`.
+-- The two sides are joined by a FILTER whose
 -- exactness lemmas both already exist, so neither direction is a search.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”

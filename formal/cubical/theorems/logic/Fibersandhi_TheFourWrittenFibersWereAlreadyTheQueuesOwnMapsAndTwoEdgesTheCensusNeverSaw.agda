@@ -6,7 +6,7 @@
 -- (the fiber was written; it was the census that could not see.)
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE METHOD, and its false-positive rate, which is the point.
+-- THE QUEUE.
 --
 -- `interactive/Lopa_â¦hs` grades 1046 one-way edges in this corpus UNDECIDED:
 -- no syntactic rule names a fiber.  But a fiber WRITTEN OUT is a Î ending
@@ -15,12 +15,7 @@
 --     Fib n = Î[ w âˆˆ Word ] (value w â‰¡ n)
 --
 -- â” and 46 such definitions already exist in `formal/cubical` and
--- `fiber/src`.  Joining their SOURCE TYPES against the queue's
--- gives leads.  A source-type match is a LEAD AND NOT A VERDICT: eleven
--- leads were examined and SIX DIED on inspection.  They are listed by
--- name in Â§à¦ below, because a method's false-positive rate is what
--- decides whether to run it on the other 238 source types, and a report
--- that prints only its hits has measured nothing.
+-- `fiber/src`.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED.  Nothing is constructed; all four are `refl`.
@@ -33,21 +28,21 @@
 -- Â§à¨  Fib n           â‰¡  fiber value n                   (queued edge)
 -- Â§à©  EvenQuery       â‰¡  fiber (sgn âˆ˜ Î©) true            (COMPOSITE of
 --     two queued edges, `Number âŸ â• Â Î©` and `â• âŸ Bool Â sgn`; the
---     composite is not itself a queue entry, and this is stated rather
---     than smoothed over, because the queue does not contain the map
+--     composite is not itself a queue entry:
+--     the queue does not contain the map
 --     this fiber belongs to â” it contains its two halves.)
 -- Â§à  ThreeKernel     â‰¡  fiber triple (pos 0)            (NOT IN THE
 --     QUEUE AT ALL, see below.)
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE TWO EDGES THE CENSUS NEVER SAW, which is the finding.
+-- THE TWO EDGES THE CENSUS NEVER SAW.
 --
 -- `triple : â â’ â` (`S3IntegerRelativeCoordinates.agda:83`) and
 -- `à®à¾ààà°à¾ : à°àà â’ â•` (`fiber/src/â¦/Prastara_â¦.agda:157`) are
 -- top-level, total, non-injective maps whose fibers are written 12 and
 -- 95 lines below them respectively.  NEITHER APPEARS among the 1046.
 -- So the queue's number is not an upper bound on the corpus's one-way
--- edges and was being read as one.
+-- edges.
 --
 ------------------------------------------------------------------------
 
@@ -66,11 +61,7 @@ open import OracleSeparation using (EvenQuery)
 open import S3IntegerRelativeCoordinates using (triple ; ThreeKernel)
 
 ------------------------------------------------------------------------
--- à¦.  THE SIX THAT DIED, named, with the reason each died.
---
--- Every one of the six is a Î over a source type that the queue does
--- carry.  The type-level shape is what kills them, and the shape is
--- worth stating because it is a REPAIR to the join, not an excuse:
+-- à¦.  WHAT THESE SHAPES ARE NOT.
 --
 --   (i)  a NEGATED equation is not a fiber.  `fiber f b` is
 --        `Î[ a ] (f a â‰¡ b)`; `Î[ a ] Â (f a â‰¡ b)` is its complement and
@@ -86,19 +77,10 @@ open import S3IntegerRelativeCoordinates using (triple ; ThreeKernel)
 --        point, so there is no b for `fiber g b` to be taken over.
 --          Â RelationalTensorObstructionBridge.LoopStable  (Î[ phase âˆˆ Bool ] subst â¦ loop phase â‰¡ phase)
 --          Â S3ConjugacyObservation.Fixed                  (Î[ x âˆˆ Fin3 ] g .fst x â‰¡ x)
---        LoopStable additionally occurs in the queue as a TARGET, never
---        as a source, so the join matched it on the wrong end.
 --
 --   (iii) right shape, WRONG MAP.  PingalaPrastara's `à²à˜à-àà™àà–àà¯à¾` counts
 --        laghus; `Metre`'s equation is over `matraOf`, which sums morae.
 --        Same two types, different map, no identification.
---
--- FOUR of eleven leads closed; SIX died; one closed only after the
--- source-type match was replaced by a map-level one.  So the join on
--- source types alone runs at roughly 55% false positives, and the two
--- cheap filters that would remove most of them â” reject a negated
--- equation, reject an equation whose right side mentions the bound
--- variable â” are stated above as text because they are one grep each.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -127,8 +109,7 @@ Fib-is-fiber _ = refl
 -- The queue holds the two halves; the written fiber belongs to the
 -- composite.  A fiber of a composite is not a fiber of either factor,
 -- and the identification below is therefore about a map the census is
--- not holding â” which is a statement about the census's granularity and
--- is recorded as one.
+-- not holding â” which is a statement about the census's granularity.
 ------------------------------------------------------------------------
 
 sgnÎ© : Number â†’ Bool

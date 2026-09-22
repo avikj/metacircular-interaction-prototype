@@ -192,7 +192,7 @@ module DivF where
   obstruction = site bad ok same bad-wrong ok-right
 
 ------------------------------------------------------------------------
--- 5.  What is now established, and what is not.
+-- 5.  What is established.
 --
 -- ESTABLISHED.  Three subsystems, three hands, one shape, each with a
 -- computed pair of calls: `Â FactorsThrough value status`.  Together
@@ -201,13 +201,6 @@ module DivF where
 -- A fuelled function into bare â• MUST pick a default, the default is
 -- always someone's legitimate answer, and so the returned number can
 -- never report its own adequacy.
---
--- NOT ESTABLISHED.  That any of these functions is called outside its
--- adequate range anywhere in this repository.  Six of the nine are read
--- from their exhaustion branches only and have no collision computed
--- here.  Nothing in this file evaluates any author's range claim; it
--- shows only that such claims are load-bearing and cannot be replaced
--- by inspecting results.
 --
 -- THE REPAIR is unchanged from the first two sites and is the shape the
 -- rest of this corpus already uses: take the budget as a hypothesis and

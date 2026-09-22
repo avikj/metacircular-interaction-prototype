@@ -159,9 +159,7 @@ theorem familySquareAmbiguity_replace
   simp only [squareAmbiguity, branchSquareAmbiguity] at hsplit
   omega
 
-/-- The same replacement has exactly one more nonempty block.  This elementary
-count is the correction to the forecast that the quadratic pair budget might
-be sharp as a count of informative partition events. -/
+/-- The same replacement has exactly one more nonempty block. -/
 theorem family_length_replace
     (before after : List (Block M)) (block : Block M) (action : A)
     (valid : block.ValidAction M action)
@@ -214,16 +212,6 @@ namespace Control
 def step (state : Fin 3) (action : Bool) : Fin 3 :=
   if action then if state = 1 then 2 else state else state
 
-/-- The five lines below are character-for-character identical to the
-`automaton` of `ResidualBFSWitness`, `NativeWitnessGreedyFormation.Control` and
-`NativeDemandRestrictedFormation.Control` (census, 2026-08-22, the lane's
-`automaton ×4` group) — **and they name four different automata**, because the
-`step` each refers to is different in three of the four: action-blind in the
-two `Native` modules, `0 --false--> 1 --true--> 2` in `ResidualBFS`, and
-`true`-gated here.  A content address is a hash of the presentation and the
-dependency scan is lexical, so the group is a floor on nothing: the right
-verdict is to leave all four standing.  The two that *are* one automaton say so
-by a checked `rfl` in `NativeDemandRestrictedFormation.Control`. -/
 def automaton : DFA Bool (Fin 3) where
   step := step
   start := 0

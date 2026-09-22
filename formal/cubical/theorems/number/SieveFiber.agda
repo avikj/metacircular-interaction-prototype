@@ -55,8 +55,7 @@
 --                         size and in particular never uniformly 2.
 --                         The shape is qâ»Â(v) = {s} âˆ {sÂp : âˆX < p â‰ X/s}
 --                         for s = Ï v, so #qâ»Â(v) = 1 + #{p : âˆX < p â‰ X/s}
---                         â” which is 1 whenever s > âˆX.  (Stated; the
---                         three instances are what is proved.)
+--                         â” which is 1 whenever s > âˆX.
 --
 --   Â§6  `chargeFactors`   THE POSITIVE ANSWER.  Liouville charge
 --                         Î©(n) mod 2 factors through (q n , Îµ n):
@@ -577,7 +576,7 @@ pairMapNotInjective = 7âˆˆFibre000 , 11âˆˆFibre000 , refl , 7â‰¢11
 -- forms, where the fiber should acquire the 2^k charge structure we've
 -- already found."  The k = 2 instance of that, with the twin-prime pair
 -- of forms (n , n+2), is checked here â” and it comes out NEGATIVE at
--- this scale, which is worth knowing before a successor builds on it.
+-- this scale.
 --
 -- The joint visible state is (q n , q (n+2)) and the joint residual is
 -- (Îµ n , Îµ (n+2)) âˆˆ 2Â².  For the fibre to "acquire 2Â² charge structure"

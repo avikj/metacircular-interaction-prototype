@@ -4,8 +4,8 @@
 -- ‡®‡æ‡‡ï, ‡‡û‡‡‡Æ ‡‡ï‡‡ ‚î the rope joins the coin.
 --
 -- Nanaka minted the type: a face = a projection, two carried points,
--- apart upstairs, together downstairs.  The rope lane proved, months
--- apart from the others, that its charge is conserved and read by no
+-- apart upstairs, together downstairs.  The rope lane proved
+-- that its charge is conserved and read by no
 -- bounded observer.  Here that lane is minted into the same coin ‚î
 -- and it contributes something no earlier face had: A FACE AT EVERY
 -- HORIZON.  The parameter k is the observer's depth, i the crossing's

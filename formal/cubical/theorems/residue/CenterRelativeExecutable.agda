@@ -25,7 +25,7 @@
 -- (‡®‡‡Ø‡æ‡Ø counterweight): this file reuses `Transport`'s
 -- idiom exactly ‚î `transportUAop‚` against `ua` of a constructed
 -- equivalence ‚î which is that module's `transport-+-is-‚äï` one arity down.
--- Nothing here is a new technique. The content is that the pair/centre
+-- The content is that the pair/centre
 -- exchange is an instance of it.
 --
 -- WHERE "2 IS INVERTIBLE" GOES, AND WHY IT IS A PARAMETER

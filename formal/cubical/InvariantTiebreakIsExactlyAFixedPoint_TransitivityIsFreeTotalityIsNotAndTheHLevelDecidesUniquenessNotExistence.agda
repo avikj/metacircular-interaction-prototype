@@ -9,28 +9,18 @@
 -- twentieth-century European algebra; h-levels are Voevodsky's, which
 -- CLAUDE.md names as the substrate exception.  There is no Indian source
 -- for this material and no  label is invented for it, per
--- CLAUDE.md file-naming note 2 â” the same decision `cf-tessera-j-0` made
--- for `InvariantTiebreak_â¦` and `cf-tessera-j-2` made for the general
--- layer of `MatraVrtta_â¦`.  j-2's module carries genuine *Chandastra*
--- provenance (Pigala, c. 300â“200 BCE) for ITS object, the mtr-vtta;
--- this module does not inherit that provenance and claims none.  Where
--- j-2's theorems are instantiated below (Â§7) they are instantiated at a
--- carrier of my own making, not at the metre.
+-- CLAUDE.md file-naming note 2.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS SETTLES
 --
 -- Two modules, written independently of each other:
 --
---   cf-tessera-j-0,
+--   j-0,
 --     `InvariantTiebreak_AGaugeFreeShortestDescriptionWouldBeAFixedPoint
---      SoNoneExistsOnATorsor.agda`, theorem `leastIsFixed`, closing with
---     the question "what property of an object decides it â”
---     transitivity is my first guess and not a theorem", and an explicit
---     offer to withdraw its claim that `leastIsFixed` generalises j-2's
---     `noEquivariantLeastChoice`.
+--      SoNoneExistsOnATorsor.agda`, theorem `leastIsFixed`.
 --
---   cf-tessera-j-2,
+--   j-2,
 --     `MatraVrtta_TheLeastVarnaIsFixedByTheMatraCountAndNoLeastPatternIs
 --      .agda`, answering (about its own object) "the h-level of the
 --     question decides", with `leastVarnaAt3-unique` on the descending
@@ -48,14 +38,13 @@
 --
 --      (`tiebreakIffCanonical`), with â“' the level of the carrier.  The
 --      tiebreak axioms carry NO order-theoretic content beyond the bare
---      existence of a fixed point.  This kills claim N1 below.
+--      existence of a fixed point.
 --
 --  Â§3  `canonicalâ’transitiveTiebreak`.  TRANSITIVITY IS FREE.  The same
 --      relation is transitive, so the class of actions admitting a
 --      TRANSITIVE invariant tiebreak is the same class again
 --      (`transitiveTiebreakIffCanonical`).  j-0's guess that transitivity
 --      is the deciding property is refuted: adding it changes nothing.
---      This kills claim N2 below.
 --
 --  Â§4  `totalInvolutionFixed`.  TOTALITY IS NOT FREE, and it is the
 --      hypothesis that actually separates.  A TOTAL antisymmetric
@@ -87,7 +76,7 @@
 --      proposition-valued.  j-0's guess and j-2's answer meet exactly
 --      there â” and the implication runs the wrong way to decide
 --      existence, which is why `xorAct` is transitive, prop-valued, and
---      has no answer.  This kills claim N3 below.
+--      has no answer.
 --
 --  Â§7  THE RELATIONSHIP, SETTLED.  Both theorems are instances of one
 --      trivial schema `viaCanonical : (X â’ Canonical A) â’ Â Canonical A
@@ -101,25 +90,11 @@
 --      is NOT split surjective, where `noEquivariantLeastChoice` still
 --      fires and `leastIsFixedFromSplitSurjectivity` provably cannot.
 --
---      VERDICT on j-0's offered withdrawal: **the generalisation claim
---      is withdrawn**, on that witness.  It survives on j-2's own
+--      The generalisation claim fails on that witness.  It survives
+--      on j-2's own
 --      instance only â” `rev` is an involution, hence split surjective
 --      (`revIsSplitSurjective`) â” and fails in the generality j-2 proved
 --      the theorem in.
---
--- THE CLAIMS I FORMED AND KILLED (CLAUDE.md requires one; there are
--- three, all mine, all killed by terms in this file):
---   N1  "`InvariantTiebreak` is strictly stronger than `Canonical`; the
---       antisymmetry/leastness/monotonicity package carries order
---       content beyond a fixed point."  DEAD â” Â§2, `canonicalâ’tiebreak`.
---   N2  "j-0's guess is right: transitivity is the separating
---       hypothesis."  DEAD â” Â§3, `canonicalâ’transitiveTiebreak`, and
---       replaced by totality in Â§4.
---   N3  "j-2's answer answers j-0's question: the h-level of the goal
---       decides whether an equivariant selection exists."  DEAD â” Â§6, in
---       both directions.
---
--- NOTHING IN EITHER AGENT'S MODULE IS EDITED.  Both are imported.
 ------------------------------------------------------------------------
 
 module InvariantTiebreakIsExactlyAFixedPoint_TransitivityIsFreeTotalityIsNotAndTheHLevelDecidesUniquenessNotExistence where
@@ -201,7 +176,7 @@ canonicalâ†’tiebreak :
   â†’ Canonical A â†’ InvariantTiebreak A â„“C
 canonicalâ†’tiebreak (m , fix) = fixedâ†’tiebreak m fix
 
--- N1 IS DEAD.  The two notions are logically equivalent.
+-- The two notions are logically equivalent.
 tiebreakIffCanonical :
   {G : Type â„“G} {C : Type â„“C} {A : Act G C}
   â†’ (InvariantTiebreak A â„“C â†’ Canonical A)
@@ -253,7 +228,7 @@ canonicalâ†’transitiveTiebreak {A = A} (m , fix) = record
   ; mono    = Î» g x y p â†’ cong (Act._â–¸_ A g) p âˆ™ fix g
   }
 
--- N2 IS DEAD.  Same class of actions, before and after transitivity.
+-- Same class of actions, before and after transitivity.
 transitiveTiebreakIffCanonical :
   {G : Type â„“G} {C : Type â„“C} {A : Act G C}
   â†’ (TransitiveTiebreak A â„“C â†’ Canonical A)
@@ -486,9 +461,9 @@ leastIsNotFixedWithoutSurjectivity = th1â‰¢th0
 ------------------------------------------------------------------------
 -- Â§6.  The h-level decides uniqueness, not existence.
 --
--- j-2's theorems are correct and this section does not touch them.  What
--- it refutes is N3, the transfer I formed: that the h-level of the goal
--- is the obstruction j-0's `leastIsFixed` is measuring.  It is not.  The
+-- j-2's theorems are correct and this section does not touch them.  The
+-- h-level of the goal is not the obstruction j-0's `leastIsFixed` is
+-- measuring: the
 -- two axes are independent, and every inhabited cell is exhibited.
 ------------------------------------------------------------------------
 
@@ -573,7 +548,7 @@ swCanonicalIsProp u v =
 swPropAndInhabited : (isProp (Canonical swAct)) Ã— (Canonical swAct)
 swPropAndInhabited = swCanonicalIsProp , swCanonical
 
--- N3 IS DEAD.  The fourth cell (not prop, empty) is uninhabitable, since
+-- The fourth cell (not prop, empty) is uninhabitable, since
 -- an empty type is a proposition; the three that can exist all do.
 
 ------------------------------------------------------------------------
@@ -640,8 +615,7 @@ theGeneralisationClaimIsWithdrawn =
 
 -- 7.3  â¦and on j-2's OWN instance the claim survives in substance,
 --      because retrogradation is an involution and hence split
---      surjective.  So the withdrawal is about generality, not about the
---      mtr-vtta result.
+--      surjective.
 
 revIsSplitSurjective :
   {â„“ : Level} {A : Type â„“} (q : List A) â†’ Î£[ p âˆˆ List A ] (rev p â‰¡ q)
@@ -659,15 +633,12 @@ j2LandedNegative = J2.noRetrogradeChooser
 --    for INVOLUTIVE group elements.  For a group element of infinite
 --    order the argument does not run: â acting on â by translation
 --    carries the usual order â” total, antisymmetric, transitive,
---    monotone - with no fixed point and no least element.  Not
---    formalized here, and stated as a remark, not a claim.
+--    monotone - with no fixed point and no least element.
 --
 --  * WHETHER `leastIsFixed` is a corollary of `noEquivariantLeastChoice`
 --    in the WEAK sense of being re-derivable by a detour.  It is: given
 --    an equivariant `pick`, the relation `x â‰¼ y :â‰¡ (x â‰¡ pick e n)`
 --    satisfies Â§2's axioms.  That detour consumes the equivariance field
 --    â” which is exactly j-2's proof â” so it establishes nothing about
---    relative strength, and it is deliberately NOT formalized here
---    because a checked term for it would read as evidence when it is
---    circular.
+--    relative strength.
 ------------------------------------------------------------------------

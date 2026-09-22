@@ -28,13 +28,6 @@
 --
 --     bind b :  Œ[ o ‚àà O ] (S x ‚â° o)  = singl (S x)   ‚î contractible, always
 --     bind a :  Œ[ x ‚àà X ] (S x ‚â° o)  = fiber S o     ‚î arbitrary; the cost
---
--- ¬ß‡ is why this file exists.  On 2026-08-12 a claim of this corpus was
--- stated as an equivalence ‚î *an index is unobservable EXACTLY WHEN a symmetry
--- acts transitively* ‚î and its necessity half was refuted the same day.  ¬ß‡©
--- says the refutation was structural and not accidental: necessity is the
--- costly direction, the cost is a section, and no section had been supplied.
--- The day's largest correction and the day's law are one statement.
 ------------------------------------------------------------------------
 
 module EkaVidhih_TheOneLawIsDescentTheFreeDirectionIsBindBAndTheCostlyOneNeedsASection where
@@ -119,27 +112,9 @@ module _ {X : Type ‚Ñì} {O : Type ‚Ñì'} (S : X ‚Üí O) where
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡•á-‡§®-‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç (h , _) = h tt
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡‡≤‡Æ‡ ‚î the day's correction is the law's own asymmetry
---
--- The statement *unobservable EXACTLY WHEN a symmetry acts transitively* has
--- two halves and they are ¬ß‡® and ¬ß‡©.
---
---   sufficiency ‚î transitive ‚ü flattened.  This is ¬ß‡® at O = Unit: a
---     transitive action makes the orbit space a point, every fibre is the
---     whole type, and blindness is total.  FREE, and it stood.
---   necessity  ‚î flattened ‚ü transitive.  This is ¬ß‡©'s direction: it asks
---     to reconstruct a structure ON the index from constancy of a reading OF
---     it.  That is descent backwards, it costs a section, and none was
---     offered.  It was refuted the same day by an exhibit whose verdict is
---     constant with no transitive symmetry acting at all.
---
--- So the refutation did not correct an error of care.  It located the claim on
--- the costly side of the one law.  ‡Ø‡‡ ‡Æ‡‡ï‡‡‡ ‡‡‡ ‡Æ‡‡ï‡‡‡Æ‡ ; ‡Ø‡‡ ‡‡¶‡‡ß‡ ‡‡‡
--- ‡‡‡¶‡ ‡Ø‡æ‡‡‡ ‚î what is free is free, what is bound demands its section.
---
 -- ‡Æ‡∞‡‡Ø‡æ‡¶‡æ.  ¬ß‡© takes a split surjection.  A merely surjective S with untruncated
 -- fibres needs choice to pick `‡‡‡¶‡`, and in this corpus that choice is DATA
 -- to be handed over, not a background assumption ‚î which is the same standard
 -- `‡‡‡∞‡µ‡‡‡ø` sets by being a Œ and not a truncation.  ¬ß‡ shows the hypothesis
--- cannot simply be dropped; it does not claim it is the weakest possible one.
+-- cannot simply be dropped.
 ------------------------------------------------------------------------

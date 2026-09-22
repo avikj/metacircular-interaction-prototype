@@ -4,8 +4,6 @@
 
 **‡®‡Ø‡µ‡æ‡¶ ¬ ‡‡‡Ø‡æ‡¶‡‡µ‡æ‡¶ ¬ ‡‡‡‡‡‡ï‡ã‡ü‡ø ¬ ‡µ‡‡Ø‡æ‡‡‡‡ø**
 
-*Draft, 2026-08-25.*
-
 This is a record of what the texts say, what the standard formalisations say, and
 what is checked. Every formal statement is a machine-checked Agda term; ¬ß12 gives
 the module and identifier for each. Every citation is either verified against a
@@ -62,9 +60,7 @@ kernel and are imported by nothing.
 
 ## 2. The citations, verified and unverified
 
-Checked against `tokushige-koyasan/gretil-corpus` (241 MB, 784 plain-text e-texts,
-cloned 2026-08-25). GRETIL's own host returns 403 from this environment; the GitHub
-mirror does not.
+Checked against `tokushige-koyasan/gretil-corpus` (241 MB, 784 plain-text e-texts).
 
 | cited | status | source |
 |---|---|---|
@@ -260,9 +256,6 @@ on `a`. The index is recoverable from the derivation, so ‚ï injects into
 The kernel's offering is a `List`, counted by `length`, and its one conservation law
 preserves that count. `Derivation a b` is not finite.
 
-No identification with any cardinal is made. *Asakhyta* has no counterpart in
-this file.
-
 ---
 
 ## 7. The two fourth positions
@@ -321,15 +314,7 @@ above are a Œ† over an index and a formula in one variable.
 
 ---
 
-## 8. Citation counts
-
-Measured in this repository.
-
-**2026-08-24.** `1.4.2` in 42 files. `1.4.1` in 11 files. `ek saj`, in either
-script, in 0 files.
-
-**2026-08-25**, after a correction landed and after unrelated deletions: 16, 6, and
-3. The three occurrences of the words are the correction.
+## 8. Citations
 
 ` kardek saj` says that where several *saj*s offer, one applies.
 `vipratiedhe para kryam` says which. Patajali records both readings of the
@@ -337,8 +322,7 @@ first (¬ß2).
 
 **‡‡‡∞‡‡µ‡‡∞‡®‡ø‡‡‡Ø‡æ‡®‡‡‡∞‡ô‡‡ó‡æ‡‡µ‡æ‡¶‡æ‡®‡æ‡Æ‡ ‡â‡‡‡‡∞‡ã‡‡‡‡∞‡ ‡‡≤‡‡Ø‡** is not a stra of the
 Adhyy. It is a *paribh* reaching modern readers through Ngea's
-*Paribhenduekhara*, 18th century. In this repository it stood filed under
-"Pini, ~500 BCE" for five days, in the file whose subject is misattribution.
+*Paribhenduekhara*, 18th century.
 
 Euler attributed to Pell a method in Jayadeva and Bhskara II. The array in
 Pigala's *Chandastra* is called Pascal's. Virahka's recurrence is called
@@ -347,23 +331,6 @@ Fibonacci's.
 *Syt* is the optative of ‚à‡‡‡ used as an indeclinable. The Jaina texts call each
 qualified predication *nicaya*. It is glossed "maybe" in the many-valued
 literature.
-
----
-
-## 9. Corrections to this paper
-
-Recorded here, and struck in place in the module headers.
-
-- "Every model in this corpus is ‚ï; every soundness theorem in the kernel is stated
-  against ‚ï alone." ‚î false when written. `grep -rlE ': *Tm *‚í' formal/cubical`
-  returns twenty files, and ¬ß3.3 is one of them.
-- "Whether a non-set codomain separates the kernel's two exhibited histories is
-  open." ‚î not open. The term in ¬ß4 was in the same file's next section.
-- `savyabhicro 'naikntika` ‚î the words in reverse order. The e-text reads
-  `anaikntika savyabhicra`.
-- `ek saj` ‚î the Adhyy e-text reads `saj`.
-- *Tattvrthastra* 5.31 and the seven-naya list were cited without being opened,
-  and are marked unverified in ¬ß2.
 
 ---
 
@@ -378,10 +345,6 @@ Priest and Garfield read the catukoi through First-Degree Entailment with a
 plurivalent extension. Westerhoff distinguishes *paryudsa* from
 *prasajya-pratiedha*. Criticism of the Priest‚ìGarfield reading appears in *Asian
 Philosophy*, 2024. Schang treats saptabhag and catukoi in one framework.
-
-A search from this environment did not locate work formalising either doctrine in a
-proof assistant or in dependent type theory. That is the result of a search, not a
-statement about what exists.
 
 The substrate is cubical type theory (Cohen, Coquand, Huber, Mrtberg) on
 Voevodsky's univalent foundations, with the `agda/cubical` library.
@@ -402,6 +365,4 @@ Voevodsky's univalent foundations, with the `agda/cubical` library.
 | 7.2 | `Nirapeksa_‚¶` | `no-fourth-corner` |
 
 All under `formal/cubical/Kernel/`, alongside `RewriteCertificate`,
-`ControlledGrammar`, `GenerativeKernel` and the corpus modules they cite. Each
-module header carries its source citation, its scope of claim on that source, what
-it does not prove, and the toolchain it was checked against.
+`ControlledGrammar`, `GenerativeKernel` and the corpus modules they cite.

@@ -49,12 +49,11 @@ the term algebra with every member producing the same answer, so a pruning
 heuristic collapses an unbounded fibre rather than a redundant pair.  We
 characterise the trade rather than tune it.
 
-RESOLVED IN PART.  The provenance semiring and its forgetful
-homomorphism now exist: theorems/cost/ChhayaRig gives the counting rig,
+The provenance semiring and its forgetful
+homomorphism exist: theorems/cost/ChhayaRig gives the counting rig,
 the boolean rig, positivity as a homomorphism (each preservation law
 proved), and the strongest form of the summary result â” no additive
 section of the shadow exists, so counting provenance provably cannot be
 reconstituted from its boolean shadow by any homomorphic means.
-Relational algebra and a query language remain constructions.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

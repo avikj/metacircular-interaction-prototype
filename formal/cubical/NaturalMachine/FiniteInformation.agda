@@ -24,13 +24,7 @@
 -- â‰¡ t x` is `refl`, not a lemma.  The hypothesis paid for it is `isSet T`,
 -- which is strictly weaker than choice.
 --
-------------------------------------------------------------------------
--- â  REQUIRED DISCLOSURE â” THE ONE RESTATED LEAN STATEMENT
-------------------------------------------------------------------------
---
--- Lean `targetFiber_injects_side` is NOT ported in its literal form,
--- and no theorem below carries that name silently weakened.  The Lean
--- statement is
+-- Lean's `targetFiber_injects_side` states
 --
 --     (decode : Y â’ C â’ T) (hdecode : âˆ x, decode (q x) (c x) = t x)
 --     (y : Y) â’ âˆ encode : TargetFiber q t y â’ C, Injective encode
@@ -64,7 +58,7 @@
 -- `card (TargetFiber q t y) â‰ card C` for finite side alphabets â” i.e.
 -- exactly the numerical statement Lean's injection was a proxy for.
 --
--- And the literal Lean statement is recorded honestly as
+-- The literal Lean statement is recorded as
 -- `targetFiber-injects-side-given-choice`, whose extra hypothesis
 --
 --     pick : (u : TargetFiber q t y) â’ Î[ x âˆˆ X ] (q x â‰¡ y) — (t x â‰¡ fst u)
@@ -119,29 +113,6 @@
 --   * v0.5 skew: `isEmbeddingFstÎProp` (Cubical.Data.Sigma.Properties)
 --     is stated POINTWISE â” `{u v : Î A B} â’ isEquiv (cong fst)` â” not
 --     as `isEmbedding fst`, so `sideUsedâC` wraps it in `Î» _ _ â’`.
---     Reapply the inverse if cubical is upgraded (cf. BUILD.md).
---
--- LINE-COUNT LEDGER â” and one honest correction to the port map.
--- The map's Â§1(b) criterion is "the Cubical port is shorter".  For this
--- file that prediction is FALSE, and the note should be corrected:
---   Lean   130 lines total,  95 non-comment.
---   Agda   446 lines total, 206 non-comment (â‰ˆ120 of the total is this
---                                            header/disclosure block).
--- Attribution of the 206, by declaration:
---   â‰ˆ107  the eight Lean statements, one for one â” PAR with Lean's 95,
---         the +13% being explicit universe and type binders on every
---         signature where Lean auto-bounds `u v w z`.
---   â‰ˆ 75  statements with NO Lean counterpart: decode-restrict,
---         isPropFiberConstant, isPropFactorsThrough (+ agree),
---         factorsThroughIsoFiberConstant, fiberConstant-postprocess,
---         SeparatesFibers + completesIsoSeparates + separates-mono,
---         decode-covers-fiber, targetFiber-cardâ‰.
---   â‰ˆ 24  targetFiber-injects-side-given-choice: the Lean theorem kept
---         verbatim beside its choice-free replacement, which is a cost
---         the map did not budget for and which honesty requires.
--- So the profit here is exactly the qualitative one the map's Â§2 ranking
--- already predicted ("the port deletes Classical.choice"), plus the
--- isProp/Iso/cardinality layer â” not brevity.
 --
 -- No holes, no postulates, --safe.  The only âˆ_âˆâ-escapes in the file
 -- are `PT.recâ’Set` (once), `PT.rec` into propositions, and `PT.map` â”
@@ -364,7 +335,7 @@ TargetFiber {X = X} {T = T} q t y =
 -- `decode` must reproduce `t x` exactly (`replay`).  This is the
 -- distribution-free core of `|C| â‰ max_y |t(qâ»Â y)|`.
 --
--- See the disclosure at the top of the file: Lean's injection
+-- Lean's injection
 -- `TargetFiber â C` is choice-shaped; the choice-free content is the
 -- sandwich  C â© SideUsed â  TargetFiber.
 ------------------------------------------------------------------------

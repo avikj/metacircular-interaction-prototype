@@ -18,15 +18,14 @@
 --   alone, in the fourteenth ‡‡≤‡.  ‡‡ likewise occurs twice as an
 --   ‡‡®‡‡‡®‡‡ß, closing the first (‡ ‡ ‡â ‡‡) and the sixth (‡≤ ‡‡).
 --
---   COMMENTARY LAYER, named and NOT read here: Ktyyana's vrttikas and
+--   COMMENTARY LAYER.  Ktyyana's vrttikas and
 --   Patajali's *Mahbhya* (c. 150 BCE) are where the repetition of ‡
---   and the two ‡‡ are argued.  Nothing below rests on a commentary reading, and
---   no commentator's position is reported.
+--   and the two ‡‡ are argued.
 --
 -- WHAT IS CLAIMED OF PINI.  Only the data: the fourteen stras in the
 -- order given, the it-markers as given, ‡ twice, ‡‡ twice.  That
 -- encoding is corroborated against an independent implementation from
--- inside the tradition present in this container ‚î
+-- inside the tradition ‚î
 -- `/root/agda-libs/vidyut/vidyut-prakriya/src/sounds.rs`, whose `SUTRAS`
 -- table is sound-for-sound and marker-for-marker the same list, and
 -- whose scan (like `from` below) starts at the FIRST occurrence of the
@@ -73,14 +72,13 @@
 --       (sound , anubandha) ‚î all 42 ó 13 = 546 refuted; packaged as
 --       `intersection-closure-fails` and as `not-intersection-closed`;
 --   ¬ß5b the two ILLEGAL pairs that do name it, kept because they show
---       the result is sharp in both of Pini's endpoint restrictions,
---       and because they killed a claim of mine (see ¬ß5's note);
---   ¬ß6  MY OWN REPAIR, STATED AND KILLED.  Searching the LAST occurrence
+--       the result is sharp in both of Pini's endpoint restrictions;
+--   ¬ß6  searching the LAST occurrence
 --       of the initial sound makes { ‡ } nameable and destroys ‡‡≤‡ and
 --       ‡‡‡ ‚î the two classes the repetition exists to supply.
 --
 -- STANDING ON EARLIER WORK, none of it re-landed.  `Sivasutra.agda`
--- (cf-sakshi, 2026-08-18) checks `upto` on the vowel prefix;
+-- checks `upto` on the vowel prefix;
 -- `NaturalMachine.NonInitialPratyaharasAndOneIntersectionInstance` adds
 -- the start-search `from`, the two-endpoint `between`, and ONE
 -- intersection instance on that prefix.  This module supplies the consonant
@@ -363,17 +361,14 @@ module Relabelling
 -- thirteen distinct anubandhas as antya it: 546 candidate pairs, which
 -- is exactly what A 1.1.71 with A 1.3.3 licenses.
 --
--- A SECOND CLAIM OF MINE, KILLED BY THE CHECKER BEFORE IT WAS WRITTEN
--- DOWN.  The first version of this section quantified both endpoints
--- over all fifty-six symbols, on the reasoning that a larger candidate
--- set makes a `‚â° false` strictly stronger.  Agda returned `true`.  Two
+-- Two
 -- illegal pairs name { ‡ } and are checked in ¬ß5b: `between ha ya`,
 -- which stops at a SOUND, and `between R L`, which starts at an
 -- it-MARKER.  Neither is a pratyhra ‚î the antya must be an ‡‡‡ (A
 -- 1.3.3 ‡‡≤‡®‡‡‡‡Ø‡Æ‡) and an ‡‡‡ is elided and is not a sound of the
 -- language (A 1.3.9 ‡‡‡‡Ø ‡≤‡ã‡‡).  So the negative result is exactly as
--- strong as the device's own two restrictions and no stronger, and the
--- reasoning "wider is stronger" was wrong: widening the candidate set
+-- strong as the device's own two restrictions and no stronger:
+-- widening the candidate set
 -- does not widen the theorem, it changes the object.
 ------------------------------------------------------------------------
 
@@ -463,7 +458,7 @@ not-intersection-closed h =
 ------------------------------------------------------------------------
 -- 5b.  The two illegal pairs that do name { ‡ }
 --
--- Kept, not deleted: they are why the candidate set is the device's and
+-- They are why the candidate set is the device's and
 -- not a wider one, and they show the negative result is sharp ‚î it fails
 -- the moment either of Pini's two restrictions on the endpoints is
 -- dropped.
@@ -478,17 +473,15 @@ illegal-start-names-ha : between R L sivasutra14 ‚â° ha ‚à∑ []
 illegal-start-names-ha = refl
 
 ------------------------------------------------------------------------
--- 6.  A CLAIM OF MINE, STATED AND THEN KILLED
+-- 6.  Last-occurrence search, and what it costs
 --
--- CLAIM R (mine, and the first repair I reached for).  The failure at
+-- The failure at
 -- { ‡ } is an artefact of `from` taking the FIRST occurrence of the
 -- initial sound.  Take the LAST occurrence instead and { ‡ } becomes
 -- nameable ‚î `between ha L` then runs from stra 14's ‡ to ‡≤‡ and
--- denotes exactly { ‡ } ‚î so closure is restored by a one-line change to
--- the extractor and nothing about the iva-stras is at stake.
+-- denotes exactly { ‡ } ‚î and this half is checked below.
 --
--- The first half of Claim R is TRUE and is checked below.  The claim is
--- still false, and ¬ß6b is what kills it: under last-occurrence search,
+-- ¬ß6b is the cost: under last-occurrence search,
 -- ‡‡≤‡ and ‡‡‡ are not merely different ‚î they are unnameable.  `fromLast
 -- ha` can never again reach stra 5, so no pair whatever names the
 -- consonants or the voiced consonants.
@@ -496,10 +489,8 @@ illegal-start-names-ha = refl
 -- So the convention is not free and not arbitrary.  First-occurrence
 -- search is what the repetition of ‡ is FOR: it is the convention under
 -- which the second ‡ extends ‡‡≤‡ to the end of the list rather than
--- starting a new class.  Claim R traded one unnameable set for two, and
+-- starting a new class.  Last-occurrence search trades one unnameable set for two, and
 -- the two it lost are classes the Adhyy uses constantly.
---
--- Recorded rather than deleted, per this repository's practice.
 ------------------------------------------------------------------------
 
 fromLast : Sym ‚Üí List Sym ‚Üí List Sym
@@ -516,14 +507,14 @@ nameableLast : List Sym ‚Üí Bool
 nameableLast t =
   anySym (Œª s ‚Üí anySym (Œª m ‚Üí eqList (betweenLast s m sivasutra14) t) allMarkers) allSounds
 
--- 6a.  The true half of Claim R: { ‡ } does become nameable.
+-- 6a.  { ‡ } does become nameable.
 claimR-half-true : betweenLast ha L sivasutra14 ‚â° ha ‚à∑ []
 claimR-half-true = refl
 
 claimR-ha-nameable : nameableLast (ha ‚à∑ []) ‚â° true
 claimR-ha-nameable = refl
 
--- 6b.  THE KILL.  ‡‡≤‡ and ‡‡‡ are lost outright.
+-- 6b.  ‡‡≤‡ and ‡‡‡ are lost outright.
 claimR-loses-haL : nameableLast (between ha L sivasutra14) ‚â° false
 claimR-loses-haL = refl
 

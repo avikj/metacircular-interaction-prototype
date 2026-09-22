@@ -13,7 +13,7 @@
 --
 -- Â§à§à§ â” this repository's own composition, not a quotation from a source.
 --
--- **No claim is made that any Jaina author proved anything below.**  The
+-- The
 -- doctrine that a standpoint is true-but-not-whole is theirs; the statement
 -- that propositional truncation has no section, so that WHICH is destroyed
 -- irrecoverably while THAT survives, is cubical type theory (Voevodsky) and
@@ -34,22 +34,6 @@
 --            ààˆà®à¿à¨à¿-à®àà®à¾ààà¾ (àààà°ààµà®à) ; àà°àà¯ààŸàà¯ à—àà¿ààà¾à¦ à©à¨â“à©à© (à•ààŸààŸà•à) ;
 --            ¼ˆÏÎÏÏÎ¿ÏÎÎ»ÎÏ ÎÎµÏ. Î˜ (Î´ÏÎ½ÎÎ¼ÎÏ / ¼Î½ÎÏÎ³ÎµÎÎ) ; Î Î»ÎÏÏ‰Î½ ¼˜Ï. Î– (ÏÏÎ½Î¿ÏÏÎ¯Î) ;
 --            Voevodsky (ua) ; Anekanta.agda (plurality-blocks-collapse) à
---
--- CORRECTION BY ADDITION, 2026-08-20 (transport lane).  As committed, this
--- module DID NOT TYPECHECK.  `uaÎ²` was used at ààà•àà°à®àà®à-àà²à‹àà and never
--- imported: the import line named only `ua`.  Agda 2.8.0 / cubical v0.9:
---     error: [NotInScope] uaÎ² ... when scope checking uaÎ²      EXIT 42
--- One word.  It stood because NOTHING IMPORTED THIS MODULE -- `grep -rn
--- Nasti_ShabdeJivahVartante --include='*.agda' .` returned exactly one hit,
--- its own `module` line.  It is not in Everything.agda, not in
--- agda, not in IndianLane.agda.  So the section of the
--- stra that the machine's whole identification discipline rests on
--- (AHIMSA_SUTRA_VISTARA Â§6, à¦ààµà à®à¾à°àà—à) was, in the corpus's own words, built
--- by nothing.  BUILD.md and Everything.agda both name this exact failure
--- mode; it happened anyway, to the module that says nothing perishes.
--- Fixed here (import ua ; uaÎ²), and the module is now imported by
--- Samkramana_TransportCarriesStructure..., which is itself in Everything.agda,
--- so it has a parent and will fail a build rather than rot.
 ------------------------------------------------------------------------
 
 module Nasti_ShabdeJivahVartante where

@@ -4,9 +4,7 @@
 -- SimplicialDefectFailure
 --
 -- the defect family ฯ โฆ ฮด_ฯ of a charted Chu space is a functor on the
--- DEGENERACY half of the simplex category and on no more.  The prose
--- proof is not redone here; this module is its finite kernel-checked
--- shadow.
+-- DEGENERACY half of the simplex category and on no more.
 --
 -- HEADLINE STATEMENTS:
 --
@@ -96,11 +94,6 @@
 -- corpus one; ฯยฒ = e plus a closure identity for the archive one โ” the
 -- note's "a 1-simplex carries ฯยฒ", now a checked term); ยง5's chart
 -- refutes the cosimplicial sharp form under BOTH readings at once.
--- Nothing here chooses between the readings: that is the owner's
--- (note ยง7.3), and the module converts the ambiguity into a pair of
--- theorems instead.
---
--- 7.4, 9.
 ------------------------------------------------------------------------
 
 module SimplicialDefectFailure where
@@ -541,8 +534,8 @@ module CovariantSharp
 -- ยง4โฒ.  From trivial holonomy to a condition on ฯ โ” BOTH READINGS,
 --       and they give DIFFERENT conditions.
 --
--- This is note ยง0.3's live discrepancy, converted into a pair of
--- theorems rather than resolved by choosing (which is the owner's).
+-- Note ยง0.3's two readings give a pair of theorems rather than a
+-- choice between them.
 -- Corpus reading (cap = inverse): ๐” โก e is exactly the cocycle
 -- condition ฯ_jk ฯ_ij = ฯ_ik.  Archive reading (cap = idfun): ๐” โก e
 -- gives instead ฯ_ijยฒ = e on every 1-simplex TOGETHER WITH
@@ -582,9 +575,8 @@ module CocycleExtraction
       โ ยทIdR (ฯ i k)
 
   -- ARCHIVE READING (D0016 ยงB as transcribed: no inverse on the long
-  -- edge).  Nothing here is claimed to be the descent obstruction; the
-  -- module records what the archive's formula gives, and it is not the
-  -- cocycle condition.
+  -- edge).  The module records what the archive's formula gives, and
+  -- it is not the cocycle condition.
   module Archive where
 
     open Holonomy _ยท_ e ยทIdR ฯ ฯ-refl (ฮป g โ’ g)
@@ -609,8 +601,7 @@ module CocycleExtraction
 --      variance โ” a charted Chu space, not a cocycle, whose defect
 --      family IS functorial along every face.
 --
--- This is new relative to the note, and it amends note ยง9's slogan and
--- closes half of note ยง7.4's open classification.  The claim proved:
+-- The claim proved:
 --
 --   there is a charted Chu space with ฯ NOT a cocycle, ฮด_{ฯโ} โ  โ for
 --   an explicit ฯโ, and ฮด_{d_jฯ} โ ฮด_ฯ for EVERY ฯ and EVERY j.
@@ -619,9 +610,7 @@ module CocycleExtraction
 -- satisfying all the required inequalities IS a functor (every diagram
 -- in a thin category commutes), so this is not "the inequalities hold
 -- but coherence might fail": the face half of note (O6) is SATISFIABLE
--- off the cocycle locus.  What it does NOT rescue is the repair: note
--- ยง2.2's copower objection (ฮด_n must be ฯ-blind) is untouched, and the
--- simplicial variance is settled negatively by ยง4.
+-- off the cocycle locus.
 --
 -- THE CHART.  X = โ, Aut(X) โ โ acting by translation, so G = (โ,+).
 -- I = Bool = {0,1}.  ฯ_ij = 1 for i โ  j and 0 for i = j.  Tests
@@ -926,7 +915,7 @@ Cosimplicial-sharp-fails-archive =
   faces-act-contravariantly-A , (defect-ฯโ€-A , ฯZ-not-cocycle)
 
 ------------------------------------------------------------------------
--- ยง6.  What ยง4 and ยง5 leave standing, stated so no one over-reads them.
+-- ยง6.  What ยง4 and ยง5 establish.
 --
 --  * ยง4 is the converse of the slogan, in the
 --    SIMPLICIAL variance, from a weaker hypothesis (dโ only), and it is
@@ -934,10 +923,7 @@ Cosimplicial-sharp-fails-archive =
 --  * ยง4โฒ converts note ยง0.3's discrepancy into two theorems instead of
 --    a choice: corpus reading โ’ cocycle; archive reading โ’ ฯยฒ = e and a
 --    different closure identity.
---  * ยง5 REFUTES the cosimplicial half of the slogan.  It does NOT
---    rescue the realization repair: note ยง2.2's objection (the copower
---    forces ฮด_n to be ฯ-blind, hence ฯ-independent) is untouched by any
---    functoriality result, and ยง2.1's variance correction stands.
+--  * ยง5 REFUTES the cosimplicial half of the slogan.
 --  * ยง5 amends note (O6): the face part is refuted for the ฯ of ยง2 but
 --    is SATISFIABLE for the ฯ of ยง5, so "faces act in neither variance"
 --    is a statement about that counterexample, not about all charts.

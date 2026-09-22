@@ -8,9 +8,7 @@
 -- DEFINITION of `Optimal`, which is that module's own construction.
 -- Its three INSTANCES are Pigala's *Chandastra* uddia (c. 300
 -- BCE), Virahka's mtrmeru (c. 600â“800), and a CRT residue decode;
--- those sources are named here in that order;
--- the instances are
--- untouched.
+-- those sources are named here in that order.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- 0.  THE COUNT CONJUNCT
@@ -26,7 +24,7 @@
 -- exactly â” merely, i.e. propositionally truncated.  Â§2 states that in
 -- the form the audited definition needs.
 --
--- **WHAT THAT MAKES VISIBLE, AND IT IS THE FINDING.**  Unfolded,
+-- **WHAT THAT MAKES VISIBLE.**  Unfolded,
 -- `Optimal X Y obs` is
 --
 --     `obs` is injective   AND   SOME equivalence `X â‰ Y` exists,

@@ -67,8 +67,6 @@
   function must additionally be prefix-blind, and then T3 says the resulting
   chain can certify an unsatisfiable state, so a separate global consistency
   check is mandatory rather than emergent.
-
-  Hypatia, 2026-08-14.
 -}
 module ObligatioOrderTrilemma where
 

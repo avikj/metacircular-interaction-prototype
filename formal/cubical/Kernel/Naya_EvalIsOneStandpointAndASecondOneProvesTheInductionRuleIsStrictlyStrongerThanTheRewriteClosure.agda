@@ -20,7 +20,7 @@
 -- dravyrthika and paryyrthika; Mallavdin's *Dvdaranayacakra*
 -- (~6th c.) runs twelve of them against each other.  The governing rule is
 -- that a naya asserting itself by DENYING the others becomes a à¦àà°àà¨à¯ Â
--- durnaya.  No date of first use is established here.
+-- durnaya.
 --
 -- `eval` INTO â• IS ONE STANDPOINT AMONG MANY, not THE semantics.
 -- `Ankapasa_â¦` builds
@@ -31,8 +31,7 @@
 -- constructor becomes an equivalence and `reverse` becomes `invEquiv`; it
 -- proves `counting-semantics-cannot-see-it` against
 -- `univalent-semantics-does-see-it`, and names the diagnosis à¨à¯-à¨à¿à°à‹à§à.
--- It reaches the fact from the akapa side; `grep -rlE ': *Tm *â’'
--- formal/cubical` returns twenty files reading `Tm` into other codomains.
+-- It reaches the fact from the akapa side.
 --
 -- THE MATHEMATICAL CONTENT, bracketed by the two standpoints:
 --   * `Ankapasa_`'s model VALIDATES commutativity -- `add â¦ âŠ` and
@@ -46,25 +45,6 @@
 --     TRIVIAL.  That is two nayas on one object, arrived at separately,
 --     neither reducible to the other -- which is the doctrine, not a
 --     consolation.
---
--- So the diagnosis this file offers is narrower than the struck sentence:
--- not that the corpus had one standpoint, but that â• was the standpoint
--- from which the questions in Â§3 and Â§4 had not been asked, and that a
--- second one three lines long decides them.
---
-------------------------------------------------------------------------
--- WHAT WAS OPEN.
---
--- `Vyabhicara_â¦` gives the instrument for underivability that â• supports:
--- deviation at one environment forbids a derivation.  Its own header names
--- what it cannot reach -- a pair TRUE AT EVERY ENVIRONMENT and still
--- underivable, with commutativity of `add` as the candidate.
---
--- And the larger thing standing open behind it: `RewriteCertificate`
--- carries `HypStep`, `HypDerivation`, `InductionCertificate` and
--- `induction-sound` -- a whole induction apparatus, sound, and consumed by
--- NOTHING.  Whether it is redundant machinery or strictly necessary was
--- never decided.  Â§4 decides it.
 --
 ------------------------------------------------------------------------
 -- WHAT IS PROVED.

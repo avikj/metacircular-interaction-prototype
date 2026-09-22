@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- HeadDepthMerge
 --
--- WHAT_IS_ACTUALLY_OPEN Â§1: the quantity  e_b(q) = v_q(b^ord_q(b) âˆ’ 1)
+-- The quantity  e_b(q) = v_q(b^ord_q(b) âˆ’ 1)
 -- is computed by two separate organs under three names â”
 --
 --   * CYCLOTOMIC_SENSOR's head depth (the sensor state (d,e)),
@@ -11,17 +11,15 @@
 --       (b fails to refute q^a  âŸº  e_b(q) â‰ a),
 --   * EXPOSED_SET Cor W2's Wieferich condition (e_2(q) â‰ 2),
 --
--- and three seeds (EXPOSED_SET 3, HEAD_DEPTH_BLINDNESS 3, PINNING 1)
--- demand the organism compute it ONCE.  This module is the merged organ:
+-- This module is the merged organ:
 -- the note's "1048 triples, zero disagreements" table is a CHECKED TERM
 -- (finite exhaustive verification is proof, CLAUDE.md).
 --
 -- One definition (headDepth); every other predicate below is a
 -- threshold reading of it.
 --
--- STRONG BLINDNESS.  HEAD_DEPTH_BLINDNESS seed 1
--- (restated in WHAT_IS_ACTUALLY_OPEN Â§1)
--- asks: W3 pins FERMAT blindness exactly; the strong (Millerâ“Rabin)
+-- STRONG BLINDNESS. 
+-- W3 pins FERMAT blindness exactly; the strong (Millerâ“Rabin)
 -- test refutes more; is the strong-blindness depth also e_b(q), or is
 -- there a correction term?  Answer: EQUALITY, no correction.  For n =
 -- q^a (q odd prime) the unit group is cyclic, so (i) the Fermat liars

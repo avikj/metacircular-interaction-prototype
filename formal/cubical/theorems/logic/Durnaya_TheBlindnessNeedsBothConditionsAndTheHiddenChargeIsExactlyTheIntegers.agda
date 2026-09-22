@@ -12,40 +12,7 @@
 -- and would not accept the diagnosis this module applies.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- A CORRECTION TO THIS REPOSITORY'S OWN FRONT DOOR.
---
--- `README.md` ¬ß‡‡∞‡ø‡‡ã‡ß‡®‡Æ‡ C2 (2026-08-22) strikes an earlier gloss and
--- puts this in its place, verbatim:
---
---     "The blindness is a property of non-dependent post-composition
---      (`cong F` for `F : A ‚í X`), NOT of the answer's h-level."
---
--- and, in the same document's law paragraph, the struck line is
--- annotated "the blindness ... belongs to the CONSTRUCTION and is not
--- [removable]".
---
--- **The second half of that sentence is false**, and the refuting term
--- was already checked in the repository, in the very module C2 was
--- written about.  `Naya_‚¶AnnihilatesEveryLoop‚¶` ¬ß‡ is
---
---     ‡‡‡‡æ‡®-‡‡‡Ø‡ã‡ó‡ : ¬ (cong (Œª (A : Type‚) ‚í A) ‡‡µ‡∞‡‡‡ ‚â° refl)
---
--- ‚î a `cong F` for a NON-DEPENDENT `F : Type‚ ‚í Type‚` that does NOT
--- annihilate the loop.  Its `F` is the identity on a universe, whose
--- codomain is not a set.  So non-dependence alone never sufficed: the
--- h-level of the answer is load-bearing, and it is written as an
--- explicit hypothesis `isSet X` in `Naya`'s own ¬ß‡ß, which C2 quotes
--- while dropping the hypothesis.
---
--- The pattern is this corpus's oldest one, arriving in its newest
--- document: the answer was in the file the claim was made about.  And
--- the diagnosis is exactly ‡¶‡‡∞‡‡®‡Ø ‚î C2's standpoint (non-dependence
--- matters) is TRUE, and it was asserted by denying a standpoint that
--- also holds (h-level matters).  Both are necessary; neither is
--- sufficient; that is ¬ß‡.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT IS PROVED HERE, AND WHAT IS NEW RATHER THAN ASSEMBLED.
+-- WHAT IS PROVED HERE.
 --
 -- ¬ß‡ß‚ì¬ß‡® move the whole question OFF the universe.  `Naya`'s loop is
 -- `ua notEquiv`, so a reader may believe the phenomenon is about
@@ -57,9 +24,8 @@
 -- identification of a fibre with a standard type, never a bound.  What
 -- every set-valued observable of the carrier destroys is not "some
 -- charge": it is exactly ‚, by `Œ©S¬Iso‚`, and the identifying map IS
--- `winding` on the nose (¬ß‡®‡, `refl`).  The earlier statement of the
--- gap ‚î `Paryayarthika_‚¶` ¬ß‡®, that ONE set-valued observable separates
--- ONE pair of loops ‚î is a separation.  This is the identification: the
+-- `winding` on the nose (¬ß‡®‡, `refl`).
+-- This is the identification: the
 -- mode-regarding standpoint loses nothing at all, because `winding` is
 -- an equivalence and ‚ is a set.
 --
@@ -135,8 +101,7 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 --
 -- `winding : Œ©S¬ ‚í ‚` is an observable of the PATH TYPE, it lands in a
 -- set, and it is an equivalence: no loop is lost, not merely two
--- separated.  This is the identification `Paryayarthika` ¬ß‡® stopped
--- short of.
+-- separated.
 ------------------------------------------------------------------------
 
 ‡§™‡§∞‡•ç‡§Ø‡§æ‡§Ø-‡§¶‡§∞‡•ç‡§∂‡§®‡§Æ‡•ç : Œ©S¬π ‚âÉ ‚Ñ§
@@ -147,12 +112,11 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 ‡§™‡§∞‡•ç‡§Ø‡§æ‡§Ø-‡§Ö‡§≤‡•ã‡§™‡§É = Iso.leftInv Œ©S¬πIso‚Ñ§
 
 ------------------------------------------------------------------------
--- ‡ ‚î‚î THE COUNTEREXAMPLE TO README C2, OFF THE UNIVERSE.
+-- ‡ ‚î‚î NON-DEPENDENCE ALONE IS NOT ENOUGH, OFF THE UNIVERSE.
 --
 -- `idfun S¬ : S¬ ‚í S¬` is non-dependent post-composition, its codomain
 -- lives in Type‚, and `cong (idfun S¬) loop` is NOT refl ‚î because S¬
--- is not a set.  So "the blindness is a property of non-dependent
--- post-composition, not of the answer's h-level" is refuted by a term.
+-- is not a set.
 --
 -- The witness of non-triviality is the receipt of ¬ß‡® used as a probe:
 -- `winding loop = pos 1` and `winding refl = pos 0`, both definitional.
@@ -180,10 +144,7 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 --   thd  set-valued alone (observe the path type)      ‚ü NOT blind,
 --        and not merely non-blind ‚î lossless, by ¬ß‡®.
 --
--- `Naya` ¬ß‡ß's `isSet X` hypothesis is therefore not decoration, and
--- C2's denial of it is a ‡¶‡‡∞‡‡®‡Ø: a true standpoint asserted by denying
--- another that also holds.  The repair is the Jaina one ‚î index, do not
--- collapse.  Both conditions, named, neither discarded.
+-- `Naya` ¬ß‡ß's `isSet X` hypothesis is therefore not decoration.
 ------------------------------------------------------------------------
 
 ‡§â‡§≠‡§Ø‡§Æ‡•ç-‡§Ü‡§µ‡§∂‡•ç‡§Ø‡§ï‡§Æ‡•ç :

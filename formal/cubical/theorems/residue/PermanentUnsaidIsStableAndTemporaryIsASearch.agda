@@ -11,8 +11,7 @@ open import AmshaSatyayantra using (‡§ï‡§¶‡§æ‡§ö‡§ø‡§§‡•ç-‡§â‡§ï‡•ç‡§§‡§Æ‡•ç ; ‡
 ------------------------------------------------------------------------
 -- PermanentUnsaidIsStableAndTemporaryIsASearch
 --
--- `formal/cubical/AmshaSatyayantra.agda` was found by a zero-importer
--- census over `formal/cubical` and read.  It draws a distinction this
+-- `formal/cubical/AmshaSatyayantra.agda` draws a distinction this
 -- thread's closure results have an exact word for, and this module says
 -- which word, using its predicates rather than restating them.
 --
@@ -45,29 +44,6 @@ open import AmshaSatyayantra using (‡§ï‡§¶‡§æ‡§ö‡§ø‡§§‡•ç-‡§â‡§ï‡•ç‡§§‡§Æ‡•ç ; ‡
 -- search.** Its `‡‡®‡®‡‡-‡®‡ø‡‡‡ß‡` ‚î a total machine can never have permanent
 -- un-said ‚î is the same fact from the other side, since completeness
 -- supplies the Œ at every input.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- **No correspondence is claimed between anything here and the
--- Anuyogadvra's sakhyta / asakhyta / ananta grading.** That module
--- invokes the grading; this one does not touch it. ¬ß1 and ¬ß2 are
--- statements about a Œ and its negation in Agda, and reading them as the
--- Jaina grades would be exactly the move withdrawn three times in this
--- thread already ‚î an imported notion in the tradition's clothes.
---
--- That the module's own results are affected: they are not. ¬ß1 and ¬ß2
--- add stability facts about its predicates and change none of its
--- theorems.
---
--- That decidability holds anywhere. ¬ß2 is conditional and nothing here
--- decides any machine's `‡ï‡¶‡æ‡‡ø‡‡-‡â‡ï‡‡‡Æ‡`.
---
--- PRIOR ART, grep run and quoted: `grep -rn AmshaSatyayantra
--- formal/cubical/ --include=*.agda` outside the file itself returns
--- nothing. It has no importers, which is how the census found it; this
--- is its first use. A module reaching it through `Everything.agda`'s
--- bulk import would not appear in that grep ‚î `Everything` was checked
--- and does not list it.
 ------------------------------------------------------------------------
 
 private

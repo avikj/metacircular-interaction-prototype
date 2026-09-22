@@ -11,7 +11,7 @@
 -- itself; argued at length in Akalaka and in Yaovijaya, *Nayopadea*
 -- (~17th c.).**
 --
--- **No claim is made that Siddhasena proved anything below.**  The doctrine
+-- The doctrine
 -- that a naya is true-but-not-whole and that concealment is what turns it
 -- into a durnaya is his; the statement that the prohibition has content only
 -- off the propositional world is this repository's, and is cubical.
@@ -19,55 +19,34 @@
 ------------------------------------------------------------------------
 -- Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld
 --
--- ANSWERING A QUESTION THAT WAS ASKED BACK, NOT TAKEN.
---
--- `Durnaya_CollapseIffEveryNayaAgrees` replaced the struck
--- exhaustiveness gloss of `Anekanta` ¬ß5 with
---
---     collapse-characterisation :  a collapse exists  iff  AllNayasAgree P
---
--- and its author then recorded, in `collab/journals/claude_ananta.md`
--- (Landing 27, 2026-08-19), the sharpest thing left over ‚î declining to
--- take it, so that someone else could:
---
---     "if every fibre is an hProp, AllNayasAgree degenerates to logical
---      equivalence and the collapse prohibition may say far less than the
---      README asks it to ‚î and the README asks it to govern real
---      disagreements between agents."
---
--- This module answers that.  The worry is CORRECT, and it is exact:
+-- The content of the prohibition, exactly:
 --
 --   ¬ß2  over proposition-valued nayas the prohibition is nothing more than
 --       mutual entailment ‚î `AllNayasAgree` and `MutuallyEntail` coincide;
---   ¬ß4  off them it is strictly more ‚î `Mixed` (the very witness that
---       refuted the old dichotomy) mutually entails and does not agree;
+--   ¬ß4  off them it is strictly more ‚î `Mixed`
+--       mutually entails and does not agree;
 --   ¬ß5  and the reason is exactly non-propositionality: `Mixed`'s second
 --       fibre is `Bool`, which is not an hProp.
 --
 -- So the content of ‡‡®‡‡ï‡æ‡®‡‡ here is precisely the content a standpoint
 -- carries BEYOND its truth value.  If a naya is only a proposition, the
 -- ahis rule reduces to "they imply each other" and governs nothing an
--- ordinary biconditional would not.  That is the answer to the README
--- question: the rule governs real disagreements only because a naya is a
+-- ordinary biconditional would not.
+-- The rule governs real disagreements only because a naya is a
 -- TYPE, not a truth value.  Unit and Bool are both inhabited ‚î they
 -- agree in every proposition-valued respect ‚î and still cannot be identified.
 --
--- ¬ß6 then restores the struck gloss exactly where it is true.  Over fibres
+-- ¬ß6: over fibres
 -- that are propositions AND stable, there IS no third option: absence of
 -- the third bhaga forces collapse.  ¬ß7 records what the stability
 -- hypothesis is buying, because without it the argument delivers only a
 -- double negation ‚î the same boundary `Abhava`/`Yogya-anupalabdhi` keep
 -- reaching, from the other side.
 --
--- WHAT IS CLAIMED OF THE SOURCE.  Nothing new.  `durnaya`, and the defect
+-- `durnaya`, and the defect
 -- of a naya asserted to the exclusion of others, are Siddhasena Divkara
 -- (*Sanmatitarka*) and Akalaka's.  The hProp boundary below is this
--- corpus's mathematics, named for the act the tradition named, exactly as
--- the module it corrects argues.
---
--- CHECKED: see the commit message for the toolchain and exit code.  This
--- container is Agda 2.6.3 + cubical v0.5, which is NOT the repository pin
--- (Agda 2.8.0 + cubical v0.9, formal/cubical/BUILD.md).
+-- corpus's mathematics, named for the act the tradition named.
 ------------------------------------------------------------------------
 
 module Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld where
@@ -102,7 +81,6 @@ agree‚Üíentail P a s t = equivFun (a s t)
 
 ------------------------------------------------------------------------
 -- 2.  Over propositions the converse holds, so the two coincide.
---     This is the degeneration the journal predicted.
 ------------------------------------------------------------------------
 
 entail‚Üíagree-onProps :
@@ -127,7 +105,7 @@ collapse-iff-entail-onProps P s‚ÇÄ pr =
 
 ------------------------------------------------------------------------
 -- 4.  Off the propositional world the two come apart, and the witness is
---     already in the corpus: `Mixed`, which refuted the old dichotomy.
+--     already in the corpus: `Mixed`.
 --     Unit and Bool imply each other ‚î both are inhabited ‚î and are not
 --     equivalent.  So the prohibition is STRICTLY stronger than mutual
 --     entailment in general.
@@ -154,18 +132,17 @@ Mixed-is-not-proposition-valued : ¬¨ ((b : Bool) ‚Üí isProp (Mixed b))
 Mixed-is-not-proposition-valued pr = ¬¨isPropBool (pr false)
 
 -- The general statement of ¬ß4+¬ß5 together: any separating family is
--- non-propositional.  (Contrapositive of ¬ß2 ‚î recorded because it is the
--- sentence the README needs, not the instance.)
+-- non-propositional.  (Contrapositive of ¬ß2.)
 separator-is-not-proposition-valued :
   {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') ‚Üí
   MutuallyEntail P ‚Üí ¬¨ (AllNayasAgree P) ‚Üí ¬¨ ((s : S) ‚Üí isProp (P s))
 separator-is-not-proposition-valued P e ¬¨a pr = ¬¨a (entail‚Üíagree-onProps P pr e)
 
 ------------------------------------------------------------------------
--- 6.  The struck gloss, restored exactly where it is true.
+-- 6.  No third option over stable propositions.
 --
---     `Anekanta.agda` ¬ß5 said "there is no third option".  Over fibres
---     that are propositions AND stable, that is a theorem: if no naya
+--     Over fibres
+--     that are propositions AND stable, there is no third option: if no naya
 --     denies, collapse exists.  The third option of
 --     `Durnaya_CollapseIffEveryNayaAgrees` ¬ß3 cannot live here.
 ------------------------------------------------------------------------
@@ -180,10 +157,10 @@ no-third-option-onStableProps P s‚ÇÄ pr st ¬¨astinƒÅsti =
       (Œª s t ps ‚Üí st t (Œª ¬¨pt ‚Üí ¬¨astinƒÅsti ((s , ps) , (t , ¬¨pt)))))
 
 ------------------------------------------------------------------------
--- 7.  What stability is buying, stated rather than hidden.
+-- 7.  What stability is buying.
 --
 --     Without it the same argument delivers only ¬¬(P t).  So the
---     restored dichotomy of ¬ß6 is exact on DECIDED absences and holds
+--     dichotomy of ¬ß6 is exact on DECIDED absences and holds
 --     only up to double negation otherwise ‚î which is where
 --     `Abhava` (decidability of the counterpositive sets the level) and
 --     `Yogya-anupalabdhi` (fitness is necessary only up to double

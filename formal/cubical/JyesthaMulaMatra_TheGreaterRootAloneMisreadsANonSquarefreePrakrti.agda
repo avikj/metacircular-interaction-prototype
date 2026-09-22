@@ -28,12 +28,12 @@
 --                       with T_p(u) = x AND (u²−1)/N a perfect square,
 --   where B = log(2x)/log(2+�N).
 --
--- Its §8 leaves one item open, tagged PROVE:
+-- Its §8 asks:
 --
 --   "is the side condition `(u²−1)/N a perfect square` redundant? �
 --    the missing step is integrality.  If N | u²−1 always follows, the
 --    criterion becomes a pure one-variable root extraction with no
---    arithmetic side condition.  I could not close it."
+--    arithmetic side condition."
 --
 -- IT DOES NOT FOLLOW, and the counterexample lies INSIDE the criterion's
 -- own bound, so it is not repaired by tightening B.
@@ -92,10 +92,6 @@
 --   grid-is-live-*       KNOWN-FALSE CONTROL: widened to reach the real
 --                        solution the same search returns `false`, so
 --                        the `true` above is not vacuous
---
--- The complementary positive half � a SQUAREFREE prakti makes the side
--- condition redundant � is a three-line valuation argument, written out
--- in collab/messages/2093 and not formalized here.
 ------------------------------------------------------------------------
 
 module JyesthaMulaMatra_TheGreaterRootAloneMisreadsANonSquarefreePrakrti where
