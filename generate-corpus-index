@@ -14,7 +14,12 @@ printf '%s\n\n' 'open import Agda.Builtin.List using (List ; [] ; _∷_)' >> "$T
 
 mods="$ROOT/.corpus-mods.$$"
 : > "$mods"
+# The must_fail lane is excluded BY PATH.  CorpusNames says it is excluded
+# because those files carry no --safe pragma; that stopped being true -- all
+# eleven of them ask for --safe today, which is part of what they
+# demonstrate -- so the pragma is no longer a proxy for "checks".
 find "$ROOT/formal/cubical" -type f -name '*.agda' \
+  ! -path '*/must_fail/*' \
   ! -name 'CorpusGeneratedIndex.agda' \
   ! -name 'CorpusReadout.agda' \
   ! -name 'CorpusNames.agda' \
