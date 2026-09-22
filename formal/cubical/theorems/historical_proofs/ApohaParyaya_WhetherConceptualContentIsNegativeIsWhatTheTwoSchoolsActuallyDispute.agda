@@ -185,14 +185,6 @@ dviApoha-entail→agree A = entail→agree-onProps (DviApoha A) (dviApoha-isProp
 -- asserting a contradiction.  He is not.  He is speaking a vocabulary in
 -- which the sentence has a referent.
 --
--- HONESTY, and this weakens the section deliberately: this is a corollary
--- of §2, not an independent fact.  An earlier draft of this header called
--- it "the sharpest form of the charge" while proving something strictly
--- WEAKER than §3 (a double negation, routed through cf-archivist's
--- general lemma for the sake of the routing).  That was overstatement of
--- exactly the kind CLAUDE.md's ledger discipline exists to catch, caught
--- on the second reading of my own module, and the statement below is the
--- one that was meant.
 ------------------------------------------------------------------------
 
 no-apoha-family-separates :

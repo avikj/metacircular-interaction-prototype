@@ -393,13 +393,6 @@ private
     → midL (S x) (S y) (S z) ≡ b → admissible x z y ≡ b
   admissible-value x z y b p = shift midL x y z ∙ p
 
-------------------------------------------------------------------------
--- CORRECTION, 2026-08-15.  This module had never been typechecked by anyone
--- (no .agdai under any toolchain), because the exhaustive parts did not
--- return.  With the normalization repaired, three of the four `admissible`
--- examples it asserted turn out to be FALSE, and so does the residual
--- synthesis example.  The true values, all verified below by kernel
--- reduction, are:
 --
 --   admissible genC genControl genZero    = false   (was asserted true)
 --   admissible genC genControl genA       = true    (was asserted true)

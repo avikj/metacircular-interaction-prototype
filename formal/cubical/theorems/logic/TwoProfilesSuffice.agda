@@ -196,13 +196,6 @@ says-nki-œÜ‚ÇÇ = refl
 -- and ¬ß3 shows the bound is exactly 2.
 ------------------------------------------------------------------------
 
-------------------------------------------------------------------------
--- 7.  CORRECTION.
---
--- ¬ß"WHAT THE CORRECTED DISTINCTION IS" above says the invariant is the
--- number of witnesses, "1 for ‡≤‡æ‡ò‡µ, ‡‡®‡‡µ‡‡‡‡‡ø, carry/borrow and the fuel
--- obstructions; 2 for ‡‡µ‡ï‡‡‡µ‡‡Ø".  That counts in two units.  A collision
--- is one PAIR and a pair is two POINTS.
 --
 -- `WitnessNumberIsTwo` fixes one measure ‚î the least list
 -- of points on which no decoder survives ‚î and under it:

@@ -14,9 +14,6 @@
 -- below, not rebuilt**, and nothing here is a claim about their
 -- theorem.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- A CORRECTION OF MY OWN CLAIM.
---
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition`
 -- concluded:
 --

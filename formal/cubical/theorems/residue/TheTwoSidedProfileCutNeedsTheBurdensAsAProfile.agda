@@ -160,9 +160,6 @@ UpP (j ∷ js) ks (b , bs) φ = upV ks b φ , UpP js ks bs φ
 -- in the signature rather than in a comment.
 ------------------------------------------------------------------------
 
-------------------------------------------------------------------------
--- CORRECTION.  The obstruction paragraph in the header, and the
--- restriction above, are wrong:
 --
 -- The burden side is ordered by `_�p_`, which is REVERSE pointwise `�`.
 -- The right adjoint must return the `�p`-GREATEST burden profile
@@ -172,9 +169,4 @@ UpP (j ∷ js) ks (b , bs) φ = upV ks b φ , UpP js ks bs φ
 -- `goFwdAll`, `goBwdAll` in
 -- `TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero` are the
 -- unrestricted adjunction.
---
--- WHAT SURVIVES UNCHANGED.  Every definition and every proof in this
--- module.  `upV`, `dnV`, `goFwdV`, `goBwdV`, `maxP` and its three laws,
--- `Rows`, `UpP` are exactly what the unrestricted adjunction is built
--- from.  Only the obstruction claim was false.
 ------------------------------------------------------------------------

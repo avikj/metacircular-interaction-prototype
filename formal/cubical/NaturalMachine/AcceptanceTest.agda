@@ -26,19 +26,6 @@
 -- `m + n` does not reduce past m's variable spine, so the two plans'
 -- executions are not the same normal form and something must be proved.
 --
--- CORRECTION (breaker audit, notes/GENERATIVE_MODULES_AUDIT.md).  An
--- earlier version of this header claimed: "delete T and `replay` has no
--- proof, hence no `betterProgram`".  That claim is (i) not an Agda
--- judgement â” unprovability-after-deletion is not something the checker
--- decides â” and (ii) FALSE.  `digitsC-resume` is itself three lines of
--- renaming over `CountedComposition.run-+`, and `replay-without-T`
--- below re-proves `replay` from `run-+` and `run-is-digitsC` without
--- mentioning T at all.  What is true, and all that is claimed now: the
--- load-bearing input is `run-+`, counted time composes additively along
--- sequential execution, a three-line induction on the resumed segment.
--- The chain's structure is the result; this is not evidence that deep
--- mathematics changes compilation.
---
 -- The closing term packages the acceptance test:
 --
 --   betterProgram m n :
@@ -52,7 +39,6 @@
 -- The restriction to `suc n` is sharp, not an artefact:
 -- `no-improvement-at-empty-checkpoint` shows the two costs are EQUAL at
 -- n = 0.
---
 --
 ------------------------------------------------------------------------
 

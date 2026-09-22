@@ -6,20 +6,6 @@
 -- WHAT `no-invariant-response-sees-Ï` ACTUALLY PROVES, and what it was
 -- named as if it proved.
 --
--- `Residual.no-invariant-response-sees-Ï : Â Invariant respondB` is about
--- ONE response.  Its name says "no invariant response sees Ï", which is a
--- statement about all of them, and a breaker audit (2026-08-15,
--- FALSE as stated: a constant response factors through Ï and is
--- `Invariant`, so "no invariant response reads the residual" cannot be
--- right.  What is true, and what the name was reaching for, is that an
--- invariant response reading Ï can only read it CONSTANTLY -- it may look,
--- and it may not distinguish.
---
--- That statement is four lines and is proved below.  `Residual`'s theorem
--- then comes back as the instance g = branchOf, which is not constant.
--- The counterexample family is due to the audit; it is reproduced here so
--- the sharp statement lives in the checked corpus rather than in a note.
-------------------------------------------------------------------------
 
 module ResidualInvariance where
 

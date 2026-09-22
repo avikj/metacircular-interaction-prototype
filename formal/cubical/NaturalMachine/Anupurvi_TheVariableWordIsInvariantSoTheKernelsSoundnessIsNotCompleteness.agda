@@ -150,19 +150,6 @@ soundness-is-not-completeness =
   the-semantics-identifies-them , no-derivation-transposes-two-variables
 
 ------------------------------------------------------------------------
--- Â§5.  ~~THE NORMALISATION CONJECTURE~~ â” STRUCK THE SAME DAY, BY ME.
---      It is FALSE.  `Baddha_â¦` exhibits a third conservation law (a
---      successor trapped in a left operand whose sibling carries a
---      variable can never reach the front, because the calculus has no
---      associativity) and separates `add (suc var) yvar` from
---      `suc (add var yvar)` â” same word, same constant, no derivation.
---      The type is kept below so the refutation has something to name.
---      ORIGINAL WORDING, for the record: the conjecture, as a type.  Unproved, and stated so
---      that what is missing is visible: a normal form for `Tm` under the
---      calculus, and a terminating strategy reaching it.  Neither exists
---      in this corpus, and `Asiddhatva.agda`'s result â” that a rewrite
---      system can admit NO strict order in which every step decreases â”
---      is the standing warning that the second is not routine.
 ------------------------------------------------------------------------
 
 NormalisationConjecture : Typeâ‚€

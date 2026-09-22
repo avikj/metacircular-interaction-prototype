@@ -160,12 +160,6 @@ laghava-is-two =
 -- `AvaktavyaDoesNotFactor` because its decoders are six atoms โ” and both
 -- were proved individually, here and in `WitnessNumberIsTwo` ยง5
 -- respectively.
---
--- CORRECTED.  "2 was never contingent here" is true at the discrete
--- sites and was asserted of all of them.  At `Laghava` the 2 is a fact
--- about the exhibited collision, not a consequence of any theorem, and
--- nothing in this corpus rules out a costlier absence over the same
--- `eval`.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

@@ -3,8 +3,6 @@
 ------------------------------------------------------------------------
 -- WitnessNumberIsTwo
 --
--- CORRECTION TO `TwoProfilesSuffice`, one commit old.
---
 -- That module concluded: "the invariant is the NUMBER OF WITNESSES:
 -- 1 for ‡≤‡æ‡ò‡µ, ‡‡®‡‡µ‡‡‡‡‡ø, carry/borrow and the fuel obstructions; 2 for
 -- ‡‡µ‡ï‡‡‡µ‡‡Ø."  That counts in two different units.  A collision is ONE
@@ -209,8 +207,6 @@ avaktavya-witness-number-2 = avaktavya-two-suffice , avaktavya-one-never
 -- could not be said before one was fixed.
 ------------------------------------------------------------------------
 
-------------------------------------------------------------------------
--- 8.  CORRECTION to ¬ß3's description.
 --
 -- ¬ß3 is headed "ONE POINT IS NEVER ENOUGH ‚î for any factorisation
 -- obstruction" and says the constant decoder answers a single point

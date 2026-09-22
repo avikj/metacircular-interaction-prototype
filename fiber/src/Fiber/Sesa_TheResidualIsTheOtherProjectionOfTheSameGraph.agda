@@ -46,8 +46,6 @@
 -- the source end or from the target end, and which end you are standing
 -- at decides which of the two theorems you get.
 --
--- ~~There is no third reading, because there is no third projection.~~
---
 -- The sentence is a ‡¶‡‡∞‡‡®‡Ø and `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` is the proof of why:
 -- a two-valued verdict on a threefold situation must identify two of the
 -- three.  `isContr (‡‡‡ f b)` fails in two OPPOSITE ways ‚î
