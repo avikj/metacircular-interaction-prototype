@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¯à®à²-à¯àà—àà®à®à â” the twin pair.  The 4-channel jet transfer of the owner's
--- twin message (Î¼âŠ—Î¼ / ÎºâŠ—Î¼ / Î¼âŠ—Îº / ÎºâŠ—Îº), as the algebra
+-- à¯à®à²-à¯àà—àà®à®à â” the twin pair.  The 4-channel jet transfer
+-- (Î¼âŠ—Î¼ / ÎºâŠ—Î¼ / Î¼âŠ—Îº / ÎºâŠ—Îº), as the algebra
 --
 --     â[Îµâ,Îµâ] / (ÎµâÂ², ÎµâÂ²)  =  (value, legâ, legâ, pair),
 --
@@ -27,7 +27,7 @@
 -- computed by the same âŠ-powering that computes Î¼.  The divisor-tree
 -- exponential is again discarded for a 4-slot exact state.
 --
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9), ring identities by
+-- Ring identities by
 -- solve! with ÎPathP componentwise; the recurrences native.
 ------------------------------------------------------------------------
 

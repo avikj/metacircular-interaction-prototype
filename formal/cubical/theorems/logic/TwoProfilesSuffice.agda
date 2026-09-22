@@ -60,9 +60,6 @@
 -- is exact now ‚î but it says the earlier reading was measuring the
 -- wrong thing, and that a "must be exhaustive" verdict is a claim about
 -- witness count that has to be proved, not read off a finite type.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TwoProfilesSuffice where
@@ -197,19 +194,8 @@ says-nki-œÜ‚ÇÇ = refl
 -- verdict of "this one must be exhaustive" is a lower bound on witness
 -- count and needs a proof of its own ‚î ¬ß2 is that proof for the bound 1,
 -- and ¬ß3 shows the bound is exactly 2.
---
--- OPEN, named and not estimated: whether any site in this corpus needs
--- more than two.  Nothing here suggests one does, and nothing here rules
--- it out.
 ------------------------------------------------------------------------
 
-------------------------------------------------------------------------
--- 7.  CORRECTION, appended 2026-08-18 ‚î same day, next commit.
---
--- ¬ß"WHAT THE CORRECTED DISTINCTION IS" above says the invariant is the
--- number of witnesses, "1 for ‡≤‡æ‡ò‡µ, ‡‡®‡‡µ‡‡‡‡‡ø, carry/borrow and the fuel
--- obstructions; 2 for ‡‡µ‡ï‡‡‡µ‡‡Ø".  That counts in two units.  A collision
--- is one PAIR and a pair is two POINTS.
 --
 -- `WitnessNumberIsTwo` fixes one measure ‚î the least list
 -- of points on which no decoder survives ‚î and under it:

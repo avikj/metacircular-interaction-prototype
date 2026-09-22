@@ -11,7 +11,7 @@
 -- and Vykaraa traditions use the term in the same plain sense.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT WAS OPEN.  This corpus encodes the â/2 PARITY SUPERSELECTION
+-- THE TWO ENCODINGS.  This corpus encodes the â/2 PARITY SUPERSELECTION
 -- SECTOR â” the "charge mod 2" whose neutral half is the parity barrier â”
 -- TWICE, in two modules that never meet:
 --
@@ -50,9 +50,6 @@
 --     â” the multiplicativity ParitySeparator asserted in prose and never
 --     proved, obtained with NO new induction.  The carry pays (Ahis
 --     Â§à: an identification is a channel; theorems flow along it).
---
--- CHECKED: Agda 2.6.3+ / agda/cubical, --cubical --safe, no postulates,
--- no holes, no sorry.  Written 2026-08-22.
 ------------------------------------------------------------------------
 
 module Paryayasabda_TwoNamesForTheParitySectorAndTheCharacterLawCarriesAcrossBetweenThem where

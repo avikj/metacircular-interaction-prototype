@@ -10,9 +10,7 @@
 --
 -- This is a fibre-level composition of the already checked
 -- `ProductiveObservabilityBridge.bisimâ‰forever` and function
--- extensionality.  It does not transfer to the indexed branching Net of
--- `IndraNet.Coinductive`, and it supplies neither finality nor an explicit
--- later/clock modality.
+-- extensionality.
 ------------------------------------------------------------------------
 
 module ProductiveObservationFiber where

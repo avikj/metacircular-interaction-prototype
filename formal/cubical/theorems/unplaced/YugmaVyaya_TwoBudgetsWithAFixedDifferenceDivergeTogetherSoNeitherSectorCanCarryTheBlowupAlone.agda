@@ -37,9 +37,8 @@
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§0bâ“2 over â•, for all sequences and all
 -- indices, with `Unbounded f = (M : â•) â’ Î[ n ] M â‰ f n` â” the
 -- constructive reading, so Â§1 RETURNS the index at which each budget
--- exceeds a given bound.  NOT claimed: anything about the evolution
--- that produces such budgets, about which sequences arise from one,
--- about limits, monotonicity, or rates.  The direction of the constant
+-- exceeds a given bound.
+-- The direction of the constant
 -- is fixed (`bâŠ` the larger); the mirrored case is this theorem with
 -- the two arguments exchanged.
 ------------------------------------------------------------------------

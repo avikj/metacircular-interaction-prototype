@@ -46,7 +46,7 @@
 --
 -- Which locates unique factorisation exactly, and it is worth saying in
 -- these words: **unique factorisation is the injectivity of the map from
--- sums to products.**  Not proved here, and not needed here â” the walk
+-- sums to products.**  The walk
 -- never asks for it.  What is proved here is everything on the Î side
 -- and the map across.
 --
@@ -54,11 +54,6 @@
 -- magnitude, the derivation is the structure, and the Pythagorean claim
 -- that the structure is the substance is, on this basis, the statement
 -- that `val` is the forgetful direction.
---
--- CHECKED: Agda 2.6.3, cubical v0.5.  NOT the repository pin (2.8.0 /
--- v0.9, see BUILD.md) â” this is a result about the container it ran in,
--- and it is stated that way rather than reported as a pin result.
--- No postulates, no holes.
 ------------------------------------------------------------------------
 
 module SumProductTorus where

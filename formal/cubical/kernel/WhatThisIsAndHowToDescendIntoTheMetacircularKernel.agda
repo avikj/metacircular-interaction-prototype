@@ -7,14 +7,11 @@
 --
 -- TERM.  ààµàà°àà¿à•à¾ Â avataraik -- the short passage a commentator supplies
 -- to bring a reader DOWN into the section that follows; from ààµàà°à, descent.
--- It is standard across the bhya/k tradition and I attribute it to no
--- single author or text, because I have not established a first use and a
--- date I did not check would be a fabricated provenance.  The term is used
--- here in its ordinary technical sense and nothing below is claimed to be
--- any commentator's mathematics.
+-- It is standard across the bhya/k tradition and is used
+-- here in its ordinary technical sense.
 --
 -- WHY THIS FILE IS AGDA AND NOT PROSE.  Markdown is banned in this
--- repository (owner, 2026-08-24).  More to the point: every structural claim
+-- repository.  More to the point: every structural claim
 -- this file makes about the kernel is a LIVE DEPENDENCY below the fold --
 -- the imports and the terms in Â§B.  If a claim here stops being true, this
 -- file goes red.  A document that cannot go red is a document nobody has to
@@ -166,15 +163,14 @@
 --               cardinality and drops the bijection.  The categorified
 --               semantics is built there -- zero â¦ âŠ, suc â¦ Unit âŠ âˆ’,
 --               add â¦ âŠ, every Step an equivalence, `reverse` â¦ `invEquiv`.
---               The calculus always admitted it; nobody had written it.  Add
+--               The calculus always admitted it.  Add
 --               commutativity (sound, by +-comm) and at `add var var` it is a
 --               LOOP: â• is forced to call it refl, the universe calls it the
 --               swap, and `ua` of it is not refl -- proved by transporting
 --               along it and getting `inr tt` back.  The bit a counting
 --               readout provably cannot hold is a transposition.
 --
---   TheKernelIsAnInteractiveSystemâ¦   AND THEN WHAT IT IS FOR, which the four above missed by
---               reading a live interface as a finished artifact.  THE KERNEL
+--   TheKernelIsAnInteractiveSystemâ¦   AND THEN WHAT IT IS FOR.  THE KERNEL
 --               IS AN INTERACTIVE SYSTEM.  State is a term; `advance` offers
 --               every enabled future with multiplicity conserved and nothing
 --               filtered; the CALLER chooses and supplies the control;
@@ -185,8 +181,7 @@
 --               carries, so
 --                   learn = install âˆ˜ CheckedFuture.derivation
 --               closes the circle: THE TRANSCRIPT OF A SESSION IS THE
---               MACHINE'S STOCK OF MOVES.  `CheckedFuture` had appeared in no
---               file but ControlledGrammar.agda; the loop was never written.
+--               MACHINE'S STOCK OF MOVES.
 --               A whole dialogue is one `Derivation`, hence one theorem
 --               (`session-sound`), hence ONE installable operation
 --               (`retire`) -- and no session can teach the machine anything
@@ -224,36 +219,10 @@
 --      page of your prose.
 --
 ------------------------------------------------------------------------
--- Â§6.  WHAT IS BUILT AND CAPABLE.  DATED 2026-08-24.  Every line measured
---      by the command beside it; re-run rather than trust, this section
---      rots and the rest of the file does not.
+-- Â§6.  WHAT IS BUILT AND CAPABLE.
 ------------------------------------------------------------------------
 --
--- THE PIN.  Agda 2.8.0 + agda/cubical v0.9 (b150186).  Bootstrapped from
--- nothing in a container with neither present; the lanes carry their own
--- bootstrap and a missing toolchain here is a command not yet run.
---
--- SIZE.        git ls-files '<glob>' | wc -l
---   formal/cubical           1196 .agda   (601 of them under NaturalMachine/)
---   formal/lean          203 .lean
---   machine                   160 .hs
---   loss               14 .agda
---   surviving .md                9
---
--- ROOTS.       grep -c '^import' <root>
---   Everything.agda 574 Â agda 475 Â IndianLane.agda 39
---   (grep -c '^import ' <root>; agda also has 13 open-imports)
---
--- WHAT IS GREEN.  Run, not remembered; both at the pin, this date:
---   LC_ALL=C.UTF-8 agda -i . agda   -> EXIT 0  (475 imports)
---   LC_ALL=C.UTF-8 agda -i . Everything.agda       -> EXIT 0  (574 imports)
--- Zero occurrences of `error:` in either log.  The four modules of Â§4 and
--- this file are inside both closures.  A module outside a root's import
--- closure is built by NO command, so "it is green" about such a module is a
--- claim about one person's shell; the four were reachable from nothing until
--- they were added to those roots in this same commit.
---
--- WHAT THE KERNEL CAN DO TODAY, each backed by a term in the three files:
+-- WHAT THE KERNEL CAN DO, each backed by a term in the three files:
 --   * represent terms, single rewrites, and their compositions PROOF-
 --     RELEVANTLY, reversals included;
 --   * certify that a derivation preserves â•-meaning at every environment
@@ -265,19 +234,18 @@
 --   * install any checked derivation as an executable operation (`install`);
 --   * enumerate every enabled operation at a context with multiplicity
 --     exactly conserved (`advance`, `advance-preserves-branch-count`);
---   * as of the TheInstalledOperationHasNoPervasion module, fire ONE operation over an infinite family
---     of contexts, soundly, at no proof cost.
+--   * fire ONE operation over an infinite family
+--     of contexts, soundly, at no proof cost (TheInstalledOperationHasNoPervasion).
 --
 ------------------------------------------------------------------------
--- Â§7.  THE SCOPE, EXACTLY.  DATED 2026-08-24.  An absence without a command
---      is a rumour, so each carries the command that establishes it.
+-- Â§7.  THE SCOPE, EXACTLY.
 ------------------------------------------------------------------------
 --
 --   GENERALISATION AND CONTROL in NativeOperation, read forward.
 --       * `Control : Tm â’ Typeâ` is a FIELD.  The CALLER supplies it and may
 --         supply any type family at all.  `install` is its trivial instance.
 --         So TheInstalledOperationHasNoPervasion.enabled-set-is-subsingleton
---         is not a diagnosis of a lookup table.  IT IS THE SAFETY THEOREM OF
+--         IS THE SAFETY THEOREM OF
 --         AN OPEN EXTENSION POINT: whatever evidence type a caller invents,
 --         it cannot enable an operation anywhere the operation does not hold.
 --       * There is no decision procedure for `Control` BECAUSE THE INTERFACE
@@ -291,67 +259,6 @@
 --         taking the choice from you.  The system is interactive by theorem.
 --     `TheKernelIsAnInteractiveSystemâ¦` supplies the corpus's first
 --     non-trivial `Control` and closes the loop.
---
---   * NO MULTIPLICATION in the kernel's `Tm`.
---       grep -n 'mul' NaturalMachine/RewriteCertificate.agda -> nothing
---
---   * THE GENERATIVE LOOP DOES NOT DRIVE THE KERNEL, and this is the largest
---     structural gap in the corpus.  `GenerativeLoop` proves a real thing --
---     an obstruction-indexed proposer that reads the residual of a FAILED
---     match, names the missing head, strictly decreases a deficit, and
---     terminates unconditionally.  It runs on `Obstruction`'s
---     `Tm`, which is a DIFFERENT datatype from the kernel's.
---       grep -rln '^data Tm *:' formal/cubical  -> 3 files:
---            Obstruction.agda, RewriteCertificate.agda, RewriteCertificateMul.agda
---       files importing BOTH Obstruction and RewriteCertificate -> ZERO
---     So the corpus contains a proved-terminating learner and a metacircular
---     kernel, and no morphism between their term languages.
---
---     PARTIALLY CLOSED, 2026-09-01 -- and "largest structural gap" is now
---     stale framing rather than the standing description.  `Kernel.Siddha-
---     sadhana_InstallingWhatYouCanAlreadyReachIsAPlateauâ¦` transfers the
---     FIRST HALF of Obstruction's separation to the kernel itself, as
---     checked terms and not a port: `install-chain-plateau` and
---     `kernel-install-chains-cannot-reach-a-tower`, run through the kernel's
---     `control-sound` (the control of `install d` at tâ² IS an identification
---     tâ² â‰¡ t) rather than through Obstruction's Bool membership test.  A
---     bridge between the two substrates therefore exists.  Its own header
---     marks the live remainder precisely: the ANTI-PLATEAU half -- what
---     escapes reach is `Vyapti_`'s `SchematicOperation`
---     (`no-native-operation-does-this`), but a schema is not yet installable
---     as a `NativeOperation`, so the escape is not yet a step of any chain.
---     The standing item is that anti-plateau step, not the absence of a
---     bridge.
---
-------------------------------------------------------------------------
--- Â§8.  THE FRONTIER, DERIVED FROM Â§7 RATHER THAN LISTED.
-------------------------------------------------------------------------
---
---   (a) A `Tm`-morphism from Obstruction's language to the kernel's, under
---       which `propose` becomes `install`.  That is what closes the loop:
---       failed match â’ named missing structure â’ new operation â’ larger
---       enabled set, with the deficit measure already proved to descend.
---       ADVANCED, 2026-09-01: `Kernel.Siddhasadhana_` establishes the plateau
---       direction on the kernel (see Â§7); the loop-driving / anti-plateau
---       direction is the remaining half.
---   (b) The schema of TheInstalledOperationHasNoPervasion raised from `subVar`'s one variable to all six
---       coordinates, and `install` replaced by `install-schema` in
---       ControlledGrammar so that generalisation is the kernel's default
---       rather than a companion module's.
---       ADVANCED, 2026-09-01: `Kernel.Adesa_SubstitutionIsAdmissibleOn-
---       Derivationsâ¦` proves substitution admissible on `Step`/`Derivation`,
---       supplying the certificate a schema needs -- `apply-checked` as a
---       Derivation, not only Vyapti_'s `apply-sound` eval-equality.  Its
---       header marks what remains: `install-schema` as a record change (the
---       `apply`/`apply-checked` fields, since `control-sound` forces the
---       subsingleton), and substitution for the other five coordinates.
---   (c) A policy over the enabled list that is honestly extra-semantic --
---       TheDerivationCarriesNoMeaning proves no semantic one exists, and lghava is the obvious
---       candidate order.  It must not collapse to a boolean verdict
---       (Saptabhangi) and it must not dedupe (Â§3).
---   (d) The categorified semantics of TheCountingSemanticsIsADecategorification carried from an example to a
---       theorem: relate âŸ¦tâŸ§ to `eval t` by cardinality, which needs
---       finiteness and is not proved anywhere here.
 --
 ------------------------------------------------------------------------
 

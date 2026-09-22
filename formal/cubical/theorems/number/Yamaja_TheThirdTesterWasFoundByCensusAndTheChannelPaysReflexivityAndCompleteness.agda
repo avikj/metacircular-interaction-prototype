@@ -20,12 +20,7 @@
 --     "A duplication that has been identified is not merely tidier â” it is
 --      a CHANNEL, and theorems flow both ways along it."
 --
--- And its Â§à says what it could not do: "the pattern generalises and is
--- not generalisedâ¦ a question for the audit tool, which currently reports
--- only same-PRINTED-type groups and would miss a pair whose definitions
--- agree under different names."
---
--- That audit now exists â” `interactive/Pratyaksa_â¦hs --twins`, which erases
+-- The census tool `interactive/Pratyaksa_â¦hs --twins`, which erases
 -- each declaration's own module prefix from its KERNEL-ELABORATED type and
 -- groups â” and the first thing it returned was a THIRD `eqâ•`:
 --
@@ -49,35 +44,11 @@
 --
 -- THE ONLY WORK IS Â§à§, four lines, and everything after it is transport.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS NOT DONE, said so silence is not read as denial.
---
---   Â The triangle is not closed here.  Bhedanirnaya identifies
---     ResidueGlue with Obstruction and this identifies Alopa with
---     Obstruction, so Alopa â‰¡ ResidueGlue follows by composing the two
---     paths â” and is NOT stated below, because ResidueGlue is not
---     imported here and importing it to state a corollary that costs one
---     `âˆ™` is not worth the dependency.  Named as available, not claimed.
---   Â NONE of the three should exist.  `Cubical.Relation.Nullary.Discrete`
---     and `Cubical.Data.Nat.Properties.discreteâ•` give decidable equality
---     on â• with both halves, in the library, checked â” which Bhedanirnaya
---     Â§à already says of two copies and now says of three.  This module
---     identifies copies with each other and identifies NONE of them with
---     the library's, so the corpus still carries a fourth statement of the
---     fact that it did not write and cannot see.
---   Â No claim that the twins report is a proof of anything.  A hit is a
---     CANDIDATE: two statements normalising alike does not mean two
---     definitions agree, and Â§à§ is exactly the work the report cannot do.
---     Here they did agree.  Elsewhere a hit may be a genuine near-miss.
---
 -- TERM.  à¯à®à â” twin-born; the ordinary  word, used for the
--- relation the census reports and NOT taken from any technical source.
--- No text is claimed for anything below, and the mathematics â” path,
+-- relation the census reports.
+-- The mathematics â” path,
 -- transport, `ua` â” is cubical type theory, Voevodsky's, this
 -- repository's one admitted non-Indian substrate.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Yamaja_TheThirdTesterWasFoundByCensusAndTheChannelPaysReflexivityAndCompleteness where

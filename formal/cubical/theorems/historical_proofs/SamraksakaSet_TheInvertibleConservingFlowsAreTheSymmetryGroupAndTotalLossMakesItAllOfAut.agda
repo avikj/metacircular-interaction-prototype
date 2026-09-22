@@ -10,10 +10,10 @@
 --  whose function part is refl.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS IS.  `SamraksakaGana_‚¶.agda` ¬ß‡(b) hands one remainder
--- forward: "The invertible elements of the gaa ‚î flows with conserving
+-- WHAT THIS IS.
+-- The invertible elements of the gaa ‚î flows with conserving
 -- inverses ‚î are the observable's symmetry GROUP, and at the far pole
--- they are the symmetric group of the domain.  Not constructed."  This
+-- they are the symmetric group of the domain.  This
 -- module constructs it.
 --
 --   ¬ß‡ß  inverse data is a PROPOSITION (inverses in the gaa are unique,
@@ -43,9 +43,6 @@
 -- , and no classical text is claimed for it.  ‡µ‡‡Ø‡‡‡‡ï‡‡∞‡Æ for the
 -- inverse follows `BhavanaSamuha`'s use for the conjugate inverse
 -- (a,‚àíb).  The compound ‡‡‡∞‡ï‡‡‡ï‡‡Æ‡‡ is built here.
---
--- CHECKED: Agda 2.8.0 + agda/cubical (installed bundle), --cubical
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module SamraksakaSamuha_TheInvertibleConservingFlowsAreTheSymmetryGroupAndTotalLossMakesItAllOfAut where
@@ -238,11 +235,3 @@ module ‡§Ö‡§®‡•ç‡§ß-‡§∏‡§Æ‡•Ç‡§π‡•á {A B : Type ‚Ñì} (setA : isSet A) (setB : is
       isoToEquiv (iso ‡§™‡•ç‡§∞‡§§‡§ø ‡§Ü‡§ó‡§Æ‡§É ‡§™‡•ç‡§∞‡§§‡§ø-‡§Ü‡§ó‡§Æ‡§É ‡§Ü‡§ó‡§Æ-‡§™‡•ç‡§∞‡§§‡§ø‡§É)
     , makeIsGroupHom (Œª u v ‚Üí equivEq refl)
 
-------------------------------------------------------------------------
--- ¬ß‡ ¬ ‡‡‡‡ ‚î unchanged from SamraksakaGana ¬ß‡ except (b), which this
--- module discharges: (a) the fibrewise leg (group ‚â Œ† over the codomain
--- of the fibres' automorphism groups, needing the Avaccheda currying
--- coherence); (c) the ‚àû-version; (d) the yoga/gauge instances.  New
--- here: the section-side units as a packaged `Group` with ‡µ‡æ‡‡ a
--- `GroupEquiv` onto it ‚î ¬ß‡© gives the pointwise evidence and stops.
-------------------------------------------------------------------------

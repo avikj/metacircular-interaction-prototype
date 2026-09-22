@@ -63,9 +63,6 @@
 -- every site here is 2, one of them is constrained, one of them has a
 -- non-discrete observation space, and each of those two was proved
 -- individually rather than by the general theorem.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module SiteAudit where
@@ -163,30 +160,10 @@ laghava-is-two =
 -- `AvaktavyaDoesNotFactor` because its decoders are six atoms â” and both
 -- were proved individually, here and in `WitnessNumberIsTwo` Â§5
 -- respectively.
---
--- CORRECTED.  "2 was never contingent here" is true at the discrete
--- sites and was asserted of all of them.  At `Laghava` the 2 is a fact
--- about the exhibited collision, not a consequence of any theorem, and
--- nothing in this corpus rules out a costlier absence over the same
--- `eval`.
---
--- OPEN, named and not estimated.  Whether the ceiling holds at
--- `Laghava` â” i.e. whether every absence over `eval : Expr â’ (â• â’ â•)`
--- costs 2.  `LocatingIsEnough` says what would suffice: that the
--- witnesses be locatable.  Equality of functions â• â’ â• is not decidable,
--- but locating finitely many SPECIFIC denotations against an arbitrary
--- one is a weaker demand, and this module does not settle whether it can
--- be met.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 5.  THE OPEN ITEM IN Â§4 IS ANSWERED, and the answer relocates the
---     hypothesis rather than discharging it.
---
--- Â§4 asked whether the ceiling holds at `Laghava`, noting that locating
--- finitely many specific denotations against an arbitrary one is weaker
--- than deciding function equality, and that this module did not settle
--- whether it can be met.
+-- 5.  THE CEILING AT `Laghava`, and where the hypothesis relocates.
 --
 -- `TheCeilingIsAboutReading` settles the useful half.  The
 -- ceiling was never about discreteness of the OBSERVATIONS; it is about
@@ -206,10 +183,9 @@ laghava-is-two =
 -- Probing only removes decoders, so the probed statement is weaker and
 -- `Laghava`'s own theorem implies it.
 --
--- The unsettled half is now unsettled for a reason.  A decoder in the
+-- A decoder in the
 -- full space `Denotation â’ â•` must recognise an arbitrary `d : â• â’ â•` as
 -- a listed denotation, which is a decision of function equality.  This
 -- lane builds no such decision and refutes none; the type contains what
--- it contains.  That is the only open item in this thread whose
--- openness is itself a fact rather than a gap.
+-- it contains.
 ------------------------------------------------------------------------

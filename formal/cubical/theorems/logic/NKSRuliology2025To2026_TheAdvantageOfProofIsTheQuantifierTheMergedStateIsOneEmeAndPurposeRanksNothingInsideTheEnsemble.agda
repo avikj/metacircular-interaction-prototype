@@ -69,7 +69,7 @@
 -- checkable ingredient of "patches fitted together" â” is already a
 -- checked term as Jiva_*'s living step, cited not re-proved.
 --
--- RELATION TO THE CORPUS, checked before writing.  Abstract 25's
+-- RELATION TO THE CORPUS.  Abstract 25's
 -- composition theorem is W5 at machine scale; abstract 12 is W7's
 -- non-ranking in general; Jiva_* holds W7's orchestration ingredient;
 -- NKSUnivalence_* holds the truncation half of W6 and the branch pair
@@ -78,9 +78,6 @@
 -- codes were quotiented by behaviour, here runs are quotiented by
 -- co-terminality, and in both the quotient is the observer's object
 -- while the fibre is the ruliology.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 â” the repository pin.
--- --cubical --guardedness --safe, no postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module NKSRuliology2025To2026_TheAdvantageOfProofIsTheQuantifierTheMergedStateIsOneEmeAndPurposeRanksNothingInsideTheEnsemble where

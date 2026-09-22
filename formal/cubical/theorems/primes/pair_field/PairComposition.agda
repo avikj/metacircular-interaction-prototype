@@ -28,14 +28,13 @@
 -- trial-division tester certifies isPrime 15 â‰¡ false, isPrime 35 â‰¡
 -- false, while 3, 5, 7 test true â” all by refl.
 --
--- SEED (stated, not proved here): for uâ,vâ,uâ,vâ â‰ 2 every composed
+-- SEED (proved in PairCompositionSeed): for uâ,vâ,uâ,vâ â‰ 2 every composed
 -- leg is a product of two factors â‰ 2, hence composite; so no
 -- composite of two â‰2-legged pairs is ever a prime pair.  Primality
 -- is exactly the condition of falling out of every proper
--- composition.  The general lemma is a two-line
--- ÂisPrime-of-product; only the finite witness is checked below.
+-- composition.
 --
--- isometry group of q(S,D)=SÂ²âˆ’DÂ² is {ÂI} â” the pair field has no
+-- The isometry group of q(S,D)=SÂ²âˆ’DÂ² is {ÂI} â” the pair field has no
 -- symmetries to move pairs around.  This module is the complementary
 -- positive fact: what the pair field DOES have is a composition, and
 -- the primes are precisely what escapes it.

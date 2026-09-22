@@ -38,19 +38,6 @@
 -- `isContr` returns `false` for both.  The tradition held them apart for
 -- a millennium before there was a fibre to hang the distinction on.
 --
--- A CORRECTION IN THE NAMING (2026-08-24).  This constructor was called
--- ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡.  That is wrong for the GENERAL empty fibre.  ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ (the
--- fourth bhaga) is not mere absence ‚î it is the SIMULTANEOUS (yugapat)
--- assertion of asti and nsti, inexpressible by a single word precisely
--- because a word is sequential, and it is EARNED only where a pair
--- recovers in krama what one utterance cannot say: `SaptabhangiNaya`'s
--- `avaktavya-does-not-factor` (the fibre of `denotes` over `joint` is
--- empty, and a krama-pair expresses it ‚î R ‚í RóR).  A plain non-surjective
--- point like `‡‡‡`'s `false` below has none of that structure: no
--- simultaneity, no pair-recovery, just `false` unreached.  That is ‡®‡æ‡‡‡‡ø,
--- not ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡.  The genuine ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ stays where it is proved; here the
--- honest name for an empty fibre is ‡®‡æ‡‡‡‡ø.
---
 -- THE REPAIR, and it is the one code change that note argues for and
 -- explicitly declines to make (its ¬ß‡): make the CENSUS a term.  `‡¶‡‡`
 -- below is a datatype whose constructors carry their evidence, so a
@@ -62,17 +49,6 @@
 -- computed object.  I had proposed, in prose, "factor the proof, and the
 -- first non-contractible fibre is where the information went".  It is
 -- unsound in BOTH directions, and ¬ß3 exhibits both failures as censuses.
---
--- WHAT IS NOT DONE HERE, said so it is not mistaken for done.  The note's
--- scale has five levels; this module builds THREE, because three are what
--- the corpus can exhibit.  Levels ‡© and ‡ are not separated ‚î the note
--- establishes that "does a retraction exist" does NOT separate them, and
--- leaves the seam open.  Inventing a constructor for a distinction nobody
--- has a criterion for would be the same error one level down.  The seam
--- is left visible; see ¬ß4.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚î the library's declared pin.
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Fibre.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic where

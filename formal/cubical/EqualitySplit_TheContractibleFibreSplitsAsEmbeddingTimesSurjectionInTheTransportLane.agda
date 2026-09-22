@@ -17,14 +17,8 @@
 -- This module carries the same split into the TRANSPORT lane
 -- (`NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual`), where the
 -- identical residual `‡‡‡ r = fiber r` already sits under `‡‡≤‡ã‡-‡≤‡ï‡‡‡‡Æ‡`
--- (loss-free ‚ü∫ every residual contractible) ‚î but that lane never split the
--- hypothesis.  Now it is split, on the nose, beside `‡‡≤‡ã‡-‡≤‡ï‡‡‡‡Æ‡`.
---
--- CHECKED: loaded warm through the ‡®‡æ‡°‡ conduit against the container's agda
--- (2.8.0-lane cubical) ‚î ‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø, no open goals.  --cubical --safe, no
--- postulates, no holes.  The formal/cubical `Everything.agda` closure is
--- pin-blocked elsewhere on this container (solve‚ï! skew, a catalogued fiber),
--- which is a fact about that closure and not about this module.
+-- (loss-free ‚ü∫ every residual contractible).
+-- The split sits beside `‡‡≤‡ã‡-‡≤‡ï‡‡‡‡Æ‡`.
 ------------------------------------------------------------------------
 
 module SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane where

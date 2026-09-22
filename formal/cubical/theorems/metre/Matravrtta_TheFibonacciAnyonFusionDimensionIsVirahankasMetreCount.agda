@@ -11,8 +11,8 @@
 -- ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞ tradition begun by ‡‡ø‡ô‡‡ó‡≤ ~300 BCE) ‚î the sequence usually
 -- miscalled "Fibonacci" (Leonardo of Pisa, 1202, five centuries later).
 -- This module CITES the corpus's own `Matramerus.‡‡∞‡‡µ` / `‡Æ‡æ‡‡‡∞‡æ‡Æ‡‡∞‡` for that
--- count; it claims no new source, and the physics identification below is
--- built here, 2026-08-24.
+-- count; the physics identification below is
+-- built here.
 --
 -- WHAT IS PROVED, exactly:  the number of fusion paths of a chain of n
 -- Fibonacci anyons equals `length (‡‡∞‡‡µ (suc n))` ‚î Virahka's metre count
@@ -31,11 +31,7 @@
 -- of a given weight.  So the tradition this corpus restores enumerated, in
 -- ~700 CE, the dimension of a universal quantum computer's state space; the
 -- quantum dimension of a single œ is the golden ratio œ, the mtrmeru's
--- growth rate.  Only the COUNT is checked here ‚î no Hilbert space, no braiding
--- (that is `VeniYangBaxtara_‚¶`), no golden ratio ‚î but the count is the thing
--- Virahka actually computed, and it is the fusion-space dimension on the nose.
---
--- Checked: --cubical --safe, agda 2.6.3 + cubical (loads clean).
+-- growth rate.
 ------------------------------------------------------------------------
 
 module Matravrtta_TheFibonacciAnyonFusionDimensionIsVirahankasMetreCount where

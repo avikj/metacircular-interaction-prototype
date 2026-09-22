@@ -1,9 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡∞‡ï‡‡‡æ ‚î keep the remainder.  The Kerala chapter's essence, stated
--- exactly where Madhava.agda fenced it: "‡‡‡-‡‡¶‡Æ‡ ‡‡µ ‡‡æ‡∞‡; ‡‡‡ ‡‡ ‡‡®‡‡ï‡‡‡Æ‡,
--- ‡® ‡Æ‡ø‡‡‡Ø‡æ-‡‡ø‡¶‡‡ß‡Æ‡" ‚î the remainder term is the essence, there unstated.
+-- ‡‡‡‡∞‡ï‡‡‡æ ‚î keep the remainder.  The Kerala chapter's essence.
 -- Its ‚-native form IS statable, and it is DIVISION WITH REMAINDER at
 -- every finite stage, the remainder first-class:
 --
@@ -15,12 +13,8 @@
 -- remainder RECURSES: ‡ò‡æ‡ r (suc n) ‚â° ‡ò‡æ‡ r n ¬ r, definitionally ‚î each
 -- stage's remainder is the previous remainder carried once more.
 --
--- The convergence statement (remainder ‚í 0 for |r| < 1) still needs
--- ‚/‚ and remains where Madhava.agda left it: unstated, not falsely
--- proven.  What this module adds is that the FINITE essence needs no
+-- What this module adds is that the FINITE essence needs no
 -- limit at all.
---
--- Composed through ‡®‡æ‡°‡ against the warm kernel.
 ------------------------------------------------------------------------
 
 module SesaRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecurses where

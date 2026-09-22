@@ -22,9 +22,7 @@
 --
 -- One rope suffices to detect; every rope is then clean.  With the
 -- normal form (every word = permutation then twist word) this closes
--- the abelian coordinate of the kernel of B∞ entirely; what remains
--- is the permutation coordinate's faithfulness, whose witness rope
--- will need distinct strands rather than the constant one.
+-- the abelian coordinate of the kernel of B∞ entirely.
 --
 ------------------------------------------------------------------------
 

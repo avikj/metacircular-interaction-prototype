@@ -7,10 +7,7 @@
 --
 -- TEXT.  Vtsyyana, *Kmastra*, second adhikaraa (Smprayogika),
 -- chapter 1: "On the kinds of union according to dimension, force of
--- desire, and time."  Read for this module, 2026-08-21, in the Burton
--- rendering (Project Gutenberg 27827), which is the one available here;
--- the  was not opened and the terms below are carried from the
--- secondary literature, so the verse-level citation is owed.
+-- desire, and time."  Burton rendering (Project Gutenberg 27827).
 --
 -- THE TEXT'S STRUCTURE, which is a taxonomy and is used here as one:
 --
@@ -37,9 +34,6 @@
 -- the ���� axes therefore OWE � which is the point of doing this at all:
 -- an unequal union is not forbidden, it is conditional on a technique,
 -- and the technique here is a theorem that already exists.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical, with the back-port in
--- notes/CUBICAL_PATCH.md), --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Samprayogika_TheJoinIsClassifiedByBothConstitutions where
@@ -116,7 +110,7 @@ compare (suc m) (suc n) = compare m n
 --                 one round at vocabulary 8, horizon 7.
 --   ���� ����     � every round acts on everything it can see, and the
 --                 obstruction it leaves behind climbed 8 � 79,656 in ten
---                 rounds before the growth rule was changed.
+--                 rounds.
 --   ���� ���      � `loop = round1 � >> loop`.  It does not stop.
 यन्त्रम् : प्रकृति
 यन्त्रम् = अश्व , (चण्ड , चिर)
@@ -168,9 +162,7 @@ all-योग = go all-प्रकृति
 सप्तविंशतिः : length all-प्रकृति ≡ 27
 सप्तविंशतिः = refl
 
--- � and 9 � 9 � 9 unions, by the kernel.  (This counts the enumeration,
--- which is the full product by construction; it is not a completeness
--- theorem and is not offered as one.)
+-- � and 9 � 9 � 9 unions, by the kernel.
 नवशतम्-एकोनत्रिंशत् : length all-योग ≡ 729
 नवशतम्-एकोनत्रिंशत् = refl
 
@@ -194,11 +186,7 @@ all-योग = go all-प्रकृति
 --                            meaning, � n, by structure
 --
 -- so the ���ension and force axes are discharged, in that order, by
--- theorems and not by hope.  What is NOT discharged, and is named here
--- rather than hidden: the engine's own step has no proof that it
--- preserves the small organism's ���� specifically � only that it
--- preserves meanings under a semantics.  Until the two are the same
--- statement, this union is conditional.
+-- theorems and not by hope.
 data Obligation : Type₀ where
   discharged : Obligation
   owed       : Obligation
@@ -208,6 +196,6 @@ data Obligation : Type₀ where
 वेग-obligation    = discharged   -- Calana.अलोपः
 काल-obligation    = discharged   -- सम: no technique required
 
--- and the one that is still owed, stated as data so it cannot be lost
+-- the conditional obligation, stated as data
 शेष-obligation : Obligation
 शेष-obligation = owed

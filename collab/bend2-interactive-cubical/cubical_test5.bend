@@ -22,7 +22,7 @@ def ua5(A: Set, B: Set, e: Iso5(A, B)) -> Path(Set, A, B):
 def pathToIso(A: Set, B: Set, p: Path(Set, A, B)) -> Iso5(A, B):
   coe(lambda i. Iso5(A, p @ i), i0, i1, idIso5(A))
 
-# ua of the identity iso is refl â” the missing Glue law, now conversion
+# ua of the identity iso is refl â” by conversion
 def uaIdEquiv(A: Set) -> Path(Path(Set, A, A), ua5(A, A, idIso5(A)), <_> A):
   <i> <_> A
 

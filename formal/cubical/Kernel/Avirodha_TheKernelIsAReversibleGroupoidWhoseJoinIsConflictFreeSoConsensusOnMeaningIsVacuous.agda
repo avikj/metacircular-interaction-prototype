@@ -13,8 +13,7 @@
 -- the conflict dissolves, it says the standpoints coexist.  Both readings
 -- appear below and they are kept apart -- §4 is avirodha (there is nothing
 -- to disagree about), §5 is aneknta (what does differ is kept, not
--- resolved).  The *Brahmastra*'s date is contested (~200 BCE-200 CE) and I
--- pin none.  No stra is claimed for anything proved here.
+-- resolved).  The *Brahmastra*'s date is contested (~200 BCE-200 CE).
 --
 ------------------------------------------------------------------------
 -- THE KERNEL IS A DISTRIBUTED SYSTEM.  NOT BY DECORATION -- BY TYPE.
@@ -72,8 +71,6 @@
 -- as consequences of `reverse` and of � being a set, and the machinery a
 -- chain uses to manufacture them (ordering, voting, finality, reorg) has no
 -- work to do because the disagreement it resolves cannot be stated.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module Kernel.Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous where

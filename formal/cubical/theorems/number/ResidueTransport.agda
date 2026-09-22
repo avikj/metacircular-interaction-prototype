@@ -92,6 +92,4 @@ compileCosted source = record
 -- law ties `stateSize`/`updateCost`/â¦ to the function `observe`: a false
 -- declaration would transport just as faithfully.  A contentful statement
 -- needs a cost-annotated evaluation judgment (Eval : Observation A â’ â• â’ A â’
--- â• â’ Type with an observes-within law) before preservation means anything;
--- that joint is open, exactly as CountedDigits' cost boundary already admits.
--- (A vacuous `complexity-preserved = refl , refl , refl , refl` formerly stood
+-- â• â’ Type with an observes-within law) before preservation means anything.

@@ -3,44 +3,26 @@
 ------------------------------------------------------------------------
 -- CountedDigitsEdge
 --
--- THE COST EDGE, CLOSED.
+-- THE COST EDGE.
 --
--- `CountedDigits` ends with a confession, and three further modules
--- re-name it verbatim:
---
---   CountedDigits      "`sucw` performs real recursive carry propagation,
---                      but the imported development proves semantic
---                      equations, not a work measure for that recursion.
---                      � A costed execution edge remains open until a
---                      native carry-cost theorem is installed."
---   CountedComposition "This is what makes a tick count a *cost*" � of a
---                      tick whose own work is unpriced.
---   AcceptanceTest     "`cost` is a DECLARED plan cost: it prices one
---                      scheduled `sucC` tick � at one unit.  `sucC`
---                      performs real recursive carry propagation whose
---                      cost nobody here bounds."
---   CompileBridge      "No native-work theorem is claimed here, and the
---                      open cost edge of the corpus is not closed."
---
--- One sentence, four times: THE LANE COUNTS TICKS OF `sucC` AND HAS NO
--- THEOREM SAYING WHAT ONE TICK COSTS, so every "strictly cheaper" in the
--- lane is a statement about a schedule and not about work.
---
--- What is installed here is exactly that theorem, and its consequences.
+-- `CountedDigits`, `CountedComposition`, `AcceptanceTest` and
+-- `CompileBridge` count ticks of `sucC`, and `sucC` performs real
+-- recursive carry propagation.  A tick count alone says what a SCHEDULE
+-- costs and not what work is done; the theorem saying what one tick
+-- costs is proved here, with its consequences.
 --
 --
 -- §1-§2  THE COUNTER IS THE COMPUTATION.  `sucwR` is the odometer with
 --        the carry count carried in the SAME recursion � the discipline
---        of `TransportDiv.run-is-the-automaton`, which exists because an
---        audit caught this lane pricing a lookalike counter.  Nothing is
+--        of `TransportDiv.run-is-the-automaton`.  Nothing is
 --        counted that is not executed:
 --
 --          sucwR-is-sucw : fst (sucwR w) ≡ sucw w
 --          runC-is-run   : runC n ≡ CountedDigits.run n
 --
 --        The second is the point: the object whose cost is measured below
---        is, as a checked path in `CanWord`, the very `run` of the module
---        that confessed the gap.
+--        is, as a checked path in `CanWord`, the very `run` of
+--        `CountedDigits`.
 --
 -- §3     THE CARRY-COST LAW, EXACT.  The native carry cost of one tick is
 --        not a fitted number and not a stipulated one; it is determined by
@@ -52,8 +34,7 @@
 --        Read: a tick that propagates c carries destroys c−1 maximal
 --        digits (each worth b−1) and adds 1.  This is the potential-
 --        function identity behind the folklore "increment is amortised
---        O(1)", written as an equation rather than as a bound, per
---        CLAUDE.md §2 (derive the constant, do not fit it).
+--        O(1)", written as an equation rather than as a bound.
 --
 -- §5     THE EXECUTION LAW, EXACT.  Telescoped over a whole run from zero:
 --
@@ -61,14 +42,13 @@
 --
 --        so the total native carry work C(n) of the first n increments
 --        satisfies (b−1)�C(n) + digitSum (digits n) = n�b EXACTLY, with no
---        error term to hide and no scale at which the constant changes
---        (CLAUDE.md, HOLOGRAM §7: a number without its X-dependence looks
---        like knowledge).  Corollaries: n � C(n) and (b−1)�C(n) � n�b.
+--        error term to hide and no scale at which the constant changes.
+--        Corollaries: n � C(n) and (b−1)�C(n) � n�b.
 --
--- §6     WHAT THE LANE'S DECLARED COST WAS.  `AcceptanceTest.cost` prices
+-- §6     THE LANE'S DECLARED COST.  `AcceptanceTest.cost` prices
 --        a tick at 1.  §5 says that price is a LOWER bound that is never
 --        off by more than the factor b/(b−1) � an exact constant, derived.
---        So the declared cost was sound all along, and now it is a theorem
+--        So the declared cost is sound, and it is a theorem
 --        rather than a convention.
 --
 -- §7     WORK COMPOSES ACROSS A CHECKPOINT.  `CountedComposition.run-+`
@@ -90,7 +70,7 @@
 -- §9     A NEGATIVE FINDING ABOUT THE COST GEOMETRY, and it is why this
 --        module does not instantiate `CostGeometry.Edge`.  `Edge` holds
 --        `cost : Cost` � ONE natural number per edge � and `Work` is a
---        single natural too.  The quantity `CountedDigits` confesses is a
+--        single natural too.  The native carry cost is a
 --        FUNCTION of the state: `no-native-cost-is-constant` proves the
 --        odometer's carry cost is 1 at `[]` and 2 at the one-digit maximal
 --        word, so
@@ -304,8 +284,8 @@ module Base (k : ℕ) where
   runC n = fst (runR n) , runR-canonical n
 
   -- THE TIE.  The billed execution IS `CountedDigits.run`, as a path in
-  -- `CanWord`.  `snd (runR n)` is therefore the carry cost OF the run that
-  -- module confessed it could not price, not of a lookalike.
+  -- `CanWord`.  `snd (runR n)` is therefore the carry cost OF that
+  -- module's run, not of a lookalike.
   runC-is-run : (n : ℕ) → runC n ≡ CD.run n
   runC-is-run n =
       Σ≡Prop isPropCanonical (runR-state n)
@@ -349,7 +329,7 @@ module Base (k : ℕ) where
     ∙ execution-cost-law n
 
   ------------------------------------------------------------------------
-  -- 6.  What the lane's declared cost was, now as two theorems.
+  -- 6.  The lane's declared cost, as two theorems.
   --
   --   work-lower  n � C(n)          one tick is at least one carry, so the
   --                                 declared price never over-charges;
@@ -377,7 +357,7 @@ module Base (k : ℕ) where
   work-≤-n·b : (n : ℕ) → snd (runR n) ≤ n · b
   work-≤-n·b n = ≤-trans (m≤m·sk (snd (runR n))) (work-upper n)
 
-  -- Packaged: the sandwich the four confessing headers asked for.
+  -- Packaged: the sandwich.
   declared-cost-is-sound : (n : ℕ)
     → (n ≤ snd (runR n)) × (snd (runR n) · suc k ≤ n · b)
   declared-cost-is-sound n = work-lower n , work-upper n
@@ -546,9 +526,8 @@ module Base (k : ℕ) where
   odometer : Presentation
   odometer = pres Word (λ w _ → sucw w)
 
-  -- THE NEGATIVE RESULT.  No edge of the cost geometry can hold the number
-  -- `CountedDigits` asked for, because the field is a constant and the
-  -- number is not.
+  -- THE NEGATIVE RESULT.  No edge of the cost geometry can hold the native
+  -- carry cost, because the field is a constant and the number is not.
   no-edge-carries-native-cost :
     ¬ (Σ[ e ∈ Edge odometer odometer ] ((w : Word) → snd (sucwR w) ≡ cost e))
   no-edge-carries-native-cost (e , h) = no-native-cost-is-constant (cost e , h)
@@ -573,11 +552,10 @@ module Base (k : ℕ) where
 ------------------------------------------------------------------------
 -- 10.  THE COUNTER, RUN.
 --
--- Exact finite verification � a mathematical object, not a measurement
--- (CLAUDE.md: "a finite exhaustive verification � produces mathematical
--- objects").  It is in this file rather than in a companion witness file
--- for one reason: a cost theorem about a counter nobody ever ran is the
--- defect this module exists to repair.  Every equation below is `refl`.
+-- Exact finite verification � a mathematical object, not a measurement.
+-- It is in this file rather than in a companion witness file
+-- so that the counter the cost theorem is about is run here.  Every
+-- equation below is `refl`.
 ------------------------------------------------------------------------
 
 module Decimal = Base 8      -- b = 10
@@ -622,15 +600,3 @@ decimal-resume-work = refl
 
 decimal-restart-work : Decimal.nativeCost (Decimal.AT.restart 5 100) ≡ 116
 decimal-restart-work = refl
-
-------------------------------------------------------------------------
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical, with the
--- `withReduceDefs` � `dontReduceDefs` back-port that landed 2026-08-15
--- and unblocked `Cubical.Tactics.*`; without it `Transport`
--- does not scope-check under this compiler and neither do the four
--- modules this file closes).  --cubical --safe --guardedness, no
--- postulates, no holes, no warnings.  Also checked against cubical v0.6
--- (Agda 2.6.3) during development.  NOT verified against the pin in
--- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9): four toolchain
--- states are now live in this repository at once.
-------------------------------------------------------------------------

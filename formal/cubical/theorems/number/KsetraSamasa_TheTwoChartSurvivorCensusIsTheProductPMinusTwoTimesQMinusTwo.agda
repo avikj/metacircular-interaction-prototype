@@ -4,8 +4,8 @@
 -- ‡ï‡‡‡‡‡‡∞-‡‡Æ‡æ‡‡ ‚î the survivor census composes across charts: over two
 -- charts with distinct walls the joint survivor set is Fin (m ¬ m'),
 -- i.e. (p‚àí2)¬(q‚àí2).  The singular series' LOCAL PRODUCT, as a checked
--- equivalence ‚î closing the two-chart case of the atlas ‡¶‡ã‡‡≤‡‡ñ that
--- ‡¶‡‡µ‡ø-‡≤‡ã‡ and ‡‡‡‡ü‡ø‡ï left open.
+-- equivalence ‚î the two-chart case of the atlas ‡¶‡ã‡‡≤‡‡ñ that
+-- ‡¶‡‡µ‡ø-‡≤‡ã‡ and ‡‡‡‡ü‡ø‡ï name.
 --
 -- ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡ Lemma 3 (prose): the joint congruence system has exactly
 -- ‚à (p ‚àí œâ_p) solutions per period.  Here, for two charts at distinct-wall
@@ -24,16 +24,13 @@
 -- the condition at a coprime prime, so a joint survivor is a tuple of
 -- local survivors.  The identification of this product with the survivors
 -- inside Fin (p¬q) is the Chinese Remainder ring-iso (‚/pq ‚â ‚/p ó ‚/q,
--- coprime), which is NOT proved here ‚î this module works on the product
+-- coprime); this module works on the product
 -- carrier directly, where the count is exact and needs no CRT.  So the
--- result is the DENSITY product, honestly on the product carrier; the
--- CRT identification with the residue line mod p¬q is the remaining,
--- named, half of the atlas.
+-- result is the DENSITY product, on the product carrier.
 --
--- No claim about primes as such: p = 2+m is any modulus ‚â 2 with two
+-- Here p = 2+m is any modulus ‚â 2 with two
 -- distinct walls; primality and coprimality enter only when this product
--- is read as the singular series, which ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡ does.  ‡ï‡‡‡‡‡‡∞-‡‡Æ‡æ‡‡ is
--- built here, 2026-08-23.
+-- is read as the singular series, which ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡ does.
 ------------------------------------------------------------------------
 
 module KsetraSamasa_TheTwoChartSurvivorCensusIsTheProductPMinusTwoTimesQMinusTwo where
@@ -72,11 +69,8 @@ private
   compEquiv (‚âÉ-√ó (‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É a‚ÇÅ b‚ÇÅ ne‚ÇÅ) (‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É a‚ÇÇ b‚ÇÇ ne‚ÇÇ)) factorEquiv
 
 ------------------------------------------------------------------------
--- ‡¶‡ã‡‡≤‡‡ñ‡.  Two charts, both at distinct-wall count p‚àí2; the merged-wall
--- case (p ‚à 2a, count p‚àí1) and the arbitrary-length atlas (‚à over a list
--- of charts, by iterating this composition) are the next steps, and the
--- CRT identification of the product carrier with the residue line mod p¬q
--- is the named other half.  What is proved: the elided-two-residue counts
+-- ‡¶‡ã‡‡≤‡‡ñ‡.  Two charts, both at distinct-wall count p‚àí2.  What is proved:
+-- the elided-two-residue counts
 -- MULTIPLY across charts, exactly, as an equivalence ‚î the local product
 -- of the singular series is now a term.
 ------------------------------------------------------------------------

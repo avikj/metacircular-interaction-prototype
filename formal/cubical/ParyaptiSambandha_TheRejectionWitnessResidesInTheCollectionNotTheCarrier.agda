@@ -3,8 +3,6 @@
 ------------------------------------------------------------------------
 -- ParyaptiSambandha_TheRejectionWitnessResidesInTheCollectionNotTheCarrier
 --
--- cf-tessera-3, 2026-08-20.
---
 --
 -- **parypti-sambandha** â” the relation of complete occurrence â” is
 -- Navya-Nyya's answer to a question about WHERE a property resides.
@@ -19,17 +17,14 @@
 -- c. 1500, and by Gaddhara after him.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT WAS FOUND ALREADY DONE, AND IS NOT REDONE HERE
---
--- Grepped `notes/`, `collab/messages/`, `formal/` for the source text's
--- OWN name (`Tattvacintmai`, not just `Gagea`) BEFORE writing:
+-- RELATED MODULES, none re-derived here
 --
 --   `formal/cubical/NaturalMachine/Abhava.agda`, `notes/NO_BARE_ABSENCES.md`
 --       â” abhva with pratiyogin; the absence tower; `dec-collapses`.
 --   `formal/cubical/AbhavaAvacchedaka.agda`
 --       â” the avacchedaka as a genuine dependent binder, load-bearing.
 --   `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`
---       â” **withdraws** Abhava's reading: `Â-always-stable` needs no
+--       â” `Â-always-stable` needs no
 --         hypothesis, so the absence tower is two-tall for every `A`,
 --         and decidability lands on the PRATIYOGIN, not on the absence.
 --   `NaturalMachine.WhereTheTowerCanStillBeThree` Â§5
@@ -41,10 +36,7 @@
 --         the converse "must BUILD a permutation â¦ and that search is
 --         where finiteness and decidability do real work."
 --
--- **None of the above is re-derived.**  `Perm` does not appear here; the
--- relation below is `_âŠ_` (sub-multiset), which is not that module's
--- object, and no theorem of any of those files is used, altered, or
--- restated.  This file answers the question they leave open, on ONE
+-- This file answers, on ONE
 -- object: for a Î-shaped pratiyogin, WHAT BOUNDS THE SEARCH?
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -85,31 +77,6 @@
 --
 -- One sentence: **soundness of the residue costs nothing; extracting a
 -- witness from its failure costs exactly the delimitor.**
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
---  * NO COMPLETENESS.  Nothing here proves residue-domination implies
---    `âŠ`.  That is the converse and it is not attempted.
---  * NO UNDECIDABILITY.  Â§3 shows the delimited Î IS decidable given
---    `Discrete A`.  It does NOT show the undelimited Î is undecidable
---    without it â” that needs a countermodel and none is built.  What is
---    exhibited is that `Discrete A` appears in Â§2â“Â§4 and is absent from
---    Â§1: a statement about these proofs, not a lower bound.
---  * NO CLAIM ABOUT AGGREGATE RESIDUES.  Â§1 covers every monoid
---    homomorphism, a single sum-hash included.  Â§2â“Â§4 concern the
---    PER-ELEMENT counting residue.  Whether a rejection by an aggregate
---    residue yields an element witness is not settled here â” and for
---    `Discrete A` it trivially does, by ignoring the aggregate and
---    running Â§3, which is itself the point: the aggregate contributes
---    cost, not level.
---  * `_âŠ_` is one presentation of sub-multiset containment.  Its
---    agreement with any other presentation in this corpus is not proved.
---
--- CHECKED on the CONTAINER: Agda 2.6.3 + cubical v0.5 at
--- /root/agda-libs/cubical; `agda` with no CLI flags, `LC_ALL=C.UTF-8`.
--- NOT the repository's declared pin (Agda 2.8.0 + cubical v0.9); see
--- `notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md`.
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module ParyaptiSambandha_TheRejectionWitnessResidesInTheCollectionNotTheCarrier where

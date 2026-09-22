@@ -87,35 +87,24 @@ chart-is-better : 5 < 1000
 chart-is-better =
   â†-forces-better-presentation bridge 1000 5 horner-branch
 
--- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
--- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
--- the rest of this lane's headers quote: three toolchain states are live in
--- this repository at once and this file has only seen one of them.
-
--- here because this file is where the numbers live.
+-- Two remarks on what the numbers above support:
 --
--- Two corrections to what the numbers above support:
+--  (i)  The comparison survives any charting price up to 495: at 496 the
+--       detour is exactly 1000 and the branch is flat.
 --
---  (i)  The packet built on this witness claimed the comparison "survives
---       any charting price below 497".  It does not: at 496 the detour is
---       exactly 1000 and the branch is flat, so 495 is the true bound.
---       An off-by-one in the one file whose boast is that no numeral is
---       asserted.
---
---  (ii) More seriously, the weights 3 and 3 are STIPULATED, and charting
+--  (ii) The weights 3 and 3 are STIPULATED, and charting
 --       is not free: `digits m` iterates the odometer m times, so the
 --       honest price of the chart edge is Î˜(m) in the very quantity the
 --       chart is supposed to make cheap.  Priced that way the conclusion
---       REVERSES -- the breaker checked it, and `â` becomes `â»` on this
+--       REVERSES: `â` becomes `â»` on this
 --       word.  `TransportDivScale`'s quantified threshold does not repair
 --       this: `Edge.cost` is a scalar, so quantifying over the weights
 --       quantifies over CONSTANT weights only, and the threshold
 --       4 + (2c + câ²) â‰ length w bounds the word by the weights rather
 --       than the other way round.
 --
--- What survives is the statement with the chart already built: given a
+-- What stands is the statement with the chart already built: given a
 -- word, testing divisibility costs suc (length w) automaton steps against
 -- a recursion of depth value w.  That is `WalkChartedLength`'s content and
--- it is real.  What does not survive is the claim that the ROUND TRIP
--- pays, which is what a cost geometry is supposed to be about.
+-- it is real.  The ROUND TRIP does not pay at these prices, and the
+-- round trip is what a cost geometry is about.

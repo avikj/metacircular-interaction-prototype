@@ -28,9 +28,6 @@
 -- happens to hold.  That is not a defect of the program, which computes
 -- on a graph where the final module has imports; it is the difference
 -- between a computed instance and a quantified statement.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheLastCutHasOneRowWhenItsSeparatorIsInhabited where
@@ -108,8 +105,5 @@ module _
 -- on the separator being inhabited, i.e. on the final module importing
 -- something.  On that graph it does; as a quantified statement it must
 -- be said.  A computed instance and a quantified claim differ exactly
--- here, and this is the second time that difference has been the whole
--- content of a finding this session â” the first being that no finite
--- prefix decides decay.  They are separate results about separate
--- objects and neither derives the other.
+-- here.
 ------------------------------------------------------------------------

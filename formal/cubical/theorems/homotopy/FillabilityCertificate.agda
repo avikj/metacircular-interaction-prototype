@@ -3,10 +3,10 @@
 ------------------------------------------------------------------------
 -- FillabilityCertificate
 --
--- the CERTIFICATE STRUCTURE of the two fillability predicates of that
+-- The CERTIFICATE STRUCTURE of the two fillability predicates of that
 -- note's Def 2.2.2, formalised as datatypes and decision procedures.
 --
--- HEADLINE STATEMENTS (all checked, no postulates, no holes, --safe):
+-- HEADLINE STATEMENTS:
 --
 --  1. Cert / FillTerm      The finite certificate of the note's
 --                          Fill_term (Def 2.2.2, §3.4(i)): an inductive
@@ -71,16 +71,12 @@
 --                          That is the checkable shadow of §3.4's
 --                          "failure cannot be reported".
 --
---    §2.2 fixes, checked for internal consistency and separation.
 --  * The note's §5 (Theorem 5.3: the dividing line for quantitative
---    defects is ARITY, not an attainable zero) is NOT formalised here.
---    It is formalised in `ArityOfRepair`, which imports
+--    defects is ARITY, not an attainable zero) is
+--    formalised in `ArityOfRepair`, which imports
 --    this module's A∞ for the "escapes Theorem A" half.
 --  * §4.2's refutation of nilpotence is formalised in its ABSTRACT
---    form only (3 above: finite branching does not bound length).  The
---    note gives no space-level counterexample beyond the citation that
---    spheres are nilpotent with non-terminating Postnikov towers, and
---    that is not formalisable here.
+--    form only (3 above: finite branching does not bound length).
 ------------------------------------------------------------------------
 
 module FillabilityCertificate where

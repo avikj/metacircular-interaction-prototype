@@ -262,8 +262,7 @@ theorem finitePosition_eq_iff_position_eq
     exact Set.ext_iff.mp hposition state.val
 
 /-- Reciprocal finite-carrier result: every node-minimal spine has length at
-most `2^n`, where `n` is the number of Mathlib left quotients.  No sharp ADS
-bound is claimed. -/
+most `2^n`, where `n` is the number of Mathlib left quotients. -/
 theorem rooted_spine_length_le_two_pow_stateCount
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (regular : M.accepts.IsRegular)

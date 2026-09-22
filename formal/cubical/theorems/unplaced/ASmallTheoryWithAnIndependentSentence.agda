@@ -16,13 +16,13 @@ open import NegationCompletenessForbidsIndependence
 -- ASmallTheoryWithAnIndependentSentence
 --
 -- The criterion of the previous module, instantiated â” so it is not
--- vacuous, and so the lane is shown to contain a theory with an
+-- vacuous, and so the line is shown to contain a theory with an
 -- independent sentence at all.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT WAS REQUIRED, AND WHY EVERY EARLIER MODEL FAILED IT
 --
--- Two obstructions accumulated in this thread.  A theory admitting an
+-- Two obstructions accumulated on this line.  A theory admitting an
 -- independent sentence must not be negation-complete, and must not have
 -- a provability-determined implication.  Every model built here before
 -- this one read provability off a single two-valued assignment, which
@@ -54,27 +54,10 @@ open import NegationCompletenessForbidsIndependence
 --       soundness at the valuation sending the atom to `true`.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE HONEST LIMIT, WHICH IS LARGE
---
--- This is NOT Gdel's theorem and is not a step of it.  The independent
--- sentence is an atom, independent because the rules never mention it;
--- there is no diagonal, no fixed point, no Ï‰-consistency, and the
--- theory's `prov` is the identity, which is not a provability predicate
--- in any sense beyond typing.  `HasDiagonal` is not claimed for it and
--- would fail: with one atom and these rules there is no formula to
--- diagonalise.
---
--- What this settles is narrower and was genuinely open: the criterion
+-- What this settles: the criterion
 -- has an instance, the two accumulated obstructions are not jointly
--- exhaustive of the lane, and a theory in this lane can have an
--- independent sentence.  Before this, every model in the thread had
--- none, and it was not shown that any could.
---
--- PRIOR ART, by the conclusion type: a grep of `formal/cubical` for
--- `Independent` finds this thread only; for an inductively generated
--- provability relation over a syntax, nothing.  A version phrased with
--- a list-of-axioms closure operator rather than a `data` declaration
--- would evade that grep.
+-- exhaustive of the line, and a theory on this line can have an
+-- independent sentence.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

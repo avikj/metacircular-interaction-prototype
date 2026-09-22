@@ -135,9 +135,8 @@ y = var 1
 
 ------------------------------------------------------------------------
 -- Â§5  Cost claims are ordinary claims: the one prover proves a LAW OF
---     TIME over every environment â” the clock of x+y never exceeds
---     the clock of y+x by more thanâ¦ no: here, the exact law relating
---     the two clocks, minted through the same gate as every value law:
+--     TIME over every environment: the exact law relating
+--     the two clocks is minted through the same gate as every value law:
 --     à•à¾à²à(xâŠ•y) and à•à¾à²à(yâŠ•x) differ by exactly (x, y) exchanged, and
 --     le(à•à¾à²(xâŠ•y), à•à¾à²(yâŠ•x)) is NOT constant â” but the SYMMETRIC claim
 --     à•à¾à²(xâŠ•y) âŠ• y  =  à•à¾à²(yâŠ•x) âŠ• x  holds over EVERY environment,

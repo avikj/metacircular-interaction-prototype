@@ -4,8 +4,7 @@
 -- ‡ó‡‡‡‡Ø-‡®‡æ‡‡‡‡ø ‚î the concealed loss: it can hide in the loops, and the
 -- set-level census cannot see it.
 --
--- THE LIMIT OF EVERYTHING LANDED TODAY, exhibited from inside cubespace.
--- `WholePartialDesa`'s trichotomy ‚î and my own `‡ó‡‡®‡æ-‡‡‡‡‡‡ô‡‡ó‡` ‚î grade a
+-- `WholePartialDesa`'s trichotomy ‚î and `‡ó‡‡®‡æ-‡‡‡‡‡‡ô‡‡ó‡` ‚î grade a
 -- fibre by its POINTS: empty (‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡), one up to path (‡‡ï‡≤‡æ‡¶‡‡), or two
 -- exhibitably distinct (‡µ‡ø‡ï‡≤‡æ‡¶‡‡).  In cubespace there is a fourth
 -- condition of a fibre, and it defeats all three detectors at once:
@@ -33,10 +32,9 @@
 -- dimension; a census that stops at points is a durnaya one storey up,
 -- and this module is its checked counterexample.
 --
--- No claim that any Jain author graded predication by h-level.  The
--- claim is that their refusal to let one standpoint exhaust the object
+-- The claim is that their refusal to let one standpoint exhaust the object
 -- is, in cubespace, a THEOREM about which fibres a pointwise census can
--- classify.  ‡ó‡‡‡‡Ø-‡®‡æ‡‡‡‡ø is built here, 2026-08-23.
+-- classify.
 ------------------------------------------------------------------------
 
 module GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt where
@@ -148,10 +146,7 @@ open import Cubical.HITs.S1
 
 ------------------------------------------------------------------------
 -- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  This does not overturn the set-level census ‚î for fibres
--- that are sets its trichotomy is exhaustive and everything landed today
--- stands.  What it proves is the census's own SCOPE: h-level is a
--- hypothesis, not a formality, and above it the seeds restratify.  The
--- graded census (one sevenfold per dimension) is named here and NOT
--- built; building it without a criterion for how the levels interact
--- would be the durnaya this corpus keeps catching, one storey up.
+-- that are sets its trichotomy is exhaustive.
+-- What it proves is the census's own SCOPE: h-level is a
+-- hypothesis, not a formality, and above it the seeds restratify.
 ------------------------------------------------------------------------

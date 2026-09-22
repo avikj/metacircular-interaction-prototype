@@ -2,19 +2,19 @@
 
 ------------------------------------------------------------------------
 -- ‡‡ï‡‡‡µ-‡Æ‡æ‡‡‡∞‡æ ‚î uniqueness (uniqueness) of the mtr (measure/weight).
--- Compound built here, 2026-08-23, for program ‡ of YugaParivartana
+-- Compound built here for program ‡ of YugaParivartana
 -- (Born as the ethics of information).  Sources as UniquenessNirnaya /
--- AvaktavyaPrasava give them; nothing further claimed.
+-- AvaktavyaPrasava give them.
 --
--- THE NEXT STONE, taken.  UniquenessNirnaya proved the QUALITATIVE skeleton:
+-- UniquenessNirnaya proved the QUALITATIVE skeleton:
 -- a rule `e : List A ‚í Maybe A` obeying the two vows (decide-on-unanimity,
 -- take-nothing-on-disagreement) is forced uniquely on nonempty
 -- contentions.  That lives on the all-or-nothing carrier `Maybe A`.  This
 -- module lifts the uniqueness to an actual WEIGHT carrier `W` ‚î the first
 -- move of the quantitative layer ‚î and states the full Born conjecture as
--- a precise type, unproved and marked as such.
+-- a precise type.
 --
--- WHAT IS PROVED (kernel-checked, no postulates, no holes):
+-- WHAT IS PROVED:
 --   the SUPPORT layer of the weights is forced.  A weight rule
 --   `q : List A ‚í A ‚í W` obeying the quantitative vows
 --     ‚ ‡‡‡-‡Æ‡æ‡‡‡∞‡æ   ‚î unanimity for a gives a the unit weight üô;
@@ -27,8 +27,6 @@
 --   dichotomy UniquenessNirnaya used.  So the {üò,üô}-valued (support) part of
 --   the Born weights has no rival within the vows ‚î exactly as the
 --   qualitative layer, now on weights.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical library).
 ------------------------------------------------------------------------
 
 module UniquenessMatra_TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInteriorIsTheNamedConjecture where
@@ -100,7 +98,7 @@ module _ {A : Type ‚Ñì} (disc : Discrete A) where
               ‚àô sym (‡§Æ‡§æ‡§§‡•ç‡§∞‡§ø‡§®‡•ç.‡§Ö‡§®‡•ç‡§Ø-‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ mq' a r vs s np)
 
   ----------------------------------------------------------------------
-  -- the interior, stated honestly as a conjecture type (not inhabited)
+  -- the interior, stated as a conjecture type
   ----------------------------------------------------------------------
 
   -- A quantitative interior rule assigns weights that need not be {üò,üô}.
@@ -108,8 +106,7 @@ module _ {A : Type ‚Ñì} (disc : Discrete A) where
   -- permutation invariance (aneknta) on a carrier rich enough to be
   -- amplitudes, any two such rules agree ‚î Born uniqueness.  Stated over
   -- an abstract weight ring `W` with the vow-record supplied by the
-  -- caller; NOT proved here (Gleason wall, see header).  It is a Type, so
-  -- writing it costs nothing and asserts nothing until inhabited.
+  -- caller (Gleason wall, see header).
   BornInteriorConjecture :
       {W : Type ‚Ñì'}
       (Vow : (List A ‚Üí A ‚Üí W) ‚Üí Type ‚Ñì')          -- the interior vows

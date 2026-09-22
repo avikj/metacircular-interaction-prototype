@@ -3,9 +3,7 @@
 ------------------------------------------------------------------------
 -- TheImpossibilityNeedsNeitherHPropNorEveryRepresentative
 --
--- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
--- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- invented.**  Set-quotients and transport along `eq/` are Voevodsky's
+-- ON THE NAME.  Set-quotients and transport along `eq/` are Voevodsky's
 -- substrate, which this repository declares as a tool and not a frame;
 -- the threshold predicates are this corpus's own.
 --
@@ -26,7 +24,7 @@
 --
 -- **THE FAULT IS THAT THE IMPOSSIBILITY IS STATED FOR A NARROWER CLASS
 -- OF WOULD-BE DEFINITIONS THAN IT NEEDS, AND THE MODULE NAMES THAT
--- NARROWNESS AS A LIMIT INSTEAD OF REMOVING IT.**  Its ยง"WHAT IS STILL
+-- NARROWNESS AS A LIMIT INSTEAD OF REMOVING IT.**  It says:
 --
 --   "The impossibility theorem is about functions into `hProp`; a
 --    would-be `Minimal` landing in an arbitrary `Type` is not covered,
@@ -59,9 +57,6 @@
 --       and its own theorem, recovered by composing with `โจ_โฉ` โ” so
 --       nothing there is lost and the narrower statement is visibly a
 --       special case
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 โ” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheImpossibilityNeedsNeitherHPropNorEveryRepresentative where

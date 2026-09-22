@@ -72,10 +72,6 @@
 -- only live in what was never shown (the past fibre, infinite by
 -- Parimana), never in the process.  HMAC exists because §5 is a
 -- theorem.
---
--- CHECKED: Agda 2.8.0, cubical v0.9 (the pin, via sh setup), --cubical
--- --safe; natural-machine now depends on the fibre library, which was
--- always one flag away (fibre.agda-lib's own note).
 ------------------------------------------------------------------------
 
 module Sha256Samvada_TheHashIsAnInteractiveCoalgebraItsProcessSpaceIsContractibleTheDemandMattersAndTheFirstShownDigestComputesEveryLaterAnswer where

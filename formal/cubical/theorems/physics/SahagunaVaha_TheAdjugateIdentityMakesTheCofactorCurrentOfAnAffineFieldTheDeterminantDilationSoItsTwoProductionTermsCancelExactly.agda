@@ -60,14 +60,8 @@
 -- rather than a relation between two nonzero terms.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“4 over any commutative ring, for every
--- matrix presented by three columns and every vector.  NOT claimed: the
--- production identity itself, which is a differential identity about a
--- vector field and is assumed nowhere and proved nowhere below â” what is
--- proved is that ITS TWO RIGHT-HAND TERMS cancel on an affine field;
--- anything about
--- integration, boundaries, or Green's identity; anything about `S` being
--- a strain, symmetric, or trace-free â” Â§Â§1â“4 hold for every matrix; and
--- no division anywhere: the 4/3 is cleared by multiplying through by 3,
+-- matrix presented by three columns and every vector.  No division
+-- occurs anywhere: the 4/3 is cleared by multiplying through by 3,
 -- which is why Â§4 reads as it does.
 ------------------------------------------------------------------------
 

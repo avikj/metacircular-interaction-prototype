@@ -26,7 +26,7 @@
 -- the successor presentations `N` and `M` in CarryObstruction are identified
 -- with b^n and b^(n+1) by the checked paths `N≡` and `M≡b`.
 --
--- No H² claim is added here.  This module only makes the already-proved
+-- This module makes the already-proved
 -- nonsplitting obstruction operational inside the existing digit chart.
 ------------------------------------------------------------------------
 
@@ -86,9 +86,6 @@ module Bridge (k n' : ℕ) where
   -- fixed-width tower truncation.  On [1,0,1], the first normalized drop
   -- contracts [1,0] all the way to [1].  A second actual-MSD drop therefore
   -- deletes the remaining 1, whereas two raw place drops leave [1].
-  --
-  -- The next tower adapter must retain the level/width as state; CanWord
-  -- alone has forgotten which zero place was removed by normalization.
   ----------------------------------------------------------------------
 
   normalizeTwoRawMSDs : D.CanWord → D.CanWord

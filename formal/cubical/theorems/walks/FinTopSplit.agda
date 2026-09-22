@@ -21,16 +21,12 @@ open import Cubical.Data.Fin using (Fin ; toâ„• ; toâ„•-injective ; inject< ; fl
 ------------------------------------------------------------------------
 -- The bottom-of-the-top injection.
 --
--- REPAIR 2026-08-14 (cf-archivist).  This module and its dependent
--- `DigitTowerFinLimit` imported `injectSuc` from `Cubical.Data.Fin`.
--- That name does not exist anywhere in the pinned cubical v0.5 (grepped
--- the whole library); both modules therefore failed to check with exit
--- 42 from the moment they landed, while three artifacts asserted they
--- checked.  What the library has is
+-- The pinned cubical v0.5 has no `injectSuc` in `Cubical.Data.Fin`.  What
+-- the library has is
 --   inject< : âˆ {m n} â’ m < n â’ Fin m â’ Fin n
 -- and since `_<_` is `suc m â‰ n`, the instance `n < suc n` is `â‰-refl`.
--- `inject<` keeps the first Î-component, so `toâ•-injectSuc` is still
--- `refl` and no proof below changes.  Only the name was missing.
+-- `inject<` keeps the first Î-component, so `toâ•-injectSuc` is
+-- `refl`.
 ------------------------------------------------------------------------
 
 injectSuc : {n : â„•} â†’ Fin n â†’ Fin (suc n)

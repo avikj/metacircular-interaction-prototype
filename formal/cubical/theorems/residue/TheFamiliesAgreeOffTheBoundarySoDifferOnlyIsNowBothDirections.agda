@@ -3,12 +3,8 @@
 ------------------------------------------------------------------------
 -- TheFamiliesAgreeOffTheBoundarySoDifferOnlyIsNowBothDirections
 --
--- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
--- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- invented.**  This is threshold arithmetic over ‚ï on this corpus's own
--- claim-families.  Jaina enumerative mathematics is combinatorially
--- adjacent and is explicitly NOT claimed as a source ‚î the third time
--- this run that it is declined for the same reason (083dfbd2, d3963e51).
+-- ON THE NAME.  This is threshold arithmetic over ‚ï on this corpus's own
+-- claim-families.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- THE AUDIT.  Target:
@@ -47,9 +43,6 @@
 --   theFamiliesAgreeOffTheBoundary
 --                        hence `AtLeast ‚ü∫ Above` at every population
 --                        that does not meet the threshold exactly
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheFamiliesAgreeOffTheBoundarySoDifferOnlyIsNowBothDirections where

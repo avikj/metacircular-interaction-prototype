@@ -16,7 +16,7 @@
 -- "strongest new compression" is thm16-8: the founding additive
 -- center/gap geometry and multiplication meet in one quadratic form.
 --
--- The delta's own Corollary 16.5 is the correction this module pins
+-- The delta's own Corollary 16.5 is the statement this module pins
 -- down: the positive-cone obstruction is NOT the exchange � (which
 -- preserves the cone, exchangePreservesCone) but the one-leg reflection
 -- J� (which cannot preserve it, thm16-4).
@@ -323,9 +323,7 @@ thm16-8-instance = refl
 
 -- Control 4 � the two involutions genuinely differ on the cone.
 -- Exchange preserves it (exchangePreservesCone); the one-leg reflection
--- provably cannot (thm16-4).  This pair is Delta 16's Corollary 16.5,
--- and it is the correction the delta says should replace any earlier
--- imprecise statement.
+-- provably cannot (thm16-4).  This pair is Delta 16's Corollary 16.5.
 corollary16-5 :
   ((x : ℤ × ℤ) → InCone x → InCone (τCR x)) ×
   ((x : ℤ × ℤ) → InCone x → ¬ InCone (J₂CR x))

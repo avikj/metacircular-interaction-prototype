@@ -2,8 +2,8 @@
 
 ------------------------------------------------------------------------
 -- ‡‡‡‡∞‡µ‡®‡ø‡∞‡ã‡ß‡ ‡‡‡µ‡∞‡ ‚î Umsvti, Tattvrthastra 9.1 (c. 2nd‚ì5th c.
--- CE): savara is the stoppage of influx.  The classification is his;
--- the mathematics is not claimed for the source.  School named: Jaina.
+-- CE): savara is the stoppage of influx.  The classification is his.
+-- School named: Jaina.
 --
 -- THE GENERATIVE DISEASE, CURED WHERE IT AROSE.  Plain completion on
 -- an AC theory generates: ‡‡ø‡¶‡‡ß‡ø measured it outside (the naive

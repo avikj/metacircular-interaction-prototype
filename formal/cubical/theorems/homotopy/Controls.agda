@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- Controls
 --
--- Designed annihilation (collab/PROTOCOL.md Â§7, msg 0073).
+-- Designed annihilation (collab/PROTOCOL.md Â§7).
 --
 -- A claim ships with the apparatus that would destroy it.  The three
 -- controls for this development are:
@@ -19,11 +19,10 @@
 --
 --   C3 (separate, and deliberately NOT part of the checked build)
 --              `NaturalMachine/Control/WrongEquivalence.agda` asserts
---              the equivalence â• â‰ Word without canonicity.  It must
---              verbatim error the checker produces.
+--              the equivalence â• â‰ Word without canonicity.
 --
 -- A fourth control is the type-checker itself: every module carries
--- --safe, and the postulate/hole audit is recorded in the note.
+-- --safe.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (â„• ; zero ; suc)
@@ -50,7 +49,6 @@ open import Endian k using (w01 ; w01-canonical ; v1 ; value-v1)
 -- specific pair (digits, value) is not an equivalence â• â‰ Word â” the
 -- bare type â• â‰ Word is inhabited (Word is countably infinite), but
 -- not by these maps â” and the CanWord equivalence is not a formality.
--- wording asserted `â• â‰ Word` itself is false, which C1 does not prove.)
 ------------------------------------------------------------------------
 
 value-not-injective-on-Word :

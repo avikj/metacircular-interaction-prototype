@@ -6,20 +6,17 @@
 --
 -- THE TERM, ITS TEXT AND ITS DATE.  `‡‡ô‡‡ï‡‡æ‡` is the name of the section
 -- on permutations in Bhskara II, *Llvat* (1150 CE): the arrangements
--- of n distinct digits number the product 1¬2¬‚ãØ¬n.  LIMIT: the
--- verse-level reference is owed; what is carried here is the section by
--- its name and the text by its date.  The metrical material is Pigala,
+-- of n distinct digits number the product 1¬2¬‚ãØ¬n.  The metrical material is Pigala,
 -- *‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡* ‡Æ.‡®‡‚ì‡®‡Æ (~300 BCE): the ‡‡‡∞‡‡‡‡æ‡∞, and ‡‡ô‡‡ñ‡‡Ø‡æ, the
 -- ‡‡‡∞‡‡‡Ø‡Ø that asks how many.
 --
 ------------------------------------------------------------------------
--- WHAT THIS MODULE IS.  THE LAST UNROUTED NODE OF THE COMPONENT.
+-- WHAT THIS MODULE IS.
 --
 -- `machine/Setubandha_TheCheckedIdentificationsAreEdgesAndTheIsolatedNodes
 -- AreTheFrontier.hs` reports `Decategorification.œ‚FinSet`
--- at degree 1: joined to the hub `‚ï` and to nothing else.  Every other
--- pair in the largest component that lies inside `formal/cubical/` has
--- now been routed; this one had not, and it is at distance 2 from
+-- at degree 1: joined to the hub `‚ï` and to nothing else.  It is at
+-- distance 2 from
 -- `Pingala.‡‡®‡‡¶‡‡`:
 --
 --       Pingala.‡‡®‡‡¶‡‡  ‚î‚î[ Pingala.‡‡®‡‡¶‡‡‚â‚ï ]‚î‚î  ‚ï
@@ -145,23 +142,3 @@ open import SymmetryEnumeration using (symmetryEnum)
                    ‚Üí (‡§®‡§æ‡§Æ‡§ï‡§É (‡§Ö‡§®‡•Å‡§ï‡•ç‡§∞‡§Æ ds) ‚â° ‡§®‡§æ‡§Æ‡§ï‡§É (‡§Ö‡§®‡•Å‡§ï‡•ç‡§∞‡§Æ ds))
                    ‚âÉ Fin ((‡§Æ‡•Ç‡§≤‡•ç‡§Ø (‡§Ö‡§®‡•Å‡§ï‡•ç‡§∞‡§Æ ds)) !)
 ‡§Ö‡§®‡•Å‡§ï‡•ç‡§∞‡§Æ‡§∏‡•ç‡§Ø-‡§≠‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç ds = ‡§õ‡§®‡•ç‡§¶‡•ã-‡§≠‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç (‡§Ö‡§®‡•Å‡§ï‡•ç‡§∞‡§Æ ds)
-
-------------------------------------------------------------------------
--- ‡ ¬ THE SCOPE, EXACTLY.
---
---   * That `‡‡®‡‡¶‡‡‚âœ‚FinSet` is a PATH.  It is not, and it cannot be
---     written as one: the endpoints are in different universes.  Every
---     theorem above is therefore an equivalence composed with an
---     equivalence, and none of them is a `subst`.  A reader who takes
---     this causeway to carry as much as the two same-universe ones is
---     taking more than the file says.
---   * That the n! count is derived here.  It is `symmetryEnum`'s, which
---     is the Lehmer code; this file supplies the metre and the
---     composition and nothing else.
---   * That `‡®‡æ‡Æ‡ï‡` is injective on the nose.  It is injective only up to
---     the propositional truncation, which is exactly the content of ¬ß‡®:
---     a metre determines a component, not a chosen set.
---   * That Bhskara or Pigala connected the two.  The ‡‡ô‡‡ï‡‡æ‡ and the
---     ‡‡‡∞‡‡‡‡æ‡∞ are separate enumerations in separate texts eight
---     centuries apart; joining them is this file's, not theirs.
-------------------------------------------------------------------------

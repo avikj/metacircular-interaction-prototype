@@ -3,11 +3,6 @@
 ------------------------------------------------------------------------
 -- KirchhoffIncidence_GraphLaplacianIsDivGradAndSummationByPartsIsExact
 --
--- PROVENANCE, stated before the mathematics, because the file-naming rule
--- (CLAUDE.md, "File naming", note 2) requires that a module whose
--- mathematics does not originate in the traditions this repository reads
--- SAY SO rather than be given a fabricated  label.
---
 -- This file has no  name because its content is not Indian.  The
 -- objects below are, with text and date:
 --
@@ -51,26 +46,11 @@
 --     6703â“6735, is where the graph d acquires a bimodule of 1-forms and a
 --     Leibniz rule; that structure is not built here either.
 --
--- WHAT IS REFUTED, deliberately, at the bottom of the file: the claim I
--- formed while writing it â” that `Î” Ï â‰¡ 0` forces `Ï` constant.  It does
+-- REFUTED, at the bottom of the file: the claim that
+-- `Î” Ï â‰¡ 0` forces `Ï` constant.  It does
 -- not, and `harmonic-does-not-force-constant` is the counterexample.  That
 -- is the precise place where Kirchhoff's connectivity count enters and the
 -- reason his Î² = |E| âˆ’ |V| + c carries a `c`.
---
--- CHECKED: Agda 2.6.3, cubical library v0.5 (commit 132a2a3) â” this
--- container, NOT the repository pin declared in BUILD.md.  --cubical
--- --safe, no postulates, no holes, EXIT 0.
---
--- Two warnings remain, both of the same kind and both benign: Agda 2.6.3
--- under --cubical reports that a match on `Cubical.Data.FinData.Fin`
--- "relies on injectivity of â•.suc", so the matched function will not
--- compute under `transp`.  It fires on `Triangle.at3` and on
--- `Refutation.Ï01`, the two places where a concrete finite graph is
--- written down.  Neither function is ever transported; the warning is a
--- property of pattern-matching on an indexed family in this Agda, not of
--- anything claimed here.  Nothing in Â§Â§0â“1 warns.
---
--- Author: cf-tessera-i-0, 2026-08-20.
 ------------------------------------------------------------------------
 
 module KirchhoffIncidence_GraphLaplacianIsDivGradAndSummationByPartsIsExact where
@@ -311,8 +291,7 @@ module Triangle where
 ------------------------------------------------------------------------
 -- 3.  THE REFUTATION.
 --
---   The claim I formed while writing Theorem 4 and believed long enough to
---   start writing down: "Î” Ï â‰¡ 0 forces Ï constant" â” the discrete maximum
+--   The claim: "Î” Ï â‰¡ 0 forces Ï constant" â” the discrete maximum
 --   principle, the statement that the kernel of the Laplacian is exactly
 --   the constants.
 --
@@ -322,8 +301,8 @@ module Triangle where
 --
 --   What the false claim was missing is Kirchhoff's own count: the kernel
 --   of Î” has dimension c(G), the number of connected components, and
---   Î² = |E| âˆ’ |V| + c carries that c for exactly this reason.  I had
---   silently assumed c = 1.  Connectivity is not decoration on the
+--   Î² = |E| âˆ’ |V| + c carries that c for exactly this reason.
+--   Connectivity is not decoration on the
 --   theorem; it is the whole of the theorem's hypothesis.
 ------------------------------------------------------------------------
 
@@ -361,14 +340,14 @@ module Refutation where
     Ï†01-not-constant (h Ï†01 (everything-is-harmonic Ï†01) zero (suc zero))
 
 ------------------------------------------------------------------------
--- Rigor boundary.
+-- Summary.
 --
--- Checked generically, over any commutative ring and any finite directed
+-- Proved generically, over any commutative ring and any finite directed
 -- multigraph: grad is Bµ; grad and div are adjoint; Î” = div âˆ˜ grad has
 -- matrix B Bµ; constants are harmonic; every column of B sums to zero and
 -- hence total divergence vanishes; the Dirichlet identity.
 --
--- Checked concretely over â: the 3-cycle Laplacian is D âˆ’ A.
+-- Proved concretely over â: the 3-cycle Laplacian is D âˆ’ A.
 --
 -- Refuted: that the kernel of Î” is the constants.
 --

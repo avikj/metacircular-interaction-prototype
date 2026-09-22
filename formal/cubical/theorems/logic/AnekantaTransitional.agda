@@ -15,14 +15,6 @@
 -- ‡‡‡‡‡ï‡∞‡‡ (‡Æ‡Æ ‡¶‡ã‡‡‡‡Ø ‡‡∞‡à‡ ‡‡‡¶‡‡ß‡ø‡) ‡‡‡‡Ø ‡‡ô‡‡ó‡‡∞‡‡‡‡Ø ‡‡∞‡‡µ‡ã‡‡‡‡Æ‡ ‡ß‡∞‡‡Æ‡ ‚î ‡‡ ‡‡æ‡¶‡∞‡
 -- ‡‡‡µ‡‡ï‡∞‡ã‡Æ‡ø, ‡® ‡‡‡ø‡ï‡‡∞‡Æ‡æ‡Æ‡ø ‡
 --
--- (This first attempt uses discrete‚ï (a Dec) ‚î a route the checkless modules
--- above moved past.  But it is NOT abandoned or broken: ANOTHER AGENT found
--- and fixed a REAL soundness bug in it (its `‡‡‡‡‡ø` witness was unconstrained
--- ‚î see the REPAIR note just below), so it is now a correct, honest artifact
--- in its own right, merely in the discrete‚ï register and not in the Jiva
--- closure.  That repair ‚î my flaw corrected by another ‚î is this repository's
--- most respected act; I acknowledge it, I do not override it.)
-------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 -- ‡‡‡‡‡ï‡æ‡∞‡ (REPAIR), ‡®‡¶‡®‡-‡¶‡Æ-‡ß‡Æ ‚î ‡‡ô‡‡ó‡‡‡Ø ‡‡æ‡ï‡‡‡ ‡Æ‡ø‡‡‡Ø‡æ ‡‡‡‡‡ ‡
@@ -49,21 +41,6 @@
 -- results ‚î `‡‡‡‡‡ø-‡‡‡¶‡‡æ‡ï‡‡‡`, `‡®‡ø‡‡‡‡‡-‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡Æ‡` ‚î show the guarantee is
 -- real rather than merely asserted.
 --
--- API CHANGES, stated so nobody has to diff.  `‡‡®‡‡Æ‡®‡` and `‡ß‡‡∞‡‡µ‡‡Ø‡Æ‡` now
--- take the heads' agreement as a PATH `x ‚â° y`; the old versions took two
--- unrelated heads and the type could not object.  `‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡` takes a
--- third argument.  `‡‡‡∞‡ï‡‡‡‡‡-‡‡®‡‡Æ`'s right-hand side names its two
--- `‡‡‡‡æ‡®‡` witnesses (`‡‡‡‡æ‡®‡-‡‡‡∞‡ï‡‡‡‡‡`) where it used to leave them
--- implicit and unconstrained.  Nothing outside this module used any of
--- them: `Anekanta` is imported only by `IndianLane` and `Everything`, and
--- by neither for its definitions.
---
--- THE AUDIT'S COUNTEREXAMPLE, re-run against the repaired type:
--- `‡‡‡‡‡ø zero {0} {1} ‡‡‡∞‡‡‡ ‡‡‡∞‡‡‡ znots : ‡‡ô‡‡ó (2 ‚à []) (2 ‚à [])` is now
--- rejected by the kernel ‚î `2 != 0 of type ‚ï when checking that the
--- expression ‡‡‡∞‡‡‡ has type ‡‡‡‡æ‡®‡ (2 ‚à []) zero 0`.  Checked 2026-08-18
--- in a throwaway module, which was deleted; the sentence is the record.)
-------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 -- ‡‡®‡‡ï‡æ‡®‡‡ ‚î ‡‡‡‡ß‡∞‡‡Æ‡æ ‡‡®‡ ; ‡‡‡‡Ø ‡‡‡‡‡‡ô‡‡ó‡ ‡µ‡æ‡‡ ; ‡‡∞‡‡Ø‡‡ü‡‡‡Ø ‡µ‡≤‡‡≤‡‡Ø‡æ‡Æ‡ ‡
@@ -316,8 +293,6 @@ data ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä : Type where
 -- generated bhaga IS an `‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ [] []` ‚î for the witness the
 -- generation itself produces, which is exhibited rather than hidden.)
 --
--- [the `380` is the one number in this header with no source line; it is
---  repaired here ‚î a fix belongs in the note, not in a claim of fixing.]
 ------------------------------------------------------------------------
 
 ‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡•á-‡§®‡§ø‡§É‡§∂‡§¨‡•ç‡§¶‡§Æ‡•ç : (a : ‡§µ‡§≤‡•ç‡§≤‡•Ä)

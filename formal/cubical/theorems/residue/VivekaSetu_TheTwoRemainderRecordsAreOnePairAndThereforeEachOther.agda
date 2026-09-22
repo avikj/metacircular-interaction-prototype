@@ -13,10 +13,7 @@
 --
 -- No new mathematics: both halves are the source modules' own, consumed not
 -- reproved.  TERM ‡‡‡‡ ‚î a causeway (gveda 10.53.8), as in Setubandha's
--- header; substrate cubical (Voevodsky).  Written 2026-08-23.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates, no
--- holes.
+-- header; substrate cubical (Voevodsky).
 ------------------------------------------------------------------------
 
 module VivekaSetu_TheTwoRemainderRecordsAreOnePairAndThereforeEachOther where

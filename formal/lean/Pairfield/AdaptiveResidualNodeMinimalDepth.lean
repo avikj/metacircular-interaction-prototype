@@ -2,8 +2,8 @@
 Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
-A depth-realizing proof-relevant spine for residual split plans, closing the
-last interface between the duplicate-free spine theorem and native tree depth.
+A depth-realizing proof-relevant spine for residual split plans, connecting the
+duplicate-free spine theorem to native tree depth.
 -/
 import Pairfield.AdaptiveResidualNodeMinimalSpine
 

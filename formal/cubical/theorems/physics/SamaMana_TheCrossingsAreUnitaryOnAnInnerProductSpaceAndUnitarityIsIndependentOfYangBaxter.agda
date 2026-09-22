@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- àà®à®à¾à¨ â” equal measure.  Isometry.
 --
---
--- That is a real gap and it is closed here.  Invertibility is strictly
+-- Invertibility is strictly
 -- weaker than unitarity: a unitary is an invertible map that PRESERVES
 -- AN INNER PRODUCT, and the whole force of the physical claim depends
 -- on which of the two the countermodel satisfies.  So this file builds
@@ -12,7 +11,7 @@
 -- countermodel operators are isometries of it.  The refutation survives
 -- the strengthening: they are unitary, and they still carry no braid.
 --
--- AND THE CONVERSE, which the earlier file does not state.  A pair
+-- AND THE CONVERSE.  A pair
 -- SATISFYING Yangâ“Baxter need not be unitary either â” Â§à exhibits one
 -- that is not even injective.  So the two conditions are logically
 -- independent in both directions, and that is the precise form of "an
@@ -26,9 +25,6 @@
 -- file is a permutation of that basis, so nothing here needs a
 -- completion, a limit, or a real number.  A permutation operator is
 -- unitary exactly when it is an isometry, and that is what is proved.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module SamaMana_TheCrossingsAreUnitaryOnAnInnerProductSpaceAndUnitarityIsIndependentOfYangBaxter where

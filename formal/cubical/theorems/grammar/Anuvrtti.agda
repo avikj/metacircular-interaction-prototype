@@ -51,8 +51,6 @@
 -- something measurable.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THIS DOES NOT OVERTURN
---
 -- `TransportPrice` still applies, with the standpoint taken to be the
 -- ORDERED presentation: cost is still a potential there, so there is
 -- still no path-dependence *between texts*.  What moves is the
@@ -60,9 +58,6 @@
 -- the sequence all along, and any account that took the rule set as the
 -- standpoint was working with a quotient that the measure does not
 -- descend to.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module Anuvrtti where

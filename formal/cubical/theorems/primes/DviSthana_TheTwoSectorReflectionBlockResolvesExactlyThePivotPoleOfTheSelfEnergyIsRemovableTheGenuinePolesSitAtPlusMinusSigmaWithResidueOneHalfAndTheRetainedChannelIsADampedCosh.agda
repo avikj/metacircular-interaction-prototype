@@ -23,9 +23,6 @@
 --      (e = e^{âˆ’iÎ³t}, c = cosh Ït, s = sinh Ït) the block
 --      K = (eÂc , âˆ’eÂs)  satisfies  âˆK = G âŠ— K  and  KâŠâŠ = eÂc is the
 --      damped cosh  e^{âˆ’iÎ³t} cosh Ït;  K = I at t = 0.
---
--- Handoff Â§64, [S17â“S18].  "Î(1) = 0 â” RH" is the analytic statement
--- across all orbits and is not touched here.
 ------------------------------------------------------------------------
 module DviSthana_TheTwoSectorReflectionBlockResolvesExactlyThePivotPoleOfTheSelfEnergyIsRemovableTheGenuinePolesSitAtPlusMinusSigmaWithResidueOneHalfAndTheRetainedChannelIsADampedCosh where
 

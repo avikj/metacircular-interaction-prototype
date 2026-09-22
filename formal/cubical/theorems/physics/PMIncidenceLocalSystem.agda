@@ -3,13 +3,13 @@
 ------------------------------------------------------------------------
 -- PMIncidenceLocalSystem
 --
--- The first honest overlap base for the Peres--Mermin cover.  Its points are
+-- The overlap base for the Peres--Mermin cover.  Its points are
 -- the six contexts and each observable generates a path between the two
 -- contexts containing it.  A Bool local system is trivial on eight overlaps
 -- and transports by negation across ZZ.  The standard six-edge cycle then
 -- has nontrivial holonomy and the family has no global section.
 --
--- This is the obstruction line of the cover, not yet the full sheaf of local
+-- This is the obstruction line of the cover, not the full sheaf of local
 -- observable valuations.  It supplies the incidence HIT and a nontrivial
 -- overlap transport which PMRelationalNoFit proved the discrete base lacked.
 ------------------------------------------------------------------------
@@ -106,16 +106,3 @@ no-global-sheet : ¬ GlobalSheet
 no-global-sheet section =
   cycle-has-no-fixed-sheet (section (context PM.R0))
     (section-naturality section coverCycle)
-
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked: the incidence HIT, all nine overlap paths, nontrivial ZZ
--- transport, the six-edge holonomy, and absence of a global sheet.
---
--- Not checked: an equivalence between this GlobalSheet and
--- PMCokernel.Section.  The present fibre is only the one-dimensional
--- obstruction local system, not the contextwise three-observable valuation
--- space with restriction maps.  Building that ech object remains the next
--- step; this module prevents it from reverting to a discrete context base.
-------------------------------------------------------------------------

@@ -50,10 +50,7 @@ vector mod four: nothing more, nothing less, and both coordinates are
 read off by the pair.
 
 SYT â” THE CLAIM, EXACTLY.  The biconditional is at the level of
-actions on ropes; naming the acting quotient as the semidirect
-product of the infinite symmetric group with the direct sum of â/4 â”
-and proving it no smaller â” is the standing construction, as is the
-weighted second law that waits on the same tape.
+actions on ropes.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

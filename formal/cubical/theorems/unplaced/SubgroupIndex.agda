@@ -289,12 +289,6 @@ module Index (G : Group ℓ)
 
   order∣card : order ∣ card FG
   order∣card = ∣ index , sym lagrange ∣₁
-    -- Was a placeholder carrying `�Comm (card FG) 0`, a term of no type here
-    -- (`�Comm` is the CommRing/Monoid name; �'s commutativity in cubical v0.9
-    -- is `�-comm`, and the second factor was wrong besides).  The STATEMENT
-    -- is unchanged; the proof is now the one `order�card'` below already
-    -- gives, so the two are the same theorem twice, which is what the
-    -- original comment said was intended.
 
   order∣card' : order ∣ card FG
   order∣card' = ∣ index , sym lagrange ∣₁

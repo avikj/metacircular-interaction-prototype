@@ -7,7 +7,7 @@
 -- represented by natural numerators over one witnessed-positive denominator;
 -- "probabilities sum to one" is the checked numerator equation n0+n1=d.
 -- This is the constructive rational content needed by the finite amplitude
--- chart, without pretending Cubical's bare rational quotient is a field here.
+-- chart.
 ------------------------------------------------------------------------
 
 module ConstructiveBornNormalization where
@@ -131,12 +131,3 @@ no-gaussian-unit-normalizer-for-plus scalar equality =
   double-is-not-one (Amp.amplitudeWeight scalar)
     (sym (scaled-plus-norm-is-even scalar) ∙ equality)
 
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked: exact two-outcome rational data with a positive denominator and
--- numerator sum equal to it; normalization of representative-independent
--- projective weights; concrete circuit distributions; and the impossibility
--- of unit-normalizing the equal-phase ray by a Gaussian-integer scalar.
---
-------------------------------------------------------------------------

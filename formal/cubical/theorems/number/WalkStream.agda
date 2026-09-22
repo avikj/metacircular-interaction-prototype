@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- The walk's INSTALL-STREAM theorem, statement (3) of
+-- The walk's INSTALL-STREAM theorem, statement (3) of the note.
 --
 -- Setting.  The walk's state is a list S of installed sensors.  At a
 -- collision the machine reads L = lcm(S) and installs the least q â‰ 2
@@ -18,7 +18,7 @@
 -- an improvement, since the theorem needs no arithmetic at all -- only
 -- membership, transitivity of âˆ, and the two universal properties.
 --
--- HYPOTHESES, and what is NOT weakened.  Two side conditions are carried
+-- HYPOTHESES.  Two side conditions are carried
 -- explicitly rather than derived:
 --
 --   * 2 â‰ q.  This is the walk's own search bound ("installs the least
@@ -32,15 +32,12 @@
 --     Without it the statement is FALSE, not merely unproved (put a
 --     large prime in S and lcm(q âˆ S) exceeds lcm(1..q)).
 --
--- So nothing is weakened relative to the note's statement (3): both
+-- Both
 -- directions of the lcm characterisation are proved, and the closing
--- corollary is the note's equality.  What is not done here is the
--- induction ALONG the walk (that the installs are the prime powers in
--- order, statement (2)); this file proves the single install step, which
+-- corollary is the note's equality.  The induction ALONG the walk (that
+-- the installs are the prime powers in order, statement (2)) is
+-- `WalkPrimePowers`; this file proves the single install step, which
 -- is that induction's step.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-13.
--- No postulates, no holes.
 
 module WalkStream where
 

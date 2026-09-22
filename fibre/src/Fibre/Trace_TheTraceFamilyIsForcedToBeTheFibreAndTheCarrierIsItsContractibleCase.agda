@@ -63,10 +63,6 @@
 -- and a law should not be imported by prose. The NEW content of this module
 -- is `fibre-of-run` â” which is about an ARBITRARY factorisation rather than
 -- the canonical one â” and the refutation at the foot of the file.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 (the repository pin),
--- --cubical --safe --guardedness, no postulates, no holes; reachable
--- from fibre/src/Everything.agda, so `sh check` drives it.
 ------------------------------------------------------------------------
 
 module Fibre.Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase where

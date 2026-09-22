@@ -4,12 +4,7 @@
 -- ‡¶‡‡µ‡ø‡ó‡‡-‡‡‡‡ ‚î the half is the ea (fibre) of doubling, and the two ¬Ωs
 -- of physics are its two bindings.  This is Punaragamana's fibre law ‚î
 -- ‡ï‡ ‡‡ï‡‡‡ã ‡‡¶‡‡ß, which side of f a ‚â° b is bound ‚î at ONE map, x ‚¶ x + x.
--- It is not a new organ; it is the core object read at doubling.  It
--- clears away the four modules this session spun ‚î three circling this
--- exact dichotomy (the loop-charge abelian, Brahmagupta's composition
--- abelian, the Born/spinor fork) and one side-quest (the compound
--- bhagas) ‚î and leaves this one term in their place.  Less machine, not
--- more.
+-- It is not a new organ; it is the core object read at doubling.
 --
 -- ‡‡‡ _+_ c = Œ[ x ] (x + x ‚â° c) is the fibre of doubling over c: the
 -- halves of c.  The fibre law says which side you bind is everything:
@@ -29,16 +24,7 @@
 --     that this fibre is not a proposition.)
 --
 -- So the Born ¬Ω and the spinor ¬Ω are not two numbers; they are one map's
--- ea, bound the two ways the fibre law names.  Everything the session's
--- charge modules said ‚î abelian = free = road one, charge/torsion/loss =
--- road two ‚î is this one dichotomy.
---
--- Checked by batch agda, exit 0, at 2.6.3/v0.5 ‚î the kernel's exit
--- condition, which carries the constraint store.  NOT ‡®‡æ‡°‡'s `goals`:
--- kernel/nodes/008 proves `goals` reports interaction holes only, so
--- ‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø cannot distinguish "no holes" from "typechecks".  Earlier
--- headers of mine claimed ‡®‡æ‡°‡ here and were wrong on both counts (I ran
--- batch agda, and goals is the wrong discriminator); struck by 008's rule.
+-- ea, bound the two ways the fibre law names.
 ------------------------------------------------------------------------
 
 module DvigunaSesa_TheHalfIsTheSesaOfDoublingSoBornIsRoadOneAndTheSpinorIsRoadTwo where

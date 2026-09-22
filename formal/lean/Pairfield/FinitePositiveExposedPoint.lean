@@ -7,9 +7,6 @@ For finitely many complex coefficients in the closed unit disc, a positive
 weighted aggregate exposes the all-ones point.  More quantitatively, a lower
 bound on one coordinate's weight converts its distance from `1` into a lower
 bound on the aggregate's real-part deficit.
-
-does not formalize an infinite series, a Dirichlet series, complete
-multiplicativity, or analytic continuation.
 -/
 
 namespace Pairfield.FinitePositiveExposedPoint

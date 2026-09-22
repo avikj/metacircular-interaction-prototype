@@ -8,7 +8,7 @@
 -- posterior and its exact repeated basis posterior.  Both first-stage weights
 -- are therefore available for witnessed-positive normalization.
 --
--- Sufficiency is proved.  No minimality claim is made for this carrier.
+-- Sufficiency is proved.
 ------------------------------------------------------------------------
 
 module FullSequentialTableNormalization where

@@ -27,10 +27,8 @@
 -- where the second had been written by hand: ‡‡‡ï‡‡∞‡Æ‡‡ ‡‡‡∞‡‡®‡æ ‡µ‡‡‡ø, and the
 -- structure that carries here is the whole equivalence.
 --
--- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
--- no holes.  (The loss/ library is a separate lake with its own
--- pin, so `Carrier` is restated here rather than imported ‚î five lines,
--- and ¬ß5 records that this duplication is deliberate.)
+-- The loss/ library is a separate lake with its own pin, so `Carrier` is
+-- restated here rather than imported (five lines).
 ------------------------------------------------------------------------
 
 module LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt where
@@ -159,20 +157,3 @@ Iso.leftInv  ‡§µ‡§ø‡§µ‡•á‡§ï‚âÖ‡§µ‡§æ‡§π‡§ï‡§É _ = refl
 -- equivalence to have.
 ‡§∏‡§Æ‡§æ‡§®-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É : (x : ‚Ñï √ó ‚Ñï) ‚Üí V.‡§â‡§§‡•ç‡§•‡§æ‡§® (V.‡§Ö‡§µ‡§§‡§∞‡§£ x) ‚â° x
 ‡§∏‡§Æ‡§æ‡§®-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É _ = refl
-
-------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what is written rather than repaired.
---
--- `VivekaPramana_‚¶` is NOT edited.  ¬ß‡ of the stra gives two roads and
--- this module takes the first; deleting another seat's second road would
--- be the collapse the corpus refuses (¬ß‡: ‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡).
--- What is claimed is only that the h-level obstacle its header records is
--- an artefact of the construction and not of the mathematics.
---
--- `Carrier` is restated here rather than imported because loss/ is
--- a separate lake with its own pin (2.6.3 / cubical v0.5, currently
--- unrunnable on this machine ‚î see loss/README.md's Toolchain
--- section).  That duplication is a defect, it is deliberate, and the fix
--- is to make loss/ importable from formal/cubical rather than to
--- keep two copies of a five-line record.
-------------------------------------------------------------------------

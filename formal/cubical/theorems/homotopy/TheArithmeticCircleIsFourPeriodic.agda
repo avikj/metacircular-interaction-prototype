@@ -39,11 +39,6 @@
 -- `EveryTripleIsARotation` â” that the family becomes infinite.  The
 -- arithmetic circle over â is a four-point approximation to a circle, and
 -- its loop group says so.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheArithmeticCircleIsFourPeriodic where
@@ -143,5 +138,4 @@ iÂ²â‰¢one p = negsucNotpos 0 1 (cong fst p)
 -- Pythagorean triple becomes a rotation (`EveryTripleIsARotation`) and
 -- the family is infinite.  A four-point circle has a 4-periodic loop, and
 -- that is what the arithmetic over â is.
---
 ------------------------------------------------------------------------

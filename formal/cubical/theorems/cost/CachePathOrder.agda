@@ -18,8 +18,7 @@
 --   potential K + marginal K P = potential (K âˆ P).
 --
 -- Thus accumulated new-node cost telescopes to endpoint growth and inherits
--- permutation invariance.  No eviction, alternative-path selection, or
--- prefix-reading controller is represented here.
+-- permutation invariance.
 ------------------------------------------------------------------------
 
 module CachePathOrder where

@@ -55,12 +55,6 @@
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“5 in any ring, for every `M`, every
 -- idempotent `P`, and every `H` satisfying the three block conditions.
--- NOT claimed: that `H` exists â” its existence is the invertibility of
--- the hidden block, which is the analytic content in every application
--- and is carried here as a hypothesis; composition of two eliminations
--- (a separate theorem, with its own intermediate-equation matching
--- condition); anything about causality, nilpotence, or the size of any
--- inverse; and no identification of the ring with any operator algebra.
 ------------------------------------------------------------------------
 
 module PramanaPatra_BlockEliminationByAnIdempotentIsALosslessCertificateTheReducedAndFullEquationsAreEquivalentForEverySourceAndTheForcingMapTransportsTheOperator where

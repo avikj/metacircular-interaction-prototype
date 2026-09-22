@@ -130,11 +130,3 @@ checked-joint-port .CheckedJointPort.minusOperator = c2-product-realizes-minus
 checked-joint-port .CheckedJointPort.exchangeOperator =
   pauli-toggle-realizes-exchange
 
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked: faithful embedding of the two phase labels into PauliWeyl's
--- central sign sector, exact realization of exchange by -I multiplication,
--- and the R0/C2 products at its two endpoints.
---
-------------------------------------------------------------------------

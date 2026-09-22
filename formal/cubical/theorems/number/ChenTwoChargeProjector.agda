@@ -4,8 +4,8 @@
 -- ChenTwoChargeProjector
 --
 -- Factory IV's exact two-charge seam.  This is support geometry parameterized
--- by an arithmetic witness field; it proves no Chen, twin-prime, or Goldbach
--- theorem.  Algebraic commutation of two projections is kept sharply distinct
+-- by an arithmetic witness field.
+-- Algebraic commutation of two projections is kept sharply distinct
 -- from any lower-bound/intersection claim.
 ------------------------------------------------------------------------
 

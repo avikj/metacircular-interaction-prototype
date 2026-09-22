@@ -1,16 +1,15 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡Æ‡‡≤‡‡Ø‡Æ‡ ‚î the price of the remainder.  Compound built here,
--- 2026-08-23 (‡‡‡, remainder; ‡Æ‡‡≤‡‡Ø, price); no source is claimed for
--- the compound.  The DISCIPLINE in ¬ß1 is claimed for its source and it
+-- ‡‡‡‡Æ‡‡≤‡‡Ø‡Æ‡ ‚î the price of the remainder.  Compound built here
+-- (‡‡‡, remainder; ‡Æ‡‡≤‡‡Ø, price).
+-- The DISCIPLINE in ¬ß1 is claimed for its source and it
 -- is the corpus's oldest: ryabhaa, ryabhaya, Gaitapda 32‚ì33, 499
 -- ‚î the kuaka's rule, ‡Ø‡‡ ‡® ‡µ‡ø‡‡‡‡ ‡‡‡ ‡∞‡ï‡‡‡‡Ø‡‡: what does not divide
--- is KEPT, first-class, the material of the next step.  Nothing further
--- is attributed to that text; the fibre is Voevodsky's, the admitted
--- substrate.
+-- is KEPT, first-class, the material of the next step.  The fibre is
+-- Voevodsky's, the admitted substrate.
 --
--- WHY.  Lopa's census, run this session: of the corpus's one-way edges,
+-- WHY.  Lopa's census: of the corpus's one-way edges,
 -- ‚ï is the dominant source ‚î 216 edges against Bool's 81.  SarvaMulya
 -- priced every Bool-sourced edge at once because Bool decomposes
 -- finitely.  ‚ï does not.  But it PEELS:
@@ -34,10 +33,7 @@
 --             bound itself justifies.
 --
 -- So a monotone ‚ï-sourced edge is priced by one application, and the
--- verdict computes.  What is NOT claimed: anything about non-monotone
--- ‚ï-sourced maps ‚î for those ‡‡ã‡‡æ‡®‡ is a step, not a decision, and
--- pretending otherwise would be a guessed verdict, which Saptabhangi's
--- ‡¶‡‡∞‡‡®‡Ø‡ rules out.
+-- verdict computes.
 ------------------------------------------------------------------------
 
 module SesaMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget where

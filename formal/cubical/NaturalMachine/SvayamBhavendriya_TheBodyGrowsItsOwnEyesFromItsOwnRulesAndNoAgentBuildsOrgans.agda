@@ -10,8 +10,7 @@
 -- WITNESSES at point environments, and instantiates one generic
 -- canonicalizer proven sound once over an abstract commutative
 -- monoid.  The eye is a function of the store.  No agent builds
--- organs.  School named: Jaina; the mathematics is not claimed for
--- any source.
+-- organs.  School named: Jaina.
 ------------------------------------------------------------------------
 
 module NaturalMachine.SvayamBhavendriya_TheBodyGrowsItsOwnEyesFromItsOwnRulesAndNoAgentBuildsOrgans where

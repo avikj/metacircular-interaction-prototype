@@ -11,8 +11,8 @@
 --       bhaga of the sydvda).
 --   `Laghava.laghava-is-not-semantic` â” à²à¾à˜àµ is not a function of the
 --       denotation (Pini's criterion, and why it had to exist).
---   `TranscriptDescent.collisionObstructsDecoder` â” and
---       flagship open problem is `Â FactorsThrough`.
+--   `TranscriptDescent.collisionObstructsDecoder` â” the barrier B3 of
+--       BARRIER.md, `Â FactorsThrough`.
 --
 -- All three have the shape
 --
@@ -39,15 +39,12 @@
 --
 -- That is precisely `Laghava`'s situation one domain over: the quantity
 -- is perfectly definite, and invisible at the level where you were
--- looking.  And it is precisely what
--- proves this lane cannot express a barrier in any stronger sense:
+-- looking.  And it is what shows that no barrier
+-- in any stronger sense is expressible here:
 -- avaktavya was the corpus's best candidate for something genuinely
 -- inexpressible, and it is exact.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module AvaktavyaDoesNotFactor where

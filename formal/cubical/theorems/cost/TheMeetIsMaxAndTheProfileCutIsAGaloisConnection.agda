@@ -17,17 +17,6 @@
 -- `min`.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE MEET IS MAX, AND THAT IS THE FINDING.  The previous module had to
--- reverse the order because in min-plus lower cost is better.  A meet
--- in a reversed order is a JOIN in the original, so `â‹` over burdens is
--- `max` in â•, not `min`.  My own sentence above said "needs `min` over
--- a finite index" and was wrong about which operation â” the reversal
--- that was load-bearing for the one-cut adjunction is load-bearing
--- again here, one level up, and naming the operation by its role in the
--- semiring ("min-plus, so take a min") is exactly the error the
--- reversal was supposed to have taught.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   max / max-â‰Ë¡ / max-â‰Ê³ / max-least
@@ -56,9 +45,6 @@
 -- becomes the value object.  What is contributed is that this
 -- repository's own obligation is discharged at the profile level, and
 -- that the operation it names is corrected.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheMeetIsMaxAndTheProfileCutIsAGaloisConnection where
@@ -182,13 +168,9 @@ module ProfileCut (ks : List â„•) where
     public
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The item named above â” "a cut with profiles on BOTH
--- sides needs `up` to produce a residual profile â¦ and is not built" â”
--- has its enabling step built in
--- `TheTwoSidedProfileCutNeedsTheBurdensAsAProfile`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin).
+-- A cut with profiles on BOTH sides, with `up` producing a residual
+-- profile, is built in
+-- `TheTwoSidedProfileCutNeedsTheBurdensAsAProfile`.
 --
 -- The step is `upV`/`dnV`: the SAME cut with the burdens taken as a
 -- PROFILE instead of read off the index list.  That is what frees the
@@ -196,43 +178,9 @@ module ProfileCut (ks : List â„•) where
 -- profiles (`Rows`) and `UpP` produces a residual PROFILE.  The Galois
 -- connection survives verbatim â” same two monus adjunctions.
 --
--- **AND THE OBSTRUCTION TO THE REST IS THE EMPTY ROW SET.**  The right
--- adjoint must send a residual profile to the largest burden profile
--- below it, componentwise `maxµ (bµâ¼ âˆ Ïˆµ)`; with no rows the
--- constraint is vacuous and that maximum is unbounded â” the empty meet
--- is `âˆž`, which â• does not have.  The paragraph above recorded this
--- from the LEFT adjoint's side as a convention about `up ks Ï = 0` on
--- the empty burden list; it is the same fact, and on the right it is
--- not a convention but an obstruction.  A two-sided cut therefore
--- exists over a non-empty residual index set, or over `â• âŠ âˆž`, and not
--- over â• with an arbitrary index set.
---
--- Still absent, as before: CONVOLUTION, hence nothing about Î” 28's
--- COMPOSITION step.
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
--- CORRECTION APPENDED 2026-08-19, by the same identity, at the end,
--- altering no line above â” including the 2026-08-19 append above it,
--- which is what is being corrected.  Recording site: commit 8f3acebb,
--- `TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero`.
---
--- **"the empty meet is `âˆž`, which â• does not have" IS WRONG**, and with
--- it "a two-sided cut therefore exists over a non-empty residual index
--- set, or over `â• âŠ âˆž`, and not over â• with an arbitrary index set".
+-- The empty row set is not an obstruction, and no `âˆž` is needed.
 -- The burden side is ordered by `_âŠp_` = REVERSE pointwise `â‰`, so the
 -- `âŠp`-greatest profile under a vacuous constraint is the `â‰`-LEAST:
 -- all zeros.  â• has it.  The unrestricted adjunction is at the
--- recording site.
---
--- WAS RIGHT.**  It says `up ks Ï = 0` on the empty burden list "is the
--- reversed order's top only because `0` is â•'s bottom". That is the correct
--- reading, made here first, on the LEFT adjoint's side. The append then
--- claimed the right adjoint's empty case was a different fact and an
--- obstruction. It is the same fact, and it is not an obstruction â” the
--- reversal was already recorded three lines up from where it was then
--- forgotten.
---
--- So this module needed no `âˆž` and never did.  What it needed was to be
--- re-read before being appended to.
+-- recording site, `TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero`.
 ------------------------------------------------------------------------

@@ -22,11 +22,6 @@
 -- `TheAnuyogitaAvacchedakaIsADistinctSlot`.  This file adds the
 -- FITNESS, which is not in either, and which is Mms's rather than Nyya's.
 --
--- GRADE.  No critical edition was opened.  The attributions above are carried
--- from this repository's own `ANEKANTA.md` §4 and `interactive/Yogyata.hs`, and
--- are abda at that grade, stated as such.  What is NOT carried from anywhere
--- is the formalisation; it is argued here.
---
 -- WHOSE SCHOOL, SO THE TOOLKIT DOES NOT GET BLENDED.  This is the
 -- Nyya-Mms analysis of absence and nothing here is Jaina.  A Jaina
 -- logician does not accept absence-as-entity at all: syd-nsti is the same
@@ -37,11 +32,9 @@
 -- than settled, in
 -- `interactive/Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearchedDomain.hs`.
 --
--- WHY IT MATTERS HERE, with instances that are not hypothetical.
--- `interactive/Yogyata.hs` was written because a module nothing imported reported
--- §2.2 published NOT FOUND and had to be narrowed by a later reader.
+-- WHY IT MATTERS HERE.
 -- `Obstruction.Aviruddha` carries the assignments searched precisely so that
--- "unrefuted" cannot be read as "true".  Each is the same defect: a negative
+-- "unrefuted" cannot be read as "true".  The defect guarded against is a negative
 -- whose extent was not stated, and therefore had nothing to be wrong about.
 --
 -- CONTENTS.  No postulates, no holes, --safe.
@@ -196,18 +189,7 @@ extent-load-bearing :
 extent-load-bearing = ghost-clean , sarva-not-clean
 
 ------------------------------------------------------------------------
--- APPENDED, so the reading is not left to a later reader's charity.
---
 -- What this file licenses: reporting an absence when the extent examined
 -- covers the locus, and reporting a CLEAN SEARCH OVER A STATED EXTENT
--- otherwise.  Those are two different sentences with two different types, and
--- until today this repository's engine could only say the second while its
--- notes said the first.
---
--- What it does not license: treating `Yogya` as something the machine can
--- check for itself.  Nothing here decides whether a grep would have caught a
--- differently-spelled name, or whether 84 assignments cover a term of arity
--- four (they cover 0.61% of the box � `ANEKANTA.md` §12).  The fitness is a
--- claim someone makes and can be wrong about.  The gain is that it is now a
--- claim that has to be MADE.
+-- otherwise.  Those are two different sentences with two different types.
 ------------------------------------------------------------------------

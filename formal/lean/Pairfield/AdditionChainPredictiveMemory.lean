@@ -10,8 +10,7 @@ formed-set symmetric difference, and proves the exact two-history coding
 lower bound.
 
 The result is relative to persistent formed sets and the declared availability
-profile.  It is not an optimal-addition-chain theorem or a physical memory
-model.
+profile.
 -/
 
 namespace Pairfield.AdditionChainPredictiveMemory

@@ -5,9 +5,9 @@
 -- ‡‡‡µ-‡‡®‡‡‡‡ ‚î jva, the living one (Umsvti, ‡‡‡‡‡‡µ‡æ‡∞‡‡‡‡‡‡‡∞, opening
 -- adhyyas, ~2nd‚ì5th c. CE: the knower persisting through karmic change);
 -- tantu, thread (ordinary ; the weaver's word for continuity,
--- attested of the sacrificial line in the gveda ‚î second-hand, verse
--- citation owed). The compound is built here, 2026-08-23, for the owner's
--- U0022 (collab/upstream/raw/U0022.txt); no source is claimed for it. What is
+-- attested of the sacrificial line in the gveda).
+-- The compound is built here for U0022
+-- (collab/upstream/raw/U0022.txt).  What is
 -- taken is the exact position being checked: the jva persists AND changes ‚î
 -- against both the eternalist and the annihilationist reading ‚î and this
 -- module is that position as theorems about one term.
@@ -29,12 +29,6 @@
 --       integer its own successor.  So over this family a section
 --       exists (¬ß2) and immutability is uninhabitable (¬ß3): continuity
 --       and change in one checked object.  That is the whole claim.
---
--- NOT BUILT YET, so the scope is exact: U0022's fate ledger
--- (transported / restricted / refuted / split / unresolved over a span
--- M_n ‚ê C_n ‚í M_{n+1}) and the heartbeat's dependent state type.  This
--- is the thread alone, because the thread is what the smallest instance
--- checks without invented structure.
 
 module JivaTantu_TheThreadMovesAtEveryStepAndStillCoheres where
 

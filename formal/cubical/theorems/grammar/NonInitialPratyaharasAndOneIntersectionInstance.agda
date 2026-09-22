@@ -11,7 +11,7 @@ open import Sivasutra using (Sym ; a ; i ; u ; á¹› ; á¸· ; e ; o ; ai ; au ; á¹†
 ------------------------------------------------------------------------
 -- NonInitialPratyaharasAndOneIntersectionInstance
 --
--- `formal/cubical/Sivasutra.agda` (cf-sakshi, 2026-08-18) checks the
+-- `formal/cubical/Sivasutra.agda` checks the
 -- pratyhra device on the vowel prefix, and says so exactly in its own
 -- comment: *"All pratyhras here begin at `a`, the head, so no
 -- start-search is needed."*  Its `upto` moves ONE endpoint.
@@ -37,23 +37,12 @@ open import Sivasutra using (Sym ; a ; i ; u ; á¹› ; á¸· ; e ; o ; ai ; au ; á¹†
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
 -- **Â§3 is an instance, not closure.**  One intersection of two named
--- classes is again a named class.  That is a datum.  The family being
--- intersection-CLOSED is a universally quantified statement over all
--- pairs, and it is not proved here for any family â” nor would proving it
--- on the vowel prefix say much, the prefix being nine sounds.
+-- classes is again a named class.  That is a datum.
 --
--- **The consonant stras are still absent**, as in the module extended.
+-- **The consonant stras are absent**, as in the module extended.
 -- The vowel prefix is where the device is visible cheaply; it is not
 -- where the ordering problem lives, since the hard part of the
 -- iva-stra ordering is the consonants and the duplicated `h`.
---
--- **No historical priority statement**, per the extended module.
---
--- PRIOR ART, grep run and quoted: `grep -rn "between|NonInitial|iK|e|aiC"
--- formal/cubical/Sivasutra.agda` returns nothing â” the module has no
--- start-search and no non-initial pratyhra.  A version spelling the
--- start-search as `dropWhile` would evade that grep; I read the module in
--- full and there is none.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

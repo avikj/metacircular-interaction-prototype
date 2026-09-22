@@ -15,9 +15,7 @@
 --
 -- The column, its windows and the marking table are computed once each
 -- and shared; the table is forced at every step so the scan holds one
--- table and not a chain of pending updates.  Submitted to the yantra
--- (sadhana.patra) and accepted by its kernel, 2026-09-11; ~10 GB live,
--- run under `check`'s heap cap.
+-- table and not a chain of pending updates.
 ------------------------------------------------------------------------
 
 module Ganana_TheFirstFourThousandNinetySixBitsOfRuleThirtysMiddleColumnHoldTwoThousandTwentyEightOnesAndEverySixEightAndNineBitWordHasOccurredByDepthFourHundredTwentyTwoFifteenNinetyOneAndTwentyEightSeventyTwoAndNotOneBitSooner where

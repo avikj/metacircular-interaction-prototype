@@ -3,10 +3,6 @@
 ------------------------------------------------------------------------
 -- WitnessNumberIsUnbounded
 --
--- `WitnessNumberIsTwo` left one item open and refused to estimate it:
--- *"whether any absence in this corpus has witness number above 2.  Â§3
--- gives a general floor and nothing here gives a general ceiling."*
---
 -- There is no general ceiling.  Witness number 3 is realised, so the
 -- uniform 2 across this corpus is a fact ABOUT THIS CORPUS and not a
 -- theorem about absences.  That distinction is the whole point of having
@@ -39,7 +35,7 @@
 -- that disagree pairwise need three, and no pair will do â” not because
 -- the third is hard to find but because every pair leaves a survivor.
 --
--- The standing aneknta law (887641a7) is that a collapse exists IFF
+-- The standing aneknta law is that a collapse exists IFF
 -- every pair of standpoints agrees.  Plurality is one way to fail that,
 -- not the only one.  This says how much plurality costs to
 -- demonstrate: one witness per standpoint, when the standpoints
@@ -48,7 +44,7 @@
 -- one witness would have sufficed, and it is not this one.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THIS DOES TO THE DEFLATIONARY THREAD
+-- WHAT THIS DOES TO THE DEFLATIONARY READING
 --
 -- It sharpens rather than weakens it.  The reading "every absence here
 -- is exact, so the barrier language is stronger than the objects
@@ -56,9 +52,6 @@
 -- here all cost 2, and 2 is not forced â” 3 exists, one type-former
 -- away.  Before this module the uniform 2 could have been an artefact
 -- of the measure.  It is not; it is a fact about the sites.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WitnessNumberIsUnbounded where
@@ -166,31 +159,18 @@ no-universal-standpoint : Â¬ (Î£[ d âˆˆ Three ] ((x : Three) â†’ law d x))
 no-universal-standpoint = refutesâ†’absent law triple three-refute
 
 ------------------------------------------------------------------------
--- 7.  What is settled and what is not.
+-- 7.  What is settled.
 --
 -- SETTLED.  Witness number is not bounded by 2.  The corpus's uniform 2
 -- is a property of its sites, not of the notion of absence â” which is
 -- what a measure is for, and what could not be said before one was
 -- fixed.
---
--- OPEN, named.  Whether witness number is unbounded.  The n-point
--- version of Â§2 has the obvious upper bound; the lower bound needs a
--- pigeonhole at general n, and Â§4 is an enumeration at n = 3.
---
--- ALSO OPEN, and more interesting.  Whether any absence arising from
--- MATHEMATICS in this corpus â” rather than constructed to order, as
--- this one was â” has witness number above 2.  Nothing found so far
--- does.  That may be a fact about the mathematics or about how the
--- sites were chosen, and this module cannot tell which.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 8.  THE SHARPER QUESTION IN Â§7 IS ANSWERED, and the answer is
---     neither of the two options offered there.
+-- 8.  THE UNIFORM 2 IS A FACT ABOUT THE DECODER SPACE.
 --
--- Â§7 asked whether the corpus's uniform 2 is "a fact about the
--- mathematics or about how the sites were chosen", and said this module
--- could not tell which.  It is neither: it is a fact about the DECODER
+-- The corpus's uniform 2 is a fact about the DECODER
 -- SPACE.  `WhyTheSitesAreTwo` proves
 --
 --     Discrete Y â’ CollisionFree q t ys â’ Â Refutes (factorLaw q t) ys
@@ -208,12 +188,7 @@ no-universal-standpoint = refutesâ†’absent law triple three-refute
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 9.  THE UNBOUNDEDNESS ITEM IN Â§7 IS SETTLED, and more strongly than
---     it was asked.
---
--- Â§7 said the n-point version has the obvious upper bound but that the
--- lower bound at general n "needs a pigeonhole this module does not
--- prove".  No pigeonhole is needed.
+-- 9.  WITNESS NUMBER IS UNBOUNDED, AND NEED NOT BE A NUMBER AT ALL.
 --
 -- `WitnessNumberCanBeInfinite` generalises Â§2 to any
 -- discrete A and CHARACTERISES the refuting lists rather than bounding
@@ -227,6 +202,6 @@ no-universal-standpoint = refutesâ†’absent law triple three-refute
 -- merely large, it is not a number at all.
 --
 -- Characterising the refuting lists turned out to be easier than
--- counting them, which is the same lesson as the rest of this thread:
+-- counting them, which is the same lesson as the rest of this line:
 -- fix what is being measured before reaching for a bound.
 ------------------------------------------------------------------------

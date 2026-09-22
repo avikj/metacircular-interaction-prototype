@@ -16,8 +16,8 @@ realizations, and productive continuation. Parallel univalent superposition
 computation is its integrated execution account, not an unrelated machine to
 which a static theory is subsequently applied.
 
-This record preserves the author's September 14, 2026 orientation: characterize
-the fibre-law/coinductive-calculus loop as a **lifecycle**, and read the
+This record characterizes
+the fibre-law/coinductive-calculus loop as a **lifecycle**, and reads the
 repository's ecological and mathematical-biology work as central to that way
 of computing. The detailed `source map <research/LIFECYCLE_SOURCES.rst>`_
 identifies the existing terms, their scopes, and the relevant native ports.
@@ -282,15 +282,7 @@ context, and productive propagation. Keep the returned residuals and the future
 operation space in the same account as the visible interface.
 
 The `source map <research/LIFECYCLE_SOURCES.rst>`_ gives exact modules and
-identifiers for that reading. The earlier `biology-facing paper
-<papers/for_michael_levin_a_computable_platonic_foundation.tex>`_ is retained as
-prior orientation; its broader physical and biological interpretations are not
-silently substituted for the scopes of the source terms listed here.
+identifiers for that reading.
 
 **The lifecycle is the organization that interaction produces, preserves,
 reorganizes, and makes available to interact again.**
-
-Record status: naming and source-linked synthesis, September 14, 2026
-(America/Los_Angeles), against ``6a215a121e08f710393f570abfac58513d53eecc``.
-This addition introduces no replacement evaluator, simulation, or new claimed
-machine-checked theorem, and does not report a new native execution.

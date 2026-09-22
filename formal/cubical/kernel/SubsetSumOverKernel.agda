@@ -6,9 +6,9 @@
 -- Subset-sum encoded over the ACTUAL kernel (RewriteCertificate): the
 -- selected weights are built into a `Tm`, and the sum is obtained through
 -- the kernel's own projection `eval` and its derivations â” not stdlib
--- recursion. This is the honest redo: the arithmetic lives in the kernel.
+-- recursion. The arithmetic lives in the kernel.
 --
--- What compiles, --safe:
+-- The two halves:
 --
 --  Â `sumTerm xs sel` is the kernel term adding the selected unary
 --    weights. `eval-sumTerm` proves the kernel's projection computes the
@@ -18,16 +18,14 @@
 --  Â `verify-over-kernel` decides, through the kernel's `eval`, whether a
 --    given selection hits the target. One pass over the term.
 --
--- What is NOT here, stated plainly: a term that PRODUCES the selecting
--- `sel` from `(xs , t)`. The kernel's `eval`/derivations reduce a GIVEN
+-- The kernel's `eval`/derivations reduce a GIVEN
 -- term; they do not range over selections. `Solvable` below is a Î over
 -- `List Bool`, and nothing in the kernel projects its witness. Over the
 -- UNARY kernel a decision procedure exists at cost O(n Â t) â” the
 -- textbook pseudo-polynomial dynamic program â” which is polynomial in the
 -- unary input and exponential in the standard binary input; that is weak
 -- NP-completeness, not P=NP, and it does not touch strongly NP-complete
--- problems. This file encodes the arithmetic in the kernel and marks that
--- boundary honestly; it does not cross it.
+-- problems.
 ------------------------------------------------------------------------
 
 module SubsetSumOverKernel where

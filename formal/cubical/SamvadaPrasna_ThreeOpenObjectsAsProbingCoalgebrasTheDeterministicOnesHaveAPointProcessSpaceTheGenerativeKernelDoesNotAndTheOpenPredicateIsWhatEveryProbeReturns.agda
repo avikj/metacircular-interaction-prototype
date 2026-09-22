@@ -7,7 +7,7 @@
 --
 -- ‡‡‡∞‡‡‡® ‚î the question.  This module uses the interactive coalgebra
 -- (Fibre.Samvada's ISC) for what it is FOR, on three objects the corpus
--- reaches at but had not yet handed to the coalgebra: the finite-form
+-- reaches at: the finite-form
 -- Riemann predicate (a ‚ñ° on a power-sum stream), the Navier‚ìStokes
 -- Galerkin window (the advected jet's widening mode-support), and the
 -- metacircular kernel's own self-extension.  ONE abstract probing
@@ -75,8 +75,6 @@
 -- service, open predicate falsifiable-not-confirmable.  Proof-relevant
 -- receipt (the kernel) ‚í branching process, generative.  The same
 -- interface; the mathematics is in the h-level.
---
--- CHECKED: Agda 2.8.0, cubical v0.9 (the pin), --cubical --safe.
 ------------------------------------------------------------------------
 
 module SamvadaPrasna_ThreeOpenObjectsAsProbingCoalgebrasTheDeterministicOnesHaveAPointProcessSpaceTheGenerativeKernelDoesNotAndTheOpenPredicateIsWhatEveryProbeReturns where

@@ -14,7 +14,7 @@
 -- CANNOT utter a falsehood, in either direction, and this is checked
 -- rather than promised.
 --
--- WHAT THIS IS.  The reflection weld.  Since 2026-08-24 one set of
+-- WHAT THIS IS.  The reflection weld.  One set of
 -- definitions (formal/karma/KarmaKanda‚¶, --cubical-compatible --safe)
 -- is imported with full use by BOTH worlds: the compiled mouth runs
 -- them, this --cubical body proves paths about them.  The act-side
@@ -28,8 +28,7 @@
 -- and the corollary the binary was waiting for: the mouth's runtime
 -- census counts a rule closed exactly when ‡‡Æ‡ (norm l) (norm r) comes
 -- back true ‚î ‡Æ‡‡ñ-‡‡‡‡Ø‡Æ‡ turns each such runtime "closes" into full
--- semantic truth over EVERY environment, through norm-sound.  Twelve
--- milliseconds of execution, each utterance kernel-warranted.
+-- semantic truth over EVERY environment, through norm-sound.
 ------------------------------------------------------------------------
 
 module NaturalMachine.SatyaMahavrata_TheMouthsTrueWordLiftsToAKernelPathItsFalseWordToARefutationSoTheCompiledActCannotLie where
@@ -200,8 +199,8 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 -- ¬ß5  The warrant.  The compiled mouth counts a rule closed exactly
 --     when ‡‡Æ‡ (norm l) (norm r) returns true at runtime.  This is the
 --     path that utterance was owed: semantic truth over EVERY
---     environment.  Each of the binary's twelve-millisecond "closes"
---     is now a theorem, not a report.
+--     environment.  Each of the binary's "closes"
+--     is a theorem, not a report.
 ------------------------------------------------------------------------
 
 ‡§Æ‡•Å‡§ñ-‡§∏‡§§‡•ç‡§Ø‡§Æ‡•ç : ‚àÄ l r ‚Üí ‡§∏‡§Æ‡§É (norm l) (norm r) ‚â° true ‚Üí ‚ä® (l , r)

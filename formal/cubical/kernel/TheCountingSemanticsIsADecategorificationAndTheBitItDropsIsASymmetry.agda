@@ -8,12 +8,6 @@
 -- of digits admits, and how to enumerate them in order.  Bhskara II,
 -- *Llvat*, the akapa section (~1150).
 --
--- LIMIT ON THIS CITATION, stated rather than glossed.  I have NOT opened the
--- verses and do not give verse numbers; editions differ in their numbering
--- of this section and a number I did not check would be a fabricated
--- provenance, which is the error the apparatus exists to stop.  The section
--- is standard and named; the verse range is not claimed.
---
 ------------------------------------------------------------------------
 -- THE THIRD READING OF THE SAME LINE, AND THE ONE THAT BUILDS.
 --
@@ -36,7 +30,7 @@
 --       an EQUIVALENCE and every `Derivation` a composite of them --
 --       `add-zero` the right unitor, `add-suc` a shuffle, the congruences
 --       `�-equiv`, and `reverse` `invEquiv`.  So the kernel's existing
---       calculus already had a univalent semantics; nobody had written it.
+--       calculus already had a univalent semantics.
 --   §3  Step� / Derivation�: the calculus extended by ONE constructor,
 --       `add-comm`.  It is sound for the counting semantics (`+-comm`), so
 --       this is a legitimate extension of the kernel and not a rigged one.
@@ -66,8 +60,6 @@
 -- and §4 exhibits the exact datum such a score cannot represent: which
 -- arrangement, as opposed to how many.  Order information is not an
 -- inefficiency of a bag-of-counts semantics; it is provably absent from it.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry where
@@ -232,7 +224,7 @@ univalent-semantics-does-see-it p =
 -- (c) AND IT IS A NONTRIVIAL LOOP IN THE UNIVERSE.  The proof runs through
 -- `uaβ`: transport along `ua e` COMPUTES to `e`'s function.  That is the
 -- executable half of univalence, and it is what makes this a calculation
--- rather than a citation -- the loop is not asserted to be nontrivial, it is
+-- rather than a citation -- the loop is
 -- transported along and the answer comes back `inr tt`.
 comm-path : ⟦ add var var ⟧ σ₁ ≡ ⟦ add var var ⟧ σ₁
 comm-path = ua (derivation⁺-equiv comm-loop σ₁)
@@ -247,7 +239,7 @@ comm-loop-is-a-nontrivial-loop-in-the-universe p =
           ∙ transportRefl (inl tt)
 
 ------------------------------------------------------------------------
--- §5.  THE OTHER HALF OF THE LINE.  ADDED 2026-08-25.
+-- §5.  THE OTHER HALF OF THE LINE.
 --
 -- §4 shows the categorified semantics SEES something the counting one
 -- cannot: a transposition.  It does not follow that it sees everything,

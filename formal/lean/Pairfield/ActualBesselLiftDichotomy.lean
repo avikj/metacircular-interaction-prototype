@@ -11,8 +11,7 @@ lifts `(4,2,6)` and `(1,8,6)` have the same genuine argument
 
 After selecting the canonical six sparse lifts `(r+1,2,6)`, the arguments are
 distinct and one smooth compactly supported geometric test on `(0,∞)` takes
-all six prescribed values.  No claim about a spectral preimage under a Bessel
-transform is added here.
+all six prescribed values.
 -/
 
 namespace Pairfield.ActualBesselLiftDichotomy

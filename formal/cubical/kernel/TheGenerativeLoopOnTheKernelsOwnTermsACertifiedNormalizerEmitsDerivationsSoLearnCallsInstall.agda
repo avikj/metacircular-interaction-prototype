@@ -1,11 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- TheGenerativeLoopOnTheKernelsOwnTerms â” the corpus's largest structural
--- gap (descent doc Â§7: the proved-terminating generative learner runs on
+-- TheGenerativeLoopOnTheKernelsOwnTerms.  The proved-terminating generative learner runs on
 -- `ObstructionSubstrate.Tm`, a DIFFERENT datatype from the metacircular
 -- kernel's `RewriteCertificate.Tm`, with no `Tm`-morphism sending
--- `propose â¦ install`) is closed here in the only way the types allow.
+-- `propose â¦ install`.
 --
 -- WHY NOT A MORPHISM.  A total faithful `Tm`-morphism is blocked twice:
 --   (arity)   Obstruction's `node : Shape(=â•) â’ Tm â’ Tm` is one unary
@@ -42,10 +41,9 @@
 --                 normalizer COMPUTES; the derivation it emits is the
 --                 kernel's own `accepted`.
 --
--- This does not grow the kernel's REACH beyond what it can already derive
--- (Siddhasadhana: self-installation is a plateau) â” it closes the
--- DISCOVERYâ’INSTALLATION loop on one language, which the corpus did not
--- have.  Item Â§8(a) of the descent doc, discharged in the buildable form.
+-- The kernel's REACH is unchanged (Siddhasadhana: self-installation is a
+-- plateau); what closes is the
+-- DISCOVERYâ’INSTALLATION loop on one language.
 ------------------------------------------------------------------------
 
 module TheGenerativeLoopOnTheKernelsOwnTermsACertifiedNormalizerEmitsDerivationsSoLearnCallsInstall where

@@ -23,12 +23,6 @@
 --     to x, y â‰ 26 and z â‰ 8 (27Â² = 729 and 10Â9Â² = 810 overshoot
 --     everything below 720), and the kernel refutes every triple in
 --     the box.
---
--- Standing in the campaign: the machine's verdict organs hold the
--- full conjecture as ea and its fitness discipline demanded a
--- fitter witness than an external scan; this file is that witness,
--- from the kernel itself.  2719 stands beyond this bound, next in
--- the queue.
 ------------------------------------------------------------------------
 
 module RamanujanTernary_BelowSevenTwentyTheOddExceptionsAreExactlyHisSeventeenTowardTheOpenList where

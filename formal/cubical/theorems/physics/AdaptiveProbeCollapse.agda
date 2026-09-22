@@ -5,23 +5,19 @@
 --
 -- THE ADAPTIVE OBSERVER, IN THE BARE-POOL REGISTER, IN BOTH DIRECTIONS.
 --
--- observer class this corpus has formalized is provably STATIC" and that the
--- genuinely adaptive observer is "the one apparatus class not yet proven to
--- annihilate the charged sector".  That claim is FALSE as stated, and
--- `AdaptiveResidualAdapter` (this same directory) already
--- proves the collapse in the Moore-machine register
--- (`nerodeCongruence-adaptiveIso`), and ~22 `formal/lean/Pairfield/Adaptive*`
--- modules already carry the cost side, including two checked strict gaps
+-- The genuinely adaptive observer annihilates the charged sector.
+-- `AdaptiveResidualAdapter` (this same directory) proves the collapse in
+-- the Moore-machine register (`nerodeCongruence-adaptiveIso`), and the
+-- `formal/lean/Pairfield/Adaptive*` modules carry the cost side,
+-- including two checked strict gaps
 -- (`AdaptiveObservableHorizon.uniform_one_adaptive_two`,
 --  `LinearAdaptiveGap.exact_linear_gap`).
 --
--- What was genuinely absent, and is supplied here, is the same pair of
--- statements in the register the law of §1 is actually stated in: a BARE
--- PROBE POOL with no dynamics, no alphabet, no `step`, no Moore output, and
--- an arbitrary outcome type.  That is the register of
--- Corollary 1.2 names adaptivity as invisible to the revelation cost and
--- whose scope fence §7.5 says "the adaptive quantity is named, not built".
--- This module builds it.
+-- Here is the same pair of statements in the register the law of §1 is
+-- stated in: a BARE PROBE POOL with no dynamics, no alphabet, no `step`,
+-- no Moore output, and an arbitrary outcome type.  That is the register
+-- in which Corollary 1.2 names adaptivity as invisible to the revelation
+-- cost.  This module builds the adaptive quantity.
 --
 -- §1  (general, no finiteness anywhere)
 --     `collapse`      -- every adaptive strategy's transcript is constant on
@@ -59,16 +55,6 @@
 -- the smallest shape that carries it).  The corpus's law extends verbatim to
 -- adaptive observers; the coordinate on which adaptivity is a real gain is
 -- the one the law never spoke about.
---
--- CHECKED ON THE PIN.  `formal/cubical/check.sh` with
--- NM_MODULES="NaturalMachine/AdaptiveProbeCollapse.agda" prints
--- "RUNNING AGAINST THE PIN", names agda 2.8.0 at /root/Agda-2.8.0/... and
--- cubical at /root/agda-libs/cubical-v0.9, reports EXIT=0 for this module,
--- and its own CHECKSH_EXIT is 0.  This is a PIN green, not a container
--- green: as of 2026-08-19 this container reaches the declared pin, which
--- reports as unreachable -- that note's finding is superseded by the
--- toolchain, not by any argument, and its method stands.
--- No postulates, no holes, no `--guardedness`, no `native_decide` analogue.
 ------------------------------------------------------------------------
 
 module AdaptiveProbeCollapse where

@@ -5,7 +5,7 @@
 --
 -- The exact chart depth of the labelled subset-sum valuation response.
 --
--- lifts it to arity `n`, and `collab/messages/0161-codex-formation-subset-
+-- `collab/messages/0161-codex-formation-subset-
 -- sum-carrier-result.md` closes with the hostile question
 --
 --     "for labeled valuation-only subset responses, is common unit scaling
@@ -23,9 +23,6 @@
 -- spelled `(p ^ k) โ x` together with `ย (p ^ suc k) โ x`, so the whole
 -- argument is divisibility in โ and the module stays `--safe` with no
 -- postulates and no holes.
---
--- This module is standalone: it is NOT imported by `agda`
--- and is not covered by the root aggregate's green claim (`BUILD.md`).
 --
 -- Layout:
 --   ยง1  ring-level divisibility helpers (subtraction)

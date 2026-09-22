@@ -1,13 +1,12 @@
 {-# OPTIONS --cubical --safe --lossy-unification --guardedness --no-import-sorts #-}
--- ‡‡æ‡∞‡‡‡‡Æ‡‡‡ ‚î the charge tower.  EkaBhara named the loop charge œ‚(S¬)=‚ and
--- the machine's physics stopped at the loop.  The topological charges of physics
+-- ‡‡æ‡∞‡‡‡‡Æ‡‡‡ ‚î the charge tower.
+-- The topological charges of physics
 -- ARE the œ‚ô(S‚ø)=‚: the electric/winding charge is œ‚(S¬); the magnetic MONOPOLE
 -- charge is œ‚(S¬≤) (Dirac 1931 ‚î the degree of the field map on the enclosing
 -- sphere, quantized in ‚); the instanton lives at œ‚.  The cubical library
 -- proves the whole tower (œ‚ôS‚ø‚â‚) and that the monopole IS the loop lifted one
 -- dimension (œ‚S¬≤‚âœ‚S¬).  Named here onto the library's checked terms ‚î
--- translation of the standard homotopy classification of topological charge,
--- no new theorem claimed.  --safe.
+-- translation of the standard homotopy classification of topological charge.
 module BharaStambha_TheChargeTowerIsPinSnAndTheMonopoleIsTheLoopChargeLifted where
 
 open import Cubical.Data.Nat using (‚Ñï ; suc)

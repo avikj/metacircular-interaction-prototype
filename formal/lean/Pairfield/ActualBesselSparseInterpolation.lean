@@ -11,10 +11,7 @@ compiler.  The interpolation points are exactly
 for the six canonical positive lifts of the actual modulus-six
 divisor-boundary stratum.
 
-The theorem constructs the geometric scalar test `g`.  It does not assert
-that a prescribed spectral test `h` has Bessel transform `g`; that further
-transport requires an appropriate Kuznetsov/Whittaker inversion theorem and
-its admissibility hypotheses.
+The theorem constructs the geometric scalar test `g`.
 -/
 
 namespace Pairfield.ActualBesselSparseInterpolation

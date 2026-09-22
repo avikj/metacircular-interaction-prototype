@@ -40,10 +40,8 @@ rather than as a remark.
 `formal/cubical/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
 proves the same thing about Āryabhaṭa's वल्ली: `detReplay` gives
 `det (replay v) ≡ (-1)^(length v)` for the step matrices `L q = (q 1 / 1 0)`,
-and its §5 states the transfer to this lane as **owed, not done** — grade
-three, "a real channel, to be constructed rather than asserted", because the
-Lean statements live over a different matrix type in a system without
-univalence.  This file is that construction.  It is **not** an import, a
+The Lean statements live over a different matrix type in a system without
+univalence, and this file is the construction on that side.  It is **not** an import, a
 translation, or a transport: nothing crosses the lane boundary.  It is the
 same mathematics proved a second time against the objects that are actually
 here, which is what a grade-three channel is.
@@ -52,22 +50,19 @@ Note the matrices are not literally the same: `L q = (q 1 / 1 0)` and
 `euclidStep q = (0 1 / 1 -q)`.  Both are in the family `{M : det M = -1}`,
 and the determinant argument needs nothing more of either than that.
 
-## What is and is not claimed of the source
+## The source
 
 The वल्ली is Āryabhaṭa's — *Āryabhaṭīya*, Gaṇitapāda 32–33 (499 CE),
 *"śeṣaṃ rakṣa"*, keep the remainder; the column worked out in Bhāskara I's
-*Āryabhaṭīyabhāṣya* (629).  Āryabhaṭa proved nothing below and none of this is
-attributed to him.  What is claimed is only that the object priced here is the
+*Āryabhaṭīyabhāṣya* (629).
+The object priced here is the
 column of quotients his procedure produces.  युग्म ("pair, even") and पूरण
-("filling, padding") are used in their plain senses; **no text is claimed for
-the compound, which was built in this repository** (the same declaration the
-Agda module makes).
+("filling, padding") are used in their plain senses.
 
 ## Discipline
 
 No `sorry`, no `admit`, no `axiom`, and **no `native_decide`**: every decision
-below is either a kernel `decide` or an ordinary proof term.  Verified under
-`lake build`, Lean 4.33.0 with mathlib `v4.33.0`.
+below is either a kernel `decide` or an ordinary proof term.
 -/
 
 namespace Pairfield
@@ -270,20 +265,5 @@ theorem one_paddedOne_padding_is_even :
       CoefficientWitness.one.cost % 2 ∧
     CoefficientWitness.paddedOne.cost - CoefficientWitness.one.cost = 2 := by
   decide
-
-/-! ## 4 · शेषः — what this does not say
-
-* It does not say the endpoint matrices determine the word up to parity.  They
-  forget the quotients entirely; `det` sees only the length, and only its
-  parity.  The claim is about the coordinate the two counterexamples were
-  built to defeat, not about the fibre.
-* It does not say a **minimal** word length is undecodable.  Both no-decoder
-  theorems are about *historical* cost, and
-  `kuttaka610_leftWord_length_ge_four` in `DiagonalSmithRoute.lean` is the
-  living proof that the shortest-word question is a different and answerable
-  one.
-* It does not transport anything from the Agda lane.  See the header: the two
-  proofs are independent, and their agreeing is the content.
--/
 
 end Pairfield

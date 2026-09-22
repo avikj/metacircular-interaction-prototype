@@ -7,8 +7,7 @@ The endpoint pattern `p,p+4` and the waypoint pattern `p,p+2,p+4` are kept as
 different proof-relevant predicates.  Requiring the waypoint loses the valid
 endpoint at `p=7`; globally, the only prime triple of this form starts at 3.
 
-This finite congruence theorem is not progress on Goldbach coverage.  It
-certifies that a particular intermediate ontology is strictly smaller than
+This finite congruence theorem certifies that a particular intermediate ontology is strictly smaller than
 the endpoint relation it was proposed to represent.
 -/
 import Pairfield.BoundedPrimePair

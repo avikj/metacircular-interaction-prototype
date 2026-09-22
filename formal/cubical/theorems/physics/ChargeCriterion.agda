@@ -25,9 +25,8 @@
 --     argument has odd Ω, a separator exists and the barrier says nothing
 --     about you.
 --
--- WHY THE CONVERSE IS THE CONTENT.  `GAUGE.md` §F.4 closes with
--- "formalizing which probes carry charge is the continuation of this
--- line."  A one-directional no-go formalizes which probes DON'T.  The
+-- WHY THE CONVERSE IS THE CONTENT.  A one-directional no-go formalizes
+-- which probes DON'T carry charge.  The
 -- converse is what turns the classification into a decision, and it is
 -- also what stops the criterion from being vacuous: without it, "neutral
 -- � blind" would be consistent with everything being blind.
@@ -40,7 +39,7 @@
 -- bilinear axiom is what actually has to be supplied, and this test only
 -- says where to look for it.
 --
--- Contents (no holes, no postulates, --safe):
+-- Contents:
 --
 --   HasOdd                     the query set contains an odd-Ω argument
 --   Separates                  a decision procedure that accepts the

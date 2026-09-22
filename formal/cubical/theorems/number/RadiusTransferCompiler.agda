@@ -10,11 +10,11 @@ open import Cubical.Data.Fin using (Fin ; toℕ)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_)
 
 ------------------------------------------------------------------------
--- Bounded-gap-to-radius-one interface already published on main
+-- Bounded-gap-to-radius-one interface
 ------------------------------------------------------------------------
 
 -- The prime-pair predicate is a parameter.  This surface proves the transfer
--- compiler, not a new prime theorem and not an inhabitant of any edge.
+-- compiler.
 module _ (PP : ℕ → ℕ → Type₀) where
 
   Unbounded : ℕ → Type₀
@@ -90,7 +90,7 @@ module _ (PP : ℕ → ℕ → Type₀) where
     path-transports-unbounded (fabric radius lower upper) recurrent
 
 ------------------------------------------------------------------------
--- Later stranded refinement: compositional and ranked generic compiler
+-- Compositional and ranked generic compiler
 ------------------------------------------------------------------------
 
 module Compiler (PP : ℕ → ℕ → Type₀) where

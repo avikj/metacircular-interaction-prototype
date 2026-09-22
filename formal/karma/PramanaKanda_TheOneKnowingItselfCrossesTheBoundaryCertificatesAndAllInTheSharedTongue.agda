@@ -2,12 +2,12 @@
 
 ------------------------------------------------------------------------
 -- ‡‡‡∞‡Æ‡æ‡‡ï‡æ‡‡‡°‡Æ‡ ‚î the instrument-portion.  Compound built here,
--- 2026-08-24, on the ka division already carried by KarmaKanda
+-- on the ka division already carried by KarmaKanda
 -- (the Veda's act/knowledge portions, the split Prva- and
 -- Uttara-Mms stand on); ‡‡‡∞‡Æ‡æ‡ as in Tattvrthastra 1.6 (Umsvti,
 -- c. 2nd‚ì5th c. CE, school Jaina), the complete knowing against its
 -- partial organs ‚î the frame PramanaNaya and PurnaPramana already
--- check.  Nothing below is claimed for any source.
+-- check.
 --
 -- WHAT THIS IS.  The one prover ‚î eyes, instruments, record exchange,
 -- single and paired ascents, the breath that digests the elder's

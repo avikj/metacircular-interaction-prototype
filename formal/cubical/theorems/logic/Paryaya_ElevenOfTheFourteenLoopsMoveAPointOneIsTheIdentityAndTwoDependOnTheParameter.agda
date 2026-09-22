@@ -15,7 +15,7 @@
 -- either naya asserting itself by denying the other is false â” is
 -- Siddhasena's and Akalaka's (~8th c.).  Jaina; the Naiyyikas reject
 -- anekntavda outright, and the school is named because the dispute is
--- the content (CLAUDE.md, "rival schools are not one toolkit").
+-- the content.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS IS, AND HOW IT DIFFERS FROM ITS COMPANION.
@@ -58,8 +58,6 @@
 -- second reading is the one with content.
 --
 -- interactive/Setubandha_â¦.hs (the census this decides).
---
--- Written 2026-08-22.
 ------------------------------------------------------------------------
 
 module Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter where

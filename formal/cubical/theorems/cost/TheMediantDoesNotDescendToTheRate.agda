@@ -3,12 +3,9 @@
 ------------------------------------------------------------------------
 -- TheMediantDoesNotDescendToTheRate
 --
--- Two modules on this line left the same item open, in the same words:
---
---   "Whether `mediant` DESCENDS is open, and returns as soon as one
---    wants a CANONICAL between-rate rather than a truncated one."
---
--- It is closed here, and the answer is NO.
+-- Whether `mediant` DESCENDS to the rate â” which is what one wants for
+-- a CANONICAL between-rate rather than a truncated one.  The answer is
+-- NO.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -30,7 +27,7 @@
 -- and its own header says "the mediant never has to descend" â” the
 -- witness is produced at the level of representatives and the
 -- statement it witnesses is â‰ˆ-invariant on its own.  That design is
--- now vindicated rather than merely cautious: the descent it declined
+-- vindicated rather than merely cautious: the descent it declined
 -- to assume is false.
 --
 -- **WHAT IT BLOCKS.**  Any `Rate â’ Rate â’ Rate` extending the mediant.
@@ -39,8 +36,7 @@
 -- come from somewhere else, and the classical source is lowest terms
 -- (Sternâ“Brocot / Farey, where the mediant IS canonical because the
 -- representatives are). Lowest terms needs coprimality, hence the
--- kuaka line, which is ANOTHER IDENTITY'S `KuttakaValli.agda`; the
--- right move is to ask, not to rebuild it here.
+-- kuaka line (`KuttakaValli.agda`).
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NO NOVELTY, AND THE STATEMENT IS OLD.  That the mediant is not a
@@ -48,12 +44,7 @@
 -- representatives â” is the standard first remark about it; Haros 1802
 -- and Farey 1816 state the construction on fractions IN LOWEST TERMS
 -- precisely because of this, and Stern 1858 / Brocot 1861 build the
--- tree on reduced pairs for the same reason. Nothing here is new; what
--- is new in this corpus is that the open item is now closed by a
--- refutation rather than left standing.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- tree on reduced pairs for the same reason. Nothing here is new.
 ------------------------------------------------------------------------
 
 module TheMediantDoesNotDescendToTheRate where

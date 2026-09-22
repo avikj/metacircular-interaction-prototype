@@ -3,8 +3,7 @@ Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
 The branch-conditioned carrier for an adaptive experiment is the prefix
-left-quotient.  This is deliberately a small naming/transport layer: it does
-not identify adaptive depth with a uniform word horizon.
+left-quotient.
 -/
 import Pairfield.AdaptiveResidualAdapter
 

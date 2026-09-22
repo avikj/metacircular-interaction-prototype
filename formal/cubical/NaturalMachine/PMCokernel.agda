@@ -3,10 +3,7 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.PMCokernel
 --
--- CHECKED (Agda 2.6.3, cubical v0.5, 2026-08-13).  No postulates, no
--- holes, `--safe`.
---
--- WHAT THIS DISCHARGES.  `notes/PM_SECTION_VS_COCYCLE.md` ends with:
+-- WHAT THIS PROVES.  `notes/PM_SECTION_VS_COCYCLE.md` ends with:
 -- "The natural checked target: `coker(Î´) â‰ Fâ` and the exactness step â”
 -- pure finite linear algebra over Fâ, no matrices over â[i] needed."
 -- This module is that target, carried out on the PHYSICAL index sets
@@ -44,8 +41,7 @@
 --     `each-obs-twice` are about one map and not two.
 --   * `even-total-is-image` / `image-is-even-total` â” EXACTNESS, both
 --     inclusions: im Î´ is EXACTLY ker(total).  With `total-onto` this
---     is coker Î´ â‰ Fâ with `total` as the class evaluator (the quotient
---     type itself is not constructed; see the honest caveat below).
+--     is coker Î´ â‰ Fâ with `total` as the class evaluator.
 --   * `local-section` â” each context separately admits an assignment
 --     with the prescribed parity (the obstruction is global, not local).
 --   * `rows-only-section` â” the rows-only cover admits a global
@@ -60,13 +56,10 @@
 --     `PMTorus.cycleEquiv` rather than measured.  `kernelIso` is the
 --     bridge: ker Î´ â‰ PMTorus.Cycle.
 --
--- WHAT IS *NOT* PROVED.  The quotient type Fââ/im Î´ is not constructed
--- (no SetQuotient), exactly as in `PMTorus`; "coker Î´ â‰ Fâ" is
+-- "coker Î´ â‰ Fâ" is
 -- delivered in its usable form â” im Î´ = ker total (both inclusions)
--- together with total onto.  The upstream operator data (the Weyl
--- 2-cocycle Î¼ and the gauge 1-cochain Ï of the note) is NOT formalized:
--- the sign vector s enters here as a DATUM, transcribed from the note,
--- not derived from Gaussian-integer Pauli matrices.  What is proved is
+-- together with total onto.  The sign vector s enters here as a DATUM,
+-- transcribed from the note.  What is proved is
 -- everything downstream of s.
 --
 -- Reuses `NaturalMachine.PMTorus` (same square, same Fâ toolkit, same
@@ -87,8 +80,7 @@
 -- Only `âˆ-Î´` below does this, and only to compare two definitionally
 -- equal six-clause functions; nothing in this module transports along a
 -- path in `Fin n`, so no proof depends on those clauses computing under
--- transport.  The build is exit 0 with no errors and no unsolved
--- metas.
+-- transport.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PMCokernel where
@@ -404,10 +396,8 @@ rows-only-section = zeroObs , refl , refl , refl
 ------------------------------------------------------------------------
 -- 6.  EXACTNESS: im Î´ is exactly ker(total), and total is onto.
 --
--- Together: coker Î´ â‰ ð”½â with `total` as the class evaluator.  The
--- quotient type is not constructed (see the header); what is proved is
--- the pair of statements that a cokernel computation consumes.  The
--- hard inclusion is imported from `PMTorus.even-kernel-is-image` along
+-- Together: coker Î´ â‰ ð”½â with `total` as the class evaluator.
+-- The hard inclusion is imported from `PMTorus.even-kernel-is-image` along
 -- the graph identification of Â§7 â” no second preimage construction.
 ------------------------------------------------------------------------
 

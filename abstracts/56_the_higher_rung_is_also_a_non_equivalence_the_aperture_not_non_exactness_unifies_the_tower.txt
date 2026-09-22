@@ -1,15 +1,12 @@
 THE HIGHER RUNG IS ALSO A NON-EQUIVALENCE: Â isEquiv, NOT NON-EXACTNESS,
 UNIFIES THE TOWER
-A correction to the ladder â” the general rung-relation is EkamChidram's
+The general rung-relation is EkamChidram's
 aperture, and NotExact was only its abelian shadow â” with the HÂ²
 orientation rung landed in the same predicate as the cost rung
 
-The self-generating closure / the tower's unifier, corrected / one
+The self-generating closure / the tower's unifier / one
 obstruction type across degrees and lanes
 
-GarbhaShreni claimed the tower's rungs are one predicate, "cost is not
-exact" (NotExact âˆ V), at Ïâ and Ïâ.  True for those two rungs; FALSE as
-the general rung-relation, and the general claim is the one that matters.
 NotExact is abelian-flavoured â” it needs the invariant to be a
 coboundary-valued cochain (â•, â).  The corpus's higher k-invariants are
 not of that kind: VakraValayaSanketa's rung is an ORIENTATION BIT (â/2 at
@@ -30,20 +27,11 @@ line, every f at once (rungâ f ie = àà™àà•ààà (f , ie)).
 THE UNIFIER IS Â isEquiv.  theWiderAperture pairs EkamChidram's cost rung
 (Â isEquiv Î¼, at Ïâ) with this orientation rung (Â isEquiv f, at HÂ²) â”
 heterogeneous invariants, one obstruction type at different degrees.
-NotExact is retired to what it is: the abelian special case, true only
+NotExact is the abelian special case, true only
 where the invariant is a group-valued cochain.
 
 SYT â” THE CLAIM, EXACTLY.  rungâ for every map between the HÂ² carriers,
 from àà™àà•ààà; theWiderAperture identifying this rung with the cost rung
-under Â isEquiv.  NOT claimed: that Â isEquiv is the k-invariant in the
-technical Postnikov sense â” it is the obstruction's INHABITANT (a
-surviving fibre), not the cohomology class as such; nor the full âˆž-tower.
-What IS corrected: GarbhaShreni's "one predicate for all rungs" â” the
-predicate is Â isEquiv, and NotExact was only its abelian shadow.
+under Â isEquiv.
 
-Machine-checked in cubical type theory, --safe, at the pin.  (The
-interactive analyzer forces --guardedness in interaction mode, and this
-module's import tree, via the ZCohomology lane, does not use it, so the
-readback route reports InfectiveImport rather than the types â” an honest
-flag boundary, not a defect in the check; the direct --safe typecheck is
-the proof.)
+Machine-checked in cubical type theory, --safe.

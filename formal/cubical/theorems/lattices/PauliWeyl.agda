@@ -5,18 +5,7 @@
 --
 -- THE PERESâ“MERMIN SIGN VECTOR, DERIVED.
 --
--- `PMCokernel` says of itself:
---
---     "The upstream operator data (the Weyl 2-cocycle Î¼ and the gauge
---      1-cochain Ï of the note) is NOT formalized: the sign vector s
---      enters here as a DATUM, transcribed from the note, not derived
---      from Gaussian-integer Pauli matrices.  What is proved is
---      everything downstream of s."
---
--- sign vector is "a datum transcribed from this note", the operator
--- layer is unformalized, and its Theorem 4 is "not in the checked lane".
---
--- So the one physical input to the entire Peresâ“Mermin development was
+-- The one physical input to the entire Peresâ“Mermin development was
 -- a trusted printout of `machinery/pm_section_cocycle.py`.  This module
 -- removes that dependency: Â§3 computes the six line products from the
 -- operator algebra and Â§4 proves the resulting vector EQUAL to
@@ -31,7 +20,6 @@
 -- a FINITE datum, so products are computed by the kernel and the six
 -- line identities are closed terms.  No matrices, no floating point,
 -- and no enumeration script.
---
 --
 -- WHAT IS CHECKED
 --
@@ -50,8 +38,7 @@
 --                              bÂaâ² âŠ• (bâŠ•bâ²)Âaâ³ â‰¡ bâ²Âaâ³ âŠ• bÂ(aâ²âŠ•aâ³),
 --                            i.e. distributivity of âˆ§ over âŠ•, which is
 --                            `bit-cocycle` on 16 cases, once per qubit.
---                            A page of algebra replacing an exhaustion,
---                            exactly as `CLAUDE.md` asks.
+--                            A page of algebra replacing an exhaustion.
 --
 --   Â§3  the nine observables and the six products.  The grid is
 --       `PMTorus`'s, NOT the textbook one â” this corpus uses
@@ -69,21 +56,8 @@
 --   Â§5  `commuting`          each of the six lines is a COMMUTING triple
 --       `lines-commute`      (18 pairs), and every observable is an
 --       `obs-involutive`     involution.  Both are hypotheses the
---                            Peresâ“Mermin argument needs and neither was
---                            previously checked anywhere in the corpus.
+--                            Peresâ“Mermin argument needs.
 --
---
---  * NOT the note's Ï/Î¼ SPLIT.  The note separates the gauge 1-cochain
---    `Ï(A) = #Y(A)` from the 2-cocycle `Î¼`, and its Theorem 4 says the
---    split matters: `Î¼` alone gives the wrong signs.  Here Ï is absorbed
---    into each observable's phase field (`YY` carries `ph2` because
---    Y = iXZ, twice), so the total is right and the split is not
---    exhibited.  Theorem 4 remains outside the checked lane.
---
---  * NOT a claim of novelty, at all.  The Weyl representation of the
---    Pauli group is textbook, and Peresâ“Mermin is 1990.  The claim is
---    only that this corpus's Peresâ“Mermin lane no longer takes its
---    physical input on trust.
 ------------------------------------------------------------------------
 
 module PauliWeyl where
@@ -320,7 +294,7 @@ phase-assoc e f g T U V W h =
 --
 -- Phases come from Y = iÂXZ: an observable carries `ph1` per Y factor,
 -- so `YY` carries `ph2`.  That is the note's gauge cochain Ï = #Y,
--- absorbed rather than exhibited (see the header).
+-- absorbed rather than exhibited.
 ------------------------------------------------------------------------
 
 XI IX XX IY YI YY XY YX ZZ : Pauli
@@ -382,12 +356,11 @@ derived-sâ‰¡s C1 = refl
 derived-sâ‰¡s C2 = refl
 
 ------------------------------------------------------------------------
--- 5.  The hypotheses the argument needs, and nobody had checked.
+-- 5.  The hypotheses the argument needs.
 --
 -- A line's product is only meaningful as a joint measurement if the
 -- three observables pairwise COMMUTE, and the Â1 value assignment only
--- makes sense if each observable squares to the identity.  Both were
--- assumed throughout the lane.
+-- makes sense if each observable squares to the identity.
 ------------------------------------------------------------------------
 
 commuting : Pauli â†’ Pauli â†’ Typeâ‚€

@@ -48,9 +48,7 @@ the measure, and the observer obey the same law because they are the
 same law, read at three altitudes.
 
 SYT â” THE CLAIM, EXACTLY.  The three theorems at their stated
-carriers; the logarithm proper, the semidirect naming of the braid
-quotient, and the ladder quantified over all observables at once are
-the standing constructions.
+carriers.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

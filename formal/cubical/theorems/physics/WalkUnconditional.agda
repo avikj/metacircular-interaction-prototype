@@ -2,22 +2,15 @@
 
 -- The walk's laws, unconditionally, about a computable number.
 --
--- Until LCMExists, every theorem in the walk lane
+-- Every theorem in the walk lane
 -- (WalkForcing, WalkCapacity, WalkStream, WalkInduction) quantified over
--- a hypothesis `IsLCM S L`, because cubical v0.5 has no LCM module and no
--- lcm had ever been constructed here.  The lane was therefore CONDITIONAL
--- on lcms existing -- true, undisputed, and still a real gap in the
--- formalisation (recorded in WALK_FORCING_LAW.md before an auditor found
--- it).
+-- a hypothesis `IsLCM S L`.
 --
--- LCMExists closed that gap with no weakening: `lcmList-exists` inhabits
+-- LCMExists discharges it with no weakening: `lcmList-exists` inhabits
 -- the hypothesis for EVERY list.  This module cashes that in.  Each
 -- statement below is the corresponding conditional theorem with its
--- hypothesis discharged, so `cap` is now an actual computable function of
+-- hypothesis discharged, so `cap` is an actual computable function of
 -- the frontier rather than a universal property -- e^psi(k) as a number.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-13.
--- No postulates, no holes.
 
 module WalkUnconditional where
 
@@ -57,7 +50,7 @@ capacity-attained! k = range1 k , range1-admissible k , refl
 
 -- IT COMPUTES.  A definition built through well-founded recursion can be
 -- correct and still stuck; these reduce to literals by refl, which is
--- exact symbolic computation and therefore proof (CLAUDE.md), not
+-- exact symbolic computation and therefore proof, not
 -- measurement.  cap 1 = 1, cap 2 = 2, cap 3 = 6, cap 4 = 12, cap 6 = 60:
 -- the first frontiers of the walk, and the first jump (3 -> 4 installs a
 -- new prime power, 4 -> 5 does not... 5 does).

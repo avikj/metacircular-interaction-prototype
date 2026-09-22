@@ -15,8 +15,7 @@
 -- `localZetaCube_squarefreeChargeCube_eq_wCube` says it carries the charge
 -- to the `W` tensor.
 --
--- The question this module asks is what it does to the WHOLE TOWER, which
--- nobody has asked because the tower is a day old.
+-- The question this module asks is what it does to the WHOLE TOWER.
 --
 -- THE ANSWER, checked below.  At the level of one place the twist sends
 --

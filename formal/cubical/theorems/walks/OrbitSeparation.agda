@@ -4,8 +4,7 @@
   OrbitSeparation
   ===============
 
-  The kernel-checked core of the "singleton + orbit" condition described in
-  2026-08-14).
+  The kernel-checked core of the "singleton + orbit" condition.
 
   Setting.  A type `X` of states, an *invertible* admitted action `α : X ≃ X`,
   and an observation `P : X → C` whose fibres are the installed compression.

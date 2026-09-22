@@ -17,7 +17,7 @@
 --       is the universal sign-blind map, and every sign-blind observation
 --       factors through it, uniquely on representatives.
 --
--- This answers something the earlier modules left open.  `RepairGrading` and
+-- `RepairGrading` and
 -- `ObstructionCalculus` established `Γ^ � Γ�` with no converse, so `Γ^`
 -- retains strictly more; neither said what makes `Γ^` the *right* repair
 -- rather than merely a larger one.  The universal property is what makes it

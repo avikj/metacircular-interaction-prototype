@@ -8,16 +8,15 @@
 --  section identification carries the monoid ‚î by refl.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS IS.  `SvaTantuVasa_‚¶.agda`, landed earlier today, closes the
+-- WHAT THIS IS.  `SvaTantuVasa_‚¶.agda` closes the
 -- loss‚ìsymmetry scale's middle with the identification
 --
 --     ‡‡‡∞‡µ‡æ‡‡ f  =  (Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶)  ‚â  ((a : A) ‚í fiber f (f a))
 --
--- and its ¬ß‡(a) hands one remainder forward in its own words: "the flow
--- SPACE is identified; the flow MONOID is not.  Composition of
+-- This module identifies the flow MONOID as well: composition of
 -- conserving flows corresponds, across ‡µ‡æ‡‡, to a convolution of
--- sections ‚¶ and it is not given here."  This module gives it, and the
--- finding is better than the ea asked: the convolution
+-- sections, and
+-- the convolution
 --
 --     (s ‚ã t) a  =  ( s (t a .fst) .fst , s (t a .fst) .snd ‚àô t a .snd )
 --
@@ -44,14 +43,7 @@
 -- member; the gaapha is transmitted beside the strapha).  A
 -- conserving flow is exactly an item that behaves alike toward the
 -- observable ‚î f cannot tell it acted ‚î so the monoid of all of them is
--- named the gaa of conservers.  LIMIT: ‡ó‡ is attested as the
--- tradition's own device for "the class behaving alike under a rule";
--- the compound ‡‡‡∞‡ï‡‡‡ï‡ó‡ and the application to a monoid of flows are
--- built here, and no text is claimed for them.  "Monoid" itself is
--- modern (the structure is used from the library, not re-derived).
---
--- CHECKED: Agda 2.8.0 + agda/cubical (installed bundle), --cubical
--- --safe, no postulates, no holes.
+-- named the gaa of conservers.
 ------------------------------------------------------------------------
 
 module Mula.SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl where
@@ -184,31 +176,3 @@ module ‡§Ö‡§®‡•ç‡§ß‡•á {A B : Type ‚Ñì} (setA : isSet A) (setB : isSet B)
     Iso.rightInv i _ = refl
     Iso.leftInv i œÉ = ‡§™‡•ç‡§∞‡§µ‡§æ‡§π-‡§∏‡§Æ‡§§‡§æ _ _ refl
 
-------------------------------------------------------------------------
--- ¬ß‡ ¬ ‡‡‡‡ ‚î what this opens and does not close.
---
--- (a) THE FIBREWISE LEG.  Currying along `Avaccheda`'s A ‚â Œ B (fibre)
---     identifies the section CARRIER with (b : B) ‚í fiber f b ‚í fiber
---     f b ‚î the product over the codomain of each fibre's endomorphism
---     type ‚î but carrying ‚ã onto pointwise composition needs the
---     transport coherence of that currying, and it is not given here.
---     With it, the slogan becomes exact: the gaa of an observable is
---     the product of its fibres' own endomorphism monoids, which is the
---     typal shadow of "the commutant decomposes over the spectrum."
---
--- (b) THE GROUP INSIDE.  The invertible elements of the gaa ‚î flows
---     with conserving inverses ‚î are the observable's symmetry GROUP,
---     and at the far pole they are the symmetric group of the domain.
---     Not constructed.
---
--- (c) THE ‚àû-VERSION.  Over arbitrary types the witness component's
---     associativity is ‚àô-assoc, a path of paths; the flows form an
---     ‚àû-monoid (an A‚àû-structure this substrate can in principle state).
---     Named, not built.
---
--- (d) THE INSTANCES.  Across `YogaKsetra.‡‡Æ‡‡æ` the gaa of addition
---     induces a monoid on the shear fields (k ‚ä k' = act by k' then by
---     k from where k' landed); across `GaugeOrbitClasses` the gaa of a
---     transcript map is the section monoid of its coset fibres.  Both
---     are transports of ¬ß‡© and neither is written out.
-------------------------------------------------------------------------

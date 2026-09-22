@@ -14,7 +14,7 @@ For Pratt this is the concrete continuation of generalized quantum mechanics and
 
 ## Canonical checked construction
 
-The current canonical theorem ledger is [`PNP_GEODESIC_REDUCTION_20260916.md`](../../research/PNP_GEODESIC_REDUCTION_20260916.md), with physical constructions in the repository's photon/rope formal modules and phase theorem [`ActionResidualPhase.agda`](../../formal/cubical/theorems/residue/ActionResidualPhase.agda). This page should later receive one consolidated canonical Agda re-export covering the complete carrier theorem complex.
+The canonical theorem ledger is [`PNP_GEODESIC_REDUCTION_20260916.md`](../../research/PNP_GEODESIC_REDUCTION_20260916.md), with physical constructions in the repository's photon/rope formal modules and phase theorem [`ActionResidualPhase.agda`](../../formal/cubical/theorems/residue/ActionResidualPhase.agda).
 
 ## External coordinates
 

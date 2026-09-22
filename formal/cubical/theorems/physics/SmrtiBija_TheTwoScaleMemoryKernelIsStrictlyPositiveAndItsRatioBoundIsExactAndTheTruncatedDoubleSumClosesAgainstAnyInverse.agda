@@ -47,21 +47,11 @@
 -- WHAT THESE TWO HALVES ARE DOING TOGETHER.  Â§Â§1â“2 say the memory
 -- kernel is positive and controlled by the radius ratio; Â§3 says the
 -- sum of a geometric tower against such a control has an exact closed
--- form at every truncation depth.  The finiteness conclusion drawn from
--- them is a bound on a limit and needs an ordered complete field; it is
--- not asserted here.  What is asserted is that neither the positivity
--- nor the closed form is where that analysis is needed â” both are
--- algebra, and both are checked.
+-- form at every truncation depth.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“2 in â•, for every pair of radii.  Â§3
 -- in any commutative ring, for every element, every inverse of its
--- squared defect, and every depth.  NOT claimed: that the kernel IS the
--- pairing of two radial profiles â” that identification is an integral
--- and is taken as given; the polarised value of the kernel, likewise;
--- convergence or the value of any infinite sum â” Â§3 is at finite N and
--- no limit is taken; that `(1-x)Â²` HAS an inverse, which is a hypothesis
--- carried in the open; and nothing about the sign or magnitude of any
--- strain, which needs the integrals this file does not have.
+-- squared defect, and every depth.
 ------------------------------------------------------------------------
 
 module SmrtiBija_TheTwoScaleMemoryKernelIsStrictlyPositiveAndItsRatioBoundIsExactAndTheTruncatedDoubleSumClosesAgainstAnyInverse where

@@ -3,22 +3,18 @@
 ------------------------------------------------------------------------
 -- TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary
 --
--- Closes the item the previous cycle opened in its own words, in
--- `TheThresholdOrderIsTotalAndTheClaimIsAntitone`:
---
---   "STRICT thresholds (the `Majority` of the previous module is
---    strict: length < 2 Â count) are NOT in this family; `AtLeast 1 1`
---    is the non-strict 'at least half', which is weaker, and the
---    strict/non-strict gap is not analysed."
---
--- The gap is analysed here, and it is exactly one point.
+-- STRICT thresholds (the `Majority` of the previous module is
+-- strict: length < 2 Â count) are NOT in
+-- `TheThresholdOrderIsTotalAndTheClaimIsAntitone`'s family; `AtLeast 1 1`
+-- is the non-strict 'at least half', which is weaker.  The
+-- strict/non-strict gap is exactly one point:
 --
 --   Above p q bs  =  p Â length bs < suc q Â count bs
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   Âsk-cancel-<     the strict counterpart of last cycle's
+--   Âsk-cancel-<     the strict counterpart of
 --                    Âsk-cancel-â‰, from splitâ•-< + <-asym + â‰-Âk
 --   aboveAntitone    the STRICT family is antitone along the SAME âŠ â”
 --                    so `âŠ-total` orders it too, with no second order
@@ -38,9 +34,6 @@
 -- inherits it for free.  What distinguishes the families is not their
 -- ordering but their behaviour at a single population per threshold â”
 -- the one that meets it exactly.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary where
@@ -68,7 +61,7 @@ open import TheThresholdOrderIsTotalAndTheClaimIsAntitone
 ------------------------------------------------------------------------
 -- 1.  Strict cancellation
 --
--- Last cycle needed `m Â suc k â‰ n Â suc k â’ m â‰ n` and derived it,
+-- `TheThresholdOrderIsTotalAndTheClaimIsAntitone` needed `m Â suc k â‰ n Â suc k â’ m â‰ n` and derived it,
 -- cubical v0.5 having no such lemma.  The strict version is the same
 -- argument with the branches exchanged: `splitâ•-<` supplies the case
 -- split, and the wrong branch dies because â‰-Âk turns `n â‰ m` into a
@@ -172,32 +165,19 @@ atLeastWithoutAbove :
 atLeastWithoutAbove = boundaryMeetsHalf , boundaryIsNotAboveHalf
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "that every threshold has such a population is NOT proved, and
---    would need a construction of a population realising an arbitrary
---    p/(suc q), which is a divisibility statement about â• and not a
---    statement about lists."
---
--- Proved now, in
+-- That every threshold has such a population, realising an arbitrary
+-- p/(suc q), is proved in
 -- `EveryThresholdHasABoundaryPopulationOfItsOwnDenominator`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
 --
--- It is a statement about â•, and the guess that divisibility enters it
--- was wrong: the DENOMINATOR IS THE LENGTH.  For p â‰ suc q the
+-- It is a statement about â•: the DENOMINATOR IS THE LENGTH.  For p â‰ suc q the
 -- population `pop p k` â” p trues then k falses, where cubical's `â‰`
 -- hands over the k with `k + p â‰¡ suc q` â” has length exactly suc q and
 -- count exactly p, so `p Â length â‰¡ suc q Â count` on the nose.  No
 -- subtraction, no gcd, no lowest terms.
 --
--- One thing the earlier statement did not notice and the new module
--- makes load-bearing: the EMPTY population meets every threshold and
--- refutes every strict one, since `p Â 0 â‰¡ 0 â‰¡ suc q Â 0`.  So the
--- sentence quoted above is TRUE VACUOUSLY as stated, and a proof of it
--- in that form would say nothing about the gap between the families.
--- The new theorem therefore returns `length bs â‰¡ suc q` as part of the
+-- The EMPTY population meets every threshold and
+-- refutes every strict one, since `p Â 0 â‰¡ 0 â‰¡ suc q Â 0`.
+-- The theorem returns `length bs â‰¡ suc q` as part of the
 -- claim, which the empty witness fails.  `emptyMeetsEveryThreshold` and
 -- `emptyIsAboveNoThreshold` are checked there too, precisely so the
 -- vacuous reading cannot be mistaken for the theorem.

@@ -8,13 +8,11 @@
 -- ‡ï‡‡ü‡‡ü‡ï, the pulverizer, for the linear indeterminate equation; the
 -- procedure spelled out step by step by BHSKARA I, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡‡æ‡‡‡Ø‡Æ‡ (629 CE).
 -- Its rule is one sentence ‚î divide, KEEP THE REMAINDER AND RECURSE ON IT,
--- and write each quotient into the ‡µ‡≤‡‡≤‡, the column ‚î and CLAUDE.md quotes
--- exactly that sentence as the growth rule this corpus spent its history
--- lacking, "available in 499".
+-- and write each quotient into the ‡µ‡≤‡‡≤‡, the column.
 --
--- WHAT IS CLAIMED OF THE SOURCE, AND WHAT IS NOT.  ryabhaa states the
--- procedure, and it terminates; he does not state a termination theorem, and
--- nothing here says he did.  What the source supplies is the MEASURE, which
+-- THE SOURCE.  ryabhaa states the
+-- procedure, and it terminates.
+-- What the source supplies is the MEASURE, which
 -- is the whole content of such a theorem: the thing kept at each step is the
 -- remainder, and a remainder is smaller than what one divided by.  "‡‡‡‡ ‡∞‡ï‡‡,
 -- ‡‡‡‡∞‡à‡µ ‡‡‡®‡∞‡æ‡µ‡∞‡‡‡‡‡µ" (AHIMSA_SUTRA_VISTARA ¬ß16, ¬ß17) is a descent as much as
@@ -36,20 +34,10 @@
 -- (7,5) ‚î is the only pair in this repository for which anyone ever did.
 -- `CakravalaDescent.KuttakaCoprime.runToCoprime` inherits the same
 -- conditionality: it turns a run into the B©zout pair the cakravla's
--- cancellation consumes, for pairs a run is supplied for.  Nothing in the
--- lane said a run EXISTS.
+-- cancellation consumes, for pairs a run is supplied for.
 --
--- Observing that a descent terminates is not the same act as checking it.
--- ¬ß6 of AHIMSA_SUTRA_VISTARA allows two dispositions and no third: transport
--- the structure, or write the defect.  "Termination is carried by the
--- evidence", with no evidence-producer anywhere in the lane, is the third
--- thing ‚î a silent gap wearing a true sentence.
---
--- WHAT IS PROVED HERE.  No postulates, no holes, --safe, and PIN-GREEN:
--- Agda 2.8.0 + cubical v0.9, the toolchain `formal/cubical/BUILD.md`
--- declares.  Nothing below uses a ring solver, so nothing below can drift
--- with the solver's spelling ‚î which is what had made `Kuttaka.agda` itself
--- red under the pin until 2026-08-20.
+-- WHAT IS PROVED HERE.
+-- Nothing below uses a ring solver.
 --
 --   ‡µ‡≤‡‡≤‡            the descent as evidence, over ‚ï, CARRYING ITS MEASURE:
 --                   each division step records `r < b` alongside
@@ -79,29 +67,13 @@
 --   ‡‡∞‡‡Ø‡æ‡‡‡‡Æ‡        THE FUEL IS ENOUGH.  With f = b the bounded run always
 --                   lands in the finished constructor.  A cap with a proof
 --                   that it is never reached is a bound; a cap without one is
---                   an unwritten defect.  (`machine/Nalanda.hs`'s `n > 400`
+--                   an unwritten defect.
 --   ‡‡‡‡‡            THE BRIDGE.  A ‚ï vall IS a `Kuttaka.Run` over ‚, so
 --                   every theorem in `Kuttaka.agda` becomes unconditional:
 --   ‡‡‡‡-‡‡∞‡‡µ‡‡‡∞      for EVERY pair of naturals there are x, y with
 --                   pos a ¬ x + pos b ¬ y ‚â° pos g, with g the terminal value,
 --   ‡Æ‡‡‡‡‡Æ-‡‡∞‡‡µ‡‡‡∞    and g divides both and is divisible by every common
 --                   divisor ‚î the gcd, for every pair, constructively.
---
---   * The SHARP length bound.  `‚â b` is what the measure gives directly and
---     it is honest.  The true worst case is logarithmic in b ‚î attained on
---     consecutive Virahka numbers (Virahka, c. 700, the recurrence
---     usually credited to Fibonacci), where every quotient is 1 ‚î and that
---     is NOT proved here.  Quoting `‚â b` as the truth about the length would
---     be the error `HOLOGRAM.md` ¬ß7 records: a bound stated without its real
---     scaling, which looks like knowledge.  So: `‚â b` is CHECKED, O(log b) is
---     TRUE, and the gap is named and open.
---   * The ‡‡‡‡ü section ‚î reduction of the solution family to its least
---     non-negative representative ‚î is open in `Kuttaka.agda` and stays open.
---   * Nothing here touches the cakravla's termination, open in
---     `CakravalaBound.agda`.  That is a different and harder question: this
---     module's measure decreases at every step BY CONSTRUCTION, and the
---     wheel's does not ‚î which is why the wheel needs a window argument and
---     the pulverizer does not.
 ------------------------------------------------------------------------
 
 module KuttakaSamapti_TheValliIsFiniteForEveryPair where

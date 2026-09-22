@@ -15,9 +15,7 @@ open import ASmallTheoryWithAnIndependentSentence
 ------------------------------------------------------------------------
 -- ADiagonalSentenceIndependentInAConcreteTheory
 --
--- Both conjuncts, for a diagonal sentence, in a concrete theory â” and
--- the two previous cycles' obstructions turn out to describe exactly
--- how it has to be done.
+-- Both conjuncts, for a diagonal sentence, in a concrete theory.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE SYNTAX AND THE RULES
@@ -33,7 +31,7 @@ open import ASmallTheoryWithAnIndependentSentence
 -- Nothing is read off a valuation; `Der` is a `data` declaration.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS PROVED, AND THAT ITS SHAPE WAS PREDICTED
+-- WHAT IS PROVED
 --
 --   Â§3  FIRST CONJUNCT, from a TRUTH-FUNCTIONAL model: interpret `pv`
 --       as constantly `true` and `gs` as `false`.  All five rules are
@@ -62,36 +60,9 @@ open import ASmallTheoryWithAnIndependentSentence
 -- dictate.  Neither could have done both.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE HONEST LIMIT, WHICH IS LARGE
---
--- This is NOT Gdel's first incompleteness theorem.
---
---   * `hbl` is a RULE of this calculus, not the derivability condition
---     HBL1 proved about a real provability predicate;
---   * `pv` is an uninterpreted operator; `P` is chosen by hand, and the
---     choice is permitted precisely because nothing forces `P` to track
---     derivability;
---   * Ï‰-consistency is never mentioned and is not needed, because the
---     calculus is far too weak to run the argument that needs it â”
---     there is no contraposition, no double-negation elimination, no
---     transitivity, and Â§4 does not use `dbwd` beyond soundness;
---   * `gs` is independent partly because the rules are few.  A stronger
---     rule set may well derive `ng gs`, and nothing here says otherwise.
---
 -- What IS established: a diagonal pair and an HBL-shaped rule can
--- coexist with independence of the diagonal sentence in this lane, and
--- the two model kinds must be used in a specific order.  Before this,
--- the line had two closure results and no positive instance carrying a
--- diagonal at all.
---
--- PRIOR ART, grep run and quoted.  Searching `formal/cubical` for
--- `Der (ng gs)`, `gsIndependent`, `dfwd`, `dbwd` returns only five
--- lines, all inside
--- `ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence`, where
--- `dfwd` is a local hypothesis name in the two-line obstruction.  No
--- concrete diagonal calculus exists.  A version naming its rules
--- differently â” `ax1`/`ax2`, or a list of axiom schemes â” would evade
--- that grep.
+-- coexist with independence of the diagonal sentence, and
+-- the two model kinds must be used in a specific order.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

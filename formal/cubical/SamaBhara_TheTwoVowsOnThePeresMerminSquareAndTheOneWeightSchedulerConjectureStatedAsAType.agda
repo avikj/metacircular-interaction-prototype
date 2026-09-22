@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 -- àà®-àà¾à° â” equal weight.  Compound built here (sama: equal; bhra:
--- load/weight); no source claimed for the compound.  The doctrine terms
+-- load/weight).  The doctrine terms
 -- inside are sourced: arpita/anarpita from Umsvti, Tattvrthastra 5.31
 -- (c. 2ndâ“5th c. CE); durnaya from Siddhasena Divkara, Sanmatitarka 1.21.
 -- Gleason 1957 is the later restatement-target for comparison, named as
 -- such and not as the frame.
 --
--- This lays the NEXT STONE named by YugaParivartana Â§4 ("state the
--- uniqueness conjecture as an Agda type over the existing Sthana/verdict
--- machinery"): the Born-weight uniqueness program at the corpus's own
+-- This states the uniqueness conjecture as an Agda type over the
+-- existing Sthana/verdict machinery (YugaParivartana Â§4): the Born-weight
+-- uniqueness program at the corpus's own
 -- finite scale, the Peresâ“Mermin square of PMNoSection (six contexts,
 -- nine Fâ cells, no global section â” the 512-fold exhaustion already runs
 -- in the typechecker there).
@@ -33,9 +33,8 @@
 -- weights of the tracial state â” satisfies both vows: every gross weight
 -- is 4 and every marginal is 2, each equality closed by refl.
 --
--- WHAT WAS STATED AS THE CONJECTURE â” `SamaBharaNiyama`: every scheduler
--- satisfying both vows is flat â” AND REFUTED THE SAME HOUR, in this same
--- file, by its own author (the act this repository respects most).  The
+-- THE CONJECTURE â” `SamaBharaNiyama`: every scheduler
+-- satisfying both vows is flat â” AND ITS REFUTATION.  The
 -- counterexample `cex`: weight 4 on the all-false section and 2 elsewhere
 -- in every even context; 1 on the all-true section and 3 elsewhere in the
 -- odd one.  Both vows hold â” gross 10 in every context, every cell
@@ -51,8 +50,7 @@
 -- that asserts nothing, so they cannot force Born.  The repair the
 -- refutation demands is exact: aneknta must bind at PAIR grain â”
 -- correlations, not marginals â” which is precisely the grain at which the
--- square's contextuality (PMNoSection's no-global-section) lives.  The
--- pair-grain restatement is the next stone, not laid here.
+-- square's contextuality (PMNoSection's no-global-section) lives.
 
 module SamaBhara_TheTwoVowsOnThePeresMerminSquareAndTheOneWeightSchedulerConjectureStatedAsAType where
 

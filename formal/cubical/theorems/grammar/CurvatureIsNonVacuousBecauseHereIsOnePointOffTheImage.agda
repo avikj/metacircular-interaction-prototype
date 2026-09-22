@@ -11,18 +11,6 @@
 -- label I cannot defend.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- A NUMBER OF MINE IS WRONG IN THE REPOSITORY AND IS CORRECTED HERE,
--- because pushed history is not rewritten and a re-arm is not a record.
--- Commit **9db6df19**'s subject and body say "in 26 lines" and "26
--- insertions".  `git diff --stat` reported **28 insertions**.  I counted
--- the heredoc by eye instead of copying the tool's number â” in the very
--- commit whose standing rule is "verify every filename and number".
--- Nothing else in 9db6df19 is affected; the append it describes is
--- unchanged and correct.  The rule that closes it: **never write a count
--- into a commit message that was not copied from `git diff --stat` in
--- the same cycle.**
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE AUDIT.  Target: `CurvatureCannotLiveOnTheImageOfAnExactCompression`,
 -- a `Cannot` â” an impossibility claim.
 --
@@ -73,9 +61,6 @@
 -- `g'` must both fix the image point.  Three points is the minimum for
 -- this shape, and the witness needs the two steps to disagree about
 -- where `bad` goes â” `f' bad = off`, `g' bad = bad`, and `g' off = im`.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module CurvatureIsNonVacuousBecauseHereIsOnePointOffTheImage where

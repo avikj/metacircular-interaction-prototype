@@ -2,9 +2,8 @@
 ------------------------------------------------------------------------
 -- àààà-àà¿à¦àà°à®à â” the non-set at which `EffectiveDescent` Â§4 fails.
 --
--- `EffectiveDescent` says, exactly: "`isSet C` is not shown necessary.
--- â¦ Exhibiting a non-set `C` at which Â§4 fails would need `Ïâ(SÂ)` and is
--- not done."  Done here, with the library's winding number.
+-- This module exhibits a non-set `C` at which `EffectiveDescent` Â§4
+-- fails, with the library's winding number.
 --
 -- Â§4's map is  restrictAlong g = (g âˆ˜ q , Î» x y p â’ cong g p)  from
 -- (B â’ C) to the descent data  Î[ f âˆˆ (A â’ C) ] Coequalizes q f.  Take

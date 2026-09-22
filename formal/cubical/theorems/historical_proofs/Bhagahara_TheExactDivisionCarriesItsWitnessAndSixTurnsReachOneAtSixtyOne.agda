@@ -7,25 +7,9 @@
 --  wheel, at ààà°à•ààà¿ àà§, reach à•àààà one.)
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT WAS MISSING, NAMED EXACTLY, AND WHAT IS NOW HERE.
+-- THE MISSING INGREDIENT.
 --
--- Two modules in this repository refuse, in identical words, to call
--- anything "the àà•àà°àµà¾à²", and both name the SAME missing ingredient:
---
---   `loss/â¦/Bhavana_TheKsepaIsDeterminedByTheRootsAndâ¦`:
---     "It requires choosing m with k âˆ (a + bÂm), and then dividing the
---      composed row through by k â” exact division in â, which needs a
---      divisibility witness carried alongside and is not done here."
---   `Vargaprakrtitantu_ThePellFibreIsInfiniteâ¦`:
---     "the cyclic step needs a chosen m with k âˆ (a + bÂm) and an exact
---      division carrying its divisibility witness, and none of that is
---      done."
---   `Cakravala.agda` says the same in ; `CakravalaDescent.agda`
---     supplies the step's identity over an arbitrary CommRing but takes
---     the three divisions as HYPOTHESES IN MULTIPLIED FORM, so no
---     division is ever performed there either.
---
--- That refusal was correct and the gap it names is one object.  Â§à¨ builds
+-- The exact division with its divisibility witness is one object.  Â§à¨ builds
 -- it: `àà¾à—àà¾à°à j n` is the exact division of n by (suc j), presented as a
 -- CARRIER â” base = the pair (dividend, divisor), carried = the à²ààà§à¿
 -- (quotient), witness = n â‰¡ suc j Â à²ààà§à¿.  Â§à¨ proves the carried datum is
@@ -50,8 +34,7 @@
 --     an m, a witness that mÂ² âˆ’ D = ÂE, and the THREE exact divisions
 --     K âˆ (aÂm + DÂb), K âˆ (a + bÂm), K âˆ E, the new row (A , B) satisfies
 --     AÂ² âˆ’ D BÂ² = ÂK' with the sign the product of the two.  All four sign
---     combinations, no case swept.  This is the step both modules refused
---     to claim.
+--     combinations, no case swept.
 --   Â§à `àà¦à®à` â” the same as a total function on rows.  Total: once the
 --     three àà¾à—àà¾à° are in hand there is no further obligation.
 --   Â§à THE RUN AT D = 61, Bhskara's own example.  Six turns from (8,1,+3)
@@ -66,28 +49,14 @@
 --     inside the k=1 fibre cannot reach, because at D = 61 there is no
 --     small k=1 row to seed it with.
 --
--- WHAT IS *NOT* PROVED, so nobody has to guess.
+-- The six m's of Â§à are supplied as data.
+-- The turn is sound for ANY
+-- m whose three divisions come out exact, which is what Â§à© states.
+-- The three àà¾à—àà¾à° of Â§à© are HYPOTHESES of the theorem.  Â§à discharges
+-- them by computation for the six particular turns.
 --
---   * TERMINATION.  Nothing here says the wheel comes round for every D.
---     `CakravalaBound.agda` proves the invariant kÂ² â‰ 4D that termination
---     would be built on; the step from a bounded state space to "the
---     wheel returns to k = Â1" is not taken, there or here.
---   * BHSKARA'S CHOICE RULE.  The six m's of Â§à are supplied as data.
---     That each is the m his rule selects (minimise |mÂ² âˆ’ D| subject to
---     the congruence) is NOT checked here â” and `CakravalaBound.agda` Â§à
---     already records that at least one published D = 61 run in this
---     repository gets that attribution wrong.  The turn is sound for ANY
---     m whose three divisions come out exact, which is what Â§à© states.
---   * EXISTENCE.  Nothing here says a solution exists for a general D.
---   * The three àà¾à—àà¾à° of Â§à© are HYPOTHESES of the theorem.  Â§à discharges
---     them by computation for the six particular turns; no general
---     decision procedure for them is built.
---
--- SO WHAT MAY THIS BE CALLED.  The àà•àà°àµà¾à² STEP is formalised, and one
--- complete àà•àà°àµà¾à² RUN is executed in the kernel.  The àà•àà°àµà¾à² as an
--- ALGORITHM â” a rule that chooses m and provably halts â” is not, and this
--- module does not claim it.  The refusals quoted at the top are hereby
--- narrowed, not withdrawn.
+-- The àà•àà°àµà¾à² STEP is formalised, and one
+-- complete àà•àà°àµà¾à² RUN is executed in the kernel.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- SOURCES.
@@ -107,14 +76,11 @@
 --   àà¾à—àà¾à° (divisor / the act of dividing) and à²ààà§à¿ (the quotient, "what
 --   is obtained") are the à•ààŸààŸà• vocabulary of the same chapter.
 --
--- CITATIONS ARE SECOND-HAND AND ARE OWED AT VERSE LEVEL. The author of this
--- file has not opened these texts. What IS claimed is checkable: that the
--- quantity aÂ² âˆ’ D bÂ² is what their algorithms carry beside the pair of roots,
+-- The quantity aÂ² âˆ’ D bÂ² is what their algorithms carry beside the pair of roots,
 -- and that their step's three divisions are exactly the three hypotheses of
 -- Â§à©.
 --
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.  â• throughout, never â: cubical's â product does
+-- â• throughout, never â: cubical's â product does
 -- not reduce on numerals of this size, and Â§à needs numbers up to
 -- 3 Â 10Ââ to actually compute in the kernel.  Signs are therefore
 -- carried as à§à¨ / à‹à beside a magnitude, and every equation below is

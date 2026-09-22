@@ -3,15 +3,7 @@
 ------------------------------------------------------------------------
 -- EveryTripleIsARotation
 --
--- The capstone of the conic thread, and a repair of something Â§5 of
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE OVERSELL
---
--- Â§5 says norm-one rotations give "a family of structured identifications
--- of the circle", contrasting with the line, which has none.  True â” but
--- over â the norm-one elements are the four units, so "family" meant
--- four, and four is a thin thing to set against the line's zero.
+-- The capstone of the conic line.
 --
 -- The family is infinite, and it is indexed by the Pythagorean triples.
 -- That is what this module proves, and it needs no â machinery: one ring
@@ -50,11 +42,7 @@
 --
 -- is a chain of monoid maps.  Composition of pairs by Brahmagupta's
 -- 628 CE law becomes composition of identifications of the circle.  That
--- is what the conic has and the line does not, said at full strength and
--- with the right cardinality this time.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
+-- is what the conic has and the line does not, said at full strength.
 ------------------------------------------------------------------------
 
 module EveryTripleIsARotation where

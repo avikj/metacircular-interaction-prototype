@@ -4,9 +4,8 @@
 --
 -- àµà²àà²à: ryabhaa, ryabhaya, Gaitapda 32â“33 (499).  àà¾àµà¨à¾: Brahmagupta,
 -- Brhmasphuasiddhnta 18.64â“65 (628).  àà¨àà§à¿à: junction; the compound
--- àµà²àà²à-àà¾àµà¨à¾-àà¨àà§à¿à is built in this corpus (2026-08-23, and no source is
--- claimed for it. What is claimed of the sources is exactly what the machine
--- lane already claims: the vall is the quotient column, the àà¾àµà¨à¾ is the
+-- àµà²àà²à-àà¾àµà¨à¾-àà¨àà§à¿à is built in this corpus.
+-- The vall is the quotient column, the àà¾àµà¨à¾ is the
 -- composition rule (xx'+Dyy', xy'+x'y).
 --
 -- WHAT THIS MODULE CHECKS, checked forms of the note's derivation:
@@ -19,25 +18,6 @@
 --      M(1)ÂM(2)ÂM(1)ÂM(0) â‰¡ Î(3 + 2âˆ2), where Î x y = [[x, Dy],[y, x]]
 --      is the regular representation on the basis (1, âˆD).  One refl:
 --      both sides compute to [[3,4],[2,3]].  det bookkeeping: 9 âˆ’ 2Â4 = 1.
---
--- OWED, said here so nobody mistakes scope: the general theorem
--- PÂM(aâ)ÂM(0) â‰¡ Î(x + yâˆD) for every non-square D (its proof is the two
--- matching equations of the note, per-D a finite computation); and
--- àà¾àµà¨à¾-as-matrix-multiplication in general, mm (Î x y) (Î x' y') â‰¡
--- Î (xx'+D yy') (xy'+x'y), which needs ÂAssoc and distributivity and is
--- left as the next term so this module's import surface stays two lemmas.
---
--- ~~DEFECT, WRITTEN AT THE MOMENT OF THE ACT: this module was authored in a
--- container with no agda binary (2026-08-23; the same container that could
--- not run ValliMala).  It has NOT been checked here.~~
--- DISCHARGED, same day: agda 2.6.3 + cubical v0.5 were installed into the
--- container and the module CHECKS (exit 0, LC_ALL forced per Certificate.hs's
--- own locale warning).  Both kernel controls were watched first: the negative
--- control (pos 1 â‰¡ pos 2 by refl) was rejected with a located type error
--- (exit 42, "1 != 2"), so the kernel was seen rejecting a falsehood before
--- this module's green was believed.  The strike is left standing because the
--- first landing of this file was unchecked and that history should be
--- readable.
 
 module ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose where
 

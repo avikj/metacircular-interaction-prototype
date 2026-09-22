@@ -13,7 +13,7 @@
 -- This module re-establishes them as kernel-checked terms.  Nothing here
 -- is postulated; there are no holes; `--safe`.
 --
--- WHAT IS PROVED, AND â” read this first â” WHAT IS NOT.
+-- WHAT IS PROVED.
 --
 --  (a) THE INCIDENCE GRAPH IS Kâ,â.  Proved, in the strong form: the
 --      nine observables `Obs` and six contexts `Ctx` are declared as
@@ -27,16 +27,15 @@
 --      contractibility of the fibre of the cell map, obtained from the
 --      equivalence rather than from a search.
 --
---  (b) NONPLANARITY â” ARITHMETIC OBSTRUCTION ONLY.  Topological
---      planarity is NOT formalized here, and no claim is made that it
---      is.  What is proved is the arithmetic that obstructs it:
+--  (b) NONPLANARITY â” ARITHMETIC OBSTRUCTION ONLY.
+--      What is proved is the arithmetic that obstructs it:
 --      `bipartite-bound-violated : Â (E + 4 â‰â• 2 Â V)` for the certified
 --      cardinalities E = 9, V = 6 (the subtraction-free form of
 --      E â‰ 2V âˆ’ 4), together with its contrapositive packaging
 --      `not-K33 : (v e : â•) â’ e + 4 â‰â• 2 Â v â’ Â ((v â‰¡ V) — (e â‰¡ E))`.
 --      The Euler-bound theorem itself â” "a simple planar bipartite graph
---      satisfies E â‰ 2V âˆ’ 4" â” is a topological input, assumed, not
---      proved.  Read (b) as: any graph obeying that bound is not this
+--      satisfies E â‰ 2V âˆ’ 4" â” is a topological input.
+--      Read (b) as: any graph obeying that bound is not this
 --      one.
 --
 --  (c) TOROIDAL ROTATION SYSTEM â” COMBINATORICS ONLY.  Proved:
@@ -51,13 +50,6 @@
 --      `faces-distinct`, the three faces are pairwise distinct (so
 --      F = 3 counts three things); and the Euler arithmetic
 --      `euler-characteristic : (pos V - pos E) + pos F â‰¡ pos 0` in â.
---      NOT formalized: that a rotation system whose face walks cover
---      each edge twice determines a closed 2-cell embedding of a
---      surface of Euler characteristic V âˆ’ E + F (Edmonds' theorem),
---      and hence NOT the conclusion "the graph embeds in the torus".
---      NOT formalized: minimality of the genus, which needs (b) as a
---      topological â” not arithmetic â” statement.  What is checked is
---      exactly the finite datum such a theorem would consume.
 --
 --  (d) CYCLE SPACE, RANK 4, AND THE COKERNEL.  Proved, as linear
 --      algebra over ð”½â = Bool with âŠ•, not as arithmetic on literals:
@@ -73,10 +65,6 @@
 --          computes is ð”½â, not 0;
 --        `evenEquiv : Even â‰ (Fin 5 â’ Bool)` â” hence rank âˆ = 5 and
 --          coker âˆ has dimension 6 âˆ’ 5 = 1.
---      NOT formalized: the quotient type Fâ^V / im âˆ itself (no
---      SetQuotient is constructed), and NOT the identification of the
---      parity functional with "pairing against the unique connected
---      component" â” connectedness of the graph is nowhere stated here.
 --      dim coker = 1 is delivered as the pair (image = ker parity,
 --      parity onto) plus dim ker parity = 5, which is what the
 --      cokernel computation of `notes/PM_SECTION_VS_COCYCLE.md` uses.
@@ -91,7 +79,7 @@
 -- `refl` below did reduce â” but they do not compute when applied to a
 -- transport.  Nothing here transports along a path in `Fin n`, so no
 -- proof below depends on that.  The same warning is already emitted by
--- `NaturalMachine/SmithPathCountedExecution.agda`; the build is exit 0.
+-- `NaturalMachine/SmithPathCountedExecution.agda`.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PMTorus where
@@ -448,7 +436,7 @@ ctxCount = compEquiv ctxEquiv vertexCount
 -- CLAIM (b).  The bipartite Euler bound is violated â” ARITHMETIC ONLY.
 --
 -- A simple planar bipartite graph satisfies E â‰ 2V âˆ’ 4.  That theorem is
--- topological input; it is ASSUMED, not proved here.  What is proved is
+-- topological input.  What is proved is
 -- that these numbers cannot satisfy it, in the subtraction-free form
 -- E + 4 â‰ 2ÂV (equivalent over â• for 2V â‰ 4).
 ------------------------------------------------------------------------

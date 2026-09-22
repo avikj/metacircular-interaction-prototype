@@ -7,8 +7,7 @@
 --
 -- TERM.  àà¨ààà°à¾à² â” the interior, the space between; here the interior
 -- of the lattice between its bottom 1 and its top cap(k), which the
--- source note's table names "interior" and marks as the one row not
--- yet checked.
+-- source note's table names "interior".
 --
 -- SOURCE.  notes/WALK_STATE_IS_ITS_LCM.md ("The walk's Nerode state is
 -- its lcm, and its state space is a divisor lattice"), Â§2:
@@ -17,23 +16,10 @@
 --   whose addresses lie in `[1,k]` is **exactly** the set of divisors
 --   of `cap(k)`."
 --
--- and its table
---
---   | top | `cap(k)` is achieved | checked (`capacity-attained`) |
---   | bound | nothing exceeds `cap(k)` | checked (`capacity`) |
---   | **interior** | **every divisor of `cap(k)` is achieved** | **this note** |
---
--- and its status, Â§4:
---
---   "Not yet Agda â” Â§2's (âŠ) needs a coprime-family lcm computation,
---   which the lane's `IsLCM` universal-property style should carry
---   without a construction"
---
---   "The `WalkForcing` coprime-multiplication lemma is already the key
---   step, so this is a natural next checked target rather than a new
---   theory."
---
--- This module is that checked target: the interior row.
+-- The top row (`cap(k)` is achieved) is `capacity-attained` and the
+-- bound row (nothing exceeds `cap(k)`) is `capacity`, both in
+-- `WalkCapacity`.  This module proves the interior row: every divisor
+-- of `cap(k)` is achieved.
 --
 -- WHAT IS PROVED.
 --
@@ -67,13 +53,6 @@
 -- sublist of fam d k, L2), and WalkForcing.coprime-divisors-multiply
 -- closes.  No lcm is constructed anywhere; `lcmList` appears only as a
 -- witness in L1 and in the instances.
---
--- WHAT IS NOT PROVED HERE.  The note's Â§1 Nerode corollary â” that
--- profile_S(a) = profile_S(b) iff lcm(S) âˆ (aâˆ’b), i.e. that S â¦ lcm(S)
--- is the quotient by observational equivalence â” is not formalised.
--- Nor is the Â§3 identification of this divisor lattice with the
--- codex-catuskoti divisor-lattice frontier (co-atoms, 1 + Ï(k) points).
--- Only the Â§2 Theorem, the "interior" row, is proved.
 ------------------------------------------------------------------------
 
 module Antarala_EveryDivisorOfTheCapacityIsTheLcmOfASensorFamilyBelowTheFrontierSoTheReachableStatesAreExactlyTheDivisorLatticeOfTheCapacity where

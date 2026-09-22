@@ -6,9 +6,7 @@
 -- Chandastra: mtr-sequences of total n number those at n-1 plus
 -- those at n-2.  Here as an EQUIVALENCE OF FIBRES, not a count -- the
 -- fibre splits and the numbers are its shadow.  Weight is Pigala's,
--- laghu 1 guru 2.  No count and no closed form is proved here.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5, --safe, exit 0.
+-- laghu 1 guru 2.
 
 module Virahanka_TheMatraFibreSatisfiesTheTwoStepRecurrence where
 

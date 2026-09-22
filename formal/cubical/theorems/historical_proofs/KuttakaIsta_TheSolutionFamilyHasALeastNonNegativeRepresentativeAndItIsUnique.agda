@@ -11,26 +11,14 @@
 -- divisor, the remainder is the multiplier" â” so that the answer reported
 -- is the least one.  That reduction is what this file supplies.
 --
--- THE ABSENCE THIS FILE CLOSES.  `Kuttaka.agda` says, in its header:
---
---     "NOT done (named honestly, per Â§5.2): the ia section â” the reduction
---      of the solution family to the LEAST non-negative representative â”
---      which needs a mod/section convention and is not supplied here."
---
--- and `KuttakaSamapti_TheValliIsFiniteForEveryPair.agda` repeats it:
---
---     "The ààààŸ section â” reduction of the solution family to its least
---      non-negative representative â” is open in `Kuttaka.agda` and stays
---      open."
---
--- Neither module is modified.  The family is taken in EXACTLY the form
+-- The family is taken in EXACTLY the form
 -- `Kuttaka.solutionFamily` presents it,
 --
 --     a Â (xâ + t Â b) + b Â (yâ + (- (t Â a))) â‰¡ g ,
 --
 -- with modulus b (Kuttaka's own header calls this the coarser b, a family;
 -- the b/g, a/g refinement is not what `solutionFamily` states, and is not
--- what is reduced here â” see THE SCOPE below).  The modulus is written
+-- what is reduced here).  The modulus is written
 -- `pos (suc m)`, which is the convention "b > 0" chosen once and for all;
 -- a `0 < m` phrasing is supplied alongside.
 --
@@ -72,17 +60,6 @@
 --                 âˆ’2 = (âˆ’1)Â5 + 3, so t = 1 and the ia is (x , y) = (3 , âˆ’4)
 --                 â” all by refl, and its uniqueness among all solutions with
 --                 0 â‰ x < 5 by `iaUniqueâ`.
---
--- THE SCOPE, EXACTLY.
---   * Reduction is modulo b, the modulus `solutionFamily` actually uses.
---     For g â‰  1 the full solution set is parametrised by b/g, not by b, so
---     for g â‰  1 `iaUnique` is uniqueness WITHIN the coarse family only;
---     completeness (every solution is a family member) is proved here only
---     at g = 1 (`completeâ`).  For general g the missing step is the one
---     `Kuttaka.agda` itself names after `solutionsDiffer`: the fine family
---     with modulus b/g and the coprimality of a/g and b/g.  It is NOT
---     proved here.
---   * Nothing about the length of the vall, or the cakravla, is touched.
 ------------------------------------------------------------------------
 
 module KuttakaIsta_TheSolutionFamilyHasALeastNonNegativeRepresentativeAndItIsUnique where
@@ -118,8 +95,8 @@ open import Kuttaka
 -- à§ Â Euclidean division on â by a positive modulus.
 --
 -- The convention: the modulus is pos (suc m) â” positive by its shape â” and
--- the remainder is a NATURAL below suc m.  That is the "mod/section
--- convention" Kuttaka's header asked for: the section of â â’ â/(suc m)
+-- the remainder is a NATURAL below suc m.  That is the mod/section
+-- convention: the section of â â’ â/(suc m)
 -- picking the least non-negative representative.
 ------------------------------------------------------------------------
 

@@ -8,9 +8,8 @@
 -- ITERATED DIFFERENCES OF THE NORMALIZED SOURCE ARE EXACTLY THE
 -- RESIDUAL TOWER, RESCALED.
 --
--- Two identities from the repaired arithmetic inverse [S19 Â§Â§8â“10],
--- both pure algebra, both stated so that the analytic step â” the strong
--- limit Ï â 1 â” is visibly the only thing not here.
+-- Two identities from the arithmetic inverse [S19 Â§Â§8â“10],
+-- both pure algebra.
 --
 --   Â§1  THE NORMAL FORM.  With `T` the shift, `Ï` the damping, and `c`
 --       the resolvent  c Â (1 - Ï T) â‰¡ 1 , put  B = (1 - Ï) T c .  Then
@@ -38,19 +37,10 @@
 --       object read at two normalizations â” which is why an inverse for
 --       differences is an inverse for residuals.
 --
--- WHERE THE ANALYSIS ENTERS, NAMED.  Â§Â§1â“3 are what the Abel inverse
--- uses; what it adds is that `B` is a contraction on câ and `B x â’ 0`
--- strongly, hence `(1-B)^m â’ 1`.  That is a statement about a limit in
--- a Banach space and is not made here.  Everything up to it is ring
--- algebra, checked.
---
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“2 in any commutative ring, for every
 -- `T`, `Ï`, and every resolvent `c` of `1 - ÏT`.  Â§3 in any commutative
 -- ring, for every source, every invertible scale character, every order
--- and every lattice point.  NOT claimed: existence of the resolvent
--- (carried); anything about norms, câ, contractions, or limits; that the
--- actual arithmetic source's normalized readings converge â” which is
--- (32) there and needs the explicit formula; and nothing about zeta.
+-- and every lattice point.
 ------------------------------------------------------------------------
 
 module AbelaRupa_TheResolventOfTheDampedShiftNormalizesTheShiftDefectSoItsPowersInvertEveryOrderAndTheDyadicDifferencesOfTheNormalizedSourceAreTheResidualTower where

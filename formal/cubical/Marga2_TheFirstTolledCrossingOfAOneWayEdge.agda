@@ -4,7 +4,7 @@
 -- à®à¾à°àà— à¨ â” the first tolled crossing of a one-way edge.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THIS IS.  The corpus's road network has, until now, carried
+-- WHAT THIS IS.  The corpus's road network elsewhere carries
 -- theorems only along two-way edges: equivalences, isomorphisms, and the
 -- grade-three "two independent proofs that agree" channel of
 -- `YugmaPurana_â¦agda` Â§à.  This module executes, by hand, the ROUTER'S
@@ -49,23 +49,15 @@
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
---   Â This is ONE edge, crossed BY HAND.  The mechanized road-two
---     router â” the machine that finds the edge, computes the toll, and
---     schedules the crossing â” remains owed; this module is its
---     specification-by-example, not its implementation.
---
---   Â Nothing here is about the fibre of `replay` itself.  As
+--   As
 --     `YugmaPurana_â¦agda` Â§à already insists, `replay` forgets far more
 --     than length; the edge crossed is `par`, and the only traveller
 --     ticketed is the determinant of the endpoint.
 --
---   Â The toll-gate predicate is quoted from
+--   The toll-gate predicate is quoted from
 --     `NaturalMachine.FiniteInformation` by import.  No definition of
 --     FactorsThrough/FiberConstant is restated here; if that module's
 --     meaning shifts, this crossing re-prices automatically.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Marga2_TheFirstTolledCrossingOfAOneWayEdge where

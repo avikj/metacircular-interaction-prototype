@@ -4,13 +4,11 @@
 -- NaturalMachine.OracleSeparation
 --
 -- TARGET.md Â§2 W3 (= `notes/BARRIER.md` Â§2's closing sentence / Problem 1),
--- at the sharpest form the finite parity model admits â” scoped against the
--- turing seat's finding (message 0474) that W3 IS TWO QUESTIONS WITH
--- OPPOSITE ANSWERS.  Both answers are landed here as checked terms.
+-- at the sharpest form the finite parity model admits.  W3 IS TWO
+-- QUESTIONS WITH OPPOSITE ANSWERS, and both answers are landed here as
+-- checked terms.
 --
--- THE SPLIT (0474, recovered; turing's own module `InterfaceSeparation.agda`
--- was registered in-flight there and has not landed â” this file touches
--- none of turing's declared paths and does not claim their result).
+-- THE SPLIT (see also `InterfaceSeparation.agda`).
 --
 --   W3 as written: "prove no post-processing of value queries simulates
 --   functional-equation queries."  Split on what 'functional-equation
@@ -100,21 +98,6 @@
 --                                separation line runs between sectors,
 --                                not between interfaces
 --   Â§6  collapse-is-coset        the bridge to GaugeOrbitClasses Â§5
---
--- NOT claimed:
---
--- * Nothing about the WL class of BARRIER Â§1 or the depth barrier
---   (Theorem K).  This is the parity axis only: the model is completely
---   multiplicative Â1 functions and the adversary is the gauge flip.
--- * Nothing quantitative about entropy decrement.  Its strength (bulk
---   correlation content under logarithmic averaging) has no image in this
---   model; only WHERE its parity charge enters does (`sans-eval`).
--- * Not turing's InterfaceSeparation result: 0474's note and module have
---   not landed, and if they land with a different framing, reconciling is
---   their call and the integrator's, not mine.
--- * `Number` is an ordered list; the free COMMUTATIVE monoid quotient
---   (permutation-invariance of `val`) is still unformalized, as
---   `GaugeOrbitClasses` already records.
 ------------------------------------------------------------------------
 
 module NaturalMachine.OracleSeparation where
@@ -294,7 +277,7 @@ one-sfe-decides Ïƒ p n =
 -- ledger: the same instance is simulated exactly by one odd-Î© value
 -- query, so the separating line is neutral-vs-charged, not
 -- value-vs-equation.  Q1's collapse (`OracleQueries`) and Q2's
--- separation (here) are the two opposite answers 0474 predicted.
+-- separation (here) are the two opposite answers.
 ------------------------------------------------------------------------
 
 theQuery : SFE
@@ -340,7 +323,7 @@ sfe-is-one-charged-value Ïƒ p n =
 -- by the parity element does not move its full transcript.  So the
 -- observable class of the neutral sector identifies Ï with Ïâ‹ â‹ Ï, and
 -- Â§5's separation says the specialized-FE oracle splits exactly that
--- identification â” one coset coordinate, the âŸ¨Â,1âŸ© bit of 0475.
+-- identification â” one coset coordinate, the âŸ¨Â,1âŸ© bit.
 ------------------------------------------------------------------------
 
 collapse-is-coset : (Ïƒ : Signs) â†’ neuTr (Ï„â‚‹ â‹† Ïƒ) â‰¡ neuTr Ïƒ

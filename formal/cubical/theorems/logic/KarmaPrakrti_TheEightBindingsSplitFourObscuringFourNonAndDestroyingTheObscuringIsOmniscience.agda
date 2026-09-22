@@ -37,8 +37,6 @@
 --   ¬ß6  ‡ï‡‡µ‡≤‡-‡®-‡Æ‡ã‡ï‡‡‡ ‚î but kevala is strictly weaker: a state with the
 --       four ght gone and an aght remaining is kevala WITHOUT moka
 --       (the sayoga-keval).  Omniscience precedes liberation.
---
--- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 
 module KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObscuringIsOmniscience where

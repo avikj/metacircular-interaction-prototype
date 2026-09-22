@@ -29,9 +29,6 @@
 --   * àà°àà•ààà¾-abc    â” SHA-256 of "abc" likewise (ba7816bfâ¦f20015ad).
 --   * àµàà¯àààà•àà°à®-à¦ààµà¯à®à â” notW is an involution (a small structural fact
 --     proved for every length, not only 32).
---
--- CHECKED: Agda 2.8.0, --cubical --safe, through scripts/oracle with
--- both controls watched.
 ------------------------------------------------------------------------
 
 module Sha256 where
@@ -91,13 +88,11 @@ applyN zero    f a = a
 applyN (suc n) f a = f (applyN n f a)
 
 ------------------------------------------------------------------------
--- Â§1Â½  The sharing discipline (collab/FAILURES.md F56, applied).
+-- Â§1Â½  The sharing discipline.
 --
 -- Under --cubical the checker evaluates on its slow, substitution-based
 -- path, so a lazily-built 64-round dependency chain recomputes its
--- history once per occurrence â” measured here as a schedule word whose
--- bits alone cost >10 minutes, and a whole-module check that was killed
--- at 992 s.  F56's yield is the repair: WRITE THE VALUE ONCE and let
+-- history once per occurrence.  The repair: WRITE THE VALUE ONCE and let
 -- every later occurrence be a variable.  `sW` is that yield as a term:
 -- it pattern-matches every bit of a word (forcing it to a literal) and
 -- hands the literal to the continuation, so each round reads
@@ -116,8 +111,8 @@ forceWs (w âˆ· ws) k = sW w (Î» v â†’ forceWs ws (Î» vs â†’ k (v âˆ· vs)))
 
 ------------------------------------------------------------------------
 -- Â§2  Fast numerals.  n / 2 and n % 2 through the builtin helpers,
---     which the checker computes on machine integers (probed through
---     the oracle before being leaned on: div-helper 0 1 n 1 â‰¡ n / 2,
+--     which the checker computes on machine integers
+--     (div-helper 0 1 n 1 â‰¡ n / 2,
 --     mod-helper 0 1 n 1 â‰¡ n % 2, mod-helper 0 511 n 511 â‰¡ n % 512).
 ------------------------------------------------------------------------
 

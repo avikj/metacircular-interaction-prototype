@@ -1,4 +1,4 @@
-# Coinduction in Bend2 â” what "no coinduction" meant, what is true, what was fixed
+# Coinduction in Bend2
 
 ## The corpus's need
 
@@ -7,8 +7,6 @@ The calculus is coinductive at its core: `IExec`, `Answers`, `ISC`, `Exec`,
 contractibility *of the whole unfolding*; bisimulations are paths of streams
 built field by field (copatterns); productivity (`--guardedness`) is what
 makes an unbounded interaction representable without ever being executed.
-INTERACTION.md carried this at every finite depth `n`. The question was
-whether the depth index is a truncation forced by Bend2 or an accident.
 
 ## What Bend2 actually is (measured, `streams.bend` / `coinduction.bend`)
 
@@ -30,7 +28,7 @@ default.** What it lacked, and what was fixed:
 1. **A corecursive path proof looped the checker.** `repOnes : Path(Stream,
    rep(1n), ones()) := <i> @Cons{1n, repOnes() @ i}` â” a bisimulation stated
    as a corecursive path, exactly the corpus's `exec-unique`/`replay-forget`
-   shape â” hung. Cause: `epNormCtx` (my Ref-unfolding for typed endpoints)
+   shape â” hung. Cause: `epNormCtx` (the Ref-unfolding for typed endpoints)
    re-unfolded a productive definition inside its own unfolding forever.
    Fixed: unfolding is one level deep. `repOnes` is now
    `[productive] theorem(path) definitional`.
@@ -69,8 +67,7 @@ are corecursive paths** â” `replayForget` collapses the receipt with the
 
 All four are `[productive]`; the environment `alt` (alternating answers
 forever) is `[productive]`; `stateAt(replay(alt))` at step 5 is `1` on the
-normaliser and on HVM (221 interactions). The depth index of INTERACTION.md
-was an accident of the earlier encoding, not a limitation of the language.
+normaliser and on HVM (221 interactions).
 
 4. **Self-referential `type` declarations were `[unchecked]`.** `Answers`
    and `IExec` (`more: Answers(step(x, ans))`) were classified like

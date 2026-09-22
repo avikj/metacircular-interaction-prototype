@@ -14,10 +14,6 @@
 -- and an explicit declared family of separators transports root by root.
 -- Nothing promotes one local separator to an arbitrary all-roots fact.  The
 -- Bool control at the end makes that boundary executable.
---
--- This is an exact analogue only.  It does not identify Huayan/Indra's Net
--- with a type-theoretic profile family, nor infer a category, history, or
--- physical global update from the checked terms.
 ------------------------------------------------------------------------
 
 module DeclaredRootedProfiles where

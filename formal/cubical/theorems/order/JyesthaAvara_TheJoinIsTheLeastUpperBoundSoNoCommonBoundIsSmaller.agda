@@ -4,9 +4,6 @@
 -- ‡‡‡Ø‡‡‡‡†‡æ‡µ‡∞ ‚î THE JOIN IS THE LEAST UPPER BOUND, SO NO COMMON BOUND
 -- IS SMALLER.
 --
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0
--- (2026-08-29).
---
 -- THE QUESTION.  Does this substrate settle OPTIMALITY, not merely
 -- correctness?  An optimality claim has two halves: a thing works, and
 -- nothing works better.  The second half is a universal over all rival
@@ -26,12 +23,6 @@
 --                          (the lower-bound half: nothing does better).
 -- Together: `max` is not merely a correct upper bound, it is the
 -- optimal one, and the optimality is a checked term, not an argument.
---
--- Every reduction rule used was certified on the wire first
--- (interactive/run-yantra.sh --wire); the kernel's rejections of the
--- naive single-variable shapes named the stuck base clauses
--- (le x (max x zero) ‚â 1, max zero y ‚â y), which is what fixed the
--- shapes below.
 --
 ------------------------------------------------------------------------
 

@@ -1,12 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- `no-own-being := univalence` is examined there and â” unlike an earlier
--- over-refutation of mine â” it holds: a type has no identity over its
--- equivalences, and that emptiness is itself empty up the whole âˆž-groupoid
--- (nyat-nyat), with cubical transport as the two truths made to
--- compute.  The note names the two places to interrogate hardest and the
--- soteriological boundary that stays outside the frame.
-
 ------------------------------------------------------------------------
 -- NisvabhavaNet â” the net of no-own-being
 --
@@ -50,7 +43,7 @@
 --                       then A and B were never reflection-equal â” the
 --                       separation was in the clinging, not the net.
 --
--- NOT a new theorem: these are univalence and transport, the substance of
+-- These are univalence and transport, the substance of
 -- the kept spark.  The contribution is that the atom of the liberation-
 -- device is here as a checked term reading the spark as the source: no
 -- own-being, identity as relation, and the impossibility of a true sight

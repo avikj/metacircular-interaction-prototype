@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- TheSeparationQuestionIsVacuousUntilGeneralisationIsRequired
 --
---
 --   "Is there a mechanizable predicate on a note's *text* that decides
 --    whether its principal object is outside arithmetic, and hence
 --    whether a `SEARCH` flag is mandatory â” one that would have fired
@@ -11,12 +10,11 @@
 --    files?"
 --
 -- Two candidates have been killed by measurement in Â§9 and Â§10 of that
--- note (ÂPâ at a 77.3% base rate; Pâ firing on neither).  Both cycles
+-- note (ÂPâ at a 77.3% base rate; Pâ firing on neither).  Both
 -- hunted a THIRD candidate.  This one does not.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE GAP, STATED AND NOT AMENDED (the note is untouched by this
--- cycle; the wording offer is the next cycle's named step).
+-- THE GAP.
 --
 -- **Â§6 AS PHRASED IS SATISFIED BY A LOOKUP TABLE.**  The predicate
 -- "the file's path is one of these two" is mechanizable, decides in
@@ -70,7 +68,7 @@
 -- itself sets, and it is not answerable by a lookup table.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY, AND THE PRIOR ART IS NOT MINE.  "A classifier that fits
+-- NO NOVELTY.  "A classifier that fits
 -- finitely many labelled points proves nothing; the content is
 -- generalisation and the false-positive rate" is the founding
 -- observation of statistical learning theory (Vapnikâ“Chervonenkis
@@ -82,9 +80,6 @@
 -- adds to either.  What is added is the observation that SEED-83's Â§6
 -- is stated in the enumerative form and therefore has a trivial
 -- answer.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheSeparationQuestionIsVacuousUntilGeneralisationIsRequired where

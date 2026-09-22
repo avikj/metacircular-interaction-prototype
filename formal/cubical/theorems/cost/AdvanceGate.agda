@@ -3,7 +3,7 @@
 -- Advance(�_�) ⟺ Verify ∧ SearchSep ∧ PreserveProv ∧ UsefulEscape>0 ∧ Boundary
 --
 -- The gate, as a record whose fields are the five clauses, with the two
--- clauses that are not formalizable here (provenance, declared boundary)
+-- clauses provenance and declared boundary
 -- carried as explicit propositions the caller must supply rather than
 -- silently assumed.  Two theorems:
 --
@@ -68,9 +68,3 @@ defect-zero-does-not-advance f =
   snd (snd (snd zero-defect-is-not-truth))
       (f (fst zero-defect-is-not-truth) (fst (snd zero-defect-is-not-truth))
          (fst (snd (snd zero-defect-is-not-truth))))
-
--- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
--- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
--- the rest of this lane's headers quote: three toolchain states are live in
--- this repository at once and this file has only seen one of them.

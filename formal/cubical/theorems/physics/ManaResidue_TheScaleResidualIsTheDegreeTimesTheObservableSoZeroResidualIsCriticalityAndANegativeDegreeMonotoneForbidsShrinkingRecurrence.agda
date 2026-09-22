@@ -65,14 +65,7 @@
 -- observable, action, and factor satisfying the homogeneity equation.
 -- Â§3 additionally under absence of zero divisors and nonvanishing of the
 -- observable at the state in question.  Â§Â§4â“5 over â•, for every state
--- type, observable, action and factor.  NOT claimed: that any concrete
--- functional is homogeneous, monotone, or positive â” all three are
--- hypotheses; anything about â, about exponents `Î` as numbers, or about
--- `q^Î` â” `c` is a ring element and no exponentiation occurs; anything
--- about existence of a recurrent orbit, which Â§4 refutes only under its
--- hypotheses and never constructs; and nothing about which functionals a
--- particular dynamics admits, which is the whole remaining question and
--- is untouched here.
+-- type, observable, action and factor.
 ------------------------------------------------------------------------
 
 module ManaSesa_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence where

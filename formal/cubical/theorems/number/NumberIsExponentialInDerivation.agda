@@ -40,23 +40,6 @@
 -- is not stored, it is derived, and the derivation carries the context
 -- that produced it.  The walk derives and then discards, and the discard
 -- is the bill.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- Ïˆ(k) â‰ˆ k is NOT proved here and is not used.  Turning
--- "coordinatewise exponential" into "Ïˆ(k) versus its derivation's size"
--- requires summing over primes p â‰ k with exponents âŠlog_p kâ‹, which is
--- Chebyshev's estimate and belongs to the analytic lane (`formal/
--- pairfield/`), not to this one.  CLAUDE.md's HOLOGRAM Â§7 lesson applies
--- directly: a constant measured at one scale hides its scaling, so the
--- comparison is stated at every coordinate and at no particular k.
---
--- Nor is it claimed that a derivation-stepping machine is realisable, or
--- that the walk could store exponents without changing what it computes.
--- The bound is on the encoding, and only on the encoding.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module NumberIsExponentialInDerivation where
@@ -120,36 +103,21 @@ ten-coordinate : 10 < 2 ^ 10
 ten-coordinate = exponent-is-dwarfed 0 10
 
 ------------------------------------------------------------------------
--- 3.  The sentence, with its boundary marked.
+-- 3.  The sentence.
 --
 -- The walk's number is exponential in the walk's derivation, coordinate
--- by coordinate, provably and without asymptotics.  Whether that
--- coordinatewise fact sums to the Ïˆ(k)-versus-log-k gap is a question
--- about âˆ_{p â‰ k} âŠlog_p kâ‹, i.e. about Chebyshev, and this module does
--- not touch it.
+-- by coordinate, provably and without asymptotics.
 --
--- What it does settle: the class of answer.  The walk's size is an
--- ENCODING cost, not a lattice cost (`TheTrajectoryIsAChain`) and not an
--- overlap cost (`JoinSavesTheMeet` â” overlap is a saving).  Three classes
--- eliminated, one identified, the magnitude still open.
+-- The walk's size is not a lattice cost (`TheTrajectoryIsAChain`) and
+-- not an overlap cost (`JoinSavesTheMeet` â€” overlap is a saving).
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 4.  CORRECTION, same session â” Â§3's table over-reaches.
+-- 4.  Density.
 --
--- Â§3 files the walk's size under "IDENTIFIED: the numeric encoding".
--- "Identified" says the encoding ACCOUNTS for the gap, and that does not
--- follow from a coordinatewise bound: it says nothing about how many
--- coordinates there are.
---
--- There are many.  `TheDerivationIsDenseToo` checks that
--- the walk's derivation is DENSE â” cap(k) is divisible by every prime
--- p â‰ k, so there is a nonzero entry at each, support 4 out of 4 at
--- frontier 8.  The exponential saving `suc e â‰ b ^ e` is a saving WITHIN
--- a coordinate; density is a cost ACROSS them; and which dominates is a
--- question about âˆ_{pâ‰k} versus Ï(k) that this file explicitly declines
--- to touch, two paragraphs above the table that assumed the answer.
---
--- Â§Â§1â“2 are unaffected.  The word "IDENTIFIED" is withdrawn; that row is
--- OPEN, for the reason the boundary paragraph already gave.
+-- `TheDerivationIsDenseToo` checks that
+-- the walk's derivation is DENSE â€” cap(k) is divisible by every prime
+-- p â‰¤ k, so there is a nonzero entry at each, support 4 out of 4 at
+-- frontier 8.  The exponential saving `suc e â‰¤ b ^ e` is a saving WITHIN
+-- a coordinate; density is a cost ACROSS them.
 ------------------------------------------------------------------------

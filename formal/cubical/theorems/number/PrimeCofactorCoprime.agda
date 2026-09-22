@@ -9,12 +9,9 @@
 --       IsPrime p â’ Â (p âˆ m) â’ isGCD (p ^ a) m 1
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- CORRECTION TO `FrontierMember` Â§7
+-- NO EUCLID IS NEEDED
 --
--- That section, written one commit ago, said this piece "is the only
--- one of the three that needs Euclid rather than structure".  It is
--- not.  It needs no Euclid at all, and the reason is visible in the
--- definition this lane already uses:
+-- The reason is visible in the definition this lane already uses:
 --
 --     IsPrime p = (1 < p) — ((d : â•) â’ d âˆ p â’ (d â‰¡ 1) âŠ (d â‰¡ p))
 --
@@ -22,13 +19,7 @@
 -- were `p` then `p âˆ m`, which is the hypothesis' negation.  So `d â‰¡ 1`.
 -- Three lines, and the non-divisibility hypothesis discharges the bad
 -- branch by itself â” it does the work that `DistinctPrimesAreCoprime`
--- needed a SECOND primality for.  The template there is strictly
--- harder than the statement here, which is what made the estimate
--- wrong in the direction of pessimism.
---
--- The rule this thread earned was "no estimates".  The estimate was
--- offered anyway, inside a sentence explaining what remained, and it
--- was wrong for the fourth time.  Recorded rather than edited.
+-- needed a SECOND primality for.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE LIFT TO POWERS IS PURE REUSE
@@ -37,9 +28,6 @@
 -- `CoprimePowers.bez-pow` are already here and already checked.  Only
 -- the LEFT argument is raised, so the route is bez-sym / bez-pow /
 -- bez-sym rather than `coprime-powers`, which raises both.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module PrimeCofactorCoprime where
@@ -95,20 +83,10 @@ prime-power-âˆ¤-coprime p m a pp pâˆ¤m =
                (bez-sym {a = pos p} {b = pos m} base) a)
 
 ------------------------------------------------------------------------
--- 3.  All three pieces are now closed.
+-- 3.  The three pieces.
 --
 --   ExponentBound          a â‰ logOf p k   when p^a âˆ n â‰ k
---                          (and `logOf` acquired a specification, which
---                          it had never had)
 --   FrontierMember         (p , logOf p k) âˆˆ frontierList k for p prime,
 --                          p â‰ k
 --   here                   isGCD (p ^ a) m' 1  from  Â (p âˆ m')
---
--- What they were named for is `FrontierDivides` Â§2's hard half â” that
--- every m â‰ k divides `prodOf (frontierList k)`.  The pieces exist; the
--- assembly does not yet, and it needs two more things that are not in
--- this list: that an entry divides the product of the list it is in,
--- and a strong induction peeling m by `PFreePart`.
---
--- Those are named, not estimated.
 ------------------------------------------------------------------------

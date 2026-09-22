@@ -27,7 +27,7 @@
 --   it.  Calling the strong false statement a fragment of the weaker open
 --   one runs the implication backwards.
 --
---   What is right is the arithmetic.  M(60) = −1 and M(100) = +1 are the
+--   The arithmetic: M(60) = −1 and M(100) = +1 are the
 --   published values and they are recomputed below off the certified
 --   factorization, not off a boolean sieve.
 --
@@ -105,14 +105,13 @@ restrict mc zero    = tt
 restrict mc (suc k) = mc (suc k) , restrict mc k
 
 -- and there is no term in the other direction, on purpose.  the walk in
--- `Shodhita` and `Ekam` establishes the RIGHT-HAND side for
--- one n and was reported as though it bore on the left.
+-- `Shodhita` and `Ekam` establishes the RIGHT-HAND side for one n only.
 
 -- ═══ the finite fact, as a proof object rather than a flag ═══
 checkedTo20 : AllGate 20
 checkedTo20 = toWitness {d = decAllGate 20} tt
 
--- ═══ the arithmetic that was correct all along ═══
+-- ═══ the arithmetic ═══
 -- M(60) = −1: the minus count exceeds the plus count by one
 _ : snd (Mcount 60) ∸ fst (Mcount 60) ≡ 1
 _ = refl

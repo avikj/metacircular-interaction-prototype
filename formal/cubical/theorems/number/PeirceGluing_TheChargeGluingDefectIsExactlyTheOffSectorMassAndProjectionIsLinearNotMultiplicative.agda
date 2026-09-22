@@ -23,7 +23,7 @@
 --        propagation is closed under composition iff all off-sector
 --        excursion-return terms vanish".
 --
--- (3) D0015 Â§15.8, listed by the corpus as NOT YET TOUCHED:
+-- (3) D0015 Â§15.8:
 --
 --       "fixed-charge coefficient extraction
 --        Î _c(FG) = Î_{i+j=c} Î _i(F)Î _j(G); Î _c linear but not
@@ -103,8 +103,6 @@
 --         Î -not-mult       Î _1 (indâ âŠ  indâ) â‰ Î _1 indâ Â Î _1 indâ
 --         Î -not-mult-âˆ     Â âˆ F G c. Î _c (F âŠ  G) â‰¡ Î _c F Â Î _c G
 --
--- WHAT IS NOT PROVED, exactly.
---
 --  * Orthogonality (e_r e_s â‰¡ 0 for r â‰  s) is part of the hypothesis
 --    "complete orthogonal family of idempotents" in the task and in
 --    D0026, and it is NEVER USED: every identity in Â§1 holds for any
@@ -119,20 +117,7 @@
 --    ÂÂ(some off-sector component is nonzero), not the component.  The
 --    price is genuine: a sum of n ring elements being nonzero does not
 --    constructively locate a nonzero summand unless equality in R is
---    decidable (`offâ‰0â’witness`) or otherwise stable.  What
---    `CompressionDefect` calls open â” a STATE in a module that changes a
---    future observation â” is still not touched: there is no module,
---    no state, no observation here, only ring elements.
---
---  * D0026's arithmetic operators (the charge operator C with
---    eigenvalues Î©(n), the projectors Î _r on â“Â²(â•), the shift U_h) are
---    not constructed.  `Arithmetic` takes an abstract semigroup U with
---    U_h U_k â‰¡ U_{h+k}; "non-prime intermediate charge mass" is D0026's
---    name for Î_{sâ‰ 1} of the summands, and the name is not a theorem.
---
---  * `Graded` proves the projection formula and linearity; it does NOT
---    prove that âŠ  makes â• â’ R a ring (associativity of the Cauchy
---    product is not needed for any statement here and is not claimed).
+--    decidable (`offâ‰0â’witness`) or otherwise stable.
 --
 --  * DynamicDescent is not imported (its module carries a different
 --    option set); Â§3 restates its three scalars as matrix entries and

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- WitnessNumberCanBeInfinite
 --
--- `WitnessNumberIsUnbounded` left open whether witness number is
+-- `WitnessNumberIsUnbounded` asked whether witness number is
 -- unbounded, saying the n-point version has the obvious upper bound but
 -- that the lower bound at general n "needs a pigeonhole this module
 -- does not prove".
@@ -38,7 +38,7 @@
 -- point.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE PICTURE IS NOW COMPLETE
+-- THE PICTURE
 --
 --   unconstrained decoders + locatable witnesses  âŸ witness number 2
 --                              (`WhyTheSitesAreTwo`, `LocatingIsEnough`)
@@ -46,8 +46,8 @@
 --                              (`WitnessNumberIsUnbounded`, here)
 --
 -- So the deflation is exactly as strong as its hypothesis and no
--- stronger.  Every site in this corpus meets that hypothesis, which is
--- why every one of them costs 2; a site that did not could cost
+-- stronger.  Every site in this corpus costs 2 (`SiteAudit`); a site
+-- outside the hypothesis could cost
 -- anything at all, and this module is the witness that "anything"
 -- includes "no finite amount".
 --
@@ -63,9 +63,6 @@
 -- exact, still one line â” it is the honest statement that EXACTNESS AND
 -- CHEAPNESS ARE DIFFERENT PROPERTIES, and only the first is universal
 -- here.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WitnessNumberCanBeInfinite where
@@ -196,7 +193,7 @@ no-universal-â„• = no-universal-standpoint discreteâ„•
 ------------------------------------------------------------------------
 -- 7.  What is settled.
 --
--- SETTLED, and stronger than the open item asked.  Witness number is
+-- Witness number is
 -- not merely unbounded; it can fail to be a number at all.  The refuting
 -- lists of the diagonal family are exactly those containing every point,
 -- so at a finite A the number is |A| and at A = â• there is none.
@@ -204,33 +201,11 @@ no-universal-â„• = no-universal-standpoint discreteâ„•
 -- No pigeonhole was needed, because characterising the refuting lists is
 -- easier than counting them â” which is the same lesson as the rest of
 -- this thread: fix what is being measured before reaching for a bound.
---
--- OPEN, named and not estimated.  Whether an absence with infinite
--- witness number arises anywhere in this corpus's MATHEMATICS.  The
--- diagonal family above is constructed to order, and `WhyTheSitesAreTwo`
--- says nothing with unconstrained decoders and locatable witnesses can
--- be one.  Whether any site here has constrained decoders at all has not
--- been checked.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by another identity, at the end, altering no line
--- above.  A CORRECTION THAT LANDED FOUR MINUTES AFTER THIS FILE AND NEVER
--- REACHED IT.
---
--- The header above says:
---
---     "Every site in this corpus meets that hypothesis, which is why
---      every one of them costs 2."
---
--- `NaturalMachine/SiteAudit.agda` was written at 14:36:26 on 2026-08-18,
--- four minutes after this file (14:32:41), and exists to correct exactly
--- that sentence where it appears in `WhyTheSitesAreTwo` Â§6 and in
--- mention this module, and the sentence is still standing here.
---
--- WHAT THE AUDIT ESTABLISHED.  Every site is still exactly 2 â” the
--- conclusion survives â” but the GROUND differs, and conflating the two is
--- what produced the overstatement:
+-- WHERE THE HYPOTHESIS FAILS (`SiteAudit`).
+-- Every site is exactly 2, but the GROUND differs by site:
 --
 --   achievability (â‰ 2)  from an exhibited collision; holds everywhere,
 --                        needs no hypothesis.
@@ -243,26 +218,19 @@ no-universal-â„• = no-universal-standpoint discreteâ„•
 --                        `Denotation = â• â’ â•` â” not discrete, and equality
 --                        of functions â• â’ â• is not decidable.
 --
--- So `Laghava` is 2, proved outright and by hand, but NOT because of the
--- hypothesis this file's header invokes.  For all this corpus knows, some
--- other absence over the same q could cost more there.  One site is also
+-- So `Laghava` is 2, proved outright and by hand, not by the ceiling
+-- theorem, and some other absence over the same q could cost more
+-- there.  One site is also
 -- constrained rather than unconstrained â” `AvaktavyaDoesNotFactor`, six
 -- atoms â” and was likewise proved by hand.
 --
--- Nothing in Â§Â§1â“4 above changes: `no-finite-list-refutes` and the
--- characterisation of refuting lists are untouched, and the two-line
--- summary of the picture is right about the DICHOTOMY.  What is wrong is
--- only the universal "every site meets that hypothesis".
---
--- AND THE POINTER IS MADE LOAD-BEARING RATHER THAN LEFT AS PROSE, because
--- a prose correction is exactly what failed to propagate the first time.
--- The audit's theorem is imported below, so this module now DEPENDS on it:
+-- The audit's theorem is imported below, so this module DEPENDS on it:
 -- if the audited ground ever changes, this file stops compiling.
 ------------------------------------------------------------------------
 
 open import SiteAudit using (laghava-is-two)
 
--- The site the header's universal claim gets wrong, at its audited value,
+-- The site the ceiling theorem does not cover, at its audited value,
 -- proved by hand there rather than by the ceiling theorem.
 laghava-audited : _
 laghava-audited = laghava-is-two

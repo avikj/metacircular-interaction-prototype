@@ -3,10 +3,9 @@
 ------------------------------------------------------------------------
 -- ‡‡‡‡ ‚î a MINTED fibre receipt.  Emitted by
 -- machine/Tapas_TheTemplateIsTheProofShapeAndEveryNonMatchIsAWrittenRefusal.hs
--- from template T-CONST-BOOL, then CHECKED BY THE KERNEL before landing;
--- the only later edit is the module line, qualified to its path.
+-- from template T-CONST-BOOL.
 --
--- THE EDGE (Lopa's queue, verdict UNDECIDED before this module):
+-- THE EDGE:
 --   NaturalMachine.BatchDepthMemoryBoundary.Old  ‚ü  ‚ü®lib‚ü©.Bool
 --   ¬ NaturalMachine.BatchDepthMemoryBoundary.oldValue
 --

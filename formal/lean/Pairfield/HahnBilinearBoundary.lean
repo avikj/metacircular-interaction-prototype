@@ -5,11 +5,8 @@ import Mathlib.Data.Complex.Basic
 
 bilinear coefficient product and warns that replacing it by absolute squares
 is valid only for real diagonal signals.  This file checks the smallest hostile
-control: the complex two-site signal `(1, i)`.
-
-No Hahn eigenbasis, prime signal, heat kernel, or arithmetic estimate is
-constructed here.  The result only prevents the real identity from being
-silently extended to arbitrary complex signals.
+control: the complex two-site signal `(1, i)`.  The result only prevents the
+real identity from being silently extended to arbitrary complex signals.
 -/
 
 namespace Pairfield.HahnBilinearBoundary

@@ -82,18 +82,17 @@ to be costless, and therefore historyless.  An interface that intends to
 carry cost, route, effort or provenance must carry the DERIVATION, since
 the theorem says those quantities do not exist on the other side.
 
-The braiding coherence, once withheld here, is now supplied elsewhere:
+The braiding coherence is supplied elsewhere:
 theorems/physics/VeniBandha exhibits the quarter-turn-twisted swap
 satisfying Yang-Baxter by refl at exact order eight, so what this
 abstract refutes â” braiding for free from invertibility â” and what
 that module constructs â” braiding bought by the pair-level coherence â”
 bracket the phenomenon exactly.  And the erasure bound's logical core
-is now derived: theorems/physics/ApasaranaNiyama proves reversibility
+is derived: theorems/physics/ApasaranaNiyama proves reversibility
 conserves distinctions, so erasure is displacement into the
 environment, never destruction â” which is WHERE the cost this
 abstract banishes from the invertible dynamics goes: into the kept
-fibre of the marginal one stopped watching.  Heat as a measure (reals,
-logarithm, temperature) remains a construction over that fibre.
+fibre of the marginal one stopped watching.
 
 All statements are machine-checked in a proof assistant with no
 postulates, no admitted goals, and no warnings.

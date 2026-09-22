@@ -7,27 +7,9 @@
 --
 -- "Cantor's diagonal, Russell, Gdel's first incompleteness theorem,
 -- Turing's halting argument and Tarski's undefinability are all
--- instances of" Lawvere's fixed-point theorem.  Three of those five are
--- instances.  Gdel's first incompleteness theorem is not, and this
+-- instances of" Lawvere's fixed-point theorem.  Cantor and Tarski are
+-- one term here (Â§1).  Gdel's first incompleteness theorem is not, and this
 -- module says so with a term rather than a paragraph.
---
--- [ADDED 2026-08-15, Claude (header-claim audit).  The sentence above is
---  left as written; this is an appended correction, not a replacement.
---  "Three of those five are instances" OUTRUNS THIS MODULE'S TERMS in
---  both directions, and the module whose subject is overstatement should
---  not overstate:
---    Â Only TWO of the five are witnessed here â” Cantor and Tarski â” and
---      Â§1 itself proves they are ONE term (`tarskiUndefinability =
---      cantor`), so the terms below support "two names, one instance",
---      not "three instances".
---    Â RUSSELL and TURING carry no term in this module and none anywhere
---      else in this repository (checked by search over all 377 .agda
---      files under formal/, 2026-08-15: the only occurrences of either
---      name are in comments here and in NaturalMachine/Lawvere.agda).
---      They are standard and are almost certainly instances; they are
---      UNWITNESSED here, and "three" silently counts one of them.
---  The module's actual, and fully carried, claim is the NEGATIVE one:
---  Gdel I's second conjunct is not an instance (`noHalfTwo`).  That is
 --
 -- The split, exactly:
 --
@@ -53,7 +35,7 @@
 --
 -- Prior art: Lawvere 1969; Pavlovi, Arch. Math. Logic 31 (1992) 397â“406;
 -- Yanofsky, Bull. Symbolic Logic 9 (2003) 362â“386; Roberts,
--- Compositionality (2023), arXiv:2110.00239.  See
+-- Compositionality (2023), arXiv:2110.00239.
 ------------------------------------------------------------------------
 
 module GodelSeparation where
@@ -87,46 +69,12 @@ tarskiUndefinability : {A : Type â„“} (sat : A â†’ A â†’ Bool) â†’ Â¬ WkPtSurj s
 tarskiUndefinability = cantor
 
 ------------------------------------------------------------------------
--- Â§2.  No stage of the diagonal tower is terminal.
+-- Â§2.  Cantor at a coproduct.
 --
--- The geometric obstruction tower is GRADED: the obstruction to
--- extending a section over the (n+1)-skeleton lies in H^{n+1}(X;Ï_n F),
--- and on a finite-dimensional complex the tower dies above dim X.  The
--- diagonal tower does not: adjoining the escaping observation D to the
--- stage A produces A âŠ D, at which the very same theorem applies again,
--- at the same type level.  Ungraded and non-terminating, against graded
--- and terminating: a second discriminator, independent of the locality
---
--- [ADDED 2026-08-15, Claude (header-claim audit).  The paragraph above
---  is left as written and is appended to, not replaced.  IT CLAIMS MORE
---  THAN `noTerminalStage` PROVES, and the gap is the exact shape this
---  corpus keeps catching: a header reads off a result about an object
---  the module never constructs.  What is below is
---
---      noTerminalStage {A D} (e : (A âŠ D) â’ (A âŠ D) â’ Bool) â’ Â WkPtSurj e
---      noTerminalStage = cantor
---
---  i.e. `cantor` instantiated at the type `A âŠ D`.  In it:
---    Â `D` is an UNCONSTRAINED type variable.  Nothing types it as the
---      escaping observation of the previous stage â” that escapee is a
---      term of `A â’ Bool`, a function, not a type one can sum with `A`.
---      So "adjoining the escaping observation D to the stage A" is a
---      gloss the term does not carry; no adjunction is performed and no
---      stage is related to its successor.
---    Â There is NO TOWER in this module: no stage indexing, no successor
---      operation, no iteration.  "No stage of the diagonal tower is
---      terminal" is therefore not a statement any term here makes.
---    Â The comparison with the graded geometric obstruction tower
---      (H^{n+1}(X;Ï_n F), dying above dim X) is prose only: neither
---      grading nor termination is formalised, so "ungraded and
---      non-terminating, against graded and terminating: a second
---      discriminator" is an unwitnessed claim.
---  What IS proved, and it is worth having: Cantor holds at every type,
---  coproducts included, so no coproduct-shaped enlargement of the
---  carrier can make a quotation point-surjective.  That is a corollary
---  of `cantor`'s universal quantification over the carrier, obtained
---  without any tower.  Read Â§2 as that, and read the tower argument as
---  an open PROVE item, not as something discharged below.
+-- `cantor` holds at every type, coproducts included, so no
+-- coproduct-shaped enlargement of the carrier can make a quotation
+-- point-surjective.  `noTerminalStage` is `cantor` instantiated at the
+-- type `A âŠŽ D`; no stage indexing or iteration is involved.
 ------------------------------------------------------------------------
 
 noTerminalStage : {A D : Type â„“} (e : (A âŠŽ D) â†’ (A âŠŽ D) â†’ Bool)
@@ -254,8 +202,8 @@ witOmegaBad = tt , goedelHalfOne Wit wg witCon witHBL1 witFix
 --   Gdel I, conjunct 1 goedelHalfOne                   â” instance + 2 hyps
 --   Gdel I, conjunct 2 noHalfTwo                       â” NOT an instance
 --
--- The corpus claim "Gdel's first incompleteness theorem is an instance
--- of Lawvere's fixed-point theorem" is therefore false-grounds: what is
+-- The claim "Gdel's first incompleteness theorem is an instance
+-- of Lawvere's fixed-point theorem" is false as stated: what is
 -- an instance is the diagonal lemma.  The theorem is the diagonal lemma
 -- plus arithmetic hypotheses that no cartesian closed category supplies.
 ------------------------------------------------------------------------

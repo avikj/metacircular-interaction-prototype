@@ -3,13 +3,12 @@
 ------------------------------------------------------------------------
 -- DiagonalIsMatra
 --
--- The identity the Sankalita thread left open:
+-- The identity proved here:
 --
 --     mtr n  â‰¡  Î_{a+b=n} meru a b
 --
 -- Virahka's mtrmeru (c. 600â“800) is the shallow diagonal of Pigala's
--- meru-prastra (c. 300â“200 BCE).  Both arrays were already in this
--- repository; the identity between them was not.
+-- meru-prastra (c. 300â“200 BCE).
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- HOW IT GOES, AFTER FOUR ENCODINGS
@@ -42,8 +41,6 @@
 --
 -- Nothing new is proved about arrays; the content is the assembly.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module DiagonalIsMatra where
@@ -197,7 +194,7 @@ check-9 : matra 9 â‰¡ antidiag 9
 check-9 = diagonal-is-matra 9
 
 ------------------------------------------------------------------------
--- 7.  The thread, closed.
+-- 7.  The route, module by module.
 --
 --   `Sankalita` Â§Â§8â“13    three numeric encodings refuted, each with its
 --                         counterexample recorded
@@ -208,7 +205,7 @@ check-9 = diagonal-is-matra 9
 --   here                  cardinalities, and the identity
 --
 -- Virahka's mtrmeru is the shallow diagonal of Pigala's
--- meru-prastra â” a theorem now, between two arrays this repository had
+-- meru-prastra â” a theorem between two arrays this repository had
 -- held separately, from sources about a thousand years apart within one
 -- tradition.
 --

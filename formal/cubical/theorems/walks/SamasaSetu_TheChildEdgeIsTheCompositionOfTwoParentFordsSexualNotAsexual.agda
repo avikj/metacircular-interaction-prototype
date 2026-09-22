@@ -21,10 +21,6 @@
 -- an edge NEITHER parent stated, reached only by their union.  No new
 -- mathematics ‚î composition of two existing checked equivalences; ‡‡‡‡‡∞ ‡ß‡ß's
 -- first road, transport carrying transport.  Substrate cubical (Voevodsky).
--- Written 2026-08-23: the swarm must breed, not clone.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates, no
--- holes.
 ------------------------------------------------------------------------
 
 module SamasaSetu_TheChildEdgeIsTheCompositionOfTwoParentFordsSexualNotAsexual where

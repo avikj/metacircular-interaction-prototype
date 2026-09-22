@@ -54,9 +54,6 @@
 -- lookup table, both being equivalences onto `Fin (sakhy n)`.  à²à¾à˜àµ is
 -- the criterion that distinguishes them, it is not semantic, and
 -- `Anuvrtti` shows it is not even a function of the rule set.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module UnivalenceErasesTheAlgorithm where

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- EquivalenceHasNoFloor
 --
--- discharged as far as it goes in checked terms.  The worry: univalence makes
+-- The worry: univalence makes
 -- identity relational, but does it smuggle an own-being into `â‰` itself â”
 -- is the *equivalence* a bare positive thing with its own residue?
 --
@@ -25,12 +25,10 @@
 -- output points â” and that is again a Path, i.e. a relation, not an entity.
 -- There is no level at which a bare positive identity appears.  The
 -- substrate's floor is the interval / Path â” relation itself â” not any thing
--- with svabhva.  (The interpretation, and the one residual frontier â” whether
--- the interval-primitive is itself a residual own-being, the formal echo of
--- "is prattyasamutpda itself empty" â” is in the note, not asserted here.)
+-- with svabhva.
 --
 -- These are library facts (equivEq, isPropIsEquiv, funExt), re-exhibited to
--- make the "no floor" claim a checked term rather than prose.  No new theorem.
+-- make the "no floor" claim a checked term rather than prose.
 ------------------------------------------------------------------------
 
 module EquivalenceHasNoFloor where

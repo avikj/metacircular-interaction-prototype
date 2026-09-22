@@ -32,8 +32,6 @@
 --   ¬ß4  ‡ï‡ï‡‡‡‡Ø‡æ-‡≤‡ã‡‡ : the collective standpoint is genuinely BLIND within
 --       a class: if R a b then [ a ] ‚â° [ b ] ‚î R-related particulars are
 --       identified, their difference is the fibre the naya forgets.
---
--- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 
 module SamgrahaNaya_TheCollectiveStandpointIsTheQuotientAndRInvariantObservationsFactorThroughIt where

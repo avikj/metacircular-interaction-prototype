@@ -9,7 +9,7 @@
 -- xâ-average of u âŠ— u) and the coarse continuation P_{â‰1} âˆâu(0) are
 -- computed, and they are the document's matrix and its Ï-odd eâ term.
 --
--- WHAT THIS IS.  The remainder the earlier modules left: TriangularPair
+-- WHAT THIS IS.  TriangularPair
 -- wrote the stress and the continuation down; this module computes
 -- them.  The layer is the smallest exact Fourier calculus that carries
 -- the derivation:
@@ -43,10 +43,8 @@
 --       entry and the continuation are negated.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Every statement is a computation at t = 0
--- over â[i], decided on the box and reflected.  The time evolution
--- (a(t) = e^{âˆ’Î½NÂ²t} a, v(t) solving âˆâv + a âˆâv = Î½Î”v) is the linear
--- theory the document invokes and is NOT here: the advected v(t) is not
--- a finite trigonometric polynomial for t > 0.  What the document's
+-- over â[i], decided on the box and reflected.
+-- What the document's
 -- Theorem 8 uses â” the t = 0 stress, the t = 0 coarse acceleration, and
 -- the constancy of the pressure â” is derived, not written down.
 ------------------------------------------------------------------------

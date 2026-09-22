@@ -21,8 +21,7 @@
 -- derivations.  But the walk never divides.  Its state is monotone in
 -- the divisor lattice from the first step to the last.
 --
--- That has been described here as a feature of this particular machine.
--- It is not.  It is forced, and the proof is `idem-invertible-is-unit`:
+-- It is forced, and the proof is `idem-invertible-is-unit`:
 --
 --     in any monoid, an IDEMPOTENT element with an inverse is the unit.
 --
@@ -52,23 +51,12 @@
 --     bhvan       i â‰  one      â’ non-unit inverses     â’ reversible
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THIS DOES AND DOES NOT SETTLE.
+-- WHAT THIS SETTLES.
 --
 -- It settles that the walkâ™s irreversibility is structural, not a missing
 -- optimisation, and that no reformulation of the walk in its own chart
 -- (`Apavada`: agreement, hence only price changes) can fix it.  Fixing it
 -- requires a different state law, not a better rule.
---
--- It does NOT give the growth rate.  cap(k) = e^Ïˆ(k) is proved elsewhere
--- in this lane; nothing here bears on Ïˆ, and irreversibility alone does
--- not imply any particular rate.  Nor is the cakravlaâ™s descent shown to
--- BE this inversion: the cyclic method divides by k, which is inversion in
--- the scaling action (`Composition.normScale`), a different structure from the
--- one inverted here.  That the two are the same move is a conjecture this
--- module does not prove.  What is proved is the reversibility dichotomy.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module IdempotenceForbidsDescent where
@@ -91,7 +79,7 @@ private
 ------------------------------------------------------------------------
 -- 1.  The theorem, over any monoid.  Unbundled on purpose: the two
 --     instances below live in different libraries and neither is
---     packaged as a `Monoid` in this lane.
+--     packaged as a `Monoid` here.
 ------------------------------------------------------------------------
 
 module Mon {M : Type â„“} (_â‹†_ : M â†’ M â†’ M) (e : M)

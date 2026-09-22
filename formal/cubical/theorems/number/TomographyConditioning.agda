@@ -80,7 +80,7 @@
 --   * `strict-2` â¦ `strict-10`: STRICTNESS 2^R < C(2R,R).  General â‰ is
 --     proved above; the strict inequality is certified for 2 â‰ R â‰ 10.
 --
--- A CORRECTION, recorded rather than smoothed.  The circulated
+-- THE STRICTNESS RANGE.  The circulated
 -- comparison reads as "2^R < C(2R,R) for R â‰ 1".  That is FALSE at
 -- R = 1: C(2,1) = 2 = 2^1, and also at R = 0 (1 = 1).  The true
 -- statement is 2^R â‰ C(2R,R) for all R, strict exactly for R â‰ 2 â”

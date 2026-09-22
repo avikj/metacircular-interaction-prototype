@@ -16,9 +16,6 @@
 -- (isEquiv â” the two varaa lifted, Avarana_â¦agda), the born cognition
 -- is unveiled: samyag-jna+darana is closed under bhvan.  Dually, a
 -- veil anywhere veils the offspring â” Â§4.
---
--- CHECKED: Agda 2.8.0 / cubical-0.9, --cubical --safe, no postulates, no
--- holes, no native_decide.  Verified 2026-08-23.
 ------------------------------------------------------------------------
 
 module Bhavana_TwoJivasMeetAndAThirdIsBornAndTheVeilsCompose where

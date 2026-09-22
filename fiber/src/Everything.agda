@@ -14,7 +14,6 @@ open import Fiber.Orbit
 open import Fiber.Nucleus
 
 -- The law's other projection: the residual, and the price of a collapse.
--- Its two-valued test is a ‡¶‡‡∞‡‡®‡Ø; see the struck paragraph in its header.
 open import Fiber.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 -- The repair: the diagnosis is a CENSUS, not a verdict.  A fiber fails to

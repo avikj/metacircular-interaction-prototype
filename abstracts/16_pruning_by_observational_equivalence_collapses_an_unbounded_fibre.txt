@@ -44,12 +44,11 @@ information remains, which is why the stronger law is not available: it
 would require adjudicating an identity of histories that behaviour cannot
 supply.
 
-RESOLVED IN PART.  The specification language now exists:
+The specification language exists:
 theorems/unplaced/AbhilekhaAnirdhara gives specs as example lists,
 satisfaction as their conjunction, two provably distinct satisfiers of
 a one-example spec on which every observation-fed judge agrees, and an
 injection of the naturals into the spec's satisfiers â” the unbounded
-fibre, constructed in the synthesis vocabulary itself.  Version spaces
-and enumerative search remain constructions.
+fibre, constructed in the synthesis vocabulary itself.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

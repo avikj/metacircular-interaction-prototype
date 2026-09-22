@@ -3,9 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡‡‡-‡ï‡‡‡‡‡‡∞ ‚î the link field.
 --
--- RESOLUTION TOWARD ABSTRACT 17.  That abstract computed a holonomy
--- and scoped away the gauge vocabulary: no lattice, no gauge group,
--- no connection form, no Wilson loop, no field.  Constructed here:
+-- Constructed here:
 --
 --   ¬ß1  The GAUGE GROUP is ‚/2 ‚î the booleans under xor, with unit,
 --       self-inverse, commutativity and associativity from the pinned

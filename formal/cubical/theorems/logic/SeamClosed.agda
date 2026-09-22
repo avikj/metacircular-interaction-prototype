@@ -14,14 +14,13 @@
 -- DEFINING EQUATION of the machine's `+` (which recurses on the second
 -- argument) and a non-trivial induction for Agda's (which recurses on the
 -- first).  The machine drops it as an axiom; the kernel cannot proceed without
--- it.  Both are right.  The lemma sat unproved in the seam for the machine's
--- entire recorded history.
+-- it.  Both are right.
 --
 -- AND IT WAS PROVED ALL ALONG.  `MathMachine.tryReplay` calls
 -- `TraceReplay.replayWithRules`, which returns a complete Agda module; the
 -- kernel checks it; the machine writes the words "trace replay" to the log and
--- DISCARDS THE SOURCE.  That path is 820 of 2362 `KERNEL-ACCEPT` lines.  As of
--- 2026-08-18 the source is kept (`interactive/replay.traces`), and every one of
+-- DISCARDS THE SOURCE.  The
+-- source is kept in `interactive/replay.traces`, and every one of
 -- the 17 records a three-round run produced contains, verbatim:
 --
 --     addZero : (a : â•) â’ (a + zero) â‰¡ a
@@ -47,7 +46,7 @@ open import Cubical.Data.Nat using (â„• ; zero ; suc ; _+_ ; _Â·_)
 ------------------------------------------------------------------------
 -- 1.  Transcribed verbatim from interactive/replay.traces, record 1, lines 6â“8.
 --     Not rewritten, not tidied: this is what the machine emitted and the
---     kernel accepted, 820 times, before anyone kept a copy.
+--     kernel accepted, 820 times.
 ------------------------------------------------------------------------
 
 addZero : (a : â„•) â†’ (a + zero) â‰¡ a
@@ -60,8 +59,6 @@ addZero (suc a) = cong suc (addZero a)
 -- `0 Â x` reduces to `zero` definitionally in Agda â” `_Â_` recurses on its
 -- first argument, `zero Â m = zero` â” so `x + 0 Â x` is `x + zero` and the
 -- residual is exactly `addZero` read backwards.  One `sym`.
---
--- That is the whole of what the seam was missing for 239 rounds.
 ------------------------------------------------------------------------
 
 flagshipResidual : (x : â„•) â†’ x â‰¡ x + zero Â· x
@@ -73,8 +70,7 @@ flagshipResidual x = sym (addZero x)
 -- The goal the kernel handed back was `x â‰¡ 1 Â x`.  Agda unfolds `1 Â x` to
 -- `x + 0 Â x`, which is where it stopped.  With the residual in hand the
 -- parent is immediate â” which is the property `Obstruction.hs`'s header
--- claims for a residual ("prove `x + 0 Â x â‰¡ x` and the parent closes") and
--- which nothing in the corpus had ever exhibited.
+-- claims for a residual ("prove `x + 0 Â x â‰¡ x` and the parent closes").
 ------------------------------------------------------------------------
 
 parentClosed : (x : â„•) â†’ x â‰¡ (suc zero) Â· x

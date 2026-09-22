@@ -12,7 +12,7 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 ------------------------------------------------------------------------
 -- ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence
 --
--- The open question from last cycle, answered on the negative side.
+-- The question of `ASmallTheoryWithAnIndependentSentence`, answered on the negative side.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE QUESTION
@@ -21,7 +21,7 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- independent sentence by generating derivability from rules and
 -- proving soundness for every Boolean valuation.  Its stated limit is
 -- that the sentence is independent because the rules never mention it:
--- no diagonal, no provability predicate.  The question left open was
+-- no diagonal, no provability predicate.  The question is
 -- whether adding the diagonal machinery preserves independence.
 --
 -- With a TRUTH-FUNCTIONAL provability predicate, it does not, and the
@@ -33,7 +33,7 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- Suppose the semantics interprets `prov` by some `f : Bool â’ Bool`
 -- applied to the value of its argument â” that is what "truth-
 -- functional" means and it is what every valuation semantics in this
--- thread has done.  Suppose two soundness conditions the rules force:
+-- line has done.  Suppose two soundness conditions the rules force:
 --
 --   HBL1 at the level of values:  `f true â‰¡ true`
 --       (if `a` is true it must not make `prov a` false, since `a`
@@ -60,27 +60,10 @@ open import ASmallTheoryWithAnIndependentSentence using (impB)
 -- In a real theory it is not.  `Prov(âsâ)` is a statement about the
 -- syntax of `s`, and two sentences with the same truth value in a model
 -- can have different provability status.  That is the exact property
--- this thread's semantics has been unable to express, and Â§1 is the
+-- this line's semantics has been unable to express, and Â§1 is the
 -- proof that no amount of rule-choosing repairs it while the
 -- interpretation stays truth-functional.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- That `f true â‰¡ true` is the only value-level reading of HBL1; it is
--- the one forced if `prov` is truth-functional and derivable sentences
--- are true, and Â§1 assumes exactly it.
---
--- That the small theory of the previous module is affected: it has no
--- `prov` worth the name and its independence result stands untouched.
---
--- PRIOR ART, by the conclusion type â” and the first draft of this
--- paragraph was wrong, which is why it is stated as a checked result.
--- A grep of `formal/cubical` for `truth-functional` returns ONE hit:
--- `RepresentabilityIsNotEnoughForIndependence` line 32, a sentence of
--- prose describing `wimp`, not a theorem.  A grep for `impB` outside
--- the previous module returns nothing.  A version phrased over a valuation into a larger algebra
--- than `Bool` would evade that grep â” and would also evade Â§1, which
--- is a fact about two-valued semantics.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

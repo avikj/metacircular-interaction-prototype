@@ -4,7 +4,7 @@
 -- RHReducesToBoundedness
 --
 -- The RH branch, end to end, as one checked reduction.  Everything except
--- the single arithmetic estimate D is now in place:
+-- the single arithmetic estimate D is in place:
 --
 --   * B (functional equation)          : ScaleTransportZ, supplied as `de`.
 --   * C (positive exponent unbounded)  : ScaleTransportZ.grows, proved.
@@ -18,7 +18,7 @@
 --     RH-from-received-bounded :
 --         (âˆ mode. received orbit bounded)  â’  (âˆ mode. exp â‰¡ 0).
 --
--- The sole remaining input is the hypothesis `bo`: boundedness of the received
+-- The one input is the hypothesis `bo`: boundedness of the received
 -- signal, proved from the arithmetic side.  That is D, and nothing else stands
 -- between it and RH in this reduction.  (A, the explicit-formula bridge from
 -- the arithmetic B(t) to these modes, is the classical analytic input carried

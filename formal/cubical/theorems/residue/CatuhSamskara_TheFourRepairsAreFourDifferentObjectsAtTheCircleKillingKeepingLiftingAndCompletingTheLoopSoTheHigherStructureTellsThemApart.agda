@@ -2,11 +2,10 @@
 ------------------------------------------------------------------------
 -- àààà-ààààà•à¾à°à â” the four repairs, told apart.
 --
--- `ObstructionCalculus`, the checked fragment of Hieroglyphics II, wrote
--- of the document's four repair kinds  Î“âˆ, Î“â, Î“âº, Î“^ :  "Î“â (promote the
+-- `ObstructionCalculus`, the checked fragment of Hieroglyphics II, names
+-- the document's four repair kinds  Î“âˆ, Î“â, Î“âº, Î“^ : Î“â (promote the
 -- defect to a 2-cell) and Î“âº (keep it as a class) need genuine higher
--- structure to differ from Î“âˆ.  â¦ it does mean this module cannot see
--- them."  And of the two it could see, `Î“^ â’ Î“âˆ` with no converse.
+-- structure to differ from Î“âˆ.
 --
 -- The higher structure is the circle, and at the circle all four are
 -- different objects.  The defect is the diamond at `base`: the two routes

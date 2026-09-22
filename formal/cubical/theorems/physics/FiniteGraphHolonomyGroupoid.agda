@@ -2,8 +2,7 @@
 
 -- A finite branching/loop graph realized as a Cubical higher inductive type.
 -- Its identity paths supply composition, reversal, cancellation and all
--- higher coherence.  This is combinatorial gauge kinematics, not an LQG
--- Hilbert space or a claim about SU(2) representation theory.
+-- higher coherence.  This is combinatorial gauge kinematics.
 
 module FiniteGraphHolonomyGroupoid where
 

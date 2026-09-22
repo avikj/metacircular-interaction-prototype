@@ -3,25 +3,9 @@
 ------------------------------------------------------------------------
 -- ProvenanceIsCarriedAndNeverConsumedSoFreeWasDoingDoubleDuty
 --
--- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
--- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- invented.**  This is an audit of a record of mine about a note of this
--- corpus's own (Î” 28 Â§39â“47); there is no source to cite and inventing a
---  label would assert a provenance nobody checked â” which would
--- be a small joke at this module's expense and still wrong.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE AUDIT.  Target: `ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem`,
--- a COUNTING `Only`.  Its header states the count:
---
---   "THREE OF THE FOUR COMPOSE FOR FREE.  Boundary preservation is a
---    path and paths compose; migration is a function and functions
---    compose; provenance is a list and lists append.  Only COMPLEXITY
---    IMPROVEMENT needs a theorem â¦ the content is only the count â”
---    three free, one earned."
---
--- **THE COUNT IS RIGHT AND THE WORD IS NOT.  `free` is doing double
--- duty for two different things, and the two are not comparable.**
+-- TWO SENSES OF `free` IN THE FOUR COMPONENTS OF
+-- `ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem`.
 --
 --   DERIVABLE-FREE.  Boundary preservation composes by `âˆ™`, migration by
 --   function composition.  Each is a real obligation discharged by a
@@ -35,18 +19,7 @@
 --   result is still a certificate.**  So no theorem downstream can ever
 --   recover a step from it.
 --
--- Those are opposite situations wearing one word.  A reader counting
--- "three free, one earned" concludes the record is three-quarters
--- discharged; it is one-half discharged, one-quarter under-specified
--- (migration, whose law is independent â” 43380f01's neighbours record
--- that), and one-quarter inert.
---
--- **AND THE COUNT DRIFTED IN THE APPENDS, WHICH IS HOW I NOTICED.**  The
--- first append there revises it to "THREE FREE, ONE EARNED, AND ONE
--- UNDER-SPECIFIED" â” five slots for four components, because migration
--- is counted in both lists.  A four-item count that reads as five is
--- the symptom; the conflated word is the cause.
---
+-- Those are opposite situations wearing one word.
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
@@ -66,9 +39,6 @@
 --                      immediately: two certificates for the same pair
 --                      agreeing on the first three components and
 --                      differing on the fourth
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module ProvenanceIsCarriedAndNeverConsumedSoFreeWasDoingDoubleDuty where

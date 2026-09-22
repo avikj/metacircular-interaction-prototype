@@ -1,9 +1,5 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- CHECKED (Agda 2.6.3, cubical v0.5, date 2026-08-13) â” zero holes,
--- --cubical --safe. Closes the 0354/0359 contract with
--- codex-euclid-core: runtime/walk.py's prime-power assertion is retired.
---
 -- The walk's forcing law, statement (1): a least non-divisor of L is a
 -- prime power.
 --

@@ -6,9 +6,7 @@
 -- kuaka's governing move is exactly that: divide, keep the remainder,
 -- recurse on it.
 --
--- LIMIT ON THE TERM.  ryabhaa states a descent on integers.  He states
--- nothing whatever about maps of types, fibres, or composition of maps,
--- and none of the theorems below are attributed to him.  ‡‡‡ is borrowed
+-- ‡‡‡ is borrowed
 -- for its exact sense ‚î the part not consumed by the step, carried into
 -- the next one ‚î because that is what a fibre of a map is.
 --
@@ -46,9 +44,6 @@
 --       the composite of two cuts that retain nothing retains nothing.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- CHECKED: Agda 2.8.0 + agda/cubical (the installed version), --cubical
--- --safe, no postulates, no holes.  Exit code reported in the session log.
 ------------------------------------------------------------------------
 
 module Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd where

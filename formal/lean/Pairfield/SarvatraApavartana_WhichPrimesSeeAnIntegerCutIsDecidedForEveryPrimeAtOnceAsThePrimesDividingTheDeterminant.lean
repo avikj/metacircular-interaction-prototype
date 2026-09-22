@@ -12,7 +12,7 @@ sibling file `Apavartana_…`.  **The compound सर्वत्र-अपव�
 theorem below are ours**; Brahmagupta did not state Smith normal form and proved
 nothing here.
 
-## The point (owner, 2026-08-22)
+## The point
 
 `Apavartana_…` prices ONE cut, `D = diag(2,12)`, and it DISCOVERS which primes
 see the cut BY MEASUREMENT: `rank_at_two`, `rank_at_three`, `rank_at_five`,
@@ -41,15 +41,13 @@ nonsingular: the exponent is the VALUATION SUM `∑_i v_p(dᵢ)` — how MUCH `p
 divides — NOT the drop COUNT `#{i : p∣dᵢ}` this file's rank uses — how MANY
 factors `p` divides.  The two differ, and `Apavartana`'s own matrix is the
 counterexample: for `D=diag(2,12)` the drop counts are 2 at `(2)` and 1 at `(3)`
-(`2 log2 + log3 = log12`), against `|coker| = 24 = det`.  (An earlier draft of
-this header, and of README movement 65, wrote `∑_p #{i:p∣dᵢ}·log p =
-log|coker_tors|` — false for exactly this reason; struck there, avoided here.)
+(`2 log2 + log3 = log12`), against `|coker| = 24 = det`.
 So the rank-on-Spec-ℤ this file decides is a strictly LOSSIER invariant than the
 cokernel: `diag(2,6)` and `diag(2,12)` have IDENTICAL drop functions but
 cokernels of order 12 and 24 — the price function's own fibre is the p-adic
 depth it discards, `QuotientFiberLaw` applied to the price itself, not a defect.
 The value's finite half is checked next door as `Apavartana.det_eq`
-(`smithDivisors.prod = 24`); the cokernel group and reals are not built here.
+(`smithDivisors.prod = 24`).
 
 No `sorry`, no `admit`, no `axiom`, no `native_decide`, and no `decide` on any
 of the general (universally quantified) claims.

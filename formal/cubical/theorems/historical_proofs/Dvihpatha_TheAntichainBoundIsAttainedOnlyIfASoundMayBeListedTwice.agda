@@ -11,19 +11,14 @@
 -- is a *pha*, a recitation, and one sound in it is recited TWICE â” ha,
 -- in stra 5 (ha ya va ra ) and again in stra 14 (ha L) â” which is why
 -- the tradition must say which ha a given pratyhra takes.  *Dvipha*,
--- "twice-recited", is the grammarians' idiom for that; NO stra number is
--- claimed for the term itself, only for the phenomenon (stras 5 and 14).
+-- "twice-recited", is the grammarians' idiom for that (the phenomenon
+-- itself: stras 5 and 14).
 --
 -- WHAT THIS FILE IS ABOUT.  `PratyaharaLaghava_TheMarkerCountIsForcedBy-
 -- TheAntichain.agda` proves the lower bound: classes ending at one marker
 -- form a âŠ-chain, so a âŠ-antichain of width w forces w distinct markers.
--- Its own header records what it does NOT prove, in these words:
---
---     "That the antichain bound is TIGHT in general.  `markersDistinct`
---      gives markers â‰ width(F) and no more."
---
--- and reports, as a Haskell computation and explicitly not as a checked
--- term, width 14 over the 294 classes the iva-stra line can name against
+-- `markersDistinct` gives markers â‰ width(F) and no more, and a Haskell
+-- computation reports width 14 over the 294 classes the iva-stra line can name against
 -- width 11 over the ~30 the grammar uses â” three markers unforced by the
 -- antichain argument.
 --
@@ -58,23 +53,6 @@
 -- every occurrence unique.  Hence L is a permutation of {sâ sâ sâ Mâ Mâ}
 -- up to renaming the two markers, and Â§4 checks all 120 of them.  Â§3 also
 -- checks that the enumeration really has length 120.
---
---   * That this explains Pini's residue of three.  It does NOT.  His
---     line DOES recite ha twice, so the gap 14 âˆ’ 11 cannot be the total
---     absence of dvipha.  What is removed is only the possibility that
---     the antichain bound is tight and the residue therefore an artefact.
---     Repetition is a real resource that moves the achievable count; a
---     bound proved without it cannot be assumed to be the true minimum.
---     The successor question is the graded one, and it is open: what is
---     the minimum over lines in which at most k sounds are twice-recited?
---     Pini's line is the case k = 1.
---   * Petersen 2004 (essential uniqueness of the order; 14 minimal for the
---     full inventory).  Still not proved, still unread â” egress is blocked
---     from this environment.  Inherited unchanged from `Sivasutra.agda`.
---   * Any phonological content for sâ sâ sâ.  They are three abstract
---     sounds.  The family F is not the grammar's family and is not offered
---     as one; it is a witness that the bound has slack.
---   * That Pini stated any of this.  He stated the line.
 --
 -- CONVENTION, and it is load-bearing exactly once.  `klass s m` takes the
 -- prefix before the FIRST occurrence of m, then the suffix from the LAST

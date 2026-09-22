@@ -4,7 +4,7 @@
 -- ‡µ‡‡Ø‡‡‡‡‡‡‡‡ø-‡µ‡ø‡‡‡Æ‡‡‡ø ‚î the pun inhabits the forgetting type, so the
 -- surface of language sits strictly lossy in the loss order.
 --
--- Joins two modules landed hours apart tonight:
+-- Joins two modules:
 --
 --   Vyapti_TheLossOrder‚¶  defines ‡µ‡ø‡‡‡Æ‡‡‡ø‡ Œ¶ for a FLOW Œ¶ : A ‚í A ‚î
 --     Œ[ a ] Œ[ a' ] (Œ¶ a ‚â° Œ¶ a') ó ¬ (a ‚â° a') ‚î and proves a

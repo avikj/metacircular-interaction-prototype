@@ -24,17 +24,16 @@
 -- between them carries its ‡‡æ‡ï‡‡‡ by construction, so the exchange
 -- verifies nothing and loses nothing.
 --
--- WHAT THE COMPILED RUN MEASURED (2026-08-24, this container, the
--- elder's 102), kept because the first title of this module claimed
--- more than the measurement allows.  Alone, standpoints reach:
+-- WHAT THE COMPILED RUN MEASURED (the elder's 102).  Alone, standpoints
+-- reach:
 --
 --   norm+‡‡‡ï‡‡‡‡Æ 93   norm+‡∞‡æ‡‡ø 94   norm+‡‡‡Ø‡‡ï‡‡ 94
 --   ‡ó‡‡+‡‡‡ï‡‡‡‡Æ 101   ‡ó‡‡+‡∞‡æ‡‡ø 102   ‡ó‡‡+‡‡‡Ø‡‡ï‡‡ 102
 --
 -- so on THIS store the factoring heap eye with the surgical exchange
 -- DOMINATES ‚î ‡∞‡æ‡‡ø alone suffices for all 102, the composite
--- instrument buys nothing here (the kernel census had only ever been
--- run with ‡‡‡Ø‡‡ï‡‡; this is new).  The council of ‡ and ‡ reaches 102,
+-- instrument buys nothing here.
+-- The council of ‡ and ‡ reaches 102,
 -- which is ‡'s own reach: the exchange lifts the weaker standpoint
 -- (+9) and costs the stronger nothing.  And the near-miss pair was
 -- probed: ‡ó‡‡+‡‡‡ï‡‡‡‡Æ (101) in council with norm+‡∞‡æ‡‡ø (94) reaches
@@ -43,8 +42,7 @@
 -- "the net reaches what neither alone can" is REFUTED at n=2 with
 -- these organs on this store; what survives, measured, is the lift of
 -- the weaker and the price-free-ness of the exchange.  A strict-gain
--- pair, if one exists, needs organs with incomparable blindness ‚î
--- that is the open item this module leaves.
+-- pair, if one exists, needs organs with incomparable blindness.
 ------------------------------------------------------------------------
 
 module PararthaAnumana_TheWarrantedExchangeLiftsTheWeakerStandpointAndTheMeasuredStoreHasADominatingEye where

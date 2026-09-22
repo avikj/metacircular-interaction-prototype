@@ -27,8 +27,7 @@
 -- counterfeit press cannot: saying exactly what it does not know.  The
 -- computable OBJECTS of these problems (Collatz orbits, the Mertens
 -- function) belong in a fast substrate â” Haskell, machine integers â”
--- never in the kernel's unary encoding; computing them here was a
--- category error, corrected by keeping this file to the statements.
+-- never in the kernel's unary encoding; this file keeps to the statements.
 ------------------------------------------------------------------------
 
 module AsiddhaCatustayam_TheFourUnestablishedHeldAtOnceAndOwedByTheKernel where

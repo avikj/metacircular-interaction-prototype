@@ -3,11 +3,9 @@
 ------------------------------------------------------------------------
 -- ‡‡®‡‡≤‡ã‡Æ-‡‡‡∞‡‡‡Æ‡ ‚î anuloma, with the grain; pratiloma, against it: the
 -- ordinary Indic classification of direction (the grammatical and
--- smti traditions).  Compound built here from it; no source is
--- claimed for the mathematics.
+-- smti traditions).
 --
--- A HYPOTHESIS, BUILT, TESTED, AND REFUTED ‚î LEFT STANDING BECAUSE
--- REFUTATION IS THE FINDING.  The conjecture: the elder's rules cross
+-- A HYPOTHESIS, REFUTED.  The conjecture: the elder's rules cross
 -- in whatever orientation the completion stored them, the record
 -- speaks them as stored, so an anti-normalizing rule poisons the
 -- exchange ‚î orient every rule toward its smaller face under the full
@@ -17,12 +15,9 @@
 -- The kernel's verdict, computed entire: ‡‡‡‡‡Ø-‡‡ø‡¶‡‡ß‡ø‡ ‚â° 0.  The
 -- oriented lineage closes NONE of the eight.  Orientation was not
 -- the binding constraint; the eight lie beyond record-assisted
--- single descent in EITHER direction of the record, and the frontier
--- is thereby sharper than the conjecture: what these need is not a
+-- single descent in EITHER direction of the record: what these need is not a
 -- better-spoken record but a new kind of step ‚î the conditional /
--- monotone reasoning the equational exchange cannot express.  The
--- machinery below (‡‡ï‡æ‡∞‡, ‡µ‡ø‡‡∞‡‡‡, ‡¶‡ø‡‡æ) remains sound and lands as
--- the record hygiene the metabolism will want regardless.
+-- monotone reasoning the equational exchange cannot express.
 ------------------------------------------------------------------------
 
 module NaturalMachine.AnulomaShruta_TheRecordSpeaksWithTheGrainAndTheThirdPassCrossesFurther where

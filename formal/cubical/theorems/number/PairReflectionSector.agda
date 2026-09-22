@@ -26,15 +26,6 @@
 --   local-count-equal      finite instances therefore have equal counts.
 --   positive-break         positivity gives an exact SectorBreak witness.
 --   positive-not-invariant no fibrewise restriction can exist.
---
--- RIGOR BOUNDARY
---
--- This proves the finite-place transport, including equality of local
--- counts.  It proves no prime-pair asymptotic: the passage from the local
--- Euler product to Goldbach or twin-prime counts contains the global
--- section 2 already states the signed-space reflection in prose.  The
--- contribution here is its executable contact with the Natural Machine's
--- restriction/boundary API.
 ------------------------------------------------------------------------
 
 module PairReflectionSector where

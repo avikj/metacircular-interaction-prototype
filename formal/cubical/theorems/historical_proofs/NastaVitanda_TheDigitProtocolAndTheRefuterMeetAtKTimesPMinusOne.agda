@@ -27,11 +27,7 @@
 -- and `resp` is the first-mismatch index.  Writing p = q+1 keeps every
 -- count in N with no truncated subtraction, so `k(p-1)` is `k Â q`.
 --
--- BOTH HALVES ARE HERE, and that is the point of the file.  Four prose
--- checked; the upper bound alone is a short induction and shipping it
--- alone would reproduce ADAPTIVE_VALUATION_CENTERS.md's own honest
--- refusal wearing a green checkmark.  The theorem is carried by the
--- adversary.
+-- BOTH HALVES ARE HERE.  The theorem is carried by the adversary.
 --
 --   upperBound : a tree that identifies every word, costing <= n Â q
 --   lowerBound : EVERY identifying tree has an input costing >= n Â q

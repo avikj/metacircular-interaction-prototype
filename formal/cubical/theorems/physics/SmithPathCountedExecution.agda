@@ -10,11 +10,11 @@ open import Cubical.Relation.Nullary using (¬_)
 open import CountedExecution using (run)
 
 -- Signed integer data used by the concrete 3 by 3 certificates below.
--- `neg n` denotes -n.  The tables in the first half of this file were
--- certification section at the bottom of this file proves, over the cubical
--- library's own integer-matrix layer (Cubical.Algebra.IntegerMatrix.Smith),
--- that they really are Smith certificates for diag(2,3,2) � so nothing
--- below is trusted transcription any more.
+-- `neg n` denotes -n.  The certification section at the bottom of this
+-- file proves, over the cubical library's own integer-matrix layer
+-- (Cubical.Algebra.IntegerMatrix.Smith), that the tables in the first
+-- half really are Smith certificates for diag(2,3,2) � so nothing below
+-- is trusted transcription.
 data Z : Type₀ where
   zro : Z
   pos : ℕ → Z
@@ -33,7 +33,7 @@ I3 : Mat3
 I3 = mat3 (pos 1) zro zro zro (pos 1) zro zro zro (pos 1)
 
 -- Cumulative left transformations for the two legal adjacent-pair schedules
--- on diag(2,3,2).  They are the exact certificates Up and Uq from
+-- on diag(2,3,2).  They are the exact certificates Up and Uq.
 Up : Mat3
 Up = mat3 (neg 1) (pos 1) zro
           zro zro (pos 1)
@@ -134,7 +134,7 @@ no-endpoint-only-readout read rp rq =
   c001≠c014 (sym rp ∙ cong read same-endpoint-at-two ∙ rq)
 
 ------------------------------------------------------------------------
--- Certification against the library integer-matrix layer (audit gap G1).
+-- Certification against the library integer-matrix layer.
 --
 -- Everything above this line is a finite state table.  Everything below
 -- re-reads that table as matrices over the *library's* � and proves, by
@@ -160,15 +160,10 @@ no-endpoint-only-readout read rp rq =
 --      correction), and (0,1,4) is NOT congruent to (0,0,1) modulo that
 --      lattice (a parity obstruction, proved, not asserted).
 --
--- Route note: deriving the table from `smith matA0` itself (route (a) of
--- the G1 fix) is blocked in practice: `smith matA0 .sim .result zero zero`
--- did not reduce within a 550-second budget on the pinned toolchain, and
--- cubical v0.5 leaves uniqueness of the normal form as a TODO
--- (Smith/Normalization.agda:280).  What is certified here is therefore the
--- full defining SPECIFICATION of a Smith normalization (SimRel +
--- isSmithNormal) instantiated by the transcribed data � the transcription
--- is checked against the source's mathematics, not against the source's
--- unnormalized syntax tree.
+-- What is certified here is the full defining SPECIFICATION of a Smith
+-- normalization (SimRel + isSmithNormal) instantiated by the transcribed
+-- data � the transcription is checked against the source's mathematics,
+-- not against the source's unnormalized syntax tree.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (snotz)
@@ -318,9 +313,9 @@ diagMat d216 = mk3 (ℤpos 2) (ℤpos 0) (ℤpos 0)
                    (ℤpos 0) (ℤpos 0) (ℤpos 6)
 diagMat d126 = matD126
 
--- The right transforms and all inverse witnesses.  These are the data the
--- note kept off the page; they are now explicit terms, and every claimed
--- property of them is an equation checked by the type-checker.
+-- The right transforms and all inverse witnesses, as explicit terms;
+-- every claimed property of them is an equation checked by the
+-- type-checker.
 
 rightAction : SmithState → Mat 3 3
 rightAction p0 = toMat I3

@@ -4,7 +4,7 @@ Released under Apache 2.0 license.
 
 An exact finite adapter from the squarefree three-prime `q₁` tensor to the
 scalar-separable radial rank used by the finite Kuznetsov boundary.  This is
-only a finite rank obstruction; it asserts no analytic trace-formula result.
+only a finite rank obstruction.
 -/
 import Pairfield.FiniteKuznetsovFactorizationRank
 import Pairfield.PrimeChargeThreeTensorRank

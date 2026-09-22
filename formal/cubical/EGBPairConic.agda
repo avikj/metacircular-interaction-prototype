@@ -21,9 +21,6 @@
 -- NaturalMachine.PairCoordinates proves the ring version of the same
 -- algebra (splitNorm, over an arbitrary commutative ring).  This file
 -- is deliberately NOT importing it: same conic, different carrier.
---
--- NOT claimed: any primality statement, any Goldbach statement.  Only
--- the conic and its two projections.
 ------------------------------------------------------------------------
 
 module EGBPairConic where

@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- Sthirabhara_TheFixedChargeDivisorKernelPolynomialIsTToTheOmegaMinusLittleOmegaTimesTMinusOneToTheLittleOmegaForEveryPositiveInteger
 --
--- àààà¿à°-àà¾à°à, the fixed charge.  Owner transmission D0026 Â§5.5, recovered
--- from git history, displays
+-- àààà¿à°-àà¾à°à, the fixed charge.  D0026 Â§5.5 displays
 --
 --     "Î¦_n(t) = Î_{d|n} Î¼(n/d) t^{Î©(d)} = t^{Î©(n)âˆ’Ï‰(n)} (tâˆ’1)^{Ï‰(n)}"
 --
@@ -17,8 +16,7 @@
 --      multiplicative".
 --
 -- `ChargePolynomialFinite.agda` certified the identity at n = 12, 30,
--- 360 only, on factorisation TABLES taken as input, and named unique
--- factorisation as its one unformalised bridge.  This module proves the
+-- 360 only, on factorisation TABLES taken as input.  This module proves the
 -- identity for EVERY n â‰ 1, from the corpus's own Î¼, divisibility and
 -- factorisation, with no table.
 --
@@ -88,20 +86,6 @@
 -- form:  coeffs (Î¦ 12) = (0, 1, âˆ’2, 1, 0),  coeffs (Î¦ 30) =
 -- (âˆ’1, 3, âˆ’3, 1, 0),  coeffs (Î¦ 360) = (0, 0, 0, âˆ’1, 3, âˆ’3, 1, 0), with
 -- (Î©, Ï‰) = (3, 2), (3, 3), (6, 3); and Îºâ(6) = âˆ’2 while Îºâ(2)ÂÎºâ(3) = 1.
---
--- WHAT IS NOT PROVED.
---   * Multiplicativity of Î¦ as a statement of its own, Î¦_{mn} = Î¦_mÂÎ¦_n
---     for coprime m, n, and the prime-power evaluation
---     Î¦_{p^a}(t) = t^a âˆ’ t^{aâˆ’1}: neither is needed on this route and
---     neither is stated.  Each is an instance of Î¦-closed-form once
---     Ï‰(mn) = Ï‰(m) + Ï‰(n) for coprime m, n (resp. Î©(p^a) = a and
---     Ï‰(p^a) = 1) is known; those facts about Ï‰ are not proved here.
---   * "Mbius-coherent" in Â§5.4 is not given a meaning here, and
---     nothing is proved about it.
---   * The partition of unity Î_{d|n} Î¦_d(t) = t^{Î©(n)} of
---     ChargePolynomialFinite Â§5 is not touched.
---   * Everything is stated for n â‰ 1; Î¦ 0 is the empty sum and nothing
---     is claimed about it.
 --
 -- No postulates, no holes, no termination pragmas; every fuel-bounded
 -- program is used only on the range where its specification is proved.

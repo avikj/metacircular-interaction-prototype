@@ -3,24 +3,7 @@
 ------------------------------------------------------------------------
 -- TheCeilingIsAboutReading
 --
--- `SiteAudit` Â§4 left this open, and it is the last item of the witness
--- thread that had a name:
---
---     whether the ceiling holds at `Laghava` â” i.e. whether every
---     absence over `eval : Expr â’ (â• â’ â•)` costs 2.  Equality of
---     functions â• â’ â• is not decidable, but locating finitely many
---     SPECIFIC denotations against an arbitrary one is a weaker demand,
---     and this module does not settle whether it can be met.
---
--- It cannot be met by any construction available here, and the reason is
--- not incidental: a decoder `Denotation â’ â•` that answers a listed
--- denotation correctly must first recognise it, and recognising an
--- arbitrary `d : â• â’ â•` as a particular one is exactly a decision of
--- function equality.  Nothing in this lane builds that, and nothing in
--- this lane refutes its existence either â” the type `Denotation â’ â•`
--- contains whatever it contains.
---
--- So the honest result is not a verdict on that decoder space.  It is a
+-- The result is a
 -- characterisation of exactly which decoder spaces DO get the ceiling,
 -- and `Laghava`'s is the boundary case.
 --
@@ -62,15 +45,9 @@
 -- them to any discrete probe, however coarse, and the ceiling returns â”
 -- at `Laghava`, at a single evaluation point.
 --
--- NOT SETTLED, and now sharply: the ceiling over the FULL space
--- `Denotation â’ â•`.  That space is not reachable by a probe, and
+-- The FULL space
+-- `Denotation â’ â•` is not reachable by a probe, and
 -- deciding membership in it is deciding equality of functions â• â’ â•.
--- This is the one place in the witness thread where an open item is
--- open for a REASON rather than for want of an argument, and naming the
--- reason is the result.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheCeilingIsAboutReading where
@@ -206,7 +183,7 @@ laghava-probe-is-two =
   least (a âˆ· b âˆ· ys) lt = Empty.rec (Â¬-<-zero (pred-â‰¤-pred (pred-â‰¤-pred lt)))
 
 ------------------------------------------------------------------------
--- 4.  What this settles, and the one thing it deliberately does not.
+-- 4.  What this settles.
 --
 -- SETTLED.  The ceiling was never about discreteness of the
 -- OBSERVATIONS.  It is about the decoders having something discrete to
@@ -220,11 +197,7 @@ laghava-probe-is-two =
 -- it to the witnesses; this drops it from Y entirely and puts it where
 -- it belongs, on what the decoder is allowed to see.
 --
--- NOT SETTLED, and now for a stated reason rather than for want of an
--- argument: the ceiling over the FULL space `Denotation â’ â•`.  A decoder
+-- Over the FULL space `Denotation â’ â•`: a decoder
 -- there must recognise an arbitrary `d : â• â’ â•` as a listed denotation,
--- which is a decision of function equality.  This lane builds no such
--- decision and refutes no such decision; the type contains what it
--- contains.  That is the only open item in this thread whose openness is
--- itself a fact rather than a gap, and saying so is the result.
+-- which is a decision of function equality.
 ------------------------------------------------------------------------

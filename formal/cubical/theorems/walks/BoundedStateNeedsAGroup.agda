@@ -27,23 +27,15 @@
 --   âŠ” over â•-exponents:  `join-cannot-forget` â” same conclusion by the
 --     other route, idempotence.  A join can only ever add.
 --
--- So all three walk-available laws fail to forget, for the two distinct
--- reasons this thread has been separating, and only the group succeeds.
+-- So all three walk-available laws fail to forget, for two distinct
+-- reasons, and only the group succeeds.
 --
 --     among the three laws the walkâ™s own state space carries, exactly
 --     one can forget, and it is the group.
 --
--- Stated as a general principle â” "bounded state requires a group law" â”
--- that is a SLOGAN, not a theorem, and this module does not prove it.
--- What is proved is the three instances, with their two distinct reasons.
--- The slogan is what they are evidence for.
---
--- With them the arc that began at `SuccessorIsNotTropical` is closed for
--- the walk specifically: its unbounded state is forced, the force is
+-- Together with `SuccessorIsNotTropical`, for the walk specifically: its
+-- unbounded state is forced, the force is
 -- algebraic, and the only exit among its own operations is ratios.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module BoundedStateNeedsAGroup where
@@ -133,8 +125,4 @@ join-cannot-forget (b âˆ· bs) (x , xs) (y , ys) (z , zs) p i =
 --   forgetting is the operational form of descent, and among the three
 --   laws the walkâ™s own state space carries, exactly one has it â” the
 --   one whose states are ratios.
---
--- The general principle this suggests, that bounded state requires a
--- group law, is not proved here and is not asserted.  Three instances and
--- two independent obstructions are what the file contains.
 ------------------------------------------------------------------------

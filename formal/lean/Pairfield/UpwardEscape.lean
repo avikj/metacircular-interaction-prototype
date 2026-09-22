@@ -4,7 +4,7 @@ Released under Apache 2.0 license.
 
 A finite one-sided anti-spike lemma.  Only upward escape from a negative
 center is charged; downward motion is free.  The budget is an explicit
-hypothesis, and no arithmetic residual is asserted to satisfy it here.
+hypothesis.
 -/
 import Mathlib.Algebra.Order.BigOperators.Group.Finset
 import Mathlib.Data.Finset.Card

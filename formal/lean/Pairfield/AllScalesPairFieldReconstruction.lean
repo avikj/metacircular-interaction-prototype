@@ -46,8 +46,7 @@ theorem diagonalEnergy_injectiveOn_nonnegative
 
 /-- An abstract all-`t`, zero-gap field has coefficient uniqueness when
 equality of its functions forces equality of every diagonal-energy
-coefficient.  Establishing this premise for a concrete Laplace transform is
-the analytic theorem deliberately left outside this algebraic module. -/
+coefficient. -/
 def HasDiagonalLaplaceCoefficientUniqueness
     (field : (ℕ → ℝ) → ℝ → ℝ) : Prop :=
   ∀ a b, field a = field b → diagonalEnergy a = diagonalEnergy b

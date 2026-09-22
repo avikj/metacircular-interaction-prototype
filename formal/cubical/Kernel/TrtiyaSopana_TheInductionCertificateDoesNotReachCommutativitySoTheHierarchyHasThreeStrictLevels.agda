@@ -4,17 +4,15 @@
 -- Kernel.TrtiyaSopana_TheInductionCertificateDoesNotReach
 --            CommutativitySoTheHierarchyHasThreeStrictLevels
 --
--- ‡‡‡‡‡Ø-‡‡ã‡‡æ‡®‡Æ‡ ¬ the third step of the stair.  The compound is assembled
--- here for this module and no textual source is claimed for it.
+-- ‡‡‡‡‡Ø-‡‡ã‡‡æ‡®‡Æ‡ ¬ the third step of the stair.
 --
--- WHERE THIS STANDS.  `Naya_‚¶` proved two things and left one question
--- between them, named in its own WHAT-IS-NOT-PROVED block by omission:
+-- WHERE THIS STANDS.  `Naya_‚¶` proved two things:
 --
 --   ¬ß3 there   commutativity of `add` is UNDERIVABLE          (W-model)
 --   ¬ß4 there   the induction rule is STRICTLY STRONGER than
 --              the rewrite closure                            (0 + x = x)
 --
--- Open between them: whether the induction apparatus ‚î the strongest
+-- The question between them: whether the induction apparatus ‚î the strongest
 -- thing in the kernel's three files ‚î reaches commutativity.  This
 -- module answers: IT DOES NOT.  The same W-standpoint that decided ¬ß3
 -- decides this, one level up, with no new machinery: an
@@ -43,12 +41,7 @@
 -- commutativity's classical proof needs a nested induction whose base
 -- `0 + y = y` is itself only induction-certifiable ‚î but `base` demands
 -- a `Derivation`, and by `Naya_‚¶`'s `not-left-unital` argument none
--- exists.  The wall is exactly the type of the `base` field.  A
--- certificate whose base may itself be a certificate is the repair this
--- names and does not make; whether to make it is a design decision and
--- is not taken here.
---
--- CHECKED at the repository pin, --safe, no postulates, no holes.
+-- exists.  The wall is exactly the type of the `base` field.
 ------------------------------------------------------------------------
 
 module Kernel.TrtiyaSopana_TheInductionCertificateDoesNotReachCommutativitySoTheHierarchyHasThreeStrictLevels where

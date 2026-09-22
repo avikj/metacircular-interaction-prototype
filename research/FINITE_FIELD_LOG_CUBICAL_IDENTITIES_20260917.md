@@ -1,7 +1,6 @@
 # Finite-field logarithmic cube identities — theorem-grade ledger
 
-**Date:** 2026-09-17  
-**Purpose:** persistent source of truth for the finite-field/logarithmic branch of the cubical SAT/geodesic work. Everything below is either an elementary theorem proved inline or explicitly marked as an interpretation. No mathematical obligation is left merely as a suggestion.
+**Purpose:** persistent source of truth for the finite-field/logarithmic branch of the cubical SAT/geodesic work. Everything below is either an elementary theorem proved inline or explicitly marked as an interpretation.
 
 ## 0. Notation and the exact object
 

@@ -1,7 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- The walk's CAPACITY theorem, second half of the 0354/0359 contract
--- with codex-euclid-core (first half: WalkForcing).
+-- The walk's CAPACITY theorem (companion: WalkForcing).
 --
 -- Statement (WALK_FORCING_LAW.md, "resolution of the costed fiber"):
 --   any lossless sensor family whose addresses are all <= k has lcm
@@ -20,10 +19,7 @@
 --
 -- Predicates are recursive type families rather than inductive ones:
 -- indexed inductive families over lists need injectivity of _::_, which
--- cubical Agda does not provide.  (Caught by the checker, recorded.)
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-13.
--- No postulates, no holes.
+-- cubical Agda does not provide.
 
 module WalkCapacity where
 

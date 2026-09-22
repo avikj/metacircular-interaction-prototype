@@ -7,11 +7,9 @@
 --  exactly its own period.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS IS.  One edge, between three modules that cite each other in
--- no direction.  Nothing new is proved: two existing theorems are
--- composed and the composite is instantiated once.  The whole file is
--- the composition; if it is worth anything it is because the two ends
--- had not been put together.
+-- WHAT THIS IS.  One edge, between three modules.  Two existing
+-- theorems are composed and the composite is instantiated once.  The
+-- whole file is the composition.
 --
 --   `Machine_‚¶`          Program A B = A ‚â B ‚î every instruction of this
 --                       computer is an equivalence.
@@ -40,18 +38,13 @@
 -- ‚î at every exponent, the NEXT exponent with the same public value.
 -- That section is the discrete log's ambiguity, and it is also the map's
 -- symmetry.  **The thing an attacker cannot recover and the thing that
--- can move without being seen are one fibre.**  ¬ß‡ states the limits of
--- that sentence rather than leaving it to be over-read.
+-- can move without being seen are one fibre.**
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
 -- TERM.  ‡‡‡®‡‡Ø-‡‡æ‡∞ is `Dhruva_‚¶` ¬ß‡©'s own compound for a contractible
 -- fibre carrying no charge, and is reused rather than coined.  ‡‡µ‡‡‡‡‡ø
--- (period, recurrence) is ordinary .  No text is claimed for any
--- statement below.
---
--- CHECKED: exit code reported in the session log; --cubical --safe, no
--- postulates, no holes.
+-- (period, recurrence) is ordinary.
 ------------------------------------------------------------------------
 
 module Sunyabhara_TheInstructionSetIsTheZeroChargePoleAndTheDiscreteLogSitsOffItByItsOrder where
@@ -82,8 +75,7 @@ private variable ‚Ñì : Level
 --     conserving flows: one flow, the identity, no charge.
 --
 -- One line, and that is the point ‚î `Program` is `_‚â_`, and a lossless
--- observable's flow space is `isContr` by `SvaFiberVasa`.  The two
--- modules had never been in the same room.
+-- observable's flow space is `isContr` by `SvaFiberVasa`.
 ------------------------------------------------------------------------
 
 ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞-‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§≠‡§æ‡§∞‡§É : {A B : Type ‚Ñì} (p : Program A B)
@@ -100,14 +92,10 @@ private variable ‚Ñì : Level
 -- ‡® ¬ THE CONTRAST.  Translation by the order conserves the power map.
 --
 -- `‡ò‡æ‡ g 3 ‚â° Œµ` is refl in `BijamulaKrida`, so three successor steps
--- prepend g¬≥.  PUT TO THE KERNEL RATHER THAN ARGUED, and the first
--- attempt was wrong: `refl` fails, because `powg (3 + n)` reduces only
--- to `g ‚àò (g ‚àò (g ‚àò powg n))` and stalls on the variable.  What is
--- needed is g¬≥ acting as the unit ON EVERY ELEMENT ‚î three cases, each
--- `refl` ‚î and then the period law is `cong` of it.  The failed `refl`
--- is recorded here rather than quietly replaced: `g¬≥ ‚â° Œµ` and
--- `‚à x. g¬≥ ‚àò x ‚â° x` are two statements and only the second reduces
--- under a bound exponent.
+-- prepend g¬≥.  What is needed is g¬≥ acting as the unit ON EVERY
+-- ELEMENT: three cases, each `refl`, and then the period law is
+-- `cong` of it.  `g¬≥ ‚â° Œµ` and `‚àÄ x. g¬≥ ‚àò x ‚â° x` are two statements
+-- and only the second reduces under a bound exponent.
 ------------------------------------------------------------------------
 
 ‡§§‡•ç‡§∞‡§ø‡§ò‡§æ‡§§-‡§è‡§ï‡§Æ‡•ç : (x : C‚ÇÉ) ‚Üí g ‚àò (g ‚àò (g ‚àò x)) ‚â° x
@@ -156,7 +144,7 @@ private variable ‚Ñì : Level
            (‡§Ø‡§®‡•ç‡§§‡•ç‡§∞-‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§≠‡§æ‡§∞‡§É p))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î the limits of the reading in the header.
+-- ‡ ¬ ‡‡‡‡ ‚î the reading in the header.
 --
 -- `‡µ‡æ‡‡ powg` carries ‡‡µ‡‡‡‡‡ø-‡‡‡∞‡µ‡æ‡-‡Ø‡‡ó‡‡Æ‡Æ‡ to the section
 -- `a ‚¶ (3 + a , ‡‡µ‡‡‡‡‡ø‡ a)`: at every exponent, the next exponent with
@@ -164,16 +152,4 @@ private variable ‚Ñì : Level
 -- family whose non-contractibility at Œµ is `GhataFiber.‡‡®‡‡‡‡-‡¶‡‡µ‡ø‡‡¶‡`.
 -- The two are the same family; the sentence "the ambiguity and the
 -- symmetry are one object" says that and no more.
---
--- NOT settled here: that the flow space is EXACTLY the ‚/3 of
--- translations ‚î ¬ß‡© exhibits two flows and refutes contractibility; it
--- does not compute the space, and the sections of a fibre family over ‚ï
--- are far larger than the translations (any pointwise choice will do).
--- Computing it needs the fibres identified uniformly in `a`, which is
--- `GhataFiber`'s owed general coset statement.  ¬ß‡© is a witness, not a
--- census.
---
--- NOT settled here: anything about C‚'s successors.  ¬ß‡®'s `refl` is a
--- fact about this group's definitional behaviour and is not a proof that
--- translation-by-the-order conserves in any other cyclic group.
 ------------------------------------------------------------------------

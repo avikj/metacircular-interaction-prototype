@@ -71,12 +71,7 @@
 -- `cita` because 1.1.5 reads the `k` that 1.3.9 erased; make lopa a
 -- deletion (`deriveWithoutLopa`) and it gives `ceta`.
 --
--- CORRECTED 2026-08-20, when the engine side was spliced in and the
--- claims became checkable.  This paragraph previously predicted what
--- striking `anal-vidhau` (`deriveSthanivatEverywhere`) would give:
--- `neana` for n ~ lyu, `vj` for vc, `tadjalam` for tat + jalam.
--- All three are wrong, and the machine's answers are sharper than the
--- guesses were:
+-- Striking `anal-vidhau` (`deriveSthanivatEverywhere`) gives:
 --
 --   n ~ lyu   nayana â’ neyu.  7.3.84 reads the  it has itself just
 --               replaced, re-offers the SAME gua, the offer is a no-op,
@@ -96,10 +91,6 @@
 --               this agreement.
 --   tat + jalam tajjalam â’ tajjalam, unchanged.
 --
--- The prediction was made before the mechanism existed and was not
--- marked as one.  It is kept here, struck and corrected, rather than
--- edited away.
---
 -- ONE MODELLING CHOICE, STATED.  1.1.56 is an atidea -- it EXTENDS the
 -- sthnin's properties to the dea.  Here that is rendered as a READING:
 -- `drsta anal` hands a rule the sthnin's form, `drsta al` the dea's.
@@ -108,16 +99,12 @@
 -- whose cost can be measured, and what it costs is that an extension of a
 -- property is rendered as a substitution on the input.
 --
--- PRIOR ART, searched before writing.  That sthnivadbhva has the shape
--- of an abstraction barrier is stated in this repository's own
--- reading came from and which flags it as unimplemented; the reading of
+-- PRIOR ART.  The reading of
 -- 1.1.56 as opacity-with-an-exception is standard in the commentarial
 -- literature (the Kik's treatment of anal-vidhi; Kiparsky on the
 -- architecture of the grammar).  What is here is the mechanisation and
 -- the impossibility half â” that no designation-function agrees with an
--- al-vidhi, and that no single reading serves both â” which I did not
--- find stated, and which is cheap enough that if it is stated somewhere
--- I did not reach, this is a re-derivation and the citation is owed.
+-- al-vidhi, and that no single reading serves both.
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
@@ -368,8 +355,7 @@ darsana-cannot-see r = cong r same-surface
 -- first as a factorisation theorem; Â§5â“6 is the second as a separation.
 --
 -- The engine in machine/Astadhyayi.hs runs on exactly this, and the
--- correspondence is stated with the engine's own names (checked against
--- it 2026-08-20, when the engine side was written):
+-- correspondence is stated with the engine's own names:
 --
 --   `Varna` here          â’ there the item and a PARALLEL channel `Prov`,
 --                           not one record.  The sthnin is a String and

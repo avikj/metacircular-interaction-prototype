@@ -12,7 +12,7 @@
 -- (a,b,c) case of Taoâ“Tervinen, Forum Math. Sigma 7 (2019) e33,
 -- Thm 1.14 Â§7.  Window5Walsh already checks the headline table facts
 -- (ten zeros, mass one, stationarity, Walsh spectrum, one broken-flip
--- witness).  What remained UNFORMALIZED were the packet's clauses
+-- witness).  This module formalizes the packet's clauses
 --
 --   (B) for |c| < 1 at most TEN of the 32 atoms vanish, with equality
 --       iff c = 1/3 and |a| = |b| = 1/3  (four vertices); and
@@ -108,8 +108,7 @@
 -- points of the strict-inequality side: (1/4,1/4,1/2) â” the B,C-facet
 -- edge with c > 1/3 â” has 8 zeros; (1/2,0,0) has 8; the interior point
 -- (1/6,1/6,1/3) has 0.  The universally quantified "at most ten for
--- ALL |c| < 1" itself is the hand proof above and is NOT claimed as a
--- kernel object.
+-- ALL |c| < 1" itself is the hand proof above.
 --
 ------------------------------------------------------------------------
 

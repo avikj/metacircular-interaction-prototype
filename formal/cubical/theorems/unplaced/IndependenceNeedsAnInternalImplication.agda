@@ -14,36 +14,15 @@ open import GodelSeparation
 ------------------------------------------------------------------------
 -- IndependenceNeedsAnInternalImplication
 --
--- What this lane would have to carry to STATE independence rather than
--- gesture at it â” answered by writing the predicate down and finding
--- the one field that is missing.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE QUESTION AND WHERE IT CAME FROM
---
--- thread and leaves one thing open: a real barrier is independence FROM
--- A THEORY or non-existence of an algorithm UNIFORM IN A PARAMETER, and
--- "stating one requires a theory to be independent OF â¦ objects this
--- lane does not carry.  `GodelSeparation` is the corpus's one gesture
--- at the first."  The uniform route was opened at `3b2e9756`
--- (`TheUniformFormIsNotRefuted`).  This is the other one.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- A CORRECTION TO THAT NOTE, ON READING THE MODULE IT CITES
---
--- The lane DOES carry the objects.  `GodelSeparation.Theory` is a record
+-- `GodelSeparation.Theory` is a record
 -- with `Sent`, `Pf`, `neg`, `prov`; `Consistent`, `HBL1`, `GoedelFix`
 -- and `OmegaBad` are defined over it; `goedelHalfOne` proves `Â Pf T G`
 -- from consistency, HBL1 and the fixed point; and `noHalfTwo` REFUTES
 -- the other conjunct from those same data with a four-sentence
--- countermodel `Wit`.  That is not a gesture at independence.  It is
+-- countermodel `Wit`.  That is
 -- one conjunct proved, the other conjunct's derivability refuted, and
 -- the Ï‰-consistency failure of the countermodel exhibited
 -- (`witOmegaBad`).
---
--- What was missing was smaller and more specific than "the objects":
--- nobody had written down the predicate `Independent`, so the corpus
--- had both halves of a statement it had never stated.  Â§1 states it.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -66,9 +45,8 @@ open import GodelSeparation
 --       three lines.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- SO THE ANSWER TO "WHICH LANE", ON THIS ROUTE
 --
--- Not a theory object: `Theory` is there.  What `Theory` lacks is a
+-- What `Theory` lacks is a
 -- CONNECTIVE FORMER.  It carries `neg` and `prov`, both `Sent â’ Sent`,
 -- and no way to build one sentence from two.  `GoedelFix` is therefore
 -- stated at the derivability level â” a pair of implications between
@@ -76,19 +54,9 @@ open import GodelSeparation
 -- biconditional to be a SENTENCE the theory itself proves, so that
 -- `T âŠ ÂG` yields `T âŠ Prov(G)` by modus ponens inside T.
 --
--- One field, `imp`, and one rule, `mp`.  That is the whole distance
--- between this lane and the first route, and Â§4 measures it by assuming
--- exactly those two and getting the conjunct.
+-- One field, `imp`, and one rule, `mp`.  Â§4 measures that distance by
+-- assuming exactly those two and getting the conjunct.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- PRIOR ART, by grepping the conclusion type rather than the name: a
--- grep of `formal/cubical` for `Independen` finds only
--- `CachePathOrder.batchOrderIndependent`,
--- `M1SplitIdentity.corner-independent` and
--- `ObligatioOrderTrilemma`, all about order-independence of a fold.
--- No predicate of underivability of a sentence and its negation exists.
--- A version phrased as a `Â Î` over derivations would evade that grep.
 ------------------------------------------------------------------------
 
 private

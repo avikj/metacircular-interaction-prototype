@@ -64,9 +64,6 @@
 -- and what is taken from it is the SHAPE, a readout too narrow to hold
 -- the distinctions being forced to deny one, not a theorem of any Jaina
 -- logician.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Kosthabhitti_TheHaniIsAWallGeneratorSoThePigeonholeRetiresJoinsAcrossTheWholeNet where

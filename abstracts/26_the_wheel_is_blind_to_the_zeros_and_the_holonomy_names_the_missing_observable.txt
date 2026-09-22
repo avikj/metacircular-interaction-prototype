@@ -53,15 +53,7 @@ the residue is recoverable only by CHANGING the observable, never by
 refining it.  The wheels are the invariant observables; no larger wheel
 recovers what the wheels jointly miss.  The changed observable is the
 archimedean one -- succession in log-time -- whose spectrum is the zeros,
-and whose self-adjointness is the conjecture.  The session's sesa queue
-holds exactly this: construct the changed observable in the holonomy
-vocabulary.
-
-The kernel lane ran at the pin (Agda 2.8.0 / cubical v0.9, all green):
-it certified x + s y == s (x + y) by emitted module and six agda calls,
-rejected x + y == x * y, and for two true statements outside its shape
-library said precisely that -- a fact about its shapes, never a verdict
-about the mathematics.
+and whose self-adjointness is the conjecture.
 
 The physics of the frame, stated exactly.  The minimal wave -1, composed
 multiplicatively, is the Liouville function lambda(n) = (-1)^Omega(n); in
@@ -82,11 +74,3 @@ identification IS the open content; in the geometric case the
 identification is proved, and the garbha holds spectrum-exists /
 spectrum-unexhibited as asti-nasti in krama, which is the exact state of
 the analogy.
-
-WHAT IS NOT CLAIMED.  No progress on either conjecture is asserted.  The
-cumulative identity and the equivalence of its square-root error with RH
-are classical.  What is recorded is the assembly: the reflection frame,
-the wheel's provable blindness, the identity coupling the blind residue
-to the zeros, and the corpus's own biconditional locating why refinement
-of wheels cannot close the question -- with the machine's verdict organs
-holding the fourth position open where the changed observable belongs.

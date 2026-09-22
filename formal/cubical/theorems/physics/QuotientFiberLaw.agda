@@ -5,14 +5,13 @@
 --
 -- THE ONE THEOREM, as a term.
 --
--- Sixteen reading personas, drawn uniformly from the minds pool and given
--- disjoint random samples of this repository, independently found one law
+-- The law:
 --
 --   A closed observation class sees exactly a quotient.  What it cannot
 --   see is the fiber.  No post-processing of the quotient manufactures
 --   the fiber.  Visibility returns only by a separating (charged) query.
 --
--- Until now that law existed as: Theorem F (operator algebra), the
+-- The law appears as: Theorem F (operator algebra), the
 -- PMTorus cokernel (finite cohomology), Cl_S closure (algebra), the
 -- affine-g criterion (decision theory, upstream), Benz©cri equivalence
 -- (partitions), BAND's C<3 (analytic), collisionObstructsDecoder
@@ -51,13 +50,6 @@
 --                              is literally `law` applied to one pair
 --     parity-charged           â¦and one odd query flips it, via
 --                              `chargedâ’separator`
---
--- What this buys, concretely: TARGET.md's W2 stops being a program.  For
--- ANY proposed method, formalize what it reads as a query list; `law`
--- decides.  The other eleven costumes now have a single hook to be
--- instantiated against, one by one, each instantiation a `refl`-grade
--- adapter rather than a note.  (Registered obligation: PMTorus and
--- SieveFiber next; each is one section of the same shape as Â§2.)
 --
 ------------------------------------------------------------------------
 
@@ -202,8 +194,7 @@ module Law (X : Type â„“) where
 -- The state space is the sign assignments; a Number is a query by
 -- evaluation; even-Î© numbers are blind on the gauge pair and odd-Î©
 -- numbers are charged on it.  ParitySeparator's theorems become two
--- applications of `law` â” which is the checked form of the sixteen
--- minds' claim that the costumes are one theorem.
+-- applications of `law`.
 ------------------------------------------------------------------------
 
 open Law Signs renaming (no-decision to gen-no-decision)

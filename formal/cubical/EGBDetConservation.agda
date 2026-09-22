@@ -28,8 +28,7 @@
 -- For a full matrix [[a,b],[c,d]] the determinant is aÂd âˆ’ bÂc: it
 -- NEEDS subtraction, so over the rig â• (no additive inverses) "det"
 -- of a full matrix is not even defined â” aÂd âˆ’ bÂc is not an â•-term.
--- No claim about full matrices is made or checkable in this module;
--- what IS checked is the upper-triangular witness that explains the
+-- The upper-triangular witness explains the
 -- sector choice: with c = 0 the would-be subtracted term bÂc is
 -- b Â 0 â‰¡ 0 (crossTermVanishes below), so the â-determinant,
 -- restricted to the sector, collapses to the subtraction-free aÂd
@@ -44,17 +43,13 @@ open import Cubical.Foundations.HLevels using (isSetRetract; isSetÃ—)
 open import Cubical.Data.Nat
 open import Cubical.Data.Sigma
 open import Cubical.Algebra.Monoid
--- Ported to the cubical v0.9 solver interface, 2026-08-21.  Under the pinned
--- toolchain (Agda 2.8.0 + cubical b150186d2544) this module was the ONLY hard
--- error in the 508-module Everything.agda run.
---
 -- Cubical.Tactics.NatSolver.Reflection exports neither `solve` nor
 -- `natSolve`: its line 34 is `open EqualityToNormalform renaming (solve to
 -- natSolve)` WITHOUT `public`, so both names stop at that module's boundary.
 -- The public entry point is the macro `solveâ•!`, re-exported by
 -- Cubical.Tactics.NatSolver, and the library's own Examples.agda gives the
 -- idiom: the macro fills the goal, so the variables must be bound on the
--- left-hand side rather than the point-free `f = solve` used below before.
+-- left-hand side.
 open import Cubical.Tactics.NatSolver using (solveâ„•!)
 
 ------------------------------------------------------------------------

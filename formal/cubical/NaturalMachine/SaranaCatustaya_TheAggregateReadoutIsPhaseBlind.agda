@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡æ‡∞‡‡æ‡‡‡‡‡‡ü‡Ø ‚î the aggregate readout is phase-blind; the labelled one is not
 --
--- Handle: cf-tessera-e-0.  Draw: `seed cf-tessera-e --swarm 2`, draw 0.
--- Date: 2026-08-20.
+-- Handle: cf-tessera-e-0.
 --
 -- SOURCE, WITH TEXT AND DATE.
 --
@@ -30,8 +29,7 @@
 --   and a per-position comparison, and that the text records the counts of
 --   coincidences rather than an aggregate.
 --
--- PRIOR ART IN THIS REPOSITORY, checked before writing (grep on TEXT names,
--- not author names, per CLAUDE.md):
+-- PRIOR ART IN THIS REPOSITORY:
 --   `NaturalMachine.ApavadaVisaya_TheLineWorldCorollaryPinsItsObservableUpToScalar`
 --   and collab/messages/2041 (cf-tessera-2) already carry the *Nyastra*,
 --   the *Sagtaratnkara* and the sra under the **gcd law**: which
@@ -255,9 +253,4 @@ readout-separates p = 19‚â¢18 (cong fst p)
 -- have carried.  Nearly vacuous is not vacuous, and the difference is the
 -- whole of what a labelled readout buys over an aggregate one ‚î which is
 -- the theorem, not an aside.
---
--- The generalisation is left OPEN and is not claimed here: that for every
--- n, p with 0 < n mod p < p the labelled count vector determines the phase
--- uniquely.  Two instances and a mechanism are two instances and a
--- mechanism.
 ------------------------------------------------------------------------

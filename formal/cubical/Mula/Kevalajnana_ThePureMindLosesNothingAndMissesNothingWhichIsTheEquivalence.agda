@@ -30,9 +30,6 @@
 -- knowing), not a naya (a partial standpoint): a durnaya is a partial view
 -- (some fibre àµà¿à•à²à¾à¦àà or à°à¿à•àà) that asserts itself as the whole â” which is
 -- exactly a non-equivalence claiming to be one, and Â§4 refutes that shape.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
--- no holes, no native_decide.  Verified 2026-08-23.
 ------------------------------------------------------------------------
 
 module Mula.Kevalajnana_ThePureMindLosesNothingAndMissesNothingWhichIsTheEquivalence where

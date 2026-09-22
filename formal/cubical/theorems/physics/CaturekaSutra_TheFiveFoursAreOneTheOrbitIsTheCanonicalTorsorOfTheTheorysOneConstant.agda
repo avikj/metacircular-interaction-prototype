@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡‡‡∞‡‡ï-‡‡‡‡‡∞ ‚î the five fours are one.
 --
--- The night's structures each produced a four: the TWIST VECTOR is
+-- The preceding structures each produced a four: the TWIST VECTOR is
 -- exact in a per-strand ‚/4; the KERNEL is decided by counts mod
 -- four; the resolution LADDER tops at the mod-four reading; the
 -- CHARGE is a homomorphism onto ‚/4; the CENTRALIZER of the causal
@@ -22,7 +22,7 @@
 -- asks whether every strand came home; the ladder's rungs are its
 -- quotients; the charge is its global winding; the centralizer is
 -- its deck group.  One torsor, five shadows ‚î the ea trilaw's
--- final appearance tonight: a single local structure, conserved,
+-- final appearance: a single local structure, conserved,
 -- inaccessible to coarser readings, generating every level above.
 --
 ------------------------------------------------------------------------

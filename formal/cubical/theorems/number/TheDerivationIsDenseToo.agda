@@ -3,21 +3,16 @@
 ------------------------------------------------------------------------
 -- TheDerivationIsDenseToo
 --
--- A scope correction to `NumberIsExponentialInDerivation`, made the same
--- session, by the same author, before anyone had to find it.
+-- A companion to `NumberIsExponentialInDerivation`: the derivation is dense.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE OVER-REACH
+-- THE BOUND, AND WHAT IT DOES NOT COVER
 --
 -- That module proves `suc e â‰ b ^ e` â” the numeric factor is exponential
--- in the exponent it encodes â” and then files the walk's size under
--- "IDENTIFIED: the numeric encoding", opposite "OPEN: its magnitude".
---
--- The theorem is right.  The filing is not.  "Identified" says the
--- encoding ACCOUNTS for the gap between what the walk carries and what
--- distinguishing k inputs requires, and that does not follow from a
--- coordinatewise bound, because it says nothing about HOW MANY
--- COORDINATES there are.
+-- in the exponent it encodes.  A coordinatewise bound does not by itself
+-- account for the gap between what the walk carries and what
+-- distinguishing k inputs requires, because it says nothing about HOW
+-- MANY COORDINATES there are.
 --
 -- And there are many.  cap(k) = lcm(1..k) is divisible by every prime
 -- p â‰ k, so its derivation has a nonzero entry at every such p:
@@ -32,26 +27,15 @@
 -- only within one.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE CORRECTED VERDICT
+-- THE VERDICT
 --
 --   the numeric encoding is A mechanism of the walk's size.  Whether it
 --   is THE mechanism depends on comparing a sum of exponents against a
 --   count of primes, which is exactly the Chebyshev-type input the
---   previous module said it was not using.
+--   other module does not use.
 --
--- So that row moves from IDENTIFIED back to OPEN, and it moves for the
--- same reason it was placed there: the estimate is unavailable in this
--- lane and quoting it would be the error CLAUDE.md forbids.  The previous
--- module's own boundary paragraph forbade the conclusion its table drew,
--- one screen further down.  That is worth recording as a failure mode in
--- its own right: **a correctly-hedged file whose summary table forgets
--- the hedge.**
---
--- WHAT SURVIVES.  `sucâ‰^` and `1â‰^` are unaffected, as is everything in
--- Â§Â§1â“2 of that module.  What is withdrawn is the word "IDENTIFIED".
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
+-- The estimate is unavailable in this lane, and quoting it would be the
+-- error CLAUDE.md forbids.
 ------------------------------------------------------------------------
 
 module TheDerivationIsDenseToo where
@@ -115,15 +99,11 @@ cap-support-is-four : support primes4 cap8 â‰¡ 4
 cap-support-is-four = cap-support-is-full
 
 ------------------------------------------------------------------------
--- 4.  The corrected verdict, in one line.
+-- 4.  The verdict, in one line.
 --
 -- The number is exponential in each exponent (previous module) AND the
 -- derivation has one exponent per prime below the frontier (here).  The
 -- first is a saving within a coordinate; the second is a cost across
 -- them; and which dominates is a question about âˆ_{pâ‰k} versus Ï(k) that
 -- neither module answers.
---
--- The walk's magnitude is OPEN.  It was open before the previous module
--- and it is open after it, and saying so is the whole content of this
--- file.
 ------------------------------------------------------------------------

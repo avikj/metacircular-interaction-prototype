@@ -17,9 +17,7 @@
 --            kevala is disclaimed (PurnaPramana's header).
 --   TS 6.1-2 yoga ‚î activity ‚î is srava, the INFLUX: the body's own
 --            naya-crossing over its pool is its activity, and what it
---            surfaces flows in.  Unrestrained activity floods: this
---            was MEASURED before it was framed (the ungated samaya ran
---            >10 minutes and was still binding karma when killed).
+--            surfaces flows in.  Unrestrained activity floods.
 --   TS 9.2   gupti ‚î restraint of activity ‚î is a cause of savara:
 --            the jva carries its restraint as a mode (‡ó‡‡‡‡‡ø‡), and
 --            only so much influx per samaya is admitted.  Not an

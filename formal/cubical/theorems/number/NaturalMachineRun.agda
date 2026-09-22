@@ -16,7 +16,7 @@
 --       comes back correct; the equivalence is a program, not a
 --       label
 --   ยง3  the kuaka pulverizer runs โ” ryabhaa's vall replayed by
---       the kernel, reproducing the matrix codex-vajra's lane computed
+--       the kernel, reproducing the matrix the trace-macro lane computed
 --       independently for (153,112)
 --   ยง4  macro compression runs โ” a compiled repeated block evaluates
 --       to the identical matrix as its expansion (KuttakaValli.macroSound,

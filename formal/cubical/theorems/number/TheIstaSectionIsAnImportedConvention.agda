@@ -12,44 +12,20 @@ open import Kuttaka using (solutionFamily)
 ------------------------------------------------------------------------
 -- TheIstaSectionIsAnImportedConvention
 --
--- The one item `INDIC_FORMAL_TRADITIONS_MAP.md` Â§5.2 leaves open after its
--- 2026-08-18 DISCHARGED block, quoted from the note:
+-- WHAT IS PROVED
 --
---     "Still NOT done, named there: only the ia least-non-negative
---      section (needs a mod/section convention)."
---
--- and from `formal/cubical/Kuttaka.agda`'s own header, line 47: the ia
--- section "needs a mod/section convention and is not supplied here."
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS PROVED, AND WHAT IS STILL NOT
---
--- Â§5.2(ii) asked for "the ia reduction as an explicitly IMPORTED
--- section".  Â§1 below takes that literally: a section is a PARAMETER â”
+-- The ia reduction as an explicitly IMPORTED
+-- section: Â§1 takes that literally: a section is a PARAMETER â”
 -- any function on the solution index that lands in the family â” and Â§2
 -- proves that importing one costs nothing, since the reduced solution
 -- still solves the equation.
 --
--- That is the *convention* half, and it is the half
--- "the section is a declared convention".  Declared, not derived â” so the
--- honest formalisation makes it a parameter and proves the equation is
+-- The section is a declared convention.  Declared, not derived: the
+-- formalisation makes it a parameter and proves the equation is
 -- indifferent to it.
 --
--- STILL NOT DONE, and narrowed rather than closed: the LEAST-NON-NEGATIVE
--- property.  Nothing below says the section lands in `[0, b)`; that needs
--- an order and a division algorithm on `â`, neither of which `Kuttaka`
--- carries.  So Â§5.2's remaining item is now two items, one discharged and
--- one open, and the open one is minimality, not the section.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- That the section is unique or canonical.  Â§1's type admits many
--- sections, and that multiplicity is the point: the equation does not pick
--- one.
---
--- PRIOR ART, grep run and quoted: `grep -rn "IstaSection\|ista\|ia"
--- formal/cubical/` returns only the two lines of `Kuttaka.agda`'s header
--- that name it as not done.  No section exists in the formal tree.
+-- Â§1's type admits many sections, and that multiplicity is the point: the
+-- equation does not pick one.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

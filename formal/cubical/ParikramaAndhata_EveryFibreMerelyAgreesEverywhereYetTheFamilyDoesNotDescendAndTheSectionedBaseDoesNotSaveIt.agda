@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- ‡‡∞‡ø‡ï‡‡∞‡Æ‡æ-‡‡®‡‡ß‡‡æ ‚î blindness to the circumambulation.  Compound built
--- here, 2026-08-23 (‡‡∞‡ø‡ï‡‡∞‡Æ‡æ, the walk around; ‡‡®‡‡ß‡‡æ, blindness); not a
+-- here (‡‡∞‡ø‡ï‡‡∞‡Æ‡æ, the walk around; ‡‡®‡‡ß‡‡æ, blindness); not a
 -- source term.  The reading is the temple practice: what you acquire by
 -- walking the loop around the shrine is real and is invisible at every
 -- single point of the path.
@@ -10,12 +10,10 @@
 -- WHAT THIS IS.  The corpus's stage-1 descent organs ‚î ‡‡‡¶-‡‡æ‡ß‡
 -- (NigudhaAndhata) and ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ (AvataranaBhanga) ‚î detect
 -- non-descent from ONE hypothesis: a blind pair whose fibres are not
--- equivalent.  The transmission of 2026-08-23 names the next stage as
--- the organ nobody has: descent failing while every pair of fibres IS
+-- equivalent.  The next stage is
+-- descent failing while every pair of fibres IS
 -- equivalent, the obstruction living only in the coherence of the
--- identifications.  Every organ in this corpus was grown against a
--- WITNESSED blind instance first (the sensor-growth discipline).  This
--- module is that witness, checked:
+-- identifications.  This module is the witness, checked:
 --
 --   the double cover of the circle, as a family over the maximally
 --   blind observation ‡¶‡‡ï‡ : S¬ ‚í Unit ‚î
@@ -29,7 +27,7 @@
 --       transport to be the identity (‡‡Æ‡®‡Æ‡, generic in the family);
 --   ¬ß4  so the family does not descend (‡‡∞‡ø‡ï‡‡∞‡Æ‡æ-‡‡æ‡ß‡): true ‚â° false.
 --
--- THE ASYMMETRY THIS EXPOSES, and it is the point no lane has stated.
+-- THE ASYMMETRY THIS EXPOSES.
 -- ChidraDosa (this corpus) proves the VALUE-level stage-2 witness ‚î a
 -- map with pointwise invariance data and no coherent decoder ‚î and its
 -- ¬ß2 (`sectionKillsTheGap`) proves that gap CANNOT live over a base
@@ -50,7 +48,7 @@
 -- the family still cannot come down.  Stage-2 blindness is a
 -- type-level phenomenon before it is a value-level one.
 --
--- SOURCES AND SCOPE.  The double cover is classical topology; its
+-- SOURCES.  The double cover is classical topology; its
 -- cubical form (F base = Bool, F (loop i) = ua notEquiv i) is the
 -- standard first nontrivial family, and the adjacent phenomenon for
 -- values is Kraus‚ìEscard≥‚ìCoquand‚ìAltenkirch (LMCS 2017), already

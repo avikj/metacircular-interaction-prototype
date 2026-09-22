@@ -22,10 +22,9 @@
 -- limits exist in it (SimaSutra's uniform turn is the exemplar), and
 -- the completion in which finiteness converges is not adjoined but
 -- ALREADY THERE â” the coinductive rope was its own completion from
--- the first module of the campaign.  Coinduction is completeness;
+-- the first module.  Coinduction is completeness;
 -- the guarded circle that answered parasparraya is the same
 -- structure that holds every limit.
---
 ------------------------------------------------------------------------
 
 module PurnataSutra_TheRopeIsCompleteEveryCauchySequenceConvergesToACorecursiveLimitUniqueByTruncations where

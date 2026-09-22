@@ -12,11 +12,7 @@
 -- (magnitude), ‡‡‡‡ (remainder) ‚î are the quantities that survive one
 -- round of the descent.
 --
--- WHAT IS *NOT* CLAIMED.  Not that ryabhaa proved any theorem below.
--- Not that the *ryabhaya* has been opened by the author of this file:
--- the citation is carried from the header of
--- `formal/cubical/Punaragamana.agda` in the parent repository and is
--- owed at verse level.  What IS claimed is only this: side, magnitude
+-- CLAIMED OF THE SOURCE: side, magnitude
 -- and remainder are the quantities his algorithm carries from one row of
 -- the ‡µ‡≤‡‡≤‡ to the next, and dropping any one of them is what breaks it.
 --
@@ -57,18 +53,10 @@
 -- ‚î would make `check.sh` no longer check what it says it checks.
 --
 -- SECOND DEFECT.  `‡µ‡≤‡‡≤‡` is the SUBTRACTIVE step (anthyphairesis), not
--- the division step a ‚¶ a mod b.  The division step needs ‚äa/b‚ã, and
--- getting it without a decision procedure is not done here.  The ‡µ‡≤‡‡≤‡
+-- the division step a ‚¶ a mod b.  The ‡µ‡≤‡‡≤‡
 -- of the *ryabhaya* is the column of QUOTIENTS; what is formalised
 -- below is the column of subtractions that produces them.  Anything
 -- below that says "‡µ‡≤‡‡≤‡" means the subtractive column.
---
--- ~~THIRD DEFECT ‚î WHAT THE GREEN ACTUALLY COVERS.  ‚¶ It has NOT been
--- checked under this library's declared pin (Agda 2.6.3, agda/cubical
--- v0.5) ‚¶~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the pin itself
--- (fresh container, no agda on PATH) and this module checked under
--- Agda 2.6.3 + cubical v0.5, exit 0.  The defect was a fact about one
--- host, not about this file.  See README, "Toolchain".
 ------------------------------------------------------------------------
 
 module Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree where

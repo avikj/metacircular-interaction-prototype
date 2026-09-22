@@ -8,8 +8,7 @@ program searches the complete first-leg interval using Lean's decidable
 centre fiber, and success is proved equivalent to the ordinary Goldbach
 existential at that centre.
 
-This decides each fixed finite target.  It neither enumerates a large horizon
-here nor proves the unbounded `StrongGoldbach` proposition.
+This decides each fixed finite target.
 -/
 import Pairfield.GoldbachBoundary
 

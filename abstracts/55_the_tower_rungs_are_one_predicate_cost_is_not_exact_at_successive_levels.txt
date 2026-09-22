@@ -8,10 +8,9 @@ The self-generating closure / the tower's step as one type / cost's
 non-exactness at every degree
 
 GarbhaDhara built one step: install cones off an obstruction and
-precipitates the fee one level up (the non-descending cost).  The open
-item it left was the ITERATION â” that the fee at level n is the carrier
-at level n+1, endlessly.  GarbhaShreni does not build the whole âˆž-tower;
-it builds the RUNG RELATION as a term, so that "climb a level" is
+precipitates the fee one level up (the non-descending cost).
+GarbhaShreni
+builds the RUNG RELATION as a term, so that "climb a level" is
 re-instantiating ONE predicate one degree up, not a new phenomenon each
 time.
 
@@ -38,15 +37,9 @@ has no 1-potential (not exact on Ïâ).  Coning off rung n (install) is
 exactly what makes rung n+1's failure visible; that the two rungs are
 the same predicate is why the climb is a step, not a coincidence.
 
-The open problem is thereby sharpened, not solved: from "does install
-iterate into a tower" to the precise induction "for the derivation
-cochain complex, cost is not exact at any degree n" â” two base cases
-now discharged as one predicate.
-
 SYT â” THE CLAIM, EXACTLY.  The predicate, and the two corpus
 obstructions AS instances of it (rung 0 definitional, rung 1 up to sym),
-and their product.  NOT claimed: the full âˆž-tower â” that rung n
-precipitates rung n+1 for all n â” which is the remaining induction.
+and their product.
 
 Machine-checked in cubical type theory, --safe, at the pin; the rung
 types and their product computed and read back through the interactive

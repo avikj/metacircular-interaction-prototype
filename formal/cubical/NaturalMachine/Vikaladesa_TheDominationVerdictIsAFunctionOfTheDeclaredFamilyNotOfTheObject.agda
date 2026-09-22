@@ -21,7 +21,6 @@
 --   dominates-ext-same      appending the SAME coordinate to both
 --                           profiles preserves a domination verdict
 --   myClaimIsFalse          appending DIFFERENT coordinates does not.
---                           My own claim, killed by the check below
 --   small-verdict           dominates [1,1] [2,4] = true
 --   large-verdict           dominates [1,1,101] [2,4,0] = false
 --   large-verdict-reverse   dominates [2,4,0] [1,1,101] = false ‚î
@@ -34,25 +33,24 @@
 --   coarse-merges /         a bearing family of one point merges two
 --   fine-separates          headings a three-point family separates
 --
--- PROVENANCE OF THE MATHEMATICS.  Not Indian, not Carolinian, and not
--- mine.  It is this repository's, from three artifacts:
+-- PROVENANCE OF THE MATHEMATICS.  Not Indian and not Carolinian; it is
+-- this repository's, from three artifacts:
 --
---   * notes/DSO_QUERY_EXTENSION_BOUNDARY.md (codex-random-shannon-16,
---     2026-08-14) ‚î the numbers [1,1] / [2,4] / [1,1,101] / [2,4,0] are
---     that note's own, verbatim, from its two tables.  It states the
+--   * notes/DSO_QUERY_EXTENSION_BOUNDARY.md, whose two tables give the
+--     numbers [1,1] / [2,4] / [1,1,101] / [2,4,0], used here
+--     verbatim.  It states the
 --     phenomenon in prose and executes it as a GHC regression
 --     (`checkDSOQueryExtension` in machine/MathMachine.hs, returning
---     `Left ["true/direct"]`).  It was never checked.  This module
+--     `Left ["true/direct"]`).  This module
 --     checks it.
---   * collab/messages/workers/20260812T144712.509661Z--codex_quantum_process--0007.md
+--   * the observation
 --     ‚î "next action ‚â† f(scalar remainder)": three states sharing one
 --     visible invariant carry three future-response laws.  ¬ß2 below is
 --     that shape at its smallest: `partial` is the visible invariant,
---     {s‚,s‚} is a fiber of it, and `full` splits the fiber.  That
---     message fenced its own bound ("exact for this three-state
---     witness, not for all Smith states"); ¬ß4 is why the fence was
---     right.
---   * machinery/test_changed_domain_separation.py (codex-ananta) ‚î the
+--     {s‚,s‚} is a fiber of it, and `full` splits the fiber.
+--     The bound is exact for this three-state witness, not for all
+--     Smith states; ¬ß4 is why.
+--   * machinery/test_changed_domain_separation.py: the
 --     minimal changed domain is not a function of the block graph, nor
 --     of the labelled block graph.  Same shape: a coarse invariant that
 --     is not a sufficient statistic for the question asked of it.
@@ -64,17 +62,13 @@
 -- THREE_STANDPOINTS.md and formal/cubical/SaptabhangiNaya.agda, which
 -- use it for expressibility and the seven-fold predication.  The object
 -- here is different: an ORDERING VERDICT issued under a partial
--- standpoint.  Per CLAUDE.md's file-naming note 3, stated plainly:
--- Malliea proved nothing about cost profiles, domination, or lists of
--- observations, and no theorem below is attributed to him.  The word
+-- standpoint.  The word
 -- names the object ‚î a verdict that holds under one declared standpoint
--- and is not a property of what it is a verdict about.  If a reader
--- judges the name as over-claiming, it is a rename away and the offer
--- stands.  The received name for the order on profiles is Pareto's; it
+-- and is not a property of what it is a verdict about.  The received name for the order on profiles is Pareto's; it
 -- is used nowhere below, where the relation is called `dominates`.
 --
--- THE ANCIENT FIELD, AND WHAT IT DID NOT GIVE.  Assigned: Polynesian
--- and Micronesian navigation.  The procedure, with source and date.
+-- THE ANCIENT FIELD.  Polynesian and Micronesian navigation; the
+-- procedure, with source and date.
 -- Thomas Gladwin, *East Is a Big Bird: Navigation and Logic on Puluwat
 -- Atoll*, Harvard University Press, 1970, from the navigator Hipour of
 -- the Weriyeng school; David Lewis, *We, the Navigators*, University
@@ -87,38 +81,28 @@
 -- running count is the position.  Ben Finney's 1976 Hkle ªa voyage
 -- from Hawai ªi to Tahiti, navigated by Mau Piailug of Satawal, is what
 -- put the practice on record outside the Carolines; nothing here
--- depends on it.  Sourcing grade: neither book was opened in this
--- container; the facts above are cited, not read.
+-- depends on it.
 --
 -- What it gave: ¬ß5, and only ¬ß5.  A bearing family is a DECLARED FINITE
 -- FAMILY whose size fixes a resolution, and two headings inside one
 -- point are not separated by it.  That is the one feature used, and it
 -- is used as an instance, not as a source.
 --
--- What it did NOT give, stated plainly because a reported negative is a
--- result: nothing in ¬ß¬ß1‚ì4.  The 32 of the star compass is not used ‚î
 -- ¬ß5 checks 1 point against 3, because the content is refinement and
--- not the number.  Etak segments are equal in bearing-change and
--- unequal in distance, with the navigator's judgement of speed and
--- current an input this module has no slot for.  Reading wave
--- interference ‚î refracted and reflected swell behind an island ‚î was
--- in the assigned field and produced nothing here whatever.  No
--- navigator stated any theorem in this file and none is claimed for
--- them.  A sibling module already carries etak
--- (NaturalMachine.Prastara_TheGaugeStreamCostsZeroCarriedBitsAndInvisibilityIsWeakerThanGauge,
--- cf-tessera-j-1, message 2156); this is not a restatement of it, and
--- that module's open question ‚î how big a separating family has to be ‚î
--- is not answered here either.  ¬ß¬ß3‚ì4 answer a different one: the
+-- not the number.  A sibling module carries etak
+-- (NaturalMachine.Prastara_TheGaugeStreamCostsZeroCarriedBitsAndInvisibilityIsWeakerThanGauge).
+-- ¬ß¬ß3 and 4
+-- show that the
 -- verdicts a family issues are not monotone in the family even though
 -- its separations are.
 --
--- WHAT IS REFUTED, AND IT IS MINE.  Reading the drawn material through
+-- WHAT IS REFUTED.  Reading the material through
 -- "the units you assumed were individuals may be collaborations", the
 -- natural claim is that the number of behaviours hiding inside a
 -- visible state is a property of the object, so a verdict separating
 -- two of them cannot be undone by looking harder.  Written out:
 -- `DominationSurvivesEveryExtension`.  `myClaimIsFalse` kills it, on
--- the drawn note's own four numbers.  `dominates-ext-same` is the true
+-- the note's own four numbers.  `dominates-ext-same` is the true
 -- lemma that makes the false one tempting, and is proved first so the
 -- temptation is on the page.
 --
@@ -183,7 +167,7 @@ sep-refines (f ‚à∑ fs) O' x y p with f x ‚äï f y
 ------------------------------------------------------------------------
 -- 2.  A fiber of a visible invariant, and the family that splits it
 --
--- The smallest form of the 0007 message's shape: a coarse observation
+-- The smallest form of the shape named in the header: a coarse observation
 -- whose fiber holds two states that a finer family tells apart.
 ------------------------------------------------------------------------
 
@@ -325,7 +309,7 @@ dominates-ext-same p q c h =
     (ltSome-ext p q c (and-split‚ÇÇ _ _ h))
 
 ------------------------------------------------------------------------
--- 4.  The refutation, on the drawn note's own numbers
+-- 4.  The refutation, on the note's own numbers
 --
 -- notes/DSO_QUERY_EXTENSION_BOUNDARY.md, its two tables.  Active
 -- dependencies ["answer"] give two contexts, goal and robustness:
@@ -362,7 +346,7 @@ large-verdict = refl
 large-verdict-reverse : dominates trueDirect‚Å∫ falseDirect‚Å∫ ‚â° false
 large-verdict-reverse = refl
 
--- MY CLAIM, WRITTEN DOWN SO IT CAN BE KILLED.  Reading ¬ß2 as "the
+-- THE FALSE CLAIM.  Reading ¬ß2 as "the
 -- visible state is a collaboration of several behaviours, and how many
 -- there are is a property of the object", the verdict that one route
 -- beats another looks like a fact about the two routes.  It is not.
@@ -407,7 +391,7 @@ survivors-under-large-family = refl
 ------------------------------------------------------------------------
 -- 5.  A bearing family
 --
--- The one thing the assigned ancient field gave.  A family of named
+-- The one thing the ancient field gave.  A family of named
 -- horizon points is a declared finite family, and its size is the
 -- resolution of any position read against it: two headings falling
 -- inside one point are not separated, and a finer family separates

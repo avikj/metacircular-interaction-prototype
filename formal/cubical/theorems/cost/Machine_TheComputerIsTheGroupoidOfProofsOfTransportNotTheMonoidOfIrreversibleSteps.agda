@@ -4,7 +4,7 @@
 -- ‡Ø‡®‡‡‡‡∞ ‚î what the computer is: the groupoid of proofs-of-transport, not
 -- the monoid of irreversible steps.
 --
--- The owner asked, flatly: WHAT'S THE COMPUTER.  Not a metaphor ‚î the
+-- WHAT IS THE COMPUTER?  Not a metaphor ‚î the
 -- machine.  This file answers it as a checked term, and the answer is one
 -- word with a proof: a GROUPOID.
 --
@@ -65,7 +65,7 @@
 -- inverse ‚î the one thing the monoid lacks ‚î is the whole difference.
 --
 -- ‡Ø‡®‡‡‡‡∞ (yantra) is the corpus's word for the machine (`Yantra_The-
--- OrgansAreOneMachineOnOneWire`).  No stra claimed.
+-- OrgansAreOneMachineOnOneWire`).
 --
 -- WHAT IS PROVED (all reusing the library's checked equivalence laws, so
 -- these are the machine's instruction-set laws, not new mathematics):
@@ -92,12 +92,7 @@
 -- invert, and univalence (`ua`) makes equivalent types EQUAL ‚î so the
 -- machine cannot even express a difference between physically
 -- indistinguishable states.  General covariance is not imposed on this
--- computer; it is what its equality IS.  (Stated as motivation, not
--- proved here ‚î the proved content is ¬ß¬ß2‚ì4, the groupoid.)
---
--- No postulates, no holes, --safe.
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 (the repository pin),
--- --cubical --safe, exit 0, re-checked 2026-09-14.
+-- computer; it is what its equality IS.
 ------------------------------------------------------------------------
 
 module Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where

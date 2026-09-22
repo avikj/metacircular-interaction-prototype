@@ -21,16 +21,9 @@
 -- the Naiyyikas and the Buddhist pramavdins argued against.
 -- Asiddhatva and apavda are the grammarians' own, about how a rule
 -- behaves in a derivation.  The recurrence across them is real and worth
--- naming; the tradition attribution was not, and CLAUDE.md's rule is to
--- name the school before using the term.
+-- naming.
 --
--- A possible repair, unverified and marked as such: the tantrayukti lists
--- (Arthastra 15.1; Caraka Siddhisthna 12) are recalled to contain
--- eknta and aneknta as COMPOSITION devices ‚î a rule stated without
--- exceptions, or with them.  Read in that sense the row belongs with
--- apavda after all, for a reason this header did not give.  No edition
---
--- THE DISTINCTION THIS MODULE FORCES, and this corpus has been eliding it.
+-- THE DISTINCTION THIS MODULE FORCES.
 -- Two situations wear the same shape and are not the same:
 --
 --   * ‡‡‡µ‡æ‡¶ proper ‚î the rules DISAGREE on the exception's domain.  The
@@ -41,8 +34,7 @@
 --   * REFORMULATION ‚î the rules AGREE everywhere.  Nothing about the
 --     generated language changes.  What changes is ‡≤‡æ‡ò‡µ and price.
 --
--- `WalkFast` is the second kind and was described here as if it were the
--- first.  "next m is the least prime power above m" does not override
+-- `WalkFast` is the second kind.  "next m is the least prime power above m" does not override
 -- "least q with q ‚à cap m" ‚î it *agrees* with it, everywhere, provably
 -- (`next-characterised`).  The exchange is not an exception.  It is the
 -- same rule said in fewer words and run at a fraction of the price, which
@@ -58,9 +50,6 @@
 -- lands one universe up.  A grammar whose conditions were decidable
 -- booleans would be a different (smaller) object, and the Adhyy is
 -- not that object ‚î its conditions quantify over derivational context.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module Apavada where

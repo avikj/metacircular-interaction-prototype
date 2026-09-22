@@ -61,9 +61,6 @@
 --
 -- ‡‡®‡‡‡ï‡‡‡æ is ordinary  for non-dependence and no text is claimed
 -- for the compound.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Anapeksa_BlindnessToACoordinateIsAFactorisationSoEveryStepInItConservesForFree where

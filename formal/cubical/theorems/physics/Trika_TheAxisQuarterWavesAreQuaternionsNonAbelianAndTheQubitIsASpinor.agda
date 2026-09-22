@@ -5,9 +5,9 @@
 --       AndTheQubitIsASpinor
 --
 -- TERM.  ààà°à¿à• Â trika â” a triad; here the three axis quarter-waves i, j, k.
--- A common  word, no technical-source claim.  The physics (quaternion
+-- A common  word.  The physics (quaternion
 -- gates, SU(2)/SO(3), spinor, Poincar© sphere) is modern; the compound and
--- the identification are built here, 2026-08-24.
+-- the identification are built here.
 --
 -- THE READING (checked terms below).  Companion to `Mani_â¦`: one orb is a
 -- single âˆNOT quarter-wave.  Waveplates on DIFFERENT axes are the three
@@ -30,8 +30,6 @@
 -- quaternion product; then `iÂ² â‰¡ jÂ² â‰¡ kÂ² â‰¡ -ðŸ™` (three axis quarter-waves each
 -- squaring to the NOT/Ï element), `ij â‰¡ k`, `ji â‰¡ -k`, `ijâ‰ji` (a hard Â), and
 -- the spinor relations.  All by computation / `trueâ‰false`.
---
--- Checked: --cubical --safe; loads clean on the wire.
 ------------------------------------------------------------------------
 
 module Trika_TheAxisQuarterWavesAreQuaternionsNonAbelianAndTheQubitIsASpinor where

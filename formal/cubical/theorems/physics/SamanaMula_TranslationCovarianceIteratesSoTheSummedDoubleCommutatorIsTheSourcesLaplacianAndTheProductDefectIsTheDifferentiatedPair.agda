@@ -66,12 +66,7 @@
 -- satisfying the displayed covariance equation.  Â§4 additionally for a
 -- family of directions each with its own covariance, and for `Î `
 -- additive â” additivity is a hypothesis, carried, not discharged.  Â§5
--- for every pair of states.  NOT claimed: that any particular `Î ` is
--- covariant, which is the modelling step and happens elsewhere; nothing
--- about the Jacobi identity, about Lieâ“Poisson structure, or about any
--- naturality of `Î ` under a flow; nothing about â, positivity, or any
--- analytic estimate; no self-adjointness â” `â ` does not appear in this
--- file; and no equation of motion â” `âˆ` here is a direction, not time.
+-- for every pair of states.
 ------------------------------------------------------------------------
 
 module SamanaMula_TranslationCovarianceIteratesSoTheSummedDoubleCommutatorIsTheSourcesLaplacianAndTheProductDefectIsTheDifferentiatedPair where

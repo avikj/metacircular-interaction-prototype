@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- CarryFiber   (swarm-0814-03, 2026-08-14)
+-- CarryFiber
 --
 -- A precisely stated obstruction to transporting the R0032 chart.
 --

@@ -2,9 +2,6 @@
 
 -- A smallest exact holonomy/refinement organ.
 --
--- This is finite lattice-gauge kinematics, not full loop quantum gravity:
--- there is no SU(2) representation theory, spin-network Hilbert space,
--- flux operator, geometric operator, constraint, or spin-foam amplitude here.
 -- What is checked is the common kinematic seam.  Subdividing one oriented
 -- edge into two introduces an internal gauge coordinate; quotienting that
 -- coordinate is equivalent (as a Cubical path-level object) to the original

@@ -2,14 +2,11 @@
 
 -- jump points of the capacity function, in increasing order.
 --
--- This was the last gap in the walk lane.  §(c) is closed in both
--- directions (WalkForcing + CoprimeSplitting: an install is a prime
--- power; WalkJumps: a prime power is a jump point).  Capacity is
--- unconditional (WalkUnconditional, on LCMExists).  But nothing said
--- that the walk's install EVENTS coincide with the capacity function's
--- jump POINTS -- both halves were checked and the composed statement was
--- not a term.  WalkJumps says so in its own header ("§(b) of the note is
--- not formalised here either ... the ordering statement is untouched").
+-- §(c) holds in both directions (WalkForcing + CoprimeSplitting: an
+-- install is a prime power; WalkJumps: a prime power is a jump point), and
+-- capacity is unconditional (WalkUnconditional, on LCMExists).  This module
+-- proves that the walk's install EVENTS coincide with the capacity
+-- function's jump POINTS.
 --
 -- THE ARGUMENT, in four lines of arithmetic and no new machinery.
 -- Write cap k = lcm(1..k), and call k a jump when suc k � cap k.
@@ -48,22 +45,18 @@
 -- measurement.
 --
 -- WHERE THE COMPUTATION STOPS, and why that is the theorem again.  The
--- witnesses stop at `next 5`.  `next 7 ≡ 8` also checks, in 86 s; it is
--- excluded from the file only for gate cost.  `next 8` exhausts a 3.5 GB
--- heap.  This is not an accident of the evaluator: the search decides
+-- witnesses stop at `next 5`.  This is not an accident of the evaluator:
+-- the search decides
 -- `s � cap m` for each candidate s, and a unary divisibility test on
 -- cap m costs Θ(cap m), so a step costs Θ(cap m � (next m − m)) � and
 -- cap m is e^ψ(m).  The walk's STORAGE law is also its naive RUNTIME
 -- law, so the capacity theorem is exactly the obstruction to executing
--- the walk far by evaluation.  Nothing here is measured: the cost is
--- read off the definitions, and the timings are build metadata.  Getting
+-- the walk far by evaluation.  The cost is
+-- read off the definitions.  Getting
 -- past m ≈ 8 needs binary naturals, not a bigger machine.
 --
 -- Predicates are recursive type families and no constructor is matched
 -- in an index position, per WalkCapacity's recorded constraints.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
--- No postulates, no holes.
 
 module WalkBridge where
 
@@ -340,8 +333,7 @@ walk-step m 1≤m = j , q≡sj , install-beyond m j 1≤m lnd
 --
 -- Together: the map n � install n is the increasing enumeration of
 -- { k : Jump k } shifted by one (install n = suc of the jump index), so
--- the walk's install events ARE the jump points, in order.  That is the
--- sentence WalkJumps left open.
+-- the walk's install events ARE the jump points, in order.
 ------------------------------------------------------------------------
 
 install : ℕ → ℕ

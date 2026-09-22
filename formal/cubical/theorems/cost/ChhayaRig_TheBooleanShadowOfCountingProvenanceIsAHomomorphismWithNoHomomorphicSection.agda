@@ -3,10 +3,9 @@
 ------------------------------------------------------------------------
 -- àà¾à¯à¾-à°à¿à—à â” the shadow rig.
 --
--- RESOLUTION OF A FORMER SCOPE LINE.  Abstract 06 proved that lineage
--- cannot be recovered from answers and its closing section said the
--- provenance-semiring reading was absent â” no semiring, no forgetful
--- homomorphism to the booleans.  This file ends that absence:
+-- Abstract 06 proved that lineage
+-- cannot be recovered from answers.  Here the provenance-semiring
+-- reading is built:
 --
 --   Â§1  The rigs exist: the counting rig (â•, 0, 1, +, Â) â” bag/how-many
 --       provenance â” and the boolean rig (Bool, false, true, or, and) â”

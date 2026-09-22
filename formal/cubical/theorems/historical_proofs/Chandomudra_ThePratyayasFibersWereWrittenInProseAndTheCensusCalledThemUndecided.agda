@@ -52,8 +52,7 @@
 -- ‡Æ‡æ‡‡‡∞‡æ‡Æ‡‡∞‡ ‚î and the receipt for that cut is not a bound or an estimate
 -- but a named type whose cardinality is a sequence the tradition
 -- tabulated.  Virahka, *Vttajtisamuccaya*, c. 600‚ì800 CE (the range
--- is H. D. Velankar's, from his 1962 edition; NOT "~700", which this
--- repository's own searched ledger forbids in those words).  The
+-- is H. D. Velankar's, from his 1962 edition).  The
 -- recurrence is usually cited under Fibonacci's name, 1202, which is a
 -- restatement and is named here after the source and as one.
 --
@@ -61,9 +60,6 @@
 -- ‡Æ.‡©‡‚ì‡©‡, ~300 BCE, with the construction rule ‚î ‡‡ó‡‡∞‡ø‡Æ-‡‡ô‡‡ï‡‡‡ø‡
 -- ‡‡‡∞‡‡µ-‡‡ô‡‡ï‡‡‡‡ ‡‡æ‡∞‡‡‡‡µ-‡Ø‡ã‡ó‡à‡, the next row from the ADJACENT SUMS of the
 -- previous ‚î stated by ‡‡≤‡æ‡Ø‡‡ß in the ‡Æ‡‡‡‡û‡‡‡‡µ‡®‡, 10th c.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Chandomudra_ThePratyayasFibersWereWrittenInProseAndTheCensusCalledThemUndecided where
@@ -108,23 +104,3 @@ open import PingalaPrastara
 ‡§Ø‡•Å‡§ó‡•ç‡§Æ-‡§§‡§®‡•ç‡§§‡•Å‡§É n k =
   Œ£-cong-equiv-snd (Œª p ‚Üí invEquiv Œ£Path‚âÉPathŒ£)
 
-------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what this leaves, and it is a method rather than a theorem.
---
--- Three of the census's 1045 undecided edges are priced by three `refl`s
--- and one library equivalence, because their receipts were already
--- written in the file the census read.  The join that found them matched
--- SOURCE TYPES against definitions of the form `Œ[ a ‚àà A ] (‚¶ ‚â° i)` ‚î
--- there are 46 such written-out fibers in this corpus, and 11 of the
--- queue's 249 distinct source types have one.
---
--- A source-type match is a LEAD, not a verdict: the first one checked
--- (`MatraVarnaGuru.‡≤‡ò‡-‡‡ô‡‡ñ‡‡Ø‡æ` against `Metre`) did NOT close, because
--- ‡≤‡ò‡-‡‡ô‡‡ñ‡‡Ø‡æ counts laghus and `matraOf` sums morae ‚î different maps
--- through the same types.  Reporting the lead as a hit would be the
--- ‡¶‡‡∞‡‡®‡Ø this apparatus exists against, so it is reported as a lead and
--- the ones that closed are here.
---
--- Still open in this file's own neighbourhood: `guruOf` and
--- `PingalaPrastara.uddista` are in the queue and are not priced here.
-------------------------------------------------------------------------

@@ -30,9 +30,7 @@
 -- (weights â’ traces at the detector); complementarity â” extract the
 -- one reading and lose the other's residue â” is the truncation price;
 -- and interference is nature declining the quotient: the route
--- difference is physically carried.  None of that is proved here; the
--- shape of it is, and the shape is this file.
---
+-- difference is physically carried.
 ------------------------------------------------------------------------
 
 module Jyotiryugma_IntensityIsBlindToPhaseAndPhaseToMagnitudeAndTheAmplitudeIsTheirInterdependentPair where

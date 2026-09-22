@@ -14,11 +14,8 @@
 -- pole (zero loss ‚ü the conserving flow is the identity), `Khahara_‚¶.agda`
 -- the far pole (total loss ‚ü∫ total symmetry), `YogaKsetra_‚¶.agda` one
 -- interior point (the conserving flows of addition are the shear fields)
--- ‚î and Khahara ¬ß‡(b) hands the remainder forward in its own words:
---
---     "The scale between the two ends is not a scale yet. ‚¶ what is
---      missing is the statement that the conserving monoid
---      Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶ is MONOTONE in the fibres."
+-- ‚î and Khahara ¬ß‡(b) asks for monotonicity of the conserving monoid
+--      Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶ in the fibres.
 --
 -- What is landed here is stronger than the monotonicity asked for: an
 -- IDENTIFICATION, with no hypotheses on f, A or B whatsoever ‚î
@@ -44,34 +41,20 @@
 -- SECTIONED FIBRES OF ADDITION with the shear fields, over any
 -- commutative ring.
 --
--- ROUTES KEPT.  Nothing in Dhruva, Khahara, YogaKsetra or YogaDhruva is
--- edited, imported away, or deprecated by this.  Four seats reached
--- three points of one scale from four directions; the identification is
--- a fifth path and the routes are the nayas (the precedent is
--- `MadhyaVinimaya_‚¶.agda`: one law standing in six places, all six
--- kept).  Where ¬ß‡® and ¬ß‡© re-derive their poles, the re-derivation is
--- the containment check, not a replacement.
---
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- ORIGIN OF THE MATHEMATICS, stated rather than laundered.  The whole of
+-- ORIGIN OF THE MATHEMATICS.  The whole of
 -- ¬ß‡ß is the distributivity of Œ† over Œ ‚î the "type-theoretic axiom of
 -- choice", definitional in this substrate ‚î and it is cited from the
 -- library rather than re-derived: `Cubical.Data.Sigma.Œ-Œ†-Iso`, both
 -- round trips `refl`.  The substrate is cubical type theory (Voevodsky),
--- this repository's one admitted non-Indian frame.  No  source
--- states anything below, and Dhruva's fence transfers verbatim: this is
--- NOT Noether's first theorem ‚î no Lagrangian, no variation, no
--- continuity, no current.  What it is, is the exact combinatorics of
+-- this repository's one admitted non-Indian frame.
+-- It is the exact combinatorics of
 -- "invariance means moving within the level sets", finished.
 --
 -- TERM.  ‡‡‡µ (own), ‡‡®‡‡‡ (thread, fibre), ‡µ‡æ‡ (dwelling) are ordinary
 -- .  ‡‡®‡‡‡ for the fibre of a map is THIS CORPUS's rendering
--- (declared in `Tantujala_‚¶.agda`'s header; no source text claims it),
--- and the compound ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡ is built here.  LIMIT: no text is claimed
--- for the term or for any statement below.
---
--- CHECKED: Agda 2.8.0 + agda/cubical (installed bundle), --cubical
--- --safe, no postulates, no holes.
+-- (declared in `Tantujala_‚¶.agda`'s header),
+-- and the compound ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡ is built here.
 ------------------------------------------------------------------------
 
 module SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres where
@@ -206,25 +189,13 @@ module _ {A B B' : Type ‚Ñì} (f : A ‚Üí B) (g : A ‚Üí B') where
   ‡§ó‡§æ‡§Æ‡§ø‡§®‡•Ä h œÉ = invEq (‡§µ‡§æ‡§∏‡§É g) (Œª a ‚Üí h a (equivFun (‡§µ‡§æ‡§∏‡§É f) œÉ a))
 
 ------------------------------------------------------------------------
--- ¬ß‡ ¬ ‡‡‡‡ ‚î what this opens and does not close.
+-- ¬ß‡ ¬ ‡‡‡‡ ‚î the receipt-economy reading.
 --
--- (a) The flow SPACE is identified; the flow MONOID is not.  Composition
---     of conserving flows corresponds, across ‡µ‡æ‡‡, to a convolution of
---     sections (s ‚àó t) a = s applied at the point t chose ‚î stating that
---     as a monoid identification needs the section space given its
---     composite structure, and it is not given here.  Named, not done.
---
--- (b) `‡ó‡æ‡Æ‡ø‡®‡` is a map, not an embedding; when every h a is an
---     embedding the induced map is one too, which would make the scale a
---     genuine order.  Also not done: it needs fibre-wise embeddings to
---     induce Œ†-embeddings, which is a library fact this file does not
---     yet consume.
---
--- (c) The receipt-economy reading, recorded because it prices symmetry
---     itself: a conserving flow of f is EXACTLY one fibre-point per
---     point, so the "amount of symmetry" of an observable is its fibre
---     census summed over the domain ‚î the same census `Tantujala_‚¶agda`
---     grades and `interactive/Lopa_‚¶hs` queues.  Every unpriced fibre in the
---     dark-matter queue is, by this law, also an unpriced quantity of
---     symmetry.
+-- The receipt-economy reading, recorded because it prices symmetry
+-- itself: a conserving flow of f is EXACTLY one fibre-point per
+-- point, so the "amount of symmetry" of an observable is its fibre
+-- census summed over the domain ‚î the same census `Tantujala_‚¶agda`
+-- grades and `interactive/Lopa_‚¶hs` queues.  Every unpriced fibre in the
+-- dark-matter queue is, by this law, also an unpriced quantity of
+-- symmetry.
 ------------------------------------------------------------------------

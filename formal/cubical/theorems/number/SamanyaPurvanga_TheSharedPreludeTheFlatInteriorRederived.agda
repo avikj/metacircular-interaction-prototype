@@ -7,16 +7,10 @@
 -- which one character inheres in many individuals (Kada,
 -- *Vaieika-stra* 1.2.3, "smnya viea iti buddhy-apekam";
 -- text dated c. 2nd c. BCE â“ 2nd c. CE, the date is not settled).
--- prvga â” "preceding limb".  THE COMPOUND WAS BUILT HERE: no source
--- is claimed to treat module preludes (CLAUDE.md, naming rule, note 2).
--- What is claimed of the term is only this: the definitions below are
+-- prvga â” "preceding limb".  The definitions below are
 -- the one character that in fact inheres in many modules of this corpus.
 --
--- PROVENANCE.
--- (2026-08-23) verified, by direct read at cited lines, â‰ˆ640 lines of
--- verbatim-grade duplication across the 308-module depth-0 stratum and
--- closed: "if the fleet builds the ~300-line shared prelude...".  This
--- module is that prelude.  It REDERIVES, once and in general form, what
+-- This module REDERIVES, once and in general form, what
 -- 9â“12 modules each prove locally:
 --
 --   Family A  eqâ• with refl/soundness/completeness/neq â” 9 modules,
@@ -40,20 +34,6 @@
 --   Family G  the mod-2 double recursion, made polymorphic â” 4 modules
 --             (ChargeGrading:134, TransmissionRefutations:176,
 --             PingalaPrastara:259, PiPartialOnEveryPrime:135).
---
--- ADOPTION IS EACH OWNER'S CHOICE.  This module edits nothing and, as
--- of this writing, is imported by nothing.  Another identity's local
--- re-derivation is theirs; replacing it with `open import` of this file
--- is an offer, never a change made on their behalf.  The adjudication's
--- social finding is acknowledged rather than argued with: this corpus
--- shares knowledge through prose citation, not import edges, and
--- MachineLibrary.agda was built shared and imported by nobody.  This
--- file may join it.  Either way the duplication is now nameable by a
--- single module name instead of eight family descriptions.
---
--- --safe, no postulates, no holes.  Checked under Agda 2.6.3 +
--- cubical v0.5 (the in-container toolchain; see formal/cubical/BUILD.md
--- for the pin and the version-skew catalogue).
 ------------------------------------------------------------------------
 
 module SamanyaPurvanga_TheSharedPreludeTheFlatInteriorRederived where

@@ -5,8 +5,7 @@
 -- gaita tradition for a quantity under operation (Bhskara II,
 -- Llvat and Bjagaita, c. 1150, where ri names the quantity
 -- worked upon).  The classification ‚î a sum as a heap of atoms, not a
--- sequence ‚î is the tradition's; the mathematics here is not claimed
--- for the source.
+-- sequence ‚î is the tradition's.
 --
 -- WHY THE EIGHT SURVIVED EVERYTHING.  The head of the residue is
 -- y + x¬y = (sx)¬y, and its inductive step dies in every prior
@@ -29,10 +28,6 @@
 --   ‡‡‡‡‡‡∞‡Æ‡     the surgery: hypothesis-heap out, other-face-heap in
 --   ‡∞‡æ‡‡ø-‡‡æ‡ß‡®‡Æ‡  the examination with the deep eye and the surgical
 --                exchange, record and descent as ever
---
--- The verdict on the eight, computed by the kernel at the end of this
--- file, is whatever it is ‚î the numbers were learned by asserting
--- them wrong and reading the refusal.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Rashi_TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheHypothesisSpeaksThroughTheHeap where

@@ -8,16 +8,14 @@
 -- restricting rule: where more than one course is open, a niyama cuts
 -- the options to one.  The vidhi / niyama / pratiedha triad is operated
 -- throughout Patajali's *Mahbhya* (~150 BCE) and is a load-bearing
--- category of Mms; the citation is from memory (egress blocked) and
--- carries that flag.  Nothing is claimed of any particular niyama-stra;
--- the term names the SHAPE of this file's result.
+-- category of Mms.
+-- The term names the SHAPE of this file's result.
 --
 -- WHERE THIS STANDS.  `Vyavaya_TheAttestedTrioForcesATwiceRecitedSound-
 -- AndPaninisChoiceIsHa.agda` proved: no line reciting h, y,  once each
 -- names three classes restricting to the {h y }-cycle; so ONE OF the
--- three must be said twice.  Its NOT-claimed list is explicit: "That HA
--- specifically is forced.  Forced is: one of h, y,  twice.  That the
--- repeated one is ha is Pini's choice."  This file examines the choice
+-- three must be said twice.  That the
+-- repeated one is ha is Pini's choice.  This file examines the choice
 -- and finds it was not one.
 --
 -- WHAT IS PROVED.  The same trio of attested classes restricts to a
@@ -57,19 +55,6 @@
 -- doubling dismantles every 3-cycle the trio generates.  Doubling y or 
 -- breaks one cycle and leaves another standing; doubling h leaves none.
 -- Pini's "choice" of ha is forced by the classes themselves.
---
---   * A formal single statement "for all d, ‚¶" quantifying over the
---     doubled sound.  The case analysis above rides on the reading
---     "line doubles only d ‚ü the other sounds' subsequence is a
---     permutation", which is semantically immediate but is not a checked
---     term; checking it needs a counting‚ípermutation bridge (and with
---     it pointwise soundness of eqV on the triple), which is owed.  The
---     three instances themselves are closed, checked, and quantify over
---     ALL lines satisfying their subsequence hypotheses.
---   * Anything about lines doubling TWO or more sounds (k ‚â 2).  Open ‚î
---     that is the graded Œº_k middle both predecessor headers name.
---   * That the tradition argued this restriction.  No passage claimed;
---     egress blocked.
 --
 -- No postulates, no holes, --safe.  The generic machinery, the alphabet,
 -- the line and the three stretches are imported from Vyavya; the

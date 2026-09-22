@@ -39,7 +39,7 @@ main = do
       assert (not (Bytes.isInfixOf "# " importedSlice)) "imported range excludes leading comment"
       putStrLn "per-member imported source provenance passed"
     _ -> fail "expected main and imported member origins"
-  cubicalPath <- makeAbsolute "collab/bend2-cubical/path_transport.bend"
+  cubicalPath <- makeAbsolute "collab/bend2-interactive-cubical/path_transport.bend"
   cubicalSource <- readFile cubicalPath
   cubicalBook <- Bend.parseFile cubicalPath
   cubicalOrigins <- collectFileOrigins cubicalPath cubicalBook >>= either fail pure

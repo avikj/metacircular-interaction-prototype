@@ -58,25 +58,14 @@
 --       whether such a direction is itself a source is a question about
 --       the image of `Î `, answered separately in `RiktaTantu`.
 --
--- WHY THE TWO PARTS ARE NOT JOINED HERE.  Part One proves the law for
--- the paired trilinear form; Part Two ASSUMES it as an equation between
--- operators.  Passing from the first to the second needs a nondegenerate
--- pairing and an operator representing each form â” that is a modelling
--- step, it is where a concrete space enters, and it is not carried out
--- anywhere below.  Part Two's `intertwine` is a hypothesis in the open,
+-- Part Two's `intertwine` is a hypothesis in the open,
 -- exactly like `SamanaMula`'s `cov`.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§1 for any bracket, any binary `_âŠ•_`, any
 -- pairing into any ring, and any `M`, satisfying the three displayed
 -- equations.  Â§Â§2â“4 in any ring with involution, for every `Mop`, every
 -- skew `Î `, every `M` intertwining as displayed, and every pair of
--- sources.  NOT claimed: that any concrete bracket satisfies the Jacobi
--- hypothesis (it is assumed, not verified â” no Lie algebra is
--- constructed here); that any pairing is nondegenerate, or that any form
--- is represented by an operator; anything about compactness, ideals, or
--- quotients, which enter only in `RiktaTantu`; and nothing about
--- solving, averaging, or lifting anything â” there is no propagator and
--- no expectation in this file.
+-- sources.
 ------------------------------------------------------------------------
 
 module SarvaMula_TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator where

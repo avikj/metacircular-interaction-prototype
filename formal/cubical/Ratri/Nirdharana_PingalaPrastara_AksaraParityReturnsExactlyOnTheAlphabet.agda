@@ -1,9 +1,8 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ï‡‡‡∞-‡‡∞‡‡‡µ ‚î the bit returns exactly on the alphabet.  The queue's
--- last real row (notes/SADHYA_OPEN_OBLIGATIONS.md, "induction on ‚ï",
--- rung ‡) guessed aksara (parity w) ‚â° w ‚î that a number is determined
+-- ‡‡ï‡‡‡∞-‡‡∞‡‡‡µ ‚î the bit returns exactly on the alphabet.  The guess
+-- aksara (parity w) ‚â° w, that a number is determined
 -- by its syllable.  Pigala's own machinery says what is true instead
 -- (Chandastra, ~300 BCE, the laghu/guru binary; the host module is
 -- the corpus's checked prastra):

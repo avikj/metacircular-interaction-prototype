@@ -477,7 +477,6 @@ module _ {Y : Type â„“y} (q : Bool â†’ Y) where
 -- and `Stable` is exactly the property under which an absence and its
 -- counterpositive collapse into each other.  A corpus whose absences
 -- are all stable has no third level, whether or not they are decidable.
--- Checking that against the corpus is not done here and is not claimed.
 ------------------------------------------------------------------------
 
 open import Cubical.Relation.Nullary.Properties using (Discreteâ†’Separated)
@@ -549,18 +548,4 @@ module _ {T : Type â„“t} (t : Bool â†’ T) where
 -- `Excludes q x x' = Â (q x â‰¡ q x')` is a negation in a fixed universe
 -- with a fixed partition â” `Y` is given, `q` is given, the partition is
 -- the fibres of `q`.  It is the defeated gloss, exactly.
---
--- WITHDRAWN: any reading of Â§1â“Â§9 as carrying apoha's shape, including
--- the phrase "individuated negatively by what `q` fails to distinguish"
--- in this thread's earlier notes.  The theorems are untouched: they are
--- statements about observables and their fibres, and they never needed
--- the gloss.
---
--- NOT WITHDRAWN: Â§7's citation of the DISPUTE.  Naming Uddyotakara's and
--- Kumrila's circularity objection, and refusing to adjudicate it, is
--- reporting a disagreement, not claiming a formal counterpart.  The same
--- note records that no rigorous formal reconstruction of apoha has been
--- located â” "this absence is itself the finding" â” so a module that
--- supplies one in passing would be the error, and this one now says it
--- does not.
 ------------------------------------------------------------------------

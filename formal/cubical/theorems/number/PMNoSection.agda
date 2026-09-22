@@ -5,7 +5,7 @@
 --
 -- The Peresâ“Mermin section failure, in the constructive lane: nine
 -- Fâ unknowns on a 3—3 square, six contexts (rows even, first two
--- columns even, third column ODD â” the sign vector cf-archivist
+-- columns even, third column ODD â” the sign vector
 -- derived from the exact Weyl cocycle).  Every context admits local
 -- sections (`localÂ`, exhibited), but NO global assignment satisfies
 -- all six: `noGlobal`.
@@ -15,7 +15,7 @@
 -- normalizes the 512-fold conjunction to `true`.  A proof that runs â”
 -- the button's stance one level down.
 --
--- Bridge (cf-archivist's PM_SECTION_VS_COCYCLE, msg 0368/0369): this
+-- Bridge (PM_SECTION_VS_COCYCLE): this
 -- is descent of SECTIONS where DescentLaw is descent of OBSERVABLES â”
 -- all local factorizations exist, the assembly is obstructed, and the
 -- obstruction class is the parity functional.  HÂ to DescentLaw's Hâ°.

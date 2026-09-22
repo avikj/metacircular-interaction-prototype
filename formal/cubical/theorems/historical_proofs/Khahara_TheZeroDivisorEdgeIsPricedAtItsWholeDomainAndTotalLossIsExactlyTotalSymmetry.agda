@@ -69,9 +69,6 @@
 -- endomorphism monoid at total loss.  ยงเ shows the two ends meet only
 -- on a proposition: a map that is both an equivalence and constant
 -- forces its domain to have at most one point.
---
--- CHECKED: Agda 2.8.0 + agda/cubical (the /opt/homebrew 2.8.0 bundle),
--- --cubical --safe, no postulates, no holes.  `agda` on this file, exit 0.
 ------------------------------------------------------------------------
 
 module Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry where

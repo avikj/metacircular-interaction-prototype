@@ -35,10 +35,8 @@ reason the frontier stops where it does â” Chen (p+Pâ), Maynardâ“Zhang
 need an idea coupling the two structures, which a coordinate change is
 not.
 
-SYT â” THE CLAIM, EXACTLY.  The four ring identities, for all w,r.  NOT
-claimed: Goldbach, twin primes, or any lower bound on the pair count â”
-those need the multiplicative content this module shows the algebra does
-not carry.  What IS claimed is the clarifying negative: the celebrated
+SYT â” THE CLAIM, EXACTLY.  The four ring identities, for all w,r.
+What IS claimed is the clarifying negative: the celebrated
 equations of this frame are tautologies.
 
 Machine-checked in cubical type theory, --safe, at the pin (â CommRing

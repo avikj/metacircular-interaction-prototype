@@ -7,7 +7,7 @@
 --
 -- for every Îµ, p, q, s.  This is the rational lemma from which
 -- translation by a rational extends to the continuum â: the extension
--- is by the HIIT's own recursion (the next module), and its only
+-- is by the HIIT's own recursion (`TranslationOnTheContinuum`), and its only
 -- arithmetic input is this invariance, which is what makes the map
 -- respect the closeness relation and hence the path constructor.
 --
@@ -25,8 +25,7 @@
 --       and |kÂz| = kÂ|z|;
 --   Â§4  THE INVARIANCE, both directions.
 --
--- SYT.  Rational arithmetic and one order lemma; the continuum itself
--- is not touched here.
+-- SYT.  Rational arithmetic and one order lemma.
 ------------------------------------------------------------------------
 
 module TranslationInvariance_ClosenessOfRationalsIsInvariantUnderTranslationByARationalSoTranslationWillExtendToTheContinuum where

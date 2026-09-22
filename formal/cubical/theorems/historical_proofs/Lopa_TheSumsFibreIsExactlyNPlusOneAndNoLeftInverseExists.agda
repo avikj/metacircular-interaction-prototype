@@ -21,7 +21,7 @@
 -- WHY THIS EDGE AND NOT ANOTHER.
 --
 -- `machine/Setubandha_‚¶hs` built the graph of the corpus's checked
--- identifications; every edge in it is invertible, so its gluing defect is
+-- identifications; every edge in it is invertible.
 -- `machine/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs`
 -- built the other graph ‚î 1054 one-way edges over 474 nodes, against 88
 -- invertible edges over 120 ‚î and 1036 of those 1054 came back UNDECIDED
@@ -61,9 +61,6 @@
 --  ¬ß‡  The ‡‡µ‡‡‡‡‡¶ decomposition at this edge: (Œ n) fiber ‡Ø‡ã‡ó n ‚â ‚ï ó ‚ï.
 --      The pair IS (its sum, which pair of that sum) ‚î ‡Ø‡‡ ‡‡ø‡‡‡†‡‡ø /
 --      ‡ï‡ ‡®‡‡‡Ø‡‡ø, as one equivalence.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists where
@@ -99,10 +96,10 @@ import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContracti
 ------------------------------------------------------------------------
 -- ‡® ¬ ‡ó‡‡®‡æ ‚î and it is counted exactly.
 --
--- This is `pairsFin`, which is NOT proved here.  It is a structural
+-- This is `pairsFin`, a structural
 -- induction with no truncated subtraction, in
 -- `PairsSummingTo`, written for the metrical antidiagonal.
--- All this module does is point it at the map.
+-- This module points it at the map.
 --
 -- THE MEASUREMENT ROAD ONE CANNOT MAKE.  Setubandha's edges all have
 -- contractible fibres, so its cut indicator is the constant 0.  Here the
@@ -150,12 +147,6 @@ isContrSumFin1 = inl tt , Œª { (inl tt) ‚Üí refl ; (inr ()) }
 ------------------------------------------------------------------------
 -- ‡ ¬ ‡® ‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡ ‚î and there is no road back.
 --
--- ‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡ ¬ß‡: ‡¶‡‡µ‡ ‡Æ‡æ‡∞‡‡ó‡, ‡‡‡‡‡Ø‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‚î transport, or a
--- written defect.  The instruction for this module was: transport
--- something across the lossy edge if a transport exists in the lossy
--- direction, and if none does, SAY SO.  None does, and saying so is a
--- theorem rather than a report.
---
 -- No `g : ‚ï ‚í ‚ï ó ‚ï` is a left inverse of ‡Ø‡ã‡ó.  The proof is ¬ß‡©'s two
 -- histories: they have the same sum, so any left inverse would identify
 -- them, and ¬ß‡© proved they are not identical.  Note that `‡Ø‡ã‡ó (0 , 1)`
@@ -186,19 +177,3 @@ isContrSumFin1 = inl tt , Œª { (inl tt) ‚Üí refl ; (inr ()) }
 ‡§Ö‡§µ‡§ö‡•ç‡§õ‡•á‡§¶‡§É-‡§Ø‡•ã‡§ó‡•á = ‡§Ö.‡§Ö‡§µ‡§ö‡•ç‡§õ‡•á‡§¶‡§É ‡§Ø‡•ã‡§ó
   where module ‡§Ö = ‡§Ö‡§µ
 
-------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what this leaves open, stated so it is not mistaken for done.
---
--- 1036 of the 1054 one-way edges the extractor found are still UNDECIDED,
--- and the reason is structural: deciding a fibre needs somebody to open
--- the module, exactly as ¬ß‡ß here needed somebody to notice that two files
--- had defined one type.  The extractor can rank the candidates; it cannot
--- close them.
---
--- The honest next piece is the same move at a target that is NOT ‚ï: a
--- truncation or a quotient, where the fibre is not a set and `pairsFin`
--- has no analogue.  `YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNo
--- Further` is the nearest existing instance ‚î a replay that loses its
--- trace and recovers the length exactly mod 2 ‚î and it names its quotient
--- without counting its fibre.
-------------------------------------------------------------------------

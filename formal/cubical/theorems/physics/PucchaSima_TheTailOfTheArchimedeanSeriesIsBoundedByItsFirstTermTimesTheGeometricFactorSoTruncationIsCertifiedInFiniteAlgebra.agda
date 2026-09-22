@@ -19,9 +19,6 @@
 --       form (1 Б┬▓ r)бн_{j<n} r^j Б┴ 1 for 0 Б┴ r Б┴ 1.
 --   б╖3  THE TAIL BOUND for any nonnegative sequence a_j Б┴ a_0 б r^j:
 --       (1 Б┬▓ r)бн_{j<n} a_j Б┴ a_0.
---
--- The analytic step Б■ that the true H-tail is the limit of these partial
--- sums and that н╩_kб╡ Б┬▓ 16 increases Б■ is the trust boundary.
 ------------------------------------------------------------------------
 
 module PucchaSima_TheTailOfTheArchimedeanSeriesIsBoundedByItsFirstTermTimesTheGeometricFactorSoTruncationIsCertifiedInFiniteAlgebra where

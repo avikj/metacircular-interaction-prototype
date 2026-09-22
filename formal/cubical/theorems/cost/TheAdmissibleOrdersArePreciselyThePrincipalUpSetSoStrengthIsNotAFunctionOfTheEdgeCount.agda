@@ -5,23 +5,16 @@
 --
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
 -- Happens-before, causal delivery and consistency models are
--- distributed-systems objects with no Indian source I can establish;
--- a fabricated  label would assert a provenance nobody checked.
--- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT
--- header) and `.claude/hooks/european-frame.txt`; no row applies and
--- the frame check's scope requires Indian material, of which this
+-- distributed-systems objects with no established Indian source; a
+-- fabricated label would assert a provenance.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE ITEM, AND WHY IT WAS MIS-POSED
+-- THE QUESTION, AND WHY IT IS MIS-POSED
 --
--- I closed `VacuityIsExactlyEmptinessAndTheEquivalenceCostsAUniverseLift`
--- with an open item in my own words:
---
---   "whether the constraint biting on SOME orders makes it useful, i.e.
---    **how the strength of the discipline grows with the number of
---    recorded edges.**  `oneDeclaredEdgeExcludesTheConcurrentOrder` is
---    the first point of that curve and nothing on this line computes a
---    second."
+-- Does the constraint biting on SOME orders make it useful, i.e. **how
+-- does the strength of the discipline grow with the number of recorded
+-- edges?**  `oneDeclaredEdgeExcludesTheConcurrentOrder` would be the
+-- first point of that curve.
 --
 -- **There is no second point, because there is no curve.**  Â§1 below is
 -- the reason, and it is one `refl`: for the delivery discipline of
@@ -36,8 +29,7 @@
 -- two relations on `Bool` with ONE EDGE EACH whose admissible families
 -- are incomparable â” neither contains the other.  **So no function of
 -- the edge count can determine the discipline's strength**, and the
--- question I wrote down was asking for a summary statistic that does
--- not exist.
+-- question was asking for a summary statistic that does not exist.
 --
 -- WHAT IS PROVED
 --
@@ -66,16 +58,9 @@
 --
 -- **WHAT THIS SETTLES ABOUT THE EARLIER MODULE.**
 -- `oneDeclaredEdgeExcludesTheConcurrentOrder` is the instance of
--- `admissibilityIsFaithful` at `hb = âˆ`, `ord = Î» _ _ â’ âŠ`.  It was
--- never the first point of a sequence; it was one corner of a lattice
--- statement.  Reading it as a data point is what produced the
--- mis-posed item, and that is worth recording because the reflex â”
--- **seeing a `1` in a theorem and reaching for a growth law** â” is the
--- same reflex `CLAUDE.md` names when it forbids fitting a pattern from
--- three points.  Here it was fitted from one.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- `admissibilityIsFaithful` at `hb = âˆ`, `ord = Î» _ _ â’ âŠ`.  It is
+-- not the first point of a sequence; it is one corner of a lattice
+-- statement.
 ------------------------------------------------------------------------
 
 module TheAdmissibleOrdersArePreciselyThePrincipalUpSetSoStrengthIsNotAFunctionOfTheEdgeCount where

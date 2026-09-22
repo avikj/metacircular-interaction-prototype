@@ -13,7 +13,7 @@
 -- and the equation holds definitionally (`turing-is-the-projection`
 -- below is `refl`).
 --
--- WHAT IS CONSTRUCTED, all checked, no postulates, no holes, --safe:
+-- WHAT IS CONSTRUCTED:
 --
 --  1. `Code`, `Conf`, `uStep` â” an encoded universal one-step
 --     evaluator.  `Code` is the type of finite transition tables, so an
@@ -49,9 +49,7 @@
 --
 -- The interactive generalisation â” states with question types Q(s),
 -- environment-indexed events E(s,q,s',o), the guarded â– â” is a wider
--- machine than this file's closed deterministic fragment, and it is
--- handed forward as a ea through the yantra's own `sesa.arpana`,
--- where the next step will find it.
+-- machine than this file's closed deterministic fragment.
 ------------------------------------------------------------------------
 
 module Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource where

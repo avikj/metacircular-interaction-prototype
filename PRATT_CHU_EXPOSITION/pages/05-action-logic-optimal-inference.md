@@ -10,7 +10,7 @@ Pratt's realizability pruning is naturally compared with the finite shadow of pr
 
 Optimality must remain distinct from semantic losslessness. An equivalence can require positive work to execute. The project therefore equips native interaction with its own step metric and proves exact geodesics from locality in concrete carriers. Pratt's near-optimal reasoning supplies the classical patternâ”lower bound plus construction near itâ”while interaction geodesicity asks for the lower bound induced by the dependency geometry itself and an evolution attaining it.
 
-The internal finding/checking result belongs here too. On the lossless universal step, deciding and verifying are opposite projections of one equivalence; this is a theorem internal to that complete machine object, not by itself a claim about external succinct-encoding complexity classes.
+The internal finding/checking result belongs here too. On the lossless universal step, deciding and verifying are opposite projections of one equivalence; this is a theorem internal to that complete machine object.
 
 ## Canonical checked construction
 

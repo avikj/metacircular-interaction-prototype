@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- NRectanglesCannotCoverSucNFoolingCells
 --
--- Closes the last piece I left open on this line.
 -- `AFoolingSetForcesDistinctRectangles` proved a sound cover is
 -- INJECTIVE on a fooling family and said, in its own words: "INJECTIVITY
 -- IS NOT 'â‰ k'.  Turning 'distinct cells get distinct rectangles' into
@@ -14,7 +13,7 @@
 -- arithmetic: a fooling family of `suc n` cells cannot be covered by a
 -- family of `n` rectangles.  The pigeonhole is
 -- `Cubical.Data.Fin.Properties.pigeonhole-special`, which the pinned
--- library already carries â” I checked before planning on it:
+-- library already carries:
 --
 --   pigeonhole-special : (f : Fin (suc n) â’ Fin n)
 --     â’ Î[ i ] Î[ j ] (Â i â‰¡ j) — (f i â‰¡ f j)
@@ -31,9 +30,6 @@
 -- cardinality.
 --
 -- Â§2 gives a LOWER bound only.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NRectanglesCannotCoverSucNFoolingCells where
@@ -98,31 +94,20 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 --   this module                      and therefore n rectangles cannot
 --                                    serve suc n fooling cells
 --
--- Each step said what it did not do; each next step did exactly that and
--- said what IT did not do.  What is still not done, and is not a gap in
--- the line but a different theorem: any UPPER bound, and any claim that
+-- A different theorem, not on this line: any UPPER bound, and any claim that
 -- the maximum fooling set matches the minimum cover.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  Recording site: commit 083dfbd2,
--- `NRectanglesCannotCoverSucNFoolingCellsEvenWhenTheCoveringIsOnlyAProperty`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin).
---
 -- **THE COVERING HYPOTHESIS ABOVE IS STRUCTURE, NOT A PROPERTY.**  This
 -- module is titled as an impossibility about COVERING, and covering is
 -- naturally a property: a cell is covered when SOME sound rectangle of
 -- the family contains it.  What Â§2 takes instead is a `pick : Fin (suc
 -- n) â’ Fin n` together with pointwise `Sound (rects (pick i))` and
 -- `Covers (rects (pick i)) (r i) (c i)` â” a cover ALREADY EQUIPPED with
--- a choice of which rectangle serves each cell.  Â§"SYT â” THE CLAIM, EXACTLY"
--- above disclaims upper bounds, r_e, d_e, raw width and the
--- min-cover/max-fooling equality, and says nothing about the shape of
--- its own hypothesis.
+-- a choice of which rectangle serves each cell.
 --
--- **IT IS A PRICE, NOT A HOLE, AND BOTH FORMS ARE NOW PROVED.**
+-- **BOTH FORMS ARE PROVED**, in `NRectanglesCannotCoverSucNFoolingCellsEvenWhenTheCoveringIsOnlyAProperty`:
 --
 --   cannotCoverSigma      hypothesis `(i) â’ Î[ k ] (Sound — Covers)`.
 --                         FREE: a Î  of Î already contains its own
@@ -143,19 +128,13 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- `nRectanglesCannotCoverSucNFoolingCells`, handing it the same
 -- `pick`/`sound`/`covers` triple built from the weaker hypothesis.
 --
--- **AND FINITENESS IS NOW LOAD-BEARING FOR A SECOND, DIFFERENT REASON.**
+-- **AND FINITENESS IS LOAD-BEARING FOR A SECOND, DIFFERENT REASON.**
 -- Up to here `Fin` appeared on this line only because the pigeonhole
 -- needs it.  `finChoiceFin` needs it for choice, which is unavailable
 -- over an arbitrary index; so the line's use of finiteness is not one
--- fact but two, and Â§3's summary above â” which presents the line as
--- three steps each naming what it did not do â” is missing that.
+-- fact but two.
 --
--- NOTHING ABOVE IS RETRACTED.  Â§2 is true as stated and is the theorem
--- both repairs end at; Â§3's account of the three steps is correct as
--- far as it goes.  The name is NOT changed: renaming would break
--- importers and erase the record.
---
--- Still not done, as before, and not a gap in the line: any UPPER
+-- A different theorem, not on this line: any UPPER
 -- bound, and the min-cover/max-fooling equality, which is false in
 -- general for rectangle covers.
 ------------------------------------------------------------------------

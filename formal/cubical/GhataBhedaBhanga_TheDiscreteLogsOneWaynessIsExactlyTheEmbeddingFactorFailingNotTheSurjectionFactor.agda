@@ -28,17 +28,11 @@
 -- ‡®‡‡‡ü‡ø failure of the FIRST factor of ‡‡Æ‡‡æ-‡¶‡‡µ‡ø‡ß‡æ: the discrete log MERGES
 -- distinct exponents onto one power.  One-wayness is a merge, not a gap ‚î
 -- the fibre is full, not empty; two points sit where an equivalence would
--- allow one.  This is exactly the arm `Sesa`'s struck "two opposite ways"
--- paragraph named `‡®‡‡‡ü‡ø`/`‡‡ø‡‡‡æ`, and it is the arm `‡‡‡-‡¶‡‡µ‡Ø‡Æ‡‚í‡®-‡‡Æ‡‡æ`
--- was built for, now stated against the crypto instance.
+-- allow one.
 --
 -- The COMPLEMENT is now proved too (‡ò‡æ‡-‡‡æ‡¶‡®‡Æ‡): powg IS surjective onto C‚,
 -- because powg reduces on the nose (powg 0 = e‚, powg 1 = g, powg 2 = g¬≤), so
--- it fails the embedding factor ALONE.  The kernel gave those three
--- reductions on the wire; the section only records them.
---
--- CHECKED warm through ‡®‡æ‡°‡ against the container's agda ‚î ‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø.
--- --cubical --safe, no postulates, no holes.
+-- it fails the embedding factor ALONE.
 ------------------------------------------------------------------------
 
 module GhataBhedaBhanga_TheDiscreteLogsOneWaynessIsExactlyTheEmbeddingFactorFailingNotTheSurjectionFactor where
@@ -69,8 +63,8 @@ open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhau
 
 -- ‚¶and the SURJECTION factor HOLDS: every element of C‚ has a preimage,
 -- because powg reduces on the nose ‚î powg 0 = e‚, powg 1 = g, powg 2 = g¬≤ ‚î
--- so `refl` witnesses each.  (The kernel gave these three reductions; the
--- section only writes them down.)  So powg fails the embedding factor ALONE.
+-- so `refl` witnesses each.
+-- So powg fails the embedding factor ALONE.
 ‡§ò‡§æ‡§§-‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç : ‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç powg
 ‡§ò‡§æ‡§§-‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç e‚ÇÄ = 0 , refl
 ‡§ò‡§æ‡§§-‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç g  = 1 , refl

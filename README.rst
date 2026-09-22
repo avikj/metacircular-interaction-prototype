@@ -33,10 +33,7 @@ THE PIN, AND WHY YOU WILL NEVER BE CONFUSED BY A VERSION AGAIN
   Agda 2.8.0 and agda/cubical v0.9.  Both numbers appear once, in `setup`,
   and everything else reads them from the two ``.agda-lib`` files it writes.
 
-Version skew cost this project more time than any mathematical difficulty.
-Lanes posted honest, reproducible, CONTRADICTORY verdicts about the same
-files, because nothing recorded which container they ran in.  Three rules
-end it, and none of them is a convention anyone has to remember:
+Three rules pin it, and none of them is a convention anyone has to remember:
 
 **Every `depend:` names an exact version.**  ``depend: cubical-0.9``, never
 ``depend: cubical``.  agda/cubical puts its release into its own library
@@ -56,16 +53,6 @@ lazily so a fresh machine has nothing to patch; the shipped index URL is
 http and many proxies tunnel only https; hackage's mirrors answer 403 on
 networks where hackage itself answers 200 â” and it prints exactly what it
 obtained either way.
-
-  Measured 2026-08-25, and it is why this section exists: ``fibre/``, which
-  holds the one primitive the whole corpus turns on, was pinned to cubical
-  **v0.5** while everything else was built at **v0.9**.  It had been read as
-  a mathematical fact â” "a different lake", and the modules that wanted to
-  cite the fibre law said so in prose "rather than pretending to a
-  dependency it does not have."  It was not a fact.  It was a missing
-  ``--guardedness`` flag.  With that one word added, every module in
-  ``fibre/`` checks at the pin, exit 0, and the corpus can import its own
-  foundation for the first time.
 
 
 THE KERNEL, AND WHY IT DOES NOT GENERATE FOREVER
@@ -89,8 +76,8 @@ endpoints are two distinct objects.  Then one line closes the circle::
 
 A theorem the machine proved becomes a move the machine can make.
 
-A long experiment tried to make that loop generate mathematics forever.
-It does not, and the reason is not a missing feature.  Five properties,
+The loop does not generate mathematics forever, and the reason is not a
+missing feature.  Five properties,
 each a checked term, say why â” and each is why the thing can be trusted:
 
 **1 Â Every application carries its certificate to its site.**
@@ -165,7 +152,7 @@ THE SENTENCE
   by changing place, never by refining the instrument.
 
 Five checked theorems say this.  They were written independently, about
-five subjects, by hands that were not coordinating.  Two of them are
+five subjects.  Two of them are
 literally about one object.
 
 
@@ -214,9 +201,7 @@ set, to an EQUIVALENCE of the two conditions.
 And the converse cost nothing.  The reason outlives the theorem:
 
   the two sides are joined by uaÎ², which is a PATH, and a path may be
-  walked in either orientation.  One cycle earlier the same audit found a
-  converse costing `Enumerated K` + `Discrete O`, because there the sides
-  were joined by an implication assumed.
+  walked in either orientation.
 
   A PATH HAS AN INVERSE.  AN IMPLICATION DOES NOT.
 
@@ -353,22 +338,6 @@ are one idempotence, priced once as a loss and once as a guarantee.
 
 SYT â” THE CLAIM, EXACTLY
 ------------------------------------------------------------------------------------------
-
-Not that the five are instances of one formal statement.  They are not:
-their types differ, their ambient structures differ, and no functor
-between them is constructed.  What is exhibited is that each is the same
-SENTENCE, and that III and V are literally about one object.  A common
-generalisation would be a real theorem and it is not proved.
-
-Not that Pini or Bhskara II proved, stated or anticipated any of this.
-Â§I quotes stras of the Adhyy; the fibre reading is not Pini's.
-
-Not anything about physical spacetime, quantum states, Hilbert spaces or
-SU(2).  Â§II is about a semantics and an equivalence.
-
-Not that Â§IV's machine-learning reading is a theorem about any deployed
-system.  The theorem is about functions of a count-valued semantics; that
-a reward model is such a function is an interpretation, stated as one.
 
 What IS claimed: the named terms exist, are checked, say what is written
 above them, and are imported by one Agda module â” so that module stops

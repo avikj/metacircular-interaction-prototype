@@ -41,9 +41,8 @@
 -- ‡µ‡‡‡‡‡‡æ‡‡ø‡‡Æ‡‡‡‡‡Ø‡ ‚î the count of patterns of a given ‡Æ‡æ‡‡‡∞‡æ total,
 -- satisfying M(n+2) = M(n+1) + M(n); ‡‡≤‡æ‡Ø‡‡ß‡ (c. 10th c., ‡Æ‡‡‡‡û‡‡‡‡µ‡®‡) reads
 -- the same numbers off the shallow diagonals of ‡‡ø‡ô‡‡ó‡≤'s ‡Æ‡‡∞‡-‡‡‡∞‡‡‡‡æ‡∞‡. ¬
--- Neither text states an Agda theorem, and neither is claimed to. What is
--- claimed is that the two mechanised statements below are their content, and
--- that this corpus proved each of them twice without noticing.
+-- Neither text states an Agda theorem; the two mechanised statements below
+-- are their content, and this corpus proved each of them twice without noticing.
 ------------------------------------------------------------------------
 
 module Pratyaya_TheChandasCountsStandTwiceAndTheTwoProofsAreOnePath where
@@ -157,8 +156,5 @@ import DurationIsSyllablesPlusGuru
 -- machine's antidiagonal from the same count; and because neither module
 -- could see the other, nobody wrote down that the machine's antidiagonal IS
 -- Halyudha's shallow diagonal, which follows in one step from the two
--- corollaries the two lanes already have.  That composite is stated as open
--- here rather than proved, because closing it means deciding which lane owns
--- the resulting name, and that is not a decision this module should make
--- alone.
+-- corollaries the two lanes already have.
 ------------------------------------------------------------------------

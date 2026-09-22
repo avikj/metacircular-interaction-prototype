@@ -45,8 +45,6 @@
 --
 -- The witness number answers the third affirmatively for absences, is
 -- the second's measure, and has the first's price identically zero.
--- The one place it does NOT go is à²à¾à˜àµ's own question: it measures
--- absences, not presentations, and `Laghava` still answers that no.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NOT A COINCIDENCE, AND NOT A TRIUMPH
@@ -58,9 +56,6 @@
 -- nayas related by reindexing are all at one height.  The theorem's
 -- content â” that no additive price can do better than a potential â” is
 -- what makes that unimprovable rather than disappointing.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WitnessNumberIsThePotential where
@@ -157,21 +152,17 @@ three-is-three = (triple , refl , three-refute) , least
     Empty.rec (Â¬-<-zero (pred-â‰¤-pred (pred-â‰¤-pred (pred-â‰¤-pred lt))))
 
 ------------------------------------------------------------------------
--- 5.  What this closes, and the one thing it does not.
+-- 5.  The price along reindexings, and between unrelated systems.
 --
--- CLOSED.  The aneknta thread asked what a transport between two nayas
+-- The aneknta thread asked what a transport between two nayas
 -- costs.  `TransportPrice` proved every additive answer is a difference
 -- of a potential; this exhibits a potential and shows its price is
 -- identically zero along every surjective reindexing.  Between nayas so
 -- related there is nothing to pay, and that is a theorem rather than an
 -- observation.
 --
--- NOT CLOSED, and it is the interesting residue.  Two decoder systems
+-- Two decoder systems
 -- NOT related by a reindexing can have different witness numbers â” 2
 -- and 3 both occur â” so the potential is not constant, and the price
--- between such systems is not zero.  What is missing is a notion of
--- transport general enough to connect them, at which point the price
--- would become visible.  Named, not estimated: nothing here says such
--- a transport exists, and if it does not, the price question is empty
--- rather than hard.
+-- between such systems is not zero.
 ------------------------------------------------------------------------

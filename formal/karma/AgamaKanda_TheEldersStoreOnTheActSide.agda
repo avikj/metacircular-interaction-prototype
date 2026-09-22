@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- The elder's store, emitted on the act side so the compiled mouth can
 -- speak about it.  Generated from machine/library.terms by
--- machine/AgamaLekhaka_...awk � the same 102 pairs the --cubical body
+-- machine/AgamaLekhaka_...awk � the same pairs the --cubical body
 -- judged; one generator, two habitats, and the body's censuses are the
 -- knowledge-portion's warrant for whatever the binary reports.
 ------------------------------------------------------------------------
@@ -15,7 +15,6 @@ open import Agda.Builtin.List using (List ; [] ; _∷_)
 open import Agda.Builtin.Sigma using (_,_)
 open import KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled
 
--- regenerated 2026-08-24: 108 unique pairs (gcd crossed; 5 fresh-constant lines stay with the elder)
 आगमः : List Eq'
 आगमः = ( (ze ⊕ (var 0)) , (var 0) )
       ∷ ( (mx (var 0) (var 0)) , (var 0) )

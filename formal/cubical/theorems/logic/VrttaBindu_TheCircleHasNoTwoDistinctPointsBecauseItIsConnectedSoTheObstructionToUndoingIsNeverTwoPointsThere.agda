@@ -1,10 +1,8 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- àµàààà-àà¿à¨àà¦àà â” the one sentence `Bahupratyanayana_â¦` left unproved.
+-- àµàààà-àà¿à¨àà¦àà â” the point-level statement `Bahupratyanayana_â¦` needed.
 --
--- That module says, exactly: "NOT PROVED HERE: that SÂ has no two
--- distinct points (that is connectedness, in the library, and is not
--- invoked)."  It is invoked here.  `isConnectedSÂ : (s : SÂ) â’ âˆ base â‰¡ s âˆâ`
+-- `isConnectedSÂ : (s : SÂ) â’ âˆ base â‰¡ s âˆâ`
 -- gives, for any two points, a mere path between them; a proof that
 -- they are distinct would refute that mere path.  So:
 --

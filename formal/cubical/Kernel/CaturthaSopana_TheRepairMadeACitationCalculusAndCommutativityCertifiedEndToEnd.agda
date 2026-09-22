@@ -4,14 +4,13 @@
 -- Kernel.CaturthaSopana_TheRepairMadeACitationCalculusAnd
 --                                    CommutativityCertifiedEndToEnd
 --
--- ‡‡‡‡∞‡‡-‡‡ã‡‡æ‡®‡Æ‡ ¬ the fourth step of the stair; compound assembled here,
--- no textual source claimed.
+-- ‡‡‡‡∞‡‡-‡‡ã‡‡æ‡®‡Æ‡ ¬ the fourth step of the stair.
 --
 -- WHERE THIS STANDS.  `TrtiyaSopana_‚¶` proved the induction certificate
 -- does not reach commutativity: the wall is the type of the `base`
 -- field, which demands a bare `Derivation`, and named the repair without
--- making it.  This module makes the repair AS NEW MATHEMATICS, touching
--- no existing file, in the kernel's own philosophy: `install` turns a
+-- making it.  This module makes the repair
+-- in the kernel's own philosophy: `install` turns a
 -- theorem into a move, so let the certificate layer do the same ‚î a step
 -- may CITE an established pointwise theorem, carrying that theorem's own
 -- soundness as the constructor's argument.  Nothing is trusted: the
@@ -40,8 +39,6 @@
 -- with the first strictness at 0 + x = x, the second at x + y = y + x,
 -- and the third level exhibited INHABITED at commutativity ‚î reached,
 -- not merely true.
---
--- CHECKED at the repository pin, --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Kernel.CaturthaSopana_TheRepairMadeACitationCalculusAndCommutativityCertifiedEndToEnd where

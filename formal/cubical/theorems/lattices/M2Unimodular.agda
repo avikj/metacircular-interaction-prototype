@@ -8,9 +8,6 @@
 -- multiplicativity (Binet at n=2, one polynomial identity), and the
 -- nonvanishing of unimodular determinants (ÎµÂ² = 1 â’ Îµ â‰  0, the only
 -- place discreteness of â enters: 1 â‰  0).
---
--- Next on top of this: freeness and transitivity of the Î“â action on
--- normalization events â” the torsor of R0033, over all of â.
 ------------------------------------------------------------------------
 
 module M2Unimodular where

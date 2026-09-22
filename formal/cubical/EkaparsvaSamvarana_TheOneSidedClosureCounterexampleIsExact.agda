@@ -5,14 +5,7 @@
 --
 -- ON THE NAME.  Descriptive  for the operation D0026 Â§2.4 calls
 -- one-sided closure (àà• eka "one" + àà¾à°ààààµ prva "side" + àààµà°à
--- savaraa "closing, shutting"); NO classical source is claimed for it
--- and none exists â” the mathematics is 20th/21st century.  CLAUDE.md's
--- naming rule forbids DEFAULTING to English where a real term exists;
--- it also forbids fabricating a term to assert a provenance nobody
--- checked.  This label asserts no provenance: it is a gloss, and the
--- owner's own constitutional maxim for the corpus â” àà®àà¾ ààà°à®à¾ààà¨,
--- equivalence by proof, not resemblance (D0026 Â§10.6) â” is the standard
--- the file is written to, not an ancestry claim.
+-- savaraa "closing, shutting").
 --
 -- SOURCE.  collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md
 -- Â§2.4 "One-sided closure can destroy associativity", captured
@@ -39,8 +32,7 @@
 -- `EqualityPramanena_TheTrefoilLawIsExactlyPAssociativity.agda`.  This
 -- module discharges the clause named "the exact counterexample", and
 -- with it the Isbell conjugates and one-sided closure it is stated in
--- terms of.  Middle associativity, the residual laws and the derived
--- nucleus are NOT here and are not claimed.
+-- terms of.
 --
 -- WHAT IS CHECKED.  Everything below is a finite exhaustive computation
 -- on a four-element carrier with integer weights, decided by `refl` in
@@ -425,19 +417,7 @@ leftâ‰¤right c = refl
 leftâ‰¤right d = refl
 
 ------------------------------------------------------------------------
--- 7.  What is NOT claimed.
---
--- Not that the counterexample is new: Â§2.4 marks it â³ inherited, and
--- that mark stands.  Not that âŠ™_L is non-associative in general â” one
--- instance is exhibited, which is exactly what a counterexample is, and
--- Â§2.4's own conclusion is the negative universal ("There is no
--- universal compiler that records only one-sided binary closure ... and
--- still guarantees associative semantic composition"), which this
--- instance witnesses and does not extend.  Not middle associativity:
--- D0026 Â§2.5 repairs the failure with the two-sided middle nucleus, and
--- that repair is NOT formalized here.  Â§14.1's remaining clauses â”
--- middle associativity, the residual laws, the derived nucleus â” remain
--- open.
+-- 7.  What is added.
 --
 -- One thing IS added rather than reproduced: Â§2.4 does not state that
 -- its four-element table is associative, and the counterexample is

@@ -40,9 +40,6 @@
 -- Three terms, and together they are the word "optimal" with nothing left
 -- quoted at frontier 8: a bound over all schemes, a count for this one,
 -- and an attainment.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WalkObservationCount where
@@ -114,13 +111,7 @@ walk-observation-space =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- PROVENANCE CORRECTION, 2026-08-18.
---
--- This module says "the Chinese remainder theorem" for the simultaneous
--- congruence result it runs on, and that name was used without being
--- checked â” in a session whose brief was to build from Indian sources and
--- credit the origin rather than the restatement, and three modules after
--- building ryabhaa's kuaka by name.
+-- PROVENANCE.  The simultaneous-congruence result this module runs on:
 --
 -- The **kuaka** (*ryabhaya* 2.32â“33, 499 CE) is a general
 -- constructive method for exactly this problem â” given remainders against
@@ -130,6 +121,4 @@ walk-observation-space =
 -- 1247.  Both traditions have it, and this file's own chain runs on the
 -- Indian one: `CoprimePowers`, `BezoutIsGCD` and `CoprimePowersN` all
 -- carry B©zout certificates, which is what the pulveriser returns.
---
--- Nothing mathematical changes.  The citation does.  See
 ------------------------------------------------------------------------

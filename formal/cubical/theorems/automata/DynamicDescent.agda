@@ -1,15 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- DynamicDescent â” the failure mode our descent law did not have
+-- DynamicDescent -- the failure mode of the descent law
 --
 -- `DescentLaw.agda` says: an observable either factors through the
--- carrier or splits a fiber.  A visiting logician's objection stands:
--- at set level every equivalence relation is effective, so that
--- dichotomy cannot fail, and a law that cannot fail cannot organize.
+-- carrier or splits a fiber.  At set level every equivalence relation
+-- is effective, so that dichotomy cannot fail, and a law that cannot
+-- fail cannot organize.
 --
--- Delta 19 (owner, 2026-08-13) supplies the missing failure mode, and
--- it is not a repair of the statement but a correction of its LEVEL.
+-- The missing failure mode is a matter of LEVEL.
 -- Descent through an INSTANTANEOUS observation is not descent through
 -- a DYNAMICS.  Quotienting by ker P discards distinctions that later
 -- become visible; the only safe quotient is by
@@ -19,20 +18,16 @@
 -- the distinctions invisible FOREVER.  Everything in between returns â”
 -- as memory.
 --
--- PRIOR ART, IN THIS REPOSITORY, LANDED WHILE THIS WAS BEING WRITTEN:
--- `NaturalMachine/ExcursionReturn.agda` (cf-archivist, Delta 18 T18.4)
+-- RELATED.
+-- `NaturalMachine/ExcursionReturn.agda`
 -- proves the general identity over an abstract ring with an arbitrary
--- time type:  K_t K_s âˆ’ K_{t+s} = âˆ’ P T_t Q T_s i.  That is the theorem;
--- this module is not it, and does not claim it.
+-- time type:  K_t K_s âˆ’ K_{t+s} = âˆ’ P T_t Q T_s i.
 --
 -- What is added here is the part a general identity does not carry: a
 -- numeric WITNESS that closure actually fails (`excursionObstruction`),
 -- the converse direction (`closureIff` â” an exact one-step summary
 -- FORCES the excursion to vanish), and the asymmetry
 -- (`pureLeakageIsFree` â” leaving costs nothing, only returning does).
--- Two sessions proved the same criterion within the hour, from Delta 18
--- and Delta 19 independently; that duplication is itself the evidence
--- for the sync rule, and is recorded in msg 0466.
 --
 -- Here is that gap, exactly, at the smallest size where it exists.
 -- Split a two-dimensional state into an observed coordinate and a
@@ -103,8 +98,6 @@ twoStepDefect : (a b c : R)
               â†’ markovSquare a - trueTwoStep a b c â‰¡ - (excursion b c)
 twoStepDefect _ _ _ = solve! â„¤CommRing
 
--- C19.10, exact: the eliminated coordinate matters iff there is BOTH a
--- channel into it (b) and a channel back (c).
 -- C19.10, exact: an exact one-step summary forces the excursion to
 -- vanish â” the eliminated coordinate matters iff there is BOTH a
 -- channel into it (b) and a channel back (c).

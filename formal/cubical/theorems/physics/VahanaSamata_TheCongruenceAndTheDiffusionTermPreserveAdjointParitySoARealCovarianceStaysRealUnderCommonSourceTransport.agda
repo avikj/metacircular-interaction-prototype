@@ -60,14 +60,7 @@
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“6 in any ring with involution, for all
 -- elements satisfying the displayed parity equations, for every family
--- and every finite `k`.  NOT claimed: positivity â” `â‰ 0` is not
--- expressible here and no cone beyond the real/skew split is mentioned;
--- nothing about the SOLUTION of any evolution equation, only that its
--- right-hand side lands where its left-hand side lives; nothing about
--- expectations, measures, or probability â” Â§5's "average" is a finite
--- fold and is named as one; no trace, no rank, no spectrum; and nothing
--- about which `Î ` arises from which source, which is the modelling step
--- and is carried out in `SamanaMula` under its own hypothesis.
+-- and every finite `k`.
 ------------------------------------------------------------------------
 
 module VahanaSamata_TheCongruenceAndTheDiffusionTermPreserveAdjointParitySoARealCovarianceStaysRealUnderCommonSourceTransport where

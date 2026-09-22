@@ -10,7 +10,7 @@ boundary of what one loop can certify
 The synthesis claims: to prove an additive edge effect
 path-independent, verify zero integral on basis cycles â” homology
 gives the minimum family of irreducible global path tests.  The
-pairwise instance is now a theorem of the kernel.
+pairwise instance is a theorem of the kernel.
 
 Integration is additive over concatenation, and against reversal an
 orientation-respecting evaluator cancels step by step:
@@ -30,7 +30,6 @@ cycle can certify and value no cycle can kill.
 
 SYT â” THE CLAIM, EXACTLY.  Additivity, the cancellation, the test,
 the antisymmetry of every coboundary, at one fundamental cycle
-uniformly in the pair it spans.  NOT claimed: a spanning tree or full
-Hâ basis for the whole step graph.
+uniformly in the pair it spans.
 
 Machine-checked in cubical type theory, --safe, at the pin.

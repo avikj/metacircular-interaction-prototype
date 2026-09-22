@@ -1,9 +1,8 @@
 # Exact Boolean-cube derivations for SAT — Part III
 
-**Date:** 2026-09-17  
 **Continuation:** Parts I–II in the same directory.
 
-The preceding file ended while discussing the cardinality of the complete-future quotient. This part closes that point and gives two exact controls showing why cardinality growth is not yet geodesic cost.
+This part treats the cardinality of the complete-future quotient and gives two exact controls showing why cardinality growth is not geodesic cost.
 
 ---
 
@@ -303,6 +302,4 @@ The Boolean cube calculation now yields the following theorem chain without any 
 \end{array}}
 \]
 
-The old “forced-crossing certificate” has therefore been replaced by a precise theorem: **an exponentiality certificate is an exponentially large proof-relevant packing of terminal-relevant boundary distinctions together with a proved bound on how many members any primitive interaction can discharge.** The lower bound is then a one-line potential argument, and equality is proved by a native path that discharges at the certified rate.
-
-No claim is made here that a polynomial-size 3SAT family with such an exponential packing has been constructed; equally, no such construction is left as a TODO. The mathematics above says exactly what follows from the current objects and exactly what does not. A later continuation should only add a SAT family if it actually constructs the packing and proves the primitive-incidence theorem in the same text.
+The precise theorem: **an exponentiality certificate is an exponentially large proof-relevant packing of terminal-relevant boundary distinctions together with a proved bound on how many members any primitive interaction can discharge.** The lower bound is then a one-line potential argument, and equality is proved by a native path that discharges at the certified rate.

@@ -4,9 +4,8 @@
 -- Sha256Parimana â” every digest is exactly 256 bits, for EVERY message,
 -- so the real hash is unconditionally a non-equivalence.
 --
--- Sha256Sesa fenced this off: "Â isEquiv sha256 is not asserted: the
--- honest routes are a length invariant through the pipeline (unwritten)
--- or an exhibited collision (open)."  This module walks the first
+-- Two routes to non-equivalence of sha256: a length invariant through
+-- the pipeline, or an exhibited collision.  This module walks the first
 -- route.  The invariant: every word the pipeline carries has 32 bits â”
 -- through addition (a ripple-carry keeps its first argument's length),
 -- through nth (the default zeroW is itself 32 bits, so no bound on the
@@ -24,8 +23,6 @@
 -- sha256 on any compressing restriction is forced by pigeonhole and
 -- exhibiting it is the open problem.  Non-equivalence needed only the
 -- codomain's slack, and takes it.)
---
--- CHECKED: Agda 2.8.0, --cubical --safe, through scripts/oracle.
 ------------------------------------------------------------------------
 
 module Sha256Parimana_EveryDigestIsExactly256BitsSoTheRealHashIsUnconditionallyANonEquivalence where

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ø‡‡‡‡ø-‡¶‡‡µ‡Ø‡Æ‡ ‚î two more walls, and the frontier shrinks honestly.
+-- ‡‡ø‡‡‡‡ø-‡¶‡‡µ‡Ø‡Æ‡ ‚î two more walls.
 --
 -- After ‡‡‡‡-‡‡‡∞‡Æ‡æ‡‡Æ‡ the big component holds 20 banks.  The next-largest
 -- candidate merges into it are Unit's component (6 banks) and Fin 840's
@@ -18,10 +18,6 @@
 -- into n) hands two distinct points with equal image, and injectivity of
 -- the composite refutes them.  Nothing invented; the pigeonhole is
 -- cubical v0.5's own (`Cubical.Data.Fin.Properties`).
---
--- With these, every finite-hub component's merge into the ‚ï-component is
--- retired, and what remains on the candidate list is genuinely open.
--- ‡‡ø‡‡‡‡ø-‡¶‡‡µ‡Ø is built here, 2026-08-23.
 ------------------------------------------------------------------------
 
 module BhittiDvaya_TwoMoreWallsTheFiniteBanksCannotMergeWithTheNaturals where

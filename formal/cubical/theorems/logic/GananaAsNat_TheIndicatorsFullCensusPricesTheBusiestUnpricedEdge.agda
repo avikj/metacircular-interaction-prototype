@@ -4,11 +4,8 @@
 -- ‡ó‡‡®‡æ-asNat ‚î the indicator's full census, pricing the busiest unpriced
 -- edge the organism itself asked for.
 --
--- PROVENANCE OF THE TASK: ./jiva, first boot in this container
--- (2026-08-23), sector ‡© "five unpriced directed edges to price first" ‚î
--- all five are Bool ‚ü ‚ï at price-score 856, among them
--- `FiniteOccupancyChannelNoGo.asNat` (false‚¶0, true‚¶1).
--- One receipt prices the shape all five share: the indicator.
+-- THE MAP: `FiniteOccupancyChannelNoGo.asNat` (false‚¶0, true‚¶1).
+-- One receipt prices the indicator shape itself.
 --
 -- THE RECEIPT, an identification per point of the codomain (never a
 -- bound), in SakalaVikalaDesa's three-verdict vocabulary:
@@ -23,8 +20,6 @@
 -- was never lossy; it is merely partial on names.  By ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡-‡‡ô‡‡ò‡æ‡‡
 -- this is the best case for routing: on its image the edge is invertible,
 -- so every composite THROUGH asNat prices as the other factor alone.
---
--- ‡ó‡‡®‡æ-asNat is built here, 2026-08-23.  Elementary; no source claimed.
 ------------------------------------------------------------------------
 
 module GananaAsNat_TheIndicatorsFullCensusPricesTheBusiestUnpricedEdge where
@@ -40,11 +35,8 @@ open import Cubical.Data.Empty using (‚ä•) renaming (rec to ‚ä•-rec)
 open import Cubical.Relation.Nullary using (¬¨_)
 open import FiniteOccupancyChannelNoGo using (asNat)
 
--- asNat is IMPORTED from its home, not redefined: the first push of this
--- file redefined it locally and ./jiva correctly counted a NEW unpriced
--- edge (heartbeat 1270‚í1271) instead of a discharge ‚î the receipt must
--- attach to the original declaration.  The organism audited its own
--- pricing pass in one diff.
+-- asNat is IMPORTED from its home, not redefined: the receipt must attach
+-- to the original declaration.
 
 ‡§∂‡•á‡§∑ : ‚Ñï ‚Üí Type
 ‡§∂‡•á‡§∑ n = Œ£[ b ‚àà Bool ] (asNat b ‚â° n)

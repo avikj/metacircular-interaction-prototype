@@ -9,8 +9,8 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE REPETITION
 --
--- Over the last cycles this thread has found the same correction at
--- several sites: a hypothesis of `Dec` where the proof uses only
+-- The same pattern appears at several sites: a hypothesis of `Dec` where
+-- the proof uses only
 -- `Â Â A â’ A`, or a target-side condition of `Discrete` where only
 -- path-stability is used.  This corpus's own rule about such things is
 -- that a pattern over n instances is a pattern over n instances until
@@ -156,11 +156,9 @@ stableÎ â‚ƒ : {A : Type â„“} {B : A â†’ A â†’ Type â„“'} {C : Type â„“'}
 stableÎ â‚ƒ st = StableÎ  (Î» a â†’ StableÎ  (Î» a' â†’ StableÎ  (Î» b â†’ st a a' b)))
 
 ------------------------------------------------------------------------
--- PRIOR ART, found late and recorded here rather than by deletion.
+-- PRIOR ART.
 --
--- `DeflationaryTest` was in the corpus and in
--- `RootsThreadLatch` throughout the cycles that produced this module,
--- and was not read.  It already contains the closure lemmas for
+-- `DeflationaryTest` already contains the closure lemmas for
 -- `Â`, `â’`, `—`, `Î `, their instantiation at the corpus's obstruction
 -- shapes, the observation that stability does not pass through `âŠ`,
 -- `no-barrier-claim : Â (Â (Dec A))`, and the deflation that the
@@ -169,6 +167,5 @@ stableÎ â‚ƒ st = StableÎ  (Î» a â†’ StableÎ  (Î» a' â†’ StableÎ  (Î» b â†’ st a 
 -- `TheDeflationaryTestWasAlreadyRun` carries the ledger,
 -- line by line, of what here is a rediscovery and what is not â” and
 -- proves the overlap by `refl`, the closure lemmas on both sides being
--- the same terms.  Read that ledger before citing anything below as
--- new.
+-- the same terms.
 ------------------------------------------------------------------------

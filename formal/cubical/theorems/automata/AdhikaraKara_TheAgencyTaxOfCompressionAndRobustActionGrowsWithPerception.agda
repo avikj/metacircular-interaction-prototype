@@ -6,11 +6,10 @@
 --
 -- TERM.  ‡‡ß‡ø‡ï‡æ‡∞ as in ‡‡ß‡ø‡ï‡æ‡∞‡‡ô‡‡ó‡ (capacity, the standing to act); ‡ï‡∞ ‚î
 -- tax, tribute, the levy a state exacts.  The compound ‡‡ß‡ø‡ï‡æ‡∞-‡ï‡∞, "the
--- tax on agency", is built here; no source is claimed for it.
+-- tax on agency", is built here.
 --
--- SEED.  The owner's transmission of 2026-08-23 ("causal horizon
--- formation"), the section after the affordance theorem: the no-go
--- (‡‡ß‡ø‡ï‡æ‡∞‡‡ô‡‡ó‡, landed) says no controller on the quotient can be
+-- SEED.  The no-go
+-- (‡‡ß‡ø‡ï‡æ‡∞‡‡ô‡‡ó‡) says no controller on the quotient can be
 -- COMPLETE ‚î but the richer distinction is between two action spaces
 -- over an observed state:
 --

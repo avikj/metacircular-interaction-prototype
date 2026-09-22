@@ -11,8 +11,7 @@ two-doubling branch to `8`.
 The fork costs five operations when its prefix is retained once.  Replaying
 the two enriched traces independently costs seven, while the globally minimal
 signed-unit formation costs eight by `EuclidFiniteTargetFormation`.  This is a
-strict, checked separation from the unary interval theorem.  No global
-minimality claim is made for the enriched five-edge fork.
+strict, checked separation from the unary interval theorem.
 -/
 
 namespace Pairfield

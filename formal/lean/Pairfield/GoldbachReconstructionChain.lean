@@ -3,8 +3,7 @@ Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
 A headline composition of the checked Goldbach reconstruction chain.  This
-module deliberately stops in the half-plane `re s > 1`; it makes no claim
-about constructing or determining an analytic continuation.
+module deliberately stops in the half-plane `re s > 1`.
 -/
 import Pairfield.GoldbachTailLossless
 import Pairfield.VonMangoldtTriangularReconstruction
@@ -27,7 +26,7 @@ at index two, the triangular formula from index three onward, and has the
 zeta logarithmic derivative as its L-series on `re s > 1`.
 
 The conclusion is reconstruction from data known to lie in the Goldbach
-map's image; no surjectivity onto arbitrary tail sequences is asserted. -/
+map's image. -/
 theorem goldbachTail_reconstruction_chain
     (b : ℕ → ℝ)
     (bzero : b 0 = 0) (bone : b 1 = 0) (btwo : 0 < b 2)

@@ -46,9 +46,6 @@
 --       the composite of two cuts that retain nothing retains nothing.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- CHECKED: Agda 2.8.0 + agda/cubical (the installed version), --cubical
--- --safe, no postulates, no holes.  Exit code reported in the session log.
 ------------------------------------------------------------------------
 
 module Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd where

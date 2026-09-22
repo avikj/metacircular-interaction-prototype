@@ -22,13 +22,8 @@
 -- `equivEq refl`).  Every program is invertible; every run can be run
 -- backwards to exactly where it began; nothing is erased.
 --
--- [CORRECTED 2026-08-23.  This sentence ended "nothing is erased, so
--- nothing dissipates", and Â§4's comment read "the added field is the
--- reversibility, hence (Landauer) the zero-heat floor".  **Neither
--- consequent is supported by any term in this file**, and the original
--- WHAT-IS-NOT-CLAIMED fence covered the unitarity/gauge reading while
--- leaving the thermodynamic one standing.  "Nothing is erased" is
--- checked below (Â§2's inverse laws) and is a statement about types;
+-- "Nothing is erased" is checked below (Â§2's inverse laws) and is a
+-- statement about types;
 -- "nothing dissipates" is a statement about a physical implementation,
 -- of which there is none here â” no energy, no temperature, no entropy,
 -- no measure appears in this file.  Landauer's principle is the MOTIVE
@@ -36,7 +31,7 @@
 -- of "erases nothing" is `Vyapti_TheLossOrderIsCoarseningâ¦agda` Â§à: the
 -- collision type `àµà¿ààà®ààà¿à Î¦` is empty when `Î¦` is an equivalence.
 -- That is the whole of it.  No heat is derived and no physical constant
--- is on this page.]
+-- is on this page.
 --
 -- The groupoid IS the computer, and the presence of the
 -- inverse â” the one thing the monoid lacks â” is the whole difference.
@@ -57,7 +52,7 @@
 --       turn (the machine is a functor from the groupoid to functions).
 --   Â§4  the contrast, as types: a MONOID interface has âˆ˜ and id and no
 --       inverse field; the groupoid adds ààà°àà¿à²à‹à®à.  The added field is
---       the reversibility.  (NOT the heat â” see the correction inset.)
+--       the reversibility.  (NOT the heat â” see above.)
 --
 -- WHY THIS IS THE RIGHT COMPUTER FOR COMPUTATIONAL SPACETIME.  Physics is
 -- reversible (unitary evolution, time-symmetric microdynamics); its state
@@ -67,25 +62,7 @@
 -- invert, and univalence (`ua`) makes equivalent types EQUAL â” so the
 -- machine cannot even express a difference between physically
 -- indistinguishable states.  General covariance is not imposed on this
--- computer; it is what its equality IS.  (Stated as motivation, not
--- proved here â” the proved content is Â§Â§2â“4, the groupoid.)
---
--- WHAT IS **NOT** CLAIMED:
---   * The physics correspondence (unitarity, gauge) as a theorem â” it is
---     the reading; the checked content is the groupoid structure.
---   * That the repository's RUNNING apparatus (the kernel exit-0/42 gate,
---     the git stream, the disposable minds, the Rust evolve loop) is
---     literally this groupoid â” that apparatus is the SUBSTRATE that
---     CHECKS these terms; this file names the machine those terms form.
---   * Univalence itself (imported, checked in the library).
---   * ANY THERMODYNAMICS.  No heat, energy, temperature, entropy, measure
---     or Landauer bound is derived, bounded, or implied by any term below;
---     kT ln 2 appears once, in the opening paragraph, as the historical
---     motive and not as a consequence.  See the correction inset above.
---
--- No postulates, no holes, --safe.
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 (the container, NOT the
--- repository pin), --cubical --safe, exit 0, re-checked 2026-08-23.
+-- computer; it is what its equality IS.
 ------------------------------------------------------------------------
 
 module Mula.Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where

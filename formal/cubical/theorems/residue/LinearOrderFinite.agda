@@ -4,8 +4,7 @@
 -- LinearOrderFinite
 --
 -- SOURCE OF THE TARGET.  `AtlasResiduals` Â§4 checks
--- `LinOrd n X` DEFINED to be `X â‰ Fin n`.  Its "WHAT IS DELIBERATELY
---
+-- `LinOrd n X` DEFINED to be `X â‰ Fin n`.
 --
 -- ====================================================================
 -- THE AXIOMS OF `LinOrdâ²`, AND WHICH WAY THEY ERR
@@ -21,8 +20,7 @@
 --     total       (x y : X) â’ âˆ (x â‰ y) âŠ (y â‰ x) âˆâ
 --
 -- Totality is MERE (propositionally truncated), and DECIDABILITY IS NOT
--- AN AXIOM.  The obligation as recorded in AtlasResiduals offered a
--- decidable total order; taking that licence was the cheap route and is
+-- AN AXIOM.  A decidable total order would have been the cheap route and is
 -- declined here.  Untruncated `(x â‰ y) âŠ (y â‰ x)` is *structure*, not a
 -- property: it is not a proposition (both disjuncts hold on the
 -- diagonal), so a "linear order" carrying it would remember a choice
@@ -40,7 +38,6 @@
 --     Î over relations with propositional structure (`isPropIsLinOrd`),
 --     and a path of orders is exactly a pointwise logical equivalence
 --     (`LinOrdâ²â‰¡` together with `hPropExt`).
---
 --
 -- WHAT IS CHECKED
 --
@@ -71,7 +68,7 @@
 --      `rank-pull`,`pull-rank`
 --                    the two round trips, as paths.
 --      `linOrdâ²â‰`    LinOrdâ² X â‰ (X â‰ Fin n) for X with âˆ X â‰ Fin n âˆâ.
---                    THE RESIDUE OF AtlasResiduals Â§4, DISCHARGED.
+--                    the passage from orders to rank listings.
 --
 --   Â§5 `isContrOrdTotalâ²`
 --                    Î[ X âˆˆ BSâ™ ] LinOrdâ²(X) is CONTRACTIBLE: Theorem
@@ -79,23 +76,17 @@
 --                    Obtained by transporting AtlasResiduals'
 --                    `isContrOrdTotal` along Â§4 fibrewise.
 --
---
 -- ====================================================================
 --
 --  * `LinOrdâ²` takes the relation valued in `Typeâ` with
---    prop-valuedness as an AXIOM, rather than valued in `hProp`.  The
---    two packagings are equivalent, and that equivalence is not proved
---    here; `isPropIsLinOrd` is what the development actually needs.
+--    prop-valuedness as an AXIOM, rather than valued in `hProp`.
 --
 --  * Everything is at `Typeâ` with `Cubical.Data.Fin.Fin`, matching
 --    AtlasResiduals.  `isFinSet` from the library is stated with
---    `SumFin`; `finFinâ•` bridges, and no claim is made about the two
---    presentations beyond that bridge.
+--    `SumFin`; `finFinâ•` bridges.
 --
---  * `embSurj` is proved only for `FinSet â“-zero`, and only in the
+--  * `embSurj` is proved for `FinSet â“-zero`, in the
 --    direction needed (embedding + equal cardinality â’ surjection).
---    The converse, the level-polymorphic version, and any general
---    counting library are absent.
 --
 --  * Two definitions are written in a deliberately awkward style for
 --    ELABORATION-COST reasons, and the comments at those points say so:

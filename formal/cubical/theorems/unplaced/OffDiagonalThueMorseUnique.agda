@@ -3,18 +3,8 @@
 ------------------------------------------------------------------------
 -- OffDiagonalThueMorseUnique
 --
--- *** KERNEL-CHECKED under the FALLBACK toolchain, not the pin. ***
--- Typechecks with Agda 2.6.3 + agda/cubical v0.5 (the toolchain actually
--- installed in this container: /usr/bin/agda 2.6.3, /root/agda-libs/cubical
--- at tag v0.5).  NOT the pin (2.8.0 / v0.9), so `formal/cubical/check.sh`
--- will (correctly) refuse to call it green until a pinned session re-runs
--- it.  But it IS a checked term, not a rumour: the many "AWAITING KERNEL
--- (there is no agda in this container)" headers across this corpus are
--- FALSE for --safe cubical-v0.5 code.  See the accompanying message.
---
--- 2026-08-18), the "derived uniqueness" companion to
--- load-bearing sentence, flagged there as "a paper proof, not a checked
--- term":
+-- The "derived uniqueness" companion to the source note's
+-- load-bearing sentence:
 --
 --     the recursion  Îµ(2m) = Îµ(m),  Îµ(2m+1) = âˆ’Îµ(m)  determines the entire
 --     sequence from Îµâ alone; there are exactly two solutions, Îµâ = Â1.
@@ -25,8 +15,7 @@
 --   * uniqueGivenHead (certified here): any two solutions agreeing at 0
 --       agree everywhere, so the solution set injects into Bool = {Îµâ};
 --   * existence of a solution for each Îµâ (the classical Thueâ“Morse
---       sequence, cf-prouhet's explicit p = âˆâ–(1 âˆ’ x^{2µ})): its formal
---       function-definition is a separable WF-recursion landing and is
+--       sequence, the explicit p = âˆâ–(1 âˆ’ x^{2µ})).
 --
 -- The obstruction "is one bit wide" (drishti): uniqueGivenHead says the
 -- fibre of the forget-the-diagonal map over a full-line partition is a

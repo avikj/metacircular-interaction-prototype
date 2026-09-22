@@ -43,7 +43,7 @@ computed.  Central cellwise = uniform power of the quarter turn:
 exactly four, no more â” precisely the excess by which the action's
 centralizer was found to exceed the group.
 
-One modulus governs everything proved this night: the twist vector is
+One modulus governs everything proved here: the twist vector is
 exact mod four, the kernel is decided mod four, the ladder's top rung
 reads mod four, the charge takes values mod four, and the centralizer
 is the four uniform powers.  The quarter turn â” the coherence that
@@ -51,10 +51,7 @@ exists only on the interdependent pair â” is the single constant of
 the theory, its Planck constant: every global structure is that one
 local impossibility, counted.
 
-SYT â” THE CLAIM, EXACTLY.  The four groups as stated; the causal
-extension of the exhaustion (zero-lookahead symmetries with
-lower-cell dependence, and the parity subtlety their analysis meets)
-is the standing construction.
+SYT â” THE CLAIM, EXACTLY.  The four groups as stated.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

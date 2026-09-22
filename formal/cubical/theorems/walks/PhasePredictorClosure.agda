@@ -15,7 +15,7 @@
 --
 -- Quotient descent and pullback of characters are standard.  The checked
 -- contribution is their exact placement at ActionResidualPhase's load-bearing
--- O_predict interface; no novelty is claimed.
+-- O_predict interface.
 ------------------------------------------------------------------------
 
 module PhasePredictorClosure where
@@ -149,7 +149,7 @@ module SwapBoundary where
   product-phase-predictor =
     (λ z → z) , product-phase-swap-invariant
 
-  -- The requested decisive conjunction: sensitivity of the residual phase
+  -- The decisive conjunction: sensitivity of the residual phase
   -- does not imply executability of the predicted phase factor.
   residual-separates-but-predictor-does-not-close :
     ((x y : State)

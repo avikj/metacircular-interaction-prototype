@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- DisclosureDimension
 --
---
 -- CONTEXT.  For a linear observation quotient q : V -> W over a field,
 -- the minimal number of scalars that must be disclosed alongside q x to
 -- determine x is exactly dim (ker q) (Theorem 1 of the note, one line of
@@ -25,20 +24,11 @@
 -- composite, and 3 < 2 * 2 STRICTLY.  Minimal alphabet is therefore
 -- strictly submultiplicative, so its logarithm is not additive, so it is
 -- not a dimension of anything.  This is the exact reason the flow
--- instance (COORDINATION_THEOREMS_XXIX 804-833) and the finite-set
--- instances (msg 0264's dilation dimension, msg 0249's cache fiber) are
+-- instance and the finite-set
+-- instances (the dilation dimension, the cache fiber) are
 -- not two costumes of one invariant: the linear invariant is a SUM over
 -- a composite, the finite-set invariant is a MAX over fibres, and max
 -- does not add.
---
--- CHECKED ON THE PIN: `NM_MODULES="DisclosureDimension.agda" ./check.sh`
--- reports  EXIT 0  with  agda 2.8.0 (/root/Agda-2.8.0/...) and cubical
--- /root/agda-libs/cubical-v0.9 at tag v0.9, commit b150186 -- i.e. the
--- pin declared in BUILD.md and in check.sh's own header, verified by
--- check.sh itself and not by a bare `agda -i .`.  No postulates, no
--- holes, --safe.  (This supersedes, for this module only,
--- check.sh exits 2 here: the pin toolchain is now present on this
--- container.  That note's re-grading of ITS OWN earlier greens stands.)
 ------------------------------------------------------------------------
 
 module DisclosureDimension where

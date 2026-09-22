@@ -3,8 +3,6 @@
 ------------------------------------------------------------------------
 -- WitnessNumberIsTwo
 --
--- CORRECTION TO `TwoProfilesSuffice`, one commit old.
---
 -- That module concluded: "the invariant is the NUMBER OF WITNESSES:
 -- 1 for à²à¾à˜àµ, àà¨ààµààààà¿, carry/borrow and the fuel obstructions; 2 for
 -- ààµà•àààµàà¯."  That counts in two different units.  A collision is ONE
@@ -56,9 +54,6 @@
 -- suggests, and it is now measured rather than asserted: the absences
 -- are not merely decidable, they are uniformly CHEAP, and the cost is
 -- the same at a function space as at a six-atom language.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WitnessNumberIsTwo where
@@ -196,18 +191,13 @@ avaktavya-witness-number-2 = avaktavya-two-suffice , avaktavya-one-never
 -- was fixed.  Once the measure is fixed â” least refuting list, one
 -- definition for every site â” there is nothing left to compare, because
 -- the answer is 2 everywhere and Â§3 explains the floor.
---
--- OPEN, named and not estimated: whether any absence in this corpus has
--- witness number above 2.  Â§3 gives a general floor and nothing here
--- gives a general ceiling.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 7.  THE OPEN ITEM IN Â§6 IS SETTLED, negatively.
+-- 7.  THERE IS NO GENERAL CEILING.
 --
--- Â§6 asked "whether any absence in this corpus has witness number above
--- 2" and noted a general floor with no general ceiling.  There is no
--- general ceiling: `WitnessNumberIsUnbounded` realises
+-- Â§3 gives a general floor and there is no general ceiling:
+-- `WitnessNumberIsUnbounded` realises
 -- witness number exactly 3, with three standpoints each wrong at
 -- exactly one of three points.  Every pair leaves a survivor; the nine
 -- cases are the pigeonhole written out.
@@ -215,14 +205,8 @@ avaktavya-witness-number-2 = avaktavya-two-suffice , avaktavya-one-never
 -- So the uniform 2 across this corpus is a property of ITS SITES, not
 -- of the notion of absence.  That is what having a measure buys, and it
 -- could not be said before one was fixed.
---
--- Still open there, and narrower: whether any absence arising from the
--- MATHEMATICS here â” rather than constructed to order â” exceeds 2.
--- Nothing found so far does.
 ------------------------------------------------------------------------
 
-------------------------------------------------------------------------
--- 8.  CORRECTION to Â§3's description, appended 2026-08-18.
 --
 -- Â§3 is headed "ONE POINT IS NEVER ENOUGH â” for any factorisation
 -- obstruction" and says the constant decoder answers a single point

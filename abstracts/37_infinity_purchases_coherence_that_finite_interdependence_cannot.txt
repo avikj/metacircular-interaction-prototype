@@ -42,9 +42,7 @@ bought by interdependence â” has a rung above every finite word, and
 infinity stands on it.
 
 SYT â” THE CLAIM, EXACTLY.  Centrality, orders, and the
-non-realizability with its computed separating depth; that uniform
-twist vectors exhaust the centralizer's excess is the standing
-construction.
+non-realizability with its computed separating depth.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

@@ -12,11 +12,6 @@
 -- does the parts of §§A, C, D, H that are about no particular object �
 -- the reusable lemmas every later perspective comparison will consume.
 --
--- Delta 14's own promotion criterion is quoted, because it governs what
--- is and is not below: *"The criterion for promotion is executable
--- comparison, not conceptual resemblance."*  Accordingly every numbered
--- item here is either a term or an explicit statement of why it is not.
---
 -- WHAT IS CHECKED, BY DELTA-14 NUMBER
 --
 --   §A  `restricts-suff`     T14.6, sufficient direction: if the two
@@ -72,26 +67,6 @@
 -- either "over `e`" or a fibrewise hypothesis, and adding it silently
 -- would be exactly Delta 14 §N's **P14.67 false-quotient danger** in
 -- miniature.
---
---  * **No cost, no complexity, nothing from §L.**  `G(e;f) = C(f) − C(f��)`
---    (D14.59) and the equivalence-optimised prediction cost (D14.61) are
---    *definitions requiring a cost model*, and this repository has no
---    checked cost model.  Delta 14 itself marks P14.65 "an operational
---    observation, not a canonical numerical theorem".  Writing a `Cost`
---    field here would be inventing the measurement `CLAUDE.md` forbids.
---
---  * **Nothing from §I (direction).**  P14.48 � that identity types
---    cannot faithfully represent irreversible reduction � is *correct
---    and is a reason not to write it here*: it calls for directed or
---    guarded type theory, which cubical v0.5 does not provide and which
---    `--safe` will not let us postulate.  Recorded as a real gap, not
---    papered over.
---
---  * **No claim that any of this is new.**  Every item is standard
---    homotopy type theory.  The contribution is that the machine core
---    now *has* them, so a later perspective comparison cites instead of
---    re-deriving � which is Delta 14 C14.64's point, and the only reason
---    a toolkit file is worth writing.
 ------------------------------------------------------------------------
 
 module PerspectiveCore where
@@ -136,7 +111,7 @@ restricts-nec e A₊ B₊ _ over a p = over (a , p) a refl p
 
 -- C14.7.  The obstruction to restriction, named as an object: a point of
 -- the sector whose image leaves the sector.  This is what "the sector
--- predicate is not invariant" MEANS, and it is what a lane hunting a
+-- predicate is not invariant" MEANS, and it is what a search for a
 -- boundary break must exhibit.
 SectorBreak : (e : A ≃ B) (A₊ : A → Type ℓ'') (B₊ : B → Type ℓ'') → Type _
 SectorBreak {A = A} e A₊ B₊ =
@@ -194,11 +169,10 @@ conj-per e f n a p =
 -- D.  FIBRES, SECTIONS, AND THE MONODROMY QUESTION
 --     (T14.21, P14.24, C14.25)
 --
--- This is the section of Delta 14 that lands directly on live work.
 -- `SieveFiber` found that the sieve quotient DOES admit a
 -- section while reconstruction fails, and that the residual is one bit.
 -- T14.21 is the general form of the first half; C14.25 is the warning
--- attached to the second, and it is a warning this corpus needed.
+-- attached to the second.
 ------------------------------------------------------------------------
 
 -- T14.21.  A section makes every fibre inhabited.
@@ -239,7 +213,7 @@ constMonodromy :
   → subst (λ _ → C) p x ≡ x
 constMonodromy p x = transportRefl x
 
--- C14.25, in the form a lane can actually use.
+-- C14.25, in the form that is usable.
 --
 -- **A residual bit is not an obstruction.**  If someone exhibits a
 -- two-element fibre and calls it a binary obstruction, the above is the
@@ -249,7 +223,7 @@ constMonodromy p x = transportRefl x
 -- sheet exchange � and that is a strictly further fact which must be
 -- exhibited separately.
 --
--- Recorded as a type so that a lane claiming an obstruction has
+-- Recorded as a type so that a claim of an obstruction has
 -- something to inhabit.  `MonodromyOf F b p` says the loop `p` at `b`
 -- acts non-identically on the family `F`.
 MonodromyOf : {B : Type ℓ} (F : B → Type ℓ') (b : B) (p : b ≡ b) → Type _
@@ -262,8 +236,7 @@ MonodromyOf F b p = Σ[ x ∈ F b ] (subst F p x ≡ x → ⊥)
 -- trivial transport along every loop.  So neither "the fibre has two
 -- elements" nor "a section exists" is evidence of an obstruction.
 --
--- **GAP CLOSED, and by a stronger route than the one this paragraph
--- proposed.**  `SetBaseNoMonodromy.setNoMonodromy` proves
+-- **THE GENERAL STATEMENT.**  `SetBaseNoMonodromy.setNoMonodromy` proves
 -- it for EVERY family over a base that is a set � no trivialisation
 -- needed, because over a 0-type `p ≡ refl` and there is no loop to act.
 -- So the constant-family restriction below is not the general statement;
@@ -274,7 +247,7 @@ constNoMonodromy :
   → MonodromyOf {B = B} (λ _ → C) b p → ⊥
 constNoMonodromy C b p (x , nontrivial) = nontrivial (transportRefl x)
 
--- The two-sheet instance, named so a lane can cite it directly.
+-- The two-sheet instance, named so it can be cited directly.
 twoSheetNoObstr :
   {B : Type ℓ} (b : B) (p : b ≡ b)
   → MonodromyOf {B = B} (λ _ → Bool) b p → ⊥

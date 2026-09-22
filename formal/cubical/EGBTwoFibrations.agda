@@ -3,9 +3,7 @@
 -- EGBTwoFibrations: the pair field's shape as ONE total space with TWO
 -- structure maps.
 --
--- For an abstract predicate P : â• â’ â• â’ Type (one day "both legs of the
--- pair (w - r , w + r) are prime"; here deliberately abstract â” no
--- primality, no arithmetic, no conjecture is claimed), the total space
+-- For an abstract predicate P : â• â’ â• â’ Type, the total space
 --
 --   Total P = Î[ w âˆˆ â• ] Î[ r âˆˆ â• ] P w r
 --
@@ -16,7 +14,7 @@
 --   * Goldbach-shape  = every fiber of ÏâŠ is inhabited (Coverage);
 --   * twin-prime-shape = the r = 1 fiber of Ïâ‹ is unbounded (Recurrence).
 --
--- Everything below is checked; nothing about primes is asserted.
+-- Everything below is checked.
 
 module EGBTwoFibrations where
 
@@ -84,9 +82,7 @@ module _ (P : â„• â†’ â„• â†’ Type) where
   totalSpaceAgree = swapEquiv
 
   ------------------------------------------------------------------
-  -- (c) The two conjecture SHAPES, as types.  These are DEFINITIONS
-  -- of shapes over the abstract P; no inhabitant is claimed, and none
-  -- could be, since P is arbitrary.
+  -- (c) The two conjecture SHAPES, as types, over the abstract P.
   ------------------------------------------------------------------
 
   -- Goldbach-shape: every center fiber is (merely) inhabited â” i.e.

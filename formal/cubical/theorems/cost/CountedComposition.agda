@@ -3,10 +3,9 @@
 ------------------------------------------------------------------------
 -- Sequential composition of counted execution.
 --
--- `CountedExecution.run` iterates a step map under a tick count, but the
--- corpus so far only relates single ticks (`run-suc`) and whole executions
--- to other whole executions (`compile`).  The missing law is the one the
--- acceptance test actually needs: counted time composes additively along
+-- `CountedExecution.run` iterates a step map under a tick count; `run-suc`
+-- relates single ticks and `compile` relates whole executions to other
+-- whole executions.  The law here: counted time composes additively along
 -- sequential execution.  Running for m + n ticks is running for n ticks and
 -- then resuming the machine, from the very state it reached, for m more.
 -- This is what makes a tick count a *cost*: segments of work concatenate,
@@ -54,10 +53,9 @@ run-split² seed step l m n =
   ∙ run-+ (run seed step n) step l m
 
 ------------------------------------------------------------------------
--- Instantiation on the checked positional-numeral machine.  This closes the
--- resumption edge left open by `CountedDigits`: that module executes only
--- from the zero word, so nothing there says a computation may be suspended
--- at an arbitrary checkpoint and resumed without recounting the prefix.
+-- Instantiation on the checked positional-numeral machine.  `CountedDigits`
+-- executes only from the zero word; here a computation is suspended at an
+-- arbitrary checkpoint and resumed without recounting the prefix.
 ------------------------------------------------------------------------
 
 module Odometer (k : ℕ) where

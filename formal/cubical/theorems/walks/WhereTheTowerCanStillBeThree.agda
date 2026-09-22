@@ -7,7 +7,7 @@
 -- not go through.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT WAS LEFT OPEN
+-- THE AFFIRMATIONS
 --
 -- `TheAbsenceTowerIsThreeUnconditionally` settles the
 -- absence side outright: every statement of the form `Â A` is stable
@@ -49,25 +49,7 @@
 --       and the floor of this corpus part company here for a reason
 --       that is not about either of them being harder.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- SAID WITH ITS RESPECT, BECAUSE Â§5 IS EASY TO OVERSTATE
---
---   ààà¯à¾àà â” in the respect of Î -shaped statements with stable
---            conclusions, the tower is two tall (Â§1â“Â§4);
---   ààà¯à¾àà â” in the respect of Î-shaped statements, this file
---            establishes nothing either way (Â§5).
---
--- The second is an absence of proof and not a proof of absence â” no
--- Î is shown unstable anywhere below, and it would be a à¦àà°àà¨à¯ to
--- report Â§5 as "the floor is unstable".  What Â§5 shows is where the
--- argument stops, which is a different object from where the property
--- fails.  Naming the stopping place is the content; Â§5's decidability
--- clause says what would move it.  The four corners are not taken for
--- the Î case, and saying so is the honest report: this file asserts
--- neither that Î-statements are stable nor that they are not, and does
--- not reach the further two corners at all.
---
--- AND Â§5 IS NOT ABOUT SHAPE, WHICH THIS FILE ITSELF PROVES.  `Stable-â”`
+-- Â§5 IS NOT ABOUT SHAPE, WHICH THIS FILE ITSELF PROVES.  `Stable-â”`
 -- (Â§1) says stability transports along a bare logical equivalence â” no
 -- univalence, no h-level, nothing about how the statement is written.
 -- So a Î-shaped statement logically equivalent to a Î -shaped one with
@@ -83,12 +65,6 @@
 -- `Stable-â”` is the proof.  Two quantities this corpus has been
 -- treating side by side turn out to sit on opposite sides of exactly
 -- that line.
---
--- AND NOT A SAPTABHAG.  Two syt clauses in succession are à•àà°à®, the
--- third bhaga.  The simultaneous position is not delivered here and is
--- not gestured at: in this corpus that position is a Â FactorsThrough,
--- an obstruction to any single decoder, and no such object is
--- constructed below.
 --
 ------------------------------------------------------------------------
 
@@ -214,12 +190,6 @@ stableAnswerable-fromDecidableSearch law dec =
 --
 -- "The absence tower is three tall" is a statement about iterated `Â`
 -- in a constructive type theory.  It is mine, it is proved, and it is
--- not a translation.  Naming the module after it, in a thread whose
--- whole discipline is to prefer the earliest statement over a later
--- restatement, dressed an imported notion in the tradition's clothes â”
--- equations for, one step further along: those at least mapped onto the
--- fourfold before being withdrawn.
---
--- The mathematics below is untouched by this.  What is withdrawn is any
--- suggestion that "the tower" or its height renders a  term.
+-- not a translation; neither "the tower" nor its height renders a
+-- Sanskrit term.
 ------------------------------------------------------------------------

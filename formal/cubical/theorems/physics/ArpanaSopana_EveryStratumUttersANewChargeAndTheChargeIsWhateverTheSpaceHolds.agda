@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡∞‡‡‡-‡‡ã‡‡æ‡®‡Æ‡ ‚î the ladder of offerings.
 --
--- THE QUESTIONS, asked because their answers were not known to the
--- asker, in the stratum vocabulary this corpus has been building
+-- THE QUESTIONS, in the stratum vocabulary this corpus has been building
 -- (KramaSaha ‚í StaraArpana ‚í AyamaArpana ‚í AnantaraArpana):
 --
 --   1. Is the charge always ‚?  Or is "the charge" whatever the space
@@ -36,7 +35,7 @@
 --            the free group: NONABELIAN.  The displacement law is about
 --            strata, not about ‚; the charge is whatever the space holds.
 --
--- SOURCES AND SCOPE (the six rules).  The engines are the LIBRARY's:
+-- SOURCES.  The engines are the LIBRARY's:
 -- isSetŒ©Trunc + œTruncIso (Cubical.Homotopy.Group.Base), œ‚ôS‚ø‚â‚ and
 -- œ'Gr‚âœGr (PinSn, Base), œ‚S¬≤‚â‚ (Pi3S2 ‚î Brunerie's line), Œ©Torus‚â°‚ó‚
 -- (HITs.Torus.Base), œ‚Bouquet‚â°FreeGroup
@@ -45,11 +44,7 @@
 -- ‡‡ã‡‡æ‡® (staircase), ‡µ‡≤‡Ø (ring/torus), ‡ó‡‡‡‡ (bunch/bouquet) are
 -- ordinary  used as labels; ‡‡∞‡‡‡ø‡/‡‡®‡∞‡‡‡ø‡ is Umsvti,
 -- Tattvrthastra 5.31, as the READING of stratum-graded establishment
--- (per StaraArpana); no source is claimed to grade truncations.
---
--- Derivation preceded the check: the library was read (Group/Base
--- 639‚ì810, Pi3S2 112, Torus 52‚ì76, Bouquet/FundamentalGroupProof
--- 289‚ì295) and every term below was composed on paper first.
+-- (per StaraArpana).
 ------------------------------------------------------------------------
 
 module ArpanaSopana_EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSpaceHolds where

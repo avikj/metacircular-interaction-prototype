@@ -6,7 +6,7 @@
 -- X-frame covariance for constructive two-outcome normalization, followed by
 -- exact normalized Hadamard controls.  The common denominator is preserved
 -- and the two numerators exchange.  Selected outcomes/posteriors remain
--- explicit; no stochastic selection or collapse interpretation is asserted.
+-- explicit.
 ------------------------------------------------------------------------
 
 module NormalizedFrameCovariance where
@@ -91,14 +91,4 @@ hadamard-normalization-X-data :
   × ((Born.numerator₀ minusNormalized ≡ Born.numerator₁ plusNormalized)
      × (Born.numerator₁ minusNormalized ≡ Born.numerator₀ plusNormalized))
 hadamard-normalization-X-data = normalization-X-data plusH plusH-nonzero
-
-------------------------------------------------------------------------
--- Sequential-history boundary
---
--- `SequentialHadamardReadout` retains unnormalised first and second posterior
--- records, whereas `normalizedReadout` replaces one posterior by a complete
--- distribution.  They are intentionally different dependent codomains, so a
--- sequential normalized covariance theorem requires a dedicated history map;
--- no coercion between them is asserted here.
-------------------------------------------------------------------------
 

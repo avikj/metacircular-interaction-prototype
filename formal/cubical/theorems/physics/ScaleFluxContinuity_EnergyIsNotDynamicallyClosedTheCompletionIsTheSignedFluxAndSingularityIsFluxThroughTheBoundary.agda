@@ -41,15 +41,11 @@
 --       flux separates â” the reduced observable does not close.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“4 for this finite signed-flux model.
--- NOT claimed: the continuum NS flux, its cubic (third-order-increment)
--- structure, or any bound on it â” that bound IS the Clay problem, and it
--- is exactly the one thing this shadow does not touch.  What IS claimed is
+-- What is claimed is
 -- the STRUCTURE the problem must be phrased in: energy is a noncoercive
 -- marginal, its completion is the signed flux, the flux conserves the
 -- total from within, and singularity is the boundary term.  The viscous
--- sink is an additive âˆ’D â‰ 0 that only strengthens Â§2â“Â§3; it is not
--- carried in the telescoping core (it needs a sum-splitting lemma and adds
--- nothing to the structure).
+-- sink is an additive âˆ’D â‰ 0 that only strengthens Â§2â“Â§3.
 ------------------------------------------------------------------------
 
 module ScaleFluxContinuity_EnergyIsNotDynamicallyClosedTheCompletionIsTheSignedFluxAndSingularityIsFluxThroughTheBoundary where

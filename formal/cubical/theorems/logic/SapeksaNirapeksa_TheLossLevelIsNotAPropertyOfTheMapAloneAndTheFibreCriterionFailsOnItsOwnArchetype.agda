@@ -14,15 +14,8 @@
 -- 1.21‚ì25, date disputed, c. 5th c. CE** ‚î a standpoint asserted
 -- ‡®‡ø‡∞‡‡‡ï‡‡, apart from the others it stands among, is ‡Æ‡ø‡‡‡Ø‡æ.
 --
--- ‡ó‡‡∞‡‡° ¬ ‡‡‡‡¶, declared.  No edition of the *Sanmatitarka* was opened by
--- me.  The attribution, the stra numbers and the date are carried from
--- this repository's own ledger
--- (`.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
--- rows 120 and 121) and from
--- and are owed at verse level.
---
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS REFUTES, and it is this author's own module from yesterday.
+-- WHAT THIS REFUTES.
 --
 -- (recoverable only by outside supply) and ‡ (‡®‡‡‡ü‡ø‡, ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø‡æ) are
 -- both crowded fibres; `Loss.SakalaVikalaDesa_‚¶` refuses a fourth
@@ -35,7 +28,7 @@
 --             source still see the difference.
 --
 -- `Avacchedaka_TheTruncationsFibreIsTheWholeSourceAndTheSeamHasItsCriterion`
--- (this lane, yesterday, mine) checked the load-bearing half ‚î every
+-- checked the load-bearing half ‚î every
 -- fibre of `‚à_‚à‚` is equivalent to the whole source ‚î and wrote the
 -- criterion down as `‡‡∞‡‡µ‡‡æ‡®‡ø‡ f b = fiber f b ‚â A`, with the sentence:
 -- *"‡µ‡ø‡ï‡≤‡æ‡¶‡‡ says the fibre has two distinct points; that is true of a
@@ -86,24 +79,6 @@
 -- exactly when `A` is merely inhabited.  The distinction the scale wants
 -- lives in the QUANTIFIER ‚î uniformly in `A`, `‚à_‚à‚` has no section ‚î and
 -- a per-instance fibre criterion cannot reach a quantifier.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
---   * NOT claimed that levels ‡© and ‡ are the same thing, or that the
---     scale is wrong.  What is refuted is two proposed criteria and the
---     shape they share, not the distinction they were reaching for.
---   * NOT claimed that a context-indexed scale WOULD work.  ¬ß‡ exhibits
---     one map under two contexts.  Two contexts on one map is two
---     contexts on one map.
---   * NOT claimed that `‚à_‚à‚` is harmless.  ¬ß‡ recovers it only by
---     retaining the whole source, which is the trivial context; ¬ß‡ says
---     where the uniform statement lives and does not prove it.
---   * NOTHING is added to `‡¶‡‡`.  That datatype is in another library and
---     its author's refusal to extend it was a considered act ‚î and this
---     module is the reason the refusal was right.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype where
@@ -276,7 +251,7 @@ private
 -- map and one point of its codomain can express.
 --
 -- The uniform statement the scale actually wants is about all `A` at
--- once.  It is not proved here and is not claimed here.
+-- once.
 ------------------------------------------------------------------------
 
 ‡§µ‡§æ‡§∏‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç‚Üí‡§è‡§ï‡§Æ‡•ç : {A : Type ‚Ñì} ‚Üí ‚à• A ‚à•‚ÇÅ ‚Üí (‚à• A ‚à•‚ÇÅ ‚âÉ Unit)

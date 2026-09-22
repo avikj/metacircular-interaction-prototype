@@ -181,7 +181,7 @@ uttaraKind Dosalekha{}  = "dosalekha"
 --   never returns a third thing and never returns silence.
 samkramana :: String -> Tulyata -> [(String, J)] -> [String] -> [String] -> Uttara
 samkramana k t carried cost srcs
-  -- THE ONE DEFECT THIS FILE COULD NOT YET WRITE.  A computed witness whose two
+  -- A computed witness whose two
   -- sides differ is a transport along an equivalence that does not exist,
   -- and it takes the second road (§6) rather than going out with a false
   -- skin.  Uncheckable witnesses are still uncheckable; this is the

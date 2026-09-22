@@ -6,8 +6,7 @@
 -- path consumes.  runtime/propagate quotients proof paths by exactly this
 -- (STATUS.md: "two paths are one proof when they consume the same multiset
 -- of axiom justifications, i.e. when reassociating congruence/symmetry/
--- transitivity carries one to the other") โ” and the well-definedness of
--- that quotient is declared, not proved.  Proved here:
+-- transitivity carries one to the other").  Proved here:
 --
 --   ยง2  EVERY reassociation move preserves EVERY additive weighting of
 --       the axioms.  Universal linear invariance is multiset equality
@@ -25,8 +24,6 @@
 --
 -- The path language mirrors the kernel's proof forest (kernel/egraph.py):
 -- axiom leaves, refl, symmetry, transitivity, congruence context.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Samagri_TheReassociationMovesPreserveEveryAdditiveWeightSoTheAxiomMultisetIsAProofInvariant where

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡µ‡∞‡ã‡-‡®‡ø‡‡‡ß ‚î the descent refused.
 --
--- THE CLAIM, in the language of the moduli conversation (2026-09-03):
+-- THE CLAIM:
 -- every layer of the motivic tower above the implementation stack
 -- demands invertibility somewhere ‚î a groupoid completion, a Morita
 -- localization, a stabilization.  Cost is additive along composition

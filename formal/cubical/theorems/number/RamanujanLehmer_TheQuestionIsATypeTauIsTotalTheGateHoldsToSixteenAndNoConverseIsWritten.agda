@@ -27,10 +27,6 @@
 --   `restrict : LehmerQuestion â’ gate` â” one direction, by
 --   specialization.  No term runs backwards; sixteen instances
 --   license nothing universal, and the type system now says so.
---
--- The machine's kosha holds the Lehmer naya; this file upgrades its
--- witness from the fixed-degree table to the total definition with
--- the gate signed by the kernel.
 ------------------------------------------------------------------------
 
 module RamanujanLehmer_TheQuestionIsATypeTauIsTotalTheGateHoldsToSixteenAndNoConverseIsWritten where

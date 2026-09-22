@@ -6,19 +6,13 @@
 -- Virahka numbers is the longest, and every vall is shorter than the
 -- Virahka inverse of its divisor.
 --
--- THE ABSENCE THIS FILE CLOSES.  `KuttakaSamapti_TheValliIsFiniteForEveryPair`
+-- THE SETTING.  `KuttakaSamapti_TheValliIsFiniteForEveryPair`
 -- proves that ryabhaa's pulverizer (‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡, ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡©, 499 CE)
 -- terminates on every pair of naturals and that its column has at most b
--- rows.  Its scope section then says, verbatim:
---
---     "The SHARP length bound.  `‚â b` is what the measure gives directly and
---      it is honest.  The true worst case is logarithmic in b ‚î attained on
---      consecutive Virahka numbers (Virahka, c. 700, the recurrence
---      usually credited to Fibonacci), where every quotient is 1 ‚î and that
---      is NOT proved here.  Quoting `‚â b` as the truth about the length would
---      be the error `HOLOGRAM.md` ¬ß7 records: a bound stated without its real
---      scaling, which looks like knowledge.  So: `‚â b` is CHECKED, O(log b) is
---      TRUE, and the gap is named and open."
+-- rows.
+-- The true worst case is logarithmic in b ‚î attained on
+-- consecutive Virahka numbers (Virahka, c. 700, the recurrence
+-- usually credited to Fibonacci), where every quotient is 1.
 --
 -- Hieroglyphics II names the same boundary: œ = 1 ‚ ‡‡‡µ‡∞‡‡‡‡‡Æ‡æ, the golden
 -- boundary where the rate of reach equals the rate of kill ‚î every quotient
@@ -27,8 +21,8 @@
 -- taken from the corpus's own metre lane (`PingalaPrastara.matra`, the
 -- count of mtr-metres, M 0 = M 1 = 1, M (n+2) = M (n+1) + M n).
 --
--- WHAT IS PROVED.  No postulates, no holes, --safe, Agda 2.8.0 + cubical
--- v0.9.  Nothing here uses a ring solver.
+-- WHAT IS PROVED.
+-- Nothing here uses a ring solver.
 --
 --   ‡‡‡µ‡∞‡‡-‡µ‡≤‡‡≤‡      THE LOWER BOUND, constructed.  For every n an explicit
 --                   vall of the consecutive pair (M (n+2), M (n+1)), built
@@ -68,12 +62,10 @@
 --                   rows and column 1 1 1 1 2, and for (89, 55) has 9 rows;
 --                   these agree with `‡‡‡µ‡∞‡‡-‡µ‡≤‡‡≤‡ 4` and `‡‡‡µ‡∞‡‡-‡µ‡≤‡‡≤‡ 8`.
 --
--- WHAT IS NOT PROVED.  A statement with a real-valued logarithm ‚î there is
+-- There is
 -- no `log` in cubical v0.9 and the corpus does not define one.  The
 -- Virahka-inverse form and the 2^k form above are what "O(log b)" means
--- over ‚ï, and both are checked; nothing sharper is claimed.  Nothing here
--- touches the ‡‡‡‡ü section or the cakravla, which stay as the earlier
--- module leaves them.
+-- over ‚ï, and both are checked.
 ------------------------------------------------------------------------
 
 module Svarnasima_TheValliOfConsecutiveVirahankaNumbersIsTheLongestAndEveryValliIsShorterThanTheVirahankaInverse where

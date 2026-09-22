@@ -42,11 +42,7 @@
 -- bracket of the two that pairs really in the skew case.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“3 for any ring with involution, for
--- all p and a satisfying the stated equations.  NOT claimed: anything
--- about operators on a function space, about projections (idempotence
--- is never used, as in the parent), or about any analytic pairing
--- âŸ¨ x , [p,a] x âŸ© â” the algebra is the transportable half, and which
--- ring one instantiates it in is where a concrete model enters.
+-- all p and a satisfying the stated equations.
 ------------------------------------------------------------------------
 
 module Vyatikrama_TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing where

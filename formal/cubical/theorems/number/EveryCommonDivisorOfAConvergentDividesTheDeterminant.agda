@@ -3,37 +3,11 @@
 ------------------------------------------------------------------------
 -- EveryCommonDivisorOfAConvergentDividesTheDeterminant
 --
--- A corollary of the LOSSLESS face, not the missing third face.  Any
+-- A corollary of the LOSSLESS face.  Any
 -- common divisor of a convergent's numerator and denominator divides the
 -- determinant of that convergent and the next ‚î which, under the
 -- standard seeds, is ¬1.  So a convergent carries no common factor that
 -- the unit determinant does not already bound.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHERE THIS SITS, AND WHAT IT IS NOT
---
--- whether lossless / complete / stable recur for the convergents.
---
---   lossless  answered  (`TheValliConvergentDeterminantAlternates`)
---   stable    answered  (`ConvergentsAreDeterminedByThePrefixOfTheValli`)
---   complete  STILL NOT ANSWERED, and this module does not answer it
---
--- I attempted COMPLETE this cycle and it does not come from the
--- recurrence.  `Purnata.‡‡‡∞‡‡‡‡Ø‡æ-‡ó‡‡∞‡‡‡Æ‡` says enough grant always
--- resolves; at the convergents that is "the vall of a rational
--- terminates, and the last convergent cross-multiplies back to it" ‚î
--- i.e. `num K ¬ b ‚â° a ¬ den K` for the terminal index K.  Every part of
--- that except the cross-multiplication is about how the quotients are
--- PRODUCED, which is the kuaka (`Gati`, `Purnata`, `GurutamaSiddha`),
--- not about the two-step recurrence these modules study.  So the third
--- face needs those modules, and saying that is the honest report; this
--- module is what the attempt produced on the way, and it is a corollary
--- of the first face rather than progress on the third.
---
--- SOURCING LIMIT.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module EveryCommonDivisorOfAConvergentDividesTheDeterminant where
@@ -94,12 +68,3 @@ commonDivisorDividesAUnit a k d dn dd =
   subst (d divides_)
     (standardDeterminantIsAUnit a k)
     (commonDivisorDividesDet a (pos 1) (a 0) (pos 0) (pos 1) k d dn dd)
-
-------------------------------------------------------------------------
--- 4.  The report on the third face
---
--- COMPLETE is not here and is not close.  The two convergent modules
--- study a recurrence given a vall; completeness is a statement about
--- where the vall comes from and that it stops.  Anyone continuing this
--- should start from `Gati` and `Purnata`, not from these two.
-------------------------------------------------------------------------

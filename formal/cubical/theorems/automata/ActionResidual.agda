@@ -30,8 +30,7 @@
 -- as a cube/sign oracle.  The strict-refinement certificate is an instance
 -- of the independently returned `ActionRefinement` product theorem.
 --
--- The universal properties and equivariance-defect language are standard;
--- no novelty is claimed.  All statements checked; no holes or postulates.
+-- The universal properties and equivariance-defect language are standard.
 ------------------------------------------------------------------------
 
 module ActionResidual where

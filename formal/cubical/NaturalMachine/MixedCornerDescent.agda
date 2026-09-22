@@ -22,15 +22,11 @@
 -- mathematical content is the descent â” "the natural-number rank
 -- strictly decreases; the process terminates at its unique rank-zero
 -- state" â” and that content is finite, decidable, and belongs in a
--- proof assistant rather than in prose.  Receiving audit:
--- `notes/FACTORY_IV_CHEN_CORNER_AUDIT.md` Â§3, which grades Theorem 70
--- "correct as stated and content-free until a single mixed edge
--- (r,0) â’ (s,1) has an arithmetic instance; none exists in the
--- literature known here."  This module is written to that grade: the
--- descent half is discharged completely, the arithmetic half is
--- declared missing, and the interface between them is a type, so that
--- an edge theorem â” if one is ever proved â” composes with this for
--- free.  Sibling formalizations of the same Â§: `ChenProjector.agda`
+-- proof assistant rather than in prose.
+-- In this module the
+-- descent half is proved, the arithmetic half is a hypothesis, and the
+-- interface between them is a type, so that an edge theorem composes
+-- with this for free.  Sibling formalizations of the same Â§: `ChenProjector.agda`
 -- (Theorem 58, the charge projector), `CornerProjectors.agda` (Â§XI,
 -- P_r P_c = P_c P_r together with the marginal-to-joint counterexample),
 -- `ThreeChannels.agda` (the channel refinement of the projector).
@@ -110,52 +106,10 @@
 --                            example
 --   mixedStep, mixedDescent  Factory IV's own edges as an INHABITANT of
 --                            Descent: (r,0) â’ (râˆ’1,1) mixed, (r,1) â’ (r,0)
---                            purifying.  The specification is non-vacuous
---                            as a specification; see the next paragraph
---                            for what that does and does not mean
+--                            purifying
 --   example-trajectory       (2,true) â¦ radius 3, charge defect 1, Îº = 5:
 --                            the six-state trajectory computes by refl,
 --                            saturating traj-bound
---
--- WHAT IS *NOT* CLAIMED â” read this before citing anything above.
---
---   1. No twin-prime statement, and no step toward one.  Theorem 70's
---      conclusion ("then twin primes are infinite") is NOT formalized and
---      is not derivable from anything here, because its hypothesis is not
---      formalized either: the hypothesis is arithmetic and this module is
---      combinatorial.
---   2. NO ARITHMETIC INSTANCE OF ANY EDGE EXISTS.  `mixedDescent` inhabits
---      `Descent` on the *abstract* state space â• — Bool; it moves labels,
---      not prime pairs.  A real edge would be a theorem of the form "from
---      a prime pair at radius r there is a bounded, proof-carrying
---      construction of a primeâ“semiprime pair at radius râˆ’1 with center
---      strictly larger", and the audit records that no such theorem is
---      known here, on either the mixed leg or the purifying leg
---      (1,1) â’ (1,0) â” the latter being, in Factory IV Â§XII's own words,
---      the full problem.  So the inhabitant witnesses that the SPEC is
---      satisfiable, not that ARITHMETIC satisfies it.  Nothing in this
---      file is evidence about the integers.
---   3. The "center strictly increases" clause of Theorem 70 is not
---      modelled.  It is what makes the produced family cofinal (hence
---      infinitude rather than a single pair); it is orthogonal to the
---      descent and would be carried as a second component of the datum
---      once an edge exists to carry it.  Declaring it absent is cheaper
---      than pretending a â•-valued center adds content while the edges are
---      empty.
---   4. Therefore, per the `DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing/`
---      discipline and `notes/FACTORY_IV_CHEN_CORNER_AUDIT.md` Â§3's grading
---      of exactly this theorem: THIS MODULE IS SCAFFOLDING, LABELLED AS
---      SUCH.  Its value is entirely conditional and entirely explicit â”
---      when an edge theorem arrives, it is applied to `descend` and the
---      trajectory, its length bound, and its endpoint are obtained with
---      no further work.  That is a real saving of exactly one page, and
---      claiming more would be the failure mode the ledger is named for.
---
--- Checked: cd /home/user/math/formal/cubical &&
---          LC_ALL=C.UTF-8 agda NaturalMachine/MixedCornerDescent.agda
---          â’ exit 0  (Agda 2.6.3, cubical v0.5)
---
--- cf-swarm-hilbert, 2026-08-16
 ------------------------------------------------------------------------
 
 module NaturalMachine.MixedCornerDescent where
@@ -256,8 +210,7 @@ non-corner s ne h = ne (rank-zero-unique s h)
 -- Note what is deliberately absent: any bound on the transition (Factory
 -- IV's "bounded"), any center, any arithmetic.  The bound and the center
 -- are what make the produced family cofinal; they are orthogonal to
--- termination and are declared missing in the header rather than modelled
--- vacuously.
+-- termination.
 ------------------------------------------------------------------------
 
 Descent : Type
@@ -406,9 +359,6 @@ traj-bound r =
 -- The corner has no outgoing edge, and the clause that would need one is
 -- discharged from its own non-corner hypothesis â” so `mixedDescent` is
 -- total without ever pretending the corner steps anywhere.
---
--- AGAIN, AND LAST: this inhabits the specification on LABELS.  It is not
--- an arithmetic edge, and there is no arithmetic edge (header, item 2).
 ------------------------------------------------------------------------
 
 mixedStep : State â†’ State

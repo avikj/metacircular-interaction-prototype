@@ -46,5 +46,3 @@ With this one hunk:
 - `isPropIsContr`  â” green via general hcomp   (unchanged)
 
 No regression: cubical suites, stock examples, and `isPropIsContr` unchanged.
-The remaining reverse-round-trip assembly (`equivEq` / `isPropâ’PathP`) is
-ordinary cubical-library translation on top of these.

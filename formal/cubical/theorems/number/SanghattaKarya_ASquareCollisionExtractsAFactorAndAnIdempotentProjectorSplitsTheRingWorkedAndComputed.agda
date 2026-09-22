@@ -10,9 +10,8 @@
 --
 --     square collision â’ zero divisor â’ idempotent projector â’ factor.
 --
--- The collision (a = 4, b = 1, with 4Â² â‰¡ 1Â² mod 15) is GIVEN â” its
--- manufacture is the frontier the collision-semantics document is
--- explicit about and this module does not pretend to abolish.  What is
+-- The collision (a = 4, b = 1, with 4Â² â‰¡ 1Â² mod 15) is GIVEN.
+-- What is
 -- executed here is the EXTRACTOR, and the point is that the kernel does
 -- not merely accept it â” it COMPUTES the factors:
 --

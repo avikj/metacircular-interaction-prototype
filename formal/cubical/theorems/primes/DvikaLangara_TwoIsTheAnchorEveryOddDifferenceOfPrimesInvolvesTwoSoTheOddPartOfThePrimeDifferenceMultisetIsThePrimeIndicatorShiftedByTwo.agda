@@ -16,15 +16,7 @@
 --    array (c(h))_{0â‰hâ‰D}: read off every positive odd h for which
 --    c(h)=1 ..."
 --
--- and its formalization status box:
---
---   "Nor is the prime-prefix corollary formalized (it needs 2 odd-prime
---    arithmetic on top of layer 3)."
---
--- formal/lean/Pairfield/ParityRigidity.lean says the same: "The
--- prime-prefix corollary ... nothing below bears on it."
---
--- The "2 odd-prime arithmetic" is composed here, in the corpus's own
+-- The 2 odd-prime arithmetic is composed here, in the corpus's own
 -- computable primality (primeb of SamastaPrasna, via the smallest-factor
 -- search spf of the RH module), with no polynomial ring:
 --
@@ -39,14 +31,10 @@
 --
 -- So the odd part of the prime difference multiset IS the prime indicator
 -- shifted by two, and the note's O(D) reconstruction reads the primes off
--- it exactly.  This is the arithmetic half of the corollary.  What is NOT
--- here: the set-rigidity layers (an arbitrary B with c_B = c_{P_X} is a
--- translate or reflection), which live in ParityRigidity.lean's `core`
--- and `rigidity_normalized` and whose translation bookkeeping neither
--- lane has.  Nothing about that is claimed.
---
--- Checked at the pin (Agda 2.8.0, agda/cubical v0.9, --safe).  No
--- postulates, no holes.
+-- it exactly.  This is the arithmetic half of the corollary.  The
+-- set-rigidity layers (an arbitrary B with c_B = c_{P_X} is a
+-- translate or reflection) live in ParityRigidity.lean's `core`
+-- and `rigidity_normalized`.
 ------------------------------------------------------------------------
 
 module DvikaLangara_TwoIsTheAnchorEveryOddDifferenceOfPrimesInvolvesTwoSoTheOddPartOfThePrimeDifferenceMultisetIsThePrimeIndicatorShiftedByTwo where

@@ -63,20 +63,6 @@
 -- the output can tell.  What the trace has that the total lacks is ยง3: a
 -- composition law under which the composite carries strictly more than
 -- either part.  Non-rivalry (ยง4) then says the accumulation is free.
---
--- WHAT IS **NOT** CLAIMED.  Not that `len` is the right measure of a
--- trace's worth; it is one additive invariant and the point is that the
--- total admits NONE, not that this one is correct.  Not that model weights
--- literally are `Total` โ” the claim is that a readout into a set has the
--- structure ยง2 gives, and a weight consulted through its outputs is such a
--- readout.  Nothing here concerns training dynamics, optimisation, or any
--- empirical fact about neural networks; the terms are about this kernel.
--- `Visranti_โฆ` and `Asesa_โฆ` are cited in ยง5, not imported: the recovery
--- map and the non-equivalence live there and are not re-proved.
---
--- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
--- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +
--- v0.9).  Re-check at the pin before treating this green as the lane's.
 ------------------------------------------------------------------------
 
 module NaturalMachine.MulyaSankranti_TheTotalComposesDegeneratelyAndOnlyTheTraceManufactures where

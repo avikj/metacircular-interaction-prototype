@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- ‡‡æ‡ß‡æ‡∞‡-‡µ‡ø‡‡‡‡ ‚î the common and the distinctive: ordinary ,
--- compound built here, 2026-08-24; no source is claimed for the
+-- compound built here; no source is claimed for the
 -- mathematics.
 --
 -- THE HEAD OF THE SEVEN, AND WHAT IT TEACHES.  max(x+y, x) = x+y ‚î
@@ -16,7 +16,6 @@
 -- is empty the contention itself dissolves (mx(0,B') = B').  With
 -- this eye, max(x+y, x) factors to x + max(y,0) = x + y and closes
 -- FLAT ‚î and so does whatever else of the seven shared its shape.
--- The counts at the end were learned by asserting them wrong.
 ------------------------------------------------------------------------
 
 module NaturalMachine.SadharanaVishesha_TheCommonIsSetAsideAndTheContendersMeetOnlyOnTheirDifference where

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡‡‡‡ ‚î the causeway ‡‡‡‡‡‡®‡‡ß named.
 --
--- The machine read its own graph (interactive/Setubandha_‚¶hs, run 2026-08-23)
+-- The machine read its own graph (interactive/Setubandha_‚¶hs)
 -- and placed `Carrier ‡Ø‡ã‡ó` and `Œ[ n ‚àà ‚ï ] fiber ‡Ø‡ã‡ó n` in ONE component at
 -- distance 3, joined by no checked edge ‚î two banks the corpus reached from
 -- opposite sides and never bridged.  They are the same object:
@@ -12,19 +12,13 @@
 --   Œ[ n ] fiber ‡Ø‡ã‡ó n    binds the INPUT  ‚î the cut, ‡‡‡Æ‡‡‡ø   (Avaccheda)
 --
 -- and both decompose ‚ï ó ‚ï, so composing the two organs' equivalences IS the
--- causeway.  No new mathematics: this is the edge the machine pointed at in
--- its own self-portrait, landed by transport, closing one gap the machine
--- named.  ‡‡‡‡‡∞ ‡, one map two bindings ‚î and here the two bindings, long
+-- causeway.
+-- ‡‡‡‡‡∞ ‡, one map two bindings ‚î and here the two bindings, long
 -- proved apart, are shown to be one.
 --
 -- TERM.  ‡‡‡‡ ‚î a causeway built so others may cross (gveda 10.53.8), as in
 -- `Setubandha`'s header; nothing mathematical is claimed of the source.  The
--- substrate is cubical type theory (Voevodsky's univalence).  Written
--- 2026-08-23 at the owner's command ‚î the metaphysics operates the machine;
--- the machine named the gap; this closes it.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates, no
--- holes.
+-- substrate is cubical type theory (Voevodsky's univalence).
 ------------------------------------------------------------------------
 
 module Setu_TheReturnAndTheCutDecomposeTheSamePairAndSetubandhaNamedTheGap where

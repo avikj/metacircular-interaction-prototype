@@ -54,25 +54,10 @@
 --       cumulative product of stage sizes â” it IS one, and Â§Â§2â“4 apply
 --       to it verbatim.
 --
--- THE READING THAT IS NOT PROVED HERE.  `Î Î m = Î _{j â‰ m} Î j` collects
--- one prime for each prime power below m, which is the standard product
--- formula for `lcm(1,â¦,m)`; under that identification Â§5 says the walk
--- volume and the cumulative CRT stage tower are literally the same
--- sequence, and the two consumers of it â” the harmonic observer and the
--- local curvature receiver â” read one source in two coordinates.  THAT
--- IDENTIFICATION IS ARITHMETIC AND IS NOT PROVED ANYWHERE BELOW: no
--- `lcm` is defined in this corpus, and `Î`'s definition through `spf`
--- would have to be related to it.  Everything Â§Â§1â“5 claims is
--- independent of it, because `C` is arbitrary.
---
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“3 for every sequence `C` and every n,
 -- with no positivity and no arithmetic.  Â§4 additionally under
 -- positivity of every stage.  Â§5 for the `Î´` of the DMR module as it
--- stands.  NOT claimed: anything about primes â” the word does not occur
--- in any statement below, only in the commentary; that `Î Î` is `lcm`;
--- anything about logarithms, entropy, or probability, which are the
--- reading of Â§Â§2â“4 and not their content; and nothing about the size or
--- growth of `vol`, only about its convexity.
+-- stands.
 ------------------------------------------------------------------------
 
 module SamaVrddhi_TheRunningProductIsLogConvexAndItsSecondDifferenceIsExactlyTheStepRatioSoTheWalkVolumeAndTheHistoryTowerAreOneConstruction where

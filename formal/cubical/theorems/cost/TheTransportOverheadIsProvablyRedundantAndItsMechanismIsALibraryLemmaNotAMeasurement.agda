@@ -72,9 +72,6 @@
 -- quadratic in the audited note is that `n` multiplied by the cost of
 -- one round trip in a UNARY representation.  Nothing was measured to
 -- get here.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheTransportOverheadIsProvablyRedundantAndItsMechanismIsALibraryLemmaNotAMeasurement where

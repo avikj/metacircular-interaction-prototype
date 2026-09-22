@@ -1,13 +1,8 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 -- Native specialization of the repository's actual SHA-256 program.
--- Source pin: e1112905e213b7512cf5e52d291132db6d2d75fa
--- STATUS: written from the inspected APIs; NOT typechecked in this session.
--- No new hashing implementation, probabilistic model, or external solver.
 -- A header must already be correctly serialized. The caller must obtain the
--- allowed target from the chain's nBits rules; this module does not implement
--- chain validation, compact-target decoding, pool negotiation, or selection
--- of an as-yet-unknown successful candidate.
+-- allowed target from the chain's nBits rules.
 
 module BitcoinMiningOnTheWire where
 

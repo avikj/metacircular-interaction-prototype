@@ -59,44 +59,20 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
--- **There is no thermodynamics here.  None.**  No entropy, no measure,
--- no temperature, no Boltzmann constant, no Hilbert space, no unitarity,
--- no joules, and NO NUMBER OF ANY KIND appears below.  Landauer's
--- principle is named in this header as the MOTIVE for asking which step
--- is non-injective; nothing below derives it, bounds it, or implies it,
--- and no physical consequence follows from any term here.  What survives
--- the stripping is combinatorial and typal ‚î *the coarser observation
--- admits more invariant flows, and an erasing step is a fibre that is
--- not a proposition* ‚î and saying exactly that much, and no more, is
--- what the file is for.
---
 -- **The order is a preorder, not a partial order.**  `‡µ‡‡Ø‡æ‡‡‡®‡ã‡‡ø` has
--- reflexivity and transitivity (¬ß‡®) and antisymmetry is neither true nor
--- claimed: two maps can factor through each other without being equal.
--- Nothing below quotients by it.
+-- reflexivity and transitivity (¬ß‡®) and antisymmetry fails:
+-- two maps can factor through each other without being equal.
 --
--- **¬ß‡© and ¬ß‡ are one direction only.**  That `‡‡‡∞‡ï‡‡‡‡Æ‡ f ‚ä ‡‡‡∞‡ï‡‡‡‡Æ‡ g`
--- implies `f ‡µ‡‡Ø‡æ‡‡‡®‡ã‡‡ø g` is FALSE in general and no weakened converse is
--- offered.  Likewise ¬ß‡¬‡®: `f a ‚â° f a' ‚í g a ‚â° g a'` follows from the
--- order; recovering the order from it would need a choice of section and
--- is not attempted.
---
--- **¬ß‡ is not a characterisation of non-injectivity.**  `isEquiv Œ¶ ‚í
+-- `isEquiv Œ¶ ‚í
 -- ¬ ‡µ‡ø‡‡‡Æ‡‡‡ø‡ Œ¶` is proved; the converse ‚î that a non-equivalence
 -- exhibits a ‡µ‡ø‡‡‡Æ‡‡‡ø‡ ‚î is CLASSICAL (it needs a collision to be found,
 -- and a ¬(a ‚â° a') to be produced from ¬(a ‚â° a') failing) and is not
--- available constructively.  It is not proved and not used.
+-- available constructively.
 --
 -- **Everything lives at ONE universe level.**  Not for depth: `Dhruva`
 -- declares `‡‡‡∞‡ï‡‡‡‡Æ‡` in a telescope `{A B : Type ‚ì}` with a single ‚ì,
 -- and this file reuses that definition rather than restating it, so it
--- inherits the restriction.  Nothing below depends on the levels being
--- equal and the general statement is a mechanical widening of Dhruva's
--- telescope; it is not done here because renaming another identity's
--- declaration is theirs to do.
---
--- **No  source states anything below**, and no Nyya doctrine is
--- being formalised: see the TERM note.
+-- inherits the restriction.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- TERM.  ‡µ‡‡Ø‡æ‡‡‡‡ø ¬ vypti ‚î pervasion, the relation that makes an
@@ -104,20 +80,16 @@
 -- *‡®‡‡Ø‡æ‡Ø‡‡‡‡‡∞* (~2nd c. CE); the definitional apparatus, the
 -- ‡µ‡‡Ø‡æ‡‡‡‡ø‡‡û‡‡‡ï, is ‡ó‡ô‡‡ó‡‡, *‡‡‡‡‡‡µ‡‡ø‡®‡‡‡æ‡Æ‡‡ø* (~1325).
 --
--- LIMIT, stated because the resemblance is close enough to mislead.  The
+-- The
 -- Naiyyika relation holds between two PROPERTIES (sdhya pervades
 -- hetu) and its whole difficulty is the ‡â‡‡æ‡ß‡ø, the defeating condition
 -- ‚î Gagea's five definitions exist because the naive one fails.  What
 -- is defined below is a containment between two MAPS, it has no updhi,
 -- and it is not defeasible.  The word is borrowed for the shape
--- "wherever the one identifies, the other identifies"; the doctrine is
--- NOT being formalised and Gagea is credited with nothing here.  A
+-- "wherever the one identifies, the other identifies".
+-- A
 -- Naiyyika would also refuse the substrate outright: cubical type
 -- theory (Voevodsky) is this repository's one admitted non-Indian frame.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 ‚î the container, NOT the
--- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
--- holes, exit 0.
 ------------------------------------------------------------------------
 
 module Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt where
@@ -147,7 +119,7 @@ _‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§®‡•ã‡§§‡§ø_ {A = A} {B = B} {C = C} f g =
   Œ£[ h ‚àà (B ‚Üí C) ] ((a : A) ‚Üí g a ‚â° h (f a))
 
 ------------------------------------------------------------------------
--- ‡® ¬ It is a preorder.  Antisymmetry is not claimed (see the fence).
+-- ‡® ¬ It is a preorder.
 ------------------------------------------------------------------------
 
 ‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§ø-‡§∏‡•ç‡§µ‡§§‡§É : {A : Type ‚Ñì} {B : Type ‚Ñì} (f : A ‚Üí B) ‚Üí f ‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§®‡•ã‡§§‡§ø f
@@ -251,8 +223,7 @@ _‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§®‡•ã‡§§‡§ø_ {A = A} {B = B} {C = C} f g =
 -- ‡ ¬ ‡µ‡ø‡‡‡Æ‡‡‡ø‡ ‚î FORGETTING AS A TYPE.
 --
 -- Landauer's bound is about an erasing, i.e. non-injective, step.  Here
--- the erasing is a type and never a number.  See the fence: nothing in
--- this section is thermodynamic.
+-- the erasing is a type and never a number.
 ------------------------------------------------------------------------
 
 ‡§µ‡§ø‡§∏‡•ç‡§Æ‡•É‡§§‡§ø‡§É : {A : Type ‚Ñì} ‚Üí (A ‚Üí A) ‚Üí Type ‚Ñì
@@ -291,26 +262,3 @@ _‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§®‡•ã‡§§‡§ø_ {A = A} {B = B} {C = C} f g =
                       ‚Üí fiber f (f (fst w))
 ‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£‡§Ç-‡§§‡§®‡•ç‡§§‡•å-‡§∏‡•ç‡§•‡§ø‡§§‡§Æ‡•ç cons (a , a' , q , n) =
   a' , sym (‡§µ‡§ø‡§∏‡•ç‡§Æ‡§∞‡§£‡§Ç-‡§§‡§®‡•ç‡§§‡•å cons a a' q)
-
-------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what stays open, named so the next rung is not
---     over-specified.
---
---  * ANTISYMMETRY.  `f ‡µ‡‡Ø‡æ‡‡‡®‡ã‡‡ø g` and `g ‡µ‡‡Ø‡æ‡‡‡®‡ã‡‡ø f` gives a pair of
---    maps between the images; whether they compose to identities is a
---    genuine question and is not answered here.  The right object is
---    probably the order on IMAGES rather than on maps, and this corpus
---    already types cost on the image (`ReflectionAggregate_‚¶`).
---  * THE CONVERSE OF ¬ß‡©, which is false as stated; what could be true is
---    a converse relative to the orbit relation of `SamanaKaksya_‚¶` ¬ß‡®,
---    since that file's `‡‡µ‡‡‡∞‡‡‡` already descends the charge.  Not
---    attempted.
---  * `‡µ‡ø‡‡‡Æ‡‡‡ø‡` uses a bare `¬ (a ‚â° a')`, which is the weak apartness.
---    `Vaidharmya_‚¶agda` argues in this corpus that the answer type need
---    only be APART, and a positive apartness would make ‡¬‡® constructive
---    in a stronger sense.  Not done here.
---  * Nothing above says which fibres are BIG.  There is no size notion
---    in this file at all, deliberately; supplying one (a cardinality, a
---    measure) is exactly where a fitted constant would enter, and the
---    order is what makes the statement possible without one.
-------------------------------------------------------------------------

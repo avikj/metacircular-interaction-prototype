@@ -23,23 +23,8 @@
 --   sakalitas) and the doubling rule 2Ââˆ = n(n+1).  Those verse numbers
 --   are carried from `Citighana.agda` and `Sankalita.agda` in this lane.
 --
--- Nothing here is claimed about Ï, and there is no series in this file.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS EXACT, AND WHAT IS NOT (Â§à®, and it is declared, not filled).
---
--- The à¯àà•ààà¿àà¾àà¾'s use of the àà®à˜à¾à-àà™àà•à²à¿à is asymptotic: for a fine
--- enough division, the sum of the p-th powers of 1â¦n is n^(p+1)/(p+1),
--- the deficit becoming negligible.  **That statement is not available in
--- this lane and is not approximated here.**  It needs â or â, a notion
--- of "negligible", and a limit; â• has none of the three.  This is the
--- same declaration `Madhava.agda` makes about the geometric remainder â”
--- àà¨àà•ààà®à, à¨ à®à¿ààà¯à¾-àà¿à¦àà§à®à, un-said, not falsely proved â” and the same
--- wall `SthaulyaIsTheOmittedTerm` records at its foot,
--- where an order statement about degree is unavailable in a lane whose
--- objects are ring elements.
---
--- What survives the scoping is the STEP, and it is an identity:
+-- THE STEP is an identity:
 --
 --     (n+1) Â Î_{kâ‰n} f(k)  =  Î_{kâ‰n} kÂf(k)  +  Î_{jâ‰n} Î_{kâ‰j} f(k)
 --
@@ -83,9 +68,6 @@
 -- Â§à is the p = 2 instance, which does not close on a corpus theorem:
 -- (n+1)ÂâˆÂ²n = âˆÂ³n + Î_{jâ‰n} âˆÂ²j, linking `Sankalita.âˆÂ³` to
 -- `Vargacitighana.âˆÂ²` through the same law.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the container, not the
--- repository pin (BUILD.md).  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module SamaghataSankalita_TheDescentIsExactForEverySequenceAndAryabhatasRulesAreItsFirstInstances where

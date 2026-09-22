@@ -12,7 +12,7 @@
 --
 --     ‡‡ø‡‡‡‡ø-‡‡‡ï‡‡∞‡Æ‡ : (A ‚â B) ‚í ¬ (B ‚â C) ‚í ¬ (A ‚â C)
 --
--- INSTANCE, cashing this morning's ledger: ‡‡‡‡-‡‡‡∞‡Æ‡æ‡‡Æ‡ landed
+-- INSTANCE: ‡‡‡‡-‡‡‡∞‡Æ‡æ‡‡Æ‡ landed
 -- ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ ‚â ‚ï, and ‡‡ø‡‡‡‡ø‡ stands at ¬ (‚ï ‚â Bool).  Composing:
 -- ¬ (‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ ‚â Bool) ‚î which retires ./jiva's 3052-point candidate
 -- [436 @ Bool] ó [7 @ ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡] with NO new mathematics.  The wall
@@ -20,7 +20,7 @@
 --
 -- This is why the two snapshots (Setu, Bhitti) close under each other:
 -- the candidate list shrinks quadratically in what is landed, not
--- linearly in what is proved.  ‡‡ø‡‡‡‡ø-‡‡‡ï‡‡∞‡Æ is built here, 2026-08-23.
+-- linearly in what is proved.  ‡‡ø‡‡‡‡ø-‡‡‡ï‡‡∞‡Æ is built here.
 ------------------------------------------------------------------------
 
 module BhittiSanorder_WallsTransportAlongFordsSoEveryFordRetiresCandidatesForFree where

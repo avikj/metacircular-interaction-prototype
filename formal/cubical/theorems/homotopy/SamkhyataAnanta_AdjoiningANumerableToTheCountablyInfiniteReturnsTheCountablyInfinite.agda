@@ -11,8 +11,6 @@
 -- kind-division underlies Umsvti's **Tattvrtha-stra** (c. 2ndâ“5th c. CE).
 -- In this repository the grading is carried in `JainCount.agda`
 -- (Kind = sakhyta / asakhyta / ananta).
---
--- CHECKED: Agda 2.8.0 + cubical, --safe, no postulate/axiom/hole, exit 0.
 ------------------------------------------------------------------------
 
 module SamkhyataAnanta_AdjoiningANumerableToTheCountablyInfiniteReturnsTheCountablyInfinite where

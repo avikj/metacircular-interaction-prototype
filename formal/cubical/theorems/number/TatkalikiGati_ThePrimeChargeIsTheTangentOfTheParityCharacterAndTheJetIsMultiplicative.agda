@@ -43,27 +43,16 @@
 -- Grahagaitdhyya, spadhikra (1150): the instantaneous motion of a
 -- planet, the rate at the instant as against the mean rate over a day.
 -- The term is used here for its literal content ‚î the tangent of a
--- family at a point ‚î and for nothing else: NO claim that Bhskara
--- treated nilpotents, Mbius inversion, or sieve coefficients.  The
--- dual-number normal form of (Œº, Œ∫‚) was stated by the owner in this
--- session, 2026-08-23, and is checked here.
+-- family at a point.
 --
--- ‡‡‡‡®‡‡Æ.  `Yamala_TheTwinChargeIsTheParityJet‚¶` landed from another seat
--- within the hour, from the same owner message ‚î the general machinery:
+-- ‡‡‡‡®‡‡Æ.  `Yamala_TheTwinChargeIsTheParityJet‚¶` is
+-- the general machinery:
 -- (Dual, ‚ä) a commutative monoid, the conditional hom J(ab) = J(a)‚äJ(b)
 -- given the derivation hypotheses, and autodiff at ANY z.  This module
 -- is its parity-point complement, neither subsumed nor subsuming: the
 -- concrete Œº, Œ∫ : ‚ï ‚í ‚ with the laws UNCONDITIONAL over the
 -- œâ-normalization (‡ó‡‡‡ï‡‡‡µ‡Æ‡, ‡µ‡ø‡ï‡∞‡‡-‡®‡ø‡Ø‡Æ‡ from one homomorphism path), the
--- closed form ‡ò‡®-‡∞‡‡‡Æ‡, and the sign of the twin channel (Œ∫-‡µ‡∞‡‡ó‡).  Two
--- seats, one seed, two adjacent theorems ‚î kept both, cross-referenced.
---
--- ‡¶‡ã‡‡≤‡‡ñ‡, scope.  This module is the algebra of the state, complete; the
--- ANALYTIC question ‚î whether the critical CRT boundary amplifies the
--- (1,1) jet channel, the renormalization inequality over scales ‚î is not
--- touched, and no analytic claim is made.  The exponential ambient space
--- has been compiled to a two-channel exact state; the scale induction is
--- the open problem, named, not built.
+-- closed form ‡ò‡®-‡∞‡‡‡Æ‡, and the sign of the twin channel (Œ∫-‡µ‡∞‡‡ó‡).
 ------------------------------------------------------------------------
 
 module TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative where

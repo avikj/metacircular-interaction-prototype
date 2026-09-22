@@ -55,20 +55,10 @@
 -- holonomy that the counting readout annihilates.  The completion and the
 -- holonomy arrive together, because they are the same generator.
 --
--- WHAT IS **NOT** CLAIMED.  Not that the word is a COMPLETE invariant.
--- Â§5 states the normalisation conjecture â” derivable iff same word and
--- same constant â” as a type, unproved, and says what proving it needs
--- (a normal form and a terminating strategy, neither of which exists in
--- this corpus).  Nothing here concerns the extended calculus `Stepâº`;
 -- `Ankapasa_â¦` is not imported, and its `add-comm` would break Â§2 by
--- design, which is the point.  Nothing here says the â•-theory of the
--- calculus is decidable, though Â§4's argument suggests where to look.
+-- design, which is the point.
 -- `word` is defined on the six coordinates only, ignoring `zero` and
 -- `suc`, because those are exactly what the rules move.
---
--- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
--- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +
--- v0.9).  Re-check at the pin before treating this green as the lane's.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Anupurvi_TheVariableWordIsInvariantSoTheKernelsSoundnessIsNotCompleteness where
@@ -160,19 +150,6 @@ soundness-is-not-completeness =
   the-semantics-identifies-them , no-derivation-transposes-two-variables
 
 ------------------------------------------------------------------------
--- Â§5.  ~~THE NORMALISATION CONJECTURE~~ â” STRUCK THE SAME DAY, BY ME.
---      It is FALSE.  `Baddha_â¦` exhibits a third conservation law (a
---      successor trapped in a left operand whose sibling carries a
---      variable can never reach the front, because the calculus has no
---      associativity) and separates `add (suc var) yvar` from
---      `suc (add var yvar)` â” same word, same constant, no derivation.
---      The type is kept below so the refutation has something to name.
---      ORIGINAL WORDING, for the record: the conjecture, as a type.  Unproved, and stated so
---      that what is missing is visible: a normal form for `Tm` under the
---      calculus, and a terminating strategy reaching it.  Neither exists
---      in this corpus, and `Asiddhatva.agda`'s result â” that a rewrite
---      system can admit NO strict order in which every step decreases â”
---      is the standing warning that the second is not routine.
 ------------------------------------------------------------------------
 
 NormalisationConjecture : Typeâ‚€

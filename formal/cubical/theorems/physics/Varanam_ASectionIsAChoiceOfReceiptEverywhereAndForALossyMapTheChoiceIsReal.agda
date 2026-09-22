@@ -29,9 +29,6 @@
 -- `Dhruva`'s sentence from the section side â” a lossless world has
 -- nothing to choose, exactly as it has nothing to conserve and nowhere to
 -- move.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
--- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Varanam_ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal where

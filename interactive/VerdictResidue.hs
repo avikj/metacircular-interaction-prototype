@@ -280,9 +280,8 @@ renderBhanga b = case b of
 -- Tattvarthasutra 5.31, arpitanarpita-siddheh: the aspect not made primary
 -- in this utterance, which is NOT a claim that there was none).
 --
--- Both modules left one question open in their headers -- whether this map
--- is a homomorphism for order, for saha, or for neither.  It is one for
--- BOTH, it has a section that is one for both, and it has no inverse.
+-- This map is a homomorphism for order and for saha, it has a section
+-- that is one for both, and it has no inverse.
 -- Proved for every standpoint family in
 -- formal/cubical/Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda
 -- (--cubical --guardedness --safe, exit 0, no postulates, no holes);

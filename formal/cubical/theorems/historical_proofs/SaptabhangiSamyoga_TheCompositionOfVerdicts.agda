@@ -24,9 +24,8 @@
 --                            on the eighth profile, which is no predication
 --                            at all
 --
--- SOURCES, EARLIEST FIRST, for the doctrine that is being formalised (the
--- theorems below are not claimed to be in any of them; the classification
--- and the order/saha rule are).
+-- SOURCES, EARLIEST FIRST, for the doctrine that is being formalised; the
+-- classification and the order/saha rule are theirs.
 --
 --   Bhagavat Stra (Viyha-pannatti), fifth Aga of the vetmbara canon;
 --     oldest strata pre-Common-Era, redacted at Valabh c. 5th c. CE ‚î
@@ -223,7 +222,7 @@ open import Saptabhangi
 -- (If the join has both asti and nsti present, no single utterance carries
 -- it: the two seeds are consumed into avaktavya.  This is Akalaka's
 -- saharpaa.  Note what the definition does ‚î it DESTROYS the two seed
--- markings.  That destruction is exactly why associativity fails below, and
+-- markings, and
 -- it is not a modelling artefact: it is the doctrine's claim that the
 -- fourth position is not a record of which two things were said at once.)
 ------------------------------------------------------------------------
@@ -318,11 +317,10 @@ open import Saptabhangi
 -- ‡‡‡‡Æ‡æ‡‡ ‡‡‡‡‡‡ô‡‡ó‡ ‡‡-‡Ø‡ã‡ó‡‡® ‡‡æ‡≤‡ø‡ï‡æ (lattice) ‡® ‡‡µ‡‡ø, ‡® ‡‡∞‡‡ß-‡‡æ‡≤‡ø‡ï‡æ ‡‡‡ø ‡
 -- ‡¶‡‡µ‡ ‡®‡ø‡Ø‡Æ‡ ‡® ‡‡ï‡‡‡µ‡‡ ‚î ‡Ø‡ ‡‡ ‡‡ï‡‡ï‡∞‡‡‡‡ ‡Ø‡‡‡ ‡ ‡‡ô‡‡ï‡‡‡ø‡‡‡ø ‡
 --
--- (Simultaneity does not associate.  The reason is that ‡‡ø‡‡‡µ‡æ‡‡‡¶‡ destroys
--- the two seed markings, so the fourth position does not record which pair
--- produced it ‚î and grouping therefore changes the answer.  This is the
--- irreversibility of collapse, showing up as a broken algebraic law, and it
--- is why the two composition laws cannot be merged into one operation.)
+-- (Simultaneity does not associate: saha tests the JOINED position for an
+-- asti-nasti pair, and whether that pair is present depends on the
+-- grouping.  This is why the two composition laws cannot be merged into
+-- one operation.)
 ------------------------------------------------------------------------
 
 private
@@ -443,22 +441,17 @@ x ‡§®‡•ç‡§Ø‡•Ç‡§®‡§É y = ‡§ï‡•ç‡§∞‡§Æ-‡§Ø‡•ã‡§ó x y ‚â° y
 -- position destroys nothing and its order is not commutative.  Here a
 -- position is a label, so order commutes and saha destroys.  Both are
 -- checked; they are not the same object; the reading of Mallisena that
--- separates them is unsettled.  Where nayas genuinely differ there is no
--- collapse to make -- what is owed is whether the forgetful map from records
--- to labels is a homomorphism for order, for saha, or for neither, and that
--- is not checked here and therefore not claimed.)
+-- separates them is unsettled.)
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- ‡ß‡ß ¬ ‡®‡Ø‡‡‡¶‡ ‡®‡ø‡∞‡‡‡‡‡ ‚î the comparison ¬ß‡ß‡¶ said was owed, 2026-08-20.
+-- ‡ß‡ß ¬ ‡®‡Ø‡‡‡¶‡ ‡®‡ø‡∞‡‡‡‡‡ ‚î the comparison with the record lane.
 --
--- ¬ß‡ß‡¶ ended: "what is owed is whether the forgetful map from records to
--- labels is a homomorphism for order, for saha, or for neither, and that
--- is not checked here and therefore not claimed."  It is now checked, in
+-- Whether the forgetful map from records to labels is a homomorphism
+-- for order, for saha, or for neither is checked in
 --
 --   Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndThe
 --     LabelsAreARetractNotAnEquivalence.agda
---   (--cubical --guardedness --safe, exit 0, no postulates, no holes)
 --
 -- and the answer is BOTH, exhaustively, 49 cases each, for every S and
 -- every P.  Further: the map has a SECTION (‡‡∞‡‡‡‡Æ‡, Tattvrthastra 5.31's
@@ -466,31 +459,12 @@ x ‡§®‡•ç‡§Ø‡•Ç‡§®‡§É y = ‡§ï‡•ç‡§∞‡§Æ-‡§Ø‡•ã‡§ó x y ‚â° y
 -- with ‡‡®‡∞‡‡‡‡Æ‡ ‚àò ‡‡∞‡‡‡‡Æ‡ ‚â° id ‚î so this lane's seven are a subalgebra AND a
 -- quotient of the record lane's, i.e. a RETRACT of it ‚î and it has NO
 -- inverse (`‡®-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡`), so no equivalence exists and ¬ß‡ path one is
--- unavailable as a theorem rather than as a failure to find one.
+-- unavailable as a theorem.
 --
--- ONE CLAIM OF THIS FILE IS CORRECTED BY THAT RESULT.  ¬ß‡ above says the
--- reason ‡‡-‡Ø‡ã‡ó fails to associate is that ~~‡‡ø‡‡‡µ‡æ‡‡‡¶‡ destroys the two seed
--- markings, so the fourth position does not record which pair produced
--- it~~.  The destruction is real and it is NOT the reason: on the record
--- lane, where the fourth position retains both nayas and both witnesses
--- and `‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡-‡-‡≤‡‡‡‡‡Æ‡` proves the third is recoverable from it, ‡‡‡æ‡∞‡‡‡‡Æ‡
--- still fails to associate (`‡‡-‡‡‡ô‡‡ó‡‡ø‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡`, with the same three
--- positions).  The reason both lanes fail is that ‡‡ tests the JOINED
--- position for an asti‚ìnsti pair, and whether that pair is present
--- depends on the grouping.  Retaining the seeds does not buy the law
--- back.  The law and the counterexample in ¬ß‡ stand exactly as stated;
--- what is struck is the explanation attached to them.
---
--- The sibling lane's own withdrawal (that consumption is the model's and
--- not the doctrine's) is therefore not contradicted by ¬ß‡'s failure, and
--- ¬ß‡'s failure is not evidence for ¬ß‡'s attribution.  Both were reading
--- one algebraic fact as evidence about the doctrine, in opposite
--- directions, and it is evidence for neither.
---
--- What remains open is what ¬ß‡ß‡¶ said was open in the tradition: whether
+-- The tradition's question is untouched by the composition laws: whether
 -- ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ is failure of expression only or consumption of what was to be
--- expressed (Malliea, Sydvdamajar, 1292).  That question is now
--- known to be undecidable BY THE COMPOSITION LAWS ‚î the two lanes agree
+-- expressed (Malliea, Sydvdamajar, 1292).  That question is
+-- undecidable BY THE COMPOSITION LAWS ‚î the two lanes agree
 -- across it ‚î so any argument for a reading that runs through order or
 -- saha proves nothing.  It is a question about what a position is.
 ------------------------------------------------------------------------

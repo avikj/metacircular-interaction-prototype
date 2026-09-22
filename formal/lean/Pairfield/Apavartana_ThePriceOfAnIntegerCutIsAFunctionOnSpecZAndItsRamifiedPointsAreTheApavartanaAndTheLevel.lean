@@ -11,9 +11,6 @@ Euclidean algorithm."
 the common divisor removed from a pair, and in the matrix
 `D = diag(d₁, q·d₁)` the entry `d₁` is exactly that — the content shared by
 both diagonal entries, with `q` the level left over after it is removed.
-**Syāt — the claim, exactly.** Brahmagupta did not state Smith normal form, did not
-work over Spec ℤ, and proved nothing in this file.  The Smith divisors, the
-prime-by-prime rank, and the cokernel are ours; the term names the split.
 
 ## The object
 
@@ -49,23 +46,13 @@ Here the drop is 2 at one bad prime and 1 at another.  A non-constant function
 on the ramification locus is not a number, and that is the whole content of
 "over ℤ the price of a cut is a function on Spec ℤ."
 
-(the defect is a fibre dimension; and the fence — linear ranks satisfy
-Ingleton, entropies do not, so this does not read as entropy),
-`formal/cubical/Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd.agda`.
-
-## What is checked here and what is prose
+## What is checked here
 
 CHECKED below: Smith order; the value of `rank_{𝔽_p}` at 2, 3, 5, 7 and its
 generic value for every `p ∤ 24`; the bridge that `#{i : p ∤ d_i}` is really a
 count of nonvanishing residues in `ZMod p`; the cokernel's order (24), its
 exponent (12 kills it), and that 12 does NOT kill `ZMod 24`, hence the cokernel
 is not cyclic and genuinely has two invariant factors.
-
-PROSE, not checked here: that `diag(2,12)` is the Smith normal form of the Γ₀
-endpoint under `GL₂(ℤ)` change of basis (it is diagonal with `2 ∣ 12`, so this
-is immediate, but no term below says it), and that `ℤ²/Dℤ² ≅ ℤ/2 ⊕ ℤ/12` as an
-explicit quotient of `ℤ²` — the order-and-exponent facts below pin the
-isomorphism class among abelian groups of order 24 but are not that quotient.
 
 No `sorry`, no `admit`, no `axiom`, no `native_decide`.
 -/

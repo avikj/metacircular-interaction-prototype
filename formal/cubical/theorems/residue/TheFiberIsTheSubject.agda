@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheFiberIsTheSubject
 --
--- Everywhere else in this thread a collision was an obstruction to be
+-- Everywhere else on this line a collision was an obstruction to be
 -- reported.  In ‡µ‡∞‡‡ó‡‡‡∞‡ï‡‡‡ø it is the subject.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
@@ -11,7 +11,7 @@
 --
 -- A collision is two points a map identifies and something finer
 -- separates.  Read as an obstruction it says: no decoder recovers the
--- finer thing from the coarser.  That reading has been this thread's
+-- finer thing from the coarser.  That reading has been this line's
 -- whole business.
 --
 -- Take the same configuration in Brahmagupta's setting.  The map is the
@@ -41,7 +41,7 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHY THIS IS THE ‡‡®‡‡ï‡æ‡®‡‡ POINT AND NOT A METAPHOR
 --
--- The standing ‡‡®‡‡ï‡æ‡®‡‡ law (887641a7) is that a collapse exists IFF every
+-- The standing ‡‡®‡‡ï‡æ‡®‡‡ law is that a collapse exists IFF every
 -- pair of ‡®‡Øs agrees.  Plurality is one way to fail that, not the only one.  Here two ‡®‡Øs ‚î obstruction and orbit ‚î disagree
 -- about the same configuration, and neither is wrong.  A ‡®‡Ø that denied
 -- the other would be a ‡¶‡‡∞‡‡®‡Ø: "the norm fails to determine the pair" is
@@ -51,12 +51,9 @@
 --
 -- Both hold simultaneously.  That is not a contradiction to be resolved
 -- by choosing; it is the configuration having more structure than one
--- standpoint reports ‚î and this thread's own measure, which prices an
+-- standpoint reports ‚î and this line's own measure, which prices an
 -- absence by its witnesses, is the obstruction ‡®‡Ø speaking, so it cannot
 -- be the arbiter.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheFiberIsTheSubject where
@@ -157,7 +154,7 @@ rotated-differs e = true‚â¢false (cong isNeg‚Ñ§ (cong fst e))
 -- ¬ß3 is a statement about decoders and ¬ß4 about an action, and it is the
 -- same two pairs both times.
 --
--- What this changes for the rest of the thread: `¬ FactorsThrough` has
+-- What this changes for the rest of the line: `¬ FactorsThrough` has
 -- been read throughout as a deficiency ‚î a barrier, a cost, a witness
 -- count.  It is equally a presentation of the fiber, and where the fiber
 -- carries an action the second reading is the productive one.  ‡‡ï‡‡∞‡µ‡æ‡≤

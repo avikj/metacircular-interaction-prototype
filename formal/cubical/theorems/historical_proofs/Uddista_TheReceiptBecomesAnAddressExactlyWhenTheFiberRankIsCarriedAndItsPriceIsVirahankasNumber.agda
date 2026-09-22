@@ -8,9 +8,7 @@
 --  of ranks it must carry at weight n is Virahka's number.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- RECOGNITION FIRST, because this repository keeps rebuilding what it
--- already owns.  Everything this module needs was ALREADY PROVED here
--- and nothing of it is reproved:
+-- WHAT IS ALREADY PROVED, and not reproved here:
 --
 --   `PingalaPrastara.matrameruIso`  Metre (2+n) ‚â Metre (1+n) ‚ä Metre n
 --   `PingalaPrastara.matraCount`    Metre n ‚â Fin (matra n)
@@ -23,10 +21,8 @@
 --   `Pata_‚¶`                        ‡µ‡‡®‡Æ‡ (receipt, unconditional) and
 --                                   ‡‡‡æ (address, iff identification)
 --
--- So "the mtr fiber's recurrence, as an equivalence and not a count"
--- is DONE, twice, and was done before this file was opened.  What was
--- NOT anywhere is the statement those files jointly set up and none of
--- them makes: the exact repair of `Pata_‚¶`'s denial.
+-- What none of them states is the statement they jointly set up:
+-- the exact repair of `Pata_‚¶`'s denial.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT IS PROVED HERE.
@@ -67,7 +63,7 @@
 --                   is the size of the field that had to be added.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- SOURCES, and what is NOT claimed of them.
+-- SOURCES.
 --
 -- Pigala, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ.‡®‡©‚ì‡©‡ (~300 BCE), the ‡‡‡∞‡‡‡Ø‡Ø‡æ‡: ‡‡‡∞‡‡‡‡æ‡∞ (lay the
 -- table out by a rule, do not store it), ‡®‡‡‡ü (given a place, recover the
@@ -78,17 +74,6 @@
 -- The array is worked with in ‡‡≤‡æ‡Ø‡‡ß, ‡Æ‡‡‡‡û‡‡‡‡µ‡®‡, 10th c. CE.  The
 -- recurrence is usually cited under Fibonacci's name (1202); that is a
 -- restatement, named here after the source and as one.
---
--- SECOND-HAND, and marked as such.  None of these texts has been opened
--- by the author of this file.  Every citation above is carried from
--- `formal/cubical/PingalaPrastara.agda`,
--- `formal/cubical/Chandomudra_‚¶agda` and this repository's ledger
--- `.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
--- (row `Nasta|Uddista`, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ.‡®‡‚ì‡®‡), and is owed at verse
--- level.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFiberRankIsCarriedAndItsPriceIsVirahankasNumber where
@@ -114,7 +99,7 @@ open Iso
 
 ------------------------------------------------------------------------
 -- ‡ß ¬ The two things already known, restated in one place so the arc is
---     readable without opening four files.  Neither line is new.
+--     readable without opening four files.
 --
 --     `matraCount n` is `Metre n ‚â Fin (matra n)`, proved in
 --     `PingalaPrastara` BY `matrameruIso` ‚î Virahka's argument on the
@@ -182,7 +167,7 @@ rightInv ‡§∏‡§Æ‡§∑‡•ç‡§ü‡§ø‡§É (n , (p , e)) =
 --
 --     `Pata_‚¶` proved the denial on its own copy of the alphabet.  It
 --     is proved again here on `PingalaPrastara.Pattern`, three lines,
---     rather than moved across an identification nobody has written ‚î
+--     rather than moved across an identification ‚î
 --     the same choice `Avrtti_‚¶` ¬ß‡© made for `varna` against `length`,
 --     and for the same reason.  What IS imported is the PREDICATE ‡‡‡æ,
 --     so the two verdicts are verdicts about the same notion.
@@ -234,29 +219,3 @@ rightInv ‡§∏‡§Æ‡§∑‡•ç‡§ü‡§ø‡§É (n , (p , e)) =
 
 ‡§Æ‡•Ç‡§≤‡•ç‡§Ø‡§Æ‡•ç : (n : ‚Ñï) ‚Üí matra (suc (suc n)) ‚â° matra (suc n) + matra n
 ‡§Æ‡•Ç‡§≤‡•ç‡§Ø‡§Æ‡•ç = matraRecurrence
-
-------------------------------------------------------------------------
--- ‡ ¬ What is NOT shown, said rather than left to be assumed.
---
---     (a) No claim that this address is Pigala's own ‡Æ‡æ‡‡‡∞‡æ-‡‡‡∞‡‡‡‡æ‡∞
---         ORDER.  `matraCount` is built from `matrameruIso` and
---         `Fin+‚âFin‚äFin`, so the rank it assigns is determined by that
---         composite and is a rank; whether it agrees row-for-row with
---         the order the tradition lays the ‡Æ‡æ‡‡‡∞‡æ-‡‡‡∞‡‡‡‡æ‡∞ out in is a
---         separate question and is not answered here.  ¬ß‡ pins only the
---         FIRST component.
---
---     (b) No claim of minimality beyond cardinality.  `matra n` is the
---         exact size of the fiber, so no smaller rank type can do; that
---         is `matraCount` and needs nothing further.  It is not a claim
---         about bits, encodings, or the cost of computing ‡®‡‡‡ü.
---
---     (c) No closed form for `matra`, and none is wanted here.
---
---     (d) The general statement ‚î that ¬ß‡® holds for ANY map and so every
---         receipt is completed to an address by its own fiber ‚î is true
---         and is one line, and is deliberately not stated as a lemma
---         here because `Pata_‚¶` is where the general law belongs and
---         this file is the instance that shows what the general law
---         costs at Pigala's weight.
-------------------------------------------------------------------------

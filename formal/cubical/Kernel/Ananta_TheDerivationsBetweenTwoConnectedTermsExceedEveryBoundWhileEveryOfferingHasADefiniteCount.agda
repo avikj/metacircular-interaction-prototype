@@ -7,8 +7,8 @@
 -- TERM.  ‡‡®‡®‡‡ ¬ ananta -- the third of the three orders of magnitude in the
 -- Jaina counting apparatus, ‡‡‡ñ‡‡Ø‡æ‡ / ‡‡‡‡ñ‡‡Ø‡æ‡ / ‡‡®‡®‡‡ (sakhyta,
 -- asakhyta, ananta), each further subdivided.  *Anuyogadvrastra* (date
--- contested, commonly placed ~2nd-5th c. CE; I pin none); *Sthngastra*;
--- *Bhagavatstra*.  No first use of the term is established here.
+-- contested, commonly placed ~2nd-5th c. CE); *Sthngastra*;
+-- *Bhagavatstra*.
 --
 -- The criterion applied below is the apparatus's OWN, not a translation of
 -- it: an asakhyta magnitude is DEFINITE -- the scheme bounds it above,
@@ -19,7 +19,7 @@
 -- named for the order the criterion assigns.
 --
 ------------------------------------------------------------------------
--- WHAT WAS OPEN.
+-- CONTEXT.
 --
 -- `Residue_‚¶` exhibits TWO histories between the kernel's own pair, separated
 -- by step count, 2 against 4, and concludes the truncation is strict.
@@ -27,9 +27,8 @@
 -- unital on the nose, `rev` is an inverse only up to meaning, and THE GAP
 -- BETWEEN STRICT CATEGORY AND WEAK GROUPOID IS THE EA.
 --
--- Neither measures the gap, and no file in the corpus builds a family of
--- derivations indexed by ‚ï between fixed endpoints.  Two instances on one
--- pair leave open whether the phenomenon is a feature of that pair.
+-- Two instances on one pair do not by themselves show whether the
+-- phenomenon is a feature of that pair.
 --
 -- IT IS NOT.  `reverse (add-zero a) : Step a (add a zero)` fires at EVERY
 -- term with no hypothesis on `a`, so the padding below is uniform: it needs
@@ -46,11 +45,6 @@
 --       no bound on the standpoints between two connected terms.
 --   ¬ß4  the-whole-family-means-one-thing -- and all of it is one bit
 --       downstairs, through `Residue_‚¶`, forced by ‚ï being a set.
---
--- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
--- exit 0 at the previous module path.  Module name and imports were renamed
--- to `Kernel.*` to match this directory; that rename has not been re-run at
--- the repository pin (2.8.0 + v0.9).
 ------------------------------------------------------------------------
 
 module Kernel.Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEveryBoundWhileEveryOfferingHasADefiniteCount where

@@ -18,7 +18,6 @@
 -- obstruction, because `B — Bool â’ B` has both and trivial transport.
 -- An obstruction needs SHEET EXCHANGE, exhibited separately.
 --
---
 -- THE VERDICT, AND THE SINGLE FACT THAT DECIDES IT
 --
 -- The verdict is **DISSOLVED, and the parity-monodromy route dies with
@@ -45,9 +44,8 @@
 -- This strictly generalises `PerspectiveCore.constNoMonodromy`, which
 -- covers only CONSTANT families (over any base) â” including the sieve
 -- fibration's own varying families, which that lemma explicitly does
--- not reach (see its `SCOPE` paragraph).  Over a set base, varying is
+-- not reach.  Over a set base, varying is
 -- as harmless as constant.
---
 --
 -- THE NEGATIVE IS NOT VACUOUS: `MonodromyOf` IS INHABITABLE
 --
@@ -62,7 +60,6 @@
 --   * `SÂNotSet` â” `isSet SÂ â’ âŠ`, derived from the two results above,
 --     which is the contrapositive reading: the ONLY way to get
 --     monodromy is a base that is not a set.
---
 --
 ------------------------------------------------------------------------
 

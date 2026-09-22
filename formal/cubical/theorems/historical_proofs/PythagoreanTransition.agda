@@ -88,9 +88,6 @@
 -- holds over â, over â, and over every ring the repository may later
 -- want.  Ring identities go through the CommRingSolver â” exact symbolic
 -- computation, which CLAUDE.md admits as proof; nothing is measured.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin (2.8.0 / v0.9, BUILD.md).  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module PythagoreanTransition where

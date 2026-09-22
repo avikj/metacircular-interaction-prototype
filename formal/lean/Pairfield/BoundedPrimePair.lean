@@ -6,8 +6,6 @@ The first common finite carrier for the prime-pair/DSO lane. Bounds live in
 the type, primality travels with each leg, and centre/gap are views of the same
 pair rather than separately generated data. Bound enlargement is an explicit
 map with composition and view-naturality laws.
-
-No inhabitation theorem for every centre or gap is asserted here.
 -/
 import Mathlib
 

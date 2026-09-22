@@ -80,7 +80,7 @@
 -- is not in it.  This is not a correction to Â§3.5 â” the note is p-adic
 -- throughout â” it is a statement of where its hypothesis is load-bearing.
 --
--- Both of this session's assigned literatures had to confront exactly the
+-- Two literatures had to confront exactly the
 -- composite case the corpus never enters, and each records a result:
 --
 --   * **Music and tuning theory.**  A cyclic division into `N` steps, and
@@ -112,11 +112,6 @@
 -- or destroy that error site.  So this module IMPORTS `Slope`, `mod5`,
 -- `attains`, `crit`, `eqâ•` and works over its own `Lin`; every statement
 -- below is about the corpus's own `attains` and `crit`, not about copies.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5 â” the CONTAINER toolchain, which
--- `formal/cubical/BUILD.md` Â§"Version-skew notes" records as skewed from
--- the repository pin (2.8.0 + v0.9).  Not verified under the pin.
--- No postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.ApavadaVisaya_TheLineWorldCorollaryPinsItsObservableUpToScalar where

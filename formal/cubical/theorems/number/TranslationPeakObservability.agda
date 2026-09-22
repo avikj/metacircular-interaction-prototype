@@ -7,8 +7,7 @@
 -- and every carrier through which all one-step responses factor is injective.
 --
 -- This is the abstract checked kernel of the sampled prime-power translation
--- argument.  No valuation, residue ring, or subgroup staircase is constructed
--- here.
+-- argument.
 ------------------------------------------------------------------------
 
 module TranslationPeakObservability where

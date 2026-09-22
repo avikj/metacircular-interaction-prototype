@@ -15,12 +15,7 @@
 --
 --   `the-wheel's-solution` � 577² ≡ 2�408² + 1 by refl, with
 --     2�288+1 ≡ 577 and 2�204 ≡ 408 by refl: the balanced house IS
---     the Pell point.  The wheel itself was turned by the machine:
---     asked vargaprakrti D = 2 over the wire, it answered the
---     fundamental (3, 2) with its composition law CHECKED
---     multiplicative at every turn, and named in its vyaya exactly
---     what it does not re-prove (the descent's termination, asserted
---     and used since 628).  577/408 is the fourth turn of that wheel.
+--     the Pell point.  577/408 is the fourth turn of the wheel.
 --
 --   `balance-is-pell` / `pell-is-balance` � THE BRIDGE, for every n
 --     and k: 2k² ≡ n(n+1) exactly when (2n+1)² ≡ 2(2k)² + 1.  The

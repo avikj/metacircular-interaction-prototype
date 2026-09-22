@@ -8,8 +8,8 @@
 -- rank-symmetry, rank-unimodality, full-rank raising maps, and the
 -- Sperner property of the divisor lattice.
 --
--- PRIOR ART.  Everything stated here is CLASSICAL and nothing is
--- claimed as new mathematics.  The theorem (divisor lattices are
+-- PRIOR ART.  Everything stated here is CLASSICAL.
+-- The theorem (divisor lattices are
 -- Sperner) is de Bruijn � van Ebbenhorst Tengbergen � Kruyswijk, "On
 -- the set of divisors of a number", Nieuw Arch. Wiskunde (2) 23 (1951),
 -- 191�193, by symmetric chain decomposition and with no Lie algebra.
@@ -20,8 +20,7 @@
 -- "Representations of ��(2,�) on posets and the Sperner property",
 -- SIAM J. Alg. Disc. Meth. 3 (1982), 275�280; products of chains are
 -- Proctor�Saks�Sturtevant, Discrete Math. 30 (1980), 173�180.  The
--- rank-one content is textbook (Humphreys, §7).  Companion prose, with
--- formalizes; it does not discover.
+-- rank-one content is textbook (Humphreys, §7).
 --
 -- ---------------------------------------------------------------------
 -- WHAT IS PROVED HERE (all --safe, no postulates, no holes):
@@ -66,8 +65,8 @@
 -- explicit record � "every positive integer is invertible" � and it is
 -- a HYPOTHESIS of the general statement in §8, written into its type.
 --
--- In rank one it is not needed, and I say so rather than pretending
--- the proofs below are the general ones cut down: for a single chain,
+-- In rank one it is not needed, and the proofs below are not
+-- the general ones cut down: for a single chain,
 -- ε carries the rank-k basis vector to the rank-(k+1) basis vector on
 -- the nose (ε-δ), so injectivity is a statement about �-indices and
 -- needs no field at all.  The reader should therefore NOT read §6 as
@@ -79,9 +78,7 @@
 -- The construction takes the factorization as INPUT.  Div � below is a
 -- type family on a single natural number �; no prime enters anywhere in
 -- this file, and the statements are blind to whether the p_i are prime
--- � indeed to whether there are any p_i.  Nothing here says anything
--- about the distribution of Ω or ω, and it is NOT a bridge to the
--- Goldbach / critical-line material of the transmission.  See
+-- � indeed to whether there are any p_i.
 ------------------------------------------------------------------------
 
 module SpernerFromSl2 where
@@ -354,10 +351,7 @@ record CharZero (R : Type₀) (1r : R) (_·R_ : R → R → R)
     inv : (n : ℕ) → Σ[ r ∈ R ] (fromℕ (suc n) ·R r ≡ 1r)
 
 ------------------------------------------------------------------------
--- §8  WHAT REMAINS.  The general case, written as a type.  NO TERM of
---     this type is given in this file, and none is postulated: --safe
---     is on and there are no postulates and no holes anywhere here.
---     The statement typechecks; that is all it does.
+-- §8  The general case, written as a type.
 --
 --     Reading guide: an exponent vector κ with κ i � � i for i < m,
 --     rank Ω = �_{i<m} κ i, and the claim that any antichain injects
@@ -391,7 +385,7 @@ isAntichainM m α A = (x y : DivM m α) → A x → A y → LeqM m α x y → x 
 RankM : (m : ℕ) (α : ℕ → ℕ) (k : ℕ) → Type₀
 RankM m α k = Σ[ x ∈ DivM m α ] (rkM m α x ≡ k)
 
--- THE OPEN STATEMENT.  Uninhabited below, deliberately.
+-- THE GENERAL STATEMENT.
 GeneralSperner : Type₁
 GeneralSperner =
   (m : ℕ) (α : ℕ → ℕ) (A : DivM m α → Type₀)
@@ -400,8 +394,8 @@ GeneralSperner =
   → Σ[ f ∈ (Σ[ x ∈ DivM m α ] A x → RankM m α (half (sum m α))) ]
       ((u v : Σ[ x ∈ DivM m α ] A x) → f u ≡ f v → u ≡ v)
 
--- Likewise for the two intermediate steps, so the queue is explicit:
--- rank-unimodality is NOT degenerate in general and is not proved.
+-- Likewise for the intermediate step: rank symmetry in general, where
+-- it is not degenerate.
 GeneralRankSymmetry : Type₀
 GeneralRankSymmetry =
   (m : ℕ) (α : ℕ → ℕ) (k j : ℕ) → k + j ≡ sum m α

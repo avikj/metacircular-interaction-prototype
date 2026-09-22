@@ -1,31 +1,13 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- CROSS-REVIEW OF WalkBridge, by independent derivation.
+-- WalkBridge's bridge, restated hypothesis-free in `m`.
 --
--- Provenance, stated first because it decides what this module is worth.
--- blind, in a session that was reading the corpus; `WalkBridge` landed
--- on main (commit 61c38d9) while I was doing so.  Per the LEVER3 /
--- L3_SDP precedent (STATE.md: "per protocol this collision IS the
--- independent replication"), the collision is the replication, and the
--- replication is the point: two independent proofs of (i)-(iv) agree.
---
--- WHAT THE COMPARISON FOUND.  One difference, and it is in their favour
--- on the main lemma and against on a hypothesis:
---
---  * THEIR proof of flatness is better than mine and I am recording
---    that.  I proved `cap j â‰¡ cap m` by induction over the gap `j - m`,
---    composing one `no-jump` step at a time.  `frontier-flat` does it in
---    one antisymmetry: `cap j âˆ cap m` by the universal property
---    (minimality of the install makes every `r â‰ j` divide `cap m`), and
---    `cap m âˆ cap j` by monotonicity.  No induction at all.  Same
---    theorem, strictly shorter proof; the induction was mine to lose.
---
---  * THE `1 â‰ m` HYPOTHESIS IS REMOVABLE.  `WalkBridge`'s bridge module
---    takes `1â‰m : 1 â‰ m` as a parameter.  Reading their own code, it is
+-- THE `1 â‰ m` HYPOTHESIS IS REMOVABLE.  `WalkBridge`'s bridge module
+--    takes `1â‰m : 1 â‰ m` as a parameter.  It is
 --    used in exactly one place -- `no-jump-skipped`, to produce `2 â‰ suc
 --    i` from `m â‰ i` so that `LeastNonDivisor`'s minimality clause
 --    (which only speaks about `r â‰ 2`) applies.  The `r = 1` case is not
---    a gap in the mathematics: `1` divides everything.  Their
+--    a gap in the mathematics: `1` divides everything.  `WalkBridge`'s
 --    `frontier-flat` already handles precisely this, in the line
 --
 --        ... | inr 1â‰¡r = subst (_âˆ cap m) 1â‰¡r (âˆ-oneË¡ (cap m))
@@ -40,9 +22,6 @@
 -- first install; here `below-first-uniform` is the SAME theorem
 -- instantiated at `m = 0`, because `cap 0 = 1` and the least non-divisor
 -- of `1` is `2`.  One statement covers the trajectory and its base.
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe.
--- No postulates, no holes.
 
 module WalkBridgeUniform where
 
@@ -90,7 +69,7 @@ no-jump-skipped-uniform m j lnd i mâ‰¤i i<j notJump =
 ------------------------------------------------------------------------
 -- (ii) and (iii) restated hypothesis-free, so the whole bridge is
 -- uniform in `m`.  These re-derive `frontier-flat` and
--- `install-is-jump` by their own (better) argument, with the parameter
+-- `install-is-jump` by WalkBridge's argument, with the parameter
 -- dropped -- i.e. this is the check that nothing else was using it.
 ------------------------------------------------------------------------
 

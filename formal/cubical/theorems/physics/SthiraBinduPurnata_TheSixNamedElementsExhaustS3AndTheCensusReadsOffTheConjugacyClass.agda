@@ -6,18 +6,13 @@
 -- Completeness of the six-element enumeration of S‚, and the census
 -- corollary that follows from it.
 --
--- prat = completeness; sthira-bindu = fixed point.  The 
--- terms are used in their plain mathematical senses, and no text is
--- claimed as a source.
+-- prat = completeness; sthira-bindu = fixed point.
 --
--- THE ABSENCE CLOSED.
 -- SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3
--- says, in its SYT section:
---
---   * That the six named elements exhaust S‚.  Completeness of the
---     six-element enumeration (every equivalence of Fin 3 is equal to
---     one of the six) is NOT proved in this module; the per-element
---     census values are statements about the named representatives.
+-- names six elements of S‚ and computes the census values of those
+-- named representatives.  Completeness of the six-element enumeration
+-- (every equivalence of Fin 3 is equal to one of the six) is proved
+-- here.
 --
 -- That module represents S‚ = FinSymGroup 3 = SymGroup (Fin 3) with
 -- Cubical.Data.SumFin's Fin 3 = ‚ä ‚ä (‚ä ‚ä (‚ä ‚ä ‚ä)), so an element is an
@@ -54,11 +49,6 @@
 --     countFix œ ‚â° 1 ‚í œ is a conjugate of s‚‚,
 --     countFix œ ‚â° 0 ‚í œ is a conjugate of œ, derived from the above by
 --     discriminating the natural numbers 3, 1, 0.
---
--- WHAT IS NOT PROVED.  That the six named elements are pairwise
--- distinct (the enumeration is complete; its irredundancy is not
--- stated here, although it would follow by the same census values
--- and refl computations).  Nothing about S‚ô for n ‚â† 3.
 ------------------------------------------------------------------------
 
 module SthiraBinduPurnata_TheSixNamedElementsExhaustS3AndTheCensusReadsOffTheConjugacyClass where

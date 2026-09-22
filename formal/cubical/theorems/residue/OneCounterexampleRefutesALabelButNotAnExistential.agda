@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- OneCounterexampleRefutesALabelButNotAnExistential
 --
--- with one that is different in kind from the others:
+-- `DARWIN_GODEL_MATH.md` Â§7 lists its criteria, with one that is different in kind from the others:
 --
 --   "any artifact labeled kernel-checked or independently replayed fails
 --    a clean replay.  One such authority-label error is a boundary
@@ -16,7 +16,7 @@
 -- claim-shapes the other criteria use are not.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS PROVED, AND THE HONEST WEAKNESS OF THE CONTRAST
+-- WHAT IS PROVED
 --
 -- Â§2: one labelled artifact that fails to replay refutes the label's
 -- soundness outright.  No rate, no tolerance, nothing to average over.
@@ -24,9 +24,6 @@
 -- Â§3: the same single failure leaves an EXISTENTIAL claim standing.
 -- That is the weakest possible witness that claim-shapes differ in
 -- refutation conditions, and it is chosen because it needs no counting.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module OneCounterexampleRefutesALabelButNotAnExistential where
@@ -95,20 +92,12 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 --
 -- Â§3 shows a single failure is compatible with another claim-shape
 -- holding, so "noise" is a meaningful notion for SOME claims â” just not
--- for this one.  Which claims, and with what tolerance, is a question
--- about rates and is not answered here.
+-- for this one.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by this module's author, at the end, altering no
--- line above.
---
--- Â§"WHAT IS NOT MODELLED" above says: "a genuine RATE claim ('more than
--- half', 'at most 25%') â¦ needs a measure and a count, neither of which
--- appears below.  Â§3 therefore does NOT establish the comparison Â§7's
--- list invites."
---
--- The count is now supplied, in
+-- THE COUNT.  A genuine RATE claim ("more than half", "at most 25%")
+-- needs a measure and a count.  The count is supplied in
 -- `RateOneIsExactlyTheUniversalClaim`, over a finite
 -- population as a `List Bool`:
 --
@@ -121,10 +110,4 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 -- is the threshold at 1, where a single failure moves the count off the
 -- length and there is nothing left to tolerate.  A strictly lower
 -- threshold surviving that same failure is exhibited there.
---
--- STILL ABSENT, and still said: percentages.  "More than half" is
--- stateable as `length xs < 2 Â count xs`; it is not stated there, and
--- no threshold other than 1 is analysed.  The population is a LIST, so
--- multiplicity is counted and order carried â” neither matters to the
--- equivalence and both would matter to a finer measure.
 ------------------------------------------------------------------------

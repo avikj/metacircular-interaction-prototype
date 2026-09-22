@@ -4,24 +4,13 @@
 -- AnEquivalenceIdentifiesTheCarriersSoProvenanceIsExactlyWhatDoesNotTravel
 --
 -- TERM.  ààà•àà°à®à Â sakramaa -- a crossing over, a passing from one place
--- to another.  Ordinary ; no technical stra is claimed and the
--- provenance ledger has no row for it.  It is used here because it is the
+-- to another.  It is used here because it is the
 -- word `interactive/`'s running machine already uses for this exact act,
 -- and the second word below, àµàà¯à¯ Â vyaya (expenditure, what is spent), is
 -- that machine's word for the other half.
 --
 ------------------------------------------------------------------------
--- WHERE THE DESIGN OF THIS FILE CAME FROM, WHICH WAS NOT THE SPECIFICATION.
---
--- The task text asked for `transport (ua e)` between two peers holding one
--- object in different representations, retaining the triple (a , e , b).
--- Written from that alone this file would have had ONE relation, `A â‰ B`,
--- and would have been wrong in a way that is invisible from inside it.
---
--- Turning the machine instead -- `sh interactive/run-yantra.sh --wire` --
--- and asking it to transport, and then asking it whether two
--- representations may be identified, produced three facts the specification
--- does not contain.  They are recorded because they are the file's design:
+-- THREE FACTS THE MACHINE (`interactive/`) STATES, WHICH ARE THE FILE'S DESIGN:
 --
 --   1. A TRANSPORT THAT SUCCEEDS STILL HAS A COST, AND THE MACHINE STATES
 --      IT.  `saptabhangi.samkramana` returns a bijection with both round
@@ -80,8 +69,6 @@
 --       is total; there is no `Maybe`, no error, and no silent case.
 --   Â§7  the fixed-representation encounter is the identity instance, so
 --       `TheEncounterOfTwoPeersâ¦` is this file at `e = idEquiv`.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0.
 ------------------------------------------------------------------------
 
 module AnEquivalenceIdentifiesTheCarriersSoProvenanceIsExactlyWhatDoesNotTravel where
@@ -250,7 +237,7 @@ provenance-must-be-carried-alongside =
 ------------------------------------------------------------------------
 -- Â§5.  THE RETAINED TRIPLE.
 --
--- The task text says the important object is not `b` but `(a , e , b)`.
+-- The important object is not `b` but `(a , e , b)`.
 -- Here is why in one line: the ends do not determine the middle.  A peer
 -- that stored the value and dropped the equivalence has not stored a
 -- transport, and cannot reconstruct one: `Bool` has two self-equivalences,

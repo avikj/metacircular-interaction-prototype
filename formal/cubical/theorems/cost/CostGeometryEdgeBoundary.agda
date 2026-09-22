@@ -5,7 +5,7 @@
 -- the current Edge record contains only a function and a cost.  It does not
 -- certify either that the function is an equivalence or that it preserves
 -- the operation carried by the two presentations.  The two controls below
--- show that these are independent missing fields.
+-- show that these are independent conditions.
 ------------------------------------------------------------------------
 
 module CostGeometryEdgeBoundary where
@@ -115,8 +115,7 @@ equivalent-move-is-not-enough =
   identity-move-is-equiv , identity-move-does-not-preserve
 
 ------------------------------------------------------------------------
--- Scope: no theorem in CostGeometry is modified or refuted.  Its inequalities
--- depend only on Nat costs.  The checked correction is that the present graph
+-- CostGeometry's inequalities depend only on Nat costs.  The present graph
 -- is a graph of costed functions; reading it as a graph of checked,
 -- task-preserving representation equivalences requires both extra laws.
 ------------------------------------------------------------------------

@@ -14,10 +14,6 @@ Two design consequences follow directly and both cut against common practice.  L
 
 Finally, the cost, stated exactly.  Because the derivation must be carried as a field of the value and cannot be deduplicated - deduplication would require deciding an identity of derivations that the evaluation provably cannot supply - the store is monotone: no tombstones, no compaction, no safe pruning rule.  Where a rule's left-hand side contains no free variable, the derivations enabled at a single value form an entire copy of the term algebra with every member producing the same answer, so a pruning heuristic collapses an unbounded fibre rather than a redundant pair.  We characterise the trade rather than tune it.
 
-There is no provenance semiring in this development, no forgetful homomorphism
-to the boolean semiring, no relational algebra and no query language. The
-object is a term rewriting calculus with an interpreter into the naturals. The
-reading of these results as statements about how-provenance is a reading and
-is not proved.
+The object is a term rewriting calculus with an interpreter into the naturals.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

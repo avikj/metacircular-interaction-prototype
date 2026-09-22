@@ -5,14 +5,12 @@
 -- durnaya, and WHICH two seeds it identifies is computed, not argued.
 --
 -- ‡¶‡‡∞‡‡®‡Ø: a naya that asserts itself by denying the others ‚î Siddhasena
--- Divkara, *Sanmatitarka* 1.21, c. 5th c. CE.  Carried at ‡ó‡‡∞‡‡°¬‡‡‡‡¶ from
--- `SaptabhangiSamyoga`'s source list; no edition opened by me.  Nothing
--- below is claimed to be Siddhasena's.
+-- Divkara, *Sanmatitarka* 1.21, c. 5th c. CE.
 --
 ------------------------------------------------------------------------
 -- `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` proves that ANY `f : ‡‡‡‡‡‡ô‡‡ó‡ ‚í ‡¶‡‡µ‡ø‡‡¶` identifies two
--- of the three seeds.  It has been read here as a fact about boolean
--- verdicts inside this machine.  It is a fact about every two-valued
+-- of the three seeds.
+-- It is a fact about every two-valued
 -- instrument applied to a threefold situation, and the SYMMETRY GROUP is
 -- one of those.
 --
@@ -25,12 +23,7 @@
 -- misses.  `Aut_B(A)` therefore reads exactly ONE of the three census
 -- coordinates: whether ‡®‡æ‡‡‡‡ø occurs anywhere.
 --
--- NOT CHECKED HERE, and named so it is not mistaken for checked: the
--- equivalence `Aut_B(A) ‚â Œ†_b Aut(‡‡‡ f b)` and its corollary that the group
--- is trivial exactly on embeddings.  That is the term this module is
--- waiting for.  `AtmaequalityUpari_‚¶` already carries the two poles (trivial
--- at `isEquiv`, all of `Aut(A)` at total collapse) and the interior is what
--- is missing.  Until it lands, ¬ß1 is a MODEL of the readout ‚î a map
+-- ¬ß1 is a MODEL of the readout ‚î a map
 -- ‡‡‡‡‡‡ô‡‡ó‡ ‚í ‡¶‡‡µ‡ø‡‡¶ defined by the ‡®‡æ‡‡‡‡ø slot ‚î and every theorem here is a
 -- theorem about the model.
 --
@@ -61,9 +54,6 @@
 --
 -- Symmetry as a naya is powerful and nothing here takes that from it.
 -- Symmetry as THE criterion is the durnaya, and ¬ß3 prices it.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5, this lane's .agda-lib,
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Durnayah_TheSymmetryReadoutIsTwoValuedAndComputablyMergesGraspedWholeWithMissedEntirely where

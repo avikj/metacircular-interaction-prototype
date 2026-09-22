@@ -19,8 +19,7 @@ Nine declarations here are character-for-character identical to
 `AdaptiveObservableHorizonWitness`'s — `alphabet`, `alphabet_complete`,
 `observe`, `automaton`, `adaptiveTree`, `adaptiveTree_depth`,
 `adaptiveTree_identifies`, `adaptive_depth_isLeast` and
-`uniform_horizon_eq_one` (a content-address census on 2026-08-22 found all
-nine).  **They are not duplicates and must not be merged**, because the one
+`uniform_horizon_eq_one`.  **They are not duplicates and must not be merged**, because the one
 declaration that is *not* shared is `step`: this module's start row branches on
 the action, so state `0` is not a dead end and every one of the four rows is
 reachable, which `all_states_reachable` below proves and the other module

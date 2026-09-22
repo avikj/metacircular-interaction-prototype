@@ -8,8 +8,8 @@
 -- anyone's theorem.  (The corpus uses àà¦àà§à®à for the karma-count in
 -- `Karma_â¦`; that is a different object and no connection is claimed.)
 --
--- THIS MODULE REFUTES A CONJECTURE THIS AUTHOR STATED IN TWO OTHER
--- MODULES, EARLIER THE SAME DAY.  `Anupurvi_â¦.NormalisationConjecture` and
+-- THIS MODULE REFUTES A CONJECTURE STATED IN TWO OTHER MODULES.
+-- `Anupurvi_â¦.NormalisationConjecture` and
 -- `Samkhyana_â¦.CompleteInvariantConjecture` both propose that the word of
 -- variable occurrences together with the count of successors is a COMPLETE
 -- invariant for derivability â” that two terms agreeing on both are joined
@@ -48,19 +48,7 @@
 -- two suffice â” and it fell to a third invariant rather than to an error.
 -- The corrected statement, with no conjecture attached to it: derivability
 -- implies agreement on word, constant AND trapped count, and whether those
--- three suffice is open and is now a sharper question than the one asked
--- this morning.
---
--- WHAT IS **NOT** CLAIMED.  Not that `trapped` completes the invariant;
--- Â§4 restates the open question and does not answer it.  Not that the
--- three laws are independent as a set â” only that `trapped` is not a
--- function of the other two, which Â§3 establishes by exhibiting a pair
--- agreeing on both and differing on it.  Nothing here concerns `Stepâº`;
--- an associativity or commutativity rule would break Â§2 by design.
---
--- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
--- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +
--- v0.9).  Re-check at the pin before treating this green as the lane's.
+-- three suffice is Â§4's conjecture.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Baddha_TheTrappedSuccessorIsAThirdConservationLawAndItRefutesTheCompleteInvariantConjecture where
@@ -162,7 +150,7 @@ the-complete-invariant-conjecture-is-false conj =
   not-derivable (conj A B same-word same-constant)
 
 ------------------------------------------------------------------------
--- Â§4.  THE OPEN QUESTION, SHARPENED RATHER THAN ANSWERED.
+-- Â§4.  THE THREE-LAW CONJECTURE.
 ------------------------------------------------------------------------
 
 ThreeLawInvariantConjecture : Typeâ‚€

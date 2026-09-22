@@ -21,9 +21,7 @@
 -- the normal form its count vector names â” sort by commutation,
 -- cancel by fours â” so the conjecture "trivial iff counts vanish mod
 -- four" has its rewriting system, with soundness of each rewrite a
--- theorem.  What remains is termination bookkeeping and the converse
--- (a nonvanishing count acts nontrivially â” the per-strand witness of
--- SuddhaVeni Â§4 is its seed).
+-- theorem.
 --
 ------------------------------------------------------------------------
 

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- HeadDepthTwo
 --
--- HEAD_DEPTH_BLINDNESS seed 2, closed by DISSOLUTION.
+-- HEAD_DEPTH_BLINDNESS seed 2, dissolved.
 --
 -- The seed expected: the two-entry 2-sensor (eâ‹,eâŠ) = (vâ(bâˆ’1),vâ(b+1))
 -- of CYCLOTOMIC_SENSOR eq (2) should correspond to a TWO-parameter
@@ -54,8 +54,7 @@
 -- Kernel certificates: all odd b < 256, all 1 â‰ a â‰ 8 (1024 pairs),
 -- checked terms by refl â” finite exhaustive verification is proof
 -- (CLAUDE.md).  Style and helpers mirror HeadDepthMerge.agda; the
--- general statements are the one-liners above and in
--- --safe throughout; no postulates, no holes.
+-- general statements are the one-liners above.
 ------------------------------------------------------------------------
 
 module HeadDepthTwo where

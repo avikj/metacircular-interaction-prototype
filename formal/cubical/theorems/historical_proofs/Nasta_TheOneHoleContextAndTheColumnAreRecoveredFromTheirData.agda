@@ -71,10 +71,6 @@
 --     it lives.
 --
 -- Â§à is the honest limit and states the extent of the search.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- CHECKED: Agda 2.8.0 + agda/cubical (the installed version), --cubical
--- --guardedness --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Nasta_TheOneHoleContextAndTheColumnAreRecoveredFromTheirData where

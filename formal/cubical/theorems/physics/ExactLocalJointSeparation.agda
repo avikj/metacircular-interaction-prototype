@@ -9,8 +9,6 @@
 -- unchanged.  The joint interference port still distinguishes the phase.
 --
 -- This is an algebraic marginal-invariance statement.  There is no spacetime
--- separation in the model, so it is not advertised as physical no-signalling
--- or as a Bell-nonlocality theorem.
 ------------------------------------------------------------------------
 
 module ExactLocalJointSeparation where

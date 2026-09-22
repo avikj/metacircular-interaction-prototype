@@ -9,7 +9,7 @@
 -- The instruction the method is named for is *ea raka* â” keep the
 -- remainder â” and recurse on it.
 --
--- SCOPE.  `Yantra.Kuttaka` in 944676e4 generates the vall with a fuel
+-- `Yantra.Kuttaka` generates the vall with a fuel
 -- constant (`valli 200 137 60`) and proves nothing about it; every claim
 -- in that module is `refl` on closed numerals.  It is the one module in
 -- the machine named for a descent law and the one module whose descent is

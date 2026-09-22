@@ -28,9 +28,8 @@
 -- STILL APPLY ‚î deletion with an operative receipt.  That is exactly
 -- what an equivalence-counted removal is: the residue is gone from the
 -- carrier and its accounting continues to act (the equivalence carries
--- every survivor to its standard address).  No claim that Pini counted
--- residue systems; the word is used for its precise content, as the
--- README's movement 9 already reads it.  ‡¶‡‡µ‡ø-‡≤‡ã‡ built here, 2026-08-23.
+-- every survivor to its standard address).  The word is used for its
+-- precise content.
 --
 -- THE INSTRUMENT is an involution, not an induction: ‡µ‡ø‡®‡ø‡Æ‡Ø‡ exchanges
 -- the wall with fzero (its own inverse, three decidable cases), the
@@ -39,13 +38,7 @@
 -- (the library's) is not used: the exchange route needs no separate
 -- section lemma because an involution is its own.
 --
--- ‡¶‡ã‡‡≤‡‡ñ‡, scope.  The walls here are abstract distinct points of
--- Fin p ‚î that the arithmetic walls ¬a (mod p) are distinct exactly
--- when p ‚à 2a is ‡ï‡‡®‡‡¶‡‡∞‡Æ‡'s theorem on the ‚ side; the mod-p bridge
--- (‚ ‚í Fin p respecting the divisibility relations) is named, not
--- built.  The product over charts (the period count ‚à(p ‚àí œâ_p), the
--- CRT tensor of ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡ Lemma 3) is likewise named, not built: this
--- is the chart, not the atlas.
+-- The walls here are abstract distinct points of Fin p.
 ------------------------------------------------------------------------
 
 module DviLopa_TheTwoWallsElideTwoResiduesAndTheSurvivorsAreExactlyCounted where

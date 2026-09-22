@@ -2,8 +2,6 @@
 ------------------------------------------------------------------------------
 -- Gamma0Index : the index of the divisor-flag congruence group in GLµ(â)
 --
--- Author: genius-06 (RAMANUJAN draw, 2026-08-14).
---
 -- stabilizer
 --
 --     Î“â(D) = GLµ(â) âˆ© DÂGLµ(â)ÂDâ»Â = { A : (dµ/dâ¼) âˆ Aµâ¼ for i > j }
@@ -386,15 +384,15 @@ cot3k3â‚ƒ :   idxLocal 3 (0 âˆ· 0 âˆ· 3 âˆ· [])
 cot3k3â‚ƒ = refl
 
 ------------------------------------------------------------------------------
--- 7.  A conjecture of mine, and the kernel's counterexample to it.
+-- 7.  A conjecture, and the kernel's counterexample to it.
 --
 -- The formula is manifestly invariant under the involution
 --     e = (eâ,â¦,e_r)  â¦  e* = (e_r âˆ’ e_r, e_r âˆ’ e_{râˆ’1}, â¦, e_r âˆ’ eâ),
--- which is the duality A â¦ wâ Aâ»µ wâ on Î“â(D).  I conjectured that this is the
+-- which is the duality A â¦ wâ Aâ»µ wâ on Î“â(D).  One might conjecture that this is the
 -- ONLY coincidence: that at fixed r and fixed level p^m, normalised chains with
 -- equal index are equal or dual.
 --
--- FALSIFIER (stated before the check): any p, r, m and two normalised chains
+-- FALSIFIER: any p, r, m and two normalised chains
 -- e â‰  eâ² with eâ² â‰  e* and idxLocal p e â‰¡ idxLocal p eâ².
 --
 -- REFUTED at r = 3, p = 2, m = 4.  (0,1,4)* = (0,3,4) and (0,2,4)* = (0,2,4),

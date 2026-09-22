@@ -9,8 +9,7 @@ supermodular cache gain.  This module retains that tempting factorization and
 then rejects it: `-1` already has the one-step direct trace `[dec]`, so the
 shared fork is never cheaper than the direct pair of formations.
 
-This is a fixed arithmetic counterexample to premature DAG pricing.  It is not
-a general classification of addition-chain or witness-DAG caches.
+This is a fixed arithmetic counterexample to premature DAG pricing.
 -/
 
 namespace Pairfield

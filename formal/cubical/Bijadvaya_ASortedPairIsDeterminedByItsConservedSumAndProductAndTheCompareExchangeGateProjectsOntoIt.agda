@@ -7,9 +7,7 @@
 -- Source of the name: Brahmagupta, Brhmasphuasiddhnta 18.44 (628 CE),
 -- the rule for the quadratic in one unknown â” the pair with a given sum
 -- and product is the pair of roots; rdhara's rule (Pgaita, c. 750)
--- is the completed-square restatement.  What is claimed of the sources:
--- the NAME and the problem shape (recover the two from their sum and
--- product), not the theorems below, which are checked here over â•.
+-- is the completed-square restatement.
 --
 -- The reading this module adds to the a-dhana thread
 -- (RnaDhanaSandhi_â¦, whose pairSum/pairProd are imported as the
@@ -18,7 +16,7 @@
 -- with those invariants.  The compare-exchange gate of a sorting network
 -- is exactly "conserve eâ and eâ, forget the order"; bijadvayaNiyama
 -- below is the uniqueness that makes that a definition rather than a
--- property.  Entered through the god-language channel 2026-08-23.
+-- property.
 
 module Bijadvaya_ASortedPairIsDeterminedByItsConservedSumAndProductAndTheCompareExchangeGateProjectsOntoIt where
 

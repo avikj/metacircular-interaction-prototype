@@ -57,6 +57,3 @@ of empty lists and unrequested tails.
 `--check-only` validates extraction and patch application without HVM; it is not
 a native execution result. A new path-filtered CI workflow runs the native tests
 against a pinned HVM4 source revision with read-only repository permissions.
-
-This test targets the emitted runtime directly. It does not claim to rebuild or
-verify the entire Bend checker, compiler, or Agda corpus.

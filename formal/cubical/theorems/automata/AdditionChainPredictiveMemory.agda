@@ -20,8 +20,7 @@
 --
 -- The result is a finite deterministic classical process statement.  The
 -- chain arithmetic and persistence convention are source hypotheses encoded
--- by the displayed histories and response table; no chain optimality,
--- process-tensor, quantum, thermodynamic, or physical claim is made here.
+-- by the displayed histories and response table.
 ------------------------------------------------------------------------
 
 module AdditionChainPredictiveMemory where
@@ -107,7 +106,7 @@ terminal-cannot-predict-has4 =
     terminal (λ history → persistentResponse history has4)
     same-terminal has4-separates
 
--- This is the exact missing direction in TerminalTraceCompression: the
+-- Read against TerminalTraceCompression: the
 -- terminal record is determined by the predictive bit, but the bit is not
 -- determined by the terminal record.
 terminal-through-cacheBit : FI.FactorsThrough cacheBit terminal

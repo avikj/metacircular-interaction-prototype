@@ -58,7 +58,7 @@ def historyTotalizationEquiv (n : ℕ) :
 /--
 The category-of-elements (Grothendieck) total object for a type-valued rooted
 diagram on the discrete finite-history category.  This is the exact
-one-categorical bounded case; it does not supply higher Braid transitions.
+one-categorical bounded case.
 -/
 def rootedHistoryDiagram (n : ℕ) (Root : History State n → Type v) :
     Discrete (History State n) ⥤ Type v :=

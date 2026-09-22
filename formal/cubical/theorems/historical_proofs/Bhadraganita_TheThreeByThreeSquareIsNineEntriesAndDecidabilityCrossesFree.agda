@@ -177,22 +177,3 @@ _+Col_ = subst (Œª A ‚Üí A ‚Üí A ‚Üí A) (sym Col‚â°Row3) _+Row_
 
 +Col-assoc : Assoc (Col , _+Col_)
 +Col-assoc = subst Assoc (sym ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É-col) +Row-assoc
-
-------------------------------------------------------------------------
--- ‡ ¬ THE SCOPE, EXACTLY, stated so nothing is read into it.
---
---   * That `_+Mat_` is the library's matrix addition.  It is the transport
---     of componentwise addition on the tuple, and it agrees with the
---     entrywise sum by construction; but `Cubical.Algebra.Matrix`'s own
---     `addFinMatrix` is a different term and no path between them is built
---     here.  `Setubandha_‚¶agda` ¬ß‡ records the identical caveat about its
---     transported concatenation, and the caveat is the honest one: what is
---     proved is that the carrier has an associative operation obtained
---     without re-proving anything.
---   * That anything here bears on the Smith normal form the host file is
---     about.  These are the host's transcription helpers, not its
---     mathematics; the edges are real and they are edges between a matrix
---     type and a tuple type, which is all.
---   * That the ‡‡¶‡‡∞ literature contains a decidability statement.  It does
---     not, and ¬ß‡¶ says what is being taken from it: a name for the object.
-------------------------------------------------------------------------

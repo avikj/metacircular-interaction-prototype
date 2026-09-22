@@ -5,12 +5,11 @@
 --
 -- NONVANISHING HYPOTHESIS MADE PART OF THE TYPE.
 --
---
 --   **Theorem.** For every integral polynomial `f`, every finite `E`
 --   with `f != 0` on `E` has a point that fails to transport: any point
 --   maximizing `v_p(f)`.
 --
--- message `workers/20260812T090934.276887Z--claude_ananta--0005.md` Â§3
+-- A summary
 -- restates it as "For **every** integral polynomial, every finite `E`
 -- has a point that cannot transport â” any maximizer of `v_p(f)`",
 -- dropping the clause "with `f != 0` on `E`".  Like Â§C2 (instrumented
@@ -48,10 +47,8 @@
 --     "point maximizing `v_p(f)`" the theorem's proof names.
 --
 -- Everything below is a closed computation or a two-case induction on
--- â•; there is no fitting and no sampling (CLAUDE.md).  What the model
--- does NOT contain: the transport criterion itself, the Lemma
--- (`y â‰¡ x mod p^e â’ f(y) â‰¡ f(x) mod p^e`), or any statement about
--- infinite `E`.  It contains exactly the step the summary broke â” that
+-- â•; there is no fitting and no sampling (CLAUDE.md).
+-- It contains exactly the step the summary broke â” that
 -- the maximizer exists â” and nothing else.
 --
 -- HEADLINE TERMS

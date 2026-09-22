@@ -1,7 +1,5 @@
 # Exact finite-gap pair reduction for projector families
 
-## Research notes in progress â” September 16, 2026
-
 This chapter preserves the class-wide continuation of the original tensor-product calculation. Its starting point is not a fit to a successful example: the earlier proof used two flat energy levels, time reversal, and contact interaction. The three-dimensional eight-orbital geometry only supplied one explicit diagonalization of the resulting overlap matrix. Removing unused restrictions exposes the general transformation and its exact obstruction.
 
 The physical model remains distinct from the engineered parent in `GROUND_SPACE_AND_DENSITY_RESPONSE.md`. Here the attraction is genuinely onsite in the full finite-gap physical Hilbert space. No isolated-band, weak-coupling, or mean-field approximation is made.
@@ -266,12 +264,8 @@ Thus the additive-pair residual is nonzero for every projector in this class. Fa
 
 Phi=alpha I+gamma P is positive definite, so the denominator is a positive two-by-two principal minor. The ratio is strictly increasing in s. Different s therefore prevent residual proportionality and exclude the pair square as an eigenstate at any energy. The original projector has zero same-cell off-diagonal entries and nonzero intercell ones, satisfying this criterion. No stronger assertion for all equal-off-diagonal frames is silently inferred.
 
-# 8. Exact resumption and provenance
+# 8. Exact resumption
 
 The class input is (P,Delta,U,C_K,D,G), with the physical source and boundary conventions retained. The output is the exact matrix pencil, solution reconstruction, norm, and fixed-channel iff. In a uniform frame it also supplies the universal origin root and spectral mobility multiplier. The common input couples pair spectra, projected ground states, parent engineering, and the original-model residual.
 
-The original derivation was developed from the conversation notebook's explicit eight-orbital calculation by inspecting which hypotheses its proof used. It was not extrapolated from finite examples. The earlier `verify_generalization.py` executed 22 symbolic controls of the residue algebra, cubic coefficients, reconstruction weights, commutator, mobility derivatives, p=1/8 recovery, limiting identities and ratio monotonicity. That is a historical test report; the general proofs are written above and no fresh proof-assistant build is asserted.
-
-Prior exact multiband pair equations: M. Iskin, *Two-body problem in a multiband lattice and the role of quantum geometry*, arXiv:2102.03530. Prior constructive many-body families: Z. Han et al., *Quantum Geometric Nesting and Solvable Model Flat-Band Systems*, arXiv:2401.04163v3. All-flat-band comparison: S. S. Elden and M. Iskin, *Correlation lengths of flat-band superconductivity from quantum geometry*, arXiv:2601.12969. These are substantive comparison sources, not a claim that a search for a title establishes priority of the complete derivation.
-
-The next physical calculation acts on the retained object: recompute D,G for a changed geometry; retain the noncommuting pencil when required; carry energy derivatives into the reconstruction metric; and transport all physical source vertices. Retardation, finite-density response of H_on, defects, and chemical energetics are still coupled tasks. The exact parent's newly solved density response adds further usable data without identifying H_on and H_parent.
+Prior exact multiband pair equations: M. Iskin, *Two-body problem in a multiband lattice and the role of quantum geometry*, arXiv:2102.03530. Prior constructive many-body families: Z. Han et al., *Quantum Geometric Nesting and Solvable Model Flat-Band Systems*, arXiv:2401.04163v3. All-flat-band comparison: S. S. Elden and M. Iskin, *Correlation lengths of flat-band superconductivity from quantum geometry*, arXiv:2601.12969.

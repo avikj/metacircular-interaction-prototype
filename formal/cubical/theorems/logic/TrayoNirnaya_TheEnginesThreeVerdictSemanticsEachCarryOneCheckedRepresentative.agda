@@ -1,9 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡Ø‡ã ‡®‡ø‡∞‡‡‡Ø‡æ‡, ‡® ‡¶‡‡µ‡ ‚î three verdicts, never two (sarakaa-stra ‡;
--- the stra names the discipline, not this mathematics; the compound
--- file name was built here).
+-- ‡‡‡∞‡Ø‡ã ‡®‡ø‡∞‡‡‡Ø‡æ‡, ‡® ‡¶‡‡µ‡ ‚î three verdicts, never two.
 --
 -- machinery/crystal/models.py gives the engine's three verdict classes
 -- their semantic readings:

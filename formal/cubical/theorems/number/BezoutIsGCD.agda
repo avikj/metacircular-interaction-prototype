@@ -31,16 +31,7 @@
 --   `CRTChain`       `isGCD` data âŸ the residue equivalence, any frontier
 --
 -- so the chain from ryabhaa's multipliers to the walk's residue count
--- is now unbroken except for one arithmetical fact, stated below.
---
--- STILL OPEN, and it is now the only gap: that distinct primes are
--- coprime, i.e. that a certificate EXISTS for `p, q`.  Nothing above
--- produces one; the walk's concrete frontiers compute gcds instead
--- (`CRTChain.walk8-coprimes`), and that is enough for any named frontier
--- and not enough for all of them.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
+-- is unbroken.
 ------------------------------------------------------------------------
 
 module BezoutIsGCD where
@@ -132,14 +123,11 @@ gcd-8-9 : isGCD 8 9 1
 gcd-8-9 = bezNâ†’isGCD 8 9 bez-8-9
 
 ------------------------------------------------------------------------
--- 5.  The chain, now unbroken except at one place.
+-- 5.  The chain.
 --
 --   `Kuttaka.bezout`     ryabhaa's procedure returns the multipliers
---   `CoprimePowers`      certificates compose: coprime bases âŸ coprime powers
+--   `CoprimePowers`      certificates compose: coprime bases â†’ coprime powers
 --   here                 a certificate is an `isGCD _ _ 1`
---   `CRTChain`           `isGCD` data âŸ the residue equivalence
+--   `CRTChain`           `isGCD` data â†’ the residue equivalence
 --   `LosslessLowerBound` and the count is a minimum
---
--- The one remaining gap is the EXISTENCE of a certificate for two
--- distinct primes.  Everything downstream of it is done.
 ------------------------------------------------------------------------

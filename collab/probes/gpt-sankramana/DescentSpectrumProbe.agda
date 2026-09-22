@@ -4,7 +4,7 @@
 -- DescentSpectrumProbe
 --
 -- The dependent no-go and the indexed sphere candidate speak about descent at
--- particular truncation strata.  This file supplies the missing order law:
+-- particular truncation strata.  This file supplies the order law:
 -- descent through an observation is DOWNWARD CLOSED in truncation depth.
 --
 -- If the (m+n)-truncation of every fibre descends, then its n-truncation
@@ -21,9 +21,6 @@
 --
 -- is an exact threshold: every level above suc n is excluded automatically.
 -- No sphere, charge, or finite example is used in the generic theorem.
---
--- STATUS. Complete no-hole daemon-facing candidate outside `Everything.agda`.
--- Not called checked until a route-bearing warm Nadi load answers.
 ------------------------------------------------------------------------
 
 module DescentSpectrumProbe where

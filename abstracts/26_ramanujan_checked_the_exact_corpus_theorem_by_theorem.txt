@@ -92,7 +92,7 @@ TYPE (RamanujanAssertion), the kernel-signed gate restricts it with
 deliberately no term backwards, and the machine's verdict organs hold
 the totality as syd-avaktavyam â” one content at two scopes, not
 formable as a single predication â” with the gates affirmed.  What is
-now checked: every odd n below 720 is listed or represented with its
+checked: every odd n below 720 is listed or represented with its
 triple handed out as data; representation below 720 is DECIDED either
 way with evidence (completeness of the witness finders); the counting
 field rC is the object and the boolean its support, both directions,
@@ -106,8 +106,5 @@ LEHMER'S QUESTION (1947, open): is Ï(n) ever zero?  Ï is made TOTAL â”
 ÏAt n from the Î” product truncated at degree n+1, every value the
 finite computation Ramanujan performed â” the question is a type over
 all n, the gate is signed on 1..16, and no converse is written:
-sixteen instances license nothing universal, and the type system now
+sixteen instances license nothing universal, and the type system
 says so.
-
-Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
---guardedness --safe, no postulates, no holes, no booleans.

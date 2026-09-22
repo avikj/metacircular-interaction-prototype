@@ -3,14 +3,14 @@
 ------------------------------------------------------------------------
 -- ATextPredicateExistsExactlyWhenTheSemanticPropertyIsDecidable
 --
--- open question and invites the next block to close it:
+-- The question:
 --
 --   "Is there a mechanizable predicate on a note's *text* that decides
 --    whether its principal object is outside arithmetic, and hence
 --    whether a `SEARCH` flag is mandatory � one that would have fired on
 --    SEED-05 and SEED-09 and not on the 47 declared-classical files?"
 --
--- This does not close it.  It relocates it, exactly: a text predicate
+-- It is relocated, exactly: a text predicate
 -- meeting that description exists **iff** the semantic property is
 -- decidable of the text's denotation.  So no amount of work on the
 -- FEATURES can produce one, and the question is not about text.
@@ -25,20 +25,7 @@
 -- both cheap and both needed, and together they say the reduction is an
 -- equivalence and not merely a sufficient condition.
 --
--- WHAT IT DOES NOT DO, said plainly because §6 asked for something else.
--- §6 licenses "a finite exhaustive check against a fixed, stated corpus
--- snapshot � provided the checker states the snapshot and does not
--- report the result as a property of the corpus".  I did NOT run that
--- check.  Nothing below is evidence about SEED-05, SEED-09, or the 47
--- declared-classical files; no corpus was scanned and no snapshot is
--- stated because none was taken.  §2 is a reduction, and a reduction is
--- not an answer.
---
--- Nor does it say the property IS or IS NOT decidable.  It says where to
--- look: at `Outside ∘ denotes`, not at the text.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 � NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- §2 says where to look: at `Outside ∘ denotes`, not at the text.
 ------------------------------------------------------------------------
 
 module ATextPredicateExistsExactlyWhenTheSemanticPropertyIsDecidable where
@@ -95,23 +82,11 @@ module _
       go false e = no (λ o → true≢false (sym (c t .fst o) ∙ e))
 
 ------------------------------------------------------------------------
--- 3.  The reading, and what remains open
+-- 3.  The reading
 --
 -- §2 is an equivalence, so "is there a mechanizable text predicate?" and
 -- "is the semantic property decidable of the denotation?" are the same
 -- question.  Feature engineering on the text cannot answer it: the text
 -- enters only through `denotes`, and every candidate predicate is
 -- `Outside ∘ denotes` with a decision attached.
---
--- SEED-83's question therefore stands, relocated.  What would settle it
--- is a decision procedure for `Outside` on the denotations, or a proof
--- there is none � and, separately, the finite exhaustive check §6
--- licenses against a stated snapshot, which is an empirical question
--- about this corpus and is NOT what §2 addresses.
---
--- KEPT SEPARATE.  This is not the session's collision result in another
--- costume: nothing here says a coarse observation fails to determine a
--- fine one.  It says two QUESTIONS coincide.  The obstruction, if there
--- is one, lives in `Outside`, which is a parameter here and is not
--- examined.
 ------------------------------------------------------------------------

@@ -33,13 +33,6 @@
 --   ยง3  composition conserves the intersection (pathPreserves = fold of &).
 --   ยง4  PARITY BLINDNESS: any path containing a Quotient conserves sign โก
 --       false โ” "no path through a Quotient delivers sign", structurally.
---
--- FENCE.  This models the licensing/preservation lattice, not the edges'
--- witnesses; that an Iso genuinely loses sign (not vacuously) is the โ
--- witness in RnaDhanaKrama and the โ(โ2) certificate in
--- table: runtime/kernel/edges.py, runtime/CRYSTAL.md ยง1.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module SamraksanaJala_TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient where

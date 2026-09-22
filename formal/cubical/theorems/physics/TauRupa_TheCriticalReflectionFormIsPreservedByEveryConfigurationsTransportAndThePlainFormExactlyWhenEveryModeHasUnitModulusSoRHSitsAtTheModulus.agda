@@ -27,9 +27,7 @@
 --       configuration: Ï-unitarity is unconditional.
 --   Â§5  WHERE RH SITS.  E preserves the plain form for all vectors
 --       exactly when every mode has unit modulus, (E i)* E i = 1 â” for
---       E = e^{(Ïâˆ’Â½)t} that is Re Ï = Â½.  The equivalence is finite
---       algebra; the inequality (W) that would supply it is the analytic
---       boundary.
+--       E = e^{(Ïâˆ’Â½)t} that is Re Ï = Â½.
 --
 -- à°àà (rpa, form) is ordinary .
 ------------------------------------------------------------------------

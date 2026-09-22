@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡µ‡®-‡‡‡‡ ‚î the bridge into the forest.  The Liouville/parity program's
--- Lean-lane since the pair-field days; this is its exact arithmetic
+-- ‡µ‡®-‡‡‡‡ ‚î the bridge into the forest.
+-- The Liouville/parity program's exact arithmetic
 -- interface as a checked cubical term, orthogonal to the fibre/transport
 -- spine.  Two facts, both exact, no numerics:
 --
@@ -29,8 +29,8 @@
 --       complete multiplicativity alone, at ANY m with x(m) = -1, no
 --       primality needed for the algebra.
 --
--- TERM.  The forest and its objects are the corpus's (FOREST.md,
--- cf-prouhet/weaver lane); no external source is claimed.  Signs live in
+-- TERM.  The forest and its objects are the corpus's (FOREST.md).
+-- Signs live in
 -- (Bool, _xor_): false = +1, true = -1, so multiplication of signs is
 -- xor and "negate" is `not`.  Exact, finite, --safe.
 ------------------------------------------------------------------------

@@ -40,7 +40,7 @@
 -- The concrete witness is kept small and abstract (two derivations, one
 -- surface, two arthas); a real  lea instantiates it â” the
 -- classical stock example is the dual reading of `go` (cow / speech /
--- earth in compound contexts) â” but no philological claim is made here:
+-- earth in compound contexts):
 -- the mathematics needs only that ONE collision exists, and the engine's
 -- own corpus supplies collisions mechanically (GhanaPatha prints them).
 ------------------------------------------------------------------------

@@ -9,8 +9,7 @@
 -- into a PinnedSensorForcing witness.
 --
 -- The candidate universe deliberately has only the two declared observation
--- packages.  Nothing here defines primality, proves 25 composite, or
--- classifies every natural modulus.  It compiles one checked behavioral
+-- packages.  It compiles one checked behavioral
 -- obstruction into one forced sensor admission, at precisely its known scope.
 ------------------------------------------------------------------------
 

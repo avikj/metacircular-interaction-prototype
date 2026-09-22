@@ -102,9 +102,6 @@ limitor-load-bearing =
   , (λ h → h true (refl , refl))            -- at α=true, x=true bears it
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by a later reader, at the end, altering no line
--- above.  Pointer only; nothing here corrects this module.
---
 -- This record delimits the pratiyogin and leaves the anuyogin bare.
 -- `INDIC_FORMAL_TRADITIONS_MAP.md` §3.3 names that as half of a gap: in
 -- Navya-Nyya the pratiyogit and the anuyogit carry DISTINCT

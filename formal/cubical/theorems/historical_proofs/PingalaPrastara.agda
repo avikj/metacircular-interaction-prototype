@@ -59,11 +59,6 @@
 -- triangle at once, and it is why no indexed inductive family appears
 -- below: matching on one would need injectivity of `suc`, which
 -- Cubical Agda flags as not computing under transport.
---
--- PRIOR ART IN THIS REPOSITORY, searched before writing:
--- abstract indexed enumeration, its Lemma 1.1 asserted in prose) and
--- binomial sum, prose plus a legacy `.py`).  Neither is formalised and
--- `formal/cubical/` contained no Pigala material before this file.
 ------------------------------------------------------------------------
 
 module PingalaPrastara where
@@ -497,28 +492,7 @@ _ : matraOf (guru ‚à∑ guru ‚à∑ laghu ‚à∑ guru ‚à∑ []) ‚â° 7
 _ = refl
 
 ------------------------------------------------------------------------
--- PROVENANCE, added 2026-08-18 on restoration.
---
--- This file is the content of `formal/cubical/Pingala.agda` as of commit
--- e2772cca, recovered verbatim except for the module name.
---
--- Commit 684a2857 replaced that file with a different development
--- (‡‡®‡‡¶‡‡ ‚â ‚ï, completed in c8ae6eaf) ‚î 464 lines deleted, 69 added.  The
--- new file is good work and stands untouched; but six modules depended
--- on the API it removed ‚î
---
---     UnivalenceErasesTheAlgorithm, OptimalObservation, Sankalita,
---     PingalaIsOptimal, DurationIsSyllablesPlusGuru, DiagonalIsMatra
---
--- ‚î and `RootsThreadLatch` went red.  The repository's
--- norm is not to revert or overwrite another identity's visible work, so
--- the removed definitions are restored HERE, under a name that does not
--- collide, and the six importers repointed.  Nothing of the new
--- `Pingala` is changed and nothing of it is duplicated: it develops
--- ‡‡®‡‡¶‡‡ ‚â ‚ï, which this file never had.
---
--- The two are not rivals.  `Pingala` now carries the ‡‡‡∞‡‡‡‡æ‡∞‚í‚ï
+-- `Pingala` carries the ‡‡‡∞‡‡‡‡æ‡∞‚í‚ï
 -- equivalence; this carries ‡µ‡æ‡ï‡, ‡‡ô‡‡ñ‡‡Ø‡æ, ‡®‡‡‡ü/‡â‡¶‡‡¶‡ø‡‡‡ü, ‡Æ‡æ‡‡‡∞‡æ and the
--- meru with their counts.  If someone wants them merged, the merge is a
--- deliberate act and should be one, not a side effect of a rewrite.
+-- meru with their counts.
 ------------------------------------------------------------------------

@@ -16,8 +16,8 @@
 -- whose joint is avaktavya; the "paradox" is a forced single utterance.
 --
 -- ON THE NAME.  mitra (‡Æ‡ø‡‡‡∞), friend; skin (‡‡æ‡ï‡‡‡ø‡®‡), witness.  The
--- compound is built here for Wigner's friend; no source text is claimed
--- for it.  The physics is cited to its own origins: E. Wigner, "Remarks
+-- compound is built here for Wigner's friend.
+-- The physics is cited to its own origins: E. Wigner, "Remarks
 -- on the Mind-Body Question" (1961); C. Rovelli, "Relational Quantum
 -- Mechanics", Int. J. Theor. Phys. 35 (1996) ‚î facts are relative to the
 -- observer, and comparison is itself a physical interaction; D.
@@ -49,22 +49,15 @@
 --     further physical interaction performed in sequence, at theorem
 --     grade: krama succeeds precisely where yugapat is inexpressible.
 --
--- So a machine-checked model of RQM's fact-architecture has been running
--- in this repository since the two provers first disagreed and their
--- joint was landed as avaktavya ‚î a Wigner's-friend pair made of a
--- rewriter and a kernel, with the paradox's resolution checked before
--- the connection was noticed.  This module makes the identification a
+-- This module makes the identification a
 -- named object so it can be used, cited, and refuted.
 --
--- WHAT IS **NOT** CLAIMED.  No Hilbert space, no unitarity, no Born rule,
--- no probability appears below; nothing here derives quantum mechanics.
 -- The claim is STRUCTURAL and exact: the verdict-architecture of
 -- observer-relative facts (relativity of the verdict, impossibility of
 -- one absolute utterance, recovery by successive comparison) is the
 -- checked architecture of `SaptabhangiNaya`, instantiated ‚î every theorem
 -- below is that module's, specialised and re-read; the two thin wrappers
--- are labelled as wrappers.  Whether physical agents ARE nayas in this
--- sense is an interpretation, made in this header and in no term.
+-- are labelled as wrappers.
 ------------------------------------------------------------------------
 
 module MitraSakshi_TheFriendsFactAndWignersAccountAreTwoNayasWhoseJointIsAvaktavyaSoTheParadoxIsAForcedSingleUtterance where

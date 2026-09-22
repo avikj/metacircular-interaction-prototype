@@ -17,23 +17,21 @@ open import ADiagonalSentenceIndependentInAConcreteTheory
 ------------------------------------------------------------------------
 -- TheInternalRulesPreserveIndependenceInThisCalculus
 --
--- The measurement the previous module asked for, and it came out the
--- other way from what I expected.
+-- Independence survives the three internal rules.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE QUESTION, AND THE PREDICTION THAT WAS WRONG
+-- THE QUESTION
 --
 -- `ADiagonalSentenceIndependentInAConcreteTheory` gets `gs` independent
--- in a calculus with `taut`, `mp`, `hbl` and the two diagonal halves,
--- and states as its own limit that "a stronger rule set may well derive
--- `ng gs`".  The natural test is to add the three internal rules
+-- in a calculus with `taut`, `mp`, `hbl` and the two diagonal halves.
+-- The natural test is to add the three internal rules
 -- `TheDiagonalLemmaDischargesGoedelFix` needs â” contraposition,
 -- double-negation elimination, transitivity â” and see which one kills
 -- independence.
 --
--- I predicted contraposition would, via `dbwd`.  It does not.  ALL
+-- ALL
 -- THREE are sound in BOTH models, and independence survives all of
--- them.  Reported as found.
+-- them.
 --
 -- The reason, once seen, is not an accident of these models: the
 -- soundness of contraposition, of double-negation elimination and of
@@ -70,22 +68,7 @@ open import ADiagonalSentenceIndependentInAConcreteTheory
 -- this instance does not exhibit the tension Gdel's argument manages;
 -- it exhibits the case where there is none.  A calculus that derives
 -- `pv gs` without deriving `gs` would be Ï‰-inconsistent, and that is
--- what a real arithmetic must avoid.  Nothing here builds one.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE HONEST LIMIT, INHERITED AND UNCHANGED
---
--- Everything the previous module says about its own limits applies
--- verbatim: this is not Gdel's theorem; `hbl` is a rule, not a proved
--- derivability condition; `pv` is uninterpreted and `P` is chosen by
--- hand; `gs` is independent partly because the rules are few.  Adding
--- three rules that are propositionally valid does not change any of
--- that â” which is precisely Â§2's content and also its smallness.
---
--- PRIOR ART, grep run and quoted: searching `formal/cubical` for
--- `Derâº`, `contraB`, `transB` returns nothing; for `dneB`, nothing.
--- A version adding the rules to the syntax as axiom schemes rather than
--- as inference rules would evade that grep.
+-- what a real arithmetic must avoid.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

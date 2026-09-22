@@ -8,8 +8,8 @@
 -- inhabitants, and there is no section, so the loss is not repairable
 -- ¬ß‡ ‡¶‡‡µ‡ ‡Æ‡æ‡∞‡‡ó‡).  ‡‡µ‡ø‡‡‡‡, below, is that in one line.
 --
--- The four positions are the ones interactive/Obstruction.hs arrived at on
--- 2026-08-18 (ANEKANTA.md ¬ß19) and this file adds the two the machine did
+-- The four positions are the ones interactive/Obstruction.hs arrived at
+-- (ANEKANTA.md ¬ß19) and this file adds the two the machine did
 -- not have: ‡‡ø‡¶‡‡ß, which carries its derivation, and ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, which is
 -- what a disagreement of standpoints returns instead of an error or an
 -- average.  Each carries what makes it the verdict it is:
@@ -33,9 +33,6 @@
 -- ‡‡‡≤‡ã‡ï‡µ‡æ‡∞‡‡‡‡‡ø‡ï‡Æ‡, ‡‡‡æ‡µ‡‡∞‡ø‡‡‡‡‡¶‡).  Naming a constructor for a term does not
 -- claim that its author proved anything below; the debt is the
 -- distinction, which is theirs, and the theorems are this file's.
---
--- CHECKED: Agda 2.8.0, cubical v0.9.  --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module Nirnaya_TheVerdictCannotDropItsWitness where
@@ -186,13 +183,9 @@ module ‡§∏‡§®‡•ç‡§¶‡§∞‡•ç‡§≠ (E : Type) (‡§Ø‡•ã‡§ó‡•ç‡§Ø : List E ‚Üí Type) (‡§∂
   ‡§ó‡§∞‡•ç‡§≠‡§æ‡§§‡•ç-‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ‡§É = ‡§ó‡§∞‡•ç‡§≠‡§É
 
 ------------------------------------------------------------------------
--- ‡ ¬ The reporting theorem ‚î the one the machine got wrong twice.
+-- ‡ ¬ The reporting theorem.
 --
--- ANEKANTA.md ¬ß19: the witnesses went into the verdict in the morning and
--- the tally rebuilt the constructors with empty payloads by the afternoon,
--- printing `Aviruddha over NOTHING` and `Khandita at []` ‚î a display
--- asserting something false about evidence in order to hide that it had
--- thrown the evidence away.  Grouping by ‡ï‡ã‡ü‡ø‡ is legitimate; treating the
+-- Grouping by ‡ï‡ã‡ü‡ø‡ is legitimate; treating the
 -- ‡ï‡ã‡ü‡ø‡ as if it still held the verdict is not, and this is why:
 --
 -- ‡‡ô‡‡ó‡ HAS NO SECTION.  Two refutations at different assignments carry the

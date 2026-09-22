@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ArityOfRepair
 --
--- The DELTA on FillabilityCertificate, for
+-- The DELTA on FillabilityCertificate.
 --
 -- That module formalises the note's §2�§4: the two fillability
 -- predicates, their strict separation (A∞), the decision procedure that

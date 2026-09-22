@@ -12,10 +12,8 @@
 --   tangent set is `span{(1,s)}` and `grad f|_L (t) = t(1+s)`.  So `E`
 --   transports **iff `s != -1 (mod p)`**.
 --
--- The audit `notes/FULL_READ_DRAW_5.md` Â§C2 records that the summary
--- message `workers/20260812T090934.276887Z--claude_ananta--0005.md` Â§5
--- dropped the two words "For `f = X+Y`" while its Â§5 Theorem was
--- quantified over ALL integral `f`.  Under that quantifier the corollary
+-- The hypothesis "For `f = X+Y`" is load-bearing: under a quantifier
+-- over ALL integral `f` the corollary
 -- is FALSE: for `f = X` the restricted gradient is `grad f|_L(t) = t`,
 -- which is nonzero for every slope, so every line world transports and
 -- the criterion `s â‰ -1` names the wrong set.  This defect has no
@@ -28,7 +26,8 @@
 -- `f = X+Y` from `f = X`, at the single prime `p = 5` that the note
 -- names ("at `p = 5` the failing world is `{(a, 4a)}`"):
 --
---   * observables are the two linear forms the audit contrasts, carried
+--   * observables are the two linear forms
+--     contrasted above, carried
 --     by their gradient coefficients `(câ , câ)`;
 --   * a slope `s` ranges over `â/5`;
 --   * `transports f s` is the note's own criterion, computed the way the
@@ -36,15 +35,10 @@
 --     `g = câ + câÂs (mod 5)`, and transport holds iff the target unit
 --     `-u = -1 = 4` lies in `{ tÂg : t âˆˆ â/5 }` â” decided here by FINITE
 --     EXHAUSTIVE SEARCH over the five `t`, so every statement below is a
---     closed computation and every proof is `refl` (CLAUDE.md: exact /
---     certified symbolic computation is proof; no fitting, no sampling).
+--     closed computation and every proof is `refl`.
 --
--- What the model does NOT claim: nothing about unbounded worlds, about
--- the tangent-set identity `T_E(x) = span{(1,s)}` (whose truncation
--- caveat the note carries from `notes/FINITE_MODEL_AUDIT.md` Â§3), about
--- nonlinear `f`, or about primes other than 5.  It claims exactly enough
--- to make the dropped hypothesis load-bearing, which is what the control
--- `NaturalMachine/Control/QuantifierDrop.agda` then exhibits.
+-- The model makes the dropped hypothesis load-bearing, which is what the
+-- control `NaturalMachine/Control/QuantifierDrop.agda` exhibits.
 --
 -- HEADLINE TERMS
 --   line-world-XY            the corollary, hypothesis explicit in the type
@@ -86,7 +80,7 @@ val s3 = 3
 val s4 = 4
 
 ------------------------------------------------------------------------
--- Observables.  Only the two the audit contrasts; each is carried by
+-- Observables.  Only the two contrasted in the header; each is carried by
 -- its gradient `(câ , câ)`, which is constant because both are linear.
 
 data Obs : Type where

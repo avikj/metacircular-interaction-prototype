@@ -43,11 +43,6 @@
 -- `WalkFast` is a reformulation in this sense (`next-characterised`
 -- proves the two descriptions agree everywhere), which is why nothing
 -- semantic could ever have registered its improvement.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Laghava where
@@ -158,9 +153,9 @@ value-at-one-factors = (Î» g â†’ g 1) , (Î» _ â†’ refl)
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  PRIOR ART, found after the fact â” and the repair.
+-- 6.  The general form.
 --
--- Â§3 and Â§4 reinvent an idiom this repository already has.
+-- Â§3 and Â§4 are an instance of a general idiom.
 -- `NaturalMachine.FiniteInformation` defines
 --
 --     FactorsThrough q t = Î[ decode ] ((x : X) â’ decode (q x) â‰¡ t x)
@@ -173,17 +168,10 @@ value-at-one-factors = (Î» g â†’ g 1) , (Î» _ â†’ refl)
 -- which is exactly Â§3's argument, stated once for all q and t.  Â§3's
 -- proof is that lemma inlined at (q, t) = (eval, size), and
 -- `CarryBorrowObservation.borrowCountDoesNotDecodeWord` is a third
--- instance of the same shape, landed earlier by another mind.
---
--- CLAUDE.md: "Prior art gets searched BEFORE the experiment, not after
--- the write-up."  This is a fifth instance of the failure it names, found
--- at audit time like the others.  The theorem is unaffected; what was
--- wasted is that it was proved twice.
---
--- THE REPAIR, below: `laghava-collision` isolates the only mathematical
+-- instance of the same shape.
+-- `laghava-collision` isolates the mathematical
 -- content â” two presentations, one meaning, different size â” as a pair,
--- so the corpus's own general lemma can be applied to it directly and
--- this module stops carrying a private copy of the argument.
+-- so the general lemma can be applied to it directly.
 ------------------------------------------------------------------------
 
 laghava-collision :
@@ -197,8 +185,7 @@ laghava-collision =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- THE REPAIR THIS MODULE ASKED FOR WAS MADE IN
--- `NaturalMachine.OneLemmaFiveSites`, which derives this module's
+-- `NaturalMachine.OneLemmaFiveSites` derives this module's
 -- non-factoring theorem from `TranscriptDescent.collisionObstructsDecoder`
 -- applied to the collision isolated above.
 --
@@ -207,7 +194,4 @@ laghava-collision =
 -- isolated collision is already a term of the parametric type
 -- `AnyonyaAbhava.Collision` at this module's own presentation type, and
 -- proves the two routes equal â” negations being propositions.
---
--- The private proof above is not removed.  It is the record of how the
--- result was first obtained.
 ------------------------------------------------------------------------

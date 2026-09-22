@@ -10,9 +10,8 @@
 ------------------------------------------------------------------------
 -- WHY THIS MODULE EXISTS.
 --
--- `Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph` STRUCK its own
--- sentence "there is no third reading", and left in the header the reason,
--- as prose:
+-- `Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph` states in its
+-- header, as prose:
 --
 --     `isContr (‡‡‡ f b)` fails in two OPPOSITE ways ‚î
 --       the fibre is EMPTY   ‚î nothing was lost, ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡;
@@ -52,9 +51,6 @@
 --   ‡‡∞‡‡µ‡à‡ï‡Æ‡ : Bool ‚í Unit   collapses (crowded), yet covers    ‚í only LEFT fails
 --   ‡‡ø‡®‡‡¶‡‡  : Unit ‚í Bool    embeds (all fibres prop), misses false ‚í only RIGHT fails
 -- Each is a checked term, so the independence is proved, not asserted.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚î the library's declared pin.
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Punaragamana.SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionAndTheEmptyAndCrowdedRefusalsAreTheTwoFactorsFailingApart where

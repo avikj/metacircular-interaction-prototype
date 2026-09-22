@@ -11,8 +11,8 @@
 --     constructors carrying their evidence: ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ (empty fibre, nothing
 --     lost, ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡), ‡‡ï‡≤‡æ‡¶‡‡ (contractible), ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ (two points, exhibited).
 --
--- WHAT IS MISSING AND IS BUILT HERE.  The Œ-law is about FIBRES.  Nobody
--- lifted it to the CENSUS, and that lift is the whole content of "what does
+-- WHAT IS BUILT HERE.  The Œ-law is about FIBRES.  Its
+-- lift to the CENSUS is the whole content of "what does
 -- a route cost".  `SakalaVikalaDesa` ¬ß3 exhibits the cancellation as three
 -- hand-computed instances on Unit/Bool and reads the moral off them.  Here
 -- it is the general mechanism, and the instances become corollaries.
@@ -48,10 +48,6 @@
 -- dependent sum, not addition.  Dijkstra has no formulation here; the
 -- routing target is `isEquiv`, which `SakalaVikalaDesa` ¬ß4 already
 -- identifies as "every point of the census is ‡‡ï‡≤‡æ‡¶‡‡".
---
--- ‡¶‡‡-‡‡ô‡‡ò‡æ‡ is built here from the corpus's own two words, 2026-08-22.  No
--- source is claimed for the mathematics; the Jain attributions for ‡‡ï‡≤‡æ‡¶‡‡
--- / ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ are carried, at ‡‡‡‡¶ grade, from the module that defines them.
 ------------------------------------------------------------------------
 
 module DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid where
@@ -78,7 +74,7 @@ private
 -- ‡ß ¬ ‡‡‡ and the composition law, restated locally at the level the
 -- corpus states them, so this file stands alone under the kernel.
 -- (‡‡‡-‡‡ô‡‡ò‡æ‡‡ is SankramanaSesa's theorem; the proof term
--- below is the same one, cited, not claimed.)
+-- below is the same one.)
 ------------------------------------------------------------------------
 
 ‡§∂‡•á‡§∑ : {A B : Type ‚Ñì} (f : A ‚Üí B) ‚Üí B ‚Üí Type ‚Ñì
@@ -224,14 +220,12 @@ Iso.leftInv  ‡§∏‡§Ç‡§π‡§§‡§ø-Iso-‡§µ‡§æ‡§π‡§ï‡§É ((b , q) , (u , p)) i =
       (isContrSingl true))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡ ‚î what this does NOT give, written rather than glossed.
+-- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡ ‚î the census is not a function of the two censuses.
 --
 -- ¬ß‡ is stated as "if the Œ is contractible then the composite is".  It is
 -- NOT a function from (‡¶‡‡ g z) and (‡¶‡‡ f) to (‡¶‡‡ (g ‚àò f) z), and no such
 -- function exists: ¬ß‡'s outcome depends on WHICH point of the outer fibre
 -- carries the empty inner fibre, and a census records only that the outer
 -- fibre is crowded, not which of its points are which.  That is precisely
--- why cost here is a Œ and not a weight.  The seam of SakalaVikalaDesa ¬ß4
--- (levels ‡© and ‡ unseparated) is inherited unchanged; nothing here
--- distinguishes them either.
+-- why cost here is a Œ and not a weight.
 ------------------------------------------------------------------------

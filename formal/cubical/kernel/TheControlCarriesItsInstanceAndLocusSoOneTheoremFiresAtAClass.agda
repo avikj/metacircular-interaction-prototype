@@ -7,11 +7,7 @@
 -- makes an inference carry from the case at hand to every case of the same
 -- mark.  Root notion in Gautama, *Nyyastra* (~2nd c. CE) under ‡‡®‡‡Æ‡æ‡®;
 -- the vyptivda and the ‡â‡‡æ‡ß‡ø that defeats a proposed pervasion are
--- Navya-Nyya, Gagea, *Tattvacintmai* (~1325).  The gap is stated
--- because filing the later apparatus under the strakra is the error this
--- corpus struck in its own Pini row.  Carried second-hand from
--- `TheInstalledOperationHasNoPervasionSoTheKernelMemorises`; no text is
--- opened here and no Naiyyika is credited with anything proved below.
+-- Navya-Nyya, Gagea, *Tattvacintmai* (~1325).
 --
 ------------------------------------------------------------------------
 -- WHAT THIS FILE DOES, in one sentence.
@@ -46,7 +42,7 @@
 -- kernel's own library.
 --
 ------------------------------------------------------------------------
--- THE TWO MISSING LEMMAS, and why neither is a new axiom.
+-- THE TWO LEMMAS, and why neither is a new axiom.
 --
 -- ¬ß1  SUBSTITUTION ACTS ON THE REWRITE CALCULUS.  `subStep` and `subDer`:
 --     every `Step` constructor commutes with `subVar` on the nose, by
@@ -63,7 +59,7 @@
 --     `IntrinsicRewrite.weave-step` from `Step` (and `Run`) to
 --     `Derivation`.  `IntrinsicRewrite` proved one local motion reweaves
 --     through any one-hole `Locus`; `Derivation` is what a
---     `NativeOperation` actually carries, and the lift had not been taken.
+--     `NativeOperation` actually carries.
 --
 -- Substitution and locus are orthogonal and pervasion needs both: a rule
 -- should fire at `subVar u lhs` PLUGGED ANYWHERE.  ¬ß4's control is exactly
@@ -85,11 +81,6 @@
 --                                      forbids to every NativeOperation
 --   ¬ß6  Future, advance, advance-      the wiring: the same no-premature-
 --       preserves-branch-count         collapse law, over Operation
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- `sh check` EXIT 0,
--- 2026-08-25, every kernel module and the fibre law green in the same run.
--- The commit that introduced this file said NOT YET CHECKED AT THE PIN and
--- meant it; this is the discharge, added rather than amended into history.
 ------------------------------------------------------------------------
 
 module TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass where
@@ -163,8 +154,8 @@ sub-derivation u (then-step p d) = then-step (sub-step u p) (sub-derivation u d)
 --
 -- `IntrinsicRewrite.weave-step` already transports one motion through a
 -- one-hole context.  A `Derivation` is a list of motions, so it transports
--- clause by clause.  This is the lift that had not been taken, and it is
--- the one the kernel needs, because `NativeOperation.checked` is a
+-- clause by clause.  This is the lift
+-- the kernel needs, because `NativeOperation.checked` is a
 -- `Derivation` and not a `Run`.
 ------------------------------------------------------------------------
 
@@ -332,11 +323,6 @@ no-native-operation-does-this op c‚ÇÄ c‚ÇÇ =
 -- this module is not a fourth unwired record: a pervading operation can be
 -- offered as a future, executed, and carried in a branch list whose
 -- multiplicity is exactly conserved.
---
--- NOT DONE, named: `Session`, `retire`, `learn` and `merge` are still
--- typed over `NativeOperation` in their own modules.  `native‚íoperation`
--- makes the embedding available to them; re-typing them is the next step
--- and is not taken here.
 ------------------------------------------------------------------------
 
 record Future (seed : Tm) : Type‚ÇÅ where

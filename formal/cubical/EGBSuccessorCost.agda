@@ -22,19 +22,13 @@
 -- What is proved here (arithmetic only):
 --   â costAgree   â” the two subtraction forms agree for ALL a, q, with
 --                   no hypotheses at all (truncated âˆ absorbs every
---                   degenerate case symmetrically; this is formulation
---                   (ii) of the brief, closed in more generality than
---                   asked: the 1 â‰ q hypothesis proved unnecessary).
+--                   degenerate case symmetrically).
 --   â costLawâº    â” the addition form (no subtraction on the left):
 --                   (q + a) + cost â‰¡ m, under the single hypothesis
 --                   1 â‰ q; the side condition a â‰ qÂ(2^a âˆ’ 1) is
 --                   DERIVED, not assumed, via suc a â‰ 2^a.
 --   â machine7 â¦  â” the machine's scan outputs (a,q) = (2,3), (3,1),
 --                   (1,5), (0,7) as computed normal forms (refl).
---
--- NOT claimed: anything about the Rust machine's semantics.  The bridge
--- "cost of the successor action = this number" is the machine lane's to
--- certify.  This module is the arithmetic identity only.
 ------------------------------------------------------------------------
 
 module EGBSuccessorCost where

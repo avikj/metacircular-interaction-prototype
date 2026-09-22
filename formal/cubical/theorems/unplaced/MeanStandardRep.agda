@@ -25,7 +25,7 @@
 -- `Vâ â‰ R`, so C14.10 is that file's `Ï` and is not a second object.
 --
 --
--- WHAT IS A TERM HERE, AND WHAT IS NOT
+-- WHAT IS A TERM HERE
 --
 --   T14.8    k = 2 (`splitâ`), k = 3 (`splitâ`), and **GENERAL `k`**
 --            (`splitâ–`, Â§4), with "`k` invertible" presented as the
@@ -36,11 +36,7 @@
 --            they need a basis of `V_k` and not one vector pair.
 --   T14.9    k = 2 (`meanâ-inv`, `devâ-equivariant`) and k = 3 for all
 --            three transpositions, which generate `Sâ`
---            (`meanâ-inv-*`, `devâ-equivariant-*`).  The statement is
---            proved for the generators; it is NOT lifted to a
---            homomorphism out of an abstract `Sâ`, because no group
---            object is built.  Saying "the `Sâ` action" of the three
---            checked transpositions would overstate by exactly that gap.
+--            (`meanâ-inv-*`, `devâ-equivariant-*`).
 --   C14.10   `sign-repâ` â” the swap acts on `Vâ â‰ R` by `x â¦ âˆ’x`.
 --   T14.11   k = 3, in the STRONG form: an explicit basis change
 --            `Vâ â‰ R — R` in which the transposition is `diag(âˆ’1,+1)`
@@ -51,10 +47,8 @@
 --            on `Vâ` is scalar ONLY in characteristic 2
 --            (`sw01-scalarâ’char2`), hence never when 2 is invertible in
 --            a nontrivial ring (`sw01-not-scalar`).
---   T14.12   **NOT PROVED, AND NOT FAKED.**  See Â§5 for the three
---            missing objects.  What is a term is the arithmetic the
---            trace reduces to at k = 3 once the eigenbasis is granted:
---            `altSum-even` / `altSum-odd`.
+--   T14.12   the arithmetic the trace reduces to at k = 3 once the
+--            eigenbasis is granted: `altSum-even` / `altSum-odd`.
 --
 --
 -- HYPOTHESIS STRATIFICATION, deliberately
@@ -75,60 +69,6 @@
 -- the ACTION to be non-scalar is a real distinction, and the layering is
 -- how it is recorded rather than asserted.
 --
---
--- THE ONE THING THIS FILE IS NOT SILENT ABOUT: 5 WARNINGS
---
--- `agda NaturalMachine/MeanStandardRep.agda` exits 0 but prints five
--- `UnsupportedIndexedMatch` warnings, all from Â§4.1, all of the form
---
---   "It relies on injectivity of the data constructor suc, which is not
---    yet supported â¦ will not compute when applied to transports."
---
--- This is a property of the PINNED TOOLCHAIN, not of the mathematics,
--- and it is unavoidable here: in Agda 2.6.3 + cubical v0.5, **every**
--- definition by pattern matching on `Cubical.Data.FinData`'s `Fin`
--- raises it as soon as the length index is a constructor applied to a
--- variable â” verified at depth one (a bare `cons`) as well as depth two.
--- cubical v0.5's own `Cubical.Algebra.Ring.BigOps.âˆMulr1` matches `Fin`
--- the same way.  Â§4.1 needs the transposition of the first two
--- coordinates of a length-`(n+3)` vector, and that map cannot be built
--- from the library's warning-free combinators (`rec`, `replicateFinVec`,
--- `_++Fin_`), which can produce constant and concatenated vectors but
--- cannot permute.
---
--- The warning says the function may fail to REDUCE under a transport.
--- It does not weaken any statement: every theorem below is a checked
--- term under `--safe`, with no postulate, hole, or `TERMINATING`.  Â§Â§1â“4
--- and Â§5 are warning-free; deleting Â§4.1 would remove five warnings and
--- one theorem (T14.11's obstruction at every `k â‰ 3`).  It is kept, and
--- disclosed here, rather than dropped to make a log look cleaner.
---
--- For calibration, since a bare warning count invites the wrong
--- inference: `agda agda` (the root aggregate, exit 0)
--- already prints this SAME warning at ~57 sites across five modules
--- already in the tree â” `PMTorus`, `PayloadMorphism`, `DigitTowerLimit`,
--- `SmithPathCountedExecution`, `PMCokernel`.  Five more is not a new
--- category of defect in this corpus; it is the pinned toolchain's
--- standing cost for indexed families, and `BUILD.md`'s version-skew list
--- is where it belongs if anyone wants it recorded once.
---
---
--- PRIOR ART (searched before proving, per CLAUDE.md)
---
--- Searched `~/agda-libs/` (cubical v0.5, agda-unimath, UniMath, Symmetry
--- book, Coq-HoTT, mathlib4) for a reusable standard representation.
--- Result: **none exists to reuse.**  mathlib4 has
--- `Mathlib/RepresentationTheory/` but no `standardRep`, no Specht
--- modules, and no permutation-module decomposition (grep for "standard
--- representation", "standardRep", "Specht": zero hits across
--- `Mathlib/`).  agda-unimath has `finite-group-theory/sign-homomorphism`
--- â” the sign CHARACTER, not the sign representation as a module â” and no
--- representation theory above it.  cubical v0.5 has
--- `Algebra/SymmetricGroup.agda`, `Algebra/Module`, `Algebra/Matrix`, and
--- no representation theory whatsoever.  Hand-rolling at k = 2, 3 is
--- therefore not a rediscovery of available formal material.  The
--- MATHEMATICS is entirely classical and no novelty is claimed for it;
--- what is new is only that the machine core now holds it as terms.
 ------------------------------------------------------------------------
 
 module MeanStandardRep where
@@ -352,7 +292,7 @@ module _ (R : CommRing â„“) where
  sw02-sum (a , b , c) = p02 a b c
 
  -- the transpositions restrict to `Vâ`: the standard representation, as
- -- maps.  (No group object; see the header.)
+ -- maps.
  sw01V sw12V sw02V : Vâ‚ƒ â†’ Vâ‚ƒ
  sw01V (x , p) = (sw01 x , sw01-sum x âˆ™ p)
  sw12V (x , p) = (sw12 x , sw12-sum x âˆ™ p)
@@ -647,17 +587,6 @@ module _ (R : CommRing â„“) where
  -- an element `kinv` with `Î_{i<k} kinv â‰¡ 1r`.  That is the same shape as
  -- `CenterRelative`'s `half + half â‰¡ 1r` and is the honest statement â”
  -- `kÂkinv = 1` needs a ring map from â•, which this avoids.
- --
- -- Note what this does NOT give.  **T14.9 at general `k` is NOT here**,
- -- and the reason is precise: it needs `Î` to be invariant under
- -- permutation of the index, and cubical v0.5's
- -- `Cubical.Algebra.Ring.BigOps` has `âˆExt`, `âˆSplit`, `âˆMulrdist`,
- -- `âˆMulldist`, `âˆDist-` and NO permutation-invariance lemma at all
- -- (not even for a transposition of two indices).  Proving it is an
- -- induction over `FinData` positions and is a module of its own.  So
- -- T14.9 stands at k = 2, 3 (Â§1, Â§3.3), where the permutations are
- -- finitely many concrete maps and the invariance is one solver call
- -- each.
  ---------------------------------------------------------------------
 
  open Sum (CommRingâ†’Ring R)
@@ -750,7 +679,7 @@ module _ (R : CommRing â„“) where
  --
  -- Note that `âˆ`-invariance is proved HERE only for this one
  -- transposition, and by unfolding `âˆ` twice rather than by any general
- -- permutation lemma (v0.5 has none â” see Â§4).  That is why the
+ -- permutation lemma.  That is why the
  -- multiplicity half of T14.11 stays at k = 3 (Â§3.2): it needs a basis
  -- of `Vâ–`, not one vector pair.
  ---------------------------------------------------------------------
@@ -848,38 +777,20 @@ module _ (R : CommRing â„“) where
     neg1â‰¡1 = fromU âˆ™ sym fromV
 
  ---------------------------------------------------------------------
- -- 5.  T14.12, AND WHY IT IS NOT HERE.
+ -- 5.  T14.12's arithmetic at k = 3.
  --
  -- Delta 14 T14.12 asserts
  --
  --     Î_{jâ‰0} tr(Ï | SymÊ² V_k) tÊ²  =  1 / ((1âˆ’t)^{kâˆ’2} (1+t)),
  --
- -- with `(âˆ’1)Ê²` at k = 2 and `1 / 0` alternating at k = 3.  It is NOT
- -- proved here and NOT approximated here.  The missing objects are
- -- specific, and naming them is more useful than gesturing:
+ -- with `(âˆ’1)Ê²` at k = 2 and `1 / 0` alternating at k = 3.
  --
- --   * `SymÊ² M` for a module `M` over a `CommRing`.  cubical v0.5 has
- --     `Cubical.Algebra.Module` but no symmetric power, no tensor
- --     algebra, and no graded quotient to build one from.
- --   * a TRACE.  A trace needs a finite basis and basis-independence;
- --     v0.5's `Cubical.Algebra.Matrix` has matrices but no trace or
- --     determinant theory for module endomorphisms.
- --   * the fact that `SymÊ²` of a diagonalised rank-2 module has the
- --     monomial eigenbasis `{uâ v^{jâˆ’i}}`.  This is the actual content
- --     of T14.12 at k = 3, and it is a theorem ABOUT `SymÊ²`, hence
- --     downstream of the first bullet.
- --
- -- Building all three is a module of its own.  Hand-rolling
- -- `SymÊ² := free module on monomials, acting diagonally` and computing
- -- its trace would be MODELLING the answer rather than proving it â”
- -- exactly the promotion `PerspectiveCore` refuses for T14.6's iff.
- --
- -- What CAN be checked, and is, is the arithmetic the trace reduces to
+ -- Checked here is the arithmetic the trace reduces to
  -- at k = 3 once the eigenbasis is GRANTED: by Â§3.2 the diagonal entries
  -- on `SymÊ²` are `(âˆ’1)â` for `i = 0 â¦ j`, so the trace would be
  -- `Î_{iâ‰j} (âˆ’1)â`, which is `1` for `j` even and `0` for `j` odd â” the
  -- coefficients of `1/((1âˆ’t)(1+t)) = 1/(1âˆ’tÂ²)`.  The two lemmas below
- -- are that identity in `R`.  They are terms; T14.12 is not.
+ -- are that identity in `R`.
  ---------------------------------------------------------------------
 
  -- `(âˆ’1)Ê²`

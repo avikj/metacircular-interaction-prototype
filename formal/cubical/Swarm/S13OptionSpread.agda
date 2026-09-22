@@ -6,7 +6,7 @@
 -- THE OPTION-SPREAD DICHOTOMY: exposed-point rigidity, and the
 -- completeness of two-point separation certificates.
 --
--- Two documents in the swarm-0814-13 draw make opposite claims about
+-- Two documents make opposite claims about
 -- when a numerical summary of a state determines that state's future:
 --
 --   * collab/discovery/claims/R0019-exposed-point-rigidity.md, statement

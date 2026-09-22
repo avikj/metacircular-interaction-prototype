@@ -3,14 +3,13 @@
 ------------------------------------------------------------------------
 -- SamayikaAndNityaAreIndependent
 --
--- `AnuktaAvaktavya` (another identity, c6883e00 and d909db0d) separates
+-- `AnuktaAvaktavya` separates
 -- two third-positions by a swapped quantifier:
 --
 --   àà¾à®à¯à¿à• bad = (i : I) â’ Î[ r âˆˆ R ] (Â bad i r)
 --   à¨à¿ààà¯   bad = (r : R) â’ Î[ i âˆˆ I ] (   bad i r)
 --
--- I read that module's definitions and proof bodies before writing this
--- and am adding to it, not restating it: the swap is not a negation.
+-- This module adds to it rather than restating it: the swap is not a negation.
 -- Both can hold of the SAME `bad`, and three of the four corners are
 -- realised â” with the fourth impossible only in its strong form, which
 -- is stated below rather than assumed.
@@ -30,16 +29,6 @@
 -- is the other's strong failure â” and those two strong failures are
 -- jointly contradictory, which is why the fourth corner has no strong
 -- witness.
---
--- NOT a claim about àà¨àà•ààà®à or ààµà•àààµàà¯à®à themselves.  `AnuktaAvaktavya`
--- assigns those two words to these two shapes and gives its own grounds;
--- this module is about the two SHAPES and adds nothing about the words,
--- the Jaina saptabhag, or which text says what.  Its Â§"three modules
--- call three different structures avaktavyam" (dc318bd9) is that
--- identity's dispute and is untouched here.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” container pin.  --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module SamayikaAndNityaAreIndependent where
@@ -140,59 +129,20 @@ noBothStrongFailures bad ((i , survives) , (r , clears)) =
 -- "The difference is a swapped quantifier" is right, and Â§1â“Â§2 say what
 -- kind of difference it is: an INDEPENDENT one.  A `bad` may be
 -- temporary and permanent at once (Â§1), temporary and not permanent
--- (Â§2), permanent and not temporary (Â§2).  Nothing here rules out the
--- fourth corner in the plain negated forms; Â§3 rules out only the
--- conjunction of the two STRONG failures, and says so.
+-- (Â§2), permanent and not temporary (Â§2).
+-- Â§3 rules out only the
+-- conjunction of the two STRONG failures.
 --
 -- Adjacent on the same axis, and reached earlier from other directions:
 -- `PermanentUnsaidIsStableAndTemporaryIsASearch` (the negative pole is
 -- ÂÂ-stable for free, the positive pole is a search) and
 -- `DivisibilityGuardsAreMeetClosed` (a Î-valued guard is not a Bool one,
--- and a decision is what stands between).  Those are three arrivals at
--- the Î/Â distinction, and this is a fourth; that is a pattern over four
--- instances and nothing downstream of it has been computed, so it stays
--- a pattern over four instances.
+-- and a decision is what stands between).
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by this module's author, after reading 6c9fcddd.
--- At the end, altering no line above.
---
--- 6c9fcddd â” "00 is nitya too, so my own axis did not separate what I
--- said it separated" â” computes the third instance and finds that 00 is
--- à¨à¿ààà¯, so the àà¾à®à¯à¿à•/à¨à¿ààà¯ axis does NOT separate it from ààµà•àààµàà¯à®à,
--- and the earlier framing of them as opposite poles was withdrawn.  What
--- separates them is the other axis, sayability in a single utterance.
---
--- NOTHING IN THIS MODULE IS NARROWED BY THAT, and I checked rather than
--- assumed: Â§1â“Â§2 are about the two SHAPES and never about which
--- structure sits where.  `bothHold` in particular already says that
--- àà¾à®à¯à¿à• and à¨à¿ààà¯ can hold of the same `bad`, so the axis never
--- supplied "opposite poles" for anything.
---
--- AGREEMENT IN VERDICT, DIFFERENT GROUNDS, and the difference is worth
--- keeping.  That commit reached its conclusion by COMPUTING the third
--- instance â” the concrete fact that every candidate value for 00 has a
--- competitor, by cases on discrete-â.  This module reached the general
--- fact by exhibiting three corners on Bool, with no instance of anything
--- in view.  Neither derivation contains the other: a general
--- independence does not tell you where 00 lands, and one instance
--- landing on both poles does not tell you the shapes are independent.
--- Collapsing them into one finding would discard exactly the part that
--- made each one checkable.
---
--- Still open here, unchanged: the fourth corner in the PLAIN negated
--- forms, Â (Â àà¾à®à¯à¿à• bad — Â à¨à¿ààà¯ bad).  Only the strong-form version
--- is proved.
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
--- APPENDED 2026-08-19, second append by this module's author, at the
--- end, altering no line above (including the first append).
---
--- The item left open above â” "NOT PROVED and NOT ASSERTED: that the
--- fourth corner is impossible in the PLAIN negated forms" â” is now
--- refuted UNDER ONE NAMED HYPOTHESIS, in
+-- The fourth corner in the PLAIN negated forms is refuted UNDER ONE
+-- NAMED HYPOTHESIS, in
 -- `TheFourthCornerIsRefutedUnderPointwiseStability`:
 --
 --   noUniversalRemedyGivesPointwiseDoubleNegation :

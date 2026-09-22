@@ -22,7 +22,7 @@
 --
 -- The standing observation is that treating b_a(u), b_a(v) as arbitrary
 -- bounded coefficients â” or summing |b_a| â” discards that cancellation.  This
--- module upgrades the observation to a no-go, using the criterion landed in
+-- module upgrades the observation to a no-go, using the criterion of
 -- `ApurvaIndriyam_â¦`: a reading that FACTORS through a coarser one is blind
 -- inside that one's fibres, so a blind pair separated by the true quantity
 -- proves no such reading exists.

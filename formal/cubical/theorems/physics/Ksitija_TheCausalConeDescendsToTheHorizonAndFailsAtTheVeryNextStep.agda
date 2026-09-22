@@ -5,11 +5,9 @@
 -- very next step.
 --
 -- TERM.  ‡ï‡‡‡ø‡‡ø‡ ‚î the horizon, literally "born of the earth('s rim)".
--- Ordinary ; the use for a CAUSAL horizon is this module's and
--- no source is claimed for it.
+-- Ordinary ; the use for a CAUSAL horizon is this module's.
 --
--- SEED.  The owner's transmission of 2026-08-23 ("causal horizon
--- formation"): define recursively the type of n-step lawful futures,
+-- SEED.  Define recursively the type of n-step lawful futures,
 --
 --     Future 0       x = Unit
 --     Future (suc n) x = Œ[ a ‚àà A x ] Future n (next x a)
@@ -39,11 +37,10 @@
 -- So the cone is lawful to horizon 1 and breaks at horizon 2: the
 -- observation is causally sufficient for one step of planning and
 -- structurally incapable of two.  "Same present observation, same
--- one-step affordances, different futures" is now a checked
+-- one-step affordances, different futures" is a checked
 -- configuration ‚î the dependent no-go in its dynamical form, and the
 -- floor of the transmission's bisimulation reading: states may be
 -- lawfully identified only when their whole future cones descend.
---
 ------------------------------------------------------------------------
 
 module Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep where

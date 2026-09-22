@@ -16,37 +16,33 @@
 -- under addition, subtraction, multiplication.  His correct rules are ring
 -- truths.  But he made ONE error: he declared 00 = 0 ‚î a durnaya.  For
 -- every x, 0¬x = 0, so 00 is NOT a single value but indeterminate ‚î
--- avaktavya, the sevenfold's fourth position, NOT zero.  Bhskara II (1150)
+-- NOT zero.  Bhskara II (1150)
 -- corrected division by zero via khahara.  Brahmagupta's one slip ‚î a
 -- definite verdict where the answer is un-said ‚î is exactly the disease this
 -- whole effort removes.)
 ------------------------------------------------------------------------
 
--- [CORRECTED 2026-08-19.  The identification of 00 with ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡,
---  the saptabhag's fourth position, does not hold ‚î and it fails by
---  SaptabhangiNaya.agda's own criterion, in this same directory, not
---  by an outside standard.  ¬ß5 there defines avaktavyam as the case
---  where NO SINGLE UTTERANCE denotes the content, proved exhaustively
---  over the six atoms of its language.  00's situation IS denotable
---  in one utterance: every x whatsoever satisfies 0¬x = 0, which is
---  one complete statement saying exactly what is wrong.
+-- The identification of 00 with ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡,
+-- the saptabhag's fourth position, does not hold ‚î and it fails by
+-- SaptabhangiNaya.agda's own criterion, in this same directory, not
+-- by an outside standard.  ¬ß5 there defines avaktavyam as the case
+-- where NO SINGLE UTTERANCE denotes the content, proved exhaustively
+-- over the six atoms of its language.  00's situation IS denotable
+-- in one utterance: every x whatsoever satisfies 0¬x = 0, which is
+-- one complete statement saying exactly what is wrong.
 --
---  The two defects are opposite.  avaktavyam: the content is
---  determinate and the medium cannot say it in one go ‚î an
---  EXPRESSIBILITY failure.  00: the content is perfectly expressible
---  and the solution set is not a singleton ‚î a UNIQUENESS failure.
+-- The two defects are opposite.  avaktavyam: the content is
+-- determinate and the medium cannot say it in one go ‚î an
+-- EXPRESSIBILITY failure.  00: the content is perfectly expressible
+-- and the solution set is not a singleton ‚î a UNIQUENESS failure.
 --
---  Everything else in this module stands.  Brahmagupta's 00 = 0
---  (Brhmasphuasiddhnta, 628) is a durnaya; Bhskara II's khahara
---  (Llvat, 1150) is a genuinely different non-finite result from
---  it; and a boolean "undefined" collapsing them is the disease.
---  Only the name of the second thing is wrong.  See
---  AnuktaAvaktavya.agda ¬ß6, where 00's defect is checked.
+-- See
+-- AnuktaAvaktavya.agda ¬ß6, where 00's defect is checked.
 --
---  Three modules here now call three different structures
---  avaktavyam ‚î Satyayantra, Khahara, Shunya.  Using one third
---  position as a catch-all for "not a clean single answer" is the
---  boolean collapse this corpus exists to fight, one level up.]
+-- Three modules here now call three different structures
+-- avaktavyam ‚î Satyayantra, Khahara, Shunya.  Using one third
+-- position as a catch-all for "not a clean single answer" is the
+-- boolean collapse this corpus exists to fight, one level up.
 module Shunya where
 
 open import Cubical.Foundations.Prelude
@@ -87,18 +83,13 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 ‡§≠‡§ø‡§®‡•ç‡§®-‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§£‡•å = ‡§∏‡§∞‡•ç‡§µ‡§É-‡§≠‡§ú‡§®‡§´‡§≤‡§Æ‡•ç (pos 1) , ‡§∏‡§∞‡•ç‡§µ‡§É-‡§≠‡§ú‡§®‡§´‡§≤‡§Æ‡•ç (pos 7)
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by a later reader, at the end, altering no line
--- above.  Pointer only; nothing here corrects this module or its
--- CORRECTED block.
---
--- That block separates two defects ‚î expressibility (avaktavyam) versus
+-- The header separates two defects ‚î expressibility (avaktavyam) versus
 -- uniqueness (00) ‚î and names the risk: one third position used as a
 -- catch-all for "not a clean single answer" is the boolean collapse this
 -- corpus exists to fight, one level up.
 --
--- The independence is now checked, over four realised corners, in
--- `NonUniquenessAndInexpressibilityAreIndependent`
--- (--safe, no postulates, no holes):
+-- The independence is checked, over four realised corners, in
+-- `NonUniquenessAndInexpressibilityAreIndependent`:
 --
 --   nonUnique ‚àß expressible     all,  constants
 --   unique    ‚àß inexpressible   self, constants
@@ -111,8 +102,6 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 -- alone, inexpressibility of the content AND the medium.
 --
 -- The third structure, Satyayantra's ‡‡®‡‡ï‡‡‡Æ‡, is deliberately NOT
--- brought onto that carrier: it is temporal, and d909db0d already says
--- the two third-positions' remedies live in different types.  No verdict
--- is offered there on which module should keep the word ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, nor
--- on the saptabhag, nor on Brahmagupta's or Bhskara II's texts.
+-- brought onto that carrier: it is temporal, and
+-- the two third-positions' remedies live in different types.
 ------------------------------------------------------------------------

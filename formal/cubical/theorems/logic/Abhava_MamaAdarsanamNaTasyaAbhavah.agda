@@ -20,7 +20,7 @@
 -- from each the part that converts and drops the dispute, which here is the
 -- content.  Name the school before the term.
 --
--- **No claim is made that any of them proved anything below**, and see
+-- This module
 -- CORRECTS a reading of ‡‡®‡‡Ø‡ã‡®‡‡Ø‡æ‡‡æ‡µ used elsewhere in this corpus: it is
 -- non-identity, NOT observational separation by itself.
 --
@@ -34,19 +34,12 @@
 -- where it stands beside ‡‡®‡‡‡‡‡∞‡ø‡‡Æ‡ ‚â† ‡‡®‡‡‡‡‡∞‡Æ‡ (unanswered ‚â† unanswerable)
 -- and ‡‡‡∞‡ø‡‡ø‡‡Æ‡ ‚â† ‡‡‡‡ (unfamiliar ‚â† nonexistent).  That file is a TEACHING
 -- TRANSMISSION and its own provenance note forbids promoting any line of it
--- to a result; nothing here claims to be its content.  What is claimed is
+-- to a result.  What is claimed is
 -- that this corpus kept making one particular inference and that the
 -- inference is refutable, so the refutation is written down as a term.
 --
 -- WHY IT EXISTS.  On 2026-08-20 this repository's own machinery was found
 -- making the step twice, in two registers, hours apart:
---
---   * `run_the_natural_machine_forever` stamped into the file everyone opens
---     first: "if you are reading this after that time, THE MACHINE IS NOT
---     RUNNING."  What the stamp observes is an absence of recorded cycles.
---     The verdict was false for three and a half days while 976 commits and
---     360 modules landed (5788c92a, 17c4c35f).
---   * and the agent reading it repeated the step to the owner as a report.
 --
 -- Navya-Nyya has the discipline: **no bare absences.**  An abhva carries
 -- its *pratiyogin*, the counterpositive ‚î the thing whose absence it is ‚î

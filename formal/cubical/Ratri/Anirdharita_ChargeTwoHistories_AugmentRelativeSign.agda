@@ -2,23 +2,12 @@
 
 ------------------------------------------------------------------------
 -- ‡‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡ ‚î neither channel inverts the sign section, and the host
--- already held the reason as theorems.  The probe's two open rows
--- (notes/SADHYA_OPEN_OBLIGATIONS.md, "library lemma on ‚", rung ‡ß)
--- guessed augment (sign b) ‚â° b and relative (sign b) ‚â° b; the host's own
+-- already held the reason as theorems.  The two conjectured identities
+-- augment (sign b) ‚â° b and relative (sign b) ‚â° b fail; the host's own
 -- `augment-sign` proves the first composite is CONSTANTLY zero, and
--- `relative-sign` proves the second is the doubling map.  So both rows
+-- `relative-sign` proves the second is the doubling map.  So both
 -- close as road two, each with its smallest witness at b = pos 1:
 -- the composites hit 0 and 2 respectively, never 1.
---
--- (The library lemma the probe wanted was never missing ‚î it was present
--- in the host under the correct statement.  The queue row was a probe
--- guessing the wrong invariant, which is what the ladder's rung ‡ß is
--- for: refl fails exactly where the guess is not the theorem.)
---
--- Toolchain note: checked under the PIN (Agda 2.8.0 + cubical v0.9),
--- because the host uses the v0.9 ring solver; the in-container 2.6.3/v0.5
--- kernel cannot load it.  This is the first Ratri landing made under the
--- pin in a remote container.
 ------------------------------------------------------------------------
 
 module Ratri.Anirdharita_ChargeTwoHistories_AugmentRelativeSign where

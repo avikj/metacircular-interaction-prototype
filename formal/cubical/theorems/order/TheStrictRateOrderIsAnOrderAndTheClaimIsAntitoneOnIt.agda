@@ -4,13 +4,10 @@
 -- TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt
 --
 -- `TheRatesAreDenseAndTheMediantSurvivesTheQuotient` lifted the strict
--- threshold order to `Rate` and closed with:
+-- threshold order to `Rate`.  Proved here: irreflexivity, transitivity,
+-- and the relation to `AtLeastOnRate` / `AboveOnRate` on `Rate`.
 --
---   "`âŠR` is a relation into `hProp`, not an order: irreflexivity,
---    transitivity, and the relation to `AtLeastOnRate` / `AboveOnRate`
---    are not proved on `Rate`."
---
--- All three are proved here, and none of them needs a new idea â” which
+-- None of them needs a new idea â” which
 -- is the point of having lifted along `rec2` in the first place.  Every
 -- statement is a PROPOSITION, so `elimProp` reduces each to
 -- representatives, where the pair-level facts are one line apiece.
@@ -29,7 +26,7 @@
 --                  a claim at a HIGHER rate implies the claim at a
 --                  LOWER one, stated entirely on `Rate`
 --
--- **So the density result now sits on an order rather than a relation**,
+-- **So the density result sits on an order rather than a relation**,
 -- and `Rate` carries a strict order with the two claim families antitone
 -- along it â” the whole threshold apparatus, at the level where 2/4 and
 -- 1/2 are one object.
@@ -38,9 +35,6 @@
 -- NO NOVELTY.  Irreflexivity and transitivity of a strict order defined
 -- by cross multiplication are elementary; lifting propositional
 -- statements through a set-quotient by `elimProp` is standard.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt where

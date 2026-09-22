@@ -35,7 +35,6 @@
 --
 --   Refuting path one is NOT the same act as writing path two, and the
 --   distance between them costs AT LEAST **Markov.s Principle** (¬ß2).
---   [Was "is exactly"; only `Writable ‚ü MP` is proved.  See ¬ß2.]
 --
 --   Not excluded middle.  MP is strictly weaker, and neither is
 --   available in this `--safe` cubical lane.  So the stra's second path
@@ -140,41 +139,16 @@ defect‚Üí¬¨isEquiv f (b , nc) e = nc (e .equiv-proof b)
 ------------------------------------------------------------------------
 -- ¬ß2.  THE CONVERSE COSTS AT LEAST MARKOV.S PRINCIPLE.
 --
--- [2026-08-23, ANOTHER SEAT, ADDED NOT REWRITTEN.  The section heading
---  read "THE CONVERSE IS MARKOV.S PRINCIPLE" and the header above reads
---  "the distance between them is exactly Markov.s Principle".  What is
---  proved below is `writable‚íMP` and only that: Writable ‚ü MP.  That is a
---  LOWER BOUND -- writing defects costs AT LEAST MP -- and it is not an
---  identification.  `MP ‚í Writable` is not proved here and is not proved
---  anywhere in this lane for THIS statement; searched domain: grep for
---  `MP` and for `Writable` across formal/cubical/*.agda.
---
---  AND THE EXACTNESS IS EARNED NEXT DOOR, FOR A DIFFERENT STATEMENT,
---  which is very likely what the word was reaching for: `Apoha`
---  carries `MP‚íWitnessed` AND `Witnessed‚íMP`, both checked, and
---  `FalsifierAsymmetry` cites that pair for exactly this purpose.  So
---  "precisely Markov.s Principle" is a true sentence about `Witnessed`.
---  `Writable` is not `Witnessed`: it quantifies over all types and all
---  maps and returns a defect SITE, where the biconditional next door is
---  about a decidable sequence.  The correction is that the word travelled
---  from one statement to the other, not that anybody proved nothing.
---
---  The direction that IS proved carries the whole reading and none of it
---  is weakened: path two is not merely "the other case", it costs a
---  terminating unbounded search, and LEM does not repair that (¬ß3).  What
---  the missing direction would additionally license is the inference a
---  reader can make from the word "exactly" -- that HAVING MP suffices to
---  write a defect.  That does not follow, and is unlikely: MP is a
---  statement about `‚ï ‚í Bool`, while `Writable` quantifies over all types
---  and all maps, so a proof would have to reduce an arbitrary map.s defect
---  site to a decidable sequence.  Whether Writable is STRICTLY stronger is
---  open here too -- separating them needs a model argument, not a term,
---  and none is offered.
---
---  Corrected in the header rather than the proof because the proof is
---  right; it is the word that overreaches.  This is the same class of
---  defect this repository caught four times on 2026-08-22, each time a
---  lower bound or a worked instance described as a general law.]
+-- What is proved below is `writable‚íMP` and only that: Writable ‚ü MP.
+-- That is a LOWER BOUND -- writing defects costs AT LEAST MP -- and it
+-- is not an identification.  `Apoha` carries `MP‚íWitnessed` AND
+-- `WitnessedíMP`, and `FalsifierAsymmetry` cites that pair; so
+-- "precisely Markov.s Principle" is a true sentence about `Witnessed`.
+-- `Writable` is not `Witnessed`: it quantifies over all types and all
+-- maps and returns a defect SITE, where that biconditional is about a
+-- decidable sequence.  Path two is not merely "the other case", it
+-- costs a terminating unbounded search, and LEM does not repair that
+-- (¬ß3).
 --
 -- The test family is the projection out of a decidable subset of ‚ï.
 -- For `Œ : ‚ï ‚í Bool`, put
@@ -197,7 +171,7 @@ MP = (Œ± : ‚Ñï ‚Üí Bool)
    ‚Üí ¬¨ ((n : ‚Ñï) ‚Üí ¬¨ (Œ± n ‚â° true))
    ‚Üí Œ£[ n ‚àà ‚Ñï ] (Œ± n ‚â° true)
 
--- The reading of ¬ß‡ under audit: that path two is AVAILABLE whenever
+-- The reading of ¬ß‡: that path two is AVAILABLE whenever
 -- path one fails, rather than OWED by whoever failed to transport.
 Writable : Type‚ÇÅ
 Writable = {A B : Type‚ÇÄ} (f : A ‚Üí B) ‚Üí ¬¨ isEquiv f ‚Üí Defect f
@@ -299,14 +273,6 @@ truncatedDefectIsNotWritable =
                (defectIsTwoValued .snd .snd)
 
 ------------------------------------------------------------------------
--- WHAT THIS DOES NOT SAY
---
--- Not that ¬ß‡ is wrong.  Its first sentence is proved elsewhere in this
--- lane and its second is exactly right ‚î as an OBLIGATION.  What is
--- removed is the right to read its third sentence as a description of
--- how maps are, and with it the habit of treating "well, then there is a
--- defect" as though the defect were thereby in hand.
---
 --   ‡‡‡Ø‡æ‡‡ ‚î in the respect of what an AUTHOR owes: two paths, no third.
 --            Transport, or search until the site is found and write it.
 --   ‡‡‡Ø‡æ‡‡ ‚î in the respect of what is PROVABLE of an arbitrary map: no

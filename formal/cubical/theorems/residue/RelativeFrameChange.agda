@@ -8,9 +8,6 @@
 -- itself dependent on the locus, it commutes with transport along every
 -- interaction path.  Identity, composition, and triple-change coherence are
 -- inherited from equivalence and path composition.
---
--- This is a reusable mathematical joint for relational quantum frames, not a
--- formalization of their dynamics, probability, or physical interpretation.
 ------------------------------------------------------------------------
 
 module RelativeFrameChange where

@@ -19,8 +19,6 @@
 -- so the round trip returns (x , p), the datum together with all of its
 -- fibre.  "Lossless transport means the object returns together with all
 -- its fibers."
---
--- Machine-checked, Agda 2.8.0 + cubical v0.9, --safe, no postulates.
 ------------------------------------------------------------------------
 
 module LosslessTransportReturnsTheObjectWithAllItsFibers where

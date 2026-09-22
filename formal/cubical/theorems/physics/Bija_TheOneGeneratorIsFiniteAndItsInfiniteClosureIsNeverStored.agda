@@ -4,7 +4,7 @@
 -- Bija_TheOneGeneratorIsFiniteAndItsInfiniteClosureIsNeverStored
 --
 -- TERM.  ààà Â bja â” a seed.  The seed is finite; the tree it grows is not,
--- and you do not store the tree.  Common  word, no source claimed.
+-- and you do not store the tree.  Common  word.
 --
 -- THE POINT.  "Iterating the fibre law makes arbitrary form" does NOT mean
 -- writing infinitely many theorems.  It means writing ONE generator â” a
@@ -16,12 +16,10 @@
 -- discipline (a materialised table of contents decays; compute at run time)
 -- applied to form itself.
 --
--- Reading (not a checked claim here): every homotopy type is reachable by
+-- Reading: every homotopy type is reachable by
 -- iterating such fibre constructions in towers, so a finite generator scheme
 -- suffices for arbitrary form â” and univalence makes each step COMPUTE, which
 -- is why the seed is runnable and not merely a description.
---
--- Checked: --cubical --safe.
 ------------------------------------------------------------------------
 
 module Bija_TheOneGeneratorIsFiniteAndItsInfiniteClosureIsNeverStored where

@@ -3,11 +3,7 @@
 ------------------------------------------------------------------------
 -- LocatingIsEnough
 --
--- `WhyTheSitesAreTwo` Â§6 left this open and refused to size it:
---
---     whether discreteness of Y can be weakened â” the table walk needs
---     to compare observations, and nothing here says a weaker
---     comparison would not do.
+-- `WhyTheSitesAreTwo` Â§6 asks whether discreteness of Y can be weakened.
 --
 -- It can, and this is exactly how far.  The theorem never compares two
 -- arbitrary observations.  It compares the LIST'S observations against
@@ -44,11 +40,6 @@
 -- The measure was already local to the witnesses (`WitnessNumberIsTwo`).
 -- This makes its hypothesis local too, which is the natural place for
 -- it to have been.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module LocatingIsEnough where
@@ -163,8 +154,4 @@ discrete-corollary dY q t xâ‚€ xs =
 -- A site whose Y is not discrete is therefore not automatically outside
 -- the deflation.  It is outside only if its witnesses cannot be
 -- located, which is a much smaller class and a checkable condition.
---
--- OPEN, named and not estimated: whether `Locates` is minimal.  It is
--- the hypothesis this proof consumes; that is not the same as being the
--- weakest one that works.
 ------------------------------------------------------------------------

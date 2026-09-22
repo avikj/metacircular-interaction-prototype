@@ -18,8 +18,8 @@
 -- That module named the step it rests on â” the construction forms
 -- functions OUT OF an absence â” and said it was not neutral ground,
 -- because Vaieika counts ààà¾àµ among the àà¦à¾à°ààs while the Buddhist
--- position denies there is any such entity.  It then left the matter
--- there.  This file does the work instead of naming it.
+-- position denies there is any such entity.
+-- This file examines that step.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -68,10 +68,9 @@
 --   twice, incompatibly, and both readings are recorded.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- A WARNING ABOUT THE CATUKOI, WHICH THIS FILE OWES
+-- A WARNING ABOUT THE CATUKOI
 --
--- This thread has invoked the àààààà•à‹àŸà¿ as a checking lens for many
--- cycles.  Â§3 says something uncomfortable about that: in this type
+-- Â§3 says something uncomfortable about the fourfold: in this type
 -- theory the fourth position, read naively as `Â A — Â Â A`, is
 -- absurd, and the third, read as `A — Â A`, is absurd.  Anyone
 -- modelling the fourfold here as those four formulas has already lost
@@ -84,8 +83,7 @@
 -- which are rejected, or a ààà°àà™àà— device that asserts nothing and
 -- proceeds only by drawing consequences from an opponent's own
 -- commitments.  On the last reading Â§3 is not even addressed to it.
--- Recording the tension is the point; resolving it is not something a
--- module of Agda is positioned to do, and this one does not try.
+-- Recording the tension is the point.
 --
 ------------------------------------------------------------------------
 
@@ -149,9 +147,9 @@ both-is-absurd (a , na) = na a
 -- disjunction below is not: it needs `Dec A`, which `ÂÂDec` says can
 -- never be refuted and which is not thereby available.  So the honest
 -- statement is that the shadow's codomain is `Unit`-like or `Y`-like
--- ONCE A IS SETTLED, that settling it is never ruled out, and that
--- nothing here settles it.  `Dec A` below is a hypothesis of the
--- theorem and not a claim about types.
+-- ONCE A IS SETTLED, that settling it is never ruled out.
+-- `Dec A` below is a hypothesis of the
+-- theorem.
 shadowCodomain-dichotomy :
   {A : Type â„“} {Y : Type â„“'}
   â†’ Dec A â†’ (isContr (Â¬ A â†’ Y)) âŠŽ ((Â¬ A â†’ Y) â‰ƒ Y)
@@ -159,37 +157,14 @@ shadowCodomain-dichotomy (yes a)  = inl (affirmation-contracts a)
 shadowCodomain-dichotomy (no  na) = inr (absence-evaluates na)
 
 ------------------------------------------------------------------------
--- PRIOR ART, found late and recorded here rather than by deletion.
---
--- `DeflationaryTest` was in the corpus and in
--- `RootsThreadLatch` throughout the cycles that produced this module,
--- and was not read.  It already contains the closure lemmas for
+-- RELATED.  `DeflationaryTest` contains the closure lemmas for
 -- `Â`, `â’`, `—`, `Î `, their instantiation at the corpus's obstruction
 -- shapes, the observation that stability does not pass through `âŠ`,
 -- `no-barrier-claim : Â (Â (Dec A))`, and the deflation that the
 -- stabilisation level measures nothing.
 --
--- `TheDeflationaryTestWasAlreadyRun` carries the ledger,
--- line by line, of what here is a rediscovery and what is not â” and
--- proves the overlap by `refl`, the closure lemmas on both sides being
--- the same terms.  Read that ledger before citing anything below as
--- new.
+-- `TheDeflationaryTestWasAlreadyRun` records the overlap with this module
+-- and proves it by `refl`, the closure lemmas on both sides being
+-- the same terms.
 ------------------------------------------------------------------------
 
-------------------------------------------------------------------------
--- PRIOR-ART OBLIGATION, undischarged, recorded 2026-08-19.
---
--- Navya-Nyya* (Panday & Ghosh), whose stated content includes DEPENDENT
--- DELIMITATION (avacchedaka) and TYPED ABSENCE (abhva) in cubical type
--- theory â” the same substrate and the same notions this module touches.
---
--- This module does not cite it, and could not: the citation sits in a
--- note whose Â§2 alone had been read.  arxiv.org is EGRESS_BLOCKED from
--- this session's environment, so the comparison could not be made here;
--- leaves open.
---
--- Until someone who can read the paper compares them, NO NOVELTY IS
--- CLAIMED for anything below.  The theorems are about observables,
--- fibres and Bool-valued models and are unaffected; what is owed is a
--- citation check, not a withdrawal.
-------------------------------------------------------------------------

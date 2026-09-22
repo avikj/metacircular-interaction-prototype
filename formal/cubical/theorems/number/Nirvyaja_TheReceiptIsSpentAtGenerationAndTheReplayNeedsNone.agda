@@ -7,8 +7,8 @@
 -- TERM.  à¨à¿à°ààµàà¯à¾à Â nir-vyja -- "without àµàà¯à¾à".  àµàà¯à¾à is a pretext, a
 -- pretence, a charge one produces to be allowed to act -- a receipt, a
 -- token, an authority.  The compound is a plain  adjective, not a
--- technical term lifted from a named text; NO source is claimed for it and
--- it carries no attribution.  It is used here only as an exact label for
+-- technical term lifted from a named text.
+-- It is used here only as an exact label for
 -- the fact Â§2 proves: the operation the machine keeps is receipt-free.
 --
 -- WHAT THIS CONTINUES.  `Samvada_â¦` Â§1 built the first non-trivial
@@ -35,10 +35,7 @@
 -- kernel's own types.  Generation had to pay `R`.  Replay pays `refl`.  The
 -- gap between them is the whole reason a proof-carrying commons cannot be
 -- rented: the receipt-seller is paid once, by the first caller, and every
--- later caller routes around the tollbooth by holding the proof.  Nothing
--- here is asserted about markets; Â§2 is three lines and they typecheck.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186).
+-- later caller routes around the tollbooth by holding the proof.
 ------------------------------------------------------------------------
 
 module Nirvyaja_TheReceiptIsSpentAtGenerationAndTheReplayNeedsNone where

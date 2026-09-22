@@ -5,9 +5,7 @@
 --
 -- A small interaction-relative process calculus in dependent type theory.
 --
--- This is RQM-adjacent mathematics, not a formalization of Relational
--- Quantum Mechanics and not a metaphysical identification.  Its exact scope
--- is narrower:
+-- This is RQM-adjacent mathematics.  Its scope:
 --
 --   * a fact is indexed by the locus at which it is available;
 --   * comparison between loci is transport along an explicit interaction;
@@ -330,7 +328,3 @@ coherent-does-not-descend through =
     (D.factors→constant forgetBaseFact
       (Physical.observe Physical.coherent) through true false refl)
 
--- Rigor boundary: this module contains no amplitudes, Born rule, Hilbert
--- space, dynamics, spacetime interpretation, or empirical claim.  It gives
--- one checked dependent-process joint on which those structures can later
--- be installed without first postulating an observer-independent state.

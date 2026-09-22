@@ -11,9 +11,7 @@
 --       3‚ø = 1 + 2k, built by 3(1 + 2k) = 1 + 2(3k + 1));
 --   ¬ß2  2µê ‚â° 3‚ø ‚í m ‚â° 0 and n ‚â° 0.
 --
--- SYT.  Elementary parity over ‚ï.  Density in ‚, continuity of the
--- trace, and the Riesz representation on ïã¬≤ are NOT here; this is the
--- exact fact those use.
+-- SYT.  Elementary parity over ‚ï.
 ------------------------------------------------------------------------
 
 module TwoScaleSubgroup_ThePowersOfTwoAndThreeMeetOnlyAtOneSoTheTwoGeneratorScaleSubgroupIsFreeOfRankTwo where

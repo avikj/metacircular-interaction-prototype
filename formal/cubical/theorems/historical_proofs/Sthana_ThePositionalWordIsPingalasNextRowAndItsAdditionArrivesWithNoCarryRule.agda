@@ -213,20 +213,3 @@ isSetCanWord-routed = MonoidStr.is-set (snd CanWord-Monoid)
 CanWord‚â°Tally : CanWord ‚â° Tally
 CanWord‚â°Tally = cong ‚ü®_‚ü© ‡§∏‡•ç‡§•‡§æ‡§®-‡§§‡§≤‡•ç‡§≤‡•Ä
 
-------------------------------------------------------------------------
--- ‡ ¬ THE SCOPE, EXACTLY.
---
---   * That `‡‡‡ï‡≤‡®` is ryabhaa's or anyone's ADDITION ALGORITHM.  It is
---     a function on canonical words that agrees with `+` under `valueC`;
---     it is not presented digitwise and this file contains no carry rule
---     for addition.  The claim is precisely that none was needed.
---   * That `‡‡®‡‡¶‡‡‚â°CanWord` respects metrical structure.  It is built
---     from `‡Æ‡‡≤‡‡Ø`, a numerical encoding, so the induced operations on
---     ‡‡®‡‡¶‡‡ are operations on ‡‡‡∞‡‡‡‡æ‡∞-indices, not on syllables.
---   * That the route is the SHORTEST one.  The graph program reports
---     distance 2 over the edges it can currently SEE; an edge it cannot
---     see would shorten it.  That distance is an upper bound on the
---     geodesic and is stated as one.
---   * Anything about bases in the *ryabhaya*.  ryabhaa states the
---     decimal case; the quantification over b ‚â 2 is this file's.
-------------------------------------------------------------------------

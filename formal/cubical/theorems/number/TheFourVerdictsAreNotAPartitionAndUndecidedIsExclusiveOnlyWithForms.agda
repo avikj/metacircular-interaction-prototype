@@ -3,13 +3,6 @@
 ------------------------------------------------------------------------
 -- TheFourVerdictsAreNotAPartitionAndUndecidedIsExclusiveOnlyWithForms
 --
--- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- Scoped descent verdicts and factorization-through-a-quotient are this
--- corpus's own construction; there is no source to cite and a
--- fabricated  label would assert a provenance nobody checked.
--- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT
--- header) and `.claude/hooks/european-frame.txt`; no row applies and
--- the frame check's scope requires Indian material, of which this
 -- `--guardedness` is carried because `VacuityVerdict` declares it.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -64,9 +57,6 @@
 -- payload `undecided` carries.  The header's own sentence, *"it remains
 -- `undecided` until an ambient theorem is supplied"*, says this; the
 -- theorems below are that sentence with its quantifiers.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheFourVerdictsAreNotAPartitionAndUndecidedIsExclusiveOnlyWithForms where

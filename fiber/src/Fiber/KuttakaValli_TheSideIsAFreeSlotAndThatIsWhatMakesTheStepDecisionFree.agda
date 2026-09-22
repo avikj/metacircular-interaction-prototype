@@ -12,17 +12,8 @@
 -- (magnitude), ‡‡‡‡ (remainder) ‚î are the quantities that survive one
 -- round of the descent.
 --
--- WHAT IS *NOT* CLAIMED.  Not that ryabhaa proved any theorem below.
--- Not that the *ryabhaya* has been opened by the author of this file:
--- the citation is carried from the header of
--- `formal/cubical/theorems/walks/LosslessReturn.agda` in the parent repository and is
--- owed at verse level.  What IS claimed is only this: side, magnitude
--- and remainder are the quantities his algorithm carries from one row of
--- the ‡µ‡≤‡‡≤‡ to the next, and dropping any one of them is what breaks it.
---
 ------------------------------------------------------------------------
--- WHICH SLOTS ARE BASE AND WHICH ARE CARRIED ‚î the question the task
--- asks, answered by the mathematics rather than by preference.
+-- WHICH SLOTS ARE BASE AND WHICH ARE CARRIED.
 --
 -- The honest answer is that ALL THREE SLOTS ARE BASE.  None of the three
 -- is a function of the other two, and this is not an opinion here: it is
@@ -49,26 +40,19 @@
 -- this decision-free step IS the Euclidean one in pair coordinates:
 -- (a , b) ‚¶ (a ‚àí b , b) when a > b, and (a , b ‚àí a) when b > a.
 --
--- DEFECT, written rather than hidden.  `‡â‡‡‡‡æ‡®-‡‡‡¶` (the round trip
+-- `‡â‡‡‡‡æ‡®-‡‡‡¶` (the round trip
 -- ‡â‡‡‡‡æ‡® (‡‡‡¶ a b) ‚â° (a , b)) is the same statement as `‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡` in
 -- `formal/cubical/theorems/walks/LosslessReturn.agda`, and is reproved here.  That is a
 -- duplication.  It is deliberate: this library takes no dependency
 -- outside itself, and the alternative ‚î importing across the repository
 -- ‚î would make `check.sh` no longer check what it says it checks.
 --
--- SECOND DEFECT.  `‡µ‡≤‡‡≤‡` is the SUBTRACTIVE step (anthyphairesis), not
--- the division step a ‚¶ a mod b.  The division step needs ‚äa/b‚ã, and
--- getting it without a decision procedure is not done here.  The ‡µ‡≤‡‡≤‡
+-- `‡µ‡≤‡‡≤‡` is the SUBTRACTIVE step (anthyphairesis), not
+-- the division step a ‚¶ a mod b.
+-- The ‡µ‡≤‡‡≤‡
 -- of the *ryabhaya* is the column of QUOTIENTS; what is formalised
 -- below is the column of subtractions that produces them.  Anything
 -- below that says "‡µ‡≤‡‡≤‡" means the subtractive column.
---
--- ~~THIRD DEFECT ‚î WHAT THE GREEN ACTUALLY COVERS.  ‚¶ It has NOT been
--- checked under this library's declared pin (Agda 2.6.3, agda/cubical
--- v0.5) ‚¶~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the pin itself
--- (fresh container, no agda on PATH) and this module checked under
--- Agda 2.6.3 + cubical v0.5, exit 0.  The defect was a fact about one
--- host, not about this file.  See README, "Toolchain".
 ------------------------------------------------------------------------
 
 module Fiber.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree where
@@ -245,7 +229,7 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 ‡§ó‡§≠‡•Ä‡§∞-‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§µ‡§æ‡§Æ d k)   = refl
 ‡§ó‡§≠‡•Ä‡§∞-‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ d k) = refl
 
--- the round trip.  See DEFECT in the header: this is `‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡` of
+-- the round trip.  this is `‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡` of
 -- formal/cubical/theorems/walks/LosslessReturn.agda, reproved so the library stays standalone.
 ‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§≠‡•á‡§¶ : (a b : ‚Ñï) ‚Üí ‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§≠‡•á‡§¶ a b) ‚â° (a , b)
 ‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§≠‡•á‡§¶ zero    zero    = refl
@@ -290,8 +274,8 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 -- THE LIFT, AND THE SQUARE.
 --
 -- Œ¶-square is `refl`: it closes DEFINITIONALLY, for an opaque variable,
--- because Œ has eta and `descend` does not pattern match.  Neither the
--- lift nor the square is proved here ‚î they are instances of the law.
+-- because Œ has eta and `descend` does not pattern match.
+-- Both are instances of the law.
 ------------------------------------------------------------------------
 
 ‡§µ‡§≤‡•ç‡§≤‡•Ä-‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï : ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï ‚Üí ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï

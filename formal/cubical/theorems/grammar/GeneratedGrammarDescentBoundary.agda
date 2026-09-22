@@ -8,10 +8,7 @@
 -- withdrawing a rule therefore need not descend through the observation map.
 --
 -- This is the smallest named instance of the generated-grammar distinction
--- needed here.  The general finite derivation-hypergraph deletion law is
--- prior mathematics in the repository's prose; weighted minimax selection,
--- shortest-witness DAGs, multiple deletion, and repair are not formalized by
--- this module.
+-- needed here.
 ------------------------------------------------------------------------
 
 module GeneratedGrammarDescentBoundary where

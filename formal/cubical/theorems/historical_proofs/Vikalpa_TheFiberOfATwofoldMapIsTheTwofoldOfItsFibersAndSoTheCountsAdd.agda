@@ -56,9 +56,6 @@
 -- for the term: PINI, ‡‡‡‡ü‡æ‡ß‡‡Ø‡æ‡Ø‡ (~500 BCE), where optionality is
 -- carried by ‡µ‡æ and ‡µ‡ø‡‡æ‡‡æ (e.g. ‡ß.‡ß.‡‡ ‡® ‡µ‡‡‡ø ‡µ‡ø‡‡æ‡‡æ ‚î "vibh means
 -- 'or not'"), the grammar's device for a rule that splits into cases.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Vikalpa_TheFiberOfATwofoldMapIsTheTwofoldOfItsFibersAndSoTheCountsAdd where

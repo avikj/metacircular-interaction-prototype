@@ -14,7 +14,7 @@
 -- finiteness, and `Separates` quantifies over EVERY decoder, computable
 -- or not, deliberately.
 --
--- AND IT IS TWO-VALUED IN THREE PLACES, WHICH NOBODY HAD SAID.
+-- AND IT IS TWO-VALUED IN THREE PLACES.
 --
 --   Query   = X ‚í Bool                        (a query IS a bit)
 --   Charged o x y = o x ‚â° not (o y)           (separation IS negation)
@@ -62,11 +62,6 @@
 -- everything else here: ‡‡‡ is cheap to be stuck in and expensive to get
 -- out of, and `Tantujala` proves `isContr` merges the two ends.
 --
--- Nothing below computes a rank, a PSD dimension, or an entropy.  The
--- tables, ordinary rank 4 both, PSD dimensions 2 and 4) is NOT derived
--- here and is not a consequence of this module.  What this removes is
--- only the excuse that the obstruction was about bits.
---
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- TERM.  ‡µ‡à‡ß‡∞‡‡Æ‡‡Ø ‚î dissimilarity ‚î is the technical term of the Nyya
 -- and Buddhist logical traditions for the DISSIMILAR class, against
@@ -77,14 +72,10 @@
 -- ‡ß‡∞‡‡Æ‡ï‡‡∞‡‡‡ø, ‡®‡‡Ø‡æ‡Ø‡‡ø‡®‡‡¶‡‡ ‡®.‡, where the placement of the particle ‡‡µ
 -- fixes the scope of exactly this condition.
 --
--- LIMIT: the term is used here for an irreflexive separation relation on
--- an answer type.  No text states an apartness relation, no logician
--- proved anything below, and the connection asserted is that both name
+-- The term is used here for an irreflexive separation relation on
+-- an answer type; both name
 -- the same job ‚î the condition under which two things count as told
 -- apart.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart where
@@ -197,7 +188,7 @@ module ‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞ {‚Ñì‚ÇÄ : Level} (X : Type ‚Ñì‚ÇÄ) (V : Type ‚Ñì‚ÇÄ
 -- The asymmetry is the finding.  Being unable to tell two things apart
 -- is universal and costs nothing to prove.  Telling them apart requires
 -- an inhabitant of the answer type ‚î you must be able to SAY something.
--- Nothing here supplies that, and no default is invented, because an
--- arbitrary default on an unobservable value is precisely the move both
--- lanes' `FactorsThrough` refuses by typing its decoder on the image.
+-- No default is invented, because an
+-- arbitrary default on an unobservable value is precisely the move
+-- `FactorsThrough` refuses by typing its decoder on the image.
 ------------------------------------------------------------------------

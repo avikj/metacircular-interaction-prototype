@@ -7,16 +7,13 @@
 -- sense its author did not intend, by exploiting a reading the words
 -- literally admit.  That is specification gaming exactly: the objective
 -- is met as written and defeated as meant.  The word is used here for
--- that literal content; no source is claimed to state anything below.
+-- that literal content.
 --
 -- WHY THIS FILE EXISTS.  The abstract "NO SCORING FUNCTION OF THE
--- OUTCOME DISTINGUISHES TWO ROUTES TO IT" says, under WHAT IS NOT
--- CLAIMED, that no MDP, no policy, no return, no estimator and no
--- training dynamics appear in the development, and that naming reward
--- hacking and specification gaming as the phenomena it explains is a
--- reading and is not proved.
+-- OUTCOME DISTINGUISHES TWO ROUTES TO IT" names reward hacking and
+-- specification gaming as the phenomena it explains.  Here the MDP, the
+-- policy and the return are built, and the identification becomes a theorem.
 --
--- All of it is built here, and the identification becomes a theorem.
 -- A Markov decision process; policies; the return, both undiscounted
 -- and DISCOUNTED at an arbitrary rate; optimality quantified over EVERY
 -- policy rather than over an enumerated shortlist; and then three
@@ -50,9 +47,6 @@
 -- positive constant `bâ¿` gives `Î aµ— bâ½â¿â»µ—â¾ râ`, which is what `dret`
 -- computes in â•.  Multiplying every policy's return by one positive
 -- constant reorders nothing, so optimality statements transfer exactly.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Chala_TheMarkovDecisionProcessIsBuiltAndRewardHackingIsATheoremNotAReading where

@@ -26,9 +26,7 @@ biconditional upgrades to an equivalence of the two conditions.  The
 converse direction cost nothing, and the reason is worth more than the
 statement: the two sides are joined by the computation rule for
 univalence, which is a path, and a path may be walked in either
-orientation.  An earlier form of the same audit, in which the sides were
-joined by an assumed implication, paid for its converse with enumerability
-and decidability hypotheses.  A path has an inverse; an implication does
+orientation.  A path has an inverse; an implication does
 not.  So whether a converse is free is readable off the shape of what
 connects the two sides, before either direction is attempted.
 
@@ -47,7 +45,7 @@ symmetry cannot represent that symmetry's holonomy - not approximately,
 not with more resolution.  The residue is recoverable only by changing the
 observable, never by refining it.
 
-RESOLVED IN PART.  The gauge vocabulary now exists:
+The gauge vocabulary exists:
 theorems/physics/SetuKsetra constructs the lattice (a chain of links),
 the gauge group (Z/2 under xor), the connection as a link field, the
 gauge transformation, and the Wilson loop, and proves the telescoping
@@ -56,7 +54,6 @@ original, so on a closed chain THE WILSON LOOP IS GAUGE INVARIANT for
 every connection and every transformation â” while the connection
 itself provably changes on a named two-link witness whose loop, by the
 same theorem, cannot.  The holonomy is physical; the connection is
-coordinates; both halves are terms.  Larger gauge groups and
-higher-dimensional lattices remain constructions.
+coordinates; both halves are terms.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

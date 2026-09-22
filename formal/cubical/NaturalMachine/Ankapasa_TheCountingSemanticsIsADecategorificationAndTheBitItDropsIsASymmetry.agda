@@ -9,15 +9,7 @@
 -- of digits admits, and how to enumerate them in order.  Bhskara II,
 -- *Llvat*, the akapa section (~1150).
 --
--- LIMIT ON THIS CITATION, stated rather than glossed.  I have NOT opened the
--- verses and do not give verse numbers; editions differ in their numbering
--- of this section and a number I did not check would be a fabricated
--- provenance, which is the error the apparatus exists to stop.  The section
--- is standard and named; the verse range is not claimed.
---
--- SCOPE OF THE CLAIM ON THE SOURCE.  None of the theorems below are
--- Bhskara's, and this is not a formalisation of the akapa rules.  What
--- is borrowed is the section's OBJECT: an arrangement, as distinct from the
+-- What is borrowed is the section's OBJECT: an arrangement, as distinct from the
 -- count of arrangements.  Â§4 shows the kernel's semantics keeps the count
 -- and provably cannot keep the arrangement, and that the missing datum is
 -- exactly a transposition.
@@ -44,7 +36,7 @@
 --       an EQUIVALENCE and every `Derivation` a composite of them --
 --       `add-zero` the right unitor, `add-suc` a shuffle, the congruences
 --       `âŠ-equiv`, and `reverse` `invEquiv`.  So the kernel's existing
---       calculus already had a univalent semantics; nobody had written it.
+--       calculus already had a univalent semantics.
 --   Â§3  Stepâº / Derivationâº: the calculus extended by ONE constructor,
 --       `add-comm`.  It is sound for the counting semantics (`+-comm`), so
 --       this is a legitimate extension of the kernel and not a rigged one.
@@ -74,8 +66,6 @@
 -- and Â§4 exhibits the exact datum such a score cannot represent: which
 -- arrangement, as opposed to how many.  Order information is not an
 -- inefficiency of a bag-of-counts semantics; it is provably absent from it.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry where

@@ -50,11 +50,7 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
--- ‡‡‡‡®‡∞‡æ‡ó‡Æ‡® and ‡µ‡‡¶‡‡ß‡ø are used in their plain senses; no text is claimed
--- for the compound.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
+-- ‡‡‡‡®‡∞‡æ‡ó‡Æ‡® and ‡µ‡‡¶‡‡ß‡ø are used in their plain senses.
 ------------------------------------------------------------------------
 
 module Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity where

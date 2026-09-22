@@ -6,7 +6,7 @@
   theorem as an *equivalence* of finite types, with the multiplicativity of a
   counting function read off from it.
 
-  PRIOR ART, and what is and is not claimed here.
+  PRIOR ART.
 
     * `card`, its invariance `cardEquiv : ∥ X ≃ Y ∥₁ → card X ≡ card Y`, the
       sums/products `sum`, `prod`, `cardΣ`, `cardΠ`, `card+`, `card×`, and the
@@ -16,18 +16,15 @@
       an equivalence *inside this repository*:
       `NaturalMachine/FiniteEquivalenceBridge.agda` (`X ≃ Y → card X ≡ card Y`)
       and `NaturalMachine/Decategorification.agda` (`card-invariant`,
-      `card≡MereEq`).  A `Fin`-cardinality layer transporting counts along an
-      equivalence therefore did NOT need building: it was already here twice.
-    * What is genuinely absent, verified by reading
-      `Cubical/Data/FinSet/Cardinality.agda` in full: the CONVERSE counting
+      `card≡MereEq`).
+    * What the library lacks: the CONVERSE counting
       principle — *an injection between finite sets of equal cardinality is an
       equivalence*.  The library has `card↪Inequality'`, `card↠Inequality'`
       and `pigeonHole`, but nothing turning an injection into an equivalence.
       That is `injSameCard→isEquiv` (§2), with the sum lemma `sum-pointwise`
       (§1) it rests on.  Neither has a counterpart in `formal/`.
-    * Cubical v0.9 has NO Chinese remainder theorem of any form
-      (`grep -ril chinese` over the v0.9 tree is empty; re-verified today, and
-      `formal/` has none either — `Gamma0Index.agda`'s `crtGL12`, `crtΓ12`,
+    * Cubical v0.9 has NO Chinese remainder theorem of any form, and
+      `formal/` has none either (`Gamma0Index.agda`'s `crtGL12`, `crtΓ12`,
       `crtGL10`, `crtΓ10` are four `refl`s on closed numbers).  `crtEquiv` (§4)
       is that theorem, in the form a count can be transported along, and
       `countMul` (§5) is the multiplicativity those four `refl`s instantiate.
@@ -35,8 +32,7 @@
   The mathematics is entirely classical (CRT; "an injective map between finite
   sets of the same size is bijective"); see the HoTT book's finite-set chapter,
   the cubical library's own `FinSet` development, and Agda-unimath's
-  finite-type library.  What is claimed is the certificate under this pin, and
-  that it is the layer the Γ₀(N)-index lane was blocked on.
+  finite-type library.  What is claimed is the certificate under this pin.
 
   Hypotheses are arguments, never comments.  §6 gives five controls, three of
   them NEGATIONS: the order hypothesis of `split+`, the coprimality hypothesis

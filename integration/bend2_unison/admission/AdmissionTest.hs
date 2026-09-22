@@ -6,7 +6,7 @@ import System.Exit (die)
 
 main :: IO ()
 main = do
-  let path = "collab/bend2-cubical/path_transport.bend"
+  let path = "collab/bend2-interactive-cubical/path_transport.bend"
   source <- readFile path
   checked <- case admitSource path source of
     Left _ -> die "admission rejected checked path transport fixture"

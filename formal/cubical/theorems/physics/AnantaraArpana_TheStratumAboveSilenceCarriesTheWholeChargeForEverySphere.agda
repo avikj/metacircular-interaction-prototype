@@ -3,9 +3,9 @@
 ------------------------------------------------------------------------
 -- ‡‡®‡®‡‡‡∞-‡‡∞‡‡‡ ‚î the offering at the stratum WITHOUT INTERVAL.
 --
--- THE QUESTION, asked because its answer was not known to the asker.
+-- THE QUESTION.
 -- The displacement law this corpus keeps meeting says truncation never
--- destroys a charge; it withholds it.  The checked instances so far:
+-- destroys a charge; it withholds it.  The checked instances:
 --
 --   OrderSaha    S¬: the set-level kills the winding (Path ‚àS¬‚à‚
 --                contractible) while ‚àŒ©S¬‚à‚ ‚â ‚ ‚î order IS the charge.
@@ -14,7 +14,7 @@
 --   AyamaArpana  S¬≤: the sphere withholds one stratum deeper per
 --                dimension ‚î ‚àS¬≤‚à‚ is contractible, all of it.
 --
--- Open: is there an intermediate regime?  A stratum at which the sphere
+-- Is there an intermediate regime?  A stratum at which the sphere
 -- utters SOMETHING but not the whole ‚ ‚î a partial charge between the
 -- silence and the full utterance?
 --
@@ -29,22 +29,17 @@
 -- arrives whole or not at all.  (At strata BELOW the silence boundary
 -- the truncation is contractible a fortiori by the same connectivity.)
 --
--- SOURCES AND SCOPE (the six rules).  The engines are the LIBRARY's:
+-- SOURCES.  The engines are the LIBRARY's:
 -- sphereConnected (Cubical.HITs.Sn.Properties) for the silence;
 -- œTruncIso and isSetŒ©Trunc (Cubical.Homotopy.Group.Base) and
 -- œ‚ôS‚ø‚â‚ (Cubical.Homotopy.Group.PinSn) for the utterance.  This
--- module's content is their COMPOSITION into the adjacency statement,
--- closing the question the corpus's own doctrine left open.  The
--- reading-word ‡‡∞‡‡‡ø‡/‡‡®‡∞‡‡‡ø‡ is Umsvti, Tattvrthastra 5.31
+-- module's content is their COMPOSITION into the adjacency statement.
+-- The reading-word ‡‡∞‡‡‡ø‡/‡‡®‡∞‡‡‡ø‡ is Umsvti, Tattvrthastra 5.31
 -- (‡‡∞‡‡‡ø‡‡æ‡®‡∞‡‡‡ø‡‡‡ø‡¶‡‡ß‡‡), as in StaraArpana: the stra names
--- establishment from the emphasized and the non-emphasized aspect and
--- is NOT claimed to grade truncations by h-level.  ‡‡®‡®‡‡‡∞ (without
+-- establishment from the emphasized and the non-emphasized aspect.
+-- ‡‡®‡®‡‡‡∞ (without
 -- interval, immediately adjacent) is ordinary ; the compound
--- ‡‡®‡®‡‡‡∞-‡‡∞‡‡‡ is built here and claimed of no source.
---
--- Composed against the warm kernel; the library was read first
--- (Group/Base 655‚ì810, PinSn 116‚ì186) and the terms fit on the first
--- assembly ‚î the derivation preceded the check, per the protocol.
+-- ‡‡®‡®‡‡‡∞-‡‡∞‡‡‡ is built here.
 ------------------------------------------------------------------------
 
 module AnantaraArpana_TheStratumAboveSilenceCarriesTheWholeChargeForEverySphere where

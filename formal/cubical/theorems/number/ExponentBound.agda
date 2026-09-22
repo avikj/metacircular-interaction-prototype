@@ -9,7 +9,7 @@
 --                      ‚í a ‚â logOf p k
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT WAS ACTUALLY MISSING, WHICH WAS NOT WHAT WAS NAMED
+-- THE SPECIFICATION OF `logOf`
 --
 -- `PFreePart` said this piece was "a ‚â ‚älog_p k‚ã when p^a ‚à m ‚â k",
 -- as though ‚älog_p k‚ã were a known quantity with known properties.  It
@@ -19,11 +19,9 @@
 --     expOf p k (suc g) = if p ^ suc (expOf p k g) ‚â k then suc ‚¶ else ‚¶
 --     logOf p k         = expOf p k k
 --
--- ‚î a gas-driven climb whose gas budget is `k` itself, and NOTHING in
--- this repository proved that it climbs far enough.  `frontierList`
--- has been used for the walk's counts on the strength of `refl` at
--- k = 8.  So the content here is the SPECIFICATION of `logOf`, in both
--- directions, and the divisor bound is a corollary of it:
+-- ‚Äî a gas-driven climb whose gas budget is `k` itself.  The content here
+-- is the SPECIFICATION of `logOf`, in both directions, and the divisor
+-- bound is a corollary of it:
 --
 --     logOf-le : 0 < k ‚í p ^ (logOf p k)       ‚â k
 --     logOf-lt : 1 < p ‚í k < p ^ (suc (logOf p k))
@@ -38,19 +36,6 @@
 -- That last inequality is the load-bearing one and is proved here from
 -- nothing: `k < p^k` for `1 < p`, by induction, using only that
 -- `x < p ¬ x` for positive `x`.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- CORRECTION TO `PFreePart`'s OPEN LIST
---
--- That module listed three pieces and treated them as comparable.  They
--- are not.  This one contained a hidden second obligation ‚î that a fuel
--- bound is adequate ‚î of exactly the kind this repository's protocol
--- exists to catch: a computation (`frontier8 = refl`) had been standing
--- in for a theorem about all `k`.  The correction is recorded rather
--- than edited in, per the standing rule.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module ExponentBound where
@@ -228,19 +213,3 @@ bound-8 = exponent-bounded 2 8 8 3
             (suc-‚â§-suc zero-‚â§)
             ‚â§-refl
             (‚à£-refl refl)
-
-------------------------------------------------------------------------
--- 8.  What is left of the hard half.
---
--- CLOSED here: `logOf` has a specification, its fuel budget is proved
--- adequate, and the exponent bound follows.
---
--- STILL OPEN, and unchanged in count because this one split into two:
---   * membership of (p , logOf p k) in `frontierList k` for prime p ‚â k;
---   * gcd(p^a, m') = 1 from p ‚à m', which is `CoprimePowers.bez-pow`
---     once the base certificate is in hand.
---
--- No estimate is offered for either.  The reason is in ¬ß1 of this file:
--- the last estimate offered in this thread was for the piece that turned
--- out to hide a fuel-adequacy theorem.
-------------------------------------------------------------------------

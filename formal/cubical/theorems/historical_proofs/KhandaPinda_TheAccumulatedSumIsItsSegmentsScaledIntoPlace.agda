@@ -24,9 +24,6 @@
 -- REPOSITORY for the Kerala chapter; it is not attributed to either text.
 -- ‡ò‡æ‡ and ‡‡ô‡‡ï‡≤‡ø‡‡Æ‡ are IMPORTED from Madhava.agda ‚î the chapter composes;
 -- it does not redefine (prattyasamutpda; no eighth Term).
---
--- Written in conversation with the warm kernel through ‡®‡æ‡°‡: each ring
--- step below was proposed with `give` and verified live before landing.
 ------------------------------------------------------------------------
 
 module KhandaPinda_TheAccumulatedSumIsItsSegmentsScaledIntoPlace where

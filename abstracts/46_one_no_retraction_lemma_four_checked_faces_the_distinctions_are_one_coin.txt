@@ -40,8 +40,8 @@ arrows (AvarohaNisedha) and the carried side is invertible
 lives exactly in what its projection drops.
 
 SYT â” THE CLAIM, EXACTLY.  The record, the lemma, the four
-inhabitants, bothTheorems on each.  NOT claimed: that any open problem
-is decided.  What is proved is that four checked distinctions share
+inhabitants, bothTheorems on each.
+What is proved is that four checked distinctions share
 one shape and the shape forbids recovery â” a theorem about the
 projections, not a conjecture about the problems.
 

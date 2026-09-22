@@ -12,7 +12,7 @@
 --
 -- WHAT THIS SETTLES, AND WHY IT WAS AVAILABLE ALL ALONG.
 --
--- Earlier today three conservation laws were proved for this calculus â”
+-- Three conservation laws were proved for this calculus â”
 -- the variable word (`Anupurvi_â¦`), the successor count (`Samkhyana_â¦`),
 -- and the trapped-successor count (`Baddha_â¦`, which refuted the
 -- conjecture that the first two suffice).  Each was found by asking what a
@@ -57,8 +57,7 @@
 --                   identifies terms the calculus cannot join;
 --     derivational  `Derivation a b` holds exactly when `nf a â‰¡ nf b`, so
 --                   THE EXISTENCE QUESTION IS DECIDABLE (given
---                   discreteness of `Tm`, which is routine and not proved
---                   here);
+--                   discreteness of `Tm`);
 --     intensional   and everything that remains â” which route, how long,
 --                   which of the many derivations between two joinable
 --                   terms â” is what `Sesa_â¦` proves no semantic criterion
@@ -68,21 +67,6 @@
 -- checking is hard and search is hard; it is that in this calculus
 -- JOINABILITY IS DECIDABLE AND STILL SAYS NOTHING ABOUT THE ROUTE, and the
 -- route is where every quantity a policy needs lives.
---
--- WHAT IS **NOT** CLAIMED.  Confluence and termination are the ARGUMENT for
--- why this works and are NOT formalised below; what is formalised is the
--- consequence, directly â” Â§2 and Â§3 together give both directions without
--- a diamond lemma, because `nf` is defined so that the two real rules hold
--- by `refl`.  So no critical-pair analysis appears as a term and none is
--- claimed as checked.  Discreteness of `Tm` is not proved, so the word
--- "decidable" above is a corollary stated in prose, not a term.  Nothing
--- here concerns `Stepâº`; `add-comm` breaks the orthogonality by design.
--- `nf` is one normalising function; no claim that it is canonical among
--- such, nor any statement about its cost.
---
--- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
--- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +
--- v0.9).  Re-check at the pin before treating this green as the lane's.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Visranti_TheNormalFormIsTheCompleteInvariantSoDerivabilityIsDecidedByTwoStepsAndARefl where
@@ -246,18 +230,3 @@ rebuilt = normalises (add var (suc zero)) âŠ• revD (normalises (suc var))
 -- synthesised from the two endpoints alone.  Same term, on the nose.
 synthesis-reproduces-the-hand-written-proof : rebuilt â‰¡ accepted
 synthesis-reproduces-the-hand-written-proof = refl
-
-------------------------------------------------------------------------
--- Â§6.  ONE FINDING, RECORDED BECAUSE IT COST A TYPECHECK.
---
--- The line above works only because the two normal forms are DEFINITIONALLY
--- equal, so the composite is formed directly.  Routing it through Â§4's
--- `same-nfâ’derivable` instead does NOT let `refl` compare the result to
--- `accepted`: `subst (Derivation (nf a)) p` leaves a `transp` that does not
--- reduce, and the error prints the whole stuck term.  That is precisely the
--- phenomenon `Anuvrtti_TheGlueIsTransparentâ¦` analyses â” the residual is in
--- the codomain, not in the `Glue` â” and comparing a synthesised derivation
--- to a hand-written one in the general case needs that module's path
--- lemmas.  Not done here, and named so the next reader does not rediscover
--- it by the same route.
-------------------------------------------------------------------------

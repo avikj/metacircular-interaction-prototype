@@ -6,8 +6,7 @@
 -- DELTA 19 Â§19.6: THE SAFE QUOTIENT IS N_obs, NOT ker P.
 --
 -- Delta 19 calls C19.13 "a strong correction to static
--- sufficient-interface thinking", and it is one â” including to work
--- landed in this repository earlier today.  The statement:
+-- sufficient-interface thinking", and it is one.  The statement:
 --
 --     N_obs = â‹_{nâ‰0} ker(P Tâ¿)
 --
@@ -24,7 +23,7 @@
 -- *proved* unsound as a compression rule.
 --
 --
--- WHAT THIS CORRECTS IN THIS REPOSITORY
+-- RELATION TO `SensorNerode`
 --
 -- `SensorNerode` proves that a sensor family sees a pair
 -- only through `lcm S`, and that the relation determines the lcm â” a
@@ -34,9 +33,7 @@
 -- cannot later expose it.  For that lane the two happen to coincide
 -- (installing a sensor only ever refines the profile, never coarsens
 -- it), but the coincidence is a fact about the walk and **not** about
--- observation in general, and `SensorNerode` does not state it.  Flagged
--- here rather than edited into someone else's module.
---
+-- observation in general.
 --
 -- WHAT IS CHECKED
 --
@@ -68,38 +65,11 @@
 --                               to the two-step one exactly when the
 --                               defect vanishes.  Imported, not reproved.
 --
---
---  * **MAXIMALITY was not proved here â” it is now, elsewhere.**  This
---    header calls `N_obs` "the maximal safe compression", but Â§2 checks
---    only that `ForeverEq` refines `InstantEq` and is step-invariant,
---    i.e. that it IS safe.  That every safe relation is contained in it
---    is `ExtremalDescription.greatest-safe` (three lines, by induction on
---    `n`, using exactly the `iterT` bracketing Â§1 chose).  With it,
---    Â§3's witness sharpens: `ExtremalDescription.instant-not-invariant`
---    shows `ker P` fails safety at the INVARIANCE clause, not at
---    soundness.  Pointer comment only; nothing here edited.
---
---  * **Â§19.1â“19.5 are absent.**  The path expansion (T19.1), the
---    first-return kernels `F_m`, the renewal equation (T19.3), the
---    generating resolvent `K(z) = (I âˆ’ F(z))â»Â` (T19.5) and the
---    Feshbach/Schur complement (T19.6) are NOT here.  T19.3 is a real
---    induction over sector words and T19.5 needs formal power series in
---    a noncommutative ring; both are genuine work rather than missing
---    imports.  `CompressionDefect.compression-defect` is the n = 2 case
---    of the whole family and is all that is checked.
---
---  * **No arithmetic instance.**  Â§Â§19.8â“19.14 â” charge sectors, the
---    parity coarse-graining, the half-line self-energy, the Hecke tree â”
---    are the point and none is here.  In particular C19.19 (whether a
---    parity-only observer can be dynamically sufficient) is exactly the
---    kind of statement Â§3's witness shows must be *proved in a finite
---    model rather than asserted*, and Delta 19 says so itself.
---
 --  * **Not novel, and Delta 19 says so first**: S19.14 â” "this is
 --    classical minimal realization/observability theory in the linear
 --    case.  Do not reinvent it."  S19.31 identifies the same skeleton as
---    Moriâ“Zwanzig.  Nothing here claims otherwise; the contribution is
---    that the core now has the congruence lemma and the strictness
+--    Moriâ“Zwanzig.  The contribution is
+--    that the core has the congruence lemma and the strictness
 --    witness as terms.
 ------------------------------------------------------------------------
 

@@ -28,7 +28,7 @@
 -- It is NOT part of the checked build.  `agda` does not
 -- import it, and nothing else may.
 --
--- OBSERVED, 2026-08-15, THE PIN (Agda 2.8.0 + cubical v0.9; see
+-- Under the pin (Agda 2.8.0 + cubical v0.9; see
 -- --library-file=<v0.9>
 -- NaturalMachine/Control/FunctionBoundFromConstant.agda`, exit code 42,
 -- error verbatim:

@@ -36,10 +36,8 @@
 -- doctrine applied to itself: a theorem is its shortest self-certifying
 -- form plus the one obstruction it cannot forge.
 --
--- SYT â” THE CLAIM, EXACTLY.  NOT FLTâ: `Descent` is not inhabited here,
--- and nothing below produces a solution's smaller successor.  What IS
--- proved: the LOSSLESS reduction of Fermat's cube to that single descent
--- step, --safe, no postulates, no holes, citing `no-infinite-descent`.
+-- THE CLAIM, EXACTLY: the LOSSLESS reduction of Fermat's cube to that single descent
+-- step, citing `no-infinite-descent`.
 -- The measure is z; any strictly-decreasing invariant of the descent
 -- serves identically.
 ------------------------------------------------------------------------
@@ -74,7 +72,7 @@ record Soln : Type where
 
 ------------------------------------------------------------------------
 -- Â§2  The one irreducible step: every solution has a strictly smaller one.
---     Its inhabitant is the â[Ï‰] descent; it is NOT built here.
+--     Its inhabitant is the â[Ï‰] descent.
 ------------------------------------------------------------------------
 
 Descent : Type

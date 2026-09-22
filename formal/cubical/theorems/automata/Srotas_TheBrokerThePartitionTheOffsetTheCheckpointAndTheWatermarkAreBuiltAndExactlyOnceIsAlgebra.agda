@@ -5,13 +5,13 @@
 --
 -- WHY THIS FILE EXISTS.
 --
--- The broker is built here, with all five, and the reading becomes the
+-- The broker is built here, with the partition, the offset, the checkpoint and the watermark, and the reading becomes the
 -- theorem the design rests on: under at-least-once delivery with
 -- arbitrary duplication and arbitrary reordering, the consumer's state
 -- depends only on the SET of records delivered (Â§à).  Exactly-once is
 -- therefore an algebraic consequence and not a delivery guarantee, and
 -- the deduplication store, its key, and its expiry policy all disappear
--- together â” which is what the earlier form asserts and does not model.
+-- together.
 --
 -- WHAT IS CHECKED
 --
@@ -39,9 +39,6 @@
 --                           delivered key from the state changes it, so
 --                           the store is monotone â” no tombstones, no
 --                           compaction, no retention policy.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Srotas_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra where

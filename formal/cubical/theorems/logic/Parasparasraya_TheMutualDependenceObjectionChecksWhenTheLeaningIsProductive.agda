@@ -9,9 +9,6 @@
 -- THE OBJECTION.  parasparraya â” each of two things established only
 -- through the other â” is catalogued across the Nyya and Jaina
 -- literature as a defect of definition: the circle establishes nothing.
--- [Citation contract: the term and its defect-classification are the
--- tradition's; the primary-text loci are UNVERIFIED here and no theorem
--- below is attributed to any historical author.]
 --
 -- THE THEOREM.  The objection is answered by a criterion, not a
 -- concession, and the criterion is the guardedness discipline of this

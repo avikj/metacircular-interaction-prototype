@@ -3,23 +3,10 @@
 ------------------------------------------------------------------------
 -- DeflationaryTest
 --
--- The test `Abhava` set up, run â” and it comes back against `Abhava`.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE CLAIM UNDER TEST
+-- THE ABSENCE TOWER
 --
--- `Abhava.agda` proves `ÂÂÂA â” ÂA` and reads it as:
---
---   "the level at which the hierarchy stabilises measures the
---    decidability of what is absent â¦ the same absence, delimited by
---    decidability or not, is two different objects."
---
--- The standing deflationary question was whether every absence in this
--- corpus is decidable, so that nothing lives at level three and every
--- "barrier" is exact.
---
--- The answer is stronger than the question and dissolves it.  Decidability
--- has nothing to do with it:
+-- Decidability plays no part in the absence tower:
 --
 --     Â-always-stable :  (A : Type â“) â’ Â Â (Â A) â’ Â A
 --
@@ -29,18 +16,14 @@
 -- level three, and the level therefore carries no information about the
 -- obstruction whatsoever.
 --
--- `Abhava`'s reading is withdrawn.  Its theorem stands untouched; what is
--- withdrawn is the sentence saying the stabilisation level measures
--- decidability.  It measures nothing.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHERE DECIDABILITY ACTUALLY ENTERS
 --
 --     decâ’stable :  Dec A â’ (Â Â A â’ A)
 --
 -- â” a statement about the PRATIYOGIN A, not about the absence ÂA.  The
--- Navya-Nyya distinction survives intact and lands one place over than
--- `Abhava` put it: the absence is always level-two; it is the
+-- Navya-Nyya distinction lands here:
+-- the absence is always level-two; it is the
 -- counterpositive whose own recoverability decidability governs.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -65,14 +48,8 @@
 --   (a) A is undecidable, or
 --   (b) ÂÂA holds while A fails.
 --
--- Neither is established anywhere in this corpus, for any obstruction.
--- So the barrier vocabulary is, exactly as the deflationary thread
--- suspected, stronger than the objects warrant â” but for a reason that
--- has nothing to do with decidability and could have been seen from the
--- type of `ÂÂÂâ’Â` on the day it was written.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHERE A GENUINE BARRIER COULD STILL HIDE, AND IT IS ACTIONABLE
+-- WHERE DECIDABILITY ENTERS: THE DISJUNCTIONS
 --
 -- Stability is NOT closed under âŠ â” a stable-closure proof for sums is
 -- exactly excluded middle.  So every place this corpus asserts an
@@ -82,9 +59,6 @@
 -- disjunction from a DECIDABLE source (`splitâ•-â‰`, `discreteâ`, an
 -- explicit case split).  That is where decidability was doing work all
 -- along â” in the disjunctions, not in the absences.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module DeflationaryTest where
@@ -169,8 +143,7 @@ shape-conditional P = Î -stable (Î» x â†’ â†’-stable (Â¬-always-stable (P x)))
 --
 -- Not "here is ÂA" â” that is always stable and always exact.  A barrier
 -- in the strong sense is a gap between ÂÂA and A, and the type below is
--- what would have to be inhabited to exhibit one.  Nothing in this
--- corpus inhabits it for any A.
+-- what would have to be inhabited to exhibit one.
 ------------------------------------------------------------------------
 
 GenuineGap : Type â„“ â†’ Type â„“
@@ -182,8 +155,7 @@ GenuineGap A = (Â¬ (Â¬ A)) Ã— (Â¬ A)
 no-gap : {A : Type â„“} â†’ Â¬ (GenuineGap A)
 no-gap (Â¬Â¬a , Â¬a) = Â¬Â¬a Â¬a
 
--- which leaves exactly one form of barrier claim standing, and it is a
--- claim nothing here makes:
+-- which leaves exactly one form of barrier claim standing:
 BarrierClaim : Type â„“ â†’ Type â„“
 BarrierClaim A = Â¬ (Dec A)
 
@@ -191,18 +163,13 @@ BarrierClaim A = Â¬ (Dec A)
 -- 7.  The deflation, stated.
 --
 --   * every absence is level-two, unconditionally;
---   * so the stabilisation level measures nothing, and `Abhava`'s reading
---     of it is withdrawn;
+--   * so the stabilisation level measures nothing;
 --   * decidability governs the counterpositive, not the absence;
 --   * every obstruction in this thread is stable BY SHAPE (Â§5);
 --   * a gap between ÂÂA and A is contradictory (`no-gap`), so the only
---     surviving form of a barrier claim is `Â (Dec A)`;
---   * and no such claim is made anywhere in this corpus.
+--     surviving form of a barrier claim is `Â (Dec A)`.
 --
--- The barrier vocabulary is therefore unwarranted by these objects â” the
--- deflationary thread's conclusion, reached by a route that never needed
--- the decidability survey it proposed, and visible from the type of
--- `ÂÂÂâ’Â` on the day that was written.
+-- The barrier vocabulary is therefore unwarranted by these objects.
 --
 -- Where decidability WAS doing work all along: the âŠ-shaped results.
 -- Stability does not pass through sums, and `Anekanta.collapse-dichotomy`,
@@ -215,20 +182,16 @@ BarrierClaim A = Â¬ (Dec A)
 -- 8.  The âŠ-sites close too, and for a reason about the SUBSTRATE.
 --
 -- Â§7 leaves the sum-shaped results as the one place a genuine barrier
--- could sit, since stability does not pass through âŠ.  An audit of all
--- 434 `.agda` files under `formal/cubical` found 74 such signatures and
--- zero `Â (Dec A)` claims.  But the audit was not needed, and the reason
--- is stronger than any count:
+-- could sit, since stability does not pass through âŠ:
 --
 --     **in a `--safe`, postulate-free development, every inhabited âŠ is a
 --     decision, because it was constructed.**
 --
 -- There is no way to write a term of `A âŠ B` without producing `inl a` or
 -- `inr b`.  A "non-constructive dichotomy" is not expressible in this
--- lane at all â” not hard to find, not absent by luck: unwritable.  So the
--- 74 sites cannot hide a barrier, and neither could 74 000.
+-- lane at all â” not hard to find, not absent by luck: unwritable.
 --
--- The anchor for that, checked rather than asserted: a dichotomy of the
+-- The anchor for that: a dichotomy of the
 -- form `A âŠ Â A` is literally decidability, up to the obvious iso.
 ------------------------------------------------------------------------
 
@@ -261,22 +224,11 @@ decâ†’sumâ†’dec (no  _) = refl
 --     because in a postulate-free development it had to be built (Â§8).
 --
 -- So no statement in this repository is, or can be, a barrier in any
--- sense stronger than "here is a proof of ÂA" â” unless someone proves
--- `Â (Dec A)`, which is a positive claim, has its own burden, and has
--- never been made here.
---
--- The one thing this does NOT say: that the mathematics being pointed at
--- is easy.  `Â (Dec A)` is a fine thing to prove.  It has not been.
+-- sense stronger than "here is a proof of ÂA".
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 10.  CORRECTION TO Â§9, immediate â” the surviving barrier claim does
---      not survive either.
---
--- Â§6 and Â§9 say the only form of barrier claim left standing is
--- `Â (Dec A)`, and Â§9 adds that it "is a fine thing to prove. It has not
--- been."  The second sentence is wrong, and the first is misleading.
---
+-- 10.  The last candidate barrier form is itself contradictory.
 -- `Â (Dec A)` is CONTRADICTORY, for every A, constructively:
 --
 --     no-barrier-claim :  (A : Type â“) â’ Â (Â (Dec A))
@@ -284,8 +236,8 @@ decâ†’sumâ†’dec (no  _) = refl
 --     assume k : Â (Dec A).  Then (Î» a â’ k (yes a)) : Â A,
 --     so (no (Î» a â’ k (yes a))) : Dec A, and k applied to it gives âŠ.
 --
--- Three lines.  So there is no barrier claim of that form to make, ever â”
--- not "none has been made here".  Undecidability of a specific proposition
+-- Three lines.  So there is no barrier claim of that form to make, ever.
+-- Undecidability of a specific proposition
 -- is not something a constructive development can assert; what genuinely
 -- undecidable results assert is something else entirely (independence
 -- from a theory, or non-existence of an algorithm uniform in a
@@ -302,15 +254,6 @@ decâ†’sumâ†’dec (no  _) = refl
 -- There is no sense available in this lane in which any statement here is
 -- a barrier, other than "here is a proof of ÂA" â” and that reading is
 -- exact.  The word has nothing left to mean.
---
--- WHAT THIS DOES NOT SAY, and the boundary now matters more than before:
--- that no real barrier exists in the mathematics.  Independence and
--- algorithmic impossibility are real, are proved elsewhere by other
--- means, and are not of the form `Â (Dec A)`.  Stating one requires a
--- theory to be independent OF, or a uniformity to quantify over â” objects
--- this lane does not carry.  `GodelSeparation` is the corpus's one
--- gesture at the first, and it too proves a Â-headed statement by
--- exhibiting a countermodel.
 ------------------------------------------------------------------------
 
 no-barrier-claim : (A : Type â„“) â†’ Â¬ (BarrierClaim A)

@@ -28,17 +28,8 @@
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
--- That the walk's installed prime powers ARE pairwise coprime.  That is
--- Euclid's lemma territory â” `Kuttaka.bezout` is the ingredient this
--- repository has, and assembling it is a separate piece of work.  Here
--- the coprimality is a hypothesis, and at any concrete frontier it is
+-- Here the coprimality is a hypothesis, and at any concrete frontier it is
 -- discharged by computing a gcd.
---
--- The honest form of the boundary: CRT is general; the primes are not
--- done.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module CRTChain where
@@ -130,13 +121,7 @@ walk8-residues = crtChain walk8 walk8-coprimes
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- PROVENANCE CORRECTION, 2026-08-18.
---
--- This module says "the Chinese remainder theorem" for the simultaneous
--- congruence result it runs on, and that name was used without being
--- checked â” in a session whose brief was to build from Indian sources and
--- credit the origin rather than the restatement, and three modules after
--- building ryabhaa's kuaka by name.
+-- PROVENANCE.  The simultaneous-congruence result this module runs on:
 --
 -- The **kuaka** (*ryabhaya* 2.32â“33, 499 CE) is a general
 -- constructive method for exactly this problem â” given remainders against
@@ -146,6 +131,4 @@ walk8-residues = crtChain walk8 walk8-coprimes
 -- 1247.  Both traditions have it, and this file's own chain runs on the
 -- Indian one: `CoprimePowers`, `BezoutIsGCD` and `CoprimePowersN` all
 -- carry B©zout certificates, which is what the pulveriser returns.
---
--- Nothing mathematical changes.  The citation does.  See
 ------------------------------------------------------------------------

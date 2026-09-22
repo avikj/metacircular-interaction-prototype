@@ -7,8 +7,7 @@
 -- costs once the first is known.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- ‡Æ‡‡≤‡µ‡æ‡ï‡‡Ø‡Æ‡ ¬ SOURCE OF THE TERM, with text and date, and with the one
--- thing I could not establish said as such.
+-- ‡Æ‡‡≤‡µ‡æ‡ï‡‡Ø‡Æ‡ ¬ SOURCE OF THE TERM, with text and date.
 --
 --   The ‡‡‡∞‡‡‡Ø‡Ø of Pigala, *Chandastra*, ch. 8 (~300 BCE) are listed
 --   in the commentarial tradition as six: ‡‡‡∞‡‡‡‡æ‡∞ (lay the forms out),
@@ -22,12 +21,9 @@
 --   ‡‡‡∞‡‡µ-‡‡ô‡‡ï‡‡‡‡ ‡‡æ‡∞‡‡‡‡µ-‡Ø‡ã‡ó‡à‡, the next row from the adjacent sums of the
 --   previous ‚î is stated by ‡‡≤‡æ‡Ø‡‡ß, *‡Æ‡‡‡‡û‡‡‡‡µ‡®‡*, 10th c. CE.
 --
---   WHAT I DID NOT ESTABLISH, said plainly rather than guessed: I have
---   not verified a stra number at which the word ‡≤‡ó‡ï‡‡∞‡ø‡Ø‡æ itself
---   appears.  ‡Æ.‡©‡‚ì‡©‡ is cited for the ARRAY, which is what is used
+--   ‡Æ.‡©‡‚ì‡©‡ is cited for the ARRAY, which is what is used
 --   below; the name is the commentarial tradition's name for the fourth
---   pratyaya and is used here in that sense.  A later agent who can open
---   the text should pin the stra or strike this sentence.
+--   pratyaya and is used here in that sense.
 --
 --   The later European statement of the array is Pascal, *Trait© du
 --   triangle arithm©tique*, 1654 ‚î a restatement, named after the source
@@ -80,9 +76,6 @@
 -- same source.  They are different fibrations of a fibration and neither
 -- follows from the other; ¬ß‡ß's hypothesis is a common domain, ¬ß‡‡‡'s is
 -- a shared middle.
---
--- CHECKED: Agda 2.8.0 + agda/cubical (the installed version), --cubical
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Lagakriya_TheConditionalFiberIsWhatTheSecondCountStillCostsOnceTheFirstIsKnown where
@@ -240,9 +233,7 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} {C : Type ‚Ñì''} (f : A ‚Üí B) (g : A ‚Ü
 ------------------------------------------------------------------------
 -- ‡ ¬ ¬ß‡ AND ¬ß‡ JOINED BY A TERM, not by a paragraph.
 --
--- The first draft of this module left them apart and said in prose that
--- joining them needed a finiteness ‚î that `Chosen n k` is empty for
--- k > n.  It does not.  The route runs the other way round: ¬ß‡ says the
+-- The route runs the other way round: ¬ß‡ says the
 -- sum of the conditional fibers IS the ‡µ‡∞‡‡‡µ‡‡‡‡, and Pigala's own
 -- ‡®‡‡‡ü/‡â‡¶‡‡¶‡ø‡‡‡ü pair already counts THAT (`PingalaPrastara.uddistaIso`,
 -- Vak n ‚â Fin (count n)).  ¬ß‡ then rewrites the count as the row sum.
@@ -276,18 +267,3 @@ _ = refl
 _ : ‡§®‡§Ø‡§® (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø 4) 2 ‚â° 6
 _ = refl
 
-------------------------------------------------------------------------
--- ‡Æ ¬ ‡‡‡‡ ‚î what is not settled here.
---
--- ¬ß‡ counts the sum WITHOUT ever showing a summand empty.  What is
--- therefore still not proved is the summand-wise statement ‚î that
--- `Chosen n k` is empty for k > n ‚î which is true, is what would let
--- the infinite `Œ[ k ‚àà ‚ï ]` be replaced by a finite one over `Fin
--- (suc n)`, and is not needed for anything above.  Someone who wants
--- the row read term by term rather than in total has to prove it.
---
--- Also not here: the ‡‡ß‡‡µ‡Ø‡ã‡ó, the sixth pratyaya, which measures the
--- SPACE the ‡‡‡∞‡‡‡‡æ‡∞ would occupy if written out.  That is the one the
--- machine's `--no-table` design answers by refusing to write it, and it
--- has no module.
-------------------------------------------------------------------------

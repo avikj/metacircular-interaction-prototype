@@ -3,13 +3,7 @@
 ------------------------------------------------------------------------
 -- MajorityLiesStrictlyBetweenAllAndSome
 --
--- Closes the last item I left open on this line.
--- `RateOneIsExactlyTheUniversalClaim` said:
---
--- 'More than half' is stateable as `length xs < 2 ย count xs`; it is not
--- stated, and no threshold other than 1 is analysed."
---
--- It is stated here, and the three claim-shapes are separated by two
+-- Majority is stated here, and the three claim-shapes are separated by two
 -- populations: majority holds where the universal claim fails, and
 -- fails where the existential holds.  So the tolerances are strictly
 -- ordered and `DARWIN_GODEL_MATH.md` ยง7's mixture of a label criterion
@@ -27,9 +21,6 @@
 --
 -- With `RateOneIsExactlyTheUniversalClaim`'s equivalence (rate one IS
 -- the ฮ ), the three sit in order and each separation is witnessed.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 โ” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module MajorityLiesStrictlyBetweenAllAndSome where
@@ -107,25 +98,13 @@ positiveWithoutMajority = someHolds , majorityFails
 -- three strengths, and calling a label-failure "noise" would be reading
 -- the strongest of them as the weakest.
 --
--- Two populations are two populations.  No general theorem about
--- thresholds is proved, no other fraction is analysed, and the order
--- exhibited is exactly the one these witnesses establish.
+-- Two populations are two populations; the general theorem over all
+-- thresholds is `TheThresholdOrderIsTotalAndTheClaimIsAntitone`, below.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "no threshold order is shown TOTAL over all fractions -- two
---    populations are two populations, not a chain -- and no fraction
---    other than 1/2 and 1 is analysed."
---
--- Both halves are now discharged, in
--- `TheThresholdOrderIsTotalAndTheClaimIsAntitone`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin -- check.sh returns 1 and says so).
---
--- The move was to stop exhibiting populations and state the family:
+-- The general family is in `TheThresholdOrderIsTotalAndTheClaimIsAntitone`.
+-- It states the family rather than exhibiting populations:
 --
 --   AtLeast p q bs        = p ย length bs โ suc q ย count bs
 --   (p , q) โ (p' , q')   = p ย suc q' โ p' ย suc q
@@ -140,12 +119,11 @@ positiveWithoutMajority = someHolds , majorityFails
 -- so every fraction is analysed, by one theorem, and ยง2 and ยง4 above
 -- become two instances of it rather than the evidence for it.
 --
--- WHAT THAT DOES NOT DO to the module above.  `Majority` here is
+-- RELATION to the module above.  `Majority` here is
 -- STRICT (length < 2 ย count); `AtLeast 1 1` there is the non-strict
--- "at least half", which is weaker, and the strict/non-strict gap is
--- not analysed in either place.  `โ` is a total PREORDER and not an
--- order: (1,1) and (2,3) name one rate and stay two pairs, unquotiented.
--- And the converse of antitone still fails -- `majorityWithoutAll` above
+-- "at least half", which is weaker.  `โค` is a total PREORDER and not an
+-- order: (1,1) and (2,3) name one rate and stay two pairs.
+-- And the converse of antitone fails -- `majorityWithoutAll` above
 -- is the witness that it fails -- so the chain orders the CLAIMS, not
 -- the populations.
 ------------------------------------------------------------------------

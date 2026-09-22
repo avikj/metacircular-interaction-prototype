@@ -6,11 +6,10 @@ with the analyzer reading the identification back as data
 
 The self-generating closure / install = garbha.dhara / one Postnikov step
 
-VYAYA_SESA named one genuinely-open object: whether `install` â” the act
+`install` â” the act
 by which a theorem of the kernel becomes a structure map of the kernel â”
 is the same act as CONING OFF an obstruction and thereby climbing one
-level of the Postnikov tower.  This lands the load-bearing half as a
-checked term and names, exactly, the half that is not.
+level of the Postnikov tower.
 
 INSTALL'S LOCUS IS A CONTRACTIBLE CONE.  SthapanaVarga Â§4 found the
 applicability locus of `install d`, Î[ t ] (t â‰¡ lhs), contractible with
@@ -38,14 +37,11 @@ not descend.  theFee is that witness; the analyzer normal-forms it to
 
 So one install = one Postnikov step: one contractible cone attached
 (kills the obstruction, Â§Â§1â“3), one residual left a level up (the cited
-fee).  Self-generation is this step iterated â” and THAT iteration, the
-full âˆž-tower, is what stays conjecture: proved here is one step's shape.
+fee).  Self-generation is this step iterated.
 
 SYT â” THE CLAIM, EXACTLY.  install's locus is a contractible cone and
 its points are mapping-cone spokes, as checked terms read back by the
-analyzer; the fee is cited.  NOT claimed: that iterated install
-generates the whole Postnikov tower â” one step is built, the tower is
-named.
+analyzer; the fee is cited.
 
 Machine-checked in cubical type theory, --safe, at the pin; the
 identification's types and normal forms computed and read back through

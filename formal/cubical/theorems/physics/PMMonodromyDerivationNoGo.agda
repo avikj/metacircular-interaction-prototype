@@ -96,8 +96,8 @@ cycleCharge charge =
   ⊕ charge Torus.ZZ)
   ⊕ charge Torus.XX
 
--- This is the representative used by PMIncidenceLocalSystem.  It is written
--- here explicitly so its status is honest: PauliWeyl derives the odd class,
+-- This is the representative used by PMIncidenceLocalSystem.  PauliWeyl derives
+-- the odd class,
 -- while this extra gauge choice locates that class on one overlap.
 zzRepresentative : EdgeRepresentative
 zzRepresentative Torus.XI = false
@@ -117,12 +117,3 @@ representative-matches-derived-class :
   cycleCharge zzRepresentative ≡ PM.total Weyl.derived-s
 representative-matches-derived-class =
   zz-representative-is-odd ∙ sym derived-total-is-odd
-
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked: all endpoint-derived edge rules give trivial cycle charge, the
--- operator-derived PM sign vector has odd total, and the explicit ZZ gauge
--- representative has that same odd class.
---
-------------------------------------------------------------------------

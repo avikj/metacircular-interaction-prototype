@@ -7,17 +7,7 @@
 -- exact falsifier for the tempting inference that observational equality
 -- prices the implementation which produces the observation.
 --
--- Random-sample collision (2026-08-14):
---
---   * machinery/observer_channel.py audits exact response sufficiency only
---     on its declared finite state rows;
---     fabrication, calibration, sampling, and post-action return;
---   * collab/messages/0415-codex-seshat-tester-statistics-cost-result.md
---     records equal process statistics with unequal realization cost;
---   * AtomicSatisfaction checks preservation of responses,
---     not preservation of an unmentioned implementation coordinate.
---
--- The general theorem below says why.  If a response fiber contains two
+-- The general theorem: if a response fiber contains two
 -- implementations separated by a cost, no postprocessing of the response
 -- can recover that cost.  The Bool instance has a constant response and an
 -- identity cost, hence refutes response-to-cost descent with two points and

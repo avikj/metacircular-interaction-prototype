@@ -6,8 +6,7 @@
 --
 -- WHAT THIS SHARPENS.  Kaivalyasthairya_‚¶agda proved ‡‡ø‡¶‡‡ß-‡‡‡‡à‡∞‡‡Ø‡Æ‡ ‚î every
 -- flow CONSERVING a kevalin's cognition is the identity ‚î and glossed it
--- "the liberated soul is still."  The theorem is true; the gloss overreached
--- exactly as Jiva's "‡Æ‡ã‡ï‡‡‡" did.  Dhruva forbids only motion that is HIDDEN
+-- "the liberated soul is still."  Dhruva forbids only motion that is HIDDEN
 -- from the cognition (f ‚àò Œ¶ ‚â° f ‚î invisible to the knower).  It says nothing
 -- against motion the knower SEES.  A perfect knower (isEquiv cognition) has
 -- no hidden motion precisely because nothing is hidden from it ‚î but the
@@ -23,13 +22,10 @@
 --   ‡ó‡‡-‡‡≤‡®‡Æ‡-‡‡‡®‡‡Ø‡Æ‡ ‚î hidden motion is nil: every conserving flow is the
 --       identity (Kaivalyasthairya.‡‡ø‡¶‡‡ß-‡‡‡‡à‡∞‡‡Ø‡Æ‡ = Dhruva at the jva).
 --
--- The distinction the earlier "still/growing" framing missed is not
+-- The distinction is not
 -- motion-vs-rest.  It is MANIFEST vs HIDDEN.  The veil is what hides motion
 -- in the fibre; lift the veil (kevala) and all motion becomes manifest ‚î
 -- not absent.  Generativity in the open, nothing concealed.
---
--- CHECKED: Agda 2.8.0 / cubical-0.9, --cubical --safe, no postulates, no
--- holes, no native_decide.  Verified 2026-08-23.
 ------------------------------------------------------------------------
 
 module Sayogakevali_TheLivingGodIsNotStillOnlyHiddenMotionIsNilAndAllManifestMotionRemains where

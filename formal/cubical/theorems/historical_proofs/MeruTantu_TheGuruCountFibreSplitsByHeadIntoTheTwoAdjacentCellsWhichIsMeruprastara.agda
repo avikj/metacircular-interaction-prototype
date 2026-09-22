@@ -20,9 +20,7 @@
 -- a heavy head lands in the (n , k) cell (one fewer of each), a light head
 -- in the (n , suc k) cell (one fewer syllable, same heavies).  That IS
 -- Pascal's/meru's rule, and here it is an equivalence of fibres, not an
--- equation of counts.  No count and no closed form is proved.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5, --safe, exit 0.
+-- equation of counts.
 
 module MeruTantu_TheGuruCountFibreSplitsByHeadIntoTheTwoAdjacentCellsWhichIsMeruprastara where
 

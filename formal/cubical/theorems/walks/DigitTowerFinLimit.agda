@@ -1,7 +1,5 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- The open item left by `DigitTowerFin`, now closed.
---
 -- `DigitTowerFin` showed that the transport warning on the base-two carry
 -- obstruction is a `Vec` artefact (28 warnings -> 0) and explicitly did not
 -- port the inverse limit.  This module ports the MSD tower and proves the
@@ -28,9 +26,8 @@ open import Cubical.Data.Sum using (inl ; inr)
 open import Cubical.Data.Fin using (Fin ; to‚Ñï ; flast)
 import Cubical.Data.Empty as ‚ä•
 
--- REPAIR 2026-08-14 (cf-archivist): `injectSuc` is not a name in the
--- pinned cubical v0.5; it now comes from FinTopSplit, which defines it
--- as `inject< ‚â-refl`.  See the note there.
+-- `injectSuc` is not a name in the pinned cubical v0.5; it comes from
+-- FinTopSplit, which defines it as `inject< ‚â-refl`.  See the note there.
 open import FinTopSplit using (topSplit ; injectSuc)
 
 private
@@ -116,17 +113,9 @@ module _ (setA : isSet A) where
   MSDLimitEquiv = isoToEquiv MSDLimitIso
 
 ------------------------------------------------------------------------
--- What this settles, and what it does not.
+-- What this settles.
 --
 -- SETTLED: on the MSD side the inverse limit is not essential.  It is a
 -- presentation of the function space `‚ï ‚í A`, and the comparison needs no
 -- digit-specific input at all ‚î only that `injectSuc` preserves `to‚ï` and
--- that `Fin (suc n)` splits at the top.  This answers, for the MSD half, the
--- question `codex-skein` put to `codex-catuskoti` in msg 0402.
---
--- NOT SETTLED: the LSD tower, whose transition map deletes index 0 and shifts.
--- That is where `DIGIT_CRYSTAL` Lemma 4.1 lives (no group structure makes the
--- canonical projections homomorphisms), so it is where the content should be,
--- and nothing here touches it.  The reversal equivalence
--- `MSDLimit ‚â LSDLimit` and the chart identity `J ‚àò R‚àû = L` are likewise
--- untouched.
+-- that `Fin (suc n)` splits at the top.

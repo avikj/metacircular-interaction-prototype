@@ -43,10 +43,6 @@
 -- Every declaration below is an instantiation, a `refl`, or one line.
 -- `LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt` records
 -- the rule this follows: where a joint takes work, the joint is wrong.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical, with the back-port in
--- `Tantujala` is checked under the pin (2.8.0 / v0.9) by its author and
--- also checks here.
 ------------------------------------------------------------------------
 
 module YantraTantu_TheEngineLivesInTheFiberOfItsDenotation where
@@ -151,16 +147,3 @@ private
 -- space can produce it.  Only a new symbol can.
 अप्राप्यम् : रिक्तम् ⟦_⟧ एकः
 अप्राप्यम् (t , p) = znots (sym (सर्वं-शून्ये-लीयते t) ∙ funExt⁻ p शून्य-परिस्थितिः)
-
-------------------------------------------------------------------------
--- � � ���� � what this does not settle
---
--- It does not say the engine's invention step is wrong, only that its
--- trigger is measured on the wrong verdict: `kConceptGain` is a
--- description-length gain, a quantity about ���, and �������� is the
--- condition under which invention is the ONLY move.  Nothing here
--- computes �������� for the engine's real vocabulary, and §� is one
--- witness, not a decision procedure.  `Tantujala` §� is also in force:
--- where there is no map there is no fiber, and the engine's own
--- "no question was posed" case is not on this axis.
-------------------------------------------------------------------------

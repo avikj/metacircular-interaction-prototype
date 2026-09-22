@@ -11,10 +11,8 @@
 -- every generated equation denotes a universally quantified equality of
 -- naturals, and the Agda kernel checks all seven proofs.
 --
--- This is deliberately a first bounded bridge, not yet a certificate for
--- arbitrary later rounds or invented symbols.  Extending the shared AST and
--- proof-certificate language is the next boundary; finite fingerprints are
--- never treated as proofs here.
+-- This is a bounded bridge, not a certificate for arbitrary rounds or
+-- invented symbols; finite fingerprints are never treated as proofs here.
 ------------------------------------------------------------------------
 
 module HaskellDiscoveryBoundary where
@@ -66,20 +64,12 @@ z = var 2
 -- serialises.  A change in generation, canonicalisation, proof admission,
 -- or ordering changes the generated AST and breaks the refl bridge.
 
--- [2026-08-23.  THE MACHINE GOT BETTER AND THIS LIST DID NOT, so the
---  button reported FAILED for a search that had improved.  It now finds
---  EIGHT identities where this pin held four; the four added are
---  x â‰¡ 1Âx, x â‰¡ x+0, x+y â‰¡ y+x, and suc x + y â‰¡ suc (y+x) -- i.e. it
---  discovered COMMUTATIVITY OF ADDITION and the two unit laws it had been
---  missing.  The bridge was right to refuse: it certifies only what has a
---  soundness proof, and those four had none.  They have one now.
---
---  Note which are refl and which are not.  The original four were all
---  definitional in cubical â• (0+n, suc n+m, 0Ân, 1+n all reduce).  THREE
---  OF THE FOUR NEW ONES ARE NOT: n â‰¡ n+0 and n â‰¡ 1Ân need +-zero, and
---  commutativity needs +-comm.  So this is the first time the bridge
---  carries a discovery whose soundness is a THEOREM rather than a
---  computation -- which is the boundary the header calls the next one.]
+-- Note which are refl and which are not.  Four of the eight are
+-- definitional in cubical â• (0+n, suc n+m, 0Ân, 1+n all reduce).  THREE
+-- OF THE OTHER FOUR ARE NOT: n â‰¡ n+0 and n â‰¡ 1Ân need +-zero, and
+-- commutativity needs +-comm.  So the bridge
+-- carries a discovery whose soundness is a THEOREM rather than a
+-- computation.
 expectedDiscoveries : List Equation
 expectedDiscoveries =
     (x , sucT zeroT Â·T x)

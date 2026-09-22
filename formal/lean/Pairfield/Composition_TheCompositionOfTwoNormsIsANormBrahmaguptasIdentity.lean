@@ -8,12 +8,9 @@
   a² + N b²) is multiplicative. This is the engine beneath the vargaprakṛti /
   cakravāla treatment of what is now miscalled "Pell's equation".
 
-  Scope of the claim. CLAIMED of the source: the composition law / bhāvanā —
+  Brahmagupta's is the composition law / bhāvanā —
   that two "norms" a² + N b² and c² + N d² compose into a single norm, in both
-  the additive (samāsa) and subtractive (antara) signs. NOT claimed of the
-  source: the statement over a general commutative ring, and the `ring`-checked
-  Lean proof below — those are ours, a substrate the identity is verified in,
-  not a contribution attributed to Brahmagupta.
+  the additive (samāsa) and subtractive (antara) signs.
 -/
 
 import Mathlib

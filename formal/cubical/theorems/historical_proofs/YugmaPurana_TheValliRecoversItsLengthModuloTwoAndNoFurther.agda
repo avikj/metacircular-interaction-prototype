@@ -10,7 +10,7 @@
 -- WHAT THIS IS.  This corpus holds THREE no-decoder theorems, in two
 -- lanes and two languages, proved by three unrelated arguments ‚î and all
 -- three are sharp at exactly ‚/2.  None of them says so, and none cites
--- another.  A uniform random draw found the coincidence; this module is
+-- another.  This module is
 -- the one line that explains it.
 --
 --   `KuttakaValli.detReplay`     (Agda)  det (replay v) ‚â° sgn v, where
@@ -47,11 +47,6 @@
 -- ¬ß‡ of ‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡ says ‡Ø‡‡ ‡‡ø‡‡‡†‡‡ø, ‡ï‡ ‡®‡‡‡Ø‡‡ø ‚î the THAT
 -- survives and the WHICH is destroyed.  This module names the surviving
 -- THAT precisely: it is ‚/2, and no more.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther where
@@ -155,25 +150,7 @@ open CommRingStr (‚Ñ§CommRing .snd)
 ‡§Ø‡§§‡•ç-‡§§‡§ø‡§∑‡•ç‡§†‡§§‡§ø v w p = detReplay v ‚àô ‡§ö‡§ø‡§π‡•ç‡§®‡§Ç-‡§¶‡•à‡§∞‡•ç‡§ò‡•ç‡§Ø‡§æ‡§§‡•ç v w p ‚àô sym (detReplay w)
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what this does NOT say.
---
--- It does not say the fibre of `replay` is the set of valls of a given
--- parity: `replay` forgets far more than length, and two valls of one
--- parity generally have different matrices.  The claim is only about what
--- the DETERMINANT sees, which is the coordinate all three no-decoder
--- theorems' witnesses were built to defeat.
---
--- It does not compute the fibre of `replay` itself.  That fibre is the
--- subject rather than a defect ‚î `Gamma0Freeness` is where it lives ‚î and
--- computing it would be a different module.
---
--- And it does not transfer to the Lean lane as a term.  The two
--- `IntMat2`/`euclidStep` results are stated there over a different matrix
--- type in a system without univalence, so the identification is grade
--- three: a real channel, to be constructed rather than asserted.  Stated
--- here as owed, not as done.
---
--- [2026-08-22 ‚î PAID, and paid the only way a grade-three channel can be.]
+-- THE LEAN COUNTERPART.
 -- `formal/lean/Pairfield/YugmaPurana_TheEvenPaddingIsForcedAndThe-
 -- DeterminantSaysWhy.lean` proves ¬ß‡®‚ì¬ß‡ again over `IntMat2`, natively, and
 -- states the tightness at the two Lean sites:

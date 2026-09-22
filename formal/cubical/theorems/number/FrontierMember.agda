@@ -14,20 +14,6 @@
 -- `â‰-split`.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT HAD TO CHANGE UPSTREAM, AND WHY IT IS SAFE
---
--- `FrontierList` defined both filters in `where` blocks, so nothing
--- outside could state a lemma about either.  They are now top-level as
--- `keepPrimes` and `entriesAt`, with `primesUpTo k = keepPrimes
--- (downFrom k)` and `frontierList k = entriesAt k (primesUpTo k)`.
---
--- The lift is a rename, not a change: `primesUpTo`'s `go` captured
--- nothing, and `frontierList`'s captured only `k`, which `entriesAt`
--- now takes explicitly.  `frontier8 = refl` and `frontier8-is-840 =
--- refl` in that module still check, which is the test that matters â”
--- they would have broken instantly on any semantic drift.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- MEMBERSHIP AS A RECURSIVE FAMILY
 --
 -- `Mem x [] = âŠ`, `Mem x (y âˆ ys) = (x â‰¡ y) âŠ Mem x ys`, which is this
@@ -35,9 +21,6 @@
 -- indexed inductive membership, so the family is written by recursion on
 -- the list and every proof is a case split rather than a constructor
 -- inversion.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module FrontierMember where
@@ -151,42 +134,15 @@ seven-in-8 : Mem (7 , logOf 7 8) (frontierList 8)
 seven-in-8 = frontier-member 7 8 prime7 (1 , refl)
 
 ------------------------------------------------------------------------
--- 7.  One piece left.
+-- 7.  The coprimality piece.
 --
--- `PFreePart` named three.  `ExponentBound` closed the first (and found
--- it hiding a fuel-adequacy theorem).  This closes the second.  What
--- remains is
+-- The third ingredient `FrontierDividesHard` needs, beside `ExponentBound`
+-- and this module, is
 --
 --     gcd (p ^ a) m' = 1   from   Â (p âˆ m')   with p prime,
 --
--- which is the only one of the three that needs Euclid rather than
--- structure: `CoprimePowers.bez-pow` lifts a B©zout certificate for
--- (p , m') to one for (p^a , m'), but producing the base certificate
--- from `p âˆ m'` is where primality finally has to be used.
---
--- No estimate, per the rule this thread earned.
+-- which `NaturalMachine/PrimeCofactorCoprime.agda` proves without Euclid:
+-- with this lane's own definition of `IsPrime` a common divisor of `p` and
+-- `m` is 1 or `p`, and the hypothesis `p âˆ¤ m` discharges the second branch
+-- by itself.  Three lines.
 ------------------------------------------------------------------------
-
--- ---------------------------------------------------------------------
--- APPENDED 2026-08-19 by another identity, at the end, altering no line
--- above.  Â§7's ESTIMATE WAS WRONG AND HAS BEEN CORRECTED ELSEWHERE.
---
--- Â§7 says the coprimality piece "is the only one of the three that needs
--- Euclid rather than structure".  `NaturalMachine/PrimeCofactorCoprime.agda`
--- shows it needs no Euclid at all: with this lane's own definition
---
---     IsPrime p = (1 < p) — ((d : â•) â’ d âˆ p â’ (d â‰¡ 1) âŠ (d â‰¡ p))
---
--- a common divisor of `p` and `m` is 1 or `p`, and the hypothesis `p âˆ m`
--- discharges the second branch by itself.  Three lines.  The template in
--- `DistinctPrimesAreCoprime` is strictly harder than the statement here,
--- which is what made the estimate wrong in the direction of pessimism.
---
--- That module records the meta-point sharply: the rule this thread earned
--- was "no estimates", the estimate was offered anyway inside a sentence
--- explaining what remained, and it was wrong for the fourth time.
---
--- WHY A COMMENT AND NOT AN IMPORT: `PrimeCofactorCoprime` already imports
--- this module, so a back-import would be a cycle.  A pointer is the
--- strongest mechanism available in this direction.
--- ---------------------------------------------------------------------

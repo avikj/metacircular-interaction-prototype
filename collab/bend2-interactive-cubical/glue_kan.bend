@@ -1,8 +1,4 @@
 # hcomp in a Glue type (CCHM): type preservation and the two boundary laws.
-# The CHARACTERISTIC law (unglue of the composite = the A-composite with an
-# extra face per phi forcing f of the T-filler) cannot be stated in surface
-# syntax: it needs restricted types A[phi |-> u], which do not exist yet.
-# See REMAINING.md section C.
 def isContr(A: Set) -> Set:
   any c: A. (all x: A. Path(A, c, x))
 def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:

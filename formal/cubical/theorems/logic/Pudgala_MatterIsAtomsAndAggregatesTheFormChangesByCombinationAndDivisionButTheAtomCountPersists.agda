@@ -69,8 +69,7 @@ module _ (Paramanu : Type ℓ) where
   -- §1  The atom, the aggregate, combination, division, count.
   ------------------------------------------------------------------------
 
-  -- a skandha is a finite plurality of atoms (multiplicity via List;
-  -- binding geometry not modelled � see header)
+  -- a skandha is a finite plurality of atoms (multiplicity via List)
   Skandha : Type ℓ
   Skandha = List Paramanu
 

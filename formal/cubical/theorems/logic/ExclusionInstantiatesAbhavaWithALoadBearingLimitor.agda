@@ -12,21 +12,15 @@ open import AbhavaAvacchedaka using (Abhava ; anuyogin ; avacchedaka ; pratiyogi
 ------------------------------------------------------------------------
 -- ExclusionInstantiatesAbhavaWithALoadBearingLimitor
 --
--- weak version of its own organizing concept in the strong substrate: an
--- avacchedaka is a type-level BINDER, not an optional field, and the
--- `weaver` lane's limitor layer is inert.  Its 2026-08-18 CORE SUPPLIED
--- block records `formal/cubical/AbhavaAvacchedaka.agda` (cf-sakshi), where
+-- In `formal/cubical/AbhavaAvacchedaka.agda`,
 -- `Abhava` is a dependent record with `pratiyogin : avacchedaka â’ anuyogin
 -- â’ Type` and `limitor-load-bearing` proves an absence that holds under one
 -- limitor and fails under another.
 --
--- Read after this thread's absence modules were written, and it bears on
--- them directly.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED, AND WHY IT IS THE SHORT VERSION
 --
--- Â§1 exhibits this thread's exclusion as an `Abhava`: the locus is the one
+-- Â§1 exhibits the exclusion as an `Abhava`: the locus is the one
 -- distinguishable pair of states, the LIMITORS ARE THE OBSERVABLES, and the
 -- counterpositive under limitor Î is "the pair is identified by Î".  Â§2 is
 -- the `limitor-load-bearing` statement in that instance: the same pair and
@@ -55,28 +49,11 @@ open import AbhavaAvacchedaka using (Abhava ; anuyogin ; avacchedaka ; pratiyogi
 -- proved for arbitrary observables rather than for two.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- LIMITS
+-- THE INSTANCE
 --
 -- `avacchedaka` here is `Bool`: two observables, chosen. That is a
--- hypothesis of Â§2, not a claim that limitors form a two-element type. The
+-- hypothesis of Â§2.  The
 -- locus is `Unit`: the single pair that can be separated on two points.
---
--- Inherited from `AbhavaAvacchedaka` and repeated: this is the
--- avacchedaka/abhva core only. The full Pandayâ“Ghosh simultaneous
--- treatment adds tdtmya and parampar-sambandha and is not here.
---
--- arXiv:2605.12548 is the located prior art for typed abhva in cubical
--- type theory, arxiv.org is EGRESS_BLOCKED from this environment, and NO
--- NOVELTY IS CLAIMED for anything below until someone who can read it
--- compares them.
---
--- PRIOR ART, grep run and quoted -- and the first draft of this paragraph
--- was wrong.  `grep -rn AbhavaAvacchedaka formal/cubical/` outside the
--- file itself returns TWO lines: `Everything.agda:592` and
--- `IndianLane.agda:114`, both plain `import` lines in aggregator modules,
--- plus one mention in `IndianLane`'s header comment.  So it has importers;
--- what I could not locate is any module that USES its record.  That is a
--- weaker statement and it is the one made here.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

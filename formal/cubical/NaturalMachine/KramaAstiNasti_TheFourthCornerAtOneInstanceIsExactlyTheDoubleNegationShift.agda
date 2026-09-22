@@ -4,8 +4,7 @@
 -- NaturalMachine.TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
 --
 -- `TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet` gave a
--- second SUFFICIENT condition for refuting the fourth corner and closed:
---
+-- second SUFFICIENT condition for refuting the fourth corner.
 --
 -- A necessary one is here, for one family, and it identifies the corner
 -- with a named principle instead of describing it.
@@ -37,36 +36,28 @@
 --       is NECESSARY and not merely sufficient: the corner exists only
 --       where `Stable (Q r)` fails at some r
 --
--- The last one is the point.  Two modules gave sufficient conditions and
--- said no necessary one was known.  Here the condition is necessary, so
+-- The last one is the point.  Here the condition is necessary, so
 -- the search for the fourth corner is not "look for an exotic instance
 -- family" ‚î a ONE-element instance family already suffices, and the
--- whole question is whether the BADNESS is stable.  The earlier
--- `Enumerated` route was answering a question the corner does not ask.
+-- whole question is whether the BADNESS is stable.
 --
--- EXISTENCE IS STILL OPEN. DNS is not provable in this substrate and NOT
--- refutable in it either ‚î exhibiting a failure needs a model, and no model
--- is constructed here, nor can one be from inside `--safe` cubical without
--- postulates. What changes is the STATUS of the question: it is no longer "is
+-- EXISTENCE.  DNS is not provable in this substrate and NOT
+-- refutable in it either; exhibiting a failure needs a model.  What
+-- changes is the STATUS of the question: it is no longer "is
 -- there an exotic configuration?" but "does this substrate validate DNS?",
 -- which is a question with a literature and an answer that depends on the
--- metatheory. Nothing here claims the fourth corner is consistent,
--- inconsistent, or independent.
+-- metatheory.
 --
 -- The `Unit` instance set is a specialisation: the equivalence is
--- proved for it and NOT for a general instance family, where
--- `¬ ‡‡æ‡Æ‡Ø‡ø‡ï` does not reduce this way.
+-- proved for it.
 --
 -- School named before the term: ‡‡æ‡Æ‡Ø‡ø‡ï and ‡®‡ø‡‡‡Ø are `AnuktaAvaktavya`'s,
 -- another identity's, imported unchanged; the fourth corner is the
 -- position in the saptabhag reading that module sets up.  The
--- double-negation shift is not a Jaina notion and no claim is made that
--- it is ‚î the identification is between a configuration this repository
+-- double-negation shift is not a Jaina notion; the identification is
+-- between a configuration this repository
 -- wrote down and a principle from proof theory, and it is an
 -- identification of the FORMULA, not of the two traditions' concerns.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
@@ -152,13 +143,8 @@ fourthCornerRefutesPointwiseStability Q corner stab =
     d = fourthCornerGivesDNSFailure Q corner
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no line
--- above.
---
 -- Enumerability of the REMEDY set is a different matter and is NOT
--- inert.  In `NaturalMachine.AnEnumerableRemedySetKillsTheFourthCorner`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin ‚î check.sh returns 1 and says so):
+-- inert.  In `NaturalMachine.AnEnumerableRemedySetKillsTheFourthCorner`:
 --
 --   finiteDNSList   `All (¬¬ P) xs ‚í ¬ ¬ All P xs`, by induction ‚î no
 --                   decidability, no choice
@@ -170,24 +156,17 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 -- **THE TWO ENUMERABILITY HYPOTHESES ARE NOT SYMMETRIC.**  Enumerating
 -- the INSTANCES buys nothing ‚î one instance suffices for the corner and
 -- one instance is enumerable.  Enumerating the REMEDIES buys
--- everything: DNS becomes a theorem and the corner cannot exist.  An
--- earlier module reached for `Enumerated` on the wrong side of the pair;
--- that is now said, with the right side identified.
+-- everything: DNS becomes a theorem and the corner cannot exist.
 --
--- WHERE THE CORNER CAN LIVE, as narrow as it has been: a
+-- WHERE THE CORNER CAN LIVE: a
 -- NON-ENUMERABLE remedy set with a badness that is not stable.
 --
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end.  Renamed from
--- `Avaktavya_*` to `KramaAstiNasti_*`: the previous term was wrong.
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
 -- this line's "fourth corner" is a product of two independent
 -- negations and that simultaneous refusal collapses into the
 -- sequential pair, so the position is the THIRD bhaga ‚î
--- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.  The full
--- correction is recorded at
--- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
--- Only the `module` line changed here; no statement was touched.
+-- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.
 ------------------------------------------------------------------------

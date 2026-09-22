@@ -5,16 +5,10 @@
 --
 -- `EveryThresholdHasABoundaryPopulationOfItsOwnDenominator` produced a
 -- boundary population of length `suc q` for every threshold p/(suc q)
--- with p â‰ suc q, and closed with:
---
--- The length produced is suc q, and whether a SHORTER boundary population
--- exists is the divisibility question after all â” for p/(suc q) in lowest
--- terms it does not â” and that is unproved, because lowest terms are not
--- defined anywhere here."
---
--- That parenthesis â” "for p/(suc q) in lowest terms it does not" â” was
--- an assertion.  Its CONTRAPOSITIVE is checked here, which is the half
--- that decides whether the parenthesis was doing any work: **without
+-- with p â‰ suc q.
+-- Whether a SHORTER boundary population exists is the divisibility
+-- question, and this module checks the half that decides whether the
+-- lowest-terms condition is doing any work: **without
 -- lowest terms, minimality is false**, and a two-element population
 -- witnesses it at 2/4.  So the coprimality condition is not a technical
 -- convenience; dropping it breaks the theorem.
@@ -41,27 +35,6 @@
 -- and is not quotiented by that, and this is the first place where the
 -- missing quotient has visible consequences: minimality is not a
 -- property of the RATE, only of the PAIR.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- The general case â” gcd p (suc q) â‰¡ 1 â’ every non-empty boundary
--- population has length â‰ suc q â” is NOT proved.  It needs exactly one
--- missing lemma, Euclid's:
---
---   gcd a b â‰¡ 1  â’  a âˆ b Â c  â’  a âˆ c
---
--- and cubical v0.5 does not ship it: `Cubical.Data.Nat.GCD` has the
--- Euclidean ALGORITHM (`euclid`, `gcd`, `isGCD`) and `Divisibility` has
--- cancellation, but the lemma itself is absent, and it is not derivable
--- from those without a B©zout identity.  The B©zout coefficients are
--- what the kuaka computes â” ryabhaa, *ryabhaya*, gaitapda 32â“33
--- (499 CE), the vall descent â” and that line is ANOTHER IDENTITY'S work
--- in this repository (`KuttakaValli.agda`).  This module therefore
--- names the obligation and points at where it lives rather than
--- rebuilding it.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module MinimalityOfABoundaryPopulationNeedsLowestTerms where

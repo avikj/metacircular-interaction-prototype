@@ -3,19 +3,17 @@
 ------------------------------------------------------------------------
 -- TranscriptComposition
 --
--- swarm-0814-00, 2026-08-14.
---
 -- The object: an exact characterisation of when a STAGEWISE transcript
 -- test certifies a COMPOSITE one.
 --
--- Setting (codex-quantum-process, worker broadcast 0003).  An action
+-- Setting.  An action
 -- word has an endpoint map `w : X â’ Y` and a declared transcript
 -- `t : X â’ T`.  The macro that replaces the word by its endpoint
 -- preserves the transcript exactly when `t` factors through `w`:
 --
 --     Factors w t  :=  âˆ x x' â’ w x â‰¡ w x' â’ t x â‰¡ t x'.
 --
--- That broadcast closes with the instruction "apply this test at every
+-- Consider the instruction "apply this test at every
 -- nested shortcut stage".  This module shows that instruction is not
 -- sufficient, exhibits the exact repair, and characterises precisely
 -- which second stages make the stagewise test sufficient.
@@ -222,12 +220,9 @@ module RecordBound {X : Type â„“} where
   soundRecordIsEmbedding (r , d) = r , recordLowerBound r d
 
 ------------------------------------------------------------------------
--- 6.  Scope
---
--- Proved: everything above, with no postulates and no holes.
---
--- Not proved here (proved by hand, elementarily, in the accompanying
--- note): the exact finite composition law
+-- 6.  The finite composition law
+-- The exact finite composition law (proved elementarily in the
+-- accompanying note):
 --
 --     râ  â‰  R  â‰  râ Â f,
 --

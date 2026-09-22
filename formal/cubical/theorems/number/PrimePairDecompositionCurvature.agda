@@ -15,8 +15,7 @@
 -- This is a decomposition-loss certificate, not a primality theorem.
 -- In particular the integer tuple (3,5,7) is the familiar exceptional path:
 -- it contains a form equal to the local modulus itself and therefore lies
--- outside the `Unit3` carrier.  Nothing below proves Goldbach, a prime-pair
--- asymptotic, or the absence of prime triples in the integers.
+-- outside the `Unit3` carrier.
 ------------------------------------------------------------------------
 
 module PrimePairDecompositionCurvature where

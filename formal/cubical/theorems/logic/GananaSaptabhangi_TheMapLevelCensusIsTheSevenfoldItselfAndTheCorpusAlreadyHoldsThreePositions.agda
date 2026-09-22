@@ -4,7 +4,7 @@
 -- ‡ó‡‡®‡æ-‡‡‡‡‡‡ô‡‡ó‡ ‚î the map-level census IS the sevenfold, and the corpus
 -- already holds witnesses of three distinct positions.
 --
--- THE IMPURITY REPAIRED.  `SakalaVikalaDesa` made the census a term ‚î but
+-- `SakalaVikalaDesa` made the census a term ‚î but
 -- PER POINT: three constructors (‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ / ‡‡ï‡≤‡æ‡¶‡‡ / ‡µ‡ø‡ï‡≤‡æ‡¶‡‡) at each b.
 -- A MAP's character is which of the three kinds occur anywhere across its
 -- codomain ‚î a selection from three seeds ‚î and the non-empty selections
@@ -21,7 +21,7 @@
 -- following the note's own readings (empty fibre = avaktavya, ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡;
 -- crowded = the loss).
 --
--- THE THREE WITNESSES, all already in the corpus, now classified:
+-- THE THREE WITNESSES, all already in the corpus, classified:
 --
 --   id : Bool ‚í Bool     every fibre contractible          ‚í pure ‡‡‡‡‡ø
 --   ‡‡ï‡Æ‡ : Bool ‚í Unit    every fibre crowded               ‚í pure ‡®‡æ‡‡‡‡ø
@@ -29,17 +29,12 @@
 --                        NEVER crowded (injectivity ‚ü the
 --                        fibres are propositions)          ‚í ‡‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø
 --
--- Three maps, three DIFFERENT bhagas, each coordinate a term.  The
--- remaining four positions are combinations awaiting their canonical
--- witnesses; they exist (e.g. Bool ‚í Bool ‚ä Unit hitting one point
--- doubly and one not at all is ‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø) and are left as the open
--- frame, stated not smuggled.
+-- Three maps, three DIFFERENT bhagas, each coordinate a term.
 --
--- GRADE.  The classification records below are MINE (built 2026-08-23);
+-- GRADE.  The classification records below are this module's;
 -- the sevenfold count and the seed reading are Saptabhangi's and
 -- SakalaVikalaDesa's respectively; Malliea (Sydvdamajar, 1292, at
--- ‡‡‡‡¶ grade via the note) for sakaldea/vikaldea.  No claim that any
--- Jain author classified functions; the claim is that their selection
+-- ‡‡‡‡¶ grade via the note) for sakaldea/vikaldea.  Their selection
 -- algebra is this classification's type, on the nose.
 ------------------------------------------------------------------------
 
@@ -154,10 +149,7 @@ asNat-‡§Ö‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç = asNat-‡§Ö‡§∏‡•ç‡§§‡§ø , a
     (isContr‚ÜíisProp c (fst (‡§è‡§ï‡§Æ‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø tt)) (fst (snd (‡§è‡§ï‡§Æ‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø tt))))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  Four positions lack canonical witnesses here (‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø,
--- ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, pure ‡‡µ‡ï‡‡‡µ‡‡Ø ‚î which needs an EMPTY source against an
--- inhabited codomain ‚î and the full triple).  They exist; they are left
--- as the open frame.  And the selection "none of the three" is the empty
+-- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  The selection "none of the three" is the empty
 -- selection, excluded for inhabited B exactly as Saptabhangi's ‡ï‡‡‡-‡‡‡‡
 -- excludes the empty combination: 2¬≥ ‚àí 1.  The count is the theorem.
 ------------------------------------------------------------------------

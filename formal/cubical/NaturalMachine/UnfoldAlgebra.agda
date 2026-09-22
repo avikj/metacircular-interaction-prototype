@@ -88,12 +88,10 @@
 --         is 0 and the two policies agree there.  `unfold-fixes-base`
 --         is the reason; this is its arithmetic shadow.
 --
--- §6  THE BRIDGE.  `NaturalMachine.Obstruction`'s own disclaimer says:
---
---        "The coverage chain (T5-T10) never mentions `witness`, `body`,
---         `unfold` or T1-T2. � the definitional content of a proposal
---         and the progress made by proposing it are proved side by side
---         and never interact."
+-- §6  THE BRIDGE.  In `NaturalMachine.Obstruction` the coverage chain
+--     (T5-T10) never mentions `witness`, `body`, `unfold` or T1-T2: the
+--     definitional content of a proposal and the progress made by
+--     proposing it are proved side by side and never interact.
 --
 --     `deficit-extend-unfold` makes them interact:
 --
@@ -105,33 +103,8 @@
 --     to the definitional half after all; it is the same number counted
 --     twice.
 --
---
---  * NOT claimed: any chain-level statement.  Every theorem here is
---    about ONE substitution.  Composing the substitutions along an
---    `ObsChain` gives a strictly triangular incidence structure (each
---    body is base over the vocabulary before its own step, so it cannot
---    mention any later residual), and that is the shape a chain-level
---    conservativity and a chain-level size bound would take; neither is
---    proved here, and the triangularity itself is not proved here.
---    WitnessPolicy's "NOT claimed: a size bound on the informative
---    loop's OUTPUT" therefore still stands.
---
---  * NOT claimed: that the informative policy is optimal, canonical, or
---    matchability-improving.  WitnessPolicy proves it is not the last
---    (`policies-agree-on-matching`) and disclaims the first two; nothing
---    here disturbs either.  §5 sharpens the SIZE separation and nothing
---    else.
---
---  * NOT claimed: that `weight` is a new idea.  It is the free monoid's
---    universal property into (�, +, 0) � the Parikh/abelianisation map
---    restricted to one coordinate at a time � and it is old.  What is
---    new here is only that this lane's `unfold` is a substitution and
---    that its three measures are weights, so the standard linear-algebra
---    statement about substitutions applies to them verbatim.
---
 --  * `size` is `WitnessPolicy.size`, the node count, and `�` is
---    multiplication of natural numbers.  Nothing below measures anything
---    outside this model.
+--    multiplication of natural numbers.
 ------------------------------------------------------------------------
 
 module NaturalMachine.UnfoldAlgebra where
@@ -451,8 +424,8 @@ generic-size d b =
 ------------------------------------------------------------------------
 -- 6.  THE BRIDGE.
 --
--- `Obstruction`'s disclaimer records that the coverage/progress lane and
--- the definitional lane "are proved side by side and never interact".
+-- In `Obstruction` the coverage/progress lane and the definitional lane
+-- are proved side by side and never interact.
 -- They do: installing the head and unfolding it are the same number.
 ------------------------------------------------------------------------
 
@@ -528,7 +501,7 @@ proposal-progress-exact V d b t hb hd =
                      ∙ if≡false {x = 0} {y = 1} hd' )
     go (inr e) = if≡false {x = 1} {y = delta V' c} e
 
--- The identification that makes the honesty note above checkable:
+-- The identification that makes the note above checkable:
 -- `GenerativeLoop.gaps d V` IS `count d` when `d` is absent from V.
 gaps-is-count : (V : Vocab) (d : Shape) → memb d V ≡ false
               → (t : Tm) → gaps d V t ≡ count d t

@@ -1,8 +1,6 @@
 # Pratt Plate V2
 
-Canonical working artifact is also stored in the ChatGPT Library at `/Research/Pratt/PRATT_PLATE_V2.md`.
-
-This repository copy records the current mathematical spine and source anchors. Full revision follows the lossless-interaction theorem ledger.
+This repository copy records the current mathematical spine and source anchors.
 
 ## Kernel
 

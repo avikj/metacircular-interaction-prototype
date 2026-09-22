@@ -18,7 +18,7 @@
 -- claimed for no Indian source.
 --
 ------------------------------------------------------------------------
--- WHAT THIS MODULE IS, AND THE GAP IT CLOSES.
+-- WHAT THIS MODULE IS.
 --
 -- The corpus carries FOUR encodings of the sevenfold predication.  Three
 -- are named `‡‡‡‡‡‡ô‡‡ó‡`, and `Punarukti_TwoOfTheThreeSevenfolds‚¶` settled
@@ -52,8 +52,6 @@
 --       verdict on `Bhanga` merges two of its three seeds
 --       (b1-asti / b2-nasti / b4-avaktavya).  Precomposition with the
 --       crossing map; nothing re-cased.
---
--- CHECKED: Agda 2.8.0, --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Namantara_TheLatinLabelledSevenfoldAndTheDevanagariSevenfoldAreOneTypeAndAkalankasCountRoutesAcross where

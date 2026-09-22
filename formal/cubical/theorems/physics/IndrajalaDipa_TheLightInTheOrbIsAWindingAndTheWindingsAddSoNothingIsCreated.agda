@@ -3,8 +3,8 @@
 -- ‡‡®‡‡¶‡‡∞‡‡æ‡≤-‡¶‡‡ ‚î the lamp in Indra's net: the light in the orb is a
 -- winding, and windings ADD, so nothing is created ‚î only passed.
 --
--- The owner's three words ‚î Indra's net, light, orb ‚î are one object
--- with the knot I just put to the kernel (GranthiCarya), wearing the
+-- Indra's net, light, orb ‚î are one object
+-- with the knot of GranthiCarya, wearing the
 -- photonic face:
 --
 --   ‚ THE ORB (README movement 57/61): a diamond, faceted within,
@@ -19,7 +19,7 @@
 --     the whole (holography, S = A/4, the boundary carries the bulk;
 --     content-addressing, where each node reflects the corpus).
 --
---   THE LAW, put to the kernel: when two light loops join in the orb,
+--   THE LAW: when two light loops join in the orb,
 --   their windings ADD (winding-hom).  Charge is conserved under
 --   composition ‚î "no energy created, light only passed."  And a loop
 --   run backwards CANCELS its charge (the mirror knot).  This is ahis

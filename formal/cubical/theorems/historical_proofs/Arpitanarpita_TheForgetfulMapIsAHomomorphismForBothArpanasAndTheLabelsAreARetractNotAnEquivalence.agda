@@ -24,7 +24,7 @@
 -- with no inverse ‚î so the two lanes are related exactly, and the
 -- equivalence between them does not exist.)
 --
--- WHAT WAS OPEN.  Two saptabhag types are checked in this tree and they
+-- THE QUESTION.  Two saptabhag types are checked in this tree and they
 -- contradict each other on two laws:
 --
 --   `Saptabhangi.agda` + `SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`
@@ -37,12 +37,11 @@
 --       (`‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡-‡-‡≤‡‡‡‡‡Æ‡`) and ‡ï‡‡∞‡Æ‡æ‡∞‡‡‡‡Æ‡ is NOT commutative, which that
 --       module states as a withdrawal of the label lane's law.
 --
--- Both files decline to reconcile, and both name the same unclosed
+-- Both files name the same
 -- question, in the same words:
 --
 --     "whether the forgetful map from records to labels is a homomorphism
---      for krama, for saha, or for neither, and that is not checked here
---      and therefore not claimed."
+--      for krama, for saha, or for neither."
 --
 -- This file checks it.  The answer is BOTH, and the consequences are not
 -- what "both" would suggest.
@@ -117,7 +116,7 @@
 --     ‡‡‡∞‡Æ‡æ‡) against ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ (partial statement, ‡®‡Ø).  The reading that
 --     the two lanes were said to differ over ‚î whether ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ is
 --     failure of expression only, or consumption of what was to be
---     expressed ‚î is STILL NOT settled here, and this file does not
+--     expressed; this file does not
 --     settle it.  What it shows is that the question is not what
 --     separates the lanes algebraically: on the labels the seeds are gone
 --     and on the records they are kept, and the two operations agree
@@ -450,7 +449,7 @@ private
 -- ‡®‡‡Ø‡‡®‡‡æ, it is ‡µ‡ø‡®‡æ‡‡, and ‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡ ‡®‡æ‡‡‡‡ø ‚î ‡® ‡¶‡‡∞‡‡≤‡‡Æ‡, ‡®‡æ‡‡‡‡ø ‡  ¬ß‡'s
 -- first path (transport along an equivalence, nothing lost) is therefore
 -- unavailable HERE AS A THEOREM and not as a report of failure to find
--- one.  What is owed is the second path, and ¬ß‡‚ì¬ß‡Ø are it.
+-- one.  The second path is taken in the sections that follow.
 ------------------------------------------------------------------------
 
 -- a standpoint every position provably carries (each constructor has at
@@ -625,8 +624,8 @@ private
 -- The two lanes were said to be separated by a reading of Malliea
 -- (Sydvdamajar, 1292): is ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ the failure of one utterance to
 -- carry a joint content (‡‡ï‡≤‡æ‡¶‡‡ demanded of a ‡µ‡ø‡ï‡≤‡æ‡¶‡‡-shaped medium), or
--- the consumption of what was to be uttered?  That question is still
--- open, and this file must not be read as answering it.
+-- the consumption of what was to be uttered?  This file does not
+-- answer it.
 --
 -- What it removes is a different claim ‚î that the question is what makes
 -- the two algebras incomparable.  It is not.  The two operations agree
@@ -649,49 +648,3 @@ private
 -- refutable one.
 ------------------------------------------------------------------------
 
-------------------------------------------------------------------------
--- ‡ß‡® ¬ ‡Ø‡‡ ‡‡®‡‡Ø‡‡‡∞ ‡® ‡Æ‡ø‡≤‡‡ø ‚î three more carvings in the same tree, read
---       2026-08-20, NOT reconciled here, and named so the next reader
---       does not think this file covered them.
---
--- The two lanes above are not the only saptabhag in `machine/`.  Two
--- further shapes are live, and they are not the record/label difference
--- this file settled:
---
---   `machine/Obstruction.hs`  ‚î a SECOND label type, `Bhanga` = B1‚¶B7,
---     with `Sthana = Position Bhanga | ADharmin`.  Seven positions and an
---     eighth, exactly as `machine/Saptabhangi_TheSevenfoldVerdict.hs`, and
---     a DIFFERENT TYPE with a differently-named eighth (`ADharmin`, no
---     subject to predicate of, against `Apratipatti`, nothing predicated).
---     `machine/NayaKosha_TheStandpointStore.hs` imports Obstruction's and
---     therefore agrees with it, so the split is two-against-one.  The two
---     lanes already disagree, in writing, at the INTERPRETATION function
---     and not at the algebra: `Obstruction.sthana` sets nsti on every
---     refusal by construction, and `Saptabhangi_TheSevenfoldVerdict.
---     vacanaOfRejection` refuses to, on the ground that an unparseable
---     refusal is not formable as a predication.  Nothing here bears on
---     that: this file compares COMPOSITION laws, and those two differ
---     over what a given refusal IS.  A homomorphism argument cannot
---     settle it, for the same reason ¬ß‡ß‡ß gives about Malliea.
---
---   `machine/Naya.hs` ‚î a fifth carving, `Verdict` = Ekartha | Durnaya |
---     KramaBhanga | Avaktavya | Abhinna.  It is NOT the seven: it drops
---     positions five, six and seven, and adds two that are not bhagas at
---     all (Ekartha, "collapse permitted, you said one thing twice", and
---     Abhinna, "the looking was unfit").  It is also mixed in the record/
---     label sense settled above ‚î its INPUT standpoints carry their
---     witness sets, and its `KramaBhanga` and `Avaktavya` carry only the
---     standpoint NAMES.  So it unasserts the naya at exactly the point of
---     composition, which is the map of ¬ß‡ß, applied halfway.
---
--- Whether the two label types are the same object is a question with a
--- likely-cheap answer (both are the seven, so a bijection is immediate)
--- and it is NOT the interesting one; the disagreement between them is at
--- `sthana`, not at `krama`/`saha`, and settling the algebra would settle
--- nothing there.  Whether `Naya.hs`'s five-way carving is a quotient, a
--- subalgebra, or neither is open and is not claimed here in any
--- direction.
---
--- Written rather than reconciled, per ¬ß‡: a defect that is recorded lives
--- (‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø), and one that is not is the ‡‡ø‡‡‡æ.
-------------------------------------------------------------------------

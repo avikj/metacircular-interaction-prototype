@@ -65,13 +65,7 @@
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“7 in any ring with involution, for
 -- every drift `J`, every family `D` of skew directions, and every finite
--- `k`.  NOT claimed: positivity, which is not expressible here beyond
--- the real/skew split `VahanaSamata` establishes; anything about norms,
--- spectra, or contractivity â” no order relation appears in this file;
--- anything about SOLVING the evolution, only about its right-hand side
--- at one point; that any particular drift is or is not skew, which is
--- the modelling step; and nothing about the exponential or the
--- stochastic lift, which are not constructed anywhere in this corpus.
+-- `k`.
 ------------------------------------------------------------------------
 
 module EkaSesa_TheIdentityDefectOfTheCommonNoiseGeneratorIsExactlyTheSymmetricPartOfTheDriftBecauseTheDiffusionCancelsTheLaplacian where

@@ -3,28 +3,21 @@
 ------------------------------------------------------------------------
 -- TheOpenPigeonholeReducesToFinAndTheTargetBeingAPropIsWhatMakesTheMereEquivalencesUsable
 --
--- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- The object is `TheOpenPigeonhole`, a statement I wrote down at
--- ac4ee91d about `OptimalObservation`'s own definition; there is no
--- source to cite and a fabricated  label would assert a
--- provenance nobody checked.  That module's three INSTANCES are
+-- ON THE NAME.  No tradition term is used.  The object is
+-- `TheOpenPigeonhole`, a statement about `OptimalObservation`'s own
+-- definition.  That module's three INSTANCES are
 -- Pigala's *Chandastra* uddia (c. 300 BCE), Virahka's
--- mtrmeru (c. 600â“800) and a CRT residue decode, named here in that
--- order and before any later name; **nothing below is a claim about
--- their mathematics.**  Checked before naming:
--- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
--- first.  `--guardedness` carried; infective.
+-- mtrmeru (c. 600â“800) and a CRT residue decode.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE ITEM.  At ac4ee91d I proved that `Optimal X Y obs` unfolds to
--- *"`obs` is injective, AND some equivalence `X â‰ Y` exists"*, observed
--- that the second conjunct is not about `obs`, and left as a type
+-- THE ITEM.  `Optimal X Y obs` unfolds to
+-- *"`obs` is injective, AND some equivalence `X â‰ Y` exists"*;
+-- the second conjunct is not about `obs`.  The statement, as a type:
 --
 --     TheOpenPigeonhole = (X Y : FinSet â“-zero) (obs : X .fst â’ Y .fst)
 --                       â’ Optimal X Y obs â’ isEquiv obs
 --
--- WHAT THIS MODULE DOES, AND WHAT IT DOES NOT.  It does **not** prove
--- that statement.  It proves that the statement is **exactly** the
+-- WHAT THIS MODULE DOES.  It proves that the statement is **exactly** the
 -- corresponding fact about `Fin`:
 --
 --     FinPigeonhole = (n : â•) (f : SFin n â’ SFin n) â’ Injective f
@@ -34,8 +27,7 @@
 --
 -- so the remaining content is one combinatorial fact about finite
 -- ordinals, with every FinSet-level and cardinality-level ingredient
--- discharged.  Recording a reduction is not recording a proof, and the
--- header says which this is.
+-- discharged.
 --
 -- **AND THE STEP THAT MAKES THE REDUCTION LEGAL IS THE INTERESTING
 -- ONE.**  `X` and `Y` carry only MERE equivalences to `SFin` â” `âˆâ‰cardâˆ`
@@ -65,9 +57,6 @@
 --                      `SFin (card X)`, apply the hypothesis, and
 --                      transport the resulting `isEquiv` back along a
 --                      `funExt` built from `retEq` twice
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheOpenPigeonholeReducesToFinAndTheTargetBeingAPropIsWhatMakesTheMereEquivalencesUsable where

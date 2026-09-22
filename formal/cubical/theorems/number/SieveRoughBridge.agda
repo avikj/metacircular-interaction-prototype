@@ -3,19 +3,12 @@
 ------------------------------------------------------------------------
 -- SieveRoughBridge
 --
--- THE BRIDGE `SieveFiber` §4 SAYS IS UNBUILT.
+-- THE BRIDGE FROM `SieveFiber` §4 TO `RoughSplit`.
 --
 -- `NaturalMachine/SieveFiber.agda` §4 proves "ε really is one bit" � the
 -- rough part of every n in its 30-element domain is 1 or a prime above
--- the horizon � by EXHAUSTION at X = 30, and its own pointer says what
--- is missing:
---
---   "What is still open is the BRIDGE: `rough n` as computed here (by
---    `stripF`) has not been shown to satisfy `roughSplitSqrt`'s
---    hypothesis, so §4 below remains this file's own X = 30 exhaustion
---    and is not yet a corollary of the general theorem."
---
--- This module builds it.  `RoughSplit.roughSplitSqrt` asks for
+-- the horizon — by EXHAUSTION at X = 30.
+-- This module builds the bridge.  `RoughSplit.roughSplitSqrt` asks for
 --
 --     0 < m,  m � X,  AllPrimeFactorsAbove (isqrt X) m
 --
@@ -25,7 +18,6 @@
 -- precisely so that `refl` would normalise, with no specification
 -- attached.  So the bridge is, in order: verify that division, verify
 -- `stripF` against it, and only then meet the hypothesis.
---
 --
 -- THE HYPOTHESIS NEITHER MODULE HAS, AND WHY IT IS UNAVOIDABLE.
 --
@@ -45,7 +37,6 @@
 -- neither 1 nor prime, and `isqrt 49 ≡ 7 ≰ 5` is the only hypothesis it
 -- violates.  Between X = 36 and X = 48 the conclusion happens to survive
 -- and this proof does not reach it; that gap is stated, not hidden.
---
 --
 -- WHAT IS CHECKED
 --
@@ -95,41 +86,8 @@
 --
 --   §8  `bridge-needs-the-horizon-bound`  sharpness, as above.
 --
---
--- SCOPE
---
---  * **`Ω` is not bridged.**  `SieveFiber` §4's exhaustion concludes
---    `(Ω (rough n) ≡ 1) � (5 < rough n)`; this module concludes
---    `IsPrime (rough n) � (5 < rough n)`.  `Ω` is `SieveFiber`'s own
---    trial-division counter (`omegaF`), and `IsPrime m � Ω m ≡ 1` is a
---    correctness proof for THAT loop � a third verification, of the same
---    shape as §1 and §3 here, and independent of this bridge.  It is not
---    done here and §4 of `SieveFiber` is therefore not literally
---    re-derived; what is re-derived is the fact §4 exists to support,
---    which its own header states as "the rough part is 1 or a single
---    prime > 5".
---
---  * **Nothing is proved about the visible state `q`.**  Only `rough`.
---    The valuations `(v� , v� , v�)` and the factorisation
---    `n ≡ smooth n � rough n` would need the exponent component of
---    `stripF`, which §3 deliberately does not track: the bridge does not
---    use it, and tracking it would drag in `pow` and a second induction
---    for no gain here.
---
---  * **No X-uniform statement about the SIEVE.**  The bridge is uniform
---    in X only up to the horizon bound `isqrt X � 5`, which is a bound
---    on X (X � 35).  A sieve that strips every prime below `isqrt X`
---    would remove the bound, but that is a different (X-indexed) sieve
---    and `SieveFiber` does not have one.
---
 --  * `SieveFiber` and `RoughSplit` are untouched; this module imports
 --    both and neither imports it.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  Whole file, cold interface: 4.1 s.  No postulates, no
--- holes, no TERMINATING pragma (every recursion here is on fuel, and
--- the fuel is what `SieveFiber` already used to make its functions
--- total).
 ------------------------------------------------------------------------
 
 module SieveRoughBridge where
@@ -547,18 +505,6 @@ roughSplit-30 : (n : ℕ) → 0 < n → n ≤ 30 → (rough n ≡ 1) ⊎ IsPrime
 roughSplit-30 n 0<n n≤30 = roughIsOneOrPrime 30 n 0<n n≤30 isqrt-30≤5
 
 -- �and in the form `SieveFiber` §4 states it: 1, or a prime above 5.
---
--- NOTE ON THE `Sum.rec`, and it is a MEASUREMENT, not a diagnosis.
--- Written as `roughSplit-30� n 0<n n�30 with roughSplit-30 n 0<n n�30`
--- and two `...` clauses, this definition did not finish typechecking in
--- 120 s; written with the eliminator, the whole file checks in 4.2 s.
--- Nothing else changed between the two runs.  I do not know what the
--- `with` costs here and I am not guessing: README §1 records that
--- `WalkFast`'s twin symptom was misdiagnosed twice as a `with` problem
--- and was in fact the conversion checker comparing two independently
--- elaborated copies of one term.  Recorded because the next person to
--- write this line will write the `with` first, not because the cause is
--- understood.
 roughSplit-30′ : (n : ℕ) → 0 < n → n ≤ 30
                → (rough n ≡ 1) ⊎ (IsPrime (rough n) × (5 < rough n))
 roughSplit-30′ n 0<n n≤30 =

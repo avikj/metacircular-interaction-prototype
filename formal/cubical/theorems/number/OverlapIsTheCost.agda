@@ -3,10 +3,9 @@
 ------------------------------------------------------------------------
 -- OverlapIsTheCost
 --
--- `SignIsNotAccumulable` left a conditional with two open antecedents and
--- said promoting it would be the fitted-constant error one level up.  The
+-- `SignIsNotAccumulable` states a conditional with two antecedents.  The
 -- second antecedent is false, and this module kills it â” then keeps what
--- the death exposes, which is better than the rhyme was.
+-- the death exposes
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE REFUTATION
@@ -25,8 +24,7 @@
 -- So on the coprime locus idempotence has no purchase at all â” you cannot
 -- form `u â‹ u` and stay inside it â” and `SignIsNotAccumulable`'s
 -- hypothesis is unsatisfiable except at the unit.  The theorem is true
--- and simply does not reach Î¼ or Î».  The rhyme is dead.  It was recorded
--- as a rhyme, and this is what recording it that way is for.
+-- and simply does not reach Î¼ or Î».  The rhyme is dead.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THE DEATH EXPOSES
@@ -41,18 +39,15 @@
 -- theorem's strength comes entirely from quantifying over ALL pairs.  The
 -- obstruction is not the join.  **The obstruction is overlap.**
 --
--- And that relocates the walk's cost precisely.  A sieve only ever
+-- And that locates the walk's overlap precisely.  A sieve only ever
 -- combines coprime data, so it lives on the locus where join = sum and a
 -- faithful weight exists.  The walk combines 1,2,3,4,â¦, and 2, 4, 8 all
 -- touch the prime 2: its data overlap constantly.  Every overlap is a
 -- place where the join discards what the sum would have kept, and the
 -- discarded amount is the whole difference between k! and lcm(1..k).
 --
---     the walk's cost is its overlap, and overlap is exactly the locus
+--     the walk's saving is its overlap, and overlap is exactly the locus
 --     where the two operations disagree.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module OverlapIsTheCost where
@@ -142,17 +137,16 @@ weight-is-faithful = val-âŠ”-disjoint primes4 two three two-three-disjoint
 -- pathologies, because no state is coprime to itself.
 --
 -- A sieve stays on that locus.  The walk does not: it joins 1,2,3,4,â¦,
--- and 2, 4, 8 share the prime 2.  Its cost is what the join discards at
+-- and 2, 4, 8 share the prime 2.  Its saving is what the join discards at
 -- the overlaps, and lcm(1..k) versus k! is the quantity that measures it.
 --
 -- That quantity is not computed here.  Naming it is what this module does.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  CORRECTION, same session â” this module's TITLE is wrong.
+-- 6.  The size of the saving.
 --
--- Â§5 above says "the walk's cost is what the join discards at the
--- overlaps".  Discarding makes the state SMALLER.  lcm(1..k) = e^Ïˆ(k) â‰ˆ
+-- Discarding makes the state SMALLER.  lcm(1..k) = e^Ïˆ(k) â‰ˆ
 -- e^k while k! = e^{k log k}: the join's state is exponentially smaller
 -- than the sum's, and overlap is exactly where that saving happens.
 --
@@ -164,9 +158,4 @@ weight-is-faithful = val-âŠ”-disjoint primes4 two three two-three-disjoint
 --
 -- â” the join's compression ratio against the sum is the meet, i.e. the
 -- gcd, and in the tropical chart the whole identity is max + min = x + y.
---
--- Everything PROVED in Â§Â§1â“4 stands: `disjoint-agree`,
--- `self-disjoint-is-trivial`, and `val-âŠ”-disjoint` are unaffected, and the
--- refutation of the parity rhyme is unaffected.  What is withdrawn is the
--- sign of Â§5's reading, and with it the module's name.
 ------------------------------------------------------------------------

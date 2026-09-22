@@ -32,9 +32,6 @@
 -- `interactive/Lopa_â¦hs` already does by counting UNDECIDED separately rather
 -- than guessing, on the stated ground that a verdict guessed is worse
 -- than a verdict withheld.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
--- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Anvesanam_ForwardSearchIsFreeAtAnyDepthAndCostIsIncurredPerIdentificationDemandedNotPerEdgeTraversed where

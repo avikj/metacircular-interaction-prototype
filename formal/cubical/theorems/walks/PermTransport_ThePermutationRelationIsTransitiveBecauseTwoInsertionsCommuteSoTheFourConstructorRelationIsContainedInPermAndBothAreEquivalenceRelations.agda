@@ -1,14 +1,12 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
 -- Perm-‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ ‚î the transitivity `TheConverseContainmentReducesTo
--- PermTransitivity‚¶` left as a hypothesis.
+-- PermTransitivity‚¶` takes as a hypothesis.
 --
--- That module said, exactly: "Transitivity of `Perm` is NOT proved and
--- NOT refuted ‚î it is true and standard ‚¶ it needs an exchange lemma
--- moving an `Insert` past a `Perm`, which is NOT written here and is
--- NOT assumed to be hard."  Here is the exchange lemma, and it rests on
--- one fact: two insertions commute.  Nothing about the element type is
--- assumed ‚î no decidable equality, no set-ness.
+-- Transitivity of `Perm` needs an exchange lemma moving an `Insert` past
+-- a `Perm`.  Here is the exchange lemma, and it rests on one fact: two
+-- insertions commute.  Nothing about the element type is assumed ‚î no
+-- decidable equality, no set-ness.
 --
 --   ‡ß  insert-comm : Insert y vs ws ‚í Insert x us vs
 --                    ‚í Œ ts. Insert x ts ws ó Insert y us ts
@@ -20,7 +18,7 @@
 --                    relations are logically the same.
 --   ‡  both are equivalence relations: refl, sym, trans for each.
 --
--- CHECKED at the pin.  Agda warns `UnsupportedIndexedMatch` on
+-- Agda warns `UnsupportedIndexedMatch` on
 -- `insert-comm` and `exchange`: the clauses rely on injectivity of `_‚à_`
 -- in an indexed match, so those two functions will not COMPUTE on
 -- transports.  They type-check; the relations are used only logically

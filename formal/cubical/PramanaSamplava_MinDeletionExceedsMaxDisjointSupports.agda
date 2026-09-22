@@ -37,7 +37,7 @@
 -- PRIOR ART, searched before writing (per CLAUDE.md), all on disk:
 --   * `notes/HISTORY_DIGEST.md` attributes the deletion law itself to de
 --     Kleer's ATMS label semantics (1986), "essentially verbatim".  The
---     law is NOT claimed new here; it is used, and independently
+--     law is used, and independently
 --     re-verified on this instance (`deletion-law`).
 --   * `notes/PROOF_SUPPORT_COMPLEMENTARITY.md` proves the retention-side
 --     observable q_v is submodular iff every minimal support is a
@@ -48,12 +48,6 @@
 --   * `notes/OBLIGATION_S7_MINCUT.md` + `formal/cubical/ObligationMinCut.agda`
 --     compute an audit burden as an exact max-flow/min-cut in a
 --     DIGRAPH.  That is the unary fragment, where the min-max holds.
---     The repair note for it is in the companion message, not here, and
---     that file is not edited.
---
--- TOOLCHAIN.  Agda 2.6.3 + cubical v0.5 at /root/agda-libs/cubical,
--- invoked as `agda <file>` with no CLI flags, LC_ALL=C.UTF-8.  Exit code
--- reported in the companion message.  No postulates, no holes, --safe.
 --
 -- METHOD.  Everything below is closed Boolean/â• computation over the 64
 -- deletion sets, discharged by `refl`.  CLAUDE.md: "a finite exhaustive
@@ -531,12 +525,4 @@ pack-value = refl
 -- minimal-support clutter of a fact in an AND/OR derivation hypergraph
 -- is not ideal, and no max-flow / matroid-intersection formulation
 -- computes Ï in general.
---
--- NOT proved here, and stated so in the companion message: (i) that six
--- rules is the minimum for such an instance â” the argument is on paper
--- and covers only the case of exactly three minimal supports; (ii) the
--- positive half, that Ï = Î½ whenever every rule has at most one premise,
--- which is Menger's theorem (1927) via Fordâ“Fulkerson integrality (1956)
--- and is cited, not formalised; (iii) any complexity claim about
--- computing Ï.
 ------------------------------------------------------------------------

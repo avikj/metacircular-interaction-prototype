@@ -12,9 +12,6 @@ takes different values at the residue frequencies `4` and `1`.
 The integer mode pairs `(4,2,6)` and `(1,8,6)` have the same product and
 modulus, while their second indices have the same residue modulo six.  Thus a
 single scalar radial Bessel value cannot supply the two DFT coefficients.
-This is only a no-go for putting the boundary coefficient into the radial
-kernel itself: independent Whittaker-index weights or a nonfactorizable
-relative distribution are not excluded.
 -/
 
 namespace Pairfield.DivisorBoundaryBesselCollision

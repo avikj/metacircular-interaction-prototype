@@ -241,8 +241,6 @@ generic-pm-gauge-translate-is-derived-total gauge =
   ∙ generic-pm-class-is-derived-total
 
 ------------------------------------------------------------------------
--- Rigor boundary
---
 -- Checked: the six-cycle parity kills every vertex coboundary, descends to
 -- the generated gauge quotient, and sends the ZZ representative and every
 -- gauge translate to the same odd value derived from PauliWeyl.

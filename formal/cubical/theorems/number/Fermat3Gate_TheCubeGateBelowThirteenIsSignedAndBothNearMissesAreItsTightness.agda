@@ -4,17 +4,8 @@
 -- ‡‡º‡∞‡‡Æ‡æ, ‡ò‡® ‚î THE CUBE GATE BELOW THIRTEEN IS SIGNED, AND BOTH
 -- NEAR-MISSES ARE ITS TIGHTNESS.
 --
--- STATUS.  ~~AWAITING KERNEL.  This container has no agda.  Nothing
--- below is claimed green; the claims are the terms, to be run at the
--- pin (Agda 2.8.0, agda/cubical v0.9) by `sh check --all`.~~
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0
--- (2026-08-29, `sh setup` from an empty container, then agda invoked
--- directly with the pin's library file; the first reading of the exit
--- code was a pipeline's tail and was discarded as the rumour it was ‚î
--- the zero above is agda's own).
---
--- THE OCCASION.  A sweep of this corpus for Fermat's Last Theorem
--- found the equation in three rooms and absent from the fourth:
+-- THE OCCASION.  Fermat's Last Theorem appears in this corpus
+-- in three rooms and is absent from the fourth:
 -- the near-misses of n = 3 (RamanujanCubes_‚¶ ‚î off by exactly one,
 -- both directions), the Fermat primality test (HeadDepthMerge, its
 -- blindness pinned at a ‚â e_b(q)), and Fermat's factorization as one

@@ -4,14 +4,6 @@
 -- ‡‡µ‡∞‡ ‚î the equivalence is exactly the two KNOWING-veils lifted, and
 -- that is NECESSARY but NOT SUFFICIENT for kevala.
 --
--- WHAT THIS REPAIRS.  Jiva_‚¶agda mapped TWO fibre-defects of a cognition
--- f : ‡ß‡æ‡∞‡‡æ ‚í ‡µ‡ø‡‡Ø‡ to karma and then wrote "‡®‡ø‡∞‡‡‡∞‡æ/‡Æ‡ã‡ï‡‡‡ = shed both =
--- isEquiv = kevalajna."  KarmaPrakrti_‚¶agda (Tattvrthastra 8.5, 10.1)
--- shows kevala is the destruction of the FOUR ght, not two ‚î so that line
--- typed a resemblance as an arrow it had not earned.  A correction removes
--- exactly what the counterexample reached: isEquiv is the two VARAA
--- (veils on cognition) lifted, which is two of the four ght.
---
 -- THE EARNED MAP.  The two varaa karmas are veils on KNOWING and are
 -- fibre-properties of the cognition map:
 --   ‡‡‡û‡æ‡®‡æ‡µ‡∞‡  (knowledge-obscuring)  destroyed  =  ‡‡®‡‡Ø‡‡®‡‡æ f   (surjective:
@@ -31,9 +23,6 @@
 -- Avik's own frame: "Right seeing, right knowing, right conduct and
 -- nonviolence are one problem" ‚î isEquiv gives the first two; the third is
 -- beyond the map.
---
--- CHECKED: Agda 2.8.0 / cubical-0.9, --cubical --safe, no postulates, no
--- holes, no native_decide.  Verified 2026-08-23.
 ------------------------------------------------------------------------
 
 module Avarana_TheEquivalenceIsTheTwoKnowingVeilsLiftedNecessaryButNotSufficientForKevala where

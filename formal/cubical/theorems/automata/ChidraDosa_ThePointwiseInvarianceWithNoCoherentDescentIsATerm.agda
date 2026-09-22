@@ -42,8 +42,8 @@
 -- So the fiberwise constancy witnesses exist everywhere, but they are
 -- not 2-coherent over the base: transporting the halving around the
 -- base loop shifts it by the deck transformation, and no global choice
--- survives.  This is the anomaly named in the collaboration's queue
--- item: POINTWISE INVARIANCE WITH NO COHERENT GLOBAL DESCENT.  The
+-- survives.  This is the anomaly: POINTWISE INVARIANCE WITH NO
+-- COHERENT GLOBAL DESCENT.  The
 -- `isSet T` hypothesis in `fiberConstantâ’factorsThrough` is therefore
 -- not an artefact of the proof (`PT.recâ’Set`'s 2-Constancy demand); it
 -- is the exact price of the phenomenon, and this module is the witness
@@ -78,8 +78,6 @@
 -- fiberwise identifications all exist, and the obstruction is not the
 -- h-level of the base or of the image (both are groupoids) but the
 -- incoherence of the invariance data itself.
---
--- No holes, no postulates, --safe.
 ------------------------------------------------------------------------
 
 module ChidraDosa_ThePointwiseInvarianceWithNoCoherentDescentIsATerm where

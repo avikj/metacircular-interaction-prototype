@@ -7,11 +7,11 @@ checked term
 The conservative-semantic-compression synthesis / the kernel as its
 own laboratory / trace functionals against terminal utility
 
-The synthesis of 2026-09-03 reformulates the work as a theory of
+The synthesis reformulates the work as a theory of
 conservative semantic compression, and its first reformulation is:
 a trace is a chain, an evaluator is a cochain, value is the pairing â”
 neither side holds it alone.  Stokes then rules exactly which
-modifications preserve value.  This night that reformulation enters
+modifications preserve value.  Here that reformulation enters
 the corpus as terms, on the kernel's own derivations.
 
 THE PAIRING.  An evaluator assigns an integer to every rewrite step;
@@ -45,7 +45,6 @@ integral into boundary.
 SYT â” THE CLAIM, EXACTLY.  The pairing, the telescoping theorem and
 its closed corollary, the two schedules and their depths, the loop
 and its integral, and the nonexistence of a potential for the depth
-evaluator.  NOT claimed: the full HÂ of the derivation complex, nor
-evaluators valued outside â.
+evaluator.
 
 Machine-checked in cubical type theory, --safe, at the pin.

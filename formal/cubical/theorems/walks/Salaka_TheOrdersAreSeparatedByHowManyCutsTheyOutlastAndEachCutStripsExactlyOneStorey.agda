@@ -9,14 +9,13 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHY THIS EXISTS.  `JainCount.agda` carries the Jaina stratification
 -- of magnitude ‚î ‡‡‡ñ‡‡Ø‡æ‡ / ‡‡‡‡ñ‡‡Ø‡æ‡ / ‡‡®‡®‡‡, each graded ‡‡ò‡®‡‡Ø / ‡Æ‡ß‡‡Ø‡Æ /
--- ‡â‡‡‡ï‡‡‡‡ü ‚î as a nine-element ordered set, and its own header names what
--- it does not do: "it does NOT encode the exact salk operations ‚¶
--- which need the primary text verse by verse and are OWED, not claimed."
+-- ‡â‡‡‡ï‡‡‡‡ü ‚î as a nine-element ordered set, without the
+-- exact salk operations.
 -- `Ardhaccheda.agda` carries the operations themselves ‚î ‡‡∞‡‡ß‡‡‡‡‡¶, the
 -- count of halvings, and ‡µ‡∞‡‡ó‡‡≤‡æ‡ï‡æ, the halving of THAT ‚î but as
 -- logarithm laws, with no order-separating work asked of them.
 --
--- The two files have never been in the same room.  This one puts the
+-- This one puts the
 -- instruments to the job the orders are for: a magnitude's order is HOW
 -- MANY TIMES THE INSTRUMENT CAN CUT IT, and ¬ß‡® says each cut removes one
 -- storey and no more, so the count is exact rather than a bound.
@@ -36,34 +35,14 @@
 --   ¬ß‡ ‡‡ß‡ã‡ó‡æ‡Æ‡ø‡‡‡µ‡Æ‡  every cut in the tower ‚î ‡‡∞‡‡ß‡‡‡‡‡¶, ‡µ‡∞‡‡ó‡‡≤‡æ‡ï‡æ, and each
 --                    ‡‡‡∞‡ø‡ï- and higher ‡‡≤‡æ‡ï‡æ ‚î is DESCENDING in the sense of
 --                    `Vrddhiksaya_‚¶`.‡‡ß‡ã‡ó‡æ‡Æ‡, strictly below its argument
---                    at every positive input.  That file asserted this of
---                    ‡‡∞‡‡ß‡‡‡‡‡¶ in prose and proved only the abstract half.
+--                    at every positive input.
 --                    Here it is the theorem, uniformly in the height.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- MY CITATIONS ARE SECOND-HAND AND I SAY SO.  I have not read the ‡ß‡µ‡≤‡æ or
--- the ‡‡ø‡≤‡ã‡Ø‡‡‡‡‡‡‡‡; what reaches me is the secondary literature on Jaina
--- index arithmetic.  A verse-level reference is OWED and I give NONE
--- rather than a guessed one ‚î a fabricated stra number is the same error
--- as a fitted constant, and this repository has already paid for that once.
---
--- NO JAINA TEXT STATES ANY THEOREM BELOW.  What the sources supply is the
--- operations and the doctrine that magnitude is stratified into orders
--- that the operations move between; the arithmetic here is ordinary and is
--- mine.  In particular ¬ß‡ is NOT a claim that the Jaina ‡‡®‡®‡‡-grades are
--- towers of twos, and no grade of `JainCount.Magnitude` is identified
--- with any natural number here ‚î that file forbids the identification and
--- this file does not import it.
---
 -- The material is Jaina throughout and no Nyya-Vaieika vocabulary is
 -- used: the two schools reject each other's categories, and the orders of
 -- the innumerable arise inside Jaina cosmology and karma theory, not
--- inside anyone's number theory.  Nothing below scores the tradition
--- against later mathematics; the operations are recorded as what they are.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
+-- inside anyone's number theory.
 ------------------------------------------------------------------------
 
 module Salaka_TheOrdersAreSeparatedByHowManyCutsTheyOutlastAndEachCutStripsExactlyOneStorey where

@@ -3,8 +3,7 @@ Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
 Finite additive Fourier completion of an inverse-residue phase.  This is an
-exact identity on `ZMod N`; it does not assert that the resulting coefficients
-are orbital integrals of an automorphic test function.
+exact identity on `ZMod N`.
 -/
 import Mathlib.Analysis.Fourier.ZMod
 

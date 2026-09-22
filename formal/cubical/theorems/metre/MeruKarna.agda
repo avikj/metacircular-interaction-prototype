@@ -129,7 +129,7 @@ open import MatraSamasa using (‡§∏‡§Æ‡§§‡§æ)
 -- (The running total of Virahka's mtr-counts, plus one, is the count two
 -- steps ahead: ‚à_{k‚ân} M(k) + 1 = M(n+2).  Stated subtraction-free (the count,
 -- not the count-minus-one), it follows by induction from the recurrence
--- ‡Æ‡æ‡‡‡∞‡æ‡Æ‡‡∞‡.  A property of the mtr-meru sequence; no verse claimed for it.)
+-- ‡Æ‡æ‡‡‡∞‡æ‡Æ‡‡∞‡.  A property of the mtr-meru sequence.)
 ------------------------------------------------------------------------
 
 ‡§Ø‡•ã‡§ó-‡§∏‡§∞‡•ç‡§µ : ‚Ñï ‚Üí ‚Ñï
@@ -153,7 +153,7 @@ open import MatraSamasa using (‡§∏‡§Æ‡§§‡§æ)
 --
 -- (The sum of squares of Virahka's mtr-counts equals the product of two
 --  consecutive counts: ‚à_{k‚ân} M(k)¬≤ ‚â° M(n)¬M(n+1), from the recurrence ‡Æ‡æ‡‡‡∞‡æ‡Æ‡‡∞‡.
---  The Fibonacci sum-of-squares identity; no specific verse claimed.)
+--  The Fibonacci sum-of-squares identity.)
 ------------------------------------------------------------------------
 
 ‡§µ‡§∞‡•ç‡§ó-‡§Ø‡•ã‡§ó : ‚Ñï ‚Üí ‚Ñï

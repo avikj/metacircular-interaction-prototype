@@ -48,8 +48,6 @@
 -- in â” no more, and, by the constructed separator, no less.
 --
 --
--- WHAT THIS CORRECTS, AND IT IS THE POINT OF THE MODULE
---
 -- `ChargeCriterion` reads, as a test on a method: *all even Î© â’ provably
 -- parity-blind.*  Sound, and sound for the intended adversary.  But the
 -- criterion `HasOdd` is the evaluation of the character at ONE group
@@ -87,14 +85,8 @@
 --   classical (the square-class group â^—_{>0}/(â^—_{>0})Â², whose Fâ-dual
 --   is the space of such functions).  Only the checked statement, and the
 --   scope correction of Â§6, are contributed.
--- * The full square-class theorem â” that val Ï m = val Ï n whenever m and
---   n differ by a square in any arrangement â” needs invariance of `val`
---   under permutation of the factor multiset, which is NOT proved here.
---   Â§7 proves the concatenated form `val Ï (m ++ (k ++ k)) â‰¡ val Ï m`,
+-- * Â§7 proves the concatenated form `val Ï (m ++ (k ++ k)) â‰¡ val Ï m`,
 --   which is the core and avoids permutation machinery.
--- * Nothing about Goldbach, twin primes, W3, or `BARRIER.md` Problem 2.
--- * `ChargeCriterion` is NOT refuted.  Every statement in it is true as
---   written; Â§6 refutes only an over-reading its wording invites.
 --
 -- Contents (no holes, no postulates, --safe):
 --

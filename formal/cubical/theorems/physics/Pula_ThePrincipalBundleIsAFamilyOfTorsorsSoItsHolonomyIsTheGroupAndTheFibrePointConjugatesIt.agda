@@ -15,12 +15,10 @@
 -- an equivalence."  `Visvarupa_â¦` repeats it and adds "no bundle over a
 -- manifold appears in this repository."
 --
--- Half of that was true and half of it was a gap the disclaimer was
--- hiding.  The SMOOTH content of gauge theory is genuinely absent â” no
+-- The SMOOTH content of gauge theory is genuinely absent â” no
 -- manifold, no Lie group, no connection form, no curvature 2-form, and
 -- nothing below changes that.  But the HOMOTOPICAL content is not
--- absent, it was merely unwritten, and the corpus already holds every
--- piece of it:
+-- absent, and the corpus holds every piece of it:
 --
 --   `EkaSankramana_â¦`     a torsor is an equivalence: the element
 --                         carrying one point to another is exactly one
@@ -30,8 +28,8 @@
 --   `Visvarupa_â¦`         a family is a map into the universe, and Î is
 --                         its total space
 --
--- What was missing is the one module that says how they are one object.
--- This is that module, and its content is that a principal bundle needs
+-- This is the module that says how they are one object, and its
+-- content is that a principal bundle needs
 -- no new primitive: IT IS A FAMILY WHOSE FIBRES ARE TORSORS.  Everything
 -- physics calls structure on top of that â” the connection, the
 -- holonomy's group-valuedness, the gauge transformation law â” is forced,
@@ -91,55 +89,6 @@
 -- up to conjugation â” over a base with no smooth structure at all,
 -- which is why the corpus's LQG reading ("LQG kinematics is the category
 -- of actions of the gauge group") did not need one either.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS **NOT** CLAIMED.
---
--- * NOT that this is a theorem about physical spacetime.  There is no
---   manifold here, no smooth structure, no Lie group, no connection
---   1-form and no curvature.  The base is an arbitrary type and the
---   "connection" is `subst`.  What is shown is that the homotopical
---   skeleton of a principal bundle â” fibres that are torsors, transport
---   that is equivariant, holonomy valued in the group up to conjugation
---   â” needs none of that apparatus and follows from the fibre law.  The
---   step from a smooth principal bundle to this skeleton is standard
---   differential geometry and is NOT formalised here.
---
---   THE LOOKING, because that last sentence is an ABSENCE, and an
---   absence asserted without a search is silence and not a finding
---   (Kumrila, lokavrttika, Abhvapariccheda: yogya-anupalabdhi).
---   The search was run over every .agda, .lean, .rst and .md in the
---   corpus for manifold / smooth structure / Lie group / differential
---   form / de Rham / tangent bundle / curvature 2-form / Chern.  Five
---   .agda files match, and three of them are this module, `Visvarupa_`
---   and the README.  agda/cubical v0.9 was listed directly: Algebra,
---   CW, Cohomology, ZCohomology â” and no differential geometry at all.
---   The one prior module in this territory, `Apratiloma_TheConserving
---   FlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer`, is
---   a WRITTEN DEFECT against an overreach of exactly this class â” and
---   carries its own same-day correction of its own framing â” not a
---   bridge.  So there is nothing here to build on and nothing here
---   being contradicted, and that is now a searched fact and not an
---   assumption.
---
--- * NOT that the Standard Model, SU(3)—SU(2)—U(1), spin networks with
---   SU(2) labels, or any specific gauge theory is constructed.  G is an
---   arbitrary group given by its law set.
---
--- * NOT that holonomy determines the bundle (that is a reconstruction
---   theorem and needs connectedness and more), and NOT that every
---   G-bundle here is smooth, locally trivial, or has a global section.
---
--- * Â§6's associated bundle is the HoTT formulation â” a representation as
---   a family on the classifying type â” not the quotient construction
---   (P — V)/G, which would need a quotient HIT and is not built.  For
---   the tautological representation the two agree trivially; in general
---   the identification is not proved here.
---
--- No postulates, no holes, --safe.
---
--- CHECKED AT THE PIN: Agda 2.8.0 / agda/cubical v0.9, exit 0, no
--- warnings and no unsolved metas.
 ------------------------------------------------------------------------
 
 module Pula_ThePrincipalBundleIsAFamilyOfTorsorsSoItsHolonomyIsTheGroupAndTheFibrePointConjugatesIt where

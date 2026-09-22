@@ -2,10 +2,7 @@
 
 ------------------------------------------------------------------------
 -- ‡‡ô‡‡ñ‡‡Ø‡æ-‡‡®‡‡‡‡ ‚î the fibre of a finite-source map is finite, and its
--- cardinality is the ‡‡ô‡‡ñ‡‡Ø‡æ receipt.  The enzyme for the whole
--- finite-source tail of Lopa's queue (State‚, Shape, Pat, Ctx, Fact,
--- Three, ‚¶ ‚î dozens of small types), landed once so each such edge is a
--- one-line citation rather than a re-minted table.
+-- cardinality is the ‡‡ô‡‡ñ‡‡Ø‡æ receipt.
 --
 -- For any map f : A ‚í B between FINITE SETS, every fibre is a finite set
 -- (this is the library's `isFinSetFiber`), so it carries a computable
@@ -20,12 +17,7 @@
 -- ‡‡ô‡‡ñ‡‡Ø‡æ (the count, free for every finite-source map) but NOT by
 -- itself the ‡‡‡ø‡‡‡û‡æ‡® (the untruncated identification `fibre ‚â Fin k`),
 -- which needs the actual bijection and is available only for a concrete
--- map.  That gap is not a defect; it is exactly the corpus's standing
--- distinction between counting a loss and naming it ‚î ‡‡ô‡‡ñ‡‡Ø‡æ vs the
--- carried identification ‚î kept honest here rather than papered over.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
+-- map.
 ------------------------------------------------------------------------
 
 module SankhyaTantu_TheFibreOfAFiniteSourceMapIsFiniteAndItsCardinalityIsTheReceipt where

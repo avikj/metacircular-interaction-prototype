@@ -4,8 +4,7 @@
 -- DSONucleusMiddleProduct
 --
 -- Delta 29's middle Isbell operator on the exact four-cell calibration.
--- The finite test family below is explicitly generated; it is not identified
--- with any paper's principal middle profiles.
+-- The finite test family below is explicitly generated.
 ------------------------------------------------------------------------
 
 module DSONucleusMiddleProduct where
@@ -175,12 +174,3 @@ generated-middle-closed genC =
 generated-middle-closed genControl =
   funExt λ { E.e → refl ; E.a → refl ; E.c → refl ; E.d → refl }
 
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked: M3, both trefoil decompositions, exact middle Isbell operators,
--- and idempotence on the four explicitly generated middle profiles.
--- The associativity classification of their generated products follows in a
--- separate finite audit so a failed equality remains visible rather than
--- blocking this operator definition.
-------------------------------------------------------------------------

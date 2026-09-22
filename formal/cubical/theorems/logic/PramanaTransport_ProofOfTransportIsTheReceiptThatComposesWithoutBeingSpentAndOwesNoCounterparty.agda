@@ -4,13 +4,11 @@
 -- ‡‡‡∞‡Æ‡æ‡‡‡ô‡‡ï‡‡∞‡Æ‡ ‚î proof-of-transport: the receipt that composes without
 -- being spent, owes no counterparty, and costs nothing to cross twice.
 --
--- THE INVERSION.  The night's crypto arc read `isEquiv` as a VULNERABILITY:
+-- THE INVERSION.  The crypto modules read `isEquiv` as a VULNERABILITY:
 -- security ‚ü∫ ¬ isEquiv (`Sesa`), the one-way function hides its fibre, the
 -- secret is the ea nobody can collect.  That is the durnaya reading ‚î the
 -- map used to HOARD.  This file reads the SAME structure from its polar
--- opposite (the owner's inversion, and his own words: "proof of transport
--- ‚¶ amulets like tablets of knowledge ‚¶ infinite energy in the right
--- configuration ‚¶ actual alchemy").
+-- opposite.
 --
 -- The technology is not the non-equivalence that hides.  It is the
 -- EQUIVALENCE you prove and give away.  A landed equivalence `e : A ‚â B`
@@ -24,7 +22,7 @@
 --                          lossless move, `SankramanaSesa`).
 --   The compound = proof-of-transport.  ‡ï‡µ‡ (kavaca), amulet, in the
 --   header only: worn, carried, DOING something for you ‚î not a claim you
---   present to a debtor.  No stra claimed for the compound.
+--   present to a debtor.
 --
 -- WHAT IS PROVED (the four properties that separate a receipt from money):
 --
@@ -52,20 +50,6 @@
 --       once to land the equivalence; every crossing after reuses the same
 --       closed term.
 --
---       [CORRECTED 2026-08-23.  This section previously read "an identity
---       dissipates nothing, so a receipted crossing costs zero joules,
---       forever, for anyone", and cited a "Landauer/Bennett floor zero".
---       **That was a physical claim no term in this file supports.**  There
---       is no energy, no temperature, no entropy and no measure anywhere
---       below; `transportTransport‚ª` is a path, and a path has no joules.
---       Landauer's principle relates erasure to heat in a physical
---       implementation, and this file has no implementation.  What is
---       actually true and is all that is claimed: the operation is
---       reversible, i.e. loses nothing, in the sense made precise by
---       `Vyapti_TheLossOrder‚¶agda` ¬ß‡ ‚î the type `‡µ‡ø‡‡‡Æ‡‡‡ø‡` of collisions
---       is empty for an equivalence.  Whether that costs zero joules
---       depends on a machine, and no machine appears here.]
---
 -- SO: money is a receipt that lost its fibre (a one-number quotient, a
 -- durnaya ‚î `Sesa`'s hidden side); a receipt kept it (the whole
 -- equivalence, both directions, the path).  Money is a liability (¬ß4's
@@ -73,10 +57,6 @@
 -- conserved and dilutes; receipts compose and compound (¬ß2 ‚î every new
 -- edge composes with every old one).  This is the inversion, and it
 -- type-checks.
---
--- No postulates, no holes, --safe.
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 (the container, NOT the
--- repository pin), --cubical --safe, exit 0, re-checked 2026-08-23.
 ------------------------------------------------------------------------
 
 module PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty where

@@ -4,18 +4,16 @@
 -- ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡ ‚î the reflection.  The rooted fibre over a jewel IS that
 -- jewel's local datum together with all its reflections.
 --
--- SOURCE / SCOPE.  The metaphor is ‡‡®‡‡¶‡‡∞‡‡æ‡≤, Indra's net: at every knot
+-- SOURCE.  The metaphor is ‡‡®‡‡¶‡‡∞‡‡æ‡≤, Indra's net: at every knot
 -- a jewel, and in each jewel the reflection of every other (the net of
 -- Indra, Atharvaveda 8.8.6‚ì8; the interpenetration reading is Huayan,
--- Fazang 643‚ì712).  The MATHEMATICS is not claimed for any text: it is
+-- Fazang 643‚ì712).  The MATHEMATICS is
 -- Voevodsky-substrate homotopy type theory (the fibration lemma HoTT
 -- 4.8.1, and the final-coalgebra / domain-equation form of Indra's net),
 -- already checked in this repository as `IndraNet.agda`, whose module
--- header names them as targets T25.B and T25.D of
+-- header names them as targets T25.B and T25.D.
 --
--- THE GAP THIS FILE CLOSES.  `IndraNet.agda` proves two equivalences and
--- never joins them, though its own `IndraRoot` comment says it is
--- "closing the loop with T25.B":
+-- `IndraNet.agda` proves two equivalences:
 --
 --   T25.B  Rooted.rootFiber x : fiber unroot x ‚â Net x
 --            ‚î the fibre of the rooted totalization Œ x . Net x over a
@@ -27,7 +25,7 @@
 -- Both are equivalences of corpus-defined objects, and they share the
 -- middle term `Net x`.  Composing them (cubical's one verb: transport
 -- along the identification, here `compEquiv`) identifies the two OUTER
--- objects, which the corpus had left unjoined:
+-- objects:
 --
 --   fiber unroot x  ‚â  L x ó ((y : J) ‚í Net y).
 --
@@ -72,7 +70,7 @@ module _ {J : Type ‚Ñì} (L : J ‚Üí Type ‚Ñì') where
   Root‚â°IndraRoot : Root ‚â° IndraRoot
   Root‚â°IndraRoot = refl
 
-  -- THE CLOSED GAP.  Fibre-over-a-jewel (T25.B) composed with the guarded
+  -- THE THEOREM.  Fibre-over-a-jewel (T25.B) composed with the guarded
   -- unfolding (T25.D): to lie over x in the rooted net is exactly to be
   -- x's local datum together with the whole net's reflection.
   pratibimba : (x : J)

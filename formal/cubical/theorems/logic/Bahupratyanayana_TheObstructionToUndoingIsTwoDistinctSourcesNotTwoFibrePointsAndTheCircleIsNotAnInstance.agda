@@ -7,16 +7,6 @@
 --  target ‚î not two points of the fibre; and the circle is not an
 --  instance of it.)
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- sector, found exactly ONE theorem of the form "this loss cannot be
--- undone" ‚î `SetTruncationDescentBoundary.noDescentS¬` ‚î and closed with
--- the instruction that the next build should not be a better extractor
--- but *more theorems of that kind*, because "the bottleneck is the
--- mathematics, not the extraction."
---
--- This file is the GENERATOR of that kind, at the level of points, plus
--- the exact statement of what it cannot reach.
---
 --   ¬ß‡®  the law   : two points of one fibre WITH DISTINCT SOURCES kill
 --                   every retraction.  Four lines, no h-level, no
 --                   decidability, no finiteness, arbitrary A and B.
@@ -33,8 +23,7 @@
 --       fibre over `base` is `Œ©S¬ ‚â ‚`, so ‡‡‡ holds of it.  Its two
 --       fibre points differ only in their WITNESS; their sources are
 --       equal.  So ‡‡‡ does not obstruct undoing, and ¬ß‡®'s hypothesis is
---       strictly stronger than ‡‡‡ ‚î which no module in this corpus had
---       said.
+--       strictly stronger than ‡‡‡.
 --   ¬ß‡  therefore `noDescentS¬` is NOT an instance of ¬ß‡® and cannot be
 --       made one: S¬ is connected, so it has no two distinct points to
 --       feed the law.  Its obstruction is œ‚ ‚î one level up.  **The
@@ -42,19 +31,17 @@
 --       the other**, and ¬ß‡ is the witness that the reduction fails.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- RELATION TO WHAT IS ALREADY HERE, so nothing is silently re-proved.
+-- RELATION TO WHAT IS ALREADY HERE.
 --
 --   `Tantujala_‚¶`            ‡‡‡ as one of three fibre verdicts.  ¬ß‡
 --                            sharpens it: ‡‡‡ is not the obstruction to
---                            undoing.  The three-verdict codomain is
---                            untouched and remains correct for what it
---                            classifies.
+--                            undoing.
 --   `Sesa_‚¶` ¬ß5              prices `‡‡∞‡‡µ‡à‡ï‡Æ‡`'s loss at one bit and proves
 --                            `¬ isEquiv`.  ¬ß‡ here is the RETRACTION
 --                            statement, which is different and weaker
 --                            than `¬ isEquiv` in general.
 --   `GhataTantu_‚¶`           exhibits the two exponents.  ¬ß‡© consumes
---                            them; the fibre analysis is not re-done.
+--                            them.
 --   `Nirdharana_TheReturnLocus‚¶`  the SECTION side: with `q ‚àò s ‚â° id` the
 --                            return locus is `im s`.  This file is the
 --                            other side: when no RETRACTION exists at
@@ -62,19 +49,7 @@
 --                            neither implies the other.
 --   `Arpitanarpita_‚¶.‡®-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡` and `AHIMSA_SUTRA`'s
 --   `‡®‡æ‡‡‡‡ø-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡`      are two hand-proved instances of the same
---                            shape.  ¬ß‡® is the law they are instances of;
---                            both are left standing and neither is
---                            rewritten (ROUTES KEPT).
---
--- ¬ß‡© is a checked no-return theorem the corpus did not have, and that ¬ß‡
--- is a counterexample separating it from `Tantujala`'s ‡‡‡.  No physics.
--- No computational hardness: ¬ß‡© is about a three-element group and says
--- nothing about difficulty.  ‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡® is the corpus's existing word
--- (AHIMSA_SUTRA ¬ß‡); no text is claimed for the compound or for any
--- statement below.
---
--- CHECKED: exit code in the session log; --cubical --safe, no postulates,
--- no holes.
+--                            shape.  ¬ß‡® is the law they are instances of.
 ------------------------------------------------------------------------
 
 module Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance where
@@ -192,8 +167,7 @@ private
 ‡§µ‡•É‡§§‡•ç‡§§-‡§Æ‡•Ç‡§≤-‡§Ö‡§≠‡•á‡§¶‡§É = refl
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î why `noDescentS¬` is a different theorem, stated and not
---     proved here.
+-- ‡ ¬ ‡‡‡‡ ‚î why `noDescentS¬` is a different theorem.
 --
 -- ¬ß‡® needs two points of A that are provably distinct.  S¬ is connected,
 -- so it has none: `base ‚â° base` is inhabited by `refl`, and the law
@@ -204,9 +178,4 @@ private
 -- distinctness is present, the point-level distinctness is absent, and
 -- the retraction EXISTS.  So the corpus's two no-return theorems live at
 -- two levels and neither implies the other.
---
--- NOT PROVED HERE: that S¬ has no two distinct points (that is
--- connectedness, in the library, and is not invoked); and nothing about
--- higher levels ‚î whether the pattern continues at œ‚ and above is not
--- addressed and no conjecture is offered.
 ------------------------------------------------------------------------

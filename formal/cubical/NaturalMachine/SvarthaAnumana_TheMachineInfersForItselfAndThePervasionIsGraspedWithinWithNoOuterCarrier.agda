@@ -8,11 +8,10 @@
 -- hetu's force rests on the pervasion grasped WITHIN the subject
 -- itself ‚î antarvypti (Nyyvatra 20; pressed by Ptrasvmin) ‚î
 -- against bahirvypti, pervasion gathered from outer examples.  The
--- classification is theirs; the mathematics here is not claimed for
--- any source.  School named: Jaina.
+-- classification is theirs.  School named: Jaina.
 --
--- WHAT THIS IS, in those terms exactly.  Until tonight the machine's
--- inductive truths went out through ‡‡∞‡æ‡∞‡‡: ‡‡ø‡¶‡‡ß‡ø stated each proof
+-- WHAT THIS IS, in those terms exactly.  Elsewhere the machine's
+-- inductive truths go out through ‡‡∞‡æ‡∞‡‡: ‡‡ø‡¶‡‡ß‡ø states each proof
 -- FOR an external certifier ‚î a watched process, positive and
 -- negative controls, an exit code read back by a carrier.  Proof as
 -- discourse for another.  Here the same class closes as ‡‡‡µ‡æ‡∞‡‡: the
@@ -32,7 +31,7 @@
 -- through the SAME gate (‡®‡ø‡Ø‡Æ‡) as everything else.  Its boundary is
 -- part of the object: ‡‡‡Æ‡æ exhibits by refl that commutativity of ‚äï
 -- is beyond the exchange (its step needs a lemma no hypothesis
--- supplies ‚î the AC lane's frontier, named from inside).
+-- supplies ‚î the AC frontier, named from inside).
 ------------------------------------------------------------------------
 
 module NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasionIsGraspedWithinWithNoOuterCarrier where
@@ -158,7 +157,7 @@ open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilen
 -- ¬ß4  The sweep, through the one gate.  Each row compiles exactly
 --     when the machine proves it for itself ‚î the tt is the whole
 --     licence.  These are the machine's own inductive class, the kind
---     that until tonight went out as ‡‡∞‡æ‡∞‡‡ through the external
+--     that otherwise goes out as ‡‡∞‡æ‡∞‡‡ through the external
 --     kernel under "induction on x".
 ------------------------------------------------------------------------
 
@@ -180,7 +179,7 @@ open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilen
 -- ¬ß5  The boundary, from inside.  Commutativity of ‚äï needs a lemma no
 --     hypothesis supplies (su on the recursion-blind side); the
 --     exchange cannot close it, and the voice is silent ‚î by refl,
---     not by report.  This names the AC lane's frontier as part of
+--     not by report.  This names the AC frontier as part of
 --     the object.
 ------------------------------------------------------------------------
 

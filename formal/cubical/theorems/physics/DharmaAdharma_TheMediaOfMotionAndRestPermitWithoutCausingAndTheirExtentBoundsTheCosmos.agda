@@ -48,8 +48,7 @@
 --   ¬ß5  ‡ä‡∞‡‡ß‡‡µ‡ó‡‡ø-‡µ‡ø‡∞‡æ‡Æ‡ ‚î the halt.  A maximal chain of permitted steps
 --       never leaves the loka, so upward motion terminates at the medium's
 --       edge, not at a barrier.  (The siddha comes to rest because dharma
---       runs out, TS 10.  Stated as the confinement corollary; the
---       cosmology proper is not formalised.)
+--       runs out, TS 10.  Stated as the confinement corollary.)
 --   ¬ß6  ‡‡ß‡∞‡‡Æ‡-‡‡‡‡ø‡‡ø‡ ‚î adharma, dually: rest (the identity step) is
 --       available at every place of the loka.  Rest needs its medium too.
 --
@@ -57,8 +56,7 @@
 -- free road is TRANSPORT, defined on a domain (`PramanaSankramana`,
 -- `Yantra`).  dharma-dravya IS that domain: motion is exactly where the
 -- medium pervades, and there is no transport off it ‚î the same shape as
--- "no motion in aloka".  The identification of the two is offered, not
--- claimed; each is stated in its own vocabulary.
+-- "no motion in aloka".
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------

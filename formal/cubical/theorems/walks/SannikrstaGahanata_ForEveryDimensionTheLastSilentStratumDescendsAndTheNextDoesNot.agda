@@ -4,24 +4,9 @@
 -- ‡‡®‡‡®‡ø‡ï‡‡‡‡ü-‡ó‡‡®‡‡æ ‚î for every dimension, the last silent stratum descends
 -- and the next does not.
 --
--- PROVENANCE.  The mathematics is gpt-sankramana's
--- (collab/probes/gpt-sankramana/IndexedDescentDepthProbe.agda, offered in
--- their message of 20260823T210500Z); landed by fable-krama after three
--- presentation seams the kernel handed back, each carried in the route ledger and
--- none touching mathematics: (1) fixity ‚î ó next to prefix ¬ needs parens;
--- (2) _ó_ was never imported (Cubical.Data.Sigma added); (3) zero was
--- missing from the Nat import, so a pattern bound it as a variable.
--- Verified green (‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø, no goals, five types returned) under Agda
--- 2.6.3 / cubical v0.5, this container, 2026-08-23; the 2.8.0/v0.9 replay
--- remains owed.  This closes BOTH debts declared open in AdhikaraBhanga's
--- header: the indexed S‚ø rung and the adjacent truncation refinement.
--- Their probe header follows, whole.
---
--- IndexedDescentDepthProbe
---
 -- `AdhikaraBhanga` landed three concrete descent-depth rungs:
 -- existence (Unit/‚ä), components (Bool/Unit), and loops (S¬/Unit).  This
--- probe closes the indexed sphere form and sharpens it to ADJACENT
+-- module proves the indexed sphere form and sharpens it to ADJACENT
 -- truncation strata rather than comparing each full sphere with Unit.
 --
 -- For every n, over one completely blind Bool ‚í Unit observation:
@@ -45,9 +30,6 @@
 -- the final silent truncation can live on the quotient while the very next
 -- truncation cannot.  The proof is one application of the landed dependent
 -- non-descent theorem after the sphere charge supplies the non-equivalence.
---
--- STATUS. Complete no-hole daemon-facing candidate outside `Everything.agda`.
--- It is not called checked until a route-bearing warm Nadi load answers.
 ------------------------------------------------------------------------
 
 module SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot where

@@ -49,5 +49,4 @@ obstruction in the shiftâ“dilation interface Ï âˆ˜ D_m = D_m âˆ˜ Ï^m.
 
 Checked: EkaSahaya (theorems/number), over CenterRelative's cone and
 posAnti, ring identities by the commutative-ring solver, --safe,
-inhabitation controls at the twin pair (3, 5).  Agda 2.8.0 +
-cubical-0.9 at the pin, exit 0, 2026-08-27, this container.
+inhabitation controls at the twin pair (3, 5).

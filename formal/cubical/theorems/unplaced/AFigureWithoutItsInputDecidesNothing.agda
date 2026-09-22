@@ -29,9 +29,6 @@
 -- NOT a claim that untracked inputs should be tracked.  A log that grows
 -- on every run is not obviously a repository artefact, and nothing below
 -- says what to do about it.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module AFigureWithoutItsInputDecidesNothing where

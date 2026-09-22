@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àµà¿ààà°à•à°àà â” dispersion.  The message's climax as a term, and with NO
+-- àµà¿ààà°à•à°àà â” dispersion.  The dispersion step as a term, with NO
 -- coprimality fence: the joint reciprocal itself supplies the inverse.
 --
 --   â âˆ’ â  â‰¡  (uâ âˆ’ uâ) Â w   (mod v),      w = (uâÂuâ)â»Â mod v.
@@ -11,7 +11,7 @@
 -- displacement h = uââˆ’uâ times the joint reciprocal.  Goldbach's additive
 -- displacement is regenerated inside the multiplicative reciprocal form â”
 -- "addition reappears after multiplication is differentiated against
--- itself."  (Owner's dispersion step; exact, no fence.)
+-- itself."  (Exact, no fence.)
 --
 -- HYPOTHESES (all mod v, as â-divisibilities):
 --   h1 : v âˆ (âÂuâ âˆ’ 1) ;  h2 : v âˆ (âÂuâ âˆ’ 1) ;  h3 : v âˆ (wÂ(uâuâ) âˆ’ 1).
@@ -20,8 +20,6 @@
 -- WHY NO FENCE.  h3 gives w with wÂuâuâ â‰¡ 1, so the cancellation of uâuâ
 -- is INTERNAL: v âˆ AÂ(uâuâ) plus wÂuâuâ â‰¡ 1 give v âˆ A directly.  The
 -- inverse being present is exactly what the reciprocal form provides.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Viprakarsa_TheDifferenceOfTwoReciprocalsIsTheAdditiveDisplacementTimesTheJointReciprocal where

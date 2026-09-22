@@ -4,25 +4,11 @@
 -- Laghutama_InLowestTermsEveryNonEmptyBoundaryPopulationIsAtLeastAsLongAsItsDenominator
 --
 -- `MinimalityOfABoundaryPopulationNeedsLowestTerms` proved minimality
--- of a boundary population at numerator one, refuted it at 2/4, and
--- said of the general case:
---
---   "The general case â” gcd p (suc q) â‰¡ 1 â’ every non-empty boundary
---    population has length â‰ suc q â” is NOT proved.  It needs exactly
---    one missing lemma, Euclid's:
---
---      gcd a b â‰¡ 1  â’  a âˆ b Â c  â’  a âˆ c
---
---    and cubical v0.5 does not ship it: `Cubical.Data.Nat.GCD` has the
---    Euclidean ALGORITHM (`euclid`, `gcd`, `isGCD`) and `Divisibility`
---    has cancellation, but the lemma itself is absent, and it is not
---    derivable from those without a B©zout identity."
---
--- The lemma is now in this repository, and WITHOUT B©zout:
+-- of a boundary population at numerator one and refuted it at 2/4.
+-- This module proves the general case.  Euclid's lemma comes from
 -- `WalkJumps.coprime-cancel : isGCD a b 1 â’ a âˆ b Â c â’ a âˆ c`, proved
 -- there from `gcd-factorÊ³` (gcd (aÂc) (bÂc) â‰¡ gcd a b Â c) and the
--- universal property of the gcd.  This module imports it and closes
--- the general case exactly as the quoted sentence states it.
+-- universal property of the gcd.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED  (Boundary p q bs is `p Â length bs â‰¡ suc q Â count bs`,
@@ -38,7 +24,7 @@
 --                            â’ 1 â‰ length bs â’ suc q â‰ length bs
 --   minimalityInLowestTermsGcd
 --                            the same with the hypothesis in the
---                            quoted form, gcd p (suc q) â‰¡ 1
+--                            form gcd p (suc q) â‰¡ 1
 --   minimalityInLowestTermsCount
 --                            the same with `1 â‰ count bs`, the
 --                            non-emptiness hypothesis the earlier
@@ -68,18 +54,13 @@
 -- hypothesis, as before.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE SCOPE, EXACTLY.  Nothing here says which lengths ARE achievable:
 -- `popIsMinimal` says suc q is achieved and nothing non-empty is
--- shorter, not that every multiple of suc q is achieved or that only
--- multiples are (the latter is `boundaryDividesInLowestTerms`, and
--- the former is not claimed).  Nothing is quotiented: `gcd p (suc q)
+-- shorter; that only multiples of suc q are achieved is
+-- `boundaryDividesInLowestTerms`.  Nothing is quotiented: `gcd p (suc q)
 -- â‰¡ 1` is a property of the PAIR, and 2/4 still fails where 1/2
 -- succeeds â” that is `twoOverFourIsNotInLowestTerms` next to
 -- `minimalityInLowestTermsGcd`, not a contradiction.  No B©zout
--- identity is used or proved; `coprime-cancel` does not need one.
---
--- CHECKED at the declared pin (Agda 2.8.0, cubical v0.9).  --safe, no
--- postulates, no holes, no TERMINATING pragmas.
+-- identity is used; `coprime-cancel` does not need one.
 ------------------------------------------------------------------------
 
 module Laghutama_InLowestTermsEveryNonEmptyBoundaryPopulationIsAtLeastAsLongAsItsDenominator where
@@ -116,7 +97,7 @@ open import WalkJumps using (coprime-cancel)
 -- 1.  The gcd is symmetric
 --
 -- `coprime-cancel a b c` wants `isGCD a b 1` with a the divisor that
--- gets cancelled through, i.e. `isGCD (suc q) p 1`; the quoted
+-- gets cancelled through, i.e. `isGCD (suc q) p 1`; the theorem
 -- statement has `gcd p (suc q)`.  `symCD` is in the library, the
 -- greatest-part is one line on top of it.
 ------------------------------------------------------------------------
@@ -163,7 +144,7 @@ minimalityInLowestTerms p q bs g b pos =
     nonzero : Â¬ length bs â‰¡ 0
     nonzero e = Â¬-<-zero (subst (1 â‰¤_) e pos)
 
--- The hypothesis in the quoted form.
+-- The hypothesis as an equation on the gcd.
 minimalityInLowestTermsGcd :
   (p q : â„•) (bs : List Bool) â†’ gcd p (suc q) â‰¡ 1 â†’ Boundary p q bs
   â†’ 1 â‰¤ length bs â†’ suc q â‰¤ length bs

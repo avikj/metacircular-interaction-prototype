@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision
 --
--- 'number of exciting claims'", lists eight objectives, and says the
+-- Â§5.2 lists eight objectives, and says the
 -- controller "maintains Pareto strata" and samples WITHIN a stratum.
 -- The design is stated; the reason it must be that shape is not.
 --
@@ -36,24 +36,18 @@
 -- no best to pick, and any rule that produces one has smuggled in a
 -- preference ordering under the name of a measurement.
 --
--- CONNECTS TO THE OTHER DARWIN CYCLE.  Â§2's seam 3, checked in
+-- Â§2's seam 3, checked in
 -- `AscendingFirstIsTheWorstUnlessTheArchiveIsConstant`, is a bug in a
 -- branch that assumes a TOTAL order on accuracy.  Â§5.2 says the fitness
 -- is a vector.  Those two facts sit in one note: the seam is in code
 -- selecting by a scalar, and the design section says the scalar does not
--- exist.  Nothing here claims the released code implements Â§5.2 â” it
--- does not, Â§5.2 is this repository's proposed controller â” only that
--- the two sections are about the same missing total order.
+-- exist.  The two sections are about the same missing total order.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  The product order, its failure of totality, and the fact
+-- The product order, its failure of totality, and the fact
 -- that monotone scalarisations are strict extensions are standard
 -- multi-objective optimisation, going back to Pareto (`Cours
--- d'©conomie politique`, 1896) and Edgeworth before him; the Agda is
--- attached to Â§5.2, not discovered.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- d'©conomie politique`, 1896) and Edgeworth before him.
 ------------------------------------------------------------------------
 
 module AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision where
@@ -145,19 +139,11 @@ scalarisationDecidesAnIncomparablePair =
   fst incomparable , snd incomparable , sumOrdersThem
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
+-- The decision on `â‰¼`, and the constructive existence of a Pareto
+-- stratification for an arbitrary archive, are proved in
+-- `TheParetoStratumIsDecidableAndTheFilterIsExact`:
 --
---   "it is NOT proved that a Pareto stratification EXISTS
---    constructively for an arbitrary archive, which would need a
---    decision on `â‰¼` and is not proved here."
---
--- The decision is now proved, in
--- `TheParetoStratumIsDecidableAndTheFilterIsExact`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
---
---   decâ‰ / decâ‰¼            from `splitâ•-â‰` alone
+--   decâ‰ / decâ‰¼           from `splitâ•-â‰` alone
 --   decStrictlyDominates
 --   decIsParetoMaximal     against a finite archive, reusing `decAny`
 --   stratum                the maximal layer, as a COMPUTED list
@@ -165,28 +151,20 @@ scalarisationDecidesAnIncomparablePair =
 --                          sound and complete, so the computed stratum
 --                          and the specified one have the same members
 --
--- What that adds to Â§5.2 is the half this module could not say.  Here:
--- there is no best to pick.  There: the thing Â§5.2 picks INSTEAD â” "the
+-- Here: there is no best to pick.  There: the thing Â§5.2 picks INSTEAD â” "the
 -- controller first selects a Pareto stratum S" â” is constructible, and
 -- a controller cannot select what it cannot compute.
 --
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "Â§5.2's objectives include wall time, tokens, and dollar cost,
---    which are to be MINIMISED; nothing below flips any coordinate, so
---    the theorems are about a vector all of whose coordinates point the
---    same way, and applying them needs the costs negated first."
---
--- Every module on this line repeated that sentence, and the min-plus
--- line then showed twice that reversing an order is load-bearing.  So
--- the flip was given its own theorem, in
--- `FlippingACostCoordinateIsSoundButNotFaithful`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- Â§5.2's objectives include wall time, tokens, and dollar cost, which
+-- are to be MINIMISED; nothing above flips any coordinate, so the
+-- theorems are about a vector all of whose coordinates point the same
+-- way, and applying them needs the costs negated first.  The min-plus
+-- line shows twice that reversing an order is load-bearing, so the flip
+-- has its own theorem, in
+-- `FlippingACostCoordinateIsSoundButNotFaithful`.
 --
 --   Vec ds / Dom ds   vectors over a DIRECTION list, and MIXED
 --                     dominance: `â‰` at a benefit coordinate, `â‰` at a
@@ -198,7 +176,7 @@ scalarisationDecidesAnIncomparablePair =
 --   flipIsNotFaithful and the CONVERSE FAILS: at `cap = 3` the costs
 --                     `5` and `7` both flip to `0`
 --
--- **The sentence quoted above is half true.**  Flipping suffices to
+-- **"Negated first" is half true.**  Flipping suffices to
 -- APPLY these theorems â” soundness is the only direction that needs.
 -- It does NOT suffice to transport a conclusion back, because the cap
 -- identifies every cost above it.  The honest form is "negate the

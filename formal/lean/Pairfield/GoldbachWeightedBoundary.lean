@@ -6,8 +6,6 @@ An exact boundary between two finite additive convolutions at a fixed natural
 centre.  The prime-log coefficient has precisely Goldbach support.  The
 von-Mangoldt coefficient also sees prime powers, so its excess over the
 prime-log coefficient is retained explicitly as contamination.
-
-No lower bound for either coefficient is asserted here.
 -/
 import Pairfield.GoldbachBoundary
 import Mathlib.NumberTheory.Chebyshev
@@ -225,7 +223,7 @@ theorem primePowerContamination_le_four_mul_psi_mul_sqrt_mul_log
 /-- A completely explicit consequence of Chebyshev's linear upper bound for
 `psi`.  Its `N^(3/2) log N` scale is too large to separate an expected
 Goldbach main term of order `N`; the theorem records a rigorously checked
-boundary, not progress on the missing lower bound. -/
+boundary. -/
 theorem primePowerContamination_le_explicit (N : ℕ) (hN : 1 ≤ N) :
     primePowerContamination N ≤
       4 * (Real.log 4 + 4) * N * Real.sqrt N * Real.log N := by

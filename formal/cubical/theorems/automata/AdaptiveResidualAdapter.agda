@@ -10,9 +10,7 @@
 -- effectivity then identifies this relation with the path space between the
 -- corresponding named points of MinimalMachine.Meaning.
 --
--- The carrier and the cost are intentionally kept separate.  Nothing below
--- identifies tree depth with a parallel response-window horizon; the checked
--- Lean witness with costs 1/1/2 therefore remains compatible with this file.
+-- The carrier and the cost are intentionally kept separate.
 ------------------------------------------------------------------------
 
 module AdaptiveResidualAdapter where

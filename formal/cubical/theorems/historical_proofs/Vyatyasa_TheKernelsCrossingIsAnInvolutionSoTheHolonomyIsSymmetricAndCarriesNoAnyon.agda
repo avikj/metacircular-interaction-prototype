@@ -15,8 +15,7 @@
 -- WHAT THIS ANSWERS, AND WHOSE QUESTION IT IS.
 --
 -- Two files in this corpus stand next to each other and do not cite each
--- other.  Both check at the pin (Agda 2.8.0 / agda-cubical v0.9, exit 0,
--- run 2026-08-24):
+-- other:
 --
 --   `Ankapasa_â¦` gives the kernel a UNIVALENT semantics.
 --     Every constructor of `Step` becomes an equivalence; `reverse` becomes
@@ -69,8 +68,7 @@
 -- involution by construction (`âŠ-swap-Iso` is its own inverse).  Any
 -- interpretation of `add` by `âŠ` inherits ÏÂ² = 1 and can do no better.  A
 -- braiding with ÏÂ² â‰  1 would have to come from a different interpretation
--- of `add` â” that is the open horn this file leaves, stated rather than
--- gestured at.
+-- of `add`.
 --
 -- A SECOND, SMALLER FINDING, RECORDED BECAUSE IT BLOCKS THE OBVIOUS
 -- ATTEMPT.  `Stepâº` in `Ankapasa_` has exactly two constructors, `base`
@@ -86,11 +84,7 @@
 -- `add-comm` and `âŠ-assoc-â‰` for the reassociation â” so Â§3 and Â§4 are
 -- statements about the semantics the kernel HAS, and the syntax that
 -- would express them is a congruence rule and an associator the kernel
--- DOES NOT HAVE.  That gap is a fact about `Stepâº`, stated here, not
--- repaired here.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 (THE PIN), --cubical --safe,
--- no postulates, no holes.
+-- DOES NOT HAVE.
 ------------------------------------------------------------------------
 
 module Vyatyasa_TheKernelsCrossingIsAnInvolutionSoTheHolonomyIsSymmetricAndCarriesNoAnyon where

@@ -11,7 +11,7 @@
 -- `notes/AHIMSA_SUTRA_VISTARA.md` ¬ß‡© ‚î ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡‡‡‡ã ‡µ‡‡‡ø ‡ ‡‡‡‡ã ‡ó‡∞‡‡‡, ‡®
 -- ‡µ‡ø‡‡≤‡‡æ ‚î "in the avaktavya the residue dwells; the residue is a WOMB,
 -- not a failure."  This module is that sentence read as a fibre, which is
--- what it already was.  No source is claimed for the compound.
+-- what it already was.
 --
 ------------------------------------------------------------------------
 -- WHAT IS SEEN HERE, AND IT IS ONE THING SAID THREE WAYS.
@@ -80,9 +80,6 @@
 -- the same fact ‚î a point with a crowded fibre is a point no injection
 -- reaches from its preimages, and the seed-free fragment is precisely the
 -- part of ‡‡Æ‡æ‡µ‡‡ on which ‡‡ø‡‡‡µ‡æ‡‡‡¶‡ IS the identity (¬ß2.3).
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5, --cubical --safe, no postulates,
--- no holes, checked against this lane's own `.agda-lib`.
 ------------------------------------------------------------------------
 
 module Avaktavyagarbha_TheFourthPositionIsTheCrowdedFibreOfTheTongueBreakAndItsResidualIsExactlyWhatWasSaidAtOnce where

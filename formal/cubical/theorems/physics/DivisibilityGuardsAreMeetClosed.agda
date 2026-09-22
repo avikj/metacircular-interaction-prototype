@@ -3,42 +3,30 @@
 ------------------------------------------------------------------------
 -- DivisibilityGuardsAreMeetClosed
 --
--- corpus-native intersection-closed guard family ‚î the divisibility
--- guards, with `D_d ‚à© D_e = D_lcm(d,e)` ‚î and says of it:
+-- The divisibility guards, with `D_d ‚à© D_e = D_lcm(d,e)`, are a
+-- corpus-native intersection-closed guard family (¬ß6.1).
 --
---   "PROVED on paper in one line from unique factorisation; **not**
---    mechanised here ‚î the Agda module carries no divisibility
---    instance."
---
--- Mechanised here, and WITHOUT unique factorisation: the meet law is
+-- Mechanised here WITHOUT unique factorisation: the meet law is
 -- exactly the lcm's universal property, so it needs no factorisation at
--- all.  That is a narrowing of ¬ß6.1's own account of its proof, offered
--- for its author (¬ß4 below), not applied.
+-- all.  That is a narrowing of ¬ß6.1's own account of its proof (¬ß4
+-- below).
 --
--- Cubical v0.5 has no lcm module.  Per the standing idiom in this
--- corpus, the lcm is therefore taken by its universal property rather
--- than constructed: `IsLcm d e l` says l is a common multiple that
--- divides every common multiple.  Nothing below asserts that such an l
--- exists ‚î existence is a separate obligation and is NOT discharged.
+-- The lcm is taken by its universal property rather than constructed:
+-- `IsLcm d e l` says l is a common multiple that divides every common
+-- multiple.  Existence of such an l is a hypothesis of every statement
+-- below.
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS DOES NOT DO, and it is the interesting half
---
--- This does NOT become an instance of `ElsewhereCondition.directedRooted`.
--- I read that module: its `Guard A = A ‚í Bool`, so a guard there is a
--- DECISION, while `D d` below is a Œ ‚î a search for the cofactor.
--- Turning `D d` into a `Guard` is exactly the step of deciding
--- divisibility, which is available for ‚ï but is not free and is not
--- done here.  So ¬ß6.1's family is meet-closed as stated, and is still
--- not plugged in, and the thing standing between them is a decision.
+-- This is NOT an instance of `ElsewhereCondition.directedRooted`: its
+-- `Guard A = A ‚í Bool`, so a guard there is a DECISION, while `D d`
+-- below is a Œ ‚î a search for the cofactor.  Turning `D d` into a
+-- `Guard` is exactly the step of deciding divisibility.  So ¬ß6.1's
+-- family is meet-closed as stated, and the thing standing between it
+-- and `directedRooted` is a decision.
 --
 -- That is the same axis as
 -- `AskingIsNotAPropertyOfTheFunction` and
 -- `PermanentUnsaidIsStableAndTemporaryIsASearch`, met
--- here from a third direction and not by design.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î container pin.  --safe, no
--- postulates, no holes.
+-- here from a third direction.
 ------------------------------------------------------------------------
 
 module DivisibilityGuardsAreMeetClosed where
@@ -99,21 +87,18 @@ divisibilityIsDirected isl x dx ex =
   , lcmGuard‚Üíboth isl
 
 ------------------------------------------------------------------------
--- 4.  A narrowing offered to ¬ß6.1, NOT applied
+-- 4.  The narrowing of ¬ß6.1
 --
 -- ¬ß6.1 says the meet law is "PROVED on paper in one line from unique
 -- factorisation".  ¬ß3 uses no factorisation: `both‚ílcmGuard` IS the
 -- universal property applied, and `lcmGuard‚íboth` is two transitivities.
 -- Unique factorisation is needed for a different sentence in the same
 -- paragraph ‚î that `D_d ‚ãê D_e` iff `v_p(e) ‚â v_p(d)` for every p, which
--- is genuinely about valuations and is NOT proved here.
+-- is about valuations and is not the subject of this module.
 --
--- Suggested replacement, for that note's author to take or leave:
---
---   "the meet law is the lcm's universal property and needs no
---    factorisation; unique factorisation is what turns the containment
---    order into the valuation coordinate."
---
--- The existence of the lcm is a third statement again, and none of the
--- three is discharged by the other two.  Nothing here constructs one.
+-- So: the meet law is the lcm's universal property and needs no
+-- factorisation; unique factorisation is what turns the containment
+-- order into the valuation coordinate.  The existence of the lcm is a
+-- third statement again, independent of the other two; here it is the
+-- hypothesis `IsLcm`.
 ------------------------------------------------------------------------

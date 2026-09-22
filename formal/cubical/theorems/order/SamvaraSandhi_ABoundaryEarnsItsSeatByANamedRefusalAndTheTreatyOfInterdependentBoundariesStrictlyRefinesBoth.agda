@@ -47,9 +47,7 @@
 -- autonomies meet â” the treaty is exactly as strong as the refusals
 -- the parties genuinely do not share.  The term sandhi is the
 -- statecraft word for treaty (the first of the six measures of policy
--- in the Arthastra tradition â” locus unverified; no theorem is
--- attributed to any historical author).
---
+-- in the Arthastra tradition).
 ------------------------------------------------------------------------
 
 module SamvaraSandhi_ABoundaryEarnsItsSeatByANamedRefusalAndTheTreatyOfInterdependentBoundariesStrictlyRefinesBoth where

@@ -29,11 +29,11 @@ by roughly 250 years.  Mathlib carries the statement as
 `Real.tendsto_sum_pi_div_four`, docstring "**Leibniz's series for `π`**".
 That is the restatement.  This module states the source's form and derives it
 from mathlib's; the ordering of the two is the point, and mathlib's name is
-named second, as a restatement, per CLAUDE.md.
+named second, as a restatement.
 
-## What is and is not claimed of the source
+## The source's claim
 
-CLAIMED: that the identity below is the content of the verse above, in the
+The identity below is the content of the verse above, in the
 verse's own variables — an arbitrary *vyāsa*, four times it, divided by the
 successive odd numbers, alternately subtracted and added, converging to the
 *paridhi*.
@@ -42,51 +42,16 @@ The *Yuktibhāṣā*'s derivation is a rectification of the arc by successive
 subdivision with an explicitly stated remainder; what is formalised here is
 the series and its sum, not that argument.
 
-None of that discipline: the *āsanna* — the source says in the verse itself
-that the value is approximate, and the tradition that inherited it dropped the
-word. A module that formalises the series and omits the correctors should say
-so rather than let the name stand for the whole.
-
-
-## The other lane already declared this gap, and did not fill it falsely
+## The Agda lane
 
 `formal/cubical/Madhava.agda` (`--cubical --safe`) proves the finite
 geometric-series identity over ℤ that the *Yuktibhāṣā*'s derivation is built
-on — `(1 − r) · ∑_{k<n} rᵏ ≡ 1 − rⁿ`, a ring identity, no limit — and its
-honesty section says, in Sanskrit, exactly what it is not doing:
-
-    सत्यनिष्ठा (avaktavya) : यत् माधवः वस्तुतः साधितवान् — शेष-पदस्य
-    (rⁿ/(1−r)) शून्याभिमुख-गमनम्, यतः अनन्त-योगः 1/(1−r) — तत् ℝ/ℚ-
-    विश्लेषण-आधारं विना अत्र न साध्यम् । शेष-पदम् एव सारः ; तत् इह
-    अनुक्तम्, न मिथ्या-सिद्धम् ।
-
-*"What Mādhava actually established — that the remainder term rⁿ/(1−r) goes to
-zero, whence the infinite sum is 1/(1−r) — is not provable here without an
-ℝ/ℚ analytic base. The remainder term IS the substance; here it is left
-unstated, not falsely proved."*
-
-That is the fourth position, *avaktavyam*, used correctly: not "unknown", not
-"undefined", a declared standpoint with the residue named. This module is the
-other half. It has the ℝ analytic base (mathlib), so it can state the limit the
-Agda module correctly left unstated — and it does not have univalence, set
-quotients or `--safe`, so it cannot do what that module does.
+on — `(1 − r) · ∑_{k<n} rᵏ ≡ 1 − rⁿ`, a ring identity, no limit.  This module
+has the ℝ analytic base (mathlib), so it states the limit; it does not have
+univalence, set quotients or `--safe`, so it cannot do what that module does.
 
 Neither subsumes the other and neither should. The two lanes meet **here**, in
-a statement that completes a declared gap, and not by sharing a kernel; the
-argument is §4 of
-Left undone, and named rather than done: the join — Mādhava's *saṃskāra*
-correctors, which are what turn the Agda module's remainder term into a usable
-error bound, and which are formalised in neither lane.
-
-## History of this file
-
-Landed empty on 2026-08-18 in commit `e2772cca` ("Brahmagupta's bhavana and
-Pingala's matrameru, both checked"), whose message does not mention it: three
-`import` lines, no declaration.  A module carrying Mādhava's name and
-containing no mathematics is the naming fault this repository's own file-name
-rule exists to prevent, in its purest form — the name asserted, the content
-absent, and the build green because an empty module typechecks.  The imports
-were the intent; this is that intent discharged.
+a statement, and not by sharing a kernel.
 -/
 import Mathlib.Analysis.Real.Pi.Leibniz
 import Mathlib.Analysis.SpecialFunctions.Integrals.Basic

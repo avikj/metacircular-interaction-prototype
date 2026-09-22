@@ -9,11 +9,8 @@
 -- mark.  Root notion in Gautama, *Nyyastra* (~2nd c. CE), under ‡‡®‡‡Æ‡æ‡®;
 -- the definitional apparatus (the vyptivda, and the ‡â‡‡æ‡ß‡ø that defeats a
 -- proposed pervasion) is Navya-Nyya, Gagea, *Tattvacintmai* (~1325).
--- The 12-century gap is stated because filing the later apparatus under the
--- strakra is the error this corpus struck in its own Pini row.
 --
--- SCOPE OF THE CLAIM ON THE SOURCE.  Naming this module for vypti does NOT
--- say the Naiyyikas proved anything below.  What is borrowed is one
+-- What is borrowed is one
 -- distinction they drew sharply and that this kernel's types do not: a
 -- ‡Æ‡æ‡∞‡‡ï that licenses an inference ONLY in the instance where it was
 -- observed is not a pervasion at all.  ¬ß1 shows the kernel's installed
@@ -68,8 +65,6 @@
 --       exhibits the two-element case of this (two histories, one target);
 --       here it is unbounded.  Collapsing that fibre is the loss the carrier
 --       law prices, and the reason `advance` refuses to dedupe.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module Kernel.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise where

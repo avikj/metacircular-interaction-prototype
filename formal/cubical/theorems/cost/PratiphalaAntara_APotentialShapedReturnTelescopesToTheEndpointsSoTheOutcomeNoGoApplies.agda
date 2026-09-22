@@ -25,7 +25,7 @@
 --   histories sharing endpoints â” it is exactly as blind as the
 --   outcome, because it IS a function of the outcome.
 --
--- The connective law, third appearance this campaign: FACTORING KILLS
+-- The connective law: FACTORING KILLS
 -- SEPARATION.  Between instruments (a derived sense adds no vision),
 -- along time (a factoring observation collapses Nerode to one
 -- reading), and now along value: a reward derived from state adds no

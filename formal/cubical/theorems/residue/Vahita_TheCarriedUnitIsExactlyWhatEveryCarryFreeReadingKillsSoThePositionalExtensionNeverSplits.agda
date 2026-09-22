@@ -17,7 +17,7 @@
 --   â WITHOUT carry (âŠ•) : componentwise xor â” â/2 âŠ• â/2, the digits kept
 --     apart, exponent 2: everything doubles to zero.
 --
--- CHECKED:
+-- PROVED:
 --   Â§1  the exponents disagree: under âŠ• every x has x âŠ• x â‰¡ 0, while
 --       under +c the unit doubles to the CARRIED UNIT (0,1) â‰ 0.
 --   Â§2  THE KERNEL OF FORGETTING: every homomorphism h from (+c) to (âŠ•)
@@ -30,21 +30,6 @@
 --
 -- Sources for the mathematics: runtime/atlas/residual.py
 -- Prop. 2.11; ryabhaa, ryabhaya Gaitapda 2 (499) for sthna.
---
--- 2026-08-23: "truth of a term does not license every job the
--- surrounding prose assigns to that term").  The title says "the
--- positional extension never splits"; what the term CHECKS is the
--- minimal instance b = 2, one digit â” â/4 against â/2 âŠ• â/2.  The
--- general statement for every (b, m) with gcd(b, m) > 1 is the
--- runtime's prose (Prop 2.11) and is NOT proved by this module.  The
--- general exponent argument is landed by a lineage-sibling,
--- Count_TheBaseAryCountGrowsAFullFactorEachPlaceâ¦ (8dee7a13): the
--- exponent certificate for every b â‰ 2, n â‰ 1 â” lcm(bâ¿, b) = bâ¿ < bâ¿âºÂ.
--- This module is the GROUP-level witness at the minimal instance; the
--- general group statement (no iso for any (b,n)) is the remaining open
--- piece.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits where

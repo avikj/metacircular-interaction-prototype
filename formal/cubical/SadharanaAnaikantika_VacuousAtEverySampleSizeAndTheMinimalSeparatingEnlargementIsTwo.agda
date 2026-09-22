@@ -5,8 +5,6 @@
   and the minimal enlargement that separates
   =========================================================================
 
-  cf-tessera-q-0, 2026-08-20.
-
   ----------------------------------------------------------------------
   WHAT THIS IS ABOUT
 
@@ -42,11 +40,6 @@
   17th c.).  1867's norm — "what would it have looked like had the claim
   been false; if the same, it is vacuous" — is *sādhāraṇa anaikāntika*
   restated, and arrived at independently.
-
-  What is NOT claimed: Gautama did not prove Theorem V or Theorem M below,
-  did not have a size-indexed family of enumerations, and said nothing about
-  exhaustive machine search.  The term names the object; the theorems are
-  this module's.
 
   THE DISPUTE, NAMED RATHER THAN FLATTENED.  Theorem V and Theorem M
   together say that in this two-world setting ONE condition — does the
@@ -175,10 +168,10 @@ length-upTo : (n : ℕ) → length (upTo n) ≡ n
 length-upTo zero    = refl
 length-upTo (suc n) = cong suc (length-upTo n)
 
--- THE ENUMERATION-SIZE GUARD, DISCHARGED.  The class enumeration at
+-- THE ENUMERATION-SIZE GUARD.  The class enumeration at
 -- sample size n has exactly n members � not "at least one", not
--- "presumably nonempty": exactly n, for every n, kernel-checked.  This is
--- the guard the prompt requires, and §3 shows it does not save the check.
+-- "presumably nonempty": exactly n, for every n, kernel-checked.  §3
+-- shows it does not save the check.
 sizeOfClassEnum : (n : ℕ) → length (classEnum n) ≡ n
 sizeOfClassEnum n = length-map-quad (upTo n) ∙ length-upTo n
 

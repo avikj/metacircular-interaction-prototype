@@ -6,11 +6,7 @@
 -- A lossless change of the CODOMAIN PRESENTATION of an observation does
 -- not change which set-valued targets can be executed from it.
 --
--- The fixed random anchor was compressed PNG payload.  Its decoded image
--- suggested the presentation question but supplies no hypothesis below.
--- This module does not formalise PNG, visual meaning, or any relation
--- between one byte window and the image.  It isolates the exact reusable
--- core statement: postcomposition by an equivalence preserves the kernel
+-- The core statement: postcomposition by an equivalence preserves the kernel
 -- pair, hence preserves `FactorsThrough` in both directions.
 --
 -- The equivalence hypothesis is load-bearing.  The final Bool control

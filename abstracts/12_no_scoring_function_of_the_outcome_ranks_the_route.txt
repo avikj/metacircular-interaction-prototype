@@ -52,12 +52,11 @@ discards the skill and the witness, and installation composes with that
 discard - so the system provably learns from what a step did and never
 from why it was permitted.
 
-RESOLVED IN PART.  The return and the shaping side now exist:
+The return and the shaping side exist:
 theorems/cost/PratiphalaAntara constructs debits and credits from a
 potential and proves the telescoping identity â” a potential-shaped
 return is a function of the two endpoints alone, so every no-go above
 applies to it in full, and a reward that separates two same-endpoint
-histories is thereby certified non-potential.  Stochasticity,
-discounting and estimators remain constructions.
+histories is thereby certified non-potential.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

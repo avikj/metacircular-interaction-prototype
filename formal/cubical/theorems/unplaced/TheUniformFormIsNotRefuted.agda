@@ -58,14 +58,11 @@ open import TheUnstableGroundCannotBeExhibited using (DNS)
 -- That (c) is undecidability in the recursion-theoretic sense.  Without
 -- a notion of algorithm distinct from "term of this type theory", `(n :
 -- X) ‚í Dec (P n)` is a function, not a procedure, and the two notions
--- coincide here only because the lane has no other.  Saying whether
--- that is the right lane is exactly what the note left open, and this
--- file does not settle it.
+-- coincide here only because the lane has no other.
 --
 -- That independence from a theory is reached.  It is not: that needs a
--- theory to be independent OF, an object this lane still does not
--- carry.  One of the note's two routes is opened here; the other is
--- untouched.
+-- theory to be independent OF, an object this lane does not
+-- carry.
 --
 -- ONE RESEMBLANCE, WITH ITS LIMIT STATED, BECAUSE THE ALTERNATIVE IS
 -- DRESSING.
@@ -79,19 +76,9 @@ open import TheUnstableGroundCannotBeExhibited using (DNS)
 -- That is a resemblance and I am not claiming it is an identity.  An
 -- ‡‡µ‡‡‡‡‡¶‡ï limits a ‡‡‡∞‡‡ø‡Ø‡ã‡ó‡ø‡‡æ ‚î it fixes under what description the
 -- counterpositive is absent ‚î and quantifier scope in a type theory is
--- not that.  Naming ¬ß3 an avacchedaka distinction would be exactly the
--- move withdrawn at `b18ca12b`: an imported notion in the tradition's
--- clothes.  The note is cited because it names the failure mode this
+-- not that.  Naming ¬ß3 an avacchedaka distinction would be an imported
+-- notion in the tradition's clothes.  The note is cited because it names the failure mode this
 -- file is about; nothing here translates it.
---
--- PRIOR ART, checked by grepping the conclusion type rather than the
--- thread name.  `(n : ‚ï) ‚í Dec (P n)` occurs as a HYPOTHESIS in
--- `LeastWitnessFactory` and `CakravalaBound` (least-witness search).  A
--- grep of `formal/cubical` for its negation, and for `DNS` or
--- "double-negation shift" outside
--- `TheUnstableGroundCannotBeExhibited`, returns nothing.  A
--- differently-phrased equivalent ‚î say, a `¬ Œ` over decision
--- procedures ‚î would evade that grep.
 ------------------------------------------------------------------------
 
 private

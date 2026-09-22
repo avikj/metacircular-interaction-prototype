@@ -3,12 +3,8 @@
 ------------------------------------------------------------------------
 -- A finite, checked nucleus seam for DSO.
 --
--- The random runtime anchor (batch 02, #6) is a wall/port trace: a state
--- becomes usable only after its boundary coordinate is exposed.  Its exact
--- mathematical residue is a two-boundary cost relation with a retained
--- latent mode.  This module records one saturated rank-one mode.  It does
--- not claim an implementation of arbitrary Isbell completion or a general
--- tropical-rank algorithm.
+-- A two-boundary cost relation with a retained
+-- latent mode.  This module records one saturated rank-one mode.
 ------------------------------------------------------------------------
 
 module DSONucleusFinite where
@@ -78,7 +74,7 @@ sat = mode x y sound row-tight col-tight
 sat-exact : outer (SaturatedMode.left sat) (SaturatedMode.right sat) ≡ K
 sat-exact = rank-one-exact
 
--- The random trace's useful distinction is therefore retained as an explicit
+-- The useful distinction is therefore retained as an explicit
 -- intermediate dependency, rather than erased by a row-wise local minimum.
 retained-mode : (SaturatedMode.left sat true ≡ suc zero)
 retained-mode = refl

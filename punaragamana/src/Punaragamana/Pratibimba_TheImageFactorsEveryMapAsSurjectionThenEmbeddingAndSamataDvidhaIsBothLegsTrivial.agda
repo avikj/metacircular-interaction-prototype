@@ -63,9 +63,6 @@
 --       facts through ‡‡‡¶‡ so they compose with SamataDvidha directly,
 --       exhibiting `‡‡‡∞‡‡ø‡‡ø‡Æ‡‡`'s factorisation and `‡‡Æ‡‡æ-‡¶‡‡µ‡ø‡ß‡æ`'s product
 --       as the same theorem at two granularities.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚î the library's declared pin.
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Punaragamana.Pratibimba_TheImageFactorsEveryMapAsSurjectionThenEmbeddingAndSamataDvidhaIsBothLegsTrivial where

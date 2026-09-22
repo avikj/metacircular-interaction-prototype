@@ -4,9 +4,6 @@
 -- AnuktaAvaktavya ‚î ‡‡®‡‡ï‡‡‡Æ‡ is not ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, and the difference is a
 -- swapped quantifier.
 --
--- WHAT THIS CORRECTS, and it is a claim already in this repository rather
--- than one I am importing from outside it.
---
 -- `Satyayantra.agda` opens by describing its third position:
 --
 --     ‡‡®‡‡ï‡‡‡ ‡® ‡Æ‡ø‡‡‡Ø‡æ, ‡® ‚ä ‚î ‡‡‡‡‡Ø‡ ‡‡¶‡Æ‡ (avaktavyam), ‡‡‡≤‡ø‡Ø‡®‡-‡∞‡‡ø‡‡Æ‡ ‡
@@ -52,9 +49,7 @@
 -- remedy being the grant.  `SaptabhangiNaya.no-single-vacana` IS the
 -- second, with the remedy being a single utterance.  Neither theorem is
 -- reproved here; this module only exhibits that they instantiate the two
--- shapes, which is the content of the distinction.  ["dual" STRUCK 2026-08-19
--- by its own author; see ¬ß9 and Tantrayukti_ARetractionThatIsNotStrict-
--- IsNotARetraction ¬ß6.  A live retraction below a live claim asserts both.]
+-- shapes, which is the content of the distinction.
 --
 -- WHY IT MATTERS RATHER THAN BEING A LABELLING QUIBBLE.  A machine that
 -- reports its third position has to tell a caller what to DO about it, and
@@ -71,8 +66,6 @@
 -- simultaneity, which is precisely the ‚à/‚à difference below; Mallisena,
 -- Sydvdamajar (1292) for sakaldea against vikaldea.  The kuaka
 -- itself is ryabhaa, ryabhaya, Gaitapda 32‚ì33 (499 CE).
---
--- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 
 module Mula.AnuktaAvaktavya where
@@ -95,7 +88,7 @@ open import Mula.SaptabhangiNaya
         ; krama-expresses ; asti-from ; nasti-from ; rewriter ; kernel-refl )
 
 ------------------------------------------------------------------------
--- 1.  The two shapes.  [was "the two dual shapes"; STRUCK, ¬ß9]
+-- 1.  The two shapes.
 --
 -- `bad i r` reads: instance i is STILL in the third position when remedy r
 -- has been applied.
@@ -137,7 +130,7 @@ open import Mula.SaptabhangiNaya
 
 ------------------------------------------------------------------------
 -- 4.  So the two words name different shapes, and one word cannot carry
---     both.  [was "dual shapes"; STRUCK, ¬ß9]
+--     both.
 --
 -- Stated as a type rather than a sentence: a predicate that is ‡‡æ‡Æ‡Ø‡ø‡ï
 -- gives, at every instance, a remedy under which it fails; a predicate
@@ -146,8 +139,7 @@ open import Mula.SaptabhangiNaya
 -- instance type or an empty remedy type the shapes degenerate, and that
 -- is a separate statement I am not making.  What is exhibited is only
 -- this: the two theorems already in this repository realise the two
--- shapes,  [was "sit at the two poles"; STRUCK, ¬ß9]
--- and `Satyayantra.agda`'s parenthetical puts one under the other's name.
+-- shapes, and `Satyayantra.agda`'s parenthetical puts one under the other's name.
 ------------------------------------------------------------------------
 
 -- the un-said, at the pole it actually occupies
@@ -162,7 +154,6 @@ open import Mula.SaptabhangiNaya
 -- 5.  THE SHARPER DIFFERENCE: WHERE THE REMEDY LIVES.
 --
 -- The quantifier is the surface of it.  Underneath, the two shapes differ
---   [was "the two poles"; STRUCK, ¬ß9]
 -- in whether the remedy can stay in its own type.
 --
 --   ‡‡æ‡Æ‡Ø‡ø‡ï.  The remedy is an element of R, and remedies COMBINE inside R.
@@ -257,12 +248,7 @@ open import Mula.SaptabhangiNaya
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§π‡§∞‡§É-‡§Ö‡§®‡•á‡§ï‡§Æ‡•ç = pos 0 , pos 1 , ‡§∂‡•Ç‡§®‡•ç‡§Ø‚â¢‡§è‡§ï‡§Æ‡•ç , refl , refl
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by a later reader, at the end, altering no line
--- above.  Pointer only; nothing here corrects this module.
---
--- I read ‡‡æ‡Æ‡Ø‡ø‡ï and ‡®‡ø‡‡‡Ø and their proof bodies before writing
--- `NaturalMachine.SamayikaAndNityaAreIndependent` (--safe, no
--- postulates, no holes), which adds what kind of difference the swapped
+-- `NaturalMachine.SamayikaAndNityaAreIndependent` adds what kind of difference the swapped
 -- quantifier is: an INDEPENDENT one.
 --
 --   bothHold              matching i r = (i ‚â° r) on Bool satisfies
@@ -282,8 +268,7 @@ open import Mula.SaptabhangiNaya
 -- proved nor asserted.
 --
 -- That module says nothing about the WORDS ‡‡®‡‡ï‡‡‡Æ‡ and ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, about
--- the saptabhag, or about which module here uses which ‚î those are
--- this identity's grounds and its dispute, and they stay untouched.
+-- the saptabhag, or about which module here uses which.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -362,8 +347,7 @@ open import Saptabhangi
 --
 -- 00 is NOT ‡‡æ‡Æ‡Ø‡ø‡ï.  No resource resolves it: for EVERY candidate value
 -- there is a competing value satisfying the same defining condition.  In
--- the vocabulary of ¬ß1 that makes it ‡®‡ø‡‡‡Ø too.  [was "the same pole as avaktavyam";
--- STRUCK, ¬ß9: both being ‡®‡ø‡‡‡Ø is not a shared position on a line.]
+-- the vocabulary of ¬ß1 that makes it ‡®‡ø‡‡‡Ø too.
 --
 -- So the ‡‡æ‡Æ‡Ø‡ø‡ï/‡®‡ø‡‡‡Ø axis does NOT separate 00 from the fourth bhaga,
 -- and my ¬ß6 was right for the wrong reason.  What separates them is the
@@ -385,15 +369,6 @@ open import Saptabhangi
 ... | no ¬¨p = pos 0 , (Œª q ‚Üí ¬¨p (sym q)) , refl
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, second append by the same later reader, at the
--- end, altering no line above.  Pointer only.
---
--- Added because b397fe48's correction-propagation check, run on my own
--- (corrector, target) pairs, showed this file reachable from
--- `NaturalMachine.SamayikaAndNityaAreIndependent` (appended earlier) but
--- NOT from the second module that bears on it.  18 of 20 pairs carried
--- the back-reference; this was one of the two that did not.
---
 -- `NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent` checks
 -- that the two defects ¬ß6 and ¬ß8 separate ‚î a UNIQUENESS failure (00)
 -- and an EXPRESSIBILITY failure (avaktavyam) ‚î are independent, over
@@ -417,26 +392,6 @@ open import Saptabhangi
 -- way.  Both are wrong, and both were refuted by reading this file rather
 -- than by me:
 --
--- CORRECTION TO THE SENTENCE IMMEDIATELY ABOVE, made while striking the
--- word at its sites.  "All of that treats ‡‡æ‡Æ‡Ø‡ø‡ï and ‡®‡ø‡‡‡Ø as opposites"
--- is too harsh on ¬ß4, and being too harsh is not the safe direction ‚î it
--- hides where the error actually was.  ¬ß4 explicitly declined the
--- exclusivity claim: *"Nothing below asserts that no predicate can be
--- both."*  So the module never asserted duality; it used the WORD while
--- withholding the claim.
---
--- What ¬ß4 got wrong is one level down and sharper.  Its hedge names the
--- escape it expected ‚î *"for an empty instance type or an empty remedy
--- type the shapes degenerate"* ‚î i.e. it thought both-at-once could only
--- happen degenerately.  `bothHold` is on `matching : Bool ‚í Bool ‚í Type`,
--- with both types inhabited and neither predicate degenerate.  The
--- refutation lands on the hedge, not on the claim the hedge protected.
---
--- That is worth more than the original point: a caveat that names the
--- wrong escape route reads as caution and functions as a blindfold, and
--- it is harder to catch than an overclaim because it is already
--- apologising.
---
 --   `NaturalMachine/SamayikaAndNityaAreIndependent.agda` ‚î the swap of ‚à
 --   and ‚à is NOT a negation.  `bothHold` exhibits a single `bad` that is
 --   ‡‡æ‡Æ‡Ø‡ø‡ï AND ‡®‡ø‡‡‡Ø at once; `samayikaWithoutNitya` and
@@ -458,53 +413,6 @@ open import Saptabhangi
 -- exactly the case that matters ‚î which is this module's own complaint
 -- about one word over three structures, committed by me one level up
 -- while making it.
---
--- HOW MUCH OF THIS IS LOAD-BEARING, AND WHY NOT ALL OF IT.
---
--- A prose correction is what failed to propagate in
--- `WitnessNumberCanBeInfinite` and in `BRAHMASPHUTASIDDHANTA_IN_ITS_OWN_
--- ORDER.md` ¬ßIV, so the intent was to import BOTH correctors and let the
--- typechecker carry them.  The first draft of this paragraph asserted
--- "Neither corrector imports this module, so there is no cycle."  THAT
--- SENTENCE WAS FALSE, and Agda said so at once:
---
---   cyclic module dependency:
---     AnuktaAvaktavya
---     ‚í NaturalMachine.SamayikaAndNityaAreIndependent
---     ‚í AnuktaAvaktavya
---
--- because `SamayikaAndNityaAreIndependent` opens THIS module for the very
--- definitions it is correcting (`using (‡‡æ‡Æ‡Ø‡ø‡ï ; ‡®‡ø‡‡‡Ø)`).  It could not
--- have been written any other way: to refute a claim about ‡‡æ‡Æ‡Ø‡ø‡ï and
--- ‡®‡ø‡‡‡Ø it must use MY ‡‡æ‡Æ‡Ø‡ø‡ï and ‡®‡ø‡‡‡Ø, not a copy.  So the strength of
--- that correction and the impossibility of back-importing it are the same
--- fact, and the honest move is to say which is which rather than to
--- weaken both to prose silently:
---
---   * `NonUniquenessAndInexpressibilityAreIndependent` names this module
---     only in a comment, builds its own carrier, and so CAN be imported.
---     It is, immediately below, and its four corners are checked here.
---   * `SamayikaAndNityaAreIndependent` cannot be, ever, for the reason
---     above.  A pointer is the strongest available mechanism in that
---     direction ‚î the same resolution `PFreePart` and `FrontierMember`
---     already carry ‚î and saying so is better than using the weaker one
---     silently.
---     But a pointer is not the ONLY mechanism available anywhere: as of
---     this edit `IndianLane.agda` imports that module directly, so it is
---     typechecked by the one gate that goes green on this container.  It
---     had been reachable from nothing at all.  A claim and a refutation
---     that uses the claim cannot cite each other; the aggregate is the
---     only place in a module system where they can both be held.
---
--- WHAT SURVIVES, either way.  The three-way separation of ¬ß1, ¬ß6 and ¬ß8
--- stands: the three structures ARE distinct, and each pair is separated
--- by at least one of the two properties.  What does not survive is the
--- geometry I put on it.  "Poles" implies a line with two ends and a thing
--- at one end not at the other.  The truth is a square with at least three
--- corners occupied, and reading a square as a line is how a
--- classification loses exactly the case that matters ‚î which is this
--- module's own complaint about one word over three structures, committed
--- by me one level up while making it.
 ------------------------------------------------------------------------
 
 open import NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent

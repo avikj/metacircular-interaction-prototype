@@ -15,12 +15,7 @@
 --     the set-truncation (œ‚) of the groupoid of finite sets, i.e. the
 --     iso-classes of finite sets.  `‚ï‚âœ‚FinSet` is proved there.
 --
--- Both are already identified with ‚ï; NEITHER is identified with the
--- other in the corpus.  `Ankapasa` mints `‡‡®‡‡¶‡‡‚âœ‚FinSet` and `Sthana`
--- mints `CanWord‚â°Tally`, so the tirtha graph's component 5 was reachable
--- transitively ‚î but a reachable crossing is not a checked one, and this
--- particular bank (`Tally`) had no minted edge to `œ‚FinSet`.  This file
--- is that edge, and nothing more: the two proved equivalences composed.
+-- This file composes the two proved equivalences into one edge.
 --
 -- WHY `‚â` AND NOT `‚â°`.  `Tally : Type‚` and `œ‚FinSet : Type‚` sit in
 -- different universes, so there is no path `Tally ‚â° œ‚FinSet` to write;
@@ -32,14 +27,13 @@
 -- the corpus's own `len` and `cardœ‚`, that the finite set a tally word
 -- is sent to has cardinality equal to the length of the word.
 --
--- PROVENANCE / SCOPE.  ‡‡ï‡æ‡ï‡‡‡∞ ("single-syllable / single-letter") names
+-- PROVENANCE.  ‡‡ï‡æ‡ï‡‡‡∞ ("single-syllable / single-letter") names
 -- `Tally` honestly: it is the set of words over a one-symbol alphabet,
 -- which is exactly a tally of single marks.  ‡‡‡‡ ("ford / bridge") is
 -- the tirtha-graph vocabulary `SetuYugma` established for this region.
 -- The decategorification side (œ‚ of finite sets, cardinality of a finite
--- set) is category-theoretic and is NOT claimed for any Indian source;
--- the compound ‡‡ï‡æ‡ï‡‡‡∞-‡‡‡‡ is built here, 2026-08-22.  Naming `Tally`
--- ‡‡ï‡æ‡ï‡‡‡∞ does not claim any source enumerated finite sets.
+-- set) is category-theoretic;
+-- the compound ‡‡ï‡æ‡ï‡‡‡∞-‡‡‡‡ is built here.
 --
 -- No sorry / postulate / axiom / hole; no Bool, no decision.
 ------------------------------------------------------------------------

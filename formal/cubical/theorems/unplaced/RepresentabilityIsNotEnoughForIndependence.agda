@@ -57,7 +57,7 @@ open import TheDiagonalLemmaDischargesGoedelFix
 -- already in the corpus, exhibiting `Wit`'s failure of it.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE HONEST LIMIT OF Â§1, STATED BECAUSE IT IS EASY TO OVERSELL
+-- THE LIMIT OF Â§1
 --
 -- `Form` here is `Unit`: one formula, the only one the argument needs.
 -- That is enough to inhabit the record and enough for Â§3, and it is NOT
@@ -66,13 +66,6 @@ open import TheDiagonalLemmaDischargesGoedelFix
 -- express a diagonal for anything else.  What Â§1 shows is that the
 -- record as written is satisfiable â” which is exactly what was needed
 -- to know that Â§3 is not vacuous, and no more.
---
--- A reader wanting `HasDiagonal` to mean arithmetisation should
--- strengthen it â” a `Form` closed under the connectives, substitution,
--- a coding â” and none of that is here or, on a grep of
--- `formal/cubical` for `Representab` and `Form`, anywhere in this
--- corpus.  A version phrased over a Gdel numbering function rather
--- than a formula type would evade that grep.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 ------------------------------------------------------------------------

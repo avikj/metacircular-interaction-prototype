@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- ‡‡ï‡æ‡®‡‡‡≤‡ã‡-‡‡‡ ‚î the SEED of Ekntalopa, stripped of Cuntz and KMS.
--- GAUGE.md's ‡‡ï‡æ‡®‡‡‡≤‡ã‡ (formerly "Theorem F") rests on a two-line
+-- GAUGE.md's ‡‡ï‡æ‡®‡‡‡≤‡ã‡ rests on a two-line
 -- algebra fact; the operator-algebra theorems supply the HYPOTHESIS
 -- (a unique invariant equilibrium exists), not the MECHANISM.  The
 -- mechanism, put to the kernel as a question expressible in her

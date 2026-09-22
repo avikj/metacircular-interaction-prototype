@@ -3,12 +3,9 @@
 ------------------------------------------------------------------------
 -- RelationalHolonomyInteraction
 --
--- Hostile bridge check: endpoint gauge covariance really can be expressed
+-- Endpoint gauge covariance can be expressed
 -- as interaction-relative transport, but only after the gauge pair is
 -- supplied as the interaction.  No global gauge fixing is constructed.
---
--- This is finite group-valued lattice-gauge kinematics.  It is not RQM or
--- LQG, and it adds no dynamics, amplitudes, constraints, or empirical claim.
 ------------------------------------------------------------------------
 
 module RelationalHolonomyInteraction where
@@ -128,7 +125,3 @@ module _ {ℓ : Level} (Γ : Group ℓ) where
     → Rel.after (successiveEndpointInteractions u₁ u₂ g)
       ≡ Hol.endpointGauge Γ u₂ (Hol.endpointGauge Γ u₁ g)
   successive-endpoint u₁ u₂ g = refl
-
-  -- Scope boundary: `endpointInteraction` requires `u` as input.  Its type
-  -- supplies no section choosing one endpoint gauge for every connection,
-  -- and none is used by the covariance bridge.

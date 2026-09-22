@@ -1,10 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- This file conflates two opposed schools (Buddhist catukoi with Jain
--- anekntavda) and domesticates Ngrjuna's prasajya negation into a
--- consistent perspectival semantics (`both-is-consistent`).  The presheaf
--- facts type-check; the  reading is withdrawn.
-
 ------------------------------------------------------------------------
 -- CatuskotiPerspective
 --

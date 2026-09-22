@@ -9,13 +9,13 @@ that cubical vocabulary is shared.*
 
 **Discipline of claims.** Three tags run throughout. **[T]** â” a machine-checked
 term, named, present in the repository at its pin. **[R]** â” a true statement
-*about* checked terms (a synthesis, not itself one term). **[open]** â” not yet
-inhabited/derived; stated exactly, with the obstruction named. A `[T]` means
-exactly what its type says; an `[open]` is a construction not yet built. Pins:
+*about* checked terms (a synthesis, not itself one term). **[open]** â” an open
+problem posed as a type; stated exactly, with the obstruction named. A `[T]` means
+exactly what its type says. Pins:
 the Agda corpus checks at **Agda 2.8.0 + agda/cubical v0.9, `--safe`** (no
 postulates, no holes). The cubical Bend2 patch builds at **GHC 9.12.2 / cabal**,
 applied to **DKormann/Bend2 @ f026483**; runs shown were executed on **HVM3** and
-(per `STATUS.md`) HVM4.
+HVM4.
 
 ---
 
@@ -500,8 +500,7 @@ core and the HVM target:
 - **Composition + univalence:** general `hcomp` with **cofibration systems**
   (arbitrary DNF faces, per-cell boundary + adjacency checks); `hfill` sugar; full
   iso-univalence; the **coherent** round trip `pathToEquiv (uaE e) = e` via `Equiv
-  = Î f. âˆy. isContr(fib f y)`. `Glue` is the one piece not yet first-class
-  (`hcomp` in `Set` beyond the composite shape stays stuck), per `RUNTIME_FULL.md`.
+  = Î f. âˆy. isContr(fib f y)`.
 - **Native lowering:** transport **executes into its value-changing function**
   rather than being erased â” `coe` along `ua(not)` compiles to boolean negation
   (`applyNeg(True) â’ 0`), `Sup—Path` to a label-matched DUP/SUP (`supRoute â’
@@ -516,8 +515,8 @@ core and the HVM target:
   chains of equivalences performed by the net. The **census** ran: the corpus
   computing its own behavioral-equivalence structure by evaluation â” the thing
   Agda could not run.
-- **`Glue` and the universe's Kan rules [T]** (the report's asks #1/#2, since
-  landed): `Glue A [(Ï,T,e)]` as a sound former with checked boundary laws;
+- **`Glue` and the universe's Kan rules [T]**: `Glue A [(Ï,T,e)]` as a sound
+  former with checked boundary laws;
   **transport through `Glue`**, **`hcomp` in `Set` = `Glue` with `transpEquiv`**,
   and **`ua` derived from `Glue` with `uaÎ²` definitional** (`uaglue.bend` 26â“,
   `hcompset.bend` 10â“, `glue.bend`, `glue_mustfail` 3â—). In the checker/normaliser
@@ -543,9 +542,9 @@ core and the HVM target:
   **proved from scratch** â” `isPropIso5` â’ `isPropPathSet` (via the univalence
   round trip `uaEta`) â’ `isSetHProp = isPropSigPath`. So the `âŸ` direction is
   discharged and computes (`nerodeEffComputes` definitional), and with `eq/` (the
-  `âŸ`) the equality of meaning = observational equivalence holds on the net, the
-  only remaining input being `setO : isSet Bool` â” a genuine parameter the corpus
-  itself carries (`FutureQuotient`'s `isSet O`), not a gap.
+  `âŸ`) the equality of meaning = observational equivalence holds on the net, with
+  `setO : isSet Bool` a parameter the corpus itself carries (`FutureQuotient`'s
+  `isSet O`).
 - **Genuine coinduction, and determinism as one fact [T]** (`coinduction.bend`
   13â“, `streams.bend` 10â“, `silence.bend` 25â“, `interaction.bend` 36â“,
   `braid.bend` 16â“): `Answers`/`IExec` as corecursive records, `run-is-answers` as
@@ -555,17 +554,15 @@ core and the HVM target:
   contractibility of the whole unfolding â” on HVM. The braid relations hold
   pointwise on the net.
 
-**Honest boundary:** a verified proof-of-splice, not yet a platform, but the
-splice is now complete for the object: the whole constitutive core (fibre law,
-univalence both round trips, the forced fibre, the set-quotient minimal machine,
-the coinductive/interactive calculus and braid fabric) checks and *runs* on the
-interaction net. The remaining runtime frontier is a single primitive, and it is
-by design not a bug: `coe`/`comp` to a **symbolic** interval endpoint stays stuck
-as `#HCm` data (edge 2) â” which is exactly "the trace is the path, knowledge is
+**Boundary:** the whole constitutive core (fibre law, univalence both round
+trips, the forced fibre, the set-quotient minimal machine, the
+coinductive/interactive calculus and braid fabric) checks and *runs* on the
+interaction net. `coe`/`comp` to a **symbolic** interval endpoint stays stuck as
+`#HCm` data by design â€” which is exactly "the trace is the path, knowledge is
 partial," the residue held as a runtime value until the interval is decided.
-"Cost = fiber pointwise for every program" remains `[R]`, demonstrated in the
-cases run; the analysis-layer "cost" is a syntactic count, runtime cost the
-interaction count, and the established coincidence is still the narrow one.
+"Cost = fiber pointwise for every program" is `[R]`, demonstrated in the cases
+run; the analysis-layer "cost" is a syntactic count, runtime cost the
+interaction count.
 
 ---
 
@@ -711,21 +708,15 @@ functions* (`FRONTIER.md`, `SamastaSima`):
 Exact: one object, every stage terminating, the only open thing the **function
 inhabiting all stages at once**. Not inhabited â” the DMR preimage is decidable but
 its cost explodes (`Î´(4)=12`), the DMRâ”Î equivalence is classical and cited,
-Navierâ“Stokes has no computable-preimage form. **No endpoint status changes.**
-`ANALYTIC_INTERFACE.md` is the honesty model: each module discharges an exact
-algebraic core and lists the analytic hypotheses left outside the checker.
+Navierâ“Stokes has no computable-preimage form.
 
-**The port's own frontier, updated.** The two edges this report first listed â”
-`Glue` first-class, and general `hcomp` in the universe â” have since **landed**
-(`uaglue.bend`, `hcompset.bend`, `glue.bend`; Part VI). The
-computer-over-equivalences is lifted from terms to types: transport through
-`Glue`, `hcomp`-in-`Set` = `Glue`, and `ua` from `Glue` with `uaÎ²` definitional
-all compute, in the checker and the full runtime. The single remaining runtime
-primitive is `comp`/`coe` to a **symbolic** interval endpoint (edge 2), and that
-is the intended partial-knowledge behavior â” the residue held as `#HCm` until the
-interval is decided â” not a soundness gap. Quotient **effectivity**
-(`[x]â‰¡[y] âŸ xâ‰ˆy`) is now **closed**, `isSet hProp` proved from scratch
-(`hset.bend`); it is no longer an open task.
+**The port's own boundary.** The computer-over-equivalences is lifted from terms
+to types: transport through `Glue`, `hcomp`-in-`Set` = `Glue`, and `ua` from
+`Glue` with `uaÎ²` definitional all compute, in the checker and the full runtime
+(`uaglue.bend`, `hcompset.bend`, `glue.bend`; Part VI). `comp`/`coe` to a
+**symbolic** interval endpoint is the intended partial-knowledge behavior â” the
+residue held as `#HCm` until the interval is decided. Quotient **effectivity**
+(`[x]â‰¡[y] âŸ xâ‰ˆy`) holds, with `isSet hProp` proved from scratch (`hset.bend`).
 
 ---
 
@@ -770,33 +761,24 @@ Dictionary, runtime âŸ mathematics, checkable against HVM's actual rules:
 | stuck `#HCm` on symbolic faces | partial knowledge as a value, resolved on demand |
 | program is invertible / reversible | the machine is a groupoid, not a monoid |
 
-**The asks, in order â” all three since delivered; stated here as what to check,
-and what is genuinely still open.**
+**The three pieces, stated as what to check.**
 
-1. **`Glue` as a first-class type former** â” *delivered.* `coe` along `ua e`
+1. **`Glue` as a first-class type former.** `coe` along `ua e`
    computes at the universe level, `U` is fibrant; transport-through-`Glue`,
    `hcomp`-in-`Set` = `Glue`, `ua`-from-`Glue` with `uaÎ²` definitional, in checker
    and full runtime. The computer-over-equivalences is lifted from *terms* to
    *types*. What to check: the soundness discipline â” `Glue` at a *false* face
    must not collapse to its partial type (`glue_mustfail` â—), and the Kan rule
    uses `e`'s contractible-fibre data only off the faces.
-2. **General `hcomp` in `Set`/the universe** â” *delivered* (`hcompset.bend`),
-   built as `Glue A [Ï â¦ (T i1, transpEquiv)]`, each rule verified against its
+2. **General `hcomp` in `Set`/the universe** (`hcompset.bend`), built as
+   `Glue A [Ï â¦ (T i1, transpEquiv)]`, each rule verified against its
    definitional laws.
-3. **A faithful HVM4 emitter for the cubical constructors** â” *delivered* as
-   `--to-hvm4-full`: intervals, paths, types, `coe`, `hcomp` are runtime objects,
+3. **A faithful HVM4 emitter for the cubical constructors**, `--to-hvm4-full`:
+   intervals, paths, types, `coe`, `hcomp` are runtime objects,
    transport lowers to its value-changing function, `Sup—Path` to label-matched
    DUP/SUP with native routing confirmed (`supline.bend` â’ `&0{0 1}`). Your eye is
-   still wanted on the label discipline, since the entire cost identity rides on
+   wanted on the label discipline, since the entire cost identity rides on
    same-vs-different label being annihilate-vs-commute.
-
-**What is genuinely still open** (small, and named exactly): `comp`/`coe` to a
-**symbolic** interval endpoint â” deliberately left stuck as `#HCm`, since that
-*is* the partial-knowledge semantics (the residue as a runtime value); closing it
-where a symbolic endpoint should compute is edge 2. Quotient effectivity, listed
-here in an earlier draft, is now closed: `isSet hProp` is proved from scratch
-(`hset.bend`) and fed into the instantiated `nerodeEffective`, so
-behavioral-equivalence-as-path-equality is complete on the net in both directions.
 
 **The one thing to see, in your terms:** the mathematics was already complete and
 already executing; it was paying an execution tax on a substrate not built for

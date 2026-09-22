@@ -5,14 +5,12 @@
 -- through the store.
 --
 -- TERM.  prastva, a proposal, that-which-is-set-forth ‚î ordinary
--- ; the compound title is built here (2026-08-23) and claimed
--- of no source.
+-- ; the compound title is built here.
 --
 -- WHAT THIS IS.  The machine's four powers are: utter (propose a term
 -- to the kernel), judge (the kernel accepts or refuses), keep (append
 -- the result to the store), re-read (the store feeds the next
--- utterance).  Until now the UTTER power lived in unjudged Haskell
--- organs.  This module is that power as a checked term: a total
+-- utterance).  This module is the UTTER power as a checked term: a total
 -- function from the machine's own refusal list (the Sanghatta
 -- non-joining pairs, machine/sanghatta-report-2026-08-23.txt ‚î the
 -- exact theorems the rewriter told itself it needs) to candidate
@@ -33,9 +31,8 @@
 -- MATHEMATICAL soundness gate is not here and needs not be: every candidate
 -- this module utters is judged by the cubical kernel before it can land, so a
 -- wrong proposal costs one refusal and nothing else. A pair over more than
--- six variables is refused with its reason. (The gcd refusal that stood here
--- is closed: the candidate prelude carries the fuel-typed gcd, so gcd pairs
--- ride the ladder.)  ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡
+-- six variables is refused with its reason.
+-- ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡
 ------------------------------------------------------------------------
 
 module Prastava where
@@ -319,9 +316,7 @@ nVarsOf l r =
 sigLine : Nat ‚Üí Tm ‚Üí Tm ‚Üí String
 sigLine n l r =
   -- parenthesised: if_then_else_ binds tighter than _&_, so without
-  -- them the " ‚í " rode OUTSIDE the conditional and every zero-variable
-  -- candidate emitted "prastava :  ‚í ..." ‚î a parse error the receipts
-  -- recorded as refused:kernel since the emitter's first day.
+  -- them the " ‚í " would ride OUTSIDE the conditional.
   "prastava : " & (if n == 0 then "" else (binder n & " ‚Üí "))
   & emit l & " ‚â° " & emit r & "\n"
 
@@ -333,9 +328,6 @@ reflCandidate name l r =
 
 -- case split at variable i with both clauses refl: for pairs where each
 -- branch is definitional once the split is made (max'(suc a) 0 = suc a).
--- This rung exists because the loop's own first-turn receipts named it:
--- the kernel refused cong-suc exactly where refl-after-split was the
--- proof (P001-class refusals, phala.tsv 2026-08-23).
 splitCandidate : String ‚Üí Tm ‚Üí Tm ‚Üí Nat ‚Üí String
 splitCandidate name l r i =
   let n = nVarsOf l r in
@@ -577,14 +569,13 @@ spec-parse-4 = refl
 spec-vars : nub (varsOf (Bin plus (V 0) (Bin times (V 0) Z)) ++ []) ‚â° (0 ‚à∑ [])
 spec-vars = refl
 
--- the zero-variable signature is pinned whole, because precedence ate
--- it once: a closed pair's line carries no binder and no arrow.
+-- the zero-variable signature is pinned whole: a closed pair's line
+-- carries no binder and no arrow.
 spec-sig-0 : sigLine 0 Z (S Z) ‚â° "prastava : zero ‚â° suc (zero)\n"
 spec-sig-0 = refl
 
--- the gcd close: the standing refusal is replaced by a parse.  The
--- fuel-typed definition lives in the candidate prelude (gcdF/gcd'),
--- so gcd pairs now ride the same ladder as every other symbol.
+-- gcd: the fuel-typed definition lives in the candidate prelude (gcdF/gcd'),
+-- so gcd pairs ride the same ladder as every other symbol.
 spec-gcd-parsed : parseLine "s(y)\tgcd(s(y),0)"
                 ‚â° just (S (V 1) , Bin gcdS (S (V 1)) Z)
 spec-gcd-parsed = refl

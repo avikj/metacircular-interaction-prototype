@@ -396,10 +396,7 @@ noEquivariantTiebreak sel pick symm equi = branch (pick gA gB t1)
       false≢true (sym (funExt⁻ q t0) ∙ fix ∙ funExt⁻ q t2)
 
 -- Non-vacuity, mechanised for two of the three hypotheses: dropping `symm`,
--- or dropping `pick`, leaves the remaining hypotheses satisfiable.  (The
--- third witness -- the textual-order tiebreak, which has `pick` and `symm`
--- but not `equi` -- is argued in the comment above and is NOT mechanised
--- here; it needs a decidable total order on `Guard Three`.)
+-- or dropping `pick`, leaves the remaining hypotheses satisfiable.
 selFirst : Guard Three → Guard Three → Three → Guard Three
 selFirst g _ _ = g
 

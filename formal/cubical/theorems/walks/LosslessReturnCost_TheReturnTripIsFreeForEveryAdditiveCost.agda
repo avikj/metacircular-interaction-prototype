@@ -12,8 +12,7 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT THIS CONNECTS
 --
--- The owner's specification (2026-08-21) makes the machine's step a
--- CONJUGATION and not an action:
+-- The machine's step is a CONJUGATION and not an action:
 --
 --     ‡‡‡®‡ (‡‡‡® v) = ‡‡‡® (‡‡µ‡‡∞‡ (Œ¶ (‡â‡‡‡‡æ‡® v)))
 --
@@ -35,30 +34,8 @@
 -- about this Œ¶ ‚î it is forced by the cost structure before any of those
 -- are chosen.  ¬ß1 below is that instantiation.
 --
--- The direction of the debt is worth stating: `‡‡≤‡ã‡‡` is the semantic
--- shadow of `loop-is-free`, not an independent result.  It was proved
--- second and it proves less.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- SCOPE
---
--- Not that the two standpoints below are the nayas TransportPrice was
--- written about; `Anekanta`'s standpoints are charts on a structure and
--- these are two presentations of one pair-type.  The theorem is
--- parametric in X and applies to both, which is the whole reason it can
--- be reused ‚î that is not an argument that the two are the same thing.
---
--- Not that Œ¶ is free: Œ¶ acts BELOW, and nothing here prices it.  Only
--- the descent and the ascent are round-tripped.  A machine whose Œ¶ is
--- expensive is expensive; the claim is that the CONJUGATION adds
--- nothing to it.
---
--- Not any verdict on `laghavaPrice` as the right potential for this
--- machine ‚î TransportPrice ¬ß2 supplies it for presentations and that is
--- its result, untouched here.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 (b150186), --safe, no
--- postulates, no holes.
+-- `‡‡≤‡ã‡‡` is the semantic
+-- shadow of `loop-is-free`, not an independent result.
 ------------------------------------------------------------------------
 
 module LosslessReturnCost_TheReturnTripIsFreeForEveryAdditiveCost where

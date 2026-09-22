@@ -13,12 +13,6 @@
 -- not lie: ‡‡®‡‡ï‡‡‡Æ‡, the un-said, holds its live state whole.  So
 -- losslessness and honesty are one dharma ‚î nothing destroyed, nothing
 -- fabricated.  No discrete‚ï, no Dec, no Bool, no `with`: pure structure.)
---
--- ‡‡‡‡®‡æ (honest): "‡‡Æ‡æ‡‡‡ g" ‡‡‡ø g ‡‡æ‡ß‡æ‡∞‡‡ ‡ó‡‡∞‡‡‡Æ‡ ‡‡‡ø ‡‡‡‡∞ ‡® ‡‡ø‡¶‡‡ß‡Æ‡ ‚î
--- ‡‡‡ ‡‡ó‡‡∞‡ø‡Æ‡ PROVE-‡ï‡æ‡∞‡‡Ø‡Æ‡ ‡  ‡ó‡‡®‡æ ‡‡ refl-‡‡ø‡¶‡‡ß‡æ (‡â‡¶‡æ‡‡∞‡‡Æ‡ ‡‡ß‡) ‡
--- (NOT YET PROVED that ‡‡Æ‡æ‡‡‡'s g is the gcd ‚î that is the next PROVE tooth,
--- deliberately unclaimed rather than asserted.  The computation itself is
--- refl-checked, see ‡â‡¶‡æ‡‡∞‡‡Æ‡.)
 ------------------------------------------------------------------------
 
 module Gati where

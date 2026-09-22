@@ -5,7 +5,7 @@
 -- minus the diagonal is EXACTLY the interference produced when the sum
 -- map identifies two genuinely different source pairs.  Vâˆž âˆ’ D is not a
 -- residual to be bounded; it is located, and its location is the
--- collision.  (Owner's zeta-lane message; the exact algebra as a term.)
+-- collision.
 --
 -- THE OBJECTS (REPORT.md Theorem D, the sum-spectrum measure).  At a
 -- zero-sum frequency s = Î³_i + Î³_j the Beta weights W_{ij} accumulate,
@@ -16,7 +16,7 @@
 --   D  = Î_{i,j} | W_{ij} |Â²                  (diagonal: the weight each
 --                                             source carries alone)
 --
--- The owner's sharpening: Vâˆž = D does NOT say "the zeros are random".
+-- Vâˆž = D does NOT say "the zeros are random".
 -- It says the sum observation has NO UNDECLARED SOURCE COLLISIONS in
 -- the weighted sector.  Vâˆž âˆ’ D is the cross term â” the interference of
 -- distinct pairs {Î³_i,Î³_j} â‰  {Î³_k,Î³_l} arriving at one frequency.
@@ -35,14 +35,13 @@
 -- and it is nonzero whenever both collided weights are (witness at
 -- wâ = wâ = 1: Vâˆž = 4, D = 2, interference = 2).
 --
--- LEG SYMMETRY is a THIRD, separate multiplicity (the owner's point):
+-- LEG SYMMETRY is a THIRD, separate multiplicity:
 -- (Î³_i,Î³_j) â” (Î³_j,Î³_i) is reversible transport, declared, and does not
 -- enter this cross term â” it is the ordered-vs-unordered relabeling, not
 -- a collision of distinct unordered pairs.  Â§3 records it and does not
 -- conflate it with ààà¯à‹à—.
 --
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9) for the â ring
--- solver.  Exact, --safe.  No numerics, no bound â” an identity.
+-- Exact.  No numerics, no bound: an identity.
 ------------------------------------------------------------------------
 
 module SamyogaVyatikara_TheSumSpectrumVarianceMinusTheDiagonalIsExactlyTheCollisionInterference where
@@ -97,7 +96,7 @@ interference-nonzero : Â¬ (Vâˆž-collide (pos 1) (pos 1) - D (pos 1) (pos 1) â‰¡ 
 interference-nonzero p = snotz (injPos (sym interference-witness âˆ™ p))
 
 ------------------------------------------------------------------------
--- Â§4 Â LEG SYMMETRY IS NOT COLLISION (owner's three-multiplicity point).
+-- Â§4 Â LEG SYMMETRY IS NOT COLLISION.
 -- (Î³_i,Î³_j) â” (Î³_j,Î³_i) is the ordered relabeling â” declared, reversible,
 -- and orthogonal to Â§1.  Modeled: swapping the two source LABELS leaves
 -- both D and every Vâˆž invariant, because both are symmetric in wâ,wâ.

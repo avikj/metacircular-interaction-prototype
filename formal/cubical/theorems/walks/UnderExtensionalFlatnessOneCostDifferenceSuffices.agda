@@ -33,9 +33,6 @@
 -- specific factoring.  Here the collision is a THEOREM ABOUT THE
 -- HYPOTHESIS: flatness makes collisions universal, which is why one
 -- difference suffices.  Same lemma downstream, different work upstream.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module UnderExtensionalFlatnessOneCostDifferenceSuffices where

@@ -47,22 +47,13 @@
 --       a function of the second difference alone â” it never sees which
 --       representative of the fibre it was handed.
 --
--- WHAT IS CARRIED IN Â§6 AND WHY.  That a particular receiver annihilates
--- the affine directions is a HYPOTHESIS here, not a theorem.  For the
--- receiver this is written for, the annihilation is two vanishing sums
--- against a compactly supported packet, which is an analytic fact about
--- that packet and has no carrier in this corpus.  What is proved is that
+-- WHAT IS CARRIED IN Â§6.  That the receiver annihilates the affine
+-- directions is a hypothesis of Â§6.  What is proved is that
 -- annihilation is exactly what descent requires, and that the fibre it
 -- must be blind to is exactly two-dimensional â” neither more nor less.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“6 over any commutative ring, for every
--- sequence and every pair of constants.  NOT claimed: that any
--- particular receiver is additive or blind; that a sequence with a
--- prescribed second difference EXISTS â” Â§Â§4â“5 are about the fibre's
--- shape, never its inhabitation; anything about sums, convergence, or
--- boundary terms â” there is no summation in this file, so no summation
--- by parts either; and nothing about primes, zeta, or any specific
--- second difference: `Î”Â² f` is whatever it is.
+-- sequence and every pair of constants.
 ------------------------------------------------------------------------
 
 module AdrsyaMana_TheKernelOfTheDiscreteSecondDifferenceIsExactlyTheAffineSequencesSoAnAdditiveReceiverBlindToThemDescendsToTheFibre where

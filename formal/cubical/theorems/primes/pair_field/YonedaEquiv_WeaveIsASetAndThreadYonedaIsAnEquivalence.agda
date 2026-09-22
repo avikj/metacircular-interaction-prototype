@@ -3,17 +3,11 @@
 ------------------------------------------------------------------------
 -- YonedaEquiv_WeaveIsASetAndThreadYonedaIsAnEquivalence
 --
--- Closes the absence stated in `ThreadYoneda` (header, "WHAT IS NOT",
--- and Â§7):
+-- Upgrades the Yoneda bijection of `ThreadYoneda` Â§4 to an equivalence:
+-- `isSet (Weave i j)` makes naturality a proposition, so two
+-- transformations agreeing pointwise are equal.
 --
---     The round trips give a bijection, not a `â‰`: upgrading needs
---     `isSet (Weave i j)` so that naturality is a proposition and two
---     transformations agreeing pointwise are equal.  That is true
---     (Thread is built from equalities in â•, which is a set) and it is
---     not proved here.  Said plainly because "â‰" is what T25.A asks for
---     and this is "â”".
---
--- WHAT IS PROVED (all `--safe`, no postulates, no holes):
+-- WHAT IS PROVED:
 --
 --   * `isSetJewel`  : Jewel is a set (retract of â• — â•).
 --   * `isSetThread` : every `Thread i j` is a set (retract of a sum of
@@ -41,11 +35,6 @@
 --                     by `isoToEquiv`.
 --   * `yonedaPath`  : the corresponding path of types, by univalence
 --                     (`isoToPath`), so the "â‰" is also an "â‰¡".
---
--- WHAT IS NOT.  Nothing in this file adds relations to `Weave`; it is
--- still the free category of `ThreadYoneda` Â§1, and the other two
--- items of Â§7 there (relations between the thread families, and the
--- tear) are untouched.  Only the first item of Â§7 is closed.
 ------------------------------------------------------------------------
 
 module YonedaEquiv_WeaveIsASetAndThreadYonedaIsAnEquivalence where
@@ -188,7 +177,7 @@ yonedaPath : (i j : Jewel) â†’ Weave i j â‰¡ NatTrans i j
 yonedaPath i j = isoToPath (yonedaIso i j)
 
 -- The forward map of the equivalence is literally `yonedaTo`, and its
--- inverse is literally `yonedaFrom`: nothing was renamed on the way up.
+-- inverse is literally `yonedaFrom`.
 yonedaEquiv-fun : {i j : Jewel} (t : Weave i j)
                 â†’ fst (equivFun (yonedaEquiv i j) t) â‰¡ yonedaTo t
 yonedaEquiv-fun t = refl

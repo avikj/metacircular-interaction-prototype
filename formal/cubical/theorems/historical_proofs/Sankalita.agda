@@ -37,15 +37,6 @@
 -- recurrence IS the identity's induction step.  That is the content: the
 -- two traditions' constructions coincide at the level of the recurrence,
 -- not merely in their values.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- Nor is any claim made about transmission.  The two constructions
--- agreeing is a theorem; whether the Kerala mathematicians had Pigala's
--- array in view is a historical question this file does not touch.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module Sankalita where
@@ -119,9 +110,6 @@ column0-is-column1 = sankalita-is-meru 0 4
 -- `Î k^p â‰ˆ n^{p+1}/(p+1)` by taking these repeated sums exactly and then
 -- estimating them; the exact half is this identity, and it is Pigala's
 -- array with a different name and seventeen centuries between them.
---
--- Nothing analytic is claimed.  The estimate is the Kerala achievement
--- and it is not here.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -183,7 +171,7 @@ vara3-is-meru = varasankalita 3 5
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 8.  The obvious next identity, and why the obvious attempt fails.
+-- 8.  The shallow-diagonal identity, and why the natural encoding fails.
 --
 -- This repository holds two Indian arrays: `Pingala.meru` (the
 -- meru-prastra) and `Pingala.matra` (Virahka's mtrmeru).  The
@@ -192,8 +180,7 @@ vara3-is-meru = varasankalita 3 5
 --     mtr n  =  Î_k  C(n âˆ’ k, k),
 --
 -- and it is checked numerically by `Pingala`'s own worked instances at
--- small n.  It is NOT proved here, and the reason is worth recording so
--- the next attempt does not repeat it.
+-- small n.  The natural encoding does not prove it:
 --
 -- THE NATURAL ENCODING, which walks the diagonal by decreasing the first
 -- index by two and increasing the second by one:
@@ -215,26 +202,21 @@ vara3-is-meru = varasankalita 3 5
 -- The recurrence holds only on the `j = 0` slice, so it cannot be the
 -- induction hypothesis, and strengthening it is the whole problem.
 --
--- THE ROUTE THAT SHOULD WORK, and it is Pigala's own: count by guru.  A
+-- THE ROUTE THAT WORKS, and it is Pigala's own: count by guru.  A
 -- pattern of duration `n` with `k` guru has `n âˆ’ k` syllables, so
 --
 --     Metre n  â‰  Î_k  Chosen (n âˆ’ k) k,
 --
 -- and `Pingala.meruCount : Iso (Chosen n k) (Fin (meru n k))` is already
 -- checked.  That is a typed argument in the tradition's own terms rather
--- than a numeric induction, and it needs a dependent sum over a finite
--- index plus truncated subtraction â” neither hard, both bookkeeping.
---
--- Recorded as an open item with a failed approach attached, which is
--- worth more than an open item alone.
+-- than a numeric induction.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 9.  Refinement of Â§8's diagnosis, after looking further.
+-- 9.  Why the recurrence fails: the truncation.
 --
 -- Â§8 says the Fibonacci recurrence for `go` fails off the `j = 0` slice,
--- and gives the counterexample.  That stands.  What Â§8 did not say is
--- WHY, and the reason narrows the next attempt considerably.
+-- and gives the counterexample.
 --
 -- The classical proof applies Pascal to each term and reindexes the two
 -- resulting families onto the two smaller sums.  That works because
@@ -252,12 +234,7 @@ vara3-is-meru = varasankalita 3 5
 -- which gives `1 1 2 3 5` at `n = 0 â¦ 4` by computation.  The cost of
 -- that encoding is truncated subtraction inside a Pascal step, whose edge
 -- conditions (`n âˆ t = 0`) then need their own case analysis â” which is
--- why this is bookkeeping rather than a two-line proof, and why the typed
--- route of Â§8 (count by guru, using `Pingala.meruCount`) may still be the
--- shorter one.
---
--- Both routes are now specified well enough to be attempted without
--- rediscovering the obstacle.  That is what this section is for.
+-- why this is bookkeeping rather than a two-line proof.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -306,7 +283,7 @@ antidiag-is-matra-5 : antidiag 5 â‰¡ matra 5
 antidiag-is-matra-5 = refl
 
 ------------------------------------------------------------------------
--- 11.  What is left, stated exactly.
+-- 11.  The goal for the antidiagonal encoding.
 --
 --     GOAL :  (n : â•) â’ antidiag (suc (suc n)) â‰¡ antidiag (suc n) + antidiag n
 --
@@ -318,25 +295,11 @@ antidiag-is-matra-5 = refl
 --     the zero entries end it;
 --   * the truncated subtraction is gone â” `AD` enumerates the
 --     antidiagonal by structural recursion on the second index.
---
--- What remains is boundary bookkeeping in the Pascal step:
--- `meruRecurrence` decomposes by the FIRST index, so applying it to
--- `meru a b` needs `a` a successor, and the `a = 0` column has to be
--- handled separately in each of the two reindexed families.  That is a
--- case analysis, not an obstacle, and it is the whole of what is left.
---
--- Three sections of diagnosis to remove two obstacles and name the third
--- precisely.  Recorded that way because "this is bookkeeping" was said in
--- Â§8 and was not yet true.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 12.  CORRECTION to Â§11: "the whole of what is left" was not checked,
---      and it is wrong.
---
--- Â§11 says the remaining work is boundary bookkeeping â” "a case analysis,
--- not an obstacle".  I asserted that without trying the induction.  The
--- induction does not close, and the reason is not a boundary case.
+-- 12.  The induction does not close, and the reason is not a boundary
+--      case.
 --
 -- Unfolding the goal at `n = suc m` gives
 --
@@ -357,7 +320,7 @@ AD2-breaks-the-recurrence : Â¬ (AD 2 2 â‰¡ AD 2 1 + AD 2 0)
 AD2-breaks-the-recurrence p = snotz (injSuc (injSuc (injSuc (injSuc p))))
 
 ------------------------------------------------------------------------
--- 13.  What that actually shows, and where the thread stands.
+-- 13.  What that shows.
 --
 -- `AD a b` truncates at the `b` end â” the antidiagonal from `(a,b)` runs
 -- out of room before the full shallow diagonal of row `a` does â” so for
@@ -365,17 +328,12 @@ AD2-breaks-the-recurrence p = snotz (injSuc (injSuc (injSuc (injSuc p))))
 -- intermediate objects are `AD a _` can work.  `antidiag n = AD 0 n` is
 -- correct; the family it sits in is not closed under the recurrence.
 --
--- So THREE encodings have now failed, each for a different reason:
+-- So THREE encodings fail, each for a different reason:
 --
 --   Â§8   two-step descent      hard truncation at âŠi/2â‹
 --   Â§9   long sum with monus   subtraction inside the Pascal step
 --   Â§11  antidiagonal `AD`     the family is not closed under reindexing
 --
 -- and the typed route of Â§8 â” `Metre n â‰ Î_k Chosen (nâˆ’k) k`, using
--- `Pingala.meruCount` â” is the only one still standing.  That is now a
--- recommendation with three refutations behind it rather than a guess.
---
--- Recorded at length because the alternative was to leave Â§11's "this is
--- bookkeeping" in place, and it is exactly the kind of sentence that
--- costs the next reader a day.
+-- `Pingala.meruCount`, is the route `DiagonalIsMatra` takes.
 ------------------------------------------------------------------------

@@ -27,10 +27,6 @@
 --   Â§2  over â•, roots (Î² , 1 , 1) with 2 â‰ Î²: 2µ â‰ p_k for every k â” the
 --       power sums grow at least like the largest root; and at Î² = 2
 --       the values p_k = 2µ + 2 read back by computation.
---
--- SYT â” THE CLAIM, EXACTLY.  Ring identities in three roots and an â•
--- inequality.  The infinite zero set of Î, the limit, and the
--- Laplace-pole argument are NOT here; this is the finite core of them.
 ------------------------------------------------------------------------
 
 module FiniteExplicitFormula_NewtonsIdentitiesArePowerSumsOfTheRootsEqualToCoefficientRecursionsAndTheGrowthOfThePowerSumsIsTheLargestRoot where

@@ -7,14 +7,10 @@
 --  one wears away.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHY THIS EXISTS.  Until 2026-08-22 the corpus's road-two extractor
--- refused every self-map at its classifier ‚î `if rs == rt then Nothing` ‚î
--- so it reported "endomorphisms A ‚ü A : 0" while holding hundreds of
--- them.  A self-map goes nowhere as an EDGE, which is why it was dropped,
--- and that is exactly backwards: a generator adds no reachability in one
--- step and unbounded novelty in the limit.
+-- WHY THIS EXISTS.  A self-map goes nowhere as an EDGE: a generator adds no
+-- reachability in one step and unbounded novelty in the limit.
 --
--- With them visible, ‚ï carries more of them than every other type
+-- ‚ï carries more of them than every other type
 -- together, and they fall into two kinds that this module separates by a
 -- single property each.  `ALosslessReturn_‚¶.‡‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡` proved the ascending
 -- case for ONE generator, Brahmagupta's ‡‡æ‡µ‡®‡æ.  ¬ß‡® here is that theorem
@@ -49,9 +45,6 @@
 -- senses.  ‡ï‡‡‡Ø is also the Jaina term in ‡ï‡∞‡‡Æ-‡ï‡‡‡Ø, the wearing away of
 -- bound karma, and the resonance is noted rather than claimed: no Jaina
 -- source states ¬ß‡©, and nothing below is a doctrine of karma.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExhausts where
@@ -81,7 +74,7 @@ private variable
 --
 --     `ALosslessReturn_‚¶.‡‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡` is this for Brahmagupta's ‡‡æ‡µ‡®‡æ alone.
 --     Here the generator is a parameter, so the same one line covers every
---     ascending self-map the extractor can now see.
+--     ascending self-map the extractor sees.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®‡§Æ‡•ç : ‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ‡§ó‡§æ‡§Æ‡•Ä f ‚Üí (n : ‚Ñï) ‚Üí ¬¨ (f n ‚â° n)

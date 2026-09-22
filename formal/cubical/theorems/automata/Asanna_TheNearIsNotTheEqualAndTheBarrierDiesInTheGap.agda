@@ -6,20 +6,20 @@
 -- (this is the APPROXIMATE circumference of a circle.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- last open PROVE item ‚î asks that the BARRIER Structure Proposition be
--- made a theorem: WL observables factor through the blurred spectral
--- measure, hence no post-processing recovers what the blur merged.
+-- The BARRIER Structure Proposition states that WL observables factor
+-- through the blurred spectral measure, hence no post-processing
+-- recovers what the blur merged.
 --
--- It was proposed that the item SPLITS: the analytic half (that WL
--- observables do factor through the blur) stays open, while the second
+-- One might split it in two: the analytic half (that WL
+-- observables do factor through the blur), and the second
 -- half (that once they do, no refinement recovers the fibre) is already
 -- available in general form from
 -- `Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart`,
--- which removed `Bool` from `QuotientFiberLaw` and left
+-- which drops `Bool` from `QuotientFiberLaw` and leaves
 -- the negative half standing over an arbitrary answer type with an
 -- arbitrary irreflexive separation.
 --
--- **THE SPLIT AS PROPOSED IS NOT VALID, AND THIS MODULE IS WHY.**
+-- **THE SPLIT IS NOT VALID, AND THIS MODULE IS WHY.**
 --
 -- `Vaidharmya`'s `AllBlind` demands that blind queries return EQUAL
 -- answers ‚î its own header says "not close, equal" ‚î because its whole
@@ -71,8 +71,7 @@
 -- And (b) is in direct contradiction with Proposition B3 as written,
 -- whose entire force is that Œ¶ is arbitrary.  **B3's generality is what
 -- kills the Œµ-version of its own corollary.**  That collision is the
--- finding; it is a missing distinction in the WL definition, not a
--- failure to resolve.
+-- finding; it is a missing distinction in the WL definition.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
@@ -92,9 +91,6 @@
 -- proved nothing below, and the connection asserted is only that both
 -- name the same job ‚î marking, in the statement, that what is in hand
 -- is near and not equal.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module Asanna_TheNearIsNotTheEqualAndTheBarrierDiesInTheGap where
@@ -282,7 +278,6 @@ open Def Bool ‚Ñï _‚âà‚ÇÅ_ _‚â†‚ÇÅ_
 -- blindness the obstruction holds for any irreflexive separation and
 -- any decoder whatever, and ¬ß‡© re-derives it from ¬ß‡®.
 --
--- Handed back to the analytic lane, and this is the deliverable:
 -- `METHOD.md` ¬ß3 item 1 does not reduce to a formal half plus an
 -- analytic half.  The analytic half must additionally produce ONE of
 --
@@ -290,7 +285,4 @@ open Def Bool ‚Ñï _‚âà‚ÇÅ_ _‚â†‚ÇÅ_
 --       which `BARRIER.md`'s Corollary B2 does not state; or
 --   (b) a modulus on WL post-processing ‚î which `BARRIER.md`'s
 --       Proposition B3 currently rules out by construction.
---
--- Until one of the two is supplied, ¬ß‡ is the counterexample the claim
--- has to survive, and it is one query long.
 ------------------------------------------------------------------------

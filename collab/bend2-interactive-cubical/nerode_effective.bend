@@ -129,7 +129,7 @@ def nerodeEffective(setO: isSet(Bool), sh: isSet(hProp), x: S, y: S,
     transN,
     sh, x, y, p)
 
-# both directions now compute for the machine:
+# both directions compute for the machine:
 #   sameMeaning : Nerode(x,y) -> Path(Meaning,[x],[y])   (minmachine.bend, eq/)
 #   nerodeEffective : Path(Meaning,[x],[y]) -> Nerode(x,y)   (here)
 # and on the reflexive path it returns reflexivity (definitional):

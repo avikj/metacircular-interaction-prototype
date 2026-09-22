@@ -51,14 +51,11 @@
 -- School named before the term: ‡‡æ‡Æ‡Ø‡ø‡ï and ‡®‡ø‡‡‡Ø are `AnuktaAvaktavya`'s,
 -- another identity's, imported unchanged; the fourth corner is the
 -- position in the saptabhag reading that module sets up.  The
--- double-negation shift is not a Jaina notion and no claim is made that
--- it is ‚î the identification is between a configuration this repository
+-- double-negation shift is not a Jaina notion;
+-- the identification is between a configuration this repository
 -- wrote down and a principle from proof theory, and it is an
 -- identification of the FORMULA, not of the two traditions' concerns.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
-------------------------------------------------------------------------
 
 module KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
 
@@ -143,13 +140,8 @@ fourthCornerRefutesPointwiseStability Q corner stab =
     d = fourthCornerGivesDNSFailure Q corner
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no line
--- above.
---
 -- Enumerability of the REMEDY set is a different matter and is NOT
--- inert.  In `AnEnumerableRemedySetKillsTheFourthCorner`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin ‚î check.sh returns 1 and says so):
+-- inert.  In `AnEnumerableRemedySetKillsTheFourthCorner`:
 --
 --   finiteDNSList   `All (¬¬ P) xs ‚í ¬ ¬ All P xs`, by induction ‚î no
 --                   decidability, no choice
@@ -161,24 +153,18 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 -- **THE TWO ENUMERABILITY HYPOTHESES ARE NOT SYMMETRIC.**  Enumerating
 -- the INSTANCES buys nothing ‚î one instance suffices for the corner and
 -- one instance is enumerable.  Enumerating the REMEDIES buys
--- everything: DNS becomes a theorem and the corner cannot exist.  An
--- earlier module reached for `Enumerated` on the wrong side of the pair;
--- that is now said, with the right side identified.
+-- everything: DNS becomes a theorem and the corner cannot exist.
 --
 -- WHERE THE CORNER CAN LIVE, as narrow as it has been: a
 -- NON-ENUMERABLE remedy set with a badness that is not stable.
---
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end.  Renamed from
--- `Avaktavya_*` to `KramaAstiNasti_*`: the previous term was wrong.
+-- ON THE NAME.
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
 -- this line's "fourth corner" is a product of two independent
 -- negations and that simultaneous refusal collapses into the
 -- sequential pair, so the position is the THIRD bhaga ‚î
--- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.  The full
--- correction is recorded at
+-- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, asserted ‡ï‡‡∞‡Æ‡‡ ‚î and not avaktavya.  See also
 -- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
--- Only the `module` line changed here; no statement was touched.
 ------------------------------------------------------------------------

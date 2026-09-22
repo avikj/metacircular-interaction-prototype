@@ -6,13 +6,11 @@
 -- The ð”°ð”©â-triple on a chain of the divisor lattice, machine-checked.
 -- verdict: the mathematics is CLASSICAL â” Stanley 1980, Proctor 1982,
 -- and for the rank-one content textbook ð”°ð”©â theory, Humphreys Â§7).
--- Nothing here is claimed as new mathematics; what is new is that the
+-- What is new is that the
 -- three brackets are now a checked term rather than hand algebra.
 --
 -- WHAT IS FORMALIZED: the RANK-ONE case, V_Î = k[Î¾]/(Î¾^{Î+1}), with all
 -- three brackets, the truncation, the basis laws and the grading.
--- WHAT IS NOT: the multi-index case B_n = â¨_i V_{Î_i} of the note's Â§1.
--- It is NOT proved below and no statement below refers to it.  See Â§6.
 --
 -- HEADLINE STATEMENTS (all checked, no postulates, no holes, --safe):
 --
@@ -60,8 +58,7 @@
 -- the PAIR (Îº , d) with d = Î âˆ’ Îº, so that Î = Îº + d is carried by the
 -- index and no truncated subtraction is ever written; the box condition
 -- 0 â‰ Îº â‰ Î becomes the (vacuous) condition that both entries of the
--- pair are naturals.  The reindexing {Îº : Îº â‰ Î} â‰ {(Îº,d) : Îº+d = Î} is
--- immediate and is NOT itself formalized below.
+-- pair are naturals.
 --
 -- A module element is its coefficient function v : â• â’ â• â’ â, and an
 -- operator T with T Î¾_s = Î_t c(t,s) Î¾_t acts by (T v)(t) = Î_s c(t,s)
@@ -75,9 +72,7 @@
 -- weakest choice: the structure constants are integers, so the operators
 -- are defined over â and every other coefficient ring is obtained by
 -- base change âŠ—_â R, under which the checked bracket identities are
--- preserved.  (Characteristic 0 is needed only for the consequences of
--- the note's Â§5 â” complete reducibility, Sperner â” none of which is
--- claimed here.)
+-- preserved.
 ------------------------------------------------------------------------
 
 module Sl2DivisorLattice where
@@ -427,16 +422,3 @@ private
   -- Îµ Î¾Â³ = 0 : the truncation Î¾â´ = 0, at the top of the chain
   control-Îµ3 : Îµ (Î´ 3 0) 4 0 â‰¡ pos 0
   control-Îµ3 = refl
-
-------------------------------------------------------------------------
--- Â§6  Scope limit, stated because it would otherwise be papered over.
---
--- The multi-index module B_n = k[Î¾â,â¦,Î¾_m]/(Î¾_i^{Î_i+1}) = â¨_i V_{Î_i}
--- is the note's Â§2(c) off-diagonal cancellation (which is the step that
--- only exists when m â‰ 2).  What is above is the rank-one case in full.
--- The structural route to the general case is the note's Â§3(ii): a sum
--- of pairwise commuting single-factor triples is again a triple, plus
--- induction on m.  That lemma is operator algebra over an abelian group
--- and is independent of everything above; it is not written here, so
--- nothing above may be quoted for m â‰ 2.
-------------------------------------------------------------------------

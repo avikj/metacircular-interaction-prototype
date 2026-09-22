@@ -4,15 +4,12 @@
 -- ‡ó‡‡‡‡‡∞ ‚î THE HOUSE ROBBER DYNAMIC PROGRAM IS OPTIMAL: ATTAINED AND
 -- UNBEATABLE.
 --
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0
--- (2026-08-29), --safe.  HONEST NOTE: `opt`/`optG` match on `Sel`/`Gap`
+-- NOTE: `opt`/`optG` match on `Sel`/`Gap`
 -- whose indices are the house list, so Agda emits
 -- -W UnsupportedIndexedMatch ‚î these two functions will not COMPUTE on a
 -- transported selection.  It is a warning, not an error; the proofs are
 -- accepted under --safe, and nothing here transports a selection, so the
--- non-computation is never triggered.  The corpus elsewhere avoids this
--- by recursion over lists rather than indexed matching; that refactor is
--- available and not done here.
+-- non-computation is never triggered.
 --
 -- THE PROBLEM (LeetCode 198, "House Robber").  A row of houses, each
 -- holding some money; you may take from a set of houses no two of
@@ -46,7 +43,6 @@
 -- is what turns the upper bound into an attained optimum.  The order is
 -- the library's Œ-based `_‚â_`, so transitivity and monotonicity are the
 -- standard lemmas, not re-derived.
---
 ------------------------------------------------------------------------
 
 module GrhaChaura_TheHouseRobberDynamicProgramIsOptimalAttainedAndUnbeatable where

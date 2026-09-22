@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Swarm.S03CarryFiber   (swarm-0814-03, 2026-08-14)
+-- Swarm.S03CarryFiber
 --
 -- A precisely stated obstruction to transporting the R0032 chart.
 --
@@ -10,7 +10,7 @@
 -- REGULAR Dâˆž-torsor, charted by (Uââ, det U) : Z — {Â1}; the retained
 -- proof-relevant payload for that stratum is exactly `Z — Bool`.
 --
--- The successor seed asks for the general stratum.  The curriculum layer
+-- The curriculum layer
 -- (runtime/curriculum, `test_curriculum.py`) meanwhile asserts that
 -- POSITIONAL NOTATION costs exactly three choices â” a finite quotient
 -- (the base), a torsor (endianness) and a cocycle (the carry) â” i.e. the

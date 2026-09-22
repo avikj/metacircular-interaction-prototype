@@ -7,7 +7,7 @@ import Mathlib.Tactic.LinearCombination
 # A total producer of rank-one Smith witnesses
 
 `Pairfield.RankOneSmith2x2.Witness` consumes an outer-product factorization
-and two Bezout equations.  This file closes the remaining producer gap: from
+and two Bezout equations.  This file supplies the producer: from
 a bare hypothesis `A.det = 0` it *computes* that data, with no `sorry`, no
 `native_decide`, and no appeal to an external oracle.
 

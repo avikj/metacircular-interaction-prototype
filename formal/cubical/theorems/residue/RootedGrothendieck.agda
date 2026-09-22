@@ -5,14 +5,6 @@
 --
 -- The synchronic rooted whole associated to a dependent family.  This is the
 -- type-theoretic Grothendieck total space Î r , Jewel r and its projection.
--- It does not by itself supply a category of roots, a functor, an infinite
--- reflective net, or the diachronic history of a weaving process.
---
--- Repository prior: IndraNet.Rooted (origin commit f5314e9) already checks
--- the Î/projection/fiberEquiv core under the pinned Agda 2.6.3 toolchain.
--- This Agda 2.8 extension exposes inverse/round-trip equations, totalization
--- by actual fibers, and two-sided rooted-versus-fiber controls.  It does not
--- claim the first T25.B formalization.
 ------------------------------------------------------------------------
 
 module RootedGrothendieck where

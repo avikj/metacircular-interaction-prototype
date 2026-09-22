@@ -43,7 +43,7 @@
 -- both as the zero of the algebra expression).  Every solver lemma below
 -- therefore keeps literals in the left operand, or generalizes the
 -- literal to a variable and instantiates -- the workaround recorded in
--- Rank1DihedralChart's header, hit again here.
+-- Rank1DihedralChart's header.
 ------------------------------------------------------------------------
 
 module Swarm.S08ChebyshevWeight where

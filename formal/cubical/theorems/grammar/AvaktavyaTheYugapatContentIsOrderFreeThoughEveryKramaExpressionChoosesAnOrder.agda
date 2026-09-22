@@ -24,7 +24,6 @@
 -- krama-witness happens to pick.
 --
 -- Uses only SaptabhangiNaya's own terms; nothing named is invented.
--- Checked warm through ‡®‡æ‡°‡ against the container's agda ‚î ‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø.
 ------------------------------------------------------------------------
 
 module AvaktavyaTheYugapatContentIsOrderFreeThoughEveryKramaExpressionChoosesAnOrder where

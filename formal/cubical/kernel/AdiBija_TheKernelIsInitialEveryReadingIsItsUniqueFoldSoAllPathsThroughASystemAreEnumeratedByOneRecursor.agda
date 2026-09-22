@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- àà¦à¿-ààà â” the seed-atom.
 --
--- THE CLAIM (2026-09-03): the kernel is the atom of the interaction
+-- THE CLAIM: the kernel is the atom of the interaction
 -- calculus â” the singularity from which every object is built, in
 -- exactly one way per building instruction.  Mathematically that word
 -- is INITIALITY, and initiality is what makes decomposition total: a
@@ -27,7 +27,7 @@
 --       with its own step-actions â” decomposition is canonical, not
 --       chosen.
 --
---   Â§3  THE SESSION'S ANALYZERS ARE ALL THIS FOLD.  eval-as-motion
+--   Â§3  THE ANALYZERS ARE ALL THIS FOLD.  eval-as-motion
 --       (soundness), length (cost), the evaluator integral âˆ â” each is
 --       exhibited as `fold` at a particular receiver, by the
 --       uniqueness theorem, not by rewriting them.  "Seeing all paths
@@ -87,7 +87,7 @@ module _ (R : Receiver â„“) (g : {a b : Tm} â†’ Derivation a b â†’ Motion R a b)
   fold-unique (then-step s d) = g-step s d âˆ™ cong (R â—‚ s) (fold-unique d)
 
 ------------------------------------------------------------------------
--- à© Â The session's analyzers are all this one fold.
+-- à© Â The analyzers are all this one fold.
 ------------------------------------------------------------------------
 
 -- (a) SOUNDNESS is the fold at the receiver whose motion is "the two

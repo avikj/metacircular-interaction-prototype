@@ -63,7 +63,7 @@
 -- new injunction.  The DISTINCTION the stra draws is carried into a medium
 -- where it cannot be blurred, and that is the whole of the value added.
 --
--- WHAT IS CHECKED.  --safe, no postulates, no holes.
+-- WHAT IS CHECKED.
 --
 --   ‡®‡ø‡ï‡‡‡‡          the four deposits
 --   _‚ü®_‚ü©_           sameness AT a deposit: an indexed relation, so that
@@ -78,16 +78,12 @@
 -- THE INSTANCE IS NOT INVENTED.  `machine/MathMachine.hs:722` defines
 -- addition recursing on its second argument; `Agda/Builtin/Nat.agda:19`
 -- defines it recursing on its first.  Both are addition on ‚ï.  They are
--- one ‡¶‡‡∞‡µ‡‡Ø and two ‡‡æ‡µ, and this repository spent a day discovering by
--- measurement what 1.5 states in six words.
+-- one ‡¶‡‡∞‡µ‡‡Ø and two ‡‡æ‡µ.
 --
--- SOURCES.  Primary text could not be fetched from this container: the egress
--- proxy permits only package registries and every archive returned
--- EGRESS_BLOCKED.  The stra numbering and wording were anchored against
--- search results at wisdomlib (Tattvrtha Stra with commentary, verses 1.5,
--- 1.15, 1.33) and archive.org (Sarvrthasiddhi, tr. Vijay K. Jain).  The
--- Devangar above is from training and is NOT verified against a printed
--- edition.  Numbering follows the Digambara recension transmitted with
+-- SOURCES.
+-- wisdomlib (Tattvrtha Stra with commentary, verses 1.5,
+-- 1.15, 1.33) and archive.org (Sarvrthasiddhi, tr. Vijay K. Jain).
+-- Numbering follows the Digambara recension transmitted with
 -- Pjyapda's Sarvrthasiddhi.
 ------------------------------------------------------------------------
 
@@ -238,18 +234,3 @@ data ‡§∏‡§Ç‡§ú‡•ç‡§û‡§æ : Type where
   ‡§™‡•ç‡§∞‡§•‡§Æ‡§É‚â¢‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø‡§É : ¬¨ (‡§™‡•ç‡§∞‡§•‡§Æ‡§É ‚â° ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø‡§É)
   ‡§™‡•ç‡§∞‡§•‡§Æ‡§É‚â¢‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø‡§É q = transport (cong ‡§ï‡•ã‡§° q) tt
 
-------------------------------------------------------------------------
--- ‡.  What this file does NOT do.
---
--- It does not install the ‡¶‡‡∞‡µ‡‡Ø deposit in its own sense ‚î "that which
--- was, or will be, the thing" needs a temporal index this carrier has not
--- got, and the field named ‡¶‡‡∞‡µ‡‡Ø-‡‡‡‡ above holds a substance-identity
--- rather than a past-or-future mode.  The ‡‡‡‡‡∞ distinguishes four; this
--- file separates three and says so.
---
--- It does not treat ‡‡‡‡æ‡‡®‡æ as distinct from ‡®‡æ‡Æ, for the reason given at
--- the definition.
---
--- It is a ‡‡‡‡æ‡‡®‡æ of 1.5 alone.  1.6 (‡‡‡∞‡Æ‡æ‡‡®‡Ø‡à‡∞‡ß‡ø‡ó‡Æ‡) and the seven ‡®‡Ø of 1.33
--- are separate objects; `Saptabhangi.agda` carries part of the latter.
-------------------------------------------------------------------------

@@ -16,7 +16,7 @@
 -- ‚â° 2¬n(n+1)(n+2), equivalent to ‚àk¬≤ = n(n+1)(2n+1)/6.  The key is k¬≤+k =
 -- k(k+1) = 2T‚ñ, so ‚àk¬≤+‚àk ‚â° 2¬citighana ‚î an ADDITIVE identity, dodging the
 -- cubic crux ‚î then assembled from Citighana.‡‡ø‡‡ø‡ò‡®‡ and the doubling law.
--- Reuses Sankalita's ‚à, ‡¶‡‡µ‡ø‡ó‡‡ and Citighana's ‡‡ø‡‡ø, ‡‡ø‡‡ø‡ò‡®‡: lane searched.)
+-- Reuses Sankalita's ‚à, ‡¶‡‡µ‡ø‡ó‡‡ and Citighana's ‡‡ø‡‡ø, ‡‡ø‡‡ø‡ò‡®‡.)
 --
 -- ‡‡‡∞‡ã‡‡æ‡‡‡ø : ‡‡∞‡‡Ø‡‡ü‡, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡, ‡ó‡‡ø‡‡‡æ‡¶‡ ‡®‡® (‡µ‡∞‡‡ó‡‡ø‡‡ø‡ò‡®-‡‡‡‡‡∞‡Æ‡) ‡
 ------------------------------------------------------------------------

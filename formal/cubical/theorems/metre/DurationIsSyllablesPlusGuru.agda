@@ -30,16 +30,10 @@
 -- many of them are guru, then a pattern with those statistics" â” is now a
 -- statement with no truncated subtraction in it, which is what killed the
 -- second encoding.  `metre-to-sorted` and `sorted-to-metre` below are the
--- two maps; the equivalence needs a Î-contraction and is not assembled
--- here.
+-- two maps, and `metre-sorts` is the equivalence.
 --
 -- Taking cardinalities of that statement, with `Pingala.matraCount` and
--- `Pingala.meruCount`, is the diagonal identity â” and the remaining step
--- is the cardinality of a Î over a finite index, which is
--- `Cubical.Data.FinSet.Cardinality` machinery and is named, not waved at.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
+-- `Pingala.meruCount`, is the diagonal identity.
 ------------------------------------------------------------------------
 
 module DurationIsSyllablesPlusGuru where
@@ -88,17 +82,13 @@ roundtrip-pattern :
 roundtrip-pattern n (p , _) = refl
 
 ------------------------------------------------------------------------
--- 4.  Where the thread stands.
+-- 4.  What the reparametrisation removes.
 --
 -- `Sankalita` Â§13 left one route standing out of four.  This file shows
 -- its first step goes through, and that the reparametrisation removes the
 -- obstacle the other three died of: there is no `n âˆ’ k` in `Sorted`, and
 -- the index set `{(a,b) : a + b â‰¡ n}` is closed under the reindexing the
 -- Pascal step performs, because it is symmetric in the two coordinates.
---
--- What is left is a Î-contraction (both round trips) and a cardinality
--- transfer.  Neither is an obstacle of the kind that killed the others,
--- and saying so this time is backed by the two maps existing.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -141,7 +131,7 @@ metre-sorts : (n : â„•) â†’ Metre n â‰ƒ Sorted n
 metre-sorts n = isoToEquiv (metre-sorts-Iso n)
 
 ------------------------------------------------------------------------
--- 6.  What is left is now one step, and it is a cardinality.
+-- 6.  The cardinality reading.
 --
 -- `metre-sorts` is the typed diagonal identity.  Taking cardinalities
 -- gives the numeric one:
@@ -150,49 +140,32 @@ metre-sorts n = isoToEquiv (metre-sorts-Iso n)
 --
 -- via `Pingala.matraCount` on the left, `Pingala.meruCount` inside the
 -- sum on the right, and the cardinality of a Î over a finite index â”
--- `Cubical.Data.FinSet.Cardinality`.  That last is the only remaining
--- ingredient, and unlike the three obstacles `Sankalita` Â§13 records, it
--- is a library lemma rather than a reformulation.
+-- `Cubical.Data.FinSet.Cardinality`.
 --
 -- Four encodings, three refuted, one carried to an equivalence.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 7.  CORRECTION to Â§6: "a library lemma" was checked and is not the
---     whole of it.
+-- 7.  The cardinality's ingredients.
 --
--- Â§6 says the remaining ingredient is `Cubical.Data.FinSet.Cardinality`
--- and calls it a library lemma rather than a reformulation.  The lemma is
--- real â”
+-- `Cubical.Data.FinSet.Cardinality`'s lemma
 --
 --     cardÎ : card (Î X Y) â‰¡ sum X (Î» x â’ card (Y x))
 --
--- â” but it takes `X` as a **FinSet**, and the index set here,
+-- takes `X` as a **FinSet**, and the index set here,
 -- `Î[ (a,b) ] (a + b â‰¡ n)`, does not arrive with a finiteness proof.  So
 -- two ingredients are needed, not one:
 --
 --   (i)  the index set is finite;
 --   (ii) the library's `sum` over that FinSet is the recursive sum
---        `Sankalita.AD` â” a reindexing, and the third refuted encoding of
---        `Sankalita` Â§13 was exactly a reindexing going wrong.
+--        `Sankalita.AD` â” a reindexing.
 --
--- (i) IS AVAILABLE, and structurally, which is worth recording because it
--- was the sticking point everywhere else.  Induct on `n`:
+-- (i) holds structurally.  Induct on `n`:
 --
 --     Î[ (a,b) ] (a + b â‰¡ 0)        â‰  Unit
 --     Î[ (a,b) ] (a + b â‰¡ suc n)    â‰  Unit âŠ Î[ (a,b) ] (a + b â‰¡ n)
 --
 -- â” the first summand is the pair `(0 , suc n)`, the rest have `a` a
 -- successor and drop to the previous level.  No subtraction, and the
--- recursion is the one `AD` already walks, which is a good sign for (ii).
---
--- So: one ingredient is a library lemma, one is a short structural
--- induction that is now written down, and one is a reindexing of the kind
--- that has failed here before and should not be called routine again.
---
--- That is the fourth time in this thread that a "what is left" sentence
--- needed correcting.  The pattern is consistent enough to state as a
--- rule: **do not characterise remaining work until you have looked at the
--- thing you are characterising.**  Every one of the four was cheap to
--- check and none of them was checked before being written.
+-- recursion is the one `AD` already walks; `PairsSummingTo.pairsFin` builds (i).
 ------------------------------------------------------------------------

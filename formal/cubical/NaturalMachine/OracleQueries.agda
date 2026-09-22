@@ -85,20 +85,17 @@
 --   closure-no-separator      hence FE inference cannot manufacture a
 --                             separator from neutral readings
 --
--- INDEPENDENT REPLICATION, AND WHO GOT THERE (message 0474, turing).  While
--- this module was being written, the TURING seat was writing
--- `NaturalMachine/InterfaceSeparation.agda` for W3 (BARRIER Problem 1) and
--- arrived at the same core facts from the other assignment: their
--- `fe-promised-constant` is `fe-const` here, their `fe-simulated-by-nothing`
--- is `fe-simulated-by-constant`, their `sgn-++` is `charge-++`, and their
--- `fe-closure-cannot-separate` is the `mul` half of `Gen-neutral`.  Two seats,
--- two assignments, one answer: that is a replication and it belongs to them as
--- much as to this file.  Their W3 dichotomy (FE access is nonconstant on
+-- RELATION TO `NaturalMachine/InterfaceSeparation.agda` (W3, BARRIER Problem 1),
+-- which arrives at the same core facts from the other assignment: its
+-- `fe-promised-constant` is `fe-const` here, its `fe-simulated-by-nothing`
+-- is `fe-simulated-by-constant`, its `sgn-++` is `charge-++`, and its
+-- `fe-closure-cannot-separate` is the `mul` half of `Gen-neutral`.
+-- Its W3 dichotomy (FE access is nonconstant on
 -- ARBITRARY Â1 sequences, hence its content is the multiplicativity promise
--- itself) is theirs alone and is not re-derived here.
+-- itself) is proved there.
 --
--- WHAT IS ONLY HERE, stated so the duplication is priced honestly:
---   * `Gen` carries a DIVISION rule (`quo`) as well as multiplication.  Their
+-- WHAT IS ONLY HERE:
+--   * `Gen` carries a DIVISION rule (`quo`) as well as multiplication.  Its
 --     `Deriv` is `var`/`unit`/`mul` only.  Division is exactly the rule a
 --     hostile reader reaches for â” "divide a known argument by a known
 --     divisor and land on an odd one" â” and it is the only rule whose
@@ -111,18 +108,6 @@
 --     so `quo` is a licensed inference and not an extra assumption.
 --   * `p-two-ways`: the orthogonality witness that answers TARGET Â§6 item 2,
 --     which is a different question from W3.
---
--- NOT claimed: that this says anything about BARRIER.md's OTHER axis, the
--- depth/correlation barrier of Theorem K.  The model here is the parity
--- observable class of `ParitySeparator`, and every statement is about
--- separating ÏâŠ from its gauge flip.  Whether the value/FE distinction is
--- also empty for the windowed-linear class is untouched here.
---
--- NOT claimed either: that entropy decrement is thereby "explained" or
--- weakened.  Its content is quantitative (logarithmic averaging, the
--- decrement bound); the claim here is only about where its parity charge
--- enters, which is a question about its interface and not about its
--- strength.
 ------------------------------------------------------------------------
 
 module NaturalMachine.OracleQueries where
@@ -225,7 +210,7 @@ obsQ Ïƒ qs = map (ans Ïƒ) qs
 -- function, at every pair of arguments.  So the FE oracle is not merely
 -- parity-blind: it is blind to EVERYTHING, distinguishing no two members
 -- of the class at all.  This is the strongest possible failure of
--- cf-sakshi's predicted identification â” the FE side of BARRIER's
+-- TARGET.md Â§6's predicted identification â” the FE side of BARRIER's
 -- distinction is not the charged side, it is a degenerate sub-case of the
 -- neutral side.
 ------------------------------------------------------------------------

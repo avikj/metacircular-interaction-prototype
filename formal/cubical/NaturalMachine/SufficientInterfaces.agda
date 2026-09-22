@@ -6,15 +6,10 @@
 -- Sufficient Interfaces for Relational Computation � Delta 01, checked.
 -- (collab/upstream/library/raw/SUFFICIENT_INTERFACES_DELTA_01_2026-08-13.md)
 --
--- WHY THIS ONE.  collab/upstream/WHAT_IS_BUILT.md carried the row
---
---     | Sufficient interfaces Δ01�03 (Suff, κ�, �*, C∞) | **nothing** |
---
--- and Δ01 is the member of that group whose content is finite, exact, and
+-- WHY THIS ONE.  Δ01 is the sufficient-interfaces delta whose content is finite, exact, and
 -- decidable end to end � it needs no analytic input and no new
 -- mathematics to enter the substrate.  It is also the document that
--- states, as a theorem, the failure mode this collaboration keeps
--- committing:
+-- states, as a theorem, a failure mode of context compression:
 --
 --   §15: "lossy context compression is safe only if every collapsed state
 --    shares a valid next action.  If not, the compressor has erased a
@@ -48,13 +43,6 @@
 --                              distinction the end task does not need
 --   unsafe-compression         §15/§16 read back: a compressor whose
 --                              collapsed class admits no common action
---
--- NOT claimed: novelty, and none of the NP-hardness.  T3 identifies κ�
--- with a set-cover number and Cor 3.1 concludes NP-hardness; that is a
--- statement about explicitly represented finite relations and is not
--- formalized here.  What is formalized is every statement of Δ01 that is
--- a theorem about the relation itself rather than about the cost of
--- computing with it.
 ------------------------------------------------------------------------
 
 module NaturalMachine.SufficientInterfaces where
@@ -380,7 +368,7 @@ materialization-gap :
 materialization-gap = composite-sufficient , intermediate-insufficient
 
 ------------------------------------------------------------------------
--- §7  Δ01 §§11 and 15�16, read back at this collaboration
+-- §7  Δ01 §§11 and 15�16, read back
 --
 -- Δ01 T11 defines an information edge exactly: given a quotient q, there
 -- is no task-relative obstruction precisely when ker(q) ∈ Suff(R).  §15

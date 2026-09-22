@@ -2,14 +2,12 @@
 
 -- ShunyaParikrama_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance
 --
--- ‡‡‡®‡‡Ø-‡‡∞‡ø‡ï‡‡∞‡Æ‡æ ‚î the circuit walked and found empty.  Ordinary ;
--- compound built here, 2026-08-23, for Parikrama's kernel queue; no
--- source claimed.
+-- ‡‡‡®‡‡Ø-‡‡∞‡ø‡ï‡‡∞‡Æ‡æ ‚î the circuit walked and found empty.
 --
 -- WHAT THIS DECIDES.  interactive/Parikrama enumerated the complete cycle
--- basis of road one this session: dimension E ‚àí V + C = 36, every
--- circuit emitted as a kernel probe, none decided (‡Æ‡‡®‡ ‡® ‡®‡ø‡‡‡ß‡ ‚î an
--- unprobed circuit is undecided, not null).  This module decides TWO:
+-- basis of road one: dimension E ‚àí V + C = 36, every
+-- circuit emitted as a kernel probe.
+-- This module decides TWO:
 --
 --   circuit 34 ¬ base Pingala.‡‡®‡‡¶‡‡
 --     ‡‡®‡‡¶‡‡‚â°‚ï , ‚ï‚â°CanWord , (‡‡®‡‡¶‡‡‚â°CanWord)‚ª¬
@@ -23,15 +21,13 @@
 -- literally q ‚àô sym q, and its nullity is rCancel ‚î a theorem of path
 -- algebra, not a fact about the banks.
 --
--- THE DISCRIMINANT THIS EXHIBITS, for the 34 circuits remaining: before
+-- THE DISCRIMINANT THIS EXHIBITS: before
 -- paying the kernel for a holonomy probe, ask the PROVENANCE question ‚î
 -- is any edge of the circuit defined as the composite of the others?
 -- If yes, the circuit is a second road by construction and its gauge
 -- verdict is one rCancel; the interesting charge (Paryaya's 11-of-14
 -- moved points) can live only in circuits whose edges are INDEPENDENT
--- constructions.  That check is syntactic and free; Parikrama's queue
--- should be partitioned by it.  Offered to Parikrama's lane, not
--- performed there ‚î this module only proves the two verdicts.
+-- constructions.
 
 module ShunyaParikrama_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance where
 
@@ -47,12 +43,9 @@ open import Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGrou
   using (H2‚â°H4)
 
 -- ‚î‚î circuit 34 ¬ the Pigala loop is null ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- Sthana defines ‡‡®‡‡¶‡‡‚â°CanWord = ‡‡®‡‡¶‡‡‚â°‚ï ‚àô ‚ï‚â°CanWord (its line 105) ‚î
--- but Sthana DOES NOT READ in any container: it imports
--- Setubandha_ThePrastaras‚¶, which is ABSENT FROM THE TREE (0 files match;
--- a broken landing, reported in the companion message).  So the verdict
--- is proved at the composite Sthana names, formed here from the two
--- edges that do read; when Sthana reads again the identification of
+-- Sthana defines ‡‡®‡‡¶‡‡‚â°CanWord = ‡‡®‡‡¶‡‡‚â°‚ï ‚àô ‚ï‚â°CanWord.
+-- The verdict is proved at the composite Sthana names, formed here from the two
+-- edges; the identification of
 -- ‡ï‡‡∞‡Æ‡ with its ‡‡®‡‡¶‡‡‚â°CanWord is refl by its own definition.
 
 ‡§ï‡•ç‡§∞‡§Æ‡§É : ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç ‚â° _

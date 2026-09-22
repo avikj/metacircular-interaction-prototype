@@ -50,23 +50,14 @@
 --       one defect functional into another by a positive constant does
 --       not change what its vanishing says.
 --
--- WHAT Â§Â§5â“7 DO AND DO NOT LICENSE.  They say a positive weighted
+-- WHAT Â§Â§5â“7 LICENSE.  They say a positive weighted
 -- aggregate is a faithful stand-in for the family of pointwise defects,
 -- and that a positive rescaling between two such aggregates is
--- information-preserving.  They say nothing about the SIZE of a nonzero
--- aggregate, and nothing about a supremum: the â“^âˆž reading of a defect
--- family is a different functional from the weighted sum and is not
--- treated here.
+-- information-preserving.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“3 in any ring, for any involution on
 -- any type and any feature into it.  Â§4 at â on the booleans.  Â§Â§5â“7 in
--- â•, for every finite depth and every positive weight family.  NOT
--- claimed: anything about cohomology as such â” no HÂ is constructed
--- below, and Â§1 is the reason none is needed; that any particular
--- feature IS or IS NOT invariant; that a weighted sum over an INFINITE
--- family behaves this way â” Â§6 is at finite depth and no limit is taken;
--- anything about norms, Hilbertâ“Schmidt or otherwise, or about
--- suprema; and no arithmetic input of any kind.
+-- â•, for every finite depth and every positive weight family.
 ------------------------------------------------------------------------
 
 module VyarthaCakra_TheDescentDefectSatisfiesItsCocycleIdentityForEveryFeatureSoTheClassSeparatesNothingAndOnlyPointwiseVanishingDoes where

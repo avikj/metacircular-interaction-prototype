@@ -7,14 +7,7 @@
 --
 -- `WalkChartedCap` builds `cap m = lcm(1..m) = e^{ψ(m)}` inside the digit
 -- chart (`capw m`, with `value-capw : value (capw m) ≡ cap m`) and counts
--- the automaton transitions of that construction.  Its own header names
--- three things it does not deliver, and this module delivers them:
---
---   (a) "`length (capw m)` IS NOT PROVED LOGARITHMIC in `cap m`."
---   (b) "`scale` is not proved to preserve canonicity either -- only its
---        value law is proved."
---   (c) "NO KERNEL WITNESS.  There is no `capw 8` computed here."
---
+-- the automaton transitions of that construction.
 -- WHAT IS DELIVERED.
 --
 --   1. CANONICITY OF THE SCALING PASS (§2).  `canonical-scale`:
@@ -75,39 +68,20 @@
 --      `b ^ n` because that is what is proved, and `cap m = e^{ψ(m)}` is
 --      Chebyshev's definition, not a fact this lane establishes.
 --
---      This is the first point in the walk lane where the walk's
---      superexponential storage law is turned into a linear one.  It
---      bounds the CAPACITY HANDLING only.  `WalkBridge.next` is untouched,
---      as `WalkChartedCap` already says, and `next 8` still exhausts the
---      heap.
+--      Here the walk's superexponential storage law is turned into a
+--      linear one.  It bounds the CAPACITY HANDLING.
 --
 --   4. KERNEL WITNESSES (§5), base ten.  `capw` DOES evaluate: `capw 4`,
 --      `capw 6`, `capw 8`, `capw 10` are computed by `refl`, up to
 --      `value (capw 10) ≡ 2520`.  Neither cubical's `gcd` (through
 --      `euclid`'s well-founded recursion) nor `Fin.Properties._%_`
---      (through its transport) blocks reduction -- the two suspects named
---      in `WalkChartedCap`'s closing list are acquitted.
+--      (through its transport) blocks reduction.
 --
 --      What DOES cost is elsewhere, and is an artefact of the definition
 --      rather than of the mathematics: `capw m` occurs TWICE in the
 --      mutual block (`capw (suc m) = scale (chartedQuot m) (capw m) 0`,
 --      and `chartedQuot m` reads `capw m` again through `modw`), and the
 --      kernel does not share, so closed evaluation costs 2^m passes.
---      Wall times for `value (capw m) ≡ _` by `refl`, one witness per
---      file, Agda 2.6.3, --safe:  m = 8, 9: 5 s;  m = 10: 7 s;
---      m = 11: 17 s;  m = 12: 24 s;  m = 13: 52 s -- a clean doubling,
---      which is the duplication and nothing else.  §5 stops at m = 10 to
---      keep this file cheap.  A `capw` that carried the residue forward
---      instead of recomputing it would be linear; that is a rewrite, not
---      a theorem, and it is not done here.
---
--- WHAT IS NOT DELIVERED.  `capSteps` is not summed: this module bounds
--- the PER-TEST cost `suc (length (capw m))`, not the total `capSteps � m`,
--- which also carries `WalkChartedCap`'s unstated parameter � for the
--- per-transition arithmetic.  Nothing here counts `gcd`.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical), --cubical --safe.
--- No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WalkChartedLength where
@@ -226,8 +200,7 @@ module Lengths (k : ℕ) where
   scale-zero-not-canonical = ¬-<-zero
 
   ----------------------------------------------------------------------
-  -- 2a.  THE CHARTED CAPACITY IS CANONICAL.  This is (b) of the open
-  --      list, and it is what makes `length (capw m)` well posed.
+  -- 2a.  THE CHARTED CAPACITY IS CANONICAL.  This is what makes `length (capw m)` well posed.
   ----------------------------------------------------------------------
 
   canonical-capw : (m : ℕ) → Canonical (capw m)
@@ -320,8 +293,7 @@ module Lengths (k : ℕ) where
   -- 3c.  AT THE CHARTED CAPACITY.
   --
   -- `value-capw : value (capw m) ≡ cap m` transports §3b onto `cap m`,
-  -- and `canonical-capw` of §2a is what licenses it.  This is (a) of the
-  -- open list.
+  -- and `canonical-capw` of §2a is what licenses it.
   ----------------------------------------------------------------------
 
   capw-length-≤ : (m n : ℕ) → cap m < b ^ n → length (capw m) ≤ n
@@ -387,15 +359,12 @@ module Lengths (k : ℕ) where
 ------------------------------------------------------------------------
 -- 5.  KERNEL WITNESSES, base ten (k = 8, b = 10).
 --
--- `WalkChartedCap` recorded "NO KERNEL WITNESS � whether that evaluates
--- cheaply in the kernel is a separate question this file does not
--- answer."  It does evaluate, and the two named suspects -- cubical's
+-- `capw` does evaluate: cubical's
 -- `gcd` through `euclid`'s well-founded recursion, and
 -- `Fin.Properties._%_` through its transport -- both reduce on closed
 -- numerals.
 --
--- m = 8 is the frontier at which `WalkBridge.next` exhausts the heap.
--- Here `capw 8` is a three-digit word, the automaton reads it in four
+-- At m = 8, `capw 8` is a three-digit word, the automaton reads it in four
 -- transitions, and the unary test walks 841.
 ------------------------------------------------------------------------
 

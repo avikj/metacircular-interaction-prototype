@@ -18,13 +18,13 @@
 --
 -- Python finite shadow: gamma0-stabilizer in machinery/core_knowledge.
 --
--- POINTER (genius-15, 2026-08-14, not a fix â” see Gamma0ConverseSharp):
+-- See Gamma0ConverseSharp:
 -- the hypothesis `hÎµ : Îµ Â Îµ â‰¡ 1r` below is never used in this proof
 -- term, so this theorem holds over all of Mâ(â);  and for q â‰  0 it is
 -- derivable from `hstab` (Gamma0ConverseSharp.Derived.epsSquare), so it
 -- is redundant rather than merely inert.  It is strictly restrictive
 -- only at q = 0, where a concrete non-unimodular stabilizer exists
--- (Gamma0ConverseSharp.q0).  Nothing here is edited.
+-- (Gamma0ConverseSharp.q0).
 ------------------------------------------------------------------------
 
 module Gamma0Converse where

@@ -244,9 +244,6 @@ open पत्र public
 -- again for 2�408², and a subtraction of the same order.  Measured, not
 -- guessed: §1�§4 check in 3s, and adding that one line runs past 90s.
 --
--- The transport did not help because a path spares you re-deriving a FACT,
--- not re-normalising a TERM.  I expected otherwise and was wrong.
---
 -- But the line was never needed, and wanting it is the reflex this module
 -- exists to name.  Restating a result that is already carried, in a form
 -- whose only virtue is that the numerals are visible, is what a worksheet

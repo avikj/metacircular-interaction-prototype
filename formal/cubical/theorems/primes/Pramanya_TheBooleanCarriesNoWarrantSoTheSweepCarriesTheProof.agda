@@ -18,7 +18,7 @@
 -- the Nyya position, where a cognition is certified by successful
 -- activity (*pravtti-smarthya*).  A `Dec` arrives carrying its ground; a
 -- `Bool` arrives having been stripped of it and must be certified from
--- outside, and 944676e4 provides no outside.
+-- outside.
 --
 ------------------------------------------------------------------------
 

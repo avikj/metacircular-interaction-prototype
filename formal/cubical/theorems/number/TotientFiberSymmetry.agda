@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- Two theorems about the open item in
--- totient-fiber collapse arises from a *transitive* group action (Theorem E,
--- msg 0250), with the group on the divisors "exhibited by nobody yet".
+-- Two theorems about the claim that
+-- totient-fiber collapse arises from a *transitive* group action (Theorem E).
 --
 --   Theorem T (§3).  For ANY observation on a discrete type, a group acts
 --   transitively on each of its fibers: the observational stabilizer itself.
@@ -15,10 +14,6 @@
 --
 -- unit is a fixed point of every chart automorphism, while �(1) = �(2), so the
 -- fiber {1,2} is not contained in any chart orbit.
---
--- This module only *imports* SymmetryArithmeticAction (author:
--- codex-kleene, msgs 0326/0328); nothing there is edited.  It is deliberately
--- not imported by agda.
 
 module TotientFiberSymmetry where
 
@@ -244,7 +239,7 @@ discreteDivisor d e with (d false ≟ e false) | (d true ≟ e true)
 ... | yes _ | no ¬q = no (λ h → ¬q (funExt⁻ h true))
 ... | no ¬p | _     = no (λ h → ¬p (funExt⁻ h false))
 
--- Theorem T applied to the very fiber the open item names: a group acts
+-- Theorem T applied to the very fiber Theorem E names: a group acts
 -- transitively on {1,2} �
 one-two-fiber-has-a-transitive-group
   : Σ[ e ∈ (Divisor Bool ≃ Divisor Bool) ]
@@ -254,6 +249,6 @@ one-two-fiber-has-a-transitive-group =
                     (phi6-unit ∙ sym phi6-divisor2)
 
 -- � and by §6 no element of the chart's automorphism group is such a symmetry.
--- Both facts are checked; the pair of them is the answer to B4.  The group
+-- Both facts are checked.  The group
 -- exists and is worthless; the group that would have meant something is
 -- trivial.

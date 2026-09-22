@@ -1,8 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- Integration against the actual native kernel. Verification is supplied by
--- the pinned Agda CI job, not asserted by this comment.
--- No encoding or proof of RH or Navier--Stokes is claimed here.
+-- Integration against the actual native kernel.
 module MetacircularReplay where
 
 open import Cubical.Foundations.Prelude

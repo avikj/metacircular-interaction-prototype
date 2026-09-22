@@ -18,7 +18,7 @@
 -- redacted at Valabh c. 5th c. CE; fixed at seven with ‡‡‡Ø‡æ‡‡ prefixed
 -- throughout by Samantabhadra, ‡‡‡‡‡Æ‡‡Æ‡æ‡‡‡æ, c. 6th c. CE.
 --
--- WHY THIS MODULE EXISTS, AND WHAT IT CORRECTS.
+-- WHY THIS MODULE EXISTS.
 --
 -- `SaptabhangiNaya` fixes THREE standpoints and SIX utterances, and proves
 -- `no-single-vacana` by listing all six.  `AvaktavyaDoesNotFactor`
@@ -34,8 +34,8 @@
 -- equality on standpoints, and no finiteness: two constant profiles do the
 -- whole job.  So the obstruction is not an artefact of three standpoints.
 --
--- AND IT WITHDRAWS A CLAIM MADE IN CONVERSATION, WHICH IS THE MORE USEFUL
--- HALF.  It was put to the owner that ‡‡‡æ‡∞‡‡‡ is "irreducibly n-ary" ‚î that
+-- TWO DIFFERENT OBJECTS, WHICH THE READING "IRREDUCIBLY n-ARY" CONFLATES.
+-- One might hold that ‡‡‡æ‡∞‡‡‡ is "irreducibly n-ary" ‚î that
 -- the total statement over n standpoints cannot be built from binary steps ‚î
 -- on the ground that `Arpitanarpita_‚¶.‡‡-‡‡‡ô‡‡ó‡‡ø‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡` proves ‡‡‡æ‡∞‡‡‡‡Æ‡
 -- non-associative.  That inference conflates two different objects:
@@ -43,19 +43,19 @@
 --   ¬ the CONTENT demanded by the total statement, which is a conjunction
 --     over the demand.  ¬ß2: it FOLDS.  `and` is associative, so the n-ary
 --     content is exactly the iterated binary one, and `‡ï‡‡∞‡Æ-‡‡ô‡‡ï‡≤‡®‡Æ‡` holds
---     by `refl`.  The claim was wrong here.
+--     by `refl`.
 --   ¬ the OPERATION combining seven-fold POSITIONS, `‡‡-‡Ø‡ã‡ó` / `‡‡‡æ‡∞‡‡‡‡Æ‡`,
 --     which `SaptabhangiSamyoga_‚¶.‡‡-‡‡‡ô‡‡ó‡‡ø‡` and `Arpitanarpita_‚¶.‡‡-
 --     ‡‡‡ô‡‡ó‡‡ø‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡` prove non-associative on labels and on records
 --     alike.  There the n-ary operation genuinely is not determined by the
---     binary one.  The claim was right here, about a different thing.
+--     binary one.
 --
 -- Content folds; the composition of positions does not.  Reading the second
 -- as licensing the first is exactly the collapse this corpus exists to
 -- refuse ‚î ‡‡‡‡®‡ ‡‡ï‡®‡æ‡Æ‡‡®‡æ ‡ó‡‡‡‡‡æ‡‡ø ‚î so it is written out rather than
 -- quietly dropped (‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡ ¬ß‡: ‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø).
 --
--- WHAT IS PROVED.  --cubical --safe, no postulates, no holes.
+-- WHAT IS PROVED.
 --
 --   ‡ï‡‡∞‡Æ-‡‡ô‡‡ï‡≤‡®‡Æ‡      succession expresses the demand, by construction.
 --   ‡‡∞‡‡µ-‡‡‡‡Ø‡-‡Æ‡ø‡‡‡Ø‡æ   a demand with any negative entry is false at the
@@ -133,8 +133,7 @@ module _ {S : Type ‚Ñì} where
   -- krama-expresses` is this at one fixed two-element demand.
   --
   -- NOTE WHAT THIS SETTLES.  The content is a fold of the binary
-  -- conjunction, so at the level of CONTENT the n-ary total statement is
-  -- the iterated binary one.  The header records the claim this refutes.
+  -- conjunction, so at the level of CONTENT the n-ary total statement is exactly the iterated binary one.
   ----------------------------------------------------------------------
 
   Adesa : Type ‚Ñì
@@ -273,7 +272,7 @@ data ‡§¶‡•ç‡§µ‡§ø : Type‚ÇÄ where
 ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç-‡§¶‡•ç‡§µ‡§ø = ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‡•ã-‡§®-‡§∏‡§ô‡•ç‡§ó‡§ö‡•ç‡§õ‡§§‡•á ‡§Ü‡§¶‡•á‡§∂‡§É-‡§¶‡•ç‡§µ‡§ø ‡§Æ‡§ø‡§∂‡•ç‡§∞‡§É-‡§Ö‡§∏‡•ç‡§§‡§ø ‡§Æ‡§ø‡§∂‡•ç‡§∞‡§É-‡§®‡§æ‡§∏‡•ç‡§§‡§ø
 
 ------------------------------------------------------------------------
--- ‡ ¬ What this does NOT license.
+-- ‡ ¬ What the fourth position says.
 --
 -- It does not say the total statement is impossible ‚î ‡ï‡‡∞‡Æ-‡‡ô‡‡ï‡≤‡®‡Æ‡ says
 -- succession expresses it exactly, and ¬ß6 exhibits a profile meeting the
@@ -281,9 +280,4 @@ data ‡§¶‡•ç‡§µ‡§ø : Type‚ÇÄ where
 -- entire content of ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ in the sources and it is easy to lose in
 -- translation: the position is about EXPRESSION, not about truth, not
 -- about knowledge, and not about a third truth value.
---
--- Nor does it bear on which of the seven positions a given object
--- occupies, on the exhaustiveness of the seven, or on whether the record
--- lane and the label lane of `Arpitanarpita_‚¶` can be reconciled.  Those
--- are three separate open questions and none of them is touched here.
 ------------------------------------------------------------------------

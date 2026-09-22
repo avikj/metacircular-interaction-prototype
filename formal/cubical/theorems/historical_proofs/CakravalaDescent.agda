@@ -13,22 +13,13 @@
 -- "Pell's equation" is Euler's misattribution to a man who never worked
 -- on it, and the name has outlived every correction since.
 --
--- WHY THIS FILE EXISTS, which is the part worth reading.  `Composition.agda`
--- line 287 says, of the step where coprimality enters: "that step is in
--- CakravalaDescent".  There was no `CakravalaDescent`.  Line 14 says
--- pointing at work that was never done, in a form a reader takes as
--- "it is handled over there" â” a claim carrying no evidence, which is the
--- same defect this repository has spent the day removing from its verdict
--- types.  A dangling citation is a bare label.  The repair is to make the
--- reference true, not to delete it.
---
 -- THE STEP.  Given aÂ² âˆ’ D bÂ² = k and an m with k | (a + bm), set
 --
 --     a' = (am + Db)/k        b' = (a + bm)/k        k' = (mÂ² âˆ’ D)/k
 --
 -- and then a'Â² âˆ’ D b'Â² = k'.  Bhskara's choice rule â” choose, among the m
 -- satisfying the congruence, one minimising |mÂ² âˆ’ D| â” is what makes the
--- cycle terminate; it is NOT proved here and is not claimed.
+-- cycle terminate.
 --
 -- HOW IT IS STATED HERE.  The three divisions are given as HYPOTHESES in
 -- multiplied form (aÂm + DÂb â‰¡ k Â a', and so on).  That is not a
@@ -37,7 +28,7 @@
 -- Stating them multiplied keeps the theorem over an arbitrary commutative
 -- ring, where there is no division to perform.
 --
--- WHAT IS PROVED.  No postulates, no holes, --safe.
+-- WHAT IS PROVED.
 --
 --   cakravalaScaled   the step's identity in kÂ²-scaled form, over ANY
 --                     commutative ring and with NO cancellation:
@@ -64,11 +55,6 @@
 --                     descent as inductive evidence â” yields `Coprime k b`
 --                     via `bezout`, so the pair `coprimeCancel` consumes is
 --                     produced by an actual pulverizer run and not assumed.
---
--- WHAT IS NOT.  Termination of the cycle.  Minimality of Bhskara's choice
--- (choose m minimising |mÂ² âˆ’ D| subject to the congruence).  Existence of
--- solutions.  Those are the three open things; everything else the step
--- needs is here.
 ------------------------------------------------------------------------
 
 module CakravalaDescent where
@@ -156,8 +142,7 @@ module Descent (CR : CommRing â„“) where
   -- bÂ(am + Db) and bÂ²Â(mÂ² âˆ’ D) are combinations of (a + bm) and k.
   --
   -- This is what makes the cakravla an algorithm rather than a search.
-  -- The remaining factor b is removed by gcd(k, b) = 1, which is a
-  -- kuaka; that join is not made here and is not claimed.
+  -- The remaining factor b is removed by gcd(k, b) = 1 (section 3b).
   ----------------------------------------------------------------------
 
   oneCongruence : (D a b m k : R)
@@ -187,8 +172,7 @@ module Descent (CR : CommRing â„“) where
   -- 3b.  THE FACTOR b REMOVED â” the join with the kuaka.
   --
   -- `oneCongruence` above leaves b in the way: it gives k | bÂ(am + Db) and
-  -- k | bÂ²Â(mÂ² âˆ’ D), not the exactness the step needs.  The commit that
-  -- landed Â§3 said so and left it open.  Closing it is one lemma, and the
+  -- k | bÂ²Â(mÂ² âˆ’ D), not the exactness the step needs.  Removing it is one lemma, and the
   -- lemma is ryabhaa's, because what removes b is exactly the pulverizer's
   -- output: coefficients u, v with uÂk + vÂb = 1.
   --
@@ -276,12 +260,7 @@ open import Cubical.Data.Int using (â„¤ ; pos ; negsuc)
 open import Cubical.Algebra.CommRing.Instances.Int using (â„¤CommRing)
 
 ------------------------------------------------------------------------
--- 3c.  THE BRIDGE, MADE.  `Coprime` fed by an actual pulverizer run.
---
--- The header of this file said wiring `Kuttaka.bezout` to `Coprime` was
--- "mechanical and is not done here".  Mechanical is not a synonym for
--- done, and "not done here" is how the two dangling references at the top
--- of this file started.  So: done.
+-- 3c.  THE BRIDGE.  `Coprime` fed by an actual pulverizer run.
 --
 -- `Kuttaka.Run k b g` is ryabhaa's descent as inductive evidence â” one
 -- constructor per division a â‰¡ qÂb + r, the quotients forming the vall,

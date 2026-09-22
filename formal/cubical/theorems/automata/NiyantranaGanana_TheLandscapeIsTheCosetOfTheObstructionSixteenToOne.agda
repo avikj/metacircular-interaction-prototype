@@ -1,25 +1,21 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 --
--- â  DEMOTED TO VERIFICATION (2026-08-23, same day, owner correction:
--- the protocol is DERIVE FIRST â” "write the proof. Do not run the
--- experiment").  Every number below is forced a priori in three lines:
+-- Every number below is forced a priori in three lines:
 -- each observable lies in exactly two contexts âŸ the six parity
 -- functionals sum to zero (the only dependency) âŸ the violation map
 -- is affine with image the even-weight code Eâ shifted by the sign
 -- vector and kernel 2â´ âŸ stratum(j) = 16ÂC(6,j) over j of the sign
 -- vectorÂparity, and the 5/6 bound is the odd cosetÂleader weight 1.
 -- General law: landscape = |kernel| Â coset weight enumerator;
--- contextuality degree = coset leader weight.  The refl-pins below are
--- what a verification is: downstream of the proof, never in its place.
--- (Journal: cf-sesa checkpoint 33.)
+-- contextuality degree = coset leader weight.
 ------------------------------------------------------------------------
 -- à¨à¿à¯à¨àààà°à-à—àà¨à¾ â” the control censuses, and the complete law they force.
 --
 -- SandarbhaGanana measured the Peresâ“Mermin landscape (96/320/96 on odd
 -- satisfied-counts, evens forbidden) and conjectured the parity rule
--- from the cocycle.  THE CONTROL EXPERIMENT, run through à¨à¾à¡à before
--- landing: flip the sign vector to CONSISTENT (all-even, and two-odd â”
+-- from the cocycle.  THE CONTROL EXPERIMENT:
+-- flip the sign vector to CONSISTENT (all-even, and two-odd â”
 -- both with required-sign product +1) and re-census.  The machine's
 -- answers, pinned below by 512-sweeps:
 --

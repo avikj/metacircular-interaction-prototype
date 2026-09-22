@@ -6,8 +6,7 @@
 -- (singly blind readings are JOINTLY faithful, and a reconstruction is the
 -- certificate.)
 --
--- WHY THIS EXISTS.  Four terms landed in this corpus this session and every
--- one of them is a NO-GO:
+-- WHY THIS EXISTS.  Four terms of this corpus are each a NO-GO:
 --
 --   SamacaranaNityam  a transitive symmetry flattens every observable
 --   ApurvaIndriyam    a derived reading is blind inside its source's fibres
@@ -15,8 +14,8 @@
 --   TiryakTantu       the residue class and the factorisation are transverse
 --
 -- Read together they say what cannot be done, and read carelessly they say
--- the frontier is closed.  They do not say that, and this file is the half
--- that was missing: **blindness is not stable under taking families.**
+-- the frontier is closed.  They do not say that:
+-- **blindness is not stable under taking families.**
 --
 -- The transversality of `TiryakTantu` is created by FIXING v.  Over the whole
 -- family of moduli nothing is lost at all ‚î u ‚¶ (u mod v)_v is injective, and
@@ -174,20 +173,9 @@ data ‡§∑‡§ü‡•ç : Type where
 -- was not.  Blindness is a property of a chart, not of the object, and it
 -- does not survive being joined.
 --
--- For the residual bilinear form this is the standing instruction and not a
--- hope.  `TiryakTantu` proves the residue class and the Mbius sign are
--- transverse AT A FIXED v.  It cannot and does not prove that a family ‚î
--- several moduli, or the class together with the factorisation carried as one
--- datum ‚î is blind.  A proof that works on the joint object owes no
+-- `TiryakTantu` proves the residue class and the Mbius sign are
+-- transverse AT A FIXED v.
+-- A proof that works on the joint object owes no
 -- reconstruction of one half from the other, because it never separated them:
 -- ‡‡‡‡‡∞ ‡, ‡‡¶‡‡ß-b, the datum rides free.
---
--- ‡Æ‡∞‡‡Ø‡æ‡¶‡æ, at the site.  ¬ß‡© is kuaka at moduli 2 and 3 on six residues.  It
--- exhibits that joint faithfulness HAPPENS and supplies the certificate shape;
--- it is not the general CRT, and it says nothing about whether any PARTICULAR
--- family arising in the bilinear form admits a reconstruction.  That question
--- is the work.  What is settled is that the four no-gos do not close it, and
--- reading them as closing it would be a durnaya ‚î a two-valued verdict
--- (blind / not blind) on a question whose third position is *blind alone,
--- seeing together*.
 ------------------------------------------------------------------------

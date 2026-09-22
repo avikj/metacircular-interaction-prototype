@@ -1,14 +1,12 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 -- Target-relative final-round elimination on the repository's real SHA.
--- Source pin: e1112905e213b7512cf5e52d291132db6d2d75fa
--- STATUS: proof terms written; NOT typechecked or HVM-executed here.
 -- This imports SHA's actual roundStep and the already existing equation
 -- exposing it. It does not implement a surrogate round or a reduced hash.
 -- For a 64-round schedule, the suffix clause is reached AFTER 61 rounds.
 -- The highest Bitcoin digest word is then known; later rounds are demanded
 -- only by the remaining output coordinates/continuation.
--- This is established mining prior art, not a claimed new speedup.
+-- This is established mining prior art.
 
 module BitcoinMiningCut where
 

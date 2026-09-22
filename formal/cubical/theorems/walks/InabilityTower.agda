@@ -108,12 +108,11 @@ sub-fresh (n , p) = posNotnegsuc n 1 p
 --
 -- Nothing is assumed about `ε`.  This is the general fact.
 
--- PRIOR ART, found after writing this and kept because the overlap is the
--- point.  `Apoha` already carries apoha as *witnessed separation*:
+-- RELATION TO `Apoha`.  `Apoha` carries apoha as *witnessed separation*:
 -- `Ind` (every observation agrees) against `Sep` (some observation excludes,
 -- and you hold it), with the constructive gap between them located exactly --
 -- the negative forms always agree, the witnessed one needs finiteness or MP.
--- That is the deeper half and it was there first.
+-- That is the deeper half.
 --
 -- What is below is the other half and does not appear there: the *closure*.
 -- `S04Apoha` asks when a separating observation can be produced;

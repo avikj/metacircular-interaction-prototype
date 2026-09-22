@@ -37,13 +37,9 @@ The campaign's arc, closed on itself: the mutual stream was built to
 prove interdependence generative; it turned out to be the only total
 carrier of the endless braid; and now it is the complete metric space
 in which that braid's own unattainable symmetries reside.  One type,
-three necessities, none retrofitted.  The centralizer question is
-posed on stage with every object present: central, continuous,
-zero-lookahead â” is uniformity forced?
+three necessities, none retrofitted.
 
-SYT â” THE CLAIM, EXACTLY.  The three theorems on the stated metric;
-the closure of the braid image as a subgroup and the continuous
-centralizer's exhaustion are the standing constructions.
+SYT â” THE CLAIM, EXACTLY.  The three theorems on the stated metric.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

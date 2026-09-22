@@ -38,8 +38,6 @@
 -- observer class."  Here the class is declared, and the quotient is
 -- proved to erase precisely the ≈-indistinguishable distinctions and no
 -- others.
---
--- Machine-checked, Agda 2.8.0 + cubical v0.9, --safe, no postulates.
 ------------------------------------------------------------------------
 
 module ConservativeSemanticCompressionIsTheEffectiveObserverQuotient where

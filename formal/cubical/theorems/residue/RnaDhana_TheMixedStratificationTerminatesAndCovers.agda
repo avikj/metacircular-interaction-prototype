@@ -8,24 +8,6 @@
 -- are his; nothing else here is.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- A CORRECTION FIRST, AND IT IS ABOUT MY OWN INSTRUMENT, NOT A THEOREM.
---
--- Last cycle I recorded that mixed coverage was blocked because "the
--- LENGTH argument is not transported â” `nonEmptyFilterShortensThe-
--- Complement` is stated for `List (List â•)` and the mixed side needs it
--- for `List (Vec ds)`".  **I had not looked.**  That lemma, and
--- `partitionLength`, and `lengthL` itself, are all stated over a
--- `variable A : Type` â” generic in the element type since the cycle
--- they were written.  Nothing needed transporting; they apply to
--- `List (Vec ds)` unchanged.
---
--- That is the ninth wrong estimate on this branch and the second whose
--- subject was my OWN earlier work rather than a piece of mathematics.
--- The rule already written â” "do not write an estimate into a record;
--- try the proof" â” extends: **do not record an obstruction in your own
--- corpus without grepping the signature.**
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   mixedStratumIsNonEmpty     a non-empty bounded archive has a
@@ -41,7 +23,7 @@
 --   theMixedStratificationCovers
 --                              so at full fuel, in some mixed stratum
 --
--- **THE ASYMMETRY, ONE LEVEL DEEPER THAN LAST CYCLE'S.**  Coverage's
+-- **THE ASYMMETRY, ONE LEVEL DEEPER.**  Coverage's
 -- INDUCTION needs nothing: it is `mixedLayerCovers` threaded through
 -- the recursion, and `mixedLayerCovers` is a generic filter fact.  What
 -- needs the caps â” and with them the whole a-dhana transport â” is
@@ -51,15 +33,12 @@
 -- required not by coverage but by TERMINATION.
 --
 -- With `theMixedStrataArePairwiseDisjoint` and
--- `theMixedStrataAreOrdered`, DARWIN Â§5.2's three output properties now
+-- `theMixedStrataAreOrdered`, DARWIN Â§5.2's three output properties
 -- hold for genuinely mixed benefit/cost archives, with the single
 -- hypothesis that the caps bound the archive's members.
 --
 -- NO NOVELTY.  Iterated non-dominated sorting terminates and partitions
 -- (Goldberg 1989; Deb et al. 2002).
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module RnaDhana_TheMixedStratificationTerminatesAndCovers where

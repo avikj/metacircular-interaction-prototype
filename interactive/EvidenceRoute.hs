@@ -1,13 +1,9 @@
 -- ‡‡‡∞‡æ‡Æ‡æ‡‡‡Ø ‚î the five routes an answer arrives by, each with its witness.
 --
--- EXTRACTED FROM Server, 2026-08-23, moved
--- not copied: Yantra imports and re-exports this module, so its wire
--- interface is unchanged, and Aisthesis imports it directly ‚î the light
--- dependency that lets the heartbeat (./jiva, runghc) speak the same route
--- vocabulary without interpreting the whole assembly on every beat.  The
--- extraction also healed a copy: Aisthesis's first version carried its own
--- pramanyaJ, which was exactly the receipt-on-copy defect its prototype
--- event records.
+-- Yantra imports and re-exports this module, and Aisthesis imports it
+-- directly ‚Äî the light dependency that lets the heartbeat (./jiva, runghc)
+-- speak the same route vocabulary without interpreting the whole assembly
+-- on every beat.
 --
 -- By what route is this answer a prama?  Nyya's question (Gautama,
 -- Nyyastra 1.1.3, c. 2nd c. CE; Vtsyyana's Bhya c. 400): a means of
@@ -30,7 +26,7 @@ data Pramanya
     --   not shown; the reader checks by reading.
   | Nihsesa Int String
     -- ^ exhaustive over n cases, all of them run.  A finite exhaustive
-    --   verification is proof (CLAUDE.md), and the n is stated so that the
+    --   verification is proof, and the n is stated so that the
     --   domain of the claim is visible.
   | Ganita String
     -- ^ an exact integer identity, exhibited, computed in ‚.  Not a

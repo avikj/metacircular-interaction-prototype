@@ -14,9 +14,6 @@
 -- below, not rebuilt**, and nothing here is a claim about their
 -- theorem.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- A CORRECTION OF MY OWN CLAIM, ONE CYCLE OLD.
---
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition`
 -- concluded:
 --
@@ -60,11 +57,6 @@
 -- The parallel with the rest of this line is exact: the fourth-corner
 -- work reduced a position to failure of the double-negation shift,
 -- another principle that is classically trivial and constructively not.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Yugapat_TheRefusalOfJointAssertionDoesNotDecompose where
@@ -109,13 +101,10 @@ yugapatDecompositionGivesWeakExcludedMiddle dec A =
   dec A (Â¬ A) (Î» p â†’ snd p (fst p))
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The question this module left â” whether there is a
+-- Whether there is a
 -- THIRD position between the sequential pair and the refusal of the
--- joint assertion â” is answered in
--- `NaturalMachine.Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin).  There is:
+-- joint assertion is answered in
+-- `NaturalMachine.Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain`.  There is:
 --
 --   Krama = (Â àà¾à®à¯à¿à•) — (Â à¨à¿ààà¯)
 --     â’ Vikalpa = (Â àà¾à®à¯à¿à•) âŠ (Â à¨à¿ààà¯)

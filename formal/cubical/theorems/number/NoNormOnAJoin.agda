@@ -9,7 +9,7 @@
 --     does the walk admit a norm?
 --
 -- It does not, and the proof is the same three words as every other
--- answer in this thread â” **idempotence forbids it** â” but the
+-- answer in this line of modules â” **idempotence forbids it** â” but the
 -- conclusion is not the one the question expected, and the last section
 -- says why.
 --
@@ -61,9 +61,6 @@
 -- reaches it â” and not a fact about lcm's difficulty.  It is a choice of
 -- semigroup, made implicitly, whose consequence is the loss of every
 -- descent mechanism at once.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module NoNormOnAJoin where

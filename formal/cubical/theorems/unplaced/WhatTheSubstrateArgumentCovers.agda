@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- WhatTheSubstrateArgumentCovers
 --
--- Building on the one thing `DeflationaryTest` has that
--- this thread never reached â” its Â§8 â” by locating exactly what its
+-- Building on `DeflationaryTest` Â§8, by locating exactly what its
 -- argument ranges over.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -23,8 +22,8 @@
 --   Â§1  the argument does not depend on `âŠ`.  `A â’ Dec A` holds for
 --       EVERY type by `yes`, so "every inhabited X is a decision" is a
 --       statement about inhabitation, not about sums.  Instantiated at
---       `Î`, which is where this thread's floor-is-a-search finding
---       lives: an inhabited Î is a decision, one line, same as for âŠ.
+--       `Î`:
+--       an inhabited Î is a decision, one line, same as for âŠ.
 --
 --   Â§2  and the argument delivers something STRICTLY STRONGER than
 --       stability, which is why it cannot be traded for it.  `Stable âŠ`
@@ -61,20 +60,6 @@
 -- agree in verdict and disagree in ground, and a verdict-level
 -- agreement does not license a ground-level collapse.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- ONE OBSERVATION ABOUT THE PRIOR MODULE, OFFERED NOT RANKED
---
--- Â§1 shows Â§8's sentence holds of every type, not only of sums.  That
--- is not a defect in Â§8: Â§8 was answering a question about the
--- âŠ-shaped sites specifically, and answering the question asked is not
--- an error.  The generalisation is recorded because this thread needed
--- it at `Î`, not as a verdict on where it was first written.
---
--- Also: Â§8 cites "an audit of all 434 `.agda` files â¦ 74 such
--- signatures".  Counts are dated.  That one is not rechecked here and
--- nothing below depends on it â” and Â§8 itself says the audit "was not
--- needed", which is the part Â§1 confirms.
---
 ------------------------------------------------------------------------
 
 module WhatTheSubstrateArgumentCovers where
@@ -100,7 +85,7 @@ private
 inhabited-is-a-decision : {A : Type â„“} â†’ A â†’ Dec A
 inhabited-is-a-decision = yes
 
--- at Î, which is where this thread's floor question sits.  The proof is
+-- at Î.  The proof is
 -- the same one; nothing about Î is used, exactly as nothing about âŠ was.
 inhabitedÎ£-is-a-decision :
   {A : Type â„“} {B : A â†’ Type â„“'}

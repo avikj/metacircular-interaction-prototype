@@ -5,9 +5,7 @@
 --
 -- The kernel overview names "six readings of the same object โ” memory,
 -- charge, symmetry, price, distance, verdict" and points OUTWARD to
--- separate theorem files. This module does NOT pretend those six domain
--- theorems are one term (they are not, and forcing them would be the hollow
--- consolidation ยง0 of the overview warns against). It builds the shared
+-- separate theorem files. This module builds the shared
 -- SHAPE every reading instantiates, so a reading stops being prose and
 -- becomes a structure a domain file can inhabit.
 --

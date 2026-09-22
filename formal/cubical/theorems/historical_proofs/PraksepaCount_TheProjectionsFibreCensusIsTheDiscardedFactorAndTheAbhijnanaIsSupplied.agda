@@ -6,14 +6,13 @@
 -- alone withholds is here supplied.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS JOINS, AND WHY THE JOIN WAS OPEN.
+-- WHAT THIS JOINS.
 --
 -- Two fibre enzymes in this corpus speak about the same object and
 -- neither imports the other:
 --
 --   `SankhyaTantu_‚¶`  for ANY map between finite sets gives the ‡‡ô‡‡ñ‡‡Ø‡æ
---       ‚î the fibre's cardinality, `card (fiber f b)` ‚î but states, in
---       its own header and on purpose, that it does NOT deliver the
+--       ‚î the fibre's cardinality, `card (fiber f b)` ‚î but not the
 --       ‡‡‡ø‡‡‡û‡æ‡®, the untruncated identification `fibre ‚â Fin k`:
 --       `isFinSet X = Œ[n] ‚à X ‚â Fin n ‚à‚`, so the equivalence sits
 --       behind a propositional truncation and is available only for a
@@ -55,9 +54,6 @@
 -- equivalence; the mathematics is cubical (Voevodsky), the one admitted
 -- non-Indian substrate.  The terms are borrowed in their exact senses
 -- and nothing is attributed to any text.
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes.
 ------------------------------------------------------------------------
 
 module PraksepaSankhya_TheProjectionsFibreCensusIsTheDiscardedFactorAndTheAbhijnanaIsSupplied where

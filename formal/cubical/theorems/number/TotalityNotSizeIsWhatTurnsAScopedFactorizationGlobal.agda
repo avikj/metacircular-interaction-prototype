@@ -3,18 +3,11 @@
 ------------------------------------------------------------------------
 -- TotalityNotSizeIsWhatTurnsAScopedFactorizationGlobal
 --
--- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- Scoped descent and factorization through a quotient are this corpus's
--- own construction; there is no source to cite, and a fabricated
---  label would assert a provenance nobody checked.  Checked
--- before naming: `.claude/hooks/priority-ledger.txt` (CURRENT header)
--- and `.claude/hooks/european-frame.txt`; no row applies, and the frame
--- check's scope requires Indian material, of which this module has
--- carried because `VacuityVerdict` declares it and the option is
--- infective.
+-- `--guardedness` is carried because `VacuityVerdict` declares it and the
+-- option is infective.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE CLAIM, AND MY OWN WRONG GUESS ABOUT IT
+-- THE CLAIM
 --
 -- `VacuityVerdict`'s header ends:
 --
@@ -22,11 +15,7 @@
 --    `GlobalFactorization`.**  It remains `undecided` until an ambient
 --    theorem is supplied."
 --
--- At a430ec41 I logged this as possibly unformalisable â” *"a statement
--- about a SAMPLING PROCEDURE, and no sampling procedure exists in
--- either module"* â” and said to retire it if so.  **That guess was
--- wrong, and it was wrong in a way this line keeps repeating: I took
--- the sentence's own noun ("larger") for its content.**  Size is not
+-- Size is not
 -- the operative property.  TOTALITY is, and totality is expressible
 -- with no sampling procedure at all.
 --
@@ -62,18 +51,6 @@
 -- was already had.  "A larger finite sample never constructs
 -- `GlobalFactorization`" is the corollary of those, at every scope that
 -- is not total.
---
--- **AND THIS IS THE THIRD INSTANCE OF ONE PATTERN IN SIX CYCLES.**
--- 4e2a577d: coverage needs the fuel to EXHAUST, not to exceed the
--- archive's length.  a5881b77: a delivery discipline's strength is the
--- RELATION, not the number of its edges.  Here: a scope yields a global
--- descent by being TOTAL, not by being large.  Each time the quantity
--- reached for was a proxy that happens to imply the real hypothesis in
--- the easy direction and is not equivalent to it.  **The proxy is
--- always the one that can be counted.**
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TotalityNotSizeIsWhatTurnsAScopedFactorizationGlobal where

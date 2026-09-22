@@ -1,12 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
-------------------------------------------------------------------------
---
--- This is deliberately only the sextic parity/eliminant spine.  It does
--- not certify the root cage, coefficient box, irreducibility census,
--- Routh/Sturm calculations, tail bounds, or the final factor exclusion.
-------------------------------------------------------------------------
-
 module SexticParityEliminant where
 
 open import Cubical.Foundations.Prelude

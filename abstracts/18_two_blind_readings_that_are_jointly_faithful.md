@@ -17,7 +17,6 @@ The methodological consequence is the point.  A claim that a quantity is unident
 There is no probability distribution, no estimator, no structural equation
 model, no do-calculus and no counterfactual in this development. The
 observables are functions on a six-element type and "identifiable" means the
-fibres are contractible. Whether a statistical identification problem has this
-shape is a reading and is not proved.
+fibres are contractible.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

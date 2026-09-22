@@ -26,17 +26,13 @@
 -- `m + n` does not reduce past m's variable spine, so the two plans'
 -- executions are not the same normal form and something must be proved.
 --
--- earlier version of this header claimed: "delete T and `replay` has no
--- proof, hence no `betterProgram`".  That claim is (i) not an Agda
--- judgement â” unprovability-after-deletion is not something the checker
--- decides â” and (ii) FALSE.  `digitsC-resume` is itself three lines of
+-- `digitsC-resume` is itself three lines of
 -- renaming over `CountedComposition.run-+`, and `replay-without-T`
 -- below re-proves `replay` from `run-+` and `run-is-digitsC` without
--- mentioning T at all.  What is true, and all that is claimed now: the
+-- mentioning T at all.  The
 -- load-bearing input is `run-+`, counted time composes additively along
 -- sequential execution, a three-line induction on the resumed segment.
--- The chain's structure is the result; this is not evidence that deep
--- mathematics changes compilation.
+-- The chain's structure is the result.
 --
 -- The closing term packages the acceptance test:
 --
@@ -51,7 +47,6 @@
 -- The restriction to `suc n` is sharp, not an artefact:
 -- `no-improvement-at-empty-checkpoint` shows the two costs are EQUAL at
 -- n = 0.
---
 --
 ------------------------------------------------------------------------
 
@@ -106,7 +101,7 @@ replay m n = sym (digitsC-resume m n)        -- T, the one added theorem
 replay-observed : (m n : â„•) â†’ valueC (exec (resume m n)) â‰¡ m + n
 replay-observed = observe-resume
 
--- THE DELETION CLAIM, REFUTED.  `replay` re-proved without T: `run-+`
+-- `replay` re-proved without T: `run-+`
 -- (counted time composes along sequential execution â” the three-line
 -- induction) plus the instantiation theorem, and no `digitsC-resume`.
 -- `digitsC-resume` is itself exactly this composite in CountedComposition,
@@ -134,15 +129,13 @@ resume-cheaper m n =
 --                     from a plan-determined seed.  DEFINITIONAL: this
 --                     is `refl` on both constructors, so it certifies
 --                     that `cost` was not chosen independently of
---                     `exec`, and nothing more.  It is not a work
---                     measure for `sucC` itself.
+--                     `exec`.
 --   `cost-accounting` the saving is exactly the uncharged prefix.
 --                     Also `refl`.
 --   `no-improvement-at-empty-checkpoint`
 --                     hence `betterProgram`'s restriction to `suc n` is
 --                     SHARP: at n = 0 the two costs are equal, so the
---                     acceptance test is not merely unproved there, it
---                     is false there.
+--                     acceptance test is false there.
 ------------------------------------------------------------------------
 
 seedOf : Plan â†’ CanWord

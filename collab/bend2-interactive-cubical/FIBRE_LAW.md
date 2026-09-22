@@ -2,8 +2,7 @@
 
 The object is `A â‰ Î B (fiber f)` (`Cubical.Functions.Fibration.totalEquiv`,
 HoTT 4.8.2): an interaction step `f : A â’ B` factored losslessly into its
-visible projection and its fibre. Until now the Bend2 side carried it only at
-the `Eql`/Î level (`corpus_lossless.bend`) and `ua` only over raw `Iso`.
+visible projection and its fibre.
 `fibrelaw.bend` (32 â“, 0 â—) carries it at the strongest level the prototype
 has:
 
@@ -40,9 +39,8 @@ has:
 to any fibre point. Over `y = True` the fibre of `neg` is `{False}`, and both
 ends of the path observed on the net are `0` (False): HVM4-raw 18 itrs, HVM3
 23 (`contrNeg0`, `contrNeg1`). The emitters resolve the literal endpoint of this value-level path at
-compile time (`force`) and the net reduces the rest; before this fix the
-erased body (the hcomp cap) was emitted for `p @ i1`. Universe-level
-composites are a different matter â” they now run on the net: RUNTIME_ALGEBRA.md.
+compile time (`force`) and the net reduces the rest. Universe-level
+composites are a different matter â” they run on the net: RUNTIME_ALGEBRA.md.
 
 ## Checker changes needed (in `cubical-paths.patch`)
 
@@ -53,6 +51,5 @@ composites are a different matter â” they now run on the net: RUNTIME_ALGEBRA.md
   typed endpoint law. Path-typed lemma applications are **not** unfolded
   (their endpoint law is the point â” `isPropIsContr(...) @ i0 â‰¡ h0`), nor
   are partial applications. `spineTy` is factored out for this.
-- Side effect: `equiv.bend`'s former â— probe now checks too (10 â“ 0 â—).
 
 Must-fail guard unchanged: `uaequiv_mustfail.bend` `wrong1`/`wrong2` still â—.

@@ -3,15 +3,11 @@
 ------------------------------------------------------------------------
 -- EveryRemainderMemberIsStrictlyDominated
 --
--- `TheStratificationTerminatesOnItsOwnLength` reduced the Pareto line's
--- whole remainder to three properties of the OUTPUT:
---
---   "(1) COVERAGE â¦ (2) DISJOINTNESS â¦ (3) ORDER: nothing says a member
---    of an earlier layer relates by domination to a member of a later
---    one â” which is the property that would make 'stratification' mean
---    what Â§5.2 wants."
---
--- (3) is the one that matters, and this is its first half.
+-- The Pareto stratification has three properties of the OUTPUT:
+--   COVERAGE, DISJOINTNESS, and ORDER: a member of an earlier layer
+--   relates by domination to a member of a later one, which is the
+--   property that makes 'stratification' mean what Â§5.2 wants.
+-- ORDER is the one that matters, and this is its first half.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -30,16 +26,7 @@
 -- away.**  `IsParetoMaximal v xs` is `Â Any (StrictlyDominates v) xs`,
 -- so failing it gives `Â Â Any â¦`, not `Any â¦`.  The dominator is
 -- recovered only because `decAny decStrictlyDominates` makes that `Any`
--- DECIDABLE, hence stable.  This is the fourth cycle on this line to
--- turn on the same decision, and it is the reason the decision was
--- worth proving first.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  A filter's complement keeps the non-satisfiers, and a
--- decidable proposition is stable; both elementary.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- DECIDABLE, hence stable.
 ------------------------------------------------------------------------
 
 module EveryRemainderMemberIsStrictlyDominated where

@@ -6,7 +6,7 @@
 -- Holonomy descent (path erasure), checked in Cubical Agda.
 --
 -- Rank-2 port from the Lean development `formal/lean/Pairfield/
--- HolonomyDescent.lean` (129 lines), per the spec in
+-- HolonomyDescent.lean` (129 lines).
 --
 --   Orbit         a group G acts on a type X of presentations; the
 --                 orbit quotient X / OrbitRel erases the path by which
@@ -62,18 +62,6 @@
 --     (CoinvAbGroup), where Lean leaves it to instance resolution.
 --   * v0.5 skew (anticipated by the map): no group-action module in
 --     cubical v0.5, so the action and its laws are module parameters.
---
--- Honesty note on the map's "port is shorter" thesis: the CLOSURE
--- APPARATUS is gone as predicted (this file contains no subgroup, no
--- closure, no ker, no lift), but the raw file is ~194 code lines vs
--- Lean's ~99.  The excess is (i) content Lean does not prove â”
--- CoinvAbGroup with its laws, coinvMkHom, effectivity, the isContr
--- strengthenings, â–-0/â–-neg â” and (ii) a real cost the map missed:
--- Lean's AddSubgroup.closure is closed under negation FOR FREE, while
--- the raw generator relation needs the explicit diffNeg lemma before
--- -Q_ descends.  Statement-for-statement against Lean's theorem set
--- the two are comparable; the Cubical side is denser only in what it
--- additionally proves.
 --
 -- All statements proved; no holes, no postulates, --safe.
 ------------------------------------------------------------------------

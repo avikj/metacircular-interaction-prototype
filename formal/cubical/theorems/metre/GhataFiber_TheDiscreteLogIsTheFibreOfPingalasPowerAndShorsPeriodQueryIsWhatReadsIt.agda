@@ -4,7 +4,7 @@
 -- ‡ò‡æ‡‡‡®‡‡‡ ‚î the discrete log is the fibre of Pigala's power, and Shor's
 -- period query is the separating query that reads it.
 --
--- This is the floor under the whole night's crypto arc.  ‡ò‡æ‡ g is EASY
+-- This is the floor under the crypto modules.  ‡ò‡æ‡ g is EASY
 -- (Pigala's fold, log-time); its inverse is HARD (the discrete log).
 -- That asymmetry is all of public-key cryptography, and it is this
 -- repository's ONE theorem ‚î the quotient/fibre law (`

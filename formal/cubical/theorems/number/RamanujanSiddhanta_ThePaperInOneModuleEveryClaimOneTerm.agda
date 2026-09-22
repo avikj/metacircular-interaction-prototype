@@ -5,7 +5,6 @@
 --
 -- Abstract 26 makes claims; this module binds each to its checked
 -- term by name, so the paper's table of contents is itself checked.
--- The window-assertion of the 2720 file joins when its scan lands.
 ------------------------------------------------------------------------
 
 module RamanujanSiddhanta_ThePaperInOneModuleEveryClaimOneTerm where

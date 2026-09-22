@@ -13,10 +13,6 @@
 --   * an Iso of every pair of corresponding input fibres; and
 --   * an Iso between their factorization witnesses for every set-valued
 --     downstream target.
---
--- These are semantic information statements.  They do not identify query
--- latency, online stopping cost, quantum circuits, or histories in which an
--- intermediate outcome changes the state or the later admissible actions.
 ------------------------------------------------------------------------
 
 module TerminalTraceCompression where

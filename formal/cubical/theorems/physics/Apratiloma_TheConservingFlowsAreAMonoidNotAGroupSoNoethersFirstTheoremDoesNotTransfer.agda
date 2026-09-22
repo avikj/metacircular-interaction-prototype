@@ -3,31 +3,18 @@
 ------------------------------------------------------------------------
 -- ‡‡‡‡∞‡‡ø‡≤‡ã‡Æ‡Æ‡ ‚î without inverse.
 --
--- HEADER CORRECTED 2026-08-22, same day, by the driver: "no one overreached".
--- The mathematics below is untouched and stands. What was WRONG is the framing
--- that follows ‚î this file does NOT correct anyone. The ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡ descent wrote
--- "No Lagrangian, no variation, no current" in the same breath as the sentence
--- quoted below, which IS the fence; it never claimed Noether transfers. The
--- "reading attached to it" was manufactured by me out of a corrupted, line-
--- wrapped transcript. Read everything below as a free-standing term about
--- conserving flows, NOT as a refutation. See kernel/nodes/006 ¬ßcorrection.
---
--- A written defect, standing where it can be
--- read, against a claim made in this corpus and not against its author.
---
--- WHAT IS BEING CORRECTED.  ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡ (YogaKsetra / SvaTantuVasa lane) proves,
+-- ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡ (YogaKsetra / SvaTantuVasa) proves,
 -- with no hypothesis on anything,
 --
 --     (Œ[ Œ¶ ‚àà A ‚í A ] ((a : A) ‚í f (Œ¶ a) ‚â° f a))  ‚â  ((a : A) ‚í fiber f (f a))
 --
 -- ‚î the conserving flows of an observation are the sections of its own fibre
 -- family.  That is exact, and it is Œ for Œ and Œ†: both round trips are `refl`,
--- no funext, no h-level, any universes.  Independently re-checked here before
--- this file was written.
+-- no funext, no h-level, any universes.
 --
 -- The reading attached to it ‚î that this DISSOLVES Noether's theorem, "the
 -- deepest law in physics is a rearrangement of quantifiers" ‚î does not hold,
--- and the fence was already placed inside this corpus.  `Dhruva`'s own header:
+-- as `Dhruva`'s own header says:
 --
 --     "Noether's first theorem needs continuous dynamics and a variational
 --      principle, and this supplies neither; it is the second, structural
@@ -55,9 +42,9 @@
 -- this (monoid) invariance, so the undecided queue measures uncounted
 -- invariance and not merely uncounted structure.
 --
--- No source is claimed for any of the mathematics; ‡‡‡‡∞‡‡ø‡≤‡ã‡Æ is ordinary
+-- ‡‡‡‡∞‡‡ø‡≤‡ã‡Æ is ordinary
 --  (‡‡‡∞‡‡ø‡≤‡ã‡Æ, inverse/reverse, is LosslessReturn's own word for the
--- ascent), and the compound is built here, 2026-08-22.
+-- ascent), and the compound is built here.
 ------------------------------------------------------------------------
 
 module Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer where

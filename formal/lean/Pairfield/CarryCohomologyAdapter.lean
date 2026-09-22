@@ -4,8 +4,7 @@ Released under Apache 2.0 license.
 
 Mathlib's finite-cyclic resolution specialized to the carry obstruction from
 `NaturalMachine.CarryObstruction`.  This file constructs the degree-two
-cohomology carrier deliberately left open by the Cubical proof.  It does not
-yet identify the explicit digit-section carry cocycle with the class below.
+cohomology carrier that the Cubical proof leaves abstract.
 -/
 import Mathlib.GroupTheory.SpecificGroups.Cyclic
 import Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyclic
@@ -66,8 +65,7 @@ def degreeTwoClass (N b : ℕ) [NeZero N] :
 class survives whenever the coefficient modulus divides the base order.
 
 This constructs a nonzero element of `H²(Z/N; Z/b)` on the exact carrier named
-by `ATLAS_OF_N`.  Identifying it with the atlas's explicit carry cocycle is a
-separate comparison theorem. -/
+by `ATLAS_OF_N`. -/
 theorem degreeTwoClass_ne_zero (N b : ℕ) [NeZero N]
     (hb : 2 ≤ b) (hdiv : b ∣ N) :
     degreeTwoClass N b ≠ 0 := by

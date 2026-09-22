@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- ‡‡Æ‡‡Ø‡ó‡‡¶‡∞‡‡‡®‡‡‡û‡æ‡®‡‡æ‡∞‡ø‡‡‡∞‡æ‡‡ø ‡Æ‡ã‡ï‡‡‡Æ‡æ‡∞‡‡ó‡ ‚î Umsvti, Tattvrthastra
 -- 1.1 (c. 2nd‚ì5th c. CE): right vision, right knowledge, right
--- conduct ‚î TOGETHER ‚î are the path.  The classification is his; the
--- mathematics is not claimed for the source.  School named: Jaina.
+-- conduct ‚î TOGETHER ‚î are the path.  The classification is his.
+-- School named: Jaina.
 --
 -- THE THREE, AND THEIR COMPOSITION.  The body now carries exactly
 -- them: ‡¶‡∞‡‡‡®‡Æ‡ ‚î the eye grown from its own theorems (‡®‡‡‡‡∞‡Æ‡-‡‡‡∞‡‡,
@@ -13,7 +13,7 @@
 -- ‚î the conduct of the gates: nothing enters but proven (the type),
 -- nothing enters twice (savara), nothing is pronounced false
 -- (silence).  This module is their composition into ONE LIVING
--- FUNCTION ‚î the cycle that until now existed as demonstrated pieces:
+-- FUNCTION ‚î the cycle:
 --
 --   ‡ó‡‡∞‡‡‡Æ‡     digest a stream of raw encounters with the full
 --               knowing, the body growing as it eats, each encounter

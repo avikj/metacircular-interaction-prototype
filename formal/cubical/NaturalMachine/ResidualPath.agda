@@ -34,13 +34,12 @@
 -- `Ix n`, and with `wHere` -- the cost of staying home -- in place of the
 -- unit `âˆž`; `route n = detour (out n) (back n) (work n)` is a `âŠ—`-product
 -- of edge weights, so `Î“â` is a one-step `bellman` over the neighbour
--- relation.  The DSO lane got there first and got further on the algebra
+-- relation.  The DSO lane goes further on the algebra
 -- (associativity, `âŠ—`-distributivity, the `â‹`-monoid, `bellman-compose`);
 -- what is new here is only the direction this module adds, namely that the
 -- fold's value is witnessed by a member of the structure folded over --
 -- which `DSOMinPlusFinite.Argmin` already records for `foldMin`, as a
--- record rather than as a theorem.  The two lanes are one operator and
--- should eventually be one module.
+-- record rather than as a theorem.
 
 module NaturalMachine.ResidualPath where
 
@@ -185,9 +184,3 @@ Anyâ†’member (later a) with Anyâ†’member a
 -- Buys: `Î“â-sound-member` is falsifiable by an implementation that returns
 -- a neighbour it did not look at, and `Î“â-optimal` is falsifiable by one
 -- that stops early.  `Î“â-sound` alone was falsifiable by neither.
-
--- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
--- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
--- the rest of this lane's headers quote: three toolchain states are live in
--- this repository at once and this file has only seen one of them.

@@ -4,9 +4,9 @@
 -- Yamala â” the two-orb coupling is a SWAP; the entangler is its half.
 --
 -- TERM.  à¯à®à² Â yamala â” a twin, a paired couple; here the two evanescently
--- coupled orbs.  Common  word, no technical-source claim.  Physics
+-- coupled orbs.  Common  word.  Physics
 -- (evanescent/frustrated-TIR coupling, SWAP, âˆSWAP) modern; reading built
--- here, 2026-08-25.
+-- here.
 --
 -- THE READING (checked terms below).  Bring two ààààŸà¿à• orbs close: the
 -- evanescent tail of one whispering-gallery mode leaks into the other
@@ -27,8 +27,6 @@
 -- WHAT IS CHECKED.  `swapÂ²` â” SWAP is an involution (full coupling returns),
 -- so `swapEq` is an equivalence (lossless).  `non-local` â” a hard Â: SWAP is
 -- not `(a,b) â¦ (u a , v b)` for any per-orb u, v.
---
--- Checked: --cubical --safe; loads clean on the wire.
 ------------------------------------------------------------------------
 
 module Yamala where

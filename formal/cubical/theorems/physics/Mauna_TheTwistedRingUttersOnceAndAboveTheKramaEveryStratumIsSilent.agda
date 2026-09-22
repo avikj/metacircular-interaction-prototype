@@ -27,15 +27,15 @@
 -- is a bell struck once ‚î everything it will ever say is said at
 -- stratum 3, and said in the ORDER of succession, not in the carrier.
 --
--- SOURCES AND SCOPE.  isGroupoidKleinBottle is the library's
+-- SOURCES.  isGroupoidKleinBottle is the library's
 -- (Cubical.HITs.KleinBottle.Properties); the h-level engines
 -- (isOfHLevelPath', isOfHLevelPlus', isOfHLevelRespectEquiv,
 -- truncIdempotentIso, isOfHLevelTrunc) are the library's; this module's
 -- content is ‡‡µ‡∞‡ã‡‡ (the descent of levels through iterated Œ©) and the
 -- composition.  ‡Æ‡‡® (silence) and ‡‡µ‡∞‡ã‡ (descent) are ordinary 
--- labels; no source is claimed for the mathematics.  Umsvti's
+-- labels.  Umsvti's
 -- arpita/anarpita reading of strata is inherited from StaraArpana and,
--- as there, is a reading ‚î no source is claimed to grade truncations.
+-- as there, is a reading.
 ------------------------------------------------------------------------
 
 module Mauna_TheTwistedRingUttersOnceAndAboveTheKramaEveryStratumIsSilent where

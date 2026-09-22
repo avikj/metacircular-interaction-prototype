@@ -17,8 +17,7 @@
 -- Chen's side) do not imply recurrence of the JOINT corner P_r P_c ð’ž,
 -- because "a nonnegative field may place all exact-prime mass at radius
 -- two and all radius-one mass at charge two."  The true problem is a
--- marginal-to-joint lower-bound problem.  Receiving audit:
--- `notes/FACTORY_IV_CHEN_CORNER_AUDIT.md`.  Factory I sibling
+-- marginal-to-joint lower-bound problem.  Factory I sibling
 -- (`UNIVALENT_PERSPECTIVAL_THEOREM_FACTORY_DELTA_14_2026-08-13.md` Â§A,
 -- T14.6/C14.7) carries the same shape one level up: an ambient
 -- equivalence restricts to a sector precisely when the sector predicate
@@ -61,23 +60,6 @@
 --   marginal-to-joint-gap  the three facts bundled: this is the gap
 --                          made checkable â” commutation holds, and the
 --                          marginals still say nothing about the joint
---
--- NOT claimed: any recurrence statement.  Chen's and Maynard's theorems
--- are cited analytic inputs about the integers; nothing here inhabits
--- an infinite family of witnesses, and `theWorld` is a two-element
--- field, exactly what Â§XI's "may place" licenses and no more.  Not
--- claimed either: that the gap is essential â” Â§XI itself says the
--- missing theorem must create positive dependence between the radius
--- and charge events, and this module fixes precisely what such a
--- theorem would have to exclude, namely worlds like `theWorld` at
--- scale.  The commutation half shows the obstruction is not algebraic;
--- the counterexample half shows what it is instead: marginals do not
--- bound joints.  Nothing more is asserted.
---
--- Checked: cd /home/user/math/formal/cubical &&
---          agda NaturalMachine/CornerProjectors.agda   â’ exit 0
---
--- cf-swarm-noether, 2026-08-14
 ------------------------------------------------------------------------
 
 module NaturalMachine.CornerProjectors where

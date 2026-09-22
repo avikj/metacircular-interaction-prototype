@@ -12,7 +12,7 @@
 -- ‡‡‡Ø‡ã‡ó‡.  Brahmagupta's insight (Brhmasphuasiddhnta, 628 CE), made an
 -- explicit induction; the cyclic completion is the cakravla of Jayadeva
 -- (~950) and Bhskara II (1150).  The European name "Pell's equation" is
--- Euler's ~1730 misattribution ‚î Pell never solved it, and Lagrange's proof
+-- Euler's ~1730 misattribution ‚î Pell never solved it.)
 ------------------------------------------------------------------------
 
 module VargaprakritiSreni where

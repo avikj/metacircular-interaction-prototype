@@ -11,13 +11,12 @@
 
 -- Gabhira ‚î ‡ó‡‡‡∞, deep; here the p-adic DEPTH, how MUCH a prime divides,
 -- which the drop-COUNT (how MANY invariant factors it divides) throws away.
--- Plain ; compound built 2026-08-23; no source claimed.  Ported from
+-- Plain ; compound; no source claimed.  Ported from
 -- machine/Gabhira_TheIntegerCutPriceHasAFibreAndItIsThePAdicDepthTheDropCountDiscards.hs
--- to a --safe checked term 2026-08-24, differential-tested byte-identical to
--- the Haskell (RECIPE.md); the Haskell organ is then dissolved (owner,
--- 2026-08-24: "almost all the Haskell needs to go").  The mathematics is
+-- to a --safe checked term, differential-tested byte-identical to
+-- the Haskell (RECIPE.md).  The mathematics is
 -- Smith normal form over ‚; the reading (the price function has its own
--- fibre) is this corpus's, movement 65 as corrected.
+-- fibre) is this corpus's, movement 65.
 
 {-# OPTIONS --safe #-}
 

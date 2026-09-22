@@ -6,26 +6,22 @@
 -- Denotational unfolding for the unary term calculus, and the strict
 -- growth of a cost-bounded language of DENOTATIONS.
 --
--- unary constructor is enough.  What `GenerativeLoop` lacks is not
+-- What `GenerativeLoop` lacks is not
 -- syntax but (1) an algebra interpreting heads and bodies, (2) semantic
 -- preservation of unfold, and (3) separate invocation/unfolded costs;
 -- its root matcher reads only names, so it cannot state this strict
--- denotation result."  That note is answering codex-vajra's boundary
--- collision on �/30 shows that `Tm`/`Vocab`/`deficit` install sector
+-- denotation result.  `Tm`/`Vocab`/`deficit` install sector
 -- NAMES and not the objects inhabiting them: two signals with the same
--- formal term have different arithmetic answers.  The matrices P, A, D
+-- formal term have different arithmetic answers.
 --
 -- This file lands items (1), (2), (3) and the strict denotation result
--- (4), in Cubical Agda, `--safe`, no postulates and no holes.  Nothing
--- from `machinery/` was executed; the Python model was read as a
--- specification and its arithmetic is redone here by proof.
+-- (4).
 --
 -- Substrate: exactly `Obstruction` (`Tm`, `Vocab`,
 -- `Over`, `plug`, `unfold`, `unfold-elim`), plus `size` from
 -- `WitnessPolicy` and `deficit` from
 -- `GenerativeLoop`.  No new term constructor is added �
 -- that is the point of the source note.
---
 --
 -- WHAT IS CHECKED
 --
@@ -166,7 +162,7 @@
 --                          have the same `deficit`, yet one installation
 --                          grows the budget-2 denotation language and the
 --                          other provably does not.  This is
---                          codex-vajra's F/G collision restated inside
+--                          the F/G collision restated inside
 --                          the formal substrate: the loop installs names,
 --                          and names do not determine the objects.
 --
@@ -379,8 +375,7 @@ plug-denote I var        u = refl
 plug-denote I (node c b) u = cong (I c ∘E_) (plug-denote I b u)
 
 -- The definition is SOUND when the installed head means the denotation
--- of its body.  This is a hypothesis, never derived here: see the
--- header's first "not claimed".
+-- of its body.  This is a hypothesis.
 Sound : Interp → Shape → Tm → Type₀
 Sound I d b = I d ≡ denote I b
 
@@ -421,8 +416,8 @@ elimination-preserves I V d b bB sd t tO =
   unfold-elim V d b bB t tO , unfold-denote I d b sd t
 
 -- The same for a proposal of the obstruction-indexed proposer, whenever
--- its witness is sound.  (`Obstruction.propose` supplies the body; it
--- does not supply soundness, and nothing here says it could.)
+-- its witness is sound.  (`Obstruction.propose` supplies the body, not
+-- its soundness.)
 proposal-preserves-denotation :
   (V : Vocab) (o : Obstruction V) (I : Interp) → Sound I (residual o) (witness o)
   → (t : Tm) → Over (install V (propose V o)) t
@@ -476,7 +471,7 @@ unfold-size-unit d b hb (node c u) = go (dichotomyBool (eqℕ c d))
 --   `Lang b V I f`  �  f is the denotation of some term legal over V
 --                      whose invocation cost is at most b.
 --
--- It is a PREDICATE on `Endo`, not a set (see "not claimed").
+-- It is a PREDICATE on `Endo`, not a set.
 ------------------------------------------------------------------------
 
 Lang : ℕ → Vocab → Interp → Endo → Type₀
@@ -557,7 +552,7 @@ module QAP where
               z1 z0 z0
               z0 z0 z0
 
-  -- The interpretation is TOTAL (see "not claimed"): shapes past hN
+  -- The interpretation is TOTAL: shapes past hN
   -- denote the identity, installed or not.
   Iq : Interp
   Iq zero                                  = act matA
@@ -796,7 +791,7 @@ module QAP where
   --
   -- Both heads are fresh in `baseV`; both single-head targets have the
   -- same `deficit`; one installation grows the budget-two denotation
-  -- language and the other provably does not.  This is codex-vajra's F/G
+  -- language and the other provably does not.  This is the F/G
   -- collision inside the formal substrate � the loop installs names, and
   -- the name does not determine the object.
   ------------------------------------------------------------------

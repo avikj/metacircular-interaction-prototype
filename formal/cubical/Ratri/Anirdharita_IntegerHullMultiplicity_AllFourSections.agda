@@ -2,19 +2,13 @@
 
 ------------------------------------------------------------------------
 -- ‡‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡ ‚î hull is a 6-to-1-per-tile compression and none of the
--- four probed pairings inverts it.  The queue's four remaining rows
--- (notes/SADHYA_OPEN_OBLIGATIONS.md: Qs ‚ hull, Xs ‚ hull at rung ‡,
--- and the two ‡ñ‡‡‡°‡ø‡‡Æ‡ self-refuted rows N ‚ hull, SQ ‚ hull) all guess
--- that a scalar census of a configuration determines the configuration,
--- or that hull's output censuses back to its input.  The host's own
+-- four probed pairings inverts it.  All four guess that a scalar census
+-- of a configuration determines the configuration, or that hull's
+-- output censuses back to its input.  The host's own
 -- theorems price the tile: hullN says N (hull t) = t ¬ 6, hullSQ says
 -- SQ (hull t) = t ¬ 8 ‚î the hull of t is five cells per unit, never one,
 -- so every section guess dies at t = 1.  Four verdicts, one witness
 -- each, all by refl + a decidable discriminator.  Road two, four times.
---
--- (The two ‡ñ‡‡‡°‡ø‡‡Æ‡ rows had already refuted themselves ‚î the probe's
--- induction reached x ‚â° suc‚µ x and x ‚â° suc‚ x, which ‚ï forbids; this
--- module states the same fact positively, as the smallest witnesses.)
 --
 -- Toolchain: the PIN (Agda 2.8.0 + cubical v0.9); the host uses the
 -- v0.9 ‚ï ring solver.

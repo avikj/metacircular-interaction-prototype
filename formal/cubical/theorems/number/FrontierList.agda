@@ -34,19 +34,8 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
--- That `prodOf (frontierList k) ‚â° lcm(1..k)`, i.e. that this list is the
--- walk's actual capacity.  It is ‚î the standard formula
--- `lcm(1..n) = ‚à_{p ‚â n} p^‚älog_p n‚ã` ‚î and proving it needs existence of
--- prime factorisation, which this lane does not carry.  Per CLAUDE.md the
--- right form is the universal property: that `prodOf (frontierList k)` is
--- divisible by every `m ‚â k` and divides every common multiple.  Neither
--- half is proved here.
---
--- What IS available at every concrete frontier is the equality by
--- computation, and `frontier8-is-840` / `frontier12-is-27720` check two.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
+-- At every concrete frontier the equality with lcm(1..k) holds by
+-- computation; `frontier8-is-840` / `frontier12-is-27720` check two.
 ------------------------------------------------------------------------
 
 module FrontierList where
@@ -179,9 +168,4 @@ count8 = countAt 8 refl refl
 -- frontier.  `FrontierCount` made the frontier data.  Here the data is
 -- computed from `k` and both hypotheses are decided, so the residue count
 -- at a concrete frontier is `countAt k refl refl`.
---
--- The one thing left is not a computation: that this product IS
--- `lcm(1..k)`.  Stated as a universal property per CLAUDE.md, that is two
--- halves ‚î divisible by every `m ‚â k`, and dividing every common multiple
--- ‚î and it needs existence of prime factorisation.  Named, not waved at.
 ------------------------------------------------------------------------

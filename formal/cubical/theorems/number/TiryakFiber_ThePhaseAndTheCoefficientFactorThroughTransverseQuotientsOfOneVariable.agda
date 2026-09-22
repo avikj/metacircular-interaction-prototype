@@ -180,6 +180,5 @@ data चिह्नम् : Type where
 -- and it does NOT quantify how badly they fail to determine one another at
 -- large v, which is a different and quantitative question.  Nothing here
 -- bounds �_a(L), and §�'s identification of the joint object with μ in
--- progressions is a READING of the reduction, offered for correction, not a
--- proved equivalence.
+-- progressions is a READING of the reduction, not a proved equivalence.
 ------------------------------------------------------------------------

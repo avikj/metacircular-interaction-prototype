@@ -8,7 +8,6 @@
 -- the next step, rather than discarded.  ryabhaa, *ryabhaya*,
 -- Gaitapda 32-33 (499), as the kuaka's governing move.
 --
--- SCOPE OF THE CLAIM ON THE SOURCE.  Nothing below is ryabhaa's theorem.
 -- What is borrowed is the kuaka's structural decision -- that the object
 -- worth carrying forward is the residue, not the quotient -- and the claim
 -- here is that this kernel's types force the same decision: §3 shows the
@@ -77,8 +76,6 @@
 -- quantity the semantics is provably blind to.  That is why `advance` may
 -- not dedupe, why lghava is a SEPARATE order, and why search does not
 -- reduce to checking.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne where

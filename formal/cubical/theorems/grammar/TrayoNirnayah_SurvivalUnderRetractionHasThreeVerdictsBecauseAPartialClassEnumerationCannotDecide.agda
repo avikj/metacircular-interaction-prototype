@@ -40,8 +40,6 @@
 --
 -- Sources for the mathematics: runtime/propagate/README.md §0-§1,
 -- invalidate.survival; runtime/SCALE.md §5.1; runtime/STATUS.md.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical library).
 ------------------------------------------------------------------------
 
 module TrayoNirnayah_SurvivalUnderRetractionHasThreeVerdictsBecauseAPartialClassEnumerationCannotDecide where

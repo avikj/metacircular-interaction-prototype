@@ -6,12 +6,10 @@
 --
 -- TERM.  ‡‡‡‡‡≤ / ‡‡‡ï‡‡‡‡Æ (gross / subtle) is the standard  pair
 -- for the coarse and the fine grain of an object; ‡‡æ‡∞ is weight, load.
--- The compound ‡‡‡‡‡≤-‡‡æ‡∞, "the coarse weight", is built HERE and no
--- source is claimed for it (CLAUDE.md, naming rule, note 2).
+-- The compound ‡‡‡‡‡≤-‡‡æ‡∞, "the coarse weight", is built HERE.
 --
--- SEED.  The owner's transmission of 2026-08-23, the Born ladder,
--- step 2 (fiber additivity) together with the "rational coarse
--- weights" observation:
+-- SEED.  The Born ladder, step 2 (fiber additivity) together with the
+-- "rational coarse weights" observation:
 --
 --     m + n micro-outcomes, one transitive orbit, weight 1/(m+n) each;
 --     a coarse observation groups m as event A and n as event B;

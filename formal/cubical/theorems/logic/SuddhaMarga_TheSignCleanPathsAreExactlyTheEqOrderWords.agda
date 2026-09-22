@@ -9,12 +9,6 @@
 -- machine's full statement of what can and cannot see parity:
 --
 --     pathPreserves ks sign ‚â° true   ‚ü∫   ‚à k ‚àà ks, k ‚â° eq ‚ä k ‚â° order.
---
--- (First conversation-built term through ‡®‡æ‡°‡, the warm conduit: skeleton
--- with holes, each hole answered by the elaborator at ~60ms, the kernel
--- speaking instead of verdicting.)
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module SuddhaMarga_TheSignCleanPathsAreExactlyTheEqOrderWords where

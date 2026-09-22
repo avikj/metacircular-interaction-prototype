@@ -15,8 +15,7 @@
 -- V‚(n)=n, V‚=‚àk (ryabhaa's triangular, Sankalita), V‚=citighana (his
 -- tetrahedral, Citighana) ‚î the general operator UNIFIES both, proved here.
 -- The closed form V_r(n) = C(n+r, r+1) ‚î the hockey-stick ‚î is proved in
--- Dvipada.agda from the Pascal recurrence alone (no factorials); once
--- avaktavya, now retired.)
+-- Dvipada.agda from the Pascal recurrence alone (no factorials).)
 --
 -- ‡‡‡∞‡ã‡‡æ‡‡‡ø : ‡®‡æ‡∞‡æ‡Ø‡‡‡‡‡°‡ø‡‡, ‡ó‡‡ø‡‡ï‡‡Æ‡‡¶‡ (‡µ‡æ‡∞-‡‡ô‡‡ï‡≤‡ø‡‡Æ‡) ; ‡‡∞‡‡Ø‡‡ü‡ (‡‡‡∞‡ø‡ï‡ã‡/‡µ‡‡®‡‡¶‡Æ‡) ‡
 ------------------------------------------------------------------------

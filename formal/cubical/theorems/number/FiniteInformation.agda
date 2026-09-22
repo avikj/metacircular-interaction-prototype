@@ -120,9 +120,9 @@
 --     as `isEmbedding fst`, so `sideUsedâC` wraps it in `Î» _ _ â’`.
 --     Reapply the inverse if cubical is upgraded (cf. BUILD.md).
 --
--- LINE-COUNT LEDGER â” and one honest correction to the port map.
+-- LINE-COUNT LEDGER.
 -- The map's Â§1(b) criterion is "the Cubical port is shorter".  For this
--- file that prediction is FALSE, and the note should be corrected:
+-- file that prediction is FALSE:
 --   Lean   130 lines total,  95 non-comment.
 --   Agda   446 lines total, 206 non-comment (â‰ˆ120 of the total is this
 --                                            header/disclosure block).

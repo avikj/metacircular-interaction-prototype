@@ -25,21 +25,10 @@
 --      by re-running with a wider one and comparing."
 --
 -- The first clause is the theorem and the second is a measurement standing
--- in for it.  `CLAUDE.md`: *"a correlation coefficient has no content; the
--- content is the error term"*, and a comparison of two runs over six values
--- of D is the same object with the same emptiness � it reports that nothing
--- went wrong on six inputs, which is not the claim.  Worse, the comparison
--- was not even testing the window: `cakravalaWide` still carried the |k| = 1
--- special case that `CakravalaBound.agda` §7 refuted, so the two functions
--- differed in their CHOICE RULE and not only in their window width, and both
--- rules reach the fundamental solution because any m satisfying the
--- §6.
+-- in for it.
 --
--- So: the theorem, which is shorter than the experiment, as it has been every
--- time in this corpus.
---
--- WHAT IS PROVED.  No postulates, no holes, --safe, pin-green under Agda 2.8.0
--- + cubical v0.9.  No ring solver, no square roots, no absolute value, no
+-- WHAT IS PROVED.  No postulates, no holes, --safe.
+-- No ring solver, no square roots, no absolute value, no
 -- subtraction: every "distance from D" is carried as an explicit witness E on
 -- the correct side of the equation, in the style `CakravalaBound.agda` uses
 -- and for the same reason.
@@ -58,18 +47,6 @@
 --                exhaustive, and `chooseM`'s five are three more than the
 --                argument needs � which is fine, and is now a stated margin
 --                rather than an unexamined one.
---
---   * That `t� = (��D� − r) div n` DOES bracket, i.e. that
---     (r + t��n)² � D � (r + (t�+1)�n)².  That is a fact about `div` and
---     `isqrt` in `machine/Nalanda.hs`, not about the choice rule, and it is
---     taken here as the hypothesis `lo � hi`-with-costs rather than derived.
---     Naming it is the point: the window argument is complete GIVEN a
---     bracket, and producing the bracket is a separate obligation on the
---     Haskell side.
---   * Minimality of Bhskara's rule as a rule � that minimising |m² − D| is
---     the right thing to do at all � which is `CakravalaBound.cakravalaKBound`'s
---     hypothesis and is not this file's subject.
---   * Termination of the cycle, open in `CakravalaBound.agda`.
 ------------------------------------------------------------------------
 
 module Varana_TheChoiceWindowIsDerivedNotFitted where
@@ -96,8 +73,7 @@ private
   वर्ग-क्रमः {m} {n} h = ≤-trans (≤-·k {k = m} h) (≤-k·' n h)
 
   -- from P � Q and Q + X ≡ P + Y conclude X � Y.  (The same lemma
-  -- `CakravalaBound.agda` builds; that module is not imported because it is
-  -- pinned to the v0.5 solver spelling and does not check under the pin.)
+  -- `CakravalaBound.agda` builds; that module is not imported.)
   विनिमयः : (P Q X Y : ℕ) → P ≤ Q → Q + X ≡ P + Y → X ≤ Y
   विनिमयः P Q X Y (c , hc) e = c , inj-m+ {m = P} step
     where

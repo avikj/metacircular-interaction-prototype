@@ -13,19 +13,15 @@
 --   STRATUM.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- A CORRECTION FIRST, because it is the substance of this module.
+-- THE ARGUMENT.
 --
--- I recorded twice â” in `TheStrictRateOrderIsAnOrderAndTheClaimIs-
--- AntitoneOnIt` and again in the stratification work â” that this step
--- "needs a well-founded measure on âŠ over a finite list" and is
--- therefore not cheap.  **That was wrong.**  No well-founded induction
--- is needed.  The chain-climbing argument it was imagining â” v is
--- beaten by u, u may be beaten by uâ², iterate and hope it stops â” is
--- not the only route, and the shorter one was already in the corpus:
+-- No well-founded measure on â„• over a finite list is needed.  The
+-- chain-climbing argument â” v is beaten by u, u may be beaten by uâ²,
+-- iterate and hope it stops â” is not the only route; the shorter one:
 --
 --   apply `maximalExists` to the SUBLIST of elements that beat v.
 --
--- `maximalExists` already performs the finite induction, once, for the
+-- `maximalExists` performs the finite induction, once, for the
 -- non-empty-stratum theorem; it costs nothing to point it at a
 -- different list.  The maximal element OF THAT SUBLIST is maximal in
 -- the whole archive â” because anything beating it would, by
@@ -49,24 +45,18 @@
 --   everyRemainderMemberIsBeatenByAStratumMember
 --                     hence the ordering statement
 --
--- **WHAT THIS DOES AND DOES NOT GIVE.**  It is the ONE-STEP ordering:
+-- The ordering statement is the ONE-STEP ordering:
 -- stratum 1 beats every member of the remainder, and since the next
 -- stratum is computed from that remainder, each stratum beats
 -- everything below it AT ITS OWN LEVEL.  The transitive statement over
 -- `strata` â” that stratum i beats every member of stratum j for every
--- j > i â” is NOT proved here and does not follow from this alone by
--- the argument used for coverage: it needs the members of later strata
--- to be compared against the ORIGINAL archive, not the peeled one, and
--- `IsParetoMaximal` is relative to the list it is computed in.  That
--- is the honest remaining gap on this line and it is named, not
--- glossed.
+-- j > i â” is `theStrataAreOrdered` in
+-- `TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma`, which
+-- composes `strataSound` with the theorem here.
 --
--- NO NOVELTY.  This is the standard fact that the non-dominated front
+-- This is the standard fact that the non-dominated front
 -- of a finite set dominates everything else in it (Goldberg 1989; Deb
 -- et al. 2002), and the sublist argument is the usual one.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module EveryRemainderMemberIsBeatenByAStratumMember where
@@ -179,24 +169,3 @@ everyRemainderMemberIsBeatenByAStratumMember :
 everyRemainderMemberIsBeatenByAStratumMember xs v mem
   with everyRemainderMemberIsStrictlyDominated xs v mem
 ... | (u , mu , vu) = theDominatorCanBeChosenMaximal xs v u mu vu
-
-------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The block above records the transitive ordering as the
--- honest remaining gap and says it "does NOT follow from the one-step
--- fact" and "needs a statement relating maximality in `remainder xs`
--- to domination in `xs`; that is a real object, not a rearrangement."
---
--- **THAT WAS WRONG.**  The argument never needs the later strata's
--- maximality â” only their MEMBERSHIP in the remainder, which
--- `strataSound` already supplies.
--- `TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma`
--- proves `theStrataAreOrdered` by composing `strataSound` with
--- `everyRemainderMemberIsBeatenByAStratumMember` and the same
--- recursive bookkeeping used for pairwise disjointness â” no new lemma
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
---
--- With coverage and disjointness, DARWIN Â§5.2's three output
--- properties are now all checked.
-------------------------------------------------------------------------

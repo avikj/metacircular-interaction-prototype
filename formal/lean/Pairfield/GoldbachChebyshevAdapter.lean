@@ -5,7 +5,7 @@ Released under Apache 2.0 license.
 Transport Mathlib's square-root Chebyshev bound onto the repository-native
 prime-power error and the returned fixed-fiber Goldbach contamination bound.
 
-This does not prove a Goldbach lower bound.  It removes proper-prime-power
+It removes proper-prime-power
 contamination only after a separate Mangoldt coefficient lower bound exists.
 -/
 import Pairfield.GoldbachFixedFiberContamination

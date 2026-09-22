@@ -41,55 +41,13 @@ dependency — a `native_decide`-generated axiom, `sorryAx`, a hand-written
 *names* of the escape hatches, so a new one needs no edit here: three axioms
 are allowed and everything else is reported as residue.
 
-## Two repairs over the 2026-08-19 version, and what each was worth
-
-**1. Scope is by module, not by name.** The previous scan selected
-declarations by the test `` `Pairfield |>.isPrefixOf n ``. A lane module that
-opens no `namespace Pairfield` — or that declares anything before opening one
-or after closing it — produces constants this test skips, and the run then
-prints `OK` having never called `collectAxioms` on them. Scope is now
-membership in the set of imported lane modules, which is the condition that
-was actually meant and does not depend on what an author named things.
-
-I expected this to be latent, wrote that it was, and it was measured and is
-not. A probe run against the same 134 imported modules counts **3439**
-non-internal constants attributed to a lane module, of which **2 carry no
-`Pairfield` prefix and were therefore never passed to `collectAxioms` by any
-run of the previous version**:
-
-    Nat.gcd.eq_def
-    Nat.gcd.eq_1
-
-They are equation lemmas, generated on demand by `norm_num [..., Nat.gcd]` at
-`Pairfield/IncrementalCRTAdapter.lean:336` and added to the environment under
-the name of the function they unfold, not under the namespace of the file that
-asked for them. Nothing about a `namespace` declaration is involved — which is
-why the syntactic prediction failed. Both are clean, so no unsound term was
-found hiding there; what was found is that the reach of the check was 2 short
-of what it reported, and the reason had a mechanism nobody had named.
-
-**2. Every constant kind, not three.** The previous scan looked at `theorem`,
-`def` and `axiom` and passed over `opaque`, inductives, constructors and
-recursors. The same probe counts **228** such constants in lane modules —
-inductive types, their constructors and their recursors — none of which was
-ever passed to `collectAxioms`. A constructor's or recursor's TYPE can mention
-a tainted definition, so this was reach, not bookkeeping. Anything a lane
-module puts in the environment is now examined.
-
-Together the two repairs moved the check from 3209 constants to 3439 — 230
-more, 6.7% — and all 3439 rest on the three axioms. What was wrong before was
-the SCOPE, never the verdict; but an `OK` over a scope nobody had measured is
-an absence reported without its yogyatā, which is precisely the failure the
-term on this file names.
-
 ## What it still cannot see — the yogyatā, printed on every run
 
   * **Anonymous `example`s emit no constant.** There is nothing in the
     environment to walk, so an oracle inside one is invisible here. This is
-    structural, not an oversight: `scripts/check-lean-example-oracles.sh`
-    single `native_decide` sat in exactly that blind spot.
+    structural, not an oversight.
   * **Axioms, not statements.** A theorem may rest on the three axioms and
-    still not say what the prose citing it says it says. That is a different
+    still not say what the prose citing it says it says.
   * **The build, not the source.** It reads `.olean`s. A `.lean` file with no
     `.olean` is a hard error here (import fails), which is the intended
     behaviour, but it means a green presupposes a completed `lake build`.
@@ -107,12 +65,6 @@ prunes is a rubber stamp.
 
 Usage: `lake exe yogyanupalabdhi [srcDir] [allowlistFile]`, defaults `.` and
 `./axiom-allowlist.txt`. Exit 0 clean, 1 residue, 2 usage/IO error.
-
-History: this file was `AxiomGate.lean` / `lake exe axiom_gate` until
-2026-08-20. Renamed on the owner's binding naming instruction — a gate admits
-or refuses and is the boolean; a pramāṇa produces knowledge and carries its own
-yogyānupalabdhi. The older name is still correct in `collab/messages/` and in
-run then and are left as they are.
 -/
 import Lean
 

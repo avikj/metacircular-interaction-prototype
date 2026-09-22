@@ -3,16 +3,9 @@
 ------------------------------------------------------------------------
 -- TheThresholdOrderIsTotalAndTheClaimIsAntitone
 --
--- Closes the item the previous cycle left open in its own words.
 -- `MajorityLiesStrictlyBetweenAllAndSome` exhibited three claim-shapes
--- with two populations and then said:
---
---   "no threshold order is shown TOTAL over all fractions -- two
---    populations are two populations, not a chain -- and no fraction
---    other than 1/2 and 1 is analysed."
---
--- Both halves are answered here, and by the same move: stop exhibiting
--- populations and state the threshold family.  A rate claim at p/(suc q)
+-- with two populations.  Here the threshold family is stated in full:
+-- A rate claim at p/(suc q)
 -- is
 --
 --   AtLeast p q bs  =  p Â length bs â‰ suc q Â count bs
@@ -42,10 +35,6 @@
 -- phrasing the claim more carefully -- here the "next term" is the
 -- whole family, and having it makes the two-population illustration a
 -- corollary rather than the evidence.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 -- NOT the
--- declared pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no
--- holes.
 ------------------------------------------------------------------------
 
 module TheThresholdOrderIsTotalAndTheClaimIsAntitone where
@@ -204,18 +193,8 @@ universalImpliesEveryLowerThreshold p q bs cross a =
   atLeastAntitone p q 1 0 bs cross (thresholdOneFromAll bs a)
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "STRICT thresholds (the `Majority` of the previous module is
---    strict: length < 2 Â count) are NOT in this family; `AtLeast 1 1`
---    is the non-strict 'at least half', which is weaker, and the
---    strict/non-strict gap is not analysed."
---
--- Analysed now, in
+-- STRICT thresholds are analysed in
 -- `TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
 --
 --   Above p q bs = p Â length bs < suc q Â count bs
 --
@@ -233,34 +212,23 @@ universalImpliesEveryLowerThreshold p q bs cross a =
 -- separates the two families is not their ordering but their verdict at
 -- a population sitting exactly ON a threshold.
 --
--- The gap between the families is therefore exactly the boundary, and
+-- The gap between the families is therefore exactly the boundary.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  THIS ONE IS A CORRECTION, not an extension.
+-- Â§2 proves `âŠ-refl` and `âŠ-total`.  Reflexive + total is not a preorder.
 --
--- Â§2 proves `âŠ-refl` and `âŠ-total` and stops.  Every note and commit
--- message downstream of it â” including this module's own commit â” has
--- called âŠ a "total preorder".  TRANSITIVITY WAS NEVER PROVED HERE.
--- Reflexive + total is not a preorder, and the word was doing work it
--- had not earned.
---
--- The law is now proved, in
+-- Transitivity is proved in
 -- `WhichThresholdStatementsDescendToTheRate`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
 --
 --   âŠ-trans : (a b c) â’ a âŠ b â’ b âŠ c â’ a âŠ c
 --
 -- by the same multiplyâ“rearrangeâ“cancel as Â§3's `atLeastAntitone`,
--- using `Âsk-cancel-â‰` and `swapOuter` from this module.  Nothing above
--- was wrong; something above was MISSING, and was being cited as
--- present.
+-- using `Âsk-cancel-â‰` and `swapOuter` from this module.
 --
 -- With it, the same-rate relation `_â‰ˆ_ = mutual âŠ` is an equivalence
--- relation, and that module answers the standing question about the
--- missing quotient in both directions:
+-- relation, and that module shows, in both directions, which statements descend
+-- to the rate:
 --
 --   atLeastDescends / aboveDescends
 --       `AtLeast` and `Above` are properties of the RATE â” antitone in

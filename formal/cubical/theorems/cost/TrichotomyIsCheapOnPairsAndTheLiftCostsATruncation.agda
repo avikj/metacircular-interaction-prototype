@@ -3,14 +3,8 @@
 ------------------------------------------------------------------------
 -- TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation
 --
--- `AsymmetryOnTheRateIsFreeAndTheWeakClaimIsAntitoneToo` closed the
--- first two thirds of the rate-order item and named the third with a
--- measurement rather than a proof: an untruncated trichotomy on
--- `Rate` ‚î `‚ü® x ‚äR y ‚ü© ‚ä ((x ‚â° y) ‚ä ‚ü® y ‚äR x ‚ü©)` with a nine-case
--- `isProp` ‚î was typechecking for over twelve minutes of CPU on this
--- container and was stopped.  The named next attempt was: prove
--- trichotomy AT THE PAIR LEVEL and lift only what is cheap.  That is
--- what is here.
+-- Trichotomy is proved AT THE PAIR LEVEL, and only what is cheap is
+-- lifted to the quotient.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT IS PROVED
@@ -27,36 +21,18 @@
 --                       it holds, by `elimProp2` into `‚à_‚à‚`
 --
 -- **WHAT THE TRUNCATION COSTS, EXACTLY.**  `‚à_‚à‚` is a proposition for
--- free, so `elimProp2` applies without any `isProp` obligation ‚î that
--- is the whole difference from the stopped draft, which had to prove
--- the untruncated sum was a proposition before it could eliminate.
+-- free, so `elimProp2` applies without any `isProp` obligation, where the
+-- untruncated sum would first have to be proved a proposition.
 -- The price is that `TriR` carries no computation: from `TriR x y` one
 -- may conclude anything that is itself a proposition, but one cannot
 -- READ OFF which of the three cases holds, so this is not a decision
 -- procedure and does not make `Rate` a decidable order.
---
--- **AND THE MISSING PIECE IS EXACTLY ONE STATEMENT.**  The untruncated
--- trichotomy follows from `TriR` by `PT.rec` as soon as the sum is
--- known to be a proposition; the three exclusivity facts needed for
--- that are proved here at the PAIR level, where they are three lines
--- each.  So what remains is transporting THOSE to the quotient, not
--- re-proving trichotomy.  And this run NARROWS WHERE THE COST WAS:
--- `TriR` forces exactly the same `‚äR` reductions as the stopped draft
--- (`‚ü® [ a ] ‚äR [ b ] ‚ü©` is `a ‚ä b` by `refl`) and eliminates over the
--- same quotient, yet checks in seconds.  So the twelve minutes were
--- NOT the elimination and NOT `‚äR`; they were in the nine-case
--- `isProp` block with its `subst`s along quotient paths.  That is a
--- comparison of two runs on this container and nothing more ‚î it does
--- not say the block is unprovable, and says nothing about the pin.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- NO NOVELTY.  Trichotomy of the rationals is classical, and `_‚âü_` on
 -- ‚ï is library.  The one thing worth recording is the shape: an
 -- untruncated statement over a set-quotient costs its own `isProp`
 -- proof, and the truncated one does not.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation where

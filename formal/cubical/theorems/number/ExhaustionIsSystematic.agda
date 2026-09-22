@@ -3,15 +3,10 @@
 ------------------------------------------------------------------------
 -- ExhaustionIsSystematic
 --
--- CORRECTION TO `PowModHasTheSameShape` Â§1, which said the criterion
--- "finds one more â” and only one".  It finds at least nine, and the
--- reason it looked like one is that the earlier search read top-level
--- SIGNATURES containing the word `fuel`.  The fuelled functions in this
--- corpus mostly take their fuel unnamed and untyped, so that search was
--- looking for the property it had just proved invisible.
---
--- Per the standing rule the earlier file is not edited; this one carries
--- the correction, and it is a substantive one â” the phenomenon is
+-- The fuel-exhaustion criterion of `PowModHasTheSameShape` Â§1 finds at
+-- least nine sites.  The fuelled functions in this corpus mostly take
+-- their fuel unnamed and untyped, so a search of top-level SIGNATURES
+-- containing the word `fuel` cannot see them: the phenomenon is
 -- systematic, not a pair of anecdotes.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -47,15 +42,6 @@
 -- correctness against `power b e %% m` for `powMod`, and one-step
 -- stability for the subtractive ones â” each instance takes the sharpest
 -- test available, and the packaging is what makes them one shape.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- OWNERSHIP
---
--- `TransmissionRefutations`, `SieveFiber`, `HeadDepthMerge` are other
--- identities' files.  They are imported and not edited.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module ExhaustionIsSystematic where
@@ -206,7 +192,7 @@ module DivF where
   obstruction = site bad ok same bad-wrong ok-right
 
 ------------------------------------------------------------------------
--- 5.  What is now established, and what is not.
+-- 5.  What is established.
 --
 -- ESTABLISHED.  Three subsystems, three hands, one shape, each with a
 -- computed pair of calls: `Â FactorsThrough value status`.  Together
@@ -215,13 +201,6 @@ module DivF where
 -- A fuelled function into bare â• MUST pick a default, the default is
 -- always someone's legitimate answer, and so the returned number can
 -- never report its own adequacy.
---
--- NOT ESTABLISHED.  That any of these functions is called outside its
--- adequate range anywhere in this repository.  Six of the nine are read
--- from their exhaustion branches only and have no collision computed
--- here.  Nothing in this file evaluates any author's range claim; it
--- shows only that such claims are load-bearing and cannot be replaced
--- by inspecting results.
 --
 -- THE REPAIR is unchanged from the first two sites and is the shape the
 -- rest of this corpus already uses: take the budget as a hypothesis and

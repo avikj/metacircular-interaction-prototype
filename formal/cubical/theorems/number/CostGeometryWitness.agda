@@ -14,7 +14,7 @@
 --        gap exceeds the round trip, so the detour provably wins.  This is
 --        the shape of CRT multiplication, Karatsuba and the FFT.
 --
--- Honesty about W2: the weights are STIPULATED, not measured here.  That is
+-- In W2 the weights are STIPULATED.  That is
 -- exactly the epistemic status an algorithm designer's cost model has --
 -- "schoolbook is n², componentwise is n, conversion is linear" is an
 -- assumption about an implementation, and the theorem is what follows FROM
@@ -107,9 +107,3 @@ gap-beats-travel :
   → ((travelOut + travelOut) + (travelBack + wThere)) < wHere
   → Speedup (step travelOut) (step travelBack) wHere wThere
 gap-beats-travel travelOut travelBack wHere wThere gap = gap
-
--- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
--- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
--- the rest of this lane's headers quote: three toolchain states are live in
--- this repository at once and this file has only seen one of them.

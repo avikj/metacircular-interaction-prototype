@@ -11,9 +11,8 @@
 -- naming rule requires.  This module touches none of that material: its
 -- subject is the LIST-LENGTH bookkeeping of a measure defined in that
 -- module, for which no tradition term exists and inventing one would
--- assert a provenance nobody checked.  Checked before naming:
--- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
--- first.  **No claim whatever is made about avaktavya, anuvtti,
+-- assert a provenance nobody checked.
+-- **No claim whatever is made about avaktavya, anuvtti,
 -- pratyhra or apavda.**
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -69,9 +68,6 @@
 -- draw ("both bounds are properties of the DECODER SPACE and neither is
 -- a property of the mathematics obstructed").  The omitted case is the
 -- extreme point of the distinction it had already found.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheEmptyListWasNeverCheckedAndItRefutesExactlyWhenTheDecoderSpaceIsEmpty where

@@ -3,39 +3,25 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent
 --
--- dc318bd9 (another identity) found that three modules here call three
--- different structures ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, and separated two of them by their
--- defect:
+-- Three modules here call three
+-- different structures ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡
+-- by one name; two of them are separated by their defect:
 --
 --   ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡  the content is DETERMINATE and no single utterance says
 --              it ‚î an EXPRESSIBILITY failure
 --   ‡¶‡¶        the content is perfectly expressible and the solution set
 --              is not a singleton ‚î a UNIQUENESS failure
 --
--- and named the risk exactly: "using one third position as a catch-all
+-- Using one third position as a catch-all
 -- for 'not a clean single answer' is the boolean collapse this corpus
--- exists to fight, one level up."
+-- exists to fight, one level up.
 --
--- I read that correction at its site in `Shunya.agda` and
--- `AnuktaAvaktavya.agda` before writing.  What is added here is the
+-- The separation is carried in `Shunya.agda` and `AnuktaAvaktavya.agda`.
+-- What is added here is the
 -- independence itself, over four realised corners: neither defect
 -- implies the other, neither implies the other's negation, and both can
 -- hold at once.  So they are not two readings of one thing at any
 -- strength, and one word cannot cover both without loss.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT IS NOT DONE, and it is that identity's own point
---
--- The THIRD structure ‚î Satyayantra's ‡‡®‡‡ï‡‡‡Æ‡, the un-said ‚î is NOT
--- brought onto this carrier.  It is temporal (a grant may still say it),
--- so it is not a predicate of a content and a language at all.  d909db0d
--- already states that the two third-positions' remedies live in
--- different types; forcing all three onto one carrier would be the
--- collapse this module is about.  Two are compared because two are
--- comparable.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î container pin.  --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent where
@@ -133,11 +119,10 @@ corner-neither = selfIsUnique , selfIsExpressibleInOnlyId
 --
 -- All four corners are inhabited, so neither defect implies the other
 -- and neither implies the other's negation.  A single word covering both
--- discards a distinction that is realised in every combination ‚î which
--- is dc318bd9's "boolean collapse, one level up", as a theorem rather
+-- discards a distinction that is realised in every combination: the
+-- "boolean collapse, one level up", as a theorem rather
 -- than as a diagnosis.
 --
--- SCOPE, stated because the corners use two different languages.
 -- `Inexpressible` is relative to a language, and corners 1 and 3 differ
 -- in the language, not in the content.  That is not a defect of the
 -- statement: expressibility IS language-relative, and the pair

@@ -24,10 +24,9 @@
 -- terms `Tm`, vocabularies as lists of head shapes, `Matches`, `Over`,
 -- `Obstruction`, `propose`, `ObsChain`).  Nothing new is axiomatised.
 --
---
 -- WHAT IS CHECKED
 --
--- A. The anti-plateau theorems (task item 1).
+-- A. The anti-plateau theorems.
 --
 --   A1 `obs-step-strict`      one obstruction step cannot leave the
 --                             matcher equal:
@@ -51,7 +50,7 @@
 --                             length matches its stuck term, and SOME
 --                             obstruction chain does.
 --
--- B. The measure and the loop (task item 2).
+-- B. The measure and the loop.
 --
 --   The measure is relative to a TARGET term t â” the thing the loop is
 --   trying to become able to talk about:
@@ -87,7 +86,7 @@
 --   recursion with no measure and no step bound) to a measure-driven
 --   iteration with an explicit bound.
 --
--- C. Composition with the acceptance test (task item 3).
+-- C. Composition with the acceptance test.
 --
 --   In `module Compile (k : â•) (checkpoint : Shape)`:
 --
@@ -121,7 +120,6 @@
 --                             C2 is therefore not vacuous.  C3 does not
 --                             derive the interface â” the target is
 --                             chosen to contain the head.
---
 --
 ------------------------------------------------------------------------
 
@@ -339,8 +337,7 @@ occursâ†’decreases s V t (j , p) =
       âˆ™ cong (_+ deficit (s âˆ· V) t) (sym p)
       âˆ™ sym (deficit-split s V t) )
 
--- The exact complement, which the header's disclaimer asserted in prose
--- and nothing checked: install a head with no uncovered occurrence in
+-- The exact complement: install a head with no uncovered occurrence in
 -- the target and the measure is UNCHANGED â” not merely non-decreasing.
 -- This is the checked form of "there is no global well-founded measure
 -- on `Vocab` here": off the target, `deficit` is blind.
@@ -492,9 +489,7 @@ module Compile (k : â„•) (checkpoint : Shape) where
   -- the extended vocabulary unfolds to one all of whose heads are base.
   -- It is `Obstruction.propose-eliminable` under a new name (the
   -- definition below is a renaming, not a restatement: nothing about the
-  -- loop occurs in its type).  It does NOT say the extended vocabulary
-  -- "proves nothing new" â” no provability relation is modelled anywhere
-  -- in this development; see `Obstruction`'s T2.
+  -- loop occurs in its type).
   generated-definition-conservative :
     (V : Vocab) (o : Obstruction V) (t : Tm)
     â†’ Over (install V (propose V o)) t
@@ -543,11 +538,6 @@ module Compile (k : â„•) (checkpoint : Shape) where
   -- `node checkpoint var`, and that target's deficit strictly drops when
   -- it is proposed â” so this is a step the loop of B2-B4 really takes,
   -- not an ad-hoc inhabitant.
-  --
-  -- What C3 does NOT say: that generation is what makes the checkpoint
-  -- capability appear in any real setting.  The target `ckTarget` is
-  -- chosen here precisely to contain the head we want read off it.  C3
-  -- kills the vacuity, it does not derive the interface.
   ------------------------------------------------------------------------
 
   ckTarget : Tm

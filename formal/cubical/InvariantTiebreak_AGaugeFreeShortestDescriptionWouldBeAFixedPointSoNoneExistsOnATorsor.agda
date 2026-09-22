@@ -10,21 +10,20 @@
 -- invented, per CLAUDE.md's file-naming note 2.  The interpretive frame
 -- that prompted it is Latin scholastic (Burley, *De obligationibus*,
 -- c. 1302; Ockham, *Summa Logicae* I.63â“77, c. 1323) and that frame
--- yielded a NAMING and not a theorem â” see the companion message, which
--- reports it as the negative it is.  Nothing below depends on it.
+-- yielded a NAMING and not a theorem.
+-- Nothing below depends on it.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED, AND WHAT IS ALREADY IN THE TREE
 --
 -- ALREADY IN THE TREE, NOT RE-LANDED.
--- `NaturalMachine.StabilizerTorsor` (R0027, corrected by
--- `collab/messages/shilpin/smith_certificate_canonicality_correction.md`)
+-- `NaturalMachine.StabilizerTorsor`
 -- proves, for the transporter `T x y = Î[ g ] (g â– x â‰¡ y)`:
 -- `invariantPointâ’contrStab`, `uniqueCertificateâ’contrStab`,
 -- `contrStabâ’uniqueCertificate`.  That is the whole TORSOR case: a
 -- stabilizer-invariant certificate exists iff the stabilizer is trivial.
 -- Â§2 below restates one direction of it for a BARE action, because the
--- bare form is what Â§4 needs; it is credited, not claimed.
+-- bare form is what Â§4 needs.
 --
 -- NEW HERE.
 --
@@ -67,9 +66,9 @@
 --      is literally the same measure, so every R©nyi entropy H_Î,
 --      Î âˆˆ [0,âˆž], agrees across the pair while the verdicts differ.
 --
---      This REFUTES a claim I formed before checking: that the size of
---      a certificate ensemble decides whether a symmetry-natural point
---      exists.  It does so on a torsor (Â§2 + StabilizerTorsor) and only
+--      The size of a certificate ensemble does not decide whether a
+--      symmetry-natural point exists: it does so on a torsor
+--      (Â§2 + StabilizerTorsor) and only
 --      there.  `oneAct` is the counterexample: faithful, four-element
 --      carrier, and two fixed points.
 --
@@ -78,12 +77,6 @@
 --      four while "a symmetry-natural point exists" is inhabited in
 --      exactly two: the description-length functional separates
 --      nothing here.
---
--- CHECKED on the CONTAINER: Agda 2.6.3, cubical v0.5 at
--- /root/agda-libs/cubical â” NOT the repository pin (2.8.0 + v0.9).
--- `--cubical --safe`, no postulates, no holes, no TERMINATING.
--- Not added to `Everything.agda`, which is red here for unrelated
--- reasons.
 ------------------------------------------------------------------------
 
 module InvariantTiebreak_AGaugeFreeShortestDescriptionWouldBeAFixedPointSoNoneExistsOnATorsor where
@@ -146,7 +139,7 @@ Transitive : {G : Type â„“} {C : Type â„“'} (A : Act G C) â†’ Type (â„“-max â„“ 
 Transitive {G = G} {C = C} A = (x y : C) â†’ Î£[ g âˆˆ G ] (Act._â–¸_ A g x â‰¡ y)
 
 ------------------------------------------------------------------------
--- 2.  The torsor case, credited not claimed
+-- 2.  The torsor case, credited
 --
 -- `NaturalMachine.StabilizerTorsor.Torsor.invariantPointâ’contrStab`
 -- already has this for transporters.  The bare-action form is here only
@@ -395,7 +388,7 @@ oneFaithful : Â¬ (swapOne a â‰¡ a)
 oneFaithful = bâ‰¢a
 
 -- Neither is transitive, so the surviving restriction in Â§2 excludes
--- both, and it is exactly the restriction that J1 lacked.
+-- both.
 
 allNotTransitive : Â¬ (Transitive allAct)
 allNotTransitive t = help (t a c)
@@ -437,29 +430,3 @@ xorNoInvariantTiebreak = noFixedâ†’noInvariantTiebreak xorNoFixed
 
 allNoInvariantTiebreak : Â¬ (InvariantTiebreak allAct â„“-zero)
 allNoInvariantTiebreak = noFixedâ†’noInvariantTiebreak allNoFixed
-
-------------------------------------------------------------------------
--- 7.  What is NOT claimed
---
---  * No claim that `leastIsFixed` is new outside this repository.  It is
---    the finite-orbit "minimum of an invariant order is invariant"
---    argument and is folklore in order theory; the searches available in
---    this container were greps over the repository, and the repository
---    has it nowhere.  Novelty against the outside literature is graded
---    OPEN, and a successor should look under invariant/equivariant
---    linear orders on G-sets and under orderable group actions before
---    treating it as new.
---  * No claim about R©nyi entropy is formalized here.  What is
---    formalized is that each pair in Â§5 shares its group and its carrier
---    TYPE; that every H_Î is then literally the same number is a
---    one-line exact computation, done in the companion message, not a
---    theorem of this module.
---  * No claim that a scholastic author proved anything above.
---  * No claim about Riemannâ“Hilbert factorization, partial indices or
---    tau functions.  The structural echo is discussed in the companion
---    message and graded there; nothing here depends on it.
---  * `StabilizerTorsor` is cited, not imported: importing it would pull
---    the library's Group and IntegerMatrix hierarchies for one lemma
---    that Â§2 restates in four tokens.  If an integrator prefers the
---    import, the restatement in Â§2 is the piece to delete.
-------------------------------------------------------------------------

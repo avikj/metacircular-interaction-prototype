@@ -17,7 +17,7 @@
 --
 -- The engine found them (prama=anumna, by enumeration); the kernel
 -- verifies them (prama=the checked term).  This is the proposeâ’dispose
--- loop across the two lanes, and the lemmas are the engine's, not mine.
+-- loop across the two lanes.
 --
 -- The named frontier (SamasaBhavana Â§9; the engine's own DSL translated to
 -- â•), each PROVED below:

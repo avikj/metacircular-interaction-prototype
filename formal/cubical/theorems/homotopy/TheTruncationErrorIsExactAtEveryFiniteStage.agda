@@ -9,59 +9,16 @@
 --
 -- And the truncated sum alone does not carry it: at n = 1 the partial
 -- sum is `1` for EVERY ratio, while the error is the ratio itself.  So
--- the error term separates exactly what the truncation identifies â”
--- `CLAUDE.md`'s own sentence, "a correlation coefficient has no content;
--- the content is the error term", as a theorem, on the object the Kerala
--- school used it on.
+-- the error term separates exactly what the truncation identifies.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT PROVOKED THIS, AND A DATE CHECK BEFORE ANY CLAIM OF ERROR
---
--- line it says bears on this repository:
---
---   "Mdhava did not stop at the series.  He gave the correction term."
---
--- and closes: "no module, note, or theorem in this repo is named for
--- Mdhava or the Kerala school â¦ the tradition is simply unused."
---
--- That sentence was TRUE WHEN WRITTEN and I checked before saying
--- anything about it:
---
---   git log --diff-filter=A --format='%h %ad %s' --date=short
---     -- formal/cubical/Madhava.agda            â’ d6ee569d  2026-08-18
---
--- Four days apart.  Â§4 is not wrong; it was overtaken.  (Â§7.1 already
--- records the same overtaking for Â§7's ledger row; Â§4 is a second site
--- carrying the same now-outdated sentence, and it is appended to, not
--- corrected.)
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT `Madhava.agda` SAYS, READ IN FULL, AND WHERE I NARROW IT
+-- RELATION TO `Madhava.agda`
 --
 -- `Madhava.à—ààààà°ààà-à¯à‹à—à : (1 âˆ’ r) Â âˆ_{k<n} rµ â‰¡ 1 âˆ’ râ¿` over â, by
--- induction â” I read the signature and the proof body before importing.
--- Its honesty ledger then says, in its own words (lines 17â“20):
---
---   "ààà-àà¦à®à ààµ àà¾à°à ; ààà àà àà¨àà•ààà®à, à¨ à®à¿ààà¯à¾-àà¿à¦àà§à®à"
---   â” the remainder term is the essence; here it is UN-SAID, not
---     falsely proved
---
--- because râ¿/(1âˆ’r) â’ 0 needs â/â analysis that lane does not have.
---
--- The convergence claim is indeed un-said and stays un-said.  But the
--- REMAINDER ITSELF is not: Â§1 below is that module's own theorem plus
--- `minusPlus`, and it says the error is exactly râ¿.  So the ledger's
--- "the remainder term is un-said" is wider than what it needs to be; the
--- statement that survives is "the remainder's *asymptotics* are un-said".
---
--- OFFERED, NOT APPLIED.  That is another identity's honesty ledger and I
--- do not edit it.  Suggested replacement wording, for its author to take
--- or leave, is appended at the end of `Madhava.agda` and nowhere else.
+-- induction.
+-- Â§1 below is that module's own theorem plus `minusPlus`: the error is exactly râ¿.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” container pin.  --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheTruncationErrorIsExactAtEveryFiniteStage where
@@ -117,10 +74,6 @@ errorStep r n = refl
 sumStep : (r : â„¤) (n : â„•) â†’ à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ r (suc n) â‰¡ à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ r n + à¤˜à¤¾à¤¤ r n
 sumStep r n = refl
 
--- What Â§3 does NOT say: that `à˜à¾à r n Â r` is smaller than `à˜à¾à r n`.
--- That is an order statement, it is where â/â analysis would be needed,
--- and it is exactly the part `Madhava.agda`'s ledger is right to leave
--- un-said.  Nothing above or below uses an order on â.
 
 ------------------------------------------------------------------------
 -- 4.  THE COLLISION.  The error separates what the truncation identifies.
@@ -152,11 +105,10 @@ errorDoesNotFactorThroughTheTruncation =
     (Î» h â†’ 2â‰¢3 (sym (errorAtOneIsTheRatio (pos 2)) âˆ™ h âˆ™ errorAtOneIsTheRatio (pos 3)))
 
 ------------------------------------------------------------------------
--- 5.  The sentence this earns, and its exact scope
+-- 5.  The sentence this earns.
 --
--- `CLAUDE.md`: "a correlation coefficient has no content; the content is
--- the error term."  Â§4 is that, on Mdhava's own object and at one step:
+-- "A correlation coefficient has no content; the content is the error
+-- term."  Â§4 is that, on Mdhava's own object and at one step:
 -- the truncation is constant in the ratio, the error is the identity in
 -- it, and no invariant of the former reports the latter.
---
 ------------------------------------------------------------------------

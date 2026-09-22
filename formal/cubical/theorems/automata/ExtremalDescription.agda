@@ -21,10 +21,8 @@
 --                         `ObservabilityQuotient` proves
 --                         `ForeverEq` is safe (refines `InstantEq`,
 --                         invariant under the step) and that `InstantEq`
---                         is NOT contained in it.  It does not prove
---                         MAXIMALITY, which is what the words "the
---                         maximal safe compression" in its own header
---                         assert.  Three lines supply it.  Consequence
+--                         is NOT contained in it, and `greatest-safe`
+--                         below proves MAXIMALITY.  Consequence
 --                         `safe-maximum-unique`: any two greatest safe
 --                         relations coincide â” the invariance constant
 --                         here is 0, with no parameter to be hidden in.

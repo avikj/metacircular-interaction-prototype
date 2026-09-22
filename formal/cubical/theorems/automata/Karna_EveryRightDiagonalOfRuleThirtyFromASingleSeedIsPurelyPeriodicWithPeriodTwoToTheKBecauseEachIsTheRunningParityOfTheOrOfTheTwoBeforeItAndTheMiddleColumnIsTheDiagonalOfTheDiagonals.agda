@@ -18,8 +18,7 @@
 -- the exact shape of the absence of a closed recurrence for the column.
 --
 -- Stated in research/rule30/ORACLE_RULE30.md Â§3.3 (Theorem R, with the
--- computed periods 1,2,2,4,8,8,16,32,32,64,â¦); submitted to the yantra
--- (sadhana.patra) and accepted by its kernel, 2026-09-11.
+-- computed periods 1,2,2,4,8,8,16,32,32,64,â¦).
 ------------------------------------------------------------------------
 
 module Karna_EveryRightDiagonalOfRuleThirtyFromASingleSeedIsPurelyPeriodicWithPeriodTwoToTheKBecauseEachIsTheRunningParityOfTheOrOfTheTwoBeforeItAndTheMiddleColumnIsTheDiagonalOfTheDiagonals where

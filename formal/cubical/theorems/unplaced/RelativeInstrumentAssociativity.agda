@@ -8,7 +8,7 @@
 -- The two bracketings do not have literally the same outcome type.
 --
 -- This is an algebraic law for the repository's deterministic operational
--- interface.  It introduces no probability, sampling, or collapse semantics.
+-- interface.
 ------------------------------------------------------------------------
 
 module RelativeInstrumentAssociativity where

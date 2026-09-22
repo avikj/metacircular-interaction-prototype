@@ -42,14 +42,9 @@
 -- carrier, not of content, and the content is here.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“4 in any commutative ring, for every
--- three sequences, every `Î½`, and every finite depth.  NOT claimed: that
--- any particular `P` is a strain potential, or that any `S` and `N` are
--- what the step law says they are â” the law is a hypothesis and is
--- carried; that `Î½` is invertible, so Â§Â§3â“4 are stated with `Î½ Â` on the
--- left and are never divided through; anything about a derivative, an
--- integral, or a Lagrangian trajectory; and nothing about the size of
--- the residual, which is exactly the object Â§4 isolates and does not
--- estimate.
+-- three sequences, every `Î½`, and every finite depth.
+-- Â§Â§3â“4 are stated with `Î½ Â` on the
+-- left and are never divided through.
 ------------------------------------------------------------------------
 
 module KalaSetu_TheViscousStrainHistoryIsATemporalCoboundaryPlusOneResidualSoOnALoopTheCirculationIsTheResidualAlone where

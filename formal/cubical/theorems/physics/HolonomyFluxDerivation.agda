@@ -4,9 +4,7 @@
 --
 -- LQG fluxes act as derivations on cylindrical holonomy observables, with
 -- geometry-dependent left/right insertions at edge/surface intersections.
--- This file checks only the representation-independent Leibniz seam.  It does
--- not supply a surface, intersection sign, Lie algebra, SU(2), Hilbert-space
--- operator, commutator, domain, or geometric spectrum.
+-- This file checks the representation-independent Leibniz seam.
 
 module HolonomyFluxDerivation where
 
@@ -53,9 +51,7 @@ module _ (G : Group ℓg) (F : FluxDerivation ℓa)
   representedComposite edge = represent (holonomy G edge)
 
   -- A flux insertion on a subdivided edge is forced to split into its two
-  -- edge insertions.  This is the exact finite derivation compatibility;
-  -- orientation and intersection data must later choose which concrete
-  -- derivation inhabits `F`.
+  -- edge insertions.  This is the exact finite derivation compatibility.
   flux-subdivision : (edge : Refined G)
     → flux F (representedComposite edge)
       ≡ _⊕_ F

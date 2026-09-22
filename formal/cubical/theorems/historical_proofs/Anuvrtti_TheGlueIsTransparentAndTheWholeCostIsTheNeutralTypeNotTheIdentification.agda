@@ -8,11 +8,9 @@
 -- word stated once in a stra continues into the following stras, unstated,
 -- until it is cancelled â” Pini, *Adhyy* (~500 BCE), throughout;
 -- analysed as a device by Patajali, *Mahbhya* (~150 BCE).  It is used
--- here for the carrying-over of a term along a path at no cost.  WHAT IS NOT
--- CLAIMED: Pini stated no theorem about transport, and the mathematics
--- below originates in cubical type theory (Cohenâ“Coquandâ“Huberâ“Mrtberg, and
--- Voevodsky's univalence), not in the grammatical tradition.  The compound
--- names the phenomenon; it does not assert a source for the theorem.
+-- here for the carrying-over of a term along a path at no cost.  The
+-- mathematics below originates in cubical type theory (Cohenâ“Coquandâ“Huberâ“Mrtberg, and
+-- Voevodsky's univalence).
 --
 -- WHAT THIS MODULE MEASURES.  `loss/README.md` finding 3 records:
 --
@@ -275,9 +273,8 @@ open à¤µà¤¾à¤¹à¤•à¤ƒ public
 -- `Î» i â’ f (base i) â‰¡ carried i` becomes an hcomp whose cap is the neutral
 -- path `prim^unglue x .witness`.  Two constructions that differ only by
 -- whether the record is a module-parameterized family reduce differently
--- after the parameters are supplied.  I have no derivation of why the
--- parameterization blocks the unfolding, and say so rather than guess: it is
--- a measured fact about Agda 2.8.0, recorded here so it can be re-measured.
+-- after the parameters are supplied.  This is a measured fact about
+-- Agda 2.8.0.
 
 ------------------------------------------------------------------------
 -- Â§5  What a machine actually pays, at LosslessReturn's own instance.

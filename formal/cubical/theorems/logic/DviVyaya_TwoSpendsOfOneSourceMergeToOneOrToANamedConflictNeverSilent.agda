@@ -1,11 +1,10 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- à¦ààµà¿àµàà¯à¯ â” "double expenditure" (dvi = two, vyaya = spending/outgoing).
--- COMPOUND BUILT HERE, 2026-08-24; not a classical citation.  It names the
--- object exactly: two spends of one exclusive source.  English gloss follows
--- the underscore per the file-naming rule.
+-- The compound names the object exactly: two spends of one exclusive
+-- source.  English gloss follows the underscore per the file-naming rule.
 --
--- WHAT THIS DISCHARGES, AND WHAT IT DELIBERATELY DOES NOT.
+-- WHAT THIS DISCHARGES.
 --
 -- It discharges the LOCAL half of the exclusive-resource frontier
 -- (docs/build/ExclusiveResourceOrdering_ResearchDesign.md Â§2.2, Candidate B):
@@ -19,12 +18,8 @@
 -- join-semilattice union (`conflict-++Ë¡/Ê³`).  So the substrate's own merge,
 -- not a global order, discharges detection.
 --
--- It does NOT solve the GLOBAL residue.  Nothing here forces both spends into
--- one view; that is `_âˆˆ_` reachability / permissionless gossip-completeness â”
--- the one genuinely open frontier â” and it is deliberately OUTSIDE this module.
---
--- IT ALSO CORRECTS THE CONJECTURE AS WRITTEN.  Â§4 models a spend as
--- `Spend src = Î[snk] (spend src â‰¡ snk) = singl (spend src)`, which is ALWAYS
+-- ON THE MODEL.  If a spend is modelled as
+-- `Spend src = Î[snk] (spend src â‰¡ snk) = singl (spend src)`, it is ALWAYS
 -- contractible (àà•ààààà°: isContr (singl x)); so its `Exclusive` is
 -- unconditionally true and `MergeExhibitsConflict` is inhabited by `inl` for
 -- the wrong reason â” it is the graph of a function, not the set of SUBMITTED
@@ -105,7 +100,6 @@ module _ {A : Type â„“} (discA : Discrete A) where
   conflict-++Ê³ xs (a , b , pa , pb , aâ‰¢b) = a , b , âˆˆ-++Ê³ xs pa , âˆˆ-++Ê³ xs pb , aâ‰¢b
 
   -- the merged view is itself decidably exclusive-or-conflict: the union
-  -- never yields a silent double-spend.  (The residue is only whether the
-  -- merge REACHES both spends â” outside this module, by design.)
+  -- never yields a silent double-spend.
   mergeVerdict : (xs ys : List A) â†’ Exclusive (xs ++ ys) âŠŽ Conflict (xs ++ ys)
   mergeVerdict xs ys = verdict (xs ++ ys)

@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- WhereTheCircleSplits
 --
--- A check that should have been run before `PythagoreanTransition` was
--- celebrated, and is run now: **is the circle actually a circle?**
+-- **Is the circle actually a circle?**
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE TRIVIALISING POSSIBILITY
@@ -49,9 +48,6 @@
 -- in the multiplicative chart â” is not free.  It exists exactly where the
 -- norm form is irreducible, and where the form splits, the "additive law"
 -- was multiplication all along.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WhereTheCircleSplits where

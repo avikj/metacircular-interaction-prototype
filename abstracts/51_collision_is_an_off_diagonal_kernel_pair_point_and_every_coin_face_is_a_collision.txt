@@ -1,7 +1,7 @@
 COLLISION IS AN OFF-DIAGONAL KERNEL-PAIR POINT, THE KERNEL PAIR IS THE
 FIBERED PAIRING, AND EVERY COIN FACE IS A COLLISION
 Collision semantics on the atom â” finding a collision is constructing a
-distinct pair in one fiber, and the session's whole coin was that all
+distinct pair in one fiber, and the whole coin was that all
 along
 
 Collision semantics / relational meaning is fiber geometry / the coin
@@ -11,7 +11,7 @@ Collision finding is not inversion.  It is the construction of an
 off-diagonal point of a program's kernel pair, and the kernel pair is
 the fibered pairing â” so a collision is exactly two distinct points in
 one output fiber.  This module makes that core exact on any map, and
-then closes a loop: the session's coin was collision semantics.
+then closes a loop: the coin was collision semantics.
 
 THE KERNEL PAIR IS THE FIBERED PAIRING.  For any P : X â’ Y,
 KernelPair P â‰ Î y, (Fib P y — Fib P y), with no hypothesis on Y â” the
@@ -40,11 +40,9 @@ exactly that these fibers admit no global chart.
 
 SYT â” THE CLAIM, EXACTLY.  The kernel-pair equivalence, the two
 collision/configuration directions, fiber Fubini and the chain rule,
-and that every coin face is a collision.  NOT claimed â” the
-collision-semantics document's own boundary, kept: none of this makes
-CONSTRUCTING an off-diagonal point cheap.  Identifying the fiber is
+and that every coin face is a collision.
+Identifying the fiber is
 immediate; giving it a short generative presentation is the work these
 theorems relocate, not abolish.
 
-Machine-checked in cubical type theory, --safe, at the pin; certified
-through the interactive kernel.
+Machine-checked in cubical type theory, --safe.

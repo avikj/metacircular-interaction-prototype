@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡®‡ø‡∞‡‡-‡‡‡‡‡∞ ‚î the normal form, assembled.
 --
--- THE STANDING CONSTRUCTION, discharged.  Every braid word acts as
+-- Every braid word acts as
 -- its bare permutation followed by a twist word computed from the
 -- word itself:
 --
@@ -25,7 +25,6 @@
 -- symmetric shadow) + what phases it deposits (its twist word), and
 -- the second is computed, not merely shown to exist.  The kernel
 -- theorem is now a statement about the two coordinates separately.
---
 ------------------------------------------------------------------------
 
 module NirupaSutra_EveryBraidWordIsItsBarePermutationFollowedByAComputedTwistWord where

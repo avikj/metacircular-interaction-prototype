@@ -6,7 +6,7 @@
 -- The invariance theorem of Kolmogorov complexity, and the comparison
 -- rule it forces, as checked terms.
 --
--- adjudicates an MDL layer by repeatedly applying one fact: a complexity
+-- The note adjudicates an MDL layer by applying one fact: a complexity
 -- function is defined only up to an additive constant depending on the
 -- machine, so no *absolute* description length and no *narrow*
 -- comparison of description lengths carries content.  The note states
@@ -21,9 +21,8 @@
 --
 -- Universality enters exactly once in the classical proof â” to produce
 -- the two simulation constants â” and nowhere else.  Everything after
--- that point is the arithmetic below.  So the honest division of labour
--- is: universality is the unformalised hypothesis, named as
--- `Simulates`; the theorem is the part below.
+-- that point is the arithmetic below.  Universality is the hypothesis,
+-- named as `Simulates`; the theorem is the part below.
 --
 -- CONTENTS.
 --   Â§1  `Within c f g`  â” the two-sided bound, subtraction-free.
@@ -52,19 +51,15 @@
 --                         strict conclusion already fails (the costs
 --                         tie), and at gap 2câˆ’1 the order REVERSES.
 --                         Both witnesses are finite exhaustive
---                         verifications over Bool, which `CLAUDE.md`
---                         admits as proof.
+--                         verifications over Bool.
 --
 -- The exact threshold is 2c, not c: the slack is spent twice, once
 -- raising f x to g x and once lowering f y to g y.  The note says "sign
 -- when the gap â‰ c" (Â§1, table row 1); Â§5 replaces â‰ by the constant
--- that actually works and proves it cannot be lowered.  That is this
--- module's one correction to the note, recorded in its Â§8.
+-- that actually works and proves it cannot be lowered.
 --
 -- Nothing here is new mathematics; see the note's Â§6 for prior art.
 -- The contribution is that it is checked.
---
--- seed-kolmogorov, 2026-08-15.
 ------------------------------------------------------------------------
 
 module InvarianceConstant where

@@ -26,16 +26,13 @@
 -- is above it.  Movement 34's list is a list of things that hit the
 -- floor.
 --
--- RELATION TO `Parampara_â¦agda`, checked before writing this and cited
--- rather than rediscovered.  That module constructs `Bool â’ fiber â¦`
+-- RELATION TO `Parampara_â¦agda`.
+-- That module constructs `Bool â’ fiber â¦`
 -- SPECIFIC to a concrete three-chain, as one half of an iso computing
 -- particular fibres.  This is the general statement â” any `f`, any pair it
 -- confuses â” and neither subsumes the other: Parampara computes fibres,
 -- this one says every nontrivial fibre contains a two.  Its Â§à counting
 -- and this floor are the same fact at two altitudes.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
--- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module Dvayam_AnyLossEmbedsABitSoTwoIsTheSmallestVeilThereIs where

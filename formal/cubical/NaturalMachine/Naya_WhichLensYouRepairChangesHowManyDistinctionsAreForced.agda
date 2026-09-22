@@ -10,8 +10,7 @@
 --
 -- What is claimed of the sources, precisely.
 --
---   * The mathematics of commuting partitions is not claimed for any Indian
---     source and no  label is invented for it.  Per the repository's
+--   * Per the repository's
 --     own `notes/COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md`, the operative
 --     prior art is: commuting partitions = orthogonal partitions (Tjur,
 --     *Int. Stat. Rev.* 52, 1984; Bailey, *Des. Codes Cryptogr.* 8, 1996;
@@ -25,7 +24,7 @@
 --     Divkara, *Sanmatitarka*; Akalaka).  The result below is that the
 --     Ï-standpoint and the Ï-standpoint on one lens pair yield inequivalent
 --     repairs, so calling either one "the canonical surviving view" is a
---     durnaya.  No Jaina author is claimed to have proved anything here.
+--     durnaya.
 --
 -- The witness (elements 0..5):
 --

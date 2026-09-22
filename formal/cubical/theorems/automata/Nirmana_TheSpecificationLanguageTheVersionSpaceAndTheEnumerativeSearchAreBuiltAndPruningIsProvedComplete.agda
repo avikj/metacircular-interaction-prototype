@@ -5,7 +5,8 @@
 --
 -- WHY THIS FILE EXISTS.
 --
--- All four are built here, and the statement about synthesisers becomes
+-- The specification language, the version space, the enumerative search
+-- and pruning are built here, and the statement about synthesisers becomes
 -- three theorems: pruning by observational equivalence is COMPLETE
 -- (ยงเ), the class it collapses is UNBOUNDED (ยงเ), and any choice made
 -- inside that class is EXTRA-SEMANTIC (ยงเ) โ” not merely unjustified by
@@ -40,9 +41,6 @@
 -- not REDUCE under a transport.  Harmless here โ” all of them produce
 -- proofs that are never transported along โ” and said rather than left
 -- to be discovered.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 โ” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Nirmana_TheSpecificationLanguageTheVersionSpaceAndTheEnumerativeSearchAreBuiltAndPruningIsProvedComplete where

@@ -18,9 +18,6 @@
 --
 -- ‡‡‡∞‡ã‡‡æ‡‡‡ø : ‡‡ø‡ô‡‡ó‡≤‡, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ (~‡©‡¶‡¶ ‡à.‡‡.) ‚î ‡‡ï‡‡‡∞, ‡≤‡ò‡, ‡ó‡‡∞‡, ‡‡®‡‡¶‡‡ ‡
 --            ‡µ‡ø‡∞‡‡æ‡ô‡‡ï‡, ‡µ‡‡‡‡‡‡æ‡‡ø‡‡Æ‡‡‡‡‡Ø‡ (~‡‡¶‡¶ ‡à.) ‚î ‡Æ‡æ‡‡‡∞‡æ-‡µ‡‡‡‡-‡‡µ‡‡‡‡‡ø‡ ‡
---
--- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,
--- no holes, exit 0.
 ------------------------------------------------------------------------
 
 module AksharaDvaya_TheVirahankaBoolFiberAndThePingalaChandasFiberAreOneWeightedCount where

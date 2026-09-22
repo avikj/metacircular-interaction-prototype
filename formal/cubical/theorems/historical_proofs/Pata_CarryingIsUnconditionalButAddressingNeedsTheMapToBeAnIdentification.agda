@@ -52,9 +52,6 @@
 -- uses and that two distinct patterns share a weight, which ¬ß‡ exhibits
 -- rather than asserts.  ‡‡‡æ is ordinary modern /Hindi for an address
 -- and no text is claimed for it.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification where
@@ -170,8 +167,8 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞ : Type‚ÇÄ where
 --     It shows ‡Æ‡æ‡‡‡∞‡æ is not an address.  It does NOT show that the
 --     ‡‡‡∞‡‡‡‡æ‡∞'s rank map fails to be one ‚î ‡â‡¶‡‡¶‡ø‡‡‡ü IS an address, and the
 --     loss module proves it by exhibiting ‡®‡‡‡ü with both round
---     trips.  That direction is not reproved here and is not claimed;
---     what is claimed is only the contrast, which needs just one side to
+--     trips.  The contrast
+--     needs just one side to
 --     be exhibited to be a distinction rather than a preference.
 --
 --     And it shows the two are independent properties of the SAME map

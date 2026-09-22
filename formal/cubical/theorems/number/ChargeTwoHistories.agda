@@ -19,7 +19,7 @@ open import FiniteIndraWeave using (TotalView ; Tear ; tear)
 open import ProductiveIndraNet using (Net ; observe)
 
 -- A repeated prime has one charge-two history; two distinct primes have
--- the two possible orders.  No ordering of the primes is asserted here.
+-- the two possible orders.
 SquareHistory : Type₀
 SquareHistory = Unit
 

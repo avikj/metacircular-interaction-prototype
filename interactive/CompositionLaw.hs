@@ -41,7 +41,7 @@
 -- TWO PATHS, NO THIRD.  Every partial operation returns `Either Defect`.
 -- Where the congruence is unsolvable, where a division is not exact, where
 -- the descent does not terminate inside its stated bound â” a `Defect`
--- carries the failing instance out.  Nothing here retries silently and
+-- carries the failing instance out.  Nothing here retries silently.
 --
 -- EXACT ARITHMETIC ONLY.  Integer throughout; the square root is Newton
 -- over Integer.  There are no computed constants, only exact identities,
@@ -152,11 +152,9 @@ composeChecked law u v
 reactor :: Eq v => Law v -> Either Defect [v]
 reactor = reactorWithin defaultCap
 
--- THE TURN BOUND IS A PARAMETER AND IT IS NAMED, because what it stands in
--- for is a theorem this repository does not have.  Termination of the cycle
--- is Lagrange (1768) for the T = 0 case and is open here â” `CakravalaDescent
--- .agda` says so verbatim and `CakravalaBound.agda` proves only the window
--- |k| â‰ 2âˆD, not that the wheel closes.  So a run that reaches the bound
+-- THE TURN BOUND IS A PARAMETER AND IT IS NAMED.  Termination of the cycle
+-- is Lagrange (1768) for the T = 0 case; `CakravalaBound.agda` proves the window
+-- |k| â‰ 2âˆD.  So a run that reaches the bound
 -- has NOT found a mathematical obstruction; it has hit a stated limit, and
 -- the defect it returns says which, with the norm it stopped at, so the two
 -- are never confused.  A scan of the 49762 discriminants Î” â‰¡ 1 (mod 4) below
@@ -459,10 +457,9 @@ maximalOrderLaw disc = case disc `mod` 4 of
 --                divisible by 3 and the SECOND is not.  `ghanaLaw` returns
 --                that defect with the numbers in it rather than a retry.
 --
---   what is known to close it, named so the next reader does not re-derive
---                the hole: Voronoi's chain of relative minima (1896), which
+--   what is known to close it: Voronoi's chain of relative minima (1896), which
 --                is a two-dimensional descent and not a one-dimensional
---                one.  It is not implemented here and is not claimed.
+--                one.
 --
 -- So: this instance's `reactor` run cannot reach a unit by descent, and it
 -- says so with the instance.  Its `lawCompose` and `lawNorm` do run, and
@@ -672,7 +669,7 @@ vargaPrakrtiWide t c w
       Right (posify (Quad a' b'))
 
 -- The two identities the Agda certificate states, evaluated over â• at a box
--- of concrete points.  This is NOT the proof â” CLAUDE.md is explicit that a
+-- of concrete points.  This is NOT the proof â” a
 -- finite box proves only what it exhausts â” it is the generator refusing to
 -- emit a shape it has not itself checked.  The proof is `solve` in
 -- formal/cubical/VargaPrakrti_TraceCompositionOverN.agda, over all naturals.

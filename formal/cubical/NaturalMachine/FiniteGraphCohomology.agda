@@ -82,12 +82,3 @@ module Graph
   gaugePath signs gauge =
     eq/ signs (gaugeTranslate signs gauge)
       (gauge , λ _ → refl)
-
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked generically: C0 acts on C1 by endpoint coboundaries; every additive
--- cycle evaluation killing coboundaries is invariant and descends to H1.
--- Not claimed: enumeration of cycles, exactness at further chain degrees, or
--- a computation of the whole quotient for an arbitrary graph.
-------------------------------------------------------------------------

@@ -21,7 +21,6 @@
 -- observational identity IS the pair of invariants: what a braid is,
 -- to every possible observer, is where it sends the strands and what
 -- it deposited on them, to the fourth turn.
---
 ------------------------------------------------------------------------
 
 module PurnaAbheda_TwoBraidWordsActIdenticallyWhenTheirPermutationsAgreeAndTheirTwistCountsAgreeModFour where

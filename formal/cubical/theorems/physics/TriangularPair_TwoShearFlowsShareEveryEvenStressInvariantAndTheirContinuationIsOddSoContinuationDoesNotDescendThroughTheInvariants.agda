@@ -34,9 +34,8 @@
 --
 -- SYT â” THE CLAIM, EXACTLY.  Ring identities in (Ï , A , c , s) and one
 -- two-point witness over â.  The matrix is the document's stress written
--- down, not derived from a velocity field; the continuation is the
--- document's formula written down, not derived from Navierâ“Stokes.  The
--- derivations (the pressure solve on the torus) are NOT here.
+-- down; the continuation is the
+-- document's formula written down.
 ------------------------------------------------------------------------
 
 module TriangularPair_TwoShearFlowsShareEveryEvenStressInvariantAndTheirContinuationIsOddSoContinuationDoesNotDescendThroughTheInvariants where

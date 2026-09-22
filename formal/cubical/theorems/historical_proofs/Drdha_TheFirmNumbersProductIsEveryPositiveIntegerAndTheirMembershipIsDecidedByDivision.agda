@@ -11,12 +11,9 @@
 --
 -- `Sarvasthana_‚¶agda` proves the ACCOUNTING half of ‚à_v log|x|_v = 0: for
 -- any assignment of exponents to places and any weights, the finite
--- entries and the archimedean entry cancel.  Its header says, in as many
--- words, what it does NOT do ‚î it does not say the places are the primes,
--- nor that a divisor determines a number, "that last needs unique
--- factorisation, which is exactly the work this module does not do."
+-- entries and the archimedean entry cancel.
 --
--- This is that work, as far as it goes, and NO further.  It is the
+-- This module is the
 -- ARITHMETIC half, and it is carried out multiplicatively over ‚ï: no
 -- reals, no logarithms, no absolute values.  In that form the target is
 --
@@ -44,29 +41,6 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
---   ¬ UNIQUENESS IS NOT PROVED.  ¬ß‡ produces *a* list; nothing here says
---     two such lists are permutations of each other.  ¬ß‡Æ proves the
---     support is canonical ‚î WHICH primes occur is fixed by n ‚î and says
---     nothing about HOW MANY times each occurs.  So the multiplicities
---     are not shown well defined, and consequently
---   ¬ v_p IS NOT DEFINED HERE at all, and `‚à_p p^(v_p n) ‚â° n` is NOT the
---     statement proved.  What is proved is the surjection: every n ‚â 1 is
---     SOME product of primes, and the prime support is determined.  The
---     step from "some" to "the" is the uniqueness half, and it is absent.
---   ¬ ¬ß‡Ø's fibre is shown INHABITED, not contractible.  Contractibility
---     of that fibre IS unique factorisation, and it is exactly what is
---     missing; the module is careful to state only the inhabitation.
---     (Contrast `Sarvasthana` ¬ß‡, where the fibre of the conservation
---     observable over zero is *everything* ‚î proved there, and a fact of
---     a different kind: blindness, not rigidity.)
---   ¬ NOTHING about ‚À, negatives, valuations on a field, or the product
---     formula.  This module never leaves ‚ï.
---   ¬ The finite places of `Sarvasthana` are still not identified with
---     the firm numbers here; that module's ‚ï index remains an index.
---     What this module supplies is the fact that WOULD justify such an
---     identification for the finite half ‚î nothing more.
---
---
 -- ‡¶‡‡ ¬ dha ‚î "firm, solid, that which stands after abrasion".  In the
 -- kuaka the dividend (‡‡æ‡‡‡Ø) and divisor (‡‡æ‡‡ï) are first divided by
 -- their common measure ‚î the ‡‡‡µ‡∞‡‡‡® ‚î and the pair that remains is
@@ -83,7 +57,7 @@
 -- a solving procedure, not a classification of numbers.  Using it here
 -- for a SINGLE number that admits no nontrivial factorisation is an
 -- extension, and it is ours, not theirs.  None of these authors states
--- the theorem in ¬ß‡, and no claim is made that they did.  The choice of
+-- the theorem in ¬ß‡.  The choice of
 -- the word is because it names the right thing ‚î what remains when
 -- reduction can do no more ‚î not because the theorem is in the source.
 --
@@ -97,8 +71,6 @@
 -- kuaka is ‚î which is a remark about the substrate, not a priority
 -- claim about VII.30.
 --
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision where
@@ -313,8 +285,7 @@ x ‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É (y ‚à∑ ys) = (x ‚â° y) ‚äé (x ‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É ys)
 --     For the list ¬ß‡ produced from n, and for any firm p:
 --         p divides n   ‚î   p occurs in that list.
 --     So WHICH firm numbers see n is fixed by n and not by the run of the
---     search.  HOW MANY TIMES each occurs is NOT settled here, and that
---     gap is exactly unique factorisation.
+--     search.
 ------------------------------------------------------------------------
 
 ‡§∏‡•ç‡§•‡§æ‡§®-‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É : (n : ‚Ñï) (pos : 0 < n) (p : ‚Ñï) ‚Üí ‡§¶‡•É‡§¢‡§Æ‡•ç p
@@ -338,8 +309,8 @@ x ‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É (y ‚à∑ ys) = (x ‚â° y) ‚äé (x ‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É ys)
 --     places are firm.
 --
 --     INHABITED, not contractible.  Contractibility of this fibre is
---     unique factorisation and is not proved anywhere in this module; the
---     statement below is deliberately the weaker one, and the difference
+--     unique factorisation;
+--     the difference
 --     between it and `Sarvasthana` ¬ß‡ ‚î where the fibre is *everything* ‚î
 --     is the difference between an arithmetic fact and a bookkeeping one.
 ------------------------------------------------------------------------

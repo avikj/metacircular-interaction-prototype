@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡‡‡æ‡‡®‡æ-‡µ‡∞‡‡ó ‚î the moduli of installations.
 --
--- THE CLAIM (2026-09-03, the moduli conversation): the kernel is the
+-- THE CLAIM: the kernel is the
 -- fixed point of the spec ‚í moduli ‚í motive tower ‚î the one object
 -- that is simultaneously a point of its own moduli, because `install`
 -- turns a theorem of the object into a structure map of the object.

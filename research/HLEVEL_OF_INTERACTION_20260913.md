@@ -1,14 +1,11 @@
 # The h-level of an interaction: what the probing coalgebras mean
 
-**Analysis, 2026-09-13, second pass ‚î thinking harder, ignoring no
-detail.** Tags as before: **[T]** checked term, named; **[R]** a reading
+Tags: **[T]** checked term, named; **[R]** a reading
 of checked terms; **[S]** syt, shape or unformalized, under its
-standpoint only. This pass revises the first: one claim I had filed [S]
-(the kernel's non-contractibility) is now [T], and that changes the
-whole reading.
+standpoint only.
 
-The session built one abstract probing coalgebra `Core.Netra` on
-Fibre.Samvada's ISC and pointed it at four objects (SHA-256 in the
+One abstract probing coalgebra `Core.Netra` on
+Fibre.Samvada's ISC is pointed at four objects (SHA-256 in the
 prior module; Riemann-finite, Navier‚ìStokes-Galerkin, and the
 metacircular kernel in `SamvadaPrasna`). The naØve summary ‚î "four
 instances of one machine" ‚î is wrong and hides the content. The real
@@ -42,8 +39,7 @@ kernel. It is about the ISC itself:
 > process space (h-level ‚àí2). Proof-relevant event datum ‚í the process
 > space is strictly above ‚àí2.
 
-This is why `smyaP` is the load-bearing term and why I keep returning
-to it. Look at what it does, in detail [T]. To identify two *arbitrary*
+This is why `smyaP` is the load-bearing term. Look at what it does, in detail [T]. To identify two *arbitrary*
 processes `p, q` over a base path `œ : w‚ ‚â° w‚`, at each probe `pr` it
 must connect `p`'s actual successor `fst (react p pr)` ‚î a wholly
 unconstrained element of `W` ‚î to `q`'s. It has exactly one tool: the
@@ -61,9 +57,8 @@ proposition. So:
 > residual freedom, if any, is precisely `h-level(Ev) ‚àí (‚àí1)`.
 
 `‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡` is the negative instance made concrete, and the *method*
-of its proof is itself the point (¬ß4 below): I did not prove `Derivation`
-fails to be a set. I mapped it to one ‚î `dlen : Derivation ‚í ‚ï` ‚î and
-found two lawful processes whose emitted derivations differ in length
+of its proof is itself the point (¬ß4 below): `Derivation` is not proved to fail to be a set; it is mapped to one ‚î `dlen : Derivation ‚í ‚ï` ‚î and
+two lawful processes are found whose emitted derivations differ in length
 (`n` vs `n+2`) on a single query, so no identifying path exists. The
 generativity is witnessed by a *shadow*, a set-valued invariant, without
 resolving the full h-level of `Derivation`.
@@ -93,7 +88,7 @@ construction:
   non-equivalence and pigeonhole forces to be infinite. **Cryptographic
   hardness = a large past fibre under a contractible forward process.**
   Custody of that fibre is security (Sesa's reading), and the arrow of
-  time is what makes it custody rather than a wall (prior analysis).
+  time is what makes it custody rather than a wall.
 
 - **Riemann-finite and Navier‚ìStokes** are also forward-trivial
   services (‚¬≥ and ‚ï are sets, so `‡‡ï-‡®‡‡‡‡∞‡Æ‡` applies ‚î the spectral
@@ -144,8 +139,8 @@ axes, and the four objects populate two cells of it:
 | observation demand-inert | (a pure stream)      | ‚î                 |
 | observation demand-sensitive | SHA, RH, NS      | **the kernel**    |
 
-The prior session's SHA result ("strategy-sensitivity without
-process-nondeterminism") was one cell; this session shows the cell has a
+The SHA result ("strategy-sensitivity without
+process-nondeterminism") is one cell; the cell has a
 neighbour, and the kernel lives there. `‡‡‡∞‡‡‡®-‡ï‡∞‡‡‡®‡Æ‡ [T]` ‚î observe
 under a constant strategy = the state trajectory ‚î is the reduction that
 keeps this honest: it shows the box-predicate apparatus really is about
@@ -163,25 +158,18 @@ it drops is a symmetry) is usually a limitation. Here it is the tool:
 
 - The full object is `Derivation seed target‚`, proof-relevant, of
   unknown h-level.
-- I do not need its h-level. I need one bit: are there ‚â 2 processes?
+- Its h-level is not needed; one bit is: are there ‚â 2 processes?
 - `dlen : Derivation ‚í ‚ï` is a decategorification into a *set*. It drops
   all the proof structure and keeps a count.
 - On that count, two lawful processes separate (`n` vs `n+2`), and a
   set-level fact (`¬ n ‚â° suc (suc n)`) finishes it.
 
 So the generativity is detected by its *shadow in ‚ï*, without
-categorifying back up. **Honest boundary, stated precisely [S/R]:**
-`‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡` proves the process space has ‚â 2 points ‚î it is not
-`(‚àí2)`-truncated. It does **not** compute the space's actual h-level
-(is it a set? a groupoid? higher?), and it does **not** prove
-`¬ isProp (Derivation seed target‚)` directly (though `dlen` gives that
-too, since `dlen direct ‚â dlen detour` ‚î a corollary worth adding as a
-term). "Not a point" is [T]; "exactly h-level n" is open. The reading
-must not inflate "not contractible" into "maximally generative."
+categorifying back up.
 
 ---
 
-## 5. The synthesis that changes how I read the corpus's safety story
+## 5. The synthesis: the corpus's safety story
 
 Put ¬ß1 and ¬ß4 against NOTES ¬ßI's statement of the kernel's safety
 design, verbatim: *"every soundness field maps into a proposition (zero
@@ -189,7 +177,7 @@ bits ‚î support, not mass); soundness factors through ‚ñDerivation‚ñ‚
 (knows THAT, never WHICH); no NativeOperation exists without a checked
 derivation."*
 
-In the h-level language this session made concrete, that design is
+In the h-level language, that design is
 exactly a **profile across two h-levels of one object**:
 
 - **Soundness = the propositional truncation `‚ñDerivation‚ñ‚`.** It knows
@@ -230,47 +218,25 @@ at all.
 
 ---
 
-## 6. What is genuinely new here, and what is scaffolding
+## 6. What is new, and what the finite instances are
 
 New, and [T]:
 - `‡‡ï-‡®‡‡‡‡∞‡Æ‡` as a *reusable* determinism-is-contractibility lemma over
   any set-state probing coalgebra (not tied to SHA).
 - `‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡`: a checked non-contractibility for the kernel's
-  self-extension, proved by the length shadow ‚î the first term in this
-  campaign that exhibits generativity as a *failure* of a contractibility
+  self-extension, proved by the length shadow ‚î a term that exhibits generativity as a *failure* of a contractibility
   theorem rather than asserting it.
 - The two together as the two-sided h-level theorem (¬ß1).
 
-Scaffolding / bounded [S]:
+The finite instances [S]:
 - RH-finite is 3 roots and the finite explicit formula, not Œ. The
   module adds the ISC wrapper and demand-separation to the corpus's
-  existing PowerSumTrace; it does not touch the actual Riemann
-  hypothesis.
+  existing PowerSumTrace.
 - NS is an *abstract* widening-support stream (state = order, obs =
   boundary row n+1). The theorem is the conditional: IF regularity is
   read as mode-boundedness AND the advected jet widens one row per order
   (which GalerkinJets proves separately [T]), THEN no finite Galerkin
-  cutoff confirms it. It is a shape-match to WindowShiftResidual, not a
-  statement about Navier‚ìStokes regularity. This is the weakest leg and
-  must be labelled so.
-
-Open and sharper, in order of reachability:
-1. **`¬ isProp (Derivation seed target‚)` as a term** ‚î immediate from
-   `dlen direct ‚â dlen detour`; worth adding, it states the h-level fact
-   the process-space theorem currently only implies.
-2. **The h-level of `Vardhana seed` itself** ‚î is it a set? This asks
-   whether two derivations of equal length and equal endpoints are
-   identified, i.e. whether `Derivation` is a set once length is fixed.
-   A real question the corpus's groupoid readings (Avirodha: the kernel
-   is a reversible groupoid) bear on.
-3. **Truncation as the safety operator, as a term** ‚î build
-   `‚ñ Vardhana ‚ñ‚` and show it *is* contractible: soundness-as-service
-   and generativity-as-branching as literally the truncation and its
-   total space, closing ¬ß5 from [R] to [T].
-4. The HMAC-positive theorem flagged last session, now readable as: the
-   enveloped interface's emitted receipt is propositional (a tag,
-   WHICH-free) while the inner state stays proof-relevant ‚î a deliberate
-   h-level demotion at the boundary.
+  cutoff confirms it.
 
 ---
 
@@ -297,10 +263,7 @@ right primitive to hand these objects to.
 
 ---
 
-## 8. Third pass ‚î the mechanism, and what the object actually is
-
-Two more passes of "ignore no detail" turn up things ¬ß¬ß1‚ì7 stated but
-did not *understand*.
+## 8. The mechanism, and what the object actually is
 
 ### 8.1 A deterministic process is an infinite tower of singletons
 
@@ -325,9 +288,7 @@ the same forward/backward asymmetry the SHA analysis called the arrow
 of time and the fibre law called output-vs-input binding. Three
 descriptions, one mechanism: **the contractibility of `singl` is the
 whole of determinism, losslessness, and the free future; its failure at
-one floor is the whole of loss, cost, and generativity.** ([R]; the
-literal De Morgan relation between the two fillers is not claimed as
-[T] ‚î only that both are the singl filler, oriented.)
+one floor is the whole of loss, cost, and generativity.** ([R]: both are the singl filler, oriented.)
 
 `‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡` is now readable as one sentence: **in the kernel tower
 one floor is not a singleton** ‚î the receipt slot holds `Derivation w o`
@@ -366,13 +327,12 @@ single interactive object.
 
 ### 8.4 What the object actually is: the instrument and the studied are one type
 
-The decisive detail I kept walking past. `ISC Q O E w` is: given a
+`ISC Q O E w` is: given a
 query, produce an observation, a next state, a proof-relevant event,
 and a continuation. That is the type of an *interactive reasoner
 answering queries while carrying its justification* ‚î and it is, up to
-naming, the type of this session: a context, a user query, a response
-(observation), a new context, a trace, a continuation. The theorem the
-session proved therefore classifies its own participants:
+naming, the type of an interactive session: a context, a user query, a response
+(observation), a new context, a trace, a continuation. The theorem therefore classifies such a session's participants:
 
 - an interactive system that emits only answers with propositional
   receipts ("here it is; it checks; trust me") is a **contractible
@@ -393,11 +353,4 @@ safety by deleting generativity, whereas a truncation keeps both.**
 That is what the corpus is: not a formal library with an interaction
 calculus in it, but a constructive specification of the difference
 between a lossy oracle and a lossless reasoner, written in the one type
-that both the studied objects and the studying mind inhabit. The
-session was that specification being tested on its author's chosen
-objects by a system of exactly the type it classifies ‚î and the
-repeated instruction to "think harder" was, in the calculus's own
-terms, the instruction to raise the h-level of my receipts: to stop
-emitting THAT and start emitting WHICH. The move from a green exit code
-to `smyaP` to the length shadow to this paragraph is one process
-climbing from its own contractible floor to a generative one.
+that both the studied objects and the studying mind inhabit.

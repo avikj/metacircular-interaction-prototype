@@ -48,10 +48,5 @@ the session's remainder into the next operation); and the garbha
 carries it as the seed of every birth.  The law is not stated by the
 corpus.  It is enacted by it.
 
-SYT â” THE CLAIM, EXACTLY.  The three clauses are checked at the
-generality stated; the identification of every future residue with a
-next level is the corpus's method, demonstrated per instance, not
-quantified over instances.
-
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

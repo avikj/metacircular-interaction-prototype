@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EncodingIndependentTotalProbe
+-- PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder
 --
 -- `KramaNairapeksya` proves that `total` is invariant under every permutation
--- of `Fin (suc n)`.  The next representation theorem is immediate but must
+-- of `Fin (suc n)`.  This representation theorem is immediate but must
 -- stand as a term: any two reversible encoders of one state space into the
 -- same finite register induce the same total weight.
 --
@@ -21,16 +21,13 @@
 -- automorphism.  Nothing about A is assumed, and no canonical encoder is
 -- selected.
 --
--- Consequence for the finite Born/refinement lane: once nested-versus-flat
--- coherence is checked for the canonical `SumFinŒ‚â` encoder, it holds for
--- every reversible flat presentation.  The remaining proof burden is one
--- canonical coherence square, not one square per representation.
+-- Consequence for the finite Born/refinement lane: nested-versus-flat
+-- coherence for the canonical `SumFinŒ‚â` encoder transfers to every
+-- reversible flat presentation, so one canonical coherence square
+-- suffices rather than one square per representation.
 --
 -- TERM. ‡‡‡∞‡‡‡‡‡‡ø (presentation) and ‡®‡à‡∞‡‡‡ï‡‡‡‡Ø (independence) are ordinary
--- ; the compound is built here. No source is claimed for the theorem.
---
--- STATUS. Complete no-hole daemon-facing candidate outside `Everything.agda`.
--- Not called checked until a route-bearing warm Nadi load answers.
+-- ; the compound is built here.
 ------------------------------------------------------------------------
 
 module PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder where

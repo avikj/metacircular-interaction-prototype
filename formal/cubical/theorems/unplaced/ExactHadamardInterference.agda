@@ -113,11 +113,3 @@ reopened-minus-port : (α : Gaussian)
     ≡ (zeroG , scale₂G α)
 reopened-minus-port = minus-interferes-to-port₁
 
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked: the Gaussian-integer Hadamard formula, its exact quadratic norm
--- factor 2, H² = 2I, and opposite deterministic ports for equal/opposite
--- phase inputs, including the existing reopened joint-phase compiler.
---
-------------------------------------------------------------------------

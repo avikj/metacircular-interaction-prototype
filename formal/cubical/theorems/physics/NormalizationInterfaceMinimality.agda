@@ -125,4 +125,4 @@ no-sequential-reconstruction-from-normalization (reconstruct , correct) =
 -- This establishes task-relative minimality only in the kernel sense supplied
 -- by FiniteInformation: all normalization behavior factors through weights +
 -- positivity, while posterior history is necessary for the larger sequential
--- continuation class.  No claim is made that FullSequentialTable is minimal.
+-- continuation class.

@@ -26,10 +26,7 @@
 -- its arithmetic instance can be checked independently.
 --
 -- Coefficients are `ker Ïâ™` as a group in its own right, NOT â/b: the
--- isomorphism bâ¿â/bâ¿âºÂ â‰ â/b is not constructed here and nonvanishing
--- does not use it.  Neither is HÂ²(â/m;A) â‰ A/mA.  See the status
---
--- Toolchain: Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes.
+-- isomorphism bâ¿â/bâ¿âºÂ â‰ â/b is not used.
 ------------------------------------------------------------------------
 
 module CarryClassNonzero where

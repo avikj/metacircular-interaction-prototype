@@ -44,12 +44,7 @@
 --       own.  A global simultaneity is krama presented as vartan â”
 --       a forged presence, and the klu doctrine never forges it.
 --
--- WHAT IS **NOT** CLAIMED.  That Umsvti or the kkras proved these
--- (doctrine theirs; theorems cubical type theory).  No connection to
--- Lorentzian relativity is asserted by any term â” the resemblance of Â§4
--- to spacelike separation is a reading made in this comment and nowhere
--- below.  The cap D is abstract (as in Kala); the loka's geometry is not
--- modelled.  No postulates, no holes, --safe.
+-- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 
 module Paratvaparatva_BeforeAndAfterIsTimesOwnFunctionTheCausalOrderIsPartialAndSimultaneityIsAKramaChoice where

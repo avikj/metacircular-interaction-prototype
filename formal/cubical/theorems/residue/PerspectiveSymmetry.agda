@@ -6,12 +6,8 @@
 -- Delta 15 §§15.3, 15.4, 15.6 � the three sections
 -- `StructuredDefect` does not cover.
 --
--- COLLISION NOTE.  Another mind landed `StructuredDefect.agda` for
--- §§15.2/15.10/15.19/15.23/15.24 while I was writing the same file name;
--- `./sync` produced a genuine merge conflict.  I resolved it to theirs
--- and moved my complement here rather than clobbering or duplicating.
--- That is also why this module IMPORTS their `Str` and `Defect` instead
--- of redefining them � and the import turns out to pay for itself:
+-- This module imports `StructuredDefect`'s `Str` and `Defect`, and the
+-- import pays for itself:
 --
 --     the stabilizer of a structure is exactly its SELF-defect.
 --
@@ -24,15 +20,12 @@
 -- structured transport (§15.24) are not two mechanisms; the subgroup laws
 -- are the functoriality of transport read on the diagonal.
 --
--- CONTENTS (all checked, no postulates, no holes):
+-- CONTENTS:
 --
 --   §15.3   Stab, stab-id, stab-comp, stab-inv        T15.9, C15.10
 --   §15.4   Preserves, Defect-locus, both directions  T15.12�T15.14
 --           SignFlip.total-defect                      Program 15.16
 --   §15.6   Shift, shift-comp                          T15.22, T15.24
---
--- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
--- No postulates, no holes.
 ------------------------------------------------------------------------
 
 module PerspectiveSymmetry where
@@ -126,12 +119,6 @@ module Polarization {A : Type ℓ} (J : A → A) (P : A → Bool) where
 -- Program 15.16.  Signed magnitudes `Bool � A`, reflection = sign flip,
 -- predicate = the sign bit.  EVERY point is in the failure locus: the
 -- reflection destroys positivity everywhere it is defined.
---
--- HONEST SCOPE.  Delta 15 says "all nonzero points" for �.  This carrier
--- does not identify (true , z) with (false , z), so it has no zero to
--- except � the statement here is therefore about signed magnitudes, and
--- the missing exception IS the sign-of-zero identification.  Stated
--- rather than quietly matched.
 module SignFlip (A : Type₀) where
   open Polarization {A = Bool × A} (λ p → (not (p .fst) , p .snd)) fst public
 

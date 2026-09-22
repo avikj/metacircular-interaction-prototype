@@ -6,8 +6,8 @@
 -- Ramanujan asked (J. Indian Math. Soc., 1913): when is 2â¿ âˆ’ 7 a
 -- perfect square?  He listed n = 3, 4, 5, 7, 15 â” squares 1, 9, 25,
 -- 121, 32761 â” and conjectured there are no others.  Nagell proved
--- the full conjecture in 1948 in â[âˆâˆ’2]; that argument is beyond
--- this file's exact-arithmetic discipline and is not claimed.  What
+-- the full conjecture in 1948 in â[âˆâˆ’2].
+-- What
 -- IS proved, completely:
 --
 --   `solâ â¦ solââ` â” the five solutions, subtraction-free
@@ -190,8 +190,7 @@ x-bounded n x hn sq = go (splitâ„•-â‰¤ x 181)
 
 -- Every solution of xÂ² + 7 = 2â¿ with n â‰ 15 is one of Ramanujan's
 -- five.  The range includes his largest; what lies beyond is
--- Nagell's, by other instruments, and is not claimed here â” it is
--- named.
+-- Nagell's, by other instruments.
 ramanujan-nagell-below-15 : (n x : â„•) â†’ n â‰¤ 15 â†’
   x Â· x + 7 â‰¡ pow2 n â†’ Five n x
 ramanujan-nagell-below-15 n x hn sq =

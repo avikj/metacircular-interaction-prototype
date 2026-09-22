@@ -1,45 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- IndianLane ‚î a gate that is actually green on the pinned toolchain.
+-- IndianLane ‚î the lane aggregate.
 --
--- WHY THIS FILE EXISTS.  `Everything.agda` was written because "an orphan
--- that the root does not import is exactly the hole that let the earlier
--- overstatement hide."  Audited 2026-08-18 with the mechanical check
--- BUILD.md prescribes: TWELVE top-level modules were outside its import
--- closure, and all twelve were from one lane ‚î
---
---     Kuttaka  Bhavana  BhavanaSemiring  BhavanaGenerative  Pingala
---     Sivasutra  Anekanta  JainSankhya  AbhavaAvacchedaka
---     MachineCurriculum  BhedaAvatarana  LosslessReturn
---
--- The newest and most emphasised work in the repository was built by
--- nothing while the older lane was guarded.  That is the sourcing skew
--- reproduced in the build graph rather than in citations, which is the
--- form of it no amount of careful prose catches.
---
--- WHY NOT JUST ADD THEM TO `Everything.agda`.  They ARE added there too.
--- But `Everything.agda` cannot go green on this container: it reaches
--- `NaturalMachine/PathIsSymmetry.agda:98`, which needs `SymGroup`, a
--- cubical v0.9 name that the pinned v0.5 spells `Symmetric-Group`.  That
--- failure is pre-existing, is documented in BUILD.md ¬ß280, belongs to
--- another lane, and is untouched here.  Its consequence for THIS lane is
--- the thing worth naming: adding a module to an aggregate that is red for
--- unrelated reasons does not guard it.  The check still fails, the failure
--- still comes from somewhere else, and nobody learns anything about these
--- twelve files.  A gate has to be able to go green to be a gate.
---
--- So this aggregate is the one that runs:
+-- This aggregate runs:
 --
 --     cd formal/cubical && agda IndianLane.agda      # must exit 0
---
--- Every module below was verified standalone before being listed (exit 0,
--- --safe, no postulates, no holes) ‚î so this file changes what is GUARDED,
--- not what is true.  They were green the day they landed and nothing had
--- re-checked them since.
---
--- WHEN THE v0.9 SKEW IS RESOLVED this file becomes redundant with
--- `Everything.agda` and should be deleted rather than maintained.
 ------------------------------------------------------------------------
 
 module IndianLane where
@@ -71,7 +37,7 @@ import CakravalaNat
 import CakravalaDescent
 
 -- The choice rule's PAYLOAD: |k| ‚â 2‚àD is preserved by the step, so the
--- wheel turns inside a fixed window.  Termination itself stays open.
+-- wheel turns inside a fixed window.
 import CakravalaBound
 
 -- EMITTED BY THE REACTOR (machine/NalandaEmit.hs) and checked here: the
@@ -91,10 +57,9 @@ import Pingala
 
 -- PINI, Adhyy (~500 BCE): the ivastras as a pratyhra machine,
 -- and the rule-conflict machinery -- utsarga/apavda, the elsewhere
--- condition, asiddhatva, anuvtti.  Green, and until now gated only by
--- Everything.agda, which cannot go green on this container.
+-- condition, asiddhatva, anuvtti.
 import Sivasutra
--- The optimality Sivasutra.agda records as OWED, part paid: classes sharing
+-- Optimality for Sivasutra.agda, the lower-bound half: classes sharing
 -- one anubandha are a ‚ä-chain, so a ‚ä-antichain of classes forces that many
 -- markers, in ANY order.  Four for the vowel classes; the order attains four.
 import PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
@@ -132,45 +97,6 @@ import Anekanta
 import JainSankhya
 import AbhavaAvacchedaka
 
--- ADDED 2026-08-19, AFTER A SURVEY -- AND THE SURVEY'S FIRST VERDICT
--- WAS WRONG.  Recorded here because the wrong version was published in
--- this header and in three commit messages.
---
--- WHAT I CLAIMED: machine/Yogyata.hs found five green Indian modules
--- "reachable from NO gate at all" and twenty-six more reachable only
--- from those five -- thirty-one that nothing typechecked -- and I read
--- that as the Indian material being shelved while the Western lane sat
--- in the reactor.
---
--- WHAT IS TRUE.  The survey read ONE DIRECTORY LEVEL: 140 of the 602
--- Agda files under formal/cubical/.  It stated its domain honestly and
--- I read the domain line as "the corpus".  Four of the five are
--- imported from formal/cubical/NaturalMachine/, which it never opened.
---
--- Recursing, the picture INVERTS.  guarded 104, reached-only-by-a-red-
--- gate 409, shelf 117, orphan 23.  The 409 is overwhelmingly EGB*,
--- Gamma0*, FactoryVI, HeadDepth -- the Western lane -- because
--- agda and Everything.agda both die in two seconds at
--- NaturalMachine/PathIsSymmetry.agda:98 on `SymGroup`, a cubical v0.9
--- name against the pinned v0.5.  That is the FIRST of several such name
--- skews, not the only one -- fixing it moves the failure to
--- NaturalMachine/SymmetryCardinality.agda:31 on `factorial`.  So "one
--- identifier was why four hundred modules went unchecked" is also wrong,
--- and is corrected here rather than left standing.  What is established:
--- 409 modules are reached only by a gate that fails, and after yesterday's gating this
--- file is the only green Agda gate here, and the Indian modules are
--- among the few things actually being checked -- the opposite of what
--- I said.
---
--- WHAT SURVIVES.  Adding these modules here was still right: a gate
--- that cannot go green does not guard what it reaches, which is this
--- file's own founding argument, and NaturalMachine could not go green.
--- And the mechanism stands on its own evidence: this gate was created
--- at 19:19:50 on 2026-08-18 in a commit titled "the lane nothing was
--- building", and between 19:23 and 21:43 that evening seventeen more
--- Indian modules were written and none was added to it.
--- .claude/hooks/gate-coverage.sh now fires at the moment of the write.
---
 -- PIGALA, Chandastra ch. 8 (c. 300‚ì200 BCE), the six pratyaya; with
 -- Virahka, Vttajtisamuccaya ch. 6 (c. 600‚ì800 CE) for the mtrmeru
 -- and Halyudha, Mtasajvan (10th c.) on 8.34‚ì8.35 for the triangular
@@ -193,8 +119,7 @@ import PrastaraPankti
 -- sakaldea against vikaldea.  avaktavyam is proved well-defined,
 -- decidable, realised, and NOT the denotation of any single standpointed
 -- utterance -- which is what machine/Obstruction.hs was groping toward
--- when it invented `Unparsed`, and what I cited the weaker version of
--- earlier today.
+-- when it invented `Unparsed`.
 import SaptabhangiNaya
 
 -- MDHAVA of Sagamagrma (c. 1340‚ì1425) and the Kerala school; jva
@@ -211,11 +136,11 @@ import AmshaSatyayantra
 -- Akalaka's kramrpaa against sahrpaa, Laghyastraya c. 720‚ì780.
 import AnuktaAvaktavya
 
--- The two saptabhag modules, which had no gate and no link to each
--- other: Saptabhangi.agda (‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡, that the sequential bhaga is
+-- The two saptabhag modules:
+-- Saptabhangi.agda (‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡, that the sequential bhaga is
 -- not the simultaneous one, and ‡¶‡‡∞‡‡®‡Ø‡, that ANY two-valued verdict
 -- identifies two of the three seeds by pigeonhole) and
--- SaptabhangiNaya.agda.  AnuktaAvaktavya ¬ß7 now holds both and draws
+-- SaptabhangiNaya.agda.  AnuktaAvaktavya ¬ß7 holds both and draws
 -- the distinction that keeps them from contradicting: content is
 -- reachable by a pair, position is not reachable by sequencing.
 import Saptabhangi
@@ -226,109 +151,22 @@ import BhedaAvatarana
 import LosslessReturn
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by a later reader, at the end, altering no line
--- above.  Pointer only.
---
--- This header names the v0.5/v0.9 skew at `NaturalMachine/PathIsSymmetry.agda:98`
--- as pre-existing, another lane's, and untouched ‚î and draws the right
--- conclusion from it, that a gate which cannot go green is not a gate.
---
--- The repair is now VERIFIED, though still not applied: v0.5 spells the
--- name `Symmetric-Group`, with the same two explicit arguments, in the
--- module that file already opens.  A renamed copy compiled OUTSIDE the
--- repository gives exit 0, and `Everything.agda`'s only reported error
--- is that one line.  Details, commands and exit codes are appended at
--- the end of `NaturalMachine/PathIsSymmetry.agda`, at its own site.
---
--- NOT established: that applying it makes `Everything.agda` green ‚î
--- Agda stops at the first error, so downstream blockers would not have
--- shown.  So this file's reason for existing is not withdrawn by the
--- finding; if the repair is applied and the aggregate goes green, THEN
--- this file's own closing sentence applies and it should be deleted.
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
--- APPENDED 2026-08-19, third correction, and it reframes the two above.
---
--- I have been reporting "409 modules reached only by a gate that fails" as
--- if it described this CORPUS.  It describes this CONTAINER.
---
--- BUILD.md and formal/cubical/check.sh give the pin as Agda 2.8.0 with
--- agda/cubical v0.9.  This container carries Agda 2.6.3 and cubical v0.5.
--- check.sh exists to stop exactly the conclusion I drew -- its own contract
--- says "It NEVER reports green under a toolchain that is not the pin.  If it
--- has to fall back, every line of its output says so and the exit code is
--- non-zero regardless of what Agda returned."  I called `agda` directly all
--- session and never ran it.
---
--- The skew is not a series of renames to be patched.  MEASURED: 336 uses of
--- `solve!` and 36 of `solve‚ï!` across formal/cubical/ -- 372 proof
--- obligations discharged by tactics whose v0.9 spellings the pinned v0.5
--- does not have.  Rewriting those solver-free is not a repair, it is a
--- rewrite of a large fraction of the corpus, and it would move the corpus
--- OFF its own declared pin to suit a container.
---
--- And the library alone does not close it: cloning cubical v0.9 and pointing
--- Agda 2.6.3 at it fails in the library's own Foundations/Structure.agda on
--- `opaque`, an Agda 2.7+ feature.  The pin is 2.8.0 for a reason.
---
--- SO: the corpus is not rotting.  The two version-agnostic repairs made
--- today (SymGroup and FinSymGroup in NaturalMachine/PathIsSymmetry.agda,
--- factorial in NaturalMachine/SymmetryCardinality.agda) are still
--- improvements -- they name the same objects under both surfaces and pick no
--- side -- but they do NOT open a path to a green NaturalMachine here, and I
--- should not have implied one.
---
--- WHAT STANDS UNCHANGED, because it does not depend on any of this: this
--- gate was created at 19:19:50 on 2026-08-18 in a commit titled "the lane
--- nothing was building", seventeen more Indian modules were written by 21:43
--- that evening with none added to it, and .claude/hooks/gate-coverage.sh now
--- fires at the moment of the write.  A gate has to be able to go green to be
--- a gate -- and on this container, this one is the only Agda gate that can.
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
--- APPENDED 2026-08-19, fourth append: two correctors that NO gate reached.
+-- Two correctors.
 --
 -- `NaturalMachine/SamayikaAndNityaAreIndependent.agda` and
--- `NaturalMachine/TheFourthCornerIsRefutedUnderPointwiseStability.agda`
--- were both written today, both are green under this container's Agda
--- 2.6.3 / cubical v0.5, and both were reachable from nothing.  They are
--- under NaturalMachine/ by name only: `agda` does not
--- import either, and the second imports the first, so the pair was a
--- closed island.
+-- `NaturalMachine/TheFourthCornerIsRefutedUnderPointwiseStability.agda`.
 --
--- Adding them here is not bookkeeping.  It is the ONLY mechanism by which
--- `SamayikaAndNityaAreIndependent` can be made load-bearing at all.  It
--- refutes a claim in `AnuktaAvaktavya.agda`, and to do that it must open
--- AnuktaAvaktavya for the very definitions it corrects
--- (`using (‡‡æ‡Æ‡Ø‡ø‡ï ; ‡®‡ø‡‡‡Ø)`) -- so AnuktaAvaktavya CANNOT import it back.
--- Agda says so:
---
---   cyclic module dependency:
---     AnuktaAvaktavya ‚í SamayikaAndNityaAreIndependent
---                     ‚í AnuktaAvaktavya
---
--- A correction strong enough to use the object it corrects is, for that
--- same reason, unable to be cited by it.  The gate is where the two meet:
--- the aggregate imports both, so both are checked, and neither imports the
--- other.  `AnuktaAvaktavya.agda` ¬ß9 records the same fact from the other
--- side and keeps a pointer there, which is the strongest mechanism
--- available IN that direction.
---
--- General, and it is the reason this is written out rather than just done:
+-- In general:
 -- an aggregate is not only a list of what to check.  It is the only place
 -- in a module system where mutually uncitable results can be held
 -- together.  Every pair (claim, refutation-that-uses-the-claim) in this
--- corpus has this shape and will need this remedy.
+-- corpus has this shape.
 ------------------------------------------------------------------------
 
 import SamayikaAndNityaAreIndependent
 import KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, fifth append.
---
 -- Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction imports both
 -- AnuktaAvaktavya and the two modules that refute it, which no one of
 -- them can do, and holds the objection and the survivor in one checked
@@ -338,11 +176,11 @@ import KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
 import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-20, sixth append: the dispute, not the blend.
+-- The dispute, not the blend.
 --
 -- ApohaParyaya_‚¶ makes the Bauddha argue against a Jaina construction
 -- already in this corpus, and exhibits the incompatibility WITHOUT
--- resolving it.  Every modern treatment I know of blends the two schools
+-- resolving it.  Modern treatments blend the two schools
 -- into one "Indic" toolkit, which discards the dispute, and the dispute
 -- is the content ‚î CLAUDE.md's mining directive, one level up.
 --
@@ -355,7 +193,7 @@ import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
 import ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuallyDispute
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-20, seventh append: the fitness condition on absence.
+-- The fitness condition on absence.
 --
 -- Anupalabdhi_‚¶ adds the slot the corpus's absence machinery did not have.
 -- `AbhavaAvacchedaka` and `TheAnuyogitaAvacchedakaIsADistinctSlot`

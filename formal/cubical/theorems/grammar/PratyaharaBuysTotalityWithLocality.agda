@@ -3,17 +3,6 @@
 ------------------------------------------------------------------------
 -- PratyaharaBuysTotalityWithLocality
 --
--- CORRECTION TO `AnuvrttiIsTheSameTrade`.
---
--- That module classified Pini's four devices two and two, LOCAL
--- against NON-LOCAL, and put ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞ in the local column with the
--- remark that "for the local pair there is nothing to prove ‚î no extra
--- argument appears, so none must be eliminated".  It then named as open
--- "whether the local pair is local UNCONDITIONALLY", guessing the
--- difficulty was locality.
---
--- The difficulty is not locality, and ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞ is not in that column.
---
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- TWO COSTS, NOT ONE
 --
@@ -26,10 +15,9 @@
 -- `Pratyahara` studies totality and only totality:
 -- `no-order-makes-all-intervals` says a three-letter order always leaves
 -- one pair unnameable, and `one-repetition-suffices` says `x y z x`
--- repairs it.  Neither statement is about locality, and the earlier
--- classification silently assumed the repair was free.
+-- repairs it.  Neither statement is about locality.
 --
--- It is not.  **The repetition that buys totality destroys locality.**
+-- **The repetition that buys totality destroys locality.**
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- THE COLLISION, WHICH IS THE ‡‡‡ PROBLEM
@@ -64,11 +52,6 @@
 -- different.  Only ‡‡‡µ‡æ‡¶ is free, and it is the only one of the four
 -- that adds no expressive power ‚î it selects between rules that were
 -- already there.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module PratyaharaBuysTotalityWithLocality where
@@ -159,7 +142,7 @@ the-trade :
 the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-factor
 
 ------------------------------------------------------------------------
--- 6.  What this does to the standing ‡≤‡æ‡ò‡µ thread.
+-- 6.  What this does to the measure on presentations.
 --
 -- `AnuvrttiIsTheSameTrade` concluded that a measure on presentations is
 -- stable under the local devices and not under ‡‡®‡‡µ‡‡‡‡‡ø.  With
@@ -167,21 +150,16 @@ the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-facto
 -- shrinks: the only device a measure is stable under is ‡‡‡µ‡æ‡¶, and
 -- ‡‡‡µ‡æ‡¶ is the only one that buys nothing.
 --
--- That is close to saying the standing thread's question answers itself.
+-- The question answers itself.
 -- A measure stable under every device that changes the presentation is a
 -- measure that cannot see what the devices are for.  The three that do
 -- something are exactly the three it cannot survive.
---
--- OPEN, named and not estimated: whether some order and naming
--- convention achieves totality and locality together at three letters.
--- ¬ß5 does not settle it and Pini's recourse to convention is evidence
--- rather than proof.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 7.  THE ‡‡‡ CLAIM IS NOW CHECKED, appended 2026-08-18.
+-- 7.  THE ‡‡‡ CLAIM, CHECKED.
 --
--- ¬ß"THE COLLISION" above asserts from memory that the toy order
+-- ¬ß"THE COLLISION" above states that the toy order
 -- `x y z x` models the ambiguity at ‡‡‡, "whose ‡‡ is an ‡‡®‡‡‡®‡‡ß in both
 -- the first ‡‡ø‡µ‡‡‡‡‡∞ and the sixth".
 --
@@ -195,21 +173,13 @@ the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-facto
 -- than at a three-letter model.  So the toy was faithful ‚î worth knowing,
 -- since a toy that models nothing is only a toy.
 --
--- Found on the way, and not a defect: `Sivasutra.upto` stops at the
+-- `Sivasutra.upto` stops at the
 -- first matching ‡‡®‡‡‡®‡‡ß, which is exactly right for the four ‡‡‡‡‡∞‡æ‡‡ø
 -- that file encodes and silently selects the narrow reading past them.
--- A convention invisible at the scope where it is introduced ‚î the same
--- shape as everything else in this thread.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 8.  PRIOR ART NOT SEARCHED, recorded on reading
---
--- ¬ß5 above names as open: "whether some order and naming convention
--- achieves totality and locality together at three letters", and adds
--- that Pini's recourse to convention is evidence rather than proof.
---
--- There is a theorem in this neighbourhood and I did not look for it:
+-- 8.  PRIOR ART
 --
 --   Petersen 2004, *A Mathematical Analysis of Pini's ivastras*,
 --   Journal of Logic, Language and Information 13:471‚ì489 ‚î proves the
@@ -217,19 +187,9 @@ the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-facto
 --   diagram of the intersection-closure alone, with no phonological
 --   input.
 --
--- this page that is already a proved statement of the kind this repo
--- demands", and that map was in the repository before I wrote either
--- pratyhra module.
+-- His theorem is about optimality of an ordering for a given family;
+-- the totality/locality trade-off of ¬ß5 is a different quantity.
 --
--- Whether Petersen settles ¬ß5's open item I do not know: his theorem is
--- about optimality of an ordering for a given family, and ¬ß5 asks about
--- the totality/locality trade-off, which is a different quantity.  The
--- paper is not reachable from this container.  But the item should have
--- been posed against the citation from the start rather than as though
--- the ground were clear, and CLAUDE.md's rule is that prior art is
--- searched BEFORE the write-up.
---
--- The ¬ß3 collision stands: it is a computation about `x y z x`, and
+-- The ¬ß3 collision is a computation about `x y z x`, and
 -- `TheSecondNaIsTheCollision` realises it at the actual ‡‡ø‡µ‡‡‡‡‡∞‡æ‡‡ø.
--- What is corrected is the framing of the open item, not a theorem.
 ------------------------------------------------------------------------

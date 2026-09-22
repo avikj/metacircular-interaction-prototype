@@ -14,7 +14,6 @@
 -- field � the Liouville sign (1−λ)/2 is EXACTLY the charge-one projector:
 -- parity, which forgets almost everything on unrestricted integers, is
 -- informationally complete once the charge support has two points.
--- Receiving audit: `notes/FACTORY_IV_CHEN_CORNER_AUDIT.md`.
 --
 -- WHAT THIS MODULE PROVES (no holes, no postulates, --safe):
 --
@@ -49,17 +48,6 @@
 -- separate the world from its gauge flip.  Factory IV's "asymptotic
 -- even-charge saturation" and this corpus's parity collision are one
 -- statement, and this module is the identification.
---
--- NOT claimed: Chen's theorem, Maynard's theorem, or any inhabitation of
--- the envelope � those are cited analytic inputs and the envelope here is
--- a HYPOTHESIS on a query, not a theorem about integers.  Not claimed
--- either: any quantitative anti-saturation.  The audit note records that
--- Factory IV's δ-target must be posed on the factor-truncated Chen set
--- (its §IV as stated on the unrestricted envelope is unachievable for
--- reasons independent of twins), and that on the truncated set δ is the
--- classical sieve-constant deficit.  Nothing in this module touches that
--- estimate; this module fixes exactly what the estimate would have to
--- overcome.
 ------------------------------------------------------------------------
 
 module NaturalMachine.ChenProjector where

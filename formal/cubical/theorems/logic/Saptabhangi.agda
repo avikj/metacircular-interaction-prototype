@@ -175,7 +175,7 @@ data ‡§â‡§™‡§∏‡•ç‡§•‡§ø‡§§‡§ø : Type where
 -- ‡‡ô‡‡ó‡Ø‡ã‡ ‡‡‡Ø‡ã‡ó‡ ‡‡Æ‡, ‡‡∞‡‡‡ø ‡‡‡∞‡‡‡Ø‡®‡‡‡∞‡‡‡æ‡µ‡‡ ‡¶‡‡µ‡ ‡‡ô‡‡ó‡ ‡‡Æ‡ ‡  ‡‡‡ ‡‡‡‡‡‡ô‡‡ó‡
 -- ‡‡‡∞‡ø-‡‡‡Ø‡ã‡ó‡‡‡ ‡µ‡ø‡‡‡µ‡‡‡‡‡Ø‡æ ‡®‡ø‡µ‡ø‡‡‡ ‚î ‡‡‡‡ ‡‡‡‡ï‡ ‡‡‡Ø‡ã‡ó‡æ‡, ‡® ‡®‡‡Ø‡‡®‡æ‡ ‡
 --
--- (The faithful embedding the header claimed in prose, now a term: ‡µ‡‡‡‡‡Æ‡
+-- (The faithful embedding, as a term: ‡µ‡‡‡‡‡Æ‡
 --  (a section) already forces injectivity ‚î equal profiles give, through
 --  ‡‡‡∞‡‡‡Ø‡®‡‡‡∞‡‡‡æ‡µ, equal bhagas.  So the seven predications occupy seven
 --  DISTINCT presence-profiles; none collapse.)

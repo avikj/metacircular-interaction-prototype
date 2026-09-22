@@ -39,16 +39,11 @@
 -- TERM.  ‡‡‡ / ‡‡µ‡‡‡ ‚î remainder.  ryabhaa, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡ ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡©
 -- (499 CE), the kuaka: **‡‡‡‡ ‡∞‡ï‡‡** ‚î *keep the remainder* ‚î and
 -- recurse on it.  The instruction that the discarded part is the object.
--- LIMIT: ryabhaa states a procedure for solving linear congruences and
--- proves nothing below; no source states a fiber, a type, or an
--- equivalence.  What is claimed is that the set his procedure's
+-- The set his procedure's
 -- remainder ranges over IS the fiber of the residue map, which is a fact
 -- about `Cubical.Data.Nat.Mod`'s definitions.  The European name for the
 -- procedure is the "extended Euclidean algorithm", a restatement, named
 -- after the source and as one.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Avaresidue_TheResidueMapsFiberIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt where

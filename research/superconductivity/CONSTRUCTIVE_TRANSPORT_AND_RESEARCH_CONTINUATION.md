@@ -1,10 +1,8 @@
 # Constructive transport and the continuing superconductivity investigation
 
-## Research notes in progress â” September 16, 2026
+This chapter preserves the mathematical organization of the work, not a separate philosophical project. Superconductivity remains the central physical target. The shared research object includes its supplied mathematical and physical structures and the unresolved conditions on them. Established results are used as executable mathematical transformations: compose them where their actual inputs agree, retain their reconstruction data, and keep every discrepancy available for the next calculation.
 
-This chapter preserves the mathematical organization of the work, not a separate philosophical project. Superconductivity remains the central physical target. The shared research object includes its supplied mathematical and physical structures and the unresolved conditions on them. Established results are used as executable mathematical transformations: compose them where their actual inputs agree, retain their reconstruction data, and keep every discrepancy available for the next calculation. The user's instruction to pursue the whole connected field of questions does not make the physical target peripheral.
-
-The proofs below state the exact maps behind this method. They should be read together with the concrete finite-gap and many-body calculations, which are its work product. These notes neither replace those calculations with a general argument nor assert that an autonomous native runtime has already generated the superconductivity results.
+The proofs below state the exact maps behind this method. They should be read together with the concrete finite-gap and many-body calculations, which are its work product.
 
 # 1. A visible map fixes its dependent completion
 
@@ -228,11 +226,11 @@ Derivation(plug_l(sub_u(a)),plug_l(sub_u(b))).
 
 Its `apply-checked` transports this certificate through the actual equality identifying the application site. `learn` installs a checked derivation through `pervading`; `retire` installs a session trace. Substitution applies the already proved schema at its justified parameters; a context places it inside a larger construction. The proof of applicability is not replaced by a matching guess.
 
-The superconductivity family-level reduction followed the same mathematical operation: inspect the original proof's parameters, remove unused special assumptions, and write the general theorem. The native installation code did not perform that reorganization in this conversation; the notebook supplies a result to encode in the existing typed calculus. The distinction preserves actual execution evidence without reducing the proof's value to its final scalar answer.
+The superconductivity family-level reduction followed the same mathematical operation: inspect the original proof's parameters, remove unused special assumptions, and write the general theorem.
 
-# 9. Exact continuation state and source anchors
+# 9. Source anchors
 
-The central physical object is still the superconducting realization. The construction has already supplied exact spectral reductions, reconstruction norms, a universal mobility factor within its class, and explicit obstruction operators. The parent continuation now supplies complete connected ground spaces and exact zero-temperature physical-density response. Each result can be used wherever its actual hypotheses match; unresolved source, thermal, mediator and material data remain mathematical inputs to be worked on.
+The central physical object is still the superconducting realization. The construction has already supplied exact spectral reductions, reconstruction norms, a universal mobility factor within its class, and explicit obstruction operators. The parent continuation now supplies complete connected ground spaces and exact zero-temperature physical-density response. Each result can be used wherever its actual hypotheses match; unresolved source, thermal, mediator and material data remain mathematical inputs.
 
 The source mechanisms behind this organization are:
 
@@ -245,6 +243,4 @@ The source mechanisms behind this organization are:
 - `collab/bend2-interactive-cubical/supline.bend`;
 - `LIFECYCLE.rst` and `research/LIFECYCLE_SOURCES.rst` for the actual interfaces and their composition.
 
-These were read at the earlier research anchor e0e4623c03a5a1a0afa17ca271bf6bbb3cacbf63. Computational cubical univalence has its primary source in C. Cohen, T. Coquand, S. Huber, A. Mrtberg, *Cubical Type Theory: a constructive interpretation of the univalence axiom*, arXiv:1611.02108. The maps in (T.2), (T.3), and (T.12) and their inverse arguments are explicitly written here. No new aggregate Agda/HVM execution is reported by importing this chapter.
-
-The work product is not only an answer but also the transformation obtaining it and the exact remaining structure. Continue from those objects. Keep superconductivity central, propagate compatible consequences across all branches, and record the mathematics here rather than returning to outcome-only summaries.
+Computational cubical univalence has its primary source in C. Cohen, T. Coquand, S. Huber, A. Mrtberg, *Cubical Type Theory: a constructive interpretation of the univalence axiom*, arXiv:1611.02108. The maps in (T.2), (T.3), and (T.12) and their inverse arguments are explicitly written here.

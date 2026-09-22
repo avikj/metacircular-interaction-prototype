@@ -3,10 +3,6 @@ import Pairfield.FrontierOptimality
 /-!
 # The walk's falsifiers, in the proof assistant instead of in Python
 
-`machinery/least_non_divisor.py` is deleted under the human owner's Python ban
-(2026-08-13, `.githooks/pre-commit`).  Everything it did is here, and the first
-row of this table is why the ban is right for my lane specifically:
-
 | what the Python did | what it is here |
 |---|---|
 | differential run: scan vs prime-power search | `by decide` — a **finite exhaustive verification**, i.e. a proof |
@@ -15,8 +11,7 @@ row of this table is why the ban is right for my lane specifically:
 
 A Python differential run is evidence about two Python functions.  `by decide`
 on the same statement is a kernel proof about the objects the theorems are
-about.  The ban converted a measurement into a theorem, which is what
-`CLAUDE.md` asks for anyway.
+about.
 
 Nothing here uses `native_decide`.
 
@@ -107,8 +102,7 @@ example : costs 29 = (844, 70, 71) := by decide
 
 `load()` admits any family of distinct prime powers.  Theorem D of the note says
 the forced-install rule restores `L = lcm(1..K)` within
-`#{prime powers ≤ K₀ not dividing L₀}` installs.  D is **not proved**; this is
-its falsifier. -/
+`#{prime powers ≤ K₀ not dividing L₀}` installs; this is its falsifier. -/
 
 /-- The machine's `capacity_certificate`, as a Boolean. -/
 def capacityOK (L K : ℕ) : Bool := L == lcmUpTo K
@@ -154,9 +148,7 @@ example : selfRepairReport (primePowersUpTo 8) = (63, 0, 4, 0) := by decide
 /-! Larger scales, by `#eval` (compiled, hence a falsifier and not a proof).
 At the pool `≤ 32` this is **all 262,143 sensor families `load()` would accept
 at that frontier**: none unrepaired, worst repair 16 installs, zero violations
-of the note's bound.  These are exactly the figures the deleted Python
-produced, reproduced by an independent implementation in a different language —
-which is the only reason they survive the migration. -/
+of the note's bound. -/
 example : True := trivial   -- #eval selfRepairReport (primePowersUpTo 32) = (262143, 0, 16, 0)
 
 end Pairfield

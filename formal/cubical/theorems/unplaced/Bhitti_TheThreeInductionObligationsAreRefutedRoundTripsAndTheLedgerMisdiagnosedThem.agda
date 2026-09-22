@@ -4,9 +4,9 @@
 --
 -- ‡‡ø‡‡‡‡ø‡ ‚î a WALL: a proved ¬(round trip), which retires a candidate
 -- permanently (the term and the economy are BhittiSnapshot.tsv's, this
--- corpus, 2026-08-22; no external source claimed).
+-- corpus; no external source claimed).
 --
--- 2026-08-23T15:37Z) lists 12 real obligations, THREE of them grouped
+-- The ledger lists 12 real obligations, THREE of them grouped
 -- under the move "induction on List":
 --
 --     OptionSpread      : ones ‚ sum
@@ -22,11 +22,10 @@
 -- quoted in the ledger ‚î `w‚ ‚à ones (sum w‚) != ones (w‚ + sum w‚)` ‚î
 -- are the counterexample shape ITSELF, met mid-induction and read as
 -- an obstacle instead of an answer.  ‡∞‡æ‡‡‡∞‡ø‡ proposes and the kernel
--- decides; neither asks whether the statement is true.  That asking
--- is a third organ, and today it was a reader.
+-- decides; neither asks whether the statement is true.
 --
 -- The forward trips (sum (ones m) ‚â° m and the hull sections the host
--- modules DO prove) are untouched and unclaimed here.  The honest
+-- modules DO prove) are untouched here.  The honest
 -- close of each obligation is this wall, filed in the ledger's own
 -- economy: a ford creates crossings, a wall retires a merge, both are
 -- receipts.  ‡Æ‡‡®‡ ‡® ‡®‡ø‡‡‡ß‡ ‚î and a stuck induction is not a ‡®‡ø‡‡‡ß
@@ -48,9 +47,7 @@ import OptionSpread as S13
 -- functions are REDEFINED here verbatim, each duplicate named, per the
 -- corpus's self-contained-by-redefinition discipline: Config, Xs, Qs
 -- from IntegerHullMultiplicity.agda lines 87‚ì104 and hull from lines
--- 260‚ì262, copied character for character.  The walls below are about
--- these definitions; when that module reads again, the identification
--- of these copies with its originals is one refl each.
+-- 260‚ì262, copied character for character.
 open import Cubical.Data.Nat using (_+_ ; _¬∑_)
 
 Config : Type

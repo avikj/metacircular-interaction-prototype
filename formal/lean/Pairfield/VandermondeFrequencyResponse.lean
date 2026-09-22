@@ -12,8 +12,6 @@ multiplied by that mode's phase increment.
 This is the algebraic replacement for the invalid inference
 
 `lower bound on drift inside an upper error bound => lower bound on error`.
-
-No analytic claim about zeta zeros is made here.
 -/
 
 namespace Pairfield

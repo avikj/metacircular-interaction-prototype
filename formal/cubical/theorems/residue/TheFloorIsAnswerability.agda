@@ -39,9 +39,6 @@
 -- `WitnessNumberCanBeInfinite` drops it further and gets no number at
 -- all; ¬ß3 here drops answering and gets 1.  The four cases exhaust the
 -- possibilities the two capacities allow.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheFloorIsAnswerability where
@@ -145,13 +142,6 @@ three-is-answerable x = missing‚ÇÅ x .fst , missing‚ÇÅ x .snd .fst
 -- spaces contain constants, and it fails ‚î with witness number dropping
 -- to 1 ‚î as soon as some point is answered by no decoder at all.
 --
--- CORRECTED.  Four modules describe their floor as holding "with no
--- hypothesis at all" or "no hypotheses".  Each is correct AT ITS SITE,
--- since each site's decoder space is a function space into an inhabited
--- type; none is correct in general.  The phrase was doing the work of
--- an unstated lemma, which is the same error this corpus's protocol is
--- written against, in miniature.
---
 -- WHAT IT MEANS.  A point no decoder answers is an absence with a single
 -- witness ‚î the nearest thing this measure has to a BARE absence, which
 -- `Abhava` forbids in its own setting.  Here it is not forbidden but it
@@ -167,8 +157,6 @@ three-is-answerable x = missing‚ÇÅ x .fst , missing‚ÇÅ x .snd .fst
 -- not been checked.
 ------------------------------------------------------------------------
 
-------------------------------------------------------------------------
--- 6.  CORRECTION to ¬ß4, appended the same day.
 --
 -- ¬ß4 lists "the four cases" of two capacities and calls them exhaustive.
 -- They are not four cases of two binary capacities: the third row

@@ -3,14 +3,9 @@
 ------------------------------------------------------------------------
 -- LowestTerms_ADivisorOfAUnitInTheIntegersIsPlusOrMinusOneSoTheStandardConvergentsAreInLowestTerms
 --
--- Closes the absence stated in
--- `EveryCommonDivisorOfAConvergentDividesTheDeterminant`, which says:
---
---   "SYT â” THE CLAIM, EXACTLY.  NOT that the convergents are in lowest
---    terms.  That needs "a divisor of Â1 in â is Â1", a classification
---    of units which is NOT proved here and NOT imported.  Â§2 stops
---    exactly where the algebra stops: the common divisor divides a
---    unit.  Calling that "coprime" would be asserting the missing step."
+-- The classification of units of â„¤ (a divisor of Â±1 is Â±1), and its
+-- consequence for the standard convergents of
+-- `EveryCommonDivisorOfAConvergentDividesTheDeterminant`.
 --
 -- WHAT IS PROVED HERE.
 --
@@ -31,13 +26,9 @@
 -- (d divides x  =  Î c. x â‰¡ c Â d), imported, not redefined, so Â§4 is
 -- stated in exactly its terms.
 --
--- WHAT IS NOT PROVED HERE.  Nothing about the third face (COMPLETE):
--- this module says nothing about where the vall comes from or that it
--- terminates.  "Lowest terms" here means precisely: every common divisor
+-- "Lowest terms" here means precisely: every common divisor
 -- of numerator and denominator is a unit of â, and the units of â are
 -- exactly Â1.  No gcd is computed and no B©zout witness is produced.
---
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module LowestTerms_ADivisorOfAUnitInTheIntegersIsPlusOrMinusOneSoTheStandardConvergentsAreInLowestTerms where
@@ -92,7 +83,7 @@ unitIsPosOneOrNegsucZero = unitIsPlusOrMinusOne
 ------------------------------------------------------------------------
 -- 3.  A divisor of Â1 is Â1
 --
--- This is the sentence the earlier module names as missing.  From
+-- From
 -- u â‰¡ c Â d and abs u â‰¡ 1 we get abs d Â abs c â‰¡ 1, so abs d â‰¡ 1.
 ------------------------------------------------------------------------
 

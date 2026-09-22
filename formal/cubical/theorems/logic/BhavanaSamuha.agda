@@ -16,9 +16,7 @@
 -- ‡ï‡∞‡‡-‡‡ø‡¶‡‡ß‡ : ‡µ‡æ‡Æ-‡¶‡ï‡‡‡ø‡-‡‡‡‡‡Æ‡‡æ (‡‡‡Ø‡ã‡ó N (1,0) = ‡‡‡ ‡‡µ) , ‡µ‡‡Ø‡‡‡‡ï‡‡∞‡Æ‡
 -- (‡‡‡Ø‡ã‡ó N (a,b)(a,‚àíb) = (‡Æ‡æ‡® N a b, 0) , ‡‡‡ ‡Æ‡æ‡®‡ ‡ß ‡‡‡‡ ‡‡ï‡ï‡Æ‡) ‡  ‡‡æ‡‡‡∞‡‡Ø‡‡
 -- ‡‡ ‡‡‡∞‡‡‡ ‡‡Æ‡‡-‡®‡ø‡Ø‡Æ‡ ‚î ‚[‚àN]-‡ó‡‡‡®‡Æ‡ ‡
--- (formerly identity and inverse were called "clear" but not proved ‚î that
--- was an avaktavya, an assertion standing in for a proof.  Both are now
--- kernel-checked: left/right identity (1,0), and the conjugate inverse
+-- (left/right identity (1,0), and the conjugate inverse
 -- (a,‚àíb) composing to (‡Æ‡æ‡® N a b, 0), the identity exactly when the norm is
 -- 1.  With associativity, the full group law of ‚[‚àN].)
 ------------------------------------------------------------------------

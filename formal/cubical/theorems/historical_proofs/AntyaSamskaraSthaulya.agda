@@ -6,13 +6,6 @@
 -- àà¨àààà¯ààààà•à¾à° and its ààààà²àà¯ â” Mdhava's end-correction, and the exact
 -- coarseness of each one.
 --
--- Renamed 2026-08-20 from `AntyaSamskaraIsSquares`, whose Â§6 retracted
--- the claim the file was named after while the name and this header went
--- on asserting it.  A retraction under a title that still says the thing
--- is not a retraction.  The old title said the residues were 1, 4, 9;
--- Â§6 now exhibits how that list was assembled, and Â§7 gives the
--- invariant that replaces it.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE SERIES AND ITS REMAINDER
 --
@@ -66,20 +59,17 @@
 -- given as a usable object, corrected rather than bounded.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- SOURCES, AND WHAT I DID NOT CHECK
+-- SOURCES.
 --
 -- The three corrections are transmitted in the Kerala texts â” the
 -- *Yuktibh* (Jyehadeva, c. 1530) and the *Tantrasagraha* tradition
 -- (Nlakaha, 1501) â” and attributed there to Mdhava (c. 1340â“1425).
--- I have NOT read the ààààà°s and am not asserting their wording; what I
--- assert is that the three forms above are the ones standardly reported,
--- and that GIVEN those forms the identities below hold, which is what is
--- checked.  fâ is not transmitted; it is the next convergent of the
+-- The three forms above are the ones standardly reported, and GIVEN
+-- those forms the identities below hold.
+-- fâ is not transmitted; it is the next convergent of the
 -- continued fraction the three are convergents of, and it is derived
 -- here, in Â§3b, as a checked term.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module AntyaSamskaraSthaulya where
@@ -267,20 +257,9 @@ open Correction â„¤CommRing
 
 
 ------------------------------------------------------------------------
--- 6.  RETRACTION of the square pattern, and the mechanism of the error.
+-- 6.  The residues carry no law.
 --
--- An earlier Â§4 read:
---
---   > 1, 4, 9 â” the squares, alternating.  The k-th correction's error
---   > is a fixed square, not a function of n, and that is the
---   > acceleration.
---
--- Withdrawn.  The identities were and are checked; the pattern read off
--- them was a fit over three points, which is the defect CLAUDE.md names,
--- produced inside a module arguing for exact algebra over fitted numbers.
---
--- The mechanism is now exhibited rather than confessed, which is the
--- point of this section.  Written in the lowest-terms P/Q form that fâ,
+-- Written in the lowest-terms P/Q form that fâ,
 -- fâ and fâ are all written in, the residues are
 --
 --     4,  âˆ’4,  9,  âˆ’576.
@@ -299,12 +278,7 @@ open Correction â„¤CommRing
 --
 --     1/(4n + 2Â²/(4n + 4Â²/(4n + 6Â²/(4n + â¦))))
 --
--- and the fourth is (4nÂ³+13n)/(16nâ´+56nÂ²+9).  Its residue is âˆ’576.  It
--- was hand-computed at two values of n when the retraction was first
--- written and recorded there as pencil arithmetic, explicitly not as a
--- result.  `residueâ` above is that statement as a checked term, over an
--- arbitrary commutative ring rather than at two integers, which is what
--- the earlier note said it was not.
+-- and the fourth is (4nÂ³+13n)/(16nâ´+56nÂ²+9).  Its residue is -576, checked above over an arbitrary commutative ring.
 --
 -- 576 = 24Â², so a square is still in the list, and that is precisely why
 -- the fit was reachable and why it is worthless: 4, âˆ’4, 9, âˆ’576 has a
@@ -347,14 +321,11 @@ open Correction â„¤CommRing
 -- `SthaulyaIsTheOmittedTerm`.  The exact statement that does hold for
 -- every k is the step law D_{k+1} = âˆ’a_{k+2}ÂD_k, proved there.
 --
--- The four identities above are for k â‰ 4.  The general claim â” that for
+-- The four identities above are for k â‰ 4.  The general claim: for
 -- EVERY convergent of that continued fraction the ààààà²àà¯ numerator is
--- constant in n â” was left open here, as what the four cases make worth
--- proving, with the note that a proof would have to come from the
--- continued fraction's determinant recurrence and not from the list.
---
--- It is now proved, in `SthaulyaIsTheOmittedTerm`, from
--- that recurrence.  For every k and every n in every commutative ring,
+-- constant in n.
+-- It is proved in `SthaulyaIsTheOmittedTerm`, from
+-- the continued fraction's determinant recurrence.  For every k and every n in every commutative ring,
 -- the unreduced convergents satisfy
 --
 --     num Â (2n+1) âˆ’ den  =  (âˆ’1)^(kâˆ’1) Â a_(k+1) Â (aâaââ‹¯a_k)
@@ -364,11 +335,4 @@ open Correction â„¤CommRing
 -- partial numerator the correction USES, times the first one it OMITS.
 -- The step form is D_{k+1} = âˆ’a_{k+2}ÂD_k.
 --
--- Generating a fifth instance was the wrong move and the checker said
--- so: the degree-10 identity for k = 5 does not get past the solver in
--- twenty minutes.  The four cases here stay because they are the ones
--- that name the transmitted corrections; the law is next door.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------

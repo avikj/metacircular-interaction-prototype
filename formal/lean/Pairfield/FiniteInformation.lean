@@ -1,8 +1,7 @@
 /-
 Finite-information kernel for observer/quotient arguments.
 
-The statements are deliberately distribution-free.  Shannon entropy may be
-attached later after choosing a probability law; the algebraic core is simply
+The statements are deliberately distribution-free; the algebraic core is simply
 factorization through an observable and injectivity after adding side data.
 -/
 import Mathlib.Data.Set.Image

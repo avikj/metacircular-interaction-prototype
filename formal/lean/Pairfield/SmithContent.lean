@@ -5,11 +5,11 @@ import Pairfield.GeneralSmith2x2
 
 `GeneralSmith2x2.lean` proves the producer correct but says nothing about
 *which* diagonal it lands on beyond the normal-form side conditions.  The
-missing identification is
+identification
 
-  `(smith A).d₁ = gcd(a₀₀, a₀₁, a₁₀, a₁₁)`,
+  `(smith A).d₁ = gcd(a₀₀, a₀₁, a₁₀, a₁₁)`
 
-listed as open.  This module proves it.
+is proved here.
 
 The mechanism is not the descent at all: the content of a matrix is invariant
 under multiplication by any unimodular matrix on either side, because a

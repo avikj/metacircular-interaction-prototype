@@ -17,7 +17,7 @@
 -- whose forward map is the explicit uddia algorithm (pattern â¦ row
 -- number), whose inverse is the explicit naa halving algorithm (row
 -- number â¦ pattern), and whose round trips are both proved.  That is a
--- LOSSLESS OBSERVATION WITH AN EXPLICIT DECODE â” the positive pole of
+-- LOSSLESS OBSERVATION WITH AN EXPLICIT DECODE,
 -- written down around 300 BCE.
 --
 -- `LosslessLowerBound` carries the other half: any lossless
@@ -53,9 +53,6 @@
 -- algorithm, with its own name.  That is the standard this corpus's
 -- `FactorsThrough` results have mostly not met â” they establish that a
 -- decode exists or does not, and `Pingala.agda` exhibits one.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module PingalaIsOptimal where
@@ -115,7 +112,7 @@ pingala-optimal n Y obs inj =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 4.  The mtr-vtta case, which Â§3's "not claimed" listed as unrun.
+-- 4.  The mtr-vtta case.
 --
 -- `Pingala.matraCount : (n : â•) â’ Iso (Metre n) (Fin (matra n))` is the
 -- same shape for metres of fixed DURATION rather than fixed syllable

@@ -5,14 +5,12 @@
 --
 -- TERM.  ‡‡µ‡‡‡‡‡ø (vtti), repetition / a turning back over the same
 -- ground, and ‡‡‡ (ea), what is left over.  Both are used in their
--- ordinary technical senses and NO STRA IS CLAIMED for anything proved
--- here.  ‡‡‡ in the sense this file uses ‚î the remainder is kept and is
+-- ordinary technical senses.  ‡‡‡ in the sense this file uses ‚î the remainder is kept and is
 -- the material of the next step ‚î is ryabhaa, ryabhaya, ‡ó‡‡ø‡‡‡æ‡¶
--- 32‚ì33 (499 CE), the kuaka; the mathematics below is not his and the
--- header says so rather than borrowing his authority for it.
+-- 32‚ì33 (499 CE), the kuaka; the mathematics below is not his.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS SETTLES, and it was previously settled only by a length.
+-- WHAT THIS SETTLES.
 --
 -- Three files in this repository state one fact about the kernel and
 -- none of them cites another:

@@ -11,7 +11,7 @@
 -- WHAT THE HASKELL DOES.  The scheduler
 -- (`machine/Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition.hs`)
 -- reaches the fourth position, ààµà•àààµàà¯, when several rules contend for one
--- item and no metarule ranks them.  Its `Avaktavya` now carries the residue
+-- item and no metarule ranks them.  Its `Avaktavya` carries the residue
 -- -- the contending offers, entire -- and from that residue a new standpoint
 -- is born: the àà¨àµà•à¾à rule whose whole scope IS the contested item,
 -- declared an apavda to every contender.
@@ -37,9 +37,9 @@
 -- is the formal statement that the machine cannot commit that: given two
 -- contenders whose results differ, the birth is provably `nothing`.
 --
--- WHAT THIS DOES NOT TOUCH.  `Saptabhangi.no-single-vacana` and
+-- `Saptabhangi.no-single-vacana` and
 -- `AnuktaAvaktavya` prove the fourth position is not reachable by krama
--- from the three: it must be SUPPLIED.  Nothing here derives it.  The birth
+-- from the three: it must be SUPPLIED.  The birth
 -- CONSUMES a fourth position -- in the Haskell, `prasava` takes a `Sesa`,
 -- and a `Sesa` exists only where `nirnaya` already returned `Avaktavya`.
 --
@@ -61,17 +61,14 @@
 --     why the child winning BY APAVDA is the strongest verdict available
 --     and not a courtesy.
 --
--- WHAT THE CHECKER SAYS BACK, recorded here rather than left in a terminal.
--- `agda --cubical --safe --no-import-sorts` on this file: EXIT 0, no
--- postulates, no holes, and FOUR `-WUnsupportedIndexedMatch` warnings, on
+-- INDEXED MATCHES.  Four clauses carry `-WUnsupportedIndexedMatch`:
 -- `na-vipakse`, `garbha-jayati`, and the two `with`-generated functions of
--- Â§2.  Each is the same fact: the clause matches on a proof of `_âˆˆ_`, whose
+-- Â§2.  Each matches on a membership proof whose
 -- index forces injectivity of `_âˆ_`, which Cubical Agda does not yet
--- support.  The consequence is precise and worth stating rather than
--- glossing: these functions do not COMPUTE when applied to a transport.
+-- support.  The consequence:
+-- these functions do not COMPUTE when applied to a transport.
 -- They are still theorems, and nothing below depends on reducing them under
--- transport -- but a later module that wants to transport one of these
--- along a path of lists will find it stuck, and should know that now.
+-- transport.
 ------------------------------------------------------------------------
 
 module AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted where

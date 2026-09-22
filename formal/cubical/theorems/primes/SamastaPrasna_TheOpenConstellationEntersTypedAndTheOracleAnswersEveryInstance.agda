@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡Æ‡‡‡-‡‡‡∞‡‡‡® ‚î the open constellation, asked whole.
 --
--- Everything open from this session's frame enters as a type, in one
+-- The open problems of the frame enter as types, in one
 -- module, over one computable toolkit (imported from the RH module):
 --
 --   Goldbach     every even number ‚â 4 is a sum of two primes
@@ -22,7 +22,7 @@
 -- The open problems are exactly the (n : ‚ï) ‚í ‚¶ closures over the
 -- instances: every fibre decidable, the whole section unproven.  That
 -- is the precise shape of this class of open problem, now sitting in
--- the corpus as three uninhabited-so-far types.
+-- the corpus as three uninhabited types.
 --
 ------------------------------------------------------------------------
 
@@ -124,7 +124,6 @@ collatz-at-6 : Œ£[ k ‚àà ‚Ñï ] (citer k 7 ‚â° 1) -- fibre n = 6 of the conjectur
 collatz-at-6 = 16 , refl
 
 -- and one asymmetric fact the oracle computes as easily: 121 is not
--- prime, so the k = 16 survivor at center 105 fails above the wheel ‚î
--- the session's own example, now checked rather than narrated.
+-- prime, so the k = 16 survivor at center 105 fails above the wheel.
 the-survivor-that-fails : primeb 121 ‚â° false
 the-survivor-that-fails = refl

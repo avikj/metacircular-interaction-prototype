@@ -19,8 +19,8 @@
 -- `Unparsed` cannot say it either.
 --
 -- SOURCES, EARLIEST FIRST.  The classification below is theirs.  The
--- algebra (`krama`, `saha`, and the laws in `selfTest`) is not claimed to be
--- in any of them; what is theirs is three seed predicates, two modes of
+-- algebra (`krama`, `saha`, and the laws in `selfTest`) is this module's;
+-- what is theirs is three seed predicates, two modes of
 -- assertion, the rule that the simultaneous mode of asti-and-nasti is a
 -- FOURTH position rather than the sequential pair, and that the total is
 -- seven.
@@ -47,9 +47,9 @@
 --   Mallisena, Syadvadamanjari, 1292 CE โ” sakaladesa (total statement,
 --     pramana) against vikaladesa (partial statement, naya).
 --
--- CHECKED, NOT ASSERTED.  Every law this module states is proved in
+-- Every law this module states is proved in
 -- `formal/cubical/SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`
--- (--cubical --safe, no postulates, no holes, exit 0), and re-verified here
+-- and re-verified here
 -- by exhaustive finite computation over the seven positions in `selfTest`.
 -- Exhaustive verification of a finite predicate is proof (CLAUDE.md); a
 -- correlation would not be.
@@ -89,16 +89,11 @@
 --
 -- So it is NOT reconciled here.  Two nayas that genuinely differ have no
 -- collapse to make (AHIMSA_SUTRA_VISTARA ยง7: it is not forbidden, it does
--- not exist), and what is owed instead is the comparison: whether the
--- forgetful map from records to labels is a homomorphism for krama, for
--- saha, or for neither.  It is not claimed here in either direction,
--- because it has not been checked.
---
--- SETTLED 2026-08-20.  The comparison the paragraph above said was owed is
--- done, in
+-- not exist).  The comparison to make is whether the forgetful map from
+-- records to labels is a homomorphism for krama, for saha, or for
+-- neither.  It is settled in
 -- formal/cubical/Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda
--- (--cubical --guardedness --safe, exit 0, no postulates, no holes) and
--- re-verified exhaustively in the sibling module's `selfTest` as
+-- and re-verified exhaustively in the sibling module's `selfTest` as
 -- `anarpana`.  The answer is BOTH: the forgetful map is a homomorphism
 -- for krama AND for saha, for every standpoint family; it has a section
 -- (Tattvarthasutra 5.31's arpita to its anarpita) which is also a
@@ -120,8 +115,7 @@
 -- lanes is that saha tests the JOINED position for an asti-nasti pair,
 -- and whether that pair is present depends on the grouping.
 --
--- The Mallisena reading is still unsettled, and is now known to be
--- undecidable BY THE COMPOSITION LAWS: the two lanes agree across it, so
+-- The Mallisena reading is undecidable BY THE COMPOSITION LAWS: the two lanes agree across it, so
 -- any argument for a reading that runs through krama or saha proves
 -- nothing.  It is a question about what a position IS.
 --

@@ -36,9 +36,8 @@ the scalar energy marginal identifies states the flux separates; the
 reduced observable does not close.
 
 SYT -- THE CLAIM, EXACTLY. The four statements for the finite signed-flux
-model. NOT claimed: the continuum NS flux, its cubic third-order-increment
-structure, or any bound on it -- that bound IS the Clay problem and is the
-one thing this shadow does not touch. What IS claimed is the structure the
+model.
+What IS claimed is the structure the
 problem must be phrased in. The viscous sink is an additive âˆ’D â‰ 0 that
 only strengthens conservation/boundary-flux; it is not carried in the
 telescoping core.

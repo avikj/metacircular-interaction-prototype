@@ -2,9 +2,8 @@
 
 -- Representation-independent spin-network kinematics.
 --
--- This module does not pretend to formalize SU(2), tensor products, or the
--- LQG Hilbert space.  It isolates the exact finite categorical content which
--- can already be checked over any group action:
+-- This module isolates the exact finite categorical content which
+-- can be checked over any group action:
 --
 --   * an edge label is an honest action of the gauge group on a set;
 --   * a bivalent vertex label is an equivariant map (an intertwiner);

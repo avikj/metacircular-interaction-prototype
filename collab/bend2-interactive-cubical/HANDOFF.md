@@ -1,4 +1,4 @@
-# HANDOFF â” state of the cubical Bend2 work (read this first if you are a fresh agent)
+# HANDOFF â€” the cubical Bend2 work
 
 Everything below is on `main`. The patched compiler lives OUTSIDE the repo in a
 container (`/tmp/Bend2`); to rebuild from the repo:
@@ -49,7 +49,7 @@ higher coherences; knowledge is partial. So EVERYTHING cubical must be a RUNTIME
 object, no erasure, no compile-time normalisation. No overclaiming; verify by
 execution; push/pull main every few minutes; never idle; no questions.
 
-## Where things stand (all verified by execution; see STATUS.md for the table)
+## What is built (all verified by execution; see STATUS.md for the table)
 - Checker: full CCHM layer, general hcompN, hfill, coherent univalence round
   trip, the fibre law A â‰ Î B (fiber f) as a coherent Equiv (`fibrelaw.bend`).
 - `--to-hvm4-full` (Target/HVM4Full.hs, in the patch): intervals, paths
@@ -59,16 +59,16 @@ execution; push/pull main every few minutes; never idle; no questions.
   are all runtime. Verified: chain.bend 12 transports (itrs 134â“1121),
   fibre law present/retrieve/contraction, t_* â” all correct on the net;
   a composite applied at a symbolic interval stays `#HCm{â¦}` and is decided
-  when the interval is (partial knowledge). See RUNTIME_FULL.md (being written).
+  when the interval is (partial knowledge). See RUNTIME_FULL.md.
 - Native DUP-SUP routing confirmed on HVM4: a match commutes over a
   superposition and same-label dups annihilate (probe: `@f(&L{#A,#B},&L{1,2})`
-  â’ branches get 1 and 2). `supline.bend` is the Bend2 test for it (next).
+  â’ branches get 1 and 2). `supline.bend` is the Bend2 test for it.
 
-## Done since: supline.bend (6â“; full runtime &0{0,1}, native routing) and
-isprop_run.bend (5â“; 4-face composite decided at every corner) recorded in
-RUNTIME_FULL.md; STATUS.md updated.
+## supline.bend (6â“; full runtime &0{0,1}, native routing) and
+isprop_run.bend (5â“; 4-face composite decided at every corner) are recorded in
+RUNTIME_FULL.md and STATUS.md.
 
-## Reconciled with parallel agents (latest)
+## Reconciled with parallel agents
 Folded into the patch from other agents: epNormCtx recursing into coe
 (fromPathP), interval idempotence (iSyntEq), and Glue (their parser was missing
 on main â” now in the patch; see GLUE.md). `forced.bend` 44â“, `fpp_fromPathP`
@@ -77,9 +77,9 @@ directory were deleted: cubical-paths.patch is the ONLY source of truth. If
 you see loose .hs files here again, diff them against the patch-applied tree
 and fold real deltas into the patch.
 
-## Kan rules DONE in the checker (uaglue.bend, hcompset.bend; GLUE.md)
+## Kan rules in the checker (uaglue.bend, hcompset.bend; GLUE.md)
 Transport through Glue and hcomp-in-Set-as-Glue are implemented and green.
-Full runtime (--to-hvm4-full) now has the same Kan rules (@coeGlue, hcomp at
+Full runtime (--to-hvm4-full) has the same Kan rules (@coeGlue, hcomp at
 #Set -> #Glue, @transpEquiv); verified uaglue/hcompset on HVM4. Resolved: the
 isprop_run residual-DUP issue (static dup labels; prelude linearized â”
 never `Î»&` a value just because it is used in several match arms).
@@ -127,30 +127,18 @@ Reproduce: `bend bench_X.bend --to-hvm4-full > x.hvm4 && hvm x.hvm4 -s`.
 with a deliberate rejection, register it there. `erasure.bend` (another agent's)
 is one of them: its `tbadResp` fake descent witness MUST be rejected.
 
-## CUBICAL COMPLETENESS: read REMAINING.md (sections A, B, C, E are CLOSED)
-Done since the audit: every type-directed hcomp rule (Pi/Sigma/PathP/Nat/List/
+## CUBICAL COMPLETENESS (see REMAINING.md)
+Every type-directed hcomp rule (Pi/Sigma/PathP/Nat/List/
 discrete/Set/Glue) in checker AND runtime; comp + hfill as core ops with comp
 surface syntax; transp with a cofibration; Partial types with systems and pout;
 Sub types with inS/outS; quotients emitted to the runtime with @qrec; the
 circle S1 as a second HIT (s1base/s1loop/srec â” NOT named base/loop, those are
 ordinary identifiers in the corpus); every traversal exhaustive; JS backend
-fails loudly on cubical terms. Left: a general HIT schema, and the Glue
-composition law (needs face-restricted contexts).
-New files: kan.bend comp.bend transp.bend sub.bend partial.bend circle.bend
+fails loudly on cubical terms.
+Files: kan.bend comp.bend transp.bend sub.bend partial.bend circle.bend
 glue_kan.bend + five _mustfail siblings. Suite 85 files bad=0 via ./suite.sh.
 
-## SUPERSEDED â” the original audit text follows
-Audited against CCHM by reading every traversal and running probes. Headline:
-`coe` is nearly complete; **`hcomp` has no type-directed rules except the
-universe** (Pi/Sigma/Nat/Path all confirmed stuck by probe) â” that is the bulk
-of the work, and it must be written TWICE (whnfHCm and Target/HVM4Full.hs).
-Also missing: transp-with-a-cofibration, comp, Partial and Sub types, any HIT
-beyond the hardcoded SetQuotient. Fixed in this pass: quotient constructors
-were missing from `normal`, `normalCap`, `occursMarker` (hard crashes) and
-`mapSub` (silent wrong substitution). Still crashing: `Collapse.collapse`,
-`Target/HVM.freeVars`, and `--to-hvm4-full` on any quotient.
-
-## THE GENERAL HIT SCHEMA IS DONE (HIT.md) â” Â§D of REMAINING.md closed
+## THE GENERAL HIT SCHEMA (HIT.md)
 At Cubical Agda `data` generality: `hit Name<params>(indices): case
 @tag(fields) -> Name(â¦) | path @tag(fields): T | path @tag(fields): lhs ~> rhs`
 generates `Name`, `Name/tag`; `Name/elim(params, P, indices, x, branches)` is
@@ -175,12 +163,6 @@ expected face `Name/elim(â¦, x, bs)` IS `rec(x)` after unfolding. Known
 HVM4 property, not ours: printing a recursive function as a VALUE never
 terminates (`@main = @add` included). PUSC.md is the author's architecture
 statement â” the level at which the whole is to be read.
-
-## Next steps (if continuing)
-1. Exercise dependent Î /Î lines and a path BETWEEN universe paths (a higher
-   coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.
-2. hcomp in Set beyond the composite shape (would need Glue-style rules).
-3. Keep every claim tied to a run; keep pushing main.
 
 ## Merge note (2026-09-14): two general HIT schemas met on main
 Two sessions built the general HIT schema in parallel. The one on main

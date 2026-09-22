@@ -9,12 +9,9 @@
 --   is prime.
 --
 -- `NaturalMachine/SieveFiber.agda` Â§4 proves this ONLY at X = 30, by
--- exhaustion over an explicit 30-element domain, and its author named
--- the general statement as the one theorem worth proving next
--- whole 'one bit' story ... It needs real order reasoning in Agda,
--- which is why it is not here").  This module is that reasoning.  It
+-- exhaustion over an explicit 30-element domain.  This module is the
+-- general statement, X-uniformly.  It
 -- imports nothing from `SieveFiber` and `SieveFiber` is untouched.
---
 --
 -- WHAT âˆX MEANS HERE.  Nothing in the corpus fixes it, and the note's
 -- own phrasing is looser than what is provable, so it is fixed here in
@@ -46,8 +43,7 @@
 --
 -- So `d â‰¡ 1 âŠ d â‰¡ n` for every divisor d, which IS `IsPrime n`.  The
 -- only inputs are order, multiplication monotonicity, and the totality
--- (three times in this lane the "missing machinery" was not the
--- obstacle) in its cheapest instance: the universal property of being
+-- in its cheapest instance: the universal property of being
 -- prime is a statement about ALL divisors, so quantifying over divisors
 -- directly is shorter than producing one distinguished factorization.
 --
@@ -78,9 +74,7 @@
 --
 --   nâ‰X-necessary        SHARPNESS.  49 has all prime factors > isqrt 30
 --                        = 5, is neither 1 nor prime, and the only
---                        hypothesis it violates is 49 â‰ 30.  This is
---                        control C, promoted from a rejected typecheck
---                        to a positive theorem.
+--                        hypothesis it violates is 49 â‰ 30.
 --
 --   isqrt-30, isqrt-49, isqrt-100  the horizon computes.
 --
@@ -93,25 +87,20 @@
 --     rebuilt.  `pos-â‰1â’1<` likewise.
 --   * `NaturalMachine/WalkJumps.agda` (this corpus) â” `IsPrime`, in the
 --     all-divisors form, which is exactly the form this proof produces.
---   * mathlib4 (Lean), read at
+--   * mathlib4 (Lean),
 --     `Mathlib/Data/Nat/Prime/Defs.lean:124` and `:368`:
 --     `Nat.prime_def_le_sqrt : Prime p â” 2 â‰ p âˆ§ âˆ m, 2 â‰ m â’ m â‰ sqrt p
---     â’ Â m âˆ p`, and `Nat.minFac_sq_le_self`.  PROVED-grade prior art,
---     source read locally: the X = n case (`roughSplitSelf` below) is
+--     â’ Â m âˆ p`, and `Nat.minFac_sq_le_self`.
+--     The X = n case (`roughSplitSelf` below) is
 --     mathlib's theorem, by the same square-comparison argument, and no
 --     novelty is claimed for it.  What is not in mathlib in this form is
 --     the X-uniform statement (horizon isqrt X, integers n â‰ X), which
 --     is the one `SIEVE_FIBER` needs, and mathlib is a different
 --     substrate anyway.
---   * cubical v0.5 has NO integer square root and NO primality (checked:
---     `Cubical/Data/Nat/` contains neither), and agda-unimath has
+--   * cubical v0.5 has NO integer square root and NO primality
+--     (`Cubical/Data/Nat/` contains neither), and agda-unimath has
 --     `is-prime-â•` and `is-square-â•` but no integer square root and no
---     âˆ-criterion (checked: `elementary-number-theory/`).  A WebSearch
---     for an Agda formalization of the trial-division bound returned
---     nothing on point; `WebFetch` is EGRESS_BLOCKED so no page was
---     opened, and absence of a hit is not absence of prior art.
---
--- Author: cf-tessera-r2-00, 2026-08-14.  Companion note:
+--     âˆ-criterion.
 ------------------------------------------------------------------------
 
 module RoughSplit where
@@ -313,7 +302,6 @@ roughSplitPrimes s X n 0<n nâ‰¤X X<ss above =
   roughSplit s X n 0<n nâ‰¤X X<ss (primeAboveâ†’noSmallDivisor s n above)
 
 ------------------------------------------------------------------------
-------------------------------------------------------------------------
 
 -- THE STATEMENT THE NOTE ASKED FOR.
 roughSplitSqrt :
@@ -331,7 +319,7 @@ roughSplitSqrtDiv X n 0<n nâ‰¤X none =
   roughSplit (isqrt X) X n 0<n nâ‰¤X (isqrt-upper X) none
 
 -- The X = n specialisation: the classical trial-division criterion.
--- (mathlib4 `Nat.prime_def_le_sqrt`; no novelty claimed â” recorded so
+-- (mathlib4 `Nat.prime_def_le_sqrt`; recorded so
 -- that the general statement's specialisation is visible and checked.)
 roughSplitSelf :
   (n : â„•) â†’ 0 < n â†’ NoSmallDivisor (isqrt n) n â†’ (n â‰¡ 1) âŠŽ IsPrime n
@@ -340,9 +328,7 @@ roughSplitSelf n 0<n none = roughSplitSqrtDiv n n 0<n â‰¤-refl none
 ------------------------------------------------------------------------
 -- Â§6  SHARPNESS:  n â‰ X cannot be dropped
 --
--- and reported that the typechecker rejected it.  A rejected typecheck
--- is evidence about a file, not a theorem; here the same fact is a
--- theorem.  49 = 7 Â 7 has isqrt 30 = 5 < 7, so every prime factor of
+-- 49 = 7 Â 7 has isqrt 30 = 5 < 7, so every prime factor of
 -- 49 clears the X = 30 horizon; 49 is neither 1 nor prime; and the sole
 -- hypothesis of `roughSplitSqrt` that it fails is 49 â‰ 30.
 ------------------------------------------------------------------------

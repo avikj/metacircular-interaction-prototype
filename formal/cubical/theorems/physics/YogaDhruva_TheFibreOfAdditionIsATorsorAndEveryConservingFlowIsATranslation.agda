@@ -40,9 +40,6 @@
 -- and the siddhntas throughout); ‡ß‡‡∞‡‡µ as in Dhruva's header.  The
 -- compound is this corpus's; no  source states any theorem
 -- below.
---
--- CHECKED: Agda 2.8.0 + agda/cubical (installed version), --cubical
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module YogaDhruva_TheFibreOfAdditionIsATorsorAndEveryConservingFlowIsATranslation where

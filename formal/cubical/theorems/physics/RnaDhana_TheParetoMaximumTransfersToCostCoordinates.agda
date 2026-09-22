@@ -8,15 +8,15 @@
 -- rules are his; the caps, the adjunction and everything below are not.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- Every module on the Pareto line has carried the same undischarged
--- obligation: its theorems are stated for a vector all of whose
+-- The theorems on the Pareto line are stated for a vector all of whose
 -- coordinates point the same way, while DARWIN Â§5.2's objectives
 -- include wall time, tokens and dollars, which are to be MINIMISED.
--- Two modules then proved the flip sound, refuted its unrestricted
--- converse, and made it faithful below per-coordinate caps.  **None of
--- them applied it.**
+-- `FlippingACostCoordinateIsSoundButNotFaithful` proves the flip sound
+-- and refutes its unrestricted converse, and
+-- `RnaDhana_PerCoordinateCapsAreTheHonestVersionAndOneCapIsTheSpecialCase`
+-- makes it faithful below per-coordinate caps.
 --
--- This one applies it: an existing Pareto theorem is USED, through the
+-- This module applies it: an existing Pareto theorem is USED, through the
 -- flip, to prove a statement about genuinely mixed benefit/cost
 -- vectors.  Nothing about maximality is re-proved.
 --
@@ -43,8 +43,7 @@
 -- "the flipped z does not beat the flipped u" back into "z does not
 -- beat u" one needs `flipCapsReflect`, whose hypothesis is a bound on
 -- u.  Since u is a member of the archive, `AllBounded` supplies it.
--- So the honest reading of the obligation the Pareto line has been
--- carrying is: **cap each cost coordinate, in its own units, above the
+-- So the obligation is: **cap each cost coordinate, in its own units, above the
 -- costs of the archive's members â” and then every benefit-reading
 -- theorem is available.**
 --
@@ -53,15 +52,6 @@
 -- element: it goes through `anyMapBack`, which recovers a member of the
 -- ORIGINAL archive whose flip is the maximal element found.  That is
 -- the step where a naive transfer would break.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  Transporting an order-theoretic existence result along
--- an order-preserving map with an order-reflecting partial inverse is
--- routine; `maximalExists` is this corpus's own, and the mixed
--- statement is the one DARWIN Â§5.2 needed all along.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module RnaDhana_TheParetoMaximumTransfersToCostCoordinates where
@@ -157,24 +147,15 @@ mixedMaximalExists ds cs v vs ab
                      (boundedAtMember ds cs (v âˆ· vs) u ab memU) le)))))
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The item named above â” "the stratification is NOT
--- transferred here" â” has its FIRST LAYER done in
--- `RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
---
--- The result is stronger than the membership correspondence this
--- module's block predicted would be needed: under the caps,
+-- THE STRATIFICATION TRANSFERS TOO.  Its first layer is
+-- `RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum`: under the caps,
 -- `map flip (mixedStratum ds vs) â‰¡ stratum (map flip vs)` â” the two
 -- layers are the SAME LIST, order and multiplicity included.  What
 -- makes that possible despite the flip not being injective is that
 -- both sides are filters of the same list in the same order, so
 -- `filterMapCommutes` moves the map across the filter and
 -- `filterRespectsOn` needs the two predicates to agree only AT
--- MEMBERS â” which is exactly where `AllBounded` gives a cap.
---
--- Still open, and now precisely: the REMAINDER half (same argument,
--- negated predicate), and then the iteration, in which the caps must
--- still bound the shrinking archive at every step.
+-- MEMBERS â” which is exactly where `AllBounded` gives a cap.  The
+-- REMAINDER half (same argument, negated predicate) and the iteration
+-- are in `RnaDhana_TheWholeMixedStratificationIsTheFlippedOne`.
 ------------------------------------------------------------------------

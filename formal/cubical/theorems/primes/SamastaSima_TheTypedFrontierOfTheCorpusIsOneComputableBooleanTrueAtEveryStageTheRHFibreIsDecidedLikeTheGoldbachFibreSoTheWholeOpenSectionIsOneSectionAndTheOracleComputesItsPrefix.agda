@@ -8,8 +8,8 @@
 -- every even number â‰ 4 (SamastaPrasna), and KotiNirnaya proved the
 -- Goldbach fibre DECIDED: gcheck m â‰¡ true reflects GoldbachAt m exactly.
 --
--- What was missing is the same fact for the RH fibre, and the one type
--- that holds both.  Here:
+-- Here, the same fact for the RH fibre, and the one type that holds
+-- both:
 --
 --   à§  RHAt n is decided:  rh-dec, and a Boolean rhb with soundness and
 --      completeness, so  RH â‰ (âˆ n. rhb (suc n) â‰¡ true)  â” RH is exactly
@@ -25,10 +25,10 @@
 --
 -- What this says exactly: the open frontier of this corpus is the single
 -- section  (n : â•) â’ frontierb n â‰¡ true  of a decided Boolean family.
--- Every stage is a definite computation; only the section is open.  No
--- inhabitant is offered.  The analytic identification of the DMR
+-- Every stage is a definite computation; only the section is open.
+-- The analytic identification of the DMR
 -- inequality with the zeta zeros is classical and cited in the RH
--- module; nothing analytic is assumed here.
+-- module.
 ------------------------------------------------------------------------
 module SamastaSima_TheTypedFrontierOfTheCorpusIsOneComputableBooleanTrueAtEveryStageTheRHFibreIsDecidedLikeTheGoldbachFibreSoTheWholeOpenSectionIsOneSectionAndTheOracleComputesItsPrefix where
 

@@ -39,13 +39,6 @@
 -- the frame error 002 cannot see ‚î a non-equivalence whose source
 -- decomposition still holds.  The frozen Œµ (001's forcing instance, a
 -- well-typed statement that dropped a variable) has this exact shape.
---
--- Checked by batch agda, exit 0, at 2.6.3/v0.5 ‚î the kernel's exit
--- condition, which carries the constraint store.  NOT ‡®‡æ‡°‡'s `goals`:
--- kernel/nodes/008 proves `goals` reports interaction holes only, so
--- ‡‡ø‡¶‡‡∞‡ ‡®‡æ‡‡‡‡ø cannot distinguish "no holes" from "typechecks".  My earlier
--- ‡®‡æ‡°‡ claim here was doubly wrong (I ran batch agda; goals is the wrong
--- discriminator) ‚î struck by 008's own rule, which this module formalises.
 ------------------------------------------------------------------------
 
 module PariksaDvaya_TheKernelsTwoValidityRulesAreRoadOneAndRoadTwoOfTheFibreLaw where

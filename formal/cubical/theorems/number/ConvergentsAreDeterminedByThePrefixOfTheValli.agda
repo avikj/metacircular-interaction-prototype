@@ -16,18 +16,12 @@
 --   lossless  answered at 38563467
 --             (`TheValliConvergentDeterminantAlternates`)
 --   stable    answered here
---   complete  NOT answered, and nothing below bears on it
 --
 -- `Sthairya.‡‡‡‡à‡∞‡‡Ø-‡ó‡‡ø` is "a resolved answer is unchanged by more
 -- grant".  The grant here is how much of the vall has been read, and
 -- ¬ß2 is exactly that statement: two quotient sequences agreeing below k
 -- give the same k-th convergent, so reading further never revises what
 -- was already produced.
---
--- SOURCING LIMIT. Nothing here is a reading of Gaitapda 32‚ì33.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module ConvergentsAreDeterminedByThePrefixOfTheValli where
@@ -101,15 +95,4 @@ detPrefix a b p‚ÇÄ p‚ÇÅ q‚ÇÄ q‚ÇÅ k h =
 -- vall at index 1, and ¬ß2 then applies only to sequences that already
 -- agree at 0.  Keeping the seeds as parameters is what makes that
 -- visible; it is not generality for its own sake.
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
--- 4.  Two of three
---
--- lossless (38563467) and stable (here) both recur for the convergents.
--- COMPLETE does not follow from either and is not addressed: it is the
--- claim that enough grant always resolves, which for the vall is the
--- termination of the expansion of a rational with the last convergent
--- equal to it ‚î a fact about the kuaka, not about this recurrence.
--- Two faces out of three is two thirds of the tag.  The tag stays open.
 ------------------------------------------------------------------------

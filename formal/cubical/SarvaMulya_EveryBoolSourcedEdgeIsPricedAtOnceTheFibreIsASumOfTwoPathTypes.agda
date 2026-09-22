@@ -1,9 +1,8 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡µ‡Æ‡‡≤‡‡Ø‡Æ‡ ‚î the price of all of them.  Compound built here,
--- 2026-08-23, from ordinary  (‡‡∞‡‡µ, all; ‡Æ‡‡≤‡‡Ø, price); no source
--- is claimed for the term.
+-- ‡‡∞‡‡µ‡Æ‡‡≤‡‡Ø‡Æ‡ ‚î the price of all of them.  Compound built here
+-- from ordinary  (‡‡∞‡‡µ, all; ‡Æ‡‡≤‡‡Ø, price).
 --
 -- WHY.  Mulyankana priced two of Jiva's five named Bool ‚ü ‚ï edges by
 -- computing their spectra point by point, and handed the other three
@@ -28,8 +27,7 @@
 --
 -- The verdict discipline is Avaccheda's (‡∞‡ø‡ï‡‡‡Æ‡ / ‡‡ï‡Æ‡ / ‡‡‡) and the
 -- refusal of a two-valued collapse is Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡; the fibre is
--- Voevodsky's, the admitted substrate.  Nothing here is attributed to
--- any source beyond that.
+-- Voevodsky's, the admitted substrate.
 ------------------------------------------------------------------------
 
 module SarvaMulya_EveryBoolSourcedEdgeIsPricedAtOnceTheFibreIsASumOfTwoPathTypes where

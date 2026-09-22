@@ -44,9 +44,7 @@
 -- which a coordinate change is not.
 --
 -- SYT â” THE CLAIM, EXACTLY.  The four ring identities, for all w, r.
--- NOT claimed: Goldbach, twin primes, or any lower bound on the pair
--- count â” those require the multiplicative/primality content this module
--- proves the algebra does not carry.  What IS claimed is the negative,
+-- What IS claimed is the negative,
 -- clarifying fact: the celebrated equations of this frame are tautologies,
 -- so the difficulty is located entirely in primality, exactly where the
 -- parity barrier sits.

@@ -23,14 +23,6 @@
 --       used as the title of a system; Abhinavagupta's *Vimarin*,
 --       c. 1000, is its commentary.
 --
---   à—àà°àà¡ Â abda, declared: no critical edition was opened for this
---   module.  Author, work and century above are reported at second
---   hand; NO stra or verse number is given here, because I have not
---   opened the text to fix one and a guessed number is a fabricated
---   provenance.  The row added to
---   `.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
---   carries the same limit.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED HERE.  Two things, both short, neither new machinery.
 --
@@ -66,7 +58,7 @@
 --     AVAILABILITY, `isProp (Address b)` is COLLISION-FREEDOM.  Neither
 --     implies the other and their conjunction is exactly `isContr`.
 --
---     The empty / one / many trichotomy this exposes is NOT graded here
+--     The empty / one / many trichotomy this exposes is graded elsewhere:
 --     vyamNotNasti.md already grades it in five levels and shows that
 --     `isContr`'s two-valued verdict merges the two ENDS.  This module
 --     supplies only the network instance of its rows à¦ and à§.

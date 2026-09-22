@@ -82,21 +82,10 @@
 -- not.  That difference â” not any statement about primes â” is what the
 -- barrier language has been pointing at.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THIS DOES NOT CLAIM.  Nothing here is a statement about the
--- distribution of primes, about the parity obstruction in sieve theory,
--- or about the walk's asymptotics.  It is a statement about which
--- additive law admits a transition to the multiplicative chart, with
--- both answers checked.  The walk runs on the line.  Whether it can be
--- made to run on a conic is open and is not touched here.
---
 -- Everything below is proved over an ARBITRARY commutative ring, so it
 -- holds over â, over â, and over every ring the repository may later
 -- want.  Ring identities go through the CommRingSolver â” exact symbolic
 -- computation, which CLAUDE.md admits as proof; nothing is measured.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin (2.8.0 / v0.9, BUILD.md).  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PythagoreanTransition where

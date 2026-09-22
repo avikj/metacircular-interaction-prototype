@@ -51,7 +51,7 @@ sbℕ x       zero    = x
 sbℕ zero    (suc _) = zero
 sbℕ (suc x) (suc y) = sbℕ x y
 
--- the kuaka's own operator, admitted 2026-08-24 so the elder's gcd
+-- the kuaka's own operator, admitted so the elder's gcd
 -- lines can cross: subtraction-Euclid ("keep the remainder and recurse"
 -- � ryabhaa, ryabhaya, kuaka, 499 CE; the descent, not this
 -- code, is what is claimed of the source), made structural by an exact

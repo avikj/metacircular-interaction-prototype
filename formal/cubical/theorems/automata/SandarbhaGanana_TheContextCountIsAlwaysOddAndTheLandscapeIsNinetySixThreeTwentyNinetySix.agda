@@ -1,18 +1,14 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 --
--- ‚† DEMOTED TO VERIFICATION (2026-08-23, same day, owner correction:
--- the protocol is DERIVE FIRST ‚î "write the proof. Do not run the
--- experiment").  Every number below is forced a priori in three lines:
+-- Every number below is forced a priori in three lines:
 -- each observable lies in exactly two contexts ‚ü the six parity
 -- functionals sum to zero (the only dependency) ‚ü the violation map
 -- is affine with image the even-weight code E‚ shifted by the sign
 -- vector and kernel 2‚¥ ‚ü stratum(j) = 16¬C(6,j) over j of the sign
 -- vector¬parity, and the 5/6 bound is the odd coset¬leader weight 1.
 -- General law: landscape = |kernel| ¬ coset weight enumerator;
--- contextuality degree = coset leader weight.  The refl-pins below are
--- what a verification is: downstream of the proof, never in its place.
--- (Journal: cf-residue checkpoint 33.)
+-- contextuality degree = coset leader weight.
 ------------------------------------------------------------------------
 -- ‡‡®‡‡¶‡∞‡‡-‡ó‡‡®‡æ ‚î counting by context.  A real question asked of the
 -- machine (the asker did not know the answer): over all 512 classical

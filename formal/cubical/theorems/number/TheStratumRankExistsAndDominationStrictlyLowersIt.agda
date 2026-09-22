@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- TheStratumRankExistsAndDominationStrictlyLowersIt
 --
--- ON THE NAME, since this repository's rule (CLAUDE.md, "File naming",
--- owner, 2026-08-19) is to lead with the tradition's term.  **There is
+-- ON THE NAME, since this repository's rule is to lead with the
+-- tradition's term.  **There is
 -- no Indian source term for this object and none is invented.**  The
 -- object is the rank of a candidate in iterated non-dominated sorting
 -- â” Goldberg 1989, and the fast-non-dominated-sort of Deb, Pratap,
@@ -15,12 +15,6 @@
 -- default.  (Where the same corpus DOES have the term â” a-dhana for
 -- the debt/asset reading, samacchheda for equalising divisors â” the
 -- files carry it.)
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- Every ordering statement on this line so far says "some earlier
--- stratum": `Beats`, `theStrataAreOrdered`, `OrderedM`.  That is
--- weaker than a rank, and the corpus has recorded the gap for several
--- cycles without closing it.  Closed here.
 --
 -- WHAT IS PROVED
 --
@@ -49,9 +43,6 @@
 -- whereas "beaten by a member of an earlier stratum" needs the whole
 -- stratification to chain.  It is also the form in which selection
 -- pressure is usually stated.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheStratumRankExistsAndDominationStrictlyLowersIt where

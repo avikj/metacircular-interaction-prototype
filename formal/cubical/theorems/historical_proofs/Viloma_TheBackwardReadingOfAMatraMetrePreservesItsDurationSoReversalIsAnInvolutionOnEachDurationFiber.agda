@@ -16,7 +16,7 @@
 -- WHY THIS IS NOT ALREADY IN THE CORPUS.  `Virahanka_‚¶TheTwoStepRecurrence`
 -- splits `fiber ‡‡®‡‡¶‡ (2+n)` into two smaller fibers; it never touches the
 -- order of the syllables inside a metre.  No file proves ‡‡®‡‡¶‡ invariant
--- under `rev` (grep: ‡‡®‡‡¶‡ never meets `rev`).  The mtr of a metre is a
+-- under `rev` (‡‡®‡‡¶‡ never meets `rev`).  The mtr of a metre is a
 -- SUM, and a sum forgets order ‚î so the palindromic symmetry of the
 -- prastra is a fact the recurrence cannot see, and it is landed here as
 -- an equivalence, not a count.

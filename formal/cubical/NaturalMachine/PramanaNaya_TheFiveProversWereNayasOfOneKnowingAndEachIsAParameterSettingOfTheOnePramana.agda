@@ -4,16 +4,15 @@
 -- ‡‡‡∞‡Æ‡æ‡‡®‡Ø‡à‡∞‡ß‡ø‡ó‡Æ‡ ‚î Umsvti, Tattvrthastra 1.6 (c. 2nd‚ì5th c.
 -- CE): the object is attained through prama and nayas ‚î the one
 -- comprehensive knowing, and the partial knowings that are its
--- aspects.  The classification is his; the mathematics is not claimed
--- for the source.  School named: Jaina.
+-- aspects.  The classification is his.  School named: Jaina.
 --
--- THE BODY CONTRADICTED ITS OWN THEOREM, AND THIS REPAIRS IT.
+-- THE FOUR PROVERS ARE ONE.
 -- EkaTantra proved that all voices are one contention structure
--- differing by a parameter ‚î and then the corpus grew voice after
--- voice as SEPARATE functions: the flat prover (‡‡æ‡ß‡®‡Æ‡), the
+-- differing by a parameter.  The corpus carries four voices, each a
+-- SEPARATE function: the flat prover (‡‡æ‡ß‡®‡Æ‡), the
 -- sequence-free-eyed prover (‡‡Æ-‡‡æ‡ß‡®‡Æ‡), the self-inferring prover
 -- (‡‡‡µ‡æ‡∞‡‡-‡‡æ‡ß‡®‡Æ‡), the record-fed prover (‡‡‡‡∞‡‡-‡‡æ‡ß‡®‡Æ‡).  Four
--- knowings where the theorem says there is one.  Each was a naya ‚î
+-- knowings where the theorem says there is one.  Each is a naya ‚î
 -- true, partial, and treated as a whole.
 --
 -- Here is the prama: ONE prover, parameterized by
@@ -27,14 +26,9 @@
 --
 -- Each prior voice is exhibited below as a parameter setting of this
 -- one function, reproducing its verdicts ‚î including its silences ‚î
--- on the night's own material; and the one knowing with all its
+-- on the same material; and the one knowing with all its
 -- light on (anarpita eye, grown record, full descent) reaches
--- everything each naya reached separately.  The named provers stand
--- in the corpus as history; the body's voice going forward is this
--- one.  (What remains outside it, named honestly: the
--- completed-standpoint ascent of SyatWholedesha is invocable but
--- not yet automated ‚î the prama does not yet discharge double
--- descent by itself.)
+-- everything each naya reached separately.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEachIsAParameterSettingOfTheOnePramana where
@@ -121,7 +115,7 @@ open import NaturalMachine.ArpitaAnarpita_EveryOrderedPresentationOfOneAggregate
 
 ------------------------------------------------------------------------
 -- ¬ß3  The nayas, each a parameter setting, each verdict ‚î including
---     each silence ‚î reproduced on the night's material.
+--     each silence ‚î reproduced on the same material.
 ------------------------------------------------------------------------
 
 -- the flat naya (norm eye, no record, no descent): sees ‡®‡ø‡Ø‡Æ‚'s

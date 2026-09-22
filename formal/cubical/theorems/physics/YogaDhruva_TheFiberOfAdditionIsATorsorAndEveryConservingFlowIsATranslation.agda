@@ -38,11 +38,7 @@
 --
 -- TERM.  ‡Ø‡ã‡ó ‚î addition, the standard arithmetical term (‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡
 -- and the siddhntas throughout); ‡ß‡‡∞‡‡µ as in Dhruva's header.  The
--- compound is this corpus's; no  source states any theorem
--- below.
---
--- CHECKED: Agda 2.8.0 + agda/cubical (installed version), --cubical
--- --safe, no postulates, no holes.
+-- compound is this corpus's.
 ------------------------------------------------------------------------
 
 module YogaDhruva_TheFiberOfAdditionIsATorsorAndEveryConservingFlowIsATranslation where

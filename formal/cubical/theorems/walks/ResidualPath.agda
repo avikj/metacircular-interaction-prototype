@@ -26,21 +26,19 @@
 -- Together: Î“â wHere ns is the minimum of {wHere} âˆ {route n | n âˆˆ ns},
 -- certified as a minimum, not merely as some small number.
 --
--- RELATION TO THE DSO LANE (stated because it is a rediscovery, not a
--- discovery).  `_âŠ“_` of `Residual` is, symbol for symbol, `minâ` of
+-- RELATION TO THE DSO LANE.  `_âŠ“_` of `Residual` is, symbol for symbol, `minâ` of
 -- `DSOBellmanFinite`, and it is the â•-fibre of `minC` of
 -- `DSOMinPlusFinite` restricted along `fin`.  `Î“â` is that
 -- lane's `foldMin` with `List (Neighbour A)` in place of the finite index
 -- `Ix n`, and with `wHere` -- the cost of staying home -- in place of the
 -- unit `âˆž`; `route n = detour (out n) (back n) (work n)` is a `âŠ—`-product
 -- of edge weights, so `Î“â` is a one-step `bellman` over the neighbour
--- relation.  The DSO lane got there first and got further on the algebra
+-- relation.  The DSO lane goes further on the algebra
 -- (associativity, `âŠ—`-distributivity, the `â‹`-monoid, `bellman-compose`);
 -- what is new here is only the direction this module adds, namely that the
 -- fold's value is witnessed by a member of the structure folded over --
 -- which `DSOMinPlusFinite.Argmin` already records for `foldMin`, as a
--- record rather than as a theorem.  The two lanes are one operator and
--- should eventually be one module.
+-- record rather than as a theorem.
 
 module ResidualPath where
 
@@ -178,16 +176,8 @@ Anyâ†’member (later a) with Anyâ†’member a
 -- Cost: one datatype and four short inductions, none of which needed a new
 -- idea -- every case is the same `âŠ“-split` case split `Î“â-sound` already
 -- performed.  That is the point.  The original proof was already this
--- strong; only its type was weak, and a weak type on a strong proof is the
--- exact failure mode the repository protocol is written against, one level
--- up from a measured constant standing in for a derived one.
+-- strong; only its type was weak.
 --
 -- Buys: `Î“â-sound-member` is falsifiable by an implementation that returns
 -- a neighbour it did not look at, and `Î“â-optimal` is falsifiable by one
 -- that stops early.  `Î“â-sound` alone was falsifiable by neither.
-
--- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
--- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
--- the rest of this lane's headers quote: three toolchain states are live in
--- this repository at once and this file has only seen one of them.

@@ -1,5 +1,5 @@
 /-
-Checked Mathlib adapter for the load-bearing valuation step in
+Checked Mathlib adapter for the load-bearing valuation step.
 
 The native family has moving proper-subset sums `p^r - k`.  Mathlib's exact
 unequal-depth ultrametric equality lives over `padicValRat`; this file
@@ -153,10 +153,9 @@ theorem nativeTuple_full_sum {p r n : ℕ} (hbound : n < p ^ r) :
   simpa using nativeTuple_sum_with_last
     (p := p) (r := r) (n := n) (S := Finset.univ) (by simp) hbound
 
-/-- Exact checked collision at the corrected scope: two native tuples agree
+/-- Exact checked collision: two native tuples agree
 on every nonempty proper labeled-subset valuation and disagree on the full
-sum.  This is not a claim about the addition-closed language, where prefix
-sums provide a binary flag decomposition. -/
+sum. -/
 theorem nativeTuple_labeled_profile_collision
     {p r s n : ℕ} [Fact p.Prime]
     (hrbound : n < p ^ r) (hsbound : n < p ^ s) (hrs : r ≠ s) :

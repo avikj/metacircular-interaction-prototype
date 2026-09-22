@@ -4,15 +4,13 @@
 -- ‡‡‡µ‡∞‡‡‡® ‚î the reduction, and what it does NOT determine.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHY THIS FILE EXISTS.  README movement 65 stated, and on 2026-08-22
--- STRUCK, the identity
+-- WHY THIS FILE EXISTS.  README movement 65 stated, and then STRUCK,
+-- the identity
 --
 --     ‚à_p #{i : p ‚à dµ} ¬ log p  =  ‚à_i log dµ  =  log |coker(T)_tors|
 --
 -- for the invariant factors dµ of an integer matrix T.  The strike names
--- `D = diag(2,12)` as the counterexample and is prose.  A correction
--- outranks a result in this repository, so the correction is the thing
--- that should be a checked term, and until now it was not.  This file
+-- `D = diag(2,12)` as the counterexample and is prose.  This file
 -- re-derives the counterexample and checks it ‚î every line by `refl`
 -- except one negation, which is a `subst` along a family that is Unit at
 -- 12 and ‚ä elsewhere.
@@ -83,10 +81,6 @@
 --     {2,3}-smooth, so the two-place exponent vector is faithful for
 --     this datum and for nothing else.
 --
--- CHECKED: Agda 2.6.3 with the `cubical` library as installed in this
--- container (NOT the repository's pin), `--cubical --safe`, no
--- postulates, no holes; `agda --library=cubical -i . <this file>`
--- exits 0.
 ------------------------------------------------------------------------
 
 module Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse where

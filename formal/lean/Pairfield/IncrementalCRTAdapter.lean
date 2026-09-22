@@ -16,11 +16,6 @@ This file checks the complete state contract: compatibility is equivalent to
 existence of a common state, `merge` denotes exactly the intersection of the
 two congruence classes, and for positive moduli its residue is the unique
 representative below `lcm M m`.
-
-The adapter exposes Mathlib's Bézout coefficients and the signed failure
-datum, but it does not reconstruct a stepwise vallī/pulverization trace,
-retain the original affine equations, certify sensor provenance, or make a
-historical attribution.
 -/
 
 namespace Pairfield.IncrementalCRTAdapter
@@ -292,9 +287,8 @@ theorem overlapMerge : merge overlapCompatible = ⟨8, 18⟩ := by
       (by norm_num [Holds, overlapRight, Nat.ModEq])
   · norm_num [merge, overlapLeft, overlapRight, Nat.lcm, Nat.gcd]
 
-/-- `⟨2, 6⟩` again — `overlapLeft` above is the same state, and a
-content-address census on 2026-08-22 flagged the two as identical text inside
-one file.  **They are deliberately not shared.**  The point of the pair of
+/-- `⟨2, 6⟩` again — `overlapLeft` above is the same state, deliberately not
+shared.  The point of the pair of
 controls is that `⟨2, 6⟩` is compatible with `⟨8, 9⟩` and incompatible with
 `⟨1, 4⟩`: compatibility is a property of a *pair*, never of a congruence
 state, so naming one state twice under the two roles it plays is the
@@ -333,8 +327,8 @@ theorem eightNineFiveCompatible : Compatible eightNineState modFive := by
   rw [eightNineState_eq]
   norm_num [Compatible, modFive, Nat.ModEq, Nat.gcd]
 
-/-- The corrected native example: the three prime-power constraints normalize
-to `194 mod 360`, not the retracted handwritten value `274`. -/
+/-- The native example: the three prime-power constraints normalize
+to `194 mod 360`. -/
 theorem primePowerMerge :
     merge eightNineFiveCompatible = ⟨194, 360⟩ := by
   apply CongruenceState.ext

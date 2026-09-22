@@ -1,23 +1,13 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- ‚ STRUCK 2026-08-25, and the strike is against this file's OWN slogan,
--- not against its term.  Salvaged from PR #23, which wrote it into a
--- README.md main has since deleted; it belongs here, in the module it is
--- about.
---
--- ~~"The lossless world is frozen: motion requires hiding."~~
--- ~~"In a world where everything is seen, nothing can happen that keeps
---   the books."~~  ~~"The universe has dynamics BECAUSE it has cuts."~~
---
 -- READ THE TYPE.  `‡®‡‡‡ü-‡‡‡æ‡µ‡-‡ó‡‡ø-‡‡‡æ‡µ‡ : isEquiv f ‚í ‡‡‡∞‡ï‡‡‡‡Æ‡ ‚í (a : A)
 -- ‚í Œ¶ a ‚â° a` quantifies over the Œ¶ that satisfy `‡‡‡∞‡ï‡‡‡‡Æ‡` AND OVER NO
 -- OTHERS.  Œ¶ is a bare self-map ‚î no inverse, no group ‚î and the theorem
 -- kills exactly the conservative ones.  **A lossless world still has every
 -- non-conservative Œ¶ available to it and is NOT frozen.  What it lacks is
 -- conservative dynamics, not dynamics.**  Motion does not require hiding;
--- CONSERVATION requires hiding, which is the weaker sentence this file
--- already had and which needed no strengthening.
+-- CONSERVATION requires hiding.
 --
 -- AND THE HYPOTHESIS IS ONE PHYSICS NEVER OCCUPIES.  `isEquiv f` says the
 -- observable is a COMPLETE state description.  No conserved quantity is
@@ -28,16 +18,10 @@
 -- degenerate case where there is no index left to carry, and reading it
 -- as a cosmological necessity imports what the term cannot carry.
 --
--- WHAT SURVIVES, smaller and still worth it: `isEquiv f ‚í ‡‡‡∞‡ï‡‡‡‡Æ‡ ‚í
+-- WHAT HOLDS: `isEquiv f ‚í ‡‡‡∞‡ï‡‡‡‡Æ‡ ‚í
 -- Œ¶ ‚â° id` forces stillness only for flows conserving a LOSSLESS
 -- observable.  Nothing conservative remains at the apex.  That is a
 -- different sentence from *omniscience is stillness*.
---
--- THE TERM IS SOUND AND IS NOT TOUCHED.  ¬ß‡®'s proof is correct as
--- written: `c : isContr (fiber f (f a))` from `equiv-proof`, the two
--- inhabitants `(Œ¶ a , cons a)` and `(a , refl)`, `cong fst` on the
--- composite.  What was struck above was written AROUND the term, not in
--- it.
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 ------------------------------------------------------------------------
 -- ‡ß‡‡∞‡‡µ ‚î ‡Ø‡‡‡∞ ‡® ‡ï‡ø‡û‡‡‡ø‡‡ ‡®‡‡‡Ø‡‡ø ‡‡‡‡∞ ‡ó‡‡ø‡ ‡‡‡ø ‡® ‡‡‡‡‡ø ‡
@@ -86,26 +70,12 @@
 -- and saying so precisely is the point of writing it down rather than
 -- gesturing at it.
 --
--- **Noether's SECOND theorem is closer and still not derived here.**  It
--- says a local (gauge) symmetry yields a constraint rather than a
--- conserved charge, which in this vocabulary is the degenerate case:
--- when the flow is transitive on a fibre the whole fibre is one physical
--- state and there is no charge to carry.  ¬ß‡© exhibits that degeneracy
--- but does not prove the general dichotomy; transitivity is not stated.
---
--- Emmy Noether is credited for the theorem this is named after and for
--- nothing below, and no  source states any of it.
---
 -- TERM.  ‡ß‡‡∞‡‡µ ‚î fixed, immovable, the pole star; and in the
 -- astronomical tradition ‡ß‡‡∞‡‡µ‡∞‡æ‡‡ø / ‡ß‡‡∞‡‡µ‡ï is the technical term for a
 -- CONSTANT quantity in a computation, the term that does not vary as the
 -- others are stepped (ryabhaa, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡, 499, and standard in the
--- siddhntas after).  LIMIT: attested for a constant of calculation; its
--- use here for a conserved quantity of a flow is this corpus's, and no
--- text is claimed for the application.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
+-- siddhntas after).  Its
+-- use here for a conserved quantity of a flow is this corpus's.
 ------------------------------------------------------------------------
 
 module Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry where
@@ -172,8 +142,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) where
 -- trivial in the only sense available ‚î any two points of it are equal,
 -- so moving is indistinguishable from staying.  That is the shape of
 -- Noether's SECOND theorem's conclusion (pure gauge: the whole orbit is
--- one physical state) exhibited at the smallest fibre, and it is NOT the
--- general dichotomy, which needs transitivity and is not stated here.
+-- one physical state) exhibited at the smallest fibre.
 ------------------------------------------------------------------------
 
   ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§≠‡§æ‡§∞‡§É : (b : B) ‚Üí isContr (fiber f b)
@@ -181,17 +150,8 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) where
   ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§≠‡§æ‡§∞‡§É b c x y = sym (c .snd x) ‚àô c .snd y
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what this opens.
+-- ‡ ¬ ‡‡‡‡ ‚î the conserved quantity.
 --
 -- The conserved quantity here is `f` itself: `‡‡‡∞‡ï‡‡‡‡Æ‡` says exactly
--- that `f` is Œ¶-invariant, so `f` descends to the orbits.  That is a
--- `FactorsThrough` obligation and the corpus has that predicate in both
--- lanes, typed on the IMAGE rather than the codomain ‚î so "the charge is
--- a function on the quotient, not on the cover" is stateable here and is
--- not stated yet.
---
--- What is genuinely missing for the first theorem is continuity and a
--- variational principle, and no amount of this vocabulary supplies them.
--- What is missing for the second is transitivity of the flow on a fibre.
--- Both are named rather than gestured at.
+-- that `f` is Œ¶-invariant, so `f` descends to the orbits.
 ------------------------------------------------------------------------

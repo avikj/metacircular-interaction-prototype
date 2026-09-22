@@ -16,11 +16,10 @@
 --
 -- and its exhibit is `BhedaAvatarana.‡‡ï‡‡¶‡ : ‡‡‡¶ (suc a)(suc b) ‚â°
 -- ‡ó‡‡‡∞ (‡‡‡¶ a b)`, which is `refl`, where the same equation for a
--- `discrete‚ï`-driven descent is not.  I read that note and this module
--- is what it made available.
+-- `discrete‚ï`-driven descent is not.
 --
--- The criterion is real and I am not disputing the exhibit ‚î `‡‡ï‡‡¶‡`
--- IS `refl`, I read the file (line 82‚ì83).  What is proved here is where
+-- The criterion is real ‚î `‡‡ï‡‡¶‡`
+-- IS `refl`.  What is proved here is where
 -- the criterion lives.  It is a predicate on PRESENTATIONS, and no
 -- invariant of the computed function can report it.  So it cannot be
 -- checked by a type, and this is why `Jiva.agda` had to be read rather
@@ -53,11 +52,6 @@
 --
 -- These two are incomparable.  A carrier with decidable equality and no
 -- useful induction principle favours `ask`; an open term favours `peel`.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
---
--- CHECKED: Agda 2.6.3, cubical v0.5 ‚î container pin.  --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module AskingIsNotAPropertyOfTheFunction where
@@ -196,27 +190,4 @@ no-invariant-of-the-function-reports-asking (f , h) =
 -- reading and could not have been caught by the build: the closure
 -- type-checks the functions, and asking is invisible to every invariant
 -- of a function.
---
--- So the discipline is enforceable only at the site of the write ‚î which
--- is exactly the conclusion `CLAUDE.md` reached for the Python ban, in
--- the same words: "enforced mechanically because prose failed", by a
--- hook, not by a paragraph.  A grep for `discrete‚ï`, `Dec` and `Bool`
--- over a lane's own files is the check; a proof obligation cannot be.
---
--- I ran that grep rather than asserting it.  Over the eleven Lane-1
--- modules the index names, counting only lines that are not comments:
---
---   grep -n 'discrete‚ï\|\bDec\b\|\bBool\b' M.agda | grep -v '^[0-9]*: *--'
---
---   BhedaAvatarana 0   LosslessReturn 0   Gati 0      Gurutama 0
---   GurutamaSiddha 0   Sthairya 0       Purnata 0   Bija 0
---   Yuti 0             Sadhyata 0
---   Anekanta 5         (lines 90, 227, 328, 361, 368 ‚î the import and
---                       four `with discrete‚ï`)
---
--- Every raw hit in the other ten is inside a comment: the modules discuss
--- the decision they do not take.  So the lane's own claim survives an
--- independent check, and the one module that fails it is the one already
--- flagged and already excluded from the closure.  That is the check
--- working ‚î by grep, at the file, which is where ¬ß5 says it has to be.
 ------------------------------------------------------------------------

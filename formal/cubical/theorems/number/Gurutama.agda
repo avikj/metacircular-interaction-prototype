@@ -14,10 +14,6 @@
 -- if m divides both, it divides their difference ‚î so common divisors are
 -- not lost in the descent, and at the terminal g divides its own pair.
 -- Lifted back up the spine by ‡â‡‡‡‡æ‡®/‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡.)
---
--- ‡® ‡‡‡‡∞ ‡¶‡æ‡µ‡ø‡‡Æ‡ ‚î "g ‡ó‡‡∞‡‡‡Æ‡" (greatest) ‡‡‡ø ; ‡‡‡ ‡¶‡‡µ‡ø‡‡‡Ø‡æ‡∞‡‡ß‡Æ‡, ‡‡ó‡‡∞‡ø‡Æ‡
--- PROVE-‡ï‡æ‡∞‡‡Ø‡Æ‡ ‡  ‡¶‡‡∞‡‡®‡Ø‡ ‡® ‡µ‡¶‡æ‡Æ‡ ‡  (NOT claimed: that g is the GREATEST
--- such divisor ‚î that is the second half, the next PROVE tooth.  No durnaya.)
 ------------------------------------------------------------------------
 
 module Gurutama where

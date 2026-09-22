@@ -30,7 +30,7 @@ open import WitSatisfiesEveryHypothesisButOmegaConsistency
 --
 -- `WitSatisfiesEveryHypothesisButOmegaConsistency` leaves one thing
 -- unshown: sufficiency.  `Wit` cannot supply it, being Ï‰-inconsistent,
--- so the next move was a SECOND small theory â” Ï‰-consistent, satisfying
+-- so a SECOND small theory would be needed â” Ï‰-consistent, satisfying
 -- the other five hypotheses â” in which independence would follow.
 --
 -- It cannot be built the way `Wit` was built, and the reason is a
@@ -51,7 +51,7 @@ open import WitSatisfiesEveryHypothesisButOmegaConsistency
 --       `Pf (neg s)`, which is the second half of independence
 --       refuted.
 --
---   Â§2  and `Wit` is in that class: `impIntro` (proved last cycle) is
+--   Â§2  and `Wit` is in that class: `impIntro` is
 --       exactly the provability-determined rule, `witContra` is
 --       contraposition, and `wbot` is the sentence.  So `Wit`'s failure
 --       of independence was not about Ï‰-consistency at all â” it was
@@ -68,19 +68,6 @@ open import WitSatisfiesEveryHypothesisButOmegaConsistency
 -- why every model in this thread so far â” all of them built by reading
 -- `imp` off a two-valued assignment â” was going to fail.
 --
--- AND A CORRECTION TO THE PREVIOUS MODULE'S FRAMING, which this
--- forces.  `WitSatisfiesEveryHypothesisButOmegaConsistency` says
--- Ï‰-consistency is "the one hypothesis whose removal the derivation
--- cannot survive, witnessed by a model satisfying all the others".  The
--- formal statement there is unaffected â” the counterexample is a
--- counterexample, and the derivation does need Ï‰-consistency.  The
--- INTERPRETATION is not supported: Â§1 uses neither Ï‰-consistency nor
--- its negation, nor HBL1, nor consistency, and shows `Wit` would have
--- failed independence whatever its Ï‰-status.  So that witness does not
--- isolate Ï‰-consistency as the thing doing the work; it is
--- overdetermined, and a witness that fails for two reasons attests to
--- neither.  A correction is appended at that module.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
 -- That the requirement is sufficient.  Â§1 is an obstruction; dropping
@@ -88,11 +75,6 @@ open import WitSatisfiesEveryHypothesisButOmegaConsistency
 --
 -- That `impIntro` is a defect of `Wit`.  It is a correct property of a
 -- correct model, and Â§2 uses it as such.
---
--- PRIOR ART, by the conclusion type: a grep of `formal/cubical` for
--- `Independent` finds this thread's modules only, and nothing states an
--- obstruction to it.  A version phrased over a valuation function
--- rather than over `Pf` would evade that grep.
 ------------------------------------------------------------------------
 
 private

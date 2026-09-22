@@ -3,21 +3,9 @@
 ------------------------------------------------------------------------
 -- ‡‡Æ‡æ‡®‡Æ‡æ‡∞‡‡ó‡ ‚î the hand road and the transport road are ONE path.
 --
--- WHAT THIS REPAIRS.  `LosslessReturn_TheHandProofWasUnnecessary‚¶agda` ¬ß5
--- asserts, in prose, that its transport-built path (‚ïó‚ï) ‚â° ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡
--- "is the same path the hand proof produced", giving as the reason:
--- "the two constructions have the same endpoints and there was only ever
--- one equivalence to have."  The lemma it then names `‡‡Æ‡æ‡®-‡Æ‡æ‡∞‡‡ó‡` proves
--- only  ‡â‡‡‡‡æ‡® (‡‡µ‡‡∞‡ x) ‚â° x  ‚î a round trip of the underlying map ‚î and
--- NOT the equality of the two universe-paths its own prose claims.  The
--- stated reason is moreover false as written: in HoTT two paths with the
--- same endpoints need not be equal (that is exactly the content of "a type
--- is not a set"), and a type in general carries many self-equivalences, so
--- "the same endpoints, one equivalence" does not, by itself, give one path.
---
--- The claim is nonetheless TRUE.  This module discharges it as a checked
--- term rather than a slogan, so the identification ¬ß5 wanted is present in
--- the machine and not only in its margin.
+-- THE CLAIM.  `LosslessReturn_TheHandProofWasUnnecessary‚¶agda` ¬ß5
+-- states that its transport-built path (‚ïó‚ï) ‚â° ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡
+-- is the same path the hand proof produced.  This module proves it.
 --
 -- HOW.  `ua` is (one leg of) an equivalence, hence injective; so it is
 -- enough to compare what sits under each road.  The hand road is
@@ -28,17 +16,7 @@
 -- the composite sends (s,l) to a record whose ‡‡‡∞‡Æ‡æ‡ field is `sym refl`,
 -- the hand map to the same record with ‡‡‡∞‡Æ‡æ‡ = `refl`, and `sym refl` is
 -- `refl` definitionally ‚î so `equivEq (funExt Œª _ ‚í refl)` closes it and
--- `cong ua` lifts it to the paths.  There was, indeed, only one
--- equivalence; the point is that "only one equivalence" is a THEOREM here
--- (equivEq on judgmentally-equal maps), not a reason one may state and skip.
---
--- WHAT IS NOT TOUCHED.  Neither `LosslessReturn_‚¶` nor `VivekaPramana_‚¶` is
--- edited (‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‚î ¬ß7 of the ahis-stra: no collapsing
--- of a standpoint by deletion).  This is a new road laid beside theirs,
--- carrying the derivation their road only gestured at.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
--- no holes, no native_decide.  Verified 2026-08-23.
+-- `cong ua` lifts it to the paths.
 ------------------------------------------------------------------------
 
 module SamanaMarga_TheHandPathAndTheTransportPathAreOnePath where

@@ -34,8 +34,6 @@
 -- feed-forward exists â” an invertible compression would be no hash at
 -- all â” and that design fact is now a theorem about this
 -- implementation, not a remark about a construction.
---
--- CHECKED: Agda 2.8.0, --cubical --safe, through scripts/oracle.
 ------------------------------------------------------------------------
 
 module Sha256Sthana_TheSixtyFourRoundsAreAPermutationAndTheLossHasOneAddressTheFeedForward where

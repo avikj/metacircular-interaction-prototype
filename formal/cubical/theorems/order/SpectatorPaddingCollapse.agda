@@ -2,8 +2,6 @@
 
 -- A two-arity algebraic seam from TOKEN_PHILOSOPHY: commutative parallel
 -- composition at binary arity makes unary order disappear after padding.
--- This is deliberately not a construction of a free commutative monoidal
--- category or of a trace-monoid normal form.
 
 module SpectatorPaddingCollapse where
 

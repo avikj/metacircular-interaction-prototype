@@ -76,8 +76,8 @@
 --     statement that the Lean iff transports to precisely that
 --     annihilator; every lemma ยง3 uses is from there.
 --   THE WITNESS OF ยง5 IS NOT NEW.  It is `GaugeOrbitClasses` ยง6's ฯโ,
---     the single-prime flip, and that module already states the scope
---     correction ("`AllEven` is not 'sees no gauge structure'; it is
+--     the single-prime flip, and that module already states it:
+--     ("`AllEven` is not 'sees no gauge structure'; it is
 --     'annihilated by the total flip'").  What ยง5 adds is only its
 --     CONSEQUENCE FOR THIS TRANSPORT โ” that the Lean iff, transported,
 --     is a statement about the whole annihilator and therefore cannot

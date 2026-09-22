@@ -42,8 +42,6 @@
 -- now carried as structure: classes â digests, injectively, with the
 -- class of every message literally the fibre the lossless completion
 -- keeps.  The quotient is where the secret's address book lives.
---
--- CHECKED: Agda 2.8.0, --cubical --safe, through scripts/oracle.
 ------------------------------------------------------------------------
 
 module Sha256Varga_TheHashFactorsThroughItsClassesEveryClassIsAFibreAndTheDescendedMapForgetsNothing where

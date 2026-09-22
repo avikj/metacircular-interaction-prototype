@@ -6,10 +6,6 @@ The exact boundary between the finite prime-pair carrier and the classical
 binary Goldbach statement.  An inhabited centre fiber is equivalent to the
 ordinary existential assertion, and positivity of its finite cardinality is
 equivalent to inhabitation.
-
-This file supplies no positivity estimate.  In particular, naming the count
-and proving the support equivalences below is not a proof of Goldbach; it makes
-the analytic obligation that would prove Goldbach explicit and type checked.
 -/
 import Pairfield.BoundedPrimePair
 
@@ -63,7 +59,7 @@ theorem strongGoldbach_iff_classical :
   · intro h N hN heven
     exact (goldbachAt_iff_representation N).mpr (h N hN heven)
 
-/-- Equivalently, the remaining theorem is uniform positivity of the exact
+/-- Equivalently, strong Goldbach is uniform positivity of the exact
 ordered representation count over every even centre at least four. -/
 theorem strongGoldbach_iff_count_pos :
     StrongGoldbach ↔

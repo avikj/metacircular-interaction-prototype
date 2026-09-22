@@ -12,9 +12,7 @@
 -- and `ð’ŸF â‰¡ 0` on every admissible triad is exactly the condition for
 -- the functional to be produced by no triad â” i.e. to be an invariant.
 -- This module proves the three algebraic facts that determine which
--- weights those are.  Nothing analytic is claimed: the passage from a
--- field equation to this defect is where the analysis lives, and it is
--- not here.  What IS here is the whole of the algebra downstream.
+-- weights those are.
 --
 --   Â§1  ð’ŸF IS A COLLINEARITY DETERMINANT.  For every weight and every
 --       triple,
@@ -51,12 +49,7 @@
 -- no larger than affine wherever all triples are admissible.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“3 over â, for all arguments, plus one
--- computed witness.  NOT claimed: that ð’ŸF â‰¡ 0 on admissible triples
--- FORCES F affine â” that needs the admissibility geometry (every three
--- points of an interval (a,2a) form a strict triangle) and an overlap
--- argument, neither of which is formalised here; nor any statement
--- about positivity, which is an order fact and not a ring identity;
--- nor anything about the field equation the defect is extracted from.
+-- computed witness.
 ------------------------------------------------------------------------
 
 module TryaSresthaDosa_TheTriadicProductionDefectIsACollinearityDeterminantSoAffineWeightsAreItsKernelAndTheMagnitudeWeightIsNotInIt where

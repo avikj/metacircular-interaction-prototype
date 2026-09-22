@@ -10,12 +10,12 @@
 --       â’ (i j : â•) â’ isGCD (p ^ i) (q ^ j) 1
 --
 -- `CoprimePowers` proved certificates compose, over any ring.
--- `DistinctPrimesAreCoprime` supplied the base case over â•.  What was
--- missing, and named there as the last gap, is the transfer between â• and
--- â.  Both directions are here.
+-- `DistinctPrimesAreCoprime` supplied the base case over â•.  The transfer
+-- between â• and
+-- â, in both directions, is here.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- PRIOR ART, SEARCHED FIRST THIS TIME
+-- PRIOR ART
 --
 -- `Cubical.Data.Int.Divisibility` already carries the whole Euclidean
 -- apparatus: a `B©zout` record, `b©zout : (m n : â) â’ B©zout m n` built by
@@ -24,9 +24,7 @@
 --     âˆâ’âˆâ• : m âˆ n â’ abs m âˆâ• abs n
 --     âˆâ•â’âˆ : abs m âˆâ• abs n â’ m âˆ n
 --
--- so the bridge is a matter of using them.  Six rediscoveries were logged
--- in this session by finding prior art at audit time; this file was
--- written after grepping for it, which is the whole of the difference.
+-- so the bridge is a matter of using them.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THE TWO DIRECTIONS COST
@@ -41,9 +39,6 @@
 -- work; everything downstream of having one is not.  It is also exactly
 -- ryabhaa's division of labour â” the kuaka is the hard part and the
 -- multipliers are what you keep.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module CoprimePowersN where

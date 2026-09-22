@@ -34,9 +34,6 @@
 -- so no rationals, no normalisation and no positivity assumption enter,
 -- and nothing is weakened: equality of unnormalised weights on a common
 -- total IS equality of distributions.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Karana_TheStructuralEquationModelTheDoOperatorAndTheCounterfactualAreBuiltAndTheLadderIsStrict where

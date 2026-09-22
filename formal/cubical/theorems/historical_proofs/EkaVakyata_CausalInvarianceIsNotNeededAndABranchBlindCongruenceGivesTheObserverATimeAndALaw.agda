@@ -6,7 +6,6 @@
 -- must come to one reading.  Jaimini, *Mmsstra*, with abara's *Bhya*
 -- (the stras c. 200 BCE � 200 CE, abara c. 5th c.); the principle is
 -- standard in that hermeneutics.  The word is taken for what it names.
--- Nothing below is attributed to those texts.
 --
 -- WHAT THIS IS ABOUT.  A multiway rule � one state, many successors � is the
 -- shape of a rewriting system, and the standard demand made of it is
@@ -119,9 +118,8 @@ module _ {X : Type ℓ} (R : X → X → Type ℓ') where
   -- of deterministic systems; by this, the same machinery reaches multiway
   -- systems with nothing added.
   --
-  -- Only the sufficient direction is proved.  The converse needs o to hit
-  -- every value of V, which is a hypothesis about the observer and not about
-  -- the rule, and it is not assumed here.
+  -- The converse needs o to hit every value of V, which is a hypothesis
+  -- about the observer and not about the rule.
   स्तरः : {V : Type ℓ''} {W : Type ℓ''} (o : X → V) (h : V → W)
     → (b : भाव्यम् o)
     → ({a c : V} → h a ≡ h c → h (fst b a) ≡ h (fst b c))

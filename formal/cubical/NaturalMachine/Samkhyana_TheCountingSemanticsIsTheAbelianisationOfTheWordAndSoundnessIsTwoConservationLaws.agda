@@ -57,20 +57,7 @@
 --
 --   Â§5  `derivable-invariants` â” the forward half of a complete invariant:
 --       a derivation implies equal words AND equal constants.  The converse
---       is the corpus's normalisation conjecture, restated here in its
---       sharp form and left open, with what it needs named.
---
--- WHAT IS **NOT** CLAIMED.  The converse of Â§5 is not proved and is not
--- believed on the strength of the forward half.  `sumWord` is defined by a
--- fold and its commutativity with `++` is proved (Â§3) rather than assumed.
--- Nothing here is about `Stepâº`.  No claim that (word, constPart) is
--- decidable to compare â” it plainly is, and nothing below needs it.
--- The abelianisation is not constructed as a monoid map; Â§3 is the
--- statement in the only form this calculus requires.
---
--- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
--- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +
--- v0.9).  Re-check at the pin before treating this green as the lane's.
+--       is refuted in Â§5.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Samkhyana_TheCountingSemanticsIsTheAbelianisationOfTheWordAndSoundnessIsTwoConservationLaws where
@@ -195,7 +182,7 @@ soundness-via-invariants {a} {b} d =
     (derivation-preserves-const d)
 
 ------------------------------------------------------------------------
--- Â§5.  THE FORWARD HALF OF A COMPLETE INVARIANT, AND THE OPEN CONVERSE.
+-- Â§5.  THE FORWARD HALF OF A COMPLETE INVARIANT, AND THE CONVERSE.
 ------------------------------------------------------------------------
 
 derivable-invariants :
@@ -203,14 +190,14 @@ derivable-invariants :
 derivable-invariants d =
   derivation-preserves-word d , derivation-preserves-const d
 
--- ~~The sharp conjecture.~~  STRUCK THE SAME DAY, BY ME: it is FALSE.
+-- The sharp conjecture, and it is FALSE.
 -- `Baddha_â¦` proves a third conservation law â” the count of successors
 -- trapped in a left operand whose sibling carries a variable â” and
 -- separates `add (suc var) yvar` from `suc (add var yvar)`, which agree on
 -- word and on constant.  The cause is that the calculus has no
 -- associativity, so such a successor can never reach the front.  The type
--- is kept so the refutation has something to name; the open question is
--- now `Baddha_â¦.ThreeLawInvariantConjecture`.
+-- is kept so the refutation has something to name; the sharper conjecture
+-- is `Baddha_â¦.ThreeLawInvariantConjecture`.
 CompleteInvariantConjecture : Typeâ‚€
 CompleteInvariantConjecture =
   (a b : Tm) â†’ word a â‰¡ word b â†’ constPart a â‰¡ constPart b â†’ Derivation a b

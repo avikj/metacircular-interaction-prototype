@@ -6,42 +6,26 @@
 -- (the remainder is bound by a law, not merely by membership; and the
 -- net beats.)
 --
--- SPECIFICATION handed over whole by the owner, 2026-08-21, third pass.
--- The advance over the second pass is one line and it is his:
+-- THE ONE LINE THAT CARRIES THE CONTENT:
 --
 --     ‡‡‡∞‡Æ‡æ‡ : ‡¶‡ï‡‡‡ø‡ ‚â° (‡‡Æ + ‡µ‡æ‡Æ)
 --
--- The previous ‡rma field said only "this ‡µ‡ø‡µ‡‡ï is in the image of
--- ‡‡µ‡‡∞‡".  This one says WHAT THE REMAINDER IS.  So ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ is no
--- longer a subtype carved out by membership ‚î it is the GRAPH OF +, and
+-- The field says WHAT THE REMAINDER IS.  So ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ is
+-- the GRAPH OF +, and
 -- ‚ï ó ‚ï ‚â graph(+) because a graph is a family of singletons.  The
--- equivalence is now contentful rather than definitional, and
+-- equivalence is contentful rather than definitional, and
 -- ‚ïó‚ï‚â°‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ is that content transported by univalence.
 --
--- TWO THINGS THE CHECKER SAID, kept because they are where the content
--- is and not typos:
---
--- 1. `isPropNat` does not exist and CANNOT: ‚ï is not a proposition.
 --    The two ‡¶‡ï‡‡‡ø‡ values in rightInv are equal ‚î but by ‡‡‡∞‡Æ‡æ‡ itself,
 --    not by any propositionality of ‚ï.  Discharged here by transporting
 --    ‡¶‡ï‡‡‡ø‡ along (v .‡‡‡∞‡Æ‡æ‡), with the ‡‡‡∞‡Æ‡æ‡ component filled by
 --    isProp‚íPathP over isSet‚ï.  The field pays for its own coherence.
 --
--- 2. `data Clock where tick : Clock ‚í Clock` has no base constructor, so
---    Clock was EMPTY and `heartbeat : Clock ‚í ‡‡æ‡≤ ‚ï` could never be
---    applied ‚î a machine specified and unreachable.  ‡‡¶‡ø added, and
---    ‡ß‡°‡º‡ï‡® = heartbeat ‡‡¶‡ø is the actual beating stream, with ‡‡‡‡∞‡‡‡Æ‡
---    computing a value out of it by refl.
---
 -- ‚ñ HERE IS NOT THE LATER MODALITY.  It is a record with `force : A`,
 -- i.e. the identity functor; the guarding is done by --guardedness on
--- ‡‡æ‡≤, not by ‚ñ.  Said plainly because calling it ‚ñ asserts Nakano's
--- modality and this is not that.  The real ‚ñ needs --guarded and a clock
--- (Cubical.Later), which is ABSENT FROM THE PIN (v0.9) ‚î checked, not
--- assumed.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 (b150186), --safe, no
--- postulates, no holes.  EXIT 0.
+-- ‡‡æ‡≤, not by ‚ñ.
+-- The real ‚ñ needs --guarded and a clock
+-- (Cubical.Later), which is ABSENT FROM THE PIN (v0.9).
 ------------------------------------------------------------------------
 
 module VivekaPramana_TheRemainderIsLawfulAndTheNetBeats where

@@ -3,10 +3,8 @@
 ------------------------------------------------------------------------
 -- CakravalaNeedsKuttaka
 --
--- `Cakravala` proves the cyclic method's step preserves the form and then
--- lists what it does not prove, first item: *that a suitable m exists*.
---
--- It does, and the mechanism was available in 499 CE.
+-- `Cakravala` proves the cyclic method's step preserves the form.  A
+-- suitable m exists, and the mechanism was available in 499 CE.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE CONDITION IS A KUAKA
@@ -35,22 +33,13 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY THIS IS THE WEAVE AND NOT A CITATION
 --
--- CLAUDE.md's table lists kuaka (499), bhvan (628), and cakravla
--- (950/1150) as three entries. They are not three entries. The third
+-- The entries kuaka (499), bhvan (628), and cakravla
+-- (950/1150) are not three entries. The third
 -- calls the first at every cycle and cannot run without it, and the
 -- composition it descends along is the second. One method, built over six
 -- centuries, whose steps are in this repository as three separate files
 -- that did not reference each other until this one.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- Still not claimed, from `Cakravala`'s list: that Bhskara's minimality
--- rule is well defined or optimal, that |k'| < |k|, that the cycle
--- terminates, or that a solution exists for every non-square D.  One item
--- of five is closed here.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module CakravalaNeedsKuttaka where

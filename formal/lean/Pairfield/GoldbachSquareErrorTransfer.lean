@@ -5,8 +5,7 @@ import Mathlib
 
 This is the exact algebraic step behind the real-axis implication from an
 estimate for `G(t) = A(t)^2` to the corresponding estimate for `A(t)`.  It
-does not assert the analytic RH criterion; it only proves that positive
-squaring loses no error scale beyond the factor `t`.
+proves that positive squaring loses no error scale beyond the factor `t`.
 -/
 
 namespace Pairfield.GoldbachSquareErrorTransfer

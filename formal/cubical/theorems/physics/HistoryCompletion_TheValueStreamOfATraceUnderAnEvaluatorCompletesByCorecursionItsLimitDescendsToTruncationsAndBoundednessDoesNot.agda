@@ -37,13 +37,6 @@
 --       unit lookahead (agreement to depth M+1 in, depth M out) is the
 --       SthairyaSutra crossing profile; §3 says regularity, a bound on
 --       every jet, is likewise a □-predicate no depth decides.
---
--- SYT.  §§1�3 are theorems for every carrier and every evaluator; §4
--- instantiates the shape with the corpus's own exact objects and does
--- not compute � or solve Navier�Stokes.  The completion here is of
--- value streams in the take-metric, not of the reals: what it buys is
--- that the limit object exists and is unique, and that the two
--- Millennium statements are, exactly, □-predicates on it.
 ------------------------------------------------------------------------
 
 module HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot where

@@ -4,7 +4,7 @@
 -- ‡ò‡æ‡‡‡®‡‡‡ ‚î the discrete log is the fiber of Pigala's power, and Shor's
 -- period query is the separating query that reads it.
 --
--- This is the floor under the whole night's crypto arc.  ‡ò‡æ‡ g is EASY
+-- This is the floor under the crypto modules.  ‡ò‡æ‡ g is EASY
 -- (Pigala's fold, log-time); its inverse is HARD (the discrete log).
 -- That asymmetry is all of public-key cryptography, and it is this
 -- repository's ONE theorem ‚î the quotient/fiber law (`
@@ -51,15 +51,6 @@
 -- it; and the reading, the key, the trace, and the metre are all ‡ò‡æ‡ and
 -- its inverse (`GhataViparyaya`, `MalaSetu`, `Bijamula`, `Samvit`,
 -- `Shora`).
---
--- WHAT IS **NOT** CLAIMED:
---   * That the classical discrete log is hard (the security assumption;
---     here shown only that the fiber is non-trivial, which is the
---     INFORMATION-theoretic root, not the COMPUTATIONAL hardness).
---   * Shor's quantum period-finding as an algorithm (owed throughout).
---   * That the C‚ fiber being a coset generalises as a checked term to
---     all cyclic groups (exhibited on C‚; the general coset statement is
---     owed).
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------

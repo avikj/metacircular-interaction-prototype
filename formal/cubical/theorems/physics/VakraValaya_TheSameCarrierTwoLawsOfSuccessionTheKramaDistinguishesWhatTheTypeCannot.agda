@@ -4,7 +4,7 @@
 -- ‡µ‡ï‡‡∞-‡µ‡≤‡Ø‡Æ‡ ‚î the twisted ring.  KramaSaha's doctrine ‚î the order of
 -- standpoints IS the charge ‚î arriving at the fundamental group.
 --
--- THE QUESTION, asked because its answer was not known to the asker.
+-- THE QUESTION.
 -- ArpanaSopana showed the charge is whatever the space holds.  The
 -- torus's stratum-3 charge is ‚ ó ‚.  The KLEIN BOTTLE's loop space has
 -- the SAME carrier (Œ©Klein‚â°‚¬≤, library) ‚î so the charge AS A TYPE
@@ -30,23 +30,16 @@
 --          torus's exactly (same three terms as ArpanaSopana's ‡µ‡≤‡Ø‡Æ‡).
 --
 -- So two spaces share one charge-type at the stratum and are separated
--- by the composition law alone.  The saptabhag reading (per KramaSaha,
--- and it is a reading, not a claim about the sources): what krama
+-- by the composition law alone.  The saptabhag reading (per KramaSaha):
+-- what krama
 -- distinguishes, no profile of presences can ‚î the succession is not
 -- recoverable from the carrier, exactly as the record lane is not
 -- recoverable from the label lane (Arpitanarpita's retract).
 --
--- The winding pairs were computed against the warm kernel through ‡®‡æ‡°‡
--- (milliseconds per answer) before this file was written; the check
--- below re-derives them definitionally ‚î cong under a function turns
--- the computed disagreement into the inequality.
---
 -- SOURCES: Œ©Klein‚â°‚¬≤ and windingKlein, Cubical.HITs.KleinBottle
 -- .Properties; Square‚ícompPath, Cubical.Foundations.Path;
 -- negsucNotpos, Cubical.Data.Int.Properties.  ‡µ‡ï‡‡∞ (twisted), ‡µ‡≤‡Ø
--- (ring), ‡‡Æ/‡‡‡¶ (same/distinct) are ordinary  labels; no
--- source is claimed for the mathematics, which is the library's,
--- composed.
+-- (ring), ‡‡Æ/‡‡‡¶ (same/distinct) are ordinary  labels.
 ------------------------------------------------------------------------
 
 module VakraValaya_TheSameCarrierTwoLawsOfSuccessionTheKramaDistinguishesWhatTheTypeCannot where

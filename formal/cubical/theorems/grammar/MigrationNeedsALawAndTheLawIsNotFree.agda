@@ -47,9 +47,6 @@
 -- NO NOVELTY.  "A map between state spaces commutes with the
 -- observation" is the definition of a simulation/refinement and is as
 -- old as the notion; `not` failing it is immediate.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module MigrationNeedsALawAndTheLawIsNotFree where

@@ -21,9 +21,9 @@
 -- they are not evidence for it.  Certification is the checked term below.
 --
 -- This is the standard universal property of a product, expressed in the
--- Natural Machine's existing `Descent.Descends` language.  No novelty is
--- claimed.  What it adds locally is the checked bridge from the runtime's
--- collision-triggered sensor revision to the formal core.
+-- Natural Machine's existing `Descent.Descends` language.  What it adds
+-- locally is the checked bridge from the runtime's collision-triggered
+-- sensor revision to the formal core.
 ------------------------------------------------------------------------
 
 module ActionRefinement where

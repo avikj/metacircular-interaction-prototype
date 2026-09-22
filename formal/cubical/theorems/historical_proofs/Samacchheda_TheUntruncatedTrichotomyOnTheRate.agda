@@ -9,37 +9,8 @@
 -- *Brhmasphuasiddhnta* 628; Bhskara II, *Llvat*, c. 1150).
 -- Every comparison underneath this module is that operation:
 -- `p Â suc q'` against `p' Â suc q` is the pair of numerators once the
--- divisors are equalised.  **No claim is made that trichotomy, or the
--- propositionality of a three-way sum, is stated in those texts** â” the
+-- divisors are equalised.  The
 -- operation is theirs, the type theory is not.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- `TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation` left the
--- untruncated trichotomy open with a route: prove the exclusivity
--- facts, get `isProp` of the sum, strip the truncation with `PT.rec`.
--- The route is right and is taken here.
---
--- **MY DIAGNOSIS OF THE COST WAS WRONG, AND THE MEASUREMENT IS THE
--- USEFUL PART OF THIS MODULE.**
---
---   * Cycle 45's draft proved `isProp` by NINE explicit cases over the
---     quotient-typed sum, each cross case carrying a `subst`.  Killed
---     after twelve minutes.
---   * I recorded that the `subst`s along quotient paths were the cost.
---     **That was wrong.**  This cycle a version factoring those substs
---     into named top-level lemmas â” but still nine cases â” was killed
---     by a 600-second timeout.
---   * A probe with ONLY the exclusivity lemma checked in seconds.  A
---     probe replacing the nine cases by a generic
---     `isPropSum : isProp A â’ isProp B â’ (A â’ B â’ âŠ) â’ isProp (A âŠ B)`
---     applied twice also checked in seconds.  That is the version
---     below.
---
--- So the expensive object was **the nine-case pattern match on a sum
--- whose summands are quotient-typed**, not the `subst`s and not the
--- elimination.  Moving the case analysis into a generic lemma over
--- abstract `A` and `B` â” where there is no quotient in scope to unfold
--- â” removes it.  Four runs on this container; nothing about the pin.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -53,9 +24,6 @@
 --
 -- NO NOVELTY.  Trichotomy of the rationals is classical; `isPropSum` is
 -- standard and cubical v0.5 happens not to export it.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Samacchheda_TheUntruncatedTrichotomyOnTheRate where

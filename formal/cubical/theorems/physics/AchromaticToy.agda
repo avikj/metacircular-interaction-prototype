@@ -142,7 +142,7 @@ holonomyPathNontrivial p =
 collapse : G₂ → G₃
 collapse _ = tt
 
--- the graph relation: proof-relevant comparison data, not yet identity
+-- the graph relation: proof-relevant comparison data, not identity
 R₂₃ : G₂ → G₃ → Type₀
 R₂₃ x u = collapse x ≡ u
 

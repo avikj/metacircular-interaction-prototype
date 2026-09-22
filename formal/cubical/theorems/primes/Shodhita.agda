@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Shodhita where
--- àà‹à§à¿à: the RH lane rebuilt on the certified factorization.
+-- àà‹à§à¿à: the Mertens walk rebuilt on the certified factorization.
 -- Î¼ read off factor n; every branch a Dec object; the Mertens gate
 -- |M(k)|Â² â‰ k checked at every k on the certified Î¼.
 

@@ -63,10 +63,8 @@ Emitted, e.g.:
     @negNeg = 位&k. k(位&x. @cub_pathFwd(@negPath)(@cub_pathFwd(@negPath)(x)))
                    (位&y. @cub_pathBwd(@negPath)(@cub_pathBwd(@negPath)(y)))
 
-## What is still compile-time (stated, not hidden)
+## What is compile-time
 
 - Face selection of a value-level `hcomp` (proof content; zero cost by design).
 - Transport along a `Path` family, a dependent `螤`/`蝋 line, or a superposed
-  (`&L{猞}`) line: normaliser only; raw mode refuses. The superposed case is
-  the DUP-SUP routing rule 鈹 making it a runtime path (`位x. dup x; &L{fwd A
-  x0, fwd B x1}`) is the natural next entry in the table.
+  (`&L{猞}`) line: normaliser only; raw mode refuses.

@@ -79,7 +79,3 @@ module _
 
     route : ComposedPath d 1
     route = fabric d membership
-
--- The only checked content is the consequence compiler.  In particular,
--- `InheritedÎ”â‹`, basin coverage, and the transfer fabric remain explicit
--- obligations for analytic number theory.

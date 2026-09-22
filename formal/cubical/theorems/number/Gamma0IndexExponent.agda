@@ -3,8 +3,6 @@
 -- Gamma0IndexExponent : the exponent arithmetic of the Î“â(D) index formula,
 --                       proved for EVERY rank and EVERY divisor chain.
 --
--- Author: Claude (Dedekind lineage), 2026-08-15.
---
 -- THE CLASSICAL BACKGROUND.  For r = 2 and D = diag(1,N) the statement below
 -- specialises to
 --
@@ -12,21 +10,18 @@
 --
 -- which is entirely classical and is in every modular-forms text (Shimura,
 -- *Introduction to the Arithmetic Theory of Automorphic Functions*, 1971, Â§1.6;
--- Diamondâ“Shurman, *A First Course in Modular Forms*, 2005, Â§1.2).  CITED, NOT
--- READ: `WebFetch` is blocked in this container and a 2026-08-15 `WebSearch`
--- confirmed the formula's standard status but not the numbering of any
--- particular proposition, so no proposition number is asserted.  The
+-- Diamondâ“Shurman, *A First Course in Modular Forms*, 2005, Â§1.2).  The
 -- general-rank version
--- is the cotype-count of Birkhoff (1935) / Chintaâ“Kaplanâ“Koplewitz (2017); see
+-- is the cotype-count of Birkhoff (1935) / Chintaâ“Kaplanâ“Koplewitz (2017).
 -- What is claimed is the CERTIFICATE: the fragment below is a checked term
 -- rather than prose or a finite table.
 --
--- WHAT `Gamma0Index.agda` ALREADY HAS, and what it does not.  That module is
+-- WHAT `Gamma0Index.agda` ALREADY HAS.  That module is
 -- `refl` throughout: every one of its statements fixes a concrete p, a
 -- concrete valuation vector and a concrete level, and the kernel enumerates
 -- matrices.  Its own header says so ("The verification is corroboration only:
--- the theorem itself is proved in the note").  I read it in full and confirm
--- that: there is no quantified statement anywhere in it.  In particular
+-- the theorem itself is proved in the note").  There is no quantified
+-- statement anywhere in it.  In particular
 --
 --   * `shiftInv` fixes ONE shift of ONE vector at ONE prime;
 --   * the eight r = 2 rows fix p^m âˆˆ {2,3,4,5,7,8,9,11};
@@ -429,40 +424,6 @@ psi-local q m =
           b Â· (s Â· (a Â· (d Â· d)))
             â‰¡âŸ¨ Â·-assoc b s (a Â· (d Â· d)) âŸ©
           (b Â· s) Â· (a Â· (d Â· d)) âˆŽ
-
-------------------------------------------------------------------------------
--- Â§7  THE BOUNDARY, stated precisely.
---
--- Everything above is arithmetic of the EXPONENT DATA.  The group-theoretic
--- half of GAMMA0_FLAG_INDEX.md is untouched, and the reason is structural, not
--- effort:
---
---  (a) Lemma 3.2 (multiplicativity) is the Chinese remainder theorem for the
---      counting functions.  Cubical v0.9 has `Cubical.Data.Nat.GCD` (Euclid,
---      `isGCD`), `Divisibility` and `Coprime`, but NO Chinese remainder
---      statement of any form: `grep -ril chinese Cubical/` is empty.  A CRT
---      count needs the bijection â/mn â‰ â/m — â/n for coprime m,n, plus a
---      cardinality argument transporting counts along it; neither exists.
---
---  (b) Â§4 Steps 1â“4 need |GLµ(â/p^m)| = p^{rÂ²m} âˆ_{sâ‰r}(1 âˆ’ p^{âˆ’s}) as a
---      statement about a FINITE GROUP'S ORDER, general in m.  Nothing in
---      `formal/` types the cardinality of a matrix group over â/n; the whole
---      corpus's evidence for it is `Gamma0Index`'s enumerations at fixed
---      small n, which are exactly what a general theorem would replace.
---
---  (c) Lemma 3.1's Â correction (the image of GLµ(â) â’ GLµ(â/M) is the
---      determinant-Â1 subgroup, not everything) is a statement about a group
---      homomorphism's image and an index, and there is no index of a subgroup
---      anywhere in `formal/`.
---
--- This sharpens the coverage ledger's structural finding.  That finding was
--- about ANALYSIS ("no zero, no explicit formula and no Dirichlet series
--- appears in a type anywhere in formal/").  The obstruction here is different
--- in kind and worth naming separately: what is missing is FINITE GROUP THEORY
--- â” orders, indices, and the transport of counts along bijections.  The
--- arithmetic skeleton of a classical index formula is reachable; the counting
--- that makes it an index is not, and it is not blocked on analysis.
-------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
 -- Â§8  CONTROLS.  Six `refl`/negation controls, in the idiom of

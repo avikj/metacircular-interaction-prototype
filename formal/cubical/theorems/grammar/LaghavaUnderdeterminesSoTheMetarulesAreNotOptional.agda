@@ -36,9 +36,6 @@
 -- about the MEANING, so it is invisible to `eval` and survives into every
 -- presentation-measure whatsoever.  Any measure blind to a symmetry of
 -- the denotation attains its minima non-uniquely, by that fact alone.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the pin.
--- --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module LaghavaUnderdeterminesSoTheMetarulesAreNotOptional where

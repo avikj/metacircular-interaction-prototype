@@ -4,10 +4,7 @@
 -- TheSharedPreambleIsACommonPrefixNotACommonSet
 --
 -- `interactive/TraceLibrary.hs` computes the shared helper preamble of its
--- trace records as `foldr1 lcp` â” the longest common PREFIX â” after its
--- own `selfTest` refuted the first version, which had assumed the whole
--- preamble was shared ("records disagree on the helper preamble: 16 of
--- 17", the module catching its own author).
+-- trace records as `foldr1 lcp` â” the longest common PREFIX.
 --
 -- Why the prefix and not the intersection is the right meet, checked:
 --
@@ -22,12 +19,7 @@
 -- earlier ones, so a set of declarations is not a preamble until it is
 -- ordered, and no single ordering serves two records that disagree.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT I READ FIRST
---
--- `interactive/TraceLibrary.hs` end to end, including
--- `sharedPreamble recs = Right (foldr1 lcp (map (fst . splitAtCandidate
--- . recBody) recs))` and its `selfTest`.  The declaration names below â”
+-- The declaration names below â”
 -- `addZero`, `addSuc` â” are that file's own, and `addZero : (a : â•) â’
 -- (a + zero) â‰¡ a` is the lemma its header says every record carries.
 --
@@ -37,9 +29,6 @@
 -- does not.  They are different statements about different objects and
 -- neither derives the other: Anuvrtti is about a cost failing to factor
 -- through `asSet`; Â§3 is about a common set failing to BE a preamble.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheSharedPreambleIsACommonPrefixNotACommonSet where
@@ -152,9 +141,4 @@ neitherOrderingServesBoth =
 -- kind at all, because a preamble is a SEQUENCE and a set has to be
 -- ordered before it can be one.  Two records sharing every declaration
 -- can share no prefix.
---
--- So the first version of that module was not merely optimistic; the
--- notion it reached for does not exist.  Its `selfTest` caught the
--- symptom (16 of 17 disagree) and the choice of `lcp` is the cure, and
--- Â§2â“Â§3 are why the cure is forced.
 ------------------------------------------------------------------------

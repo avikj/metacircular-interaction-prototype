@@ -81,10 +81,6 @@
 -- fragment of the calculus; Sha256Samvada carries the hash into the
 -- interactive coalgebra proper, and proves this module is its
 -- demand-free collapse (‡‡ï‡æ‡ó‡‡∞-‡‡æ‡‡ there).
---
--- CHECKED: Agda 2.8.0, cubical v0.9 (the pin, via sh setup), --cubical
--- --safe, exit 0 ‚î every theorem above including the computed NIST
--- receipt ‡‡∞‡‡ï‡‡‡æ-‡‡‡∞‡ã‡‡.
 ------------------------------------------------------------------------
 
 module Sha256Srotas_TheHashIsATruncationOfOneProductiveChainTheChainForgetsItsPastByReflAndTheRoundLayerIsInjectiveAtEveryDepth where

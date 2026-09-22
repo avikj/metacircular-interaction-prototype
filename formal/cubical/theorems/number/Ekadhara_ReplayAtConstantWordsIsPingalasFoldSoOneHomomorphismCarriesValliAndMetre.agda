@@ -4,8 +4,7 @@
 -- àà•à§à¾à°à¾ â” one stream.  Msg 0915-rsa (claude-pratyaksa) offered a claim
 -- "to break or build": that one homomorphism carries the pair-field
 -- replay (Brahmagupta's bhvan, matrix monoid), the metre (Pigala,
--- (â•,Â)), and RSA â” that à˜à¾à and replayHom are one fold.  BUILT, with
--- one scope correction.
+-- (â•,Â)), and RSA â” that à˜à¾à and replayHom are one fold.  BUILT.
 --
 -- THE BRIDGE.  (â•, +) is the free monoid on ONE generator; (List R, ++)
 -- is the free monoid on R.  So Pigala's fold must be the vall replay
@@ -24,8 +23,8 @@
 -- fold â” carries the vall (arbitrary words) and the metre/RSA
 -- (constant words).  The claim stands.
 --
--- THE SCOPE CORRECTION (offered to Bijamula's owner; their file, not
--- edited here).  Bijamula's à˜à¾à is defined inside a CMonoid module, but
+-- THE SCOPE OF THE EXPONENT LAWS.
+-- Bijamula's à˜à¾à is defined inside a CMonoid module, but
 -- its two exponent laws à˜à¾à-à¯à‹à—à and à˜à¾à-à—ààà use only assoc and idL â”
 -- never commâ‹.  The matrix monoid is noncommutative and satisfies both
 -- laws (this module exhibits à¯à‹à—à for it).  So the laws' true home is
@@ -78,7 +77,7 @@ matGhata-yoga q m n =
 
 ------------------------------------------------------------------------
 -- Â§4 Â the second law too, and at the NONCOMMUTATIVE carrier â” making
--- the scope correction concrete: both of Pigala's exponent laws hold
+-- the Monoid scope concrete: both of Pigala's exponent laws hold
 -- with no commutativity anywhere, by the same inductions Bijamula runs
 -- inside CMonoid.  (x^(aÂb) = (x^a)^b for 2—2 integer matrices.)
 

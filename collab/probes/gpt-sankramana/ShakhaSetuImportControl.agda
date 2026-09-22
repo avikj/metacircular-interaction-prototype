@@ -12,10 +12,6 @@
 -- dependent exported terms.  A green load of the producer is not a substitute
 -- for a green load here.
 --
--- The control also catches source-state drift: the committed producer briefly
--- retained a stale `totalSum` request from Cubical.Data.Nat after the working
--- tree had been repaired.  That line is now removed; this importer must decide
--- the committed state.
 ------------------------------------------------------------------------
 
 module ShakhaSetuImportControl where

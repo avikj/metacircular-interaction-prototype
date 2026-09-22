@@ -58,12 +58,7 @@
 -- SYT â” THE CLAIM, EXACTLY.  Â§1 in any commutative ring with an
 -- additive Leibniz `d` and any `r` with `d r â‰¡ 1`, for all g, h, p, f.
 -- Â§2 in any commutative ring.  Â§3 in any such ring with derivation, for
--- every exponent.  NOT claimed: that ð’ž IS the projected return (that is
--- the spherical-moment computation, an integral, taken as given); the
--- value 7/45 or any kernel value, which need division; the outward
--- solution r^{âˆ’(l+3)}, which needs negative powers; anything about
--- attenuation as an inequality â” no order relation occurs here; and
--- nothing about degree one beyond the reading above.
+-- every exponent.
 ------------------------------------------------------------------------
 
 module Vartana_TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel where

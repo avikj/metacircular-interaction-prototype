@@ -48,20 +48,9 @@
 --
 -- ยง3 is why that matters, and it is the sharpest thing here: it turns
 -- that note's three-line refutation of the SEQUENTIAL diagnostic into a
--- computed object.  I had proposed, in prose, "factor the proof, and the
--- first non-contractible fibre is where the information went".  It is
+-- computed object.  The sequential diagnostic, "factor the proof, and the
+-- first non-contractible fibre is where the information went", is
 -- unsound in BOTH directions, and ยง3 exhibits both failures as censuses.
---
--- WHAT IS NOT DONE HERE, said so it is not mistaken for done.  The note's
--- scale has five levels; this module builds THREE, because three are what
--- the corpus can exhibit.  Levels เฉ and เ are not separated โ” the note
--- establishes that "does a retraction exist" does NOT separate them, and
--- leaves the seam open.  Inventing a constructor for a distinction nobody
--- has a criterion for would be the same error one level down.  The seam
--- is left visible; see ยง4.
---
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 โ” the library's declared pin.
--- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Punaragamana.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic where

@@ -3,9 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡‡‡æ‡∞‡-‡®‡ø‡Ø‡Æ ‚î the displacement law.
 --
--- RESOLUTION TOWARD ABSTRACT 24'S THERMODYNAMIC SENTENCE.  That
--- abstract stated no erasure bound was derived.  The bound's logical
--- core is derivable, and here it is:
+-- THE LOGICAL CORE OF ABSTRACT 24'S THERMODYNAMIC SENTENCE, derived:
 --
 --   ¬ß1  THE DISPLACEMENT THEOREM, generic.  Let a total dynamics act
 --       on system ó environment and be injective ‚î reversibility, in

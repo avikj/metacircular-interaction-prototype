@@ -14,10 +14,6 @@
 -- of Fin (suc n).  Permutation invariance therefore proves that both folds
 -- agree.  No unit is introduced: the weight carrier remains only an
 -- associative commutative semigroup, exactly as in the finite Born lane.
---
--- STATUS.  Complete and hole-free, contingent on the still-open kernel
--- receipt for `PermutationInvariantTotalProbe`.  Stage both probes in one
--- include root for Nadi.
 ------------------------------------------------------------------------
 
 module FiniteFoldPresentationIndependenceProbe where

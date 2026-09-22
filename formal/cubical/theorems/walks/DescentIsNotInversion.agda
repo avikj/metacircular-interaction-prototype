@@ -65,9 +65,6 @@
 -- and sharper: the walk has no inverses AND no scaling action, so it has
 -- neither of the two mechanisms by which the conic's states come back
 -- down.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module DescentIsNotInversion where
@@ -177,14 +174,13 @@ module Descent (R : CommRing â„“) where
 --
 -- Two mechanisms bring a conic state back down: inversion in the group of
 -- norm-unit elements, and scaling within a norm class.  The cakravla
--- uses the second, not the first â” the conjecture in the previous module
--- named the first and is hereby withdrawn.
+-- uses the second, not the first.
 --
 -- The walk has the first not at all: by `IdempotenceForbidsDescent` its
 -- join law has no inverses but the trivial one.
 --
--- The second is subtler, and the first draft of this paragraph got it
--- wrong.  The walk DOES have an equivariant scaling action â” in the
+-- The second is subtler.  The walk DOES have an equivariant scaling
+-- action â€” in the
 -- tropical chart it is the shift, and its equivariance is already a
 -- checked term in this lane:
 --
@@ -201,8 +197,4 @@ module Descent (R : CommRing â„“) where
 --
 --     the walk has scaling and no norm; it has no inverses at all; and a
 --     scaling action with nothing to reduce is not a descent.
---
--- Whether the walk admits a norm is open, is the sharpest form of the
--- question these three modules have been circling, and is not touched
--- here.
 ------------------------------------------------------------------------

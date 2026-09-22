@@ -24,12 +24,6 @@
 --                            + 2câcâÏâ        (solver, seven variables).
 --   Â§4  over â, the block at f = (1,1,1,1), c = (1,âˆ’1,1) is 4, read both
 --       ways.
---
--- SYT â” THE CLAIM, EXACTLY.  One polynomial identity at fixed sizes,
--- checked by the ring solver.  The general finite case is the same
--- identity with more terms; the document's infinite case adds a limit
--- that is NOT here.  "Prime" names the slots; no arithmetic function
--- appears.
 ------------------------------------------------------------------------
 
 module BoundaryBlock_ThePrimeSideMeanSquareOfAReceivedSignalIsThePairFieldPairedWithTheReceiversAutocorrelation where

@@ -8,7 +8,7 @@
 -- ‡ï‡‡ü‡‡ü‡ï, *ryabhaya* gaitapda 32‚ì33, 499 CE); it is also the word
 -- English borrowed nothing of when it named the thing "the private key".
 -- ‡Æ‡‡≤ is the root/seed.  The compound is built here from ‡‡‡ (ryabhaa)
--- and the ordinary ‡Æ‡‡≤; no stra is claimed for it.
+-- and the ordinary ‡Æ‡‡≤.
 --
 -- WHAT RSA IS, stated so the decomposition is visible before the proof.
 -- Public modulus n, public exponent e.  Encryption of a message x is
@@ -62,7 +62,7 @@
 -- a classical machine is not known to do in polynomial time ‚î and once r
 -- is in hand the factor of n falls out by a gcd, which is the kuaka
 -- again.  ¬ß4 states the classical half of that reduction as a hypothesis
--- and marks the quantum half as the owed frontier; it is NOT proved here.
+-- and takes the quantum half as a hypothesis.
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------

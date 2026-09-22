@@ -11,12 +11,7 @@
 -- so every word of length â‰ 9 occurs (with Sarvapada and Navapada, the
 -- Morseâ“Hedlund refutation of every N + p < 512), and above that the
 -- count is bounded by the 4096 âˆ’ n + 1 positions, not by the alphabet.
--- Only windows inside the prefix are counted: the kernel first returned
--- 1794 at n = 11 for a list that ran ten windows past the end with zero
--- padding, and that correction is why `take` is there.
---
--- Submitted to the yantra (sadhana.patra) and accepted by its kernel,
--- 2026-09-11; ~13 GB live, run under `check`'s heap cap, alone.
+-- Only windows inside the prefix are counted.
 ------------------------------------------------------------------------
 
 module Sankirnata_TheComplexityFunctionOfRuleThirtysMiddleColumnOnFourThousandNinetySixBitsIsTwoToTheNThroughNineAndThenOneThousandSeventeenSeventeenNinetyOneAndTwentyFiveNinetyNine where

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- FactoryVICore
 --
--- The exact integer core of Theorem Factory VI
+-- The exact integer core of Theorem Factory VI.  The note's
 -- statements are phrased in logs (Ï = log a / log n, the exponent
 -- share a â‰ b^{1/m}); this module carries the INTEGER-EXACT forms the
 -- note itself supplies, so no floating point and no log ever enters the
@@ -48,12 +48,11 @@
 --     both nonunits are dead, exactly one member survives, and the
 --     minimum surviving factor is 1 â” all by refl.
 --
--- Nothing here proves Goldbach or twins; T101 and T100 are precisely
+-- T101 and T100 are precisely
 -- the two no-go / compactness facts the factory uses to say which
 -- research policies cannot reach them.  General theorems are proved in
 -- the parameters; concrete constants are certified by refl (finite /
--- exact symbolic computation is proof, CLAUDE.md).  --safe throughout;
--- no postulates, no holes.
+-- the parameters; concrete constants are certified by refl.
 ------------------------------------------------------------------------
 
 module FactoryVICore where

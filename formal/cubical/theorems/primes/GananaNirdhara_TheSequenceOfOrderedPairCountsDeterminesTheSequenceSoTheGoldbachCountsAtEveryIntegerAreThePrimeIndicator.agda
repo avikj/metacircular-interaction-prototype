@@ -18,15 +18,9 @@
 --     â[X]); AÂ² = BÂ² forces A = B or A = âˆ’B, and nonnegativity of the coefficients
 --     kills the second branch (both sides must then vanish identically).
 --
--- SOURCE 2 (formal/lean/Pairfield/YugmaPurana_TheEvenPaddingIsForcedAnd
--- TheDeterminantSaysWhy.lean, the closing "what is not claimed" list), quoted:
---
---     * It does not transport anything from the Agda lane.  See the header: the two
---       proofs are independent, and their agreeing is the content.
---
--- WHAT IS PROVED HERE, exactly.  The same rigidity theorem, composed a
--- second time in this lane, directly over â•: no polynomial ring, no â[X],
--- no finite-support hypothesis, no transport from the Lean lane.  For any
+-- WHAT IS PROVED HERE, exactly.  The same rigidity theorem, directly
+-- over â•: no polynomial ring, no â[X],
+-- no finite-support hypothesis.  For any
 -- f : â• â’ â• the ordered pair count at N is the Cauchy square
 --
 --     sq f N := Î_{m=0}^{N} f m Â f (N âˆ m)

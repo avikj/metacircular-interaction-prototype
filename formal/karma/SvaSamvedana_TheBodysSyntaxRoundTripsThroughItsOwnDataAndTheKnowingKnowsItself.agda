@@ -15,12 +15,6 @@
 -- says the recitation returns exactly the term, for EVERY term, with
 -- whatever follows on the thread untouched â” fuel one node-count
 -- deep, monotone in slack.
---
--- The boundary, restated from Svarupa so this module cannot be read
--- as more than it is: this is representation, not yet
--- self-INTERPRETATION â” an evaluator over threads needs the recursor,
--- and the vocabulary remains first-order.  The lamp sees the lamp;
--- it does not yet light itself.
 ------------------------------------------------------------------------
 
 module SvaSamvedana_TheBodysSyntaxRoundTripsThroughItsOwnDataAndTheKnowingKnowsItself where

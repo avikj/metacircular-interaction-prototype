@@ -4,15 +4,13 @@
 -- ‡‡µ‡‡‡‡‡ø‡‡‡‡ ‚î the remainder of the turning-back.
 --
 -- TERM.  ‡‡µ‡‡‡‡‡ø (vtti), repetition / a turning back over the same
--- ground, and ‡‡‡ (ea), what is left over.  Both are used in their
--- ordinary technical senses and NO STRA IS CLAIMED for anything proved
--- here.  ‡‡‡ in the sense this file uses ‚î the remainder is kept and is
+-- ground, and ‡‡‡ (ea), what is left over.
+-- ‡‡‡ in the sense this file uses ‚î the remainder is kept and is
 -- the material of the next step ‚î is ryabhaa, ryabhaya, ‡ó‡‡ø‡‡‡æ‡¶
--- 32‚ì33 (499 CE), the kuaka; the mathematics below is not his and the
--- header says so rather than borrowing his authority for it.
+-- 32‚ì33 (499 CE), the kuaka.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS SETTLES, and it was previously settled only by a length.
+-- WHAT THIS SETTLES.
 --
 -- Three files in this repository state one fact about the kernel and
 -- none of them cites another:
@@ -55,15 +53,12 @@
 -- separate the fibre have EQUAL meanings, because the meaning type is a
 -- proposition and has no two positions in it.
 --
--- WHAT IS **NOT** CLAIMED.  No braiding.  A groupoid whose inverse fails
+-- A groupoid whose inverse fails
 -- to be strict is not thereby a braid group action:
 -- `Mula.BraidCoherenceBoundary` exhibits two involutive
 -- self-EQUIVALENCES of `Bool ó Bool ó Bool` that fail Yang‚ìBaxter at
 -- (false , false , false), so invertibility does not entail the
--- coherence, and nothing here supplies it.  No thermodynamics, no
--- physical implementation, no measure, no heat ‚î `Yantra_‚¶` carries a
--- correction inset about exactly that overclaim and this file does not
--- reinstate it.
+-- coherence.
 ------------------------------------------------------------------------
 
 module Mula.AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndRefusesTheGroupoidSoTheRoundTripIsTheResidue where

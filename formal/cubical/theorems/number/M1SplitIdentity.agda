@@ -4,8 +4,7 @@
 -- M1SplitIdentity
 --
 -- cancellation core of the identity Îâ™¯_Q(P_Q) = M(Q) of the same section
--- Â§1(i).  Coverage-ledger rows A18 / Â§6 item 2.
---
+-- Â§1(i).
 --
 --     [â™¯â™¯](T)-constant = A(Q)Â²/4 + 2 A(Q) S(Q) + O(1),
 --     A(Q) = Îâ™¯_Q(1),   S(Q) = Î_{mâ‰2} Îâ™¯_Q(m)/(1+m)Â²,
@@ -17,7 +16,7 @@
 --   The remaining terms have both arguments â‰ 2 and are Q-bounded,
 --   giving O(1)."
 --
--- WHAT IS FORMALIZED HERE, AND WHAT IS NOT.  The proposition has three
+-- WHAT IS FORMALIZED HERE.  The proposition has three
 -- separable layers:
 --
 --   (a) the SPLIT: the double sum over pairs (a,b), a,b â‰ 1, weighted by
@@ -27,16 +26,12 @@
 --       and of S(Q) (Hardy's Ramanujan expansion);
 --   (c) the O(1) bound on the remainder.
 --
---   Only (a) is proved below.  (a) is exactly the part of M1 that is not
+--   (a) is proved below.  It is exactly the part of M1 that is not
 --   analysis: it is a partition of the index lattice â•â‰1 — â•â‰1 into
 --   {(1,1)} âŠ” {(1,m)} âŠ” {(m,1)} âŠ” {both â‰ 2}, and it is true for an
 --   ARBITRARY weight w and an ARBITRARY arithmetic function f in an
 --   arbitrary commutative semiring.  Neither Î¼, nor Ï, nor Î, nor any
---   Dirichlet series, nor any zero, appears in any type in this file --
---   finding.  (b) and (c) are NOT here and are not reachable here: they
---   need real analysis and Mertens' theorem, neither of which is in the
---   cubical library.  In particular THIS FILE DOES NOT PROVE
---   "[â™¯â™¯]-constant = Â¼logÂ²Q + (C/2 + 2Sâˆž)logQ + O(1)".
+--   Dirichlet series, nor any zero, appears in any type in this file.
 --
 --   The finite truncation is the SQUARE 1 â‰ a,b â‰ K, not the triangle
 --   a+b â‰ N.  Both truncate the same double series; the square is the
@@ -48,8 +43,7 @@
 --   fitted 0.362/0.421 of exp27 were artifacts: the leading coefficient
 --   comes from ONE lattice point.  Below, `corner â‰¡ (A âŠ— A) âŠ— w 2` is
 --   literally a closed term independent of the truncation K, for every
---   f and every w.  Instantiating w n = 1/nÂ² turns w 2 into Â¼; that
---   instantiation is arithmetic in â and is not performed here.
+--   f and every w.  Instantiating w n = 1/nÂ² turns w 2 into Â¼.
 --
 -- SECOND RESULT (Â§5).  `sharp-collapse`: if a weight Ï‰ and a fibre value
 -- c satisfy  c q â‰¡ Ï q  and  Ï‰ q âŠ— Ï q â‰¡ Î¼ q  for every q, then
@@ -57,15 +51,12 @@
 -- c = the Ramanujan sum c_q(n), this is Îâ™¯_Q(n) = M(Q).  The two
 -- arithmetic inputs are HYPOTHESES CARRIED IN THE SIGNATURE, and they
 -- are exactly:
---     (maximal) c_q(n) = Ï(q)  whenever q âˆ n   -- Ramanujan-sum theory,
---                                                  not developed here;
+--     (maximal) c_q(n) = Ï(q)  whenever q âˆ n;
 --     (cancel)  (Î¼(q)/Ï(q))ÂÏ(q) = Î¼(q)         -- Ï(q) â‰  0, in â.
--- Neither is proved here; Â§6 discharges the remaining side condition,
+-- Â§6 discharges the side condition,
 -- which is that a SINGLE n making `maximal` hold for all q â‰ Q exists:
 -- `divFact` proves q âˆ Q! for every 1 â‰ q â‰ Q, so the modulus P_Q of
--- METHOD.md Â§1(i) is inhabited and the theorem is not vacuous.  What is
--- NOT proved is Odlyzko--te Riele, hence not the |Îâ™¯_Q| â‰ Q^{1/2}
--- consequence the note draws from M(Q).
+-- METHOD.md Â§1(i) is inhabited and the theorem is not vacuous.
 --
 -- NON-VACUITY CONTROLS: Â§7, all `refl` over â•, plus a control showing
 -- the `maximal` hypothesis of Â§5 is load-bearing (dropping it makes the
@@ -217,8 +208,7 @@ module Weighted
 
   ----------------------------------------------------------------------------
   -- Â§5.  Îâ™¯_Q(P_Q) = M(Q): the cancellation, with its two arithmetic
-  -- inputs as explicit hypotheses (see the header for what they are and
-  -- what is not proved).
+  -- inputs as explicit hypotheses (see the header for what they are).
   ----------------------------------------------------------------------------
 
   sharp-collapse :

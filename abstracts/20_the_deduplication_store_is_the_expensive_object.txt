@@ -54,12 +54,11 @@ monotone.  Systems adopting this design trade unbounded growth for the
 elimination of the entire delivery-semantics stack, and we characterise
 the trade rather than tune it.
 
-RESOLVED IN PART.  The broker vocabulary now exists:
+The broker vocabulary exists:
 theorems/unplaced/PunahPrapti gives offsets, the received-set, and
 delivery, and proves redelivery idempotent and deliveries at every
 pair of offsets commuting, so duplicates collapse and adjacent swaps
 are free â” at-least-once has the effect exactly-once was purchased
-for, with the dedup store's absence now algebraic on the model.
-Partitions, checkpoints and watermarks remain constructions.
+for, with the dedup store's absence algebraic on the model.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

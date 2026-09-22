@@ -46,10 +46,6 @@
 --
 -- That last is `ParitySeparator`'s no-go recovered as the S = � instance,
 -- and the first is what it never said: the barrier has a dimension.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 with the `notes/CUBICAL_PATCH.md`
--- back-port, `--cubical --safe`, no postulates, no holes.  NOT the
--- repository pin (2.8.0 + v0.9).
 ------------------------------------------------------------------------
 
 module NaturalMachine.ChargeBlindnessIsAnOrthogonalComplement where
@@ -162,8 +158,7 @@ transcript s Q = map (λ v → ⟪ s , v ⟫) Q
 -- indexed family here matches on constructor injectivity, which Cubical
 -- Agda does not support, so the predicate would not compute under
 -- transport � and a criterion that does not compute under transport is
--- not a test.  The kernel said exactly this on the first pass of this
--- file, in two `-WUnsupportedIndexedMatch` warnings naming `[]` and `_�_`.
+-- not a test.
 
 -- "some query in Q is not orthogonal to the charge S"
 Sees : List Vec → Vec → Type₀

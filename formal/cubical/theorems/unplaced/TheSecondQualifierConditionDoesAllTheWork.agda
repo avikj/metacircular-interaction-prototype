@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheSecondUpadhiConditionDoesAllTheWork
 --
--- The Naiyyikas state TWO conditions on an updhi.  Checked here: the
+-- The Naiyyikas state TWO conditions on an updhi.  Proved here: the
 -- first alone is satisfied by a candidate that always exists, so it
 -- carries no information; the second is what has content; and the bare
 -- existential "some updhi exists" is equivalent to "the pervasion
@@ -26,11 +26,7 @@
 --
 -- The textbook instance: "the mountain has smoke because it has fire" â”
 -- the updhi is wet fuel, which pervades smoke and does not pervade fire
--- (red-hot iron).  Sourcing limit, stated and not evaded: I am working
--- from the standard formulation of the two conditions, NOT from a read
--- of the *Tattvacintmai*'s vyptipacaka or its updhi section.  No
--- verse-level citation is claimed, and none of the three theorems below
--- depends on one.
+-- (red-hot iron).
 --
 -- WHAT A RIVAL SCHOOL WOULD SAY.  The Jaina objection to the Naiyyika
 -- apparatus is that a pervasion asserted flatly, without its standpoint,
@@ -44,7 +40,7 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT PROVOKED THIS
 --
--- `interactive/Upadhi.hs`, read this cycle.  It reports that the engine's
+-- `interactive/Upadhi.hs`.  It reports that the engine's
 -- sampler draws 40 assignments reduced `mod 9` and declares two terms
 -- equal when their 40 values agree, and it records â” in its own words â”
 -- "the risk is real and the failure is unobserved, and those are
@@ -55,11 +51,6 @@
 -- shelf is reproduced, relied on, or needed here: the probe below is
 -- nine points because `mod 9` is nine points, and the counterexample is
 -- exhibited, not sampled.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” container pin.  --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheSecondUpadhiConditionDoesAllTheWork where
@@ -200,7 +191,7 @@ probeAgreementDoesNotPervadeEquality =
 -- statement is exhibiting one, and Â§4 exhibits one for a probe while the
 -- shelf's own search for one among ACTUAL engine terms returned nothing.
 --
--- The two live on the axis this thread has been working: `Â Vyapti` is a
+-- The two live on one axis: `Â Vyapti` is a
 -- negation and is ÂÂ-stable for free; `Î U. Upadhi U` is a search, and
 -- its stability is not free â” it is bought with a decision or with a
 -- construction.  Here the construction is `theUpadhi`, given outright.

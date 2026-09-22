@@ -35,7 +35,7 @@
 -- named blind pair is thereby proved to contain no derived member: each
 -- realization is a genuinely new sense of the motive (§2).  Crystalline
 -- is not a function of the �-adic readings � that instance is a reading
--- and is not proved; the shape of it is §2 and is.
+-- and the shape of it is §2.
 --
 -- §2 is generic in all three types.
 ------------------------------------------------------------------------

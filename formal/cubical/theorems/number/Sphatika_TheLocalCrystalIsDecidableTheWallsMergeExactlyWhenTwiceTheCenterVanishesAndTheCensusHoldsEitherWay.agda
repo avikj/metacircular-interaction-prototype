@@ -23,16 +23,11 @@
 -- centering (‡ï‡‡®‡‡¶‡‡∞‡Æ‡), the elision engine (‡¶‡‡µ‡ø-‡≤‡ã‡‡), the merge
 -- criterion internal (here), the regime decision (here), and the
 -- charge that must survive the boundary (‡‡æ‡‡‡ï‡æ‡≤‡ø‡ï‡ ‡ó‡‡ø‡ / Yamala).
--- What remains above the chart is the atlas: the CRT tensor across
--- charts (‚à(p ‚àí œâ_p) per period, ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡ Lemma 3) and the cone
--- restriction where the whole difficulty lives (¬ß3 there).  Named, not
--- built.
 --
 -- ON THE NAME.  ‡‡‡‡ü‡ø‡ï ‚î crystal, rock-crystal ‚î ordinary ,
 -- prominent in the traditions this corpus reads (the sphaika of
 -- Nyya's optics examples; the owner's "local prime Fourier crystal"
--- names the same object one instrument later).  The compound use is
--- built here, 2026-08-23; no source is claimed for any statement.
+-- names the same object one instrument later).
 ------------------------------------------------------------------------
 
 module Sphatika_TheLocalCrystalIsDecidableTheWallsMergeExactlyWhenTwiceTheCenterVanishesAndTheCensusHoldsEitherWay where
@@ -136,12 +131,10 @@ private
                   , ‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É a (-‚Çò a) ¬¨p )
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  The chart is closed; the atlas is not: the product over
--- charts (CRT), the cone restriction, and the identification of -‚ò a
--- with the ‚-side ‚àía under a reduction map ‚ ‚í Fin p are all named and
--- not built.  ‡‡‡‡ü‡ø‡ï‡ decides by discreteFin on the WALLS; deciding on
+-- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.
+-- ‡‡‡‡ü‡ø‡ï‡ decides by discreteFin on the WALLS; deciding on
 -- the criterion (a +‚ò a ‚â° ‡‡‡®‡‡Ø‡Æ‡) instead is the same decision through
--- ‡‡ô‡‡ó‡Æ-‡‡®‡‡‡∞‡.  Nothing here asserts anything about primes: p = 2 + m
+-- ‡‡ô‡‡ó‡Æ-‡‡®‡‡‡∞‡.  p = 2 + m
 -- is any modulus ‚â 2, and primality enters only at the atlas level,
 -- where ‡ï‡‡ü‡‡ü‡ï-‡ï‡ã‡ needs the charts at prime moduli.
 ------------------------------------------------------------------------

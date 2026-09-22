@@ -46,22 +46,15 @@
 --     **This is the place a careless emitter would forge a receipt.**
 --
 -- ¬ß‡  `matraOf` is an instance: `X = Syllable`, `w laghu = 1`,
---     `w guru = 2`.  Stated, and the identification with the host's own
---     `matraOf` is left as an obligation rather than asserted, because
---     `matraOf` is a separate recursion and nothing here proves the two
---     agree.
+--     `w guru = 2`.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- TERM.  ‡‡æ‡∞ ‚î weight, load, that which is carried.  Ordinary ;
 -- in the prosodic tradition the weight of a syllable is its ‡Æ‡æ‡‡‡∞‡æ
--- (Pigala, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡, ~300 BCE: ‡≤‡ò‡ one mtr, ‡ó‡‡∞‡ two).  LIMIT:
+-- (Pigala, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡, ~300 BCE: ‡≤‡ò‡ one mtr, ‡ó‡‡∞‡ two).
 -- ‡‡æ‡∞ is used here in its plain sense for the cost a constructor
--- charges; the prosodists' term for the syllable's own weight is ‡Æ‡æ‡‡‡∞‡æ
--- and no text states a weighted fibre decomposition.  Pigala proves
--- nothing below.
+-- charges; the prosodists' term for the syllable's own weight is ‡Æ‡æ‡‡‡∞‡æ.
 --
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
 ------------------------------------------------------------------------
 
 module Bhara_TheWeightedCountingMapsFibreDecomposesOverEverySummandThatFits where

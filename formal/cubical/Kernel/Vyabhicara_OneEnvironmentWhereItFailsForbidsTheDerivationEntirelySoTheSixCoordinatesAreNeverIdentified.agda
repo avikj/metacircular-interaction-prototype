@@ -12,22 +12,14 @@
 --
 --     àà¨àˆà•à¾à¨ààà¿à•à ààµàà¯àà¿àà¾à°à     anaikntika savyabhicra
 --
--- CORRECTED 2026-08-25 against the e-text.  I first wrote this as
--- ~~savyabhicro 'naikntika~~, THE WORDS IN REVERSE ORDER, from memory.
 -- GRETIL's `sa_gautama-nyAyasUtra.txt` line 204 reads `1.2.5:
 -- anaikntika savyabhicra`, and line 200 is 1.2.4, the hetvbhsa
--- list.  Cloned from the INDOLOGY/tokushige-koyasan GitHub mirror, since
--- GRETIL's own host answers 403 here.  This file's own thesis is that a
--- number propagates where words do not; I had the number right and the
--- words wrong, which is the same defect one level in.
+-- list.
 --
--- I give the words rather than lean on the number, per this repository's
--- own finding that a stra's number propagates through citation while its
--- words appear only where someone opened the text.  The received placement
--- is in the hetvbhsa passage of adhyya 1, pda 2; I do not pin it.  The
+-- The received placement is in the hetvbhsa passage of adhyya 1, pda 2.  The
 -- definitional apparatus for vypti and its defeat is much later --
--- Gagea, *Tattvacintmai*, vyptivda (~1325) -- and none of it is
--- claimed for anything proved below.  `Vyapti_â¦` in this directory is the
+-- Gagea, *Tattvacintmai*, vyptivda (~1325).
+-- `Vyapti_â¦` in this directory is the
 -- sibling module and uses the same school's vocabulary.
 --
 -- AND THE DISPUTE, WHICH IS THE POINT AND MUST NOT BE FLATTENED.
@@ -49,19 +41,17 @@
 -- it states which reading each section is, and stops.
 --
 ------------------------------------------------------------------------
--- WHAT WAS OPEN.
+-- THE COMMENT IN `RewriteCertificate`.
 --
--- `RewriteCertificate` states a design rationale in a comment and never
--- proves it:
+-- `RewriteCertificate` states a design rationale in a comment:
 --
 --     "Keeping all six coordinates distinct matters: identifying them
 --      would prove only equality on the diagonal."
 --
 -- That is a claim about what this calculus CANNOT derive, and prose is not
--- a source for an absence.  Nothing in the corpus exhibits an uninhabited
--- `Derivation`.  Â§1 gives the general instrument in one line and Â§2 uses
--- it, so the comment becomes a checked non-existence with a command behind
--- it rather than a rationale nobody tested.
+-- a source for an absence.
+-- Â§1 gives the general instrument in one line and Â§2 uses
+-- it, so the comment becomes a checked non-existence.
 --
 ------------------------------------------------------------------------
 -- WHAT IS PROVED.
@@ -74,11 +64,6 @@
 --       coordinates; and yvar with zvar, so the fact is not about `var`.
 --   Â§3  the same pair, asti at one updhi and nsti at another, both
 --       checked -- the configuration Â§2 reads as a fault.
---
--- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
--- exit 0 at the previous module path.  Module name and imports were renamed
--- to `Kernel.*` to match this directory; that rename has not been re-run at
--- the repository pin (2.8.0 + v0.9).
 ------------------------------------------------------------------------
 
 module Kernel.Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivationEntirelySoTheSixCoordinatesAreNeverIdentified where

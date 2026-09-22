@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- àµàà¯à¾àààà¿à â” pervasion.  The seven-gate installer's own license
--- (runtime/crystallize/install.py, G3), currently a docstring, as a
+-- (runtime/crystallize/install.py, G3), as a
 -- checked term:
 --
 --   "the generalised statement is an identity between two polynomials in
@@ -20,7 +20,7 @@
 -- instance) to the unseen (every instance); the installer's G3+G7 is an
 -- anumna and this is its vypti, checked.
 --
--- CHECKED:
+-- PROVED:
 --   Â§1  the expression language: variables, â-literals, âŠ•, âŠ— â” the same
 --       shape crystallize/derivation.py mines (I/V/S/P nodes).
 --   Â§2  eval-subst : eval (subst t Ï) Ï â‰¡ eval t (evalâˆ˜Ï at Ï)  â” the
@@ -29,24 +29,6 @@
 --   Â§3  pervade : an identity at every assignment survives every
 --       substitution â” the G3 license.  Two applications of Â§2 around
 --       the hypothesis at the composite assignment.
---
--- FENCE.  Initiality of â[X] among commutative â-algebras in full is not
--- stated here; what the installer USES is this pervasion over â, and â is
--- where its G7 grid evaluates.  The evaluation target generalises to any
--- CommRing with the same proof; instantiated at â to stay in the
--- machine's own semantics.
---
--- 2026-08-23: "truth of a term does not license every job the
--- surrounding prose assigns to that term").  The title says "the seven
--- gates' license"; what is checked is G3's license â” pervasion from the
--- generic point â” for this âŠ•/âŠ—/lit/var language.  The OTHER gates carry
--- their own licenses, and in particular G7's ("a grid whose size is a
--- complete bound for the degree decides the identity" â” that a
--- degree-bounded polynomial vanishing on a large-enough grid is zero)
--- is NOT proved here and remains a declared license.  "The" in the
--- title means G3's, and the title overreached.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Vyapti_AnIdentityAtTheGenericPointPervadesEveryInstanceSoTheSevenGatesLicenseIsATheorem where

@@ -25,9 +25,7 @@
 --
 -- Â§3 re-exports it under a corpus name and states where its content sits:
 -- its `rightInv` is `ua`.  The classifier is a theorem OF univalence, not a
--- fact about Î.  Once again in this corpus a construction that looked
--- missing was a universal property already installed; grep before you
--- prove.
+-- fact about Î.
 --
 -- WHAT IS NEW HERE.
 --
@@ -69,16 +67,8 @@
 --       universe, at every finite stage, and Â§7's last lines exhibit a
 --       two-storey tower whose flattening holds by `refl`.
 --
--- Nor that the corpus's lanes are instances of one formal statement. That
--- paragraph stands unchanged after this file. What is proved here is that THE
--- LAW has a universal form; no map is constructed from any lane's theorem to
--- it, and reading a lane as a pullback of Ï is, for every lane, still an act
--- of reading.
---
--- Nothing here is a statement about physics: the reading of gauge theory as a principal bundle with a
--- connection is prose in the README, and prose is what it stays until a
--- module says otherwise.  The tower of Â§7 is level-uniform (every storey at
--- one level â“); that is a convenience of statement, not a theorem.
+-- The tower of Â§7 is level-uniform (every storey at
+-- one level â“).
 --
 -- ON SIZE.  `fiber Ï X` lives one universe above X, so Â§2's pullback is an
 -- equivalence ACROSS levels.  That is the size of the classifier â” the
@@ -87,8 +77,8 @@
 --
 -- ON THE NAME.  àµà¿àààµà°àà (vivarpa), "all-formed", "the form that has all
 -- forms".  The word names the theophany of the Bhagavadgt's eleventh
--- adhyya; no verse is cited and no technical sense is being claimed from
--- that text.  It is used here as the label of this module, chosen for what
+-- adhyya.
+-- It is used here as the label of this module, chosen for what
 -- the theorem says.
 
 module Fibre.Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne where

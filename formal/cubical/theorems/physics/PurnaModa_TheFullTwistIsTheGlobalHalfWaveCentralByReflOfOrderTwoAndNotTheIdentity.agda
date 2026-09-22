@@ -28,7 +28,6 @@
 -- central part; the non-descendable residue is the braiding itself.
 -- Abelian phase = per-strand property; non-abelian statistics =
 -- pair property â” one theorem-pair, both halves terms.
---
 ------------------------------------------------------------------------
 
 module PurnaModa_TheFullTwistIsTheGlobalHalfWaveCentralByReflOfOrderTwoAndNotTheIdentity where

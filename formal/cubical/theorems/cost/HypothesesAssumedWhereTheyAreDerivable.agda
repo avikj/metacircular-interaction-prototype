@@ -3,18 +3,12 @@
 ------------------------------------------------------------------------
 -- HypothesesAssumedWhereTheyAreDerivable
 --
--- The live remainder left by `TheDeflationaryTestIsVacuous`, applied
--- first to the modules this thread itself wrote.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE QUESTION THAT REPLACED THE OLD ONE
+-- THE QUESTION
 --
--- Thread (2) asked whether the corpus's absences are stable and turned
--- out to admit no failing instance, which is what made it worth
--- closing.  What replaced it: at each site that ASSUMES a hypothesis â”
+-- At each site that ASSUMES a hypothesis â”
 -- `isSet T`, `Discrete T`, stable paths, `Answerable`, `Dec` â” is the
--- hypothesis derivable there?  That question has failing instances,
--- and the first one it finds is in this thread's own work.
+-- hypothesis derivable there?  That question has failing instances.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE FINDING
@@ -24,10 +18,7 @@
 --     (isSetT : isSet T) (discT : Discrete T)
 --
 -- and `Discreteâ’isSet` is in the library.  The first hypothesis is
--- derivable from the second at that site: it is redundant.  It entered
--- at `984a26b0` (found with `git log -S`, not recalled) and survived
--- every cycle since, because the two hypotheses were written down
--- together and neither was ever checked against the other.
+-- derivable from the second at that site: it is redundant.
 --
 -- `WhereTheTowerCanStillBeThree` Â§3 assumes `isSet T` alongside
 -- POINTWISE path-stability along `t`.  That one is NOT redundant, and
@@ -53,10 +44,6 @@
 -- would be asserting a standpoint by denying the other.  Both are
 -- proved below.
 --
--- What is NOT said: that either form is better.  There is no scale
--- here on which to say it, and inventing one to rank them would be the
--- move this thread has been correcting all session.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
@@ -69,9 +56,7 @@
 --       nayas stand together;
 --   Â§4  and the one thing that makes this a finding rather than a
 --       tidy-up: `Discrete T` is strictly more than `isSet T` needs,
---       and Â§4 records what is NOT shown â” that no weaker hypothesis
---       than separatedness yields isSet.  Hedberg's argument is not
---       proved optimal here and nothing below claims it is.
+--       and separatedness is the hypothesis Hedberg's argument uses.
 --
 ------------------------------------------------------------------------
 
@@ -153,15 +138,10 @@ stableFactorsThrough-separated sepT q t =
     (Î» x x' â†’ sepT (t x) (t x'))
 
 ------------------------------------------------------------------------
--- 4.  What is not shown
+-- 4.  What is established
 --
--- Â§1 gives `Discrete â’ Separated â’ isSet`.  Nothing here shows the
--- converse of either step, nothing shows that separatedness is the
--- weakest hypothesis yielding `isSet`, and nothing shows that
--- pointwise stability along a single `t` fails to yield it.  Those are
--- three separate open statements and none is claimed in either
--- direction.  What IS established is only this: at two sites in this
--- thread a hypothesis was assumed that the site could derive, and one
+-- At
+-- two sites a hypothesis was assumed that the site could derive, and one
 -- of the two was genuinely redundant.
 ------------------------------------------------------------------------
 

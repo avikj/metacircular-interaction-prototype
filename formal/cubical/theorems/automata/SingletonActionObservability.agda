@@ -130,8 +130,7 @@ bisim→productiveBounded fuel related =
     (equivFun productiveBisim≃singletonFuture related)
 
 -- Under action closure the bounded kernel and productive bisimulation have
--- maps in both directions.  This is deliberately not advertised as an
--- equivalence of witness types: TotalView is not assumed set-valued.
+-- maps in both directions.
 productive-stabilized-kernel :
     (fuel : ℕ)
   → OH.ObservableClosesAt

@@ -15,7 +15,7 @@
 -- remainder?  That is modular arithmetic.  Subtraction-free congruence
 -- x ‚âà y [m] ‚ü∫ ‚à a b, x+a¬m = y+b¬m.  Proved an equivalence, compatible with +
 -- and ¬, with multiples vanishing ‚î the groundwork for CRT (the kuaka's real
--- application), to follow.)
+-- application).)
 --
 -- ‡‡‡∞‡ã‡‡æ‡‡‡ø : ‡‡∞‡‡Ø‡‡ü‡, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡, ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡© (‡ï‡‡ü‡‡ü‡ï‡, ‡ó‡‡∞‡-‡Ø‡‡‡ø) ‡
 ------------------------------------------------------------------------

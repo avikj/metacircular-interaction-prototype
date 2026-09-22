@@ -58,7 +58,7 @@
 --                the unit-detection field is refused here by cubical
 --                Agda in BOTH directions, and why §2 does not want it.)
 --
--- WHAT THIS SETTLES THAT WAS STANDING.  "Cost is not a univalent
+-- WHAT THIS SETTLES.  "Cost is not a univalent
 -- invariant � it lives on the presentation, which univalence discards"
 -- has been carried in this corpus as a note and a slogan.  §4 is its
 -- proof, and the proof is not about presentations at all: univalence

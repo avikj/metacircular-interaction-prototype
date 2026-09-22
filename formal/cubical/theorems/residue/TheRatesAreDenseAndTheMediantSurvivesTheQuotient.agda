@@ -3,18 +3,9 @@
 ------------------------------------------------------------------------
 -- TheRatesAreDenseAndTheMediantSurvivesTheQuotient
 --
--- Two modules left the same half-sentence open.
--- `TheThresholdChainIsDenseAndTheMediantWitnessesIt` says density "is
--- proved for pairs, and ‚ä is a preorder, so nothing is said about
--- density of the RATES", and
--- `TheRateQuotientExistsAndMinimalityCannotLiveOnIt` says "DENSITY OF
--- THE RATES is NOT proved: the mediant module's `‚ä` is not lifted here,
--- and lifting it needs `‚ä` to respect `‚âà` on BOTH sides, which is not
--- checked."
---
--- Both are closed here, and the second sentence turns out to describe
--- the harder half correctly: the lifting is the work, and the density
--- then follows WITHOUT the mediant itself having to descend.
+-- Density of the RATES, not merely of pairs.  The lifting of the strict
+-- order to the quotient is the work, and the density then follows
+-- WITHOUT the mediant itself having to descend.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT IS PROVED
@@ -40,11 +31,7 @@
 -- NO NOVELTY.  Density of the rationals via the mediant is classical
 -- (Haros 1802; Farey 1816; Stern 1858; Brocot 1861), and lifting a
 -- respectful relation along a set-quotient is standard cubical
--- practice.  What is contributed is that this corpus's own two open
--- half-sentences are closed, and the observation about the witness.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- practice.  What is contributed is the observation about the witness.
 ------------------------------------------------------------------------
 
 module TheRatesAreDenseAndTheMediantSurvivesTheQuotient where
@@ -162,17 +149,8 @@ theRatesAreDense =
                , mediantIsBelow p q p' q' h ‚à£‚ÇÅ)
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "`‚äR` is a relation into `hProp`, not an order: irreflexivity,
---    transitivity, and its relation to `AtLeastOnRate`/`AboveOnRate`
---    are unproved on `Rate`."
---
--- All three in
--- `TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin ‚î check.sh returns 1 and says so):
+-- The lifted relation is an ORDER, not just a relation into `hProp`; in
+-- `TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt`:
 --
 --   ‚ä-irrefl-pair / ‚ä-trans-pair   at the pair level; transitivity is
 --                                  `‚ä‚ä-trans` composed with `<-weaken`,
@@ -187,29 +165,22 @@ theRatesAreDense =
 -- NONE OF IT NEEDED A NEW IDEA, and that is the payoff of having lifted
 -- along `rec2`: every statement is a PROPOSITION, so `elimProp` puts it
 -- at representatives where ¬ß1's pair-level facts finish it in a line.
--- The density result above therefore now sits on an ORDER, not a bare
+-- The density result above therefore sits on an ORDER, not a bare
 -- relation.
 --
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The open item stated above and repeated in
--- `TheRateQuotientExistsAndMinimalityCannotLiveOnIt` ‚î "whether
--- `mediant` DESCENDS is open" ‚î is now CLOSED, and the answer is NO:
--- `TheMediantDoesNotDescendToTheRate` exhibits
--- (1,1) ‚âà (2,3) whose mediants with (1,2) are 2/5 and 3/7 (--safe, no
--- postulates, no holes; container green under Agda 2.6.3 + cubical
--- v0.5, NOT the declared pin ‚î check.sh returns 1 and says so).
+-- WHETHER `mediant` DESCENDS: it does not.
+-- `TheMediantDoesNotDescendToTheRate` exhibits (1,1) ‚âà (2,3) whose
+-- mediants with (1,2) are 2/5 and 3/7.
 --
--- Nothing above is affected.  The density theorem is stated with
+-- The density theorem is stated with
 -- `‚à_‚à‚` and eliminates into a proposition, so the witness only ever
 -- lived at the level of representatives ‚î which is what "the mediant
 -- never has to descend" says.  What the refutation removes is the
 -- possibility of upgrading that truncated existence to a CANONICAL
 -- between-rate by this route: no `Rate ‚í Rate ‚í Rate` extends the
 -- mediant, and the classical fix is reduced representatives (Haros
--- 1802, Farey 1816, Stern 1858, Brocot 1861), which needs coprimality
--- and hence another identity's kuaka line ‚î to be asked for, not
--- rebuilt.
+-- 1802, Farey 1816, Stern 1858, Brocot 1861), which needs coprimality.
 ------------------------------------------------------------------------

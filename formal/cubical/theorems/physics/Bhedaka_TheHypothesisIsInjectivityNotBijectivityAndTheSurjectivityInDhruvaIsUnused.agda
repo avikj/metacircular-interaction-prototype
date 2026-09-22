@@ -24,8 +24,7 @@
 -- What the argument actually needs is that `f` does not CONFLATE:
 -- `isEmbedding f`.  ¬ß‡© proves the theorem under that hypothesis, and
 -- ¬ß‡ recovers `Dhruva` ¬ß‡® from it in one line.  **Surjectivity of the
--- observable buys nothing.**  This is not a repair ‚î `Dhruva` ¬ß‡® is
--- true as stated ‚î it is the statement of what makes it true.
+-- observable buys nothing.**
 --
 -- WHY THIS IS THE CARRIER LAW AND NOT A LEMMA ABOUT EMBEDDINGS.
 -- `fibre/src/Loss/Carrier.agda` is built on one line:
@@ -49,9 +48,7 @@
 -- flows themselves ‚î `(Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶) ‚â ((a : A) ‚í fiber f (f a))`.
 -- That identification is ITS result and is not redone here; ¬ß‡®b instead
 -- derives only the contractibility, directly through the library's
--- `Œ-Œ†-Iso`, so that this module does not depend on it (it needs
--- `solve!`, absent from the container's cubical ‚î a container fact, not
--- a mathematical one).
+-- `Œ-Œ†-Iso`, so that this module does not depend on it.
 --
 -- So the whole conserving-flow monoid ‚î the object `Apratiloma_‚¶` and
 -- `SamraksakaGana_‚¶` are about ‚î is the price of flipping which side of
@@ -61,26 +58,15 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
--- **The converse of ¬ß‡®b is not proved.**  `isContr ((a : A) ‚í fiber f
--- (f a))` does not obviously give pointwise contractibility ‚î one
--- cannot in general perturb a section at a single point without
--- decidable equality on `A` ‚î so "the monoid is trivial ‚í `f` is an
--- embedding" is NOT established here.  The pointwise ‚ü∫ of ¬ß‡®a is.
---
 -- TERM.  ‡‡‡¶‡ï ‚î "differentiating, that which distinguishes", the
 -- standard stric agentive of ‡‡‡¶ (difference, distinction), which is
 -- the technical vocabulary of difference across Nyya-Vaieika and
--- Skhya alike.  LIMIT, and it is the important half: no single stra
--- is claimed for it, and none of these schools states anything below.
+-- Skhya alike.
 -- The word is taken in its ordinary stric sense and applied here to a
 -- map that does not conflate its arguments; that application is this
 -- corpus's.  Internal precedent for the pairing: `Kaksya_‚¶agda` ¬ß‡© names
 -- its own blindness result `‡ï‡ï‡‡‡‡Ø‡æ-‡‡‡‡¶‡`, non-difference along the
 -- orbit, so ‡‡‡¶‡ï is the word that file's negation already presupposes.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 ‚î the container, NOT the
--- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
--- holes, exit 0.
 ------------------------------------------------------------------------
 
 module Bhedaka_TheHypothesisIsInjectivityNotBijectivityAndTheSurjectivityInDhruvaIsUnused where
@@ -206,24 +192,11 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) where
   ‡§®‡§∑‡•ç‡§ü-‡§Ö‡§≠‡§æ‡§µ‡•á-‡§ó‡§§‡§ø-‡§Ö‡§≠‡§æ‡§µ‡§É‚Ä≤ e = ‡§≠‡•á‡§¶‡§ï‡•á-‡§ó‡§§‡§ø-‡§Ö‡§≠‡§æ‡§µ‡§É (isEquiv‚ÜíisEmbedding e)
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what this leaves open, named rather than gestured at.
+-- ‡ ¬ ‡‡‡‡ ‚î the asymmetry.
 --
--- (a) The converse fenced above: does `isContr (Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶)`
---     imply `isEmbedding f`?  Pointwise it would; the obstruction is
---     producing a section that differs from the identity at one point
---     and nowhere else, which needs `a` separated from the rest of `A`.
---     For `A` with decidable equality it should go through, and that is
---     a genuinely different hypothesis worth naming as one.
---
--- (b) `Kaksya` ¬ß‡ (`‡®‡‡‡ü‡æ‡‡æ‡µ‡-‡ï‡ï‡‡‡‡Ø‡æ-‡‡ï‡‡¶‡æ`, the whole forward orbit
---     collapses) is stated with `isEquiv f` and consumes `Dhruva` ¬ß‡®.
---     By ¬ß‡© it holds under `isEmbedding f` verbatim.  Not restated
---     here: it is another identity's file, and the substitution is
---     mechanical.  Whoever owns it may take it.
---
--- (c) The dual weakening is NOT available and the asymmetry is the
---     point.  There is no hypothesis on `f` that makes ¬ß‡ß fail: the
---     output-bound side is contractible for every map, which is why
---     road one is free and why `Carrier.agda` needs no hypothesis to
---     state `A ‚â Carrier f`.
+-- The dual weakening is NOT available and the asymmetry is the
+-- point.  There is no hypothesis on `f` that makes ¬ß‡ß fail: the
+-- output-bound side is contractible for every map, which is why
+-- road one is free and why `Carrier.agda` needs no hypothesis to
+-- state `A ‚â Carrier f`.
 ------------------------------------------------------------------------

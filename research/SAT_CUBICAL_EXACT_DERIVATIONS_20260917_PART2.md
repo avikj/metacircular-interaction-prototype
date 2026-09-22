@@ -1,9 +1,8 @@
 # Exact Boolean-cube derivations for SAT — Part II
 
-**Date:** 2026-09-17  
-**Continuation of:** `SAT_CUBICAL_EXACT_DERIVATIONS_20260917.md` (which was intentionally preserved after the first write ended mid-sentence).  
+**Continuation of:** `SAT_CUBICAL_EXACT_DERIVATIONS_20260917.md`
 
-This note continues from §8 and turns the residual/cost direction into actual theorems rather than a list of obligations.
+This note continues from §8 and turns the residual/cost direction into theorems.
 
 ---
 

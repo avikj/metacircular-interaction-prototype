@@ -5,8 +5,8 @@
 -- does not classify itself.
 --
 -- TERM.  vivarpa, "the all-form": the one form in which every form is
--- seen.  Bhagavad-gt 11, Arjuna's vision.  No claim is made that the
--- Gt says anything about universes; the word is borrowed for its
+-- seen.  Bhagavad-gt 11, Arjuna's vision.
+-- The word is borrowed for its
 -- OPERATION ‚î one object exhibited as containing every other ‚î and that
 -- operation is what ¬ß1‚ì¬ß3 below make a term.
 --
@@ -15,15 +15,8 @@
 --
 -- `Ekavakyata_FiveCollapsesOneTheoremAndEachTraditionSaysItInItsOwnWords`
 -- exhibits five theorems, written in five lanes about five subjects, as
--- one SENTENCE, and its closing section says exactly what it withholds:
---
---     NOT that the five are instances of one formal statement.  They are
---     not: their types differ, their ambient structures differ, and no
---     functor between them is constructed.  A common generalisation
---     would be a real theorem; it is not proved.
---
--- This file is not that functor and does not weaken that disclaimer.
--- What it does is name the AMBIENT FACT the five lanes are all speaking
+-- one SENTENCE.
+-- This file names the AMBIENT FACT the five lanes are all speaking
 -- inside of, and make it a checked term rather than a motif:
 --
 --     A FAMILY IS A MAP INTO THE UNIVERSE.  Œ IS ITS TOTAL SPACE.
@@ -32,13 +25,11 @@
 --     FAMILY IS A PULLBACK OF ONE FIBRATION.
 --
 -- That is HoTT Theorem 4.8.3, the object classifier. It is standard, it is
--- already in agda/cubical as `fibrationEquiv`, and NO NOVELTY IS CLAIMED FOR
--- IT. What is contributed here is the IDENTIFICATION ‚î that the corpus's
+-- already in agda/cubical as `fibrationEquiv`.
+-- What is contributed here is the IDENTIFICATION ‚î that the corpus's
 -- fibre law and the object classifier are the same object, checked by
 -- importing the corpus's own decomposition and the library's and finding them
--- equal on the nose (¬ß0) ‚î together with the three places where reading the
--- identification as "the shape of the universe, iterated, makes arbitrary
--- form"
+-- equal on the nose (¬ß0).
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT IS PROVED
@@ -109,71 +100,6 @@
 --       `winding` is, by `refl`, parallel transport in it; and
 --       `Œ©S¬Iso‚` says that transport is an isomorphism onto ‚.  A group
 --       that was not put in comes out of one application of ¬ß4.
---
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT IS **NOT** CLAIMED.  This section is load-bearing.
---
--- * NOT that the five collapses of `Ekavakyata` are instances of one
---   formal statement.  The classifier is the ambient fact they are all
---   stated inside; it is not a functor between them, and none is
---   constructed here.  That disclaimer stands exactly as written.
---
--- * NOT that ONE object classifies every fibration.  ¬ß7 is the
---   refutation of that reading, and it is proved here rather than
---   conceded: the universal fibration over Type ‚ì has total space in
---   Type (‚ì-suc ‚ì).  A universe classifying its own fibrations would be
---   Type : Type, which is inconsistent (Girard; Hurkens).  The level
---   discipline that makes ¬ß7 unstatable at Type ‚ì is Agda's, enforced
---   on this file at typecheck time, and is not itself a theorem IN this
---   file ‚î it is a constraint ON it.
---
--- * NOT anything about physical spacetime, gauge fields, the Standard
---   Model, or SU(3)óSU(2)óU(1).  ¬ß4 and ¬ß5 are about transport in a
---   type family.  That the connection of a principal bundle is an
---   instance is standard differential geometry and is not formalised
---   here; no smooth structure, no Lie group, and no bundle over a
---   manifold appears in this file.  README ¬ßII's disclaimer stands.
---
--- * NOT that iterating the fibre law generates every homotopy type.
---   ¬ß8 is ONE application producing ‚.  That every type arises from
---   iterated suspensions, Postnikov stages or cell attachments is not
---   proved here and is not a corollary of the object classifier.
---
---   THE LOOKING, stated because the claim is an ABSENCE, and an absence
---   asserted without a search is silence rather than a finding
---   (Kumrila, lokavrttika, Abhvapariccheda: yogya-anupalabdhi ‚î
---   non-perception is evidence only when the looking was fit to have
---   found the thing).  The search was run.  agda/cubical v0.9 DOES
---   formalise CW complexes, in `Cubical/CW/` ‚î Base, Approximation,
---   Connected, Homology, Homotopy, Map, Properties, Subcomplex.  What it
---   defines there is `isCW X = Œ[ X' ‚àà CWskel ‚ì ] X ‚â realise X'`, a
---   PREDICATE a type may or may not satisfy, and
---   `CW ‚ì = Œ[ A ‚àà Type ‚ì ] ‚à isCW A ‚à‚`, the subtype of those that do
---   (CW/Base.agda:89‚ì96).  Nothing there claims every type satisfies it,
---   and this file does not either.  So the limit is not that CW
---   complexes are absent; it is that being CW is a PROPERTY, held by
---   some types, and the generation claim would need it to be universal.
---
---   Cubical canonicity makes each SINGLE such construction compute; it
---   does not make the tower of homotopy groups of spheres computable in
---   any usable sense, and most of them are unknown.
---
--- * ¬ß6 proves DESCENT ‚í CONSTANT ON FIBRES only.  The converse needs
---   surjectivity of f and a truncation, is a different theorem, and is
---   not attempted here.  The forward direction is the one the grammar
---   lane uses, because it is refutation that lane performs.
---
--- WHAT IS CLAIMED: the named terms exist, are checked at the pin, and
--- say what is written above them.
---
--- No postulates, no holes, --safe.
---
--- CHECKED AT THE PIN: Agda 2.8.0 / agda/cubical v0.9, exit 0, no
--- warnings and no unsolved metas.  An earlier commit of this file
--- carried a NOT-YET-CHECKED notice in this position because the
--- container's toolchain was still building; the notice is replaced by
--- the verdict it was standing in for, and ¬ß0 records the one claim that
--- did not survive first contact.
 ------------------------------------------------------------------------
 
 module Visvarupa_TheFibreLawIsTheObjectClassifierAndTheClassifierDoesNotClassifyItself where
@@ -359,8 +285,7 @@ the-universal-fibration-is-classified-one-level-up ‚Ñì = fiber (universal {‚Ñì})
 -- `helix : S¬ ‚í Type‚` is a single family over a single circle.  The
 -- winding number is, definitionally, ¬ß4's transport in it ‚î and that
 -- transport is an isomorphism onto ‚.  A group nobody put in comes out
--- of one application of the law.  ONE application; see WHAT IS NOT
--- CLAIMED for what does not follow.
+-- of one application of the law.
 ------------------------------------------------------------------------
 
 ‡§µ‡•á‡§∑‡•ç‡§ü‡§®‡§Æ‡•ç-‡§Ö‡§®‡•Å‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É-‡§è‡§µ : (p : Œ©S¬π) ‚Üí winding p ‚â° ‡§Ö‡§®‡•Å‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É helix p (pos zero)

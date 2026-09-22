@@ -1,10 +1,9 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- A finite, checked DSO seam extracted from the random byte anchor in
+-- A finite, checked DSO seam: a locally cheaper choice one must not
 -- erase until its continuation has been observed.
 --
--- This is deliberately a two-point natural-number model.  It does not claim
--- a quantale theorem, an infinite infimum, or an optimizer for live systems.
+-- This is a two-point natural-number model.
 
 module DSOBellmanFinite where
 

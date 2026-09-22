@@ -10,8 +10,7 @@
 -- for which x â‰¡ 1 (mod u) and x â‰¡ âˆ’1 (mod v) â” the orientation of every
 -- prime facet.  The reciprocal /v inside x IS the Kloosterman fraction
 -- e(âˆ’2akÂ/v): the phase at the analytic boundary is the Fourier image
--- of choosing which forbidden wall each prime reflects from.  (Owner's
--- Kloosterman-skeleton message; the exact modular core.)
+-- of choosing which forbidden wall each prime reflects from.
 --
 -- WHY THIS IS THE MISSING COORDINATE.  Parity records only the PRODUCT
 -- of facet orientations (Î¼(d)=âˆÂ1).  The involution x records ALL of
@@ -27,16 +26,12 @@
 --   Â§2 root-mod-v : v âˆ (uÂ + (âˆ’1)) â’ v âˆ (x + 1)    [x â‰¡ âˆ’1 (mod v)]
 --   Â§3 involution : u âˆ (xÂ² + (âˆ’1)) and v âˆ (xÂ² + (âˆ’1))
 --
--- FENCE.  xÂ² â‰¡ 1 (mod uv) from Â§3 needs (u,v) coprime â” declared,
--- standard, not reproved.  The bijection {roots}â”{coprime factorizations}
--- and the Ramanujan/Kloosterman sum identities need the CRT count and â;
--- the construction map factorization âŸ root is what is a term.
+-- xÂ² â‰¡ 1 (mod uv) from Â§3 needs (u,v) coprime, a declared
+-- hypothesis.
 --
 -- Note on method: ring identities are proved with the CONSTANTS 1,2 kept
 -- as variables (genU/genV/sqFactor) and instantiated, because a literal
 -- `+ (- pos 1)` reduces to predâ and the ring solver cannot parse it.
---
--- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
 module Ekamula_TheWallOrientationsAreSquareRootsOfOneBuiltFromFactorizationsByTheKloostermanReciprocal where

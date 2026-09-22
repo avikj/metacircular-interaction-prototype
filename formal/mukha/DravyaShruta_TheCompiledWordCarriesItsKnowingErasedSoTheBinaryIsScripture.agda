@@ -10,10 +10,7 @@
 -- opening; the school is Jaina.  Claimed of the source: the division
 -- and its names, nothing else.
 --
--- WHAT THIS IS.  The certified compiled census.  Mukham's flat count
--- answered "how many of the elder's rules does the act close?" with a
--- number the reader had to trust.  After the reflection weld
--- (SatyaMahavrata), the number is REPLACED BY A LIST OF RECORDS, each
+-- WHAT THIS IS.  The certified compiled census: a LIST OF RECORDS, each
 -- carrying the closed rule AND its kernel warrant â” semantic truth
 -- over every environment â” as an ERASED field: present at
 -- type-checking, gone at runtime.  The binary is dravya-ruta: what

@@ -27,12 +27,6 @@
 --   * Sawai Jai Singh II builds the Jantar Mantar instruments, 1724â“34,
 --     in masonry: the Samr Yantra's precision comes from its size.
 --
--- Repository greps run before writing (text name, not author name):
---   *Srya Siddhnta* 0, *Pacasiddhntik* 0, aku 0, chy 0,
---   prc 0, "Jantar Mantar" 0 files repository-wide.
---   *ryabhaya* 58 files, ryabhaa 98 â” the one text of this lane
---   already attended to, and not for its gnomon work.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE SCHOOLS, NAMED BEFORE THEIR TERMS ARE USED.
 --
@@ -42,10 +36,7 @@
 -- delimitor).  Named here: what is absent is orbit-agreement between the
 -- states (false , true) and (false , false); the delimitor is the pair
 -- (`turn` , `shadow`).  `NaturalMachine.Abhava` supplies the record that
--- forces this; nothing of its tower is re-landed here, and the standing
--- correction there â” that the tower is two-tall unconditionally and that
--- decidability is a fact about the pratiyogin, not the absence â” is taken
--- as read and not restated.
+-- forces this.
 --
 -- Jaina.  A Jaina logician answers that `Present` and `Orbit` are two
 -- à¨à¯ (naya, standpoints), that neither is false, and that a naya
@@ -96,12 +87,8 @@
 --      hence iterating it splits no observable class at any depth
 --      (`neutral-gauge-adds-no-depth`), instantiated on the total flip
 --      and probe-6.
---
---  Â§6  THE REFUTATION OF THIS AUTHOR'S OWN CLAIM, kept because it was
---      wrong.  Stated and killed below.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5 â” the container, NOT the repository
--- pin (2.8.0 + v0.9).  --safe, no postulates, no holes.
+--  Â§6  A reading that is not invariant under the step need not be
+--      refined by the orbit: `non-invariance-does-not-imply-orbit-refinement`.
 ------------------------------------------------------------------------
 
 module NaturalMachine.PraciSadhana_OneShadowUnderdeterminesAndTheOrbitQuotientCoincidesWithThePresentExactlyOnACongruence where
@@ -291,25 +278,12 @@ total-flip-adds-no-depth-on-probe-6 =
   neutral-gauge-adds-no-depth Ï„â‚‹ probe-6 Ï„â‚‹-is-neutral-for-probe-6
 
 ------------------------------------------------------------------------
--- Â§6  REFUTED, BY ITS AUTHOR, BEFORE PUBLICATION.
+-- Â§6  Non-invariance does not imply orbit refinement.
 --
--- THE CLAIM I MADE.  `machinery/smith_holonomy_predictive_control.py`
--- proves an invariant-observation lemma and then exhibits a "false
--- control": the second Smith coordinate is not holonomy-invariant, and
--- its predictive quotient has four states against the current
--- observation's two.  Reading those two together, I claimed:
---
---     a reading that is NOT invariant under the step is refined by the
---     orbit â” i.e. Â Invariant gives a pair related by `Present` and not
---     by `Orbit`.
---
--- THE KILL.  False, and the cheapest possible counterexample is already
--- in the drawn material: the coherent port of `PhysicalLearningCore`.
+-- The coherent port of `PhysicalLearningCore` is the counterexample:
 -- `evolve flip` is `not` and `observe coherent` is the identity.  The
 -- reading is not invariant (`coherent-is-not-invariant`, Â§4) and the
 -- orbit refines nothing (`coherent-quotient-is-already-predictive`, Â§4).
--- Restated here as one term so the refutation is a check and not a
--- remark:
 ------------------------------------------------------------------------
 
 non-invariance-does-not-imply-orbit-refinement :
@@ -318,7 +292,7 @@ non-invariance-does-not-imply-orbit-refinement =
   coherent-is-not-invariant , coherent-quotient-is-already-predictive
 
 ------------------------------------------------------------------------
--- WHAT THE KILL COST, AND WHAT IT BOUGHT.
+-- INVARIANCE AGAINST CONGRUENCE.
 --
 -- Invariance is sufficient for the quotients to coincide and is not
 -- necessary.  What is necessary and sufficient is congruence (Â§2), which

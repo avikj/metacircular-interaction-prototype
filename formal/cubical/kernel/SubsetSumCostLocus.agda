@@ -3,12 +3,12 @@
 ------------------------------------------------------------------------
 -- SubsetSumCostLocus
 --
--- An honest attempt to run the "answer is a projection" mode on a
+-- Running the "answer is a projection" mode on a
 -- concrete NP-complete problem: SUBSET-SUM. weights `xs`, target `t`;
 -- a witness is a selection mask `sel`; the instance is solvable iff some
 -- mask's selected sum equals `t`.
 --
--- What compiles, checked --safe:
+-- The two halves:
 --
 --  Â VERIFY is a projection over the input. `selSum` is a linear fold and
 --    `verify?` decides `selSum xs sel â‰¡ t` in one pass â” O(input). Given a
@@ -20,9 +20,8 @@
 --    of `(xs , t)`; it is a point of this exponential fibre.
 --
 -- So on a concrete NP instance the two halves separate exactly: verifying
--- a handed witness is linear; obtaining one ranges over 2^n. This module
--- does NOT exhibit an O(input+output) decider â” none is written, because
--- the witness is not recoverable from the instance by projection. It marks,
+-- a handed witness is linear; obtaining one ranges over 2^n, because
+-- the witness is not recoverable from the instance by projection. This module marks,
 -- in checked code, the precise locus of the cost.
 ------------------------------------------------------------------------
 

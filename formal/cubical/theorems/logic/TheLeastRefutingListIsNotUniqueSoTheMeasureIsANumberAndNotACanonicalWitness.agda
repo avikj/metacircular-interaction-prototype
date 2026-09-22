@@ -3,22 +3,10 @@
 ------------------------------------------------------------------------
 -- TheLeastRefutingListIsNotUniqueSoTheMeasureIsANumberAndNotACanonicalWitness
 --
--- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- The audited module belongs to the standing ‡≤‡æ‡ò‡µ (lghava) thread and
--- names its sites ‡‡µ‡ï‡‡‡µ‡‡Ø (avaktavya ‚î Jaina) and ‡‡®‡‡µ‡‡‡‡‡ø /
--- ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞ / ‡‡‡µ‡æ‡¶ (anuvtti / pratyhra / apavda ‚î Pinian);
--- **the school is named before the term**, as the naming rule requires.
--- This module touches none of that material ‚î its subject is whether a
--- minimiser is unique ‚î and **makes no claim whatever about avaktavya,
--- anuvtti, pratyhra or apavda.**  Checked before naming:
--- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
--- first.
---
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- THE ITEM.  At 78a82d16 I completed the range below 2 for
--- `WitnessNumberIsTwo`'s measure ‚î the least list of points on which no
--- decoder survives ‚î and left open, in my own words: *"is the least
--- refuting list UNIQUE at a site?"*
+-- THE QUESTION.  `WitnessNumberIsTwo`'s measure is the least list of
+-- points on which no decoder survives.  Is the least refuting list
+-- UNIQUE at a site?
 --
 -- **It is not, and the counterexample is the site's own pair reversed.**
 -- A collision is symmetric: `q x ‚â° q x'` gives `q x' ‚â° q x`, and
@@ -38,21 +26,17 @@
 --   theLeastRefutingListIsNotUnique
 --                                all three together: two distinct lists,
 --                                both refuting, both of length 2, which
---                                78a82d16 and `singleton-never-refutes`
+--                                `singleton-never-refutes`
 --                                show is least
 --
 -- **WHAT THIS SETTLES ABOUT THE MEASURE, AND IT IS THE POINT.**
--- `WitnessNumberIsInvariant` records that this thread found "a measure
--- that DOES survive" where `size` did not.  It survives as a **NUMBER**.
+-- `WitnessNumberIsInvariant` records a measure
+-- that DOES survive where `size` did not.  It survives as a **NUMBER**.
 -- The minimiser is not canonical, so there is no such thing as *the*
 -- least refuting list to transport, quotient by, or read a further
 -- invariant off ‚î only its length.  That is not a defect: a measure is
 -- allowed to be a number.  It does mean any future construction that
--- says "take the least refuting list" is under-specified, and the
--- audited line does not make that mistake anywhere I have read.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 ‚î NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- says "take the least refuting list" is under-specified.
 ------------------------------------------------------------------------
 
 module TheLeastRefutingListIsNotUniqueSoTheMeasureIsANumberAndNotACanonicalWitness where

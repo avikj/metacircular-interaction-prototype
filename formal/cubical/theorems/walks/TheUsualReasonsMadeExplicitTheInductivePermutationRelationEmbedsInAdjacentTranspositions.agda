@@ -3,30 +3,11 @@
 ------------------------------------------------------------------------
 -- TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAdjacentTranspositions
 --
--- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT
--- header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- permutation work â” Nryaa Paita, *Gaitakaumud* (1356) â” is for
--- the ENUMERATION line, which is another identity's and is NOT what
--- this module does: nothing here counts arrangements or generates them
--- in order.  Claiming that source for a containment of two inductively
--- defined relations would assert a provenance nobody checked, so it is
--- not claimed.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE PHRASE UNDER AUDIT
+-- THE PHRASE
 --
 -- `PairwiseCommutationGivesEveryOrder` defines `_~_` by four
--- constructors â” `~nil`, `~cons`, `~swap`, `~trans` â” and says in its
--- NOT-CLAIMED section:
---
---   "`_~_` is a DEFINITION, not a characterisation: nothing here proves
---    it coincides with 'same multiset' or with any other notion of
---    permutation, so 'every order' means 'every order reachable by
---    adjacent transpositions', **which is all of them for the usual
---    reasons and is not proved to be**."
---
--- The flag is honest and the phrase inside it is an appeal.  **"The
+-- constructors â” `~nil`, `~cons`, `~swap`, `~trans`.  **"The
 -- usual reasons" is a proof, and it fits in a page**; Â§Â§1â“3 are that
 -- page, and Â§4 lands it on the corpus's own relation.
 --
@@ -58,9 +39,6 @@
 -- arbitrary depth while `â‰ˆ` only ever exchanges NEIGHBOURS, and the
 -- bridge between the two is the one induction that has to walk down the
 -- list.  Everything else is plumbing.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAdjacentTranspositions where

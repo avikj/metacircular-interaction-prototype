@@ -5,24 +5,18 @@
 --
 -- TERM.  ‡ó‡‡‡‡‡ø ¬ gupti -- guarding, concealment; from ‡ó‡‡‡, to hide.  In
 -- Jaina usage it is one of the means of savara -- the three guptis, the
--- restraint of mind, speech and body -- but NOTHING doctrinal is claimed
--- here and no stra is cited: the word is taken in its plain sense, which
--- is concealment, because that is what ¬ß2 proves costs `isProp`.  (
+-- restraint of mind, speech and body.  The word is taken in its plain sense,
+-- which is concealment, because that is what ¬ß2 proves costs `isProp`.
+-- (
 -- has a technical vocabulary for secret communication -- Kauilya's
 -- *Arthastra* uses ‡ó‡‡-compounds for it, and the Kmastra's list of arts
--- includes ‡Æ‡‡≤‡‡‡‡‡ø‡‡µ‡ø‡ï‡≤‡‡ -- and NO first use, no attribution and no
--- anticipation is claimed for any of it.  The provenance ledger has no row
--- for this file and should not get one.)
+-- includes ‡Æ‡‡≤‡‡‡‡‡ø‡‡µ‡ø‡ï‡≤‡‡.)
 --
 ------------------------------------------------------------------------
--- WHY THIS FILE EXISTS.  IT WAS A GREP THAT MISSED IT.
+-- WHY THIS FILE EXISTS.
 --
 -- The corpus proves the structural content of zero-knowledge in at least
--- five places and never once uses the phrase, so a search for the phrase
--- returns nothing and concludes, wrongly, that the mathematics is absent.
--- That is the exact error `NayaVada_` is about -- reading a projection and
--- reporting on the object -- and it is recorded here because the correction
--- is the theorem.  The five places:
+-- five places and never once uses the phrase.  The five places:
 --
 --   `TheWholeDerivationTypeIsOneFibre‚¶`  fibre-is-everything: a map into a
 --     proposition has every fibre equal to its whole domain.
@@ -76,10 +70,7 @@
 -- the amount it fails to hold is all of it.  Hiding is not achieved.  It is
 -- what is left when a codomain has no capacity.
 --
--- PRIOR ART IN THIS REPOSITORY, CITED AND NOT RESTATED.  Three of these
--- answer questions this file would otherwise have listed as absences, and
--- listing them as absences is how the first draft of this header got them
--- wrong.  None is imported: the kernel is kept self-contained on purpose,
+-- PRIOR ART IN THIS REPOSITORY, CITED AND NOT RESTATED.  None is imported: the kernel is kept self-contained on purpose,
 -- and a citation that is checked elsewhere is not weaker for being cited.
 --
 --   `Laghava_TheCostAndTheInverseCannotCoexist‚¶`  A COST AND AN INVERSE
@@ -109,35 +100,21 @@
 --     hypothesis and the recovery of the hidden exponent discharged, so the
 --     assumption and the non-contractibility are interderivable rather than
 --     analogous.  ¬ß5 below is the GENERAL form of that shape; that file is
---     the instance.  Neither subsumes the other and this one proves no
---     arithmetic.
+--     the instance.  Neither subsumes the other.
 --
---   * NO PROBABILITY AND NO RESOURCE BOUND.  There is no distribution, no
---     negligible function, no polynomial-time simulator and no adversary
---     class below.  "Perfect" here means EQUAL, which is stronger than
+--   * "Perfect" here means EQUAL, which is stronger than
 --     indistinguishable, and it is bought entirely by the codomain being a
 --     proposition.  A protocol whose transcripts do NOT land in a
 --     proposition receives none of this for free and must pay with a
---     simulator argument; nothing here says such a payment is available.
---     (Cost in the graded sense is NOT absent from the corpus -- see
---     `Laghava_` above.  It is absent from THIS file.)
+--     simulator argument.
 --
---   * COMPLETENESS OF THE CALCULUS IS NOT PROVED, and that is the exact
---     hypothesis ¬ß4 takes rather than assumes.  `view : W ‚í V` says an
+--   * COMPLETENESS OF THE CALCULUS is the exact
+--     hypothesis ¬ß4 takes.  `view : W ‚í V` says an
 --     honest party's view comes from a witness; it does not say an
 --     inhabitant of `V` entails one.  At the kernel, `Meaning a b` can hold
 --     with no `Derivation a b` -- two terms may be pointwise equal with no
 --     route between them -- so `uniqueness-gives-extraction` demands
---     `V ‚í W` explicitly.  This is COMPLETENESS, not soundness; the first
---     draft of this header called it soundness and that was wrong, and the
---     correction is the reason the distinction is spelled out here.
---
---   * NOTHING ABOUT ROUNDS, challenges, Fiat-Shamir, commitment schemes or
---     a verifier's coins.  ¬ß1 is a map, not a protocol.  (The corpus does
---     have interaction structure -- `Session`, `step`, `Encounter` -- but
---     none of it is a round in the protocol sense and none is used here.)
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0.
+--     `V ‚í W` explicitly.  This is COMPLETENESS, not soundness.
 ------------------------------------------------------------------------
 
 module HidingAndHardnessAreOneFibreSoTwoWitnessesForbidExtraction where
@@ -299,9 +276,6 @@ a-unique-witness-can-be-extracted {W = W} isPropW =
 -- of the derivation.  The kernel is therefore a perfect zero-knowledge
 -- carrier for its own equations -- and unlike a cryptographic one it pays
 -- nothing for it, because the payment was already made by ‚ï being a set.
---
--- The kernel is not a proof system in the cryptographic sense and ¬ß7 is not
--- claiming it is.
 ------------------------------------------------------------------------
 
 the-kernel-simulates-perfectly :

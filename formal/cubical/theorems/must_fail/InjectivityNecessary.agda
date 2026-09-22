@@ -38,7 +38,7 @@
 -- It is NOT part of the checked build.  `agda` does not
 -- import it, and nothing else may.
 --
--- OBSERVED, 2026-08-15, THE PIN (Agda 2.8.0 + cubical v0.9; see
+-- Under the pin (Agda 2.8.0 + cubical v0.9; see
 -- --library-file=<v0.9> NaturalMachine/Control/InjectivityNecessary.agda`,
 -- exit code 42, error verbatim:
 --
@@ -51,20 +51,6 @@
 -- naming the two unrealized outcomes the comparison merges â” the exact
 -- pair whose merging the note's "needed" and the message's "must be"
 -- declare impossible.
---
--- (Agda stops at the first error, so assertion (a) is not reached.
--- Checked separately by commenting out (b) â” same file, its two lines
--- commented out, then restored â” it fails at 96.33-52 with
---   error: [UnequalHiding]
---   (xâ² : Xâ²) â’ râ² q xâ² â‰¡ j q (r q (s xâ²)) !=
---   {y z : Y q} â’ j q y â‰¡ j q z â’ y â‰¡ z because one is an implicit
---   function type and the other is an explicit function type
---   when checking that the expression squareâ’satisfaction has type
---   ResponseSquare â’ SatisfactionInvariant
--- â” i.e. what the sufficiency theorem still wants in first position is
--- the injectivity statement, printed in full; the error names the
--- dropped hypothesis by its content rather than by its identifier,
--- which is weaker than the (b) failure and is why (b) is first.)
 --
 -- If a future edit makes this file compile, injectivity has been
 -- silently promoted from sufficient to necessary and the corpus has

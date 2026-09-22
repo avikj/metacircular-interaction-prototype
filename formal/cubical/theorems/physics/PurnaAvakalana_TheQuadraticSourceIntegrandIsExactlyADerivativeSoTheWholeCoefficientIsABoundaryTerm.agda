@@ -48,16 +48,7 @@
 -- the form above, never moves `r` past anything.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“4 in any ring, for any additive `d`
--- obeying the Leibniz rule, any `r` with `d r â‰¡ 1r`, and any `G`.  NOT
--- claimed: that the integrand IS the angular average of anything â” the
--- spherical moment computation producing it is an integral over the
--- sphere and has no carrier in this corpus, so the expression is taken
--- as given and only its exactness is proved; the value of the boundary
--- term, which needs decay hypotheses and a limit; the coefficient -2/7,
--- which is that boundary value divided by seven and is therefore NOT
--- stated here; anything about pressure, strain, symmetry, or
--- trace-freeness â” `G` is an arbitrary ring element; and nothing about
--- integration, which does not occur below.
+-- obeying the Leibniz rule, any `r` with `d r â‰¡ 1r`, and any `G`.
 ------------------------------------------------------------------------
 
 module PurnaAvakalana_TheQuadraticSourceIntegrandIsExactlyADerivativeSoTheWholeCoefficientIsABoundaryTerm where

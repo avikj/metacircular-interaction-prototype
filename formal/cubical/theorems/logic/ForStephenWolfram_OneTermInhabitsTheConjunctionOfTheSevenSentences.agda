@@ -52,10 +52,7 @@
 --   W4 (Ruliad 2021: divergence, eventual reconvergence)
 --      ‡µ‡ø‡®‡ø‡Æ‡Ø              from every state the two updating orders
 --                          diverge and reconverge with definitional
---                          endpoint agreement.  Exactly stated: this is
---                          endpoint agreement, not causal-graph
---                          isomorphism; that form is queued in the
---                          machine's remainder store.
+--                          endpoint agreement.
 --   W5 (Theory of Bugs 2026: "no fundamental advantage of proof")
 --      ‡‡∞‡‡µ-‡‡‡∞‡æ‡‡‡‡ø        the term (n : ‚ï) ‚í Evolve zero n reaches
 --                          every endpoint by one induction where a run
@@ -111,9 +108,6 @@
 -- one.  The prose form is abstracts/26_*.txt; the running machine is
 -- `sh interactive/run-yantra.sh` ‚î every answer a transport with an
 -- exhibited identification, or a written defect naming its losses.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 ‚î the repository pin.
--- --cubical --guardedness --safe, no postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module ForStephenWolfram_OneTermInhabitsTheConjunctionOfTheSevenSentences where

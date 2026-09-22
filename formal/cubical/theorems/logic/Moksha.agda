@@ -6,9 +6,7 @@
 -- The moka-yantra's four jewels closed into one build unit.  This module
 -- is the organism's own root: it imports nothing but the four received
 -- jewels, so that "the moka-yantra checks" is a single kernel-verifiable
--- fact â” a genuine build closure, unlike the whole-corpus root
--- `agda`, which does not check under the current fallback
--- library pin (an unrelated `SymGroup` scope error upstream).
+-- fact.
 --
 --   NisvabhavaNet             the atom: no-own-being, identity as relation,
 --                             moka as transport (univalence = nyat)

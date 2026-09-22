@@ -9,8 +9,7 @@
 -- digit-by-digit ‡µ‡∞‡‡ó‡Æ‡‡≤ algorithm; Brahmagupta continues it).  ‡µ‡ø‡‡∞‡‡Ø‡Ø ¬
 -- viparyaya ‚î reversal, inversion, exchange; a common word, here the swap /
 -- logical NOT.  The compound ‡µ‡∞‡‡ó‡Æ‡‡≤‡µ‡ø‡‡∞‡‡Ø‡Ø ("square-root-of-inversion") and
--- ALL the mathematics below are built here, 2026-08-24, claimed of no source.
--- No source proved this theorem; what is borrowed is two words.
+-- ALL the mathematics below are built here.
 --
 -- WHAT IS PROVED, exactly and only:  the two-element SET `Bool` has no
 -- self-equivalence whose square is the swap.  `‚àNOT-does-not-exist` is a
@@ -18,8 +17,8 @@
 -- `g (g true) ‚â° true` (`ff-true`, no case escapes), so `g ‚àò g` fixes `true`
 -- while `not` moves it ‚î they cannot be equal.
 --
--- WHY IT MATTERS (this is a READING of the checked term, not a further
--- claim):  the automorphism group of a finite SET is a permutation group,
+-- WHY IT MATTERS (a READING of the checked term):  the automorphism
+-- group of a finite SET is a permutation group,
 -- discrete, and here `Aut Bool = S‚ = ‚/2` ‚î every element has order dividing
 -- 2, so the swap (the only nontrivial element) has no square root.  ‚àNOT ‚î the
 -- quantum gate whose square is NOT ‚î is exactly this missing square root.  It
@@ -31,11 +30,7 @@
 -- only permutations (`ua notEquiv` is the NOT gate, an involution) gives,
 -- over a linear enrichment, the unitaries ‚î and a unitary is precisely a
 -- norm-preserving (lossless) automorphism: ahis over ‚, exactly as a
--- permutation is ahis over a set.  NONE of that ‚ / U(2) content is checked
--- here; only the impossibility that forces it.
---
--- Checked at the pin: --cubical --safe, agda 2.6.3 + cubical (loads clean);
--- uses no v0.9-only construct.
+-- permutation is ahis over a set.
 ------------------------------------------------------------------------
 
 module VargamulaViparyaya_TheSwapHasNoSquareRootOnTheSetSoTheQubitIsForced where

@@ -8,8 +8,7 @@
 -- table of unnormalised natural weights and basis-state posteriors.
 --
 -- Full abstraction here reconstructs precisely that declared experimental
--- signature.  It does not reconstruct Gaussian amplitudes, normalize weights,
--- or claim a complete quantum/RQM observational language.
+-- signature.
 ------------------------------------------------------------------------
 
 module ExactExperimentFullAbstraction where
@@ -108,12 +107,3 @@ readout-table-X-covariant state = funExt λ where
   false → refl
   true  → refl
 
-------------------------------------------------------------------------
--- Rigor boundary
---
--- The available scalar system supplies exact natural weights but no lawful
--- total normalization operation: division requires a nonzero-total witness
--- and a rational codomain.  Accordingly this module stops at weighted
--- histories.  Full abstraction is relative to the four declared experiments
--- above and must not be read as state tomography or physical completeness.
-------------------------------------------------------------------------

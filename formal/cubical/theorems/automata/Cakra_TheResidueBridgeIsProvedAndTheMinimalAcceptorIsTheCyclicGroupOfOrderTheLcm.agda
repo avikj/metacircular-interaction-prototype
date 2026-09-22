@@ -3,18 +3,14 @@
 ------------------------------------------------------------------------
 -- àà•àà° â” the wheel.
 --
+--   * the RESIDUE BRIDGE: divisibility of the distance by m is equality of
+--     residues mod m, at every modulus.
+--   * the AUTOMATON: the alphabet, the machine, the language and the
+--     Myhill-Nerode theorem for the sensor family.
+-- Both are theorems here, and neither carries a hypothesis.
 --
---   * the RESIDUE BRIDGE.  It works with `m âˆ dist a b` and says the
---     identification with equality of residues is "entirely standard"
---     and unchecked.
---   * the AUTOMATON.  It says there is no alphabet, no machine, no
---     language and no Myhill-Nerode theorem, and that the automata-
---     theoretic reading is a reading.
---
--- Both are closed here, as theorems, and neither carries a hypothesis.
---
--- The bridge holds AT EVERY MODULUS (`bridge!`, Â§à©).  What the note's
--- unchecked step hid was not a missing side condition but a wrong
+-- The bridge holds AT EVERY MODULUS (`bridge!`, Â§à©).
+-- The apparent need for a positive modulus comes from a wrong
 -- function: `_mod_` is not the residue map, because the library sets
 -- `x mod 0 = 0` while the quotient by the zero modulus is â/0 â‰ â, in
 -- which the residue of x is x.  With `res` in place of `_mod_` the
@@ -29,7 +25,7 @@
 --   Â§à©  `res`, `bridge!` THE BRIDGE, at every modulus, no hypothesis.
 --       `mod-is-not-the-residue-at-zero`
 --                        â¦and the witness that `_mod_` cannot replace
---                        `res`, which is what the gap really was.
+--                        `res`.
 --   Â§à  `indâ’residues`   the family form: divisibility of the distance
 --       `residuesâ’ind`   is agreement of the whole residue profile â”
 --                        for EVERY family, no positivity anywhere.
@@ -48,9 +44,6 @@
 --                        the other half of the dichotomy: when the lcm
 --                        is 0 the quotient is â• and nothing is merged.
 --                        Â§à® and Â§à¯ together cover every family.
---
--- CHECKED: Agda 2.8.0, agda/cubical v0.9 â” the repository pin.
--- --cubical --safe --guardedness, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module Cakra_TheResidueBridgeIsProvedAndTheMinimalAcceptorIsTheCyclicGroupOfOrderTheLcm where
@@ -117,9 +110,9 @@ dist-â‰¥ a b bâ‰¤a = cong ((a âˆ¸ b) +_) (â‰¤â†’âˆ¸â‰¡0 bâ‰¤a) âˆ™ +-zero (a âˆ¸
 ------------------------------------------------------------------------
 -- à¨ Â THE RESIDUE BRIDGE, at a positive modulus.
 --
--- `SensorNerode`'s note says the identification of `m âˆ dist a b` with
--- equality of residues is "entirely standard" and leaves it unchecked.
--- It is standard, it is true at every positive modulus, and here it is.
+-- The identification of `m âˆ dist a b` with
+-- equality of residues is standard,
+-- true at every positive modulus, and here it is.
 ------------------------------------------------------------------------
 
 module _ (n : â„•) where

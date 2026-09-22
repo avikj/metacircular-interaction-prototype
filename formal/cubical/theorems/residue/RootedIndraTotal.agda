@@ -4,8 +4,7 @@
 -- RootedIndraTotal
 --
 -- Delta 25's exact finite bridge: a rooted view is a jewel together with
--- the total view it carries.  This is a dependent total space, not a claim
--- that all roots are equal and not a completed final coalgebra.
+-- the total view it carries.  This is a dependent total space.
 ------------------------------------------------------------------------
 
 module RootedIndraTotal where
@@ -78,11 +77,8 @@ reweave-all-roots : {Root Jewel : Type₀}
 reweave-all-roots action view root = refl
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by a later reader, at the end, altering no line
--- above.  Pointer only; nothing here corrects this module.
---
 -- `reweaveRooted-root` above is the ONE-STEP law, and it is `refl`.  It
--- is now carried along the stream this module deliberately does not
+-- is carried along the stream this module deliberately does not
 -- build, in
 -- `NoObservationDepthDeterminesTheNet`:
 --
@@ -94,8 +90,4 @@ reweave-all-roots action view root = refl
 -- for EVERY depth there are two nets agreeing at every depth below it
 -- and differing at it, so no finite observation depth determines the
 -- net.  That is `interactive/IndraNet.hs`'s own disclaimer, checked.
---
--- The remaining direction -- agreement at ALL depths gives equality --
--- is a bisimulation principle, is what that Haskell file's `Bisim` type
--- is for, and is NOT proved there.
 ------------------------------------------------------------------------

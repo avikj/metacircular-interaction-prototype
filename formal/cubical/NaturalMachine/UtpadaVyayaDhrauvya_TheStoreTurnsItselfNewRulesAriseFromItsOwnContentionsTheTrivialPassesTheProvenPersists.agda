@@ -6,8 +6,8 @@
 -- persists, together.  The classification is his; the mathematics is
 -- not claimed for the source.  School named: Jaina.
 --
--- THE QUESTIONS NOW ARISE FROM THE STORE ITSELF.  Until this module,
--- an agent chose which equations to put to the prover.  Here the
+-- THE QUESTIONS ARISE FROM THE STORE ITSELF.  No agent chooses which
+-- equations to put to the prover.  Here the
 -- store turns on its own: two rules whose scopes meet at one site ‚î
 -- Ktyyana's configuration, ‡¶‡‡µ‡ ‡‡‡∞‡‡ô‡‡ó‡ ‡‡®‡‡Ø‡æ‡∞‡‡‡ ‡‡ï‡‡‡Æ‡ø‡®‡,
 -- already checked as EkaTantra's contention ‚î GENERATE the site by

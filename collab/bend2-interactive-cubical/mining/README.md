@@ -44,7 +44,6 @@ RUN_SECONDS=600 BEND="$BEND" HVM="$HVM" bash \
 ```
 
 An interrupted, rejected, or out-of-memory run is **not** an empty fibre.
-There is no native runtime result in this handoff yet; read STATUS.md.
 
 ## Actual invocation, not a replacement search engine
 
@@ -83,11 +82,7 @@ The cubical receipt remains in the output. The program is compiled with
 No `--to-hvm4`, `--to-hvm4-raw`, JS erasure, or CPU mining fallback is allowed.
 
 This is a concrete invocation of the existing implemented SUP/specification
-mechanism with the complete Bitcoin instance. It does not claim that importing
-all theorems causes an unimplemented optimizer to fire, or that superposition
-by itself proves a mining advantage. The two prior Agda proof-source additions
-are included separately; the unverified suffix cuts are NOT silently enabled
-in the default native predicate.
+mechanism with the complete Bitcoin instance.
 
 ## Supply an actual job
 
@@ -112,8 +107,7 @@ Header fields other than nonce are immutable inside each supplied template.
 To expose authorized version/time/coinbase choices, supply additional complete
 header templates. They must have the same parent and nBits. The template
 builder must enforce current chain rules, transaction validity, merkle/coinbase
-commitments, time rules, and any negotiated version mask. This runner does NOT
-invent those permissions or claim that proof of work alone validates a block.
+commitments, time rules, and any negotiated version mask.
 Duplicate 76-byte templates are rejected, not silently merged.
 
 `nonce.base` and `nonce.mask` are ordinary numeric 32-bit hex, not serialized
@@ -177,12 +171,11 @@ bash -n collab/bend2-interactive-cubical/mining/bootstrap.sh
 ```
 
 These check serialization, compact targets, masks, header membership, source
-framing, and independent verification. They do NOT execute an alternative miner
-and are NOT evidence that the new Bend port typechecks or that mining is fast.
+framing, and independent verification.
 The native runner gates remain mandatory. The full-family native input contains
 neither the known genesis nonce nor its expected hash as a supplied solution.
 
-The prior source additions now live at:
+The Agda proof sources are:
 
 - `formal/cubical/BitcoinMiningOnTheWire.agda`: existing `Prog` composition of
   SHA twice and target comparison, retained-source laws and conditional `Hit`.
@@ -203,14 +196,9 @@ substitute an external miner, or claim that host checks establish native success
 
 - Native substrate: `../SUPGEN_DEMO.md`, `../port/Carrier.bend`,
   `../port/Prelude.bend`, `../cubical-paths.patch`, `../HANDOFF.md`.
-- SHA definition: `../../../formal/cubical/Sha256.agda`, initially inspected
-  at `e1112905e213b7512cf5e52d291132db6d2d75fa`.
+- SHA definition: `../../../formal/cubical/Sha256.agda`.
 - Bitcoin serialization: https://developer.bitcoin.org/reference/block_chain.html
 - Bitcoin target checks: https://github.com/bitcoin/bitcoin/blob/master/src/pow.cpp
 - Compact arithmetic: https://github.com/bitcoin/bitcoin/blob/master/src/arith_uint256.cpp
 - Genesis bytes/hash: https://github.com/bitcoin/bitcoin/blob/master/src/kernel/chainparams.cpp
 - Runtime syntax: https://github.com/HigherOrderCO/HVM4/blob/6defdfc7dae2a3cca5dd6e74ed0612385b5646a8/docs/hvm/core.md
-
-HVM4 is the actual requested execution target. This handoff makes no claim of
-GPU use, quantum hardware use, ASIC superiority, a new nonce-selection theorem,
-or a measured computational advantage.

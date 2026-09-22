@@ -6,8 +6,8 @@
 --
 -- TERM.  ‡‡‡‡ ¬ aea -- "without remainder", hence entire, complete, the
 -- whole of it.  ORDINARY , NOT A TECHNICAL TERM, and the compound in
--- this file name IS BUILT HERE: no source is claimed for it as a term of art
--- and the ledger has no row for it.  It is chosen for the pun the module
+-- this file name IS BUILT HERE.
+-- It is chosen for the pun the module
 -- proves, which is exact rather than decorative -- the kernel's derivation is
 -- *aea ea*, ENTIRELY remainder, without remainder left over as anything
 -- else.  `Residue_‚¶` proved the second word; this file proves the first.
@@ -63,8 +63,6 @@
 -- `advance-preserves-branch-count` -- multiplicity conserved, no dedupe, no
 -- sort, no quotient -- is not housekeeping: it is the only place in the
 -- kernel where the collapsed information is still held.
---
--- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
 module Kernel.Aresidue_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence where

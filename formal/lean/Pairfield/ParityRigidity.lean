@@ -1,8 +1,4 @@
 /-
-
-The note's proposition has three layers.  Two of them are checked here; the
-third is identified precisely and is *not*.
-
 WHAT IS FORMALIZED HERE
 -----------------------
 * **Layer 2 (the algebraic core), `core`.**  For Laurent polynomials
@@ -22,22 +18,6 @@ WHAT IS FORMALIZED HERE
   `n`-th coefficient of `ind A * invert (ind A)` is
   `#{(a,a') ∈ A×A : a - a' = n}`.  `rigidity_normalized_diff` states the
   theorem with that combinatorial hypothesis directly.
-
-WHAT IS **NOT** FORMALIZED HERE
--------------------------------
-* **Layer 1**, the reduction of the general statement to the normalized one.
-  Its arithmetic half *is* checked: `parity_class_sizes` is the note's
-  `e + o = N`, `e·o = N - 1`, hence `(e-1)(e-(N-1)) = 0` step, which is what
-  forces `B` to have a singleton parity class too.  What is missing is the
-  *translation bookkeeping*: that `c_A(0) = |A|`, that the positive odd part
-  of `c_A` counts opposite-parity pairs, and that translating each singleton
-  to `0` (after an odd translation swapping the names of the parity classes
-  if necessary) puts both sets in normalized form.  Each of those is
-  routine; none of it is here.  Consequently the general Theorem A′′ as
-  substantive layers are.
-* The prime-prefix corollary, and `Conjecture A″_alg` (irreducibility of the
-  non-cyclotomic part of `F_X`), which is strictly stronger and separate;
-  nothing below bears on it.
 
 Non-vacuity controls are in the final section: a rigidity statement of this
 shape is satisfied by empty/zero data, and the reflection disjunct could be

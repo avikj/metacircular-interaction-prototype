@@ -77,13 +77,8 @@
 -- with the endpoint agreement DEFINITIONAL (`vinimaya`, both
 -- components refl).  This is the interchange law at the smallest
 -- scale: order-independence of co-initial updating events as data.
--- Stated exactly: what is checked here is endpoint agreement of the
--- interchanged orders (the convergence Wolfram's sentence names),
--- not isomorphism of causal graphs; the causal-graph form is queued
--- as a ea in the machine's remainder store, alongside this lane's
--- session record.
 --
--- RELATION TO THE CORPUS, checked before writing.  Abstract 07 proves
+-- RELATION TO THE CORPUS.  Abstract 07 proves
 -- the W2/W3 pair for a reversible process calculus (observation
 -- factors through truncation; the scheduler is forbidden to merge);
 -- abstract 22 proves W3 as full abstraction (the denotation IS the
@@ -96,9 +91,6 @@
 -- statement none of those makes: the coordinatization sentence W1
 -- itself, as a path of structured systems whose transport computes,
 -- with the one-object claim as contractibility.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9 â” the repository pin.
--- --cubical --guardedness --safe, no postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
 module NKSUnivalence_CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns where

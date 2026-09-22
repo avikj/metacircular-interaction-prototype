@@ -9,8 +9,7 @@
 --
 -- There is no floating point and no square root.  Consequently the checked
 -- observable quantities here are integer weights, not normalized
--- probabilities.  Dividing by total weight belongs to a later rational
--- interface and normalized state vectors would require a larger scalar type.
+-- probabilities.
 ------------------------------------------------------------------------
 
 module ExactTwoStateAmplitudes where
@@ -159,11 +158,3 @@ c2-amplitude-action : (α β : Gaussian)
     ≡ (negG α , negG β)
 c2-amplitude-action α β = refl
 
-------------------------------------------------------------------------
--- Rigor boundary
---
--- Checked: exact Gaussian-integer two-state amplitudes; natural-number
--- squared weights; norm-preserving X, Z, and Z4 global phases; and the state
--- action of the already checked R0/C2 central Pauli products.
---
-------------------------------------------------------------------------

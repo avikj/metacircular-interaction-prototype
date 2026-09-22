@@ -9,12 +9,9 @@
 -- because the sdhya is already siddha for the opponent, so the inference
 -- accomplishes nothing.  Discussed under the ‡®‡ø‡ó‡‡∞‡‡‡‡‡æ‡® / ‡‡æ‡‡ø apparatus
 -- descending from Gautama's *Nyyastra* (~2nd c. CE) book 5 and developed
--- in the later Naiyyika manuals; I have not established a first use of the
--- compound with a date I checked, and I am not supplying one.
+-- in the later Naiyyika manuals.
 --
 ------------------------------------------------------------------------
--- WHAT WAS OPEN.
---
 -- `NaturalMachine.Obstruction` proves a separation on ITS substrate (unary
 -- terms, a vocabulary of head shapes):
 --
@@ -22,9 +19,7 @@
 --
 -- A proposer that installs what it can already match leaves the matcher
 -- EQUAL AS A FUNCTION, after any number of steps; and `obs-step-strict`
--- says one obstruction-indexed step cannot.  `DescentNote_` ¬ß7 records that
--- no file imports both `Obstruction` and `RewriteCertificate`, so it was
--- open whether that separation says anything about the kernel at all.
+-- says one obstruction-indexed step cannot.
 --
 -- THIS FILE ANSWERS THE FIRST HALF: the plateau transfers, and it is not a
 -- port.  Obstruction's proof runs through `extend-absorbed` on a Bool
@@ -43,30 +38,9 @@
 --       corollary, on the kernel's OWN library.  Exact analogue of
 --       Obstruction.frequency-cannot-reach.
 --
--- THE FRONTIER THIS OPENS ‚î the live questions it makes precise:
---   * NO ANTI-PLATEAU IS PROVED HERE.  Obstruction's separation has two
---     halves and this is one.  What escapes the plateau on the kernel side
---     is Vyapti_'s `SchematicOperation` -- `no-native-operation-does-this`
---     shows one schema fires where no NativeOperation can -- but a schema
---     is not a NativeOperation and cannot be installed, so the escape is
---     not yet a step of any chain.  `Adesa_` supplies the certificate a
---     schema would need; the record change does not exist.
---   * NOTHING HERE IS AN OBSTRUCTION, and the scope of that is narrow.
---     `InstallChain`'s step is restricted to `install`, whose control is the
---     trivial family `t ‚â° lhs`.  `Control : Tm ‚í Type‚` is a FIELD and the
---     caller may supply ANY type family, so this plateau is a theorem about
---     the one trivial instance and says nothing about what an arbitrary
---     control can enable.  Obstruction's own residual-reading is a
---     projection only because its terms are unary; on the kernel's `Tm` the
---     corresponding question is not asked here.
---   * `SomeEnabled` is restated here from Vyapti_ rather than imported, so
---     that this module depends on the kernel and not on that module's
---     other machinery; the definition is identical.
---
--- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
--- exit 0 at the previous module path.  Module name and imports were renamed
--- to `Kernel.*` to match this directory; that rename has not been re-run at
--- the repository pin (2.8.0 + v0.9).
+-- `SomeEnabled` is restated here from Vyapti_ rather than imported, so
+-- that this module depends on the kernel and not on that module's
+-- other machinery; the definition is identical.
 ------------------------------------------------------------------------
 
 module Kernel.Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateauSoTheKernelsOwnLibraryCannotGrowItsReach where
@@ -131,12 +105,6 @@ install-chain-plateau (step ch t e d) t' s =
 --      `add var (suc zero)`; a tower has an outermost `suc`.  A head
 --      discriminator kills the control, and ¬ß2 extends it to anything the
 --      library builds from itself.
---
---      `Vyapti_` proves the seed case and is now a sibling in this
---      directory, so the import would resolve; the discriminator was
---      inlined when this module was written against a branch that predated
---      the reorganisation, and it is left inlined rather than changed
---      without a re-check.  The statement is the same either way.
 ------------------------------------------------------------------------
 
 isAdd : Tm ‚Üí Bool

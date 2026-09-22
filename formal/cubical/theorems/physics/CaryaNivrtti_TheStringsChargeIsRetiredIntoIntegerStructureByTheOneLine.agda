@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- ‡‡∞‡‡Ø‡æ-‡®‡ø‡µ‡‡‡‡‡ø ‚î the string's charge retires into ‚.  Not a new proof:
--- an INSTANTIATION of ‡‡ï‡‡‡‡‡∞'s retirement operator (‡®‡ø‡µ‡‡‡‡‡ø‡).  Tonight
--- the winding facts were hand-proved (GranthiCarya).  The one line
+-- an INSTANTIATION of ‡‡ï‡‡‡‡‡∞'s retirement operator (‡®‡ø‡µ‡‡‡‡‡ø‡).  The
+-- winding facts are hand-proved in GranthiCarya.  The one line
 -- retires the author: Œ©S¬ ‚â ‚, so EVERY property of ‚ holds of the loop
 -- space with no further proof ‚î the charge is not proved to be ‚, it IS
--- ‚, issued.  This is the pattern for retiring all of the night's
--- physics into the single primitive.
+-- ‚, issued.  This is the pattern for retiring the physics into the
+-- single primitive.
 
 module CaryaNivrtti_TheStringsChargeIsRetiredIntoIntegerStructureByTheOneLine where
 

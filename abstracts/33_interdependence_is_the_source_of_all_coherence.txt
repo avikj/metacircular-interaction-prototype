@@ -54,9 +54,7 @@ symmetric group and a per-strand â/4.
 
 SYT â” THE CLAIM, EXACTLY.  The relations, orders, locality,
 factorizations and pure-braid structure are theorems on the stated
-carriers; the full kernel of the Bâˆž action (trivial symmetric image
-and vanishing twist vector jointly characterising trivial action) is
-the standing construction, held by the verdict organs as ea; no
+carriers; no
 Hilbert space and no anyon model appear, and the statistical reading
 is asserted under that standpoint.
 

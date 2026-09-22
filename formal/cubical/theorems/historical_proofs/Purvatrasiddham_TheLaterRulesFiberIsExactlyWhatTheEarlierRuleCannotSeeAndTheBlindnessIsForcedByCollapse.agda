@@ -19,8 +19,7 @@
 -- Ktyyana's vrttikas c. 250 BCE and Patajali's *Mahbhya* c. 150 BCE
 -- are the commentarial layer on 8.2.1; they are named, not used, here.
 --
--- RECOGNITION BEFORE CONSTRUCTION, as this repository requires, and it
--- changed what this module is.  Three things were already here:
+-- WHAT IS ALREADY IN THE CORPUS.  Three things:
 --
 --   `Asiddhatva.agda`     ‚î 8.2.1 buys TERMINATION: the unstratified
 --                           system has no normal form and, sharply, no
@@ -65,28 +64,23 @@
 --   fiber is contractible then EVERY predicate descends, so asiddhatva
 --   would be doing nothing.  Hence `‡‡‡ø‡¶‡‡ß‡‡‡µ‡‡‡‡‡`: the necessity of 8.2.1
 --   at this site is precisely that some later rule collapses two forms
---   into one.  It is derived from the two halves, not asserted.  At this
+--   into one.  It is derived from the two halves.  At this
 --   site both later rules collapse, and both witnesses are exhibited.
 --
--- PRIOR ART, searched.  Asiddhatva read as rule suspension / level
+-- PRIOR ART.  Asiddhatva read as rule suspension / level
 -- ordering is documented (Kiparsky, "On the Architecture of Pini's
 -- Grammar", 2009; the elsewhere condition, Kiparsky 1973 ‚î a restatement,
 -- named here after the thing it restates).  Staged and layered rewriting
 -- is standard (Bergstra‚ìKlop; Ohlebusch on modularity of termination).
--- What I did not find is the descent formulation: the blindness as failure
--- of a predicate to factor through the later strata, with the obstruction
--- identified as the fiber and localised to a named stra.  If that is
--- stated somewhere I did not reach, this is a re-derivation and the
--- citation is owed.
 --
--- SCOPE OF THE CARRIER, so the model is not read as more than it is.  The
+-- THE CARRIER.  The
 -- carrier is the pada-final consonant of `vc` ("speech") along the
 -- trajectory the derivation actually takes, exactly as in
 -- `Asiddhatva.agda`, and the rules are their restrictions to it.  `ca` is
 -- never presented to 8.2.39 in a real derivation because 8.2.30 has
 -- already removed it; that is not assumed, it is `‡ï‡‡‡Ø‡æ‡‡ø-‡®-‡‡` below.
 --
--- No postulates, no holes, --safe.  2026-08-22.
+-- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 
 module Purvatrasiddham_TheLaterRulesFiberIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse where
@@ -134,7 +128,7 @@ eqRupa _  _  = false
 
 ------------------------------------------------------------------------
 -- ‡®.  The three stras, each as the total function it is on this carrier.
---     Nothing is stated about forms off the trajectory; see the scope note.
+--     Nothing is stated about forms off the trajectory.
 ------------------------------------------------------------------------
 
 -- 8.2.30 ‡‡ã‡ ‡ï‡‡
@@ -284,20 +278,3 @@ punar-ga = refl
 ‡§∏‡§ô‡•ç‡§ï‡•ã‡§ö‡§É-‡•Æ-‡•®-‡•©‡•Ø c =
   ka‚â¢ga (cong fst (isContr‚ÜíisProp c (ka , refl) (ga , refl)))
 
-------------------------------------------------------------------------
--- ‡Ø.  WHAT THIS DOES NOT SAY.
---
--- It does not say the later form is "less informative" in general ‚î the
--- tripd is deterministic and the final form is a function of the
--- earlier one.  The asymmetry is the other way: the earlier form is not a
--- function of the later one, and 8.2.39's condition lives on the earlier.
---
--- It does not say 8.2.1 is derivable from the collapse.  ¬ß‡Æ gives one
--- direction only: collapse is NECESSARY for the blindness to have content
--- at this site.  Pini states 8.2.1 as a metarule over the whole tripd
--- and nothing here bears on why he stated it in that generality.
---
--- It does not model 6.4.22 ‡‡‡ø‡¶‡‡ß‡µ‡¶‡‡‡∞‡æ‡‡æ‡‡, the simultaneous regime.  That
--- is `AsiddhavatRegime.agda`, and the two are different devices; reading
--- them as one is the misattribution that file was written to correct.
-------------------------------------------------------------------------

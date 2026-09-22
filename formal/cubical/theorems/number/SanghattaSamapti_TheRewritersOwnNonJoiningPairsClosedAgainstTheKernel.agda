@@ -3,8 +3,7 @@
 -- SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel
 --
 -- ‡‡ô‡‡ò‡ü‡‡ü-‡‡Æ‡æ‡‡‡‡ø‡ ‚î saghaa, the collision (of critical pairs);
--- sampti, the closing.  Compound built here, 2026-08-23; no source
--- claimed.
+-- sampti, the closing.
 --
 -- interactive/Sanghatta ran Knuth‚ìBendix over interactive/library.terms: 174
 -- rules, 829 critical pairs, 399 NON-JOINING ‚î equations the rewriter
@@ -12,8 +11,7 @@
 -- interactive/sanghatta-report-2026-08-23.txt.  The machine named exactly
 -- what it needs.  This module takes the batch and closes it against the
 -- kernel: each non-joining pair, over the same ‚ï signature (s/0, +, ¬,
--- monus, le, max; gcd owed a fuel-typed def, PAID 2026-08-24 ‚î the
--- candidate prelude carries gcdF and the loop lands gcd pairs), proved as a theorem.  What the rewriter cannot
+-- monus, le, max, gcd), proved as a theorem.  What the rewriter cannot
 -- reach because the LPO orientation gives it no induction, the kernel
 -- reaches by induction.  The shopping list, discharged ‚î not enumerated
 -- for, PROVED.

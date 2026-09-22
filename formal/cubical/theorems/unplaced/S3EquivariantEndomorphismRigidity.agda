@@ -3,8 +3,7 @@
 -- Capability theorem for the concrete finite Sâ label.  Every equivariant
 -- endomorphism of the natural transitive Fin3 action is the identity map,
 -- while changing the output interface to the terminal action permits a
--- genuine information-collapsing intertwiner.  No linear representation or
--- Hilbert-space claim is involved.
+-- genuine information-collapsing intertwiner.
 
 module S3EquivariantEndomorphismRigidity where
 

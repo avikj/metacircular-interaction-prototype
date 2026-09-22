@@ -51,37 +51,16 @@
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
--- The note's â and â“ are min-plus RESIDUATIONS over a semiring-valued
--- kernel, taking burden profiles to residual profiles.  The â and â“
--- below are the two-valued polarities of a RELATION.  That the former
--- is an instance of the latter is NOT proved here and is not obvious:
--- it needs the kernel's values to form a quantale and the residuations
--- to be its adjoints, none of which is set up in this repository.  So
--- what is established is that the SATURATION discipline is sound
--- wherever the adjunction holds â” not that Î” 28's particular â/â“ satisfy
--- it.  Reading this as a theorem about min-plus convolution would be
--- exactly the error of quoting a figure without its input.
---
 -- Inclusion is used, not equality: `A âŠ B` and `B âŠ A` are proved
 -- separately and never combined into a path.  Turning them into `A â‰¡ B`
 -- needs the predicates to be proposition-valued and funExt, neither of
 -- which is assumed, and nothing below needs it.
 --
--- No tractability theorem is claimed here either â” Â§31â“32 says it
--- claims none, and computing c is no cheaper for being idempotent.
---
 -- On the two-slot shape: this repository already carries a distinct
 -- two-slot structure in `formal/cubical/AbhavaAvacchedaka.agda` and
 -- `NaturalMachine/TheAnuyogitaAvacchedakaIsADistinctSlot`, from
 -- Nyya-Vaieika's treatment of absence, where the pratiyogin and the
--- anuyogin occupy separate delimitor slots.  It is NOT claimed that
--- that is a Galois connection or that these are the same structure â”
--- the Naiyyika slots are not required to be adjoint and nothing here
--- checks that they are.  The pointer is so a later reader compares them
--- rather than assuming either way.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- anuyogin occupy separate delimitor slots.
 ------------------------------------------------------------------------
 
 module SaturationAtACutIsIdempotent where
@@ -176,17 +155,7 @@ module _ {X Y : Type} (K : X â†’ Y â†’ Type) where
     âŠ†-trans (c A) (â†“ B) A (â†“-antitone B (â†‘ A) ba) da
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section names a gap â”
---
---   "what is established is that the SATURATION discipline is sound
---    wherever the adjunction holds â” not that Î” 28's particular â/â“
---    satisfy it"
---
--- â” without saying what would close it.  Now said, in
--- `TheSaturationClosureNeedsOnlyAGaloisConnection`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
+-- `TheSaturationClosureNeedsOnlyAGaloisConnection` generalises this module.
 --
 -- Everything above uses NOTHING about `Type`, `âŠ`, or the relation K.
 -- It uses two preorders, two maps, and the two directions of a
@@ -206,7 +175,6 @@ module _ {X Y : Type} (K : X â†’ Y â†’ Type) where
 --
 -- Â§5 there checks that THIS module is one instance: `galFwdPred` and
 -- `galBwdPred` are a line each, and the closure theory transports with
--- nothing re-proved.  That is what makes the size of the remaining
--- obligation credible rather than asserted.
+-- nothing re-proved.
 --
 ------------------------------------------------------------------------

@@ -45,9 +45,7 @@ the structure of the level above, and the arithmetic of that ascent
 is division.  What an observer accepts as invariance fixes, to the
 divisor, what the world can ever say to it.
 
-SYT â” THE CLAIM, EXACTLY.  The three theorems at the named rungs;
-the functor from the full divisor lattice to derivability at every
-modulus is the standing construction.
+SYT â” THE CLAIM, EXACTLY.  The three theorems at the named rungs.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

@@ -16,8 +16,7 @@ namespace FixedCellBudgetNoGo
 
 variable {State : Type u} [Fintype State] [DecidableEq State]
 
-/-- The complete fixed-cardinality carrier, read as a duplicate-free history.
-No transition or realizability claim is included. -/
+/-- The complete fixed-cardinality carrier, read as a duplicate-free history. -/
 noncomputable def exhaustiveHistory (k : Nat) : List (Finset State) :=
   (Finset.univ.powersetCard k).toList
 

@@ -8,10 +8,9 @@
 -- stra's own word for what English calls affordance and agency (a
 -- text's adhikrin is the one *qualified to act* on it; BOOK.md's ¬ß2 is
 -- an adhikra statement).  ‡‡ô‡‡ó as in ‡‡µ‡‡∞‡‡‡ô‡‡ó‡.  The compound
--- ‡‡ß‡ø‡ï‡æ‡∞-‡‡ô‡‡ó is built here; no source is claimed for it.
+-- ‡‡ß‡ø‡ï‡æ‡∞-‡‡ô‡‡ó is built here.
 --
--- SEED.  The owner's transmission of 2026-08-23 ("type-blindness"),
--- two of its named next constructions:
+-- SEED.  Two constructions ("type-blindness"):
 --
 --   * the AFFORDANCE NO-GO: S(x) = S(y), Action(x) inhabited,
 --     Action(y) empty ‚ü no policy type descends through S ‚î "the

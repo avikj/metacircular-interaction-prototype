@@ -30,10 +30,6 @@ open import RepresentabilityIsNotEnoughForIndependence
 --
 -- All three hold.  So `Wit` satisfies EVERY hypothesis of that
 -- derivation except Ï‰-consistency, and fails independence.
--- Ï‰-consistency is therefore not "the remaining candidate" by
--- elimination in prose: it is the single hypothesis whose removal
--- breaks the derivation, witnessed by a model satisfying all the
--- others.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY THE THREE HOLD, WHICH IS NOT AN ACCIDENT OF THE MODEL
@@ -45,27 +41,6 @@ open import RepresentabilityIsNotEnoughForIndependence
 -- semantics, and the three rules are its standard validities.  A model
 -- built to be Ï‰-inconsistent is not thereby built to be
 -- propositionally deviant, and it is not.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
---
--- That Ï‰-consistency SUFFICES for any theory of interest.  Â§4 says only
--- that dropping it from the six is what the derivation cannot survive
--- in this model; adding it back to `Wit` is impossible, since `Wit` is
--- Ï‰-inconsistent, so nothing here exhibits the positive case.
---
--- That the six hypotheses are independent of each other.  Only one
--- separation is exhibited â” Ï‰-consistency from the rest â” and no claim
--- is made about any other pair.
---
--- That `Form = Unit` in `witHasDiagonal` is adequate to arithmetisation.
--- It is not, and the previous module says so; Â§4 inherits that limit
--- unchanged.
---
--- PRIOR ART, by the conclusion type: a grep of `formal/cubical` for
--- `OmegaBad` finds `GodelSeparation` (definition, `witOmegaBad`) and
--- this thread's modules only; nothing states a separation of it from
--- the other hypotheses.  A version phrased as Ï‰-consistency of a
--- different theory would evade that grep.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -156,48 +131,27 @@ theAbsentHypothesis : OmegaBad Wit wg
 theAbsentHypothesis = witOmegaBad
 
 ------------------------------------------------------------------------
--- CORRECTION, made in
--- `AProvabilityDeterminedImplicationForbidsIndependence`
--- and recorded here rather than by deletion.
+-- `Wit` also fails independence for a second, unrelated reason:
+-- `AProvabilityDeterminedImplicationForbidsIndependence` proves that
+-- any theory whose internal implication is provability-determined
+-- (`impIntro` here) and which has contraposition and an unprovable
+-- sentence with provable negation has NO independent sentence at all,
+-- whatever its Ï‰-status.  `Wit` is in that class, by `impIntro` and
+-- `witContra`, both proved above.  Â§4 is a correct separation of
+-- Ï‰-consistency from the other five hypotheses.
 --
--- Â§4 above is unaffected as a statement: the derivation of independence
--- does require Ï‰-consistency, and `Wit` is a counterexample when it is
--- dropped.
+-- The separation of Ï‰-consistency by a PAIR of concrete calculi
+-- differing in exactly that hypothesis is elsewhere in the corpus:
 --
--- What is withdrawn is the reading offered in this module's header and
--- in its commit message â” that Ï‰-consistency is thereby "the one
--- hypothesis doing the work", "witnessed by a model satisfying all the
--- others".  That other module proves: ANY theory whose internal
--- implication is provability-determined (`impIntro` here) and which has
--- contraposition and an unprovable sentence with provable negation has
--- NO independent sentence at all, whatever its Ï‰-status.  `Wit` is in
--- that class â” by `impIntro` and `witContra`, both proved above.
---
--- So `Wit` fails independence for two unrelated reasons, and a witness
--- that fails twice attests to neither.  Â§4 remains a correct
--- separation; it is not evidence about which hypothesis is load-bearing.
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
--- THE MISSING EVIDENCE NOW EXISTS, elsewhere.
---
--- The correction above says this module's witness is overdetermined and
--- therefore does not show that Ï‰-consistency is the load-bearing
--- hypothesis.  That remains true of `Wit`.
---
--- The evidence it said was absent is now in the corpus, as a PAIR of
--- concrete calculi differing in exactly that hypothesis:
---
---   `TheInternalRulesPreserveIndependenceInThisCalculus` â” Ï‰-consistency
+--   `TheInternalRulesPreserveIndependenceInThisCalculus`: Ï‰-consistency
 --   HOLDS (`pv gs` is underivable) and `gs` is independent;
 --
---   `TheOmegaInconsistentExtensionDerivesTheNegation` â” the same
+--   `TheOmegaInconsistentExtensionDerivesTheNegation`: the same
 --   calculus plus double-negation introduction and the axiom `pv gs`;
 --   Ï‰-consistency FAILS, the first conjunct still holds, and `ng gs` is
 --   DERIVED in three steps.
 --
 -- Same connectives, same diagonal pair, same first conjunct; the second
 -- conjunct changes with Ï‰-consistency and with nothing else that was
--- varied.  That is a separation this module's single witness could not
--- provide, and it is recorded here rather than claimed above.
+-- varied.
 ------------------------------------------------------------------------

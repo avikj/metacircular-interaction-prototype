@@ -8,9 +8,8 @@
 -- are his; nothing else here is.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- The one-step mixed output properties were proved last cycle.  Here
--- they are iterated over the whole mixed stratification â” two of the
--- three.
+-- The one-step mixed output properties are iterated here over the whole
+-- mixed stratification: disjointness and order.
 --
 -- WHAT IS PROVED
 --
@@ -37,18 +36,10 @@
 -- only in what they need but in WHOSE machinery they need. One is
 -- generic list surgery; the other is the whole a-dhana transport.**
 --
--- COVERAGE IS DELIBERATELY ABSENT.  It needs the mixed measure â”
--- non-empty archive â’ non-empty mixed stratum â’ strictly shorter mixed
--- remainder â’ fuel suffices â” and the first link is
--- `mixedMaximalExists`, which is available, while the length argument
--- is not yet transported.  That is the next cycle on this line and it
--- is named rather than guessed at.
+-- COVERAGE is in `RnaDhana_TheMixedStratificationTerminatesAndCovers`.
 --
 -- NO NOVELTY.  Standard properties of iterated non-dominated sorting
 -- (Goldberg 1989; Deb et al. 2002).
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module RnaDhana_TheMixedStrataArePairwiseDisjointAndOrdered where

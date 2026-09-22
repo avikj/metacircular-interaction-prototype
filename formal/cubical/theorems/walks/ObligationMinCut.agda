@@ -3,13 +3,13 @@
 ------------------------------------------------------------------------
 -- ObligationMinCut
 --
--- Executes OBLIGATION.md Â§7 (the min-cut extraction, specified there and
--- never run) for the tractable self-application subgraph: the 1-neighbourhood
+-- Executes OBLIGATION.md Â§7 (the min-cut extraction specified there)
+-- for the tractable self-application subgraph: the 1-neighbourhood
 -- own model of its dependency structure applied to the note that defines it.
 --
 -- The full extraction (869 nodes / 1292 clean edges, mode census, the
 -- corpus audit-burden interval [115,222], and Cor. O2.4's exact path count
--- 133) is computed by exact integer algorithms and recorded in
+-- 133) is computed by exact integer algorithms elsewhere.  The checked
 -- part: a concrete finite network on which a feasible integer flow and an
 -- sâ‹â“tâ‹ cut are exhibited, and the weak-duality equality
 --

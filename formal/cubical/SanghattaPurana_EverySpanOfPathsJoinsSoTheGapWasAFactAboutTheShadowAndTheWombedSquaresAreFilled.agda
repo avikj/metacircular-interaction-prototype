@@ -75,9 +75,6 @@ private
 
 -- and the join is coherent: it is the missing edge of an actual square
 -- over the span (the filler the oriented shadow could not express).
--- [My first attempt hand-rolled the hcomp and the KERNEL REFUSED IT
--- (avatarana.ledger 2026-08-24T03:43:09Z) � left on record: the gate
--- corrected the carrier, which is the direction correction flows here.]
 सन्धि-साक्षिन् : {a b c : A} (p : a ≡ b) (q : a ≡ c)
              → PathP (λ i → p i ≡ q i) refl (सर्वसन्धिः p q)
 सन्धि-साक्षिन् {a = a} {c = c} p q =

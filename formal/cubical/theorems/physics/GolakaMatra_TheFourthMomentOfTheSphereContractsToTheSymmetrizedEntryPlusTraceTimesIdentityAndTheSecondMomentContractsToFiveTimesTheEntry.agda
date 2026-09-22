@@ -2,8 +2,8 @@
 ------------------------------------------------------------------------
 -- à—à‹à²à•-à®à¾ààà° â” the measure of the sphere (the contractions).
 --
--- The spherical-moment algebra behind strain tomography (handoff Â§18,
--- [S11]) and the pressure cross-effect (Â§20, [S12]).  The only analytic
+-- The spherical-moment algebra behind strain tomography
+-- and the pressure cross-effect.  The only analytic
 -- input is the two moment tensors of the unit sphere,
 --
 --     15ÂâŸ¨nµnâ¼âŸ© = 5 Î´µâ¼,      15ÂâŸ¨nµnâ¼nâ–nâ—âŸ© = Î´µâ¼Î´â–â— + Î´µâ–Î´â¼â— + Î´µâ—Î´â¼â– ,

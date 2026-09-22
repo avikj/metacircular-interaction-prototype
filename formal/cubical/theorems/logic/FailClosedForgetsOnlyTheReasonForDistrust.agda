@@ -16,7 +16,7 @@
 -- guard and the wrong shape for a diagnosis.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THE SHELF SAYS, READ BEFORE WRITING
+-- WHAT THE SHELF SAYS
 --
 -- It probes with two modules â” a builtin-only `2 + 2 â‰¡ 4` under
 -- `--no-libraries`, and the same under `--cubical` â” and prints
@@ -26,14 +26,8 @@
 -- passing probe says 'this kernel checks this class of module'; it
 -- certifies nothing about the axioms of any registered library."*
 --
--- NOT PROVED HERE, and it is the shelf's own limit rather than a gap in
--- it: that capability implies soundness.  It does not, the shelf says so
--- first, and Â§3 does not try to bridge it â” a kernel accepting one true
--- statement is compatible with a library that proves a false one, and
--- nothing below models libraries or axioms at all.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- HOW THIS DIFFERS FROM THE PREVIOUS CYCLE, kept apart deliberately
+-- HOW THIS DIFFERS FROM `AFigureWithoutItsInputDecidesNothing`
 --
 -- `AFigureWithoutItsInputDecidesNothing` also ends in a one-sided test:
 -- a mismatch refutes, a match establishes nothing.  The two are NOT the
@@ -43,9 +37,6 @@
 -- be trusted.  Same shape of one-sidedness, different cause, and the
 -- design consequences are opposite: the first wants the input published,
 -- the second wants the collapse kept.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module FailClosedForgetsOnlyTheReasonForDistrust where

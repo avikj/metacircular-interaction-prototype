@@ -13,9 +13,6 @@
 -- ‡‡‡∞‡ø-‡µ‡∞‡‡‡ (‡‡æ‡∞‡ ‡©, ‡‡‡‡ n‚àí3) ‡  ‡‡‡æ ‡‡‡¶‡‡ß‡æ ‡‡®‡‡‡-‡‡‡≤‡‡Ø‡‡æ (equivalence of fibers) ,
 -- ‡® ‡ó‡‡®‡æ ‡® ‡‡ø‡‡‡°‡ø‡-‡∞‡‡‡Æ‡ : ‡‡‡ñ‡‡Ø‡æ ‡‡‡‡Ø‡æ‡ ‡‡æ‡Ø‡æ ‡Æ‡æ‡‡‡∞‡Æ‡ ‡
 --
--- ‡‡‡‡∞ ‡Ø‡‡ *‡®* ‡‡æ‡ß‡‡Ø‡‡ : ‡® ‡ï‡‡‡‡ø‡‡ ‡‡‡µ‡‡-‡∞‡‡‡ (closed form) , ‡® ‡‡ø‡‡‡°‡ø‡‡ ‡Ø‡ã‡ó‡ ,
--- ‡® ‡®‡æ‡∞‡æ‡Ø‡‡‡® ‡‡‡æ ‡‡®‡‡‡-‡∞‡‡‡‡ ‡â‡ï‡‡‡æ ‚î ‡ï‡‡µ‡≤‡ ‡‡‡‡Ø {‡ß,‡©}-‡‡µ‡‡‡‡‡‡ ‡‡®‡‡‡-‡‡‡‡æ‡®‡Æ‡ ‡
---
 -- (Nryaa Paita, Gaitakaumud, akapa, 1356 CE: the cow sequence
 --  a(n) = a(n‚àí1) + a(n‚àí3), built from {1,3}-compositions.  As Virahka's
 --  {1,2}-mtr fiber splits at the head into two branches, this {1,3}-fiber
@@ -23,8 +20,6 @@
 --  the three-year branch (weight 3, remainder n‚àí3).  An EQUIVALENCE OF FIBERS,
 --  not a count: the numbers are its shadow.  Claimed of the source: only the
 --  {1,3} recurrence; the fiber statement and its proof are made here.)
---
--- CHECKED: Agda 2.6.3 + cubical v0.5, --safe, exit 0.
 ------------------------------------------------------------------------
 
 module NarayanaGavampasa_TheCowCompositionFiberSplitsAtTheHeadIntoOneAndThreeYearBranches where

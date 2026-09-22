@@ -7,51 +7,39 @@
 --  inverse; and the charge descends to the quotient.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS IS, and it is a CORRECTION before it is an addition.
+-- WHAT THIS IS.
 --
--- `Kaksya_TheChargeIsConstantAlongTheWholeOrbit‚¶agda` ¬ß‡ names its own
--- open item and, in naming it, states a fork:
---
---     "the orbit RELATION and its quotient, and `Œ¶` without an inverse
---      does not give an equivalence relation ‚î `a ~ Œ¶‚ø a` is reflexive
---      and transitive and not symmetric.  So the honest next rung is
---      either (a) require `Œ¶` to be an equivalence and take the
---      groupoid it generates, or (b) state descent along the
---      reflexive-transitive closure and accept a preorder rather than
---      a quotient."
---
--- `Dhruva_‚¶agda` ¬ß‡ names the same debt from its side: "'the charge is
--- a function on the quotient, not on the cover' is stateable here and
--- is not stated yet."
+-- For a bare endomorphism `Œ¶`, the reachability relation `a ~ Œ¶‚ø a` is
+-- reflexive and transitive and not symmetric, which suggests a fork:
+-- either (a) require `Œ¶` to be an equivalence and take the groupoid it
+-- generates, or (b) state descent along the reflexive-transitive
+-- closure and accept a preorder rather than a quotient.
 --
 -- **The fork is over-specified, and neither rung is needed.**  The
--- relation that was tried ‚î `a ~ b := Œ[ n ] Œ¶‚ø a ‚â° b`, "b is
+-- reachability relation ‚î `a ~ b := Œ[ n ] Œ¶‚ø a ‚â° b`, "b is
 -- downstream of a" ‚î is indeed not symmetric.  But that is not the
--- orbit relation; it is the reachability relation, which is a
--- different object.  Lying on ONE orbit is
+-- orbit relation; it is a different object.  Lying on ONE orbit is
 --
 --     a ‚âà b  :=  Œ[ m ‚àà ‚ï ] Œ[ n ‚àà ‚ï ] Œ¶µê a ‚â° Œ¶‚ø b,
 --
 -- "the two trajectories MEET".  This is symmetric by swapping the two
 -- numbers and `sym` ‚î ¬ß‡® below is three symbols ‚î reflexive at
 -- `(0,0,refl)`, and transitive by the commutation of iterates, which
--- holds for a bare endomorphism.  So the equivalence relation the two
--- modules said needed an inverse needs nothing at all: `Œ¶` stays a
--- bare endomorphism throughout ¬ß‡ß‚ì¬ß‡, exactly as it was.
+-- holds for a bare endomorphism.  So the equivalence relation needs no
+-- inverse at all: `Œ¶` stays a bare endomorphism throughout ¬ß‡ß‚ì¬ßÔøΩ.
 --
--- With that, ¬ß‡ is the genuine descent statement both files defer:
+-- With that, ¬ß‡ is the genuine descent statement:
 -- for `B` a set, `f` factors as `fÃ ‚àò [_]` through `A / ‚âà`, and the
 -- factorisation triangle is `refl` because `SetQuotients.rec` computes
 -- on `[ a ]`.  That is "the charge is a function on the quotient, not
--- on the cover" with a quotient actually present, not simulated on the
--- cover as `Kaksya` ¬ß‡®‚ì¬ß‡© had to do.
+-- on the cover" with a quotient actually present, rather than stated on
+-- the cover as in `Kaksya` ¬ß‡®‚ì¬ßÔøΩ.
 --
 -- ¬ß‡ then shows rung (a) is not a strengthening but a special case:
 -- if `Œ¶` IS an equivalence, its inverse conserves automatically ‚î
 -- conservation of `Œ¶` propagates backwards, one `sym` and one `cong`
 -- ‚î and `Œ¶‚ª¬ a ‚âà a` holds by `(1, 0, secEq)`.  So the group of
--- `SamraksakaSamuha_‚¶` sits inside this, and nothing in ¬ß‡ß‚ì¬ß‡ was
--- waiting on it.
+-- `SamraksakaSamuha_‚¶` sits inside this, and ¬ß‡ß‚ì¬ß‡ do not use it.
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 --
@@ -66,10 +54,6 @@
 -- corpus's.  ‡‡Æ‡æ‡® ‚î "same, equal", ordinary .  The compound
 -- ‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ, "same-orbit-ness", is BUILT HERE; no text is claimed for
 -- it.  No source states anything below.
---
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 ‚î the container, NOT the
--- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
--- holes, exit 0.
 ------------------------------------------------------------------------
 
 module SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndTheChargeDescendsToTheQuotient where
@@ -114,8 +98,7 @@ module _ {A : Type ‚Ñì} (Œ¶ : A ‚Üí A) where
 -- ‡® ¬ ‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ ‚î THE ORBIT RELATION, AND IT IS AN EQUIVALENCE.
 --
 -- `a ‚âà b` says the two forward trajectories MEET.  Not "b is reachable
--- from a" ‚î that is the asymmetric relation, and it is the one whose
--- asymmetry was mistaken for the orbit's.
+-- from a" ‚î that is the asymmetric relation, and it is not the orbit's.
 ------------------------------------------------------------------------
 
 module _ {A : Type ‚Ñì} (Œ¶ : A ‚Üí A) where
@@ -167,8 +150,8 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) where
 ------------------------------------------------------------------------
 -- ‡ ¬ ‡‡µ‡‡∞‡‡Æ‡ ‚î THE CHARGE IS A FUNCTION ON THE QUOTIENT.
 --
--- This is the statement `Dhruva` ¬ß‡ says is "stateable here and is not
--- stated yet", now with the quotient present.  `fÃ` is defined on
+-- The charge is a function on the quotient, with the quotient present.
+-- `fÃ` is defined on
 -- `A / ‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ`, and the factorisation `f ‚â° fÃ ‚àò [_]` is `refl`,
 -- because `SetQuotients.rec` computes on a point class.
 --
@@ -192,7 +175,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A)
 -- ‡ ¬ ‡µ‡‡Ø‡‡‡‡ï‡‡∞‡Æ‡ ‚î and the inverse case is a special case, not a
 --     stronger hypothesis.
 --
--- `Kaksya` ¬ß‡'s rung (a) proposed requiring `Œ¶` to be an equivalence.
+-- Rung (a) proposed requiring `Œ¶` to be an equivalence.
 -- If it is, two things follow and neither is needed above:
 --
 --   (a) conservation propagates BACKWARDS with no extra hypothesis ‚î
@@ -201,7 +184,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A)
 --   (b) `Œ¶‚ª¬ a` and `a` lie on one orbit, at stations `(1, 0)`.
 --
 -- So the group of invertible conserving flows acts within the classes
--- of ¬ß‡®, and ¬ß‡ß‚ì¬ß‡ were never waiting on it.
+-- of ¬ß‡®, and ¬ß‡ß‚ì¬ß‡ do not use it.
 ------------------------------------------------------------------------
 
 module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) (e : isEquiv Œ¶) where
@@ -218,46 +201,27 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) (e : isEquiv Œ¶) where
   ‡§µ‡•ç‡§Ø‡•Å‡§§‡•ç‡§ï‡•ç‡§∞‡§Æ‡§É-‡§∏‡§Æ‡§æ‡§®‡§ï‡§ï‡•ç‡§∑‡•ç‡§Ø‡•á a = suc zero , zero , secEq Œµ a
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what stays open, stated so the next rung is not
---     over-specified again.
+-- ‡ ¬ ‡‡‡‡ ‚î the converse, and the h-level of the relation.
 --
--- ~~The converse of ¬ß‡ ‚î that `‡‡µ‡‡‡∞‡‡‡` is injective, i.e. equal charge
--- implies one orbit ‚î is `Kaksya` ¬ß‡'s `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡` and is a genuine
--- hypothesis about the flow, not a missing definition.~~
---
--- **STRUCK, and by a checked counterexample, not by a re-reading.  Left
--- standing because striking silently is how this repository loses its
--- own history.**  `Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIs
--- InjectiveAndOneSidedReachabilityIsStrictlyStronger.agda` shows
--- `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡` is SUFFICIENT and NOT NECESSARY, and exhibits the gap:
+-- The converse of ¬ß‡ ‚î that `‡‡µ‡‡‡∞‡ÔøΩ‡` is injective, i.e. equal charge
+-- implies one orbit ‚î is the subject of
+-- `Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIs
+-- InjectiveAndOneSidedReachabilityIsStrictlyStronger.agda`.  `Kaksya`
+-- ¬ß‡'s one-sided `‡ÔøΩÔøΩ‡‡ï‡‡∞‡Æ‡ÔøΩ‡` is SUFFICIENT and NOT NECESSARY:
 -- `A = Bool`, `B = Unit`, `f = Œª _ ‚í tt`, `Œ¶ = Œª _ ‚í true`.  Every pair
 -- meets at stations `(1,1)`, so `‡‡µ‡‡‡∞‡‡‡` is an equivalence, while
--- `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ tt ‚í ‚ä` ‚î nothing ever reaches `false`.  I wrote
--- "is exactly" of a one-sided reachability hypothesis while the whole
--- point of ¬ß‡® above was that the orbit relation is two-sided, which is
--- the error ¬ß‡® exists to correct, committed four sections later in the
--- same file.  The exact hypothesis is the truncated two-sided one, and
--- that module proves the ‚ü∫ and the equivalence
+-- `‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ tt ‚í ‚ä` ‚î nothing ever reaches `false`.  The exact
+-- hypothesis is the truncated two-sided one, and that module proves the
+-- ‚ü∫ and the equivalence
 -- `isEquiv fÃ ‚â (isSurjection f ó ‚à b ‚í ‚àtwo-sided‚à‚)`.
 --
--- What ¬ß‡® shows is still that only the SYMMETRY half of the old fork
--- was a mirage; a transitivity-shaped hypothesis is real and remains
--- one ‚î but it is not the one named here.
---
--- Unaddressed here: whether `‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ` is valued in propositions
--- (it is not, in general ‚î the meeting stations are data), and hence
--- what `‡‡æ‡ó‡` is the quotient BY when the relation carries content.
--- `SetQuotients` truncates it, which is the right move for ¬ß‡ and is
--- the wrong move for any groupoid-level reading of the same orbit.
---
--- [2026-08-23 ‚î ANSWERED, and the answer is stronger than the guess.
--- `SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndThe
+-- `‡ÔøΩ‡æ‡®‡ï‡ï‡‡‡‡ØÔøΩ` is not valued in propositions ‚î the meeting stations are
+-- data.  `SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndThe
 -- TruncationLosesTheStations.agda` ¬ß‡ß proves that `‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ Œ¶ a a` is
--- not a proposition for EVERY `A`, EVERY `Œ¶` and EVERY `a` ‚î not merely
--- "in general" ‚î because the diagonal meetings `(0,0,refl)` and
--- `(1,1,refl)` are always there.  ¬ß‡® there proves the station map does
--- not factor through `‚à_‚à‚`, and ¬ß‡© computes the gap exactly in the
--- smallest case: `‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ id tt tt ‚â ‚ï ó ‚ï` on `Unit`.  What is
--- still open is the second half of the sentence above ‚î the
--- groupoid-level quotient itself ‚î and its shape is restated there.]
+-- not a proposition for EVERY `A`, EVERY `Œ¶` and EVERY `a`, because the
+-- diagonal meetings `(0,0,refl)` and `(1,1,refl)` are always there.
+-- ¬ß‡® there proves the station map does not factor through `‚à_‚à‚`, and
+-- ¬ß‡© computes the gap exactly in the smallest case:
+-- `‡‡Æ‡æ‡®‡ï‡ï‡‡‡‡Ø‡æ id tt tt ‚â ‚ï ó ‚ï` on `Unit`.  `SetQuotients` truncates
+-- the relation, which is the right move for ¬ßÔøΩ.
 ------------------------------------------------------------------------

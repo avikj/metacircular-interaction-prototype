@@ -9,20 +9,12 @@
 -- ryabhayabhya (629 CE).  The coefficients are "pulverized" â”
 -- broken into successively smaller ones by repeated division â” and the
 -- solution is recovered by back-substitution up the resulting column,
--- the vall.  It is the first solution of ax âˆ’ by = c on record, six
--- for exactly this: the module `KuttakaValli.agda` earns "vall" (the
+-- the vall.  It is the first solution of ax âˆ’ by = c on record.
+-- The module `KuttakaValli.agda` earns "vall" (the
 -- trace-as-syntax) but not "kuaka" â” it has no gcd, no B©zout, no
 -- back-substitution.  This module supplies the missing theorem.
 --
--- (It is self-contained over â â” no matrix/continuant dependency.  PIN-GREEN
--- SINCE 2026-08-20.  It was written against a v0.5 container and carried the
--- v0.5 spellings `solve` and `ÂRid`, which the DECLARED pin â” Agda 2.8.0 +
--- cubical v0.9, `BUILD.md` â” does not have.  It was therefore one of the 24
--- the two that made `Everything.agda` itself red.  The repair is the one this
--- header already predicted: `solve` â’ `solve!` â” applied to the arguments,
--- since v0.9's `solve!` is a macro on an equational goal and not on a Î -type
--- â” and `ÂRid` â’ `ÂIdR`.  No statement was changed, weakened or added.
--- `agda --safe Kuttaka.agda` exits 0.)
+-- (It is self-contained over â â” no matrix/continuant dependency.)
 --
 -- WHAT IS PROVED.  No postulates, no holes, --safe.
 --
@@ -35,8 +27,8 @@
 --   bezout        THE KUAKA: every run yields x, y with aÂx + bÂy â‰¡ g,
 --                 the coefficients built by back-substitution up the
 --                 vall â” x' , y'  become  y' , x' âˆ’ qÂy' at each step.
---                 This is the "keep the remainder and recurse" rule
---                 CLAUDE.md names as the growth law, made a term.
+--                 This is the "keep the remainder and recurse" rule,
+--                 made a term.
 --   inhomogeneous  aÂx + bÂy â‰¡ g  gives, for the equation ax + by = gÂk,
 --                 the solution (kÂx, kÂy): the scaled solution family.
 --   gcdDivides    the terminal g divides both a and b (g is a COMMON
@@ -44,11 +36,6 @@
 --   gcdGreatest   any common divisor of a and b divides g (g is the
 --                 GREATEST).  Together: g is the gcd, and bezout is its
 --                 B©zout identity â” the whole pulverizer.
---
--- NOT done (named honestly, per Â§5.2): the ia section â” the reduction of
--- the solution family to the LEAST non-negative representative â” which needs
--- a mod/section convention and is not supplied here.  (g being the gcd needs
--- no r < b: gcdDivides/gcdGreatest hold for any genuine-division run.)
 ------------------------------------------------------------------------
 
 module Kuttaka where
@@ -140,8 +127,7 @@ solutionFamily a b g xâ‚€ yâ‚€ sol t = famId a b xâ‚€ yâ‚€ t âˆ™ sol
 
 -- Completeness fragment: any two solutions differ by a HOMOGENEOUS
 -- solution â” aÂ(xâˆ’x') + bÂ(yâˆ’y') = 0.  With solutionFamily, this brackets
--- the solution set from both sides (full parametrization by tÂb/g, âˆ’tÂa/g
--- needs coprimality of a/g,b/g and is the remaining step).
+-- the solution set from both sides.
 private
   famDiffId : (a b x y x' y' : â„¤)
             â†’ a Â· (x + (- x')) + b Â· (y + (- y'))

@@ -5,21 +5,17 @@
 --
 -- ยง3.5, WITH ITS HYPOTHESIS ON THE OBSERVABLE MADE PART OF THE TYPE.
 --
---
 --   **Corollary (line worlds).** For `f = X+Y` and `E = {(a, sa)}`, the
 --   tangent set is `span{(1,s)}` and `grad f|_L (t) = t(1+s)`.  So `E`
 --   transports **iff `s != -1 (mod p)`**.
 --
--- message `workers/20260812T090934.276887Z--claude_ananta--0005.md` ยง5
--- dropped the two words "For `f = X+Y`" while its ยง5 Theorem was
--- quantified over ALL integral `f`.  Under that quantifier the corollary
+-- Quantified over ALL integral `f`, without the hypothesis `f = X+Y`, the
+-- corollary
 -- is FALSE: for `f = X` the restricted gradient is `grad f|_L(t) = t`,
 -- which is nonzero for every slope, so every line world transports and
--- the criterion `s โ -1` names the wrong set.  This defect has no
--- lexical signature โ” the false sentence contains no wrong word, only a
--- missing one โ” so the instrument for it is a type, not a grep.
+-- the criterion `s โ -1` names the wrong set.
 --
--- THIS IS A MODEL, NOT THE FULL SETTING.  The full setting is `p`-adic
+-- The full setting is `p`-adic
 -- encountered worlds over an arbitrary integral polynomial.  What is
 -- formalized here is the smallest finite model that still distinguishes
 -- `f = X+Y` from `f = X`, at the single prime `p = 5` that the note
@@ -35,12 +31,6 @@
 --     EXHAUSTIVE SEARCH over the five `t`, so every statement below is a
 --     closed computation and every proof is `refl` (CLAUDE.md: exact /
 --     certified symbolic computation is proof; no fitting, no sampling).
---
--- What the model does NOT claim: nothing about unbounded worlds, about
--- the tangent-set identity `T_E(x) = span{(1,s)}` (whose truncation
--- nonlinear `f`, or about primes other than 5.  It claims exactly enough
--- to make the dropped hypothesis load-bearing, which is what the control
--- `NaturalMachine/Control/QuantifierDrop.agda` then exhibits.
 --
 -- HEADLINE TERMS
 --   line-world-XY            the corollary, hypothesis explicit in the type

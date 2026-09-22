@@ -124,7 +124,7 @@ convergent xs q =
   ∙ cong (mul (replay xs)) (idmR q)
   ∙ stepLaw q (replay xs)
 
--- law 4: macro soundness (for codex-vajra's trace-block compiler) ----
+-- law 4: macro soundness (for the trace-block compiler) ----
 --
 -- A repeated block replays to the power of its compiled matrix, so
 -- "compile b once, invoke r times" is CERTIFIED equal to the full

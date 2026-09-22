@@ -15,25 +15,6 @@
 --
 -- That argument uses nothing about the matrix, its size, or its
 -- carriers.  Â§2 is it, for arbitrary row and column types.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT I READ FIRST
---
--- `DSOCutCalibration.agda`'s header and the shape of its statements:
--- the min-plus closure over `V4`, the two elimination orders, and the
--- four rows (1,0),(0,1),(1,1),(1,1) with raw = 4 and deterministic = 3
--- certified by kernel count.  I did not re-derive any of that and Â§2
--- does not depend on it.
---
--- KEPT SEPARATE from this session's last-cut result.  That one showed a
--- computed instance was also a quantified fact about any import
--- relation.  This one lifts an ARGUMENT, not a fact: the calibration
--- already gives the argument in prose and calls it a proof; Â§2 makes it
--- a term and removes the carriers.  Different move, and neither derives
--- the other.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module AFoolingPairForcesTwoRectangles where
@@ -105,10 +86,8 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19 by this module's author, at the end, altering no
--- line above.
---
--- That is now done, in `AFoolingSetForcesDistinctRectangles`:
+-- The generalisation to a fooling SET is in
+-- `AFoolingSetForcesDistinctRectangles`:
 --
 --   Fooling I r c = (i j) â’ Â (i â‰¡ j)
 --     â’ (M (r i) (c j) â‰¡ false) âŠ (M (r j) (c i) â‰¡ false)
@@ -121,9 +100,4 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- The generalisation costs exactly one thing: for a SET, which exchanged
 -- corner carries the 0 may differ per pair, so the hypothesis is a `âŠ`
 -- and both cases are done.
---
--- STILL NOT PROVED, and still not claimed: the numeric form.  Turning
--- "distinct cells get distinct rectangles" into "at least k rectangles"
--- is a pigeonhole over a finite index; neither finiteness nor counting
--- appears in that module.  Injectivity is what is proved.
 ------------------------------------------------------------------------

@@ -7,7 +7,7 @@
 -- SOURCE AND DATE.  ‡µ‡‡‡∞‡æ‡‡‡Ø‡æ‡ ("thunderbolt multiplication") is BHSKARA II's
 -- own word for the crosswise product of two pairs; ‡≤‡‡≤‡æ‡µ‡‡ and ‡‡‡‡ó‡‡ø‡‡Æ‡, 1150
 -- CE.  The ‡‡ï‡‡∞‡µ‡æ‡≤‡Æ‡ is JAYADEVA's, ~950, surviving through Udayadivkara's
--- ‡‡‡®‡‡¶‡∞‡, 1073.  The ‡ï‡‡ü‡‡ü‡ï that the previous account of this step reached for
+-- ‡‡‡®‡‡¶‡∞‡, 1073.  The ‡ï‡‡ü‡‡ü‡ï that solves the congruence
 -- is RYABHAA's, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡ ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡©, 499.  Nothing below claims any of
 -- them stated the theorem in this file; what is claimed is that the quantity
 -- this file turns on is the crosswise product they named, taken between a
@@ -15,22 +15,9 @@
 -- label, introduced by
 -- `GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating`, not a source term.
 --
--- ¬ß4 names two things standing between the state box and determinism.  The
--- first, verbatim:
---
---     "The solution set must BE the class of ‚àím.  ‡‡‡∞‡‡‡Ø‡æ‡µ‡‡‡‡‡ø‡ gives that ‚àím
---      is *a* solution.  That the solutions are exactly ‚àím mod k' needs
---      gcd(b', k') = 1 ‚î the same coprimality
---      CakravalaDescent.oneCongruenceCoprime already consumes, and which
---      CakravalaDescent.runToCoprime produces from an actual kuaka run
---      rather than assuming.  Wiring that here is mechanical and is not
---      done."
---
--- It is closed here, and NOT by wiring in a kuaka run.  The run is not
+-- No pulverizer run is
 -- needed: gcd(b', k') = 1 is a CONSEQUENCE of the step's own three exact
--- divisions, with both B©zout coefficients written out of a, b, a', b'.  So
--- the file is shorter than the wiring it replaces, and it removes a
--- dependency instead of adding one.
+-- divisions, with both B©zout coefficients written out of a, b, a', b'.
 --
 -- THE MECHANISM, in one line each.
 --
@@ -67,7 +54,7 @@
 -- two, that thing is not a missing lemma but a genuine branch in the rule,
 -- and it has an instance.
 --
--- WHAT IS PROVED.  --safe, no postulates, no holes, Agda 2.8.0 + cubical v0.9.
+-- WHAT IS PROVED.  --safe, no postulates, no holes.
 -- Stated over ‚ rather than an arbitrary CommRing only because the ring
 -- solver wants a concrete ring; nothing below uses more than commutativity
 -- and the cancellation hypothesis that `CakravalaDescent.cakravalaStep`
@@ -140,9 +127,8 @@ open Descent ‚Ñ§CommRing using (_‚à£_ ; Coprime ; coprimeCancel ; cakravalaStep)
 -- back in; the two D-terms cancel identically, which is why D does not have
 -- to be anything in particular.
 --
--- THIS IS WHERE THE KUAKA STOPS BEING NEEDED.  The previous account said
--- gcd(b', k') = 1 had to come from an actual pulverizer run on (b', k').  It
--- does not: the wheel's own previous coordinates are the certificate.
+-- THE PULVERIZER IS NOT NEEDED HERE: the wheel's own previous coordinates
+-- are the certificate for gcd(b', k') = 1.
 ------------------------------------------------------------------------
 
 ‡§∏‡§π-‡§™‡•ç‡§∞‡§•‡§Æ‡§§‡§æ : (D a b a' b' k' : ‚Ñ§)
@@ -220,8 +206,6 @@ open Descent ‚Ñ§CommRing using (_‚à£_ ; Coprime ; coprimeCancel ; cakravalaStep)
 -- supplies ‚î the norm, the three exact divisions, and cancellation by k ‚î
 -- and returning: the next turn's admissible multipliers are EXACTLY the
 -- residue class of ‚àím modulo k'.
---
--- that item is closed, and the ‡ï‡‡ü‡‡ü‡ï it asked for is not used.
 ------------------------------------------------------------------------
 
 ‡§∂‡•ç‡§∞‡•á‡§£‡•Ä-‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É : (D a b m k a' b' k' : ‚Ñ§)

@@ -7,9 +7,9 @@
 -- TERMS.  àµààà Â ve â” a braid, a plait (of three strands); a common
 --  word, used here for the braid on three points.  à¯à™àà—à-àà•ààà° Â
 -- "Yangâ“Baxter" is transliterated, not translated: the braid relation
--- ÏÏÏ = ÏÏÏ is named for C. N. Yang and R. J. Baxter (20th c.) and NO Indian
--- source is claimed for it.  The compound and the framing below are built
--- here, 2026-08-24; what is borrowed is one  word and one modern name.
+-- ÏÏÏ = ÏÏÏ is named for C. N. Yang and R. J. Baxter (20th c.).
+-- The compound and the framing below are built
+-- here.
 --
 -- WHAT IS PROVED, exactly:  on the three-element type `Three`, the two
 -- adjacent transpositions Ï = (a b) and Ï = (b c) are involutions (hence
@@ -18,7 +18,7 @@
 -- `ÏÏÏ â‰¡ ÏÏÏ` (`yang-baxter`).  These are the defining data of the braid
 -- group Bâ / the symmetric group Sâ, exhibited by computation.
 --
--- WHY IT MATTERS (a READING of the checked terms, not a further claim, and
+-- WHY IT MATTERS (a READING of the checked terms, and
 -- the companion of `VargamulaViparyaya_â¦`):  on TWO points, Aut Bool = Sâ =
 -- â/2 is abelian and has no square root of the swap â” a single abelian phase,
 -- and (that file) the qubit is forced to hold âˆNOT.  On THREE points, Aut is
@@ -31,11 +31,6 @@
 -- abelian-phase â’ non-abelian-braid â’ universal gate, and EVERY gate on it is
 -- an involution/equivalence â” lossless, ahis â” reversibility is kept
 -- throughout; only commutativity is given up, and giving it up is the point.
--- No anyon physics is checked here; only the group-theoretic skeleton it
--- runs on.
---
--- Checked: --cubical --safe, agda 2.6.3 + cubical (loads clean); no
--- v0.9-only construct.
 ------------------------------------------------------------------------
 
 module VeniYangBaxtara_TheThreeStrandBraidIsNonAbelianAndSatisfiesTheBraidRelation where

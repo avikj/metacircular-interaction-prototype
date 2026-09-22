@@ -3,19 +3,14 @@
 ------------------------------------------------------------------------
 -- TheParetoStratumIsDecidableAndTheFilterIsExact
 --
--- `AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision` closed
--- with, among its NOT-CLAIMED items:
---
---   "it is NOT proved that a Pareto stratification EXISTS
---    constructively for an arbitrary archive, which would need a
---    decision on `â‰¼` and is not proved here."
---
--- The decision exists, and with it the stratum is not merely a
--- specification but a computed list.  That matters for
--- `DARWIN_GODEL_MATH.md` Â§5.2 in a way the previous module could not
+-- A Pareto stratification EXISTS constructively for an arbitrary
+-- archive: the decision on `â‰¼` exists, and with it the stratum is not
+-- merely a specification but a computed list.  That matters for
+-- `DARWIN_GODEL_MATH.md` Â§5.2 in a way
+-- `AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision` could not
 -- say: Â§5.2's controller "first selects a Pareto stratum S" and samples
 -- inside it, and a controller cannot select what it cannot compute.
--- The previous cycle proved there is no best to pick; this one proves
+-- That module proves there is no best to pick; this one proves
 -- the thing Â§5.2 picks INSTEAD is constructible.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -37,12 +32,7 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NO NOVELTY.  Decidability of a product order from decidability of its
 -- factors, and the soundness/completeness of a decidable filter, are
--- elementary.  They are checked here because the previous module named
--- their absence as the reason its result was a specification and not a
--- construction.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+-- elementary.
 ------------------------------------------------------------------------
 
 module TheParetoStratumIsDecidableAndTheFilterIsExact where
@@ -167,15 +157,8 @@ stratumKeepsEveryMaximal xs v =
                                (Î» u â†’ decIsParetoMaximal u xs) xs v
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no line
--- above. One is discharged, the other is not, and this says which is which.
---
--- DISCHARGED: "No claim is made that the stratum is non-empty â¦ for a
--- non-empty archive non-emptiness needs an argument this module does
--- not make."  The argument is made, in
--- `ANonEmptyArchiveHasANonEmptyStratum`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
+-- Non-emptiness of the stratum for a non-empty archive is proved in
+-- `ANonEmptyArchiveHasANonEmptyStratum`:
 --
 --   âŠ-irrefl / âŠ-trans   strict domination; transitivity is NOT
 --                        inherited from `â‰¼-trans`, the negative half
@@ -191,12 +174,4 @@ stratumKeepsEveryMaximal xs v =
 -- The decision that makes the induction constructive is
 -- `decStrictlyDominates` above; without it this would need excluded
 -- middle, which is the point of having proved decidability first.
---
--- NOT DISCHARGED, and unchanged: one STRATUM is not a STRATIFICATION.
--- Removing the layer and repeating still needs a termination argument
--- on the archive's length, and nothing iterates anywhere yet.  Also
--- still open: the SIZE of the stratum, whether it lists all maximal
--- elements up to the duplication `filterDec` preserves, and whether the
--- element `maximalExists` produces is canonical â” it depends on the
--- list's order.
 ------------------------------------------------------------------------

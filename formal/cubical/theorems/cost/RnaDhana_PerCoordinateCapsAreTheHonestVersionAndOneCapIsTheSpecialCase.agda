@@ -8,18 +8,11 @@
 -- coordinate and a cost coordinate are that same magnitude under the
 -- two readings, and this line is about what it costs to turn one into
 -- the other.  The sign rules are his; the cap, the adjunction, and the
--- per-coordinate refinement below are not, and no claim is made that
--- they are.
+-- per-coordinate refinement below are not.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- `RnaDhana_TheCostFlipIsFaithfulBelowTheCap` closed the restricted
--- converse and ended with:
---
---   "The cap is still a single number shared by all cost coordinates;
---    per-coordinate caps are not modelled, though the one-sided
---    hypothesis suggests they would be the honest version."
---
--- They are modelled here.
+-- `RnaDhana_TheCostFlipIsFaithfulBelowTheCap` has one cap shared by all cost
+-- coordinates.  Per-coordinate caps are modelled here.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
@@ -56,9 +49,6 @@
 -- NO NOVELTY.  Nothing here is more than the earlier module coordinate
 -- by coordinate; the only content is that the generalisation costs
 -- nothing and strictly weakens the hypothesis.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module RnaDhana_PerCoordinateCapsAreTheHonestVersionAndOneCapIsTheSpecialCase where

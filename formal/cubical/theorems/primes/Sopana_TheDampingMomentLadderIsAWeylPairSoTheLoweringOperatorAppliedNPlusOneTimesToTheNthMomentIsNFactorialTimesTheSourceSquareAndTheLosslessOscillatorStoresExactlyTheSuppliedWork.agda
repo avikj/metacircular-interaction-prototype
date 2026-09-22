@@ -3,7 +3,7 @@
 -- àà‹àà¾à¨ â” the ladder.
 --
 -- The damping-moment kernels  G_n = âˆ tâ¿ e^{âˆ’2st} Z(T+t) ZÌ(U+t) dt
--- (handoff Â§57, [S09]) obey, with  â’ = 2s âˆ’ âˆ_T âˆ’ âˆ_U  and  R = âˆ’Â½âˆ_s,
+-- obey, with  â’ = 2s âˆ’ âˆ_T âˆ’ âˆ_U  and  R = âˆ’Â½âˆ_s,
 --
 --     R G_n = G_{n+1},   â’ G_0 = ZâŠ—ZÌ,   â’ G_n = n G_{nâˆ’1},   [â’, R] = I,
 --
@@ -16,7 +16,7 @@
 --         â’(âˆÏ) âˆ’ âˆ(â’Ï) â‰¡ âˆ’2Ï,     i.e.  [â’, âˆ’Â½âˆ] = I,
 --      and raising is just âˆ of the damping factor:  âˆ(tâ¿E) = âˆ’2 tâ¿âºÂE
 --      when âˆE = âˆ’2tE, âˆt = 0;
---   à©  the lossless oscillator of Â§61: with  aâ² = iÎ³ a + f  written in
+--   à©  the lossless oscillator: with  aâ² = iÎ³ a + f  written in
 --      real coordinates  pâ² = âˆ’Î³q + fâ,  qâ² = Î³p + fâ,
 --         âˆ(pÂ² + qÂ²) â‰¡ 2 (p fâ + q fâ),
 --      i.e. the stored energy changes exactly by the supplied work Re(fÌ a).

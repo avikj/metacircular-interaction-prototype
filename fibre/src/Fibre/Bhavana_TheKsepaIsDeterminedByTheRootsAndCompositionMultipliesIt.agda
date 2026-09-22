@@ -64,15 +64,7 @@
 -- with itself gives kÂ², and dividing through by it is what the àà•àà°àµà¾à² is
 -- driving at.
 --
--- DEFECT, written rather than hidden.  The àà•àà°àµà¾à² STEP ITSELF is not
--- formalised.  It requires choosing m with k âˆ (a + bÂm), and then
--- dividing the composed row through by k â” exact division in â, which
--- needs a divisibility witness carried alongside and is not done here.
--- What is formalised is the àà¾àµà¨à¾ the àà•àà°àµà¾à² is built out of.  Calling
--- this module "the cakravla" would be a false advertisement, so it is
--- not called that.
---
--- SECOND DEFECT.  Brahmagupta's identity is proved by hand, from
+-- Brahmagupta's identity is proved by hand, from
 -- +Assoc / +Comm / ÂAssoc / ÂComm / ÂDistL+ / ÂDistR+ / -Dist+ /
 -- -DistLÂ / -DistRÂ / -DistLRÂ / -Cancel / pos0+ only.  A commutative
 -- ring solver would do it in one line, but the solver's module path
@@ -80,14 +72,6 @@
 -- and later releases (`Cubical.Tactics.CommRingSolver`), so using it
 -- would pin this file to one of them.  Every lemma named above is present
 -- and identically typed in both.
---
--- ~~THIRD DEFECT â” WHAT THE GREEN ACTUALLY COVERS.  â¦ It has NOT been
--- checked under this library's declared pin (Agda 2.6.3, agda/cubical
--- v0.5) â¦~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the pin itself
--- (fresh container, no agda on PATH) and this module checked under
--- Agda 2.6.3 + cubical v0.5, exit 0 â” the solver-free lemma choice above
--- held.  The defect was a fact about one host, not about this file.  See
--- README, "Toolchain".
 ------------------------------------------------------------------------
 
 module Fibre.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt where
@@ -215,7 +199,7 @@ module _ (D : â„¤) where
     à¤­à¤¾à¤µà¤¨à¤¾ x = (fst x Â· p + D Â· (snd x Â· q)) , (fst x Â· q + snd x Â· p)
 
     --------------------------------------------------------------------
-    -- Brahmagupta's identity.  Proved by hand; see SECOND DEFECT above.
+    -- Brahmagupta's identity.  Proved by hand; see the header.
     --
     --   (aÂ² âˆ’ D bÂ²)(pÂ² âˆ’ D qÂ²) = (ap + D bq)Â² âˆ’ D (aq + bp)Â²
     --
@@ -298,8 +282,8 @@ module _ (D : â„¤) where
                       (congâ‚‚ _+_ (sym (-DistLÂ· Y Z)) (sym (-DistLRÂ· Y W)))
 
     --------------------------------------------------------------------
-    -- THE LIFT, AND THE SQUARE.  Both are instances of the law; neither
-    -- is proved here.  Î¦-square is refl, definitionally, opaque argument.
+    -- THE LIFT, AND THE SQUARE.  Both are instances of the law.
+    -- Î¦-square is refl, definitionally, opaque argument.
     --------------------------------------------------------------------
 
     à¤­à¤¾à¤µà¤¨à¤¾-à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ : à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ â†’ à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿

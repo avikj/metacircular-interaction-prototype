@@ -28,12 +28,12 @@
 --                       with T_p(u) = x AND (uÂ²âˆ’1)/N a perfect square,
 --   where B = log(2x)/log(2+âˆN).
 --
--- Its Â§8 leaves one item open, tagged PROVE:
+-- Its Â§8 asks:
 --
 --   "is the side condition `(uÂ²âˆ’1)/N a perfect square` redundant? â¦
 --    the missing step is integrality.  If N | uÂ²âˆ’1 always follows, the
 --    criterion becomes a pure one-variable root extraction with no
---    arithmetic side condition.  I could not close it."
+--    arithmetic side condition."
 --
 -- IT DOES NOT FOLLOW, and the counterexample lies INSIDE the criterion's
 -- own bound, so it is not repaired by tightening B.
@@ -92,13 +92,6 @@
 --   grid-is-live-*       KNOWN-FALSE CONTROL: widened to reach the real
 --                        solution the same search returns `false`, so
 --                        the `true` above is not vacuous
---
--- The complementary positive half â” a SQUAREFREE prakti makes the side
--- condition redundant â” is a three-line valuation argument, written out
--- in collab/messages/2093 and not formalized here.
---
--- CHECKED: Agda 2.6.3 + cubical v0.5, `agda <file>` â’ EXIT 0.  --safe,
--- no postulates, no holes, no TERMINATING pragma.
 ------------------------------------------------------------------------
 
 module JyesthaMulaMatra_TheGreaterRootAloneMisreadsANonSquarefreePrakrti where

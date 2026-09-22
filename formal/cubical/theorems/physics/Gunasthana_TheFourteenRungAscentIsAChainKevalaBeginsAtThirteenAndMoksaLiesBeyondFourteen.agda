@@ -25,8 +25,6 @@
 --       sayoga- and ayoga-keval; below 13 it does not hold.
 --   ¬ß5  ‡ï‡‡‡‡‡Æ‡ã‡‡ ‚î ka-moha is rung 12, the irreversible threshold
 --       (mohanya destroyed); kevala is strictly above it.
---
--- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 
 module Gunasthana_TheFourteenRungAscentIsAChainKevalaBeginsAtThirteenAndMoksaLiesBeyondFourteen where

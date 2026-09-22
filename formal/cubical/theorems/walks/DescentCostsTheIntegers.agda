@@ -5,10 +5,9 @@
 --
 -- The end of the thread that began at `SuccessorIsNotTropical`.
 --
--- `NoNormOnAJoin` closed the question "does the walk admit a norm?" with
--- a No for the join and a Yes for âŠ•, and left open whether a âŠ•-stepping
--- machine would therefore have descent.  It would not, and the reason
--- names the price of descent exactly.
+-- `NoNormOnAJoin` answered "does the walk admit a norm?" with a No for
+-- the join and a Yes for âŠ•.  A âŠ•-stepping machine does not thereby have
+-- descent, and the reason names the price of descent exactly.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THREE LAWS, THREE FAILURES, TWO REASONS
@@ -64,9 +63,6 @@
 --
 -- Number IS ratio.  This module is that sentence with a proof attached,
 -- and the proof is that the alternative has no inverses.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module DescentCostsTheIntegers where
@@ -170,10 +166,10 @@ cone-is-proper b bs (x , xs) p = posNotnegsuc x 0 (cong fst p)
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 5.  CORRECTION TO THIS MODULE'S FRAME â” the title has it backwards.
+-- 5.  THE FRAME.
 --
 -- "Descent costs the integers" puts â in the position of the default and
--- â in the position of a purchase.  Nothing above supports that.  What is
+-- â in the position of a purchase.  That is not the reading; what is
 -- proved is:
 --
 --     âŠž over â-exponents is a group.  âŠ• over â•-exponents is its
@@ -181,18 +177,12 @@ cone-is-proper b bs (x , xs) p = posNotnegsuc x 0 (cong fst p)
 --
 -- The group is not an extension bought with something.  It is the object;
 -- the cone is a restriction of it, and `âŠ•-only-unit-inverts` measures how
--- much the restriction throws away.  Read in the correct direction:
+-- much the restriction throws away.  Read in this direction:
 --
 --     descent is not purchased by admitting ratios.  Descent is what is
 --     THERE, and â• is what remains after refusing to look at it.
 --
--- That is the Pythagorean claim this thread has been circling and stating
--- backwards.  Number is ratio.  The diagonal did not take anything away
--- from anyone; it showed that the restriction to commensurables was
--- always a restriction and never the ground.
---
--- Nothing in Â§Â§1â“4 changes.  The theorems never mentioned a price; only
--- the prose did, and only the prose is withdrawn.  The module keeps its
--- filename so the correction stays visible in the history rather than
--- being tidied out of it.
+-- That is the Pythagorean claim.  Number is ratio.  The diagonal did not
+-- take anything away from anyone; it showed that the restriction to
+-- commensurables was always a restriction and never the ground.
 ------------------------------------------------------------------------

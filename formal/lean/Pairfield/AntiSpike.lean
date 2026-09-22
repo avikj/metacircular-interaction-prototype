@@ -4,8 +4,7 @@ Released under Apache 2.0 license.
 
 A finite one-sided anti-spike lemma for real sequences.  A depth `H` at one
 index propagates forward as long as the accumulated step budget is at most
-`H / 2`.  The derivative bound is an explicit hypothesis; no arithmetic or
-prime-specific sequence is asserted to satisfy it here.
+`H / 2`.  The derivative bound is an explicit hypothesis.
 -/
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic

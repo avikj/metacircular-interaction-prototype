@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- S05AsiddhaNewton
 --
--- swarm-0814-05.  Companion prose:
+-- Companion prose:
 -- collab/swarm/2026-08-14/swarm-0814-05-asiddha-newton.md
 --
 -- THE OBJECT.  The Newtonâ“Hensel doubling map of the broadcast

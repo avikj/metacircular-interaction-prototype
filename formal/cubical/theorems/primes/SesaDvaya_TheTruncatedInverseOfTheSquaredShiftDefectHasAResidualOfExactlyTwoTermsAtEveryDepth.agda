@@ -48,14 +48,7 @@
 -- reason, and it is why both modules hold in every characteristic.
 --
 -- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“3 over any commutative ring, for every
--- element and every depth.  NOT claimed: convergence of the untruncated
--- sum, which is not formed here â” `arith x N` is a finite sum and every
--- statement is at finite N; that `x` is a shift, an operator, or has any
--- norm â” it is a ring element; that the residual is SMALL, which needs
--- an order and an estimate and is exactly what this module refuses to
--- assert; anything about a convolution, a packet, or a transform; and
--- nothing about what the inverse is an inverse OF beyond the displayed
--- equation.
+-- element and every depth.
 ------------------------------------------------------------------------
 
 module SesaDvaya_TheTruncatedInverseOfTheSquaredShiftDefectHasAResidualOfExactlyTwoTermsAtEveryDepth where

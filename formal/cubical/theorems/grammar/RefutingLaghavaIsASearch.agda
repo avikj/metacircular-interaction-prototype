@@ -9,7 +9,7 @@
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHERE THIS COMES FROM
 --
--- The laghava thread has been carrying one sentence for many cycles:
+-- The laghava results share one sentence:
 -- cost is not a univalent invariant â” it lives on the presentation,
 -- which univalence discards.  `Laghava` proves the
 -- instance (`size` does not factor through meaning) and
@@ -18,8 +18,7 @@
 -- PROVED THE SAME WAY: by exhibiting two presentations, `short`/`long`
 -- and `abc`/`cab`.
 --
--- That repeated shape is the object here, and it was CHECKED rather
--- than inferred from the names: `laghava-is-not-semantic` reduces to
+-- That repeated shape is the object here: `laghava-is-not-semantic` reduces to
 -- `3â‰5` applied to a chain through `short` and `long`, and
 -- `anuvrtti-is-not-a-set-function` to `3â‰2` through `abc` and `cab`.
 -- Both proofs are three lines and both are a named pair.
@@ -50,7 +49,7 @@
 --       Â§2 recovers the witness from the bare refutation.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE DISTINCTION THIS FILE IS ABOUT, AND WHAT IT IS NOT
+-- THE DISTINCTION THIS FILE IS ABOUT
 --
 -- Two things are being kept apart that the word "stable" would run
 -- together, and the collision is in this corpus's own vocabulary:
@@ -116,10 +115,8 @@ witnessâ†’Â¬invariant Î¼ op (p , n) inv = n (inv p)
 -- the invariance from its two instances, which is what the hypothesis
 -- is then applied to.
 --
--- The two-point restriction is a HYPOTHESIS of Â§2 and not a claim
--- about presentation spaces.  Nothing here says presentations come in
--- finitely many kinds, or that a standpoint-space is enumerable; `Bool`
--- indexes two particular presentations in Â§3 and nothing else.
+-- The two-point restriction is a HYPOTHESIS of Â§2: `Bool` indexes two
+-- particular presentations in Â§3 and nothing else.
 ------------------------------------------------------------------------
 
 Â¬invariantâ†’witnessâ‚‚ :

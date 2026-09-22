@@ -3,8 +3,7 @@
 ------------------------------------------------------------------------
 -- BarrierIsTwoWitnesses
 --
--- The witness thread has been measuring absences of its own choosing.
--- This applies it to the corpus's own headline open problem, and the fit
+-- The witness-number measure, applied to the barrier problem, and the fit
 -- is not an analogy â” it is the same shape.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -58,18 +57,10 @@
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
--- Nothing analytic.  No claim that such a pair exists, that the zeros of
--- Î admit one, that the counting law and functional equation can be met,
--- is explicit that B1â“B3 do *not* establish a barrier against inferring
--- Î's correlations, and this module establishes strictly less than B3.
---
 -- What it establishes is the SHAPE: that the open problem is a
 -- two-witness problem, that one witness is provably never enough, and
 -- that "exhibit a pair" is not a convenient route to the barrier but its
 -- exact statement.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module BarrierIsTwoWitnesses where
@@ -199,8 +190,7 @@ module Barrier
 ------------------------------------------------------------------------
 -- 6.  What this does for the barrier programme.
 --
--- It does not advance it by one inch analytically, and says so.  What it
--- already located correctly and without a reason:
+-- What the note located correctly, now with the reason:
 --
 --   * one configuration can never establish a barrier of this shape, no
 --     matter how extreme â” the constant post-processing answers it.  So
@@ -213,10 +203,8 @@ module Barrier
 --     checked pairwise.
 --
 -- The note's phrase "exhibit â¦ a pair" is therefore exact rather than
--- idiomatic, and its own honesty ledger â” that B1â“B3 do not establish
--- the barrier â” is confirmed from the other side: B3 gives the probe
+-- idiomatic: B3 gives the probe
 -- structure, and the probe structure is what makes the cost exactly 2.
 --
--- OPEN, and it is the note's own open problem, untouched here: whether
--- such a pair exists among admissible configurations.
+-- Whether such a pair exists among admissible configurations is the note's open problem.
 ------------------------------------------------------------------------

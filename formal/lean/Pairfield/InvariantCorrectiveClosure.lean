@@ -11,8 +11,7 @@ which contain `U` produces the least carrier closed under every future use of
 
 On a primal state space this is a reachability/Krylov closure.  On a
 finite-dimensional dual space, with the action given by pullback, it is the
-corresponding observable-channel closure.  No finite-dimensional termination,
-rank, stochastic lumpability, or partition-quotient theorem is asserted here.
+corresponding observable-channel closure.
 -/
 
 namespace Pairfield

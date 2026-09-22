@@ -1,7 +1,7 @@
--- No compiler trust in this module.  The five sites that formerly used
--- `native_decide` now use `decide +kernel`.
+-- No compiler trust in this module.  The five decision sites use
+-- `decide +kernel`, not `native_decide`.
 --
--- Isolated 2026-08-15 (skolem lineage): the blocker is `Nat.xgcdAux`, which
+-- The blocker is `Nat.xgcdAux`, which
 -- mathlib defines by well-founded recursion (`Nat.strongRec`).  Lean marks
 -- well-founded definitions irreducible *for the elaborator*, so plain `decide`
 -- gets stuck unfolding the `Decidable` instance; the KERNEL unfolds it without
@@ -116,8 +116,7 @@ theorem positiveDiagonalSwapCertificate_valid_iff {a b : Nat}
   · exact positiveDiagonalSwapCertificate_valid hb
 
 /-- The incomparable route is exactly the failure of both closed-form
-diagonal orderings.  This is the proved boundary; no claim is made about an
-unspecified larger class of “weak” operations. -/
+diagonal orderings. -/
 theorem positiveDiagonalRoute_nontrivialJoin_iff_two_simple_fail {a b : Nat}
     (ha : 0 < a) (hb : 0 < b) :
     positiveDiagonalRoute a b = .nontrivialJoin ↔
@@ -313,7 +312,7 @@ theorem paddedKuttaka610_same_endpoint_different_cost :
   decide
 
 /-- Actual formation length cannot be decoded from the two accumulated
-matrices.  A decoder for minimal word length is not ruled out.
+matrices.
 
 **The `+2` in the witness above is forced, and this theorem is tight at the
 parity quotient.**  `IntMat2.euclidStep q = ⟨0, 1, 1, -q⟩` has determinant

@@ -158,20 +158,8 @@ speedup-forces-better-neighbour out back wHere wThere sp =
 --------------------------------------------------------------------------
 
 -- T1 and T2 are small, and that is the evidence they are the right two:
--- with no analysis and no benchmark they say exactly what the 35.8-second
+-- with no analysis and no benchmark they say exactly what the
 -- measurement said.  A path licenses a substitution; it never pays for one.
 -- The weight is a separate coordinate, and the live mathematics -- which
 -- presentations are cheap for which tasks, and where the triangle
 -- inequality fails -- lives entirely in that coordinate.
---
--- Open, and the first real target: a CERTIFIED speedup.  Three
--- presentations of one task where the detour provably wins, edges checked,
--- weights honest.  If a known fast algorithm appears as the cheap route
--- without being told to, the geometry is real; if the graph is only a table
--- of measurements, it is a database and should be said so.
-
--- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
--- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
--- the rest of this lane's headers quote: three toolchain states are live in
--- this repository at once and this file has only seen one of them.

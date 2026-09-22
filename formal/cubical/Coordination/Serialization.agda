@@ -6,8 +6,7 @@
 -- **K2, the local serialization theorem** � the load-bearing proposition
 -- of the owner's Coordination Kernel v0.1
 -- (`collab/upstream/library/raw/COORDINATION_KERNEL_V0_1_2026-08-13(1).md`
--- §7), machine-checked, together with the hypothesis this repository's
--- own audit found the spec omits.
+-- §7), machine-checked, together with the hypothesis the spec omits.
 --
 -- WHY THIS THEOREM.  Every "no global sequencer" claim in the kernel is a
 -- corollary of K2: invariants K4 (no mandatory total-order field), K15
@@ -19,9 +18,7 @@
 --     if two schedules differ only by transpositions of adjacent
 --     INDEPENDENT events, they compute the same final state.
 --
--- THE CORRECTION THIS MODULE CARRIES.  `notes/RELATIONAL_CONTRACTS_AUDIT.md`
--- audited the upstream Delta's coordination-decomposition and returned
--- SCOPED/CORRECTED: uninformative cross-boundary messages do not by
+-- THE HYPOTHESIS.  Uninformative cross-boundary messages do not by
 -- themselves license removing synchronisation, because "a protocol whose
 -- control flow branches on an uninformative bit still changes its
 -- composite map when the bit is withheld", and the conclusion becomes
@@ -30,8 +27,7 @@
 -- `run` is applied to a FIXED event word, so the event structure is held
 -- constant by construction, and the reordering theorem is proved only in
 -- that regime.  A protocol that chooses its next event from the state is
--- not an inhabitant of this statement, which is precisely the audit's
--- point made unignorable.
+-- not an inhabitant of this statement.
 --
 -- WHAT THIS MODULE PROVES (no holes, no postulates, --safe):
 --
@@ -54,14 +50,10 @@
 --                            exactly the gap, and the gap is inhabited.
 --   indep-sym                independence is symmetric
 --
--- NOT claimed.  The full K2 of §7 also asserts that any two linear
--- extensions of (dependency order ⊕ per-domain local orders) are
--- connected by such swaps.  That combinatorial half is stated in
--- `linext-connected-STATEMENT` below as an explicit interface with no
--- inhabitant supplied, so the boundary is visible rather than implied:
--- this module proves the semantic half exactly and names the
--- combinatorial half as the open obligation.  Nothing here is about
--- consensus, networks, or agents.
+-- The combinatorial half of K2 -- that any two linear extensions of
+-- (dependency order ⊕ per-domain local orders) are connected by such
+-- swaps -- is stated in `LinextConnected` below as an explicit interface;
+-- this module proves the semantic half exactly.
 ------------------------------------------------------------------------
 
 module Coordination.Serialization where
@@ -223,18 +215,13 @@ reordering-this-pair-changes-the-state :
 reordering-this-pair-changes-the-state h = true≢false (sym (h false))
 
 ------------------------------------------------------------------------
--- §6  The open obligation, named rather than implied.
+-- §6  The combinatorial half of K2, as an interface.
 --
 -- §7's K2 has a second half: that any two linear extensions of the
 -- dependency order augmented by per-conflict-domain local total orders
 -- are `~`-connected, given that every non-commuting pair shares a
--- conflict key.  That is a combinatorial statement about posets, it is
--- where the hypotheses actually have to be right, and it is NOT proved
--- here.  It is written as an interface so that a future module either
--- inhabits it or reports what it needs.
---
--- Stating it as a type rather than a comment is the point: an
--- un-inhabited record is an obligation the typechecker can see.
+-- conflict key.  That is a combinatorial statement about posets, and it
+-- is stated here as a record type.
 ------------------------------------------------------------------------
 
 record LinextConnected (Sys : System ℓ ℓ′) (Schedule : Type ℓ) : Type (ℓ-suc (ℓ-max ℓ ℓ′)) where

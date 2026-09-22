@@ -22,24 +22,6 @@
 --
 -- Section E is `àà¨à¨àà¯àà¾ â‰ ààà¨à°àà¨à¿à°àà®àà¯àà¾`: generability and
 -- reconstructibility are independent, with both witnesses.
---
--- WHAT IS NOT HERE, and why.  This module is 0-truncated and finite.  It is
--- the decategorified shadow of the document, not the document:
---
---   * `Î´â— = cofib(hocolim ğ”µ â’ X)` and `Î´â– = fib(X â’ holim ğ”µ)` appear only
---     as "is this map split-surjective / injective".  The homotopy-theoretic
---     content is discarded; what survives is the independence.
---   * Of the four repair kinds `Î“âˆ, Î“â, Î“âº, Î“^`, only `Î“âˆ` and `Î“^` are
---     distinguishable at this truncation, and Section D proves the one
---     implication that holds between them.  `Î“â` (promote the defect to a
---     2-cell) and `Î“âº` (keep it as a class) need genuine higher structure to
---     differ from `Î“âˆ`.  That is not a defect of the schema -- it is the
---     schema's own point, that the higher structure is what tells the repairs
---     apart -- but it does mean this module cannot see them.
---   * `Ï = Î”Reach/Î”Kill` is absent.  It needs a cost model, and this
---     repository has none: see `CountedDigits`' cost boundary.
---     A ratio of two unmeasured rates is exactly the kind of number
---     `CLAUDE.md` forbids.
 ------------------------------------------------------------------------
 
 module ObstructionCalculus where

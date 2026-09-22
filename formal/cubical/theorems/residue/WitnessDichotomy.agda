@@ -3,12 +3,6 @@
 ------------------------------------------------------------------------
 -- WitnessDichotomy
 --
--- The closing statement of the witness thread, and a correction to the
--- case analysis in `TheFloorIsAnswerability` Â§4.
---
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE CORRECTION FIRST
---
 -- That Â§4 lists "the four cases" as
 --
 --     answering â“ reading â“  âŸ 2
@@ -44,9 +38,6 @@
 -- `laghava-is-two` each assemble "a collision plus the floor gives
 -- exactly 2" by hand, with the same length bookkeeping three times.
 -- Â§2 does it once.
---
--- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
--- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
 module WitnessDichotomy where

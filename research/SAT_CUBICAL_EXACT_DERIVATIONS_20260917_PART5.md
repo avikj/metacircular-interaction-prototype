@@ -1,7 +1,5 @@
 # Exact Boolean-cube derivations for SAT — Part V
 
-**Date:** 2026-09-17
-
 This part fixes another possible collapse: the one-bit SAT decision and construction of a satisfying vertex are different projections of the same cubical fibre. It also lifts the scalar geodesic certificate to the repository’s non-scalar/Pareto cost geometry.
 
 ---

@@ -6,15 +6,10 @@
 -- (searching: only at the middle grade does a search have content ‚î
 --  uniqueness is free and existence is the whole of the work.)
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHY THIS EXISTS, AND IT IS A CORRECTION TO HOW I HAD BEEN READING THE
--- CARRIER LAW ALL DAY.
---
 -- `loss/‚¶/Carrier.agda` gives `A ‚â Carrier f` for every f because
--- `singl (f a)` is CONTRACTIBLE, and I had been treating "contractible
--- fibre = free" as the whole of it.  It is one of three grades, and
+-- `singl (f a)` is CONTRACTIBLE.  That is one of three grades, and
 -- `Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAt
--- SixtyOne.agda` names the one I was missing, in the case that matters:
+-- SixtyOne.agda` names the middle one, in the case that matters:
 --
 --     "For the ‡ï‡‡‡‡ the fibre is `singl` ‚î contractible ‚î because the
 --      roots determine it TOTALLY: every pair has a ‡ï‡‡‡‡.  For the ‡‡æ‡ó‡‡æ‡∞
@@ -34,9 +29,6 @@
 --   ‡‡‡   neither             ‚î the fibre has two points that are not
 --                              identified.
 --
--- ~~"not determined.  No search can return the answer because there is no
--- the."~~ ‚î STRUCK 2026-08-23 by its author, left standing struck.
---
 -- THE H-LEVEL OF THE FIBRE DOES NOT TRACK UNDOABILITY.  `Bahupratyanayana
 -- _TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndThe
 -- CircleIsNotAnInstance.agda` exhibits it: `‡‡ï‡µ‡‡‡‡‡Æ‡ : Unit ‚í S¬`,
@@ -47,9 +39,7 @@
 -- The obstruction to undoing is TWO DISTINCT SOURCES over one target,
 -- strictly stronger than ‡‡‡, and that is its ¬ß‡® ‚î four lines, no h-level,
 -- no decidability, no finiteness, arbitrary A and B.  ¬ß‡ below uses
--- `Bool ‚í Unit`, whose two fibre points DO have distinct sources, so the
--- instance stands; the reading did not.  This grade says what its name
--- says and no more, and what a search can recover is answered by sources.
+-- `Bool ‚í Unit`, whose two fibre points DO have distinct sources.
 --
 -- AND THE MIDDLE GRADE IS WHERE AN ALGORITHM HAS CONTENT.  At the top
 -- there is nothing to do; at the bottom there is nothing an algorithm
@@ -67,13 +57,9 @@
 -- one object, not a coarser and a finer version of one cut.  ¬ß‡ is that,
 -- both directions.
 --
--- ‡‡®‡‡µ‡‡‡ is ordinary  for searching/seeking and no text is
--- claimed for it.  ‡‡æ‡ó‡‡æ‡∞ and ‡≤‡‡‡ß‡ø are the ‡ï‡‡ü‡‡ü‡ï vocabulary of
--- ‡‡‡∞‡æ‡‡‡Æ‡‡‡‡‡ü‡‡ø‡¶‡‡ß‡æ‡®‡‡‡ ‡ß‡Æ; the citation is carried from the module quoted
--- above, is second-hand, and is owed at verse level.
---
--- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
--- postulates, no holes.
+-- ‡‡®‡‡µ‡‡‡ is ordinary  for searching/seeking
+-- ‡‡æ‡ó‡‡æ‡∞ and ‡≤‡‡‡ß‡ø are the ‡ï‡‡ü‡‡ü‡ï vocabulary of
+-- ‡‡‡∞‡æ‡‡‡Æ‡‡‡‡‡ü‡‡ø‡¶‡‡ß‡æ‡®‡‡‡ ‡ß‡Æ.
 ------------------------------------------------------------------------
 
 module Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork where
@@ -155,16 +141,3 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (b : B) where
 
 ‡§¨‡§π‡•Å-‡§®-‡§è‡§ï‡§æ‡§ß‡§ø‡§ï : ¬¨ (‡§è‡§ï‡§æ‡§ß‡§ø‡§ï ‡§∏‡§∞‡•ç‡§µ‡•à‡§ï‡§Æ‡•ç tt)
 ‡§¨‡§π‡•Å-‡§®-‡§è‡§ï‡§æ‡§ß‡§ø‡§ï p = true‚â¢false (cong fst (p ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ ‡§µ‡§æ‡§Æ))
-
-------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚î what this does not say.
---
---     `‡‡ï‡æ‡ß‡ø‡ï` does NOT say the existence question is decidable, and no
---     notion of algorithm, cost or decidability appears above.  It says
---     that uniqueness is not part of the problem ‚î which is what makes a
---     search well posed, not what makes it succeed.  Whether an m exists
---     with the three divisions exact is, at D = 61, six facts discharged
---     by computation in `Bhagahara` ¬ß‡ and no theorem at all in general;
---     that module is explicit that no decision procedure for them is
---     built and that termination of the wheel is not proved.
-------------------------------------------------------------------------

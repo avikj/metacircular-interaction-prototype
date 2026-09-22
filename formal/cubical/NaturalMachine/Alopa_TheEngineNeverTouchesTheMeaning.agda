@@ -39,11 +39,6 @@
 -- a log elsewhere, it is two terms CARRYING their certificate as a
 -- field.  Soundness of the run then is not an audit; it falls out of the
 -- type.
---
--- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical, with the 2.6.3
--- back-port in notes/CUBICAL_PATCH.md), --cubical --safe, no postulates,
--- no holes.  NOT checked against the pin (2.8.0, v0.9), unlike the three
--- modules it joins.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Alopa_TheEngineNeverTouchesTheMeaning where

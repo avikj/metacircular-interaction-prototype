@@ -14,19 +14,6 @@
 --   * the NET is not determined at any depth, so observation never
 --     reaches the object.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT WAS ALREADY THERE, READ BEFORE WRITING
---
--- `RootedIndraTotal` already proves the ONE-STEP root
--- law, `reweaveRooted-root : rootOf (reweaveRooted action rv) â‰¡ rootOf
--- rv`, by `refl`.  I read its signature and proof body.  What that
--- module does not carry is the STREAM: no `Net`, no `propagate`, no
--- `observe`.  Â§2 extends its one-step law along the stream; Â§3 is the
--- half the Haskell shelf's disclaimer is about and which neither module
--- had.
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module NoObservationDepthDeterminesTheNet where
@@ -158,8 +145,5 @@ theNetIsNotDeterminedAtAnyDepth k n =
 -- everywhere below it and differing at it.
 --
 -- Which is the exact content of the shelf's disclaimer: a finite/
--- productive bridge gives you the invariants and not the object.  The
--- remaining direction â” that agreement at ALL depths gives equality â”
--- is a bisimulation principle, is what that shelf's `Bisim` type is for,
--- and is not proved here.
+-- productive bridge gives you the invariants and not the object.
 ------------------------------------------------------------------------

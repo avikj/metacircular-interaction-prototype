@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- HeadDepthMergeBreaker
 --
--- HOSTILE REPLICATION of HeadDepthMerge (cf-indra, 2026-08-14).
+-- HOSTILE REPLICATION of HeadDepthMerge.
 --
 -- The certificates in HeadDepthMerge are refl-terms, so they are only
 -- as strong as its definitions being the spec.  This module attacks
@@ -52,7 +52,7 @@
 --
 -- (C) BOUNDARY ATTACK on the note's Â§2 proposition (strong = Fermat).
 --     Its cyclicity hypothesis fails exactly at composite moduli and
---     at 2^k, k â‰ 3, and the note claims nothing there.  Checked:
+--     at 2^k, k â‰ 3.  Checked:
 --       * n = 15 = 3Â5: b = 4 is a Fermat liar and NOT a strong liar
 --         â” the exact counterexample showing strong = Fermat is a
 --         theorem about prime powers, not a general fact; 4 is a
@@ -64,8 +64,7 @@
 --         empty MR window âŸ strong â‰¡ Fermat trivially, and Fermat
 --         blindness for 2^a is b â‰¡ 1 mod 2^a âŸº vâ(bâˆ’1) â‰ a), and
 --         q2Theorem certifies the q = 2 analogue of BOTH certificates
---         on a finite range: the note's "not claimed at q = 2" is
---         conservative, not a hidden failure.
+--         on a finite range.
 --
 -- Also independently re-certified from the rebuilt parts: the note's
 -- triple count 1048; W4's four subgroup counts, this time counting

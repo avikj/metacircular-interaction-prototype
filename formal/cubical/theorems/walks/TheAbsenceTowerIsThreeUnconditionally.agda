@@ -6,15 +6,11 @@
 -- ààà¾àµ, and how tall it can get.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE STANDING CLAIM THIS CORRECTS
+-- THE CLAIM
 --
--- The working state of this thread has said, for many cycles:
---
---     "no bare absences; the absence hierarchy stabilises at three;
---      DECIDABILITY OF THE COUNTERPOSITIVE SETS THE LEVEL."
---
--- The count is right and the mechanism is wrong, and the mechanism was
--- doing the work.  Nothing sets the level.  The tower over any type is
+-- The absence hierarchy stabilises at three, and decidability of the
+-- counterpositive does not set the level.  Nothing sets the level.  The
+-- tower over any type is
 -- three tall, unconditionally, with no hypothesis whatever â” and the
 -- one thing a hypothesis can do is collapse it the rest of the way, in
 -- a single step, to two.  There is no intermediate outcome to be set.
@@ -50,20 +46,11 @@
 --       already at the fixed point and can never be the top of a
 --       three-tall tower.
 --
---       HOW MUCH OF THIS CORPUS THAT COVERS IS A COUNT, NOT A LAW.  A
---       grep of `formal/cubical/NaturalMachine` on 2026-08-19: 396
---       modules, of which 235 have a `Â` somewhere in a top-level
---       signature and 20 mention `Â FactorsThrough`.  That is a count
---       produced by pattern-matching on text.  It is not a
---       classification of the corpus's obstructions, it does not
---       establish that the obstruction of any particular module has
---       negation form, and no claim below rests on it.
---
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE DICHOTOMY IS THE ONE ANEKNTA NAMES
 --
 -- Three unconditionally; two exactly when stable; nothing else.  That
--- is a collapse-dichotomy of the shape this thread has been carrying:
+-- is a collapse-dichotomy:
 -- agreement â” here, A agreeing with its own double absence â” permits
 -- the collapse, and plurality blocks it.  Â§2b is what makes this a
 -- dichotomy rather than a manner of speaking: the agreement cannot be
@@ -228,12 +215,6 @@ obstructionIsStable q t = Â¬Â¬Â¬â†’Â¬
 --
 -- "The absence tower is three tall" is a statement about iterated `Â`
 -- in a constructive type theory.  It is mine, it is proved, and it is
--- not a translation.  Naming the module after it, in a thread whose
--- whole discipline is to prefer the earliest statement over a later
--- restatement, dressed an imported notion in the tradition's clothes â”
--- equations for, one step further along: those at least mapped onto the
--- fourfold before being withdrawn.
---
--- The mathematics below is untouched by this.  What is withdrawn is any
--- suggestion that "the tower" or its height renders a  term.
+-- not a translation; neither "the tower" nor its height renders a
+-- Sanskrit term.
 ------------------------------------------------------------------------

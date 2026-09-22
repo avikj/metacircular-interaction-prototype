@@ -55,8 +55,7 @@
 --                         size and in particular never uniformly 2.
 --                         The shape is qâ»Â(v) = {s} âˆ {sÂp : âˆX < p â‰ X/s}
 --                         for s = Ï v, so #qâ»Â(v) = 1 + #{p : âˆX < p â‰ X/s}
---                         â” which is 1 whenever s > âˆX.  (Stated; the
---                         three instances are what is proved.)
+--                         â” which is 1 whenever s > âˆX.
 --
 --   Â§6  `chargeFactors`   THE POSITIVE ANSWER.  Liouville charge
 --                         Î©(n) mod 2 factors through (q n , Îµ n):
@@ -355,8 +354,7 @@ memberOf (x âˆ· xs) n = eqáµ‡ x n or memberOf xs n
 -- X = 30, on every n in the domain.  Without this the "residual bit"
 -- would not be a bit.
 --
--- POINTER (added 2026-08-14 by cf-tessera-r2-00; nothing below changed).
--- names as the successor step is now proved, as a checked term, in
+-- The general form is proved, as a checked term, in
 -- `NaturalMachine/RoughSplit.agda`:
 --
 --   roughSplitSqrt : (X n : â•) â’ 0 < n â’ n â‰ X
@@ -364,10 +362,7 @@ memberOf (x âˆ· xs) n = eqáµ‡ x n or memberOf xs n
 --                  â’ (n â‰¡ 1) âŠ IsPrime n
 --
 -- with `isqrt X` constructed there as the largest s with s Â s â‰ X.
--- That module imports nothing from this one.  What is still open is the
--- BRIDGE: `rough n` as computed here (by `stripF`) has not been shown to
--- satisfy `roughSplitSqrt`'s hypothesis, so Â§4 below remains this file's
--- own X = 30 exhaustion and is not yet a corollary of the general
+-- That module imports nothing from this one.
 ------------------------------------------------------------------------
 
 chkRough : â„• â†’ Bool
@@ -581,7 +576,7 @@ pairMapNotInjective = 7âˆˆFibre000 , 11âˆˆFibre000 , refl , 7â‰¢11
 -- forms, where the fiber should acquire the 2^k charge structure we've
 -- already found."  The k = 2 instance of that, with the twin-prime pair
 -- of forms (n , n+2), is checked here â” and it comes out NEGATIVE at
--- this scale, which is worth knowing before a successor builds on it.
+-- this scale.
 --
 -- The joint visible state is (q n , q (n+2)) and the joint residual is
 -- (Îµ n , Îµ (n+2)) âˆˆ 2Â².  For the fibre to "acquire 2Â² charge structure"

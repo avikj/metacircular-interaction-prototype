@@ -3,14 +3,7 @@
 -- ‡‡Æ-‡‡ô‡‡ñ‡‡Ø‡æ ‚î the corpus's `_~_` is same-multiset wherever that is
 -- statable.
 --
--- `CommutationPreservesEveryPredicateAndMultiplicityWhereItIsStatable`
--- proved `_~_` ‚í same count and said, exactly: "The CONVERSE is not
--- proved. ‚¶ `_~_` may be strictly finer than same-multiset even on
--- discrete step types, and nothing here settles it."  `PairwiseCommutation
--- GivesEveryOrder` said the same: whether `_~_` "coincides with 'same
--- multiset' ‚¶ is not proved to be."
---
--- Settled: on a discrete step type, `_~_` is EXACTLY equal counts.  The
+-- On a discrete step type, `_~_` is EXACTLY equal counts.  The
 -- proof is composition ‚î `_~_` and `_‚âà_` have the same four constructors
 -- (walked both ways), `_‚âà_` gives equal counts (`Uniqueness`), equal counts
 -- build a `Perm` (`Uniqueness`, using the decidable equality), and a `Perm`

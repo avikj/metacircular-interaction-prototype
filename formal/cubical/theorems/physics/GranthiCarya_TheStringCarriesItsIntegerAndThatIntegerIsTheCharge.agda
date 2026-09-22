@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- ‡ó‡‡∞‡®‡‡‡ø-‡‡∞‡‡Ø‡æ ‚î the way of the knot: the string carries its integer,
--- and that integer is the charge.  Put to the kernel directly, in the
--- direction the owner pointed (knots, strings, why 3d/4d).
+-- and that integer is the charge.
 --
 -- THE SEED, and it is not a metaphor here: the loop space of the circle
 -- IS the integers, and because univalence computes, the integer

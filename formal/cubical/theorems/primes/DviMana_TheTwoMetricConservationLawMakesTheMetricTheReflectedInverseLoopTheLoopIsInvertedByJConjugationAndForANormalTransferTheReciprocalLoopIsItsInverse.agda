@@ -2,7 +2,7 @@
 ------------------------------------------------------------------------
 -- à¦ààµà¿-à®à¾à¨ â” the two measures.
 --
--- The general two-metric algebra of handoff Â§12 ([S14]):  JÂ² = 1 and a
+-- The general two-metric algebra:  JÂ² = 1 and a
 -- transfer T conserving the indefinite metric,  T* J T = J.  Nothing
 -- about the star is used beyond that one equation, so it is stated for
 -- an arbitrary element S in the place of T*:
@@ -14,8 +14,6 @@
 --      so  J C J = Câ»Â  â” the anti-commutation of  A = Â½ log C  with J;
 --   à  for a normal transfer (S T = T S) the reciprocal cycle
 --      J T J Tâ»Â  is  Câ»Â.
--- The research alternated the two loop orientations; both are here
--- with their exact hypotheses.
 ------------------------------------------------------------------------
 module DviMana_TheTwoMetricConservationLawMakesTheMetricTheReflectedInverseLoopTheLoopIsInvertedByJConjugationAndForANormalTransferTheReciprocalLoopIsItsInverse where
 

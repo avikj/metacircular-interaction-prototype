@@ -18,8 +18,7 @@
 -- `predicateGivesDecision` are both there, both cheap, and the module
 -- says in its own Â§2 that both are needed and why.  It also states
 -- plainly that it did NOT run the finite check Â§6 licenses, and that a
--- reduction is not an answer.  Recorded: three of this sweep's seven
--- findings were faults and four were not.
+-- reduction is not an answer.
 --
 -- **THE WORD CARRYING THE CLAIM IS `EXISTS`, AND IT HAS THE USUAL TWO
 -- READINGS.**  The statement is `Î[ p âˆˆ (Text â’ Bool) ] Correct p` â”
@@ -56,9 +55,6 @@
 --   theTextPredicateIsUnique
 --                        hence the whole `Î` is a proposition, by
 --                        `ÎPathP` and `isPropâ’PathP`
---
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
--- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TheTextPredicateIsUniqueSoExistsCarriesNoChoice where

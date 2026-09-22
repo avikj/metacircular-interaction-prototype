@@ -23,8 +23,8 @@
 --   §4  truncation fixes a field within its rows, so the truncated table
 --       equals the exact table while n + 1 � M, and the streams agree.
 --
--- SYT.  Exact, for every window, for the pair's equation at ν = 1 and
--- N = 2 as GalerkinJets fixes them.  Convergence of the jets is not here.
+-- Exact, for every window, for the pair's equation at ν = 1 and
+-- N = 2 as GalerkinJets fixes them.
 ------------------------------------------------------------------------
 
 module GalerkinLookahead_TheJetOfOrderNReachesRowNPlusOneAndNoFurtherSoTruncationToAnyWindowIsExactToTheWindowsDepthTheCrossingProfileOfThePairsEquation where

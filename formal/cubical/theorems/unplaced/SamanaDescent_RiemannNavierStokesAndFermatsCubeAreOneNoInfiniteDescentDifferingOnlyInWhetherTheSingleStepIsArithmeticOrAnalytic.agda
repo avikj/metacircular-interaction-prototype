@@ -42,8 +42,8 @@
 -- step is arithmetic and therefore closes, validating the descent shape
 -- the analytic faces share but cannot yet finish.
 --
--- SYT â” THE CLAIM, EXACTLY.  The schema and its `emptied` are proved,
--- --safe, citing `no-infinite-descent`.  `OneDescent` is a record: it
+-- SYT â” THE CLAIM, EXACTLY.  The schema and its `emptied` are proved, citing
+-- `no-infinite-descent`.  `OneDescent` is a record: it
 -- CARRIES the three steps as fields and derives the three emptiness
 -- theorems from one engine â” it does NOT inhabit the NS or RH steps
 -- (those are the open estimates) and does not inhabit FLT's step either

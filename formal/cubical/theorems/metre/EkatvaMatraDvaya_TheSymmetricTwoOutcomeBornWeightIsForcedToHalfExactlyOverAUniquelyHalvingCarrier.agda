@@ -3,9 +3,9 @@
 ------------------------------------------------------------------------
 -- ‡‡ï‡‡‡µ-‡Æ‡æ‡‡‡∞‡æ-‡¶‡‡µ‡Ø‡Æ‡ ‚î uniqueness of the two-outcome measure: the FIRST
 -- step into the interior of the Born weights, past EkatvaMatra's support
--- layer.  Program ‡ of YugaParivartana.  2026-08-23.
+-- layer.  Program ‡ of YugaParivartana.
 --
--- WHAT IS PROVED (kernel-checked).  On a symmetric two-outcome contention
+-- WHAT IS PROVED.  On a symmetric two-outcome contention
 -- (Bool), a weight rule obeying
 --   ‚ ‡Ø‡ã‡ó‡   ‚î normalisation: w(true) + w(false) ‚â° üô
 --   ‚ ‡‡æ‡Æ‡‡Ø‡Æ‡ ‚î permutation invariance (aneknta: neither outcome
@@ -23,9 +23,8 @@
 -- half exists and is unique, so the symmetric Born weight is forced; over
 -- a carrier where üô has two distinct halves or none, it is not.  So the
 -- interior opens exactly over the archimedean carrier ‚î and the general
--- (asymmetric, higher-outcome) interior remains Gleason (dim ‚â 3), the
--- wall EkatvaMatra names.  Symmetric interior: reached.  General interior:
--- still walled, honestly.
+-- (asymmetric, higher-outcome) interior is Gleason's (dim ‚â 3), the
+-- wall EkatvaMatra names.
 ------------------------------------------------------------------------
 
 module EkatvaMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier where

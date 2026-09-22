@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- Concrete finite-set calibration of AbstractSpinNetworkKinematics using the
--- natural Sâ-action on Fin 3.  This is only equivariant finite-set data: no
--- linear carrier, tensor product, Hilbert space, SU(2), or spin label.
+-- natural Sâ-action on Fin 3.
 
 module S3FiniteSpinNetwork where
 
@@ -61,7 +60,7 @@ terminalSubdivision-contract : (x : Fin3)
 terminalSubdivision-contract = contract-subdivide Sâ‚ƒ terminalVertex
 
 -- Two disjoint copies use the already checked cartesian parallel semantics.
--- The parallel map forgets both Fin3 coordinates, with no tensor claim.
+-- The parallel map forgets both Fin3 coordinates.
 parallelTerminal = parallelIntertwiner Sâ‚ƒ terminalVertex terminalVertex
 
 parallelTerminal-computes : (x y : Fin3)

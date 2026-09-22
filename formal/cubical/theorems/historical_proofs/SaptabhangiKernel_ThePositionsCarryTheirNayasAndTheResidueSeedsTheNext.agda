@@ -7,8 +7,7 @@
 -- every position carrying the standpoints that produced it.
 --
 -- SOURCES, EARLIEST FIRST.  The classification is theirs.  The two
--- operations below are named for a distinction they draw; the algebra
--- (‡ï‡‡∞‡Æ‡æ‡∞‡‡‡‡Æ‡, ‡‡‡æ‡∞‡‡‡‡Æ‡, ‡‡‡∞‡∞‡ã‡‡, ‡‡‡∞‡‡µ‡) is not claimed to be in any of them.
+-- operations below are named for a distinction they draw.
 --
 --   Bhagavat Stra (Viyha-pannatti), fifth Aga of the vetmbara canon;
 --     oldest strata pre-Common-Era, redacted at Valabh c. 5th c. CE ‚î
@@ -43,19 +42,15 @@
 --       holding BOTH, so the fourth position is informative and not an
 --       error code.
 --
---   2.  `machine/Saptabhangi_TheSevenfoldVerdict.hs` says of its ‡‡:
---       "after the collapse the fourth position does not record which two
---       seeds produced it, and that is not a modelling artefact but the
---       doctrine's claim."  The first half was true of that type.  The
---       second half is withdrawn here: ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ is the failure of ONE
+--   2.  Here ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ is the failure of ONE
 --       UTTERANCE to carry the joint content (Mallisena: sakaldea
 --       demanded of a vikaldea-shaped medium), and a failure of
 --       expression is not a loss of what was to be expressed.
 --       `‡‡‡‡∞‡‡‡æ‡‡-‡‡‡‡‡Ø‡` (¬ß5) recovers the third position from the fourth by
 --       `refl` ‚î nothing was destroyed.
 --
---   3.  And the price, stated because it is a real loss and it is the
---       honest one: ‡ï‡‡∞‡Æ-‡µ‡ø‡®‡ø‡Æ‡Ø‡ ‚î commutativity of succession ‚î is FALSE
+--   3.  And the price:
+--       ‡ï‡‡∞‡Æ-‡µ‡ø‡®‡ø‡Æ‡Ø‡ ‚î commutativity of succession ‚î is FALSE
 --       once the positions carry evidence (`‡ï‡‡∞‡Æ-‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡`, ¬ß7, a checked
 --       refutation).  Two nayas that affirm the same claim by different
 --       terms are two nayas.  The old law was a property of the erasure,
@@ -79,14 +74,11 @@
 --
 -- AGAINST COLLAPSE.  A ‡‡‡ is exactly a sydastinsti, so it is a
 -- certificate that the standpoint index cannot be dropped ‚î via
--- `Durnaya_CollapseIffEveryNayaAgrees`, which corrected
--- `Anekanta.agda` ¬ß5: collapse is available exactly when EVERY pair of
+-- `Durnaya_CollapseIffEveryNayaAgrees`:
+-- collapse is available exactly when EVERY pair of
 -- fibres agrees, and a denial is merely the cheapest way to prove that
 -- permission absent.  ¬ß5 below carries the ‡‡‡ into that theorem, so the
 -- fourth position is a written obstruction and not a shrug.
---
--- CHECKED: Agda 2.8.0, cubical (homebrew), --cubical --safe, exit 0.
--- No postulates, no holes.
 ------------------------------------------------------------------------
 
 module SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext where
@@ -126,7 +118,7 @@ record ‡§∂‡•á‡§∑ {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') : Type (‚Ñì-max ‚Ñì ‚Ñì') 
 
 open ‡§∂‡•á‡§∑ public
 
--- ‡µ‡ø‡µ‡‡ï‡ ‚î the two standpoints are DERIVED to be distinct.  Not asserted:
+-- ‡µ‡ø‡µ‡‡ï‡ ‚î the two standpoints are DERIVED to be distinct.:
 -- if they were one standpoint, its own proof would refute it.  This is
 -- what the record buys that a label cannot: a fact about the object.
 ‡§µ‡§ø‡§µ‡•á‡§ï‡§É : {S : Type ‚Ñì} (P : S ‚Üí Type ‚Ñì') (œÉ : ‡§∂‡•á‡§∑ P)
@@ -414,17 +406,14 @@ private
   false‚â¢true (cong ‡§Æ‡§æ‡§®‡§Æ‡•ç (h (‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø (tt , false)) (‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø (tt , true))))
 
 ------------------------------------------------------------------------
--- ¬ß8  The relation to the label lane, settled 2026-08-20.
+-- ¬ß8  The relation to the label lane.
 --
--- This module and `Saptabhangi.agda` / `SaptabhangiSamyoga_TheComposition
--- OfVerdicts.agda` were left deliberately unreconciled, and both headers
--- named one open question: is the forgetful map records ‚í labels a
--- homomorphism for krama, for saha, or for neither?
+-- The forgetful map records ‚í labels a
+-- homomorphism for krama and for saha alike, by
 --
--- Checked in
 --   Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndThe
 --     LabelsAreARetractNotAnEquivalence.agda
---   (--cubical --guardedness --safe, exit 0, no postulates, no holes):
+--   as follows:
 --
 --   * BOTH.  ‡‡®‡∞‡‡‡‡Æ‡ (this file's positions, read with the naya UNASSERTED
 --     ‚î Tattvrthastra 5.31's ‡‡®‡∞‡‡‡ø‡) commutes with ‡ï‡‡∞‡Æ‡æ‡∞‡‡‡‡Æ‡ and with
@@ -438,21 +427,20 @@ private
 --     AHIMSA_SUTRA_VISTARA applies literally ‚î the collapse does not
 --     exist.
 --
--- AND ONE LAW OF THIS FILE IS WEAKER THAN IT LOOKED.  ¬ß7's ‡ï‡‡∞‡Æ-‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡
--- is confirmed and sharpened (`‡ï‡‡∞‡Æ-‡µ‡ø‡®‡ø‡Æ‡Ø‡-‡®-‡ä‡∞‡‡ß‡‡µ‡Æ‡`: identities descend
+-- ¬ß7's ‡ï‡‡∞‡Æ-‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡
+-- is sharpened (`‡ï‡‡∞‡Æ-‡µ‡ø‡®‡ø‡Æ‡Ø‡-‡®-‡ä‡∞‡‡ß‡‡µ‡Æ‡`: identities descend
 -- along ‡‡®‡∞‡‡‡‡Æ‡ and do not lift).  But distinctness LIFTS, and the label
 -- lane's ‡‡-‡‡‡ô‡‡ó‡‡ø‡ lifts with it: `‡‡-‡‡‡ô‡‡ó‡‡ø‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡` proves ‡‡‡æ‡∞‡‡‡‡Æ‡ is
 -- NOT associative HERE, on the three positions ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø,
 -- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø, ‡‡‡Ø‡æ‡®‡-‡®‡æ‡‡‡‡ø, with every naya and every witness retained and
 -- `‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡-‡-‡≤‡‡‡‡‡Æ‡` in force throughout.  Retaining the ‡‡‡ does not buy
--- associativity back, and the label lane's explanation of its own failure
--- (that ‡‡ø‡‡‡µ‡æ‡‡‡¶‡ destroys the seeds) is refuted by that ‚î the failure
+-- associativity back: the failure
 -- survives the retention.  What breaks the law in both lanes is that ‡‡
 -- tests the JOINED position for an asti‚ìnsti pair, and whether that pair
 -- is present depends on the grouping.
 --
--- So this module's withdrawal ‚î that consumption is the model's and not
--- the doctrine's ‚î is not supported by the non-associativity, and was not
--- refuted by it either.  The Malliea question (Sydvdamajar, 1292)
+-- The reading ‚î that consumption is the model's and not
+-- the doctrine's ‚î is neither supported by the non-associativity nor
+-- refuted by it.  The Malliea question (Sydvdamajar, 1292)
 -- it turns on is untouched by the composition laws in either direction.
 ------------------------------------------------------------------------
