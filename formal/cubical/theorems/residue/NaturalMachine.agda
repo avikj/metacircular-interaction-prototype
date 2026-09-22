@@ -126,7 +126,7 @@ import HolonomyDescent
 -- an internal gauge coordinate, and the Cubical orbit quotient is equivalent
 -- to the original coarse holonomy.  This is cylindrical refinement
 -- consistency, not a claim to implement full LQG dynamics.
-import RelationalHolonomyRefinement
+import NaturalMachine.RelationalHolonomyRefinement
 import FiniteInformation
 -- Lossless postcomposition of an observation by an equivalence preserves
 -- exactly which set-valued targets factor through it; a Bool collapse is

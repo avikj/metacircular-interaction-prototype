@@ -44,7 +44,7 @@ open import FiniteGraphHolonomyGroupoid
   using (Connection ; GaugeNatural ; loop-gauge-square ; BranchLoop ; root ; loop)
 open Connection
 open GaugeNatural
-import RelationalHolonomyRefinement as RHR
+import NaturalMachine.RelationalHolonomyRefinement as RHR
 import AvinimayaSetu_TheNonabelianChainTelescopesToTheEndpointLawSoTheLoopIsCovariantByConjugationAndTheAbelianInvarianceWasAnArtifactOfCommutativity
   as Setu
 

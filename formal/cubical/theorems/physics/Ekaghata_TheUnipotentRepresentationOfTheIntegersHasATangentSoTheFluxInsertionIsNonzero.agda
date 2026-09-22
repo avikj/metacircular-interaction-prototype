@@ -42,7 +42,7 @@ open import Cubical.Algebra.Group.Instances.Int using (ℤGroup)
 import Cubical.Data.Prod as P
 
 open import HolonomyFluxDerivation using (FluxDerivation)
-import RelationalHolonomyRefinement as RHR
+import NaturalMachine.RelationalHolonomyRefinement as RHR
 
 private
   module Z = GroupStr (snd ℤGroup)

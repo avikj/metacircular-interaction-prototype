@@ -20,7 +20,7 @@ open Intertwiner
 open import HolonomyFluxDerivation
   using (FluxDerivation ; flux-subdivision)
 open FluxDerivation
-open import RelationalHolonomyRefinement using (Refined ; holonomy)
+open import NaturalMachine.RelationalHolonomyRefinement using (Refined ; holonomy)
 
 private
   variable

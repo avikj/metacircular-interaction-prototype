@@ -45,7 +45,7 @@ open import FiniteGraphHolonomyGroupoid
   using (Connection ; GaugeNatural ; BranchLoop ; root ; loop)
 open Connection
 open GaugeNatural
-import RelationalHolonomyRefinement as RHR
+import NaturalMachine.RelationalHolonomyRefinement as RHR
 open import LoopSamyoga_OnAGraphLoopGaugeNaturalityIsConjugationSoEveryClassFunctionOfTheLoopHolonomyIsGaugeInvariant
   using (loop-saṃyoga)
 import AvinimayaSetu_TheNonabelianChainTelescopesToTheEndpointLawSoTheLoopIsCovariantByConjugationAndTheAbelianInvarianceWasAnArtifactOfCommutativity

@@ -54,7 +54,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.Group.Base using (GroupStr)
 open import Cubical.Algebra.SymmetricGroup using (FinSymGroup)
 
-open import RelationalHolonomyRefinement
+open import NaturalMachine.RelationalHolonomyRefinement
   using (ConjugationInvariant ; closedLoopGaugeInvariant ; endpointGauge)
 
 ------------------------------------------------------------------------

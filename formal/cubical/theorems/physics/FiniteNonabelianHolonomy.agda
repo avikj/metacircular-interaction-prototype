@@ -20,7 +20,7 @@ open import Cubical.Algebra.Group.Properties using (module GroupTheory)
 -- the pinned v0.5 calls it Sym, so it is defined there once instead
 open import PathIsSymmetry using (FinSymGroup)
 
-open import RelationalHolonomyRefinement
+open import NaturalMachine.RelationalHolonomyRefinement
   using (closedLoopGaugeInvariant)
 open import OrientedSurfaceFlux
 open import SurfaceFluxCylindricalSquare
@@ -84,7 +84,7 @@ loopObserved-conjugation h g = refl
 
 loopObserved-gauge : (h g : ⟨ S₃ ⟩)
   → loopObserved
-      (RelationalHolonomyRefinement.endpointGauge S₃ (P._,_ h h) g)
+      (NaturalMachine.RelationalHolonomyRefinement.endpointGauge S₃ (P._,_ h h) g)
     ≡ loopObserved g
 loopObserved-gauge =
   closedLoopGaugeInvariant S₃ loopObserved loopObserved-conjugation

@@ -18,7 +18,7 @@ open import Cubical.Foundations.Univalence using (ua ; uaβ)
 open import Cubical.Data.Prod using (_×_ ; _,_)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 
-import RelationalHolonomyRefinement as Hol
+import NaturalMachine.RelationalHolonomyRefinement as Hol
 import RelationalProcessCore as Rel
 
 module _ {ℓ : Level} (Γ : Group ℓ) where

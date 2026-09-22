@@ -65,7 +65,7 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 import Cubical.Data.Prod as P
 
-import RelationalHolonomyRefinement as RHR
+import NaturalMachine.RelationalHolonomyRefinement as RHR
 open import FiniteNonabelianHolonomy using (S₃ ; s₀₁ ; s₁₂ ; noncommuting)
 
 private

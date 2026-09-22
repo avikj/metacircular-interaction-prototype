@@ -13,7 +13,7 @@ open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 open import FiniteGraphCylindricalEquivalence
 open import HolonomyFluxDerivation
   using (FluxDerivation ; flux-subdivision)
-open import RelationalHolonomyRefinement using (holonomy)
+open import NaturalMachine.RelationalHolonomyRefinement using (holonomy)
 open FluxDerivation
 
 private variable ℓg ℓa : Level

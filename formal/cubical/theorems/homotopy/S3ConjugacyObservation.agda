@@ -21,7 +21,7 @@ import Cubical.Data.Prod as P
 
 open import FiniteNonabelianHolonomy
 open import FiniteGraphCylindricalEquivalence
-open import RelationalHolonomyRefinement
+open import NaturalMachine.RelationalHolonomyRefinement
   using (closedLoopGaugeInvariant ; endpointGauge)
 
 Fixed : ⟨ S₃ ⟩ → Type₀

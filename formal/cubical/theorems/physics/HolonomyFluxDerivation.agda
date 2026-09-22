@@ -13,7 +13,7 @@ open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Prod using (_,_)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 
-open import RelationalHolonomyRefinement
+open import NaturalMachine.RelationalHolonomyRefinement
   using (Refined ; holonomy ; subdivide ; holonomy-subdivide)
 
 private

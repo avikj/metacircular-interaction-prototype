@@ -20,7 +20,7 @@ open import Cubical.Data.Prod using (_×_ ; _,_)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 
 open import StabilizerTorsor using (Action)
-open import RelationalHolonomyRefinement
+open import NaturalMachine.RelationalHolonomyRefinement
   using (Refined ; holonomy)
 
 private

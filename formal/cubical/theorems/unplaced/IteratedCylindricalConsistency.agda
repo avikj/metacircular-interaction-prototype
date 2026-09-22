@@ -17,7 +17,7 @@ open import Cubical.HITs.SetQuotients as SQ using (_/_ ; [_] ; eq/ ; squash/)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 open import Cubical.Algebra.Group.Properties using (module GroupTheory)
 
-open import RelationalHolonomyRefinement
+open import NaturalMachine.RelationalHolonomyRefinement
   using (RefinedModuloInternalGauge ; cylindricalEquiv)
 
 module _ {ℓ : Level} (G : Group ℓ) where
