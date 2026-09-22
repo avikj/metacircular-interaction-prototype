@@ -2,11 +2,6 @@
 
 *What was built, what it means, and what is now immediately buildable.*
 
-> **Read `CORRECTIONS.md` alongside this document.** A technical review found
-> places where an earlier draft of this writeup overclaimed (univalence, cost
-> as runtime/thermodynamic measurement, CI coverage). Those claims are
-> corrected there and inline below.
-
 ---
 
 ## 0. One-paragraph statement

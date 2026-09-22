@@ -8,7 +8,6 @@ A. LOSSLESSNESS IS STRUCTURAL, NOT ARGUED.
    - RewriteCertificate.agda: `Step` carries `reverse` as a constructor, so
      `Derivation` is a groupoid. The kernel's operation is reversible /
      lossless BY THE TYPE. Ahimsa is enforced, not asserted. One read shows it.
-   - I spent hours claiming the operation was lossy. That was wrong. Settled.
 
 B. THE FIBRE LAW (Fibre/Carrier.agda), both bindings.
    - descend a = carry a (f a) refl ; A â‰ Carrier f ALWAYS, because

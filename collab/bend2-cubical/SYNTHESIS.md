@@ -108,10 +108,7 @@ where there is nothing to share:
 | 2 | 215 | 158 | 1.36 |
 | 4 | 469 | 316 | 1.48 |
 
-**A correction to an earlier draft of this section.** I first measured only
-the losing regime and explained it by saying each branch re-enters `@coe`
-and re-runs the dispatch, making it an emitter problem. That explanation is
-false. Applying a one-line `neg` to a superposition â” a function with
+Applying a one-line `neg` to a superposition â€” a function with
 essentially no dispatch â” shows a *larger* penalty than `coe` does:
 
 | function applied to `&0{True,False}` | superposed | separate | ratio |
@@ -203,8 +200,7 @@ principle â” there is nothing left to keep.
   how fast erased dependently typed code runs on interaction nets. This asks
   what you get if you keep the proof apparatus at runtime, and Â§3 answers
   the first objection: you do not pay a rerun per use.
-- Its headline benchmark result does **not** transfer, and an earlier draft
-  was wrong to present it as a caution about Â§3 and Â§4. That thesis measured
+- Its headline benchmark result does **not** transfer. That thesis measured
   HVM1 in 2022; this project runs on HVM 4.0 (`HigherOrderCO/HVM4`, "a
   sequential Interaction Calculus runtime"), several generations later, so a
   2022 exponential-slowdown result is evidence about an obsolete runtime and
