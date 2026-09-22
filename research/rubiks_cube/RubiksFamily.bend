@@ -313,6 +313,7 @@ type RequestedObservation:
   case @continuingInteraction:
 
 type CubeDerivation:
+  case @cubeDerivation:
   # A shortest-derivation readout and a minimum-distance readout share this
   # exact witness: the word, its declared unit-cost length, and its Path.
   source: CubeState
