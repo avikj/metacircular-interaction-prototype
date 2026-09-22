@@ -70,7 +70,7 @@
 -- is container skew and not a mathematical verdict.
 ------------------------------------------------------------------------
 
-module BhavanaDhruva_TheNormIsTheConservedObservableAndTheConservingFlowsAreExactlyTheNormOneElements where
+module CompositionDhruva_TheNormIsTheConservedObservableAndTheConservingFlowsAreExactlyTheNormOneElements where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma

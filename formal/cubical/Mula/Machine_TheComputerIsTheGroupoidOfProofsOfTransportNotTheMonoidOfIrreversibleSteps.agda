@@ -65,7 +65,7 @@
 -- computer; it is what its equality IS.
 ------------------------------------------------------------------------
 
-module Mula.Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where
+module Mula.Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

@@ -37,7 +37,7 @@
 --
 ------------------------------------------------------------------------
 
-module BhavanaGenerative where
+module CompositionGenerative where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.HLevels using (isSetΣ ; isOfHLevelRetract)

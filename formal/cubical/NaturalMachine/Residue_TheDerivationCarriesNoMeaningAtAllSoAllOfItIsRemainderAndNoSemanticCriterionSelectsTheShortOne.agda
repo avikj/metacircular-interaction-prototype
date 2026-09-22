@@ -78,7 +78,7 @@
 -- reduce to checking.
 ------------------------------------------------------------------------
 
-module NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne where
+module NaturalMachine.Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; isSetℕ ; injSuc ; znots)

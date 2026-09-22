@@ -36,7 +36,7 @@
 -- a/dhana sign rules; Artin–Schreier 1927 (formally real fields).
 ------------------------------------------------------------------------
 
-module RnaDhanaKrama_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheConjugationReversesIt where
+module RnaDhanaOrder_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheConjugationReversesIt where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ; pos; negsuc; -_; abs)

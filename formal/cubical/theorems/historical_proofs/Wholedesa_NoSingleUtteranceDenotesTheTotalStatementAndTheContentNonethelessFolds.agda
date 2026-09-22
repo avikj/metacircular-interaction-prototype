@@ -82,7 +82,7 @@
 --
 ------------------------------------------------------------------------
 
-module Sakaladesa_NoSingleUtteranceDenotesTheTotalStatementAndTheContentNonethelessFolds where
+module Wholedesa_NoSingleUtteranceDenotesTheTotalStatementAndTheContentNonethelessFolds where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; true ; false ; not ; _and_ ; _or_ ; true≢false ; false≢true)

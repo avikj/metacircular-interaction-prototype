@@ -47,7 +47,7 @@
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 
-module Paratvaparatva_BeforeAndAfterIsTimesOwnFunctionTheCausalOrderIsPartialAndSimultaneityIsAKramaChoice where
+module Paratvaparatva_BeforeAndAfterIsTimesOwnFunctionTheCausalOrderIsPartialAndSimultaneityIsAOrderChoice where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; snotz ; injSuc)

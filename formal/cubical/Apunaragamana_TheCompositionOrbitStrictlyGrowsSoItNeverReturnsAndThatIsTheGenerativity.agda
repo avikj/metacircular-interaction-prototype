@@ -53,7 +53,7 @@
 -- अपुनरागमन and वृद्धि are used in their plain senses.
 ------------------------------------------------------------------------
 
-module Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity where
+module Apunaragamana_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_ ; snotz)

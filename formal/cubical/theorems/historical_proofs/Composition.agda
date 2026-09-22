@@ -48,7 +48,7 @@
 -- both surfaces, and it costs about sixty lines of chaining.
 ------------------------------------------------------------------------
 
-module Bhavana where
+module Composition where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Algebra.CommRing

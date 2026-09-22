@@ -43,7 +43,7 @@
 --
 ------------------------------------------------------------------------
 
-module KramaSahaSarvatra_TheInterchangeChargeIsOneStructureFromLoopsThroughContextualityToTheFourthBhanga where
+module OrderSahaSarvatra_TheInterchangeChargeIsOneStructureFromLoopsThroughContextualityToTheFourthBhanga where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function using (_∘_)

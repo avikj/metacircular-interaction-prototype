@@ -27,7 +27,7 @@
 -- equivalence's own inverse.
 ------------------------------------------------------------------------
 
-module Punaragamanam_ReturnIsOnlyAtZeroCostAndALossyEdgeHasSectionsButNoWayBack where
+module Returnm_ReturnIsOnlyAtZeroCostAndALossyEdgeHasSectionsButNoWayBack where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; invEq ; retEq ; secEq)

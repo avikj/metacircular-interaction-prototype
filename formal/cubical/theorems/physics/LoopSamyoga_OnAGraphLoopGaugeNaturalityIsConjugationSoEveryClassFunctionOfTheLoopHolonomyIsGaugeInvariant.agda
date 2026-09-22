@@ -33,7 +33,7 @@
 -- वलय (valaya, ring/loop) is ordinary .
 ------------------------------------------------------------------------
 
-module ValayaSamyoga_OnAGraphLoopGaugeNaturalityIsConjugationSoEveryClassFunctionOfTheLoopHolonomyIsGaugeInvariant where
+module LoopSamyoga_OnAGraphLoopGaugeNaturalityIsConjugationSoEveryClassFunctionOfTheLoopHolonomyIsGaugeInvariant where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)

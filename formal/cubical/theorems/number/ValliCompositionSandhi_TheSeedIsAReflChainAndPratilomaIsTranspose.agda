@@ -19,7 +19,7 @@
 --      is the regular representation on the basis (1, √D).  One refl:
 --      both sides compute to [[3,4],[2,3]].  det bookkeeping: 9 − 2·4 = 1.
 
-module ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose where
+module ValliCompositionSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int

@@ -41,7 +41,7 @@
 --                           compaction, no retention policy.
 ------------------------------------------------------------------------
 
-module Srotas_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra where
+module Stream_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; discreteℕ ; min)

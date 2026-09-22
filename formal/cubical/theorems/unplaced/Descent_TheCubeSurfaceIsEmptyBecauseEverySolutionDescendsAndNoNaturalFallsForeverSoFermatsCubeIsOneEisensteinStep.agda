@@ -42,7 +42,7 @@
 -- serves identically.
 ------------------------------------------------------------------------
 
-module Avatarana_TheCubeSurfaceIsEmptyBecauseEverySolutionDescendsAndNoNaturalFallsForeverSoFermatsCubeIsOneEisensteinStep where
+module Descent_TheCubeSurfaceIsEmptyBecauseEverySolutionDescendsAndNoNaturalFallsForeverSoFermatsCubeIsOneEisensteinStep where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)

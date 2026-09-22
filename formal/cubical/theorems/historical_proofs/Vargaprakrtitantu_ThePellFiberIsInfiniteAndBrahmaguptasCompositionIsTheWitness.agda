@@ -78,7 +78,7 @@
 -- free, and Bhskara.s choice of m is what supplies the inhabitant.
 ------------------------------------------------------------------------
 
-module Vargaprakrtifiber_ThePellFiberIsInfiniteAndBrahmaguptasCompositionIsTheWitness where
+module Vargaprakrtitantu_ThePellFiberIsInfiniteAndBrahmaguptasCompositionIsTheWitness where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)

@@ -45,7 +45,7 @@ open import Cubical.Data.Maybe using (Maybe ; nothing ; just ; ¬just≡nothing)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Empty as Empty using (⊥)
 
-open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open import AnulomaViloma_TheTraceComposesTheCompletedRunRunsBackwardsByReflAndWhenTheMachineHaltsIsAProposition
   using (HaltsAt ; isPropHalted)
 

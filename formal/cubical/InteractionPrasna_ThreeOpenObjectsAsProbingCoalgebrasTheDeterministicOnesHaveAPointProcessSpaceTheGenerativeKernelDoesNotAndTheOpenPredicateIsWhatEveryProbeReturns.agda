@@ -77,7 +77,7 @@
 -- interface; the mathematics is in the h-level.
 ------------------------------------------------------------------------
 
-module SamvadaPrasna_ThreeOpenObjectsAsProbingCoalgebrasTheDeterministicOnesHaveAPointProcessSpaceTheGenerativeKernelDoesNotAndTheOpenPredicateIsWhatEveryProbeReturns where
+module InteractionPrasna_ThreeOpenObjectsAsProbingCoalgebrasTheDeterministicOnesHaveAPointProcessSpaceTheGenerativeKernelDoesNotAndTheOpenPredicateIsWhatEveryProbeReturns where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.HLevels using (isProp×)

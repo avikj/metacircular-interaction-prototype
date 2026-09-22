@@ -26,7 +26,7 @@
 -- it does not redefine (prattyasamutpda; no eighth Term).
 ------------------------------------------------------------------------
 
-module KhandaPinda_TheAccumulatedSumIsItsSegmentsScaledIntoPlace where
+module SegmentPinda_TheAccumulatedSumIsItsSegmentsScaledIntoPlace where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-suc ; +-zero)

@@ -78,7 +78,7 @@ open import Cubical.Data.Sigma using (Σ≡Prop ; ΣPathP ; _,_ ; fst ; snd)
 open import Cubical.Algebra.Monoid.Base using (Monoid ; MonoidStr)
 
 open import Pingala using (छन्दस् ; अनुक्रम ; छन्दस्≡ℕ)
-open import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand
+open import Mula.Pingala
   using (transport-अनुक्रम-is-suc)
 open import FreeMonoid
   using (Tally ; Tally-Monoid ; ℕ-Monoid ; ℕ-Monoid≡Tally-Monoid)

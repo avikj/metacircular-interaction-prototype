@@ -46,7 +46,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Empty as Empty using (⊥)
 
-open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open import Vrddhi_AVerifiedProgramTheSuccessorMachineAddsOneStrokeAndItsCertificateIsAFibrePoint
   using (incr ; unary)
 

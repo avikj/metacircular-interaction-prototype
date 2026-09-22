@@ -47,7 +47,7 @@
 -- as `SamacaranaNityam` §५ transcribes its Sturm verdict.
 ------------------------------------------------------------------------
 
-module TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable where
+module TiryakFiber_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; znots ; injSuc)

@@ -59,7 +59,7 @@
 -- सारणी and running the क्रिया are one object.  §४१ is an identity.
 ------------------------------------------------------------------------
 
-module Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem where
+module Fiberjala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (fiber ; isEquiv ; equivIsEquiv ; idEquiv)

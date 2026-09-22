@@ -32,7 +32,7 @@
 -- सीमा (sīmā, boundary) and शेष (śeṣa, residual) are ordinary .
 ------------------------------------------------------------------------
 
-module SimaSesa_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDifferOnTheBoundaryStripsSoDisplacementDescendsAndBoundaryHistoryDoesNot where
+module SimaResidue_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDifferOnTheBoundaryStripsSoDisplacementDescendsAndBoundaryHistoryDoesNot where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_)

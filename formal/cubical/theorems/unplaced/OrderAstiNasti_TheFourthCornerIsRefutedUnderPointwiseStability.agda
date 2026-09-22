@@ -47,7 +47,7 @@
 -- corpus keeps meeting.  §4 then refutes the fourth corner.
 ------------------------------------------------------------------------
 
-module KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability where
+module OrderAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma

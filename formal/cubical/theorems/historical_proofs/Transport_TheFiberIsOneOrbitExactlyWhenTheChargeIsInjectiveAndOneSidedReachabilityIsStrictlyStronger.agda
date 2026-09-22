@@ -50,7 +50,7 @@
 -- BELOW.
 ------------------------------------------------------------------------
 
-module Sankramana_TheFiberIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger where
+module Transport_TheFiberIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso)

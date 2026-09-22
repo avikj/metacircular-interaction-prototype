@@ -42,7 +42,7 @@
 -- agree, which they must since `Sol D k` is a set.
 ------------------------------------------------------------------------
 
-module BhavanaAssoc_TheBhavanaCompositionIsAssociativeAsAnEqualityAfterTransportAndTheSolverRederivesEveryCoordinateIdentity where
+module CompositionAssoc_TheCompositionCompositionIsAssociativeAsAnEqualityAfterTransportAndTheSolverRederivesEveryCoordinateIdentity where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Transport using (subst⁻ ; subst⁻Subst ; substComposite)

@@ -29,7 +29,7 @@
 -- प्रमाण component by isSet विवेक), which is what that field is for.
 ------------------------------------------------------------------------
 
-module VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal where
+module VivekaPramana_TheQualifierIsCarriedAsAFieldSoTheEquivalenceIsReal where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToPath)

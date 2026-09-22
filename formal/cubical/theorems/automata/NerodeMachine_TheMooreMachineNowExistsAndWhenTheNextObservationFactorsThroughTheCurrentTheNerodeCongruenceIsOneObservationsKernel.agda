@@ -43,7 +43,7 @@
 --
 ------------------------------------------------------------------------
 
-module NerodeYantra_TheMooreMachineNowExistsAndWhenTheNextObservationFactorsThroughTheCurrentTheNerodeCongruenceIsOneObservationsKernel where
+module NerodeMachine_TheMooreMachineNowExistsAndWhenTheNextObservationFactorsThroughTheCurrentTheNerodeCongruenceIsOneObservationsKernel where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

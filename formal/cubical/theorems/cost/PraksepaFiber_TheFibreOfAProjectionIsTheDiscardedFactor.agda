@@ -22,7 +22,7 @@
 -- types, so these hold for arbitrary A, B (the same fact Carrier runs on).
 ------------------------------------------------------------------------
 
-module PraksepaTantu_TheFibreOfAProjectionIsTheDiscardedFactor where
+module PraksepaFiber_TheFibreOfAProjectionIsTheDiscardedFactor where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)

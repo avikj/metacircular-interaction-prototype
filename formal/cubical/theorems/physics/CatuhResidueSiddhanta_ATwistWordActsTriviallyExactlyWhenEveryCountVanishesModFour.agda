@@ -26,7 +26,7 @@
 --
 ------------------------------------------------------------------------
 
-module CatuhSesaSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanishesModFour where
+module CatuhResidueSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanishesModFour where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)

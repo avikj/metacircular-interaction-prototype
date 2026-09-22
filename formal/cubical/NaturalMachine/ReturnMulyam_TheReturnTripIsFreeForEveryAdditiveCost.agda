@@ -39,7 +39,7 @@
 -- shadow of `loop-is-free`, not an independent result.
 ------------------------------------------------------------------------
 
-module NaturalMachine.PunaragamanaMulyam_TheReturnTripIsFreeForEveryAdditiveCost where
+module NaturalMachine.ReturnMulyam_TheReturnTripIsFreeForEveryAdditiveCost where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _-_ ; -_)

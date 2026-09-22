@@ -23,7 +23,7 @@
 -- (no discreteℕ, no Dec, no Bool, no decision; it moves by structure.)
 ------------------------------------------------------------------------
 
-module Punaragamana where
+module Return where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)

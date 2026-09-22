@@ -81,7 +81,7 @@
 --   अस्ति-परीक्षा    one rung cross-checked by computation
 ------------------------------------------------------------------------
 
-module BhavanaKrida where
+module CompositionKrida where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; negsuc)

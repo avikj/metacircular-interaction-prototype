@@ -52,7 +52,7 @@
 -- machine than this file's closed deterministic fragment.
 ------------------------------------------------------------------------
 
-module Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFiberIsTheSource where
+module Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFiberIsTheSource where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

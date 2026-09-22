@@ -93,7 +93,7 @@
 -- a citation the corpus has already cashed on the sphere family.
 ------------------------------------------------------------------------
 
-module Visvarupa_TheObjectClassifierIsTheFibreLawAndBothBindingsTotaliseToTheDomain where
+module Universal_TheObjectClassifierIsTheFibreLawAndBothBindingsTotaliseToTheDomain where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; fiber ; invEquiv ; compEquiv ; idEquiv)

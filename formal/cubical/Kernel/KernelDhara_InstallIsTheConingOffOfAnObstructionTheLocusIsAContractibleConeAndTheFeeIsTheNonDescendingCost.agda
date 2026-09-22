@@ -45,7 +45,7 @@
 -- its fee together.
 ------------------------------------------------------------------------
 
-module GarbhaDhara_InstallIsTheConingOffOfAnObstructionTheLocusIsAContractibleConeAndTheFeeIsTheNonDescendingCost where
+module Kernel.KernelDhara_InstallIsTheConingOffOfAnObstructionTheLocusIsAContractibleConeAndTheFeeIsTheNonDescendingCost where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_)

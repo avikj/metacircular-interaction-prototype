@@ -61,7 +61,7 @@
 -- type a set (§§2ℓ4 only).
 ------------------------------------------------------------------------
 
-module PratibimbaTantu_TheReflectedFibreIsASingletonOrEmptySoALiftOfTheReflectionThroughTheSourceForcesItToBeTheIdentityOnTheImage where
+module ReflectionFiber_TheReflectedFibreIsASingletonOrEmptySoALiftOfTheReflectionThroughTheSourceForcesItToBeTheIdentityOnTheImage where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; propBiimpl→Equiv)

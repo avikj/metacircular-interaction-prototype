@@ -23,7 +23,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (eq?)
 open import Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection
   using (le? ; eq?-complete ; mand ; mand-just ; loop ; loop-sound ; ≤-k·)

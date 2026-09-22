@@ -23,7 +23,7 @@
 -- linearly in what is proved.  भित्ति-संक्रम is built here.
 ------------------------------------------------------------------------
 
-module BhittiSanorder_WallsTransportAlongFordsSoEveryFordRetiresCandidatesForFree where
+module BhittiSankrama_WallsTransportAlongFordsSoEveryFordRetiresCandidatesForFree where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; compEquiv ; invEquiv)

@@ -66,7 +66,7 @@
 -- everywhere — a "no loss" report that did look.
 ------------------------------------------------------------------------
 
-module SankramanaSesa_EveryTransportOwesItsResidual where
+module TransportResidue_EveryTransportOwesItsResidual where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

@@ -39,7 +39,7 @@ open import Cubical.Data.Nat using (ℕ ; znots)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open import Vrddhi_AVerifiedProgramTheSuccessorMachineAddsOneStrokeAndItsCertificateIsAFibrePoint
   using (incr)
 open import Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction

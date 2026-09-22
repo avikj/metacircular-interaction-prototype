@@ -44,7 +44,7 @@
 -- composite-fibre splitting is HoTT 4.8.2's neighbourhood), composed.
 ------------------------------------------------------------------------
 
-module AgrayogaSanghata_ThePushforwardComposesOnTheTypeCarrierAndFiniteFubiniIsItsShadow where
+module AgrayogaAggregate_ThePushforwardComposesOnTheTypeCarrierAndFiniteFubiniIsItsShadow where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

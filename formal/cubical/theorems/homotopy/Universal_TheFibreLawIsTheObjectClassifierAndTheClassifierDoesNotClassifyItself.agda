@@ -102,7 +102,7 @@
 --       that was not put in comes out of one application of §4.
 ------------------------------------------------------------------------
 
-module Visvarupa_TheFibreLawIsTheObjectClassifierAndTheClassifierDoesNotClassifyItself where
+module Universal_TheFibreLawIsTheObjectClassifierAndTheClassifierDoesNotClassifyItself where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; fiber ; equivFun ; equivToIso ; equivEq)

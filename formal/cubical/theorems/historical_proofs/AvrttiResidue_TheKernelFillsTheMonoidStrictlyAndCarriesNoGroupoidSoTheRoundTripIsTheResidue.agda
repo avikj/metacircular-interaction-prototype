@@ -55,7 +55,7 @@
 --
 ------------------------------------------------------------------------
 
-module AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue where
+module AvrttiResidue_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

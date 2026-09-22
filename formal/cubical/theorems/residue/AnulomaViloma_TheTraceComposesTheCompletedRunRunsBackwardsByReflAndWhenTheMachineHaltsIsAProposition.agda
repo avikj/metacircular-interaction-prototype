@@ -46,7 +46,7 @@ open import Cubical.Data.List using (List ; [])
 open import Cubical.Data.List.Properties using (isOfHLevelList)
 open import Cubical.Data.Maybe using (Maybe ; nothing ; rec ; isOfHLevelMaybe)
 
-open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 
 private
   variable

@@ -45,7 +45,7 @@
 -- flows in this corpus).
 ------------------------------------------------------------------------
 
-module TantuVibhaga_TheGanaOfAnObservableIsTheProductOfItsFibersOwnEndomorphismMonoids where
+module FiberVibhaga_TheGanaOfAnObservableIsTheProductOfItsFibersOwnEndomorphismMonoids where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

@@ -77,7 +77,7 @@
 -- Every claim is `refl`.
 ------------------------------------------------------------------------
 
-module Krama_NoRecitationOrderSeatsTheCycleSoRepetitionLiftsAnObstructionAndNotACost where
+module Order_NoRecitationOrderSeatsTheCycleSoRepetitionLiftsAnObstructionAndNotACost where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; true ; false ; not ; _and_ ; _or_ ; if_then_else_)

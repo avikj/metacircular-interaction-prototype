@@ -14,7 +14,7 @@
 -- The mathematics is one recursion clause of Cubical.Data.Nat.max.
 ------------------------------------------------------------------------
 
-module SesaPurti_TheMachinesTopNonJoiningPairFedBackThroughTheWarmConduit where
+module ResiduePurti_TheMachinesTopNonJoiningPairFedBackThroughTheWarmConduit where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; max)

@@ -44,7 +44,7 @@
 --
 ------------------------------------------------------------------------
 
-module KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition where
+module OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Unit using (Unit ; tt)

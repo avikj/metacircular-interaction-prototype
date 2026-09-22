@@ -62,7 +62,7 @@
 -- counting maps — a fact about the definitions in `PingalaPrastara.agda`.
 ------------------------------------------------------------------------
 
-module Avrtti_TheFibreOfACountingMapSatisfiesARecurrenceAndThatRecurrenceIsSankhya where
+module Avrtti_TheFibreOfACountingMapSatisfiesARecurrenceAndThatRecurrenceIsCount where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

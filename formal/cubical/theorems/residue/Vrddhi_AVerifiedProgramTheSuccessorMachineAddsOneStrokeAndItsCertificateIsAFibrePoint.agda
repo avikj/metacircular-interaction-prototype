@@ -36,7 +36,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Sigma
 open import Cubical.Foundations.Equiv using (invEq ; fiber)
 
-open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 
 ------------------------------------------------------------------------
 -- §1  The program and the tape shapes.

@@ -39,7 +39,7 @@
 -- in the corpus.
 ------------------------------------------------------------------------
 
-module PravesaTantu_TheInjectionsFibreIsContractibleOnItsImageAndEmptyOffItSoItIsReceiptAndWall where
+module PravesaFiber_TheInjectionsFibreIsContractibleOnItsImageAndEmptyOffItSoItIsReceiptAndWall where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; fiber ; invEquiv ; compEquiv ; LiftEquiv)

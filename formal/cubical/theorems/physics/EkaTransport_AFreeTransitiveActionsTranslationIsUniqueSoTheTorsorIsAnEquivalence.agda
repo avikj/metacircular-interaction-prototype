@@ -33,7 +33,7 @@
 -- FiniteGroup).
 ------------------------------------------------------------------------
 
-module EkaSankramana_AFreeTransitiveActionsTranslationIsUniqueSoTheTorsorIsAnEquivalence where
+module EkaTransport_AFreeTransitiveActionsTranslationIsUniqueSoTheTorsorIsAnEquivalence where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (isEquiv; equiv-proof; fiber)

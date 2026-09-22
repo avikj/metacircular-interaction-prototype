@@ -59,7 +59,7 @@
 --
 ------------------------------------------------------------------------
 
-module VargaPrakrti_TraceBhavanaOverN where
+module VargaPrakrti_TraceCompositionOverN where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)

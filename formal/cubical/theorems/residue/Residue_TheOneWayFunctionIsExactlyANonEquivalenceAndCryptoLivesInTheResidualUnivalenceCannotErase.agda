@@ -62,7 +62,7 @@
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 
-module Sesa_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidualUnivalenceCannotErase where
+module Residue_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidualUnivalenceCannotErase where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (isEquiv ; equiv-proof ; fiber)

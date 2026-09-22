@@ -52,7 +52,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 open import Cubical.Algebra.Group.Properties using (module GroupTheory)
 
-open import TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
+open import SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
   using (module Localization)
 
 private

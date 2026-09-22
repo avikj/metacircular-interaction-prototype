@@ -46,7 +46,7 @@
 -- 2026-08-22.
 ------------------------------------------------------------------------
 
-module PratibimbaSanghata_CostComposesMonotonicallyExactlyOnTheImageWhichIsWhatTypingTheDecoderOnItBuys where
+module ReflectionAggregate_CostComposesMonotonicallyExactlyOnTheImageWhichIsWhatTypingTheDecoderOnItBuys where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

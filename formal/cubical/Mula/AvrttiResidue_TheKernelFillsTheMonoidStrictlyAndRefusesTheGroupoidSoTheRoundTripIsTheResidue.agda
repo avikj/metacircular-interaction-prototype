@@ -61,7 +61,7 @@
 -- coherence.
 ------------------------------------------------------------------------
 
-module Mula.AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndRefusesTheGroupoidSoTheRoundTripIsTheResidue where
+module Mula.AvrttiResidue_TheKernelFillsTheMonoidStrictlyAndRefusesTheGroupoidSoTheRoundTripIsTheResidue where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

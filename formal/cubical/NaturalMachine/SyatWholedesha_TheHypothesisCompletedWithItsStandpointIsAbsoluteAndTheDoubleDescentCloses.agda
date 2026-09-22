@@ -28,7 +28,7 @@
 -- result enters the store through the same gate as everything else.
 ------------------------------------------------------------------------
 
-module NaturalMachine.SyatSakaladesha_TheHypothesisCompletedWithItsStandpointIsAbsoluteAndTheDoubleDescentCloses where
+module NaturalMachine.SyatWholedesha_TheHypothesisCompletedWithItsStandpointIsAbsoluteAndTheDoubleDescentCloses where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)

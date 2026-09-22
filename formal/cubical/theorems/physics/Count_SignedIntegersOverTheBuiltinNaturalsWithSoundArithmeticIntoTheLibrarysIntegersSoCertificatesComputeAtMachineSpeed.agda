@@ -19,7 +19,7 @@
 -- संख्या (saṅkhyā, number/count) is ordinary .
 ------------------------------------------------------------------------
 
-module Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed where
+module Count_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_ ; _∸_ ; snotz ; +-zero ; +-comm ; ·-comm ; 0≡m·0)

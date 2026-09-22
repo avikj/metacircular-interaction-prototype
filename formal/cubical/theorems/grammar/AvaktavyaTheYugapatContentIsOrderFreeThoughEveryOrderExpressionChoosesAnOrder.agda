@@ -26,7 +26,7 @@
 -- Uses only SaptabhangiNaya's own terms; nothing named is invented.
 ------------------------------------------------------------------------
 
-module AvaktavyaTheYugapatContentIsOrderFreeThoughEveryKramaExpressionChoosesAnOrder where
+module AvaktavyaTheYugapatContentIsOrderFreeThoughEveryOrderExpressionChoosesAnOrder where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; true ; false ; _and_ ; not)

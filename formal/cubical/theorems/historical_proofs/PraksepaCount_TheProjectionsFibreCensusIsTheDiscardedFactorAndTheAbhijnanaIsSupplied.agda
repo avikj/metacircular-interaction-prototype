@@ -56,7 +56,7 @@
 -- and nothing is attributed to any text.
 ------------------------------------------------------------------------
 
-module PraksepaSankhya_TheProjectionsFibreCensusIsTheDiscardedFactorAndTheAbhijnanaIsSupplied where
+module PraksepaCount_TheProjectionsFibreCensusIsTheDiscardedFactorAndTheAbhijnanaIsSupplied where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; fiber)

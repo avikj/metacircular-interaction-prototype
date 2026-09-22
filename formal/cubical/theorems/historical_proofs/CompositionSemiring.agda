@@ -41,7 +41,7 @@
 -- 28561 points become ∀ x₁ y₁ x₂ y₂ : ℕ.
 ------------------------------------------------------------------------
 
-module BhavanaSemiring where
+module CompositionSemiring where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)

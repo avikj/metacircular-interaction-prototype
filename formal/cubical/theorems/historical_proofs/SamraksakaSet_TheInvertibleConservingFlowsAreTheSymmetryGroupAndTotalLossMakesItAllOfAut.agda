@@ -45,7 +45,7 @@
 -- (a,−b).  The compound संरक्षकसमूह is built here.
 ------------------------------------------------------------------------
 
-module SamraksakaSamuha_TheInvertibleConservingFlowsAreTheSymmetryGroupAndTotalLossMakesItAllOfAut where
+module SamraksakaSet_TheInvertibleConservingFlowsAreTheSymmetryGroupAndTotalLossMakesItAllOfAut where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

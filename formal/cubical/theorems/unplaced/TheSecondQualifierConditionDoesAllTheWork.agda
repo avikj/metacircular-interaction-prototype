@@ -53,7 +53,7 @@
 -- exhibited, not sampled.
 ------------------------------------------------------------------------
 
-module TheSecondUpadhiConditionDoesAllTheWork where
+module TheSecondQualifierConditionDoesAllTheWork where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; znots)

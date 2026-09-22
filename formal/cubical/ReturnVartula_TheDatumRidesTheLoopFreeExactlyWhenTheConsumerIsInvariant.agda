@@ -43,7 +43,7 @@
 -- and a path inverts.  **Holonomy is road one, not road two.**
 ------------------------------------------------------------------------
 
-module PunaragamanaVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant where
+module ReturnVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)

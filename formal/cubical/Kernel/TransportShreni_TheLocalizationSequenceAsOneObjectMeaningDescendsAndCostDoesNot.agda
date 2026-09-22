@@ -35,7 +35,7 @@
 --
 ------------------------------------------------------------------------
 
-module SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot where
+module Kernel.TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.HLevels using (isPropΠ)

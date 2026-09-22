@@ -46,7 +46,7 @@
 -- needs refinement precisely when it is NOT so constant.
 ------------------------------------------------------------------------
 
-module CorpusPresentation where
+module corpus.CorpusPresentation where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; fiber)
@@ -221,7 +221,7 @@ behavior-type-is-pi = refl
 -- is proof the whole flow ran end-to-end over the entire corpus at once.
 ------------------------------------------------------------------------
 
-open import CorpusNames using (corpusNames)
+open import corpus.CorpusNames using (corpusNames)
 
 private
   observeAll : BList Name → TC ℕ

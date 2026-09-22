@@ -47,7 +47,7 @@
 --
 ------------------------------------------------------------------------
 
-module KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier where
+module OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Relation.Nullary using (¬_)

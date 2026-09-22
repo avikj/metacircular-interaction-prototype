@@ -29,7 +29,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero)
 open import Cubical.Data.Sigma
 
-open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open Exec
 
 ------------------------------------------------------------------------

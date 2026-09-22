@@ -154,7 +154,7 @@ win-shift s N p per i (suc n) N≤i =
 -- §4  every position has a representative below N + p with the same windows
 ------------------------------------------------------------------------
 
-module Red (s : ℕ → Bool) (N d : ℕ) (per : Periodic s N (suc d)) where
+module Navapada_EveryNineBitWordOccursInTheFirstFourThousandNinetySixBitsOfRuleThirtysMiddleColumnSoNoRationalWithDenominatorUpToTwoHundredFiftySixIsThatColumn (s : ℕ → Bool) (N d : ℕ) (per : Periodic s N (suc d)) where
 
   red : (fuel i : ℕ) → i ≤ fuel → Σ[ j ∈ ℕ ] (j < N + suc d) × ((n : ℕ) → win s j n ≡ win s i n)
   red zero i i≤ = i , subst (_< N + suc d) (sym (≤0→≡0 i≤)) (subst (0 <_) (sym (+-suc N d)) (suc-≤-suc zero-≤)) , λ n → refl

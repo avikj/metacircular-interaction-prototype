@@ -37,7 +37,7 @@
 -- further.
 ------------------------------------------------------------------------
 
-module RamanujanTernaryUpadhi_TheUniversalClaimIsATypeTheGateRestrictsItAndNoTermRunsBackwards where
+module RamanujanTernaryQualifier_TheUniversalClaimIsATypeTheGateRestrictsItAndNoTermRunsBackwards where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma

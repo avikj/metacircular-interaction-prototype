@@ -74,7 +74,7 @@
 -- theorem.
 ------------------------------------------------------------------------
 
-module Sha256Samvada_TheHashIsAnInteractiveCoalgebraItsProcessSpaceIsContractibleTheDemandMattersAndTheFirstShownDigestComputesEveryLaterAnswer where
+module Sha256Interaction_TheHashIsAnInteractiveCoalgebraItsProcessSpaceIsContractibleTheDemandMattersAndTheFirstShownDigestComputesEveryLaterAnswer where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.HLevels using (isProp×)

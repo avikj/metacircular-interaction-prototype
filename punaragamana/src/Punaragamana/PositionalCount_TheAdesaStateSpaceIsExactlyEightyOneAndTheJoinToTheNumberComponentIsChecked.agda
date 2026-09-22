@@ -31,7 +31,7 @@
 --
 ------------------------------------------------------------------------
 
-module Punaragamana.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked where
+module Punaragamana.PositionalCount_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)

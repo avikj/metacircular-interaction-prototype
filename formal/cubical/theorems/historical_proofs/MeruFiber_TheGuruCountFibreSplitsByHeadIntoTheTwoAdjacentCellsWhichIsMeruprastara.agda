@@ -22,7 +22,7 @@
 -- Pascal's/meru's rule, and here it is an equivalence of fibres, not an
 -- equation of counts.
 
-module MeruTantu_TheGuruCountFibreSplitsByHeadIntoTheTwoAdjacentCellsWhichIsMeruprastara where
+module MeruFiber_TheGuruCountFibreSplitsByHeadIntoTheTwoAdjacentCellsWhichIsMeruprastara where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; fiber)

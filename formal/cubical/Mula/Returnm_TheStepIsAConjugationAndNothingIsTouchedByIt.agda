@@ -33,7 +33,7 @@
 -- replaces `Punaragamana.agda`, which is untouched.
 ------------------------------------------------------------------------
 
-module Mula.Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt where
+module Mula.Returnm_TheStepIsAConjugationAndNothingIsTouchedByIt where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)

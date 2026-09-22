@@ -29,14 +29,14 @@
 -- made total over an algebra.
 ------------------------------------------------------------------------
 
-module Machine.SamordernaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute where
+module Yantra.SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Transport using (transport⁻Transport)
 open import Cubical.Data.Nat using (ℕ ; zero ; _+_ ; +-assoc ; +-comm ; +-zero)
 open import Cubical.Data.Sigma using (ΣPathP)
 
-open import Machine.Samorderna
+open import Yantra.Samkramana
   using ( rāśi-traya ; anuloma ; viloma ; yugma≡rāśi-traya ; _×_ )
 
 private

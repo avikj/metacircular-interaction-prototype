@@ -53,7 +53,7 @@
 --  labels; the mathematics is the library's, composed.
 ------------------------------------------------------------------------
 
-module VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee where
+module CurvedLoopSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

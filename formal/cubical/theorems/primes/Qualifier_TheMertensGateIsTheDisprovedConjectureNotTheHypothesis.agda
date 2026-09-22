@@ -44,7 +44,7 @@
 --
 ------------------------------------------------------------------------
 
-module Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis where
+module Qualifier_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis where
 
 open import Shodhita using (μ̂)
 open import Parisodhana using (dec≤)

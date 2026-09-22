@@ -65,7 +65,7 @@
 --       as the same theorem at two granularities.
 ------------------------------------------------------------------------
 
-module Punaragamana.Pratibimba_TheImageFactorsEveryMapAsSurjectionThenEmbeddingAndSamataDvidhaIsBothLegsTrivial where
+module Punaragamana.Reflection_TheImageFactorsEveryMapAsSurjectionThenEmbeddingAndEqualitySplitIsBothLegsTrivial where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

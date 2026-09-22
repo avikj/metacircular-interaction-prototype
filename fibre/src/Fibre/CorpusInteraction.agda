@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
-module Fibre.CorpusSamvada where
+module Fibre.CorpusInteraction where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_)

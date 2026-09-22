@@ -81,7 +81,7 @@
 -- fourth position is a written obstruction and not a shrug.
 ------------------------------------------------------------------------
 
-module SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext where
+module SaptabhangiKernel_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (equivFun)

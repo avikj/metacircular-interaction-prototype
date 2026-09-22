@@ -49,7 +49,7 @@
 --
 ------------------------------------------------------------------------
 
-module Yantra.Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis where
+module Yantra.Qualifier_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis where
 
 open import Yantra.Shodhita using (μ̂)
 open import Yantra.Parisodhana using (dec≤)

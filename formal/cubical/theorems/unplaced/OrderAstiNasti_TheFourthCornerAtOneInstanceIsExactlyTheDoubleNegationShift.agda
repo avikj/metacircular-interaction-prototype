@@ -57,7 +57,7 @@
 -- identification of the FORMULA, not of the two traditions' concerns.
 --
 
-module KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
+module OrderAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Unit using (Unit ; tt)

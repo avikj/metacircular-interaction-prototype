@@ -36,7 +36,7 @@
 -- verdict computes.
 ------------------------------------------------------------------------
 
-module SesaMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget where
+module ResidueMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

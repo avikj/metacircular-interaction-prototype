@@ -28,7 +28,7 @@
 --               one direction only.
 ------------------------------------------------------------------------
 
-module YantraPariksa where
+module MachinePariksa where
 
 import Yantra.Chaya_TheShadowHasNoSectionThoughItHasAMap
 import Yantra.Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof

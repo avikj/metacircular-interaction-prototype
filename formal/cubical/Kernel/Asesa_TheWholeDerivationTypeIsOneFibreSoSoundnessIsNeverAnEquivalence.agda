@@ -65,7 +65,7 @@
 -- kernel where the collapsed information is still held.
 ------------------------------------------------------------------------
 
-module Kernel.Aresidue_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence where
+module Kernel.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; fiber ; isEquiv ; invEquiv ; compEquiv)

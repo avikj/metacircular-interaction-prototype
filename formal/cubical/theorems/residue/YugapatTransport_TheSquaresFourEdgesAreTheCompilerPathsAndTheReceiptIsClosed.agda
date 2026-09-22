@@ -39,7 +39,7 @@
 -- as semantic data — the positive pole beside VakraValaya.
 ------------------------------------------------------------------------
 
-module YugapatSankramana_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsClosed where
+module YugapatTransport_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsClosed where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

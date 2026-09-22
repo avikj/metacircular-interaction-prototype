@@ -45,7 +45,7 @@
 -- the rule this follows: where a joint takes work, the joint is wrong.
 ------------------------------------------------------------------------
 
-module YantraTantu_TheEngineLivesInTheFibreOfItsDenotation where
+module MachineFiber_TheEngineLivesInTheFibreOfItsDenotation where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (fiber)

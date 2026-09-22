@@ -28,7 +28,7 @@
 -- as a two-line term about lists of naturals.
 ------------------------------------------------------------------------
 
-module Ratri.Nirdharana_Hull_PunaragamanaSunyeEva where
+module Ratri.Nirdharana_Hull_ReturnSunyeEva where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat

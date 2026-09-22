@@ -68,7 +68,7 @@
 -- type, observable, action and factor.
 ------------------------------------------------------------------------
 
-module ManaSesa_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence where
+module ManaResidue_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)

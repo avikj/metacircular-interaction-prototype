@@ -30,7 +30,7 @@
 --       exists (§2) and immutability is uninhabitable (§3): continuity
 --       and change in one checked object.  That is the whole claim.
 
-module JivaTantu_TheThreadMovesAtEveryStepAndStillCoheres where
+module JivaFiber_TheThreadMovesAtEveryStepAndStillCoheres where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; snotz)

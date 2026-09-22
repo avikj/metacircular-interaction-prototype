@@ -43,7 +43,7 @@
 -- executional one, and neither imports the other.
 ------------------------------------------------------------------------
 
-module Fibre.Krama_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained where
+module Fibre.Order_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat

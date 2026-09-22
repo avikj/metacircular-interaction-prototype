@@ -28,7 +28,7 @@
 -- every element"), the three presentations of "same list up to order" in
 -- the corpus are now one relation.
 ------------------------------------------------------------------------
-module PermSankramana_ThePermutationRelationIsTransitiveBecauseTwoInsertionsCommuteSoTheFourConstructorRelationIsContainedInPermAndBothAreEquivalenceRelations where
+module PermTransport_ThePermutationRelationIsTransitiveBecauseTwoInsertionsCommuteSoTheFourConstructorRelationIsContainedInPermAndBothAreEquivalenceRelations where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List ; [] ; _∷_)

@@ -81,7 +81,7 @@
 -- It is used here as the label of this module, chosen for what
 -- the theorem says.
 
-module Fibre.Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne where
+module Fibre.Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

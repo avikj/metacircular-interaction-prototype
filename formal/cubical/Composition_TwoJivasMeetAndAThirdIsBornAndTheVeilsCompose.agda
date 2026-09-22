@@ -18,7 +18,7 @@
 -- veil anywhere veils the offspring — §4.
 ------------------------------------------------------------------------
 
-module Bhavana_TwoJivasMeetAndAThirdIsBornAndTheVeilsCompose where
+module Composition_TwoJivasMeetAndAThirdIsBornAndTheVeilsCompose where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (isEquiv ; _≃_ ; compEquiv ; invEquiv ; idEquiv)

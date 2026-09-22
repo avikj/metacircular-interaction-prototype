@@ -29,7 +29,7 @@
 -- substrate cubical (Voevodsky).
 ------------------------------------------------------------------------
 
-module Matracount_TheMatraFiberIsFinOfTheVirahankaNumber where
+module Matrasankhya_TheMatraFiberIsFinOfTheVirahankaNumber where
 
 open import Cubical.Foundations.Prelude using (isContr)
 open import Cubical.Foundations.Equiv using (_≃_ ; fiber ; compEquiv ; invEquiv)

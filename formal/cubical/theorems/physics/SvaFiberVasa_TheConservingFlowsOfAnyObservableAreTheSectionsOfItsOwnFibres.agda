@@ -57,7 +57,7 @@
 -- and− the compound संरक्षकसमूह is built here.
 ------------------------------------------------------------------------
 
-module SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres where
+module SvaFiberVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

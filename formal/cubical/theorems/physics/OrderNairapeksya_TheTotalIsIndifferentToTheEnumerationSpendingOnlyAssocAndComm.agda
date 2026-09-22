@@ -26,7 +26,7 @@
 --   5. Induction applies to the restricted permutation.
 ------------------------------------------------------------------------
 
-module KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm where
+module OrderNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function using (_∘_)

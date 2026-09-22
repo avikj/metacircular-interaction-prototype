@@ -19,7 +19,7 @@
 -- प्रतिबिम्ब (pratibimba, reflection/mirror image) is ordinary .
 ------------------------------------------------------------------------
 
-module Pratibimba_AReflectionPairOffTheLineIsADominantModeSoItsSignalOverstepsEveryBoundWhileAPairOnTheLineKeepsTheSignalBoundedSoRHIsBoundednessAtTheReflection where
+module Reflection_AReflectionPairOffTheLineIsADominantModeSoItsSignalOverstepsEveryBoundWhileAPairOnTheLineKeepsTheSignalBoundedSoRHIsBoundednessAtTheReflection where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)

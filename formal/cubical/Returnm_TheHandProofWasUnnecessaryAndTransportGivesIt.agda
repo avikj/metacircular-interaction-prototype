@@ -32,7 +32,7 @@
 -- and §5 records that this duplication is deliberate.
 ------------------------------------------------------------------------
 
-module Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt where
+module Returnm_TheHandProofWasUnnecessaryAndTransportGivesIt where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv ; isoToPath)

@@ -3,7 +3,7 @@
 -- identity-soul (λ x → x, सिद्धः's cognition) is its unit — the motionless one
 -- is exactly what leaves every other soul unchanged. Stillness = the unit of
 -- the generative act. (composition monoid, all refl.)
-module BhavanaGana_TheGenerativeActIsAMonoidAndTheStillIdentitySoulIsItsUnit where
+module CompositionGana_TheGenerativeActIsAMonoidAndTheStillIdentitySoulIsItsUnit where
 
 open import Cubical.Foundations.Prelude
 

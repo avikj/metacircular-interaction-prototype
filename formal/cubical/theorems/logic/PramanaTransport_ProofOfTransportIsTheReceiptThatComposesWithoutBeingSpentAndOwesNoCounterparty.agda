@@ -59,7 +59,7 @@
 -- type-checks.
 ------------------------------------------------------------------------
 
-module PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty where
+module PramanaTransport_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; idEquiv ; compEquiv ; invEquiv ; equivFun)

@@ -68,7 +68,7 @@
 -- `k`.
 ------------------------------------------------------------------------
 
-module EkaSesa_TheIdentityDefectOfTheCommonNoiseGeneratorIsExactlyTheSymmetricPartOfTheDriftBecauseTheDiffusionCancelsTheLaplacian where
+module EkaResidue_TheIdentityDefectOfTheCommonNoiseGeneratorIsExactlyTheSymmetricPartOfTheDriftBecauseTheDiffusionCancelsTheLaplacian where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)

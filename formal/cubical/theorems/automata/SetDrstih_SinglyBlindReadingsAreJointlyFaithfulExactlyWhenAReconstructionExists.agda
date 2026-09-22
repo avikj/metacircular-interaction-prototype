@@ -36,7 +36,7 @@
 -- direction is paid in the same currency both times.
 ------------------------------------------------------------------------
 
-module SamuhaDrstih_SinglyBlindReadingsAreJointlyFaithfulExactlyWhenAReconstructionExists where
+module SetDrstih_SinglyBlindReadingsAreJointlyFaithfulExactlyWhenAReconstructionExists where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; znots ; snotz ; injSuc)

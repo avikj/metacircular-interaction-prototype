@@ -28,7 +28,7 @@
 -- कोश (kośa, shell/sheath) is ordinary .
 ------------------------------------------------------------------------
 
-module Kosa_TheReverseShiftDoesNotCrossSeparatedBoundariesAndOnlyAShellOfShiftsReachesTheReceiverSoTheFullPrimeBlockIsTheWeightedConvolutionSum where
+module Shell_TheReverseShiftDoesNotCrossSeparatedBoundariesAndOnlyAShellOfShiftsReachesTheReceiverSoTheFullPrimeBlockIsTheWeightedConvolutionSum where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (_,_)

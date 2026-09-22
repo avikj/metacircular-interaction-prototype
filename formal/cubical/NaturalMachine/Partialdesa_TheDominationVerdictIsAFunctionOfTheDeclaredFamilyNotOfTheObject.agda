@@ -108,7 +108,7 @@
 --
 ------------------------------------------------------------------------
 
-module NaturalMachine.Vikaladesa_TheDominationVerdictIsAFunctionOfTheDeclaredFamilyNotOfTheObject where
+module NaturalMachine.Partialdesa_TheDominationVerdictIsAFunctionOfTheDeclaredFamilyNotOfTheObject where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool

@@ -29,7 +29,7 @@
 -- carries what the quotient forgot.
 ------------------------------------------------------------------------
 
-module Pratibimba_TheBehaviorIsASetQuotientOfTheCodeItsFibreIsInfiniteAndTheLosslessTraceIsAPoint where
+module Reflection_TheBehaviorIsASetQuotientOfTheCodeItsFibreIsInfiniteAndTheLosslessTraceIsAPoint where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function using (idfun)

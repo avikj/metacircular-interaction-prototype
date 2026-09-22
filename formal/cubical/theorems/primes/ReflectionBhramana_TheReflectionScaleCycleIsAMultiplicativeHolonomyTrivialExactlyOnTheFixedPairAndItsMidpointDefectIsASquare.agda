@@ -63,7 +63,7 @@
 -- unit pair.
 ------------------------------------------------------------------------
 
-module PratibimbaBhramana_TheReflectionScaleCycleIsAMultiplicativeHolonomyTrivialExactlyOnTheFixedPairAndItsMidpointDefectIsASquare where
+module ReflectionBhramana_TheReflectionScaleCycleIsAMultiplicativeHolonomyTrivialExactlyOnTheFixedPairAndItsMidpointDefectIsASquare where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)

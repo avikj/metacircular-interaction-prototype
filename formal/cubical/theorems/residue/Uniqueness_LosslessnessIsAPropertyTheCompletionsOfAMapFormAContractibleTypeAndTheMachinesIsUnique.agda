@@ -47,7 +47,7 @@ open import Cubical.Foundations.HLevels
 open import Cubical.Foundations.Function using (_∘_)
 open import Cubical.Data.Sigma
 
-open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep ; lossless ; losslessIso ; LawfulStep)
 
 private

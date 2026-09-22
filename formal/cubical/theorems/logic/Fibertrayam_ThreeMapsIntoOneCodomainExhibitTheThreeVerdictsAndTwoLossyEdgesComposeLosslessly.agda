@@ -29,7 +29,7 @@
 -- vanish, and the corpus now carries both.
 ------------------------------------------------------------------------
 
-module Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly where
+module Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (isEquiv ; fiber ; idIsEquiv)

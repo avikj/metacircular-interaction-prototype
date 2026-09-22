@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 -- : the number-theory machine.
-module YantraAll where
+module MachineAll where
 
 import Yantra.Prakriti
 import Yantra.Anantata

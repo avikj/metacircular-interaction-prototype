@@ -53,7 +53,7 @@
 -- Each is a checked term, so the independence is proved, not asserted.
 ------------------------------------------------------------------------
 
-module Punaragamana.SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionAndTheEmptyAndCrowdedRefusalsAreTheTwoFactorsFailingApart where
+module Punaragamana.EqualitySplit_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionAndTheEmptyAndCrowdedRefusalsAreTheTwoFactorsFailingApart where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

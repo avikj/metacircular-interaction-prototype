@@ -17,7 +17,7 @@
 -- limit at all.
 ------------------------------------------------------------------------
 
-module SesaRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecurses where
+module ResidueRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecurses where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)

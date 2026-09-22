@@ -34,7 +34,7 @@
 -- missing higher cell.
 ------------------------------------------------------------------------
 
-module AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport where
+module DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)

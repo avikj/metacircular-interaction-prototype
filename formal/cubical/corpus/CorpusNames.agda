@@ -20,6 +20,6 @@
 --     ./generate-corpus-index
 ------------------------------------------------------------------------
 
-module CorpusNames where
+module corpus.CorpusNames where
 
 open import CorpusGeneratedIndex using (corpusNames) public

@@ -39,7 +39,7 @@
 -- step is one type re-instantiated, not a sequence of coincidences.
 ------------------------------------------------------------------------
 
-module GarbhaShreni_TheTowerRungsAreOnePredicateCostIsNotExactAtSuccessiveLevels where
+module Kernel.KernelShreni_TheTowerRungsAreOnePredicateCostIsNotExactAtSuccessiveLevels where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ)

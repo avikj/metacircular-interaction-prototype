@@ -74,7 +74,7 @@
 -- made that the two traditions are talking about one thing.
 ------------------------------------------------------------------------
 
-module KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner where
+module OrderAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List ; [] ; _∷_)

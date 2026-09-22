@@ -46,7 +46,7 @@
 -- untruncated ).
 ------------------------------------------------------------------------
 
-module KramaSaha_TheOrderOfStandpointsIsTheChargeItself where
+module OrderSaha_TheOrderOfStandpointsIsTheChargeItself where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv ; compIso)

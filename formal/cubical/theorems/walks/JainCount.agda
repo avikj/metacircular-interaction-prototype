@@ -39,7 +39,7 @@
 --                            (the floor of number)
 ------------------------------------------------------------------------
 
-module JainSankhya where
+module JainCount where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma

@@ -50,7 +50,7 @@
 -- identifies as "every point of the census is सकलादेश".
 ------------------------------------------------------------------------
 
-module DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid where
+module DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

@@ -80,7 +80,7 @@
 --       machine anything false, no matter what the caller does.
 ------------------------------------------------------------------------
 
-module Kernel.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation where
+module Kernel.Interaction_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; isSetℕ)

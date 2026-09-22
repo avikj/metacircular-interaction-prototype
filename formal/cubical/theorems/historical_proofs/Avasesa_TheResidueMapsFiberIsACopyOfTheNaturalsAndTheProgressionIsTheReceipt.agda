@@ -46,7 +46,7 @@
 -- after the source and as one.
 ------------------------------------------------------------------------
 
-module Avaresidue_TheResidueMapsFiberIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt where
+module Avasesa_TheResidueMapsFiberIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

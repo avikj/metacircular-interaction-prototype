@@ -55,7 +55,7 @@
 -- proposition-valued `Res` closed under difference and containing zero.
 ------------------------------------------------------------------------
 
-module RiktaTantu_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition where
+module RiktaFiber_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)

@@ -77,7 +77,7 @@
 -- target.
 ------------------------------------------------------------------------
 
-module Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph where
+module Punaragamana.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

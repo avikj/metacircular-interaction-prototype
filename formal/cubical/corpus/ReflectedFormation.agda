@@ -24,7 +24,7 @@
 -- time, through the demonstration macros in §4 and in CorpusPresentation.
 ------------------------------------------------------------------------
 
-module ReflectedFormation where
+module corpus.ReflectedFormation where
 
 open import Agda.Builtin.Reflection hiding (Type)  -- reflection's `Type = Term` alias would clash with Cubical's sort
 open import Agda.Builtin.List

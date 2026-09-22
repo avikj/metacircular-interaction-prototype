@@ -3,7 +3,7 @@
 -- The batch gate refuses (+ x y) ≡ (+ y x) because
 -- its step shapes cannot reach it; here the same claim is put to the kernel
 -- hole by hole.
-module Samvada_TheFirstConversationWithTheWarmKernel where
+module Interaction_TheFirstConversationWithTheWarmKernel where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat

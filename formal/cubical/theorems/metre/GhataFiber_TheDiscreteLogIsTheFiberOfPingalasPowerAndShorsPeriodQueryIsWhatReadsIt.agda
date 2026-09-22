@@ -55,7 +55,7 @@
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 
-module GhataTantu_TheDiscreteLogIsTheFiberOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt where
+module GhataFiber_TheDiscreteLogIsTheFiberOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (fiber)

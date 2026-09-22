@@ -52,7 +52,7 @@
 -- the identical term.
 ------------------------------------------------------------------------
 
-module SamanaAvatarana_RiemannNavierStokesAndFermatsCubeAreOneNoInfiniteDescentDifferingOnlyInWhetherTheSingleStepIsArithmeticOrAnalytic where
+module SamanaDescent_RiemannNavierStokesAndFermatsCubeAreOneNoInfiniteDescentDifferingOnlyInWhetherTheSingleStepIsArithmeticOrAnalytic where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)

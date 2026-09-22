@@ -83,7 +83,7 @@
 -- demand-free collapse (एकाग्र-पातः there).
 ------------------------------------------------------------------------
 
-module Sha256Srotas_TheHashIsATruncationOfOneProductiveChainTheChainForgetsItsPastByReflAndTheRoundLayerIsInjectiveAtEveryDepth where
+module Sha256Stream_TheHashIsATruncationOfOneProductiveChainTheChainForgetsItsPastByReflAndTheRoundLayerIsInjectiveAtEveryDepth where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)

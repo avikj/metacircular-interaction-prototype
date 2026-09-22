@@ -112,7 +112,7 @@
 --     operational lane, another agent's, which §5 is the Agda side of.
 ------------------------------------------------------------------------
 
-module Samorderna_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose where
+module Samkramana_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

@@ -52,7 +52,7 @@ open import Cubical.Foundations.HLevels using (isOfHLevelRespectEquiv)
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Unit using (Unit ; isContrUnit)
 
-open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep)
 
 private

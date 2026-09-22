@@ -51,7 +51,7 @@
 -- unsound in BOTH directions, and §3 exhibits both failures as censuses.
 ------------------------------------------------------------------------
 
-module Fibre.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic where
+module Fibre.WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

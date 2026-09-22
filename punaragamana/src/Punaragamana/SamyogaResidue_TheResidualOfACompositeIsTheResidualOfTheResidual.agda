@@ -57,7 +57,7 @@
 -- machinery answering a question it had not yet been asked.
 ------------------------------------------------------------------------
 
-module Punaragamana.SamyogaSesa_TheResidualOfACompositeIsTheResidualOfTheResidual where
+module Punaragamana.SamyogaResidue_TheResidualOfACompositeIsTheResidualOfTheResidual where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

@@ -21,7 +21,7 @@
 -- 1.  With associativity, the full group law of ℤ[√N].)
 ------------------------------------------------------------------------
 
-module BhavanaSamuha where
+module CompositionSet where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_)

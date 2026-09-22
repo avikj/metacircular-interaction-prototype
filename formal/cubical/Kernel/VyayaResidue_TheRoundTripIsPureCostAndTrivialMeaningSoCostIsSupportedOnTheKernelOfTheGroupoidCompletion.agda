@@ -35,7 +35,7 @@
 --
 ------------------------------------------------------------------------
 
-module VyayaSesa_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion where
+module Kernel.VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; isSetℕ ; snotz)

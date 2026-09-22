@@ -31,7 +31,7 @@
 -- ordinary .
 ------------------------------------------------------------------------
 
-module PrasthaKhanda_TheCrossBoundaryBlockOfTheWeightedShiftOperatorIsTheWeightedSumOfBoundaryConvolutionsAtTheShiftedTimes where
+module BlockSegment_TheCrossBoundaryBlockOfTheWeightedShiftOperatorIsTheWeightedSumOfBoundaryConvolutionsAtTheShiftedTimes where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (_,_)

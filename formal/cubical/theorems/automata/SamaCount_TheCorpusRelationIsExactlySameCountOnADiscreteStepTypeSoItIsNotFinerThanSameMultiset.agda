@@ -10,7 +10,7 @@
 -- is an adjacent chain (`TheUsualReasons`).  So the relation is not finer
 -- than same-multiset: it is same-multiset.
 ------------------------------------------------------------------------
-module SamaSankhya_TheCorpusRelationIsExactlySameCountOnADiscreteStepTypeSoItIsNotFinerThanSameMultiset where
+module SamaCount_TheCorpusRelationIsExactlySameCountOnADiscreteStepTypeSoItIsNotFinerThanSameMultiset where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List)

@@ -43,7 +43,7 @@
 -- lawfully identified only when their whole future cones descend.
 ------------------------------------------------------------------------
 
-module Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep where
+module Horizon_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Relation.Nullary using (¬_)

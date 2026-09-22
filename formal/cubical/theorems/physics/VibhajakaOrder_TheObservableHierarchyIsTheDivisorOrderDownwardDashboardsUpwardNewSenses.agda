@@ -26,7 +26,7 @@
 --
 ------------------------------------------------------------------------
 
-module VibhajakaKrama_TheObservableHierarchyIsTheDivisorOrderDownwardDashboardsUpwardNewSenses where
+module VibhajakaOrder_TheObservableHierarchyIsTheDivisorOrderDownwardDashboardsUpwardNewSenses where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)

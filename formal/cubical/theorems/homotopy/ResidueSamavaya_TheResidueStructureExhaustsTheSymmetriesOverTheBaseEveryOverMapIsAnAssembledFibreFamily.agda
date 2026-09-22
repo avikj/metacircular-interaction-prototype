@@ -39,7 +39,7 @@
 --
 ------------------------------------------------------------------------
 
-module SesaSamavaya_TheResidueStructureExhaustsTheSymmetriesOverTheBaseEveryOverMapIsAnAssembledFibreFamily where
+module ResidueSamavaya_TheResidueStructureExhaustsTheSymmetriesOverTheBaseEveryOverMapIsAnAssembledFibreFamily where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (Σ ; _,_ ; fst ; snd ; ΣPathP)

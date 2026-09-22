@@ -20,7 +20,7 @@
 -- map.
 ------------------------------------------------------------------------
 
-module SankhyaTantu_TheFibreOfAFiniteSourceMapIsFiniteAndItsCardinalityIsTheReceipt where
+module CountFiber_TheFibreOfAFiniteSourceMapIsFiniteAndItsCardinalityIsTheReceipt where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (fiber)

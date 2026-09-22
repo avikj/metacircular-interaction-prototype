@@ -17,7 +17,7 @@
 --
 ------------------------------------------------------------------------
 
-module PratibimbaDvaya_TheTwoIdentitiesOfTheReflectionFrameProvedWhereTheEquationLaneStops where
+module ReflectionDvaya_TheTwoIdentitiesOfTheReflectionFrameProvedWhereTheEquationLaneStops where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat

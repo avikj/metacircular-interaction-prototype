@@ -28,7 +28,7 @@
 -- computation between them without loss.
 ------------------------------------------------------------------------
 
-module Sankramana_TheMachineIsItsCompletedSelfAsAnIdentificationInTheUniverseAndTheIdentificationComputes where
+module Transport_TheMachineIsItsCompletedSelfAsAnIdentificationInTheUniverseAndTheIdentificationComputes where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (fiber ; equivFun ; invEq)

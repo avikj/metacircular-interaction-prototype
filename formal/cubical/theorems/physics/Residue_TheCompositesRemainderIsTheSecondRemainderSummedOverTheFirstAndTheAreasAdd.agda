@@ -46,7 +46,7 @@
 -- ────────────────────────────────────────────────────────────────────
 ------------------------------------------------------------------------
 
-module Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd where
+module Residue_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

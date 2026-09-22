@@ -37,7 +37,7 @@
 -- termination measure is.
 ------------------------------------------------------------------------
 
-module MoksaPunaragamana_TheKarmaStepAndTheNoReturnLemmaAreOneDynamicsAndMoksaIsTheOnlyReturn where
+module MoksaReturn_TheKarmaStepAndTheNoReturnLemmaAreOneDynamicsAndMoksaIsTheOnlyReturn where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ; zero; suc; _+_; _∸_; _·_; snotz; injSuc; +-suc; +-assoc)

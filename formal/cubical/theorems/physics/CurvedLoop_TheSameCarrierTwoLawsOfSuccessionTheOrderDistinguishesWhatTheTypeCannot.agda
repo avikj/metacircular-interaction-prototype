@@ -44,7 +44,7 @@
 -- composed.
 ------------------------------------------------------------------------
 
-module VakraValaya_TheSameCarrierTwoLawsOfSuccessionTheKramaDistinguishesWhatTheTypeCannot where
+module CurvedLoop_TheSameCarrierTwoLawsOfSuccessionTheOrderDistinguishesWhatTheTypeCannot where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

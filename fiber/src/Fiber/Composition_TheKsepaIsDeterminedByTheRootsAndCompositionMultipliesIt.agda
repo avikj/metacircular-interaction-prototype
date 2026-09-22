@@ -74,7 +74,7 @@
 -- and identically typed in both.
 ------------------------------------------------------------------------
 
-module Fiber.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt where
+module Fiber.Composition_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso)

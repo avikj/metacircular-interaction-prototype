@@ -39,7 +39,7 @@
 -- संक्रमण (saṅkramaṇa, transport) are ordinary .
 ------------------------------------------------------------------------
 
-module SopanaSankramana_TheRenormalizedObserverTowerTransportsResidualFibresAlongIntertwinersAndCostDoesNotDescendThroughTheObservedOrbit where
+module SopanaTransport_TheRenormalizedObserverTowerTransportsResidualFibresAlongIntertwinersAndCostDoesNotDescendThroughTheObservedOrbit where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.HLevels using (isSetΠ)

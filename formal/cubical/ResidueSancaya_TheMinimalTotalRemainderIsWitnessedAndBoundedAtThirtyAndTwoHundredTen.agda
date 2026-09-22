@@ -21,7 +21,7 @@
 -- search, the lemma converts the fold to the quantifier, and no bare
 -- boolean is the deliverable.
 
-module SesaSancaya_TheMinimalTotalRemainderIsWitnessedAndBoundedAtThirtyAndTwoHundredTen where
+module ResidueSancaya_TheMinimalTotalRemainderIsWitnessedAndBoundedAtThirtyAndTwoHundredTen where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_)

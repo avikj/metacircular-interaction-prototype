@@ -17,7 +17,7 @@
 --   §3  THE CHECK and the theorem.
 ------------------------------------------------------------------------
 
-module SadhakaSesa_ADyadicSlackCertificateCheckedAtMachineSpeedYieldsAStrictSpectralGapOfTheRationalFormThroughGersgorinAndPramanika where
+module SadhakaResidue_ADyadicSlackCertificateCheckedAtMachineSpeedYieldsAStrictSpectralGapOfTheRationalFormThroughGersgorinAndPramanika where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; discreteℕ)

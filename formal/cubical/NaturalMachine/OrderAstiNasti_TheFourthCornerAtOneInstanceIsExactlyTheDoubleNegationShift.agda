@@ -60,7 +60,7 @@
 -- identification of the FORMULA, not of the two traditions' concerns.
 ------------------------------------------------------------------------
 
-module NaturalMachine.KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
+module NaturalMachine.OrderAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Unit using (Unit ; tt)

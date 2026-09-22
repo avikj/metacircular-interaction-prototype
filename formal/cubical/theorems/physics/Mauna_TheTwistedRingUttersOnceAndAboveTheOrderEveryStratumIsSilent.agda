@@ -38,7 +38,7 @@
 -- as there, is a reading.
 ------------------------------------------------------------------------
 
-module Mauna_TheTwistedRingUttersOnceAndAboveTheKramaEveryStratumIsSilent where
+module Mauna_TheTwistedRingUttersOnceAndAboveTheOrderEveryStratumIsSilent where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

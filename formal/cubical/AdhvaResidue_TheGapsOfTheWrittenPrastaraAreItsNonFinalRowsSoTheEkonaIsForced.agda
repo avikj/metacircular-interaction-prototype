@@ -85,7 +85,7 @@
 -- of this corpus.
 ------------------------------------------------------------------------
 
-module AdhvaSesa_TheGapsOfTheWrittenPrastaraAreItsNonFinalRowsSoTheEkonaIsForced where
+module AdhvaResidue_TheGapsOfTheWrittenPrastaraAreItsNonFinalRowsSoTheEkonaIsForced where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)

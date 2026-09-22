@@ -41,7 +41,7 @@
 -- Prop. 2.11.  Complements Vahita_…  (the b=2,n=1 group instance).
 ------------------------------------------------------------------------
 
-module Sankhya_TheBaseAryCountGrowsAFullFactorEachPlaceSoTheCarryNeverSplits where
+module Count_TheBaseAryCountGrowsAFullFactorEachPlaceSoTheCarryNeverSplits where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Relation.Nullary using (¬_)

@@ -67,7 +67,7 @@
 -- pattern-match — and it is why nothing here mentions `Fin` at all.
 ------------------------------------------------------------------------
 
-module KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet where
+module OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List ; [] ; _∷_)

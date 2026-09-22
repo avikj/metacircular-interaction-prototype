@@ -27,7 +27,7 @@
 -- ea, bound the two ways the fibre law names.
 ------------------------------------------------------------------------
 
-module DvigunaSesa_TheHalfIsTheSesaOfDoublingSoBornIsRoadOneAndTheSpinorIsRoadTwo where
+module DvigunaResidue_TheHalfIsTheResidueOfDoublingSoBornIsRoadOneAndTheSpinorIsRoadTwo where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; true ; false ; _⊕_ ; true≢false)

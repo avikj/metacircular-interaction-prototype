@@ -30,7 +30,7 @@
 -- differential test catches, not a silent wrong answer.
 ------------------------------------------------------------------------
 
-module SanghattaYantra_TheCriticalPairOrganAsCheckedTermsCompiledByTheKernelsOwnBackend where
+module SanghattaMachine_TheCriticalPairOrganAsCheckedTermsCompiledByTheKernelsOwnBackend where
 
 open import Agda.Builtin.IO
 open import Agda.Builtin.Unit

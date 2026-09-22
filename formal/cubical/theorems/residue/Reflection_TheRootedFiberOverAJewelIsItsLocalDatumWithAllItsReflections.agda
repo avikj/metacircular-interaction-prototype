@@ -39,7 +39,7 @@
 -- equivalences already kernel-checked in `IndraNet.agda`.
 ------------------------------------------------------------------------
 
-module Pratibimba_TheRootedFiberOverAJewelIsItsLocalDatumWithAllItsReflections where
+module Reflection_TheRootedFiberOverAJewelIsItsLocalDatumWithAllItsReflections where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; compEquiv ; fiber)

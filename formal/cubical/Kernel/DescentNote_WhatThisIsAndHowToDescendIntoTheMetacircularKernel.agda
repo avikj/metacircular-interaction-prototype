@@ -264,7 +264,7 @@
 --
 ------------------------------------------------------------------------
 
-module Kernel.Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel where
+module Kernel.DescentNote_WhatThisIsAndHowToDescendIntoTheMetacircularKernel where
 
 ------------------------------------------------------------------------
 -- §A.  THE LIVE DEPENDENCIES.  This file is red if any of §3-§4 rots.

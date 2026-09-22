@@ -22,7 +22,7 @@
 -- पदे (उमास्वाति ५.२९) — सर्वं refl, यतः यन्त्रम् एवं चलति, न वर्ण्यते ।
 ------------------------------------------------------------------------
 
-module BhedaAvatarana where
+module BhedaDescent where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)

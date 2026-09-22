@@ -55,7 +55,7 @@
 -- and nothing else.
 ------------------------------------------------------------------------
 
-module SesaLekha_TheRenderingOfAResidueHasASectionButNoMemoryOnceTwoResiduesShareTheMark where
+module ResidueLekha_TheRenderingOfAResidueHasASectionButNoMemoryOnceTwoResiduesShareTheMark where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (fiber)

@@ -50,7 +50,7 @@
 -- said rather than left for a reader to discover.
 ------------------------------------------------------------------------
 
-module Kosa_TheWorkingTreeTheLineDiffAndTheBlameAreBuiltAndCommutationIsProvedNotAssumed where
+module Shell_TheWorkingTreeTheLineDiffAndTheBlameAreBuiltAndCommutationIsProvedNotAssumed where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; discreteℕ)

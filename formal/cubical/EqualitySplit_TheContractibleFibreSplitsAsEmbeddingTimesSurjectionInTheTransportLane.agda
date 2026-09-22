@@ -21,7 +21,7 @@
 -- The split sits beside `-`.
 ------------------------------------------------------------------------
 
-module SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane where
+module EqualitySplit_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

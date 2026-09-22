@@ -67,7 +67,7 @@
 -- whose other reading has no one-wayness at all.
 ------------------------------------------------------------------------
 
-module Sha256Sesa_TheCompletionInvertsTheRealHashFreelyAndAnInverterOfTheLossyProjectionIsExactlyCollisionFreedom where
+module Sha256Residue_TheCompletionInvertsTheRealHashFreelyAndAnInverterOfTheLossyProjectionIsExactlyCollisionFreedom where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

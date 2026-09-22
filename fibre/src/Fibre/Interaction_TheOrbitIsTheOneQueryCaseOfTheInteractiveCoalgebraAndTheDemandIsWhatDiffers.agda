@@ -47,7 +47,7 @@
 -- theorem.
 ------------------------------------------------------------------------
 
-module Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers where
+module Fibre.Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat

@@ -95,7 +95,7 @@
 -- computer; it is what its equality IS.
 ------------------------------------------------------------------------
 
-module Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where
+module Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
