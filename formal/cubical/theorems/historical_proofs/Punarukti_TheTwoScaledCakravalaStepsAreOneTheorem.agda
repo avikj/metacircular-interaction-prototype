@@ -52,7 +52,7 @@ private
 module Bridge (CR : CommRing ℓ) where
 
   open CommRingStr (snd CR)
-  open Bhavana.Form CR using (R ; N)
+  open Composition.Form CR using (R ; N)
   open CakravalaDescent.Descent CR using (cakravalaScaled)
   open NMC.Cycle CR using (OnForm ; cakravala-step)
 

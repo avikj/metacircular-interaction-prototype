@@ -9,7 +9,7 @@
 -- out as a top-level declaration:
 --
 --   Nasti_ShabdeJivahVartante.संक्रमणम्-अलोपः
---   SankramanaSesa_EveryTransportOwesItsResidual.अलोपः
+--   TransportResidue_EveryTransportOwesItsResidual.अलोपः
 --   Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.संक्रमणे-न-किञ्चिन्-नश्यति
 --
 -- Two of the three carry the same  stem under different module roofs.
@@ -79,7 +79,7 @@ private
 
 शेष-तादात्म्यम्
   : {A B : Type ℓ} (e : A ≃ B) (a : A)
-  → SankramanaSesa_EveryTransportOwesItsResidual.अलोपः e a ≡ अलोपः e a
+  → TransportResidue_EveryTransportOwesItsResidual.अलोपः e a ≡ अलोपः e a
 शेष-तादात्म्यम् e a = refl
 
 अप्रतिकार्य-तादात्म्यम्
@@ -93,12 +93,12 @@ private
 समनामन्-तादात्म्यम्
   : {A B : Type ℓ} (e : A ≃ B) (a : A)
   → Nasti_ShabdeJivahVartante.संक्रमणम्-अलोपः e a
-  ≡ SankramanaSesa_EveryTransportOwesItsResidual.अलोपः e a
+  ≡ TransportResidue_EveryTransportOwesItsResidual.अलोपः e a
 समनामन्-तादात्म्यम् e a = refl
 
 तृतीय-तादात्म्यम्
   : {A B : Type ℓ} (e : A ≃ B) (a : A)
-  → SankramanaSesa_EveryTransportOwesItsResidual.अलोपः e a
+  → TransportResidue_EveryTransportOwesItsResidual.अलोपः e a
   ≡ Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.संक्रमणे-न-किञ्चिन्-नश्यति e a
 तृतीय-तादात्म्यम् e a = refl
 
@@ -108,7 +108,7 @@ private
 संक्रमण-तादात्म्यम्
   : {A B : Type ℓ} (e : A ≃ B)
   → Nasti_ShabdeJivahVartante.संक्रमणम् e
-  ≡ SankramanaSesa_EveryTransportOwesItsResidual.संक्रमणम् e
+  ≡ TransportResidue_EveryTransportOwesItsResidual.संक्रमणम् e
 संक्रमण-तादात्म्यम् e = refl
 
 ------------------------------------------------------------------------
