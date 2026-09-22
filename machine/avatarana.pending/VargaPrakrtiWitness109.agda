@@ -45,7 +45,7 @@ open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import VargaPrakrti_TraceCompositionOverN
   using (vpX ; vpY ; vpQ ; vpStepX ; vpStepY
-        ; bhavanaTraceℕ ; cakravalaTraceℕ)
+        ; compositionTraceℕ ; cakravalaTraceℕ)
 
 T C Δ : ℕ
 T = 1
@@ -168,7 +168,7 @@ fundamentalUnit = refl
 -- Each rung is Brahmagupta's composition of the rung below with
 -- ε — no search, no candidate set.  `vpX`/`vpY` are the general
 -- composed coordinates and the `refl`s say the reactor's numbers
--- are exactly what those functions compute; `bhavanaTraceℕ` is
+-- are exactly what those functions compute; `compositionTraceℕ` is
 -- the law that rung is an instance of.
 ------------------------------------------------------------------------
 
@@ -192,7 +192,7 @@ rungLaw2 : vpX C x y x y · vpX C x y x y
      ≡ vpQ T x y · vpQ T x y
      + (C · C · (y · y · (y · y))
         + C · (vpY T x y x y · vpY T x y x y))
-rungLaw2 = bhavanaTraceℕ T C x y x y
+rungLaw2 = compositionTraceℕ T C x y x y
 
 e3x e3y : ℕ
 e3x = 8038657
@@ -214,7 +214,7 @@ rungLaw3 : vpX C e2x e2y x y · vpX C e2x e2y x y
      ≡ vpQ T e2x e2y · vpQ T x y
      + (C · C · (e2y · e2y · (y · y))
         + C · (vpY T e2x e2y x y · vpY T e2x e2y x y))
-rungLaw3 = bhavanaTraceℕ T C e2x e2y x y
+rungLaw3 = compositionTraceℕ T C e2x e2y x y
 
 e4x e4y : ℕ
 e4x = 2098120276
@@ -236,7 +236,7 @@ rungLaw4 : vpX C e3x e3y x y · vpX C e3x e3y x y
      ≡ vpQ T e3x e3y · vpQ T x y
      + (C · C · (e3y · e3y · (y · y))
         + C · (vpY T e3x e3y x y · vpY T e3x e3y x y))
-rungLaw4 = bhavanaTraceℕ T C e3x e3y x y
+rungLaw4 = compositionTraceℕ T C e3x e3y x y
 
 e5x e5y : ℕ
 e5x = 547617430693
@@ -258,7 +258,7 @@ rungLaw5 : vpX C e4x e4y x y · vpX C e4x e4y x y
      ≡ vpQ T e4x e4y · vpQ T x y
      + (C · C · (e4y · e4y · (y · y))
         + C · (vpY T e4x e4y x y · vpY T e4x e4y x y))
-rungLaw5 = bhavanaTraceℕ T C e4x e4y x y
+rungLaw5 = compositionTraceℕ T C e4x e4y x y
 
 e6x e6y : ℕ
 e6x = 142930247531149
@@ -280,7 +280,7 @@ rungLaw6 : vpX C e5x e5y x y · vpX C e5x e5y x y
      ≡ vpQ T e5x e5y · vpQ T x y
      + (C · C · (e5y · e5y · (y · y))
         + C · (vpY T e5x e5y x y · vpY T e5x e5y x y))
-rungLaw6 = bhavanaTraceℕ T C e5x e5y x y
+rungLaw6 = compositionTraceℕ T C e5x e5y x y
 
 ------------------------------------------------------------------------
 -- THE TRANSPORT — nothing is lost, and the kernel says so.

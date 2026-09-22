@@ -47,7 +47,7 @@
 --
 -- WHAT IS PROVED HERE.  --safe, no postulates, no holes.
 --
---   bhavanaTraceℕ     the composition law with the middle coefficient,
+--   compositionTraceℕ     the composition law with the middle coefficient,
 --                     for ALL naturals T C x₁ y₁ x₂ y₂.
 --   cakravalaTraceℕ   the cycle's step — composition with the
 --                     interpolator (m, 1) — for ALL naturals T C a b m.
@@ -119,7 +119,7 @@ vpQ T x y = x · x + T · (x · y)
 -- induction, no ordering, and no subtraction.
 ------------------------------------------------------------------------
 
-bhavanaTraceℕ
+compositionTraceℕ
   : (T C x₁ y₁ x₂ y₂ : ℕ)
   → vpX C x₁ y₁ x₂ y₂ · vpX C x₁ y₁ x₂ y₂
       + (T · (vpX C x₁ y₁ x₂ y₂ · vpY T x₁ y₁ x₂ y₂)
@@ -127,7 +127,7 @@ bhavanaTraceℕ
   ≡ vpQ T x₁ y₁ · vpQ T x₂ y₂
       + (C · C · (y₁ · y₁ · (y₂ · y₂))
          + C · (vpY T x₁ y₁ x₂ y₂ · vpY T x₁ y₁ x₂ y₂))
-bhavanaTraceℕ T C x₁ y₁ x₂ y₂ = solveℕ!
+compositionTraceℕ T C x₁ y₁ x₂ y₂ = solveℕ!
 
 ------------------------------------------------------------------------
 -- THE CYCLE'S STEP, over ℕ, subtraction-free.
@@ -188,7 +188,7 @@ vpQIsSquare x y = solveℕ!
 -- proved here by calling the solver again, which would show only that both
 -- are semiring identities and would leave the generalisation and the source
 -- as two unrelated true things.  It is `transport`ed out of
--- `bhavanaTraceℕ 0 D x₁ y₁ x₂ y₂` along the two coordinate equalities
+-- `compositionTraceℕ 0 D x₁ y₁ x₂ y₂` along the two coordinate equalities
 -- above.  So: the general law AT T = 0 IS his law, and the kernel says so.
 --
 -- The `0 · (X · Y) +` summand of the general statement disappears
@@ -214,7 +214,7 @@ brahmaguptaIsTheTraceZeroCase D x₁ y₁ x₂ y₂ =
              + (D · D · (y₁ · y₁ · (y₂ · y₂))
                 + D · (vpYIsBrahmagupta x₁ y₁ x₂ y₂ i
                        · vpYIsBrahmagupta x₁ y₁ x₂ y₂ i)))
-    (bhavanaTraceℕ 0 D x₁ y₁ x₂ y₂)
+    (compositionTraceℕ 0 D x₁ y₁ x₂ y₂)
 
 ------------------------------------------------------------------------
 -- and the same for the CYCLE: `CakravalaNat.ca` and `.cb` are the T = 0
