@@ -25,7 +25,7 @@
 -- names, one equivalence — which is exactly 5.29's "simultaneously".
 --
 -- पुनरुद्धार (punar-uddhāra), "raising up again, restoration" — ordinary
--- ; the compound with ��� is built here.
+-- ;− the compound with संरक्षकसमूह is built here.
 ------------------------------------------------------------------------
 
 module SatPunaruddhara_TheExistentsThreefoldNatureSurvivesItsAuthorsBurnBecauseContentIsNeverOwned where

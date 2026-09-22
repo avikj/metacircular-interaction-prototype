@@ -11,7 +11,7 @@
 --
 --   ROAD ONE — bind so the half rides FREE.  `isProp (शेष _+_ c)`: the
 --     half is unique if it exists, contractible, gauge.  That predicate IS
---     UniquenessMatraDvaya's `halvesUniquely` (its � is this �), the exact
+--     UniquenessMatraDvaya's `halvesUniquely` (its Σ is this Σ), the exact
 --     hypothesis that FORCES the symmetric Born weight ½.  Over an
 --     archimedean carrier (ℚ, ℝ) it holds at c = 𝟙: the Born ½.
 --

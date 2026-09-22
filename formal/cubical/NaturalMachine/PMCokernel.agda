@@ -41,7 +41,7 @@
 --     `each-obs-twice` are about one map and not two.
 --   * `even-total-is-image` / `image-is-even-total` — EXACTNESS, both
 --     inclusions: im δ is EXACTLY ker(total).  With `total-onto` this
---     is coker δ � F� with `total` as the class evaluator.
+--     is coker δ ≅ 𝔽₂𝔽₂F with `total` as the class evaluator.
 --   * `local-section` — each context separately admits an assignment
 --     with the prescribed parity (the obstruction is global, not local).
 --   * `rows-only-section` — the rows-only cover admits a global
@@ -396,7 +396,7 @@ rows-only-section = zeroObs , refl , refl , refl
 ------------------------------------------------------------------------
 -- 6.  EXACTNESS: im δ is exactly ker(total), and total is onto.
 --
--- Together: coker δ � �� with `total` as the class evaluator.
+-- Together: coker δ ≅ 𝔽₂ with `total` as the class evaluator.
 -- The hard inclusion is imported from `PMTorus.even-kernel-is-image` along
 -- the graph identification of §7 — no second preimage construction.
 ------------------------------------------------------------------------

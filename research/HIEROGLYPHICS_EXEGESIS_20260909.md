@@ -475,7 +475,7 @@ Cakravla file's scope correction (the bred sequence is the squares
 subsequence, "the infinitude of the FULL set is proved in the cubical
 lane").
 
-## 21. The fleet's own list (`main:WHAT_IS_ACTUALLY_OPEN_�_2026_08_14.md`)
+## 21. The fleet's own list (`main:WHAT_IS_ACTUALLY_OPEN_↦_2026_08_14.md`)
 
 Thirty-five open-seed sections extracted mechanically and read. Its finding,
 in its words: "The recurring shape is not an unsolved problem — it is an

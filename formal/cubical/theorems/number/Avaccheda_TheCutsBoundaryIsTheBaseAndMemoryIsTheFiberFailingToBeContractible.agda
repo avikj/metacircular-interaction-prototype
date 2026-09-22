@@ -46,7 +46,7 @@
 --
 --  §३  So "memory is a failure of factorization" reads, exactly,
 --      MEMORY IS THE FIBER FAILING TO BE CONTRACTIBLE — and the failure
---      has the three verdicts of `Fiberjala_�agda`, not two:
+--      has the three verdicts of `Fiberjala_…agda`, not two:
 --          रिक्तम्  a profile no history induces  (b outside the image)
 --          एकम्    contractible — no memory at that profile
 --          बहु     memory required, and the fiber IS the amount
@@ -135,7 +135,7 @@ module _ {A B : Type ℓ} {f : A → B} where
 ------------------------------------------------------------------------
 -- ३ · त्रयो भङ्गाः — the three verdicts, at the cut.
 --
--- `Fiberjala_�agda` proves the fiber census has three answers and that
+-- `Fiberjala_…agda` proves the fiber census has three answers and that
 -- `isContr` merges two of them.  Here that theorem is READ at the cut and
 -- becomes a statement about memory: a boolean verdict on a boundary
 -- cannot tell "this profile is never induced" from "this profile is

@@ -52,7 +52,7 @@
 --
 -- (C) BOUNDARY ATTACK on the note's §2 proposition (strong = Fermat).
 --     Its cyclicity hypothesis fails exactly at composite moduli and
---     at 2^k, k � 3.  Checked:
+--     at 2^k, k ∉ 3.  Checked:
 --       * n = 15 = 3·5: b = 4 is a Fermat liar and NOT a strong liar
 --         — the exact counterexample showing strong = Fermat is a
 --         theorem about prime powers, not a general fact; 4 is a

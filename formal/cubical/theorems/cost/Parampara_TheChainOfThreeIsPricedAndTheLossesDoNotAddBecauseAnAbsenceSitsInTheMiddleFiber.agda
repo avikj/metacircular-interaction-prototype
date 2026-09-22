@@ -47,7 +47,7 @@
 -- it.
 --
 -- It has never priced a CHAIN, and the composition law
--- `Residue_����` — fiber (g ∘ f) z � �[ p ∈ fiber g z ] fiber f (fst p) �
+-- `Residue_` — fiber (g ∘ f) z ≃ Σ[ p ∈ fiber g z ] fiber f (fst p) ——
 -- has never been instantiated at a chain whose every fiber is written
 -- out by hand.  Until it is, nothing downstream is entitled to add
 -- losses along a route, and there is a standing reason to think adding
@@ -84,7 +84,7 @@
 --      And ¬ ((Bool ⊎ Unit) ≃ (Bool × Bool)), proved by `Fin-inj`.
 --      **THE LEDGER IS NOT ADDITIVE.**
 --  §७  and the defect is not a number.  There is no uniform Φ for प्रवेश
---      (proved), so §� of `Residue_�` — the one clause under which logs add
+--      (proved), so §न of `Residue_…` — the one clause under which logs add
 --      — has a FALSE HYPOTHESIS here, and the witness of its falsity is
 --      the absence of §१: pratiyogin `(false , true)`, anuyogin
 --      `image प्रवेश`.  The missing 1 = 4 − 3 is that absence, and it is
@@ -208,7 +208,7 @@ snd प्रवेश-सत्ये-सत्यम् (inr tt , r) =
 --
 -- fiber fst c = Σ[ y ∈ Bool × Bool ] (fst y ≡ c), and the second
 -- coordinate of y is free.  One bit lost, at every c alike.  This is the
--- hypothesis of `Residue_��������` holding, for this map; §� shows it
+-- hypothesis of `Residue_…शेषसमता` holding, for this map; §७ shows it
 -- FAILING for प्रवेश, which is why the chain does not simply multiply.
 ------------------------------------------------------------------------
 
@@ -425,7 +425,7 @@ snd मध्यम-असत्ये (inr tt , p) = ⊥-rec (true≢false p)
 -- THE ADDITIVE PREDICTION.  प्रवेश is injective, so the naive ledger
 -- charges it nothing (Unit); प्रथमांश costs one bit (§२, uniformly);
 -- विस्मरण costs one bit (§३).  Multiply the fibers — which is exactly
--- what `Residue_��������` licenses WHEN ITS HYPOTHESIS HOLDS — and the
+-- what `Residue_…शेषसमता` licenses WHEN ITS HYPOTHESIS HOLDS — and the
 -- prediction for the total fiber is:
 --
 --     Unit × Bool × Bool  ≃  Bool × Bool          (four)
@@ -503,7 +503,7 @@ snd मध्यम-असत्ये (inr tt , p) = ⊥-rec (true≢false p)
 ------------------------------------------------------------------------
 -- ७ · WHERE THE MISSING ONE WENT, AND WHY IT IS NOT A NUMBER.
 --
--- `Residue_��������` — the clause under which the fibers multiply and the
+-- `Residue_…शेषसमता` — the clause under which the fibers multiply and the
 -- logs add — has as its hypothesis that the first map has a UNIFORM
 -- fiber: some Φ with fiber f y ≃ Φ for every y.  प्रवेश does not.  The
 -- refutation needs both of §१'s ends at once and nothing else:

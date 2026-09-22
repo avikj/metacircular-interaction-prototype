@@ -121,7 +121,7 @@ module _ {S T : Type} (C : S → T) where
 --                   and the transposition case IS the hypothesis
 --   everyOrderAgreesAfterCompression / disagreementUnderPermutationIsOffTheImage
 --
--- So Δ 28 §36�38's "for every order" holds at the level it
+-- So Δ 28 §36–38's "for every order" holds at the level it
 -- is stated: assume the steps commute PAIRWISE, and every order agrees,
 -- compressed and uncompressed alike.
 --

@@ -51,7 +51,7 @@
 --                            `s ≡ d (mod 2)`, and here it is the stronger
 --                            statement with the witness supplied.
 --
---   §4  `half�retract`       the bridge back: given `half`, doubling is
+--   §4  `half→retract`       the bridge back: given `half`, doubling is
 --                            invertible and §2 collapses to
 --                            `CenterRelative`'s T14.1.  Stated as the
 --                            explicit retract rather than by

@@ -220,7 +220,7 @@ Iso.leftInv  संहति-Iso-वाहकः ((b , q) , (u , p)) i =
       (isContrSingl true))
 
 ------------------------------------------------------------------------
--- � � ��������� — the census is not a function of the two censuses.
+--     the census is not a function of the two censuses.§४
 --
 -- §४ is stated as "if the Σ is contractible then the composite is".  It is
 -- NOT a function from (देश g z) and (देश f) to (देश (g ∘ f) z), and no such

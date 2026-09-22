@@ -253,7 +253,7 @@ singleton-needs-both =
 --
 -- The counterexample to ∩-closure is not incidental to the
 -- string.  It is the trace of the repetition, and the repetition is what
--- Kielhorn I.27.2�20 argues is forced.  The two pratyhras in Pratyahara's
+-- Kielhorn I.27.2–20 argues is forced.  The two pratyhras in Pratyahara's
 -- witness are, further, the two that Patajali cites on OPPOSITE sides
 -- of his alternative — हश् from A 6.1.114 in the *para* branch {10},
 -- शल् from A 3.1.45 in the *pūrva* branch {20} — and each of those is

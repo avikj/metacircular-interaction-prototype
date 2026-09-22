@@ -40,7 +40,7 @@
 --     `each-obs-twice` are about one map and not two.
 --   * `even-total-is-image` / `image-is-even-total` — EXACTNESS, both
 --     inclusions: im δ is EXACTLY ker(total).  With `total-onto` this
---     is coker δ � F� with `total` as the class evaluator.
+--     is coker δ ≅ 𝔽₂𝔽₂F with `total` as the class evaluator.
 --   * `local-section` — each context separately admits an assignment
 --     with the prescribed parity (the obstruction is global, not local).
 --   * `rows-only-section` — the rows-only cover admits a global

@@ -9,7 +9,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS PROVES.
 --
--- `fiber/src/Fiber/WholePartialDesa_�` makes the fiber
+-- `fiber/src/Fiber/WholePartialDesa_…` makes the fiber
 -- diagnosis a TERM — `देश f b` with three constructors, अवक्तव्यम् (empty
 -- fiber: nothing lost, the medium has no name for b, धनात्मकम्),
 -- सकलादेश (contractible: one utterance carries all), विकलादेश (two points
@@ -31,7 +31,7 @@
 --
 --     (x : ∥ A ∥₁) → fiber ∣_∣₁ x ≃ A
 --
--- §� below proves that line.
+-- §न below proves that line.
 --
 -- ────────────────────────────────────────────────────────────────────
 --
@@ -84,7 +84,7 @@ private
 -- (isProp→isContrPath), so the second component of the Σ contributes
 -- nothing and contracts away (Σ-contractSnd), leaving A itself.
 --
--- Read against `Residue_�`: the residual over a target point is what the
+-- Read against `Residue_…`: the residual over a target point is what the
 -- target forgot there.  Here it forgot everything — the residual is not a
 -- part of the source, it is the source.  So no map out of the target can
 -- ever distinguish two points of A, because the target's every point
@@ -107,8 +107,8 @@ private
 --     "The loss is total at b" := the residual over b is the whole source.
 --
 -- ��������� does NOT separate the levels.  It holds of `���������� : Bool � Unit`, the
--- map that drops exactly one bit — `Residue_�` §5, at level
--- � of a five-level scale.  `Unit` is a proposition,
+-- map that drops exactly one bit — `Residue_…` §5, at level
+-- न of a five-level scale.  `Unit` is a proposition,
 -- so the path component of the fiber contracts and the fiber is `Bool`,
 -- the whole source.  The proof is §२'s proof with `isPropUnit` for
 -- `isPropPropTrunc`, which is why: this criterion reads propositionality
@@ -132,8 +132,8 @@ private
 -- � � The seam, and the refutation of the criterion.
 --
 -- `���������` is satisfied by
--- the corpus's own level-� archetype;
--- and the level-� half of the scale — a proper fiber, with something
+-- the corpus's own level-न archetype;
+-- and the level-३ half of the scale — a proper fiber, with something
 -- out of the source still seeing the difference — is satisfied at the
 -- level-४ archetype and is vacuous wherever the fiber is crowded.  Both
 -- halves are refuted in

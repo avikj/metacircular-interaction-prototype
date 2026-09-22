@@ -1070,7 +1070,7 @@ import TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
 import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
 
--- Two items of WhatThisIsAndHowToDescend� §8, on the
+-- Two items of WhatThisIsAndHowToDescend… §8, on the
 -- kernel's own terms:
 --   §8(d)  the counting semantics is the cardinality of the categorified one
 --          (⟦ t ⟧ (finEnv ρ) ≃ Fin (eval t ρ)), and derivation-sound is its

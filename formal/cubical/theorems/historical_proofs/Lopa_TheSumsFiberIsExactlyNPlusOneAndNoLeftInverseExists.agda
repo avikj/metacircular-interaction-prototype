@@ -47,7 +47,7 @@
 --  §१  fiber योग n ≡ Pairs n.  Definitional; the identification is refl.
 --  §२  fiber योग n ≃ SumFin (suc n).  The loss at n is EXACTLY n+1-fold.
 --      Not "at least", not measured — the equivalence is `pairsFin`.
---  §�  The three verdicts of `Avaccheda_�` / `Fiberjala_�`, all three
+--  §३  The three verdicts of `Avaccheda_…` / `Fiberjala_…`, all three
 --      decided at this one edge, which is what makes it worth writing:
 --        रिक्तम्  NEVER — योग is surjective, witness given.
 --        एकम्    at n = 0 and nowhere else.

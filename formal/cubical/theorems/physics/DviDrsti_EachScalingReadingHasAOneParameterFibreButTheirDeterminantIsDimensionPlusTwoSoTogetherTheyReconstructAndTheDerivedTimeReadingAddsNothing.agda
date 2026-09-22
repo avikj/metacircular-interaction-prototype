@@ -60,9 +60,9 @@
 --       that no division occurs, is a product with `q - 1` as a factor —
 --       which is why §5 is exactly the case where it vanishes.
 --
--- §§1�4 in any commutative ring, for every
+-- §§1ℓ4 in any commutative ring, for every
 -- dimension `d` as a natural number and every pair of coordinates.
--- §§5�7 in �.
+-- §§5ℓ7 in ℕ.
 ------------------------------------------------------------------------
 
 module DviDrsti_EachScalingReadingHasAOneParameterFibreButTheirDeterminantIsDimensionPlusTwoSoTogetherTheyReconstructAndTheDerivedTimeReadingAddsNothing where

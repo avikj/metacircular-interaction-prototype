@@ -365,7 +365,7 @@ module Kernel where
   cf-direct = record { target = target‚ÇÄ ; derivation = direct-history }
 
   ----------------------------------------------------------------------
-  -- ‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡ ‚Äî THE PROCESS SPACE IS NOT A POINT.
+  -- ‡§µ‡§∞‡•ç‡§ß‡§®-‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç ‚Äî THE PROCESS SPACE IS NOT A POINT.
   -- The event datum is a Derivation; a Derivation has a
   -- LENGTH (a set-valued invariant), and length sidesteps every h-level
   -- obstruction.  Two processes that emit derivations of different

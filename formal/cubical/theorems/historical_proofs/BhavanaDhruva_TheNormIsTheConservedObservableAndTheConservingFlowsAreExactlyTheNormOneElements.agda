@@ -60,8 +60,8 @@
 --
 -- Brahmagupta
 -- states the composition identity; the reading of it as a conserved
--- observable with a flow, and the biconditional §�, are this
--- corpus's, and the compound ���������� is built here.
+-- observable with a flow, and the biconditional §न, are this
+-- corpus's, and− the compound संरक्षकसमूह is built here.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- NO SOLVER.  Every step is a hand chain over the CommRing structure,

@@ -13,7 +13,7 @@
 --
 -- — which is the sevenfold theorem with a comment attached, not the fibre
 -- theorem.  §५ there then exhibits the collapse by hand (⊥ → Unit against
--- Bool � Unit) rather than deriving it.  The term that
+-- Bool → Unit) rather than deriving it.  The term that
 -- makes the transfer a computation is a map from the three seeds to three
 -- WITNESS TYPES, so that an arbitrary verdict on fibres pulls back to a
 -- verdict on सप्तभङ्गी and `दुर्नयः` fires on it.  §२ below is that term, and

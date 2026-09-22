@@ -3,7 +3,7 @@
 -- TwoFibrations: the pair field's shape as ONE total space with TWO
 -- structure maps.
 --
--- For an abstract predicate P : â• â’ â• â’ Type (for instance "both legs of the
+-- For an abstract predicate P : â„• â†’ â„• â†’ Type (for instance "both legs of the
 -- pair (w - r , w + r) are prime"; here deliberately abstract),
 -- the total space
 --

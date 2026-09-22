@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ������-������ — uniqueness (uniqueness) of the mtr (measure/weight).
+-- एकत्व-मात्रा — uniqueness (uniqueness) of the mātrā (measure/weight).
 -- Compound built here for program � of YugaParivartana
 -- (Born as the ethics of information).  Sources as UniquenessNirnaya /
 -- AvaktavyaPrasava give them.
@@ -24,7 +24,7 @@
 --                      (take nothing not unanimously given)
 --   is determined COMPLETELY on nonempty contentions: any two such rules
 --   agree at every result (एकत्वम्-मात्रा), by the same decidable
---   dichotomy UniquenessNirnaya used.  So the {�,�}-valued (support) part of
+--   dichotomy UniquenessNirnaya used.  So the {𝟘,𝟙}-valued (support) part of
 --   the Born weights has no rival within the vows — exactly as the
 --   qualitative layer, now on weights.
 ------------------------------------------------------------------------

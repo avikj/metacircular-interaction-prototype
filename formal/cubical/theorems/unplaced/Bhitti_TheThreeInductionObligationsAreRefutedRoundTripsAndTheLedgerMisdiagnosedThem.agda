@@ -47,7 +47,7 @@ import OptionSpread as S13
 -- functions are REDEFINED here verbatim, each duplicate named, per the
 -- corpus's self-contained-by-redefinition discipline: Config, Xs, Qs
 -- from IntegerHullMultiplicity.agda lines 87–104 and hull from lines
--- 260�262, copied character for character.
+-- 260–262, copied character for character.
 open import Cubical.Data.Nat using (_+_ ; _·_)
 
 Config : Type

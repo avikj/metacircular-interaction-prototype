@@ -58,7 +58,7 @@
 --     it.  Consensus on meaning is not forbidden here; it is VACUOUS.
 --
 -- AND THE PART THAT IS NOT VACUOUS IS ADDITIVE, NOT EXCLUSIVE.  §5: what
--- two nodes genuinely differ on is the ROUTE -- and `Residue_�` exhibits two
+-- two nodes genuinely differ on is the ROUTE -- and `Residue_…` exhibits two
 -- routes between the same endpoints with equal meanings and different
 -- lengths, neither of them wrong.  A fork is not a disagreement to be
 -- settled; it is two carriers of the same fact, and `advance` is forbidden
@@ -140,7 +140,7 @@ round-trip-is-the-identity {a} d ρ = isSetℕ (eval a ρ) (eval a ρ) _ _
 -- constructor application from `p`, and the round trip `d ⊕ rev d` is a
 -- derivation of positive length where `done` has length zero.  §1's
 -- strictness is what merging needs; this weakness is where the cost lives,
--- and `Residue_�` proves no function of the meaning can see it.
+-- and `Residue_…` proves no function of the meaning can see it.
 the-round-trip-is-not-nothing :
   len (then-step (add-suc var zero) (done (suc (add var zero)))) ≡ ℕ.suc ℕ.zero
 the-round-trip-is-not-nothing = refl
@@ -231,7 +231,7 @@ the-merge-decides-nothing {a} {b} mine theirs ρ =
 ------------------------------------------------------------------------
 -- §5.  ANEKNTA.  And what DOES differ is kept, not settled.
 --
--- The routes differ and neither is wrong: `Residue_�` exhibits two derivations
+-- The routes differ and neither is wrong: `Residue_…` exhibits two derivations
 -- of the same fact with equal meanings and lengths 2 and 4.  A fork here is
 -- not a disagreement awaiting a verdict -- it is two carriers of one fact,
 -- and `advance-preserves-branch-count` is the rule that both survive the

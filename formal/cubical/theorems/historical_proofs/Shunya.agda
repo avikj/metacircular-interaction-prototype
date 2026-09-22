@@ -22,13 +22,13 @@
 -- whole effort removes.)
 ------------------------------------------------------------------------
 
--- The identification of 00 with ààµà•àààµàà¯à®à,
+-- The identification of 00âˆˆ with ,
 -- the saptabhag's fourth position, does not hold â€” and it fails by
 -- SaptabhangiNaya.agda's own criterion, in this same directory, not
 -- by an outside standard.  Â§5 there defines avaktavyam as the case
 -- where NO SINGLE UTTERANCE denotes the content, proved exhaustively
 -- over the six atoms of its language.  00's situation IS denotable
--- in one utterance: every x whatsoever satisfies 0Âx = 0, which is
+-- in one utterance: every x whatsoever satisfies 0Â·x = 0, which is
 -- one complete statement saying exactly what is wrong.
 --
 -- The two defects are opposite.  avaktavyam: the content is

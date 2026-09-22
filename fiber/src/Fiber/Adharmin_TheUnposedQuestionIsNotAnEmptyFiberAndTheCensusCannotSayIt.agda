@@ -18,7 +18,7 @@
 -- WHY THIS MODULE EXISTS.  Its neighbour repaired a collapse and
 -- committed the same collapse one level up.
 --
--- `WholePartialDesa_�` (this library) replaced a two-valued test
+-- `WholePartialDesa_…` (this library) replaced a two-valued test
 -- with a three-valued census — empty / contractible / crowded — because
 -- `isContr` was merging नास्ति with नष्टि.  That was right.
 --

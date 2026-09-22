@@ -8,7 +8,7 @@
 -- ITERATED DIFFERENCES OF THE NORMALIZED SOURCE ARE EXACTLY THE
 -- RESIDUAL TOWER, RESCALED.
 --
--- Two identities from the arithmetic inverse [S19 §§8�10],
+-- Two identities from the arithmetic inverse [S19 §§8–10],
 -- both pure algebra.
 --
 --   §1  THE NORMAL FORM.  With `T` the shift, `ρ` the damping, and `c`

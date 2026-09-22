@@ -33,7 +33,7 @@
 -- the tirtha-graph vocabulary `SetuYugma` established for this region.
 -- The decategorification side (œÄ‚ÇÄ of finite sets, cardinality of a finite
 -- set) is category-theoretic;
--- the compound ‡‡ï‡æ‡ï‡‡‡∞-‡‡‡‡ is built here.
+-- t‚àíhe compound ‡§∏‡§Ç‡§∞‡§ï‡•ç‡§∑‡§ï‡§∏‡§Æ‡•Ç‡§π‡§∏‡§Ç‡§∞‡§ï‡•ç‡§∑‡§ï‡§∏‡§Æ‡•Ç‡§π- is built here.
 --
 -- No sorry / postulate / axiom / hole; no Bool, no decision.
 ------------------------------------------------------------------------

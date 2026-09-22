@@ -169,7 +169,7 @@ join-does-not-follow p =
 --
 -- §4 above reads `disjoint-support` as "the parity barrier is a chart
 -- incompatibility" and calls it "its whole content".  That reading is
--- scoped: the theorem is about � **with the
+-- scoped: the theorem is about ℕ **with the
 -- successor**, whose generator 1 is a unit and therefore multiplicatively
 -- invisible by construction.  It is not a theorem about arithmetic
 -- carrying two structures.

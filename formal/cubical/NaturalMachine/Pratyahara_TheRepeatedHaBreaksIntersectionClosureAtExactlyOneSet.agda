@@ -25,7 +25,7 @@
 -- WHAT IS CLAIMED OF PINI.  Only the data: the fourteen stras in the
 -- order given, the it-markers as given, ह twice, ण् twice.  That
 -- encoding is corroborated against an independent implementation from
--- inside the tradition �
+-- inside the tradition —
 -- `/root/agda-libs/vidyut/vidyut-prakriya/src/sounds.rs`, whose `SUTRAS`
 -- table is sound-for-sound and marker-for-marker the same list, and
 -- whose scan (like `from` below) starts at the FIRST occurrence of the

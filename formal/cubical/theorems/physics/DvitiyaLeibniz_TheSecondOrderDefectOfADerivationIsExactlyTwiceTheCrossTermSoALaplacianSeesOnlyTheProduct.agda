@@ -41,7 +41,7 @@
 -- with no first-order term anywhere.  The sum and the sign are the
 -- reading; §2 is the theorem, at one derivation.
 --
--- §§1�2 in an arbitrary ring, carrier taken
+-- §§1ℓ2 in an arbitrary ring, carrier taken
 -- as the ring itself, for every two-argument `br` — no bilinearity of
 -- `br` is used or assumed anywhere below, only the Leibniz law relating
 -- it to `d` — every additive `d`, and every pair of arguments.

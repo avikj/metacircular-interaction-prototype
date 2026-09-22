@@ -4,7 +4,7 @@
 -- विलोपः — the annihilation is exactly a FAILURE OF CHOICE, and that is why
 -- cost cannot compose.
 --
--- One level under `DesaAggregate_�NotAGradedMonoid`.
+-- One level under `DesaAggregate_…NotAGradedMonoid`.
 -- That file proved cost is not a graded monoid and wrote, in its §६ दोषलेख,
 -- that no census-to-census composition function exists because "the outcome
 -- depends on WHICH point of the outer fiber carries the empty inner fiber,
@@ -26,7 +26,7 @@
 -- WHY THAT IS THE FLOOR.  A census is pointwise data.  A
 -- section is not pointwise data — its existence is a global fact about the
 -- family, recoverable from no amount of per-point information.  So
--- DesaAggregate's §� is not a gap in that file; it is a theorem about all
+-- DesaAggregate's §६ is not a gap in that file; it is a theorem about all
 -- possible cost models here: composing costs would require choosing, the
 -- corpus refuses choice (no Dec, no Bool, no decision anywhere in the core),
 -- and the very failure it refuses to paper over is what makes losses cancel.

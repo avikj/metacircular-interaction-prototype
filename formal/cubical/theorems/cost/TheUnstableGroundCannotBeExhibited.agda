@@ -76,7 +76,7 @@
 -- None of the three is in this file.  The statement here is: `�
 -- FactorsThrough` is an obstruction to expressibility by one decoder,
 -- and calling it the fourth bhaga is a naming convention, not a
--- theorem.  A �� that asserts itself by denying the others is a
+-- theorem.  A नय that asserts itself by denying the others is a
 -- दुर्नय; a name that asserts an identification it has not shown is the
 -- same failure at the level of vocabulary.
 --

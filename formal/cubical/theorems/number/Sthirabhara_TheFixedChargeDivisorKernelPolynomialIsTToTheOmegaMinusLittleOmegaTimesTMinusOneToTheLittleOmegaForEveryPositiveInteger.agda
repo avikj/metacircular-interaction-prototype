@@ -43,7 +43,7 @@
 --     ω-is-smallOmega  : (n : ℕ) → 1 ≤ n → ω n ≡ smallOmega n
 --
 -- so Ω(n) is the length of Drdha's list — of EVERY list of firm numbers
--- with product n, by Uniqueness's uniqueness (a Perm preserves length) �
+-- with product n, by Uniqueness's uniqueness (a Perm preserves length) —
 -- and ω(n) is TransmissionRefutations' exhaustive count of primes
 -- dividing n, whose `isPrimeb` is shown to be Drdha's दृढम् in both
 -- directions (`isPrimeb-firm`, `firm-isPrimeb`).

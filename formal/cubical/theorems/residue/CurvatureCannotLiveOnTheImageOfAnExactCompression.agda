@@ -107,7 +107,7 @@ module _ {S T : Type}
 -- argument look like a chain.
 --
 -- Every order, not just two: `PairwiseCommutationGivesEveryOrder`.
--- `_~_` is the permutation relation �
+-- `_~_` is the permutation relation —
 -- identity, congruence under `∷`, adjacent transposition, transitivity
 -- — and `permInvariant` is the induction, with the transposition case
 -- BEING the commutation hypothesis.  `everyOrderAgreesAfterCompression`

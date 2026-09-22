@@ -68,7 +68,7 @@
 --  * **Not novel, and Delta 19 says so first**: S19.14 — "this is
 --    classical minimal realization/observability theory in the linear
 --    case.  Do not reinvent it."  S19.31 identifies the same skeleton as
---    Mori�Zwanzig.  The contribution is
+--    MoriℓZwanzig.  The contribution is
 --    that the core has the congruence lemma and the strictness
 --    witness as terms.
 ------------------------------------------------------------------------

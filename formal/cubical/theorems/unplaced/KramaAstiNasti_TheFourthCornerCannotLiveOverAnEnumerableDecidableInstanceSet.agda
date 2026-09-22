@@ -17,7 +17,7 @@
 --   neither unknown nor undefined nor empty but a positive fourth position.
 --   The distinction is what makes seven positions and not four.
 --
--- The sevenfold division and the ‡ï‡‡∞‡Æ/‡‡ distinction are
+-- The sevenfold division and the ‡§ï‡•ç‡§∞‡§Æ/‡§∏‡§π distinction are
 -- theirs, stated as doctrine; the theorems here are about what the fourth
 -- corner can and cannot be over particular index types in cubical type
 -- theory, and they are this repository's.

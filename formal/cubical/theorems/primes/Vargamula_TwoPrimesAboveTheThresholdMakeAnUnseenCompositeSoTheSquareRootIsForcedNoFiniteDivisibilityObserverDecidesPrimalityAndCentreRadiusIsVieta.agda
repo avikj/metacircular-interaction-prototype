@@ -80,7 +80,7 @@
 -- The sentence "growth of the
 -- sufficient observer with task scale" is illustrated (T22.3 gives a
 -- sufficient observer of size âˆšX; T22.4 shows z < âˆšX does not suffice when
--- two primes sit in (z, âˆX]).
+-- two primes sit in (z, âˆˆX]).
 -- T22.5 over â uses no ordering; the â• chart needs r â‰ w and says so.
 ------------------------------------------------------------------------
 

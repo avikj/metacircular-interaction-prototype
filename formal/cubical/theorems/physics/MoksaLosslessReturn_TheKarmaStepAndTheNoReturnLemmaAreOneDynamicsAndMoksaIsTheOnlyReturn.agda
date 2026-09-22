@@ -11,7 +11,7 @@
 --     (a = 0) with nirjarā (r ≥ 1) the count strictly drops while
 --     positive and REACHES 0 (ktsna-karma-kaya = moka), ABSORBING.
 --
---   Ratri/Nirdharana_Hull_�agda — noReturn: a positively
+--   Ratri/Nirdharana_Hull_↦agda — noReturn: a positively
 --     priced loop  suc (k + s · suc m) ≡ s  is refutable by descent, so
 --     a loop that multiplies by ≥ 2 has NO fixed point above zero.
 --

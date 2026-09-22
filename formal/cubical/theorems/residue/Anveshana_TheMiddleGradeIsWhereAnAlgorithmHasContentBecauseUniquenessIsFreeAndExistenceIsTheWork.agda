@@ -39,7 +39,7 @@
 -- The obstruction to undoing is TWO DISTINCT SOURCES over one target,
 -- strictly stronger than बहु, and that is its §२ — four lines, no h-level,
 -- no decidability, no finiteness, arbitrary A and B.  §५ below uses
--- `Bool � Unit`, whose two fibre points DO have distinct sources.
+-- `Bool → Unit`, whose two fibre points DO have distinct sources.
 --
 -- AND THE MIDDLE GRADE IS WHERE AN ALGORITHM HAS CONTENT.  At the top
 -- there is nothing to do; at the bottom there is nothing an algorithm

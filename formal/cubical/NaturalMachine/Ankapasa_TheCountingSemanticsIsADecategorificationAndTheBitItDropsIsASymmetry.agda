@@ -18,7 +18,7 @@
 -- THE THIRD READING OF THE SAME LINE, AND THE ONE THAT BUILDS.
 --
 -- `Vyapti_…` read `NativeOperation.control-sound`: the kernel memorises.
--- `Residue_�`   read `RewriteCertificate.derivation-sound`: the derivation
+-- `Residue_⟦`   read `RewriteCertificate.derivation-sound`: the derivation
 --            carries no meaning, so all of it is remainder.
 --
 -- Both are one fact.  Each soundness field lands in an identity type of a
@@ -45,7 +45,7 @@
 --       commutation.  Then:
 --
 --         counting-semantics-cannot-see-it
---           its �-meaning is equal to `refl`, forced, and by `Residue_�` §4 NO
+--           its ℕ-meaning is equal to `refl`, forced, and by `Residue_⟦` §4 NO
 --           function of that meaning distinguishes it from `done⁺`;
 --         univalent-semantics-does-see-it
 --           its interpretation sends `inl tt` to `inr tt`, so it is not the
@@ -202,7 +202,7 @@ counting-semantics-cannot-see-it :
 counting-semantics-cannot-see-it ρ =
   isSetℕ (eval (add var var) ρ) (eval (add var var) ρ) _ _
 
--- and therefore, by the general no-go of `Residue_�` §4 restated here at Step�,
+-- and therefore, by the general no-go of `Residue_⟦` §4 restated here at Step⁺,
 -- no function whatsoever of the counting meaning separates them.
 no-counting-criterion-separates :
   {C : Type ℓ} (φ : ((ρ : Env) → eval (add var var) ρ ≡ eval (add var var) ρ) → C)

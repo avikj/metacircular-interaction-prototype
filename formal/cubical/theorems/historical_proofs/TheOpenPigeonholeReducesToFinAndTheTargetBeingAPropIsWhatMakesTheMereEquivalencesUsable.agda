@@ -7,11 +7,11 @@
 -- `TheOpenPigeonhole`, a statement about `OptimalObservation`'s own
 -- definition.  That module's three INSTANCES are
 -- Pigala's *Chandastra* uddia (c. 300 BCE), Virahka's
--- mtrmeru (c. 600�800) and a CRT residue decode.
+-- mtrmeru (c. 600–800) and a CRT residue decode.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE ITEM.  `Optimal X Y obs` unfolds to
--- *"`obs` is injective, AND some equivalence `X � Y` exists"*;
+-- *"`obs` is injective, AND some equivalence `X ≃ Y` exists"*;
 -- the second conjunct is not about `obs`.  The statement, as a type:
 --
 --     TheOpenPigeonhole = (X Y : FinSet ℓ-zero) (obs : X .fst → Y .fst)

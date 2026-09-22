@@ -109,12 +109,12 @@
 --     simulator argument.
 --
 --   * COMPLETENESS OF THE CALCULUS is the exact
---     hypothesis §4 takes.  `view : W � V` says an
+--     hypothesis §4 takes.  `view : W → V` says an
 --     honest party's view comes from a witness; it does not say an
 --     inhabitant of `V` entails one.  At the kernel, `Meaning a b` can hold
 --     with no `Derivation a b` -- two terms may be pointwise equal with no
 --     route between them -- so `uniqueness-gives-extraction` demands
---     `V � W` explicitly.  This is COMPLETENESS, not soundness.
+--     `V → W` explicitly.  This is COMPLETENESS, not soundness.
 ------------------------------------------------------------------------
 
 module HidingAndHardnessAreOneFibreSoTwoWitnessesForbidExtraction where

@@ -50,14 +50,14 @@
 --       one defect functional into another by a positive constant does
 --       not change what its vanishing says.
 --
--- WHAT §§5�7 LICENSE.  They say a positive weighted
+-- WHAT §§5ℓ7 LICENSE.  They say a positive weighted
 -- aggregate is a faithful stand-in for the family of pointwise defects,
 -- and that a positive rescaling between two such aggregates is
 -- information-preserving.
 --
 -- SYĀT — THE CLAIM, EXACTLY.  §§1–3 in any ring, for any involution on
 -- any type and any feature into it.  §4 at ℤ on the booleans.  §§5–7 in
--- �, for every finite depth and every positive weight family.
+-- ℕ, for every finite depth and every positive weight family.
 ------------------------------------------------------------------------
 
 module VyarthaCakra_TheDescentDefectSatisfiesItsCocycleIdentityForEveryFeatureSoTheClassSeparatesNothingAndOnlyPointwiseVanishingDoes where

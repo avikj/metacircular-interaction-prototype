@@ -19,7 +19,7 @@
 -- The received placement is in the hetvbhsa passage of adhyya 1, pda 2.  The
 -- definitional apparatus for vypti and its defeat is much later --
 -- Gagea, *Tattvacintmai*, vyptivda (~1325).
--- `Vyapti_â¦` in this directory is the
+-- `Vyapti_â€¦` in this directory is the
 -- sibling module and uses the same school's vocabulary.
 --
 -- AND THE DISPUTE, WHICH IS THE POINT AND MUST NOT BE FLATTENED.

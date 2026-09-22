@@ -166,17 +166,17 @@ module _ {X : Type â„“} where
 -- `PingalaPrastara.matrameruIso`, proved by hand; the general
 -- weighted emitter is `Bharavrtti_TheWeightedCountingMapsFibreDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand.agda`.
 --
--- The general shape: for `f : List X â’ â•` with
+-- The general shape: for `f : List X â†’ â„•` with
 -- `f [] = 0` and `f (x âˆ· xs) = w x + f xs`,
 -- the nil case is a SEPARATE SUMMAND and the decomposition is a coproduct:
 --
 --     fiber f n â‰ƒ (0 â‰¡ n) âŠŽ (Î£[ x âˆˆ X ] Î£[ xs âˆˆ List X ] (w x + f xs â‰¡ n))
 --
--- `f (x âˆ xs)` REDUCES to `w x + f xs`, so
+-- `f (x âˆˆ xs)` REDUCES to `w x + f xs`, so
 -- the path is carried across unchanged and both round trips close by
 -- `refl`.  The cons summand is equivalently
 --     Î[ x âˆˆ X ] Î[ m âˆˆ â• ] (w x + m â‰¡ n) — fiber f m
 -- since `Î[ m ] (f xs â‰¡ m) — â¦`
 -- carries a contractible `singl (f xs)`.
--- The rung is above Â§à§ because the codomain splits, not because
+-- The rung is above Â§à¥§ because the codomain splits, not because
 -- fitting proofs must be built.

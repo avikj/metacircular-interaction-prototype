@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ���� — the shadow, and what is impossible about it.
+-- छाया — the shadow, and what is impossible about it.
 --
 -- TERM.  छाया / *chāyā*, shadow, is `Prakasha`'s own coinage in
 -- this corpus for the truncated form (`G-chaya`), and is carried here for

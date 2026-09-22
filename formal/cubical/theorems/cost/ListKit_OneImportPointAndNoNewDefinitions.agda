@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ListKit_OneImportPointAndNoNewDefinitions
 --
--- ON THE NAME.  **This file is plumbing** �
+-- ON THE NAME.  **This file is plumbing** —
 -- `Any`, `Mem`, filters over lists — with no source in any tradition
 -- and no mathematical content of its own, so it takes an English name
 -- and says why.

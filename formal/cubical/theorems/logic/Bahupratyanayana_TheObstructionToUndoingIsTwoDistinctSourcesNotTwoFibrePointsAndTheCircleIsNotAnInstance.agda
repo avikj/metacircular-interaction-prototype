@@ -49,7 +49,7 @@
 --                            neither implies the other.
 --   `Arpitanarpita_….न-प्रत्यानयनम्` and `AHIMSA_SUTRA`'s
 --   `नास्ति-प्रत्यानयनम्`      are two hand-proved instances of the same
---                            shape.  §� is the law they are instances of.
+--                            shape.  §न is the law they are instances of.
 ------------------------------------------------------------------------
 
 module Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance where

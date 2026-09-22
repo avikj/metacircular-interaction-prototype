@@ -11,7 +11,7 @@
 -- Unique factorisation is in
 --   `Drdha_…`  — दृढम् (prime), वधः (product of a list), विभाजनम्
 --                (existence of a prime list for every n ≥ 1), and
---   `Uniqueness_�` — �������� (two prime lists with one product are a `Perm`),
+--   `Uniqueness_…`  एकत्वम् (two prime lists with one product are a `Perm`),
 --                एकत्व-गणना (hence equal counts of every p), मानम् p n
 --                (the valuation), मान-निश्चयः (every prime list with
 --                product n has count मानम् p n of p).

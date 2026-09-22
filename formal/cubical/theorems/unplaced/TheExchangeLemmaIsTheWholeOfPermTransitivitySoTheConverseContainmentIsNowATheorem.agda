@@ -29,7 +29,7 @@
 --                 hence transitivity, by induction on the first
 --                 derivation alone.
 --   theConverseContainment
---                 `xs ≈ ys � Perm xs ys`, by discharging the
+--                 `xs ≈ ys → Perm xs ys`, by discharging the
 --                 hypothesis.
 --   permutationAndAdjacencyAgree
 --                 both directions in one statement, with

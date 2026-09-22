@@ -4,9 +4,9 @@
 -- WalkChartedStep
 --
 -- THE SEARCH, IN THE CHART.  This file is `findND` re-typed against
--- `Word`, using `WalkResidueBridge`'s `decDivides` in place of `decâˆ`.
--- The two halves it stands on: `WalkResidueBridge.decDividesâ•-agrees`
--- says the charted divisibility test IS `decâˆ`'s decision (`Dec` of a
+-- `Word`, using `WalkResidueBridge`'s `decDivides` in place of `decâˆˆ`.
+-- The two halves it stands on: `WalkResidueBridge.decDividesâ„•-agrees`
+-- says the charted divisibility test IS `decâˆˆ`'s decision (`Dec` of a
 -- proposition is a proposition), so it substitutes without disturbing a
 -- downstream proof; `WalkChartedCap.value-capw` says the charted
 -- capacity IS the capacity.  The search between them is a `findND` that

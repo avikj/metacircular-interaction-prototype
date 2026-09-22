@@ -47,7 +47,7 @@
 -- SYĀT — THE CLAIM, EXACTLY.  §§1–3: install's locus is a contractible
 -- cone, and this is coning-off's defining property, as a term; the fee
 -- is cited.
--- What is proved is one step's shape �
+-- What is proved is one step's shape —
 -- install kills by a contractible cone (§§1–3) and leaves a residual
 -- one level up (the cited fee) — which is one Postnikov step's content.
 ------------------------------------------------------------------------

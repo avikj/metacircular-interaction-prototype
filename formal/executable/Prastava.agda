@@ -316,7 +316,7 @@ nVarsOf l r =
 sigLine : Nat → Tm → Tm → String
 sigLine n l r =
   -- parenthesised: if_then_else_ binds tighter than _&_, so without
-  -- them the " � " would ride OUTSIDE the conditional.
+  -- them the " → " would ride OUTSIDE the conditional.
   "prastava : " & (if n == 0 then "" else (binder n & " → "))
   & emit l & " ≡ " & emit r & "\n"
 

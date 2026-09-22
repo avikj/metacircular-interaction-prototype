@@ -368,7 +368,7 @@ materialization-gap :
 materialization-gap = composite-sufficient , intermediate-insufficient
 
 ------------------------------------------------------------------------
--- §7  Δ01 §§11 and 15�16, read back
+-- §7  Δ01 §§11 and 15ℓ16, read back
 --
 -- Δ01 T11 defines an information edge exactly: given a quotient q, there
 -- is no task-relative obstruction precisely when ker(q) ∈ Suff(R).  §15

@@ -82,7 +82,7 @@
 --  * The equivalence in §4 is with excluded middle for PROPOSITIONS, at
 --    one universe level.  No choice principle is analysed.
 --
---  * §4 quantifies over arbitrary maps `U : A � B` between sets, whereas
+--  * §4 quantifies over arbitrary maps `U : A → B` between sets, whereas
 --    the note quantifies over the hom-action of a forgetful FUNCTOR.
 --    These coincide, by the following construction: let `C` have
 --    objects `{a,b}` with `Hom(a,b) = Dec P`, `Hom(b,a) = �`, and only

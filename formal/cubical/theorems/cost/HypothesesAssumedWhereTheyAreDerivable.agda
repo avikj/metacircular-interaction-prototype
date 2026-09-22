@@ -6,7 +6,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- THE QUESTION
 --
--- At each site that ASSUMES a hypothesis �
+-- At each site that ASSUMES a hypothesis —
 -- `isSet T`, `Discrete T`, stable paths, `Answerable`, `Dec` — is the
 -- hypothesis derivable there?  That question has failing instances.
 --

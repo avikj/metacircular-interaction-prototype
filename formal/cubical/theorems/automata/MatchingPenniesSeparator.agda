@@ -67,7 +67,7 @@
 --
 -- WHAT IS CHECKED.
 --
---   Every statement of §§5.2�5.4 of the source note, as exact
+--   Every statement of §§5.2–5.4 of the source note, as exact
 --   finite computation on Bool with ℕ payoffs in {0,1}: the constancy of
 --   W; that β₁ = id and β₂ = not really are best responses (a maximum
 --   over the full action set, not an assertion); the emptiness of the

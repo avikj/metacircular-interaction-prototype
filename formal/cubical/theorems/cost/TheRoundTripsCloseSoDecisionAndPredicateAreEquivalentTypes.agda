@@ -29,7 +29,7 @@
 --
 --   With NO hypothesis on `Outside` (§2, §3):
 --     decisionRoundTrip         toDecision (toPredicate d) ≡ d
---                               � THIS direction does not need `Dec` to
+--                               → THIS direction does not need `Dec` to
 --                               be a proposition: the `no` case needs only
 --                               `isProp¬`, and the `yes` case reduces
 --                               once `d t` is abstracted, the one

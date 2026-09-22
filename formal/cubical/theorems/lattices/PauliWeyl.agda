@@ -5,7 +5,7 @@
 --
 -- THE PERES–MERMIN SIGN VECTOR, DERIVED.
 --
--- The one physical input to the entire Peres�Mermin development was
+-- The one physical input to the entire Peres–Mermin development was
 -- a trusted printout of `machinery/pm_section_cocycle.py`.  This module
 -- removes that dependency: §3 computes the six line products from the
 -- operator algebra and §4 proves the resulting vector EQUAL to
@@ -56,7 +56,7 @@
 --   §5  `commuting`          each of the six lines is a COMMUTING triple
 --       `lines-commute`      (18 pairs), and every observable is an
 --       `obs-involutive`     involution.  Both are hypotheses the
---                            Peres�Mermin argument needs.
+--                            Peres–Mermin argument needs.
 --
 ------------------------------------------------------------------------
 

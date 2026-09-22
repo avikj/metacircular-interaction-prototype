@@ -57,7 +57,7 @@ open import IndependenceNeedsAnInternalImplication
 -- THE INTERNAL FRAGMENT
 --
 -- What the lane needs is not a theory object but a connective former:
--- a PROPOSITIONAL FRAGMENT INTERNAL TO THE THEORY â”
+-- a PROPOSITIONAL FRAGMENT INTERNAL TO THE THEORY â€”
 -- `imp`, `mp`, contraposition, double-negation elimination,
 -- transitivity.  Stated exactly, since the careless version is wrong:
 -- the FIRST conjunct needs `imp` and `mp` (they discharge `GoedelFix`

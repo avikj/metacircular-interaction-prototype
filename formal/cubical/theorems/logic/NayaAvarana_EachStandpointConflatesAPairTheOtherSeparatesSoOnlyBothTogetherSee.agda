@@ -33,7 +33,7 @@
 -- blocks a knower from an object — ज्ञानावरण heads the karma taxonomy
 -- (Umāsvāti, Tattvārthasūtra 8.5).  The compound नय-आवरण — the obscuration
 -- carried BY a standpoint, structural rather than karmic — is built here.
--- Sanmatitarka 1.3�6's "each naya, made sole, is false"
+-- Sanmatitarka 1.3–6's "each naya, made sole, is false"
 -- has these four terms as its smallest cubical instance.
 ------------------------------------------------------------------------
 

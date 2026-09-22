@@ -36,7 +36,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHY FIVE AND NOT MORE
 --
--- Levels 3�5 are Pini's and were
+-- Levels 3–5 are Pini's and were
 -- read off the Adhyy's actual devices; a tradition with different
 -- devices would supply different levels.  These five are distinct, and
 -- that is what the four terms establish.

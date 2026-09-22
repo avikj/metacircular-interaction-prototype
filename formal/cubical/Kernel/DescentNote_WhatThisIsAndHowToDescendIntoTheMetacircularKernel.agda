@@ -130,7 +130,7 @@
 -- map into a proposition carries zero bits.
 ------------------------------------------------------------------------
 --
---   Vyapti_â¦    THE INSTALLED OPERATION HAS NO PERVASION.  What it
+--   Vyapti_â€¦    THE INSTALLED OPERATION HAS NO PERVASION.  What it
 --               establishes: EVERY OPERATION FIRES AT
 --               EXACTLY ONE CONTEXT, WHATEVER EVIDENCE TYPE ITS AUTHOR
 --               SUPPLIED, which is the safety property of an open interface.
@@ -169,7 +169,7 @@
 --               along it and getting `inr tt` back.  The bit a counting
 --               readout provably cannot hold is a transposition.
 --
---   Samvada_â¦   AND THEN WHAT IT IS FOR.
+--   Samvada_â€¦   AND THEN WHAT IT IS FOR.
 --               THE KERNEL
 --               IS AN INTERACTIVE SYSTEM.  State is a term; `advance` offers
 --               every enabled future with multiplicity conserved and nothing
@@ -257,7 +257,7 @@
 --         NON-DISPLACEMENT: a theorem forbids the machine from taking the
 --         choice from you.  The system is interactive by theorem, not by
 --         omission.
---     `Samvada_â¦` supplies the corpus's first non-trivial `Control` and
+--     `Samvada_â€¦` supplies the corpus's first non-trivial `Control` and
 --     closes the loop.
 --
 --   * NO MULTIPLICATION in the kernel's `Tm`.

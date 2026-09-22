@@ -18,7 +18,7 @@
 ------------------------------------------------------------------------
 -- THE BLINDNESS IS A PROPERTY OF THE CODOMAIN.
 --
--- `Sesa_‚¶` proves `every-semantic-criterion-is-blind`:
+-- `Sesa_‚ü¶` proves `every-semantic-criterion-is-blind`:
 --
 --     syt: FROM A 0-TRUNCATED STANDPOINT, no criterion selects.
 --

@@ -17,7 +17,7 @@
 --   neither unknown nor undefined nor empty but a positive fourth position.
 --   The distinction is what makes seven positions and not four.
 --
--- The sevenfold division and the ‡ï‡‡∞‡Æ/‡‡ distinction are
+-- The sevenfold division and the ‡§ï‡•ç‡§∞‡§Æ/‡§∏‡§π distinction are
 -- theirs, stated as doctrine; the theorems here are about what the fourth
 -- corner can and cannot be over particular index types in cubical type
 -- theory, and they are this repository's.
@@ -61,9 +61,9 @@
 -- NO NOVELTY.  That DNS holds over a finite index is elementary and
 -- classical in the constructive literature ‚Äî DNS is only interesting
 -- for infinite domains, which is exactly why Spector's bar recursion
--- concerns `‚ï`.
+-- concerns `‚Ñï`.
 --
--- School named: ‡‡æ‡Æ‡Ø‡ø‡ï and ‡®‡ø‡‡‡Ø are `AnuktaAvaktavya`'s, used unchanged.
+-- School named: ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï and ‡§®‡§ø‡§§‡•ç‡§Ø are `AnuktaAvaktavya`'s, used unchanged.
 ------------------------------------------------------------------------
 
 module KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner where

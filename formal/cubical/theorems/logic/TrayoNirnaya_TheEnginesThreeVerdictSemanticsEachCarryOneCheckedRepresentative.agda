@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ррр░рпрЛ рир┐р░рррпр╛р, ри ржрр╡р тАФ three verdicts, never two.
+-- ┬лрддреНрд░рдпреЛ рдирд┐рд░реНрдгрдпрд╛рдГ,рдирди рджреНрд╡реМ ред┬╗ тАФ three verdicts, never two.
 --
 -- machinery/crystal/models.py gives the engine's three verdict classes
 -- their semantic readings:

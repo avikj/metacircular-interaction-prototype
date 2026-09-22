@@ -19,7 +19,7 @@
 -- earlier ones, so a set of declarations is not a preamble until it is
 -- ordered, and no single ordering serves two records that disagree.
 --
--- The declaration names below �
+-- The declaration names below —
 -- `addZero`, `addSuc` — are that file's own, and `addZero : (a : ℕ) →
 -- (a + zero) ≡ a` is the lemma its header says every record carries.
 --

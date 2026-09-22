@@ -43,7 +43,7 @@ open import Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGrou
   using (H2≡H4)
 
 -- ── circuit 34 · the Piṅgala loop is null ────────────────────────────────
--- Sthana defines ������≡CanWord = ������≡� ∙ �≡CanWord.
+-- Sthana defines छन्दस्≡CanWord = छन्दस्≡ℕ ∙ ℕ≡CanWord.
 -- The verdict is proved at the composite Sthana names, formed here from the two
 -- edges; the identification of
 -- क्रमः with its छन्दस्≡CanWord is refl by its own definition.

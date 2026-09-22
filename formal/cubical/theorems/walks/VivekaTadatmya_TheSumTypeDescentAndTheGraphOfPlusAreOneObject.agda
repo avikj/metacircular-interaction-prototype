@@ -37,7 +37,7 @@
 -- TERM.  तादात्म्य — essential identity, sameness of tattva; a technical
 -- term of Indian philosophy (Nyāya-Vaiśeṣika, and Advaita's तादात्म्य-
 -- सम्बन्ध).  LosslessReturn already uses तादात्म्ये for the सम / equal case
--- (a = b = d).  The compound ������-��������� is built here.
+-- (a = −−b = d).  The compound संरक्षकसमूहसंरक्षकसमूह- is built here.
 -- Substrate
 -- cubical (Voevodsky).
 ------------------------------------------------------------------------

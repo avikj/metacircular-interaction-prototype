@@ -16,7 +16,7 @@
 --         ℒ(∂φ) − ∂(ℒφ) ≡ −2φ,     i.e.  [ℒ, −½∂] = I,
 --      and raising is just ∂ of the damping factor:  ∂(tⁿE) = −2 tⁿ⁺¹E
 --      when ∂E = −2tE, ∂t = 0;
---   �  the lossless oscillator: with  a� = iγ a + f  written in
+--   ३  the lossless oscillator: with  a′ = iγ a + f  written in
 --      real coordinates  p′ = −γq + f₁,  q′ = γp + f₂,
 --         ∂(p² + q²) ≡ 2 (p f₁ + q f₂),
 --      i.e. the stored energy changes exactly by the supplied work Re(f̄ a).

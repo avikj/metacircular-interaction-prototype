@@ -7,7 +7,7 @@
 -- word for a checked identification, per Setubandha).  The compound
 -- ‡¶‡‡µ‡Ø-‡‡‡‡ means "the bridge of the two".
 --
--- `SamaVibhaga_‚¶`: at X = Fin 2 the iterate
+-- `SamaVibhaga_‚Ä¶`: at X = Fin 2 the iterate
 -- ‡ó‡‡‡ 1 y is y +µ y, so `SamaVibhaga`'s `divideUniquely` hypothesis is
 -- EXACTLY UniquenessMatraDvaya's halvesUniquely.
 -- The wire is a term, and the instantiation is definitional ‚Äî ‡ó‡‡‡ 1 y and y +µ y

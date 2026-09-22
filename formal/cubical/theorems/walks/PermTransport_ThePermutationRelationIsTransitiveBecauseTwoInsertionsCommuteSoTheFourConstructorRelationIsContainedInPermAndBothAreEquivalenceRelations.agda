@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
 -- Perm-सङ्क्रमणम् — the transitivity `TheConverseContainmentReducesTo
--- PermTransitivity�` takes as a hypothesis.
+-- PermTransitivity…` takes as a hypothesis.
 --
 -- Transitivity of `Perm` needs an exchange lemma moving an `Insert` past
 -- a `Perm`.  Here is the exchange lemma, and it rests on one fact: two
@@ -24,7 +24,7 @@
 -- transports.  They type-check; the relations are used only logically
 -- here, as in the corpus's other modules that carry the same warning.
 --
--- With `Uniqueness_�` (which adds decidable equality and gets "same count of
+-- With `Uniqueness_…` (which adds decidable equality and gets "same count of
 -- every element"), the three presentations of "same list up to order" in
 -- the corpus are now one relation.
 ------------------------------------------------------------------------

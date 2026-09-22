@@ -12,7 +12,7 @@
 -- for a SPLIT surjection.  Here it is proved for an arbitrary surjection
 -- of sets:
 --
---   * a set hypothesis on `C` is genuinely USED — `rec�Set` demands it;
+--   * a set hypothesis on `C` is genuinely USED — `rec→Set` demands it;
 --   * **`SetQuotients` is not needed at all.**  No quotient is
 --     constructed anywhere in this file.  The universal property of the
 --     propositional truncation into a set — Kraus–Escardó–Coquand–
@@ -107,7 +107,7 @@
 --    set hypothesis but needs a section; `descends` needs no section but
 --    needs `isSet C`.  What §5 proves is only that once `C` is a set the
 --    split statement is subsumed, and that the two produce the same
---    function.  `AsetChidra_�` exhibits a non-set `C` at which §4 fails,
+--    function.  `AsetChidra_↦` exhibits a non-set `C` at which §4 fails,
 --    so the set hypothesis is necessary.
 --
 --    §2 locates the Peres–Mermin obstruction as "a property of the

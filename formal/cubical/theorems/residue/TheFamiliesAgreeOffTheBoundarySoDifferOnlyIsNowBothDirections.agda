@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheFamiliesAgreeOffTheBoundarySoDifferOnlyIsNowBothDirections
 --
--- ON THE NAME.  This is threshold arithmetic over � on this corpus's own
+-- ON THE NAME.  This is threshold arithmetic over ℕ on this corpus's own
 -- claim-families.
 --
 -- ────────────────────────────────────────────────────────────────────

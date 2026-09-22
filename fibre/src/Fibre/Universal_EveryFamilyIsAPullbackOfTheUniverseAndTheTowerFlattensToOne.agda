@@ -128,7 +128,7 @@ fibreOfπ {ℓ = ℓ} X = fiberEquiv (λ (Y : Type ℓ) → Y) X
 --     Σ A B ──────→ Universal ℓ
 --       │  (a,b) ↦ (B a , b)  │
 --      fst                    π
---       —                     �
+--       —                     —
 --       �                     �
 --       A ─────────→ Type ℓ
 --                B

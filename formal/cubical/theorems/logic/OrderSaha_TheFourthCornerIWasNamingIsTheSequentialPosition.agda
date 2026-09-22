@@ -69,7 +69,7 @@ kramaToSaha (na , nb) (inl a) = na a
 kramaToSaha (na , nb) (inr b) = nb b
 
 ------------------------------------------------------------------------
--- 2.  �and the corner is exactly that collapse, at these objects
+-- 2.  …and the corner is exactly that collapse, at these objects
 ------------------------------------------------------------------------
 
 Corner : {R : Type} → (R → Type) → Type

@@ -167,7 +167,7 @@ BarrierClaim A = ¬ (Dec A)
 --   * decidability governs the counterpositive, not the absence;
 --   * every obstruction in this thread is stable BY SHAPE (§5);
 --   * a gap between ¬¬A and A is contradictory (`no-gap`), so the only
---     surviving form of a barrier claim is `� (Dec A)`.
+--     surviving form of a barrier claim is ¬¬` (Dec A)`.
 --
 -- The barrier vocabulary is therefore unwarranted by these objects.
 --
@@ -182,7 +182,7 @@ BarrierClaim A = ¬ (Dec A)
 -- 8.  The ⊎-sites close too, and for a reason about the SUBSTRATE.
 --
 -- §7 leaves the sum-shaped results as the one place a genuine barrier
--- could sit, since stability does not pass through �:
+-- could sit, since stability does not pass through :⊎
 --
 --     **in a `--safe`, postulate-free development, every inhabited ⊎ is a
 --     decision, because it was constructed.**

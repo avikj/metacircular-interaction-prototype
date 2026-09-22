@@ -19,7 +19,7 @@
 -- Saptabhangi.दुर्नयः) restated as a FINITE EXHAUSTIVE computation, which is
 -- proof for the stated box, NOT a reproof of the general cubical terms.
 --
--- Ported from machine/Svarga_�hs, term-for-term, into --safe Agda,
+-- Ported from machine/Svarga_…hs, term-for-term, into --safe Agda,
 -- compiled by the kernel's own backend (MAlonzo/GHC) per the recipe in
 -- SanghattaYantra (this repo).  `report : String` is the entire pure
 -- computation; the IO membrane lives in SvargaMukha.agda.

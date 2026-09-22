@@ -46,7 +46,7 @@
 -- at `Laghava`, at a single evaluation point.
 --
 -- The FULL space
--- `Denotation � �` is not reachable by a probe, and
+-- `Denotation → ℕ` is not reachable by a probe, and
 -- deciding membership in it is deciding equality of functions ℕ → ℕ.
 ------------------------------------------------------------------------
 
@@ -197,7 +197,7 @@ laghava-probe-is-two =
 -- it to the witnesses; this drops it from Y entirely and puts it where
 -- it belongs, on what the decoder is allowed to see.
 --
--- Over the FULL space `Denotation � �`: a decoder
+-- Over the FULL space `Denotation → ℕ`: a decoder
 -- there must recognise an arbitrary `d : ℕ → ℕ` as a listed denotation,
 -- which is a decision of function equality.
 ------------------------------------------------------------------------

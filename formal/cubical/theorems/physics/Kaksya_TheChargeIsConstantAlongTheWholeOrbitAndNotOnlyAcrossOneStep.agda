@@ -8,10 +8,10 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS.  In `Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThere
 -- IsNoSymmetry.agda` §� the conserved quantity is `f` itself: `����������`
--- says exactly that `f` is Φ-invariant, so `f` descends to the orbits �
+-- says exactly that `f` is Φ-invariant, so `f` descends to the orbits 
 -- "the charge is a function on the quotient, not on the cover".
 --
--- This module states that.  Dhruva's §� gives one step — `f (Φ a) ≡ f a` — and that
+-- This module states that.  Dhruva's §ध gives one step — `f (Φ a) ≡ f a` — and that
 -- alone leaves open whether the charge could drift along a long orbit.  It
 -- cannot: §२ below is the induction, and its content is that the charge
 -- cannot distinguish ANY two points of an orbit, at ANY distance.  That is
@@ -87,7 +87,7 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 ------------------------------------------------------------------------
 -- � � ���� — scope.
 --
--- `Φ` is a bare endomorphism.  §��§� are stated on the cover and need
+-- `Φ` is a bare endomorphism.  §नℓ§३ are stated on the cover and need
 -- no orbit relation, no quotient, and no inverse.
 ------------------------------------------------------------------------
 
@@ -133,7 +133,7 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 -- So the sentence "the gauge orbit lies in the fibre" has a term
 -- whose subject is the orbit.  The converse -- that the fibre is
 -- exhausted by one orbit -- is transitivity of the flow on the fibre,
--- which §� takes as a hypothesis.
+-- which §ध takes as a hypothesis.
 ------------------------------------------------------------------------
 
 open import Cubical.Foundations.Equiv using (fiber)

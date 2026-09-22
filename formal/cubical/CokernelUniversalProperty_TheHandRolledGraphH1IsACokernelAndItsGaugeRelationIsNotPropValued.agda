@@ -28,7 +28,7 @@
 -- (`descendedEvaluation`).  Nothing in it is modified here; it is imported.
 --
 -- Also imported by citation, not by name-collision:
--- `KirchhoffOnTheCubicalLibrary_�agda` rebuilds
+-- `KirchhoffOnTheCubicalLibrary_…agda` rebuilds
 -- a PARALLEL H¹ out of `FinMatrixAbGroup` + `imSubgroup` + `QuotientGroup`
 -- and proves exactness there from `SetQuotients.effective`.  That file says
 -- of the hand-rolled one: "`FiniteGraphCohomology.H¹` is the same set, as a
@@ -265,7 +265,7 @@ module GraphCokernel (Vertex Edge : Type₀) (source target : Edge → Vertex) w
   --
   --      C⁰ --δ⁰--> C¹ --classOf--> H¹
   --
-  -- ker(classOf) = im(δ�).
+  -- ker(classOf) = im(δ⁰).
   IsCoboundary : C¹ → Type₀
   IsCoboundary x = ∥ (Σ[ g ∈ C⁰ ] ((e : Edge) → δ⁰ g e ≡ x e)) ∥₁
 

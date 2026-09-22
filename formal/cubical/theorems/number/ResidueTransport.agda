@@ -92,4 +92,4 @@ compileCosted source = record
 -- law ties `stateSize`/`updateCost`/… to the function `observe`: a false
 -- declaration would transport just as faithfully.  A contentful statement
 -- needs a cost-annotated evaluation judgment (Eval : Observation A → ℕ → A →
--- � � Type with an observes-within law) before preservation means anything.
+-- ℕ → Type with an observes-within law) before preservation means anything.

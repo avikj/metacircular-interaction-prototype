@@ -20,7 +20,7 @@
 --     "A duplication that has been identified is not merely tidier — it is
 --      a CHANNEL, and theorems flow both ways along it."
 --
--- The census tool `interactive/Pratyaksa_�hs --twins`, which erases
+-- The census tool `interactive/Pratyaksa_…hs --twins`, which erases
 -- each declaration's own module prefix from its KERNEL-ELABORATED type and
 -- groups — and the first thing it returned was a THIRD `eqℕ`:
 --

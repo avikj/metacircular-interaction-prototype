@@ -43,7 +43,7 @@
 -- nothing else — which is the owner's "identical or almost", located.
 --
 -- SOURCES (the classification is theirs):
--- Umsvti, Tattvrthastra 5.31 (arpita/anarpita �
+-- Umsvti, Tattvrthastra 5.31 (arpita/anarpita —
 -- the birth reads the residue under the asserted aspect); Siddhasena
 -- Divākara, Sanmatitarka 1.21 (durnaya — why the verdict never picks
 -- without a fact); Akalaṅka, Laghīyastraya (sahārpaṇa — why the held

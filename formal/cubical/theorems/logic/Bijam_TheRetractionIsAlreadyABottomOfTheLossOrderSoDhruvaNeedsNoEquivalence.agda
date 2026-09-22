@@ -226,7 +226,7 @@ open import Cubical.Relation.Nullary using (¬_)
 --
 --   Dhruva.नष्ट-अभावे-गति-अभावः          isEquiv, via a contractible FIBRE
 --   Vyapti.नष्ट-अभावे-गति-अभावः-व्याप्त्या  isEquiv, via the ORDER
---   SvaFiberVasa.�����������             isEquiv, via contractibility of
+--   SvaFiberVasa.नष्टनष्ट   अभावेगतिअभावःअभावः          isEquiv, via contractibility of
 --                                      the whole FLOW SPACE
 --   §५ here                            f व्याप्नोति (idfun A) — the bottom
 --
@@ -297,7 +297,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 --   bottom-ness would do" returns sites that are SHARP, and a blanket
 --   sweep would have been wrong about them:
 --
---     SvaFiberVasa.�����-������� — the flow space is `Π[a] fiber f (f a)`,
+--     SvaFiberVasa.-  the flow space is `Π[a] fiber f (f a)`वासः,
 --       contractible exactly when every fibre is, which IS `isEquiv f`.
 --     NastoddistaPariksa.समता-चक्रम् / समता→परीक्षा — stated as an
 --       equivalence in both directions; `isEquiv` is the content.

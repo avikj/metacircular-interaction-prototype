@@ -23,7 +23,7 @@
 -- LIMIT: अपवर्तन is attested for the gcd-reduction step.  Its use here
 -- as a label for the invariant-factor decomposition of an integer
 -- matrix is this corpus's (the naming follows the existing Lean module
--- `Apavartana_�SpecZ�`), and NO  source states anything below.
+-- `Apavartana_…SpecZ…`), and NO  source states anything below.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS CHECKED.  Multiplicatively, to stay inside ℕ and away from

@@ -167,7 +167,7 @@ join-does-not-follow p =
 ------------------------------------------------------------------------
 -- 5.  Scope of §4.
 --
--- The theorem is about � **with the
+-- The theorem is about ℕ **with the
 -- successor**, whose generator 1 is a unit and therefore multiplicatively
 -- invisible by construction.  It is not a theorem about arithmetic
 -- carrying two structures.

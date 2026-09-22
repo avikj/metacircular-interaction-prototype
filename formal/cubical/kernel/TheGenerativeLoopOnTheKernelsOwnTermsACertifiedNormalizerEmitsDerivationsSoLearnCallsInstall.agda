@@ -4,7 +4,7 @@
 -- TheGenerativeLoopOnTheKernelsOwnTerms.  The proved-terminating generative learner runs on
 -- `ObstructionSubstrate.Tm`, a DIFFERENT datatype from the metacircular
 -- kernel's `RewriteCertificate.Tm`, with no `Tm`-morphism sending
--- `propose � install`.
+-- `propose ↦ install`.
 --
 -- WHY NOT A MORPHISM.  A total faithful `Tm`-morphism is blocked twice:
 --   (arity)   Obstruction's `node : Shape(=ℕ) → Tm → Tm` is one unary
@@ -43,7 +43,7 @@
 --
 -- The kernel's REACH is unchanged (Siddhasadhana: self-installation is a
 -- plateau); what closes is the
--- DISCOVERY�INSTALLATION loop on one language.
+-- DISCOVERY→INSTALLATION loop on one language.
 ------------------------------------------------------------------------
 
 module TheGenerativeLoopOnTheKernelsOwnTermsACertifiedNormalizerEmitsDerivationsSoLearnCallsInstall where

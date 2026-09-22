@@ -197,7 +197,7 @@ derivable-invariants d =
 -- word and on constant.  The cause is that the calculus has no
 -- associativity, so such a successor can never reach the front.  The type
 -- is kept so the refutation has something to name; the sharper conjecture
--- is `Baddha_�.ThreeLawInvariantConjecture`.
+-- is `Baddha_….ThreeLawInvariantConjecture`.
 CompleteInvariantConjecture : Type₀
 CompleteInvariantConjecture =
   (a b : Tm) → word a ≡ word b → constPart a ≡ constPart b → Derivation a b

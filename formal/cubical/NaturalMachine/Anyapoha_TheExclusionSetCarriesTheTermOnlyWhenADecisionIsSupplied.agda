@@ -74,7 +74,7 @@
 --     ActuallyDispute` — Bauddha against Jaina on standpoints.  The
 --     dispute staged here is Bauddha against Naiyyika on negation, a
 --     different pair and a different charge.
---   `RnaDhana_*`: over � a sign condition is free, so a
+--   `RnaDhana_*`: over ℕ a sign condition is free, so a
 --     richer carrier hides a condition rather than discharging it.  §6
 --     below is the same shape and is flagged as such: moving from ℕ × ℕ
 --     to a positive second coordinate does not discharge transitivity,

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ������-������ — hidden blindness.  Compound built here
+-- प्रमाणकाण्डम्प्रमाणकाण्डम्- — hidden blindness.  Compound built here
 -- (निगूढ, concealed; अन्धता, blindness); not a source term.
 --
 -- WHAT THIS ANSWERS.  Two constructions, taken in order:

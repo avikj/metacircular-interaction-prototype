@@ -134,7 +134,7 @@ fundamentalUnit = refl
 -- Each rung is Brahmagupta's composition of the rung below with
 -- ε — no search, no candidate set.  `vpX`/`vpY` are the general
 -- composed coordinates and the `refl`s say the reactor's numbers
--- are exactly what those functions compute; `compositionTrace�` is
+-- are exactly what those functions compute; `compositionTraceℕ` is
 -- the law that rung is an instance of.
 ------------------------------------------------------------------------
 

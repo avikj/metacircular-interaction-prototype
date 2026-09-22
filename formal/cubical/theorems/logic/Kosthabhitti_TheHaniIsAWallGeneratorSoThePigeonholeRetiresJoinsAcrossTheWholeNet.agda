@@ -20,7 +20,7 @@
 -- land WALLS — proved non-identifications, `¬ (A ≃ B)` — each retiring a
 -- candidate join forever.
 --
--- `BhittiSanorder_�agda` (same seat) proves walls TRANSPORT:
+-- `BhittiSanorder_…agda` (same seat) proves walls TRANSPORT:
 --     भित्ति-संक्रमः : (A ≃ B) → ¬ (B ≃ C) → ¬ (A ≃ C)
 -- so a wall crosses every ford by itself, and "the candidate list shrinks
 -- quadratically in what is landed, not linearly in what is proved."

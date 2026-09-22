@@ -78,7 +78,7 @@ private variable ℓ : Level
 -- carry.  Non-rivalry, per-edge amortization, a route being free at any
 -- length, `ua` crossing without charge — all of it is this line held up.
 --
--- Two files contain the token `refl` ZERO times �
+-- Two files contain the token `refl` ZERO times —
 -- `Lekha_…agda` (the trail is free at every depth) and `Anvesanam_…agda`
 -- (forward search is free at every depth).  They never write it because
 -- they are built out of `isContrSingl` and inherit it.  That is what it

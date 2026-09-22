@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡§∏‡§Æ‡§æ‡§®‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É ‚Äî the hand road and the transport road are ONE path.
 --
--- THE CLAIM.  `LosslessReturn_TheHandProofWasUnnecessary‚¶agda` ¬ß5
+-- THE CLAIM.  `LosslessReturn_TheHandProofWasUnnecessary‚Ä¶agda` ¬ß5
 -- states that its transport-built path (‚ïó‚ï) ‚â° ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡
 -- is the same path the hand proof produced.  This module proves it.
 --

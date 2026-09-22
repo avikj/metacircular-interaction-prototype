@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheCountingSemanticsIsTheCardinalityOfTheTypeSemantics
 --
--- The bridge between `TheCountingSemanticsIsADecategorification�`'s two
+-- The bridge between `TheCountingSemanticsIsADecategorification⟦`'s two
 -- semantics: ⟦t⟧ and eval t are related by cardinality.
 --
 -- THE CLAIM, made precise: `eval` is the CARDINALITY of `⟦_⟧`. Interpret

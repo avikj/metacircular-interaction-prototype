@@ -214,7 +214,7 @@ module _ {X : Type ℓx} {Y : Type ℓy} {T : Type ℓt}
 --   * `Laghava` observes into `Denotation = ℕ → ℕ`, which is neither
 --     discrete nor (as far as anything here shows) locatable — so
 --     neither this theorem nor `LocatingIsEnough` applies at the site
---     the whole ����� line is about;
+--     the whole लाघव line is about;
 --   * `AvaktavyaDoesNotFactor` has six atoms as its decoders, not a
 --     function space.
 --

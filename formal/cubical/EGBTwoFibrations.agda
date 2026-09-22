@@ -3,7 +3,7 @@
 -- EGBTwoFibrations: the pair field's shape as ONE total space with TWO
 -- structure maps.
 --
--- For an abstract predicate P : � � � � Type, the total space
+-- For an abstract predicate P : ℕ → ℕ → Type, the total space
 --
 --   Total P = Σ[ w ∈ ℕ ] Σ[ r ∈ ℕ ] P w r
 --

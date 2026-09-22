@@ -8,7 +8,7 @@
 --  section identification carries the monoid — by refl.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT THIS IS.  `SvaTantuVasa_�.agda` closes the
+-- WHAT THIS IS.  `SvaTantuVasa_….agda` closes the
 -- loss–symmetry scale's middle with the identification
 --
 --     प्रवाहः f  =  (Σ[ Φ ] संरक्षणम् f Φ)  ≃  ((a : A) → fiber f (f a))

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡ï‡‡‡æ ‚Äî the examination of ‡Ø‡®‡‡‡‡∞, as terms rather than as
+-- ‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ ‚Äî the examination of ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Ø‡§®‡•ç‡§§‡•ç‡§∞, as terms rather than as
 -- a review.  Four objections, each turned into something the kernel can
 -- reject.
 --

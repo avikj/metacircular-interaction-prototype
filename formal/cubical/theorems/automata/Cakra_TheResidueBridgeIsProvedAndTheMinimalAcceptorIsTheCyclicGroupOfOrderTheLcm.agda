@@ -9,7 +9,7 @@
 --     Myhill-Nerode theorem for the sensor family.
 -- Both are theorems here, and neither carries a hypothesis.
 --
--- The bridge holds AT EVERY MODULUS (`bridge!`, §�).
+-- The bridge holds AT EVERY MODULUS (`bridge!`, §३).
 -- The apparent need for a positive modulus comes from a wrong
 -- function: `_mod_` is not the residue map, because the library sets
 -- `x mod 0 = 0` while the quotient by the zero modulus is ℤ/0 ≅ ℤ, in
@@ -110,7 +110,7 @@ dist-≥ a b b≤a = cong ((a ∸ b) +_) (≤→∸≡0 b≤a) ∙ +-zero (a ∸
 ------------------------------------------------------------------------
 -- २ · THE RESIDUE BRIDGE, at a positive modulus.
 --
--- The identification of `m � dist a b` with
+-- The identification of `m ∈ dist a b` with
 -- equality of residues is standard,
 -- true at every positive modulus, and here it is.
 ------------------------------------------------------------------------

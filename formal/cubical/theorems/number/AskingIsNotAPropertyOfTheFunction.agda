@@ -16,7 +16,7 @@
 --
 -- and its exhibit is `BhedaAvatarana.एकपदे : भेद (suc a)(suc b) ≡
 -- गभीर (भेद a b)`, which is `refl`, where the same equation for a
--- `discrete�`-driven descent is not.
+-- `discreteℕ`-driven descent is not.
 --
 -- The criterion is real — `������`
 -- IS `refl`.  What is proved here is where

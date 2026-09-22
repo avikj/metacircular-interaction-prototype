@@ -13,7 +13,7 @@
 -- corollary
 -- is FALSE: for `f = X` the restricted gradient is `grad f|_L(t) = t`,
 -- which is nonzero for every slope, so every line world transports and
--- the criterion `s â‰ -1` names the wrong set.
+-- the criterion `s â‰¢ -1` names the wrong set.
 --
 -- The full setting is `p`-adic
 -- encountered worlds over an arbitrary integral polynomial.  What is

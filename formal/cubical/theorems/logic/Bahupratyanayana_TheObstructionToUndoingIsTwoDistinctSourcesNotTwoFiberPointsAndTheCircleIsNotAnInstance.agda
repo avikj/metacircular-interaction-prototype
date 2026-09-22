@@ -27,7 +27,7 @@
 --                   the corpus's second irreversibility theorem and its
 --                   first outside homotopy.
 --   §४  instance  : `सर्वैकम् : Bool → Unit`, the standing archetype.
---   §�  THE BOUNDARY, and it is the point of the file: `Fiberjala`'s
+--   §५  THE BOUNDARY, and it is the point of the file: `Fiberjala`'s
 --       बहु — two distinct points of a fiber — IS NOT ENOUGH.  Exhibited:
 --       `एकवृत्तम् : Unit → S¹`, `tt ↦ base`, HAS a retraction, and its
 --       fiber over `base` is `ΩS¹ ≃ ℤ`, so बहु holds of it.  Its two
@@ -44,16 +44,16 @@
 -- ────────────────────────────────────────────────────────────────────
 -- RELATION TO WHAT IS ALREADY HERE, so nothing is silently re-proved.
 --
---   `Fiberjala_�`            ��� as one of three fiber verdicts.  §�
+--   `Fiberjala_…`            बहु as one of three fiber verdicts.  §५§५
 --                            sharpens it: बहु is not the obstruction to
 --                            undoing.  The three-verdict codomain is
 --                            untouched and remains correct for what it
 --                            classifies.
---   `Residue_�` §5              prices `����������`'s loss at one bit and proves
+--   `Residue_…` §5              prices `सर्वैकम्`'s loss at one bit and proves
 --                            `¬ isEquiv`.  §४ here is the RETRACTION
 --                            statement, which is different and weaker
 --                            than `¬ isEquiv` in general.
---   `GhataFiber_�`           exhibits the two exponents.  §� consumes
+--   `GhataFiber_…`           exhibits the two exponents.  §३ consumes
 --                            them; the fiber analysis is not re-done.
 --   `Nirdharana_TheReturnLocus…`  the SECTION side: with `q ∘ s ≡ id` the
 --                            return locus is `im s`.  This file is the
@@ -159,7 +159,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
 -- `एकवृत्तम् : Unit → S¹` sending tt to base HAS an undo (`r _ = tt`,
 -- and `r (f tt) ≡ tt` is refl).  Its fiber over `base` is `Σ[Unit] ΩS¹`,
 -- which has two distinct points — `(tt , refl)` and `(tt , loop)`,
--- distinct because `winding` separates them in �.  So `Fiberjala`'s ���
+-- distinct because `winding` separates them in ℤ.  So `Fiberjala`'s बहुबहु
 -- holds of a map that is perfectly undoable.
 --
 -- The two fiber points differ only in their WITNESS; their sources are

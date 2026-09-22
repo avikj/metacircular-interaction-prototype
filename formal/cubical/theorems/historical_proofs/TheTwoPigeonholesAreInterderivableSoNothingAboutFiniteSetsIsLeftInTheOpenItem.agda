@@ -6,12 +6,12 @@
 -- ON THE NAME.  No tradition term is used.  Both statements here are
 -- about `OptimalObservation`'s own definition.  That module's three
 -- INSTANCES are Pigala's *Chandastra* uddia (c. 300 BCE),
--- Virahka's mtrmeru (c. 600�800) and a CRT residue decode.
+-- Virahka's mtrmeru (c. 600–800) and a CRT residue decode.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- 1.  WHAT IS PROVED
 --
--- The converse of `FinPigeonhole � TheOpenPigeonhole` is
+-- The converse of `FinPigeonhole → TheOpenPigeonhole` is
 -- immediate at `X = Y = SFin n`, and here it is:
 --
 --   finSetOn n     the `FinSet` structure carried by `SFin n` itself —

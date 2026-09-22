@@ -19,7 +19,7 @@
 -- threshold reading of it.
 --
 -- STRONG BLINDNESS. 
--- W3 pins FERMAT blindness exactly; the strong (Millerâ“Rabin)
+-- W3 pins FERMAT blindness exactly; the strong (Millerâ€“Rabin)
 -- test refutes more; is the strong-blindness depth also e_b(q), or is
 -- there a correction term?  Answer: EQUALITY, no correction.  For n =
 -- q^a (q odd prime) the unit group is cyclic, so (i) the Fermat liars

@@ -5,7 +5,7 @@
 --
 -- ON THE NAME.  Univalence is Voevodsky's and
 -- is this repository's declared substrate;
--- the holonomy framing is Δ 28 §36�38's, i.e. this corpus's own.
+-- the holonomy framing is Δ 28 §36–38's, i.e. this corpus's own.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE CONVERSE.
@@ -40,7 +40,7 @@
 --   Invariant / Invisible   the two conditions, named
 --   invariant→invisible     the old direction, REUSED not restated —
 --                           it is `invariantSemanticsIsUnmoved`
---   invisible�invariant     the converse direction
+--   invisible→invariant     the converse direction
 --   invisibleExactlyWhenInvariant
 --                           the biconditional, so the title's "exactly"
 --                           is a theorem
@@ -51,7 +51,7 @@
 --                           being moved by the transport implies `h`
 --                           does not fix the point.
 --
--- `ua`, `uaβ`, `propBiimpl�Equiv` are library.
+-- `ua`, `uaβ`, `propBiimpl→Equiv` are library.
 ------------------------------------------------------------------------
 
 module HolonomyIsInvisibleExactlyToAnInvariantConsumerAndExactlyIsNowEarned where

@@ -24,7 +24,7 @@
 --   • VYAYA is the source endpoint (the mode that ceases), UTPĀDA the
 --       target (the mode that arises), and DHRAUVYA is D itself — the
 --       substance, the SAME type at both ends of every path.
---   � transport `subst P p` — the free road (`PramanaTransport`) — carries
+--    transport `subst P p` — the free road (`PramanaTransport`)  carries
 --       any property across the change; and it EXISTS precisely because
 --       both modes lie in one D.  Persistence of the substance is the exact
 --       condition for lossless transport across its modes.

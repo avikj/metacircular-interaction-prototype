@@ -29,7 +29,7 @@
 --       exactly when every mode has unit modulus, (E i)* E i = 1 â€” for
 --       E = e^{(Ïâˆ’Â½)t} that is Re Ï = Â½.
 --
--- à°àà (rpa, form) is ordinary .
+-- à¤µà¤²à¤¯ (rpa, form) is ordinary .
 ------------------------------------------------------------------------
 
 module TauRupa_TheCriticalReflectionFormIsPreservedByEveryConfigurationsTransportAndThePlainFormExactlyWhenEveryModeHasUnitModulusSoRHSitsAtTheModulus where

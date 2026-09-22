@@ -49,7 +49,7 @@
 --       and the floor of this corpus part company here for a reason
 --       that is not about either of them being harder.
 --
--- §5 IS NOT ABOUT SHAPE, WHICH THIS FILE ITSELF PROVES.  `Stable-�`
+-- §5 IS NOT ABOUT SHAPE, WHICH THIS FILE ITSELF PROVES.  `Stable-—`
 -- (§1) says stability transports along a bare logical equivalence — no
 -- univalence, no h-level, nothing about how the statement is written.
 -- So a Σ-shaped statement logically equivalent to a Π-shaped one with

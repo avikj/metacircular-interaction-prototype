@@ -408,7 +408,7 @@ private
 ------------------------------------------------------------------------
 -- §8  The relation to the label lane.
 --
--- The forgetful map records � labels a
+-- The forgetful map records → labels a
 -- homomorphism for krama and for saha alike, by
 --
 --   Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndThe

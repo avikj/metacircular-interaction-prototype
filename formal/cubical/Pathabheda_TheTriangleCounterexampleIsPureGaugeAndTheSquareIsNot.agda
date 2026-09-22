@@ -81,7 +81,7 @@
 --   NaturalMachine/TwoLoopNonabelianNetwork.agda,
 --   NaturalMachine/PMIncidenceLocalSystem.agda — nontrivial holonomy on a
 --     bouquet and on a six-edge cycle.
---   EqualityPramanena_�, EkaparsvaSamvarana_�, MadhyaSamvarana_� — D0026
+--   EqualityPramanena_…, EkaparsvaSamvarana_…, MadhyaSamvarana_… — D0026
 --     §2.2/§2.4/§2.5, the trefoil law and the closure counterexamples.
 -- None of them states the converse, the uniqueness of the closing
 -- transport, or the gauge collapse of the triangle counterexample.  Those
@@ -212,7 +212,7 @@ everyPairExtendsFlatly tab tbc = flatClosure tab tbc , flatClosureIsFlat tab tbc
 ------------------------------------------------------------------------
 -- §5  THE REFUTATION: every flat triangle is a gauge.
 --
--- A tempting reading of §3 and §4: that `Ω = 1 � planitas`
+-- A tempting reading of §3 and §4: that `Ω = 1 → planitas`
 -- is false in a way that carries content — that flat-but-not-agreeing is
 -- a real phenomenon on the triangle, and the Bool witness exhibits it.
 --

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- GterTwoCoordinate
 --
--- D0026 §7.3, Deltas 37�38,
+-- D0026 §7.3, Deltas 37–38,
 -- `collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md`
 -- lines 2456–2700.
 --

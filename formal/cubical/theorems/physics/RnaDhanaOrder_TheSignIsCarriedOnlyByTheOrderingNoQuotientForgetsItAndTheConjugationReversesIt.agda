@@ -33,7 +33,7 @@
 --       order datum, so only an Order edge recovers it.
 --
 -- Sources: Brahmagupta, Brhmasphuasiddhnta 18 (628), the
--- a/dhana sign rules; Artinâ“Schreier 1927 (formally real fields).
+-- a/dhana sign rules; Artinâ€“Schreier 1927 (formally real fields).
 ------------------------------------------------------------------------
 
 module RnaDhanaKrama_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheConjugationReversesIt where

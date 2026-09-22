@@ -6,7 +6,7 @@
 --
 -- ààààà¯-àà‹àà¾à¨à®à Â the third step of the stair.
 --
--- WHERE THIS STANDS.  `Naya_â¦` proved two things:
+-- WHERE THIS STANDS.  `Naya_â€¦` proved two things:
 --
 --   Â§3 there   commutativity of `add` is UNDERIVABLE          (W-model)
 --   Â§4 there   the induction rule is STRICTLY STRONGER than

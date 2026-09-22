@@ -144,7 +144,7 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 --   thd  set-valued alone (observe the path type)      ⟹ NOT blind,
 --        and not merely non-blind — lossless, by §२.
 --
--- `Naya` §�'s `isSet X` hypothesis is therefore not decoration.
+-- `Naya` §ध's `isSet X` hypothesis is therefore not decoration.
 ------------------------------------------------------------------------
 
 उभयम्-आवश्यकम् :

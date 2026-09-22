@@ -16,7 +16,7 @@
 --
 -- `Madhava.गुणश्रेढी-योगः : (1 − r) · ∑_{k<n} rᵏ ≡ 1 − rⁿ` over ℤ, by
 -- induction.
--- §1 below is that module's own theorem plus `minusPlus`: the error is exactly r�.
+-- §1 below is that module's own theorem plus `minusPlus`: the error is exactly rⁿ.
 --
 -- ────────────────────────────────────────────────────────────────────
 ------------------------------------------------------------------------

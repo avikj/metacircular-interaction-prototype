@@ -9,7 +9,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS.  `SvaTantuVasa` §६(a) and `SamraksakaGana` §५(a) both
 -- identify, by currying along A � � B (fiber f),
--- the section CARRIER with (b : B) � fiber f b � fiber f b.
+-- the section CARRIER with (b : B) → fiber f b → fiber f b.
 -- Carrying � onto pointwise composition needs the transport coherence of
 -- that currying, and this module gives it, over set carriers:
 --
@@ -40,7 +40,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- TERMS.  तन्तु for the fibre follows this corpus's own use
 -- (`Vargaprakrtitantu`); विभाग in its plain sense, division into parts.
--- The compound ����������� is built here.
+--− The compound संरक्षकसमूह is built here.
 -- गण as in `SamraksakaGana` (gaṇapāṭha, Pāṇini, ~500 BCE, applied to
 -- flows in this corpus).
 ------------------------------------------------------------------------

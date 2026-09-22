@@ -16,7 +16,7 @@
 --   Â§3  EVERY POSITIVELY WEIGHTED MODE HAS RATIO â‰¤ 1 â‡’ BOUNDED by Î£ c_i.
 --   Â§4  THE CRITERION, both directions.
 --
--- àà¨àà• (aneka, many) is ordinary .
+-- à¤µà¤²à¤¯ (aneka, many) is ordinary .
 ------------------------------------------------------------------------
 
 module AnekaVrddhi_ASumOfModesWithNonnegativeWeightsIsBoundedExactlyWhenEveryPositivelyWeightedModeHasRatioAtMostOneSoThePrimeSideOfBIsReadModeByMode where

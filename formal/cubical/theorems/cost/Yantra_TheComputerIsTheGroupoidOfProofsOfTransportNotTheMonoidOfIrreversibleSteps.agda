@@ -91,7 +91,7 @@
 -- invert, and univalence (`ua`) makes equivalent types EQUAL — so the
 -- machine cannot even express a difference between physically
 -- indistinguishable states.  General covariance is not imposed on this
--- computer; it is what its equality IS.  (Stated as motivation; the proved content is §§2�4, the groupoid.)
+-- computer; it is what its equality IS.  (Stated as motivation; the proved content is §§2ℓ4, the groupoid.)
 ------------------------------------------------------------------------
 
 module Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where

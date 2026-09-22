@@ -208,7 +208,7 @@ module Generative (CR : CommRing ℓ) where
   -- PathP that isProp→PathP fills because R is a set (being a CommRing).  So
   -- `_⊛_` is associative as an operation on solutions, not merely on their
   -- coordinates.  And
-  -- the Sol-level UNIT paths are assembled (�IdR/�IdL, over `�IdR`/
+  -- the Sol-level UNIT paths are assembled (IdR/IdL, over `·IdR`/·
   -- `·IdL`), so EVERY monoid axiom holds as a path between `Sol` values: the
   -- solutions of a fixed norm form a monoid, and the graded family multiplies
   -- its norm indices.
@@ -276,7 +276,7 @@ module Generative (CR : CommRing ℓ) where
   ----------------------------------------------------------------------
   -- The Sol-level UNIT paths, assembled the same way (over `·IdR` / `·IdL`):
   -- `unit D = (1r, 0r)` is a two-sided identity for `_⊛_` on solutions.  With
-  -- �Assoc, every monoid axiom holds as a path between `Sol` values — the
+  -- Assoc·, every monoid axiom holds as a path between `Sol` values  the
   -- solutions of a fixed norm form a monoid, and the whole family a graded one
   -- (the norm indices multiply, `_⊛_ : Sol D k₁ → Sol D k₂ → Sol D (k₁·k₂)`).
   ----------------------------------------------------------------------
@@ -345,7 +345,7 @@ module Generative (CR : CommRing ℓ) where
   -- The group laws in the form §5b names: PLAIN paths in `Sol D 1r` for the
   -- retyped operation `_∙₁_` (= subst along ·IdR 1r of `_⊛_`).  Each is the
   -- corresponding ⊛-path read through `fromPathP`, since `subst B p` is exactly
-  -- `transport (λ i � B (p i))`.
+  -- `transport (λ i → B (p i))`.
   ----------------------------------------------------------------------
 
   ∙₁-idR : {D : R} (s : Sol D 1r) → s ∙₁ unit D ≡ s

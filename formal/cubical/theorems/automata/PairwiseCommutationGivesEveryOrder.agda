@@ -24,7 +24,7 @@
 --                     and a point where two orders disagree is not `C`
 --                     of anything
 --
--- **So §36�38's clause is hypothesis-free at the level it is
+-- **So §36–38's clause is hypothesis-free at the level it is
 -- stated.**
 -- Assume the STEPS commute
 -- pairwise, and every order agrees, compressed and uncompressed alike.

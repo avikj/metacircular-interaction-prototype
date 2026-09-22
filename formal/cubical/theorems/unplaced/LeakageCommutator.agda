@@ -26,7 +26,7 @@
 --     makes L *mean* "what escapes an installed projector", and it is
 --     needed for the rank corollary -- it is not needed for the identity.
 --
---  2. � 1r ≡ 1r IS NOT AN AXIOM.
+--  2. † 1r ≡ 1r IS NOT AN AXIOM.
 --     It follows from antimultiplicativity and involutivity alone
 --     (`†-pres-1` below), because an involution is its own inverse and
 --     therefore surjective.

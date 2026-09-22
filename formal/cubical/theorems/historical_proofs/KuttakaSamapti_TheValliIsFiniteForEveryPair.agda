@@ -8,7 +8,7 @@
 -- कुट्टक, the pulverizer, for the linear indeterminate equation; the
 -- procedure spelled out step by step by BHĀSKARA I, आर्यभटीयभाष्यम् (629 CE).
 -- Its rule is one sentence — divide, KEEP THE REMAINDER AND RECURSE ON IT,
--- and write each quotient into the �����, the column.
+-- and write each quotient into the ,ī—— the column.
 --
 -- THE SOURCE.  ryabhaa states the
 -- procedure, and it terminates.

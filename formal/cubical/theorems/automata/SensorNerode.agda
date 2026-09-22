@@ -6,7 +6,7 @@
 -- THE WALK'S MINIMAL STATE IS ITS LCM.
 --
 -- A family `S` of moduli observes `n` only through
--- `lcm(S)`; the Nerode form of this: `S � lcm S` IS
+-- `lcm(S)`; the Nerode form of this: `S … lcm S` IS
 -- the quotient by observational equivalence, so the sensor list is a
 -- redundant presentation of one number.
 --
@@ -35,12 +35,12 @@
 --                            divisibility along `L`.  Packaged as a path
 --                            of types, since both sides are props.
 --
---   §4  `same-lcm�same-obs`  COROLLARY: two sensor
+--   §4  `same-lcm→same-obs`  COROLLARY: two sensor
 --                            families with the same lcm induce the SAME
 --                            indistinguishability relation — equal as
 --                            types, pointwise, not merely inter-derivable.
 --
---   §5  `obs�lcm≡`           MINIMALITY:
+--   §5  `obs→lcm≡`           MINIMALITY:
 --       `nerode-unique`      the relation DETERMINES the lcm.
 --                            If two families induce the same relation
 --                            then their lcms are equal, by testing at
@@ -52,7 +52,7 @@
 --                            observational classes to state values.
 --
 --   §6  `nerode!`             the same three, UNCONDITIONAL, via
---       `same-lcm�same-obs!`  `LCMExists.lcmList-isLCM`.
+--       `same-lcm→same-obs!`  `LCMExists.lcmList-isLCM`.
 --       `nerode-unique!`
 ------------------------------------------------------------------------
 
@@ -201,7 +201,7 @@ nerode-unique isS isT h =
 ------------------------------------------------------------------------
 -- 6.  UNCONDITIONAL FORMS.
 --
--- §§3�5 above take
+-- §§3–5 above take
 -- `IsLCM S L` as a HYPOTHESIS; `LCMExists` discharges it:
 -- `lcmList-isLCM : (xs : List ℕ) → IsLCM xs (lcmList xs)`, no hypothesis,
 -- no positivity restriction.

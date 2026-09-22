@@ -50,7 +50,7 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 --
--- ���������� and ������ are used in their plain senses.
+-- अपुनरागमन and वृद्धि are used in their plain senses.
 ------------------------------------------------------------------------
 
 module Mula.Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity where

@@ -181,7 +181,7 @@ compAlgHom (h , p , q) (h' , p' , q') =
 -- TWO THINGS FOLLOW, AND THEY ARE DIFFERENT THINGS.
 --
 -- (1) No set hypothesis is needed: §3's
---     `initial�isEquiv` and `isContrAlgIso` hold for algebras on
+--     `initial→isEquiv` and `isContrAlgIso` hold for algebras on
 --     ARBITRARY types — their proofs only ever use contractibility.
 --
 -- (2) The second PRESENTATION is not a redundancy.  A chart is

@@ -708,7 +708,7 @@ functions* (`FRONTIER.md`, `SamastaSima`):
 Exact: one object, every stage terminating, the only open thing the **function
 inhabiting all stages at once**. Not inhabited — the DMR preimage is decidable but
 its cost explodes (`δ(4)=12`), the DMR↔ζ equivalence is classical and cited,
-Navier�Stokes has no computable-preimage form.
+Navier✓Stokes has no computable-preimage form.
 
 **The port's own boundary.** The computer-over-equivalences is lifted from terms
 to types: transport through `Glue`, `hcomp`-in-`Set` = `Glue`, and `ua` from

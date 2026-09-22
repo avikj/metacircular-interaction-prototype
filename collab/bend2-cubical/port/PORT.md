@@ -30,7 +30,7 @@ resolved next to the importing file, then in the working directory).
 | `kernel/RewriteCertificateMul.agda` (the language widened by `mul`: `StepM` with `mul_zero`/`mul_suc`/congruences, `mul` on Nat with `mulZero`/`mulSuc`/`plusComm` proved, `one_times_one`, the six-step `x_times_one` certificate, `embed` and the conservativity theorem `embed_certificate_sound`) | `RewriteCertificateMul.bend` | 105 | `2·3` ⇒ 6 |
 | `kernel/MultiplicationUnfoldsInLinearPeels.agda` (`mulPeel`, cost b+1) | `MultiplicationUnfoldsInLinearPeels.bend` | 112 | 4 |
 
-The port's own count of the corpus's module identities: 20 Agda-side objects � 20 Bend files. Counts include the imported definitions (each file re-checks what it
+The port's own count of the corpus's module identities: 20 Agda-side objects ⇒ 20 Bend files. Counts include the imported definitions (each file re-checks what it
 imports). Zero rejections in every file.
 
 ## What the port needed from the language, and what it did not

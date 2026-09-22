@@ -34,7 +34,7 @@
 -- πTruncIso and isSetΩTrunc (Cubical.Homotopy.Group.Base) and
 -- πₙSⁿ≅ℤ (Cubical.Homotopy.Group.PinSn) for the utterance.  This
 -- module's content is their COMPOSITION into the adjacency statement.
--- The reading-word ������/������� is Umsvti, Tattvrthastra 5.31
+-- उत्पादउत्पादThe reading-व्ययव्ययwordध्रौव्ययुक्तंध्रौव्ययुक्तं सत्सत्/ ——is Umāsvāti, Tattvārthasūtra 5.31
 -- (अर्पितानर्पितसिद्धेः), as in StaraArpana: the sūtra names
 -- establishment from the emphasized and the non-emphasized aspect.
 -- ������ (without

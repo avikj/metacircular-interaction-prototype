@@ -59,7 +59,7 @@
 -- contractible, so आधार ≃ स्थानिवत् and, by univalence, आधार ≡ स्थानिवत्.
 --
 -- WHY THE PAIR AND NOT THE �������� ALONE.
--- The alternative `f (v , r) = ����� v`, carrying the ������ by itself.
+-- The alternative `f (v , r) = रूपम् v`, carrying the स्थानी by itself.
 -- That is correct and it is not the whole of what is determined: सञ्ज्ञा
 -- is determined by the base in exactly the same way, and it is the
 -- quantity 1.1.56 is actually about — the substitute inherits the
@@ -88,7 +88,7 @@
 -- BISIMULATIONS, corecursively, one head at a time, because equality of
 -- coinductive objects is not implied by agreement on any finite prefix.
 --
---   `���������-����������`: along the entire orbit of an
+--   `सञ्ज्ञा-अनुवृत्तिः`: along the entire orbit of an
 --   ARBITRARY rule नियम, the designation read off the carried datum is
 --   constant and equal to the designation of the starting varṇa — not
 --   "for every n" but as a single path between two coinductive objects.
@@ -116,7 +116,7 @@
 --    pair (स्थानी , सञ्ज्ञा) of the ādeśa's own output.  The two records
 --    hold the same information; neither is the other.
 --
--- 2. `����-�����` — the parent module's `anal-blind` — is
+-- 2. `आदेश-अन्धः` — the parent module's `anal-blind` — is
 --    reproved from the factorisation.  What the
 --    Carrier gives for free is `वाहक-अन्धः`: two bases differing ONLY in
 --    the free slot have equal carried data, hence equal verdicts from any
@@ -440,7 +440,7 @@ CarriedVidhi A r = Σ (वर्णरूप × वर्णसञ्ज्ञ�
 पदम् नियम x = आदेश (snd x) (fst x) , नियम (आदेश (snd x) (fst x))
 
 ------------------------------------------------------------------------
--- � � THE LIFT, AND THE SQUARE.  Both are
+-- ९ · THE LIFT, AND THE SQUARE.  B—oth are
 -- instances of the law, and `Φ-square` closes DEFINITIONALLY, by refl,
 -- for an opaque variable.
 ------------------------------------------------------------------------

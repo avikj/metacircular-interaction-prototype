@@ -13,7 +13,7 @@
 --     next m = least q ≥ 2 with q ∤ cap m ,          cap m = lcm(1..m),
 --
 -- and it RUNS: next 1..5 = 2,3,4,5,7 by refl.  Then it stops, for a
--- derived reason �
+-- derived reason —
 -- the search decides `s ∣ cap m` per candidate, a unary divisibility
 -- test on cap m costs Θ(cap m), and cap m = e^{ψ(m)}.  The walk's
 -- storage law is its naive runtime law.

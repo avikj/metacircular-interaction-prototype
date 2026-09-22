@@ -7,7 +7,7 @@
 -- ground, and शेष (śeṣa), what is left over.  Both are used in their
 -- ordinary technical senses.  ��� in the sense this file uses — the remainder is kept and is
 -- the material of the next step — is Āryabhaṭa, Āryabhaṭīya, गणितपाद
--- 32�33 (499 CE), the kuaka; the mathematics below is not his.
+-- 32ℓ33 (499 CE), the kuaka; the mathematics below is not his.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS SETTLES.

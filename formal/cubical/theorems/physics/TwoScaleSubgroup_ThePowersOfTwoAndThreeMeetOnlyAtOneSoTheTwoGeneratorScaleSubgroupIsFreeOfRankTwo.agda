@@ -11,7 +11,7 @@
 --       3ⁿ = 1 + 2k, built by 3(1 + 2k) = 1 + 2(3k + 1));
 --   §2  2ᵐ ≡ 3ⁿ → m ≡ 0 and n ≡ 0.
 --
--- SYT.  Elementary parity over �.
+-- SYT.  Elementary parity over ℕ.
 ------------------------------------------------------------------------
 
 module TwoScaleSubgroup_ThePowersOfTwoAndThreeMeetOnlyAtOneSoTheTwoGeneratorScaleSubgroupIsFreeOfRankTwo where

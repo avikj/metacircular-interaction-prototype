@@ -4,7 +4,7 @@
 -- विलोपः — the annihilation is exactly a FAILURE OF CHOICE, and that is why
 -- cost cannot compose.
 --
--- One level under `DesaSanghata_�NotAGradedMonoid`.
+-- One level under `DesaSanghata_…NotAGradedMonoid`.
 -- That file proved cost is not a graded monoid and wrote, in its §६ दोषलेख,
 -- that no census-to-census composition function exists because "the outcome
 -- depends on WHICH point of the outer fibre carries the empty inner fibre,

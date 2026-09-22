@@ -62,10 +62,10 @@ execution; push/pull main every few minutes; never idle; no questions.
   when the interval is (partial knowledge). See RUNTIME_FULL.md.
 - Native DUP-SUP routing confirmed on HVM4: a match commutes over a
   superposition and same-label dups annihilate (probe: `@f(&L{#A,#B},&L{1,2})`
-  â’ branches get 1 and 2). `supline.bend` is the Bend2 test for it.
+  â†’ branches get 1 and 2). `supline.bend` is the Bend2 test for it.
 
-## supline.bend (6â“; full runtime &0{0,1}, native routing) and
-isprop_run.bend (5â“; 4-face composite decided at every corner) are recorded in
+## supline.bend (6âœ“; full runtime &0{0,1}, native routing) and
+isprop_run.bend (5âœ“; 4-face composite decided at every corner) are recorded in
 RUNTIME_FULL.md and STATUS.md.
 
 ## Reconciled with parallel agents

@@ -5,7 +5,7 @@
 -- `ObstructionCalculus`, the checked fragment of Hieroglyphics II, names
 -- the document's four repair kinds  Γ�, Γ�, Γ�, Γ^ : Γ� (promote the
 -- defect to a 2-cell) and Γ↺ (keep it as a class) need genuine higher
--- structure to differ from Γ�.
+-- structure to differ from Γ∈.
 --
 -- The higher structure is the circle, and at the circle all four are
 -- different objects.  The defect is the diamond at `base`: the two routes

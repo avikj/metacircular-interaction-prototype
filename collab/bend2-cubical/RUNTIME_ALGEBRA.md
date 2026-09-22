@@ -67,4 +67,4 @@ Emitted, e.g.:
 
 - Face selection of a value-level `hcomp` (proof content; zero cost by design).
 - Transport along a `Path` family, a dependent `Π`/`Σ` line, or a superposed
-  (`&L{�}`) line: normaliser only; raw mode refuses.
+  (`&L{…}`) line: normaliser only; raw mode refuses.

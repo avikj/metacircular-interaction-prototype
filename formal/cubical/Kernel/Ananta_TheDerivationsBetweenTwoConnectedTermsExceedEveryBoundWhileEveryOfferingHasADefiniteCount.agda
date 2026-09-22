@@ -21,7 +21,7 @@
 ------------------------------------------------------------------------
 -- CONTEXT.
 --
--- `Residue_�` exhibits TWO histories between the kernel's own pair, separated
+-- `Residue_…` exhibits TWO histories between the kernel's own pair, separated
 -- by step count, 2 against 4, and concludes the truncation is strict.
 -- `Avirodha_…` locates the same fact structurally: `⊕` is associative and
 -- unital on the nose, `rev` is an inverse only up to meaning, and THE GAP
@@ -44,7 +44,7 @@
 --   §3  ananta -- the statement in the form the criterion above wants:
 --       no bound on the standpoints between two connected terms.
 --   §4  the-whole-family-means-one-thing -- and all of it is one bit
---       downstairs, through `Residue_�`, forced by � being a set.
+--       downstairs, through `Residue_…`, forced by ℕ being a set.
 ------------------------------------------------------------------------
 
 module Kernel.Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEveryBoundWhileEveryOfferingHasADefiniteCount where
@@ -108,7 +108,7 @@ ananta d k = inflate k d , inflate-len k d
 
 ------------------------------------------------------------------------
 -- §4.  AND ALL OF IT IS ONE BIT DOWNSTAIRS.  Not by choice of `eval`:
---      `Residue_�` forces it from � being a set.  The order of the object and
+--      `Residue_…` forces it from ℕ being a set.  The order of the object and
 --      the order of its meaning are not the same order, and the kernel
 --      keeps `eval` off the operational path entirely.
 ------------------------------------------------------------------------

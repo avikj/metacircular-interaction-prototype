@@ -30,7 +30,7 @@
 -- With AvinimayaSetu the picture closes from both ends: the lattice
 -- chain telescopes to the endpoint law, the graph groupoid's naturality
 -- squares to the same law, and on a closed loop both are conjugation.
--- àµà²à¯ (valaya, ring/loop) is ordinary .
+-- à¤µà¤²à¤¯ (valaya, ring/loop) is ordinary .
 ------------------------------------------------------------------------
 
 module ValayaSamyoga_OnAGraphLoopGaugeNaturalityIsConjugationSoEveryClassFunctionOfTheLoopHolonomyIsGaugeInvariant where

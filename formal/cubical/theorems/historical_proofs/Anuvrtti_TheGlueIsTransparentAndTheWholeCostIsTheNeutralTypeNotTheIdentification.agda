@@ -9,7 +9,7 @@
 -- until it is cancelled — Pāṇini, *Aṣṭādhyāyī* (~500 BCE), throughout;
 -- analysed as a device by Patajali, *Mahbhya* (~150 BCE).  It is used
 -- here for the carrying-over of a term along a path at no cost.  The
--- mathematics below originates in cubical type theory (Cohen�Coquand�Huber�Mrtberg, and
+-- mathematics below originates in cubical type theory (Cohen–Coquand–Huber–Mrtberg, and
 -- Voevodsky's univalence).
 --
 -- WHAT THIS MODULE MEASURES.  `loss/README.md` finding 3 records:

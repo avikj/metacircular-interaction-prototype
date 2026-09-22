@@ -15,7 +15,7 @@ open import Kuttaka using (solutionFamily)
 -- WHAT IS PROVED
 --
 -- The ia reduction as an explicitly IMPORTED
--- section: §1 takes that literally: a section is a PARAMETER �
+-- section: §1 takes that literally: a section is a PARAMETER —
 -- any function on the solution index that lands in the family — and §2
 -- proves that importing one costs nothing, since the reduced solution
 -- still solves the equation.

@@ -22,7 +22,7 @@
 --                                   पता (address, iff identification)
 --
 -- What none of them states is the statement they jointly set up:
--- the exact repair of `Pata_�`'s denial.
+-- the exact repair of `Pata_…`'s denial.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED HERE.
@@ -167,7 +167,7 @@ rightInv समष्टिः (n , (p , e)) =
 --
 --     `Pata_…` proved the denial on its own copy of the alphabet.  It
 --     is proved again here on `PingalaPrastara.Pattern`, three lines,
---     rather than moved across an identification �
+--     rather than moved across an identification —
 --     the same choice `Avrtti_…` §३ made for `varna` against `length`,
 --     and for the same reason.  What IS imported is the PREDICATE पता,
 --     so the two verdicts are verdicts about the same notion.

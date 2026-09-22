@@ -18,7 +18,7 @@
 -- WHAT THIS REFUTES.
 --
 -- (recoverable only by outside supply) and ४ (नष्टिः, अप्रतिकार्या) are
--- both crowded fibers; `Loss.WholePartialDesa_�` refuses a fourth
+-- both crowded fibers; `Loss.WholePartialDesa_…` refuses a fourth
 -- constructor for `देश` because no criterion separated them.  The note
 -- proposes one, in two halves:
 --
@@ -36,7 +36,7 @@
 -- everything.  सर्वहानिः says which."*
 --
 -- **That sentence is false, and §१ is one line.**  `सर्वैकम् : Bool → Unit`
--- is the map that drops one bit — `Residue_�`'s own §5, and its struck
+-- is the map that drops one bit — `Residue_…`'s own §5, and its struck
 -- header names it "level २ of a five-level scale".  Its fiber over `tt`
 -- is `Bool`, which IS the whole source.  So `सर्वहानिः` holds of it, and
 -- the criterion does not separate ४ from ३; it does not separate ४
@@ -112,7 +112,7 @@ private
 -- १.  THE REFUTATION.  The level-२ archetype satisfies the level-४
 --     criterion.
 --
--- `����������` is `Residue_�` §5's map, whose struck header calls it "level � of
+-- `सर्वैकम्` is `Residue_…` §5's map, whose struck header calls it "level २ of
 -- a five-level scale" and whose loss it prices at exactly one bit.  Its
 -- fiber over the single target point is `Bool` — the whole source —
 -- because `Unit` is a proposition, so the path component of the Σ is

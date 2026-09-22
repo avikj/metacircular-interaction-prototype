@@ -15,7 +15,7 @@
 --
 -- THE OFFERED HALF, Ω²(∥S²∥ 4) ≃ π₂(S²) ≃ ℤ, is proved in AnantaraArpana.
 --
--- THE LAW: dimension grades the withholding �
+-- THE LAW: dimension grades the withholding —
 -- the n-sphere's charge is anarpita through stratum n+1 and arpita at
 -- n+2 (n=1 in StaraArpana; n=2 here on the silent side and in
 -- AnantaraArpana on the offered side).

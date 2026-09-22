@@ -12,7 +12,7 @@
 -- SEPARATE function: the flat prover (������), the
 -- sequence-free-eyed prover (सम-साधनम्), the self-inferring prover
 -- (स्वार्थ-साधनम्), the record-fed prover (सश्रुत-साधनम्).  Four
--- knowings where the theorem says there is one.  Each is a naya �
+-- knowings where the theorem says there is one.  Each is a naya ≔
 -- true, partial, and treated as a whole.
 --
 -- Here is the prama: ONE prover, parameterized by

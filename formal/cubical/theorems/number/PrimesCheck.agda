@@ -16,7 +16,7 @@
 --   samapti     recursion on the remainder, and the divisor comes back
 --               carrying proofs that it divides both inputs.
 --
---   Upadhi      `|M(k)|² � k` is not a fragment of the
+--   Upadhi      `|M(k)|² ≤ k` is not a fragment of the
 --               Riemann Hypothesis.  It is the Mertens conjecture, which
 --               was disproved in 1985.  The universal statement and the
 --               finite check are separated into two types with a map in

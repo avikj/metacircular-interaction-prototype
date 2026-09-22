@@ -48,7 +48,7 @@
 --       law only through the outer product of the vorticity with itself
 --       — the `(w�w)` term never survives.
 --
--- §§1�4 over any commutative ring, for every
+-- §§1ℓ4 over any commutative ring, for every
 -- matrix presented by three columns and every pair of vectors.
 ------------------------------------------------------------------------
 

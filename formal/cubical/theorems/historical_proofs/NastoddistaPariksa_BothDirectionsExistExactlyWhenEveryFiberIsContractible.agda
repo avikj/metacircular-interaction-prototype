@@ -30,7 +30,7 @@
 --     is there both a नष्ट and an उद्दिष्ट for this map?
 --
 -- §२ makes that a checkable predicate (`नष्टोद्दिष्टयोगः`), §३ connects
--- it to `Fiberjala`'s three verdicts — an inhabitant is exactly �����
+-- it to `Fiberjala`'s three verdicts — an inhabitant is exactly एकम्एकम्
 -- at every point — and §४ to `isEquiv`, which is that Π by definition.
 --
 -- §५ is the honest limit, and it is why this is stated as two maps and
@@ -42,7 +42,7 @@
 -- §६ is the discriminant exhibited on both roads at once: the प्रस्तार
 -- of any छेद-सूची carries the witness (road one, defect zero at every
 -- index), and `Bool → Unit` provably carries none (road two) — the
--- refutation running through `Fiberjala.���-���-�������`, so the two
+-- refutation running through `Fiberjala.एक-बहु-विरोधः`, so the two
 -- modules are joined by a term and not by a remark.
 --
 -- §७ separates the two halves of the pair.  Having only the FORWARD
@@ -113,7 +113,7 @@ Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्ट
 ------------------------------------------------------------------------
 -- ३ · THE TEST, against the three verdicts.
 --
--- `Fiberjala` gives �������� / ����� / ��� at a point.  The pair of
+-- `Fiberjala` gives रिक्तम् / एकम् / बहु at a point.  The pair of
 -- procedures is precisely एकम् EVERYWHERE, and the proof is by way of
 -- `isEquiv`, whose definition is that Π.
 ------------------------------------------------------------------------
@@ -131,7 +131,7 @@ Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्ट
 
 -- and the same statement in the तन्तु vocabulary, which is the form a
 -- census wants: the verdict at every point is एकम्, simultaneously.
--- (��������, not a search with a first step — `Fiberjala` §�.)
+-- (सकलादेश, not a search with a first step — `Fiberjala` §६.)
 परीक्षा→एकम् : {A : Type ℓ} {B : Type ℓ'} {f : A → B}
              → नष्टोद्दिष्टयोगः f → (b : B) → T.एकम् f b
 परीक्षा→एकम् {f = f} y = T.सकलादेशः f (परीक्षा→समता y)
@@ -193,7 +193,7 @@ _ : नष्टोद्दिष्टयोगः (Iso.fun (प्रस्�
 _ = प्रस्तार-योगः (एकरूप 5 1)
 
 ------------------------------------------------------------------------
--- ROAD TWO.  `Bool � Unit` — `Fiberjala.������-�������`, the collapse
+-- ROAD TWO.  `Bool → Unit` — `Fiberjala.समाहार-मार्गः`, the collapse
 -- whose fiber over `tt` is बहु.  There is NO witness, and the proof is
 -- the three-verdict exclusion, not a separate argument: a witness would
 -- make the fiber एकम्, and एकम् and बहु exclude one another.
@@ -205,7 +205,7 @@ _ = प्रस्तार-योगः (एकरूप 5 1)
 
 -- and the OTHER way a witness can fail, which "no witness" does not
 -- distinguish: `⊥ → Unit` misses `tt` altogether (रिक्तम्).  Both roads
--- two, opposite reasons, same absence — `Fiberjala` §� is why a boolean
+-- two, opposite reasons, same absence — `Fiberjala` §५ is why a boolean
 -- census cannot report the difference.
 शून्ये-न-योगः : ¬ (नष्टोद्दिष्टयोगः T.शून्य-मार्गः)
 शून्ये-न-योगः y = T.रिक्तम्-अत्र (परीक्षा→एकम् y tt .fst)

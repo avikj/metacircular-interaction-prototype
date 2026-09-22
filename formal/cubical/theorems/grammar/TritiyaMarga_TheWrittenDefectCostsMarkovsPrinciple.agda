@@ -141,7 +141,7 @@ defectâ†’Â¬isEquiv f (b , nc) e = nc (e .equiv-proof b)
 --
 -- What is proved below is `writableâ’MP` and only that: Writable âŸ MP.
 -- That is a LOWER BOUND -- writing defects costs AT LEAST MP -- and it
--- is not an identification.  `Apoha` carries `MPâ’Witnessed` AND
+-- is not an identification.  `Apoha` carries `MPâ†’Witnessed` AND
 -- `Witnessed’MP`, and `FalsifierAsymmetry` cites that pair; so
 -- "precisely Markov.s Principle" is a true sentence about `Witnessed`.
 -- `Writable` is not `Witnessed`: it quantifies over all types and all

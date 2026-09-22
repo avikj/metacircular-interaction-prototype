@@ -46,7 +46,7 @@
 -- the source end or from the target end, and which end you are standing
 -- at decides which of the two theorems you get.
 --
--- A third reading exists.  The two-valued verdict is a ������ and `Saptabhangi.�������` is the proof of why:
+-- A third reading exists.  The two-valued verdict is a दुर्नय and `Saptabhangi.दुर्नयः` is the proof of why:
 -- a two-valued verdict on a threefold situation must identify two of the
 -- three.  `isContr (शेष f b)` fails in two OPPOSITE ways —
 --
@@ -60,7 +60,7 @@
 -- below are therefore about the CROWDED arm only, and §5's `Bool → Unit`
 -- is level २ of a five-level scale, not "the refusal".
 --
--- The census is `Punaragamana.SakalaVikalaDesa_�` in this library: the
+-- The census is `Punaragamana.SakalaVikalaDesa_…` in this library: the
 -- diagnosis is a CENSUS — a function `B → देश f b` whose constructors
 -- carry their evidence — and not a verdict about the map.  It also
 -- contains the refutation, as a computed term, of the sequential
@@ -128,7 +128,7 @@ module _ {A B : Type ℓ} (f : A → B) where
   ------------------------------------------------------------------------
   -- 3.  मूल-प्रक्षेप — the source projection.  ALWAYS an equivalence.
   --
-  -- No hypothesis on f.  This is `Carrier�-via-law`, named here for what it
+  -- No hypothesis on f.  This is `Carrier≃-via-law`, named here for what it
   -- is: reading the graph from the source end loses nothing, ever, for any
   -- map whatsoever.  That is the whole content of "carrying determined
   -- data is free" — and the freeness is unconditional.

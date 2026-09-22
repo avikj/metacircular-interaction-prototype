@@ -22,7 +22,7 @@
 --
 -- Outside the vocabulary and left with the elder:
 -- 11 store lines naming gcd or the completion's fresh constants
--- (c0 �) — Tm carries neither.
+-- (c0 …) — Tm carries neither.
 --
 -- The counts below are computations, not reports: each ≡ is checked
 -- by the kernel normalizing the entire judgment of the entire store.

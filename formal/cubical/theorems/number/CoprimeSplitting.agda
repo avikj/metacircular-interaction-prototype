@@ -8,7 +8,7 @@
 --
 -- WHAT IS PROVED.
 --
---   (A) `two-primesâ’coprime-split` -- in
+--   (A) `two-primesâ†’coprime-split` -- in
 --       its positive form, needing no negative hypothesis and no
 --       definition of "not a prime power":
 --

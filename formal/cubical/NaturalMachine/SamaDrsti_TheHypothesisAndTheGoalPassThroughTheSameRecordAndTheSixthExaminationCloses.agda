@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡Æ-‡¶‡‡‡‡ü‡ø‡ ‚Äî equal seeing.  Compound built here; no
+-- ‡§∏‡§Æ-‡§≠‡§æ‡§∞ ‚Äî equal seeing.  Compound built here; noƒÅ
 -- source is claimed for the mathematics.
 --
 -- WHY EQUAL VISION.  If in a step-pervasion

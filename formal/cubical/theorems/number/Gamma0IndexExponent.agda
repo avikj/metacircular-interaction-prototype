@@ -10,9 +10,9 @@
 --
 -- which is entirely classical and is in every modular-forms text (Shimura,
 -- *Introduction to the Arithmetic Theory of Automorphic Functions*, 1971, §1.6;
--- Diamond�Shurman, *A First Course in Modular Forms*, 2005, §1.2).  The
+-- Diamond–Shurman, *A First Course in Modular Forms*, 2005, §1.2).  The
 -- general-rank version
--- is the cotype-count of Birkhoff (1935) / Chinta�Kaplan�Koplewitz (2017).
+-- is the cotype-count of Birkhoff (1935) / Chinta–Kaplan–Koplewitz (2017).
 -- What is claimed is the CERTIFICATE: the fragment below is a checked term
 -- rather than prose or a finite table.
 --

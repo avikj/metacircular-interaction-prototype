@@ -16,7 +16,7 @@
 --  proves the fourth bhaṅga is नित्य, permanent under single
 --  utterances: for every utterance there is a profile that survives
 --  it, and the remedy is a SECOND utterance in succession, not more
---  of anything.  Same shape with � and � exchanged.
+--  of anything.  Same shape with ∈ and ∈ exchanged.
 --  `AnuktaAvaktavya.agda` exhibits
 --  the two poles; Akalaka's kramrpaa/sahrpaa is the classical
 --  name for the difference.

@@ -23,7 +23,7 @@ reconstructs both the twist and the identity from what it reads.
 
 So the rope's topological memory and the Turing step's find/check gap
 are, from the coin's side, the same face-shape held by different
-lanes â”
+lanes â€”
 the hard distinctions are sides of one nonbinary coin, and each
 new face is one record away from joining.
 

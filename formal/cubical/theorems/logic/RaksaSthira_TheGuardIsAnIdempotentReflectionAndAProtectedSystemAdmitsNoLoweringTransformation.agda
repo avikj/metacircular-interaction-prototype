@@ -7,7 +7,7 @@
 -- THE SETTING.  A security modality: a seed that
 -- reflects any unprotected system into a protected fixed point, while
 -- protected instances admit no unauthorized transformation.  The
--- shape of that claim is the order structure of � under
+-- shape of that claim is the order structure of ℕ under
 -- `max`.  The reduction rules of `max` and `le` used below:
 --     max x 0 ≡ x            (refl)
 --     max 0 (s x) ≡ s x      (refl)

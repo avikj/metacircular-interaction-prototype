@@ -61,7 +61,7 @@ open import OracleSeparation using (EvenQuery)
 open import S3IntegerRelativeCoordinates using (triple ; ThreeKernel)
 
 ------------------------------------------------------------------------
--- �.  WHAT THESE SHAPES ARE NOT.
+-- द.  WHAT THESE SHAPES ARE NOT.
 --
 --   (i)  a NEGATED equation is not a fibre.  `fiber f b` is
 --        `Σ[ a ] (f a ≡ b)`; `Σ[ a ] ¬ (f a ≡ b)` is its complement and

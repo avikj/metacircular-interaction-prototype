@@ -32,7 +32,7 @@
 --
 -- WHY THIS FILE EXISTS.  That statement was verified on 28561 points at
 -- D = 1 and D = 2, zero failures.  Exhaustive checking of a *bounded box* is
--- not a proof of a statement quantified over all of �.
+-- not a proof of a statement quantified over all of ℕ.
 -- The identity is in fact a commutative-semiring identity: expanding both
 -- sides gives the same five monomials, with the cross term 2D x₁x₂y₁y₂
 -- appearing once on each side.  So it needs no induction, no ordering, and

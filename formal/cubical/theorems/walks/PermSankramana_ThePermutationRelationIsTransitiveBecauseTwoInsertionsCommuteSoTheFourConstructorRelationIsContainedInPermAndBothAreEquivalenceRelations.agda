@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
 -- Perm-सङ्क्रमणम् — the transitivity `TheConverseContainmentReducesTo
--- PermTransitivity�` takes as a hypothesis.
+-- PermTransitivity…` takes as a hypothesis.
 --
 -- Transitivity of `Perm` needs an exchange lemma moving an `Insert` past
 -- a `Perm`.  Here is the exchange lemma, and it rests on one fact: two

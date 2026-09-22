@@ -70,7 +70,7 @@
 -- WHERE THE PIECES WERE.  Each of the following is now an instance and
 -- none of them cited another:
 --
---   AvrttiResidue_â¦  `the-kernel-carries-no-inverse` â€” Â§2 at `len`.
+--   AvrttiResidue_â€¦  `the-kernel-carries-no-inverse` â€” Â§2 at `len`.
 --   Machine_â¦      `à¯à¨àààà°à®à : GroupoidMachine (X â‰ X)` â€” Â§3's hypothesis.
 --   Avirodha_â€¦    "strictly a category, weakly a groupoid; the gap is
 --                 the Å›eá¹£a" â€” Â§2 and Â§3 are what the gap IS.
@@ -318,7 +318,7 @@ record Laghava {Op : Type â„“} (M : MonoidMachine Op) : Type â„“ where
 -- column to the first read backwards: an equivalence, which has no cost
 -- and no memory, becomes a PATH â€” and every route that produced it is
 -- gone, not by omission but because the destination type has no room for
--- it.  `Aresidue_â¦` measures the loss exactly: soundness lands in a
+-- it.  `Aresidue_â€¦` measures the loss exactly: soundness lands in a
 -- proposition, so the fibre over any meaning is the WHOLE derivation
 -- type, and by Â§5 that fibre is graded while the meaning is not.
 --
@@ -391,7 +391,7 @@ record Laghava {Op : Type â„“} (M : MonoidMachine Op) : Type â„“ where
 -- Â§8  THE INSTANCE THE KERNEL IS.
 --
 --     `sound : Derivation a b â†’ Meaning a b` lands in a PROPOSITION
---     (`Aresidue_â¦`, `isPropMeaning`), and an inhabited proposition is the
+--     (`Aresidue_â€¦`, `isPropMeaning`), and an inhabited proposition is the
 --     trivial group: one element, its own inverse, seq and noop forced.
 --     So Â§7 applies with `G = Unit`, and says exactly this â€” NOTHING
 --     COMPUTED FROM THE MEANING SEES THE ROUTE.  Not "no obvious

@@ -100,7 +100,7 @@
 --   * cubical v0.5 has NO integer square root and NO primality
 --     (`Cubical/Data/Nat/` contains neither), and agda-unimath has
 --     `is-prime-ℕ` and `is-square-ℕ` but no integer square root and no
---     �-criterion.
+--     ∈-criterion.
 ------------------------------------------------------------------------
 
 module RoughSplit where

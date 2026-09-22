@@ -7,7 +7,7 @@
 -- SOURCE.  The metaphor is ‡‡®‡‡¶‡‡∞‡‡æ‡≤, Indra's net: at every knot
 -- a jewel, and in each jewel the reflection of every other (the net of
 -- Indra, Atharvaveda 8.8.6‚Äì8; the interpenetration reading is Huayan,
--- Fazang 643‚ì712).  The MATHEMATICS is
+-- Fazang 643‚Ñì712).  The MATHEMATICS is
 -- Voevodsky-substrate homotopy type theory (the fibration lemma HoTT
 -- 4.8.1, and the final-coalgebra / domain-equation form of Indra's net),
 -- already checked in this repository as `IndraNet.agda`, whose module

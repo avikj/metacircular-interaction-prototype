@@ -9,7 +9,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- THE MISSING INGREDIENT.
 --
--- The exact division with its divisibility witness is one object.  §� builds
+-- The exact division with its divisibility witness is one object.  §न builds
 -- it: `भागहारः j n` is the exact division of n by (suc j), presented as a
 -- CARRIER — base = the pair (dividend, divisor), carried = the लब्धि
 -- (quotient), witness = n ≡ suc j · लब्धि.  §२ proves the carried datum is
@@ -51,7 +51,7 @@
 --
 -- The six m's of §� are supplied as data.
 -- The turn is sound for ANY
--- m whose three divisions come out exact, which is what §� states.
+-- m whose three divisions come out exact, which is what §३ states.
 -- The three ������� of §� are HYPOTHESES of the theorem.  §� discharges
 -- them by computation for the six particular turns.
 --

@@ -17,9 +17,9 @@
 ------------------------------------------------------------------------
 -- WHY THIS MODULE EXISTS.  The three-valued census lacks a fourth case.
 --
--- `SakalaVikalaDesa_‚¶` (this library) replaced a two-valued test
+-- `SakalaVikalaDesa_‚Ä¶` (this library) replaced a two-valued test
 -- with a three-valued census ‚Äî empty / contractible / crowded ‚Äî because
--- `isContr` was merging ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ with ‡®‡‡‡ü‡ø.
+-- `isContr` was merging ‡§®‡§æ‡§∏‡•ç‡§§‡§ø with ‡§®‡§∑‡•ç‡§ü‡§ø.
 --
 -- The census has no case for the question that has no subject.
 -- `machine/Obstruction.hs` carries FOUR outcomes:

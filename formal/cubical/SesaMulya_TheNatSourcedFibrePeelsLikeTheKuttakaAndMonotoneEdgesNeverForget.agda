@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- àààà®àà²àà¯à®à â€” the price of the remainder.  Compound built here
+-- à¤¶à¥‡à¤·à¤¶à¥‡à¤·à¤²à¥‡à¤–à¤ƒà¤²à¥‡à¤–à¤ƒ â€” the price of the remainder.  Compound built here
 -- (ààà, remainder; à®àà²àà¯, price).
 -- The DISCIPLINE in Â§1 is claimed for its source and it
 -- is the corpus's oldest: Ä€ryabhaá¹­a, Ä€ryabhaá¹­Ä«ya, Gaá¹‡itapÄda 32â€“33, 499

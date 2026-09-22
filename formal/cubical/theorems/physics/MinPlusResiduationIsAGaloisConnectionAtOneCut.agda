@@ -4,7 +4,7 @@
 -- MinPlusResiduationIsAGaloisConnectionAtOneCut
 --
 -- `TheSaturationClosureNeedsOnlyAGaloisConnection` reduced Δ 28
--- §31�32's saturation obligation to exactly two lines, `galFwd` and
+-- §31–32's saturation obligation to exactly two lines, `galFwd` and
 -- `galBwd`, for an abstract Galois connection.
 --
 -- Here they are proved at ONE CUT — a single burden and a single
@@ -131,7 +131,7 @@ truncationBreaksTheNaiveOrder = naiveHolds , naiveFails
 -- THE MEET, AND THE PROFILE CUT.  Both are in
 -- `TheMeetIsMaxAndTheProfileCutIsAGaloisConnection`.
 --
--- **The meet is `max`, not `min`.**  §2 here reverses �'s order because
+-- **The meet is `max`, not `min`.**  §2 here reverses ℕ's order because
 -- lower cost is better; a meet in a reversed order is a JOIN in the
 -- original, so `�` over burdens is `max` in �.  Writing "min-plus, so
 -- take a min" names the operation by its role in the semiring rather
@@ -154,5 +154,5 @@ truncationBreaksTheNaiveOrder = naiveHolds , naiveFails
 -- adjunction over a non-empty index; and
 -- `TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero` removes the
 -- restriction entirely, over an ARBITRARY residual index list with no
--- `∞` — the empty meet is `0` by �'s bottom rather than by choice.
+-- `∞` — the empty meet is `0` by ℕ's bottom rather than by choice.
 ------------------------------------------------------------------------

@@ -47,8 +47,8 @@
 -- outside itself, and the alternative — importing across the repository
 -- — would make `check.sh` no longer check what it says it checks.
 --
--- `�����` is the SUBTRACTIVE step (anthyphairesis), not
--- the division step a � a mod b.
+-- `वल्ली` is the SUBTRACTIVE step (anthyphairesis), not
+-- the division step a … a mod b.
 -- The �����
 -- of the *ryabhaya* is the column of QUOTIENTS; what is formalised
 -- below is the column of subtractions that produces them.  Anything
@@ -229,7 +229,7 @@ data त्रिक् : Type where
 गभीर-उत्थान (वाम d k)   = refl
 गभीर-उत्थान (दक्षिण d k) = refl
 
--- the round trip.  this is `�����������` of
+-- the round trip.  this is `पुनरागमनम्` of
 -- formal/cubical/Punaragamana.agda, reproved so the library stays standalone.
 उत्थान-भेद : (a b : ℕ) → उत्थान (भेद a b) ≡ (a , b)
 उत्थान-भेद zero    zero    = refl
@@ -274,7 +274,7 @@ data त्रिक् : Type where
 -- THE LIFT, AND THE SQUARE.
 --
 -- Φ-square is `refl`: it closes DEFINITIONALLY, for an opaque variable,
--- because � has eta and `descend` does not pattern match.
+-- because Σ has eta and `descend` does not pattern match.
 -- Both are instances of the law.
 ------------------------------------------------------------------------
 

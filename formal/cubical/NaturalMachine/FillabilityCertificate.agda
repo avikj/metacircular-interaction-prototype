@@ -377,7 +377,7 @@ module _ (P : ℕ → Bool) where
 
 -- The reduction.  A uniform decision procedure for certificate
 -- existence on infinitely-branching systems would decide, for every
--- P : � � Bool, whether some k has P k ≡ true.  Such a decision is not
+-- P : ℕ → Bool, whether some k has P k ≡ true.  Such a decision is not
 -- available, so neither is the decision procedure, and the finite
 -- branching consumed by `decBCert` in §6 is load-bearing rather than
 -- convenient.

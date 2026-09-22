@@ -43,7 +43,7 @@
 --     forgotten it is one.
 --   Samantabhadra, Āptamīmāṃsā, c. 6th c. CE — the saptabhaṅgī as a fixed
 --     seven-membered scheme, each member prefixed `syt`.
---   Akalaka, Laghyastraya / Aaat, c. 720�780 CE — the order (�����,
+--   Akalaṅka, Laghīyastraya / Aṣṭaśatī, c. 720–780 CE — क्रमार्पणक्रमार्पणthe order (,
 --     sequential) versus saha / yugapat (सह, simultaneous) distinction,
 --     which is the whole content of the two operations here, and the
 --     argument that the number is exactly seven.

@@ -5,7 +5,7 @@
 -- orbit that never returns.  Two nayas, both checked; the machine holds both.
 --
 -- WHAT THIS HOLDS.  Kevalajnana/Avarana celebrated the equivalence — the
--- perfect mirror, every fibre whole, no loss.  Areturn_�agda's header
+-- perfect mirror, every fibre whole, no loss.  Areturn_…agda's header
 -- names the price of that celebration: "a system with nothing left
 -- unreturned is a dead system", citing Dhruva — if the cognition loses
 -- nothing (isEquiv) every flow conserving it is the identity.  So kevala is

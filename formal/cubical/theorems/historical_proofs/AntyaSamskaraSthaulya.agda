@@ -278,7 +278,7 @@ open Correction ℤCommRing
 --
 --     1/(4n + 2²/(4n + 4²/(4n + 6²/(4n + …))))
 --
--- and the fourth is (4n³+13n)/(16n�+56n²+9).  Its residue is -576, checked above over an arbitrary commutative ring.
+-- and the fourth is (4n³+13n)/(16n⁴+56n²+9).  Its residue is -576, checked above over an arbitrary commutative ring.
 --
 -- 576 = 24², so a square is still in the list, and that is precisely why
 -- the fit was reachable and why it is worthless: 4, −4, 9, −576 has a

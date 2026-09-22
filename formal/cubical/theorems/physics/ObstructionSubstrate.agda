@@ -16,7 +16,7 @@
 -- covers) and name exactly the missing structure.
 --
 -- This module states and CHECKS both halves in a small substrate.  How
--- much of §7 survives the shrinking is the subject of T7� and T10 below.
+-- much of §7 survives the shrinking is the subject of T7′ and T10 below.
 --
 --   * `Tm`      — unary constructor terms over a countable alphabet of
 --                 head shapes (a term language in which a definitional
@@ -403,7 +403,7 @@ plateau (step {W = W} ch t m) =
   extend-absorbed W (headShape W t m) (headShape-built W t m) ∙ plateau ch
 
 ------------------------------------------------------------------------
--- T7�.  HOW MUCH OF T7 IS THE DATATYPE.  Exactly this much.
+-- T7′.  HOW MUCH OF T7 IS THE DATATYPE.  Exactly this much.
 --
 -- The step constructor names `headShape W t m`, which by
 -- `headShape-built` is ALREADY INSTALLED in W.  The converse holds too:

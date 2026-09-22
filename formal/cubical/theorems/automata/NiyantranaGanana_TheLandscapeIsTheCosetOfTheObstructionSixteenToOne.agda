@@ -15,7 +15,7 @@
 -- SandarbhaGanana measured the Peres–Mermin landscape (96/320/96 on odd
 -- satisfied-counts, evens forbidden) and conjectured the parity rule
 -- from the cocycle.  THE CONTROL EXPERIMENT:
--- flip the sign vector to CONSISTENT (all-even, and two-odd �
+-- flip the sign vector to CONSISTENT (all-even, and two-odd —
 -- both with required-sign product +1) and re-census.  The machine's
 -- answers, pinned below by 512-sweeps:
 --

@@ -10,7 +10,7 @@
 -- WHY THIS EXISTS.  A self-map goes nowhere as an EDGE: a generator adds no
 -- reachability in one step and unbounded novelty in the limit.
 --
--- � carries more of them than every other type
+-- ℕ carries more of them than every other type
 -- together, and they fall into two kinds that this module separates by a
 -- single property each.  `ALosslessReturn_….अपुनरागमनम्` proved the ascending
 -- case for ONE generator, Brahmagupta's भावना.  §२ here is that theorem

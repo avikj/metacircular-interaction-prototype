@@ -11,7 +11,7 @@
 --    `score_child_prop` or `best` is rejected, while the accidental
 --    `score_child_propbest` value falls through to random selection."
 --
--- Seams 1 and 3 have the SAME SHAPE �
+-- Seams 1 and 3 have the SAME SHAPE —
 -- a defect undetectable exactly where it is harmless — and said that
 -- shape is a property of the SECTION.  Seam 2 has the same
 -- shape, and this is its statement.

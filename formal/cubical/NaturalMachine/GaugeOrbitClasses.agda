@@ -85,7 +85,7 @@
 --   classical (the square-class group ℚ^×_{>0}/(ℚ^×_{>0})², whose F₂-dual
 --   is the space of such functions).  Only the checked statement, and the
 --   scope correction of §6, are contributed.
--- * §7 proves the concatenated form `val � (m ++ (k ++ k)) ≡ val � m`,
+-- * §7 proves the concatenated form `val σ (m ++ (k ++ k)) ≡ val σ m`,
 --   which is the core and avoids permutation machinery.
 --
 -- Contents (no holes, no postulates, --safe):

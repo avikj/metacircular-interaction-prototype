@@ -9,7 +9,7 @@
 -- `Karma_…`; that is a different object and no connection is claimed.)
 --
 -- THIS MODULE REFUTES A CONJECTURE STATED IN TWO OTHER MODULES.
--- `Anupurvi_�.NormalisationConjecture` and
+-- `Anupurvi_….NormalisationConjecture` and
 -- `Samkhyana_….CompleteInvariantConjecture` both propose that the word of
 -- variable occurrences together with the count of successors is a COMPLETE
 -- invariant for derivability — that two terms agreeing on both are joined

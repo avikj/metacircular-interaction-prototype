@@ -69,8 +69,8 @@
 --                             `descends-split` with the same resulting
 --                             `g` as `split-descent-agrees`.  The set
 --                             hypothesis on `C` is genuinely used there,
---                             but `SetQuotients` is not needed at all â”
---                             `PT.recâ’Set` builds `g` with no quotient
+--                             but `SetQuotients` is not needed at all â€”
+--                             `PT.recâ†’Set` builds `g` with no quotient
 --                             constructed.
 --
 --   Â§8  `refute-âˆ˜`            Â§15.19: T15.68 (no-go propagates
@@ -304,10 +304,10 @@ module _ {A : Type â„“} {B : Type â„“'} {C : Type â„“''} (q : A â†’ B) (f : A â†
 -- T15.40, the substantive direction, for a SPLIT surjection: the section
 -- supplies `g` directly.  Delta 15 states it for a surjection; the
 -- general surjection is `EffectiveDescent`, where the set hypothesis on
--- `C` is needed and `SetQuotients` is not.  `PT.recâ’Set` (a 2-Constant
+-- `C` is needed and `SetQuotients` is not.  `PT.recâ†’Set` (a 2-Constant
 -- map into a set factors through `âˆ_âˆâ`) builds `g` with no quotient
 -- constructed â€” the same argument `FiniteInformation`'s
--- `fiberConstantâ’factorsThrough` runs for `Image q`.
+-- `fiberConstantâ†’factorsThrough` runs for `Image q`.
 -- That module also proves the factorisation UNIQUE, packages the pair
 -- as an equivalence `(B â†’ C) â‰ƒ Î£[ f ] Coequalizes q f`, and proves the
 -- converse: injectivity of that map at the single set `hProp` forces `q`

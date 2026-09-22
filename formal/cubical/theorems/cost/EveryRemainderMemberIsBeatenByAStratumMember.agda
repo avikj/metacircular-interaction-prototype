@@ -16,7 +16,7 @@
 -- THE ARGUMENT.
 --
 -- No well-founded measure on ℕ over a finite list is needed.  The
--- chain-climbing argument — v is beaten by u, u may be beaten by u�,
+-- chain-climbing argument — v is beaten by u, u may be beaten by u′,
 -- iterate and hope it stops — is not the only route; the shorter one:
 --
 --   apply `maximalExists` to the SUBLIST of elements that beat v.

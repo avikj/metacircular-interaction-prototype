@@ -46,7 +46,7 @@
 -- denotation computes the size), so compression measures crowding.  A
 -- scalar gain is two-valued at any threshold.  A test list samples the
 -- SOURCE, so it can witness confusion and never absence.
--- `MachineFiber_�§5` proves the engine has a meaning no term of its
+-- `MachineFiber_…§5` proves the engine has a meaning no term of its
 -- vocabulary reaches (`अप्राप्यम्`), and §6 records that the invention
 -- trigger fires on a crowding quantity.  This module says why that is not
 -- a tuning error: the coordinate such a trigger would need is the one every

@@ -68,7 +68,7 @@
 --       two-storey tower whose flattening holds by `refl`.
 --
 -- The tower of §7 is level-uniform (every storey at
--- one level �).
+-- one level ℓ).
 --
 -- ON SIZE.  `fiber π X` lives one universe above X, so §2's pullback is an
 -- equivalence ACROSS levels.  That is the size of the classifier — the

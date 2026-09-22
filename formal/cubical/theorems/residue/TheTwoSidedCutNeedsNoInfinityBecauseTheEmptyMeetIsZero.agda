@@ -10,7 +10,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- THE POINT.
 --
--- The burden side is ordered by `_�p_`, REVERSE
+-- The burden side is ordered by `_⊑p_`, REVERSE≤
 -- pointwise `≤` — more burden absorbed is lower.  The right adjoint
 -- must produce the `⊑p`-GREATEST profile satisfying a vacuous
 -- constraint; `⊑p`-greatest is `≤`-LEAST, and ℕ's least element is

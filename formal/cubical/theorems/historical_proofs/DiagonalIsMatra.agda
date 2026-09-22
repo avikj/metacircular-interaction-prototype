@@ -8,7 +8,7 @@
 --     mātrā n  ≡  Σ_{a+b=n} meru a b
 --
 -- Virahāṅka's mātrāmeru (c. 600–800) is the shallow diagonal of Piṅgala's
--- meru-prastra (c. 300�200 BCE).
+-- meru-prastra (c. 300–200 BCE).
 --
 -- ────────────────────────────────────────────────────────────────────
 -- HOW IT GOES, AFTER FOUR ENCODINGS

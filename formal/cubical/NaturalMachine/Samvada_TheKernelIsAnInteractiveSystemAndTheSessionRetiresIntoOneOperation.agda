@@ -17,7 +17,7 @@
 ------------------------------------------------------------------------
 -- WHAT THE ADJACENT THEOREMS ESTABLISH, READ FORWARD.
 --
--- `Vyapti_�`, `Sesa_�` and `Avataranika_�` §7 read forward as the
+-- `Vyapti_…`, `Sesa_…` and `Avataranika_…` §7 read forward as the
 -- interactive design of this kernel:
 --
 --    `Control : Tm → Type₀` is a FIELD the caller supplies, and may be ANY
@@ -33,7 +33,7 @@
 --    theorem-grade error) and `Uttara`'s (never a bare verdict).
 --
 --    That no semantic criterion selects the short proof is a GUARANTEE OF
---    NON-DISPLACEMENT: `Sesa_�` proves the machine can never take the
+--    NON-DISPLACEMENT: `Sesa_…` proves the machine can never take the
 --    choice from you on semantic grounds.  The system is interactive by
 --    theorem.
 --

@@ -12,7 +12,7 @@
 --
 -- WHAT THIS SETTLES, AND WHY IT WAS AVAILABLE ALL ALONG.
 --
--- Three conservation laws were proved for this calculus �
+-- Three conservation laws were proved for this calculus —
 -- the variable word (`Anupurvi_…`), the successor count (`Samkhyana_…`),
 -- and the trapped-successor count (`Baddha_…`, which refuted the
 -- conjecture that the first two suffice).  Each was found by asking what a

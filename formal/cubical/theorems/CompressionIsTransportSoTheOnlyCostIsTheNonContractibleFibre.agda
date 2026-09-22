@@ -24,7 +24,7 @@
 -- fibre that fails to be contractible.  This file makes that exact and
 -- checks it.
 --
--- THE STEP (from Vishvamachine): for ANY evaluator f : A � B,
+-- THE STEP (from Vishvamachine): for ANY evaluator f : A → B,
 --
 --     lossless :  A ≃ Σ B (fiber f)          a ↦ (f a , a , refl)
 --

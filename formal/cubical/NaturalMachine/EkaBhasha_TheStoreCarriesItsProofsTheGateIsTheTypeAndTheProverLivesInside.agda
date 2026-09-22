@@ -56,7 +56,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
 ------------------------------------------------------------------------
 -- §1  The vocabulary, one datatype — IMPORTED, not restated.  The
---     machine's vocabulary, evaluator and normalizer live ONCE, in the act-portion (formal/karma/KarmaKanda�, checked
+--     machine's vocabulary, evaluator and normalizer live ONCE, in the act-portion (formal/karma/KarmaKanda…, checked
 --     --cubical-compatible --safe), which both worlds import with full
 --     use: this --cubical body proves paths about the very definitions
 --     the compiled mouth runs.  The Veda's two portions read one text.

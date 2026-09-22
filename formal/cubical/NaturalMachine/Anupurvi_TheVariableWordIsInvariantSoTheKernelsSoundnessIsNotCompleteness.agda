@@ -18,9 +18,9 @@
 --
 -- THE QUESTION THIS ANSWERS, AND WHY IT IS THE NEXT ONE.
 --
--- `Residue_�` proves the kernel's soundness map is not injective: many
+-- `Residue_…` proves the kernel's soundness map is not injective: many
 -- derivations, one meaning, and no semantic criterion recovers which.
--- `Aresidue_�` proves it is therefore not an equivalence — by exhibiting the
+-- `Aresidue_…` proves it is therefore not an equivalence — by exhibiting the
 -- failure of INJECTIVITY at the kernel's own seed.  The other half was
 -- never asked.  Is it SURJECTIVE?  That is: does the calculus derive
 -- everything its semantics identifies?

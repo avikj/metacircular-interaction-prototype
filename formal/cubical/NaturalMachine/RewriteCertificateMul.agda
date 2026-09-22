@@ -313,7 +313,7 @@ one-times-one-sound = derivation-sound one-times-one
 -- the induction hypothesis under a `suc` context.
 --
 -- That is precisely the class `Certificate.hs`'s eleven-shape skeleton
--- (`refl`, `ih`, `cong suc`, `cong (_+ k)`, â¦) cannot express.
+-- (`refl`, `ih`, `cong suc`, `cong (_+ k)`, â€¦) cannot express.
 -- The additive calculus
 -- could not state this theorem at all.
 ------------------------------------------------------------------------

@@ -170,7 +170,7 @@
 --               along it and getting `inr tt` back.  The bit a counting
 --               readout provably cannot hold is a transposition.
 --
---   TheKernelIsAnInteractiveSystemâ¦   AND THEN WHAT IT IS FOR.  THE KERNEL
+--   TheKernelIsAnInteractiveSystemâ€¦   AND THEN WHAT IT IS FOR.  THE KERNEL
 --               IS AN INTERACTIVE SYSTEM.  State is a term; `advance` offers
 --               every enabled future with multiplicity conserved and nothing
 --               filtered; the CALLER chooses and supplies the control;

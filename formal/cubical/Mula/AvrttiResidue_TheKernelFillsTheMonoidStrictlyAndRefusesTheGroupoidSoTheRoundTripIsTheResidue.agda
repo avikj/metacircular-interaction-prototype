@@ -4,10 +4,10 @@
 -- आवृत्तिशेषः — the remainder of the turning-back.
 --
 -- TERM.  आवृत्ति (āvṛtti), repetition / a turning back over the same
--- ground, and ��� (ea), what is left over.
+-- ground, and शेष (śeṣa), what is left over.
 -- ��� in the sense this file uses — the remainder is kept and is
 -- the material of the next step — is Āryabhaṭa, Āryabhaṭīya, गणितपाद
--- 32�33 (499 CE), the kuaka.
+-- 32ℓ33 (499 CE), the kuaka.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS SETTLES.

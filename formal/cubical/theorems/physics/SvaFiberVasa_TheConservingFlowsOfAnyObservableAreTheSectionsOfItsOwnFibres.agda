@@ -53,8 +53,8 @@
 --
 -- TERM.  ‡§∏‡•ç‡§µ (own), ‡§§‡§®‡•ç‡§§‡•Å (thread, fibre), ‡§µ‡§æ‡§∏ (dwelling) are ordinary
 -- .  ‡‡®‡‡‡ for the fibre of a map is THIS CORPUS's rendering
--- (declared in `Tantujala_‚¶.agda`'s header),
--- and the compound ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡ is built here.
+-- (declared in `Tantujala_‚Ä¶.agda`'s header),
+-- and‚àí the compound ‡§∏‡§Ç‡§∞‡§ï‡•ç‡§∑‡§ï‡§∏‡§Æ‡•Ç‡§π is built here.
 ------------------------------------------------------------------------
 
 module SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres where
@@ -194,8 +194,8 @@ module _ {A B B' : Type ‚Ñì} (f : A ‚Üí B) (g : A ‚Üí B') where
 -- The receipt-economy reading, recorded because it prices symmetry
 -- itself: a conserving flow of f is EXACTLY one fibre-point per
 -- point, so the "amount of symmetry" of an observable is its fibre
--- census summed over the domain ‚Äî the same census `Tantujala_‚¶agda`
--- grades and `interactive/Lopa_‚¶hs` queues.  Every unpriced fibre in the
+-- census summed over the domain ‚Äî the same census `Tantujala_‚Ä¶agda`
+-- grades and `interactive/Lopa_‚Ä¶hs` queues.  Every unpriced fibre in the
 -- dark-matter queue is, by this law, also an unpriced quantity of
 -- symmetry.
 ------------------------------------------------------------------------

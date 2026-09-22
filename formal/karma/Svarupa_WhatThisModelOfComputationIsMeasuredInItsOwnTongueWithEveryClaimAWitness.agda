@@ -33,7 +33,7 @@
 --                     (Gunasthana; climb 103/108 with no agent).
 --   Models itself?    Partially, and the boundary is exact: its time
 --                     is internal (कालः is a Tm→Tm translation), its
---                     syntax is NOT a value of its own domain �
+--                     syntax is NOT a value of its own domain —
 --                     quoting needs sequence data (pairing) and
 --                     self-interpretation needs a recursor, and the
 --                     vocabulary is first-order algebraic: NOT

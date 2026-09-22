@@ -120,7 +120,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (b : B) where
 --
 -- Read the note's ¬ß‡•™ off the censuses below:
 --
---   * `f`'s census is ‡‡ï‡≤‡æ‡¶‡‡ at `true` and ‡®‡æ‡‡‡‡ø at `false`.  Step one
+--   * `f`'s census is ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ at `true` and ‡§®‡§æ‡§∏‡•ç‡§§‡§ø at `false`.  Step one
 --     has a NON-CONTRACTIBLE fiber and loses NOTHING ‚Äî `Bool` merely has
 --     a name `Unit` cannot utter.  So "the first non-contractible fiber
 --     is where the information went" is false in one direction.
@@ -133,7 +133,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (b : B) where
 --     cancel.  False in the other direction too.
 --
 -- A binary test cannot state this, because it must call step one and step
--- two by the same name.  The census calls them ‡®‡æ‡‡‡‡ø and ‡µ‡ø‡ï‡≤‡æ‡¶‡‡.
+-- two by the same name.  The census calls them ‡§®‡§æ‡§∏‡•ç‡§§‡§ø and ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂.
 ------------------------------------------------------------------------
 
 ‡§∏‡§§‡•ç : Unit ‚Üí Bool

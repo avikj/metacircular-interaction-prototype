@@ -57,7 +57,7 @@ proposition. So:
 > residual freedom, if any, is precisely `h-level(Ev) − (−1)`.
 
 `वर्धन-बहुत्वम्` is the negative instance made concrete, and the *method*
-of its proof is itself the point (§4 below): `Derivation` is not proved to fail to be a set; it is mapped to one — `dlen : Derivation � �` — and
+of its proof is itself the point (§4 below): `Derivation` is not proved to fail to be a set; it is mapped to one — `dlen : Derivation → ℕ` — and
 two lawful processes are found whose emitted derivations differ in length
 (`n` vs `n+2`) on a single query, so no identifying path exists. The
 generativity is witnessed by a *shadow*, a set-valued invariant, without

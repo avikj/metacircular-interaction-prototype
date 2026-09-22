@@ -4,7 +4,7 @@
 -- गणना-asNat — the indicator's full census, pricing the busiest unpriced
 -- edge the organism itself asked for.
 --
--- THE MAP: `FiniteOccupancyChannelNoGo.asNat` (false�0, true�1).
+-- THE MAP: `FiniteOccupancyChannelNoGo.asNat` (false↦0, true↦1).
 -- One receipt prices the indicator shape itself.
 --
 -- THE RECEIPT, an identification per point of the codomain (never a

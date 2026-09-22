@@ -50,7 +50,7 @@
 -- is a finite computation, and it is done rather than guessed:
 -- `machine/Pratyahara_TheIntervalDecisionProcedure.hs` runs Dilworth (via
 -- bipartite matching and Knig, antichain returned and re-checked) on the
--- classes of all fourteen stras and reports â”
+-- classes of all fourteen stras and reports â€”
 --    all 294 classes the line can name : width 14, the anubandha count
 --    the ~30 pratyhras the grammar uses : width 11
 -- So the bound is met exactly on the family the device EXPRESSES, and the

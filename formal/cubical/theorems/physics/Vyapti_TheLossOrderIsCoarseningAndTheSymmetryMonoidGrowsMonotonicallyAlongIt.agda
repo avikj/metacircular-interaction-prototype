@@ -60,10 +60,10 @@
 -- ────────────────────────────────────────────────────────────────────
 --
 -- **The order is a preorder, not a partial order.**  `व्याप्नोति` has
--- reflexivity and transitivity (§�) and antisymmetry fails:
+-- reflexivity and transitivity (§न) and antisymmetry fails:
 -- two maps can factor through each other without being equal.
 --
--- `isEquiv Φ �
+-- `isEquiv Φ →
 -- ¬ विस्मृतिः Φ` is proved; the converse — that a non-equivalence
 -- exhibits a विस्मृतिः — is CLASSICAL (it needs a collision to be found,
 -- and a ¬(a ≡ a') to be produced from ¬(a ≡ a') failing) and is not
@@ -229,7 +229,7 @@ _व्याप्नोति_ {A = A} {B = B} {C = C} f g =
 विस्मृतिः : {A : Type ℓ} → (A → A) → Type ℓ
 विस्मृतिः {A = A} Φ = Σ[ a ∈ A ] Σ[ a' ∈ A ] (Φ a ≡ Φ a') × (¬ (a ≡ a'))
 
--- ��� � A reversible flow forgets nothing.  (`Machine`'s groupoid is
+--   A reversible flow forgets nothing.  (समत्वेसमत्वे`Machine`'s groupoid isनविस्मृतिः
 -- exactly the case where this type is empty for every operation.)
 समत्वे-न-विस्मृतिः : {A : Type ℓ} {Φ : A → A} → isEquiv Φ → ¬ विस्मृतिः Φ
 समत्वे-न-विस्मृतिः {Φ = Φ} e (a , a' , q , n) =

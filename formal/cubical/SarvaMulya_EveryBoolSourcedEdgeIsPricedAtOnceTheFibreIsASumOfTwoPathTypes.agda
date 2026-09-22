@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡µ‡Æ‡‡≤‡‡Ø‡Æ‡ ‚Äî the price of all of them.  Compound built here
+-- ‡§∂‡•á‡§∑‡§∂‡•á‡§∑‡§≤‡•á‡§ñ‡§É‡§≤‡•á‡§ñ‡§É ‚Äî the price of all of them.  Compound built here
 -- from ordinary  (‡‡∞‡‡µ, all; ‡Æ‡‡≤‡‡Ø, price).
 --
 -- WHY.  Mulyankana priced two of Jiva's five named Bool ‚ü∂ ‚Ñï edges by

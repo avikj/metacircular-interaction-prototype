@@ -22,7 +22,7 @@
 --                ℤ[(1+√Δ)/2], which contains ℤ[√Δ] with index 2 and which
 --                x² − D y² = 1 cannot see.
 --
--- WHY � AND WHY SUBTRACTION-FREE.
+-- WHY ℕ AND WHY SUBTRACTION-FREE.
 -- `BhavanaSemiring.agda`: bhvan as classically written
 -- is FALSE over ℕ because monus truncates, and moving every negative term
 -- across makes it true with no hypothesis and makes it a commutative-

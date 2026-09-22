@@ -10,8 +10,8 @@
 --       → (i j : ℕ) → isGCD (p ^ i) (q ^ j) 1
 --
 -- `CoprimePowers` proved certificates compose, over any ring.
--- `DistinctPrimesAreCoprime` supplied the base case over �.  The transfer
--- between � and
+-- `DistinctPrimesAreCoprime` supplied the base case over ℕ.  The transfer
+-- between ℕ and
 -- �, in both directions, is here.
 --
 -- ────────────────────────────────────────────────────────────────────

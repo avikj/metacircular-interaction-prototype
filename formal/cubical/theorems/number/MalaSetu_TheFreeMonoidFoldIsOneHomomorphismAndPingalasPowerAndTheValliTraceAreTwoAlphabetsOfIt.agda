@@ -4,7 +4,7 @@
 -- मालासेतु — the garland-fold is one homomorphism, and Piṅgala's घात and
 -- the vall's trace are two alphabets of it.
 --
--- ���� is a garland — the standard  image for a list/sequence
+-- माला is a garland — the standard  image for a list/sequence
 -- (akara-ml, the garland of syllables).  The free monoid on an
 -- alphabet A is the garland of its letters, `List A`, with concatenation.
 -- ����, the bridge: this file proves

@@ -291,7 +291,7 @@ open import SaptabhangiNaya
 -- sahrpaa side by side rather than ordering them, and it is why the
 -- scheme needs a fourth member instead of stopping at three.
 --
--- AND THE FINDING ABOVE IS AN INSTANCE OF �������, ONE LEVEL UP.  §1 and §6
+-- AND THE FINDING ABOVE IS AN INSTANCE OF दुर्नयः, ONE LEVEL UP.  §1 and §6
 -- found three distinct structures in this repository all called
 -- avaktavyam -- Satyayantra's un-said (सामयिक), 0÷0 (underdetermined), and
 -- the fourth bhaṅga (नित्य, non-factoring).  `दुर्नयः` proves that mapping

@@ -195,7 +195,7 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
 -- à Â àààà â€” the asymmetry.
 --
 -- The dual weakening is NOT available and the asymmetry is the
--- point.  There is no hypothesis on `f` that makes Â§à§ fail: the
+-- point.  There is no hypothesis on `f` that makes Â§à¥§ fail: the
 -- output-bound side is contractible for every map, which is why
 -- road one is free and why `Carrier.agda` needs no hypothesis to
 -- state `A â‰ Carrier f`.

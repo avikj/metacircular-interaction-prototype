@@ -83,9 +83,9 @@
 --
 --  * Everything is at `Type₀` with `Cubical.Data.Fin.Fin`, matching
 --    AtlasResiduals.  `isFinSet` from the library is stated with
---    `SumFin`; `finFin�` bridges.
+--    `SumFin`; `finFinℕ` bridges.
 --
---  * `embSurj` is proved for `FinSet �-zero`, in the
+--  * `embSurj` is proved for `FinSet ℓ-zero`, in the
 --    direction needed (embedding + equal cardinality ⇒ surjection).
 --
 --  * Two definitions are written in a deliberately awkward style for

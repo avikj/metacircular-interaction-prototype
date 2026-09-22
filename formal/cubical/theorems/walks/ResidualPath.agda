@@ -26,7 +26,7 @@
 -- Together: Γ↝ wHere ns is the minimum of {wHere} ∪ {route n | n ∈ ns},
 -- certified as a minimum, not merely as some small number.
 --
--- RELATION TO THE DSO LANE.  `_⊓_` of `Residual` is, symbol for symbol, `min�` of
+-- RELATION TO THE DSO LANE.  `_⊓_` of `Residual` is, symbol for symbol, `min₂` of
 -- `DSOBellmanFinite`, and it is the ℕ-fibre of `minC` of
 -- `DSOMinPlusFinite` restricted along `fin`.  `Γ↝` is that
 -- lane's `foldMin` with `List (Neighbour A)` in place of the finite index

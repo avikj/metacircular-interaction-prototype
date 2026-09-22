@@ -119,7 +119,7 @@ module _ {n : ℕ}
 
 ------------------------------------------------------------------------
 -- The path into the mixed-corner compiler surface
--- `observe�knowledge-process` is the path from an exact experiment
+-- `observe→knowledge-process` is the path from an exact experiment
 -- observation into the mixed-corner compiler surface.  Its last two arguments
 -- are precisely the arithmetic capability and transition fabric, taken as hypotheses.
 ------------------------------------------------------------------------

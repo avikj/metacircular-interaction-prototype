@@ -34,7 +34,7 @@
 --       empty sum is `∑0r` = `bigOpε` in `Cubical.Algebra.Monoid.BigOp`.
 --       Both are proved here BY the library term.  The third, `∑δ`, is
 --       genuinely absent and is one `∑Ext` from `∑Mulr1`.
---       `�Exchange` needs only a `Ring`; the incidence module's `�Swap` was stated over a
+--       `∈Exchange` needs only a `Ring`; the incidence module's `∈Swap` was stated over a
 --       `CommRing`.
 --
 --   (2) §2.  Kirchhoff's incidence matrix is a `FinMatrix`, `grad` and
@@ -111,20 +111,20 @@ module SumsAreShipped (R' : Ring ℓ) where
   open RingTheory R' public
   private R = ⟨ R' ⟩
 
-  -- KirchhoffIncidence's �0.  Library: Cubical.Algebra.Monoid.BigOp.bigOpε, re-exported
+  -- KirchhoffIncidence's ∈0.  Library: Cubical.Algebra.Monoid.BigOp.bigOpε, re-exported
   -- through Cubical.Algebra.Ring.BigOps.Sum as ∑0r.  `replicateFinVec n 0r`
   -- is definitionally `λ _ → 0r`, so no adaptation is needed at all.
   ∑0-is-∑0r : ∀ {n} → ∑ {n} (λ _ → 0r) ≡ 0r
   ∑0-is-∑0r {n} = ∑0r n
 
-  -- KirchhoffIncidence's �Swap.  Library: Cubical.Algebra.Matrix.�Exchange.  Note the
+  -- KirchhoffIncidence's ∈Swap.  Library: Cubical.Algebra.Matrix.∈Exchange.  Note the
   -- hypothesis: R' is a Ring here, not a CommRing.
   ∑Swap-is-∑Exchange : ∀ {n m} (F : Fin n → Fin m → R)
                      → ∑ (λ i → ∑ (λ j → F i j)) ≡ ∑ (λ j → ∑ (λ i → F i j))
   ∑Swap-is-∑Exchange F = ∑Exchange R' F
 
-  -- KirchhoffIncidence's �δ.  This one the library does NOT have; it is one �Ext away
-  -- from �Mulr1, which the library does have.
+  -- KirchhoffIncidence's ∈δ.  This one the library does NOT have; it is one ∈Ext away
+  -- from ∈Mulr1, which the library does have.
   ∑δ : ∀ {n} (j : Fin n) → ∑ (λ i → δ i j) ≡ 1r
   ∑δ {n} j = ∑Ext (λ i → sym (·IdL (δ i j))) ∙ ∑Mulr1 n (λ _ → 1r) j
 
@@ -385,7 +385,7 @@ module GraphGroups (R' : Ring ℓ) (n m : ℕ) (src tgt : Fin m → Fin n) where
 ------------------------------------------------------------------------
 -- 4.  THE REFUTATION.
 --
---   The claim: "one had to hand-roll �Swap because
+--   The claim: "one had to hand-roll ∈Swap because
 --   the library's Fubini, if it exists at all, is stated for commutative
 --   rings — the ∑ machinery lives under CommRing in this corpus, so the
 --   library's version would not have applied."

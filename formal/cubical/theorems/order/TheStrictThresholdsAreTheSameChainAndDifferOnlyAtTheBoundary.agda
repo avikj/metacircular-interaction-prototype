@@ -14,7 +14,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED
 --
---   �sk-cancel-<     the strict counterpart of
+--   ·sk-cancel-<     the strict counterpart of§
 --                    ·sk-cancel-≤, from splitℕ-< + <-asym + ≤-·k
 --   aboveAntitone    the STRICT family is antitone along the SAME ⊑ —
 --                    so `⊑-total` orders it too, with no second order

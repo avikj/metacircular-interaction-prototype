@@ -9,7 +9,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS.
 --
--- For a bare endomorphism `Φ`, the reachability relation `a ~ Φ� a` is
+-- For a bare endomorphism `Φ`, the reachability relation `a ~ Φⁿ a` is
 -- reflexive and transitive and not symmetric, which suggests a fork:
 -- either (a) require `Φ` to be an equivalence and take the groupoid it
 -- generates, or (b) state descent along the reflexive-transitive
@@ -26,14 +26,14 @@
 -- numbers and `sym` — §२ below is three symbols — reflexive at
 -- `(0,0,refl)`, and transitive by the commutation of iterates, which
 -- holds for a bare endomorphism.  So the equivalence relation needs no
--- inverse at all: `Φ` stays a bare endomorphism throughout §��§�.
+-- inverse at all: `Φ` stays a bare endomorphism throughout §१ℓ§�.
 --
 -- With that, §� is the genuine descent statement:
 -- for `B` a set, `f` factors as `f̄ ∘ [_]` through `A / ≈`, and the
 -- factorisation triangle is `refl` because `SetQuotients.rec` computes
 -- on `[ a ]`.  That is "the charge is a function on the quotient, not
 -- on the cover" with a quotient actually present, rather than stated on
--- the cover as in `Kaksya` §��§�.
+-- the cover as in `Kaksya` §नℓ§�.
 --
 -- §५ then shows rung (a) is not a strengthening but a special case:
 -- if `Φ` IS an equivalence, its inverse conserves automatically —
@@ -215,13 +215,13 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) (e : isEquiv Φ) where
 -- ⟺ and the equivalence
 -- `isEquiv f̄ ≃ (isSurjection f × ∀ b → ∥two-sided∥₁)`.
 --
--- `�������������` is not valued in propositions — the meeting stations are
+-- `समानकक्ष्या` is not valued in propositions — the meeting stations are
 -- data.  `SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndThe
 -- TruncationLosesTheStations.agda` §१ proves that `समानकक्ष्या Φ a a` is
 -- not a proposition for EVERY `A`, EVERY `Φ` and EVERY `a`, because the
 -- diagonal meetings `(0,0,refl)` and `(1,1,refl)` are always there.
--- §� there proves the station map does not factor through `�_��`, and
--- §� computes the gap exactly in the smallest case:
+--§  there proves the station ωᵀωᵀmapωω does not factor through `_`, and
+-- §३ computes the gap exactly in the smallest case:
 -- `������������� id tt tt � � � �` on `Unit`.  `SetQuotients` truncates
 -- the relation, which is the right move for §�.
 ------------------------------------------------------------------------

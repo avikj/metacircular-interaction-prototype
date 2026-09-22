@@ -65,7 +65,7 @@
 -- There is
 -- no `log` in cubical v0.9 and the corpus does not define one.  The
 -- Virahka-inverse form and the 2^k form above are what "O(log b)" means
--- over â•, and both are checked.
+-- over â„•, and both are checked.
 ------------------------------------------------------------------------
 
 module Svarnasima_TheValliOfConsecutiveVirahankaNumbersIsTheLongestAndEveryValliIsShorterThanTheVirahankaInverse where

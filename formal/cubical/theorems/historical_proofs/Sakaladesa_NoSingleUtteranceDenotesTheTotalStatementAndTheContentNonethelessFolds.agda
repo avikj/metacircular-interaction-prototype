@@ -284,5 +284,5 @@ data द्वि : Type₀ where
 --
 -- Nor does it bear on which of the seven positions a given object
 -- occupies, on the exhaustiveness of the seven, or on whether the record
--- lane and the label lane of `Arpitanarpita_�` can be reconciled.
+-- lane and the label lane of `Arpitanarpita_…` can be reconciled.
 ------------------------------------------------------------------------

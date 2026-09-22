@@ -38,7 +38,7 @@
 -- implication for ℕ-VALUED families.  geodesic.py's OPL values are exact
 -- Surds (quadratic irrationals); the implication at Surd values has the
 -- same proof shape over any cancellative ordered additive structure but
--- is not itself this term.  "Declared there, proved here" holds at �.
+-- is not itself this term.  "Declared there, proved here" holds at ℕ.
 ------------------------------------------------------------------------
 
 module RjuKutila_StrictDiscreteConvexityForcesOnceRisingAlwaysRisingSoTheMinimumIsTheOnlyStationaryPoint where

@@ -4,7 +4,7 @@
 -- ConeOrder
 --
 -- Delta 17 T17.13: the ORDER condition on the cone.
--- The finding: over â• the
+-- The finding: over â„• the
 -- parity congruence and the inequality are ONE condition, not two.
 --
 -- Delta 17 presents the cone with two constraints, a congruence

@@ -6,7 +6,7 @@
 --
 -- THE LOOP QUESTION, ANSWERED AFFIRMATIVELY AS A TERM.  A loop in the
 -- base is not a graph cycle: it asks whether transporting around it
--- returns identically or produces holonomy.  `OrderSaha_�` priced the
+-- returns identically or produces holonomy.  `OrderSaha_…` priced the
 -- square-level curvature (the commutator of two standpoint operators is
 -- ℤ); this module prices the LOOP-level curvature on the same space and
 -- gets the same charge, one rung down in machinery: no truncations, no

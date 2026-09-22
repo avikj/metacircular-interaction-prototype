@@ -10,13 +10,13 @@
 -- It is chosen for the pun the module
 -- proves, which is exact rather than decorative -- the kernel's derivation is
 -- *aea ea*, ENTIRELY remainder, without remainder left over as anything
--- else.  `Residue_�` proved the second word; this file proves the first.
+-- else.  `Residue_…` proved the second word; this file proves the first.
 --
 ------------------------------------------------------------------------
 -- THE SYNTHESIS OF THE THREE READINGS, AS ONE LEMMA.
 --
 --   Vyapti_    NativeOperation.control-sound : Control t → t ≡ source
---   Residue_      RewriteCertificate.derivation-sound : D a b � eval a � ≡ eval b �
+--   Residue_      RewriteCertificate.derivation-sound : D a b → eval a ρ ≡ eval b ρρ
 --   Ankapasa_  and the repair is to categorify the codomain.
 --
 -- Every soundness field of this kernel is a map into an identity type of a
@@ -49,7 +49,7 @@
 --       every fibre contractible, nothing lost either way.  Here:
 --       soundness-is-an-equivalence-only-if-the-route-was-unique -- if
 --       `derivation-sound` were an equivalence, any two derivations with the
---       same endpoints would be EQUAL.  `Residue_�` §2 exhibits two that are
+--       same endpoints would be EQUAL.  `Residue_…` §2 exhibits two that are
 --       not, at the kernel's own `seed`/`target₀`.  So
 --       soundness-is-not-an-equivalence-at-the-kernels-own-seed, and the
 --       exact defect is the fibre of §2: the machine cannot recover its route
@@ -154,7 +154,7 @@ soundness-is-an-equivalence-only-if-the-route-was-unique a b isEq =
   isOfHLevelRespectEquiv 1 (invEquiv (sound a b , isEq)) (isPropMeaning a b)
 
 -- And it is not one, at the kernel's own seed: `GenerativeKernel` ships two
--- derivations there and `Residue_�` separates them by step count.
+-- derivations there and `Residue_…` separates them by step count.
 soundness-is-not-an-equivalence-at-the-kernels-own-seed :
   isEquiv (sound seed target₀) → ⊥
 soundness-is-not-an-equivalence-at-the-kernels-own-seed isEq =

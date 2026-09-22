@@ -187,7 +187,7 @@ orientation-cheaper m d =
 ------------------------------------------------------------------------
 -- 5.  Station 5: THE CONTROL, in the style of AcceptanceTest's
 --     `replay-without-T`.  The consumer re-proved WITHOUT the
---     transport: through the decoder, using �'s +-comm directly.
+--     transport: through the decoder, using ⊕'s +-comm directly.
 --     The transport route REPLACES this proof, it
 --     is not the only route.  What distinguishes the transport route is
 --     visible by inspection of the two terms — `checkpoint-exchange`

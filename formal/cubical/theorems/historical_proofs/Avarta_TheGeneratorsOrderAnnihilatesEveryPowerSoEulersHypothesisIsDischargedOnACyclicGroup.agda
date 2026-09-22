@@ -17,7 +17,7 @@
 --      else is Pigala's fold and ryabhaa's witness, both already
 --      checked."
 --
--- §� proves that fact in the one case where it is one line — and that
+-- §न proves that fact in the one case where it is one line — and that
 -- case is not a toy.  `BijamulaKrida_…agda` establishes the ground:
 -- (ℤ/n)ˣ for a semiprime is a product of two CYCLIC groups, so a cyclic
 -- factor is one CRT component of a real decryption, and it is where the

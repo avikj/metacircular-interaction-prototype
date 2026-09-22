@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- WitnessNumberIsInvariant
 --
--- The ����� question asks for a measure on presentations stable
+-- The लाघव question asks for a measure on presentations stable
 -- under अनुवृत्ति / प्रत्याहार / अपवाद.  `Laghava` answered the question
 -- it was asked and the answer was no:
 --

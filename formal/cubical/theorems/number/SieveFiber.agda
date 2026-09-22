@@ -55,7 +55,7 @@
 --                         size and in particular never uniformly 2.
 --                         The shape is q⁻¹(v) = {s} ∪ {s·p : √X < p ≤ X/s}
 --                         for s = σ v, so #q⁻¹(v) = 1 + #{p : √X < p ≤ X/s}
---                         — which is 1 whenever s > �X.
+--                         — which is 1 whenever s > ∈X.
 --
 --   §6  `chargeFactors`   THE POSITIVE ANSWER.  Liouville charge
 --                         Ω(n) mod 2 factors through (q n , ε n):
