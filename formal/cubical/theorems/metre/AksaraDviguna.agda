@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- अक्षर-द्विगुणः — पिङ्गलस्य वर्ण-प्रस्तारस्य द्विगुणनम्, वस्तु-स्तरे (न केवलं गणने) ।
 --
--- पिङ्गलस्य संख्या-प्रत्ययः : n-अक्षर-छन्दांसि 2ⁿ (sankhya (suc n) = sankhya n +
--- sankhya n) — किन्तु एषा आवृत्तिः केवलं गणना ।  किमर्थं द्विगुणम् ?  यतः प्रति
+-- पिङ्गलस्य संख्या-प्रत्ययः : n-अक्षर-छन्दांसि 2ⁿ (count (suc n) = count n +
+-- count n) — किन्तु एषा आवृत्तिः केवलं गणना ।  किमर्थं द्विगुणम् ?  यतः प्रति
 -- (suc n)-अक्षर-छन्दः द्वयोः एकम् : आदौ लघुः, ततः n-अक्षर-छन्दः ; अथवा आदौ गुरुः,
 -- ततः n-अक्षर-छन्दः ।  एतत् वस्तु-स्तरीयं तुल्यता-रूपम् :
 --     Vak (suc n) ≃ Vak n ⊎ Vak n
@@ -12,7 +12,7 @@
 -- मात्रा-वृत्ते matrameruIso (Metre) अस्ति ; अत्र वर्ण-वृत्ते (Vak) तत् साधितम् ।
 --
 -- (Piṅgala's saṅkhyā pratyaya says n-syllable metres number 2ⁿ, encoded as
---  sankhya(suc n) = sankhya n + sankhya n — but that recurrence only COUNTS.
+--  count(suc n) = count n + count n — but that recurrence only COUNTS.
 --  Why does it double?  Because every (n+1)-syllable metre is exactly one of
 --  two things: a laghu followed by an n-metre, or a guru followed by one —
 --  a type equivalence Vak (suc n) ≃ Vak n ⊎ Vak n, split by the first

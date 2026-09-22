@@ -50,7 +50,7 @@ open import Cubical.Data.FinSet.Cardinality using (card↪Inequality')
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 open import Cubical.Data.SumFin using () renaming (SumFin≃Fin to sumFin≃Fin)
 
-open import PingalaPrastara using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount)
+open import PingalaPrastara using (Vak ; count ; uddistaIso ; Metre ; matra ; matraCount)
 open import WalkObservationCount using (walk-observation-space)
 
 ------------------------------------------------------------------------
@@ -99,11 +99,11 @@ isoInjective i {x} {y} p =
 
 -- Piṅgala, c. 300 BCE — uddiṣṭa, with naṣṭa as its named inverse
 VakSet : (n : ℕ) → FinSet ℓ-zero
-VakSet n = Vak n , sankhya n ,
-  ∣ compEquiv (isoToEquiv (uddistaIso n)) (invEquiv (sumFin≃Fin (sankhya n))) ∣₁
+VakSet n = Vak n , count n ,
+  ∣ compEquiv (isoToEquiv (uddistaIso n)) (invEquiv (sumFin≃Fin (count n))) ∣₁
 
 RowSet : (n : ℕ) → FinSet ℓ-zero
-RowSet n = Fin (sankhya n) , sankhya n , ∣ invEquiv (sumFin≃Fin (sankhya n)) ∣₁
+RowSet n = Fin (count n) , count n , ∣ invEquiv (sumFin≃Fin (count n)) ∣₁
 
 pingala-optimal : (n : ℕ) → Optimal (VakSet n) (RowSet n) (Iso.fun (uddistaIso n))
 pingala-optimal n = isoInjective (uddistaIso n) , refl
@@ -151,7 +151,7 @@ walk8-optimal = inj , refl
 
 pingala-minimal :
   (n : ℕ) (Z : FinSet ℓ-zero) (g : Vak n → Z .fst) → Lossless (VakSet n) Z g
-  → sankhya n ≤ card Z
+  → count n ≤ card Z
 pingala-minimal n = optimal→minimal (VakSet n) (RowSet n) _ (pingala-optimal n)
 
 virahanka-minimal :

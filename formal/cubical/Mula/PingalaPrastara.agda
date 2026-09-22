@@ -228,9 +228,9 @@ matraRecurrence = matrameru matra matraCount
 -- trips are proved.  Neither is defined by transporting the other.
 ------------------------------------------------------------------------
 
-sankhya : ℕ → ℕ
-sankhya zero    = 1
-sankhya (suc n) = sankhya n + sankhya n
+count : ℕ → ℕ
+count zero    = 1
+count (suc n) = count n + count n
 
 -- laghu reads 0, guru reads 1: the positional value of one syllable.
 aksara : Syllable → ℕ
@@ -319,28 +319,28 @@ halfBound d k k< with splitℕ-< (half k) d
 ... | inl h<d = h<d
 ... | inr d≤h = ⊥rec (<-asym k< (≤-trans (≤-+-≤ d≤h d≤h) (halfLe k)))
 
-uddista-nasta : (n k : ℕ) → k < sankhya n → uddista (nasta n k) ≡ k
+uddista-nasta : (n k : ℕ) → k < count n → uddista (nasta n k) ≡ k
 uddista-nasta zero k k< = sym (≤0→≡0 (pred-≤-pred k<))
 uddista-nasta (suc n) k k< =
     cong (λ z → aksara (parity k) + (z + z))
-         (uddista-nasta n (half k) (halfBound (sankhya n) k k<))
+         (uddista-nasta n (half k) (halfBound (count n) k k<))
   ∙ splitTwo k
 
 -- ---- the row number of a pattern is a row of its own table -----------
 
-uddistaBound : (p : Pattern) → uddista p < sankhya (varna p)
+uddistaBound : (p : Pattern) → uddista p < count (varna p)
 uddistaBound []          = ≤-refl
 uddistaBound (laghu ∷ p) = <-+-< (uddistaBound p) (uddistaBound p)
 uddistaBound (guru ∷ p)  =
-  subst (λ z → suc z ≤ (sankhya (varna p) + sankhya (varna p)))
+  subst (λ z → suc z ≤ (count (varna p) + count (varna p)))
         (+-suc (uddista p) (uddista p))
         (≤-+-≤ (uddistaBound p) (uddistaBound p))
 
 -- THE THEOREM.  uddia and naa are mutually inverse, and the
 -- prastāra of an n-syllable metre has exactly saṅkhyā n = 2ⁿ rows.
-uddistaIso : (n : ℕ) → Iso (Vak n) (Fin (sankhya n))
+uddistaIso : (n : ℕ) → Iso (Vak n) (Fin (count n))
 fun (uddistaIso n) (p , e) =
-  uddista p , subst (λ m → uddista p < sankhya m) e (uddistaBound p)
+  uddista p , subst (λ m → uddista p < count m) e (uddistaBound p)
 inv (uddistaIso n) i = nasta n (toℕ i) , varna-nasta n (toℕ i)
 rightInv (uddistaIso n) i = toℕ-injective (uddista-nasta n (toℕ i) (i .snd))
 leftInv (uddistaIso n) (p , e) =
@@ -451,7 +451,7 @@ meruRecurrence = pascal meru meruCount
 ------------------------------------------------------------------------
 
 -- Piṅgala's saṅkhyā: 2⁵ = 32 patterns in a five-syllable metre.
-_ : sankhya 5 ≡ 32
+_ : count 5 ≡ 32
 _ = refl
 
 -- Virahka's list, and the duration-12 count that

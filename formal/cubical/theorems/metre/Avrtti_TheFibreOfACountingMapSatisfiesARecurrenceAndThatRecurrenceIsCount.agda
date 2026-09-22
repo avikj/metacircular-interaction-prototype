@@ -40,8 +40,8 @@
 --     and it is not `length` by definition, it is a separate recursion
 --     with the same clauses, so the recurrence is re-proved rather than
 --     transported, and §३ says so.
--- §४  **the payoff, and it is the point**: `sankhya (suc n) ≡ sankhya n +
---     sankhya n` is the DOUBLING Piṅgala states, and §१ is WHY — the
+-- §४  **the payoff, and it is the point**: `count (suc n) ≡ count n +
+--     count n` is the DOUBLING Piṅgala states, and §१ is WHY — the
 --     fibre over `suc n` is a two-element type times the fibre over `n`,
 --     because a syllable is लघु or गुरु and nothing else.  The count's
 --     recurrence is the fibre's recurrence.  छन्दःशास्त्रम् ८.२४–२८
@@ -73,7 +73,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
 open import Cubical.Data.Unit
 open import Cubical.Data.Empty renaming (rec to ⊥-rec)
 
-open import PingalaPrastara using (Syllable ; laghu ; guru ; Pattern ; varna ; Vak ; sankhya)
+open import PingalaPrastara using (Syllable ; laghu ; guru ; Pattern ; varna ; Vak ; count)
 
 private variable ℓ : Level
 
@@ -141,18 +141,18 @@ module _ {X : Type ℓ} where
 ------------------------------------------------------------------------
 -- ४ · Why सङ्ख्या doubles.
 --
--- `sankhya (suc n) = sankhya n + sankhya n` is what Piṅgala states.  §३
+-- `count (suc n) = count n + count n` is what Piṅgala states.  §३
 -- is the reason: the fibre over `suc n` is `Syllable × (fibre over n)`,
 -- and a syllable is लघु or गुरु and nothing else.  **The count's
 -- recurrence IS the fibre's recurrence** — the procedure and its ground,
 -- separated by twenty-three centuries and now in one file.
 --
 -- Stated as the definitional fact it is, so nothing is overclaimed: the
--- doubling holds by `sankhya`'s own clauses, and §३ is what makes it the
+-- doubling holds by `count`'s own clauses, and §३ is what makes it the
 -- right definition rather than a stipulation.
 ------------------------------------------------------------------------
 
-सङ्ख्या-द्वैगुण्यम् : (n : ℕ) → sankhya (suc n) ≡ sankhya n + sankhya n
+सङ्ख्या-द्वैगुण्यम् : (n : ℕ) → count (suc n) ≡ count n + count n
 सङ्ख्या-द्वैगुण्यम् n = refl
 
 ------------------------------------------------------------------------

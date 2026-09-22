@@ -5145,7 +5145,7 @@ corpusNames = quote C0.Prog
   ∷ quote C330.matraCount
   ∷ quote C330.matrameru
   ∷ quote C330.matraRecurrence
-  ∷ quote C330.sankhya
+  ∷ quote C330.count
   ∷ quote C330.aksara
   ∷ quote C330.uddista
   ∷ quote C330.half
