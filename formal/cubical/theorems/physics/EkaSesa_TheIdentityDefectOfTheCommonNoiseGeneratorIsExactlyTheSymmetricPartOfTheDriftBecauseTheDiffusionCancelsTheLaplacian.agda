@@ -76,7 +76,7 @@ open import Cubical.Algebra.Ring
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 
 open import LeakageCommutator using (IsInvolution)
-import VahanaSamata_TheCongruenceAndTheDiffusionTermPreserveAdjointParitySoARealCovarianceStaysRealUnderCommonSourceTransport as VS
+import VahanaEquality_TheCongruenceAndTheDiffusionTermPreserveAdjointParitySoARealCovarianceStaysRealUnderCommonSourceTransport as VS
 
 private
   variable

@@ -40,7 +40,7 @@ open import Cubical.Foundations.Equiv using (_≃_ ; isEquiv ; equivFun ; invEq 
 open import Cubical.Foundations.Function using (_∘_)
 
 open import Fibre.Carrier
-open import Fibre.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Fibre.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 private
   variable

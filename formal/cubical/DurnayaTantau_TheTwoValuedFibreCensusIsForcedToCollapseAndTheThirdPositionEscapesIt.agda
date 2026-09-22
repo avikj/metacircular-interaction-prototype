@@ -76,7 +76,7 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 import Saptabhangi as S
-import Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem as T
+import Fiberjala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem as T
 
 private
   variable

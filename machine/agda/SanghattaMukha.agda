@@ -25,7 +25,7 @@ module SanghattaMukha where
 open import Agda.Builtin.IO
 open import Agda.Builtin.Unit
 open import Agda.Builtin.String
-open import SanghattaYantra_TheCriticalPairOrganAsCheckedTermsCompiledByTheKernelsOwnBackend
+open import SanghattaMachine_TheCriticalPairOrganAsCheckedTermsCompiledByTheKernelsOwnBackend
   using (report)
 
 postulate

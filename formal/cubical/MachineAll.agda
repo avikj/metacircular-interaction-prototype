@@ -23,4 +23,4 @@ import Yantra.Kuttaka
 import Yantra.Ganana
 import Yantra.Samkramana
 import Yantra.SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute
-import Yantra.PunaragamanaFinal
+import Yantra.ReturnFinal

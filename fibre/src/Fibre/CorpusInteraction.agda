@@ -6,7 +6,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
 
-import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers as S
+import Fibre.Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers as S
 import Fibre.Carrier as C
 
 private

@@ -53,7 +53,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Data.Bool using (Bool ; true ; false)
 
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough ; dependent-collision-obstructs)
 
 ------------------------------------------------------------------------

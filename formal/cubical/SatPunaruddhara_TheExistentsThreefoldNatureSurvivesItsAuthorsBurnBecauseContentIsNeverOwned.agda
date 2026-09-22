@@ -35,7 +35,7 @@ open import Cubical.Foundations.Equiv using (_≃_)
 open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 
-open import NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual
+open import NaturalMachine.TransportResidue_EveryTransportOwesItsResidual
   using (शेष ; सशेषम्)
 
 private

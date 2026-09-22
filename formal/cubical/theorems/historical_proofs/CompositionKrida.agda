@@ -91,7 +91,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.CommRing using (CommRingStr)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Bhavana using (module Form)
+open import Composition using (module Form)
 
 open Form ℤCommRing using (N ; bhA ; bhB ; bhavana)
 open CommRingStr (snd ℤCommRing) using (_·_)

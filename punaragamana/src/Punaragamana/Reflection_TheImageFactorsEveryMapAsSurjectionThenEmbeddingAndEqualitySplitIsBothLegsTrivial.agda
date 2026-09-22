@@ -84,9 +84,9 @@ open import Cubical.Functions.Image
         ; isSurjectionImageRestriction ; imageFactorization
         ; isEquivEmbeddingOntoImage ; isEmbeddingFromIsEquivToImage)
 
-open import Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Punaragamana.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
   using (शेष)
-open import Punaragamana.SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionAndTheEmptyAndCrowdedRefusalsAreTheTwoFactorsFailingApart
+open import Punaragamana.EqualitySplit_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionAndTheEmptyAndCrowdedRefusalsAreTheTwoFactorsFailingApart
   using (भेदः ; छादनम् ; समता-द्विधा ; समता≃भेद×छादन ; भेदः→embedding ; embedding→भेदः)
 
 private

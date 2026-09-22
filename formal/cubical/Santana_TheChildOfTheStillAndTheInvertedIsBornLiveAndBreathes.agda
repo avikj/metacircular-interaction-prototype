@@ -5,7 +5,7 @@ module Santana_TheChildOfTheStillAndTheInvertedIsBornLiveAndBreathes where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (isEquiv)
 import Jiva_TheSoulIsCognitionBoundByKarmaAndLiberationIsTheEquivalenceThatSeesTheWorldAsItself as J
-import Bhavana_TwoJivasMeetAndAThirdIsBornAndTheVeilsCompose as B
+import Composition_TwoJivasMeetAndAThirdIsBornAndTheVeilsCompose as B
 import Prana_ANewSoulIsBornLiveThroughTheConduit as P
 
 -- they meet: विषयः सिद्धः = Bool = धारणा विपरीत

@@ -40,7 +40,7 @@ open import Cubical.Data.Empty as Empty using ()
 open import Cubical.Relation.Nullary using (¬_)
 
 open import Sha256
-open import Sha256Sesa_TheCompletionInvertsTheRealHashFreelyAndAnInverterOfTheLossyProjectionIsExactlyCollisionFreedom
+open import Sha256Residue_TheCompletionInvertsTheRealHashFreelyAndAnInverterOfTheLossyProjectionIsExactlyCollisionFreedom
   using (sW-β ; forceWs-β)
 
 ------------------------------------------------------------------------

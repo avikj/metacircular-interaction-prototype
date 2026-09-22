@@ -109,7 +109,7 @@ locusIsProp d x y = isContr→isProp (locusIsCone d) x y
 -- exactly what does not descend.
 ------------------------------------------------------------------------
 
-open import SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
+open import Kernel.TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
   using (kernelCostDoesNotDescend)
 
 -- install kills by a contractible cone (§§1–3, above); the fee it leaves

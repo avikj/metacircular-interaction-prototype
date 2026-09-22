@@ -41,7 +41,7 @@ module Punarukti_TheTwoScaledCakravalaStepsAreOneTheorem where
 open import Cubical.Foundations.Prelude
 open import Cubical.Algebra.CommRing
 
-import Bhavana
+import Composition
 import CakravalaDescent
 import CakravalaStep as NMC
 

@@ -33,7 +33,7 @@ open import RamanujanTernary_BelowSevenTwentyTheOddExceptionsAreExactlyHisSevent
   using (listed-not-represented)
 open import RamanujanTernaryGate_TheKernelScansBelowSevenTwentyOnceAndCachesTheVerdict
   using (represented-or-listed)
-open import RamanujanTernaryUpadhi_TheUniversalClaimIsATypeTheGateRestrictsItAndNoTermRunsBackwards
+open import RamanujanTernaryQualifier_TheUniversalClaimIsATypeTheGateRestrictsItAndNoTermRunsBackwards
   using (RamanujanAssertion ; Gate720 ; the-gate-holds ;
          rep-decidable-below-720 ; exc18)
   renaming (restrict to restrict-ternary)

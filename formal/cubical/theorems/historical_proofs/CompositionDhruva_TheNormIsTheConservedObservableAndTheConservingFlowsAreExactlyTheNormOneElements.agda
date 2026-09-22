@@ -78,7 +78,7 @@ open import Cubical.Foundations.Equiv using (fiber)
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.Ring.Properties using (module RingTheory)
 
-open import Bhavana
+open import Composition
 open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 
 private variable ℓ : Level

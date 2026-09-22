@@ -49,8 +49,8 @@ open import Cubical.Foundations.Transport using (subst⁻ ; subst⁻Subst ; subs
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
-open import Bhavana using (module Form)
-open import BhavanaGenerative using (module Generative)
+open import Composition using (module Form)
+open import CompositionGenerative using (module Generative)
 
 private
   variable

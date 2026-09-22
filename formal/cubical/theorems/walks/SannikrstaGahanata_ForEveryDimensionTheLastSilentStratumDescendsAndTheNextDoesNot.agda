@@ -54,7 +54,7 @@ open import Cubical.Homotopy.Loopspace using (Ω^_)
 
 open import AnantaraArpana_TheStratumAboveSilenceCarriesTheWholeChargeForEverySphere
   using (मौनम् ; अनन्तरम्)
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough ; अवतरण-भङ्ग-सामान्यम्)
 
 ------------------------------------------------------------------------

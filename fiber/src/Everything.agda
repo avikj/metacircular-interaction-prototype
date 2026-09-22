@@ -14,13 +14,13 @@ open import Fiber.Orbit
 open import Fiber.Nucleus
 
 -- The law's other projection: the residual, and the price of a collapse.
-open import Fiber.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Fiber.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 -- The repair: the diagnosis is a CENSUS, not a verdict.  A fiber fails to
 -- be contractible in two opposite ways — empty (नास्ति: no source over b,
 -- धनात्मकम्) and crowded (नष्टि, अप्रतिकार्या) — and `isContr` merges
 -- them.  Contains the computed refutation of the sequential diagnostic.
-open import Fiber.SakalaVikalaDesa_TheFiberCensusIsATermAndItRefutesTheSequentialDiagnostic
+open import Fiber.WholePartialDesa_TheFiberCensusIsATermAndItRefutesTheSequentialDiagnostic
 
 -- …and the census's own collapse, one level up.  A fourth outcome exists
 -- that `देश` structurally cannot express — the question with no subject —
@@ -43,7 +43,7 @@ open import Fiber.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisi
 -- of Jayadeva c. 950 and Bhskara II, Bjagaita, 1150): base = the two
 -- roots ज्येष्ठ / कनिष्ठ over ℤ, carried = the क्षेप a² − D b², which the
 -- roots determine exactly.
-open import Fiber.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
+open import Fiber.Composition_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
 
 -- स्थानिवद्भाव (Pāṇini, Aṣṭādhyāyī 1.1.56 स्थानिवदादेशोऽनल्विधौ, ~500 BCE;
 -- with 1.1.60, 1.1.62, 1.3.9, 1.1.5): a वर्ण's three fields are mutually
@@ -60,7 +60,7 @@ open import Fiber.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesI
 -- स्थानिवत्सङ्ख्या — the machine's own frontier ask (jīva join score 2970):
 -- the ādeśa state space enumerated, स्थानिवत् ≃ Fin 81, the carried datum
 -- adding nothing to the count — ahiṃsā read as a number.
-open import Fiber.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
+open import Fiber.PositionalCount_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
 
 -- जीविता-स्मृति — the carried memory is alive at every depth of the infinite
 -- orbit: at rung n it is योग of the n-th state, never a stale payload.

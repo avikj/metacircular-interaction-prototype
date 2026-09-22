@@ -52,7 +52,7 @@ open import Cubical.Foundations.Function using (_∘_ ; idfun)
 open import Cubical.Data.Sigma
   using (Σ-syntax ; _,_ ; Σ-assoc-≃ ; Σ-cong-equiv-fst ; Σ-contractFst)
 
-open import SankramanaSesa_EveryTransportOwesItsResidual
+open import TransportResidue_EveryTransportOwesItsResidual
   using (शेष ; शेष-सङ्घातः)
 
 private

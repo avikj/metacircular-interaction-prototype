@@ -282,7 +282,7 @@ open import Kernel.ControlledGrammar
 open import Kernel.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
   using (enabled-set-is-subsingleton ; no-native-operation-does-this
         ; SchematicOperation ; kernel-cannot-reach-a-tower)
-open import Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import Kernel.Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
   using (every-semantic-criterion-is-blind ; cost-does-not-factor
         ; derivations-are-not-a-proposition)
 open import Kernel.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
@@ -291,7 +291,7 @@ open import Kernel.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitIt
 open import Kernel.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
   using (the-whole-derivation-type-is-one-fibre
         ; soundness-is-not-an-equivalence-at-the-kernels-own-seed)
-open import Kernel.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+open import Kernel.Interaction_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
   using (demand ; any-demand-is-safe ; learn ; Session ; step ; retire
         ; session-sound ; every-operation-that-exists-is-sound)
 

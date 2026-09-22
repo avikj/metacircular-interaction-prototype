@@ -119,7 +119,7 @@ open import Cubical.Data.SumFin.Properties using (SumFin≡Fin)
 open import Cubical.Data.Fin using () renaming (Fin to FFin)
 open import Cubical.Data.Fin.Properties using (Fin-inj)
 
-open import Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd
+open import Residue_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd
   using (शेष)
 
 private

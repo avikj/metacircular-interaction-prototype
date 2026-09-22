@@ -33,7 +33,7 @@ open import Cubical.Data.NatPlusOne using (1+_)
 open import Cubical.Data.Rationals
 open import Cubical.Data.Rationals.Order using (isRefl≤ ; isTrans≤ ; ≤-+o ; ≤-o+) renaming (_≤_ to _≤ℚ_)
 
-open import Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed
+open import Count_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed
   using (𝕊 ; ⁺_ ; ⁻_ ; toℤ ; _⊗_ ; _⊕_ ; ⊗-sama ; ⊕-sama)
 open import Sadhaka_AnIntegerLDLTCertificateCheckedAtMachineSpeedYieldsThePositivityOfTheRationalFormThroughPramanika
   using (eq𝕊 ; eq𝕊-sama ; toℚ ; toℚ-⊗ ; toℚ-⊕ ; Σ𝕊 ; Σ-toℚ ; toℚ-anṛṇa ; sarva ; sarva-satya ; and-satya)

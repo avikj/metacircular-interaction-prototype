@@ -61,7 +61,7 @@ open import Cubical.Data.Sigma using (Σ ; Σ-syntax ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import RenormalizedObserverTower using (no-infinite-descent)
-open import Avatarana_TheCubeSurfaceIsEmptyBecauseEverySolutionDescendsAndNoNaturalFallsForeverSoFermatsCubeIsOneEisensteinStep
+open import Descent_TheCubeSurfaceIsEmptyBecauseEverySolutionDescendsAndNoNaturalFallsForeverSoFermatsCubeIsOneEisensteinStep
   using (Soln ; Descent)
 
 ------------------------------------------------------------------------

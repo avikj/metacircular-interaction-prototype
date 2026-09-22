@@ -43,10 +43,10 @@ open import Cubical.Data.Sigma using (fst ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import Cubical.Foundations.Equiv using (isEquiv ; equivFun)
-open import SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane
+open import EqualitySplit_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane
   using (भेदः ; छादनम् ; समता≃भेद×छादन)
-open import NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual using (शेष)
-open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+open import NaturalMachine.TransportResidue_EveryTransportOwesItsResidual using (शेष)
+open import GhataFiber_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg ; εC ; शून्यः ; त्रयः)
 open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTheHeapIsNotNeeded
   using (C₃ ; e₀ ; g ; g²)

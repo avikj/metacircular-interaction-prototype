@@ -49,7 +49,7 @@ open import Cubical.Algebra.Ring.Properties using (module RingTheory)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc) renaming (_+_ to _+ℕ_)
 open import Cubical.Data.Int using (negsuc)
 
-open import Bhavana using (module Form)
+open import Composition using (module Form)
 
 private
   variable

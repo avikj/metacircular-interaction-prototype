@@ -60,7 +60,7 @@ open import Cubical.HITs.S1 using (S¹)
 open import Cubical.HITs.S1.Properties using (isGroupoidS¹)
 open import Cubical.HITs.Torus.Base using (Torus ; point ; Torus≡S¹×S¹)
 
-open import Mauna_TheTwistedRingUttersOnceAndAboveTheKramaEveryStratumIsSilent
+open import Mauna_TheTwistedRingUttersOnceAndAboveTheOrderEveryStratumIsSilent
   using (अवरोहः)
 
 private

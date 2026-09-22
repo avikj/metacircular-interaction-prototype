@@ -17,16 +17,16 @@ import Kuttaka
 -- BRAHMAGUPTA, Brhmasphuasiddhnta 18 (628).  Bhvan over an arbitrary
 -- commutative ring; subtraction-free over ℕ as a semiring identity; and as
 -- a typed OPERATION on solutions, which is what "production" names.
-import Bhavana
+import Composition
 -- The same composition made into an OBJECT rather than restated as a law:
 -- the invariant lives in the type, so an unlawful card is not rejected but
 -- UNSAYABLE, and the single move भावना carries the norm in its own type.
 -- Eight moves from the one obvious card at D = 2 reach (577, 408), which is
 -- Baudhāyana's √2 -- Śulbasūtra 1.61–62, c. 800 BCE, older than the
 -- composition law it is reached by.
-import BhavanaKrida
-import BhavanaSemiring
-import BhavanaGenerative
+import CompositionKrida
+import CompositionSemiring
+import CompositionGenerative
 
 -- The cycle's step with every subtraction cleared, so a concrete run is
 -- certifiable in arithmetic the kernel actually computes.
@@ -94,7 +94,7 @@ import Niksepa
 -- (no rejection path); the taxonomy of the unbounded, sakhyta /
 -- asakhyta / ananta; abhva with its avacchedaka.
 import Anekanta
-import JainSankhya
+import JainCount
 import AbhavaAvacchedaka
 
 -- PIṄGALA, Chandaḥśāstra ch. 8 (c. 300–200 BCE), the six pratyaya; with
@@ -147,7 +147,7 @@ import Saptabhangi
 
 -- The machine's own material read back: the curriculum its obligations
 -- demand, descent by distinction, and return.
-import BhedaAvatarana
+import BhedaDescent
 import LosslessReturn
 
 ------------------------------------------------------------------------
@@ -164,7 +164,7 @@ import LosslessReturn
 ------------------------------------------------------------------------
 
 import SamayikaAndNityaAreIndependent
-import KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
+import OrderAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
 
 ------------------------------------------------------------------------
 -- Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction imports both

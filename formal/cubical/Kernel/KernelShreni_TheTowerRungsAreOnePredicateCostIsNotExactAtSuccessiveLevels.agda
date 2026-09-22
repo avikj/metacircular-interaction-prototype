@@ -65,7 +65,7 @@ NotExact {P = P} {I} ∂ V = ¬ (Σ[ φ ∈ P ] ((i : I) → ∂ φ i ≡ V i))
 -- १ · Rung 0 (π₀): cost is not a function on the localization.
 ------------------------------------------------------------------------
 
-open import SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
+open import Kernel.TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
   using (Ĝ ; L ; kernelCostDoesNotDescend)
 open import ForgetfulCompressionPricesTheDrop using (len)
 

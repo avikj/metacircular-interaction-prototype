@@ -61,7 +61,7 @@ open import Cubical.Data.Int using (ℤ ; pos ; injPos)
 open import Cubical.Data.Nat using (znots)
 open import Cubical.HITs.S1 using (S¹ ; base ; ΩS¹ ; ΩS¹Isoℤ)
 
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough ; dependent-collision-obstructs ; अवतरण-भङ्ग-सामान्यम्)
 
 ------------------------------------------------------------------------

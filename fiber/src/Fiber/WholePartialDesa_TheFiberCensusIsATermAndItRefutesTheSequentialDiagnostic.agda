@@ -61,7 +61,7 @@ open import Cubical.Data.Unit using (Unit ; tt ; isSetUnit)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Fiber.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Fiber.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
   using (शेष)
 
 private

@@ -68,7 +68,7 @@ open import Cubical.Relation.Nullary using (¬_)
 
 open import Saptabhangi using (आर्पण ; क्रमः ; सहः)
 open import Mula.AnuktaAvaktavya using (सामयिक ; नित्य)
-open import NaturalMachine.KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
+open import NaturalMachine.OrderAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
   using (one)
 
 private

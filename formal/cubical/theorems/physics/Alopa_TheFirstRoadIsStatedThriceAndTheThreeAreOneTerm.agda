@@ -45,7 +45,7 @@ open import Cubical.Foundations.Equiv using (_≃_ ; equivFun)
 open import Cubical.Foundations.Univalence using (ua ; uaβ)
 
 import Nasti_ShabdeJivahVartante
-import SankramanaSesa_EveryTransportOwesItsResidual
+import TransportResidue_EveryTransportOwesItsResidual
 import Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis
 
 private

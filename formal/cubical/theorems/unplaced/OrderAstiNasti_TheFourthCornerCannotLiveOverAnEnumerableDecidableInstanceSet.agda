@@ -77,7 +77,7 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no ; Dec→Stable)
 
 open import AnuktaAvaktavya using (सामयिक ; नित्य)
-open import KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
+open import OrderAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
   using (fourthCornerRefutedUnderPointwiseStability)
 
 private

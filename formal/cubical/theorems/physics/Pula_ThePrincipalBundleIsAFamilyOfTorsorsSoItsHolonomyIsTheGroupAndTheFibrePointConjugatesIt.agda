@@ -99,7 +99,7 @@ open import Cubical.Foundations.Transport using (substComposite)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; fst ; snd ; Σ-syntax)
 open import Cubical.Functions.Fibration using (fiberEquiv)
 
-open import EkaSankramana_AFreeTransitiveActionsTranslationIsUniqueSoTheTorsorIsAnEquivalence
+open import EkaTransport_AFreeTransitiveActionsTranslationIsUniqueSoTheTorsorIsAnEquivalence
   using (Group ; Action ; Free ; Transitive ; regular ; torsorIsEquiv)
 
 private

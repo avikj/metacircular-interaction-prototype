@@ -66,7 +66,7 @@ open import Cubical.Data.Fin using (Fin)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-import Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem as T
+import Fiberjala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem as T
 
 open import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
   using (अङ्कस्थान ; सङ्ख्या ; प्रस्तारः ; एकरूप)

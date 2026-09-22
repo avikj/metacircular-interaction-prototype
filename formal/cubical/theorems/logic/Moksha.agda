@@ -28,6 +28,6 @@ module Moksha where
 open import NisvabhavaNet public
 open import CatuskotiPerspective public
 open import PratityasamutpadaArising public
-open import MokshaYantra public
+open import MokshaMachine public
 open import EquivalenceHasNoFloor public
 open import TwoTruthsCompute public

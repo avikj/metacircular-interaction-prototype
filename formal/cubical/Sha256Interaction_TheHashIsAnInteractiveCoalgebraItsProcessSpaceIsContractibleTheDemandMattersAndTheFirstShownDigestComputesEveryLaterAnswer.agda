@@ -85,7 +85,7 @@ open import Cubical.Data.List.Properties using (cons-inj₁ ; isOfHLevelList ; �
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
+open import Fibre.Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
   using (ISC ; react ; Strategy ; observe)
 
 open import Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive
@@ -96,7 +96,7 @@ open import HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByC
 open Take using (take)
 
 open import Sha256 using (Word ; word ; compress ; H0)
-open import Sha256Srotas_TheHashIsATruncationOfOneProductiveChainTheChainForgetsItsPastByReflAndTheRoundLayerIsInjectiveAtEveryDepth
+open import Sha256Stream_TheHashIsATruncationOfOneProductiveChainTheChainForgetsItsPastByReflAndTheRoundLayerIsInjectiveAtEveryDepth
   using (module Khaṇḍa ; bls)
 
 ------------------------------------------------------------------------

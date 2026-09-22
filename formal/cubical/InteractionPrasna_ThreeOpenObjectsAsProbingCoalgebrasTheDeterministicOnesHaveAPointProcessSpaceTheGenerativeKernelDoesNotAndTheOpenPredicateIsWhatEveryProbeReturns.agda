@@ -89,7 +89,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd ; ΣPathP)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Empty using (⊥)
 
-open import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
+open import Fibre.Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
   using (ISC ; react ; Strategy ; observe)
 
 ------------------------------------------------------------------------

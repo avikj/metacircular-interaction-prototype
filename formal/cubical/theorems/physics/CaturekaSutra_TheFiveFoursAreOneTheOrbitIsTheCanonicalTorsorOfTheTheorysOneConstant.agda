@@ -40,7 +40,7 @@ open import GhurnaPatha_EachStrandReadsExactlyItsOwnTwistCountSoTheTwistWordActs
   using (cakrāvartana)
 open import CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare
   using (catur-cakra)
-open import CatuhSesaSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanishesModFour
+open import CatuhResidueSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanishesModFour
   using (catuḥśeṣa ; śeṣa-cakra)
 open import KendraNirvahana_EveryCentralCellwiseSymmetryIsAUniformPowerOfTheQuarterTurnTheExhaustionForTheVerticalClass
   using (pos ; orbit)

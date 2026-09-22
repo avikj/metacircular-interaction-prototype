@@ -65,7 +65,7 @@ open import Cubical.Foundations.Equiv
 open import Cubical.Data.Sigma
 
 open import Punaragamana.Carrier using (fibre ; fibre-isContr)
-open import Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Punaragamana.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
   using (शेष)
 
 private

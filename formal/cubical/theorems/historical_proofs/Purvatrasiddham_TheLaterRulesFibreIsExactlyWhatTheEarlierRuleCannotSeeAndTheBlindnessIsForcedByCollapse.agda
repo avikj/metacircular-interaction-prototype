@@ -87,7 +87,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; not ; true≢false)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-import Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd as Sesa
+import Residue_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd as Sesa
 
 private
   variable

@@ -30,7 +30,7 @@ open import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceThe
   using (total ; total-ext)
 open import BahuShakha_TheDependentRefinementSumsBranchwiseAndTheBooksBalance
   using (शाखितयोगः)
-open import KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
+open import OrderNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
   using (permutation-invariant)
 
 private

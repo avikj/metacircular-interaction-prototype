@@ -54,7 +54,7 @@ open import Cubical.HITs.SetTruncation
   using (∥_∥₂ ; ∣_∣₂ ; isSetSetTrunc ; setTruncIso)
   renaming (rec to rec₂ ; elim to elim₂)
 
-open import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
+open import OrderSaha_TheOrderOfStandpointsIsTheChargeItself
   using (क्रमः-लूप-प्रथमम् ; अक्रमता)
 
 ------------------------------------------------------------------------

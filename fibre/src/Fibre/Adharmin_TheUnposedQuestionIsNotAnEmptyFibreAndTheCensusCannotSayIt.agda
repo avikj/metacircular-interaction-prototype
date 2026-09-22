@@ -76,7 +76,7 @@ open import Cubical.Data.Maybe using (Maybe ; nothing ; just)
 open import Cubical.Data.Unit using (Unit* ; tt*)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Fibre.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
+open import Fibre.WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
   using (देश ; गणना)
 
 private

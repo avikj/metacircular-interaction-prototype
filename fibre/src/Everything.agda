@@ -14,13 +14,13 @@ open import Fibre.Orbit
 open import Fibre.Nucleus
 
 -- The law's other projection: the residual, and the price of a collapse.
-open import Fibre.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Fibre.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 -- The repair: the diagnosis is a CENSUS, not a verdict.  A fibre fails to
 -- be contractible in two opposite ways — empty (नास्ति: no source over b,
 -- धनात्मकम्) and crowded (नष्टि, अप्रतिकार्या) — and `isContr` merges
 -- them.  Contains the computed refutation of the sequential diagnostic.
-open import Fibre.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
+open import Fibre.WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
 
 -- The census's seam, closed: the fibre of the truncation map is the whole
 -- source, so the level-४ criterion is a theorem and not a conjecture.
@@ -47,7 +47,7 @@ open import Fibre.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisi
 -- of Jayadeva c. 950 and Bhskara II, Bjagaita, 1150): base = the two
 -- roots ज्येष्ठ / कनिष्ठ over ℤ, carried = the क्षेप a² − D b², which the
 -- roots determine exactly.
-open import Fibre.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
+open import Fibre.Composition_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
 
 -- स्थानिवद्भाव (Pāṇini, Aṣṭādhyāyī 1.1.56 स्थानिवदादेशोऽनल्विधौ, ~500 BCE;
 -- with 1.1.60, 1.1.62, 1.3.9, 1.1.5): a वर्ण's three fields are mutually
@@ -64,7 +64,7 @@ open import Fibre.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesI
 -- स्थानिवत्सङ्ख्या — the machine's own frontier ask (jīva join score 2970):
 -- the ādeśa state space enumerated, स्थानिवत् ≃ Fin 81, the carried datum
 -- adding nothing to the count — ahiṃsā read as a number.
-open import Fibre.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
+open import Fibre.PositionalCount_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
 
 -- जीविता-स्मृति — the carried memory is alive at every depth of the infinite
 -- orbit: at rung n it is योग of the n-th state, never a stale payload.
@@ -133,17 +133,17 @@ open import Fibre.LawfulStep_TheVisibleStepNeedNotBeInvertibleAndItsResidueIsSti
 -- Commutation is the certificate that a serialisation was removable: any
 -- interleaving of two commuting steps reduces to the two counts.  When it
 -- fails, it fails computably, and the order stays in the answer.
-open import Fibre.Krama_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained
+open import Fibre.Order_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained
 
 -- The orbit is the one-query case of the interactive coalgebra: under the
 -- deterministic embedding every strategy observes the same prefix, and
 -- `counter` shows that in general two strategies disagree at step one.
-open import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
+open import Fibre.Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
 
 -- The formal corpus itself is the same coalgebra: a state is Σ A . A and a
 -- question is exactly a typed map out of the current A.  No finite-depth
 -- approximation or external scheduler is introduced.
-open import Fibre.CorpusSamvada
+open import Fibre.CorpusInteraction
 
 -- Mechanical bridge from the active Agda namespace to one raw checked value.
 open import Fibre.CorpusReflection

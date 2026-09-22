@@ -136,7 +136,7 @@ open import Anekanta using (syādasti ; syādnāsti ; syādastināsti)
 
 import Saptabhangi as L
 import SaptabhangiSamyoga_TheCompositionOfVerdicts as LA
-import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as G
+import SaptabhangiKernel_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as G
 
 private
   variable

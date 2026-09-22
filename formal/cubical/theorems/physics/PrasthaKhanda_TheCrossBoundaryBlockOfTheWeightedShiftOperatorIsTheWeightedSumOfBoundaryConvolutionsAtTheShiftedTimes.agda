@@ -42,7 +42,7 @@ open import Cubical.Data.Nat.Order using (_≤_ ; ≤-∸-+-cancel)
 
 open import ParaSima_TheCrossBoundaryCoefficientOfATruncatedShiftIsTheConvolutionOfTheBoundaryProfilesAtTheShiftedTime
   using (Σ⟨_,_⟩ ; ⟨_∣_⟩ ; h ; pāra-sīmā)
-open import SimaSesa_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDifferOnTheBoundaryStripsSoDisplacementDescendsAndBoundaryHistoryDoesNot
+open import SimaResidue_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDifferOnTheBoundaryStripsSoDisplacementDescendsAndBoundaryHistoryDoesNot
   using (S)
 
 ------------------------------------------------------------------------

@@ -40,7 +40,7 @@ open import Cubical.Data.SumFin using (Fin)
 
 open import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
   using (total ; total-ext)
-open import KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
+open import OrderNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
   using (permutation-invariant)
 
 private

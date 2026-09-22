@@ -51,7 +51,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.HITs.Truncation using (hLevelTrunc∙ ; isOfHLevelTrunc)
 open import Cubical.Homotopy.Loopspace using (Ω^_)
 
-open import Mauna_TheTwistedRingUttersOnceAndAboveTheKramaEveryStratumIsSilent
+open import Mauna_TheTwistedRingUttersOnceAndAboveTheOrderEveryStratumIsSilent
   using (अवरोहः)
 
 private

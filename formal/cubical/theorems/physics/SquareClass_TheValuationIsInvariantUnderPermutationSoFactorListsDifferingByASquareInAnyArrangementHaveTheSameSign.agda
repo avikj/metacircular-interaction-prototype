@@ -75,7 +75,7 @@ open import GaugeOrbitClasses
 open import TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAdjacentTranspositions
   using (Insert ; here ; there ; Perm ; pnil ; pcons
        ; _≈_ ; ≈nil ; ≈cons ; ≈swap ; ≈trans ; ≈-refl ; permIsAnAdjacentChain)
-open import PermSankramana_ThePermutationRelationIsTransitiveBecauseTwoInsertionsCommuteSoTheFourConstructorRelationIsContainedInPermAndBothAreEquivalenceRelations
+open import PermTransport_ThePermutationRelationIsTransitiveBecauseTwoInsertionsCommuteSoTheFourConstructorRelationIsContainedInPermAndBothAreEquivalenceRelations
   using (perm-refl ; perm-sym ; perm-trans ; ≈→Perm)
 open import Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount
   using (module Bahulya)

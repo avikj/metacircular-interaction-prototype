@@ -49,7 +49,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
+open import Kernel.TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
   using (module Localization)
 open import SopanaSamyoga_AliasesComposeAlongIntertwinersSoTheLadderIsACategoryAndDashboardsAreItsMorphisms
   using (vahana-saṃyoga)

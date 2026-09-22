@@ -65,9 +65,9 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import AnuktaAvaktavya using (सामयिक ; नित्य)
-open import KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
+open import OrderAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
   using (one)
-open import KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition
+open import OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition
   using (trivial ; firstAloneHolds ; secondFailsThere)
 open import Yugapat_TheDenialOfJointAssertionDoesNotDecompose
   using (yugapatDecompositionGivesWeakExcludedMiddle)

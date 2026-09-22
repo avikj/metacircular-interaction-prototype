@@ -77,7 +77,7 @@ open import Cubical.HITs.S1.Properties using (isConnectedS¹)
 open import Cubical.HITs.PropositionalTruncation as PT
   using (∥_∥₁ ; ∣_∣₁ ; isPropPropTrunc)
 
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough)
 
 private

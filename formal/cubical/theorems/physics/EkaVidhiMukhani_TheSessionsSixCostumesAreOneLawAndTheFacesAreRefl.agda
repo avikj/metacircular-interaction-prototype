@@ -42,7 +42,7 @@ open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPai
   using (प्रवहति ; तन्तौ-अन्धः ; अपूर्वम्)
 open import ParimanaAndha_TheModulusStandpointCannotSeeMobiusSoNoBoundThroughItSeparatesACancellingFamily
   as PA using (परिमाणम् ; योगः ; संहरत् ; न-संहरत् ; अन्धत्वम् ; भेदः)
-open import TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable
+open import TiryakFiber_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable
   as TT using (शेषः ; म्यू ; कलायाम्-अन्धम् ; म्यू-भिनत्ति ; गुणके-अन्धम् ; शेषः-भिनत्ति)
 open import EkaVidhih_TheOneLawIsDescentTheFreeDirectionIsBindBAndTheCostlyOneNeedsASection
   as EV using (अवतरणात्-अन्धः)

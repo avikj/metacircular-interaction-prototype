@@ -43,7 +43,7 @@ open import Cubical.Data.Int using (ℤ ; pos ; isSetℤ ; +Comm) renaming (_+_ 
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-elim)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 
-open import SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
+open import Kernel.TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
   using (module Localization)
 
 ------------------------------------------------------------------------

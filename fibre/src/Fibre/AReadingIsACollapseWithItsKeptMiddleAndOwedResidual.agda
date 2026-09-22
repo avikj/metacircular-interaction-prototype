@@ -33,7 +33,7 @@ open import Cubical.Data.Bool using (Bool)
 open import Cubical.Data.Unit using (Unit ; isSetUnit ; tt)
 
 open import Fibre.Carrier
-open import Fibre.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Fibre.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 private
   variable

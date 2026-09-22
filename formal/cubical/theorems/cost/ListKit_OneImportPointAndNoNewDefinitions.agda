@@ -33,7 +33,7 @@
 
 module ListKit_OneImportPointAndNoNewDefinitions where
 
-open import KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet public
+open import OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet public
   using (Any ; decAny ; memberToAny)
 open import ANonEmptyArchiveHasANonEmptyStratum public
   using (anyMap)

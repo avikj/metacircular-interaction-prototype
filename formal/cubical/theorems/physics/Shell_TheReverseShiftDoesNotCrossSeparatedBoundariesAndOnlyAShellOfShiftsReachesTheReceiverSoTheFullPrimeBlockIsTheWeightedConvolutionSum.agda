@@ -40,11 +40,11 @@ open import Cubical.Data.Nat.Order
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-elim)
 open import Cubical.Relation.Nullary using (¬_ ; yes ; no)
 
-open import SimaSesa_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDifferOnTheBoundaryStripsSoDisplacementDescendsAndBoundaryHistoryDoesNot
+open import SimaResidue_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDifferOnTheBoundaryStripsSoDisplacementDescendsAndBoundaryHistoryDoesNot
   using (S ; S*)
 open import ParaSima_TheCrossBoundaryCoefficientOfATruncatedShiftIsTheConvolutionOfTheBoundaryProfilesAtTheShiftedTime
   using (Σ⟨_,_⟩ ; ⟨_∣_⟩ ; h ; Σ-vanish ; Σ-ext)
-open import PrasthaKhanda_TheCrossBoundaryBlockOfTheWeightedShiftOperatorIsTheWeightedSumOfBoundaryConvolutionsAtTheShiftedTimes
+open import BlockSegment_TheCrossBoundaryBlockOfTheWeightedShiftOperatorIsTheWeightedSumOfBoundaryConvolutionsAtTheShiftedTimes
   using (Σ-scale ; Σ-add ; Σ-parivarta ; P ; prastha-khaṇḍa)
 
 -- supported below F

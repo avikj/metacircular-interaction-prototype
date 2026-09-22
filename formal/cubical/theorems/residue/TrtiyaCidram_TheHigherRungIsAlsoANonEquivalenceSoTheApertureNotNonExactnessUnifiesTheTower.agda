@@ -51,7 +51,7 @@ open import Cubical.HITs.Sn using (S₊)
 open import Cubical.Algebra.Group.Base using (Group)
 open import Cubical.ZCohomology.GroupStructure using (coHomGr)
 
-open import VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee
+open import CurvedLoopSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee
   using (सङ्केतः)
 
 private

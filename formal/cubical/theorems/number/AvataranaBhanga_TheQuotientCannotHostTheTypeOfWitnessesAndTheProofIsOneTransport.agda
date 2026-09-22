@@ -42,7 +42,7 @@ open import Cubical.Data.List using (List)
 open import Cubical.Data.Bool using (Bool)
 open import Cubical.Relation.Nullary using (¬_)
 
-import KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier as K
+import OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier as K
 import QuotientFiberLaw as QFL
 
 private

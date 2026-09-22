@@ -48,9 +48,9 @@ open import Cubical.Relation.Nullary using (¬_)
 open import RewriteCertificate using (Tm ; Derivation ; Env ; eval ; derivation-sound)
 open import GenerativeKernel using (seed ; target₀ ; direct-history ; detour-history)
 open import ForgetfulCompressionPricesTheDrop using (len ; 2≢4 ; meaning-agrees)
-open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+open import GhataFiber_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg)
-open import Sesa_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidualUnivalenceCannotErase
+open import Residue_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidualUnivalenceCannotErase
   using (घातः-न-तुल्यता)
 
 private variable ℓ ℓ' : Level

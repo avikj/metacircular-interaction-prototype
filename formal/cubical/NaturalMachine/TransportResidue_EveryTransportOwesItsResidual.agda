@@ -83,7 +83,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; false≢true)
 open import Cubical.HITs.PropositionalTruncation using (∥_∥₁ ; ∣_∣₁ ; squash₁)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Punaragamana using (विवेक ; युग्म≃विवेक)
+open import Return using (विवेक ; युग्म≃विवेक)
 open import NaturalMachine.Anekanta
   using (syādasti ; syādnāsti ; syādastināsti ; Collapses ;
          plurality-blocks-collapse)

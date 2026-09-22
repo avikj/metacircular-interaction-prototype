@@ -70,7 +70,7 @@ open import Cubical.Algebra.CommRing using (CommRingStr)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver using (solve!)
 
-open import Bhavana using (module Form)
+open import Composition using (module Form)
 open import CakravalaDescent using (module Descent)
 open import GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating
   using (प्रत्यावृत्तिः)

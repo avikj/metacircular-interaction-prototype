@@ -36,7 +36,7 @@ module Jiva where
 
 -- qualified imports : the whole closure is forced to typecheck as one,
 -- without merging the (deliberately overlapping) Devanagari names.
-import BhedaAvatarana
+import BhedaDescent
 import LosslessReturn
 import Gati
 import Gurutama
@@ -142,5 +142,5 @@ import Shadrasa
 import GhanaBaddha
 import Cakravala
 import Meru
-import BhavanaSamuha
+import CompositionSet
 import VargaprakritiSreni

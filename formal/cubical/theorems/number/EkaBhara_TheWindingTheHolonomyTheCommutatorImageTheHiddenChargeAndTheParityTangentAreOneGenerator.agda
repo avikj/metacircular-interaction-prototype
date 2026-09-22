@@ -49,7 +49,7 @@ open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheH
   using (प्रदक्षिणा ; सरणिः)
 open import GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt
   using (गुह्य-भारः)
-open import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
+open import OrderSaha_TheOrderOfStandpointsIsTheChargeItself
   using (क्रमः-लूप-प्रथमम्)
 open import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative
   using (κ)
